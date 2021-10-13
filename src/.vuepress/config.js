@@ -305,14 +305,14 @@ module.exports = {
       'link',
       {
         rel: 'apple-touch-icon',
-        href: '/images/icons/apple-icon-152x152.png'
+        href: '/logo_blue.png'
       }
     ],
     [
       'meta',
       {
         name: 'msapplication-TileImage',
-        content: '/images/icons/ms-icon-144x144.png'
+        content: '/logo_blue.png'
       }
     ],
     ['meta', { name: 'msapplication-TileColor', content: '#000000' }],

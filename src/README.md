@@ -13,13 +13,13 @@ actionButtons:
     target: _blank
 features:
   - title: Approachable
-    details: Already know HTML, CSS and JavaScript? Read the guide and start building things in no time!
+    details: A refreshingly simple data-driven 3D engine built in JavaScript<br>Free and Open Source Forever!
   - title: Versatile
-    details: An incrementally adoptable ecosystem that scales between a library and a full-featured framework.
+    details: An incrementally extensible ECS framework that scales between a library and a full-featured product.
   - title: Performant
     details: |
-      20KB min+gzip Runtime<br>
-      Blazing Fast Virtual DOM<br>
+      Pure Web Cross-Platform Runtime<br>
+      Blazing Fast WebGPU Renderer<br>
       Minimal Optimization Efforts
 footer: |
   Released under the <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT License</a><br>
