@@ -126,61 +126,63 @@ const sidebar = {
     // }
   ],
   api: [
-    '/api/application-config',
     '/api/application-api',
-    '/api/global-api',
-    {
-      title: 'Options',
-      path: '/api/options-api',
-      collapsable: false,
-      children: [
-        '/api/options-data',
-        '/api/options-dom',
-        '/api/options-lifecycle-hooks',
-        '/api/options-assets',
-        '/api/options-composition',
-        '/api/options-misc'
-      ]
-    },
-    '/api/instance-properties',
-    '/api/instance-methods',
-    '/api/directives',
-    '/api/special-attributes',
-    '/api/built-in-components.md',
-    {
-      title: 'Reactivity API',
-      path: '/api/reactivity-api',
-      collapsable: false,
-      children: [
-        '/api/basic-reactivity',
-        '/api/refs-api',
-        '/api/computed-watch-api',
-        '/api/effect-scope',
-      ]
-    },
-    '/api/composition-api',
-    {
-      title: 'Single File Components',
-      collapsable: false,
-      children: [
-        {
-          title: 'Spec',
-          path: '/api/sfc-spec'
-        },
-        {
-          title: 'Tooling',
-          path: '/api/sfc-tooling'
-        },
-        {
-          title: '<script setup>',
-          path: '/api/sfc-script-setup'
-        },
-        {
-          title: '<style> Features',
-          path: '/api/sfc-style'
-        }
-      ]
-    }
+    '/api/webgpu-api'
+    // '/api/application-config',
+    // '/api/application-api',
+    // '/api/global-api',
+    // {
+    //   title: 'Options',
+    //   path: '/api/options-api',
+    //   collapsable: false,
+    //   children: [
+    //     '/api/options-data',
+    //     '/api/options-dom',
+    //     '/api/options-lifecycle-hooks',
+    //     '/api/options-assets',
+    //     '/api/options-composition',
+    //     '/api/options-misc'
+    //   ]
+    // },
+    // '/api/instance-properties',
+    // '/api/instance-methods',
+    // '/api/directives',
+    // '/api/special-attributes',
+    // '/api/built-in-components.md',
+    // {
+    //   title: 'Reactivity API',
+    //   path: '/api/reactivity-api',
+    //   collapsable: false,
+    //   children: [
+    //     '/api/basic-reactivity',
+    //     '/api/refs-api',
+    //     '/api/computed-watch-api',
+    //     '/api/effect-scope',
+    //   ]
+    // },
+    // '/api/composition-api',
+    // {
+    //   title: 'Single File Components',
+    //   collapsable: false,
+    //   children: [
+    //     {
+    //       title: 'Spec',
+    //       path: '/api/sfc-spec'
+    //     },
+    //     {
+    //       title: 'Tooling',
+    //       path: '/api/sfc-tooling'
+    //     },
+    //     {
+    //       title: '<script setup>',
+    //       path: '/api/sfc-script-setup'
+    //     },
+    //     {
+    //       title: '<style> Features',
+    //       path: '/api/sfc-style'
+    //     }
+    //   ]
+    // }
   ],
   examples: [
     {
@@ -363,10 +365,10 @@ module.exports = {
           // }
         ]
       },
-      // {
-      //   text: 'API Reference',
-      //   link: '/api/'
-      // },
+      {
+        text: 'API Reference',
+        link: '/api/'
+      },
       // {
       //   text: 'Ecosystem',
       //   items: [
@@ -496,14 +498,14 @@ module.exports = {
       '/guide/': sidebar.guide,
       // '/community/': sidebar.guide,
       // '/cookbook/': sidebar.cookbook,
-      // '/api/': sidebar.api,
+      '/api/': sidebar.api,
       // '/examples/': sidebar.examples
     },
     smoothScroll: false,
     algolia: {
-      indexName: 'vuejs-v3',
-      appId: 'BH4D9OD16A',
-      apiKey: 'bc6e8acb44ed4179c30d0a45d6140d3f'
+      indexName: 'orillusion',
+      appId: 'A4SU9IUJ2M',
+      apiKey: '1a3b57b41821e82cafdd80621f042c9c'
     },
     // carbonAds: {
     //   carbon: 'CEBDT27Y',
