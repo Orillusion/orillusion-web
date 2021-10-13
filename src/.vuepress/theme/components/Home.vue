@@ -126,6 +126,9 @@ export default {
 
 .home {
   font-family: $fontHome;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .hero {

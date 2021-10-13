@@ -23,5 +23,5 @@ features:
       Minimal Optimization Efforts
 footer: |
   Released under the <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT License</a><br>
-  Copyright © 2021 Orillusion
+  Copyright © 2021 Orillusion<br>京ICP备2021027896号
 ---
