@@ -8,38 +8,16 @@
 
 ## 具体模型
 
-用户提出渲染和计算命令（比如资源捆绑，绘制调用，等等）通过命令缓冲。
-`WebGPUCommandBuffer`的概念和原生绘图API很像。
-这些命令缓冲在它们生命周期中经历如下阶段。
-起初一个新的`WebGPUCommandBuffer`从一个`WebGPUCommandQueue`实例中被创建。
-这时，命令缓冲被认为是在记录阶段。
+用户提出渲染和计算命令（比如资源捆绑，绘制调用，等等）通过命令缓冲。`WebGPUCommandBuffer`的概念和原生绘图API很像。这些命令缓冲在它们生命周期中经历如下阶段。起初一个新的`WebGPUCommandBuffer`从一个`WebGPUCommandQueue`实例中被创建。这时，命令缓冲被认为是在记录阶段。
 
-命令可以从任何`WebGPUDevice`任务或GPU依赖中被独立编码。
-记录是只有CPU才能做的操作，并且多个命令缓冲可以在web workers上被单独记录。
-（TODO：不允许多个命令缓冲在同一线程/web worker上？）
-记录通常由一系列passes构成，渲染或计算，以及偶尔的备份操作插入其中。
+命令可以从任何`WebGPUDevice`任务或GPU依赖中被独立编码。记录是只有CPU才能做的操作，并且多个命令缓冲可以在web workers上被单独记录。（TODO：不允许多个命令缓冲在同一线程/web worker上？）记录通常由一系列passes构成，渲染或计算，以及偶尔的备份操作插入其中。
 
-由于一个可编程的pass定义资源捆绑范围，同步规则，固定资源使用，以及暴露一系列具体的操作，我们将pass的编码器概括为一个单独的对象，像`WebGPURenderPassEncoder`和`WebGPUComputePassEncoder`。
-pass编码器对象可以从命令缓冲调用`beginRenderPass`或`beginComputePass`获得。
-这个命令缓冲被期望于处于记录状态，否则会触发同步错误。
-当前如果有一个pass正启用编码器编码，没有任何操作会被`WebGPUCommandBuffer`调用。
-在有启用pass时调用任何命令缓冲的方法，或提交至命令队列，会触发同步错误。
-pass编码包含状态设置码以及绘制/派遣调用，这些全是对应的编码器对象的方法。
-用户调用`WebGPUProgrammablePassEncoder::EndPass`去关闭一个pass，它返回所有者`WebGPUCommandBuffer`对象。
-pass不能跨命令缓冲，一个命令缓冲可以有多个passes。
+由于一个可编程的pass定义资源捆绑范围，同步规则，固定资源使用，以及暴露一系列具体的操作，我们将pass的编码器概括为一个单独的对象，像`WebGPURenderPassEncoder`和`WebGPUComputePassEncoder`。pass编码器对象可以从命令缓冲调用`beginRenderPass`或`beginComputePass`获得。这个命令缓冲被期望于处于记录状态，否则会触发同步错误。当前如果有一个pass正启用编码器编码，没有任何操作会被`WebGPUCommandBuffer`调用。在有启用pass时调用任何命令缓冲的方法，或提交至命令队列，会触发同步错误。pass编码包含状态设置码以及绘制/派遣调用，这些全是对应的编码器对象的方法。用户调用`WebGPUProgrammablePassEncoder::EndPass`去关闭一个pass，它返回所有者`WebGPUCommandBuffer`对象。pass不能跨命令缓冲，一个命令缓冲可以有多个passes。
 
-用户调用`WebGPUCommandBuffer::finish`方法去结束记录一个命令缓冲，它将其状态从记录中转换为准备好。
-这时可以在web workers间传输对象。
-当进入准备好状态，一个命令缓冲可以被提交以执行通过`WebGPUCommandQueue::submit`，这时没有记录操作可以被执行。
-这个方法得到一系列命令缓冲并且提交它们（按照给出顺序）去GPU驱动。
-它们有少些隐藏阶段在命令缓冲实际到达GPU之前。
+用户调用`WebGPUCommandBuffer::finish`方法去结束记录一个命令缓冲，它将其状态从记录中转换为准备好。这时可以在web workers间传输对象。当进入准备好状态，一个命令缓冲可以被提交以执行通过`WebGPUCommandQueue::submit`，这时没有记录操作可以被执行。这个方法得到一系列命令缓冲并且提交它们（按照给出顺序）去GPU驱动。它们有少些隐藏阶段在命令缓冲实际到达GPU之前。
 
-一旦提交，对应的命令缓冲即进入“执行时”状态，这意味它将被在有限时间内执行（CPU端和GPU端）。
-如果WebGPU由于记录内容的问题（比如绘制调用中实例超过限制）提交失败，它转向一个内部的空对象，并且报告一个同步错误。
-重复利用命令缓冲至多个提交的特性仍然在讨论中，除非它被确认，我们认为`WebGPUCommandBuffer`会被移到提交。
-任何在“执行中”对命令缓冲的操作除非撤掉它（像用户期待得那样），会触发一个同步错误。
+一旦提交，对应的命令缓冲即进入“执行时”状态，这意味它将被在有限时间内执行（CPU端和GPU端）。如果WebGPU由于记录内容的问题（比如绘制调用中实例超过限制）提交失败，它转向一个内部的空对象，并且报告一个同步错误。重复利用命令缓冲至多个提交的特性仍然在讨论中，除非它被确认，我们认为`WebGPUCommandBuffer`会被移到提交。任何在“执行中”对命令缓冲的操作除非撤掉它（像用户期待得那样），会触发一个同步错误。
 
-如果提交成功，这时GPU可以处理它。
-WebGPU实现承担责任去发现这个时间，并且优雅地循环利用/销毁这个命令缓冲，当安全时。
+如果提交成功，这时GPU可以处理它。WebGPU实现承担责任去发现这个时间，并且优雅地循环利用/销毁这个命令缓冲，当安全时。
 
 
