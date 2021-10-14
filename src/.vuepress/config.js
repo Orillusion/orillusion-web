@@ -468,11 +468,11 @@ module.exports = {
             link: 'https://www.orillusion.com/',
             isTranslation: true
           },
-          {
-            text: '中文',
-            link: 'https://cn.orillusion.com/',
-            isTranslation: true
-          },
+          // {
+          //   text: '中文',
+          //   link: 'https://cn.orillusion.com/',
+          //   isTranslation: true
+          // },
           // {
           //   text: '한국어',
           //   link: 'https://v3.ko.vuejs.org/',
