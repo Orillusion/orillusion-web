@@ -1,6 +1,6 @@
-# API
+# Orillusion API
 
-The Orillusion API contains the following categories:
+Orillusion API 包含以下类目:
 
-- [Application API](/api/application-api.html)
+- [应用 API](/api/application-api.html)
 - [WebGPU API](/api/webgpu/index.html)

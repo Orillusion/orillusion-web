@@ -1,7 +1,7 @@
-# Application API
+# 应用 API
 
-::: tip NOTE
-Under developing, Coming soon...
+::: tip 提示
+正在开发中，即将上线...
 :::
 
-- **See also**: [WebGPU API - version](/api/webgpu-api.html)
+- **其他参考**: [WebGPU API](/api/webgpu-api.html)

@@ -13,7 +13,7 @@ const sidebar = {
   ],
   guide: [
     {
-      title: 'Essentials',
+      title: '基础',
       collapsable: false,
       children: [
         //'/guide/installation',
@@ -281,7 +281,7 @@ const sidebar = {
 
 module.exports = {
   title: 'Orillusion',
-  description: 'Orillusion - The Next Generation WebGPU Engine',
+  description: 'Orillusion - 次时代Web3D渲染引擎',
   head: [
     [
       'link',
@@ -347,11 +347,11 @@ module.exports = {
     logo: '/logo_blue.png',
     nav: [
       {
-        text: 'Docs',
+        text: '文档',
         ariaLabel: 'Documentation Menu',
         items: [
           {
-            text: 'Guide',
+            text: '教程',
             link: '/guide/introduction'
           },
           // {
@@ -377,7 +377,7 @@ module.exports = {
         ]
       },
       {
-        text: 'API Reference',
+        text: 'API参考',
         link: '/api/'
       },
       // {
@@ -459,12 +459,12 @@ module.exports = {
       //   ]
       // },
       {
-        text: 'Translations',
+        text: '多语言',
         link: '#',
         items: [
           // Translation maintainers: Please include the link below to the English documentation
           {
-            text: 'Globe Mirror',
+            text: 'English',
             link: 'https://en.orillusion.com/',
             isTranslation: true
           },
@@ -497,8 +497,8 @@ module.exports = {
     ],
     repo: 'Orillusion/orillusion-web',
     editLinks: true,
-    editLinkText: 'Edit this on GitHub!',
-    lastUpdated: 'Last updated',
+    editLinkText: '编辑 GitHub!',
+    lastUpdated: '最新更新',
     docsDir: 'src',
     sidebarDepth: 2,
     sidebar: {
@@ -554,8 +554,8 @@ module.exports = {
         serviceWorker: true,
         updatePopup: {
           '/': {
-            message: 'New content is available.',
-            buttonText: 'Refresh'
+            message: '有新内容更新',
+            buttonText: '刷新'
           }
         }
       }

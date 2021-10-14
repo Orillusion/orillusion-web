@@ -1,5 +1,5 @@
-# Introduction
+# 介绍
 
-::: tip NOTE
-Under developing, Coming soon...
+::: tip 提示
+正在积极开发中，即将上线...
 :::
