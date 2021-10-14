@@ -463,11 +463,11 @@ module.exports = {
         link: '#',
         items: [
           // Translation maintainers: Please include the link below to the English documentation
-          {
-            text: 'Globe Mirror',
-            link: 'https://en.orillusion.com/',
-            isTranslation: true
-          },
+          // {
+          //   text: 'Globe Mirror',
+          //   link: 'https://www.orillusion.com/',
+          //   isTranslation: true
+          // },
           {
             text: '中文',
             link: 'https://cn.orillusion.com/',
