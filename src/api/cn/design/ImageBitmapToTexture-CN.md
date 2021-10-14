@@ -22,7 +22,7 @@ partial interface GPUQueue {
   * 直接从`ImageBitmap`创建`GPUTexture`，尝试避免过多拷贝，因为它需要`GPUTexture`的格式与`ImageBitmap`内部表示匹配，这在网站平台中没有被暴露。另外，`ImageBitmap`可以是GPU-或CPU-支持，包一层CPU支持的`ImageBitmap`是重要的元操作，该操作需要提交另外的备份。
   * 已在`GPUCommandEncoder`上`CopyImageBitmapToTexture`：这使实现变得更复杂，因为他们不知道何时备份会被有效提交。在`GPUCommandEncoder`中不同方式进行`copyImageBitmapToTexture`同样被允许，这需要粘接编码器并持续追踪所有分块。切合实际地，拷贝`ImageBitmap`应当在加载`<img>`标签备份时进行，或最多一帧几次比如拷贝一个相机帧，所以直接拷贝是不错的。
 
-## Issues
+## 问题
 
   * 一些`ImageBitmap`的创建选项，比如“flipY”，有必须匹配数据将被使用的目标图形API的语义含义。对WebGL来说，`imageOrientation: “flipY”`是必需的以确保`WebGLTexture`结果正确。对WebGPU来说，纹理与WebGL中定义不同，需要使用`imageOrientation: “none”`。这些例子需要被完善地测试。
 
