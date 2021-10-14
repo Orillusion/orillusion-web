@@ -465,7 +465,7 @@ module.exports = {
           // Translation maintainers: Please include the link below to the English documentation
           {
             text: 'English',
-            link: 'https://en.orillusion.com/',
+            link: 'https://www.orillusion.com/',
             isTranslation: true
           },
           {
