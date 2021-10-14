@@ -127,7 +127,18 @@ const sidebar = {
   ],
   api: [
     '/api/application-api',
-    '/api/webgpu-api'
+    {
+      title: 'WebGPU',
+      path: '/api/webgpu/index',
+      collapsable: false,
+      children: [
+        '/api/webgpu/limits',
+        '/api/webgpu/pipelines',
+        '/api/webgpu/rejected-error-handling',
+        '/api/webgpu/timeline-fences',
+        '/api/webgpu/usage-validation-rules'
+      ]
+    },
     // '/api/application-config',
     // '/api/application-api',
     // '/api/global-api',
@@ -296,7 +307,7 @@ module.exports = {
       }
     ],
     ['link', { rel: 'manifest', href: '/manifest.json' }],
-    ['meta', { name: 'theme-color', content: '#3eaf7c' }],
+    ['meta', { name: 'theme-color', content: '#304455' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
     [
@@ -447,42 +458,42 @@ module.exports = {
       //     }
       //   ]
       // },
-      // {
-      //   text: 'Translations',
-      //   link: '#',
-      //   items: [
-      //     // Translation maintainers: Please include the link below to the English documentation
-      //     // {
-      //     //   text: 'English',
-      //     //   link: 'https://v3.vuejs.org/',
-      //     //   isTranslation: true
-      //     // },
-      //     {
-      //       text: '中文',
-      //       link: 'https://v3.cn.vuejs.org/',
-      //       isTranslation: true
-      //     },
-      //     {
-      //       text: '한국어',
-      //       link: 'https://v3.ko.vuejs.org/',
-      //       isTranslation: true
-      //     },
-      //     {
-      //       text: '日本語',
-      //       link: 'https://v3.ja.vuejs.org/',
-      //       isTranslation: true
-      //     },
-      //     {
-      //       text: 'Русский',
-      //       link: 'https://v3.ru.vuejs.org/ru/',
-      //       isTranslation: true
-      //     },
-      //     {
-      //       text: 'More Translations',
-      //       link: '/guide/contributing/translations#community-translations'
-      //     }
-      //   ]
-      // }
+      {
+        text: 'Translations',
+        link: '#',
+        items: [
+          // Translation maintainers: Please include the link below to the English documentation
+          // {
+          //   text: 'Globe Mirror',
+          //   link: 'https://www.orillusion.com/',
+          //   isTranslation: true
+          // },
+          {
+            text: '中文',
+            link: 'https://cn.orillusion.com/',
+            isTranslation: true
+          },
+          // {
+          //   text: '한국어',
+          //   link: 'https://v3.ko.vuejs.org/',
+          //   isTranslation: true
+          // },
+          // {
+          //   text: '日本語',
+          //   link: 'https://v3.ja.vuejs.org/',
+          //   isTranslation: true
+          // },
+          // {
+          //   text: 'Русский',
+          //   link: 'https://v3.ru.vuejs.org/ru/',
+          //   isTranslation: true
+          // },
+          // {
+          //   text: 'More Translations',
+          //   link: '/guide/contributing/translations#community-translations'
+          // }
+        ]
+      }
     ],
     repo: 'Orillusion/orillusion-web',
     editLinks: true,
