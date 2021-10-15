@@ -386,66 +386,66 @@ module.exports = {
         text: 'API Reference',
         link: '/api/'
       },
-      // {
-      //   text: 'Ecosystem',
-      //   items: [
-      //     {
-      //       text: 'Community',
-      //       ariaLabel: 'Community Menu',
-      //       items: [
-      //         {
-      //           text: 'Team',
-      //           link: '/community/team/'
-      //         },
-      //         {
-      //           text: 'Partners',
-      //           link: '/community/partners'
-      //         },
-      //         {
-      //           text: 'Join',
-      //           link: '/community/join/'
-      //         },
-      //         {
-      //           text: 'Themes',
-      //           link: '/community/themes/'
-      //         }
-      //       ]
-      //     },
-      //     {
-      //       text: 'Official Projects',
-      //       items: [
-      //         {
-      //           text: 'Vue Router',
-      //           link: 'https://next.router.vuejs.org/'
-      //         },
-      //         {
-      //           text: 'Vuex',
-      //           link: 'https://next.vuex.vuejs.org/'
-      //         },
-      //         {
-      //           text: 'Vue CLI',
-      //           link: 'https://cli.vuejs.org/'
-      //         },
-      //         {
-      //           text: 'Vue Test Utils',
-      //           link: 'https://next.vue-test-utils.vuejs.org/guide/'
-      //         },
-      //         {
-      //           text: 'Devtools',
-      //           link: 'https://devtools.vuejs.org'
-      //         },
-      //         {
-      //           text: 'Weekly news',
-      //           link: 'https://news.vuejs.org/'
-      //         },
-      //         {
-      //           text: 'Blog',
-      //           link: 'https://blog.vuejs.org/'
-      //         }
-      //       ]
-      //     }
-      //   ]
-      // },
+      {
+        text: 'Ecosystem',
+        items: [
+          {
+            text: 'Community',
+            ariaLabel: 'Community Menu',
+            items: [
+              {
+                text: 'Forum',
+                link: 'https://forum.orillusion.com/'
+              },
+              // {
+              //   text: 'Partners',
+              //   link: '/community/partners'
+              // },
+              // {
+              //   text: 'Join',
+              //   link: '/community/join/'
+              // },
+              // {
+              //   text: 'Themes',
+              //   link: '/community/themes/'
+              // }
+            ]
+          },
+          // {
+          //   text: 'Official Projects',
+          //   items: [
+          //     {
+          //       text: 'Vue Router',
+          //       link: 'https://next.router.vuejs.org/'
+          //     },
+          //     {
+          //       text: 'Vuex',
+          //       link: 'https://next.vuex.vuejs.org/'
+          //     },
+          //     {
+          //       text: 'Vue CLI',
+          //       link: 'https://cli.vuejs.org/'
+          //     },
+          //     {
+          //       text: 'Vue Test Utils',
+          //       link: 'https://next.vue-test-utils.vuejs.org/guide/'
+          //     },
+          //     {
+          //       text: 'Devtools',
+          //       link: 'https://devtools.vuejs.org'
+          //     },
+          //     {
+          //       text: 'Weekly news',
+          //       link: 'https://news.vuejs.org/'
+          //     },
+          //     {
+          //       text: 'Blog',
+          //       link: 'https://blog.vuejs.org/'
+          //     }
+          //   ]
+          // }
+        ]
+      },
       // {
       //   text: 'Support Vue',
       //   link: '/support-vuejs/',
@@ -519,11 +519,12 @@ module.exports = {
       // '/examples/': sidebar.examples
     },
     smoothScroll: false,
-    algolia: {
-      indexName: 'orillusion',
-      appId: 'A4SU9IUJ2M',
-      apiKey: '1a3b57b41821e82cafdd80621f042c9c'
-    },
+    searchPlaceholder: 'Search API',
+    // algolia: {
+    //   indexName: 'orillusion',
+    //   appId: 'A4SU9IUJ2M',
+    //   apiKey: '1a3b57b41821e82cafdd80621f042c9c'
+    // },
     // carbonAds: {
     //   carbon: 'CEBDT27Y',
     //   custom: 'CKYD62QM',

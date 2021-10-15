@@ -24,7 +24,9 @@ module.exports = (options, ctx) => {
 
     plugins: [
       ['@vuepress/active-header-links', options.activeHeaderLinks],
-      '@vuepress/search',
+      ['@vuepress/search', {
+        searchMaxSuggestions: 10
+      }],
       '@vuepress/plugin-nprogress',
       [
         'container',
