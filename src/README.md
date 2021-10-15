@@ -23,5 +23,5 @@ features:
       最省心的优化体验
 footer: |
   遵循 <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT</a> 开源协议 <br>
-  Copyright © 2021 Orillusion<br>京ICP备2021027896-1号
+  Copyright © 2021 Orillusion<br>京ICP备2021027896号
 ---

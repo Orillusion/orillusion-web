@@ -387,14 +387,14 @@ module.exports = {
         link: '/api/'
       },
       {
-        text: 'Ecosystem',
+        text: '生态',
         items: [
           {
-            text: 'Community',
+            text: '社区',
             ariaLabel: 'Community Menu',
             items: [
               {
-                text: 'Forum',
+                text: '论坛',
                 link: 'https://forum.orillusion.com/'
               },
               // {
@@ -519,7 +519,7 @@ module.exports = {
       // '/examples/': sidebar.examples
     },
     smoothScroll: false,
-    searchPlaceholder: 'Search API',
+    searchPlaceholder: '搜索 API',
     // algolia: {
     //   indexName: 'orillusion',
     //   appId: 'A4SU9IUJ2M',
