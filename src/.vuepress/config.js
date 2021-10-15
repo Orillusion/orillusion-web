@@ -133,10 +133,16 @@ const sidebar = {
       collapsable: false,
       children: [
         '/api/webgpu/limits',
+        '/api/webgpu/buffer-operations',
+        '/api/webgpu/image-bitmap-to-texture',
         '/api/webgpu/pipelines',
+        '/api/webgpu/command-submission',
+        '/api/webgpu/error-conventions',
+        '/api/webgpu/error-handling',
         '/api/webgpu/rejected-error-handling',
         '/api/webgpu/timeline-fences',
-        '/api/webgpu/usage-validation-rules'
+        '/api/webgpu/usage-validation-rules',
+        '/api/webgpu/api-correspondence'
       ]
     },
     // '/api/application-config',
