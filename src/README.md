@@ -2,7 +2,7 @@
 home: true
 heroImage: /logo_blue.png
 heroText: Orillusion
-tagline: 次时代实时<br>WebGPU 引擎
+tagline: 次时代ECS<br>WebGPU 引擎
 actionButtons:
   - text: 快速入门
     link: /guide/introduction
