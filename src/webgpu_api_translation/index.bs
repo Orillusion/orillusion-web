@@ -754,7 +754,7 @@ we can describe the <dfn dfn>WebGPU platform</dfn> as consisting of the followin
 考虑一个BC格式的{{GPUTexture}}，其{{GPUTexture/[[descriptor]]}}.{{GPUTextureDescriptor/size}}为{60, 60, 1}，在[=mipmap level=] 2对GPUTexture进行采样时，采样硬件使用{15, 15, 1}作为[=texture subresource=]的大小 ，而其[=physical size=]为 {16, 16, 1}，因为块压缩算法只能在 4x4 纹素块上运行。
 </div>
 
-### Synchronization ### {#programming-model-synchronization}
+### 同步 ### {#programming-model-synchronization}
 
 对于[=physical resources=]的每个[=subresource=]，在队列时间线上跟踪其[=internal usage=]标识集。
 
@@ -5227,7 +5227,7 @@ dictionary GPUCommandEncoderDescriptor : GPUObjectDescriptorBase {
         </div>
 </dl>
 
-## Pass Encoding ## {#command-encoder-pass-encoding}
+## 通道编码 ## {#command-encoder-pass-encoding}
 
 <dl dfn-type=method dfn-for=GPUCommandEncoder>
     : <dfn>beginRenderPass(descriptor)</dfn>
@@ -5472,7 +5472,7 @@ dictionary GPUImageCopyExternalImage {
         定义副本的原点 - 要从中复制的源子区域的最小角。与 `copySize` 一起定义完整子区域副本。
 </dl>
 
-### Buffer Copies ### {#buffer-copies}
+### 缓冲区副本 ### {#buffer-copies}
 
 <dl dfn-type=method dfn-for=GPUCommandEncoder>
     : <dfn>copyBufferToBuffer(source, sourceOffset, destination, destinationOffset, size)</dfn>
@@ -5893,7 +5893,7 @@ WebGPU提供{{GPUCommandEncoder/copyBufferToTexture()}}以buffer-to-texture拷�
         </div>
 </dl>
 
-## Finalization ## {#command-encoder-finalization}
+## 结尾 ## {#command-encoder-finalization}
 
 可以通过调用{{GPUCommandEncoder/finish()}}来创建包含{{GPUCommandEncoder}}记录的命令的{{GPUCommandBuffer}}。 一旦{{GPUCommandEncoder/finish()}}被调用，命令编码器就不能再使用了。
 
@@ -6363,7 +6363,7 @@ dictionary GPUComputePassDescriptor : GPUObjectDescriptorBase {
         </div>
 </dl>
 
-### Finalization ### {#compute-pass-encoder-finalization}
+### 结尾 ### {#compute-pass-encoder-finalization}
 
 用户完成记录命令后，可以通过调用{{GPUComputePassEncoder/endPass()}}来结束计算通道编码器。一旦{{GPUComputePassEncoder/endPass()}}被调用，计算通道编码器就不能再使用了。
 
@@ -6572,7 +6572,7 @@ dictionary GPURenderPassDescriptor : GPUObjectDescriptorBase {
     注意：[$GPURenderPassDescriptor/Valid Usage$]保证附件的所有渲染范围都是相同的，因此我们可以采用其中的任何一个，假设描述符是有效的。
 </div>
 
-#### Color Attachments #### {#color-attachments}
+#### 颜色附件 #### {#color-attachments}
 
 <script type=idl>
 dictionary GPURenderPassColorAttachment {
@@ -7292,7 +7292,7 @@ dictionary GPURenderPassLayout: GPUObjectDescriptorBase {
         </div>
 </dl>
 
-### Bundles ### {#render-pass-encoder-bundles}
+### 捆绑 ### {#render-pass-encoder-bundles}
 
 <dl dfn-type=method dfn-for=GPURenderPassEncoder>
     : <dfn>executeBundles(bundles)</dfn>
@@ -7319,7 +7319,7 @@ dictionary GPURenderPassLayout: GPUObjectDescriptorBase {
         </div>
 </dl>
 
-### Finalization ### {#render-pass-encoder-finalization}
+### 结尾 ### {#render-pass-encoder-finalization}
 
 用户完成记录命令后，可以通过调用{{GPURenderPassEncoder/endPass()}}来结束渲染通道编码器。 一旦{{GPURenderPassEncoder/endPass()}}被调用，渲染通道编码器就不能再使用了。
 
@@ -8726,7 +8726,7 @@ coverage mask依赖于多重采样模式:
 
 [=pipeline=]仍然执行光栅化并根据顶点位置输出生成深度值。深度测试和模板操作仍然可以使用。
 
-### Alpha to Coverage ### {#alpha-to-coverage}
+### Alpha覆盖 ### {#alpha-to-coverage}
 
 在alpha-to-coverage模式下, 根据{GPURenderPipelineDescriptor/fragment}}.{{GPUFragmentState/targets}}[0]的片元着色器输出|alpha|组件，产生一个另外的MSAA样本的<dfn dfn>alpha-to-coverage mask</dfn>。
 
@@ -8772,7 +8772,7 @@ typedef [EnforceRange] long GPUSignedOffset32;
 typedef unsigned long GPUFlagsConstant;
 </script>
 
-## Colors &amp; Vectors ## {#colors-and-vectors}
+## 颜色 &amp; 向量 ## {#colors-and-vectors}
 
 <script type=idl>
 dictionary GPUColorDict {
