@@ -6,14 +6,13 @@ Status: LD
 ED: https://github.com/Orillusion/orillusion-web.git
 No Abstract: yes
 No Editor: yes
-Editor: 赵凌云
-Editor: 薛沛
 Abstract: WebGPU 公开了一个 API，用于在图形处理单元上执行操作，例如渲染和计算。
 Markup Shorthands: markdown yes
 Markup Shorthands: dfn yes
 Markup Shorthands: idl yes
 Markup Shorthands: css no
 Assume Explicit For: yes
+Boilerplate: omit conformance
 </pre>
 
 <pre class=biblio>
