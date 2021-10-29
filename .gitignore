@@ -23,3 +23,7 @@ node_modules/
 
 # Typescript build info
 *.tsbuildinfo
+
+#webgpu
+/webgpu/**/index.html
+/webgpu/**/*.idl
