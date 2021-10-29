@@ -3,17 +3,25 @@ import type { SidebarConfig } from '@vuepress/theme-default'
 export const zh: SidebarConfig = {
   '/zh/guide/': [
     {
-      text: 'Guide',
+      text: '指南',
       children: [
-        '/zh/guide/README.md'
+        '/zh/guide/README.md',
+        '/zh/guide/getting-started.md'
       ],
     },
   ],
   '/zh/reference/': [
     {
-      text: 'Orillusion Reference',
+      text: 'API 参考',
       children: [
         '/zh/reference/index.md',
+        {
+          text: 'WebGPU',
+          children: [
+            {text: '规范', link: 'https://dev.orillusion.com/zh/webgpu.html'},
+            {text: '着色器语言', link: 'https://dev.orillusion.com/zh/wgsl.html'},
+          ],
+        }
       ],
     },
   ],

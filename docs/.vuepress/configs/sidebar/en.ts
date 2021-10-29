@@ -5,7 +5,8 @@ export const en: SidebarConfig = {
     {
       text: 'Guide',
       children: [
-        '/guide/README.md'
+        '/guide/README.md',
+        '/guide/getting-started.md'
       ],
     },
   ],
@@ -14,6 +15,13 @@ export const en: SidebarConfig = {
       text: 'Orillusion Reference',
       children: [
         '/reference/index.md',
+        {
+          text: 'WebGPU',
+          children: [
+            {text: 'Specification', link: 'https://dev.orillusion.com/zh/webgpu.html'},
+            {text: 'Shading Language', link: 'https://dev.orillusion.com/zh/wgsl.html'},
+          ],
+        }
       ],
     },
   ],

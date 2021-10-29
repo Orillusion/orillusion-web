@@ -1,6 +1,7 @@
----
-sidebar: false
-editLink: false
----
+# WebGPU Specification
 
-<bsframe src="/webgpu.html" />
+::: tip NOTE
+Under developing, Coming soon...
+:::
+
+- **其他参考**: [WebGPU Shading Language](./wgsl.html)

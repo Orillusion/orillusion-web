@@ -48,7 +48,7 @@ export default defineUserConfig<DefaultThemeOptions>({
 		darkMode: true,
 		logo: '/images/logo_blue.png',
 		logoDark: '/images/logo_white.png',
-		repo: 'Orillusion/orillusion',
+		repo: 'Orillusion/orillusion-web',
 		docsDir: 'docs',
 
 		// theme-level locales config

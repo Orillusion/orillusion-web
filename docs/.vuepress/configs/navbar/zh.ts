@@ -17,8 +17,8 @@ export const zh: NavbarConfig = [
       {
         text: 'WebGPU',
         children: [
-          {text:'规范标准', link: 'https://dev.orillusion.com/webgpu.html'},
-          {text:'着色器语言', link: 'https://dev.orillusion.com/wgsl.html'},
+          {text:'规范标准', link: 'https://dev.orillusion.com/zh/webgpu.html'},
+          {text:'着色器语言', link: 'https://dev.orillusion.com/zh/wgsl.html'},
         ],
       },
     ]
