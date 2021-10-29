@@ -1,0 +1,19 @@
+{
+  "name": "orillusion-web",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Orillusion/orillusion-web",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "devDependencies": {
+    "@vuepress/bundler-vite": "^2.0.0-beta.27",
+    "@vuepress/plugin-debug": "^2.0.0-beta.27",
+    "@vuepress/plugin-docsearch": "^2.0.0-beta.27",
+    "@vuepress/plugin-register-components": "^2.0.0-beta.27",
+    "@vuepress/plugin-shiki": "^2.0.0-beta.27",
+    "vuepress": "^2.0.0-beta.27"
+  }
+}
