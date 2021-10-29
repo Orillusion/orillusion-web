@@ -20,7 +20,7 @@ features:
       An incrementally extensible ECS framework that scales between a library and a full-featured product
   - title: Performant
     details: 
-      Pure Web Cross-Platform Runtime。
+      Pure Web Cross-Platform Runtime.
       Blazing Fast WebGPU Renderer.
       Minimal Optimization Efforts
 footer:
