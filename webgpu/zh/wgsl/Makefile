@@ -1,7 +1,7 @@
 all: index.html grammar/grammar.js
 
 index.html: index.bs
-	bikeshed --die-on=everything spec index.bs
+	bikeshed --allow-execute spec index.bs
 
 grammar/grammar.js: index.bs extract-grammar.py
 	python3 extract-grammar.py index.bs grammar/grammar.js
