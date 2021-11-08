@@ -126,8 +126,7 @@ spec: SPIR-V; urlPrefix: https://www.khronos.org/registry/spir-v/specs/unified1/
 
 # 介绍 # {#intro}
 
-WebGPU Shading Language ([SHORTNAME])是为 [[!WebGPU]] 设计的着色器语言。
-也就是说，使用 WebGPU API 的应用程序使用 [SHORTNAME] 来表达在 GPU 上运行的程序（称为着色器）。
+WebGPU Shading Language ([SHORTNAME])是为 [[!WebGPU]] 设计的着色器语言。也就是说，使用 WebGPU API 的应用程序使用 [SHORTNAME] 来表达在 GPU 上运行的程序（称为着色器）。
 
 <div class='example wgsl global-scope'>
   <xmp highlight='rust'>
@@ -149,7 +148,7 @@ WebGPU Shading Language ([SHORTNAME])是为 [[!WebGPU]] 设计的着色器语言
 
 ## 技术概览 ## {#technical-overview}
 
-WebGPU 以[[WebGPU#gpu-command|GPU command]]的形式向 GPU 发出一个工作单元。 [SHORTNAME] 关注两种 GPU 命令：
+WebGPU 以[[WebGPU#gpu-command|GPU command]]的形式向 GPU 发出一个工作单元。[SHORTNAME] 关注两种 GPU 命令：
 * <dfn noexport>draw command</dfn>在[=pipeline input|inputs=]、[=pipeline output|outputs=]和附加[=resources=]的上下文中执行[=GPUComputePipeline|compute pipeline=]。
 * <dfn noexport>dispatch command</dfn>在[=GPUComputePipeline|compute pipeline=]和附加[=resources=]的上下文中执行[=GPUComputePipeline|compute pipeline=]。
 
