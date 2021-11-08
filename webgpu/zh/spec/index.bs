@@ -6,7 +6,7 @@ Status: LD
 ED:  
 Editor: 赵凌云，lingyun.zhao@orillusion.com
 Editor: 薛沛，pei.xue@orillusion.com
-Abstract: WebGPU 公开了一个 API，用于在图形处理单元上执行操作，例如渲染和计算。
+Abstract: WebGPU API翻译文档。本翻译非官方翻译。（WebGPU 公开了一个 API，用于在图形处理单元上执行操作，例如渲染和计算。）
 Markup Shorthands: markdown yes
 Markup Shorthands: dfn yes
 Markup Shorthands: idl yes
