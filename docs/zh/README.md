@@ -3,13 +3,13 @@ home: true
 title: 首页
 heroText: Orillusion
 tagline: 次时代 WebGPU 引擎
-heroImage: /images/logo_blue.png
+heroImage: /images/logo.svg
 actions:
   - text: 快速入门
-    link: /guide/getting-started.html
+    link: /zh/guide/getting-started.html
     type: primary
   - text: 查看介绍
-    link: /guide/
+    link: /zh/guide/
     type: secondary
 features:
   - title: 简单易用
@@ -21,6 +21,9 @@ features:
   - title: 超强性能
     details: 
       原生 Web 跨平台运行环境，超快的 WebGPU 渲染技术，最省心的优化体验
+footerHtml: true
 footer:
-  MIT Licensed | Copyright © 2021 Orillusion | 京ICP备2021027896号
+  <p style="margin:0">遵循 <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT</a> 开源协议</p>
+  <p style="margin:0">Copyright © 2021 Orillusion</p>
+  <p style="margin:0"><a href="https://beian.miit.gov.cn" target="_blank">京ICP备2021027896号</a></p>
 ---

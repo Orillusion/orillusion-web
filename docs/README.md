@@ -3,7 +3,7 @@ home: true
 title: Home
 heroText: Orillusion
 tagline: The Next Generation WebGPU Engine
-heroImage: /images/logo_blue.png
+heroImage: /images/logo.svg
 actions:
   - text: Get Started
     link: /guide/getting-started.html
@@ -23,6 +23,9 @@ features:
       Pure Web Cross-Platform Runtime.
       Blazing Fast WebGPU Renderer.
       Minimal Optimization Efforts
+footerHtml: true
 footer:
-  MIT Licensed | Copyright © 2021 Orillusion | 京ICP备2021027896号
+  <p style="margin:0">Released under <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT License</a></p>
+  <p style="margin:0">Copyright © 2021 Orillusion</p>
+  <p style="margin:0"><a href="https://beian.miit.gov.cn" target="_blank">京ICP备2021027896号</a></p>
 ---
