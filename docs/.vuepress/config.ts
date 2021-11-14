@@ -13,7 +13,7 @@ export default defineUserConfig<DefaultThemeOptions>({
 			{
 				rel: 'icon',
 				type: 'image/png',
-				href: `/images/icon_blue.png`,
+				href: `/images/logo_blue.png`,
 			},
 		],
 		['link', { rel: 'manifest', href: '/manifest.webmanifest' }],
