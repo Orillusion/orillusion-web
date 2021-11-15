@@ -2,17 +2,24 @@
 Title: WebGPU
 Shortname: webgpu
 Level: None
-Status: LD
-ED:  
-Editor: 赵凌云，lingyun.zhao@orillusion.com
-Editor: 薛沛，pei.xue@orillusion.com
+Status: w3c/ED
+Group: webgpu
+ED: https://gpuweb.github.io/gpuweb/
+TR: https://www.w3.org/TR/webgpu/
+Repository: gpuweb/gpuweb
+!Participate: <a href="https://github.com/gpuweb/gpuweb/issues/new">File an issue</a> (<a href="https://github.com/gpuweb/gpuweb/issues">open issues</a>)
+
+!Translator: 赵凌云，lingyun.zhao@orillusion.com
+!Translator: 薛沛，pei.xue@orillusion.com
+Editor: Dzmitry Malyshau, Mozilla https://www.mozilla.org, dmalyshau@mozilla.com, w3cid 96977
+Editor: Kai Ninomiya, Google https://www.google.com, kainino@google.com, w3cid 99487
+Former Editor: Justin Fan, Apple https://www.apple.com, justin_fan@apple.com, w3cid 115633
 Abstract: WebGPU API翻译文档。本翻译非官方翻译。（WebGPU 公开了一个 API，用于在图形处理单元上执行操作，例如渲染和计算。）
 Markup Shorthands: markdown yes
 Markup Shorthands: dfn yes
 Markup Shorthands: idl yes
 Markup Shorthands: css no
 Assume Explicit For: yes
-Boilerplate: omit conformance
 </pre>
 
 <pre class=biblio>
