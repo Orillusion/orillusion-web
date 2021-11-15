@@ -2,8 +2,11 @@
 Title: WebGPU Shading Language
 Shortname: WGSL
 Level: None
-Status: LD
-ED:  
+Status: w3c/ED
+Group: webgpu
+ED: https://gpuweb.github.io/gpuweb/wgsl/
+TR: https://www.w3.org/TR/WGSL/
+Repository: gpuweb/gpuweb
 Text Macro: INT i32 or u32
 Text Macro: UNSIGNEDINTEGRAL u32 or vec|N|&lt;u32&gt;
 Text Macro: SIGNEDINTEGRAL i32 or vec|N|&lt;i32&gt;
@@ -11,16 +14,17 @@ Text Macro: INTEGRAL i32, u32, vec|N|&lt;i32&gt;, or vec|N|&lt;u32&gt;
 Text Macro: FLOATING f32 or vec|N|&lt;f32&gt;
 Ignored Vars: i, e, e1, e2, e3, eN, N, M, v, Stride, Offset, Align, Extent, S, T, T1
 
-Editor: 赵凌云，lingyun.zhao@orillusion.com
-Editor: 薛沛，pei.xue@orillusion.com
-
-Abstract: WGSL 翻译文档。本翻译非官方翻译。
+!Participate: <a href="https://github.com/gpuweb/gpuweb/issues/new?labels=wgsl">File an issue</a> (<a href="https://github.com/gpuweb/gpuweb/issues?q=is%3Aissue+is%3Aopen+label%3Awgsl">open issues</a>)
+!Translator: 赵凌云，lingyun.zhao@orillusion.com
+!Translator: 薛沛，pei.xue@orillusion.com
+Editor: David Neto, Google https://www.google.com, dneto@google.com, w3cid 99785
+Editor: Myles C. Maxfield, Apple Inc., mmaxfield@apple.com, w3cid 77180
+Former Editor: dan sinclair, Google https://www.google.com, dsinclair@google.com
+Abstract: Shading language for WebGPU. WGSL 翻译文档。本翻译非官方翻译。
 Markup Shorthands: markdown yes
-Markup Shorthands: dfn yes
-Markup Shorthands: idl yes
-Markup Shorthands: css no
+Markup Shorthands: biblio yes
+Markup Shorthands: idl no
 Assume Explicit For: yes
-Boilerplate: omit conformance
 </pre>
 
 <style>
@@ -4789,7 +4793,7 @@ case_body
 如果选择器值等于案例选择器列表中的值，则控制转移到
 该 case 子句的主体。
 如果选择器值不等于任何 case 选择器值，则控制是
-转移到`default`子句。
+转移到 `default` 子句。
 
 每个 switch 语句必须恰好有一个 default 子句。
 
@@ -4918,12 +4922,12 @@ for_header
      (assignment_statement | func_call_statement)?
 </pre>
 
-<dfn dfn-for="statement">for</dfn> 语句采用`for(initializer; condition; continue_part) { body }` 的形式，
+<dfn dfn-for="statement">for</dfn> 语句采用 `for(initializer; condition; continue_part) { body }` 的形式，
 是同一个 `body` 在 [=statement/loop=] 语句之上的语法糖(在计算机科学中，语法糖是一种编程语言中的语法，旨在使事物更易于阅读或表达。 它使语言更适合人类使用：
 可以更清晰、更简洁地表达事物，或者以某些人可能更喜欢的另一种风格表达)。
 另外:
 * 如果 `initializer` 非空，则在第一个 [=iteration=] 之前的附加作用域内执行。
-* 如果`condition` 不为空，则在循环体的开始处进行检查，如果不满足则执行[[#break-statement]]。
+* 如果 `condition` 不为空，则在循环体的开始处进行检查，如果不满足则执行[[#break-statement]]。
 * 如果 `continuing_part` 不为空，它会在循环体的末尾变成一个 [=statement/continuing=] 语句。
 
 for 循环的 `initializer` 在执行循环之前执行一次。
@@ -4988,8 +4992,8 @@ break_statement
 
 * `break` 语句必须显示为以下其中之一:
     * `if` 语句的 `if` 子句中唯一的语句具有:
-        * 没有“else”子句或空的“else”子句
-        * 没有`elseif`子句
+        * 没有 `else` 子句或空的 `else` 子句
+        * 没有 `elseif` 子句
     * `if` 语句的 `else` 子句中唯一具有空的 `if` 子句且没有 `elseif` 子句的语句。
 * `if` 语句必须出现在 `continuing` 子句的最后。
 
@@ -5527,7 +5531,7 @@ WebGPU 规范更详细地描述了管道。
 * 向入口点的结果添加一个变量，其中 [=store type=] 是 *Y* 的列出存储类型：
   * 如果入口点没有结果类型，请将其更改为变量类型。
   * 否则，将结果类型设为结构体，其中一个字段是新变量。
-*n将 `builtin(`*Y*`)` 属性应用于结果变量。
+* n将 `builtin(`*Y*`)` 属性应用于结果变量。
 
 输入和输出内置变量也可以声明为结构的成员，这些结构是入口点函数参数（对于输入）或入口点的返回类型（对于输出）。
 结构成员的类型必须与为内置变量指定的类型相匹配。
@@ -5565,7 +5569,7 @@ WebGPU 规范更详细地描述了管道。
 * `sample` - 对每个样本执行内插。当应用此属性时，每个样本调用一次 [=fragment=] 着色器。
 
 用于标量或向量浮点类型的用户自定义IO:
-* 如果未指定插值属性，则假定为`[[interpolate(perspective, center)]]`。
+* 如果未指定插值属性，则假定为 `[[interpolate(perspective, center)]]`。
 * 如果使用插值类型指定插值属性：
     * 如果插值类型为 `flat`，则不得指定插值采样。
     * 如果插值类型是 `perspective` 或 `linear`，则:
@@ -6029,8 +6033,8 @@ WebGPU 不提供任何保证:
 注意：浮点类型包括正无穷大和负无穷大，所以
 正确舍入的结果可能是有限的或无限的。
 
-最后一个单位（<dfn noexport>ULP</dfn>），对于浮点数`x`是两个不相等的浮点数 `a `和 `b` 之间的最小距离，
-使得`a` &le ; `x` &le; `b`（即 `ulp(x) = min`<sub>`a,b`</sub>`|b - a|`）。
+最后一个单位（<dfn noexport>ULP</dfn>），对于浮点数 `x` 是两个不相等的浮点数 `a `和 `b` 之间的最小距离，
+使得 `a` &le ; `x` &le; `b`（即 `ulp(x) = min`<sub>`a,b`</sub>`|b - a|`）。
 
 在下表中，提供了五个操作的准确性
 可能性：
@@ -6101,7 +6105,7 @@ WebGPU 不提供任何保证:
   <tr><td>`modf(x)`<td>正确四舍五入
   <tr><td>`normalize(x)`<td>继承自 `x / length(x)`
   <tr><td>`pow(x, y)`<td>继承自 `exp2(y * log2(x))`
-  <tr><td>`reflect(x, y)`<td>继承自`x - 2.0 * dot(x, y) * y`
+  <tr><td>`reflect(x, y)`<td>继承自 `x - 2.0 * dot(x, y) * y`
   <tr><td>`refract(x, y, z)`<td>继承自 `z * x - (z * dot(y, x) + sqrt(k)) * y`,<br>其中 `k = 1.0 - z * z * (1.0 - dot(y, x) * dot(y, x))`<br>如果 `k < 0.0` ，那么结果的精确度为 0.0
   <tr><td>`round(x)`<td>正确四舍五入
   <tr><td>`sign(x)`<td>正确四舍五入
@@ -6111,7 +6115,7 @@ WebGPU 不提供任何保证:
   <tr><td>`sqrt(x)`<td>继承自 `1.0 / inverseSqrt(x)`
   <tr><td>`step(x, y)`<td>正确四舍五入
   <tr><td>`tan(x)`<td>继承自 `sin(x) / cos(x)`
-  <tr><td>`tanh(x)`<td>继承自`sinh(x) / cosh(x)`
+  <tr><td>`tanh(x)`<td>继承自 `sinh(x) / cosh(x)`
   <tr><td>`trunc(x)`<td>正确四舍五入
 
 </table>
@@ -6602,7 +6606,7 @@ TODO: 解释表中函数原型的使用：提供名称、形参列表和返回�
   <tr algorithm="vector select">
     <td>|T| 是标量
     <td>`select(`|f|`: vecN<`|T|`>, `|t|`: vecN<`|T|`>, `|cond|`: vecN<bool>)`
-    <td>[=Component-wise=] 选择。 结果组件 |i| 被计算为`select(`|f|`[`|i|`], `|t|`[`|i|`], `|cond|`[`|i|`])`。
+    <td>[=Component-wise=] 选择。 结果组件 |i| 被计算为 `select(`|f|`[`|i|`], `|t|`[`|i|`], `|cond|`[`|i|`])`。
     (OpSelect)
 </table>
 
@@ -6763,7 +6767,7 @@ TODO: 解释表中函数原型的使用：提供名称、形参列表和返回�
   <tr algorithm="scalar case, frexp">
     <td>|T| 是 f32
     <td class="nowrap">`frexp(`|e|`: `|T|`) -> _frexp_result`<br>
-    <td>拆分 |e| 转换为`significand * 2`<sup>`exponent`</sup>形式的有效数和指数。
+    <td>拆分 |e| 转换为 `significand * 2`<sup>`exponent`</sup>形式的有效数和指数。
     返回 `_frexp_result` 内置结构，定义为：
     ```rust
 struct _frexp_result {
@@ -6780,8 +6784,8 @@ struct _frexp_result {
   <tr algorithm="vector case, frexp">
     <td>|T| 是 vec|N|&lt;f32&gt;
     <td class="nowrap">`frexp(`|e|`: `|T|`) -> _frexp_result_vec`|N|<br>
-    <td>拆分 |e| 的组件 转换为`significand * 2`<sup>`exponent`</sup>形式的有效数和指数。
-    返回`_frexp_result_vec`|N| 内置结构，定义为：
+    <td>拆分 |e| 的组件 转换为 `significand * 2`<sup>`exponent`</sup>形式的有效数和指数。
+    返回 `_frexp_result_vec`|N| 内置结构，定义为：
     ```rust
 struct _frexp_result_vecN {
   sig : vecN<f32>; // significand part
@@ -6790,7 +6794,7 @@ struct _frexp_result_vecN {
     ```
     有效数的每个分量的大小在 [0.5, 1.0) 或 0 的范围内。
 
-    注意：不能用`_frexp_result_vec`|N| 类型显式声明值，但值可以推断类型。
+    注意：不能用 `_frexp_result_vec`|N| 类型显式声明值，但值可以推断类型。
 
     (GLSLstd450FrexpStruct)
 
@@ -6884,7 +6888,7 @@ struct _modf_result {
     <td>|T| 是 vec|N|&lt;f32&gt;
     <td class="nowrap">`modf(`|e|`: `|T|`) -> _modf_result_vec`|N|<br>
     <td>拆分 |e| 的组件 分为小数部分和整数部分。
-    返回`_modf_result_vec`|N| 内置结构，定义为：
+    返回 `_modf_result_vec`|N| 内置结构，定义为：
     ```rust
 struct _modf_result_vecN {
   fract : vecN<f32>; // fractional part
@@ -6892,7 +6896,7 @@ struct _modf_result_vecN {
 };
     ```
 
-    注意：不能用类型`_modf_result_vec`|N| 显式声明值，但值可以推断类型。
+    注意：不能用类型 `_modf_result_vec`|N| 显式声明值，但值可以推断类型。
 
     (GLSLstd450ModfStruct)
 
@@ -6931,7 +6935,7 @@ struct _modf_result_vecN {
     <td>|T| 是 vec|N|&lt;f32&gt;<br>I 是 f32
     <td class="nowrap">`refract(`|e1|`:` |T| `, `|e2|`:` |T| `, `|e3|`:` |I| `) -> ` |T|
     <td>对于事件向量 |e1| 和表面法线|e2|，以及折射率比|e3|，
-    让`k = 1.0 - `|e3|` * `|e3|` * (1.0 - dot(`|e2|`, `|e1|`) * dot(`|e2|`, `|e1|`) )`。 如果`k < 0.0`，则返回
+    让 `k = 1.0 - `|e3|` * `|e3|` * (1.0 - dot(`|e2|`, `|e1|`) * dot(`|e2|`, `|e1|`) )`。 如果 `k < 0.0`，则返回
     折射向量 0.0，否则返回折射向量
     |e3|` * `|e1|` - (`|e3|` * dot(`|e2|`, `|e1|`) + sqrt(k)) * `|e2|。
     (GLSLstd450Refract)
@@ -7663,11 +7667,11 @@ TODO(dsinclair): Need gather operations
 
 原子内置函数“不得”用在 [=vertex=] 着色器阶段。
 
-所有原子内置函数`atomic_ptr`参数的存储类`SC`必须是[=storage classes/storage=]或[=storage classes/workgroup=]。
+所有原子内置函数 `atomic_ptr` 参数的存储类 `SC` 必须是[=storage classes/storage=]或[=storage classes/workgroup=]。
 [=storage classes/workgroup=] 原子在 SPIR-V 中具有 **Workgroup** 内存范围，而 [=storage classes/storage=] 原子在
 SPIR-V 中具有 **Device** 内存范围。
 
-所有原子内置函数中的访问模式`A`必须是[=access/read_write=]。
+所有原子内置函数中的访问模式 `A` 必须是[=access/read_write=]。
 
 TODO: 添加指向最终内存模型描述的链接。
 
