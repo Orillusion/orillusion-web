@@ -13,7 +13,7 @@ export default defineUserConfig<DefaultThemeOptions>({
 			{
 				rel: 'icon',
 				type: 'image/png',
-				href: `/images/logo_blue.png`,
+				href: `/images/icon.png`,
 			},
 		],
 		['link', { rel: 'manifest', href: '/manifest.webmanifest' }],
@@ -21,14 +21,14 @@ export default defineUserConfig<DefaultThemeOptions>({
 		['meta', { name: 'apple-mobile-web-app-title', content: 'Orillusion' }],
 		[
 			'meta',
-			{ name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
+			{ name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
 		],
 		[
 			'link',
-			{ rel: 'apple-touch-icon', href: `/images/icons/icon-192x192.png` },
+			{ rel: 'apple-touch-icon', href: `/images/logo.png` },
 		],
-		['meta', { name: 'msapplication-TileColor', content: '#3eaf7c' }],
-		['meta', { name: 'theme-color', content: '#3eaf7c' }],
+		['meta', { name: 'msapplication-TileColor', content: '#22272e' }],
+		['meta', { name: 'theme-color', content: '#22272e' }],
 	],
 	// site-level locales config
 	locales: {
