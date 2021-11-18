@@ -5,16 +5,16 @@
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#fff",
-  "theme_color": "#3eaf7c",
+  "theme_color": "#22272e",
   "icons": [
     {
-      "src": "/images/icons/icon-144x144.png",
-      "sizes": "144x144",
+      "src": "/images/icon-192.png",
+      "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/images/icons/icon-192x192.png",
-      "sizes": "192x192",
+      "src": "/images/icon-512.png",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ]

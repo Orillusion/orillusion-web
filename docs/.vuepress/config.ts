@@ -13,7 +13,7 @@ export default defineUserConfig<DefaultThemeOptions>({
 			{
 				rel: 'icon',
 				type: 'image/png',
-				href: `/images/icon.png`,
+				href: `/images/icons/icon-192.png`,
 			},
 		],
 		['link', { rel: 'manifest', href: '/manifest.webmanifest' }],
@@ -25,7 +25,7 @@ export default defineUserConfig<DefaultThemeOptions>({
 		],
 		[
 			'link',
-			{ rel: 'apple-touch-icon', href: `/images/logo.png` },
+			{ rel: 'apple-touch-icon', href: `/images/icons/icon-512.png` },
 		],
 		['meta', { name: 'msapplication-TileColor', content: '#22272e' }],
 		['meta', { name: 'theme-color', content: '#22272e' }],
