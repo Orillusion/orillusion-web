@@ -828,7 +828,7 @@ WebGPU*还*不允许单个 `GPUDevice` 的多线程使用，但从头开始设�
     - Worker: 接收消息 &rarr; `B2`。
     - Worker: `const mapPromise = B2.mapAsync()` &rarr; 成功地将缓冲区置于 "map pending" 状态。
     - Main: `B1.mapAsync()` &rarr; **抛出异常**（并且不会改变缓冲区的状态）。
-    - Main: 编码一些使用 `B1 的命令，例如：
+    - Main: 编码一些使用 `B1` 的命令，例如：
 
         ```js
         encoder.copyBufferToTexture(B1, T);
@@ -850,7 +850,7 @@ WebGPU*还*不允许单个 `GPUDevice` 的多线程使用，但从头开始设�
 某些应用程序架构要求对象在线程之间传递，而不必异步等待消息到达接收线程。
 
 此类架构中最关键的一类是在 WebAssembly 应用程序中：
-使用原生 C/C++/Rust/等的程序绑定WebGPU，需要假设对象句柄是可以在线程之间自由传递的普通旧数据（例如`typedef struct WGPUBufferImpl* WGPUBuffer;`）。
+使用原生 C/C++/Rust/等的程序绑定WebGPU，需要假设对象句柄是可以在线程之间自由传递的普通旧数据（例如 `typedef struct WGPUBufferImpl* WGPUBuffer;`）。
 不幸的是，如果没有复杂、隐藏的和缓慢的异步性（在接收线程上产生，中断发送线程发送消息，然后在接收线程上等待对象），就不能在 C-on-JS 绑定（例如 Emscripten）中实现。
 
 问题[#747](https://github.com/gpuweb/gpuweb/issues/747)中提到了一些替代方案:
