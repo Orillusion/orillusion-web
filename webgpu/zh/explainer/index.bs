@@ -1,0 +1,1138 @@
+<pre class='metadata'>
+Title: WebGPU Explainer
+Shortname: webgpu-explainer
+Level: 1
+Status: LS
+Group: webgpu
+URL: https://gpuweb.github.io/gpuweb/explainer/
+!Participate: <a href="https://github.com/gpuweb/gpuweb/issues/new?labels=explainer">File an issue</a> (<a href="https://github.com/gpuweb/gpuweb/labels/explainer">open issues</a>)
+!Translator: Lingyun, lingyun.zhao@orillusion.com
+Editor: Kai Ninomiya, Google https://www.google.com, kainino@google.com
+Editor: Corentin Wallez, Google https://www.google.com, cwallez@google.com
+Editor: Dzmitry Malyshau, Mozilla https://www.mozilla.org, dmalyshau@mozilla.com
+No Abstract: true
+Markup Shorthands: markdown yes
+Markup Shorthands: dfn yes
+Markup Shorthands: idl yes
+Markup Shorthands: css no
+Assume Explicit For: yes
+Boilerplate: repository-issue-tracking no
+</pre>
+
+问题(tabatkins/bikeshed#2006): 设置与 WebGPU 和 WGSL 规范的交叉链接。
+
+问题(gpuweb/gpuweb#1321): 完成计划的部分。
+
+
+# 介绍 # {#introduction}
+
+WebGPU 是一种提议的 Web API，使网页能够使用系统的 [GPU（图形处理单元）](https://en.wikipedia.org/wiki/Graphics_processing_unit) 执行计算并绘制可以在页面内呈现的复杂图像 .
+此目标类似于 [WebGL](https://www.khronos.org/webgl/) API 系列，但 WebGPU 允许访问 GPU 的更高级功能。
+虽然 WebGL 主要用于绘制图像，但可以（付出很大努力）重新用于其他类型的计算，而 WebGPU 对在 GPU 上执行一般计算具有一流的支持。
+
+## 使用案例 ## {#use-cases}
+
+WebGL 2 未解决的 WebGPU 示例用例是：
+
+ - 使用具有许多不同对象（例如 CAD 模型）的高度详细场景绘制图像。 WebGPU 的绘图命令单独比 WebGL 便宜。
+ - 执行用于绘制逼真场景的高级算法。由于缺乏对通用计算的支持，许多现代渲染技术和优化无法在 WebGL 2 上执行。
+ - 在 GPU 上高效执行机器学习模型。可以在 WebGL 中进行通用 GPU (GPGPU) 计算，但它是次优的，而且要困难得多。
+
+具体的例子如下:
+
+ - 改进现有的 Javascript 3D 库，如 Babylon.js 和 Three.js，使用新的渲染技术（基于计算的粒子、更高级的后处理等）并将当前在 CPU 上完成的昂贵计算（剔除、蒙皮模型）卸载到 GPU。
+ - 将更新的游戏引擎移植到 Web，并使引擎能够公开更高级的渲染功能。例如，Unity 的 WebGL 导出使用引擎的最低功能集，但 WebGPU 可以使用更高的功能集。
+ - 将新类别的应用程序移植到 Web：许多生产力应用程序将计算卸载到 GPU，并且需要 WebGPU 对一般计算的支持。
+ - 改进现有的网络电话会议应用程序。例如，Google Meet 使用机器学习将用户与后台分开。在 WebGPU 中运行机器学习将使其更快、更节能，从而允许 (1) 这些功能可以覆盖更便宜、更易于访问的用户设备，以及 (2) 更复杂和更强大的模型。
+
+## 目标 ## {#goals}
+
+目标:
+
+ - 同时支持实时屏幕渲染和离屏渲染。
+ - 使通用计算能够在 GPU 上高效执行。
+ - 支持针对各种原生 GPU API 的实现：Microsoft 的 D3D12、Apple 的 Metal 和 Khronos 的 Vulkan。
+ - 提供一种人类可创作的语言来指定在 GPU 上运行的计算。
+ - 可在浏览器的多进程架构中实现，维护Web的安全性。
+ - 尽可能让应用程序在不同的用户系统和浏览器之间可移植地工作。
+ - 以有用但范围仔细的方式与 Web 平台的其余部分交互（基本上以一种或另一种方式共享图像）。
+ - 提供在 Web 上公开现代 GPU 功能的基础。
+     WebGPU 的结构类似于所有当前的原生 GPU API，即使它不提供它们的所有功能。
+     有计划稍后扩展它以具有更现代的功能。
+     另见：[[#why-not-webgl3]]。
+
+非目标:
+
+ - 公开对根本不可编程或灵活性较差的硬件的支持，例如 DSP 或专门的机器学习硬件。
+ - 公开支持不能进行通用计算的硬件（如旧手机 GPU 甚至旧台式机 GPU）。
+ - 彻底公开本机 GPU API 上可用的所有功能（某些功能仅在单一供应商的 GPU 上可用，或者太小众而无法添加到 WebGPU）。
+ - 允许广泛混合和匹配 WebGL 和 WebGPU 代码。
+ - 与 [CSS Houdini](https://developer.mozilla.org/en-US/docs/Web/Houdini) 等页面渲染流程紧密集成。
+
+## 为什么不使用 "WebGL 3"? ## {#why-not-webgl3}
+
+WebGL 1.0 和 WebGL 2.0 分别是 OpenGL ES 2.0 和 OpenGL ES 3.0 API 的 Javascript 投影。 WebGL 的设计可以追溯到 1992 年发布的 OpenGL 1.0 API（进一步追溯到 1980 年代的 IRIS GL）。 这一沿袭具有许多优点，包括大量可用的知识体系以及将应用程序从 OpenGL ES 移植到 WebGL 相对容易。
+
+但是，这也意味着 WebGL 与现代 GPU 的设计不匹配，导致 CPU 性能和 GPU 性能问题。 这也使得在现代原生 GPU API 之上实现 WebGL 变得越来越困难。 [WebGL 2.0 Compute](https://www.khronos.org/registry/webgl/specs/latest/2.0-compute/) 尝试向 WebGL 添加通用计算功能，但与本机 API 的阻抗不匹配使这项工作变得非常难。 WebGL 2.0 Compute 的贡献者决定将精力集中在 WebGPU 上。
+
+# 更多背景信息 # {#background}
+
+## Web 浏览器中的沙盒 GPU 进程 ## {#gpu-process}
+
+WebGPU 的一个主要设计限制是它必须在使用 GPU 进程架构的浏览器中可实现且高效。
+GPU 驱动程序需要访问额外的内核系统调用，而不是用于 Web 内容的其他内核系统调用，并且许多 GPU 驱动程序容易挂起或崩溃。
+为了提高稳定性和沙箱，浏览器使用一个包含 GPU 驱动程序的特殊进程，并通过异步 IPC 与浏览器的其余部分进行对话。
+GPU 进程已（或将）用于 Chromium、Gecko 和 WebKit。
+
+GPU 进程比内容进程更少沙箱化，并且它们通常在多个源之间共享。
+因此，他们必须验证所有消息，例如以防止受损的内容进程能够查看另一个内容进程使用的 GPU 内存。
+WebGPU 的大部分验证规则都是确保使用安全所必需的，因此所有验证都需要在 GPU 过程中进行。
+
+同样，所有 GPU 驱动程序对象仅存在于 GPU 进程中，包括大分配（如缓冲区和纹理）和复杂对象（如管道）。
+在内容进程中，WebGPU 类型（`GPUBuffer`、`GPUTexture`、`GPURenderPipeline` 等）大多只是识别存在于 GPU 进程中的对象的 "handle"。
+这意味着 WebGPU 对象使用的 CPU 和 GPU 内存在内容处理中不一定是已知的。
+`GPUBuffer` 对象在内容处理中可能使用 150 字节的 CPU 内存，但保留 1GB 的 GPU 内存分配。
+
+另见描述[规范中的内容和设备时间线](https://gpuweb.github.io/gpuweb/#programming-model-timelines)。
+
+## GPU 和 GPU 进程的内存可见性 ## {#memory-visibility}
+
+两种主要类型的 GPU 被称为“集成 GPU”和“离散 GPU”。
+离散 GPU 与 CPU 分开； 它们通常是插入计算机主板的 PCI-e 卡。
+集成 GPU 与 CPU 位于同一芯片上，并且没有自己的内存芯片； 相反，它们使用与 CPU 相同的 RAM。
+
+使用独立 GPU 时，很容易看到大多数 GPU 内存分配对 CPU 不可见，因为它们位于 GPU 的 RAM（或 VRAM 用于视频 RAM）内。
+对于集成 GPU，大多数内存分配都在相同的物理位置，但由于各种原因对 GPU 不可见（例如，CPU 和 GPU 可以为同一内存使用不同的缓存，因此访问不是缓存一致的）。
+相反，为了让 CPU 看到 GPU 缓冲区的内容，它必须被“映射”，使其在应用程序的虚拟内存空间中可用（将映射视为在 `mmap()` 中）。
+GPUBuffers 必须特别分配才能可映射 - 这会降低从 GPU 访问的效率（例如，如果需要在 RAM 中而不是 VRAM 中分配）。
+
+所有这些讨论都围绕原生 GPU API 展开，但在浏览器中，GPU 驱动程序加载在 *GPU 进程*中，因此原生 GPU 缓冲区只能映射到 GPU 进程的虚拟内存中。
+通常，不可能直接在 *content process* 内部映射缓冲区（尽管某些系统可以这样做，提供可选的优化）。
+为了使用这种架构，需要在 GPU 进程和内容进程之间的共享内存中进行额外的“暂存”分配。
+
+下表概括了哪种类型的内存在以下位置可见：
+
+<table class="data">
+    <thead>
+        <tr>
+            <th>
+            <th> 常规 `ArrayBuffer`
+            <th> 共享内存
+            <th> 可映射的 GPU 缓冲区
+            <th> 不可映射的 GPU 缓冲区（或纹理）
+        </tr>
+    </thead>
+    <tr>
+        <td> CPU，在内容处理中
+        <td> **可见**
+        <td> **可见**
+        <td> 不可见
+        <td> 不可见
+    <tr>
+        <td> CPU，在 GPU 进程中
+        <td> 不可见
+        <td> **可见**
+        <td> **可见**
+        <td> 不可见
+    <tr>
+        <td> GPU
+        <td> 不可见
+        <td> 不可见
+        <td> **可见**
+        <td> **可见**
+</table>
+
+
+# JavaScript API # {#api}
+
+本节详细介绍 WebGPU JavaScript API 的重要和不寻常的方面。
+一般来说，每个小节都可以被认为是它自己的“解释单元”，尽管有些需要来自前面小节的上下文。
+
+
+## 适配器和设备 ## {#adapters-and-devices}
+
+WebGPU“适配器”（`GPUAdapter`）是一个对象，用于标识系统上的特定 WebGPU 实现（例如，集成或离散 GPU 上的硬件加速实现，或软件实现）。
+同一页面上的两个不同的“GPUAdapter”对象可以指代同一个底层实现，或指两个不同的底层实现（例如集成和离散 GPU）。
+
+页面可见的适配器集由用户代理决定。
+
+WebGPU“设备”（`GPUDevice`）表示与WebGPU适配器的逻辑连接。
+之所以称为“设备”，是因为它抽象了底层实现（例如视频卡）并封装了单个连接：拥有设备的代码可以充当适配器的唯一用户。
+
+作为这种封装的一部分，设备是从它创建的所有 WebGPU 对象（纹理等）的根所有者，只要设备丢失或损坏，就可以（内部）释放这些对象。
+单个网页上的多个组件可以各自拥有自己的 WebGPU 设备。
+
+所有 WebGPU 的使用都是通过 WebGPU 设备或从它创建的对象完成的。
+从这个意义上说，它服务于“WebGLRenderingContext”目的的一个子集；
+然而，与 `WebGLRenderingContext` 不同的是，它不与画布对象相关联，并且大多数命令是通过“子”对象发出的。
+
+### 适配器选择和设备初始化 ### {#initialization}
+为了获得适配器，应用程序调用 `navigator.gpu.requestAdapter()`，可选地传递可能影响选择的适配器的选项，例如 `powerPreference`（`“低功耗”` 或 `“高性能”` ） 或者
+`forceSoftware` 强制执行软件。
+
+`requestAdapter()` 永远不会拒绝，但如果无法使用指定的选项返回适配器，则可能会解析为 null。
+
+返回的适配器公开一个 `name`（实现定义），一个布尔值 `isSoftware`，因此具有回退路径的应用程序（如 WebGL 或 2D 画布）可以避免缓慢的软件实现，以及 [[#optional-capabilities]] 在 适配器。
+
+<pre highlight=js>
+const adapter = await navigator.gpu.requestAdapter(options);
+if (!adapter) return goToFallback();
+</pre>
+
+为了获得一个设备，应用程序调用 `adapter.requestDevice()`，可选地传递一个描述符来启用额外的可选功能——见[[#optional-capabilities]]。
+
+`requestDevice()` 将拒绝（仅）如果请求无效，即它超出了适配器的能力。
+如果设备创建过程中出现任何其他问题，它将解析为已经丢失的 `GPUDevice` - 参见 [[#device-loss]]。
+（这通过避免额外的可能返回值，如 `null` 或其他异常类型，简化了应用程序必须处理的不同情况的数量。）
+
+<pre highlight=js>
+const device = await adapter.requestDevice(descriptor);
+device.lost.then(recoverFromDeviceLoss);
+</pre>
+
+适配器可能变得不可用，例如 如果它从系统中拔出，禁用以节省电量，或标记为“过时”（`[[current]]` 变为 false）。
+从那时起，这样的适配器不能再出售有效的设备，并且总是返回已经丢失的 `GPUDevice`。
+
+### 可选功能 ### {#optional-capabilities}
+
+每个适配器可能具有不同的可选功能，称为“功能”和“限制”。
+这些是创建设备时可以请求的最大可能功能。
+
+每个适配器上公开的一组可选功能由用户代理决定。
+
+设备是由一组精确的功能创建的，在参数中指定
+`adapter.requestDevice()`（见上文）。
+
+当任何工作被发布到设备时，它会根据设备的功能进行严格的验证，而不是适配器的功能。
+这通过避免对开发系统功能的隐式依赖来简化便携式应用程序的开发。
+
+
+## 对象有效性和破坏性 ## {#invalid-and-destroyed}
+
+### WebGPU's Error Monad ### {#error-monad}
+
+A.k.a. 传染性内部可空性。
+A.k.a. transparent [promise pipelining](http://erights.org/elib/distrib/pipeline.html).
+
+WebGPU 是一个非常健谈的 API，一些应用程序每帧进行数万次调用来渲染复杂的场景。
+我们已经看到 GPU 进程需要验证命令以满足其安全属性。
+为了避免在 GPU 和内容过程中两次验证命令的开销，WebGPU 的设计使得 Javascript 调用可以直接转发到 GPU 进程并在那里进行验证。
+有关在何处验证以及如何报告错误的更多详细信息，请参阅错误部分。
+
+同时，在单帧期间可以创建相互依赖的 WebGPU 对象。
+例如，可以使用在同一帧中创建的临时 `GPUBuffer` 的命令记录 `GPUCommandBuffer`。
+在这个例子中，由于 WebGPU 的性能限制，无法将创建 `GPUBuffer` 的消息发送到 GPU 进程并同步等待其处理，然后再继续 Javascript 执行。
+
+相反，在 WebGPU 中，所有对象（如 `GPUBuffer`）都会在内容时间线上立即创建并返回给 JavaScript。
+验证几乎都是在“设备时间线”上异步完成的。
+在好的情况下，当没有错误发生时，一切在 JS 看来都是同步的。
+但是，当调用中发生错误时，它就变成了 no-op（错误报告除外）。
+如果调用返回一个对象（如 `createBuffer`），则该对象在 GPU 进程端被标记为“无效”。
+
+由于验证和分配是异步发生的，因此错误报告是异步的。
+就其本身而言，这可以使调试具有挑战性 - 请参阅 [[#errors-cases-debugging]]。
+
+所有 WebGPU 调用都验证它们的所有参数都是有效对象。
+因此，如果调用接受一个 WebGPU 对象并返回一个新对象，则新对象也是无效的（因此称为“传染性”一词）。
+
+<figure>
+    <figcaption>
+        进程间消息传递的时间线图，展示了错误是如何在没有同步的情况下传播的。
+    </figcaption>
+    <object type="image/svg+xml" data="img/error_monad_timeline_diagram.svg"></object>
+</figure>
+
+<div class=example>
+    在仅进行有效调用时使用 API 看起来像一个同步 API：
+
+    <pre highlight="js">
+        const srcBuffer = device.createBuffer({
+            size: 4,
+            usage: GPUBufferUsage.COPY_SRC
+        });
+
+        const dstBuffer = ...;
+
+        const encoder = device.createCommandEncoder();
+        encoder.copyBufferToBuffer(srcBuffer, 0, dstBuffer, 0, 4);
+
+        const commands = encoder.finish();
+        device.queue.submit([commands]);
+    </pre>
+</div>
+
+<div class=example>
+    创建对象时错误会传染:
+
+    <pre highlight="js">
+        // 缓冲区的大小太大，这会导致 OOM 和 srcBuffer 无效。
+        const srcBuffer = device.createBuffer({
+            size: BIG_NUMBER,
+            usage: GPUBufferUsage.COPY_SRC
+        });
+
+        const dstBuffer = ...;
+
+        // 编码器作为有效对象开始。
+        const encoder = device.createCommandEncoder();
+        // Special case: an invalid object is used when encoding commands, so the encoder
+        // becomes invalid.
+        encoder.copyBufferToBuffer(srcBuffer, 0, dstBuffer, 0, 4);
+
+        // 由于编码器无效，encoder.finish() 无效并返回无效对象。
+        const commands = encoder.finish();
+        // The command references an invalid object so it becomes a no-op.
+        device.queue.submit([commands]);
+    </pre>
+</div>
+
+#### Mental Models #### {#error-monad-mental-model}
+
+解释 WebGPU 语义的一种方法是，每个 WebGPU 对象实际上在内部都是一个 `Promise`，并且所有 WebGPU 方法在使用它作为参数的每个 WebGPU 对象之前都是 `async` 和 `await`。
+然而，异步代码的执行被外包给 GPU 进程（它实际上是同步完成的）。
+
+另一种更接近实际实现细节的方法是想象每个 `GPUFoo` JS 对象映射到包含 `bool isValid` 的 GPU 进程上的 `gpu::InternalFoo` C++/Rust 对象。
+然后在 GPU 进程上的每个命令的验证过程中，都会检查 `isValid`，如果验证失败，则返回一个新的无效对象。
+在内容处理方面，`GPUFoo` 实现不知道对象是否有效。
+
+### WebGPU 对象的早期销毁 ### {#early-destroy}
+
+WebGPU 对象的大部分内存使用都在 GPU 进程中：它可以是 GPU 内存，例如 GPUBuffer 和 GPUTexture 等对象，GPURenderBundles 保存在 CPU 内存中的序列化命令，或者 WGSL AST 的复杂对象图 在 `GPUShaderModule` 中。
+JavaScript 垃圾收集器 (GC) 在渲染器进程中，不知道 GPU 进程中的内存使用情况。
+浏览器有很多启发式方法来触发 GC，但一个常见的方法是它应该在内存压力场景下触发。
+然而，单个 WebGPU 对象可以在 GC 不知情的情况下保留 MB 或 GB 内存，并且永远不会触发内存压力事件。
+
+WebGPU 应用程序能够直接释放某些 WebGPU 对象使用的内存而无需等待 GC，这一点很重要。
+例如，应用程序可能会在每一帧创建临时纹理和缓冲区，如果没有显式的 `.destroy()` 调用，它们将很快耗尽 GPU 内存。
+这就是为什么 WebGPU 对那些可以保留任意内存量的对象类型有一个 `.destroy()` 方法的原因。
+它表示应用程序不再需要对象的内容并且可以尽快释放它。
+当然，在调用 `.destroy()` 之后使用对象就变成了验证错误。
+
+<div class=example>
+    <pre highlight="js">
+        const dstBuffer = device.createBuffer({
+            size: 4
+            usage: GPUBufferUsage.COPY_DST
+        });
+
+        // The buffer is not destroyed (and valid), success!
+        device.queue.writeBuffer(dstBuffer, 0, myData);
+
+        buffer.destroy();
+
+        // The buffer is now destroyed, commands using that would use its
+        // content produce validation errors.
+        device.queue.writeBuffer(dstBuffer, 0, myData);
+    </pre>
+</div>
+
+请注意，虽然这看起来有点类似于无效缓冲区的行为，但它是不同的。
+与无效不同，销毁状态可以在创建后更改，不会传染，并且仅在实际提交工作时（例如 `queue.writeBuffer()` 或 `queue.submit()`）验证，而不是在创建依赖对象时（例如 命令编码器，见上文）。
+
+## 错误 ## {#errors}
+
+在一个简单的世界中，应用程序中的错误处理将与 JavaScript 异常同步。
+然而，对于多进程 WebGPU 实现来说，这是非常昂贵的。
+
+参见 [[#invalid-and-destroyed]]，它也解释了 *browser* 如何处理错误。
+
+### 问题和解决方案 ### {#errors-solutions}
+
+开发人员和应用程序需要对多种情况进行错误处理：
+
+- *调试*:
+    在开发过程中同步获取错误，以进入调试器。
+- *致命错误*:
+    通过恢复 WebGPU 或回退到非 WebGPU 内容来处理设备/适配器丢失。
+- *易错分配*:
+    进行错误的 GPU 内存资源分配（检测内存不足情况）。
+- *易错验证*:
+    检查 WebGPU 调用是否成功，用于应用程序的单元/集成测试、WebGPU 一致性测试或检测数据驱动应用程序中的错误（例如加载可能超出设备限制的 glTF 模型）。
+- *应用遥测*:
+    在 Web 应用程序部署中收集错误日志，用于错误报告和遥测。
+
+以下部分将详细介绍这些案例及其解决方法。
+
+#### 调试 #### {#errors-cases-debugging}
+
+**解决方案:** 开发工具。
+
+实现应该提供一种方法来启用同步验证，
+例如，通过开发人员工具中的“中断 WebGPU 错误”选项。
+
+这可以通过在每个经过验证的 WebGPU 调用中的 content-process&lrarr;gpu-process 往返来实现，尽管在实践中这会非常慢。
+可以通过在内容过程中运行验证步骤的“预测”镜像来优化它，该镜像要么忽略内存不足错误（它无法预测），要么使用往返仅对产生的
+内存不足错误的调用。
+
+#### 致命错误：适配器和设备丢失 #### {#errors-cases-fatalerrors}
+
+**解决方案:** [[#device-loss]].
+
+#### 易出错的分配、易出错的验证和遥测 #### {#errors-cases-other}
+
+**解决方案:** *错误范围*.
+
+有关重要的上下文，请参阅 [[#invalid-and-destroyed]]。 特别是，在远程进程中异步检测所有错误（验证和内存不足）。
+在 WebGPU 规范中，我们将每个 WebGPU 设备的工作线程称为“设备时间线”。
+
+因此，应用程序需要一种方法来指示设备时间线如何处理发生的任何错误。 为了解决这个问题，WebGPU 使用了 *Error Scopes*。
+
+### Error Scopes ### {#errors-errorscopes}
+
+WebGL 使用 `getError` 函数公开错误，该函数返回自上次 `getError` 调用以来的第一个错误。
+这很简单，但有两个问题。
+
+- 它是同步的，会发生往返并要求完成所有先前发布的工作。
+    我们通过异步返回错误来解决这个问题。
+- 它的平面状态模型组合很差：错误可能会泄漏到/从不相关的代码中泄漏，可能在库/中间件、浏览器扩展等中。
+    我们用一堆错误“范围”来解决这个问题，允许每个组件密封地捕获和处理自己的错误。
+
+在 WebGPU 中，每个设备<sup>1</sup> 维护一个持久的“错误范围”堆栈状态。
+最初，设备的错误范围堆栈是空的。
+`GPUDevice.pushErrorScope('validation')` 或 `GPUDevice.pushErrorScope('out-of-memory')` 开始一个错误范围并将其压入堆栈。
+此范围仅捕获特定类型的错误，具体取决于应用程序要检测的错误类型。
+很少需要同时检测两者，因此需要两个嵌套的错误范围才能这样做。
+
+`GPUDevice.popErrorScope()` 结束一个错误范围，将它从堆栈中弹出并返回一个 `Promise<GPUError?>`，一旦封闭的操作完成并返回报告，它就会解决。
+这包括在 push 和 pop 调用之间*发出*的所有易出错的操作。
+如果没有捕获到错误，它会解析为 `null`，否则会解析为描述范围捕获的第一个错误的对象 - `GPUValidationError` 或 `GPUOutOfMemoryError`。
+
+来自操作的任何设备时间线错误都会在其发出时传递到堆栈的最顶层错误范围。
+
+- 如果错误范围捕获错误，则错误不会向下传递到堆栈。 每个错误范围只存储它捕获的**第一个**错误； 它捕获的任何其他错误都被**默默地忽略**。
+- 如果不是，则错误将沿堆栈向下传递到封闭的错误范围。
+- 如果错误到达堆栈底部，它**可能**<sup>2</sup> 在 `GPUDevice`<sup>3</sup> 上触发 `uncapturederror` 事件（并且可能发出控制台警告）。
+
+<sup>1</sup>
+在添加 [[#multithreading]] 的计划中，错误范围状态实际上是 **per-device, per-realm**。
+也就是说，当 GPUDevice 首次发布到 Worker 时，该设备+领域的错误范围堆栈始终为空。
+（如果 GPUDevice 被复制*回*到它已经存在的执行上下文，它会与该执行上下文上的所有其他副本共享其错误范围状态。）
+
+<sup>2</sup>
+实现可能不会选择总是针对给定的错误触发事件，例如，如果它触发了太多次、太快或太多同类错误。
+这类似于当今 WebGL 的 Dev Tools 控制台警告的工作方式。
+在格式不佳的应用程序中，此机制可以防止事件对系统产生重大的性能影响。
+
+<sup>3</sup>
+更具体地说，使用 [[#multithreading]]，这个事件将只存在于*起源*`GPUDevice`（来自 `createDevice`的那个，而不是通过接收发布的消息）； 一个独特的接口将用于非原始设备对象。
+
+```webidl
+enum GPUErrorFilter {
+    "out-of-memory",
+    "validation"
+};
+
+interface GPUOutOfMemoryError {
+    constructor();
+};
+
+interface GPUValidationError {
+    constructor(DOMString message);
+    readonly attribute DOMString message;
+};
+
+typedef (GPUOutOfMemoryError or GPUValidationError) GPUError;
+
+partial interface GPUDevice {
+    undefined pushErrorScope(GPUErrorFilter filter);
+    Promise<GPUError?> popErrorScope();
+};
+```
+
+#### 这如何解决*易错分配*#### {#errors-errorscopes-allocation}
+
+如果错误地分配 GPU 内存的调用（例如 `createBuffer` 或 `createTexture`）失败，则生成的对象无效（就像存在验证错误一样），但会生成 `'out-of-memory'` 错误。
+可以使用“内存不足”错误范围来检测它。
+
+**例如: tryCreateBuffer**
+
+```ts
+async function tryCreateBuffer(device: GPUDevice, descriptor: GPUBufferDescriptor): Promise<GPUBuffer | null> {
+  device.pushErrorScope('out-of-memory');
+  const buffer = device.createBuffer(descriptor);
+  if (await device.popErrorScope() !== null) {
+    return null;
+  }
+  return buffer;
+}
+```
+
+由于实现中存在许多可能的内存不足情况，这以微妙的方式与缓冲区映射错误情况相互作用，但在此不作解释。
+用于设计交互的原则是应用程序代码应该尽可能少地处理不同的边缘情况，因此多种情况应该导致相同的行为。
+
+此外，大多数承诺解决方案的相对顺序有（将有）规则，以防止不可移植的浏览器行为或异步代码之间的不稳定竞争。
+
+#### 这如何解决*错误验证* #### {#errors-errorscopes-validation}
+
+“验证”错误范围可用于检测验证错误，如上所述。
+
+**例如: Testing**
+
+```ts
+device.pushErrorScope('out-of-memory');
+device.pushErrorScope('validation');
+
+{
+  // (Do stuff that shouldn't produce errors.)
+
+  {
+    device.pushErrorScope('validation');
+    device.doOperationThatIsExpectedToError();
+    device.popErrorScope().then(error => { assert(error !== null); });
+  }
+
+  // (More stuff that shouldn't produce errors.)
+}
+
+// Detect unexpected errors.
+device.popErrorScope().then(error => { assert(error === null); });
+device.popErrorScope().then(error => { assert(error === null); });
+```
+
+#### 这如何解决*应用遥测*#### {#errors-errorscopes-telemetry}
+
+如上所述，如果错误范围没有捕获错误，它**可能**触发原始设备的 `uncapturederror` 事件。
+应用程序可以监视该事件，或者使用错误范围封装其应用程序的一部分，以检测错误以生成错误报告。
+
+`uncapturederror` 并不是解决这个问题所必需的，但它的好处是可以为所有线程的未捕获错误提供一个单一的流。
+
+#### 错误消息和调试标签 #### {#errors-errorscopes-labels}
+
+每个 WebGPU 对象都有一个读写属性 `label`，应用程序可以设置它来为调试工具提供信息（错误消息、Xcode 等原生分析器等）
+每个 WebGPU 对象创建描述符都有一个成员 `label`，用于设置属性的初始值。
+
+此外，命令缓冲区的一部分可以用调试标记和调试组进行标记。
+参见 [[#command-encoding-debug]]。
+
+对于调试（开发工具消息）和应用遥测（`uncapturederror`）实现可以选择在错误消息中报告某种“堆栈跟踪”，利用对象调试标签。
+例如，调试消息字符串可以是：
+
+```
+<myQueue>.submit failed:
+- commands[0] (<mainColorPass>) was invalid:
+- in the debug group <environment>:
+- in the debug group <tree 123>:
+- in setIndexBuffer, indexBuffer (<mesh3.indices>) was invalid:
+- in createBuffer, desc.usage (0x89) was invalid
+```
+
+### 考虑的替代方案 ### {#errors-alternatives}
+
+- 同步 `getError`，如 WebGL。 开头讨论：[[#errors-errorscopes]]。
+- 基于回调的错误范围：`device.errorScope('out-of-memory', async () => { ... })`。
+    由于在错误范围内允许异步工作是必要的，因此这个公式实际上与上面显示的公式大致相同，因为回调永远无法解析。
+    应用程序架构将受限于符合兼容调用堆栈的需要，或者它们会将基于回调的 API 重新映射为基于推送/弹出的 API。
+    最后，如果错误范围变得不平衡，通常不是灾难性的，尽管堆栈可能会无限增长，导致最终崩溃（或设备丢失）。
+
+
+## 设备丢失 ## {#device-loss}
+
+任何阻止进一步使用“GPUDevice”的情况都会导致*设备丢失*。
+这些可能是由于 WebGPU 调用或外部事件引起的； 例如：
+`device.destroy()`、不可恢复的内存不足情况、GPU 进程崩溃、导致 GPU 重置的长时间操作、由另一个应用程序引起的 GPU 重置、关闭离散 GPU 以节省电量，或 外部 GPU 被拔掉。
+
+**设计原则:**
+应该尽可能少出现看起来不同的错误行为。
+这使开发人员可以更轻松地测试其应用程序在不同情况下的行为，提高应用程序的健壮性，并提高浏览器之间的可移植性。
+
+Issue: Finish this explainer (see [ErrorHandling.md](https://github.com/gpuweb/gpuweb/blob/main/design/ErrorHandling.md#fatal-errors-requestadapter-requestdevice-and-devicelost)).
+
+
+## 缓冲区映射 ## {#buffer-mapping}
+
+`GPUBuffer` 表示可由其他 GPU 操作使用的内存分配。
+该内存可以线性访问，这与 GPUTexture 不同，后者的纹素序列的实际内存布局是未知的。 将 `GPUBuffers`视为 `gpu_malloc()` 的结果。
+
+**CPU&rarr;GPU：** 使用 WebGPU 时，应用程序需要非常频繁且可能大量地将数据从 JavaScript 传输到 `GPUBuffer`。
+这包括网格数据、绘图和计算参数、ML 模型输入等。
+这就是为什么需要一种有效的方式来更新 `GPUBuffer` 数据的原因。 `GPUQueue.writeBuffer` 相当高效，但与用于写入缓冲区的缓冲区映射相比，它至少包含一个额外的副本。
+
+**GPU&rarr;CPU：** 应用程序还经常需要将数据从 GPU 传输到 Javascript，尽管频率通常较低且数量较少。
+这包括屏幕截图、计算统计、模拟或 ML 模型结果等。
+此传输是通过读取缓冲区的缓冲区映射完成的。
+
+请参阅 [[#memory-visibility]] 以获取有关缓冲区映射与之交互的各种类型内存的更多背景信息。
+
+### CPU-GPU 所有权转移 ### {#buffer-mapping-ownership}
+
+在原生 GPU API 中，当缓冲区被映射时，CPU 可以访问其内容。
+同时，GPU 可以继续使用缓冲区的内容，这会导致 CPU 和 GPU 之间的数据竞争。
+这意味着映射缓冲区的使用很简单，但将同步留给应用程序。
+
+相反，为了可移植性和一致性，WebGPU 阻止了几乎所有的数据竞争。
+在 WebGPU 中，由于某些驱动程序可能需要额外的“共享内存”步骤，因此映射缓冲区上的竞争会带来更大的不可移植性风险。
+这就是为什么 `GPUBuffer` 映射是作为 CPU 和 GPU 之间的所有权转移来完成的。
+在每一瞬间，只有两者中的一个可以访问它，因此不可能进行竞争。
+
+当应用程序请求映射缓冲区时，它会启动将缓冲区所有权转移到 CPU 的过程。
+这时候，GPU 可能还需要执行完一些使用缓冲区的操作，所以直到所有先前排队的 GPU 操作都完成后，传输才会完成。
+这就是为什么映射缓冲区是一个异步操作（我们将在下面讨论其他参数）：
+
+<xmp highlight=idl>
+typedef [EnforceRange] unsigned long GPUMapModeFlags;
+namespace GPUMapMode {
+    const GPUFlagsConstant READ  = 0x0001;
+    const GPUFlagsConstant WRITE = 0x0002;
+};
+
+partial interface GPUBuffer {
+  Promise<undefined> mapAsync(GPUMapModeFlags mode,
+                              optional GPUSize64 offset = 0,
+                              optional GPUSize64 size);
+};
+</xmp>
+
+<div class=example>
+    Using it is done like so:
+
+    <pre highlight="js">
+        // Mapping a buffer for writing. Here offset and size are defaulted,
+        // so the whole buffer is mapped.
+        const myMapWriteBuffer = ...;
+        await myMapWriteBuffer.mapAsync(GPUMapMode.WRITE);
+
+        // Mapping a buffer for reading. Only the first four bytes are mapped.
+        const myMapReadBuffer = ...;
+        await myMapReadBuffer.mapAsync(GPUMapMode.READ, 0, 4);
+    </pre>
+</div>
+
+一旦应用程序使用完 CPU 上的缓冲区，它就可以通过取消映射将所有权转移回 GPU。
+这是一个立即操作，使应用程序无法访问 CPU 上的缓冲区（即分离 `ArrayBuffers`）：
+
+<xmp highlight=idl>
+partial interface GPUBuffer {
+  undefined unmap();
+};
+</xmp>
+
+<div class=example>
+    Using it is done like so:
+
+    <pre highlight="js">
+        const myMapReadBuffer = ...;
+        await myMapReadBuffer.mapAsync(GPUMapMode.READ, 0, 4);
+        // Do something with the mapped buffer.
+        buffer.unmap();
+    </pre>
+</div>
+
+将所有权转移给 CPU 时，可能需要从底层映射缓冲区复制到内容进程可见的共享内存。
+为了避免不必要的复制，应用程序可以在调用 `GPUBuffer.mapAsync` 时指定它感兴趣的范围。
+
+`GPUBuffer.mapAsync` 的 `mode` 参数控制执行哪种类型的映射操作。
+目前，它的值与缓冲区创建的使用标志是多余的，但它的存在是为了明确性和未来的可扩展性。
+
+虽然 GPUBuffer 归 CPU 所有，但无法在使用它的设备时间线上提交任何操作； 否则，会产生验证错误。
+然而，使用 `GPUBuffer` 记录 `GPUCommandBuffer`s 是有效的（并且鼓励这样做！）。
+
+### 创建可映射缓冲区 ### {#buffer-mapping-creation}
+
+`GPUBuffer` 的底层缓冲区的物理内存位置取决于它是否应该是可映射的以及它是否可映射用于读取或写入（例如，本机 API 对 CPU 缓存行为进行了一些控制）。
+目前，可映射缓冲区只能用于传输数据（因此除了 `MAP_*` 用法之外，它们只能具有正确的 `COPY_SRC` 或 `COPY_DST` 用法），
+这就是为什么应用程序在使用（当前）互斥的 `GPUBufferUsage.MAP_READ` 和 `GPUBufferUsage.MAP_WRITE` 标志创建缓冲区时必须指定缓冲区是可映射的：
+
+<div class=example>
+    <pre highlight="js">
+        const myMapReadBuffer = device.createBuffer({
+            usage: GPUBufferUsage.MAP_READ | GPUBufferUsage.COPY_DST,
+            size: 1000,
+        });
+        const myMapWriteBuffer = device.createBuffer({
+            usage: GPUBufferUsage.MAP_WRITE | GPUBufferUsage.COPY_SRC,
+            size: 1000,
+        });
+    </pre>
+</div>
+
+### 访问映射缓冲区 ### {#buffer-mapping-access}
+
+一旦 `GPUBuffer` 被映射，就可以从JavaScript访问它的内存
+这是通过调用 `GPUBuffer.getMappedRange` 来完成的，它返回一个称为“映射”的 `ArrayBuffer`。
+在调用 `GPUBuffer.unmap` 或 `GPUBuffer.destroy` 之前，它们都是可用的，此时它们被分离。
+这些 `ArrayBuffer` 通常不是新的分配，而是指向内容进程可见的某种共享内存（IPC 共享内存、`mmap`ped 文件描述符等）的指针。
+
+将所有权转移到 GPU 时，可能需要从共享内存到底层映射缓冲区的副本。
+`GPUBuffer.getMappedRange` 获取要映射的缓冲区的可选范围（其中 `offset` 0 是缓冲区的开始）。
+这样浏览器就知道底层 `GPUBuffer` 的哪些部分已经“失效”，需要从内存映射中更新。
+
+该范围必须在 `mapAsync()` 请求的范围内。
+
+<xmp highlight=idl>
+partial interface GPUBuffer {
+  ArrayBuffer getMappedRange(optional GPUSize64 offset = 0,
+                             optional GPUSize64 size);
+};
+</xmp>
+
+<div class=example>
+    Using it is done like so:
+
+    <pre highlight="js">
+        const myMapReadBuffer = ...;
+        await myMapReadBuffer.mapAsync(GPUMapMode.READ);
+        const data = myMapReadBuffer.getMappedRange();
+        // Do something with the data
+        myMapReadBuffer.unmap();
+    </pre>
+</div>
+
+### 创建时映射缓冲区 ### {#buffer-mapping-at-creation}
+
+一个常见的需求是创建一个已经填充了一些数据的 `GPUBuffer`。
+这可以通过创建最终缓冲区，然后是可映射缓冲区，填充可映射缓冲区，然后从可映射缓冲区复制到最终缓冲区来实现，但这将是低效的。
+相反，这可以通过在创建时让缓冲区成为 CPU 拥有来完成：我们称之为“在创建时映射”。
+所有缓冲区都可以在创建时映射，即使它们没有 `MAP_WRITE` 缓冲区用法。
+浏览器将只处理将数据传输到应用程序的缓冲区中。
+
+一旦缓冲区在创建时被映射，它的行为就像定期映射的缓冲区：`GPUBUffer.getMappedRange()` 用于检索 `ArrayBuffer`，所有权通过 `GPUBuffer.unmap()` 转移到 GPU。
+
+<div class=example>
+    创建时的映射是通过在创建时在缓冲区描述符中传递 `mappedAtCreation: true` 来完成的:
+
+    <pre highlight="js">
+        const buffer = device.createBuffer({
+            usage: GPUBufferUsage.UNIFORM,
+            size: 256,
+            mappedAtCreation: true,
+        });
+        const data = buffer.getMappedRange();
+        // write to data
+        buffer.unmap();
+    </pre>
+</div>
+
+当使用高级方法将数据传输到 GPU 时（使用已映射或正在映射的缓冲区滚动列表），创建时的映射缓冲区可用于立即创建额外的空间来放置要传输的数据。
+
+### 举例 ### {#buffer-mapping-examples}
+
+<div class=example>
+    使用初始数据创建缓冲区的最佳方法，例如这里是 [Draco](https://google.github.io/draco/) 压缩的 3D 网格：
+
+    <pre highlight="js">
+        const dracoDecoder = ...;
+
+        const buffer = device.createBuffer({
+            usage: GPUBuffer.VERTEX | GPUBuffer.INDEX,
+            size: dracoDecoder.decompressedSize,
+            mappedAtCreation: true,
+        });
+
+        dracoDecoder.decodeIn(buffer.getMappedRange());
+        buffer.unmap();
+    </pre>
+</div>
+
+<div class=example>
+    从 GPU 上渲染的纹理中检索数据：
+
+    <pre highlight="js">
+        const texture = getTheRenderedTexture();
+
+        const readbackBuffer = device.createBuffer({
+            usage: GPUBufferUsage.COPY_DST | GPUBufferUsage.MAP_READ,
+            size: 4 * textureWidth * textureHeight,
+        });
+
+        // 将数据从纹理复制到缓冲区。
+        const encoder = device.createCommandEncoder();
+        encoder.copyTextureToBuffer(
+            { texture },
+            { buffer, rowPitch: textureWidth * 4 },
+            [textureWidth, textureHeight],
+        );
+        device.submit([encoder.finish()]);
+
+        // 获取 CPU 上的数据。
+        await buffer.mapAsync(GPUMapMode.READ);
+        saveScreenshot(buffer.getMappedRange());
+        buffer.unmap();
+    </pre>
+</div>
+
+<div class=example>
+    为一帧更新 GPU 上的一堆数据：
+
+    <pre highlight="js">
+        void frame() {
+            // 为我们的更新创建一个新缓冲区。 在实践中，我们会通过重新映射缓冲区来重用缓冲区。
+            const stagingBuffer = device.createBuffer({
+                usage: GPUBufferUsage.MAP_WRITE | GPUBufferUsage.COPY_SRC,
+                size: 16 * objectCount,
+                mappedAtCreation: true,
+            });
+            const stagingData = new Float32Array(stagingBuffer.getMappedRange());
+
+            // 对于每次绘制，我们将：
+            // - 将绘制数据放入 stagingData。
+            // - 将 stagingData 的副本记录到用于绘制的统一缓冲区
+            // - 编码绘制
+            const copyEncoder = device.createCommandEncoder();
+            const drawEncoder = device.createCommandEncoder();
+            const renderPass = myCreateRenderPass(drawEncoder);
+            for (var i = 0; i < objectCount; i++) {
+                stagingData[i * 4 + 0] = ...;
+                stagingData[i * 4 + 1] = ...;
+                stagingData[i * 4 + 2] = ...;
+                stagingData[i * 4 + 3] = ...;
+
+                const {uniformBuffer, uniformOffset} = getUniformsForDraw(i);
+                copyEncoder.copyBufferToBuffer(
+                    stagingBuffer, i * 16,
+                    uniformBuffer, uniformOffset,
+                    16);
+
+                encodeDraw(renderPass, {uniformBuffer, uniformOffset});
+            }
+            renderPass.endPass();
+
+            // 我们完成了临时缓冲区的填充， unmap() 以便我们可以提交使用它的命令。
+            stagingBuffer.unmap();
+
+            // 提交所有副本，然后提交所有绘制。 副本将在绘制之前发生，这样每次绘制都将使用在上面的 for 循环中填充的数据。
+            device.queue.submit([
+                copyEncoder.finish(),
+                drawEncoder.finish()
+            ]);
+        }
+    </pre>
+</div>
+
+## 多线程 ## {#multithreading}
+
+多线程是现代图形 API 的关键部分。
+与 OpenGL 不同，较新的 API 允许应用程序同时从多个线程编码命令、提交工作、将数据传输到 GPU 等，从而缓解 CPU 瓶颈。
+这与 WebGPU 尤其相关，因为 IDL 绑定通常比 C 调用慢得多。
+
+WebGPU*还*不允许单个 `GPUDevice` 的多线程使用，但从头开始设计 API 已经考虑到这一点。
+本节描述了它的暂定计划，看看它是如何运作的。
+
+如 [[#gpu-process]] 中所述，大多数 WebGPU 对象实际上只是指代的“handle”
+浏览器 GPU 进程中的对象。
+因此，允许这些在线程之间共享是相对简单的。
+例如，一个 `GPUTexture` 对象可以简单地通过 `postMessage()` 到另一个线程，创建一个
+新的 `GPUTexture` JavaScript 对象包含*相同*（引用计数）GPU 进程对象的“handle”。
+
+有客户端状态的对象，比如 `GPUBuffer`。
+应用程序仍然需要从多个线程使用它们，而不必使用 `[Transferable]` 语义来回 `postMessage` 这样的对象（这也会创建新的包装对象，破坏旧的引用）。
+因此，这些对象也将是 `[Serializable]`，但有少量（内容端）**共享状态**，就像 `SharedArrayBuffer`。
+
+尽管对这个共享状态的访问有些限制——它不能在单个对象上任意快速地改变——它可能仍然是一个定时攻击向量，比如 `SharedArrayBuffer`，所以它暂时被跨源隔离门控。
+参见[定时攻击](https://gpuweb.github.io/gpuweb/#security-timing)。
+
+<div class=example>
+    给定线程“Main”和“Worker”:
+
+    - Main: `const B1 = device.createBuffer(...);`.
+    - Main: 使用 postMessage 将 `B1` 发送给 Worker。
+    - Worker: 接收消息 &rarr; `B2`。
+    - Worker: `const mapPromise = B2.mapAsync()` &rarr; 成功地将缓冲区置于 "map pending" 状态。
+    - Main: `B1.mapAsync()` &rarr; **抛出异常**（并且不会改变缓冲区的状态）。
+    - Main: 编码一些使用 `B1` 的命令，例如：
+
+        ```js
+        encoder.copyBufferToTexture(B1, T);
+        const commandBuffer = encoder.finish();
+        ```
+
+        &rarr; 成功，因为这不依赖于缓冲区的客户端状态。
+    - Main: `queue.submit(commandBuffer)` &rarr; **异步 WebGPU 错误**，因为 CPU 当前拥有缓冲区。
+    - Worker: await mapPromise 写入映射，然后调用 `B2.unmap()`。
+    - Main: `queue.submit(commandBuffer)` &rarr; 成功。
+    - Main: `B1.mapAsync()` &rarr; 成功地将缓冲区置于 "map pending" 状态。
+</div>
+
+进一步的讨论可以在 [#354](https://github.com/gpuweb/gpuweb/issues/354) 中找到
+（请注意，并非所有内容都反映了当前的想法）。
+
+### 未解决：同步对象传输 ### {#multithreading-transfer}
+
+某些应用程序架构要求对象在线程之间传递，而不必异步等待消息到达接收线程。
+
+此类架构中最关键的一类是在 WebAssembly 应用程序中：
+使用原生 C/C++/Rust/等的程序绑定WebGPU，需要假设对象句柄是可以在线程之间自由传递的普通旧数据（例如 `typedef struct WGPUBufferImpl* WGPUBuffer;`）。
+不幸的是，如果没有复杂、隐藏的和缓慢的异步性（在接收线程上产生，中断发送线程发送消息，然后在接收线程上等待对象），就不能在 C-on-JS 绑定（例如 Emscripten）中实现。
+
+问题[#747](https://github.com/gpuweb/gpuweb/issues/747)中提到了一些替代方案:
+
+- SharedObjectTable，一个具有共享状态的对象（如 SharedArrayBuffer），包含一个包含 `[Serializable]` 值的表。
+    实际上，表中的存储将序列化一次，然后具有 SharedObjectTable 的任何线程都可以（同步）按需反序列化对象。
+- 一个同步的 MessagePort.receiveMessage() 方法。
+    这不太理想，因为它需要任何创建这些对象之一的线程急切地将它发送到每个线程，以防万一他们以后需要它。
+- 允许“导出”可用于在另一个线程上“导入”对象的对象的数字 ID。 这绕过了垃圾收集器，很容易泄漏内存。
+
+
+## 命令编码与提交 ## {#command-encoding}
+
+WebGPU 中的许多操作都是纯粹的 GPU 端操作，不使用来自 CPU 的数据。
+这些操作不是直接发出的； 相反，它们通过类似构建器的 GPUCommandEncoder 接口编码到 GPUCommandBuffer 中，然后通过 `gpuQueue.submit()` 发送到 GPU。
+这种设计也被底层的原生 API 使用。 它提供了几个好处：
+
+- 命令缓冲区编码独立于其他状态，允许编码（和命令缓冲区验证）工作以利用多个 CPU 线程。
+- 一次提供更大的工作量，允许 GPU 驱动程序进行更多的全局优化，特别是在它如何跨 GPU 硬件调度工作方面。
+
+### 调试标记和调试组 ### {#command-encoding-debug}
+
+对于错误消息和调试工具，可以在命令缓冲区内标记工作。
+（参见 [[#errors-errorscopes-labels]]。）
+
+- `insertDebugMarker(markerLabel)` 标记命令流中的一个点。
+- `pushDebugGroup(groupLabel)`/`popDebugGroup()` 嵌套地划分命令的子流。
+       这可以用于例如 标记命令缓冲区的哪个部分对应于不同的对象或场景的部分。
+
+### Passes ### {#command-encoding-passes}
+
+Issue: Briefly explain passes?
+
+
+## Pipelines ## {#pipelines}
+
+## 图像、视频和画布输入 ## {#image-input}
+
+问题：在撰写本文时，确切的 API 仍在不断变化。
+
+WebGPU 在很大程度上与 Web 平台的其余部分隔离，但有几个互操作点。
+其中之一是输入 API 的图像数据。
+除了一般的数据读/写机制（writeTexture、writeBuffer 和 mapAsync），
+数据也可以来自 <img>/ImageBitmap、画布和视频。
+有许多用例需要这些，包括：
+
+- 从编码图像（JPEG、PNG 等）初始化纹理
+- 使用 2D 画布渲染文本以在 WebGPU 中使用。
+- 用于图像处理、ML、3D 场景等的视频元素和摄像机输入。
+
+有两条路径:
+
+- `copyExternalImageToTexture()` 将颜色数据从图像/视频/画布对象的子矩形复制到 GPUTexture 的同等大小的子矩形中。
+    输入数据在调用时被捕获。
+- `importTexture()` 获取视频或画布并创建一个 GPUExternalTexture 对象，如果它已经存在于（相同）GPU 上，它*可以*提供对底层资源的直接读取访问，避免不必要的副本或 CPU-GPU 带宽。
+    这通常适用于硬件解码的视频和大多数画布元素。
+
+问题：将两个名称更新为我们确定的任何名称。
+
+### GPUExternalTexture ### {#image-input-external-texture}
+
+GPUExternalTexture 是一个可采样的纹理对象，可以以与普通的可采样 GPUTexture 对象类似的方式使用。
+特别是，它可以作为纹理资源绑定到着色器并直接从 GPU 使用：
+当它被绑定时，附加的元数据允许 WebGPU “自动”将数据从其底层表示（例如 YUV）转换为 RGB 采样数据。
+
+GPUExternalTexture 表示特定的导入图像，因此无论是从内部 (WebGPU) 访问还是外部 (Web 平台) 访问，导入后底层数据都不得更改。
+
+问题:
+描述如何为视频元素、VideoFrame、canvas 元素和 OffscreenCanvas 实现这一点。
+
+
+## 画布输出 ## {#canvas-output}
+
+从历史上看，绘图 API（2d 画布、WebGL）是使用 `getContext()` 从画布初始化的。
+然而，WebGPU 不仅仅是一个绘图 API，许多应用程序不需要画布。
+WebGPU 在没有画布的情况下初始化 - 参见 [[#initialization]]。
+
+在此之后，WebGPU 没有“默认”绘图缓冲区。
+相反，WebGPU 设备可以连接到*任意数量*的画布（零个或多个）并在每一帧渲染到任意数量的画布。
+
+Canvas 上下文创建和 WebGPU 设备创建是分离的。
+任何 GPUCanvasContext 都可以与任何 GPUDevice 动态使用。
+这使得设备切换变得容易（例如，从设备丢失中恢复后）。
+（相比之下，WebGL 上下文恢复是在同一个 WebGLRenderingContext 对象上完成的，
+即使上下文状态在丢失/恢复期间不会持续。）
+
+为了访问画布，应用程序从 GPUCanvasContext 获取一个 GPUTexture，然后写入它，就像使用普通的 GPUTexture 一样。
+
+### 交换链 ### {#canvas-output-swap-chains}
+
+Canvas GPUTexture 以非常结构化的方式使用：
+
+- `canvas.getContext('gpupresent')` 提供一个 'GPUCanvasContext'。
+- `GPUCanvasContext.configureSwapChain({ device, format, usage })` 提供了一个 'GPUSwapChain'，
+    使任何以前的交换链无效，将画布附加到提供的设备上，并为使用的纹理设置 'GPUTextureFormat' 和 'GPUTextureUsage'。
+- `GPUSwapChain.getCurrentTexture()` 提供一个 'GPUTexture'。
+
+此结构提供与本机图形 API 中优化路径的最大兼容性。
+在这些中，通常，特定于平台的“表面”对象可以生成称为“交换链”的 API 对象，该对象可能预先提供要渲染的 1-3 个纹理的可能固定列表。
+
+### 当前纹理 ### {#canvas-output-current-texture}
+
+'GPUSwapChain' 通过 'getCurrentTexture()' 提供“当前纹理”。
+对于 <{canvas}> 元素，这将返回*当前帧*的纹理：
+
+- 在 `getCurrentTexture()` 上，如果 'currentTexture' 不存在则创建，然后返回。
+- 在“[=Update the rendering=]”步骤中，浏览器合成器获取用于显示的 'currentTexture' 的所有权，并且该内部插槽被清除以供下一帧使用。
+
+### `getSwapChainPreferredFormat()` ### {#canvas-output-preferred-format}
+
+由于帧缓冲区硬件的差异，不同的设备对显示表面有不同的首选字节布局。
+所有系统都允许使用任何允许的格式，但应用程序可以通过使用首选格式来节省电量。
+无法隐藏确切的格式，因为格式是可观察的 - 例如，在 'copyBufferToTexture' 调用的行为中以及与渲染管道的兼容性规则中（指定格式，请参阅 `GPUColorTargetState.format`）。
+
+桌面沿袭硬件通常更喜欢 'bgra8unorm'（BGRA 顺序中的 4 个字节），而移动沿袭硬件通常更喜欢 'rgba8unorm'（RGBA 顺序中的 4 个字节）。
+
+对于高位深度，不同的系统也可能更喜欢不同的格式，比如 'rgba16float' 或 'rgb10a2unorm'。
+
+### 多显示器 ### {#canvas-output-multiple-displays}
+
+某些系统具有多个具有不同功能的显示器（例如 HDR 与非 HDR）。
+浏览器窗口可以在这些显示之间移动。
+
+与今天的 WebGL 一样，用户代理可以自己决定如何公开这些功能，例如 选择初始、主要或最强大显示的功能。
+
+将来，可能会提供一个事件，允许应用程序检测画布何时移动到具有不同属性的显示器，以便它们可以再次调用 getSwapChainPreferredFormat() 和 configureSwapChain()。
+
+#### 多适配器 #### {#canvas-output-multiple-adapters}
+
+有些系统有多个显示器连接到不同的硬件适配器； 例如，具有可切换显卡的笔记本电脑可能将内部显示器连接到集成 GPU，将 HDMI 端口连接到独立 GPU。
+
+这可能会产生开销，因为在一个适配器上呈现并在另一个适配器上显示通常会导致通过 PCI 总线进行复制或直接内存访问 (DMA).
+
+目前，WebGPU 不提供检测哪个适配器最适合给定显示器的方法。
+将来，应用程序可能能够检测到这一点，并在发生变化时接收事件。
+
+
+## 位标志 ## {#bitflags}
+
+WebGPU 在几个地方使用 C 风格的位标志。
+（在规范中搜索 GPUFlagsConstant 以获取实例。）
+典型的位标志定义如下所示：
+
+<xmp highlight=idl>
+typedef [EnforceRange] unsigned long GPUColorWriteFlags;
+[Exposed=Window]
+namespace GPUColorWrite {
+    const GPUFlagsConstant RED   = 0x1;
+    const GPUFlagsConstant GREEN = 0x2;
+    const GPUFlagsConstant BLUE  = 0x4;
+    const GPUFlagsConstant ALPHA = 0x8;
+    const GPUFlagsConstant ALL   = 0xF;
+};
+</xmp>
+
+之所以选择这个，是因为今天没有其他特别符合工程学的方式来描述 JavaScript 中的“enum sets”。
+
+在 WebGL 中使用了 Bitflags，许多 WebGPU 开发人员都会熟悉它。
+它们还与许多本机语言绑定将使用的 API 形状紧密匹配。
+
+最接近的选项是 sequence<enum type>，但它不会自然地描述一组无序的唯一项，并且不容易允许像上面的 GPUColorWrite.ALL 这样的东西。
+此外，sequence<enum type> 有很大的开销，因此我们必须在任何预期为“热路径”的 API（如命令编码器方法）中避免它，从而导致与 *do* 的 API 部分不一致 用它。
+
+请查看问题 [#747](https://github.com/gpuweb/gpuweb/issues/747)
+其中提到 JavaScript 中的强类型位标志会很有用。
+
+
+# 安全和隐私（自我审查） # {#questionnaire}
+
+本节是安全和隐私自我审查。
+您还可以查看规范的[恶意使用注意事项](https://gpuweb.github.io/gpuweb/#malicious-use) 部分。
+
+## 此功能可能会向网站或其他方公开哪些信息，以及出于什么目的需要公开？ ## {#questionnaire-1}
+
+该功能会公开有关系统 GPU（或缺少 GPU）的信息。
+
+它允许通过在没有软件回退的情况下请求 GPUAdapter 来确定系统中的一个 GPU 是否支持 WebGPU。
+如果系统不支持硬件加速的 WebGPU，这对于站点能够回退到硬件加速的 WebGL 是必要的。
+
+对于请求的适配器，该功能会公开名称、GPUAdapter 支持的一组可选 WebGPU 功能，以及 GPUAdapter 支持的一组数字限制。
+这是必要的，因为 GPU 硬件有很多多样性，虽然 WebGPU 以最小公分母为目标，但它意味着在硬件允许的情况下进行扩展以展示更强大的功能。
+该名称可以在选择时向用户显示，例如让它选择一个适配器，并且站点可以使用该名称来执行特定于 GPU 的变通方法（这在过去对于 WebGL 至关重要）。
+
+请注意，用户代理控制公开哪些名称、可选功能和限制。
+站点不可能区分不支持功能的硬件和选择不公开它的用户代理。
+用户代理应该对 GPU 的实际功能进行存储，并且只向站点公开有限数量的此类存储桶。
+
+## 规范中的功能是否公开了实现其预期用途所需的最少信息？ ## {#questionnaire-2}
+
+是的。
+WebGPU 只需要公开硬件加速的 WebGPU 是否可用，而不是为什么，或者浏览器是否选择不公开它等。
+
+对于名称、可选功能和限制，公开的信息并未指定为最少，因为每个站点可能需要限制和可选功能的不同子集。
+相反，公开的信息由用户代理控制，该用户代理预计仅公开少量所有公开相同信息的存储桶。
+
+## 规范中的功能如何处理个人信息、个人身份信息 (PII) 或从它们派生的信息？ ## {#questionnaire-3}
+
+WebGPU 不处理 PII，除非站点将 PII 放入 API 中，这意味着 Javascript 在 WebGPU 之前就可以访问 PII。
+
+## 规范中的功能如何处理敏感信息？ ## {#questionnaire-4}
+
+WebGPU 不处理敏感信息。
+然而，它暴露的一些信息可能与敏感信息相关：强大的可选功能的存在或高速的 GPU 计算将允许推断对“高端”GPU 的访问，这些 GPU 本身与其他信息相关。
+
+## 您的规范中的功能是否为跨浏览会话持续存在的源引入了新状态？ ## {#questionnaire-5}
+
+WebGPU 规范没有引入新状态。
+但是，预期实现会缓存编译着色器和管道的结果。
+这引入了可以通过测量编译一组着色器和管道所花费的时间来检查的状态。
+请注意，GPU 驱动程序也有自己的缓存，因此用户代理必须找到禁用该缓存的方法（否则状态可能会跨源泄漏）。
+
+## 规范中的功能是否向源公开了有关底层平台的信息？ ## {#questionnaire-6}
+
+是的。
+该规范公开了硬件加速的 WebGPU 是否可用以及用户代理控制的名称和一组可选功能，并限制了每个 GPUAdapter 支持。
+对返回具有不同功能的适配器的不同请求也表明系统包含多个 GPU。
+
+## 此规范是否允许源将数据发送到底层平台？ ## {#questionnaire-7}
+
+WebGPU 允许将数据发送到系统的 GPU。
+WebGPU 规范可防止将格式错误的 GPU 命令发送到硬件。
+还预计用户代理将针对驱动程序中的错误提供解决方法，即使使用格式良好的 GPU 命令也可能导致问题。
+
+## 本规范中的功能是否允许原始访问用户设备上的传感器？ ## {#questionnaire-8}
+
+不允许。
+
+## 本规范中的特征向源公开了哪些数据？ 还请在相同或不同的上下文中记录哪些数据与其他功能公开的数据相同。 ## {#questionnaire-9}
+
+WebGPU 暴露了硬件加速的 WebGPU 是否可用，这是一个新的数据。
+适配器的名称、可选功能和限制与 WebGL 的 RENDERER_STRING、限制和扩展有很大的交集：即使不在 WebGL 中的限制也可以从 WebGL 公开的其他限制（通过推断系统具有的 GPU 模型）推导出来。
+
+## 本规范中的特性是否支持新的脚本执行/加载机制？ ## {#questionnaire-10}
+
+是的。
+WebGPU 允许运行由 WebGPU 着色语言 (WGSL) 指定的任意 GPU 计算。
+WGSL 被编译成一个 GPUShaderModule 对象，然后用于指定在 GPU 上运行计算的“管道”。
+
+## 此规范中的功能是否允许源访问其他设备？ ## {#questionnaire-11}
+
+不允许。
+WebGPU 允许访问插入系统的 PCI-e 和外部 GPU，但这些只是系统的一部分。
+
+## 本规范中的功能是否允许起源对用户代理的本机 UI 进行某种控制？ ## {#questionnaire-12}
+
+不允许。
+然而，WebGPU 可用于渲染到全屏或 WebXR，这会改变 UI。
+WebGPU 还可以运行耗时过长的 GPU 计算，并导致设备超时和 GPU (TDR) 重启，这会产生几个系统范围的黑帧。
+请注意，这可以通过“仅”HTML/CSS 实现，但 WebGPU 更容易导致 TDR。
+
+## 本规范中的功能创建或公开给网络的临时标识符是什么？ ## {#questionnaire-13}
+
+None.
+
+## 该规范如何区分第一方和第三方上下文中的行为？ ## {#questionnaire-14}
+
+第一方和第三方上下文之间没有特定的行为差异。
+然而，用户代理可以决定限制返回给第三方上下文的 GPUAdapters：通过使用更少的存储桶、使用单个存储桶或不公开 WebGPU。
+
+## 本规范中的功能如何在浏览器的隐私浏览或隐身模式的上下文中工作？ ## {#questionnaire-15}
+
+Incognito 模式没有区别，但用户代理可以决定限制返回的 GPUAdapters。
+用户代理需要注意不要在隐身模式下重用着色器编译缓存。
+
+## 此规范是否同时包含“安全注意事项”和“隐私注意事项”部分？ ## {#questionnaire-16}
+
+是的。
+它们都在 [恶意使用注意事项](https://gpuweb.github.io/gpuweb/#malicious-use) 部分下。
+
+## 您的规范中的功能是否允许起源降级默认安全保护？ ## {#questionnaire-17}
+
+不允许。
+除了 WebGPU 可用于渲染到全屏或 WebXR。
+
+## 这个问卷应该问什么？ ## {#questionnaire-18}
+
+规范是否允许与跨源数据交互？ 使用 DRM 数据？
+
+目前 WebGPU 无法做到这一点，但将来很可能有人会要求这些功能。
+有可能引入“受保护队列”的概念，它只允许计算在屏幕上结束，而不是在 Javascript 中结束。
+然而，WebGL 中的调查表明，GPU 计时可用于从此类受保护队列中泄漏。
+
+# WebGPU Shading Language # {#wgsl}
+
+
