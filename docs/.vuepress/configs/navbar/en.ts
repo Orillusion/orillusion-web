@@ -19,6 +19,7 @@ export const en: NavbarConfig = [
         children: [
           {text:'Specification', link: 'https://dev.orillusion.com/webgpu.html'},
           {text:'Shading Language', link: 'https://dev.orillusion.com/wgsl.html'},
+          {text:'Explainer', link: 'https://dev.orillusion.com/explainer.html'},
         ],
       },
     ]
