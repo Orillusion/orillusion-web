@@ -1,6 +1,6 @@
 <template>
     <div>
-        <svg id="logo" viewBox="0 0 132.84 132.84" xmlns="http://www.w3.org/2000/svg">
+        <svg ref="svg" viewBox="0 0 132.84 132.84" xmlns="http://www.w3.org/2000/svg">
             <g :fill="color">
                 <path d="m58.17 84.17-1.84 1.06v-2.13z" />
                 <path d="m71.08 84.98-1.42-.81 1.42-.82z" />
@@ -244,30 +244,33 @@
         </svg>
     </div>
 </template>
-<script setup lang="ts">
-    import { computed, onMounted } from 'vue'
+<script lang="ts">
     import { useDarkMode } from '@vuepress/theme-default/lib/client/composables'
-    const isDarkMode = useDarkMode()
-
-    const color = computed(() => {
-        return isDarkMode.value ? '#adbac7' : '#2c3e50'
-    })
-
-    onMounted(() => {
-        let paths = document.querySelectorAll('svg#logo path')
-        let center = 132.84 / 2
-        for(let i = 0; i < paths.length; i++){
-            let p = paths[i] as SVGGraphicsElement
-            let box = p.getBBox()
-            let x = box.x + box.width / 2
-            let y = box.y + box.height / 2
-            let offset = Math.sqrt(Math.pow(x-center, 2) + Math.pow(y-center, 2))
-            p.setAttribute('transform-origin', x + ' ' + y)
-            p.setAttribute('style', `animation-delay: ${offset * 0.02}s`)
+    let isDarkMode
+    export default {
+        setup(){
+            isDarkMode = useDarkMode()
+        },
+        mounted(){
+            let paths = document.querySelectorAll('svg path')
+            let center = 132.84 / 2
+            for(let i = 0; i < paths.length; i++){
+                let p = paths[i] as SVGGraphicsElement
+                let box = p.getBBox()
+                let x = box.x + box.width / 2
+                let y = box.y + box.height / 2
+                let offset = Math.sqrt(Math.pow(x-center, 2) + Math.pow(y-center, 2))
+                p.setAttribute('transform-origin', x + ' ' + y)
+                p.setAttribute('style', `animation-delay: ${offset * 0.02}s`)
+            }
+            this.$refs.svg.classList.add('active')
+        },
+        computed:{
+            color(){
+                return isDarkMode.value ? '#adbac7' : '#2c3e50'
+            }
         }
-        document.querySelector('svg#logo').classList.add('active')
-    })
-    
+    }
 </script>
 
 <style scoped>
@@ -277,12 +280,16 @@ div {
     display: block;
     margin: 3rem auto 1.5rem;
 }
-svg#logo {
+svg {
     width: 100%;
     height: 100%;
     transform-origin: center;
+    opacity: 0;
 }
-svg#logo.active path {
+svg.active{
+    opacity: 1;
+}
+svg.active path {
     animation: wave 3s ease-in-out infinite;
 }
 @keyframes wave {
