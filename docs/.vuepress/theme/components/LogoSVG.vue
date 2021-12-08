@@ -1,7 +1,7 @@
 <template>
     <div>
         <svg ref="svg" viewBox="0 0 132.84 132.84" xmlns="http://www.w3.org/2000/svg">
-            <g :fill="color">
+            <g fill="#2c3e50">
                 <path d="m58.17 84.17-1.84 1.06v-2.13z" />
                 <path d="m71.08 84.98-1.42-.81 1.42-.82z" />
                 <path d="m78.72 84.17-1.92 1.1v-2.21z" />
@@ -245,12 +245,7 @@
     </div>
 </template>
 <script lang="ts">
-    import { useDarkMode } from '@vuepress/theme-default/lib/client/composables'
-    let isDarkMode
     export default {
-        setup(){
-            isDarkMode = useDarkMode()
-        },
         mounted(){
             let paths = document.querySelectorAll('svg path')
             let center = 132.84 / 2
@@ -264,11 +259,6 @@
                 p.setAttribute('style', `animation-delay: ${offset * 0.02}s`)
             }
             this.$refs.svg.classList.add('active')
-        },
-        computed:{
-            color(){
-                return isDarkMode.value ? '#adbac7' : '#2c3e50'
-            }
         }
     }
 </script>
@@ -283,6 +273,7 @@ div {
 svg {
     width: 100%;
     height: 100%;
+    max-height: 280px;
     transform-origin: center;
     opacity: 0;
 }
@@ -321,5 +312,8 @@ svg.active path {
         transform: scale(1);
         opacity: 1;
     }
+}
+html.dark svg > g{
+    fill: #adbac7
 }
 </style>
