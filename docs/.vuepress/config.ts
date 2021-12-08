@@ -4,7 +4,7 @@ import { path } from '@vuepress/utils'
 import { navbar, sidebar } from './configs'
 
 const isProd = process.env.NODE_ENV === 'production'
-
+console.log(path.resolve(__dirname, './theme'))
 export default defineUserConfig<DefaultThemeOptions>({
 	base: '/',
 	head: [
@@ -44,9 +44,10 @@ export default defineUserConfig<DefaultThemeOptions>({
 		},
 	},
 	bundler: isProd ? '@vuepress/webpack' : '@vuepress/vite', // use vite in dev, use webpack in prod
+	theme: path.resolve(__dirname, './theme'),
 	themeConfig: {
 		darkMode: true,
-		logo: '/images/logo_blue.png',
+		logo: '/images/logo_black.png',
 		logoDark: '/images/logo_white.png',
 		repo: 'Orillusion/orillusion-web',
 		docsDir: 'docs',
