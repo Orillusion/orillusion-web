@@ -41,20 +41,20 @@
     display: block;
     margin: 3rem auto 1.5rem;
 }
-.svg >>> svg {
+.svg :deep(svg) {
     width: 100%;
     height: 100%;
     max-height: 280px;
     transform-origin: center;
     opacity: 0;
 }
-.svg.active >>> svg{
+.svg.active :deep(svg){
     opacity: 1;
 }
-.svg.active >>> path {
+.svg.active :deep(path) {
     animation: wave 3s ease-in-out infinite;
 }
-html.dark .svg >>> g{
+html.dark .svg :deep(g){
     fill: #adbac7
 }
 @keyframes wave {
