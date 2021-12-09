@@ -1,7 +1,7 @@
 <template>
   <main class="home" :aria-labelledby="heroText ? 'main-title' : undefined">
     <header class="hero">
-      <LogoSVG v-if="heroImage.match(/\.svg$/)"></LogoSVG>
+      <Logo v-if="heroImage.match(/\.svg$/)"></Logo>
       <img v-else-if="heroImage" :src="heroImage" :alt="heroAlt" />
 
       <h1 v-if="heroText" id="main-title">
@@ -53,7 +53,7 @@ import { computed } from 'vue'
 import type { DefaultThemeHomePageFrontmatter } from '../shared'
 
 import NavLink from '@vuepress/theme-default/lib/client/components/NavLink.vue'
-import LogoSVG from './LogoSVG.vue'
+import Logo from './Logo.vue'
 
 const frontmatter = usePageFrontmatter<DefaultThemeHomePageFrontmatter>()
 const siteLocale = useSiteLocaleData()
