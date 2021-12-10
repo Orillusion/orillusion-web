@@ -12,14 +12,6 @@ TODO, Coming soon...
 
 ## Why Not Three / Babylon or other Web3D engine?
 
-### Three
-
-::: tip NOTE
-TODO, Coming soon...
-:::
-
-### Babylon
-
 ::: tip NOTE
 TODO, Coming soon...
 :::

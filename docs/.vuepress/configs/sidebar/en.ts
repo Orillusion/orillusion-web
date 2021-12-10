@@ -18,9 +18,9 @@ export const en: SidebarConfig = {
         {
           text: 'WebGPU',
           children: [
-            {text: 'Specification', link: 'https://dev.orillusion.com/webgpu.html'},
-            {text: 'Shading Language', link: 'https://dev.orillusion.com/wgsl.html'},
-            {text: 'Explainer', link: 'https://dev.orillusion.com/explainer.html'},
+            {text: 'Specification', link: 'https://www.orillusion.com/webgpu.html'},
+            {text: 'Shading Language', link: 'https://www.orillusion.com/wgsl.html'},
+            {text: 'Explainer', link: 'https://www.orillusion.com/explainer.html'},
           ],
         }
       ],
