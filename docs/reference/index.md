@@ -4,4 +4,4 @@
 Under developing, Coming soon...
 :::
 
-- **See also**: [WebGPU Specification](https://dev.orillusion.com/webgpu.html)
+- **See also**: [WebGPU Specification](https://www.orillusion.com/webgpu.html)
