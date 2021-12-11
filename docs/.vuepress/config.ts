@@ -133,6 +133,12 @@ export default defineUserConfig<DefaultThemeOptions>({
 				componentsDir: path.resolve(__dirname, './components'),
 			},
 		],
+		[
+			'@vuepress/plugin-google-analytics',
+			{
+				id: 'G-0H9189CS0W',
+			},
+		],
 		// only enable shiki plugin in production mode
 		[
 			'@vuepress/plugin-shiki',
