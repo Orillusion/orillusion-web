@@ -13,12 +13,15 @@
       </p>
 
       <p v-if="actions.length" class="actions">
+        <a class="no-ready nav-link action-button primary" aria-label="Get Started">
+          <span> {{actions[0].text}} </span>
+          <span> Coming Soon </span>
+        </a>
         <NavLink
-          v-for="action in actions"
-          :key="action.text"
+          :key="actions[1].text"
           class="action-button"
-          :class="[action.type]"
-          :item="action"
+          :class="[actions[1].type]"
+          :item="actions[1]"
         />
       </p>
     </header>
@@ -115,4 +118,24 @@ const footerHtml = computed(() => frontmatter.value.footerHtml)
   .feature{
     text-align: center;
   }
+  .action-button{
+    width: 180px;
+  }
+  .no-ready{
+    cursor: not-allowed;
+  }
+  .no-ready:hover{
+    background-color: #22272e !important;
+  }
+  .no-ready > span:last-child{
+    display: none;
+    color: var(--c-brand);
+  }
+  .no-ready:hover > span:first-child{
+    display: none;
+  }
+  .no-ready:hover > span:last-child{
+    display: inline;
+  }
+  
 </style>

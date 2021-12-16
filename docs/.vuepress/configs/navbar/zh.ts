@@ -8,12 +8,12 @@ export const zh: NavbarConfig = [
   {
     text: '参考',
     children: [
-      {
-        text: 'Orillusion',
-        children: [
-          '/zh/reference/index.md'
-        ],
-      },
+      // {
+      //   text: 'Orillusion',
+      //   children: [
+      //     '/zh/reference/index.md'
+      //   ],
+      // },
       {
         text: 'WebGPU',
         children: [
@@ -27,5 +27,9 @@ export const zh: NavbarConfig = [
   {
     text: '论坛',
     link: 'https://forum.orillusion.com',
+  },
+  {
+    text: '招聘',
+    link: '/zh/jobs.md',
   }
 ]

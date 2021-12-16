@@ -8,12 +8,12 @@ export const en: NavbarConfig = [
   {
     text: 'Reference',
     children: [
-      {
-        text: 'Orillusion',
-        children: [
-          '/reference/index.md'
-        ],
-      },
+      // {
+      //   text: 'Orillusion',
+      //   children: [
+      //     '/reference/index.md'
+      //   ],
+      // },
       {
         text: 'WebGPU',
         children: [

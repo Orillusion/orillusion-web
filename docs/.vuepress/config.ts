@@ -29,6 +29,8 @@ export default defineUserConfig<DefaultThemeOptions>({
 		],
 		['meta', { name: 'msapplication-TileColor', content: '#22272e' }],
 		['meta', { name: 'theme-color', content: '#22272e' }],
+		['meta', { name: 'keywords', content: 'webgpu,orillusion,gfx,engine,ecs,3d' }],
+		['script', {src: "https://zz.bdstatic.com/linksubmit/push.js"}]
 	],
 	// site-level locales config
 	locales: {
