@@ -124,12 +124,12 @@ const footerHtml = computed(() => frontmatter.value.footerHtml)
   .no-ready{
     cursor: not-allowed;
   }
-  .no-ready:hover{
+  /* .no-ready:hover{
     background-color: #22272e !important;
-  }
+  } */
   .no-ready > span:last-child{
     display: none;
-    color: var(--c-brand);
+    /* color: var(--c-brand); */
   }
   .no-ready:hover > span:first-child{
     display: none;
