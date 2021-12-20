@@ -17,12 +17,16 @@
           <span> {{actions[0].text}} </span>
           <span> Coming Soon </span>
         </a>
-        <NavLink
+        <a class="no-ready nav-link action-button" aria-label="Introduction">
+          <span> {{actions[1].text}} </span>
+          <span> Coming Soon </span>
+        </a>
+        <!-- <NavLink
           :key="actions[1].text"
           class="action-button"
           :class="[actions[1].type]"
           :item="actions[1]"
-        />
+        /> -->
       </p>
     </header>
 
