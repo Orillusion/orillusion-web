@@ -1,5 +1,6 @@
 <template>
     <div ref="svg" class="svg">
+        <img src="/images/logo_white.png" alt="Orillusion" />
     </div>
 </template>
 <script lang="ts">

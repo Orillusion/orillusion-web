@@ -1,9 +1,7 @@
 <template>
   <main class="home" :aria-labelledby="heroText ? 'main-title' : undefined">
     <header class="hero">
-      <Logo v-if="heroImage.match(/\.svg$/)"></Logo>
-      <img v-else-if="heroImage" :src="heroImage" :alt="heroAlt" />
-
+      <Logo></Logo>
       <h1 v-if="heroText" id="main-title">
         {{ heroText }}
       </h1>
@@ -13,9 +11,8 @@
       </p>
 
       <p v-if="actions.length" class="actions">
-        <a class="no-ready nav-link action-button primary" aria-label="Get Started">
-          <span> {{actions[0].text}} </span>
-          <span> Coming Soon </span>
+        <a class="nav-link action-button primary" aria-label="Get Started" @click="data.showDemo = true">
+          <span> {{actions[0].text.match(/入门/)? '预览 Demo':'Alpha Demo'}} </span>
         </a>
         <a class="no-ready nav-link action-button" aria-label="Introduction">
           <span> {{actions[1].text}} </span>
@@ -46,6 +43,11 @@
       <div v-if="footerHtml" class="footer" v-html="footer" />
       <div v-else class="footer" v-text="footer" />
     </template>
+    
+    <div class="cover" v-if="data.showDemo">
+      <iframe @click.stop src="https://demo.orillusion.com/Asteroids/" scrolling="no" frameborder="0" ></iframe>
+      <p @click="data.showDemo = false">{{actions[0].text.match(/入门/)? '关闭 DEMO':'CLOSE DEMO'}}</p>
+    </div>
   </main>
 </template>
 
@@ -56,10 +58,10 @@ import {
   withBase,
 } from '@vuepress/client'
 import { isArray } from '@vuepress/shared'
-import { computed } from 'vue'
+import { computed, reactive } from 'vue'
 import type { DefaultThemeHomePageFrontmatter } from '../shared'
 
-import NavLink from '@vuepress/theme-default/lib/client/components/NavLink.vue'
+//import NavLink from '@vuepress/theme-default/lib/client/components/NavLink.vue'
 import Logo from './Logo.vue'
 
 const frontmatter = usePageFrontmatter<DefaultThemeHomePageFrontmatter>()
@@ -116,6 +118,8 @@ const features = computed(() => {
 // footer
 const footer = computed(() => frontmatter.value.footer)
 const footerHtml = computed(() => frontmatter.value.footerHtml)
+
+let data = reactive({showDemo: false})
 </script>
 
 <style scoped>
@@ -124,6 +128,7 @@ const footerHtml = computed(() => frontmatter.value.footerHtml)
   }
   .action-button{
     width: 180px;
+    cursor: pointer;
   }
   .no-ready{
     cursor: not-allowed;
@@ -141,5 +146,29 @@ const footerHtml = computed(() => frontmatter.value.footerHtml)
   .no-ready:hover > span:last-child{
     display: inline;
   }
-  
+  .cover{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.6);
+    z-index: 1000;
+    backdrop-filter: blur(2px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5%;
+  }
+  .cover > p{
+    text-align:center;cursor:pointer;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .cover > p:hover{
+    color: var(--c-brand);
+  }
+  iframe{
+    height: 100%;
+  }
 </style>
