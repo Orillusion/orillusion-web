@@ -36,13 +36,13 @@ export default defineUserConfig<DefaultThemeOptions>({
 	locales: {
 		'/': {
 			lang: 'en-US',
-			title: 'Orillusion',
+			title: 'Orillusion | Link Uncharted',
 			description: 'The Next Generation WebGPU Engine',
 		},
 		'/zh/': {
 			lang: 'zh-CN',
-			title: 'Orillusion',
-			description: 'Orillusion 次时代 WebGPU 引擎',
+			title: 'Orillusion | 链接未来世界',
+			description: 'Orillusion 次时代 WebGPU 引擎, 链接未来世界',
 		},
 	},
 	bundler: isProd ? '@vuepress/webpack' : '@vuepress/vite', // use vite in dev, use webpack in prod

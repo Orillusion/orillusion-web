@@ -1,6 +1,6 @@
 ---
 home: true
-title: 首页
+title: 专业WebGPU中文社区
 heroText: Orillusion
 tagline: 次时代 WebGPU 引擎
 heroImage: /images/logo.svg
