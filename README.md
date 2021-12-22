@@ -1,6 +1,7 @@
 # Orillusion
 
-This site is built with [VuePress](https://vuepress.vuejs.org/). Site content is written in Markdown format located in `docs`.
+This is the official doc website of Orillusion, built with [VuePress](https://vuepress.vuejs.org/).   
+Site content is written in Markdown format located in `docs`.
 
 ## Writing
 
