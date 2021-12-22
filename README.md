@@ -1,7 +1,8 @@
 # Orillusion
 
 This is the official doc website of Orillusion, built with [VuePress](https://vuepress.vuejs.org/).   
-Site content is written in Markdown format located in `docs`.
+Site content is written in Markdown format located in [docs](https://github.com/Orillusion/orillusion-web/tree/master/docs).   
+WebGPU specification is written in [Bikeshed](https://tabatkins.github.io/bikeshed) format located in [webgpu](https://github.com/Orillusion/orillusion-web/tree/master/webgpu).
 
 ## Writing
 
