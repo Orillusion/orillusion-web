@@ -10,11 +10,20 @@
                 svg: ''
             }
         },
+        props:['loading'],
         async mounted(){
             let res = await fetch('/images/logo.svg')
             let svg = await res.text()
             this.$refs.svg.innerHTML = svg
             this.$nextTick(this.loadSvg)
+        },
+        watch:{
+            loading(v){
+                if(v)
+                    this.$refs.svg.classList.remove('active')
+                else
+                    this.$refs.svg.classList.add('active')
+            }
         },
         methods:{
             loadSvg(){

@@ -1,7 +1,7 @@
 <template>
   <main class="home" :aria-labelledby="heroText ? 'main-title' : undefined">
     <header class="hero">
-      <Logo></Logo>
+      <Logo :loading="data.showDemo"></Logo>
       <h1 v-if="heroText" id="main-title">
         {{ heroText }}
       </h1>
@@ -152,9 +152,8 @@ let data = reactive({showDemo: false})
     right: 0;
     top: 0;
     bottom: 0;
-    background: rgba(0,0,0,.6);
+    background: rgba(0,0,0,.75);
     z-index: 1000;
-    backdrop-filter: blur(2px);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -170,5 +169,6 @@ let data = reactive({showDemo: false})
   }
   iframe{
     height: 100%;
+    border: 1px solid #233;
   }
 </style>
