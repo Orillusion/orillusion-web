@@ -171,7 +171,7 @@ let data = reactive({showDemo: false})
     height: 100%;
     border: 1px solid #233;
     background: #22272e;
-    background-image: url('/images/logo_white.png');
+    background-image: url('https://www.orillusion.com/images/logo_white.png');
     background-repeat: no-repeat;
     background-size: 250px;
     background-position: center calc(50% - 15px);
