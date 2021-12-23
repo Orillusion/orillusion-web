@@ -56,10 +56,6 @@
     height: 100%;
     max-height: 280px;
     transform-origin: center;
-    opacity: 0;
-}
-.svg.active :deep(svg){
-    opacity: 1;
 }
 .svg.active :deep(path) {
     animation: wave 3s ease-in-out infinite;
