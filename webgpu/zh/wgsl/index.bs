@@ -6555,7 +6555,94 @@ WebGPU 不提供任何保证:
 问题：检查 f32 到 f16 转换的行为是否超出了最大正常 f16 值。
 我已经写了 NVIDIA GPU 的功能。 有关可执行的测试用例，请参阅 https://github.com/google/amber/pull/918。
 
-# 内存模型 TODO # {#memory-model}
+# 内存模型 # {#memory-model}
+通常，[SHORTNAME] 遵循 [[!VulkanMemoryModel|Vulkan Memory Model]]。
+本节的其余部分描述了 [SHORTNAME] 程序如何映射到 Vulkan 内存模型。
+注意：Vulkan 内存模型是[formal Alloy model](https://github.com/KhronosGroup/Vulkan-MemoryModel/blob/master/alloy/spirv.als) 的文本版本。
+
+## Memory Operation ## {#memory-operation}
+在 [SHORTNAME] 中，[=read access=] 相当于 Vulkan 内存模型中的内存读取操作。
+A [SHORTNAME], a [=write access=] 相当于 Vulkan Memory Model 中的内存写操作。
+[=read access=] 当调用执行以下操作之一时发生：
+* 对 [=Load Rule=] 的评估
+* 任意 [[#texture-builtin-functions|texture builtin function]] 除了:
+    * [[#texturedimensions|textureDimensions]]
+    * [[#texturestore|textureStore]]
+    * [[#texturenumlayers|textureNumLayers]]
+    * [[#texturenumlevels|textureNumLevels]]
+    * [[#texturenumsamples|textureNumSamples]]
+* 除 [[#atomic-store|atomicStore]] 之外的任何原子内置函数
+[=write access=] 当调用执行以下操作之一时发生：
+* [=statement/assignment=] 语句
+* [[#texturestore|textureStore]] 内置函数
+* 除 [[#atomic-load|atomicLoad]] 之外的任何原子内置函数
+    * [[#atomic-rmw|atomicCompareExchangeWeak]] 仅当返回结果的 `exchanged` 成员为 `true` 时才执行写入
+[[#atomic-rmw|Atomic read-modify-write]] 内置函数执行单个内存操作，即 [=read access=] 和 [=write access=]。
+在任何其他情况下都不会发生读和写访问。
+读写访问在 Vulkan 中统称为[内存操作](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#memory-model-memory-operation) 内存模型。
+内存操作准确访问与操作中使用的特定 [=memory view=] 相关联的一组 [=memory location|locations=]。 例如，从包含多个成员的结构访问 [=u32=] 的内存读取，仅读取与该 u32 关联的内存位置
+成员。
+<div class='example memory locations accessed' heading="Accessing memory locations">
+  <xmp>
+    [[block]] struct S {
+      a : f32;
+      b : u32;
+      c : f32;
+    };
+    [[group(0), binding(0)]]
+    var<storage> v : S;
+    fn foo() {
+      let x = v.b; // Does not access memory locations for v.a or v.c.
+    }
+  </xmp>
+</div>
+## 内存模型参考 ## {#memory-model-reference}
+[SHORTNAME] 中的每个模块范围变量形成一个唯一的 [memory model reference](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#memory-model-references) 在给定入口点的生命周期内。
+[SHORTNAME] 中的每个函数范围变量形成一个唯一的 [memory model reference](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#memory-model-references) 对于变量的生命周期。
+
+## 范围操作 ## {#scoped-operations}
+[[#atomic-builtin-functions|原子内置函数]]映射到[atomic operations](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#memory -model-atomic-operation) 其内存
+[范围](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#memory-model-scope)
+是:
+* `Workgroup` 如果原子指针在 [=storage classes/workgroup=] 存储类中
+* `QueueFamily` 如果原子指针在 [=storage classes/storage=] 存储类中
+
+[[#sync-builtin-functions|Synchronization built-in functions]]映射到控制屏障的执行和内存[scopes](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#memory-model-scope) 是 `Workgroup`。
+
+注意：当生成不启用 `Vulkan` 内存模型的 SPIR-V 时，应该使用 `Device` 范围而不是 `QueueFamily`。
+
+
+## 内存语义 ## {#memory-semantics}
+所有 [[#atomic-builtin-functions|Atomic built-in functions]] 使用 `Relaxed`
+[memory
+semantics](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#memory-model-memory-semantics)
+因此，没有存储语义。
+[[#sync-builtin-functions|workgroupBarrier]] 使用 `AcquireRelease` [memory
+semantics](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#memory-model-memory-semantics)
+和 `WorkgroupMemory` 存储语义。
+[[#sync-builtin-functions|storageBarrier]] 使用 `AcquireRelease` [memory
+semantics](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#memory-model-memory-semantics)
+和 `UniformMemory` 存储语义。
+注意:组合的“workgroupBarrier”和“storageBarrier”使用“AcquireRelease”排序语义以及“WorkgroupMemory”和“UniformMemory”内存语义。
+
+注意：没有原子或同步内置函数使用 `MakeAvailable` 或 `MakeVisible` 语义。
+
+## Private vs Non-Private ## {#private-vs-non-private}
+[=storage classes/storage=] 中的所有非原子 [=read accesses=] 或
+[=storage classes/workgroup=] 存储类别被视为 [non-private](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#memory-model-non-private)
+并对应于具有以下范围的 `NonPrivatePointer | MakePointerVisible` 内存操作数的读取操作：
+* [=storage classes/workgroup=] 存储类的`Workgroup`
+* `QueueFamily` 用于 [=storage classes/storage=] 存储类
+
+[=storage classes/storage=] 中的所有非原子 [=write accesses=] 或
+[=storage classes/workgroup=] 存储类别被考虑
+[non-private](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#memory-model-non-private)
+并对应于具有以下范围的 `NonPrivatePointer | MakePointerAvailable` 内存操作数的写操作：
+* [=storage classes/workgroup=] 存储类的`Workgroup`
+* `QueueFamily` 用于 [=storage classes/storage=] 存储类
+
+问题: https://github.com/gpuweb/gpuweb/issues/1621
+
 
 # 关键字和符号摘要 # {#grammar}
 
@@ -8036,20 +8123,17 @@ TODO(dsinclair): Need gather operations
 原子内置函数可用于 读/写/读-修改-写 原子
 对象。 它们是 [[#atomic-types]] 上唯一允许的操作。
 
-所有原子内置函数都使用“宽松”内存排序（SPIR-V 中所有“内存语义”操作数的 **0** 值整数常量）。
-这意味着同步和排序保证仅适用于原子
-作用于相同 [= memory locations =] 的操作。
+所有原子内置函数都使用一个`relaxed` [[#memory-semantics|memory ordering]]（**0**-SPIR-V 中所有`Memory Semantics` 操作数的整数常量）。
+这意味着同步和排序保证仅适用于作用于相同 [=内存位置=] 的原子操作。
 原子和非原子内存访问之间或作用于不同内存位置的原子访问之间没有同步或排序保证。
 
 原子内置函数“不得”用在 [=vertex=] 着色器阶段。
 
 所有原子内置函数 `atomic_ptr` 参数的存储类 `SC` 必须是[=storage classes/storage=]或[=storage classes/workgroup=]。
 [=storage classes/workgroup=] 原子在 SPIR-V 中具有 **Workgroup** 内存范围，而 [=storage classes/storage=] 原子在
-SPIR-V 中具有 **Device** 内存范围。
+SPIR-V 中具有 **Queue Family** 内存范围。
 
 所有原子内置函数中的访问模式 `A` 必须是[=access/read_write=]。
-
-TODO: 添加指向最终内存模型描述的链接。
 
 ### 原子负载 ### {#atomic-load}
 
@@ -8124,11 +8208,11 @@ struct __atomic_compare_exchange_result<T> {
 
 1. 加载 `atomic_ptr` 指向的原始值。
 2. 使用相等运算将原始值与值 `v` 进行比较。
-3. 仅当相等比较的结果为 **true** 时才存储值 `v`。
+3. 仅当相等比较的结果为 `true` 时才存储值 `v`。
 
-返回一个双元素向量，其中第一个元素是原子对象的原始值，第二个元素是比较是否成功（**1**如果成功，否则为**0**）。
+返回一个双成员结构，其中第一个成员 `old_value` 是原子对象的原始值，第二个成员 `exchanged` 是比较是否成功。
 
-注意：在某些实现中，相等比较可能会失败。 也就是说，即使结果向量的第一个元素等于 `cmp`，结果向量的第二个元素也可能是 **0**。
+注意：在某些实现中，相等比较可能会失败。 也就是说，即使结果向量的第一个元素等于 `cmp`，结果向量的第二个元素也可能是 `false`。
 
 ## 数据打包内置函数 ## {#pack-builtin-functions}
 
@@ -8217,25 +8301,24 @@ fn storageBarrier()
 fn workgroupBarrier()
 ```
 
-所有同步函数都执行一个带有获取/释放内存排序的控制屏障。 也就是说，
-所有同步函数以及受影响的内存和原子操作都在 [[#program-order]] 中相对于同步函数进行排序。
-此外，在同步函数由工作组成员执行之后，在任何受影响的内存或原子操作程序排序之前，同步函数之前受影响的内存和原子操作必须对工作组中的所有其他线程可见。
+所有同步函数都使用 Acquire/Release [[#memory-semantics|memory ordering]] 执行控制屏障。
+也就是说，所有的同步函数，以及受影响的内存和原子操作都按照 [[#program-order|program order]] 相对于同步函数进行排序。
+此外，在同步功能由工作组成员执行之后的任何受影响的内存或原子操作程序排序之前，在同步功能之前受影响的内存和原子操作必须对工作组中的所有其他线程可见。
+所有同步函数都使用`Workgroup` [[#scoped-operations|memory scope]]。
 所有同步函数只能在 [=compute=] 着色器阶段使用。
 
 storageBarrier 影响 [=storage classes/storage=] 存储类中的内存和原子操作。
 
 workgroupBarrier 影响 [=storage classes/workgroup=] 存储类中的内存和原子操作。
 
-TODO: 添加指向最终内存模型的链接。
-
 <div class='example spirv barrier mapping' heading="Mapping workgroupBarrier to SPIR-V">
   <xmp>
     storageBarrier();
     // Maps to:
     // Execution Scope is Workgroup = %uint_2
-    // Memory Scope is Device = %uint_1
+    // Memory Scope is Workgroup = %uint_2
     // Memory Semantics are AcquireRelease | UniformMemory (0x8 | 0x40) = %uint_72
-    // OpControlBarrier %uint_2 %uint_1 %uint_72
+    // OpControlBarrier %uint_2 %uint_2 %uint_72
 
     workgroupBarrier();
     // Maps to:
@@ -8250,10 +8333,10 @@ TODO: 添加指向最终内存模型的链接。
     workgroupBarrier();
     // Could be mapped to a single OpControlBarrier:
     // Execution scope is Workgroup = %uint_2
-    // Memory Scope is Device = %uint_1
+    // Memory Scope is Workgroup = %uint_2
     // Memory semantics are AcquireRelease | UniformMemory | WorkgroupMemory
     //   (0x8 | 0x40 | 0x100) = %uint_328
-    // OpControlBarrier %uint_2 %uint_1 %uint_328
+    // OpControlBarrier %uint_2 %uint_2 %uint_328
   </xmp>
 </div>
 
