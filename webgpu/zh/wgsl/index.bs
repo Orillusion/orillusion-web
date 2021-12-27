@@ -6617,32 +6617,11 @@ TODO: 解释表中函数原型的使用：提供名称、形参列表和返回�
     (OpSelect)
 </table>
 
-## 值测试内置函数 ## {#value-testing-builtin-functions}
+## 数组内置函数 ## {#array-builtin-functions}
 <table class='data'>
-  <caption>一元运算符</caption>
   <thead>
     <tr><th>前提条件<th>结论<th>解释
   </thead>
-  <tr algorithm="isNan">
-  <td rowspan=4>
-    |I| 是 [FLOATING]<br>
-    |T| 是 bool 如果 |I| 是一个标量， 或者<br>
-    vec|N|&lt;bool&gt; 如果 |I| 是一个向量
-    <td class="nowrap">`isNan(`|e|`:` |I| `) -> ` |T|
-    <td>根据 [[!IEEE-754|IEEE-754]] 测试 NaN。<br>
-    [=Component-wise=] 当 |I| 为一个向量。 (OpIsNan)
-  <tr algorithm="isInf">
-    <td class="nowrap">`isInf(`|e|`:` |I| `) -> ` |T|
-    <td>根据 [[!IEEE-754|IEEE-754]] 测试无限值。<br>
-    [=Component-wise=] 当 |I| 是一个向量。 (OpIsInf)
-  <tr algorithm="isFinite">
-    <td class="nowrap">`isFinite(`|e|`:` |I| `) -> ` |T|
-    <td>根据 [[!IEEE-754|IEEE-754]] 测试有限值。<br>
-    [=Component-wise=] 当 |I| 是一个向量。
-  <tr algorithm="isNormal">
-    <td class="nowrap">`isNormal(`|e|`:` |I| `) -> ` |T|
-    <td>根据 [[!IEEE-754|IEEE-754]] 测试一个法向值。<br>
-    [=Component-wise=] 当 |I| 是一个向量。
 
   <tr algorithm="runtime-sized array length">
     <td>|e|: ptr&lt;storage,array&lt;|T|&gt;&gt;
