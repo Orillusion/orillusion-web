@@ -12,7 +12,7 @@ Text Macro: UNSIGNEDINTEGRAL u32 or vec|N|&lt;u32&gt;
 Text Macro: SIGNEDINTEGRAL i32 or vec|N|&lt;i32&gt;
 Text Macro: INTEGRAL i32, u32, vec|N|&lt;i32&gt;, or vec|N|&lt;u32&gt;
 Text Macro: FLOATING f32 or vec|N|&lt;f32&gt;
-Ignored Vars: i, e, e1, e2, e3, eN, N, M, v, Stride, Offset, Align, Extent, S, T, T1
+Ignored Vars: i, c0, e, e1, e2, e3, eN, p, s1, s2, sn, N, M, v, Stride, Offset, Align, Extent, S, T, T1
 
 !Participate: <a href="https://github.com/gpuweb/gpuweb/issues/new?labels=wgsl">File an issue</a> (<a href="https://github.com/gpuweb/gpuweb/issues?q=is%3Aissue+is%3Aopen+label%3Awgsl">open issues</a>)
 !Translator: 赵凌云，lingyun.zhao@orillusion.com
@@ -126,6 +126,14 @@ div.syntax > p > code {
 spec: SPIR-V; urlPrefix: https://www.khronos.org/registry/spir-v/specs/unified1/SPIRV.html#
     type: dfn
         text: image formats; url: _a_id_image_format_a_image_format
+spec: Vulkan ; urlPrefix: https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#
+    type: dfn
+        text: memory model memory operation; url: memory-model-memory-operation
+        text: memory model reference; url: memory-model-references
+        text: memory model atomic operation; url: memory-model-atomic-operation
+        text: memory model scope; url:memory-model-scope
+        text: memory model memory semantics; url:memory-model-memory-semantics
+        text: memory model non-private; url: memory-model-non-private
 </pre>
 
 # 介绍 # {#intro}
@@ -165,6 +173,7 @@ WebGPU 以[[WebGPU#gpu-command|GPU command]]的形式向 GPU 发出一个工作�
 * 用于定义或分析所有这些函数、变量和常量的类型集。
 
 执行着色器阶段时，实现：
+* 计算在 [=module scope|module-scope=] 中声明的常量的值。
 * 将资源（[=resources=]）绑定到着色器资源接口([=resource interface of a shader|resource interface=])中的变量，使这些资源的内容在执行期间可供着色器使用。
 * 为其他模块范围([=module scope|module-scope=])的变量分配内存，并使用指定的初始值填充该内存。
 * 使用阶段的管线输入填充入口点的形式参数（如果存在）。
@@ -237,7 +246,7 @@ WebGPU 以[[WebGPU#gpu-command|GPU command]]的形式向 GPU 发出一个工作�
 
 列向量的转置是通过将列向量解释为1行矩阵来定义的。类似地，行向量的转置是通过将行向量解释为1列矩阵来定义的。
 
-# 着色器生命周期 # {#program-lifecycle}
+# 着色器生命周期 # {#shader-lifecycle}
 
 [SHORTNAME]程序及其可能包含的着色器生命周期中有四个关键事件。前两个对应于用于准备[SHORTNAME]程序以供执行的WebGPU API方法。最后两个是着色器执行的开始和结束。
 
@@ -338,22 +347,12 @@ TODO：更新WebGPU规范，参考这里定义的三种错误。
     * 用一个space字符替换第一个注释。
     * 重复直到没有注释。
 2. 从头到尾扫描，以贪心的方式将剩余的字符分组为标记和空格：
-    * 下一组由剩余未分组字符的最长非空前缀组成，即：
-        * 一个有效的token, 或者
-        * blankspace
-    * 重复直到没有未分组的字符剩余。
-3. 去掉blankspace，只留下tokens。
-3. 解析token序列，尝试匹配 `translation_unit` 语法规则。
-
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>translation_unit</dfn> :
-
-    | [=syntax/global_decl_or_directive=] *
-</div>
+    * 下一组由剩余未分组字符的最长非空前缀组成
+3. 解析token序列，尝试匹配 [=syntax/translation_unit=] 语法规则。
 
 在以下情况下会导致[=shader-creation error=]：
 * 整个源文本无法转换为有限的有效tokens序列，或
-* `translation_unit` 语法规则与整个token序列不匹配。
+* [=syntax/translation_unit=] 语法规则与整个token序列不匹配。
 
 ## 注释 ## {#comments}
 
@@ -363,7 +362,28 @@ TODO：更新WebGPU规范，参考这里定义的三种错误。
 * 除[=blankspace=]或水平制表符之外的下一个空格字符，或
 * 程序结尾
 
-TODO(dneto)：合并块注释，per https://github.com/gpuweb/gpuweb/pull/1470
+<dfn noexport>block comment</dfn>是一种[=comment=]，由以下内容组成：
+* 两个字符 `/*`
+* 然后是任何序列：
+     * A [=block comment=]，或
+     * 不包含 `*/` 或 `/*` 的文本
+* 然后两个字符`*/`
+
+注意：块注释可以嵌套。
+由于块注释需要匹配的开始和结束文本序列，并允许任意嵌套，因此不能用正则表达式识别块注释。
+这是常规语言的抽水引理的结果。
+
+<div class='example wgsl' heading='Comments'>
+  <xmp>
+  let f = 1.5;   // 这是行尾注释。
+  let g = 2.5;   /* 这是一个块注释
+                    跨越几行。
+                    /* 块注释可以嵌套
+                     */
+                    但是所有的块注释必须完结。
+                  */
+  </xmp>
+</div>
 
 ## 标记 ## {#tokens}
 
@@ -503,19 +523,6 @@ TODO(dneto)：描述数字文字标记如何映射到理想化值，然后映射
 
     指定绑定组（[=attribute/group=]）中资源的绑定号。见[[#resource-interface]]。
 
-  <tr><td><dfn noexport dfn-for="attribute">`block`</dfn>
-    <td>*None*
-    <td>必须仅应用于结构（[=structure=]）类型。
-
-    表示这个结构类型代表了在着色器的资源接口（[=resource interface of a
-    shader|shader's resource interface=]）中占用单个绑定槽的缓冲区资源的内容。
-
-    `block` 属性必须应用于用作统一缓冲区（[=uniform buffer=]）或存储缓冲区（[=storage buffer=]）变量的存储类型（[=store type=]）的结构类型。
-
-    具有 `block` 属性的结构类型不得为：
-    * 数组（[=array=]）类型的元素类型
-    * 另一个结构中的成员类型
-
   <tr><td><dfn noexport dfn-for="attribute">`builtin`
     <td>一个内置变量标识符
     <td>只能应用于入口点函数参数、入口点返回类型或结构（[=structure=]）成员。
@@ -533,9 +540,7 @@ TODO(dneto)：描述数字文字标记如何映射到理想化值，然后映射
 
     第一个参数必须是插值类型（[=interpolation type=]）。 第二个参数（如果存在）必须指定插值采样（[=interpolation sampling=]）。
 
-    <td>
-
-    只能应用于入口点函数参数、入口点返回类型或结构（[=structure=]）类型的成员。只能应用于浮点类型的标量或向量的声明。不得与计算（[=compute=]）着色器阶段一起使用。
+    <td>只能应用于用 [=attribute/location=] 属性修饰的声明。
 
     指定用户定义的IO如何必须插入。该属性仅对用户定义的顶点（[=vertex=]）输出和片元（[=fragment=]）输入有意义。见[[#interpolation]]。
 
@@ -573,8 +578,8 @@ TODO(dneto)：描述数字文字标记如何映射到理想化值，然后映射
     <td>`compute`, `vertex`, or `fragment`
     <td>
 
-    仅应用于函数声明。
-    通过指定其管线阶段声明入口点。
+    仅应用于[=function declaration=]。
+    通过指定 [[#shader-stages-sec|pipeline stage]] 来声明 [=entry point=]。
 
   <tr><td><dfn noexport dfn-for="attribute">`stride`</dfn>
     <td>正i32文字
@@ -606,6 +611,12 @@ TODO(dneto)：描述数字文字标记如何映射到理想化值，然后映射
 
 指令（<dfn noexport>directive</dfn>）是一个[=token=]序列，它修改了WebGPU实现对[SHORTNAME]程序的处理方式。见[[#enable-directive-section]]。
 
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>global_directive</dfn> :
+
+    | [=syntax/enable_directive=]
+</div>
+
 ## 声明和范围 ## {#declaration-and-scope}
 
 声明（<dfn noexport>declaration</dfn>）将标识符（[=identifier=]）与以下类型的对象之一相关联：
@@ -621,76 +632,97 @@ TODO(dneto)：描述数字文字标记如何映射到理想化值，然后映射
 
 每种声明都有自己的规则来确定其范围。通常，范围是在声明结束后立即开始的一段文本。
 
-某些对象由WebGPU实现提供，并被视为已在[SHORTNAME]程序开始时声明。我们说这样的对象是预先声明的（<dfn noexport>predeclared</dfn>）。他们的范围是整个[SHORTNAME]程序。预先声明的对象的示例为：
+某些对象由 WebGPU 实现提供，并被视为已被每个 [SHORTNAME] 程序声明。
+我们说这样的对象是预先声明的（<dfn noexport>predeclared</dfn>）。他们的范围是整个[SHORTNAME]程序。预先声明的对象的示例为：
 * [=built-in functions=], and
 * built-in types.
 
 当该标识符已经在与该名称的另一个实例具有相同结束范围的范围内时，声明不得引入名称。 当标识符用于该名称的一个或多个声明的范围内时，标识符将表示最接近该用途的声明对象。我们说标识符使用解析（<dfn noexport>resolves</dfn>）为该声明。
 
-注意：声明总是在其标识符的作用域之前。因此，最近的标识符作用域声明总是在标识符的使用之前。
-
-<div class='example' heading='Valid and invalid declarations'>
-  <xmp>
-    // Invalid, cannot reuse built-in function names.
-    var<private> modf: f32 = 0.0;
-
-    // Valid, foo_1 is in scope until the end of the program.
-    var<private> foo: f32 = 0.0; // foo_1
-
-    // Valid, bar_1 is in scope until the end of the program.
-    var<private> bar: u32 = 0u; // bar_1
-
-    // Valid, my_func_1 is in scope until the end of the program.
-    // Valid, foo_2 is in scope until the end of the function.
-    fn my_func(foo: f32) { // my_func_1, foo_2
-      // Any reference to 'foo' resolves to the function parameter.
-
-      // Invalid, the scope of foo_2 ends at the of the function.
-      var foo: f32; // foo_3
-
-      // Valid, bar_2 is in scope until the end of the function.
-      var bar: u32; // bar_2
-      // References to 'bar' resolve to bar_2
-      {
-        // Valid, bar_3 is in scope until the end of the compound statement.
-        var bar: u32; // bar_3
-        // References to 'bar' resolve to bar_3
-
-        // Invalid, bar_4 has the same end scope as bar_3.
-        var bar: i32; // bar_4
-
-        // Valid, i_1 is in scope until the end of the for loop
-        for (var i: i32 = 0; i < 10; i = i + 1) { // i_1
-          // Invalid, i_2 has the same end scope as i_1.
-          var i: i32 = 1; // i_2.
-        }
-      }
-
-      // Invalid, bar_5 has the same end scope as bar_2.
-      var bar: u32; // bar_5
-    }
-
-    // Invalid, bar_6 has the same end scope as bar_1.
-    var<private> bar: u32 = 1u; // bar_6
-
-    // Invalid, my_func_2 has the same end scope as my_func_1.
-    fn my_func() { } // my_func_2
-
-    // Valid, my_foo_1 is in scope until the end of the program.
-    fn my_foo(
-      // Valid, my_foo_2 is in scope until the end of the function.
-      my_foo: i32 // my_foo_2
-    ) { }
-  </xmp>
-</div>
-
 根据声明的方式和位置，有多个级别的范围。
 
 使用标识符时，它必须在某些声明的范围内，或作为指令的一部分。
 
-如果声明出现在任何其他声明的文本之外，则声明在模块范围（<dfn noexport>module scope</dfn>）内。
+如果声明出现在任何其他声明的文本之外，则声明在<dfn noexport>模块范围</dfn>。
+整个程序的模块范围声明是 [=in scope=]。
+也就是说，模块范围内的声明可以被该声明文本之前的语句和表达式引用。
 
-Note: 只有[=function declaration=]可以包含其他声明。
+如果任何模块范围声明是递归的，则为 [=shader-creation error=]。
+也就是说，声明之间不能有循环：
+
+> 考虑有向图，其中：
+> * 每个节点对应一个声明 |D|。
+> * 声明 |D| 有一条边 到声明 |T| 当定义
+> 对于 |D| 提到 [=resolves=] 到 |T| 的标识符。
+>
+> 此图不得有环。
+
+注意：[=function body=] 是 [=function declaration=] 的一部分，因此
+函数不得直接或间接递归。
+
+注意：非[=module scope=] 标识符的使用必须遵循文本中该标识符的声明。
+然而，对于 [=module scope=] 声明来说，情况并非如此，它们可能在文本中被乱序引用。
+
+注意：只有 [=function declaration=] 可以包含其他声明。
+
+<div class='example' heading='Valid and invalid declarations'>
+  <xmp>
+    // 无效，无法重用内置函数名称。
+    var<private> modf: f32 = 0.0;
+
+    // 有效，foo_1 在整个程序的范围内。
+    var<private> foo: f32 = 0.0; // foo_1
+
+    // 有效，my_func_1 在整个程序的范围内。
+    var<private> bar: u32 = 0u; // bar_1
+
+    // 有效，my_func_1 在程序结束前一直在作用域内。
+    // 有效，foo_2 一直在作用域内直到函数结束。
+    fn my_func(foo: f32) { // my_func_1, foo_2
+      // 对 'foo' 的任何引用都解析为函数参数。
+
+      // 无效，foo_2 的作用域结束于函数的 。
+      var foo: f32; // foo_3
+
+      // 有效，bar_2 一直在作用域内直到函数结束。
+      var bar: u32; // bar_2
+      // 对 'bar' 的引用解析为 bar_2
+      {
+        // 有效，bar_3 一直在范围内，直到复合语句结束。
+        var bar: u32; // bar_3
+        // 对 'bar' 的引用解析为 bar_3
+
+        // 无效，bar_4 与 bar_3 具有相同的结束范围。
+        var bar: i32; // bar_4
+
+        // 有效，i_1 在范围内直到 for 循环结束
+        for ( var i: i32 = 0; i < 10; i = i++ ) { // i_1
+          // 无效，i_2 与 i_1 具有相同的结束范围。
+          var i: i32 = 1; // i_2.
+        }
+      }
+
+      // 无效，bar_5 与 bar_2 具有相同的结束范围。
+      var bar: u32; // bar_5
+    }
+
+    // 无效，bar_6 与 bar_1 具有相同的结束范围。
+    var<private> bar: u32 = 1u; // bar_6
+
+    // 无效，my_func_2 与 my_func_1 具有相同的结束范围。
+    fn my_func() { } // my_func_2
+
+    // 有效，my_foo_1 在整个程序的范围内。
+    fn my_foo( //my_foo_1
+      // 有效，my_foo_2 一直在作用域内直到函数结束。
+      my_foo: i32 // my_foo_2
+    ) { }
+
+    // 有效的模块范围声明在整个程序的范围内。
+    var<private> early_use : i32 = later_def;
+    var<private> later_def : i32 = 1;
+  </xmp>
+</div>
 
 # 类型 # {#types}
 
@@ -713,7 +745,7 @@ Note: 只有[=function declaration=]可以包含其他声明。
 
 一些[SHORTNAME]类型仅用于分析源程序和确定程序的运行时行为。本规范将描述此类类型，但它们不会出现在[SHORTNAME]源文本中。
 
-注意：[SHORTNAME] [=reference types=]未写在[SHORTNAME]程序中。见[[#memory-view-types]]。
+注意：[SHORTNAME] [=reference types=] 未写在 [SHORTNAME] 程序中。见[[#memory-view-types]]。
 
 ## 类型检查 ## {#type-checking-section}
 
@@ -749,6 +781,17 @@ Note: 只有[=function declaration=]可以包含其他声明。
     * 语句中表达是如何使用。
     * 可选择地，其他静态上下文。
 
+类型规则的每个不同类型参数化称为 <dfn noexport>overload</dfn>。
+例如，[[#arithmetic-expr|unary negation]]（`-`|e| 形式的表达式）有八个重载，因为它的类型规则由类型 |T| 参数化。 可以是以下任何一种：
+* [=i32=]
+* vec2&lt;i32&gt;
+* vec3&lt;i32&gt;
+* vec4&lt;i32&gt;
+* [=f32=]
+* vec2&lt;f32&gt;
+* vec3&lt;f32&gt;
+* vec4&lt;f32&gt;
+
 一个类型规则适用于一个表达式（<dfn noexport>type rule applies to an expression</dfn>）当：
 * 规则的结论与一个有效解析的表达式匹配，和
 * 规则的先决条件被满足。
@@ -764,8 +807,6 @@ TODO：写一个例子，例如 `1+2` 或 `3 - a`，其中 `a` 在 `i32` 类型�
 否则会出现类型错误（<dfn noexport>type error</dfn>）并且源程序不是有效的[SHORTNAME]程序。
 
 [SHORTNAME]是一种静态类型语言（<dfn noexport>statically typed language</dfn>），因为 WGSL 程序的类型检查要么成功要么发现类型错误，而只需要检查程序源文本。
-
-TODO(dneto): Lazy-decay是一个tie-breaking规则。上面的描述可以通过在潜在匹配类型规则上使用优先级来适应它。
 
 ### 类型规则表 ### {#typing-tables-section}
 
@@ -891,15 +932,17 @@ TODO：示例：非结果值效应是函数调用子表达式的任何副作用�
 
 原子类型只能由[=storage classes/workgroup=]存储类中的变量或具有[=access/read_write=]访问模式的存储缓冲区（[=storage buffer=]）变量实例化。
 
-原子修改（<dfn noexport>atomic modification</dfn>）是对原子对象的任何设置对象内容的操作。即使新值与对象的现有值相同，该操作也算作修改。
+对该类型的操作的 [=memory scope=] 由它被实例化的存储类决定。
+[=storage classes/workgroup=] 存储类中的原子类型的内存范围为`Workgroup`，而[=storage classes/storage=] 存储类中的原子类型的内存范围为 `QueueFamily`。
+
+<dfn noexport>atomic modification</dfn>是原子对象上的任何[[#memory-operation|operation]]，它设置对象的内容。
+即使新值与对象的现有值相同，该操作也算作修改。
 
 在[SHORTNAME]中，对于每个对象，原子修改是相互排序的。也就是说，在着色器阶段的执行期间，对于每个原子对象*A*，所有代理都观察应用于*A* 的相同修改操作顺序。不同原子对象的顺序可能没有任何关系；没有任何因果关系。注意，工作组（[=storage classes/workgroup=]）存储中的变量在一个工作组（[=compute shader stage/workgroup=]）内共享，但在不同工作组之间不共享。
 
-TODO: 添加链接最终的内存模型描述。
-
 <div class='example storage atomic' heading='Mapping atomics in a storage variable to SPIR-V'>
   <xmp>
-    [[block]] struct S {
+    struct S {
       a: atomic<i32>;
       b: atomic<u32>;
     };
@@ -957,22 +1000,42 @@ TODO: 添加链接最终的内存模型描述。
           <br>
 </table>
 
-当被指定，元素计数表达式|N|必须：
-* 是一个文字，或者为不[=pipeline-overridable=]的[[#module-constants|module-scope constant]]的名称，以及
+数组中的第一个元素位于索引 0 处，每个后续元素位于下一个整数索引处。
+参见 [[#array-access-expr]]。
+
+表达式不得计算为运行时大小的数组类型。
+
+元素计数表达式 |N| 固定大小的数组必须：
+* 是文字，或 [[#module-constants|module-scope constant]] 的名称（可能是 [=pipeline overridable=]），以及
 * 计算为一个大于零的整数标量（[=integer scalar=]）。
 
-注意：元素计数在[=shader module creation=]时已被完全确定。
+注意：元素计数在[=pipeline creation=]时已被完全确定。
+
+数组元素类型必须是以下之一:
+* [=scalar=] 类型
+* [=vector=] 类型
+* [=matrix=] 类型
+* [=atomic type|atomic=] 类型
+* 一个数组类型具有 [=creation-fixed footprint=]
+* 有 [=creation-fixed footprint=] 的 [=structure=] 类型 。
+
+注意：元素类型必须是 [=plain type=]。
+
+[SHORTNAME] 定义了以下可应用于数组类型的属性：
+* [=attribute/stride=]
 
 当且仅当以下所有条件都为真时，两种数组类型是相同的：
 * 它们拥有相同的元素类型。
 * 它们的元素计数规范匹配，即以下任一情况为真：
     * 它们都是runtime-sized。
-    * 它们都是fixed-sized，具有等值的元素计数，即使一个是有符号的，另外是无符号的。（在这种情况下，有符号和无符号值是可比较的，因为元素计数必须大于零。）
+    * 它们都是固定大小的 [=creation-fixedfootprint=]，并且
+      等值元素计数，即使一个是有符号的，另一个是无符号的。（在这种情况下，有符号和无符号值是可比较的，因为元素计数必须大于零。）
+    * 它们都是固定大小的，元素计数指定为相同的 [=pipeline-overridable=] [=module scope|module-scope-=] 常量。
 
 问题：如果数组类型具有不同的元素步幅，则它们应该不同。见https://github.com/gpuweb/gpuweb/issues/1534
 
-<div class='example fixed-size array types' heading='Example fixed-size array types'>
-  <xmp>
+<div class='example fixed-size array types' heading='Example fixed-size array types, non-overridable element count'>
+  <xmp highlight='rust'>
     // array<f32,8> and array<i32,8> are different types:
     // different element types
     var<private> a: array<f32,8>;
@@ -992,25 +1055,23 @@ TODO: 添加链接最终的内存模型描述。
   </xmp>
 </div>
 
-数组中的第一个元素位于索引 0 处，每个后续元素位于下一个整数索引处。见[[#array-access-expr]]。
+注意：由可覆盖常量确定大小的数组的有效使用是作为 [=storage classes/workgroup=] 存储中变量的存储类型。
 
-一个数组元素类型必须为以下之一：
-* 标量（[=scalar=]）类型
-* 向量类型
-* 矩阵类型
-* 原子（[=atomic type|atomic=]）类型
-* 数组类型
-* 结构（[=structure=]）类型
+<div class='example wgsl global-scope' heading="Workgroup variables sized by overridable constants">
+  <xmp>
+    [[override]] let blockSize = 16;
 
-注意：也就是说，元素类型必须为普通类型（[=plain type=]）。
+    var<workgroup> odds: array<i32,blockSize>;
+    var<workgroup> evens: array<i32,blockSize>;
 
-[SHORTNAME]定义了以下可应用于数组类型的属性：
-* [=attribute/stride=]
-
-runtime-sized数组局限：
-* 定义[=storage classes/storage=]存储类中变量的存储类型（[=store type=]）的结构类型的最后一个成员可能是runtime-sized数组。
-* 在任何其他情况下，不得将runtime-sized数组用作存储类型或包含在存储类型中。
-* 一个表达式不能计算为一个runtime-sized数组类型。
+     // 一个无效的例子，因为可覆盖的元素计数可能只发生
+     // 在外层。
+     // var<workgroup> both: array<array<i32,blockSize>,2>;
+     // 一个无效的例子，因为可覆盖的元素数量只有
+     // 对工作组变量有效。
+     // var<private> bad_storage_class: array<i32,blockSize>;
+  </xmp>
+</div>
 
 <div class='syntax' noexport='true'>
   <dfn for=syntax>array_type_decl</dfn> :
@@ -1046,12 +1107,15 @@ runtime-sized数组局限：
 * 向量类型
 * 矩阵类型
 * 原子（[=atomic type|atomic=]）类型
-* 数组类型
-* 结构（[=structure=]）类型
+* 一个 [=fixed-size array=] 类型带有 [=creation-fixedfootprint=]
+* 一个 [=runtime-sized=] 数组类型，但前提是它是结构的最后一个成员
+* 一个 [=structure=] 类型，具有 [=creation-fixed footprint=]
 
-注意：也就是说，任何成员类型必须为普通类型（[=plain type=]）。
+注意：任何成员类型必须为普通类型（[=plain type=]）。
 
-注意：结构成员类型限制和数组元素类型限制是相辅相成的。 结合起来，它们意味着指针可能不会出现在数组或结构内的任何嵌套级别中。 同样，相同的限制也适用于纹理和采样器。
+限制结构成员和数组元素类型的一些后果是：
+* 指针、纹理或采样器不得出现在数组或结构内的任何嵌套级别中。
+* [=runtime-sized=] 数组只能作为结构的最后一个元素出现，它本身不能是封闭数组或结构的一部分。
 
 <div class='example wgsl global-scope' heading="Structure">
   <xmp highlight='rust'>
@@ -1113,13 +1177,15 @@ runtime-sized数组局限：
 
 <div class='example wgsl global-scope' heading='Structure WGSL'>
   <xmp>
+    // TODO: runtime-sized array syntax may have changed
     // Runtime Array
     type RTArr = [[stride(16)]] array<vec4<f32>>;
-    [[block]] struct S {
+    struct S {
       a: f32;
       b: f32;
       data: RTArr;
     };
+    [[group(0),binding(0)]] var<storage> buffer: S;
   </xmp>
 </div>
 
@@ -1165,12 +1231,48 @@ runtime-sized数组局限：
 * [=scalar=]类型
 * [=vector=]类型
 * [=matrix=]类型
-* [=fixed-size array=]类型，如果其元素类型为可构造的。
+* 一个 [=fixed-size array=] 类型，如果它有 [=creation-fixedfootprint=] 并且它的元素类型是可构造的。
 * [=structure=]类型, 如果它的全部成员都为可构造的。
 
-注意：所有可构造类型为普通类型（[=plain types|plain=]）。
+注意：所有可构造类型为普通类型（[=plain types|plain=]）并有 [=creation-fixed footprint=]。
 
 注意：原子类型和runtime-sized数组类型是不可构造的。包含原子和runtime-sized数组的复合类型是不可构造的。
+
+### 固定占用类型 ### {#fixed-footprint-types}
+
+变量的内存占用<dfn noexport>memory footprint</dfn>是用于存储变量内容的[=memory locations=]的数量。
+变量的内存占用取决于它的 [=store type=]，并在 [[#shader-lifecycle|shader 生命周期]] 中的某个时刻最终确定。
+大多数变量在 [=Shader 模块创建|着色器创建=] 时间很早就确定了大小。
+一些变量可能会在 [=pipeline creation=] 时间稍后调整大小，
+而其他变量可能会在 [=shader execution start|start of shader execution=] 时调整大小。
+
+如果 [=plain type=] 的大小在 [=shader module creation|shader creation=] 时完全确定，
+则 [=plain type=] 具有创建固定的占用空间<dfn>creation-fixed footprint</dfn>。
+
+如果 [=plain type=] 的大小在 [=pipeline creation=] 时完全确定，则其具有固定占用空间 <dfn>fixed footprint</dfn>。
+
+注意：管道的创建依赖于着色器的创建，因此具有 [=creation-fixedfootprint=] 的类型也具有 [=fixedfootprint=]。
+
+带有 [=creation-fixedfootprint=] 的普通类型是：
+* [=scalar=] 类型
+* [=vector=] 类型
+* [=matrix=] 类型
+* [=atomic type|atomic=] 类型
+* [=fixed-size array=] 类型, 当:
+     * 它的 [=element count=] 是一个文字，或者不是 [=pipeline-overridable=] 的 [[#module-constants|module-scope constant]] 的名称。
+* [=structure=] 类型，如果它的所有成员都有 [=creation-fixed footprint=]。
+
+注意：[=constructible=] 类型具有 [=creation-fixed footprint=]。
+
+带有 [=fixed footprint=] 的普通类型是以下任何一种：
+* 具有 [=creation-fixed footprint=] 的类型
+* 一个 [=fixed-size array=] 类型，其中它的 [=element count=] 是一个 [=pipeline-overridable=] [[#module-constants|module-scope constant]]。
+
+注意：具有管道可覆盖常量的元素计数的固定大小数组的唯一有效用途是作为 [=storage classes/workgroup=] 变量的 [=store type=]。
+
+注意：固定足迹类型可以直接或间接包含 [=atomic type|atomic=] 类型，而 [=constructible=] 类型不能。
+
+注意：固定足迹类型不包括 [=runtime-sized=] 数组，以及任何包含 [=runtime-sized=] 数组的结构或数组，递归。
 
 ## 内存 ## {#memory}
 
