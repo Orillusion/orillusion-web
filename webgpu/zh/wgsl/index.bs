@@ -5484,9 +5484,9 @@ WebGPU 规范更详细地描述了管道。
 
 这些对象由某些 [=storage classes=] 中的模块范围变量表示。
 
-如果函数体中的任何子表达式使用变量的 [=identifier=]，并且该子表达式是变量声明的 [=in scope=]，我们就说该变量被函数<dfn noexport>statically accessed</dfn> .
+当在 [=function declaration=] [=resolves=] 中使用 [=identifier=] 到 [=module scope|module-scope=] 变量时，我们说该变量是 <dfn>静态访问的</dfn> 按功能。
 `let` 声明的常量的静态访问定义类似。
-请注意，静态访问与着色器的执行是否实际评估子表达式，甚至执行封闭语句无关。
+请注意，静态访问与着色器的执行是否实际评估引用变量的表达式无关，甚至执行可能包含表达式的语句。
 
 更准确地说，着色器阶段的接口<dfn noexport>interface of a shader stage</dfn>包括：
   - 入口点的所有参数
