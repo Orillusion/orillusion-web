@@ -315,6 +315,8 @@ TODO：更新WebGPU规范，参考这里定义的三种错误。
 * [=tokens=]
 * [=blankspace=]
 
+程序文本不得包含空字符。
+
 <dfn>Blankspace</dfn>是以下一个或多个字符的任意组合：
 * space
 * horizontal tab
