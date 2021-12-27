@@ -5210,6 +5210,380 @@ statement
   | compound_statement
 </pre>
 
+## 语句行为分析 ## {#behaviors}
+### 规则 ### {#behaviors-rules}
+一些影响控制流的语句仅在某些上下文中有效。
+例如，“fallthrough”在switch外无效，“continue”在循环外无效。
+此外，一致性分析（参见 [[#uniformity]]）需要知道控制流何时可以以多种不同方式退出语句。
+这两个目标都是通过一个总结语句和表达式的执行行为的系统来实现的。 行为分析将每个语句和表达式映射到语句或表达式的评估完成后执行的可能方式集。
+与值和表达式的类型分析一样，行为分析自下而上进行：首先确定某些基本语句的行为，然后通过应用组合规则确定更高级别结构的行为。
+<dfn export>behavior</dfn> 是一个集合， 它的元素可能包括:
+- Return
+- Discard
+- Break
+- Continue
+- Fallthrough
+- Next
+每一个都对应于退出复合语句的一种方式：通过关键字，或通过下一个语句（“Next”）。
+我们注意到 "*s*: *B*" 表示 *s* 尊重有关行为的规则，并且具有 [=behavior=] *B*。
+
+对于每个函数:
+- 它的主体必须是这些规则的有效声明。
+- 如果函数具有返回类型，则其主体的 [=behavior=] 必须是 {Return} 或 {Return, Discard} 之一。
+- 否则，其主体的 [=behavior=] 必须是 {Next, Return, Discard} 的子集。
+
+我们为每个函数分配一个 [=behavior=]：它是其主体的 [=behavior=]（将主体视为常规语句），任何“Return”都被“Next”替换。
+由于上述规则，函数行为始终是 {}、{Next}、{Discard} 或 {Next, Discard} 之一。
+类似地，我们为每个表达式分配一个 [=behavior=]，因为表达式可以包含可以丢弃的函数调用。
+与函数一样，表达式行为始终是 {}、{Next}、{Discard} 或 {Next, Discard} 之一。
+注意：当前没有有效的程序，其表达式的 [=behavior=] 中没有 Next。
+原因是只有没有返回类型的函数才能有这样的[=behavior=]，而且没有复合表达式可以调用这样的函数。
+<table class='data'>
+  <caption>分析和验证语句行为的规则</caption>
+  <thead>
+    <tr><th>语句<th>先决条件<th>结果行为
+  </thead>
+  <tr>
+    <td class="nowrap">{ }
+    <td>
+    <td class="nowrap">{Next}
+  <tr algorithm="braced statement behavior">
+    <td class="nowrap">{|s|}
+    <td>|s|: |B|
+    <td class="nowrap">|B|
+  <tr algorithm="statement sequence behavior">
+    <td class="nowrap">|s1| |s2|
+        Note: |s1| often ends in a semicolon.
+    <td class="nowrap">|s1|: |B1|<br>
+        Next in |B1|<br>
+        |s2|: |B2|
+    <td class="nowrap">(|B1|&#x2216;{Next}) &cup; |B2|
+  <tr algorithm="variable declaration behavior">
+    <td class="nowrap">var x:T;
+    <td>
+    <td>{Next}
+  <tr algorithm="let declaration behavior">
+    <td class="nowrap">let x = |e|;
+    <td class="nowrap">|e|: |B|
+    <td>|B|
+  <tr algorithm="initialized variable declaration behavior">
+    <td class="nowrap">var x = |e|;
+    <td class="nowrap">|e|: |B|
+    <td>|B|
+  <tr algorithm="assignment behavior">
+    <td class="nowrap">|x| = |e|;
+    <td class="nowrap">|x|: |B1|<br>
+      |e|: |B2|<br>
+      |x| is not `_`
+    <td>|B1| &cup; |B2|
+  <tr algorithm="phony assignment behavior">
+    <td class="nowrap">_ = |e|;
+    <td class="nowrap">|e|: |B|
+    <td>|B|
+  <tr algorithm="function call statement behavior">
+    <td class="nowrap">|f|(|e1|, ..., |en|);
+    <td class="nowrap">|e1|: |B1|<br>
+        ...<br>
+        |en|: |Bn|<br>
+        |f| has behavior |B|
+    <td class="nowrap">|B| &cup; ((|B1| &cup; ... &cup; |Bn|)&#x2216;{Next})
+  <tr algorithm="return baehviour">
+    <td>return;
+    <td>
+    <td>{Return}
+  <tr algorithm="return value behavior">
+    <td class="nowrap">return |e|;
+    <td class="nowrap">|e|: |B|<br>
+    <td class="nowrap">(|B|&#x2216;{Next}) &cup; {Return}
+  <tr algorithm="discard baehviour">
+    <td>discard;
+    <td>
+    <td>{Discard}
+  <tr algorithm="break behavior">
+    <td>break;
+    <td>
+    <td>{Break}
+  <tr algorithm="continue behavior">
+    <td>continue;
+    <td>
+    <td>{Continue}
+  <tr algorithm="fallthrough behavior">
+    <td>fallthrough;
+    <td>
+    <td>{Fallthrough}
+  <tr algorithm="if statement behavior">
+    <td class="nowrap">if (|e|) |s1| else |s2|
+    <td class="nowrap">|e|: |B|<br>
+        |s1|: |B1|<br>
+        |s2|: |B2|
+    <td class="nowrap">(|B|&#x2216;{Next}) &cup; |B1| &cup; |B2|
+  <tr algorithm="loop with continuing without break behavior">
+    <td class="nowrap" rowspan=2>loop {|s1| continuing {|s2|}}
+    <td class="nowrap">|s1|: |B1|<br>
+        |s2|: |B2|<br>
+        None of {Continue, Return, Discard} are in |B2|<br>
+        Break is not in (|B1| &cup; |B2|)
+    <td class="nowrap">(|B1|&#x2216;{Continue}) &cup; (|B2|&#x2216{Next})
+  <tr algorithm="loop with continuing with break behavior">
+    <td class="nowrap">|s1|: |B1|<br>
+        |s2|: |B2|<br>
+        None of {Continue, Return, Discard} are in |B2|<br/>
+        Break is in (|B1| &cup; |B2|)
+    <td class="nowrap">(|B1| &cup; |B2| &cup; {Next})&#x2216;{Break, Continue}
+  <tr algorithm="switch behavior">
+    <td class="nowrap" rowspan=2>switch(|e|) {case <var ignore>c1</var>: |s1| ... case <var ignore>cn</var>: |sn|}
+    <td class="nowrap">|e|: |B|<br>
+        |s1|: |B1|<br>
+        ...<br>
+        |sn|: |Bn|<br>
+        Fallthrough is not in |Bn|<br>
+        Break is not in (|B1| &cup; ... &cup; |Bn|)
+    <td class="nowrap">(|B| &cup; |B1| &cup; ... &cup; |Bn|)&#x2216;{Fallthrough}
+  <tr algorithm="switch with break behavior">
+    <td class="nowrap">|e|: |B|<br>
+        |s1|: |B1|<br>
+        ...<br>
+        |sn|: |Bn|<br>
+        Fallthrough is not in |Bn|<br>
+        Break is in (|B1| &cup; ... &cup; |Bn|)
+    <td class="nowrap">(|B| &cup; |B1| &cup; ... &cup; |Bn| &cup; {Next})&#x2216;{Break, Fallthrough}
+</table>
+出于本分析的目的：
+- `for` 循环脱糖（见 [[#for-statement]]）
+- `loop {s}` 被视为 `loop {s continue {}}`
+- 没有 `else` 分支的 `if` 语句被视为有一个空的 else 分支（将 Next 添加到它们的 [=behavior=]）
+- 带有 `else if` 分支的 `if` 语句被视为嵌套的简单 `if/else` 语句
+- 以 `default` 开头的 [=syntax/switch_body=] 的行为就像以 `case _:` 开头的 [=syntax/switch_body=]
+<table class='data'>
+  <caption>用于分析和验证表达式行为的规则</caption>
+  <thead>
+    <tr><th>表达式<th>先决条件<th>结果行为
+  </thead>
+  <tr algorithm="function call behavior">
+    <td class="nowrap">|f|(|e1|, ..., |en|)
+    <td class="nowrap">|e1|: |B1|<br>
+        ...<br>
+        |en|: |Bn|<br>
+        |f| has behavior |B|
+    <td class="nowrap">|B| &cup; ((|B1| &cup; ... &cup; |Bn|)&#x2216;{Next})
+  <tr algorithm="literal expression behavior">
+    <td class="nowrap">Any literal
+    <td>
+    <td class="nowrap">{Next}
+  <tr algorithm="variable expression behavior">
+    <td class="nowrap">Any variable reference
+    <td>
+    <td class="nowrap">{Next}
+  <tr algorithm="array-like index expression behavior">
+    <td class="nowrap">|e1|[|e2|]
+    <td class="nowrap">|e1|: |B1|<br>
+        |e2|: |B2|
+    <td class="nowrap">|B1| &cup; |B2|
+  <tr algorithm="structure member expression behavior">
+    <td class="nowrap">|e|.field
+    <td class="nowrap">|e|: |B|
+    <td class="nowrap">|B|
+  <tr algorithm="short-circuiting or expression behavior">
+    <td class="nowrap">|e1| || |e2|
+    <td class="nowrap">|e1|: |B1|<br>
+        |e2|: |B2|
+    <td class="nowrap">|B1| &cup; |B2|
+  <tr algorithm="short-circuiting and expression behavior">
+    <td class="nowrap">|e1| && |e2|
+    <td class="nowrap">|e1|: |B1|<br>
+        |e2|: |B2|
+    <td class="nowrap">|B1| &cup; |B2|
+</table>
+每个 [=built-in function=] 都有一个 [=behavior=] {Next}。
+并且每个未在上表中列出的运算符应用程序都具有相同的 [=behavior=]，就好像它是一个具有相同操作数的函数调用，并且函数的 [=behavior=] 为 {Next}。
+如果行为分析失败，则会产生 [=shader-creation error=]：
+- 行为分析必须能够确定每个语句、表达式和函数的 [=behavior=]。 如果不满足先决条件，这只会失败。
+- 函数行为必须满足上面给出的规则。
+- 计算和顶点入口点的行为不得包含丢弃。
+### 注意 ### {#behaviors-notes}
+本节是信息性的，非规范性的。
+以下是这些规则可能导致程序被拒绝的完整方式列表（这只是重申上面已经列出的信息）：
+- 函数体（视为常规语句）具有 {Next, Return, Discard} 中未包含的行为。
+- 具有返回类型的函数体的行为既不是 {Return} 也不是 {Return, Discard}
+- 行为中没有 Next 的语句不是语句序列中的最后一个
+- 连续块的行为包含任何 Continue、Return 或 Discard
+- 开关的最后一种情况的行为包含 Fallthrough
+- 计算或顶点入口点函数的行为包含丢弃
+This analysis can be run in linear time, by analyzing the call-graph bottom-up (since the behavior of a function call can depend on the function's code).
+### 实例 ### {#behaviors-examples}
+以下是一些示例，显示了此分析的实际效果：
+<div class='example wgsl expect-error' heading='Trivially dead code is rejected'>
+   <xmp highlight='rust'>
+    fn simple() -> i32 {
+      var a: i32;
+      return 0;  // Behavior: {Return}
+      a = 1;     // Error: 根据语句序列的规则，前一个语句应该具有包含“Next”的行为
+      return 2;
+    }
+   </xmp>
+</div>
+<div class='example wgsl expect-error' heading='Compound statements are supported'>
+   <xmp highlight='rust'>
+    fn nested() -> i32 {
+      var a: i32;
+      {             // 复合语句的开始。
+        a = 2;      // 行为: {Next}
+        return 1;   // 行为: {Return}
+      }             // 复合语句作为一个整体具有行为 {Return}
+      a = 1;        // Error: 出于与前面示例相同的原因，前面的语句在其行为中缺少“Next”
+      return 2;
+    }
+   </xmp>
+</div>
+<div class='example wgsl' heading='if/then behaves as if there is an empty else'>
+   <xmp highlight='rust'>
+    fn if_example() {
+      var a: i32 = 0;
+      loop {
+        if (a == 5) {
+          break;      // 行为: {Break}
+        }             // 整个 if 复合语句的行为：{Break, Next}，
+        a = a + 1;    // 因为 if 有一个隐含的空 else 有效，因为前一个语句在其行为中具有“Next”
+      }
+    }
+   </xmp>
+</div>
+<div class='example wgsl expect-error' heading='if/then/else has the behavior of both sides'>
+   <xmp highlight='rust'>
+    fn if_example() {
+      var a: i32 = 0;
+      loop {
+        if (a == 5) {
+          break;      // 行为: {Break}
+        } else {
+          continue;   // 行为: {Continue}
+        }             // 整个 if 复合语句的行为：{Break, Continue}
+        a = a + 1;    // Error：上一条语句在其行为中缺少“Next”
+      }
+    }
+   </xmp>
+</div>
+<div class='example wgsl' heading='if/else if/else behaves like a nested if/else'>
+   <xmp highlight='rust'>
+    fn if_example() {
+      var a: i32 = 0;
+      loop {
+        // if (e1) s1 else if (e2) s2 else s3
+        // is identical to
+        // if (e1) else { if (e2) s2 else s3 }
+        if (a == 5) {
+          break;      // 行为: {Break}
+        } else if (a == 42) {
+          continue;   // 行为: {Continue}
+        } else {
+          return;     // 行为 {Return}
+        }             // 整个 if 复合语句 {Break, Continue, Return} 的行为
+      }               // 整个循环复合语句 {Next, Return} 的行为
+    }                 // 整个函数的行为 {Next}
+   </xmp>
+</div>
+<div class='example wgsl' heading='Break in switch becomes Next'>
+   <xmp highlight='rust'>
+    fn switch_example() {
+      var a: i32 = 0;
+      switch (a) {
+        default: {
+          break;   // 行为: {Break}
+        }
+      }            // 行为: {Next}， 当 switch 取代了 Break， 用 Next
+      a = 5;       // 有效，因为前面的语句在其行为中有 Next
+    }
+   </xmp>
+</div>
+<div class='example wgsl' heading='A conditional continue with continuing statement'>
+   <xmp highlight='rust'>
+    fn conditional_continue() {
+      var a: i32;
+      loop {
+        if (a == 5) { break; } // 行为: {Break, Next} 有效
+        if (a % 2 == 1) {      // 因为前面的语句在其行为中有 Next
+          continue;            // 行为: {Continue}
+        }                      // 行为: {Continue, Next}
+        a = a * 2;             // 有效, 因为前面的语句在其行为中有 Next
+        continuing {           // 有效，因为继续语句的行为 {Next} 不包括任何 {Break、Continue、Discard、Return}
+          a = a + 1;
+        }
+      }                        // 整个循环具有 {Next} 行为，因为它吸收了“Continue”和“Next”，然后将“Break”替换为“Next”
+    }
+   </xmp>
+</div>
+<div class='example wgsl' heading='A redundant continue with continuing statement'>
+   <xmp highlight='rust'>
+    fn redundant_continue_with_continuing() {
+      var a: i32;
+      loop {
+        if (a == 5) { break; }
+        continue;   // 有效的。 这是多余的，分支到下一个语句。
+        continuing {
+          a = a + 1;
+        }
+      }
+    }
+   </xmp>
+</div>
+<div class='example wgsl' heading='A continue at the end of a loop body'>
+   <xmp highlight='rust'>
+    fn continue_end_of_loop_body() {
+      for (var i: i32 = 0; i < 5; i = i + 1 ) {
+        continue;   // 有效的。 这是多余的，分支到循环体的末尾。
+      }             // 行为：{Next}，因为循环吸收“Continue”，而“for”循环总是添加“Next”
+    }
+   </xmp>
+</div>
+`for` 循环 desugar 到 `loop` 有条件中断。 如前面的示例所示，条件中断具有 [=behavior=] {Break, Next}，这导致将“Next”添加到循环的 [=behavior=]。
+<div class='example wgsl expect-error' heading='Effect of a function that discards unconditionally'>
+   <xmp highlight='rust'>
+    fn always_discard() {
+      discard;
+    }                   // 整个函数有行为 {Discard}
+    fn code_after_discard() {
+      var a: i32;
+      always_discard(); // 行为: {Discard}
+      a = a + 1;        // Error: 上一条语句在其行为中缺少“Next”
+    }
+   </xmp>
+</div>
+<div class='example wgsl' heading='Effect of a function that discards conditionally'>
+   <xmp highlight='rust'>
+    fn sometimes_discard(a: i32) {
+      if (a) {
+        discard;        // 行为: {Discard}
+      }                 // 行为: {Next, Discard}
+    }                   // 整个函数有行为 {Next, Discard}
+    fn code_after_discard() {
+      var a: i32;
+      a = 42;
+      sometimes_discard(a);  // 行为: {Next, Discard}
+      a = a + 1;             // 有效
+    }                        // 整个函数有行为 {Next, Discard}
+   </xmp>
+</div>
+<div class='example wgsl expect-error' heading='return required in functions that have a return type'>
+   <xmp highlight='rust'>
+    fn missing_return () -> i32 {
+      var a: i32 = 0;
+      if (42) {
+        return a;       // 行为: {Return}
+      }                 // 行为: {Next, Return}
+    }                   // Error: Next 在具有返回类型的函数体中无效
+   </xmp>
+</div>
+<div class='example wgsl expect-error' heading='continue must be in a loop'>
+   <xmp highlight='rust'>
+    fn continue_out_of_loop () {
+      var a: i32 = 0;
+      if (a) {
+        continue;       // 行为: {Continue}
+      }                 // 行为: {Next, Continue}
+    }                   // Error: 在函数体中Continue无效
+   </xmp>
+</div>
+如果 continue 被 break 或 fallthrough 代替，同样的例子也会因同样的原因而无效。
 
 # Functions # {#functions}
 
