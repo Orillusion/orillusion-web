@@ -436,13 +436,20 @@ TODO(dneto)：描述数字文字标记如何映射到理想化值，然后映射
 
 标识符（<dfn>identifier</dfn>）是一种用作名称的[=token=]，请参阅[[#declaration-and-scope]]和[[#directives]]。
 
-标识符的形式是通过模式匹配定义的，但标识符不能与关键字（[=keyword=]）或保留字（[=reserved word=]）具有相同的拼写。
+标识符的形式是通过模式匹配定义的，但标识符：
+ * 不得与 [=keyword=] 或 [=reserved word=] 拼写相同。
+ * 不能是`_`（单个下划线）
+ * 不能以两个下划线开头。
 
 <div class='syntax' noexport='true'>
   <dfn for=syntax>ident</dfn> :
 
-    | `/[a-zA-Z][0-9a-zA-Z_]*/`
+     | `/([a-zA-Z_][0-9a-zA-Z][0-9a-zA-Z_]*)|([a-zA-Z][0-9a-zA-Z_]*)/`
 </div>
+
+注意：某些 [=built-in functions=] 的 [=return type=] 是其名称不能用于 [SHORTNAME] 源的结构类型。
+这些结构类型被描述为 [=predeclared=]，名称以两个下划线开头。
+结果值可以使用类型推断保存到新声明的 `let` 或 `var` 中，或者立即通过名称立即提取其成员之一。 参见 `frexp` 和 `modf` 描述中的示例用法。
 
 ## 属性 ## {#attributes}
 
@@ -6766,35 +6773,42 @@ TODO: 解释表中函数原型的使用：提供名称、形参列表和返回�
 
   <tr algorithm="scalar case, frexp">
     <td>|T| 是 f32
-    <td class="nowrap">`frexp(`|e|`: `|T|`) -> _frexp_result`<br>
+    <td class="nowrap">`frexp(`|e|`: `|T|`) -> __frexp_result`<br>
     <td>拆分 |e| 转换为 `significand * 2`<sup>`exponent`</sup>形式的有效数和指数。
-    返回 `_frexp_result` 内置结构，定义为：
+    返回 `__frexp_result` 内置结构，定义为：
     ```rust
-struct _frexp_result {
+struct __frexp_result {
   sig : f32; // significand part
   exp : i32; // exponent part
 };
     ```
     有效数的大小在 [0.5, 1.0) 或 0 的范围内。
 
-    注意：一个值不能用类型 `_frexp_result` 显式声明，但一个值可以推断类型。
-
+    注意：一个值不能用类型 `__frexp_result` 显式声明，但一个值可以推断类型。
+    <div class='example wgsl function-scope' heading='frexp usage'>
+    <xmp>
+     // 推断结果类型
+     let sig_and_exp = frexp(1.5);
+     // 设置 fraction_direct 的值为 0.75
+     let fraction_direct = frexp(1.5).sig;
+    </xmp>
+    </div>
     (GLSLstd450FrexpStruct)
 
   <tr algorithm="vector case, frexp">
     <td>|T| 是 vec|N|&lt;f32&gt;
-    <td class="nowrap">`frexp(`|e|`: `|T|`) -> _frexp_result_vec`|N|<br>
+    <td class="nowrap">`frexp(`|e|`: `|T|`) -> __frexp_result_vec`|N|<br>
     <td>拆分 |e| 的组件 转换为 `significand * 2`<sup>`exponent`</sup>形式的有效数和指数。
-    返回 `_frexp_result_vec`|N| 内置结构，定义为：
+    返回 `__frexp_result_vec`|N| 内置结构，定义为：
     ```rust
-struct _frexp_result_vecN {
+struct __frexp_result_vecN {
   sig : vecN<f32>; // significand part
   exp : vecN<i32>; // exponent part
 };
     ```
     有效数的每个分量的大小在 [0.5, 1.0) 或 0 的范围内。
 
-    注意：不能用 `_frexp_result_vec`|N| 类型显式声明值，但值可以推断类型。
+    注意：不能用 `__frexp_result_vec`|N| 类型显式声明值，但值可以推断类型。
 
     (GLSLstd450FrexpStruct)
 
@@ -6870,33 +6884,40 @@ struct _frexp_result_vecN {
 
   <tr algorithm="scalar case, modf">
     <td>|T| 是 f32
-    <td class="nowrap">`modf(`|e|`: `|T|`) -> _modf_result`<br>
+    <td class="nowrap">`modf(`|e|`: `|T|`) -> __modf_result`<br>
     <td>拆分 |e| 分为小数部分和整数部分。
-    返回 `_modf_result` 内置结构，定义为：
+    返回 `__modf_result` 内置结构，定义为：
     ```rust
-struct _modf_result {
+struct __modf_result {
   fract : f32; // fractional part
   whole : f32; // whole part
 };
     ```
 
-    注意：一个值不能用 `_modf_result` 类型显式声明，但一个值可以推断类型。
-
+    注意：一个值不能用 `__modf_result` 类型显式声明，但一个值可以推断类型。
+    <div class='example wgsl function-scope' heading='modf usage'>
+    <xmp>
+     // 推断结果类型
+     let fract_and_whole = modf(1.5);
+     // 设置 fract_direct 的值为 0.5
+     let fract_direct = modf(1.5).fract;
+    </xmp>
+    </div>
     (GLSLstd450ModfStruct)
 
   <tr algorithm="vector case, modf">
     <td>|T| 是 vec|N|&lt;f32&gt;
-    <td class="nowrap">`modf(`|e|`: `|T|`) -> _modf_result_vec`|N|<br>
+    <td class="nowrap">`modf(`|e|`: `|T|`) -> __modf_result_vec`|N|<br>
     <td>拆分 |e| 的组件 分为小数部分和整数部分。
-    返回 `_modf_result_vec`|N| 内置结构，定义为：
+    返回 `__modf_result_vec`|N| 内置结构，定义为：
     ```rust
-struct _modf_result_vecN {
+struct __modf_result_vecN {
   fract : vecN<f32>; // fractional part
   whole : vecN<f32>; // whole part
 };
     ```
 
-    注意：不能用类型 `_modf_result_vec`|N| 显式声明值，但值可以推断类型。
+    注意：不能用类型 `__modf_result_vec`|N| 显式声明值，但值可以推断类型。
 
     (GLSLstd450ModfStruct)
 
@@ -7732,9 +7753,9 @@ atomicExchange(atomic_ptr: ptr<SC, atomic<T>, A>, v: T) -> T
 以原子方式将值 `v` 存储在指向 `atomic_ptr` 的原子对象中，并返回存储在原子对象中的原始值。
 
 ```rust
-atomicCompareExchangeWeak(atomic_ptr: ptr<SC, atomic<T>, A>, cmp: T, v: T) -> _atomic_compare_exchange_result<T>
+atomicCompareExchangeWeak(atomic_ptr: ptr<SC, atomic<T>, A>, cmp: T, v: T) -> __atomic_compare_exchange_result<T>
 
-struct _atomic_compare_exchange_result<T> {
+struct __atomic_compare_exchange_result<T> {
   old_value : T; // old value stored in the atomic
   exchanged : bool; // true if the exchange was done
 };
@@ -7742,7 +7763,7 @@ struct _atomic_compare_exchange_result<T> {
 // Maps to the SPIR-V instruction OpAtomicCompareExchange.
 ```
 
-注意：不能使用类型 `_atomic_compare_exchange_result` 显式声明值，但值可以推断类型。
+注意：不能使用类型 `__compare_exchange_result` 显式声明值，但值可以推断类型。
 
 以原子方式执行以下步骤：
 
