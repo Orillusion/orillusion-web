@@ -5550,8 +5550,8 @@ dictionary GPUImageCopyExternalImage {
 
             在 |this|.{{GPUObjectBase/[[device]]}} 的 [=Device Timeline=] 上发出以下步骤：
             <div class=device-timeline>
-                1. [$Prepare the encoder state$] of |this|. If it returns false, stop.
-                1. If any of the following conditions are unsatisfied, generate a validation error and stop.
+                1. 准备|this|的编码器状态（[$Prepare the encoder state$]）。如果返回 false，则停止。
+                1. 如果不满足以下任何条件，则生成验证错误并停止。
                     <div class=validusage>
                         - |this|.{{GPUCommandEncoder/[[state]]}}为[=encoder state/open=]状态。
                         - |source|可以和|this|一起有效使用。
@@ -5569,7 +5569,7 @@ dictionary GPUImageCopyExternalImage {
                     </div>
 
                     问题(gpuweb/gpuweb#69)：指出如何处理规范中的溢出。
-                1. Issue: Describe and enqueue the GPU command.
+                1. 问题：描述 GPU 命令并将其排入队列。
             </div>
         </div>
 </dl>
@@ -5595,10 +5595,10 @@ dictionary GPUImageCopyExternalImage {
 
             在|this|.{{GPUObjectBase/[[device]]}}的[=Device timeline=]上发起以下步骤：
             <div class=device-timeline>
+                1. 准备|this|的编码器状态（[$Prepare the encoder state$]）。如果返回 false，则停止。
                 1. 如果|size|缺失, 设置|size|为 `max(0, |buffer|.{{GPUBuffer/[[size]]}} - |offset|)`。
                 1. 如果以下任何条件未满足，产生一个校验错误并停止。
                     <div class=validusage>
-                        - |this|.{{GPUCommandEncoder/[[state]]}}为[=encoder state/open=]。
                         - |buffer|可以和|this|一起有效使用（[$valid to use with$]）。
                         - |buffer|.{{GPUBuffer/[[usage]]}}包含{{GPUBufferUsage/COPY_DST}}。
                         - |size|为4的倍数。
@@ -5740,25 +5740,29 @@ WebGPU提供{{GPUCommandEncoder/copyBufferToTexture()}}以buffer-to-texture拷�
 
             **Returns:** {{undefined}}
 
-            如果以下任何条件未满足，则产生一个校验错误并停止。
-            <div class=validusage>
-                - 使|dstTextureDesc|为|destination|.{{GPUImageCopyTexture/texture}}.{{GPUTexture/[[descriptor]]}}。
-                - |this|.{{GPUCommandEncoder/[[state]]}}为[=encoder state/open=]。
-                - [$validating GPUImageCopyBuffer$](|source|)返回 `true`。
-                - |source|.{{GPUImageCopyBuffer/buffer}}.{{GPUBuffer/[[usage]]}}包含{{GPUBufferUsage/COPY_SRC}}。
-                - [$validating GPUImageCopyTexture$](|destination|, |copySize|)返回 `true`。
-                - |dstTextureDesc|.{{GPUTextureDescriptor/usage}}包含{{GPUTextureUsage/COPY_DST}}。
-                - |dstTextureDesc|.{{GPUTextureDescriptor/sampleCount}}为1。
-                - 如果|dstTextureDesc|.{{GPUTextureDescriptor/format}}为[=depth-or-stencil format=]：
-                    - |destination|.{{GPUImageCopyTexture/aspect}}必须指向一个|dstTextureDesc|.{{GPUTextureDescriptor/format}}的单个宽高比。并且该宽高比必须为一个按照[[#depth-formats]]的有效图片副本目标。
-                - 如果|dstTextureDesc|.{{GPUTextureDescriptor/format}}不是[=depth-or-stencil format=]：
-                    - |source|.{{GPUImageDataLayout/offset}}为|dstTextureDesc|.{{GPUTextureDescriptor/format}}的[=texel block size=]的倍数。
-                - 如果|dstTextureDesc|.{{GPUTextureDescriptor/format}}是[=depth-or-stencil format=]：
-                    - |source|.{{GPUImageDataLayout/offset}}为4的倍数。
-                - [$validating linear texture data$](|source|,
-                    |source|.{{GPUImageCopyBuffer/buffer}}.{{GPUBuffer/[[size]]}},
-                    |dstTextureDesc|.{{GPUTextureDescriptor/format}},
-                    |copySize|)成功。
+            在 |this|.{{GPUObjectBase/[[device]]}} 的 [=Device Timeline=] 上发出以下步骤：
+            <div class=device-timeline>
+                1. 准备|this|的编码器状态（[$Prepare the encoder state$]。如果返回 false，则停止。
+                1. 如果以下任何条件未满足，则产生一个校验错误并停止。
+                    <div class=validusage>
+                        - 使|dstTextureDesc|为|destination|.{{GPUImageCopyTexture/texture}}.{{GPUTexture/[[descriptor]]}}。
+                        - |this|.{{GPUCommandEncoder/[[state]]}}为[=encoder state/open=]。
+                        - [$validating GPUImageCopyBuffer$](|source|)返回 `true`。
+                        - |source|.{{GPUImageCopyBuffer/buffer}}.{{GPUBuffer/[[usage]]}}包含{{GPUBufferUsage/COPY_SRC}}。
+                        - [$validating GPUImageCopyTexture$](|destination|, |copySize|)返回 `true`。
+                        - |dstTextureDesc|.{{GPUTextureDescriptor/usage}}包含{{GPUTextureUsage/COPY_DST}}。
+                        - |dstTextureDesc|.{{GPUTextureDescriptor/sampleCount}}为1。
+                        - 如果|dstTextureDesc|.{{GPUTextureDescriptor/format}}为[=depth-or-stencil format=]：
+                            - |destination|.{{GPUImageCopyTexture/aspect}}必须指向一个|dstTextureDesc|.{{GPUTextureDescriptor/format}}的单个宽高比。并且该宽高比必须为一个按照[[#depth-formats]]的有效图片副本目标。
+                        - 如果|dstTextureDesc|.{{GPUTextureDescriptor/format}}不是[=depth-or-stencil format=]：
+                            - |source|.{{GPUImageDataLayout/offset}}为|dstTextureDesc|.{{GPUTextureDescriptor/format}}的[=texel block size=]的倍数。
+                        - 如果|dstTextureDesc|.{{GPUTextureDescriptor/format}}是[=depth-or-stencil format=]：
+                            - |source|.{{GPUImageDataLayout/offset}}为4的倍数。
+                        - [$validating linear texture data$](|source|,
+                            |source|.{{GPUImageCopyBuffer/buffer}}.{{GPUBuffer/[[size]]}},
+                            |dstTextureDesc|.{{GPUTextureDescriptor/format}},
+                            |copySize|)成功。
+                    </div>
             </div>
         </div>
 
@@ -5778,26 +5782,29 @@ WebGPU提供{{GPUCommandEncoder/copyBufferToTexture()}}以buffer-to-texture拷�
 
             **Returns:** {{undefined}}
 
-            如果以下任何条件未满足，则产生一个校验错误并停止。
-            <div class=validusage>
-                - Let |srcTextureDesc|为|source|.{{GPUImageCopyTexture/texture}}.{{GPUTexture/[[descriptor]]}}。
-                - |this|.{{GPUCommandEncoder/[[state]]}}为[=encoder state/open=]。
-                - [$validating GPUImageCopyTexture$](|source|, |copySize|)返回 `true`。
-                - |srcTextureDesc|.{{GPUTextureDescriptor/usage}}包含{{GPUTextureUsage/COPY_SRC}}。
-                - |srcTextureDesc|.{{GPUTextureDescriptor/sampleCount}}为1。
-                - 如果|srcTextureDesc|.{{GPUTextureDescriptor/format}}为depth-stencil格式:
-                    - |destination|.{{GPUImageCopyTexture/aspect}}必须指向一个|srcTextureDesc|.{{GPUTextureDescriptor/format}}的单个宽高比，并且此宽高比必须为一个按照[[#depth-formats]]有效的图像拷贝源。
-                - [$validating GPUImageCopyBuffer$](|destination|)返回 `true`。
-                - |destination|.{{GPUImageCopyBuffer/buffer}}.{{GPUBuffer/[[usage]]}}包含{{GPUBufferUsage/COPY_DST}}。
-                - [=Valid Texture Copy Range=]应用至|source|和|copySize|。
-                - 如果|srcTextureDesc|.{{GPUTextureDescriptor/format}}不是[=depth-or-stencil format=]：
-                    - |destination|.{{GPUImageDataLayout/offset}}|srcTextureDesc|.{{GPUTextureDescriptor/format}}的[=texel block size=]的倍数。
-                - 如果|srcTextureDesc|.{{GPUTextureDescriptor/format}}是[=depth-or-stencil format=]：
-                    - |destination|.{{GPUImageDataLayout/offset}}是4的倍数。
-                - [$validating linear texture data$](|destination|,
-                    |destination|.{{GPUImageCopyBuffer/buffer}}.{{GPUBuffer/[[size]]}},
-                    |srcTextureDesc|.{{GPUTextureDescriptor/format}},
-                    |copySize|)成功。
+            在 |this|.{{GPUObjectBase/[[device]]}} 的 [=Device Timeline=] 上发出以下步骤：
+            <div class=device-timeline>
+                1. 准备|this|的编码器状态。如果返回false，则停止。
+                1. 如果以下任何条件未满足，则产生一个校验错误并停止。
+                    <div class=validusage>
+                        - Let |srcTextureDesc|为|source|.{{GPUImageCopyTexture/texture}}.{{GPUTexture/[[descriptor]]}}。
+                        - [$validating GPUImageCopyTexture$](|source|, |copySize|)返回 `true`。
+                        - |srcTextureDesc|.{{GPUTextureDescriptor/usage}}包含{{GPUTextureUsage/COPY_SRC}}。
+                        - |srcTextureDesc|.{{GPUTextureDescriptor/sampleCount}}为1。
+                        - 如果|srcTextureDesc|.{{GPUTextureDescriptor/format}}为depth-stencil格式:
+                            - |destination|.{{GPUImageCopyTexture/aspect}}必须指向一个|srcTextureDesc|.{{GPUTextureDescriptor/format}}的单个宽高比，并且此宽高比必须为一个按照[[#depth-formats]]有效的图像拷贝源。
+                        - [$validating GPUImageCopyBuffer$](|destination|)返回 `true`。
+                        - |destination|.{{GPUImageCopyBuffer/buffer}}.{{GPUBuffer/[[usage]]}}包含{{GPUBufferUsage/COPY_DST}}。
+                        - [=Valid Texture Copy Range=]应用至|source|和|copySize|。
+                        - 如果|srcTextureDesc|.{{GPUTextureDescriptor/format}}不是[=depth-or-stencil format=]：
+                            - |destination|.{{GPUImageDataLayout/offset}}|srcTextureDesc|.{{GPUTextureDescriptor/format}}的[=texel block size=]的倍数。
+                        - 如果|srcTextureDesc|.{{GPUTextureDescriptor/format}}是[=depth-or-stencil format=]：
+                            - |destination|.{{GPUImageDataLayout/offset}}是4的倍数。
+                        - [$validating linear texture data$](|destination|,
+                            |destination|.{{GPUImageCopyBuffer/buffer}}.{{GPUBuffer/[[size]]}},
+                            |srcTextureDesc|.{{GPUTextureDescriptor/format}},
+                            |copySize|)成功。
+                    </div>
             </div>
         </div>
 
@@ -5817,23 +5824,27 @@ WebGPU提供{{GPUCommandEncoder/copyBufferToTexture()}}以buffer-to-texture拷�
 
             **Returns:** {{undefined}}
 
-            1. 如果以下任何条件未满足，则产生一个校验错误并停止。
-                <div class=validusage>
-                    - 使|srcTextureDesc|为|source|.{{GPUImageCopyTexture/texture}}.{{GPUTexture/[[descriptor]]}}。
-                    - 使|dstTextureDesc|为|destination|.{{GPUImageCopyTexture/texture}}.{{GPUTexture/[[descriptor]]}}。
-                    - |this|.{{GPUCommandEncoder/[[state]]}}为[=encoder state/open=]。
-                    - [$validating GPUImageCopyTexture$](|source|, |copySize|)返回 `true`。
-                    - |srcTextureDesc|.{{GPUTextureDescriptor/usage}}包含{{GPUTextureUsage/COPY_SRC}}。
-                    - [$validating GPUImageCopyTexture$](|destination|, |copySize|)返回 `true`。
-                    - |dstTextureDesc|.{{GPUTextureDescriptor/usage}}包含{{GPUTextureUsage/COPY_DST}}。
-                    - |srcTextureDesc|.{{GPUTextureDescriptor/sampleCount}}等于|dstTextureDesc|.{{GPUTextureDescriptor/sampleCount}}。
-                    - |srcTextureDesc|.{{GPUTextureDescriptor/format}}和|dstTextureDesc|.{{GPUTextureDescriptor/format}}必须为[=copy-compatible=]。
-                    - 如果|srcTextureDesc|.{{GPUTextureDescriptor/format}}是depth-stencil格式：
-                        - |source|.{{GPUImageCopyTexture/aspect}}和|destination|.{{GPUImageCopyTexture/aspect}}必须都分别指向|srcTextureDesc|.{{GPUTextureDescriptor/format}}和|dstTextureDesc|.{{GPUTextureDescriptor/format}}的全部宽高比。
-                    - [=Valid Texture Copy Range=]应用至|source|和|copySize|.
-                    - [=Valid Texture Copy Range=]应用至|destination|和|copySize|.
-                    - [$set of subresources for texture copy$](|source|, |copySize|)和[$set of subresources for texture copy$](|destination|, |copySize|)是不相交的。
-                </div>
+            在 |this|.{{GPUObjectBase/[[device]]}} 的 [=Device Timeline=] 上发出以下步骤：
+            <div class=device-timeline>
+                1. 准备|this|的编码器状态。如果返回 false，则停止。
+                1. 如果以下任何条件未满足，则产生一个校验错误并停止。
+                    <div class=validusage>
+                        - 使|srcTextureDesc|为|source|.{{GPUImageCopyTexture/texture}}.{{GPUTexture/[[descriptor]]}}。
+                        - 使|dstTextureDesc|为|destination|.{{GPUImageCopyTexture/texture}}.{{GPUTexture/[[descriptor]]}}。
+                        - |this|.{{GPUCommandEncoder/[[state]]}}为[=encoder state/open=]。
+                        - [$validating GPUImageCopyTexture$](|source|, |copySize|)返回 `true`。
+                        - |srcTextureDesc|.{{GPUTextureDescriptor/usage}}包含{{GPUTextureUsage/COPY_SRC}}。
+                        - [$validating GPUImageCopyTexture$](|destination|, |copySize|)返回 `true`。
+                        - |dstTextureDesc|.{{GPUTextureDescriptor/usage}}包含{{GPUTextureUsage/COPY_DST}}。
+                        - |srcTextureDesc|.{{GPUTextureDescriptor/sampleCount}}等于|dstTextureDesc|.{{GPUTextureDescriptor/sampleCount}}。
+                        - |srcTextureDesc|.{{GPUTextureDescriptor/format}}和|dstTextureDesc|.{{GPUTextureDescriptor/format}}必须为[=copy-compatible=]。
+                        - 如果|srcTextureDesc|.{{GPUTextureDescriptor/format}}是depth-stencil格式：
+                            - |source|.{{GPUImageCopyTexture/aspect}}和|destination|.{{GPUImageCopyTexture/aspect}}必须都分别指向|srcTextureDesc|.{{GPUTextureDescriptor/format}}和|dstTextureDesc|.{{GPUTextureDescriptor/format}}的全部宽高比。
+                        - [=Valid Texture Copy Range=]应用至|source|和|copySize|.
+                        - [=Valid Texture Copy Range=]应用至|destination|和|copySize|.
+                        - [$set of subresources for texture copy$](|source|, |copySize|)和[$set of subresources for texture copy$](|destination|, |copySize|)是不相交的。
+                    </div>
+            </div>
         </div>
 </dl>
 
@@ -5853,71 +5864,6 @@ WebGPU提供{{GPUCommandEncoder/copyBufferToTexture()}}以buffer-to-texture拷�
       - 否则：
           - |imageCopyTexture|.{{GPUImageCopyTexture/texture}}的[=subresource=]在[=mipmap level=] |imageCopyTexture|.{{GPUImageCopyTexture/mipLevel}}处。
 </div>
-
-## 调试标记 ## {#command-encoder-debug-markers}
-
-命令编码器和可编程传递编码器都提供了将调试标签应用于命令组或将单个标签插入命令序列的方法。调试组可以嵌套以创建标记命令的层次结构。 这些标签可能会传递给原生API后端以供工具使用，也可能由用户代理的内部工具使用，或者在此类工具不可用或不适用时可能是空操作。
-
-{{GPUCommandEncoder}}或{{GPUProgrammablePassEncoder}}中的调试组必须为良好嵌套的。
-
-<dl dfn-type=method dfn-for=GPUCommandEncoder>
-    : <dfn>pushDebugGroup(groupLabel)</dfn>
-    ::
-        为{{GPUCommandEncoder}}标记一个命令标签组的起始位置。
-
-        <div algorithm=GPUCommandEncoder.pushDebugGroup>
-            **Called on:** {{GPUCommandEncoder}} |this|.
-
-            **Arguments:**
-                |groupLabel|: 命令组的标签。
-
-            **Returns:** {{undefined}}
-            
-            1. 如果|this|.{{GPUCommandEncoder/[[state]]}}不为[=encoder state/open=]:
-                1. 问题(gpuweb/gpuweb#2264): 指出在这种情况下该如何做。
-            2. 在|this|的[=Device timeline=]上发起如下步骤：
-                <div class=device-timeline>
-                1. 将|groupLabel|放置（[=stack/Push=]）在|this|.{{GPUCommandEncoder/[[debug_group_stack]]}}上。
-        </div>
-
-    : <dfn>popDebugGroup()</dfn>
-    ::
-        为{{GPUCommandEncoder}}标记一个命令标签组的结束位置。
-
-        <div algorithm=GPUCommandEncoder.popDebugGroup>
-            **Called on:** {{GPUCommandEncoder}} |this|.
-
-            **Returns:** {{undefined}}
-            
-            1. 如果|this|.{{GPUCommandEncoder/[[state]]}}不为[=encoder state/open=]：
-                1. 问题(gpuweb/gpuweb#2264)：指出这种情况下该如何做。
-            2. 在|this|的[=Device timeline=]上发起以下步骤：
-                <div class=device-timeline>
-                    1. 如果以下任何要求未满足，使|this|无效（[=invalid=]）并停止。
-                        <div class=validusage>
-                            - |this|.{{GPUCommandEncoder/[[debug_group_stack]]}}'s [=stack/size=]必须 &gt; 0.
-                        </div>
-                    2. 从|this|.{{GPUCommandEncoder/[[debug_group_stack]]}}中[=stack/Pop=]出一项。
-                </div>
-            
-        </div>
-
-    : <dfn>insertDebugMarker(markerLabel)</dfn>
-    ::
-        用一个标签字符串标记一个命令流中的点。
-
-        <div algorithm=GPUCommandEncoder.insertDebugMarker>
-            **Called on:** {{GPUCommandEncoder}} |this|.
-
-            **Arguments:**
-                markerLabel: 要插入的标签。
-
-            **Returns:** {{undefined}}
-
-            1. 如果|this|.{{GPUCommandEncoder/[[state]]}}不为[=encoder state/open=]:
-                1. 问题(gpuweb/gpuweb#2264)：支出在这种情况下该如何做？
-        </div>
-</dl>
 
 ## 查询 ## {#command-encoder-queries}
 
@@ -5939,19 +5885,24 @@ WebGPU提供{{GPUCommandEncoder/copyBufferToTexture()}}以buffer-to-texture拷�
 
             1. 如果|this|.{{GPUObjectBase/[[device]]}}.{{device/[[features]]}}不为[=list/contain=]
                 {{GPUFeatureName/"timestamp-query"}}，抛出一个{{TypeError}}。
-            2. 如果以下任何条件未满足，产生一个校验错误并停止。
-                <div class=validusage>
-                    - |this|.{{GPUCommandEncoder/[[state]]}}为[=encoder state/open=]。
-                    - |querySet|可以与|this|一起有效使用。
-                    - |querySet|.{{GPUQuerySet/[[descriptor]]}}.{{GPUQuerySetDescriptor/type}}为{{GPUQueryType/"timestamp"}}。
-                    - |queryIndex| &lt; |querySet|.{{GPUQuerySet/[[descriptor]]}}.{{GPUQuerySetDescriptor/count}}。
-                </div>
+            1. 在 |this|.{{GPUObjectBase/[[device]]}} 的 [=Device Timeline=] 上发出以下步骤：
+                <div class=device-timeline>
+                    1. 准备|this|的编码器状态。如果返回 false，则停止。
+                    2. 如果以下任何条件未满足，产生一个校验错误并停止。
+                        <div class=validusage>
+                            - |this|.{{GPUCommandEncoder/[[state]]}}为[=encoder state/open=]。
+                            - |querySet|可以与|this|一起有效使用。
+                            - |querySet|.{{GPUQuerySet/[[descriptor]]}}.{{GPUQuerySetDescriptor/type}}为{{GPUQueryType/"timestamp"}}。
+                            - |queryIndex| &lt; |querySet|.{{GPUQuerySet/[[descriptor]]}}.{{GPUQuerySetDescriptor/count}}。
+                        </div>
 
-            问题: 描述{{GPUCommandEncoder/writeTimestamp()}}算法步骤。
+                    问题: 描述{{GPUCommandEncoder/writeTimestamp()}}算法步骤。
+                </div>
         </div>
 
     : <dfn>resolveQuerySet(querySet, firstQuery, queryCount, destination, destinationOffset)</dfn>
     ::
+        将来自 {{GPUQuerySet}} 的查询结果解析为 {{GPUBuffer}} 的范围。
 
         <div algorithm=GPUCommandEncoder.resolveQuerySet>
             **Called on:** {{GPUCommandEncoder}} this.
@@ -5967,19 +5918,23 @@ WebGPU提供{{GPUCommandEncoder/copyBufferToTexture()}}以buffer-to-texture拷�
 
             **Returns:** {{undefined}}
 
-            如果以下任何条件未满足，产生一个{{GPUValidationError}}并停止。
-            <div class=validusage>
-                - |this|.{{GPUCommandEncoder/[[state]]}}为[=encoder state/open=]。
-                - |querySet|为[$valid to use with$] |this|。
-                - |destination|为[$valid to use with$] |this|。
-                - |destination|.{{GPUBuffer/[[usage]]}}包含{{GPUBufferUsage/QUERY_RESOLVE}}。
-                - |firstQuery|小于|querySet|中的查询数量。
-                - (|firstQuery| + |queryCount|)小于等于|querySet|中的查询数量。
-                - |destinationOffset|是256的倍数。
-                - |destinationOffset| + 8 &times; |queryCount| &le; |destination|.{{GPUBuffer/[[size]]}}。
-            </div>
+            在 |this|.{{GPUObjectBase/[[device]]}} 的 [=Device Timeline=] 上发出以下步骤：
+            <div class=device-timeline>
+                1. 准备|this|的编码器状态。如果返回 false，则停止。
+                1. 如果以下任何条件未满足，产生一个{{GPUValidationError}}并停止。
+                    <div class=validusage>
+                        - |this|.{{GPUCommandEncoder/[[state]]}}为[=encoder state/open=]。
+                        - |querySet|为[$valid to use with$] |this|。
+                        - |destination|为[$valid to use with$] |this|。
+                        - |destination|.{{GPUBuffer/[[usage]]}}包含{{GPUBufferUsage/QUERY_RESOLVE}}。
+                        - |firstQuery|小于|querySet|中的查询数量。
+                        - (|firstQuery| + |queryCount|)小于等于|querySet|中的查询数量。
+                        - |destinationOffset|是256的倍数。
+                        - |destinationOffset| + 8 &times; |queryCount| &le; |destination|.{{GPUBuffer/[[size]]}}。
+                    </div>
 
-            问题: 描述{{GPUCommandEncoder/resolveQuerySet()}}算法步骤。
+                    问题: 描述{{GPUCommandEncoder/resolveQuerySet()}}算法步骤。
+            </div>
         </div>
 </dl>
 
@@ -6005,21 +5960,22 @@ WebGPU提供{{GPUCommandEncoder/copyBufferToTexture()}}以buffer-to-texture拷�
             1. 使|commandBuffer|为一个新的{{GPUCommandBuffer}}。
             2. 在|this|的[=Device timeline=]上发起如下步骤：
                 <div class=device-timeline>
-                    1. 如果以下条件未满足：
+                    1. 如果以下条件都满足则使 |validationFailed| 为 `true`，否则为 `false` 。
                         <div class=validusage>
                             - |this|必须为[=valid=].
-                            - |this|.{{GPUCommandEncoder/[[debug_group_stack]]}}'s [=stack/size=]必须为0。
-                            - |this|.{{GPUCommandEncoder/[[state]]}}必须为[=encoder state/open=]。
+                            - |this|.{{GPUCommandsMixin/[[state]]}}'s [=stack/size=]必须为"[=encoder state/open=]"。
+                            - |this|.{{GPUDebugCommandsMixin/[[debug_group_stack]]}}必须为[=list/is empty|be empty=]。
                             - 每个包含在|this|中的[=usage scope=]必须满足[=usage scope validation=]。
                         </div>
 
-                        之后：
+                    1. 设置 |this|.{{GPUCommandsMixin/[[state]]}} 为 "[=encoder state/ended=]".
+                    1. 如果 |validationFailed|, 则：
 
                         1. 在当前范围内产生一个带有恰当错误消息的{{GPUValidationError}}。
                         2. 返回一个新的[=invalid=] {{GPUCommandBuffer}}。
 
-                    2. 设置|this|.{{GPUCommandEncoder/[[state]]}}为[=encoder state/closed=]。
-                    3. 设置|commandBuffer|.{{GPUCommandBuffer/[[command_list]]}}为|this|.{{GPUCommandEncoder/[[command_list]]}}。
+                    1. 设置|this|.{{GPUCommandEncoder/[[state]]}}为[=encoder state/closed=]。
+                    1. 设置|commandBuffer|.{{GPUCommandBuffer/[[command_list]]}}为|this|.{{GPUCommandsMixin/[[commands]]}}。
                 </div>
 
             3. 返回|commandBuffer|。
@@ -6038,10 +5994,6 @@ interface mixin GPUProgrammablePassEncoder {
                       Uint32Array dynamicOffsetsData,
                       GPUSize64 dynamicOffsetsDataStart,
                       GPUSize32 dynamicOffsetsDataLength);
-
-    undefined pushDebugGroup(USVString groupLabel);
-    undefined popDebugGroup();
-    undefined insertDebugMarker(USVString markerLabel);
 };
 </script>
 
@@ -6051,10 +6003,6 @@ interface mixin GPUProgrammablePassEncoder {
     : <dfn>\[[command_encoder]]</dfn> of type {{GPUCommandEncoder}}.
     ::
         The {{GPUCommandEncoder}} that created this programmable pass.
-
-    : <dfn>\[[debug_group_stack]]</dfn> of type [=stack=]&lt;{{USVString}}&gt;.
-    ::
-        A stack of active debug group labels.
 
     : <dfn>\[[bind_groups]]</dfn>, of type [=ordered map=]&lt;{{GPUIndex32}}, {{GPUBindGroup}}&gt;
     ::
@@ -6182,67 +6130,96 @@ interface mixin GPUProgrammablePassEncoder {
     否则返回 `true`。
 </div>
 
-## 调试标记 ## {#programmable-passes-debug-markers}
+# 调试标记 # {#debug-markers}
 
-可编程传递编码器的调试标记方法提供与
-[[#command-encoder-debug-markers|command encoder debug markers]] 同时记录一个可编程通道。
+<dfn interface>GPUDebugCommandsMixin</dfn> 提供了将调试标签应用于命令组或将单个标签插入命令序列的方法。
 
-<dl dfn-type=method dfn-for=GPUProgrammablePassEncoder>
+调试组可以嵌套以创建标记命令的层次结构，并且必须很好地平衡。
+
+与 {{GPUObjectBase/label|object labels}} 一样，这些标签没有必需的行为，但可能会显示在错误消息和浏览器开发人员工具中，并且可能会传递给原生 API 后端。
+
+<script type=idl>
+interface mixin GPUDebugCommandsMixin {
+    undefined pushDebugGroup(USVString groupLabel);
+    undefined popDebugGroup();
+    undefined insertDebugMarker(USVString markerLabel);
+};
+</script>
+
+{{GPUDebugCommandsMixin}} 仅包含在包含 {{GPUObjectBase}} 和 {{GPUCommandsMixin}} 的接口中。
+
+{{GPUDebugCommandsMixin}} 将以下内部插槽添加到包含它的接口中：
+
+<dl dfn-type=attribute dfn-for=GPUDebugCommandsMixin>
+    : <dfn>\[[debug_group_stack]]</dfn> of type [=stack=]&lt;{{USVString}}&gt;.
+    ::
+        一个活动调试组标签组成的堆。
+</dl>
+
+{{GPUDebugCommandsMixin}} adds the following methods to interfaces which include it:
+
+<dl dfn-type=method dfn-for=GPUDebugCommandsMixin>
     : <dfn>pushDebugGroup(groupLabel)</dfn>
     ::
-        标记 {{GPUProgrammablePassEncoder}} 的标记命令组的开始。
+        开始包含后续命令的标记调试组。
 
-        <div algorithm=GPUProgrammablePassEncoder.pushDebugGroup>
-            **调用:** {{GPUProgrammablePassEncoder}} |this|.
+        <div algorithm=GPUDebugCommandsMixin.pushDebugGroup>
+            **Called on:** {{GPUDebugCommandsMixin}} |this|.
 
-            **参数:**
-            <pre class=argumentdef for="GPUProgrammablePassEncoder/pushDebugGroup(groupLabel)">
+            **Arguments:**
+            <pre class=argumentdef for="GPUDebugCommandsMixin/pushDebugGroup(groupLabel)">
                 |groupLabel|: 命令组的标签。
             </pre>
 
-            **返回:** {{undefined}}
+            **Returns:** {{undefined}}
 
-            在 |this| 的 [=Device timeline=] 上发出以下步骤：
+            在 |this|.{{GPUObjectBase/[[device]]}} 的 [=Device Timeline=] 上发出以下步骤：
             <div class=device-timeline>
-                1. [=stack/Push=] |groupLabel| 到 |this|.{{GPUProgrammablePassEncoder/[[debug_group_stack]]}}.
+                1. 准备|this|的编码器状态（[$Prepare the encoder state$]）。如果返回false，则停止。
+                1. 在|this|.{{GPUDebugCommandsMixin/[[debug_group_stack]]}}上[=stack/Push=] |groupLabel|。
             </div>
         </div>
 
     : <dfn>popDebugGroup()</dfn>
     ::
-        标记 {{GPUProgrammablePassEncoder}} 的标记命令组的结束。
+        结束最近由 {{GPUDebugCommandsMixin/pushDebugGroup()}} 启动的标记调试组。
 
-        <div algorithm=GPUProgrammablePassEncoder.popDebugGroup>
-            **调用:** {{GPUProgrammablePassEncoder}} |this|.
+        <div algorithm=GPUDebugCommandsMixin.popDebugGroup>
+            **Called on:** {{GPUDebugCommandsMixin}} |this|.
 
-            **返回:** {{undefined}}
+            **Returns:** {{undefined}}
 
-            在 |this| 的 [=Device timeline=] 上发出以下步骤：
+            在 |this|.{{GPUObjectBase/[[device]]}} 的 [=Device Timeline=] 上发出以下步骤：
             <div class=device-timeline>
-                1. 如果不满足以下任何条件，则生成验证错误并停止。
+                1. 准备|this|的编码器状态（[$Prepare the encoder state$]）。如果为false，则停止。
+                1. 如果不满足以下任何要求，则使 |this| [=无效=]，然后停止。
                     <div class=validusage>
-                        - |this|.{{GPUProgrammablePassEncoder/[[debug_group_stack]]}} 的 [=stack/size=] 大于 0.
+                        - |this|.{{GPUDebugCommandsMixin/[[debug_group_stack]]}} 必须不为 [=list/is empty|be empty=].
                     </div>
-                1. [=stack/Pop=] |this|.{{GPUProgrammablePassEncoder/[[debug_group_stack]]}} 的一个条目。
+                1. 从 |this|.{{GPUDebugCommandsMixin/[[debug_group_stack]]}} 中 [=stack/Pop=] 出一项。
             </div>
         </div>
 
     : <dfn>insertDebugMarker(markerLabel)</dfn>
     ::
-        将单个调试标记标签插入到 {{GPUProgrammablePassEncoder}} 的命令序列中。
+        用标签标记命令流中的一个点。
 
-        <div algorithm=GPUProgrammablePassEncoder.insertDebugMarker>
-            *调用:** {{GPUProgrammablePassEncoder}} this.
+        <div algorithm=GPUDebugCommandsMixin.insertDebugMarker>
+            **Called on:** {{GPUDebugCommandsMixin}} this.
 
-            **参数:**
-            <pre class=argumentdef for="GPUProgrammablePassEncoder/insertDebugMarker(markerLabel)">
+            **Arguments:**
+            <pre class=argumentdef for="GPUDebugCommandsMixin/insertDebugMarker(markerLabel)">
                 markerLabel: 要插入的标签。
             </pre>
 
-            **返回:** {{undefined}}
+            **Returns:** {{undefined}}
+
+            在 |this|.{{GPUObjectBase/[[device]]}} 的 [=Device Timeline=] 上发出以下步骤：
+            <div class=device-timeline>
+                1. 准备|this|的编码器状态（[$Prepare the encoder state$]）。如果为false，则停止。
+            </div>
         </div>
 </dl>
-
 
 # 计算通道 # {#compute-passes}
 
@@ -6362,8 +6339,10 @@ dictionary GPUComputePassDescriptor : GPUObjectDescriptorBase {
                         - |x|，|y|，和|z|都小于或等于|this|.device.limits.{{supported limits/maxComputeWorkgroupsPerDimension}}。
                     </div>
 
-                2. [=list/Append=]一个[=GPU command=]至|this|.{{GPUProgrammablePassEncoder/[[command_encoder]]}}.{{GPUCommandEncoder/[[command_list]]}}，它捕获|this|的{{GPUComputePassEncoder}}状态作为|passState|，并在执行时在适当的[=Queue timeline=]上发起以下步骤：
-                        1. 使用|passState|.{{GPUComputePassEncoder/[[pipeline]]}}与|passState|.{{GPUProgrammablePassEncoder/[[bind_groups]]}}调度维度为[|x|, |y|, |z|]的工作组网格。
+                1. 使|passState|为一个this|的快照当前状态。
+                1. [=list/Append=] 一个 [=GPU command=] 至 |this|.{{GPUCommandsMixin/[[commands]]}}，执行以下 [=queue timeline=] 步骤：
+                    <div class=queue-timeline>
+                        1. 使用 |passState| 调度维度为 [|x|, |y|, |z|] 的工作组网格。{{GPUComputePassEncoder/[[pipeline]]}} 使用 |passState|.{{GPUProgrammablePassEncoder/[[bind_groups]] }}。
                     </div>
             </div>
         </div>
@@ -6426,15 +6405,20 @@ dictionary GPUComputePassDescriptor : GPUObjectDescriptorBase {
 
             在|this|的[=Device timeline=]上发起以下步骤：
             <div class=device-timeline>
-                1. 如果以下任何条件未满足，产生一个无效的（[=invalid=]）|this|.{{GPUProgrammablePassEncoder/[[command_encoder]]}}并停止。
+                1. 如果以下任何条件未满足，产生一个{{GPUValidationError}}并停止。
+                    <div class=validusage>
+                        - |this|.{{GPUCommandsMixin/[[state]]}} 必须为 "[=encoder state/open=]",
+                    </div>
+                1. [=Assert=]: |this|.{{GPUProgrammablePassEncoder/[[command_encoder]]}}.{{GPUCommandsMixin/[[state]]}} 为 "[=encoder state/locked=]"。
+                1. 设置 |this|.{{GPUCommandsMixin/[[state]]}} 为 "[=encoder state/ended=]"。
+                1. 设置 |this|.{{GPUProgrammablePassEncoder/[[command_encoder]]}}.{{GPUCommandsMixin/[[state]]}} 为 "[=encoder state/open=]"。
+                1. 如果以下任何条件未满足，使 |this|.{{GPUProgrammablePassEncoder/[[command_encoder]]}} [=invalid=] 并停止。
                     <div class=validusage>
                         - |this| 必须为 [=valid=]
-                        - |this|.{{GPUProgrammablePassEncoder/[[debug_group_stack]]}}'s [=stack/size=]为0。
-
-                        问题：添加剩余校验。
+                        - |this|.{{GPUDebugCommandsMixin/[[debug_group_stack]]}} 必须为 [=list/is empty|be empty=].
                     </div>
-                2. 对每个|this|.{{GPUComputePassEncoder/[[endTimestampWrites]]}}中的|timestampWrite|，
-                    1. (|timestampWrite|.{{GPUComputePassTimestampWrite/location}} must equal {{GPUComputePassTimestampLocation/"end"}}.)
+                1. 对每个|this|.{{GPUComputePassEncoder/[[endTimestampWrites]]}}中的|timestampWrite|，
+                    1. (|timestampWrite|.{{GPUComputePassTimestampWrite/location}} 必须等于 {{GPUComputePassTimestampLocation/"end"}}.)
                     2. 添加（[=list/Append=]）一个[=GPU command=]至|this|.{{GPUProgrammablePassEncoder/[[command_encoder]]}}.{{GPUCommandEncoder/[[command_list]]}}，将GPU时间戳值写入|timestampWrite|.{{GPUComputePassTimestampWrite/querySet}}中的|timestampWrite|.{{GPUComputePassTimestampWrite/queryIndex}}索引。
             </div>
         </div>
@@ -6481,6 +6465,8 @@ interface GPURenderPassEncoder {
     undefined endPass();
 };
 GPURenderPassEncoder includes GPUObjectBase;
+GPURenderPassEncoder includes GPUCommandsMixin;
+GPURenderPassEncoder includes GPUDebugCommandsMixin;
 GPURenderPassEncoder includes GPUProgrammablePassEncoder;
 GPURenderPassEncoder includes GPURenderEncoderBase;
 </script>
@@ -6574,9 +6560,13 @@ dictionary GPURenderPassDescriptor : GPUObjectDescriptorBase {
     ::
         此序列中的{{GPURenderPassColorAttachment}}值集，定义了在执行此渲染通道时将输出到哪些颜色附件。
 
+        由于 [=compatible usage list|usage compatibility=]，没有颜色附件可以作为另一个附件或渲染通道内使用的任何资源的别名。
+
     : <dfn>depthStencilAttachment</dfn>
     ::
         {{GPURenderPassDepthStencilAttachment}}值，定义了深度/模板附件，在执行此渲染通道时将输出到该附件并对其进行测试。
+
+        由于 [=compatible usage list|usage compatibility=]，任何可写的深度/模板附件都不能作为另一个附件或渲染通道内使用的任何资源的别名。
 
     : <dfn>occlusionQuerySet</dfn>
     ::
@@ -6655,26 +6645,41 @@ dictionary GPURenderPassColorAttachment {
 
 <div class=validusage dfn-for=GPURenderPassColorAttachment>
     <dfn abstract-op>GPURenderPassColorAttachment Valid Usage</dfn>
+    
+    给定一个 {{GPURenderPassColorAttachment}} |this|:
 
-    给定一个{{GPURenderPassColorAttachment}} |this|，应用以下校验规则：
+    1. 使 |renderViewDescriptor| 为 |this|.{{GPURenderPassColorAttachment/view}}.{{GPUTextureView/[[descriptor]]}}.
+    1. 使 |resolveViewDescriptor| 为 |this|.{{GPURenderPassColorAttachment/resolveTarget}}.{{GPUTextureView/[[descriptor]]}}.
+    1. 使 |renderTextureDescriptor| 为 |this|.{{GPURenderPassColorAttachment/view}}.{{GPUTextureView/[[texture]]}}.{{GPUTexture/[[descriptor]]}}.
+    1. 使 |resolveTextureDescriptor| 为 |this|.{{GPURenderPassColorAttachment/resolveTarget}}.{{GPUTextureView/[[texture]]}}.{{GPUTexture/[[descriptor]]}}.
 
-    1. 使|renderTextureDesc|为|this|.{{GPURenderPassColorAttachment/view}}.{{GPUTextureView/[[texture]]}}.{{GPUTexture/[[descriptor]]}}。
-    2. 使|resolveTextureDesc|为|this|.{{GPURenderPassColorAttachment/resolveTarget}}.{{GPUTextureView/[[texture]]}}.{{GPUTexture/[[descriptor]]}}。
-    3. |this|.{{GPURenderPassColorAttachment/view}}必须有一个[=color renderable format=]。
-    4. |renderTextureDesc|.{{GPUTextureDescriptor/usage}必须包含{{GPUTextureUsage/RENDER_ATTACHMENT}}。
-    5. |this|.{{GPURenderPassColorAttachment/view}}必须为一个单个[=subresource=]视图。
-    6. 如果|this|.{{GPURenderPassColorAttachment/resolveTarget}}不为 `null`：
+    以下验证规则适用：
 
-        1. |this|.{{GPURenderPassColorAttachment/view}}必须为多重采样。
-        2. |this|.{{GPURenderPassColorAttachment/resolveTarget}}必须不为多重采样。
-        3. |resolveTextureDesc|.{{GPUTextureDescriptor/usage}}必须包含{{GPUTextureUsage/RENDER_ATTACHMENT}}。
-        4. |this|.{{GPURenderPassColorAttachment/resolveTarget}}必须为一个单个[=subresource=]视图。
+    - |renderViewDescriptor|.{{GPUTextureViewDescriptor/format}} 必须为 [=color renderable format=].
+    - |this|.{{GPURenderPassColorAttachment/view}} 必须为 [$renderable texture view$].
+    - 如果 |this|.{{GPURenderPassColorAttachment/resolveTarget}} 不为 `null`:
+        - |renderTextureDescriptor|.{{GPUTextureDescriptor/sampleCount}} 必须大于 1.
+        - |resolveTextureDescriptor|.{{GPUTextureDescriptor/sampleCount}} 必须为 1.
+        - |this|.{{GPURenderPassColorAttachment/resolveTarget}} 必须为 [$renderable texture view$].
+        - |this|.{{GPURenderPassColorAttachment/resolveTarget}} 和 |this|.{{GPURenderPassColorAttachment/view}} 看到的 [=subresource=] 大小必须匹配。
+        - |resolveViewDescriptor|.{{GPUTextureViewDescriptor/format}} 必须等于
+            |renderViewDescriptor|.{{GPUTextureViewDescriptor/format}}.
+        - |resolveViewDescriptor|.{{GPUTextureViewDescriptor/format}} 必须支持根据 [[#plain-color-formats]] 解析。
+</div>
 
-        5. 被|this|.{{GPURenderPassColorAttachment/resolveTarget}}和|this|.{{GPURenderPassColorAttachment/view}}所见的[=subresource=]维度必须匹配。
-        6. |resolveTextureDesc|.{{GPUTextureDescriptor/format}}必须匹配|renderTextureDesc|.{{GPUTextureDescriptor/format}}.
-        7. 问题：描述任何剩余的resolveTarget校验。
+<div algorithm>
+    A {{GPUTextureView}} |view| is a <dfn abstract-op>renderable texture view</dfn>
+    if the following requirements are met:
 
-    问题：描述此类型的其余校验规则。
+    - |view|.{{GPUTextureView/[[texture]]}}.{{GPUTexture/[[descriptor]]}}.{{GPUTextureDescriptor/usage}}
+        must contain {{GPUTextureUsage/RENDER_ATTACHMENT}}.
+    - |descriptor|.{{GPUTextureViewDescriptor/dimension}} must be {{GPUTextureViewDimension/"2d"}}.
+    - |descriptor|.{{GPUTextureViewDescriptor/mipLevelCount}} must be 1.
+    - |descriptor|.{{GPUTextureViewDescriptor/arrayLayerCount}} must be 1.
+    - |descriptor|.{{GPUTextureViewDescriptor/aspect}} must refer to all [=aspects=] of
+        |view|.{{GPUTextureView/[[texture]]}}.
+
+    where |descriptor| is |view|.{{GPUTextureView/[[descriptor]]}}.
 </div>
 
 #### 深度/模板附件 #### {#depth-stencil-attachments}
@@ -6733,8 +6738,7 @@ dictionary GPURenderPassDepthStencilAttachment {
     给定一个{{GPURenderPassDepthStencilAttachment}} |this|，应用以下校验规则：
 
     - |this|.{{GPURenderPassDepthStencilAttachment/view}}必须有一个[=depth-or-stencil format=].
-    - |this|.{{GPURenderPassDepthStencilAttachment/view}}必须为一个单个[=mipmap level=], single [=array layer=], 和所有纹理中 [=aspects=]的视图。
-    - |this|.{{GPURenderPassDepthStencilAttachment/view}}.{{GPUTexture/[[descriptor]]}}.{{GPUTextureDescriptor/usage}}必须包含{{GPUTextureUsage/RENDER_ATTACHMENT}}。
+    - |this|.{{GPURenderPassDepthStencilAttachment/view}} 必须为一个 [$renderable texture view$].
     - 如果|this|.{{GPURenderPassDepthStencilAttachment/depthLoadValue}}为一个清除值（具有 `float` 类型），
         它必须在0.0至1.0之间，包含0.0和1.0。<!-- 除非启用了不受限制的深度 -->
     - 如果|this|.{{GPURenderPassDepthStencilAttachment/view}}.{{GPUTextureView/[[descriptor]]}}.{{GPUTextureViewDescriptor/format}}为[=combined depth-stencil format=]：
@@ -6745,8 +6749,6 @@ dictionary GPURenderPassDepthStencilAttachment {
     - 如果|this|.{{GPURenderPassDepthStencilAttachment/stencilReadOnly}}为 `true`:
         - |this|.{{GPURenderPassDepthStencilAttachment/stencilLoadValue}}必须为{{GPULoadOp/"load"}}。
         - |this|.{{GPURenderPassDepthStencilAttachment/stencilStoreOp}}必须为{{GPUStoreOp/"store"}}。
-
-    问题：描述此类型的其余校验规则。
 </div>
 
 #### 加载&amp;存储操作 #### {#load-and-store-ops}
@@ -7333,19 +7335,24 @@ dictionary GPURenderPassLayout: GPUObjectDescriptorBase {
 
             在|this|的[=Device timeline=]上发起以下步骤：
             <div class=device-timeline>
-                1. 如果以下任何条件未满足，使|this|.{{GPUProgrammablePassEncoder/[[command_encoder]]}} [=invalid=]并停止。
+                1. 如果以下任何条件未满足，则生成 {{GPUValidationError}} 并停止。
                     <div class=validusage>
-                        - |this|必须为[=valid=]。
-                        - |this|.{{GPUProgrammablePassEncoder/[[debug_group_stack]]}}的[=stack/size=]为0。
-                        - |this|.{{GPURenderPassEncoder/[[occlusion_query_active]]}}为 `false`。
-
-                        问题：添加剩余校验。
+                        - |this|.{{GPUCommandsMixin/[[state]]}} must be "[=encoder state/open=]",
                     </div>
-                1. 对每个|this|.{{GPURenderPassEncoder/[[endTimestampWrites]]}}中的|timestampWrite|，
-                    1. (|timestampWrite|.{{GPURenderPassTimestampWrite/location}}必须等于{{GPURenderPassTimestampLocation/"end"}}.)
-                    1. 将一个[=GPU command=]添加（[=list/Append=]）至|this|.{{GPUProgrammablePassEncoder/[[command_encoder]]}}.{{GPUCommandEncoder/[[command_list]]}}，将GPU时间戳值写入|timestampWrite|.{{GPURenderPassTimestampWrite/querySet}}的第|timestampWrite|.{{GPURenderPassTimestampWrite/queryIndex}}索引处。
-
-                问题：将附件stores入队（和storeOp清除一起）。
+                1. [=Assert=]: |this|.{{GPUProgrammablePassEncoder/[[command_encoder]]}}.{{GPUCommandsMixin/[[state]]}} 为 "[=encoder state/locked=]".
+                1. 设置 |this|.{{GPUCommandsMixin/[[state]]}} 为 "[=encoder state/ended=]".
+                1. 设置 |this|.{{GPUProgrammablePassEncoder/[[command_encoder]]}}.{{GPUCommandsMixin/[[state]]}} 为 "[=encoder state/open=]".
+                1. 如果以下任何条件未满足，使 |this|.{{GPUProgrammablePassEncoder/[[command_encoder]]}} [=invalid=] 并停止。
+                    <div class=validusage>
+                        - |this| 必须为 [=valid=].
+                        - |this|.{{GPUDebugCommandsMixin/[[debug_group_stack]]}} 必须为 [=list/is empty|be empty=].
+                        - |this|.{{GPURenderPassEncoder/[[occlusion_query_active]]}} 必须为 `false`.
+                    </div>
+                1. 使用|this|.{{GPUCommandsMixin/[[commands]]}}，[=list/Extend=] |this|.{{GPUProgrammablePassEncoder/[[command_encoder]]}}.{{GPUCommandsMixin/[[commands]]}}。
+                1. 对每个|this|.{{GPURenderPassEncoder/[[endTimestampWrites]]}}中的|timestampWrite|：
+                    1. [=Assert=]: |timestampWrite|.{{GPURenderPassTimestampWrite/location}} 为 {{GPURenderPassTimestampLocation/"end"}}.
+                    1. [=list/Append=] 一个 [=GPU command=] 至 |this|.{{GPUProgrammablePassEncoder/[[command_encoder]]}}.{{GPUCommandsMixin/[[commands]]}}，将GPU时间戳值写入|timestampWrite|.{{GPURenderPassTimestampWrite/querySet}}中的第|timestampWrite|.{{GPURenderPassTimestampWrite/queryIndex}}索引处。
+                1. 问题：入队附件存储/丢弃。
             </div>
         </div>
 </dl>
@@ -7393,34 +7400,11 @@ interface GPURenderBundleEncoder {
     GPURenderBundle finish(optional GPURenderBundleDescriptor descriptor = {});
 };
 GPURenderBundleEncoder includes GPUObjectBase;
+GPURenderBundleEncoder includes GPUCommandsMixin;
+GPURenderBundleEncoder includes GPUDebugCommandsMixin;
 GPURenderBundleEncoder includes GPUProgrammablePassEncoder;
 GPURenderBundleEncoder includes GPURenderEncoderBase;
 </script>
-
-{{GPURenderBundleEncoder}}有以下内部插槽：
-
-<dl dfn-type=attribute dfn-for="GPURenderBundleEncoder">
-    : <dfn>\[[command_list]]</dfn>，类型为[=list=]&lt;[=GPU command=]&gt;.
-    ::
-        当执行此编码器生成的 {{GPURenderBundle}} 时，要提交给 {{GPURenderPassEncoder}} 的 [=GPU commands=] 的 [=list=]。
-
-    : <dfn>\[[state]]</dfn>，类型为[=render bundle state=].
-    ::
-        {{GPURenderBundleEncoder}} 的当前状态，最初设置为 [=render bundle state/open=]。
-</dl>
-
-每个{{GPURenderBundleEncoder}}有一个当前的[=Content timeline=]上的渲染捆绑状态（<dfn dfn>render bundle state</dfn>），可能为以下之一：
-
-<dl dfn-type=dfn dfn-for="render bundle state">
-    : <dfn>open</dfn>
-    ::
-        Indicates the {{GPURenderBundleEncoder}} is available to begin new operations.
-
-    : <dfn>closed</dfn>
-    ::
-        Indicates the {{GPURenderBundleEncoder}} is no longer available for any operations. The
-        {{GPURenderBundleEncoder/[[state]]}} becomes [=render bundle state/closed=] once {{GPURenderBundleEncoder/finish()}} is called.
-</dl>
 
 <dl dfn-type=method dfn-for=GPUDevice>
     : <dfn>createRenderBundleEncoder(descriptor)</dfn>
@@ -7455,7 +7439,7 @@ GPURenderBundleEncoder includes GPURenderEncoderBase;
                 1. 设定 |e|.{{GPURenderEncoderBase/[[layout]]}} 为 |descriptor|.{{GPURenderPassLayout}}.
                 1. 设定 |e|.{{GPURenderEncoderBase/[[depthReadOnly]]}} 为 |descriptor|.{{GPURenderBundleEncoderDescriptor/depthReadOnly}}.
                 1. 设定 |e|.{{GPURenderEncoderBase/[[stencilReadOnly]]}} 为 |descriptor|.{{GPURenderBundleEncoderDescriptor/stencilReadOnly}}.
-                1. 设定 |e|.{{GPURenderBundleEncoder/[[state]]}} 为 [=render bundle state/open=].
+                1. 设定 |e|.{{GPUCommandsMixin/[[state]]}} 为 "[=encoder state/open=]"
                 1. 返回 |e|.
 
                 问题：描述 {{GPUDevice/createRenderBundleEncoder()}} 的步骤重置。
@@ -7492,21 +7476,21 @@ dictionary GPURenderBundleEncoderDescriptor : GPURenderPassLayout {
             1. 让|renderBundle|成为一个新的{{GPURenderBundle}}。
             1. 在|this|的[=Device timeline=]上发起以下步骤：
                 <div class=device-timeline>
+                    1. 如果以下条件都满足则使 |validationFailed| 为 `true`，否则为 `false`。
                     1. 如果以下任何条件未满足：
                         <div class=validusage>
                             - |this|必须[=valid=]。
-                            - |this|.{{GPUProgrammablePassEncoder/[[debug_group_stack]]}}'s [=stack/size=]必须为0。
-                            - |this|.{{GPURenderBundleEncoder/[[state]]}}必须为[=render bundle state/open=]。
+                            - |this|.{{GPUCommandsMixin/[[state]]}} 必须为 "[=encoder state/open=]".
+                            - |this|.{{GPUDebugCommandsMixin/[[debug_group_stack]]}} 必须 [=list/is empty|be empty=].
                             - 每个包含在[=usage scope=]中的|this|必须满足[=usage scope validation=]。
                         </div>
 
-                        然后：
+                    1. 设置 |this|.{{GPUCommandsMixin/[[state]]}} 为 "[=encoder state/ended=]".
+                    1. 如果 |validationFailed|, 则:
 
                         1. 在当前范围内生成带有适当错误消息的 {{GPUValidationError}}。
                         1. 返回一个新的[=invalid=] {{GPURenderBundle}}。
-
-                    1. 设定|this|.{{GPURenderBundleEncoder/[[state]]}}为[=render bundle state/closed=].
-                    1. 设定|renderBundle|.{{GPURenderBundle/[[command_list]]}}为|this|.{{GPURenderBundleEncoder/[[command_list]]}}.
+                    1. 设定|renderBundle|.{{GPURenderBundle/[[command_list]]}}为|this|.{{GPUCommandsMixin/[[commands]]}}。
                 </div>
 
             1. 返回|renderBundle|.
@@ -9216,62 +9200,86 @@ typedef (sequence<GPUIntegerCoordinate> or GPUExtent3DDict) GPUExtent3D;
             <th>Format
             <th>{{GPUTextureSampleType}}
             <th>{{GPUTextureUsage/RENDER_ATTACHMENT}}
+            <th>multisampling
+            <th>resolve
             <th>{{GPUTextureUsage/STORAGE_BINDING}}
     </thead>
-    <tr><th class=stickyheader>8-bit per component<th><th><th>
+    <tr><th class=stickyheader>8-bit per component<th><th><th><th><th>
     <tr>
         <td>{{GPUTextureFormat/r8unorm}}
         <td>{{GPUTextureSampleType/"float"}},<br/>{{GPUTextureSampleType/"unfilterable-float"}}
+        <td>&checkmark;
+        <td>&checkmark;
         <td>&checkmark;
         <td>
     <tr>
         <td>{{GPUTextureFormat/r8snorm}}
         <td>{{GPUTextureSampleType/"float"}},<br/>{{GPUTextureSampleType/"unfilterable-float"}}
+        <td><!-- Vulkan -->
+        <td>&checkmark;
         <td>
-        <td>
+        <td><!-- Vulkan -->
     <tr>
         <td>{{GPUTextureFormat/r8uint}}
         <td>{{GPUTextureSampleType/"uint"}}
         <td>&checkmark;
+        <td>&checkmark;
+        <td><!-- Metal -->
         <td>
     <tr>
         <td>{{GPUTextureFormat/r8sint}}
         <td>{{GPUTextureSampleType/"sint"}}
         <td>&checkmark;
+        <td>&checkmark;
+        <td><!-- Metal -->
         <td>
     <tr>
         <td>{{GPUTextureFormat/rg8unorm}}
         <td>{{GPUTextureSampleType/"float"}},<br/>{{GPUTextureSampleType/"unfilterable-float"}}
         <td>&checkmark;
-        <td>
+        <td>&checkmark;
+        <td>&checkmark;
+        <td><!-- Vulkan -->
     <tr>
         <td>{{GPUTextureFormat/rg8snorm}}
         <td>{{GPUTextureSampleType/"float"}},<br/>{{GPUTextureSampleType/"unfilterable-float"}}
+        <td><!-- Vulkan -->
+        <td>&checkmark;
         <td>
-        <td>
+        <td><!-- Vulkan -->
     <tr>
         <td>{{GPUTextureFormat/rg8uint}}
         <td>{{GPUTextureSampleType/"uint"}}
         <td>&checkmark;
+        <td>&checkmark;
+        <td><!-- Metal -->
         <td>
     <tr>
         <td>{{GPUTextureFormat/rg8sint}}
         <td>{{GPUTextureSampleType/"sint"}}
         <td>&checkmark;
+        <td>&checkmark;
+        <td><!-- Metal -->
         <td>
     <tr>
         <td>{{GPUTextureFormat/rgba8unorm}}
         <td>{{GPUTextureSampleType/"float"}},<br/>{{GPUTextureSampleType/"unfilterable-float"}}
         <td>&checkmark;
         <td>&checkmark;
+        <td>&checkmark;
+        <td>&checkmark;
     <tr>
         <td>{{GPUTextureFormat/rgba8unorm-srgb}}
         <td>{{GPUTextureSampleType/"float"}},<br/>{{GPUTextureSampleType/"unfilterable-float"}}
+        <td>&checkmark;
+        <td>&checkmark;
         <td>&checkmark;
         <td>
     <tr>
         <td>{{GPUTextureFormat/rgba8snorm}}
         <td>{{GPUTextureSampleType/"float"}},<br/>{{GPUTextureSampleType/"unfilterable-float"}}
+        <td><!-- Vulkan -->
+        <td>&checkmark;
         <td>
         <td>&checkmark;
     <tr>
@@ -9279,50 +9287,70 @@ typedef (sequence<GPUIntegerCoordinate> or GPUExtent3DDict) GPUExtent3D;
         <td>{{GPUTextureSampleType/"uint"}}
         <td>&checkmark;
         <td>&checkmark;
+        <td><!-- Metal -->
+        <td>&checkmark;
     <tr>
         <td>{{GPUTextureFormat/rgba8sint}}
         <td>{{GPUTextureSampleType/"sint"}}
         <td>&checkmark;
         <td>&checkmark;
+        <td><!-- Metal -->
+        <td>&checkmark;
     <tr>
         <td>{{GPUTextureFormat/bgra8unorm}}
         <td>{{GPUTextureSampleType/"float"}},<br/>{{GPUTextureSampleType/"unfilterable-float"}}
+        <td>&checkmark;
+        <td>&checkmark;
         <td>&checkmark;
         <td>
     <tr>
         <td>{{GPUTextureFormat/bgra8unorm-srgb}}
         <td>{{GPUTextureSampleType/"float"}},<br/>{{GPUTextureSampleType/"unfilterable-float"}}
         <td>&checkmark;
+        <td>&checkmark;
+        <td>&checkmark;
         <td>
-    <tr><th class=stickyheader>16-bit per component<th><th><th>
+    <tr><th class=stickyheader>16-bit per component<th><th><th><th><th>
     <tr>
         <td>{{GPUTextureFormat/r16uint}}
         <td>{{GPUTextureSampleType/"uint"}}
         <td>&checkmark;
+        <td>&checkmark;
+        <td><!-- Metal -->
         <td>
     <tr>
         <td>{{GPUTextureFormat/r16sint}}
         <td>{{GPUTextureSampleType/"sint"}}
         <td>&checkmark;
+        <td>&checkmark;
+        <td><!-- Metal -->
         <td>
     <tr>
         <td>{{GPUTextureFormat/r16float}}
         <td>{{GPUTextureSampleType/"float"}},<br/>{{GPUTextureSampleType/"unfilterable-float"}}
+        <td>&checkmark;
+        <td>&checkmark;
         <td>&checkmark;
         <td>
     <tr>
         <td>{{GPUTextureFormat/rg16uint}}
         <td>{{GPUTextureSampleType/"uint"}}
         <td>&checkmark;
+        <td>&checkmark;
+        <td><!-- Metal -->
         <td>
     <tr>
         <td>{{GPUTextureFormat/rg16sint}}
         <td>{{GPUTextureSampleType/"sint"}}
         <td>&checkmark;
+        <td>&checkmark;
+        <td><!-- Metal -->
         <td>
     <tr>
         <td>{{GPUTextureFormat/rg16float}}
         <td>{{GPUTextureSampleType/"float"}},<br/>{{GPUTextureSampleType/"unfilterable-float"}}
+        <td>&checkmark;
+        <td>&checkmark;
         <td>&checkmark;
         <td><!-- Vulkan -->
     <tr>
@@ -9330,73 +9358,101 @@ typedef (sequence<GPUIntegerCoordinate> or GPUExtent3DDict) GPUExtent3D;
         <td>{{GPUTextureSampleType/"uint"}}
         <td>&checkmark;
         <td>&checkmark;
+        <td><!-- Metal -->
+        <td>&checkmark;
     <tr>
         <td>{{GPUTextureFormat/rgba16sint}}
         <td>{{GPUTextureSampleType/"sint"}}
         <td>&checkmark;
+        <td>&checkmark;
+        <td><!-- Metal -->
         <td>&checkmark;
     <tr>
         <td>{{GPUTextureFormat/rgba16float}}
         <td>{{GPUTextureSampleType/"float"}},<br/>{{GPUTextureSampleType/"unfilterable-float"}}
         <td>&checkmark;
         <td>&checkmark;
-    <tr><th class=stickyheader>32-bit per component<th><th><th>
+        <td>&checkmark;
+        <td>&checkmark;
+    <tr><th class=stickyheader>32-bit per component<th><th><th><th><th>
     <tr>
         <td>{{GPUTextureFormat/r32uint}}
         <td>{{GPUTextureSampleType/"uint"}}
         <td>&checkmark;
+        <td><!-- Metal -->
+        <td>
         <td>&checkmark;
     <tr>
         <td>{{GPUTextureFormat/r32sint}}
         <td>{{GPUTextureSampleType/"sint"}}
         <td>&checkmark;
+        <td><!-- Metal -->
+        <td>
         <td>&checkmark;
     <tr>
         <td>{{GPUTextureFormat/r32float}}
         <td>{{GPUTextureSampleType/"unfilterable-float"}}
         <td>&checkmark;
         <td>&checkmark;
+        <td><!-- Metal -->
+        <td>&checkmark;
     <tr>
         <td>{{GPUTextureFormat/rg32uint}}
         <td>{{GPUTextureSampleType/"uint"}}
         <td>&checkmark;
+        <td><!-- Metal -->
+        <td>
         <td>&checkmark;
     <tr>
         <td>{{GPUTextureFormat/rg32sint}}
         <td>{{GPUTextureSampleType/"sint"}}
         <td>&checkmark;
+        <td><!-- Metal -->
+        <td>
         <td>&checkmark;
     <tr>
         <td>{{GPUTextureFormat/rg32float}}
         <td>{{GPUTextureSampleType/"unfilterable-float"}}
         <td>&checkmark;
+        <td><!-- Metal -->
+        <td>
         <td>&checkmark;
     <tr>
         <td>{{GPUTextureFormat/rgba32uint}}
         <td>{{GPUTextureSampleType/"uint"}}
         <td>&checkmark;
+        <td><!-- Metal -->
+        <td>
         <td>&checkmark;
     <tr>
         <td>{{GPUTextureFormat/rgba32sint}}
         <td>{{GPUTextureSampleType/"sint"}}
         <td>&checkmark;
+        <td><!-- Metal -->
+        <td>
         <td>&checkmark;
     <tr>
         <td>{{GPUTextureFormat/rgba32float}}
         <td>{{GPUTextureSampleType/"unfilterable-float"}}
         <td>&checkmark;
+        <td><!-- Metal -->
+        <td>
         <td>&checkmark;
-    <tr><th class=stickyheader>mixed component width<th><th><th>
+    <tr><th class=stickyheader>mixed component width<th><th><th><th><th>
     <tr>
         <td>{{GPUTextureFormat/rgb10a2unorm}}
         <td>{{GPUTextureSampleType/"float"}},<br/>{{GPUTextureSampleType/"unfilterable-float"}}
+        <td>&checkmark;
+        <td>&checkmark;
         <td>&checkmark;
         <td>
     <tr>
         <td>{{GPUTextureFormat/rg11b10ufloat}}
         <td>{{GPUTextureSampleType/"float"}},<br/>{{GPUTextureSampleType/"unfilterable-float"}}
         <td><!-- Vulkan -->
+        <td>&checkmark;
         <td>
+        <td><!-- Vulkan -->
 
 </table>
 
@@ -9405,7 +9461,11 @@ typedef (sequence<GPUIntegerCoordinate> or GPUExtent3DDict) GPUExtent3D;
 <dfn dfn>depth-or-stencil format</dfn>是具有深度和/或模板宽高比的任何格式。<dfn dfn>combined depth-stencil format</dfn>是具有深度和模板宽高比的深度或模板格式。
 
 所有[=depth-or-stencil formats=]都支持{{GPUTextureUsage/COPY_SRC}}, {{GPUTextureUsage/COPY_DST}},
-{{GPUTextureUsage/TEXTURE_BINDING}}, 和{{GPUTextureUsage/RENDER_ATTACHMENT}}用法。但是，某些复制操作也会限制源格式和目标格式。
+{{GPUTextureUsage/TEXTURE_BINDING}}, 和{{GPUTextureUsage/RENDER_ATTACHMENT}}用法。
+
+所有这些格式都支持多重采样。
+
+但是，某些复制操作也会限制源格式和目标格式。
 
 没有深度格式可以被过滤。
 
@@ -9509,7 +9569,7 @@ depth24plus格式（{{GPUTextureFormat/"depth24plus"}}和{{GPUTextureFormat/"dep
 
 ### 打包格式 ### {#packed-formats}
 
-所有打包纹理格式支持{{GPUTextureUsage/COPY_SRC}}, {{GPUTextureUsage/COPY_DST}}, 和{{GPUTextureUsage/TEXTURE_BINDING}}用法。所有这些有{{GPUTextureSampleType/"float"}}类型的格式可以在采样时被过滤。
+所有打包纹理格式支持{{GPUTextureUsage/COPY_SRC}}, {{GPUTextureUsage/COPY_DST}}, 和{{GPUTextureUsage/TEXTURE_BINDING}}用法。所有这些有{{GPUTextureSampleType/"float"}}类型的格式可以在采样时被过滤。这些格式都不支持多重采样。
 
 A <dfn dfn>compressed format</dfn> is any format with a block size greater than 1 &times; 1.
 
