@@ -12,7 +12,7 @@ Text Macro: UNSIGNEDINTEGRAL u32 or vec|N|&lt;u32&gt;
 Text Macro: SIGNEDINTEGRAL i32 or vec|N|&lt;i32&gt;
 Text Macro: INTEGRAL i32, u32, vec|N|&lt;i32&gt;, or vec|N|&lt;u32&gt;
 Text Macro: FLOATING f32 or vec|N|&lt;f32&gt;
-Ignored Vars: i, e, e1, e2, e3, eN, N, M, v, Stride, Offset, Align, Extent, S, T, T1
+Ignored Vars: i, c0, e, e1, e2, e3, eN, p, s1, s2, sn, N, M, v, Stride, Offset, Align, Extent, S, T, T1
 
 !Participate: <a href="https://github.com/gpuweb/gpuweb/issues/new?labels=wgsl">File an issue</a> (<a href="https://github.com/gpuweb/gpuweb/issues?q=is%3Aissue+is%3Aopen+label%3Awgsl">open issues</a>)
 
@@ -125,6 +125,14 @@ div.syntax > p > code {
 spec: SPIR-V; urlPrefix: https://www.khronos.org/registry/spir-v/specs/unified1/SPIRV.html#
     type: dfn
         text: image formats; url: _a_id_image_format_a_image_format
+spec: Vulkan ; urlPrefix: https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#
+    type: dfn
+        text: memory model memory operation; url: memory-model-memory-operation
+        text: memory model reference; url: memory-model-references
+        text: memory model atomic operation; url: memory-model-atomic-operation
+        text: memory model scope; url:memory-model-scope
+        text: memory model memory semantics; url:memory-model-memory-semantics
+        text: memory model non-private; url: memory-model-non-private
 </pre>
 
 # Introduction # {#intro}
@@ -197,7 +205,7 @@ Statements:
 * Declare constants or variables
 * Modify the contents of variables
 * Modify execution order using structured programming constructs:
-    * Selective execution: if/else/elseif, switch
+    * Selective execution: if/else/else if, switch
     * Repetition: loop, for
     * Escaping a nested execution construct: break, continue
     * Refactoring: function call and return
@@ -269,7 +277,7 @@ The <dfn noexport>transpose</dfn> of an |n|-column |m|-row matrix |A| is the |m|
 The transpose of a column vector is defined by interpreting the column vector as a 1-row matrix.
 Similarly, the transpose of a row vector is defined by interpreting the row vector as a 1-column matrix.
 
-# Shader Lifecycle # {#program-lifecycle}
+# Shader Lifecycle # {#shader-lifecycle}
 
 There are four key events in the lifecycle of a [SHORTNAME] program and the shaders it may contain.
 The first two correspond to the WebGPU API methods used to prepare a [SHORTNAME] program
@@ -348,8 +356,6 @@ results in a shader-creation, pipeline-creation, or dynamic error.
 
 The WebGPU specification describes the consequences of each kind of error.
 
-TODO: Update the WebGPU spec, referring back to the three kinds of errors defined here.
-
 ## Limits ## {#limits}
 
 A program must satisfy the following limits:
@@ -379,6 +385,8 @@ and to encourage interoperability among tools.
 * [=tokens=]
 * [=blankspace=]
 
+The program text must not include a null character.
+
 <dfn>Blankspace</dfn> is any combination of one or more of the following characters:
 * space
 * horizontal tab
@@ -393,8 +401,6 @@ and to encourage interoperability among tools.
     | `/\s/`
 </div>
 
-Issue: What else should be blankspace? Anything in the Unicode Separator category?
-
 To parse a [SHORTNAME] program:
 1. Remove comments:
     * Replace the first comment with a space character.
@@ -407,17 +413,11 @@ To parse a [SHORTNAME] program:
         * blankspace
     * Repeat until no ungrouped characters remain.
 3. Discard the blankspace, leaving only tokens.
-3. Parse the token sequence, attempting to match the `translation_unit` grammar rule.
-
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>translation_unit</dfn> :
-
-    | [=syntax/global_decl_or_directive=] *
-</div>
+3. Parse the token sequence, attempting to match the [=syntax/translation_unit=] grammar rule.
 
 A [=shader-creation error=] results if:
 * the entire source text cannot be converted into a finite sequence of valid tokens, or
-* the `translation_unit` grammar rule does not match the entire token sequence.
+* the [=syntax/translation_unit=] grammar rule does not match the entire token sequence.
 
 ## Comments ## {#comments}
 
@@ -431,7 +431,29 @@ up until but not including:
 * the next [=blankspace=] character other than a space or a horizontal tab, or
 * the end of the program.
 
-TODO(dneto): Incorporate block comments, per https://github.com/gpuweb/gpuweb/pull/1470
+A <dfn noexport>block comment</dfn> is a kind of [=comment=] consisting of:
+* The two characters `/*`
+* Then any sequence of:
+    * A [=block comment=], or
+    * Text that does not contain either `*/` or `/*`
+* Then the two characters `*/`
+
+Note: Block comments can be nested.
+Since a block comment requires matching start and end text sequences, and allows arbitrary nesting,
+a block comment cannot be recognized with a regular expression.
+This is a consequence of the Pumping Lemma for Regular Languages.
+
+<div class='example wgsl' heading='Comments'>
+  <xmp>
+  let f = 1.5;   // This is line-ending comment.
+  let g = 2.5;   /* This is a block comment
+                    that spans lines.
+                    /* Block comments can nest.
+                     */
+                    But all block comments must terminate.
+                  */
+  </xmp>
+</div>
 
 ## Tokens ## {#tokens}
 
@@ -453,12 +475,12 @@ The form of a [=numeric literal=] is defined via pattern-matching:
 <div class='syntax' noexport='true'>
   <dfn for=syntax>decimal_float_literal</dfn> :
 
-    | `/((-?[0-9]*\.[0-9]+|-?[0-9]+\.[0-9]*)((e|E)(\+|-)?[0-9]+)?)|(-?[0-9]+(e|E)(\+|-)?[0-9]+)/`
+    | `/((-?[0-9]*\.[0-9]+|-?[0-9]+\.[0-9]*)((e|E)(\+|-)?[0-9]+)?f?)|(-?[0-9]+(e|E)(\+|-)?[0-9]+f?)/`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>hex_float_literal</dfn> :
 
-    | `/-?0x((([0-9a-fA-F]*\.[0-9a-fA-F]+|[0-9a-fA-F]+\.[0-9a-fA-F]*)((p|P)(\+|-)?[0-9]+)?)|([0-9a-fA-F]+(p|P)(\+|-)?[0-9]+))/`
+    | `/-?0x((([0-9a-fA-F]*\.[0-9a-fA-F]+|[0-9a-fA-F]+\.[0-9a-fA-F]*)((p|P)(\+|-)?[0-9]+f?)?)|([0-9a-fA-F]+(p|P)(\+|-)?[0-9]+f?))/`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>int_literal</dfn> :
@@ -512,13 +534,21 @@ An <dfn>identifier</dfn> is a kind of [=token=] used as a name.
 See [[#declaration-and-scope]] and [[#directives]].
 
 The form of an identifier is defined via pattern-matching, except that
-an identifier must not have the same spelling as a [=keyword=] or as a [=reserved word=].
+an identifier:
+* must not have the same spelling as a [=keyword=] or as a [=reserved word=].
+* must not be `_` (a single underscore)
+* must not start with two underscores.
 
 <div class='syntax' noexport='true'>
   <dfn for=syntax>ident</dfn> :
 
-    | `/[a-zA-Z][0-9a-zA-Z_]*/`
+    | `/([a-zA-Z_][0-9a-zA-Z][0-9a-zA-Z_]*)|([a-zA-Z][0-9a-zA-Z_]*)/`
 </div>
+
+Note: The [=return type=] for some [=built-in functions=] are structure types whose name cannot be used [SHORTNAME] source.
+Those structure types are described as if they were [=predeclared=] with a name starting with two underscores.
+The result value can be saved into newly declared `let` or `var` using type inferencing, or immediately have one of its members
+immediately extracted by name.  See example usages in the description of `frexp` and `modf`.
 
 ## Attributes ## {#attributes}
 
@@ -575,21 +605,6 @@ An attribute must not be specified more than once per object or type.
     Specifies the binding number of the resource in a bind [=attribute/group=].
     See [[#resource-interface]].
 
-  <tr><td><dfn noexport dfn-for="attribute">`block`</dfn>
-    <td>*None*
-    <td>Must only be applied to a [=structure=] type.
-
-    Indicates this structure type represents the contents of a buffer
-    resource occupying a single binding slot in the [=resource interface of a
-    shader|shader's resource interface=].
-
-    The `block` attribute must be applied to a structure type used as the
-    [=store type=] of a [=uniform buffer=] or [=storage buffer=] variable.
-
-    A structure type with the block attribute must not be:
-    * the element type of an [=array=] type
-    * the member type in another structure
-
   <tr><td><dfn noexport dfn-for="attribute">`builtin`
     <td>a builtin variable identifier
     <td>Must only be applied to an entry point function parameter, entry point
@@ -610,10 +625,8 @@ An attribute must not be specified more than once per object or type.
 
     The first parameter must be an [=interpolation type=].
     The second parameter, if present, must specify the [=interpolation sampling=].
-    <td>Must only be applied to an entry point function parameter, entry point
-    return type, or member of a [=structure=] type.
-    Must only be applied to declarations of scalars or vectors of floating-point type.
-    Must not be used with the [=compute=] shader stage.
+    <td>Must only be applied to a declaration that is decorated with a
+    [=attribute/location=] attribute.
 
     Specifies how the user-defined IO must be interpolated.
     The attribute is only significant on user-defined [=vertex=] outputs
@@ -697,9 +710,19 @@ An attribute must not be specified more than once per object or type.
 
 A <dfn noexport>directive</dfn> is a [=token=] sequence which modifies how a [SHORTNAME]
 program is processed by a WebGPU implementation.
+
+Directives are optional.
+If present, all directives must appear before any declarations.
+
 See [[#enable-directive-section]].
 
-## Declaration and scope ## {#declaration-and-scope}
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>global_directive</dfn> :
+
+    | [=syntax/enable_directive=]
+</div>
+
+## Declaration and Scope ## {#declaration-and-scope}
 
 A <dfn noexport>declaration</dfn> associates an [=identifier=] with one of
 the following kinds of objects:
@@ -719,11 +742,11 @@ We say the identifier is <dfn noexport>in scope</dfn>
 (of the declaration) at those source locations.
 
 Each kind of declaration has its own rule for determining its scope.
-In general the scope is a span of text beginning immediately after the end of the
-declaration.
+In general, the scope is a span of text beginning immediately after the end of
+the declaration.
 
-Certain objects are provided by the WebGPU implementation,
-and are treated as if they have already been declared at the start of a [SHORTNAME] program.
+Certain objects are provided by the WebGPU implementation, and are treated as
+if they have been declared by every [SHORTNAME] program.
 We say such objects are <dfn noexport>predeclared</dfn>.
 Their scope is the entire [SHORTNAME] program.
 Examples of predeclared objects are:
@@ -737,22 +760,49 @@ the identifier will denote the object of the declaration appearing closest to
 that use.
 We say the identifier use <dfn noexport>resolves</dfn> to that declaration.
 
-Note: A declaration always precedes its identifier's scope.
-Therefore, the nearest in scope declaration of an identifier always precedes the
-use of the identifier.
+There are multiple levels of scoping depending on how and where things are
+declared.
+
+When an identifier is used, it must be in scope for some declaration, or as part of a directive.
+
+A declaration is at <dfn noexport>module scope</dfn> if the declaration appears outside
+the text of any other declaration.
+Module scope declarations are [=in scope=] for the entire program.
+That is, declarations at module scope may be referenced by statements and
+expressions that precede that declaration textually.
+
+It is a [=shader-creation error=] if any module scope declaration is recursive.
+That is, there must be no cycles among the declarations:
+
+> Consider the directed graph where:
+> * Each node corresponds to a declaration |D|.
+> * There is an edge from declaration |D| to declaration |T| when the definition
+>      for |D| mentions an identifier which [=resolves=] to |T|.
+>
+> This graph must not have a cycle.
+
+Note: The [=function body=] is part of the [=function declaration=], thus
+functions must not be recursive, either directly or indirectly.
+
+Note: Use of a non-[=module scope=] identifier must follow the declaration of
+that identifier in the text.
+This is not true, however, for [=module scope=] declarations, which may be
+referenced out of order in the text.
+
+Note: Only a [=function declaration=] can contain other declarations.
 
 <div class='example' heading='Valid and invalid declarations'>
   <xmp>
     // Invalid, cannot reuse built-in function names.
     var<private> modf: f32 = 0.0;
 
-    // Valid, foo_1 is in scope until the end of the program.
+    // Valid, foo_1 is in scope for the entire program.
     var<private> foo: f32 = 0.0; // foo_1
 
-    // Valid, bar_1 is in scope until the end of the program.
+    // Valid, bar_1 is in scope for the entire program.
     var<private> bar: u32 = 0u; // bar_1
 
-    // Valid, my_func_1 is in scope until the end of the program.
+    // Valid, my_func_1 is in scope for the entire program.
     // Valid, foo_2 is in scope until the end of the function.
     fn my_func(foo: f32) { // my_func_1, foo_2
       // Any reference to 'foo' resolves to the function parameter.
@@ -782,29 +832,23 @@ use of the identifier.
       var bar: u32; // bar_5
     }
 
-    // Invalid, bar_6 has the same end scope as bar_1.
+    // Invalid, bar_6 has the same scope as bar_1.
     var<private> bar: u32 = 1u; // bar_6
 
     // Invalid, my_func_2 has the same end scope as my_func_1.
     fn my_func() { } // my_func_2
 
-    // Valid, my_foo_1 is in scope until the end of the program.
-    fn my_foo(
+    // Valid, my_foo_1 is in scope for the entire program.
+    fn my_foo( //my_foo_1
       // Valid, my_foo_2 is in scope until the end of the function.
       my_foo: i32 // my_foo_2
     ) { }
+
+    // Valid, module scope declarations are in scope for the entire program.
+    var<private> early_use : i32 = later_def;
+    var<private> later_def : i32 = 1;
   </xmp>
 </div>
-
-There are multiple levels of scoping depending on how and where things are
-declared.
-
-When an identifier is used, it must be in scope for some declaration, or as part of a directive.
-
-A declaration is at <dfn noexport>module scope</dfn> if the declaration appears outside
-the text of any other declaration.
-
-Note: Only a [=function declaration=] can contain other declarations.
 
 # Types # {#types}
 
@@ -885,6 +929,18 @@ A <dfn noexport>type rule</dfn> has two parts:
     * How the expression is used in a statement.
     * Optionally, other static context.
 
+Each distinct type parameterization for a type rule is called an <dfn noexport>overload</dfn>.
+For example, [[#arithmetic-expr|unary negation]] (an expression of the form `-`|e|)
+has eight overloads, because its type rules are parameterized by a type |T| that can be any of:
+* [=i32=]
+* vec2&lt;i32&gt;
+* vec3&lt;i32&gt;
+* vec4&lt;i32&gt;
+* [=f32=]
+* vec2&lt;f32&gt;
+* vec3&lt;f32&gt;
+* vec4&lt;f32&gt;
+
 A <dfn noexport>type rule applies to an expression</dfn> when:
 * The rule's conclusion matches a valid parse of the expression, and
 * The rule's preconditions are satisfied.
@@ -903,9 +959,6 @@ Otherwise there is a <dfn noexport>type error</dfn> and the source program is no
 [SHORTNAME] is a <dfn noexport>statically typed language</dfn>
 because type checking a [SHORTNAME] program will either succeed or
 discover a type error, while only having to inspect the program source text.
-
-TODO(dneto): Lazy-decay is a tie-breaking rule. The above description can accomodate it by
-using priority-levels on potentially-matching type rules.
 
 ### Type rule tables ### {#typing-tables-section}
 
@@ -1047,9 +1100,17 @@ An expression must not evaluate to an atomic type.
 
 Atomic types may only be instantiated by variables in the [=storage classes/workgroup=]
 storage class or by [=storage buffer=] variables with a [=access/read_write=] access mode.
+The [=memory scope=] of operations on the type is determined by the storage
+class it is instantiated in.
+Atomic types in the [=storage classes/workgroup=] storage class have a memory
+scope of `Workgroup`, while those in the [=storage classes/storage=] storage
+class have a memory scope of `QueueFamily`.
 
-An <dfn noexport>atomic modification</dfn> is any operation on an atomic object which sets the content of the object.
-The operation counts as a modification even if the new value is the same as the object's existing value.
+An <dfn noexport>atomic modification</dfn> is any
+[[#memory-operation|operation]] on an atomic object which sets the content of
+the object.
+The operation counts as a modification even if the new value is the same as the
+object's existing value.
 
 In [SHORTNAME], atomic modifications are mutually ordered, for each object.
 That is, during execution of a shader stage, for each atomic object *A*, all
@@ -1060,11 +1121,9 @@ Note that variables in [=storage classes/workgroup=] storage are shared within a
 [=compute shader stage/workgroup=], but are not shared between different
 workgroups.
 
-TODO: Add links the eventual memory model descriptions.
-
 <div class='example storage atomic' heading='Mapping atomics in a storage variable to SPIR-V'>
   <xmp>
-    [[block]] struct S {
+    struct S {
       a: atomic<i32>;
       b: atomic<u32>;
     };
@@ -1119,26 +1178,46 @@ An <dfn noexport>array</dfn> is an indexable grouping of element values.
           These may only appear in specific contexts.<br>
 </table>
 
-When specified, an element count expression |N| must:
-* be a literal, or the name of a [[#module-constants|module-scope constant]] that is not [=pipeline-overridable=], and
+The first element in an array is at index 0, and each successive element is at the next integer index.
+See [[#array-access-expr]].
+
+An expression must not evaluate to a runtime-sized array type.
+
+The element count expression |N| of a fixed-size array must:
+* be a literal, or the name of a [[#module-constants|module-scope constant]] (possibly [=pipeline-overridable=]), and
 * evaluate to an [=integer scalar=] with value greater than zero.
 
-Note:  The element count value is fully determined at [=shader module creation=] time.
+Note:  The element count value is fully determined at [=pipeline creation=] time.
+
+An array element type must be one of:
+* a [=scalar=] type
+* a [=vector=] type
+* a [=matrix=] type
+* an [=atomic type|atomic=] type
+* an array type having a [=creation-fixed footprint=]
+* a [=structure=] type having a [=creation-fixed footprint=].
+
+Note: The element type must be a [=plain type=].
+
+[SHORTNAME] defines the following attributes that can be applied to array types:
+* [=attribute/stride=]
 
 Two array types are the same if and only if all of the following are true:
 * They have the same element type.
-* Their element count specifications match, i.e. either of the following is true:
+* Their element count specifications match, i.e. one of the following is true:
     * They are both runtime-sized.
-    * They are both fixed-sized with equal-valued element counts,
-        even if one is signed and the other is unsigned.
+    * They are both fixed-sized with [=creation-fixed footprint=], and 
+        equal-valued element counts, even if one is signed and the other is unsigned.
         (Signed and unsigned values are comparable in this case because element counts must
         be greater than zero.)
+    * They are both fixed-sized with element count specified as the same
+        [=pipeline-overridable=] [=module scope|module-scope-=] constant.
 
 Issue: Array types should differ if they have different element strides.
 See https://github.com/gpuweb/gpuweb/issues/1534
 
-<div class='example fixed-size array types' heading='Example fixed-size array types'>
-  <xmp>
+<div class='example fixed-size array types' heading='Example fixed-size array types, non-overridable element count'>
+  <xmp highlight='rust'>
     // array<f32,8> and array<i32,8> are different types:
     // different element types
     var<private> a: array<f32,8>;
@@ -1158,28 +1237,26 @@ See https://github.com/gpuweb/gpuweb/issues/1534
   </xmp>
 </div>
 
-The first element in an array is at index 0, and each successive element is at the next integer index.
-See [[#array-access-expr]].
+Note: The valid use of an array sized by an overridable constant is as the store type
+of a variable in [=storage classes/workgroup=] storage.
 
-An array element type must be one of:
-* a [=scalar=] type
-* a vector type
-* a matrix type
-* an [=atomic type|atomic=] type
-* an array type
-* a [=structure=] type
+<div class='example wgsl global-scope' heading="Workgroup variables sized by overridable constants">
+  <xmp>
+    [[override]] let blockSize = 16;
 
-Note: That is, the element type must be a [=plain type=].
+    var<workgroup> odds: array<i32,blockSize>;
+    var<workgroup> evens: array<i32,blockSize>;
 
-[SHORTNAME] defines the following attributes that can be applied to array types:
-* [=attribute/stride=]
+    // An invalid example, because the overridable element count may only occur
+    // at the outer level.
+    // var<workgroup> both: array<array<i32,blockSize>,2>;
 
-Restrictions on runtime-sized arrays:
-* The last member of the structure type defining the [=store type=]
-    for a variable in the [=storage classes/storage=] storage class may be a runtime-sized array.
-* A runtime-sized array must not be used as the store type or contained within
-    a store type in any other cases.
-* An expression must not evaluate to a runtime-sized array type.
+    // An invalid example, because the overridable element count is only
+    // valid for workgroup variables.
+    // var<private> bad_storage_class: array<i32,blockSize>;
+  </xmp>
+</div>
+
 
 <div class='syntax' noexport='true'>
   <dfn for=syntax>array_type_decl</dfn> :
@@ -1217,16 +1294,16 @@ A structure member type must be one of:
 * a vector type
 * a matrix type
 * an [=atomic type|atomic=] type
-* an array type
-* a [=structure=] type
+* a [=fixed-size array=] type with [=creation-fixed footprint=]
+* a [=runtime-sized=] array type, but only if it is the last member of the structure
+* a [=structure=] type that has a [=creation-fixed footprint=]
 
-Note: That is, each member type must be a [=plain type=].
+Note: Each member type must be a [=plain type=].
 
-Note: The structure member type restriction and the array element type restriction are
-mutually reinforcing.
-Combined, they imply that a pointer may not appear in any level
-of nesting within either an array or structure.
-Similarly, the same limitations apply to textures and samplers.
+Some consequences of the restrictions structure member and array element types are:
+* A pointer, texture, or sampler must not appear in any level of nesting within an array or structure.
+* A [=runtime-sized=] array must only appear as the last element of a structure, which itself
+    cannot be part of an enclosing array or structure.
 
 <div class='example wgsl global-scope' heading="Structure">
   <xmp highlight='rust'>
@@ -1241,7 +1318,7 @@ Similarly, the same limitations apply to textures and samplers.
 <div class='syntax' noexport='true'>
   <dfn for=syntax>struct_decl</dfn> :
 
-    | [=syntax/attribute_list=] * [=syntax/struct=] [=syntax/ident=] [=syntax/struct_body_decl=]
+    | [=syntax/struct=] [=syntax/ident=] [=syntax/struct_body_decl=]
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>struct_body_decl</dfn> :
@@ -1253,9 +1330,6 @@ Similarly, the same limitations apply to textures and samplers.
 
     | [=syntax/attribute_list=] * [=syntax/variable_ident_decl=] [=syntax/semicolon=]
 </div>
-
-[SHORTNAME] defines the following attributes that can be applied to structure types:
- * [=attribute/block=]
 
 [SHORTNAME] defines the following attributes that can be applied to structure members:
  * [=attribute/builtin=]
@@ -1289,13 +1363,15 @@ to define a [=uniform buffer=] or a [=storage buffer=]. See [[#memory-layouts]].
 
 <div class='example wgsl global-scope' heading='Structure WGSL'>
   <xmp>
+    // TODO: runtime-sized array syntax may have changed
     // Runtime Array
     type RTArr = [[stride(16)]] array<vec4<f32>>;
-    [[block]] struct S {
+    struct S {
       a: f32;
       b: f32;
       data: RTArr;
     };
+    [[group(0),binding(0)]] var<storage> buffer: S;
   </xmp>
 </div>
 
@@ -1346,21 +1422,62 @@ A type is <dfn>constructible</dfn> if it is one of:
 * a [=scalar=] type
 * a [=vector=] type
 * a [=matrix=] type
-* a [=fixed-size array=] type, if its element type is constructible.
+* a [=fixed-size array=] type, if it has [=creation-fixed footprint=] and its element type is constructible.
 * a [=structure=] type, if all its members are constructible.
 
-Note: All constructible types are [=plain types|plain=].
+Note: All constructible types are [=plain types|plain=] and have [=creation-fixed footprint=].
 
 Note: Atomic types and runtime-sized array types are not constructible.
 Composite types containing atomics and runtime-sized arrays are not constructible.
+
+### Fixed-Footprint Types ### {#fixed-footprint-types}
+
+The <dfn noexport>memory footprint</dfn> of a variable is the number of [=memory locations=]
+used to store the contents of the variable.
+The memory footprint of a variable depends on its [=store type=] and becomes finalized at some point
+in the [[#shader-lifecycle|shader lifecycle]].
+Most variables are sized very early, at [=Shader module creation|shader creation=] time.
+Some variables may be sized later, at [=pipeline creation=] time,
+and others as late as the [=shader execution start|start of shader execution=].
+
+A [=plain type=] has a <dfn>creation-fixed footprint</dfn> if its size is fully determined
+at [=shader module creation|shader creation=] time.
+
+A [=plain type=] has a <dfn>fixed footprint</dfn> if its size is fully determined
+at [=pipeline creation=] time.
+
+Note: Pipeline creation depends on shader creation, so a type with [=creation-fixed footprint=] also has [=fixed footprint=].
+
+The plain types with [=creation-fixed footprint=] are:
+* a [=scalar=] type
+* a [=vector=] type
+* a [=matrix=] type
+* an [=atomic type|atomic=] type
+* a [=fixed-size array=] type, when:
+     * its [=element count=] is a literal, or the name of a [[#module-constants|module-scope constant]]
+        that is not [=pipeline-overridable=].
+* a [=structure=] type, if all its members have [=creation-fixed footprint=].
+
+Note: A [=constructible=] type has [=creation-fixed footprint=].
+
+The plain types with [=fixed footprint=] are any of:
+* a type with [=creation-fixed footprint=]
+* a [=fixed-size array=] type, where its [=element count=] is a [=pipeline-overridable=] [[#module-constants|module-scope constant]].
+
+Note: The only valid use of a fixed-size array with an element count that is a pipeline-overridable constant is
+as the [=store type=] for a [=storage classes/workgroup=] variable.
+
+Note: A fixed-footprint type may contain an [=atomic type|atomic=] type, either directly or
+indirectly, while a [=constructible=] type must not.
+
+Note: Fixed-footprint types exclude [=runtime-sized=] arrays, and any structures or arrays
+that contain [=runtime-sized=] arrays, recursively.
 
 ## Memory ## {#memory}
 
 In [SHORTNAME], a value of [=storable=] type may be stored in memory, for later retrieval.
 This section describes the structure of memory, and how [SHORTNAME] types are used to
 describe the contents of memory.
-
-In general [SHORTNAME] follows the [[!VulkanMemoryModel|Vulkan Memory Model]].
 
 ### Memory Locations ### {#memory-locations-section}
 
@@ -1460,7 +1577,7 @@ A type is <dfn dfn noexport>host-shareable</dfn> if it is one of:
 * a [=numeric vector=] type
 * a [=matrix=] type
 * an [=atomic type|atomic=] type
-* a [=fixed-size array=] type, if its element type is host-shareable
+* a [=fixed-size array=] type, if it has [=creation-fixed footprint=] and its element type is host-shareable
 * a [=runtime-sized=] array type, if its element type is host-shareable
 * a [=structure=] type, if all its members are host-shareable
 
@@ -1506,14 +1623,12 @@ and how to use variables with it.
       <td>[=Module scope=]
       <td>[=Constructible=] type
       <td>
-      <td>
   <tr><td><dfn noexport dfn-for="storage classes">workgroup</dfn>
       <td>Invocations in the same [=compute shader stage|compute shader=] [=compute shader stage/workgroup=]
       <td>[=access/read_write=]
       <td>[=Module scope=]
-      <td>[=Plain type=],
-          excluding [=runtime-sized=] arrays, or [=composite=] types containing runtime-sized arrays
-      <td>
+      <td>[=Plain type=] with [=fixed footprint=]
+      <td>The [=element count=] of an outermost array may be a [=pipeline-overridable=] constant.
   <tr><td><dfn noexport dfn-for="storage classes">uniform</dfn>
       <td>Invocations in the same [=shader stage=]
       <td>[=access/read=]
@@ -1756,13 +1871,13 @@ rounded to the next multiple of the structure's alignment:
         // -- implicit struct size padding --      // offset(20)            size(4)
     };
 
-    [[block]] struct B {                           //             align(16) size(160)
+    struct B {                                     //             align(16) size(160)
         a: vec2<f32>;                              // offset(0)   align(8)  size(8)
         // -- implicit member alignment padding -- // offset(8)             size(8)
         b: vec3<f32>;                              // offset(16)  align(16) size(12)
         c: f32;                                    // offset(28)  align(4)  size(4)
         d: f32;                                    // offset(32)  align(4)  size(4)
-        // -- implicit member alignment padding -- // offset(36)            size(12)
+        // -- implicit member alignment padding -- // offset(36)            size(4)
         e: A;                                      // offset(40)  align(8)  size(24)
         f: vec3<f32>;                              // offset(64)  align(16) size(12)
         // -- implicit member alignment padding -- // offset(76)            size(4)
@@ -1785,7 +1900,7 @@ rounded to the next multiple of the structure's alignment:
         [[size(16)]] x: f32;                       // offset(16)  align(4)  size(16)
     };
 
-    [[block]] struct B {                           //             align(16) size(208)
+    struct B {                                     //             align(16) size(208)
         a: vec2<f32>;                              // offset(0)   align(8)  size(8)
         // -- implicit member alignment padding -- // offset(8)             size(8)
         b: vec3<f32>;                              // offset(16)  align(16) size(12)
@@ -2046,7 +2161,7 @@ The access mode of a memory view must be supported by the storage class. See [[#
         identified with the set of [=memory views=] for memory locations in |SC| holding values of type |T|,
         supporting memory accesses described by mode |A|.<br>
         In this context |T| is known as the <dfn noexport>store type</dfn>.<br>
-        Reference types are not written in [SHORTNAME] progam source;
+        Reference types are not written in [SHORTNAME] program source;
         instead they are used to analyze a [SHORTNAME] program.
   <tr algorithm="pointer type">
     <td>|SC| is a [=storage class=],<br>|T| is a [=storable=] type,<br>|A| is an [=access mode=]
@@ -2055,7 +2170,7 @@ The access mode of a memory view must be supported by the storage class. See [[#
         identified with the set of [=memory views=] for memory locations in |SC| holding values of type |T|,
         supporting memory accesses described by mode |A|.<br>
         In this context |T| is known as the <dfn noexport>pointee type</dfn>.<br>
-        Pointer types may appear in [SHORTNAME] progam source.
+        Pointer types may appear in [SHORTNAME] program source.
 </table>
 
 When *analyzing* a [SHORTNAME] program, reference and pointer types are fully parameterized by a storage class,
@@ -2072,10 +2187,10 @@ However, in [SHORTNAME] *source* text:
 <div class='example wgsl' heading='Pointer type'>
   <xmp highlight='rust'>
     fn my_function(
-      // 'ptr<function,i32,read_write>' is the type of a pointer value that references
-      // storage for keeping an 'i32' value, using memory locations in the 'function'
-      // storage class.  Here 'i32' is the pointee type.
-      // The implied access mode is 'read_write'. See below for access mode defaults.
+      /* 'ptr<function,i32,read_write>' is the type of a pointer value that references
+         storage for keeping an 'i32' value, using memory locations in the 'function'
+         storage class.  Here 'i32' is the pointee type.
+         The implied access mode is 'read_write'. See below for access mode defaults. */
       ptr_int: ptr<function,i32>,
 
       // 'ptr<private,array<f32,50>,read_write>' is the type of a pointer value that
@@ -2148,9 +2263,9 @@ References and pointers are distinguished by how they are used:
 * The [=indirection=] operation (unary `*`) converts a pointer value to its corresponding reference value.
 * A [=let declaration=] can be of pointer type, but not of reference type.
 * A [=formal parameter=] can be of pointer type, but not of reference type.
-* An [=statement/assignment=] statement performs a [=write access=] to update the contents of memory via a reference, where:
-    * The left-hand side of the assignment statement must be of reference type, with access mode [=access/write=] or [=access/read_write=].
-    * The right-hand side of the assignment statement must evaluate to the store type of the left-hand side.
+* A [=simple assignment=] statement performs a [=write access=] to update the contents of memory via a reference, where:
+    * The [=left-hand side=] of the assignment statement must be of reference type, with access mode [=access/write=] or [=access/read_write=].
+    * The [=right-hand side=] of the assignment statement must evaluate to the store type of the left-hand side.
 * The <dfn noexport>Load Rule</dfn>: Inside a function, a reference is automatically dereferenced (read from) to satisfy type rules:
     * In a function, when a reference expression |r| with store type |T| is used in a statement or an expression, where
     * |r| has an access mode of [=access/read=] or [=access/read_write=], and
@@ -2224,7 +2339,7 @@ Note: The following examples use [SHORTNAME] features explained later in this sp
       position: vec3<f32>;
       velocity: vec3<f32>;
     };
-    [[block]] struct System {
+    struct System {
       active_index: i32;
       timestep: f32;
       particles: array<Particle,100>;
@@ -2247,19 +2362,19 @@ Note: The following examples use [SHORTNAME] features explained later in this sp
 <div class='example wgsl' heading='Using a pointer as a formal parameter'>
   <xmp highlight='rust'>
     fn add_one(x: ptr<function,i32>) {
-      // Update the locations for 'x' to contain the next higher integer value,
-      // (or to wrap around to the largest negative i32 value).
-      // On the left-hand side, unary '*' converts the pointer to a reference that
-      // can then be assigned to. It has a read_write access mode, by default.
-      // On the right-hand side:
-      //    - Unary '*' converts the pointer to a reference, with a read_write
-      //      access mode.
-      //    - The only matching type rule is for addition (+) and requires '*x' to
-      //      have type i32, which is the store type for '*x'.  So the Load Rule
-      //      applies and '*x' evaluates to the value stored in the memory for '*x'
-      //      at the time of evaluation, which is the i32 value for 0.
-      //    - Add 1 to 0, to produce a final value of 1 for the right-hand side.
-      // Store 1 into the memory for '*x'.
+      /* Update the locations for 'x' to contain the next higher integer value,
+         (or to wrap around to the largest negative i32 value).
+         On the left-hand side, unary '*' converts the pointer to a reference that
+         can then be assigned to. It has a read_write access mode, by default.
+         /* On the right-hand side:
+            - Unary '*' converts the pointer to a reference, with a read_write
+              access mode.
+            - The only matching type rule is for addition (+) and requires '*x' to
+              have type i32, which is the store type for '*x'.  So the Load Rule
+              applies and '*x' evaluates to the value stored in the memory for '*x'
+              at the time of evaluation, which is the i32 value for 0.
+            - Add 1 to 0, to produce a final value of 1 for the right-hand side. */
+         Store 1 into the memory for '*x'. */
       *x = *x + 1;
     }
 
@@ -2435,7 +2550,7 @@ In all cases, the access mode of the result is the same as the access mode of th
         // Here, the name 'x' resolves to the function-scope variable 'x' declared in
         // the previous statement, and has type ref<function,u32,read_write>.
         // Applying the unary '&' operator converts the reference to a pointer.
-        // The acces mode defaults to 'read_write'.
+        // The access mode defaults to 'read_write'.
         let inner_x_ptr: ptr<function,u32> = &x;
     }
   </xmp>
@@ -2486,7 +2601,7 @@ A [SHORTNAME] texture corresponds to a [[WebGPU#gputexture|WebGPU GPUTexture]].
 A texture is either arrayed, or non-arrayed:
 
 * A <dfn noexport>non-arrayed texture</dfn> is a grid of texels. Each texel has a unique grid coordinate.
-* An <dfn noexport>arrayed texture</dfn> is a homegeneous array of grids of texels.
+* An <dfn noexport>arrayed texture</dfn> is a homogeneous array of grids of texels.
     In an arrayed texture, each texel is identified with its unique combination of array index and grid coordinate.
 
 A texture has the following features:
@@ -2499,12 +2614,12 @@ A texture has the following features:
     Most textures use cartesian coordinates.
     Cube textures have six square faces, and are sampled with
     a three dimensional coordinate interpreted as a direction vector from the origin toward
-    the cube centered on the orgin.
+    the cube centered on the origin.
 : size
 :: The extent of grid coordinates along each dimension
 : mip level count
 :: The mip level count is at least 1 for sampled textures, and equal to 1 for storage textures.<br>
-    Mip level 0 contains a full size version of the texture.
+    <dfn>Mip level</dfn> 0 contains a full size version of the texture.
     Each successive mip level contains a filtered version of the previous mip level
     at half the size (within rounding) of the previous mip level.<br>
     When sampling a texture, an explicit or implicitly-computed level-of-detail is used
@@ -2528,11 +2643,10 @@ Instead, access is mediated through an opaque handle:
         The variable stores an opaque handle to the underlying texture memory, and is
         automatically placed in the [=storage classes/handle=] storage class.
     * Inside a function, call one of the texture builtin functions, and provide
-        the texture variable as the first parameter.
+        the texture variable or function parameter as the builtin function's
+        first parameter.
 * When constructing the WebGPU pipeline, the texture variable's store type and binding
     must be compatible with the corresponding bind group layout entry.
-
-TODO: update this wording to handle function parameters that are textures or samplers.
 
 In this way, the set of supported operations for a texture type
 is determined by the availability of texture builtin functions accepting that texture type
@@ -2542,7 +2656,41 @@ Note: The handle stored by a texture variable cannot be changed by the shader.
 That is, the variable is read-only, even if the underlying texture to which it provides
 access may be mutable (e.g. a write-only storage texture).
 
-TODO: Describe the use of samplers, in the same broad framework.
+A sampler is an opaque handle that controls how [=texel|texels=] are accessed
+from a sampled texture.
+
+A [SHORTNAME] sampler maps to a [[WebGPU#gpusampler|WebGPU GPUSampler]].
+
+Texel access is controlled via several properties of the sampler:
+
+: addressing mode
+:: Controls how texture boundaries and out-of-bounds
+    coordinates are resolved.
+    The addressing mode for each texture dimension can be set independently.
+    See [[WebGPU#enumdef-gpuaddressmode|WebGPU GPUAddressMode]].
+: filter mode
+:: Controls which texels are accessed to produce the final result.
+    Filtering can either use the nearest texel or interpolate between multiple
+    texels.
+    Multiple filter modes can be set independently.
+    See [[WebGPU#enumdef-gpufiltermode|WebGPU GPUFilterMode]].
+: LOD clamp
+:: Controls the min and max levels of details that are accessed.
+: comparison
+:: Controls the type of comparison done for [=syntax/sampler_comparison|comparison sampler=].
+    See [[WebGPU#enumdef-gpucomparefunction|WebGPU GPUCompareFunction]].
+: max anisotropy
+:: Controls the maximum anisotropy value used by the sampler.
+
+Samplers cannot be created in [SHORTNAME] programs and their state (e.g. the
+properties listed above) are immutable within a shader and can only be set by
+the WebGPU API.
+
+It is a [=pipeline-creation error=] if a filtering sampler (i.e. any sampler
+using interpolative filtering) is used with texture that has a non-filterable
+format.
+
+Note: The handle stored by a sampler variable cannot be changed by the shader.
 
 ### Texel formats ### {#texel-formats}
 
@@ -2563,7 +2711,7 @@ with the same name.
 Only certain texel formats are used in [SHORTNAME] source code.
 The channel formats used to define those texel formats are listed in the
 <dfn dfn>Channel Formats</dfn> table.
-The last column specfies the conversion from the stored channel bits to the value used in the shader.
+The last column specifies the conversion from the stored channel bits to the value used in the shader.
 This is also known as the <dfn noexport>channel transfer function</dfn>, or CTF.
 
 <table class='data'>
@@ -2571,7 +2719,7 @@ This is also known as the <dfn noexport>channel transfer function</dfn>, or CTF.
   <thead>
     <tr><th>Channel format
         <th>Number of stored bits
-        <th>Interpetation of stored bits
+        <th>Interpretation of stored bits
         <th>Shader type<td style="width:25%">Shader value
 (Channel Transfer Function)
   </thead>
@@ -2959,10 +3107,13 @@ TODO: Add texture usage validation rules.
     | [=syntax/rgba32float=]
 </div>
 
-## Type Aliases TODO ## {#type-aliases}
+## Type Aliases ## {#type-aliases}
+
+A <dfn noexport>type alias</dfn> declares a new name for an existing type.
+The declaration must appear at [=module scope=], and its [=scope=] is the entire program.
 
 <div class='syntax' noexport='true'>
-  <dfn for=syntax>type_alias</dfn> :
+  <dfn for=syntax>type_alias_decl</dfn> :
 
     | [=syntax/type=] [=syntax/ident=] [=syntax/equal=] [=syntax/type_decl=]
 </div>
@@ -2972,6 +3123,12 @@ TODO: Add texture usage validation rules.
     type Arr = array<i32, 5>;
 
     type RTArr = [[stride(16)]] array<vec4<f32>>;
+
+    type single = f32;     // Declare an alias for f32
+    let pi_approx: single = 3.1415;
+    fn two_pi() -> single {
+      return single(2) * pi_approx;
+    }
   </xmp>
 </div>
 
@@ -3140,9 +3297,9 @@ must not be written in [SHORTNAME] source text. See [[#access-mode-defaults]].
 
     | [=syntax/variable_decl=]
 
-    | [=syntax/variable_decl=] [=syntax/equal=] [=syntax/short_circuit_or_expression=]
+    | [=syntax/variable_decl=] [=syntax/equal=] [=syntax/expression=]
 
-    | [=syntax/let=] ( [=syntax/ident=] | [=syntax/variable_ident_decl=] ) [=syntax/equal=] [=syntax/short_circuit_or_expression=]
+    | [=syntax/let=] ( [=syntax/ident=] | [=syntax/variable_ident_decl=] ) [=syntax/equal=] [=syntax/expression=]
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>variable_decl</dfn> :
@@ -3152,7 +3309,7 @@ must not be written in [SHORTNAME] source text. See [[#access-mode-defaults]].
 <div class='syntax' noexport='true'>
   <dfn for=syntax>variable_ident_decl</dfn> :
 
-    | [=syntax/ident=] [=syntax/colon=] [=syntax/attribute_list=] * [=syntax/type_decl=]
+    | [=syntax/ident=] [=syntax/colon=] [=syntax/type_decl=]
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>variable_qualifier</dfn> :
@@ -3180,10 +3337,15 @@ When a variable is created, its memory contains an initial value as follows:
 * For variables in the [=storage classes/private=] or [=storage classes/function=] storage classes:
     * The [=zero value=] for the store type, if the variable declaration has no initializer.
     * Otherwise, it is the result of evaluating the initializer expression at that point in the program execution.
-* For variables in other storage classes, the execution environment provides the initial value.
+* For variables in the [=storage classes/workgroup=] storage class:
+    * When the store type is [=constructible=], the [=zero value=] for the store type.
+    * Otherwise, the store type is an array of construcible elements, and each element
+        is initialized to its zero value.
+* Variables in other storage classes are [=resources=]
+    set by bindings in the [=draw command=] or [=dispatch command=].
 
 Consider the following snippet of WGSL:
-<div class='example wsgl function-scope' heading='Variable initial values'>
+<div class='example wgsl function-scope' heading='Variable initial values'>
   <xmp highlight='rust'>
     var i: i32;         // Initial value is 0.  Not recommended style.
     loop {
@@ -3197,7 +3359,7 @@ The loop body will execute five times.
 Variable `i` will take on values 0, 1, 2, 3, 4, 5, and variable `twice` will take on values 0, 2, 4, 6, 8.
 
 Consider the following snippet of WGSL:
-<div class='example wsgl function-scope' heading='Reading a variable multiple times'>
+<div class='example wgsl function-scope' heading='Reading a variable multiple times'>
   <xmp highlight='rust'>
     var x: f32 = 1.0;
     let y = x * x + x + 1;
@@ -3221,8 +3383,7 @@ such that the redundant loads are eliminated.
 ## Module Scope Variables ## {#module-scope-variables}
 
 A variable declared outside all functions is at [=module scope=].
-The variable name is available for use immediately after its declaration statement, until the end
-of the program.
+The variable name is [=in scope=] for the entire program.
 
 Variables at [=module scope=] are restricted as follows:
 
@@ -3234,32 +3395,38 @@ Variables at [=module scope=] are restricted as follows:
     have a storage class decoration.  The storage class will always be [=storage classes/handle=].
 
 A variable in the [=storage classes/uniform=] storage class is a <dfn noexport>uniform buffer</dfn> variable.
-Its [=store type=] must be a [=host-shareable=] structure type with [=attribute/block=] attribute,
-satisfying the [storage class layout constraints](#storage-class-layout-constraints).
+Its [=store type=] must be a [=host-shareable=] [=constructible=] structure type,
+and must satisfy [storage class layout constraints](#storage-class-layout-constraints).
 
 A variable in the [=storage classes/storage=] storage class is a <dfn noexport>storage buffer</dfn> variable.
-Its [=store type=] must be a [=host-shareable=] structure type with [=attribute/block=] attribute,
-satisfying the [storage class layout constraints](#storage-class-layout-constraints).
-It may be declared with a [=access/read=] or [=access/read_write=] access mode; the default is [=access/read=].
+Its [=store type=] must be a [=host-shareable=] structure type
+and must satisfy [storage class layout constraints](#storage-class-layout-constraints).
+The variable may be declared with a [=access/read=] or [=access/read_write=] access mode; the default is [=access/read=].
 
 As described in [[#resource-interface]],
 uniform buffers, storage buffers, textures, and samplers form the
 [=resource interface of a shader=].
 Such variables are declared with [=attribute/group=] and [=attribute/binding=] decorations.
 
+
+[SHORTNAME] defines the following attributes that can be applied to global variables:
+ * [=attribute/binding=]
+ * [=attribute/group=]
+
 <div class='example wgsl global-scope' heading="Module scope variable declarations">
   <xmp>
     var<private> decibels: f32;
     var<workgroup> worklist: array<i32,10>;
 
-    [[block]] struct Params {
+    struct Params {
       specular: f32;
       count: i32;
     };
     [[group(0), binding(2)]]
     var<uniform> param: Params;    // A uniform buffer
 
-    [[block]] struct PositionsBuffer {
+    struct PositionsBuffer {
+      // TODO: runtime-sized array syntax may have changed
       pos: array<vec2<f32>>;
     };
     // A storage buffer, for reading and writing
@@ -3285,10 +3452,6 @@ Such variables are declared with [=attribute/group=] and [=attribute/binding=] d
        OpDecorate %variable Binding 3
   </xmp>
 </div>
-
-[SHORTNAME] defines the following attributes that can be applied to global variables:
- * [=attribute/binding=]
- * [=attribute/group=]
 
 ## Module Constants ## {#module-constants}
 
@@ -3336,9 +3499,9 @@ the constant is <dfn noexport>pipeline-overridable</dfn>. In this case:
     [[override(0)]]    let has_point_light: bool = true;  // Algorithmic control
     [[override(1200)]] let specular_param: f32 = 2.3;     // Numeric control
     [[override(1300)]] let gain: f32;                     // Must be overridden
-    [[override]]       let width: f32 = 0.0;              // Specifed at the API level using
+    [[override]]       let width: f32 = 0.0;              // Specified at the API level using
                                                           // the name "width".
-    [[override]]       let depth: f32;                    // Specifed at the API level using
+    [[override]]       let depth: f32;                    // Specified at the API level using
                                                           // the name "depth".
                                                           // Must be overridden.
   </xmp>
@@ -3469,13 +3632,16 @@ Expressions specify how values are computed.
 
 ## Type Constructor Expressions ## {#type-constructor-expr}
 
+Type constructor expressions explicitly create a value of a given [=constructible=] type.
 Type constructor expressions explicitly create a value of a given type.
 
 The scalar forms are redundant, but provide symmetry with scalar [[#conversion-expr|conversion expressions]],
 and can be used to enhance readability.
 
-The vector forms construct vector values from various combinations of components and subvectors
+The vector and matrix forms construct vector and matrix values from various combinations of components and subvectors
 with matching component types.
+There are overloads for constructing vectors and matrices that specify the dimensions of the target type without having to
+specify the component type; the component type is inferred from the constructor arguments.
 
 See also [[#zero-value-expr]] and [[#conversion-expr]].
 
@@ -3496,64 +3662,90 @@ See also [[#zero-value-expr]] and [[#conversion-expr]].
     <tr><th>Precondition<th>Conclusion<th>Notes
   </thead>
   <tr algorithm="construct a vector from copies of a single scalar">
-    <td>|e|: |T|
+    <td rowspan=2>|e|: |T|
     <td>`vec`|N|`<`|T|`>(`|e|`)`: vec|N|&lt;|T|&gt;
-    <td>Evaluates |e| once. Results in the |N|-element vector where each component has the value of |e|.
+    <td rowspan=2>Evaluates |e| once. Results in the |N|-element vector where each component has the value of |e|.
   <tr>
-    <td>*e1*: *T*<br>
+    <td>`vec`|N|`(`|e|`)`: vec|N|&lt;|T|&gt;
+  <tr>
+    <td rowspan=2>*e1*: *T*<br>
         *e2*: *T*
     <td>`vec2<T>(e1,e2)`: vec2<*T*>
-    <td>OpCompositeConstruct
+    <td rowspan=2>OpCompositeConstruct
   <tr>
-    <td>*e*: vec2&lt;T&gt;
+    <td>`vec2(e1,e2)`: vec2<*T*>
+  <tr>
+    <td rowspan=2>*e*: vec2&lt;T&gt;
     <td>`vec2<T>(e)`: vec2<*T*>
-    <td>Identity. The result is |e|.
+    <td rowspan=2>Identity. The result is |e|.
   <tr>
-    <td>*e1*: *T*<br>
+    <td>`vec2(e)`: vec2<*T*>
+  <tr>
+    <td rowspan=2>*e1*: *T*<br>
         *e2*: *T*<br>
         *e3*: *T*
     <td>`vec3<T>(e1,e2,e3)`: vec3<*T*>
-    <td>OpCompositeConstruct
+    <td rowspan=2>OpCompositeConstruct
   <tr>
-    <td>*e1*: *T*<br>
+    <td>`vec3(e1,e2,e3)`: vec3<*T*>
+  <tr>
+    <td rowspan=2>*e1*: *T*<br>
         *e2*: vec2<*T*>
     <td>`vec3<T>(e1,e2)`: vec3<*T*><br>
         `vec3<T>(e2,e1)`: vec3<*T*>
-    <td>OpCompositeConstruct
+    <td rowspan=2>OpCompositeConstruct
   <tr>
-    <td>*e*: vec3&lt;T&gt;
+    <td>`vec3(e1,e2)`: vec3<*T*><br>
+        `vec3(e2,e1)`: vec3<*T*>
+  <tr>
+    <td rowspan=2>*e*: vec3&lt;T&gt;
     <td>`vec3<T>(e)`: vec3<*T*>
-    <td>Identity. The result is |e|.
+    <td rowspan=2>Identity. The result is |e|.
   <tr>
-    <td>*e1*: *T*<br>
+    <td>`vec3(e)`: vec3<*T*>
+  <tr>
+    <td rowspan=2>*e1*: *T*<br>
         *e2*: *T*<br>
         *e3*: *T*<br>
         *e4*: *T*
-    <td>`vec4<T>(e1,e2,e3,e4)`: vec4<*T*>
-    <td>OpCompositeConstruct
+    <td class=nowrap>`vec4<T>(e1,e2,e3,e4)`: vec4<*T*>
+    <td rowspan=2>OpCompositeConstruct
   <tr>
-    <td>*e1*: *T*<br>
+    <td class=nowrap>`vec4(e1,e2,e3,e4)`: vec4<*T*>
+  <tr>
+    <td rowspan=2>*e1*: *T*<br>
         *e2*: *T*<br>
         *e3*: vec2<*T*>
-    <td>`vec4<T>(e1,e2,e3)`: vec4<*T*><br>
+    <td class=nowrap>`vec4<T>(e1,e2,e3)`: vec4<*T*><br>
         `vec4<T>(e1,e3,e2)`: vec4<*T*><br>
         `vec4<T>(e3,e1,e2)`: vec4<*T*>
-    <td>OpCompositeConstruct
+    <td rowspan=2>OpCompositeConstruct
   <tr>
-    <td>*e1*: vec2<*T*><br>
+    <td class=nowrap>`vec4(e1,e2,e3)`: vec4<*T*><br>
+        `vec4(e1,e3,e2)`: vec4<*T*><br>
+        `vec4(e3,e1,e2)`: vec4<*T*>
+  <tr>
+    <td rowspan=2>*e1*: vec2<*T*><br>
         *e2*: vec2<*T*>
-    <td>`vec4<T>(e1,e2)`: vec4<*T*>
-    <td>OpCompositeConstruct
+    <td class=nowrap>`vec4<T>(e1,e2)`: vec4<*T*>
+    <td rowspan=2>OpCompositeConstruct
   <tr>
-    <td>*e1*: *T*<br>
+    <td class=nowrap>`vec4(e1,e2)`: vec4<*T*>
+  <tr>
+    <td rowspan=2>*e1*: *T*<br>
         *e2*: vec3<*T*>
-    <td>`vec4<T>(e1,e2)`: vec4<*T*><br>
+    <td class=nowrap>`vec4<T>(e1,e2)`: vec4<*T*><br>
         `vec4<T>(e2,e1)`: vec4<*T*>
-    <td>OpCompositeConstruct
+    <td rowspan=2>OpCompositeConstruct
   <tr>
-    <td>*e*: vec4&lt;T&gt;
-    <td>`vec4<T>(e)`: vec4<*T*>
-    <td>Identity. The result is |e|.
+    <td>`vec4(e1,e2)`: vec4<*T*><br>
+        `vec4(e2,e1)`: vec4<*T*>
+  <tr>
+    <td rowspan=2>*e*: vec4&lt;T&gt;
+    <td class=nowrap>`vec4<T>(e)`: vec4<*T*>
+    <td rowspan=2>Identity. The result is |e|.
+  <tr>
+    <td class=nowrap>`vec4(e)`: vec4<*T*>
 </table>
 
 <table class='data'>
@@ -3562,7 +3754,7 @@ See also [[#zero-value-expr]] and [[#conversion-expr]].
     <tr><th>Precondition<th>Conclusion<th>Notes
   </thead>
   <tr>
-    <td>|e1|: |f32|<br>
+    <td rowspan=2>|e1|: |f32|<br>
         ...<br>
         |eN|: |f32|
     <td>`mat2x2<f32>(e1,e2,e3,e4)`: mat2x2&lt;f32&gt;<br>
@@ -3574,38 +3766,60 @@ See also [[#zero-value-expr]] and [[#conversion-expr]].
         `mat4x3<f32>(e1,...,e12)`: mat4x3&lt;f32&gt;<br>
         `mat3x4<f32>(e1,...,e12)`: mat3x4&lt;f32&gt;<br>
         `mat4x4<f32>(e1,...,e16)`: mat4x4&lt;f32&gt;
-    <td>Column-major construction by elements.<br>
+    <td rowspan=2>Column-major construction by elements.<br>
         OpCompositeConstruct
   <tr>
-    <td>*e1*: vec2&lt;f32&gt;<br>
+    <td>`mat2x2(e1,e2,e3,e4)`: mat2x2&lt;f32&gt;<br>
+        `mat3x2(e1,...,e6)`: mat3x2&lt;f32&gt;<br>
+        `mat2x3(e1,...,e6)`: mat2x3&lt;f32&gt;<br>
+        `mat4x2(e1,...,e8)`: mat4x2&lt;f32&gt;<br>
+        `mat2x4(e1,...,e8)`: mat2x4&lt;f32&gt;<br>
+        `mat3x3(e1,...,e9)`: mat3x3&lt;f32&gt;<br>
+        `mat4x3(e1,...,e12)`: mat4x3&lt;f32&gt;<br>
+        `mat3x4(e1,...,e12)`: mat3x4&lt;f32&gt;<br>
+        `mat4x4(e1,...,e16)`: mat4x4&lt;f32&gt;
+  <tr>
+    <td rowspan=2>*e1*: vec2&lt;f32&gt;<br>
         *e2*: vec2&lt;f32&gt;<br>
         *e3*: vec2&lt;f32&gt;<br>
         *e4*: vec2&lt;f32&gt;
     <td>`mat2x2<f32>(e1,e2)`: mat2x2&lt;f32&gt;<br>
         `mat3x2<f32>(e1,e2,e3)`: mat3x2&lt;f32&gt;<br>
         `mat4x2<f32>(e1,e2,e3,e4)`: mat4x2&lt;f32&gt;
-    <td>Column by column construction.<br>
+    <td rowspan=2>Column by column construction.<br>
         OpCompositeConstruct
   <tr>
-    <td>*e1*: vec3&lt;f32&gt;<br>
+    <td>`mat2x2(e1,e2)`: mat2x2&lt;f32&gt;<br>
+        `mat3x2(e1,e2,e3)`: mat3x2&lt;f32&gt;<br>
+        `mat4x2(e1,e2,e3,e4)`: mat4x2&lt;f32&gt;
+  <tr>
+    <td rowspan=2>*e1*: vec3&lt;f32&gt;<br>
         *e2*: vec3&lt;f32&gt;<br>
         *e3*: vec3&lt;f32&gt;<br>
         *e4*: vec3&lt;f32&gt;
     <td>`mat2x3<f32>(e1,e2)`: mat2x3&lt;f32&gt;<br>
         `mat3x3<f32>(e1,e2,e3)`: mat3x3&lt;f32&gt;<br>
         `mat4x3<f32>(e1,e2,e3,e4)`: mat4x3&lt;f32&gt;
-    <td>Column by column construction.<br>
+    <td rowspan=2>Column by column construction.<br>
         OpCompositeConstruct
   <tr>
-    <td>*e1*: vec4&lt;f32&gt;<br>
+    <td>`mat2x3(e1,e2)`: mat2x3&lt;f32&gt;<br>
+        `mat3x3(e1,e2,e3)`: mat3x3&lt;f32&gt;<br>
+        `mat4x3(e1,e2,e3,e4)`: mat4x3&lt;f32&gt;
+  <tr>
+    <td rowspan=2>*e1*: vec4&lt;f32&gt;<br>
         *e2*: vec4&lt;f32&gt;<br>
         *e3*: vec4&lt;f32&gt;<br>
         *e4*: vec4&lt;f32&gt;
     <td>`mat2x4<f32>(e1,e2)`: mat2x4&lt;f32&gt;<br>
         `mat3x4<f32>(e1,e2,e3)`: mat3x4&lt;f32&gt;<br>
         `mat4x4<f32>(e1,e2,e3,e4)`: mat4x4&lt;f32&gt;
-    <td>Column by column construction.<br>
+    <td rowspan=2>Column by column construction.<br>
         OpCompositeConstruct
+  <tr>
+    <td>`mat2x4(e1,e2)`: mat2x4&lt;f32&gt;<br>
+        `mat3x4(e1,e2,e3)`: mat3x4&lt;f32&gt;<br>
+        `mat4x4(e1,e2,e3,e4)`: mat4x4&lt;f32&gt;
 </table>
 
 <table class='data'>
@@ -3617,9 +3831,13 @@ See also [[#zero-value-expr]] and [[#conversion-expr]].
     <td>|e1|: |T|<br>
         ...<br>
         |eN|: |T|,<br>
-        |T| is a [=constructible=] type.
-    <td>`array<`|T|,|N|`>(`|e1|,...,|eN|`)` : array&lt;|T|,|N|&gt;
+        |T| is [=constructible=]<br>
+    <td class="nowrap">`array<`|T|,|N|`>(`|e1|,...,|eN|`)` : array&lt;|T|,|N|&gt;
     <td>Construction of an array from elements.
+
+        Note: array&lt;|T|,|N|&gt; is [=constructible=] because its [=element count=]
+        is equal to the number of arguments to the constructor, and hence
+        fully determined at [=shader module creation|shader-creation=] time.
 </table>
 
 <table class='data'>
@@ -3633,7 +3851,7 @@ See also [[#zero-value-expr]] and [[#conversion-expr]].
         |eN|: |TN|,<br>
         |S| is a [=constructible=] structure type with members having types |T1| ... |TN|.<br>
         The expression is in the scope of declaration of |S|.
-    <td>|S|`(`|e1|,...,|eN|`)`: |S|
+    <td class="nowrap">|S|`(`|e1|,...,|eN|`)`: |S|
     <td>Construction of a structure from members.
 </table>
 
@@ -3650,7 +3868,7 @@ The zero values are as follows:
 * `f32()` is 0.0
 * The zero value for an *N*-element vector of type *T* is the *N*-element vector of the zero value for *T*.
 * The zero value for an *N*-column *M*-row matrix of `f32` is the matrix of those dimensions filled with 0.0 entries.
-* The zero value for an *N*-element array with [=constructible=] element type *E* is an array of *N* elements of the zero value for *E*.
+* The zero value for a [=constructible=] *N*-element array with element type *E* is an array of *N* elements of the zero value for *E*.
 * The zero value for a [=constructible=] structure type *S* is the structure value *S* with zero-valued members.
 
 Note: WGSL does not have zero expression for [=atomic types=],
@@ -3783,6 +4001,8 @@ Note: WGSL does not have zero expression for [=atomic types=],
 [SHORTNAME] does not implicitly convert or promote a numeric or boolean value to another type.
 Instead use conversion expressions as defined in the tables below.
 
+For details on conversion to and from floating point types, see [[#floating-point-conversion]].
+
 See also [[#type-constructor-expr]].
 
 <table class='data'>
@@ -3817,7 +4037,8 @@ See also [[#type-constructor-expr]].
           The result is the unique value in [=i32=] that is equal to (|e| mod 2<sup>32</sup>).<br>
           (OpBitcast)
   <tr algorithm="scalar conversion from floating point to signed integer">
-      <td>|e|: f32<td>`i32(`|e|`)`: i32<td>Value conversion, including invalid cases. (OpConvertFToS)
+      <td>|e|: f32<td>`i32(`|e|`)`: i32
+      <td>Value conversion, rounding toward zero.<br>(OpConvertFToS)
   <tr algorithm="conversion from boolean to unsigned">
       <td>|e|: bool<td>`u32(`|e|`)`: u32
       <td>Conversion of a boolean value to an unsigned integer<br>
@@ -3830,7 +4051,7 @@ See also [[#type-constructor-expr]].
           (OpBitcast)
   <tr algorithm="scalar conversion from floating point to unsigned integer">
       <td>|e|: f32<td>`u32(`|e|`)`: u32
-      <td>Value conversion, including invalid cases. (OpConvertFToU)
+      <td>Value conversion, rounding toward zero.<br>(OpConvertFToU)
   <tr algorithm="conversion from boolean to floating point">
       <td>|e|: bool<td>`f32(`|e|`)`: f32
       <td>Conversion of a boolean value to floating point<br>
@@ -4790,7 +5011,7 @@ See [[#function-call-statement]].
   <tr algorithm="formal parameter value">
        <td>
           |a| is an [=identifier=] [=resolves|resolving=] to
-          an [=in scope|in-scope=] formal paramter declaration with type |T|
+          an [=in scope|in-scope=] formal parameter declaration with type |T|
        <td class="nowrap">
           |a|: |T|
        <td>Result is the value supplied for the corresponding function call operand at the [=call site=]
@@ -4819,6 +5040,9 @@ The <dfn noexport>address-of</dfn> operator converts a reference to its correspo
 
            It is a [=shader-creation error=] if |SC| is  the [=storage
            classes/handle=] storage class.
+
+           It is a [=shader-creation error=] if |r| is a
+           [[#component-reference-from-vector-reference|reference to a vector component]].
 
 </table>
 
@@ -4897,17 +5121,17 @@ The <dfn noexport>indirection</dfn> operator converts a pointer to its correspon
 <div class='syntax' noexport='true'>
   <dfn for=syntax>paren_expression</dfn> :
 
-    | [=syntax/paren_left=] [=syntax/short_circuit_or_expression=] [=syntax/paren_right=]
+    | [=syntax/paren_left=] [=syntax/expression=] [=syntax/paren_right=]
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>argument_expression_list</dfn> :
 
-    | [=syntax/paren_left=] ( ( [=syntax/short_circuit_or_expression=] [=syntax/comma=] ) * [=syntax/short_circuit_or_expression=] [=syntax/comma=] ? ) ? [=syntax/paren_right=]
+    | [=syntax/paren_left=] ( ( [=syntax/expression=] [=syntax/comma=] ) * [=syntax/expression=] [=syntax/comma=] ? ) ? [=syntax/paren_right=]
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>postfix_expression</dfn> :
 
-    | [=syntax/bracket_left=] [=syntax/short_circuit_or_expression=] [=syntax/bracket_right=] [=syntax/postfix_expression=] ?
+    | [=syntax/bracket_left=] [=syntax/expression=] [=syntax/bracket_right=] [=syntax/postfix_expression=] ?
 
     | [=syntax/period=] [=syntax/ident=] [=syntax/postfix_expression=] ?
 </div>
@@ -4930,6 +5154,18 @@ The <dfn noexport>indirection</dfn> operator converts a pointer to its correspon
   <dfn for=syntax>singular_expression</dfn> :
 
     | [=syntax/primary_expression=] [=syntax/postfix_expression=] ?
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>lhs_expression</dfn> :
+
+    | ( [=syntax/star=] | [=syntax/and=] ) * [=syntax/core_lhs_expression=] [=syntax/postfix_expression=] ?
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>core_lhs_expression</dfn> :
+
+    | [=syntax/ident=]
+
+    | [=syntax/paren_left=] [=syntax/lhs_expression=] [=syntax/paren_right=]
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>multiplicative_expression</dfn> :
@@ -4956,66 +5192,76 @@ The <dfn noexport>indirection</dfn> operator converts a pointer to its correspon
 
     | [=syntax/additive_expression=]
 
-    | [=syntax/shift_expression=] [=syntax/shift_left=] [=syntax/additive_expression=]
+    | [=syntax/unary_expression=] [=syntax/shift_left=] [=syntax/unary_expression=]
 
-    | [=syntax/shift_expression=] [=syntax/shift_right=] [=syntax/additive_expression=]
+    | [=syntax/unary_expression=] [=syntax/shift_right=] [=syntax/unary_expression=]
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>relational_expression</dfn> :
 
     | [=syntax/shift_expression=]
 
-    | [=syntax/relational_expression=] [=syntax/less_than=] [=syntax/shift_expression=]
+    | [=syntax/shift_expression=] [=syntax/less_than=] [=syntax/shift_expression=]
 
-    | [=syntax/relational_expression=] [=syntax/greater_than=] [=syntax/shift_expression=]
+    | [=syntax/shift_expression=] [=syntax/greater_than=] [=syntax/shift_expression=]
 
-    | [=syntax/relational_expression=] [=syntax/less_than_equal=] [=syntax/shift_expression=]
+    | [=syntax/shift_expression=] [=syntax/less_than_equal=] [=syntax/shift_expression=]
 
-    | [=syntax/relational_expression=] [=syntax/greater_than_equal=] [=syntax/shift_expression=]
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>equality_expression</dfn> :
+    | [=syntax/shift_expression=] [=syntax/greater_than_equal=] [=syntax/shift_expression=]
 
-    | [=syntax/relational_expression=]
+    | [=syntax/shift_expression=] [=syntax/equal_equal=] [=syntax/shift_expression=]
 
-    | [=syntax/relational_expression=] [=syntax/equal_equal=] [=syntax/relational_expression=]
-
-    | [=syntax/relational_expression=] [=syntax/not_equal=] [=syntax/relational_expression=]
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>and_expression</dfn> :
-
-    | [=syntax/equality_expression=]
-
-    | [=syntax/and_expression=] [=syntax/and=] [=syntax/equality_expression=]
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>exclusive_or_expression</dfn> :
-
-    | [=syntax/and_expression=]
-
-    | [=syntax/exclusive_or_expression=] [=syntax/xor=] [=syntax/and_expression=]
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>inclusive_or_expression</dfn> :
-
-    | [=syntax/exclusive_or_expression=]
-
-    | [=syntax/inclusive_or_expression=] [=syntax/or=] [=syntax/exclusive_or_expression=]
+    | [=syntax/shift_expression=] [=syntax/not_equal=] [=syntax/shift_expression=]
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>short_circuit_and_expression</dfn> :
 
-    | [=syntax/inclusive_or_expression=]
+    | [=syntax/relational_expression=]
 
-    | [=syntax/short_circuit_and_expression=] [=syntax/and_and=] [=syntax/inclusive_or_expression=]
+    | [=syntax/short_circuit_and_expression=] [=syntax/and_and=] [=syntax/relational_expression=]
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>short_circuit_or_expression</dfn> :
 
-    | [=syntax/short_circuit_and_expression=]
+    | [=syntax/relational_expression=]
 
-    | [=syntax/short_circuit_or_expression=] [=syntax/or_or=] [=syntax/short_circuit_and_expression=]
+    | [=syntax/short_circuit_or_expression=] [=syntax/or_or=] [=syntax/relational_expression=]
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>binary_or_expression</dfn> :
+
+    | [=syntax/unary_expression=]
+
+    | [=syntax/binary_or_expression=] [=syntax/or=] [=syntax/unary_expression=]
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>binary_and_expression</dfn> :
+
+    | [=syntax/unary_expression=]
+
+    | [=syntax/binary_and_expression=] [=syntax/and=] [=syntax/unary_expression=]
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>binary_xor_expression</dfn> :
+
+    | [=syntax/unary_expression=]
+
+    | [=syntax/binary_xor_expression=] [=syntax/xor=] [=syntax/unary_expression=]
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>expression</dfn> :
+
+    | [=syntax/relational_expression=]
+
+    | [=syntax/short_circuit_or_expression=] [=syntax/or_or=] [=syntax/relational_expression=]
+
+    | [=syntax/short_circuit_and_expression=] [=syntax/and_and=] [=syntax/relational_expression=]
+
+    | [=syntax/binary_and_expression=] [=syntax/and=] [=syntax/unary_expression=]
+
+    | [=syntax/binary_or_expression=] [=syntax/or=] [=syntax/unary_expression=]
+
+    | [=syntax/binary_xor_expression=] [=syntax/xor=] [=syntax/unary_expression=]
 </div>
 
 
@@ -5047,18 +5293,21 @@ and optionally stores it in memory (thus updating the contents of a variable).
 <div class='syntax' noexport='true'>
   <dfn for=syntax>assignment_statement</dfn> :
 
-    | ( [=syntax/unary_expression=] | [=syntax/underscore=] ) [=syntax/equal=] [=syntax/short_circuit_or_expression=]
+    | [=syntax/lhs_expression=] ( [=syntax/equal=] | [=syntax/compound_assignment_operator=] ) [=syntax/expression=]
+
+    | [=syntax/underscore=] [=syntax/equal=] [=syntax/expression=]
 </div>
 
 
-The text to the left of the equals token is the <dfn noexport>left-hand side</dfn>,
+The text to the left of the operator token is the <dfn noexport>left-hand side</dfn>,
 and the
-expression to the right of the equals token is the <dfn noexport>right-hand side</dfn>.
+expression to the right of the operator token is the <dfn noexport>right-hand side</dfn>.
 
-### Updating Assignment ### {#updating-assignment-section}
+### Simple Assignment ### {#simple-assignment-section}
 
-When the [=left-hand side=] of an assignment is an expression, the assignment is an <dfn noexport>updating assignment</dfn>:
-The value of the right-hand side is written to the memory referenced by the left-hand side.
+An [=statement/assignment=] is a <dfn noexport>simple assignment</dfn> when the 
+[=left-hand side=] is an expression, and the operator is the [=syntax/equal=] token.
+In this case the value of the [=right-hand side=] is written to the memory referenced by the left-hand side.
 
 <table class='data'>
   <thead>
@@ -5112,9 +5361,9 @@ See [[#forming-references-and-pointers]] for other cases.
 
 ### Phony Assignment ### {#phony-assignment-section}
 
-When the [=left-hand side=] of an assignment is an underscore token,
-the assignment is an <dfn noexport>phony assignment</dfn>:
-The right-hand side is evaluated, and then ignored.
+An [=statement/assignment=] is a <dfn noexport>phony assignment</dfn> when the 
+[=left-hand side=] is an underscore token.
+In this case the [=right-hand side=] is evaluated, and then ignored.
 
 <table class='data'>
   <thead>
@@ -5159,7 +5408,7 @@ A phony-assignment is useful for:
 
 <div class='example wgsl global-scope' heading='Using phony-assignment to occupy bindings without using them'>
   <xmp highlight=rust>
-    [[block]] struct BufferContents {
+    struct BufferContents {
         counter: atomic<u32>;
         data: array<vec4<f32>>;
     };
@@ -5179,6 +5428,123 @@ A phony-assignment is useful for:
   </xmp>
 </div>
 
+### Compound assignment ### {#compound-assignment-sec}
+
+An [=statement/assignment=] is a <dfn noexport>compound assignment</dfn> when the
+[=left-hand side=] is an expression, and the operator is one of the [=syntax/compound_assignment_operators=].
+
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>compound_assignment_operator</dfn> :
+
+    | [=syntax/plus_equal=]
+
+    | [=syntax/minus_equal=]
+
+    | [=syntax/times_equal=]
+
+    | [=syntax/division_equal=]
+
+    | [=syntax/modulo_equal=]
+
+    | [=syntax/and_equal=]
+
+    | [=syntax/or_equal=]
+
+    | [=syntax/xor_equal=]
+
+    | [=syntax/shift_right_equal=]
+
+    | [=syntax/shift_left_equal=]
+</div>
+
+The type requirements, semantics, and behavior of each statement is defined as if
+the compound assignment expands as in the following table, except that the reference expression |e1| is evaluated only once.
+
+<table class='data'>
+  <thead>
+    <tr><th>Statement<th>Expansion
+  </thead>
+<tr algorithm="add-assign">
+    <td class="nowrap">|e1| += |e2|
+    <td>|e1| = |e1| + (|e2|)
+<tr algorithm="subtract-assign">
+    <td class="nowrap">|e1| -= |e2|
+    <td>|e1| = |e1| - (|e2|)
+<tr algorithm="multiply-assign">
+    <td class="nowrap">|e1| *= |e2|
+    <td>|e1| = |e1| * (|e2|)
+<tr algorithm="divide-assign">
+    <td class="nowrap">|e1| /= |e2|
+    <td>|e1| = |e1| / (|e2|)
+<tr algorithm="modulus-assign">
+    <td class="nowrap">|e1| %= |e2|
+    <td>|e1| = |e1| % (|e2|)
+<tr algorithm="bitwise-and-assign">
+    <td class="nowrap">|e1| &= |e2|
+    <td>|e1| = |e1| & (|e2|)
+<tr algorithm="bitwise-or-assign">
+    <td class="nowrap">|e1| |= |e2|
+    <td>|e1| = |e1| | (|e2|)
+<tr algorithm="bitwise-xor-assign">
+    <td class="nowrap">|e1| ^= |e2|
+    <td>|e1| = |e1| ^ (|e2|)
+<tr algorithm="bitwise-shiftright-assign">
+    <td class="nowrap">|e1| >>= |e2|
+    <td>|e1| = |e1| >> (|e2|)
+<tr algorithm="bitwise-shiftleft-assign">
+    <td class="nowrap">|e1| <<= |e2|
+    <td>|e1| = |e1| << (|e2|)
+</table>
+
+Note: The syntax does not allow a [=compound assignment=] to also be a [=phony assignment=].
+
+Note: Even though the reference |e1| is evaluated once, its underlying memory is accessed twice:
+first a [=read access=] gets the old value, and then a [=write access=] stores the updated value.
+
+<div class='example wgsl global-scope' heading="Compound assignment">
+  <xmp>
+    var<private> next_item: i32 = 0;
+
+    fn advance_item() -> i32 {
+       next_item += 1;   // Adds 1 to next_item.
+       return next_item - 1;
+    }
+
+    fn bump_item() {
+      var data: array<f32,10>;
+      next_item = 0;
+      // Adds 5.0 to data[0], calling advance_item() only once.
+      data[advance_item()] += 5.0;
+      // next_item will be 1 here.
+    }
+
+    fn precedence_example() {
+      var value = 1;
+      // The right-hand side of a compound assignment is its own expression.
+      value *= 2 + 3; // Same as value = value * (2 + 3);
+      // 'value' now holds 5.
+    }
+  </xmp>
+</div>
+
+Note: A compound assignment can rewritten as different [SHORTNAME] code that uses a [=simple assignment=] instead.
+The idea is to use a pointer to hold the result of evaluating the reference once.
+
+<p class="note" algorithm="translation compound assignment not vector component">For example,
+when |e1| is *not* a reference to a component inside a vector, then
+|e1|` += `|e2| can be rewritten as
+`{let p = &(`|e1|`); *p = *p + (`|e2|`);}`,
+where the identifier `p` is chosen to be different from all other identifiers in the program.
+</p>
+
+<p class="note" algorithm="translation compound assignment vector component">When
+|e1| is a reference to a component inside a vector, the above technique
+needs to be modified because WGSL does not allow [[#address-of-expr|taking the address]] in that case.
+For example, if |ev| is a reference to a vector, the statement |ev|`[`|c|`] += ` |e2|
+can be rewritten as `{let p = &(`|ev|`); let c0 = ` |c|`; (*p)[c0] = (*p)[c0] + (`|e2|`);}`, where
+identifiers `c0` and `p` are chosen to be different from all other identifiers in the program.
+</p>
+
 ## Control flow ## {#control-flow}
 
 Control flow statements may cause the program to execute in non-sequential order.
@@ -5188,33 +5554,30 @@ Control flow statements may cause the program to execute in non-sequential order
 <div class='syntax' noexport='true'>
   <dfn for=syntax>if_statement</dfn> :
 
-    | [=syntax/if=] [=syntax/paren_expression=] [=syntax/compound_statement=] [=syntax/elseif_statement=] ? [=syntax/else_statement=] ?
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>elseif_statement</dfn> :
-
-    | [=syntax/else_if=] [=syntax/paren_expression=] [=syntax/compound_statement=] [=syntax/elseif_statement=] ?
+    | [=syntax/if=] [=syntax/paren_expression=] [=syntax/compound_statement=] ( [=syntax/else=] [=syntax/else_statement=] ) ?
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>else_statement</dfn> :
 
-    | [=syntax/else=] [=syntax/compound_statement=]
+    | [=syntax/compound_statement=]
+
+    | [=syntax/if_statement=]
 </div>
 
 An <dfn noexport dfn-for="statement">if</dfn> statement conditionally executes at most one [=compound statement=] based on
 the evaluation of the condition expressions.
 
-The `if` statements in [SHORTNAME] use an if/elseif/else structure, that contains a single required
-`if` clause, zero or more `elseif` clauses and a single optional `else` clause.
-Each of the expressions for the `if` and `elseif` clause conditions must be a scalar boolean expression.
+The `if` statements in [SHORTNAME] use an if/else if/else structure, that contains a single required
+`if` clause, zero or more `else if` clauses and a single optional `else` clause.
+Each of the expressions for the `if` and `else if` clause conditions must be scalar boolean expressions.
 
 An `if` statement is executed as follows:
 * The condition associated with the `if` clause is evaluated.
     If the result is `true`,
-    control transfers to the first compound statement (immediately after the parenthesized condition experession).
-* Otherwise, the condition of the next `elseif` clause in textual order (if one exists) is evaluated
+    control transfers to the first compound statement (immediately after the parenthesized condition expression).
+* Otherwise, the condition of the next `else if` clause in textual order (if one exists) is evaluated
      and, if the result is `true`, control transfers to the associated compound statement.
-     * This behavior is repeated for all `elseif` clauses until one of the conditions evaluates to `true`.
+     * This behavior is repeated for all `else if` clauses until one of the conditions evaluates to `true`.
 * If no condition evaluates to `true`, then control transfers to the compound statement
     associated with the `else` clause (if it exists).
 
@@ -5389,13 +5752,14 @@ allows them to naturally use values defined in the loop body.
 <div class='syntax' noexport='true'>
   <dfn for=syntax>for_header</dfn> :
 
-    | ( [=syntax/variable_statement=] | [=syntax/assignment_statement=] | [=syntax/func_call_statement=] ) ? [=syntax/semicolon=] [=syntax/short_circuit_or_expression=] ? [=syntax/semicolon=] ( [=syntax/assignment_statement=] | [=syntax/func_call_statement=] ) ?
+    | ( [=syntax/variable_statement=] | [=syntax/assignment_statement=] | [=syntax/func_call_statement=] ) ? [=syntax/semicolon=] [=syntax/expression=] ? [=syntax/semicolon=] ( [=syntax/assignment_statement=] | [=syntax/func_call_statement=] ) ?
 </div>
 
 The <dfn dfn-for="statement">for</dfn> statement takes the form
 `for(initializer; condition; continuing_part) { body }` and is syntactic sugar on top of a [=statement/loop=] statement with the same `body`.
 Additionally:
-* If `initializer` is non-empty, it is executed inside an additional scope before the first [=iteration=].
+* If `initializer` is non-empty, it is executed inside an additional [=scope=] before the first [=iteration=].
+    The scope of a declaration in the initializer extends to the end of the loop body.
 * If `condition` is non-empty, it is checked at the beginning of the loop body and if unsatisfied then a [[#break-statement]] is executed.
 * If `continuing_part` is non-empty, it becomes a [=statement/continuing=] statement at the end of the loop body.
 
@@ -5466,8 +5830,8 @@ then:
 * The `break` statement must appear as either:
     * The only statement in the `if` clause of an `if` statement that has:
         * no `else` clause or an empty `else` clause
-        * no `elseif` clauses
-    * The only statement in the `else` clause of an `if` statement that has an empty `if` clause and no `elseif` clauses.
+        * no `else if` clauses
+    * The only statement in the `else` clause of an `if` statement that has an empty `if` clause and no `else if` clauses.
 * That `if` statement must appear last in the `continuing` clause.
 
 <div class='example wgsl function-scope' heading="[SHORTNAME] Valid loop if-break from a continuing clause">
@@ -5579,14 +5943,17 @@ control past a declaration used in the targeted [=statement/continuing=] stateme
 A <dfn dfn-for="statement">continuing</dfn> statement specifies a [=compound statement=] to be executed at the end of a loop [=iteration=].
 The construct is optional.
 
-The compound statement must not contain a [=statement/return=] or [=statement/discard=] statement, at any compound statement nesting level.
+The compound statement must not contain a [=statement/return=] at any compound statement nesting level.
+
+The compound statement must not contain a [=statement/discard=] at any compound statement nesting level nor through function calls.
+See [[#behaviors]] for a more formal description of this rule.
 
 ### Return Statement ### {#return-statement}
 
 <div class='syntax' noexport='true'>
   <dfn for=syntax>return_statement</dfn> :
 
-    | [=syntax/return=] [=syntax/short_circuit_or_expression=] ?
+    | [=syntax/return=] [=syntax/expression=] ?
 </div>
 
 A <dfn noexport dfn-for="statement">return</dfn> statement ends execution of the current function.
@@ -5697,6 +6064,414 @@ Note: If the function [=return value|returns a value=], that value is ignored.
 </div>
 
 
+## Statements Behavior Analysis ## {#behaviors}
+
+### Rules ### {#behaviors-rules}
+
+Some statements affecting control-flow are only valid in some contexts.
+For example, `fallthrough` is invalid outside of a switch, and `continue` is invalid outside of a loop.
+Additionally, the uniformity analysis (see [[#uniformity]]) needs to know when control flow can exit a statement in multiple different ways.
+
+Both goals are achieved by a system for summarizing execution behaviors of statements and expressions. Behavior analysis maps each statement and expression to the set of possible ways execution proceeds after evaluation of the statement or expression completes.
+As with type analysis for values and expressions, behavior analysis proceeds bottom up: first determine behaviors for certain basic statements, and then determine behavior for higher level constructs by applying combining rules.
+
+A <dfn export>behavior</dfn> is a set, whose elements may be:
+- Return
+- Discard
+- Break
+- Continue
+- Fallthrough
+- Next
+
+Each of those correspond to a way to exit a compound statement: either through a keyword, or by falling to the next statement ("Next").
+
+We note "*s*: *B*" to say that *s* respects the rules regarding behaviors, and has [=behavior=] *B*.
+
+For each function:
+- Its body must be a valid statement by these rules.
+- If the function has a return type, the [=behavior=] of its body must be one of {Return} or {Return, Discard}.
+- Otherwise, the [=behavior=] of its body must be a subset of {Next, Return, Discard}.
+
+We assign a [=behavior=] to each function: it is its body's [=behavior=] (treating the body as a regular statement), with any "Return" replaced by "Next".
+As a consequence of the rules above, a function behavior is always one of {}, {Next}, {Discard}, or {Next, Discard}.
+
+Similarly, we assign a [=behavior=] to each expression, since expressions can include function calls, which can discard.
+Like functions, expression behaviors are always one of {}, {Next}, {Discard}, or {Next, Discard}.
+
+Note: There is currently no valid program with an expression that does not have Next in its [=behavior=].
+The reason is that only functions without a return type can have such a [=behavior=], and there is no compound expression in which such a function can be called.
+
+<table class='data'>
+  <caption>Rules for analyzing and validating the behaviors of statements</caption>
+  <thead>
+    <tr><th>Statement<th>Preconditions<th>Resulting behavior
+  </thead>
+  <tr>
+    <td class="nowrap">{ }
+    <td>
+    <td class="nowrap">{Next}
+  <tr algorithm="braced statement behavior">
+    <td class="nowrap">{|s|}
+    <td>|s|: |B|
+    <td class="nowrap">|B|
+  <tr algorithm="statement sequence behavior">
+    <td class="nowrap">|s1| |s2|
+
+        Note: |s1| often ends in a semicolon.
+
+    <td class="nowrap">|s1|: |B1|<br>
+        Next in |B1|<br>
+        |s2|: |B2|
+    <td class="nowrap">(|B1|&#x2216;{Next}) &cup; |B2|
+  <tr algorithm="variable declaration behavior">
+    <td class="nowrap">var x:T;
+    <td>
+    <td>{Next}
+  <tr algorithm="let declaration behavior">
+    <td class="nowrap">let x = |e|;
+    <td class="nowrap">|e|: |B|
+    <td>|B|
+  <tr algorithm="initialized variable declaration behavior">
+    <td class="nowrap">var x = |e|;
+    <td class="nowrap">|e|: |B|
+    <td>|B|
+  <tr algorithm="assignment behavior">
+    <td class="nowrap">|x| = |e|;
+    <td class="nowrap">|x|: |B1|<br>
+      |e|: |B2|<br>
+      |x| is not `_`
+    <td>|B1| &cup; |B2|
+  <tr algorithm="phony assignment behavior">
+    <td class="nowrap">_ = |e|;
+    <td class="nowrap">|e|: |B|
+    <td>|B|
+  <tr algorithm="function call statement behavior">
+    <td class="nowrap">|f|(|e1|, ..., |en|);
+    <td class="nowrap">|e1|: |B1|<br>
+        ...<br>
+        |en|: |Bn|<br>
+        |f| has behavior |B|
+    <td class="nowrap">|B| &cup; ((|B1| &cup; ... &cup; |Bn|)&#x2216;{Next})
+  <tr algorithm="return behaviour">
+    <td>return;
+    <td>
+    <td>{Return}
+  <tr algorithm="return value behavior">
+    <td class="nowrap">return |e|;
+    <td class="nowrap">|e|: |B|<br>
+    <td class="nowrap">(|B|&#x2216;{Next}) &cup; {Return}
+  <tr algorithm="discard behaviour">
+    <td>discard;
+    <td>
+    <td>{Discard}
+  <tr algorithm="break behavior">
+    <td>break;
+    <td>
+    <td>{Break}
+  <tr algorithm="continue behavior">
+    <td>continue;
+    <td>
+    <td>{Continue}
+  <tr algorithm="fallthrough behavior">
+    <td>fallthrough;
+    <td>
+    <td>{Fallthrough}
+  <tr algorithm="if statement behavior">
+    <td class="nowrap">if (|e|) |s1| else |s2|
+    <td class="nowrap">|e|: |B|<br>
+        |s1|: |B1|<br>
+        |s2|: |B2|
+    <td class="nowrap">(|B|&#x2216;{Next}) &cup; |B1| &cup; |B2|
+  <tr algorithm="loop with continuing without break behavior">
+    <td class="nowrap" rowspan=2>loop {|s1| continuing {|s2|}}
+    <td class="nowrap">|s1|: |B1|<br>
+        |s2|: |B2|<br>
+        None of {Continue, Return, Discard} are in |B2|<br>
+        Break is not in (|B1| &cup; |B2|)
+    <td class="nowrap">(|B1| &cup; |B2|)&#x2216;{Continue, Next}
+  <tr algorithm="loop with continuing with break behavior">
+    <td class="nowrap">|s1|: |B1|<br>
+        |s2|: |B2|<br>
+        None of {Continue, Return, Discard} are in |B2|<br/>
+        Break is in (|B1| &cup; |B2|)
+    <td class="nowrap">(|B1| &cup; |B2| &cup; {Next})&#x2216;{Break, Continue}
+  <tr algorithm="switch behavior">
+    <td class="nowrap" rowspan=2>switch(|e|) {case <var ignore>c1</var>: |s1| ... case <var ignore>cn</var>: |sn|}
+    <td class="nowrap">|e|: |B|<br>
+        |s1|: |B1|<br>
+        ...<br>
+        |sn|: |Bn|<br>
+        Fallthrough is not in |Bn|<br>
+        Break is not in (|B1| &cup; ... &cup; |Bn|)
+    <td class="nowrap">((|B|&#x2216;{Next}) &cup; |B1| &cup; ... &cup; |Bn|)&#x2216;{Fallthrough}
+  <tr algorithm="switch with break behavior">
+    <td class="nowrap">|e|: |B|<br>
+        |s1|: |B1|<br>
+        ...<br>
+        |sn|: |Bn|<br>
+        Fallthrough is not in |Bn|<br>
+        Break is in (|B1| &cup; ... &cup; |Bn|)
+    <td class="nowrap">(|B| &cup; |B1| &cup; ... &cup; |Bn| &cup; {Next})&#x2216;{Break, Fallthrough}
+</table>
+
+For the purpose of this analysis:
+- `for` loops get desugared (see [[#for-statement]])
+- `loop {s}` is treated as `loop {s continuing {}}`
+- `if` statements without an `else` branch are treated as if they had an empty else branch (which adds Next to their [=behavior=])
+- `if` statements with `else if` branches are treated as if they were nested simple `if/else` statements
+- a [=syntax/switch_body=] starting with `default` behaves just like a [=syntax/switch_body=] starting with `case _:`
+
+<table class='data'>
+  <caption>Rules for analyzing and validating the behaviors of expressions</caption>
+  <thead>
+    <tr><th>Expression<th>Preconditions<th>Resulting behavior
+  </thead>
+  <tr algorithm="function call behavior">
+    <td class="nowrap">|f|(|e1|, ..., |en|)
+    <td class="nowrap">|e1|: |B1|<br>
+        ...<br>
+        |en|: |Bn|<br>
+        |f| has behavior |B|
+    <td class="nowrap">|B| &cup; ((|B1| &cup; ... &cup; |Bn|)&#x2216;{Next})
+  <tr algorithm="literal expression behavior">
+    <td class="nowrap">Any literal
+    <td>
+    <td class="nowrap">{Next}
+  <tr algorithm="variable expression behavior">
+    <td class="nowrap">Any variable reference
+    <td>
+    <td class="nowrap">{Next}
+  <tr algorithm="array-like index expression behavior">
+    <td class="nowrap">|e1|[|e2|]
+    <td class="nowrap">|e1|: |B1|<br>
+        |e2|: |B2|
+    <td class="nowrap">|B1| &cup; |B2|
+  <tr algorithm="structure member expression behavior">
+    <td class="nowrap">|e|.field
+    <td class="nowrap">|e|: |B|
+    <td class="nowrap">|B|
+  <tr algorithm="short-circuiting or expression behavior">
+    <td class="nowrap">|e1| || |e2|
+    <td class="nowrap">|e1|: |B1|<br>
+        |e2|: |B2|
+    <td class="nowrap">|B1| &cup; |B2|
+  <tr algorithm="short-circuiting and expression behavior">
+    <td class="nowrap">|e1| && |e2|
+    <td class="nowrap">|e1|: |B1|<br>
+        |e2|: |B2|
+    <td class="nowrap">|B1| &cup; |B2|
+</table>
+
+Each [=built-in function=] has a [=behavior=] of {Next}.
+And each operator application not listed in the table above has the same [=behavior=] as if it were a function call with the same operands and with a function's [=behavior=] of {Next}.
+
+A [=shader-creation error=] results if behavior analysis fails:
+- Behavior analysis must be able to determine a [=behavior=] for each statement, expression, and function. This can only fail if preconditions are not met.
+- The function behaviors must satisfy the rules given above.
+- The behaviors of compute and vertex entry points must not contain Discard.
+
+### Notes ### {#behaviors-notes}
+
+This section is informative, non-normative.
+
+Here is the full list of ways that these rules can cause a program to be rejected (this is just restating information already listed above):
+- The body of a function (treated as a regular statement) has a behavior not included in {Next, Return, Discard}.
+- The body of a function with a return type has a behavior which is neither {Return} nor {Return, Discard}
+- A statement without Next in its behavior is not the last in a sequence of statements
+- The behavior of a continuing block contains any of Continue, Return, or Discard
+- The behavior of the last case of a switch contains Fallthrough
+- The behavior of a compute or vertex entry point function contains Discard
+
+This analysis can be run in linear time, by analyzing the call-graph bottom-up (since the behavior of a function call can depend on the function's code).
+
+### Examples ### {#behaviors-examples}
+
+Here are some examples showing this analysis in action:
+<div class='example wgsl expect-error' heading='Trivially dead code is rejected'>
+   <xmp highlight='rust'>
+    fn simple() -> i32 {
+      var a: i32;
+      return 0;  // Behavior: {Return}
+      a = 1;     // Error: by the rule for sequences of statements, the previous statement should have a behavior that include "Next"
+      return 2;
+    }
+   </xmp>
+</div>
+
+<div class='example wgsl expect-error' heading='Compound statements are supported'>
+   <xmp highlight='rust'>
+    fn nested() -> i32 {
+      var a: i32;
+      {             // The start of a compound statement.
+        a = 2;      // Behavior: {Next}
+        return 1;   // Behavior: {Return}
+      }             // The compound statement as a whole has behavior {Return}
+      a = 1;        // Error: for the same reason as in the previous example, the previous statement is missing "Next" in its behavior
+      return 2;
+    }
+   </xmp>
+</div>
+
+<div class='example wgsl' heading='if/then behaves as if there is an empty else'>
+   <xmp highlight='rust'>
+    fn if_example() {
+      var a: i32 = 0;
+      loop {
+        if (a == 5) {
+          break;      // Behavior: {Break}
+        }             // Behavior of the whole if compound statement: {Break, Next}, as the if has an implicit empty else
+        a = a + 1;    // valid, as the previous statement had "Next" in its behavior
+      }
+    }
+   </xmp>
+</div>
+
+<div class='example wgsl expect-error' heading='if/then/else has the behavior of both sides'>
+   <xmp highlight='rust'>
+    fn if_example() {
+      var a: i32 = 0;
+      loop {
+        if (a == 5) {
+          break;      // Behavior: {Break}
+        } else {
+          continue;   // Behavior: {Continue}
+        }             // Behavior of the whole if compound statement: {Break, Continue}
+        a = a + 1;    // Error: the previous statement is missing "Next" in its behavior
+      }
+    }
+   </xmp>
+</div>
+
+<div class='example wgsl' heading='if/else if/else behaves like a nested if/else'>
+   <xmp highlight='rust'>
+    fn if_example() {
+      var a: i32 = 0;
+      loop {
+        // if (e1) s1 else if (e2) s2 else s3
+        // is identical to
+        // if (e1) else { if (e2) s2 else s3 }
+        if (a == 5) {
+          break;      // Behavior: {Break}
+        } else if (a == 42) {
+          continue;   // Behavior: {Continue}
+        } else {
+          return;     // Behavior {Return}
+        }             // Behavior of the whole if compound statement {Break, Continue, Return}
+      }               // Behavior of the whole loop compound statement {Next, Return}
+    }                 // Behavior of the whole function {Next}
+   </xmp>
+</div>
+
+<div class='example wgsl' heading='Break in switch becomes Next'>
+   <xmp highlight='rust'>
+    fn switch_example() {
+      var a: i32 = 0;
+      switch (a) {
+        default: {
+          break;   // Behavior: {Break}
+        }
+      }            // Behavior: {Next}, as switch replaces Break by Next
+      a = 5;       // valid, as the previous statement had Next in its behavior
+    }
+   </xmp>
+</div>
+
+<div class='example wgsl' heading='A conditional continue with continuing statement'>
+   <xmp highlight='rust'>
+    fn conditional_continue() {
+      var a: i32;
+      loop {
+        if (a == 5) { break; } // Behavior: {Break, Next}
+        if (a % 2 == 1) {      // valid, as the previous statement has Next in its behavior
+          continue;            // Behavior: {Continue}
+        }                      // Behavior: {Continue, Next}
+        a = a * 2;             // valid, as the previous statement has Next in its behavior
+        continuing {           // valid as the continuing statement has behavior {Next} which does not include any of {Break, Continue, Discard, Return}
+          a = a + 1;
+        }
+      }                        // The loop as a whole has behavior {Next}, as it absorbs "Continue" and "Next", then replaces "Break" with "Next"
+    }
+   </xmp>
+</div>
+
+<div class='example wgsl' heading='A redundant continue with continuing statement'>
+   <xmp highlight='rust'>
+    fn redundant_continue_with_continuing() {
+      var a: i32;
+      loop {
+        if (a == 5) { break; }
+        continue;   // Valid. This is redundant, branching to the next statement.
+        continuing {
+          a = a + 1;
+        }
+      }
+    }
+   </xmp>
+</div>
+
+<div class='example wgsl' heading='A continue at the end of a loop body'>
+   <xmp highlight='rust'>
+    fn continue_end_of_loop_body() {
+      for (var i: i32 = 0; i < 5; i = i + 1 ) {
+        continue;   // Valid. This is redundant, branching to the end of the loop body.
+      }             // Behavior: {Next}, as loops absorb "Continue", and "for" loops always add "Next"
+    }
+   </xmp>
+</div>
+`for` loops desugar to `loop` with a conditional break. As shown in a previous example, the conditional break has [=behavior=] {Break, Next}, which leads to adding "Next" to the loop's [=behavior=].
+
+<div class='example wgsl expect-error' heading='Effect of a function that discards unconditionally'>
+   <xmp highlight='rust'>
+    fn always_discard() {
+      discard;
+    }                   // The whole function has behavior {Discard}
+    fn code_after_discard() {
+      var a: i32;
+      always_discard(); // Behavior: {Discard}
+      a = a + 1;        // Error: the previous statement is missing "Next" in its behavior
+    }
+   </xmp>
+</div>
+
+<div class='example wgsl' heading='Effect of a function that discards conditionally'>
+   <xmp highlight='rust'>
+    fn sometimes_discard(a: i32) {
+      if (a) {
+        discard;        // Behavior: {Discard}
+      }                 // Behavior: {Next, Discard}
+    }                   // The whole function has behavior {Next, Discard}
+    fn code_after_discard() {
+      var a: i32;
+      a = 42;
+      sometimes_discard(a);  // Behavior: {Next, Discard}
+      a = a + 1;             // Valid
+    }                        // The whole function has behavior {Next, Discard}
+   </xmp>
+</div>
+
+<div class='example wgsl expect-error' heading='return required in functions that have a return type'>
+   <xmp highlight='rust'>
+    fn missing_return () -> i32 {
+      var a: i32 = 0;
+      if (42) {
+        return a;       // Behavior: {Return}
+      }                 // Behavior: {Next, Return}
+    }                   // Error: Next is invalid in the body of a function with a return type
+   </xmp>
+</div>
+
+<div class='example wgsl expect-error' heading='continue must be in a loop'>
+   <xmp highlight='rust'>
+    fn continue_out_of_loop () {
+      var a: i32 = 0;
+      if (a) {
+        continue;       // Behavior: {Continue}
+      }                 // Behavior: {Next, Continue}
+    }                   // Error: Continue is invalid in the body of a function
+   </xmp>
+</div>
+The same example would also be invalid for the same reason if continue was replaced by break or fallthrough.
+
 # Functions # {#functions}
 
 A <dfn dfn-for="function" noexport>function</dfn> performs computational work when invoked.
@@ -5727,8 +6502,7 @@ A <dfn noexport>function declaration</dfn> creates a user-defined function, by s
     This is the set of statements to be executed when the function is [=function call|called=].
 
 A function declaration must only occur at [=module scope=].
-The function name is [=in scope=] from the start of the formal parameter list
-until the end of the program.
+A function name is [=in scope=] for the entire program.
 
 A <dfn noexport>formal parameter</dfn> [=declaration=] specifies an [=identifier=] name and a type for a value that must be
 provided when invoking the function.
@@ -5737,9 +6511,7 @@ See [[#function-calls]].
 The identifier is [=in scope=] until the end of the function.
 Two formal parameters for a given function must not have the same name.
 
-If the return type is specified, then:
-* The return type must be [=constructible=].
-* The last statement in the function body must be a [=statement/return=] statement.
+The return type, if specified, must be [=constructible=].
 
 <div class='syntax' noexport='true'>
   <dfn for=syntax>function_decl</dfn> :
@@ -5847,8 +6619,6 @@ As such, the same textual location may represent multiple call sites.
 
 ## Restrictions on functions ## {#function-restriction}
 
-* Recursion is not permitted.
-    That is, there must be no cycles in the call graph.
 * A [=vertex=] shader must return the `position` [=built-in output variable|built-in variable=].
     See [[#builtin-variables]].
 * An entry point must never be the target of a [=function call=].
@@ -5887,6 +6657,9 @@ As such, the same textual location may represent multiple call sites.
 
 Note: The aliasing restriction applies to memory location written by function
 calls in the function.
+
+Note: Recursion is disallowed because cycles are not permitted among any kinds
+of declarations.
 
 Issue: Revisit aliasing rules for clarity.
 
@@ -6036,12 +6809,12 @@ The interface includes:
 
 These objects are represented by module-scope variables in certain [=storage classes=].
 
-We say a variable is <dfn noexport>statically accessed</dfn> by a function if any subexpression
-in the body of the function uses the variable's [=identifier=],
-and that subexpression is [=in scope=] of the variable's declaration.
+When an [=identifier=] used in a [=function declaration=] [=resolves=] to a [=module scope|module-scope=] variable,
+then we say the variable is <dfn>statically accessed</dfn> by the function.
 Static access of a `let`-declared constant is defined similarly.
 Note that being statically accessed is independent of whether an execution of the shader
-will actually evaluate the subexpression, or even execute the enclosing statement.
+will actually evaluate the expression referring to the variable,
+or even execute the statement that may enclose the expression.
 
 More precisely, the <dfn noexport>interface of a shader stage</dfn> consists of:
   - all parameters of the entry point
@@ -6104,7 +6877,7 @@ Each built-in variable has an associated shader stage, as described in [[#builti
 If a built-in variable has stage *S* and is used by a function *F*, as either an argument or the
 result type, then *F* must be a [=functions in a shader stage|function in a shader=] for stage *S*.
 
-Issue: in Vulkan, builtin variables occoupy I/O location slots counting toward limits.
+Issue: in Vulkan, builtin variables occupy I/O location slots counting toward limits.
 
 #### User-defined Inputs and Outputs #### {#user-defined-inputs-outputs}
 
@@ -6174,7 +6947,7 @@ Note: Location numbering is distinct between inputs and outputs:
 Location numbers for an entry point's pipeline inputs do not conflict with location numbers for the entry point's pipeline outputs.
 
 Note: No additional rule is required to prevent location overlap within an entry point's outputs.
-When the outptut is a structure, the first rule above prevents overlap.
+When the output is a structure, the first rule above prevents overlap.
 Otherwise, the output is a scalar or a vector, and can have only a single location assigned to it.
 
 Note: The number of available locations for an entry point is defined by the WebGPU API.
@@ -6229,7 +7002,7 @@ User-defined IO can be mixed with builtin variables in the same structure. For e
     };
 
     struct B {
-      [location(0)]] x: f32;
+      [[location(0)]] x: f32;
     };
 
     struct C {
@@ -6249,7 +7022,7 @@ User-defined IO can be mixed with builtin variables in the same structure. For e
 
     [[stage(fragment)]]
     // Invalid, in1 and in2 cannot share a location.
-    fn fragShader2([location(0)]] in1: f32, [[location(0)]] in2: f32) {
+    fn fragShader2([[location(0)]] in1: f32, [[location(0)]] in2: f32) {
       // ...
     }
 
@@ -6419,6 +7192,10 @@ the implementation can issue a clear diagnostic.
   <xmp>
     // Enable a hypothetical IEEE-754 binary16 floating point extension.
     enable f16;
+    enable f16; // A redundant enable directive is ok.
+    // Enable a hypothetical extension adding syntax for controlling
+    // the rounding mode on f16 arithmetic.
+    enable rounding_mode_f16;
 
     // Assuming the f16 extension enables use of the f16 type:
     //    - as function return value
@@ -6430,11 +7207,6 @@ the implementation can issue a clear diagnostic.
        return x / two;
     };
 
-    enable f16; // A redundant enable directive is ok.
-    // Enable a hypothetical extension adding syntax for controlling
-    // the rounding mode on f16 arithmetic.
-    enable rounding_mode_f16;
-
     [[round_to_even_f16]] // Attribute enabled by the rounding_mode_f16 extension
     fn triple_it(x: f16) -> f16 {
        return x * f16(3); // Uses round-to-even.
@@ -6443,12 +7215,18 @@ the implementation can issue a clear diagnostic.
 </div>
 
 
-# WGSL program TODO # {#wgsl-module}
+# WGSL Program # {#wgsl-program}
 
-TODO: *Stub* A WGSL program is a sequence of [=directives=] and [=module scope=] [=declarations=].
+A [SHORTNAME] program is a sequence of optional [=directives=] followed by [=module scope=] [=declarations=].
 
 <div class='syntax' noexport='true'>
-  <dfn for=syntax>global_decl_or_directive</dfn> :
+  <dfn for=syntax>translation_unit</dfn> :
+
+    | [=syntax/global_directive=] * [=syntax/global_decl=] *
+</div>
+
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>global_decl</dfn> :
 
     | [=syntax/semicolon=]
 
@@ -6456,13 +7234,11 @@ TODO: *Stub* A WGSL program is a sequence of [=directives=] and [=module scope=]
 
     | [=syntax/global_constant_decl=] [=syntax/semicolon=]
 
-    | [=syntax/type_alias=] [=syntax/semicolon=]
+    | [=syntax/type_alias_decl=] [=syntax/semicolon=]
 
     | [=syntax/struct_decl=] [=syntax/semicolon=]
 
     | [=syntax/function_decl=]
-
-    | [=syntax/enable_directive=]
 </div>
 
 # Execution TODO # {#execution}
@@ -6478,7 +7254,27 @@ TODO: *Stub*
 * Internal module-scope variables have backing storage
   * Initializers evaluated in textual order
 
-### Program order (within an invocation) TODO ### {#program-order}
+### Program order (within an invocation) ### {#program-order}
+
+Each statement in a [SHORTNAME] program may be executed zero or more times during
+execution.
+For a given invocation, each execution of a given statement represents a unique
+<dfn noexport>dynamic statement instance</dfn>.
+
+When a statement includes an expression, the statement’s semantics determines:
+* Whether the expression is evaluated as part of statement execution.
+* The relative ordering of evaluation between independent expressions in the statement.
+
+Expression nesting defines data dependencies which must be satisfied to
+complete evaluation.
+That is, a nested expression must be evaluated before the enclosing expression
+can be evaluated.
+The order of evaluation for operands of an expression is not defined by
+[SHORTNAME].
+For example, `foo() + bar()` may evaluate either `foo()` or `bar()` first.
+
+Statements in a [SHORTNAME] program are executed in control flow order.
+See [[#statements]] and [[#function-calls]].
 
 #### Function-scope variable lifetime and initialization TODO #### {#function-scope-variable-lifetime}
 
@@ -6583,9 +7379,16 @@ Issue: [WebGPU issue 1045](https://github.com/gpuweb/gpuweb/issues/1045):
 Dispatch group counts must be positive.
 However, how do we handle an indirect dispatch that specifies a group count of zero.
 
-## Collective operations TODO ## {#collective-operations}
+## Collective operations ## {#collective-operations}
 
-### Barrier TODO ### {#barrier}
+### Barriers ### {#barrier}
+
+A barrier is a [[#sync-builtin-functions|synchronization built-in function]]
+that orders memory operations in a program.
+A <dfn noexport>control barrier</dfn> is executed by all invocations in the
+same [=compute shader stage/workgroup=] as if it were executed concurrently.
+As such, control barriers must only be executed in uniform control flow in a
+[=compute shader stage|compute=] shader.
 
 ### Derivatives ### {#derivatives}
 
@@ -6593,6 +7396,7 @@ A <dfn noexport>partial derivative</dfn> is the rate of change of a value along 
 
 Fragment shader invocations operating on neighbouring fragments (in screen-space coordinates)
 collaborate to compute approximate partial derivatives.
+These neighbouring fragments are referred to as a <dfn noexport>quad</dfn>.
 
 Partial derivatives of the *fragment coordinate* are computed implicitly as part
 of operation of the following built-in functions:
@@ -6612,8 +7416,6 @@ built-in functions described in [[#derivative-builtin-functions]]:
 Because neighbouring invocations must collaborate to compute derivatives,
 these functions must only be invoked in uniform control flow in a fragment shader.
 
-### Arrayed resource access TODO ### {#arrayed-resource-access}
-
 ## Floating Point Evaluation ## {#floating-point-evaluation}
 
 [SHORTNAME] follows the [[!IEEE-754|IEEE-754]] standard for floating point computation with
@@ -6621,8 +7423,8 @@ the following exceptions:
 * No floating point exceptions are generated.
 * Signaling NaNs may not be generated.
     Any signaling NaN may be converted to a quiet NaN.
-* Implementations may assume that NaNs, inifinities are not present
-    * Note: This means some functions (e.g. `isInf`, `isNan`, `min` and `max`)
+* Implementations may assume that NaNs, infinities are not present
+    * Note: This means some functions (e.g. `min` and `max`)
         may not return the expected result due to optimizations about the presence
         of NaNs and infinities.
 * Implementations may ignore the sign of a zero.
@@ -6710,6 +7512,7 @@ value with the same sign.
   <tr><td>`cos(x)`<td>Absolute error &le; 2<sup>-11</sup> inside the range of [-&pi;, &pi;]
   <tr><td>`cosh(x)`<td>Inherited from `(exp(x) - exp(-x)) * 0.5`
   <tr><td>`cross(x, y)`<td>Inherited from `(x[i] * y[j] - x[j] * y[i])`
+  <tr><td>`degrees(x)`<td>Inherited from `x * 57.295779513082322865`
   <tr><td>`distance(x, y)`<td>Inherited from `length(x - y)`
   <tr><td>`exp(x)`<td>3 + 2 * |x| ULP
   <tr><td>`exp2(x)`<td>3 + 2 * |x| ULP
@@ -6729,6 +7532,7 @@ value with the same sign.
   <tr><td>`modf(x)`<td>Correctly rounded
   <tr><td>`normalize(x)`<td>Inherited from `x / length(x)`
   <tr><td>`pow(x, y)`<td>Inherited from `exp2(y * log2(x))`
+  <tr><td>`radians(x)`<td>Inherited from `x * 0.017453292519943295474`
   <tr><td>`reflect(x, y)`<td>Inherited from `x - 2.0 * dot(x, y) * y`
   <tr><td>`refract(x, y, z)`<td>Inherited from `z * x - (z * dot(y, x) + sqrt(k)) * y`,<br>where `k = 1.0 - z * z * (1.0 - dot(y, x) * dot(y, x))`<br>If `k < 0.0` the result is precisely 0.0
   <tr><td>`round(x)`<td>Correctly rounded
@@ -6754,8 +7558,12 @@ However, the result may not be the same when computed in floating point.
 The reassociated result may be inaccurate due to approximation, or may trigger
 an overflow or NaN when computing intermediate results.
 
-An implementation may reassociate and/or fuse operations if the optimization is
+An implementation may reassociate operations.
+
+An implementation may fuse operations if the transformed expression is
 at least as accurate as the original formulation.
+For example, some fused multiply-add implementations can be more accurate
+than performing a multiply followed by an addition.
 
 ### Floating point conversion ### {#floating-point-conversion}
 
@@ -6770,7 +7578,7 @@ Note: Recall that the [=f32=] WGSL type corresponds to the IEEE-754 binary32 for
 
 When converting a floating point scalar value to an integral type:
 * If the original value is exactly representable in the destination type, then the result is that value.
-* If the original value has a fractional component, then it cannot be represented exactly in the destination type, and the result is TODO
+* If the original value has a fractional component, then it cannot be represented exactly in the destination type, and the result is rounded toward zero.
 * If the original value is out of range of the destination type, then TODO.
 
 When converting a value to a floating point type:
@@ -6798,12 +7606,142 @@ Then, for example, integers 2<sup>28</sup> and 1+2<sup>28</sup> both map to the 
 least significant 1 bit is not representable by the floating point format.
 This kind of collision occurs for pairs of adjacent integers with a magnitude of at least 2<sup>25</sup>.
 
-Issue: (dneto) Default rounding mode is an implementation choice.  Is that what we want?
-
 Issue: Check behaviour of the f32 to f16 conversion for numbers just beyond the max normal f16 values.
 I've written what an NVIDIA GPU does.  See https://github.com/google/amber/pull/918 for an executable test case.
 
-# Memory Model TODO # {#memory-model}
+# Memory Model # {#memory-model}
+
+In general, [SHORTNAME] follows the [[!VulkanMemoryModel|Vulkan Memory Model]].
+The remainder of this section describes how [SHORTNAME] programs map to the
+Vulkan Memory Model.
+
+Note: The Vulkan Memory Model is a textual version of a [formal Alloy
+model](https://github.com/KhronosGroup/Vulkan-MemoryModel/blob/master/alloy/spirv.als).
+
+## Memory Operation ## {#memory-operation}
+
+In [SHORTNAME], a [=read access=] is equivalent to a memory read operation in
+the Vulkan Memory Model.
+A [SHORTNAME], a [=write access=] is equivalent to a memory write operation in
+the Vulkan Memory Model.
+
+A [=read access=] occurs when an invocation executes one of the following:
+* An evaluation of the [=Load Rule=]
+* Any [[#texture-builtin-functions|texture builtin function]] except:
+    * [[#texturedimensions|textureDimensions]]
+    * [[#texturestore|textureStore]]
+    * [[#texturenumlayers|textureNumLayers]]
+    * [[#texturenumlevels|textureNumLevels]]
+    * [[#texturenumsamples|textureNumSamples]]
+* Any atomic built-in function except [[#atomic-store|atomicStore]]
+
+A [=write access=] occurs when an invocation executes one of the following:
+* An [=statement/assignment=] statement
+* A [[#texturestore|textureStore]] built-in function
+* Any atomic built-in function except [[#atomic-load|atomicLoad]]
+    * [[#atomic-rmw|atomicCompareExchangeWeak]] only performs a write if the
+        `exchanged` member of the returned result is `true`
+
+[[#atomic-rmw|Atomic read-modify-write]] built-in functions perform a single
+memory operation that is both a [=read access=] and a [=write access=].
+
+Read and write accesses do not occur under any other circumstances.
+Read and write accesses are collectively known as [=memory model memory
+operation|memory operations=] in the Vulkan Memory Model.
+
+A memory operation accesses exactly the set of [=memory location|locations=]
+associated with the particular [=memory view=] used in the operation.  For
+example, a memory read that accesses a [=u32=] from a struct containing
+multiple members, only reads the memory locations associated with that u32
+member.
+
+<div class='example memory locations accessed' heading="Accessing memory locations">
+  <xmp>
+    struct S {
+      a : f32;
+      b : u32;
+      c : f32;
+    };
+
+    [[group(0), binding(0)]]
+    var<storage> v : S;
+
+    fn foo() {
+      let x = v.b; // Does not access memory locations for v.a or v.c.
+    }
+  </xmp>
+</div>
+
+## Memory Model Reference ## {#memory-model-reference}
+
+Each module-scope variable in [SHORTNAME] forms a unique [=memory model
+reference=] for the lifetime of a given entry point.
+Each function-scope variable in [SHORTNAME] forms a unique [=memory model
+reference=] for the lifetime of the variable.
+
+## Scoped Operations ## {#scoped-operations}
+
+When an invocation performs a scoped operation, it will affect one or two sets
+of invocations.
+These sets are the memory scope and the execution scope.  The <dfn
+noexport>memory scope</dfn> specifies the set of invocations that will see any
+updates to memory contents affected by the operation.
+For [[#sync-builtin-functions|synchronization built-in functions]], this also
+means that all affected memory operations program ordered before the function
+are visible to affected operations program ordered after the function.
+The <dfn noexport>execution scope</dfn> specifies the set of invocations which
+may participate in an operation (see [[#collective-operations]]).
+
+[[#atomic-builtin-functions|Atomic built-in functions]] map to [=memory model atomic
+operation|atomic operations=] whose memory [=memory model scope|scope=] is:
+* `Workgroup` if the atomic pointer is in the [=storage classes/workgroup=]
+    storage class
+* `QueueFamily` if the atomic pointer is in the [=storage
+    classes/storage=] storage class
+
+[[#sync-builtin-functions|Synchronization built-in functions]] map to control
+barriers whose execution and memory [=memory model scope|scopes=] are
+`Workgroup`.
+
+Implicit and explicit derivatives have an implicit [=quad=] execution scope.
+
+Note: When generating SPIR-V that does not enable the `Vulkan` memory model,
+`Device` scope should be used instead of `QueueFamily`.
+
+## Memory Semantics ## {#memory-semantics}
+
+All [[#atomic-builtin-functions|Atomic built-in functions]] use `Relaxed`
+[=memory model memory semantics|memory semantics=] and, thus, no storage class
+semantics.
+
+[[#sync-builtin-functions|workgroupBarrier]] uses `AcquireRelease` [=memory
+model memory semantics|memory semantics=] and `WorkgroupMemory` storage
+semantics.
+[[#sync-builtin-functions|storageBarrier]] uses `AcquireRelease` [=memory model
+memory semantics|memory semantics=] and `UniformMemory` storage semantics.
+
+Note: A combined `workgroupBarrier` and `storageBarrier` uses `AcquireRelease`
+ordering semantics and both `WorkgroupMemory` and `UniformMemory` memory
+semantics.
+
+Note: No atomic or synchronization built-in functions use `MakeAvailable` or
+`MakeVisible` semantics.
+
+## Private vs Non-Private ## {#private-vs-non-private}
+
+All non-atomic [=read accesses=] in the [=storage classes/storage=] or
+[=storage classes/workgroup=] storage classes are considered
+[=memory model non-private|non-private=] and correspond to read operations with
+`NonPrivatePointer | MakePointerVisible` memory operands with the `Workgroup`
+scope.
+
+All non-atomic [=write accesses=] in the [=storage classes/storage=] or
+[=storage classes/workgroup=] storage classes are considered
+[=memory model non-private|non-private=] and correspond to write operations
+with `NonPrivatePointer | MakePointerAvailable` memory operands with the
+`Workgroup` scope.
+
+Issue: https://github.com/gpuweb/gpuweb/issues/1621
 
 # Keyword and Token Summary # {#grammar}
 
@@ -6814,192 +7752,192 @@ I've written what an NVIDIA GPU does.  See https://github.com/google/amber/pull/
 <div class='syntax' noexport='true'>
   <dfn for=syntax>array</dfn> :
 
-    | `/array/`
+    | `'array'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>atomic</dfn> :
 
-    | `/atomic/`
+    | `'atomic'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>bool</dfn> :
 
-    | `/bool/`
+    | `'bool'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>float32</dfn> :
 
-    | `/f32/`
+    | `'f32'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>int32</dfn> :
 
-    | `/i32/`
+    | `'i32'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>mat2x2</dfn> :
 
-    | `/mat2x2/`
+    | `'mat2x2'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>mat2x3</dfn> :
 
-    | `/mat2x3/`
+    | `'mat2x3'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>mat2x4</dfn> :
 
-    | `/mat2x4/`
+    | `'mat2x4'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>mat3x2</dfn> :
 
-    | `/mat3x2/`
+    | `'mat3x2'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>mat3x3</dfn> :
 
-    | `/mat3x3/`
+    | `'mat3x3'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>mat3x4</dfn> :
 
-    | `/mat3x4/`
+    | `'mat3x4'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>mat4x2</dfn> :
 
-    | `/mat4x2/`
+    | `'mat4x2'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>mat4x3</dfn> :
 
-    | `/mat4x3/`
+    | `'mat4x3'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>mat4x4</dfn> :
 
-    | `/mat4x4/`
+    | `'mat4x4'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>pointer</dfn> :
 
-    | `/ptr/`
+    | `'ptr'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>sampler</dfn> :
 
-    | `/sampler/`
+    | `'sampler'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>sampler_comparison</dfn> :
 
-    | `/sampler_comparison/`
+    | `'sampler_comparison'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>struct</dfn> :
 
-    | `/struct/`
+    | `'struct'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>texture_1d</dfn> :
 
-    | `/texture_1d/`
+    | `'texture_1d'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>texture_2d</dfn> :
 
-    | `/texture_2d/`
+    | `'texture_2d'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>texture_2d_array</dfn> :
 
-    | `/texture_2d_array/`
+    | `'texture_2d_array'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>texture_3d</dfn> :
 
-    | `/texture_3d/`
+    | `'texture_3d'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>texture_cube</dfn> :
 
-    | `/texture_cube/`
+    | `'texture_cube'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>texture_cube_array</dfn> :
 
-    | `/texture_cube_array/`
+    | `'texture_cube_array'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>texture_multisampled_2d</dfn> :
 
-    | `/texture_multisampled_2d/`
+    | `'texture_multisampled_2d'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>texture_storage_1d</dfn> :
 
-    | `/texture_storage_1d/`
+    | `'texture_storage_1d'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>texture_storage_2d</dfn> :
 
-    | `/texture_storage_2d/`
+    | `'texture_storage_2d'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>texture_storage_2d_array</dfn> :
 
-    | `/texture_storage_2d_array/`
+    | `'texture_storage_2d_array'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>texture_storage_3d</dfn> :
 
-    | `/texture_storage_3d/`
+    | `'texture_storage_3d'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>texture_depth_2d</dfn> :
 
-    | `/texture_depth_2d/`
+    | `'texture_depth_2d'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>texture_depth_2d_array</dfn> :
 
-    | `/texture_depth_2d_array/`
+    | `'texture_depth_2d_array'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>texture_depth_cube</dfn> :
 
-    | `/texture_depth_cube/`
+    | `'texture_depth_cube'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>texture_depth_cube_array</dfn> :
 
-    | `/texture_depth_cube_array/`
+    | `'texture_depth_cube_array'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>texture_depth_multisampled_2d</dfn> :
 
-    | `/texture_depth_multisampled_2d/`
+    | `'texture_depth_multisampled_2d'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>uint32</dfn> :
 
-    | `/u32/`
+    | `'u32'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>vec2</dfn> :
 
-    | `/vec2/`
+    | `'vec2'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>vec3</dfn> :
 
-    | `/vec3/`
+    | `'vec3'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>vec4</dfn> :
 
-    | `/vec4/`
+    | `'vec4'`
 </div>
 
 ### Other Keywords ### {#other-keywords}
@@ -7007,157 +7945,147 @@ I've written what an NVIDIA GPU does.  See https://github.com/google/amber/pull/
 <div class='syntax' noexport='true'>
   <dfn for=syntax>bitcast</dfn> :
 
-    | `/bitcast/`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>block</dfn> :
-
-    | `/block/`
+    | `'bitcast'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>break</dfn> :
 
-    | `/break/`
+    | `'break'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>case</dfn> :
 
-    | `/case/`
+    | `'case'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>continue</dfn> :
 
-    | `/continue/`
+    | `'continue'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>continuing</dfn> :
 
-    | `/continuing/`
+    | `'continuing'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>default</dfn> :
 
-    | `/default/`
+    | `'default'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>discard</dfn> :
 
-    | `/discard/`
+    | `'discard'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>else</dfn> :
 
-    | `/else/`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>else_if</dfn> :
-
-    | `/elseif/`
+    | `'else'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>enable</dfn> :
 
-    | `/enable/`
+    | `'enable'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>fallthrough</dfn> :
 
-    | `/fallthrough/`
+    | `'fallthrough'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>false</dfn> :
 
-    | `/false/`
+    | `'false'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>fn</dfn> :
 
-    | `/fn/`
+    | `'fn'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>for</dfn> :
 
-    | `/for/`
+    | `'for'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>function</dfn> :
 
-    | `/function/`
+    | `'function'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>if</dfn> :
 
-    | `/if/`
+    | `'if'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>let</dfn> :
 
-    | `/let/`
+    | `'let'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>loop</dfn> :
 
-    | `/loop/`
+    | `'loop'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>private</dfn> :
 
-    | `/private/`
+    | `'private'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>read</dfn> :
 
-    | `/read/`
+    | `'read'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>read_write</dfn> :
 
-    | `/read_write/`
+    | `'read_write'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>return</dfn> :
 
-    | `/return/`
+    | `'return'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>storage</dfn> :
 
-    | `/storage/`
+    | `'storage'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>switch</dfn> :
 
-    | `/switch/`
+    | `'switch'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>true</dfn> :
 
-    | `/true/`
+    | `'true'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>type</dfn> :
 
-    | `/type/`
+    | `'type'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>uniform</dfn> :
 
-    | `/uniform/`
+    | `'uniform'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>var</dfn> :
 
-    | `/var/`
+    | `'var'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>workgroup</dfn> :
 
-    | `/workgroup/`
+    | `'workgroup'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>write</dfn> :
 
-    | `/write/`
+    | `'write'`
 </div>
 
 Issue: Should read, write, and read_write be not completely reserved?  They are only used in specific contexts.
@@ -7167,177 +8095,177 @@ Issue: Should read, write, and read_write be not completely reserved?  They are 
 <div class='syntax' noexport='true'>
   <dfn for=syntax>r8unorm</dfn> :
 
-    | `/r8unorm/`
+    | `'r8unorm'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>r8snorm</dfn> :
 
-    | `/r8snorm/`
+    | `'r8snorm'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>r8uint</dfn> :
 
-    | `/r8uint/`
+    | `'r8uint'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>r8sint</dfn> :
 
-    | `/r8sint/`
+    | `'r8sint'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>r16uint</dfn> :
 
-    | `/r16uint/`
+    | `'r16uint'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>r16sint</dfn> :
 
-    | `/r16sint/`
+    | `'r16sint'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>r16float</dfn> :
 
-    | `/r16float/`
+    | `'r16float'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>rg8unorm</dfn> :
 
-    | `/rg8unorm/`
+    | `'rg8unorm'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>rg8snorm</dfn> :
 
-    | `/rg8snorm/`
+    | `'rg8snorm'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>rg8uint</dfn> :
 
-    | `/rg8uint/`
+    | `'rg8uint'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>rg8sint</dfn> :
 
-    | `/rg8sint/`
+    | `'rg8sint'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>r32uint</dfn> :
 
-    | `/r32uint/`
+    | `'r32uint'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>r32sint</dfn> :
 
-    | `/r32sint/`
+    | `'r32sint'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>r32float</dfn> :
 
-    | `/r32float/`
+    | `'r32float'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>rg16uint</dfn> :
 
-    | `/rg16uint/`
+    | `'rg16uint'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>rg16sint</dfn> :
 
-    | `/rg16sint/`
+    | `'rg16sint'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>rg16float</dfn> :
 
-    | `/rg16float/`
+    | `'rg16float'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>rgba8unorm</dfn> :
 
-    | `/rgba8unorm/`
+    | `'rgba8unorm'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>rgba8unorm_srgb</dfn> :
 
-    | `/rgba8unorm_srgb/`
+    | `'rgba8unorm_srgb'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>rgba8snorm</dfn> :
 
-    | `/rgba8snorm/`
+    | `'rgba8snorm'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>rgba8uint</dfn> :
 
-    | `/rgba8uint/`
+    | `'rgba8uint'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>rgba8sint</dfn> :
 
-    | `/rgba8sint/`
+    | `'rgba8sint'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>bgra8unorm</dfn> :
 
-    | `/bgra8unorm/`
+    | `'bgra8unorm'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>bgra8unorm_srgb</dfn> :
 
-    | `/bgra8unorm_srgb/`
+    | `'bgra8unorm_srgb'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>rgb10a2unorm</dfn> :
 
-    | `/rgb10a2unorm/`
+    | `'rgb10a2unorm'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>rg11b10float</dfn> :
 
-    | `/rg11b10float/`
+    | `'rg11b10float'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>rg32uint</dfn> :
 
-    | `/rg32uint/`
+    | `'rg32uint'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>rg32sint</dfn> :
 
-    | `/rg32sint/`
+    | `'rg32sint'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>rg32float</dfn> :
 
-    | `/rg32float/`
+    | `'rg32float'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>rgba16uint</dfn> :
 
-    | `/rgba16uint/`
+    | `'rgba16uint'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>rgba16sint</dfn> :
 
-    | `/rgba16sint/`
+    | `'rgba16sint'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>rgba16float</dfn> :
 
-    | `/rgba16float/`
+    | `'rgba16float'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>rgba32uint</dfn> :
 
-    | `/rgba32uint/`
+    | `'rgba32uint'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>rgba32sint</dfn> :
 
-    | `/rgba32sint/`
+    | `'rgba32sint'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>rgba32float</dfn> :
 
-    | `/rgba32float/`
+    | `'rgba32float'`
 </div>
 
 TODO(dneto): Eliminate the image formats that are not used in storage images.
@@ -7353,51 +8281,51 @@ The following are reserved words:
 <div class='syntax' noexport='true'>
   <dfn for=syntax>_reserved</dfn> :
 
-    | `/asm/`
+    | `'asm'`
 
-    | `/bf16/`
+    | `'bf16'`
 
-    | `/const/`
+    | `'const'`
 
-    | `/do/`
+    | `'do'`
 
-    | `/enum/`
+    | `'enum'`
 
-    | `/f16/`
+    | `'f16'`
 
-    | `/f64/`
+    | `'f64'`
 
-    | `/handle/`
+    | `'handle'`
 
-    | `/i8/`
+    | `'i8'`
 
-    | `/i16/`
+    | `'i16'`
 
-    | `/i64/`
+    | `'i64'`
 
-    | `/mat/`
+    | `'mat'`
 
-    | `/premerge/`
+    | `'premerge'`
 
-    | `/regardless/`
+    | `'regardless'`
 
-    | `/typedef/`
+    | `'typedef'`
 
-    | `/u8/`
+    | `'u8'`
 
-    | `/u16/`
+    | `'u16'`
 
-    | `/u64/`
+    | `'u64'`
 
-    | `/unless/`
+    | `'unless'`
 
-    | `/using/`
+    | `'using'`
 
-    | `/vec/`
+    | `'vec'`
 
-    | `/void/`
+    | `'void'`
 
-    | `/while/`
+    | `'while'`
 </div>
 
 ## Syntactic Tokens ## {#syntactic-tokens}
@@ -7591,8 +8519,58 @@ A <dfn>syntactic token</dfn> is a sequence of special characters, used:
 
     | `'^'`
 </div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>plus_equal</dfn> :
 
-Note: The `MINUS_MINUS` and `PLUS_PLUS` tokens are reserved, i.e. they are not used in any grammar productions.
+    | `'+='`
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>minus_equal</dfn> :
+
+    | `'-='`
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>times_equal</dfn> :
+
+    | `'*='`
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>division_equal</dfn> :
+
+    | `'/='`
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>modulo_equal</dfn> :
+
+    | `'%='`
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>and_equal</dfn> :
+
+    | `'&='`
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>or_equal</dfn> :
+
+    | `'|='`
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>xor_equal</dfn> :
+
+    | `'^='`
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>shift_right_equal</dfn> :
+
+    | `'>>='`
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>shift_left_equal</dfn> :
+
+    | `'<<='`
+</div>
+
+Note: The [=syntax/plus_plus=] and [=syntax/minus_minus=] tokens are reserved, i.e. they are not used in any grammar productions.
 For example `x--` and `++i` are not syntactically valid expressions in [SHORTNAME].
 
 # Built-in variables # {#builtin-variables}
@@ -7791,11 +8769,11 @@ These are called <dfn noexport>built-in functions</dfn>.
 
 A built-in function is a family of functions, all with the same name,
 but distinguished by the number, order, and types of their [=formal parameters=].
-Each of these distinct function variations is called an <dfn>overload</dfn>.
+Each of these distinct function variations is an [=overload=].
 
-Note: In this sense, each [=user-defined function=] only has one overload.
+Note: Each [=user-defined function=] only has one [=overload=].
 
-Each [=overload=] is defined below via:
+Each [=overload=] is described below via:
 * Type parameterizations, if any.
 * The built-in function name, a parenthesized list of [=formal parameters=], and optionally a [=return type=].
 * The behaviour of this overload of the function.
@@ -7850,33 +8828,11 @@ See [[#function-calls]].
         (OpSelect)
 </table>
 
-## Value-testing built-in functions ## {#value-testing-builtin-functions}
+## Array built-in functions ## {#array-builtin-functions}
 <table class='data'>
-  <caption>Unary operators</caption>
   <thead>
     <tr><th>Parameterization<th>Overload<th>Description
   </thead>
-  <tr algorithm="isNan">
-  <td rowspan=4>
-    |I| is [FLOATING]<br>
-    |T| is bool if |I| is a scalar, or<br>
-    vec|N|&lt;bool&gt; if |I| is a vector
-    <td class="nowrap">`isNan(`|e|`:` |I| `) -> ` |T|
-    <td>Test for NaN according to [[!IEEE-754|IEEE-754]].<br>
-    [=Component-wise=] when |I| is a vector. (OpIsNan)
-  <tr algorithm="isInf">
-    <td class="nowrap">`isInf(`|e|`:` |I| `) -> ` |T|
-    <td>Test for infinity according to [[!IEEE-754|IEEE-754]].<br>
-    [=Component-wise=] when |I| is a vector. (OpIsInf)
-  <tr algorithm="isFinite">
-    <td class="nowrap">`isFinite(`|e|`:` |I| `) -> ` |T|
-    <td>Test a finite value according to [[!IEEE-754|IEEE-754]].<br>
-    [=Component-wise=] when |I| is a vector.
-  <tr algorithm="isNormal">
-    <td class="nowrap">`isNormal(`|e|`:` |I| `) -> ` |T|
-    <td>Test a normal value according to [[!IEEE-754|IEEE-754]].<br>
-    [=Component-wise=] when |I| is a vector.
-
   <tr algorithm="runtime-sized array length">
     <td>
     <td>`arrayLength`(|e|: ptr&lt;storage,array&lt;|T|&gt;&gt; ) -> u32
@@ -7958,6 +8914,13 @@ See [[#function-calls]].
     <td class="nowrap">`cross(`|e1|`:` vec3<|T|> `, `|e2|`:` vec3<|T|>`) -> ` vec3<|T|>
     <td>Returns the cross product of |e1| and |e2|. (GLSLstd450Cross)
 
+  <tr algorithm="degrees">
+    <td>|T| is [FLOATING]
+    <td class="nowrap">`degrees(`|e1|`:` |T| `) -> ` |T|
+    <td>Converts radians to degrees, approximating |e1|&nbsp;&times;&nbsp;180&nbsp;&div;&nbsp;&pi;.
+    [=Component-wise=] when |T| is a vector<br>
+    (GLSLstd450Degrees)
+
   <tr algorithm="distance">
     <td>|T| is [FLOATING]
     <td class="nowrap">`distance(`|e1|`:` |T| `, `|e2|`:` |T| `) -> ` f32
@@ -8007,35 +8970,44 @@ See [[#function-calls]].
 
   <tr algorithm="scalar case, frexp">
     <td>|T| is f32
-    <td class="nowrap">`frexp(`|e|`: `|T|`) -> _frexp_result`<br>
+    <td class="nowrap">`frexp(`|e|`: `|T|`) -> __frexp_result`<br>
     <td>Splits |e| into a significand and exponent of the form `significand * 2`<sup>`exponent`</sup>.
-    Returns the `_frexp_result` built-in structure, defined as:
+    Returns the `__frexp_result` built-in structure, defined as if as follows:
     ```rust
-struct _frexp_result {
+struct __frexp_result {
   sig : f32; // significand part
   exp : i32; // exponent part
 };
     ```
     The magnitude of the significand is in the range of [0.5, 1.0) or 0.
 
-    Note: A value cannot be explicitly declared with the type `_frexp_result`, but a value may infer the type.
+    Note: A value cannot be explicitly declared with the type `__frexp_result`, but a value may infer the type.
+
+    <div class='example wgsl function-scope' heading='frexp usage'>
+    <xmp>
+     // Infers result type
+     let sig_and_exp = frexp(1.5);
+     // Sets fraction_direct to 0.75
+     let fraction_direct = frexp(1.5).sig;
+    </xmp>
+    </div>
 
     (GLSLstd450FrexpStruct)
 
   <tr algorithm="vector case, frexp">
     <td>|T| is vec|N|&lt;f32&gt;
-    <td class="nowrap">`frexp(`|e|`: `|T|`) -> _frexp_result_vec`|N|<br>
+    <td class="nowrap">`frexp(`|e|`: `|T|`) -> __frexp_result_vec`|N|<br>
     <td>Splits the components of |e| into a significand and exponent of the form `significand * 2`<sup>`exponent`</sup>.
-    Returns the `_frexp_result_vec`|N| built-in structure, defined as:
+    Returns the `__frexp_result_vec`|N| built-in structure, defined as if as follows:
     ```rust
-struct _frexp_result_vecN {
+struct __frexp_result_vecN {
   sig : vecN<f32>; // significand part
   exp : vecN<i32>; // exponent part
 };
     ```
     The magnitude of each component of the significand is in the range of [0.5, 1.0) or 0.
 
-    Note: A value cannot be explicitly declared with the type `_frexp_result_vec`|N|, but a value may infer the type.
+    Note: A value cannot be explicitly declared with the type `__frexp_result_vec`|N|, but a value may infer the type.
 
     (GLSLstd450FrexpStruct)
 
@@ -8065,7 +9037,7 @@ struct _frexp_result_vecN {
   <tr algorithm="log">
     <td>|T| is [FLOATING]
     <td class="nowrap">`log(`|e|`:` |T| `) -> ` |T|
-    <td>Returns the natural logaritm of |e|.
+    <td>Returns the natural logarithm of |e|.
     [=Component-wise=] when |T| is a vector.
     (GLSLstd450Log)
 
@@ -8111,33 +9083,42 @@ struct _frexp_result_vecN {
 
   <tr algorithm="scalar case, modf">
     <td>|T| is f32
-    <td class="nowrap">`modf(`|e|`: `|T|`) -> _modf_result`<br>
+    <td class="nowrap">`modf(`|e|`: `|T|`) -> __modf_result`<br>
     <td>Splits |e| into fractional and whole number parts.
-    Returns the `_modf_result` built-in structure, defined as:
+    Returns the `__modf_result` built-in structure, defined as if as follows:
     ```rust
-struct _modf_result {
+struct __modf_result {
   fract : f32; // fractional part
   whole : f32; // whole part
 };
     ```
 
-    Note: A value cannot be explicitly declared with the type `_modf_result`, but a value may infer the type.
+    Note: A value cannot be explicitly declared with the type `__modf_result`, but a value may infer the type.
+
+    <div class='example wgsl function-scope' heading='modf usage'>
+    <xmp>
+     // Infers result type
+     let fract_and_whole = modf(1.5);
+     // Sets fract_direct to 0.5
+     let fract_direct = modf(1.5).fract;
+    </xmp>
+    </div>
 
     (GLSLstd450ModfStruct)
 
   <tr algorithm="vector case, modf">
     <td>|T| is vec|N|&lt;f32&gt;
-    <td class="nowrap">`modf(`|e|`: `|T|`) -> _modf_result_vec`|N|<br>
+    <td class="nowrap">`modf(`|e|`: `|T|`) -> __modf_result_vec`|N|<br>
     <td>Splits the components of |e| into fractional and whole number parts.
-    Returns the `_modf_result_vec`|N| built-in structure, defined as:
+    Returns the `__modf_result_vec`|N| built-in structure, defined as if as follows:
     ```rust
-struct _modf_result_vecN {
+struct __modf_result_vecN {
   fract : vecN<f32>; // fractional part
   whole : vecN<f32>; // whole part
 };
     ```
 
-    Note: A value cannot be explicitly declared with the type `_modf_result_vec`|N|, but a value may infer the type.
+    Note: A value cannot be explicitly declared with the type `__modf_result_vec`|N|, but a value may infer the type.
 
     (GLSLstd450ModfStruct)
 
@@ -8165,6 +9146,13 @@ struct _modf_result_vecN {
         Note: The vec2&lt;f32&gt; case is the same as `unpack2x16float(pack2x16float(`|e|`))`.
 
         (OpQuantizeToF16)
+
+  <tr algorithm="radians">
+    <td>|T| is [FLOATING]
+    <td class="nowrap">`radians(`|e1|`:` |T| `) -> ` |T|
+    <td>Converts degrees to radians, approximating |e1|&nbsp;&times;&nbsp;&pi;&nbsp;&div;&nbsp;180.
+    [=Component-wise=] when |T| is a vector<br>
+    (GLSLstd450Radians)
 
   <tr algorithm="reflect">
     <td>|T| is vec|N|&lt;f32&gt;
@@ -8357,10 +9345,18 @@ struct _modf_result_vecN {
   <thead>
     <tr><th>Parameterization<td>Overload<td>Description
   </thead>
-  <tr algorithm="dot"><td>|T| is f32
-  <td>`dot(`|e1|`: vecN<`|T|`>, `|e2|`: vecN<`|T|`>) ->` |T|
-  <td>Returns the dot product of |e1| and |e2|.
-  (OpDot)
+  <tr algorithm="float dot"><td>|T| is f32
+    <td>`dot(`|e1|`: vecN<`|T|`>, `|e2|`: vecN<`|T|`>) ->` |T|
+    <td>Returns the dot product of |e1| and |e2|.
+    (OpDot)
+  <tr algorithm="signed dot"><td>|T| is i32
+    <td>`dot(`|e1|`: vecN<`|T|`>, `|e2|`: vecN<`|T|`>) ->` |T|
+    <td>Returns the dot product of |e1| and |e2|.
+    (SPV_KHR_integer_dot_product OpSDotKHR)
+  <tr algorithm="unsigned dot"><td>|T| is u32
+    <td>`dot(`|e1|`: vecN<`|T|`>, `|e2|`: vecN<`|T|`>) ->` |T|
+    <td>Returns the dot product of |e1| and |e2|.
+    (SPV_KHR_integer_dot_product OpUDotKHR)
 </table>
 
 ## Derivative built-in functions ## {#derivative-builtin-functions}
@@ -8482,6 +9478,177 @@ Cube faces are square, so the x and y components of the result are equal.
 
 If `level` is outside the range `[0, textureNumLevels(t))` then any valid value
 for the return type may be returned.
+
+### `textureGather` ### {#texturegather}
+
+A <dfn noexport>texture gather</dfn> operation reads from a 2D, 2D array, cube, or cube array texture,
+computing a four-element vector as follows:
+* Find the four texels that would be used in a sampling operation with linear filtering,
+    from [=mip level=] 0:
+    * Use the specified coordinate, array index (when present), and offset (when present).
+    * The texels are adjacent, forming a square, when considering their texture space coordinates (*u*,*v*).
+    * Selected texels at the texture edge, cube face edge, or cube corners are handled
+        as in ordinary texture sampling.
+* For each texel, read one channel and convert it into a scalar value.
+    * For non-depth textures, a zero-based `component` parameter specifies the channel to use.
+        * If the texture format supports the specified channel, i.e. has more than `component` channels:
+             * Yield scalar value `v[component]` when the texel value is `v`.
+        * Otherwise:
+             * Yield 0.0 when `component` is 1 or 2.
+             * Yield 1.0 when `component` is 3 (the alpha channel).
+    * For depth textures, yield the texel value. (Depth textures only have one channel.)
+* Yield the four-element vector, arranging scalars produced by the previous step into components
+    according to the relative coordinates of the texels, as follows:
+    * <table>
+        <thead class='data'><td>Result component<td>Relative texel coordinate</thead>
+        <tr><td>x<td>(*u*<sub>min</sub>,*v*<sub>max</sub>)
+        <tr><td>y<td>(*u*<sub>max</sub>,*v*<sub>max</sub>)
+        <tr><td>z<td>(*u*<sub>max</sub>,*v*<sub>min</sub>)
+        <tr><td>w<td>(*u*<sub>min</sub>,*v*<sub>min</sub>)
+        </table>
+
+TODO: The four texels are the "sample footprint" that should be described by the WebGPU spec.
+https://github.com/gpuweb/gpuweb/issues/2343
+
+```rust
+textureGather(component: i32, t: texture_2d<T>, s: sampler, coords: vec2<f32>) -> vec4<T>
+textureGather(component: i32, t: texture_2d<T>, s: sampler, coords: vec2<f32>, offset: vec2<i32>) -> vec4<T>
+textureGather(component: i32, t: texture_2d_array<T>, s: sampler, coords: vec2<f32>, array_index: i32) -> vec4<T>
+textureGather(component: i32, t: texture_2d_array<T>, s: sampler, coords: vec2<f32>, array_index: i32, offset: vec2<i32>) -> vec4<T>
+textureGather(component: i32, t: texture_cube<T>, s: sampler, coords: vec3<f32>) -> vec4<T>
+textureGather(component: i32, t: texture_cube_array<T>, s: sampler, coords: vec3<f32>, array_index: i32) -> vec4<T>
+textureGather(t: texture_depth_2d, s: sampler, coords: vec2<f32>) -> vec4<f32>
+textureGather(t: texture_depth_2d, s: sampler, coords: vec2<f32>, offset: vec2<i32>) -> vec4<f32>
+textureGather(t: texture_depth_2d_array, s: sampler, coords: vec2<f32>, array_index: i32) -> vec4<f32>
+textureGather(t: texture_depth_2d_array, s: sampler, coords: vec2<f32>, array_index: i32, offset: vec2<i32>) -> vec4<f32>
+textureGather(t: texture_depth_cube, s: sampler, coords: vec3<f32>) -> vec4<f32>
+textureGather(t: texture_depth_cube_array, s: sampler, coords: vec3<f32>, array_index: i32) -> vec4<f32>
+```
+
+**Parameters:**
+
+<table class='data'>
+  <tr><td>`component`<td>
+  Only applies to non-depth textures.
+  <br>The index of the channel to read from the selected texels.
+  <br>When provided, the `component` expression must be either:
+    * a `const_expression` expression (e.g. `1`).<br>
+    * a name of a [[#module-constants|module-scope constant]] that is not [=pipeline-overridable=]
+  Its value must be at least 0 and at most 3.
+  Values outside of this range will result in a [=shader-creation error=].
+  <tr><td>`t`<td>
+  The [sampled](#sampled-texture-type) or [depth](#texture-depth) texture to read from.
+  <tr><td>`s`<td>
+  The [sampler type](#sampler-type).
+  <tr><td>`coords`<td>
+  The texture coordinates.
+  <tr><td>`array_index`<td>
+  The 0-based texture array index.
+  <tr><td>`offset`<td>
+  The optional texel offset applied to the unnormalized texture coordinate
+  before sampling the texture. This offset is applied before applying any
+  texture wrapping modes.<br>
+  The `offset` expression must be either:
+    * a `const_expression` expression (e.g. `vec2<i32>(1, 2)`).<br>
+    * a name of a [[#module-constants|module-scope constant]] that is not [=pipeline-overridable=]
+  Each `offset` component must be at least `-8` and at most `7`. Values outside
+  of this range will result in a [=shader-creation error=].
+</table>
+
+**Returns:**
+
+A four element vector with components extracted from the specified channel from the selected texels, as described above.
+
+<div class='example wgsl global-scope' heading="Gather components from texels in 2D texture">
+  <xmp>
+    [[group(0),binding(0)]] var t: texture_2d<f32>;
+    [[group(0),binding(1)]] var dt: texture_depth_2d;
+    [[group(0),binding(2)]] var s: sampler;
+
+    fn gather_x_components(c: vec2<f32>) -> vec4<f32> {
+      return textureGather(0,t,s,c);
+    }
+    fn gather_y_components(c: vec2<f32>) -> vec4<f32> {
+      return textureGather(1,t,s,c);
+    }
+    fn gather_z_components(c: vec2<f32>) -> vec4<f32> {
+      return textureGather(2,t,s,c);
+    }
+    fn gather_depth_components(c: vec2<f32>) -> vec4<f32> {
+      return textureGather(dt,s,c);
+    }
+  </xmp>
+</div>
+
+### `textureGatherCompare` ### {#texturegathercompare}
+
+A <dfn noexport>texture gather compare</dfn> operation performs a depth comparison on four texels in a depth
+texture and collects the results into a single vector, as follows:
+
+* Find the four texels that would be used in a depth sampling operation with linear filtering,
+    from [=mip level=] 0:
+    * Use the specified coordinate, array index (when present), and offset (when present).
+    * The texels are adjacent, forming a square, when considering their texture space coordinates (*u*,*v*).
+    * Selected texels at the texture edge, cube face edge, or cube corners are handled
+        as in ordinary texture sampling.
+* For each texel, perform a comparison against the depth reference value,
+    yielding a 0.0 or 1.0 value, as controlled by the comparison sampler parameters.
+* Yield the four-element vector where the components are the comparison results with the texels with
+       relative texel coordinates as follows:
+    * <table>
+        <thead class='data'><td>Result component<td>Relative texel coordinate</thead>
+        <tr><td>x<td>(*u*<sub>min</sub>,*v*<sub>max</sub>)
+        <tr><td>y<td>(*u*<sub>max</sub>,*v*<sub>max</sub>)
+        <tr><td>z<td>(*u*<sub>max</sub>,*v*<sub>min</sub>)
+        <tr><td>w<td>(*u*<sub>min</sub>,*v*<sub>min</sub>)
+        </table>
+
+```rust
+textureGatherCompare(t: texture_depth_2d, s: sampler_comparison, coords: vec2<f32>, depth_ref: f32) -> vec4<f32>
+textureGatherCompare(t: texture_depth_2d, s: sampler_comparison, coords: vec2<f32>, depth_ref: f32, offset: vec2<i32>) -> vec4<f32>
+textureGatherCompare(t: texture_depth_2d_array, s: sampler_comparison, coords: vec2<f32>, array_index: i32, depth_ref: f32) -> vec4<f32>
+textureGatherCompare(t: texture_depth_2d_array, s: sampler_comparison, coords: vec2<f32>, array_index: i32, depth_ref: f32, offset: vec2<i32>) -> vec4<f32>
+textureGatherCompare(t: texture_depth_cube, s: sampler_comparison, coords: vec3<f32>, depth_ref: f32) -> vec4<f32>
+textureGatherCompare(t: texture_depth_cube_array, s: sampler_comparison, coords: vec3<f32>, array_index: i32, depth_ref: f32) -> vec4<f32>
+```
+**Parameters:**
+
+<table class='data'>
+  <tr><td>`t`<td>
+  The [depth](#texture-depth) texture to read from.
+  <tr><td>`s`<td>
+  The [sampler comparison](#sampler-type).
+  <tr><td>`coords`<td>
+  The texture coordinates.
+  <tr><td>`array_index`<td>
+  The 0-based texture array index.
+  <tr><td>`depth_ref`<td>
+  The reference value to compare the sampled depth value against.
+  <tr><td>`offset`<td>
+  The optional texel offset applied to the unnormalized texture coordinate
+  before sampling the texture. This offset is applied before applying any
+  texture wrapping modes.<br>
+  The `offset` expression must be either:
+    * a `const_expression` expression (e.g. `vec2<i32>(1, 2)`).<br>
+    * a name of a [[#module-constants|module-scope constant]] that is not [=pipeline-overridable=]
+  Each `offset` component must be at least `-8` and at most `7`. Values outside
+  of this range will result in a [=shader-creation error=].
+</table>
+
+**Returns:**
+
+A four element vector with comparison result for the selected texels, as described above.
+
+<div class='example wgsl global-scope' heading="Gather depth comparison">
+  <xmp>
+    [[group(0),binding(0)]] var dt: texture_depth_2d;
+    [[group(0),binding(1)]] var s: sampler;
+
+    fn gather_depth_compare(c: vec2<f32>, depth_ref: f32) -> vec4<f32> {
+      return textureGatherCompare(dt,s,c,depth_ref);
+    }
+  </xmp>
+</div>
 
 ### `textureLoad` ### {#textureload}
 
@@ -8925,25 +10092,23 @@ TODO(dsinclair): Need gather operations
 Atomic built-in functions can be used to read/write/read-modify-write atomic
 objects. They are the only operations allowed on [[#atomic-types]].
 
-All atomic built-in functions use a `relaxed` memory ordering (**0**-value
-integral constant in SPIR-V for all `Memory Semantics` operands).
-This means synchronization and ordering guarantees only apply among atomic
-operations acting on the same [=memory locations=].
-No synchronization or ordering guarantees apply between atomic and
-non-atomic memory accesses, or between atomic accesses acting on different
-memory locations.
+All atomic built-in functions use a `relaxed` [[#memory-semantics|memory
+ordering]] (**0**-value integral constant in SPIR-V for all `Memory Semantics`
+operands).  This means synchronization and ordering guarantees only apply among
+atomic operations acting on the same [=memory locations=].  No synchronization
+or ordering guarantees apply between atomic and non-atomic memory accesses, or
+between atomic accesses acting on different memory locations.
 
 Atomic built-in functions `must` not be used in a [=vertex=] shader stage.
 
 The storage class `SC` of the `atomic_ptr` parameter in all atomic built-in
 functions `must` be either [=storage classes/storage=] or [=storage
-classes/workgroup=]. [=storage classes/workgroup=] atomics have a **Workgroup**
-memory scope in SPIR-V, while [=storage classes/storage=] atomics have a
-**Device** memory scope in SPIR-V.
+classes/workgroup=].
+[=storage classes/workgroup=] atomics have a **Workgroup**
+[=memory scope=] in SPIR-V, while [=storage classes/storage=] atomics have a
+**QueueFamily** memory scope in SPIR-V.
 
 The access mode `A` in all atomic built-in functions must be [=access/read_write=].
-
-TODO: Add links to the eventual memory model descriptions.
 
 ### Atomic Load ### {#atomic-load}
 
@@ -9005,9 +10170,9 @@ Atomically stores the value `v` in the atomic object pointed to
 `atomic_ptr` and returns the original value stored in the atomic object.
 
 ```rust
-atomicCompareExchangeWeak(atomic_ptr: ptr<SC, atomic<T>, A>, cmp: T, v: T) -> _atomic_compare_exchange_result<T>
+atomicCompareExchangeWeak(atomic_ptr: ptr<SC, atomic<T>, A>, cmp: T, v: T) -> __atomic_compare_exchange_result<T>
 
-struct _atomic_compare_exchange_result<T> {
+struct __atomic_compare_exchange_result<T> {
   old_value : T; // old value stored in the atomic
   exchanged : bool; // true if the exchange was done
 };
@@ -9015,20 +10180,21 @@ struct _atomic_compare_exchange_result<T> {
 // Maps to the SPIR-V instruction OpAtomicCompareExchange.
 ```
 
-Note: A value cannot be explicitly declared with the type `_atomic_compare_exchange_result`, but a value may infer the type.
+Note: A value cannot be explicitly declared with the type
+`__atomic_compare_exchange_result`, but a value may infer the type.
 
 Performs the following steps atomically:
 
 1. Load the original value pointed to by `atomic_ptr`.
 2. Compare the original value to the value `v` using an equality operation.
-3. Store the value `v` `only if` the result of the equality comparison was **true**.
+3. Store the value `v` `only if` the result of the equality comparison was `true`.
 
-Returns a two-element vector, where the first element is the original value of
-the atomic object and the second element is whether or not the comparison
-succeeded (**1** if successful, **0** otherwise).
+Returns a two member structure, where the first member, `old_value`, is the
+original value of the atomic object and the second member, `exchanged`, is
+whether or not the comparison succeeded.
 
 Note: the equality comparison may spuriously fail on some implementations. That
-is, the second element of the result vector may be **0** even if the first
+is, the second element of the result vector may be `false` even if the first
 element of the result vector equals `cmp`.
 
 ## Data packing built-in functions ## {#pack-builtin-functions}
@@ -9147,15 +10313,19 @@ storageBarrier()
 workgroupBarrier()
 ```
 
-All synchronization functions execute a control barrier with Acquire/Release
-memory ordering. That is, all synchronization functions, and affected memory
-and atomic operations are ordered in [[#program-order]] relative to the
-synchronization function.  Additionally, the affected memory and atomic
-operations program-ordered before the synchronization function must be visible
-to all other threads in the workgroup before any affected memory or atomic
-operation program-ordered after the synchronization function is executed by a
-member of the workgroup.
-All synchronization functions must only be used in the [=compute=] shader stage.
+All synchronization functions execute a [=control barrier=] with
+Acquire/Release [[#memory-semantics|memory ordering]].
+That is, all synchronization functions, and affected memory and atomic
+operations are ordered in [[#program-order|program order]] relative to the
+synchronization function.
+Additionally, the affected memory and atomic operations program-ordered before
+the synchronization function must be visible to all other threads in the
+workgroup before any affected memory or atomic operation program-ordered after
+the synchronization function is executed by a member of the workgroup.
+All synchronization functions use the `Workgroup` [=memory scope=].
+All synchronization functions have a `Workgroup` [=execution scope=].
+All synchronization functions must only be used in the [=compute=] shader
+stage.
 
 storageBarrier affects memory and atomic operations in the [=storage
 classes/storage=] storage class.
@@ -9163,16 +10333,14 @@ classes/storage=] storage class.
 workgroupBarrier affects memory and atomic operations in the [=storage
 classes/workgroup=] storage class.
 
-TODO: Add links to the eventual memory model.
-
 <div class='example spirv barrier mapping' heading="Mapping workgroupBarrier to SPIR-V">
   <xmp>
     storageBarrier();
     // Maps to:
     // Execution Scope is Workgroup = %uint_2
-    // Memory Scope is Device = %uint_1
+    // Memory Scope is Workgroup = %uint_2
     // Memory Semantics are AcquireRelease | UniformMemory (0x8 | 0x40) = %uint_72
-    // OpControlBarrier %uint_2 %uint_1 %uint_72
+    // OpControlBarrier %uint_2 %uint_2 %uint_72
 
     workgroupBarrier();
     // Maps to:
@@ -9187,10 +10355,10 @@ TODO: Add links to the eventual memory model.
     workgroupBarrier();
     // Could be mapped to a single OpControlBarrier:
     // Execution scope is Workgroup = %uint_2
-    // Memory Scope is Device = %uint_1
+    // Memory Scope is Workgroup = %uint_2
     // Memory semantics are AcquireRelease | UniformMemory | WorkgroupMemory
     //   (0x8 | 0x40 | 0x100) = %uint_328
-    // OpControlBarrier %uint_2 %uint_1 %uint_328
+    // OpControlBarrier %uint_2 %uint_2 %uint_328
   </xmp>
 </div>
 
