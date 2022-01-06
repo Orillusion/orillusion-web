@@ -367,7 +367,7 @@ TODO：更新WebGPU规范，参考这里定义的三种错误。
 * 然后是任何序列：
      * A [=block comment=]，或
      * 不包含 `*/` 或 `/*` 的文本
-* 然后两个字符`*/`
+* 然后两个字符 `*/`
 
 注意：块注释可以嵌套。
 由于块注释需要匹配的开始和结束文本序列，并允许任意嵌套，因此不能用正则表达式识别块注释。
@@ -460,7 +460,7 @@ TODO(dneto)：描述数字文字标记如何映射到理想化值，然后映射
 
 标识符的形式是通过模式匹配定义的，但标识符：
  * 不得与 [=keyword=] 或 [=reserved word=] 拼写相同。
- * 不能是`_`（单个下划线）
+ * 不能是 `_`（单个下划线）
  * 不能以两个下划线开头。
 
 <div class='syntax' noexport='true'>
@@ -653,7 +653,7 @@ TODO(dneto)：描述数字文字标记如何映射到理想化值，然后映射
 > 考虑有向图，其中：
 > * 每个节点对应一个声明 |D|。
 > * 声明 |D| 有一条边 到声明 |T| 当定义
-> 对于 |D| 提到 [=resolves=] 到 |T| 的标识符。
+>      对于 |D| 提到 [=resolves=] 到 |T| 的标识符。
 >
 > 此图不得有环。
 
@@ -933,7 +933,7 @@ TODO：示例：非结果值效应是函数调用子表达式的任何副作用�
 原子类型只能由[=storage classes/workgroup=]存储类中的变量或具有[=access/read_write=]访问模式的存储缓冲区（[=storage buffer=]）变量实例化。
 
 对该类型的操作的 [=memory scope=] 由它被实例化的存储类决定。
-[=storage classes/workgroup=] 存储类中的原子类型的内存范围为`Workgroup`，而[=storage classes/storage=] 存储类中的原子类型的内存范围为 `QueueFamily`。
+[=storage classes/workgroup=] 存储类中的原子类型的内存范围为 `Workgroup`，而[=storage classes/storage=] 存储类中的原子类型的内存范围为 `QueueFamily`。
 
 <dfn noexport>atomic modification</dfn>是原子对象上的任何[[#memory-operation|operation]]，它设置对象的内容。
 即使新值与对象的现有值相同，该操作也算作修改。
@@ -1029,7 +1029,7 @@ TODO：示例：非结果值效应是函数调用子表达式的任何副作用�
 * 它们的元素计数规范匹配，即以下任一情况为真：
     * 它们都是runtime-sized。
     * 它们都是固定大小的 [=creation-fixedfootprint=]，并且
-      等值元素计数，即使一个是有符号的，另一个是无符号的。（在这种情况下，有符号和无符号值是可比较的，因为元素计数必须大于零。）
+            等值元素计数，即使一个是有符号的，另一个是无符号的。（在这种情况下，有符号和无符号值是可比较的，因为元素计数必须大于零。）
     * 它们都是固定大小的，元素计数指定为相同的 [=pipeline-overridable=] [=module scope|module-scope-=] 常量。
 
 问题：如果数组类型具有不同的元素步幅，则它们应该不同。见https://github.com/gpuweb/gpuweb/issues/1534
@@ -2249,7 +2249,7 @@ Texel 访问是通过采样器的几个属性控制的：
      参见 [[WebGPU#enumdef-gpufiltermode|WebGPU GPUFilterMode]]。
 : LOD 钳位
 :: 控制访问的详细信息的最小和最大级别。
-： 比较
+: 比较
 :: 控制为 [=syntax/sampler_comparison|comparison sampler=] 所做的比较类型。
      参见 [[WebGPU#enumdef-gpucomparefunction|WebGPU GPUCompareFunction]]。
 : 最大各向异性
@@ -5046,12 +5046,12 @@ location|memory locations=]）。
 当 |e1| 是 * 不是 * 对向量内组件的引用，然后
 |e1|` += `|e2| 可以改写为
 `{let p = &(`|e1|`); *p = *p + (`|e2|`);}`,
-其中标识符`p`被选择为不同于程序中的所有其他标识符。
+其中标识符 `p`被选择为不同于程序中的所有其他标识符。
 </p>
 
 <p class="note" algorithm="translation compound assignment vector component">
 当 |e1| 是对向量内部组件的引用，需要修改上述技术，因为 WGSL 在这种情况下不允许 [[#address-of-expr|taking the address]]。
-例如，如果 |ev| 是对向量的引用，语句 |ev|`[`|c|`] += ` |e2| 可以重写为`{let p = &(`|ev|`); 让 c0 = ` |c|`; (*p)[c0] = (*p)[c0] + (`|e2|`);}`，
+例如，如果 |ev| 是对向量的引用，语句 |ev|`[`|c|`] += ` |e2| 可以重写为 `{let p = &(`|ev|`); 让 c0 = ` |c|`; (*p)[c0] = (*p)[c0] + (`|e2|`);}`，
 其中标识符 `c0` 和 `p` 被选择为不同于程序中的所有其他标识符。
 </p>
 
@@ -5643,6 +5643,7 @@ for 循环的 `initializer` 在执行循环之前执行一次。
 - Continue
 - Fallthrough
 - Next
+
 每一个都对应于退出复合语句的一种方式：通过关键字，或通过下一个语句（“Next”）。
 我们注意到 "*s*: *B*" 表示 *s* 尊重有关行为的规则，并且具有 [=behavior=] *B*。
 
@@ -5773,6 +5774,7 @@ for 循环的 `initializer` 在执行循环之前执行一次。
 - 没有 `else` 分支的 `if` 语句被视为有一个空的 else 分支（将 Next 添加到它们的 [=behavior=]）
 - 带有 `else if` 分支的 `if` 语句被视为嵌套的简单 `if/else` 语句
 - 以 `default` 开头的 [=syntax/switch_body=] 的行为就像以 `case _:` 开头的 [=syntax/switch_body=]
+
 <table class='data'>
   <caption>用于分析和验证表达式行为的规则</caption>
   <thead>
@@ -5819,6 +5821,7 @@ for 循环的 `initializer` 在执行循环之前执行一次。
 - 行为分析必须能够确定每个语句、表达式和函数的 [=behavior=]。 如果不满足先决条件，这只会失败。
 - 函数行为必须满足上面给出的规则。
 - 计算和顶点入口点的行为不得包含丢弃。
+
 ### 注意 ### {#behaviors-notes}
 本节是信息性的，非规范性的。
 以下是这些规则可能导致程序被拒绝的完整方式列表（这只是重申上面已经列出的信息）：
@@ -5828,6 +5831,7 @@ for 循环的 `initializer` 在执行循环之前执行一次。
 - 连续块的行为包含任何 Continue、Return 或 Discard
 - 开关的最后一种情况的行为包含 Fallthrough
 - 计算或顶点入口点函数的行为包含丢弃
+
 This analysis can be run in linear time, by analyzing the call-graph bottom-up (since the behavior of a function call can depend on the function's code).
 ### 实例 ### {#behaviors-examples}
 以下是一些示例，显示了此分析的实际效果：
@@ -6027,6 +6031,7 @@ This analysis can be run in linear time, by analyzing the call-graph bottom-up (
 * 形参列表：一个有序的零序列或更多 [=formal parameter=] 声明，用逗号分隔，和被括号包围。
 * 一个可选的，可能是装饰的，<dfn noexport>返回类型</dfn>。
 * <dfn noexport>function body</dfn>.
+
 这是当函数为[=function call|called=]时要执行的语句集。
 
 函数声明只能出现在 [=module scope=]。
@@ -6119,15 +6124,15 @@ This analysis can be run in linear time, by analyzing the call-graph bottom-up (
     评估的相对顺序是从左到右。
 2. [=calling function=] 的执行被暂停。
     所有 [=function scope=] 变量和常量都保持其当前值。
-3、如果调用的函数是[=user-defined function|user-defined=]，
+3. 如果调用的函数是[=user-defined function|user-defined=]，
     为被调用函数中的每个函数作用域变量分配存储空间。
     * 初始化发生在 [[#var-and-let]] 中。
 4. 被调用函数的形参值由函数调用参数值按位置匹配确定。
     例如，在被调用函数的主体中，第一个形参将表示
     [=call site=] 处第一个参数的值。
-5、如果调用的函数是[=用户定义函数|用户定义=]，
+5. 如果调用的函数是[=用户定义函数|用户定义=]，
     控制被转移到其 [=function body|body=] 中的第一个语句。
-6.被调用的函数被执行，直到它[=returns=]。
+6. 被调用的函数被执行，直到它[=returns=]。
 7. 控制权移交给调用函数，被调用函数的执行不暂停。
     如果被调用的函数 [=return value|returns a value=]，则为函数调用表达式的值提供该值。
 
@@ -7080,14 +7085,14 @@ semantics](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vks
 [=storage classes/storage=] 中的所有非原子 [=read accesses=] 或
 [=storage classes/workgroup=] 存储类别被视为 [non-private](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#memory-model-non-private)
 并对应于具有以下范围的 `NonPrivatePointer | MakePointerVisible` 内存操作数的读取操作：
-* [=storage classes/workgroup=] 存储类的`Workgroup`
+* [=storage classes/workgroup=] 存储类的 `Workgroup`
 * `QueueFamily` 用于 [=storage classes/storage=] 存储类
 
 [=storage classes/storage=] 中的所有非原子 [=write accesses=] 或
 [=storage classes/workgroup=] 存储类别被考虑
 [non-private](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#memory-model-non-private)
 并对应于具有以下范围的 `NonPrivatePointer | MakePointerAvailable` 内存操作数的写操作：
-* [=storage classes/workgroup=] 存储类的`Workgroup`
+* [=storage classes/workgroup=] 存储类的 `Workgroup`
 * `QueueFamily` 用于 [=storage classes/storage=] 存储类
 
 问题: https://github.com/gpuweb/gpuweb/issues/1621
@@ -8810,8 +8815,8 @@ textureDimensions(t: texture_external) -> vec2<i32>
      * 当考虑纹理空间坐标 (*u*,*v*) 时，纹素是相邻的，形成一个正方形。
      * 在纹理边缘、立方体面边缘或立方体角处选择的纹素像在普通纹理采样中一样处理。
 * 对于每个纹素，读取一个通道并将其转换为标量值。
-     * 对于非深度纹理，从零开始的`component` 参数指定要使用的通道。
-         * 如果纹理格式支持指定的通道，即有多个`component`通道：
+     * 对于非深度纹理，从零开始的 `component` 参数指定要使用的通道。
+         * 如果纹理格式支持指定的通道，即有多个 `component`通道：
               * 当 texel 值为 `v` 时，产生标量值 `v[component]`。
          * 否则：
               * 当 `component` 为 1 或 2 时，产量为 0.0。
@@ -9381,7 +9386,7 @@ TODO(dsinclair): Need gather operations
 原子内置函数可用于 读/写/读-修改-写 原子
 对象。 它们是 [[#atomic-types]] 上唯一允许的操作。
 
-所有原子内置函数都使用一个`relaxed` [[#memory-semantics|memory ordering]]（**0**-SPIR-V 中所有`Memory Semantics` 操作数的整数常量）。
+所有原子内置函数都使用一个 `relaxed` [[#memory-semantics|memory ordering]]（**0**-SPIR-V 中所有 `Memory Semantics` 操作数的整数常量）。
 这意味着同步和排序保证仅适用于作用于相同 [=内存位置=] 的原子操作。
 原子和非原子内存访问之间或作用于不同内存位置的原子访问之间没有同步或排序保证。
 
@@ -9561,7 +9566,7 @@ workgroupBarrier()
 所有同步函数都执行一个 [=control barrier=] 和 Acquire/Release [[#memory-semantics|memory ordering]]。
 也就是说，所有的同步函数，以及受影响的内存和原子操作都按照 [[#program-order|program order]] 相对于同步函数进行排序。
 此外，在同步功能由工作组成员执行之后的任何受影响的内存或原子操作程序排序之前，在同步功能之前受影响的内存和原子操作必须对工作组中的所有其他线程可见。
-所有同步函数都使用`Workgroup` [=memory scope=]。
+所有同步函数都使用 `Workgroup` [=memory scope=]。
 所有同步功能都有一个“工作组”[=执行范围=]。
 所有同步函数只能在 [=compute=] 着色器阶段使用。
 
