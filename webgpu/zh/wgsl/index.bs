@@ -1278,8 +1278,6 @@ TODO：示例：非结果值效应是函数调用子表达式的任何副作用�
 
 [SHORTNAME]中，可存储类型的值可以存储在内存中，以供以后检索。本节介绍内存的结构，以及如何使用[SHORTNAME]类型来描述内存的内容。
 
-一般来说，[SHORTNAME]遵循[[!VulkanMemoryModel|Vulkan Memory Model]]。
-
 ### 内存位置 ### {#memory-locations-section}
 
 内存由一组不同的内存位置（<dfn noexport>memory locations</dfn>）组成。每个内存位置的大小为8位。影响内存的操作与一组由一个或多个组成的内存位置交互。
@@ -1359,7 +1357,7 @@ TODO：示例：非结果值效应是函数调用子表达式的任何副作用�
 * 数值向量（[=numeric vector=]）类型
 * 矩阵（[=matrix=]）类型
 * 原子（[=atomic type|atomic=]）类型
-* [=fixed-size array=]类型，如果其元素类型为主机可共享的
+* [=fixed-size array=]类型，如果其元素类型为主机可共享的，并且有[=creation-fixed footprint=]
 * [=runtime-sized=]数组类型，如果其元素类型为主机可共享的
 * 结构（[=structure=]）类型，如果其所有元素为主机可共享的。
 
@@ -1399,12 +1397,12 @@ TODO：示例：非结果值效应是函数调用子表达式的任何副作用�
       <td>[=Module scope=]
       <td>[=Constructible=]类型
       <td>
-      <td>
   <tr><td><dfn noexport dfn-for="storage classes">workgroup</dfn>
       <td>相同[=compute shader stage|compute shader=] [=compute shader stage/workgroup=]中的调用
       <td>[=access/read_write=]
       <td>[=Module scope=]
-      <td>[=Plain type=]，不包括[=runtime-sized=]数组，或包含runtime-sized数组的[=composite=]类型。
+      <td>带有[=fixed footprint=]的[=Plain type=]
+      <td>最外层数组的 [=element count=] 可能是 [=pipeline-overridable=] 常量。
       <td>
   <tr><td><dfn noexport dfn-for="storage classes">uniform</dfn>
       <td>相同[=shader stage=]中的调用
@@ -1617,13 +1615,13 @@ TODO：示例：非结果值效应是函数调用子表达式的任何副作用�
         // -- implicit struct size padding --      // offset(20)            size(4)
     };
 
-    [[block]] struct B {                           //             align(16) size(160)
+    struct B {                           //             align(16) size(160)
         a: vec2<f32>;                              // offset(0)   align(8)  size(8)
         // -- implicit member alignment padding -- // offset(8)             size(8)
         b: vec3<f32>;                              // offset(16)  align(16) size(12)
         c: f32;                                    // offset(28)  align(4)  size(4)
         d: f32;                                    // offset(32)  align(4)  size(4)
-        // -- implicit member alignment padding -- // offset(36)            size(12)
+        // -- implicit member alignment padding -- // offset(36)            size(4)
         e: A;                                      // offset(40)  align(8)  size(24)
         f: vec3<f32>;                              // offset(64)  align(16) size(12)
         // -- implicit member alignment padding -- // offset(76)            size(4)
@@ -1646,7 +1644,7 @@ TODO：示例：非结果值效应是函数调用子表达式的任何副作用�
         [[size(16)]] x: f32;                       // offset(16)  align(4)  size(16)
     };
 
-    [[block]] struct B {                           //             align(16) size(208)
+    struct B {                           //             align(16) size(208)
         a: vec2<f32>;                              // offset(0)   align(8)  size(8)
         // -- implicit member alignment padding -- // offset(8)             size(8)
         b: vec3<f32>;                              // offset(16)  align(16) size(12)
@@ -1947,9 +1945,9 @@ locations=]）加载和存储，如果它们访问内存。
 * 间接寻址（[=indirection=]）操作（unary *）将指针值转换为其对应的引用值。
 * let声明（[=let declaration=]）可以为指针类型，但是不能为引用类型。
 * 形式参数（[=formal parameter=]）可以是指针类型，但是不能为引用类型。
-* 赋值语句（[=statement/assignment=]）执行写访问（[=write access=]）以通过引用更新内存内容，其中：
-    * 赋值语句的左侧必须是引用类型，访问模式为 [=access/write=] 或 [=access/read_write=]。
-    * 赋值语句的右侧必须计算为左侧的存储类型。
+* 赋值语句（[=simple assignment=]）执行写访问（[=write access=]）以通过引用更新内存内容，其中：
+    * 赋值语句的左侧[=left-hand side=]必须是引用类型，访问模式为 [=access/write=] 或 [=access/read_write=]。
+    * 赋值语句的右侧[=right-hand side=]必须计算为左侧的存储类型。
 * 加载规则（<dfn noexport>Load Rule</dfn>）：在函数内部，引用会自动解除引用（读取）以满足类型规则：
     * 在函数中，当在语句或表达式中使用存储类型为 |T| 的引用表达式 |r| 时，其中
     * |r| 具有访问模式 [=access/read=] 或 [=access/read_write=]，且
@@ -2014,7 +2012,7 @@ locations=]）加载和存储，如果它们访问内存。
       position: vec3<f32>;
       velocity: vec3<f32>;
     };
-    [[block]] struct System {
+    struct System {
       active_index: i32;
       timestep: f32;
       particles: array<Particle,100>;
@@ -2215,7 +2213,7 @@ locations=]）加载和存储，如果它们访问内存。
 : 大小
 :: 沿每个维度的网格坐标的范围
 : mip 级别计数
-:: 采样纹理的 mip 级别计数至少为 1，存储纹理的 mip 级别计数至少为 1。Mip 级别 0 包含纹理的全尺寸版本。每个连续的 mip 级别都包含前一个 mip 级别的过滤版本，大小为前一个 mip 级别的一半（在舍入范围内）。在对纹理进行采样时，使用显式或隐式计算的细节级别来选择从中读取纹素数据的 mip 级别。 然后通过过滤将它们组合起来以产生采样值。
+:: 采样纹理的 mip 级别计数至少为 1，存储纹理的 mip 级别计数至少为 1。<dfn>Mip level</dfn> 0 包含纹理的全尺寸版本。每个连续的 mip 级别都包含前一个 mip 级别的过滤版本，大小为前一个 mip 级别的一半（在舍入范围内）。在对纹理进行采样时，使用显式或隐式计算的细节级别来选择从中读取纹素数据的 mip 级别。 然后通过过滤将它们组合起来以产生采样值。
 : 数组化
 :: 纹理是否为数组化
 : 数组大小（<dfn noexport>array size</dfn>）
@@ -2230,13 +2228,39 @@ locations=]）加载和存储，如果它们访问内存。
     * 在函数内部，调用其中一个纹理内置函数，并提供纹理变量作为第一个参数。
 * 在构建 WebGPU 管道时，纹理变量的存储类型和绑定必须与相应的绑定组布局条目兼容。
 
-TODO：更新此处以描述处理纹理或采样器函数参数。
-
 这样，纹理类型支持的操作集由接受该纹理类型作为第一个参数的纹理内置函数的可用性决定。
 
 注意：着色器无法更改纹理变量存储的句柄。也就是说，该变量是只读的，即使它提供访问的底层纹理可能是可变的（例如，只写存储纹理）。
 
-TODO：在相同的广框架中描述采样器的使用。
+采样器是一个不透明的句柄，它控制如何从采样纹理访问 [=texel|texels=]。
+
+[SHORTNAME] 采样器映射到 [[WebGPU#gpusampler|WebGPU GPUSampler]]。
+
+Texel 访问是通过采样器的几个属性控制的：
+
+: 寻址方式
+:: 控制如何解决纹理边界和越界坐标。
+     每个纹理维度的寻址模式可以独立设置。
+     参见 [[WebGPU#enumdef-gpuaddressmode|WebGPU GPUAddressMode]]。
+: 过滤模式
+:: 控制访问哪些纹素以产生最终结果。
+     过滤可以使用最近的纹素或在多个纹素之间进行插值。
+     多种过滤模式可独立设置。
+     参见 [[WebGPU#enumdef-gpufiltermode|WebGPU GPUFilterMode]]。
+: LOD 钳位
+:: 控制访问的详细信息的最小和最大级别。
+： 比较
+:: 控制为 [=syntax/sampler_comparison|comparison sampler=] 所做的比较类型。
+     参见 [[WebGPU#enumdef-gpucomparefunction|WebGPU GPUCompareFunction]]。
+: 最大各向异性
+:: 控制采样器使用的最大各向异性值。
+
+采样器不能在 [SHORTNAME] 程序中创建，它们的状态（例如上面列出的属性）在着色器中是不可变的，只能由 WebGPU API 设置。
+
+如果过滤采样器（即任何采样器
+使用插值过滤）与具有不可过滤格式的纹理一起使用。
+
+注意：着色器无法更改采样器变量存储的句柄。
 
 ### 纹素格式 ### {#texel-formats}
 
@@ -2625,7 +2649,9 @@ TODO: 添加纹理使用校验规则。
     | [=syntax/rgba32float=]
 </div>
 
-## 类型别名 TODO ## {#type-aliases}
+## 类型别名 ## {#type-aliases}
+<dfn noexport> 类型别名</dfn> 为现有类型声明一个新名称。
+声明必须出现在[=module scope=]，它的[=scope=] 就是整个程序。
 
 <div class='syntax' noexport='true'>
   <dfn for=syntax>type_alias</dfn> :
@@ -2820,15 +2846,18 @@ let 声明（<dfn noexport>let declaration</dfn>）指定值的名称。一旦�
 * 对于在私有（[=storage classes/private=]）或函数（[=storage classes/function=]）存储类中的变量：
     * 如果变量声明没有初始化表达式，存储类型为零值（[=zero value=]）。
     * 否则它是对初始化表达式在程序执行处计算求值后的结果。
-* 对于其他存储类中的变量，执行环境提供初始值。
+* 对于 [=storage classes/workgroup=] 存储类中的变量：
+     * 当商店类型为 [=constructible=] 时，商店类型的 [=zero value=]。
+     * 否则，商店类型是一个可构造元素的数组，每个元素都被初始化为零值。
+* 其他存储类中的变量是通过 [=draw command=] 或 [=dispatch command=] 中的绑定设置的 [=resources=]。
 
 考虑如下WGSL片段：
-<div class='example wsgl function-scope' heading='Variable initial values'>
+<div class='example wgsl function-scope' heading='Variable initial values'>
   <xmp highlight='rust'>
     var i: i32;         // 初始值为 0。不是推荐的方式。
     loop {
       var twice: i32 = 2 * i;   // 重新计算每次迭代。
-      i = i + 1;
+      i = i++;
       if (i == 5) { break; }
     }
   </xmp>
@@ -2836,7 +2865,7 @@ let 声明（<dfn noexport>let declaration</dfn>）指定值的名称。一旦�
 循环体会执行 5 次，变量 `i` 会具有值0, 1, 2, 3, 4, 5, 且变量 `twice` 会具有值0, 2, 4, 6, 8。
 
 考虑如下WGSL片段：
-<div class='example wsgl function-scope' heading='Reading a variable multiple times'>
+<div class='example wgsl function-scope' heading='Reading a variable multiple times'>
   <xmp highlight='rust'>
     var x: f32 = 1.0;
     let y = x * x + x + 1;
@@ -2858,8 +2887,7 @@ let 声明（<dfn noexport>let declaration</dfn>）指定值的名称。一旦�
 
 ## 模块作用域变量 ## {#module-scope-variables}
 
-在所有函数之外声明的变量在模块作用域（[=module scope=]）内。变量名在其声明语句之后立即可用，直到程序结束。
-
+在整个程序中，变量名都是[=in scope=]。
 模块作用域（[=module scope=]）内的变量被限制如下：
 
 * 变量不能在函数（[=storage classes/function=]）存储类中。
@@ -2868,25 +2896,31 @@ let 声明（<dfn noexport>let declaration</dfn>）指定值的名称。一旦�
     * 必须使用[[#storage-class]]中所描述的存储类型（[=store type=]）。
 * 如果存储类型（[=store type=]）是纹理类型或采样器类型，则变量声明不得具有存储类修饰。存储类将始终是句柄（[=storage classes/handle=]）。
 
-统一（[=storage classes/uniform=]）存储类中的变量是统一缓冲区（<dfn noexport>uniform buffer</dfn>）变量。 其存储类型（[=store type=]）必须是具有块（[=attribute/block=]）属性的主机可共享（[=host-shareable=]）结构类型，满足存储类布局约束（[storage class layout constraints](#storage-class-layout-constraints)）。
+统一（[=storage classes/uniform=]）存储类中的变量是统一缓冲区（<dfn noexport>uniform buffer</dfn>）变量。
+其存储类型（[=store type=]）必须是具有块（[=attribute/block=]）属性的主机可共享（[=host-shareable=]）结构类型，满足存储类布局约束（[storage class layout constraints](#storage-class-layout-constraints)）。
 
 [=storage classes/storage=]存储类中的变量是存储缓冲区（<dfn noexport>storage buffer</dfn>）变量。其存储类型（[=store type=]）必须是具有块（[=attribute/block=]）属性的主机可共享（[=host-shareable=]）结构类型，满足存储类布局约束（[storage class layout constraints](#storage-class-layout-constraints)）。它可以声明为 [=access/read=] 或 [=access/read_write=] 访问模式； 默认为 [=access/read=] 。
+可以使用 [=access/read=] 或 [=access/read_write=] 访问模式声明变量； 默认值为 [=access/read=]。
 
 如[[#resource-interface]]中所述，统一缓冲区、存储缓冲区、纹理和采样器构成了着色器的资源接口（[=resource interface of a shader=]）。 此类变量使用组（[=attribute/group=]）和绑定（[=attribute/binding=]）修饰声明。
+
+[SHORTNAME] 定义了以下可应用于全局变量的属性：
+   * [=attribute/binding=]
+   * [=attribute/group=]
 
 <div class='example wgsl global-scope' heading="Module scope variable declarations">
   <xmp>
     var<private> decibels: f32;
     var<workgroup> worklist: array<i32,10>;
 
-    [[block]] struct Params {
+    struct Params {
       specular: f32;
       count: i32;
     };
     [[group(0), binding(2)]]
     var<uniform> param: Params;    // A uniform buffer
 
-    [[block]] struct PositionsBuffer {
+    struct PositionsBuffer {
       pos: array<vec2<f32>>;
     };
     // A storage buffer, for reading and writing
@@ -2913,9 +2947,6 @@ let 声明（<dfn noexport>let declaration</dfn>）指定值的名称。一旦�
   </xmp>
 </div>
 
-[SHORTNAME] 定义了以下可应用于全局变量的属性：
- * [=attribute/binding=]
- * [=attribute/group=]
 
 ## 模块常量 ## {#module-constants}
 
@@ -3066,11 +3097,12 @@ Issue(dneto): WebGPU 管线创建 API 必须指定 API 提供的值如何映射�
 
 ## 类型构造函数表达式 ## {#type-constructor-expr}
 
-类型构造函数表达式显式地创建给定类型的值。
+类型构造函数表达式显式地创建给定[=constructible=]类型的值。
 
 标量形式是多余的，但提供标量转换表达式（[[#conversion-expr|conversion expressions]]）的对称性，并可用于增强可读性。
 
-向量形式从具有匹配组件类型的组件和子向量的各种组合中构造向量值。
+向量和矩阵形式从具有匹配分量类型的分量和子向量的各种组合构造向量和矩阵值。
+有用于构造向量和矩阵的重载，它们指定目标类型的维度而无需指定组件类型； 组件类型是从构造函数参数推断出来的。
 
 另见[[#zero-value-expr]] 和 [[#conversion-expr]]。
 
@@ -3086,78 +3118,104 @@ Issue(dneto): WebGPU 管线创建 API 必须指定 API 提供的值如何映射�
 </table>
 
 <table class='data'>
-  <caption>向量构造函数类型规则，其中 *T* 为标量类型。</caption>
+  <caption>Vector constructor type rules, where *T* is a scalar type</caption>
   <thead>
     <tr><th>Precondition<th>Conclusion<th>Notes
   </thead>
   <tr algorithm="construct a vector from copies of a single scalar">
-    <td>|e|: |T|
+    <td rowspan=2>|e|: |T|
     <td>`vec`|N|`<`|T|`>(`|e|`)`: vec|N|&lt;|T|&gt;
-    <td>计算 |e| 一次。结果为一个有 |N| 个元素的向量，每个向量分量值为 |e|。
+    <td rowspan=2>Evaluates |e| once. Results in the |N|-element vector where each component has the value of |e|.
   <tr>
-    <td>*e1*: *T*<br>
+    <td>`vec`|N|`(`|e|`)`: vec|N|&lt;|T|&gt;
+  <tr>
+    <td rowspan=2>*e1*: *T*<br>
         *e2*: *T*
     <td>`vec2<T>(e1,e2)`: vec2<*T*>
-    <td>OpCompositeConstruct
+    <td rowspan=2>OpCompositeConstruct
   <tr>
-    <td>*e*: vec2&lt;T&gt;
+    <td>`vec2(e1,e2)`: vec2<*T*>
+  <tr>
+    <td rowspan=2>*e*: vec2&lt;T&gt;
     <td>`vec2<T>(e)`: vec2<*T*>
-    <td>本体。结果为 |e|。
+    <td rowspan=2>Identity. The result is |e|.
   <tr>
-    <td>*e1*: *T*<br>
+    <td>`vec2(e)`: vec2<*T*>
+  <tr>
+    <td rowspan=2>*e1*: *T*<br>
         *e2*: *T*<br>
         *e3*: *T*
     <td>`vec3<T>(e1,e2,e3)`: vec3<*T*>
-    <td>OpCompositeConstruct
+    <td rowspan=2>OpCompositeConstruct
   <tr>
-    <td>*e1*: *T*<br>
+    <td>`vec3(e1,e2,e3)`: vec3<*T*>
+  <tr>
+    <td rowspan=2>*e1*: *T*<br>
         *e2*: vec2<*T*>
     <td>`vec3<T>(e1,e2)`: vec3<*T*><br>
         `vec3<T>(e2,e1)`: vec3<*T*>
-    <td>OpCompositeConstruct
+    <td rowspan=2>OpCompositeConstruct
   <tr>
-    <td>*e*: vec3&lt;T&gt;
+    <td>`vec3(e1,e2)`: vec3<*T*><br>
+        `vec3(e2,e1)`: vec3<*T*>
+  <tr>
+    <td rowspan=2>*e*: vec3&lt;T&gt;
     <td>`vec3<T>(e)`: vec3<*T*>
-    <td>本体。结果为 |e|。
+    <td rowspan=2>Identity. The result is |e|.
   <tr>
-    <td>*e1*: *T*<br>
+    <td>`vec3(e)`: vec3<*T*>
+  <tr>
+    <td rowspan=2>*e1*: *T*<br>
         *e2*: *T*<br>
         *e3*: *T*<br>
         *e4*: *T*
-    <td>`vec4<T>(e1,e2,e3,e4)`: vec4<*T*>
-    <td>OpCompositeConstruct
+    <td class=nowrap>`vec4<T>(e1,e2,e3,e4)`: vec4<*T*>
+    <td rowspan=2>OpCompositeConstruct
   <tr>
-    <td>*e1*: *T*<br>
+    <td class=nowrap>`vec4(e1,e2,e3,e4)`: vec4<*T*>
+  <tr>
+    <td rowspan=2>*e1*: *T*<br>
         *e2*: *T*<br>
         *e3*: vec2<*T*>
-    <td>`vec4<T>(e1,e2,e3)`: vec4<*T*><br>
+    <td class=nowrap>`vec4<T>(e1,e2,e3)`: vec4<*T*><br>
         `vec4<T>(e1,e3,e2)`: vec4<*T*><br>
         `vec4<T>(e3,e1,e2)`: vec4<*T*>
-    <td>OpCompositeConstruct
+    <td rowspan=2>OpCompositeConstruct
   <tr>
-    <td>*e1*: vec2<*T*><br>
+    <td class=nowrap>`vec4(e1,e2,e3)`: vec4<*T*><br>
+        `vec4(e1,e3,e2)`: vec4<*T*><br>
+        `vec4(e3,e1,e2)`: vec4<*T*>
+  <tr>
+    <td rowspan=2>*e1*: vec2<*T*><br>
         *e2*: vec2<*T*>
-    <td>`vec4<T>(e1,e2)`: vec4<*T*>
-    <td>OpCompositeConstruct
+    <td class=nowrap>`vec4<T>(e1,e2)`: vec4<*T*>
+    <td rowspan=2>OpCompositeConstruct
   <tr>
-    <td>*e1*: *T*<br>
+    <td class=nowrap>`vec4(e1,e2)`: vec4<*T*>
+  <tr>
+    <td rowspan=2>*e1*: *T*<br>
         *e2*: vec3<*T*>
-    <td>`vec4<T>(e1,e2)`: vec4<*T*><br>
+    <td class=nowrap>`vec4<T>(e1,e2)`: vec4<*T*><br>
         `vec4<T>(e2,e1)`: vec4<*T*>
-    <td>OpCompositeConstruct
+    <td rowspan=2>OpCompositeConstruct
   <tr>
-    <td>*e*: vec4&lt;T&gt;
-    <td>`vec4<T>(e)`: vec4<*T*>
-    <td>本体。结果为 |e|。
+    <td>`vec4(e1,e2)`: vec4<*T*><br>
+        `vec4(e2,e1)`: vec4<*T*>
+  <tr>
+    <td rowspan=2>*e*: vec4&lt;T&gt;
+    <td class=nowrap>`vec4<T>(e)`: vec4<*T*>
+    <td rowspan=2>Identity. The result is |e|.
+  <tr>
+    <td class=nowrap>`vec4(e)`: vec4<*T*>
 </table>
 
 <table class='data'>
-  <caption>矩阵构造函数类型规则</caption>
+  <caption>Matrix constructor type rules</caption>
   <thead>
     <tr><th>Precondition<th>Conclusion<th>Notes
   </thead>
   <tr>
-    <td>|e1|: |f32|<br>
+    <td rowspan=2>|e1|: |f32|<br>
         ...<br>
         |eN|: |f32|
     <td>`mat2x2<f32>(e1,e2,e3,e4)`: mat2x2&lt;f32&gt;<br>
@@ -3169,42 +3227,65 @@ Issue(dneto): WebGPU 管线创建 API 必须指定 API 提供的值如何映射�
         `mat4x3<f32>(e1,...,e12)`: mat4x3&lt;f32&gt;<br>
         `mat3x4<f32>(e1,...,e12)`: mat3x4&lt;f32&gt;<br>
         `mat4x4<f32>(e1,...,e16)`: mat4x4&lt;f32&gt;
-    <td>通过元素列主序构造。<br>
+    <td rowspan=2>Column-major construction by elements.<br>
         OpCompositeConstruct
   <tr>
-    <td>*e1*: vec2&lt;f32&gt;<br>
+    <td>`mat2x2(e1,e2,e3,e4)`: mat2x2&lt;f32&gt;<br>
+        `mat3x2(e1,...,e6)`: mat3x2&lt;f32&gt;<br>
+        `mat2x3(e1,...,e6)`: mat2x3&lt;f32&gt;<br>
+        `mat4x2(e1,...,e8)`: mat4x2&lt;f32&gt;<br>
+        `mat2x4(e1,...,e8)`: mat2x4&lt;f32&gt;<br>
+        `mat3x3(e1,...,e9)`: mat3x3&lt;f32&gt;<br>
+        `mat4x3(e1,...,e12)`: mat4x3&lt;f32&gt;<br>
+        `mat3x4(e1,...,e12)`: mat3x4&lt;f32&gt;<br>
+        `mat4x4(e1,...,e16)`: mat4x4&lt;f32&gt;
+  <tr>
+    <td rowspan=2>*e1*: vec2&lt;f32&gt;<br>
         *e2*: vec2&lt;f32&gt;<br>
         *e3*: vec2&lt;f32&gt;<br>
         *e4*: vec2&lt;f32&gt;
     <td>`mat2x2<f32>(e1,e2)`: mat2x2&lt;f32&gt;<br>
         `mat3x2<f32>(e1,e2,e3)`: mat3x2&lt;f32&gt;<br>
         `mat4x2<f32>(e1,e2,e3,e4)`: mat4x2&lt;f32&gt;
-    <td>一列一列构造。<br>
+    <td rowspan=2>Column by column construction.<br>
         OpCompositeConstruct
   <tr>
-    <td>*e1*: vec3&lt;f32&gt;<br>
+    <td>`mat2x2(e1,e2)`: mat2x2&lt;f32&gt;<br>
+        `mat3x2(e1,e2,e3)`: mat3x2&lt;f32&gt;<br>
+        `mat4x2(e1,e2,e3,e4)`: mat4x2&lt;f32&gt;
+  <tr>
+    <td rowspan=2>*e1*: vec3&lt;f32&gt;<br>
         *e2*: vec3&lt;f32&gt;<br>
         *e3*: vec3&lt;f32&gt;<br>
         *e4*: vec3&lt;f32&gt;
     <td>`mat2x3<f32>(e1,e2)`: mat2x3&lt;f32&gt;<br>
         `mat3x3<f32>(e1,e2,e3)`: mat3x3&lt;f32&gt;<br>
         `mat4x3<f32>(e1,e2,e3,e4)`: mat4x3&lt;f32&gt;
-    <td>一列一列构造。<br>
+    <td rowspan=2>Column by column construction.<br>
         OpCompositeConstruct
   <tr>
-    <td>*e1*: vec4&lt;f32&gt;<br>
+    <td>`mat2x3(e1,e2)`: mat2x3&lt;f32&gt;<br>
+        `mat3x3(e1,e2,e3)`: mat3x3&lt;f32&gt;<br>
+        `mat4x3(e1,e2,e3,e4)`: mat4x3&lt;f32&gt;
+  <tr>
+    <td rowspan=2>*e1*: vec4&lt;f32&gt;<br>
         *e2*: vec4&lt;f32&gt;<br>
         *e3*: vec4&lt;f32&gt;<br>
         *e4*: vec4&lt;f32&gt;
     <td>`mat2x4<f32>(e1,e2)`: mat2x4&lt;f32&gt;<br>
         `mat3x4<f32>(e1,e2,e3)`: mat3x4&lt;f32&gt;<br>
         `mat4x4<f32>(e1,e2,e3,e4)`: mat4x4&lt;f32&gt;
-    <td>一列一列构造。<br>
+    <td rowspan=2>Column by column construction.<br>
         OpCompositeConstruct
+  <tr>
+    <td>`mat2x4(e1,e2)`: mat2x4&lt;f32&gt;<br>
+        `mat3x4(e1,e2,e3)`: mat3x4&lt;f32&gt;<br>
+        `mat4x4(e1,e2,e3,e4)`: mat4x4&lt;f32&gt;
 </table>
 
+
 <table class='data'>
-  <caption>数组构造函数类型规则</caption>
+  <caption>Array constructor type rules</caption>
   <thead>
     <tr><th>Precondition<th>Conclusion<th>Notes
   </thead>
@@ -3212,9 +3293,11 @@ Issue(dneto): WebGPU 管线创建 API 必须指定 API 提供的值如何映射�
     <td>|e1|: |T|<br>
         ...<br>
         |eN|: |T|,<br>
-        |T| is a [=constructible=] type.
-    <td>`array<`|T|,|N|`>(`|e1|,...,|eN|`)` : array&lt;|T|,|N|&gt;
-    <td>从元素进行的数组构造。
+        |T| is [=constructible=]<br>
+    <td class="nowrap">`array<`|T|,|N|`>(`|e1|,...,|eN|`)` : array&lt;|T|,|N|&gt;
+    <td>Construction of an array from elements.
+
+     注意：数组<|T|,|N|> 是 [=constructible=] 因为它的 [=element count=] 等于构造函数的参数数量，并且在 [=shader module creation|shader-creation=] 时完全确定。
 </table>
 
 <table class='data'>
@@ -3228,7 +3311,7 @@ Issue(dneto): WebGPU 管线创建 API 必须指定 API 提供的值如何映射�
         |eN|: |TN|,<br>
         |S| is a [=constructible=] structure type with members having types |T1| ... |TN|.<br>
         The expression is in the scope of declaration of |S|.
-    <td>|S|`(`|e1|,...,|eN|`)`: |S|
+    <td class="nowrap">|S|`(`|e1|,...,|eN|`)`: |S|
     <td>从成员进行的结构构造。
 </table>
 
@@ -3375,6 +3458,8 @@ Issue(dneto): WebGPU 管线创建 API 必须指定 API 提供的值如何映射�
 
 [SHORTNAME] 不隐式转换或提升一个数值或布尔值为另外的类型。而是使用以下表格中描述的转换表达式。
 
+有关与浮点类型之间的转换的详细信息，请参阅 [[#floating-point-conversion]]。
+
 另见[[#type-constructor-expr]]。
 
 <table class='data'>
@@ -3408,8 +3493,8 @@ Issue(dneto): WebGPU 管线创建 API 必须指定 API 提供的值如何映射�
           结果是类型为 [=i32=] 的唯一值，等于 (|e| mod 2<sup>32</sup>)。<br>
           (OpBitcast)
   <tr algorithm="scalar conversion from floating point to signed integer">
-      <td>|e|: f32<td>`i32(`|e|`)`: i32<td>
-      数值转换，包括无效数值。（OpConvertFToS）
+      <td>|e|: f32<td>`i32(`|e|`)`: i32
+      <td>数值转换，向零舍入。（OpConvertFToS）
   <tr algorithm="conversion from boolean to unsigned">
       <td>|e|: bool<td>`u32(`|e|`)`: u32
       <td>
@@ -3423,7 +3508,7 @@ Issue(dneto): WebGPU 管线创建 API 必须指定 API 提供的值如何映射�
           (OpBitcast)
   <tr algorithm="scalar conversion from floating point to unsigned integer">
       <td>|e|: f32<td>`u32(`|e|`)`: u32
-      <td>值的转换，包括无效例。(OpConvertFToU)
+      <td>值的转换，向零舍入。(OpConvertFToU)
   <tr algorithm="conversion from boolean to floating point">
       <td>|e|: bool<td>`f32(`|e|`)`: f32
       <td>
@@ -3777,8 +3862,7 @@ location|memory locations=]）。
   <tr algorithm="matrix indexed column vector selection">
        <td class="nowrap">
           |e|: mat|N|x|M|&lt;|T|&gt;<br>
-          |i|: [INT]<br>
-          |i| 为一个 `const_expression` 表达式
+          |i|: [INT]
        <td class="nowrap">
            |e|[|i|]: vec|M|&lt;|T|&gt;
        <td>结果为向量 |e| 的第 |i| 列。如果 |i| 在区间 [0,|N|-1]，则可能返回 vec|M|&lt;|T|&gt; 的无效值。
@@ -3814,8 +3898,7 @@ location|memory locations=]）。
   <tr algorithm="fixed-size array indexed element selection">
        <td class="nowrap">
           |e|: array&lt;|T|,|N|&gt;<br>
-          |i|: [INT]<br>
-          |i| 为 `const_expression` 表达式
+          |i|: [INT]
        <td class="nowrap">
            |e|[|i|] : |T|
        <td>结果为数组值 |e| 的第 |i| 个元素的值。
@@ -4510,7 +4593,7 @@ location|memory locations=]）。
        如果 |r| 是一个无效内存引用（[=invalid memory reference=]），作为结果的指针同样是无效内存引用。
 
        如果 |SC| 为 [=storage classes/handle=] 存储类，则为一个着色器创建错误（[=shader-creation error=]）。
-
+       这是一个 [=shader-creation error=]，如果 |r| 是 [[#component-reference-from-vector-reference|reference to a vector component]]。
 </table>
 
 ## 间接寻址表达式  ## {#indirection-expr}
@@ -4702,35 +4785,43 @@ location|memory locations=]）。
     | [=syntax/short_circuit_or_expression=] [=syntax/or_or=] [=syntax/short_circuit_and_expression=]
 </div>
 
-# Statements TODO # {#statements}
+# Statements # {#statements}
+
+语句是控制其执行的程序片段。
+语句一般按顺序执行； 然而，
+[[#control-flow|control flow statements]] 可能会导致程序以非顺序执行。
 
 ## 复合语句 ## {#compound-statement-section}
 
 <dfn>compound statement</dfn> 是用大括号括起来的零个或多个语句序列。
 当 [=declaration=] 是这些语句之一时，它的 [=identifier=] 从下一条语句的开始到复合语句的结束都是 [=in scope=]。
 
-<pre class='def'>
-compound_statement
-  : BRACE_LEFT statements? BRACE_RIGHT
-</pre>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>compound_statement</dfn> :
+
+    | [=syntax/brace_left=] [=syntax/statement=] * [=syntax/brace_right=]
+</div>
 
 ## 赋值语句 ## {#assignment}
 
 <dfn noexport dfn-for="statement">assignment</dfn> 计算表达式，并可选择将其存储在内存中（从而更新变量的内容）。
 
-<pre class='def'>
-assignment_statement
-  : (unary_expression | UNDERSCORE) EQUAL short_circuit_or_expression
-</pre>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>assignment_statement</dfn> :
+
+    | [=syntax/lhs_expression=] ( [=syntax/equal=] | [=syntax/compound_assignment_operator=] ) [=syntax/expression=]
+
+    | [=syntax/underscore=] [=syntax/equal=] [=syntax/expression=]
+</div>
 
 
 等号左侧的文本是<dfn noexport>left-hand side</dfn>，
 等号右边的表达式是<dfn noexport>right-hand side</dfn>。
 
-### 更新赋值 ### {#updating-assignment-section}
+### 简单赋值 ### {#simple-assignment-section}
 
-当赋值的 [=left-hand side=] 是一个表达式时，该赋值是一个 <dfn noexport>updating assignment</dfn>：
-右侧的值写入左侧引用的内存中。
+当 [=left-hand side=] 是一个表达式并且运算符是 [=syntax/equal=] 标记时，[=statement/assignment=] 是一个 <dfn noexport> 简单赋值</dfn>。
+在这种情况下，[=right-hand side=] 的值被写入左侧引用的内存中。
 
 <table class='data'>
   <thead>
@@ -4850,53 +4941,231 @@ assignment_statement
   </xmp>
 </div>
 
-## 控制流 TODO ## {#control-flow}
+### 复合赋值 ### {#compound-assignment-sec}
 
-### 序列 TODO ### {#sequence-statement}
+[=statement/assignment=] 是 <dfn noexport> 复合赋值</dfn> 当 [=left-hand side=] 是一个表达式，并且运算符是 [=syntax/compound_assignment_operators=] 之一。
+
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>compound_assignment_operator</dfn> :
+
+    | [=syntax/plus_equal=]
+
+    | [=syntax/minus_equal=]
+
+    | [=syntax/times_equal=]
+
+    | [=syntax/division_equal=]
+
+    | [=syntax/modulo_equal=]
+
+    | [=syntax/and_equal=]
+
+    | [=syntax/or_equal=]
+
+    | [=syntax/xor_equal=]
+
+    | [=syntax/shift_right_equal=]
+
+    | [=syntax/shift_left_equal=]
+</div>
+
+每个语句的类型要求、语义和行为被定义为好像复合赋值扩展如下表，除了引用表达式 |e1| 只评估一次。
+
+<table class='data'>
+  <thead>
+    <tr><th>Statement<th>Expansion
+  </thead>
+<tr algorithm="add-assign">
+    <td class="nowrap">|e1| += |e2|
+    <td>|e1| = |e1| + (|e2|)
+<tr algorithm="subtract-assign">
+    <td class="nowrap">|e1| -= |e2|
+    <td>|e1| = |e1| - (|e2|)
+<tr algorithm="multiply-assign">
+    <td class="nowrap">|e1| *= |e2|
+    <td>|e1| = |e1| * (|e2|)
+<tr algorithm="divide-assign">
+    <td class="nowrap">|e1| /= |e2|
+    <td>|e1| = |e1| / (|e2|)
+<tr algorithm="modulus-assign">
+    <td class="nowrap">|e1| %= |e2|
+    <td>|e1| = |e1| % (|e2|)
+<tr algorithm="bitwise-and-assign">
+    <td class="nowrap">|e1| &= |e2|
+    <td>|e1| = |e1| & (|e2|)
+<tr algorithm="bitwise-or-assign">
+    <td class="nowrap">|e1| |= |e2|
+    <td>|e1| = |e1| | (|e2|)
+<tr algorithm="bitwise-xor-assign">
+    <td class="nowrap">|e1| ^= |e2|
+    <td>|e1| = |e1| ^ (|e2|)
+<tr algorithm="bitwise-shiftright-assign">
+    <td class="nowrap">|e1| >>= |e2|
+    <td>|e1| = |e1| >> (|e2|)
+<tr algorithm="bitwise-shiftleft-assign">
+    <td class="nowrap">|e1| <<= |e2|
+    <td>|e1| = |e1| << (|e2|)
+</table>
+
+注意：语法不允许 [=compound assignment=] 也是 [=phony assignment=]。
+
+注意：即使引用 |e1| 被评估一次，它的底层内存被访问两次：
+首先 [=read access=] 获取旧值，然后 [=write access=] 存储更新的值。
+
+<div class='example wgsl global-scope' heading="Compound assignment">
+  <xmp>
+    var<private> next_item: i32 = 0;
+
+    fn advance_item() -> i32 {
+       next_item += 1;   // Adds 1 to next_item.
+       return next_item - 1;
+    }
+
+    fn bump_item() {
+      var data: array<f32,10>;
+      next_item = 0;
+      // Adds 5.0 to data[0], calling advance_item() only once.
+      data[advance_item()] += 5.0;
+      // next_item will be 1 here.
+    }
+
+    fn precedence_example() {
+      var value = 1;
+      // The right-hand side of a compound assignment is its own expression.
+      value *= 2 + 3; // Same as value = value * (2 + 3);
+      // 'value' now holds 5.
+    }
+  </xmp>
+</div>
+
+注意：复合赋值可以改写为不同的 [SHORTNAME] 代码，使用 [=simple assignment=] 代替。
+这个想法是使用一个指针来保存一次评估引用的结果。
+
+<p class="note" algorithm="translation compound assignment not vector component">
+例如，
+当 |e1| 是 * 不是 * 对向量内组件的引用，然后
+|e1|` += `|e2| 可以改写为
+`{let p = &(`|e1|`); *p = *p + (`|e2|`);}`,
+其中标识符`p`被选择为不同于程序中的所有其他标识符。
+</p>
+
+<p class="note" algorithm="translation compound assignment vector component">
+当 |e1| 是对向量内部组件的引用，需要修改上述技术，因为 WGSL 在这种情况下不允许 [[#address-of-expr|taking the address]]。
+例如，如果 |ev| 是对向量的引用，语句 |ev|`[`|c|`] += ` |e2| 可以重写为`{let p = &(`|ev|`); 让 c0 = ` |c|`; (*p)[c0] = (*p)[c0] + (`|e2|`);}`，
+其中标识符 `c0` 和 `p` 被选择为不同于程序中的所有其他标识符。
+</p>
+
+## 递增和递减语句 ## {#increment-decrement}
+
+<dfn noexport>increment statement</dfn> 给变量的内容加 1。
+<dfn noexport>decrement statemnent</dfn> 从变量的内容中减去 1。
+
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>increment_statement</dfn> :
+
+    | [=syntax/lhs_expression=] [=syntax/plus_plus=]
+</div>
+
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>decrement_statement</dfn> :
+
+    | [=syntax/lhs_expression=] [=syntax/minus_minus=]
+</div>
+
+该表达式的计算结果必须为具有 [=integer scalar=] [=store type=] 和 [=access/read_write=] [=access mode=] 的引用。
+
+<table class='data'>
+  <thead>
+    <tr><th>Precondition<th>Statement<th>Description
+  </thead>
+  <tr algorithm="increment statement">
+    <td class="nowrap">|r| : ref&lt;<var ignore>SC</var>,|T|,[=access/read_write=]&gt;,<br>
+        |T| is [=integer scalar=]<br>
+    <td class="nowrap">|r|++
+    <td>Adds 1 to the contents of memory referenced by |r|.
+        <br>Same as |r| += |T|(1)
+  <tr algorithm="decrement statement">
+    <td class="nowrap">|r| : ref&lt;<var ignore>SC</var>,|T|,[=access/read_write=]&gt;,<br>
+        |T| is [=integer scalar=]<br>
+    <td class="nowrap">|r|--
+    <td>Subtracts 1 from the contents of memory referenced by |r|.
+        <br>Same as |r| -= |T|(1)
+</table>
+
+<div class='example wgsl' heading='Increment and decrement'>
+  <xmp highlight='rust'>
+    fn f() {
+        var a: i32 = 20;
+        a++;
+        // Now a contains 21
+        a--;
+        // Now a contains 20
+    }
+  </xmp>
+</div>
+
+
+## 控制流 ## {#control-flow}
+
+控制流语句可能会导致程序以非顺序执行。
+
+### 序列 ### {#sequence-statement}
+
+控制流语句可能会导致程序以非顺序执行。
 
 ### If 语句 ### {#if-statement}
 
-<pre class='def'>
-if_statement
-  : IF paren_expression compound_statement elseif_statement? else_statement?
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>if_statement</dfn> :
 
-elseif_statement
-  : ELSE_IF paren_expression compound_statement elseif_statement?
+    | [=syntax/if=] [=syntax/paren_expression=] [=syntax/compound_statement=] ( [=syntax/else=] [=syntax/else_statement=] ) ?
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>else_statement</dfn> :
 
-else_statement
-  : ELSE compound_statement
-</pre>
+    | [=syntax/compound_statement=]
+
+    | [=syntax/if_statement=]
+</div>
 
 一个 <dfn noexport dfn-for="statement">if</dfn> 语句根据条件表达式的评估，有条件地执行至多一个 [=compound statement=]。
 
-[SHORTNAME] 中的 `if` 语句使用 if/elseif/else 结构，其中包含一个必需的 `if` 子句、零个或多个 `elseif` 子句和一个可选的 `else` 子句。
-`if` 和 `elseif` 子句条件的每个表达式都必须是标量布尔表达式。
+[SHORTNAME] 中的 `if` 语句使用 if/else if/else 结构，其中包含一个必需的 `if` 子句、零个或多个 `elseif` 子句和一个可选的 `else` 子句。
+`if` 和 `else if` 子句条件的每个表达式都必须是标量布尔表达式。
 
 `if` 语句执行如下：
 * 评估与 `if` 子句关联的条件。
     如果结果为 `true`，则控制转移到第一个复合语句（紧接在括号中的条件表达式之后）。
-* 否则，按文本顺序（如果存在）评估下一个 `elseif` 子句的条件，如果结果为 `true`，则控制转移到关联的复合语句。
-    * 对所有 `elseif` 子句重复此行为，直到其中一个条件评估为 `true`。
+* 否则，按文本顺序（如果存在）评估下一个 `else if` 子句的条件，如果结果为 `true`，则控制转移到关联的复合语句。
+    * 对所有 `else if` 子句重复此行为，直到其中一个条件评估为 `true`。
 * 如果没有条件评估为 `true`，则控制转移到与 `else` 子句（如果存在）相关联的复合语句。
 
 ### Switch 语句 ### {#switch-statement}
 
-<pre class='def'>
-switch_statement
-  : SWITCH paren_expression BRACE_LEFT switch_body+ BRACE_RIGHT
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>switch_statement</dfn> :
 
-switch_body
-  : CASE case_selectors COLON BRACE_LEFT case_body BRACE_RIGHT
-  | DEFAULT COLON BRACE_LEFT case_body BRACE_RIGHT
+    | [=syntax/switch=] [=syntax/paren_expression=] [=syntax/brace_left=] [=syntax/switch_body=] + [=syntax/brace_right=]
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>switch_body</dfn> :
 
-case_selectors
-  : const_literal (COMMA const_literal)* COMMA?
+    | [=syntax/case=] [=syntax/case_selectors=] [=syntax/colon=] [=syntax/brace_left=] [=syntax/case_body=] ? [=syntax/brace_right=]
 
-case_body
-  :
-  | statement case_body
-  | FALLTHROUGH SEMICOLON
-</pre>
+    | [=syntax/default=] [=syntax/colon=] [=syntax/brace_left=] [=syntax/case_body=] ? [=syntax/brace_right=]
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>case_selectors</dfn> :
+
+    | [=syntax/const_literal=] ( [=syntax/comma=] [=syntax/const_literal=] ) * [=syntax/comma=] ?
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>case_body</dfn> :
+
+    | [=syntax/statement=] [=syntax/case_body=] ?
+
+    | [=syntax/fallthrough=] [=syntax/semicolon=]
+</div>
 
 <dfn noexport dfn-for="statement">switch</dfn> 语句将控制转移到一组 case 子句中的一个子句或 `default` 子句，具体取决于选择器表达式的评估。
 
@@ -4926,10 +5195,11 @@ case 选择器值必须与计算选择器表达式的结果具有相同的类型
 
 ### Loop 语句 ### {#loop-statement}
 
-<pre class='def'>
-loop_statement
-  : LOOP BRACE_LEFT statements? continuing_statement? BRACE_RIGHT
-</pre>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>loop_statement</dfn> :
+
+    | [=syntax/loop=] [=syntax/brace_left=] [=syntax/statement=] * [=syntax/continuing_statement=] ? [=syntax/brace_right=]
+</div>
 
 <dfn noexport dfn-for="statement">loop</dfn> 语句重复执行<dfn noexport>loop body</dfn>； 循环体被指定为 [=compound statement=]。
 循环体的每次执行称为一次<dfn noexport>iteration</dfn>。
@@ -4966,7 +5236,7 @@ loop_statement
 
       a = a * 2;
 
-      i = i + 1;
+      i = i++;
     }
   </xmp>
 </div>
@@ -5023,29 +5293,54 @@ loop_statement
 
 ### For 语句 ### {#for-statement}
 
-<pre class='def'>
-for_statement
-  : FOR PAREN_LEFT for_header PAREN_RIGHT compound_statement
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>for_statement</dfn> :
 
-for_header
-  : (variable_statement | assignment_statement | func_call_statement)? SEMICOLON
-     short_circuit_or_expression? SEMICOLON
-     (assignment_statement | func_call_statement)?
-</pre>
+    | [=syntax/for=] [=syntax/paren_left=] [=syntax/for_header=] [=syntax/paren_right=] [=syntax/compound_statement=]
+</div>
 
-<dfn dfn-for="statement">for</dfn> 语句采用 `for(initializer; condition; continue_part) { body }` 的形式，
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>for_header</dfn> :
+
+    | [=syntax/for_init=] ? [=syntax/semicolon=] [=syntax/expression=] ? [=syntax/semicolon=] [=syntax/for_update=] ?
+</div>
+
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>for_init</dfn> :
+
+    | [=syntax/variable_statement=]
+
+    | [=syntax/assignment_statement=]
+
+    | [=syntax/func_call_statement=]
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>for_update</dfn> :
+
+    | [=syntax/increment_statement=]
+
+    | [=syntax/decrement_statement=]
+
+    | [=syntax/assignment_statement=]
+
+    | [=syntax/func_call_statement=]
+</div>
+
+
+<dfn dfn-for="statement">for</dfn> 语句采用 `for(initializer; condition; update_part) { body }` 的形式，
 是同一个 `body` 在 [=statement/loop=] 语句之上的语法糖(在计算机科学中，语法糖是一种编程语言中的语法，旨在使事物更易于阅读或表达。 它使语言更适合人类使用：
 可以更清晰、更简洁地表达事物，或者以某些人可能更喜欢的另一种风格表达)。
 另外:
-* 如果 `initializer` 非空，则在第一个 [=iteration=] 之前的附加作用域内执行。
+* 如果 `initializer` 不为空，它会在第一个 [=iteration=] 之前的一个额外的 [=scope=] 中执行。
+       初始化程序中声明的范围扩展到循环体的末尾。
 * 如果 `condition` 不为空，则在循环体的开始处进行检查，如果不满足则执行[[#break-statement]]。
-* 如果 `continuing_part` 不为空，它会在循环体的末尾变成一个 [=statement/continuing=] 语句。
+* 如果 `update_part` 不为空，它会在循环体的末尾变成一个 [=statement/continuing=] 语句。
 
 for 循环的 `initializer` 在执行循环之前执行一次。
 当一个 [=declaration=] 出现在初始化器中时，它的 [=identifier=] 是 [=in scope=] 直到 `body` 的结尾。
 与 `body` 中的声明不同，该声明不会在每次迭代时重新初始化。
 
-`condition`、`body` 和 `continuing_part` 依次执行以形成一个循环 [=iteration=]。
+`condition`、`body` 和 `update_part` 依次执行以形成一个循环 [=iteration=]。
 `body` 是一种特殊形式的 [=compound statement=]。
 `body` 中声明的标识符是 [=in scope=] 从下一条语句的开始到 `body` 的结尾。
 
@@ -5053,7 +5348,7 @@ for 循环的 `initializer` 在执行循环之前执行一次。
 
 <div class='example glsl' heading="For to Loop transformation">
   <xmp>
-    for(var i: i32 = 0; i < 4; i = i + 1) {
+    for(var i: i32 = 0; i < 4; i = i++) {
       if (a == 0) {
         continue;
       }
@@ -5080,7 +5375,7 @@ for 循环的 `initializer` 在执行循环之前执行一次。
         a = a + 2;
 
         continuing {
-          i = i + 1;
+          i = i++;
         }
       }
     }
@@ -5090,10 +5385,11 @@ for 循环的 `initializer` 在执行循环之前执行一次。
 
 ### Break 语句 ### {#break-statement}
 
-<pre class='def'>
-break_statement
-  : BREAK
-</pre>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>break_statement</dfn> :
+
+    | [=syntax/break=]
+</div>
 
 <dfn noexport dfn-for="statement">break</dfn> 语句将控制转移到最近封闭的 [=statement/loop=] 或 [=statement/switch=] 语句的主体之后的第一个语句。
 `break` 语句只能在 [=statement/loop=]、[=statement/for=] 和 [=statement/switch=] 语句中使用。
@@ -5104,8 +5400,8 @@ break_statement
 * `break` 语句必须显示为以下其中之一:
     * `if` 语句的 `if` 子句中唯一的语句具有:
         * 没有 `else` 子句或空的 `else` 子句
-        * 没有 `elseif` 子句
-    * `if` 语句的 `else` 子句中唯一具有空的 `if` 子句且没有 `elseif` 子句的语句。
+        * 没有 `else if` 子句
+    * `if` 语句的 `else` 子句中唯一具有空的 `if` 子句且没有 `else if` 子句的语句。
 * `if` 语句必须出现在 `continuing` 子句的最后。
 
 <div class='example wgsl function-scope' heading="[SHORTNAME] Valid loop if-break from a continuing clause">
@@ -5161,8 +5457,8 @@ break_statement
       continuing {
         i = i + step;
         break;                                     // Invalid: too early
-        if (i < 4) { i = i + 1; } else { break; }  // Invalid: if is too complex, and too early
-        if (i >= 4) { break; } else { i = i + 1; } // Invalid: if is too complex
+        if (i < 4) { i = i++; } else { break; }  // Invalid: if is too complex, and too early
+        if (i >= 4) { break; } else { i = i++; } // Invalid: if is too complex
       }
     }
   </xmp>
@@ -5170,10 +5466,11 @@ break_statement
 
 ### Continue 语句 ### {#continue-statement}
 
-<pre class='def'>
-continue_statement
-  : CONTINUE
-</pre>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>continue_statement</dfn> :
+
+    | [=syntax/continue=]
+</div>
 
 <dfn noexport dfn-for="statement">continue</dfn> 语句在最近的封闭 [=statement/loop=] 中转移控制：
 
@@ -5205,22 +5502,27 @@ continue_statement
 
 ### Continuing 语句 ### {#continuing-statement}
 
-<pre class='def'>
-continuing_statement
-  : CONTINUING compound_statement
-</pre>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>continuing_statement</dfn> :
+
+    | [=syntax/continuing=] [=syntax/compound_statement=]
+</div>
 
 <dfn dfn-for="statement">continuing</dfn> 语句指定要在循环 [=iteration=] 结束时执行的 [=compound statement=]。
 该构造是可选的。
 
-在任何复合语句嵌套级别，复合语句不得包含 [=statement/return=] 或 [=statement/discard=] 语句。
+复合语句不得在任何复合语句嵌套级别包含 [=statement/return=]。
+
+复合语句不得在任何复合语句嵌套级别或通过函数调用包含 [=statement/discard=]。
+有关此规则的更正式描述，请参阅 [[#behaviors]]。
 
 ### Return 语句 ### {#return-statement}
 
-<pre class='def'>
-return_statement
-  : RETURN short_circuit_or_expression?
-</pre>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>return_statement</dfn> :
+
+    | [=syntax/return=] [=syntax/expression=] ?
+</div>
 
 <dfn noexport dfn-for="statement">return</dfn> 语句结束当前函数的执行。
 如果函数是 [=entry point=]，则终止当前着色器调用。
@@ -5281,10 +5583,11 @@ return_statement
 
 ## Function Call 语句 ## {#function-call-statement}
 
-<pre class='def'>
-func_call_statement
-  : IDENT argument_expression_list
-</pre>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>func_call_statement</dfn> :
+
+    | [=syntax/ident=] [=syntax/argument_expression_list=]
+</div>
 
 函数调用语句执行 [=function call=]。
 
@@ -5292,25 +5595,39 @@ func_call_statement
 
 ## 语句语法总结 ## {#statements-summary}
 
-<pre class='def'>
-statements
-  : statement+
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>statement</dfn> :
 
-statement
-  : SEMICOLON
-  | return_statement SEMICOLON
-  | if_statement
-  | switch_statement
-  | loop_statement
-  | for_statement
-  | func_call_statement SEMICOLON
-  | variable_statement SEMICOLON
-  | break_statement SEMICOLON
-  | continue_statement SEMICOLON
-  | DISCARD SEMICOLON
-  | assignment_statement SEMICOLON
-  | compound_statement
-</pre>
+    | [=syntax/semicolon=]
+
+    | [=syntax/return_statement=] [=syntax/semicolon=]
+
+    | [=syntax/if_statement=]
+
+    | [=syntax/switch_statement=]
+
+    | [=syntax/loop_statement=]
+
+    | [=syntax/for_statement=]
+
+    | [=syntax/func_call_statement=] [=syntax/semicolon=]
+
+    | [=syntax/variable_statement=] [=syntax/semicolon=]
+
+    | [=syntax/break_statement=] [=syntax/semicolon=]
+
+    | [=syntax/continue_statement=] [=syntax/semicolon=]
+
+    | [=syntax/discard=] [=syntax/semicolon=]
+
+    | [=syntax/assignment_statement=] [=syntax/semicolon=]
+
+    | [=syntax/compound_statement=]
+
+    | [=syntax/increment_statement=] [=syntax/semicolon=]
+
+    | [=syntax/decrement_statement=] [=syntax/semicolon=]
+</div>
 
 ## 语句行为分析 ## {#behaviors}
 ### 规则 ### {#behaviors-rules}
@@ -5710,10 +6027,10 @@ This analysis can be run in linear time, by analyzing the call-graph bottom-up (
 * 形参列表：一个有序的零序列或更多 [=formal parameter=] 声明，用逗号分隔，和被括号包围。
 * 一个可选的，可能是装饰的，<dfn noexport>返回类型</dfn>。
 * <dfn noexport>function body</dfn>.
+这是当函数为[=function call|called=]时要执行的语句集。
 
 函数声明只能出现在 [=module scope=]。
-函数名是 [=in scope=] 从形参列表的开头
-直到程序结束。
+整个程序的函数名称是 [=in scope=]。
 
 <dfn noexport>形式参数</dfn> [=declaration=] 指定一个 [=identifier=] 名称和一个值的类型，该值在调用函数时必须提供。
 形式参数可能具有属性。
@@ -5721,28 +6038,28 @@ This analysis can be run in linear time, by analyzing the call-graph bottom-up (
 标识符是 [=in scope=] 直到函数结束。
 给定函数的两个形参不能同名。
 
-如果指定了返回类型，则：
-* 返回类型必须是 [=constructible=]。
-* 函数体中的最后一条语句必须是 [=statement/return=] 语句。
+返回类型（如果指定）必须是 [=constructible=]。
 
-<pre class='def'>
-function_decl
-  : attribute_list* function_header compound_statement
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>function_decl</dfn> :
 
-function_header
-  : FN IDENT PAREN_LEFT param_list PAREN_RIGHT function_return_type_decl_optional
+    | [=syntax/attribute_list=] * [=syntax/function_header=] [=syntax/compound_statement=]
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>function_header</dfn> :
 
-function_return_type_decl_optional
-  :
-  | ARROW attribute_list* type_decl
+    | [=syntax/fn=] [=syntax/ident=] [=syntax/paren_left=] [=syntax/param_list=] ? [=syntax/paren_right=] ( [=syntax/arrow=] [=syntax/attribute_list=] * [=syntax/type_decl=] ) ?
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>param_list</dfn> :
 
-param_list
-  :
-  | (param COMMA)* param COMMA?
+    | ( [=syntax/param=] [=syntax/comma=] ) * [=syntax/param=] [=syntax/comma=] ?
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>param</dfn> :
 
-param
-  : attribute_list* variable_ident_decl
-</pre>
+    | [=syntax/attribute_list=] * [=syntax/variable_ident_decl=]
+</div>
 
 [SHORTNAME] 定义了以下可应用于函数声明的属性:
  * [=attribute/stage=]
@@ -5772,7 +6089,7 @@ param
   </xmp>
 </div>
 
-## Function calls ## {#function-calls}
+## Function Calls ## {#function-calls}
 
 <dfn noexport>function call</dfn> 是调用函数的语句或表达式。
 
