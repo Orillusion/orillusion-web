@@ -1628,7 +1628,7 @@ GPUDevice includes GPUObjectBase;
 
 问题：定义<dfn dfn>buffer</dfn> (内部对象)
 
-{{GPUBuffer}}表示可用于GPU操作的内存块。数据以线性布局存储，这意味着分配的每个字节都可以由其从{{GPUBuffer}}开始的偏移量寻址，受取决于操作的对齐约束限制。一些{{GPUBuffer|GPUBuffers}}可以被映射，这使得内存块可以通过一个{{ArrayBuffer}}访问并调用它的映射。
+{{GPUBuffer}}表示可用于GPU操作的内存块。数据以线性布局存储，这意味着分配的每个字节都可以由其从{{GPUBuffer}}开始的偏移量寻址，具体取决于操作的对齐限制。一些{{GPUBuffer|GPUBuffers}}可以被映射，这使得内存块可以通过一个{{ArrayBuffer}}访问并调用它的映射。
 
 {{GPUBuffer|GPUBuffers}}是通过{{GPUDevice/createBuffer(descriptor)|GPUDevice.createBuffer(descriptor)}}创建的，
 返回一个处于 [=buffer state/mapped=] 或 [=buffer state/unmapped=]状态的新缓冲区。
