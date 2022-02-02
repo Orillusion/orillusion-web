@@ -1729,7 +1729,7 @@ dictionary GPUBufferDescriptor : GPUObjectDescriptorBase {
         4. 返回 `true`.
 </div>
 
-### 缓冲区使用 ### {#buffer-usage}
+### 缓冲区使用标记 ### {#buffer-usage}
 
 <script type=idl>
 typedef [EnforceRange] unsigned long GPUBufferUsageFlags;
