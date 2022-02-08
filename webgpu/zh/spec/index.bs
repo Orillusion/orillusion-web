@@ -2125,7 +2125,7 @@ GPUTexture includes GPUObjectBase;
 
     : <dfn>\[[destroyed]]</dfn>, `boolean` 类型, 初始设定为 false
     ::
-        如果纹理被破坏，它就不能再用于任何操作，
+        如果纹理已被销毁，它就不能再用于任何操作，
         并且它的底层内存可以被释放。
 </dl>
 
@@ -2328,7 +2328,7 @@ namespace GPUTextureUsage {
     </pre>
 </div>
 
-### 纹理破坏 ### {#texture-destruction}
+### 纹理销毁 ### {#texture-destruction}
 
 不再需要 {{GPUTexture}} 的应用程序可以通过调用 {{GPUTexture/destroy()}} 选择在垃圾收集之前失去对它的访问权限。
 
@@ -2337,7 +2337,7 @@ namespace GPUTextureUsage {
 <dl dfn-type=method dfn-for=GPUTexture>
     : <dfn>destroy()</dfn>
     ::
-        摧毁 {{GPUTexture}}.
+        销毁 {{GPUTexture}}.
 
         <div algorithm=GPUTexture.destroy>
             **调用:** {{GPUTexture}} |this|.
