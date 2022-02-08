@@ -239,7 +239,7 @@ WebGPU 是一个非常健谈的 API，一些应用程序每帧进行数万次调
     <figcaption>
         进程间消息传递的时间线图，展示了错误是如何在没有同步的情况下传播的。
     </figcaption>
-    <object type="image/svg+xml" data="img/error_monad_timeline_diagram.svg"></object>
+    <object type="image/svg+xml" data="/images/error_monad_timeline_diagram.svg"></object>
 </figure>
 
 <div class=example>

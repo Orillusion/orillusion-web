@@ -29,18 +29,21 @@ export default defineUserConfig<DefaultThemeOptions>({
 		],
 		['meta', { name: 'msapplication-TileColor', content: '#22272e' }],
 		['meta', { name: 'theme-color', content: '#22272e' }],
+		['meta', { name: 'keywords', content: 'webgpu,orillusion,gfx,engine,ecs,3d' }],
+		['script', {src: "https://zz.bdstatic.com/linksubmit/push.js"}],
+		['link', {rel:'prefetch', href: 'https://demo.orillusion.com/Asteroids/'}]
 	],
 	// site-level locales config
 	locales: {
 		'/': {
 			lang: 'en-US',
-			title: 'Orillusion',
+			title: 'Orillusion | Link Uncharted',
 			description: 'The Next Generation WebGPU Engine',
 		},
 		'/zh/': {
 			lang: 'zh-CN',
-			title: 'Orillusion',
-			description: 'Orillusion 次时代 WebGPU 引擎',
+			title: 'Orillusion | 链接未来世界',
+			description: 'Orillusion 次时代 WebGPU 引擎, 链接未来世界',
 		},
 	},
 	bundler: isProd ? '@vuepress/webpack' : '@vuepress/vite', // use vite in dev, use webpack in prod

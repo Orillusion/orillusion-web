@@ -1,19 +1,19 @@
 import type { NavbarConfig } from '@vuepress/theme-default'
 
 export const en: NavbarConfig = [
-  {
-    text: 'Guide',
-    link: '/guide/'
-  },
+  // {
+  //   text: 'Guide',
+  //   link: '/guide/'
+  // },
   {
     text: 'Reference',
     children: [
-      {
-        text: 'Orillusion',
-        children: [
-          '/reference/index.md'
-        ],
-      },
+      // {
+      //   text: 'Orillusion',
+      //   children: [
+      //     '/reference/index.md'
+      //   ],
+      // },
       {
         text: 'WebGPU',
         children: [

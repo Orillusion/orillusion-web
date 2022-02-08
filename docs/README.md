@@ -1,6 +1,6 @@
 ---
 home: true
-title: Home
+title: Fisrt WebGPU Community
 heroText: Orillusion
 tagline: The Next Generation WebGPU Engine
 heroImage: /images/logo.svg

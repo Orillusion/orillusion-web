@@ -1,5 +1,6 @@
 <template>
     <div ref="svg" class="svg">
+        <img src="/images/logo_white.png" alt="Orillusion" />
     </div>
 </template>
 <script lang="ts">
@@ -9,11 +10,20 @@
                 svg: ''
             }
         },
+        props:['loading'],
         async mounted(){
             let res = await fetch('/images/logo.svg')
             let svg = await res.text()
             this.$refs.svg.innerHTML = svg
             this.$nextTick(this.loadSvg)
+        },
+        watch:{
+            loading(v){
+                if(v)
+                    this.$refs.svg.classList.remove('active')
+                else
+                    this.$refs.svg.classList.add('active')
+            }
         },
         methods:{
             loadSvg(){
@@ -46,10 +56,6 @@
     height: 100%;
     max-height: 280px;
     transform-origin: center;
-    opacity: 0;
-}
-.svg.active :deep(svg){
-    opacity: 1;
 }
 .svg.active :deep(path) {
     animation: wave 3s ease-in-out infinite;
