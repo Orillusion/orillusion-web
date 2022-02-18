@@ -2820,7 +2820,7 @@ dictionary GPUSamplerDescriptor : GPUObjectDescriptorBase {
 };
 </script>
 
-- {{GPUSamplerDescriptor/addressModeV}}、{{GPUSamplerDescriptor/addressModeV}}，和{{GPUSamplerDescriptor/addressModeW}}分别指定纹理宽度、高度和深度坐标的地址模式。
+- {{GPUSamplerDescriptor/addressModeU}}、{{GPUSamplerDescriptor/addressModeV}}，和{{GPUSamplerDescriptor/addressModeW}}分别指定纹理宽度、高度和深度坐标的地址模式。
 - {{GPUSamplerDescriptor/magFilter}}指定样本足迹小于或等于1纹素时的采样行为。
 - {{GPUSamplerDescriptor/minFilter}}指定样本足迹大于1纹素时的采样行为。
 - {{GPUSamplerDescriptor/mipmapFilter}}指定在两个mipmap级别之间进行采样的行为。
