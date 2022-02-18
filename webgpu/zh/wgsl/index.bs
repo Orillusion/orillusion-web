@@ -160,6 +160,7 @@ WebGPU Shading Language (WGSL)是为 [[!WebGPU]] 设计的着色器语言。也�
 
 ## 技术概览 ## {#technical-overview}
 
+
 WebGPU 以[[WebGPU#gpu-command|GPU command]]的形式向 GPU 发出一个工作单元。WGSL关注两种 GPU 命令：
 * <dfn noexport>draw command</dfn>在[=pipeline input|inputs=]、[=pipeline output|outputs=]和附加[=resources=]的上下文中执行[=GPUComputePipeline|compute pipeline=]。
 * <dfn noexport>dispatch command</dfn>在[=GPUComputePipeline|compute pipeline=]和附加[=resources=]的上下文中执行[=GPUComputePipeline|compute pipeline=]。
@@ -167,7 +168,7 @@ WebGPU 以[[WebGPU#gpu-command|GPU command]]的形式向 GPU 发出一个工作�
 这两种管线都使用以WGSL编写的着色器。
 
 <dfn noexport>shader</dfn>是WGSL程序的一部分，用于在管线中执行[=shader stage=]。着色器包括：
-* 一个[=entry point=] [=function/function=]。
+* 一个入口点 [=entry point=] [=function/function=]。
 * 所有被调用函数的传递闭包，从入口点开始。该集合包括[=user-defined function|user-defined=]和[=built-in function|built-in=]函数。（有关更严格的定义，请参阅“[=functions in a shader stage=]”。）
 * 所有这些函数静态访问（[=statically accessed=]）的一组变量和常量。
 * 用于定义或分析所有这些函数、变量和常量的类型集。

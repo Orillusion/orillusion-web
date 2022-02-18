@@ -126,9 +126,14 @@ let data = reactive({showDemo: false})
   .feature{
     text-align: center;
   }
+  .actions{
+    gap: 0 !important;
+    margin: 1rem auto !important;
+  }
   .action-button{
     width: 180px;
     cursor: pointer;
+    margin: 0.5rem;
   }
   .no-ready{
     cursor: not-allowed;
