@@ -2920,11 +2920,17 @@ WGSL 定义了以下可应用于全局变量的属性：
 
 ## 模块常量 ## {#module-constants}
 
-一个在所有函数外声明的 `let`-声明声明了一个模块作用域（[=module scope|module-scope=]）常量。该名称可在声明结束后使用，直到 [SHORTNAME] 程序结束。
+出现在所有函数之外的 [[#value-decls|value declaration]] 声明了一个
+[=module scope|module-scope=] 常量。
+整个程序的名称是 [=in scope=]。
 
-模块作用域 let-声明的常量必须是可构造（[=constructible=]）的类型。
+模块范围 [=let declaration|let-declared=] 常量必须是 [=constructible=] 类型。
+对于模块范围的“let”声明，必须存在初始化表达式，并且名称表示该表达式的值。
 
-当声明没有属性时，必须存在初始化表达式，名称表示该表达式的值。
+TODO：定义允许 const_expression 和模块范围 let 声明的创建时常量。
+
+[=pipeline-overridable=] 常量必须是 [=scalar=] 类型之一。
+对于流水线可覆盖的常量，初始化表达式是可选的。
 
 <div class='example wgsl global-scope' heading='Module constants'>
   <xmp>
@@ -2936,47 +2942,7 @@ WGSL 定义了以下可应用于全局变量的属性：
   </xmp>
 </div>
 
-当声明使用 [=attribute/override=] 属性时，常量是管线可覆盖的（<dfn noexport>pipeline-overridable</dfn>）。在这种情况下：
-
-  * 类型必须为 [=scalar=] 类型中的一种。
-  * 初始化表达式是可选的。
-  * 属性的文字操作数（如果存在）称为管线常量 ID（<dfn noexport>pipeline constant ID</dfn>），并且必须是 0 到 65535 之间的整数值。
-  * [SHORTNAME] 程序中的管线常量 ID 必须是唯一的：两个模块常量不得使用相同的管线常量 ID。
-  * 应用程序可以在管线创建时为常量指定其自己的值。管线创建 API 接受从可覆盖常量到常量类型值的映射。 常量由管线可覆盖常量标识符字符串（<dfn export>pipeline-overridable constant identifier string</dfn>）标识，如果指定，它是管线常量 ID （[=pipeline constant ID=]）的基数为 10 的表示，否则为常量的声明名称（[=name=]）。
-  * 如果管线可覆盖常量的声明具有初始化表达式，则其具有默认值（<dfn export>pipeline-overridable constant has a default value</dfn>）。 如果没有，则必须在管线创建时提供一个值。
-
-<div class='example wgsl global-scope' heading='Module constants, pipeline-overrideable'>
-  <xmp>
-    [[override(0)]]    let has_point_light: bool = true;  // Algorithmic control
-    [[override(1200)]] let specular_param: f32 = 2.3;     // Numeric control
-    [[override(1300)]] let gain: f32;                     // Must be overridden
-    [[override]]       let width: f32 = 0.0;              // Specifed at the API level using
-                                                          // the name "width".
-    [[override]]       let depth: f32;                    // Specifed at the API level using
-                                                          // the name "depth".
-                                                          // Must be overridden.
-  </xmp>
-</div>
-
 当在依赖于常量值的控制流中使用变量或特性时，则认为该变量或特性被程序使用。 无论常量的值如何，无论该值是来自常量声明的值还是来自管线覆盖的值，都是如此。
-
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>global_constant_decl</dfn> :
-
-    | [=syntax/attribute_list=] * [=syntax/let=] ( [=syntax/ident=] | [=syntax/variable_ident_decl=] ) [=syntax/global_const_initializer=] ?
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>global_const_initializer</dfn> :
-
-    | [=syntax/equal=] [=syntax/const_expression=]
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>const_expression</dfn> :
-
-    | [=syntax/type_decl=] [=syntax/paren_left=] ( ( [=syntax/const_expression=] [=syntax/comma=] ) * [=syntax/const_expression=] [=syntax/comma=] ? ) ? [=syntax/paren_right=]
-
-    | [=syntax/const_literal=]
-</div>
 
 <div class='example' heading='Constants'>
   <xmp>
@@ -3003,28 +2969,26 @@ WGSL 定义了以下可应用于全局变量的属性：
   </xmp>
 </div>
 
-Issue(dneto): WebGPU 管线创建 API 必须指定 API 提供的值如何映射到着色器标量值。对于布尔值，我建议使用 32 位整数，其中只有 0 映射到 `false`。 如果 [SHORTNAME] 获得非 32 位数字标量，我建议可覆盖的常量继续是 32 位数字类型。
-
 ## 函数作用域变量和常量 ## {#function-scope-variables}
 
 在函数体中的声明语句中声明的变量或常量在函数作用域（<dfn noexport>function scope</dfn>）内。该名称可在其声明语句之后立即使用，直到紧随声明的括号分隔语句列表的末尾。
 
-函数范围的 let 声明常量必须是可构造（[=constructible=]）类型或指针类型（[=pointer type=]）。
+函数范围 let 声明的常量必须是 [=constructible=] 类型，或 [=pointer type=]。
 
 对于在函数作用域中声明的变量：
-* 变量总是在函数（[=storage classes/function=]）存储类中。
-* 存储修饰是可选的。
+* 变量总是在 [=address spaces/function=] 地址空间中。
+* 地址空间装饰是可选的。
 * 存储类型（[=store type=]）必须为可构造（[=constructible=]）类型。
 * 当指定了初始化表达式时，可以从声明中省略存储类型。在这种情况下，存储类型是初始化表达式的计算结果的类型。
 
 <div class='example wgsl global-scope' heading="Function scope variables and constants">
   <xmp highlight='rust'>
     fn f() {
-       var<function> count: u32;  // 函数存储类中的变量。
-       var delta: i32;            // 函数存储类中的另一个变量。
+       var<function> count: u32;  // 函数地址空间中的变量。
+       var delta: i32;            // 函数地址空间中的另一个变量。
        var sum: f32 = 0.0;        // 拥有初始化值的函数存储类变量。
        var pi = 3.14159;          // 从初始化值推断出 f32 存储类型。
-       let unit: i32 = 1;         // 未使用存储类的let-声明常量。
+       let unit: i32 = 1;         // 未使用地址空间的let-声明常量。
     }
   </xmp>
 </div>
@@ -3032,6 +2996,54 @@ Issue(dneto): WebGPU 管线创建 API 必须指定 API 提供的值如何映射�
 在 `for` 语句的第一个子句中声明的变量或常量可用于第二个和第三个子句以及 `for` 语句的主体中。
 
 函数作用域变量的实例是动态上下文（[=dynamic context=]）。每个一些调用范围内的变量都有一个重叠的生命周期（[=lifetime=]），因此，具有不重叠的内存。生命周期不重叠的变量可能会重用之前变量的内存；但是，不能保证同一变量的新实例使用相同的内存。
+
+## 变量和值声明语法总结 ## {#var-and-value-decl-grammar}
+
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>variable_statement</dfn> :
+
+    | [=syntax/variable_decl=]
+
+    | [=syntax/variable_decl=] [=syntax/equal=] [=syntax/expression=]
+
+    | [=syntax/let=] ( [=syntax/ident=] | [=syntax/variable_ident_decl=] ) [=syntax/equal=] [=syntax/expression=]
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>variable_decl</dfn> :
+
+    | [=syntax/var=] [=syntax/variable_qualifier=] ? ( [=syntax/ident=] | [=syntax/variable_ident_decl=] )
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>variable_ident_decl</dfn> :
+
+    | [=syntax/ident=] [=syntax/colon=] [=syntax/type_decl=]
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>variable_qualifier</dfn> :
+
+    | [=syntax/less_than=] [=syntax/address_space=] ( [=syntax/comma=] [=syntax/access_mode=] ) ? [=syntax/greater_than=]
+</div>
+
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>global_variable_decl</dfn> :
+
+    | [=syntax/attribute=] * [=syntax/variable_decl=] ( [=syntax/equal=] [=syntax/const_expression=] ) ?
+</div>
+
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>global_constant_decl</dfn> :
+
+    | [=syntax/let=] ( [=syntax/ident=] | [=syntax/variable_ident_decl=] ) [=syntax/equal=] [=syntax/const_expression=]
+
+    | [=syntax/attribute=] * [=syntax/override=] ( [=syntax/ident=] | [=syntax/variable_ident_decl=] ) ( [=syntax/equal=] [=syntax/expression=] ) ?
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>const_expression</dfn> :
+
+    | [=syntax/type_decl=] [=syntax/paren_left=] ( ( [=syntax/const_expression=] [=syntax/comma=] ) * [=syntax/const_expression=] [=syntax/comma=] ? ) ? [=syntax/paren_right=]
+
+    | [=syntax/const_literal=]
+</div>
 
 # 表达式 # {#expressions}
 
@@ -3406,7 +3418,7 @@ Issue(dneto): WebGPU 管线创建 API 必须指定 API 提供的值如何映射�
       grade: i32;
       GPA: f32;
       attendance: array<bool,4>;
-    };
+    }
 
     fn func() {
       var s: Student;
@@ -3426,7 +3438,7 @@ Issue(dneto): WebGPU 管线创建 API 必须指定 API 提供的值如何映射�
 
 ## 转换表达式 ## {#conversion-expr}
 
-[SHORTNAME] 不隐式转换或提升一个数值或布尔值为另外的类型。而是使用以下表格中描述的转换表达式。
+WGSL 不隐式转换或提升一个数值或布尔值为另外的类型。而是使用以下表格中描述的转换表达式。
 
 有关与浮点类型之间的转换的详细信息，请参阅 [[#floating-point-conversion]]。
 
@@ -3779,43 +3791,43 @@ location|memory locations=]）。
     <tr><th>Precondition<th>Conclusion<th>Description
   </thead>
   <tr algorithm="first vector component reference selection">
-       <td>|r|: ref&lt;|SC|,vec|N|&lt;|T|&gt;&gt;<br>
+       <td>|r|: ref&lt;|S|,vec|N|&lt;|T|&gt;&gt;<br>
        <td class="nowrap">
-           |r|`.x`: ref&lt;|SC|,|T|&gt;<br>
-           |r|`.r`: ref&lt;|SC|,|T|&gt;<br>
+           |r|`.x`: ref&lt;|S|,|T|&gt;<br>
+           |r|`.r`: ref&lt;|S|,|T|&gt;<br>
        <td>计算引用 |r| 所引用的向量的第一个分量的引用。<br>
        结果引用的原始变量（[=originating variable=]）与 |r| 的原始变量相同。<br>
        （索引值为 0 的 OpAccessChain）
   <tr algorithm="second vector component reference selection">
-       <td>|r|: ref&lt;|SC|,vec|N|&lt;|T|&gt;&gt;<br>
+       <td>|r|: ref&lt;|S|,vec|N|&lt;|T|&gt;&gt;<br>
        <td class="nowrap">
-           |r|`.y`: ref&lt;|SC|,|T|&gt;<br>
-           |r|`.g`: ref&lt;|SC|,|T|&gt;<br>
+           |r|`.y`: ref&lt;|S|,|T|&gt;<br>
+           |r|`.g`: ref&lt;|S|,|T|&gt;<br>
        <td>计算引用 |r| 所引用的向量的第二个分量的引用。<br>
        结果引用的原始变量（[=originating variable=]）与 |r| 的原始变量相同。<br>
        （索引值为 1 的 OpAccessChain）
   <tr algorithm="third vector component reference selection">
-       <td>|r|: ref&lt;|SC|,vec|N|&lt;|T|&gt;&gt;<br>
+       <td>|r|: ref&lt;|S|,vec|N|&lt;|T|&gt;&gt;<br>
            |N| is 3 or 4
        <td class="nowrap">
-           |r|`.z`: ref&lt;|SC|,|T|&gt;<br>
-           |r|`.b`: ref&lt;|SC|,|T|&gt;<br>
+           |r|`.z`: ref&lt;|S|,|T|&gt;<br>
+           |r|`.b`: ref&lt;|S|,|T|&gt;<br>
        <td>计算引用 |r| 所引用的向量的第三个分量的引用。<br>
        结果引用的原始变量（[=originating variable=]）与 |r| 的原始变量相同。<br>
        （索引值为 2 的 OpAccessChain）
   <tr algorithm="fourth vector component reference selection">
-       <td>|r|: ref&lt;|SC|,vec4&lt;|T|&gt;&gt;<br>
+       <td>|r|: ref&lt;|S|,vec4&lt;|T|&gt;&gt;<br>
        <td class="nowrap">
-           |r|`.w`: ref&lt;|SC|,|T|&gt;<br>
-           |r|`.a`: ref&lt;|SC|,|T|&gt;<br>
+           |r|`.w`: ref&lt;|S|,|T|&gt;<br>
+           |r|`.a`: ref&lt;|S|,|T|&gt;<br>
        <td>计算引用 |r| 所引用的向量的第四个分量的引用。<br>
        结果引用的原始变量（[=originating variable=]）与 |r| 的原始变量相同。<br>
        （索引值为 3 的 OpAccessChain）
   <tr algorithm="vector indexed component reference selection">
-       <td>|r|: ref&lt;|SC|,vec|N|&lt;|T|&gt;&gt;<br>
+       <td>|r|: ref&lt;|S|,vec|N|&lt;|T|&gt;&gt;<br>
           |i|: [INT]
        <td class="nowrap">
-           |r|[|i|] : ref&lt;|SC|,|T|&gt;
+           |r|[|i|] : ref&lt;|S|,|T|&gt;
        <td>计算引用 |r| 所引用的向量的第 |i| 个分量的引用。
        如果 |i| 在区间 [0,|N|-1] 外，则表达式计算为 [=invalid memory reference=]。
        结果引用的原始变量（[=originating variable=]）与 |r| 的原始变量相同。<br>
@@ -3846,17 +3858,16 @@ location|memory locations=]）。
   </thead>
   <tr algorithm="matrix indexed column vector reference selection">
        <td class="nowrap">
-          |r|: ref&lt;|SC|,mat|N|x|M|&lt;|T|&gt;&gt;<br>
+          |r|: ref&lt;|S|,mat|N|x|M|&lt;|T|&gt;&gt;<br>
           |i|: [INT]
        <td class="nowrap">
-           |r|[|i|] : ref&lt;vec|M|&lt;|SC|,|T|&gt;&gt;
+           |r|[|i|] : ref&lt;vec|M|&lt;|S|,|T|&gt;&gt;
        <td>通过引用 |r| 计算矩阵第 |i| 个列向量的引用。
        如果 |i| 在区间 [0,|N|-1] 外，则表达式计算为无效内存引用（[=invalid memory reference=]）。
        结果引用的原始变量（[=originating variable=]）与 |r| 的原始变量相同。<br>
        （OpAccessChain）
 </table>
 
-注意：反映 WGSL 旨在翻译成的语言的限制，只能使用动态计算的索引来标注对矩阵的引用。不在引用后面的矩阵只能由 `const_expression` 进行标注索引。要解决此限制，请考虑将矩阵存储在临时变量中，然后为变量添加下标：[[#var-identifier-expr|variable identifier expression]根据需要生成对变量值的引用。
 
 ### 数组访问表达式 ### {#array-access-expr}
 
@@ -3883,10 +3894,10 @@ location|memory locations=]）。
   </thead>
   <tr algorithm="fixed-size array indexed reference selection">
        <td class="nowrap">
-          |r|: ref&lt;|SC|,array&lt;|T|,|N|&gt;&gt;<br>
+          |r|: ref&lt;|S|,array&lt;|T|,|N|&gt;&gt;<br>
           |i|: [INT]
        <td class="nowrap">
-           |r|[|i|] : ref&lt;|SC|,|T|&gt;
+           |r|[|i|] : ref&lt;|S|,|T|&gt;
        <td>计算对由引用 |r| 引用的数组的第 |i| 个元素的引用。
 
        如果 |i| 在区间 [0,|N|-1] 外，则表达式计算为一个无效内存引用（[=invalid memory reference=]）。
@@ -3894,10 +3905,10 @@ location|memory locations=]）。
        结果引用的原始变量（[=originating variable=]）与 |r| 的原始变量相同。
        （OpAccessChain）
   <tr algorithm="array indexed reference selection">
-       <td>|r|: ref&lt;|SC|,array&lt;|T|&gt;&gt;<br>
+       <td>|r|: ref&lt;|S|,array&lt;|T|&gt;&gt;<br>
           |i|: [INT]
        <td class="nowrap">
-           |r|[|i|] : ref&lt;|SC|,|T|&gt;
+           |r|[|i|] : ref&lt;|S|,|T|&gt;
        <td>计算对由引用 |r| 引用的runtime-sized数组的第 |i| 个元素的引用。
 
        如果在运行时数组有 |N| 个元素，且 |i| 在区间 [0,|N|-1] 外，则表达式计算为一个无效内存引用（[=invalid memory reference=]）。
@@ -3906,7 +3917,6 @@ location|memory locations=]）。
        （OpAccessChain）
 </table>
 
-注意：反映 WGSL 旨在翻译成的语言的限制，只能使用动态计算的索引来下标对数组的引用。不在引用后面的数组只能由 `const_expression` 索引。
 
 ### 结构访问表达式 ### {#struct-access-expr}
 
@@ -4083,15 +4093,33 @@ location|memory locations=]）。
 
     当 |T| 是向量时，[=Component-wise=]。
 
-    （OpSDiv）
+       在标量情况下，计算结果为:
+        * |e1|，当 |e2| 等于零。
+        * |e1|，当 |e1| 是 |T| 中的最大负值，|e2| 是-1。
+        * 否则为  [=truncate=](|x|) ，其中 |x| 是实值商|e1|&nbsp;&div;&nbsp;|e2|。
+
+        笔记：
+             确保截断行为的需要可能需要实现比计算无符号除法时执行更多的操作。
+             当已知两个操作数具有相同符号时，使用无符号除法。
+
+        <!--
+            其中 MINIT = |T| 中的最大负值
+            其中 Divisor = select(e2, 1, (e2==0) | ((e1 == MININT) & (e2 == -1)))
+            结果为 truncate(e1/Divisor)
+        -->
+
   <tr algorithm="unsigned integer division">
     <td>|e1| : |T|<br>|e2| : |T|<br>|T| 为 [UNSIGNEDINTEGRAL]
     <td>|e1| `/` |e2| : |T|
-    <td>无符号整数除法。
+    <td>无符号整数除法。 [=Component-wise=] 当 |T| 是一个向量。
 
-    当 |T| 是向量时，[=Component-wise=]。
+       在标量情况下，计算结果为：
+        * |e1|，当 |e2| 为零。
+        * 否则，整数 |q| 这样
+            |e1|&nbsp;=&nbsp;|q|&nbsp;&times;&nbsp;|e2|&nbsp;+&nbsp;|r|,
+            其中 0 &le; |r| &lt; |e2|。
 
-    （OpUDiv）
+        (OpUDiv, with OpSelect to avoid division by zero)
   <tr algorithm="floating point division">
     <td>|e1| : |T|<br>|e2| : |T|<br>|T| 为 [FLOATING]
     <td>|e1| `/` |e2| : |T|
@@ -4104,19 +4132,38 @@ location|memory locations=]）。
   <tr algorithm="signed integer remainder">
     <td>|e1| : |T|<br>|e2| : |T|<br>|T| 为 [SIGNEDINTEGRAL]
     <td>|e1| `%` |e2| : |T|
-    <td>有符号整数取余。
+    <td>有符号整数余数。 [=Component-wise=] 当 |T| 是一个向量。
 
-    当 |T| 是向量时，[=Component-wise=]。
+        在标量情况下，计算 |e1| 和 |e2| 一次，并评估为：
+        * 0，当 |e2| 为零。
+        * 0，当 |e1| 是 |T| 中的最大负值，|e2| 是-1。
+        * 否则，|e1|&nbsp;-&nbsp;[=truncate=](|e1|&nbsp;&div;&nbsp;|e2|)&nbsp;&times;&nbsp;|e2|
+            其中商被计算为实数值。
 
-    （OpSMod）
-  <tr algorithm="unsigned integer modulus">
+        笔记：
+        当非零时，结果与|e1| 具有相同的符号。
+
+        笔记：
+        确保行为一致的需要可能需要实施
+        比计算无符号余数时执行更多的操作。
+
+         <!--
+                其中 MINIT = |T| 中的最大负值
+                其中除数 = select(e2, 1, (e2==0) | ((e1 == MININT) & (e2 == -1)))
+                结果是 e1 - truncate(e1/Divisor) * Divisor
+         -->
+  <tr algorithm="unsigned integer remaider">
     <td>|e1| : |T|<br>|e2| : |T|<br>|T| 为 [UNSIGNEDINTEGRAL]
     <td>|e1| `%` |e2| : |T|
-    <td>无符号整数取余。
+    <td>无符号整数余数。 [=Component-wise=] 当 |T| 是一个向量。
 
-    当 |T| 是向量时，[=Component-wise=]。
+         在标量情况下，计算结果为：
+         * 0，当 |e2| 为零。
+         * 否则，整数 |r| 这样
+             |e1|&nbsp;=&nbsp;|q|&nbsp;&times;&nbsp;|e2|&nbsp;+&nbsp;|r|,
+             |q| 是整数，0 &le; |r| &lt; |e2|。
 
-    （OpUMod）
+        （OpUMod，使用 OpSelect 避免被零除）
   <tr algorithm="floating point remainder">
     <td>|e1| : |T|<br>|e2| : |T|<br>|T| 为 [FLOATING]
     <td>|e1| `%` |e2| : |T|
@@ -4136,7 +4183,7 @@ location|memory locations=]）。
     <th>Preconditions<th>Conclusions<th>Semantics
   </thead>
   <tr algorithm="vector-scalar arithmetic, any scalar type">
-    <td rowspan="8">|S| 为 f32, i32, u32 之一<br>
+    <td rowspan="10">|S| 为 f32, i32, u32 之一<br>
         |V| 为 vec|N|&lt;|S|&gt<br>
         |es|: |S|<br>
         |ev|: |V|
@@ -4163,11 +4210,7 @@ location|memory locations=]）。
   <tr>
     <td>|es| `/` |ev|: |V|
     <td>|V|(|es|) `/` |ev|
-  <tr algorithm="vector-scalar integer arithmetic">
-    <td rowspan="2">|S| 为 i32, u32 之一<br>
-        |V| 为 vec|N|&lt;|S|&gt<br>
-        |es|: |S|<br>
-        |ev|: |V|
+  <tr>
     <td>|ev| `%` |es|: |V|
     <td>|ev| `%` |V|(|es|)
   <tr>
@@ -4467,14 +4510,14 @@ location|memory locations=]）。
     <tr><th>Precondition<th>Conclusion<th>Notes
   </thead>
 
-  <tr algorithm="shift left">
+  <tr algorithm="logical shift left">
     <td>|e1|: |T|<br>
     |e2|: |TS|<br>
     |T| 为 [INTEGRAL]<br>
     如果 |e1| 为标量，则 |TS| 为 u32<br>
     vec|N|&lt;u32&gt;.
     <td class="nowrap">|e1| `<<` |e2|: |T|
-    <td>左移：<br>
+    <td>Logical shift left：<br>
     将 |e1| 左移，在最低有效位置插入零，并丢弃最高有效位。要移位的位数是 |e2| 的值 modulo |e1| 的位宽。
 
     当 T 是向量时，[=Component-wise=]。
@@ -4523,10 +4566,10 @@ location|memory locations=]）。
   </thead>
   <tr algorithm="variable reference">
        <td>
-       |v| 是解析（[=resolves|resolving=]）为 [=storage class=] |SC| 中声明的 [=in scope|in-scope=] 变量的标识符（[=identifier=]），存储类型（[=store type=]）为 |T|
+       |v| 是解析（[=resolves|resolving=]）为 [=address space=] |S| 中声明的 [=in scope|in-scope=] 变量的标识符（[=identifier=]），存储类型（[=store type=]）为 |T|
        <td class="nowrap">
-          |v|: ref&lt;|SC|,|T|&gt;
-       <td>结果是对命名变量 |v| 的存储的引用。
+          |v|: ref&lt;|S|,|T|&gt;
+       <td>结果是对命名变量 |v| 的内存的引用。
 </table>
 
 ## 形式参数表达式  ## {#formal-parameter-expr}
@@ -4555,14 +4598,14 @@ location|memory locations=]）。
   </thead>
   <tr algorithm="address-of expression">
        <td>
-          |r|: ref&lt;|SC|,|T|,|A|&gt;
+          |r|: ref&lt;|S|,|T|,|A|&gt;
        <td class="nowrap">
-          `&`|r|: ptr&lt;|SC|,|T|,|A|&gt;
+          `&`|r|: ptr&lt;|S|,|T|,|A|&gt;
        <td>结果是与引用值 |r| 相同的内存视图（[=memory view=]）对应的指针值。
 
        如果 |r| 是一个无效内存引用（[=invalid memory reference=]），作为结果的指针同样是无效内存引用。
 
-       如果 |SC| 为 [=storage classes/handle=] 存储类，则为一个着色器创建错误（[=shader-creation error=]）。
+       如果 |S| 为 [=storage classes/handle=] 存储类，则为一个着色器创建错误（[=shader-creation error=]）。
        这是一个 [=shader-creation error=]，如果 |r| 是 [[#component-reference-from-vector-reference|reference to a vector component]]。
 </table>
 
@@ -4577,9 +4620,9 @@ location|memory locations=]）。
   </thead>
   <tr algorithm="indirection expression">
        <td>
-          |p|: ptr&lt;|SC|,|T|,|A|&gt;
+          |p|: ptr&lt;|S|,|T|,|A|&gt;
        <td class="nowrap">
-          `*`|p|: ref&lt;|SC|,|T|,|A|&gt;
+          `*`|p|: ref&lt;|S|,|T|,|A|&gt;
        <td>结果是与指针值 |p| 相同的内存视图（[=memory view=]）对应的引用值。
 
        如果 |p| 是一个无效内存引用（[=invalid memory reference=]），作为结果的指针同样是无效内存引用。
@@ -4595,7 +4638,7 @@ location|memory locations=]）。
   </thead>
   <tr algorithm="pipeline-overridable constant value">
        <td>
-          |c| 是解析（[=resolves|resolving=]）为类型 |T| 的[=in scope|in-scope=]管线可覆盖（[=pipeline-overridable=]）的 `let` 声明的标识符（[=identifier=]）。
+          |c| 是解析（[=resolves|resolving=]）为类型 |T| 的[=in scope|in-scope=]管线可覆盖（[=override declaration=]）的标识符（[=identifier=]）。
        <td class="nowrap">
           |c|: |T|
        <td>如果管线创建为常量 ID （[=pipeline constant ID|constant ID=]）指定了一个值，那么结果就是该值。对于不同的管线实例，此值可能不同。<br>
@@ -4798,11 +4841,11 @@ location|memory locations=]）。
     <tr><th style="width:40%">Precondition<th>Statement<th>Description
   </thead>
   <tr algorithm="updating assignment">
-    <td>|r|: ref<|SC|,|T|,|A|>,<br>
+    <td>|r|: ref<|S|,|T|,|A|>,<br>
         |A| is [=access/write=] or [=access/read_write=]<br>
         |e|: |T|,<br>
         |T| is a [=constructible=] type,<br>
-        |SC| is a writable [=storage class=]
+        |S| is a writable [=address space=]
     <td class="nowrap">|r| = |e|
     <td>Evaluates |e|, evaluates |r|, then writes the value computed for |e| into
         the [=memory locations=] referenced by |r|.
@@ -4822,7 +4865,7 @@ location|memory locations=]）。
         struct S {
             age: i32;
             weight: f32;
-        };
+        }
         var<private> person: S;
 
         fn f() {
@@ -4894,13 +4937,13 @@ location|memory locations=]）。
     [[block]] struct BufferContents {
         counter: atomic<u32>;
         data: array<vec4<f32>>;
-    };
-    [[group(0),binding(0)]] var<storage> buf: BufferContents;
-    [[group(0),binding(1)]] var t: texture_2d<f32>;
-    [[group(0),binding(2)]] var s: sampler;
+    }
+    @group(0) @binding(0) var<storage> buf: BufferContents;
+    @group(0) @binding(1) var t: texture_2d<f32>;
+    @group(0) @binding(2) var s: sampler;
 
-    [[stage(fragment)]]
-    fn shade_it() -> [[location(0)]] vec4<f32> {
+    @stage(fragment)
+    fn shade_it() -> @location(0) vec4<f32> {
       // Declare that buf, t, and s are part of the shader interface, without
       // using them for anything.
       _ = &buf;
@@ -5008,7 +5051,7 @@ location|memory locations=]）。
   </xmp>
 </div>
 
-注意：复合赋值可以改写为不同的 [SHORTNAME] 代码，使用 [=simple assignment=] 代替。
+注意：复合赋值可以改写为不同的 WGSL 代码，使用 [=simple assignment=] 代替。
 这个想法是使用一个指针来保存一次评估引用的结果。
 
 <p class="note" algorithm="translation compound assignment not vector component">
@@ -5100,7 +5143,7 @@ location|memory locations=]）。
 
 一个 <dfn noexport dfn-for="statement">if</dfn> 语句根据条件表达式的评估，有条件地执行至多一个 [=compound statement=]。
 
-[SHORTNAME] 中的 `if` 语句使用 if/else if/else 结构，其中包含一个必需的 `if` 子句、零个或多个 `elseif` 子句和一个可选的 `else` 子句。
+WGSL 中的 `if` 语句使用 if/else if/else 结构，其中包含一个必需的 `if` 子句、零个或多个 `elseif` 子句和一个可选的 `else` 子句。
 `if` 和 `else if` 子句条件的每个表达式都必须是标量布尔表达式。
 
 `if` 语句执行如下：
@@ -5197,7 +5240,7 @@ case 选择器值必须与计算选择器表达式的结果具有相同的类型
   </xmp>
 </div>
 
-<div class='example wgsl function-scope' heading="[SHORTNAME] Loop">
+<div class='example wgsl function-scope' heading="WGSL Loop">
   <xmp>
     let a: i32 = 2;
     var i: i32 = 0;      // <1>
@@ -5223,7 +5266,7 @@ case 选择器值必须与计算选择器表达式的结果具有相同的类型
   </xmp>
 </div>
 
-<div class='example wgsl function-scope' heading="[SHORTNAME] Loop with continue">
+<div class='example wgsl function-scope' heading="WGSL Loop with continue">
   <xmp>
     var a: i32 = 2;
     var i: i32 = 0;
@@ -5240,7 +5283,7 @@ case 选择器值必须与计算选择器表达式的结果具有相同的类型
   </xmp>
 </div>
 
-<div class='example wgsl function-scope' heading="[SHORTNAME] Loop with continue and continuing">
+<div class='example wgsl function-scope' heading="WGSL Loop with continue and continuing">
   <xmp>
     var a: i32 = 2;
     var i: i32 = 0;
@@ -5374,7 +5417,7 @@ for 循环的 `initializer` 在执行循环之前执行一次。
     * `if` 语句的 `else` 子句中唯一具有空的 `if` 子句且没有 `else if` 子句的语句。
 * `if` 语句必须出现在 `continuing` 子句的最后。
 
-<div class='example wgsl function-scope' heading="[SHORTNAME] Valid loop if-break from a continuing clause">
+<div class='example wgsl function-scope' heading="WGSL Valid loop if-break from a continuing clause">
   <xmp>
     var a: i32 = 2;
     var i: i32 = 0;
@@ -5393,7 +5436,7 @@ for 循环的 `initializer` 在执行循环之前执行一次。
   </xmp>
 </div>
 
-<div class='example wgsl function-scope' heading="[SHORTNAME] Valid loop if-else-break from a continuing clause">
+<div class='example wgsl function-scope' heading="WGSL Valid loop if-else-break from a continuing clause">
   <xmp>
     var a: i32 = 2;
     var i: i32 = 0;
@@ -5412,7 +5455,7 @@ for 循环的 `initializer` 在执行循环之前执行一次。
   </xmp>
 </div>
 
-<div class='example wgsl function-scope expect-error' heading="[SHORTNAME] Invalid breaks from a continuing clause">
+<div class='example wgsl function-scope expect-error' heading="WGSL Invalid breaks from a continuing clause">
   <xmp>
     var a: i32 = 2;
     var i: i32 = 0;
@@ -5522,9 +5565,7 @@ for 循环的 `initializer` 在执行循环之前执行一次。
 
 在执行 `discard` 语句后，控制流在入口点的持续时间内是不一致的。
 
-问题：[[#uniform-control-flow]] 需要说明是否所有被丢弃的调用都保持统一的控制流。
-
-<div class='example' heading='Using the discard statement to throw away a fragment'>
+<div class='example wgsl' heading='Using the discard statement to throw away a fragment'>
   <xmp>
   var<private> will_emit_color: bool = false;
 
@@ -5537,9 +5578,9 @@ for 循环的 `initializer` 在执行循环之前执行一次。
     will_emit_color = true;
   }
 
-  [[stage(fragment)]]
-  fn main([[builtin(position)]] coord_in: vec4<f32>)
-    -> [[location(0)]] vec4<f32>
+  @stage(fragment)
+  fn main(@builtin(position) coord_in: vec4<f32>)
+    -> @location(0) vec4<f32>
   {
     discard_if_shallow(coord_in);
 
@@ -5788,7 +5829,7 @@ for 循环的 `initializer` 在执行循环之前执行一次。
 每个 [=built-in function=] 都有一个 [=behavior=] {Next}。
 并且每个未在上表中列出的运算符应用程序都具有相同的 [=behavior=]，就好像它是一个具有相同操作数的函数调用，并且函数的 [=behavior=] 为 {Next}。
 如果行为分析失败，则会产生 [=shader-creation error=]：
-- 行为分析必须能够确定每个语句、表达式和函数的 [=behavior=]。 如果不满足先决条件，这只会失败。
+- 行为分析必须能够确定每个语句、表达式和函数的非空的 [=behavior=]。
 - 函数行为必须满足上面给出的规则。
 - 计算和顶点入口点的行为不得包含丢弃。
 
@@ -5801,6 +5842,7 @@ for 循环的 `initializer` 在执行循环之前执行一次。
 - 连续块的行为包含任何 Continue、Return 或 Discard
 - 开关的最后一种情况的行为包含 Fallthrough
 - 计算或顶点入口点函数的行为包含丢弃
+- 一些明显的无限循环有一个空的行为集，因此是无效的。
 
 This analysis can be run in linear time, by analyzing the call-graph bottom-up (since the behavior of a function call can depend on the function's code).
 ### 实例 ### {#behaviors-examples}
@@ -5885,6 +5927,13 @@ This analysis can be run in linear time, by analyzing the call-graph bottom-up (
         }
       }            // 行为: {Next}， 当 switch 取代了 Break， 用 Next
       a = 5;       // 有效，因为前面的语句在其行为中有 Next
+    }
+   </xmp>
+</div>
+<div class='example wgsl' heading='Obviously infinite loops'>
+   <xmp highlight='rust'>
+    fn invalid_infinite_loop() {
+      loop { }     // Behavior: { }.  Invalid because it's empty.
     }
    </xmp>
 </div>
@@ -5988,10 +6037,10 @@ This analysis can be run in linear time, by analyzing the call-graph bottom-up (
 * [=entry point=] 函数由 WebGPU 实现调用，以在 [=pipeline=] 中执行 [=shader stage=] 的工作。 见 [[#entry-points]]
 
 有两种功能：
-* [=built-in function=] 由 [SHORTNAME] 实现提供，
-     并且始终可用于 [SHORTNAME] 程序。
+* [=built-in function=] 由 WGSL 实现提供，
+     并且始终可用于 WGSL 程序。
      参见 [[#builtin-functions]]。
-* <dfn noexport>user-defined function</dfn>在[SHORTNAME]程序中声明。
+* <dfn noexport>user-defined function</dfn>在 WGSL 程序中声明。
 
 ## 声明一个用户定义的函数 ## {#function-declaration-sec}
 
@@ -6018,12 +6067,12 @@ This analysis can be run in linear time, by analyzing the call-graph bottom-up (
 <div class='syntax' noexport='true'>
   <dfn for=syntax>function_decl</dfn> :
 
-    | [=syntax/attribute_list=] * [=syntax/function_header=] [=syntax/compound_statement=]
+    | [=syntax/attribute=] * [=syntax/function_header=] [=syntax/compound_statement=]
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>function_header</dfn> :
 
-    | [=syntax/fn=] [=syntax/ident=] [=syntax/paren_left=] [=syntax/param_list=] ? [=syntax/paren_right=] ( [=syntax/arrow=] [=syntax/attribute_list=] * [=syntax/type_decl=] ) ?
+    | [=syntax/fn=] [=syntax/ident=] [=syntax/paren_left=] [=syntax/param_list=] ? [=syntax/paren_right=] ( [=syntax/arrow=] [=syntax/attribute=] * [=syntax/type_decl=] ) ?
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>param_list</dfn> :
@@ -6033,18 +6082,18 @@ This analysis can be run in linear time, by analyzing the call-graph bottom-up (
 <div class='syntax' noexport='true'>
   <dfn for=syntax>param</dfn> :
 
-    | [=syntax/attribute_list=] * [=syntax/variable_ident_decl=]
+    | [=syntax/attribute=] * [=syntax/variable_ident_decl=]
 </div>
 
-[SHORTNAME] 定义了以下可应用于函数声明的属性:
+WGSL 定义了以下可应用于函数声明的属性:
  * [=attribute/stage=]
  * [=attribute/workgroup_size=]
 
-[SHORTNAME] 定义了以下可应用于函数参数和返回类型的属性:
+WGSL 定义了以下可应用于函数参数和返回类型的属性:
  * [=attribute/builtin=]
  * [=attribute/location=]
 
-<div class='example' heading='Simple functions'>
+<div class='example wgsl' heading='Simple functions'>
   <xmp>
     // 声明 add_two 函数。
     // 它有两个形参，i 和 b。
@@ -6058,7 +6107,7 @@ This analysis can be run in linear time, by analyzing the call-graph bottom-up (
      // 它没有指定的返回类型。
      // 它调用了ordinary_two 函数，并捕获
      // 命名值 'two' 中的结果值。
-    [[stage(compute)]] fn main() {
+    @stage(compute) fn main() {
        let six: i32 = add_two(4, 5.0);
     }
   </xmp>
@@ -6095,8 +6144,8 @@ This analysis can be run in linear time, by analyzing the call-graph bottom-up (
 2. [=calling function=] 的执行被暂停。
     所有 [=function scope=] 变量和常量都保持其当前值。
 3. 如果调用的函数是[=user-defined function|user-defined=]，
-    为被调用函数中的每个函数作用域变量分配存储空间。
-    * 初始化发生在 [[#var-and-let]] 中。
+    为被调用函数中的每个函数作用域变量分配内存。
+    * 初始化发生在 [[#var-and-value]] 中。
 4. 被调用函数的形参值由函数调用参数值按位置匹配确定。
     例如，在被调用函数的主体中，第一个形参将表示
     [=call site=] 处第一个参数的值。
@@ -6114,7 +6163,7 @@ This analysis can be run in linear time, by analyzing the call-graph bottom-up (
 
 ## 函数限制 ## {#function-restriction}
 
-* [=vertex=] 着色器必须返回 `position` [=built-in output variable|built-in variable=]。 参见 [[#builtin-variables]]。
+* [=vertex=] 着色器必须返回 `position` [=built-in output value=]。 参见 [[#builtin-values]]。
 * 入口点绝不能是 [=function call=] 的目标。
 * 如果函数具有返回类型，则它必须是 [=constructible=] 类型。
 * [=formal parameter|function parameter=] 必须是以下类型之一：
@@ -6123,20 +6172,20 @@ This analysis can be run in linear time, by analyzing the call-graph bottom-up (
     * texture 类型
     * sampler 类型
 * 每个函数调用参数必须评估为相应函数参数的类型。
-    * 特别是，作为指针的参数必须与存储类、指针对象类型和访问模式上的形参一致。
-* 对于[=user-defined functions=]，指针类型的参数必须在以下存储类之一中:
-    * [=storage classes/function=]
-    * [=storage classes/private=]
-    * [=storage classes/workgroup=]
-* 对于 [=built-in functions=]，指针类型的参数必须在以下存储类之一中:
-    * [=storage classes/function=]
-    * [=storage classes/private=]
-    * [=storage classes/workgroup=]
-    * [=storage classes/storage=]
+    * 特别是，作为指针的参数必须与地址空间、指针对象类型和访问模式上的形参一致。
+* 对于[=user-defined functions=]，指针类型的参数必须在以下地址空间之一中:
+    * [=address spaces/function=]
+    * [=address spaces/private=]
+    * [=address spaces/workgroup=]
+* 对于 [=built-in functions=]，指针类型的参数必须在以下地址空间之一中:
+    * [=address spaces/function=]
+    * [=address spaces/private=]
+    * [=address spaces/workgroup=]
+    * [=address spaces/storage=]
 * 指向 [=user-defined function=] 的指针类型的每个参数必须是以下参数之一:
     * [[#var-identifier-expr|variable identifier expression]] 的  [[#address-of-expr|address-of expression]]
     * 一个函数参数
-* [SHORTNAME] 假定函数参数和变量的任何组合之间不存在别名。
+* WGSL 假定函数参数和变量的任何组合之间不存在别名。
     因此，指针类型的函数参数不得用于读取或写入其 [=原始变量 =] 的任何 [=内存位置 =]，这些参数也通过以下方式写入：
     * 同一个函数中的另一个函数参数
     * 直接使用原始变量的函数中的语句或表达式
@@ -6172,7 +6221,7 @@ WebGPU 以 [=draw command|draw=] 或 [=dispatch commands=] 的形式向 GPU 发�
 
 WebGPU 规范更详细地描述了管道。
 
-[SHORTNAME] 定义了三个 <dfn noexport>shader stage</dfn>，对应流水线的可编程部分：
+WGSL 定义了三个 <dfn noexport>shader stage</dfn>，对应流水线的可编程部分：
 
 * <dfn noexport>compute</dfn>
 * <dfn noexport>vertex</dfn>
@@ -6194,8 +6243,8 @@ WebGPU 规范更详细地描述了管道。
 
 <div class='example wgsl global-scope' heading='Entry Point'>
   <xmp>
-    [[stage(vertex)]]
-    fn vert_main() -> [[builtin(position)]] vec4<f32> {
+    @stage(vertex)
+    fn vert_main() -> @builtin(position) vec4<f32> {
       return vec4<f32>(0.0, 0.0, 0.0, 1.0);
     }
        // OpEntryPoint Vertex %vert_main "vert_main" %return_value
@@ -6205,8 +6254,8 @@ WebGPU 规范更详细地描述了管道。
        // %ptr = OpTypePointer Output %v4float
        // %return_value = OpVariable %ptr Output
 
-    [[stage(fragment)]]
-    fn frag_main([[builtin(position)]] coord_in: vec4<f32>) -> [[location(0)]] vec4<f32> {
+    @stage(fragment)
+    fn frag_main(@builtin(position) coord_in: vec4<f32>) -> @location(0) vec4<f32> {
       return vec4<f32>(coord_in.x, coord_in.y, 0.0, 1.0);
     }
        // OpEntryPoint Fragment %frag_main "frag_main" %return_value %coord_in
@@ -6216,7 +6265,7 @@ WebGPU 规范更详细地描述了管道。
        // %ptr = OpTypePointer Output %v4float
        // %return_value = OpVariable %ptr Output
 
-    [[stage(compute)]]
+    @stage(compute)
     fn comp_main() { }
        // OpEntryPoint GLCompute %comp_main "comp_main"
   </xmp>
@@ -6232,7 +6281,7 @@ WebGPU 规范更详细地描述了管道。
 
 ### 入口点的函数属性 ### {#entry-point-attributes}
 
-[SHORTNAME] 定义了以下可应用于入口点声明的属性:
+WGSL 定义了以下可应用于入口点声明的属性:
  * [=attribute/stage=]
  * [=attribute/workgroup_size=]
 
@@ -6240,19 +6289,19 @@ WebGPU 规范更详细地描述了管道。
 
 <div class='example wgsl global-scope' heading='workgroup_size Attribute'>
   <xmp>
-    [[ stage(compute), workgroup_size(8,4,1) ]]
+    @stage(compute), workgroup_size(8,4,1)
     fn sorter() { }
        // OpEntryPoint GLCompute %sorter "sorter"
        // OpExecutionMode %sorter LocalSize 8 4 1
 
-    [[ stage(compute), workgroup_size(8u) ]]
+    @stage(compute), workgroup_size(8u)
     fn reverser() { }
        // OpEntryPoint GLCompute %reverser "reverser"
        // OpExecutionMode %reverser LocalSize 8 1 1
 
     // Using an pipeline-overridable constant.
-    [[override(42)]] let block_width = 12u;
-    [[ stage(compute), workgroup_size(block_width) ]]
+    @override(42) let block_width = 12u;
+    @stage(compute) @workgroup_size(block_width)
     fn shuffler() { }
         // SPIR-V 转换使用 WorkgroupSize 修饰的常量，
         // 其中第一个组件是一个装饰有的 OpSpecConstant
@@ -6260,7 +6309,7 @@ WebGPU 规范更详细地描述了管道。
         // 使用默认值 1。
 
     // 错误：必须在计算着色器上指定 workgroup_size
-    [[ stage(compute) ]]
+    @stage(compute)
     fn bad_shader() { }
   </xmp>
 </div>
@@ -6275,7 +6324,7 @@ WebGPU 规范更详细地描述了管道。
 * 纹理资源
 * 采样器资源
 
-这些对象由某些 [=storage classes=] 中的模块范围变量表示。
+这些对象由某些 [=address spaces=] 中的模块范围变量表示。
 
 当在 [=function declaration=] [=resolves=] 中使用 [=identifier=] 到 [=module scope|module-scope=] 变量时，我们说该变量是 <dfn>statically accessed</dfn> 按功能。`let` 声明的常量的静态访问定义类似。
 请注意，静态访问与着色器的执行是否将实际评估引用变量的表达式，或者甚至执行可能包含表达式的语句无关。
@@ -6284,58 +6333,36 @@ WebGPU 规范更详细地描述了管道。
   - 入口点的所有参数
   - 入口点的结果值
   - 所有模块范围[=module scope=]变量静态访问[=statically accessed=]由着色器阶段中的函数|着色器阶段中的函数[=functions in a shader stage|functions in the shader stage=]，
-        并且在存储类中[=storage classes/uniform=]，[=storage classes/storage=]，或[=storage classes/handle=]。
+        并且在地址空间中[=address spaces/uniform=]，[=address spaces/storage=]，或[=address spaces/handle=]。
 
 ### 管道输入输出接口 ### {#pipeline-inputs-outputs}
 
-<dfn dfn>Entry point IO type</dfn>s 包括以下内容：
-  - 内置变量。 参考 [[#builtin-inputs-outputs]]。
-  - 用户定义的 IO。 参考 [[#user-defined-inputs-outputs]]
-  - 仅包含内置变量和用户定义 IO 的结构。
-    该结构不得包含嵌套结构。
+<dfn noexport>内置输入值</dfn>提供对系统生成的控制信息的访问。
+内置输入集在 [[#builtin-values]] 中列出。
 
-<dfn noexport>pipeline input</dfn>是从管道上游提供给着色器阶段的数据。
-管道输入由入口点的参数表示。
+阶段 *S* 的内置输入，名称为 *X*，类型为 *T*<sub>*X*</sub>，可通过 a
+[=formal parameter=] 到 [=shader stage=] *S* 的 [=entry point=]，采用以下两种方式之一：
 
-<dfn noexport>pipeline output</dfn> 是着色器为管道下游的进一步处理提供的数据。
-管道输出由入口点的返回类型表示。
+1. 参数具有`builtin(`*X*`)`属性，类型为*T*<sub>*X*</sub>。
+2. 参数具有结构类型，其中结构成员之一具有属性`builtin(`*X*`)`，类型为*T*<sub>*X*</sub>。
 
-每个管道输入或输出是以下之一：
+相反，当入口点的参数或参数成员具有“内置”属性时，
+相应的内置函数必须是入口点着色器阶段的输入。
 
-* 一个内置变量。 参考 [[#builtin-inputs-outputs]]。
-* 一个用户定义的值。 参考 [[#user-defined-inputs-outputs]]。
+着色器使用 <dfn noexport>build-in output value</dfn> 来传达
+控制信息到管道中的后续处理步骤。
+内置输出集列在 [[#builtin-values]] 中。
 
-#### 内置输入和输出 #### {#builtin-inputs-outputs}
+一个名为 *Y* 和类型 *T*<sub>*Y*</sub> 的阶段 *S* 的内置输出通过 [=return value=] 设置为
+[=shader stage=] *S* 的 [=entry point=]，采用以下两种方式之一：
 
-<dfn noexport>built-in input variable</dfn> 提供对系统生成的控制信息的访问。
-[[#builtin-variables]] 中列出了一组内置输入。
+1. 入口点 [=return type=] 具有属性 `builtin(`*Y*`)` 并且是 *T*<sub>*Y*</sub> 类型。
+2.入口点[=return type=]具有结构类型，其中结构成员之一具有属性`builtin(`*Y*`)`并且是*T*<sub>*Y*</sub>类型.
 
-声明一个变量，用于从入口点访问特定的输入内置 *X*：
+相反，当入口点的返回类型或返回类型的成员具有“内置”属性时，
+相应的内置函数必须是入口点着色器阶段的输出。
 
-* 声明入口点函数的参数，其中[=store type=] 是*X* 的列出存储类型。
-* 将 `builtin(`*X*`)` 属性应用于参数。
-
-内置输出变量<dfn noexport>built-in output varialbe</dfn>被着色器用来将控制信息传送到管道中的后续处理步骤。
-[[#builtin-variables]] 中列出了一组内置输出。
-
-要声明一个变量以从入口点访问内置的特定输出 *Y*：
-
-* 向入口点的结果添加一个变量，其中 [=store type=] 是 *Y* 的列出存储类型：
-  * 如果入口点没有结果类型，请将其更改为变量类型。
-  * 否则，将结果类型设为结构体，其中一个字段是新变量。
-* n将 `builtin(`*Y*`)` 属性应用于结果变量。
-
-输入和输出内置变量也可以声明为结构的成员，这些结构是入口点函数参数（对于输入）或入口点的返回类型（对于输出）。
-结构成员的类型必须与为内置变量指定的类型相匹配。
-
-`builtin` 属性不得应用于 [=module scope=] 中的变量，或函数作用域中的局部变量。
-
-一个变量不能有多个 `builtin` 属性。
-
-每个内置变量都有一个关联的着色器阶段，如 [[#builtin-variables]] 中所述。
-如果内置变量具有阶段 *S* 并被函数 *F* 用作参数或结果类型，则 *F* 必须是 [=着色器阶段中的函数|着色器中的函数= ] 用于阶段 *S*。
-
-问题：在 Vulkan 中，内置变量占用 I/O 位置插槽，并计入限制。
+注意：内置的`position`既是顶点着色器的输出，也是片段着色器的输入。
 
 #### 用户定义的输入和输出 #### {#user-defined-inputs-outputs}
 
@@ -6347,7 +6374,7 @@ WebGPU 规范更详细地描述了管道。
 #### 插值 #### {#interpolation}
 
 作者可以通过使用 [=attribute/interpolate=] 属性来控制如何插入用户定义的 IO 数据。
-[SHORTNAME] 提供了两个方面的插值来控制：插值的类型和插值的采样。
+WGSL 提供了两个方面的插值来控制：插值的类型和插值的采样。
 
 插值类型 <dfn noexport>interpolation type</dfn> 必须是以下之一:
 * `perspective` - 值以透视正确的方式插入。
@@ -6361,14 +6388,14 @@ WebGPU 规范更详细地描述了管道。
 * `sample` - 对每个样本执行内插。当应用此属性时，每个样本调用一次 [=fragment=] 着色器。
 
 用于标量或向量浮点类型的用户自定义IO:
-* 如果未指定插值属性，则假定为 `[[interpolate(perspective, center)]]`。
+* 如果未指定插值属性，则假定为 `@interpolate(perspective, center)`。
 * 如果使用插值类型指定插值属性：
     * 如果插值类型为 `flat`，则不得指定插值采样。
     * 如果插值类型是 `perspective` 或 `linear`，则:
          * 任何插值采样都是有效的。
          * 如果未指定插值采样，则假定为 `center`。
 
-标量或向量整数类型的用户定义 IO 必须始终指定为 `[[interpolate(flat)]]`。
+标量或向量整数类型的用户定义 IO 必须始终指定为 `@interpolate(flat)`。
 
 插值属性必须在 [=vertex=] 输出和 [=fragment=] 输入之间匹配，在相同的 [=pipeline=] 中具有相同的 [=attribute/location=] 分配。
 
@@ -6381,7 +6408,7 @@ WebGPU 规范更详细地描述了管道。
 位置通过 [=attribute/location=] 属性指定。
 
 每个用户定义的输入和输出都必须有一组完全指定的位置。
-入口点 IO 中的每个结构成员必须是内置变量之一
+入口点 IO 中的每个结构成员必须是内置值之一
 （参见 [[#builtin-inputs-outputs]]），或分配一个位置。
 
 位置不得在以下每个集合内重叠：
@@ -6399,83 +6426,83 @@ WebGPU 规范更详细地描述了管道。
 
 注意：入口点的可用位置数由 WebGPU API 定义。
 
-<div class='example applying location attribute' heading='Applying location attributes'>
+<div class='example wgsl applying location attribute' heading='Applying location attributes'>
   <xmp>
     struct A {
-      [[location(0)]] x: f32;
+      @location(0) x: f32;
       // 尽管位置是 16 字节，但 x 和 y 不能共享位置
-      [[location(1)]] y: f32;
+      @location(1) y: f32;
     };
 
     // in1 occupies locations 0 and 1.
     // in2 occupies location 2.
     // The return value occupies location 0.
-    [[stage(fragment)]]
-    fn fragShader(in1: A, [[location(2)]] in2: f32) -> [[location(0)]] vec4<f32> {
+    @stage(fragment)
+    fn fragShader(in1: A, @location(2) in2: f32) -> @location(0) vec4<f32> {
      // ...
     }
   </xmp>
 </div>
 
-用户定义的 IO 可以与同一结构中的内置变量混合使用。 例如，
+用户定义的 IO 可以与同一结构中的内置值混合使用。 例如，
 
-<div class='example mixing builtins and user-defined IO' heading='Mixing builtins and user-defined IO'>
+<div class='example wgsl mixing builtins and user-defined IO' heading='Mixing builtins and user-defined IO'>
   <xmp>
     // Mixed builtins and user-defined inputs.
     struct MyInputs {
-      [[location(0)]] x: vec4<f32>;
-      [[builtin(front_facing)]] y: bool;
-      [[location(1), interpolate(flat)]] z: u32;
+      @location(0) x: vec4<f32>;
+      @builtin(front_facing) y: bool;
+      @location(1), interpolate(flat) z: u32;
     };
 
     struct MyOutputs {
-      [[builtin(frag_depth)]] x: f32;
-      [[location(0)]] y: vec4<f32>;
+      @builtin(frag_depth) x: f32;
+      @location(0) y: vec4<f32>;
     };
 
-    [[stage(fragment)]]
+    @stage(fragment)
     fn fragShader(in1: MyInputs) -> MyOutputs {
       // ...
     }
   </xmp>
 </div>
 
-<div class='example invalid locations' heading='Invalid location assignments'>
+<div class='example wgsl invalid locations' heading='Invalid location assignments'>
   <xmp>
     struct A {
-      [[location(0)]] x: f32;
+      @location(0) x: f32;
       // Invalid, x and y cannot share a location.
-      [[location(0)]] y: f32;
-    };
+      @location(0) y: f32;
+    }
 
     struct B {
-      [[location(0)]] x: f32;
-    };
+     @location(0) x: f32;
+    }
 
     struct C {
       // Invalid, structures with user-defined IO cannot be nested.
       b: B;
-    };
+    }
 
     struct D {
       x: vec4<f32>;
-    };
+    }
 
-    [[stage(fragment)]]
+    @stage(fragment)
     // Invalid, location cannot be applied to a structure type.
-    fn fragShader1([[location(0)]] in1: D) {
+    fn fragShader1(@location(0) in1: D) {
       // ...
     }
 
-    [[stage(fragment)]]
+    @stage(fragment)
     // Invalid, in1 and in2 cannot share a location.
-    fn fragShader2([[location(0)]] in1: f32, [[location(0)]] in2: f32) {
+    fn fragShader2(@location(0) in1: f32, @location(0) in2: f32) {
       // ...
     }
 
-    [[stage(fragment)]]
+    @stage(fragment)
     // Invalid, location cannot be applied to a structure.
-    fn fragShader3([[location(0)]] in1: vec4<f32>) -> [[location(0)]] D {
+    fn fragShader3(@location(0) in1: vec4<f32>) -> @location(0) D {
       // ...
     }
   </xmp>
@@ -6507,12 +6534,12 @@ WebGPU 规范更详细地描述了管道。
 
 WebGPU 要求着色器的资源接口与使用着色器的 [[WebGPU#pipeline-layout|layout of the pipeline]] 匹配。
 
-资源接口中的每个 [SHORTNAME] 变量都必须绑定到具有兼容 [[WebGPU#binding-resource-type|resource type]]
+资源接口中的每个 WGSL 变量都必须绑定到具有兼容 [[WebGPU#binding-resource-type|resource type]]
 和 [[WebGPU#binding-type|binding type]] 的 WebGPU 资源，其中兼容性为 由下表定义。
 <table class='data'>
   <caption>WebGPU binding type compatibility</caption>
   <thead>
-    <tr><th>[SHORTNAME] resource
+    <tr><th>WGSL resource
         <th>WebGPU<br>[[WebGPU#binding-resource-type|Resource type]]
         <th colspan=2>WebGPU [[WebGPU#binding-type|Binding type]]
   </thead>
@@ -6550,29 +6577,14 @@ WebGPU 要求着色器的资源接口与使用着色器的 [[WebGPU#pipeline-lay
       <td>[[WebGPU#dom-gpustoragetextureaccess-write-only|write-only]]
 </table>
 
-TODO: 描述过滤或非过滤采样器何时有效。
-
-TODO: 描述浮动与不可过滤的浮动采样纹理何时有效。
-
-如果|B| 是资源接口中的 [=uniform buffer=] 变量，并且 |WB| 是 [[WebGPU#buffer-interface|WebGPU GPUBuffer]] 绑定到 |B|，然后：
-* |WB|的大小 必须至少与 |B| 的 [=store type=] 在 [=storage classes/storage=] 存储类中的大小一样大。
-
-如果|B| 是资源接口中的 [=storage buffer=] 变量，而 |WB| 是 [[WebGPU#buffer-interface|WebGPU GPUBuffer]] 绑定到 |B|，然后：
-* 如果 [=store type=] |S| 的 |B| 不包含 [=runtime-sized=] 数组，则 |WB| 的大小 必须至少与 |S| 在 [=storage classes/storage=] 存储类中的大小一样大。
-* 如果 [=store type=] |S| 的 |B| 包含一个 [=runtime-sized=] 数组作为它的最后一个成员，
-    那么：
-    * 该成员的运行时确定的数组长度必须至少为 1。
-    * |WB|的尺寸 必须至少与存储在 |B| 中的值在存储类 [=storage classes/storage=] 中的大小一样大。
-
-注意：回想一下，[=runtime-sized=] 数组只能作为结构类型中的最后一个元素出现，该结构类型是存储缓冲区变量的存储类型。
-
-TODO: 描述其他接口匹配要求，例如 对于图像？
+请参阅 [[WebGPU#abstract-opdef-validating-gpuprogrammablestage|WebGPU API]]
+接口验证要求规范。
 
 # 语言扩展 # {#language-extensions}
 
-[SHORTNAME] 语言预计会随着时间的推移而发展。
+WGSL 语言预计会随着时间的推移而发展。
 
-<dfn noexport>extension</dfn> 是对 [SHORTNAME] 规范的特定版本的一组连贯修改的命名分组，由以下任意组合组成：
+<dfn noexport>extension</dfn> 是对 WGSL 规范的特定版本的一组连贯修改的命名分组，由以下任意组合组成：
 * 通过新语法添加新概念和行为，包括：
      * 声明、语句、属性和内置函数。
 * 删除当前规范或以前发布的扩展中的限制。
@@ -6608,10 +6620,10 @@ TODO: 描述其他接口匹配要求，例如 对于图像？
 </div>
 
 注意：语法规则包括终止分号标记，确保附加功能仅在该分号之后可用。
-因此，任何 [SHORTNAME] 实现都可以解析整个 `enable` 指令。
+因此，任何 WGSL 实现都可以解析整个 `enable` 指令。
 当实现遇到不受支持的扩展的启用指令时，实现可以发出明确的诊断。
 
-<div class='example using extensions' heading="Using hypothetical extensions">
+<div class='example wgsl using extensions' heading="Using hypothetical extensions">
   <xmp>
     // 启用假设的 IEEE-754 binary16 浮点扩展。enable f16;
     // 一个冗余的启用指令是可以的。
@@ -6626,19 +6638,19 @@ TODO: 描述其他接口匹配要求，例如 对于图像？
     fn halve_it(x: f16) -> f16 {
        let two: f16 = f16(2);
        return x / two;
-    };
+    }
 
     [[round_to_even_f16]] // Attribute enabled by the rounding_mode_f16 extension
     fn triple_it(x: f16) -> f16 {
        return x * f16(3); // Uses round-to-even.
-    };
+    }
   </xmp>
 </div>
 
 
 # WGSL 项目 # {#wgsl-module}
 
-[SHORTNAME] 程序是一系列可选的 [=directives=] 后跟 [=module scope=] [=declarations=]。
+WGSL 程序是一系列可选的 [=directives=] 后跟 [=module scope=] [=declarations=]。
 
 <div class='syntax' noexport='true'>
   <dfn for=syntax>translation_unit</dfn> :
@@ -6661,6 +6673,20 @@ TODO: 描述其他接口匹配要求，例如 对于图像？
 
     | [=syntax/function_decl=]
 </div>
+## 限制条件 ## {#limits}
+
+程序必须满足以下限制：
+
+<table class='data'>
+  <caption>可量化的着色器复杂性限制</caption>
+  <thead>
+    <tr><th>限制<th>最大值
+  </thead>
+    <tr><td>[=structure=] 类型中的成员数<td>16383
+    <tr><td>[=复合=] 类型的[=嵌套深度=] <td>255
+    <tr><td>函数的 [=formal parameter|parameters=] 的数量<td>255
+    <tr><td>[=statement/switch=] 语句中的 case 选择器值的数量<td>16383
+</table>
 
 # Execution # {#execution}
 
@@ -6669,7 +6695,7 @@ TODO: 描述其他接口匹配要求，例如 对于图像？
 
 ## 调用中的程序顺序 ## {#program-order}
 
-[SHORTNAME] 程序中的每个语句在执行过程中可能会被执行零次或多次。
+WGSL程序中的每个语句在执行过程中可能会被执行零次或多次。
 对于给定的调用，给定语句的每次执行都代表一个唯一的<dfn noexport>动态语句实例</dfn>。
 
 当语句包含表达式时，语句的语义决定：
@@ -6679,25 +6705,351 @@ TODO: 描述其他接口匹配要求，例如 对于图像？
 表达式嵌套定义了完成评估必须满足的数据依赖关系。
 也就是说，必须先计算嵌套表达式，然后才能计算封闭表达式。
 表达式操作数的计算顺序是从左到右
-[简称]。
+WGSL。
 例如，`foo() + bar()` 必须在 `bar()` 之前计算 `foo()`。
 参见 [[#expressions]]。
 
-[SHORTNAME] 程序中的语句按控制流顺序执行。
+WGSL 程序中的语句按控制流顺序执行。
 参见 [[#statements]] 和 [[#function-calls]]。
 
-## Uniformity TODO ## {#uniformity}
+## 一致性## {#uniformity}
+### 术语和概念### {#uniformity-concepts}
 
-### Uniform control flow TODO ### {#uniform-control-flow}
+以下定义只是提供信息，试图对下一小节中的分析正在计算的内容给出一个直觉。
+分析实际上定义了这些概念，以及程序何时有效或违反了统一性规则。
+对于给定的一组调用：
+- 如果所有调用在该程序点同步执行，则称控制流在程序中的某个点是统一的。
+- 如果表达式处于统一控制流中，则称该表达式是统一的，并且所有调用都为其计算相同的值。
+- 一个局部变量被认为是统一的，如果在它存在的每个点，所有调用在该变量中都具有相同的值。
 
-### Divergence and reconvergence TODO ### {#divergence-reconvergence}
+### 均匀度分析概述### {#uniformity-overview}
 
-### Uniformity restrictions TODO ### {#uniformity-restrictions}
+一些函数（例如屏障和导数）只有在统一控制流中调用才是安全的。
+在本节中，我们指定了一个分析来验证这些函数是否仅在这样的上下文中被调用。
+
+<div class="note">注意：此分析具有以下理想属性：
+       - 声音（意味着它拒绝所有会破坏内置一致性要求的程序）
+       - 线性时间复杂度（以程序中的令牌数量计）
+       - 将一段代码重构为函数，或内联函数，如果着色器在转换之前有效，则不能使着色器无效
+       - 如果分析拒绝一个程序，它会提供一个简单的暗示链，用户代理可以使用这些暗示来制作一个好的错误消息
+</div>
+
+该分析分析每个函数，验证是否存在可以安全调用此函数的上下文。 如果没有这样的上下文，它会拒绝该程序为无效。
+
+同时，它计算有关函数的元数据，以依次帮助分析其调用者。
+这意味着必须首先构建调用图，并且必须从叶子向上分析函数，即从不调用标准库之外的函数的函数到入口点。
+这样，每当分析一个函数时，它的所有被调用者的元数据都已经被计算出来。
+没有陷入循环的风险，因为语言中禁止重复。
+
+注意：同样的事情的另一种说法是，我们对按“是（可能是间接的）被调用者”偏序排序的函数进行拓扑排序，并按该顺序分析它们。
+
+### 分析函数的一致性要求 ### {#uniformity-function}
+
+每个功能分两个阶段进行分析。
+
+第一阶段遍历函数的语法，根据以下小节中的规则构建一个有向图。
+第二阶段探索该图，导致要么拒绝程序，要么计算调用此函数的约束。
+<div class="note">注：除了RequiredToBeUniform和MayBeNonUniform这两个特殊节点外，所有节点都可以理解为具有以下含义之一：
+        - 要求特定程序点的控制流是统一的
+        - 表达式的值必须是统一的
+        - 变量必须是统一的
+
+        一条边可以理解为从其源节点对应的语句到其目标节点对应的语句的蕴涵。
+
+        为了表达某些东西必须始终是统一的（例如，派生类调用站点的控制流），我们将一条从 RequiredToBeUniform 的边添加到相应的节点。
+        理解这一点的一种方法是，RequiredToBeUniform 对应于命题 True，因此 RequiredToBeUniform -> X 等同于说 X 为真。
+
+        反过来，为了表示我们无法确保某些事物的一致性（例如，保存线程 id 的变量），我们将一条从相应节点的边添加到 MayBeNonUniform。
+        理解这一点的一种方法是，MayBeNonUniform 对应于命题 False，因此 X -> MayBeNonUniform 等同于说 X 为假。
+
+        这种解释的一个结果是，从RequiredToBeUniform 可到达的每个节点都对应于程序必须是一致的东西才能有效，并且每个cannotBeUniform 可以到达的节点都对应于我们无法保证其一致性的东西。如果存在从RequiredToBeUniform 到MayBeNonUniform 的任何路径，那么我们就会违反一致性（因此拒绝该程序）。
+</div>
+更详细地说，这是我们为每个函数计算的结果：
+
+* 关于可以调用函数的控制流的标签：{AlwaysRequiredToBeUniform, RequiredToBeUniformForControlFlowAfter} 之一
+* 函数的每个参数的标签：{AlwaysRequiredToBeUniform、RequiredToBeUniformForControlFlowAfter、RequiredToBeUniformForReturnValue、NoRestriction}之一
+* 函数整体的标记：{ControlFlowMayBeNonUniformAfter, ReturnValueMayBeNonUniform, NoRestriction}之一
+
+这是为给定函数计算此数据的算法：
+
+* 创建名为“RequiredToBeUniform”、“MayBeNonUniform”、“CF_start”、“CF_return”的节点，如果函数为非 void，则创建名为“Value_return”的节点
+* 为函数的每个参数创建一个节点，我们称之为“arg_i”
+* 遍历函数的语法，按照下一节的规则向图中添加节点和边（[[#uniformity-statements]]、[[#uniformity-function-calls]]、[[#uniformity-expressions ]])，使用 CF_start 作为函数体的起始控制流。
+* 查看从“RequiredToBeUniform”可以到达哪些节点
+    * 如果该集合包含节点“MayBeNonUniform”，则拒绝该程序。
+    * 如果该集合包括“CF_start”，则可以调用该函数的控制流是 AlwaysRequiredToBeUniform。
+    * 否则为RequiredToBeUniformForControlFlowAfter
+    * 对于这个集合中的每一个“arg_i”，对应的参数是AlwaysRequiredToBeUniform
+    * 从图中删除所有已访问的节点
+* 查看从“CF_return”可以到达哪些节点
+    * 如果该集合包含“MayBeNonUniform”，则函数为 ControlFlowMayBeNonUniformAfter
+    * 对于这个集合中的每一个“arg_i”，对应的参数是RequiredToBeUniformForControlFlowAfter
+    * 从图中删除所有已访问的节点
+* 如果“Value_return”存在，查看哪些节点可以从它到达
+    * 如果该集合包含“MayBeNonUniform”，则函数为 ReturnValueMayBeNonUniform
+    * 对于这个集合中的每一个“arg_i”，对应的参数是RequiredToBeUniformForReturnValue
+* 如果函数没有被分配一个标签，那么它是 NoRestriction。
+* 对于每个参数，如果没有分配标签，则为 NoRestriction。
+
+注意：此时可以销毁整个图形。上面列出的标签是我们分析这个函数的调用者需要记住的所有标签。
+
+### 语句的统一性规则 ### {#uniformity-statements}
+
+分析语句的规则将语句本身和对应于它开头的控制流的节点（我们将在下面记为“CF”）作为参数，并返回以下两个：
+
+* 出口对应控制流的节点
+* 一组要添加到图中的新节点和边
+
+在下表中，`(CF1, S) => CF2` 表示“从控制流 CF1 开始对 S 进行分析，将所需的更改应用于图形，并将生成的控制流命名为 CF2”。
+类似地，`(CF1, E) => (CF2, V)` 表示“对表达式 E 运行分析，从控制流 CF1 开始，将所需的更改应用于图形，并将生成的控制流节点命名为 CF2 和生成的值节点 V”（表达式分析见下节）。
+
+对于左值位置的表达式，我们有一组类似的规则，我们用 `LValue: (CF, E) => (CF, L)` 表示。它不是计算与值的一致性相对应的节点，而是计算与我们正在寻址的变量的一致性相对应的节点。
+
+当必须创建多个边时，我们使用 `X -> {Y, Z}` 作为 `X -> Y, X -> Z` 的简写。
+<table class='data'>
+  <caption>语句的统一性规则</caption>
+  <thead>
+    <tr><th>语句<th>新节点<th>递归分析s<th>产生的控制流节点<th>新边缘
+  </thead>
+  <tr><td class="nowrap">{*s*}
+      <td>
+      <td class="nowrap">(*CF*, *s*) => *CF'*
+      <td>*CF'*
+      <td>
+  <tr><td class="nowrap">*s1* *s2*
+
+        Note: *s1* often ends in a semicolon.
+
+      <td>
+      <td class="nowrap">(*CF*, *s1*) => *CF1*<br>
+          (*CF1*, *s2*) => *CF2*
+      <td>*CF2*
+      <td>
+  <tr><td class="nowrap">if (*e*) *s1* else *s2*<br>, with behavior {Next}
+      <td>
+      <td rowspan=2 class="nowrap">(*CF*, *e*) => (*CF'*, *V*)<br>
+          (*V*, *s1*) => *CF1*<br>
+          (*V*, *s2*) => *CF2*
+      <td>*CF*
+      <td>
+  <tr><td class="nowrap">if (*e*) *s1* else *s2*<br>, with another behavior
+      <td>*CFend*
+      <td>*CFend*
+      <td class="nowrap">*CFend* -> {*CF1*, *CF2*}
+  <tr><td class="nowrap">loop {*s1* continuing {*s2*}}<br>, with behavior {Next}
+      <td rowspan=2>*CF'*
+      <td rowspan=2 class="nowrap">(*CF'*, *s1*) => *CF1*<br>
+          (*CF1*, *s2*) => *CF2*
+      <td>*CF*
+      <td rowspan=2 class="nowrap">*CF'* -> {*CF2*, *CF*}
+  <tr><td class="nowrap">loop {*s1* continuing {*s2*}}<br>, with another behavior
+      <td>*CF'*
+  <tr><td class="nowrap">loop {*s1*}, with behavior {Next}
+      <td rowspan=2>*CF'*
+      <td rowspan=2 class="nowrap">(*CF'*, *s1*) => *CF1*
+      <td>*CF*
+      <td rowspan=2 class="nowrap">*CF'* -> {*CF1*, *CF*}
+  <tr><td class="nowrap">loop {*s1*}, with another behavior
+      <td>*CF'*
+  <tr><td class="nowrap">switch(*e*) case _: *s_1* .. case _: *s_n*<br>, with behavior {Next}
+      <td>
+      <td rowspan=2 class="nowrap">(*CF*, *e*) => (*CF'*, *V*)<br>
+        (*V*, *s_1*) => *CF_1*<br>
+        ...<br>
+        if *s_(n-1)* may fallthrough, (*CF_(n-1)*, *s_n*) => *CF_n*<br>
+        else (*V*, *s_n*) => *CF_n*
+      <td>*CF*
+      <td>
+  <tr><td class="nowrap">switch(*e*) case _: *s_1* .. case _: *s_n*<br>, with another behavior
+      <td>*CFend*
+      <td>*CFend*
+      <td class="nowrap">*CFend* -> {*CF_1*, ..., *CF_n*}
+  <tr><td class="nowrap">var x: T;
+      <td rowspan=5>
+      <td rowspan=5>
+      <td rowspan=5>*CF*
+      <td rowspan=5>
+  <tr><td class="nowrap">break;
+  <tr><td class="nowrap">continue;
+  <tr><td class="nowrap">fallthrough;
+  <tr><td class="nowrap">discard;
+  <tr><td class="nowrap">return;
+      <td>
+      <td>
+      <td>*CF*
+      <td>*CF_return* -> *CF*
+  <tr><td class="nowrap">return *e*;
+      <td>
+      <td class="nowrap">(*CF*, *e*) => (*CF'*, *V*)
+      <td>*CF'*
+      <td>*CF_return* -> *CF'*<br>
+          *Value_return* -> *V*
+  <tr><td class="nowrap">*e2* = *e1*;
+      <td>
+      <td class="nowrap">(*CF*, *e1*) => (*CF1*, *V1*)<br>
+          LValue: (*CF1*, *e2*) => (*CF2*, *L2*)
+      <td>*CF2*
+      <td>*L2* -> *V1*
+  <tr><td class="nowrap">_ = *e*
+      <td>
+      <td class="nowrap">(*CF*, *e*) => (*CF'*, *V*)
+      <td>*CF'*
+      <td>
+  <tr><td class="nowrap">let x = *e*;
+      <td rowspan=2>
+      <td rowspan=2 class="nowrap">(*CF*, *e*) => (*CF'*, V)
+      <td rowspan=2>*CF'*
+      <td rowspan=2>
+  <tr><td class="nowrap">var x = *e*;
+</table>
+
+注意：如果 if、switch 或循环语句的行为集（参见 [[#behaviors]]）是 {Next}，这意味着我们要么在语句内没有发散，要么重新收敛，所以我们选择 语句开头的控制流对应的节点作为语句出口的控制流对应的节点。
+
+注意：在 switch 语句中，就一致性而言，默认块被视为与 case 块完全相同。
+### 函数调用的统一性规则 ### {#uniformity-function-calls}
+
+最复杂的规则是函数调用：
+- 对于每个参数，应用相应的表达式规则，控制流位于前一个参数的出口处（使用第一个参数的函数调用开头的控制流）。将相应的值节点命名为“arg_i”，将相应的控制流节点命名为“CF_i”
+- 创建两个新节点，分别命名为“Result”和“CF_after”
+- 如果函数开始处的控制流被标记为 AlwaysRequiredToBeUniform，则从 RequiredToBeUniform 添加一条边到最后一个 CF_i
+- 否则添加一条从 CF_after 到最后一个 CF_i 的边
+- 如果函数被标记为 ControlFlowMayBeNonUniformAfter，则添加一条从 CF_after 到 MayBeNonUniform 的边
+- 否则，如果它被标记为 ReturnValueMayBeNonUniform，则从 Result 添加一条边到 MayBeNonUniform
+- 从 Result 添加一条边到 CF_after
+- 对于每个参数 *i*：
+    - 如果相应的参数被标记为 AlwaysRequiredToBeUniform，则从 RequiredToBeUniform 添加一条边到 arg_i
+    - 否则，如果它被标记为RequiredToBeUniformForControlFlowAfter，则将一条边从CF_after添加到arg_i
+    - 否则，如果它被标记为RequiredToBeUniformForReturnValue，则从Result添加一条边到arg_i
+
+注意：请注意，此规则只需要添加以 3 + 函数参数数量为界的边数，而与函数的实现可能有多复杂无关。 这是整个算法线性复杂度的关键。
+
+大多数内置函数都有以下标签：
+- 对于可以调用它们的控制流：RequiredToBeUniformForControlFlowAfter
+- 对于整个功能：NoRestriction
+- 对于每个参数：RequiredToBeUniformForReturnValue
+
+以下是例外列表：
+- [[#sync-builtin-functions]] 中的所有函数都是 AlwaysRequiredToBeUniform
+- [[#derivative-builtin-functions]]、[[#texturesample]]、[[#texturesamplebias]]和[[#texturesamplecompare]]中的所有函数都是AlwaysRequiredToBeUniform和ReturnValueMayBeNonUniform
+
+### 表达式的统一性规则 ### {#uniformity-expressions}
+
+分析表达式的规则将表达式本身和对应于它开头的控制流的节点（我们将在下面记为“CF”）作为参数，并返回以下内容：
+
+* 出口对应控制流的节点
+* 一个节点对应其值
+* 一组要添加到图中的新节点和边
+
+<table class='data'>
+  <caption>表达式的一致性规则（在正常的右值位置）</caption>
+  <thead>
+    <tr><th>表达式<th>新节点<th>递归分析<th>产生的控制流节点、值节点<th>新边缘
+  </thead>
+  <tr><td class="nowrap">*e1* || *e2*
+      <td rowspan=2>
+      <td rowspan=2 class="nowrap">(*CF*, *e1*) => (*CF1*, *V1*)<br>
+          (*V1*, *e2*) => (*CF2*, *V2*)
+      <td rowspan=2 class="nowrap">*CF2*, *V2*
+      <td rowspan=2>
+  <tr><td class="nowrap">*e1* && *e2*
+  <tr><td class="nowrap">Literal
+      <td>
+      <td>
+      <td class="nowrap">*CF*, *CF*
+      <td>
+   <tr><td class="nowrap">reference to function-scope variable, let-declaration, or non-built-in parameter "x"
+      <td>*Result*
+      <td class="nowrap">*X* is the node corresponding to "x"
+      <td class="nowrap">*CF*, *Result*
+      <td class="nowrap">*Result* -> {*CF*, *X*}
+   <tr><td class="nowrap">reference to uniform built-in value "x"
+      <td>
+      <td>
+      <td class="nowrap">*CF*, *CF*
+      <td>
+   <tr><td class="nowrap">reference to non-uniform built-in value "x"
+      <td>
+      <td>
+      <td class="nowrap">*CF*, *MayBeNonUniform*
+      <td>
+   <tr><td class="nowrap">reference to read-only module-scope variable "x"
+      <td>
+      <td>
+      <td class="nowrap">*CF*, *CF*
+      <td>
+   <tr><td class="nowrap">reference to non-read-only module-scope variable "x"
+      <td>
+      <td>
+      <td class="nowrap">*CF*, *MayBeNonUniform*
+      <td>
+   <tr><td class="nowrap">op *e*, where "op" is a unary operator
+      <td rowspan=2>
+      <td rowspan=2 class="nowrap">(*CF*, *e*) => (*CF'*, *V*)
+      <td rowspan=2 class="nowrap">*CF'*, *V*
+      <td rowspan=2>
+   <tr><td class="nowrap">*e*.field
+   <tr><td class="nowrap">*e1* op *e2*, where op is a non-short-circuiting binary operator
+      <td rowspan=2> *Result*
+      <td rowspan=2 class="nowrap">(*CF*, *e1*) => (*CF1*, *V1*)<br>
+          (*CF1*, *e2*) => (*CF2*, *V2*)
+      <td rowspan=2 class="nowrap">*CF2*, *Result*
+      <td rowspan=2 class="nowrap">*Result* -> {*V1*, *V2*}
+   <tr><td class="nowrap">e1[e2]
+</table>
+
+以下内置输入变量被认为是统一的：
+- wordgroup_id
+- num_workgroups
+
+所有其他的（参见 [[#builtin-values]]）被认为是不均匀的。
+
+<table class='data'>
+  <caption>左值位置表达式的一致性规则</caption>
+  <thead>
+    <tr><th>表达式<th>新节点<th>递归分析<th>产生的控制流节点、值节点<<th>新边缘
+  </thead>
+  <tr><td class="nowrap">reference to function-scope variable, let-declaration, or parameter "x"
+      <td>
+      <td class="nowrap">*X* is the node corresponding to "x"
+      <td class="nowrap">*CF*, *X*
+      <td>
+  <tr><td class="nowrap">reference to module-scope variable "x"
+      <td>
+      <td>
+      <td class="nowrap">*CF*, *MayBeNonUniform*
+      <td>
+  <tr><td class="nowrap">*e*.field
+      <td>
+      <td class="nowrap">LValue: (*CF*, *e*) => (*CF1*, *L1*)
+      <td class="nowrap">*CF1*, *L1*
+      <td>
+  <tr><td class="nowrap">*e1*[*e2*]
+      <td>
+      <td class="nowrap">LValue: (*CF*, *e1*) => (*CF1*, *L1*)<br>
+          (*CF1*, *e2*) => (*CF2*, *V2*)
+      <td class="nowrap">*CF2*, *L1*
+      <td class="nowrap">*L1* -> *V2*
+</table>
+### 注释控制流中每个点的一致性### {#uniformity-optional-diagnosis-mode}
+
+这整个小节是非规范性的。
+
+如果实现者想为开发人员提供一种诊断模式，显示整个着色器控制流中的每个点是否一致（以及因此调用需要一致的函数是否有效），我们建议下列：
+- 运行前面小节中描述的（强制的、规范的）分析，保留每个函数的图表。
+- 反转所有这些图中的所有边
+- 遍历每个函数，从入口点开始，在访问所有调用者之前从不访问函数：
+    - 将 MayBeNonUniform 的边添加到至少在一个调用者中不统一的每个参数
+    - 如果函数在至少一个调用者的非统一控制流中被调用，则从 MayBeNonUniform 添加一条边到 CF_start
+    - 查看 MayBeNonUniform 可以访问哪些节点。访问的每个节点都是控制流中的一个表达式或点，其一致性无法通过分析得到证明
+
+这些可达性分析未访问的任何节点都可以通过分析证明是统一的（因此在那里调用导数或类似函数是安全的）。
+
+注意：仍然需要自下而上的分析，因为它让我们知道在遇到调用时要向图中添加哪些边。
 
 ## 计算着色器和工作组 ## {#compute-shader-workgroups}
 
 <dfn noexport for="compute shader stage">workgroup</dfn> 是一组调用，
-它们同时执行 [=compute shader stage=] [=entry point=]，并共享对 [=storage classes/workgroup=] 存储类。
+它们同时执行 [=compute shader stage=] [=entry point=]，并共享对 [=address spaces/workgroup=] 地址空间。
 
 计算着色器的 <dfn noexport>workgroup grid</dfn> 是具有整数坐标 *(i,j,k)* 的点集，其中：
 
@@ -6760,11 +7112,7 @@ WebGPU 不提供任何保证:
 * 来自一个特定工作组的调用是否在另一个工作组的调用之前开始执行。
      也就是说，您不能假设工作组是按特定顺序启动的。
 
-问题: [WebGPU issue 1045](https://github.com/gpuweb/gpuweb/issues/1045):
-调度组计数必须为正数。
-但是，我们如何处理指定组计数为零的间接调度。
-
-## Collective operations ## {#collective-operations}
+## 批量操作 ## {#collective-operations}
 
 ### Barrier ### {#barrier}
 
@@ -6796,7 +7144,7 @@ WebGPU 不提供任何保证:
 
 ## 浮点计算 ## {#floating-point-evaluation}
 
-[SHORTNAME] 遵循 [[!IEEE-754|IEEE-754]] 浮点计算标准
+WGSL 遵循 [[!IEEE-754|IEEE-754]] 浮点计算标准
 以下例外:
 * 不会产生浮点异常。
 * 可能不会生成信令 NaN。
@@ -6825,7 +7173,7 @@ WebGPU 不提供任何保证:
 </div>
 
 也就是说，结果可能会向上或向下舍入：
-[SHORTNAME] 未指定舍入模式。
+WGSL 未指定舍入模式。
 
 注意：浮点类型包括正无穷大和负无穷大，所以
 正确舍入的结果可能是有限的或无限的。
@@ -6879,7 +7227,7 @@ WebGPU 不提供任何保证:
   <tr><td>`atan(x)`<td>4096 ULP
   <tr><td>`atan2(y, x)`<td>4096 ULP
   <tr><td>`ceil(x)`<td>正确四舍五入
-  <tr><td>`clamp(x)`<td>正确四舍五入
+  <tr><td>`clamp(x,low,high)`<td>正确四舍五入
   <tr><td>`cos(x)`<td>绝对错误 &le; 2<sup>-11</sup> 在 [-&pi;, &pi;] 范围内
   <tr><td>`cosh(x)`<td>继承自 `(exp(x) - exp(-x)) * 0.5`
   <tr><td>`cross(x, y)`<td>继承自 `(x[i] * y[j] - x[j] * y[i])`
@@ -6910,9 +7258,9 @@ WebGPU 不提供任何保证:
   <tr><td>`sign(x)`<td>正确四舍五入
   <tr><td>`sin(x)`<td>绝对错误&le; 2<sup>-11</sup> 在 [-&pi;, &pi;] 范围内
   <tr><td>`sinh(x)`<td>继承自 `(exp(x) - exp(-x)) * 0.5`
-  <tr><td>`smoothStep(x, y, z)`<td>继承自 `t * t * (3.0 - 2.0 * t)`,<br>where `t = clamp((z - x) / (y - x), 0.0, 1.0)`
+  <tr><td>`smoothStep(low, high, x)`<td>继承自 `t * t * (3.0 - 2.0 * t)`,<br>where `t = clamp((x - low) / (high - low), 0.0, 1.0)`
   <tr><td>`sqrt(x)`<td>继承自 `1.0 / inverseSqrt(x)`
-  <tr><td>`step(x, y)`<td>正确四舍五入
+  <tr><td>`step(edge, x)`<td>正确四舍五入
   <tr><td>`tan(x)`<td>继承自 `sin(x) / cos(x)`
   <tr><td>`tanh(x)`<td>继承自 `sinh(x) / cosh(x)`
   <tr><td>`trunc(x)`<td>正确四舍五入
@@ -6944,15 +7292,25 @@ WebGPU 不提供任何保证:
 
 将浮点标量值转换为整数类型时：
 * 如果原始值可以在目标类型中准确表示，则结果就是该值。
-* 如果原始值具有小数部分，则无法在目标类型中精确表示，结果将向零舍入。
-* 如果原始值超出目标类型的范围，则 TODO.
+* 否则，原始值朝零四舍五入。
+     * 如果舍入的值在目标类型中完全可表示，则结果就是该值。
+     * 否则，结果是目标类型中最接近舍入值的值。
+
+注意：换句话说，浮点到整数的转换会向零舍入，然后饱和。
+
+注意：溢出情况下的结果可能不会产生目标类型中幅度最大的值，因为
+该值可能无法在原始浮点类型中完全表示。
+例如，[=u32=] 中的最大值是 4294967295，但是 4294967295.0 在 `f32` 中不能完全表示。
+对于任何实数 |x| 与 4294967040 &leq; |x| &leq; 4294967295,
+最接近 |x| 的 f32 值 大于 429467295 或向下舍入为 4294967040。
+因此，浮点转换产生的最大 u32 值为 4294967040u。
 
 将值转换为浮点类型时：
 * 如果原始值可以在目标类型中准确表示，则结果就是该值。
     * 如果原始值为零且为整数类型，则结果值具有零符号位。
 * 否则，原始值不能完全表示。
     * 如果原始值不同于但位于目标类型中可表示的两个相邻值之间，则结果是这两个值之一。
-         [SHORTNAME] 没有指定是选择较大还是较小的可表示值，并且此类转换的不同实例可能选择不同。
+         WGSL 没有指定是选择较大还是较小的可表示值，并且此类转换的不同实例可能选择不同。
     * 否则，如果原始值位于目标类型的范围之外。
          * 当原始类型为 [=i32=] 或 [=u32=] 之一且目标类型为 [=f32=] 时，不会发生这种情况。
          * 当源类型是指数和尾数位较少的浮点类型时，不会发生这种情况。
@@ -6975,13 +7333,13 @@ WebGPU 不提供任何保证:
 我已经写了 NVIDIA GPU 的功能。 有关可执行的测试用例，请参阅 https://github.com/google/amber/pull/918。
 
 # 内存模型 # {#memory-model}
-通常，[SHORTNAME] 遵循 [[!VulkanMemoryModel|Vulkan Memory Model]]。
-本节的其余部分描述了 [SHORTNAME] 程序如何映射到 Vulkan 内存模型。
+通常，WGSL 遵循 [[!VulkanMemoryModel|Vulkan Memory Model]]。
+本节的其余部分描述了 WGSL 程序如何映射到 Vulkan 内存模型。
 注意：Vulkan 内存模型是[formal Alloy model](https://github.com/KhronosGroup/Vulkan-MemoryModel/blob/master/alloy/spirv.als) 的文本版本。
 
 ## Memory Operation ## {#memory-operation}
-在 [SHORTNAME] 中，[=read access=] 相当于 Vulkan 内存模型中的内存读取操作。
-A [SHORTNAME], a [=write access=] 相当于 Vulkan Memory Model 中的内存写操作。
+在 WGSL 中，[=read access=] 相当于 Vulkan 内存模型中的内存读取操作。
+在 WGSL 中, [=write access=] 相当于 Vulkan Memory Model 中的内存写操作。
 [=read access=] 当调用执行以下操作之一时发生：
 * 对 [=Load Rule=] 的评估
 * 任意 [[#texture-builtin-functions|texture builtin function]] 除了:
@@ -7005,14 +7363,14 @@ A [SHORTNAME], a [=write access=] 相当于 Vulkan Memory Model 中的内存写�
 内存操作准确访问与操作中使用的特定 [=memory view=] 相关联的一组 [=memory location|locations=]。 例如，从包含多个成员的结构访问 [=u32=] 的内存读取，仅读取与该 u32 关联的内存位置
 成员。
 
-<div class='example memory locations accessed' heading="Accessing memory locations">
+<div class='example wgsl memory locations accessed' heading="Accessing memory locations">
   <xmp>
     [[block]] struct S {
       a : f32;
       b : u32;
       c : f32;
-    };
-    [[group(0), binding(0)]]
+    }
+    @group(0) @binding(0)
     var<storage> v : S;
     fn foo() {
       let x = v.b; // Does not access memory locations for v.a or v.c.
@@ -7021,41 +7379,55 @@ A [SHORTNAME], a [=write access=] 相当于 Vulkan Memory Model 中的内存写�
 </div>
 
 ## 内存模型参考 ## {#memory-model-reference}
-[SHORTNAME] 中的每个模块范围变量形成一个唯一的 [memory model reference](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#memory-model-references) 在给定入口点的生命周期内。
-[SHORTNAME] 中的每个函数范围变量形成一个唯一的 [memory model reference](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#memory-model-references) 对于变量的生命周期。
+WGSL 中的每个模块范围变量形成一个唯一的 [memory model reference](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#memory-model-references) 在给定入口点的生命周期内。
+WGSL 中的每个函数范围变量形成一个唯一的 [memory model reference](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#memory-model-references) 对于变量的生命周期。
 
 ## 范围操作 ## {#scoped-operations}
-[[#atomic-builtin-functions|原子内置函数]]映射到[atomic operations](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#memory -model-atomic-operation) 其内存
-[范围](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#memory-model-scope)
-是:
-* `Workgroup` 如果原子指针在 [=storage classes/workgroup=] 存储类中
-* `QueueFamily` 如果原子指针在 [=storage classes/storage=] 存储类中
+当一个调用执行一个作用域操作时，它会影响一个或两个集合的调用。
+这些集合是内存范围和执行范围。 <dfn noexport>memory scope</dfn> 指定将看到任何
+更新受操作影响的内存内容。
+对于 [[#sync-builtin-functions|同步内置函数]]，这也是
+表示所有受影响的内存操作程序在函数之前排序
+对在函数之后排序的受影响的操作程序可见。
+<dfn noexport>execution scope</dfn> 指定调用集
+可能参与一个操作（参见 [[#collective-operations]]）。
 
-[[#sync-builtin-functions|Synchronization built-in functions]]映射到控制屏障的执行和内存[scopes](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#memory-model-scope) 是 `Workgroup`。
+[[#atomic-builtin-functions|Atomic 内置函数]] 映射到 [=内存模型 atomic
+operation|atomic operations=] 其内存 [=memory model scope|scope=] 为：
+* `Workgroup` 如果原子指针在 [=address spaces/workgroup=]
+    地址空间
+* `QueueFamily` 如果原子指针在 [=address spaces/storage=]
+    地址空间
 
-注意：当生成不启用 `Vulkan` 内存模型的 SPIR-V 时，应该使用 `Device` 范围而不是 `QueueFamily`。
+[[#sync-builtin-functions|同步内置函数]] 映射到控制
+执行和内存 [=memory model scope|scopes=] 的障碍
+`工作组`。
 
+隐式和显式导数具有隐式 [=quad=] 执行范围。
+
+注意：当生成不启用 `Vulkan` 内存模型的 SPIR-V 时，
+应该使用 `Device` 范围而不是 `QueueFamily`。
 
 ## 内存语义 ## {#memory-semantics}
 所有 [[#atomic-builtin-functions|Atomic built-in functions]] 使用 `Relaxed`
 [memory
 semantics](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#memory-model-memory-semantics)
-因此，没有存储语义。
+因此，没有内存语义。
 [[#sync-builtin-functions|workgroupBarrier]] 使用 `AcquireRelease` [memory
 semantics](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#memory-model-memory-semantics)
-和 `WorkgroupMemory` 存储语义。
+和 `WorkgroupMemory` 内存语义。
 [[#sync-builtin-functions|storageBarrier]] 使用 `AcquireRelease` [memory
 semantics](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#memory-model-memory-semantics)
-和 `UniformMemory` 存储语义。
+和 `UniformMemory` 内存语义。
 注意:组合的“workgroupBarrier”和“storageBarrier”使用“AcquireRelease”排序语义以及“WorkgroupMemory”和“UniformMemory”内存语义。
 
 注意：没有原子或同步内置函数使用 `MakeAvailable` 或 `MakeVisible` 语义。
 
-## Private vs Non-Private ## {#private-vs-non-private}
-[=storage classes/storage=] 中的所有非原子 [=read accesses=] 或
-[=storage classes/workgroup=] 存储类别被视为 [non-private](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#memory-model-non-private)
+## Private vs Non-private ## {#private-vs-non-private}
+[=address spaces/storage=] 中的所有非原子 [=read accesses=] 或
+[=address spaces/workgroup=] 地址空间被视为 [non-private](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#memory-model-non-private)
 并对应于具有以下范围的 `NonPrivatePointer | MakePointerVisible` 内存操作数的读取操作：
-* [=storage classes/workgroup=] 存储类的 `Workgroup`
+* [=address spaces/workgroup=] 地址空间的 `Workgroup`
 * `QueueFamily` 用于 [=storage classes/storage=] 存储类
 
 [=storage classes/storage=] 中的所有非原子 [=write accesses=] 或
@@ -7143,6 +7515,11 @@ semantics](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vks
   <dfn for=syntax>mat4x4</dfn> :
 
     | `'mat4x4'`
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>override</dfn> :
+
+    | `'override'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>pointer</dfn> :
@@ -7358,16 +7735,6 @@ semantics](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vks
     | `'private'`
 </div>
 <div class='syntax' noexport='true'>
-  <dfn for=syntax>read</dfn> :
-
-    | `'read'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>read_write</dfn> :
-
-    | `'read_write'`
-</div>
-<div class='syntax' noexport='true'>
   <dfn for=syntax>return</dfn> :
 
     | `'return'`
@@ -7407,200 +7774,11 @@ semantics](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vks
 
     | `'workgroup'`
 </div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>write</dfn> :
-
-    | `'write'`
-</div>
-
-问题：不应该完全保留 read、write 和 read_write 吗？ 它们仅在特定上下文中使用。
-
-### 图片格式关键字 ### {#image-format-keywords}
-
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>r8unorm</dfn> :
-
-    | `'r8unorm'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>r8snorm</dfn> :
-
-    | `'r8snorm'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>r8uint</dfn> :
-
-    | `'r8uint'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>r8sint</dfn> :
-
-    | `'r8sint'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>r16uint</dfn> :
-
-    | `'r16uint'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>r16sint</dfn> :
-
-    | `'r16sint'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>r16float</dfn> :
-
-    | `'r16float'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>rg8unorm</dfn> :
-
-    | `'rg8unorm'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>rg8snorm</dfn> :
-
-    | `'rg8snorm'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>rg8uint</dfn> :
-
-    | `'rg8uint'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>rg8sint</dfn> :
-
-    | `'rg8sint'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>r32uint</dfn> :
-
-    | `'r32uint'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>r32sint</dfn> :
-
-    | `'r32sint'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>r32float</dfn> :
-
-    | `'r32float'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>rg16uint</dfn> :
-
-    | `'rg16uint'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>rg16sint</dfn> :
-
-    | `'rg16sint'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>rg16float</dfn> :
-
-    | `'rg16float'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>rgba8unorm</dfn> :
-
-    | `'rgba8unorm'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>rgba8unorm_srgb</dfn> :
-
-    | `'rgba8unorm_srgb'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>rgba8snorm</dfn> :
-
-    | `'rgba8snorm'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>rgba8uint</dfn> :
-
-    | `'rgba8uint'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>rgba8sint</dfn> :
-
-    | `'rgba8sint'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>bgra8unorm</dfn> :
-
-    | `'bgra8unorm'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>bgra8unorm_srgb</dfn> :
-
-    | `'bgra8unorm_srgb'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>rgb10a2unorm</dfn> :
-
-    | `'rgb10a2unorm'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>rg11b10float</dfn> :
-
-    | `'rg11b10float'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>rg32uint</dfn> :
-
-    | `'rg32uint'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>rg32sint</dfn> :
-
-    | `'rg32sint'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>rg32float</dfn> :
-
-    | `'rg32float'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>rgba16uint</dfn> :
-
-    | `'rgba16uint'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>rgba16sint</dfn> :
-
-    | `'rgba16sint'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>rgba16float</dfn> :
-
-    | `'rgba16float'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>rgba32uint</dfn> :
-
-    | `'rgba32uint'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>rgba32sint</dfn> :
-
-    | `'rgba32sint'`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>rgba32float</dfn> :
-
-    | `'rgba32float'`
-</div>
-
-
-TODO(dneto)：消除存储图像中未使用的图像格式。
-例如 SRGB 格式 (bgra8unorm_srgb)、混合通道宽度 (rg11b10float)、乱序通道 (bgra8unorm)
 
 ## 保留字 ## {#reserved-words}
 
 <dfn>reserved word</dfn> 是一个 [=token=] 保留供将来使用。
-[SHORTNAME] 程序不得包含保留字。
+WGSL 程序不得包含保留字。
 
 以下是保留字:
 
@@ -7612,6 +7790,10 @@ TODO(dneto)：消除存储图像中未使用的图像格式。
     | `'bf16'`
 
     | `'const'`
+
+    | `'demote'`
+
+    | `'demote_to_helper'`
 
     | `'do'`
 
@@ -7676,14 +7858,9 @@ TODO(dneto)：消除存储图像中未使用的图像格式。
     | `'->'`
 </div>
 <div class='syntax' noexport='true'>
-  <dfn for=syntax>attr_left</dfn> :
+  <dfn for=syntax>attr</dfn> :
 
-    | `'[['`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>attr_right</dfn> :
-
-    | `']]'`
+    | `'@'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>forward_slash</dfn> :
@@ -7896,18 +8073,20 @@ TODO(dneto)：消除存储图像中未使用的图像格式。
     | `'<<='`
 </div>
 
-# 内置变量 # {#builtin-variables}
+# 内置值 # {#builtin-values}
 
-查看 [[#builtin-inputs-outputs]] 如何创建内置变量
+下表列出了可用的 [=built-in input values=] 和 [=built-in output values=]。
+
+查看 [[#builtin-inputs-outputs]] 如何创建内置值。
 
 <table class='data'>
   <thead>
-    <tr><th>内置<th>阶段<th>输入或输出<th>存储类型<th>描述
+    <tr><th>名称<th>阶段<th>输入或输出<th>类型<th>描述
   </thead>
 
   <tr><td>`vertex_index`
       <td>vertex
-      <td>in
+      <td>input
       <td>u32
       <td style="width:50%">当前 API 级绘制命令中当前顶点的索引，与绘制实例无关。
 
@@ -7918,7 +8097,7 @@ TODO(dneto)：消除存储图像中未使用的图像格式。
 
   <tr><td>`instance_index`
       <td>vertex
-      <td>in
+      <td>input
       <td>u32
       <td style="width:50%">当前 API 级绘制命令中当前顶点的实例索引。
 
@@ -7927,7 +8106,7 @@ TODO(dneto)：消除存储图像中未使用的图像格式。
 
   <tr><td>`position`
       <td>vertex
-      <td>out
+      <td>output
       <td>vec4&lt;f32&gt;
       <td style="width:50%">当前顶点的输出位置，使用齐次坐标。
       在均匀归一化（其中 *x*、*y* 和 *z* 分量中的每一个除以 *w* 分量）之后，位置在 WebGPU 归一化设备坐标空间中。
@@ -7935,7 +8114,7 @@ TODO(dneto)：消除存储图像中未使用的图像格式。
 
   <tr><td>`position`
       <td>fragment
-      <td>in
+      <td>input
       <td>vec4&lt;f32&gt;
       <td style="width:50%">当前片元的帧缓冲区位置，使用归一化齐次坐标。
       （*x*、*y* 和 *z* 分量已经被缩放，使得 *w* 现在为 1。）
@@ -7943,7 +8122,7 @@ TODO(dneto)：消除存储图像中未使用的图像格式。
 
   <tr><td>`front_facing`
       <td>fragment
-      <td>in
+      <td>input
       <td>bool
       <td style="width:50%">当当前片段位于正面图元上时为True。
          否则为False
@@ -7951,44 +8130,44 @@ TODO(dneto)：消除存储图像中未使用的图像格式。
 
   <tr><td>`frag_depth`
       <td>fragment
-      <td>out
+      <td>output
       <td>f32
       <td style="width:50%">在视口深度范围内更新了片段的深度。
       查看 [[WebGPU#coordinate-systems|WebGPU &sect; Coordinate Systems]]。
 
   <tr><td>`local_invocation_id`
       <td>compute
-      <td>in
+      <td>input
       <td>vec3&lt;u32&gt;
       <td style="width:50%">当前调用的 [=local invocation ID=]，即它在 [=workgroup grid=] 中的位置。
 
   <tr><td>`local_invocation_index`
       <td>compute
-      <td>in
+      <td>input
       <td>u32
       <td style="width:50%">当前调用的 [=local invocation index=]，即 [=workgroup grid=] 中调用位置的线性化索引。
 
   <tr><td>`global_invocation_id`
       <td>compute
-      <td>in
+      <td>input
       <td>vec3&lt;u32&gt;
       <td style="width:50%">当前调用的 [=global invocation ID=]，即它在 [=compute shader grid=] 中的位置。
 
   <tr><td>`workgroup_id`
       <td>compute
-      <td>in
+      <td>input
       <td>vec3&lt;u32&gt;
       <td style="width:50%">当前调用的 [=workgroup ID=]，即工作组在 [=workgroup grid=] 中的位置。
 
   <tr><td>`num_workgroups`
       <td>compute
-      <td>in
+      <td>input
       <td>vec3&lt;u32&gt;
       <td style="width:50%">API 计算着色器 [[WebGPU#dom-gpucomputepassencoder-dispatch|dispatched]] 的 [=dispatch size=]、`vec<u32>(group_count_x, group_count_y, group_count_z)`。
 
   <tr><td>`sample_index`
       <td>fragment
-      <td>in
+      <td>input
       <td>u32
       <td style="width:50%">当前片段的示例索引。
          该值最小为 0，最大为 `sampleCount`-1，
@@ -7997,7 +8176,7 @@ TODO(dneto)：消除存储图像中未使用的图像格式。
 
   <tr><td>`sample_mask`
       <td>fragment
-      <td>in
+      <td>input
       <td>u32
       <td style="width:50%">当前片元的样本覆盖掩码。
          它包含一个位掩码，指示正在渲染的图元覆盖此片段中的哪些样本。
@@ -8005,7 +8184,7 @@ TODO(dneto)：消除存储图像中未使用的图像格式。
 
   <tr><td>`sample_mask`
       <td>fragment
-      <td>out
+      <td>output
       <td>u32
       <td style="width:50%">当前片元的示例覆盖掩码控制。
          写入此变量的最后一个值成为 [[WebGPU#shader-output-mask|shader-output mask]]。
@@ -8013,10 +8192,10 @@ TODO(dneto)：消除存储图像中未使用的图像格式。
          <br>查看 [[WebGPU#sample-masking|WebGPU &sect; Sample Masking]]。
 </table>
 
-<div class='example wgsl global-scope' heading="Declaring built-in variables">
+<div class='example wgsl global-scope' heading="Declaring built-in values">
   <xmp>
     struct VertexOutput {
-      [[builtin(position)]] my_pos: vec4<f32>;
+      @builtin(position) my_pos: vec4<f32>;
       //   OpDecorate %my_pos BuiltIn Position
       //   %float = OpTypeFloat 32
       //   %v4float = OpTypeVector %float 4
@@ -8024,44 +8203,44 @@ TODO(dneto)：消除存储图像中未使用的图像格式。
       //   %my_pos = OpVariable %ptr Output
     };
 
-    [[stage(vertex)]]
+    @stage(vertex)
     fn vs_main(
-      [[builtin(vertex_index)]] my_index: u32,
+      @builtin(vertex_index) my_index: u32,
       //   OpDecorate %my_index BuiltIn VertexIndex
       //   %uint = OpTypeInt 32 0
       //   %ptr = OpTypePointer Input %uint
       //   %my_index = OpVariable %ptr Input
-      [[builtin(instance_index)]] my_inst_index: u32,
+      @builtin(instance_index) my_inst_index: u32,
       //    OpDecorate %my_inst_index BuiltIn InstanceIndex
     ) -> VertexOutput {}
 
     struct FragmentOutput {
-      [[builtin(frag_depth)]] depth: f32;
+      @builtin(frag_depth) depth: f32;
       //     OpDecorate %depth BuiltIn FragDepth
-      [[builtin(sample_mask)]] mask_out: u32;
+      @builtin(sample_mask) mask_out: u32;
       //      OpDecorate %mask_out BuiltIn SampleMask ; an output variable
     };
 
-    [[stage(fragment)]]
+    @stage(fragment)
     fn fs_main(
-      [[builtin(front_facing)]] is_front: bool,
+      @builtin(front_facing) is_front: bool,
       //     OpDecorate %is_front BuiltIn FrontFacing
-      [[builtin(position)]] coord: vec4<f32>,
+      @builtin(position) coord: vec4<f32>,
       //     OpDecorate %coord BuiltIn FragCoord
-      [[builtin(sample_index)]] my_sample_index: u32,
+      @builtin(sample_index) my_sample_index: u32,
       //      OpDecorate %my_sample_index BuiltIn SampleId
-      [[builtin(sample_mask_in)]] mask_in: u32,
+      @builtin(sample_mask_in) mask_in: u32,
       //      OpDecorate %mask_in BuiltIn SampleMask ; an input variable
       //      OpDecorate %mask_in Flat
     ) -> FragmentOutput {}
 
-    [[stage(compute)]]
+    @stage(compute)
     fn cs_main(
-      [[builtin(local_invocation_id)]] local_id: vec3<u32>,
+      @builtin(local_invocation_id) local_id: vec3<u32>,
       //     OpDecorate %local_id BuiltIn LocalInvocationId
-      [[builtin(local_invocation_index)]] local_index: u32,
+      @builtin(local_invocation_index) local_index: u32,
       //     OpDecorate %local_index BuiltIn LocalInvocationIndex
-      [[builtin(global_invocation_id)]] global_id: vec3<u32>,
+      @builtin(global_invocation_id) global_id: vec3<u32>,
       //      OpDecorate %global_id BuiltIn GlobalInvocationId
    ) {}
   </xmp>
@@ -8069,7 +8248,7 @@ TODO(dneto)：消除存储图像中未使用的图像格式。
 
 # 内置函数 # {#builtin-functions}
 
-某些函数是 [=predeclared=]，由实现提供，因此始终可用于 [SHORTNAME] 程序。
+某些函数是 [=predeclared=]，由实现提供，因此始终可用于 WGSL 程序。
 这些被称为<dfn noexport>built-in functions</dfn>。
 
 内建函数是一个函数族，它们都具有相同的名称，
@@ -8085,8 +8264,8 @@ TODO(dneto)：消除存储图像中未使用的图像格式。
 
 由于内置函数始终在作用域内，因此尝试重新定义一个函数或将内置函数的名称用作任何其他类型的声明的 [=identifier=] 都是错误的。
 
-与 [SHORTNAME] 程序中定义的普通函数不同，内置函数可以使用相同的函数名和不同的参数集。
-换句话说，一个内置函数可能有多个*重载*，但 [SHORTNAME] 中的普通函数定义可能没有。
+与 WGSL 程序中定义的普通函数不同，内置函数可以使用相同的函数名和不同的参数集。
+换句话说，一个内置函数可能有多个*重载*，但 WGSL 中的普通函数定义可能没有。
 
 调用内置函数时，函数的所有参数都会在函数求值开始之前求值。
 见[[#function-calls]]。
@@ -8195,8 +8374,8 @@ TODO(dneto)：消除存储图像中未使用的图像格式。
 
   <tr algorithm="clamp">
     <td>|T| is [FLOATING]
-    <td class="nowrap">`clamp(`|e1|`:` |T| `, `|e2|`:` |T| `, `|e3|`:` |T|`) -> ` |T|
-    <td>返回 `min(max(`|e1|`,`|e2|`),`|e3|`)`。
+    <td class="nowrap">`clamp(`|e|`:` |T| `,` |low|`:` |T| `,` |high|`:` |T|`) -> ` |T|
+    <td>Returns `min(max(`|e|`,`|low|`),`|high|`)`.
     [=Component-wise=] 当 |T| 是一个向量。
     (GLSLstd450NClamp)
 
@@ -8269,7 +8448,7 @@ TODO(dneto)：消除存储图像中未使用的图像格式。
   <tr algorithm="fract">
     <td>|T| 是 [FLOATING]
     <td class="nowrap">`fract(`|e|`:` |T| `) -> ` |T|
-    <td>返回 |e| 的小数位 (即 |e| `- floor(`|e|`)`)。
+    <td>返回|e| 的小数部分，计算为|e| `- floor（`|e|`）`。<br>
     [=Component-wise=] 当 |T| 是一个向量。
     (GLSLstd450Fract)
 
@@ -8282,7 +8461,7 @@ TODO(dneto)：消除存储图像中未使用的图像格式。
 struct __frexp_result {
   sig : f32; // significand part
   exp : i32; // exponent part
-};
+}
     ```
     有效数的大小在 [0.5, 1.0) 或 0 的范围内。
 
@@ -8306,7 +8485,7 @@ struct __frexp_result {
 struct __frexp_result_vecN {
   sig : vecN<f32>; // significand part
   exp : vecN<i32>; // exponent part
-};
+}
     ```
     有效数的每个分量的大小在 [0.5, 1.0) 或 0 的范围内。
 
@@ -8393,7 +8572,7 @@ struct __frexp_result_vecN {
 struct __modf_result {
   fract : f32; // fractional part
   whole : f32; // whole part
-};
+}
     ```
 
     注意：一个值不能用 `__modf_result` 类型显式声明，但一个值可以推断类型。
@@ -8416,7 +8595,7 @@ struct __modf_result {
 struct __modf_result_vecN {
   fract : vecN<f32>; // fractional part
   whole : vecN<f32>; // whole part
-};
+}
     ```
 
     注意：不能用类型 `__modf_result_vec`|N| 显式声明值，但值可以推断类型。
@@ -8502,9 +8681,12 @@ struct __modf_result_vecN {
 
   <tr algorithm="smoothStep">
     <td>|T| 是 [FLOATING]
-    <td class="nowrap">`smoothStep(`|e1|`:` |T| `, `|e2|`:` |T| `, `|e3|`:` |T| `) -> ` |T|
-    <td>返回 0 和 1 之间的平滑 Hermite 插值。
+    <td class="nowrap">`smoothStep(`|low|`:` |T| `,` |high|`:` |T| `,` |x|`:` |T| `) -> ` |T|    <td>返回 0 和 1 之间的平滑 Hermite 插值。
     [=Component-wise=] 当 |T| 是一个向量。
+    对于标量 |T|，结果为：
+        |t| * |t| * (3.0 - 2.0 * |t|),
+        where |t| = clamp((|x| - |low|) / (|high| - |low|), 0.0, 1.0).
+
     (GLSLstd450SmoothStep)
 
   <tr algorithm="sqrt">
@@ -8516,8 +8698,8 @@ struct __modf_result_vecN {
 
   <tr algorithm="step">
     <td>|T| is [FLOATING]
-    <td class="nowrap">`step(`|e1|`:` |T| `, `|e2|`:` |T| `) -> ` |T|
-    <td>如果 |e1| 小于 |e2| 返回 0.0 ，否则为 1.0。
+    <td class="nowrap">`step(`|edge|`:` |T| `, `|x|`:` |T| `) -> ` |T|
+    <td>如果 |edge| &le;  |x| 返回 1.0 ，否则为 0.0。
     [=Component-wise=] 当 |T| 是一个向量。
     (GLSLstd450Step)
 
@@ -8565,17 +8747,24 @@ struct __modf_result_vecN {
 
   <tr algorithm="unsigned clamp">
     <td>|T| 是 [UNSIGNEDINTEGRAL]
-    <td class="nowrap">`clamp(`|e1|`:` |T| `, `|e2|`:` |T|`, `|e3|`:` |T|`) ->` |T|
-    <td>返回 `min(max(`|e1|`,`|e2|`),`|e3|`)`。
+    <td class="nowrap">`clamp(`|e|`:` |T| `, ` |low|`:` |T|`, ` |high|`:` |T|`) ->` |T|
+    <td>返回 `min(max(`|e|`,`|low|`),`|high|`)`。
     [=Component-wise=] 当 |T| 是一个向量。
     (GLSLstd450UClamp)
 
   <tr algorithm="signed clamp">
     <td>|T| 是 [SIGNEDINTEGRAL]
-    <td class="nowrap">`clamp(`|e1|`:` |T| `, `|e2|`:` |T|`, `|e3|`:` |T|`) ->` |T|
-    <td>返回 `min(max(`|e1|`,`|e2|`),`|e3|`)`。
+    <td class="nowrap">`clamp(`|e|`:` |T| `, `|low|`:` |T|`, `|high|`:` |T|`) ->` |T|
+    <td>返回 `min(max(`|e|`,`|low|`),`|high|`)`。
     [=Component-wise=] 当 |T| 是一个向量。
     (GLSLstd450SClamp)
+
+  <tr 算法="count leading zeros">
+     <td>|T| 是 [INTEGRAL]
+     <td class="nowrap">`countLeadingZeros(`|e|`:` |T| `) ->` |T|
+     <td>从|e| 的最高位开始的连续0 位的个数，当|T| 时 是标量类型。<br>
+         [=Component-wise=] 当 |T| 是一个向量。<br>
+         在某些语言中也称为 “clz”。<br>
 
   <tr algorithm="count 1 bits">
     <td>|T| 是 [INTEGRAL]
@@ -8584,6 +8773,98 @@ struct __modf_result_vecN {
         也叫作 "population count"。<br>
         [=Component-wise=] 当 |T| 是一个向量。
         (SPIR-V OpBitCount)
+
+  <tr algorithm="count trailing zeroes">
+    <td>|T| is [INTEGRAL]
+    <td class="nowrap">`countTrailingZeros(`|e|`:` |T| `) ->` |T|
+    <td>从 |e| 的最低有效位开始的连续 0 位的数量，当 |T| 是标量类型。<br>
+        [=Component-wise=] 当 |T| 是矢量。<br>
+        在某些语言中也称为 “ctz”.<br>
+
+  <tr algorithm="signed find most significant one bit">
+    <td>|T| is [SIGNEDINTEGRAL]
+    <td class="nowrap">`firstBitHigh(`|e|`:` |T| `) ->` |T|
+    <td>当 |T| 是标量，结果为:
+        <ul>
+        <li>-1 如果 |e| 是 0 或 -1。
+        <li>否则 |e| 中最高位的位置 这与|e| 的符号位不同。
+        </ul>
+
+        注意：由于有符号整数使用二进制补码表示，符号位出现在最高有效位位置。
+
+        [=Component-wise=] 当 |T| 是标量。<br>
+
+  <tr algorithm="unsigned find most significant one bit">
+    <td>|T| is [UNSIGNEDINTEGRAL]
+    <td class="nowrap">`firstBitHigh(`|e|`:` |T| `) ->` |T|
+    <td>对于矢量 |T|，结果为:
+        <ul>
+        <li>|T|(-1) 如果 |e| 是 0。
+        <li>否则 |e| 中最重要的 1 位的位置。
+        </ul>
+        [=Component-wise=] 当 |T| 为矢量。<br>
+
+  <tr algorithm="find least significant one bit">
+    <td>|T| is [INTEGRAL]
+    <td class="nowrap">`firstBitLow(`|e|`:` |T| `) ->` |T|
+    <td>对于矢量 |T|，结果为:
+        <ul>
+        <li>|T|(-1) 如果 |e| 是 0。
+        <li>否则 |e| 中最低有效 1 位的位置。
+        </ul>
+        [=Component-wise=] 当 |T| 为矢量
+
+  <tr algorithm="signed extract bits">
+    <td>|T| is [SIGNEDINTEGRAL]
+    <td class="nowrap">`extractBits(`<br>&nbsp;|e|`:` |T|`,`<br>&nbsp;|offset|`: u32,`<br>&nbsp;|count|` : u32) ->` |T|
+    <td>从整数中读取位，带符号扩展。
+
+    当 |T| 是一个标量，那么:
+    <ul>
+    <li>|w| 是 |T| 的比特位的宽度
+    <li>|o| = min(|offset|,|w|)
+    <li>|c| = min(|count|, |w| - |o|)
+    <li>结果为 0 如果 |c| 是 0。
+    <li>否则， 结果的位 0..|c|-1 从位复制|e|的 |o|..|o|+|c|-1。
+        结果的其他位与结果的位|c|-1 相同。
+    </ul>
+    [=Component-wise=] 当 |T| 为矢量。
+    <br>(OpBitFieldSExtract)
+
+  <tr algorithm="unsigned extract bits">
+    <td>|T| is [UNSIGNEDINTEGRAL]
+    <td class="nowrap">`extractBits(`<br>&nbsp;|e|`:` |T|`,`<br>&nbsp;|offset|`: u32,`<br>&nbsp;|count|` : u32) ->` |T|
+    <td>从整数中读取位，没有符号扩展。
+
+    当 |T| 是一个标量，那么:
+    <ul>
+    <li>|w| 是 |T| 的比特位的宽度
+    <li>|o| = min(|offset|,|w|)
+    <li>|c| = min(|count|, |w| - |o|)
+    <li>结果为 0 ，如果 |c| 是 0。
+    <li>否则， 结果的位 0..|c|-1 从位复制|e|的 |o|..|o|+|c|-1。
+       其他的位为 0.
+    </ul>
+    [=Component-wise=] 当 |T| 为矢量。
+    <br>(OpBitFieldUExtract)
+
+  <tr algorithm="insert bits">
+    <td>|T| is [INTEGRAL]
+    <td class="nowrap">`insertBits(`<br>&nbsp;|e|`:` |T|`,`<br>&nbsp;|newbits|`:`|T|`,`<br>&nbsp;|offset|`: u32,`<br>&nbsp;|count|` : u32) ->` |T|
+    <td>以整数设置位。
+
+    当 |T| 是一个标量，那么:
+    <ul>
+    <li>||w| 是 |T| 的比特位的宽度
+    <li>|o| = min(|offset|,|w|)
+    <li>|c| = min(|count|, |w| - |o|)
+    <li>结果为 0 ，如果 |c| 是 0。
+    <li>否则，
+       结果的位 |o|..|o|+|c|-1 从 |newbits| 的位 0..|c|-1 复制。
+       结果的其他位从|e| 复制。
+    </ul>
+    [=Component-wise=] 当 |T| 为矢量。
+    <br>(OpBitFieldInsert)
 
   <tr algorithm="unsigned max">
     <td>|T| 是 [UNSIGNEDINTEGRAL]
@@ -8827,7 +9108,7 @@ textureGather(t: texture_depth_cube_array, s: sampler, coords: vec3<f32>, array_
   <br>从所选纹素读取的通道索引。
   <br>提供时，`component` 表达式必须是:
     * 一个 `const_expression` 表达式（例如 `1`）。<br>
-    * 一个[[#module-constants|module-scope constant]]的 不是 [=pipeline-overridable=] 的名称
+    * 一个 [=module scope|module-scope=]的 [=let declaration] 的名称
   它的值必须至少为 0，最多为 3。
   超出此范围的值将导致 [=shader-creation error=]。
   <tr><td>`t`<td>
@@ -8842,8 +9123,8 @@ textureGather(t: texture_depth_cube_array, s: sampler, coords: vec3<f32>, array_
   在对纹理进行采样之前应用于未归一化纹理坐标的可选纹理像素偏移。 在应用任何纹理环绕模式之前应用此偏移量。<br>
   `offset` 表达式必须是:
     * 一个 `const_expression` 表达式（例如 `vec2<i32>(1, 2)`）。<br>
-    * 不是 [=pipeline-overridable=] 的 [[#module-constants|module-scope constant]] 的名称
-  每个 `offset` 组件必须至少为 `-8`，最多为 `7`。 超出此范围的值将导致 [=shader-creation error=]。
+    * 一个 [=module scope|module-scope=]的 [=let declaration] 的名称
+      每个 `offset` 组件必须至少为 `-8`，最多为 `7`。 超出此范围的值将导致 [=shader-creation error=]。
 </table>
 
 **返回:**
@@ -8852,9 +9133,9 @@ textureGather(t: texture_depth_cube_array, s: sampler, coords: vec3<f32>, array_
 
 <div class='example wgsl global-scope' heading="Gather components from texels in 2D texture">
   <xmp>
-    [[group(0),binding(0)]] var t: texture_2d<f32>;
-    [[group(0),binding(1)]] var dt: texture_depth_2d;
-    [[group(0),binding(2)]] var s: sampler;
+    @group(0) @binding(0) var t: texture_2d<f32>;
+    @group(0) @binding(1) var dt: texture_depth_2d;
+    @group(0) @binding(2) var s: sampler;
 
     fn gather_x_components(c: vec2<f32>) -> vec4<f32> {
       return textureGather(0,t,s,c);
@@ -8915,8 +9196,8 @@ textureGatherCompare(t: texture_depth_cube_array, s: sampler_comparison, coords:
 在对纹理进行采样之前应用于未归一化纹理坐标的可选纹理像素偏移。 在应用任何纹理环绕模式之前应用此偏移量。<br>
    `offset` 表达式必须是：
      * 一个 `const_expression` 表达式（例如 `vec2<i32>(1, 2)`）。<br>
-     * 不是 [=pipeline-overridable=] 的 [[#module-constants|module-scope constant]] 的名称。
-   每个 `offset` 组件必须至少为 `-8`，最多为 `7`。 超出此范围的值将导致 [=shader-creation error=]。
+     * 一个 [=module scope|module-scope=]的 [=let declaration] 的名称。
+       每个 `offset` 组件必须至少为 `-8`，最多为 `7`。 超出此范围的值将导致 [=shader-creation error=]。
 </table>
 
 **返回:**
@@ -8925,8 +9206,8 @@ textureGatherCompare(t: texture_depth_cube_array, s: sampler_comparison, coords:
 
 <div class='example wgsl global-scope' heading="Gather depth comparison">
   <xmp>
-    [[group(0),binding(0)]] var dt: texture_depth_2d;
-    [[group(0),binding(1)]] var s: sampler;
+    @group(0) @binding(0) var dt: texture_depth_2d;
+    @group(0) @binding(1) var s: sampler;
 
     fn gather_depth_compare(c: vec2<f32>, depth_ref: f32) -> vec4<f32> {
       return textureGatherCompare(dt,s,c,depth_ref);
@@ -9093,18 +9374,15 @@ textureSample(t: texture_depth_cube_array, s: sampler, coords: vec3<f32>, array_
   <tr><td>`s`<td>
   The [sampler type](#sampler-type).
   <tr><td>`coords`<td>
-  The texture coordinates used for sampling.
+  用于采样的纹理坐标。
   <tr><td>`array_index`<td>
-  The 0-based texture array index to sample.
+  要采样的基于 0 的纹理数组索引。
   <tr><td>`offset`<td>
-  The optional texel offset applied to the unnormalized texture coordinate
-  before sampling the texture. This offset is applied before applying any
-  texture wrapping modes.<br>
-  The `offset` expression must be either:
-    * a `const_expression` expression (e.g. `vec2<i32>(1, 2)`).<br>
-    * a name of a [[#module-constants|module-scope constant]] that is not [=pipeline-overridable=]
-  Each `offset` component must be at least `-8` and at most `7`. Values outside
-  of this range will result in a [=shader-creation error=].
+  在对纹理进行采样之前应用于非标准化纹理坐标的可选纹理像素偏移。 在应用任何纹理环绕模式之前应用此偏移量.<br>
+  `offset` 表达式必须是:
+    * 一个 `const_expression` 表达式 (e.g. `vec2<i32>(1, 2)`).<br>
+    * 一个 [=module scope|module-scope=]的 [=let declaration] 的名称。
+      每个“偏移”分量必须至少为“-8”，最多为“7”。 超出此范围的值将导致 [=shader-creation error=]。
 </table>
 
 **返回:**
@@ -9145,7 +9423,9 @@ textureSampleBias(t: texture_cube_array<f32>, s: sampler, coords: vec3<f32>, arr
   `bias` 必须介于 `-16.0` 和 `15.99` 之间。
   <tr><td>`offset`<td>
   在对纹理进行采样之前应用于未归一化纹理坐标的可选纹理像素偏移。 在应用任何纹理环绕模式之前应用此偏移量。<br>
-  `offset` 表达式必须是一个 `const_expression` 表达式（例如 `vec2<i32>(1, 2)`）。<br>
+  `offset` 表达式必须是：
+       * 一个 `const_expression` 表达式（例如 `vec2<i32>(1, 2)`）。<br>
+       * 一个 [=module scope|module-scope=] [=let declaration=] 的名称。
    每个 `offset` 组件必须最少为 `-8`，最多为 `7`。 超出此范围的值将导致 [=shader-creation error=]。
 </table>
 
@@ -9185,8 +9465,9 @@ textureSampleCompare(t: texture_depth_cube_array, s: sampler_comparison, coords:
   用于比较采样深度值的参考值。
   <tr><td>`offset`<td>
   在对纹理进行采样之前应用于未归一化纹理坐标的可选纹理像素偏移。 在应用任何纹理环绕模式之前应用此偏移量。<br>
-  `offset` 表达式必须是一个 `const_expression` 表达式（例如 `vec2<i32>(1, 2)`）。<br>
-  每个 `offset` 组件必须至少为 `-8`，最多为 `7`。 超出此范围的值将导致 [=shader-creation error=]。
+  `offset` 表达式必须是：
+     * 一个 `const_expression` 表达式（例如 `vec2<i32>(1, 2)`）。<br>
+     * 一个 [=module scope|module-scope=] [=let declaration=] 的名称  每个 `offset` 组件必须至少为 `-8`，最多为 `7`。 超出此范围的值将导致 [=shader-creation error=]。
 </table>
 
 **返回:**
@@ -9250,7 +9531,9 @@ textureSampleGrad(t: texture_cube_array<f32>, s: sampler, coords: vec3<f32>, arr
   用于计算采样位置的 y 方向导数向量。
   <tr><td>`offset`<td>
   在对纹理进行采样之前应用于未归一化纹理坐标的可选纹理像素偏移。 在应用任何纹理环绕模式之前应用此偏移量。<br>
-  `offset` 表达式必须是一个 `const_expression` 表达式（例如 `vec2<i32>(1, 2)`）。<br>
+  `offset` 表达式必须是：
+     * 一个 `const_expression` 表达式（例如 `vec2<i32>(1, 2)`）。<br>
+     * 一个 [=module scope|module-scope=] [=let declaration=] 的名称
   每个 `offset` 组件必须至少为 `-8`，最多为 `7`。 超出此范围的值将导致 [=shader-creation error=]。
 </table>
 
@@ -9299,7 +9582,9 @@ textureSampleLevel(t: texture_external, s: sampler, coords: vec2<f32>) -> vec4<f
   如果未指定，则对 mip 级别 0 进行采样。
   <tr><td>`offset`<td>
   在对纹理进行采样之前应用于未归一化纹理坐标的可选纹理像素偏移。 在应用任何纹理环绕模式之前应用此偏移量。<br>
-  `offset` 表达式必须是一个 `const_expression` 表达式（例如 `vec2<i32>(1, 2)`）。<br>
+  `offset` 表达式必须是：
+     * 一个 `const_expression` 表达式（例如 `vec2<i32>(1, 2)`）。<br>
+     * 一个 [=module scope|module-scope=] [=let declaration=] 的名称
   每个 `offset` 组件必须至少为 `-8`，最多为 `7`。 超出此范围的值将导致 [=shader-creation error=]。
 </table>
 
@@ -9362,8 +9647,8 @@ TODO(dsinclair): Need gather operations
 
 原子内置函数“不得”用在 [=vertex=] 着色器阶段。
 
-所有原子内置函数 `atomic_ptr` 参数的存储类 `SC` 必须是[=storage classes/storage=]或[=storage classes/workgroup=]。
-[=storage classes/workgroup=] 原子在 SPIR-V 中具有 **Workgroup** 内存范围，而 [=storage classes/storage=] 原子在
+所有原子内置函数 `atomic_ptr` 参数的存储类 `SC` 必须是[=address spaces/storage=]或[=address spaces/workgroup=]。
+[=address spaces/workgroup=] 原子在 SPIR-V 中具有 **Workgroup** 内存范围，而 [=address spaces/storage=] 原子在
 SPIR-V 中具有 **Queue Family** 内存范围。
 
 所有原子内置函数中的访问模式 `A` 必须是[=access/read_write=]。
@@ -9430,7 +9715,7 @@ atomicCompareExchangeWeak(atomic_ptr: ptr<SC, atomic<T>, A>, cmp: T, v: T) -> __
 struct __atomic_compare_exchange_result<T> {
   old_value : T; // old value stored in the atomic
   exchanged : bool; // true if the exchange was done
-};
+}
 
 // Maps to the SPIR-V instruction OpAtomicCompareExchange.
 ```
@@ -9449,7 +9734,7 @@ struct __atomic_compare_exchange_result<T> {
 
 ## 数据打包内置函数 ## {#pack-builtin-functions}
 
-数据打包内置函数可用于使用与 [SHORTNAME] 中的类型不直接对应的数据格式对值进行编码。
+数据打包内置函数可用于使用与 WGSL 中的类型不直接对应的数据格式对值进行编码。
 这使程序能够将许多密集打包的值写入内存，从而减少着色器的内存带宽需求。
 
 <table class='data'>
@@ -9489,7 +9774,7 @@ struct __atomic_compare_exchange_result<T> {
 
 ## 数据解包内置函数 ## {#unpack-builtin-functions}
 
-数据解包内置函数可用于解码与 [SHORTNAME] 中的类型不直接对应的数据格式中的值。
+数据解包内置函数可用于解码与 WGSL 中的类型不直接对应的数据格式中的值。
 这使程序能够从内存中读取许多密集打包的值，从而减少着色器的内存带宽需求。
 
 <table class='data'>
@@ -9524,9 +9809,11 @@ struct __atomic_compare_exchange_result<T> {
         通过 |e| 的 16&times;|i|+15 作为 [[!IEEE-754|IEEE-754]] binary16 值。
         查看 [[#floating-point-conversion]]。
 </table>
+
+
 ## 同步内置函数 ## {#sync-builtin-functions}
 
-[SHORTNAME] 提供以下同步函数:
+WGSL 提供以下同步函数:
 
 ```rust
 storageBarrier()
@@ -9540,9 +9827,9 @@ workgroupBarrier()
 所有同步功能都有一个“工作组”[=执行范围=]。
 所有同步函数只能在 [=compute=] 着色器阶段使用。
 
-storageBarrier 影响 [=storage classes/storage=] 存储类中的内存和原子操作。
+storageBarrier 影响 [=address spaces/storage=] 存储类中的内存和原子操作。
 
-workgroupBarrier 影响 [=storage classes/workgroup=] 存储类中的内存和原子操作。
+workgroupBarrier 影响 [=address spaces/workgroup=] 存储类中的内存和原子操作。
 
 <div class='example spirv barrier mapping' heading="Mapping workgroupBarrier to SPIR-V">
   <xmp>
@@ -9569,11 +9856,3 @@ workgroupBarrier 影响 [=storage classes/workgroup=] 存储类中的内存和�
     // OpControlBarrier %uint_2 %uint_2 %uint_328
   </xmp>
 </div>
-
-
-# MATERIAL TO BE MOVED TO A NEW HOME OR DELETED # {#junkyard}
-
-
-[SHORTNAME] has operations for:
-
-* creating a new composite value from an old one by replacing one of its components
