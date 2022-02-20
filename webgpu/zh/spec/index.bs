@@ -292,29 +292,14 @@ thead.stickyheader th, th.stickyheader {
 
 # 介绍 # {#intro}
 
-*本节内容非官方*
+*本节内容为非标准的*
 
-[图形处理单元](https://en.wikipedia.org/wiki/Graphics_processing_unit)，简称GPU，
-对于在个人计算中实现丰富的渲染和计算应用程序至关重要。
-WebGPU 是一个 API，它为 Web 公开 GPU 硬件的功能。
-该API 旨在有效地映射到（2014 年后）原生 GPU API。
-WebGPU 与 [WebGL](https://www.khronos.org/webgl/) 并不相关，也没有明确针对 OpenGL ES。
+[图形处理单元](https://en.wikipedia.org/wiki/Graphics_processing_unit)，简称GPU，对于在个人计算中实现丰富的渲染和计算应用程序至关重要。
+WebGPU 是将 GPU 硬件能力公开给 web 的一组 API。该API设计自底向上有效地映射到（2014 年后）原生 GPU API。WebGPU 与 [WebGL](https://www.khronos.org/webgl/) 没有关系，也不对应到 OpenGL ES。
 
-WebGPU 将物理 GPU 硬件视为 {{GPUAdapter}}。 它通过以下方式提供与适配器的连接
-{{GPUDevice}} 管理资源，设备的 {{GPUQueue}} 执行命令。
-{{GPUDevice}} 可能有自己的内存，可以高速访问处理单元。
-{{GPUBuffer}} 和 {{GPUTexture}} 是由 GPU 内存支持的<dfn dfn>physical resources</dfn>。
-{{GPUCommandBuffer}} 和 {{GPURenderBundle}} 是用户记录命令的容器。
-{{GPUShaderModule}} 包含 [=shader=] 代码。 其他资源，
-例如 {{GPUSampler}} 或 {{GPUBindGroup}}，配置 GPU 使用 [=physical resources=] 的方式。
+WebGPU 将物理 GPU 硬件视为 {{GPUAdapter}}。 它通过 {{GPUDevice}} 对适配器进行连接，{{GPUDevice}} 可以用来管理资源，同时设备的 {{GPUQueue}} 可以用来执行指令。 {{GPUDevice}} 可能有自己的内存，可以高速访问处理单元。 {{GPUBuffer}} 和 {{GPUTexture}} 是 GPU 内存中的两种<dfn dfn>物理资源</dfn>。 {{GPUCommandBuffer}} 和 {{GPURenderBundle}} 是用来存储用户记录指令的容器。 {{GPUShaderModule}} 用来存储 [=着色器=] 代码。 其他资源，将按照 GPU 使用 [=物理资源=] 的方式进行配置，例如 {{GPUSampler}} 或 {{GPUBindGroup}}。
 
-GPU 通过 [=pipeline=] 提供数据来执行 {{GPUCommandBuffer}} 中编码的命令，
-这是固定功能和可编程阶段的混合。 可编程阶段执行
-<dfn dfn>shaders</dfn>，它们是专为在 GPU 硬件上运行而设计的特殊程序。
-[=pipeline=] 的大部分状态定义为
-{{GPURenderPipeline}} 或 {{GPUComputePipeline}} 对象。 不包括的状态
-在这些 [=pipeline=] 对象中，是在使用命令进行编码时设置的，
-例如 {{GPUCommandEncoder/beginRenderPass()}} 或 {{GPURenderPassEncoder/setBlendConstant()}}。
+GPU 可以通过将数据导入[=管线=]的方式，来执行 {{GPUCommandBuffer}} 中编码的指令，这是不易编程时期和可编程时期的混合。 可编程时期，GPU可以运行<dfn dfn>着色器</dfn>语言，着色器语言是专为在 GPU 硬件上运行而设计的特殊程序。[=管线=]的大部分状态通过 {{GPURenderPipeline}} 或 {{GPUComputePipeline}} 对象来定义。 不在这些 [=管线=] 对象中的状态，是在编码时通过使用指令设置的，例如 {{GPUCommandEncoder/beginRenderPass()}} 或 {{GPURenderPassEncoder/setBlendConstant()}}。
 
 
 # 恶意使用注意事项 # {#malicious-use}
@@ -4138,7 +4123,7 @@ interface GPUCompilationInfo {
 
 # 管道 # {#pipelines}
 
-一个 <dfn dfn>pipeline</dfn>，无论是 {{GPUComputePipeline}} 还是 {{GPURenderPipeline}}，
+一个 <dfn dfn>管线</dfn>，无论是 {{GPUComputePipeline}} 还是 {{GPURenderPipeline}}，
 表示由 GPU 硬件、驱动程序、
 和用户代理，以绑定和顶点缓冲区的形式处理输入数据，
 并产生一些输出，如输出渲染目标中的颜色。
