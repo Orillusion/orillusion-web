@@ -304,30 +304,19 @@ GPU 可以通过将数据导入[=管线=]的方式，来执行 {{GPUCommandBuffe
 
 # 恶意使用注意事项 # {#malicious-use}
 
-*本节内容非官方* 本节描述了与在 Web 上公开此 API 相关的风险
+*本节内容为非标准的* 本节描述了在 Web 上公开此 API 相关的风险
 
 ## 安全性 ## {#security}
 
-WebGPU 的安全要求与 Web 的以往相同，同样不容商量。
-一般方法是在所有命令到达 GPU 之前对其进行严格验证，
-确保页面只能使用自己的数据。
+WebGPU 的安全标准与 Web 环境的安全标准一样，同样需要严格执行。实现安全标准的一般做法是在所有指令到达 GPU 之前对其进行严格验证，确保一个页面只能访问该页面自己的数据。
 
 ### 基于 CPU 的未定义行为 ### {#security-cpu-ub}
 
-WebGPU 实现将用户发出的工作负载转换为特定的 API 命令
-到目标平台。 原生 API 指定了命令的有效用法
-（例如，参见 [vkCreateDescriptorSetLayout](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/man/html/vkCreateDescriptorSetLayout.html)）
-如果不遵守有效的使用规则，通常不保证任何结果。
-这称为“未定义行为”，黑客可以利用它来访问他们不拥有的内存
-或强制驱动程序执行任意代码。
+WebGPU 的实现是针对特定的目标平台，将用户提交的工作任务转换为 API 指令。这些API指令的合法使用规则由原生 API 进行明确。（例如，参见 [vkCreateDescriptorSetLayout](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/man/html/vkCreateDescriptorSetLayout.html)）如果不遵守合法的使用规则，通常不保证 API 指令的执行结果。这称为“未定义行为”，黑客可以利用这种行为来访问没有权限的内存或强制驱动程序执行恶意代码。
 
-为了禁止不安全的使用，为任何输入定义了允许的 WebGPU 行为范围。
-一个实现必须验证来自用户的所有输入并且只有有效的工作负载才能到达驱动程序。 本文档规定了所有错误条件和处理语义。
-例如，在“源”和“目标”中指定具有交叉范围的相同缓冲区
-{{GPUCommandEncoder/copyBufferToBuffer()}} 的结果是 {{GPUCommandEncoder}}
-产生错误，并且没有其他操作发生。
+为了禁止不安全的使用，任何被用户提交的工作任务，都需要被定义在WebGPU允许的行为范围内。一个 WebGPU 的实现必须验证用户提交的所有工作任务，只有合法的工作任务才能被驱动程序执行。 本文档明确了所有错误场景和异常处理方法。例如，在 {{GPUCommandEncoder/copyBufferToBuffer()}} 的“源”和“目标”中指定具有交叉范围的相同缓冲区，会导致  {{GPUCommandEncoder}} 产生错误，并且不会执行后续的其他操作。
 
-请查看有关报错处理的更多信息。
+请查看 [[#errors-and-debugging]] 有关报错处理的更多信息。
 
 ## 基于 GPU 的未定义行为 ## {#security-gpu-ub}
 
