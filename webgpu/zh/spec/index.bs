@@ -3677,7 +3677,7 @@ GPUPipelineLayout includes GPUObjectBase;
 
 ### 创建 ### {#pipeline-layout-creation}
 
-{{GPUPipelineLayout}} 是通过 {GPUDevice/createPipelineLayout()|GPUDevice.createPipelineLayout()}} 创建的。
+{{GPUPipelineLayout}} 是通过 {{GPUDevice.createPipelineLayout()}} 创建的。
 
 <script type=idl>
 dictionary GPUPipelineLayoutDescriptor : GPUObjectDescriptorBase {
