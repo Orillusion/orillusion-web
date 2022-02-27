@@ -320,11 +320,7 @@ WebGPU 的实现是针对特定的目标平台，将用户提交的工作任务�
 
 ## 基于 GPU 的未定义行为 ## {#security-gpu-ub}
 
-WebGPU [=shader=]s 由 GPU 硬件内部的计算单元执行。 在原生 API 中，
-某些着色器指令可能会导致 GPU 上出现未定义的行为。
-为了解决这个问题，着色器指令集及其定义的行为都是
-由 WebGPU 严格定义的。 当着色器提供给 {{GPUDevice/createShaderModule()}} 时，
-WebGPU 实现必须在进行任何转换（到特定于平台的着色器）或转换过程之前对其进行验证。
+WebGPU [=着色器=] 程序由 GPU 硬件内部的计算单元执行。 在原生 API 中，某些着色器指令可能会导致 GPU 上出现未定义的行为。为了解决这个问题，着色器指令集及其定义的行为都是由 WebGPU 严格定义的。 当着色器代码被提供给 {{GPUDevice/createShaderModule()}} 时， WebGPU 的实现必须在执行任何转换前（到特定于平台的着色器）对代码进行验证。
 
 ## 未初始化的数据 ## {#security-uninitialized}
 
