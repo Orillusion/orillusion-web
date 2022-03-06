@@ -335,14 +335,10 @@ WebGPU [=着色器=] 程序由 GPU 硬件内部的计算单元执行。 在原�
 
 ## 着色器中的越界访问 ## {#security-shader}
 
-[=Shader=]s 可以直接访问 [=physical resource=]
-（例如，作为 {{GPUBufferBindingType/"uniform"}} {{GPUBufferBinding}}），或通过 <dfn dfn>texture unit</dfn>，
-处理纹理坐标转换的固定功能硬件块。
-API 端的验证只能保证提供着色器的所有输入并且
-他们有正确的用法和类型。
-如果不涉及 [=texture unit=]，主机API端不能保证数据在边界内访问。
+[=着色器=]程序可以对[=物理资源=]进行直接访问（例如，作为 {{GPUBufferBindingType/"uniform"}} {{GPUBufferBinding}}），或通过<dfn dfn>纹理单元</dfn>对[=物理资源=]进行访问，这里的纹理单元是指处理纹理坐标转换的固定功能硬件块。API 端的验证只能保证将所有的输入提供给着色器，并且保证这些输入都有正确的用法和类型。
+如果没有调用[=纹理单元=]，主机 API 端不能保证数据在边界内访问。
 
-问题: 定义与着色器 API 不同的主机 API
+Issue: 定义主机 API 与着色器 API 有什么不同
 
 为了防止着色器访问应用程序不拥有的 GPU 内存，
 WebGPU 实现可能会在驱动程序中启用特殊模式（称为“稳健缓冲区访问”）
