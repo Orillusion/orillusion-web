@@ -351,12 +351,7 @@ Issue: 定义主机 API 与着色器 API 有什么不同
 
 ## 无效数据 ## {#security-invalid-data}
 
-将 [floating-point](https://en.wikipedia.org/wiki/IEEE_754) 数据从 CPU 上传到 GPU 时，
-或者在 GPU 上生成它，我们最终可能会得到一个不对应的二进制表示
-到有效数字，例如无穷大或 NaN（非数字）。 这种情况下的 GPU 行为是
-受制于 IEEE-754 标准的 GPU 硬件实现的准确性。
-WebGPU 保证引入无效的浮点数只会影响结果
-算术计算，不会有其他副作用。
+将 [浮点数](https://en.wikipedia.org/wiki/IEEE_754) 数据从 CPU 上传到 GPU 时，或者在 GPU 上生成浮点数，我们最终可能会得到一个不对应的二进制表示的有效数字，例如无穷大或 NaN（非数字）。 这种情况下的 GPU 行为是受限于 GPU 硬件实现的精度，这里的 GPU 硬件实现是基于 IEEE-754 标准的。 WebGPU 保证引入无效的浮点数只会影响算术计算的结果，不会有其他副作用。
 
 ### 驱动程序错误 ### {#security-driver-bugs}
 
