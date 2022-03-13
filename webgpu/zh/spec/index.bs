@@ -374,10 +374,7 @@ WebGPU 还指定了 {{GPUFeatureName/"timestamp-query"}} 功能，给 GPU 操作
 ## 拒绝服务 ## {#security-dos}
 
 WebGPU 应用程序可以访问 GPU 内存和计算单元。 WebGPU 实现可能会限制
-应用程序的可用 GPU 内存，以保持其他应用程序的响应。
-对于 GPU 处理时间，WebGPU 实现可能会设置“看门狗”计时器，以确保
-应用程序不会导致 GPU 无响应超过几秒钟。
-这些措施类似于 WebGL 中使用的措施。
+应用程序的可用 GPU 内存，以保持其他应用程序的响应。对于 GPU 处理时间，WebGPU 实现可能会设置“看门狗”计时器，以确保应用程序不会导致 GPU 无响应超过几秒钟。这些措施与 WebGL 中使用的措施类似。
 
 ## 工作负载识别 ## {#security-workload-identification}
 
