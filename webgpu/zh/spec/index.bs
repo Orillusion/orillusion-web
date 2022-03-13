@@ -369,10 +369,7 @@ WebGPU 还指定了 {{GPUFeatureName/"timestamp-query"}} 功能，给 GPU 操作
 
 ### 行锤攻击 ### {#security-rowhammer}
 
-[行锤](https://en.wikipedia.org/wiki/Row_hammer) 是一类利用
-DRAM 单元中的状态泄漏。 它可以用于 [在 GPU 上](https://www.vusec.net/projects/glitch/)。
-WebGPU 没有任何特定的缓解措施，并且依赖于平台级解决方案，
-例如减少内存刷新间隔。
+[行锤](https://en.wikipedia.org/wiki/Row_hammer) 是利用 DRAM 单元中的状态泄漏来进行的一类攻击。 它可以被用[在 GPU 上](https://www.vusec.net/projects/glitch/)。 WebGPU 没有任何特定的缓解措施，主要依赖于平台级解决方案，例如减少内存刷新间隔。
 
 ## 拒绝服务 ## {#security-dos}
 
