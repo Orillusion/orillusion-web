@@ -59,9 +59,9 @@ spec:webidl;
 <pre class='anchors'>
 spec: ECMA-262; urlPrefix: https://tc39.es/ecma262/#
     type: dfn
-        text: agent; url: agent
+        text: 代理; url: agent
         text: surrounding agent; url: surrounding-agent
-        text: agent cluster; url: sec-agent-clusters
+        text: 代理集群; url: sec-agent-clusters
 spec: webidl; urlPrefix: https://heycam.github.io/webidl/#
     type: dfn
         text: resolve; url: resolve
@@ -359,24 +359,13 @@ GPU 驱动程序像任何其他软件一样容易出现错误。 如果发生错
 
 ### 定时攻击 ### {#security-timing}
 
-WebGPU 设计用于通过 Web Workers 进行多线程使用。 因此，它被设计为对
-用户开放现代的高精度的定时攻击。 一些对象，
-像 {{GPUBuffer}} 或 {{GPUQueue}} 一样，具有可以同时访问的共享状态。
-这允许发生竞争条件，类似于访问来自多个 Web Workers的“SharedArrayBuffer”，这使得线程调度是可观察的。
+WebGPU 通过 Web Workers 进行多线程使用。 因此，WebGPU 的设计是避免用户遭遇到现代的高精度定时攻击。 一些对象，比如 {{GPUBuffer}} 或 {{GPUQueue}} ，具有同时被访问的共享状态。因此可能会发生竞争条件，类似于多个 Web Workers 同时访问同一个的 “SharedArrayBuffer”，这种情况下线程调度是可见的。
 
-WebGPU 通过只对[=agent cluster=] 中的 [=agents=]限制反序列化（或共享）对象的能力来解决这个问题
-，并且仅当[跨域隔离](https://web.dev/coop-coep/) 政策已经到位。
-此限制符合 [缓解措施](https://hacks.mozilla.org/2020/07/safely-reviving-shared-memory/)
-对抗恶意的“SharedArrayBuffer”使用。 同样，用户代理也可以
-序列化 [=agents=] 共享任何句柄以完全防止任何并发。
+WebGPU 解决这个问题的方法是，只有当[跨域隔离](https://web.dev/coop-coep/)规则开启后，再将反序列化（或共享）对象的能力只赋予[=代理集群=]中的[=代理=]，此限制符合对抗恶意使用“SharedArrayBuffer”的 [缓解措施](https://hacks.mozilla.org/2020/07/safely-reviving-shared-memory/)。同样，用户代理也可以序列化[=代理=]共享任何句柄以完全防止任何并发。
 
-最终，WebGPU 中共享状态竞争的攻击面将是
-`SharedArrayBuffer` 攻击的一小部分。
+总结来说，WebGPU 共享状态下可能遭受到的竞争攻击是 `SharedArrayBuffer` 攻击的一小部分。
 
-WebGPU 还指定了 {{GPUFeatureName/"timestamp-query"}} 功能，其中
-提供 GPU 操作的高精度计时。 该功能是可选的，一个 WebGPU
-实施可能会将其暴露限制在那些受信任的场景中。 或者，
-计时查询结果可以由计算着色器处理并对齐到较低的精度。
+WebGPU 还指定了 {{GPUFeatureName/"timestamp-query"}} 功能，给 GPU 操作提供高精度计时。 该功能是可选的，一个 WebGPU 的实现可能会只暴露在那些受信任的场景中。 或者，计时查询结果可以由计算着色器处理并对齐到较低的精度。
 
 ### 行锤攻击 ### {#security-rowhammer}
 
