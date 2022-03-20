@@ -442,9 +442,9 @@ WebGPU 计算管线公开了对 GPU 的访问，不受固定功能硬件的阻�
 
 ### 内部对象 ### {#webgpu-internal-objects}
 
-<dfn dfn>internal object</dfn>是一个概念性的，未暴露的WebGPU对象。[=Internal objects=]追踪一个API对象的状态并且提供实现基础。如果一个特定[=Internal objects=]的状态可以从多个[=agent=]中并行地改变，那些改变关于所有[=agent=]总是原子的。
+<dfn dfn>内部对象</dfn>是一个概念性的，未暴露的 WebGPU 对象。[=内部对象=]追踪一个 API 对象的状态，并且包含了所有潜在的 API 实现。如果一个特定[=内部对象=]的状态可以从多个[=代理=]中并行地被改变，那么这些改变对于所有[=代理=]来说，总是最小的可执行单元。
 
-Note: 一个 "[=agent=]" 指一个Javascript“线程”（即. 主线程，或Web Worker）。
+Note: 一个 "[=代理=]" 指一个 Javascript “线程”（即. 主线程，或 Web Worker）。
 
 ### WebGPU接口 ### {#webgpu-interfaces}
 
