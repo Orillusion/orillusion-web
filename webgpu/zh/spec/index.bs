@@ -446,15 +446,15 @@ WebGPU 计算管线公开了对 GPU 的访问，不受固定功能硬件的阻�
 
 Note: 一个 "[=代理=]" 指一个 Javascript “线程”（即. 主线程，或 Web Worker）。
 
-### WebGPU接口 ### {#webgpu-interfaces}
+### WebGPU 接口 ### {#webgpu-interfaces}
 
-一个<dfn dfn>WebGPU interface</dfn>是一个包含一个[=internal object=]的暴露出来的接口。[=internal object=]的状态通过它提供的接口进行改变。
+一个<dfn dfn>WebGPU 接口</dfn>是一个封装了[=内部对象=]的暴露接口。[=内部对象=]的状态通过 WebGPU 提供的接口进行改变。
 
-所有包含{{GPUObjectBase}}的接口是一个[=WebGPU interface=]。
+所有包含 {{GPUObjectBase}} 的接口是一个[=WebGPU 接口=]。
 
 <script type=idl>
 interface mixin GPUObjectBase {
-    attribute (USVString or undefined) label;
+    attribute USVString? label;
 };
 </script>
 
@@ -463,7 +463,9 @@ interface mixin GPUObjectBase {
 <dl dfn-type=attribute dfn-for=GPUObjectBase>
     : <dfn>label</dfn>
     ::
-        label用于开发过程中标记/描述底层[=internal object=]（比如可以用来传递error/warning消息。）label没有特定的格式，可以为空，所以不能被机器解析，开发者可以自由选择是否使用该字段。
+        标签，在开发工具（比如错误/告警消息，浏览器开发工具，平台调试工具）中被使用，并用来给开发者识别底层[=内部对象=]。标签没有特定的格式，所以不能可靠的被机器解析。
+
+        在任何情况下，开发者可以自由选择是否使用该标签字段。
 </dl>
 
 {{GPUObjectBase}}有以下内部槽位:
@@ -471,7 +473,7 @@ interface mixin GPUObjectBase {
 <dl dfn-type=attribute dfn-for=GPUObjectBase>
     : <dfn>\[[device]]</dfn>, of type [=device=], readonly
     ::
-        一个持有拥有[=internal object=]的[=device=]的内部槽位。
+        一个内部槽位包含一个[=设备=]，该[=设备=]同时拥有[=内部对象=]。
 </dl>
 
 ### 对象描述符 ### {#object-descriptors}
