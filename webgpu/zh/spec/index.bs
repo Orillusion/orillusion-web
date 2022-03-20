@@ -468,7 +468,7 @@ interface mixin GPUObjectBase {
         在任何情况下，开发者可以自由选择是否使用该标签字段。
 </dl>
 
-{{GPUObjectBase}}有以下内部槽位:
+{{GPUObjectBase}} 有以下内部槽位:
 
 <dl dfn-type=attribute dfn-for=GPUObjectBase>
     : <dfn>\[[device]]</dfn>, of type [=device=], readonly
@@ -478,7 +478,7 @@ interface mixin GPUObjectBase {
 
 ### 对象描述符 ### {#object-descriptors}
 
-一个<dfn dfn>object descriptor</dfn>持有创建对象需要的信息，通常是通过{{GPUDevice}}的 `create*` 方法之一创建的。
+一个<dfn dfn>对象描述符</dfn>包含创建对象需要的信息，通常是通过 {{GPUDevice}} 中的某一个 `create*` 方法创建的。
 
 <script type=idl>
 dictionary GPUObjectDescriptorBase {
@@ -486,12 +486,12 @@ dictionary GPUObjectDescriptorBase {
 };
 </script>
 
-{{GPUObjectDescriptorBase}}有以下成员:
+{{GPUObjectDescriptorBase}} 有以下成员:
 
 <dl dfn-type=dict-member dfn-for=GPUObjectDescriptorBase>
     : <dfn>label</dfn>
     ::
-        {{GPUObjectBase/label|GPUObjectBase.label}}的初始值。
+        {{GPUObjectBase/label|GPUObjectBase.label}} 的初始值。
 </dl>
 
 ## 无效内部对象 &amp; 传染无效性 ## {#invalidity}
