@@ -554,54 +554,54 @@ Note: WebGPU 的坐标系与图形管道中的 DirectX 坐标系相匹配。
 
 ### 时间线 ### {#programming-model-timelines}
 
-*本节是非规范的。*
+*本节内容为非标准的*
 
-前端有用户代理、后端有GPU的计算机系统具有并行工作在不同时间线上的组件：
+前端有用户代理、后端有 GPU 的计算机系统具有并行工作在不同时间线上的组件：
 
-: <dfn dfn>Content timeline</dfn>
-:: 与Web 脚本的执行相关联。 它包括调用本规范描述的所有方法。
+: <dfn dfn>内容时间线</dfn>
+:: 与 Web 脚本的执行相关联。 它包括调用本规范描述的所有方法。
 
     <div class=content-timeline>
         在内容时间线上执行的步骤如下所示。
     </div>
 
-: <dfn dfn>Device timeline</dfn>
-:: 与用户代理发出的GPU设备操作相关联。它包括创建显卡适配器、设备和 GPU 资源和状态对象，从控制 GPU 的用户代理部分的角度来看，这些操作通常是同步操作，但可以存在于单独的操作系统进程中。
+: <dfn dfn>设备时间线</dfn>
+:: 与用户代理发出的 GPU 设备操作相关联。它包括创建显卡适配器、设备和 GPU 资源及状态对象，从控制 GPU 的用户代理部分的角度来看，这些操作通常是同步操作，但可以存在于单独的操作系统进程中。
 
     <div class=device-timeline>
         在设备时间线上执行的步骤如下所示。
     </div>
 
-: <dfn dfn>Queue timeline</dfn>
-:: 与在 GPU 的计算单元上执行操作相关。它包括在 GPU 上运行的实际绘制、复制和计算作业。
+: <dfn dfn>队列时间线</dfn>
+:: 与在 GPU 的计算单元上执行操作相关。它包括在 GPU 上运行的实际绘制、复制和计算任务。
 
     <div class=queue-timeline>
         在队列时间线上执行的步骤如下所示。
     </div>
 
-在本规范中，当结果值取决于发生在除[=Content timeline=]以外的任何时间线上的工作时，将使用异步操作。它们由 JavaScript 中的回调和承诺表示。
+在本规范中，当结果值取决于发生在除[=内容时间线=]以外的任何时间线上的工作时，将使用异步操作。它们由 JavaScript 中的回调和承诺表示。
 
 <div class="example">
-{{GPUComputePassEncoder/dispatch(workgroupCountX, workgroupCountY, workgroupCountZ)|GPUComputePassEncoder.dispatch()}}:
+{{GPUComputePassEncoder/dispatch(x, y, z)|GPUComputePassEncoder.dispatch()}}:
 
-  1. 用户通过调用发生在内容时间线上的{{GPUComputePassEncoder}}的方法对 `dispatch` 命令进行编码。
-  2. 用户发出{{GPUQueue/submit(commandBuffers)|GPUQueue.submit()}}将GPUCommandBuffer移交给用户代理，用户代理通过调用操作系统驱动程序执行低级提交在[=Device timeline=]上处理它。
-  3. 提交由GPU调用调度程序分派到实际计算单元上执行，这发生在[=Queue timeline=]上。
+  1. 用户通过调用发生在[=内容时间线=]上的 {{GPUComputePassEncoder}} 方法对 `dispatch` 命令进行编码。
+  2. 用户调用 {{GPUQueue/submit(commandBuffers)|GPUQueue.submit()}} ，将 {{GPUCommandBuffer}} 移交给用户代理，用户代理通过调用操作系统驱动程序在[=设备时间线=]上执行低级提交。
+  3. 在[=队列时间线=]上，提交由 GPU 调度程序分发到实际计算单元上执行。
 
 </div>
 <div class="example">
 {{GPUDevice/createBuffer(descriptor)|GPUDevice.createBuffer()}}:
 
-  1. 用户填写一个{{GPUBufferDescriptor}}并用它创建一个{{GPUBuffer}}，这发生在[=Content timeline=]上。
-  2. 用户代理在[=Device timeline=]上创建一个低级缓冲区。
+  1. 在[=内容时间线=]上，用户填写一个 {{GPUBufferDescriptor}}，并用它创建一个 {{GPUBuffer}}。
+  2. 用户代理在[=设备时间线=]上创建一个低级缓冲区。
 
 </div>
 <div class="example">
 {{GPUBuffer/mapAsync()|GPUBuffer.mapAsync()}}:
 
-  1. 用户请求在[=Content timeline=]上映射{{GPUBuffer}}并得到一个返回的promise。
-  2. 用户代理检查缓冲区当前是否被GPU使用，并在使用结束时提醒自己检查。
-  3. 在使用缓冲区完成对队列时间线的GPU操作后，用户代理将其映射到内存并resolves the promise。
+  1. 用户请求在[=内容时间线=]上映射 {{GPUBuffer}}，并得到一个promise的返回值。
+  2. 用户代理检查缓冲区当前是否被 GPU 使用，并在使用结束时提醒自己再次检查。
+  3. 在使用缓冲区完成在[=队列时间线=]上的 GPU 操作后，用户代理将其映射到内存并[=决议=]这个 promise。
 
 </div>
 
