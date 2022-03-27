@@ -523,21 +523,21 @@ dictionary GPUObjectDescriptorBase {
 
 ## 无效内部对象 &amp; 传染无效性 ## {#invalidity}
 
-WebGPU 中的对象创建操作在内部是异步的，因此它们不会因异常而失败。相反，返回的对象可能引用有效（<dfn dfn>valid</dfn>）或无效（<dfn dfn>invalid</dfn>）的内部对象（[=internal objects=]）。无效（[=invalid=]）的对象可能永远不会在以后变得有效（[=valid=]）。一些对象可能在其生命周期内变得无效（[=invalid=]），而大多数可能仅在创建时才无效（[=invalid=]）。
+WebGPU 中的对象创建操作在内部是异步的，因此它们不会因异常而失败。相反，返回的对象可能引用<dfn dfn>有效</dfn>或<dfn dfn>无效</dfn>的[=内部对象=]。[=无效=]的对象可能永远不会在以后变得[=有效=]。一些对象可能在其生命周期内变得[=无效=]，而大多数可能仅在创建时才[=无效=]。
 
-如果无法创建对象，则对象从创建时就无效（[=invalid=]）。例如，如果对象描述符（[=object descriptor=]）没有描述有效的对象，或者没有足够的内存来分配资源，就会发生这种情况。
+如果无法创建对象，则对象从创建时就[=无效=]。例如，如果[=对象描述符=]没有描述有效的对象，或者没有足够的内存来分配资源，就会发生这种情况。
 
-*大多数*类型的内部对象（[=Internal objects=]）在创建后不会变为无效（[=invalid=]），但仍然可能变得不可用，例如 如果拥有设备丢失（[=lose the device|lost=]）或损坏（{{GPUDevice/destroy()|destroyed}}），或者对象具有特殊的内部状态，如缓冲区状态已损坏。
+*大多数*类型的[=内部对象=]在创建后不会变为[=无效=]，但仍然可能变得不可用，例如 如果拥有设备[=丢失设备|丢失=]或{{GPUDevice/destroy()|销毁}}，或者对象具有特殊的内部状态，如缓冲区状态已损坏。
 
-某些类型的内部对象（[=Internal objects=]）在创建后*可能*会失效（[=invalid=]）；具体来说，设备、适配器和命令/传递/捆绑编码器。
+某些类型的[=内部对象=]在创建后*可能*会变得[=无效=]；具体来说，比如设备、适配器和命令/传递/捆绑编码器。
 
 <div>
-    一个给定的{{GPUObjectBase}} |object|能与|targetObject|一起使用当且仅当满足以下要求时：
+    当且仅当满足以下要求时，一个给定的{{GPUObjectBase}} |对象|能与|目标对象|<dfn abstract-op>一起有效被使用</dfn>:
 
     <div class=validusage>
-        - |object| 必须为 [=valid=].
-        - |object|.{{GPUObjectBase/[[device]]}} 必须为 [=valid=].
-        - |object|.{{GPUObjectBase/[[device]]}} 必须等于 |targetObject|.{{GPUObjectBase/[[device]]}}.
+        - |对象| 必须为 [=有效=].
+        - |对象|.{{GPUObjectBase/[[device]]}} 必须为 [=有效=].
+        - |对象|.{{GPUObjectBase/[[device]]}} 必须等于 |目标对象|.{{GPUObjectBase/[[device]]}}.
     </div>
 </div>
 
