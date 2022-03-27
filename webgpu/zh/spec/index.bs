@@ -629,52 +629,52 @@ Note: 这个例子描述了最坏的情况，而在实践中实现可能不需�
 
 ### 资源使用 ### {#programming-model-resource-usages}
 
-[=physical resources=]可以在 GPU 上使用，<dfn dfn>internal usage</dfn>:
+[=物理资源=]可以和<dfn dfn>内部使用</dfn>一起在 GPU 上被使用:
 <dl dfn-type=dfn dfn-for="internal usage">
-    : <dfn>input</dfn>
-    ::  填入为绘制或调度调用数据的缓冲。保留内容。被缓冲区{{GPUBufferUsage/INDEX}}、缓冲区{{GPUBufferUsage/VERTEX}}或缓冲区{{GPUBufferUsage/INDIRECT}}允许。
-    : <dfn>constant</dfn>
-    ::  从着色器的角度来看是常量的资源绑定。保留内容。缓冲区{{GPUBufferUsage/UNIFORM}}或纹理{{GPUTextureUsage/TEXTURE_BINDING}}允许。
-    : <dfn>storage</dfn>
-    ::  可写入存储资源绑定。被缓冲区{{GPUBufferUsage/STORAGE}}或纹理{{GPUTextureUsage/STORAGE_BINDING}}允许。
-    : <dfn>storage-read</dfn>
-    ::  只读存储资源绑定。保留内容。被缓冲区{{GPUBufferUsage/STORAGE}}允许。
-    : <dfn>attachment</dfn>
-    :: 在渲染过程中用作输出附件的纹理。被纹理{{GPUTextureUsage/RENDER_ATTACHMENT}}允许。
-    : <dfn>attachment-read</dfn>
-    :: 在渲染过程中用作只读附件的纹理。被纹理{{GPUTextureUsage/RENDER_ATTACHMENT}}允许。
+    : <dfn>输入</dfn>
+    ::  填入为绘制或调度调用数据的缓冲。保留内容。被缓冲区 {{GPUBufferUsage/INDEX}}、缓冲区 {{GPUBufferUsage/VERTEX}}，或缓冲区 {{GPUBufferUsage/INDIRECT}}允许。
+    : <dfn>常量</dfn>
+    ::  从着色器的角度来看是常量的资源绑定。保留内容。缓冲区 {{GPUBufferUsage/UNIFORM}} 或纹理 {{GPUTextureUsage/TEXTURE_BINDING}} 允许。
+    : <dfn>存储</dfn>
+    ::  可写入存储的资源绑定。被缓冲区 {{GPUBufferUsage/STORAGE}} 或纹理 {{GPUTextureUsage/STORAGE_BINDING}} 允许。
+    : <dfn>只读存储</dfn>
+    ::  只读存储的资源绑定。保留内容。被缓冲区 {{GPUBufferUsage/STORAGE}} 允许。
+    : <dfn>附件</dfn>
+    :: 在渲染过程中用作输出附件的纹理。被纹理 {{GPUTextureUsage/RENDER_ATTACHMENT}} 允许。
+    : <dfn>只读附件</dfn>
+    :: 在渲染过程中用作只读附件的纹理。被纹理 {{GPUTextureUsage/RENDER_ATTACHMENT}} 允许。
 </dl>
 
-纹理可能由单独的[=mipmap levels=]和[=array layers=]组成，它们可以在任何给定时间以不同的方式被使用。每个这样的<dfn dfn>texture subresource</dfn>都由纹理、[=mipmap levels=]和（仅适用于2d纹理）阵列层和[=aspect=]唯一标识。
+纹理可能由单独的[=mipmap levels=]和[=array layers=]组成，它们可以在任何给定时间以不同的方式被使用。每个这样的<dfn dfn>纹理子资源</dfn>都由纹理、[=mipmap levels=]和（仅适用于 {{GPUTextureDimension/2d}} 纹理的）[=array layer=]和[=aspect=]唯一标识。
 
-我们定义<dfn dfn>subresource</dfn>可以是整个缓冲区，也可以是[=texture subresource=]。
+我们定义<dfn dfn>子资源</dfn>可以是整个缓冲区，也可以是[=纹理子资源=]。
 
 <div>
-一些[=internal usages=]与其他用法兼容。[=subresource=]可以处于将多种用途组合在一起的状态。 当（且仅当）满足以下任何规则时，我们认为列表|U|是<dfn dfn>compatible usage list</dfn>：
-    - |U|中的每个用法都是[=internal usage/input=]，[=internal usage/constant=]，[=internal usage/storage-read=]，或[=internal usage/attachment-read=]。
-    - |U|中的每个用法都是[=internal usage/storage=]。
-    - |U|只包含一个元素：[=internal usage/attachment=]。
+一些[=内部使用=]与其他用法兼容。[=子资源=]可以处于将多种用途组合在一起的状态。 当（且仅当）满足以下任何规则时，我们认为列表|U|是<dfn dfn>兼容使用列表</dfn>：
+    - |U|中的每个用法都是[=internal usage/输入=]，[=internal usage/内容=]，[=internal usage/自读存储=]，或[=internal usage/只读附件=]。
+    - |U|中的每个用法都是[=internal usage/存储=]。
+    - |U|只包含一个元素：[=internal usage/附件=]。
 </div>
 
-强制使用仅组合到兼容的使用列表中，允许API限制在使用内存时可能发生数据争用的时间。该属性使对WebGPU编写的应用程序更有可能在不同平台上运行而无需修改。
+强制将对资源的使用仅组合到[=兼容使用列表=]中，可以让 API 限制使用内存时可能发生数据竞争的时间。该属性使对 WebGPU 编写的应用程序更有可能在不同平台上运行而无需修改。
 
-通常，当实现以不同于当前使用允许的方式处理使用子资源的操作时，它会安排资源到新状态的转换。 在某些情况下，例如在开放的{{GPURenderPassEncoder}}中，由于硬件限制，这种转换是不可能的。我们将这些地方定义为<dfn dfn>usage scopes</dfn>。
+通常，当实现以不同于当前使用允许的方式处理使用[=子资源=]的操作时，资源会被转换到新状态。 在某些情况下，例如在开放的 {{GPURenderPassEncoder}} 中，由于硬件限制，这种转换是不可能的。我们将这些地方定义为<dfn dfn>使用范围</dfn>。
 
-主要的**使用规则**是，对于任何一个[=subresource=]，它在一个[=usage scope=]内的[=internal usages=]列表必须是一个[=compatible usage list=]。
+**主要的使用规则**是，对于任何一个[=子资源=]，该子资源在一个[=使用范围=]内的[=内部使用=]列表必须是一个[=兼容使用列表=]。
 
-例如，在同一{{GPURenderPassEncoder}}中绑定相同的缓冲区用于[=internal usage/storage=]和[=internal usage/input=]将使编码器以及拥有的{{GPUCommandEncoder}}进入错误状态。这种用法组合不会形成[=compatible usage list=]。
+例如，在同一 {{GPURenderPassEncoder}} 中绑定相同的缓冲区用于[=internal usage/存储=]和[=internal usage/输入=]将使编码器以及拥有的 {{GPUCommandEncoder}} 进入错误状态。这种用法组合不会形成[=兼容使用列表=]。
 
-注意：允许在单个[=usage scope=]内出现多个可写存储缓冲区/纹理使用的竞争条件。
+Note: 允许在单个[=使用范围=]内出现多个可写存储缓冲区/纹理使用的竞争条件。
 
-提供给{{GPURenderPassColorAttachment/view|GPURenderPassColorAttachment.view}}和{{GPURenderPassColorAttachment/resolveTarget|GPURenderPassColorAttachment.resolveTarget}}的视图中包含的纹理[=subresource=]被视为用作此渲染通道[=usage scope=]的[=internal usage/attachment=]。
+提供给 {{GPURenderPassColorAttachment/view|GPURenderPassColorAttachment.view}} 和 {{GPURenderPassColorAttachment/resolveTarget|GPURenderPassColorAttachment.resolveTarget}} 的视图中包含的纹理[=子资源=]被视为用作此渲染通道[=使用范围=]的[=internal usage/附件=]。
 
-[=texture subresource=]的<dfn dfn>physical size</dfn>是[=texture subresource=]在纹素中的维度，包括可能的额外填充以在[=subresource=]中形成完整的[=texel blocks=]。
+[=纹理子资源=]的<dfn dfn>物理大小</dfn>是[=纹理子资源=]在纹素中的维度，包括可能的额外填充，以在[=子资源=]中形成完整的[=纹素块=]。
 
-  - 对于基于像素的{{GPUTextureFormat|GPUTextureFormats}}，物理大小始终等于采样硬件中使用的[=texture subresource=]的大小。
-  - 基于块的压缩{{GPUTextureFormat|GPUTextureFormats}}中的纹理始终具有[=mipmap level=] 0，其descriptor.size是纹素块大小的倍数，但较低的[=mipmap level=]可能不是纹素块大小的倍数，并且可以有填充。
+  - 对于基于像素的 {{GPUTextureFormat|GPUTextureFormats}}，[=物理大小=]始终等于采样硬件中使用的[=纹理子资源=]的大小。
+  - 基于块的压缩 {{GPUTextureFormat|GPUTextureFormats}} 中的[=纹理=]始终具有[=mipmap level=] 0，其 {{GPUTexture/[[descriptor]]}}.{{GPUTextureDescriptor/size}} 是[=纹素块大小=]的倍数，但较低的[=mipmap level=]可能不是[=纹素块大小=]的倍数，可以使用填充到整数倍。
 
 <div class="example">
-考虑一个BC格式的{{GPUTexture}}，其{{GPUTexture/[[descriptor]]}}.{{GPUTextureDescriptor/size}}为{60, 60, 1}，在[=mipmap level=] 2对GPUTexture进行采样时，采样硬件使用{15, 15, 1}作为[=texture subresource=]的大小 ，而其[=physical size=]为 {16, 16, 1}，因为块压缩算法只能在 4x4 纹素块上运行。
+考虑一个BC格式的 {{GPUTexture}}，其 {{GPUTexture/[[descriptor]]}}.{{GPUTextureDescriptor/size}} 为{60, 60, 1}，在[=mipmap level=] 2 上对 {{GPUTexture}} 进行采样时，采样硬件使用{15, 15, 1}作为[=纹理子资源=]的大小 ，而其[=物理大小=]为 {16, 16, 1}，因为块压缩算法只能在 4x4 纹素块上运行。
 </div>
 
 ### 同步 ### {#programming-model-synchronization}
