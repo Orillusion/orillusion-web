@@ -709,33 +709,33 @@ Note: 允许在单个[=使用范围=]内出现多个可写存储缓冲区/纹理
 
 ### 显卡适配器 ### {#adapters}
 
-显卡适配器（<dfn dfn>adapter</dfn>）标识系统上 WebGPU 的实现：浏览器底层平台上的计算/渲染功能实例，以及浏览器在该功能之上的 WebGPU 实现实例。
+<dfn dfn>显卡适配器</dfn>标识系统上的 WebGPU 实现：浏览器底层平台上的计算/渲染功能实例，以及浏览器在该功能之上的 WebGPU 实现实例。
 
-显卡适配器（[=Adapters=]）并不唯一地表示底层实现：多次调用 {{GPU/requestAdapter()}} 每次都会返回不同的适配器对象。
+[=显卡适配器=]并不唯一的表示底层实现：多次调用 {{GPU/requestAdapter()}} 每次都会返回不同的适配器对象。
 
-显卡适配器（[=adapter=]）对象可能随时失效（[=invalid=]）。这发生在“丢失设备”（[=lose the device=]）和“标记适配器陈旧”（[=mark adapters stale=]）中。无效的显卡适配器无法出售新设备（[=devices=]）。
+[=显卡适配器=]对象可能随时变为[=无效=]。这发生在“[=丢失设备=]”和“[=标记适配器过时=]”中。无效的显卡适配器无法创建新[=设备=]。
 
-注意：这种机制确保各种显卡适配器创建场景看起来与应用程序相似，因此它们可以轻松地以较少的测试对更多场景保持健壮：首次初始化、由于未插入适配器而重新初始化、由于测试{{GPUDevice/destroy()|GPUDevice.destroy()}}调用而重新初始化等。它还确保应用程序使用最新的系统状态来决定使用哪个适配器。
+Note: 这种机制确保各种显卡适配器对场景的创建看起来与应用程序相似，因此更易以较少的测试保持更多场景的鲁棒性：首次初始化、由于未插入适配器而重新初始化、由于测试 {{GPUDevice/destroy()|GPUDevice.destroy()}} 调用而重新初始化等。这种机制还确保应用程序使用最新的系统状态，并以此来决定使用哪个适配器。
 
-如果[=adapter=]具有显著的性能警告以换取更广泛的兼容性、更可预测的行为或改进的隐私的某种组合，则可以将其视为<dfn>fallback adapter</dfn>。 不需要在每个系统上都有可用的[=fallback adapter=]。
+如果[=显卡适配器=]出现了显著的性能警告来换取更广泛的兼容性、更可预测的行为或更好的隐私性的某种组合，则可以将其视为<dfn>应急适配器</dfn>。 不需要在每个系统上都有可用的[=应急适配器=]。
 
-[=adapter=]具有以下内部插槽：
+[=显卡适配器=]具有以下内部插槽：
 <dl dfn-type=attribute dfn-for=adapter>
     : <dfn>\[[features]]</dfn>, of type [=ordered set=]&lt;{{GPUFeatureName}}&gt;, readonly
     ::
-        [=features=] 可以用作创建显卡适配器上的设备。
+        可以用作创建显卡适配器上设备的[=特性=]。
 
     : <dfn>\[[limits]]</dfn>, of type [=supported limits=], readonly
     ::
-        最好[=limit/better|best=]限制用作创建显卡适配器上的设备。
-        每个适配器限制必须与[=supported limits=].中的默认值相同或更好[=limit/better=]。
+        [=limit/更好|最好=]限制用作创建显卡适配器上的设备。
+        每个适配器限制必须与[=可支持的限制=]中的默认值相同或[=limit/更好=]。
 
     : <dfn>\[[fallback]]</dfn>, of type boolean
     ::
-        如果设为 `true`, 则显卡适配器为[=fallback adapter=]。
+        如果设为 `true`, 则显卡适配器为[=应急适配器=]。
 </dl>
 
-[=adapter=]通过{{GPUAdapter}}暴露出来。
+[=显卡适配器=]通过 {{GPUAdapter}} 暴露出来。
 
 ### 设备 ### {#devices}
 
