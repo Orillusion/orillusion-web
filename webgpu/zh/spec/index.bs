@@ -739,54 +739,54 @@ Note: 这种机制确保各种显卡适配器对场景的创建看起来与应�
 
 ### 设备 ### {#devices}
 
-<dfn dfn>device</dfn>是[=adapter=]的逻辑实例，通过它创建内部对象。它可以在多个代理（例如专用workers）之间共享。
+<dfn dfn>设备</dfn>是[=显卡适配器=]的逻辑实例，[=内部对象=]通过设备被创建。设备可以在多个[=代理=]（例如专用 workers）之间共享。
 
-设备（[=device=]）是从它创建的所有内部对象（[=internal objects=]）的唯一所有者：当设备（[=device=]）丢失（[=lose the device|lost=]）或销毁（{{GPUDevice/destroy()|destroyed}}）时，它和在其上创建的所有对象（直接，例如{{GPUDevice/createTexture()}}，或间接，例如{{GPUTexture/createView()}}）变得隐式不可用。
+[=设备=]是从其创建的所有[=内部对象=]的唯一所有者：当[=设备=][=丢失设备|丢失=]或{{GPUDevice/destroy()|销毁}}时，设备和在其上创建的所有对象变得隐式[$一起有效被使用|不可用$]，（直接对象，例如 {{GPUDevice/createTexture()}}，或间接对象，例如 {GPUTexture/createView()}}）。
 
-问题：定义“所有权”。
+Issue: 定义“所有权”。
 
-[=device=]有以下内部插槽:
+[=设备=]有以下内部插槽:
 
 <dl dfn-type=attribute dfn-for=device>
     : <dfn>\[[adapter]]</dfn>, of type [=adapter=], readonly
     ::
-        创建此设备的[=adapter=]。
+        创建此设备的[=显卡适配器=]。
 
     : <dfn>\[[features]]</dfn>, of type [=ordered set=]&lt;{{GPUFeatureName}}&gt;, readonly
     ::
-        可在此设备上使用的功能。不能使用附加功能，即使底层显卡适配器可以支持它们。
+        可在此设备上使用的[=特性=]。不能使用附加特性，即使底层[=显卡适配器=]可以支持它们。
 
     : <dfn>\[[limits]]</dfn>, of type [=supported limits=], readonly
     ::
-        可在此设备上使用的限制。 没有更好的限制可以使用，即使底层显卡适配器可以支持它们。
+        可在此设备上使用的限制。 没有[=limit/更好=]的限制可以使用，即使底层[=显卡适配器=]可以支持它们。
 </dl>
 
 <div>
-    当使用{{GPUDeviceDescriptor}}描述符从[=adapter=]创建<dfn dfn>a new device</dfn>时：
+    当使用 {{GPUDeviceDescriptor}} 描述符从[=显卡适配器=]创建<dfn dfn>新设备</dfn>时：
 
-    - 设置|device|.{{device/[[adapter]]}}为|adapter|.
+    - 设置 |device|.{{device/[[adapter]]}} 为 |adapter|.
 
-    - 设置|device|.{{device/[[features]]}}为|descriptor|.{{GPUDeviceDescriptor/requiredFeatures}}中的值[=ordered set|集=]。
+    - 设置 |device|.{{device/[[features]]}} 为 |descriptor|.{{GPUDeviceDescriptor/requiredFeatures}} 中值的[=ordered set|集=]。
 
-    - 让|device|.{{device/[[limits]]}}成为具有默认值的[=supported limits=]对象。对于|descriptor|.{{GPUDeviceDescriptor/requiredLimits}} 中的每个(|key|, |value|) 对，将|device|.{{device/[[limits]]}}中key对应的成员设置为value的[=limit/better=]|值|或支持的limits中的默认值。
+    - 让 |device|.{{device/[[limits]]}} 成为具有默认值的[=可支持的限制=]对象。对于 |descriptor|.{{GPUDeviceDescriptor/requiredLimits}} 中的每个(|key|, |value|) 对，将 |device|.{{device/[[limits]]}} 中 key 对应的成员设置为[=limit/更好=]的|值|或[=可支持的限制=]中的默认值。
 </div>
 
-任何时候用户代理需要撤销对设备的访问，它都会调用[=lose the device=]（设备，`undefined`）。
+任何时候用户代理需要撤销对设备的访问，都会调用[=丢失设备=]（设备，`undefined`）。
 
 <div>
-    <dfn dfn>lose the device</dfn>(|设备|, |原因|):
+    <dfn dfn>丢失设备</dfn>(|设备|, |原因|):
 
-    1. 使|device|.{{device/[[adapter]]}} [=invalid=]。
-    2. 使|device| [=invalid=]。
-    3. 问题：解释如何从|设备|中获得它的“主”{{GPUDevice}}。
-    4. 解决|device|.{{GPUDevice/lost}}返回一个新的{{GPUDeviceLostInfo}}，
-        {{GPUDeviceLostInfo/reason}}设置为|reason|
-        {{GPUDeviceLostInfo/message}}设置成一个实现定义值。
+    1. 使 |device|.{{device/[[adapter]]}} [=无效=]。
+    2. 使 |device| [=无效=]。
+    3. Issue: 解释如何从|设备|中获得它的“主” {{GPUDevice}}。
+    4. 决议 |device|.{{GPUDevice/lost}} 返回一个新的{{GPUDeviceLostInfo}}，
+        {{GPUDeviceLostInfo/reason}} 设置为 |reason|，并将
+        {{GPUDeviceLostInfo/message}} 设置成一个实现定义值。
 
-        注意：{{GPUDeviceLostInfo/message}}不应泄露不必要的用户/系统信息，也不应被应用程序解析。
+        Note: {{GPUDeviceLostInfo/message}} 不应泄露不必要的用户/系统信息，也永远不应被应用程序解析。
 </div>
 
-[=device=]通过{{GPUDevice}}暴露。
+[=设备=]通过 {{GPUDevice}} 暴露。
 
 ##可选功能## {#optional-capabilities}
 
