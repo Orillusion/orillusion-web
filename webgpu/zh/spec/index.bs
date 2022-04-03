@@ -691,19 +691,19 @@ Issue: 本章节将会被修订以支持多个队列。
 - 在一个计算通道中，每个调度指令（{{GPUComputePassEncoder/dispatch()}} 或 {{GPUComputePassEncoder/dispatchIndirect()}}）都是一个使用范围。 如果一个子资源可以被指令访问，则该子资源在使用范围内“使用”。 在调度中，对于每个绑定组可以被当下 {{GPUComputePipeline}} 中的 {{GPUPipelineBase/[[layout]]}} 使用，同时该绑定组引用的每个[=子资源=]也都在使用范围内“使用”。 状态设置计算通道指令，如 {{GPUProgrammablePassEncoder/setBindGroup(index, bindGroup, dynamicOffsets)}}，不直接影响使用范围； 反而，这些指令可以更改在调度指令中被检查的状态。
 - 一个渲染通道是一个使用范围。如果子资源被任何（状态设置或非状态设置）指令引用，则该子资源在使用范围内“使用”。 例如，在 {{GPUProgrammablePassEncoder/setBindGroup(index, bindGroup, dynamicOffsets)}} 中， `bindGroup` 中的每个子资源都在渲染通道的使用范围内“使用”。
 
-问题：上面说的应该是[=GPU commands=]。 但是我们还没有办法引用特定的GPU命令（比如 dispatch）。
+Issue: 上面说的应该是[=GPU 指令=]。 但是我们还没有办法引用特定的 GPU 指令（比如 dispatch）。
 
 <div class=note>
-    上述规则意味着以下示例资源使用包含在[=usage scope validation=]中：
+    上述规则意味着以下示例资源使用**包含**在[=使用范围验证=]中：
 
-    - 在渲染过程中，任何{{GPUProgrammablePassEncoder/setBindGroup(index, bindGroup, dynamicOffsets)|setBindGroup()}}调用中使用的子资源，无论当前绑定的管道的着色器或布局实际上依赖于这些绑定，还是绑定组被另一个“set”调用遮蔽。
-    - 在任何{{GPURenderEncoderBase/setVertexBuffer()|setVertexBuffer()}}调用中使用的缓冲区，无论是否有任何绘制调用依赖于该缓冲区，或者该缓冲区是否被另一个“set”调用遮蔽。
-    - 在任何{{GPURenderEncoderBase/setIndexBuffer()|setIndexBuffer()}}调用中使用的缓冲区，无论是否有任何绘制调用依赖于该缓冲区，或者该缓冲区是否被另一个“set”调用遮蔽。
-    - 在{GPURenderPassDescriptor}}中被{{GPUCommandEncoder/beginRenderPass()|beginRenderPass()}}用作颜色附件、解析附件或深度/模板附件的纹理子资源，无论着色器是否实际上依赖于这些附件。
-    - 用于可见性为0的绑定组条目的资源，或仅对计算阶段可见但在渲染通道中使用的资源（反之亦然）。
+    - 在渲染通道中，任何 {{GPUProgrammablePassEncoder/setBindGroup(index, bindGroup, dynamicOffsets)|setBindGroup()}} 调用中使用的子资源，无论是绑定的管道着色器或是实际上依赖于这些绑定的布局，还是被另一个“set”调用遮蔽的绑定组。
+    - 在任何 {{GPURenderEncoderBase/setVertexBuffer()|setVertexBuffer()}} 调用中使用的缓冲区，无论是否有任何绘制调用依赖于该缓冲区，或者该缓冲区是否被另一个“set”调用遮蔽。
+    - 在任何 {{GPURenderEncoderBase/setIndexBuffer()|setIndexBuffer()}} 调用中使用的缓冲区，无论是否有任何绘制调用依赖于该缓冲区，或者该缓冲区是否被另一个“set”调用遮蔽。
+    - 在 {GPURenderPassDescriptor}} 中被 {{GPUCommandEncoder/beginRenderPass()|beginRenderPass()}} 用作颜色附件、决议附件或深度/模板附件的纹理子资源，无论着色器是否实际上依赖于这些附件。
+    - 用于可见性为 0 的绑定组条目的资源，或仅对计算阶段可见但在渲染通道中使用的资源（反之亦然）。
 </div>
 
-在命令编码期间，子资源的每次使用都记录在命令缓冲区[=usage scope=]之一中。对于每个[=usage scope=]，实现通过组成使用范围中使用的每个[=subresource=]的所有[=internal usage=]标志的列表来执行<dfn dfn>usage scope validation</dfn>。 如果这些列表中的任何一个不是[=compatible usage list=]，则{{GPUCommandEncoder/finish()|GPUCommandEncoder.finish()}}在当前错误范围内生成{{GPUValidationError}}。
+在指令编码期间，子资源的每次使用都被记录在指令缓冲区的某一个[=使用范围=]中。对于每个[=使用范围=]，实现通过组合所有[=内部使用=]标识的列表来执行<dfn dfn>使用范围验证</dfn>，这些内部使用标识的列表来自使用范围中的每个[=子资源=]。 如果这些列表中的任何一个不属于 [=兼容使用列表=]，则 {{GPUCommandEncoder/finish()|GPUCommandEncoder.finish()}} 在当前错误范围内生成 {{GPUValidationError}}。
 
 ## 核心内部对象 ## {#core-internal-objects}
 
