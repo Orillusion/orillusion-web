@@ -1039,13 +1039,13 @@ Note: {{GPUSupportedFeatures}} 的[=set entries=]的类型是 {{DOMString}}，�
 
 ## 源限制 ## {#origin-restrictions}
 
-WebGPU允许访问存储在图像、视频和画布中的图像数据。跨域媒体的使用受到限制，因为着色器可用于间接推断已上传到GPU的纹理内容。
+WebGPU 允许访问存储在图像、视频和画布中的图像数据。跨域媒体的使用受到限制，因为着色器可用于间接推断已上传到 GPU 的纹理内容。
 
-如果图像源<l spec=html>[=is not origin-clean=]</l>，则WebGPU不允许上传图像源。
+如果图像源<l spec=html>[=is not origin-clean=]</l>，则 WebGPU 不允许上传图像源。
 
-这也意味着使用WebGPU渲染的画布的[=origin-clean=]标识永远不会设置为 `false`。
+这也意味着使用 WebGPU 渲染的画布的[=origin-clean=]标识永远不会设置为 `false`。
 
-有关为图像和视频元素发出CORS请求的更多信息，请参阅：
+有关为图像和视频元素发出 CORS 请求的更多信息，请参阅：
 
 - [[html#cors-settings-attributes]]
 - [[html#the-img-element]] <{img}>
