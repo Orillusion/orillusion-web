@@ -1013,7 +1013,7 @@ interface GPUSupportedLimits {
 
 #### <dfn interface>GPUSupportedFeatures</dfn> #### {#gpu-supportedfeatures}
 
-{{GPUSupportedFeatures}}是一个[=setlike=]接口。它的[=set entries=]是一个显卡适配器或设备支持的[=features=]的{{GPUFeatureName}}值。它必须只包含{{GPUFeatureName}}枚举中的字符串。
+{{GPUSupportedFeatures}} 是一个[=setlike=] 接口。这个接口的[=set entries=]是一个显卡适配器或设备支持的[=特性=]的 {GPUFeatureName}} 值。这个接口必须只包含 {{GPUFeatureName}} 枚举中的字符串。
 
 <script type=idl>
 [Exposed=(Window, DedicatedWorker), SecureContext]
@@ -1023,7 +1023,7 @@ interface GPUSupportedFeatures {
 </script>
 
 <div class="note">
-注意：{{GPUSupportedFeatures}} [=set entries=]的类型是{{DOMString}}以允许用户代理优雅地处理有效的 {{GPUFeatureName}}s，这些{{GPUFeatureName}}s在规范的后续版本中添加，但用户代理尚未更新以识别。 如果设置的条目类型是{{GPUFeatureName}}，以下代码将抛出{{TypeError}}而不是报告 `false`：
+Note: {{GPUSupportedFeatures}} 的[=set entries=]的类型是 {{DOMString}}，以允许用户代理优雅地处理有效的 {{GPUFeatureName}}s，这些{{GPUFeatureName}}s在规范的后续版本中添加，但用户代理尚未更新以识别。如果设置的条目类型是 {{GPUFeatureName}}，以下代码将产生{{TypeError}} 而不是报告 `false`：
 
 <div class="example">
     检查对无法识别的功能的支持：
