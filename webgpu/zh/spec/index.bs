@@ -806,174 +806,174 @@ Note: 虽然启用特性不会添加新的 IDL 必需字段，但可能不一定
 
 ### 限制 ### {#limits}
 
-每个<dfn dfn>limit</dfn>都是在设备上使用WebGPU的数字限制。
+每个<dfn dfn>限制</dfn>都是在设备上使用 WebGPU 的数字限制。
 
-<dfn dfn>supported limits</dfn>对象对每个定义的限制都有一个值。 每个[=adapter=]都有一组受[=supported limits=]，并且{{GPUDeviceDescriptor/requiredLimits|创建}}的[=device=]具有特定的受支持限制。 无论适配器的限制如何，都会强制执行设备限制。
+<dfn dfn>可支持的限制</dfn>对象对每个定义的限制都有一个值。 每个[=显卡适配器=]都有一组受[=可支持的限制=]，并且{{GPUDeviceDescriptor/requiredLimits|创建}}的[=设备=]具有特定的[=可支持的限制=]。 无论适配器的限制如何，都会强制执行设备限制。
 
-每个限制都有一个默认（<dfn dfn for=limit>default</dfn>）值。每个显卡适配器（[=adapter=]）都保证支持默认值或更好（[=limit/better=]）。如果在（{{GPUDeviceDescriptor/requiredLimits}}）中未明确指定值，则使用默认值。
+每个限制都有一个<dfn dfn for=limit>默认</dfn>值。每个[=显卡适配器=]都保证支持默认值或[=limit/更好=]。如果是在 {{GPUDeviceDescriptor/requiredLimits}}）中未明确指定值，则使用默认值。
 
-一个极限值可能比另一个更好（<dfn dfn for=limit>better</dfn>）。更好（[=limit/better=]）的限制值总是会放宽验证，从而使更多的程序有效。对于每个限制类，定义了“更好”。
+一个极限值可能比另一个<dfn dfn for=limit>更好</dfn>。[=limit/更好=]的限制值总是会放宽验证，从而使更多的程序有效。对于每个[=限制等级=]，都定义了“更好”。
 
-不同的限制有不同的限制等级（<dfn dfn lt="limit class">limit classes</dfn>）：
+不同的限制有不同的<dfn dfn lt="limit class">限制等级</dfn>：
 
 <dl dfn-type=dfn dfn-for="limit class">
-    : <dfn>maximum</dfn>
+    : <dfn>最大</dfn>
     ::
         该限制对传递给 API 的某些值强制执行最大值。
 
-        值越高越好（[=limit/better=]）。
+        值越高[=limit/更好=]。
 
-        只能设置为≥默认（[=limit/default=]）值的值。较低的值被限制为默认值（[=limit/default=]）。
+        只能设置为≥[=limit/默认=]值的值。较低的值被限制为[=limit/默认=]值。
 
-    : <dfn>alignment</dfn>
+    : <dfn>对齐</dfn>
     ::
         该限制对传递给 API 的某些值强制执行最小对齐； 也就是说，该值必须是限制的倍数。
 
-        值越小越好（[=limit/better=]）。
+        值越小[=limit/更好=]。
 
-        只能设置为≤默认值（[=limit/default=]）且为2的幂的值。不是2的幂的值是无效的。2的较高幂被限制为默认值（[=limit/default=]）。
+        只能设置为≤[=limit/默认=]值，且为2的幂的值。不是2的幂的值是无效的。2的较高幂被限制为[=limit/默认=]值。
 </dl>
 
-注意：设置“更好”的限制不一定是可取的，因为它们可能会影响性能。因此，为了提高跨设备和实现的可移植性，应用程序通常应该请求适用于其内容的“最差”限制（理想情况下，默认值）。
+Note: 设置“更好”的限制不一定是可取的，因为它们可能会影响性能。因此，为了提高跨设备和实现的可移植性，应用程序通常应该请求适用于其内容的“最差”限制（理想情况下，默认值）。
 
 <table class="data no-colspan-center" dfn-type=attribute dfn-for="supported limits">
     <thead>
-        <tr><th>Limit name <th>Type <th>[=Limit class=] <th>[=limit/Default=]
+        <tr><th>限制名称 <th>类型 <th>[=限制等级=] <th>[=limit/默认=]值
     </thead>
 
     <tr><td><dfn>maxTextureDimension1D</dfn>
-        <td>{{GPUSize32}} <td>[=limit class/maximum=]<td>8192
+        <td>{{GPUSize32}} <td>[=limit class/最大=]<td>8192
     <tr class=row-continuation><td colspan=4>
-        通过{{GPUTextureDescriptor/dimension}} {{GPUTextureDimension/"1d"}}创建的[=texture=]，所允许的{{GPUTextureDescriptor/size}}.[=Extent3D/width=]最大值。
+        通过 {{GPUTextureDescriptor/dimension}} {{GPUTextureDimension/"1d"}} 创建的[=纹理=]，所允许的 {{GPUTextureDescriptor/size}}.[=Extent3D/width=] 的最大值。
 
     <tr><td><dfn>maxTextureDimension2D</dfn>
-        <td>{{GPUSize32}} <td>[=limit class/maximum=]<td>8192
+        <td>{{GPUSize32}} <td>[=limit class/最大=]<td>8192
     <tr class=row-continuation><td colspan=4>
-        通过{{GPUTextureDescriptor/dimension}} {{GPUTextureDimension/"2d"}}创建的[=texture=]所允许的{{GPUTextureDescriptor/size}}.[=Extent3D/width=]和{{GPUTextureDescriptor/size}}.[=Extent3D/height=]最大值。
+        通过 {{GPUTextureDescriptor/dimension}} {{GPUTextureDimension/"2d"}} 创建的[=纹理=]，所允许的 {{GPUTextureDescriptor/size}}.[=Extent3D/width=] 和 {{GPUTextureDescriptor/size}}.[=Extent3D/height=] 的最大值。
 
     <tr><td><dfn>maxTextureDimension3D</dfn>
-        <td>{{GPUSize32}} <td>[=limit class/maximum=] <td>2048
+        <td>{{GPUSize32}} <td>[=limit class/最大=] <td>2048
     <tr class=row-continuation><td colspan=4>
-        通过{{GPUTextureDescriptor/dimension}} {{GPUTextureDimension/"3d"}}创建的[=texture=]所允许的{{GPUTextureDescriptor/size}}.[=Extent3D/width=], {{GPUTextureDescriptor/size}}.[=Extent3D/height=]和{{GPUTextureDescriptor/size}}.[=Extent3D/depthOrArrayLayers=]最大值。
+        通过 {{GPUTextureDescriptor/dimension}} {{GPUTextureDimension/"3d"}} 创建的[=纹理=]，所允许的 {{GPUTextureDescriptor/size}}.[=Extent3D/width=], {{GPUTextureDescriptor/size}}.[=Extent3D/height=] 和 {{GPUTextureDescriptor/size}}.[=Extent3D/depthOrArrayLayers=] 的最大值。
 
     <tr><td><dfn>maxTextureArrayLayers</dfn>
-        <td>{{GPUSize32}} <td>[=limit class/maximum=] <td>256
+        <td>{{GPUSize32}} <td>[=limit class/最大=] <td>256
     <tr class=row-continuation><td colspan=4>
-        通过{{GPUTextureDescriptor/dimension}} {{GPUTextureDimension/"1d"}}或{{GPUTextureDimension/"2d"}}创建的[=texture=]所允许的{{GPUTextureDescriptor/size}}.[=Extent3D/depthOrArrayLayers=]最大值。
+        通过 {{GPUTextureDescriptor/dimension}} {{GPUTextureDimension/"1d"}} 或 {{GPUTextureDimension/"2d"}} 创建的[=纹理=]，所允许的 {{GPUTextureDescriptor/size}}.[=Extent3D/depthOrArrayLayers=] 的最大值。
 
     <tr><td><dfn>maxBindGroups</dfn>
-        <td>{{GPUSize32}} <td>[=limit class/maximum=] <td>4
+        <td>{{GPUSize32}} <td>[=limit class/最大=] <td>4
     <tr class=row-continuation><td colspan=4>
-        创建{{GPUPipelineLayout}}时{{GPUPipelineLayoutDescriptor/bindGroupLayouts}}中所允许的{{GPUBindGroupLayout|GPUBindGroupLayouts}}最大值。
+        创建 {{GPUPipelineLayout}} 时，{{GPUPipelineLayoutDescriptor/bindGroupLayouts}} 中所允许的 {{GPUBindGroupLayout|GPUBindGroupLayouts}} 的最大值。
 
     <tr><td><dfn>maxDynamicUniformBuffersPerPipelineLayout</dfn>
-        <td>{{GPUSize32}} <td>[=limit class/maximum=] <td>8
+        <td>{{GPUSize32}} <td>[=limit class/最大=] <td>8
     <tr class=row-continuation><td colspan=4>
-        {{GPUPipelineLayout}}中{{GPUBindGroupLayoutEntry}}条目的最大数量，这些条目是具有动态偏移的统一缓冲区。 详见[=Exceeds the binding slot limits=]。
+        {{GPUPipelineLayout}} 中 {{GPUBindGroupLayoutEntry}} 输入接口的最大数量，这些输入接口是具有动态偏移的统一缓冲区。 详见[=超出绑定槽限制=]。
 
     <tr><td><dfn>maxDynamicStorageBuffersPerPipelineLayout</dfn>
-        <td>{{GPUSize32}} <td>[=limit class/maximum=] <td>4
+        <td>{{GPUSize32}} <td>[=limit class/最大=] <td>4
     <tr class=row-continuation><td colspan=4>
-        {{GPUPipelineLayout}}中{{GPUBindGroupLayoutEntry}}条目的最大数量，这些条目是具有动态偏移的存储缓冲区。 详见[=Exceeds the binding slot limits=]。
+        {{GPUPipelineLayout}} 中 {{GPUBindGroupLayoutEntry}} 条目的最大数量，这些条目是具有动态偏移的存储缓冲区。 详见[=超出绑定槽限制=]。
 
     <tr><td><dfn>maxSampledTexturesPerShaderStage</dfn>
-        <td>{{GPUSize32}} <td>[=limit class/maximum=] <td>16
+        <td>{{GPUSize32}} <td>[=limit class/最大=] <td>16
     <tr class=row-continuation><td colspan=4>
-        对每个可能的{{GPUShaderStage}}`阶段`，{{GPUPipelineLayout}}中作为采样纹理的{{GPUBindGroupLayoutEntry}}条目的最大数量。详见[=Exceeds the binding slot limits=]。
+        对每个可能的 {{GPUShaderStage}} `阶段`，{{GPUPipelineLayout}} 中作为采样纹理的 {{GPUBindGroupLayoutEntry}} 条目的最大数量。详见[=超出绑定槽限制=]。
 
     <tr><td><dfn>maxSamplersPerShaderStage</dfn>
-        <td>{{GPUSize32}} <td>[=limit class/maximum=] <td>16
+        <td>{{GPUSize32}} <td>[=limit class/最大=] <td>16
     <tr class=row-continuation><td colspan=4>
-        对每个可能的{{GPUShaderStage}}`阶段`，{{GPUPipelineLayout}}中作为采样器的{{GPUBindGroupLayoutEntry}}条目的最大数量。详见[=Exceeds the binding slot limits=]。
+        对每个可能的 {{GPUShaderStage}} `阶段`，{{GPUPipelineLayout}} 中作为采样器的 {{GPUBindGroupLayoutEntry}} 条目的最大数量。详见[=超出绑定槽限制=]。
 
     <tr><td><dfn>maxStorageBuffersPerShaderStage</dfn>
-        <td>{{GPUSize32}} <td>[=limit class/maximum=] <td>8
+        <td>{{GPUSize32}} <td>[=limit class/最大=] <td>8
     <tr class=row-continuation><td colspan=4>
-        对每个可能的{{GPUShaderStage}}`阶段`，{{GPUPipelineLayout}}中作为存储缓冲区的{{GPUBindGroupLayoutEntry}}条目的最大数量。详见[=Exceeds the binding slot limits=]。
+        对每个可能的 {{GPUShaderStage}} `阶段`，{{GPUPipelineLayout}} 中作为存储缓冲区的 {{GPUBindGroupLayoutEntry}} 条目的最大数量。详见[=超出绑定槽限制=]。
 
     <tr><td><dfn>maxStorageTexturesPerShaderStage</dfn>
-        <td>{{GPUSize32}} <td>[=limit class/maximum=] <td>4
+        <td>{{GPUSize32}} <td>[=limit class/最大=] <td>4
     <tr class=row-continuation><td colspan=4>
-        对每个可能的{{GPUShaderStage}}`阶段`，{{GPUPipelineLayout}}中作为存储纹理的{{GPUBindGroupLayoutEntry}}条目的最大数量。详见[=Exceeds the binding slot limits=]。
+        对每个可能的 {{GPUShaderStage}} `阶段`，{{GPUPipelineLayout}} 中作为存储纹理的 {{GPUBindGroupLayoutEntry}} 条目的最大数量。详见[=超出绑定槽限制=]。
 
     <tr><td><dfn>maxUniformBuffersPerShaderStage</dfn>
-        <td>{{GPUSize32}} <td>[=limit class/maximum=] <td>12
+        <td>{{GPUSize32}} <td>[=limit class/最大=] <td>12
     <tr class=row-continuation><td colspan=4>
-        对每个可能的{{GPUShaderStage}}`阶段`，{{GPUPipelineLayout}}中作为统一缓冲区的{{GPUBindGroupLayoutEntry}}条目的最大数量。详见[=Exceeds the binding slot limits=]。
+        对每个可能的 {{GPUShaderStage}} `阶段`，{{GPUPipelineLayout}} 中作为统一缓冲区的 {{GPUBindGroupLayoutEntry}} 条目的最大数量。详见[=超出绑定槽限制=]。
 
     <tr><td><dfn>maxUniformBufferBindingSize</dfn>
-        <td>{{GPUSize32}} <td>[=limit class/maximum=] <td>16384
+        <td>{{GPUSize32}} <td>[=limit class/最大=] <td>16384
     <tr class=row-continuation><td colspan=4>
-        与|entry|.{{GPUBindGroupLayoutEntry/buffer}}?.{{GPUBufferBindingLayout/type}}为{{GPUBufferBindingType/"uniform"}}的 {{GPUBindGroupLayoutEntry}}|条目|的绑定的最大{{GPUBufferBinding}}.{{GPUBufferBinding/size}}。
+        用 {{GPUBindGroupLayoutEntry}}|条目|做绑定的最大 {{GPUBufferBinding}}.{{GPUBufferBinding/size}}，这个条目 |entry|.{{GPUBindGroupLayoutEntry/buffer}}?.{{GPUBufferBindingLayout/type}} 为 {{GPUBufferBindingType/"uniform"}}。
 
     <tr><td><dfn>maxStorageBufferBindingSize</dfn>
-        <td>{{GPUSize32}} <td>[=limit class/maximum=] <td> 134217728 (128 MiB)
+        <td>{{GPUSize32}} <td>[=limit class/最大=] <td> 134217728 (128 MiB)
     <tr class=row-continuation><td colspan=4>
-        与|entry|.{{GPUBindGroupLayoutEntry/buffer}}?.{{GPUBufferBindingLayout/type}}为{{GPUBufferBindingType/"storage"}}或{{GPUBufferBindingType/"read-only-storage"}}的 {{GPUBindGroupLayoutEntry}}|条目|的绑定的最大{{GPUBufferBinding}}.{{GPUBufferBinding/size}}。
+        用 {{GPUBindGroupLayoutEntry}}|条目|做绑定的最大 {{GPUBufferBinding}}.{{GPUBufferBinding/size}}，这个条目 |entry|.{{GPUBindGroupLayoutEntry/buffer}}?.{{GPUBufferBindingLayout/type}} 为 {{GPUBufferBindingType/"storage"}} 或 {{GPUBufferBindingType/"read-only-storage"}}。
 
     <tr><td><dfn>minUniformBufferOffsetAlignment</dfn>
-        <td>{{GPUSize32}} <td>[=limit class/maximum=] <td>256
+        <td>{{GPUSize32}} <td>[=limit class/对齐=] <td>256
     <tr class=row-continuation><td colspan=4>
-        {{GPUBufferBinding}}.{{GPUBufferBinding/offset}}和{{GPUProgrammablePassEncoder/setBindGroup(index, bindGroup, dynamicOffsets)|setBindGroup}} |dynamicOffsets| 参数所需的对齐方式，用于与|entry|.{{GPUBindGroupLayoutEntry/buffer}}?.{{GPUBufferBindingLayout/type}}为{{GPUBufferBindingType/"uniform"}}的{{GPUBindGroupLayoutEntry}} |entry|绑定。
+        用 {{GPUBindGroupLayoutEntry}}|条目|做绑定时，{{GPUBufferBinding}}.{{GPUBufferBinding/offset}} 和 {{GPUProgrammablePassEncoder/setBindGroup(index, bindGroup, dynamicOffsets)|setBindGroup}} |dynamicOffsets| 参数所需的对齐方式，这个条目 |entry|.{{GPUBindGroupLayoutEntry/buffer}}?.{{GPUBufferBindingLayout/type}} 为 {{GPUBufferBindingType/"uniform"}}。
 
     <tr><td><dfn>minStorageBufferOffsetAlignment</dfn>
-        <td>{{GPUSize32}} <td>[=limit class/maximum=] <td>256
+        <td>{{GPUSize32}} <td>[=limit class/对齐=] <td>256
     <tr class=row-continuation><td colspan=4>
-        {{GPUBufferBinding}}.{{GPUBufferBinding/offset}}和{{GPUProgrammablePassEncoder/setBindGroup(index, bindGroup, dynamicOffsets)|setBindGroup}} |dynamicOffsets| 参数所需的对齐方式，用于与|entry|.{{GPUBindGroupLayoutEntry/buffer}}?.{{GPUBufferBindingLayout/type}}为{{GPUBufferBindingType/"storage"}}或{{GPUBufferBindingType/"read-only-storage"}}的{{GPUBindGroupLayoutEntry}} |entry|绑定。
+         用 {{GPUBindGroupLayoutEntry}}|条目|做绑定时，{{GPUBufferBinding}}.{{GPUBufferBinding/offset}} 和 {{GPUProgrammablePassEncoder/setBindGroup(index, bindGroup, dynamicOffsets)|setBindGroup}} |dynamicOffsets| 参数所需的对齐方式，这个条目 |entry|.{{GPUBindGroupLayoutEntry/buffer}}?.{{GPUBufferBindingLayout/type}} 为 {{GPUBufferBindingType/"storage"}} 或 {{GPUBufferBindingType/"read-only-storage"}}。
 
     <tr><td><dfn>maxVertexBuffers</dfn>
-        <td>{{GPUSize32}} <td>[=limit class/maximum=] <td>8
+        <td>{{GPUSize32}} <td>[=limit class/最大=] <td>8
     <tr class=row-continuation><td colspan=4>
-        创建{{GPURenderPipeline}}时{{GPUVertexState/buffers}}的最大值。
+        创建 {{GPURenderPipeline}} 时 {{GPUVertexState/buffers}} 的最大值。
 
     <tr><td><dfn>maxVertexAttributes</dfn>
-        <td>{{GPUSize32}} <td>[=limit class/maximum=] <td>16
+        <td>{{GPUSize32}} <td>[=limit class/最大=] <td>16
     <tr class=row-continuation><td colspan=4>
-        创建{{GPURenderPipeline}}时{{GPUVertexState/buffers}}中{{GPUVertexBufferLayout/attributes}}的最大值。
+        创建 {{GPURenderPipeline}} 时在所有 {{GPUVertexState/buffers}} 中 {{GPUVertexBufferLayout/attributes}} 的最大值。
 
     <tr><td><dfn>maxVertexBufferArrayStride</dfn>
-        <td>{{GPUSize32}} <td>[=limit class/maximum=] <td>2048
+        <td>{{GPUSize32}} <td>[=limit class/最大=] <td>2048
     <tr class=row-continuation><td colspan=4>
-        创建{{GPURenderPipeline}}时{{GPUVertexBufferLayout/arrayStride}}所允许的的最大值。
+        创建 {{GPURenderPipeline}} 时 {{GPUVertexBufferLayout/arrayStride}} 所允许的的最大值。
 
     <tr><td><dfn>maxInterStageShaderComponents</dfn>
-        <td>{{GPUSize32}} <td>[=limit class/maximum=] <td>60
+        <td>{{GPUSize32}} <td>[=limit class/最大=] <td>60
     <tr class=row-continuation><td colspan=4>
         用于内部阶段间通信的输入或输出变量的最大允许组件数（如顶点输出或片段输入）。
 
     <tr><td><dfn>maxComputeWorkgroupStorageSize</dfn>
-        <td>{{GPUSize32}} <td>[=limit class/maximum=] <td>16352
+        <td>{{GPUSize32}} <td>[=limit class/最大=] <td>16352
     <tr class=row-continuation><td colspan=4>
-        用于计算阶段{{GPUShaderModule}}入口点的最大字节数。
+        用于计算阶段 {{GPUShaderModule}} 入口点的最大字节数。
 
     <tr><td><dfn>maxComputeInvocationsPerWorkgroup</dfn>
-        <td>{{GPUSize32}} <td>[=limit class/maximum=] <td>256
+        <td>{{GPUSize32}} <td>[=limit class/最大=] <td>256
     <tr class=row-continuation><td colspan=4>
-        计算阶段{{GPUShaderModule}}入口点的 `workgroup_size` 维度乘积的最大值。
+        计算阶段 {{GPUShaderModule}} 入口点的 `workgroup_size` 维度乘积的最大值。
 
     <tr><td><dfn>maxComputeWorkgroupSizeX</dfn>
-        <td>{{GPUSize32}} <td>[=limit class/maximum=] <td>256
+        <td>{{GPUSize32}} <td>[=limit class/最大=] <td>256
     <tr class=row-continuation><td colspan=4>
-        计算阶段{{GPUShaderModule}}入口点的 `workgroup_size` X维度的最大值。
+        计算阶段 {{GPUShaderModule}} 入口点的 `workgroup_size` X 维度的最大值。
 
     <tr><td><dfn>maxComputeWorkgroupSizeY</dfn>
-        <td>{{GPUSize32}} <td>[=limit class/maximum=] <td>256
+        <td>{{GPUSize32}} <td>[=limit class/最大=] <td>256
     <tr class=row-continuation><td colspan=4>
-        计算阶段{{GPUShaderModule}}入口点的 `workgroup_size` Y维度的最大值。
+        计算阶段 {{GPUShaderModule}} 入口点的 `workgroup_size` Y 维度的最大值。
 
     <tr><td><dfn>maxComputeWorkgroupSizeZ</dfn>
-        <td>{{GPUSize32}} <td>[=limit class/maximum=] <td>64
+        <td>{{GPUSize32}} <td>[=limit class/最大=] <td>64
     <tr class=row-continuation><td colspan=4>
-        计算阶段{{GPUShaderModule}}入口点的 `workgroup_size` Z维度的最大值。
+        计算阶段 {{GPUShaderModule}} 入口点的 `workgroup_size` Z 维度的最大值。
 
     <tr><td><dfn>maxComputeWorkgroupsPerDimension</dfn>
-        <td>{{GPUSize32}} <td>[=limit class/maximum=] <td>65535
+        <td>{{GPUSize32}} <td>[=limit class/最大=] <td>65535
     <tr class=row-continuation><td colspan=4>
-        {{GPUComputePassEncoder/dispatch(workgroupCountX, workgroupCountY, workgroupCountZ)}}参数的最大值。
+        {{GPUComputePassEncoder/dispatch(x, y, z)}} 参数的最大值。
 
 </table>
 
-问题：我们需要有一个最大的每像素渲染目标尺寸吗？
+Issue: 我们需要有一个最大的每像素渲染目标尺寸吗？
 
 #### <dfn interface>GPUSupportedLimits</dfn> #### {#gpu-supportedlimits}
 
