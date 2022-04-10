@@ -7795,7 +7795,7 @@ dictionary GPURenderPassLayout: GPUObjectDescriptorBase {
         </div>
 </dl>
 
-# Bundles # {#bundles}
+# 捆绑 # {#bundles}
 
 ## <dfn interface>GPURenderBundle</dfn> ## {#render-bundle}
 
