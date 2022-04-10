@@ -1053,11 +1053,11 @@ WebGPU 允许访问存储在图像、视频和画布中的图像数据。跨域�
 
 ## 颜色空间和编码 ## {#color-spaces}
 
-WebGPU不提供颜色管理。WebGPU中的所有值（例如纹理元素）都是原始数值，而不是颜色管理的颜色值。
+WebGPU 不提供颜色管理。 WebGPU 中的所有值（例如纹理元素）都是原始数值，而不是颜色管理的颜色值。
 
-WebGPU有颜色管理的输出（通过{{GPUCanvasConfiguration}}）和输入（通过{{GPUQueue/copyExternalImageToTexture()}}和{GPUDevice/importExternalTexture()}}）接口。因此，必须在 WebGPU 数值和外部颜色值之间进行颜色转换。每个这样的接口点在本地定义一个编码（颜色空间、传递函数和alpha预乘），在其中解释WebGPU数值。
+WebGPU 有颜色管理的输出（通过 {{GPUCanvasConfiguration}}）和输入（通过 {{GPUQueue/copyExternalImageToTexture()}} 和 {GPUDevice/importExternalTexture()}}）接口。因此，必须在 WebGPU 数值和外部颜色值之间进行颜色转换。每个这样的接口点在本地定义一个编码（颜色空间、传递函数和alpha预乘），通过这个编码过程对 WebGPU 数值进行解析。
 
-定义如果由引用的CSS定义，则每个颜色空间都在扩展范围内定义，表示其空间之外的颜色值（色度和亮度）。
+如果由引用的 CSS 定义，来表示其空间之外的颜色值（色度和亮度），则每个颜色空间都在扩展范围内定义。
 
 <script type=idl>
 enum GPUPredefinedColorSpace {
@@ -1065,9 +1065,9 @@ enum GPUPredefinedColorSpace {
 };
 </script>
 
-问题：可能用PredefinedColorSpace替换它，但请注意，这样做意味着当项目被添加到上游规范中的枚举时，新的WebGPU 功能会自动添加。
+Issue: 可能用 PredefinedColorSpace 来替换，但请注意，这样做意味着当项目被添加到上游规范中的枚举时，新的 WebGPU 功能会自动添加。
 
-问题(gpuweb/gpuweb#1715):考虑将srgb编码图像上传到线性编码纹理的路径。
+Issue(gpuweb/gpuweb#1715): 考虑将srgb编码图像上传到线性编码纹理的路径。
 
 <dl dfn-type=enum-value dfn-for=GPUPredefinedColorSpace>
     : <dfn>"srgb"</dfn>
