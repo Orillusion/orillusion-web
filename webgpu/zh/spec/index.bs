@@ -977,8 +977,7 @@ Issue: 我们需要有一个最大的每像素渲染目标尺寸吗？
 
 #### <dfn interface>GPUSupportedLimits</dfn> #### {#gpu-supportedlimits}
 
-{{GPUSupportedLimits}}暴露一个显卡适配器或设备支持的[=limits=]。
-详见{{GPUAdapter/limits|GPUAdapter.limits}}和{{GPUDevice/limits|GPUDevice.limits}}.
+{{GPUSupportedLimits}} 暴露一个显卡适配器或设备支持的[=限制=]。详见 {{GPUAdapter/limits|GPUAdapter.limits}} 和 {{GPUDevice/limits|GPUDevice.limits}}.
 
 <script type=idl>
 [Exposed=(Window, DedicatedWorker), SecureContext]
