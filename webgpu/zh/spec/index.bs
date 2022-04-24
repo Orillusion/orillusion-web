@@ -1074,7 +1074,7 @@ WorkerNavigator includes NavigatorGPU;
 
 ## GPU ## {#gpu-interface}
 
-<dfn interface>GPU</dfn> is the entry point to WebGPU.
+<dfn interface>GPU</dfn> 是进入 WebGPU 的入口。
 
 <script type=idl>
 [Exposed=(Window, DedicatedWorker), SecureContext]
@@ -1083,37 +1083,36 @@ interface GPU {
 };
 </script>
 
-{{GPU}} has the following methods:
+{{GPU}} 的获取有如下方法:
 
 <dl dfn-type=method dfn-for=GPU>
     : <dfn>requestAdapter(options)</dfn>
     ::
-         从用户代理请求 [=adapter=]。
+         从用户代理请求 [=显卡适配器=]。
          用户代理选择是否返回适配器，如果返回，
          根据提供的选项进行选择。
 
         <div algorithm=GPU.requestAdapter>
-            **Called on:** {{GPU}} |this|.
+            **调用:** {{GPU}} |this|.
 
-            **Arguments:**
+            **参数:**
             <pre class=argumentdef for="GPU/requestAdapter(options)">
-                |options|: Criteria used to select the adapter.
+                |options|: 用来选择显卡适配器的标准
             </pre>
 
-            **Returns:** {{Promise}}&lt;{{GPUAdapter}}?&gt;
+            **返回:** {{Promise}}&lt;{{GPUAdapter}}?&gt;
 
             1. 让 |promise| 成为一个 [=a new promise=].
-            1. 在|this|的[=Device timeline=] 上发出以下步骤 :
+            1. 在 |this| [=设备时间线=]上执行以下步骤 :
                 <div class=device-timeline>
-                    1. 如果用户代理选择返回一个适配器，它应该:
-                        1. 创建一个 [=valid=] [=adapter=] |adapter|，根据[[#adapter-selection]]规则和|options|标准进行选择。
+                    1. 如果用户代理选择返回一个适配器，用户代理应该:
+                        1. 创建一个[=有效=]的[=显卡适配器=] |adapter|，根据[[#adapter-selection]]规则和 |options| 标准进行选择。
 
-                        1. 如果 |adapter| 满足 [=fallback adapter=] 设定
-                            |adapter| 的标准.{{adapter/[[fallback]]}} 为 `true`.
+                        1. 如果 |adapter| 满足[=应急适配器=]的标准，设定 |adapter|.{{adapter/[[fallback]]}} 为 `true`.
 
-                        1. [=Resolve=] |promise| 使用新的 {{GPUAdapter}} 封装 |adapter|.
+                        1. 使用新的 {{GPUAdapter}} 封装 |adapter|，来[=决议=] |promise|.
 
-                    1. 否则, |promise| [=resolves=] with `null`.
+                    1. 否则, |promise| [=决议=]为 `null`.
                 </div>
             1. 返回 |promise|.
 
@@ -1127,32 +1126,29 @@ interface GPU {
 <dl dfn-type=attribute dfn-for=GPU>
     : <dfn>\[[previously_returned_adapters]]</dfn>, of type [=ordered set=]&lt;[=adapter=]&gt;
     ::
-         通过 {{GPU/requestAdapter()}} 返回的 [=adapters=] 集。
-         它在 [=mark adapters stale=] 中使用，然后清除。
+         通过 {{GPU/requestAdapter()}} 返回的[=显卡适配器=]集。
+         在[=标记适配器过时=]中，显卡适配器被使用，然后被清除。
 </dl>
 
-当系统状态发生任何可能影响任何 {{GPU/requestAdapter()}} 调用结果的变化时，用户代理*应该* [=mark adapters stale=]。 例如：
+当系统状态发生任何变化，并可能影响任何 {{GPU/requestAdapter()}} 的调用结果时，用户代理*应该*[=标记适配器过时=]。 例如：
 
 - 添加/移除物理适配器（通过插头、驱动程序更新、TDR 等）
 - 系统的电源配置已更改（笔记本电脑已拔下电源，电源设置已更改等）
 
-此外，[=mark adapters stale=] 可以随时安排。
-即使没有系统状态改变（例如
-最后一次调用 {{GPUAdapter/requestDevice()}} 后几秒。
-这对格式良好的应用程序没有影响，混淆了真实的系统状态变化，并使
-开发人员更清楚在调用 {{GPUAdapter/requestDevice()}} 之前总是需要再次调用 {{GPU/requestAdapter()}}。
+此外，[=标记适配器过时=]可以随时被调用。即使没有系统状态改变，用户代理也可以经常选择调用（例如，最后一次调用 {{GPUAdapter/requestDevice()}} 后几秒）。这对格式良好的应用程序没有影响，模糊了真实的系统状态变化，并使
+开发人员更清楚的了解了，在调用 {{GPUAdapter/requestDevice()}} 之前，总是需要再次调用 {{GPU/requestAdapter()}}。
 
 <div algorithm>
-    To <dfn dfn>mark adapters stale</dfn>:
+    <dfn dfn>标记适配器过时</dfn>:
 
-    1. 在 `navigator.gpu.`{{GPU/[[previously_returned_adapters]]}} 中每一个|adapter|:
-        1. 使|adapter|.{{GPUAdapter/[[adapter]]}} [=invalid=]。
-    1. [=list/empty=] `navigator.gpu.`{{GPU/[[previously_returned_adapters]]}}.
+    1. 对于在 `navigator.gpu.`{{GPU/[[previously_returned_adapters]]}} 中的每一个|adapter|:
+        1. 使|adapter|.{{GPUAdapter/[[adapter]]}} [=无效=]。
+    1. [=list/清空=] `navigator.gpu.`{{GPU/[[previously_returned_adapters]]}}.
 
-    问题：如果引入了 `adaptersAdded`/`adapterschanged` 事件，请在此处更新。</div>
+    Issue: 如果引入了 `adaptersAdded`/`adapterschanged` 事件，请在此处更新。</div>
 
 <div class="example">
-    Requesting a {{GPUAdapter}} with no hints:
+    无提示的获取一个 {{GPUAdapter}}:
     <pre highlight="js">
         const gpuAdapter = await navigator.gpu.requestAdapter();
     </pre>
