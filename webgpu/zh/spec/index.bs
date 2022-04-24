@@ -1342,19 +1342,15 @@ dictionary GPUDeviceDescriptor : GPUObjectDescriptorBase {
 <dl dfn-type=dict-member dfn-for=GPUDeviceDescriptor>
     : <dfn>requiredFeatures</dfn>
     ::
-        指定设备请求所需的 [=features=]。
-        如果适配器无法提供这些功能，则请求将失败。
+        指定设备请求所需的[=特性=]。如果适配器无法提供这些特性，则请求将失败。
 
-        在生成的设备上的 API 调用验证中，将允许完全指定的一组功能，不多也不少。
+        由生成的设备上的 API 调用验证时，将允许不多不少完全指定的一组特性。
 
     : <dfn>requiredLimits</dfn>
     ::
-        指定设备请求所需的 [=limits=]。
-        如果适配器无法提供这些限制，则请求将失败。
+        指定设备请求所需的[=限制=]。如果适配器无法提供这些限制，则请求将失败。
 
-        每个key必须是 [=supported limits=] 成员的名称。
-        正如指定的限制，没有 [=limit/better=] 或更糟，
-        才会被允许验证结果设备上的 API 调用。
+        每个key必须是[=支持的限制=]的成员名称。正如指定的限制，没有[=limit/更好=]或更糟，才会被允许由生成的设备上的 API 调用验证。
 
         <!-- 如果我们需要 GPUSize32/GPUSize64 以外的限制类型，我们可以在将来将值类型更改为 `double` 或 `any`，
         并明确写出类型转换（参考 WebIDL 规范）。
@@ -1362,7 +1358,7 @@ dictionary GPUDeviceDescriptor : GPUObjectDescriptorBase {
 </dl>
 
 <div class="example">
-    请求具有{{GPUFeatureName/"texture-compression-astc"}}的{{GPUDevice}}，如果支持：
+    如果支持，请求一个具有 {{GPUFeatureName/"texture-compression-astc"}} 特性的 {{GPUDevice}}：
     <pre highlight="js">
         const gpuAdapter = await navigator.gpu.requestAdapter();
 
