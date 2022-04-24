@@ -1157,8 +1157,7 @@ interface GPU {
 ### 适配器选择 ### {#adapter-selection}
 
 <dfn dictionary>GPURequestAdapterOptions</dfn>
-向用户代理提供提示，指示什么
-配置适合应用程序。
+向用户代理提供提示，指示了适合应用程序的配置。
 
 <script type=idl>
 dictionary GPURequestAdapterOptions {
@@ -1179,17 +1178,13 @@ enum GPUPowerPreference {
 <dl dfn-type=dict-member dfn-for=GPURequestAdapterOptions>
     : <dfn>powerPreference</dfn>
     ::
-        （可选）提供一个提示，指示应从系统的可用适配器中选择什么类的 [=adapter=]。
+        可选的提供一个提示，指示应从系统的可用适配器中选择什么类的[=显卡适配器=]。
 
-        这个提示的值可能会影响选择哪个适配器，但它不能影响是否返回适配器。
+        这个提示的值可能会影响选择哪个适配器，但不能影响是否返回适配器。
 
-        注意：
-        此提示的主要用途是影响多 GPU 系统中使用的 GPU。
-        例如，一些笔记本电脑有一个低功耗的集成 GPU 和一个高性能的独立 GPU。
+        Note: 此提示的主要用途是影响多 GPU 系统中使用的 GPU。例如，一些笔记本电脑有一个低功耗的集成 GPU 和一个高性能的独立 GPU。
 
-        注意：
-        根据确切的硬件配置，例如电池状态和连接的显示器或可移动 GPU，用户代理可能会选择不同的 [=adapter=] 给定相同的电源首选项。
-        通常，给定相同的硬件配置和状态以及“powerPreference”，用户代理可能会选择相同的适配器。
+        Note: 根据确切的硬件配置，例如电池状态和连接的显示器或可移动 GPU，用户代理可能会选择不同的[=显卡适配器=]给定相同的电源首选项。通常，给定相同的硬件配置和状态以及 “powerPreference”，用户代理可能会选择相同的适配器。
 
         必须是以下值之一:
 
@@ -1200,41 +1195,23 @@ enum GPUPowerPreference {
 
             : <dfn>"low-power"</dfn>
             ::
-                指示将节能优先于性能的请求。
+                指示一个将节能优先于性能的请求。
 
-                注意:
-                通常，如果内容不太可能受到绘图性能的限制，则应使用它； 例如，如果它每秒只渲染一帧，使用简单的着色器只绘制相对简单的几何图形，或者使用小的 HTML 画布元素。
-                如果内容允许，鼓励开发人员使用此值，因为它可以显着提高便携式设备的电池寿命。
+                Note: 通常，如果不太可能受到绘图性能的限制，则内容应使用这种配置； 例如，如果它每秒只渲染一帧，使用简单的着色器只绘制相对简单的几何图形，或者使用小的 HTML 画布元素。如果内容允许，鼓励开发人员使用此值，因为它可以显著提高便携式设备的电池寿命。
 
             : <dfn>"high-performance"</dfn>
             ::
-                指示将性能优先于功耗的请求。
+                指示一个将性能优先于功耗的请求。
 
-                注意:
-                通过选择这个值，开发人员应该意识到，对于在生成的适配器上创建的 [=devices=]，用户代理更有可能强制设备丢失，以便通过切换到低功率适配器来节省功率。
-                仅在他们认为绝对必要时鼓励开发人员指定此值，因为它可能会显着缩短便携式设备的电池寿命。
+                Note: 通过选择这个值，开发人员应该了解，对于在生成的适配器上创建的[=设备=]，用户代理更有可能强制设备丢失，以便通过切换到低功率适配器来节省功率。仅在绝对必要时鼓励开发人员指定此值，因为这种设置可能会显着缩短便携式设备的电池寿命。
         </dl>
 
     : <dfn>forceFallbackAdapter</dfn>
     ::
-        当设置为 `true` 时表示只能返回 [=fallback adapter=]。 如果用户
-        代理不支持 [=fallback adapter=]，会导致 {{GPU/requestAdapter()}}
-        解析为 `null`。
+        当设置为 `true` 时表示只能返回[=应急适配器=]。 如果用户代理不支持[=应急适配器=]，会导致 {{GPU/requestAdapter()}} 返回 `null`。
 
-        注意:
-        如果 {{GPURequestAdapterOptions/forceFallbackAdapter}} 设置为 `false` 并且没有其他合适的 [=adapter=] 可用或用户代理选择 返回一个 [=fallback adapter=]，
-        {{GPU/requestAdapter()}} 仍可能返回 [=fallback adapter=]。
-        希望阻止其应用程序在 [=fallback adapters=] 上运行的开发人员应在请求 {{GPUDevice}} 之前检查 {{GPUAdapter}}.{{GPUAdapter/isFallbackAdapter}} 属性。
+        Note: 如果 {{GPURequestAdapterOptions/forceFallbackAdapter}} 被设置为 `false`，并且没有其他合适的 [=显卡适配器=]可用或用户代理选择返回一个[=应急适配器=]，{{GPU/requestAdapter()}} 仍可能返回[=应急适配器=]。希望阻止其应用程序在[=应急适配器=]上运行的开发人员，应在请求 {{GPUDevice}} 之前检查 {{GPUAdapter}}.{{GPUAdapter/isFallbackAdapter}} 属性。
 </dl>
-
-<div class="example">
-    Requesting a {{GPUPowerPreference/"high-performance"}} {{GPUAdapter}}:
-    <pre highlight="js">
-        const gpuAdapter = await navigator.gpu.requestAdapter({
-            powerPreference: 'high-performance'
-        });
-    </pre>
-</div>
 
 ## <dfn interface>GPUAdapter</dfn> ## {#gpu-adapter}
 
