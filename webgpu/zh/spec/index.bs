@@ -1392,12 +1392,11 @@ enum GPUFeatureName {
 
 ## <dfn interface>GPUDevice</dfn> ## {#gpu-device}
 
-一个 {{GPUDevice}} 封装了一个 [=device=] 并暴露了
-该设备的功能。
+一个 {{GPUDevice}} 封装了一个[=设备=]，并暴露了该设备的功能。
 
-{{GPUDevice}} 是创建 [=WebGPU interfaces=] 的顶级接口。
+{{GPUDevice}} 用来创建 [=WebGPU 接口=]的顶层接口。
 
-要获得 {{GPUDevice}}，请使用 {{GPUAdapter/requestDevice()}}。
+使用 {{GPUAdapter/requestDevice()}}，来获得 {{GPUDevice}}。
 
 <script type=idl>
 [Exposed=(Window, DedicatedWorker), SecureContext]
@@ -1432,68 +1431,60 @@ interface GPUDevice : EventTarget {
 GPUDevice includes GPUObjectBase;
 </script>
 
-{{GPUDevice}} has the following attributes:
+{{GPUDevice}} 有以下属性:
 
 <dl dfn-type=attribute dfn-for=GPUDevice>
     : <dfn>features</dfn>
     ::
-        包含设备支持的功能（即创建它的功能）的 {{GPUFeatureName}} 值的集合。
+        包含设备支持的特性（即创建时具有的特性）的 {{GPUFeatureName}} 值的集合。
 
     : <dfn>limits</dfn>
     ::
-        公开设备支持的限制
-        （这正是创建它的那些）。
+        暴露设备支持的限制（同时也是创建时具有的限制）。
 
     : <dfn>queue</dfn>
     ::
         此设备的主要 {{GPUQueue}}。
 </dl>
 
-{{GPUDevice}} 的 {{GPUObjectBase/[[device]]}} 是 {{GPUDevice}} 引用的 [=device=]
-到。
+{{GPUDevice}} 的 {{GPUObjectBase/[[device]]}} 是 {{GPUDevice}} 引用的[=设备=]。
 
-{{GPUDevice}} 具有上面的 WebIDL 定义中列出的方法。
-此处未定义的内容在本文档的其他地方进行了定义。
+{{GPUDevice}} 具有上面的 WebIDL 定义中列出的方法。此处未定义的内容在本文档的其他地方进行了定义。
 
 <dl dfn-type=method dfn-for=GPUDevice>
     : <dfn>destroy()</dfn>
     ::
-        销毁 [=device=]，防止对其进行进一步操作。
-        未完成的异步操作将失败。
+        销毁[=设备=]，防止对其进行进一步操作。未完成的异步操作将失败。
 
         <div algorithm=GPUDevice.destroy()>
-            **Called on:** {{GPUDevice}} |this|.
+            **调用:** {{GPUDevice}} |this|.
 
-            1. [=Lose the device=](|this|.{{GPUObjectBase/[[device]]}},
+            1. [=丢失设备=](|this|.{{GPUObjectBase/[[device]]}},
                 {{GPUDeviceLostReason/"destroyed"}}).
         </div>
 
-        注意:
-        由于此设备上不能发生进一步的操作，因此实现可以释放资源分配并立即中止未完成的异步操作。
+        Note: 由于此设备上不能发生进一步的操作，因此实现可以释放资源分配，并立即中止未完成的异步操作。
 </dl>
 
 {{GPUDevice}} 对象是 [=serializable objects=]。
 
-问题(gpuweb/gpuweb#354): 完成定义多线程 API 并将“[Serializable]”添加回接口。
+Issue(gpuweb/gpuweb#354): 完成定义多线程 API，并将“[Serializable]”添加回接口。
 
 <div algorithm>
-    <dfn abstract-op>序列化 GPUDevice 对象的步骤</dfn>,
-    给定 |value|, |serialized|, 和 |forStorage|:
-     1. 设置|serialized|.agentCluster 为[=surrounding agent=] 的[=agent cluster=]。
-     1. 如果|serialized|.agentCluster 的[=cross-origin isolated capability=] 为false，则抛出“{{DataCloneError}}”。
-     1. 如果 |forStorage| 是 `true`，抛出“{{DataCloneError}}”。
+    <dfn abstract-op>序列化 GPUDevice 对象的步骤</dfn>；给定 |value|, |serialized|，|forStorage|:
+     1. 设置 |serialized|.agentCluster 为[=surrounding agent=] 的[=代理集群=]。
+     1. 如果 |serialized|.agentCluster 的[=cross-origin isolated capability=] 为 false，则返回 “{{DataCloneError}}”。
+     1. 如果 |forStorage| 是 `true`，返回 “{{DataCloneError}}”。
      1. 将 |serialized|.device 设置为 |value|.{{GPUObjectBase/[[device]]}} 的值。
 </div>
 
 <div algorithm>
-    <dfn abstract-op> 反序列化 GPUDevice 对象的步骤</dfn>,
-    给定 |serialized| and |value|:
-     1. 如果|serialized|.agentCluster 不是[=surrounding agent=] 的[=agent cluster=]，则抛出“{{DataCloneError}}”。
+    <dfn abstract-op> 反序列化 GPUDevice 对象的步骤</dfn>；给定 |serialized| 和 |value|:
+     1. 如果 |serialized|.agentCluster 不是[=surrounding agent=] 的[=代理集群=]，则返回 “{{DataCloneError}}”。
      1. 将 |value|.{{GPUObjectBase/[[device]]}} 设置为 |serialized|.device。
 </div>
 
-问题: `GPUDevice` 并不真正需要跨域策略限制。
-无论如何，它应该可以从多个代理使用。 一旦我们描述了缓冲区、纹理和队列的序列化 - COOP+COEP 逻辑应该被移到那里。
+Issue: `GPUDevice` 并不真正需要跨域策略限制。无论如何，应该可以从多个代理使用。一旦我们描述了缓冲区、纹理和队列的序列化 - COOP+COEP 逻辑应该被移到那里。
 
 ## 示例 ## {#initialization-examples}
 
