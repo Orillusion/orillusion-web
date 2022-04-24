@@ -1375,7 +1375,7 @@ dictionary GPUDeviceDescriptor : GPUObjectDescriptorBase {
 
 #### <dfn enum>GPUFeatureName</dfn> #### {#gpufeaturename}
 
-每个 {{GPUFeatureName}} 标识一组功能，如果可用，则允许额外使用否则无效的 WebGPU。
+每个 {{GPUFeatureName}} 标识一组功能，这组功能如果可用，则允许额外使用 WebGPU，否则这些 WebGPU 的额外使用被视为无效。
 
 <script type=idl>
 enum GPUFeatureName {
