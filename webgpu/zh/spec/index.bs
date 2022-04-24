@@ -1215,8 +1215,7 @@ enum GPUPowerPreference {
 
 ## <dfn interface>GPUAdapter</dfn> ## {#gpu-adapter}
 
-一个 {{GPUAdapter}} 封装了一个 [=adapter=]，
-并描述其功能（[=features=] 和 [=limits=]）。
+一个 {{GPUAdapter}} 封装了一个[=显卡适配器=]，并描述其能力（[=特性=]和[=限制=]）。
 
 使用 {{GPU/requestAdapter()}} 来获取 {{GPUAdapter}}。
 
@@ -1232,7 +1231,7 @@ interface GPUAdapter {
 };
 </script>
 
-{{GPUAdapter}} has the following attributes:
+{{GPUAdapter}} 有以下属性:
 
 <dl dfn-type=attribute dfn-for=GPUAdapter>
     : <dfn>name</dfn>
@@ -1242,23 +1241,23 @@ interface GPUAdapter {
 
     : <dfn>features</dfn>
     ::
-        `this` 中值的集合.{{GPUAdapter/[[adapter]]}}.{{adapter/[[features]]}}.
+        `this`.{{GPUAdapter/[[adapter]]}}.{{adapter/[[features]]}} 中值的集合。
 
     : <dfn>limits</dfn>
     ::
-        `this` 中的限值.{{GPUAdapter/[[adapter]]}}.{{adapter/[[limits]]}}.
+        `this`.{{GPUAdapter/[[adapter]]}}.{{adapter/[[limits]]}} 中的限值。
 
     : <dfn>isFallbackAdapter</dfn>
     ::
-        返回 {{GPUAdapter/[[adapter]]}} 的值.{{adapter/[[fallback]]}}.
+        返回 {{GPUAdapter/[[adapter]]}}.{{adapter/[[fallback]]}} 的值。
 </dl>
 
 {{GPUAdapter}} 有以下内部插槽:
 
 <dl dfn-type=attribute dfn-for=GPUAdapter>
-    : <dfn>\[[adapter]]</dfn>, 属于 [=adapter=] 类别, 只读
+    : <dfn>\[[adapter]]</dfn>, of type [=adapter=], readonly
     ::
-        此 {{GPUAdapter}} 所指的 [=adapter=].
+        此 {{GPUAdapter}} 所指的[=显卡适配器=]。
 </dl>
 
 {{GPUAdapter}} 有以下方法:
@@ -1266,7 +1265,7 @@ interface GPUAdapter {
 <dl dfn-type=method dfn-for=GPUAdapter>
     : <dfn>requestDevice(descriptor)</dfn>
     ::
-        向 [=adapter=] 请求一个 [=device=].
+        向[=显卡适配器=]请求一个[=设备=].
 
         <div algorithm=GPUAdapter.requestDevice>
             **调用:** {{GPUAdapter}} |this|.
@@ -1280,51 +1279,39 @@ interface GPUAdapter {
 
             1. 让 |promise| 成为一个 [=a new promise=].
             1. 让 |adapter| 作为 |this|.{{GPUAdapter/[[adapter]]}}.
-            1. 发布下列指令给 [=Device timeline=]:
+            3. 在[=设备时间线=]上执行以下步骤:
                 <div class=device-timeline>
-                    1. 如果以下任意条件没有满足,
-                        [=reject=] |promise| 带有 {{TypeError}} 然后停止运行。
+                    1. 如果以下任意条件没有满足，通过生成 {{TypeError}} [=reject=] |promise|，然后停止运行。
 
                         <div class=validusage>
-                            - |descriptor| 中的值的集合.{{GPUDeviceDescriptor/requiredFeatures}}
-                                必须是 |adapter| 中的值的子及.{{adapter/[[features]]}}.
+                            - |descriptor|.{{GPUDeviceDescriptor/requiredFeatures}} 中的值的集合，必须是 |adapter|.{{adapter/[[features]]}} 中值的子集.
                         </div>
 
-                        注意：如果浏览器根本不知道特性名称（在其 {{GPUFeatureName}} 定义中），则会产生相同的错误。这将浏览器不支持某个特性时的行为与特定适配器不支持某个特性时的行为融合在一起。
+                        Note: 如果是浏览器根本不知道的特性名称（在其 {{GPUFeatureName}} 定义中），则会产生相同的错误。这将浏览器不支持某个特性时的行为与特定适配器不支持某个特性时的行为融合在一起。
 
-                    1. 如果以下任意条件没有满足,
-                        [=reject=] |promise| 带有 {{OperationError}} 然后停止运行。
+                    1. 如果以下任意条件没有满足，通过生成 {{OperationError}} [=reject=] |promise|，然后停止运行。
 
                         <div class=validusage>
-                            - |descriptor| 中的每一个key.{{GPUDeviceDescriptor/requiredLimits}}
-                                必须是 [=supported limits=] 中的成员的一个.
+                            - |descriptor|.{{GPUDeviceDescriptor/requiredLimits}} 中的每一个key，必须是[=支持的限制=]中的成员的一个.
 
-                            - 对于[=supported limits=]中的每个keys中的限制名称|key|：
-                                使|value|为|descriptor|.{{GPUDeviceDescriptor/requiredLimits}}[|key|].
-                                - |value|必须不比|adapter|.{{adapter/[[limits]]}}中的限制值更好（[=limit/better=]）。
-                                - 如果限制的[=limit class|class=]为[=limit class/alignment=]，|value|必须为2的幂。
-                            - 对于 [=supported limits=] 中的每种类型的限制，|descriptor|.{{GPUDeviceDescriptor/requiredLimits}}
-                                中该限制的值必须不是 [=limit/better=] 比 |adapter|.{{adapter/[[limits]]}} 中该限制的值。
+                            - 对于[=支持的限制=]中的每个keys中的限制名称 |key|：使 |value| 为 |descriptor|.{{GPUDeviceDescriptor/requiredLimits}}[|key|].
+                                - |value| 必须不比 |adapter|.{{adapter/[[limits]]}} 中的限制值[=limit/更好=]。
+                                - 如果限制的[=limit class|等级=]为[=limit class/对齐=]，|value| 必须为2的幂。
                         </div>
 
-                    1. 如果|adapter|为[=invalid=]，
-                        或者用户代理无法满足请求：
+                    1. 如果 |adapter| 为[=无效=]，或者用户代理无法满足请求：
 
-                        1. 让 |device|成为一个新的 [=device=].
-                        1. [=Lose the device=](|device|, `undefined`).
+                        1. 让 |device| 成为一个新的[=设备=].
+                        1. [=丢失设备=](|device|, `undefined`).
 
-                            注意:
-                            这将使|adapter| [=invalid=], 如果之前不是 `false`。
+                            Note: 这将使 |adapter| [=无效=], 如果之前不是。
 
-                            注意:
-                            发生这种情况时，用户代理应考虑在大多数或所有情况下发出开发人员可见的警告。
+                            Note: 发生这种情况时，用户代理应考虑在大多数或所有情况下发出开发人员可见的警告。
                             应用程序应该从 {{GPU/requestAdapter()}} 开始执行重新初始化逻辑。
 
-                        1. [=Resolve=] |promise| 用一个新的 {{GPUDevice}} 来封装 |device|,
-                            然后停止运行。
+                        1. 用一个新的 {{GPUDevice}} 来封装 |device|，并[=决议=] |promise|，然后停止运行。
 
-                    1. [=Resolve=] |promise| 用一个新的 {{GPUDevice}} 对象封装
-                        [a new device=] 其有 |descriptor| 描述的功能。
+                    1.  用一个新的 {{GPUDevice}} 对象封装[=新设备=]，并[=决议=] |promise|，新设备具有 |descriptor| 描述的功能。
                 </div>
             1. 返回 |promise|.
 
@@ -1332,7 +1319,7 @@ interface GPUAdapter {
 </dl>
 
 <div class="example">
-    请求具有默认功能和限制的{{GPUDevice}}：
+    请求具有默认特性和限制的 {{GPUDevice}}：
     <pre highlight="js">
         const gpuAdapter = await navigator.gpu.requestAdapter();
         const gpuDevice = await gpuAdapter.requestDevice();
