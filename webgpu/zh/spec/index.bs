@@ -1489,7 +1489,7 @@ Issue: `GPUDevice` 并不真正需要跨域策略限制。无论如何，应该�
 ## 示例 ## {#initialization-examples}
 
 <div class="example">
-    一个更强大的请求带有错误处理的 {{GPUAdapter}} 和 {{GPUDevice}} 的示例：
+    一个更具有鲁棒性的的请求 {{GPUAdapter}} 和 {{GPUDevice}} 的示例，该示例还包含了错误处理：
     <pre highlight="js">
         let gpuDevice = null;
 
