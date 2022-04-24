@@ -1062,7 +1062,7 @@ Issue(gpuweb/gpuweb#1715): 考虑将srgb编码图像上传到线性编码纹理�
 ## navigator.gpu ## {#navigator-gpu}
 
 {{GPU}} 对象分别通过 {{Navigator}} 和 {{WorkerNavigator}} 接口在 {{Window}} 和 {{DedicatedWorkerGlobalScope}} 上下文中可用，
-并通过 `navigator.gpu` 公开：
+并通过 `navigator.gpu` 被暴露：
 
 <script type=idl>
 interface mixin NavigatorGPU {
