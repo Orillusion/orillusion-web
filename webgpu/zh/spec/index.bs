@@ -1633,7 +1633,7 @@ Issue(gpuweb/gpuweb#354): 完成定义多线程 API 并将 `[Serializable]`添�
 
 ### {{GPUBufferDescriptor}} ### {#GPUBufferDescriptor}
 
-它指定创建{{GPUBuffer}}用到的选项。
+指定了创建 {{GPUBuffer}} 用到的选项。
 
 <script type=idl>
 dictionary GPUBufferDescriptor : GPUObjectDescriptorBase {
@@ -1643,13 +1643,13 @@ dictionary GPUBufferDescriptor : GPUObjectDescriptorBase {
 };
 </script>
 
-- {{GPUBufferDescriptor/mappedAtCreation}}保证即使缓冲区最终创建失败，它仍然看起来好像可以写入/读取映射的范围，直到它被取消映射。
+- {{GPUBufferDescriptor/mappedAtCreation}} 保证即使缓冲区最终创建失败，缓冲区仍然看起来好像可以在映射的范围内写入/读取，直到缓冲区回到未映射状态。
 
 <div>
-    <dfn abstract-op>校验GPUBufferDescriptor</dfn>(device, descriptor)
+    <dfn abstract-op>校验 GPUBufferDescriptor</dfn>(device, descriptor)
         1. 如果设备缺失，返回 `false`.
-        2. 如果|descriptor|的{{GPUBufferDescriptor/usage}}任何一个比特位没有表示设备的[[allowed buffer usages]]，返回 `false`。
-        3. 如果|descriptor|的{{GPUBufferDescriptor/usage}}的{{GPUBufferUsage/MAP_READ}}和{{GPUBufferUsage/MAP_WRITE}}比特位都设置了值，返回 `false`。
+        2. 如果 |descriptor| 的 {{GPUBufferDescriptor/usage}} 中任何一个标志位都不属于设备的 [[allowed buffer usages]]，返回 `false`。
+        3. 如果 |descriptor| 的 {{GPUBufferDescriptor/usage}} 中的 {{GPUBufferUsage/MAP_READ}} 和 {{GPUBufferUsage/MAP_WRITE}} 标志位都有值，返回 `false`。
         4. 返回 `true`.
 </div>
 
