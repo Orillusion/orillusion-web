@@ -1552,12 +1552,12 @@ Issue: `GPUDevice` 并不真正需要跨域策略限制。无论如何，应该�
 
 ## <dfn interface>GPUBuffer</dfn> ## {#buffer-interface}
 
-问题：定义<dfn dfn>buffer</dfn> (内部对象)
+Issue: 定义<dfn dfn>缓冲区</dfn> (内部对象)
 
-{{GPUBuffer}}表示可用于GPU操作的内存块。数据以线性布局存储，这意味着分配的每个字节都可以由其从{{GPUBuffer}}开始的偏移量寻址，受取决于操作的对齐约束限制。一些{{GPUBuffer|GPUBuffers}}可以被映射，这使得内存块可以通过一个{{ArrayBuffer}}访问并调用它的映射。
+{{GPUBuffer}} 表示可用于 GPU 操作的内存块。数据以线性布局存储，这意味着分配的每个字节都可以由其从 {{GPUBuffer}} 开始的偏移量寻址，并且受到操作的对齐约束限制。一些 {{GPUBuffer|GPUBuffers}} 可以被映射，这使得内存块可以通过一个{{ArrayBuffer}}访问并调用它的映射。
 
-{{GPUBuffer|GPUBuffers}}是通过{{GPUDevice/createBuffer(descriptor)|GPUDevice.createBuffer(descriptor)}}创建的，
-返回一个处于 [=buffer state/mapped=] 或 [=buffer state/unmapped=]状态的新缓冲区。
+{{GPUBuffer|GPUBuffers}} 是通过 {{GPUDevice/createBuffer(descriptor)|GPUDevice.createBuffer(descriptor)}} 创建的，
+创建后会返回一个处于 [=buffer state/已映射=] 或 [=buffer state/未映射=]状态的新缓冲区。
 
 <script type=idl>
 [Exposed=(Window, DedicatedWorker), SecureContext]
@@ -1576,60 +1576,58 @@ GPUBuffer includes GPUObjectBase;
 <dl dfn-type=attribute dfn-for="GPUBuffer">
     : <dfn>\[[size]]</dfn> of type {{GPUSize64}}.
     ::
-        {{GPUBuffer}}分配的长度（以字节为单位）。
+        {{GPUBuffer}} 被分配的长度（以字节为单位）。
 
     : <dfn>\[[usage]]</dfn> of type {{GPUBufferUsageFlags}}.
     ::
-        此{{GPUBuffer}}被允许的使用。
+        此 {{GPUBuffer}} 被允许的使用。
 
     : <dfn>\[[state]]</dfn> of type [=buffer state=].
     ::
-        {{GPUBuffer}}的当前状态。
+        {{GPUBuffer}} 的当前状态。
 
     : <dfn>\[[mapping]]</dfn> of type {{ArrayBuffer}} or {{Promise}} or `null`.
     ::
-        此{{GPUBuffer}}的映射。{{ArrayBuffer}}不能直接访问，而是通过视图访问它，称为映射范围，存储在{{GPUBuffer/[[mapped_ranges]]}}中。
+        此 {{GPUBuffer}} 的映射。{{ArrayBuffer}} 不能直接被访问，而是通过视图去访问，称为映射范围，被存储在 {{GPUBuffer/[[mapped_ranges]]}} 中。
 
-        在 `DataBlock`方面指定{{GPUBuffer/[[mapping]]}}类似于 `AllocateArrayBuffer`？
+        Issue(gpuweb/gpuweb#605): 在 `DataBlock`方面指定 {{GPUBuffer/[[mapping]]}} 类似于 `AllocateArrayBuffer`？
 
     : <dfn>\[[mapping_range]]</dfn> of type [=list=]&lt;{{unsigned long long}}&gt; or `null`.
     ::
-        此被映射的{{GPUBuffer}}的范围。
+        此被映射的 {{GPUBuffer}} 的范围。
 
     : <dfn>\[[mapped_ranges]]</dfn> of type [=list=]&lt;{{ArrayBuffer}}&gt; or `null`.
     ::
-        {{ArrayBuffer}}s通过{{GPUBuffer/getMappedRange}}返回给应用程序。它们被追踪以便在{{GPUBuffer/unmap}}被调用时可以将其分离。
+        {{ArrayBuffer}}s 通过 {{GPUBuffer/getMappedRange}} 返回给应用程序。这些 {{ArrayBuffer}}s 会被追踪，以便在 {{GPUBuffer/unmap}} 被调用时可以将其分离。
 
     : <dfn>\[[map_mode]]</dfn> of type {{GPUMapModeFlags}}.
     ::
-        最后一次调用{{GPUBuffer/mapAsync()}}的{{GPUMapModeFlags}}（如果有）。
+        最后一次调用 {{GPUBuffer/mapAsync()}} 的 {{GPUMapModeFlags}}（如果有）。
 </dl>
 
-问题：{{GPUBuffer/[[usage]]}}与{{GPUTexture/[[descriptor]]}}.{{GPUTextureDescriptor/usage}}的命名不同。我们应该让它保持一致。
+Issue: {{GPUBuffer/[[usage]]}} 与 {{GPUTexture/[[descriptor]]}}.{{GPUTextureDescriptor/usage}} 的命名不同。我们应该让两种命名保持一致。
 
-每个{{GPUBuffer}}在[=Content timeline=]上都有一个当前的<dfn dfn>buffer state</dfn>，它是以下几项之一：
+每个 {{GPUBuffer}} 在[=内容时间线=]上都有一个当前的<dfn dfn>缓冲区状态</dfn>，它是以下几项之一：
 
- - "<dfn dfn for="buffer state">mapped</dfn>" 此时{{GPUBuffer}}中的内容可以被用作CPU操作。
- - "<dfn dfn for="buffer state">mapped at creation</dfn>" 此时{{GPUBuffer}}刚刚被创建并且其中的内容可以被CPU操作。
- - "<dfn dfn for="buffer state">mapping pending</dfn>" 此时{{GPUBuffer}}正在被处理使得它的内容可以被CPU操作。
- - "<dfn dfn for="buffer state">unmapped</dfn>" 此时{{GPUBuffer}}允许GPU操作。
- - "<dfn dfn for="buffer state">destroyed</dfn>" where the {{GPUBuffer}} is
-    除了{{GPUBuffer/destroy}}之外不允许任何操作。
+ - "<dfn dfn for="buffer state">已映射</dfn>" 此时 {{GPUBuffer}} 中的内容可以被用作 CPU 操作。
+ - "<dfn dfn for="buffer state">在创建时被映射</dfn>" 此时 {{GPUBuffer}} 刚刚被创建，并且其中的内容可以被 CPU 操作。
+ - "<dfn dfn for="buffer state">待映射</dfn>" 此时 {{GPUBuffer}} 正在被处理使得它的内容可以被 CPU 操作。
+ - "<dfn dfn for="buffer state">未映射</dfn>" 此时 {{GPUBuffer}} 允许 GPU 操作。
+ - "<dfn dfn for="buffer state">被销毁</dfn>" 此时 {{GPUBuffer}} 不允许除了 {{GPUBuffer/destroy}} 之外的任何操作。
 
-注意：一旦创建了{{GPUBuffer}}，{{GPUBuffer/[[size]]}}和{{GPUBuffer/[[usage]]}}是不可变的。
+Note: 一旦创建了 {{GPUBuffer}}，{{GPUBuffer/[[size]]}} 和 {{GPUBuffer/[[usage]]}} 是不可变的。
 
 <div class=note>
-    注意：{{GPUBuffer}}有一个具有以下状态的状态机。（({{GPUBuffer/[[mapping]]}}, {{GPUBuffer/[[mapping_range]]}},
-    和{{GPUBuffer/[[mapped_ranges]]}}在未指定时为空。）
+    Note: {{GPUBuffer}} 有一个具有以下状态的状态机。（({{GPUBuffer/[[mapping]]}}, {{GPUBuffer/[[mapping_range]]}}, 并且 {{GPUBuffer/[[mapped_ranges]]}} 在未指定时为空。）
 
-     - [=buffer state/unmapped=]和[=buffer state/destroyed=].
-     - 带有类型为{{GPUBuffer/[[mapping]]}}的{{ArrayBuffer}}的[=buffer state/mapped=]或[=buffer state/mapped at creation=]，一个{{GPUBuffer/[[mapping_range]]}}中两个数字连成的串和一串{{GPUBuffer/[[mapped_ranges]]}}中的{{ArrayBuffer}}。
-     - [=buffer state/mapping pending=]带有一个类型为{{GPUBuffer/[[mapping]]}}的{{Promise}}。
+     - [=buffer state/未映射=]且[=buffer state/被销毁=]状态。
+     - [=buffer state/已映射=]或[=buffer state/在创建时被映射=]状态，同时包含一个类型为 {{GPUBuffer/[[mapping]]}} 的 {{ArrayBuffer}}，一个 {{GPUBuffer/[[mapping_range]]}} 中两个数字的序列，和一个 {{GPUBuffer/[[mapped_ranges]]}} 中 {{ArrayBuffer}} 的序列。
+     - [=buffer state/待映射=]状态，同时包含一个类型为 {{GPUBuffer/[[mapping]]}} 的 {{Promise}}。
 </div>
 
-{{GPUBuffer}}是对内部缓冲区对象的引用。
+{{GPUBuffer}} 是对一个内部缓冲区对象的引用。
 
-问题(gpuweb/gpuweb#354)：完成定义多线程API并将 `[Serializable]`添加回接口。
+Issue(gpuweb/gpuweb#354): 完成定义多线程 API 并将 `[Serializable]`添加回接口。
 
 ## 缓冲区创建 ## {#buffer-creation}
 
