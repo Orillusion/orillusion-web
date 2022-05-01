@@ -1742,23 +1742,23 @@ namespace GPUBufferUsage {
 
 ## 缓冲区销毁 ## {#buffer-destruction}
 
-不再需要{{GPUBuffer}}的应用程序可以选择丢失通过调用{{GPUBuffer/destroy()}}在垃圾回收之前访问它。也销毁缓冲区取消映射，释放为映射分配的任何内存。
+不再需要 {{GPUBuffer}} 的应用程序可以选择通过调用 {{GPUBuffer/destroy()}，在垃圾回收之前，丢弃对缓冲区的访问。销毁缓冲区的同时，也使缓冲区回到未映射状态，释放为映射分配的任何内存。
 
-注意：一旦所有先前提交的使用它的操作完成，这允许用户代理回收与{{GPUBuffer}}关联的GPU内存。
+Note: 一旦先前提交的所有使用 {{GPUBuffer}} 的操作完成，用户代理可以回收与 {{GPUBuffer}} 关联的 GPU 内存。
 
 <dl dfn-type=method dfn-for=GPUBuffer>
     : <dfn>destroy()</dfn>
     ::
-        销毁{{GPUBuffer}}.
+        销毁 {{GPUBuffer}}.
 
         <div algorithm=GPUBuffer.destroy>
-            **Called on:** {{GPUBuffer}} |this|.
+            **调用:** {{GPUBuffer}} |this|.
 
-            **Returns:** {{undefined}}
-            1. 如果|this|.{{GPUBuffer/[[state]]}}不是[=buffer state/unmapped=]或[=buffer state/destroyed=]
-                1. 执行unmap|this|的步骤。
+            **返回:** {{undefined}}
+            1. 如果 |this|.{{GPUBuffer/[[state]]}} 不是[=buffer state/未映射=]或[=buffer state/被销毁=]
+                1. 执行取消映射 |this| 的步骤。
 
-            2. 设置|this|.{{GPUBuffer/[[state]]}}为[=buffer state/destroyed=].
+            2. 设置 |this|.{{GPUBuffer/[[state]]}} 为[=buffer state/被销毁=].
         </div>
 </dl>
 
