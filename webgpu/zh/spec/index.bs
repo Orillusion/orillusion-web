@@ -1675,63 +1675,63 @@ namespace GPUBufferUsage {
 <dl dfn-type=method dfn-for=GPUDevice>
     : <dfn>createBuffer(descriptor)</dfn>
     ::
-        创建一个{{GPUBuffer}}。
+        创建一个 {{GPUBuffer}}。
 
         <div algorithm=GPUDevice.createBuffer>
-            **Called on:** {{GPUDevice}} |this|.
+            **调用:** {{GPUDevice}} |this|.
 
-            **Arguments:**
+            **参数:**
             <pre class=argumentdef for="GPUDevice/createBuffer(descriptor)">
-                |descriptor|: 要创建的{{GPUBuffer}}的描述。
+                |descriptor|: 要创建的 {{GPUBuffer}} 的描述。
             </pre>
 
-            **Returns:** {{GPUBuffer}}
+            **返回:** {{GPUBuffer}}
 
-            1. 如果以下任何条件没有满足，返回一个错误缓冲并且停止。
+            1. 如果以下任何条件没有满足，返回一个错误缓冲区并停止。
                 <div class=validusage>
-                    - |this|是一个有效的（[=valid=]）{{GPUDevice}}。
-                    - |descriptor|.{{GPUBufferDescriptor/usage}}必须不为0。
-                    - |descriptor|.{{GPUBufferDescriptor/usage}}是|this|.[[allowed buffer usages]]的一个子集。
-                    - 如果|descriptor|.{{GPUBufferDescriptor/usage}}包含{{GPUBufferUsage/MAP_READ}}:
-                        - |descriptor|.{{GPUBufferDescriptor/usage}}除了{{GPUBufferUsage/COPY_DST}}不包含其他标识。
-                    - 如果|descriptor|.{{GPUBufferDescriptor/usage}}包含{{GPUBufferUsage/MAP_WRITE}}:
-                        - |descriptor|.{{GPUBufferDescriptor/usage}}除了{{GPUBufferUsage/COPY_SRC}}不包含其他标识。
-                    - 如果|descriptor|.{{GPUBufferDescriptor/mappedAtCreation}}为 `true`:
-                        - |descriptor|.{{GPUBufferDescriptor/size}}是4的倍数。
+                    - |this| 是一个[=有效=] {{GPUDevice}}。
+                    - |descriptor|.{{GPUBufferDescriptor/usage}} 必须不为 0。
+                    - |descriptor|.{{GPUBufferDescriptor/usage}} 是 |this|.[[allowed buffer usages]] 的一个子集。
+                    - 如果 |descriptor|.{{GPUBufferDescriptor/usage}} 包含 {{GPUBufferUsage/MAP_READ}}:
+                        - |descriptor|.{{GPUBufferDescriptor/usage}} 不包含除了 {{GPUBufferUsage/COPY_DST}} 之外的其他标识。
+                    - 如果 |descriptor|.{{GPUBufferDescriptor/usage}} 包含 {{GPUBufferUsage/MAP_WRITE}}:
+                        - |descriptor|.{{GPUBufferDescriptor/usage}} 不包含除了 {{GPUBufferUsage/COPY_SRC}} 之外的其他标识。
+                    - 如果 |descriptor|.{{GPUBufferDescriptor/mappedAtCreation}} 为 `true`:
+                        - |descriptor|.{{GPUBufferDescriptor/size}} 是 4 的倍数。
 
-                    Issue(gpuweb/gpuweb#605): 解释什么是{{GPUDevice}}的 `[[allowed buffer usages]]`.
+                    Issue(gpuweb/gpuweb#605): 解释什么是 {{GPUDevice}} 的 `[[allowed buffer usages]]`.
                 </div>
             
-            注意：如果缓冲区创建失败，并且|descriptor|.{{GPUBufferDescriptor/mappedAtCreation}}为 `false`，对{{GPUBuffer/mapAsync()}}的任何调用都将被拒绝，因此分配给启用映射的任何资源都可以并且可能会被丢弃或回收。
+            Note: 如果缓冲区创建失败，并且 |descriptor|.{{GPUBufferDescriptor/mappedAtCreation}} 为 `false`，对 {{GPUBuffer/mapAsync()}} 的任何调用都将被拒绝，因此开始映射中分配的任何资源都可以并且可能会被丢弃或回收。
 
-            2. 使|b|为一个新的{{GPUBuffer}}对象.
-            3. 将|b|.{{GPUBuffer/[[size]]}}设置为|descriptor|.{{GPUBufferDescriptor/size}}.
-            4. 将|b|.{{GPUBuffer/[[usage]]}}设置为|descriptor|.{{GPUBufferDescriptor/usage}}.
-            5. 如果|descriptor|.{{GPUBufferDescriptor/mappedAtCreation}}值为 `true`:
+            1. 使 |b| 为一个新的 {{GPUBuffer}} 对象.
+            2. 将 |b|.{{GPUBuffer/[[size]]}} 设置为 |descriptor|.{{GPUBufferDescriptor/size}}.
+            3. 将 |b|.{{GPUBuffer/[[usage]]}} 设置为 |descriptor|.{{GPUBufferDescriptor/usage}}.
+            4. 如果 |descriptor|.{{GPUBufferDescriptor/mappedAtCreation}} 值为 `true`:
 
-                1. 将|b|.{{GPUBuffer/[[mapping]]}}设置为一个新的大小为|b|.{{GPUBuffer/[[size]]}}的{{ArrayBuffer}}。
-                2. 将|b|.{{GPUBuffer/[[mapping_range]]}}设置为 `[0, descriptor.size]`.
-                3. 将|b|.{{GPUBuffer/[[mapped_ranges]]}}设置为 `[]`.
-                4. 将|b|.{{GPUBuffer/[[state]]}}设置为[=buffer state/mapped at creation=].
+                1. 将 |b|.{{GPUBuffer/[[mapping]]}} 设置为一个新的大小为 |b|.{{GPUBuffer/[[size]]}} 的 {{ArrayBuffer}}。
+                2. 将 |b|.{{GPUBuffer/[[mapping_range]]}} 设置为 `[0, descriptor.size]`.
+                3. 将 |b|.{{GPUBuffer/[[mapped_ranges]]}} 设置为 `[]`.
+                4. 将 |b|.{{GPUBuffer/[[state]]}} 设置为[=buffer state/在创建时被映射=]状态.
 
                 否则:
 
-                1. 将|b|.{{GPUBuffer/[[mapping]]}}设置为 `null`。
-                2. 将|b|.{{GPUBuffer/[[mapping_range]]}}设置为 `null`。
-                3. 将|b|.{{GPUBuffer/[[mapped_ranges]]}}设置为 `null`。
-                4. 将|b|.{{GPUBuffer/[[state]]}}设置为[=buffer state/unmapped=]。
+                1. 将 |b|.{{GPUBuffer/[[mapping]]}} 设置为 `null`。
+                2. 将 |b|.{{GPUBuffer/[[mapping_range]]}} 设置为 `null`。
+                3. 将 |b|.{{GPUBuffer/[[mapped_ranges]]}} 设置为 `null`。
+                4. 将 |b|.{{GPUBuffer/[[state]]}} 设置为[=buffer state/未映射=]状态。
 
-            6. 将|b|分配的每个字节设置为零。
-            7. 返回|b|.
+            5. 将 |b| 分配的每个字节设置为零。
+            6. 返回 |b|.
 
-            注意：在{{GPUBufferDescriptor/usage}}中没有{{GPUBufferUsage/MAP_READ}}或{{GPUBufferUsage/MAP_WRITE}}的情况下，将{{GPUBufferDescriptor/mappedAtCreation}}设置为 `true`是有效的。这可用于设置缓冲区的初始数据。
+            Note: 在 {{GPUBufferDescriptor/usage}} 中没有 {{GPUBufferUsage/MAP_READ}} 或 {{GPUBufferUsage/MAP_WRITE}} 的情况下，将 {{GPUBufferDescriptor/mappedAtCreation}} 设置为 `true`是有效的。这可用于设置缓冲区的初始数据。
 
         </div>
 
 </dl>
 
 <div class="example">
-    创建一个 128 字节的统一缓冲区，可以写入：
+    创建一个 128 字节，并且可以被写入的统一缓冲区：
     <pre highlight="js">
         const buffer = gpuDevice.createBuffer({
             size: 128,
