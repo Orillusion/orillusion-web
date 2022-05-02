@@ -5243,7 +5243,7 @@ case 选择器值必须与计算选择器表达式的结果具有相同的类型
 </div>
 
 <div class='example wgsl function-scope' heading="WGSL Loop">
-  <xmp>
+  <xmp highlight='rust'>
     let a: i32 = 2;
     var i: i32 = 0;      // <1>
     loop {
@@ -5269,7 +5269,7 @@ case 选择器值必须与计算选择器表达式的结果具有相同的类型
 </div>
 
 <div class='example wgsl function-scope' heading="WGSL Loop with continue">
-  <xmp>
+  <xmp highlight='rust'>
     var a: i32 = 2;
     var i: i32 = 0;
     loop {
@@ -5286,7 +5286,7 @@ case 选择器值必须与计算选择器表达式的结果具有相同的类型
 </div>
 
 <div class='example wgsl function-scope' heading="WGSL Loop with continue and continuing">
-  <xmp>
+  <xmp highlight='rust'>
     var a: i32 = 2;
     var i: i32 = 0;
     loop {
@@ -5325,6 +5325,10 @@ case 选择器值必须与计算选择器表达式的结果具有相同的类型
 
     | [=syntax/variable_statement=]
 
+    | [=syntax/increment_statement=]
+
+    | [=syntax/decrement_statement=]
+
     | [=syntax/assignment_statement=]
 
     | [=syntax/func_call_statement=]
@@ -5351,6 +5355,8 @@ case 选择器值必须与计算选择器表达式的结果具有相同的类型
 * 如果 `condition` 不为空，则在循环体的开始处进行检查，如果不满足则执行[[#break-statement]]。
 * 如果 `update_part` 不为空，它会在循环体的末尾变成一个 [=statement/continuing=] 语句。
 
+[=Type rule precondition=]: 条件必须为 [=bool=] 类型。
+
 for 循环的 `initializer` 在执行循环之前执行一次。
 当一个 [=declaration=] 出现在初始化器中时，它的 [=identifier=] 是 [=in scope=] 直到 `body` 的结尾。
 与 `body` 中的声明不同，该声明不会在每次迭代时重新初始化。
@@ -5375,7 +5381,7 @@ for 循环的 `initializer` 在执行循环之前执行一次。
 转换为:
 
 <div class='example wgsl function-scope' heading="For to Loop transformation">
-  <xmp>
+  <xmp highlight='rust'>
     { // Introduce new scope for loop variable i
       var i: i32 = 0;
       var a: i32 = 0;
@@ -5397,6 +5403,26 @@ for 循环的 `initializer` 在执行循环之前执行一次。
   </xmp>
 </div>
 
+### While Statement ### {#while-statement}
+
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>while_statement</dfn> :
+
+    | [=syntax/while=] [=syntax/expression=] [=syntax/compound_statement=]
+</div>
+
+<dfn noexport dfn-for="statement">while</dfn>语句是一种以条件为参数的循环。
+在每次循环[=iteration=]开始时，一个布尔类型的条件被计算得到。
+如果条件为假，while循环结束执行。
+否则，剩余迭代部分被执行。
+
+[=Type rule precondition=]: 条件必须为 [=bool=] 类型。
+
+while循环可以被看作是[=statement/loop=]或[=statement/for=]语句的语法糖。
+以下语句形式是等价的：
+* `while`  *condition*  `{` *body_statements* `}`
+* `loop { if !` *condition* `{break;}` *body_statements* `}`
+* `for (;`  *condition* `;) {` *body_statements*  `}`
 
 ### Break 语句 ### {#break-statement}
 
@@ -5406,21 +5432,14 @@ for 循环的 `initializer` 在执行循环之前执行一次。
     | [=syntax/break=]
 </div>
 
-<dfn noexport dfn-for="statement">break</dfn> 语句将控制转移到最近封闭的 [=statement/loop=] 或 [=statement/switch=] 语句的主体之后的第一个语句。
-`break` 语句只能在 [=statement/loop=]、[=statement/for=] 和 [=statement/switch=] 语句中使用。
+<dfn noexport dfn-for="statement">break</dfn>语句将控制转移至最近封闭循环的主体或[=statement/switch=]语句之后，从而结束执行循环或switch语句。
 
-当放置 `break` 语句使其从循环的 [=statement/continuing=] 语句退出时，
-然后：
+`break` 语句必须仅在 [=statement/loop=]，[=statement/for=]，[=statement/while=]以及[=statement/switch=]语句之中使用。
 
-* `break` 语句必须显示为以下其中之一:
-    * `if` 语句的 `if` 子句中唯一的语句具有:
-        * 没有 `else` 子句或空的 `else` 子句
-        * 没有 `else if` 子句
-    * `if` 语句的 `else` 子句中唯一具有空的 `if` 子句且没有 `else if` 子句的语句。
-* `if` 语句必须出现在 `continuing` 子句的最后。
+不要放置 `break` 语句使得其退出循环的[[#continuing-statement|continuing]]语句。使用[[#break-if-statement|break-if]]代替。
 
-<div class='example wgsl function-scope' heading="WGSL Valid loop if-break from a continuing clause">
-  <xmp>
+<div class='example wgsl function-scope' heading="WGSL Invalid loop break from a continuing clause">
+  <xmp highlight='rust'>
     var a: i32 = 2;
     var i: i32 = 0;
     loop {
@@ -5432,48 +5451,41 @@ for 循环的 `initializer` 在执行循环之前执行一次。
 
       continuing {
         i = i + step;
-        if (i >= 4) { break; }
+        if i >= 4 { break; } // Invalid.  Use break-if instead.
       }
     }
   </xmp>
 </div>
 
-<div class='example wgsl function-scope' heading="WGSL Valid loop if-else-break from a continuing clause">
-  <xmp>
-    var a: i32 = 2;
-    var i: i32 = 0;
-    loop {
-      let step: i32 = 1;
+### Break-If Statement ### {#break-if-statement}
 
-      if (i % 2 == 0) { continue; }
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>break_if_statement</dfn> :
 
-      a = a * 2;
-
-      continuing {
-        i = i + step;
-        if (i < 4) {} else { break; }
-      }
-    }
-  </xmp>
+    | [=syntax/break=] [=syntax/if=] [=syntax/expression=] [=syntax/semicolon=]
 </div>
 
-<div class='example wgsl function-scope expect-error' heading="WGSL Invalid breaks from a continuing clause">
-  <xmp>
+<dfn noexport dfn-for="statement">break-if</dfn>语句计算一个布尔条件。
+如果条件为真，控制被转移到最近封闭的[=statement/loop=]语句主体之后，结束执行该循环。
+
+[=Type rule precondition=]: 条件必须为 [=bool=] 类型。
+
+注意：break-if语句仅可以出现在[[#continuing-statement|continuing]]语句主体的最后。
+
+<div class='example wgsl function-scope' heading="WGSL Valid loop break-if from a continuing clause">
+  <xmp highlight='rust'>
     var a: i32 = 2;
     var i: i32 = 0;
-
     loop {
       let step: i32 = 1;
 
-      if (i % 2 == 0) { continue; }
+      if i % 2 == 0 { continue; }
 
       a = a * 2;
 
       continuing {
         i = i + step;
-        break;                                     // Invalid: too early
-        if (i < 4) { i = i++; } else { break; }  // Invalid: if is too complex, and too early
-        if (i >= 4) { break; } else { i = i++; } // Invalid: if is too complex
+        break if i >= 4;
       }
     }
   </xmp>
@@ -5492,14 +5504,17 @@ for 循环的 `initializer` 在执行循环之前执行一次。
 * 转发到循环体末尾的 [=statement/continuing=] 语句（如果存在）。
 * 否则返回到循环体中的第一条语句，开始下一个 [=iteration=]。
 
-`continue` 语句只能用在 [=statement/loop=] 或 [=statement/for=] 语句中。
+`continue` 语句只能用在 [=statement/loop=], [=statement/for=] 或 [=statement/while=] 语句中。
 `continue` 语句的放置不得将控制转移到封闭的 [=statement/continuing=] 语句。
 （当分支到 `continuing` 语句时，它是一个 *forward* 分支。）
 
 不得放置 `continue` 语句，以便将控制权转移到目标 [=statement/continuing=] 语句中使用的声明之后。
 
+注意：如果为了传输嵌套在 `continuing` 语句中的另一个循环中的控制流，`continue` 仅能在 `continuing` 语句中使用。
+也就是说，`continue` 不能被用于传输控制至当前执行的 `continuing` 语句开始处。
+
 <div class='example wgsl function-scope expect-error' heading="Invalid continue bypasses declaration">
-  <xmp>
+  <xmp highlight='rust'>
     var i: i32 = 0;
     loop {
       if (i >= 4) { break; }
@@ -5520,7 +5535,13 @@ for 循环的 `initializer` 在执行循环之前执行一次。
 <div class='syntax' noexport='true'>
   <dfn for=syntax>continuing_statement</dfn> :
 
-    | [=syntax/continuing=] [=syntax/compound_statement=]
+    | [=syntax/continuing=] [=syntax/continuing_compound_statement=]
+</div>
+
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>continuing_compound_statement</dfn> :
+
+    | [=syntax/brace_left=] [=syntax/statement=] * [=syntax/break_if_statement=] ? [=syntax/brace_right=]
 </div>
 
 <dfn dfn-for="statement">continuing</dfn> 语句指定要在循环 [=iteration=] 结束时执行的 [=compound statement=]。
@@ -5565,10 +5586,10 @@ for 循环的 `initializer` 在执行循环之前执行一次。
 注意：`discard`语句可以被任何着色器阶段中的函数|片段阶段中的函数[=functions in a shader stage|function in a fragment stage=]执行，
 效果是一样的：立即终止调用。
 
-在执行 `discard` 语句后，控制流在入口点的持续时间内是不一致的。
+在执行 `discard` 语句后，控制流在入口点的持续时间内是不一致（[[=uniform control flow|non-uniform=]]）的。
 
 <div class='example wgsl' heading='Using the discard statement to throw away a fragment'>
-  <xmp>
+  <xmp highlight='rust'>
   var<private> will_emit_color: bool = false;
 
   fn discard_if_shallow(pos: vec4<f32>) {
@@ -5580,7 +5601,7 @@ for 循环的 `initializer` 在执行循环之前执行一次。
     will_emit_color = true;
   }
 
-  @stage(fragment)
+  @fragment
   fn main(@builtin(position) coord_in: vec4<f32>)
     -> @location(0) vec4<f32>
   {
@@ -5607,6 +5628,8 @@ for 循环的 `initializer` 在执行循环之前执行一次。
 注意：如果函数 [=return value|returns a value=]，则忽略该值。
 
 ## 语句语法总结 ## {#statements-summary}
+
+[=syntax/statement=] 规则匹配可以在函数体内大多数地方使用的语句。
 
 <div class='syntax' noexport='true'>
   <dfn for=syntax>statement</dfn> :
@@ -5642,10 +5665,17 @@ for 循环的 `initializer` 在执行循环之前执行一次。
     | [=syntax/decrement_statement=] [=syntax/semicolon=]
 </div>
 
+另外，特定语句仅能用于非常特定的情况：
+* [=syntax/break_if_statement=]
+* [=syntax/case_compound_statement=]
+* [=syntax/continuing_compound_statement=]
+* [=syntax/fallthrough_statement=]
+
 ## 语句行为分析 ## {#behaviors}
 ### 规则 ### {#behaviors-rules}
 一些影响控制流的语句仅在某些上下文中有效。
-例如，“fallthrough”在switch外无效，“continue”在循环外无效。
+
+例如，[=statement/fallthrough=]在[=statement/switch=]外无效，[=statement/continue=]在[=statement/loop=], [=statement/for=], 或 [=statement/while=]外无效。
 此外，一致性分析（参见 [[#uniformity]]）需要知道控制流何时可以以多种不同方式退出语句。
 这两个目标都是通过一个总结语句和表达式的执行行为的系统来实现的。 行为分析将每个语句和表达式映射到语句或表达式的评估完成后执行的可能方式集。
 与值和表达式的类型分析一样，行为分析自下而上进行：首先确定某些基本语句的行为，然后通过应用组合规则确定更高级别结构的行为。
@@ -5684,13 +5714,18 @@ for 循环的 `initializer` 在执行循环之前执行一次。
     <td class="nowrap">{|s|}
     <td>|s|: |B|
     <td class="nowrap">|B|
-  <tr algorithm="statement sequence behavior">
-    <td class="nowrap">|s1| |s2|
+  <tr algorithm="statement sequence behavior with next">
+    <td class="nowrap" rowspan=2>|s1| |s2|
         Note: |s1| often ends in a semicolon.
     <td class="nowrap">|s1|: |B1|<br>
         Next in |B1|<br>
         |s2|: |B2|
     <td class="nowrap">(|B1|&#x2216;{Next}) &cup; |B2|
+  <tr algorithm="statement sequence behavior without next">
+    <td class="nowrap">|s1|: |B1|<br>
+        Next not in |B1|<br>
+        |s2|: <var ignore>B2</var>
+    <td class="nowrap">|B1|
   <tr algorithm="variable declaration behavior">
     <td class="nowrap">var x:T;
     <td>
@@ -5736,6 +5771,10 @@ for 循环的 `initializer` 在执行循环之前执行一次。
     <td>break;
     <td>
     <td>{Break}
+  <tr algorithm="break if behavior">
+    <td>break if |e|;
+    <td class="nowrap">|e|: |B|
+    <td>|B| &cup; {Break}
   <tr algorithm="continue behavior">
     <td>continue;
     <td>
@@ -5839,36 +5878,39 @@ for 循环的 `initializer` 在执行循环之前执行一次。
 本节是信息性的，非规范性的。
 以下是这些规则可能导致程序被拒绝的完整方式列表（这只是重申上面已经列出的信息）：
 - 函数体（视为常规语句）具有 {Next, Return, Discard} 中未包含的行为。
-- 具有返回类型的函数体的行为既不是 {Return} 也不是 {Return, Discard}
-- 行为中没有 Next 的语句不是语句序列中的最后一个
-- 连续块的行为包含任何 Continue、Return 或 Discard
-- 开关的最后一种情况的行为包含 Fallthrough
-- 计算或顶点入口点函数的行为包含丢弃
+- 具有返回类型的函数体的行为既不是 {Return} 也不是 {Return, Discard}。
+- 连续块的行为包含任何 Continue、Return 或 Discard。
+- 开关的最后一种情况的行为包含 Fallthrough。
+- 计算或顶点入口点函数的行为包含丢弃。
 - 一些明显的无限循环有一个空的行为集，因此是无效的。
 
-This analysis can be run in linear time, by analyzing the call-graph bottom-up (since the behavior of a function call can depend on the function's code).
+该分析可以通过自下而上分析调用图在线性时间内运行（因为函数调用的行为可能取决于函数的代码）。
 ### 实例 ### {#behaviors-examples}
 以下是一些示例，显示了此分析的实际效果：
-<div class='example wgsl expect-error' heading='Trivially dead code is rejected'>
+<div class='example wgsl expect-error' heading='Trivially dead code is allowed'>
    <xmp highlight='rust'>
     fn simple() -> i32 {
       var a: i32;
       return 0;  // Behavior: {Return}
-      a = 1;     // Error: 根据语句序列的规则，前一个语句应该具有包含“Next”的行为
-      return 2;
-    }
+      a = 1;     // Valid, statically unreachable code.
+                 //   Statement behavior: {Next}
+                 //   Overall behavior (due to sequential statements): {Return}
+      return 2;  // Valid, statically unreachable code. Behavior: {Return}
+    } // Function behaviour: {Return}
    </xmp>
 </div>
 <div class='example wgsl expect-error' heading='Compound statements are supported'>
    <xmp highlight='rust'>
     fn nested() -> i32 {
       var a: i32;
-      {             // 复合语句的开始。
-        a = 2;      // 行为: {Next}
-        return 1;   // 行为: {Return}
-      }             // 复合语句作为一个整体具有行为 {Return}
-      a = 1;        // Error: 出于与前面示例相同的原因，前面的语句在其行为中缺少“Next”
-      return 2;
+      {             // The start of a compound statement.
+        a = 2;      // Behavior: {Next}
+        return 1;   // Behavior: {Return}
+      }             // The compound statement as a whole has behavior {Return}
+      a = 1;        // Valid, statically unreachable code.
+                    //   Statement behavior: {Next}
+                    //   Overall behavior (due to sequential statements): {Return}
+      return 2;     // Valid, statically unreachable code. Behavior: {Return}
     }
    </xmp>
 </div>
@@ -5877,10 +5919,11 @@ This analysis can be run in linear time, by analyzing the call-graph bottom-up (
     fn if_example() {
       var a: i32 = 0;
       loop {
-        if (a == 5) {
-          break;      // 行为: {Break}
-        }             // 整个 if 复合语句的行为：{Break, Next}，
-        a = a + 1;    // 因为 if 有一个隐含的空 else 有效，因为前一个语句在其行为中具有“Next”
+        if a == 5 {
+          break;      // Behavior: {Break}
+        }             // Behavior of the whole if compound statement: {Break, Next},
+                      //   as the if has an implicit empty else
+        a = a + 1;    // Valid, as the previous statement had "Next" in its behavior
       }
     }
    </xmp>
@@ -5890,12 +5933,14 @@ This analysis can be run in linear time, by analyzing the call-graph bottom-up (
     fn if_example() {
       var a: i32 = 0;
       loop {
-        if (a == 5) {
-          break;      // 行为: {Break}
+        if a == 5 {
+          break;      // Behavior: {Break}
         } else {
-          continue;   // 行为: {Continue}
-        }             // 整个 if 复合语句的行为：{Break, Continue}
-        a = a + 1;    // Error：上一条语句在其行为中缺少“Next”
+          continue;   // Behavior: {Continue}
+        }             // Behavior of the whole if compound statement: {Break, Continue}
+        a = a + 1;    // Valid, statically unreachable code.
+                      //   Statement behavior: {Next}
+                      //   Overall behavior: {Break, Continue}
       }
     }
    </xmp>
@@ -5905,30 +5950,31 @@ This analysis can be run in linear time, by analyzing the call-graph bottom-up (
     fn if_example() {
       var a: i32 = 0;
       loop {
-        // if (e1) s1 else if (e2) s2 else s3
+        // if e1 s1 else if e2 s2 else s3
         // is identical to
-        // if (e1) else { if (e2) s2 else s3 }
-        if (a == 5) {
-          break;      // 行为: {Break}
-        } else if (a == 42) {
-          continue;   // 行为: {Continue}
+        // if e1 else { if e2 s2 else s3 }
+        if a == 5 {
+          break;      // Behavior: {Break}
+        } else if a == 42 {
+          continue;   // Behavior: {Continue}
         } else {
-          return;     // 行为 {Return}
-        }             // 整个 if 复合语句 {Break, Continue, Return} 的行为
-      }               // 整个循环复合语句 {Next, Return} 的行为
-    }                 // 整个函数的行为 {Next}
+          return;     // Behavior {Return}
+        }             // Behavior of the whole if compound statement:
+                      //   {Break, Continue, Return}
+      }               // Behavior of the whole loop compound statement {Next, Return}
+    }                 // Behavior of the whole function {Next}
    </xmp>
 </div>
 <div class='example wgsl' heading='Break in switch becomes Next'>
    <xmp highlight='rust'>
     fn switch_example() {
       var a: i32 = 0;
-      switch (a) {
+      switch a {
         default: {
-          break;   // 行为: {Break}
+          break;   // Behavior: {Break}
         }
-      }            // 行为: {Next}， 当 switch 取代了 Break， 用 Next
-      a = 5;       // 有效，因为前面的语句在其行为中有 Next
+      }            // Behavior: {Next}, as switch replaces Break by Next
+      a = 5;       // Valid, as the previous statement had Next in its behavior
     }
    </xmp>
 </div>
@@ -5944,15 +5990,19 @@ This analysis can be run in linear time, by analyzing the call-graph bottom-up (
     fn conditional_continue() {
       var a: i32;
       loop {
-        if (a == 5) { break; } // 行为: {Break, Next} 有效
-        if (a % 2 == 1) {      // 因为前面的语句在其行为中有 Next
-          continue;            // 行为: {Continue}
-        }                      // 行为: {Continue, Next}
-        a = a * 2;             // 有效, 因为前面的语句在其行为中有 Next
-        continuing {           // 有效，因为继续语句的行为 {Next} 不包括任何 {Break、Continue、Discard、Return}
+        if a == 5 { break; } // Behavior: {Break, Next}
+        if a % 2 == 1 {      // Valid, as the previous statement has Next in its behavior
+          continue;          // Behavior: {Continue}
+        }                    // Behavior: {Continue, Next}
+        a = a * 2;           // Valid, as the previous statement has Next in its behavior
+        continuing {         // Valid as the continuing statement has behavior {Next}
+                             //  which does not include any of:
+                             //  {Break, Continue, Discard, Return}
           a = a + 1;
         }
-      }                        // 整个循环具有 {Next} 行为，因为它吸收了“Continue”和“Next”，然后将“Break”替换为“Next”
+      }                      // The loop as a whole has behavior {Next},
+                             //  as it absorbs "Continue" and "Next",
+                             //  then replaces "Break" with "Next"
     }
    </xmp>
 </div>
@@ -5973,9 +6023,12 @@ This analysis can be run in linear time, by analyzing the call-graph bottom-up (
 <div class='example wgsl' heading='A continue at the end of a loop body'>
    <xmp highlight='rust'>
     fn continue_end_of_loop_body() {
-      for (var i: i32 = 0; i < 5; i = i + 1 ) {
-        continue;   // 有效的。 这是多余的，分支到循环体的末尾。
-      }             // 行为：{Next}，因为循环吸收“Continue”，而“for”循环总是添加“Next”
+      for (var i: i32 = 0; i < 5; i++ ) {
+        continue;   // Valid. This is redundant,
+                    //   branching to the end of the loop body.
+      }             // Behavior: {Next},
+                    //   as loops absorb "Continue",
+                    //   and "for" loops always add "Next"
     }
    </xmp>
 </div>
@@ -5984,11 +6037,13 @@ This analysis can be run in linear time, by analyzing the call-graph bottom-up (
    <xmp highlight='rust'>
     fn always_discard() {
       discard;
-    }                   // 整个函数有行为 {Discard}
+    }                   // The whole function has behavior {Discard}
     fn code_after_discard() {
       var a: i32;
-      always_discard(); // 行为: {Discard}
-      a = a + 1;        // Error: 上一条语句在其行为中缺少“Next”
+      always_discard(); // Behavior: {Discard}
+      a = a + 1;        // Valid, statically unreachable code.
+                        //   Statement behavior: {Next}
+                        //   Overall behavior: {Discard}
     }
    </xmp>
 </div>
@@ -6011,10 +6066,11 @@ This analysis can be run in linear time, by analyzing the call-graph bottom-up (
    <xmp highlight='rust'>
     fn missing_return () -> i32 {
       var a: i32 = 0;
-      if (42) {
-        return a;       // 行为: {Return}
-      }                 // 行为: {Next, Return}
-    }                   // Error: Next 在具有返回类型的函数体中无效
+      if a == 42 {
+        return a;       // Behavior: {Return}
+      }                 // Behavior: {Next, Return}
+    }                   // Error: Next is invalid in the body of a
+                        //   function with a return type
    </xmp>
 </div>
 <div class='example wgsl expect-error' heading='continue must be in a loop'>
@@ -6027,7 +6083,7 @@ This analysis can be run in linear time, by analyzing the call-graph bottom-up (
     }                   // Error: 在函数体中Continue无效
    </xmp>
 </div>
-如果 continue 被 break 或 fallthrough 代替，同样的例子也会因同样的原因而无效。
+如果 `continue` 被 `break` 或 `fallthrough` 代替，同样的例子也会因同样的原因而无效。
 
 # Functions # {#functions}
 
@@ -6046,8 +6102,8 @@ This analysis can be run in linear time, by analyzing the call-graph bottom-up (
 
 ## 声明一个用户定义的函数 ## {#function-declaration-sec}
 
-<dfn noexport> function declaration</dfn> 通过指定以下内容来创建用户定义的函数：
-* 一组可选的属性。
+<dfn noexport>function declaration</dfn> 通过指定以下内容来创建用户定义的函数：
+* 一组可选的[=attributes=]。
 * 函数的名称。
 * 形参列表：一个有序的零序列或更多 [=formal parameter=] 声明，用逗号分隔，和被括号包围。
 * 一个可选的，可能是装饰的，<dfn noexport>返回类型</dfn>。
@@ -6064,7 +6120,7 @@ This analysis can be run in linear time, by analyzing the call-graph bottom-up (
 标识符是 [=in scope=] 直到函数结束。
 给定函数的两个形参不能同名。
 
-返回类型（如果指定）必须是 [=constructible=]。
+注意：一些内置函数可能允许参数为[=abstract numeric types=]，但是，该功能尚不被用户定义函数支持。
 
 <div class='syntax' noexport='true'>
   <dfn for=syntax>function_decl</dfn> :
@@ -6088,7 +6144,7 @@ This analysis can be run in linear time, by analyzing the call-graph bottom-up (
 </div>
 
 WGSL 定义了以下可应用于函数声明的属性:
- * [=attribute/stage=]
+ * [=管线阶段属性=]: [=attribute/顶点=], [=attribute/片元=], 和 [=attribute/计算=]
  * [=attribute/workgroup_size=]
 
 WGSL 定义了以下可应用于函数参数和返回类型的属性:
@@ -6096,7 +6152,7 @@ WGSL 定义了以下可应用于函数参数和返回类型的属性:
  * [=attribute/location=]
 
 <div class='example wgsl' heading='Simple functions'>
-  <xmp>
+  <xmp highlight='rust'>
     // 声明 add_two 函数。
     // 它有两个形参，i 和 b。
     // 它的返回类型为 i32。
@@ -6105,11 +6161,11 @@ WGSL 定义了以下可应用于函数参数和返回类型的属性:
       return i + 2;  // A formal parameter is available for use in the body.
     }
 
-     // 一个计算着色器入口点函数，'main'。
-     // 它没有指定的返回类型。
-     // 它调用了ordinary_two 函数，并捕获
-     // 命名值 'two' 中的结果值。
-    @stage(compute) fn main() {
+    // 一个计算着色器入口点函数，'main'。
+    // 它没有指定的返回类型。
+    // 它调用了ordinary_two 函数，并捕获
+    // 命名值'six'中的结果值。
+    @compute fn main() {
        let six: i32 = add_two(4, 5.0);
     }
   </xmp>
@@ -6163,16 +6219,46 @@ WGSL 定义了以下可应用于函数参数和返回类型的属性:
 调用站点是一个 [=dynamic context=]。
 因此，相同的文本位置可能代表多个呼叫站点。
 
+## 创建时函数 ## {#creation-time-funcs}
+由[=attribute/const=]声明的函数参数可以在[=shader module creation|shader-creation time=]时被计算。
+这些函数被称为<dfn noexport>creation-time functions</dfn>。
+对这些函数的调用可以组成[=creation-time expressions=]。
+
+如果函数包含任何非[=creation-time expressions=]表达式，或任何非[=creation-time constants=]声明，则为[=shader-creation error=]。
+
+注意：[=attribute/const=] 属性不能被应用于用户声明的函数。
+
+<div class='example wgsl' heading='Creation-time functions'>
+  <xmp>
+    const first_one = firstLeadingBit(1234 + 4567); // Evaluates to 12
+                                                    // first_one has the type i32, because
+                                                    // firstLeadingBit cannot operate on
+                                                    // AbstractInt
+
+    @id(1) override x : i32;
+    override y = firstLeadingBit(x); // Creation-time expressions can be
+                                     // used in override expressions.
+                                     // firstLeadingBit(x) is not a
+                                     // creation-time expression in this context.
+
+    fn foo() {
+      var a : array<i32, firstLeadingBit(257)>; // Creation-time functions can be used in
+                                                // creation-time expressions if all their
+                                                // parameters are creation-time expressions.
+    }
+  </xmp>
+</div>
+
 ## 函数限制 ## {#function-restriction}
 
 * [=vertex=] 着色器必须返回 `position` [=built-in output value=]。 参见 [[#builtin-values]]。
-* 入口点绝不能是 [=function call=] 的目标。
+* 入口点（[=entry point=]）绝不能是 [=function call=] 的目标。
 * 如果函数具有返回类型，则它必须是 [=constructible=] 类型。
 * [=formal parameter|function parameter=] 必须是以下类型之一：
-    * constructible 类型
-    * pointer 类型
-    * texture 类型
-    * sampler 类型
+    * [=constructible=] 类型
+    * [=pointer type|pointer=] 类型
+    * [=texture=] 类型
+    * [=sampler=] 类型
 * 每个函数调用参数必须评估为相应函数参数的类型。
     * 特别是，作为指针的参数必须与地址空间、指针对象类型和访问模式上的形参一致。
 * 对于[=user-defined functions=]，指针类型的参数必须在以下地址空间之一中:
@@ -6186,17 +6272,71 @@ WGSL 定义了以下可应用于函数参数和返回类型的属性:
     * [=address spaces/storage=]
 * 指向 [=user-defined function=] 的指针类型的每个参数必须是以下参数之一:
     * [[#var-identifier-expr|variable identifier expression]] 的  [[#address-of-expr|address-of expression]]
-    * 一个函数参数
-* WGSL 假定函数参数和变量的任何组合之间不存在别名。
-    因此，指针类型的函数参数不得用于读取或写入其 [=原始变量 =] 的任何 [=内存位置 =]，这些参数也通过以下方式写入：
-    * 同一个函数中的另一个函数参数
-    * 直接使用原始变量的函数中的语句或表达式
-
-注意：别名限制适用于函数中函数调用写入的内存位置。
+    * 一个函数参数（[=formal parameter|function parameter=]）
 
 注意：不允许递归，因为在任何类型的声明中都不允许循环。
 
-问题：为了清晰起见，重新审视混叠规则。
+### 别名内存视图 ### {#function-aliasing}
+
+[=内存位置=] 可以在函数执行期间使用 [=内存视图=] 访问。
+在一个函数中，每个 [=memory view=] 都有一个特定的根标识符。
+根标识符可以是 [=originating variable=] 或 [=pointer type=] 的 [=formal parameter=]。
+
+[=reference type|reference=] 或 [=pointer type|pointer] 类型的本地派生表达式可能会为特定的根标识符引入新名称，但每个表达式都有一个静态可确定的根标识符。
+虽然根标识符的 [=originating variable=] 是一个动态概念，它取决于函数的 [=call sites=]，但可以静态分析 WGSL 程序以确定每个根标识符所有可能的 [=originating variables=] 集合。
+
+当两个根标识符 <dfn noexport>alias</dfn> 具有相同的 [=originating variable=] 时，如果以下情况发生则出现[=dynamic error=]：
+* 多个别名相同的根标识符访问相同的[=memory locations=], 及
+* 至少一个访问为 [=write access|write=], 及
+* 同一函数调用的执行期间出现的所有访问
+
+注意：此别名限制应用于由函数内制[=function calls=]写入的内存地址。
+
+注意：[=Originating variables=] 不能有 [=memory locations=] 别名。
+详见 [[#var-decls]] and [[#resource-interface]]。
+
+<div class='example wgsl' heading='Aliased memory views'>
+  <xmp highlight='rust'>
+    var x : i32 = 0;
+
+    fn foo() {
+      bar(&x, &x); // Both p and q parameters are aliases of x.
+    }
+
+    // This function produces a dynamic error because of the aliased
+    // memory accesses.
+    fn bar(p : ptr<private, i32>, q : ptr<private, i32>) {
+      if (x == 0) {
+        *p = 1;
+      } else {
+        *q = 2;
+      }
+    }
+  </xmp>
+</div>
+
+<div class='example wgsl' heading='Aliasing in a helper function'>
+  <xmp highlight='rust'>
+    var x : i32 = 0;
+
+    fn baz(p : ptr<private, i32>) {
+      *p = 2;
+    }
+
+    // This function produces a dynamic error if x == 0, because x is read and
+    // written through different root identifiers even though the write occurs
+    // in the scope of baz.
+    fn bar(p : ptr<private, i32>) {
+      if (x == 0) {
+        baz(p);
+      }
+    }
+
+    fn foo() {
+      bar(&x); // p in bar is aliased to x.
+    }
+  </xmp>
+</div>
 
 # 入口点 # {#entry-points}
 
@@ -6233,7 +6373,7 @@ WGSL 定义了三个 <dfn noexport>shader stage</dfn>，对应流水线的可编
 
 ## 入口点声明 ## {#entry-point-decl}
 
-要创建 [=entry point=]，请使用 [=attribute/stage=] 属性声明 [=user-defined function=]。
+要创建 [=entry point=]，请使用 [=管线阶段属性=] 属性声明 [=user-defined function=]。
 
 在 WebGPU API 中配置 [=pipeline=] 时，入口点的函数名称映射到 [[WebGPU#GPUProgrammableStage]] 对象的 `entryPoint` 属性。
 
@@ -6244,32 +6384,19 @@ WGSL 定义了三个 <dfn noexport>shader stage</dfn>，对应流水线的可编
 注意：[=Compute]计算入口点从来没有返回类型。
 
 <div class='example wgsl global-scope' heading='Entry Point'>
-  <xmp>
-    @stage(vertex)
+  <xmp highlight='rust'>
+    @vertex
     fn vert_main() -> @builtin(position) vec4<f32> {
       return vec4<f32>(0.0, 0.0, 0.0, 1.0);
     }
-       // OpEntryPoint Vertex %vert_main "vert_main" %return_value
-       // OpDecorate %return_value BuiltIn Position
-       // %float = OpTypeFloat 32
-       // %v4float = OpTypeVector %float 4
-       // %ptr = OpTypePointer Output %v4float
-       // %return_value = OpVariable %ptr Output
 
-    @stage(fragment)
+    @fragment
     fn frag_main(@builtin(position) coord_in: vec4<f32>) -> @location(0) vec4<f32> {
       return vec4<f32>(coord_in.x, coord_in.y, 0.0, 1.0);
     }
-       // OpEntryPoint Fragment %frag_main "frag_main" %return_value %coord_in
-       // OpDecorate %return_value Location 0
-       // %float = OpTypeFloat 32
-       // %v4float = OpTypeVector %float 4
-       // %ptr = OpTypePointer Output %v4float
-       // %return_value = OpVariable %ptr Output
 
-    @stage(compute)
+    @compute
     fn comp_main() { }
-       // OpEntryPoint GLCompute %comp_main "comp_main"
   </xmp>
 </div>
 
@@ -6284,26 +6411,26 @@ WGSL 定义了三个 <dfn noexport>shader stage</dfn>，对应流水线的可编
 ### 入口点的函数属性 ### {#entry-point-attributes}
 
 WGSL 定义了以下可应用于入口点声明的属性:
- * [=attribute/stage=]
+ * [=管线阶段属性=]: [=attribute/顶点=], [=attribute/片元=], and [=attribute/计算=]
  * [=attribute/workgroup_size=]
 
 问题：我们可以查询工作组大小维度的上限吗？ 是独立于shader，还是创建shader模块后要查询的属性？
 
 <div class='example wgsl global-scope' heading='workgroup_size Attribute'>
-  <xmp>
-    @stage(compute), workgroup_size(8,4,1)
+  <xmp highlight='rust'>
+    @compute @workgroup_size(8,4,1)
     fn sorter() { }
        // OpEntryPoint GLCompute %sorter "sorter"
        // OpExecutionMode %sorter LocalSize 8 4 1
 
-    @stage(compute), workgroup_size(8u)
+    @compute @workgroup_size(8u)
     fn reverser() { }
        // OpEntryPoint GLCompute %reverser "reverser"
        // OpExecutionMode %reverser LocalSize 8 1 1
 
     // Using an pipeline-overridable constant.
     @override(42) let block_width = 12u;
-    @stage(compute) @workgroup_size(block_width)
+    @compute @workgroup_size(block_width)
     fn shuffler() { }
         // SPIR-V 转换使用 WorkgroupSize 修饰的常量，
         // 其中第一个组件是一个装饰有的 OpSpecConstant
@@ -6311,7 +6438,7 @@ WGSL 定义了以下可应用于入口点声明的属性:
         // 使用默认值 1。
 
     // 错误：必须在计算着色器上指定 workgroup_size
-    @stage(compute)
+    @compute
     fn bad_shader() { }
   </xmp>
 </div>
@@ -6430,17 +6557,17 @@ WGSL 提供了两个方面的插值来控制：插值的类型和插值的采样
 注意：入口点的可用位置数由 WebGPU API 定义。
 
 <div class='example wgsl applying location attribute' heading='Applying location attributes'>
-  <xmp>
+  <xmp highlight='rust'>
     struct A {
-      @location(0) x: f32;
+      @location(0) x: f32,
       // 尽管位置是 16 字节，但 x 和 y 不能共享位置
-      @location(1) y: f32;
+      @location(1) y: f32
     };
 
     // in1 occupies locations 0 and 1.
     // in2 occupies location 2.
     // The return value occupies location 0.
-    @stage(fragment)
+    @fragment
     fn fragShader(in1: A, @location(2) in2: f32) -> @location(0) vec4<f32> {
      // ...
     }
@@ -6450,20 +6577,20 @@ WGSL 提供了两个方面的插值来控制：插值的类型和插值的采样
 用户定义的 IO 可以与同一结构中的内置值混合使用。 例如，
 
 <div class='example wgsl mixing builtins and user-defined IO' heading='Mixing builtins and user-defined IO'>
-  <xmp>
+  <xmp highlight='rust'>
     // Mixed builtins and user-defined inputs.
     struct MyInputs {
-      @location(0) x: vec4<f32>;
-      @builtin(front_facing) y: bool;
-      @location(1), interpolate(flat) z: u32;
+      @location(0) x: vec4<f32>,
+      @builtin(front_facing) y: bool,
+      @location(1) @interpolate(flat) z: u32
     };
 
     struct MyOutputs {
-      @builtin(frag_depth) x: f32;
-      @location(0) y: vec4<f32>;
+      @builtin(frag_depth) x: f32,
+      @location(0) y: vec4<f32>
     };
 
-    @stage(fragment)
+    @fragment
     fn fragShader(in1: MyInputs) -> MyOutputs {
       // ...
     }
@@ -6471,39 +6598,39 @@ WGSL 提供了两个方面的插值来控制：插值的类型和插值的采样
 </div>
 
 <div class='example wgsl invalid locations' heading='Invalid location assignments'>
-  <xmp>
+  <xmp highlight='rust'>
     struct A {
-      @location(0) x: f32;
+      @location(0) x: f32,
       // Invalid, x and y cannot share a location.
-      @location(0) y: f32;
+      @location(0) y: f32
     }
 
     struct B {
-     @location(0) x: f32;
+     @location(0) x: f32
     }
 
     struct C {
       // Invalid, structures with user-defined IO cannot be nested.
-      b: B;
+      b: B
     }
 
     struct D {
-      x: vec4<f32>;
+      x: vec4<f32>
     }
 
-    @stage(fragment)
+    @fragment
     // Invalid, location cannot be applied to a structure type.
     fn fragShader1(@location(0) in1: D) {
       // ...
     }
 
-    @stage(fragment)
+    @fragment
     // Invalid, in1 and in2 cannot share a location.
     fn fragShader2(@location(0) in1: f32, @location(0) in2: f32) {
       // ...
     }
 
-    @stage(fragment)
+    @fragment
     // Invalid, location cannot be applied to a structure.
     fn fragShader3(@location(0) in1: vec4<f32>) -> @location(0) D {
       // ...
@@ -6596,7 +6723,7 @@ WGSL 语言预计会随着时间的推移而发展。
 * 扩展如何与现有规范交互以及可选地与其他扩展交互的描述。
 
 假设，扩展可用于:
-* 添加数字标量类型，例如 16 位整数。
+* 添加数字标量类型，例如不同位宽的整数。
 * 添加语法以限制浮点舍入模式。
 * 添加语法以表示着色器不使用原子类型。
 * 添加新的语句。
@@ -6606,14 +6733,11 @@ WGSL 语言预计会随着时间的推移而发展。
 
 ## 启用指令 ## {#enable-directive-section}
 
-<dfn noexport>enable directive</dfn> 表示由特定命名的 [=extension=] 描述的功能可以在指令本身之后的源文本中使用。
-也就是说，扩展描述的语言功能可以用于任何
-`enable` 指令后的源文本。
+<dfn noexport>enable directive</dfn> 表示由特定命名的 [=扩展=] 可以被使用。
+语法规则意味着所有启用指令必须出现在任何 [=声明=] 之前。
 
-该指令不得出现在任何 [=declaration=] 的文本中。
-（如果它是一个声明，它将位于 [=module scope=]。）
+该指令使用 [=标识符=]、[=关键字=] 或 [=保留字=] 来命名扩展。有效的扩展名列在 [[#extension-list]] 中。
 
-该指令使用 [=identifier=] 来命名扩展，但不会为标识符创建 [=scope=]。
 指令对标识符的使用与将该标识符用作任何 [=declaration=] 中的名称不冲突。
 
 <div class='syntax' noexport='true'>
@@ -6626,29 +6750,42 @@ WGSL 语言预计会随着时间的推移而发展。
 因此，任何 WGSL 实现都可以解析整个 `enable` 指令。
 当实现遇到不受支持的扩展的启用指令时，实现可以发出明确的诊断。
 
-<div class='example wgsl using extensions' heading="Using hypothetical extensions">
-  <xmp>
-    // 启用假设的 IEEE-754 binary16 浮点扩展。enable f16;
-    // 一个冗余的启用指令是可以的。
-    // 启用用于控制的假设扩展添加语法
-    // f16 算法的舍入模式。启用rounding_mode_f16；
+<div class='example wgsl using extensions expect-error' heading="Using hypothetical extensions">
+  <xmp highlight='rust'>
+    // Enable a hypothetical extension for arbitrary precision floating point types.
+    enable aribtrary_precision_float;
+    enable arbitrary_precision_float; // A redundant enable directive is ok.
 
-    // 假设 f16 扩展允许使用 f16 类型：
-     // - 作为函数返回值
-     // - 作为 let 声明的类型
-     // - 作为类型构造函数，带有 i32 参数
-     // - 作为除法运算符的操作数：/
-    fn halve_it(x: f16) -> f16 {
-       let two: f16 = f16(2);
-       return x / two;
-    }
+    // Enable a hypothetical extension to control the rounding mode.
+    enable rounding_mode;
 
-    [[round_to_even_f16]] // Attribute enabled by the rounding_mode_f16 extension
-    fn triple_it(x: f16) -> f16 {
-       return x * f16(3); // Uses round-to-even.
+    // Assuming arbitrary_precision_float enables use of:
+    //    - a type f<E,M>
+    //    - as a type in function return, formal parameters and let-declarations
+    //    - as a type constructor from AbstractFloat
+    //    - operands to division operator: /
+    // Assuming @rounding_mode attribute is enabled by the rounding_mode enable directive.
+    @rounding_mode(round_to_even)
+    fn halve_it(x : f<8, 7>) -> f<8, 7> {
+      let two = f<8, 7>(2);
+      return x / 2; // uses round to even rounding mode.
     }
   </xmp>
 </div>
+
+## 扩展列表 ## {#extension-list}
+
+<table class='data'>
+  <caption>Extension identifier</caption>
+  <thead>
+    <tr><th>Identifier
+        <th>WebGPU extension name
+        <th>Description
+  </thead>
+  <tr><td><dfn noexport dfn-for="extension">`f16`</dfn>
+      <td>`"shader-f16"`
+      <td>Keyword `f16` and any [=floating point literal=] with a `h` suffix is valid if and only if this extension is enabled. Otherwise, using `f16` keyword or any [=floating point literal=] with a `h` suffix will result in a [=shader-creation error=].
+</table>
 
 
 # WGSL 项目 # {#wgsl-module}
@@ -6721,13 +6858,15 @@ WGSL 程序中的语句按控制流顺序执行。
 以下定义只是提供信息，试图对下一小节中的分析正在计算的内容给出一个直觉。
 分析实际上定义了这些概念，以及程序何时有效或违反了统一性规则。
 对于给定的一组调用：
-- 如果所有调用在该程序点同步执行，则称控制流在程序中的某个点是统一的。
-- 如果表达式处于统一控制流中，则称该表达式是统一的，并且所有调用都为其计算相同的值。
-- 一个局部变量被认为是统一的，如果在它存在的每个点，所有调用在该变量中都具有相同的值。
+- 如果给定范围内的所有调用都像在程序中的给定点同步执行一样执行，则称该点具有<dfn noexport>统一控制流</dfn>。
+    - 对于一个[=计算着色器阶段=]，统一控制流的范围是同一个[=计算着色器阶段/工作组=]中的所有调用.
+    - 对于其他着色器阶段，统一控制流的范围是在同一 [=绘制命令=] 中对该 [=entry point=] 的所有调用。
+- 如果一个表达式在统一控制流中执行，并且所有调用计算相同的值，则称它是 <dfn noexport>统一值</dfn>.
+- 如果调用在局部变量的每个活动点都保持相同的值，则称其为 <dfn noexport>统一变量</dfn>
 
 ### 均匀度分析概述### {#uniformity-overview}
 
-一些函数（例如屏障和导数）只有在统一控制流中调用才是安全的。
+一些函数（例如屏障和导数）只有在[=统一控制流=]中调用才是安全的。
 在本节中，我们指定了一个分析来验证这些函数是否仅在这样的上下文中被调用。
 
 <div class="note">注意：此分析具有以下理想属性：
@@ -6753,9 +6892,9 @@ WGSL 程序中的语句按控制流顺序执行。
 第一阶段遍历函数的语法，根据以下小节中的规则构建一个有向图。
 第二阶段探索该图，导致要么拒绝程序，要么计算调用此函数的约束。
 <div class="note">注：除了RequiredToBeUniform和MayBeNonUniform这两个特殊节点外，所有节点都可以理解为具有以下含义之一：
-        - 要求特定程序点的控制流是统一的
-        - 表达式的值必须是统一的
-        - 变量必须是统一的
+        - 一个程序特定节点必须在[=统一控制流=]中执行。
+        - 一个表达式必须为一个[=统一值=]
+        - 一个变量必须为一个[=统一变量=]
 
         一条边可以理解为从其源节点对应的语句到其目标节点对应的语句的蕴涵。
 
@@ -6765,15 +6904,55 @@ WGSL 程序中的语句按控制流顺序执行。
         反过来，为了表示我们无法确保某些事物的一致性（例如，保存线程 id 的变量），我们将一条从相应节点的边添加到 MayBeNonUniform。
         理解这一点的一种方法是，MayBeNonUniform 对应于命题 False，因此 X -> MayBeNonUniform 等同于说 X 为假。
 
-        这种解释的一个结果是，从RequiredToBeUniform 可到达的每个节点都对应于程序必须是一致的东西才能有效，并且每个cannotBeUniform 可以到达的节点都对应于我们无法保证其一致性的东西。如果存在从RequiredToBeUniform 到MayBeNonUniform 的任何路径，那么我们就会违反一致性（因此拒绝该程序）。
+        这种解释的一个结果是，从RequiredToBeUniform 可到达的每个节点都对应于程序必须是一致的东西才能有效，并且每个MayBeNonUniform 可以到达的节点都对应于我们无法保证其一致性的东西。如果存在从RequiredToBeUniform 到MayBeNonUniform 的任何路径，那么我们就会违反一致性（因此拒绝该程序）。
 </div>
-更详细地说，这是我们为每个函数计算的结果：
 
-* 关于可以调用函数的控制流的标签：{AlwaysRequiredToBeUniform, RequiredToBeUniformForControlFlowAfter} 之一
-* 函数的每个参数的标签：{AlwaysRequiredToBeUniform、RequiredToBeUniformForControlFlowAfter、RequiredToBeUniformForReturnValue、NoRestriction}之一
-* 函数整体的标记：{ControlFlowMayBeNonUniformAfter, ReturnValueMayBeNonUniform, NoRestriction}之一
+对于每个函数，两个标签被计算：
+  * <dfn noexport>调用站点标签</dfn>描述函数[=调用站点=]上的控制流一致性要求, 及
+  * <dfn noexport>函数标签</dfn> 描述函数对均匀性的影响。
 
-这是为给定函数计算此数据的算法：
+此外，对于函数的每个 [=正式参数=]，<dfn noexport>参数标签</dfn>被计算出来，描述了参数值的一致性要求。
+
+<table class='data'>
+  <caption>[=Call site tag=] values</caption>
+  <thead>
+    <tr><th>Call Site Tag<th>Description
+  </thead>
+  <tr><td><dfn noexport>CallSiteRequiredToBeUniform</dfn>
+      <td>The function must only be called from [=uniform control flow=].
+  <tr><td><dfn noexport>CallSiteNoRestriction</dfn>
+      <td>The function may be called from [=uniform control flow|non-uniform control flow=].
+</table>
+
+<table class='data'>
+  <caption>[=Function tag=] values</caption>
+  <thead>
+    <tr><th>Function Tag<th>Description
+  </thead>
+  <tr><td><dfn noexport>SubsequentControlFlowMayBeNonUniform</dfn>
+      <td>Calling this function may cause control flow to be non-uniform immediately after the [=call site=].
+  <tr><td><dfn noexport>ReturnValueMayBeNonUniform</dfn>
+      <td>The [=return value=] of the function may be non-uniform.
+  <tr><td><dfn noexport>NoRestriction</dfn>
+      <td>The function does not introduce non-uniformity.
+</table>
+
+<table class='data'>
+  <caption>[=Parameter tag=] values</caption>
+  <thead>
+    <tr><th>Parameter Tag<th>Description
+  </thead>
+  <tr><td><dfn noexport>ParameterRequiredToBeUniform</dfn>
+      <td>The parameter must be a [=uniform value=].
+  <tr><td><dfn noexport>ParameterRequiredToBeUniformForSubsequentControlFlow</dfn>
+      <td>The parameter must be a [=uniform value=] for control flow after the function call to be [=uniform control flow|uniform=].
+  <tr><td><dfn noexport>ParameterRequiredToBeUniformForReturnValue</dfn>
+      <td>The parameter must be a [=uniform value=] in order for the [=return value=] to be a uniform value.
+  <tr><td><dfn noexport>ParameterNoRestriction</dfn>
+      <td>The parameter value has no uniformity requirement.
+</table>
+
+以下算法描述了如何为给定函数计算这些标签：
 
 * 创建名为“RequiredToBeUniform”、“MayBeNonUniform”、“CF_start”、“CF_return”的节点，如果函数为非 void，则创建名为“Value_return”的节点
 * 为函数的每个参数创建一个节点，我们称之为“arg_i”
@@ -6781,17 +6960,17 @@ WGSL 程序中的语句按控制流顺序执行。
 * 查看从“RequiredToBeUniform”可以到达哪些节点
     * 如果该集合包含节点“MayBeNonUniform”，则拒绝该程序。
     * 如果该集合包括“CF_start”，则可以调用该函数的控制流是 AlwaysRequiredToBeUniform。
-    * 否则为RequiredToBeUniformForControlFlowAfter
-    * 对于这个集合中的每一个“arg_i”，对应的参数是AlwaysRequiredToBeUniform
+    * 否则[=调用站点标签=]为[=CallSiteNoRestriction=]
+    * 对于这个集合中的每一个“arg_i”，对应[=参数标签=] 为 [=ParameterRequiredToBeUniform=]
     * 从图中删除所有已访问的节点
 * 查看从“CF_return”可以到达哪些节点
-    * 如果该集合包含“MayBeNonUniform”，则函数为 ControlFlowMayBeNonUniformAfter
-    * 对于这个集合中的每一个“arg_i”，对应的参数是RequiredToBeUniformForControlFlowAfter
+    * 如果该集合包含“MayBeNonUniform”，则函数的[=function tag=]为[=SubsequentControlFlowMayBeNonUniform=]
+    * 对于这个集合中的每一个“arg_i”，对应[=parameter tag=] 为 [=ParameterRequiredToBeUniformForSubsequentControlFlow=]
     * 从图中删除所有已访问的节点
 * 如果“Value_return”存在，查看哪些节点可以从它到达
-    * 如果该集合包含“MayBeNonUniform”，则函数为 ReturnValueMayBeNonUniform
-    * 对于这个集合中的每一个“arg_i”，对应的参数是RequiredToBeUniformForReturnValue
-* 如果函数没有被分配一个标签，那么它是 NoRestriction。
+    * 如果该集合包含“MayBeNonUniform”，则[=function tag=] 为 [=ReturnValueMayBeNonUniform=]
+    * 对于这个集合中的每一个“arg_i”，对应[=parameter tag=] 为 [=ParameterRequiredToBeUniformForReturnValue=]
+* 如果[=function tag=]没有被分配一个[=parameter tag=]，那么它是 NoRestriction。
 * 对于每个参数，如果没有分配标签，则为 NoRestriction。
 
 注意：此时可以销毁整个图形。上面列出的标签是我们分析这个函数的调用者需要记住的所有标签。
@@ -6819,7 +6998,8 @@ WGSL 程序中的语句按控制流顺序执行。
       <td class="nowrap">(*CF*, *s*) => *CF'*
       <td>*CF'*
       <td>
-  <tr><td class="nowrap">*s1* *s2*
+  <tr><td class="nowrap">*s1* *s2*,<br>
+        with Next in behavior of *s1*
 
         Note: *s1* often ends in a semicolon.
 
@@ -6828,33 +7008,45 @@ WGSL 程序中的语句按控制流顺序执行。
           (*CF1*, *s2*) => *CF2*
       <td>*CF2*
       <td>
-  <tr><td class="nowrap">if (*e*) *s1* else *s2*<br>, with behavior {Next}
+    <tr><td class="nowrap">*s1* *s2*,<br>
+        without Next in behavior of *s1*
+
+        Note: *s1* often ends in a semicolon.
+
+      <td>
+      <td>(*CF*, *s1*) => *CF1*<br>
+
+      Note: *s2* is statically unreachable and not recursively analyzed.
+      *s2* does not contribute to the uniformity analysis.
+      <td>*CF1*
+      <td>
+    <tr><td class="nowrap">if *e* *s1* else *s2*<br> with behavior {Next}
       <td>
       <td rowspan=2 class="nowrap">(*CF*, *e*) => (*CF'*, *V*)<br>
           (*V*, *s1*) => *CF1*<br>
           (*V*, *s2*) => *CF2*
       <td>*CF*
       <td>
-  <tr><td class="nowrap">if (*e*) *s1* else *s2*<br>, with another behavior
+  <tr><td class="nowrap">if *e* *s1* else *s2*<br> with another behavior
       <td>*CFend*
       <td>*CFend*
       <td class="nowrap">*CFend* -> {*CF1*, *CF2*}
-  <tr><td class="nowrap">loop {*s1* continuing {*s2*}}<br>, with behavior {Next}
+  <tr><td class="nowrap">loop {*s1* continuing {*s2*}}<br> with behavior {Next}
       <td rowspan=2>*CF'*
       <td rowspan=2 class="nowrap">(*CF'*, *s1*) => *CF1*<br>
           (*CF1*, *s2*) => *CF2*
       <td>*CF*
       <td rowspan=2 class="nowrap">*CF'* -> {*CF2*, *CF*}
-  <tr><td class="nowrap">loop {*s1* continuing {*s2*}}<br>, with another behavior
+  <tr><td class="nowrap">loop {*s1* continuing {*s2*}}<br> with another behavior
       <td>*CF'*
   <tr><td class="nowrap">loop {*s1*}, with behavior {Next}
       <td rowspan=2>*CF'*
       <td rowspan=2 class="nowrap">(*CF'*, *s1*) => *CF1*
       <td>*CF*
       <td rowspan=2 class="nowrap">*CF'* -> {*CF1*, *CF*}
-  <tr><td class="nowrap">loop {*s1*}, with another behavior
+  <tr><td class="nowrap">loop {*s1*}<br> with another behavior
       <td>*CF'*
-  <tr><td class="nowrap">switch(*e*) case _: *s_1* .. case _: *s_n*<br>, with behavior {Next}
+  <tr><td class="nowrap">switch *e* case _: *s_1* .. case _: *s_n*<br> with behavior {Next}
       <td>
       <td rowspan=2 class="nowrap">(*CF*, *e*) => (*CF'*, *V*)<br>
         (*V*, *s_1*) => *CF_1*<br>
@@ -6863,17 +7055,26 @@ WGSL 程序中的语句按控制流顺序执行。
         else (*V*, *s_n*) => *CF_n*
       <td>*CF*
       <td>
-  <tr><td class="nowrap">switch(*e*) case _: *s_1* .. case _: *s_n*<br>, with another behavior
+  <tr><td class="nowrap">switch *e* case _: *s_1* .. case _: *s_n*<br> with another behavior
       <td>*CFend*
       <td>*CFend*
       <td class="nowrap">*CFend* -> {*CF_1*, ..., *CF_n*}
   <tr><td class="nowrap">var x: T;
-      <td rowspan=5>
-      <td rowspan=5>
-      <td rowspan=5>*CF*
-      <td rowspan=5>
+      <td rowspan=2>
+      <td rowspan=2>
+      <td rowspan=2>*CF*
+      <td rowspan=2>
   <tr><td class="nowrap">break;
+  <tr><td class="nowrap">break if *e*;
+    <td>
+    <td class="nowrap">(*CF*, *e*) => (*CF'*, *V*)
+    <td>*CF'*
+    <td>
   <tr><td class="nowrap">continue;
+      <td rowspan=3>
+      <td rowspan=3>
+      <td rowspan=3>*CF*
+      <td rowspan=3>
   <tr><td class="nowrap">fallthrough;
   <tr><td class="nowrap">discard;
   <tr><td class="nowrap">return;
@@ -6914,26 +7115,26 @@ WGSL 程序中的语句按控制流顺序执行。
 最复杂的规则是函数调用：
 - 对于每个参数，应用相应的表达式规则，控制流位于前一个参数的出口处（使用第一个参数的函数调用开头的控制流）。将相应的值节点命名为“arg_i”，将相应的控制流节点命名为“CF_i”
 - 创建两个新节点，分别命名为“Result”和“CF_after”
-- 如果函数开始处的控制流被标记为 AlwaysRequiredToBeUniform，则从 RequiredToBeUniform 添加一条边到最后一个 CF_i
+- 如果函数的[=call site tag=] 为 [=CallSiteRequiredToBeuniform=]，则从 RequiredToBeUniform 添加一条边到最后一个 CF_i
 - 否则添加一条从 CF_after 到最后一个 CF_i 的边
-- 如果函数被标记为 ControlFlowMayBeNonUniformAfter，则添加一条从 CF_after 到 MayBeNonUniform 的边
-- 否则，如果它被标记为 ReturnValueMayBeNonUniform，则从 Result 添加一条边到 MayBeNonUniform
+- 如果[=function tag=] 为 [=SubsequentControlFlowMayBeNonUniform=]，则添加一条从 CF_after 到 MayBeNonUniform 的边
+- 否则，如果[=function tag=] 为 [=ReturnValueMayBeNonUniform=]，则从 Result 添加一条边到 MayBeNonUniform
 - 从 Result 添加一条边到 CF_after
 - 对于每个参数 *i*：
-    - 如果相应的参数被标记为 AlwaysRequiredToBeUniform，则从 RequiredToBeUniform 添加一条边到 arg_i
-    - 否则，如果它被标记为RequiredToBeUniformForControlFlowAfter，则将一条边从CF_after添加到arg_i
-    - 否则，如果它被标记为RequiredToBeUniformForReturnValue，则从Result添加一条边到arg_i
+    - 如果相应的[=parameter tag=] 为 [=ParameterRequiredToBeUniform=]，则从 RequiredToBeUniform 添加一条边到 arg_i
+    - 否则，如果[=parameter tag=] 为 [=ParameterRequiredToBeUniformForSubsequentControlFlow=]，则将一条边从CF_after添加到arg_i
+    - 否则，如果[=parameter tag=] 为 [=ParameterRequiredToBeUniformForReturnValue=]，则从Result添加一条边到arg_i
 
 注意：请注意，此规则只需要添加以 3 + 函数参数数量为界的边数，而与函数的实现可能有多复杂无关。 这是整个算法线性复杂度的关键。
 
 大多数内置函数都有以下标签：
-- 对于可以调用它们的控制流：RequiredToBeUniformForControlFlowAfter
-- 对于整个功能：NoRestriction
-- 对于每个参数：RequiredToBeUniformForReturnValue
+- [=CallSiteNoRestriction=]的[=call site tag=]
+- [=NoRestriction=]的[=function tag=]
+- 对于每个参数：[=ParameterRequiredToBeUniformForReturnValue=]的[=parameter tag|tag=]
 
 以下是例外列表：
-- [[#sync-builtin-functions]] 中的所有函数都是 AlwaysRequiredToBeUniform
-- [[#derivative-builtin-functions]]、[[#texturesample]]、[[#texturesamplebias]]和[[#texturesamplecompare]]中的所有函数都是AlwaysRequiredToBeUniform和ReturnValueMayBeNonUniform
+- [[#sync-builtin-functions]] 中的所有函数都有一个 [=CallSiteRequiredToBeuniform=] 的 [=call site tag=]
+- [[#derivative-builtin-functions]]、[[#texturesample]]、[[#texturesamplebias]]和[[#texturesamplecompare]]中的所有函数都有一个 [=CallSiteRequiredToBeUniform=] 的 [=call site tag=] 和一个 [=ReturnValueMayBeNonUniform=] 的 [=function tag=]
 
 ### 表达式的统一性规则 ### {#uniformity-expressions}
 
@@ -6960,7 +7161,7 @@ WGSL 程序中的语句按控制流顺序执行。
       <td>
       <td class="nowrap">*CF*, *CF*
       <td>
-   <tr><td class="nowrap">reference to function-scope variable, let-declaration, or non-built-in parameter "x"
+   <tr><td>reference to function-scope variable, creation-time constant, let-declaration, or non-built-in parameter "x"
       <td>*Result*
       <td class="nowrap">*X* is the node corresponding to "x"
       <td class="nowrap">*CF*, *Result*
@@ -6985,13 +7186,13 @@ WGSL 程序中的语句按控制流顺序执行。
       <td>
       <td class="nowrap">*CF*, *MayBeNonUniform*
       <td>
-   <tr><td class="nowrap">op *e*, where "op" is a unary operator
+   <tr><td class="nowrap">*op* *e*,<br> where *op* is a unary operator
       <td rowspan=2>
       <td rowspan=2 class="nowrap">(*CF*, *e*) => (*CF'*, *V*)
       <td rowspan=2 class="nowrap">*CF'*, *V*
       <td rowspan=2>
    <tr><td class="nowrap">*e*.field
-   <tr><td class="nowrap">*e1* op *e2*, where op is a non-short-circuiting binary operator
+   <tr><td>*e1* *op* *e2*,<br> where *op* is a non-short-circuiting binary operator
       <td rowspan=2> *Result*
       <td rowspan=2 class="nowrap">(*CF*, *e1*) => (*CF1*, *V1*)<br>
           (*CF1*, *e2*) => (*CF2*, *V2*)
@@ -7011,7 +7212,7 @@ WGSL 程序中的语句按控制流顺序执行。
   <thead>
     <tr><th>表达式<th>新节点<th>递归分析<th>产生的控制流节点、值节点<<th>新边缘
   </thead>
-  <tr><td class="nowrap">reference to function-scope variable, let-declaration, or parameter "x"
+  <tr><td>reference to function-scope variable, creation-time constant, let-declaration, or parameter "x"
       <td>
       <td class="nowrap">*X* is the node corresponding to "x"
       <td class="nowrap">*CF*, *X*
@@ -7121,7 +7322,7 @@ WebGPU 不提供任何保证:
 
 屏障是一个[[#sync-builtin-functions|synchronization built-in function]]，它对程序中的内存操作进行排序。
 <dfn noexport>control barrier</dfn> 由同一个 [=compute shader stage/workgroup=] 中的所有调用执行，就好像它是并发执行的一样。
-因此，控制屏障只能在 [=compute shader stage|compute=] 着色器中的统一控制流中执行。
+因此，控制屏障只能在 [=compute shader stage|compute=] 着色器中的[=uniform control flow=]中执行。
 
 ### 导数 ### {#derivatives}
 
@@ -7139,11 +7340,11 @@ WebGPU 不提供任何保证:
 
 *调用指定*值的偏导数由
 [[#derivative-builtin-functions]] 中描述的内置函数：
-* dpdx、dpdxCoarse 和 dpdxFine 计算沿 x 轴的偏导数。
-* dpdy、dpdyCoarse 和 dpdyFine 计算沿 y 轴的偏导数。
-* fwidth、fwidthCoarse 和 fwidthFine 计算相关联的 x 和 y 偏导数的曼哈顿度量。
+* `dpdx`、`dpdxCoarse` 和 `dpdxFine` 计算沿 x 轴的偏导数。
+* `dpdy`、`dpdyCoarse` 和 `dpdyFine` 计算沿 y 轴的偏导数。
+* `fwidth`、`fwidthCoarse` 和 `fwidthFine` 计算相关联的 x 和 y 偏导数的曼哈顿度量。
 
-因为相邻调用必须协作计算导数，所以这些函数只能在片元着色器的统一控制流中调用。
+因为相邻调用必须协作计算导数，所以这些函数只能在片元着色器的[=uniform control flow=]中调用。
 
 ## 浮点计算 ## {#floating-point-evaluation}
 
@@ -7152,7 +7353,7 @@ WGSL 遵循 [[!IEEE-754|IEEE-754]] 浮点计算标准
 * 不会产生浮点异常。
 * 可能不会生成信令 NaN。
     任何信令 NaN 都可以转换为安静的 NaN。
-* 实现可能假设 NaN、无穷大不存在
+* 实现可能假设 NaN 和无穷大不存在
      * 注意：这意味着一些函数（例如 `min` 和 `max`）
          由于存在优化，可能不会返回预期的结果
          NaN 和无穷大。
@@ -7186,12 +7387,12 @@ WGSL 未指定舍入模式。
 
 在下表中，提供了五个操作的准确性
 可能性：
-* 正确的结果（对于非浮点返回值）
-* [=Correctly rounded=]
-* 相对误差界表示为 [=ULP=]
+* 正确的结果（对于非浮点返回值）。
+* [=Correctly rounded=]。
+* 相对误差界表示为 [=ULP=]。
 * 精度为 <dfn noexport>inherited from</dfn> 的函数。
     也就是说，准确度等于按照导出函数执行运算。
-* 绝对误差界限
+* 绝对误差界限。
 
 对于在一个范围内指定的任何精度值，该范围之外的结果的精度是不确定的。
 
@@ -7200,73 +7401,76 @@ WGSL 未指定舍入模式。
 <table class='data'>
   <caption>表达式的准确性</caption>
   <thead>
-    <tr><th>表达式<th>准确性<th>
+    <tr><th>Expression<th>f32的准确性<th>f16的准确性
   </thead>
 
-  <tr><td>`x + y`<td>正确四舍五入
-  <tr><td>`x - y`<td>正确四舍五入
-  <tr><td>`x * y`<td>正确四舍五入
+  <tr><td>`x + y`<td colspan=2 style="text-align:left;">正确四舍五入
+  <tr><td>`x - y`<td colspan=2 style="text-align:left;">正确四舍五入
+  <tr><td>`x * y`<td colspan=2 style="text-align:left;">正确四舍五入
   <tr><td>`x / y`<td>2.5 ULP 对于在 [2<sup>-126</sup>, 2<sup>126</sup>] 范围内的 `|y|`
-  <tr><td>`x % y`<td>派生自 `x - y * trunc(x/y)`
-  <tr><td>`-x`<td>正确四舍五入
+  <tr><td>`x % y`<td colspan=2 style="text-align:left;">派生自 `x - y * trunc(x/y)`
+  <tr><td>`-x`<td colspan=2 style="text-align:left;">正确四舍五入
 
-  <tr><td>`x == y`<td>正确结果
-  <tr><td>`x != y`<td>正确结果
-  <tr><td>`x < y`<td>正确结果
-  <tr><td>`x <= y`<td>正确结果
-  <tr><td>`x > y`<td>正确结果
-  <tr><td>`x >= y`<td>正确结果
+  <tr><td>`x == y`<td colspan=2 style="text-align:left;">正确结果
+  <tr><td>`x != y`<td colspan=2 style="text-align:left;">正确结果
+  <tr><td>`x < y`<td colspan=2 style="text-align:left;">正确结果
+  <tr><td>`x <= y`<td colspan=2 style="text-align:left;">正确结果
+  <tr><td>`x > y`<td colspan=2 style="text-align:left;">正确结果
+  <tr><td>`x >= y`<td colspan=2 style="text-align:left;">正确结果
 </table>
 
 <table class='data'>
   <caption>内置函数的准确性</caption>
   <thead>
-    <tr><th>内置函数<th>准确性
+    <tr><th>内置函数<th>f32的准确性<th>f16的准确性
   </thead>
 
-  <tr><td>`abs(x)`<td>正确四舍五入
-  <tr><td>`acos(x)`<td>派生自 `atan2(sqrt(1.0 - x * x), x)`
-  <tr><td>`asin(x)`<td>派生自 `atan2(x, sqrt(1.0 - x * x))`
-  <tr><td>`atan(x)`<td>4096 ULP
-  <tr><td>`atan2(y, x)`<td>4096 ULP
-  <tr><td>`ceil(x)`<td>正确四舍五入
-  <tr><td>`clamp(x,low,high)`<td>正确四舍五入
-  <tr><td>`cos(x)`<td>绝对错误 &le; 2<sup>-11</sup> 在 [-&pi;, &pi;] 范围内
-  <tr><td>`cosh(x)`<td>继承自 `(exp(x) - exp(-x)) * 0.5`
-  <tr><td>`cross(x, y)`<td>继承自 `(x[i] * y[j] - x[j] * y[i])`
-  <tr><td>`degrees(x)`<td>Inherited from `x * 57.295779513082322865`
-  <tr><td>`distance(x, y)`<td>继承自 `length(x - y)`
-  <tr><td>`exp(x)`<td>3 + 2 * |x| ULP
-  <tr><td>`exp2(x)`<td>3 + 2 * |x| ULP
-  <tr><td class="nowrap">`faceForward(x, y, z)`<td>继承自 `select(-x, x, dot(z, y) < 0.0)`
-  <tr><td>`floor(x)`<td>正确四舍五入
-  <tr><td>`fma(x, y, z)`<td>继承自 `x * y + z`
-  <tr><td>`fract(x)`<td>正确四舍五入
-  <tr><td>`frexp(x)`<td>正确四舍五入
-  <tr><td>`inverseSqrt(x)`<td>2 ULP
-  <tr><td>`ldexp(x, y)`<td>正确四舍五入
-  <tr><td>`length(x)`<td>继承自 `sqrt(dot(x, x))`
-  <tr><td>`log(x)`<td>3 ULP 在 [0.5, 2.0] 范围外<br>绝对错误  &lt; 2<sup>-21</sup> 在 [0.5, 2.0] 范围内
-  <tr><td>`log2(x)`<td>3 ULP 在 [0.5, 2.0] 范围外<br>绝对错误 &lt; 2<sup>-21</sup> 在 [0.5, 2.0] 范围内
-  <tr><td>`max(x, y)`<td>正确四舍五入
-  <tr><td>`min(x, y)`<td>正确四舍五入
-  <tr><td>`mix(x, y, z)`<td>继承自 `x * (1.0 - z) + y * z`
-  <tr><td>`modf(x)`<td>正确四舍五入
-  <tr><td>`normalize(x)`<td>继承自 `x / length(x)`
-  <tr><td>`pow(x, y)`<td>继承自 `exp2(y * log2(x))`
-  <tr><td>`radians(x)`<td>Inherited from `x * 0.017453292519943295474`
-  <tr><td>`reflect(x, y)`<td>继承自 `x - 2.0 * dot(x, y) * y`
-  <tr><td>`refract(x, y, z)`<td>继承自 `z * x - (z * dot(y, x) + sqrt(k)) * y`,<br>其中 `k = 1.0 - z * z * (1.0 - dot(y, x) * dot(y, x))`<br>如果 `k < 0.0` ，那么结果的精确度为 0.0
-  <tr><td>`round(x)`<td>正确四舍五入
-  <tr><td>`sign(x)`<td>正确四舍五入
-  <tr><td>`sin(x)`<td>绝对错误&le; 2<sup>-11</sup> 在 [-&pi;, &pi;] 范围内
-  <tr><td>`sinh(x)`<td>继承自 `(exp(x) - exp(-x)) * 0.5`
-  <tr><td>`smoothStep(low, high, x)`<td>继承自 `t * t * (3.0 - 2.0 * t)`,<br>where `t = clamp((x - low) / (high - low), 0.0, 1.0)`
-  <tr><td>`sqrt(x)`<td>继承自 `1.0 / inverseSqrt(x)`
-  <tr><td>`step(edge, x)`<td>正确四舍五入
-  <tr><td>`tan(x)`<td>继承自 `sin(x) / cos(x)`
-  <tr><td>`tanh(x)`<td>继承自 `sinh(x) / cosh(x)`
-  <tr><td>`trunc(x)`<td>正确四舍五入
+  <tr><td>`abs(x)`<td colspan=2 style="text-align:left;">正确四舍五入
+  <tr><td>`acos(x)`<td colspan=2 style="text-align:left;">派生自 `atan2(sqrt(1.0 - x * x), x)`
+  <tr><td>`acosh(x)`<td colspan=2 style="text-align:left;">派生自 `log(x + sqrt(x * x - 1.0))`
+  <tr><td>`asin(x)`<td colspan=2 style="text-align:left;">派生自 `atan2(x, sqrt(1.0 - x * x))`
+  <tr><td>`asinh(x)`<td colspan=2 style="text-align:left;">派生自 `log(x + sqrt(x * x + 1.0))`
+  <tr><td>`atan(x)`<td>4096 ULP<td>5 ULP
+  <tr><td>`atan2(y, x)`<td>4096 ULP<td>5 ULP
+  <tr><td>`atanh(x)`<td colspan=2 style="text-align:left;">派生自 `log( (1.0 + x) / (1.0 - x) ) * 0.5`
+  <tr><td>`ceil(x)`<td colspan=2 style="text-align:left;">正确四舍五入
+  <tr><td>`clamp(x,low,high)`<td colspan=2 style="text-align:left;">正确四舍五入
+  <tr><td>`cos(x)`<td>Absolute error &le; 2<sup>-11</sup>在范围[-&pi;, &pi;]内<td>Absolute error &le; 2<sup>-7</sup>在范围[-&pi;, &pi;]内
+  <tr><td>`cosh(x)`<td colspan=2 style="text-align:left;">派生自 `(exp(x) - exp(-x)) * 0.5`
+  <tr><td>`cross(x, y)`<td colspan=2 style="text-align:left;">派生自 `(x[i] * y[j] - x[j] * y[i])`
+  <tr><td>`degrees(x)`<td colspan=2 style="text-align:left;">派生自 `x * 57.295779513082322865`
+  <tr><td>`distance(x, y)`<td colspan=2 style="text-align:left;">派生自 `length(x - y)`
+  <tr><td>`exp(x)`<td>`3 + 2 * |x|` ULP<td>`1 + 2 * |x|` ULP
+  <tr><td>`exp2(x)`<td>`3 + 2 * |x|` ULP<td>`1 + 2 * |x|` ULP
+  <tr><td class="nowrap">`faceForward(x, y, z)`<td colspan=2 style="text-align:left;">派生自 `select(-x, x, dot(z, y) < 0.0)`
+  <tr><td>`floor(x)`<td colspan=2 style="text-align:left;">正确四舍五入
+  <tr><td>`fma(x, y, z)`<td colspan=2 style="text-align:left;">派生自 `x * y + z`
+  <tr><td>`fract(x)`<td colspan=2 style="text-align:left;">正确四舍五入
+  <tr><td>`frexp(x)`<td colspan=2 style="text-align:left;">正确四舍五入
+  <tr><td>`inverseSqrt(x)`<td colspan=2 style="text-align:left;">2 ULP
+  <tr><td>`ldexp(x, y)`<td colspan=2 style="text-align:left;">正确四舍五入
+  <tr><td>`length(x)`<td colspan=2 style="text-align:left;">派生自 `sqrt(dot(x, x))`
+  <tr><td>`log(x)`<td>3 ULP outside the range [0.5, 2.0].<br>绝对错误 &lt; 2<sup>-21</sup> 在范围 [0.5, 2.0] 内<td>3 ULP 在范围 [0.5, 2.0] 外.<br>绝对错误 &lt; 2<sup>-7</sup> 在范围 [0.5, 2.0] 内
+  <tr><td>`log2(x)`<td>3 ULP outside the range [0.5, 2.0].<br>绝对错误 &lt; 2<sup>-21</sup> 在范围 [0.5, 2.0] 内<td>3 ULP 在范围 [0.5, 2.0] 外.<br>绝对错误 &lt; 2<sup>-7</sup> 在范围 [0.5, 2.0] 内
+  <tr><td>`max(x, y)`<td colspan=2 style="text-align:left;">正确四舍五入
+  <tr><td>`min(x, y)`<td colspan=2 style="text-align:left;">正确四舍五入
+  <tr><td>`mix(x, y, z)`<td colspan=2 style="text-align:left;">派生自 `x * (1.0 - z) + y * z`
+  <tr><td>`modf(x)`<td colspan=2 style="text-align:left;">正确四舍五入
+  <tr><td>`normalize(x)`<td colspan=2 style="text-align:left;">派生自 `x / length(x)`
+  <tr><td>`pow(x, y)`<td colspan=2 style="text-align:left;">派生自 `exp2(y * log2(x))`
+  <tr><td>`radians(x)`<td colspan=2 style="text-align:left;">派生自 `x * 0.017453292519943295474`
+  <tr><td>`reflect(x, y)`<td colspan=2 style="text-align:left;">派生自 `x - 2.0 * dot(x, y) * y`
+  <tr><td>`refract(x, y, z)`<td colspan=2 style="text-align:left;">派生自 `z * x - (z * dot(y, x) + sqrt(k)) * y`,<br>where `k = 1.0 - z * z * (1.0 - dot(y, x) * dot(y, x))`<br>If `k < 0.0` the result is precisely 0.0
+  <tr><td>`round(x)`<td colspan=2 style="text-align:left;">正确四舍五入
+  <tr><td>`sign(x)`<td colspan=2 style="text-align:left;">正确四舍五入
+  <tr><td>`sin(x)`<td>Absolute error &le; 2<sup>-11</sup> 在范围 [-&pi;, &pi;] 内<td>绝对错误 &le; 2<sup>-7</sup> 在范围 [-&pi;, &pi;] 内
+  <tr><td>`sinh(x)`<td colspan=2 style="text-align:left;">派生自 `(exp(x) - exp(-x)) * 0.5`
+  <tr><td>`smoothstep(low, high, x)`<td colspan=2 style="text-align:left;">派生自 `t * t * (3.0 - 2.0 * t)`,<br>where `t = clamp((x - low) / (high - low), 0.0, 1.0)`
+  <tr><td>`sqrt(x)`<td colspan=2 style="text-align:left;">派生自 `1.0 / inverseSqrt(x)`
+  <tr><td>`step(edge, x)`<td colspan=2 style="text-align:left;">正确四舍五入
+  <tr><td>`tan(x)`<td colspan=2 style="text-align:left;">派生自 `sin(x) / cos(x)`
+  <tr><td>`tanh(x)`<td colspan=2 style="text-align:left;">派生自 `sinh(x) / cosh(x)`
+  <tr><td>`trunc(x)`<td colspan=2 style="text-align:left;">正确四舍五入
 
 </table>
 
@@ -7286,12 +7490,10 @@ WGSL 未指定舍入模式。
 ### 浮点数转换 ### {#floating-point-conversion}
 
 在本节中，浮点类型可以是以下任何一种：
-* WGSL 中的 [=f32=] 类型。
+* WGSL 中的 [=f32=] 和 [=f16=] 类型。
 * 对应于 [[!IEEE-754|IEEE-754]] 浮点标准定义的二进制格式的假设类型。
 
-    注：binary16 格式是这样引用的。
-
-注意：回想一下 [=f32=] WGSL 类型对应于 IEEE-754 binary32 格式。
+注意：回想一下 [=f32=] WGSL 类型对应于 IEEE-754 binary32 格式，[=f16=] WGSL 类型对应于 IEEE-754 binary16 格式。
 
 将浮点标量值转换为整数类型时：
 * 如果原始值可以在目标类型中准确表示，则结果就是该值。
@@ -7367,11 +7569,11 @@ WGSL 未指定舍入模式。
 成员。
 
 <div class='example wgsl memory locations accessed' heading="Accessing memory locations">
-  <xmp>
+  <xmp highlight='rust'>
     [[block]] struct S {
-      a : f32;
-      b : u32;
-      c : f32;
+      a : f32,
+      b : u32,
+      c : f32
     }
     @group(0) @binding(0)
     var<storage> v : S;
@@ -7468,6 +7670,11 @@ semantics](https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vks
   <dfn for=syntax>float32</dfn> :
 
     | `'f32'`
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>float16</dfn> :
+
+    | `'f16'`
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>int32</dfn> :
@@ -7788,292 +7995,928 @@ WGSL 程序不得包含保留字。
 <div class='syntax' noexport='true'>
   <dfn for=syntax>_reserved</dfn> :
 
-    | `'asm'`
+    | `'AppendStructuredBuffer'`   <!-- HLSL -->
 
-    | `'bf16'`
+    | `'BlendState'`   <!-- HLSL -->
 
-    | `'const'`
+    | `'Buffer'`   <!-- HLSL -->
 
-    | `'demote'`
+    | `'ByteAddressBuffer'`   <!-- HLSL -->
 
-    | `'demote_to_helper'`
+    | `'CompileShader'`   <!-- HLSL -->
 
-    | `'do'`
+    | `'ComputeShader'`   <!-- HLSL -->
 
-    | `'enum'`
+    | `'ConsumeStructuredBuffer'`   <!-- HLSL -->
 
-    | `'f16'`
+    | `'DepthStencilState'`   <!-- HLSL -->
 
-    | `'f64'`
+    | `'DepthStencilView'`   <!-- HLSL -->
 
-    | `'handle'`
+    | `'DomainShader'`   <!-- HLSL -->
 
-    | `'i8'`
+    | `'GeometryShader'`   <!-- HLSL -->
 
-    | `'i16'`
+    | `'Hullshader'`   <!-- HLSL -->
 
-    | `'i64'`
+    | `'InputPatch'`   <!-- HLSL -->
 
-    | `'mat'`
+    | `'LineStream'`   <!-- HLSL -->
 
-    | `'premerge'`
+    | `'NULL'`   <!-- HLSL -->
 
-    | `'regardless'`
+    | `'OutputPatch'`   <!-- HLSL -->
 
-    | `'typedef'`
+    | `'PixelShader'`   <!-- HLSL -->
 
-    | `'u8'`
+    | `'PointStream'`   <!-- HLSL -->
 
-    | `'u16'`
+    | `'RWBuffer'`   <!-- HLSL -->
 
-    | `'u64'`
+    | `'RWByteAddressBuffer'`   <!-- HLSL -->
 
-    | `'unless'`
+    | `'RWStructuredBuffer'`   <!-- HLSL -->
 
-    | `'using'`
+    | `'RWTexture1D'`   <!-- HLSL -->
 
-    | `'vec'`
+    | `'RWTexture1DArray'`   <!-- HLSL -->
 
-    | `'void'`
+    | `'RWTexture2D'`   <!-- HLSL -->
 
-    | `'while'`
+    | `'RWTexture2DArray'`   <!-- HLSL -->
+
+    | `'RWTexture3D'`   <!-- HLSL -->
+
+    | `'RasterizerState'`   <!-- HLSL -->
+
+    | `'RenderTargetView'`   <!-- HLSL -->
+
+    | `'SamplerComparisonState'`   <!-- HLSL -->
+
+    | `'SamplerState'`   <!-- HLSL -->
+
+    | `'Self'`   <!-- Rust -->
+
+    | `'StructuredBuffer'`   <!-- HLSL -->
+
+    | `'Texture1D'`   <!-- HLSL -->
+
+    | `'Texture1DArray'`   <!-- HLSL -->
+
+    | `'Texture2D'`   <!-- HLSL -->
+
+    | `'Texture2DArray'`   <!-- HLSL -->
+
+    | `'Texture2DMS'`   <!-- HLSL -->
+
+    | `'Texture2DMSArray'`   <!-- HLSL -->
+
+    | `'Texture3D'`   <!-- HLSL -->
+
+    | `'TextureCube'`   <!-- HLSL -->
+
+    | `'TextureCubeArray'`   <!-- HLSL -->
+
+    | `'TriangleStream'`   <!-- HLSL -->
+
+    | `'VertexShader'`   <!-- HLSL -->
+
+    | `'abstract'`   <!-- Rust -->
+
+    | `'active'`   <!-- GLSL(reserved) -->
+
+    | `'alignas'`   <!-- C++ -->
+
+    | `'alignof'`   <!-- C++ -->
+
+    | `'as'`   <!-- ECMAScript2022 Rust -->
+
+    | `'asm'`   <!-- C++ HLSL GLSL(reserved) WGSL -->
+
+    | `'asm_fragment'`   <!-- HLSL -->
+
+    | `'async'`   <!-- ECMAScript2022 -->
+
+    | `'atomic_uint'`   <!-- GLSL -->
+
+    | `'attribute'`   <!-- GLSL -->
+
+    | `'auto'`   <!-- C++ -->
+
+    | `'await'`   <!-- ECMAScript2022 -->
+
+    | `'become'`   <!-- Rust -->
+
+    | `'bf16'`   <!-- WGSL -->
+
+    | `'buffer'`   <!-- GLSL -->
+
+    | `'cast'`   <!-- GLSL(reserved) -->
+
+    | `'catch'`   <!-- C++ ECMAScript2022 -->
+
+    | `'cbuffer'`   <!-- HLSL -->
+
+    | `'centroid'`   <!-- HLSL GLSL -->
+
+    | `'char'`   <!-- C++ -->
+
+    | `'class'`   <!-- C++ ECMAScript2022 HLSL GLSL(reserved) -->
+
+    | `'co_await'`   <!-- C++ -->
+
+    | `'co_return'`   <!-- C++ -->
+
+    | `'co_yield'`   <!-- C++ -->
+
+    | `'coherent'`   <!-- GLSL -->
+
+    | `'column_major'`   <!-- HLSL -->
+
+    | `'common'`   <!-- GLSL(reserved) -->
+
+    | `'compile'`   <!-- HLSL -->
+
+    | `'compile_fragment'`   <!-- HLSL -->
+
+    | `'concept'`   <!-- C++ -->
+
+    | `'const_cast'`   <!-- C++ -->
+
+    | `'consteval'`   <!-- C++ -->
+
+    | `'constexpr'`   <!-- C++ -->
+
+    | `'constinit'`   <!-- C++ -->
+
+    | `'crate'`   <!-- Rust -->
+
+    | `'debugger'`   <!-- ECMAScript2022 -->
+
+    | `'decltype'`   <!-- C++ -->
+
+    | `'delete'`   <!-- C++ ECMAScript2022 -->
+
+    | `'demote'`   <!-- WGSL -->
+
+    | `'demote_to_helper'`   <!-- WGSL -->
+
+    | `'do'`   <!-- C++ ECMAScript2022 Rust HLSL GLSL WGSL -->
+
+    | `'dword'`   <!-- HLSL -->
+
+    | `'dynamic_cast'`   <!-- C++ -->
+
+    | `'enum'`   <!-- C++ ECMAScript2022 Rust GLSL(reserved) WGSL -->
+
+    | `'explicit'`   <!-- C++ -->
+
+    | `'export'`   <!-- C++ C++ ECMAScript2022 HLSL -->
+
+    | `'extends'`   <!-- ECMAScript2022 -->
+
+    | `'extern'`   <!-- C++ Rust HLSL GLSL(reserved) -->
+
+    | `'external'`   <!-- GLSL(reserved) -->
+
+    | `'f64'`   <!-- WGSL -->
+
+    | `'filter'`   <!-- GLSL(reserved) -->
+
+    | `'final'`   <!-- Rust -->
+
+    | `'finally'`   <!-- ECMAScript2022 -->
+
+    | `'fixed'`   <!-- GLSL(reserved) -->
+
+    | `'flat'`   <!-- GLSL -->
+
+    | `'friend'`   <!-- C++ -->
+
+    | `'from'`   <!-- ECMAScript2022 -->
+
+    | `'fvec2'`   <!-- GLSL(reserved) -->
+
+    | `'fvec3'`   <!-- GLSL(reserved) -->
+
+    | `'fvec4'`   <!-- GLSL(reserved) -->
+
+    | `'fxgroup'`   <!-- HLSL -->
+
+    | `'get'`   <!-- ECMAScript2022 -->
+
+    | `'goto'`   <!-- C++ GLSL(reserved) -->
+
+    | `'groupshared'`   <!-- HLSL -->
+
+    | `'handle'`   <!-- WGSL -->
+
+    | `'highp'`   <!-- GLSL -->
+
+    | `'hvec2'`   <!-- GLSL(reserved) -->
+
+    | `'hvec3'`   <!-- GLSL(reserved) -->
+
+    | `'hvec4'`   <!-- GLSL(reserved) -->
+
+    | `'i16'`   <!-- WGSL -->
+
+    | `'i64'`   <!-- WGSL -->
+
+    | `'i8'`   <!-- WGSL -->
+
+    | `'iimage1D'`   <!-- GLSL -->
+
+    | `'iimage1DArray'`   <!-- GLSL -->
+
+    | `'iimage2D'`   <!-- GLSL -->
+
+    | `'iimage2DArray'`   <!-- GLSL -->
+
+    | `'iimage2DMS'`   <!-- GLSL -->
+
+    | `'iimage2DMSArray'`   <!-- GLSL -->
+
+    | `'iimage2DRect'`   <!-- GLSL -->
+
+    | `'iimage3D'`   <!-- GLSL -->
+
+    | `'iimageBuffer'`   <!-- GLSL -->
+
+    | `'iimageCube'`   <!-- GLSL -->
+
+    | `'iimageCubeArray'`   <!-- GLSL -->
+
+    | `'image1D'`   <!-- GLSL -->
+
+    | `'image1DArray'`   <!-- GLSL -->
+
+    | `'image2D'`   <!-- GLSL -->
+
+    | `'image2DArray'`   <!-- GLSL -->
+
+    | `'image2DMS'`   <!-- GLSL -->
+
+    | `'image2DMSArray'`   <!-- GLSL -->
+
+    | `'image2DRect'`   <!-- GLSL -->
+
+    | `'image3D'`   <!-- GLSL -->
+
+    | `'imageBuffer'`   <!-- GLSL -->
+
+    | `'imageCube'`   <!-- GLSL -->
+
+    | `'imageCubeArray'`   <!-- GLSL -->
+
+    | `'impl'`   <!-- Rust -->
+
+    | `'implements'`   <!-- ECMAScript2022 -->
+
+    | `'import'`   <!-- C++ ECMAScript2022 -->
+
+    | `'in'`   <!-- ECMAScript2022 Rust HLSL GLSL -->
+
+    | `'inline'`   <!-- C++ HLSL GLSL(reserved) -->
+
+    | `'inout'`   <!-- HLSL GLSL -->
+
+    | `'input'`   <!-- GLSL(reserved) -->
+
+    | `'instanceof'`   <!-- ECMAScript2022 -->
+
+    | `'interface'`   <!-- ECMAScript2022 HLSL GLSL(reserved) -->
+
+    | `'invariant'`   <!-- GLSL -->
+
+    | `'isampler1D'`   <!-- GLSL -->
+
+    | `'isampler1DArray'`   <!-- GLSL -->
+
+    | `'isampler2D'`   <!-- GLSL -->
+
+    | `'isampler2DArray'`   <!-- GLSL -->
+
+    | `'isampler2DMS'`   <!-- GLSL -->
+
+    | `'isampler2DMSArray'`   <!-- GLSL -->
+
+    | `'isampler2DRect'`   <!-- GLSL -->
+
+    | `'isampler3D'`   <!-- GLSL -->
+
+    | `'isamplerBuffer'`   <!-- GLSL -->
+
+    | `'isamplerCube'`   <!-- GLSL -->
+
+    | `'isamplerCubeArray'`   <!-- GLSL -->
+
+    | `'isubpassInput'`   <!-- GLSL -->
+
+    | `'isubpassInputMS'`   <!-- GLSL -->
+
+    | `'itexture1D'`   <!-- GLSL -->
+
+    | `'itexture1DArray'`   <!-- GLSL -->
+
+    | `'itexture2D'`   <!-- GLSL -->
+
+    | `'itexture2DArray'`   <!-- GLSL -->
+
+    | `'itexture2DMS'`   <!-- GLSL -->
+
+    | `'itexture2DMSArray'`   <!-- GLSL -->
+
+    | `'itexture2DRect'`   <!-- GLSL -->
+
+    | `'itexture3D'`   <!-- GLSL -->
+
+    | `'itextureBuffer'`   <!-- GLSL -->
+
+    | `'itextureCube'`   <!-- GLSL -->
+
+    | `'itextureCubeArray'`   <!-- GLSL -->
+
+    | `'layout'`   <!-- GLSL -->
+
+    | `'line'`   <!-- HLSL -->
+
+    | `'lineadj'`   <!-- HLSL -->
+
+    | `'linear'`   <!-- HLSL -->
+
+    | `'lowp'`   <!-- GLSL -->
+
+    | `'macro'`   <!-- Rust -->
+
+    | `'macro_rules'`   <!-- Rust -->
+
+    | `'mat'`   <!-- WGSL -->
+
+    | `'match'`   <!-- Rust -->
+
+    | `'matrix'`   <!-- HLSL -->
+
+    | `'mediump'`   <!-- GLSL -->
+
+    | `'meta'`   <!-- ECMAScript2022 -->
+
+    | `'mod'`   <!-- Rust -->
+
+    | `'module'`   <!-- C++ -->
+
+    | `'move'`   <!-- Rust -->
+
+    | `'mut'`   <!-- Rust -->
+
+    | `'mutable'`   <!-- C++ -->
+
+    | `'namespace'`   <!-- C++ HLSL GLSL(reserved) -->
+
+    | `'new'`   <!-- C++ ECMAScript2022 -->
+
+    | `'nil'`   <!-- Smalltalk -->
+
+    | `'noexcept'`   <!-- C++ -->
+
+    | `'noinline'`   <!-- GLSL(reserved) -->
+
+    | `'nointerpolation'`   <!-- HLSL -->
+
+    | `'noperspective'`   <!-- HLSL GLSL -->
+
+    | `'null'`   <!-- ECMAScript2022 WGSL -->
+
+    | `'nullptr'`   <!-- C++ -->
+
+    | `'of'`   <!-- ECMAScript2022 -->
+
+    | `'operator'`   <!-- C++ -->
+
+    | `'out'`   <!-- HLSL GLSL -->
+
+    | `'output'`   <!-- GLSL(reserved) -->
+
+    | `'package'`   <!-- ECMAScript2022 -->
+
+    | `'packoffset'`   <!-- HLSL -->
+
+    | `'partition'`   <!-- GLSL(reserved) -->
+
+    | `'pass'`   <!-- HLSL -->
+
+    | `'patch'`   <!-- GLSL -->
+
+    | `'pixelfragment'`   <!-- HLSL -->
+
+    | `'point'`   <!-- HLSL -->
+
+    | `'precise'`   <!-- HLSL GLSL -->
+
+    | `'precision'`   <!-- GLSL -->
+
+    | `'premerge'`   <!-- WGSL -->
+
+    | `'priv'`   <!-- Rust -->
+
+    | `'protected'`   <!-- C++ ECMAScript2022 -->
+
+    | `'pub'`   <!-- Rust -->
+
+    | `'public'`   <!-- C++ ECMAScript2022 GLSL(reserved) -->
+
+    | `'readonly'`   <!-- GLSL -->
+
+    | `'ref'`   <!-- Rust -->
+
+    | `'regardless'`   <!-- WGSL -->
+
+    | `'register'`   <!-- C++ HLSL -->
+
+    | `'reinterpret_cast'`   <!-- C++ -->
+
+    | `'requires'`   <!-- C++ -->
+
+    | `'resource'`   <!-- GLSL(reserved) -->
+
+    | `'restrict'`   <!-- GLSL -->
+
+    | `'row_major'`   <!-- HLSL -->
+
+    | `'samper'`   <!-- HLSL -->
+
+    | `'sample'`   <!-- HLSL GLSL -->
+
+    | `'sampler1D'`   <!-- GLSL -->
+
+    | `'sampler1DArray'`   <!-- GLSL -->
+
+    | `'sampler1DArrayShadow'`   <!-- GLSL -->
+
+    | `'sampler1DShadow'`   <!-- GLSL -->
+
+    | `'sampler2D'`   <!-- GLSL -->
+
+    | `'sampler2DArray'`   <!-- GLSL -->
+
+    | `'sampler2DArrayShadow'`   <!-- GLSL -->
+
+    | `'sampler2DMS'`   <!-- GLSL -->
+
+    | `'sampler2DMSArray'`   <!-- GLSL -->
+
+    | `'sampler2DRect'`   <!-- GLSL -->
+
+    | `'sampler2DRectShadow'`   <!-- GLSL -->
+
+    | `'sampler2DShadow'`   <!-- GLSL -->
+
+    | `'sampler3D'`   <!-- GLSL -->
+
+    | `'sampler3DRect'`   <!-- GLSL(reserved) -->
+
+    | `'samplerBuffer'`   <!-- GLSL -->
+
+    | `'samplerCube'`   <!-- GLSL -->
+
+    | `'samplerCubeArray'`   <!-- GLSL -->
+
+    | `'samplerCubeArrayShadow'`   <!-- GLSL -->
+
+    | `'samplerCubeShadow'`   <!-- GLSL -->
+
+    | `'samplerShadow'`   <!-- GLSL -->
+
+    | `'self'`   <!-- Rust Smalltalk -->
+
+    | `'set'`   <!-- ECMAScript2022 -->
+
+    | `'shared'`   <!-- HLSL GLSL -->
+
+    | `'signed'`   <!-- C++ -->
+
+    | `'sizeof'`   <!-- C++ GLSL(reserved) -->
+
+    | `'smooth'`   <!-- GLSL -->
+
+    | `'snorm'`   <!-- HLSL -->
+
+    | `'stateblock'`   <!-- HLSL -->
+
+    | `'stateblock_state'`   <!-- HLSL -->
+
+    | `'static'`   <!-- C++ ECMAScript2022 Rust HLSL GLSL(reserved) -->
+
+    | `'static_assert'`   <!-- C++ -->
+
+    | `'static_cast'`   <!-- C++ -->
+
+    | `'std'`   <!-- WGSL -->
+
+    | `'string'`   <!-- HLSL -->
+
+    | `'subpassInput'`   <!-- GLSL -->
+
+    | `'subpassInputMS'`   <!-- GLSL -->
+
+    | `'subroutine'`   <!-- GLSL -->
+
+    | `'super'`   <!-- ECMAScript2022 Rust Smalltalk -->
+
+    | `'superp'`   <!-- GLSL(reserved) -->
+
+    | `'target'`   <!-- ECMAScript2022 -->
+
+    | `'tbuffer'`   <!-- HLSL -->
+
+    | `'technique'`   <!-- HLSL -->
+
+    | `'technique10'`   <!-- HLSL -->
+
+    | `'technique11'`   <!-- HLSL -->
+
+    | `'template'`   <!-- C++ GLSL(reserved) -->
+
+    | `'texture'`   <!-- HLSL HLSL -->
+
+    | `'texture1D'`   <!-- GLSL -->
+
+    | `'texture1DArray'`   <!-- GLSL -->
+
+    | `'texture2D'`   <!-- GLSL -->
+
+    | `'texture2DArray'`   <!-- GLSL -->
+
+    | `'texture2DMS'`   <!-- GLSL -->
+
+    | `'texture2DMSArray'`   <!-- GLSL -->
+
+    | `'texture2DRect'`   <!-- GLSL -->
+
+    | `'texture3D'`   <!-- GLSL -->
+
+    | `'textureBuffer'`   <!-- GLSL -->
+
+    | `'textureCube'`   <!-- GLSL -->
+
+    | `'textureCubeArray'`   <!-- GLSL -->
+
+    | `'this'`   <!-- C++ ECMAScript2022 GLSL(reserved) -->
+
+    | `'thread_local'`   <!-- C++ -->
+
+    | `'throw'`   <!-- C++ ECMAScript2022 -->
+
+    | `'trait'`   <!-- Rust -->
+
+    | `'triangle'`   <!-- HLSL -->
+
+    | `'triangleadj'`   <!-- HLSL -->
+
+    | `'try'`   <!-- C++ ECMAScript2022 -->
+
+    | `'typedef'`   <!-- C++ HLSL GLSL(reserved) WGSL -->
+
+    | `'typeid'`   <!-- C++ -->
+
+    | `'typename'`   <!-- C++ -->
+
+    | `'typeof'`   <!-- ECMAScript2022 Rust -->
+
+    | `'u16'`   <!-- WGSL -->
+
+    | `'u64'`   <!-- WGSL -->
+
+    | `'u8'`   <!-- WGSL -->
+
+    | `'uimage1D'`   <!-- GLSL -->
+
+    | `'uimage1DArray'`   <!-- GLSL -->
+
+    | `'uimage2D'`   <!-- GLSL -->
+
+    | `'uimage2DArray'`   <!-- GLSL -->
+
+    | `'uimage2DMS'`   <!-- GLSL -->
+
+    | `'uimage2DMSArray'`   <!-- GLSL -->
+
+    | `'uimage2DRect'`   <!-- GLSL -->
+
+    | `'uimage3D'`   <!-- GLSL -->
+
+    | `'uimageBuffer'`   <!-- GLSL -->
+
+    | `'uimageCube'`   <!-- GLSL -->
+
+    | `'uimageCubeArray'`   <!-- GLSL -->
+
+    | `'union'`   <!-- C++ Rust GLSL(reserved) -->
+
+    | `'unless'`   <!-- WGSL -->
+
+    | `'unorm'`   <!-- HLSL -->
+
+    | `'unsafe'`   <!-- Rust -->
+
+    | `'unsigned'`   <!-- C++ HLSL GLSL(reserved) -->
+
+    | `'unsized'`   <!-- Rust -->
+
+    | `'usampler1D'`   <!-- GLSL -->
+
+    | `'usampler1DArray'`   <!-- GLSL -->
+
+    | `'usampler2D'`   <!-- GLSL -->
+
+    | `'usampler2DArray'`   <!-- GLSL -->
+
+    | `'usampler2DMS'`   <!-- GLSL -->
+
+    | `'usampler2DMSArray'`   <!-- GLSL -->
+
+    | `'usampler2DRect'`   <!-- GLSL -->
+
+    | `'usampler3D'`   <!-- GLSL -->
+
+    | `'usamplerBuffer'`   <!-- GLSL -->
+
+    | `'usamplerCube'`   <!-- GLSL -->
+
+    | `'usamplerCubeArray'`   <!-- GLSL -->
+
+    | `'use'`   <!-- Rust -->
+
+    | `'using'`   <!-- C++ GLSL(reserved) WGSL -->
+
+    | `'usubpassInput'`   <!-- GLSL -->
+
+    | `'usubpassInputMS'`   <!-- GLSL -->
+
+    | `'utexture1D'`   <!-- GLSL -->
+
+    | `'utexture1DArray'`   <!-- GLSL -->
+
+    | `'utexture2D'`   <!-- GLSL -->
+
+    | `'utexture2DArray'`   <!-- GLSL -->
+
+    | `'utexture2DMS'`   <!-- GLSL -->
+
+    | `'utexture2DMSArray'`   <!-- GLSL -->
+
+    | `'utexture2DRect'`   <!-- GLSL -->
+
+    | `'utexture3D'`   <!-- GLSL -->
+
+    | `'utextureBuffer'`   <!-- GLSL -->
+
+    | `'utextureCube'`   <!-- GLSL -->
+
+    | `'utextureCubeArray'`   <!-- GLSL -->
+
+    | `'varying'`   <!-- GLSL -->
+
+    | `'vec'`   <!-- WGSL -->
+
+    | `'vector'`   <!-- HLSL -->
+
+    | `'vertexfragment'`   <!-- HLSL -->
+
+    | `'virtual'`   <!-- C++ Rust -->
+
+    | `'void'`   <!-- C++ ECMAScript2022 HLSL GLSL WGSL -->
+
+    | `'volatile'`   <!-- C++ HLSL GLSL -->
+
+    | `'wchar_t'`   <!-- C++ -->
+
+    | `'wgsl'`   <!-- WGSL -->
+
+    | `'where'`   <!-- Rust -->
+
+    | `'with'`   <!-- ECMAScript2022 -->
+
+    | `'writeonly'`   <!-- GLSL -->
+
+    | `'yield'`   <!-- ECMAScript2022 Rust -->
 </div>
 
 ## 句法符号 ## {#syntactic-tokens}
 
-<dfn>syntactic token</dfn> 是一个特殊字符序列，用于：
+<dfn>syntactic token</dfn> 是一个特殊代码点序列，用于：
 * 拼写表达式运算符，或
 * 作为标点符号：对其他语法元素进行分组、排序或分隔。
 
 <div class='syntax' noexport='true'>
   <dfn for=syntax>and</dfn> :
 
-    | `'&'`
+    | `'&'` (Code point: `U+0026`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>and_and</dfn> :
 
-    | `'&&'`
+    | `'&&'` (Code points: `U+0026` `U+0026`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>arrow</dfn> :
 
-    | `'->'`
+    | `'->'` (Code points: `U+002D` `U+003E`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>attr</dfn> :
 
-    | `'@'`
+    | `'@'` (Code point: `U+0040`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>forward_slash</dfn> :
 
-    | `'/'`
+    | `'/'` (Code point: `U+002F`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>bang</dfn> :
 
-    | `'!'`
+    | `'!'` (Code point: `U+0021`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>bracket_left</dfn> :
 
-    | `'['`
+    | `'['` (Code point: `U+005B`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>bracket_right</dfn> :
 
-    | `']'`
+    | `']'` (Code point: `U+005D`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>brace_left</dfn> :
 
-    | `'{'`
+    | `'{'` (Code point: `U+007B`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>brace_right</dfn> :
 
-    | `'}'`
+    | `'}'` (Code point: `U+007D`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>colon</dfn> :
 
-    | `':'`
+    | `':'` (Code point: `U+003A`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>comma</dfn> :
 
-    | `','`
+    | `','` (Code point: `U+002C`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>equal</dfn> :
 
-    | `'='`
+    | `'='` (Code point: `U+003D`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>equal_equal</dfn> :
 
-    | `'=='`
+    | `'=='` (Code points: `U+003D` `U+003D`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>not_equal</dfn> :
 
-    | `'!='`
+    | `'!='` (Code points: `U+0021` `U+003D`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>greater_than</dfn> :
 
-    | `'>'`
+    | `'>'` (Code point: `U+003E`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>greater_than_equal</dfn> :
 
-    | `'>='`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>shift_right</dfn> :
-
-    | `'>>'`
+    | `'>='` (Code points: `U+003E` `U+003D`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>less_than</dfn> :
 
-    | `'<'`
+    | `'<'` (Code point: `U+003C`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>less_than_equal</dfn> :
 
-    | `'<='`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>shift_left</dfn> :
-
-    | `'<<'`
+    | `'<='` (Code points: `U+003C` `U+003D`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>modulo</dfn> :
 
-    | `'%'`
+    | `'%'` (Code point: `U+0025`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>minus</dfn> :
 
-    | `'-'`
+    | `'-'` (Code point: `U+002D`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>minus_minus</dfn> :
 
-    | `'--'`
+    | `'--'` (Code points: `U+002D` `U+002D`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>period</dfn> :
 
-    | `'.'`
+    | `'.'` (Code point: `U+002E`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>plus</dfn> :
 
-    | `'+'`
+    | `'+'` (Code point: `U+002B`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>plus_plus</dfn> :
 
-    | `'++'`
+    | `'++'` (Code points: `U+002B` `U+002B`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>or</dfn> :
 
-    | `'|'`
+    | `'|'` (Code point: `U+007C`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>or_or</dfn> :
 
-    | `'||'`
+    | `'||'` (Code points: `U+007C` `U+007C`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>paren_left</dfn> :
 
-    | `'('`
+    | `'('` (Code point: `U+0028`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>paren_right</dfn> :
 
-    | `')'`
+    | `')'` (Code point: `U+0029`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>semicolon</dfn> :
 
-    | `';'`
+    | `';'` (Code point: `U+003B`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>star</dfn> :
 
-    | `'*'`
+    | `'*'` (Code point: `U+002A`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>tilde</dfn> :
 
-    | `'~'`
+    | `'~'` (Code point: `U+007E`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>underscore</dfn> :
 
-    | `'_'`
+    | `'_'` (Code point: `U+005F`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>xor</dfn> :
 
-    | `'^'`
+    | `'^'` (Code point: `U+005E`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>plus_equal</dfn> :
 
-    | `'+='`
+    | `'+='` (Code points: `U+002B` `U+003D`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>minus_equal</dfn> :
 
-    | `'-='`
+    | `'-='` (Code points: `U+002D` `U+003D`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>times_equal</dfn> :
 
-    | `'*='`
+    | `'*='` (Code points: `U+002A` `U+003D`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>division_equal</dfn> :
 
-    | `'/='`
+    | `'/='` (Code points: `U+002F` `U+003D`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>modulo_equal</dfn> :
 
-    | `'%='`
+    | `'%='` (Code points: `U+0025` `U+003D`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>and_equal</dfn> :
 
-    | `'&='`
+    | `'&='` (Code points: `U+0026` `U+003D`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>or_equal</dfn> :
 
-    | `'|='`
+    | `'|='` (Code points: `U+007C` `U+003D`)
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>xor_equal</dfn> :
 
-    | `'^='`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>shift_right_equal</dfn> :
-
-    | `'>>='`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>shift_left_equal</dfn> :
-
-    | `'<<='`
+    | `'^='` (Code points: `U+005E` `U+003D`)
 </div>
 
 # 内置值 # {#builtin-values}
@@ -8119,7 +8962,7 @@ WGSL 程序不得包含保留字。
       <td>fragment
       <td>input
       <td>vec4&lt;f32&gt;
-      <td style="width:50%">当前片元的帧缓冲区位置，使用归一化齐次坐标。
+      <td style="width:50%">当前片元在[[WebGPU#rasterization|framebuffer space]]中的的帧缓冲区位置。
       （*x*、*y* 和 *z* 分量已经被缩放，使得 *w* 现在为 1。）
       查看 [[WebGPU#coordinate-systems|WebGPU &sect; Coordinate Systems]]。
 
@@ -8196,55 +9039,35 @@ WGSL 程序不得包含保留字。
 </table>
 
 <div class='example wgsl global-scope' heading="Declaring built-in values">
-  <xmp>
+  <xmp highlight='rust'>
     struct VertexOutput {
-      @builtin(position) my_pos: vec4<f32>;
-      //   OpDecorate %my_pos BuiltIn Position
-      //   %float = OpTypeFloat 32
-      //   %v4float = OpTypeVector %float 4
-      //   %ptr = OpTypePointer Output %v4float
-      //   %my_pos = OpVariable %ptr Output
-    };
+      @builtin(position) my_pos: vec4<f32>
+    }
 
-    @stage(vertex)
+    @vertex
     fn vs_main(
       @builtin(vertex_index) my_index: u32,
-      //   OpDecorate %my_index BuiltIn VertexIndex
-      //   %uint = OpTypeInt 32 0
-      //   %ptr = OpTypePointer Input %uint
-      //   %my_index = OpVariable %ptr Input
       @builtin(instance_index) my_inst_index: u32,
-      //    OpDecorate %my_inst_index BuiltIn InstanceIndex
     ) -> VertexOutput {}
 
     struct FragmentOutput {
-      @builtin(frag_depth) depth: f32;
-      //     OpDecorate %depth BuiltIn FragDepth
-      @builtin(sample_mask) mask_out: u32;
-      //      OpDecorate %mask_out BuiltIn SampleMask ; an output variable
-    };
+      @builtin(frag_depth) depth: f32,
+      @builtin(sample_mask) mask_out: u32
+    }
 
-    @stage(fragment)
+    @fragment
     fn fs_main(
       @builtin(front_facing) is_front: bool,
-      //     OpDecorate %is_front BuiltIn FrontFacing
       @builtin(position) coord: vec4<f32>,
-      //     OpDecorate %coord BuiltIn FragCoord
       @builtin(sample_index) my_sample_index: u32,
-      //      OpDecorate %my_sample_index BuiltIn SampleId
-      @builtin(sample_mask_in) mask_in: u32,
-      //      OpDecorate %mask_in BuiltIn SampleMask ; an input variable
-      //      OpDecorate %mask_in Flat
+      @builtin(sample_mask) mask_in: u32,
     ) -> FragmentOutput {}
 
-    @stage(compute)
+    @compute
     fn cs_main(
       @builtin(local_invocation_id) local_id: vec3<u32>,
-      //     OpDecorate %local_id BuiltIn LocalInvocationId
       @builtin(local_invocation_index) local_index: u32,
-      //     OpDecorate %local_index BuiltIn LocalInvocationIndex
       @builtin(global_invocation_id) global_id: vec3<u32>,
-      //      OpDecorate %global_id BuiltIn GlobalInvocationId
    ) {}
   </xmp>
 </div>
@@ -8265,7 +9088,7 @@ WGSL 程序不得包含保留字。
 * 内置函数名，带括号的 [=formal parameters=] 列表，以及可选的 [=return type=]。
 * 函数重载的行为。
 
-由于内置函数始终在作用域内，因此尝试重新定义一个函数或将内置函数的名称用作任何其他类型的声明的 [=identifier=] 都是错误的。
+由于内置函数始终在作用域内，因此尝试重新定义一个函数或将内置函数的名称用作任何其他[=module scope|module-scope=]声明的 [=identifier=] 都是错误的。
 
 与 WGSL 程序中定义的普通函数不同，内置函数可以使用相同的函数名和不同的参数集。
 换句话说，一个内置函数可能有多个*重载*，但 WGSL 中的普通函数定义可能没有。
@@ -8281,38 +9104,33 @@ WGSL 程序不得包含保留字。
   </thead>
   <tr algorithm="vector all">
     <td>
-    <td>`all`(|e|: vec|N|&lt;bool&gt;) -> bool
-    <td>Returns true if each component of |e| is true.<br>
-        (OpAll)
+    <td>`@const fn`<br>`all`(|e|: vec|N|&lt;bool&gt;) -> bool
+    <td>如果|e|的每个组件都为真，则返回真。<br>
 
   <tr algorithm="scalar all">
     <td>|e|: bool
-    <td>`all(`|e|`)`: bool
-    <td>Returns |e|.
+    <td>`@const fn`<br>`all(`|e|`)` -> bool
+    <td>返回 |e|.
 
   <tr algorithm="vector any">
     <td>
-    <td>`any`(|e|: vec|N|&lt;bool&gt;) -> bool
-    <td>Returns true if any component of |e| is true.<br>
-        (OpAny)
+    <td>`@const fn`<br>`any`(|e|: vec|N|&lt;bool&gt;) -> bool
+    <td>如果|e|的每个组件都为真，则返回真。<br>
 
   <tr algorithm="scalar any">
     <td>|e|: bool
-    <td>`any(`|e|`)`: bool
-    <td>Returns |e|.
+    <td>`@const fn`<br>`any(`|e|`)` -> bool
+    <td>返回 |e|.
 
   <tr algorithm="scalar select">
-    <td>|T| is [=scalar=] or [=vector=]
-    <td>`select`(|f|: |T|, |t|: |T|, |cond|: bool) -> |T|
-    <td>Returns |t| when |cond| is true, and |f| otherwise.<br>
-        (OpSelect)
+    <td>|T| 为 [=scalar=], [=abstract numeric type=], 或 [=vector=]
+    <td>`@const fn`<br>`select`(|f|: |T|, |t|: |T|, |cond|: bool) -> |T|
+    <td>当 |cond| 为真时返回 |t|，否则返回 |f|。
 
   <tr algorithm="vector select">
-    <td>|T| is [=scalar=]
-    <td>`select`(|f|: vec|N|&lt;|T|&gt;, |t|: vec|N|&lt;|T|&gt;, |cond|: vec|N|&lt;bool&gt;) -> vec|N|&lt;|T|&gt;
-    <td>[=Component-wise=] selection. Result component |i| is evaluated
-        as `select(`|f|`[`|i|`], `|t|`[`|i|`], `|cond|`[`|i|`])`.<br>
-        (OpSelect)
+    <td>|T| 为 [=scalar=] or [=abstract numeric type=]
+    <td class="nowrap">`@const fn`<br>`select`(|f|: vec|N|&lt;|T|&gt;, |t|: vec|N|&lt;|T|&gt;, |cond|: vec|N|&lt;bool&gt;) -> vec|N|&lt;|T|&gt;
+    <td>[=Component-wise=] 选择。结果组件|i|被计算为 `select(`|f|`[`|i|`], `|t|`[`|i|`], `|cond|`[`|i|`])`.<br>
 </table>
 
 ## 数组内置函数 ## {#array-builtin-functions}
@@ -8322,9 +9140,8 @@ WGSL 程序不得包含保留字。
   </thead>
   <tr algorithm="runtime-sized array length">
     <td>
-    <td>`arrayLength`(|e|: ptr&lt;storage,array&lt;|T|&gt;&gt; ) -> u32
-        <td>Returns the number of elements in the [=runtime-sized=] array.<br>
-        (OpArrayLength, but the implementation has to trace back to get the pointer to the enclosing struct.)
+      <td>`fn arrayLength`(|e|: ptr&lt;storage,array&lt;|T|&gt;&gt; ) -> u32
+        <td>返回[=runtime-sized=]数组中的元素数量。<br>
 </table>
 
 ## 浮动内置函数 ## {#float-builtin-functions}
@@ -8334,143 +9151,153 @@ WGSL 程序不得包含保留字。
     <tr><th>前提条件<th>结论<th>描述
   </thead>
   <tr algorithm="float abs">
-    <td>|T| 是 [FLOATING]
-    <td class="nowrap">`abs(`|e|`:` |T| `) -> ` |T|
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`abs(`|e|`:` |T| `) -> ` |T|
     <td>返回 |e| 的绝对值 （例如 |e| 带有正符号位）。
     [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450Fabs)
 
   <tr algorithm="acos">
-    <td>|T| 是 [FLOATING]
-    <td class="nowrap">`acos(`|e|`:` |T| `) -> ` |T|
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`acos(`|e|`:` |T| `) -> ` |T|
     <td>返回 |e| 的反余弦值。
     [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450Acos)
+
+  <tr algorithm="acosh">
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`acosh(`|e|`:` |T| `) -> ` |T|
+    <td>Returns the hyperbolic arc cosine of |e|.
+    The result is 0 when |e| &lt; 1.<br>
+    Computes the non-negative functional inverse of `cosh`.<br>
+    [=Component-wise=] when |T| is a vector.
+
+    Note: The result is not mathematically meaningful when |e| &lt; 1.
 
   <tr algorithm="asin">
-    <td>|T| 是 [FLOATING]
-    <td class="nowrap">`asin(`|e|`:` |T| `) -> ` |T|
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`asin(`|e|`:` |T| `) -> ` |T|
     <td>返回 |e| 的反正弦。
     [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450Asin)
+  
+  <tr algorithm="asinh">
+    <td>|T| 为 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`asinh(`|e|`:` |T| `) -> ` |T|
+    <td>Returns the hyperbolic arc sine of |e|.<br>
+    Computes the functional inverse of `sinh`.<br>
+    [=Component-wise=] when |T| is a vector.
 
   <tr algorithm="atan">
-    <td>|T| 是 [FLOATING]
-    <td class="nowrap">`atan(`|e|`:` |T| `) -> ` |T|
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`atan(`|e|`:` |T| `) -> ` |T|
     <td>返回 |e| 的反正切。
     [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450Atan)
+  
+  <tr algorithm="atanh">
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`atanh(`|e|`:` |T| `) -> ` |T|
+    <td>返回 |e| 的双曲反正切。
+    当 `abs`(|e|) &ge; 1，结果为0.<br>
+    计算 `tanh` 的反函数。<br>
+    当 |T| 为向量时 [=Component-wise=]
+
+    注意：当 `abs`(|e|) &ge; 1 时结果不是数学上有意义的。<br>
 
   <tr algorithm="atan2">
-    <td>|T| 是 [FLOATING]
-    <td class="nowrap">`atan2(`|e1|`:` |T| `, `|e2|`:` |T| `) -> ` |T|
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`atan2(`|e1|`:` |T| `, `|e2|`:` |T| `) -> ` |T|
     <td>返回 |e1|/|e2| 的反正切。
     [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450Atan2)
 
   <tr algorithm="ceil">
-    <td>|T| 是 [FLOATING]
-    <td class="nowrap">`ceil(`|e|`:` |T| `) -> ` |T|
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`ceil(`|e|`:` |T| `) -> ` |T|
     <td>返回 |e| 的向上取整 [=ceiling expression|ceiling=]。
     [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450Ceil)
 
   <tr algorithm="clamp">
-    <td>|T| is [FLOATING]
+    <td>|T| 是 [ALLFLOATING]
     <td class="nowrap">`clamp(`|e|`:` |T| `,` |low|`:` |T| `,` |high|`:` |T|`) -> ` |T|
-    <td>Returns `min(max(`|e|`,`|low|`),`|high|`)`.
+    <td>Returns either `min(max(`|e|`,`|low|`),`|high|`)`, or the median of the three values |e|, |low|, |high|.
     [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450NClamp)
 
   <tr algorithm="cos">
-    <td>|T| 是 [FLOATING]
-    <td class="nowrap">`cos(`|e|`:` |T| `) -> ` |T|
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`cos(`|e|`:` |T| `) -> ` |T|
     <td>返回 |e| 的余弦。
     [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450Cos)
 
   <tr algorithm="cosh">
-    <td>|T| 是 [FLOATING]
-    <td class="nowrap">`cosh(`|e|`:` |T| `) -> ` |T|
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`cosh(`|e|`:` |T| `) -> ` |T|
     <td>返回 |e| 的双曲余弦值。
     [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450Cosh)
 
   <tr algorithm="vector case, cross">
-    <td>|T| 是 f32
-    <td class="nowrap">`cross(`|e1|`:` vec3<|T|> `, `|e2|`:` vec3<|T|>`) -> ` vec3<|T|>
+    <td>|T| 是 AbstractFloat, f32, or f16
+    <td class="nowrap">`@const fn`<br>`cross(`|e1|`:` vec3<|T|> `, `|e2|`:` vec3<|T|>`) -> ` vec3<|T|>
     <td>返回 |e1| 和 |e2| 的叉积。 (GLSLstd450Cross)
 
   <tr algorithm="degrees">
-    <td>|T| is [FLOATING]
-    <td class="nowrap">`degrees(`|e1|`:` |T| `) -> ` |T|
-    <td>Converts radians to degrees, approximating |e1|&nbsp;&times;&nbsp;180&nbsp;&div;&nbsp;&pi;.
-    [=Component-wise=] when |T| is a vector<br>
-    (GLSLstd450Degrees)
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`degrees(`|e1|`:` |T| `) -> ` |T|
+    <td>将弧度转换为度，近似 |e1|&nbsp;&times;&nbsp;180&nbsp;&div;&nbsp;&pi;.
+    [=Component-wise=] 当 |T| 是一个向量。<br>
 
   <tr algorithm="distance">
-    <td>|T| 是 [FLOATING]
-    <td class="nowrap">`distance(`|e1|`:` |T| `, `|e2|`:` |T| `) -> ` f32
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`distance(`|e1|`:` |T| `, `|e2|`:` |T| `) -> ` f32
     <td>返回 |e1| 和 |e2| 之间的距离（即 `length(`|e1|` - `|e2|`)`）。
-    (GLSLstd450Distance)
 
   <tr algorithm="exp">
-    <td>|T| 是 [FLOATING]
-    <td class="nowrap">`exp(`|e1|`:` |T| `) -> ` |T|
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`exp(`|e1|`:` |T| `) -> ` |T|
     <td>返回 |e1| 的自然求幂 (即 `e`<sup>|e1|</sup>)。
     [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450Exp)
 
   <tr algorithm="exp2">
-    <td>|T| is [FLOATING]
-    <td class="nowrap">`exp2(`|e|`:` |T| `) -> ` |T|
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`exp2(`|e|`:` |T| `) -> ` |T|
     <td>Returns 2 raised to the power |e| (e.g. `2`<sup>|e|</sup>).
     [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450Exp2)
 
   <tr algorithm="faceForward">
-    <td>|T| 是 vec|N|&lt;f32&gt;
-    <td class="nowrap">`faceForward(`|e1|`:` |T| `, `|e2|`:` |T| `, `|e3|`:` |T| `) -> ` |T|
-    <td>如果 `dot(`|e2|`,`|e3|`)` 是负的返回 |e1|, 否则返回 `-`|e1| 。
-    (GLSLstd450FaceForward)
+    <td>|T| 是 vec|N|&lt;AbstractFloat&gt;, vec|N|&lt;f32&gt;, 或 vec|N|&lt;f16&gt;
+    <td class="nowrap">`@const fn`<br>`faceForward(`|e1|`:` |T| `, `|e2|`:` |T| `, `|e3|`:` |T| `) -> ` |T|
+    <td>如果 `dot(`|e2|`,`|e3|`)` 是负的返回 |e1|, 否则返回 `-`|e1|。
 
   <tr algorithm="floor">
-    <td>|T| 是 [FLOATING]
-    <td class="nowrap">`floor(`|e|`:` |T| `) -> ` |T|
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`floor(`|e|`:` |T| `) -> ` |T|
     <td>返回 |e| 的向下取整 [=floor expression|floor=]。
     [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450Floor)
 
   <tr algorithm="fma">
-    <td>|T| 是 [FLOATING]
-    <td class="nowrap">`fma(`|e1|`:` |T| `, `|e2|`:` |T| `, `|e3|`:` |T| `) -> ` |T|
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`fma(`|e1|`:` |T| `, `|e2|`:` |T| `, `|e3|`:` |T| `) -> ` |T|
     <td>返回 |e1| `*` |e2| `+` |e3|.
     [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450Fma)
 
   <tr algorithm="fract">
-    <td>|T| 是 [FLOATING]
-    <td class="nowrap">`fract(`|e|`:` |T| `) -> ` |T|
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`fract(`|e|`:` |T| `) -> ` |T|
     <td>返回|e| 的小数部分，计算为|e| `- floor（`|e|`）`。<br>
     [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450Fract)
 
-  <tr algorithm="scalar case, frexp">
+  <tr algorithm="scalar case, binary32, frexp">
     <td>|T| 是 f32
-    <td class="nowrap">`frexp(`|e|`: `|T|`) -> __frexp_result`<br>
+    <td class="nowrap">`@const fn`<br>`frexp(`|e|`: `|T|`) -> __frexp_result`<br>
     <td>拆分 |e| 转换为 `significand * 2`<sup>`exponent`</sup>形式的有效数和指数。
-    返回 `__frexp_result` 内置结构，定义为：
+    返回 `__frexp_result` 内置结构, 定义如下:
     ```rust
 struct __frexp_result {
-  sig : f32; // significand part
-  exp : i32; // exponent part
+  sig : f32, // significand part
+  exp : i32  // exponent part
 }
     ```
     有效数的大小在 [0.5, 1.0) 或 0 的范围内。
 
     注意：一个值不能用类型 `__frexp_result` 显式声明，但一个值可以推断类型。
     <div class='example wgsl function-scope' heading='frexp usage'>
-    <xmp>
+    <xmp highlight='rust'>
      // 推断结果类型
      let sig_and_exp = frexp(1.5);
      // 设置 fraction_direct 的值为 0.75
@@ -8479,148 +9306,192 @@ struct __frexp_result {
     </div>
     (GLSLstd450FrexpStruct)
 
-  <tr algorithm="vector case, frexp">
+  <tr algorithm="scalar case, binary16, frexp">
+    <td>|T| 是 f16
+    <td class="nowrap">`@const fn frexp(`|e|`: `|T|`) -> __frexp_result_f16`<br>
+    <td>拆分 |e| 转换为 `significand * 2`<sup>`exponent`</sup> 形式的有效数和指数。
+    返回 `__frexp_result_f16` 内置结构，定义如下：
+    ```rust
+struct __frexp_result_f16 {
+  sig : f16, // significand part
+  exp : i32  // exponent part
+}
+    ```
+    有效数字的大小在 [0.5, 1.0) 或 0 的范围内。
+
+    注意：一个值不能用`__freexp_result_f16`类型显式声明，但是一个值可以推断出类型。
+
+  <tr algorithm="vector case, binary32, frexp">
     <td>|T| 是 vec|N|&lt;f32&gt;
-    <td class="nowrap">`frexp(`|e|`: `|T|`) -> __frexp_result_vec`|N|<br>
+    <td class="nowrap">`@const fn`<br>`frexp(`|e|`: `|T|`) -> __frexp_result_vec`|N|<br>
     <td>拆分 |e| 的组件 转换为 `significand * 2`<sup>`exponent`</sup>形式的有效数和指数。
     返回 `__frexp_result_vec`|N| 内置结构，定义为：
     ```rust
 struct __frexp_result_vecN {
-  sig : vecN<f32>; // significand part
-  exp : vecN<i32>; // exponent part
+  sig : vecN<f32>, // significand part
+  exp : vecN<i32> // exponent part
 }
     ```
     有效数的每个分量的大小在 [0.5, 1.0) 或 0 的范围内。
 
     注意：不能用 `__frexp_result_vec`|N| 类型显式声明值，但值可以推断类型。
 
-    (GLSLstd450FrexpStruct)
+  <tr algorithm="vector case, binary16, frexp">
+    <td>|T| 是 vec|N|&lt;f16&gt;
+    <td class="nowrap">`@const fn frexp(`|e|`: `|T|`) -> __frexp_result_vec`|N|`_f16`<br>
+    <td>拆分 |e| 的组件 转换为 `significand * 2`<sup>`exponent`</sup> 形式的有效数和指数。
+    返回 `__frexp_result_vec`|N| 内置结构, 定义如下:
+    ```rust
+struct __frexp_result_vecN_f16 {
+  sig : vecN<f16>, // significand part
+  exp : vecN<i32>  // exponent part
+}
+    ```
+    有效数字的每个分量的大小在 [0.5, 1.0) 或 0 的范围内。
+
+    注意：一个值不能用`__freexp_result_vec`|N|`_f16`类型显式声明，但是一个值可以推断出类型。
 
   <tr algorithm="inverseSqrt">
-    <td>|T| 是 [FLOATING]
-    <td class="nowrap">`inverseSqrt(`|e|`:` |T| `) -> ` |T|
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`inverseSqrt(`|e|`:` |T| `) -> ` |T|
     <td>返回 `sqrt(`|e|`)` 的倒数。
     [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450InverseSqrt)
 
   <tr algorithm="ldexp">
-    <td>|T| 是 [FLOATING]<br>
-        |I| 是 [SIGNEDINTEGRAL]， 其中<br>
+    <td>|T| 是 [ALLFLOATING]<br>
+        |I| 是 [ALLSIGNEDINTEGRAL], 在<br>
         如果 |T| 是标量，那么 |I| 是标量，或者<br>
         当 |T| 是向量，那么 |I| 是向量
-    <td class="nowrap">`ldexp(`|e1|`:` |T| `, `|e2|`:` |I| `) -> ` |T|
+    <td class="nowrap">`@const fn`<br>`ldexp(`|e1|`:` |T| `, `|e2|`:` |I| `) -> ` |T|
     <td>返回 |e1| `* 2`<sup>|e2|</sup>。
     [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450Ldexp)
 
   <tr algorithm="length">
-    <td>|T| 是 [FLOATING]
-    <td class="nowrap">`length(`|e|`:` |T| `) -> ` f32
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`length(`|e|`:` |T| `) -> ` f32
     <td>返回 |e| 的长度 （例如 `abs(`|e|`)` 如果 |T| 是标量，或者 `sqrt(`|e|`[0]`<sup>`2`</sup> `+` |e|` [1]`<sup>`2`</sup> `+ ...)` 如果 |T| 是向量）。
-    (GLSLstd450Length)
 
   <tr algorithm="log">
-    <td>|T| 是 [FLOATING]
-    <td class="nowrap">`log(`|e|`:` |T| `) -> ` |T|
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`log(`|e|`:` |T| `) -> ` |T|
     <td>返回 |e| 的自然对数。
     [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450Log)
 
   <tr algorithm="log2">
-    <td>|T| 是 [FLOATING]
-    <td class="nowrap">`log2(`|e|`:` |T| `) -> ` |T|
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`log2(`|e|`:` |T| `) -> ` |T|
     <td>返回 |e| 的以 2 为底的对数。
     [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450Log2)
 
   <tr algorithm="max">
-    <td>|T| 是 [FLOATING]
-    <td class="nowrap">`max(`|e1|`:` |T| `, `|e2|`:` |T| `) -> ` |T|
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`max(`|e1|`:` |T| `, `|e2|`:` |T| `) -> ` |T|
     <td>返回 |e2| 如果 |e1| 小于 |e2|，且 |e1| 除此以外。
     如果一个操作数是 NaN，则返回另一个操作数。
     如果两个操作数都是 NaN，则返回 NaN。
     [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450NMax)
 
   <tr algorithm="min">
-    <td>|T| 是 [FLOATING]
-    <td class="nowrap">`min(`|e1|`:` |T| `, `|e2|`:` |T| `) -> ` |T|
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`min(`|e1|`:` |T| `, `|e2|`:` |T| `) -> ` |T|
     <td>返回 |e2| 如果|e2| 小于 |e1|，且 |e1| 除此以外。
     如果一个操作数是 NaN，则返回另一个操作数。
     如果两个操作数都是 NaN，则返回 NaN。
     [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450NMin)
 
   <tr algorithm="mix all same type operands">
-    <td>|T| 是 [FLOATING]
-    <td class="nowrap">`mix(`|e1|`:` |T| `, `|e2|`:` |T| `, `|e3|`:` |T|`) -> ` |T|
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`mix(`|e1|`:` |T| `, `|e2|`:` |T| `, `|e3|`:` |T|`) -> ` |T|
     <td>返回 |e1| 和 |e2| 的线性混合（例如 |e1|`*(1-`|e3|`)+`|e2|`*`|e3|）。
     [=Component-wise=] 当 |T| 是一个向量。
     <br>
-    (GLSLstd450FMix)
 
   <tr algorithm="vector mix with scalar blending factor">
-    <td>|T| 是 vec|N|&lt;f32&gt;
-    <td class="nowrap">`mix(`|e1|`:` |T| `, `|e2|`:` |T| `, `|e3|`:` f32 `) -> ` |T|
+    <td>|T| 是 AbstractFloat, f32, or f16<br>
+        |T2| is vec|N|&lt;|T|&gt;
+    <td class="nowrap">`@const fn`<br>`mix(`|e1|`:` |T2| `, `|e2|`:` |T2| `, `|e3|`:` f32 `) -> ` |T|
     <td>返回 |e1| 和 |e2| 的分量线性混合，
     使用标量混合因子 |e3| 对于每个组件。<br>
-    与 `mix(`|e1|`, `|e2|`, `|T|`(`|e3|`))` 相同。
+    与 `mix(`|e1|`, `|e2|`, `|T2|`(`|e3|`))` 相同
 
-  <tr algorithm="scalar case, modf">
+  <tr algorithm="scalar case, binary32, modf">
     <td>|T| 是 f32
-    <td class="nowrap">`modf(`|e|`: `|T|`) -> __modf_result`<br>
+    <td class="nowrap">`@const fn`<br>`modf(`|e|`: `|T|`) -> __modf_result`<br>
     <td>拆分 |e| 分为小数部分和整数部分。
-    返回 `__modf_result` 内置结构，定义为：
+    返回 `__modf_result` 内置结构, 定义如下:
     ```rust
 struct __modf_result {
-  fract : f32; // fractional part
-  whole : f32; // whole part
+  fract : f32, // fractional part
+  whole : f32  // whole part
 }
     ```
 
     注意：一个值不能用 `__modf_result` 类型显式声明，但一个值可以推断类型。
     <div class='example wgsl function-scope' heading='modf usage'>
-    <xmp>
+    <xmp highlight='rust'>
      // 推断结果类型
      let fract_and_whole = modf(1.5);
      // 设置 fract_direct 的值为 0.5
      let fract_direct = modf(1.5).fract;
     </xmp>
     </div>
-    (GLSLstd450ModfStruct)
 
-  <tr algorithm="vector case, modf">
+  <tr algorithm="scalar case, binary16, modf">
+    <td>|T| 是 f16
+    <td class="nowrap">`@const fn modf(`|e|`: `|T|`) -> __modf_result_f16`<br>
+    <td>拆分 |e| 分成小数部分和整数部分。
+    返回 `__modf_result_f16` 内置结构, 定义如下:
+    ```rust
+struct __modf_result_f16 {
+  fract : f16, // fractional part
+  whole : f16  // whole part
+}
+    ```
+
+    注意：一个值不能用 `__modf_result_f16` 类型显式声明，但一个值可以推断类型.
+
+  <tr algorithm="vector case, binary32, modf">
     <td>|T| 是 vec|N|&lt;f32&gt;
-    <td class="nowrap">`modf(`|e|`: `|T|`) -> __modf_result_vec`|N|<br>
-    <td>拆分 |e| 的组件 分为小数部分和整数部分。
+    <td class="nowrap">`@const fn`<br>`modf(`|e|`: `|T|`) -> __modf_result_vec`|N|<br>
+    <td>拆分 |e| 的组件分为小数部分和整数部分。
     返回 `__modf_result_vec`|N| 内置结构，定义为：
     ```rust
 struct __modf_result_vecN {
-  fract : vecN<f32>; // fractional part
-  whole : vecN<f32>; // whole part
+  fract : vecN<f32>, // fractional part
+  whole : vecN<f32>  // whole part
 }
     ```
 
     注意：不能用类型 `__modf_result_vec`|N| 显式声明值，但值可以推断类型。
 
-    (GLSLstd450ModfStruct)
+  <tr algorithm="vector case, binary16, modf">
+    <td>|T| 是 vec|N|&lt;f16&gt;
+    <td class="nowrap">`@const fn modf(`|e|`: `|T|`) -> __modf_result_vec`|N|`_f16`<br>
+    <td>拆分 |e| 的组件 分成小数部分和整数部分.
+    返回 `__modf_result_vec`|N|`_f16` 内置结构, 定义如下:
+    ```rust
+struct __modf_result_vecN_f16 {
+  fract : vecN<f16>, // fractional part
+  whole : vecN<f16>  // whole part
+}
+    ```
+
+注意：一个值不能用`__modf_result_vec`|N|`_f16`类型显式声明，但是一个值可以推断出类型.
 
   <tr algorithm="vector case, normalize">
-    <td>|T| 是 f32
-    <td class="nowrap">`normalize(`|e|`:` vec|N|<|T|> `) -> ` vec|N|<|T|>
+    <td>|T| 是 AbstractFloat, f32, or f16
+    <td class="nowrap">`@const fn`<br>`normalize(`|e|`:` vec|N|<|T|> `) -> ` vec|N|<|T|>
     <td>返回与 |e| 方向相同的单位向量。
-    (GLSLstd450Normalize)
 
   <tr algorithm="pow">
-    <td>|T| 是 [FLOATING]
-    <td class="nowrap">`pow(`|e1|`:` |T| `, `|e2|`:` |T| `) -> ` |T|
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`pow(`|e1|`:` |T| `, `|e2|`:` |T| `) -> ` |T|
     <td>返回 |e1| 提升到 |e2| 的幂。
     [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450Pow)
 
   <tr algorithm="quantize to f16">
-    <td>|T| 是 [FLOATING]
-    <td class="nowrap">`quantizeToF16(`|e|`:` |T| `) -> ` |T|
+    <td>|T| 是 f32 or vec|N|&lt;f32&gt;
+    <td class="nowrap">`@const fn quantizeToF16(`|e|`:` |T| `) -> ` |T|
     <td>量化 32 位浮点值 |e| 好像 |e| 被转换为 [[!IEEE-754|IEEE 754]] binary16 值，
         然后转换回 IEEE 754 binary32 值。<br>
         查看 [[#floating-point-conversion]]。<br>
@@ -8628,104 +9499,87 @@ struct __modf_result_vecN {
 
         注意: vec2&lt;f32&gt; 的情况和 `unpack2x16float(pack2x16float(`|e|`))` 一样。
 
-        (OpQuantizeToF16)
-
   <tr algorithm="radians">
-    <td>|T| is [FLOATING]
-    <td class="nowrap">`radians(`|e1|`:` |T| `) -> ` |T|
-    <td>Converts degrees to radians, approximating |e1|&nbsp;&times;&nbsp;&pi;&nbsp;&div;&nbsp;180.
-    [=Component-wise=] when |T| is a vector<br>
-    (GLSLstd450Radians)
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`radians(`|e1|`:` |T| `) -> ` |T|
+    <td>将度数转换为弧度，近似于 |e1|&nbsp;&times;&nbsp;&pi;&nbsp;&div;&nbsp;180。[=Component-wise=] 当 |T| 是一个向量<br>
 
   <tr algorithm="reflect">
-    <td>|T| 是 vec|N|&lt;f32&gt;
-    <td class="nowrap">`reflect(`|e1|`:` |T| `, `|e2|`:` |T| `) -> ` |T|
+    <td>|T| 是 vec|N|&lt;AbstractFloat&gt;, vec|N|&lt;f32&gt;, or vec|N|&lt;f16&gt;
+    <td class="nowrap">`@const fn`<br>`reflect(`|e1|`:` |T| `, `|e2|`:` |T| `) -> ` |T|
     <td>对于事件向量 |e1| 和表面方向|e2|，返回反射方向 |e1|`-2*dot(`|e2|`,`|e1|`)*`|e2|。
-    (GLSLstd450Reflect)
 
   <tr algorithm="refract">
-    <td>|T| 是 vec|N|&lt;f32&gt;<br>I 是 f32
-    <td class="nowrap">`refract(`|e1|`:` |T| `, `|e2|`:` |T| `, `|e3|`:` |I| `) -> ` |T|
+    <td>|T| 是 vec|N|&lt;|I|&gt;<br>I is AbstractFloat, f32, or f16
+    <td class="nowrap">`@const fn`<br>`refract(`|e1|`:` |T| `, `|e2|`:` |T| `, `|e3|`:` |I| `) -> ` |T|
     <td>对于事件向量 |e1| 和表面法线|e2|，以及折射率比|e3|，
     让 `k = 1.0 - `|e3|` * `|e3|` * (1.0 - dot(`|e2|`, `|e1|`) * dot(`|e2|`, `|e1|`) )`。 如果 `k < 0.0`，则返回
     折射向量 0.0，否则返回折射向量
     |e3|` * `|e1|` - (`|e3|` * dot(`|e2|`, `|e1|`) + sqrt(k)) * `|e2|。
-    (GLSLstd450Refract)
 
   <tr algorithm="round">
-    <td>|T| 是 [FLOATING]
-    <td class="nowrap">`round(`|e|`:` |T| `) -> ` |T|
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`round(`|e|`:` |T| `) -> ` |T|
     <td>返回值是最接近 |e| 的整数 |k|，作为浮点值。<br>
         当 |e| 位于 |k| 和 |k|+1 的中间的整数，
         结果是 |k| 当|k| 是偶数，当 |k| 是奇数时，返回 |k|+1 。<br>
         [=Component-wise=] 当 |T| 是一个向量。
-        (GLSLstd450RoundEven)
 
   <tr algorithm="float sign">
-    <td>|T| 是 [FLOATING]
-    <td class="nowrap">`sign(`|e|`:` |T| `) -> ` |T|
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`sign(`|e|`:` |T| `) -> ` |T|
     <td>返回 |e| 的符号。
     [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450FSign)
 
   <tr algorithm="sin">
-    <td>|T| is [FLOATING]
-    <td class="nowrap">`sin(`|e|`:` |T| `) -> ` |T|
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`sin(`|e|`:` |T| `) -> ` |T|
     <td>返回 |e| 的正弦值。
     [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450Sin)
 
   <tr algorithm="sinh">
-    <td>|T| 是 [FLOATING]
-    <td class="nowrap">`sinh(`|e|`:` |T| `) -> ` |T|
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`sinh(`|e|`:` |T| `) -> ` |T|
     <td>返回 |e| 的双曲正弦值。
     [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450Sinh)
 
-  <tr algorithm="smoothStep">
-    <td>|T| 是 [FLOATING]
-    <td class="nowrap">`smoothStep(`|low|`:` |T| `,` |high|`:` |T| `,` |x|`:` |T| `) -> ` |T|    <td>返回 0 和 1 之间的平滑 Hermite 插值。
+  <tr algorithm="smoothstep">
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`smoothstep(`|low|`:` |T| `,` |high|`:` |T| `,` |x|`:` |T| `) -> ` |T|
     [=Component-wise=] 当 |T| 是一个向量。
     对于标量 |T|，结果为：
         |t| * |t| * (3.0 - 2.0 * |t|),
         where |t| = clamp((|x| - |low|) / (|high| - |low|), 0.0, 1.0).
 
-    (GLSLstd450SmoothStep)
-
   <tr algorithm="sqrt">
-    <td>|T| is [FLOATING]
-    <td class="nowrap">`sqrt(`|e|`:` |T| `) -> ` |T|
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`sqrt(`|e|`:` |T| `) -> ` |T|
     <td>返回 |e| 的平方根。
     [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450Sqrt)
 
   <tr algorithm="step">
-    <td>|T| is [FLOATING]
-    <td class="nowrap">`step(`|edge|`:` |T| `, `|x|`:` |T| `) -> ` |T|
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`step(`|edge|`:` |T| `, `|x|`:` |T| `) -> ` |T|
     <td>如果 |edge| &le;  |x| 返回 1.0 ，否则为 0.0。
     [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450Step)
 
   <tr algorithm="tan">
-    <td>|T| is [FLOATING]
-    <td class="nowrap">`tan(`|e|`:` |T| `) -> ` |T|
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`tan(`|e|`:` |T| `) -> ` |T|
     <td>返回 |e| 的正切。
     [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450Tan)
 
   <tr algorithm="tanh">
-    <td>|T| 是 [FLOATING]
-    <td class="nowrap">`tanh(`|e|`:` |T| `) -> ` |T|
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`tanh(`|e|`:` |T| `) -> ` |T|
     <td>返回 |e| 的双曲正切值。
     [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450Tanh)
 
   <tr algorithm="trunc">
-    <td>|T| 是 [FLOATING]
-    <td class="nowrap">`trunc(`|e|`:` |T| `) -> ` |T|
+    <td>|T| 是 [ALLFLOATING]
+    <td class="nowrap">`@const fn`<br>`trunc(`|e|`:` |T| `) -> ` |T|
     <td>返回最近的绝对值小于或等于 |e| 的整数。
     [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450Trunc)
 </table>
 
 ## 整数内置函数 ## {#integer-builtin-functions}
@@ -8734,44 +9588,36 @@ struct __modf_result_vecN {
   <thead>
     <tr><th>Precondition<th>Conclusion<th>Description
   </thead>
-  <tr algorithm="signed abs">
-    <td>|T| 是 [SIGNEDINTEGRAL]
-    <td class="nowrap">`abs`(|e|: |T| ) -> |T|
+  <tr algorithm="integral abs">
+    <td>[ALLINTEGRALDECL]
+    <td class="nowrap">`@const fn`<br>`abs`(|e|: |T| ) -> |T|
     <td>|e| 的绝对值。
         [=Component-wise=] 当 |T| 是一个向量。
-        如果|e| 计算为最大的负值，则结果为 |e|。
-        (GLSLstd450SAbs)
+        如果 |e| 是有符号整数标量类型，求最大负值，则结果为|e|。
+        如果 |e| 是无符号整数类型，则结果为 |e|。
 
-  <tr algorithm="scalar case, unsigned abs">
-    <td>|T| 是 [UNSIGNEDINTEGRAL]
-    <td class="nowrap">`abs`(|e|: |T| ) -> |T|
-    <td>结果是|e|。 这是为了与带符号整数的 `abs` 对称而提供的。
-    [=Component-wise=] 当 |T| 是一个向量。
-
-  <tr algorithm="unsigned clamp">
-    <td>|T| 是 [UNSIGNEDINTEGRAL]
-    <td class="nowrap">`clamp(`|e|`:` |T| `, ` |low|`:` |T|`, ` |high|`:` |T|`) ->` |T|
+  <tr algorithm="integral clamp">
+    <td>[ALLINTEGRALDECL]
+    <td class="nowrap">`@const fn`<br>`clamp(`|e|`:` |T| `,` |low|`:` |T|`,` |high|`:` |T|`) ->` |T|
     <td>返回 `min(max(`|e|`,`|low|`),`|high|`)`。
     [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450UClamp)
 
   <tr algorithm="signed clamp">
     <td>|T| 是 [SIGNEDINTEGRAL]
-    <td class="nowrap">`clamp(`|e|`:` |T| `, `|low|`:` |T|`, `|high|`:` |T|`) ->` |T|
+    <td class="nowrap">`@const fn`<br>`clamp(`|e|`:` |T| `, `|low|`:` |T|`, `|high|`:` |T|`) ->` |T|
     <td>返回 `min(max(`|e|`,`|low|`),`|high|`)`。
     [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450SClamp)
 
   <tr 算法="count leading zeros">
      <td>|T| 是 [INTEGRAL]
-     <td class="nowrap">`countLeadingZeros(`|e|`:` |T| `) ->` |T|
+     <td class="nowrap">`@const fn`<br>`countLeadingZeros(`|e|`:` |T| `) ->` |T|
      <td>从|e| 的最高位开始的连续0 位的个数，当|T| 时 是标量类型。<br>
          [=Component-wise=] 当 |T| 是一个向量。<br>
          在某些语言中也称为 “clz”。<br>
 
   <tr algorithm="count 1 bits">
     <td>|T| 是 [INTEGRAL]
-    <td class="nowrap">`countOneBits(`|e|`:` |T| `) ->` |T|
+    <td class="nowrap">`@const fn`<br>`countOneBits(`|e|`:` |T| `) ->` |T|
     <td>|e| 的表示中 1 的位数。<br>
         也叫作 "population count"。<br>
         [=Component-wise=] 当 |T| 是一个向量。
@@ -8779,14 +9625,14 @@ struct __modf_result_vecN {
 
   <tr algorithm="count trailing zeroes">
     <td>|T| is [INTEGRAL]
-    <td class="nowrap">`countTrailingZeros(`|e|`:` |T| `) ->` |T|
+    <td class="nowrap">`@const fn`<br>`countTrailingZeros(`|e|`:` |T| `) ->` |T|
     <td>从 |e| 的最低有效位开始的连续 0 位的数量，当 |T| 是标量类型。<br>
         [=Component-wise=] 当 |T| 是矢量。<br>
         在某些语言中也称为 “ctz”.<br>
 
   <tr algorithm="signed find most significant one bit">
     <td>|T| is [SIGNEDINTEGRAL]
-    <td class="nowrap">`firstBitHigh(`|e|`:` |T| `) ->` |T|
+    <td class="nowrap">`@const fn`<br>`firstBitHigh(`|e|`:` |T| `) ->` |T|
     <td>当 |T| 是标量，结果为:
         <ul>
         <li>-1 如果 |e| 是 0 或 -1。
@@ -8799,7 +9645,7 @@ struct __modf_result_vecN {
 
   <tr algorithm="unsigned find most significant one bit">
     <td>|T| is [UNSIGNEDINTEGRAL]
-    <td class="nowrap">`firstBitHigh(`|e|`:` |T| `) ->` |T|
+    <td class="nowrap">`@const fn`<br>`firstBitHigh(`|e|`:` |T| `) ->` |T|
     <td>对于矢量 |T|，结果为:
         <ul>
         <li>|T|(-1) 如果 |e| 是 0。
@@ -8809,7 +9655,7 @@ struct __modf_result_vecN {
 
   <tr algorithm="find least significant one bit">
     <td>|T| is [INTEGRAL]
-    <td class="nowrap">`firstBitLow(`|e|`:` |T| `) ->` |T|
+    <td class="nowrap">`@const fn`<br>`firstBitLow(`|e|`:` |T| `) ->` |T|
     <td>对于矢量 |T|，结果为:
         <ul>
         <li>|T|(-1) 如果 |e| 是 0。
@@ -8819,7 +9665,7 @@ struct __modf_result_vecN {
 
   <tr algorithm="signed extract bits">
     <td>|T| is [SIGNEDINTEGRAL]
-    <td class="nowrap">`extractBits(`<br>&nbsp;|e|`:` |T|`,`<br>&nbsp;|offset|`: u32,`<br>&nbsp;|count|` : u32) ->` |T|
+    <td class="nowrap">`@const fn`<br>`extractBits(`<br>&nbsp;|e|`:` |T|`,`<br>&nbsp;|offset|`: u32,`<br>&nbsp;|count|` : u32) ->` |T|
     <td>从整数中读取位，带符号扩展。
 
     当 |T| 是一个标量，那么:
@@ -8832,11 +9678,11 @@ struct __modf_result_vecN {
         结果的其他位与结果的位|c|-1 相同。
     </ul>
     [=Component-wise=] 当 |T| 为矢量。
-    <br>(OpBitFieldSExtract)
+    <br>
 
   <tr algorithm="unsigned extract bits">
     <td>|T| is [UNSIGNEDINTEGRAL]
-    <td class="nowrap">`extractBits(`<br>&nbsp;|e|`:` |T|`,`<br>&nbsp;|offset|`: u32,`<br>&nbsp;|count|` : u32) ->` |T|
+    <td class="nowrap">`@const fn`<br>`extractBits(`<br>&nbsp;|e|`:` |T|`,`<br>&nbsp;|offset|`: u32,`<br>&nbsp;|count|` : u32) ->` |T|
     <td>从整数中读取位，没有符号扩展。
 
     当 |T| 是一个标量，那么:
@@ -8849,11 +9695,11 @@ struct __modf_result_vecN {
        其他的位为 0.
     </ul>
     [=Component-wise=] 当 |T| 为矢量。
-    <br>(OpBitFieldUExtract)
+    <br>
 
   <tr algorithm="insert bits">
     <td>|T| is [INTEGRAL]
-    <td class="nowrap">`insertBits(`<br>&nbsp;|e|`:` |T|`,`<br>&nbsp;|newbits|`:`|T|`,`<br>&nbsp;|offset|`: u32,`<br>&nbsp;|count|` : u32) ->` |T|
+    <td class="nowrap">`@const fn`<br>`insertBits(`<br>&nbsp;|e|`:` |T|`,`<br>&nbsp;|newbits|`:`|T|`,`<br>&nbsp;|offset|`: u32,`<br>&nbsp;|count|` : u32) ->` |T|
     <td>以整数设置位。
 
     当 |T| 是一个标量，那么:
@@ -8867,42 +9713,52 @@ struct __modf_result_vecN {
        结果的其他位从|e| 复制。
     </ul>
     [=Component-wise=] 当 |T| 为矢量。
-    <br>(OpBitFieldInsert)
+    <br>
 
-  <tr algorithm="unsigned max">
-    <td>|T| 是 [UNSIGNEDINTEGRAL]
-    <td class="nowrap">`max(`|e1|`:` |T| `, `|e2|`:` |T|`) ->` |T|
+  <tr algorithm="integral max">
+    <td>[ALLINTEGRALDECL]
+    <td class="nowrap">`@const fn`<br>`max(`|e1|`:` |T| `, `|e2|`:` |T|`) ->` |T|
     <td>返回 |e2| 如果 |e1| 小于 |e2|， 否则返回 |e1|。
     [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450UMax)
 
-  <tr algorithm="signed max">
-    <td>|T| 是 [SIGNEDINTEGRAL]
-    <td class="nowrap">`max(`|e1|`:` |T| `, `|e2|`:` |T|`) ->` |T|
-    <td>返回 |e2| 如果 |e1| 小于 |e2|，否则返回 |e1|。
-    [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450SMax)
-
-  <tr algorithm="unsigned min">
-    <td>|T| 是 [UNSIGNEDINTEGRAL]
-    <td class="nowrap">`min(`|e1|`:` |T| `, `|e2|`:` |T|`) ->` |T|
-    <td>返回 |e1| 如果 |e1| 小于 |e2|，否则返回 |e2|。
-    [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd450UMin)
-
-  <tr algorithm="signed min">
-    <td>|T| 是 [SIGNEDINTEGRAL]
-    <td class="nowrap">`min(`|e1|`:` |T| `, `|e2|`:` |T|`) ->` |T|
+  <tr algorithm="integral min">
+    <td>[ALLINTEGRALDECL]
+    <td class="nowrap">`@const fn`<br>`min(`|e1|`:` |T| `, `|e2|`:` |T|`) ->` |T|
     <td>返回 |e1| 如果 |e1| 小于 |e2|， 否则返回 |e2|。
     [=Component-wise=] 当 |T| 是一个向量。
-    (GLSLstd45SUMin)
 
   <tr algorithm="bit reversal">
     <td>|T| 是 [INTEGRAL]
-    <td class="nowrap">`reverseBits(`|e|`:` |T| `) ->`  |T|
+    <td class="nowrap">`@const fn`<br>`reverseBits(`|e|`:` |T| `) ->`  |T|
     <td>反转 |e| 中的位：结果的位置 |k| 处的位 等于 |e| 的位置 31-|k| 处的位。<br>
         [=Component-wise=] 当 |T| 是一个向量。
-        (SPIR-V OpBitReverse)
+  
+    <tr algorithm="shift left">
+    <td>[ALLINTEGRALDECL]<br>
+    |TS| 如果 |T| 是 AbstractInt 或 u32 是标量，或<br>
+    vec|N|&lt;AbstractInt&gt;, or vec|N|&lt;u32&gt; 否则
+    <td class="nowrap">`@const fn shiftLeft(`|e1|`:` |T|`,` |e2|`:` |TS|`) ->` |T|
+    <td>逻辑左移。<br>
+    换档 |e1| 左，在最低有效位插入零位，并丢弃最高有效位。
+
+    要移位的位数是|e2| 的值。
+    如果 |e1| 具有 [=concrete=] 类型，移位值以 |e1| 的位宽为模。<br> [=Component-wise=] 当 |T| 是一个向量。
+
+    如果 |e2| 是 [=AbstractInt=] 或 vec|N|<AbstractInt>，它是 [=着色器创建错误=] 如果任何值小于 0。
+
+  <tr algorithm="shift right">
+    <td>[ALLINTEGRALDECL]>br>
+    |TS| 如果 |T| 是 AbstractInt 或 u32 是标量，或<br>
+    vec|N|&lt;AbstractInt&gt;, 或 vec|N|&lt;u32&gt; otherwise
+    <td class="nowrap">`@const fn shiftRight(`|e1|`:` |T|`,` |e2|`:` |TS|`) ->` |T|
+    <td>逻辑右移<br>
+    如果 |e1| 有符号，移位 |e1| 对，在最高有效位插入零位，并丢弃最低有效位。
+    如果 |e1| 无符号，移位 |e1| 对，复制|e1| 的符号位 进入最高有效位，并丢弃最低有效位。
+
+    要移位的位数是|e2| 的值。
+    如果 |e1| 具有 [=concrete=] 类型，移位值以 |e1| 的位宽为模。<br> [=Component-wise=] 当 |T| 是一个向量。
+
+    如果 |e2| 是 [=AbstractInt=] 或 vec|N|<AbstractInt>，它是 [=着色器创建错误=] 如果任何值小于 0。
 </table>
 
 ## 矩阵内置函数 ## {#matrix-builtin-functions}
@@ -8911,15 +9767,13 @@ struct __modf_result_vecN {
     <tr><th>前提条件<th>结果<th>描述
   </thead>
   <tr algorithm="determinant">
-    <td>|T| 是 f32
-    <td class="nowrap">`determinant(`|e|`:` mat|N|x|N|<|T|> `) -> ` |T|
+    <td>|T| is AbstractFloat, f32, or f16
+    <td class="nowrap">`determinant(`|e|`:` mat|C|x|C|<|T|> `) -> ` |T|
     <td>返回 |e| 的行列式。
-    (GLSLstd450Determinant)
   <tr algorithm="transpose">
-    <td>|T| 是 f32
-    <td class="nowrap">`transpose(`|e|`:` mat|M|x|N|<|T|> `) -> ` mat|N|x|M|<|T|>
+    <td>|T| is AbstractFloat, f32, or f16
+    <td class="nowrap">`transpose(`|e|`:` mat|R|x|C|<|T|> `) -> ` mat|C|x|R|<|T|>
     <td>返回 |e| 的转置。
-    (OpTranspose)
 </table>
 
 ## 向量内置函数 ## {#vector-builtin-functions}
@@ -8928,18 +9782,9 @@ struct __modf_result_vecN {
   <thead>
     <tr><th>Parameterization<td>Overload<td>Description
   </thead>
-  <tr algorithm="float dot"><td>|T| is f32
-    <td>`dot(`|e1|`: vecN<`|T|`>, `|e2|`: vecN<`|T|`>) ->` |T|
-    <td>Returns the dot product of |e1| and |e2|.
-    (OpDot)
-  <tr algorithm="signed dot"><td>|T| is i32
-    <td>`dot(`|e1|`: vecN<`|T|`>, `|e2|`: vecN<`|T|`>) ->` |T|
-    <td>Returns the dot product of |e1| and |e2|.
-    (SPV_KHR_integer_dot_product OpSDotKHR)
-  <tr algorithm="unsigned dot"><td>|T| is u32
-    <td>`dot(`|e1|`: vecN<`|T|`>, `|e2|`: vecN<`|T|`>) ->` |T|
-    <td>Returns the dot product of |e1| and |e2|.
-    (SPV_KHR_integer_dot_product OpUDotKHR)
+  <tr algorithm="dot"><td>|T| 是 AbstractInt, AbstractFloat, i32, u32, f32, 或 f16
+    <td class="nowrap">`@const fn`<br>`dot(`|e1|`: vecN<`|T|`>, `|e2|`: vecN<`|T|`>) ->` |T|
+    <td>返回 |e1| 和 |e2| 的点积.
 </table>
 
 ## 倒数内置函数 ## {#derivative-builtin-functions}
@@ -8948,7 +9793,7 @@ struct __modf_result_vecN {
 
 这些函数:
 * 只能在 [=fragment=] 着色器阶段使用。
-* 只能在统一控制流中调用。
+* 只能在 [=uniform control flow=] 中调用。
 
 <table class='data'>
   <thead>
@@ -8956,45 +9801,36 @@ struct __modf_result_vecN {
   </thead>
   <tr algorithm="dpdx">
   <td rowspan=9>|T| 是 f32 或 vecN&lt;f32&gt;
-    <td>`dpdx(`|e|`: `|T|`) ->` |T|
+    <td class="nowrap">`fn dpdx(`|e|`: `|T|`) ->` |T|
     <td>|e| 的偏导数对应窗口 x 的坐标。
     结果与 `dpdxFine(`|e|`)` 或 `dpdxCoarse(`|e|`)` 相同。
-    (OpDPdx)
   <tr algorithm="dpdxCoarse">
-    <td>`dpdxCoarse(`|e|`: `|T|`) -> `|T|
+    <td class="nowrap">`fn dpdxCoarse(`|e|`: `|T|`) -> `|T|
     <td>返回 |e| 的偏导数相对于窗口 x 坐标，使用局部差异。
      这可能会导致比 `dpdxFine(`|e|`)` 更少的独特位置。
-    (OpDPdxCoarse)
   <tr algorithm="dpdxFine">
-    <td>`dpdxFine(`|e|`: `|T|`) -> `|T|
+    <td class="nowrap">`fn dpdxFine(`|e|`: `|T|`) -> `|T|
     <td>返回 |e| 的偏导数相对于窗口 x 坐标。
-    (OpDPdxFine)
   <tr algorithm="dpdy">
-    <td>`dpdy(`|e|`: `|T|`) -> `|T|
+    <td class="nowrap">`fn dpdy(`|e|`: `|T|`) -> `|T|
     <td>返回 |e| 的偏导数相对于窗口 y 坐标。
     结果与 `dpdyFine(`|e|`)` 或 `dpdyCoarse(`|e|`)` 相同。
-    (OpDPdy)
   <tr algorithm="dpdyCoarse">
-    <td>`dpdyCoarse(`|e|`: `|T|`) -> `|T|
+    <td class="nowrap">`fn dpdyCoarse(`|e|`: `|T|`) -> `|T|
     <td>返回 |e| 的偏导数相对于窗口 y 坐标，使用局部差异。
     这可能会导致比 `dpdyFine(`|e|`)` 更少的独特位置。
-    (OpDPdyCoarse)
   <tr algorithm="dpdyFine">
-    <td>`dpdyFine(`|e|`: `|T|`) -> `|T|
+    <td class="nowrap">`fn dpdyFine(`|e|`: `|T|`) -> `|T|
     <td>返回 |e| 的偏导数相对于窗口y坐标。
-    (OpDPdyFine)
   <tr algorithm="fwidth">
-    <td>`fwidth(`|e|`: `|T|`) -> `|T|
+    <td class="nowrap">`fn fwidth(`|e|`: `|T|`) -> `|T|
     <td>返回 `abs(dpdx(`|e|`)) + abs(dpdy(`|e|`))`.
-    (OpFwidth)
   <tr algorithm="fwidthCoarse">
-    <td>`fwidthCoarse(`|e|`: `|T|`) -> `|T|
+    <td class="nowrap">`fn fwidthCoarse(`|e|`: `|T|`) -> `|T|
     <td>返回 `abs(dpdxCoarse(`|e|`)) + abs(dpdyCoarse(`|e|`))`.
-    (OpFwidthCoarse)
   <tr algorithm="fwidthFine">
-    <td>`fwidthFine(`|e|`: `|T|`) -> `|T|
+    <td class="nowrap">`fn fwidthFine(`|e|`: `|T|`) -> `|T|
     <td>返回 `abs(dpdxFine(`|e|`)) + abs(dpdyFine(`|e|`))`.
-    (OpFwidthFine)
 </table>
 
 ## 纹理内置函数 ## {#texture-builtin-functions}
@@ -9011,33 +9847,33 @@ struct __modf_result_vecN {
 返回纹理的尺寸，或以 texels 为单位的纹理的 mip 级别。
 
 ```rust
-textureDimensions(t: texture_1d<T>) -> i32
-textureDimensions(t: texture_1d<T>, level: i32) -> i32
-textureDimensions(t: texture_2d<T>) -> vec2<i32>
-textureDimensions(t: texture_2d<T>, level: i32) -> vec2<i32>
-textureDimensions(t: texture_2d_array<T>) -> vec2<i32>
-textureDimensions(t: texture_2d_array<T>, level: i32) -> vec2<i32>
-textureDimensions(t: texture_3d<T>) -> vec3<i32>
-textureDimensions(t: texture_3d<T>, level: i32) -> vec3<i32>
-textureDimensions(t: texture_cube<T>) -> vec2<i32>
-textureDimensions(t: texture_cube<T>, level: i32) -> vec2<i32>
-textureDimensions(t: texture_cube_array<T>) -> vec2<i32>
-textureDimensions(t: texture_cube_array<T>, level: i32) -> vec2<i32>
-textureDimensions(t: texture_multisampled_2d<T>)-> vec2<i32>
-textureDimensions(t: texture_depth_2d) -> vec2<i32>
-textureDimensions(t: texture_depth_2d, level: i32) -> vec2<i32>
-textureDimensions(t: texture_depth_2d_array) -> vec2<i32>
-textureDimensions(t: texture_depth_2d_array, level: i32) -> vec2<i32>
-textureDimensions(t: texture_depth_cube) -> vec2<i32>
-textureDimensions(t: texture_depth_cube, level: i32) -> vec2<i32>
-textureDimensions(t: texture_depth_cube_array) -> vec2<i32>
-textureDimensions(t: texture_depth_cube_array, level: i32) -> vec2<i32>
-textureDimensions(t: texture_depth_multisampled_2d)-> vec2<i32>
-textureDimensions(t: texture_storage_1d<F,A>) -> i32
-textureDimensions(t: texture_storage_2d<F,A>) -> vec2<i32>
-textureDimensions(t: texture_storage_2d_array<F,A>) -> vec2<i32>
-textureDimensions(t: texture_storage_3d<F,A>) -> vec3<i32>
-textureDimensions(t: texture_external) -> vec2<i32>
+fn textureDimensions(t: texture_1d<T>) -> i32
+fn textureDimensions(t: texture_1d<T>, level: i32) -> i32
+fn textureDimensions(t: texture_2d<T>) -> vec2<i32>
+fn textureDimensions(t: texture_2d<T>, level: i32) -> vec2<i32>
+fn textureDimensions(t: texture_2d_array<T>) -> vec2<i32>
+fn textureDimensions(t: texture_2d_array<T>, level: i32) -> vec2<i32>
+fn textureDimensions(t: texture_3d<T>) -> vec3<i32>
+fn textureDimensions(t: texture_3d<T>, level: i32) -> vec3<i32>
+fn textureDimensions(t: texture_cube<T>) -> vec2<i32>
+fn textureDimensions(t: texture_cube<T>, level: i32) -> vec2<i32>
+fn textureDimensions(t: texture_cube_array<T>) -> vec2<i32>
+fn textureDimensions(t: texture_cube_array<T>, level: i32) -> vec2<i32>
+fn textureDimensions(t: texture_multisampled_2d<T>)-> vec2<i32>
+fn textureDimensions(t: texture_depth_2d) -> vec2<i32>
+fn textureDimensions(t: texture_depth_2d, level: i32) -> vec2<i32>
+fn textureDimensions(t: texture_depth_2d_array) -> vec2<i32>
+fn textureDimensions(t: texture_depth_2d_array, level: i32) -> vec2<i32>
+fn textureDimensions(t: texture_depth_cube) -> vec2<i32>
+fn textureDimensions(t: texture_depth_cube, level: i32) -> vec2<i32>
+fn textureDimensions(t: texture_depth_cube_array) -> vec2<i32>
+fn textureDimensions(t: texture_depth_cube_array, level: i32) -> vec2<i32>
+fn textureDimensions(t: texture_depth_multisampled_2d)-> vec2<i32>
+fn textureDimensions(t: texture_storage_1d<F,A>) -> i32
+fn textureDimensions(t: texture_storage_2d<F,A>) -> vec2<i32>
+fn textureDimensions(t: texture_storage_2d_array<F,A>) -> vec2<i32>
+fn textureDimensions(t: texture_storage_3d<F,A>) -> vec3<i32>
+fn textureDimensions(t: texture_external) -> vec2<i32>
 ```
 
 **参数:**
@@ -9089,18 +9925,18 @@ TODO：四个纹素是 WebGPU 规范应描述的“样本足迹”。
 https://github.com/gpuweb/gpuweb/issues/2343
 
 ```rust
-textureGather(component: i32, t: texture_2d<T>, s: sampler, coords: vec2<f32>) -> vec4<T>
-textureGather(component: i32, t: texture_2d<T>, s: sampler, coords: vec2<f32>, offset: vec2<i32>) -> vec4<T>
-textureGather(component: i32, t: texture_2d_array<T>, s: sampler, coords: vec2<f32>, array_index: i32) -> vec4<T>
-textureGather(component: i32, t: texture_2d_array<T>, s: sampler, coords: vec2<f32>, array_index: i32, offset: vec2<i32>) -> vec4<T>
-textureGather(component: i32, t: texture_cube<T>, s: sampler, coords: vec3<f32>) -> vec4<T>
-textureGather(component: i32, t: texture_cube_array<T>, s: sampler, coords: vec3<f32>, array_index: i32) -> vec4<T>
-textureGather(t: texture_depth_2d, s: sampler, coords: vec2<f32>) -> vec4<f32>
-textureGather(t: texture_depth_2d, s: sampler, coords: vec2<f32>, offset: vec2<i32>) -> vec4<f32>
-textureGather(t: texture_depth_2d_array, s: sampler, coords: vec2<f32>, array_index: i32) -> vec4<f32>
-textureGather(t: texture_depth_2d_array, s: sampler, coords: vec2<f32>, array_index: i32, offset: vec2<i32>) -> vec4<f32>
-textureGather(t: texture_depth_cube, s: sampler, coords: vec3<f32>) -> vec4<f32>
-textureGather(t: texture_depth_cube_array, s: sampler, coords: vec3<f32>, array_index: i32) -> vec4<f32>
+fn textureGather(component: i32, t: texture_2d<T>, s: sampler, coords: vec2<f32>) -> vec4<T>
+fn textureGather(component: i32, t: texture_2d<T>, s: sampler, coords: vec2<f32>, offset: vec2<i32>) -> vec4<T>
+fn textureGather(component: i32, t: texture_2d_array<T>, s: sampler, coords: vec2<f32>, array_index: i32) -> vec4<T>
+fn textureGather(component: i32, t: texture_2d_array<T>, s: sampler, coords: vec2<f32>, array_index: i32, offset: vec2<i32>) -> vec4<T>
+fn textureGather(component: i32, t: texture_cube<T>, s: sampler, coords: vec3<f32>) -> vec4<T>
+fn textureGather(component: i32, t: texture_cube_array<T>, s: sampler, coords: vec3<f32>, array_index: i32) -> vec4<T>
+fn textureGather(t: texture_depth_2d, s: sampler, coords: vec2<f32>) -> vec4<f32>
+fn textureGather(t: texture_depth_2d, s: sampler, coords: vec2<f32>, offset: vec2<i32>) -> vec4<f32>
+fn textureGather(t: texture_depth_2d_array, s: sampler, coords: vec2<f32>, array_index: i32) -> vec4<f32>
+fn textureGather(t: texture_depth_2d_array, s: sampler, coords: vec2<f32>, array_index: i32, offset: vec2<i32>) -> vec4<f32>
+fn textureGather(t: texture_depth_cube, s: sampler, coords: vec3<f32>) -> vec4<f32>
+fn textureGather(t: texture_depth_cube_array, s: sampler, coords: vec3<f32>, array_index: i32) -> vec4<f32>
 ```
 
 **参数:**
@@ -9109,9 +9945,7 @@ textureGather(t: texture_depth_cube_array, s: sampler, coords: vec3<f32>, array_
   <tr><td>`component`<td>
   仅适用于非深度纹理。
   <br>从所选纹素读取的通道索引。
-  <br>提供时，`component` 表达式必须是:
-    * 一个 `const_expression` 表达式（例如 `1`）。<br>
-    * 一个 [=module scope|module-scope=]的 [=let declaration] 的名称
+  <br>When provided, the `component` expression must a [=creation-time expression=] (e.g. `1`).<br>
   它的值必须至少为 0，最多为 3。
   超出此范围的值将导致 [=shader-creation error=]。
   <tr><td>`t`<td>
@@ -9135,7 +9969,7 @@ textureGather(t: texture_depth_cube_array, s: sampler, coords: vec3<f32>, array_
 一个四元素向量，其分量从选定的纹素的指定通道中提取，如上所述。
 
 <div class='example wgsl global-scope' heading="Gather components from texels in 2D texture">
-  <xmp>
+  <xmp highlight='rust'>
     @group(0) @binding(0) var t: texture_2d<f32>;
     @group(0) @binding(1) var dt: texture_depth_2d;
     @group(0) @binding(2) var s: sampler;
@@ -9175,12 +10009,12 @@ textureGather(t: texture_depth_cube_array, s: sampler, coords: vec3<f32>, array_
         </table>
 
 ```rust
-textureGatherCompare(t: texture_depth_2d, s: sampler_comparison, coords: vec2<f32>, depth_ref: f32) -> vec4<f32>
-textureGatherCompare(t: texture_depth_2d, s: sampler_comparison, coords: vec2<f32>, depth_ref: f32, offset: vec2<i32>) -> vec4<f32>
-textureGatherCompare(t: texture_depth_2d_array, s: sampler_comparison, coords: vec2<f32>, array_index: i32, depth_ref: f32) -> vec4<f32>
-textureGatherCompare(t: texture_depth_2d_array, s: sampler_comparison, coords: vec2<f32>, array_index: i32, depth_ref: f32, offset: vec2<i32>) -> vec4<f32>
-textureGatherCompare(t: texture_depth_cube, s: sampler_comparison, coords: vec3<f32>, depth_ref: f32) -> vec4<f32>
-textureGatherCompare(t: texture_depth_cube_array, s: sampler_comparison, coords: vec3<f32>, array_index: i32, depth_ref: f32) -> vec4<f32>
+fn textureGatherCompare(t: texture_depth_2d, s: sampler_comparison, coords: vec2<f32>, depth_ref: f32) -> vec4<f32>
+fn textureGatherCompare(t: texture_depth_2d, s: sampler_comparison, coords: vec2<f32>, depth_ref: f32, offset: vec2<i32>) -> vec4<f32>
+fn textureGatherCompare(t: texture_depth_2d_array, s: sampler_comparison, coords: vec2<f32>, array_index: i32, depth_ref: f32) -> vec4<f32>
+fn textureGatherCompare(t: texture_depth_2d_array, s: sampler_comparison, coords: vec2<f32>, array_index: i32, depth_ref: f32, offset: vec2<i32>) -> vec4<f32>
+fn textureGatherCompare(t: texture_depth_cube, s: sampler_comparison, coords: vec3<f32>, depth_ref: f32) -> vec4<f32>
+fn textureGatherCompare(t: texture_depth_cube_array, s: sampler_comparison, coords: vec3<f32>, array_index: i32, depth_ref: f32) -> vec4<f32>
 ```
 **Parameters:**
 
@@ -9197,10 +10031,8 @@ textureGatherCompare(t: texture_depth_cube_array, s: sampler_comparison, coords:
   The reference value to compare the sampled depth value against.
   <tr><td>`offset`<td>
 在对纹理进行采样之前应用于未归一化纹理坐标的可选纹理像素偏移。 在应用任何纹理环绕模式之前应用此偏移量。<br>
-   `offset` 表达式必须是：
-     * 一个 `const_expression` 表达式（例如 `vec2<i32>(1, 2)`）。<br>
-     * 一个 [=module scope|module-scope=]的 [=let declaration] 的名称。
-        每个 `offset` 组件必须至少为 `-8`，最多为 `7`。 超出此范围的值将导致 [=shader-creation error=]。
+  The `offset` expression must be a [=creation-time expression=] (e.g. `vec2<i32>(1, 2)`).<br>
+  每个 `offset` 组件必须至少为 `-8`，最多为 `7`。 超出此范围的值将导致 [=shader-creation error=]。
 </table>
 
 **返回:**
@@ -9208,7 +10040,7 @@ textureGatherCompare(t: texture_depth_cube_array, s: sampler_comparison, coords:
 如上所述，具有所选纹素的比较结果的四元素向量。
 
 <div class='example wgsl global-scope' heading="Gather depth comparison">
-  <xmp>
+  <xmp highlight='rust'>
     @group(0) @binding(0) var dt: texture_depth_2d;
     @group(0) @binding(1) var s: sampler;
 
@@ -9224,15 +10056,15 @@ textureGatherCompare(t: texture_depth_cube_array, s: sampler_comparison, coords:
 从纹理中读取单个纹素，无需采样或过滤。
 
 ```rust
-textureLoad(t: texture_1d<T>, coords: i32, level: i32) -> vec4<T>
-textureLoad(t: texture_2d<T>, coords: vec2<i32>, level: i32) -> vec4<T>
-textureLoad(t: texture_2d_array<T>, coords: vec2<i32>, array_index: i32, level: i32) -> vec4<T>
-textureLoad(t: texture_3d<T>, coords: vec3<i32>, level: i32) -> vec4<T>
-textureLoad(t: texture_multisampled_2d<T>, coords: vec2<i32>, sample_index: i32)-> vec4<T>
-textureLoad(t: texture_depth_2d, coords: vec2<i32>, level: i32) -> f32
-textureLoad(t: texture_depth_2d_array, coords: vec2<i32>, array_index: i32, level: i32) -> f32
-textureLoad(t: texture_depth_multisampled_2d, coords: vec2<i32>, sample_index: i32)-> f32
-textureLoad(t: texture_external, coords: vec2<i32>) -> vec4<f32>
+fn textureLoad(t: texture_1d<T>, coords: i32, level: i32) -> vec4<T>
+fn textureLoad(t: texture_2d<T>, coords: vec2<i32>, level: i32) -> vec4<T>
+fn textureLoad(t: texture_2d_array<T>, coords: vec2<i32>, array_index: i32, level: i32) -> vec4<T>
+fn textureLoad(t: texture_3d<T>, coords: vec3<i32>, level: i32) -> vec4<T>
+fn textureLoad(t: texture_multisampled_2d<T>, coords: vec2<i32>, sample_index: i32)-> vec4<T>
+fn textureLoad(t: texture_depth_2d, coords: vec2<i32>, level: i32) -> f32
+fn textureLoad(t: texture_depth_2d_array, coords: vec2<i32>, array_index: i32, level: i32) -> f32
+fn textureLoad(t: texture_depth_multisampled_2d, coords: vec2<i32>, sample_index: i32)-> f32
+fn textureLoad(t: texture_external, coords: vec2<i32>) -> vec4<f32>
 ```
 
 **参数:**
@@ -9271,11 +10103,11 @@ textureLoad(t: texture_external, coords: vec2<i32>) -> vec4<f32>
 返回数组纹理的层数（元素数）。
 
 ```rust
-textureNumLayers(t: texture_2d_array<T>) -> i32
-textureNumLayers(t: texture_cube_array<T>) -> i32
-textureNumLayers(t: texture_depth_2d_array) -> i32
-textureNumLayers(t: texture_depth_cube_array) -> i32
-textureNumLayers(t: texture_storage_2d_array<F,A>) -> i32
+fn textureNumLayers(t: texture_2d_array<T>) -> i32
+fn textureNumLayers(t: texture_cube_array<T>) -> i32
+fn textureNumLayers(t: texture_depth_2d_array) -> i32
+fn textureNumLayers(t: texture_depth_cube_array) -> i32
+fn textureNumLayers(t: texture_storage_2d_array<F,A>) -> i32
 ```
 
 **参数:**
@@ -9289,7 +10121,7 @@ textureNumLayers(t: texture_storage_2d_array<F,A>) -> i32
 
 **返回:**
 
-如果数组纹理的层数（元素数）。
+数组纹理的层数（元素）。
 
 
 ### `textureNumLevels` ### {#texturenumlevels}
@@ -9297,16 +10129,16 @@ textureNumLayers(t: texture_storage_2d_array<F,A>) -> i32
 返回纹理的 mip 级别数。
 
 ```rust
-textureNumLevels(t: texture_1d<T>) -> i32
-textureNumLevels(t: texture_2d<T>) -> i32
-textureNumLevels(t: texture_2d_array<T>) -> i32
-textureNumLevels(t: texture_3d<T>) -> i32
-textureNumLevels(t: texture_cube<T>) -> i32
-textureNumLevels(t: texture_cube_array<T>) -> i32
-textureNumLevels(t: texture_depth_2d) -> i32
-textureNumLevels(t: texture_depth_2d_array) -> i32
-textureNumLevels(t: texture_depth_cube) -> i32
-textureNumLevels(t: texture_depth_cube_array) -> i32
+fn textureNumLevels(t: texture_1d<T>) -> i32
+fn textureNumLevels(t: texture_2d<T>) -> i32
+fn textureNumLevels(t: texture_2d_array<T>) -> i32
+fn textureNumLevels(t: texture_3d<T>) -> i32
+fn textureNumLevels(t: texture_cube<T>) -> i32
+fn textureNumLevels(t: texture_cube_array<T>) -> i32
+fn textureNumLevels(t: texture_depth_2d) -> i32
+fn textureNumLevels(t: texture_depth_2d_array) -> i32
+fn textureNumLevels(t: texture_depth_cube) -> i32
+fn textureNumLevels(t: texture_depth_cube_array) -> i32
 ```
 
 **参数:**
@@ -9318,7 +10150,7 @@ textureNumLevels(t: texture_depth_cube_array) -> i32
 
 **返回:**
 
-如果纹理的 mip 级别数。
+纹理的 mip 级别数。
 
 
 ### `textureNumSamples` ### {#texturenumsamples}
@@ -9341,39 +10173,40 @@ textureNumSamples(t: texture_depth_multisampled_2d) -> i32
 
 如果多重采样纹理中每个纹素的样本数。
 
+多重采样纹理中每个纹素的采样数。
 
 ### `textureSample` ### {#texturesample}
 
 采样纹理。
 
 只能在 [=fragment=] 着色器阶段使用。
-只能在统一控制流中调用。
+只能在 [=uniform control flow=] 中调用。
 
 ```rust
-textureSample(t: texture_1d<f32>, s: sampler, coords: f32) -> vec4<f32>
-textureSample(t: texture_2d<f32>, s: sampler, coords: vec2<f32>) -> vec4<f32>
-textureSample(t: texture_2d<f32>, s: sampler, coords: vec2<f32>, offset: vec2<i32>) -> vec4<f32>
-textureSample(t: texture_2d_array<f32>, s: sampler, coords: vec2<f32>, array_index: i32) -> vec4<f32>
-textureSample(t: texture_2d_array<f32>, s: sampler, coords: vec2<f32>, array_index: i32, offset: vec2<i32>) -> vec4<f32>
-textureSample(t: texture_3d<f32>, s: sampler, coords: vec3<f32>) -> vec4<f32>
-textureSample(t: texture_3d<f32>, s: sampler, coords: vec3<f32>, offset: vec3<i32>) -> vec4<f32>
-textureSample(t: texture_cube<f32>, s: sampler, coords: vec3<f32>) -> vec4<f32>
-textureSample(t: texture_cube_array<f32>, s: sampler, coords: vec3<f32>, array_index: i32) -> vec4<f32>
-textureSample(t: texture_depth_2d, s: sampler, coords: vec2<f32>) -> f32
-textureSample(t: texture_depth_2d, s: sampler, coords: vec2<f32>, offset: vec2<i32>) -> f32
-textureSample(t: texture_depth_2d_array, s: sampler, coords: vec2<f32>, array_index: i32) -> f32
-textureSample(t: texture_depth_2d_array, s: sampler, coords: vec2<f32>, array_index: i32, offset: vec2<i32>) -> f32
-textureSample(t: texture_depth_cube, s: sampler, coords: vec3<f32>) -> f32
-textureSample(t: texture_depth_cube_array, s: sampler, coords: vec3<f32>, array_index: i32) -> f32
+fn textureSample(t: texture_1d<f32>, s: sampler, coords: f32) -> vec4<f32>
+fn textureSample(t: texture_2d<f32>, s: sampler, coords: vec2<f32>) -> vec4<f32>
+fn textureSample(t: texture_2d<f32>, s: sampler, coords: vec2<f32>, offset: vec2<i32>) -> vec4<f32>
+fn textureSample(t: texture_2d_array<f32>, s: sampler, coords: vec2<f32>, array_index: i32) -> vec4<f32>
+fn textureSample(t: texture_2d_array<f32>, s: sampler, coords: vec2<f32>, array_index: i32, offset: vec2<i32>) -> vec4<f32>
+fn textureSample(t: texture_3d<f32>, s: sampler, coords: vec3<f32>) -> vec4<f32>
+fn textureSample(t: texture_3d<f32>, s: sampler, coords: vec3<f32>, offset: vec3<i32>) -> vec4<f32>
+fn textureSample(t: texture_cube<f32>, s: sampler, coords: vec3<f32>) -> vec4<f32>
+fn textureSample(t: texture_cube_array<f32>, s: sampler, coords: vec3<f32>, array_index: i32) -> vec4<f32>
+fn textureSample(t: texture_depth_2d, s: sampler, coords: vec2<f32>) -> f32
+fn textureSample(t: texture_depth_2d, s: sampler, coords: vec2<f32>, offset: vec2<i32>) -> f32
+fn textureSample(t: texture_depth_2d_array, s: sampler, coords: vec2<f32>, array_index: i32) -> f32
+fn textureSample(t: texture_depth_2d_array, s: sampler, coords: vec2<f32>, array_index: i32, offset: vec2<i32>) -> f32
+fn textureSample(t: texture_depth_cube, s: sampler, coords: vec3<f32>) -> f32
+fn textureSample(t: texture_depth_cube_array, s: sampler, coords: vec3<f32>, array_index: i32) -> f32
 ```
 
 **参数:**
 
 <table class='data'>
   <tr><td>`t`<td>
-  The [sampled](#sampled-texture-type), [depth](#texture-depth),
-  or [external](#external-texture-type)
-  texture to sample.
+  [sampled](#sampled-texture-type), [depth](#texture-depth),
+  或 [external](#external-texture-type)
+  纹理采样.
   <tr><td>`s`<td>
   The [sampler type](#sampler-type).
   <tr><td>`coords`<td>
@@ -9382,9 +10215,7 @@ textureSample(t: texture_depth_cube_array, s: sampler, coords: vec3<f32>, array_
   要采样的基于 0 的纹理数组索引。
   <tr><td>`offset`<td>
   在对纹理进行采样之前应用于非标准化纹理坐标的可选纹理像素偏移。 在应用任何纹理环绕模式之前应用此偏移量.<br>
-  `offset` 表达式必须是:
-    * 一个 `const_expression` 表达式 (e.g. `vec2<i32>(1, 2)`).<br>
-    * 一个 [=module scope|module-scope=]的 [=let declaration] 的名称。
+  The `offset` expression must be a [=creation-time expression=] (e.g. `vec2<i32>(1, 2)`).<br>
   每个“偏移”分量必须至少为“-8”，最多为“7”。 超出此范围的值将导致 [=shader-creation error=]。
 </table>
 
@@ -9397,17 +10228,17 @@ textureSample(t: texture_depth_cube_array, s: sampler, coords: vec3<f32>, array_
 对具有 mip 级别偏差的纹理进行采样。
 
 只能在 [=fragment=] 着色器阶段使用。
-只能在统一控制流中调用。
+只能在 [=uniform control flow=] 中调用.
 
 ```rust
-textureSampleBias(t: texture_2d<f32>, s: sampler, coords: vec2<f32>, bias: f32) -> vec4<f32>
-textureSampleBias(t: texture_2d<f32>, s: sampler, coords: vec2<f32>, bias: f32, offset: vec2<i32>) -> vec4<f32>
-textureSampleBias(t: texture_2d_array<f32>, s: sampler, coords: vec2<f32>, array_index: i32, bias: f32) -> vec4<f32>
-textureSampleBias(t: texture_2d_array<f32>, s: sampler, coords: vec2<f32>, array_index: i32, bias: f32, offset: vec2<i32>) -> vec4<f32>
-textureSampleBias(t: texture_3d<f32>, s: sampler, coords: vec3<f32>, bias: f32) -> vec4<f32>
-textureSampleBias(t: texture_3d<f32>, s: sampler, coords: vec3<f32>, bias: f32, offset: vec3<i32>) -> vec4<f32>
-textureSampleBias(t: texture_cube<f32>, s: sampler, coords: vec3<f32>, bias: f32) -> vec4<f32>
-textureSampleBias(t: texture_cube_array<f32>, s: sampler, coords: vec3<f32>, array_index: i32, bias: f32) -> vec4<f32>
+fn textureSampleBias(t: texture_2d<f32>, s: sampler, coords: vec2<f32>, bias: f32) -> vec4<f32>
+fn textureSampleBias(t: texture_2d<f32>, s: sampler, coords: vec2<f32>, bias: f32, offset: vec2<i32>) -> vec4<f32>
+fn textureSampleBias(t: texture_2d_array<f32>, s: sampler, coords: vec2<f32>, array_index: i32, bias: f32) -> vec4<f32>
+fn textureSampleBias(t: texture_2d_array<f32>, s: sampler, coords: vec2<f32>, array_index: i32, bias: f32, offset: vec2<i32>) -> vec4<f32>
+fn textureSampleBias(t: texture_3d<f32>, s: sampler, coords: vec3<f32>, bias: f32) -> vec4<f32>
+fn textureSampleBias(t: texture_3d<f32>, s: sampler, coords: vec3<f32>, bias: f32, offset: vec3<i32>) -> vec4<f32>
+fn textureSampleBias(t: texture_cube<f32>, s: sampler, coords: vec3<f32>, bias: f32) -> vec4<f32>
+fn textureSampleBias(t: texture_cube_array<f32>, s: sampler, coords: vec3<f32>, array_index: i32, bias: f32) -> vec4<f32>
 ```
 
 **参数:**
@@ -9426,10 +10257,8 @@ textureSampleBias(t: texture_cube_array<f32>, s: sampler, coords: vec3<f32>, arr
   `bias` 必须介于 `-16.0` 和 `15.99` 之间。
   <tr><td>`offset`<td>
   在对纹理进行采样之前应用于未归一化纹理坐标的可选纹理像素偏移。 在应用任何纹理环绕模式之前应用此偏移量。<br>
-  `offset` 表达式必须是：
-       * 一个 `const_expression` 表达式（例如 `vec2<i32>(1, 2)`）。<br>
-       * 一个 [=module scope|module-scope=] [=let declaration=] 的名称。
-   每个 `offset` 组件必须最少为 `-8`，最多为 `7`。 超出此范围的值将导致 [=shader-creation error=]。
+  The `offset` expression must be a [=creation-time expression=] (e.g. `vec2<i32>(1, 2)`).<br>
+  每个 `offset` 组件必须最少为 `-8`，最多为 `7`。 超出此范围的值将导致 [=shader-creation error=]。
 </table>
 
 **返回:**
@@ -9442,15 +10271,15 @@ textureSampleBias(t: texture_cube_array<f32>, s: sampler, coords: vec3<f32>, arr
 对深度纹理进行采样并将采样的深度值与参考值进行比较。
 
 只能在 [=fragment=] 着色器阶段使用。
-只能在统一控制流中调用。
+只能在 [=uniform control flow=] 中调用.
 
 ```rust
-textureSampleCompare(t: texture_depth_2d, s: sampler_comparison, coords: vec2<f32>, depth_ref: f32) -> f32
-textureSampleCompare(t: texture_depth_2d, s: sampler_comparison, coords: vec2<f32>, depth_ref: f32, offset: vec2<i32>) -> f32
-textureSampleCompare(t: texture_depth_2d_array, s: sampler_comparison, coords: vec2<f32>, array_index: i32, depth_ref: f32) -> f32
-textureSampleCompare(t: texture_depth_2d_array, s: sampler_comparison, coords: vec2<f32>, array_index: i32, depth_ref: f32, offset: vec2<i32>) -> f32
-textureSampleCompare(t: texture_depth_cube, s: sampler_comparison, coords: vec3<f32>, depth_ref: f32) -> f32
-textureSampleCompare(t: texture_depth_cube_array, s: sampler_comparison, coords: vec3<f32>, array_index: i32, depth_ref: f32) -> f32
+fn textureSampleCompare(t: texture_depth_2d, s: sampler_comparison, coords: vec2<f32>, depth_ref: f32) -> f32
+fn textureSampleCompare(t: texture_depth_2d, s: sampler_comparison, coords: vec2<f32>, depth_ref: f32, offset: vec2<i32>) -> f32
+fn textureSampleCompare(t: texture_depth_2d_array, s: sampler_comparison, coords: vec2<f32>, array_index: i32, depth_ref: f32) -> f32
+fn textureSampleCompare(t: texture_depth_2d_array, s: sampler_comparison, coords: vec2<f32>, array_index: i32, depth_ref: f32, offset: vec2<i32>) -> f32
+fn textureSampleCompare(t: texture_depth_cube, s: sampler_comparison, coords: vec3<f32>, depth_ref: f32) -> f32
+fn textureSampleCompare(t: texture_depth_cube_array, s: sampler_comparison, coords: vec3<f32>, array_index: i32, depth_ref: f32) -> f32
 ```
 
 **参数:**
@@ -9468,10 +10297,8 @@ textureSampleCompare(t: texture_depth_cube_array, s: sampler_comparison, coords:
   用于比较采样深度值的参考值。
   <tr><td>`offset`<td>
   在对纹理进行采样之前应用于未归一化纹理坐标的可选纹理像素偏移。 在应用任何纹理环绕模式之前应用此偏移量。<br>
-  `offset` 表达式必须是：
-     * 一个 `const_expression` 表达式（例如 `vec2<i32>(1, 2)`）。<br>
-     * 一个 [=module scope|module-scope=] [=let declaration=] 的名称。
-        每个 `offset` 组件必须至少为 `-8`，最多为 `7`。 超出此范围的值将导致 [=shader-creation error=]。
+  The `offset` expression must be a [=creation-time expression=] (e.g. `vec2<i32>(1, 2)`).<br>
+  每个 `offset` 组件必须至少为 `-8`，最多为 `7`。 超出此范围的值将导致 [=shader-creation error=]。
 </table>
 
 **返回:**
@@ -9488,19 +10315,19 @@ textureSampleCompare(t: texture_depth_cube_array, s: sampler_comparison, coords:
 对深度纹理进行采样并将采样的深度值与参考值进行比较。
 
 ```rust
-textureSampleCompareLevel(t: texture_depth_2d, s: sampler_comparison, coords: vec2<f32>, depth_ref: f32) -> f32
-textureSampleCompareLevel(t: texture_depth_2d, s: sampler_comparison, coords: vec2<f32>, depth_ref: f32, offset: vec2<i32>) -> f32
-textureSampleCompareLevel(t: texture_depth_2d_array, s: sampler_comparison, coords: vec2<f32>, array_index: i32, depth_ref: f32) -> f32
-textureSampleCompareLevel(t: texture_depth_2d_array, s: sampler_comparison, coords: vec2<f32>, array_index: i32, depth_ref: f32, offset: vec2<i32>) -> f32
-textureSampleCompareLevel(t: texture_depth_cube, s: sampler_comparison, coords: vec3<f32>, depth_ref: f32) -> f32
-textureSampleCompareLevel(t: texture_depth_cube_array, s: sampler_comparison, coords: vec3<f32>, array_index: i32, depth_ref: f32) -> f32
+fn textureSampleCompareLevel(t: texture_depth_2d, s: sampler_comparison, coords: vec2<f32>, depth_ref: f32) -> f32
+fn textureSampleCompareLevel(t: texture_depth_2d, s: sampler_comparison, coords: vec2<f32>, depth_ref: f32, offset: vec2<i32>) -> f32
+fn textureSampleCompareLevel(t: texture_depth_2d_array, s: sampler_comparison, coords: vec2<f32>, array_index: i32, depth_ref: f32) -> f32
+fn textureSampleCompareLevel(t: texture_depth_2d_array, s: sampler_comparison, coords: vec2<f32>, array_index: i32, depth_ref: f32, offset: vec2<i32>) -> f32
+fn textureSampleCompareLevel(t: texture_depth_cube, s: sampler_comparison, coords: vec3<f32>, depth_ref: f32) -> f32
+fn textureSampleCompareLevel(t: texture_depth_cube_array, s: sampler_comparison, coords: vec3<f32>, array_index: i32, depth_ref: f32) -> f32
 ```
 
 `textureSampleCompareLevel` 函数与 `textureSampleCompare` 相同，除了：
 
 * `textureSampleCompareLevel` 总是从 mip 级别 0 采样纹素。
     * 该函数不计算导数。
-    * 不要求在统一控制流中调用 `textureSampleCompareLevel`。
+    * There is no requirement for `textureSampleCompareLevel` to be invoked in [=uniform control flow=].
 * `textureSampleCompareLevel` 可以在任何着色器阶段调用。
 
 ### `textureSampleGrad` ### {#texturesamplegrad}
@@ -9508,14 +10335,14 @@ textureSampleCompareLevel(t: texture_depth_cube_array, s: sampler_comparison, co
 使用显式渐变对纹理进行采样。
 
 ```rust
-textureSampleGrad(t: texture_2d<f32>, s: sampler, coords: vec2<f32>, ddx: vec2<f32>, ddy: vec2<f32>) -> vec4<f32>
-textureSampleGrad(t: texture_2d<f32>, s: sampler, coords: vec2<f32>, ddx: vec2<f32>, ddy: vec2<f32>, offset: vec2<i32>) -> vec4<f32>
-textureSampleGrad(t: texture_2d_array<f32>, s: sampler, coords: vec2<f32>, array_index: i32, ddx: vec2<f32>, ddy: vec2<f32>) -> vec4<f32>
-textureSampleGrad(t: texture_2d_array<f32>, s: sampler, coords: vec2<f32>, array_index: i32, ddx: vec2<f32>, ddy: vec2<f32>, offset: vec2<i32>) -> vec4<f32>
-textureSampleGrad(t: texture_3d<f32>, s: sampler, coords: vec3<f32>, ddx: vec3<f32>, ddy: vec3<f32>) -> vec4<f32>
-textureSampleGrad(t: texture_3d<f32>, s: sampler, coords: vec3<f32>, ddx: vec3<f32>, ddy: vec3<f32>, offset: vec3<i32>) -> vec4<f32>
-textureSampleGrad(t: texture_cube<f32>, s: sampler, coords: vec3<f32>, ddx: vec3<f32>, ddy: vec3<f32>) -> vec4<f32>
-textureSampleGrad(t: texture_cube_array<f32>, s: sampler, coords: vec3<f32>, array_index: i32, ddx: vec3<f32>, ddy: vec3<f32>) -> vec4<f32>
+fn textureSampleGrad(t: texture_2d<f32>, s: sampler, coords: vec2<f32>, ddx: vec2<f32>, ddy: vec2<f32>) -> vec4<f32>
+fn textureSampleGrad(t: texture_2d<f32>, s: sampler, coords: vec2<f32>, ddx: vec2<f32>, ddy: vec2<f32>, offset: vec2<i32>) -> vec4<f32>
+fn textureSampleGrad(t: texture_2d_array<f32>, s: sampler, coords: vec2<f32>, array_index: i32, ddx: vec2<f32>, ddy: vec2<f32>) -> vec4<f32>
+fn textureSampleGrad(t: texture_2d_array<f32>, s: sampler, coords: vec2<f32>, array_index: i32, ddx: vec2<f32>, ddy: vec2<f32>, offset: vec2<i32>) -> vec4<f32>
+fn textureSampleGrad(t: texture_3d<f32>, s: sampler, coords: vec3<f32>, ddx: vec3<f32>, ddy: vec3<f32>) -> vec4<f32>
+fn textureSampleGrad(t: texture_3d<f32>, s: sampler, coords: vec3<f32>, ddx: vec3<f32>, ddy: vec3<f32>, offset: vec3<i32>) -> vec4<f32>
+fn textureSampleGrad(t: texture_cube<f32>, s: sampler, coords: vec3<f32>, ddx: vec3<f32>, ddy: vec3<f32>) -> vec4<f32>
+fn textureSampleGrad(t: texture_cube_array<f32>, s: sampler, coords: vec3<f32>, array_index: i32, ddx: vec3<f32>, ddy: vec3<f32>) -> vec4<f32>
 ```
 
 **参数:**
@@ -9535,9 +10362,7 @@ textureSampleGrad(t: texture_cube_array<f32>, s: sampler, coords: vec3<f32>, arr
   用于计算采样位置的 y 方向导数向量。
   <tr><td>`offset`<td>
   在对纹理进行采样之前应用于未归一化纹理坐标的可选纹理像素偏移。 在应用任何纹理环绕模式之前应用此偏移量。<br>
-  `offset` 表达式必须是：
-     * 一个 `const_expression` 表达式（例如 `vec2<i32>(1, 2)`）。<br>
-     * 一个 [=module scope|module-scope=] [=let declaration=] 的名称
+  The `offset` expression must be a [=creation-time expression=] (e.g. `vec2<i32>(1, 2)`).<br>
   每个 `offset` 组件必须至少为 `-8`，最多为 `7`。 超出此范围的值将导致 [=shader-creation error=]。
 </table>
 
@@ -9551,21 +10376,21 @@ textureSampleGrad(t: texture_cube_array<f32>, s: sampler, coords: vec3<f32>, arr
 使用显式 mip 级别或 mip 级别 0 对纹理进行采样。
 
 ```rust
-textureSampleLevel(t: texture_2d<f32>, s: sampler, coords: vec2<f32>, level: f32) -> vec4<f32>
-textureSampleLevel(t: texture_2d<f32>, s: sampler, coords: vec2<f32>, level: f32, offset: vec2<i32>) -> vec4<f32>
-textureSampleLevel(t: texture_2d_array<f32>, s: sampler, coords: vec2<f32>, array_index: i32, level: f32) -> vec4<f32>
-textureSampleLevel(t: texture_2d_array<f32>, s: sampler, coords: vec2<f32>, array_index: i32, level: f32, offset: vec2<i32>) -> vec4<f32>
-textureSampleLevel(t: texture_3d<f32>, s: sampler, coords: vec3<f32>, level: f32) -> vec4<f32>
-textureSampleLevel(t: texture_3d<f32>, s: sampler, coords: vec3<f32>, level: f32, offset: vec3<i32>) -> vec4<f32>
-textureSampleLevel(t: texture_cube<f32>, s: sampler, coords: vec3<f32>, level: f32) -> vec4<f32>
-textureSampleLevel(t: texture_cube_array<f32>, s: sampler, coords: vec3<f32>, array_index: i32, level: f32) -> vec4<f32>
-textureSampleLevel(t: texture_depth_2d, s: sampler, coords: vec2<f32>, level: i32) -> f32
-textureSampleLevel(t: texture_depth_2d, s: sampler, coords: vec2<f32>, level: i32, offset: vec2<i32>) -> f32
-textureSampleLevel(t: texture_depth_2d_array, s: sampler, coords: vec2<f32>, array_index: i32, level: i32) -> f32
-textureSampleLevel(t: texture_depth_2d_array, s: sampler, coords: vec2<f32>, array_index: i32, level: i32, offset: vec2<i32>) -> f32
-textureSampleLevel(t: texture_depth_cube, s: sampler, coords: vec3<f32>, level: i32) -> f32
-textureSampleLevel(t: texture_depth_cube_array, s: sampler, coords: vec3<f32>, array_index: i32, level: i32) -> f32
-textureSampleLevel(t: texture_external, s: sampler, coords: vec2<f32>) -> vec4<f32>
+fn textureSampleLevel(t: texture_2d<f32>, s: sampler, coords: vec2<f32>, level: f32) -> vec4<f32>
+fn textureSampleLevel(t: texture_2d<f32>, s: sampler, coords: vec2<f32>, level: f32, offset: vec2<i32>) -> vec4<f32>
+fn textureSampleLevel(t: texture_2d_array<f32>, s: sampler, coords: vec2<f32>, array_index: i32, level: f32) -> vec4<f32>
+fn textureSampleLevel(t: texture_2d_array<f32>, s: sampler, coords: vec2<f32>, array_index: i32, level: f32, offset: vec2<i32>) -> vec4<f32>
+fn textureSampleLevel(t: texture_3d<f32>, s: sampler, coords: vec3<f32>, level: f32) -> vec4<f32>
+fn textureSampleLevel(t: texture_3d<f32>, s: sampler, coords: vec3<f32>, level: f32, offset: vec3<i32>) -> vec4<f32>
+fn textureSampleLevel(t: texture_cube<f32>, s: sampler, coords: vec3<f32>, level: f32) -> vec4<f32>
+fn textureSampleLevel(t: texture_cube_array<f32>, s: sampler, coords: vec3<f32>, array_index: i32, level: f32) -> vec4<f32>
+fn textureSampleLevel(t: texture_depth_2d, s: sampler, coords: vec2<f32>, level: i32) -> f32
+fn textureSampleLevel(t: texture_depth_2d, s: sampler, coords: vec2<f32>, level: i32, offset: vec2<i32>) -> f32
+fn textureSampleLevel(t: texture_depth_2d_array, s: sampler, coords: vec2<f32>, array_index: i32, level: i32) -> f32
+fn textureSampleLevel(t: texture_depth_2d_array, s: sampler, coords: vec2<f32>, array_index: i32, level: i32, offset: vec2<i32>) -> f32
+fn textureSampleLevel(t: texture_depth_cube, s: sampler, coords: vec3<f32>, level: i32) -> f32
+fn textureSampleLevel(t: texture_depth_cube_array, s: sampler, coords: vec3<f32>, array_index: i32, level: i32) -> f32
+fn textureSampleLevel(t: texture_external, s: sampler, coords: vec2<f32>) -> vec4<f32>
 ```
 
 **参数:**
@@ -9586,9 +10411,7 @@ textureSampleLevel(t: texture_external, s: sampler, coords: vec2<f32>) -> vec4<f
   如果未指定，则对 mip 级别 0 进行采样。
   <tr><td>`offset`<td>
   在对纹理进行采样之前应用于未归一化纹理坐标的可选纹理像素偏移。 在应用任何纹理环绕模式之前应用此偏移量。<br>
-  `offset` 表达式必须是：
-     * 一个 `const_expression` 表达式（例如 `vec2<i32>(1, 2)`）。<br>
-     * 一个 [=module scope|module-scope=] [=let declaration=] 的名称
+  The `offset` expression must be a [=creation-time expression=] (e.g. `vec2<i32>(1, 2)`).<br>
   每个 `offset` 组件必须至少为 `-8`，最多为 `7`。 超出此范围的值将导致 [=shader-creation error=]。
 </table>
 
@@ -9602,10 +10425,10 @@ textureSampleLevel(t: texture_external, s: sampler, coords: vec2<f32>) -> vec4<f
 将单个纹素写入纹理。
 
 ```rust
-textureStore(t: texture_storage_1d<F,write>, coords: i32, value: vec4<T>)
-textureStore(t: texture_storage_2d<F,write>, coords: vec2<i32>, value: vec4<T>)
-textureStore(t: texture_storage_2d_array<F,write>, coords: vec2<i32>, array_index: i32, value: vec4<T>)
-textureStore(t: texture_storage_3d<F,write>, coords: vec3<i32>, value: vec4<T>)
+fn textureStore(t: texture_storage_1d<F,write>, coords: i32, value: vec4<T>)
+fn textureStore(t: texture_storage_2d<F,write>, coords: vec2<i32>, value: vec4<T>)
+fn textureStore(t: texture_storage_2d_array<F,write>, coords: vec2<i32>, array_index: i32, value: vec4<T>)
+fn textureStore(t: texture_storage_3d<F,write>, coords: vec3<i32>, value: vec4<T>)
 ```
 
 通道格式“T”取决于存储纹素格式“F”。
@@ -9634,12 +10457,6 @@ textureStore(t: texture_storage_3d<F,write>, coords: vec3<i32>, value: vec4<T>)
 * 不被执行
 * 将 `value` 存储到一些边界 texel
 
-**TODO:**
-
-<pre class='def'>
-TODO(dsinclair): Need gather operations
-</pre>
-
 ## 原子内置函数 ## {#atomic-builtin-functions}
 
 原子内置函数可用于 读/写/读-修改-写 原子
@@ -9660,9 +10477,7 @@ SPIR-V 中具有 **Queue Family** 内存范围。
 ### 原子负载 ### {#atomic-load}
 
 ```rust
-atomicLoad(atomic_ptr: ptr<SC, atomic<T>, A>) -> T
-
-// Maps to the SPIR-V instruction OpAtomicLoad.
+fn atomicLoad(atomic_ptr: ptr<SC, atomic<T>, A>) -> T
 ```
 
 返回原子加载的 `atomic_ptr` 指向的值。
@@ -9671,31 +10486,20 @@ atomicLoad(atomic_ptr: ptr<SC, atomic<T>, A>) -> T
 ### 原子商店 ### {#atomic-store}
 
 ```rust
-atomicStore(atomic_ptr: ptr<SC, atomic<T>, A>, v: T)
-
-// Maps to the SPIR-V instruction OpAtomicStore.
+fn atomicStore(atomic_ptr: ptr<SC, atomic<T>, A>, v: T)
 ```
 
 以原子方式将值 `v` 存储在 `atomic_ptr` 指向的原子对象中。
 ### 原子 读-修改-写### {#atomic-rmw}
 
 ```rust
-atomicAdd(atomic_ptr: ptr<SC, atomic<T>, A>, v: T) -> T
-atomicSub(atomic_ptr: ptr<SC, atomic<T>, A>, v: T) -> T
-atomicMax(atomic_ptr: ptr<SC, atomic<T>, A>, v: T) -> T
-atomicMin(atomic_ptr: ptr<SC, atomic<T>, A>, v: T) -> T
-atomicAnd(atomic_ptr: ptr<SC, atomic<T>, A>, v: T) -> T
-atomicOr(atomic_ptr: ptr<SC, atomic<T>, A>, v: T) -> T
-atomicXor(atomic_ptr: ptr<SC, atomic<T>, A>, v: T) -> T
-
-// Mappings to SPIR-V instructions:
-// atomicAdd -> OpAtomicIAdd
-// atomicSub -> OpAtomicISub
-// atomicMax -> OpAtomicSMax or OpAtomicUMax (depending on the signedness of T)
-// atomicMin -> OpAtomicSMin or OpAtomicUMin (depending on the signedness of T)
-// atomicAnd -> OpAtomicAnd
-// atomicOr  -> OpAtomicOr
-// atomicXor -> OpAtomicXor
+fn atomicAdd(atomic_ptr: ptr<SC, atomic<T>, A>, v: T) -> T
+fn atomicSub(atomic_ptr: ptr<SC, atomic<T>, A>, v: T) -> T
+fn atomicMax(atomic_ptr: ptr<SC, atomic<T>, A>, v: T) -> T
+fn atomicMin(atomic_ptr: ptr<SC, atomic<T>, A>, v: T) -> T
+fn atomicAnd(atomic_ptr: ptr<SC, atomic<T>, A>, v: T) -> T
+fn atomicOr(atomic_ptr: ptr<SC, atomic<T>, A>, v: T) -> T
+fn atomicXor(atomic_ptr: ptr<SC, atomic<T>, A>, v: T) -> T
 ```
 每个函数原子地执行以下步骤：
 
@@ -9706,15 +10510,13 @@ atomicXor(atomic_ptr: ptr<SC, atomic<T>, A>, v: T) -> T
 每个函数返回存储在原子对象中的原始值。
 
 ```rust
-atomicExchange(atomic_ptr: ptr<SC, atomic<T>, A>, v: T) -> T
-
-// Maps to the SPIR-V instruction OpAtomicExchange.
+fn atomicExchange(atomic_ptr: ptr<SC, atomic<T>, A>, v: T) -> T
 ```
 
 以原子方式将值 `v` 存储在指向 `atomic_ptr` 的原子对象中，并返回存储在原子对象中的原始值。
 
 ```rust
-atomicCompareExchangeWeak(atomic_ptr: ptr<SC, atomic<T>, A>, cmp: T, v: T) -> __atomic_compare_exchange_result<T>
+fn atomicCompareExchangeWeak(atomic_ptr: ptr<SC, atomic<T>, A>, cmp: T, v: T) -> __atomic_compare_exchange_result<T>
 
 struct __atomic_compare_exchange_result<T> {
   old_value : T; // old value stored in the atomic
@@ -9746,31 +10548,31 @@ struct __atomic_compare_exchange_result<T> {
     <tr><td>结论<td>解释
   </thead>
   <tr algorithm="packing 4x8snorm">
-    <td class="nowrap">`pack4x8snorm`(|e|: vec4&lt;f32&gt;) -> u32
+    <td class="nowrap">`@const fn pack4x8snorm`(|e|: vec4&lt;f32&gt;) -> u32
     <td>将四个标准化浮点值转换为 8 位有符号整数，然后将它们组合成一个 `u32` 值。<br>
         输入的分量 |e|[|i|] 被转换为 8 位二进制补码整数值 &lfloor; 0.5 + 127 × min(1, max(-1, |e|[|i|])) &rfloor;
         然后放置在位 8 &times; |i| 通过 8 &times; |i| + 7 结果。
 
   <tr algorithm="packing 4x8unorm">
-    <td class="nowrap">`pack4x8unorm`(|e|: vec4&lt;f32&gt;) -> u32
+    <td class="nowrap">`@const fn pack4x8unorm`(|e|: vec4&lt;f32&gt;) -> u32
     <td>将四个标准化的浮点值转换为 8 位无符号整数，然后将它们组合成一个 `u32` 值。<br>
         输入的分量 |e|[|i|] 被转换为 8 位无符号整数值 &lfloor; 0.5 + 255 × min(1, max(0, |e|[|i|])) &rfloor;
         然后放置在位 8 &times; |i| 通过 8 &times; |i| + 7 结果。
 
   <tr algorithm="packing 2x16snorm">
-    <td class="nowrap">`pack2x16snorm`(|e|: vec2&lt;f32&gt;) -> u32
+    <td class="nowrap">`@const fn pack2x16snorm`(|e|: vec2&lt;f32&gt;) -> u32
     <td>将两个标准化浮点值转换为 16 位有符号整数，然后将它们组合成一个 `u32` 值。<br>
         输入的分量 |e|[|i|] 被转换为 16 位二进制补码整数值 &lfloor; 0.5 + 32767 × min(1, max(-1, |e|[|i|])) &rfloor;
         然后放置在位 16 &times; |i| 通过 16 &times; |i| + 15 结果。
 
   <tr algorithm="packing 2x16unorm">
-    <td class="nowrap">`pack2x16unorm`(|e|: vec2&lt;f32&gt;) -> u32
+    <td class="nowrap">`@const fn pack2x16unorm`(|e|: vec2&lt;f32&gt;) -> u32
     <td>将两个标准化浮点值转换为 16 位无符号整数，然后将它们组合成一个 `u32` 值。<br>
         输入的分量 |e|[|i|] 被转换为 16 位无符号整数值 &lfloor; 0.5 + 65535 × min(1, max(0, |e|[|i|])) &rfloor;
         然后放置在位 16 &times; |i| 通过 16 &times; |i| + 15 结果。
 
   <tr algorithm="packing 2x16float">
-    <td class="nowrap">`pack2x16float`(|e|: vec2&lt;f32&gt;) -> u32
+    <td class="nowrap">`@const fn pack2x16float`(|e|: vec2&lt;f32&gt;) -> u32
     <td>将两个浮点值转换为半精度浮点数，然后将它们合并为一个 `u32` 值。<br>
         输入的分量 |e|[|i|] 被转换为 [[!IEEE-754|IEEE-754]] binary16 值，然后将其放置在位 16 × |i| 通过 16 &times; |i| + 15 结果。
         查看 [[#floating-point-conversion]].
@@ -9786,28 +10588,28 @@ struct __atomic_compare_exchange_result<T> {
     <tr><td>结论<td>解释
   </thead>
   <tr algorithm="unpacking 4x8snorm">
-    <td class="nowrap">`unpack4x8snorm`(|e|: u32) -> vec4&lt;f32&gt;
+    <td class="nowrap">`@const fn unpack4x8snorm`(|e|: u32) -> vec4&lt;f32&gt;
     <td>将 32 位值分解为四个 8 位块，然后将每个块重新解释为有符号的标准化浮点值。<br>
         组件 |i| 结果的最大值是 max(|v| &div; 127, -1)，其中 |v| 是位 8&times;|i| 的解释 通过 8&times;|i|+7 的 |e| 作为二进制补码的有符号整数。
 
   <tr algorithm="unpacking 4x8unorm">
-    <td class="nowrap">`unpack4x8unorm`(|e|: u32) -> vec4&lt;f32&gt;
+    <td class="nowrap">`@const fn unpack4x8unorm`(|e|: u32) -> vec4&lt;f32&gt;
     <td>将 32 位值分解为四个 8 位块，然后将每个块重新解释为无符号标准化浮点值。<br>
         组件 |i| 结果是|v| &div; 255，其中|v| 是位 8&times;|i| 的解释 通过 8&times;|i|+7 的 |e| 作为无符号整数。
 
   <tr algorithm="unpacking 2x16snorm">
-    <td class="nowrap">`unpack2x16snorm`(|e|: u32) -> vec2&lt;f32&gt;
+    <td class="nowrap">`@const fn unpack2x16snorm`(|e|: u32) -> vec2&lt;f32&gt;
     <td>将 32 位值分解为两个 16 位块，然后将每个块重新解释为有符号的标准化浮点值。<br>
         组件 |i| 结果的最大值是 max(|v| &div; 32767, -1)，
         其中 |v| 是位 16&times;|i| 的解释 通过 |e| 的 16&times;|i|+15 作为二进制补码的有符号整数。
 
   <tr algorithm="unpacking 2x16unorm">
-    <td class="nowrap">`unpack2x16unorm`(|e|: u32) -> vec2&lt;f32&gt;
+    <td class="nowrap">`@const fn unpack2x16unorm`(|e|: u32) -> vec2&lt;f32&gt;
     <td>将 32 位值分解为两个 16 位块，然后将每个块重新解释为无符号标准化浮点值。<br>
         组件 |i| 结果是|v| &div; 65535，其中|v| 是位 16&times;|i| 的解释 通过 |e| 的 16&times;|i|+15 作为无符号整数。
 
   <tr algorithm="unpacking 2x16float">
-    <td class="nowrap">`unpack2x16float`(|e|: u32) -> vec2&lt;f32&gt;
+    <td class="nowrap">`@const fn unpack2x16float`(|e|: u32) -> vec2&lt;f32&gt;
     <td>将 32 位值分解为两个 16 位块，并将每个块重新解释为浮点值。<br>
         组件 |i| 结果的 f32 表示 |v|，其中 |v| 是位 16&times;|i| 的解释
         通过 |e| 的 16&times;|i|+15 作为 [[!IEEE-754|IEEE-754]] binary16 值。
@@ -9820,8 +10622,8 @@ struct __atomic_compare_exchange_result<T> {
 WGSL 提供以下同步函数:
 
 ```rust
-storageBarrier()
-workgroupBarrier()
+fn storageBarrier()
+fn workgroupBarrier()
 ```
 
 所有同步函数都执行一个 [=control barrier=] 和 Acquire/Release [[#memory-semantics|memory ordering]]。
@@ -9831,32 +10633,6 @@ workgroupBarrier()
 所有同步功能都有一个“工作组”[=执行范围=]。
 所有同步函数只能在 [=compute=] 着色器阶段使用。
 
-storageBarrier 影响 [=address spaces/storage=] 存储类中的内存和原子操作。
+`storageBarrier` 影响 [=address spaces/storage=] 存储类中的内存和原子操作。
 
-workgroupBarrier 影响 [=address spaces/workgroup=] 存储类中的内存和原子操作。
-
-<div class='example spirv barrier mapping' heading="Mapping workgroupBarrier to SPIR-V">
-  <xmp>
-    storageBarrier();
-    // M    // Memory Semantics are AcquireRelease | UniformMemory (0x8 | 0x40) = %uint_72
-    // OpControlBarrier %uint_2 %uint_2 %uint_72
-
-    workgroupBarrier();
-    // Maps to:
-    // Execution and Memory Scope are Workgroup = %uint_2
-    // Memory semantics are AcquireRelease | WorkgroupMemory (0x8 | 0x100) = %uint_264
-    // OpControlBarrier %uint_2 %uint_2 %uint_264
-
-    workgroupBarrier();
-    storageBarrier();
-    // Or, equivalently:
-    storageBarrier();
-    workgroupBarrier();
-    // Could be mapped to a single OpControlBarrier:
-    // Execution scope is Workgroup = %uint_2
-    // Memory Scope is Workgroup = %uint_2
-    // Memory semantics are AcquireRelease | UniformMemory | WorkgroupMemory
-    //   (0x8 | 0x40 | 0x100) = %uint_328
-    // OpControlBarrier %uint_2 %uint_2 %uint_328
-  </xmp>
-</div>
+`workgroupBarrier` 影响 [=address spaces/workgroup=] 存储类中的内存和原子操作。
