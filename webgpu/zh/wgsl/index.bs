@@ -11,10 +11,16 @@ Text Macro: INT i32 or u32
 Text Macro: UNSIGNEDINTEGRAL u32 or vec|N|&lt;u32&gt;
 Text Macro: SIGNEDINTEGRAL i32 or vec|N|&lt;i32&gt;
 Text Macro: INTEGRAL i32, u32, vec|N|&lt;i32&gt;, or vec|N|&lt;u32&gt;
-Text Macro: FLOATING f32 or vec|N|&lt;f32&gt;
-Ignored Vars: i, c0, e, e1, e2, e3, eN, p, s1, s2, sn, N, M, v, Stride, Offset, Align, Extent, S, T, T1
+Text Macro: FLOATING f32, f16, vec|N|&lt;f32&gt;, or vec|N|&lt;f16&gt;
+Text Macro: NUMERIC i32, u32, f32, f16, vec|N|&lt;i32&gt;, vec|N|&lt;u32&gt;, vec|N|&lt;f32&gt;, or vec|N|&lt;f16&gt;
+Text Macro: ALLINTEGRALDECL |S| is AbstractInt, i32, u32<br>|T| is |S| or vec|N|&lt;|S|&gt;
+Text Macro: ALLFLOATING AbstractFloat, f32, f16, vec|N|&lt;AbstractFloat&gt;, vec|N|&lt;f32&gt;, or vec|N|&lt;f16&gt;
+Text Macro: ALLNUMERICDECL |S| is AbstractInt, AbstractFloat, i32, u32, f32, or f16<br>|T| is |S|, or vec|N|&lt;|S|&gt;
+Text Macro: ALLINTEGRALDECL |S| is AbstractInt, i32, or u32<br>|T| is |S| or vec|N|&lt;|S|&gt;
+Ignored Vars: i, c0, e, e1, e2, e3, eN, p, s1, s2, sn, N, M, C, R, v, Stride, Offset, Align, Extent, S, T, T1
 
 !Participate: <a href="https://github.com/gpuweb/gpuweb/issues/new?labels=wgsl">File an issue</a> (<a href="https://github.com/gpuweb/gpuweb/issues?q=is%3Aissue+is%3Aopen+label%3Awgsl">open issues</a>)
+!Tests: <a href=https://github.com/gpuweb/cts/tree/main/src/webgpu/shader/>WebGPU CTS shader/</a>
 !Translator: 赵凌云，lingyun.zhao@orillusion.com
 !Translator: 薛沛，pei.xue@orillusion.com
 Editor: David Neto, Google https://www.google.com, dneto@google.com, w3cid 99785
@@ -77,7 +83,8 @@ div.syntax > p > code {
     "authors": [
       "Dzmitry Malyshau",
       "Justin Fan",
-      "Kai Ninomiya"
+      "Kai Ninomiya",
+      "Brandon Jones"
     ],
     "href": "https://gpuweb.github.io/gpuweb/",
     "title": "WebGPU",
@@ -96,16 +103,6 @@ div.syntax > p > code {
     "id":"IEEE-754",
     "date":"29 August 2008"
   },
-  "SPIR-V": {
-    "authors": [
-      "John Kessenich",
-      "Boaz Ouriel",
-      "Raun Krisch"
-    ],
-    "href": "https://www.khronos.org/registry/spir-v/specs/unified1/SPIRV.html",
-    "title": "SPIR-V Specification",
-    "publisher": "Khronos Group"
-  },
   "VulkanMemoryModel": {
     "authors": [
       "Jeff Bolz",
@@ -118,14 +115,19 @@ div.syntax > p > code {
     "href": "https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#memory-model",
     "title": "Vulkan Memory Model",
     "publisher": "Khronos Group"
-  }
+  },
+   "UnicodeVersion14": {
+      "href":"http://www.unicode.org/versions/Unicode14.0.0/",
+      "author":"The Unicode Consortium",
+      "title":"The Unicode Standard, Version 14.0.0",
+      "isbn":"978-1-936213-29-0",
+      "id":"UnicodeVersion14"
+    }
+
 }
 </pre>
 
 <pre class='anchors'>
-spec: SPIR-V; urlPrefix: https://www.khronos.org/registry/spir-v/specs/unified1/SPIRV.html#
-    type: dfn
-        text: image formats; url: _a_id_image_format_a_image_format
 spec: Vulkan ; urlPrefix: https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#
     type: dfn
         text: memory model memory operation; url: memory-model-memory-operation
@@ -134,6 +136,32 @@ spec: Vulkan ; urlPrefix: https://www.khronos.org/registry/vulkan/specs/1.2-exte
         text: memory model scope; url:memory-model-scope
         text: memory model memory semantics; url:memory-model-memory-semantics
         text: memory model non-private; url: memory-model-non-private
+spec: UAX14; urlPrefix: https://www.unicode.org/reports/tr14
+    type: dfn
+        text: UAX14 Section 6.1 Non-tailorable Line Breaking Rules; url: BreakingRules
+        text: UAX14 LB4; url: LB4
+        text: UAX14 LB5; url: LB5
+spec: UAX15; urlPrefix: https://www.unicode.org/reports/tr15/tr15-51.html
+    type: dfn
+        text: Unicode Standard Annex #15 for Unicode Version 14.0.0
+        text: UAX15 Normalization Forms; url: Normalization_Forms_Table
+spec: UAX31; urlPrefix: https://www.unicode.org/reports/tr31/tr31-35.html
+    type: dfn
+        text: Unicode Standard Annex #31 for Unicode Version 14.0.0
+        text: UAX31 Lexical Classes; url: Table_Lexical_Classes_for_Identifiers
+        text: UAX31 Grammar; url: D1
+spec: UTS46; urlPrefix: https://www.unicode.org/reports/tr46/tr46-27.html
+    type: dfn
+        text: UTS46 Mapping; url: IDNA_Mapping_Table
+spec: charmod-norm; urlPrefix: https://www.w3.org/TR/charmod-norm/
+    type: dfn
+        text: charmod-norm Matching; url: identityMatching
+spec: Unicode Character Database for Unicode Version 14.0.0; urlPrefix: https://www.unicode.org/Public/14.0.0/ucd/DerivedCoreProperties.txt
+    type: dfn
+        text: Unicode Character Database for Unicode Version 14.0.0
+spec: UnicodeVersion14; urlPrefix: https://www.unicode.org/versions/Unicode14.0.0/UnicodeStandard-14.0.pdf
+    type: dfn
+        text: code point; url:
 </pre>
 
 # 介绍 # {#intro}
@@ -142,21 +170,12 @@ WebGPU Shading Language (WGSL)是为 [[!WebGPU]] 设计的着色器语言。也�
 
 <div class='example wgsl global-scope'>
   <xmp highlight='rust'>
-    @stage(fragment)
+    @fragment
     fn main() -> @location(0) vec4<f32> {
         return vec4<f32>(0.4, 0.4, 0.8, 1.0);
     }
   </xmp>
 </div>
-
-
-## 目标 ## {#goals}
-
- * 可轻松转换为 [[!SPIR-V]]
- * 构造被定义为其对应 [[!SPIR-V]] 的规范参考
- * WGSL 中的所有功能都可以直接转换为 [[!SPIR-V]]。（没有多态，没有通用指针，没有重载等）
- * 特性和语法完全同[[!SPIR-V]]
- * 本规范中的每一项都必须为构造提供到 [[!SPIR-V]] 的映射。
 
 ## 技术概览 ## {#technical-overview}
 
@@ -194,7 +213,8 @@ WGSL 是一种命令式语言：行为被指定为要执行的语句序列。声
 * 声明常量或变量
 * 修改变量内容
 * 使用结构化编程结构修改执行顺序：
-    * 选择：if/else/elseif, switch
+    * 选择：if/else, switch
+    * 循环: loop, while, for.
     * 跳出嵌套命令结构：break, continue
     * 重构：函数调用和返回
     * 丢弃（仅限片元着色器）：终止调用并丢弃输出
@@ -219,7 +239,7 @@ WGSL 有纹理和采样器类型。连同相关的内置函数，这些支持通
 着色器阶段中的调用并发执行，并且通常可能并行执行。
 着色器作者负责确保着色器阶段调用的动态行为：
 
-* 满足某些图元操作的一致性要求，包括纹理采样和控制屏障。
+* 满足某些图元操作的一致性[[#uniformity|uniformity]] 要求，包括纹理采样和控制屏障。
 * 协调对共享变量的潜在冲突访问，以避免竞争条件。
 
 WGSL 有时允许给定特征的几种可能行为。这是一种可移植性危害，因为不同的实现可能会表现出不同的行为。WGSL的设计旨在最大限度地减少此类情况，但受到可行性和在各种设备上实现高性能的目标的限制。
@@ -238,7 +258,7 @@ WGSL 有时允许给定特征的几种可能行为。这是一种可移植性危
 
 * roundUp(|k|, |n|) = &lceil;|n| &div; |k|&rceil; &times; |k|
 
-|n|列|m|行矩阵|A|的转置（<dfn noexport>transpose</dfn>）是将|A|的行复制为|A|<sup>T</sup>的列形成的|m|列|n|行矩阵|A|<sup>T</sup>：
+|c|列|r|行矩阵|A|的转置（<dfn noexport>transpose</dfn>）是将|A|的行复制为|A|<sup>T</sup>的列形成的|r|列|c|行矩阵|A|<sup>T</sup>：
 
 * transpose(|A|) = |A|<sup>T</sup>
 * transpose(|A|)<sub>|i|,|j|</sub> = |A|<sub>|j|,|i|</sub>
@@ -302,56 +322,78 @@ WGSL程序为文本。本规范并未规定该文本的特定编码。但是，U
 
 注意：像这样推广 UTF-8 的目的是为了简化WGSL程序的交换并鼓励工具之间的互操作性。
 
-WGSL程序文本由一系列字符组成，分组为连续的非空集形成：
+WGSL程序文本由一系列双字节对字符 [=code points=]组成，分组为连续的非空集形成：
 
 * [=comments=]
 * [=tokens=]
-* [=blankspace=]
+* [=blankspaces=]
 
 程序文本不得包含空字符。
 
-<dfn>Blankspace</dfn>是以下一个或多个字符的任意组合：
-* space
-* horizontal tab
-* linefeed
-* vertical tab
-* formfeed
-* carriage return
-
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>_space</dfn> :
-
-    | `/\s/`
-</div>
-
-问题：还有什么应该是blankspace？Unicode分隔符类别中的一些内容？
-
+## 解析 ## {#parsing}
 要解析一个WGSL程序：
-1. 去掉注释：
-    * 用一个space字符替换第一个注释。
+1. 去掉注释[=comments=]：
+    * 用一个space字符编码(`U+0020`)替换第一个注释。
     * 重复直到没有注释。
-2. 从头到尾扫描，以贪心的方式将剩余的字符分组为标记和空格：
-    * 下一组由剩余未分组字符的最长非空前缀组成
-3. 解析token序列，尝试匹配 [=syntax/translation_unit=] 语法规则。
+2. 从头到尾扫描，将剩余的字符编码分组为标记[=tokens=]和空格[=blankspaces=]：
+    * 下一组由剩余未分组字符编码的最长非空前缀组成
+3. 删除空格，只保留标记。
+4. 解析token序列，尝试匹配 [=syntax/translation_unit=] 语法规则。
 
 在以下情况下会导致[=shader-creation error=]：
 * 整个源文本无法转换为有限的有效tokens序列，或
 * [=syntax/translation_unit=] 语法规则与整个token序列不匹配。
+## 空格和换行符## {#blankspace-and-line-breaks}
+
+<dfn>Blankspace</dfn> 是 Unicode 中的一个或多个代码点的任意组合。
+以下是 [=Unicode Standard Annex #31 for Unicode Version 14.0.0|Pattern_White_Space=] 中的代码点集：
+* 空格 (`U+0020`)
+* 水平制表符 (`U+0009`)
+* 换行 (`U+000A`)
+* 垂直制表符 (`U+000B`)
+* 换页 (`U+000C`)
+* 回车 (`U+000D`)
+* 下一行 (`U+0085`)
+* 从左到右的标记 (`U+200E`)
+* 从右到左的标记 (`U+200F`)
+* 行分隔符 (`U+2028`)
+* 段落分隔符 (`U+2029`)
+
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>_blankspace</dfn> ：
+
+    | `/[\u0020\u0009\u000a\u000b\u000c\u000d\u0085\u200e\u200f\u2028\u2029]/uy`
+</div>
+
+<dfn>line break</dfn> 是一个连续的 [=blankspace=] 代码点序列，指示行尾。
+它被定义为表示“强制中断”的空格，定义为
+[=UAX14 第 6.1 节不可定制的换行规则=] [=UAX14 LB4|LB4=] 和 [=UAX14 LB5|LB5=]。
+也就是说，换行符是以下任何一种：
+* 换行 (`U+000A`)
+* 垂直制表符 (`U+000B`)
+* 换页 (`U+000C`)
+* 回车符 (`U+000D`) 后不跟换行符 (`U+000A`)
+* 回车 (`U+000D`) 后跟换行符 (`U+000A`)
+* 下一行 (`U+0085`)
+* 行分隔符 (`U+2028`)
+* 段落分隔符 (`U+2029`)
+
+注意：根据行号报告源文本位置的诊断应使用 [=line breaks=]数行。
 
 ## 注释 ## {#comments}
 
 注释（<dfn>comment</dfn>）是一块不影响WGSL程序有效性和含义的文本，只是注释可以分隔[=tokens=]。着色器作者可以使用注释去给程序添加文档信息。
 
-行尾注释（<dfn noexport>line-ending comment</dfn>）是一种由两个字符 // 和后面的字符组成的注释，直到但不包括：
-* 除[=blankspace=]或水平制表符之外的下一个空格字符，或
+行尾注释（<dfn noexport>line-ending comment</dfn>）是一种由两个字符编码 //  (`U+002F` followed by `U+002F`) 和后面的字符编码组成的注释，直到但不包括：
+* 下一个[=line break=]，或
 * 程序结尾
 
 <dfn noexport>block comment</dfn>是一种[=comment=]，由以下内容组成：
-* 两个字符 `/*`
+* 两个字符编码 `/*` (`U+002F` 跟着 `U+002A`)
 * 然后是任何序列：
      * A [=block comment=]，或
-     * 不包含 `*/` 或 `/*` 的文本
-* 然后两个字符 `*/`
+     * 不包含 `*/` (`U+002A` 跟着 `U+002F`) 或 `/*` (`U+002F` followed by `U+002A`) 的文本
+* 然后两个字符编码 `*/` (`U+002A` 跟着 `U+002F`)
 
 注意：块注释可以嵌套。
 由于块注释需要匹配的开始和结束文本序列，并允许任意嵌套，因此不能用正则表达式识别块注释。
@@ -359,8 +401,8 @@ WGSL程序文本由一系列字符组成，分组为连续的非空集形成：
 
 <div class='example wgsl' heading='Comments'>
   <xmp>
-  let f = 1.5;   // 这是行尾注释。
-  let g = 2.5;   /* 这是一个块注释
+  const f = 1.5;   // 这是行尾注释。
+  const g = 2.5;   /* 这是一个块注释
                     跨越几行。
                     /* 块注释可以嵌套
                      */
@@ -371,7 +413,7 @@ WGSL程序文本由一系列字符组成，分组为连续的非空集形成：
 
 ## 标记 ## {#tokens}
 
-一个标记（<dfn>token</dfn>）是一系列连续字符构成以下内容：
+一个标记（<dfn>token</dfn>）是一系列连续字符编码构成以下内容：
 * 一个[=literal=].
 * 一个[=keyword=].
 * 一个[=reserved word=].
@@ -381,48 +423,91 @@ WGSL程序文本由一系列字符组成，分组为连续的非空集形成：
 ## 文字 ## {#literals}
 
 文字（<dfn>literal</dfn>）为一下之一：
-* 用作表达数字的<dfn>numeric literal</dfn>
-* 为 `true` 或 `false` 的<dfn noexport>boolean literal</dfn>
+* 布尔文字<dfn noexport>boolean literal</dfn>：`true`或`false`。
+* 数字文字<dfn>numeric literal</dfn>：[=integer literal=] 或 [=floating point literal=]，用于表示一个数字。
 
-[=numeric literal=]的形式是通过模式匹配定义的：
-
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>decimal_float_literal</dfn> :
-
-    | `/((-?[0-9]*\.[0-9]+|-?[0-9]+\.[0-9]*)((e|E)(\+|-)?[0-9]+)?)|(-?[0-9]+(e|E)(\+|-)?[0-9]+)/`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>hex_float_literal</dfn> :
-
-    | `/-?0x((([0-9a-fA-F]*\.[0-9a-fA-F]+|[0-9a-fA-F]+\.[0-9a-fA-F]*)((p|P)(\+|-)?[0-9]+)?)|([0-9a-fA-F]+(p|P)(\+|-)?[0-9]+))/`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>int_literal</dfn> :
-
-    | `/-?0x[0-9a-fA-F]+|0|-?[1-9][0-9]*/`
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>uint_literal</dfn> :
-
-    | `/0x[0-9a-fA-F]+u|0u|[1-9][0-9]*u/`
+<div class='example wgsl bool-literals' heading='boolean literals'>
+  <xmp highlight='rust'>
+    const a = true;
+    const b = false;
+  </xmp>
 </div>
 
-注意：文字被贪心解析。这意味着对于像 `a -5` 这样的语句，这*不会*解析为 `a` `减` `5`，而是解析为 `a` `-5`，这可能是意外的。如果需要第一个表达式，则必须在 `-` 之后插入一个空格。
-
-TODO(dneto)：描述数字文字标记如何映射到理想化值，然后映射到类型化值。
-
 <div class='syntax' noexport='true'>
-  <dfn for=syntax>const_literal</dfn> :
-
-    | [=syntax/int_literal=]
-
-    | [=syntax/uint_literal=]
-
-    | [=syntax/float_literal=]
+  <dfn for=syntax>bool_literal</dfn> :
 
     | [=syntax/true=]
 
     | [=syntax/false=]
+</div>
+
+[=numeric literal=]的形式是通过模式匹配定义
+<dfn>integer literal</dfn> 是：
+* 指定为以下任意项的整数：
+     *`0`
+     * 十进制数字序列，其中第一个数字不是“0”。
+     * `0x` 或 `0X` 后跟一系列十六进制数字。
+* 然后是可选的 `i` 或 `u` 后缀。
+
+<div class='example wgsl int-literals' heading='integer literals'>
+  <xmp highlight='rust'>
+    const a = 0x123;
+    const b = 0X123u;
+    const c = 1u;
+    const d = 123;
+    const e = 0;
+    const f = 0i;
+    const g = 0x3f;
+  </xmp>
+</div>
+
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>int_literal</dfn> :
+
+    | `/(0[xX][0-9a-fA-F]+|0|[1-9][0-9]*)[iu]?/`
+</div>
+
+<dfn>floating point literal</dfn> 是 [=十进制浮点文字l=]
+或 [=十六进制浮点文字=]。
+* <dfn noexport>十进制浮点文字</dfn>是：
+     * 尾数，指定为数字序列，其中包含可选的小数点 (`.`)。
+     * 然后是一个可选的指数后缀，包括：
+         * `e` 或 `E`。
+         * 然后是指定为带有可选前导符号（`+` 或 `-`）的十进制数的指数。
+         * 然后是可选的 `f` 或 `h` 后缀。
+     * 小数点、指数、`f` 或 `h` 后缀中至少有一个必须存在。
+          如果没有，则标记是 [=integer literal=]。
+     * 字面量的值是尾数乘以 10 的指数幂。
+          如果未指定指数，则假定指数为 0。
+
+* <dfn noexport>十六进制浮点字面量</dfn> 是：
+     * 一个 `0x` 或 `0X` 前缀
+     * 然后是尾数，指定为十六进制数字序列，其中有一个可选的十六进制点 (`.`)。
+     * 然后是一个可选的指数后缀，包括：
+         * `p` 或 `P`
+         * 然后是指定为带有可选前导符号（`+` 或 `-`）的十进制数的指数。
+         * 然后是可选的 `f` 或 `h` 后缀。
+     * 至少一个十六进制点或指数必须存在。
+          如果两者都不是，则标记是 [=integer literal=]。
+     * 文字的值是尾数乘以 2 的指数次方的值。
+          如果未指定指数，则假定指数为 0。
+
+<div class='example wgsl float-literals' heading='floating point literals'>
+  <xmp highlight='rust'>
+    const a = 0.e+4f;
+    const b = 01.;
+    const c = .01;
+    const d = 12.34;
+    const f = .0f;
+    const g = 0h;
+    const h = 1e-3;
+    const i = 0xa.fp+2;
+    const j = 0x1P+4f;
+    const k = 0X.3;
+    const l = 0x3p+2h;
+    const m = 0X1.fp-4;
+    const n = 0x3.2p+2h;
+  </xmp>
 </div>
 
 <div class='syntax' noexport='true'>
@@ -433,6 +518,54 @@ TODO(dneto)：描述数字文字标记如何映射到理想化值，然后映射
     | [=syntax/hex_float_literal=]
 </div>
 
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>decimal_float_literal</dfn> :
+
+    | `/((([0-9]*\.[0-9]+|[0-9]+\.[0-9]*)([eE](\+|-)?[0-9]+)?)|([0-9]+[eE](\+|-)?[0-9]+))[fh]?|0[fh]|[1-9][0-9]*[fh]/`
+</div>
+
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>hex_float_literal</dfn> :
+
+    | `/0[xX]((([0-9a-fA-F]*\.[0-9a-fA-F]+|[0-9a-fA-F]+\.[0-9a-fA-F]*)([pP](\+|-)?[0-9]+[fh]?)?)|([0-9a-fA-F]+[pP](\+|-)?[0-9]+[fh]?))/`
+</div>
+
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>const_literal</dfn> :
+
+    | [=syntax/int_literal=]
+
+    | [=syntax/float_literal=]
+
+    | [=syntax/bool_literal=]
+</div>
+
+当 [=numeric literal=] 具有后缀时，该文字表示特定 [=scalar=] 类型中的值。
+否则，文字表示下面定义的 [=abstract numeric types=] 之一的值。
+
+<table class=data>
+  <caption>将文字映射到类型</caption>
+  <thead>
+    <tr><th>文字<th>后缀<th>类型<th>例子
+  </thead>
+
+  <tr><td>[=integer literal=]<td>`i`<td>[=i32=]<td>42i
+  <tr><td>[=integer literal=]<td>`u`<td>[=u32=]<td>42u
+  <tr><td>[=integer literal=]<td><td>[=AbstractInt=]<td>124
+  <tr><td>[=floating point literal=]<td>`f`<td>[=f32=]<td>42f 1e5f 1.2f 0x1.0p10f
+  <tr><td>[=floating point literal=]<td>`h`<td>[=f16=]<td>42h 1e5h 1.2h 0x1.0p10h
+  <tr><td>[=floating point literal=]<td><td>[=AbstractFloat=]<td>1e5 1.2 0x1.0p10
+</table>
+
+如果出现以下情况，则会导致 [=shader-creation error=]：
+* 带有 `i` 或 `u` 后缀的 [=integer literal=] 不能由目标类型表示。
+* 带有 `f` 或 `h` 后缀的 [=hexadecimal floating point literal=] 溢出或无法由目标类型精确表示。
+* 带有 `f` 或 `h` 后缀的 [=decimal floating point literal=] 会溢出目标类型。
+* 使用带有 `h` 后缀的 [=floating point literal=] 而 [=extension/f16|f16 extension=] 未启用。
+Note: The hexadecimal float value 0x1.00000001p0 requires 33 mantissa bits to be represented exactly,
+but [=f32=] only has 23 explicit mantissa bits.
+
+注意：如果要使用 `f` 后缀来强制十六进制浮点字面量为类型，则字面量还必须使用二进制指数。 例如，写“0x1p0f”。 相比之下，`0x1f` 是一个十六进制整数文字。
 
 ## 关键字 ## {#keywords}
 
@@ -442,20 +575,62 @@ TODO(dneto)：描述数字文字标记如何映射到理想化值，然后映射
 
 标识符（<dfn>identifier</dfn>）是一种用作名称的[=token=]，请参阅[[#declaration-and-scope]]和[[#directives]]。
 
-标识符的形式是通过模式匹配定义的，但标识符：
- * 不得与 [=keyword=] 或 [=reserved word=] 拼写相同。
- * 不能是 `_`（单个下划线）
- * 不能以两个下划线开头。
+标识符的形式基于
+[=Unicode 标准附件 #31 用于 Unicode 版本 14.0.0|Unicode 标准附件 #31=] 用于
+[[!UnicodeVersion14|Unicode 版本 14.0.0]],
+以下详细说明。
+
+标识符使用根据 [=UAX31 Grammar=] 描述的以下配置文件：
+
+```
+<Identifier> := <Start> <Continue>* (<Medial> <Continue>+)*
+
+<Start> := XID_Start + U+005F
+<Continue> := <Start> + XID_Continue
+<Medial> :=
+```
+
+这意味着具有此类非 ASCII 代码点的标识符是
+有效：`Δέλτα`, `réflexion`, `Кызыл`, `𐰓𐰏𐰇`, `朝焼け`, `سلام`, `검정`, `שָׁלוֹם`, `गुलाबी`, `փրոզ
+
+除以下例外：
+* 标识符的拼写不得与 [=keyword=] 或 [=reserved word=] 相同。
+* 标识符不能是 `_`（单下划线，`U+005F`）。
+* 标识符不能以 `__` 开头（两个下划线，`U+005F` 后跟 `U+005F`）。
 
 <div class='syntax' noexport='true'>
   <dfn for=syntax>ident</dfn> :
 
-     | `/([a-zA-Z_][0-9a-zA-Z][0-9a-zA-Z_]*)|([a-zA-Z][0-9a-zA-Z_]*)/`
+    | `/([_\p{XID_Start}][\p{XID_Continue}]+)|([\p{XID_Start}])/uy`
 </div>
+
+[=Unicode 版本 14.0.0 的 Unicode 字符数据库=] 包括非规范列表，其中包含 [=UAX31 词法类|XID_Start=] 和
+[=UAX31 词法类|XID_Continue=]。
+
 
 注意：某些 [=built-in functions=] 的 [=return type=] 是其名称不能用于WGSL源的结构类型。
 这些结构类型被描述为 [=predeclared=]，名称以两个下划线开头。
 结果值可以使用类型推断保存到新声明的 `let` 或 `var` 中，或者立即通过名称立即提取其成员之一。 参见 `frexp` 和 `modf` 描述中的示例用法。
+
+### 标识符比较 ### {#identifier-comparison}
+
+当且仅当它们由相同的代码点序列组成时，两个 WGSL 标识符才是相同的。
+
+特别是，两个标识符在 WGSL 中可能是不同的，但在常规规范化下被认为是相同的，
+映射和匹配算法，例如：
+- [=UAX15 标准化表格|标准化表格 C (NFC)=],
+- [=UAX15 规范化形式|规范化形式 D (NFD)=],
+- [=UAX15 规范化形式|规范化形式 KC (NFKC)=],
+- [=UAX15 规范化形式|规范化形式 KD (NFKD)=],
+- [=UTS46 映射=]，和
+- [=charmod-norm 匹配=]。
+
+注意：当 WGSL 程序的含义发生改变时，用户代理应该发出开发人员可见的警告，如果
+标识符的所有实例都替换为该标识符的同形异义词之一。
+（同形文字是一个代码点序列，在读者看来可能与另一个代码点序列相同。
+用于检测同形文字的映射示例是中提到的转换、映射和匹配算法
+上一段。如果标识符可以通过以下方式将一个代码点转换为另一个，则两个代码点序列是同形异义词
+反复用同形文字替换一个子序列。）
 
 ## 属性 ## {#attributes}
 
@@ -476,8 +651,6 @@ TODO(dneto)：描述数字文字标记如何映射到理想化值，然后映射
     | [=syntax/float_literal=]
 
     | [=syntax/int_literal=]
-
-    | [=syntax/uint_literal=]
 
     | [=syntax/ident=]
 </div>
@@ -516,6 +689,15 @@ TODO(dneto)：描述数字文字标记如何映射到理想化值，然后映射
     <td>只能应用于入口点函数参数、入口点返回类型或结构（[=structure=]）成员。
 
     声明一个内置变量。见[[#builtin-values]]。
+  <tr><td><dfn noexport dfn-for="attribute">`const`
+     <td>*无*
+     <td>只能应用于函数声明。
+
+     指定该函数可用作 [=creation-time function=]。
+     如果此属性应用于
+     用户自定义函数。
+
+     注意：此属性用作符号约定来描述可以在 [=creation-time expressions=] 中使用哪些内置函数。
 
   <tr><td><dfn noexport dfn-for="attribute">`group`
     <td>非负i32文字
@@ -546,7 +728,7 @@ TODO(dneto)：描述数字文字标记如何映射到理想化值，然后映射
 
     当应用于顶点着色器的位置内置输出变量（`position` [=built-in output value=]）时，结果的计算在不同程序和同一入口点的不同调用之间是不变的。 也就是说，如果数据和控制流在不同入口点的两个位置输出匹配，则结果值保证相同。对位置内置输入变量（`position` [=built-in input value=]）没有影响。
 
-    注意：此属性映射到 SPIR-V 中的 `Invariant` 修饰、HLSL 中的 `precise` 限定符和GLSL中的 `invariant` 限定符。
+    注意：此属性映射到 HLSL 中的 `precise` 限定符和 GLSL 中的 `invariant` 限定符
 
   <tr><td><dfn noexport dfn-for="attribute">`location`
     <td>非负i32文字
@@ -567,19 +749,12 @@ TODO(dneto)：描述数字文字标记如何映射到理想化值，然后映射
 
      见 [[#memory-layouts]]
 
-  <tr><td><dfn noexport dfn-for="attribute">`stage`</dfn>
-    <td>`compute`, `vertex`, or `fragment`
-    <td>
-
-    仅应用于[=function declaration=]。
-    通过指定 [[#shader-stages-sec|pipeline stage]] 来声明 [=entry point=]。
-
   <tr><td><dfn noexport dfn-for="attribute">`workgroup_size`</dfn>
     <td>
 
     一个，两个，或三个参数。
 
-    每个参数是文字常量或模块范围常量（[[#module-constants|module-scope constant]]）。所有参数的类型必须相同，i32或u32。
+    每个参数是文字常量或模块范围常量（[[#module-constants|module-scope constant]]）。所有参数的类型必须相同，或者是 [INT]。
 
     <td>
 
@@ -591,6 +766,31 @@ TODO(dneto)：描述数字文字标记如何映射到理想化值，然后映射
 
 </table>
 
+下面的<dfn noexport>管道阶段属性</dfn>
+将函数指定为特定 [=shader stage=] 的 [=entry point=]。
+这些属性只能应用于 [=function declarations=]，
+并且在给定的函数上最多可以存在一个。
+它们不带参数。
+
+<表类='数据'>
+  <caption>流水线阶段属性</caption>
+  <头>
+    <tr><th>属性<th>描述
+  </thead>
+
+  <tr><td><dfn noexport dfn-for="attribute">`vertex`</dfn><br>
+    <td>将函数声明为 [=vertex shader stage=] 的 [=entry point=]
+    [=GPURenderPipeline|render pipeline=]。
+
+  <tr><td><dfn noexport dfn-for="attribute">`fragment`</dfn><br>
+    <td>将函数声明为 [=fragment shader stage=] 的 [=entry point=]
+    [=GPURenderPipeline|render pipeline=]。
+
+  <tr><td><dfn noexport dfn-for="attribute">`compute`</dfn><br>
+    <td>将函数声明为 [=compute shader stage=] 的 [=entry point=]
+    [=GPUComputePipeline|compute pipeline=]。
+
+</table>
 
 ## 指令 ## {#directives}
 
@@ -605,11 +805,11 @@ TODO(dneto)：描述数字文字标记如何映射到理想化值，然后映射
 ## 声明和范围 ## {#declaration-and-scope}
 
 声明（<dfn noexport>declaration</dfn>）将标识符（[=identifier=]）与以下类型的对象之一相关联：
-* a type
-* a value
-* a variable
-* a function
-* a formal parameter
+* [=type=]
+* [=value declaration|value=]
+* [=variable=]
+* [=function/function=]
+* [=formal parameter=]
 
 换句话说，声明引入了对象的名称（<dfn noexport>name</dfn>）。
 
@@ -653,7 +853,7 @@ TODO(dneto)：描述数字文字标记如何映射到理想化值，然后映射
 注意：只有 [=function declaration=] 可以包含其他声明。
 
 <div class='example wgsl' heading='Valid and invalid declarations'>
-  <xmp>
+  <xmp  highlight='rust'>
     // 无效，无法重用内置函数名称。
     var<private> modf: f32 = 0.0;
 
@@ -718,10 +918,13 @@ TODO(dneto)：描述数字文字标记如何映射到理想化值，然后映射
 
 在WGSL中，类型（<dfn noexport>type</dfn>）是一组值，每个值都属于一种类型。值的类型决定了可以对该值执行的操作的语法和语义。
 
-例如，数学数字1对应于WGSL中的三个不同值：
-* 32-位有符号整数 `1`，
-* 32-位无符号整数 `1u`，和
-* 32-位浮点型数值 `1.0`。
+例如，数学数字 1 对应于 [SHORTNAME] 中的这些不同值：
+* 32 位有符号整数值 `1i`,
+* 32 位无符号整数值 `1u`,
+* 32 位浮点值 `1.0f`,
+* 如果启用了 [=extension/f16|f16 extension=]，则为 16 位浮点值 `1.0h`，
+* [=AbstractInt=] 值 1，和
+* [=AbstractFloat=] 值 1.0
 
 WGSL将它们视为不同的值，因为它们的机器表示和操作不同。
 
@@ -737,7 +940,11 @@ WGSL将它们视为不同的值，因为它们的机器表示和操作不同。
 
 ## 类型检查 ## {#type-checking-section}
 
-WGSL值是通过计算表达式来计算的。表达式（<dfn noexport>expression</dfn>）是解析为WGSL语法规则之一的源文本片段，其名称以“`_expression`”结尾。表达式*E*可以包含子表达式（<dfn noexport>subexpressions</dfn>），这些子表达式是正确包含在外部表达式*E*中的表达式。
+WGSL值是通过计算表达式来计算的。表达式（<dfn noexport>expression</dfn>）
+是解析为名称以“`_expression`”结尾的 [SHORTNAME] 语法规则之一。
+表达式 |E| 可以包含 <dfn noexport>subexpressions</dfn>，它们是正确包含在外部表达式 |E| 中的表达式。
+<dfn noexport>顶级表达式</dfn> 是一个本身不是子表达式的表达式。
+参见 [[#expression-grammar]]。
 
 表达式求值产生的特定值取决于：
 * <dfn noexport>static context</dfn>:
@@ -747,11 +954,6 @@ WGSL值是通过计算表达式来计算的。表达式（<dfn noexport>expressi
 
 计算特定表达式可能产生的值将始终属于特定的WGSL类型，称为表达式的静态类型（<dfn noexport>static type</dfn>）。WGSL的规则被设计为表达式的静态类型仅取决于表达式的静态上下文。
 
-语句通常使用表达式，并且可能对这些表达式的静态类型提出要求。例如：
-* `if` 语句的条件表达式必须为布尔（[=bool=]）类型。
-* 在 `let` 声明中，初始值必须评估为常量的声明类型。
-
-类型检查（<dfn noexport>Type checking</dfn>）成功解析WGSL程序是将每个表达式映射至其静态类型，并确定每个语句的类型要求是否满足的过程。
 
 类型断言（<dfn noexport>type assertion</dfn>）是从一些WGSL源表达式到WGSL类型的映射。符号
 
@@ -761,52 +963,375 @@ WGSL值是通过计算表达式来计算的。表达式（<dfn noexport>expressi
 
 注意：类型断言是关于程序文本的事实陈述。它不是运行时的检查。
 
-可以通过递归应用类型规则来查找表达式的静态类型。类型规则（<dfn noexport>type rule</dfn>）有两部分：
-* 声明为对一个表达式的类型断言的结论。类型断言中的表达式是示意性指定的，使用*斜体*名称表示子表达式或其他语法确定的参数。
-* 先决条件，包括：
-    * 子表达式的类型断言，当有子表达式时。
-    * 其他语义参数的条件，如果有的话。
-    * 语句中表达是如何使用。
-    * 可选择地，其他静态上下文。
+
+语句经常使用表达式，并且可能对这些表达式的静态类型提出要求。
+例如：
+* `if` 语句的条件表达式必须是 [=bool=] 类型。
+* 在指定显式类型的 `let` 声明中，初始化表达式必须计算为该类型。
+
+<dfn noexport>类型检查</dfn> 一个成功解析的WGSL程序是映射过程
+每个表达式为其静态类型，
+并验证是否满足每个语句的类型要求。
+如果类型检查失败，则会产生一个 [=shader-creation error=] 的特殊情况，称为 <dfn noexport>type error</dfn>。
+
+可以通过递归应用 [=type rules=] 来执行类型检查
+到句法短语，其中 <dfn noexport>句法短语</dfn> 是 [=expression=] 或 [[#statements|statement]]。
+<dfn noexport>类型规则</dfn> 描述 [=syntactic phrase=] 的 [=static context=] 如何
+确定该短语中包含的表达式的静态类型。
+[=type rule=] 有两个部分：
+* 一个<dfn noexport lt="类型规则结论">结论</dfn>。
+    * 如果短语是表达式，则结论是表达式的 [=type assertion=]。
+    * 如果短语是陈述，则结论是一组 [=type assertions=]，
+        每个语句的 [=顶级表达式=] 一个。
+    * 在这两种情况下，[=syntactic phrases=] 都是示意性指定的，
+        使用 *italicized* 名称来表示子表达式
+        或其他语法确定的参数。
+* <dfn noexport lt="type rule preconditions">先决条件</dfn>，包括：
+    * 对于表达式：
+        * 为子表达式键入断言，当它有子表达式时。
+             每个都可以直接满足，或者通过 [=feasible automatic conversion=]（如 [[#conversion-rank]] 中定义）。
+        * 如何在语句中使用表达式。
+    * 对于语句：
+        * 语句的句法形式，以及
+        * 在语句中为 [=顶级表达式=] 键入断言。
+    * 其他原理图参数的条件（如果有）。
+    * 可选地，其他静态上下文。
 
 类型规则的每个不同类型参数化称为 <dfn noexport>overload</dfn>。
-例如，[[#arithmetic-expr|unary negation]]（`-`|e| 形式的表达式）有八个重载，因为它的类型规则由类型 |T| 参数化。 可以是以下任何一种：
+例如，[[#arithmetic-expr|unary negation]]（`-`|e| 形式的表达式）有十二个重载，因为它的类型规则由类型 |T| 参数化。 可以是以下任何一种：
 * [=i32=]
-* vec2&lt;i32&gt;
+* [=vector|vec2&lt;i32&gt;=]
 * vec3&lt;i32&gt;
 * vec4&lt;i32&gt;
 * [=f32=]
-* vec2&lt;f32&gt;
+* [=vec2&lt;f32&gt;=]
 * vec3&lt;f32&gt;
 * vec4&lt;f32&gt;
+* [=f16=]
+* [=vector|vec2&lt;f16&gt;=]
+* vec3&lt;f16&gt;
+* vec4&lt;f16&gt;
 
-一个类型规则适用于一个表达式（<dfn noexport>type rule applies to an expression</dfn>）当：
-* 规则的结论与一个有效解析的表达式匹配，和
+在以下情况下，<dfn noexport>类型规则适用于句法短语</dfn>：
+* 规则的结论匹配 [=syntactic phrase=] 的有效解析，并且
 * 规则的先决条件被满足。
 
-TODO：写一个例子，例如 `1+2` 或 `3 - a`，其中 `a` 在 `i32` 类型的let声明的范围内。
+考虑表达式，`1u+2u`。
+它有两个 [[#literal-expressions|literal 子表达式]]：`1u` 和 `2u`，都是 u32 类型。
+[=顶级表达式=] 是一个附加项。
+参考 [[#arithmetic-expr]] 规则，标量 u32 加法的类型规则适用于表达式，因为：
+* `1u+2u` 匹配 |e1|+|e2| 形式的解析，带有 |e1|代表`1u`和|e2|代表“2u”，和
+* |e1|是 u32 类型，并且
+* |e2|是u32类型。
 
-类型规则被设计成如果解析成功，最多一个类型规则将应用于每个表达式。如果类型规则适用于表达式，则结论被断言，从而确定表达式的静态类型。
+在分析[=句法短语=]时，可能会出现三种情况：
+* 没有类型规则适用于表达式。这会导致 [=type error=]。
+* 只有一种类型规则适用于表达式。
+    在这种情况下，规则的 [=type rule 结论|conclusion=] 被断言，确定表达式的静态类型。
+* 不止一种类型规则适用。即满足多个[=overload=]的前提条件。
+    在这种情况下，使用 [[#overload-resolution-section]] 中描述的平局过程。
+    * 如果重载解析成功，则确定将单个类型规则应用于表达式。
+        该重载的 [=type 规则结论|结论=] 中的 [=type assertions=] 被断言，
+        并因此确定 [=syntactic phrase=] 中一个或多个表达式的类型。
+    * 如果重载解析失败，则结果为 [=type error=]。
+
+继续上面的例子，只有一个类型规则适用于表达式 `1u+2u`，所以类型检查
+接受该类型规则的结论，即 `1u+2u` 是 u32 类型。
 
 一个WGSL源程序为<dfn noexport>well-typed</dfn>当：
 * 可以通过应用类型规则为程序中的每个表达式确定静态类型，并且
 * 满足每个语句的类型要求
 
-否则会出现类型错误（<dfn noexport>type error</dfn>）并且源程序不是有效的WGSL程序。
+否则会出现类型错误（[=type error=]）并且源程序不是有效的WGSL程序。
 
 WGSL是一种静态类型语言（<dfn noexport>statically typed language</dfn>），因为 WGSL 程序的类型检查要么成功要么发现类型错误，而只需要检查程序源文本。
 
 ### 类型规则表 ### {#typing-tables-section}
 
-WGSL类型规则（[=type rules=]）被组织成类型规则表（<dfn noexport>type rule tables</dfn>），每个类型规则占一行。
+对于表达式WGSL类型规则（[=type rules=]）被组织成类型规则表（<dfn noexport>type rule tables</dfn>），每个类型规则占一行。
 
 表达式的语义（<dfn noexport>semantics of an expression</dfn>）是对表达式求值的结果，主要是结果值的产生。 适用于表达式的类型规则的*描述*列将指定表达式的语义。语义通常取决于类型规则参数的值，包括任何子表达式的假定值。 有时，表达式的语义包括产生结果值以外的效果，例如其子表达式的非结果值效果。
 
 TODO：示例：非结果值效应是函数调用子表达式的任何副作用。
 
+### 转化排名### {#conversion-rank}
+
+当一个类型断言 |e|:|T|用作 [=type rule precondition=]，满足以下条件：
+* |e|已经是 |T| 类型，或者
+* |e| 的值可以自动转换为 |T| 类型的值。
+
+该规则由 <dfn>ConversionRank</dfn> 函数对类型对进行编码，在下表中定义。
+[=ConversionRank=] 函数表示自动将一种类型 (*Src*) 的值转换为另一种类型 (*Dest*) 的偏好和可行性。
+较低的等级更可取。
+
+<dfn>可行的自动转换</dfn> 将值从 *Src* 类型转换为 *Dest* 类型，并且当 [=ConversionRank=](*Src*,*Dest*) 是有限的时允许。
+这种转换是保值的，受 [[#floating-point-evaluation]] 中描述的限制。
+
+注意：自动转换仅在两种情况下发生。
+首先，将 [=creation-time constant=] 转换为可在 GPU 上使用的相应类型数值时。
+其次，当发生来自内存引用的加载时，会产生存储在该内存中的值。
+
+注意：无限等级的转换是不可行的，即不允许。
+
+注意：当不进行转换时，转换等级为零。
+
+<table class='data'>
+  <caption>
+    ConversionRank from one type to another
+  </caption>
+  <thead>
+    <tr><th>Src
+        <th>Dest
+        <th>ConversionRank(Src,Dest)
+        <th>Notes
+  </thead>
+  <tr algorithm="conversion rank identity">
+      <td>|T|
+      <td>|T|
+      <td>0
+      <td>Identity. No conversion performed.
+  <tr algorithm="conversion rank from reference via load rule">
+      <td>ref&lt;|S|,|T|,|A|&gt;<br>where |A| is [=access/read=] or [=access/read_write=]
+      <td>|T|
+      <td>0
+      <td>Apply the [=Load Rule=] to load a value from a memory reference.
+  <tr algorithm="conversion rank abstract float to f32">
+      <td>[=AbstractFloat=]
+      <td>f32
+      <td>1
+      <td>
+  <tr algorithm="conversion rank abstract float to f16">
+      <td>[=AbstractFloat=]
+      <td>f16
+      <td>2
+      <td>
+  <tr algorithm="conversion rank abstract int to i32">
+      <td>[=AbstractInt=]
+      <td>i32
+      <td>3
+      <td>
+  <tr algorithm="conversion rank abstract int to u32">
+      <td>[=AbstractInt=]
+      <td>u32
+      <td>4
+      <td>
+  <tr algorithm="conversion rank abstract int to abstract float">
+      <td>[=AbstractInt=]
+      <td>[=AbstractFloat=]
+      <td>5
+      <td>
+  <tr algorithm="conversion rank abstract int to f32">
+      <td>[=AbstractInt=]
+      <td>f32
+      <td>6
+      <td>Behaves as [=AbstractInt=] to [=AbstractFloat=], and then [=AbstractFloat=] to f32
+  <tr algorithm="conversion rank abstract int to f16">
+      <td>[=AbstractInt=]
+      <td>f16
+      <td>7
+      <td>Behaves as [=AbstractInt=] to [=AbstractFloat=], and then [=AbstractFloat=] to f16
+  <tr algorithm="conversion rank for non-convertible cases">
+      <td>|S|
+      <td>|T|<br>where above cases don't apply
+      <td>infinity
+      <td>There are no automatic conversions between other types.
+</table>
+
+### 过载分辨率 ### {#overload-resolution-section}
+
+当多个 [=type 规则适用于句法短语=] 时，使用平局程序
+来决定哪一个应该生效。
+此过程称为<dfn noexport>重载解析</dfn>，
+并假设类型检查已经成功找到 [=subexpressions=] 的静态类型。
+
+考虑一个 [=syntactic phrase=] |P|，并且所有 [=type 规则都适用于一个句法短语|type 规则，这些规则将 =] 应用于 |P|。
+重载解析算法将这些类型规则称为<dfn noexport>重载候选</dfn>。
+对于每个候选人：
+* 其先决条件已直接或通过[=可行的自动转换|自动转换=]得到满足。
+* 它的 [=type rule 结论|conclusion=] 有：
+    * 匹配 |P| 的有效解析的句法形式，以及
+    * 一个 [=type assertion=] 对应于 |P| 中的每个 [=top-level expression=]。
+
+|P| 的重载分辨率如下进行，目标是找到一个最 [=preferable Candidate|preferable=] [=overload Candidate=]：
+1. 对于每个候选|C|，枚举句法短语中子表达式的转换等级。
+    候选者的先决条件已经满足，因此对于 |P| 中的第 |i| 个子表达式：
+    * 其静态类型已计算。
+    * 从表达式的静态类型到前置条件中对应类型断言所需要的类型有一个[=feasible automatic conversion=]。
+        令 |C|.|R|(i) 为该转换的 [=ConversionRank=]。
+
+1. 给候选者排序：给定两个重载候选者|C1|和 |C2|、|C1| <dfn lt="preferable Candidate">首选</dfn>优于|C2|如果：
+    * 对于每个表达式位置 |i|在 |P|, |C1|.|R|(i) &le; |C2|.|R|(i)。
+         * 即每次表达式转换都需要应用|C1|到 |P|至少与应用 |C2| 所需的相应表达式转换一样可取到 |P|。
+    * 至少有一个表达式位置 |i|其中|C1|.|R|(i) &lt; |C2|.|R|(i)。
+         * 即应用 |C1| 至少需要进行一次表达式转换这比应用 |C2| 所需的相应转换更可取。
+
+1. 如果只有一个候选人 |C|这是 [=preferable Candidate|preferred=] 高于所有其他，然后重载解析成功，产生候选类型规则 |C|。
+      否则，重载解析失败。
+
+      TODO: Examples
+
+
+ ## 创建时间常量的类型 ## {#types-for-creation-time-constants}
+
+ 某些表达式在 [=shader module creation|shader-creation time=] 时计算，
+ 并且具有可能比 GPU 直接实现的数值范围和精度更大的数值范围和精度。
+
+ [SHORTNAME] 为这些评估定义了两个 <dfn>抽象数字类型</dfn>：
+ * <dfn noexport>AbstractInt</dfn> 类型是整数集|i|，具有-2<sup>63</sup> &leq; |我| &lt; 2<sup>63</sup>。
+ * <dfn noexport>AbstractFloat</dfn> 类型是一组可表示的有限浮点数
+     [[!IEEE-754|IEEE-754]] binary64（双精度）格式。
+
+ 对其中一种类型的表达式的求值不得溢出或产生未定义的结果。
+ 否则，结果是 [=shader-creation error=]。
+
+ 这些类型不能在 WGSL 源代码中拼写。它们仅由 [=type checks=] 使用。
+
+ 不是抽象数字类型也不包含抽象数字的类型
+ 类型称为 <dfn noexport>concrete</dfn>。
+
+ 没有后缀的 [=numeric literal=] 表示 [=abstract numeric type=] 中的值：
+ * 没有 `i` 或 `u` 后缀的 [=integer literal=] 表示 [=AbstractInt=] 值。
+ * 没有 `f` 后缀的 [=floating point literal=] 表示 [=AbstractFloat=] 值。
+
+示例：表达式 `log2(32)` 分析如下：
+* `log2(32)` 被解析为对 `log2` 内置函数的函数调用，操作数 [=AbstractInt=] 值为 32。
+* 没有带有整数标量形式参数的 `log2` 重载。
+* 考虑到两个可能的重载和 [=可行的自动转换=]，而是应用 [=overload resolution=]：
+    * [=AbstractInt=] 到 [=AbstractFloat=]。 （转换等级 4）
+    * [=AbstractInt=] 到 [=f32=]。 （转换等级 5）
+* 结果计算以 [=AbstractFloat=] 的形式出现（例如 `log2(32.0)`）。
+
+示例：表达式`1 + 2.5`分析如下：
+* `1 + 2.5` 被解析为子表达式 [=AbstractInt=] 值为 1 和 [=AbstractFloat=] 值为 2.5 的加法运算。
+* |e|+|f| 没有重载在哪里 |e|是整数且 |f|是浮点数。
+* 然而，使用可行的自动转换，有两个潜在的重载：
+    * `1` 转换为 [=AbstractFloat=] 值 `1.0`（排名 4），而 `2.5` 仍然是 [=AbstractFloat=]（排名 0）。
+    * `1` 转换为 [=f32=] 值 `1.0f`（排名 5），而 `2.5` 转换为 [=f32=] 值 `2.5f`（排名 1）。
+* 第一个重载是 [=preferable Candidate=] 并且类型检查成功。
+* 结果计算以 [=AbstractFloat=] `1.0 + 2.5` 的形式出现。
+
+示例：`让 x = 1 + 2.5;`
+* 这个例子和上面的例子类似，只是 `x` 不能解析为 [=abstract numeric type=]。
+* 因此，只有一个可行的重载候选：使用 [=f32=] 加法。
+* 声明的效果就像是写成`let x : f32 = 1.0f + 2.5f;`。
+
+示例：`1u + 2.5` 导致 [=shader-creation error=]：
+* `1u` 项是 [=u32=] 类型的表达式。
+* `2.5` 项是 [=AbstractFloat=] 类型的表达式。
+* 没有有效的重载候选：
+     * 从 GPU 物化的整数类型到浮点类型的自动转换是不可行的。
+     * 没有类型规则匹配 *e*`+`*f* 与 *e* 为整数类型和 *f* 为浮点类型。
+
+     <div class='example literals' heading="文字类型推断">
+       <xmp highlight='rust'>
+         // 显式类型的无符号整数文字。
+         var u32_1 = 1u； // 变量持有一个 u32
+
+         // 显式类型的有符号整数文字。
+         var i32_1 = 1i; // 变量保存一个 i32
+
+         // 显式类型的浮点字面量。
+         var f32_1 = 1f; // 变量包含一个 f32
+
+         // 显式类型的无符号整数文字不能被否定。
+         var u32_neg = -1u; // 无效：一元减法不支持 u32
+
+         // 没有后缀的整型字面量往往会被推断为 i32：
+         // let-declaration 的初始化程序必须是可构造的（或指针）。
+         // 最优选的从 AbstractInt 到可构造类型的自动转换
+         // 是 AbstractInt 到 i32，转换等级为 2。所以“1”被推断为 i32。
+         let some_i32 = 1; // 比如 let some_i32: i32 = 1i;
+
+         // 从声明类型推断。
+         var i32_from_type : i32 = 1; // 变量保存 i32。 AbstractInt 到 i32，转换等级 2
+         var u32_from_type : u32 = 1; // 变量保存 u32。 AbstractInt 到 u32，转换等级 3
+
+         // 无后缀的整数字面量可以在需要时转换为浮点数：
+         // 自动将 AbstractInt 转换为 f32，转换等级为 5。
+         var f32_promotion : f32 = 1; // 变量保存 f32
+
+         // 无效：从浮点到整数的转换不可行
+         var i32_demotion : i32 = 1.0; // 无效的
+
+         // 从表达式推断。
+         var u32_from_expr = 1 + u32_1; // 变量保存 u32
+         var i32_from_expr = 1 + i32_1; // 变量保存 i32
+
+         // 值必须是可表示的。
+         let u32_too_large : u32 = 1234567890123456890; // 无效，溢出
+         let i32_too_large : i32 = 1234567890123456890; // 无效，溢出
+         let u32_large : u32 = 2147483649; // 有效的
+         let i32_large : i32 = 2147483649; // 无效，溢出
+         let f32_out_of_range1 = 0x1p500; // 无效，超出范围
+         let f32_hex_lost_bits = 0x1.0000000001p0; // 无效，在 f32 中不能完全表示
+
+         // 最小整数：对 AbstractInt 进行一元否定，然后推断 i32。
+         // 从 AbstractInt 到可构造类型的最优选转换（最低
+         // 转换等级) 是 AbstractInt 到 i32。
+         let i32_min = -2147483648; // 类型为 i32
+
+         // 无效的。同上选择AbstractInt to i32，但是值out of
+         // 范围，产生着色器创建错误。
+         let i32_too_large_2 = 2147483648; // 无效的。
+
+         // 子表达式可以解析为 AbstractInt 和 AbstractFloat。
+         // 下面的例子都是有效的，变量的值为6u。
+         // var u32_expr1 = (1 + (1 + (1 + (1 + 1)))) + 1u;
+         // var u32_expr2 = 1u + (1 + (1 + (1 + (1 + 1))));
+         // var u32_expr3 = (1 + (1 + (1 + (1u + 1)))) + 1;
+         // var u32_expr4 = 1 + (1 + (1 + (1 + (1u + 1))));
+
+         // 基于内置函数参数的推理。
+
+         // 最喜欢的候选是clamp(i32,i32,i32)->i32
+    let i32_clamp = clamp(1, -5, 5);
+         // 最喜欢的候选是clamp(u32,u32,u32)。
+         // 文字使用 AbstractInt 到 u32 的自动转换。
+    let u32_clamp = clamp(5, 0, u32_from_expr);
+         // 最喜欢的候选是clamp(f32,f32,f32)->f32
+         // 文字使用 AbstractInt 到 f32 的自动转换。
+    let f32_clamp = clamp(0, f32_1, 1);
+
+         // TODO: 当 AbstractFloat 获得加法支持时，这些将变为有效，
+         // 通过提升。
+        // let f32_promotion1 = 1.0 + 2 + 3 + 4; // TODO: like let f32_promotion1:f32 = 10f;
+        // let f32_promotion2 = 2 + 1.0 + 3 + 4; // TODO: like let f32_promotion1:f32 = 10f;
+        // let f32_promotion3 = 1f + ((2 + 3) + 4); // TODO: like let f32_promotion1:f32 = 10f;
+        // let f32_promotion4 = ((2 + (3 + 1f)) + 4); // TODO: like let f32_promotion1:f32 = 10f;
+
+         // 类型规则违规。
+
+         // 无效，初始化器只能解析为 f32：
+         // 从 AbstractFloat 到 u32 的自动转换不可行。
+            let mismatch : u32 = 1.0;
+
+         // 无效的。没有允许混合符号参数的钳位过载。
+         let ambiguous_clamp = clamp(1u, 0, 1i);
+
+         // 推理在语句级别完成。
+
+         // let-declaration 的初始化程序必须是可构造的（或指针）。
+         // 最优选的从 AbstractInt 到可构造类型的自动转换
+         // 是 AbstractInt 到 i32，转换等级为 2。所以“1”被推断为 i32。
+         let some_i32 = 1; // 比如 let some_i32: i32 = 1i;
+
+         let some_f32 : f32 = some_i32; // 类型错误：i32 不能分配给 f32
+
+         // 另一个溢出情况
+         let overflow_u32 = (1 -2) + 1u; // 无效，-1 超出 u32 的范围
+
+         // 理想值超出 32 位范围，但又回到了范围内
+         let out_and_in_again = (0x1ffffffff / 8);
+
+         // 类似，但无效
+         let out_of_range = (0x1ffffffff / 8u); // 要求以 32 位进行计算，
+     // 使 0x1ffffffff 超出范围。
+
+       </xmp>
+     </div>
 ## 普通类型 ## {#plain-types-section}
 
-普通类型（[=Plain types=]）是用于表示布尔值、数字、向量、矩阵或这些值的聚合的类型。
+普通类型（[=Plain types=]） 是布尔值、数字、向量、矩阵或这些值的机器表示类型，。
 
 普通类型（<dfn>plain type</dfn>）是一个标量（[=scalar=]）类型，一个原子（[=atomic type|atomic=]）类型，或一个复合（[=composite=]）类型。
 
@@ -815,6 +1340,14 @@ TODO：示例：非结果值效应是函数调用子表达式的任何副作用�
 ### 布尔类型 ### {#bool-type}
 
 布尔（<dfn noexport>bool</dfn>）类型包括值 `true` 和 `false`。
+<table class='data'>
+  <caption>Boolean literal type rules</caption>
+  <thead>
+    <tr><th>Precondition<th>Conclusion<th>Description
+  </thead>
+  <tr><td><td>`true`: bool<td>The true value.<br>OpConstantTrue %bool
+  <tr><td><td>`false`: bool<td>The false value.<br>OpConstantFalse %bool
+</table>
 
 ### 整数类型 ### {#integer-types}
 
@@ -825,28 +1358,31 @@ TODO：示例：非结果值效应是函数调用子表达式的任何副作用�
 ### 浮点类型 ### {#floating-point-types}
 
 <dfn noexport>f32</dfn>类型是一组[[!IEEE-754|IEEE-754]] binary32 （单精度）格式的32-位浮点型数值。详见[[#floating-point-evaluation]]。
+<dfn noexport>f16</dfn> 类型是 [[!IEEE-754|IEEE-754]] binary16（半精度）格式的 16 位浮点值集。 如果使用 [=f16=] 类型，则为 [=shader-creation error=]，除非程序包含“enable f16;” 启用 [=extension/f16|f16 extension=] 的指令。 有关详细信息，请参阅 [[#floating-point-evaluation]]。
 
 ### 标量类型 ### {#scalar-types}
 
-标量（<dfn noexport>scalar</dfn>）类型有[=bool=], [=i32=], [=u32=], 和[=f32=]。
+标量（<dfn noexport>scalar</dfn>）类型有[=bool=], [=i32=], [=u32=], [=f32=], 和 [=f16=]。
 
-数字标量（<dfn noexport>numeric scalar</dfn>）类型有[=i32=], [=u32=], 和[=f32=]。
+数字标量（<dfn noexport>numeric scalar</dfn>）类型有[=i32=], [=u32=],  [=f32=], 和 [=f16=]。
 
 整数标量（<dfn noexport>integer scalar</dfn>）有[=i32=]和[=u32=]。
 
 ### 向量类型 ### {#vector-types}
 
-向量（<dfn noexport>vector</dfn>）是一组由2，3，或4个标量（[=scalar=]）组件构成的序列。
+向量（<dfn noexport>vector</dfn>）是一组由2，3，或4个标量（[=scalar=]）或者[=abstract numeric type=]组件构成的序列。
 
 <table class='data'>
   <thead>
     <tr><th>Type<th>Description
   </thead>
   <tr><td>vec*N*<*T*><td>
-  *N*个类型*T*元素构成的向量。*N*必须为{2, 3, 4}中的值，*T*必须为一种标量（[=scalar=]）类型。我们称*T*为向量的组件类型（<dfn noexport>component type</dfn>）。
+  *N*个类型*T*元素构成的向量。*N*必须为{2, 3, 4}中的值，*T*必须为一种标量（[=scalar=]）或者[=abstract numeric type=]类型。我们称*T*为向量的组件类型（<dfn noexport>component type</dfn>）。
 </table>
 
-当一个向量组件类型为数字标量（[=numeric scalar=]）时，我们称之为数字向量（<dfn dfn>numeric vector</dfn>）。
+如果向量的组件类型是 [=numeric scalar=]，则向量是 <dfn noexport>numeric vector</dfn>。
+
+一个向量是一个<dfn noexport>抽象向量</dfn>，如果它的组件类型是一个[=abstract numeric type=]。
 
 向量的关健用例包括：
 
@@ -880,9 +1416,8 @@ TODO：示例：非结果值效应是函数调用子表达式的任何副作用�
     <tr><th>Type<th>Description
   </thead>
   <tr algorithm="matrix type">
-    <td>mat|N|x|M|&lt;f32&gt;
-    <td>
-        |N|列|M|行矩阵，|N|和|M|都为{2, 3, 4}中的值。等价地，它同样可以被看作|N|列vec|M|&lt;f32&gt;类型的向量。
+    <td>mat|C|x|R|&lt;|T|&gt;
+    <td>|C|列|R|行矩阵，|N|和|M|都为{2, 3, 4}中的值。并且 |T|必须是[=f32=], [=f16=], or [=AbstractFloat=]。也就是说，它同样可以被看作|C|列vec|R|&lt;f32&gt;类型的向量。
 </table>
 
 矩阵的关键用例是体现线性变换。在这种解释中，矩阵的向量被视为列向量。
@@ -904,7 +1439,7 @@ TODO：示例：非结果值效应是函数调用子表达式的任何副作用�
 
 ### 原子类型 ### {#atomic-types}
 
-原子类型（<dfn noexport>atomic type</dfn>）封装了一个标量类型，使得：
+原子类型（<dfn noexport>atomic type</dfn>）封装了一个整数标量[=integer scalar=]类型，使得：
 * 原子对象为并发观察者提供了一定的保证，并且
 * 对原子对象唯一有效的操作是原子内置函数（[[#atomic-builtin-functions|atomic builtin functions]]）。
 
@@ -927,47 +1462,6 @@ TODO：示例：非结果值效应是函数调用子表达式的任何副作用�
 
 在WGSL中，对于每个对象，原子修改是相互排序的。也就是说，在着色器阶段的执行期间，对于每个原子对象*A*，所有代理都观察应用于*A* 的相同修改操作顺序。不同原子对象的顺序可能没有任何关系；没有任何因果关系。
 注意，工作组（[=address spaces/workgroup=]）空间中的变量在一个工作组（[=compute shader stage/workgroup=]）内共享，但在不同工作组之间不共享。
-
-<div class='example wgsl storage atomic' heading='Mapping atomics in a storage variable to SPIR-V'>
-  <xmp>
-    struct S {
-      a: atomic<i32>;
-      b: atomic<u32>;
-    }
-
-    @group(0) @binding(0)
-    var<storage,read_write> x: S;
-
-    // Maps to the following SPIR-V:
-    // - When atomic types are members of a struct, the Volatile decoration
-    //   is annotated on the member.
-    // OpDecorate %S Block
-    // OpMemberDecorate %S 0 Volatile
-    // OpMemberDecorate %S 1 Volatile
-    // ...
-    // %i32 = OpTypeInt 32 1
-    // %u32 = OpTypeInt 32 0
-    // %S = OpTypeStruct %i32 %u32
-    // %ptr_storage_S = OpTypePointer StorageBuffer %S
-    // %x = OpVariable %ptr_storage_S StorageBuffer
-  </xmp>
-</div>
-
-<div class='example wgsl workgroup atomic' heading='Mapping atomics in a workgroup variable to SPIR-V'>
-  <xmp>
-    var<workgroup> x: atomic<u32>;
-
-    // Maps to the following SPIR-V:
-    // - When atomic types are directly instantiated by a variable,  the Volatile
-    //   decoration is annotated on the OpVariable.
-    // OpDecorate %x Volatile
-    // ...
-    // %u32 = OpTypeInt 32 0
-    // %ptr_workgroup_u32 = OpTypePointer Workgroup %S
-    // %x = OpVariable %ptr_workgroup_u32 Workgroup
-  </xmp>
-</div>
-
 
 ### 数组类型 ### {#array-types}
 
@@ -994,15 +1488,15 @@ TODO：示例：非结果值效应是函数调用子表达式的任何副作用�
 表达式不得计算为运行时大小的数组类型。
 
 元素计数表达式 |N| 固定大小的数组必须：
-* 是文字，或 [[#module-constants|module-scope constant]] 的名称（可能是 [=pipeline overridable=]），以及
+* [=override expression=]，以及
 * 计算为一个大于零的整数标量（[=integer scalar=]）。
 
 注意：元素计数在[=pipeline creation=]时已被完全确定。
 
 数组元素类型必须是以下之一:
 * [=scalar=] 类型
-* [=vector=] 类型
-* [=matrix=] 类型
+* [=vector=] 类型，带有 [=concrete=] 组件
+* [=matrix=] 类型，带有 [=concrete=] 组件
 * [=atomic type|atomic=] 类型
 * 一个数组类型具有 [=creation-fixed footprint=]
 * 有 [=creation-fixed footprint=] 的 [=structure=] 类型 。
@@ -1025,8 +1519,8 @@ TODO：示例：非结果值效应是函数调用子表达式的任何副作用�
     var<private> b: array<i32,8>;
     var<private> c: array<i32,8u>;  // array<i32,8> and array<i32,8u> are the same type
 
-    let width = 8;
-    let height = 8;
+    const width = 8;
+    const height = 8;
 
     // array<i32,8>, array<i32,8u>, and array<i32,width> are the same type.
     // Their element counts evaluate to 8.
@@ -1038,10 +1532,10 @@ TODO：示例：非结果值效应是函数调用子表达式的任何副作用�
   </xmp>
 </div>
 
-注意：由可覆盖常量确定大小的数组的有效使用是作为 [=address spaces/workgroup=] 空间中变量的存储类型。
+注意：由可覆盖常量确定大小的数组的唯一有效使用是作为 [=address spaces/workgroup=] 空间中变量的存储类型。
 
 <div class='example wgsl global-scope' heading="Workgroup variables sized by overridable constants">
-  <xmp>
+  <xmp highlight='rust'>
     override blockSize = 16;
 
     var<workgroup> odds: array<i32,blockSize>;
@@ -1068,7 +1562,7 @@ TODO：示例：非结果值效应是函数调用子表达式的任何副作用�
 
     | [=syntax/uint_literal=]
 
-    | [=syntax/ident=]
+    | [=syntax/bitwise_expression=]
 </div>
 
 ### 结构类型 ### {#struct-types}
@@ -1087,8 +1581,8 @@ TODO：示例：非结果值效应是函数调用子表达式的任何副作用�
 
 一个结构成员类型必须为以下之一：
 * 标量（[=scalar=]）类型
-* 向量类型
-* 矩阵类型
+* 向量[=vector=]类型
+* 矩阵[=matrix=]类型
 * 原子（[=atomic type|atomic=]）类型
 * 一个 [=fixed-size array=] 类型带有 [=creation-fixedfootprint=]
 * 一个 [=runtime-sized=] 数组类型，但前提是它是结构的最后一个成员
@@ -1104,10 +1598,10 @@ TODO：示例：非结果值效应是函数调用子表达式的任何副作用�
   <xmp highlight='rust'>
     // 拥有四个成员的结构
     struct Data {
-      a: i32;
-      b: vec2<f32>;
-      c: array<i32,10>;
-      d: array<f32>;
+      a: i32,
+      b: vec2<f32>,
+      c: array<i32,10>,
+      d: array<f32>, // 最后这个逗号可以不写
     };
   </xmp>
 </div>
@@ -1120,12 +1614,12 @@ TODO：示例：非结果值效应是函数调用子表达式的任何副作用�
 <div class='syntax' noexport='true'>
   <dfn for=syntax>struct_body_decl</dfn> :
 
-    | [=syntax/brace_left=] [=syntax/struct_member=] * [=syntax/brace_right=]
+| [=syntax/brace_left=] ( [=syntax/struct_member=] [=syntax/comma=] ) * [=syntax/struct_member=] [=syntax/comma=] ? [=syntax/brace_right=]
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>struct_member</dfn> :
 
-    | [=syntax/attribute_list=] * [=syntax/variable_ident_decl=] [=syntax/semicolon=]
+    | [=syntax/attribute_list=] * [=syntax/variable_ident_decl=]
 </div>
 
 WGSL定义了以下可应用于结构成员的属性：
@@ -1136,52 +1630,26 @@ WGSL定义了以下可应用于结构成员的属性：
 
 注意：如果结构类型用于定义统一缓冲区（[=uniform buffer=]）或存储缓冲区（[=storage buffer=]），则可能需要布局属性。见[[#memory-layouts]]。
 
-<div class='example wgsl global-scope' heading='Structure WGSL'>
-  <xmp>
+<div class='example wgsl global-scope' heading='Structure declaration'>
+  <xmp highlight='rust'>
     struct my_struct {
-      a: f32;
-      b: vec4<f32>;
+      a: f32,
+      b: vec4<f32>
     }
   </xmp>
 </div>
 
-<div class='example spirv' heading='Structure SPIR-V'>
-  <xmp>
-                  OpName %my_struct "my_struct"
-                  OpMemberName %my_struct 0 "a"
-                  OpMemberDecorate %my_struct 0 Offset 0
-                  OpMemberName %my_struct 1 "b"
-                  OpMemberDecorate %my_struct 1 Offset 4
-     %my_struct = OpTypeStruct %float %v4float
-  </xmp>
-</div>
-
 <div class='example wgsl global-scope' heading='Structure WGSL'>
-  <xmp>
+  <xmp highlight='rust'>
     // TODO: runtime-sized array syntax may have changed
     // Runtime Array
     type RTArr = array<vec4<f32>>;
     struct S {
-      a: f32;
-      b: f32;
-      data: RTArr;
+      a: f32,
+      b: f32,
+      data: RTArr
     }
     @group(0) @binding(0) var<storage> buffer: S;
-  </xmp>
-</div>
-
-<div class='example spirv' heading='Structure SPIR-V'>
-  <xmp>
-                  OpName %my_struct "my_struct"
-                  OpMemberName %my_struct 0 "a"
-                  OpMemberDecorate %my_struct 0 Offset 0
-                  OpMemberName %my_struct 1 "b"
-                  OpMemberDecorate %my_struct 1 Offset 4
-                  OpMemberName %my_struct 2 "data"
-                  OpMemberDecorate %my_struct 2 Offset 16
-                  OpDecorate %rt_arr ArrayStride 16
-        %rt_arr = OpTypeRuntimeArray %v4float
-     %my_struct = OpTypeStruct %float %v4float %rt_arr
   </xmp>
 </div>
 
@@ -1210,8 +1678,8 @@ WGSL定义了以下可应用于结构成员的属性：
 
 一个类型为可构造的（<dfn>constructible</dfn>）如果其为以下之一：
 * [=scalar=]类型
-* [=vector=]类型
-* [=matrix=]类型
+* [=vector=]类型，带有 [=concrete=] 组件
+* [=matrix=]类型，带有 [=concrete=] 组件
 * 一个 [=fixed-size array=] 类型，如果它有 [=creation-fixedfootprint=] 并且它的元素类型是可构造的。
 * [=structure=]类型, 如果它的全部成员都为可构造的。
 
@@ -1236,8 +1704,8 @@ WGSL定义了以下可应用于结构成员的属性：
 
 带有 [=creation-fixedfootprint=] 的普通类型是：
 * [=scalar=] 类型
-* [=vector=] 类型
-* [=matrix=] 类型
+* [=vector=] 类型，带有 [=concrete=] 组件
+* [=matrix=] 类型，带有 [=concrete=] 组件
 * [=atomic type|atomic=] 类型
 * [=fixed-size array=] 类型, 当:
       * 它的 [=element count=] 是文字，或者是 [[#module-constants|module-scope]] 的名称
@@ -1248,9 +1716,9 @@ WGSL定义了以下可应用于结构成员的属性：
 
 带有 [=fixed footprint=] 的普通类型是以下任何一种：
 * 具有 [=creation-fixed footprint=] 的类型
-* 一个 [=fixed-size array=] 类型，其中它的 [=element count=] 是一个 [=pipeline-overridable=] 常量。
+* 一个 [=fixed-size array=] 类型
 
-注意：具有管道可覆盖常量的元素计数的固定大小数组的唯一有效用途是作为 [=address spaces/workgroup=] 变量的 [=store type=]。
+注意：固定大小数组的唯一有效用途是元素计数是 [=override expression=] 而不是 [=creation-time expression=] 是 [=store type=] for a [=address spaces/workgroup=] 变量。
 
 注意：固定足迹类型可以直接或间接包含 [=atomic type|atomic=] 类型，而 [=constructible=] 类型不能。
 
@@ -1301,8 +1769,8 @@ WGSL中，可存储类型的值可以存储在内存中，以供以后检索。�
 如果一个类型为以下之一，其为可存储的（<dfn noexport>storable</dfn>）
 
 * 标量（[=scalar=]）类型
-* 向量（[=vector=]）类型
-* 矩阵（[=matrix=]）类型
+* 向量（[=vector=]）类型，带有 [=concrete=] 组件
+* 矩阵（[=matrix=]）类型，带有 [=concrete=] 组件
 * 原子（[=atomic type|atomic=]）类型
 * 数组（[=array=]）类型
 * 结构（[=structure=]）类型
@@ -1424,19 +1892,6 @@ WGSL定义了以下影响内存布局的属性：
     | [=syntax/storage=]
 </div>
 
-<table class='data'>
-  <thead>
-    <tr><th>WGSL address spaces<th>SPIR-V storage class
-  </thead>
-  <tr><td>uniform<td>Uniform
-  <tr><td>workgroup<td>Workgroup
-  <tr><td>handle<td>UniformConstant
-  <tr><td>storage<td>StorageBuffer
-  <tr><td>private<td>Private
-  <tr><td>function<td>Function
-</table>
-
-
 ### 内存布局 ### {#memory-layouts}
 
 统一缓冲区（[=Uniform buffer=]）和存储缓冲区（[=storage buffer=]）变量用于共享在内存中组织为字节序列的批量数据。缓冲区在 CPU 和 GPU 之间共享，或在管线中的不同着色器阶段之间，或在不同管线之间共享。
@@ -1495,54 +1950,93 @@ WGSL定义了以下影响内存布局的属性：
   <tr><td>[=i32=], [=u32=], or [=f32=]
       <td>4
       <td>4
-  <tr><td>atomic&lt;|T|&gt;
+  <tr><td>[=f16=]
+      <td>2
+      <td>2
+  <tr><td>[=atomic type|atomic&lt;|T|&gt;=]
       <td>4
       <td>4
-  <tr><td>vec2&lt;|T|&gt;
+  <tr><td>[=vector|vec=]2&lt;|T|&gt;, |T| is [=i32=], [=u32=], or [=f32=]
       <td>8
       <td>8
-  <tr><td>vec3&lt;|T|&gt;
+  <tr><td>vec2&lt;f16&gt;
+      <td>4
+      <td>4
+  <tr><td>vec3&lt;|T|&gt;, |T| is [=i32=], [=u32=], or [=f32=]
       <td>16
       <td>12
-  <tr><td>vec4&lt;|T|&gt;
+  <tr><td>vec3&lt;f16&gt;
+      <td>8
+      <td>6
+  <tr><td>vec4&lt;|T|&gt;, |T| is [=i32=], [=u32=], or [=f32=]
       <td>16
       <td>16
-  <tr><td>mat|N|x|M| (col-major)<br>
+  <tr><td>vec4&lt;f16&gt;
+      <td>8
+      <td>8
+  <tr><td>[=matrix|mat=]|C|x|R| (col-major)<br>
       <p class="small">(General form)</p>
-      <td>[=AlignOf=](vec|M|)
-      <td>[=SizeOf=](array&lt;vec|M|, |N|&gt;)
+      <td>[=AlignOf=](vec|R|)
+      <td>[=SizeOf=](array&lt;vec|R|, |C|&gt;)
   <tr><td>mat2x2&lt;f32&gt;
       <td>8
       <td>16
+  <tr><td>mat2x2&lt;f16&gt;
+      <td>4
+      <td>8
   <tr><td>mat3x2&lt;f32&gt;
       <td>8
       <td>24
+  <tr><td>mat3x2&lt;f16&gt;
+      <td>4
+      <td>12
   <tr><td>mat4x2&lt;f32&gt;
       <td>8
       <td>32
+  <tr><td>mat4x2&lt;f16&gt;
+      <td>4
+      <td>16
   <tr><td>mat2x3&lt;f32&gt;
       <td>16
       <td>32
+  <tr><td>mat2x3&lt;f16&gt;
+      <td>8
+      <td>16
   <tr><td>mat3x3&lt;f32&gt;
       <td>16
       <td>48
+  <tr><td>mat3x3&lt;f16&gt;
+      <td>8
+      <td>24
   <tr><td>mat4x3&lt;f32&gt;
       <td>16
       <td>64
+  <tr><td>mat4x3&lt;f16&gt;
+      <td>8
+      <td>32
   <tr><td>mat2x4&lt;f32&gt;
       <td>16
       <td>32
+  <tr><td>mat2x4&lt;f16&gt;
+      <td>8
+      <td>16
   <tr><td>mat3x4&lt;f32&gt;
       <td>16
       <td>48
+  <tr><td>mat3x4&lt;f16&gt;
+      <td>8
+      <td>24
   <tr><td>mat4x4&lt;f32&gt;
       <td>16
       <td>64
-  <tr><td>struct |S| with members M<sub>1</sub>...M<sub>N</sub>
+  <tr><td>mat4x4&lt;f16&gt;
+      <td>8
+      <td>32
+  <tr><td>[=structure|struct=] |S| with members M<sub>1</sub>...M<sub>N</sub>
       <td>max([=AlignOfMember=](S,1), ... , [=AlignOfMember=](S,N))<br>
       <td>[=roundUp=]([=AlignOf=](|S|), justPastLastMember)<br><br>
           where justPastLastMember = [=OffsetOfMember=](|S|,N) + [=SizeOfMember=](|S|,N)
-  <tr><td>array<|E|, |N|><br>
+  <tr><td>[=array=]<|E|, |N|><br>
       <td>[=AlignOf=](|E|)
       <td>|N| &times; [=roundUp=]([=AlignOf=](|E|), [=SizeOf=](|E|))
   <tr><td>array<|E|><br>
@@ -1588,25 +2082,25 @@ WGSL定义了以下影响内存布局的属性：
 <div class='example wgsl' heading='Layout of structures using implicit member sizes and alignments'>
   <xmp highlight='rust'>
     struct A {                                     //             align(8)  size(24)
-        u: f32;                                    // offset(0)   align(4)  size(4)
-        v: f32;                                    // offset(4)   align(4)  size(4)
-        w: vec2<f32>;                              // offset(8)   align(8)  size(8)
-        x: f32;                                    // offset(16)  align(4)  size(4)
+        u: f32,                                    // offset(0)   align(4)  size(4)
+        v: f32,                                    // offset(4)   align(4)  size(4)
+        w: vec2<f32>,                              // offset(8)   align(8)  size(8)
+        x: f32                                    // offset(16)  align(4)  size(4)
         // -- implicit struct size padding --      // offset(20)            size(4)
     }
 
     struct B {                           //             align(16) size(160)
-        a: vec2<f32>;                              // offset(0)   align(8)  size(8)
+        a: vec2<f32>,                              // offset(0)   align(8)  size(8)
         // -- implicit member alignment padding -- // offset(8)             size(8)
-        b: vec3<f32>;                              // offset(16)  align(16) size(12)
-        c: f32;                                    // offset(28)  align(4)  size(4)
-        d: f32;                                    // offset(32)  align(4)  size(4)
+        b: vec3<f32>,                              // offset(16)  align(16) size(12)
+        c: f32,                                    // offset(28)  align(4)  size(4)
+        d: f32,                                    // offset(32)  align(4)  size(4)
         // -- implicit member alignment padding -- // offset(36)            size(4)
-        e: A;                                      // offset(40)  align(8)  size(24)
-        f: vec3<f32>;                              // offset(64)  align(16) size(12)
+        e: A,                                      // offset(40)  align(8)  size(24)
+        f: vec3<f32>,                              // offset(64)  align(16) size(12)
         // -- implicit member alignment padding -- // offset(76)            size(4)
-        g: array<A, 3>;    //element stride 24     // offset(80)  align(8)  size(72)
-        h: i32;                                    // offset(152) align(4)  size(4)
+        g: array<A, 3>,    //element stride 24     // offset(80)  align(8)  size(72)
+        h: i32                                    // offset(152) align(4)  size(4)
         // -- implicit struct size padding --      // offset(156)           size(4)
     }
 
@@ -1618,24 +2112,24 @@ WGSL定义了以下影响内存布局的属性：
 <div class='example wgsl' heading='Layout of structures with explicit member sizes and alignments'>
   <xmp highlight='rust'>
     struct A {                                     //             align(8)  size(32)
-        u: f32;                                    // offset(0)   align(4)  size(4)
-        v: f32;                                    // offset(4)   align(4)  size(4)
-        w: vec2<f32>;                              // offset(8)   align(8)  size(8)
-        @size(16) x: f32;                       // offset(16)  align(4)  size(16)
+        u: f32,                                    // offset(0)   align(4)  size(4)
+        v: f32,                                    // offset(4)   align(4)  size(4)
+        w: vec2<f32>,                              // offset(8)   align(8)  size(8)
+        @size(16) x: f32                       // offset(16)  align(4)  size(16)
     };
 
     struct B {                           //             align(16) size(208)
-        a: vec2<f32>;                              // offset(0)   align(8)  size(8)
+        a: vec2<f32>,                              // offset(0)   align(8)  size(8)
         // -- implicit member alignment padding -- // offset(8)             size(8)
-        b: vec3<f32>;                              // offset(16)  align(16) size(12)
-        c: f32;                                    // offset(28)  align(4)  size(4)
-        d: f32;                                    // offset(32)  align(4)  size(4)
+        b: vec3<f32>,                              // offset(16)  align(16) size(12)
+        c: f32,                                    // offset(28)  align(4)  size(4)
+        d: f32,                                    // offset(32)  align(4)  size(4)
         // -- implicit member alignment padding -- // offset(36)            size(12)
-        @align(16) e: A;                        // offset(48)  align(16) size(32)
-        f: vec3<f32>;                              // offset(80)  align(16) size(12)
+        @align(16) e: A,                        // offset(48)  align(16) size(32)
+        f: vec3<f32>,                              // offset(80)  align(16) size(12)
         // -- implicit member alignment padding -- // offset(92)            size(4)
-        g: array<A, 3>;    //element stride 32       // offset(96)  align(8)  size(96)
-        h: i32;                                    // offset(192) align(4)  size(4)
+        g: array<A, 3>,    //element stride 32       // offset(96)  align(8)  size(96)
+        h: i32                                    // offset(192) align(4)  size(4)
         // -- implicit struct size padding --      // offset(196)           size(12)
     }
 
@@ -1668,8 +2162,8 @@ WGSL定义了以下影响内存布局的属性：
     // Array where:
     //   - alignment is 4 = AlignOf(f32)
     //   - element stride is 4 = roundUp(AlignOf(f32),SizeOf(f32)) = 4
-    // If B is the effective buffer binding size for the binding on the
-    // draw or dispach command, the number of elements is:
+    // 如果 B 是绑定的有效缓冲区绑定大小
+    // 绘制或调度命令，元素个数为:
     //   N_runtime = floor(B / element stride) = floor(B / 4)
     @group(0) @binding(0)
     var<storage> weights: array<f32>;
@@ -1678,8 +2172,8 @@ WGSL定义了以下影响内存布局的属性：
     //   - alignment is 16 = AlignOf(vec3<f32>) = 16
     //   - element stride is 16 = roundUp(AlignOf(vec3<f32>), SizeOf(vec3<f32>))
     //                          = roundUp(16,12)
-    // If B is the effective buffer binding size for the binding on the
-    // draw or dispach command, the number of elements is:
+    // 如果 B 是绑定的有效缓冲区绑定大小
+    // 绘制或调度命令，元素个数为:
     //   N_runtime = floor(B / element stride) = floor(B / 16)
     var<uniform> directions: array<vec3<f32>>;
   </xmp>
@@ -1706,32 +2200,37 @@ WGSL定义了以下影响内存布局的属性：
 [=f32=]类型的值|V|以[[!IEEE-754|IEEE-754]] binary32格式表示。它有1个符号位、8个指数位和23个分数位。当|V|被放置在主机共享缓冲区的字节偏移 k处时，则：
    * 字节|k|包含分数位的0-7位。
    * 字节|k|+1包含分数位的8-15位。
-   * 字节|k|+2的0-6位包含分数位的16-23位。
+   * 字节|k|+2的0-6位包含分数位的16-22位。
    * 字节|k|+2的第7位包含指数位的第0位。
    * 字节|k|+3的第0-6位包含指数位的1-7位。
    * 字节|k|+3的第7位包含符号位。
+
+一个值 |V| [=f16=] 类型的以 [[!IEEE-754|IEEE-754]] binary16 格式表示。
+它有 1 个符号位、5 个指数位和 10 个小数位。
+当 |V| 被放置在字节偏移 |k| 主机共享缓冲区，然后：
+    * 字节 |k| 包含分数的 0 到 7 位。
+    * 字节 |k|+1 的位 0 到 1 包含小数的位 8 到 9。
+    * 字节 |k|+1 的位 2 到 6 包含指数的位 0 到 4。
+    * 字节|k|+1 的第7 位包含符号位。
 
 注意：上述规则隐含表明主机共享缓冲区中的数值以little-endian格式存储。
 
 当原子类型（[=atomic type=]） `atomic`&lt;|T|&gt; 的值|V|放置在主机共享缓冲区中时，它具有与基础类型|T|的值相同的内部布局。
 
-当向量类型 vec|N|&lt;|T|&gt; 的值 |V| 放置在主机共享缓冲区的字节偏移量 |k| 处时，则：
+当向量类型 [=vector|vector type=] vec|N|&lt;|T|&gt;  的值 |V| 放置在主机共享缓冲区的字节偏移量 |k| 处时，则：
 
    * |V|.x 被放置在字节偏移量 |k| 处
-   * |V|.y 被放置在字节偏移量 |k|+4 处
-   * 如果 |N| &ge; 3，则|V|.z被放置在字节偏移量 |k|+8 处
-   * 如果 |N| &ge; 4，则|V|.w被放置在字节偏移量 |k|+12 处
+   * |V|.y 被放置在字节偏移量 |k| + [=SizeOf=](|T|) 处
+   * 如果 |N| &ge; 3，则|V|.z被放置在字节偏移量 |k| + 2 &times; [=SizeOf=](|T|) 处
+   * 如果 |N| &ge; 4，则|V|.w被放置在字节偏移量 |k| + 3 &times; [=SizeOf=](|T|) 处
 
-当矩阵值 |M| 放置在主机共享内存缓冲区的字节偏移量 k 处时，则：
-   * 如果|M|有两行，则：
-      * |M| 的列向量 |i| 被放置在字节偏移量 |k| + 8 &times; |i| 处
-   * 如果|M|有3或4行，则：
-      * |M| 的列向量 |i| 被放置在字节偏移量 k| + 16 &times; |i| 处
+当一个值 |V| [=vector|vector type=] mat|C|x|R|&lt;|T|&gt; 被放置在字节偏移 |k| 主机共享缓冲区，然后：
+   * 列向量 |i| 的 |V| 被放置在字节偏移 |k| + |i| &times; [=AlignOf=](vec|R|<|T|>)
 
-当数组类型 |A| 的值放置在主机共享内存缓冲区的字节偏移量 |k| 处时，则：
+当数组类型 [=array|array type=] |A| 的值放置在主机共享内存缓冲区的字节偏移量 |k| 处时，则：
    * 数组的元素 |i| 被放置在字节偏移量 k| + |i| &times; [=StrideOf=](|A|) 处
 
-当结构类型 |S| 的值被放置在主机共享内存缓冲区的字节偏移量 |k| 处时，则：
+当结构类型 [=structure|structure type=] |S| 的值被放置在主机共享内存缓冲区的字节偏移量 |k| 处时，则：
     * 结构值的|i|'<sup>th</sup> 成员被放置在字节偏移|k| 处 + [=OffsetOfMember=](|S|,|i|)。
         请参阅 [[#structure-member-layout]]。
 
@@ -1752,21 +2251,21 @@ WGSL定义了以下影响内存布局的属性：
         <th>[=RequiredAlignOf=](|S|, [=address spaces/storage=])
         <th>[=RequiredAlignOf=](|S|, [=address spaces/uniform=])
   </thead>
-  <tr><td>[=i32=], [=u32=], or [=f32=]
+  <tr><td>[=i32=], [=u32=], [=f32=], or [=f16=]
       <td>[=AlignOf=](|S|)
       <td>[=AlignOf=](|S|)
-  <tr><td>atomic&lt;T&gt;
+  <tr><td>[=atomic types|atomic=]&lt;T&gt;
       <td>[=AlignOf=](|S|)
       <td>[=AlignOf=](|S|)
-  <tr><td>vecN&lt;T&gt;
+  <tr><td>[=vector|vec=]N&lt;T&gt;
       <td>[=AlignOf=](|S|)
       <td>[=AlignOf=](|S|)
-  <tr algorithm="alignment of a matrix with N columns and M rows">
-      <td>matNxM&lt;f32&gt;
+  <tr algorithm="alignment of a matrix with C columns and R rows">
+      <td>[=matrix|mat=]CxR&lt;T&gt;
       <td>[=AlignOf=](|S|)
       <td>[=AlignOf=](|S|)
   <tr algorithm="alignment of an array">
-      <td>array&lt;T, N&gt;
+      <td>[=array=]&lt;T, N&gt;
       <td>[=AlignOf=](|S|)
       <td>[=roundUp=](16, [=AlignOf=](|S|))
   <tr algorithm="alignment of an runtime-sized array">
@@ -1774,7 +2273,7 @@ WGSL定义了以下影响内存布局的属性：
       <td>[=AlignOf=](|S|)
       <td>[=roundUp=](16, [=AlignOf=](|S|))
   <tr algorithm="alignment of a structure">
-      <td>struct |S|
+      <td>[=structure|struct=] |S|
       <td>[=AlignOf=](|S|)
       <td>[=roundUp=](16, [=AlignOf=](|S|))<br>
 </table>
@@ -1806,15 +2305,15 @@ WGSL定义了以下影响内存布局的属性：
 <div class='example wgsl global-scope' heading='Satisfying offset requirements for uniform address space'>
   <xmp highlight='rust'>
     struct S {
-      x: f32;
+      x: f32,
     }
     struct Invalid {
-      a: S;
-      b: f32; // 无效：a 和 b 之间的偏移量为 4 字节，但必须至少为 16
+      a: S,
+      b: f32 // 无效：a 和 b 之间的偏移量为 4 字节，但必须至少为 16
     }
     struct Valid {
-      a: S;
-      [[align(16)]] b: f32; // 有效：a 和 b 之间的偏移量为 16 字节
+      a: S,
+      [[align(16)]] b: f32 // 有效：a 和 b 之间的偏移量为 16 字节
     }
     @group(0) @binding(0) var<uniform> invalid: Invalid;
     @group(0) @binding(1) var<uniform> valid: Valid;
@@ -1824,15 +2323,15 @@ WGSL定义了以下影响内存布局的属性：
 <div class='example wgsl global-scope' heading='Satisfying stride requirements for uniform address space'>
   <xmp highlight='rust'>
     struct small_stride {
-      a: array<f32,8>; // stride 4
+      a: array<f32,8> // stride 4
     }
     @group(0) @binding(0) var<uniform> invalid: small_stride; // Invalid
 
     struct wrapped_f32 {
-      @size(16) elem: f32;
+      @size(16) elem: f32
     }
     struct big_stride {
-      a: array<wrapped_f32,8>; // stride 16
+      a: array<wrapped_f32,8> // stride 16
     }
     @group(0) @binding(1) var<uniform> valid: big_stride;     // Valid
   </xmp>
@@ -1872,9 +2371,9 @@ WGSL 有两种表示内存视图的类型：引用类型（[=reference types=]�
 但是，在 WGSL *源*文本中：
 * 引用类型必须不能出现。
 * 指针类型可能出现。一个参数化的指针类型通过以下内容拼写：
-    * 地址空间，
-    * 存储类型，以及
-    * 有时通过访问模式，如[[#access-mode-defaults]]中所述。
+    * 地址空间[=address space=]，
+    * 存储类型[=store type=]，以及
+    * 有时通过访问模式[=access mode=]，如[[#access-mode-defaults]]中所述。
 
 <div class='example wgsl' heading='Pointer type'>
   <xmp highlight='rust'>
@@ -1956,7 +2455,7 @@ locations=]）加载和存储，如果它们访问内存。
 
 <div class='example wgsl' heading='Reference types enable simple use of variables'>
   <xmp highlight='rust'>
-    @stage(compute)
+    @compute
     fn main() {
       // 'i' 具有引用类型 ref<function,i32,read_write>。
       // 'i' 的内存位置存储 i32 值 0。
@@ -2006,17 +2505,17 @@ locations=]）加载和存储，如果它们访问内存。
 <div class='example wgsl' heading='Using a pointer as a short name for part of a variable'>
   <xmp highlight='rust'>
     struct Particle {
-      position: vec3<f32>;
-      velocity: vec3<f32>;
+      position: vec3<f32>,
+      velocity: vec3<f32>
     }
     struct System {
-      active_index: i32;
-      timestep: f32;
-      particles: array<Particle,100>;
+      active_index: i32,
+      timestep: f32,
+      particles: array<Particle,100>
     }
     @group(0) @binding(0) var<storage,read_write> system: System;
 
-    @stage(compute)
+    @compute
     fn main() {
       // 在存储内存中形成一个指向特定粒子的指针。
       let active_particle: ptr<storage,Particle> =
@@ -2043,7 +2542,7 @@ locations=]）加载和存储，如果它们访问内存。
       *x = *x + 1;
     }
 
-    @stage(compute)
+    @compute
     fn main() {
       var i: i32 = 0;
 
@@ -2065,18 +2564,18 @@ locations=]）加载和存储，如果它们访问内存。
     * 结果的原始变量被定义为指针的原始变量。
 * 使用一个复合参考元件表达式（<dfn noexport>composite reference component expression</dfn>）。
     在每种情况下，结果的原始变量都被定义为原始引用的原始变量。
-    * 给定具有向量存储类型的引用，附加单字母向量访问短语会产生对向量的命名组件的引用。见[[#component-reference-from-vector-reference]]。
-    * 给定具有向量存储类型的引用，附加数组索引访问短语会产生对向量的索引组件的引用。见[[#component-reference-from-vector-reference]]。
-    * 给定具有矩阵存储类型的引用，附加数组索引访问短语会产生对矩阵的索引列向量的引用。见[[#matrix-access-expr]]。
-    * 给定具有数组存储类型的引用，附加数组索引访问短语会产生对数组索引元素的引用。见[[#array-access-expr]]。
-    * 给定具有结构存储类型的引用，附加成员访问短语会产生对结构的命名成员的引用。见[[#struct-access-expr]]。
+    * 给定具有向量[=vector=]存储类型的引用，附加单字母向量访问短语会产生对向量的命名组件的引用。见[[#component-reference-from-vector-reference]]。
+    * 给定具有向量[=vector=]存储类型的引用，附加数组索引访问短语会产生对向量的索引组件的引用。见[[#component-reference-from-vector-reference]]。
+    * 给定具有矩阵[=matrix=]存储类型的引用，附加数组索引访问短语会产生对矩阵的索引列向量的引用。见[[#matrix-access-expr]]。
+    * 给定具有数组[=array=]存储类型的引用，附加数组索引访问短语会产生对数组索引元素的引用。见[[#array-access-expr]]。
+    * 给定具有结构[=structure=] 存储类型的引用，附加成员访问短语会产生对结构的命名成员的引用。见[[#struct-access-expr]]。
 
-在所有情况下，结果的访问模式与原始引用的访问模式相同。
+在所有情况下，结果的访问模式[=access mode=]与原始引用的访问模式相同。
 <div class='example wgsl' heading='Component reference from a composite reference'>
   <xmp highlight='rust'>
     struct S {
-        age: i32;
-        weight: f32;
+        age: i32,
+        weight: f32
     }
     var<private> person: S;
     // 'person' 的使用表示对变量底层内存的引用，并且类型为 ref<private,S,read_write>。
@@ -2115,7 +2614,7 @@ locations=]）加载和存储，如果它们访问内存。
         //    结果的类型为 ref<function,array<i32,5>,read_write>。
         // 2. 然后应用'[4]'数组索引短语，产生对由上一步中的引用值引用的数组的第五个元素的存储的引用。
         //    结果值的类型为 ref<function,i32,read_write>。 他让声明要求右手边是 i32 类型。
-        //    加载规则适用（因为没有其他类型规则可以应用），并且初始化器的计算产生从执行声明时由 'A[5]' 引用的内存位置加载的 i32 值。
+        //    加载规则适用（因为没有其他类型规则可以应用），并且初始化器的计算产生从执行声明时由 'A[4]' 引用的内存位置加载的 i32 值。
         let A_4_value: i32 = A[4];
 
         // 计算'person.weight'时：
@@ -2133,7 +2632,7 @@ locations=]）加载和存储，如果它们访问内存。
 
 指针值以下列方式之一形成：
 
-* 对引用使用寻址（[=address-of=] (unary '&')）操作。
+* 对引用使用寻址（[=address-of=] (unary `&`)）操作。
     * 结果的原始变量被定义为引用的原始变量。
 * 如果函数形式参数（[=formal parameter=]）具有指针类型，则在运行时调用该函数时，形参的使用表示在调用函数（[=calling function=]）的调用位置（[=call site=]）处提供给相应操作数的指针值。
     * 形式参数（在运行时）的原始变量被定义为在调用位置处指针操作数的原始变量。
@@ -2333,53 +2832,21 @@ WGSL 源代码中仅使用某些纹素格式。用于定义这些纹素格式的
   <tr><td>rgba32float<td>32float<td>r, g, b, a<td>vec4&lt;f32&gt;(CTF(r), CTF(g), CTF(b), CTF(a))
 </table>
 
-下表列出了 WGSL 纹素格式和 SPIR-V 图像格式（[=image formats=]）之间的对应关系。
-
-<table class='data'>
-  <caption>映射纹素格式至SPIR-V</caption>
-  <thead>
-    <tr><th>Texel format
-        <th>SPIR-V Image Format
-        <th>SPIR-V Enabling Capability
-  </thead>
-  <tr><td>rgba8unorm<td>Rgba8<td>Shader
-  <tr><td>rgba8snorm<td>Rgba8Snorm<td>Shader
-  <tr><td>rgba8uint<td>Rgba8ui<td>Shader
-  <tr><td>rgba8sint<td>Rgba8i<td>Shader
-  <tr><td>rgba16uint<td>Rgba16ui<td>Shader
-  <tr><td>rgba16sint<td>Rgba16i<td>Shader
-  <tr><td>rgba16float<td>Rgba16f<td>Shader
-  <tr><td>r32uint<td>R32ui<td>Shader
-  <tr><td>r32sint<td>R32i<td>Shader
-  <tr><td>r32float<td>R32f<td>Shader
-  <tr><td>rg32uint<td>Rg32ui<td>StorageImageExtendedFormats
-  <tr><td>rg32sint<td>Rg32i<td>StorageImageExtendedFormats
-  <tr><td>rg32float<td>Rg32f<td>StorageImageExtendedFormats
-  <tr><td>rgba32uint<td>Rgba32ui<td>Shader
-  <tr><td>rgba32sint<td>Rgba32i<td>Shader
-  <tr><td>rgba32float<td>Rgba32f<td>Shader
-</table>
 
 ### 采样纹理类型 ### {#sampled-texture-type}
 
 <pre class='def'>
 `texture_1d<type>`
-  %1 = OpTypeImage %type 1D 0 0 0 1 Unknown
 
 `texture_2d<type>`
-  %1 = OpTypeImage %type 2D 0 0 0 1 Unknown
 
 `texture_2d_array<type>`
-  %1 = OpTypeImage %type 2D 0 1 0 1 Unknown
 
 `texture_3d<type>`
-  %1 = OpTypeImage %type 3D 0 0 0 1 Unknown
 
 `texture_cube<type>`
-  %1 = OpTypeImage %type Cube 0 0 0 1 Unknown
 
 `texture_cube_array<type>`
-  %1 = OpTypeImage %type Cube 0 1 0 1 Unknown
 </pre>
 * 类型必须为 `f32`, `i32` 或 `u32`
 * 图像的参数化类型是采样转换后的类型。例如：你可以使用带有 8 位 unorm 组件的纹素图像，但是当您对它们进行采样时，您会得到 32 位浮点结果（或 vec-of-f32）。
@@ -2388,7 +2855,6 @@ WGSL 源代码中仅使用某些纹素格式。用于定义这些纹素格式的
 
 <pre class='def'>
 `texture_multisampled_2d<type>`
-  %1 = OpTypeImage %type 2D 0 0 1 1 Unknown
 </pre>
 * 类型必须为 `f32`, `i32` 或 `u32`
 
@@ -2398,9 +2864,9 @@ WGSL 源代码中仅使用某些纹素格式。用于定义这些纹素格式的
 `texture_external`
 </pre>
 
-`texture_external` 是一种类似于 `texture_2d<f32>` 的不透明 2d 浮点采样纹理类型，但可能具有不同的表示。可以使用 `textureLoad` 或 `textureSampleLevel` 读取它，它们不透明地处理这些不同的表示。
+`texture_external` 是一种类似于 `texture_2d<f32>` 的不透明 2d 浮点采样纹理类型，但可能具有不同的表示。可以使用  [[#textureload|textureLoad]]  或 [[#texturesamplelevel|textureSampleLevel]]  读取它，它们不透明地处理这些不同的表示。
 
-详见[`GPUExternalTexture`](https://gpuweb.github.io/gpuweb/#gpu-external-texture)。
+详见[[WebGPU#GPUExternalTexture]]。
 
 ### 存储纹理类型 ### {#texture-storage}
 
@@ -2418,59 +2884,28 @@ TODO(dentro)：将转换的描述移动到实际进行读取的内置函数中�
 
 <pre class='def'>
 `texture_storage_1d<texel_format,access>`
-  // %1 = OpTypeImage sampled_type 1D 0 0 0 2 image_format
 
 `texture_storage_2d<texel_format,access>`
-  // %1 = OpTypeImage sampled_type 2D 0 0 0 2 image_format
 
 `texture_storage_2d_array<texel_format,access>`
-  // %1 = OpTypeImage sampled_type 2D 0 1 0 2 image_format
 
 `texture_storage_3d<texel_format,access>`
-  // %1 = OpTypeImage sampled_type 3D 0 0 0 2 image_format
 </pre>
 
 * `texel format` 必须为存储纹素格式（[=storage-texel-formats=]）中指定的纹素类型之一
 * `access` 必须为 [=access/write=]
 
-在 SPIR-V 映射中：
-* 图像类型声明的*图像格式*参数按照[[#texel-formats]]中SPIR-V 纹素格式对应表的规定。
-* 图像类型声明的*采样类型*参数为纹素格式的频道格式对应的SPIR-V标量类型。
-
-映射到 SPIR-V 时，只写存储纹理变量必须具有 `NonReadable` 修饰。
-
-例如：
-
-<div class='example wgsl global-scope' heading='Mapping a writable texture_storage_1d variable to SPIR-V'>
-  <xmp>
-      var tbuf: texture_storage_1d<rgba8unorm,write>;
-
-      // Maps to the following SPIR-V:
-      //  OpDecorate %tbuf NonReadable
-      //  ...
-      //  %float = OpTypeFloat 32
-      //  %image_type = OpTypeImage %float 1D 0 0 0 2 Rgba8
-      //  %image_ptr_type = OpTypePointer UniformConstant %image_type
-      //  %tbuf = OpVariable %image_ptr_type UniformConstant
-  </xmp>
-</div>
-
 ### 深度纹理类型 ### {#texture-depth}
 <pre class='def'>
 `texture_depth_2d`
-  %1 = OpTypeImage %f32 2D 1 0 0 1 Unknown
 
 `texture_depth_2d_array`
-  %1 = OpTypeImage %f32 2D 1 1 0 1 Unknown
 
 `texture_depth_cube`
-  %1 = OpTypeImage %f32 Cube 1 0 0 1 Unknown
 
 `texture_depth_cube_array`
-  %1 = OpTypeImage %f32 Cube 1 1 0 1 Unknown
 
 `texture_depth_multisampled_2d`
-  %1 = OpTypeImage %f32 2D 1 0 1 1 Unknown
 </pre>
 
 ### 采样器类型 ### {#sampler-type}
@@ -2499,10 +2934,8 @@ TODO(dentro)：将转换的描述移动到实际进行读取的内置函数中�
 
 <pre class='def'>
 sampler
-  OpTypeSampler
 
 sampler_comparison
-  OpTypeSampler
 </pre>
 
 ### 纹理类型语法 ### {#texture-types-grammar}
@@ -2618,10 +3051,14 @@ sampler_comparison
 </div>
 
 <div class='example wgsl global-scope' heading='Type Alias'>
-  <xmp>
+  <xmp highlight='rust'>
     type Arr = array<i32, 5>;
 
     type RTArr = array<vec4<f32>>;
+    const pi_approx: single = 3.1415;
+        fn two_pi() -> single {
+          return single(2) * pi_approx;
+        }
   </xmp>
 </div>
 
@@ -2631,46 +3068,63 @@ sampler_comparison
   <dfn for=syntax>type_decl</dfn> :
 
     | [=syntax/ident=]
+    | [=syntax/type_decl_without_ident=]
+</div>
+
+<div class='syntax' noexport='true'>
+    <dfn for=syntax>type_decl_without_ident</dfn> :
 
     | [=syntax/bool=]
 
     | [=syntax/float32=]
 
+    | [=syntax/float16=]
+
     | [=syntax/int32=]
 
     | [=syntax/uint32=]
 
-    | [=syntax/vec2=] [=syntax/less_than=] [=syntax/type_decl=] [=syntax/greater_than=]
+    | [=syntax/vec_prefix=] [=syntax/less_than=] [=syntax/type_decl=] [=syntax/greater_than=]
 
-    | [=syntax/vec3=] [=syntax/less_than=] [=syntax/type_decl=] [=syntax/greater_than=]
-
-    | [=syntax/vec4=] [=syntax/less_than=] [=syntax/type_decl=] [=syntax/greater_than=]
+    | [=syntax/mat_prefix=] [=syntax/less_than=] [=syntax/type_decl=] [=syntax/greater_than=]
 
     | [=syntax/pointer=] [=syntax/less_than=] [=syntax/address_space=] [=syntax/comma=] [=syntax/type_decl=] ( [=syntax/comma=] [=syntax/access_mode=] ) ? [=syntax/greater_than=]
 
     | [=syntax/array_type_decl=]
 
-    | [=syntax/mat2x2=] [=syntax/less_than=] [=syntax/type_decl=] [=syntax/greater_than=]
-
-    | [=syntax/mat2x3=] [=syntax/less_than=] [=syntax/type_decl=] [=syntax/greater_than=]
-
-    | [=syntax/mat2x4=] [=syntax/less_than=] [=syntax/type_decl=] [=syntax/greater_than=]
-
-    | [=syntax/mat3x2=] [=syntax/less_than=] [=syntax/type_decl=] [=syntax/greater_than=]
-
-    | [=syntax/mat3x3=] [=syntax/less_than=] [=syntax/type_decl=] [=syntax/greater_than=]
-
-    | [=syntax/mat3x4=] [=syntax/less_than=] [=syntax/type_decl=] [=syntax/greater_than=]
-
-    | [=syntax/mat4x2=] [=syntax/less_than=] [=syntax/type_decl=] [=syntax/greater_than=]
-
-    | [=syntax/mat4x3=] [=syntax/less_than=] [=syntax/type_decl=] [=syntax/greater_than=]
-
-    | [=syntax/mat4x4=] [=syntax/less_than=] [=syntax/type_decl=] [=syntax/greater_than=]
-
     | [=syntax/atomic=] [=syntax/less_than=] [=syntax/type_decl=] [=syntax/greater_than=]
 
     | [=syntax/texture_sampler_types=]
+</div>
+<div class='syntax' noexport='true'>
+    <dfn for=syntax>vec_prefix</dfn> :
+
+    | [=syntax/vec2=]
+
+    | [=syntax/vec3=]
+
+    | [=syntax/vec4=]
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>mat_prefix</dfn> :
+
+    | [=syntax/mat2x2=]
+
+    | [=syntax/mat2x3=]
+
+    | [=syntax/mat2x4=]
+
+    | [=syntax/mat3x2=]
+
+    | [=syntax/mat3x3=]
+
+    | [=syntax/mat3x4=]
+
+    | [=syntax/mat4x2=]
+
+    | [=syntax/mat4x3=]
+
+    | [=syntax/mat4x4=]
 </div>
 
 当类型声明是标识符（[=identifier=]）时，表达式必须在标识符声明（[=declaration=]）的范围内，作为类型别名或结构类型。
@@ -2681,35 +3135,25 @@ sampler_comparison
       Allows to specify types created by the type command
 
     bool
-       %1 = OpTypeBool
 
     f32
-       %2 = OpTypeFloat 32
 
     i32
-       %3 = OpTypeInt 32 1
 
     u32
-       %4 = OpTypeInt 32 0
 
     vec2<f32>
-        %7 = OpTypeVector %float 2
 
     array<f32, 4>
-       %uint_4 = OpConstant %uint 4
-            %9 = OpTypeArray %float %uint_4
 
     array<f32>
-       %rtarr = OpTypeRuntimeArray %float
 
     mat2x3<f32>
-       %vec = OpTypeVector %float 3
-         %6 = OpTypeMatrix %vec 2
   </xmp>
 </div>
 
 <div class='example wgsl global-scope' heading='Access modes for buffers'>
-  <xmp>
+  <xmp highlight='rust'>
     // Storage buffers
     @group(0) @binding(0)
     var<storage,read> buf1: Buffer;       // Can read, cannot write.
@@ -2719,7 +3163,7 @@ sampler_comparison
     var<storage,read_write> buf3: Buffer; // Can both read and write.
 
     // Uniform buffer. Always read-only, and has more restrictive layout rules.
-    struct ParamsTable {weight: f32;}
+    struct ParamsTable {weight: f32}
     @group(0) @binding(2)
     var<uniform> params: ParamsTable;     // Can read, cannot write.
   </xmp>
@@ -2729,10 +3173,10 @@ sampler_comparison
 
 ## 值声明 ## {#value-decls}
 
-WGSL 作者可以使用以下方法之一为不可变值声明名称：
-
-   * [=let declarations=]
-   * [=override declarations=]
+[SHORTNAME] 作者可以使用 <dfn noexport>value declaration</dfn> 为不可变值声明名称，这些名称可以是：
+   * [=let declarations=]，或者
+   * [=override declarations=]，或者
+   * [=creation-time constant=]
 
 值声明没有任何关联的存储。
 也就是说，没有与声明关联的 [=memory locations=]。
@@ -2741,11 +3185,14 @@ WGSL 作者可以使用以下方法之一为不可变值声明名称：
 
 let 声明（<dfn noexport>let declaration</dfn>）指定值的名称。一旦计算出 let 声明的值，它就是不可变的。当标识符（[=identifier=]） 使用[=resolves=]至一个let-声明，该标识符表示该值。
 
-当在没有明确指定类型的情况下声明 `let` 标识符时，例如 `let foo = 4`，类型是从等号 (`=`) 右边的表达式自动推断出来的。 当指定类型时，例如 `let foo: i32 = 4`，初始化表达式必须计算为该类型。
+当声明一个 `let` 标识符时没有明确指定的类型，例如
+`let foo = 4`，类型是从 [=syntax/equals=] 标记右侧的表达式自动推断的。
+`let` 声明的类型总是 [=concrete=]。
+当指定类型时，例如 `let foo: i32 = 4`，初始化表达式必须计算为该类型。
 
-关于 `let`-声明的一些规则取决于声明出现的位置。见[[#module-constants]]与[[#function-scope-variables]]。
+`let`-声明只能出现在函数定义中。
 
-<div class='example wgsl let declaration at module-scope' heading='let-declared constants at module scope'>
+<div class='example wgsl let declaration at function-scope' heading='let-declared constants at function scope'>
   <xmp highlight='rust'>
     // 'blockSize' 表示 i32 值 1024。
     let blockSize: i32 = 1024;
@@ -2771,16 +3218,17 @@ let 声明（<dfn noexport>let declaration</dfn>）指定值的名称。一旦�
    * 初始化表达式，如果存在，必须：
        * 评估为 [=scalar=] 类型。
        * 如果存在，则评估为声明的类型。
-       * 仅由 [=syntax/const_expression|const_expressions=] 或所有标识符 [=resolve=] 为可覆盖常量的表达式组成。
+        * 仅由 [=creation-time expressions=] 或所有标识符 [=resolve=] 到可覆盖常量、[=creation-time constants=] 或 [=creation-time functions=] 的表达式组成。
+           这样的表达式称为<dfn noexport>override expressio/dfn>。
    * 如果声明应用了 [=attribute/id=]，则文字操作数称为 <dfn noexport>管道常量 ID</dfn>，并且必须是 0 到 65535 之间的整数值。
    * 管道常量 ID 在 WGSL 程序中必须是唯一的：两个“覆盖”-声明不得使用相同的管道常量 ID。
    * 应用程序可以在管道创建时为常量指定自己的值。
      管道创建 API 接受从可覆盖常量到常量类型值的映射。
      常量由 <dfn export>pipeline-overridable 常量标识符字符串</dfn>标识，如果指定，它是 [=pipeline constant ID=] 的 base-10 表示，否则声明的 [=name=] 常数。
    * <dfn export>管道可覆盖常量如果其声明具有初始化表达式，则具有默认值</dfn>。 如果没有，则必须在管道创建时提供一个值。
-
+注意：覆盖表达式是 [=creation-time expressions=] 的超集。
 <div class='example wgsl global-scope' heading='Module constants, pipeline-overrideable'>
-  <xmp>
+  <xmp highlight='rust'>
     @id(0)    override has_point_light: bool = true;  // Algorithmic control
     @id(1200) override specular_param: f32 = 2.3;     // Numeric control
     @id(1300) override gain: f32;                     // Must be overridden
@@ -2797,8 +3245,42 @@ let 声明（<dfn noexport>let declaration</dfn>）指定值的名称。一旦�
   </xmp>
 </div>
 
+### 创建时间常数 ### {#creation-time-consts}
+
+<dfn noexport>creation-time constant</dfn> 指定固定在 [=shader module creation|shader-creation time=] 的值的名称。
+一旦声明了常量，它的值就是不可变的。
+当 [=identifier=] 将 [=resolves=] 用于创建时间常数时，标识符表示该值。
+
+当声明创建时常量时没有明确指定类型，
+例如`const foo = 4`，类型是从 [=syntax/equals=] 标记右侧的表达式自动推断的。
+创建时间常量的类型必须是：
+* 一个 [=constructible=] 类型，或
+* [=abstract numeric type=]，或
+* 一个 [=vector=]，或
+* 一个 [=matrix=]
+
+当指定类型时，例如`const foo : i32 = 4`，初始化表达式必须计算为该类型。
+
+注意：由于 [=AbstractInt=] 和 [=AbstractFloat=] 在 WGSL 源代码中无法拼写，因此命名值只能通过类型推断来使用它们。
+
+可以在模块范围或函数范围声明创建时间常量。
+必须使用初始化程序声明创建时间常量，并且仅由 [=creation-time expressions=] 组成。
+<div class='example wgsl global-scope' heading='Creation-time constants'>
+  <xmp>
+    const a = 4; // 值为 4 的 AbstractInt。
+    const b : i32 = 4; // i32 值为 4。
+    const c : u32 = 4; // u32，值为 4。
+    const d : f32 = 4; // f32 值为 4。
+    const e = vec3(a, a, a); // AbstractInt 的 vec3，值为 (4, 4, 4)。
+    const f = 4.0; // 值为 4 的 AbstractFloat。
+    const g = mat2x2(a, f, a, f); // 值为 ((2, 4), (2, 4)) 的 AbstractFloat 的 mat2x2。
+  </xmp>
+</div>
+
 ## `var` 声明 ## {#var-decls}
 有两种类型与变量相关联：它的存储类型（[=store type=]）（可以放置在被引用内存中的值的类型）和它的引用类型（[=reference type=]）（变量本身的类型）。 如果变量具有存储类型 *T*、存储类（[=address space=]） *S* 和访问模式 *A*，则其引用类型为 ref&lt;*S*,*T*,*A*&gt;。
+变量的 [=store type=] 始终是 [=concrete=]。
+
 变量声明（<dfn noexport>variable declaration</dfn>）：
 
 * 指定变量名称。
@@ -2838,7 +3320,7 @@ let 声明（<dfn noexport>let declaration</dfn>）指定值的名称。一旦�
     loop {
       var twice: i32 = 2 * i;   // 重新计算每次迭代。
       i = i++;
-      if (i == 5) { break; }
+      if i == 5 { break; }
     }
   </xmp>
 </div>
@@ -2851,17 +3333,7 @@ let 声明（<dfn noexport>let declaration</dfn>）指定值的名称。一旦�
     let y = x * x + x + 1;
   </xmp>
 </div>
-由于 `x` 为一个变量，所有对齐的访问都变成了加载和存储操作。如果这段代码被编译为 SPIR-V ，它将表示为：
-<div class='example spirv' heading='Sample translation for reading a variable multiple times'>
-  <xmp highlight='asm'>
-    %temp_1 = OpLoad %float %x
-    %temp_2 = OpLoad %float %x
-    %temp_3 = OpFMul %float %temp_1 %temp_2
-    %temp_4 = OpLoad %float %x
-    %temp_5 = OpFAdd %float %temp_3 %temp_4
-    %y      = OpFAdd %float %temp_5 %one
-  </xmp>
-</div>
+由于 `x` 为一个变量，所有对齐的访问都变成了加载和存储操作。
 
 然而，期望浏览器或驱动程序优化此中间表示，从而消除冗余负载。
 
@@ -2890,13 +3362,13 @@ WGSL 定义了以下可应用于全局变量的属性：
    * [=attribute/group=]
 
 <div class='example wgsl global-scope' heading="Module scope variable declarations">
-  <xmp>
+  <xmp highlight='rust'>
     var<private> decibels: f32;
     var<workgroup> worklist: array<i32,10>;
 
     struct Params {
-      specular: f32;
-      count: i32;
+      specular: f32,
+      count: i32
     }
     @group(0) @binding(2)
     var<uniform> param: Params;    // A uniform buffer
@@ -2911,75 +3383,39 @@ WGSL 定义了以下可应用于全局变量的属性：
   </xmp>
 </div>
 
-<div class='example' heading="Variable Decorations">
-  <xmp>
-    @group(4) @binding(3)
-       OpDecorate %variable DescriptorSet 4
-       OpDecorate %variable Binding 3
-  </xmp>
-</div>
-
 
 ## 模块常量 ## {#module-constants}
 
 出现在所有函数之外的 [[#value-decls|value declaration]] 声明了一个
 [=module scope|module-scope=] 常量。
+
+模块范围的常量必须是 [=override declarations=] 或 [=creation-time constants=]。
+
 整个程序的名称是 [=in scope=]。
 
-模块范围 [=let declaration|let-declared=] 常量必须是 [=constructible=] 类型。
-对于模块范围的“let”声明，必须存在初始化表达式，并且名称表示该表达式的值。
-
-TODO：定义允许 const_expression 和模块范围 let 声明的创建时常量。
-
-[=pipeline-overridable=] 常量必须是 [=scalar=] 类型之一。
-对于流水线可覆盖的常量，初始化表达式是可选的。
-
 <div class='example wgsl global-scope' heading='Module constants'>
-  <xmp>
+  <xmp highlight='rust'>
     // The golden ratio.
-    let golden: f32 = 1.61803398875;
+    const golden: f32 = 1.61803398875;
 
     // The second unit vector for three dimensions, with inferred type.
-    let e2 = vec3<i32>(0,1,0);
+    const e2 = vec3<i32>(0,1,0);
   </xmp>
 </div>
 
 当在依赖于常量值的控制流中使用变量或特性时，则认为该变量或特性被程序使用。 无论常量的值如何，无论该值是来自常量声明的值还是来自管线覆盖的值，都是如此。
 
-<div class='example' heading='Constants'>
-  <xmp>
-    -1
-       %a = OpConstant %int -1
-
-    2
-       %b = OpConstant %uint 2
-
-    3.2
-       %c = OpConstant %float 3.2
-
-    true
-        %d = OpConstantTrue
-
-    false
-        %e = OpConstant False
-
-    vec4<f32>(1.2, 2.3, 3.4, 2.3)
-        %f0 = OpConstant %float 1.2
-        %f1 = OpConstant %float 2.3
-        %f2 = OpConstant %float 3.4
-         %f = OpConstantComposite %v4float %f0 %f1 %f2 %f1
-  </xmp>
-</div>
-
 ## 函数作用域变量和常量 ## {#function-scope-variables}
 
-在函数体中的声明语句中声明的变量或常量在函数作用域（<dfn noexport>function scope</dfn>）内。该名称可在其声明语句之后立即使用，直到紧随声明的括号分隔语句列表的末尾。
+在函数体的声明语句中声明的变量或常量在 <dfn noexport>function scope</dfn> 中。
+该名称可在其声明语句之后立即使用，直到用大括号分隔的语句列表的末尾立即包含该声明。
 
-函数范围 let 声明的常量必须是 [=constructible=] 类型，或 [=pointer type=]。
+[=let declaration|let-declared=] 常量必须是 [=constructible=] 类型，
+或 [=pointer type=]。
 
 对于在函数作用域中声明的变量：
 * 变量总是在 [=address spaces/function=] 地址空间中。
-* 地址空间装饰是可选的。
+* 地址空间[=address space=] 装饰是可选的。
 * 存储类型（[=store type=]）必须为可构造（[=constructible=]）类型。
 * 当指定了初始化表达式时，可以从声明中省略存储类型。在这种情况下，存储类型是初始化表达式的计算结果的类型。
 
@@ -3009,6 +3445,8 @@ TODO：定义允许 const_expression 和模块范围 let 声明的创建时常�
     | [=syntax/variable_decl=] [=syntax/equal=] [=syntax/expression=]
 
     | [=syntax/let=] ( [=syntax/ident=] | [=syntax/variable_ident_decl=] ) [=syntax/equal=] [=syntax/expression=]
+
+    | [=syntax/const=] ( [=syntax/ident=] | [=syntax/variable_ident_decl=] ) [=syntax/equal=] [=syntax/expression=]
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>variable_decl</dfn> :
@@ -3035,21 +3473,47 @@ TODO：定义允许 const_expression 和模块范围 let 声明的创建时常�
 <div class='syntax' noexport='true'>
   <dfn for=syntax>global_constant_decl</dfn> :
 
-    | [=syntax/let=] ( [=syntax/ident=] | [=syntax/variable_ident_decl=] ) [=syntax/equal=] [=syntax/const_expression=]
-
-    | [=syntax/attribute=] * [=syntax/override=] ( [=syntax/ident=] | [=syntax/variable_ident_decl=] ) ( [=syntax/equal=] [=syntax/expression=] ) ?
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>const_expression</dfn> :
-
-    | [=syntax/type_decl=] [=syntax/paren_left=] ( ( [=syntax/const_expression=] [=syntax/comma=] ) * [=syntax/const_expression=] [=syntax/comma=] ? ) ? [=syntax/paren_right=]
-
-    | [=syntax/const_literal=]
+    | [=syntax/const=] ( [=syntax/ident=] | [=syntax/variable_ident_decl=] ) [=syntax/equal=] [=syntax/expression=]
+    | [=syntax/attribute=] * [=syntax/variable_decl=] ( [=syntax/equal=] [=syntax/expression=] ) ?
 </div>
 
 # 表达式 # {#expressions}
 
 表达式指定值如何被计算。
+## 创建时间表达式 ## {#creation-time-expr}
+
+在 [=shader module creation|shader-creation time=] 计算的表达式称为 <dfn noexport>creation-time 表达式</dfn>。
+为了在着色器创建时计算表达式，表达式使用的所有 [=identifiers=] 必须 [=resolve=] 到 [=creation-time constants=] 或 [=creation-time functions=]。
+
+创建时表达式的类型可以解析为包含 [=abstract numeric types=] 的类型。
+
+示例：`(42)`分析如下：
+* 术语 `42` 是 [=AbstractInt=] 值 42。
+* 用括号括住该术语会产生一个新表达式 `(42)`，其类型为 [=AbstractInt=]，值为 42。
+
+示例：`-5`分析如下：
+* 术语“5”是 [=AbstractInt=] 值 5。
+* 在该术语前面加上 '`-`' 会产生一个新的表达式 `-5`，它的类型为 [=AbstractInt=]，值为 -5。
+
+示例：`-2147483648`分析如下：
+* 术语“2147483648”是 [=AbstractInt=] 值 2147483648。
+    请注意，此值**不**适合 32 位有符号整数。
+* 在该术语前面加上 '`-`' 会产生一个新表达式 `-2147483648`，即
+    [=AbstractInt=] 类型，值为 -2147483648。
+
+示例：`const minint = -2147483648;`分析如下：
+* 如上所述，`-2147483648` 的计算结果为 [=AbstractInt=] 值 -2147483648。
+* A [=creation-time constant=] 允许初始化器是 [=abstract numeric type=]。
+* 结果是 `minint` 被声明为 [=AbstractInt=] 值 -2147483648。
+
+示例：`let minint = -2147483648;`分析如下：
+* 如上所述，`-2147483648` 的计算结果为 [=AbstractInt=] 值 -2147483648。
+* [=let 声明=] 要求初始化程序是 [=constructible=]。
+* let 声明没有明确的类型，所以使用 [=overload resolution=]。
+    应用的重载候选使用从 [=AbstractInt=] 到 [=i32=]、[=u32=] 或 [=f32=] 的 [=feasible automatic conversions=]。
+    排名最低的是 [=i32=]，所以
+    [=AbstractInt=] -2147483648 值转换为 [=i32=] 值 -2147483648。
+* 结果是`minint`被声明为i32值-2147483648。
 
 ## 文字表达式 ## {#literal-expressions}
 
@@ -3058,11 +3522,30 @@ TODO：定义允许 const_expression 和模块范围 let 声明的创建时常�
   <thead>
     <tr><th>Precondition<th>Conclusion<th>Notes
   </thead>
-  <tr><td><td>`true`: bool<td>`true` 布尔值。 (OpConstantTrue)
-  <tr><td><td>`false`: bool<td>`false` 布尔值。 (OpConstantFalse)
-  <tr><td><td>*INT_LITERAL*: i32<td>有符号整数值。 (OpConstant)
-  <tr><td><td>*UINT_LITERAL*: u32<td>无符号整数值。 (OpConstant)
-  <tr><td><td>*FLOAT_LITERAL*: f32<td>浮点值。 (OpConstant)
+  <tr><td>
+      <td>`true`: bool
+      <td>`true` boolean value.
+  <tr><td>
+      <td>`false`: bool
+      <td>`false` boolean value.
+  <tr><td>|e| is an [=integer literal=] with no suffix
+      <td>|e|: AbstractInt
+      <td>Abstract integer literal value.
+  <tr><td>|e| is a [=floating point literal=] with no suffix
+      <td>|e|: AbstractFloat
+      <td>Abstract float literal value.
+  <tr><td>|e| is an [=integer literal=] with `i` suffix
+      <td>|e|: i32
+      <td>32-bit signed integer literal value.
+  <tr><td>|e| is an [=integer literal=] with `u` suffix
+      <td>|e|: u32
+      <td>32-bit unsigned integer literal value.
+  <tr><td>|e| is an [=floating point literal=] with `f` suffix
+      <td>|e|: f32
+      <td>32-bit floating point literal value.
+  <tr><td>|e| is an [=floating point literal=] with `h` suffix
+      <td>|e|: f16
+      <td>16-bit floating point literal value.
 </table>
 
 ## 括号表达式 ## {#parenthesized-expressions}
@@ -3081,24 +3564,35 @@ TODO：定义允许 const_expression 和模块范围 let 声明的创建时常�
 
 ## 类型构造函数表达式 ## {#type-constructor-expr}
 
-类型构造函数表达式显式地创建给定[=constructible=]类型的值。
+类型构造函数表达式显式创建给定 [=constructible=] 类型的值。
+构造函数表达式共有三种：
+* [[#construction-from-components]]
+* [[#zero-value-expr]]
+* [[#conversion-expr]]
 
-标量形式是多余的，但提供标量转换表达式（[[#conversion-expr|conversion expressions]]）的对称性，并可用于增强可读性。
+### 从组件构造### {#construction-from-components}
+
+本节中定义的表达式通过以下方式创建 [=constructible=] 值：
+* 复制相同类型的现有值（即恒等函数），或
+* 从一个显式的组件列表中创建一个复合值。
+
+这里给出的标量形式是多余的，但提供了标量 [=conversion expressions=] 的对称性，
+并可用于增强可读性。
 
 向量和矩阵形式从具有匹配分量类型的分量和子向量的各种组合构造向量和矩阵值。
-有用于构造向量和矩阵的重载，它们指定目标类型的维度而无需指定组件类型； 组件类型是从构造函数参数推断出来的。
+有用于构造向量和矩阵的重载[=overloads=] ，它们指定目标类型的维度而无需指定组件类型； 组件类型是从构造函数参数推断出来的。
 
-另见[[#zero-value-expr]] 和 [[#conversion-expr]]。
 
 <table class='data'>
   <caption>标量构造函数类型规则</caption>
   <thead>
     <tr><th>Precondition<th>Conclusion<th>Notes
   </thead>
-  <tr><td>*e*: bool<td>`bool(e)`: bool<td>本体。<br>在SPIR-V翻译中，表达式 ID 重用了操作数的 ID。
-  <tr><td>*e*: i32<td>`i32(e)`: i32<td>本体。<br>在SPIR-V翻译中，表达式 ID 重用了操作数的 ID。
-  <tr><td>*e*: u32<td>`u32(e)`: u32<td>本体。<br>在SPIR-V翻译中，表达式 ID 重用了操作数的 ID。
-  <tr><td>*e*: f32<td>`f32(e)`: f32<td>本体。<br>在SPIR-V翻译中，表达式 ID 重用了操作数的 ID。
+  <tr><td>*e*: bool<td>`bool(e)`: bool<td>Identity.
+  <tr><td>*e*: i32<td>`i32(e)`: i32<td>Identity.
+  <tr><td>*e*: u32<td>`u32(e)`: u32<td>Identity.
+  <tr><td>*e*: f32<td>`f32(e)`: f32<td>Identity.
+  <tr><td>*e*: f16<td>`f16(e)`: f16<td>Identity.
 </table>
 
 <table class='data'>
@@ -3116,7 +3610,7 @@ TODO：定义允许 const_expression 和模块范围 let 声明的创建时常�
     <td rowspan=2>*e1*: *T*<br>
         *e2*: *T*
     <td>`vec2<T>(e1,e2)`: vec2<*T*>
-    <td rowspan=2>OpCompositeConstruct
+    <td rowspan=2>
   <tr>
     <td>`vec2(e1,e2)`: vec2<*T*>
   <tr>
@@ -3130,7 +3624,7 @@ TODO：定义允许 const_expression 和模块范围 let 声明的创建时常�
         *e2*: *T*<br>
         *e3*: *T*
     <td>`vec3<T>(e1,e2,e3)`: vec3<*T*>
-    <td rowspan=2>OpCompositeConstruct
+    <td rowspan=2>
   <tr>
     <td>`vec3(e1,e2,e3)`: vec3<*T*>
   <tr>
@@ -3138,7 +3632,7 @@ TODO：定义允许 const_expression 和模块范围 let 声明的创建时常�
         *e2*: vec2<*T*>
     <td>`vec3<T>(e1,e2)`: vec3<*T*><br>
         `vec3<T>(e2,e1)`: vec3<*T*>
-    <td rowspan=2>OpCompositeConstruct
+    <td rowspan=2>
   <tr>
     <td>`vec3(e1,e2)`: vec3<*T*><br>
         `vec3(e2,e1)`: vec3<*T*>
@@ -3154,7 +3648,7 @@ TODO：定义允许 const_expression 和模块范围 let 声明的创建时常�
         *e3*: *T*<br>
         *e4*: *T*
     <td class=nowrap>`vec4<T>(e1,e2,e3,e4)`: vec4<*T*>
-    <td rowspan=2>OpCompositeConstruct
+    <td rowspan=2>
   <tr>
     <td class=nowrap>`vec4(e1,e2,e3,e4)`: vec4<*T*>
   <tr>
@@ -3164,7 +3658,7 @@ TODO：定义允许 const_expression 和模块范围 let 声明的创建时常�
     <td class=nowrap>`vec4<T>(e1,e2,e3)`: vec4<*T*><br>
         `vec4<T>(e1,e3,e2)`: vec4<*T*><br>
         `vec4<T>(e3,e1,e2)`: vec4<*T*>
-    <td rowspan=2>OpCompositeConstruct
+    <td rowspan=2>
   <tr>
     <td class=nowrap>`vec4(e1,e2,e3)`: vec4<*T*><br>
         `vec4(e1,e3,e2)`: vec4<*T*><br>
@@ -3173,7 +3667,7 @@ TODO：定义允许 const_expression 和模块范围 let 声明的创建时常�
     <td rowspan=2>*e1*: vec2<*T*><br>
         *e2*: vec2<*T*>
     <td class=nowrap>`vec4<T>(e1,e2)`: vec4<*T*>
-    <td rowspan=2>OpCompositeConstruct
+    <td rowspan=2>
   <tr>
     <td class=nowrap>`vec4(e1,e2)`: vec4<*T*>
   <tr>
@@ -3181,7 +3675,7 @@ TODO：定义允许 const_expression 和模块范围 let 声明的创建时常�
         *e2*: vec3<*T*>
     <td class=nowrap>`vec4<T>(e1,e2)`: vec4<*T*><br>
         `vec4<T>(e2,e1)`: vec4<*T*>
-    <td rowspan=2>OpCompositeConstruct
+    <td rowspan=2>
   <tr>
     <td>`vec4(e1,e2)`: vec4<*T*><br>
         `vec4(e2,e1)`: vec4<*T*>
@@ -3198,74 +3692,107 @@ TODO：定义允许 const_expression 和模块范围 let 声明的创建时常�
   <thead>
     <tr><th>Precondition<th>Conclusion<th>Notes
   </thead>
-  <tr>
-    <td rowspan=2>|e1|: |f32|<br>
-        ...<br>
-        |eN|: |f32|
-    <td>`mat2x2<f32>(e1,e2,e3,e4)`: mat2x2&lt;f32&gt;<br>
-        `mat3x2<f32>(e1,...,e6)`: mat3x2&lt;f32&gt;<br>
-        `mat2x3<f32>(e1,...,e6)`: mat2x3&lt;f32&gt;<br>
-        `mat4x2<f32>(e1,...,e8)`: mat4x2&lt;f32&gt;<br>
-        `mat2x4<f32>(e1,...,e8)`: mat2x4&lt;f32&gt;<br>
-        `mat3x3<f32>(e1,...,e9)`: mat3x3&lt;f32&gt;<br>
-        `mat4x3<f32>(e1,...,e12)`: mat4x3&lt;f32&gt;<br>
-        `mat3x4<f32>(e1,...,e12)`: mat3x4&lt;f32&gt;<br>
-        `mat4x4<f32>(e1,...,e16)`: mat4x4&lt;f32&gt;
-    <td rowspan=2>Column-major construction by elements.<br>
-        OpCompositeConstruct
-  <tr>
-    <td>`mat2x2(e1,e2,e3,e4)`: mat2x2&lt;f32&gt;<br>
-        `mat3x2(e1,...,e6)`: mat3x2&lt;f32&gt;<br>
-        `mat2x3(e1,...,e6)`: mat2x3&lt;f32&gt;<br>
-        `mat4x2(e1,...,e8)`: mat4x2&lt;f32&gt;<br>
-        `mat2x4(e1,...,e8)`: mat2x4&lt;f32&gt;<br>
-        `mat3x3(e1,...,e9)`: mat3x3&lt;f32&gt;<br>
-        `mat4x3(e1,...,e12)`: mat4x3&lt;f32&gt;<br>
-        `mat3x4(e1,...,e12)`: mat3x4&lt;f32&gt;<br>
-        `mat4x4(e1,...,e16)`: mat4x4&lt;f32&gt;
-  <tr>
-    <td rowspan=2>*e1*: vec2&lt;f32&gt;<br>
-        *e2*: vec2&lt;f32&gt;<br>
-        *e3*: vec2&lt;f32&gt;<br>
-        *e4*: vec2&lt;f32&gt;
-    <td>`mat2x2<f32>(e1,e2)`: mat2x2&lt;f32&gt;<br>
-        `mat3x2<f32>(e1,e2,e3)`: mat3x2&lt;f32&gt;<br>
-        `mat4x2<f32>(e1,e2,e3,e4)`: mat4x2&lt;f32&gt;
-    <td rowspan=2>Column by column construction.<br>
-        OpCompositeConstruct
-  <tr>
-    <td>`mat2x2(e1,e2)`: mat2x2&lt;f32&gt;<br>
-        `mat3x2(e1,e2,e3)`: mat3x2&lt;f32&gt;<br>
-        `mat4x2(e1,e2,e3,e4)`: mat4x2&lt;f32&gt;
-  <tr>
-    <td rowspan=2>*e1*: vec3&lt;f32&gt;<br>
-        *e2*: vec3&lt;f32&gt;<br>
-        *e3*: vec3&lt;f32&gt;<br>
-        *e4*: vec3&lt;f32&gt;
-    <td>`mat2x3<f32>(e1,e2)`: mat2x3&lt;f32&gt;<br>
-        `mat3x3<f32>(e1,e2,e3)`: mat3x3&lt;f32&gt;<br>
-        `mat4x3<f32>(e1,e2,e3,e4)`: mat4x3&lt;f32&gt;
-    <td rowspan=2>Column by column construction.<br>
-        OpCompositeConstruct
-  <tr>
-    <td>`mat2x3(e1,e2)`: mat2x3&lt;f32&gt;<br>
-        `mat3x3(e1,e2,e3)`: mat3x3&lt;f32&gt;<br>
-        `mat4x3(e1,e2,e3,e4)`: mat4x3&lt;f32&gt;
-  <tr>
-    <td rowspan=2>*e1*: vec4&lt;f32&gt;<br>
-        *e2*: vec4&lt;f32&gt;<br>
-        *e3*: vec4&lt;f32&gt;<br>
-        *e4*: vec4&lt;f32&gt;
-    <td>`mat2x4<f32>(e1,e2)`: mat2x4&lt;f32&gt;<br>
-        `mat3x4<f32>(e1,e2,e3)`: mat3x4&lt;f32&gt;<br>
-        `mat4x4<f32>(e1,e2,e3,e4)`: mat4x4&lt;f32&gt;
-    <td rowspan=2>Column by column construction.<br>
-        OpCompositeConstruct
-  <tr>
-    <td>`mat2x4(e1,e2)`: mat2x4&lt;f32&gt;<br>
-        `mat3x4(e1,e2,e3)`: mat3x4&lt;f32&gt;<br>
-        `mat4x4(e1,e2,e3,e4)`: mat4x4&lt;f32&gt;
-</table>
+   <tr>
+     <td>|e|: mat2x2&lt;|T|&gt;
+     <td>`mat2x2<`|T|`>(`|e|`)`: mat2x2&lt;|T|&gt;<br>
+         `mat2x2(`|e|`)`: mat2x2&lt;|T|&gt;<br>
+     <td rowspan=9>Identity type conversion. The result is |e|.
+   <tr>
+     <td>|e|: mat2x3&lt;|T|&gt;
+     <td>`mat2x3<`|T|`>(`|e|`)`: mat2x3&lt;|T|&gt;<br>
+         `mat2x3(`|e|`)`: mat2x3&lt;|T|&gt;
+   <tr>
+     <td>|e|: mat2x4&lt;|T|&gt;
+     <td>`mat2x4<`|T|`>(`|e|`)`: mat2x4&lt;|T|&gt;<br>
+         `mat2x4(`|e|`)`: mat2x4&lt;|T|&gt;
+   <tr>
+     <td>|e|: mat3x2&lt;|T|&gt;
+     <td>`mat3x2<`|T|`>(`|e|`)`: mat3x2&lt;|T|&gt;<br>
+         `mat3x2(`|e|`)`: mat3x2&lt;|T|&gt;
+   <tr>
+     <td>|e|: mat3x3&lt;|T|&gt;
+     <td>`mat3x3<`|T|`>(`|e|`)`: mat3x3&lt;|T|&gt;<br>
+         `mat3x3(`|e|`)`: mat3x3&lt;|T|&gt;
+   <tr>
+     <td>|e|: mat3x4&lt;|T|&gt;
+     <td>`mat3x4<`|T|`>(`|e|`)`: mat3x4&lt;|T|&gt;<br>
+         `mat3x4(`|e|`)`: mat3x4&lt;|T|&gt;
+   <tr>
+     <td>|e|: mat4x2&lt;|T|&gt;
+     <td>`mat4x2<`|T|`>(`|e|`)`: mat4x2&lt;|T|&gt;<br>
+         `mat4x2(`|e|`)`: mat4x2&lt;|T|&gt;
+   <tr>
+     <td>|e|: mat4x3&lt;|T|&gt;
+     <td>`mat4x3<`|T|`>(`|e|`)`: mat4x3&lt;|T|&gt;<br>
+         `mat4x3(`|e|`)`: mat4x3&lt;|T|&gt;
+   <tr>
+     <td>|e|: mat4x4&lt;|T|&gt;
+     <td>`mat4x4<`|T|`>(`|e|`)`: mat4x4&lt;|T|&gt;<br>
+         `mat4x4(`|e|`)`: mat4x4&lt;|T|&gt;
+   <tr>
+     <td rowspan=2>|e1|: |T|<br>
+         ...<br>
+         |eN|: |T|<br>
+     <td>`mat2x2<T>(e1,e2,e3,e4)`: mat2x2&lt;|T|&gt;<br>
+         `mat3x2<T>(e1,...,e6)`: mat3x2&lt;|T|&gt;<br>
+         `mat2x3<T>(e1,...,e6)`: mat2x3&lt;|T|&gt;<br>
+         `mat4x2<T>(e1,...,e8)`: mat4x2&lt;|T|&gt;<br>
+         `mat2x4<T>(e1,...,e8)`: mat2x4&lt;|T|&gt;<br>
+         `mat3x3<T>(e1,...,e9)`: mat3x3&lt;|T|&gt;<br>
+         `mat4x3<T>(e1,...,e12)`: mat4x3&lt;|T|&gt;<br>
+         `mat3x4<T>(e1,...,e12)`: mat3x4&lt;|T|&gt;<br>
+         `mat4x4<T>(e1,...,e16)`: mat4x4&lt;|T|&gt;
+     <td rowspan=2>Column-major construction by elements.<br>
+   <tr>
+     <td>`mat2x2(e1,e2,e3,e4)`: mat2x2&lt;|T|&gt;<br>
+         `mat3x2(e1,...,e6)`: mat3x2&lt;|T|&gt;<br>
+         `mat2x3(e1,...,e6)`: mat2x3&lt;|T|&gt;<br>
+         `mat4x2(e1,...,e8)`: mat4x2&lt;|T|&gt;<br>
+         `mat2x4(e1,...,e8)`: mat2x4&lt;|T|&gt;<br>
+         `mat3x3(e1,...,e9)`: mat3x3&lt;|T|&gt;<br>
+         `mat4x3(e1,...,e12)`: mat4x3&lt;|T|&gt;<br>
+         `mat3x4(e1,...,e12)`: mat3x4&lt;|T|&gt;<br>
+         `mat4x4(e1,...,e16)`: mat4x4&lt;|T|&gt;
+   <tr>
+     <td rowspan=2>*e1*: vec2&lt;|T|&gt;<br>
+         *e2*: vec2&lt;|T|&gt;<br>
+         *e3*: vec2&lt;|T|&gt;<br>
+         *e4*: vec2&lt;|T|&gt;<br>
+     <td>`mat2x2<T>(e1,e2)`: mat2x2&lt;|T|&gt;<br>
+         `mat3x2<T>(e1,e2,e3)`: mat3x2&lt;|T|&gt;<br>
+         `mat4x2<T>(e1,e2,e3,e4)`: mat4x2&lt;|T|&gt;
+     <td rowspan=2>Column by column construction.<br>
+   <tr>
+     <td>`mat2x2(e1,e2)`: mat2x2&lt;|T|&gt;<br>
+         `mat3x2(e1,e2,e3)`: mat3x2&lt;|T|&gt;<br>
+         `mat4x2(e1,e2,e3,e4)`: mat4x2&lt;|T|&gt;
+   <tr>
+     <td rowspan=2>*e1*: vec3&lt;|T|&gt;<br>
+         *e2*: vec3&lt;|T|&gt;<br>
+         *e3*: vec3&lt;|T|&gt;<br>
+         *e4*: vec3&lt;|T|&gt;<br>
+     <td>`mat2x3<T>(e1,e2)`: mat2x3&lt;|T|&gt;<br>
+         `mat3x3<T>(e1,e2,e3)`: mat3x3&lt;|T|&gt;<br>
+         `mat4x3<T>(e1,e2,e3,e4)`: mat4x3&lt;|T|&gt;
+     <td rowspan=2>Column by column construction.<br>
+   <tr>
+     <td>`mat2x3(e1,e2)`: mat2x3&lt;|T|&gt;<br>
+         `mat3x3(e1,e2,e3)`: mat3x3&lt;|T|&gt;<br>
+         `mat4x3(e1,e2,e3,e4)`: mat4x3&lt;|T|&gt;
+   <tr>
+     <td rowspan=2>*e1*: vec4&lt;|T|&gt;<br>
+         *e2*: vec4&lt;|T|&gt;<br>
+         *e3*: vec4&lt;|T|&gt;<br>
+         *e4*: vec4&lt;|T|&gt;<br>
+     <td>`mat2x4<T>(e1,e2)`: mat2x4&lt;|T|&gt;<br>
+         `mat3x4<T>(e1,e2,e3)`: mat3x4&lt;|T|&gt;<br>
+         `mat4x4<T>(e1,e2,e3,e4)`: mat4x4&lt;|T|&gt;
+     <td rowspan=2>Column by column construction.<br>
+   <tr>
+     <td>`mat2x4(e1,e2)`: mat2x4&lt;|T|&gt;<br>
+         `mat3x4(e1,e2,e3)`: mat3x4&lt;|T|&gt;<br>
+         `mat4x4(e1,e2,e3,e4)`: mat4x4&lt;|T|&gt;
+ </table>
 
 
 <table class='data'>
@@ -3299,7 +3826,7 @@ TODO：定义允许 const_expression 和模块范围 let 声明的创建时常�
     <td>从成员进行的结构构造。
 </table>
 
-## 零值表达式 ## {#zero-value-expr}
+### 零值表达式 ### {#zero-value-expr}
 
 每个可构造的（[=constructible=]） *T* 都有一个唯一的零值（<dfn noexport>zero value</dfn>），在 WGSL 中编写为，类型后面跟一对空括号：*T* `()`。
 
@@ -3309,8 +3836,10 @@ TODO：定义允许 const_expression 和模块范围 let 声明的创建时常�
 * `i32()` 为 0
 * `u32()` 为 0
 * `f32()` 为 0.0
+* `f16()` is 0.0
+
 * 具有 *N* 个类型 *T* 元素的向量的零值为一个 *N*-元素向量，每个分量值为 *T* 的零值。
-* *N*-列 *M*行类型为 `f32` 的矩阵的零值为该维度向量被0.0项填充。
+* *T* 类型的 *C* 列 *R* 行矩阵的零值是用 *T* 的零值填充的那些维度的矩阵。
 * 具有可构造（[=constructible=]）元素类型 *E* 的 *N*-元素向量的零值为一个有 *N* 个元素的数组，数组的每个分量为 *E* 的零值。
 * 可构造（[=constructible=]）类型 *S* 的零值为构造值 *S* 的零值成员。
 
@@ -3321,29 +3850,30 @@ TODO：定义允许 const_expression 和模块范围 let 声明的创建时常�
   <thead>
     <tr><th>Precondition<th>Conclusion<th>Notes
   </thead>
-  <tr><td><td>`bool()`: bool<td>false<br>零值 (OpConstantNull for bool)
-  <tr><td><td>`i32()`: i32<td>0<br>零值 (OpConstantNull for i32)
-  <tr><td><td>`u32()`: u32<td>0u<br>零值 (OpConstantNull for u32)
-  <tr><td><td>`f32()`: f32<td>0.0<br>零值 (OpConstantNull for f32)
+  <tr><td><td>`bool()`: bool<td>false<br>Zero value
+  <tr><td><td>`i32()`: i32<td>0<br>Zero value
+  <tr><td><td>`u32()`: u32<td>0u<br>Zero value
+  <tr><td><td>`f32()`: f32<td>0.0<br>Zero value
+  <tr><td><td>`f16()`: f16<td>0.0<br>Zero value
 </table>
 
 <table class='data'>
-  <caption>向量零值类型规则，其中 *T* 为标量类型</caption>
+  <caption>向量零值类型规则，其中 |T| 为标量类型</caption>
   <thead>
     <tr><th>Precondition<th>Conclusion<th>Notes
   </thead>
   <tr>
     <td>
-    <td>`vec2<T>()`: vec2<*T*>
-    <td>零值 (OpConstantNull)
+    <td>`vec2<T>()`: vec2<|T|>
+    <td>Zero value
   <tr>
     <td>
-    <td>`vec3<T>()`: vec3<*T*>
-    <td>零值 (OpConstantNull)
+    <td>`vec3<T>()`: vec3<|T|>
+    <td>Zero value
   <tr>
     <td>
-    <td>`vec4<T>()`: vec4<*T*>
-    <td>零值 (OpConstantNull)
+    <td>`vec4<T>()`: vec4<|T|>
+    <td>Zero value
 </table>
 
 
@@ -3358,28 +3888,27 @@ TODO：定义允许 const_expression 和模块范围 let 声明的创建时常�
 </div>
 
 <table class='data'>
-  <caption>向量零值类型规则</caption>
+  <caption>矩阵零值类型规则</caption>
   <thead>
     <tr><th>Precondition<th>Conclusion<th>Notes
   </thead>
+  <td>|T| is f32 or f16
+    <td>`mat2x2<T>()`: mat2x2&lt;|T|&gt;<br>
+        `mat3x2<T>()`: mat3x2&lt;|T|&gt;<br>
+        `mat4x2<T>()`: mat4x2&lt;|T|&gt;
+    <td>Zero value
   <tr>
     <td>
-    <td>`mat2x2<f32>()`: mat2x2&lt;f32&gt;<br>
-        `mat3x2<f32>()`: mat3x2&lt;f32&gt;<br>
-        `mat4x2<f32>()`: mat4x2&lt;f32&gt;
-    <td>零值 (OpConstantNull)
+    <td>`mat2x3<T>()`: mat2x3&lt;|T|&gt;<br>
+        `mat3x3<T>()`: mat3x3&lt;|T|&gt;<br>
+        `mat4x3<T>()`: mat4x3&lt;|T|&gt;
+    <td>Zero value
   <tr>
     <td>
-    <td>`mat2x3<f32>()`: mat2x3&lt;f32&gt;<br>
-        `mat3x3<f32>()`: mat3x3&lt;f32&gt;<br>
-        `mat4x3<f32>()`: mat4x3&lt;f32&gt;
-    <td>零值 (OpConstantNull)
-  <tr>
-    <td>
-    <td>`mat2x4<f32>()`: mat2x4&lt;f32&gt;<br>
-        `mat3x4<f32>()`: mat3x4&lt;f32&gt;<br>
-        `mat4x4<f32>()`: mat4x4&lt;f32&gt;
-    <td>零值 (OpConstantNull)
+    <td>`mat2x4<T>()`: mat2x4&lt;|T|&gt;<br>
+        `mat3x4<T>()`: mat3x4&lt;|T|&gt;<br>
+        `mat4x4<T>()`: mat4x4&lt;|T|&gt;
+    <td>Zero value
 </table>
 
 <table class='data'>
@@ -3417,9 +3946,9 @@ TODO：定义允许 const_expression 和模块范围 let 声明的创建时常�
 <div class='example wgsl global-scope' heading="Zero-valued structures">
   <xmp highlight='rust'>
     struct Student {
-      grade: i32;
-      GPA: f32;
-      attendance: array<bool,4>;
+      grade: i32,
+      GPA: f32,
+      attendance: array<bool,4>
     }
 
     fn func() {
@@ -3438,155 +3967,208 @@ TODO：定义允许 const_expression 和模块范围 let 声明的创建时常�
 </div>
 
 
-## 转换表达式 ## {#conversion-expr}
+### 转换表达式 ### {#conversion-expr}
 
-WGSL 不隐式转换或提升一个数值或布尔值为另外的类型。而是使用以下表格中描述的转换表达式。
+WGSL 不隐式转换或提升一个数值或布尔值为另外的类型。而是使用以下表格中描述的转换表达式<dfn>conversion expression</dfn>。
 
 有关与浮点类型之间的转换的详细信息，请参阅 [[#floating-point-conversion]]。
-
-另见[[#type-constructor-expr]]。
 
 <table class='data'>
   <caption>标量转换类型规则</caption>
   <thead>
     <tr><th>Precondition<th>Conclusion<th>Notes
   </thead>
-  <tr algorithm="coercion to boolean from unsigned">
+  <tr algorithm="从无符号强制转换为布尔值">
       <td>|e|: u32<td>`bool(`|e|`)`: bool
       <td>强制转换为布尔值。<br>
-          如果 |e| 为 0 则结果值为假，否则为真。<br>
-          （使用 OpINotEqual 去对比 |e| 和 0。）
-  <tr algorithm="coercion to boolean from signed">
+          如果 |e| 则结果为假为 0，否则为真。
+  <tr algorithm="从签名强制转换为布尔值">
       <td>|e|: i32<td>`bool(`|e|`)`: bool
       <td>强制转换为布尔值。<br>
-          如果 |e| 为 0 则结果值为假，否则为真。<br>
-          （使用 OpINotEqual 去对比 |e| 和 0。）
-  <tr algorithm="coercion to boolean from floating point">
+          如果 |e| 则结果为假为 0，否则为真。
+  <tr algorithm="coercion to boolean from binary32 floating point">
       <td>|e|: f32<td>`bool(`|e|`)`: bool
       <td>强制转换为布尔值。<br>
-          如果 |e| 为 0.0 或 -0.0 则结果值为假，否则为真。特殊地，NaN 和 infinity 值映射为真。<br>
-          （使用 OpFUnordNotEqual 去对比 |e| 和 `0.0`。）
-  <tr algorithm="conversion from boolean to signed">
+          如果 |e| 则结果为假为 0.0 或 -0.0，否则为真。
+          特别是 NaN 和无穷大值映射为真。
+  <tr algorithm="coercion to boolean from binary16 floating point">
+      <td>|e|: f16<td>`bool(`|e|`)`: bool
+      <td>强制转换为布尔值。<br>
+          如果 |e| 则结果为假为 0.0 或 -0.0，否则为真。
+          特别是 NaN 和无穷大值映射为真。
+  <tr algorithm="从布尔到有符号的转换">
       <td>|e|: bool<td>`i32(`|e|`)`: i32
-      <td>转换一个布尔值至一个有符号整数<br>
-          当 |e| 为真时结果为 1，否则结果为 0。<br>
-          （使 |e| 为条件使用 OpSelect，选择 1 至 0。）
-  <tr algorithm="scalar reinterpretation from unsigned to signed">
+      <td>将布尔值转换为有符号整数<br>
+          如果 |e|，则结果为 1为真，否则为 0。<br>
+  <tr algorithm="从无符号到有符号的标量重新解释">
       <td>|e|: u32<td>`i32(`|e|`)`: i32
-      <td>位的重新解释。<br>
-          结果是类型为 [=i32=] 的唯一值，等于 (|e| mod 2<sup>32</sup>)。<br>
-          (OpBitcast)
-  <tr algorithm="scalar conversion from floating point to signed integer">
+      <td>重新解释比特。<br>
+          结果是 [=i32=] 中的唯一值，它与 |e| 具有相同的位模式。
+  <tr algorithm="从浮点到有符号整数的标量转换">
       <td>|e|: f32<td>`i32(`|e|`)`: i32
-      <td>数值转换，向零舍入。（OpConvertFToS）
-  <tr algorithm="conversion from boolean to unsigned">
+      <td>值转换，向零舍入。
+  <tr algorithm="从二进制16浮点到有符号整数的标量转换">
+      <td>|e|: f16<td>`i32(`|e|`)`: i32
+      <td>值转换，向零舍入。
+  <tr algorithm="从布尔到无符号的转换">
       <td>|e|: bool<td>`u32(`|e|`)`: u32
-      <td>
-      转换布尔值为无符号整数<br>
-      |e| 为真时结果为 1u，否则为 0u。<br>
-      （使 |e| 为条件使用 OpSelect，选择 1 至 0。）
-  <tr algorithm="scalar conversion from signed integer to unsigned integer">
-      <td>|e|: i32<td>`u32(`|e|`)`: u32
-      <td>位的重新解释。<br>
-          结果是类型为 [=u32=] 的唯一值，等于 (|e| mod 2<sup>32</sup>)。<br>
-          (OpBitcast)
-  <tr algorithm="scalar conversion from floating point to unsigned integer">
+      <td>将布尔值转换为无符号整数。<br>
+          如果 |e|，则结果为 1u为真，否则为 0u。
+  <tr algorithm="从有符号整数到无符号整数的标量转换">
+      <td>|e|：AbstractInt 或 i32<td>`u32(`|e|`)`：u32
+      <td>重新解释比特。<br>
+          结果是 [=u32=] 中的唯一值，它与 |e| 具有相同的位模式。
+  <tr algorithm="从浮点到无符号整数的标量转换">
       <td>|e|: f32<td>`u32(`|e|`)`: u32
-      <td>值的转换，向零舍入。(OpConvertFToU)
-  <tr algorithm="conversion from boolean to floating point">
+      <td>值转换，向零舍入。
+  <tr algorithm="从二进制16浮点到无符号整数的标量转换">
+      <td>|e|: f16<td>`u32(`|e|`)`: u32
+      <td>值转换，向零舍入。
+  <tr algorithm="从 boolean 到 binary32 浮点的转换">
       <td>|e|: bool<td>`f32(`|e|`)`: f32
-      <td>
-      转换布尔值至浮点值。<br>
-      |e| 为真时结果为 1.0，否则为 0.0。<br>
-      （使 |e| 为条件对其使用 OpSelect，选择 1.0 至 0.0。）
-  <tr algorithm="scalar conversion from signed integer to floating point">
-      <td>|e|: i32<td>`f32(`|e|`)`: f32<td>值的转换，包括无效例。(OpConvertSToF)
-  <tr algorithm="scalar conversion from unsigned integer to floating point">
-      <td>|e|: u32<td>`f32(`|e|`)`: f32<td>值的转换，包括无效例。(OpConvertUToF)
+      <td>将布尔值转换为浮点数。<br>
+          如果 |e|，则结果为 1.0为真，否则为 0.0。
+  <tr algorithm="从有符号整数到二进制32浮点的标量转换">
+      <td>|e|: i32<td>`f32(`|e|`)`: f32<td>值转换，包括无效情况。
+  <tr algorithm="从无符号整数到二进制32浮点的标量转换">
+      <td>|e|: u32<td>`f32(`|e|`)`: f32<td>值转换，包括无效的情况。
+  <tr algorithm="从 binary16 浮点到 binary32 浮点的标量转换">
+      <td>|e|: f16<td>`f32(`|e|`)`: f32<td>精确值转换。
+  <tr algorithm="从 boolean 到 binary16 浮点的转换">
+      <td>|e|: bool<td>`f16(`|e|`)`: f16
+      <td>布尔值到浮点的转换<br>
+          如果 |e|，则结果为 1.0为真，否则为 0.0。
+  <tr algorithm="从有符号整数到二进制16浮点的标量转换">
+      <td>|e|: i32<td>`f16(`|e|`)`: f16<td>值转换，包括无效情况。
+  <tr algorithm="从无符号整数到二进制16浮点的标量转换">
+      <td>|e|: u32<td>`f16(`|e|`)`: f16<td>值转换，包括无效的情况。
+  <tr algorithm="从 binary32 浮点到 binary16 浮点的标量转换">
+      <td>|e|: f32<td>`f16(`|e|`)`: f16<td>有损值转换。
 </table>
 
 [[#floating-point-conversion]]中解释了与浮点之间的转换细节。
 
-<table class='data'>
-  <caption>向量转换类型规则</caption>
-  <thead>
-    <tr><th>Precondition<th>Conclusion<th>Notes
-  </thead>
-  <tr algorithm="vector coercion of unsigned integer to boolean">
-     <td>|e|: vec|N|&lt;u32&gt;
+<tr algorithm="无符号整数到布尔值的向量强制">
+     <td>|e|: vec|N|<u32>;
      <td>`vec`|N|&lt;`bool`&gt;`(`|e|`)`: vec|N|&lt;bool&gt
-     <td>无符号整数向量至布尔向量的[=Component-wise=]强制转换。<br>
-     （使用 OpINotEqual 去比较 |e| 和零向量）
+     <td>[=Component-wise=] 将无符号整数向量强制转换为布尔向量。
 
-  <tr algorithm="vector coercion of signed integer to boolean">
-     <td>|e|: vec|N|&lt;i32&gt;
+  <tr algorithm="有符号整数到布尔值的向量强制">
+     <td>|e|: vec|N|<i32>;
      <td>`vec`|N|&lt;`bool`&gt;`(`|e|`)`: vec|N|&lt;bool&gt
-     <td>有符号整数向量至布尔向量的[=Component-wise=]强制转换。<br>
-     （使用 OpINotEqual 去比较 |e| 和零向量）
+     <td>[=Component-wise=] 将有符号整数向量强制转换为布尔向量。
 
-  <tr algorithm="vector coercion of floating point to boolean">
-     <td>|e|: vec|N|&lt;f32&gt;
+  <tr algorithm="二进制32浮点到布尔的向量强制">
+     <td>|e|: vec|N|<f32>;
      <td>`vec`|N|&lt;`bool`&gt;`(`|e|`)`: vec|N|&lt;bool&gt
-     <td>浮点型向量至布尔向量的[=Component-wise=]强制转换。<br>
-     （使用 OpFUnordNotEqual 去比较 |e| 和零向量）
+     <td>[=Component-wise=] 将 binary32 浮点向量强制转换为布尔向量。
 
-  <tr algorithm="vector conversion from bool to signed">
-     <td>|e|: vec|N|&lt;bool&gt;
+  <tr algorithm="二进制16浮点到布尔的向量强制">
+     <td>|e|: vec|N|<f16>;
+     <td>`vec`|N|&lt;`bool`&gt;`(`|e|`)`: vec|N|&lt;bool&gt
+     <td>[=Component-wise=] 将 binary16 浮点向量强制转换为布尔向量。
+
+  <tr algorithm="从bool到有符号的向量转换">
+     <td>|e|: vec|N|<bool>;
      <td>`vec`|N|&lt;`i32`&gt;`(`|e|`)`: vec|N|&lt;i32&gt
-     <td>布尔向量至有符号向量的[=Component-wise=]强制转换。<br>
-     结果的分量 |i| 为 `i32(`|e|`[`|i|`])`<br>
-     （使 |e| 为条件，与其一起使用 OpSelect，选择 `vec`|N|(1) 至 `vec`|N|(0) 区间。）
+     <td>[=Component-wise=] 将布尔向量转换为有符号向量。<br>
+         组件 |i|结果是`i32(`|e|`[`|i|`])`
 
-  <tr algorithm="vector reinterpretation from unsigned to signed">
-     <td>|e|: vec|N|&lt;u32&gt;
+  <tr algorithm="从无符号到有符号的向量重新解释">
+     <td>|e|: vec|N|<u32>;
      <td>`vec`|N|&lt;`i32`&gt;`(`|e|`)`: vec|N|&lt;i32&gt
-     <td>位的[=Component-wise=]重新解释。
-     结果的分量 |i| 为 `i32(`|e|`[`|i|`])`<br>
-     (OpBitcast)
+     <td>[=Component-wise=] 重新解释位。<br>
+         组件 |i|结果是`i32(`|e|`[`|i|`])`
 
-  <tr algorithm="vector conversion from floating point to signed integer">
-     <td>|e|: vec|N|&lt;f32&gt;
+  <tr algorithm="从二进制32浮点到有符号整数的向量转换">
+     <td>|e|: vec|N|<f32>;
      <td>`vec`|N|&lt;`i32`&gt;`(`|e|`)`: vec|N|&lt;i32&gt;
-     <td>值的[=Component-wise=]转换至有符号整数，包括无效例。<br>
-     (OpConvertFToS)
+     <td>[=Component-wise=] 值转换为有符号整数，包括无效情况。
 
-  <tr algorithm="vector conversion from bool to unsigned">
-     <td>|e|: vec|N|&lt;bool&gt;
+  <tr algorithm="从二进制16浮点到有符号整数的向量转换">
+     <td>|e|: vec|N|<f16>;
+     <td>`vec`|N|&lt;`i32`&gt;`(`|e|`)`: vec|N|&lt;i32&gt;
+     <td>[=Component-wise=] 值转换为有符号整数，包括无效情况。
+
+  <tr algorithm="从 bool 到 unsigned 的向量转换">
+     <td>|e|: vec|N|<bool>;
      <td>`vec`|N|&lt;`u32`&gt;`(`|e|`)`: vec|N|&lt;u32&gt
-     <td>布尔向量至无符号向量的[=Component-wise=]转换。<br>
-     结果的分量 |i| 为 `u32(`|e|`[`|i|`])`<br>
-     （使 |e| 为条件，与其一起使用 OpSelect，选择 `vec`|N|(1u) 至 `vec`|N|(0u) 区间。）
+     <td>[=Component-wise=] 将布尔向量转换为无符号向量。<br>
+         组件 |i|结果是`u32(`|e|`[`|i|`])`
 
-  <tr algorithm="vector reinterpretation from signed to unsigned">
-     <td>|e|: vec|N|&lt;i32&gt;
+  <tr algorithm="从有符号到无符号的向量重新解释">
+     <td>|e|: vec|N|&lt;AbstractInt&gt;或 vec|N|&lt;i32&gt;
      <td>`vec`|N|&lt;`u32`&gt;`(`|e|`)`: vec|N|&lt;u32&gt;
-     <td>位的[=Component-wise=]重新解释。<br>
-        (OpBitcast)
+     <td>[=Component-wise=] 重新解释位。
 
-  <tr algorithm="vector conversion from floating point to unsigned integer">
-     <td>|e|: vec|N|&lt;f32&gt;
+  <tr algorithm="从二进制32浮点到无符号整数的向量转换">
+     <td>|e|: vec|N|<f32>;
      <td>`vec`|N|&lt;`u32`&gt;`(`|e|`)`: vec|N|&lt;u32&gt;
-     <td>值的[=Component-wise=]转换至无符号整数，包括无效例。<br>
-        (OpConvertFToU)
+     <td>[=Component-wise=] 值转换为无符号整数，包括无效的情况。
 
-  <tr algorithm="vector conversion from bool to floating point">
-     <td>|e|: vec|N|&lt;bool&gt;
-     <td>`vec`|N|&lt;`u32`&gt;`(`|e|`)`: vec|N|&lt;u32&gt
-     <td>布尔向量至浮点型的[=Component-wise=]转换。<br>
-     结果的分量 |i| 为 `f32(`|e|`[`|i|`])`<br>
-     使 |e| 为条件，使用 OpSelect，选择 `vec`|N|(1.0) 至 `vec`|N|(0.0) 区间。
+  <tr algorithm="从二进制16浮点到无符号整数的向量转换">
+     <td>|e|: vec|N|<f16>;
+     <td>`vec`|N|&lt;`u32`&gt;`(`|e|`)`: vec|N|&lt;u32&gt;
+     <td>[=Component-wise=] 值转换为无符号整数，包括无效的情况。
 
-  <tr algorithm="vector conversion from signed integer to floating point">
-     <td>|e|: vec|N|&lt;i32&gt;
+  <tr algorithm="bool 到 binary32 浮点的向量转换">
+     <td>|e|: vec|N|<bool>;
+     <td>`vec`|N|&lt;`f32`&gt;`(`|e|`)`: vec|N|&lt;f32&gt
+     <td>[=Component-wise=] 将布尔向量转换为浮点数。<br>
+         组件 |i|结果是`f32(`|e|`[`|i|`])`
+
+  <tr algorithm="从有符号整数到二进制32浮点的向量转换">
+     <td>|e|: vec|N|<i32>;
      <td>`vec`|N|&lt;`f32`&gt;`(`|e|`)`: vec|N|&lt;f32&gt;
-     <td>值的[=Component-wise=]转换至浮点型，包括无效例。<br>
-     (OpConvertSToF)
+     <td>[=Component-wise=] 值转换为 binary32 浮点，包括无效的情况。
 
-  <tr algorithm="vector conversion from unsigned integer to floating point">
-     <td>|e|: vec|N|&lt;u32&gt;
+  <tr algorithm="从无符号整数到二进制32浮点的向量转换">
+     <td>|e|: vec|N|<f32>;
      <td>`vec`|N|&lt;`f32`&gt;`(`|e|`)`: vec|N|&lt;f32&gt;
-     <td>值的[=Component-wise=]转换至浮点型，包括无效例。<br>
-     (ConvertUToF)
+     <td>[=Component-wise=] 值转换为 binary32 浮点，包括无效的情况。
+
+  <tr algorithm="binary16浮点到binary32浮点的向量转换">
+     <td>|e|: vec|N|<f16>;
+     <td>`vec`|N|&lt;`f32`&gt;`(`|e|`)`: vec|N|&lt;f32&gt;
+     <td>[=Component-wise=] 将精确值转换为 binary32 浮点数。
+
+  <tr algorithm="bool 到 binary16 浮点的向量转换">
+     <td>|e|: vec|N|<bool>;
+     <td>`vec`|N|&lt;`f16`&gt;`(`|e|`)`: vec|N|&lt;f16&gt
+     <td>[=Component-wise=] 将布尔向量转换为 binary16 浮点。<br>
+         组件 |i|结果是`f16(`|e|`[`|i|`])`
+
+  <tr algorithm="从有符号整数到二进制16浮点的向量转换">
+     <td>|e|: vec|N|<i32>;
+     <td>`vec`|N|&lt;`f16`&gt;`(`|e|`)`: vec|N|&lt;f16&gt;
+     <td>[=Component-wise=] 值转换为 binary16 浮点，包括无效的情况。
+
+<tr algorithm="从无符号整数到二进制16浮点的向量转换">
+      <td>|e|: vec|N|<u32>;
+      <td>`vec`|N|&lt;`f16`&gt;`(`|e|`)`: vec|N|&lt;f&gt;
+      <td>[=Component-wise=] 值转换为 binary16 浮点数，包括无效的情况。
+
+   <tr algorithm="binary32浮点到binary16浮点的向量转换">
+      <td>|e|: vec|N|<f32>;
+      <td>`vec`|N|&lt;`f16`&gt;`(`|e|`)`: vec|N|&lt;f16&gt;
+      <td>[=Component-wise=] 有损值转换为 binary16 浮点。
+</table>
+
+<表类='数据'>
+   <caption>矩阵转换类型规则</caption>
+   <头>
+     <tr><th>前提条件<th>结论<th>注意事项
+   </thead>
+   <tr algorithm="binary16 浮点到 binary32 浮点的矩阵强制转换">
+      <td>|e|: 垫子|C|x|R|<f16>;
+      <td>`mat`|C|`x`|R|&lt;`f32`&gt;`(`|e|`)`: mat|C|x|R|&lt;f32&gt
+      <td>[=Component-wise=] 将精确值转换为 binary32 浮点。
+
+   <tr algorithm="binary32浮点到binary16浮点的向量强制">
+      <td>|e|: 垫子|C|x|R|<f32>;
+      <td>`mat`|C|`x`|R|&lt;`f16`&gt;`(`|e|`)`: mat|C|x|R|&lt;f16&gt
+      <td>[=Component-wise=] 有损值转换为 binary16 浮点。
+
 </table>
 
 ## 表示表达式的重新解释 ## {#bitcast-expr}
@@ -3599,23 +4181,59 @@ WGSL 不隐式转换或提升一个数值或布尔值为另外的类型。而是
     <tr><th>Precondition<th>Conclusion<th>Notes
   </thead>
 
-  <tr algorithm="identity reinterpretation">
+  <tr algorithm="身份重新解释">
     <td>|e|: |T|<br>
-    |T| 为一个数值标量（[=numeric scalar=]）或数值向量（[=numeric vector=]）类型
-    <td class="nowrap">bitcast&lt;|T|&gt;(|e|): |T|
-    <td>本体变换。当 |T| 为向量时[=Component-wise=]。<br>
-    结果为 |e|。<br>
-    在 SPIR-V 翻译中，此表达式的 ID 重用了操作数的 ID。
+    |T|是 [=numeric scalar=] 或 [=numeric vector=] 类型
+    <td class="nowrap">比特广播&lt;|T|&gt;(|e|): |T|
+    <td>身份转换。 [=Component-wise=] 当 |T|是一个向量。<br>
+    结果是|e|。
 
-  <tr algorithm="general reinterpretation">
+  <tr algorithm="32 位标量重新解释">
     <td>|e|: |T1|<br>
-    |T1| 为一个数值标量（[=numeric scalar=]）或数值向量（[=numeric vector=]）类型<br>
-    |T2| 不为 |T1|，并且当 |T1| 为标量时，|T2|为一个数值标量类型。当 |T1| 为向量时，为数值向量类型。
-    <td class="nowrap">bitcast&lt;|T2|&gt;(|e|): |T2|
-    <td>将位重新解释为 |T2|。当 |T1| 为向量是，|T2| 为 [=Component-wise=]。<br>
-    结果为将 |e| 中的位重新解释为 |T2| 值。<br>
-    (OpBitcast)
+    |T1|是 i32、u32 还是 f32<br>
+    |T2|不是 |T1|并且是 i32、u32 或 f32
+    <td class="nowrap">比特广播&lt;|T2|&gt;(|e|): |T2|
+    <td>将位重新解释为|T2|。 <br>
+    结果是重新解释 |e| 中的位。作为 |T2|价值。
+
+  <tr algorithm="32位元素向量重新解释">
+    <td>|e|: vec|N|<|T1|><br>
+    |T1|是 i32、u32 还是 f32<br>
+    |T2|不是 |T1|并且是 i32、u32 或 f32
+    <td class="nowrap">bitcast<vec|N|<|T2|&gt;&gt;(|e|): vec|N|<|T2|&gt;
+    <td>[=Component-wise=] 将位重新解释为 |T2|。<br>
+    结果是重新解释 |e| 中的位。作为 vec|N|<|T2|>;价值。
+
+  <tr algorithm="binary16x2 to 32-bit scalar reinterpretation">
+    <td>|e|: vec2<f16><br>
+    |T|是 i32、u32 或 f32
+    <td class="nowrap">比特广播&lt;|T|&gt;(|e|): |T|
+    <td>将位重新解释为 |T|。<br>
+    结果是重新解释 |e| 中的 32 位。作为 |T|值，遵循内部布局规则。
+
+  <tr algorithm="32-bit scalar to binary16x2 reinterpretation">
+    <td>|e|: |T|<br>
+    |T|是 i32、u32 或 f32
+    <td class="nowrap">bitcast&lt;vec2&lt;f16&gt;&gt;(|e|): vec2&lt;f16&gt;
+    <td>将位重新解释为 vec2<f16>。<br>
+    结果是重新解释 |e| 中的 32 位。作为 vec2&lt;f16&gt;值，遵循内部布局规则。
+
+  <tr algorithm="binary16x4 to vec2 of 32-bit scalar reinterpretation">
+    <td>|e|: vec4<f16><br>
+    |T|是 i32、u32 或 f32
+    <td class="nowrap">bitcast<vec2<|T|&gt;&gt;(|e|): vec2<|T|&gt;
+    <td>将位重新解释为 vec2<|T|>.<br>
+    结果是重新解释 |e| 中的 64 位。作为 vec2<|T|>;值，遵循内部布局规则。
+
+  <tr algorithm="vec2 of 32-bit scalar to binary16x4 reinterpretation">
+    <td>|e|: vec2<|T|><br>
+    |T|是 i32、u32 或 f32
+    <td class="nowrap">bitcast&lt;vec4&lt;f16&gt;&gt;(|e|): vec4&lt;f16&gt;
+    <td>将位重新解释为 vec4<f16>。<br>
+    结果是重新解释 |e| 中的 64 位。作为 vec4&lt;f16&gt;值，遵循内部布局规则。
+
 </table>
+内部布局规则在 [[#internal-value-layout]] 中描述。
 
 ## 复合值分解表达式 ## {#composite-value-decomposition-expr}
 
@@ -3669,26 +4287,22 @@ WGSL 不隐式转换或提升一个数值或布尔值为另外的类型。而是
            |e|`.x`: |T|<br>
            |e|`.r`: |T|
        <td>选择 |e| 的第一个分量<br>
-           (选择索引为 0 的 OpCompositeExtract)
   <tr algorithm="second vector component selection"><td>|e|: vec|N|&lt;|T|&gt;<br>
        <td class="nowrap">
            |e|`.y`: |T|<br>
            |e|`.g`: |T|
        <td>选择 |e| 的第二个分量<br>
-           (选择索引为 1 的 OpCompositeExtract)
   <tr algorithm="third vector component selection"><td>|e|: vec|N|&lt;|T|&gt;<br>
           |N| is 3 or 4
        <td class="nowrap">
            |e|`.z`: |T|<br>
            |e|`.b`: |T|
        <td>选择 |e| 的第三个分量<br>
-           (选择索引为 2 的 OpCompositeExtract)
   <tr algorithm="fourth vector component selection"><td>|e|: vec4&lt;|T|&gt;
        <td class="nowrap">
            |e|`.w`: |T|<br>
            |e|`.a`: |T|
        <td>选择 |e| 的第四个分量<br>
-           (选择索引为 3 的 OpCompositeExtract)
   <tr algorithm="vector indexed component selection"><td>|e|: vec|N|&lt;|T|&gt;<br>
           |i|: [INT]
        <td class="nowrap">
@@ -3696,7 +4310,6 @@ WGSL 不隐式转换或提升一个数值或布尔值为另外的类型。而是
        <td>选择 |e| 的第 |i| 个分量<br>
            第一个分量在 |i|=0 处。
            如果 |i| 在区间 [0,|N|-1] 外，那么 |T| 的任何值都可能被返回。
-           （OpVectorExtractDynamic）
 </table>
 
 #### 向量多分量选择 #### {#vector-multi-component}
@@ -3716,7 +4329,6 @@ WGSL 不隐式转换或提升一个数值或布尔值为另外的类型。而是
        <td>使用第一个分量 |e|.|I| 和第二个分量 |e|.|J| 来计算2-元素向量。<br>
        仅当 |N| 为 3 或 4 时，字母 `z` 有效。<br>
        仅当 |N| 为 4 时，字母 `w` 有效。<br>
-       （OpVectorShuffle）
   <tr algorithm="two component vector selection using .r .g">
        <td class="nowrap">
           |e|: vec|N|&lt;|T|&gt;<br>
@@ -3727,7 +4339,6 @@ WGSL 不隐式转换或提升一个数值或布尔值为另外的类型。而是
        <td>使用第一个分量 |e|.|I| 和第二个分量 |e|.|J| 来计算2-元素向量。<br>
        仅当 |N| 为 3 或 4 时，字母 `b` 有效。<br>
        仅当 |N| 为 4 时，字母 `a` 有效。<br>
-       （OpVectorShuffle）
   <tr algorithm="three component vector selection using .x .y">
        <td class="nowrap">
           |e|: vec|N|&lt;|T|&gt;<br>
@@ -3739,7 +4350,6 @@ WGSL 不隐式转换或提升一个数值或布尔值为另外的类型。而是
        <td>使用第一个分量 |e|.|I| 和第二个分量 |e|.|J|，以及第三个分量 |e|.|K| 来计算3-元素向量。<br>
        仅当 |N| 为 3 或 4 时，字母 `z` 有效。<br>
        仅当 |N| 为 4 时，字母 `w` 有效。<br>
-       （OpVectorShuffle）
   <tr algorithm="three component vector selection using .r .g">
        <td class="nowrap">
           |e|: vec|N|&lt;|T|&gt;<br>
@@ -3751,7 +4361,6 @@ WGSL 不隐式转换或提升一个数值或布尔值为另外的类型。而是
        <td>使用第一个分量 |e|.|I| 和第二个分量 |e|.|J|，以及第三个分量 |e|.|K| 来计算3-元素向量。<br>
        仅当 |N| 为 3 或 4 时，字母 `b` 有效。<br>
        仅当 |N| 为 4 时，字母 `a` 有效。<br>
-       （OpVectorShuffle）
   <tr algorithm="four component vector selection using .x .y">
        <td class="nowrap">
           |e|: vec|N|&lt;|T|&gt;<br>
@@ -3764,7 +4373,6 @@ WGSL 不隐式转换或提升一个数值或布尔值为另外的类型。而是
        <td>使用第一个分量 |e|.|I| 和第二个分量 |e|.|J|，第三个分量 |e|.|K|，以及第四个分量 |e|.|L| 来计算4-元素向量。<br>
        仅当 |N| 为 3 或 4 时，字母 `z` 有效。<br>
        仅当 |N| 为 4 时，字母 `w` 有效。<br>
-       （OpVectorShuffle）
   <tr algorithm="four component vector selection using .r .g">
        <td class="nowrap">
           |e|: vec|N|&lt;|T|&gt;<br>
@@ -3777,7 +4385,6 @@ WGSL 不隐式转换或提升一个数值或布尔值为另外的类型。而是
        <td>使用第一个分量 |e|.|I| 和第二个分量 |e|.|J|，第三个分量 |e|.|K|，以及第四个分量 |e|.|L| 来计算4-元素向量。<br>
        仅当 |N| 为 3 或 4 时，字母 `b` 有效。<br>
        仅当 |N| 为 4 时，字母 `a` 有效。<br>
-       （OpVectorShuffle）
 </table>
 
 #### 来自向量引用的分量引用 #### {#component-reference-from-vector-reference}
@@ -3799,7 +4406,6 @@ location|memory locations=]）。
            |r|`.r`: ref&lt;|S|,|T|&gt;<br>
        <td>计算引用 |r| 所引用的向量的第一个分量的引用。<br>
        结果引用的原始变量（[=originating variable=]）与 |r| 的原始变量相同。<br>
-       （索引值为 0 的 OpAccessChain）
   <tr algorithm="second vector component reference selection">
        <td>|r|: ref&lt;|S|,vec|N|&lt;|T|&gt;&gt;<br>
        <td class="nowrap">
@@ -3807,7 +4413,6 @@ location|memory locations=]）。
            |r|`.g`: ref&lt;|S|,|T|&gt;<br>
        <td>计算引用 |r| 所引用的向量的第二个分量的引用。<br>
        结果引用的原始变量（[=originating variable=]）与 |r| 的原始变量相同。<br>
-       （索引值为 1 的 OpAccessChain）
   <tr algorithm="third vector component reference selection">
        <td>|r|: ref&lt;|S|,vec|N|&lt;|T|&gt;&gt;<br>
            |N| is 3 or 4
@@ -3816,7 +4421,6 @@ location|memory locations=]）。
            |r|`.b`: ref&lt;|S|,|T|&gt;<br>
        <td>计算引用 |r| 所引用的向量的第三个分量的引用。<br>
        结果引用的原始变量（[=originating variable=]）与 |r| 的原始变量相同。<br>
-       （索引值为 2 的 OpAccessChain）
   <tr algorithm="fourth vector component reference selection">
        <td>|r|: ref&lt;|S|,vec4&lt;|T|&gt;&gt;<br>
        <td class="nowrap">
@@ -3824,7 +4428,6 @@ location|memory locations=]）。
            |r|`.a`: ref&lt;|S|,|T|&gt;<br>
        <td>计算引用 |r| 所引用的向量的第四个分量的引用。<br>
        结果引用的原始变量（[=originating variable=]）与 |r| 的原始变量相同。<br>
-       （索引值为 3 的 OpAccessChain）
   <tr algorithm="vector indexed component reference selection">
        <td>|r|: ref&lt;|S|,vec|N|&lt;|T|&gt;&gt;<br>
           |i|: [INT]
@@ -3833,7 +4436,6 @@ location|memory locations=]）。
        <td>计算引用 |r| 所引用的向量的第 |i| 个分量的引用。
        如果 |i| 在区间 [0,|N|-1] 外，则表达式计算为 [=invalid memory reference=]。
        结果引用的原始变量（[=originating variable=]）与 |r| 的原始变量相同。<br>
-       （OpAccessChain）
 </table>
 
 ### 矩阵访问表达式 ### {#matrix-access-expr}
@@ -3845,12 +4447,11 @@ location|memory locations=]）。
   </thead>
   <tr algorithm="matrix indexed column vector selection">
        <td class="nowrap">
-          |e|: mat|N|x|M|&lt;|T|&gt;<br>
+          |e|: mat|C|x|R|&lt;|T|&gt;<br>
           |i|: [INT]
        <td class="nowrap">
-           |e|[|i|]: vec|M|&lt;|T|&gt;
-       <td>结果为向量 |e| 的第 |i| 列。如果 |i| 在区间 [0,|N|-1]，则可能返回 vec|M|&lt;|T|&gt; 的无效值。
-       （OpCompositeExtract）
+           |e|[|i|]: vec|R|&lt;|T|&gt;
+       <td>结果为向量 |e| 的第 |i| 列。如果 |i| 在区间 [0,|C|-1]，则可能返回 vec|R|&lt;|T|&gt; 的无效值。
 </table>
 
 <table class='data'>
@@ -3860,14 +4461,13 @@ location|memory locations=]）。
   </thead>
   <tr algorithm="matrix indexed column vector reference selection">
        <td class="nowrap">
-          |r|: ref&lt;|S|,mat|N|x|M|&lt;|T|&gt;&gt;<br>
+          |r|: ref&lt;|S|,mat|C|x|R|&lt;|T|&gt;&gt;<br>
           |i|: [INT]
        <td class="nowrap">
-           |r|[|i|] : ref&lt;vec|M|&lt;|S|,|T|&gt;&gt;
+           |r|[|i|] : ref&lt;vec|R|&lt;|S|,|T|&gt;&gt;
        <td>通过引用 |r| 计算矩阵第 |i| 个列向量的引用。
-       如果 |i| 在区间 [0,|N|-1] 外，则表达式计算为无效内存引用（[=invalid memory reference=]）。
+       如果 |i| 在区间 [0,|C|-1] 外，则表达式计算为无效内存引用（[=invalid memory reference=]）。
        结果引用的原始变量（[=originating variable=]）与 |r| 的原始变量相同。<br>
-       （OpAccessChain）
 </table>
 
 
@@ -3886,7 +4486,6 @@ location|memory locations=]）。
            |e|[|i|] : |T|
        <td>结果为数组值 |e| 的第 |i| 个元素的值。
        如果 |i| 在区间 [0,|N|-1] 外，则任何 |T| 的有效值可能被返回。
-       （OpCompositeExtract）
 </table>
 
 <table class='data'>
@@ -3905,7 +4504,6 @@ location|memory locations=]）。
        如果 |i| 在区间 [0,|N|-1] 外，则表达式计算为一个无效内存引用（[=invalid memory reference=]）。
 
        结果引用的原始变量（[=originating variable=]）与 |r| 的原始变量相同。
-       （OpAccessChain）
   <tr algorithm="array indexed reference selection">
        <td>|r|: ref&lt;|S|,array&lt;|T|&gt;&gt;<br>
           |i|: [INT]
@@ -3916,7 +4514,6 @@ location|memory locations=]）。
        如果在运行时数组有 |N| 个元素，且 |i| 在区间 [0,|N|-1] 外，则表达式计算为一个无效内存引用（[=invalid memory reference=]）。
 
        结果引用的原始变量（[=originating variable=]）与 |r| 的原始变量相同。
-       （OpAccessChain）
 </table>
 
 
@@ -3936,7 +4533,6 @@ location|memory locations=]）。
            |e|.|M|: |T|
        <td>结果是结构值 |e| 中名称为 |M| 的成员的值。
 
-       （OpCompositeExtract，使用成员索引）
 </table>
 
 <table class='data'>
@@ -3953,7 +4549,6 @@ location|memory locations=]）。
            |r|.|M|: ref&lt;|SC|,|T|&gt;
        <td>给定对结构的引用，结果是对标识符名称为 |M| 的结构成员的引用。结果引用的原始变量（[=originating variable=]）与 |r| 的原始变量相同。
 
-       （OpAccessChain，使用结构成员的索引）
 </table>
 
 ## 逻辑表达式 ## {#logical-expr}
@@ -3969,8 +4564,6 @@ location|memory locations=]）。
   当 |e| 为 `false` 时结果为 `true`，当 |e| 为 `true` 是结果为 `false`。
 
   当 |T| 为向量时，[=Component-wise=]。
-
-  （OpLogicalNot）
 </table>
 
 <table class='data'>
@@ -4011,24 +4604,12 @@ location|memory locations=]）。
   <thead>
     <tr><th>Precondition<th>Conclusion<th>Notes
   </thead>
-  <tr algorithm="integer negation"><td>|e|: |T|<br>
-  |T| 为 [SIGNEDINTEGRAL]
-  <td>`-`|e|`:` |T|
-  <td>有符号整数否定。
-
-  当 |T| 是向量时，[=Component-wise=]。
-
-  如果 |e| 计算为最大的负值，则结果为 |e|。
-
-  （OpSNegate）
-
-  <tr algorithm="floating point negation"><td>|e|: |T|<br>|T| 为 [FLOATING]
-  <td>`-`|e|`:` |T|
-  <td>浮点否定。
-
-  当 |T| 是向量时，[=Component-wise=]。
-
-  （OpFNegate）
+  <tr algorithm="negation"><td>|e|: |T|<br>
+   |T| 是 AbstractInt, AbstractFloat, i32, f32, f16, vec|N|<AbstractInt>,
+   vec|N|&lt;AbstractFloat&gt;、vec|N|&lt;i32&gt;、vec|N|&lt;f32&gt; 或 vec|N|&lt;f16&gt;
+   <td>`-`|e|`:` |T|
+   <td>否定。 [=Component-wise=] 当 |T| 是一个向量。
+   如果 |T| 是整数类型，|e| 求最大负值，则结果为|e|。
 </table>
 
 <table class='data'>
@@ -4037,65 +4618,30 @@ location|memory locations=]）。
     <tr><th>Precondition<th>Conclusion<th>Notes
   </thead>
 
-  <tr algorithm="integer addition">
-    <td>|e1| : |T|<br>|e2| : |T|<br>|T| 为 [INTEGRAL]
-    <td>|e1| `+` |e2| : |T|
-    <td>整数加法，模2<sup>32</sup>。
+   <tr 算法="加法">
+     <td>|e1| : |T|<br>|e2| : |T|<br>[ALLNUMERICDECL]
+     <td>|e1| `+` |e2| : |T|
+     <td>加法。 [=Component-wise=] 当 |T| 是一个向量。
+     如果 |T| 是 [=concrete=] 整数类型，则结果为模 2<sup>32</sup>。
 
-    当 |T| 是向量时，[=Component-wise=]。
+   <tr 算法="减法">
+     <td>|e1| : |T|<br>|e2| : |T|<br>[ALLNUMERICDECL]
+     <td>|e1| `-` |e2| : |T|
+     <td>减法 [=Component-wise=] 当 |T| 是一个向量。
+     如果 |T| 是 [=concrete=] 整数类型，则结果为模 2<sup>32</sup>。
 
-    （OpIAdd）
-  <tr algorithm="floating point addition">
-    <td>|e1| : |T|<br>|e2| : |T|<br>|T| 为 [FLOATING]
-    <td>|e1| `+` |e2| : |T|
-    <td>浮点加法。
+   <tr 算法="乘法">
+     <td>|e1| : |T|<br>|e2| : |T|<br>[ALLNUMERICDECL]
+     <td>|e1| `*` |e2| : |T|
+     <td>乘法。 [=Component-wise=] 当 |T| 是一个向量。
+     如果 |T| 是 [=concrete=] 整数类型，则结果为模 2<sup>32</sup>。
 
-    当 |T| 是向量时，[=Component-wise=]。
+   <tr 算法="除法">
+     <td>|e1| : |T|<br>|e2| : |T|<br>[ALLNUMERICDECL]
+     <td>|e1| `/` |e2| : |T|
+     <td>师。 [=Component-wise=] 当 |T| 是一个向量。
 
-    （OpFAdd）
-
-  <tr algorithm="integer subtraction">
-    <td>|e1| : |T|<br>|e2| : |T|<br>|T| 为 [INTEGRAL]
-    <td>|e1| `-` |e2| : |T|
-    <td>整数减法，模2<sup>32</sup>。
-
-    当 |T| 是向量时，[=Component-wise=]。
-
-    （OpISub）
-  <tr algorithm="floating point subtraction">
-    <td>|e1| : |T|<br>|e2| : |T|<br>|T| 为 [FLOATING]
-    <td>|e1| `-` |e2| : |T|
-    <td>浮点减法。
-
-    当 |T| 是向量时，[=Component-wise=]。
-
-    （OpFSub）
-
-  <tr algorithm="integer multiplication">
-    <td>|e1| : |T|<br>|e2| : |T|<br>|T| 为 [INTEGRAL]
-    <td>|e1| `*` |e2| : |T|
-    <td>整数乘法，模2<sup>32</sup>。
-
-    当 |T| 是向量时，[=Component-wise=]。
-
-    （OpIMul）
-  <tr algorithm="floating point multiplication">
-    <td>|e1| : |T|<br>|e2| : |T|<br>|T| is [FLOATING]
-    <td>|e1| `*` |e2| : |T|
-    <td>浮点乘法。
-
-    当 |T| 是向量时，[=Component-wise=]。
-
-    （OpFMul）
-
-  <tr algorithm="signed integer division">
-    <td>|e1| : |T|<br>|e2| : |T|<br>|T| 为 [SIGNEDINTEGRAL]
-    <td>|e1| `/` |e2| : |T|
-    <td>有符号整数除法。
-
-    当 |T| 是向量时，[=Component-wise=]。
-
-       在标量情况下，计算结果为:
+   如果 |T| 是有符号整数类型，标量情况，计算结果为：
         * |e1|，当 |e2| 等于零。
         * |e1|，当 |e1| 是 |T| 中的最大负值，|e2| 是-1。
         * 否则为  [=truncate=](|x|) ，其中 |x| 是实值商|e1|&nbsp;&div;&nbsp;|e2|。
@@ -4109,34 +4655,16 @@ location|memory locations=]）。
             其中 Divisor = select(e2, 1, (e2==0) | ((e1 == MININT) & (e2 == -1)))
             结果为 truncate(e1/Divisor)
         -->
-
-  <tr algorithm="unsigned integer division">
-    <td>|e1| : |T|<br>|e2| : |T|<br>|T| 为 [UNSIGNEDINTEGRAL]
-    <td>|e1| `/` |e2| : |T|
-    <td>无符号整数除法。 [=Component-wise=] 当 |T| 是一个向量。
-
-       在标量情况下，计算结果为：
+        如果 |T| 是无符号整数类型，标量情况，计算结果为：
         * |e1|，当 |e2| 为零。
-        * 否则，整数 |q| 这样
-            |e1|&nbsp;=&nbsp;|q|&nbsp;&times;&nbsp;|e2|&nbsp;+&nbsp;|r|,
-            其中 0 &le; |r| &lt; |e2|。
-
-        (OpUDiv, with OpSelect to avoid division by zero)
-  <tr algorithm="floating point division">
-    <td>|e1| : |T|<br>|e2| : |T|<br>|T| 为 [FLOATING]
-    <td>|e1| `/` |e2| : |T|
-    <td>浮点除法。
-
-    当 |T| 是向量时，[=Component-wise=]。
-
-    （OpFDiv）
-
-  <tr algorithm="signed integer remainder">
-    <td>|e1| : |T|<br>|e2| : |T|<br>|T| 为 [SIGNEDINTEGRAL]
+        ** |e1|，当 |e2| 为零。
+                  * 否则，整数 |q| 使得 |e1|&nbsp;=&nbsp;|q|&nbsp;&times;&nbsp;|e2|&nbsp;+&nbsp;|r|，其中 0 &le; |r| &lt; |e2|。
+  <tr algorithm="Remainder">
+    <td>|e1| : |T|<br>|e2| : |T|<br>[ALLNUMERICDECL]
     <td>|e1| `%` |e2| : |T|
-    <td>有符号整数余数。 [=Component-wise=] 当 |T| 是一个向量。
+    <td>Remainder. [=Component-wise=] when |T| is a vector.
 
-        在标量情况下，计算 |e1| 和 |e2| 一次，并评估为：
+如果 |T| 是有符号整数标量类型，计算 |e1| 和 |e2| 一次，并评估为：
         * 0，当 |e2| 为零。
         * 0，当 |e1| 是 |T| 中的最大负值，|e2| 是-1。
         * 否则，|e1|&nbsp;-&nbsp;[=truncate=](|e1|&nbsp;&div;&nbsp;|e2|)&nbsp;&times;&nbsp;|e2|
@@ -4154,28 +4682,13 @@ location|memory locations=]）。
                 其中除数 = select(e2, 1, (e2==0) | ((e1 == MININT) & (e2 == -1)))
                 结果是 e1 - truncate(e1/Divisor) * Divisor
          -->
-  <tr algorithm="unsigned integer remaider">
-    <td>|e1| : |T|<br>|e2| : |T|<br>|T| 为 [UNSIGNEDINTEGRAL]
-    <td>|e1| `%` |e2| : |T|
-    <td>无符号整数余数。 [=Component-wise=] 当 |T| 是一个向量。
-
-         在标量情况下，计算结果为：
+        如果 |T| 是无符号整数标量类型，计算结果为：
          * 0，当 |e2| 为零。
          * 否则，整数 |r| 这样
              |e1|&nbsp;=&nbsp;|q|&nbsp;&times;&nbsp;|e2|&nbsp;+&nbsp;|r|,
              |q| 是整数，0 &le; |r| &lt; |e2|。
 
-        （OpUMod，使用 OpSelect 避免被零除）
-  <tr algorithm="floating point remainder">
-    <td>|e1| : |T|<br>|e2| : |T|<br>|T| 为 [FLOATING]
-    <td>|e1| `%` |e2| : |T|
-    <td>浮点取余。非零结果的符号与 |e1| 的符号相匹配。
-
-    当 |T| 是向量时，[=Component-wise=]。
-
-    结果等于：|e1| - |e2| * trunc(|e1| / |e2|)<br>
-
-    （OpFRem）
+        如果 |T| 是浮点类型，结果等于：<br> |e1| - |e2| * trunc(|e1| / |e2|)
 
 </table>
 
@@ -4185,7 +4698,7 @@ location|memory locations=]）。
     <th>Preconditions<th>Conclusions<th>Semantics
   </thead>
   <tr algorithm="vector-scalar arithmetic, any scalar type">
-    <td rowspan="10">|S| 为 f32, i32, u32 之一<br>
+    <td rowspan="10">|S| 为 f32, f16, i32, u32 之一<br>
         |V| 为 vec|N|&lt;|S|&gt<br>
         |es|: |S|<br>
         |ev|: |V|
@@ -4225,44 +4738,44 @@ location|memory locations=]）。
   <thead>
     <th>Preconditions<th>Conclusions<th>Semantics
   </thead>
-  <tr algorithm="matrix addition">
-    <td rowspan=2>|e1|, |e2|: mat|M|x|N|&lt;f32&gt
-    <td>|e1| `+` |e2|: mat|M|x|N|&lt;f32&gt<br>
-    <td>矩阵加法，结果的第 |i| 列为 |e1|[i] + |e2|[i]。
-  <tr algorithm="matrix subtraction">
-    <td>|e1| `-` |e2|: mat|M|x|N|&lt;f32&gt
-    <td>矩阵减法，结果的第 |i| 列为 |e1|[|i|] - |e2|[|i|]。
-  <tr algorithm="matrix-scalar multiply">
-    <td rowspan=2>|m|: mat|M|x|N|&lt;f32&gt<br>
-        |s|: f32
-    <td>|m| `*` |s|:  mat|M|x|N|&lt;f32&gt<br>
-    <td>Component-wise 缩放: (|m| `*` |s|)[i][j] is |m|[i][j] `*` |s|
-  <tr algorithm="scalar-matrix multiply">
-    <td>|s| `*` |m|:  mat|M|x|N|&lt;f32&gt<br>
-    <td>Component-wise 缩放: (|s| `*` |m|)[i][j] is |m|[i][j] `*` |s|
-  <tr algorithm="matrix-column-vector multiply">
-    <td>|m|: mat|M|x|N|&lt;f32&gt<br>
-        |v|: vec|M|&lt;f32&gt
-    <td>|m| `*` |v|:  vec|N|&lt;f32&gt<br>
-    <td>线性代数矩阵-列-向量乘积：
-
-    结果的 |i| 分量为 `dot`(|m|[|i|],|v|)。
-
-    <br>OpMatrixTimesVector
-  <tr algorithm="matrix-row-vector multiply">
+<tr algorithm="矩阵加法">
+    <td rowspan=2>|e1|, |e2|: mat|C|x|R|<|T|&gt<br>
+        |T|是 AbstractFloat、f32 或 f16
+    <td>|e1| `+` |e2|: mat|C|x|R|&lt;|T|&gt<br>
+    <td>矩阵加法：列|i|结果是 |e1|[i] + |e2|[i]
+  <tr algorithm="矩阵减法">
+    <td>|e1| `-` |e2|: mat|C|x|R|&lt;|T|&gt
+    <td>矩阵减法：列|i|结果是 |e1|[|i|] - |e2|[|i|]
+  <tr algorithm="矩阵标量乘法">
+    <td rowspan=2>|m|: mat|C|x|R|<|T|&gt<br>
+        |s|: |T|<br>
+        |T|是 AbstractFloat、f32 或 f16
+    <td>|米| `*` |s|: mat|C|x|R|<|T|&gt<br>
+    <td>组件级缩放：(|m| `*` |s|)[i][j] is |m|[i][j] `*` |s|
+  <tr algorithm="标量矩阵乘法">
+    <td>|s| `*` |m|: mat|C|x|R|<|T|&gt<br>
+    <td>组件级缩放： (|s| `*` |m|)[i][j] is |m|[i][j] `*` |s|
+  <tr algorithm="矩阵列向量乘法">
+    <td>|m|: 垫子|C|x|R|<|T|&gt<br>
+        |v|: vec|C|<|T|&gt<br>
+        |T|是 AbstractFloat、f32 或 f16
+    <td>|米| `*` |v|: vec|R|&lt;|T|&gt<br>
+    <td>线性代数矩阵-列-向量积：
+        组件 |i|结果是 `dot`(|m|[|i|],|v|)
+  <tr algorithm="矩阵行向量乘法">
     <td>
-        |m|: mat|M|x|N|&lt;f32&gt<br>
-        |v|: vec|N|&lt;f32&gt
-    <td>|v| `*` |m|:  vec|M|&lt;f32&gt<br>
+        |m|: 垫子|C|x|R|<|T|><br>
+        |v|: vec|R|<|T|&gt<br>
+        |T|是 AbstractFloat、f32 或 f16
+    <td>|v| `*` |m|: vec|C|&lt;|T|&gt<br>
     <td>线性代数行-向量-矩阵乘积：<br>
-        [=transpose=](transpose(|m|) `*` transpose(|v|))
-       <br>OpVectorTimesMatrix
-  <tr algorithm="matrix-matrix multiply">
-    <td>|e1|: mat|K|x|N|&lt;f32&gt<br>
-        |e2|: mat|M|x|K|&lt;f32&gt
-    <td>|e1| `*` |e2|:  mat|M|x|N|&lt;f32&gt<br>
-    <td>线性代数矩阵乘积。<br>OpMatrixTimesMatrix
-
+        [=转置=](转置(|m|) `*`转置(|v|))
+  <tr 算法="矩阵-矩阵乘法">
+    <td>|e1|: mat|K|x|R|<|T|&gt<br>
+        |e2|: mat|C|x|K|<|T|><br>
+        |T|是 AbstractFloat、f32 或 f16
+    <td>|e1| `*` |e2|: mat|C|x|R|&lt;|T|&gt<br>
+    <td>线性代数矩阵乘积。
 </table>
 
 ## 比较表达式 ## {#comparison-expr}
@@ -4272,191 +4785,46 @@ location|memory locations=]）。
   <thead>
     <tr><th>Precondtion<th>Conclusion<th>Notes
   </thead>
-
-  <tr algorithm="bool equality">
-    <td>|e1|: |T|<br>|e2|: |T|<br>|T| is bool or vec|N|&lt;bool&gt;
-    <td class="nowrap">|e1| `==` |e2|`:` |T|
-    <td>等价。
-
-    当 |T| 是向量时，[=Component-wise=]。
-
-    （OpLogicalEqual）
-  <tr algorithm="bool inequality">
-    <td>|e1|: |T|<br>|e2|: |T|<br>|T| is bool or vec|N|&lt;bool&gt;
-    <td class="nowrap">|e1| `!=` |e2|`:` |T|
-    <td>不等价。
-
-    当 |T| 是向量时，[=Component-wise=]。
-
-    （OpLogicalNotEqual）
-
-  <tr algorithm="integer equality">
-    <td>|e1|: |TI|<br>|e2|: |TI|<br>
-    |TI| 为 [INTEGRAL]<br>
-    当 |TI| 为标量时，|TB| 为布尔值，或<br>
-    当 |TI| 为向量时，|TB| 为 vec|N|&lt;bool&gt;
+  <tr algorithm="equality">
+    <td>|e1|: |T|<br>|e2|: |T|<br>
+    |S| is AbstractInt, AbstractFloat, bool, i32, u32, f32, or f16<br>
+    |T| is |S| or vec|N|&lt;|S|&gt;<br>
+    |TB| is bool if |T| is scalar or<br>
+    vec|N|&lt;bool&gt; if |T| is a vector
     <td class="nowrap">|e1| `==` |e2|`:` |TB|
-    <td>等价。
-
-    当 |TI| 是向量时，[=Component-wise=]。
-
-    （OpIEqual）
-  <tr algorithm="integer inequality">
-    <td>|e1|: |TI|<br>|e2|: |TI|<br>
-    |TI| 为 [INTEGRAL]<br>
-    当 |TI| 为标量时，|TB| 为布尔值，或<br>
-    当 |TI| 为向量时，|TB| 为 vec|N|&lt;bool&gt;
+    <td>Equality. [=Component-wise=] when |T| is a vector.
+  <tr algorithm="inequality">
+    <td>|e1|: |T|<br>|e2|: |T|<br>
+    |S| is AbstractInt, AbstractFloat, bool, i32, u32, or f32<br>
+    |T| is |S| or vec|N|&lt;|S|&gt;<br>
+    |TB| is bool if |T| is scalar or<br>
+    vec|N|&lt;bool&gt; if |T| is a vector
     <td class="nowrap">|e1| `!=` |e2|`:` |TB|
-    <td>不等价。
-
-    当 |TI| 是向量时，[=Component-wise=]。
-
-    （OpINotEqual）
-
-  <tr algorithm="signed integer less than">
-    <td>|e1|: |TI|<br>|e2|: |TI|<br>|TI| 为 [SIGNEDINTEGRAL]<br>
-    当 |TI| 为标量时，|TB| 为布尔值，或<br>
-    当 |TI| 为向量时，|TB| 为 vec|N|&lt;bool&gt;
+    <td>Inequality. [=Component-wise=] when |T| is a vector.
+  <tr algorithm="less than">
+    <td>|e1|: |T|<br>|e2|: |T|<br>[ALLNUMERICDECL]<br>
+    |TB| is bool if |T| is scalar, or<br>
+    vec|N|&lt;bool&gt; if |T| is a vector
     <td class="nowrap">|e1| `<` |e2|`:` |TB|
-    <td>小于。
-
-    当 |TI| 是向量时，[=Component-wise=]。
-
-    （OpSLessThan）
-  <tr algorithm="signed integer less than equal">
-    <td>|e1|: |TI|<br>|e2|: |TI|<br>|TI| 为 [SIGNEDINTEGRAL]<br>
-    当 |TI| 为标量时，|TB| 为布尔值，或<br>
-    当 |TI| 为向量时，|TB| 为 vec|N|&lt;bool&gt;
+    <td>Less than. [=Component-wise=] when |T| is a vector.
+  <tr algorithm="less than equal">
+    <td>|e1|: |T|<br>|e2|: |T|<br>[ALLNUMERICDECL]<br>
+    |TB| is bool if |T| is scalar, or<br>
+    vec|N|&lt;bool&gt; if |T| is a vector
     <td class="nowrap">|e1| `<=` |e2|`:` |TB|
-    <td>小于等于。
-
-    当 |TI| 是向量时，[=Component-wise=]。
-
-    （OpSLessThanEqual）
-  <tr algorithm="signed integer greater than">
-    <td>|e1|: |TI|<br>|e2|: |TI|<br>|TI| 为 [SIGNEDINTEGRAL]<br>
-    当 |TI| 为标量时，|TB| 为布尔值，或<br>
-    当 |TI| 为向量时，|TB| 为 vec|N|&lt;bool&gt;
+    <td>Less than or equal. [=Component-wise=] when |T| is a vector.
+  <tr algorithm="greater than">
+    <td>|e1|: |T|<br>|e2|: |T|<br>[ALLNUMERICDECL]<br>
+    |TB| is bool if |T| is scalar, or<br>
+    vec|N|&lt;bool&gt; if |T| is a vector
     <td class="nowrap">|e1| `>` |e2|`:` |TB|
-    <td>大于。
-
-    当 |TI| 是向量时，[=Component-wise=]。
-
-    （OpSGreaterThan）
-  <tr algorithm="signed integer greater than equal">
-    <td>|e1|: |TI|<br>|e2|: |TI|<br>|TI| 为 [SIGNEDINTEGRAL]<br>
-    当 |TI| 为标量时，|TB| 为布尔值，或<br>
-    当 |TI| 为向量时，|TB| 为 vec|N|&lt;bool&gt;
+    <td>Greater than. [=Component-wise=] when |T| is a vector.
+  <tr algorithm="greater than equal">
+    <td>|e1|: |T|<br>|e2|: |T|<br>[ALLNUMERICDECL]<br>
+    |TB| is bool if |T| is scalar, or<br>
+    vec|N|&lt;bool&gt; if |T| is a vector
     <td class="nowrap">|e1| `>=` |e2|`:` |TB|
-    <td>大于等于。
-
-    当 |TI| 是向量时，[=Component-wise=]。
-
-    （OpSGreaterThanEqual）
-
-  <tr algorithm="unsigned integer less than">
-    <td>|e1|: |TI|<br>|e2|: |TI|<br>|TI| 为 [UNSIGNEDINTEGRAL]<br>
-    当 |TI| 为标量时，|TB| 为布尔值，或<br>
-    当 |TI| 为向量时，|TB| 为 vec|N|&lt;bool&gt;
-    <td class="nowrap">|e1| `<` |e2|`:` |TB|
-    <td>小于。
-
-    当 |TI| 是向量时，[=Component-wise=]。
-
-    （OpULessThan）
-  <tr algorithm="unsigned integer less than equal">
-    <td>|e1|: |TI|<br>|e2|: |TI|<br>|TI| 为 [UNSIGNEDINTEGRAL]<br>
-    当 |TI| 为标量时，|TB| 为布尔值，或<br>
-    当 |TI| 为向量时，|TB| 为 vec|N|&lt;bool&gt;
-    <td class="nowrap">|e1| `<=` |e2|`:` |TB|
-    <td>小于等于。
-
-    当 |TI| 是向量时，[=Component-wise=]。
-
-    （OpULessThanEqual）
-  <tr algorithm="unsigned integer greater than">
-    <td>|e1|: |TI|<br>|e2|: |TI|<br>|TI| 为 [UNSIGNEDINTEGRAL]<br>
-    当 |TI| 为标量时，|TB| 为布尔值，或<br>
-    当 |TI| 为向量时，|TB| 为 vec|N|&lt;bool&gt;
-    <td class="nowrap">|e1| `>` |e2|`:` |TB|
-    <td>大于。
-
-    当 |TI| 是向量时，[=Component-wise=]。
-
-    （OpUGreaterThan）
-  <tr algorithm="unsigned integer greater than equal">
-    <td>|e1|: |TI|<br>|e2|: |TI|<br>|TI| 为 [UNSIGNEDINTEGRAL]<br>
-    当 |TI| 为标量时，|TB| 为布尔值，或<br>
-    当 |TI| 为向量时，|TB| 为 vec|N|&lt;bool&gt;
-    <td class="nowrap">|e1| `>=` |e2|`:` |TB|
-    <td>大于等于。
-
-    当 |TI| 是向量时，[=Component-wise=]。
-
-    （OpUGreaterThanEqual）
-
-  <tr algorithm="floating point equality">
-    <td>|e1|: |TF|<br>|e2|: |TF|<br>|TF| 为 [FLOATING]<br>
-    当 |TI| 为标量时，|TB| 为布尔值，或<br>
-    当 |TI| 为向量时，|TB| 为 vec|N|&lt;bool&gt;
-    <td class="nowrap">|e1| == |e2|: |TB|
-    <td>等价。
-
-    当 |TF| 是向量时，[=Component-wise=]。
-
-    （OpFOrdEqual）
-
-  <tr algorithm="floating point inequality">
-    <td>|e1|: |TF|<br>|e2|: |TF|<br>|TF| 为 [FLOATING]<br>
-    当 |TI| 为标量时，|TB| 为布尔值，或<br>
-    当 |TI| 为向量时，|TB| 为 vec|N|&lt;bool&gt;
-    <td class="nowrap">|e1| != |e2|: |TB|
-    <td>不等价。
-
-    当 |TF| 是向量时，[=Component-wise=]。
-
-    （OpFOrdEqual）
-  <tr algorithm="floating point less than">
-    <td>|e1|: |TF|<br>|e2|: |TF|<br>|TF| 为 [FLOATING]<br>
-    当 |TI| 为标量时，|TB| 为布尔值，或<br>
-    当 |TI| 为向量时，|TB| 为 vec|N|&lt;bool&gt;
-    <td class="nowrap">|e1| < |e2|: |TB|
-    <td>小于。
-
-    当 |TF| 是向量时，[=Component-wise=]。
-
-    （OpFOrdLessThan）
-  <tr algorithm="floating point less than equal">
-    <td>|e1|: |TF|<br>|e2|: |TF|<br>|TF| 为 [FLOATING]<br>
-    当 |TI| 为标量时，|TB| 为布尔值，或<br>
-    当 |TI| 为向量时，|TB| 为 vec|N|&lt;bool&gt;
-    <td class="nowrap">|e1| <= |e2|: |TB|
-    <td>小于等于。
-
-    当 |TF| 是向量时，[=Component-wise=]。
-
-    （OpFOrdLessThanEqual）
-  <tr algorithm="floating point greater than">
-    <td>|e1|: |TF|<br>|e2|: |TF|<br>|TF| 为 [FLOATING]<br>
-    当 |TI| 为标量时，|TB| 为布尔值，或<br>
-    当 |TI| 为向量时，|TB| 为 vec|N|&lt;bool&gt;
-    <td class="nowrap">|e1| > |e2|: |TB|
-    <td>大于。
-
-    当 |TF| 是向量时，[=Component-wise=]。
-
-    （OpFOrdGreaterThan）
-    Greater than. [=Component-wise=] when |TF| is a vector. (OpFOrdGreaterThan)
-  <tr algorithm="floating point greater than equal">
-    <td>|e1|: |TF|<br>|e2|: |TF|<br>|TF| 为 [FLOATING]<br>
-    当 |TI| 为标量时，|TB| 为布尔值，或<br>
-    当 |TI| 为向量时，|TB| 为 vec|N|&lt;bool&gt;
-    <td class="nowrap">|e1| >= |e2|: |TB|
-    <td>大于等于。
-
-    当 |TF| 是向量时，[=Component-wise=]。
-
-    （OpFOrdGreaterThanEqual）
+    <td>Greater than or equal. [=Component-wise=] when |T| is a vector.
 
 </table>
 
@@ -4469,13 +4837,15 @@ location|memory locations=]）。
   </thead>
   <tr algorithm="complement">
     <td>|e|: |T|<br>
+    [ALLINTEGRALDECL]
+
     |T| 为 [INTEGRAL]
     <td class="nowrap">`~`|e| : |T|
     <td>|e| 上的按位补码。
 
     结果中的每一位都与 |e| 中的相应位相反。
 
-    当 T 是向量时，[=Component-wise=]。
+    当 |T| 是向量时，[=Component-wise=]。
 
     （OpNot）
 </table>
@@ -4486,23 +4856,23 @@ location|memory locations=]）。
     <tr><th>Precondition<th>Conclusion<th>Notes
   </thead>
   <tr algorithm="bitwise or">
-    <td>*e1*: *T*<br>
-       *e2*: *T*<br>
-       *T* 为 [INTEGRAL]
-    <td class="nowrap">`e1 | e2`: *T*
-    <td>按位-或。当 |T| 是向量时，[=Component-wise=]。
+    <td>|e1|: |T|<br>
+       |e2|: |T|<br>
+       [ALLINTEGRALDECL]
+    <td class="nowrap">|e1| `|` |e2|: |T|
+    <td>Bitwise-or. [=Component-wise=] when |T| is a vector.
   <tr algorithm="bitwise and">
-    <td>*e1*: *T*<br>
-       *e2*: *T*<br>
-       *T* 为 [INTEGRAL]
-    <td class="nowrap">`e1 & e2`: *T*
-    <td>按位-与。当 |T| 是向量时，[=Component-wise=]。
+    <td>|e1|: |T|<br>
+       |e2|: |T|<br>
+       [ALLINTEGRALDECL]
+    <td class="nowrap">|e1| `&` |e2|: |T|
+    <td>Bitwise-and. [=Component-wise=] when |T| is a vector.
   <tr algorithm="bitwise exclusive or">
-    <td>*e1*: *T*<br>
-       *e2*: *T*<br>
-       *T* 为 [INTEGRAL]
-    <td class="nowrap">`e1 ^ e2`: *T*
-    <td>按位-异或。当 |T| 是向量时，[=Component-wise=]。
+    <td>|e1|: |T|<br>
+       |e2|: |T|<br>
+       [ALLINTEGRALDECL]
+    <td class="nowrap">|e1| `^` |e2|: |T|
+    <td>Bitwise-exclusive-or. [=Component-wise=] when |T| is a vector.
 </table>
 
 
@@ -4662,13 +5032,18 @@ location|memory locations=]）。
 
 
 ## 表达式语法总结 ## {#expression-grammar}
+当标识符用作 [=syntax/callable=] 项时，它是以下之一：
+* [=user-defined function=] 或 [=built-in function=] 的名称，作为 [=function call=] 的一部分。
+* [[#struct-types|structure type]] 或 [[#type-aliases|type alias]] 的名称，作为 [[#type-constructor-expr|constructor expression]] 的一部分。
+
+[[#declaration-and-scope|Declaration and scope]] 规则确保这些名称始终是不同的。
 
 <div class='syntax' noexport='true'>
   <dfn for=syntax>primary_expression</dfn> :
 
-    | [=syntax/ident=] [=syntax/argument_expression_list=] ?
+    | [=syntax/ident=]
 
-    | [=syntax/type_decl=] [=syntax/argument_expression_list=]
+    | [=syntax/callable=] [=syntax/argument_expression_list=]
 
     | [=syntax/const_literal=]
 
@@ -4677,19 +5052,30 @@ location|memory locations=]）。
     | [=syntax/bitcast=] [=syntax/less_than=] [=syntax/type_decl=] [=syntax/greater_than=] [=syntax/paren_expression=]
 </div>
 <div class='syntax' noexport='true'>
+  <dfn for=syntax>callable</dfn> :
+
+    | [=syntax/ident=]
+
+    | [=syntax/type_decl_without_ident=]
+
+    | [=syntax/vec_prefix=]
+
+    | [=syntax/mat_prefix=]
+</div>
+<div class='syntax' noexport='true'>
   <dfn for=syntax>paren_expression</dfn> :
 
-    | [=syntax/paren_left=] [=syntax/short_circuit_or_expression=] [=syntax/paren_right=]
+    | [=syntax/paren_left=] [=syntax/expression=] [=syntax/paren_right=]
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>argument_expression_list</dfn> :
 
-    | [=syntax/paren_left=] ( ( [=syntax/short_circuit_or_expression=] [=syntax/comma=] ) * [=syntax/short_circuit_or_expression=] [=syntax/comma=] ? ) ? [=syntax/paren_right=]
+    | [=syntax/paren_left=] ( ( [=syntax/expression=] [=syntax/comma=] ) * [=syntax/expression=] [=syntax/comma=] ? ) ? [=syntax/paren_right=]
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>postfix_expression</dfn> :
 
-    | [=syntax/bracket_left=] [=syntax/short_circuit_or_expression=] [=syntax/bracket_right=] [=syntax/postfix_expression=] ?
+    | [=syntax/bracket_left=] [=syntax/expression=] [=syntax/bracket_right=] [=syntax/postfix_expression=] ?
 
     | [=syntax/period=] [=syntax/ident=] [=syntax/postfix_expression=] ?
 </div>
@@ -4714,6 +5100,18 @@ location|memory locations=]）。
     | [=syntax/primary_expression=] [=syntax/postfix_expression=] ?
 </div>
 <div class='syntax' noexport='true'>
+  <dfn for=syntax>lhs_expression</dfn> :
+
+    | ( [=syntax/star=] | [=syntax/and=] ) * [=syntax/core_lhs_expression=] [=syntax/postfix_expression=] ?
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>core_lhs_expression</dfn> :
+
+    | [=syntax/ident=]
+
+    | [=syntax/paren_left=] [=syntax/lhs_expression=] [=syntax/paren_right=]
+</div>
+<div class='syntax' noexport='true'>
   <dfn for=syntax>multiplicative_expression</dfn> :
 
     | [=syntax/unary_expression=]
@@ -4734,70 +5132,76 @@ location|memory locations=]）。
     | [=syntax/additive_expression=] [=syntax/minus=] [=syntax/multiplicative_expression=]
 </div>
 <div class='syntax' noexport='true'>
-  <dfn for=syntax>shift_expression</dfn> :
+  <dfn for=syntax>relational_expression</dfn> :
 
     | [=syntax/additive_expression=]
 
-    | [=syntax/shift_expression=] [=syntax/shift_left=] [=syntax/additive_expression=]
+    | [=syntax/additive_expression=] [=syntax/less_than=] [=syntax/additive_expression=]
 
-    | [=syntax/shift_expression=] [=syntax/shift_right=] [=syntax/additive_expression=]
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>relational_expression</dfn> :
+    | [=syntax/additive_expression=] [=syntax/greater_than=] [=syntax/additive_expression=]
 
-    | [=syntax/shift_expression=]
+    | [=syntax/additive_expression=] [=syntax/less_than_equal=] [=syntax/additive_expression=]
 
-    | [=syntax/relational_expression=] [=syntax/less_than=] [=syntax/shift_expression=]
+    | [=syntax/additive_expression=] [=syntax/greater_than_equal=] [=syntax/additive_expression=]
 
-    | [=syntax/relational_expression=] [=syntax/greater_than=] [=syntax/shift_expression=]
+    | [=syntax/additive_expression=] [=syntax/equal_equal=] [=syntax/additive_expression=]
 
-    | [=syntax/relational_expression=] [=syntax/less_than_equal=] [=syntax/shift_expression=]
-
-    | [=syntax/relational_expression=] [=syntax/greater_than_equal=] [=syntax/shift_expression=]
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>equality_expression</dfn> :
-
-    | [=syntax/relational_expression=]
-
-    | [=syntax/relational_expression=] [=syntax/equal_equal=] [=syntax/relational_expression=]
-
-    | [=syntax/relational_expression=] [=syntax/not_equal=] [=syntax/relational_expression=]
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>and_expression</dfn> :
-
-    | [=syntax/equality_expression=]
-
-    | [=syntax/and_expression=] [=syntax/and=] [=syntax/equality_expression=]
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>exclusive_or_expression</dfn> :
-
-    | [=syntax/and_expression=]
-
-    | [=syntax/exclusive_or_expression=] [=syntax/xor=] [=syntax/and_expression=]
-</div>
-<div class='syntax' noexport='true'>
-  <dfn for=syntax>inclusive_or_expression</dfn> :
-
-    | [=syntax/exclusive_or_expression=]
-
-    | [=syntax/inclusive_or_expression=] [=syntax/or=] [=syntax/exclusive_or_expression=]
+    | [=syntax/additive_expression=] [=syntax/not_equal=] [=syntax/additive_expression=]
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>short_circuit_and_expression</dfn> :
 
-    | [=syntax/inclusive_or_expression=]
+    | [=syntax/relational_expression=]
 
-    | [=syntax/short_circuit_and_expression=] [=syntax/and_and=] [=syntax/inclusive_or_expression=]
+    | [=syntax/short_circuit_and_expression=] [=syntax/and_and=] [=syntax/relational_expression=]
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>short_circuit_or_expression</dfn> :
 
-    | [=syntax/short_circuit_and_expression=]
+    | [=syntax/relational_expression=]
 
-    | [=syntax/short_circuit_or_expression=] [=syntax/or_or=] [=syntax/short_circuit_and_expression=]
+    | [=syntax/short_circuit_or_expression=] [=syntax/or_or=] [=syntax/relational_expression=]
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>binary_or_expression</dfn> :
+
+    | [=syntax/unary_expression=]
+
+    | [=syntax/binary_or_expression=] [=syntax/or=] [=syntax/unary_expression=]
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>binary_and_expression</dfn> :
+
+    | [=syntax/unary_expression=]
+
+    | [=syntax/binary_and_expression=] [=syntax/and=] [=syntax/unary_expression=]
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>binary_xor_expression</dfn> :
+
+    | [=syntax/unary_expression=]
+
+    | [=syntax/binary_xor_expression=] [=syntax/xor=] [=syntax/unary_expression=]
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>bitwise_expression</dfn> :
+
+    | [=syntax/binary_and_expression=] [=syntax/and=] [=syntax/unary_expression=]
+
+    | [=syntax/binary_or_expression=] [=syntax/or=] [=syntax/unary_expression=]
+
+    | [=syntax/binary_xor_expression=] [=syntax/xor=] [=syntax/unary_expression=]
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>expression</dfn> :
+
+    | [=syntax/relational_expression=]
+
+    | [=syntax/short_circuit_or_expression=] [=syntax/or_or=] [=syntax/relational_expression=]
+
+    | [=syntax/short_circuit_and_expression=] [=syntax/and_and=] [=syntax/relational_expression=]
+
+    | [=syntax/bitwise_expression=]
 </div>
 
 # Statements # {#statements}
@@ -4816,6 +5220,10 @@ location|memory locations=]）。
 
     | [=syntax/brace_left=] [=syntax/statement=] * [=syntax/brace_right=]
 </div>
+
+复合语句有两种特殊形式：
+* [=syntax/continuing_compound_statement=] 构成 [[#continuing-statement|continuing]] 语句的主体，并允许在末尾添加可选的 [[#break-if-statement|break-if]] 语句。
+* [=syntax/case_compound_statement=] 在 [[#switch-statement|switch]] 语句中形成 `case` 或 `default` 子句的主体，并允许可选的 [=syntax/fallthrough_statement|fallthrough=] 语句 在末尾。
 
 ## 赋值语句 ## {#assignment}
 
@@ -4865,8 +5273,8 @@ location|memory locations=]）。
     <div class='example wgsl' heading='Assignments'>
       <xmp highlight='rust'>
         struct S {
-            age: i32;
-            weight: f32;
+            age: i32,
+            weight: f32
         }
         var<private> person: S;
 
@@ -4937,14 +5345,14 @@ location|memory locations=]）。
 <div class='example wgsl global-scope' heading='Using phony-assignment to occupy bindings without using them'>
   <xmp highlight=rust>
     [[block]] struct BufferContents {
-        counter: atomic<u32>;
-        data: array<vec4<f32>>;
+        counter: atomic<u32>,
+        data: array<vec4<f32>>
     }
     @group(0) @binding(0) var<storage> buf: BufferContents;
     @group(0) @binding(1) var t: texture_2d<f32>;
     @group(0) @binding(2) var s: sampler;
 
-    @stage(fragment)
+    @fragment
     fn shade_it() -> @location(0) vec4<f32> {
       // Declare that buf, t, and s are part of the shader interface, without
       // using them for anything.
@@ -5028,7 +5436,7 @@ location|memory locations=]）。
 首先 [=read access=] 获取旧值，然后 [=write access=] 存储更新的值。
 
 <div class='example wgsl global-scope' heading="Compound assignment">
-  <xmp>
+  <xmp highlight='rust'>
     var<private> next_item: i32 = 0;
 
     fn advance_item() -> i32 {
@@ -5096,13 +5504,13 @@ location|memory locations=]）。
   <tr algorithm="increment statement">
     <td class="nowrap">|r| : ref&lt;<var ignore>SC</var>,|T|,[=access/read_write=]&gt;,<br>
         |T| is [=integer scalar=]<br>
-    <td class="nowrap">|r|++
+    <td class="nowrap">|r|`++`
     <td>Adds 1 to the contents of memory referenced by |r|.
         <br>Same as |r| += |T|(1)
   <tr algorithm="decrement statement">
     <td class="nowrap">|r| : ref&lt;<var ignore>SC</var>,|T|,[=access/read_write=]&gt;,<br>
         |T| is [=integer scalar=]<br>
-    <td class="nowrap">|r|--
+    <td class="nowrap">|r|`--`
     <td>Subtracts 1 from the contents of memory referenced by |r|.
         <br>Same as |r| -= |T|(1)
 </table>
@@ -5133,7 +5541,7 @@ location|memory locations=]）。
 <div class='syntax' noexport='true'>
   <dfn for=syntax>if_statement</dfn> :
 
-    | [=syntax/if=] [=syntax/paren_expression=] [=syntax/compound_statement=] ( [=syntax/else=] [=syntax/else_statement=] ) ?
+    | [=syntax/if=] [=syntax/expression=] [=syntax/compound_statement=] ( [=syntax/else=] [=syntax/else_statement=] ) ?
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>else_statement</dfn> :
@@ -5145,6 +5553,7 @@ location|memory locations=]）。
 
 一个 <dfn noexport dfn-for="statement">if</dfn> 语句根据条件表达式的评估，有条件地执行至多一个 [=compound statement=]。
 
+[=Type rule precondition=]:
 WGSL 中的 `if` 语句使用 if/else if/else 结构，其中包含一个必需的 `if` 子句、零个或多个 `elseif` 子句和一个可选的 `else` 子句。
 `if` 和 `else if` 子句条件的每个表达式都必须是标量布尔表达式。
 
@@ -5160,14 +5569,14 @@ WGSL 中的 `if` 语句使用 if/else if/else 结构，其中包含一个必需�
 <div class='syntax' noexport='true'>
   <dfn for=syntax>switch_statement</dfn> :
 
-    | [=syntax/switch=] [=syntax/paren_expression=] [=syntax/brace_left=] [=syntax/switch_body=] + [=syntax/brace_right=]
+    | [=syntax/switch=] [=syntax/expression=] [=syntax/brace_left=] [=syntax/switch_body=] + [=syntax/brace_right=]
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>switch_body</dfn> :
 
-    | [=syntax/case=] [=syntax/case_selectors=] [=syntax/colon=] [=syntax/brace_left=] [=syntax/case_body=] ? [=syntax/brace_right=]
+    | [=syntax/case=] [=syntax/case_selectors=] [=syntax/colon=] ? [=syntax/case_compound_statement=]
 
-    | [=syntax/default=] [=syntax/colon=] [=syntax/brace_left=] [=syntax/case_body=] ? [=syntax/brace_right=]
+    | [=syntax/default=] [=syntax/colon=] ? [=syntax/case_compound_statement=]
 </div>
 <div class='syntax' noexport='true'>
   <dfn for=syntax>case_selectors</dfn> :
@@ -5175,9 +5584,12 @@ WGSL 中的 `if` 语句使用 if/else if/else 结构，其中包含一个必需�
     | [=syntax/const_literal=] ( [=syntax/comma=] [=syntax/const_literal=] ) * [=syntax/comma=] ?
 </div>
 <div class='syntax' noexport='true'>
-  <dfn for=syntax>case_body</dfn> :
+  <dfn for=syntax>case_compound_statement</dfn> :
 
-    | [=syntax/statement=] [=syntax/case_body=] ?
+    | [=syntax/brace_left=] [=syntax/statement=] * [=syntax/fallthrough_statement=] ? [=syntax/brace_right=]
+</div>
+<div class='syntax' noexport='true'>
+  <dfn for=syntax>fallthrough_statement</dfn> :
 
     | [=syntax/fallthrough=] [=syntax/semicolon=]
 </div>
@@ -5191,13 +5603,13 @@ WGSL 中的 `if` 语句使用 if/else if/else 结构，其中包含一个必需�
 转移到 `default` 子句。
 
 每个 switch 语句必须恰好有一个 default 子句。
-
+[=Type rule precondition=]:
 case 选择器值必须与计算选择器表达式的结果具有相同的类型。
 
 一个表达值在 switch 语句的 case 选择器中不能出现多次。
 
 注意：表达式的值才是重要的，而不是拼写。
-例如“0”、“00”和“0x0000”都表示零值。
+例如`0`和`0x0000`都表示零值。
 
 当控制到达 case 主体的末尾时，控制通常转移到 switch 语句之后的第一个语句。
 或者，执行 <dfn noexport dfn-for="statement">fallthrough</dfn> 语句
@@ -5206,8 +5618,29 @@ case 选择器值必须与计算选择器表达式的结果具有相同的类型
 当一个 [=declaration=] 出现在 case body 中时，它的 [=identifier=] 是 [=in scope=] 从下一条语句的开始到 case body 的结束。
 
 注意：在 case body 中声明的标识符不是 case body 的 [=in scope=]， 可以通过 `fallthrough` 语句访问。
+<div class='example wgsl function-scope' heading='WGSL Switch'>
+  <xmp highlight='rust'>
+    var a : i32;
+    let x : i32 = generateValue();
+    switch x {
+      case 0: {      // the colon is optional
+        a = 1;
+      }
+      default {      // the default needn't appear last
+        a = 2;
+      }
+      case 1, 2 {    // multiple selector values can be used
+        a = 3;       // a will be overridden in the next case
+        fallthrough;
+      }
+      case 3 {
+        a = 4;
+      }
+    }
+  </xmp>
+</div>
 
-
+############################
 ### Loop 语句 ### {#loop-statement}
 
 <div class='syntax' noexport='true'>
