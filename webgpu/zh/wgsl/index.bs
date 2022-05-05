@@ -10271,7 +10271,7 @@ fn textureSampleBias(t: texture_cube_array<f32>, s: sampler, coords: vec3<f32>, 
 对深度纹理进行采样并将采样的深度值与参考值进行比较。
 
 只能在 [=fragment=] 着色器阶段使用。
-只能在 [=uniform control flow=] 中调用.
+只能在 [=uniform control flow=] 中调用。
 
 ```rust
 fn textureSampleCompare(t: texture_depth_2d, s: sampler_comparison, coords: vec2<f32>, depth_ref: f32) -> f32
