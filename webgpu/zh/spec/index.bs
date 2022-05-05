@@ -1552,12 +1552,12 @@ Issue: `GPUDevice` 并不真正需要跨域策略限制。无论如何，应该�
 
 ## <dfn interface>GPUBuffer</dfn> ## {#buffer-interface}
 
-问题：定义<dfn dfn>buffer</dfn> (内部对象)
+Issue: 定义<dfn dfn>缓冲区</dfn> (内部对象)
 
-{{GPUBuffer}}表示可用于GPU操作的内存块。数据以线性布局存储，这意味着分配的每个字节都可以由其从{{GPUBuffer}}开始的偏移量寻址，受取决于操作的对齐约束限制。一些{{GPUBuffer|GPUBuffers}}可以被映射，这使得内存块可以通过一个{{ArrayBuffer}}访问并调用它的映射。
+{{GPUBuffer}} 表示可用于 GPU 操作的内存块。数据以线性布局存储，这意味着分配的每个字节都可以由其从 {{GPUBuffer}} 开始的偏移量寻址，并且受到操作的对齐约束限制。一些 {{GPUBuffer|GPUBuffers}} 可以被映射，这使得内存块可以通过一个{{ArrayBuffer}}访问并调用它的映射。
 
-{{GPUBuffer|GPUBuffers}}是通过{{GPUDevice/createBuffer(descriptor)|GPUDevice.createBuffer(descriptor)}}创建的，
-返回一个处于 [=buffer state/mapped=] 或 [=buffer state/unmapped=]状态的新缓冲区。
+{{GPUBuffer|GPUBuffers}} 是通过 {{GPUDevice/createBuffer(descriptor)|GPUDevice.createBuffer(descriptor)}} 创建的，
+创建后会返回一个处于 [=buffer state/已映射=] 或 [=buffer state/未映射=]状态的新缓冲区。
 
 <script type=idl>
 [Exposed=(Window, DedicatedWorker), SecureContext]
@@ -1576,66 +1576,64 @@ GPUBuffer includes GPUObjectBase;
 <dl dfn-type=attribute dfn-for="GPUBuffer">
     : <dfn>\[[size]]</dfn> of type {{GPUSize64}}.
     ::
-        {{GPUBuffer}}分配的长度（以字节为单位）。
+        {{GPUBuffer}} 被分配的长度（以字节为单位）。
 
     : <dfn>\[[usage]]</dfn> of type {{GPUBufferUsageFlags}}.
     ::
-        此{{GPUBuffer}}被允许的使用。
+        此 {{GPUBuffer}} 被允许的使用。
 
     : <dfn>\[[state]]</dfn> of type [=buffer state=].
     ::
-        {{GPUBuffer}}的当前状态。
+        {{GPUBuffer}} 的当前状态。
 
     : <dfn>\[[mapping]]</dfn> of type {{ArrayBuffer}} or {{Promise}} or `null`.
     ::
-        此{{GPUBuffer}}的映射。{{ArrayBuffer}}不能直接访问，而是通过视图访问它，称为映射范围，存储在{{GPUBuffer/[[mapped_ranges]]}}中。
+        此 {{GPUBuffer}} 的映射。{{ArrayBuffer}} 不能直接被访问，而是通过视图去访问，称为映射范围，被存储在 {{GPUBuffer/[[mapped_ranges]]}} 中。
 
-        在 `DataBlock`方面指定{{GPUBuffer/[[mapping]]}}类似于 `AllocateArrayBuffer`？
+        Issue(gpuweb/gpuweb#605): 在 `DataBlock`方面指定 {{GPUBuffer/[[mapping]]}} 类似于 `AllocateArrayBuffer`？
 
     : <dfn>\[[mapping_range]]</dfn> of type [=list=]&lt;{{unsigned long long}}&gt; or `null`.
     ::
-        此被映射的{{GPUBuffer}}的范围。
+        此被映射的 {{GPUBuffer}} 的范围。
 
     : <dfn>\[[mapped_ranges]]</dfn> of type [=list=]&lt;{{ArrayBuffer}}&gt; or `null`.
     ::
-        {{ArrayBuffer}}s通过{{GPUBuffer/getMappedRange}}返回给应用程序。它们被追踪以便在{{GPUBuffer/unmap}}被调用时可以将其分离。
+        {{ArrayBuffer}}s 通过 {{GPUBuffer/getMappedRange}} 返回给应用程序。这些 {{ArrayBuffer}}s 会被追踪，以便在 {{GPUBuffer/unmap}} 被调用时可以将其分离。
 
     : <dfn>\[[map_mode]]</dfn> of type {{GPUMapModeFlags}}.
     ::
-        最后一次调用{{GPUBuffer/mapAsync()}}的{{GPUMapModeFlags}}（如果有）。
+        最后一次调用 {{GPUBuffer/mapAsync()}} 的 {{GPUMapModeFlags}}（如果有）。
 </dl>
 
-问题：{{GPUBuffer/[[usage]]}}与{{GPUTexture/[[descriptor]]}}.{{GPUTextureDescriptor/usage}}的命名不同。我们应该让它保持一致。
+Issue: {{GPUBuffer/[[usage]]}} 与 {{GPUTexture/[[descriptor]]}}.{{GPUTextureDescriptor/usage}} 的命名不同。我们应该让两种命名保持一致。
 
-每个{{GPUBuffer}}在[=Content timeline=]上都有一个当前的<dfn dfn>buffer state</dfn>，它是以下几项之一：
+每个 {{GPUBuffer}} 在[=内容时间线=]上都有一个当前的<dfn dfn>缓冲区状态</dfn>，它是以下几项之一：
 
- - "<dfn dfn for="buffer state">mapped</dfn>" 此时{{GPUBuffer}}中的内容可以被用作CPU操作。
- - "<dfn dfn for="buffer state">mapped at creation</dfn>" 此时{{GPUBuffer}}刚刚被创建并且其中的内容可以被CPU操作。
- - "<dfn dfn for="buffer state">mapping pending</dfn>" 此时{{GPUBuffer}}正在被处理使得它的内容可以被CPU操作。
- - "<dfn dfn for="buffer state">unmapped</dfn>" 此时{{GPUBuffer}}允许GPU操作。
- - "<dfn dfn for="buffer state">destroyed</dfn>" where the {{GPUBuffer}} is
-    除了{{GPUBuffer/destroy}}之外不允许任何操作。
+ - "<dfn dfn for="buffer state">已映射</dfn>" 此时 {{GPUBuffer}} 中的内容可以被用作 CPU 操作。
+ - "<dfn dfn for="buffer state">在创建时被映射</dfn>" 此时 {{GPUBuffer}} 刚刚被创建，并且其中的内容可以被 CPU 操作。
+ - "<dfn dfn for="buffer state">待映射</dfn>" 此时 {{GPUBuffer}} 正在被处理使得它的内容可以被 CPU 操作。
+ - "<dfn dfn for="buffer state">未映射</dfn>" 此时 {{GPUBuffer}} 允许 GPU 操作。
+ - "<dfn dfn for="buffer state">被销毁</dfn>" 此时 {{GPUBuffer}} 不允许除了 {{GPUBuffer/destroy}} 之外的任何操作。
 
-注意：一旦创建了{{GPUBuffer}}，{{GPUBuffer/[[size]]}}和{{GPUBuffer/[[usage]]}}是不可变的。
+Note: 一旦创建了 {{GPUBuffer}}，{{GPUBuffer/[[size]]}} 和 {{GPUBuffer/[[usage]]}} 是不可变的。
 
 <div class=note>
-    注意：{{GPUBuffer}}有一个具有以下状态的状态机。（({{GPUBuffer/[[mapping]]}}, {{GPUBuffer/[[mapping_range]]}},
-    和{{GPUBuffer/[[mapped_ranges]]}}在未指定时为空。）
+    Note: {{GPUBuffer}} 有一个具有以下状态的状态机。（({{GPUBuffer/[[mapping]]}}, {{GPUBuffer/[[mapping_range]]}}, 并且 {{GPUBuffer/[[mapped_ranges]]}} 在未指定时为空。）
 
-     - [=buffer state/unmapped=]和[=buffer state/destroyed=].
-     - 带有类型为{{GPUBuffer/[[mapping]]}}的{{ArrayBuffer}}的[=buffer state/mapped=]或[=buffer state/mapped at creation=]，一个{{GPUBuffer/[[mapping_range]]}}中两个数字连成的串和一串{{GPUBuffer/[[mapped_ranges]]}}中的{{ArrayBuffer}}。
-     - [=buffer state/mapping pending=]带有一个类型为{{GPUBuffer/[[mapping]]}}的{{Promise}}。
+     - [=buffer state/未映射=]且[=buffer state/被销毁=]状态。
+     - [=buffer state/已映射=]或[=buffer state/在创建时被映射=]状态，同时包含一个类型为 {{GPUBuffer/[[mapping]]}} 的 {{ArrayBuffer}}，一个 {{GPUBuffer/[[mapping_range]]}} 中两个数字的序列，和一个 {{GPUBuffer/[[mapped_ranges]]}} 中 {{ArrayBuffer}} 的序列。
+     - [=buffer state/待映射=]状态，同时包含一个类型为 {{GPUBuffer/[[mapping]]}} 的 {{Promise}}。
 </div>
 
-{{GPUBuffer}}是对内部缓冲区对象的引用。
+{{GPUBuffer}} 是对一个内部缓冲区对象的引用。
 
-问题(gpuweb/gpuweb#354)：完成定义多线程API并将 `[Serializable]`添加回接口。
+Issue(gpuweb/gpuweb#354): 完成定义多线程 API 并将 `[Serializable]`添加回接口。
 
 ## 缓冲区创建 ## {#buffer-creation}
 
 ### {{GPUBufferDescriptor}} ### {#GPUBufferDescriptor}
 
-它指定创建{{GPUBuffer}}用到的选项。
+指定了创建 {{GPUBuffer}} 用到的选项。
 
 <script type=idl>
 dictionary GPUBufferDescriptor : GPUObjectDescriptorBase {
@@ -1645,13 +1643,13 @@ dictionary GPUBufferDescriptor : GPUObjectDescriptorBase {
 };
 </script>
 
-- {{GPUBufferDescriptor/mappedAtCreation}}保证即使缓冲区最终创建失败，它仍然看起来好像可以写入/读取映射的范围，直到它被取消映射。
+- {{GPUBufferDescriptor/mappedAtCreation}} 保证即使缓冲区最终创建失败，缓冲区仍然看起来好像可以在映射的范围内写入/读取，直到缓冲区回到未映射状态。
 
 <div>
-    <dfn abstract-op>校验GPUBufferDescriptor</dfn>(device, descriptor)
+    <dfn abstract-op>校验 GPUBufferDescriptor</dfn>(device, descriptor)
         1. 如果设备缺失，返回 `false`.
-        2. 如果|descriptor|的{{GPUBufferDescriptor/usage}}任何一个比特位没有表示设备的[[allowed buffer usages]]，返回 `false`。
-        3. 如果|descriptor|的{{GPUBufferDescriptor/usage}}的{{GPUBufferUsage/MAP_READ}}和{{GPUBufferUsage/MAP_WRITE}}比特位都设置了值，返回 `false`。
+        2. 如果 |descriptor| 的 {{GPUBufferDescriptor/usage}} 中任何一个标志位都不属于设备的 [[allowed buffer usages]]，返回 `false`。
+        3. 如果 |descriptor| 的 {{GPUBufferDescriptor/usage}} 中的 {{GPUBufferUsage/MAP_READ}} 和 {{GPUBufferUsage/MAP_WRITE}} 标志位都有值，返回 `false`。
         4. 返回 `true`.
 </div>
 
@@ -1677,63 +1675,63 @@ namespace GPUBufferUsage {
 <dl dfn-type=method dfn-for=GPUDevice>
     : <dfn>createBuffer(descriptor)</dfn>
     ::
-        创建一个{{GPUBuffer}}。
+        创建一个 {{GPUBuffer}}。
 
         <div algorithm=GPUDevice.createBuffer>
-            **Called on:** {{GPUDevice}} |this|.
+            **调用:** {{GPUDevice}} |this|.
 
-            **Arguments:**
+            **参数:**
             <pre class=argumentdef for="GPUDevice/createBuffer(descriptor)">
-                |descriptor|: 要创建的{{GPUBuffer}}的描述。
+                |descriptor|: 要创建的 {{GPUBuffer}} 的描述。
             </pre>
 
-            **Returns:** {{GPUBuffer}}
+            **返回:** {{GPUBuffer}}
 
-            1. 如果以下任何条件没有满足，返回一个错误缓冲并且停止。
+            1. 如果以下任何条件没有满足，返回一个错误缓冲区并停止。
                 <div class=validusage>
-                    - |this|是一个有效的（[=valid=]）{{GPUDevice}}。
-                    - |descriptor|.{{GPUBufferDescriptor/usage}}必须不为0。
-                    - |descriptor|.{{GPUBufferDescriptor/usage}}是|this|.[[allowed buffer usages]]的一个子集。
-                    - 如果|descriptor|.{{GPUBufferDescriptor/usage}}包含{{GPUBufferUsage/MAP_READ}}:
-                        - |descriptor|.{{GPUBufferDescriptor/usage}}除了{{GPUBufferUsage/COPY_DST}}不包含其他标识。
-                    - 如果|descriptor|.{{GPUBufferDescriptor/usage}}包含{{GPUBufferUsage/MAP_WRITE}}:
-                        - |descriptor|.{{GPUBufferDescriptor/usage}}除了{{GPUBufferUsage/COPY_SRC}}不包含其他标识。
-                    - 如果|descriptor|.{{GPUBufferDescriptor/mappedAtCreation}}为 `true`:
-                        - |descriptor|.{{GPUBufferDescriptor/size}}是4的倍数。
+                    - |this| 是一个[=有效=] {{GPUDevice}}。
+                    - |descriptor|.{{GPUBufferDescriptor/usage}} 必须不为 0。
+                    - |descriptor|.{{GPUBufferDescriptor/usage}} 是 |this|.[[allowed buffer usages]] 的一个子集。
+                    - 如果 |descriptor|.{{GPUBufferDescriptor/usage}} 包含 {{GPUBufferUsage/MAP_READ}}:
+                        - |descriptor|.{{GPUBufferDescriptor/usage}} 不包含除了 {{GPUBufferUsage/COPY_DST}} 之外的其他标识。
+                    - 如果 |descriptor|.{{GPUBufferDescriptor/usage}} 包含 {{GPUBufferUsage/MAP_WRITE}}:
+                        - |descriptor|.{{GPUBufferDescriptor/usage}} 不包含除了 {{GPUBufferUsage/COPY_SRC}} 之外的其他标识。
+                    - 如果 |descriptor|.{{GPUBufferDescriptor/mappedAtCreation}} 为 `true`:
+                        - |descriptor|.{{GPUBufferDescriptor/size}} 是 4 的倍数。
 
-                    Issue(gpuweb/gpuweb#605): 解释什么是{{GPUDevice}}的 `[[allowed buffer usages]]`.
+                    Issue(gpuweb/gpuweb#605): 解释什么是 {{GPUDevice}} 的 `[[allowed buffer usages]]`.
                 </div>
             
-            注意：如果缓冲区创建失败，并且|descriptor|.{{GPUBufferDescriptor/mappedAtCreation}}为 `false`，对{{GPUBuffer/mapAsync()}}的任何调用都将被拒绝，因此分配给启用映射的任何资源都可以并且可能会被丢弃或回收。
+            Note: 如果缓冲区创建失败，并且 |descriptor|.{{GPUBufferDescriptor/mappedAtCreation}} 为 `false`，对 {{GPUBuffer/mapAsync()}} 的任何调用都将被拒绝，因此开始映射中分配的任何资源都可以并且可能会被丢弃或回收。
 
-            2. 使|b|为一个新的{{GPUBuffer}}对象.
-            3. 将|b|.{{GPUBuffer/[[size]]}}设置为|descriptor|.{{GPUBufferDescriptor/size}}.
-            4. 将|b|.{{GPUBuffer/[[usage]]}}设置为|descriptor|.{{GPUBufferDescriptor/usage}}.
-            5. 如果|descriptor|.{{GPUBufferDescriptor/mappedAtCreation}}值为 `true`:
+            1. 使 |b| 为一个新的 {{GPUBuffer}} 对象.
+            2. 将 |b|.{{GPUBuffer/[[size]]}} 设置为 |descriptor|.{{GPUBufferDescriptor/size}}.
+            3. 将 |b|.{{GPUBuffer/[[usage]]}} 设置为 |descriptor|.{{GPUBufferDescriptor/usage}}.
+            4. 如果 |descriptor|.{{GPUBufferDescriptor/mappedAtCreation}} 值为 `true`:
 
-                1. 将|b|.{{GPUBuffer/[[mapping]]}}设置为一个新的大小为|b|.{{GPUBuffer/[[size]]}}的{{ArrayBuffer}}。
-                2. 将|b|.{{GPUBuffer/[[mapping_range]]}}设置为 `[0, descriptor.size]`.
-                3. 将|b|.{{GPUBuffer/[[mapped_ranges]]}}设置为 `[]`.
-                4. 将|b|.{{GPUBuffer/[[state]]}}设置为[=buffer state/mapped at creation=].
+                1. 将 |b|.{{GPUBuffer/[[mapping]]}} 设置为一个新的大小为 |b|.{{GPUBuffer/[[size]]}} 的 {{ArrayBuffer}}。
+                2. 将 |b|.{{GPUBuffer/[[mapping_range]]}} 设置为 `[0, descriptor.size]`.
+                3. 将 |b|.{{GPUBuffer/[[mapped_ranges]]}} 设置为 `[]`.
+                4. 将 |b|.{{GPUBuffer/[[state]]}} 设置为[=buffer state/在创建时被映射=]状态.
 
                 否则:
 
-                1. 将|b|.{{GPUBuffer/[[mapping]]}}设置为 `null`。
-                2. 将|b|.{{GPUBuffer/[[mapping_range]]}}设置为 `null`。
-                3. 将|b|.{{GPUBuffer/[[mapped_ranges]]}}设置为 `null`。
-                4. 将|b|.{{GPUBuffer/[[state]]}}设置为[=buffer state/unmapped=]。
+                1. 将 |b|.{{GPUBuffer/[[mapping]]}} 设置为 `null`。
+                2. 将 |b|.{{GPUBuffer/[[mapping_range]]}} 设置为 `null`。
+                3. 将 |b|.{{GPUBuffer/[[mapped_ranges]]}} 设置为 `null`。
+                4. 将 |b|.{{GPUBuffer/[[state]]}} 设置为[=buffer state/未映射=]状态。
 
-            6. 将|b|分配的每个字节设置为零。
-            7. 返回|b|.
+            5. 将 |b| 分配的每个字节设置为零。
+            6. 返回 |b|.
 
-            注意：在{{GPUBufferDescriptor/usage}}中没有{{GPUBufferUsage/MAP_READ}}或{{GPUBufferUsage/MAP_WRITE}}的情况下，将{{GPUBufferDescriptor/mappedAtCreation}}设置为 `true`是有效的。这可用于设置缓冲区的初始数据。
+            Note: 在 {{GPUBufferDescriptor/usage}} 中没有 {{GPUBufferUsage/MAP_READ}} 或 {{GPUBufferUsage/MAP_WRITE}} 的情况下，将 {{GPUBufferDescriptor/mappedAtCreation}} 设置为 `true`是有效的。这可用于设置缓冲区的初始数据。
 
         </div>
 
 </dl>
 
 <div class="example">
-    创建一个 128 字节的统一缓冲区，可以写入：
+    创建一个 128 字节，并且可以被写入的统一缓冲区：
     <pre highlight="js">
         const buffer = gpuDevice.createBuffer({
             size: 128,
@@ -1744,32 +1742,32 @@ namespace GPUBufferUsage {
 
 ## 缓冲区销毁 ## {#buffer-destruction}
 
-不再需要{{GPUBuffer}}的应用程序可以选择丢失通过调用{{GPUBuffer/destroy()}}在垃圾回收之前访问它。也销毁缓冲区取消映射，释放为映射分配的任何内存。
+不再需要 {{GPUBuffer}} 的应用程序可以选择通过调用 {{GPUBuffer/destroy()}，在垃圾回收之前，丢弃对缓冲区的访问。销毁缓冲区的同时，也使缓冲区回到未映射状态，释放为映射分配的任何内存。
 
-注意：一旦所有先前提交的使用它的操作完成，这允许用户代理回收与{{GPUBuffer}}关联的GPU内存。
+Note: 一旦先前提交的所有使用 {{GPUBuffer}} 的操作完成，用户代理可以回收与 {{GPUBuffer}} 关联的 GPU 内存。
 
 <dl dfn-type=method dfn-for=GPUBuffer>
     : <dfn>destroy()</dfn>
     ::
-        销毁{{GPUBuffer}}.
+        销毁 {{GPUBuffer}}.
 
         <div algorithm=GPUBuffer.destroy>
-            **Called on:** {{GPUBuffer}} |this|.
+            **调用:** {{GPUBuffer}} |this|.
 
-            **Returns:** {{undefined}}
-            1. 如果|this|.{{GPUBuffer/[[state]]}}不是[=buffer state/unmapped=]或[=buffer state/destroyed=]
-                1. 执行unmap|this|的步骤。
+            **返回:** {{undefined}}
+            1. 如果 |this|.{{GPUBuffer/[[state]]}} 不是[=buffer state/未映射=]或[=buffer state/被销毁=]
+                1. 执行取消映射 |this| 的步骤。
 
-            2. 设置|this|.{{GPUBuffer/[[state]]}}为[=buffer state/destroyed=].
+            2. 设置 |this|.{{GPUBuffer/[[state]]}} 为[=buffer state/被销毁=].
         </div>
 </dl>
 
 ## 缓冲区映射 ## {#buffer-mapping}
 
 
-应用程序可以请求映射{{GPUBuffer}}，以便他们可以通过代表{{GPUBuffer}}部分分配的ArrayBuffers访问其内容。使用{{GPUBuffer/mapAsync()}}异步请求映射{{GPUBuffer}}，以便用户代理可以确保GPU在应用程序可以访问其内容之前完成使用{{GPUBuffer}}。一旦{{GPUBuffer}} 被映射，应用程序就可以使用{{GPUBuffer/getMappedRange}}同步请求访问其内容范围。已映射的{{GPUBuffer}}不能被GPU使用，并且必须在使用它的work提交到[=Queue timeline=]之前使用{{GPUBuffer/unmap}}取消映射。
+应用程序可以请求映射 {{GPUBuffer}}，使得这些应用程序可以通过 ArrayBuffers 访问其内容，这些 ArrayBuffers 代表了 {{GPUBuffer}} 的部分分配。使用 {{GPUBuffer/mapAsync()}} 异步请求映射 {{GPUBuffer}}，使得户代理可以确保 GPU 在应用程序可以访问其内容之前完成对 {{GPUBuffer}} 的使用。一旦 {{GPUBuffer}} 被映射，应用程序就可以使用 {{GPUBuffer/getMappedRange}} 同步请求访问其内容范围。已映射的 {{GPUBuffer}} 不能被 GPU 使用，并且必须在被使用到的工作任务提交到[=队列时间线=]之前，使用 {{GPUBuffer/unmap}} 使其回到未映射状态。
 
-问题(gpuweb/gpuweb#605): 添加客户端校验，已映射缓冲区只能在其映射的worker上取消映射和销毁。同样{{GPUBuffer/getMappedRange}}只能在该worker上被调用。
+Issue(gpuweb/gpuweb#605): 添加客户端校验，使已映射缓冲区只能在其映射的 worker 上取消映射和销毁。同样 {{GPUBuffer/getMappedRange}} 只能在该 worker 上被调用。
 
 <script type=idl>
 typedef [EnforceRange] unsigned long GPUMapModeFlags;
@@ -1783,147 +1781,146 @@ namespace GPUMapMode {
 <dl dfn-type=method dfn-for=GPUBuffer>
     : <dfn>mapAsync(mode, offset, size)</dfn>
     ::
-        映射{{GPUBuffer}}的给定范围，并在{{GPUBuffer}}的内容准备好可以使用{{GPUBuffer/getMappedRange()}}访问时，决议返回的Promise。
+        映射 {{GPUBuffer}} 的给定范围，并在 {{GPUBuffer}} 的内容准备好可以使用 {{GPUBuffer/getMappedRange()}} 访问时，决议返回的 Promise。
 
         <div algorithm=GPUBuffer.mapAsync>
-            **Called on:** {{GPUBuffer}} |this|.
+            **调用:** {{GPUBuffer}} |this|.
 
-            **Arguments:**
+            **参数:**
             <pre class=argumentdef for="GPUBuffer/mapAsync(mode, offset, size)">
                 |mode|: 缓冲区是否应当被映射为读取或写入。
                 |offset|: 以字节为单位的缓冲区到要映射的范围起始位置的偏移量。
                 |size|: 以字节为单位的要映射的范围大小。
             </pre>
 
-            **Returns:** {{Promise}}&lt;{{undefined}}&gt;
+            **返回:** {{Promise}}&lt;{{undefined}}&gt;
 
-            问题(gpuweb/gpuweb#605): 一旦我们有了错误单子，即刻处理错误缓冲区。
+            Issue(gpuweb/gpuweb#605): 一旦我们有了错误单子的描述，即刻处理错误缓冲区。
 
-            1. 如果|size|字段丢失:
-                1. 使|rangeSize|为max(0, |this|.{{GPUBuffer/[[size]]}} - |offset|)。
+            1. 如果 |size| 字段丢失:
+                1. 使 |rangeSize| 为 max(0, |this|.{{GPUBuffer/[[size]]}} - |offset|)。
 
-                否则, 使|rangeSize|为|size|。
+                否则, 使 |rangeSize| 为 |size|。
 
-            2. 如果以下任何条件未满足:
+            2. 如果以下任何条件未被满足:
                 <div class=validusage>
-                    - |this|为有效的（[=valid=]）{{GPUBuffer}}。
-                        TODO: check destroyed state?
-                    - |offset|是8的倍数。
-                    - |rangeSize|是4的倍数。
-                    - |offset| + |rangeSize|等于或小于|this|.{{GPUBuffer/[[size]]}}。
-                    - |this|.{{GPUBuffer/[[state]]}}为[=buffer state/unmapped=]状态。
-                    - |mode|明确包含{{GPUMapMode/READ}}或{{GPUMapMode/WRITE}}之一。
-                    - 如果|mode|包含{{GPUMapMode/READ}}，则|this|.{{GPUBuffer/[[usage]]}}必须包含{{GPUBufferUsage/MAP_READ}}。
-                    - 如果|mode|包含{GPUMapMode/WRITE}}，则|this|.{{GPUBuffer/[[usage]]}}必须包含{{GPUBufferUsage/MAP_WRITE}}.
+                    - |this| 为[=有效=] {{GPUBuffer}}。
+                        TODO: 检查被销毁状态?
+                    - |offset| 是 8 的倍数。
+                    - |rangeSize| 是 4 的倍数。
+                    - |offset| + |rangeSize| 等于或小于 |this|.{{GPUBuffer/[[size]]}}。
+                    - |this|.{{GPUBuffer/[[state]]}} 为 [=buffer state/未映射=]状态。
+                    - |mode| 明确包含 {{GPUMapMode/READ}} 或 {{GPUMapMode/WRITE}} 之一。
+                    - 如果 |mode| 包含 {{GPUMapMode/READ}}，则 |this|.{{GPUBuffer/[[usage]]}} 必须包含 {{GPUBufferUsage/MAP_READ}}。
+                    - 如果 |mode| 包含 {GPUMapMode/WRITE}}，则 |this|.{{GPUBuffer/[[usage]]}} 必须包含 {{GPUBufferUsage/MAP_WRITE}}.
 
-                    问题: 我们是否需要对仅包含有效标识的|mode|做校验？
+                    Issue: 我们是否需要对仅包含有效标识的 |mode| 做校验？
                 </div>
 
                 接下来:
                 1. 记录当前范围内的校验错误。
-                2. 返回[=a promise rejected with=]一个[=Device timeline=]上的{{OperationError}}。
+                2. 返回 [=a promise rejected with=] 一个[=设备时间线=]上的 {{OperationError}}。
 
-            3. 使|p|为一个新的{{Promise}}。
-            4. 设置|this|.{{GPUBuffer/[[mapping]]}}为|p|。
-            5. 设置|this|.{{GPUBuffer/[[state]]}}为[=buffer state/mapping pending=]。
-            6. 设置|this|.{{GPUBuffer/[[map_mode]]}}为|mode|。
-            7. 在默认队列上的[=Queue timeline=]对操作进行入队操作，该行为将执行以下操作:
+            3. 使 |p| 为一个新的 {{Promise}}。
+            4. 设置 |this|.{{GPUBuffer/[[mapping]]}} 为 |p|。
+            5. 设置 |this|.{{GPUBuffer/[[state]]}} 为[=buffer state/待映射=]。
+            6. 设置 |this|.{{GPUBuffer/[[map_mode]]}} 为 |mode|。
+            7. 在默认队列上的[=队列时间线=]对操作进行入队操作，该行为将执行以下操作:
                 <div class=queue-timeline>
-                    1. 如果|this|.{{GPUBuffer/[[state]]}}为[=buffer state/mapping pending=]状态:
+                    1. 如果 |this|.{{GPUBuffer/[[state]]}} 为[=buffer state/待映射=]状态:
 
-                        1. 使|m|为一个新的大小为|rangeSize|的{{ArrayBuffer}}。
-                        2. 将|m|的内容设置为|this|分配的内容，从偏移|offset|开始，为|rangeSize|字节。
-                        3. 将|this|.{{GPUBuffer/[[mapping]]}}设置为|m|.
-                        4. 将|this|.{{GPUBuffer/[[state]]}}设置为[=buffer state/mapped=].
-                        5. 将|this|.{{GPUBuffer/[[mapping_range]]}}设置为<code>[|offset|, |offset| + |rangeSize|]</code>.
-                        6. 将|this|.{{GPUBuffer/[[mapped_ranges]]}}设置为 `[]`.
+                        1. 使 |m| 为一个新的大小为 |rangeSize| 的 {{ArrayBuffer}}。
+                        2. 将 |m| 的内容设置为 |this| 分配的内容，从偏移 |offset| 开始分配，且分配 |rangeSize| 字节。
+                        3. 将 |this|.{{GPUBuffer/[[mapping]]}} 设置为 |m|.
+                        4. 将 |this|.{{GPUBuffer/[[state]]}} 设置为[=buffer state/已映射=].
+                        5. 将 |this|.{{GPUBuffer/[[mapping_range]]}} 设置为 <code>[|offset|, |offset| + |rangeSize|]</code>.
+                        6. 将 |this|.{{GPUBuffer/[[mapped_ranges]]}} 设置为 `[]`.
 
                     2. Resolve |p|.
                 </div>
-            8. 返回|p|。
+            8. 返回 |p|。
         </div>
 
     : <dfn>getMappedRange(offset, size)</dfn>
     ::
-        返回一个带有给定范围内{{GPUBuffer}}内容的{{ArrayBuffer}}。
+        返回一个带有给定范围内 {{GPUBuffer}} 内容的 {{ArrayBuffer}}。
 
         <div algorithm=GPUBuffer.getMappedRange>
-            **Called on:** {{GPUBuffer}} |this|.
+            **调用:** {{GPUBuffer}} |this|.
 
-            **Arguments:**
+            **参数:**
             <pre class=argumentdef for="GPUBuffer/getMappedRange(offset, size)">
                 |offset|: 以字节为单位的缓冲区偏移量，返回缓冲区内容的位置。
-                |size|: 以字节为单位的，要返回的{{ArrayBuffer}}大小。
+                |size|: 以字节为单位的，要返回的 {{ArrayBuffer}} 大小。
             </pre>
 
-            **Returns:** {{ArrayBuffer}}
+            **返回:** {{ArrayBuffer}}
 
-            1. 如果|size|缺失:
-                1. 使|rangeSize|为max(0, |this|.{{GPUBuffer/[[size]]}} - |offset|)。
+            1. 如果 |size| 缺失:
+                1. 使 |rangeSize| 为 max(0, |this|.{{GPUBuffer/[[size]]}} - |offset|)。
 
-                否则, 使|rangeSize|为|size|。
+                否则, 使 |rangeSize| 为 |size|。
 
-            2. 如果任何以下条件未满足, 抛出一个{{OperationError}}异常并停止。
+            2. 如果任何以下条件未满足, 产生一个 {{OperationError}} 异常并停止。
                 <div class=validusage>
-                    - |this|.{{GPUBuffer/[[state]]}}为[=buffer state/mapped=] or [=buffer state/mapped at creation=]。
-                    - |offset|是8的倍数。
-                    - |rangeSize|是4的倍数。
-                    - |offset|等于或大于|this|.{{GPUBuffer/[[mapping_range]]}}[0]。
-                    - |offset| + |rangeSize|小于或等于|this|.{{GPUBuffer/[[mapping_range]]}}[1].
-                    - [|offset|, |offset| + |rangeSize|)不与另一个|this|.{{GPUBuffer/[[mapped_ranges]]}}范围重叠。
+                    - |this|.{{GPUBuffer/[[state]]}} 为[=buffer state/已映射=]或[=buffer state/在创建时被映射=]。
+                    - |offset| 是 8 的倍数。
+                    - |rangeSize| 是 4 的倍数。
+                    - |offset| 等于或大于 |this|.{{GPUBuffer/[[mapping_range]]}}[0]。
+                    - |offset| + |rangeSize| 小于或等于 |this|.{{GPUBuffer/[[mapping_range]]}}[1].
+                    - [|offset|, |offset| + |rangeSize|) 不与另一个 |this|.{{GPUBuffer/[[mapped_ranges]]}} 范围重叠。
 
-                    注意：获取[=buffer state/mapped at creation=]的{{GPUBuffer}}的映射范围总是有效的，即使它是无效的，因为[=Content timeline=]可能不知道它是无效的。
+                    Note: 获取[=buffer state/在创建时被映射=]的 {{GPUBuffer}} 的映射范围总是有效的，即使它是[=无效的=]，因为[=内容时间线=]可能不知道它是无效的。
 
-                    问题：考虑将mapAsync偏移量对齐到8以匹配此值。
+                    Issue: 考虑将 mapAsync 偏移量对齐到 8 以匹配此值。
                 </div>
 
-            3. 使|m|为一个新的大小为|rangeSize|的{{ArrayBuffer}}，指向|this|.{{GPUBuffer/[[mapping]]}}的内容偏移量|offset| - |this|.{{GPUBuffer/[[mapping_range]]}}[0]。
+            3. 使 |m| 为一个新的大小为 |rangeSize| 的 {{ArrayBuffer}}，指向 |this|.{{GPUBuffer/[[mapping]]}} 的内容偏移量 |offset| - |this|.{{GPUBuffer/[[mapping_range]]}}[0]。
 
-            4. 添加([=list/Append=])|m|至|this|.{{GPUBuffer/[[mapped_ranges]]}}。
+            4. 添加 ([=list/Append=]) |m| 至 |this|.{{GPUBuffer/[[mapped_ranges]]}}。
 
             5. 返回|m|。
         </div>
 
     : <dfn>unmap()</dfn>
     ::
-        对已映射的{{GPUBuffer}}范围取消映射，并且使得它的内容可以重新被GPU使用。
+        对已映射的 {{GPUBuffer}} 范围取消映射，并且使得其内容可以重新被 GPU 使用。
 
         <div algorithm=GPUBuffer.unmap>
-            **Called on:** {{GPUBuffer}} |this|.
+            **调用:** {{GPUBuffer}} |this|.
 
-            **Returns:** {{undefined}}
+            **返回:** {{undefined}}
 
             1. 如果以下任何需求没有满足，产生一个校验错误并停止。
                 <div class=validusage>
-                    - |this|.{{GPUBuffer/[[state]]}}必须为[=buffer state/mapped at creation=]，
-                        [=buffer state/mapping pending=]，或[=buffer state/mapped=].
+                    - |this|.{{GPUBuffer/[[state]]}} 必须为[=buffer state/在创建时被映射=]，[=buffer state/待映射=]，或[=buffer state/已映射=].
 
-                    Note: 取消一个状态为[=buffer state/mapped at creation=]的{{GPUBuffer}}[=invalid=]映射是有效的，因为[=Content timeline=]可能不知道它是个错误的{{GPUBuffer}}。这允许释放临时{{GPUBuffer/[[mapping]]}}内存。
+                    Note: 取消一个状态为[=buffer state/在创建时被映射=]的 {{GPUBuffer}} [=无效=]映射是有效的，因为[=内容时间线=]可能不知道它是个错误的 {{GPUBuffer}}。这允许释放临时 {{GPUBuffer/[[mapping]]}} 内存。
                 </div>
 
-            2. 如果|this|.{{GPUBuffer/[[state]]}}为[=buffer state/mapping pending=]:
+            2. 如果 |this|.{{GPUBuffer/[[state]]}} 为[=buffer state/待映射=]:
 
-                1. 拒绝（[=Reject=]）{{GPUBuffer/[[mapping]]}}，以一个{{AbortError}}。
-                1. 设置|this|.{{GPUBuffer/[[mapping]]}}为 `null`。
+                1. [=拒绝=] {{GPUBuffer/[[mapping]]}}，产生一个 {{AbortError}}。
+                1. 设置 |this|.{{GPUBuffer/[[mapping]]}} 为 `null`。
 
-            3. 如果|this|.{{GPUBuffer/[[state]]}}为[=buffer state/mapped=]或[=buffer state/mapped at creation=]:
+            3. 如果 |this|.{{GPUBuffer/[[state]]}} 为[=buffer state/已映射=]或[=buffer state/在创建时被映射=]:
 
                 1. 如果以下两条件之一成立:
 
-                    - |this|.{{GPUBuffer/[[state]]}}为[=buffer state/mapped at creation=]
-                    - |this|.{{GPUBuffer/[[state]]}}为[=buffer state/mapped=]并且|this|.{{GPUBuffer/[[map_mode]]}}包含{{GPUMapMode/WRITE}}
+                    - |this|.{{GPUBuffer/[[state]]}} 为[=buffer state/在创建时被映射=]
+                    - |this|.{{GPUBuffer/[[state]]}} 为[=buffer state/已映射=]并且 |this|.{{GPUBuffer/[[map_mode]]}} 包含 {{GPUMapMode/WRITE}}
 
                     则接下来:
-                    1. 在默认队列的[=Queue timeline=]上将操作入队，该操作将|this|.{{GPUBuffer/[[mapping_range]]}}的|this|分配更新为 |this|.{{GPUBuffer/[[mapping]]}}的内容。
+                    1. 在默认队列的[=队列时间线=]上将操作入队，该操作将 |this|.{{GPUBuffer/[[mapping_range]]}} 的 |this| 分配更新为 |this|.{{GPUBuffer/[[mapping]]}} 的内容。
 
-                2. 将|this|.{{GPUBuffer/[[mapped_ranges]]}}中的每个{{ArrayBuffer}}与其内容分离。
-                3. 将|this|.{{GPUBuffer/[[mapping]]}}设置为 `null`.
-                4. 将|this|.{{GPUBuffer/[[mapping_range]]}}设置为 `null`.
-                5. 将|this|.{{GPUBuffer/[[mapped_ranges]]}}设置为 `null`.
+                2. 将 |this|.{{GPUBuffer/[[mapped_ranges]]}} 中的每个 {{ArrayBuffer}} 与其内容分离。
+                3. 将 |this|.{{GPUBuffer/[[mapping]]}} 设置为 `null`.
+                4. 将 |this|.{{GPUBuffer/[[mapping_range]]}} 设置为 `null`.
+                5. 将 |this|.{{GPUBuffer/[[mapped_ranges]]}} 设置为 `null`.
 
-            4. 将|this|.{{GPUBuffer/[[state]]}}设置为[=buffer state/unmapped=].
+            4. 将 |this|.{{GPUBuffer/[[state]]}} 设置为[=buffer state/未映射=].
 
-            注意：当{{GPUBufferUsage/MAP_READ}}缓冲区（目前未在创建时映射）被取消映射时，应用程序对映射范围{{ArrayBuffer}}所做的任何本地修改都将被丢弃，并且不会影响后续映射的内容。
+            Note: 当 {{GPUBufferUsage/MAP_READ}} 缓冲区（目前未在创建时被映射）被取消映射时，应用程序对映射范围 {{ArrayBuffer}} 所做的任何本地修改都将被丢弃，并且不会影响后续映射的内容。
         </div>
 </dl>
 
