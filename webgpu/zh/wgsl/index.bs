@@ -343,6 +343,7 @@ WGSL程序文本由一系列双字节对字符 [=code points=]组成，分组为
 在以下情况下会导致[=shader-creation error=]：
 * 整个源文本无法转换为有限的有效tokens序列，或
 * [=syntax/translation_unit=] 语法规则与整个token序列不匹配。
+
 ## 空格和换行符## {#blankspace-and-line-breaks}
 
 <dfn>Blankspace</dfn> 是 Unicode 中的一个或多个代码点的任意组合。
@@ -423,7 +424,7 @@ WGSL程序文本由一系列双字节对字符 [=code points=]组成，分组为
 ## 文字 ## {#literals}
 
 文字（<dfn>literal</dfn>）为一下之一：
-* 布尔文字<dfn noexport>boolean literal</dfn>：`true`或`false`。
+* 布尔文字<dfn noexport>boolean literal</dfn>：`true`或 `false`。
 * 数字文字<dfn>numeric literal</dfn>：[=integer literal=] 或 [=floating point literal=]，用于表示一个数字。
 
 <div class='example wgsl bool-literals' heading='boolean literals'>
@@ -562,6 +563,7 @@ WGSL程序文本由一系列双字节对字符 [=code points=]组成，分组为
 * 带有 `f` 或 `h` 后缀的 [=hexadecimal floating point literal=] 溢出或无法由目标类型精确表示。
 * 带有 `f` 或 `h` 后缀的 [=decimal floating point literal=] 会溢出目标类型。
 * 使用带有 `h` 后缀的 [=floating point literal=] 而 [=extension/f16|f16 extension=] 未启用。
+
 Note: The hexadecimal float value 0x1.00000001p0 requires 33 mantissa bits to be represented exactly,
 but [=f32=] only has 23 explicit mantissa bits.
 
@@ -591,11 +593,11 @@ but [=f32=] only has 23 explicit mantissa bits.
 ```
 
 这意味着具有此类非 ASCII 代码点的标识符是
-有效：`Δέλτα`, `réflexion`, `Кызыл`, `𐰓𐰏𐰇`, `朝焼け`, `سلام`, `검정`, `שָׁלוֹם`, `गुलाबी`, `փրոզ
+有效：`Δέλτα`, `réflexion`, `Кызыл`, `𐰓𐰏𐰇`, `朝焼け`, `سلام`, `검정`, `שָׁלוֹם`, `गुलाबी`, `փրոզ`
 
 除以下例外：
 * 标识符的拼写不得与 [=keyword=] 或 [=reserved word=] 相同。
-* 标识符不能是 `_`（单下划线，`U+005F`）。
+* 标识符不能是 `_` （单下划线， `U+005F` ）。
 * 标识符不能以 `__` 开头（两个下划线，`U+005F` 后跟 `U+005F`）。
 
 <div class='syntax' noexport='true'>
@@ -1020,7 +1022,7 @@ WGSL值是通过计算表达式来计算的。表达式（<dfn noexport>expressi
 它有两个 [[#literal-expressions|literal 子表达式]]：`1u` 和 `2u`，都是 u32 类型。
 [=顶级表达式=] 是一个附加项。
 参考 [[#arithmetic-expr]] 规则，标量 u32 加法的类型规则适用于表达式，因为：
-* `1u+2u` 匹配 |e1|+|e2| 形式的解析，带有 |e1|代表`1u`和|e2|代表“2u”，和
+* `1u+2u` 匹配 |e1|+|e2| 形式的解析，带有 |e1|代表 `1u` 和|e2|代表“2u”，和
 * |e1|是 u32 类型，并且
 * |e2|是u32类型。
 
@@ -1201,7 +1203,7 @@ TODO：示例：非结果值效应是函数调用子表达式的任何副作用�
     * [=AbstractInt=] 到 [=f32=]。 （转换等级 5）
 * 结果计算以 [=AbstractFloat=] 的形式出现（例如 `log2(32.0)`）。
 
-示例：表达式`1 + 2.5`分析如下：
+示例：表达式 `1 + 2.5` 分析如下：
 * `1 + 2.5` 被解析为子表达式 [=AbstractInt=] 值为 1 和 [=AbstractFloat=] 值为 2.5 的加法运算。
 * |e|+|f| 没有重载在哪里 |e|是整数且 |f|是浮点数。
 * 然而，使用可行的自动转换，有两个潜在的重载：
@@ -1213,7 +1215,7 @@ TODO：示例：非结果值效应是函数调用子表达式的任何副作用�
 示例：`让 x = 1 + 2.5;`
 * 这个例子和上面的例子类似，只是 `x` 不能解析为 [=abstract numeric type=]。
 * 因此，只有一个可行的重载候选：使用 [=f32=] 加法。
-* 声明的效果就像是写成`let x : f32 = 1.0f + 2.5f;`。
+* 声明的效果就像是写成 `let x : f32 = 1.0f + 2.5f;`。
 
 示例：`1u + 2.5` 导致 [=shader-creation error=]：
 * `1u` 项是 [=u32=] 类型的表达式。
@@ -1329,6 +1331,7 @@ TODO：示例：非结果值效应是函数调用子表达式的任何副作用�
 
        </xmp>
      </div>
+
 ## 普通类型 ## {#plain-types-section}
 
 普通类型（[=Plain types=]） 是布尔值、数字、向量、矩阵或这些值的机器表示类型，。
@@ -3218,14 +3221,14 @@ let 声明（<dfn noexport>let declaration</dfn>）指定值的名称。一旦�
    * 初始化表达式，如果存在，必须：
        * 评估为 [=scalar=] 类型。
        * 如果存在，则评估为声明的类型。
-        * 仅由 [=creation-time expressions=] 或所有标识符 [=resolve=] 到可覆盖常量、[=creation-time constants=] 或 [=creation-time functions=] 的表达式组成。
-           这样的表达式称为<dfn noexport>override expressio/dfn>。
+        * 仅由 [=creation-time expressions=] 或所有标识符 [=resolve=] 到可覆盖常量、[=creation-time constants=] 或 [=creation-time functions=] 的表达式组成。这样的表达式称为<dfn noexport>override expressio/dfn>。
    * 如果声明应用了 [=attribute/id=]，则文字操作数称为 <dfn noexport>管道常量 ID</dfn>，并且必须是 0 到 65535 之间的整数值。
    * 管道常量 ID 在 WGSL 程序中必须是唯一的：两个“覆盖”-声明不得使用相同的管道常量 ID。
    * 应用程序可以在管道创建时为常量指定自己的值。
      管道创建 API 接受从可覆盖常量到常量类型值的映射。
      常量由 <dfn export>pipeline-overridable 常量标识符字符串</dfn>标识，如果指定，它是 [=pipeline constant ID=] 的 base-10 表示，否则声明的 [=name=] 常数。
    * <dfn export>管道可覆盖常量如果其声明具有初始化表达式，则具有默认值</dfn>。 如果没有，则必须在管道创建时提供一个值。
+
 注意：覆盖表达式是 [=creation-time expressions=] 的超集。
 <div class='example wgsl global-scope' heading='Module constants, pipeline-overrideable'>
   <xmp highlight='rust'>
@@ -3252,14 +3255,14 @@ let 声明（<dfn noexport>let declaration</dfn>）指定值的名称。一旦�
 当 [=identifier=] 将 [=resolves=] 用于创建时间常数时，标识符表示该值。
 
 当声明创建时常量时没有明确指定类型，
-例如`const foo = 4`，类型是从 [=syntax/equals=] 标记右侧的表达式自动推断的。
+例如 `const foo = 4`，类型是从 [=syntax/equals=] 标记右侧的表达式自动推断的。
 创建时间常量的类型必须是：
 * 一个 [=constructible=] 类型，或
 * [=abstract numeric type=]，或
 * 一个 [=vector=]，或
 * 一个 [=matrix=]
 
-当指定类型时，例如`const foo : i32 = 4`，初始化表达式必须计算为该类型。
+当指定类型时，例如 `const foo : i32 = 4`，初始化表达式必须计算为该类型。
 
 注意：由于 [=AbstractInt=] 和 [=AbstractFloat=] 在 WGSL 源代码中无法拼写，因此命名值只能通过类型推断来使用它们。
 
@@ -3513,7 +3516,7 @@ WGSL 定义了以下可应用于全局变量的属性：
     应用的重载候选使用从 [=AbstractInt=] 到 [=i32=]、[=u32=] 或 [=f32=] 的 [=feasible automatic conversions=]。
     排名最低的是 [=i32=]，所以
     [=AbstractInt=] -2147483648 值转换为 [=i32=] 值 -2147483648。
-* 结果是`minint`被声明为i32值-2147483648。
+* 结果是 `minint`被声明为i32值-2147483648。
 
 ## 文字表达式 ## {#literal-expressions}
 
@@ -4072,13 +4075,13 @@ WGSL 不隐式转换或提升一个数值或布尔值为另外的类型。而是
      <td>|e|: vec|N|<bool>;
      <td>`vec`|N|&lt;`i32`&gt;`(`|e|`)`: vec|N|&lt;i32&gt
      <td>[=Component-wise=] 将布尔向量转换为有符号向量。<br>
-         组件 |i|结果是`i32(`|e|`[`|i|`])`
+         组件 |i|结果是 `i32(`|e|`[`|i|`])`
 
   <tr algorithm="从无符号到有符号的向量重新解释">
      <td>|e|: vec|N|<u32>;
      <td>`vec`|N|&lt;`i32`&gt;`(`|e|`)`: vec|N|&lt;i32&gt
      <td>[=Component-wise=] 重新解释位。<br>
-         组件 |i|结果是`i32(`|e|`[`|i|`])`
+         组件 |i|结果是 `i32(`|e|`[`|i|`])`
 
   <tr algorithm="从二进制32浮点到有符号整数的向量转换">
      <td>|e|: vec|N|<f32>;
@@ -4094,7 +4097,7 @@ WGSL 不隐式转换或提升一个数值或布尔值为另外的类型。而是
      <td>|e|: vec|N|<bool>;
      <td>`vec`|N|&lt;`u32`&gt;`(`|e|`)`: vec|N|&lt;u32&gt
      <td>[=Component-wise=] 将布尔向量转换为无符号向量。<br>
-         组件 |i|结果是`u32(`|e|`[`|i|`])`
+         组件 |i|结果是 `u32(`|e|`[`|i|`])`
 
   <tr algorithm="从有符号到无符号的向量重新解释">
      <td>|e|: vec|N|&lt;AbstractInt&gt;或 vec|N|&lt;i32&gt;
@@ -4115,7 +4118,7 @@ WGSL 不隐式转换或提升一个数值或布尔值为另外的类型。而是
      <td>|e|: vec|N|<bool>;
      <td>`vec`|N|&lt;`f32`&gt;`(`|e|`)`: vec|N|&lt;f32&gt
      <td>[=Component-wise=] 将布尔向量转换为浮点数。<br>
-         组件 |i|结果是`f32(`|e|`[`|i|`])`
+         组件 |i|结果是 `f32(`|e|`[`|i|`])`
 
   <tr algorithm="从有符号整数到二进制32浮点的向量转换">
      <td>|e|: vec|N|<i32>;
@@ -4136,7 +4139,7 @@ WGSL 不隐式转换或提升一个数值或布尔值为另外的类型。而是
      <td>|e|: vec|N|<bool>;
      <td>`vec`|N|&lt;`f16`&gt;`(`|e|`)`: vec|N|&lt;f16&gt
      <td>[=Component-wise=] 将布尔向量转换为 binary16 浮点。<br>
-         组件 |i|结果是`f16(`|e|`[`|i|`])`
+         组件 |i|结果是 `f16(`|e|`[`|i|`])`
 
   <tr algorithm="从有符号整数到二进制16浮点的向量转换">
      <td>|e|: vec|N|<i32>;
@@ -4657,7 +4660,8 @@ location|memory locations=]）。
         -->
         如果 |T| 是无符号整数类型，标量情况，计算结果为：
         * |e1|，当 |e2| 为零。
-        ** |e1|，当 |e2| 为零。
+          
+          ** |e1|，当 |e2| 为零。
                   * 否则，整数 |q| 使得 |e1|&nbsp;=&nbsp;|q|&nbsp;&times;&nbsp;|e2|&nbsp;+&nbsp;|r|，其中 0 &le; |r| &lt; |e2|。
   <tr algorithm="Remainder">
     <td>|e1| : |T|<br>|e2| : |T|<br>[ALLNUMERICDECL]
@@ -5609,7 +5613,7 @@ case 选择器值必须与计算选择器表达式的结果具有相同的类型
 一个表达值在 switch 语句的 case 选择器中不能出现多次。
 
 注意：表达式的值才是重要的，而不是拼写。
-例如`0`和`0x0000`都表示零值。
+例如 `0`和 `0x0000`都表示零值。
 
 当控制到达 case 主体的末尾时，控制通常转移到 switch 语句之后的第一个语句。
 或者，执行 <dfn noexport dfn-for="statement">fallthrough</dfn> 语句
@@ -6577,7 +6581,7 @@ while循环可以被看作是[=statement/loop=]或[=statement/for=]语句的语�
 </div>
 
 WGSL 定义了以下可应用于函数声明的属性:
- * [=管线阶段属性=]: [=attribute/顶点=], [=attribute/片元=], 和 [=attribute/计算=]
+ * [=pipeline stage attributes=]: [=attribute/顶点=], [=attribute/片元=], 和 [=attribute/计算=]
  * [=attribute/workgroup_size=]
 
 WGSL 定义了以下可应用于函数参数和返回类型的属性:
@@ -6640,7 +6644,7 @@ WGSL 定义了以下可应用于函数参数和返回类型的属性:
 4. 被调用函数的形参值由函数调用参数值按位置匹配确定。
     例如，在被调用函数的主体中，第一个形参将表示
     [=call site=] 处第一个参数的值。
-5. 如果调用的函数是[=用户定义函数|用户定义=]，
+5. 如果调用的函数是 [=user-defined function|user-defined=]，
     控制被转移到其 [=function body|body=] 中的第一个语句。
 6. 被调用的函数被执行，直到它[=returns=]。
 7. 控制权移交给调用函数，被调用函数的执行不暂停。
@@ -6711,7 +6715,7 @@ WGSL 定义了以下可应用于函数参数和返回类型的属性:
 
 ### 别名内存视图 ### {#function-aliasing}
 
-[=内存位置=] 可以在函数执行期间使用 [=内存视图=] 访问。
+[=Memory locations=] 可以在函数执行期间使用 [=memory view=] 访问。
 在一个函数中，每个 [=memory view=] 都有一个特定的根标识符。
 根标识符可以是 [=originating variable=] 或 [=pointer type=] 的 [=formal parameter=]。
 
@@ -6806,7 +6810,7 @@ WGSL 定义了三个 <dfn noexport>shader stage</dfn>，对应流水线的可编
 
 ## 入口点声明 ## {#entry-point-decl}
 
-要创建 [=entry point=]，请使用 [=管线阶段属性=] 属性声明 [=user-defined function=]。
+要创建 [=entry point=]，请使用 [=pipeline stage attributes=] 属性声明 [=user-defined function=]。
 
 在 WebGPU API 中配置 [=pipeline=] 时，入口点的函数名称映射到 [[WebGPU#GPUProgrammableStage]] 对象的 `entryPoint` 属性。
 
@@ -6844,7 +6848,7 @@ WGSL 定义了三个 <dfn noexport>shader stage</dfn>，对应流水线的可编
 ### 入口点的函数属性 ### {#entry-point-attributes}
 
 WGSL 定义了以下可应用于入口点声明的属性:
- * [=管线阶段属性=]: [=attribute/顶点=], [=attribute/片元=], and [=attribute/计算=]
+ * [=pipeline stage attributes=]: [=attribute/vertext=], [=attribute/fragement=], and [=attribute/compute=]
  * [=attribute/workgroup_size=]
 
 问题：我们可以查询工作组大小维度的上限吗？ 是独立于shader，还是创建shader模块后要查询的属性？
@@ -7166,10 +7170,10 @@ WGSL 语言预计会随着时间的推移而发展。
 
 ## 启用指令 ## {#enable-directive-section}
 
-<dfn noexport>enable directive</dfn> 表示由特定命名的 [=扩展=] 可以被使用。
-语法规则意味着所有启用指令必须出现在任何 [=声明=] 之前。
+<dfn noexport>enable directive</dfn> 表示由特定命名的 [=extension=] 可以被使用。
+语法规则意味着所有启用指令必须出现在任何 [=declarations=] 之前。
 
-该指令使用 [=标识符=]、[=关键字=] 或 [=保留字=] 来命名扩展。有效的扩展名列在 [[#extension-list]] 中。
+该指令使用 [=identifier=], [=keyword=], 或 [=reserved word=] 来命名扩展。有效的扩展名列在 [[#extension-list]] 中。
 
 指令对标识符的使用与将该标识符用作任何 [=declaration=] 中的名称不冲突。
 
@@ -7256,7 +7260,7 @@ WGSL 程序是一系列可选的 [=directives=] 后跟 [=module scope=] [=declar
     <tr><th>限制<th>最大值
   </thead>
     <tr><td>[=structure=] 类型中的成员数<td>16383
-    <tr><td>[=复合=] 类型的[=嵌套深度=] <td>255
+    <tr><td>[=composite=] 类型的[=Nesting depth=] <td>255
     <tr><td>函数的 [=formal parameter|parameters=] 的数量<td>255
     <tr><td>[=statement/switch=] 语句中的 case 选择器值的数量<td>16383
 </table>
@@ -7292,8 +7296,8 @@ WGSL 程序中的语句按控制流顺序执行。
 分析实际上定义了这些概念，以及程序何时有效或违反了统一性规则。
 对于给定的一组调用：
 - 如果给定范围内的所有调用都像在程序中的给定点同步执行一样执行，则称该点具有<dfn noexport>统一控制流</dfn>。
-    - 对于一个[=计算着色器阶段=]，统一控制流的范围是同一个[=计算着色器阶段/工作组=]中的所有调用.
-    - 对于其他着色器阶段，统一控制流的范围是在同一 [=绘制命令=] 中对该 [=entry point=] 的所有调用。
+    - 对于一个[=计算着色器阶段=]，统一控制流的范围是同一个[=计算着色器阶段/workgroup=]中的所有调用.
+    - 对于其他着色器阶段，统一控制流的范围是在同一 [=draw command=] 中对该 [=entry point=] 的所有调用。
 - 如果一个表达式在统一控制流中执行，并且所有调用计算相同的值，则称它是 <dfn noexport>统一值</dfn>.
 - 如果调用在局部变量的每个活动点都保持相同的值，则称其为 <dfn noexport>统一变量</dfn>
 
@@ -7325,9 +7329,9 @@ WGSL 程序中的语句按控制流顺序执行。
 第一阶段遍历函数的语法，根据以下小节中的规则构建一个有向图。
 第二阶段探索该图，导致要么拒绝程序，要么计算调用此函数的约束。
 <div class="note">注：除了RequiredToBeUniform和MayBeNonUniform这两个特殊节点外，所有节点都可以理解为具有以下含义之一：
-        - 一个程序特定节点必须在[=统一控制流=]中执行。
-        - 一个表达式必须为一个[=统一值=]
-        - 一个变量必须为一个[=统一变量=]
+        - 一个程序特定节点必须在[=uniform control flow=]中执行。
+        - 一个表达式必须为一个[=uniform value=]
+        - 一个变量必须为一个[=uniform variable=]
 
         一条边可以理解为从其源节点对应的语句到其目标节点对应的语句的蕴涵。
 
@@ -7341,10 +7345,10 @@ WGSL 程序中的语句按控制流顺序执行。
 </div>
 
 对于每个函数，两个标签被计算：
-  * <dfn noexport>调用站点标签</dfn>描述函数[=调用站点=]上的控制流一致性要求, 及
+  * <dfn noexport>调用站点标签</dfn>描述函数[=call sites=]上的控制流一致性要求, 及
   * <dfn noexport>函数标签</dfn> 描述函数对均匀性的影响。
 
-此外，对于函数的每个 [=正式参数=]，<dfn noexport>参数标签</dfn>被计算出来，描述了参数值的一致性要求。
+此外，对于函数的每个 [=formal parameter=]，<dfn noexport>参数标签</dfn>被计算出来，描述了参数值的一致性要求。
 
 <table class='data'>
   <caption>[=Call site tag=] values</caption>
@@ -8030,7 +8034,7 @@ WGSL 中的每个函数范围变量形成一个唯一的 [memory model reference
 <dfn noexport>execution scope</dfn> 指定调用集
 可能参与一个操作（参见 [[#collective-operations]]）。
 
-[[#atomic-builtin-functions|Atomic 内置函数]] 映射到 [=内存模型 atomic
+[[#atomic-builtin-functions|Atomic built-in functions]] 映射到 [=memory model atomic
 operation|atomic operations=] 其内存 [=memory model scope|scope=] 为：
 * `Workgroup` 如果原子指针在 [=address spaces/workgroup=]
     地址空间
@@ -9752,7 +9756,7 @@ struct __frexp_result_f16 {
     ```
     有效数字的大小在 [0.5, 1.0) 或 0 的范围内。
 
-    注意：一个值不能用`__freexp_result_f16`类型显式声明，但是一个值可以推断出类型。
+    注意：一个值不能用 `__freexp_result_f16`类型显式声明，但是一个值可以推断出类型。
 
   <tr algorithm="vector case, binary32, frexp">
     <td>|T| 是 vec|N|&lt;f32&gt;
@@ -9782,7 +9786,7 @@ struct __frexp_result_vecN_f16 {
     ```
     有效数字的每个分量的大小在 [0.5, 1.0) 或 0 的范围内。
 
-    注意：一个值不能用`__freexp_result_vec`|N|`_f16`类型显式声明，但是一个值可以推断出类型。
+    注意：一个值不能用 `__freexp_result_vec`|N|`_f16`类型显式声明，但是一个值可以推断出类型。
 
   <tr algorithm="inverseSqrt">
     <td>|T| 是 [ALLFLOATING]
@@ -9792,7 +9796,7 @@ struct __frexp_result_vecN_f16 {
 
   <tr algorithm="ldexp">
     <td>|T| 是 [ALLFLOATING]<br>
-        |I| 是 [ALLSIGNEDINTEGRAL], 在<br>
+        |I| 是 ALLSIGNEDINTEGRAL, 在<br>
         如果 |T| 是标量，那么 |I| 是标量，或者<br>
         当 |T| 是向量，那么 |I| 是向量
     <td class="nowrap">`@const fn`<br>`ldexp(`|e1|`:` |T| `, `|e2|`:` |I| `) -> ` |T|
@@ -9909,7 +9913,7 @@ struct __modf_result_vecN_f16 {
 }
     ```
 
-注意：一个值不能用`__modf_result_vec`|N|`_f16`类型显式声明，但是一个值可以推断出类型.
+注意：一个值不能用 `__modf_result_vec`|N|`_f16`类型显式声明，但是一个值可以推断出类型.
 
   <tr algorithm="vector case, normalize">
     <td>|T| 是 AbstractFloat, f32, or f16
@@ -10177,7 +10181,7 @@ struct __modf_result_vecN_f16 {
     要移位的位数是|e2| 的值。
     如果 |e1| 具有 [=concrete=] 类型，移位值以 |e1| 的位宽为模。<br> [=Component-wise=] 当 |T| 是一个向量。
 
-    如果 |e2| 是 [=AbstractInt=] 或 vec|N|<AbstractInt>，它是 [=着色器创建错误=] 如果任何值小于 0。
+    如果 |e2| 是 [=AbstractInt=] 或 vec|N|<AbstractInt>，它是 [=shader-creation error=] 如果任何值小于 0。
 
   <tr algorithm="shift right">
     <td>[ALLINTEGRALDECL]>br>
@@ -10191,7 +10195,7 @@ struct __modf_result_vecN_f16 {
     要移位的位数是|e2| 的值。
     如果 |e1| 具有 [=concrete=] 类型，移位值以 |e1| 的位宽为模。<br> [=Component-wise=] 当 |T| 是一个向量。
 
-    如果 |e2| 是 [=AbstractInt=] 或 vec|N|<AbstractInt>，它是 [=着色器创建错误=] 如果任何值小于 0。
+    如果 |e2| 是 [=AbstractInt=] 或 vec|N|<AbstractInt>，它是 [=shader-creation error=] 如果任何值小于 0。
 </table>
 
 ## 矩阵内置函数 ## {#matrix-builtin-functions}
@@ -10427,7 +10431,7 @@ fn textureGather(t: texture_depth_cube_array, s: sampler, coords: vec3<f32>, arr
 <dfn noexport>texture gather compare</dfn> 操作对深度纹理中的四个纹素进行深度比较，并将结果收集到单个向量中，如下所示：
 
 * 找出将在线性过滤的深度采样操作中使用的四个纹素，
-     从 [=mip 级别=] 0:
+     从 [=mip level=] 0:
      * 使用指定的坐标、数组索引（如果存在）和偏移量（如果存在）。
      * 当考虑纹理空间坐标 (*u*,*v*) 时，纹素是相邻的，形成一个正方形。
      * 在纹理边缘、立方体面边缘或立方体角处选择的纹素像在普通纹理采样中一样处理。
@@ -10896,7 +10900,7 @@ fn textureStore(t: texture_storage_3d<F,write>, coords: vec3<i32>, value: vec4<T
 对象。 它们是 [[#atomic-types]] 上唯一允许的操作。
 
 所有原子内置函数都使用一个 `relaxed` [[#memory-semantics|memory ordering]]（**0**-SPIR-V 中所有 `Memory Semantics` 操作数的整数常量）。
-这意味着同步和排序保证仅适用于作用于相同 [=内存位置=] 的原子操作。
+这意味着同步和排序保证仅适用于作用于相同 [=Memory locations=] 的原子操作。
 原子和非原子内存访问之间或作用于不同内存位置的原子访问之间没有同步或排序保证。
 
 原子内置函数“不得”用在 [=vertex=] 着色器阶段。
@@ -11063,7 +11067,7 @@ fn workgroupBarrier()
 也就是说，所有的同步函数，以及受影响的内存和原子操作都按照 [[#program-order|program order]] 相对于同步函数进行排序。
 此外，在同步功能由工作组成员执行之后的任何受影响的内存或原子操作程序排序之前，在同步功能之前受影响的内存和原子操作必须对工作组中的所有其他线程可见。
 所有同步函数都使用 `Workgroup` [=memory scope=]。
-所有同步功能都有一个“工作组”[=执行范围=]。
+所有同步功能都有一个“工作组”[=execution scope=]。
 所有同步函数只能在 [=compute=] 着色器阶段使用。
 
 `storageBarrier` 影响 [=address spaces/storage=] 存储类中的内存和原子操作。
