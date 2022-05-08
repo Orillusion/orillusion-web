@@ -2202,7 +2202,7 @@ GPUTextureView includes GPUObjectBase;
     ::
         对于可渲染视图，这是用于渲染的有效 {{GPUExtent3DDict}}。
 
-        注意: 这个程度取决于 {{GPUTextureViewDescriptor/baseMipLevel}}.
+        Note: 这个程度取决于 {{GPUTextureViewDescriptor/baseMipLevel}}.
 
 </dl>
 
