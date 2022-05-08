@@ -1927,14 +1927,13 @@ namespace GPUMapMode {
 
 # 纹理和纹理视图 # {#textures}
 
-Issue: define <dfn dfn>texture</dfn> (internal object)
+Issue: 定义<dfn dfn>纹理</dfn>（内部对象）
 
-Issue: define <dfn dfn>mipmap level</dfn>, <dfn dfn>array layer</dfn>, <dfn dfn>aspect</dfn>, <dfn dfn>slice</dfn> (concepts)
+Issue: 定义 <dfn dfn>mipmap level</dfn>, <dfn dfn>array layer</dfn>, <dfn dfn>aspect</dfn>, <dfn dfn>slice</dfn>（概念）
 
 ## <dfn interface>GPUTexture</dfn> ## {#texture-interface}
 
-{{GPUTexture|GPUTextures}} 是通过创建
-{{GPUDevice/createTexture(descriptor)|GPUDevice.createTexture(descriptor)}} 返回的一个新的纹理。
+{{GPUTexture|GPUTextures}} 是通过创建 {{GPUDevice/createTexture(descriptor)|GPUDevice.createTexture(descriptor)}} 返回的一个新的纹理。
 
 <script type=idl>
 [Exposed=(Window, DedicatedWorker), SecureContext]
@@ -1957,8 +1956,7 @@ GPUTexture includes GPUObjectBase;
 
     : <dfn>\[[destroyed]]</dfn>, `boolean` 类型, 初始设定为 false
     ::
-        如果纹理被破坏，它就不能再用于任何操作，
-        并且它的底层内存可以被释放。
+        如果纹理被破坏，该纹理就不能再用于任何操作，并且其底层内存可以被释放。
 </dl>
 
 <div algorithm>
@@ -1977,7 +1975,7 @@ GPUTexture includes GPUObjectBase;
     1. 返回 |extent|.
 </div>
 
-问题: 与描述抽样的规范部分共享此定义。
+Issue: 与描述抽样的规范部分共享此定义。
 
 ### 纹理创建 ### {#texture-creation}
 
@@ -1996,19 +1994,19 @@ dictionary GPUTextureDescriptor : GPUObjectDescriptorBase {
 <dl dfn-type=dict-member dfn-for=GPUTextureDescriptor>
     : <dfn>viewFormats</dfn>
     ::
-        当在此纹理（除了纹理的实际格式{{GPUTextureDescriptor/format}}）调用{{GPUTexture/createView()}}时，指定何种视图{{GPUTextureViewDescriptor/format}}值可以被允许。
+        当在此纹理（除了纹理的实际格式 {{GPUTextureDescriptor/format}}）调用 {{GPUTexture/createView()}} 时，指定了何种视图 {{GPUTextureViewDescriptor/format}} 值可以被允许。
 
-        注意：将格式添加到此列表可能会对性能产生相当大的影响，具体取决于用户的系统。最好避免不必要地添加格式。
+        Note: 将格式添加到此列表可能会对性能产生相当大的影响，具体取决于用户的系统。最好避免不必要地添加格式。
 
-        此列表中的格式与纹理格式一起必须为[=texture view format compatible=]。
+        此列表中的格式与纹理格式一起必须为[=纹理视图格式可兼容的=]。
 
         <div algorithm>
-            两个{{GPUTextureFormat}}s |format| 和 |viewFormat| 为 <dfn dfn for=>texture view format compatible</dfn> 当:
+            两个{{GPUTextureFormat}}s |format| 和 |viewFormat| 为<dfn dfn for=>纹理视图格式可兼容的</dfn>当:
 
             - |format| 等于 |viewFormat|, 或
             - |format| 和 |viewFormat| 的区别仅在于它们是否为 `srgb` 格式（拥有 `-srgb` 后缀）。
 
-            问题(gpuweb/gpuweb#168): 定义更大的兼容性类。
+            Issue(gpuweb/gpuweb#168): 定义更大的兼容性类。
         </div>
 
 </dl>
@@ -2043,7 +2041,7 @@ namespace GPUTextureUsage {
         - 如果 |dimension| 是:
             <dl class="switch">
                 : {{GPUTextureDimension/"1d"}}
-                :: 返回1。
+                :: 返回 1。
 
                 : {{GPUTextureDimension/"2d"}}
                 :: 设定 |m| = max(|size|.[=Extent3D/width=], |size|.[=Extent3D/height=]).
@@ -2069,15 +2067,13 @@ namespace GPUTextureUsage {
 
             **返回:** {{GPUTexture}}
 
-            1. 在 |this| 的 [=Device timeline=] 上发布一下指令:
+            1. 在 |this| 的[=设备时间线=]上执行以下步骤:
                 <div class=device-timeline>
-                    1. 如果 |descriptor|.{{GPUTextureDescriptor/format}} 是一个需要特征的 {{GPUTextureFormat}}（参见
-                        [[#texture-format-caps]])，但 |this|.{{GPUObjectBase/[[device]]}}.{{device/[[features]]}} 没有
-                        [=list/contain=] 功能，抛出 {{TypeError}}。
+                    1. 如果 |descriptor|.{{GPUTextureDescriptor/format}} 是一个需要某个特性的 {{GPUTextureFormat}}（参见 [[#texture-format-caps]])，但 |this|.{{GPUObjectBase/[[device]]}}.{{device/[[features]]}} 没有[=list/包含=]该特性，返回 {{TypeError}}。
                     1. 如果不满足以下任何要求:
                         <div class=validusage>
-                            - |this| 必须是 [=valid=] {{GPUDevice}}.
-                            - |descriptor|.{{GPUTextureDescriptor/usage}}必须不为0。
+                            - |this| 必须是[=有效=] {{GPUDevice}}.
+                            - |descriptor|.{{GPUTextureDescriptor/usage}} 必须不为 0。
                             - |descriptor|.{{GPUTextureDescriptor/size}}.[=Extent3D/width=],
                                 |descriptor|.{{GPUTextureDescriptor/size}}.[=Extent3D/height=],
                                 和 |descriptor|.{{GPUTextureDescriptor/size}}.[=Extent3D/depthOrArrayLayers=] 必须大于零。
@@ -2092,8 +2088,8 @@ namespace GPUTextureUsage {
                                             |this|.{{GPUDevice/limits}}.{{GPUSupportedLimits/maxTextureDimension1D}}。
                                         - |descriptor|.{{GPUTextureDescriptor/size}}.[=Extent3D/height=] 必须为 1。
                                         - |descriptor|.{{GPUTextureDescriptor/size}}.[=Extent3D/depthOrArrayLayers=] 必须为 1。
-                                        - |descriptor|.{{GPUTextureDescriptor/sampleCount}}必须为1。
-                                        - |descriptor|.{{GPUTextureDescriptor/format}}必须不为[=compressed format=]或[=depth-or-stencil format=]。
+                                        - |descriptor|.{{GPUTextureDescriptor/sampleCount}} 必须为1。
+                                        - |descriptor|.{{GPUTextureDescriptor/format}} 必须不为[=压缩格式=]或[=深度-模板格式=]。
 
                                     : {{GPUTextureDimension/"2d"}}
                                     ::
@@ -2113,31 +2109,32 @@ namespace GPUTextureUsage {
                                         - |descriptor|.{{GPUTextureDescriptor/size}}.[=Extent3D/depthOrArrayLayers=] 必须小于或等于
                                             |this|.{{GPUDevice/limits}}.{{GPUSupportedLimits/maxTextureDimension3D}}.
                                         - |descriptor|.{{GPUTextureDescriptor/sampleCount}} 必须为 1。
-                                        - |descriptor|.{{GPUTextureDescriptor/format}}必须不为[=compressed format=]或[=depth-or-stencil format=]。
+                                        - |descriptor|.{{GPUTextureDescriptor/format}} 必须不为[=压缩格式=]或[=深度-模板格式=]。
                                 </dl>
-                            - |descriptor|.{{GPUTextureDescriptor/size}}.[=Extent3D/width=] 必须是 [=texel block width=] 的倍数。
-                            - |descriptor|.{{GPUTextureDescriptor/size}}.[=Extent3D/height=] 必须是 [=texel block height=] 的倍数。
+                            - |descriptor|.{{GPUTextureDescriptor/size}}.[=Extent3D/width=] 必须是[=纹素块宽度=]的倍数。
+                            - |descriptor|.{{GPUTextureDescriptor/size}}.[=Extent3D/height=]必须是[=纹素块高度=]的倍数。
 
                             - 如果 |descriptor|.{{GPUTextureDescriptor/sampleCount}} > 1:
                                 - |descriptor|.{{GPUTextureDescriptor/mipLevelCount}} 必须为 1。
                                 - |descriptor|.{{GPUTextureDescriptor/size}}.[=Extent3D/depthOrArrayLayers=] 必须为 1。
                                 - |descriptor|.{{GPUTextureDescriptor/usage}} 必须不包含 {{GPUTextureUsage/STORAGE_BINDING}} 位.
-                                - |descriptor|.{{GPUTextureDescriptor/format}} 必须为 [=renderable format=] 并根据 [[#texture-format-caps]] 支持多重采样。
+                                - |descriptor|.{{GPUTextureDescriptor/format}} 必须为[=可渲染格式=]并根据 [[#texture-format-caps]] 支持多重采样。
 
                             - |descriptor|.{{GPUTextureDescriptor/mipLevelCount}} 必须小于或等于
                                 [$maximum mipLevel count$](|descriptor|.{{GPUTextureDescriptor/dimension}}, |descriptor|.{{GPUTextureDescriptor/size}}).
 
                             - |descriptor|.{{GPUTextureDescriptor/usage}} 必须为 {{GPUTextureUsage}} 的值的组合。
-                            - 如果 |descriptor|.{{GPUTextureDescriptor/usage}} 包含 {{GPUTextureUsage/RENDER_ATTACHMENT}} 位，|descriptor|.{{GPUTextureDescriptor/format}} 必须为 [=renderable format=].
-                            - 如果 |descriptor|.{{GPUTextureDescriptor/usage}} 包含 {{GPUTextureUsage/STORAGE_BINDING}} 位，|descriptor|.{{GPUTextureDescriptor/format}} 必须在带有 {{GPUTextureUsage/STORAGE_BINDING}} 的功能的 [[#plain-color-formats]] 表格中列出。
-                            - 对每个|descriptor|.{{GPUTextureDescriptor/viewFormats}},
-                                |descriptor|.{{GPUTextureDescriptor/format}}和|viewFormat|中的|viewFormat|，必须为
-                                [=texture view format compatible=].
+                            - 如果 |descriptor|.{{GPUTextureDescriptor/usage}} 包含 {{GPUTextureUsage/RENDER_ATTACHMENT}} 位,
+                                |descriptor|.{{GPUTextureDescriptor/format}} 必须为[=可渲染格式=].
+                            - If |descriptor|.{{GPUTextureDescriptor/usage}} 包含 {{GPUTextureUsage/STORAGE_BINDING}} 位,
+                                |descriptor|.{{GPUTextureDescriptor/format}} 必须在带有 {{GPUTextureUsage/STORAGE_BINDING}} 功能的
+                                [[#plain-color-formats]] 表格中列出。
+
                         </div>
 
                         Then:
-                            1. 在当前范围内生成一个带有适当错误信息的{{GPUValidationError}}。
-                            1. 返回一个新的[=invalid=] {{GPUTexture}}。
+                            1. 在当前范围内生成带有相应错误消息的 {{GPUValidationError}}。
+                            1. 返回一个新的[=无效=] {{GPUTexture}}。
 
                     1. 让 |t| 成为一个新的 {{GPUTexture}} 对象.
                     1. 设定 |t|.{{GPUTexture/[[descriptor]]}} 为 |descriptor|.
@@ -2147,7 +2144,7 @@ namespace GPUTextureUsage {
 </dl>
 
 <div class="example">
-    创建一个具有一个array layer和一个mip level的16x16，RGBA，2D纹理：
+    创建一个具有一个 array layer 和一个 mip level 的 16x16，RGBA，2D纹理：
     <pre highlight="js">
         const texture = gpuDevice.createTexture({
             size: { width: 16, height: 16 },
@@ -2159,9 +2156,9 @@ namespace GPUTextureUsage {
 
 ### 纹理破坏 ### {#texture-destruction}
 
-不再需要 {{GPUTexture}} 的应用程序可以通过调用 {{GPUTexture/destroy()}} 选择在垃圾收集之前失去对它的访问权限。
+不再需要 {{GPUTexture}} 的应用程序，可以通过调用 {{GPUTexture/destroy()}} 选择在垃圾收集之前失去对它的访问权限。
 
-注意: 这允许用户代理在所有先前提交的使用它的操作完成后回收与 {{GPUTexture}} 关联的 GPU 内存。
+Note: 这允许用户代理在所有先前提交的，并使用了相关的 GPU 内存的操作完成后，回收与 {{GPUTexture}} 相关的 GPU 内存。
 
 <dl dfn-type=method dfn-for=GPUTexture>
     : <dfn>destroy()</dfn>
