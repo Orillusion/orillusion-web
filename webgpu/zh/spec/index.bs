@@ -2465,8 +2465,7 @@ enum GPUTextureAspect {
 
 ## 纹理格式 ## {#texture-formats}
 
-格式的名称指定了组件的顺序、每个组件的位数、
-和组件的数据类型。
+格式的名称指定了组件的顺序、每个组件的位数、和组件的数据类型。
 
   * `r`, `g`, `b`, `a` = red, green, blue, alpha
   * `unorm` = unsigned normalized
@@ -2475,18 +2474,16 @@ enum GPUTextureAspect {
   * `sint` = signed int
   * `float` = floating point
 
-如果格式具有“-srgb”后缀，则在着色器中读取和写入颜色值期间应用从伽马到线性的 sRGB 转换，反之亦然。 压缩纹理格式由 [=features=] 提供。
-它们的命名应遵循此处的约定，以纹理名称作为前缀。 例如 `etc2-rgba8unorm`。
+如果格式具有 “-srgb” 后缀，则在着色器中读取和写入颜色值期间应用从伽马到线性的 sRGB 转换，反之亦然。 压缩纹理格式由[=特性=]提供。其命名应遵循此处的约定，以纹理名称作为前缀。 例如 `etc2-rgba8unorm`。
 
-<dfn dfn>texel block</dfn> 是基于像素的 {{GPUTextureFormat}} 中纹理的单个可寻址元素，以及基于块的压缩 {{GPUTextureFormat}} 中纹理的单个压缩块。
+<dfn dfn>纹素块</dfn> 是基于像素的 {{GPUTextureFormat}} 中纹理的单个可寻址元素，以及基于块的压缩 {{GPUTextureFormat}} 中纹理的单个压缩块。
 
-<dfn dfn>texel block width</dfn> 和 <dfn dfn>texel block height</dfn> 指定了一个 [=texel block=] 的尺寸。
-   - 对于基于像素的 {{GPUTextureFormat}}s，[=texel block width=] 和 [=texel block height=] 始终为 1。
-   - 对于基于块的压缩{{GPUTextureFormat}}s，[=texel block width=]是一个[=texel block=]的每一行的texel数量，[=texel block height=]是数量 一个 [=texel block=] 中的 texel 行。
+<dfn dfn>纹素块宽度</dfn> 和 <dfn dfn>纹素块高度</dfn> 指定了一个[=纹素块=]的尺寸。
+   - 对于基于像素的 {{GPUTextureFormat}}s，[=纹素块宽度=]和[=纹素块高度=]始终为 1。
+   - 对于基于块压缩的 {{GPUTextureFormat}}s，[=纹素块宽度=]是一个[=纹素块=]里每一行的纹素数量，[=纹素块高度=]是一个[=纹素块=]中纹素行的数量。
 
-{{GPUTextureFormat}} 的 <dfn dfn>texel block size</dfn> 是存储一个 [=texel block=] 的字节数。
-除了 {{GPUTextureFormat/"stencil8"}}、{{GPUTextureFormat/"depth24plus"}} 和 {{GPUTextureFormat/"depth24plus-stencil8"} 之外，
-每个 {{GPUTextureFormat}} 的 [=texel block size=] 是恒定的 }。
+{{GPUTextureFormat}} 的<dfn dfn>纹素块大小</dfn>是存储一个[=纹素块=]的字节数。
+除了 {{GPUTextureFormat/"stencil8"}}、{{GPUTextureFormat/"depth24plus"}} 和 {{GPUTextureFormat/"depth24plus-stencil8"} 之外，每个 {{GPUTextureFormat}} 的[=纹素块大小=]是恒定的。
 
 <script type=idl>
 enum GPUTextureFormat {
@@ -2550,7 +2547,7 @@ enum GPUTextureFormat {
     // "depth32float-stencil8"特性
     "depth32float-stencil8",
 
-    // BC 压缩模式非常有用，如果设备和用户代理同时支持"texture-compression-bc"
+    // BC 压缩模式非常有用，如果设备和用户代理同时支持 "texture-compression-bc"
     // 并且在 RequestDevice 中被开启。
     "bc1-rgba-unorm",
     "bc1-rgba-unorm-srgb",
@@ -2567,7 +2564,7 @@ enum GPUTextureFormat {
     "bc7-rgba-unorm",
     "bc7-rgba-unorm-srgb",
 
-    // 如果设备/用户代理支持并在 requestDevice 中启用“texture-compression-etc2”，则 ETC2 压缩格式可用。
+    // 如果设备/用户代理支持并在 requestDevice 中启用 “texture-compression-etc2”，则 ETC2 压缩格式可用。
     "etc2-rgb8unorm",
     "etc2-rgb8unorm-srgb",
     "etc2-rgb8a1unorm",
@@ -2579,7 +2576,7 @@ enum GPUTextureFormat {
     "eac-rg11unorm",
     "eac-rg11snorm",
 
-    // 如果设备/用户代理支持并在 requestDevice 中启用“texture-compression-astc”，则 ASTC 压缩格式可用。
+    // 如果设备/用户代理支持并在 requestDevice 中启用 “texture-compression-astc”，则 ASTC 压缩格式可用。
     "astc-4x4-unorm",
     "astc-4x4-unorm-srgb",
     "astc-5x4-unorm",
@@ -2611,23 +2608,19 @@ enum GPUTextureFormat {
 };
 </script>
 
-{{GPUTextureFormat/"depth24plus"}})和{{GPUTextureFormat/"depth24plus-stencil8"}})的深度组件格式可以实现为 24 位无符号归一化值（“depth24unorm”）
-或 32 位 IEEE 754 浮点值（像{{GPUTextureFormat/"depth32float"}}）。
+{{GPUTextureFormat/"depth24plus"}}) 和 {{GPUTextureFormat/"depth24plus-stencil8"}}) 的深度组件格式可以实现为 24 位无符号归一化值（“depth24unorm”）或 32 位 IEEE 754 浮点值（比如 {{GPUTextureFormat/"depth32float"}}）。
 
-问题：在GPUAdapter(?)上添加一些东西来估计每像素的字节数{{GPUTextureFormat/"stencil8"}}、{{GPUTextureFormat/"depth24plus-stencil8"}}和{{GPUTextureFormat/"depth32float-stencil8"}}。
+Issue: 在 GPUAdapter(?) 上添加一些东西来估计每像素的字节数 {{GPUTextureFormat/"stencil8"}}、{{GPUTextureFormat/"depth24plus-stencil8"}} 和 {{GPUTextureFormat/"depth32float-stencil8"}}。
 
-{{GPUTextureFormat/stencil8}} 格式可以实现为
-一个真正的“stencil8”或“depth24stencil8”，其中深度方面是
-隐藏且无法访问。
+{{GPUTextureFormat/stencil8}} 格式可以实现为一个真正的“stencil8”或“depth24stencil8”，其中深度方面是
+隐藏且无法访问的。
 
-注意:
-虽然对于可表示范围（0.0 到 1.0）中的所有值，depth32float 通道的精度严格高于 depth24unorm 通道的精度，但请注意，可表示值的集合不是精确的超集：
-对于depth24unorm，1 ULP 的常数值为1 / (2<sup>24</sup> &minus; 1);
-对于depth32float，1 ULP 的变量值不大于1 / (2<sup>24</sup>)。
+Note: 虽然对于可表示范围（0.0 到 1.0）中的所有值，depth32float 通道的精度严格高于 depth24unorm 通道的精度，但请注意，可表示值的集合不是精确的超集：
+对于 depth24unorm，1 ULP 的常数值为 1 / (2<sup>24</sup> &minus; 1);
+对于 depth32float，1 ULP 的变量值不大于 1 / (2<sup>24</sup>)。
 
-<dfn>renderable format</dfn>要么是<dfn>color renderable format</dfn>，要么是[=depth-or-stencil format=]。
-如果在 [[#plain-color-formats]] 中列出了具有 {{GPUTextureUsage/RENDER_ATTACHMENT}} 功能的格式，则它是可渲染颜色的格式。
-任何其他格式都不是颜色可渲染的格式。所有[=depth-or-stencil formats=]都可渲染。
+<dfn>可渲染格式</dfn>要么是<dfn>颜色可渲染格式</dfn>，要么是[=深度-模板格式=]。
+如果在 [[#plain-color-formats]] 中列出了具有 {{GPUTextureUsage/RENDER_ATTACHMENT}} 功能的格式，则它是可渲染颜色的格式。任何其他格式都不是颜色可渲染的格式。所有[=深度-模板格式=]都可渲染。
 
 ## <dfn interface>GPUExternalTexture</dfn> ## {#gpu-external-texture}
 
