@@ -2157,9 +2157,9 @@ namespace GPUTextureUsage {
 
 ### 纹理破坏 ### {#texture-destruction}
 
-不再需要 {{GPUTexture}} 的应用程序可以通过调用 {{GPUTexture/destroy()}} 选择在垃圾收集之前失去对它的访问权限。
+不再需要 {{GPUTexture}} 的应用程序，可以通过调用 {{GPUTexture/destroy()}} 选择在垃圾收集之前失去对它的访问权限。
 
-注意: 这允许用户代理在所有先前提交的使用它的操作完成后回收与 {{GPUTexture}} 关联的 GPU 内存。
+Note: 这允许用户代理在所有先前提交的，并使用了相关的 GPU 内存的操作完成后，回收与 {{GPUTexture}} 相关的 GPU 内存。
 
 <dl dfn-type=method dfn-for=GPUTexture>
     : <dfn>destroy()</dfn>
