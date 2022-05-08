@@ -2235,14 +2235,14 @@ enum GPUTextureViewDimension {
     : <dfn>"1d"</dfn>
     ::
         纹理被视为一维图像。
-        对应WGSL类型：
+        对应 WGSL 类型：
         - `texture_1d`
         - `texture_storage_1d`
 
     : <dfn>"2d"</dfn>
     ::
         纹理被视为单二维图像。
-        对应WGSL类型：
+        对应 WGSL 类型：
 
         - `texture_2d`
         - `texture_storage_2d`
@@ -2253,7 +2253,7 @@ enum GPUTextureViewDimension {
     : <dfn>"2d-array"</dfn>
     ::
         纹理被视为二维图像数组。
-        对应WGSL类型：
+        对应 WGSL 类型：
 
         - `texture_2d_array`
         - `texture_storage_2d_array`
@@ -2262,18 +2262,18 @@ enum GPUTextureViewDimension {
     : <dfn>"cube"</dfn>
     ::
         纹理被视为立方体贴图。
-        该视图有 6 个数组层，对应于立方体的[+X, -X, +Y, -Y, +Z, -Z]面。
+        该视图有 6 个数组层，对应于立方体的 [+X, -X, +Y, -Y, +Z, -Z] 面。
 
-        对应WGSL类型：
+        对应 WGSL 类型：
 
         - `texture_cube`
         - `texture_depth_cube`
 
     : <dfn>"cube-array"</dfn>
     ::
-        纹理被视为一个包含n个立方体贴图的打包阵列，每个贴图有6个阵列层，对应于立方体的 [+X, -X, +Y, -Y, +Z, -Z] 面。
+        纹理被视为一个包含 n 个立方体贴图的打包阵列，每个贴图有 6 个阵列层，对应于立方体的 [+X, -X, +Y, -Y, +Z, -Z] 面。
 
-        对应WGSL类型：
+        对应 WGSL 类型：
 
         - `texture_cube_array`
         - `texture_depth_cube_array`
@@ -2282,7 +2282,7 @@ enum GPUTextureViewDimension {
     ::
         纹理被视为 3 维图像。
 
-        对应WGSL类型：
+        对应 WGSL 类型：
 
         - `texture_3d`
         - `texture_storage_3d`
@@ -2309,22 +2309,21 @@ enum GPUTextureAspect {
                 |descriptor|: 描述要创建的 {{GPUTextureView}}。
             </pre>
 
-            **返回:** |view|, {{GPUTextureView}}类型。
+            **返回:** |view|, {{GPUTextureView}} 类型。
 
             1. 设置 |descriptor| 为带有|descriptor| 的 [$resolving GPUTextureViewDescriptor defaults$] 返回值。
-            1. 在 |this| 的 [=Device timeline=] 上发布以下指令:
+            1. 在 |this| 的[=设备时间线=]上发布以下指令:
                 <div class=device-timeline>
                     1. 如果不满足以下任何要求:
                         <div class=validusage>
-                            - |this| 是 [=valid=]
+                            - |this| 是[=有效=]的
                             - 如果 |descriptor|.{{GPUTextureViewDescriptor/aspect}} 是
                                 <dl class="switch">
                                     : {{GPUTextureAspect/"stencil-only"}}
-                                    :: |this|.{{GPUTexture/[[descriptor]]}}.{{GPUTextureDescriptor/format}}必须为一个具有模板宽高比的[=depth-or-stencil format=]。
+                                    :: |this|.{{GPUTexture/[[descriptor]]}}.{{GPUTextureDescriptor/format}} 必须为一个具有模板宽高比的[=深度-模板格式=]。
 
                                     : {{GPUTextureAspect/"depth-only"}}
-                                    :: |this|.{{GPUTexture/[[descriptor]]}}.{{GPUTextureDescriptor/format}}必须为一个具有深度宽高比的
-                                        [=depth-or-stencil format=]。
+                                    :: |this|.{{GPUTexture/[[descriptor]]}}.{{GPUTextureDescriptor/format}} 必须为一个具有深度宽高比的[=深度-模板格式=]。
 
                                 </dl>
                             - |descriptor|.{{GPUTextureViewDescriptor/mipLevelCount}} 必须 &gt; 0.
@@ -2335,7 +2334,7 @@ enum GPUTextureAspect {
                             - |descriptor|.{{GPUTextureViewDescriptor/baseArrayLayer}} +
                                 |descriptor|.{{GPUTextureViewDescriptor/arrayLayerCount}} 必须 &le;
                                 the [$array layer count$] of |this|.
-                            - |descriptor|.{{GPUTextureViewDescriptor/format}} 必须等于|this|.{{GPUTexture/[[descriptor]]}}.{{GPUTextureDescriptor/format}}或|this|.{{GPUTexture/[[descriptor]]}}.{{GPUTextureDescriptor/viewFormats}}中的一个格式。
+                            - |descriptor|.{{GPUTextureViewDescriptor/format}} 必须等于 |this|.{{GPUTexture/[[descriptor]]}}.{{GPUTextureDescriptor/format}} 或 |this|.{{GPUTexture/[[descriptor]]}}.{{GPUTextureDescriptor/viewFormats}} 中的一个格式。
                             - 如果 |descriptor|.{{GPUTextureViewDescriptor/dimension}} 是:
                                 <dl class="switch">
                                     : {{GPUTextureViewDimension/"1d"}}
@@ -2368,8 +2367,8 @@ enum GPUTextureAspect {
                         </div>
 
                         Then:
-                            1. 在当前范围内产生一个带有适当错误信息的{{GPUValidationError}}
-                            1. 返回一个新的 [=invalid=] {{GPUTextureView}}。
+                            1. 在当前范围内生成一个 {{GPUValidationError}} 并带有适当的错误消息。
+                            1. 返回一个新的[=无效=] {{GPUTextureView}}。
 
                     1. 让 |view| 成为一个新的 {{GPUTextureView}} 对象。
                     1. 设置 |view|.{{GPUTextureView/[[texture]]}} 为 |this|。
