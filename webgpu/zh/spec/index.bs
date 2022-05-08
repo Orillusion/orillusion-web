@@ -1928,14 +1928,13 @@ namespace GPUMapMode {
 
 # 纹理和纹理视图 # {#textures}
 
-Issue: define <dfn dfn>texture</dfn> (internal object)
+Issue: 定义<dfn dfn>纹理</dfn>（内部对象）
 
-Issue: define <dfn dfn>mipmap level</dfn>, <dfn dfn>array layer</dfn>, <dfn dfn>aspect</dfn>, <dfn dfn>slice</dfn> (concepts)
+Issue: 定义 <dfn dfn>mipmap level</dfn>, <dfn dfn>array layer</dfn>, <dfn dfn>aspect</dfn>, <dfn dfn>slice</dfn>（概念）
 
 ## <dfn interface>GPUTexture</dfn> ## {#texture-interface}
 
-{{GPUTexture|GPUTextures}} 是通过创建
-{{GPUDevice/createTexture(descriptor)|GPUDevice.createTexture(descriptor)}} 返回的一个新的纹理。
+{{GPUTexture|GPUTextures}} 是通过创建 {{GPUDevice/createTexture(descriptor)|GPUDevice.createTexture(descriptor)}} 返回的一个新的纹理。
 
 <script type=idl>
 [Exposed=(Window, DedicatedWorker), SecureContext]
@@ -1958,8 +1957,7 @@ GPUTexture includes GPUObjectBase;
 
     : <dfn>\[[destroyed]]</dfn>, `boolean` 类型, 初始设定为 false
     ::
-        如果纹理被破坏，它就不能再用于任何操作，
-        并且它的底层内存可以被释放。
+        如果纹理被破坏，该纹理就不能再用于任何操作，并且其底层内存可以被释放。
 </dl>
 
 <div algorithm>
@@ -1978,7 +1976,7 @@ GPUTexture includes GPUObjectBase;
     1. 返回 |extent|.
 </div>
 
-问题: 与描述抽样的规范部分共享此定义。
+Issue: 与描述抽样的规范部分共享此定义。
 
 ### 纹理创建 ### {#texture-creation}
 
