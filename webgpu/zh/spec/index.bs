@@ -2621,28 +2621,22 @@ Note: 虽然对于可表示范围（0.0 到 1.0）中的所有值，depth32float
 
 ## <dfn interface>GPUExternalTexture</dfn> ## {#gpu-external-texture}
 
-{{GPUExternalTexture}} 是包装外部视频对象的可采样纹理。
-{{GPUExternalTexture}} 对象的内容可能不会改变，无论是从 WebGPU 内部（仅可采样）还是从 WebGPU 外部（例如由于视频帧推进）。
+{{GPUExternalTexture}} 是打包了外部视频对象的可采样纹理。 {{GPUExternalTexture}} 对象的内容可能不会改变，无论是从 WebGPU 内部（仅可采样）还是从 WebGPU 外部（例如由于视频帧推进）。
 
-问题：使用画布更新此描述。
+Issue: 使用画布更新此描述。
 
-它们使用 {{GPUBindGroupLayoutEntry/externalTexture}} 绑定组布局条目成员绑定到绑定组布局。
-外部纹理使用多个绑定槽：参见 [=Exceeds the binding slot limits=]。
+{{GPUExternalTexture}} 使用 {{GPUBindGroupLayoutEntry/externalTexture}} 绑定组布局的输入成员，被绑定到绑定组布局。外部纹理使用多个绑定槽：参见[=超出绑定槽限制=]。
 
 <div class=note>
-    外部纹理*可以*在不创建导入源的副本的情况下实现，但这取决于实现定义的因素。
-    底层表示的所有权可能是独占的，也可能与其他所有者（例如视频解码器）共享，但这对应用程序不可见。
+    外部纹理*可以*在不创建导入源的副本的情况下实现，但这取决于实现定义的因素。底层表示的所有权可能是独占的，也可能与其他所有者（例如视频解码器）共享，但这对应用程序不可见。
 
-    外部纹理的底层表示是不可观察的（采样行为除外），但通常可能包括
+    外部纹理的底层表示是不可见的（采样行为除外），但通常可能包括
 
     - 最多三个 2D 数据平面（例如 RGBA、Y+UV、Y+U+V）。
     - 在从这些平面（裁剪和旋转）读取之前转换坐标的元数据。
     - 用于将值转换为指定输出颜色空间（矩阵、伽马、3D LUT）的元数据。
 
-    使用的配置可能在时间、系统、用户代理、媒体源、
-    或单个视频源中的帧。
-    为了解释许多可能的表示，
-    对于*每个*外部纹理，绑定保守地使用以下内容：
+    使用的配置可能在时间、系统、用户代理、媒体源、或单个视频源的帧中发生变化。为了用于尽可能多的表示，对于*每个*外部纹理，绑定保守地使用以下内容：
 
     - 三个采样纹理绑定（最多 3 个平面），
     - 一个用于 3D LUT 的采样纹理绑定，
@@ -2662,8 +2656,7 @@ GPUExternalTexture includes GPUObjectBase;
 <dl dfn-type=attribute dfn-for="GPUExternalTexture">
     : <dfn>\[[destroyed]]</dfn>, `boolean` 格式
     ::
-        表示对象是否被摧毁 (不能被使用).
-        初始被设定为 `false`.
+        表示对象是否被摧毁 (不能被使用)。初始被设定为 `false`.
 
         <!-- 如果 GPUExternalTexture 变成 Serializable，则把其移动到内部对象 -->
 </dl>
