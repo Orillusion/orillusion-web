@@ -2725,16 +2725,11 @@ dictionary GPUExternalTextureDescriptor : GPUObjectDescriptorBase {
 
 ### 采样外部纹理 ### {#external-texture-sampling}
 
-外部纹理在 WGSL 中用 `texture_external` 表示，可以使用
-`textureLoad` 和 `textureSampleLevel`。
+外部纹理在 WGSL 中用 `texture_external` 表示，可以使用 `textureLoad` 和 `textureSampleLevel`。
 
-提供给 `textureSampleLevel` 的 `sampler` 用于对底层纹理进行采样。
-结果在 {{GPUExternalTextureDescriptor/colorSpace}} 设置的颜色空间中。
-对于任何给定的外部纹理，采样器（和过滤）是在从底层值转换到指定颜色空间之前还是之后应用，这取决于实现。
+提供给 `textureSampleLevel` 的 `sampler` 用于对底层纹理进行采样。结果在 {{GPUExternalTextureDescriptor/colorSpace}} 设置的颜色空间中。对于任何给定的外部纹理，采样器（和过滤）是在从底层值转换到指定颜色空间之前还是之后应用，这取决于实现。
 
-注意：
-如果内部表示是 RGBA 平面，则采样的行为与常规 2D 纹理相同。
-如果有多个底层平面（例如 Y+UV），则在从 YUV 转换到指定颜色空间之前，使用采样器分别对每个底层纹理进行采样。
+Note: 如果内部表示是 RGBA 平面，则采样的行为与常规 2D 纹理相同。如果有多个底层平面（例如 Y+UV），则在从 YUV 转换到指定颜色空间之前，使用采样器分别对每个底层纹理进行采样。
 
 
 # 采样器 # {#samplers}
