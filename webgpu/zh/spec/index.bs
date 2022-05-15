@@ -2663,12 +2663,11 @@ GPUExternalTexture includes GPUObjectBase;
 
 ### 导入外部纹理 ### {#external-texture-creation}
 
-外部纹理是从外部视频对象创建的
-使用 {{GPUDevice/importExternalTexture()}}。
+外部纹理是使用 {{GPUDevice/importExternalTexture()}} 从外部视频对象创建的。
 
-问题：以canvas更新此描述
+Issue: 使用画布更新此描述。
 
-外部纹理被自动销毁，不像其他资源一样手动或垃圾回收，而是作为一个微任务。
+外部纹理作为一个微任务，会被自动销毁，而不是像其他资源一样被手动销毁或被当垃圾收集。
 
 <script type=idl>
 dictionary GPUExternalTextureDescriptor : GPUObjectDescriptorBase {
@@ -2696,28 +2695,21 @@ dictionary GPUExternalTextureDescriptor : GPUObjectDescriptorBase {
 
             1. 让 |usability| 是 检查图像参数的可用性|检查 |source| 的可用性的结果 （这可能会引发异常）。
 
-            1. 如果 |usability| 是 `bad`, 抛出一个 {{InvalidStateError}} 并停止运行。
+            1. 如果 |usability| 是 `bad`, 返回一个 {{InvalidStateError}} 并停止运行。
 
-            1. 如果 |source| <l spec=html>[=is not origin-clean=]</l>,
-                抛出一个 {{SecurityError}} 并停止运行。
+            1. 如果 |source| <l spec=html>[=is not origin-clean=]</l>, 返回一个 {{SecurityError}} 并停止运行。
 
-            1. 让 |data| 是 |source| 的当前图像内容转换的结果 进入未预乘 alpha颜色空间
-                |descriptor|.{{GPUExternalTextureDescriptor/colorSpace}}。
+            1. 让 |data| 是 |source| 的当前图像内容转换的结果进入未预乘 alpha 颜色空间 |descriptor|.{{GPUExternalTextureDescriptor/colorSpace}}。
 
-                此[[#color-space-conversions|may result]]值超出范围 [0, 1]。如果需要夹紧，可以在取样后进行。
+            此 [[#color-space-conversions|may result]] 值超出范围 [0, 1]。如果需要做夹紧保护，可以在取样后进行。
 
-                注意：这被描述为一个副本，但可以作为对只读基础数据的引用以及稍后执行转换的适当元数据来实现。
-
-                问题：目前不确定默认颜色空间“srgb”是否为
-                扩展 srgb 或钳位 srgb。
-                这将在上游确定，因为围绕超级 srgb 图像源的语义得到定义。 不幸的是，我们现在不能回避它，因为视频源可能已经超出了 srgb 范围。
-                上游决定将改变使用默认 colorSpace 选项是否会导致采样值大于 1.0。
-                如果上游决定使“srgb”表示clamped-srgb，我们还可以选择将默认值更改为“extended-srgb”。
+                Note: 这被描述为一个副本，但可以作为对只读基础数据的引用，以及稍后执行转换的适当元数据来实现。
 
             1. 让 |result| 是一个新的 {{GPUExternalTexture}} 对象包装 |data|。
 
-            1. [=Queue a microtask=] 以设置 |result|.{{GPUExternalTexture/[[destroyed]]}} 为 `true`，释放基础资源。
-                问题：这回有很强局限性么？
+            1. [=Queue a microtask=] 将 |result|.{{GPUExternalTexture/[[destroyed]]}} 设置为 `true`，并释放底层资源。
+
+                Issue: 这是否过于严格？
 
             1. 返回 |result|.
         </div>
