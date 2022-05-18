@@ -14,16 +14,16 @@
         <a class="nav-link action-button primary" aria-label="Get Started" @click="data.showDemo = true">
           <span> {{actions[0].text.match(/入门/)? '预览 Demo':'Alpha Demo'}} </span>
         </a>
-        <a class="no-ready nav-link action-button" aria-label="Introduction">
+        <!-- <a class="not-ready nav-link action-button" aria-label="Introduction">
           <span> {{actions[1].text}} </span>
           <span> Coming Soon </span>
-        </a>
-        <!-- <NavLink
+        </a> -->
+        <NavLink
           :key="actions[1].text"
           class="action-button"
           :class="[actions[1].type]"
           :item="actions[1]"
-        /> -->
+        />
       </p>
     </header>
 
@@ -61,7 +61,7 @@ import { isArray } from '@vuepress/shared'
 import { computed, reactive } from 'vue'
 import type { DefaultThemeHomePageFrontmatter } from '../shared'
 
-//import NavLink from '@vuepress/theme-default/lib/client/components/NavLink.vue'
+import NavLink from '@vuepress/theme-default/lib/client/components/NavLink.vue'
 import Logo from './Logo.vue'
 
 const frontmatter = usePageFrontmatter<DefaultThemeHomePageFrontmatter>()
