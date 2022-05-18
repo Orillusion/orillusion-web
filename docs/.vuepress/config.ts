@@ -1,38 +1,26 @@
-import { defineUserConfig } from 'vuepress'
-import type { DefaultThemeOptions } from 'vuepress'
+
+
+import { viteBundler } from '@vuepress/bundler-vite'
+import { webpackBundler } from '@vuepress/bundler-webpack'
+import { defineUserConfig } from '@vuepress/cli'
+import { docsearchPlugin } from '@vuepress/plugin-docsearch'
+import { googleAnalyticsPlugin } from '@vuepress/plugin-google-analytics'
+import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
+import { shikiPlugin } from '@vuepress/plugin-shiki'
 import { path } from '@vuepress/utils'
-import { navbar, sidebar } from './configs'
+import { localTheme } from './theme'
+// import { head, navbarEn, navbarZh, sidebarEn, sidebarZh } from './configs'
+
+// import { defineUserConfig } from 'vuepress'
+// import type { DefaultThemeOptions } from 'vuepress'
+// import { path } from '@vuepress/utils'
+import { head, navbar, sidebar } from './configs'
 
 const isProd = process.env.NODE_ENV === 'production'
 console.log(path.resolve(__dirname, './theme'))
-export default defineUserConfig<DefaultThemeOptions>({
+export default defineUserConfig({
 	base: '/',
-	head: [
-		[
-			'link',
-			{
-				rel: 'icon',
-				type: 'image/png',
-				href: `/images/icons/icon-192.png`,
-			},
-		],
-		['link', { rel: 'manifest', href: '/manifest.webmanifest' }],
-		['meta', { name: 'application-name', content: 'Orillusion' }],
-		['meta', { name: 'apple-mobile-web-app-title', content: 'Orillusion' }],
-		[
-			'meta',
-			{ name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
-		],
-		[
-			'link',
-			{ rel: 'apple-touch-icon', href: `/images/icons/icon-512.png` },
-		],
-		['meta', { name: 'msapplication-TileColor', content: '#22272e' }],
-		['meta', { name: 'theme-color', content: '#22272e' }],
-		['meta', { name: 'keywords', content: 'webgpu,orillusion,gfx,engine,ecs,3d' }],
-		['script', {src: "https://zz.bdstatic.com/linksubmit/push.js"}],
-		['link', {rel:'prefetch', href: 'https://demo.orillusion.com/Asteroids/'}]
-	],
+	head,
 	// site-level locales config
 	locales: {
 		'/': {
@@ -46,9 +34,8 @@ export default defineUserConfig<DefaultThemeOptions>({
 			description: 'Orillusion 次时代 WebGPU 引擎, 链接未来世界',
 		},
 	},
-	bundler: isProd ? '@vuepress/webpack' : '@vuepress/vite', // use vite in dev, use webpack in prod
-	theme: path.resolve(__dirname, './theme'),
-	themeConfig: {
+	bundler: isProd ? webpackBundler() : viteBundler(), // use vite in dev, use webpack in prod
+	theme: localTheme({
 		darkMode: true,
 		logo: '/images/logo_black.png',
 		logoDark: '/images/logo_white.png',
@@ -110,46 +97,66 @@ export default defineUserConfig<DefaultThemeOptions>({
 				toggleSidebar: '切换侧边栏',
 			},
 		},
-	},
+	}),
 	plugins: [
-		['@vuepress/plugin-debug'],
-		[
-			'@vuepress/plugin-docsearch',
-			{
-				appId: 'A4SU9IUJ2M',
-				apiKey: '1a3b57b41821e82cafdd80621f042c9c',
-				indexName: 'orillusion',
-				searchParameters: {
-					facetFilters: ['tags:v2'],
-				},
-				placeholder: 'Search API',
-				locales: {
-					'/zh/': {
-						placeholder: '搜索文档',
-					},
-				},
+		docsearchPlugin({
+			appId: 'A4SU9IUJ2M',
+			apiKey: '1a3b57b41821e82cafdd80621f042c9c',
+			indexName: 'orillusion',
+			searchParameters: {
+				facetFilters: ['tags:v2'],
 			},
-		],
-		[
-			'@vuepress/plugin-register-components',
-			{
-				componentsDir: path.resolve(__dirname, './components'),
-			},
-		],
-		[
-			'@vuepress/plugin-google-analytics',
-			{
-				id: 'G-0H9189CS0W',
-			},
-		],
-		// only enable shiki plugin in production mode
-		[
-			'@vuepress/plugin-shiki',
-			isProd
-				? {
-					theme: 'dark-plus',
+			locales: {
+				'/zh/': {
+					placeholder: '搜索文档',
+					translations: {
+						button: {
+							buttonText: '搜索文档',
+							buttonAriaLabel: '搜索文档',
+						},
+						modal: {
+							searchBox: {
+								resetButtonTitle: '清除查询条件',
+								resetButtonAriaLabel: '清除查询条件',
+								cancelButtonText: '取消',
+								cancelButtonAriaLabel: '取消',
+							},
+							startScreen: {
+								recentSearchesTitle: '搜索历史',
+								noRecentSearchesText: '没有搜索历史',
+								saveRecentSearchButtonTitle: '保存至搜索历史',
+								removeRecentSearchButtonTitle: '从搜索历史中移除',
+								favoriteSearchesTitle: '收藏',
+								removeFavoriteSearchButtonTitle: '从收藏中移除',
+							},
+							errorScreen: {
+								titleText: '无法获取结果',
+								helpText: '你可能需要检查你的网络连接',
+							},
+							footer: {
+								selectText: '选择',
+								navigateText: '切换',
+								closeText: '关闭',
+								searchByText: '搜索提供者',
+							},
+							noResultsScreen: {
+								noResultsText: '无法找到相关结果',
+								suggestedQueryText: '你可以尝试查询',
+								reportMissingResultsText: '你认为该查询应该有结果？',
+								reportMissingResultsLinkText: '点击反馈',
+							},
+						},
+					}
 				}
-				: false,
-		]
+			}
+		}),
+		googleAnalyticsPlugin({
+			id: 'G-0H9189CS0W',
+		}),
+		registerComponentsPlugin({
+			componentsDir: path.resolve(__dirname, './components'),
+		}),
+		// only enable shiki plugin in production mode
+		isProd ? shikiPlugin({ theme: 'dark-plus' }) : [],
 	]
 })
