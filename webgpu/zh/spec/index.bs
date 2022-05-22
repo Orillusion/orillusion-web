@@ -2813,18 +2813,18 @@ enum GPUAddressMode {
 <dl dfn-type="enum-value" dfn-for=GPUAddressMode>
     : <dfn>"clamp-to-edge"</dfn>
     ::
-        纹理坐标被限制在0.0和1.0之间，包括0.0和1.0。
+        纹理坐标被限制在 0.0 和 1.0 之间，包括 0.0 和 1.0。
 
     : <dfn>"repeat"</dfn>
     ::
-        纹理坐标环绕到纹理的另一侧。
+        纹理坐标换行到纹理的另一侧。
 
     : <dfn>"mirror-repeat"</dfn>
     ::
         纹理坐标换行到纹理的另一侧，但当坐标的整数部分为奇数时，纹理会翻转。
 </dl>
 
-{{GPUFilterMode}}描述了采样器在样本足迹与一个纹素不完全匹配时的行为。
+{{GPUFilterMode}} 描述了采样器在样本足迹与一个纹素不完全匹配时的行为。
 
 <script type=idl>
 enum GPUFilterMode {
@@ -2843,9 +2843,9 @@ enum GPUFilterMode {
         在每个维度中选择两个纹素并返回它们值之间的线性插值。
 </dl>
 
-{{GPUCompareFunction}}指定比较采样器的行为。如果在着色器中使用比较采样器，则将输入值与采样的纹理值进行比较，并将此比较测试的结果（0.0f表示通过，或1.0f表示失败）用于过滤操作。
+{{GPUCompareFunction}} 指定比较采样器的行为。如果在着色器中使用比较采样器，则将输入值与采样的纹理值进行比较，并将此比较测试的结果（0.0f表示通过，或1.0f表示失败）用于过滤操作。
 
-问题：描述过滤如何与比较采样相互作用。
+Issue: 描述过滤如何与比较采样相互作用。
 
 <script type=idl>
 enum GPUCompareFunction {
