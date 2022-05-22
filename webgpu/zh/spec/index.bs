@@ -2896,46 +2896,46 @@ enum GPUCompareFunction {
 <div>
     <dfn abstract-op>validating GPUSamplerDescriptor</dfn>(device, descriptor)
     **参数:**
-        - {{GPUDevice}} |设备|
-        - {{GPUSamplerDescriptor}} |描述符|
+        - {{GPUDevice}} |device|
+        - {{GPUSamplerDescriptor}} |descriptor|
 
-    **Returns:** {{boolean}}
+    **返回:** {{boolean}}
 
     当且仅当满足下列条件时，返回 `true`：
-        - |设备|是有效的。
-        - |descriptor|.{{GPUSamplerDescriptor/lodMinClamp}}大于等于0.
-        - |descriptor|.{{GPUSamplerDescriptor/lodMaxClamp}}大于等于
-            |descriptor|.{{GPUSamplerDescriptor/lodMinClamp}}。
-        - |descriptor|.{{GPUSamplerDescriptor/maxAnisotropy}}大于等于1。
-        - 当|descriptor|.{{GPUSamplerDescriptor/maxAnisotropy}}大于1时，|descriptor|.{{GPUSamplerDescriptor/magFilter}}, 和|descriptor|.{{GPUSamplerDescriptor/mipmapFilter}}必须等于{{GPUFilterMode/"linear"}}。
+        - |device| 是有效的。
+        - |descriptor|.{{GPUSamplerDescriptor/lodMinClamp}} 大于等于 0.
+        - |descriptor|.{{GPUSamplerDescriptor/lodMaxClamp}} 大于等于 |descriptor|.{{GPUSamplerDescriptor/lodMinClamp}}。
+        - |descriptor|.{{GPUSamplerDescriptor/maxAnisotropy}} 大于等于 1。
+        - 当 |descriptor|.{{GPUSamplerDescriptor/maxAnisotropy}} 大于 1 时，|descriptor|.{{GPUSamplerDescriptor/magFilter}}, |descriptor|.{{GPUSamplerDescriptor/minFilter}}，和 |descriptor|.{{GPUSamplerDescriptor/mipmapFilter}} 必须等于 {{GPUFilterMode/"linear"}}。
 </div>
 
 <dl dfn-type=method dfn-for=GPUDevice>
     : <dfn>createSampler(descriptor)</dfn>
     ::
+        创建一个 {{GPUBindGroupLayout}}。
 
         <div algorithm=GPUDevice.createSampler>
-            **Called on:** {{GPUDevice}} this.
+            **调用:** {{GPUDevice}} this.
 
-            **Arguments:**
+            **参数:**
             <pre class=argumentdef for="GPUDevice/createSampler(descriptor)">
-                |descriptor|: 要创建的{{GPUSampler}}的描述。
+                |descriptor|: 要创建的 {{GPUSampler}} 的描述。
             </pre>
 
-            **Returns:** {{GPUSampler}}
+            **返回:** {{GPUSampler}}
 
-            1. 使|s|为一个新的{{GPUSampler}}对象。
-            2. 将|s|.{{GPUSampler/[[descriptor]]}}设置为|descriptor|.
-            3. 如果|s|.{{GPUSampler/[[descriptor]]}}的{{GPUSamplerDescriptor/compare}}属性为 `null`或者undefined，将|s|.{{GPUSampler/[[isComparison]]}}设置为 `false`，否则，设置为 `true`。
-            4. 如果{{GPUSamplerDescriptor/minFilter}}，{{GPUSamplerDescriptor/magFilter}}或{{GPUSamplerDescriptor/mipmapFilter}}没有任何其中之一的值为{{GPUFilterMode/"linear"}}，则将|s|.{{GPUSampler/[[isFiltering]]}}设置为 `false`，否则，设置为 `true`。
-            5. 返回|s|。
+            1. 使 |s| 为一个新的 {{GPUSampler}} 对象。
+            2. 将| s|.{{GPUSampler/[[descriptor]]}} 设置为 |descriptor|.
+            3. 如果 |s|.{{GPUSampler/[[descriptor]]}} 的 {{GPUSamplerDescriptor/compare}} 属性为 `null` 或者 undefined，将 |s|.{{GPUSampler/[[isComparison]]}} 设置为 `false`，否则，设置为 `true`。
+            4. 如果 {{GPUSamplerDescriptor/minFilter}}，{{GPUSamplerDescriptor/magFilter}} 或 {{GPUSamplerDescriptor/mipmapFilter}} 中没有一个值为 {{GPUFilterMode/"linear"}}，则将 |s|.{{GPUSampler/[[isFiltering]]}} 设置为 `false`，否则，设置为 `true`。
+            5. 返回 |s|。
 
             <div class=validusage dfn-for=GPUDevice.createSampler>
                 <dfn abstract-op>有效使用</dfn>
-                - 如果|描述符|不是 `null`或undefined：
-                    - 如果[$validating GPUSamplerDescriptor$](this, |descriptor|)返回 `false`：
-                        1. 在当前范围内产生一个带有适当错误消息的{{GPUValidationError}}。
-                        2. 返回一个新的[=invalid=]{{GPUSampler}}并且返回结果。
+                - 如果 |descriptor| 不是 `null`或 undefined：
+                    - 如果 [$validating GPUSamplerDescriptor$](this, |descriptor|) 返回 `false`：
+                        1. 在当前范围内生成一个 {{GPUValidationError}} 并带有恰当的错误消息。
+                        2. 返回一个新的[=无效=] {{GPUSampler}} 并且返回结果。
             </div>
         </div>
 </dl>
