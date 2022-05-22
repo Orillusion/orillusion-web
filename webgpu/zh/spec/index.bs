@@ -2767,7 +2767,7 @@ GPUSampler includes GPUObjectBase;
 
 ### {{GPUSamplerDescriptor}} ### {#GPUSamplerDescriptor}
 
-{{GPUSamplerDescriptor}}指定用于创建{{GPUSampler}}的选项。
+{{GPUSamplerDescriptor}} 指定用于创建 {{GPUSampler}} 的选项。
 
 <script type=idl>
 dictionary GPUSamplerDescriptor : GPUObjectDescriptorBase {
@@ -2784,23 +2784,23 @@ dictionary GPUSamplerDescriptor : GPUObjectDescriptorBase {
 };
 </script>
 
-- {{GPUSamplerDescriptor/addressModeU}}、{{GPUSamplerDescriptor/addressModeV}}，和{{GPUSamplerDescriptor/addressModeW}}分别指定纹理宽度、高度和深度坐标的地址模式。
-- {{GPUSamplerDescriptor/magFilter}}指定样本足迹小于或等于1纹素时的采样行为。
-- {{GPUSamplerDescriptor/minFilter}}指定样本足迹大于1纹素时的采样行为。
-- {{GPUSamplerDescriptor/mipmapFilter}}指定在两个mipmap级别之间进行采样的行为。
-- {{GPUSamplerDescriptor/lodMinClamp}}和{{GPUSamplerDescriptor/lodMaxClamp}}分别指定了在对纹理进行采样时内部使用的最小和最大细节级别。
-- 如果提供了{{GPUSamplerDescriptor/compare}}，则采样器将是具有指定{{GPUCompareFunction}}的比较采样器。
-- {{GPUSamplerDescriptor/maxAnisotropy}}指定采样器使用的最大各向异性值限制。
+- {{GPUSamplerDescriptor/addressModeU}}、{{GPUSamplerDescriptor/addressModeV}}，和 {{GPUSamplerDescriptor/addressModeW}} 分别指定纹理宽度、高度和深度坐标的地址模式。
+- {{GPUSamplerDescriptor/magFilter}} 指定样本足迹小于或等于一个纹素时的采样行为。
+- {{GPUSamplerDescriptor/minFilter}} 指定样本足迹大于一个纹素时的采样行为。
+- {{GPUSamplerDescriptor/mipmapFilter}} 指定在两个 mipmap 层之间进行采样的行为。
+- {{GPUSamplerDescriptor/lodMinClamp}} 和 {{GPUSamplerDescriptor/lodMaxClamp}} 分别指定了细节的最小层级和最大层级，对纹理进行采样时在内部使用。
+- 如果提供了 {{GPUSamplerDescriptor/compare}}，则采样器将是具有指定 {{GPUCompareFunction}} 的比较采样器。
+- {{GPUSamplerDescriptor/maxAnisotropy}} 指定采样器使用的最大各向异性值限制。
 
-    注意：大多数实现支持 1 到 16 之间的 {{GPUSamplerDescriptor/maxAnisotropy}} 值，包括 1 到 16。
+    Note: 大多数实现支持范围在 1 到 16 之间的 {{GPUSamplerDescriptor/maxAnisotropy}} 值，包括 1 和 16。
 
-问题：解释LOD是如何计算的，以及平台之间是否存在差异。
+Issue: 解释 LOD 是如何计算的，以及平台之间是否存在差异。
 
-问题：解释什么是各向异性采样。
+Issue: 解释什么是各向异性采样。
 
-{{GPUAddressMode}}描述了采样器在采样足迹超出采样纹理边界时的行为。
+{{GPUAddressMode}} 描述了采样器在采样足迹超出采样纹理边界时的行为。
 
-问题：更详细地描述“样本足迹”。
+Issue: 更详细地描述“样本足迹”。
 
 <script type=idl>
 enum GPUAddressMode {
