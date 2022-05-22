@@ -2736,9 +2736,9 @@ Note: 如果内部表示是 RGBA 平面，则采样的行为与常规 2D 纹理�
 
 ## <dfn interface>GPUSampler</dfn> ## {#sampler-interface}
 
-一个{{GPUSampler}}对可在着色器中使用以解释纹理资源数据的变换和过滤信息进行编码。
+一个 {{GPUSampler}} 对着色器中的变换和过滤信息进行编码，从而解析了纹理资源数据。
 
-{{GPUSampler|GPUSamplers}}通过{{GPUDevice/createSampler(descriptor)|GPUDevice.createSampler(optional descriptor)}}被创建，返回一个新的采样器对象。
+{{GPUSampler|GPUSamplers}} 通过 {{GPUDevice/createSampler(descriptor)|GPUDevice.createSampler(optional descriptor)}} 被创建，返回一个新的采样器对象。
 
 <script type=idl>
 [Exposed=(Window, DedicatedWorker), SecureContext]
@@ -2747,20 +2747,20 @@ interface GPUSampler {
 GPUSampler includes GPUObjectBase;
 </script>
 
-{{GPUSampler}}有以下内部插槽:
+{{GPUSampler}} 有以下内部插槽:
 
 <dl dfn-type=attribute dfn-for="GPUSampler">
     : <dfn>\[[descriptor]]</dfn>, of type {{GPUSamplerDescriptor}}, readonly
     ::
-        用于创建{{GPUSampler}}的{{GPUSamplerDescriptor}}。
+        用于创建 {{GPUSampler}} 的 {{GPUSamplerDescriptor}}。
 
     : <dfn>\[[isComparison]]</dfn> of type {{boolean}}.
     ::
-        {GPUSampler}}是否被当作比较采样器。
+        用于表示 {GPUSampler}} 是否被当作比较采样器。
 
     : <dfn>\[[isFiltering]]</dfn> of type {{boolean}}.
     ::
-        {{GPUSampler}}是否对纹理的多个样本进行加权。
+        用于表示 {{GPUSampler}} 是否对纹理的多个样本进行加权。
 </dl>
 
 ## 采样器创建 ## {#sampler-creation}
