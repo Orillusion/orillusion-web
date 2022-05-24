@@ -316,7 +316,7 @@ WebGPU规范描述了每种错误的后果。
 
 TODO：更新WebGPU规范，参考这里定义的三种错误。
 
-# 纹理结构 # {#textual-structure}
+# 文本结构 # {#textual-structure}
 
 WGSL程序为文本。本规范并未规定该文本的特定编码。但是，UTF-8始终是WGSL程序的有效编码。
 
