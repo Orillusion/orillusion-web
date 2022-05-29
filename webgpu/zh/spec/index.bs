@@ -3045,38 +3045,36 @@ dictionary GPUBindGroupLayoutEntry {
         是 {{GPUExternalTexture}}。
 </dl>
 
-{{GPUBindGroupLayoutEntry}} 的 [=binding member=] 由定义了 {{GPUBindGroupLayoutEntry}} 的哪个成员决定：
-{{GPUBindGroupLayoutEntry/buffer}}、{{GPUBindGroupLayoutEntry/sampler}}、
+{{GPUBindGroupLayoutEntry}} 的[=绑定成员=]由被定义了的 {{GPUBindGroupLayoutEntry}} 成员决定：{{GPUBindGroupLayoutEntry/buffer}}、{{GPUBindGroupLayoutEntry/sampler}}、
 {{GPUBindGroupLayoutEntry/texture}}、{{GPUBindGroupLayoutEntry/storageTexture}} 或
-{{GPUBindGroupLayoutEntry/externalTexture}}。
-对于任何给定的 {{GPUBindGroupLayoutEntry}}，只能定义一个。
-每个成员都有一个关联的 {{GPUBindingResource}} 类型，每个 [=binding type=] 都有一个关联的 [=internal usage=]，如下表所示：
+{{GPUBindGroupLayoutEntry/externalTexture}}。对于任何给定的 {{GPUBindGroupLayoutEntry}}，只能定义一个绑定成员。
+每个成员都有一个关联的 {{GPUBindingResource}} 类型，每个[=绑定类型=]都有一个关联的[=内部使用=]，如下表所示：
 
 <table class="data" style="white-space: nowrap">
     <thead>
         <tr>
-            <th><dfn dfn>Binding member</dfn>
-            <th><dfn dfn lt="Binding Resource Type">Resource type</dfn>
-            <th><dfn dfn>Binding type</dfn><br>
-            <th><dfn dfn>Binding usage/dfn>
+            <th><dfn dfn>绑定成员</dfn>
+            <th><dfn dfn lt="资源绑定类型">资源类型</dfn>
+            <th><dfn dfn>绑定类型</dfn><br>
+            <th><dfn dfn>绑定使用</dfn>
     </thead>
     <tr>
         <td rowspan=3>{{GPUBindGroupLayoutEntry/buffer}}
         <td rowspan=3>{{GPUBufferBinding}}
         <td>{{GPUBufferBindingType/"uniform"}}
-        <td>[=internal usage/constant=]
+        <td>[=internal usage/常量=]
     <tr>
         <td>{{GPUBufferBindingType/"storage"}}
-        <td>[=internal usage/storage=]
+        <td>[=internal usage/存储=]
     <tr>
         <td>{{GPUBufferBindingType/"read-only-storage"}}
-        <td>[=internal usage/storage-read=]
+        <td>[=internal usage/只读存储=]
 
     <tr>
         <td rowspan=3>{{GPUBindGroupLayoutEntry/sampler}}
         <td rowspan=3>{{GPUSampler}}
         <td>{{GPUSamplerBindingType/"filtering"}}
-        <td rowspan=3>[=internal usage/constant=]
+        <td rowspan=3>[=internal usage/常量=]
     <tr>
         <td>{{GPUSamplerBindingType/"non-filtering"}}
     <tr>
@@ -3086,7 +3084,7 @@ dictionary GPUBindGroupLayoutEntry {
         <td rowspan=5>{{GPUBindGroupLayoutEntry/texture}}
         <td rowspan=5>{{GPUTextureView}}
         <td>{{GPUTextureSampleType/"float"}}
-        <td rowspan=5>[=internal usage/constant=]
+        <td rowspan=5>[=internal usage/常量=]
     <tr>
         <td>{{GPUTextureSampleType/"unfilterable-float"}}
     <tr>
@@ -3100,13 +3098,13 @@ dictionary GPUBindGroupLayoutEntry {
         <td>{{GPUBindGroupLayoutEntry/storageTexture}}
         <td>{{GPUTextureView}}
         <td>{{GPUStorageTextureAccess/"write-only"}}
-        <td>[=internal usage/storage=]
+        <td>[=internal usage/存储=]
 
     <tr>
         <td>{{GPUBindGroupLayoutEntry/externalTexture}}
         <td>{{GPUExternalTexture}}
         <td>
-        <td>[=internal usage/constant=]
+        <td>[=internal usage/常量=]
 </table>
 
 <div algorithm>
