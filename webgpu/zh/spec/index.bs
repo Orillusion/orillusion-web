@@ -2957,7 +2957,7 @@ enum GPUCompareFunction {
 
 ## <dfn interface>GPUBindGroupLayout</dfn> ## {#bind-group-layout}
 
-{{GPUBindGroupLayout}} 定义了绑定在 {{GPUBindGroup}} 中的一组资源与其在着色器阶段的可访问性之间的接口。
+{{GPUBindGroupLayout}} 定义了一种接口，这种接口在 {{GPUBindGroup}} 中绑定了一组资源，并在着色器阶段的可被访问。
 
 <script type=idl>
 [Exposed=(Window, DedicatedWorker), SecureContext]
