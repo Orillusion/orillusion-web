@@ -3252,16 +3252,14 @@ dictionary GPUStorageTextureBindingLayout {
 };
 </script>
 
-问题(https://github.com/gpuweb/gpuweb/issues/851): 考虑时 {{GPUStorageTextureBindingLayout/format}} 真正可选。
+Issue(https://github.com/gpuweb/gpuweb/issues/851): 考虑时 {{GPUStorageTextureBindingLayout/format}} 真正可选。
 
 {{GPUStorageTextureBindingLayout}} 词典有以下成员:
 
 <dl dfn-type=dict-member dfn-for=GPUStorageTextureBindingLayout>
     : <dfn>access</dfn>
     ::
-        指示绑定到此绑定的纹理视图是否将绑定为只读或
-        只写访问。
-
+        指示绑定到此绑定的纹理视图是否将绑定为只读或只写访问。
     : <dfn>format</dfn>
     ::
         绑定到此绑定的纹理视图所需的 {{GPUTextureViewDescriptor/format}}。
@@ -3279,16 +3277,16 @@ dictionary GPUExternalTextureBindingLayout {
 {{GPUBindGroupLayout}} 对象有以下内部插槽:
 
 <dl dfn-type=attribute dfn-for="GPUBindGroupLayout">
-    : <dfn>\[[entryMap]]</dfn> 是 [=ordered map=]&lt;{{GPUSize32}}, {{GPUBindGroupLayoutEntry}}&gt 类型。
+    : <dfn>\[[entryMap]]</dfn> of type [=ordered map=]&lt;{{GPUSize32}}, {{GPUBindGroupLayoutEntry}}&gt.
     ::
         指向 {{GPUBindGroupLayoutEntry}} 的绑定索引映射，此 {{GPUBindGroupLayout}} 描述了该映射。
 
-    : <dfn>\[[dynamicOffsetCount]]</dfn> 是 {{GPUSize32}} 类型。
+    : <dfn>\[[dynamicOffsetCount]]</dfn> of type {{GPUSize32}}.
     ::
         此 {{GPUBindGroupLayout}} 中具有动态偏移量的缓冲区绑定数。
-    : <dfn>\[[exclusivePipeline]]</dfn>  {{GPUPipelineBase}} 类型?， 初始设定为 `null`。
+    : <dfn>\[[exclusivePipeline]]</dfn> of type {{GPUPipelineBase}}?, initially `null`.
     ::
-        创建此 {{GPUBindGroupLayout}} 的管道，如果它是作为 [[#default-pipeline-layout|default pipeline layout]] 的一部分创建的。
+        创建此 {{GPUBindGroupLayout}} 的管道，如果该管道是作为 [[#default-pipeline-layout|default pipeline layout]] 的一部分创建的。
         如果不是 `null`，则使用此 {{GPUBindGroupLayout}} 创建的 {{GPUBindGroup}} 只能与指定的 {{GPUPipelineBase}} 一起使用。
 </dl>
 
@@ -3307,58 +3305,46 @@ dictionary GPUExternalTextureBindingLayout {
 
             **返回:** {{GPUBindGroupLayout}}
 
-            1. 让 |layout| 是一个新的有效 {{GPUBindGroupLayout}} 对象。
+            1. 让 |layout| 是一个新的有效的 {{GPUBindGroupLayout}} 对象。
             1. 设置 |layout|.{{GPUBindGroupLayout/[[descriptor]]}} 为 |descriptor|.
-            1. 在 |this| 的 [=Device timeline=] 上发出以下步骤:
+            1. 在 |this| 的[=设备时间线=]上发出以下步骤:
                 <div class=device-timeline>
                     1. 如果一下任一条件没有被满足:
                         <div class=validusage>
-                            - |this| 是一个 [=valid=] {{GPUDevice}}.
+                            - |this| 是一个[=有效=] {{GPUDevice}}.
                             - 在 |descriptor| 中每一个条目的 {{GPUBindGroupLayoutEntry/binding}} 是唯一的。
                             - |descriptor| 中每个条目的 {{GPUBindGroupLayoutEntry/binding}} 必须 < 65536。
                             - |descriptor|.{{GPUBindGroupLayoutDescriptor/entries}} 必须不能
-                                超过绑定槽限制|超过 |this|.{{GPUObjectBase/[[device]]}}.{{device/[[limits]]}}的绑定槽限制。
+                                [=超过绑定槽限制=]，该绑定槽限制为 |this|.{{GPUObjectBase/[[device]]}}.{{device/[[limits]]}}。
                             - |descriptor|.{{GPUBindGroupLayoutDescriptor/entries}} 中每一个条目的 {{GPUBindGroupLayoutEntry}}:
                                 - 设定 |bufferLayout| 为 |entry|.{{GPUBindGroupLayoutEntry/buffer}}
                                 - 设定 |samplerLayout| 为 |entry|.{{GPUBindGroupLayoutEntry/sampler}}
                                 - 设定 |textureLayout| 为 |entry|.{{GPUBindGroupLayoutEntry/texture}}
                                 - 设定 |storageTextureLayout| 为 |entry|.{{GPUBindGroupLayoutEntry/storageTexture}}
 
-                                - |bufferLayout|， |samplerLayout|， |textureLayout|，
-                                    或 |storageTextureLayout| 其中一个不是 `undefined`。
+                                - |bufferLayout|，|samplerLayout|，|textureLayout|，或 |storageTextureLayout| 其中的一个不是`未定义`的。
 
-                                - 如果 |entry|.{{GPUBindGroupLayoutEntry/visibility}} 包含
-                                    {{GPUShaderStage/VERTEX}}:
-                                    - |entry|.{{GPUBindGroupLayoutEntry/buffer}}?.{{GPUBufferBindingLayout/type}}
-                                        必须不能是 {{GPUBufferBindingType/"storage"}}.
-                                    - |entry|.{{GPUBindGroupLayoutEntry/storageTexture}}?.{{GPUStorageTextureBindingLayout/access}}
-                                        必须不能是 {{GPUStorageTextureAccess/"write-only"}}.
+                                - 如果 |entry|.{{GPUBindGroupLayoutEntry/visibility}} 中包含 {{GPUShaderStage/VERTEX}}:
+                                    - |entry|.{{GPUBindGroupLayoutEntry/buffer}}?.{{GPUBufferBindingLayout/type}} 必须不能是 {{GPUBufferBindingType/"storage"}}.
+                                    - |entry|.{{GPUBindGroupLayoutEntry/storageTexture}}?.{{GPUStorageTextureBindingLayout/access}} 必须不能是 {{GPUStorageTextureAccess/"write-only"}}.
 
-                                - 如果 |textureLayout| 不是 `undefined` 并且
-                                    |textureLayout|.{{GPUTextureBindingLayout/multisampled}} 是 `true`:
-                                    - |textureLayout|.{{GPUTextureBindingLayout/viewDimension}} 是
-                                        {{GPUTextureViewDimension/"2d"}}.
-                                    - |textureLayout|.{{GPUTextureBindingLayout/sampleType}} 不是
-                                        {{GPUTextureSampleType/"float"}} 或者 {{GPUTextureSampleType/"depth"}}.
+                                - 如果 |textureLayout| 不是`未定义`的，并且 |textureLayout|.{{GPUTextureBindingLayout/multisampled}} 是 `true`:
+                                    - |textureLayout|.{{GPUTextureBindingLayout/viewDimension}} 是 {{GPUTextureViewDimension/"2d"}}.
+                                    - |textureLayout|.{{GPUTextureBindingLayout/sampleType}} 不是 {{GPUTextureSampleType/"float"}} 或者 {{GPUTextureSampleType/"depth"}}.
 
-                                - 如果 |storageTextureLayout| 不是 `undefined`:
-                                    - |storageTextureLayout|.{{GPUStorageTextureBindingLayout/viewDimension}} 不是
-                                        {{GPUTextureViewDimension/"cube"}} 或 {{GPUTextureViewDimension/"cube-array"}}.
-                                    - |storageTextureLayout|.{{GPUStorageTextureBindingLayout/format}}
-                                        必须是可以支持存储使用的格式。
+                                - 如果 |storageTextureLayout| 不是`未定义`的:
+                                    - |storageTextureLayout|.{{GPUStorageTextureBindingLayout/viewDimension}} 不是 {{GPUTextureViewDimension/"cube"}} 或 {{GPUTextureViewDimension/"cube-array"}}.
+                                    - |storageTextureLayout|.{{GPUStorageTextureBindingLayout/format}} 必须是可以支持存储使用的格式。
                         </div>
 
-                        Then:
-                            1. 在当前范围内产生一个带有适当错误消息的{{GPUValidationError}}。
-                            1. 使 |layout| [=invalid=] 并且返回 |layout|。
+                        然后:
+                            1. 在当前范围内生成带有适当错误消息的 {{GPUValidationError}}。
+                            1. 使 |layout| [=无效=]，并且返回 |layout|。
 
-                    1. Set |layout|.{{GPUBindGroupLayout/[[dynamicOffsetCount]]}} to the number of
-                        entries in |descriptor| where {{GPUBindGroupLayoutEntry/buffer}} is not `undefined` and
-                        {{GPUBindGroupLayoutEntry/buffer}}.{{GPUBufferBindingLayout/hasDynamicOffset}} is `true`.
-                    1. For each {{GPUBindGroupLayoutEntry}} |entry| in
-                        |descriptor|.{{GPUBindGroupLayoutDescriptor/entries}}:
-                        1. Insert |entry| into |layout|.{{GPUBindGroupLayout/[[entryMap]]}}
-                            with the key of |entry|.{{GPUBindGroupLayoutEntry/binding}}.
+                    1. 设置 |layout|.{{GPUBindGroupLayout/[[dynamicOffsetCount]]}} 为 |descriptor| 中条目的个数，同时 {{GPUBindGroupLayoutEntry/buffer}} 不是`未定义`，并且 {{GPUBindGroupLayoutEntry/buffer}}.{{GPUBufferBindingLayout/hasDynamicOffset}} 是 `true`.
+                    1. 针对在 |descriptor|.{{GPUBindGroupLayoutDescriptor/entries}} 中的每个 {{GPUBindGroupLayoutEntry}} |entry|
+                        :
+                        1. 插入 |entry| 和 |entry|.{{GPUBindGroupLayoutEntry/binding}} 的密匙到 |layout|.{{GPUBindGroupLayout/[[entryMap]]}}.
                 </div>
             1. 返回 |layout|.
 
