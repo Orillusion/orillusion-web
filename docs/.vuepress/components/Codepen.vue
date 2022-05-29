@@ -34,7 +34,7 @@ export default {
 
     tab: {
       type: String,
-      default: 'result',
+      default: 'js,result',
     },
 
     team: {
@@ -59,12 +59,12 @@ export default {
 
     theme: {
       type: String,
-      default: '39028',
+      default: 'dark',
     },
 
     preview: {
       type: Boolean,
-      default: true,
+      default: false,
     },
 
     editable: {
