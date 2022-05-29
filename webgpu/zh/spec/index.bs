@@ -3167,21 +3167,11 @@ dictionary GPUBufferBindingLayout {
 
         绑定始终在 {{GPUDevice/createBindGroup()}} 中针对此大小进行验证。
 
-        如果此 * 不是 * `0`，则额外创建管线 [$validating shader binding|validates$]，这个值对于着色器中声明的绑定足够大。
+        如果该值* 不是 * `0`，则需要额外创建管线来[$validating shader binding|验证$]这个值对于着色器中声明的绑定足够大。
 
-        如果此 * 是 * `0`，则另外绘制/发送命令 [$Validate encoder bind groups|validate$]，{{GPUBindGroup}} 中的每个绑定对于着色器中声明的绑定都足够大。
+        如果该值* 是 * `0`，则需要另外绘制/调度指令来[$Validate encoder bind groups|验证$] {{GPUBindGroup}} 中的每个绑定对于着色器中声明的绑定都足够大。
 
-指示最小缓冲区绑定大小。
-
-        绑定始终在 {{GPUDevice/createBindGroup()}} 中针对此大小进行验证。
-
-        如果此 * 不是 * `0`，则额外创建管道 [$validating shader binding|validates$]
-        这个值对于着色器中声明的绑定足够大。
-
-        如果此 * 是 * `0`，则另外绘制/发送命令 [$Validate encoder bind groups|validate$]
-        {{GPUBindGroup}} 中的每个绑定对于着色器中声明的绑定都足够大。
-
-        注意：对于为早期验证指定的其他绑定相关字段，类似的执行时间验证在理论上是可能的，例如 {{GPUTextureBindingLayout/sampleType}} 和 {{GPUStorageTextureBindingLayout/format}}，目前只能在管线创建中进行验证。然而，这种执行时间验证可能成本高昂或不必要地复杂，因此它仅适用于预计具有最符合人体工程学影响的 {{GPUBufferBindingLayout/minBindingSize}}。
+        Note: 对于为早期验证指定的其他绑定相关字段，类似的执行时间验证在理论上是可能的，例如目前只能在管线创建中进行验证的 {{GPUTextureBindingLayout/sampleType}} 和 {{GPUStorageTextureBindingLayout/format}}。然而，这种执行时间验证可能成本高昂或不必要的复杂，因此仅适用于具有最符合人体工程学影响的 {{GPUBufferBindingLayout/minBindingSize}}。
 </dl>
 
 <script type=idl>
@@ -3191,17 +3181,29 @@ enum GPUSamplerBindingType {
     "comparison",
 };
 
-dictionary GPUSamplerBindingLayout {
-    GPUSamplerBindingType type = "filtering";
+dictionary GPUTextureBindingLayout {
+    GPUTextureSampleType sampleType = "float";
+    GPUTextureViewDimension viewDimension = "2d";
+    boolean multisampled = false;
 };
 </script>
 
-{{GPUSamplerBindingLayout}} 词典有以下成员:
+Issue(https://github.com/gpuweb/gpuweb/issues/851): 考虑使 {{GPUTextureBindingLayout/sampleType}} 真正可选。
 
-<dl dfn-type=dict-member dfn-for=GPUSamplerBindingLayout>
-    : <dfn>type</dfn>
+{{GPUTextureBindingLayout}} 词典有以下成员:
+
+<dl dfn-type=dict-member dfn-for=GPUTextureBindingLayout>
+    : <dfn>sampleType</dfn>
     ::
-        指示绑定到此绑定的采样器的所需类型。
+        指示绑定到此绑定的纹理视图所需的类型。
+    : <dfn>viewDimension</dfn>
+    ::
+        指示绑定到此绑定的纹理视图所需的 {{GPUTextureViewDescriptor/dimension}}。
+        <!-- https://github.com/gpuweb/gpuweb/pull/339 -->
+
+    : <dfn>multisampled</dfn>
+    ::
+        指示绑定到此绑定的纹理视图是否必须进行多重采样。
 </dl>
 
 <script type=idl>
