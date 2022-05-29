@@ -3108,43 +3108,31 @@ dictionary GPUBindGroupLayoutEntry {
 </table>
 
 <div algorithm>
-    如果用于限制的插槽数超过 |limits| 中支持的值，
-    {{GPUBindGroupLayoutEntry}} 值的 [=list=] |entries| <dfn>exceeds the binding slot limits</dfn>xi [=supported limits=] |limits|。
-    每个条目可以使用多个槽来实现多个限制。
+    如果用于一个限制的插槽数超过|限制|中支持的值，{{GPUBindGroupLayoutEntry}} 值的|条目|[=列表=]<dfn>超出绑定槽限制</dfn>， 这些绑定槽限制来自于[=支持的限制=]的|限制|。每个条目可以使用多个槽来实现多个限制。
 
-    1. 对于每个 在 |entries| 中的 |entry| , 如果:
+    1. 对于每个在|条目|中的 |entry| , 如果:
         <dl class=switch>
-            : |entry|.{{GPUBindGroupLayoutEntry/buffer}}?.{{GPUBufferBindingLayout/type}}
-                是 {{GPUBufferBindingType/"uniform"}} 和
-                |entry|.{{GPUBindGroupLayoutEntry/buffer}}?.{{GPUBufferBindingLayout/hasDynamicOffset}} 是 `true`
-            ::  1 {{supported limits/maxDynamicUniformBuffersPerPipelineLayout}} 槽会被使用。
-            : |entry|.{{GPUBindGroupLayoutEntry/buffer}}?.{{GPUBufferBindingLayout/type}}
-                是 {{GPUBufferBindingType/"storage"}} 和
-                |entry|.{{GPUBindGroupLayoutEntry/buffer}}?.{{GPUBufferBindingLayout/hasDynamicOffset}} 是 `true`
-            ::  1 {{supported limits/maxDynamicStorageBuffersPerPipelineLayout}} 槽会被使用。
+            : |entry|.{{GPUBindGroupLayoutEntry/buffer}}?.{{GPUBufferBindingLayout/type}} 是 {{GPUBufferBindingType/"uniform"}}，并且 |entry|.{{GPUBindGroupLayoutEntry/buffer}}?.{{GPUBufferBindingLayout/hasDynamicOffset}} 是 `true`
+            ::  1 个 {{supported limits/maxDynamicUniformBuffersPerPipelineLayout}} 槽会被使用。
+            : |entry|.{{GPUBindGroupLayoutEntry/buffer}}?.{{GPUBufferBindingLayout/type}} 是 {{GPUBufferBindingType/"storage"}}，并且 |entry|.{{GPUBindGroupLayoutEntry/buffer}}?.{{GPUBufferBindingLayout/hasDynamicOffset}} 是 `true`
+            ::  1 个 {{supported limits/maxDynamicStorageBuffersPerPipelineLayout}} 槽会被使用。
         </dl>
-    1. 对于每个着色器阶段 |stage| 在
-        &laquo; {{GPUShaderStage/VERTEX}}, {{GPUShaderStage/FRAGMENT}}, {{GPUShaderStage/COMPUTE}} &raquo;:
-        1. 对于每个 在 |entries| 中的 |entry| , 如果:
-            |entry|.{{GPUBindGroupLayoutEntry/visibility}} 包含 |stage|, 如果:
+    1. 对于在 &laquo; {{GPUShaderStage/VERTEX}}, {{GPUShaderStage/FRAGMENT}}, {{GPUShaderStage/COMPUTE}} &raquo; 中的每个着色器阶段 |stage|:
+        1. 对于每个在|条目| 中的 |entry|，并且 |entry|.{{GPUBindGroupLayoutEntry/visibility}} 中包含了 |stage|, 如果:
             <dl class=switch>
-                : |entry|.{{GPUBindGroupLayoutEntry/buffer}}?.{{GPUBufferBindingLayout/type}}
-                    是 {{GPUBufferBindingType/"uniform"}}
-                ::  1 {{supported limits/maxUniformBuffersPerShaderStage}} 槽会被使用。
-                : |entry|.{{GPUBindGroupLayoutEntry/buffer}}?.{{GPUBufferBindingLayout/type}}
-                    是 {{GPUBufferBindingType/"storage"}} 或者 {{GPUBufferBindingType/"read-only-storage"}}
-                ::  1 {{supported limits/maxStorageBuffersPerShaderStage}} 槽会被使用。
-                : |entry|.{{GPUBindGroupLayoutEntry/sampler}} 不是 `undefined`
-                ::  1 {{supported limits/maxSamplersPerShaderStage}} 槽会被使用。
-                : |entry|.{{GPUBindGroupLayoutEntry/texture}} 不是 `undefined`
-                :: Consider 1 {{supported limits/maxSampledTexturesPerShaderStage}} 槽会被使用。
-                : |entry|.{{GPUBindGroupLayoutEntry/storageTexture}} 不是 `undefined`
-                :: Consider 1 {{supported limits/maxStorageTexturesPerShaderStage}} 槽会被使用。
-                : |entry|.{{GPUBindGroupLayoutEntry/externalTexture}} 不是 `undefined`
+                : |entry|.{{GPUBindGroupLayoutEntry/buffer}}?.{{GPUBufferBindingLayout/type}} 是 {{GPUBufferBindingType/"uniform"}}
+                ::  1 个 {{supported limits/maxUniformBuffersPerShaderStage}} 槽会被使用。
+                : |entry|.{{GPUBindGroupLayoutEntry/buffer}}?.{{GPUBufferBindingLayout/type}} 是 {{GPUBufferBindingType/"storage"}} 或者 {{GPUBufferBindingType/"read-only-storage"}}
+                ::  1 个 {{supported limits/maxStorageBuffersPerShaderStage}} 槽会被使用。
+                : |entry|.{{GPUBindGroupLayoutEntry/sampler}} 不是 `未定义`
+                ::  1 个 {{supported limits/maxSamplersPerShaderStage}} 槽会被使用。
+                : |entry|.{{GPUBindGroupLayoutEntry/texture}} 不是 `未定义`
+                ::  1 个 {{supported limits/maxSampledTexturesPerShaderStage}} 槽会被使用。
+                : |entry|.{{GPUBindGroupLayoutEntry/storageTexture}} 不是 `未定义`
+                ::  1 个 {{supported limits/maxStorageTexturesPerShaderStage}} 槽会被使用。
+                : |entry|.{{GPUBindGroupLayoutEntry/externalTexture}} 不是 `未定义`
                 ::
-                    4 {{supported limits/maxSampledTexturesPerShaderStage}} 槽，
-                    1 {{supported limits/maxSamplersPerShaderStage}} 槽， 和
-                    1 {{supported limits/maxUniformBuffersPerShaderStage}} 槽会被使用。
+                    4 个 {{supported limits/maxSampledTexturesPerShaderStage}} 槽，1 个 {{supported limits/maxSamplersPerShaderStage}} 槽， 和 1 个 {{supported limits/maxUniformBuffersPerShaderStage}} 槽会被使用。
             </dl>
 </div>
 
