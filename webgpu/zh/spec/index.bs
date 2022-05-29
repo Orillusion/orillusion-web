@@ -3181,17 +3181,29 @@ enum GPUSamplerBindingType {
     "comparison",
 };
 
-dictionary GPUSamplerBindingLayout {
-    GPUSamplerBindingType type = "filtering";
+dictionary GPUTextureBindingLayout {
+    GPUTextureSampleType sampleType = "float";
+    GPUTextureViewDimension viewDimension = "2d";
+    boolean multisampled = false;
 };
 </script>
 
-{{GPUSamplerBindingLayout}} 词典有以下成员:
+Issue(https://github.com/gpuweb/gpuweb/issues/851): 考虑使 {{GPUTextureBindingLayout/sampleType}} 真正可选。
 
-<dl dfn-type=dict-member dfn-for=GPUSamplerBindingLayout>
-    : <dfn>type</dfn>
+{{GPUTextureBindingLayout}} 词典有以下成员:
+
+<dl dfn-type=dict-member dfn-for=GPUTextureBindingLayout>
+    : <dfn>sampleType</dfn>
     ::
-        指示绑定到此绑定的采样器的所需类型。
+        指示绑定到此绑定的纹理视图所需的类型。
+    : <dfn>viewDimension</dfn>
+    ::
+        指示绑定到此绑定的纹理视图所需的 {{GPUTextureViewDescriptor/dimension}}。
+        <!-- https://github.com/gpuweb/gpuweb/pull/339 -->
+
+    : <dfn>multisampled</dfn>
+    ::
+        指示绑定到此绑定的纹理视图是否必须进行多重采样。
 </dl>
 
 <script type=idl>
