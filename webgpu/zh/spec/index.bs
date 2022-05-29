@@ -2736,9 +2736,9 @@ Note: 如果内部表示是 RGBA 平面，则采样的行为与常规 2D 纹理�
 
 ## <dfn interface>GPUSampler</dfn> ## {#sampler-interface}
 
-一个{{GPUSampler}}对可在着色器中使用以解释纹理资源数据的变换和过滤信息进行编码。
+一个 {{GPUSampler}} 对着色器中的变换和过滤信息进行编码，从而解析了纹理资源数据。
 
-{{GPUSampler|GPUSamplers}}通过{{GPUDevice/createSampler(descriptor)|GPUDevice.createSampler(optional descriptor)}}被创建，返回一个新的采样器对象。
+{{GPUSampler|GPUSamplers}} 通过 {{GPUDevice/createSampler(descriptor)|GPUDevice.createSampler(optional descriptor)}} 被创建，返回一个新的采样器对象。
 
 <script type=idl>
 [Exposed=(Window, DedicatedWorker), SecureContext]
@@ -2747,27 +2747,27 @@ interface GPUSampler {
 GPUSampler includes GPUObjectBase;
 </script>
 
-{{GPUSampler}}有以下内部插槽:
+{{GPUSampler}} 有以下内部插槽:
 
 <dl dfn-type=attribute dfn-for="GPUSampler">
     : <dfn>\[[descriptor]]</dfn>, of type {{GPUSamplerDescriptor}}, readonly
     ::
-        用于创建{{GPUSampler}}的{{GPUSamplerDescriptor}}。
+        用于创建 {{GPUSampler}} 的 {{GPUSamplerDescriptor}}。
 
     : <dfn>\[[isComparison]]</dfn> of type {{boolean}}.
     ::
-        {GPUSampler}}是否被当作比较采样器。
+        用于表示 {GPUSampler}} 是否被当作比较采样器。
 
     : <dfn>\[[isFiltering]]</dfn> of type {{boolean}}.
     ::
-        {{GPUSampler}}是否对纹理的多个样本进行加权。
+        用于表示 {{GPUSampler}} 是否对纹理的多个样本进行加权。
 </dl>
 
 ## 采样器创建 ## {#sampler-creation}
 
 ### {{GPUSamplerDescriptor}} ### {#GPUSamplerDescriptor}
 
-{{GPUSamplerDescriptor}}指定用于创建{{GPUSampler}}的选项。
+{{GPUSamplerDescriptor}} 指定用于创建 {{GPUSampler}} 的选项。
 
 <script type=idl>
 dictionary GPUSamplerDescriptor : GPUObjectDescriptorBase {
@@ -2784,23 +2784,23 @@ dictionary GPUSamplerDescriptor : GPUObjectDescriptorBase {
 };
 </script>
 
-- {{GPUSamplerDescriptor/addressModeU}}、{{GPUSamplerDescriptor/addressModeV}}，和{{GPUSamplerDescriptor/addressModeW}}分别指定纹理宽度、高度和深度坐标的地址模式。
-- {{GPUSamplerDescriptor/magFilter}}指定样本足迹小于或等于1纹素时的采样行为。
-- {{GPUSamplerDescriptor/minFilter}}指定样本足迹大于1纹素时的采样行为。
-- {{GPUSamplerDescriptor/mipmapFilter}}指定在两个mipmap级别之间进行采样的行为。
-- {{GPUSamplerDescriptor/lodMinClamp}}和{{GPUSamplerDescriptor/lodMaxClamp}}分别指定了在对纹理进行采样时内部使用的最小和最大细节级别。
-- 如果提供了{{GPUSamplerDescriptor/compare}}，则采样器将是具有指定{{GPUCompareFunction}}的比较采样器。
-- {{GPUSamplerDescriptor/maxAnisotropy}}指定采样器使用的最大各向异性值限制。
+- {{GPUSamplerDescriptor/addressModeU}}、{{GPUSamplerDescriptor/addressModeV}}，和 {{GPUSamplerDescriptor/addressModeW}} 分别指定纹理宽度、高度和深度坐标的地址模式。
+- {{GPUSamplerDescriptor/magFilter}} 指定样本足迹小于或等于一个纹素时的采样行为。
+- {{GPUSamplerDescriptor/minFilter}} 指定样本足迹大于一个纹素时的采样行为。
+- {{GPUSamplerDescriptor/mipmapFilter}} 指定在两个 mipmap 层之间进行采样的行为。
+- {{GPUSamplerDescriptor/lodMinClamp}} 和 {{GPUSamplerDescriptor/lodMaxClamp}} 分别指定了细节的最小层级和最大层级，对纹理进行采样时在内部使用。
+- 如果提供了 {{GPUSamplerDescriptor/compare}}，则采样器将是具有指定 {{GPUCompareFunction}} 的比较采样器。
+- {{GPUSamplerDescriptor/maxAnisotropy}} 指定采样器使用的最大各向异性值限制。
 
-    注意：大多数实现支持 1 到 16 之间的 {{GPUSamplerDescriptor/maxAnisotropy}} 值，包括 1 到 16。
+    Note: 大多数实现支持范围在 1 到 16 之间的 {{GPUSamplerDescriptor/maxAnisotropy}} 值，包括 1 和 16。
 
-问题：解释LOD是如何计算的，以及平台之间是否存在差异。
+Issue: 解释 LOD 是如何计算的，以及平台之间是否存在差异。
 
-问题：解释什么是各向异性采样。
+Issue: 解释什么是各向异性采样。
 
-{{GPUAddressMode}}描述了采样器在采样足迹超出采样纹理边界时的行为。
+{{GPUAddressMode}} 描述了采样器在采样足迹超出采样纹理边界时的行为。
 
-问题：更详细地描述“样本足迹”。
+Issue: 更详细地描述“样本足迹”。
 
 <script type=idl>
 enum GPUAddressMode {
@@ -2813,18 +2813,18 @@ enum GPUAddressMode {
 <dl dfn-type="enum-value" dfn-for=GPUAddressMode>
     : <dfn>"clamp-to-edge"</dfn>
     ::
-        纹理坐标被限制在0.0和1.0之间，包括0.0和1.0。
+        纹理坐标被限制在 0.0 和 1.0 之间，包括 0.0 和 1.0。
 
     : <dfn>"repeat"</dfn>
     ::
-        纹理坐标环绕到纹理的另一侧。
+        纹理坐标换行到纹理的另一侧。
 
     : <dfn>"mirror-repeat"</dfn>
     ::
         纹理坐标换行到纹理的另一侧，但当坐标的整数部分为奇数时，纹理会翻转。
 </dl>
 
-{{GPUFilterMode}}描述了采样器在样本足迹与一个纹素不完全匹配时的行为。
+{{GPUFilterMode}} 描述了采样器在样本足迹与一个纹素不完全匹配时的行为。
 
 <script type=idl>
 enum GPUFilterMode {
@@ -2843,9 +2843,9 @@ enum GPUFilterMode {
         在每个维度中选择两个纹素并返回它们值之间的线性插值。
 </dl>
 
-{{GPUCompareFunction}}指定比较采样器的行为。如果在着色器中使用比较采样器，则将输入值与采样的纹理值进行比较，并将此比较测试的结果（0.0f表示通过，或1.0f表示失败）用于过滤操作。
+{{GPUCompareFunction}} 指定比较采样器的行为。如果在着色器中使用比较采样器，则将输入值与采样的纹理值进行比较，并将此比较测试的结果（0.0f表示通过，或1.0f表示失败）用于过滤操作。
 
-问题：描述过滤如何与比较采样相互作用。
+Issue: 描述过滤如何与比较采样相互作用。
 
 <script type=idl>
 enum GPUCompareFunction {
@@ -2896,46 +2896,46 @@ enum GPUCompareFunction {
 <div>
     <dfn abstract-op>validating GPUSamplerDescriptor</dfn>(device, descriptor)
     **参数:**
-        - {{GPUDevice}} |设备|
-        - {{GPUSamplerDescriptor}} |描述符|
+        - {{GPUDevice}} |device|
+        - {{GPUSamplerDescriptor}} |descriptor|
 
-    **Returns:** {{boolean}}
+    **返回:** {{boolean}}
 
     当且仅当满足下列条件时，返回 `true`：
-        - |设备|是有效的。
-        - |descriptor|.{{GPUSamplerDescriptor/lodMinClamp}}大于等于0.
-        - |descriptor|.{{GPUSamplerDescriptor/lodMaxClamp}}大于等于
-            |descriptor|.{{GPUSamplerDescriptor/lodMinClamp}}。
-        - |descriptor|.{{GPUSamplerDescriptor/maxAnisotropy}}大于等于1。
-        - 当|descriptor|.{{GPUSamplerDescriptor/maxAnisotropy}}大于1时，|descriptor|.{{GPUSamplerDescriptor/magFilter}}, 和|descriptor|.{{GPUSamplerDescriptor/mipmapFilter}}必须等于{{GPUFilterMode/"linear"}}。
+        - |device| 是有效的。
+        - |descriptor|.{{GPUSamplerDescriptor/lodMinClamp}} 大于等于 0.
+        - |descriptor|.{{GPUSamplerDescriptor/lodMaxClamp}} 大于等于 |descriptor|.{{GPUSamplerDescriptor/lodMinClamp}}。
+        - |descriptor|.{{GPUSamplerDescriptor/maxAnisotropy}} 大于等于 1。
+        - 当 |descriptor|.{{GPUSamplerDescriptor/maxAnisotropy}} 大于 1 时，|descriptor|.{{GPUSamplerDescriptor/magFilter}}, |descriptor|.{{GPUSamplerDescriptor/minFilter}}，和 |descriptor|.{{GPUSamplerDescriptor/mipmapFilter}} 必须等于 {{GPUFilterMode/"linear"}}。
 </div>
 
 <dl dfn-type=method dfn-for=GPUDevice>
     : <dfn>createSampler(descriptor)</dfn>
     ::
+        创建一个 {{GPUBindGroupLayout}}。
 
         <div algorithm=GPUDevice.createSampler>
-            **Called on:** {{GPUDevice}} this.
+            **调用:** {{GPUDevice}} this.
 
-            **Arguments:**
+            **参数:**
             <pre class=argumentdef for="GPUDevice/createSampler(descriptor)">
-                |descriptor|: 要创建的{{GPUSampler}}的描述。
+                |descriptor|: 要创建的 {{GPUSampler}} 的描述。
             </pre>
 
-            **Returns:** {{GPUSampler}}
+            **返回:** {{GPUSampler}}
 
-            1. 使|s|为一个新的{{GPUSampler}}对象。
-            2. 将|s|.{{GPUSampler/[[descriptor]]}}设置为|descriptor|.
-            3. 如果|s|.{{GPUSampler/[[descriptor]]}}的{{GPUSamplerDescriptor/compare}}属性为 `null`或者undefined，将|s|.{{GPUSampler/[[isComparison]]}}设置为 `false`，否则，设置为 `true`。
-            4. 如果{{GPUSamplerDescriptor/minFilter}}，{{GPUSamplerDescriptor/magFilter}}或{{GPUSamplerDescriptor/mipmapFilter}}没有任何其中之一的值为{{GPUFilterMode/"linear"}}，则将|s|.{{GPUSampler/[[isFiltering]]}}设置为 `false`，否则，设置为 `true`。
-            5. 返回|s|。
+            1. 使 |s| 为一个新的 {{GPUSampler}} 对象。
+            2. 将| s|.{{GPUSampler/[[descriptor]]}} 设置为 |descriptor|.
+            3. 如果 |s|.{{GPUSampler/[[descriptor]]}} 的 {{GPUSamplerDescriptor/compare}} 属性为 `null` 或者 undefined，将 |s|.{{GPUSampler/[[isComparison]]}} 设置为 `false`，否则，设置为 `true`。
+            4. 如果 {{GPUSamplerDescriptor/minFilter}}，{{GPUSamplerDescriptor/magFilter}} 或 {{GPUSamplerDescriptor/mipmapFilter}} 中没有一个值为 {{GPUFilterMode/"linear"}}，则将 |s|.{{GPUSampler/[[isFiltering]]}} 设置为 `false`，否则，设置为 `true`。
+            5. 返回 |s|。
 
             <div class=validusage dfn-for=GPUDevice.createSampler>
                 <dfn abstract-op>有效使用</dfn>
-                - 如果|描述符|不是 `null`或undefined：
-                    - 如果[$validating GPUSamplerDescriptor$](this, |descriptor|)返回 `false`：
-                        1. 在当前范围内产生一个带有适当错误消息的{{GPUValidationError}}。
-                        2. 返回一个新的[=invalid=]{{GPUSampler}}并且返回结果。
+                - 如果 |descriptor| 不是 `null`或 undefined：
+                    - 如果 [$validating GPUSamplerDescriptor$](this, |descriptor|) 返回 `false`：
+                        1. 在当前范围内生成一个 {{GPUValidationError}} 并带有恰当的错误消息。
+                        2. 返回一个新的[=无效=] {{GPUSampler}} 并且返回结果。
             </div>
         </div>
 </dl>
