@@ -6,7 +6,7 @@ WebGPU specification is written in [Bikeshed](https://tabatkins.github.io/bikesh
 
 ## Writing
 
-See the [Vue Docs Writing Guide](https://v3.vuejs.org/guide/writing-guide.html) for our rules and recommendations on writing and maintaining documentation.
+See the [VuePress Markdown Guide](https://v2.vuepress.vuejs.org/guide/markdown.html) for our rules and recommendations on writing and maintaining documentation.
 
 ## Developing
 
