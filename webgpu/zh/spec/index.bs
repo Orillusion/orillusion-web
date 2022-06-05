@@ -3366,8 +3366,7 @@ dictionary GPUExternalTextureBindingLayout {
 
 ## <dfn interface>GPUBindGroup</dfn> ## {#gpu-bind-group}
 
-{{GPUBindGroup}} 定义了一组要绑定到一个组中的资源
-     以及如何在着色器阶段使用资源。
+{{GPUBindGroup}} 定义了一组要绑定到一起使用的资源，并定义了如何在着色器阶段使用这些资源。
 
 <script type=idl>
 [Exposed=(Window, DedicatedWorker), SecureContext]
