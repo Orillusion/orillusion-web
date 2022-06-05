@@ -3354,15 +3354,15 @@ dictionary GPUExternalTextureBindingLayout {
 ### 兼容性 ### {#bind-group-compatibility}
 
 <div algorithm>
-两个 {{GPUBindGroupLayout}} 对象 |a| 和 |b| 是 <dfn dfn>group-equivalent</dfn>
+两个 {{GPUBindGroupLayout}} 对象 |a| 和 |b| 是 <dfn dfn>组等效的</dfn>
 当且仅当满足以下所有条件：
     - |a|.{{GPUBindGroupLayout/[[exclusivePipeline]]}} == |b|.{{GPUBindGroupLayout/[[exclusivePipeline]]}}.
-    - 对于任何绑定编号|binding|，满足以下条件之一：
+    - 对于任何绑定编号 |binding|，满足以下条件之一：
         - 编号在 |a|.{{GPUBindGroupLayout/[[entryMap]]}} 和 |b|.{{GPUBindGroupLayout/[[entryMap]]}} 中都丢失了。
         - |a|.{{GPUBindGroupLayout/[[entryMap]]}}[|binding|] == |b|.{{GPUBindGroupLayout/[[entryMap]]}}[|binding|]
 </div>
 
-如果绑定组布局是 [=group-equivalent=]，它们可以在所有内容中互换使用。
+如果绑定组布局是[=组等效的=]，则可以在所有内容中被互换使用。
 
 ## <dfn interface>GPUBindGroup</dfn> ## {#gpu-bind-group}
 
