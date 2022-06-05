@@ -3553,8 +3553,7 @@ dictionary GPUBufferBinding {
 
 ## <dfn interface>GPUPipelineLayout</dfn> ## {#pipeline-layout}
 
-{{GPUPipelineLayout}} 定义了在 {{GPUProgrammablePassEncoder/setBindGroup(index, bindGroup, dynamicOffsets)|setBindGroup}}
-中的命令编码期间设置的所有 {{GPUBindGroup}} 对象的资源和由设置的管道着色器之间的映射{{GPURenderEncoderBase/setPipeline(pipeline)|GPURenderEncoderBase.setPipeline}} 或 {{GPUComputePassEncoder/setPipeline(pipeline)|GPUComputePassEncoder.setPipeline}}。
+{{GPUPipelineLayout}} 定义了在 {{GPUProgrammablePassEncoder/setBindGroup(index, bindGroup, dynamicOffsets)|setBindGroup}} 的指令编码期间，设置的所有 {{GPUBindGroup}} 对象的资源，与由 {{GPURenderEncoderBase/setPipeline(pipeline)|GPURenderEncoderBase.setPipeline}} 或 {{GPUComputePassEncoder/setPipeline(pipeline)|GPUComputePassEncoder.setPipeline}} 设置的管道着色器之间的映射。
 
 资源的完整绑定地址可以定义为以下三项：
    1. 着色器阶段蒙版，资源可见
@@ -3573,41 +3572,37 @@ GPUPipelineLayout includes GPUObjectBase;
 {{GPUPipelineLayout}} 有以下内部插槽：
 
 <dl dfn-type=attribute dfn-for="GPUPipelineLayout">
-    : <dfn>\[[bindGroupLayouts]]</dfn> [=list=]&lt;{{GPUBindGroupLayout}}&gt; 类型。
+    : <dfn>\[[bindGroupLayouts]]</dfn> of type [=list=]&lt;{{GPUBindGroupLayout}}&gt;.
     ::
         在 {{GPUPipelineLayoutDescriptor/bindGroupLayouts|GPUPipelineLayoutDescriptor.bindGroupLayouts}} 中创建时提供的 {{GPUBindGroupLayout}} 对象。
 </dl>
 
-注意：对许多 {{GPURenderPipeline}} 或 {{GPUComputePipeline}} 管道使用相同的 {{GPUPipelineLayout}} 可以保证用户代理在这些管道之间切换时不需要在内部重新绑定任何资源。
+Note: 对许多 {{GPURenderPipeline}} 或 {{GPUComputePipeline}} 管道使用相同的 {{GPUPipelineLayout}} 可以保证用户代理在这些管道之间切换时不需要在内部重新绑定任何资源。
 
 <div class="example">
 {{GPUComputePipeline}} 对象 X 是由 {{GPUPipelineLayout/[[bindGroupLayouts]]|GPUPipelineLayout.bindGroupLayouts}} A, B, C 创建。
 {{GPUComputePipeline}} 对象 Y 是由 {{GPUPipelineLayout/[[bindGroupLayouts]]|GPUPipelineLayout.bindGroupLayouts}} A, D, C 创建。
-假设命令编码序列有两个调度：
+假设指令编码序列有两个调度：
 
   1. {{GPUProgrammablePassEncoder/setBindGroup(index, bindGroup, dynamicOffsets)|setBindGroup(0, ...)}}
   1. {{GPUProgrammablePassEncoder/setBindGroup(index, bindGroup, dynamicOffsets)|setBindGroup(1, ...)}}
   1. {{GPUProgrammablePassEncoder/setBindGroup(index, bindGroup, dynamicOffsets)|setBindGroup(2, ...)}}
   1. {{GPUComputePassEncoder/setPipeline(pipeline)|setPipeline(X)}}
-  1. {{GPUComputePassEncoder/dispatch(workgroupCountX, workgroupCountY, workgroupCountZ)|dispatch()}}
+  1. {{GPUComputePassEncoder/dispatch(x, y, z)|dispatch()}}
   1. {{GPUProgrammablePassEncoder/setBindGroup(index, bindGroup, dynamicOffsets)|setBindGroup(1, ...)}}
   1. {{GPUComputePassEncoder/setPipeline(pipeline)|setPipeline(Y)}}
-  1. {{GPUComputePassEncoder/dispatch(workgroupCountX, workgroupCountY, workgroupCountZ)|dispatch()}}
+  1. {{GPUComputePassEncoder/dispatch(x, y, z)|dispatch()}}
 
-在这种情况下，用户代理将不得不重新绑定组插槽 2 以进行第二次调度，
-即使 {{GPUPipelineLayout/[[bindGroupLayouts]]|GPUPipelineLayout.bindGrouplayouts}} 的索引 2 处的 {{GPUBindGroupLayout}}，
-或插槽 2 处的 {{GPUBindGroup}} 更改。
+在这种场景下，用户代理将不得不重新绑定组插槽 2 以进行第二次调度，即使 {{GPUBindGroupLayout}} 在 {{GPUPipelineLayout/[[bindGroupLayouts]]|GPUPipelineLayout.bindGrouplayouts}} 的索引 2 处，或 {{GPUBindGroup}} 插槽 2 处都没有被更改。
 </div>
 
-问题：是否应将此示例和注释移至某些“最佳实践”文档？
+Issue: 是否应将此示例和注释移至某些“最佳实践”文档？
 
-注意：{{GPUPipelineLayout}} 的预期用途是将最常见和最不频繁更改的绑定组放置在布局的“底部”，这意味着较低的绑定组插槽编号，例如 0 或 1。
-绑定越频繁 group 需要在 draw call 之间改变，它的索引应该越高。
-这个通用指南允许用户代理最小化绘制调用之间的状态变化，从而降低 CPU 开销。
+Note: {{GPUPipelineLayout}} 的预期用途是将最常见和最不频繁更改的绑定组放置在布局的“底部”，这意味着较低的绑定组插槽编号，例如 0 或 1。绑定频繁的组需要在绘制调用之间改变，其索引应该越高。这个通用指南允许用户代理最小化绘制调用之间的状态变化，从而降低 CPU 开销。
 
 ### 创建 ### {#pipeline-layout-creation}
 
-{{GPUPipelineLayout}} 是通过 {{GPUDevice.createPipelineLayout()}} 创建的。
+{{GPUPipelineLayout}} 是通过 {GPUDevice/createPipelineLayout()|GPUDevice.createPipelineLayout()}} 创建的。
 
 <script type=idl>
 dictionary GPUPipelineLayoutDescriptor : GPUObjectDescriptorBase {
@@ -3634,32 +3629,24 @@ dictionary GPUPipelineLayoutDescriptor : GPUObjectDescriptorBase {
                 <div class=validusage>
                     设定 |limits| 为 |this|.{{GPUObjectBase/[[device]]}}.{{device/[[limits]]}}。
 
-                    让 |allEntries| 是连接
-                    |descriptor|.{{GPUPipelineLayoutDescriptor/bindGroupLayouts}} 中所有 |bgl| 的
-                    |bgl|.{{GPUBindGroupLayout/[[descriptor]]}}.{{GPUBindGroupLayoutDescriptor/entries}} 的结果。
+                    设定 |allEntries| 是连接 |descriptor|.{{GPUPipelineLayoutDescriptor/bindGroupLayouts}} 中所有 |bgl| 的 |bgl|.{{GPUBindGroupLayout/[[descriptor]]}}.{{GPUBindGroupLayoutDescriptor/entries}} 的结果。
 
-                    - |descriptor|.{{GPUPipelineLayoutDescriptor/bindGroupLayouts}} 中的每个 {{GPUBindGroupLayout}}
-                        必须与 |this| 一起使用是有效的， 并且 {{GPUBindGroupLayout/[[exclusivePipeline]]}}
-                        为 `null`。
-                    - |descriptor|.{{GPUPipelineLayoutDescriptor/bindGroupLayouts}} 的 [=list/size=]
-                        必须 &le; |limits|.{{supported limits/maxBindGroups}}。
-                    - |allEntries| 必须不能超过绑定槽限制|超过绑定槽限制 |limits|。
+                    - |descriptor|.{{GPUPipelineLayoutDescriptor/bindGroupLayouts}} 中的每个 {{GPUBindGroupLayout}} 必须与 |this| [$一起有效被使用$]，并且拥有一个为 `null` 的 {{GPUBindGroupLayout/[[exclusivePipeline]]}}。
+                    - |descriptor|.{{GPUPipelineLayoutDescriptor/bindGroupLayouts}} 的[=list/大小=]必须 &le; |limits|.{{supported limits/maxBindGroups}}。
+                    - |allEntries| 必须不能[=超过绑定槽限制=]，该绑定槽限制为 |limits|。
                 </div>
 
-                Then:
-                    1. 在当前范围内产生一个带有适当错误消息的{{GPUValidationError}}。
-                    1. 创建一个新的 [=invalid=] {{GPUPipelineLayout}} 并返回结果。
+                然后:
+                    1. 在当前范围内生成带有适当错误消息的 {{GPUValidationError}}。
+                    1. 创建一个新的[=无效=]的 {{GPUPipelineLayout}} 并返回结果。
 
             1. 设定 |pl| 为一个新的 {{GPUPipelineLayout}} 对象。
-            1. 设定 |pl|.{{GPUPipelineLayout/[[bindGroupLayouts]]}} 为
-                |descriptor|.{{GPUPipelineLayoutDescriptor/bindGroupLayouts}}。
+            1. 设定 |pl|.{{GPUPipelineLayout/[[bindGroupLayouts]]}} 为 |descriptor|.{{GPUPipelineLayoutDescriptor/bindGroupLayouts}}。
             1. 返回 |pl|。
         </div>
 </dl>
 
-注意：两个 {{GPUPipelineLayout}} 对象对于任何用法都被认为是等效的
-如果它们的内部 {{GPUPipelineLayout/[[bindGroupLayouts]]}} 序列包含
-{{GPUBindGroupLayout}} 对象是 [=group-equivalent=]。
+Note: 如果两个 {{GPUPipelineLayout}} 对象的内部 {{GPUPipelineLayout/[[bindGroupLayouts]]}} 序列包含的 {{GPUBindGroupLayout}} 对象是[=组等效的=]，那么这两个 {{GPUPipelineLayout}} 对象对于任何用法都被认为是等效的。
 
 ## Example ## {#bindgroup-examples}
 
