@@ -3405,24 +3405,22 @@ dictionary GPUBufferBinding {
 };
 </script>
 
-  * {{GPUBufferBinding/size}}: 如果未定义，则指定范围从
-    {{GPUBufferBinding/offset}} 并在缓冲区末尾结束。
+  * {{GPUBufferBinding/size}}: 如果未定义，则指定一个范围，从 {{GPUBufferBinding/offset}} 开始并在缓冲区末尾结束。
 
 一个 {{GPUBindGroup}} 对象有以下内部插槽:
 
 <dl dfn-type=attribute dfn-for="GPUBindGroup">
-    : <dfn>\[[layout]]</dfn> {{GPUBindGroupLayout}} 类型。
+    : <dfn>\[[layout]]</dfn> of type {{GPUBindGroupLayout}}.
     ::
         与此 {{GPUBindGroup}} 关联的 {{GPUBindGroupLayout}}。
 
-    : <dfn>\[[entries]]</dfn> 是类型序列 <{{GPUBindGroupEntry}}>.
+    : <dfn>\[[entries]]</dfn> of type sequence<{{GPUBindGroupEntry}}>.
     ::
         此 {{GPUBindGroup}} 描述的 {{GPUBindGroupEntry}} 集。
 
-    : <dfn>\[[usedResources]]</dfn> 是 [=ordered map=]&lt;[=subresource=], [=list=]&lt;[=internal usage=]&gt;&gt; 类型。
+    : <dfn>\[[usedResources]]</dfn> of type [=ordered map=]&lt;[=subresource=], [=list=]&lt;[=internal usage=]&gt;&gt;.
     ::
-        此绑定组使用的缓冲区和纹理集 [=subresource=]，
-        与 [=internal usage=] 标志的列表相关联。
+        此绑定组使用的缓冲区和纹理集[=子资源=]，与[=内部使用=]标志的列表相关联。
 </dl>
 
 <dl dfn-type=method dfn-for=GPUDevice>
@@ -3435,35 +3433,30 @@ dictionary GPUBufferBinding {
 
             **参数:**
             <pre class=argumentdef for="GPUDevice/createBindGroup(descriptor)">
-                |descriptor|: Description of the {{GPUBindGroup}} to create.
+                |descriptor|: 要创建的 {{GPUBindGroup}} 的描述。
             </pre>
 
             **返回:** {{GPUBindGroup}}
 
             1. 设定 |bindGroup| 为一个新的有效的 {{GPUBindGroup}} 对象。
             1. 设定 |limits| 为 |this|.{{GPUObjectBase/[[device]]}}.{{device/[[limits]]}}。
-            1. 在 |this| 的 [=Device timeline=] 发布一下步骤:
+            1. 在 |this| 的[=设备时间线=]发布一下步骤:
                 <div class=device-timeline>
                     1. 如果以下任一条件没有被满足：
                         <div class=validusage>
-                            - |descriptor|.{{GPUBindGroupDescriptor/layout}} 与 |this| 一起使用是有效的。
-                            - |descriptor|.{{GPUBindGroupDescriptor/layout}} 的 {{GPUBindGroupLayoutDescriptor/entries}}
-                                的数量和 |descriptor|.{{GPUBindGroupDescriptor/entries}} 的数量完全相等。
+                            - |descriptor|.{{GPUBindGroupDescriptor/layout}} 可以与 |this| [$一起有效被使用$]。
+                            - |descriptor|.{{GPUBindGroupDescriptor/layout}} 的 {{GPUBindGroupLayoutDescriptor/entries}} 的数量和 |descriptor|.{{GPUBindGroupDescriptor/entries}} 的数量完全相等。
 
-                            对于每一个 |descriptor|.{{GPUBindGroupDescriptor/entries}} 中的
-                                {{GPUBindGroupEntry}} |bindingDescriptor|:
+                            对于每一个 |descriptor|.{{GPUBindGroupDescriptor/entries}} 中的 {{GPUBindGroupEntry}} |bindingDescriptor|:
                                 - 设定 |resource| 为 |bindingDescriptor|.{{GPUBindGroupEntry/resource}}。
-                                - 在 |descriptor|.{{GPUBindGroupDescriptor/layout}}.{{GPUBindGroupLayoutDescriptor/entries}} 中，
-                                    只有一个 {{GPUBindGroupLayoutEntry}} |layoutBinding|
-                                    使得 |layoutBinding|.{{GPUBindGroupLayoutEntry/binding}} 等于
-                                    |bindingDescriptor|.{{GPUBindGroupEntry/binding}}。
+                                - 在 |descriptor|.{{GPUBindGroupDescriptor/layout}}.{{GPUBindGroupLayoutDescriptor/entries}} 中，只有一个 {{GPUBindGroupLayoutEntry}} |layoutBinding|，使得 |layoutBinding|.{{GPUBindGroupLayoutEntry/binding}} 等于 |bindingDescriptor|.{{GPUBindGroupEntry/binding}}。
 
-                                - 如果为 |layoutBinding| 定义了 [=binding member=] 是
+                                - 如果为 |layoutBinding| 定义的[=绑定成员=]是
                                     <dl class="switch">
                                         : {{GPUBindGroupLayoutEntry/sampler}}
                                         ::
                                             - |resource| 是一个 {{GPUSampler}}.
-                                            - |resource| 与 |this| 一起使用是有效的。
+                                            - |resource| 可以与 |this| [$一起有效被使用$]。
                                             - 如果 |layoutBinding|.{{GPUBindGroupLayoutEntry/sampler}}.{{GPUSamplerBindingLayout/type}} 是:
                                                 <dl class="switch">
                                                     : {{GPUSamplerBindingType/"filtering"}}
@@ -3481,108 +3474,81 @@ dictionary GPUBufferBinding {
                                         : {{GPUBindGroupLayoutEntry/texture}}
                                         ::
                                             - |resource| 是一个 {{GPUTextureView}}。
-                                            - |resource| 与 |this| 一起使用是有效的。
+                                            - |resource| 可以与 |this| [$一起有效被使用$]。
                                             - 设置 |texture| 为 |resource|.{{GPUTextureView/[[texture]]}}.
-                                            - |layoutBinding|.{{GPUBindGroupLayoutEntry/texture}}.{{GPUTextureBindingLayout/viewDimension}}
-                                                与 |resource| 的 {{GPUTextureViewDescriptor/dimension}} 相等。
-                                            - |layoutBinding|.{{GPUBindGroupLayoutEntry/texture}}.{{GPUTextureBindingLayout/sampleType}}
-                                                是与 |resource| 的 {{GPUTextureViewDescriptor/format}}
-                                                [[#texture-format-caps|兼容的]]。
+                                            - |layoutBinding|.{{GPUBindGroupLayoutEntry/texture}}.{{GPUTextureBindingLayout/viewDimension}} 与 |resource| 的 {{GPUTextureViewDescriptor/dimension}} 相等。
+                                            - |layoutBinding|.{{GPUBindGroupLayoutEntry/texture}}.{{GPUTextureBindingLayout/sampleType}} 是与 |resource| 的 {{GPUTextureViewDescriptor/format}} [[#texture-format-caps|兼容的]]。
                                             - |texture| 的 {{GPUTextureDescriptor/usage}} 包含 {{GPUTextureUsage/TEXTURE_BINDING}}.
-                                            - 如果 |layoutBinding|.{{GPUBindGroupLayoutEntry/texture}}.{{GPUTextureBindingLayout/multisampled}}
-                                                是 `true`, |texture| 的 {{GPUTextureDescriptor/sampleCount}}
-                                                &gt; `1`, 否则 |texture| 的 {{GPUTextureDescriptor/sampleCount}} 为 `1`.
+                                            - 如果 |layoutBinding|.{{GPUBindGroupLayoutEntry/texture}}.{{GPUTextureBindingLayout/multisampled}} 是 `true`, |texture| 的 {{GPUTextureDescriptor/sampleCount}} &gt; `1`, 否则 |texture| 的 {{GPUTextureDescriptor/sampleCount}} 为 `1`.
 
                                         : {{GPUBindGroupLayoutEntry/storageTexture}}
                                         ::
                                             - |resource| 是一个 {{GPUTextureView}}。
-                                            - |resource| 与 |this| 一起使用是有效的。
+                                            - |resource| 可以与 |this| [$一起有效被使用$]。
                                             - 设置 |texture| 为 |resource|.{{GPUTextureView/[[texture]]}}.
-                                            - |layoutBinding|.{{GPUBindGroupLayoutEntry/storageTexture}}.{{GPUStorageTextureBindingLayout/viewDimension}}
-                                                与 |resource| 的 {{GPUTextureViewDescriptor/dimension}} 相同。
-                                            - |layoutBinding|.{{GPUBindGroupLayoutEntry/storageTexture}}.{{GPUStorageTextureBindingLayout/format}}
-                                                与 |resource|.{{GPUTextureView/[[descriptor]]}}.{{GPUTextureViewDescriptor/format}} 相等。
+                                            - |layoutBinding|.{{GPUBindGroupLayoutEntry/storageTexture}}.{{GPUStorageTextureBindingLayout/viewDimension}} 与 |resource| 的 {{GPUTextureViewDescriptor/dimension}} 相等。
+                                            - |layoutBinding|.{{GPUBindGroupLayoutEntry/storageTexture}}.{{GPUStorageTextureBindingLayout/format}} 与 |resource|.{{GPUTextureView/[[descriptor]]}}.{{GPUTextureViewDescriptor/format}} 相等。
                                             - |texture| 的 {{GPUTextureDescriptor/usage}} 包含 {{GPUTextureUsage/STORAGE_BINDING}}。
-                                            - |resource|.{{GPUTextureView/[[descriptor]]}}.{{GPUTextureViewDescriptor/mipLevelCount}}必须为1。
+                                            - |resource|.{{GPUTextureView/[[descriptor]]}}.{{GPUTextureViewDescriptor/mipLevelCount}} 必须为 1。
 
                                         :  {{GPUBindGroupLayoutEntry/buffer}}
                                         ::
                                             - |resource| 是一个 {{GPUBufferBinding}}.
-                                            - |resource|.{{GPUBufferBinding/buffer}} 与 |this| 一起使用是有效的。
-                                            - |resource|.{{GPUBufferBinding/offset}} 指定的绑定部分和
-                                                |resource|.{{GPUBufferBinding/size}} 驻留在缓冲区内，并且具有非零值。
-                                            - [$effective buffer binding size$](|resource|)，大于或等于|layoutBinding|.{{GPUBindGroupLayoutEntry/buffer}}.{{GPUBufferBindingLayout/minBindingSize}}.
-                                            - 有效绑定大小，即在
-                                                |resource|.{{GPUBufferBinding/size}} 或派生自
-                                                |resource|.{{GPUBufferBinding/offset}} 和完整的
-                                                缓冲区的大小，大于或等于
-                                                |layoutBinding|.{{GPUBindGroupLayoutEntry/buffer}}.{{GPUBufferBindingLayout/minBindingSize}}.
+                                            - |resource|.{{GPUBufferBinding/buffer}} 可以与 |this| [$一起有效被使用$]。
+                                            - |resource|.{{GPUBufferBinding/offset}} 指定的绑定部分和 |resource|.{{GPUBufferBinding/size}} 驻留在缓冲区内，并且具有非零值。
+                                            - [$有效的缓冲区绑定大小$](|resource|)，大于或等于 |layoutBinding|.{{GPUBindGroupLayoutEntry/buffer}}.{{GPUBufferBindingLayout/minBindingSize}}.
 
                                             - 如果 |layoutBinding|.{{GPUBindGroupLayoutEntry/buffer}}.{{GPUBufferBindingLayout/type}} 是
                                                 <dl class="switch">
                                                     : {{GPUBufferBindingType/"uniform"}}
-                                                    :: |resource|.{{GPUBufferBinding/buffer}}.{{GPUBufferDescriptor/usage}}
-                                                        包含 {{GPUBufferUsage/UNIFORM}}。
-                                                    :: [$effective buffer binding size$](|resource|) &le;
-                                                        |limits|.{{supported limits/maxUniformBufferBindingSize}}。
-                                                    :: |resource|.{{GPUBufferBinding/offset}} 是
-                                                        |limits|.{{supported limits/minUniformBufferOffsetAlignment}} 的倍数。
-                                                    :: 问题：当 {{GPUBufferBinding/size}} 未设置时，此验证应考虑默认值。
-                                                        还应该 {{GPUBufferBinding/size}} 默认为 `buffer.byteLength - offset` 或
-                                                        `min(buffer.byteLength - offset, limits.maxUniformBufferBindingSize)`？
-
-                                                    : {{GPUBufferBindingType/"storage"}} 或者
-                                                        {{GPUBufferBindingType/"read-only-storage"}}
-                                                    :: |resource|.{{GPUBufferBinding/buffer}}.{{GPUBufferDescriptor/usage}}
-                                                        包含 {{GPUBufferUsage/STORAGE}}。
-                                                    :: [$effective buffer binding size$](|resource|) &le;
-                                                        |limits|.{{supported limits/maxStorageBufferBindingSize}}.
-                                                    :: |resource|.{{GPUBufferBinding/offset}} 是
-                                                        |limits|.{{supported limits/minStorageBufferOffsetAlignment}} 的倍数。
+                                                    :: |resource|.{{GPUBufferBinding/buffer}}.{{GPUBufferDescriptor/usage}} 包含 {{GPUBufferUsage/UNIFORM}}。
+                                                    :: [$有效的缓冲区绑定大小$](|resource|) &le; |limits|.{{supported limits/maxUniformBufferBindingSize}}。
+                                                    :: |resource|.{{GPUBufferBinding/offset}} 是 |limits|.{{supported limits/minUniformBufferOffsetAlignment}} 的倍数。
+                                                    : {{GPUBufferBindingType/"storage"}} 或者 {{GPUBufferBindingType/"read-only-storage"}}
+                                                    :: |resource|.{{GPUBufferBinding/buffer}}.{{GPUBufferDescriptor/usage}} 包含 {{GPUBufferUsage/STORAGE}}。
+                                                    :: [$有效的缓冲区绑定大小$](|resource|) &le; |limits|.{{supported limits/maxStorageBufferBindingSize}}.
+                                                    :: |resource|.{{GPUBufferBinding/offset}} 是 |limits|.{{supported limits/minStorageBufferOffsetAlignment}} 的倍数。
                                                     :  {{GPUBindGroupLayoutEntry/externalTexture}}
                                                     ::
-                                                        - |resource|是一个{{GPUExternalTexture}}.
-                                                        - |resource| [$valid to use with$] |this|.
+                                                        - |resource| 是一个 {{GPUExternalTexture}}.
+                                                        - |resource| 可以与 |this| [$一起有效被使用$]。
                                                 </dl>
 
                                     </dl>
 
                         </div>
 
-                        Then:
-                            1. 在当前范围内产生一个带有适当错误消息的{{GPUValidationError}}。
-                            1. 使 |bindGroup| [=invalid=] 并返回 |bindGroup|.
+                        然后:
+                            1. 在当前范围内生成带有适当错误消息的 {{GPUValidationError}}。
+                            1. 使 |bindGroup| [=无效=]，并返回 |bindGroup|.
 
-                    1. 设置 |bindGroup|.{{GPUBindGroup/[[layout]]}} =
-                        |descriptor|.{{GPUBindGroupDescriptor/layout}}.
-                    1. 设置 |bindGroup|.{{GPUBindGroup/[[entries]]}} =
-                        |descriptor|.{{GPUBindGroupDescriptor/entries}}.
+                    1. 设置 |bindGroup|.{{GPUBindGroup/[[layout]]}} = |descriptor|.{{GPUBindGroupDescriptor/layout}}.
+                    1. 设置 |bindGroup|.{{GPUBindGroup/[[entries]]}} = |descriptor|.{{GPUBindGroupDescriptor/entries}}.
                     1. 设置 |bindGroup|.{{GPUBindGroup/[[usedResources]]}} = {}.
 
-                    1. |descriptor|.{{GPUBindGroupDescriptor/entries}} 中的每一个 {{GPUBindGroupEntry}} |bindingDescriptor|:
-                        1. 设定 |internalUsage| 为 [=binding usage=] 为了 |layoutBinding|。
-                        1. |resource| 看到的每个 [=subresource=] 添加到 {{GPUBindGroup/[[usedResources]]}} 作为 |internalUsage|。
+                    1. 针对在 |descriptor|.{{GPUBindGroupDescriptor/entries}} 中的每一个 {{GPUBindGroupEntry}} |bindingDescriptor|:
+                        1. 设定 |internalUsage| 为 |layoutBinding| 的[=绑定使用=]。
+                        1. |resource| 中看到的每个[=子资源=]，被作为 |internalUsage| 添加到 {{GPUBindGroup/[[usedResources]]}} 。
                 </div>
             1. 返回 |bindGroup|.
 
-            问题：单独定义“有效缓冲区绑定大小”。
         </div>
 </dl>
 
 <div algorithm>
-    <dfn abstract-op>effective buffer binding size</dfn>(binding)
-        1. 如果 |binding|.{{GPUBufferBinding/size}} 为 `undefined`:
+    <dfn abstract-op>有效的缓冲区绑定大小</dfn>(binding)
+        1. 如果 |binding|.{{GPUBufferBinding/size}} 为`未定义`:
             1. 返回 max(0, |binding|.{{GPUBufferBinding/buffer}}.{{GPUBuffer/[[size]]}} - |binding|.{{GPUBufferBinding/offset}});
         1. 返回 |binding|.{{GPUBufferBinding/size}}.
 </div>
 
 <div algorithm>
-    当且仅当以下条件为真，两个 {{GPUBufferBinding}} 对象 |a| 和 |b| 被作为 <dfn dfn>buffer-binding-aliasing</dfn>：
+    当且仅当以下条件为真，两个 {{GPUBufferBinding}} 对象 |a| 和 |b| 被作为 <dfn dfn>缓冲区-绑定-混叠</dfn>：
 
     - |a|.{{GPUBufferBinding/buffer}} == |b|.{{GPUBufferBinding/buffer}}
     - |a|.{{GPUBufferBinding/offset}} 和 |a|.{{GPUBufferBinding/size}} 构成的区间与 |b|.{{GPUBufferBinding/offset}} 和 |b|.{{GPUBufferBinding/size}} 构成的区间相交。
 
-    问题：定义当大小可以为 undefined 时区间如何被 offset/size 构成。
+    Issue: 定义如果大小可以为未定义时，区间如何被 offset/size 构成。
 </div>
 
 ## <dfn interface>GPUPipelineLayout</dfn> ## {#pipeline-layout}
