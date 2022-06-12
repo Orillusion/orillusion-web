@@ -3729,29 +3729,29 @@ Note: 如果可能，开发者应该向 {{GPUDevice/createShaderModule()}} 和 {
 
 Note: 如果开发者在调用 {{GPUDevice/createShaderModule()}} 时无法提供此 {{GPUShaderModuleDescriptor/hints}} 信息，通常不应延迟调用 {{GPUDevice/createShaderModule()}}; 而应该只是省略 {{GPUShaderModuleDescriptor/hints}} 或 {{GPUShaderModuleCompilationHint}} 中的未知信息。省略此信息可能会导致编译推迟到 {{GPUDevice/createComputePipeline()}} / {{GPUDevice/createRenderPipeline()}} 中进行。
 
-注意：如果作者不确定传递给 {{GPUDevice/createShaderModule()}} 的信息是否与稍后传递给 {{GPUDevice/createComputePipeline()}} / {{GPUDevice/createRenderPipeline()}} 的信息匹配同一个模块，他们应该避免将该信息传递给 {{GPUDevice/createShaderModule()}}，因为将不匹配的信息传递给 {{GPUDevice/createShaderModule()}} 可能会导致发生不必要的编译。
+Note: 如果开发者不确定传递给 {{GPUDevice/createShaderModule()}} 的信息是否与稍后传递给 {{GPUDevice/createComputePipeline()}} / {{GPUDevice/createRenderPipeline()}} 的信息匹配同一个模块，应该避免将该信息传递给 {{GPUDevice/createShaderModule()}}，因为将不匹配的信息传递给 {{GPUDevice/createShaderModule()}} 可能会导致发生不必要的编译。
 
 <dl dfn-type=method dfn-for=GPUDevice>
     : <dfn>createShaderModule(descriptor)</dfn>
     ::
-        创建一个{{GPUShaderModule}}.
+        创建一个 {{GPUShaderModule}}.
 
         <div algorithm=GPUDevice.createShaderModule>
-            **Called on:** {{GPUDevice}} this.
+            **调用:** {{GPUDevice}} this.
 
-            **Arguments:**
+            **参数:**
             <pre class=argumentdef for="GPUDevice/createShaderModule(descriptor)">
-                descriptor: 要创建的{{GPUShaderModule}}的描述。
+                descriptor: 要创建的 {{GPUShaderModule}} 的描述。
             </pre>
 
-            **Returns:** {{GPUShaderModule}}
+            **返回:** {{GPUShaderModule}}
 
-            问题：描述{{GPUDevice/createShaderModule()}}算法步骤。
+            Issue: 描述 {{GPUDevice/createShaderModule()}} 的算法步骤。
         </div>
 </dl>
 
 <div class="example">
-    使用 WGSL 代码创建 {{GPUShaderModule}}：
+    使用 WGSL 代码创建一个 {{GPUShaderModule}}：
 
     <pre highlight="js">
         // A simple vertex and fragment shader pair that will fill the viewport with red.
