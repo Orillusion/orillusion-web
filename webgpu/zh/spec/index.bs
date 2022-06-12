@@ -3803,60 +3803,60 @@ interface GPUCompilationInfo {
 
 {{GPUCompilationMessage}} 是由 {{GPUShaderModule}} 编译器生成的信息性的、警告或错误消息。 这些消息旨在让人类可读，以帮助开发人员诊断着色器 {{GPUShaderModuleDescriptor/code}} 的问题。每个消息可能对应于着色器代码中的单个点、着色器代码的子串，或者可能根本不对应于代码中的任何特定点。
 
-{{GPUCompilationMessage}}具有以下属性：
+{{GPUCompilationMessage}} 具有以下属性：
 
 <dl dfn-type=attribute dfn-for=GPUCompilationMessage>
     : <dfn>message</dfn>
     ::
-        一个人类可读的包含着色器编译时产生的消息的字符串。
+        一个人类可读的，包含着色器编译时产生的消息的字符串。
 
     : <dfn>type</dfn>
     ::
         消息的重要性级别。
         
-        如果{{GPUCompilationMessage/type}}错误，它对应着一个[=shader-creation error=]。
+        如果 {{GPUCompilationMessage/type}} 为错误，它对应着一个[=着色器创建错误=]。
 
     : <dfn>lineNum</dfn>
     ::
-        {{GPUCompilationMessage/message}}对应的着色器代码中的行号。值是one-based，这样lineNum为1表示着色器{{GPUShaderModuleDescriptor/code}}的第一行。
+        {{GPUCompilationMessage/message}} 对应的着色器 {{GPUShaderModuleDescriptor/code}} 中的行号。值是从 1 开始的，这样行号为 1，表示着色器 {{GPUShaderModuleDescriptor/code}} 的第一行。
 
-        如果{{GPUCompilationMessage/message}}对应于子字符串，则它指向子字符串开始的行。如果消息不对应着色器代码中的任何特定点，则必须为0。
+        如果 {{GPUCompilationMessage/message}} 对应于某子字符串，则指向子字符串开始的行。如果 {{GPUCompilationMessage/message}} 不对应着色器代码中的任何特定点，则必须为 0。
 
-        问题(gpuweb/gpuweb#2435): 在[定义行是什么]时参考WGSL规范(https://gpuweb.github.io/gpuweb/wgsl/#comments)。
+        Issue(gpuweb/gpuweb#2435): 在[定义行是什么]时参考 WGSL 规范(https://gpuweb.github.io/gpuweb/wgsl/#comments)。
 
     : <dfn>linePos</dfn>
     ::
-        从着色器{{GPUShaderModuleDescriptor/code}}的{{GPUCompilationMessage/lineNum}}行的开头到{{GPUCompilationMessage/message}}对应的子字符串的点或开头的偏移量，以UTF-16代码单元为单位。值是one-based，这样{{GPUCompilationMessage/linePos}}为1表示该行的第一个字符。
+        从着色器 {{GPUShaderModuleDescriptor/code}} 的 {{GPUCompilationMessage/lineNum}} 行的开头到 {{GPUCompilationMessage/message}} 对应的子字符串的开头的偏移量，以 UTF-16 代码单元为单位。值是从 1 开始的，这样 {{GPUCompilationMessage/linePos}} 为 1 表示该行的第一个字符。
 
-        如果{{GPUCompilationMessage/message}}对应于子字符串，则它指向子字符串的第一个UTF-16代码单元。如果消息不对应着色器代码中的任何特定点，则必须为0。
+        如果 {{GPUCompilationMessage/message}} 对应于某子字符串，则指向子字符串的第一个 UTF-16 代码单元。如果 {{GPUCompilationMessage/message}} 不对应着色器代码中的任何特定点，则必须为 0。
 
     : <dfn>offset</dfn>
     ::
-        从UTF-16代码单元中的着色器{{GPUShaderModuleDescriptor/code}}的开头到{{GPUCompilationMessage/message}}对应的子字符串的点或开头的偏移量。必须引用与{{GPUCompilationMessage/lineNum}}和{{GPUCompilationMessage/linePos}}相同的位置。如果{{GPUCompilationMessage/message}}不对应着色器{{GPUShaderModuleDescriptor/code}}中的任何特定点，则必须为0。
+        从 UTF-16 代码单元中的着色器 {{GPUShaderModuleDescriptor/code}} 的开头到 {{GPUCompilationMessage/message}} 对应的子字符串的开头的偏移量。必须引用与 {{GPUCompilationMessage/lineNum}} 和 {{GPUCompilationMessage/linePos}} 相同的位置。如果 {{GPUCompilationMessage/message}} 不对应着色器 {{GPUShaderModuleDescriptor/code}} 中的任何特定点，则必须为 0。
 
     : <dfn>length</dfn>
     ::
-        {{GPUCompilationMessage/message}}对应的子字符串中UTF-16代码单元的数量。如果消息与子字符串不对应，则{{GPUCompilationMessage/length}}必须为0。
+        {{GPUCompilationMessage/message}} 对应的子字符串中 UTF-16 代码单元的数量。如果消息与子字符串不对应，则 {{GPUCompilationMessage/length}} 必须为 0。
 </dl>
 
-注意：{{GPUCompilationMessage}}.{{GPUCompilationMessage/lineNum}}和
-{{GPUCompilationMessage}}.{{GPUCompilationMessage/linePos}}是one-based，因为它们最常见的用途是打印人类可读的消息，这些消息可以与许多文本编辑器中显示的行号和列号相关联。
+Note: {{GPUCompilationMessage}}.{{GPUCompilationMessage/lineNum}} 和
+{{GPUCompilationMessage}}.{{GPUCompilationMessage/linePos}} 是从 1 开始的，因为其最常见的用途是打印人类可读的消息，这些消息可以与许多文本编辑器中显示的行号和列号相关联。
 
-注意：{{GPUCompilationMessage}}.{{GPUCompilationMessage/offset}}和{{GPUCompilationMessage}}.{{GPUCompilationMessage/length}}适合传递给 `substr()` 以检索{{GPUCompilationMessage/message}}对应的着色器{{GPUShaderModuleDescriptor/code}}的子字符串。
+Note: {{GPUCompilationMessage}}.{{GPUCompilationMessage/offset}} 和 {{GPUCompilationMessage}}.{{GPUCompilationMessage/length}} 适合传递给 `substr()` 以检索 {{GPUCompilationMessage/message}} 对应的着色器 {{GPUShaderModuleDescriptor/code}} 的子字符串。
 
 <dl dfn-type=method dfn-for=GPUShaderModule>
     : <dfn>compilationInfo()</dfn>
     ::
-        返回{{GPUShaderModule}}编译时产生的任何消息。
+        返回 {{GPUShaderModule}} 编译时产生的任何消息。
 
-        消息的位置、顺序和内容是实现定义的。特别是，消息可能不会按 {{GPUCompilationMessage/lineNum}} 排序。
+        消息的位置、顺序和内容是实现定义的。特别的，消息可能不会按 {{GPUCompilationMessage/lineNum}} 排序排列。
 
         <div algorithm=GPUShaderModule.compilationInfo>
-            **Called on:** {{GPUShaderModule}} this.
+            **调用:** {{GPUShaderModule}} this.
 
-            **Returns:** {{Promise}}&lt;{{GPUCompilationInfo}}&gt;
+            **返回:** {{Promise}}&lt;{{GPUCompilationInfo}}&gt;
 
-            问题：描述{{GPUShaderModule/compilationInfo()}}算法步骤。
+            Issue: 描述 {{GPUShaderModule/compilationInfo()}} 的算法步骤。
         </div>
 </dl>
 
