@@ -3801,7 +3801,7 @@ interface GPUCompilationInfo {
 };
 </script>
 
-{{GPUCompilationMessage}}是由{{GPUShaderModule}}编译器生成的信息、警告或错误消息。 这些消息旨在让人类可读，以帮助开发人员诊断着色器{{GPUShaderModuleDescriptor/code}}的问题。每个消息可能对应于着色器代码中的单个点、着色器代码的子串，或者可能根本不对应于代码中的任何特定点。
+{{GPUCompilationMessage}} 是由 {{GPUShaderModule}} 编译器生成的信息性的、警告或错误消息。 这些消息旨在让人类可读，以帮助开发人员诊断着色器 {{GPUShaderModuleDescriptor/code}} 的问题。每个消息可能对应于着色器代码中的单个点、着色器代码的子串，或者可能根本不对应于代码中的任何特定点。
 
 {{GPUCompilationMessage}}具有以下属性：
 
