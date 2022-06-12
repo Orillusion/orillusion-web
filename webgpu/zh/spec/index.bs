@@ -3718,16 +3718,16 @@ dictionary GPUShaderModuleDescriptor : GPUObjectDescriptorBase {
 };
 </script>
 
-{{GPUShaderModuleDescriptor/sourceMap}}，如果定义，可以解释为source-map-v3格式。Source maps是可选的，但它作为支持开发工具集成（例如源语言调试）的标准化方法。
-{{GPUShaderModuleDescriptor/hints}}，如果已定义，则将着色器的入口点名称映射到 {{GPUShaderModuleCompilationHint}}。
-不使用任何这些 {{GPUShaderModuleCompilationHint}} 执行验证。
-实现应使用 {{GPUShaderModuleCompilationHint}} 中存在的任何信息在 {{GPUDevice/createShaderModule()}} 中执行尽可能多的编译。
+{{GPUShaderModuleDescriptor/sourceMap}}，如果已定义，可以被解析为 source-map-v3 格式。 Source maps 是可选的，但可被当作支持开发工具集成（例如源语言调试）的标准化方法使用。
+[[SourceMap]]
 
-注意：在 {{GPUShaderModuleDescriptor/hints}} 中提供信息除了性能之外没有任何可观察到的影响。因为单个着色器模块可以容纳多个入口点，并且可以从单个着色器模块创建多个管线，所以实现在 {{GPUDevice/createShaderModule()}} 中进行尽可能多的编译可以提高性能，而不是在对 {{GPUDevice/createComputePipeline()}} / {{GPUDevice/createRenderPipeline()}} 的多次调用中多次调用。
+{{GPUShaderModuleDescriptor/hints}}，如果已定义，则将着色器的入口点名称映射到 {{GPUShaderModuleCompilationHint}}。不使用任何这些 {{GPUShaderModuleCompilationHint}} 执行验证。实现应使用 {{GPUShaderModuleCompilationHint}} 中存在的任何信息在 {{GPUDevice/createShaderModule()}} 中执行尽可能多的编译。
 
-注意：如果可能，作者应该向 {{GPUDevice/createShaderModule()}} 和 {{GPUDevice/createComputePipeline()}} / {{GPUDevice/createRenderPipeline()}} 提供相同的信息。
+Note: 在 {{GPUShaderModuleDescriptor/hints}} 中提供信息除了性能之外没有任何可观察到的影响。因为单个着色器模块可以容纳多个入口点，并且可以从单个着色器模块创建多个管线，所以性能更好的实现是在 {{GPUDevice/createShaderModule()}} 中进行一次尽可能多的编译，而不是在对 {{GPUDevice/createComputePipeline()}} / {{GPUDevice/createRenderPipeline()}} 的多次调用中进行多次编译。
 
-注意：如果作者在调用 {{GPUDevice/createShaderModule()}} 时无法提供此 {{GPUShaderModuleDescriptor/hints}} 信息，通常不应延迟调用 {{GPUDevice/createShaderModule()}}；但应该只是省略 {{GPUShaderModuleDescriptor/hints}} 或 {{GPUShaderModuleCompilationHint}} 中的未知信息。省略此信息可能会导致编译推迟到 {{GPUDevice/createComputePipeline()}} / {{GPUDevice/createRenderPipeline()}}。
+Note: 如果可能，开发者应该向 {{GPUDevice/createShaderModule()}} 和 {{GPUDevice/createComputePipeline()}} / {{GPUDevice/createRenderPipeline()}} 提供相同的信息。
+
+Note: 如果开发者在调用 {{GPUDevice/createShaderModule()}} 时无法提供此 {{GPUShaderModuleDescriptor/hints}} 信息，通常不应延迟调用 {{GPUDevice/createShaderModule()}}; 而应该只是省略 {{GPUShaderModuleDescriptor/hints}} 或 {{GPUShaderModuleCompilationHint}} 中的未知信息。省略此信息可能会导致编译推迟到 {{GPUDevice/createComputePipeline()}} / {{GPUDevice/createRenderPipeline()}} 中进行。
 
 注意：如果作者不确定传递给 {{GPUDevice/createShaderModule()}} 的信息是否与稍后传递给 {{GPUDevice/createComputePipeline()}} / {{GPUDevice/createRenderPipeline()}} 的信息匹配同一个模块，他们应该避免将该信息传递给 {{GPUDevice/createShaderModule()}}，因为将不匹配的信息传递给 {{GPUDevice/createShaderModule()}} 可能会导致发生不必要的编译。
 
