@@ -3703,7 +3703,7 @@ GPUShaderModule includes GPUObjectBase;
 
 {{GPUShaderModule}} 是对内部着色器模块对象的引用。
 
-问题(gpuweb/gpuweb#354): 完成定义多线程API并将 `[Serializable]` 添加回接口。
+Issue(gpuweb/gpuweb#354): 完成定义多线程API并将 `[Serializable]` 添加回接口。
 
 ### 着色器模块创建 ### {#shader-module-creation}
 
