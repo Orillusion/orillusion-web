@@ -80,8 +80,8 @@ spec: WGSL; urlPrefix: https://gpuweb.github.io/gpuweb/wgsl/#
         text: location; url: input-output-locations
         text: interpolation; url: interpolation
         text: minimum binding size; url: minimum-binding-size
-        text: pipeline-overridable; url: pipeline-overridable
-        text: pipeline-overridable constant identifier string; url: pipeline-overridable-constant-identifier-string
+        text: 管线可重写; url: pipeline-overridable
+        text: 管线可重写常量标识符字符串; url: pipeline-overridable-constant-identifier-string
         text: pipeline-overridable constant has a default value; url: pipeline-overridable-constant-has-a-default-value
         text: statically accessed; url: statically-accessed
         text: wgsl-declaration; url: declaration
@@ -92,7 +92,7 @@ spec: WGSL; urlPrefix: https://gpuweb.github.io/gpuweb/wgsl/#
         text: channel formats; url: channel-formats
         text: invalid memory reference; url: invalid-memory-reference
         text: shader-creation error; url: shader-creation-error
-        text: pipeline-creation error; url: pipeline-creation-error
+        text: 管线创建错误; url: pipeline-creation-error
         text: store type; url: store-type
         text: runtime-sized; url: runtime-sized
         text: SizeOf; url: sizeof
@@ -3861,25 +3861,16 @@ Note: {{GPUCompilationMessage}}.{{GPUCompilationMessage/offset}} 和 {{GPUCompil
 </dl>
 
 
-# 管道 # {#pipelines}
+# 管线 # {#pipelines}
 
 一个 <dfn dfn>管线</dfn>，无论是 {{GPUComputePipeline}} 还是 {{GPURenderPipeline}}，
-表示由 GPU 硬件、驱动程序、
-和用户代理，以绑定和顶点缓冲区的形式处理输入数据，
-并产生一些输出，如输出渲染目标中的颜色。
+表示由 GPU 硬件、驱动程序、和用户代理完成的某个完整功能，管线以资源绑定和顶点缓冲区作为输入数据，并产生一些输出，如输出渲染目标中的颜色。
 
-在结构上，[=pipeline=] 由一系列可编程阶段（着色器）组成
-和固定功能状态，例如混合模式。
+在结构上，[=管线=]包含一系列可编程阶段（着色器）和固定功能状态，例如混合模式。
 
-注意：在内部，取决于目标平台，
-驱动程序可能会将一些固定功能状态转换为着色器代码，
-并将其与用户提供的着色器链接在一起。
-这种链接是将对象作为一个整体创建的原因之一。
+Note: 在内部，取决于不同目标平台，驱动程序可能会将一些固定功能状态转换为着色器代码，并将其与用户提供的着色器链接在一起。这种链接是将对象作为一个整体创建的原因之一。
 
-此组合状态创建为单个对象
-（通过 {{GPUDevice/createComputePipeline(descriptor)|GPUDevice.createComputePipeline()}} 或 {{GPUDevice/createRenderPipeline(descriptor)|GPUDevice.createRenderPipeline()}}），
-并切换为一个
-（相应地通过 {{GPUComputePassEncoder/setPipeline(pipeline)|GPUComputePassEncoder.setPipeline}} 或 {{GPURenderEncoderBase/setPipeline(pipeline)|GPURenderEncoderBase.setPipeline}}）。
+此组合状态作为单个对象被创建（通过 {{GPUDevice/createComputePipeline(descriptor)|GPUDevice.createComputePipeline()}} 或 {{GPUDevice/createRenderPipeline(descriptor)|GPUDevice.createRenderPipeline()}}），并切换为一个对象（相应地通过 {{GPUComputePassEncoder/setPipeline(pipeline)|GPUComputePassEncoder.setPipeline}} 或 {{GPURenderEncoderBase/setPipeline(pipeline)|GPURenderEncoderBase.setPipeline}}）。
 
 ## 基础管道 ## {#pipeline-base}
 
