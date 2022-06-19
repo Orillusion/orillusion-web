@@ -4055,37 +4055,19 @@ interface mixin GPUPipelineBase {
 
 </div>
 
-### <dfn dictionary>GPUProgrammableStage</dfn> ### {#GPUProgrammableStage}
-
-{{GPUProgrammableStage}} 描述了用户提供的 {{GPUShaderModule}} 中的入口点，该入口点控制 [=pipeline=] 的可编程阶段之一。
-
-<script type=idl>
-dictionary GPUProgrammableStage {
-    required GPUShaderModule module;
-    required USVString entryPoint;
-    record<USVString, GPUPipelineConstantValue> constants;
-};
-
-typedef double GPUPipelineConstantValue; // May represent WGSL's bool, f32, i32, u32.
-</script>
-
 <dl dfn-for=GPUProgrammableStage dfn-type=dict-member>
     : <dfn>constants</dfn>
     ::
-        指定着色器模块 {{GPUProgrammableStage/module}} 中 [=pipeline-overridable=] 常量的值。
+        指定着色器模块 {{GPUProgrammableStage/module}} 中[=管线可重写=]常量的值。
 
-        每个这样的 [=pipeline-overridable=] 常量都由单个 [=pipeline-overridable constant identifier string==]
-         唯一标识（表示常量的数字 ID，如果指定了一个，否则表示常量的标识符名称）。
+        每个这样的[=管线可重写=]常量都由单个[=管线可重写常量标识符字符串=]唯一标识（如果指定了一个常量，则表示该常量的数字 ID，否则表示常量的标识符名称）。
 
-        每个键值对的键必须等于一个这样的常量的标识符字符串。
-        执行管道时，该常量将具有指定的值。
+        每个键值对的键必须等于一个这样的常量的标识符字符串。执行管线时，该常量将具有指定的值。
 
-        值被指定为 <dfn typedef for=>GPUPipelineConstantValue</dfn>，它是一个 `double`，
-        它被转换为相应管道可覆盖常量的 WGSL 数据类型（`bool`、`i32`、`u32`、 或 `f32`) 通过 [=converted to an IDL value|an IDL value=|一个 IDL 值=]
-        {{boolean}}、{{long}}、{{unsigned long}} 或 {{float}}）。
+        被指定为 <dfn typedef for=>GPUPipelineConstantValue</dfn> 的值，是一个 `double` 类型，被转换为相应管线可重写常量的 WGSL 数据类型（`bool`、`i32`、`u32`、 或 `f32`) 通过[=converted to an IDL value|an IDL value=|一个 IDL 值=]（{{boolean}}、{{long}}、{{unsigned long}} 或 {{float}}）。
 
         <div class=example>
-            Pipeline-overridable constants defined in WGSL:
+            WGSL 中定义的管线可重写常量:
 
             <pre highlight=rust>
                 @override(0)    let has_point_light: bool = true; // Algorithmic control.
@@ -4098,8 +4080,7 @@ typedef double GPUPipelineConstantValue; // May represent WGSL's bool, f32, i32,
                                                                   //   Must be overridden.
             </pre>
 
-            相应的 JavaScript 代码，仅提供所需的覆盖
-            （没有默认值）：
+            相应的 JavaScript 代码，仅提供所需的覆盖值（没有默认值）：
 
             <pre highlight=js>
                 {
@@ -4111,7 +4092,7 @@ typedef double GPUPipelineConstantValue; // May represent WGSL's bool, f32, i32,
                 }
             </pre>
 
-            Corresponding JavaScript code, overriding all constants:
+            相应的 JavaScript 代码, 重写所有常量:
 
             <pre highlight=js>
                 {
@@ -4129,7 +4110,7 @@ typedef double GPUPipelineConstantValue; // May represent WGSL's bool, f32, i32,
 </dl>
 
 <div algorithm>
-    <dfn abstract-op>validating GPUProgrammableStage</dfn>(stage, descriptor, layout)
+    <dfn abstract-op>验证 GPUProgrammableStage</dfn>(stage, descriptor, layout)
 
     **参数:**
     - {{GPUShaderStage}} |stage|
@@ -4138,29 +4119,21 @@ typedef double GPUPipelineConstantValue; // May represent WGSL's bool, f32, i32,
 
     如果满足以下所有条件，则返回 `true`：
 
-    - |descriptor|.{{GPUProgrammableStage/module}} 必须是一个 [=valid=] {{GPUShaderModule}}.
-    - |descriptor|.{{GPUProgrammableStage/module}} 必须包含
-        一个入口点，用于着色器阶段 |stage|，
-        名为 |descriptor|.{{GPUProgrammableStage/entryPoint}}。
-    - 对于每个 |binding| 即着色器入口点的 [=statically used=] ：
-        - [$validating shader binding$](|binding|, |layout|) 必须返回 `true`。
-    - 对于入口点 [=statically used=] 的每个纹理采样着色器调用:
+    - |descriptor|.{{GPUProgrammableStage/module}} 必须是一个[=有效=]的 {{GPUShaderModule}}.
+    - |descriptor|.{{GPUProgrammableStage/module}} 必须包含一个入口点，用于着色器阶段 |stage|，名为 |descriptor|.{{GPUProgrammableStage/entryPoint}}。
+    - 对于每个着色器入口点[=静态使用=]的 |binding|：
+        - [$验证着色器绑定$](|binding|, |layout|) 必须返回 `true`。
+    - 对于入口点[=静态使用=]的每个纹理采样着色器调用:
         1. 让 |texture| 是与调用中的采样纹理对应的 {{GPUBindGroupLayoutEntry}}。
         1. 让 |sampler| 是与调用中使用的采样器对应的 {{GPUBindGroupLayoutEntry}}。
-        1. 如果 |sampler|.{{GPUSamplerBindingLayout/type}} 是 {{GPUSamplerBindingType/"filtering"}},
-            那么 |texture|.{{GPUTextureBindingLayout/sampleType}} 必须不是
-            {{GPUTextureSampleType/"unfilterable-float"}}。
-    - 对于每个 |key| 在 |descriptor|.{{GPUProgrammableStage/constants}} 的 [=map/get the keys|the keys=] 中：
-        - |key| 必须等于在着色器模块 |descriptor|.{{GPUProgrammableStage/module}} 中定义的某些 [=pipeline-overridable=] 常量的 [=pipeline-overridable constant identifier string=]，通过代码点，而不是 !UnicodeVersion14|Unicode Version 14.0.0 的 [=UAX15 Equivalences=]
+        1. 如果 |sampler|.{{GPUSamplerBindingLayout/type}} 是 {{GPUSamplerBindingType/"filtering"}}, 那么 |texture|.{{GPUTextureBindingLayout/sampleType}} 必须不是 {{GPUTextureSampleType/"unfilterable-float"}}。
+    - 对于在 |descriptor|.{{GPUProgrammableStage/constants}} 的 [=map/get the keys|the keys=] 中的每个 |key|：
+        - |key| 必须等于在着色器模块 |descriptor|.{{GPUProgrammableStage/module}} 中定义的某些[=管线可重写=]常量的[=管线可重写常量标识符字符串=]。
         
-        Note: 用户代理应考虑在大多数或所有情况下发出开发人员可见的警告，其中显示具有不同代码点序列的两个名称在读者看来是相同的，例如在规范下与 [=UAX15 Normalization Forms|Normalization Form C (NFC)=] 等价或看起来相似的字符。
-        - |key| 必须等于着色器模块中定义的某些 [=pipeline-overridable=] 的 [=pipeline-overridable constant identifier string=] |descriptor|.{{GPUProgrammableStage/module}}。
-    - 对于每个 [=pipeline-overridable constant identifier string=] |key| 这是着色器入口点的 [=statically accessed=]：
-        - 如果由 |key| 标识的管道可覆盖常量
-            [=pipeline-overridable constant has a default value|does not have a default value=],
-            |descriptor|.{{GPUProgrammableStage/constants}} 必须 [=map/contain=] |key|。
+    - 对于每个在着色器入口点[=静态访问=]的[=管线可重写常量标识符字符串=] |key| ：
+        - 如果由 |key| 标识的管线可重写常量[=pipeline-overridable constant has a default value|不包含默认值=], |descriptor|.{{GPUProgrammableStage/constants}} 必须 [=map/contain=] |key|。
     
-    返回值 `false` 对应于 [=pipeline-creation error=]。
+    返回值 `false` 对应于[=管线创建错误=]。
 </div>
 
 <div algorithm>
