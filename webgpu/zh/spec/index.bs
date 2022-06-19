@@ -3872,7 +3872,7 @@ Note: 在内部，取决于不同目标平台，驱动程序可能会将一些�
 
 此组合状态作为单个对象被创建（通过 {{GPUDevice/createComputePipeline(descriptor)|GPUDevice.createComputePipeline()}} 或 {{GPUDevice/createRenderPipeline(descriptor)|GPUDevice.createRenderPipeline()}}），并切换为一个对象（相应地通过 {{GPUComputePassEncoder/setPipeline(pipeline)|GPUComputePassEncoder.setPipeline}} 或 {{GPURenderEncoderBase/setPipeline(pipeline)|GPURenderEncoderBase.setPipeline}}）。
 
-## 基础管道 ## {#pipeline-base}
+## 基础管线 ## {#pipeline-base}
 
 <script type=idl>
 dictionary GPUPipelineDescriptorBase : GPUObjectDescriptorBase {
@@ -3897,32 +3897,29 @@ interface mixin GPUPipelineBase {
 <dl dfn-type=method dfn-for=GPUPipelineBase>
     : <dfn>getBindGroupLayout(index)</dfn>
     ::
-        获取一个 {{GPUBindGroupLayout}}，它与 `index` 处的 {{GPUPipelineBase}} 的 {{GPUBindGroupLayout}} 兼容。
+        获取一个 {{GPUBindGroupLayout}}，与 `index` 处的 {{GPUPipelineBase}} 的 {{GPUBindGroupLayout}} 兼容。
 
         <div algorithm=GPUPipelineBase.getBindGroupLayout>
             **调用:** {{GPUPipelineBase}} |this|.
 
             **参数:**
             <pre class=argumentdef for="GPUPipelineBase/getBindGroupLayout(index)">
-                |index|: 对管道布局的 {{GPUPipelineLayout/[[bindGroupLayouts]]}} 序列的索引。
+                |index|: 对管线布局的 {{GPUPipelineLayout/[[bindGroupLayouts]]}} 序列的索引。
             </pre>
 
             **返回:** {{GPUBindGroupLayout}}
 
-            1. 如果 |index| &ge;
-                |this|.{{GPUObjectBase/[[device]]}}.{{device/[[limits]]}}.{{supported limits/maxBindGroups}}:
-                1. 抛出一个 {{RangeError}}.
+            1. 如果 |index| &ge; |this|.{{GPUObjectBase/[[device]]}}.{{device/[[limits]]}}.{{supported limits/maxBindGroups}}:
+                1. 返回一个 {{RangeError}}.
 
-            1. 如果 |this| 不是 [=valid=]:
+            1. 如果 |this| 不是[=有效=]的:
                 1. 返回一个新的错误的 {{GPUBindGroupLayout}}.
 
-            1. 返回一个新的 {{GPUBindGroupLayout}} 对象引用相同的内部对象
-                |this|.{{GPUPipelineBase/[[layout]]}}.{{GPUPipelineLayout/[[bindGroupLayouts]]}}[|index|].
+            1. 返回一个新的 {{GPUBindGroupLayout}} 对象引用相同的内部对象 |this|.{{GPUPipelineBase/[[layout]]}}.{{GPUPipelineLayout/[[bindGroupLayouts]]}}[|index|].
 
-            问题：一旦我们拥有 {{GPUBindGroupLayout}} 的内部对象，请更正确地指定此项。
-            或者，只有规范作为 [=group-equivalent=] 的新内部对象
+            Issue: 一旦我们拥有 {{GPUBindGroupLayout}} 的内部对象，请更正确地指定此项。或者，只有规范作为[=组等效的=]的新内部对象
 
-            注意：仅返回新的 {{GPUBindGroupLayout}} 对象可确保 [=Content timeline=] 和 [=Device timeline=] 之间不需要同步。
+            Note: 仅返回新的 {{GPUBindGroupLayout}} 对象可确保[=内容时间线=]和[=设备时间线=]之间不需要同步。
         </div>
 </dl>
 
