@@ -3923,29 +3923,26 @@ interface mixin GPUPipelineBase {
         </div>
 </dl>
 
-### 默认管道布局 ### {#default-pipeline-layout}
+### 默认管线布局 ### {#default-pipeline-layout}
 
-在没有 {{GPUPipelineDescriptorBase/layout}} 的情况下创建的 {{GPUPipelineBase}} 对象具有创建和使用的默认布局。
+在没有 {{GPUPipelineDescriptorBase/layout}} 的情况下创建的 {{GPUPipelineBase}} 对象，创建和使用的默认布局。
 
 <div algorithm="default pipeline layout creation">
 
-要为 {{GPUPipelineBase}} |pipeline| 创建 <dfn abstract-op>default pipeline layout</dfn>，
-运行以下步骤：
+要为 {{GPUPipelineBase}} |pipeline| 创建<dfn abstract-op>默认管线布局</dfn>，需要运行以下步骤：
 
-    1. 让 |groupDescs| 是一系列 |device|.{{device/[[limits]]}}.{{supported limits/maxBindGroups}}
-        新的 {{GPUBindGroupLayoutDescriptor}} 对象。
+    1. 让 |groupDescs| 是 |device|.{{device/[[limits]]}}.{{supported limits/maxBindGroups}} 的一系列新的 {{GPUBindGroupLayoutDescriptor}} 对象。
     1. 对于每个在 |groupDescs| 中的 |groupDesc|:
 
         1. 设置 |groupDesc|.{{GPUBindGroupLayoutDescriptor/entries}} 为一个空序列。
 
-    1. 对于每个 {{GPUProgrammableStage}} |stageDesc| 在用于创建 |pipeline| 的描述符中:
+    1. 对于每个在描述符中用于创建 |pipeline| 的 {{GPUProgrammableStage}} |stageDesc|:
 
         1. 让 |stageInfo| 是 |stageDesc| 的“反射信息”。
 
-            问题：定义反射信息概念，以便此规范可以与 WGSL 规范接口，并获取特定入口点的 {{GPUShaderModule}} 接口的信息。
+            Issue: 定义反射信息概念，以便此规范可以与 WGSL 规范接口，并获取特定入口点的 {{GPUShaderModule}} 接口的信息。
 
-        1. 让 |shaderStage| 成为 |stageDesc|.{{GPUProgrammableStage/module}} 中
-            |stageDesc|.{{GPUProgrammableStage/entryPoint}} 的 {{GPUShaderStageFlags}}。
+        1. 让 |shaderStage| 成为 |stageDesc|.{{GPUProgrammableStage/module}} 中 |stageDesc|.{{GPUProgrammableStage/entryPoint}} 的 {{GPUShaderStageFlags}}。
         1. 对于每个资源 |resource| 在 |stageInfo| 的资源接口中：
 
             1. 让 |group| 成为 |resource| 的 “group” 装饰。
@@ -3970,7 +3967,7 @@ interface mixin GPUPipelineBase {
 
                 1. 设置 |bufferLayout|.{{GPUBufferBindingLayout/minBindingSize}} 为 |resource| 的缓冲区绑定大小的最小值.
 
-                    问题：链接到“反射信息”中“最小缓冲区绑定大小”的定义。
+                    Issue: 链接到“反射信息”中“最小缓冲区绑定大小”的定义。
 
                 1. 如果 |resource| 用于只读存储缓冲区:
 
@@ -3995,7 +3992,7 @@ interface mixin GPUPipelineBase {
                         <dl class=switch>
                             : `f32` 并且 |resource| 与着色器中内置的 textureSample* 静态使用
                             :: 设置 |textureLayout|.{{GPUTextureBindingLayout/sampleType}} 为 {{GPUTextureSampleType/"float"}}
-                            : `f32`
+                            : 其他 `f32` 
                             :: 设置 |textureLayout|.{{GPUTextureBindingLayout/sampleType}} 为 {{GPUTextureSampleType/"unfilterable-float"}}
                             : `i32`
                             :: 设置 |textureLayout|.{{GPUTextureBindingLayout/sampleType}} 为 {{GPUTextureSampleType/"sint"}}
@@ -4028,21 +4025,16 @@ interface mixin GPUPipelineBase {
 
                     1. 将 |entry|.{{GPUBindGroupLayoutEntry/visibility}} 中设置的位添加到 |previousEntry|.{{GPUBindGroupLayoutEntry/visibility}}
 
-                1. 如果 |resource| 用于缓冲区绑定和 |entry| 有比 |previousEntry| 更大的
-                    {{GPUBindGroupLayoutEntry/buffer}}.{{GPUBufferBindingLayout/minBindingSize}}:
+                1. 如果 |resource| 用于缓冲区绑定和 |entry| 有比 |previousEntry| 更大的 {{GPUBindGroupLayoutEntry/buffer}}.{{GPUBufferBindingLayout/minBindingSize}}:
 
-                    1. 设置 |previousEntry|.{{GPUBindGroupLayoutEntry/buffer}}.{{GPUBufferBindingLayout/minBindingSize}}
-                        为 |entry|.{{GPUBindGroupLayoutEntry/buffer}}.{{GPUBufferBindingLayout/minBindingSize}}。
+                    1. 设置 |previousEntry|.{{GPUBindGroupLayoutEntry/buffer}}.{{GPUBufferBindingLayout/minBindingSize}} 为 |entry|.{{GPUBindGroupLayoutEntry/buffer}}.{{GPUBufferBindingLayout/minBindingSize}}。
 
-                1. 如果 |resource| 是一个采样的纹理绑定和 |entry| 具有与 |previousEntry| 不同的 {{GPUBindGroupLayoutEntry/texture}}.{{GPUTextureBindingLayout/sampleType}}
-                    并且两者 |entry| 和 |previousEntry| 有 {{GPUBindGroupLayoutEntry/texture}}.{{GPUTextureBindingLayout/sampleType}}
-                    或 {{GPUTextureSampleType/"float"}} 或 {{GPUTextureSampleType/"unfilterable-float"}}：
-                    1. 设置 |previousEntry|.{{GPUBindGroupLayoutEntry/texture}}.{{GPUTextureBindingLayout/sampleType}} 为
-                        {{GPUTextureSampleType/"float"}}.
+                1. 如果 |resource| 是一个采样的纹理绑定和 |entry| 具有与 |previousEntry| 不同的 {{GPUBindGroupLayoutEntry/texture}}.{{GPUTextureBindingLayout/sampleType}}，并且 |entry| 和 |previousEntry| 都有 {{GPUBindGroupLayoutEntry/texture}}.{{GPUTextureBindingLayout/sampleType}} 为 {{GPUTextureSampleType/"float"}} 或 {{GPUTextureSampleType/"unfilterable-float"}}：
+                    1. 设置 |previousEntry|.{{GPUBindGroupLayoutEntry/texture}}.{{GPUTextureBindingLayout/sampleType}} 为 {{GPUTextureSampleType/"float"}}.
 
                 1. 如果任何其他属性在 |entry| 之间不相等 和 |previousEntry|:
 
-                    1. 返回 `null`（这将导致管道的创建失败）。
+                    1. 返回 `null`（这将导致管线的创建失败）。
 
             1. 其他
 
@@ -4059,7 +4051,7 @@ interface mixin GPUPipelineBase {
     1. 设置 |desc|.{{GPUPipelineLayoutDescriptor/bindGroupLayouts}} 为 |groupLayouts|。
     1. 返回 |device|.{{GPUDevice/createPipelineLayout()}}(|desc|)。
 
-    问题：这会用空的绑定组填充管道布局。 一旦指定了空绑定组的行为，请重新访问。
+    Issue: 这会用空的绑定组填充管线布局。 一旦指定了空绑定组的行为，请重新访问。
 
 </div>
 
