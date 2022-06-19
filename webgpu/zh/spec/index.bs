@@ -4137,36 +4137,32 @@ interface mixin GPUPipelineBase {
 </div>
 
 <div algorithm>
-    <dfn abstract-op>validating shader binding</dfn>(binding, layout)
+    <dfn abstract-op>验证着色器绑定</dfn>(binding, layout)
 
     **参数:**
-        - 着色器绑定声明|变量|，从着色器模块反射的模块范围变量声明
+        - 着色器绑定声明的 |variable|，从着色器模块反射的模块范围变量声明
         - {{GPUPipelineLayout}} |layout|
 
-    让 |bindGroup| 是绑定组索引，和 |bindIndex| 是着色器绑定声明 |variable| 的绑定索引。
+    将 |bindGroup| 是绑定组索引，和 |bindIndex| 作为着色器绑定声明 |variable| 的绑定索引。
 
     如果满足以下所有条件，则返回 `true`：
 
-        - |layout|.{{GPUPipelineLayout/[[bindGroupLayouts]]}}[|bindGroup|] 包含
-            一个 {{GPUBindGroupLayoutEntry}} |entry| 其中 |entry|.{{GPUBindGroupLayoutEntry/binding}} == |bindIndex|.
-        - 如果对于 |entry| 被定义的 [=binding member=] 是:
+        - |layout|.{{GPUPipelineLayout/[[bindGroupLayouts]]}}[|bindGroup|] 包含一个 {{GPUBindGroupLayoutEntry}} |entry|，其中 |entry|.{{GPUBindGroupLayoutEntry/binding}} == |bindIndex|.
+        - 如果对于 |entry| 被定义的[=绑定成员=]是:
             <dl class=switch>
                 : {{GPUBindGroupLayoutEntry/buffer}}
                 ::
                     如果 |entry|.{{GPUBindGroupLayoutEntry/buffer}}.{{GPUBufferBindingLayout/type}} 是:
                     <dl class=switch>
                         : {{GPUBufferBindingType/"uniform"}}
-                        :: |variable| is declared with address space `uniform`.
+                        :: |variable| 使用地址空间 `uniform` 声明。
                         : {{GPUBufferBindingType/"storage"}}
-                        :: |variable| is declared with address space `storage` and access mode `read_write`.
+                        :: |variable| 使用地址空间 `storage` 和访问模式 `read_write` 声明。
                         : {{GPUBufferBindingType/"read-only-storage"}}
-                        :: |variable| is declared with address space `storage` and access mode `read`.
+                        :: |variable| 使用地址空间 `storage` 和访问模式 `read` 声明。
                     </dl>
                 ::
-                    如果 |entry|.{{GPUBindGroupLayoutEntry/buffer}}.{{GPUBufferBindingLayout/minBindingSize}} 不是 `0`，那么它必须至少是着色器中关联缓冲区变量的 [=minimum binding size=]。
-                    如果变量具有 [=store type=] |T|，则最小绑定大小为 [=SizeOf=](|T|)。
-                    在这个计算中，如果 |T| 是一个 [=runtime-sized=] 数组或包含一个运行时大小的数组，该数组假定有一个元素。
-                    强制执行此下限可确保通过缓冲区变量进行的读取和写入仅访问缓冲区绑定区域内的内存位置。
+                    如果 |entry|.{{GPUBindGroupLayoutEntry/buffer}}.{{GPUBufferBindingLayout/minBindingSize}} 不是 `0`，那么着色器中关联缓冲区变量必须至少是[=最小绑定大小=]。如果变量具有[=存储类型=] |T|，则最小绑定大小为 [=SizeOf=](|T|)。在这个计算中，如果 |T| 是一个[=运行时间大小=]的数组或包含一个运行时间大小的数组，该数组假定有一个元素。强制执行此下限可确保通过缓冲区变量进行的读取和写入仅访问缓冲区绑定区域内的内存位置。
 
                 : {{GPUBindGroupLayoutEntry/sampler}}
                 ::
@@ -4181,21 +4177,17 @@ interface mixin GPUPipelineBase {
                 : {{GPUBindGroupLayoutEntry/texture}}
                 ::
                     当且仅当，
-                    |entry|.{{GPUBindGroupLayoutEntry/texture}}.{{GPUTextureBindingLayout/multisampled}}
-                    是 `true`，|变量| 类型为 `texture_multisampled_2d<T>` 或 `texture_depth_multisampled_2d<T>`。
+                    |entry|.{{GPUBindGroupLayoutEntry/texture}}.{{GPUTextureBindingLayout/multisampled}} 是 `true`，|variable| 类型为 `texture_multisampled_2d<T>` 或 `texture_depth_multisampled_2d<T>`。
                 ::
                     如果 |entry|.{{GPUBindGroupLayoutEntry/texture}}.{{GPUTextureBindingLayout/sampleType}} 是:
                     <dl class=switch>
-                        : {{GPUTextureSampleType/"float"}}, {{GPUTextureSampleType/"unfilterable-float"}},
-                            {{GPUTextureSampleType/"sint"}} 或 {{GPUTextureSampleType/"uint"}}
+                        : {{GPUTextureSampleType/"float"}}, {{GPUTextureSampleType/"unfilterable-float"}}, {{GPUTextureSampleType/"sint"}} 或 {{GPUTextureSampleType/"uint"}}
                         ::
-                            |variable| 是类型 `texture_1d<T>`, `texture_2d<T>`, `texture_2d_array<T>`,
-                            `texture_cube<T>`, `texture_cube_array<T>`, `texture_3d<T>`, 或
-                            `texture_multisampled_2d<T>`.
+                            |variable| 是类型 `texture_1d<T>`, `texture_2d<T>`, `texture_2d_array<T>`, `texture_cube<T>`, `texture_cube_array<T>`, `texture_3d<T>`, 或 `texture_multisampled_2d<T>`.
                         ::
                             如果 |entry|.{{GPUBindGroupLayoutEntry/texture}}.{{GPUTextureBindingLayout/sampleType}} 是:
                             <dl class=switch>
-                                : {{GPUTextureSampleType/"float"}} or {{GPUTextureSampleType/"unfilterable-float"}}
+                                : {{GPUTextureSampleType/"float"}} 或 {{GPUTextureSampleType/"unfilterable-float"}}
                                 :: 采样类型 `T` 是 `f32`.
                                 : {{GPUTextureSampleType/"sint"}}
                                 :: 采样类型 `T` 是 `i32`.
@@ -4205,8 +4197,7 @@ interface mixin GPUPipelineBase {
 
                         : {{GPUTextureSampleType/"depth"}}
                         ::
-                            |variable| 是类型 `texture_depth_2d`, `texture_depth_2d_array`,
-                            `texture_depth_cube`, `texture_depth_cube_array`, 或 `texture_depth_multisampled_2d`.
+                            |variable| 是类型 `texture_depth_2d`, `texture_depth_2d_array`, `texture_depth_cube`, `texture_depth_cube_array`, 或 `texture_depth_multisampled_2d`.
                     </dl>
                 ::
                     如果 |entry|.{{GPUBindGroupLayoutEntry/texture}}.{{GPUTextureBindingLayout/viewDimension}} 是:
@@ -4242,16 +4233,14 @@ interface mixin GPUPipelineBase {
                     如果 |entry|.{{GPUBindGroupLayoutEntry/storageTexture}}.{{GPUStorageTextureBindingLayout/access}} 是:
                     <dl class=switch>
                         : {{GPUStorageTextureAccess/"write-only"}}
-                        :: 访问模式“A”是“写”。
+                        :: 访问模式 “A” 是“写”。
                     </dl>
                 ::
-                    纹素格式 `T` 等于
-                    |entry|.{{GPUBindGroupLayoutEntry/storageTexture}}.{{GPUStorageTextureBindingLayout/format}}.
+                    纹素格式 `T` 等于 |entry|.{{GPUBindGroupLayoutEntry/storageTexture}}.{{GPUStorageTextureBindingLayout/format}}.
             </dl>
 </div>
 
-资源绑定被视为由着色器入口点<dfn dfn>statically used</dfn>
-当且仅当着色器模块的控制流图可以访问它，从入口点开始。
+资源绑定被视为着色器入口点的<dfn dfn>静态使用</dfn>，当且仅当可以被着色器模块的控制流图访问，并从入口点开始。
 
 ## <dfn interface>GPUComputePipeline</dfn> ## {#compute-pipeline}
 
