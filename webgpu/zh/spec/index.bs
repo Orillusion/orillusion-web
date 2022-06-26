@@ -4244,15 +4244,11 @@ interface mixin GPUPipelineBase {
 
 ## <dfn interface>GPUComputePipeline</dfn> ## {#compute-pipeline}
 
-{{GPUComputePipeline}} 是一种 [=pipeline=] 控制计算着色器阶段，
-并且可以在 {{GPUComputePassEncoder}} 中使用。
+{{GPUComputePipeline}} 是一种控制计算着色器阶段的[=管线=]，并且可以在 {{GPUComputePassEncoder}} 中使用。
 
-计算输入和输出都包含在绑定中，
-根据给定的 {{GPUPipelineLayout}}。
-输出对应于类型为 {{GPUBufferBindingType/"storage"}} 的 {{GPUBindGroupLayoutEntry/buffer}} 绑定
-和 {{GPUBindGroupLayoutEntry/storageTexture}} 绑定类型为 {{GPUStorageTextureAccess/"write-only"}}。
+根据给定的 {{GPUPipelineLayout}}，计算输入和输出都包含在绑定中。输出对应于类型为 {{GPUBufferBindingType/"storage"}} 的 {{GPUBindGroupLayoutEntry/buffer}} 绑定，和类型为 {{GPUStorageTextureAccess/"write-only"}} 的 {{GPUBindGroupLayoutEntry/storageTexture}} 绑定。
 
-计算 [=pipeline=] 的阶段:
+计算[=管线=]阶段:
   1. 计算着色器
 
 <script type=idl>
