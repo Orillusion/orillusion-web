@@ -4354,30 +4354,29 @@ dictionary GPUComputePipelineDescriptor : GPUPipelineDescriptorBase {
 
 ## <dfn interface>GPURenderPipeline</dfn> ## {#render-pipeline}
 
-{{GPURenderPipeline}} 是一种控制顶点和片段着色器阶段的 [=pipeline=]，
-可以在 {{GPURenderPassEncoder}} 以及 {{GPURenderBundleEncoder}} 中使用。
+{{GPURenderPipeline}} 是一种控制顶点和片段着色器阶段的[=管线=]，可以在 {{GPURenderPassEncoder}} 以及 {{GPURenderBundleEncoder}} 中使用。
 
-渲染 [=pipeline=] 输入是：
+渲染[=管线=]的输入是：
    - 绑定，根据给定的 {{GPUPipelineLayout}}
    - 顶点和索引缓冲区，由 {{GPUVertexState}} 描述
    - 颜色附件，由 {{GPUColorTargetState}} 描述
    - 可选的，深度模板附件，由 {{GPUDepthStencilState}} 描述
 
-渲染 [=pipeline=] 输出是：
-   - {{GPUBindGroupLayoutEntry/buffer}} 与 {{GPUBufferBindingLayout/type}} 的 {{GPUBufferBindingType/"storage"}} 绑定
-   - {{GPUBindGroupLayoutEntry/storageTexture}} 与 {{GPUStorageTextureBindingLayout/access}} 的 {{GPUStorageTextureAccess/"write-only"}} 绑定
+渲染[=管线=]的输出是：
+   - {{GPUBufferBindingLayout/type}} 为 {{GPUBufferBindingType/"storage"}} 的 {{GPUBindGroupLayoutEntry/buffer}} 绑定
+   - {{GPUStorageTextureBindingLayout/access}} 为 {{GPUStorageTextureAccess/"write-only"}} 的 {{GPUBindGroupLayoutEntry/storageTexture}} 绑定
    - 颜色附件，由 {{GPUColorTargetState}} 描述
    - 可选的，深度模板附件，由 {{GPUDepthStencilState}} 描述
 
-渲染 [=pipeline=] 由以下 <dfn dfn>render stages</dfn>组成：
-   1. 顶点获取，由{{GPUVertexState/buffers|GPUVertexState.buffers}}控制
-   2. 顶点着色器，由{{GPUVertexState}}控制
-   3. 原始组装，由{{GPUPrimitiveState}}控制
-   4. 光栅化，由{{GPUPrimitiveState}}、{{GPUDepthStencilState}}和{{GPUMultisampleState}}控制
+渲染[=管线=]由以下<dfn dfn>渲染阶段</dfn>组成：
+   1. 顶点获取，由 {{GPUVertexState/buffers|GPUVertexState.buffers}} 控制
+   2. 顶点着色器，由 {{GPUVertexState}} 控制
+   3. 原始组装，由 {{GPUPrimitiveState}} 控制
+   4. 光栅化，由 {{GPUPrimitiveState}}、{{GPUDepthStencilState}} 和 {{GPUMultisampleState}} 控制
    5. 片段着色器，由{{GPUFragmentState}}控制
-   6. Stencil 测试和操作，由 {{GPUDepthStencilState}} 控制
-   7. 深度测试和写入，由{{GPUDepthStencilState}}控制
-   8. 输出合并，由{{GPUFragmentState/targets|GPUFragmentState.targets}}控制
+   6. 模板测试和操作，由 {{GPUDepthStencilState}} 控制
+   7. 深度测试和写入，由 {{GPUDepthStencilState}} 控制
+   8. 输出合并，由 {{GPUFragmentState/targets|GPUFragmentState.targets}} 控制
 
 <script type=idl>
 [Exposed=(Window, DedicatedWorker), SecureContext]
@@ -4390,16 +4389,16 @@ GPURenderPipeline includes GPUPipelineBase;
 {{GPURenderPipeline}} 有以下内部插槽：
 
 <dl dfn-type=attribute dfn-for=GPURenderPipeline>
-    : <dfn>\[[descriptor]]</dfn>, {{GPURenderPipelineDescriptor}} 类型
+    : <dfn>\[[descriptor]]</dfn>, of type {{GPURenderPipelineDescriptor}}
     ::
-        {{GPURenderPipelineDescriptor}} 用来描述这个管道。
+        {{GPURenderPipelineDescriptor}} 用来描述这个管线。
 
         {{GPURenderPipelineDescriptor}} 的所有可选字段都已定义。
-    : <dfn>\[[writesDepth]]</dfn>, boolean 类型
-    :: 如果管道写入深度/模板附件的深度组件，则为True
+    : <dfn>\[[writesDepth]]</dfn>, of type boolean
+    :: 如果管线写入深度/模板附件的深度组件，则为 True
 
-    : <dfn>\[[writesStencil]]</dfn>, boolean 类型
-    :: 如果管道写入深度/模板附件的模板组件，则为True
+    : <dfn>\[[writesStencil]]</dfn>, of type boolean
+    :: 如果管线写入深度/模板附件的模板组件，则为 True
 </dl>
 
 ### 创建 ### {#render-pipeline-creation}
