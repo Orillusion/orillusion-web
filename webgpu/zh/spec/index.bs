@@ -4277,39 +4277,32 @@ dictionary GPUComputePipelineDescriptor : GPUPipelineDescriptorBase {
 
             **参数:**
             <pre class=argumentdef for="GPUDevice/createComputePipeline(descriptor)">
-                |descriptor|: Description of the {{GPUComputePipeline}} to create.
+                |descriptor|: 要创建的 {{GPUComputePipeline}} 的描述.
             </pre>
 
             **返回:** {{GPUComputePipeline}}
 
             1. 让 |pipeline| 成一个新的有效的 {{GPUComputePipeline}} 对象.
-            1. 在 |this| 的 [=Device timeline=] 上发出以下步骤:
+            1. 在 |this| 的[=设备时间线=]上发出以下步骤:
                 <div class=device-timeline>
                     1. 如果不满足以下任一条件：
                         <div class=validusage>
-                            - |descriptor|.{{GPUPipelineDescriptorBase/layout}} 是 [$valid to use with$] |this|.
-                            - [$validating GPUProgrammableStage$]({{GPUShaderStage/COMPUTE}},
-                                |descriptor|.{{GPUComputePipelineDescriptor/compute}},
-                                |descriptor|.{{GPUPipelineDescriptorBase/layout}}) 成功。
-                            - |descriptor|.{{GPUComputePipelineDescriptor/compute}} 使用 &le;
-                                |device|.limits.{{supported limits/maxComputeWorkgroupStorageSize}} 工作组存储的字节。
+                            - |descriptor|.{{GPUPipelineDescriptorBase/layout}} 与 |this| 可以[$一起有效被使用$]。
+                            - [$验证 GPUProgrammableStage$]({{GPUShaderStage/COMPUTE}}, |descriptor|.{{GPUComputePipelineDescriptor/compute}}, |descriptor|.{{GPUPipelineDescriptorBase/layout}}) 成功。
+                            - |descriptor|.{{GPUComputePipelineDescriptor/compute}} 使用 &le; |device|.limits.{{supported limits/maxComputeWorkgroupStorageSize}} 工作组存储的字节。
 
-                                问题：更好地定义使用静态使用等。
-                            - |descriptor|.{{GPUComputePipelineDescriptor/compute}} 使用 &le;
-                                |device|.limits.{{supported limits/maxComputeInvocationsPerWorkgroup}} 每一个工作组。
+                                Issue: 更好地定义使用静态使用等。
+                            - |descriptor|.{{GPUComputePipelineDescriptor/compute}} 使用 &le; |device|.limits.{{supported limits/maxComputeInvocationsPerWorkgroup}} 每一个工作组。
 
-                            - |descriptor|.{{GPUComputePipelineDescriptor/compute}} 的 `workgroup_size` 属性具有每个组件 &le; 对应的组件
-                                [|device|.limits.{{supported limits/maxComputeWorkgroupSizeX}}，
-                                |device|.limits.{{supported limits/maxComputeWorkgroupSizeY}}，
-                                |device|.limits.{{supported limits/maxComputeWorkgroupSizeZ}}]。
+                            - |descriptor|.{{GPUComputePipelineDescriptor/compute}} 的 `workgroup_size` 属性具有每个组件 &le; 对应的组件 [|device|.limits.{{supported limits/maxComputeWorkgroupSizeX}}，|device|.limits.{{supported limits/maxComputeWorkgroupSizeY}}，|device|.limits.{{supported limits/maxComputeWorkgroupSizeZ}}]。
                         </div>
 
-                        Then:
-                            1. 在当前范围内产生一个带有适当错误信息的{{GPUValidationError}}。
-                            1. 使 |pipeline| [=invalid=].
+                        然后:
+                            1. 在当前范围内生成带有适当错误消息的 {{GPUValidationError}} 。
+                            1. 使 |pipeline| [=无效=].
 
                     1. 如果 |descriptor|.{{GPUPipelineDescriptorBase/layout}} 是 `undefined`:
-                        1. 为 |pipeline| 设置 |pipeline|.{{GPUPipelineBase/[[layout]]}} 为一个新的 [$default pipeline layout$]。
+                        1. 为 |pipeline| 设置 |pipeline|.{{GPUPipelineBase/[[layout]]}} 为一个新的[$默认管线布局$]。
 
                         否则设置|pipeline|.{{GPUPipelineBase/[[layout]]}} 为 |descriptor|.{{GPUPipelineDescriptorBase/layout}}。
                 </div>
@@ -4319,11 +4312,11 @@ dictionary GPUComputePipelineDescriptor : GPUPipelineDescriptorBase {
 
     : <dfn>createComputePipelineAsync(descriptor)</dfn>
     ::
-        创建一个 {{GPUComputePipeline}}。 返回的 {{Promise}} 在创建的管道准备好使用时解析，没有额外的延迟。
+        创建一个 {{GPUComputePipeline}}。 返回的 {{Promise}} 在创建的管线准备好使用时被决议，并且没有额外的延迟。
 
-        如果管道创建失败，则返回的 {{Promise}} 会以 {{OperationError}} 拒绝。
+        如果管线创建失败，则返回的 {{Promise}} 会以 {{OperationError}} 被拒绝。
 
-        注意：尽可能使用此方法，因为它可以防止阻塞管道编译中的 [=queue timeline=] 工作。
+        Note: 尽可能使用此方法，因为可以防止阻塞管线编译中的[=队列时间线=]工作。
 
         <div algorithm=GPUDevice.createComputePipelineAsync>
             **调用:** {{GPUDevice}} |this|.
@@ -4336,12 +4329,11 @@ dictionary GPUComputePipelineDescriptor : GPUPipelineDescriptorBase {
             **返回:** {{Promise}}&lt;{{GPUComputePipeline}}&gt;
 
             1. 让 |promise| 为 [=a new promise=].
-            1. 在 |this| 的 [=Device timeline=] 上发出以下步骤:
+            1. 在 |this| 的[=设备时间线=]上发出以下步骤:
                 <div class=device-timeline>
-                    1. 让 |pipeline| 是一个新的 {{GPUComputePipeline}}，就像 |this| 一样。
-                        {{GPUDevice/createComputePipeline()}} 是用 |descriptor| 调用的;
+                    1. 让 |pipeline| 是一个新的 {{GPUComputePipeline}}，就像用 |descriptor| 调用的 |this|.{{GPUDevice/createComputePipeline()}} 一样;
 
-                    1. 当 |pipeline| 已准备好使用，[=resolve=] |promise| 与|pipeline|。
+                    1. 当 |pipeline| 已准备好使用，[=决议=] |promise| 与 |pipeline|。
                 </div>
             1. 返回 |promise|.
         </div>
