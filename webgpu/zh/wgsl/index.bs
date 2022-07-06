@@ -5208,7 +5208,7 @@ location|memory locations=]）。
     | [=syntax/bitwise_expression=]
 </div>
 
-# Statements # {#statements}
+# 语句 # {#statements}
 
 语句是控制其执行的程序片段。
 语句一般按顺序执行； 然而，
