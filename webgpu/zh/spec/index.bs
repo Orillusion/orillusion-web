@@ -4616,7 +4616,7 @@ dictionary GPUMultisampleState {
 </script>
 
 <div algorithm>
-    <dfn abstract-op>validating GPUMultisampleState</dfn>(|descriptor|)
+    <dfn abstract-op>验证 GPUMultisampleState</dfn>(|descriptor|)
         **参数:**
             - {{GPUMultisampleState}} |descriptor|
 
