@@ -4503,57 +4503,35 @@ dictionary GPURenderPipelineDescriptor : GPUPipelineDescriptorBase {
 </dl>
 
 <div algorithm>
-    <dfn abstract-op>validating GPURenderPipelineDescriptor</dfn>(descriptor, device)
+    <dfn abstract-op>验证 GPURenderPipelineDescriptor</dfn>(descriptor, device)
         **参数:**
             - {{GPURenderPipelineDescriptor}} |descriptor|
             - {{GPUDevice}} |device|
 
         如果满足以下所有条件，则返回 `true`：
 
-            - [$validating GPUProgrammableStage$]({{GPUShaderStage/VERTEX}},
-                |descriptor|.{{GPURenderPipelineDescriptor/vertex}},
-                |descriptor|.{{GPUPipelineDescriptorBase/layout}}) 成功。
-            - [$validating GPUVertexState$](|device|, |descriptor|.{{GPURenderPipelineDescriptor/vertex}},
-                |descriptor|.{{GPURenderPipelineDescriptor/vertex}}) 成功。
+            - [$验证 GPUProgrammableStage$]({{GPUShaderStage/VERTEX}}, |descriptor|.{{GPURenderPipelineDescriptor/vertex}}, |descriptor|.{{GPUPipelineDescriptorBase/layout}}) 成功。
+            - [$验证 GPUVertexState$](|device|, |descriptor|.{{GPURenderPipelineDescriptor/vertex}}, |descriptor|.{{GPURenderPipelineDescriptor/vertex}}) 成功。
             - 如果 |descriptor|.{{GPURenderPipelineDescriptor/fragment}} 不是 `null`:
-                - [$validating GPUProgrammableStage$]({{GPUShaderStage/FRAGMENT}},
-                    |descriptor|.{{GPURenderPipelineDescriptor/fragment}},
-                    |descriptor|.{{GPUPipelineDescriptorBase/layout}}) 成功。
-                - [$validating GPUFragmentState$](|descriptor|.{{GPURenderPipelineDescriptor/fragment}}) 成功。
-                - 如果 "sample_mask" [=builtin=] 是 |descriptor|.{{GPURenderPipelineDescriptor/fragment}} 的 [=pipeline output=]:
+                - [$验证 GPUProgrammableStage$]({{GPUShaderStage/FRAGMENT}}, |descriptor|.{{GPURenderPipelineDescriptor/fragment}}, |descriptor|.{{GPUPipelineDescriptorBase/layout}}) 成功。
+                - [$验证 GPUFragmentState$](|descriptor|.{{GPURenderPipelineDescriptor/fragment}}) 成功。
+                - 如果 "sample_mask" 的[=内置变量=]是 |descriptor|.{{GPURenderPipelineDescriptor/fragment}} 的[=管线输出=]:
                     - |descriptor|.{{GPURenderPipelineDescriptor/multisample}}.{{GPUMultisampleState/alphaToCoverageEnabled}} 是 `false`。
-            - [$validating GPUPrimitiveState$](|descriptor|.{{GPURenderPipelineDescriptor/primitive}}, |device|.{{device/[[features]]}}) 成功。
+            - [$验证 GPUPrimitiveState$](|descriptor|.{{GPURenderPipelineDescriptor/primitive}}, |device|.{{device/[[features]]}}) 成功。
             - 如果 |descriptor|.{{GPURenderPipelineDescriptor/depthStencil}} 不是 `null`:
-                - [$validating GPUDepthStencilState$](|descriptor|.{{GPURenderPipelineDescriptor/depthStencil}}) 成功。
-            - [$validating GPUMultisampleState$](|descriptor|.{{GPURenderPipelineDescriptor/multisample}}) 成功。
-            - 对于每个用户定义的输出
-                |descriptor|.{{GPURenderPipelineDescriptor/vertex}} 必须有
-                是用户定义的输入
-                |descriptor|.{{GPURenderPipelineDescriptor/fragment}} 即
-                匹配
-                [=location=],
-                类型，和
-                [=interpolation=]
-                的输出。
-            - 对于每个用户定义的输入
-                |descriptor|.{{GPURenderPipelineDescriptor/fragment}} 在那里
-                必须是用户定义的输出
-                |descriptor|.{{GPURenderPipelineDescriptor/vertex}} 即
-                [=location=],
-                类型，和
-                [=interpolation=]
-                的输入。
-            - |descriptor|.{{GPURenderPipelineDescriptor/vertex}} 的用户定义输出组件少于
-                |device|.limits.{{supported limits/maxInterStageShaderComponents}} 组件。
-            - |descriptor|.{{GPURenderPipelineDescriptor/fragment}} 的用户定义输入的组件少于
-                |device|.limits.{{supported limits/maxInterStageShaderComponents}} 组件。
+                - [$验证 GPUDepthStencilState$](|descriptor|.{{GPURenderPipelineDescriptor/depthStencil}}) 成功。
+            - [$验证 GPUMultisampleState$](|descriptor|.{{GPURenderPipelineDescriptor/multisample}}) 成功。
+            - 对于每个用户定义的 |descriptor|.{{GPURenderPipelineDescriptor/vertex}} 输出，必须有一个是用户定义的 |descriptor|.{{GPURenderPipelineDescriptor/fragment}} 输入，并且拥有匹配的[=地址=]，类型，和输出的[=插值=]。
+            - 对于每个用户定义的 |descriptor|.{{GPURenderPipelineDescriptor/fragment}} 输入，必须有一个是用户定义的 |descriptor|.{{GPURenderPipelineDescriptor/vertex}} 输出，并且拥有匹配的[=地址=]，类型，和输入的[=插值=]。
+            - |descriptor|.{{GPURenderPipelineDescriptor/vertex}} 的用户定义输出组件少于 |device|.limits.{{supported limits/maxInterStageShaderComponents}} 组件。
+            - |descriptor|.{{GPURenderPipelineDescriptor/fragment}} 的用户定义输入的组件少于 |device|.limits.{{supported limits/maxInterStageShaderComponents}} 组件。
 </div>
 
-问题：我们应该验证点和线的 `cullMode` 是 none 吗？
+Issue: 我们应该验证点和线的 `cullMode` 是 none 吗？
 
-问题：定义渲染目标格式的“兼容”意味着什么。
+Issue: 定义渲染目标格式的“兼容”意味着什么。
 
-问题：需要适当限制颜色目标的最大数量。
+Issue: 需要适当限制颜色目标的最大数量。
 
 <div class="example">
     创建一个简单的 {{GPURenderPipeline}}:
