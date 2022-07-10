@@ -4578,17 +4578,16 @@ dictionary GPUPrimitiveState {
 </script>
 
 <div algorithm>
-    <dfn abstract-op>validating GPUPrimitiveState</dfn>(|descriptor|, |features|)
+    <dfn abstract-op>验证 GPUPrimitiveState</dfn>(|descriptor|, |features|)
         **参数:**
             - {{GPUPrimitiveState}} |descriptor|
             - [=list=]&lt;{{GPUFeatureName}}&gt; |features|
 
         如果满足以下所有条件，则返回 `true`：
-            - 如果 |descriptor|.{{GPUPrimitiveState/topology}} 不为
-                {{GPUPrimitiveTopology/"line-strip"}} 或 {{GPUPrimitiveTopology/"triangle-strip"}}:
+            - 如果 |descriptor|.{{GPUPrimitiveState/topology}} 不为 {{GPUPrimitiveTopology/"line-strip"}} 或 {{GPUPrimitiveTopology/"triangle-strip"}}:
                 - |descriptor|.{{GPUPrimitiveState/stripIndexFormat}} 为 `undefined`
             - 如果 |descriptor|.{{GPUPrimitiveState/unclippedDepth}} 为 `true`:
-                - |features| 必须 [=list/contain=] {{GPUFeatureName/"depth-clip-control"}}。
+                - |features| 必须[=list/包含=] {{GPUFeatureName/"depth-clip-control"}}。
 </div>
 
 <script type=idl>
