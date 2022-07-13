@@ -10224,7 +10224,7 @@ struct __modf_result_vecN_f16 {
     <td>返回 |e1| 和 |e2| 的点积.
 </table>
 
-## 倒数内置函数 ## {#derivative-builtin-functions}
+## 导数内置函数 ## {#derivative-builtin-functions}
 
 查看 [[#derivatives]].
 
