@@ -9552,7 +9552,7 @@ WGSL 程序不得包含保留字。
   <tr algorithm="vector any">
     <td>
     <td>`@const fn`<br>`any`(|e|: vec|N|&lt;bool&gt;) -> bool
-    <td>如果|e|的每个组件都为真，则返回真。<br>
+    <td>如果|e|的任何一个组件都为真，则返回真。<br>
 
   <tr algorithm="scalar any">
     <td>|e|: bool
