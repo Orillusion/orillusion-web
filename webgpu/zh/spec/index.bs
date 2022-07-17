@@ -4634,38 +4634,31 @@ dictionary GPUFragmentState : GPUProgrammableStage {
 </script>
 
 <div algorithm>
-    <dfn abstract-op>validating GPUFragmentState</dfn>(|descriptor|)
+    <dfn abstract-op>验证 GPUFragmentState</dfn>(|descriptor|)
         如果满足以下所有要求，则返回 `true`：
 
         - |descriptor|.{{GPUFragmentState/targets}}.length 必须 &le; 8.
-        - 对于每个|colorState| 列表中的布局描述符 |descriptor|.{{GPUFragmentState/targets}}:
-            - |colorState|.{{GPUColorTargetState/format}} 必须在具有
-                {{GPUTextureUsage/RENDER_ATTACHMENT}} 功能的 [[#plain-color-formats]] 中列出。
+        - 对于每个 |descriptor|.{{GPUFragmentState/targets}} 列表中的 |colorState| 布局描述符:
+            - |colorState|.{{GPUColorTargetState/format}} 必须在 [[#plain-color-formats]] 中被列出，并且具有 {{GPUTextureUsage/RENDER_ATTACHMENT}} 功能的。
             - 如果 |colorState|.{{GPUColorTargetState/blend}} 不是 `undefined`:
-                - |colorState|.{{GPUColorTargetState/format}} 必须是可过滤的
-                    根据 [[#plain-color-formats]] 表。
-                - |colorState|.{{GPUColorTargetState/blend}}.{{GPUBlendState/color}}
-                    必须是 [=valid GPUBlendComponent=].
-                - |colorState|.{{GPUColorTargetState/blend}}.{{GPUBlendState/alpha}}
-                    必须是 [=valid GPUBlendComponent=].
+                - |colorState|.{{GPUColorTargetState/format}} 必须根据 [[#plain-color-formats]] 表，是可被过滤的。
+                - |colorState|.{{GPUColorTargetState/blend}}.{{GPUBlendState/color}} 必须是[=有效的 GPUBlendComponent=].
+                - |colorState|.{{GPUColorTargetState/blend}}.{{GPUBlendState/alpha}} 必须是[=有效的 GPUBlendComponent=].
             - |colorState|.{{GPUColorTargetState/writeMask}} 必须是 &lt; 16.
-            - 如果 |descriptor|.{{GPUProgrammableStage/entryPoint}} 有一个 [=pipeline output=] 值，
-                [=location=] 属性等于 |colorState| 的索引 在 |descriptor|.{{GPUFragmentState/targets}} 列表中：
-                - [=pipeline output=] 类型必须与 |colorState|.{{GPUColorTargetState/format}} 兼容。
+            - 如果 |descriptor|.{{GPUProgrammableStage/entryPoint}} 有一个[=管线输出=]值，并且[=地址=] 属性等于在 |descriptor|.{{GPUFragmentState/targets}} 列表中 |colorState| 的索引：
+                - [=管线输出=]类型必须与 |colorState|.{{GPUColorTargetState/format}} 兼容。
 
                 否则:
                 - |colorState|.{{GPUColorTargetState/writeMask}} 必须为 0。
 </div>
 
 <div algorithm>
-    |component| 如果满足以下要求，则是 <dfn>valid GPUBlendComponent</dfn>：
-    - 如果 |component|.{{GPUBlendComponent/operation}} 是
-        {{GPUBlendOperation/"min"}} 或 {{GPUBlendOperation/"max"}}:
-        - |component|.{{GPUBlendComponent/srcFactor}} 和
-            |component|.{{GPUBlendComponent/dstFactor}} 必须都是 {{GPUBlendFactor/"one"}}。
+    |component| 如果满足以下要求，则是 <dfn>有效的 GPUBlendComponent</dfn>：
+    - 如果 |component|.{{GPUBlendComponent/operation}} 是 {{GPUBlendOperation/"min"}} 或 {{GPUBlendOperation/"max"}}:
+        - |component|.{{GPUBlendComponent/srcFactor}} 和 |component|.{{GPUBlendComponent/dstFactor}} 必须都是 {{GPUBlendFactor/"one"}}。
 </div>
 
-问题：定义 `GPUProgrammableStage` 的“静态使用”事物的范围
+Issue: 定义 `GPUProgrammableStage` 的“静态使用”事物的范围
 
 ### 颜色目标状态 ### {#color-target-state}
 
