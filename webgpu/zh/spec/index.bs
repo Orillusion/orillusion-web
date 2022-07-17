@@ -4772,21 +4772,19 @@ enum GPUStencilOperation {
 </script>
 
 <div algorithm>
-    <dfn abstract-op>validating GPUDepthStencilState</dfn>(descriptor)
+    <dfn abstract-op>验证 GPUDepthStencilState</dfn>(descriptor)
     **参数:**
         - {{GPUDepthStencilState}} |descriptor|
 
     返回 `true`，当且仅当满足以下所有条件：
 
-        - |descriptor|.{{GPUDepthStencilState/format}}为[=depth-or-stencil format=]。
-        - 如果 |descriptor|.{{GPUDepthStencilState/depthWriteEnabled}} 是 `true` 或者
-            |descriptor|.{{GPUDepthStencilState/depthCompare}} 不是 {{GPUCompareFunction/"always"}}:
+        - |descriptor|.{{GPUDepthStencilState/format}} 为[=深度-模板格式=]。
+        - 如果 |descriptor|.{{GPUDepthStencilState/depthWriteEnabled}} 是 `true` 或者 |descriptor|.{{GPUDepthStencilState/depthCompare}} 不是 {{GPUCompareFunction/"always"}}:
             - |descriptor|.{{GPUDepthStencilState/format}} 必须有一个深度组件。
-        - 如果 |descriptor|.{{GPUDepthStencilState/stencilFront}} 或者
-            |descriptor|.{{GPUDepthStencilState/stencilBack}} 都不是默认值：
+        - 如果 |descriptor|.{{GPUDepthStencilState/stencilFront}} 或者 |descriptor|.{{GPUDepthStencilState/stencilBack}} 都不是默认值：
             - |descriptor|.{{GPUDepthStencilState/format}} 必须有一个模板组件。
 
-    问题：该算法如何支持在扩展中添加的深度/模板格式？
+    Issue: 该算法如何支持在扩展中添加的深度/模板格式？
 </div>
 
 ### 顶点状态 ### {#vertex-state}
