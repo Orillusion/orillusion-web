@@ -80,8 +80,8 @@ spec: WGSL; urlPrefix: https://gpuweb.github.io/gpuweb/wgsl/#
         text: location; url: input-output-locations
         text: interpolation; url: interpolation
         text: minimum binding size; url: minimum-binding-size
-        text: pipeline-overridable; url: pipeline-overridable
-        text: pipeline-overridable constant identifier string; url: pipeline-overridable-constant-identifier-string
+        text: 管线可重写; url: pipeline-overridable
+        text: 管线可重写常量标识符字符串; url: pipeline-overridable-constant-identifier-string
         text: pipeline-overridable constant has a default value; url: pipeline-overridable-constant-has-a-default-value
         text: statically accessed; url: statically-accessed
         text: wgsl-declaration; url: declaration
@@ -92,7 +92,7 @@ spec: WGSL; urlPrefix: https://gpuweb.github.io/gpuweb/wgsl/#
         text: channel formats; url: channel-formats
         text: invalid memory reference; url: invalid-memory-reference
         text: shader-creation error; url: shader-creation-error
-        text: pipeline-creation error; url: pipeline-creation-error
+        text: 管线创建错误; url: pipeline-creation-error
         text: store type; url: store-type
         text: runtime-sized; url: runtime-sized
         text: SizeOf; url: sizeof
@@ -3861,27 +3861,18 @@ Note: {{GPUCompilationMessage}}.{{GPUCompilationMessage/offset}} 和 {{GPUCompil
 </dl>
 
 
-# 管道 # {#pipelines}
+# 管线 # {#pipelines}
 
 一个 <dfn dfn>管线</dfn>，无论是 {{GPUComputePipeline}} 还是 {{GPURenderPipeline}}，
-表示由 GPU 硬件、驱动程序、
-和用户代理，以绑定和顶点缓冲区的形式处理输入数据，
-并产生一些输出，如输出渲染目标中的颜色。
+表示由 GPU 硬件、驱动程序、和用户代理完成的某个完整功能，管线以资源绑定和顶点缓冲区作为输入数据，并产生一些输出，如输出渲染目标中的颜色。
 
-在结构上，[=pipeline=] 由一系列可编程阶段（着色器）组成
-和固定功能状态，例如混合模式。
+在结构上，[=管线=]包含一系列可编程阶段（着色器）和固定功能状态，例如混合模式。
 
-注意：在内部，取决于目标平台，
-驱动程序可能会将一些固定功能状态转换为着色器代码，
-并将其与用户提供的着色器链接在一起。
-这种链接是将对象作为一个整体创建的原因之一。
+Note: 在内部，取决于不同目标平台，驱动程序可能会将一些固定功能状态转换为着色器代码，并将其与用户提供的着色器链接在一起。这种链接是将对象作为一个整体创建的原因之一。
 
-此组合状态创建为单个对象
-（通过 {{GPUDevice/createComputePipeline(descriptor)|GPUDevice.createComputePipeline()}} 或 {{GPUDevice/createRenderPipeline(descriptor)|GPUDevice.createRenderPipeline()}}），
-并切换为一个
-（相应地通过 {{GPUComputePassEncoder/setPipeline(pipeline)|GPUComputePassEncoder.setPipeline}} 或 {{GPURenderEncoderBase/setPipeline(pipeline)|GPURenderEncoderBase.setPipeline}}）。
+此组合状态作为单个对象被创建（通过 {{GPUDevice/createComputePipeline(descriptor)|GPUDevice.createComputePipeline()}} 或 {{GPUDevice/createRenderPipeline(descriptor)|GPUDevice.createRenderPipeline()}}），并切换为一个对象（相应地通过 {{GPUComputePassEncoder/setPipeline(pipeline)|GPUComputePassEncoder.setPipeline}} 或 {{GPURenderEncoderBase/setPipeline(pipeline)|GPURenderEncoderBase.setPipeline}}）。
 
-## 基础管道 ## {#pipeline-base}
+## 基础管线 ## {#pipeline-base}
 
 <script type=idl>
 dictionary GPUPipelineDescriptorBase : GPUObjectDescriptorBase {
@@ -3906,58 +3897,52 @@ interface mixin GPUPipelineBase {
 <dl dfn-type=method dfn-for=GPUPipelineBase>
     : <dfn>getBindGroupLayout(index)</dfn>
     ::
-        获取一个 {{GPUBindGroupLayout}}，它与 `index` 处的 {{GPUPipelineBase}} 的 {{GPUBindGroupLayout}} 兼容。
+        获取一个 {{GPUBindGroupLayout}}，与 `index` 处的 {{GPUPipelineBase}} 的 {{GPUBindGroupLayout}} 兼容。
 
         <div algorithm=GPUPipelineBase.getBindGroupLayout>
             **调用:** {{GPUPipelineBase}} |this|.
 
             **参数:**
             <pre class=argumentdef for="GPUPipelineBase/getBindGroupLayout(index)">
-                |index|: 对管道布局的 {{GPUPipelineLayout/[[bindGroupLayouts]]}} 序列的索引。
+                |index|: 对管线布局的 {{GPUPipelineLayout/[[bindGroupLayouts]]}} 序列的索引。
             </pre>
 
             **返回:** {{GPUBindGroupLayout}}
 
-            1. 如果 |index| &ge;
-                |this|.{{GPUObjectBase/[[device]]}}.{{device/[[limits]]}}.{{supported limits/maxBindGroups}}:
-                1. 抛出一个 {{RangeError}}.
+            1. 如果 |index| &ge; |this|.{{GPUObjectBase/[[device]]}}.{{device/[[limits]]}}.{{supported limits/maxBindGroups}}:
+                1. 返回一个 {{RangeError}}.
 
-            1. 如果 |this| 不是 [=valid=]:
+            1. 如果 |this| 不是[=有效=]的:
                 1. 返回一个新的错误的 {{GPUBindGroupLayout}}.
 
-            1. 返回一个新的 {{GPUBindGroupLayout}} 对象引用相同的内部对象
-                |this|.{{GPUPipelineBase/[[layout]]}}.{{GPUPipelineLayout/[[bindGroupLayouts]]}}[|index|].
+            1. 返回一个新的 {{GPUBindGroupLayout}} 对象引用相同的内部对象 |this|.{{GPUPipelineBase/[[layout]]}}.{{GPUPipelineLayout/[[bindGroupLayouts]]}}[|index|].
 
-            问题：一旦我们拥有 {{GPUBindGroupLayout}} 的内部对象，请更正确地指定此项。
-            或者，只有规范作为 [=group-equivalent=] 的新内部对象
+            Issue: 一旦我们拥有 {{GPUBindGroupLayout}} 的内部对象，请更正确地指定此项。或者，只有规范作为[=组等效的=]的新内部对象
 
-            注意：仅返回新的 {{GPUBindGroupLayout}} 对象可确保 [=Content timeline=] 和 [=Device timeline=] 之间不需要同步。
+            Note: 仅返回新的 {{GPUBindGroupLayout}} 对象可确保[=内容时间线=]和[=设备时间线=]之间不需要同步。
         </div>
 </dl>
 
-### 默认管道布局 ### {#default-pipeline-layout}
+### 默认管线布局 ### {#default-pipeline-layout}
 
-在没有 {{GPUPipelineDescriptorBase/layout}} 的情况下创建的 {{GPUPipelineBase}} 对象具有创建和使用的默认布局。
+在没有 {{GPUPipelineDescriptorBase/layout}} 的情况下创建的 {{GPUPipelineBase}} 对象，创建和使用的默认布局。
 
 <div algorithm="default pipeline layout creation">
 
-要为 {{GPUPipelineBase}} |pipeline| 创建 <dfn abstract-op>default pipeline layout</dfn>，
-运行以下步骤：
+要为 {{GPUPipelineBase}} |pipeline| 创建<dfn abstract-op>默认管线布局</dfn>，需要运行以下步骤：
 
-    1. 让 |groupDescs| 是一系列 |device|.{{device/[[limits]]}}.{{supported limits/maxBindGroups}}
-        新的 {{GPUBindGroupLayoutDescriptor}} 对象。
+    1. 让 |groupDescs| 是 |device|.{{device/[[limits]]}}.{{supported limits/maxBindGroups}} 的一系列新的 {{GPUBindGroupLayoutDescriptor}} 对象。
     1. 对于每个在 |groupDescs| 中的 |groupDesc|:
 
         1. 设置 |groupDesc|.{{GPUBindGroupLayoutDescriptor/entries}} 为一个空序列。
 
-    1. 对于每个 {{GPUProgrammableStage}} |stageDesc| 在用于创建 |pipeline| 的描述符中:
+    1. 对于每个在描述符中用于创建 |pipeline| 的 {{GPUProgrammableStage}} |stageDesc|:
 
         1. 让 |stageInfo| 是 |stageDesc| 的“反射信息”。
 
-            问题：定义反射信息概念，以便此规范可以与 WGSL 规范接口，并获取特定入口点的 {{GPUShaderModule}} 接口的信息。
+            Issue: 定义反射信息概念，以便此规范可以与 WGSL 规范接口，并获取特定入口点的 {{GPUShaderModule}} 接口的信息。
 
-        1. 让 |shaderStage| 成为 |stageDesc|.{{GPUProgrammableStage/module}} 中
-            |stageDesc|.{{GPUProgrammableStage/entryPoint}} 的 {{GPUShaderStageFlags}}。
+        1. 让 |shaderStage| 成为 |stageDesc|.{{GPUProgrammableStage/module}} 中 |stageDesc|.{{GPUProgrammableStage/entryPoint}} 的 {{GPUShaderStageFlags}}。
         1. 对于每个资源 |resource| 在 |stageInfo| 的资源接口中：
 
             1. 让 |group| 成为 |resource| 的 “group” 装饰。
@@ -3982,7 +3967,7 @@ interface mixin GPUPipelineBase {
 
                 1. 设置 |bufferLayout|.{{GPUBufferBindingLayout/minBindingSize}} 为 |resource| 的缓冲区绑定大小的最小值.
 
-                    问题：链接到“反射信息”中“最小缓冲区绑定大小”的定义。
+                    Issue: 链接到“反射信息”中“最小缓冲区绑定大小”的定义。
 
                 1. 如果 |resource| 用于只读存储缓冲区:
 
@@ -4007,7 +3992,7 @@ interface mixin GPUPipelineBase {
                         <dl class=switch>
                             : `f32` 并且 |resource| 与着色器中内置的 textureSample* 静态使用
                             :: 设置 |textureLayout|.{{GPUTextureBindingLayout/sampleType}} 为 {{GPUTextureSampleType/"float"}}
-                            : `f32`
+                            : 其他 `f32` 
                             :: 设置 |textureLayout|.{{GPUTextureBindingLayout/sampleType}} 为 {{GPUTextureSampleType/"unfilterable-float"}}
                             : `i32`
                             :: 设置 |textureLayout|.{{GPUTextureBindingLayout/sampleType}} 为 {{GPUTextureSampleType/"sint"}}
@@ -4040,21 +4025,16 @@ interface mixin GPUPipelineBase {
 
                     1. 将 |entry|.{{GPUBindGroupLayoutEntry/visibility}} 中设置的位添加到 |previousEntry|.{{GPUBindGroupLayoutEntry/visibility}}
 
-                1. 如果 |resource| 用于缓冲区绑定和 |entry| 有比 |previousEntry| 更大的
-                    {{GPUBindGroupLayoutEntry/buffer}}.{{GPUBufferBindingLayout/minBindingSize}}:
+                1. 如果 |resource| 用于缓冲区绑定和 |entry| 有比 |previousEntry| 更大的 {{GPUBindGroupLayoutEntry/buffer}}.{{GPUBufferBindingLayout/minBindingSize}}:
 
-                    1. 设置 |previousEntry|.{{GPUBindGroupLayoutEntry/buffer}}.{{GPUBufferBindingLayout/minBindingSize}}
-                        为 |entry|.{{GPUBindGroupLayoutEntry/buffer}}.{{GPUBufferBindingLayout/minBindingSize}}。
+                    1. 设置 |previousEntry|.{{GPUBindGroupLayoutEntry/buffer}}.{{GPUBufferBindingLayout/minBindingSize}} 为 |entry|.{{GPUBindGroupLayoutEntry/buffer}}.{{GPUBufferBindingLayout/minBindingSize}}。
 
-                1. 如果 |resource| 是一个采样的纹理绑定和 |entry| 具有与 |previousEntry| 不同的 {{GPUBindGroupLayoutEntry/texture}}.{{GPUTextureBindingLayout/sampleType}}
-                    并且两者 |entry| 和 |previousEntry| 有 {{GPUBindGroupLayoutEntry/texture}}.{{GPUTextureBindingLayout/sampleType}}
-                    或 {{GPUTextureSampleType/"float"}} 或 {{GPUTextureSampleType/"unfilterable-float"}}：
-                    1. 设置 |previousEntry|.{{GPUBindGroupLayoutEntry/texture}}.{{GPUTextureBindingLayout/sampleType}} 为
-                        {{GPUTextureSampleType/"float"}}.
+                1. 如果 |resource| 是一个采样的纹理绑定和 |entry| 具有与 |previousEntry| 不同的 {{GPUBindGroupLayoutEntry/texture}}.{{GPUTextureBindingLayout/sampleType}}，并且 |entry| 和 |previousEntry| 都有 {{GPUBindGroupLayoutEntry/texture}}.{{GPUTextureBindingLayout/sampleType}} 为 {{GPUTextureSampleType/"float"}} 或 {{GPUTextureSampleType/"unfilterable-float"}}：
+                    1. 设置 |previousEntry|.{{GPUBindGroupLayoutEntry/texture}}.{{GPUTextureBindingLayout/sampleType}} 为 {{GPUTextureSampleType/"float"}}.
 
                 1. 如果任何其他属性在 |entry| 之间不相等 和 |previousEntry|:
 
-                    1. 返回 `null`（这将导致管道的创建失败）。
+                    1. 返回 `null`（这将导致管线的创建失败）。
 
             1. 其他
 
@@ -4071,41 +4051,23 @@ interface mixin GPUPipelineBase {
     1. 设置 |desc|.{{GPUPipelineLayoutDescriptor/bindGroupLayouts}} 为 |groupLayouts|。
     1. 返回 |device|.{{GPUDevice/createPipelineLayout()}}(|desc|)。
 
-    问题：这会用空的绑定组填充管道布局。 一旦指定了空绑定组的行为，请重新访问。
+    Issue: 这会用空的绑定组填充管线布局。 一旦指定了空绑定组的行为，请重新访问。
 
 </div>
-
-### <dfn dictionary>GPUProgrammableStage</dfn> ### {#GPUProgrammableStage}
-
-{{GPUProgrammableStage}} 描述了用户提供的 {{GPUShaderModule}} 中的入口点，该入口点控制 [=pipeline=] 的可编程阶段之一。
-
-<script type=idl>
-dictionary GPUProgrammableStage {
-    required GPUShaderModule module;
-    required USVString entryPoint;
-    record<USVString, GPUPipelineConstantValue> constants;
-};
-
-typedef double GPUPipelineConstantValue; // May represent WGSL's bool, f32, i32, u32.
-</script>
 
 <dl dfn-for=GPUProgrammableStage dfn-type=dict-member>
     : <dfn>constants</dfn>
     ::
-        指定着色器模块 {{GPUProgrammableStage/module}} 中 [=pipeline-overridable=] 常量的值。
+        指定着色器模块 {{GPUProgrammableStage/module}} 中[=管线可重写=]常量的值。
 
-        每个这样的 [=pipeline-overridable=] 常量都由单个 [=pipeline-overridable constant identifier string==]
-         唯一标识（表示常量的数字 ID，如果指定了一个，否则表示常量的标识符名称）。
+        每个这样的[=管线可重写=]常量都由单个[=管线可重写常量标识符字符串=]唯一标识（如果指定了一个常量，则表示该常量的数字 ID，否则表示常量的标识符名称）。
 
-        每个键值对的键必须等于一个这样的常量的标识符字符串。
-        执行管道时，该常量将具有指定的值。
+        每个键值对的键必须等于一个这样的常量的标识符字符串。执行管线时，该常量将具有指定的值。
 
-        值被指定为 <dfn typedef for=>GPUPipelineConstantValue</dfn>，它是一个 `double`，
-        它被转换为相应管道可覆盖常量的 WGSL 数据类型（`bool`、`i32`、`u32`、 或 `f32`) 通过 [=converted to an IDL value|an IDL value=|一个 IDL 值=]
-        {{boolean}}、{{long}}、{{unsigned long}} 或 {{float}}）。
+        被指定为 <dfn typedef for=>GPUPipelineConstantValue</dfn> 的值，是一个 `double` 类型，被转换为相应管线可重写常量的 WGSL 数据类型（`bool`、`i32`、`u32`、 或 `f32`) 通过[=converted to an IDL value|an IDL value=|一个 IDL 值=]（{{boolean}}、{{long}}、{{unsigned long}} 或 {{float}}）。
 
         <div class=example>
-            Pipeline-overridable constants defined in WGSL:
+            WGSL 中定义的管线可重写常量:
 
             <pre highlight=rust>
                 @override(0)    let has_point_light: bool = true; // Algorithmic control.
@@ -4118,8 +4080,7 @@ typedef double GPUPipelineConstantValue; // May represent WGSL's bool, f32, i32,
                                                                   //   Must be overridden.
             </pre>
 
-            相应的 JavaScript 代码，仅提供所需的覆盖
-            （没有默认值）：
+            相应的 JavaScript 代码，仅提供所需的覆盖值（没有默认值）：
 
             <pre highlight=js>
                 {
@@ -4131,7 +4092,7 @@ typedef double GPUPipelineConstantValue; // May represent WGSL's bool, f32, i32,
                 }
             </pre>
 
-            Corresponding JavaScript code, overriding all constants:
+            相应的 JavaScript 代码, 重写所有常量:
 
             <pre highlight=js>
                 {
@@ -4149,7 +4110,7 @@ typedef double GPUPipelineConstantValue; // May represent WGSL's bool, f32, i32,
 </dl>
 
 <div algorithm>
-    <dfn abstract-op>validating GPUProgrammableStage</dfn>(stage, descriptor, layout)
+    <dfn abstract-op>验证 GPUProgrammableStage</dfn>(stage, descriptor, layout)
 
     **参数:**
     - {{GPUShaderStage}} |stage|
@@ -4158,62 +4119,50 @@ typedef double GPUPipelineConstantValue; // May represent WGSL's bool, f32, i32,
 
     如果满足以下所有条件，则返回 `true`：
 
-    - |descriptor|.{{GPUProgrammableStage/module}} 必须是一个 [=valid=] {{GPUShaderModule}}.
-    - |descriptor|.{{GPUProgrammableStage/module}} 必须包含
-        一个入口点，用于着色器阶段 |stage|，
-        名为 |descriptor|.{{GPUProgrammableStage/entryPoint}}。
-    - 对于每个 |binding| 即着色器入口点的 [=statically used=] ：
-        - [$validating shader binding$](|binding|, |layout|) 必须返回 `true`。
-    - 对于入口点 [=statically used=] 的每个纹理采样着色器调用:
+    - |descriptor|.{{GPUProgrammableStage/module}} 必须是一个[=有效=]的 {{GPUShaderModule}}.
+    - |descriptor|.{{GPUProgrammableStage/module}} 必须包含一个入口点，用于着色器阶段 |stage|，名为 |descriptor|.{{GPUProgrammableStage/entryPoint}}。
+    - 对于每个着色器入口点[=静态使用=]的 |binding|：
+        - [$验证着色器绑定$](|binding|, |layout|) 必须返回 `true`。
+    - 对于入口点[=静态使用=]的每个纹理采样着色器调用:
         1. 让 |texture| 是与调用中的采样纹理对应的 {{GPUBindGroupLayoutEntry}}。
         1. 让 |sampler| 是与调用中使用的采样器对应的 {{GPUBindGroupLayoutEntry}}。
-        1. 如果 |sampler|.{{GPUSamplerBindingLayout/type}} 是 {{GPUSamplerBindingType/"filtering"}},
-            那么 |texture|.{{GPUTextureBindingLayout/sampleType}} 必须不是
-            {{GPUTextureSampleType/"unfilterable-float"}}。
-    - 对于每个 |key| 在 |descriptor|.{{GPUProgrammableStage/constants}} 的 [=map/get the keys|the keys=] 中：
-        - |key| 必须等于在着色器模块 |descriptor|.{{GPUProgrammableStage/module}} 中定义的某些 [=pipeline-overridable=] 常量的 [=pipeline-overridable constant identifier string=]，通过代码点，而不是 !UnicodeVersion14|Unicode Version 14.0.0 的 [=UAX15 Equivalences=]
+        1. 如果 |sampler|.{{GPUSamplerBindingLayout/type}} 是 {{GPUSamplerBindingType/"filtering"}}, 那么 |texture|.{{GPUTextureBindingLayout/sampleType}} 必须不是 {{GPUTextureSampleType/"unfilterable-float"}}。
+    - 对于在 |descriptor|.{{GPUProgrammableStage/constants}} 的 [=map/get the keys|the keys=] 中的每个 |key|：
+        - |key| 必须等于在着色器模块 |descriptor|.{{GPUProgrammableStage/module}} 中定义的某些[=管线可重写=]常量的[=管线可重写常量标识符字符串=]。
         
-        Note: 用户代理应考虑在大多数或所有情况下发出开发人员可见的警告，其中显示具有不同代码点序列的两个名称在读者看来是相同的，例如在规范下与 [=UAX15 Normalization Forms|Normalization Form C (NFC)=] 等价或看起来相似的字符。
-        - |key| 必须等于着色器模块中定义的某些 [=pipeline-overridable=] 的 [=pipeline-overridable constant identifier string=] |descriptor|.{{GPUProgrammableStage/module}}。
-    - 对于每个 [=pipeline-overridable constant identifier string=] |key| 这是着色器入口点的 [=statically accessed=]：
-        - 如果由 |key| 标识的管道可覆盖常量
-            [=pipeline-overridable constant has a default value|does not have a default value=],
-            |descriptor|.{{GPUProgrammableStage/constants}} 必须 [=map/contain=] |key|。
+    - 对于每个在着色器入口点[=静态访问=]的[=管线可重写常量标识符字符串=] |key| ：
+        - 如果由 |key| 标识的管线可重写常量[=pipeline-overridable constant has a default value|不包含默认值=], |descriptor|.{{GPUProgrammableStage/constants}} 必须 [=map/contain=] |key|。
     
-    返回值 `false` 对应于 [=pipeline-creation error=]。
+    返回值 `false` 对应于[=管线创建错误=]。
 </div>
 
 <div algorithm>
-    <dfn abstract-op>validating shader binding</dfn>(binding, layout)
+    <dfn abstract-op>验证着色器绑定</dfn>(binding, layout)
 
     **参数:**
-        - 着色器绑定声明|变量|，从着色器模块反射的模块范围变量声明
+        - 着色器绑定声明的 |variable|，从着色器模块反射的模块范围变量声明
         - {{GPUPipelineLayout}} |layout|
 
-    让 |bindGroup| 是绑定组索引，和 |bindIndex| 是着色器绑定声明 |variable| 的绑定索引。
+    将 |bindGroup| 是绑定组索引，和 |bindIndex| 作为着色器绑定声明 |variable| 的绑定索引。
 
     如果满足以下所有条件，则返回 `true`：
 
-        - |layout|.{{GPUPipelineLayout/[[bindGroupLayouts]]}}[|bindGroup|] 包含
-            一个 {{GPUBindGroupLayoutEntry}} |entry| 其中 |entry|.{{GPUBindGroupLayoutEntry/binding}} == |bindIndex|.
-        - 如果对于 |entry| 被定义的 [=binding member=] 是:
+        - |layout|.{{GPUPipelineLayout/[[bindGroupLayouts]]}}[|bindGroup|] 包含一个 {{GPUBindGroupLayoutEntry}} |entry|，其中 |entry|.{{GPUBindGroupLayoutEntry/binding}} == |bindIndex|.
+        - 如果对于 |entry| 被定义的[=绑定成员=]是:
             <dl class=switch>
                 : {{GPUBindGroupLayoutEntry/buffer}}
                 ::
                     如果 |entry|.{{GPUBindGroupLayoutEntry/buffer}}.{{GPUBufferBindingLayout/type}} 是:
                     <dl class=switch>
                         : {{GPUBufferBindingType/"uniform"}}
-                        :: |variable| is declared with address space `uniform`.
+                        :: |variable| 使用地址空间 `uniform` 声明。
                         : {{GPUBufferBindingType/"storage"}}
-                        :: |variable| is declared with address space `storage` and access mode `read_write`.
+                        :: |variable| 使用地址空间 `storage` 和访问模式 `read_write` 声明。
                         : {{GPUBufferBindingType/"read-only-storage"}}
-                        :: |variable| is declared with address space `storage` and access mode `read`.
+                        :: |variable| 使用地址空间 `storage` 和访问模式 `read` 声明。
                     </dl>
                 ::
-                    如果 |entry|.{{GPUBindGroupLayoutEntry/buffer}}.{{GPUBufferBindingLayout/minBindingSize}} 不是 `0`，那么它必须至少是着色器中关联缓冲区变量的 [=minimum binding size=]。
-                    如果变量具有 [=store type=] |T|，则最小绑定大小为 [=SizeOf=](|T|)。
-                    在这个计算中，如果 |T| 是一个 [=runtime-sized=] 数组或包含一个运行时大小的数组，该数组假定有一个元素。
-                    强制执行此下限可确保通过缓冲区变量进行的读取和写入仅访问缓冲区绑定区域内的内存位置。
+                    如果 |entry|.{{GPUBindGroupLayoutEntry/buffer}}.{{GPUBufferBindingLayout/minBindingSize}} 不是 `0`，那么着色器中关联缓冲区变量必须至少是[=最小绑定大小=]。如果变量具有[=存储类型=] |T|，则最小绑定大小为 [=SizeOf=](|T|)。在这个计算中，如果 |T| 是一个[=运行时间大小=]的数组或包含一个运行时间大小的数组，该数组假定有一个元素。强制执行此下限可确保通过缓冲区变量进行的读取和写入仅访问缓冲区绑定区域内的内存位置。
 
                 : {{GPUBindGroupLayoutEntry/sampler}}
                 ::
@@ -4228,21 +4177,17 @@ typedef double GPUPipelineConstantValue; // May represent WGSL's bool, f32, i32,
                 : {{GPUBindGroupLayoutEntry/texture}}
                 ::
                     当且仅当，
-                    |entry|.{{GPUBindGroupLayoutEntry/texture}}.{{GPUTextureBindingLayout/multisampled}}
-                    是 `true`，|变量| 类型为 `texture_multisampled_2d<T>` 或 `texture_depth_multisampled_2d<T>`。
+                    |entry|.{{GPUBindGroupLayoutEntry/texture}}.{{GPUTextureBindingLayout/multisampled}} 是 `true`，|variable| 类型为 `texture_multisampled_2d<T>` 或 `texture_depth_multisampled_2d<T>`。
                 ::
                     如果 |entry|.{{GPUBindGroupLayoutEntry/texture}}.{{GPUTextureBindingLayout/sampleType}} 是:
                     <dl class=switch>
-                        : {{GPUTextureSampleType/"float"}}, {{GPUTextureSampleType/"unfilterable-float"}},
-                            {{GPUTextureSampleType/"sint"}} 或 {{GPUTextureSampleType/"uint"}}
+                        : {{GPUTextureSampleType/"float"}}, {{GPUTextureSampleType/"unfilterable-float"}}, {{GPUTextureSampleType/"sint"}} 或 {{GPUTextureSampleType/"uint"}}
                         ::
-                            |variable| 是类型 `texture_1d<T>`, `texture_2d<T>`, `texture_2d_array<T>`,
-                            `texture_cube<T>`, `texture_cube_array<T>`, `texture_3d<T>`, 或
-                            `texture_multisampled_2d<T>`.
+                            |variable| 是类型 `texture_1d<T>`, `texture_2d<T>`, `texture_2d_array<T>`, `texture_cube<T>`, `texture_cube_array<T>`, `texture_3d<T>`, 或 `texture_multisampled_2d<T>`.
                         ::
                             如果 |entry|.{{GPUBindGroupLayoutEntry/texture}}.{{GPUTextureBindingLayout/sampleType}} 是:
                             <dl class=switch>
-                                : {{GPUTextureSampleType/"float"}} or {{GPUTextureSampleType/"unfilterable-float"}}
+                                : {{GPUTextureSampleType/"float"}} 或 {{GPUTextureSampleType/"unfilterable-float"}}
                                 :: 采样类型 `T` 是 `f32`.
                                 : {{GPUTextureSampleType/"sint"}}
                                 :: 采样类型 `T` 是 `i32`.
@@ -4252,8 +4197,7 @@ typedef double GPUPipelineConstantValue; // May represent WGSL's bool, f32, i32,
 
                         : {{GPUTextureSampleType/"depth"}}
                         ::
-                            |variable| 是类型 `texture_depth_2d`, `texture_depth_2d_array`,
-                            `texture_depth_cube`, `texture_depth_cube_array`, 或 `texture_depth_multisampled_2d`.
+                            |variable| 是类型 `texture_depth_2d`, `texture_depth_2d_array`, `texture_depth_cube`, `texture_depth_cube_array`, 或 `texture_depth_multisampled_2d`.
                     </dl>
                 ::
                     如果 |entry|.{{GPUBindGroupLayoutEntry/texture}}.{{GPUTextureBindingLayout/viewDimension}} 是:
@@ -4289,28 +4233,22 @@ typedef double GPUPipelineConstantValue; // May represent WGSL's bool, f32, i32,
                     如果 |entry|.{{GPUBindGroupLayoutEntry/storageTexture}}.{{GPUStorageTextureBindingLayout/access}} 是:
                     <dl class=switch>
                         : {{GPUStorageTextureAccess/"write-only"}}
-                        :: 访问模式“A”是“写”。
+                        :: 访问模式 “A” 是“写”。
                     </dl>
                 ::
-                    纹素格式 `T` 等于
-                    |entry|.{{GPUBindGroupLayoutEntry/storageTexture}}.{{GPUStorageTextureBindingLayout/format}}.
+                    纹素格式 `T` 等于 |entry|.{{GPUBindGroupLayoutEntry/storageTexture}}.{{GPUStorageTextureBindingLayout/format}}.
             </dl>
 </div>
 
-资源绑定被视为由着色器入口点<dfn dfn>statically used</dfn>
-当且仅当着色器模块的控制流图可以访问它，从入口点开始。
+资源绑定被视为着色器入口点的<dfn dfn>静态使用</dfn>，当且仅当可以被着色器模块的控制流图访问，并从入口点开始。
 
 ## <dfn interface>GPUComputePipeline</dfn> ## {#compute-pipeline}
 
-{{GPUComputePipeline}} 是一种 [=pipeline=] 控制计算着色器阶段，
-并且可以在 {{GPUComputePassEncoder}} 中使用。
+{{GPUComputePipeline}} 是一种控制计算着色器阶段的[=管线=]，并且可以在 {{GPUComputePassEncoder}} 中使用。
 
-计算输入和输出都包含在绑定中，
-根据给定的 {{GPUPipelineLayout}}。
-输出对应于类型为 {{GPUBufferBindingType/"storage"}} 的 {{GPUBindGroupLayoutEntry/buffer}} 绑定
-和 {{GPUBindGroupLayoutEntry/storageTexture}} 绑定类型为 {{GPUStorageTextureAccess/"write-only"}}。
+根据给定的 {{GPUPipelineLayout}}，计算输入和输出都包含在绑定中。输出对应于类型为 {{GPUBufferBindingType/"storage"}} 的 {{GPUBindGroupLayoutEntry/buffer}} 绑定，和类型为 {{GPUStorageTextureAccess/"write-only"}} 的 {{GPUBindGroupLayoutEntry/storageTexture}} 绑定。
 
-计算 [=pipeline=] 的阶段:
+计算[=管线=]阶段:
   1. 计算着色器
 
 <script type=idl>
@@ -4339,39 +4277,32 @@ dictionary GPUComputePipelineDescriptor : GPUPipelineDescriptorBase {
 
             **参数:**
             <pre class=argumentdef for="GPUDevice/createComputePipeline(descriptor)">
-                |descriptor|: Description of the {{GPUComputePipeline}} to create.
+                |descriptor|: 要创建的 {{GPUComputePipeline}} 的描述.
             </pre>
 
             **返回:** {{GPUComputePipeline}}
 
             1. 让 |pipeline| 成一个新的有效的 {{GPUComputePipeline}} 对象.
-            1. 在 |this| 的 [=Device timeline=] 上发出以下步骤:
+            1. 在 |this| 的[=设备时间线=]上发出以下步骤:
                 <div class=device-timeline>
                     1. 如果不满足以下任一条件：
                         <div class=validusage>
-                            - |descriptor|.{{GPUPipelineDescriptorBase/layout}} 是 [$valid to use with$] |this|.
-                            - [$validating GPUProgrammableStage$]({{GPUShaderStage/COMPUTE}},
-                                |descriptor|.{{GPUComputePipelineDescriptor/compute}},
-                                |descriptor|.{{GPUPipelineDescriptorBase/layout}}) 成功。
-                            - |descriptor|.{{GPUComputePipelineDescriptor/compute}} 使用 &le;
-                                |device|.limits.{{supported limits/maxComputeWorkgroupStorageSize}} 工作组存储的字节。
+                            - |descriptor|.{{GPUPipelineDescriptorBase/layout}} 与 |this| 可以[$一起有效被使用$]。
+                            - [$验证 GPUProgrammableStage$]({{GPUShaderStage/COMPUTE}}, |descriptor|.{{GPUComputePipelineDescriptor/compute}}, |descriptor|.{{GPUPipelineDescriptorBase/layout}}) 成功。
+                            - |descriptor|.{{GPUComputePipelineDescriptor/compute}} 使用 &le; |device|.limits.{{supported limits/maxComputeWorkgroupStorageSize}} 工作组存储的字节。
 
-                                问题：更好地定义使用静态使用等。
-                            - |descriptor|.{{GPUComputePipelineDescriptor/compute}} 使用 &le;
-                                |device|.limits.{{supported limits/maxComputeInvocationsPerWorkgroup}} 每一个工作组。
+                                Issue: 更好地定义使用静态使用等。
+                            - |descriptor|.{{GPUComputePipelineDescriptor/compute}} 使用 &le; |device|.limits.{{supported limits/maxComputeInvocationsPerWorkgroup}} 每一个工作组。
 
-                            - |descriptor|.{{GPUComputePipelineDescriptor/compute}} 的 `workgroup_size` 属性具有每个组件 &le; 对应的组件
-                                [|device|.limits.{{supported limits/maxComputeWorkgroupSizeX}}，
-                                |device|.limits.{{supported limits/maxComputeWorkgroupSizeY}}，
-                                |device|.limits.{{supported limits/maxComputeWorkgroupSizeZ}}]。
+                            - |descriptor|.{{GPUComputePipelineDescriptor/compute}} 的 `workgroup_size` 属性具有每个组件 &le; 对应的组件 [|device|.limits.{{supported limits/maxComputeWorkgroupSizeX}}，|device|.limits.{{supported limits/maxComputeWorkgroupSizeY}}，|device|.limits.{{supported limits/maxComputeWorkgroupSizeZ}}]。
                         </div>
 
-                        Then:
-                            1. 在当前范围内产生一个带有适当错误信息的{{GPUValidationError}}。
-                            1. 使 |pipeline| [=invalid=].
+                        然后:
+                            1. 在当前范围内生成带有适当错误消息的 {{GPUValidationError}} 。
+                            1. 使 |pipeline| [=无效=].
 
                     1. 如果 |descriptor|.{{GPUPipelineDescriptorBase/layout}} 是 `undefined`:
-                        1. 为 |pipeline| 设置 |pipeline|.{{GPUPipelineBase/[[layout]]}} 为一个新的 [$default pipeline layout$]。
+                        1. 为 |pipeline| 设置 |pipeline|.{{GPUPipelineBase/[[layout]]}} 为一个新的[$默认管线布局$]。
 
                         否则设置|pipeline|.{{GPUPipelineBase/[[layout]]}} 为 |descriptor|.{{GPUPipelineDescriptorBase/layout}}。
                 </div>
@@ -4381,11 +4312,11 @@ dictionary GPUComputePipelineDescriptor : GPUPipelineDescriptorBase {
 
     : <dfn>createComputePipelineAsync(descriptor)</dfn>
     ::
-        创建一个 {{GPUComputePipeline}}。 返回的 {{Promise}} 在创建的管道准备好使用时解析，没有额外的延迟。
+        创建一个 {{GPUComputePipeline}}。 返回的 {{Promise}} 在创建的管线准备好使用时被决议，并且没有额外的延迟。
 
-        如果管道创建失败，则返回的 {{Promise}} 会以 {{OperationError}} 拒绝。
+        如果管线创建失败，则返回的 {{Promise}} 会以 {{OperationError}} 被拒绝。
 
-        注意：尽可能使用此方法，因为它可以防止阻塞管道编译中的 [=queue timeline=] 工作。
+        Note: 尽可能使用此方法，因为可以防止阻塞管线编译中的[=队列时间线=]工作。
 
         <div algorithm=GPUDevice.createComputePipelineAsync>
             **调用:** {{GPUDevice}} |this|.
@@ -4398,12 +4329,11 @@ dictionary GPUComputePipelineDescriptor : GPUPipelineDescriptorBase {
             **返回:** {{Promise}}&lt;{{GPUComputePipeline}}&gt;
 
             1. 让 |promise| 为 [=a new promise=].
-            1. 在 |this| 的 [=Device timeline=] 上发出以下步骤:
+            1. 在 |this| 的[=设备时间线=]上发出以下步骤:
                 <div class=device-timeline>
-                    1. 让 |pipeline| 是一个新的 {{GPUComputePipeline}}，就像 |this| 一样。
-                        {{GPUDevice/createComputePipeline()}} 是用 |descriptor| 调用的;
+                    1. 让 |pipeline| 是一个新的 {{GPUComputePipeline}}，就像用 |descriptor| 调用的 |this|.{{GPUDevice/createComputePipeline()}} 一样;
 
-                    1. 当 |pipeline| 已准备好使用，[=resolve=] |promise| 与|pipeline|。
+                    1. 当 |pipeline| 已准备好使用，[=决议=] |promise| 与 |pipeline|。
                 </div>
             1. 返回 |promise|.
         </div>
@@ -4424,30 +4354,29 @@ dictionary GPUComputePipelineDescriptor : GPUPipelineDescriptorBase {
 
 ## <dfn interface>GPURenderPipeline</dfn> ## {#render-pipeline}
 
-{{GPURenderPipeline}} 是一种控制顶点和片段着色器阶段的 [=pipeline=]，
-可以在 {{GPURenderPassEncoder}} 以及 {{GPURenderBundleEncoder}} 中使用。
+{{GPURenderPipeline}} 是一种控制顶点和片段着色器阶段的[=管线=]，可以在 {{GPURenderPassEncoder}} 以及 {{GPURenderBundleEncoder}} 中使用。
 
-渲染 [=pipeline=] 输入是：
+渲染[=管线=]的输入是：
    - 绑定，根据给定的 {{GPUPipelineLayout}}
    - 顶点和索引缓冲区，由 {{GPUVertexState}} 描述
    - 颜色附件，由 {{GPUColorTargetState}} 描述
    - 可选的，深度模板附件，由 {{GPUDepthStencilState}} 描述
 
-渲染 [=pipeline=] 输出是：
-   - {{GPUBindGroupLayoutEntry/buffer}} 与 {{GPUBufferBindingLayout/type}} 的 {{GPUBufferBindingType/"storage"}} 绑定
-   - {{GPUBindGroupLayoutEntry/storageTexture}} 与 {{GPUStorageTextureBindingLayout/access}} 的 {{GPUStorageTextureAccess/"write-only"}} 绑定
+渲染[=管线=]的输出是：
+   - {{GPUBufferBindingLayout/type}} 为 {{GPUBufferBindingType/"storage"}} 的 {{GPUBindGroupLayoutEntry/buffer}} 绑定
+   - {{GPUStorageTextureBindingLayout/access}} 为 {{GPUStorageTextureAccess/"write-only"}} 的 {{GPUBindGroupLayoutEntry/storageTexture}} 绑定
    - 颜色附件，由 {{GPUColorTargetState}} 描述
    - 可选的，深度模板附件，由 {{GPUDepthStencilState}} 描述
 
-渲染 [=pipeline=] 由以下 <dfn dfn>render stages</dfn>组成：
-   1. 顶点获取，由{{GPUVertexState/buffers|GPUVertexState.buffers}}控制
-   2. 顶点着色器，由{{GPUVertexState}}控制
-   3. 原始组装，由{{GPUPrimitiveState}}控制
-   4. 光栅化，由{{GPUPrimitiveState}}、{{GPUDepthStencilState}}和{{GPUMultisampleState}}控制
+渲染[=管线=]由以下<dfn dfn>渲染阶段</dfn>组成：
+   1. 顶点获取，由 {{GPUVertexState/buffers|GPUVertexState.buffers}} 控制
+   2. 顶点着色器，由 {{GPUVertexState}} 控制
+   3. 原始组装，由 {{GPUPrimitiveState}} 控制
+   4. 光栅化，由 {{GPUPrimitiveState}}、{{GPUDepthStencilState}} 和 {{GPUMultisampleState}} 控制
    5. 片段着色器，由{{GPUFragmentState}}控制
-   6. Stencil 测试和操作，由 {{GPUDepthStencilState}} 控制
-   7. 深度测试和写入，由{{GPUDepthStencilState}}控制
-   8. 输出合并，由{{GPUFragmentState/targets|GPUFragmentState.targets}}控制
+   6. 模板测试和操作，由 {{GPUDepthStencilState}} 控制
+   7. 深度测试和写入，由 {{GPUDepthStencilState}} 控制
+   8. 输出合并，由 {{GPUFragmentState/targets|GPUFragmentState.targets}} 控制
 
 <script type=idl>
 [Exposed=(Window, DedicatedWorker), SecureContext]
@@ -4460,16 +4389,16 @@ GPURenderPipeline includes GPUPipelineBase;
 {{GPURenderPipeline}} 有以下内部插槽：
 
 <dl dfn-type=attribute dfn-for=GPURenderPipeline>
-    : <dfn>\[[descriptor]]</dfn>, {{GPURenderPipelineDescriptor}} 类型
+    : <dfn>\[[descriptor]]</dfn>, of type {{GPURenderPipelineDescriptor}}
     ::
-        {{GPURenderPipelineDescriptor}} 用来描述这个管道。
+        {{GPURenderPipelineDescriptor}} 用来描述这个管线。
 
         {{GPURenderPipelineDescriptor}} 的所有可选字段都已定义。
-    : <dfn>\[[writesDepth]]</dfn>, boolean 类型
-    :: 如果管道写入深度/模板附件的深度组件，则为True
+    : <dfn>\[[writesDepth]]</dfn>, of type boolean
+    :: 如果管线写入深度/模板附件的深度组件，则为 True
 
-    : <dfn>\[[writesStencil]]</dfn>, boolean 类型
-    :: 如果管道写入深度/模板附件的模板组件，则为True
+    : <dfn>\[[writesStencil]]</dfn>, of type boolean
+    :: 如果管线写入深度/模板附件的模板组件，则为 True
 </dl>
 
 ### 创建 ### {#render-pipeline-creation}
@@ -4484,20 +4413,13 @@ dictionary GPURenderPipelineDescriptor : GPUPipelineDescriptorBase {
 };
 </script>
 
-{{GPURenderPipelineDescriptor}} 通过配置每个 [=render stage=] 来描述渲染 [=pipeline=] 的状态。
-有关详细信息，请参阅 [[#rendering-operations]]。
+{{GPURenderPipelineDescriptor}} 通过配置每个[=渲染阶段=]来描述渲染[=管线=]的状态。有关详细信息，请参阅 [[#rendering-operations]]。
 
-- {{GPURenderPipelineDescriptor/vertex}} 描述
-     [=pipeline=] 的顶点着色器入口点及其输入缓冲区布局。
-- {{GPURenderPipelineDescriptor/primitive}} 描述了
-     [=pipeline=] 的原始相关属性。
-- {{GPURenderPipelineDescriptor/depthStencil}} 描述
-     可选的深度模板属性，包括测试、操作和偏差。
-- {{GPURenderPipelineDescriptor/multisample}} 描述
-     [=pipeline=] 的多重采样特性。
-- {{GPURenderPipelineDescriptor/fragment}} 描述
-     [=pipeline=] 的片段着色器入口点及其输出颜色。
-     如果它是 `null`，则启用 [[#no-color-output]] 模式。
+- {{GPURenderPipelineDescriptor/vertex}} 描述了[=管线=]的顶点着色器入口点及其输入缓冲区布局。
+- {{GPURenderPipelineDescriptor/primitive}} 描述了[=管线=]的原始相关属性。
+- {{GPURenderPipelineDescriptor/depthStencil}} 描述了可选的深度模板属性，包括测试、操作和偏差。
+- {{GPURenderPipelineDescriptor/multisample}} 描述了[=管线=]的多重采样特性。
+- {{GPURenderPipelineDescriptor/fragment}} 描述了[=管线=]的片元着色器入口点及其输出颜色。如果是 `null`，则启用 [[#no-color-output]] 模式。
 
 <dl dfn-type=method dfn-for=GPUDevice>
     : <dfn>createRenderPipeline(descriptor)</dfn>
@@ -4509,60 +4431,55 @@ dictionary GPURenderPipelineDescriptor : GPUPipelineDescriptorBase {
 
             **参数:**
             <pre class=argumentdef for="GPUDevice/createRenderPipeline(descriptor)">
-                |descriptor|: Description of the {{GPURenderPipeline}} to create.
+                |descriptor|: 要创建的 {{GPURenderPipeline}} 的描述。
             </pre>
 
             **返回:** {{GPURenderPipeline}}
 
             1. 让 |pipeline| 为一个新的可用的 {{GPURenderPipeline}} 对象。
-            1. 在 |this| 的 [=Device timeline=] 上发出以下步骤：
+            1. 在 |this| 的[=设备时间线=]上发出以下步骤：
                 <div class=device-timeline>
                     1. 如果不满足以下任一条件：
                         <div class=validusage>
-                            - |descriptor|.{{GPUPipelineDescriptorBase/layout}} 是 [$valid to use with$] |this|。
+                            - |descriptor|.{{GPUPipelineDescriptorBase/layout}} 是与 |this| [$一起有效被使用$]的。
                             - [$validating GPURenderPipelineDescriptor$](|descriptor|, |this|) 成功。
                         </div>
 
-                        Then:
-                            1. 在当前范围内产生一个带有适当错误信息的{{GPUValidationError}}。
-                            1. 使 |pipeline| [=invalid=]。
+                        然后:
+                            1. 在当前范围内生成带有适当错误消息的 {{GPUValidationError}}。
+                            1. 使 |pipeline| [=无效=]。
 
                     1. 设置 |pipeline|.{{GPURenderPipeline/[[descriptor]]}} 为 |descriptor|。
                     1. 设置 |pipeline|.{{GPURenderPipeline/[[writesDepth]]}} 为 false.
                     1. 设置 |pipeline|.{{GPURenderPipeline/[[writesStencil]]}} 为 false.
-                    1. 让 |depthStencil| 是 |descriptor|.{{GPURenderPipelineDescriptor/depthStencil}}.
+                    1. 让 |depthStencil| 为 |descriptor|.{{GPURenderPipelineDescriptor/depthStencil}}.
                     1. 如果 |depthStencil| 不是 null:
                         1. 设置 |pipeline|.{{GPURenderPipeline/[[writesDepth]]}} 为 |depthStencil|.{{GPUDepthStencilState/depthWriteEnabled}}.
                         1. 如果 |depthStencil|.{{GPUDepthStencilState/stencilWriteMask}} 不是 0:
                             1. 让 |stencilFront| 为 |depthStencil|.{{GPUDepthStencilState/stencilFront}}.
                             1. 让 |stencilBack| 为 |depthStencil|.{{GPUDepthStencilState/stencilBack}}.
                             1. 让 |cullMode| 为 |descriptor|.{{GPURenderPipelineDescriptor/primitive}}.{{GPUPrimitiveState/cullMode}}.
-                            1. 如果 |cullMode| 不是 {{GPUCullMode/"front"}}, 并且 |stencilFront|.{{GPUStencilFaceState/passOp}},
-                                |stencilFront|.{{GPUStencilFaceState/depthFailOp}}, 或 |stencilFront|.{{GPUStencilFaceState/failOp}}
-                                其中之一不是 {{GPUStencilOperation/"keep"}}:
+                            1. 如果 |cullMode| 不是 {{GPUCullMode/"front"}}, 并且 |stencilFront|.{{GPUStencilFaceState/passOp}}, |stencilFront|.{{GPUStencilFaceState/depthFailOp}}, 或 |stencilFront|.{{GPUStencilFaceState/failOp}} 其中任意一个都不是 {{GPUStencilOperation/"keep"}}:
                                 1. 设置 |pipeline|.{{GPURenderPipeline/[[writesStencil]]}} 为 true.
-                            1. 如果 |cullMode| 不是 {{GPUCullMode/"back"}}, 并且 |stencilBack|.{{GPUStencilFaceState/passOp}},
-                                |stencilBack|.{{GPUStencilFaceState/depthFailOp}}, 或 |stencilBack|.{{GPUStencilFaceState/failOp}}
-                                其中之一不是 {{GPUStencilOperation/"keep"}}:
+                            1. 如果 |cullMode| 不是 {{GPUCullMode/"back"}}, 并且 |stencilBack|.{{GPUStencilFaceState/passOp}}, |stencilBack|.{{GPUStencilFaceState/depthFailOp}}, 或 |stencilBack|.{{GPUStencilFaceState/failOp}} 其中任意一个都不是 {{GPUStencilOperation/"keep"}}:
                                 1. 设置 |pipeline|.{{GPURenderPipeline/[[writesStencil]]}} 为 true.
                     1. 如果 |descriptor|.{{GPUPipelineDescriptorBase/layout}} 是 `undefined`:
-                        1. 为 |pipeline| 设置 |pipeline|.{{GPUPipelineBase/[[layout]]}} 为一个新的 [$default pipeline layout$]。
+                        1. 为 |pipeline| 设置 |pipeline|.{{GPUPipelineBase/[[layout]]}} 为一个新的[$默认管线布局$]。
 
                         否则设置 |pipeline|.{{GPUPipelineBase/[[layout]]}} 为 |descriptor|.{{GPUPipelineDescriptorBase/layout}}.
                 </div>
             1. 返回 |pipeline|.
 
-            问题：需要渲染状态的描述。
+            Issue: 需要渲染状态的描述。
         </div>
 
     : <dfn>createRenderPipelineAsync(descriptor)</dfn>
     ::
-        创建一个 {{GPURenderPipeline}}。 返回的 {{Promise}} 在创建的管道准备好使用时解析，没有额外的延迟。
+        创建一个 {{GPURenderPipeline}}。 返回的 {{Promise}} 在创建的管线准备好使用时被决议，并且没有额外的延迟。
 
-        如果管道创建失败，则返回的 {{Promise}} 会以 {{OperationError}} 拒绝。
+        如果管线创建失败，则返回的 {{Promise}} 会被拒绝，并且返回一个 {{OperationError}}。
 
-        注意：最好尽可能使用此方法，因为它可以防止阻塞
-        [=queue timeline=] 致力于管道编译。
+        Note: 最好尽可能使用此方法，因为可以防止阻塞工作在管线编译上的[=队列时间线=]。
 
         <div algorithm=GPUDevice.createRenderPipelineAsync>
             **调用:** {{GPUDevice}} |this|.
@@ -4575,69 +4492,46 @@ dictionary GPURenderPipelineDescriptor : GPUPipelineDescriptorBase {
             **返回:** {{Promise}}&lt;{{GPURenderPipeline}}&gt;
 
             1. 让 |promise| 为 [=a new promise=].
-            1. 在 |this| 的 [=device timeline=] 上发出以下步骤:
+            1. 在 |this| 的[=设备时间线=]上发出以下步骤:
                 <div class=device-timeline>
-                    1. 让 |pipeline| 是一个新创建的 {{GPURenderPipeline}}，
-                        就好像 |this|.{{GPUDevice/createRenderPipeline()}} 是用 |descriptor| 调用的一样;
+                    1. 让 |pipeline| 是一个新创建的 {{GPURenderPipeline}}，类似 |this|.{{GPUDevice/createRenderPipeline()}} 用 |descriptor| 调用的一样被创建;
 
-                    1. 当|pipeline| 已准备好使用， 用 |pipeline| [=resolve=] |promise|。
+                    1. 当 |pipeline| 已准备好被使用， 用 |pipeline| [=决议=] |promise|。
                 </div>
             1. 返回 |promise|.
         </div>
 </dl>
 
 <div algorithm>
-    <dfn abstract-op>validating GPURenderPipelineDescriptor</dfn>(descriptor, device)
+    <dfn abstract-op>验证 GPURenderPipelineDescriptor</dfn>(descriptor, device)
         **参数:**
             - {{GPURenderPipelineDescriptor}} |descriptor|
             - {{GPUDevice}} |device|
 
         如果满足以下所有条件，则返回 `true`：
 
-            - [$validating GPUProgrammableStage$]({{GPUShaderStage/VERTEX}},
-                |descriptor|.{{GPURenderPipelineDescriptor/vertex}},
-                |descriptor|.{{GPUPipelineDescriptorBase/layout}}) 成功。
-            - [$validating GPUVertexState$](|device|, |descriptor|.{{GPURenderPipelineDescriptor/vertex}},
-                |descriptor|.{{GPURenderPipelineDescriptor/vertex}}) 成功。
+            - [$验证 GPUProgrammableStage$]({{GPUShaderStage/VERTEX}}, |descriptor|.{{GPURenderPipelineDescriptor/vertex}}, |descriptor|.{{GPUPipelineDescriptorBase/layout}}) 成功。
+            - [$验证 GPUVertexState$](|device|, |descriptor|.{{GPURenderPipelineDescriptor/vertex}}, |descriptor|.{{GPURenderPipelineDescriptor/vertex}}) 成功。
             - 如果 |descriptor|.{{GPURenderPipelineDescriptor/fragment}} 不是 `null`:
-                - [$validating GPUProgrammableStage$]({{GPUShaderStage/FRAGMENT}},
-                    |descriptor|.{{GPURenderPipelineDescriptor/fragment}},
-                    |descriptor|.{{GPUPipelineDescriptorBase/layout}}) 成功。
-                - [$validating GPUFragmentState$](|descriptor|.{{GPURenderPipelineDescriptor/fragment}}) 成功。
-                - 如果 "sample_mask" [=builtin=] 是 |descriptor|.{{GPURenderPipelineDescriptor/fragment}} 的 [=pipeline output=]:
+                - [$验证 GPUProgrammableStage$]({{GPUShaderStage/FRAGMENT}}, |descriptor|.{{GPURenderPipelineDescriptor/fragment}}, |descriptor|.{{GPUPipelineDescriptorBase/layout}}) 成功。
+                - [$验证 GPUFragmentState$](|descriptor|.{{GPURenderPipelineDescriptor/fragment}}) 成功。
+                - 如果 "sample_mask" 的[=内置变量=]是 |descriptor|.{{GPURenderPipelineDescriptor/fragment}} 的[=管线输出=]:
                     - |descriptor|.{{GPURenderPipelineDescriptor/multisample}}.{{GPUMultisampleState/alphaToCoverageEnabled}} 是 `false`。
-            - [$validating GPUPrimitiveState$](|descriptor|.{{GPURenderPipelineDescriptor/primitive}}, |device|.{{device/[[features]]}}) 成功。
+            - [$验证 GPUPrimitiveState$](|descriptor|.{{GPURenderPipelineDescriptor/primitive}}, |device|.{{device/[[features]]}}) 成功。
             - 如果 |descriptor|.{{GPURenderPipelineDescriptor/depthStencil}} 不是 `null`:
-                - [$validating GPUDepthStencilState$](|descriptor|.{{GPURenderPipelineDescriptor/depthStencil}}) 成功。
-            - [$validating GPUMultisampleState$](|descriptor|.{{GPURenderPipelineDescriptor/multisample}}) 成功。
-            - 对于每个用户定义的输出
-                |descriptor|.{{GPURenderPipelineDescriptor/vertex}} 必须有
-                是用户定义的输入
-                |descriptor|.{{GPURenderPipelineDescriptor/fragment}} 即
-                匹配
-                [=location=],
-                类型，和
-                [=interpolation=]
-                的输出。
-            - 对于每个用户定义的输入
-                |descriptor|.{{GPURenderPipelineDescriptor/fragment}} 在那里
-                必须是用户定义的输出
-                |descriptor|.{{GPURenderPipelineDescriptor/vertex}} 即
-                [=location=],
-                类型，和
-                [=interpolation=]
-                的输入。
-            - |descriptor|.{{GPURenderPipelineDescriptor/vertex}} 的用户定义输出组件少于
-                |device|.limits.{{supported limits/maxInterStageShaderComponents}} 组件。
-            - |descriptor|.{{GPURenderPipelineDescriptor/fragment}} 的用户定义输入的组件少于
-                |device|.limits.{{supported limits/maxInterStageShaderComponents}} 组件。
+                - [$验证 GPUDepthStencilState$](|descriptor|.{{GPURenderPipelineDescriptor/depthStencil}}) 成功。
+            - [$验证 GPUMultisampleState$](|descriptor|.{{GPURenderPipelineDescriptor/multisample}}) 成功。
+            - 对于每个用户定义的 |descriptor|.{{GPURenderPipelineDescriptor/vertex}} 输出，必须有一个是用户定义的 |descriptor|.{{GPURenderPipelineDescriptor/fragment}} 输入，并且拥有匹配的[=地址=]，类型，和输出的[=插值=]。
+            - 对于每个用户定义的 |descriptor|.{{GPURenderPipelineDescriptor/fragment}} 输入，必须有一个是用户定义的 |descriptor|.{{GPURenderPipelineDescriptor/vertex}} 输出，并且拥有匹配的[=地址=]，类型，和输入的[=插值=]。
+            - |descriptor|.{{GPURenderPipelineDescriptor/vertex}} 的用户定义输出组件少于 |device|.limits.{{supported limits/maxInterStageShaderComponents}} 组件。
+            - |descriptor|.{{GPURenderPipelineDescriptor/fragment}} 的用户定义输入的组件少于 |device|.limits.{{supported limits/maxInterStageShaderComponents}} 组件。
 </div>
 
-问题：我们应该验证点和线的 `cullMode` 是 none 吗？
+Issue: 我们应该验证点和线的 `cullMode` 是 none 吗？
 
-问题：定义渲染目标格式的“兼容”意味着什么。
+Issue: 定义渲染目标格式的“兼容”意味着什么。
 
-问题：需要适当限制颜色目标的最大数量。
+Issue: 需要适当限制颜色目标的最大数量。
 
 <div class="example">
     创建一个简单的 {{GPURenderPipeline}}:
@@ -4684,17 +4578,16 @@ dictionary GPUPrimitiveState {
 </script>
 
 <div algorithm>
-    <dfn abstract-op>validating GPUPrimitiveState</dfn>(|descriptor|, |features|)
+    <dfn abstract-op>验证 GPUPrimitiveState</dfn>(|descriptor|, |features|)
         **参数:**
             - {{GPUPrimitiveState}} |descriptor|
             - [=list=]&lt;{{GPUFeatureName}}&gt; |features|
 
         如果满足以下所有条件，则返回 `true`：
-            - 如果 |descriptor|.{{GPUPrimitiveState/topology}} 不为
-                {{GPUPrimitiveTopology/"line-strip"}} 或 {{GPUPrimitiveTopology/"triangle-strip"}}:
+            - 如果 |descriptor|.{{GPUPrimitiveState/topology}} 不为 {{GPUPrimitiveTopology/"line-strip"}} 或 {{GPUPrimitiveTopology/"triangle-strip"}}:
                 - |descriptor|.{{GPUPrimitiveState/stripIndexFormat}} 为 `undefined`
             - 如果 |descriptor|.{{GPUPrimitiveState/unclippedDepth}} 为 `true`:
-                - |features| 必须 [=list/contain=] {{GPUFeatureName/"depth-clip-control"}}。
+                - |features| 必须[=list/包含=] {{GPUFeatureName/"depth-clip-control"}}。
 </div>
 
 <script type=idl>
@@ -4723,7 +4616,7 @@ dictionary GPUMultisampleState {
 </script>
 
 <div algorithm>
-    <dfn abstract-op>validating GPUMultisampleState</dfn>(|descriptor|)
+    <dfn abstract-op>验证 GPUMultisampleState</dfn>(|descriptor|)
         **参数:**
             - {{GPUMultisampleState}} |descriptor|
 
@@ -4741,38 +4634,31 @@ dictionary GPUFragmentState : GPUProgrammableStage {
 </script>
 
 <div algorithm>
-    <dfn abstract-op>validating GPUFragmentState</dfn>(|descriptor|)
+    <dfn abstract-op>验证 GPUFragmentState</dfn>(|descriptor|)
         如果满足以下所有要求，则返回 `true`：
 
         - |descriptor|.{{GPUFragmentState/targets}}.length 必须 &le; 8.
-        - 对于每个|colorState| 列表中的布局描述符 |descriptor|.{{GPUFragmentState/targets}}:
-            - |colorState|.{{GPUColorTargetState/format}} 必须在具有
-                {{GPUTextureUsage/RENDER_ATTACHMENT}} 功能的 [[#plain-color-formats]] 中列出。
+        - 对于每个 |descriptor|.{{GPUFragmentState/targets}} 列表中的 |colorState| 布局描述符:
+            - |colorState|.{{GPUColorTargetState/format}} 必须在 [[#plain-color-formats]] 中被列出，并且具有 {{GPUTextureUsage/RENDER_ATTACHMENT}} 功能的。
             - 如果 |colorState|.{{GPUColorTargetState/blend}} 不是 `undefined`:
-                - |colorState|.{{GPUColorTargetState/format}} 必须是可过滤的
-                    根据 [[#plain-color-formats]] 表。
-                - |colorState|.{{GPUColorTargetState/blend}}.{{GPUBlendState/color}}
-                    必须是 [=valid GPUBlendComponent=].
-                - |colorState|.{{GPUColorTargetState/blend}}.{{GPUBlendState/alpha}}
-                    必须是 [=valid GPUBlendComponent=].
+                - |colorState|.{{GPUColorTargetState/format}} 必须根据 [[#plain-color-formats]] 表，是可被过滤的。
+                - |colorState|.{{GPUColorTargetState/blend}}.{{GPUBlendState/color}} 必须是[=有效的 GPUBlendComponent=].
+                - |colorState|.{{GPUColorTargetState/blend}}.{{GPUBlendState/alpha}} 必须是[=有效的 GPUBlendComponent=].
             - |colorState|.{{GPUColorTargetState/writeMask}} 必须是 &lt; 16.
-            - 如果 |descriptor|.{{GPUProgrammableStage/entryPoint}} 有一个 [=pipeline output=] 值，
-                [=location=] 属性等于 |colorState| 的索引 在 |descriptor|.{{GPUFragmentState/targets}} 列表中：
-                - [=pipeline output=] 类型必须与 |colorState|.{{GPUColorTargetState/format}} 兼容。
+            - 如果 |descriptor|.{{GPUProgrammableStage/entryPoint}} 有一个[=管线输出=]值，并且[=地址=] 属性等于在 |descriptor|.{{GPUFragmentState/targets}} 列表中 |colorState| 的索引：
+                - [=管线输出=]类型必须与 |colorState|.{{GPUColorTargetState/format}} 兼容。
 
                 否则:
                 - |colorState|.{{GPUColorTargetState/writeMask}} 必须为 0。
 </div>
 
 <div algorithm>
-    |component| 如果满足以下要求，则是 <dfn>valid GPUBlendComponent</dfn>：
-    - 如果 |component|.{{GPUBlendComponent/operation}} 是
-        {{GPUBlendOperation/"min"}} 或 {{GPUBlendOperation/"max"}}:
-        - |component|.{{GPUBlendComponent/srcFactor}} 和
-            |component|.{{GPUBlendComponent/dstFactor}} 必须都是 {{GPUBlendFactor/"one"}}。
+    |component| 如果满足以下要求，则是 <dfn>有效的 GPUBlendComponent</dfn>：
+    - 如果 |component|.{{GPUBlendComponent/operation}} 是 {{GPUBlendOperation/"min"}} 或 {{GPUBlendOperation/"max"}}:
+        - |component|.{{GPUBlendComponent/srcFactor}} 和 |component|.{{GPUBlendComponent/dstFactor}} 必须都是 {{GPUBlendFactor/"one"}}。
 </div>
 
-问题：定义 `GPUProgrammableStage` 的“静态使用”事物的范围
+Issue: 定义 `GPUProgrammableStage` 的“静态使用”事物的范围
 
 ### 颜色目标状态 ### {#color-target-state}
 
@@ -4886,21 +4772,19 @@ enum GPUStencilOperation {
 </script>
 
 <div algorithm>
-    <dfn abstract-op>validating GPUDepthStencilState</dfn>(descriptor)
+    <dfn abstract-op>验证 GPUDepthStencilState</dfn>(descriptor)
     **参数:**
         - {{GPUDepthStencilState}} |descriptor|
 
     返回 `true`，当且仅当满足以下所有条件：
 
-        - |descriptor|.{{GPUDepthStencilState/format}}为[=depth-or-stencil format=]。
-        - 如果 |descriptor|.{{GPUDepthStencilState/depthWriteEnabled}} 是 `true` 或者
-            |descriptor|.{{GPUDepthStencilState/depthCompare}} 不是 {{GPUCompareFunction/"always"}}:
+        - |descriptor|.{{GPUDepthStencilState/format}} 为[=深度-模板格式=]。
+        - 如果 |descriptor|.{{GPUDepthStencilState/depthWriteEnabled}} 是 `true` 或者 |descriptor|.{{GPUDepthStencilState/depthCompare}} 不是 {{GPUCompareFunction/"always"}}:
             - |descriptor|.{{GPUDepthStencilState/format}} 必须有一个深度组件。
-        - 如果 |descriptor|.{{GPUDepthStencilState/stencilFront}} 或者
-            |descriptor|.{{GPUDepthStencilState/stencilBack}} 都不是默认值：
+        - 如果 |descriptor|.{{GPUDepthStencilState/stencilFront}} 或者 |descriptor|.{{GPUDepthStencilState/stencilBack}} 都不是默认值：
             - |descriptor|.{{GPUDepthStencilState/format}} 必须有一个模板组件。
 
-    问题：该算法如何支持在扩展中添加的深度/模板格式？
+    Issue: 该算法如何支持在扩展中添加的深度/模板格式？
 </div>
 
 ### 顶点状态 ### {#vertex-state}
