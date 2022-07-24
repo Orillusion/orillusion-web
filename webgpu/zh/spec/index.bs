@@ -4880,8 +4880,7 @@ enum GPUVertexStepMode {
 步进模式配置如何根据当前顶点或实例索引计算顶点缓冲区数据的地址：
 <dl class="switch">
     : {{GPUVertexStepMode/"vertex"}}
-    :: 每个顶点的地址前移 {{GPUVertexBufferLayout/arrayStride}}，
-        并在实例之间重置。
+    :: 每个顶点的地址前移 {{GPUVertexBufferLayout/arrayStride}}，并在实例之间重置。
     : {{GPUVertexStepMode/"instance"}}
     :: 每个实例的地址都增加了 {{GPUVertexBufferLayout/arrayStride}}。
 </dl>
@@ -4892,18 +4891,13 @@ dictionary GPUVertexState : GPUProgrammableStage {
 };
 </script>
 
-从概念上讲，<dfn dfn>vertex buffer</dfn> 是将缓冲区内存视为*结构数组* 的视图。
-{{GPUVertexBufferLayout/arrayStride}} 是该数组的 *elements* 之间的步幅（以字节为单位）。
-顶点缓冲区的每个元素就像一个*结构*，其内存布局由其定义
-{{GPUVertexBufferLayout/attributes}}，描述结构的*成员*。
+从概念上讲，<dfn dfn>顶点缓冲区</dfn>是将缓冲区内存视为 *结构数组* 的视图。
+{{GPUVertexBufferLayout/arrayStride}} 是该数组的 *元素* 之间的步幅（以字节为单位）。
+顶点缓冲区的每个元素就像一个 *结构*，其内存布局由其 {{GPUVertexBufferLayout/attributes}} 定义，并由其描述了结构的 *成员*。
 
-每个 {{GPUVertexAttribute}} 描述了它的
-{{GPUVertexAttribute/format}} 及其
-{{GPUVertexAttribute/offset}}，以字节为单位，在结构中。
+每个 {{GPUVertexAttribute}} 在结构中，描述了其 {{GPUVertexAttribute/format}} 及其 {{GPUVertexAttribute/offset}}，以字节为单位。
 
-每个属性在顶点着色器中显示为单独的输入，每个属性都由数字 *location* 绑定，
-由 {{GPUVertexAttribute/shaderLocation}} 指定。
-{{GPUVertexState}} 中的每个位置都必须是唯一的。
+每个属性在顶点着色器中作为单独的输入，每个属性都由数字 *地址* 绑定，由 {{GPUVertexAttribute/shaderLocation}} 指定。 {{GPUVertexState}} 中的每个地址都必须是唯一的。
 
 <script type=idl>
 dictionary GPUVertexBufferLayout {
@@ -4923,7 +4917,7 @@ dictionary GPUVertexAttribute {
 </script>
 
 <div algorithm>
-    <dfn abstract-op>validating GPUVertexBufferLayout</dfn>(device, descriptor, vertexStage)
+    <dfn abstract-op>验证 GPUVertexBufferLayout</dfn>(device, descriptor, vertexStage)
     **参数:**
         - {{GPUDevice}} |device|
         - {{GPUVertexBufferLayout}} |descriptor|
@@ -4931,24 +4925,18 @@ dictionary GPUVertexAttribute {
 
     返回 `true`，当且仅当满足以下所有条件：
 
-        - |descriptor|.{{GPUVertexBufferLayout/arrayStride}} &le;
-            |device|.{{GPUObjectBase/[[device]]}}.{{device/[[limits]]}}.{{supported limits/maxVertexBufferArrayStride}}.
-        - |descriptor|.{{GPUVertexBufferLayout/arrayStride}} 是 4 的倍数/
-        - 对于每个属性 |attrib| 在列表中 |descriptor|.{{GPUVertexBufferLayout/attributes}}:
+        - |descriptor|.{{GPUVertexBufferLayout/arrayStride}} &le; |device|.{{GPUObjectBase/[[device]]}}.{{device/[[limits]]}}.{{supported limits/maxVertexBufferArrayStride}}.
+        - |descriptor|.{{GPUVertexBufferLayout/arrayStride}} 是 4 的倍数。
+        - 对于每个属性 |attrib| 在列表 |descriptor|.{{GPUVertexBufferLayout/attributes}} 中:
             - 如果 |descriptor|.{{GPUVertexBufferLayout/arrayStride}} 是 0:
-                - |attrib|.{{GPUVertexAttribute/offset}} + sizeof(|attrib|.{{GPUVertexAttribute/format}}) &le;
-                    |device|.{{GPUObjectBase/[[device]]}}.{{device/[[limits]]}}.{{supported limits/maxVertexBufferArrayStride}}.
+                - |attrib|.{{GPUVertexAttribute/offset}} + sizeof(|attrib|.{{GPUVertexAttribute/format}}) &le; |device|.{{GPUObjectBase/[[device]]}}.{{device/[[limits]]}}.{{supported limits/maxVertexBufferArrayStride}}.
 
                 否则:
-                - |attrib|.{{GPUVertexAttribute/offset}} + sizeof(|attrib|.{{GPUVertexAttribute/format}}) &le;
-                    |descriptor|.{{GPUVertexBufferLayout/arrayStride}}.
+                - |attrib|.{{GPUVertexAttribute/offset}} + sizeof(|attrib|.{{GPUVertexAttribute/format}}) &le; |descriptor|.{{GPUVertexBufferLayout/arrayStride}}.
             - |attrib|.{{GPUVertexAttribute/offset}} 是 4 和 sizeof(|attrib|.{{GPUVertexAttribute/format}}) 中最小值的倍数。
-            - |attrib|.{{GPUVertexAttribute/shaderLocation}} 比
-                |device|.{{GPUObjectBase/[[device]]}}.{{device/[[limits]]}}.{{supported limits/maxVertexAttributes}} 小。
-        - 对于 |vertexStage|.{{GPUProgrammableStage/module}} 的着色器反射中的每个顶点属性，
-            即 |vertexStage|.{{GPUProgrammableStage/entryPoint}} 的 [=pipeline input=]，
-            都有一个对应的 |attrib| |descriptor|.{{GPUVertexBufferLayout/attributes}} 的元素满足以下所有条件：
-            - 着色器格式与 |attrib| 兼容。{{GPUVertexAttribute/format}} 的 [=vertex data type=]:
+            - |attrib|.{{GPUVertexAttribute/shaderLocation}} 比 |device|.{{GPUObjectBase/[[device]]}}.{{device/[[limits]]}}.{{supported limits/maxVertexAttributes}} 小。
+        - 对于 |vertexStage|.{{GPUProgrammableStage/module}} 的着色器反射中的每个顶点属性，即 |vertexStage|.{{GPUProgrammableStage/entryPoint}} 的[=管线输入=]，都有一个 |descriptor|.{{GPUVertexBufferLayout/attributes}} 对应的 |attrib| 元素，并满足以下所有条件：
+            - 着色器格式与 |attrib| 兼容。 {{GPUVertexAttribute/format}} 的[=顶点数据类型=]:
                 <dl class="switch">
                     : "unorm", "snorm", 或 "float"
                     :: 着色器格式必须为 `f32` 或 `vecN<f32>`。
@@ -4961,22 +4949,17 @@ dictionary GPUVertexAttribute {
 </div>
 
 <div algorithm>
-    <dfn abstract-op>validating GPUVertexState</dfn>(device, descriptor)
+    <dfn abstract-op>验证 GPUVertexState</dfn>(device, descriptor)
     **参数:**
         - {{GPUDevice}} |device|
         - {{GPUVertexState}} |descriptor|
 
     返回 `true`，当且仅当满足以下所有条件：
 
-        - |descriptor|.{{GPUVertexState/buffers}}.length 小于或等于
-            |device|.{{GPUObjectBase/[[device]]}}.{{device/[[limits]]}}.{{supported limits/maxVertexBuffers}}.
-        - 每个 |vertexBuffer| 列表中的布局描述符 |descriptor|.{{GPUVertexState/buffers}}
-            通过 [$validating GPUVertexBufferLayout$](|device|, |vertexBuffer|, |descriptor|)
-        - |vertexBuffer|.{{GPUVertexBufferLayout/attributes}}.length 在
-            |descriptor|.{{GPUVertexState/buffers}} 中的每个 |vertexBuffer| 上的总和，
-            小于或等于 |device|.{{GPUObjectBase/[[device]]}}.{{device/[[limits]]}}.{{supported limits/maxVertexAttributes}}。
-        - 每个|attrib| 在 |descriptor|.{{GPUVertexState/buffers}} 的所有 {{GPUVertexAttribute}} 的联合中，有一个不同的
-            |attrib|.{{GPUVertexAttribute/shaderLocation}} 值。
+        - |descriptor|.{{GPUVertexState/buffers}}.length 小于或等于 |device|.{{GPUObjectBase/[[device]]}}.{{device/[[limits]]}}.{{supported limits/maxVertexBuffers}}.
+        - 每个 |descriptor|.{{GPUVertexState/buffers}} 列表中的 |vertexBuffer| 布局描述符，通过[$验证 GPUVertexBufferLayout$](|device|, |vertexBuffer|, |descriptor|)
+        - |vertexBuffer|.{{GPUVertexBufferLayout/attributes}}.length 在 |descriptor|.{{GPUVertexState/buffers}} 中的每个 |vertexBuffer| 上的总和，小于或等于 |device|.{{GPUObjectBase/[[device]]}}.{{device/[[limits]]}}.{{supported limits/maxVertexAttributes}}。
+        - 在 |descriptor|.{{GPUVertexState/buffers}} 中的所有 {{GPUVertexAttribute}} 的联合中的每个 |attrib|，有一个不同的 |attrib|.{{GPUVertexAttribute/shaderLocation}} 值。
 </div>
 
 
