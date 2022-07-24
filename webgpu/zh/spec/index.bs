@@ -4825,8 +4825,7 @@ enum GPUIndexFormat {
 
 #### 顶点格式 #### {#vertex-formats}
 
-格式的名称指定了组件的顺序、每个组件的位数、
-和组件的<dfn dfn>vertex data type</dfn>。
+格式的名称指定了组件的顺序、每个组件的位数、和组件的<dfn dfn>顶点数据类型</dfn>。
 
   * `unorm` = unsigned normalized
   * `snorm` = signed normalized
@@ -4869,8 +4868,7 @@ enum GPUVertexFormat {
 };
 </script>
 
-多分量格式指定“x”后的分量数。
-因此，{{GPUVertexFormat/"sint32x3"}} 表示着色器中 `i32` 值的 3 分量向量。
+多组件格式指定“x”后的组件个数。因此，{{GPUVertexFormat/"sint32x3"}} 表示着色器中 `i32` 值的 3-组件向量。
 
 <script type=idl>
 enum GPUVertexStepMode {
