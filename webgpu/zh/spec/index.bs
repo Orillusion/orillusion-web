@@ -4796,14 +4796,10 @@ enum GPUIndexFormat {
 };
 </script>
 
-索引格式决定了缓冲区中索引值的数据类型，当与带状基元拓扑（{{GPUPrimitiveTopology/"line-strip"}} 或
-{{GPUPrimitiveTopology/"triangle-strip"}}) 还指定了图元重启值。
-<dfn dfn>primitive restart value</dfn> 指示哪个索引值指示应该启动新的图元，而不是继续使用先前索引的顶点构造三角形条。
+索引格式决定了缓冲区中索引值的数据类型，当与条带图元拓扑（{{GPUPrimitiveTopology/"line-strip"}} 或
+{{GPUPrimitiveTopology/"triangle-strip"}}) 一起使用时，还指定了图元重启值。<dfn dfn>图元重启值</dfn>指示了应该启动新的图元的索引值，而不是继续使用先前索引的顶点构造三角形条。
 
-{{GPUPrimitiveState}} 指定条带基元拓扑必须指定 {{GPUPrimitiveState/stripIndexFormat}}
-以便在管道创建时知道将使用的 [=primitive restart value=]。
-指定列表基元拓扑的 {{GPUPrimitiveState}} 必须将 {{GPUPrimitiveState/stripIndexFormat}} 设置为 `undefined`，
-并且在渲染时将使用传递给 {{GPURenderEncoderBase/setIndexBuffer()}} 的索引格式。
+{{GPUPrimitiveState}} 指定条带图元拓扑必须指定 {{GPUPrimitiveState/stripIndexFormat}}，这样在有索引的绘制中，管线创建时可以知道将使用的[=图元重启值=]。指定列表图元拓扑的 {{GPUPrimitiveState}} 在渲染时将使用传递给 {{GPURenderEncoderBase/setIndexBuffer()}} 的索引格式。
 
 <table class="data">
   <thead>
