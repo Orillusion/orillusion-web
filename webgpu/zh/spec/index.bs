@@ -3207,40 +3207,6 @@ Issue(https://github.com/gpuweb/gpuweb/issues/851): 考虑使 {{GPUTextureBindin
 </dl>
 
 <script type=idl>
-enum GPUTextureSampleType {
-  "float",
-  "unfilterable-float",
-  "depth",
-  "sint",
-  "uint",
-};
-
-dictionary GPUTextureBindingLayout {
-    GPUTextureSampleType sampleType = "float";
-    GPUTextureViewDimension viewDimension = "2d";
-    boolean multisampled = false;
-};
-</script>
-
-问题(https://github.com/gpuweb/gpuweb/issues/851): 如何使 {{GPUTextureBindingLayout/sampleType}} 真正可选。
-
-{{GPUTextureBindingLayout}} 词典有以下成员:
-
-<dl dfn-type=dict-member dfn-for=GPUTextureBindingLayout>
-    : <dfn>sampleType</dfn>
-    ::
-        指示绑定到此绑定的纹理视图所需的类型。
-    : <dfn>viewDimension</dfn>
-    ::
-        指示绑定到此绑定的纹理视图所需的 {{GPUTextureViewDescriptor/dimension}}。
-        <!-- https://github.com/gpuweb/gpuweb/pull/339 -->
-
-    : <dfn>multisampled</dfn>
-    ::
-        指示绑定到此绑定的纹理视图是否必须进行多重采样。
-</dl>
-
-<script type=idl>
 enum GPUStorageTextureAccess {
     "write-only",
 };
@@ -3322,17 +3288,17 @@ dictionary GPUExternalTextureBindingLayout {
                                 - 设定 |textureLayout| 为 |entry|.{{GPUBindGroupLayoutEntry/texture}}
                                 - 设定 |storageTextureLayout| 为 |entry|.{{GPUBindGroupLayoutEntry/storageTexture}}
 
-                                - |bufferLayout|，|samplerLayout|，|textureLayout|，或 |storageTextureLayout| 其中的一个不是`未定义`的。
+                                - |bufferLayout|，|samplerLayout|，|textureLayout|，或 |storageTextureLayout| 其中的一个不是 `未定义`的。
 
                                 - 如果 |entry|.{{GPUBindGroupLayoutEntry/visibility}} 中包含 {{GPUShaderStage/VERTEX}}:
                                     - |entry|.{{GPUBindGroupLayoutEntry/buffer}}?.{{GPUBufferBindingLayout/type}} 必须不能是 {{GPUBufferBindingType/"storage"}}.
                                     - |entry|.{{GPUBindGroupLayoutEntry/storageTexture}}?.{{GPUStorageTextureBindingLayout/access}} 必须不能是 {{GPUStorageTextureAccess/"write-only"}}.
 
-                                - 如果 |textureLayout| 不是`未定义`的，并且 |textureLayout|.{{GPUTextureBindingLayout/multisampled}} 是 `true`:
+                                - 如果 |textureLayout| 不是 `未定义`的，并且 |textureLayout|.{{GPUTextureBindingLayout/multisampled}} 是 `true`:
                                     - |textureLayout|.{{GPUTextureBindingLayout/viewDimension}} 是 {{GPUTextureViewDimension/"2d"}}.
                                     - |textureLayout|.{{GPUTextureBindingLayout/sampleType}} 不是 {{GPUTextureSampleType/"float"}} 或者 {{GPUTextureSampleType/"depth"}}.
 
-                                - 如果 |storageTextureLayout| 不是`未定义`的:
+                                - 如果 |storageTextureLayout| 不是 `未定义`的:
                                     - |storageTextureLayout|.{{GPUStorageTextureBindingLayout/viewDimension}} 不是 {{GPUTextureViewDimension/"cube"}} 或 {{GPUTextureViewDimension/"cube-array"}}.
                                     - |storageTextureLayout|.{{GPUStorageTextureBindingLayout/format}} 必须是可以支持存储使用的格式。
                         </div>
@@ -3341,9 +3307,8 @@ dictionary GPUExternalTextureBindingLayout {
                             1. 在当前范围内生成带有适当错误消息的 {{GPUValidationError}}。
                             1. 使 |layout| [=无效=]，并且返回 |layout|。
 
-                    1. 设置 |layout|.{{GPUBindGroupLayout/[[dynamicOffsetCount]]}} 为 |descriptor| 中条目的个数，同时 {{GPUBindGroupLayoutEntry/buffer}} 不是`未定义`，并且 {{GPUBindGroupLayoutEntry/buffer}}.{{GPUBufferBindingLayout/hasDynamicOffset}} 是 `true`.
-                    1. 针对在 |descriptor|.{{GPUBindGroupLayoutDescriptor/entries}} 中的每个 {{GPUBindGroupLayoutEntry}} |entry|
-                        :
+                    1. 设置 |layout|.{{GPUBindGroupLayout/[[dynamicOffsetCount]]}} 为 |descriptor| 中条目的个数，同时 {{GPUBindGroupLayoutEntry/buffer}} 不是 `未定义`，并且 {{GPUBindGroupLayoutEntry/buffer}}.{{GPUBufferBindingLayout/hasDynamicOffset}} 是 `true`.
+                    1. 针对在 |descriptor|.{{GPUBindGroupLayoutDescriptor/entries}} 中的每个 {{GPUBindGroupLayoutEntry}} |entry|:
                         1. 插入 |entry| 和 |entry|.{{GPUBindGroupLayoutEntry/binding}} 的密匙到 |layout|.{{GPUBindGroupLayout/[[entryMap]]}}.
                 </div>
             1. 返回 |layout|.
@@ -3537,7 +3502,7 @@ dictionary GPUBufferBinding {
 
 <div algorithm>
     <dfn abstract-op>有效的缓冲区绑定大小</dfn>(binding)
-        1. 如果 |binding|.{{GPUBufferBinding/size}} 为`未定义`:
+        1. 如果 |binding|.{{GPUBufferBinding/size}} 为 `未定义`:
             1. 返回 max(0, |binding|.{{GPUBufferBinding/buffer}}.{{GPUBuffer/[[size]]}} - |binding|.{{GPUBufferBinding/offset}});
         1. 返回 |binding|.{{GPUBufferBinding/size}}.
 </div>
@@ -4054,6 +4019,22 @@ interface mixin GPUPipelineBase {
     Issue: 这会用空的绑定组填充管线布局。 一旦指定了空绑定组的行为，请重新访问。
 
 </div>
+
+### <dfn dictionary>GPUProgrammableStage</dfn> ### {#GPUProgrammableStage}
+
+{{GPUProgrammableStage}} 描述了用户提供的 {{GPUShaderModule}} 中的入口点，该入口点控制 [=pipeline=] 的可编程阶段之一。入口点名称遵循 [=WGSL 标识符比较=] 中定义的规则。
+
+<script type=idl>
+dictionary GPUProgrammableStage {
+    required GPUShaderModule module;
+    required USVString entryPoint;
+    record<USVString, GPUPipelineConstantValue> constants;
+};
+
+typedef double GPUPipelineConstantValue; // May represent WGSL's bool, f32, i32, u32, and f16 if enabled.
+</script>
+
+{{GPUProgrammableStage}} 具有以下成员:
 
 <dl dfn-for=GPUProgrammableStage dfn-type=dict-member>
     : <dfn>constants</dfn>
@@ -4961,7 +4942,6 @@ dictionary GPUVertexAttribute {
         - |vertexBuffer|.{{GPUVertexBufferLayout/attributes}}.length 在 |descriptor|.{{GPUVertexState/buffers}} 中的每个 |vertexBuffer| 上的总和，小于或等于 |device|.{{GPUObjectBase/[[device]]}}.{{device/[[limits]]}}.{{supported limits/maxVertexAttributes}}。
         - 在 |descriptor|.{{GPUVertexState/buffers}} 中的所有 {{GPUVertexAttribute}} 的联合中的每个 |attrib|，有一个不同的 |attrib|.{{GPUVertexAttribute/shaderLocation}} 值。
 </div>
-
 
 # 命令缓冲区 # {#command-buffers}
 
