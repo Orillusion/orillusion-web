@@ -5211,7 +5211,7 @@ dictionary GPUCommandEncoderDescriptor : GPUObjectDescriptorBase {
                                 |this|.{{GPUObjectBase/[[device]]}}.{{device/[[features]]}} [=list/contain=]s
                                 {{GPUFeatureName/"timestamp-query"}}.
                             - 对每个|descriptor|.{{GPUComputePassDescriptor/timestampWrites}}中的|timestampWrite|，
-                                - |timestampWrite|.{{GPUComputePassTimestampWrite/querySet}} is [$valid to use with$] |this|.
+                                - |timestampWrite|.{{GPUComputePassTimestampWrite/querySet}} 可以 [$valid to use with$] |this|.
                         </div>
                     2. 设置|this|.{{GPUCommandsMixin/[[state]]}}为"[=encoder state/locked=]"。
                     3. 设置|pass|为一个新的{{GPUComputePassEncoder}}对象。
@@ -5617,7 +5617,7 @@ WebGPU提供{{GPUCommandEncoder/copyBufferToTexture()}}以buffer-to-texture拷�
             在 |this|.{{GPUObjectBase/[[device]]}} 的 [=Device Timeline=] 上发出以下步骤：
             <div class=device-timeline>
                 1. 验证 |this| 的编码器状态。如果返回 false，则停止。
-                1. 如果以下任何一个条件不满足，请 |this| [=invalid=] 并停止。
+                1. 如果以下任何一个条件不满足，使 |this| [=invalid=] 并停止。
 
                     <div class=validusage>
                         - 使 |dstTexture| 为 |destination|.{{GPUImageCopyTexture/texture}}.
@@ -5709,7 +5709,7 @@ WebGPU提供{{GPUCommandEncoder/copyBufferToTexture()}}以buffer-to-texture拷�
             在 |this|.{{GPUObjectBase/[[device]]}} 的 [=Device Timeline=] 上发出以下步骤：
             <div class=device-timeline>
                 1. 验证 |this| 的编码器状态。 如果返回 false，则停止。
-                1. 如果以下任何一个条件不满足，请 |this| [=invalid=] 并停止。
+                1. 如果以下任何一个条件不满足，使 |this| [=invalid=] 并停止。
 
                 <div class=validusage>
                     - 使 |srcTexture| 为 |source|.{{GPUImageCopyTexture/texture}}.
@@ -7007,9 +7007,9 @@ interface mixin GPURenderCommandsMixin {
                     <div class=validusage>
                         - |pipeline|可以同|this|一起有效使用。
                         - |this|.{{GPURenderCommandsMixin/[[layout]]}}等于|pipelineTargetsLayout|。
-                        - 如果|pipeline|.{{GPURenderPipeline/[[writesDepth]]}}：
+                        - 如果 |pipeline|.{{GPURenderPipeline/[[writesDepth]]}}：
                             |this|.{{GPURenderCommandsMixin/[[depthReadOnly]]}}必须为 `false`。
-                        - If |pipeline|.{{GPURenderPipeline/[[writesStencil]]}}：
+                        - 如果 |pipeline|.{{GPURenderPipeline/[[writesStencil]]}}：
                             |this|.{{GPURenderCommandsMixin/[[stencilReadOnly]]}}必须为 `false`。
                     </div>
                 3. 设置|this|.{{GPURenderCommandsMixin/[[pipeline]]}}为|pipeline|。
@@ -7467,7 +7467,7 @@ interface mixin GPURenderCommandsMixin {
             在|this|.{{GPUObjectBase/[[device]]}}的[=Device timeline=]上发起以下步骤：
             <div class=device-timeline>
                 1. 验证 |this| 的编码器状态。如果返回 false，则停止。
-                1. 如果以下任何一个条件不满足，请 |this| [=invalid=] 并停止。
+                1. 如果以下任何一个条件不满足，使 |this| [=invalid=] 并停止。
                 1. 如果以下任何条件未满足，产生一个校验错误并停止。
                     <div class=validusage>
                         - |this|.{{GPURenderPassEncoder/[[occlusion_query_active]]}}为 `true`。
@@ -7503,7 +7503,7 @@ interface mixin GPURenderCommandsMixin {
 
             <div class=device-timeline>
                 1. 验证 |this| 的编码器状态。 如果返回 false，则停止。
-                1. 如果以下任何一个条件不满足，请 |this| [=invalid=] 并停止。
+                1. 如果以下任何一个条件不满足，使 |this| [=invalid=] 并停止。
 
                     <div class=validusage>
                         - 对每个 |bundles| 中的 |bundle|:
