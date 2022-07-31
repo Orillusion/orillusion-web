@@ -4965,7 +4965,7 @@ dictionary GPUVertexAttribute {
 
 # 命令缓冲区 # {#command-buffers}
 
-命令缓冲区是预先记录的[=GPU command=]列表，可以提交给{{GPUQueue}}执行。每个<dfn dfn>GPU command</dfn>代表一个要在GPU上执行的任务，例如设置状态、绘图、复制资源等。
+命令缓冲区是预先记录的[=GPU 指令=]列表，可以提交给 {{GPUQueue}} 执行。每个 <dfn dfn>GPU 指令</dfn>代表一个要在 GPU 上执行的任务，例如设置状态、绘图、复制资源等。
 
 ## <dfn interface>GPUCommandBuffer</dfn> ## {#command-buffer}
 
@@ -4976,12 +4976,12 @@ interface GPUCommandBuffer {
 GPUCommandBuffer includes GPUObjectBase;
 </script>
 
-{{GPUCommandBuffer}}有以下内部插槽:
+{{GPUCommandBuffer}} 有以下内部插槽:
 
 <dl dfn-type=attribute dfn-for="GPUCommandBuffer">
-    : <dfn>\[[command_list]]</dfn> of type [=list=]&lt;[=GPU command=]&gt;.
+    : <dfn>\[[command_list]]</dfn> of type [=列表=]&lt;[=GPU 指令=]&gt;.
     ::
-        当这个命令缓冲被提交时，一个[=GPU command=]的[=list=]会在[=Queue timeline=]上被执行。
+        当这个命令缓冲被提交时，一个会在[=队列时间线=]上被执行的 [=GPU 指令=][=列表=]。
 </dl>
 
 ### 创建 ### {#command-buffer-creation}
