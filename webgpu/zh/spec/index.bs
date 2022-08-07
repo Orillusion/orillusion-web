@@ -4992,27 +4992,27 @@ dictionary GPUCommandBufferDescriptor : GPUObjectDescriptorBase {
 </script>
 
 
-# 命令编码 # {#command-encoding}
+# 指令编码 # {#command-encoding}
 
 ## <dfn interface>GPUCommandsMixin</dfn> ## {#commands-mixin}
 
-{{GPUCommandsMixin}} 定义了所有编码命令的接口共有的状态。它没有方法。
+{{GPUCommandsMixin}} 定义了所有编码指令接口通用状态。并且不包含具体定义方法。
 
 <script type=idl>
 interface mixin GPUCommandsMixin {
 };
 </script>
 
-{{GPUCommandsMixin}}将以下内部插槽添加到包含它的接口：
+{{GPUCommandsMixin}} 将以下内部插槽添加到包含它的接口：
 
 <dl dfn-type=attribute dfn-for=GPUCommandsMixin>
-    : <dfn>\[[state]]</dfn>, 类型为[=encoder state=]
+    : <dfn>\[[state]]</dfn>, 类型为[=编码器状态=]
     ::
-        编码器的当前状态，最初设置为“[=encoder state/open=]”。
+        编码器的当前状态，初始值为“[=编码器状态/打开=]”。
 
-    : <dfn>\[[commands]]</dfn>, 类型为[=list=]&lt;[=GPU command=]&gt;
+    : <dfn>\[[commands]]</dfn>, 类型为[=列表=]&lt;[=GPU 指令=]&gt;
     ::
-        当包含这些命令的 {{GPUCommandBuffer}} 被提交时，[=GPU commands=] 的 [=list=] 将在 [=Queue Timeline=] 上执行。
+        当包含这些命令的 {{GPUCommandBuffer}} 被提交时，[=GPU 指令=]的[=列表=]将在[=队列时间线=]上被执行。
 </dl>
 
 <dfn dfn>编码器状态</dfn>可能是以下之一：
