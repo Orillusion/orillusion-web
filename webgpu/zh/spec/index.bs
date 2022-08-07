@@ -4963,9 +4963,9 @@ dictionary GPUVertexAttribute {
 </div>
 
 
-# 命令缓冲区 # {#command-buffers}
+# 指令缓冲区 # {#command-buffers}
 
-命令缓冲区是预先记录的[=GPU 指令=]列表，可以提交给 {{GPUQueue}} 执行。每个 <dfn dfn>GPU 指令</dfn>代表一个要在 GPU 上执行的任务，例如设置状态、绘图、复制资源等。
+指令缓冲区是预先记录的[=GPU 指令=]列表，可以提交给 {{GPUQueue}} 执行。每个 <dfn dfn>GPU 指令</dfn>代表一个要在 GPU 上执行的任务，例如设置状态、绘图、复制资源等。
 
 ## <dfn interface>GPUCommandBuffer</dfn> ## {#command-buffer}
 
@@ -4981,7 +4981,7 @@ GPUCommandBuffer includes GPUObjectBase;
 <dl dfn-type=attribute dfn-for="GPUCommandBuffer">
     : <dfn>\[[command_list]]</dfn> of type [=列表=]&lt;[=GPU 指令=]&gt;.
     ::
-        当这个命令缓冲被提交时，一个会在[=队列时间线=]上被执行的 [=GPU 指令=][=列表=]。
+        当这个指令缓冲被提交时，一个会在[=队列时间线=]上被执行的 [=GPU 指令=][=列表=]。
 </dl>
 
 ### 创建 ### {#command-buffer-creation}
