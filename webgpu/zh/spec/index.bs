@@ -5018,21 +5018,21 @@ interface mixin GPUCommandsMixin {
 <dfn dfn>编码器状态</dfn>可能是以下之一：
 
 <dl dfn-type=dfn dfn-for="encoder state">
-    : "<dfn>open</dfn>"
+    : "<dfn>打开</dfn>"
     ::
-        编码器可用于对新命令进行编码。
+        编码器可用于对新的指令进行编码。
 
-    : "<dfn>locked</dfn>"
+    : "<dfn>锁定</dfn>"
     ::
-        无法使用编码器，因为它被子编码器锁定：它是一个 {{GPUCommandEncoder}}，并且一个 {{GPURenderPassEncoder}} 或 {{GPUComputePassEncoder}} 处于活动状态。当传递结束时，编码器再次变为“[=编码器状态/打开=]”。
+        因为被子编码器锁定，无法使用编码器：子编码器是一个 {{GPUCommandEncoder}}，并且一个 {{GPURenderPassEncoder}} 或 {{GPUComputePassEncoder}} 处于工作状态。当管线结束时，编码器再次变为“[=编码器状态/打开=]”状态。
 
-        在此状态下发出的任何命令都会使编码器[=invalid=]。
+        在此状态下发出的任何指令都会使编码器[=无效=]。
 
-    : "<dfn>ended</dfn>"
+    : "<dfn>结束</dfn>"
     ::
-        编码器已结束，无法再对新命令进行编码。
+        编码器已结束，无法再对新的指令进行编码。
 
-        在此状态下发出的任何命令都会生成 {{GPUValidationError}}。
+        在此状态下发出的任何指令都会生成 {{GPUValidationError}}。
 </dl>
 
 <div algorithm>
