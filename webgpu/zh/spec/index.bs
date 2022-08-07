@@ -5036,18 +5036,18 @@ interface mixin GPUCommandsMixin {
 </dl>
 
 <div algorithm>
-    To <dfn abstract-op>Prepare the encoder state</dfn> of {{GPUCommandsMixin}} |encoder|:
+    <dfn abstract-op>准备编码器状态</dfn>，准备 {{GPUCommandsMixin}} |encoder| 的状态:
 
-    如果 |encoder|.{{GPUCommandsMixin/[[state]]}} 为:
+    如果 |encoder|.{{GPUCommandsMixin/[[state]]}} 是:
     <dl class=switch>
-        : "[=encoder state/open=]"
+        : "[=编码器状态/打开=]"
         :: 返回 `true`.
 
-        : "[=encoder state/locked=]"
-        :: 使 |encoder| [=invalid=], 返回 `false`.
+        : "[=编码器状态/锁定=]"
+        :: 使 |encoder| [=无效=], 并且返回 `false`.
 
-        : "[=encoder state/ended=]"
-        :: 在当前范围内产生一个{{GPUValidationError}}，并返回 `false`
+        : "[=编码器状态/关闭=]"
+        :: 在当前范围内生成一个 {{GPUValidationError}}, 并且返回 `false`.
     </dl>
 </div>
 
