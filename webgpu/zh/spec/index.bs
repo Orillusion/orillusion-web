@@ -5024,7 +5024,7 @@ interface mixin GPUCommandsMixin {
 
     : "<dfn>锁定</dfn>"
     ::
-        因为被子编码器锁定，无法使用编码器：子编码器是一个 {{GPUCommandEncoder}}，并且一个 {{GPURenderPassEncoder}} 或 {{GPUComputePassEncoder}} 处于工作状态。当管线结束时，编码器再次变为“[=编码器状态/打开=]”状态。
+        因为被子编码器锁定，无法使用编码器：子编码器是一个 {{GPUCommandEncoder}}，并且一个 {{GPURenderPassEncoder}} 或 {{GPUComputePassEncoder}} 处于工作状态。当管线结束时，编码器再次变为“[=encoder state/打开=]”状态。
 
         在此状态下发出的任何指令都会使编码器[=无效=]。
 
@@ -5040,13 +5040,13 @@ interface mixin GPUCommandsMixin {
 
     如果 |encoder|.{{GPUCommandsMixin/[[state]]}} 是:
     <dl class=switch>
-        : "[=编码器状态/打开=]"
+        : "[=encoder state/打开=]"
         :: 返回 `true`.
 
-        : "[=编码器状态/锁定=]"
+        : "[=encoder state/锁定=]"
         :: 使 |encoder| [=无效=], 并且返回 `false`.
 
-        : "[=编码器状态/关闭=]"
+        : "[=encoder state/结束=]"
         :: 在当前范围内生成一个 {{GPUValidationError}}, 并且返回 `false`.
     </dl>
 </div>
