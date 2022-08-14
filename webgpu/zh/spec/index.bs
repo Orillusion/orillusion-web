@@ -5008,7 +5008,7 @@ interface mixin GPUCommandsMixin {
 <dl dfn-type=attribute dfn-for=GPUCommandsMixin>
     : <dfn>\[[state]]</dfn>, 类型为[=编码器状态=]
     ::
-        编码器的当前状态，初始值为“[=编码器状态/打开=]”。
+        编码器的当前状态，初始值为“[=encoder state/打开=]”。
 
     : <dfn>\[[commands]]</dfn>, 类型为[=列表=]&lt;[=GPU 指令=]&gt;
     ::
