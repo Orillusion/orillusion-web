@@ -5112,24 +5112,24 @@ dictionary GPUCommandEncoderDescriptor : GPUObjectDescriptorBase {
 <dl dfn-type=method dfn-for=GPUDevice>
     : <dfn>createCommandEncoder(descriptor)</dfn>
     ::
-        创建一个{{GPUCommandEncoder}}。
+        创建一个 {{GPUCommandEncoder}}。
 
         <div algorithm=GPUDevice.createCommandEncoder>
-            **Called on:** {{GPUDevice}} this.
+            **调用:** {{GPUDevice}} this.
 
-            **Arguments:**
+            **参数:**
             <pre class=argumentdef for="GPUDevice/createCommandEncoder(descriptor)">
-                descriptor: 要创建的{{GPUCommandEncoder}}的描述。
+                descriptor: 要创建的 {{GPUCommandEncoder}} 的描述。
             </pre>
 
-            **Returns:** {{GPUCommandEncoder}}
+            **返回:** {{GPUCommandEncoder}}
 
-            问题：描述{{GPUDevice/createCommandEncoder()}}算法步骤。
+            Issue: 描述 {{GPUDevice/createCommandEncoder()}} 的算法步骤。
         </div>
 </dl>
 
 <div class="example">
-    创建一个 {{GPUCommandEncoder}}，编码一条清理缓存的命令，结束编码器以得到 {{GPUCommandBuffer}}，之后提交其至 {{GPUQueue}}。
+    创建一个 {{GPUCommandEncoder}}，编码一条清理缓存的指令，结束编码器以得到 {{GPUCommandBuffer}}，之后提交其至 {{GPUQueue}}。
     <pre highlight="js">
         const commandEncoder = gpuDevice.createCommandEncoder();
         commandEncoder.clearBuffer(buffer);
