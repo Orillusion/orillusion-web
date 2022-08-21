@@ -5143,89 +5143,82 @@ dictionary GPUCommandEncoderDescriptor : GPUObjectDescriptorBase {
 <dl dfn-type=method dfn-for=GPUCommandEncoder>
     : <dfn>beginRenderPass(descriptor)</dfn>
     ::
-        Begins encoding a render pass described by |descriptor|.
+        开始编码一个由 |descriptor| 描述的渲染通道。
 
         <div algorithm=GPUCommandEncoder.beginRenderPass>
-            **Called on:** {{GPUCommandEncoder}} |this|.
+            **调用:** {{GPUCommandEncoder}} |this|.
 
-            **Arguments:**
+            **参数:**
             <pre class=argumentdef for="GPUCommandEncoder/beginRenderPass(descriptor)">
-                |descriptor|: 要创建的{{GPURenderPassEncoder}}的描述。
+                |descriptor|: 要创建的 {{GPURenderPassEncoder}} 的描述。
             </pre>
 
-            **Returns:** {{GPURenderPassEncoder}}
+            **返回:** {{GPURenderPassEncoder}}
 
-            在|this|的[=Device timeline=]上发起以下步骤：
+            在 |this| 的[=设备时间线=]上发起以下步骤：
             <div class=device-timeline>
-                1. 使|pass|为一个新的{{GPURenderPassEncoder}}对象。
+                1. 使 |pass| 为一个新的 {{GPURenderPassEncoder}} 对象。
                 2. 如果以下任何条件没有满足，产生一个校验错误并停止。
                     <div class=validusage>
-                        - |this|.{{GPUCommandsMixin/[[state]]}}为"[=encoder state/open=]"。
-                        - |descriptor|满足[$GPURenderPassDescriptor/Valid Usage$]规则。
-                        - |descriptor|.{{GPURenderPassDescriptor/timestampWrites}}为空，或
-                            |this|.{{GPUObjectBase/[[device]]}}.{{device/[[features]]}}包括（[=list/contain=]）
-                            {{GPUFeatureName/"timestamp-query"}}。
-                        - For each |timestampWrite| in |descriptor|.{{GPURenderPassDescriptor/timestampWrites}},
-                            - |timestampWrite|.{{GPURenderPassTimestampWrite/querySet}}可以与|this|一起有效使用（[$valid to use with$]）。
+                        - |this|.{{GPUCommandsMixin/[[state]]}} 为"[=encoder state/打开=]"。
+                        - |descriptor| 满足[$GPURenderPassDescriptor/有效使用$]规则。
+                        - |descriptor|.{{GPURenderPassDescriptor/timestampWrites}} 为空，或 |this|.{{GPUObjectBase/[[device]]}}.{{device/[[features]]}} [=列表/包含=] {{GPUFeatureName/"timestamp-query"}}。
+                        - 对于任何一个 |descriptor|.{{GPURenderPassDescriptor/timestampWrites}} 中的 |timestampWrite|,
+                            - |timestampWrite|.{{GPURenderPassTimestampWrite/querySet}} 可以与 |this| [$一起有效被使用$]。
                     </div>
-                3. 设置|this|.{{GPUCommandsMixin/[[state]]}}为"[=encoder state/locked=]"。
-                4. 对每个|descriptor|.{{GPURenderPassDescriptor/colorAttachments}}中的|colorAttachment|:
-                    1. |colorAttachment|.{{GPURenderPassColorAttachment/view}}看到的[=texture subresource=]被视为在渲染通道期间用作[=internal usage/attachment=]。
-                5. 设置|depthStencilAttachment|为|descriptor|.{{GPURenderPassDescriptor/depthStencilAttachment}}。
-                6. 如果|depthStencilAttachment|不是 `null`:
-                    1. 设置|depthStencilView|为|depthStencilAttachment|.{{GPURenderPassDepthStencilAttachment/view}}。
-                    2. 如果|depthStencilAttachment|.{{GPURenderPassDepthStencilAttachment/depthReadOnly}}和{{GPURenderPassDepthStencilAttachment/stencilReadOnly}}设置了值：
-                        1. |depthStencilView|看到的[=texture subresource=]被视为在渲染通道期间用作[=internal usage/attachment-read=]。
-                        
-                        问题：用“一组子资源”算法来描述此算法。
-                    3. 否则, |depthStencilView|看到的[=texture subresource=]被视为在渲染通道期间用作[=internal usage/attachment=]。
-                    4. 设置|pass|.{{GPURenderEncoderBase/[[depthReadOnly]]}}为|depthStencilAttachment|.{{GPURenderPassDepthStencilAttachment/depthReadOnly}}。
-                    5. 设置|pass|.{{GPURenderEncoderBase/[[stencilReadOnly]]}}为|depthStencilAttachment|.{{GPURenderPassDepthStencilAttachment/stencilReadOnly}}。
-                7. 设置|pass|.{{GPURenderEncoderBase/[[layout]]}}为[$derive render targets layout from pass$](|descriptor|)。
-                8. 对每个|descriptor|.{{GPURenderPassDescriptor/timestampWrites}}中的|timestampWrite|,
-                    1. 如果|timestampWrite|.{{GPURenderPassTimestampWrite/location}}为{{GPURenderPassTimestampLocation/"beginning"}},
-                        添加（[=list/Append=]）一个[=GPU command=]至|pass|.{{GPUProgrammablePassEncoder/[[command_encoder]]}}.{{GPUCommandsMixin/[[commands]]}}，将GPU时间戳值写入|timestampWrite|.{{GPURenderPassTimestampWrite/querySet}}的|timestampWrite|.{{GPURenderPassTimestampWrite/queryIndex}}索引处。
-                    2. 否则，|timestampWrite|.{{GPURenderPassTimestampWrite/location}}为{{GPURenderPassTimestampLocation/"end"}}，添加|timestampWrite|至|pass|.{{GPURenderPassEncoder/[[endTimestampWrites]]}}。
-                9. 问题：入队附件加载/清除。
-                10. 返回|pass|。
+                3. 设置 |this|.{{GPUCommandsMixin/[[state]]}} 为"[=encoder state/锁定=]"。
+                4. 对每个 |descriptor|.{{GPURenderPassDescriptor/colorAttachments}} 中的 |colorAttachment|:
+                    1. |colorAttachment|.{{GPURenderPassColorAttachment/view}} 看到的[=纹理子资源=]，在渲染通道期间被视为[=internal usage/附件=]使用。
+                5. 设置 |depthStencilAttachment| 为 |descriptor|.{{GPURenderPassDescriptor/depthStencilAttachment}}。
+                6. 如果 |depthStencilAttachment| 不是 `null`:
+                    1. 设置 |depthStencilView| 为 |depthStencilAttachment|.{{GPURenderPassDepthStencilAttachment/view}}。
+                    2. 如果 |depthStencilAttachment|.{{GPURenderPassDepthStencilAttachment/depthReadOnly}} 和 {{GPURenderPassDepthStencilAttachment/stencilReadOnly}} 被设置了值：
+                        1. |depthStencilView| 看到的[=纹理子资源=]，在渲染通道期间被视为[=internal usage/只读附件=]使用。
+
+                        Issue: 
+                    3. 否则, |depthStencilView| 看到的[=纹理子资源=]，在渲染通道期间被视为[=internal usage/附件=]使用。
+                    4. 设置 |pass|.{{GPURenderEncoderBase/[[depthReadOnly]]}} 为 |depthStencilAttachment|.{{GPURenderPassDepthStencilAttachment/depthReadOnly}}。
+                    5. 设置 |pass|.{{GPURenderEncoderBase/[[stencilReadOnly]]}} 为 |depthStencilAttachment|.{{GPURenderPassDepthStencilAttachment/stencilReadOnly}}。
+                7. 设置 |pass|.{{GPURenderEncoderBase/[[layout]]}} 为 [$derive render targets layout from pass$](|descriptor|)。
+                8. 对每个 |descriptor|.{{GPURenderPassDescriptor/timestampWrites}} 中的 |timestampWrite|,
+                    1. 如果 |timestampWrite|.{{GPURenderPassTimestampWrite/location}} 为 {{GPURenderPassTimestampLocation/"beginning"}}，[=列表/附加=]一个 [=GPU 指令=]至 |pass|.{{GPUProgrammablePassEncoder/[[command_encoder]]}}.{{GPUCommandsMixin/[[commands]]}}，将 GPU 时间戳值写入|timestampWrite|.{{GPURenderPassTimestampWrite/querySet}} 中 |timestampWrite|.{{GPURenderPassTimestampWrite/queryIndex}} 的索引处。
+                    2. 否则，如果 |timestampWrite|.{{GPURenderPassTimestampWrite/location}} 为 {{GPURenderPassTimestampLocation/"end"}}，附加 |timestampWrite| 至 |pass|.{{GPURenderPassEncoder/[[endTimestampWrites]]}}。
+                9. Issue: 入队附件加载/清除。
+                10. 返回 |pass|。
             </div>
 
-            问题：指定只读深度/模板的行为。
+            Issue: 指定只读深度/模板的行为。
         </div>
 
     : <dfn>beginComputePass(descriptor)</dfn>
     ::
-        开始对|descriptor|描述的compute pass进行编码。
+        开始对 |descriptor| 描述的一个计算通道进行编码。
 
         <div algorithm=GPUCommandEncoder.beginComputePass>
-            **Called on:** {{GPUCommandEncoder}} |this|.
+            **调用:** {{GPUCommandEncoder}} |this|.
 
-            **Arguments:**
+            **参数:**
             <pre class=argumentdef for="GPUCommandEncoder/beginComputePass(descriptor)">
                 descriptor:
             </pre>
 
-            **Returns:** {{GPUComputePassEncoder}}
+            **返回:** {{GPUComputePassEncoder}}
 
-            在|this|的[=Device timeline=]上发起如下步骤：
+            在 |this| 的[=设备时间线=]上发起如下步骤：
             <div class=device-timeline>
                 1. 如果以下任何条件没有满足，产生一个校验错误并停止。
                     <div class=validusage>
-                        - |this|.{{GPUCommandsMixin/[[state]]}}为"[=encoder state/open=]"。
-                        - |descriptor|.{{GPUComputePassDescriptor/timestampWrites}}为空，或
-                            |this|.{{GPUObjectBase/[[device]]}}.{{device/[[features]]}} [=list/contain=]s
-                            {{GPUFeatureName/"timestamp-query"}}.
-                        - 对每个|descriptor|.{{GPUComputePassDescriptor/timestampWrites}}中的|timestampWrite|，
-                            - |timestampWrite|.{{GPUComputePassTimestampWrite/querySet}} is [$valid to use with$] |this|.
+                        - |this|.{{GPUCommandsMixin/[[state]]}} 为 "[=encoder state/打开=]"。
+                        - |descriptor|.{{GPUComputePassDescriptor/timestampWrites}} 为空，或 |this|.{{GPUObjectBase/[[device]]}}.{{device/[[features]]}} [=列表/包含=] {{GPUFeatureName/"timestamp-query"}}.
+                        - 对于每个 |descriptor|.{{GPUComputePassDescriptor/timestampWrites}} 中的 |timestampWrite|，
+                            - |timestampWrite|.{{GPUComputePassTimestampWrite/querySet}} 与 |this| [$一起有效被使用$]。
                     </div>
-                2. 设置|this|.{{GPUCommandsMixin/[[state]]}}为"[=encoder state/locked=]"。
-                3. 设置|pass|为一个新的{{GPUComputePassEncoder}}对象。
-                4. 对每个|descriptor|.{{GPUComputePassDescriptor/timestampWrites}}中的|timestampWrite|，
-                    1. 如果|timestampWrite|.{{GPUComputePassTimestampWrite/location}}为{{GPUComputePassTimestampLocation/"beginning"}}，
-                        添加（[=list/Append=]一个[=GPU command=]至|pass|.{{GPUProgrammablePassEncoder/[[command_encoder]]}}.{{GPUCommandsMixin/[[commands]]}}，将GPU时间戳值写入|timestampWrite|.{{GPUComputePassTimestampWrite/querySet}}中的|timestampWrite|.{{GPUComputePassTimestampWrite/queryIndex}}索引处。
-                        index in |timestampWrite|.{{GPUComputePassTimestampWrite/querySet}}.
-                    2. 否则，Otherwise, 如果|timestampWrite|.{{GPUComputePassTimestampWrite/location}}为{{GPUComputePassTimestampLocation/"end"}}，则添加（[=list/Append=]）|timestampWrite| 至 |pass|.{{GPUComputePassEncoder/[[endTimestampWrites]]}}。
-                5. 返回|pass|。
+                2. 设置 |this|.{{GPUCommandsMixin/[[state]]}} 为"[=encoder state/锁定=]"。
+                3. 设置 |pass| 为一个新的 {{GPUComputePassEncoder}} 对象。
+                4. 对每个 |descriptor|.{{GPUComputePassDescriptor/timestampWrites}} 中的 |timestampWrite|，
+                    1. 如果 |timestampWrite|.{{GPUComputePassTimestampWrite/location}} 为 {{GPUComputePassTimestampLocation/"beginning"}}，[=列表/附加=]一个 [=GPU 指令=]至 |pass|.{{GPUProgrammablePassEncoder/[[command_encoder]]}}.{{GPUCommandsMixin/[[commands]]}}，将 GPU 时间戳值写入 |timestampWrite|.{{GPUComputePassTimestampWrite/querySet}} 中 |timestampWrite|.{{GPUComputePassTimestampWrite/queryIndex}} 的索引处。
+                    2. 否则，如果 |timestampWrite|.{{GPUComputePassTimestampWrite/location}} 为 {{GPUComputePassTimestampLocation/"end"}}，则[=列表/附加=] |timestampWrite| 至 |pass|.{{GPUComputePassEncoder/[[endTimestampWrites]]}}。
+                5. 返回 |pass|。
             </div>
         </div>
 </dl>
