@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Orillusion | Demo</title>
+    <meta http-equiv="origin-trial"
+        content="AmlIXSU4RTXOrLM+ouKTxWs5tLail58CVi+w3Kp+JyMfesIO9Udca29MhyTkHvZvD441GB5SRffeIQx3ZXPK6wcAAABheyJvcmlnaW4iOiJodHRwczovL29yaWxsdXNpb24uY29tOjQ0MyIsImZlYXR1cmUiOiJXZWJHUFUiLCJleHBpcnkiOjE2NzUyMDk1OTksImlzU3ViZG9tYWluIjp0cnVlfQ==">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body{margin:0;height:100vh;background:transparent;touch-action:none}
+        body.loading > canvas{width:1920px !important;height:1080px !important}
+    </style>
+</head>
+<body class="loading">
+    <script type="importmap">
+        {
+            "imports": {
+                "@orillusion/core": "https://cdn.orillusion.com/orillusion.test.js",
+                "@orillusion/dev": "https://cdn.orillusion.com/orillusion.test.js",
+                "@orillusion/physics": "https://cdn.orillusion.com/physics.es.js",
+                "@orillusion/stats": "https://cdn.orillusion.com/stats.es.js",
+                "@orillusion/media-extention": "https://cdn.orillusion.com/media.es.js"
+            }
+        }
+    </script>
+    <script type="module">
+        if (location.hostname.match(/orillusion/)) {
+            fetch(location.search.slice(1).replace('.ts', '.js'))
+            .then(res=>res.text())
+            .then(code=>createScript(code))
+        } else {
+            Promise.all([
+                fetch(location.search.slice(1)).then(r => r.text()),
+                import('https://cdn.orillusion.com/esbuild.js').then(async esbuild=>{
+                    await esbuild.initialize({
+                        wasmURL: 'https://cdn.orillusion.com/esbuild.wasm'
+                    })
+                    return esbuild
+                })
+            ]).then(async res =>{
+                const ts = await res[1].transform(res[0], {loader: 'ts'})
+                createScript(ts.code)
+            })
+        }
+        function createScript(code){
+            const script = document.createElement('script')
+            script.innerHTML = code.replace(
+                'Engine3D.startRender(renderJob);', 
+                `Engine3D.startRender(renderJob);
+                window.postMessage("rendering");
+                document.body.classList.remove('loading')
+                window.onmessage = e=>{
+                    if(e.data === 'pause')
+                        Engine3D.renderJob.pause()
+                    else if(e.data === 'resume')
+                        Engine3D.renderJob.resume()
+                }
+                `
+            )
+            script.type = 'module'
+            const intersectionObserver = new IntersectionObserver(function (entries) {
+                if (entries[0].isIntersecting) {
+                    if(!window.__ready){
+                        window.__ready = true
+                        document.body.appendChild(script)
+                    }else{
+                        window.postMessage("resume")
+                    }
+                }else{
+                    window.postMessage("pause")
+                }
+            });
+            intersectionObserver.observe(document.body);
+        }
+    </script>
+</body>
+</html>

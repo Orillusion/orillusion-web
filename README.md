@@ -1,12 +1,12 @@
 # Orillusion
 
-This is the official doc website of Orillusion, built with [VuePress](https://vuepress.vuejs.org/).   
+This is the official doc website of Orillusion, built with [VitePress](https://vitepress.vuejs.org/).   
 Site content is written in Markdown format located in [docs](https://github.com/Orillusion/orillusion-web/tree/master/docs).   
 WebGPU specification is written in [Bikeshed](https://tabatkins.github.io/bikeshed) format located in [webgpu](https://github.com/Orillusion/orillusion-web/tree/master/webgpu).
 
 ## Writing
 
-See the [VuePress Markdown Guide](https://v2.vuepress.vuejs.org/guide/markdown.html) for our rules and recommendations on writing and maintaining documentation.
+See the [VitePress Markdown Guide](https://vitepress.vuejs.org/guide/markdown.html) for our rules and recommendations on writing and maintaining documentation.
 
 ## Developing
 
@@ -26,4 +26,10 @@ yarn # or npm install
 
 ```bash
 yarn dev # or npm run dev
+```
+
+## Build Site
+
+```bash
+yarn build # or npm run build
 ```

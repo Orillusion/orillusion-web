@@ -1,20 +1,13 @@
-# VuePress files
-docs/.vuepress/.temp/
-docs/.vuepress/.cache/
-docs/.vuepress/dist/
-
-# Dist files
-lib/
-
-# Test temp files
-**/__fixtures__/.temp/
-
-# Test coverage files
-coverage/
+# vitepress files
+docs/.vitepress/dist/
+docs/.vitepress/cache
+.nojekyll
 
 # Node modules
 node_modules/
 package-lock.json
+pnpm-lock.yaml
+yarn.lock
 
 # MacOS Desktop Services Store
 .DS_Store
@@ -28,3 +21,6 @@ package-lock.json
 #webgpu
 /webgpu/**/index.html
 /webgpu/**/*.idl
+/.idea/.idea.orillusion-web-dev.dir/.idea/.gitignore
+/.idea/.idea.orillusion-web-dev.dir/.idea/indexLayout.xml
+/.idea/.idea.orillusion-web-dev.dir/.idea/vcs.xml
