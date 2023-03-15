@@ -40,6 +40,10 @@
                     for(let i = 0; i < paths.length; i++){
                         let p = paths[i]
                         let box = p.getBBox()
+                        if(box.width === 0){
+                            setTimeout(this.loadSvg, 10)
+                            return
+                        }
                         let x = box.x + box.width / 2
                         let y = box.y + box.height / 2
                         let offset = Math.sqrt(Math.pow(x-center, 2) + Math.pow(y-center, 2))
