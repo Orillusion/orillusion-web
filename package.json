@@ -12,7 +12,14 @@
   },
   "devDependencies": {
     "@types/node": "^18.11.9",
-    "vitepress": "1.0.0-alpha.58",
+    "vitepress": "1.0.0-alpha.59",
     "vue": "^3.2.47"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@algolia/client-search"
+      ]
+    }
   }
 }

@@ -25,7 +25,8 @@ export default async () => defineConfig({
     ['link', { rel: 'prefetch', href: 'https://cdn.orillusion.com/orillusion.es.js' }],
     ['link', { rel: 'prefetch', href: 'https://cdn.orillusion.com/physics.es.js' }],
     ['script', { async: 'true', src: 'https://www.googletagmanager.com/gtag/js?id=G-0H9189CS0W' }],
-    ['meta', { name: 'theme-color', content: '#242424' }]
+    ['meta', { name: 'theme-color', content: '#242424' }],
+    ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no' }],
   ],
   themeConfig: {
     logo: {
