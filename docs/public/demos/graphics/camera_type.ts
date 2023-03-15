@@ -1,4 +1,4 @@
-import { Engine3D, Scene3D, Object3D, Camera3D, ForwardRenderJob, LitMaterial, BoxGeometry, MeshRenderer, HoverCameraController } from "@orillusion/core";
+import { Engine3D, Vector3, Scene3D, Object3D, Camera3D, ForwardRenderJob, LitMaterial, BoxGeometry, MeshRenderer, HoverCameraController } from "@orillusion/core";
 
 export default class CameraType {
     cameraObj: Object3D;
@@ -32,8 +32,9 @@ export default class CameraType {
     async initCamera() {
         this.cameraObj = new Object3D();
         this.camera = this.cameraObj.addComponent(Camera3D)
+        this.camera.lookAt(new Vector3(0, 0, -350), new Vector3(0, 0, 0));
         let hc = this.cameraObj.addComponent(HoverCameraController);
-        hc.setCamera(0, 0, 500)
+        hc.setCamera(-90, 0, 500)
         this.scene.addChild(this.cameraObj);
         this.perspective();
     }
@@ -83,6 +84,10 @@ export default class CameraType {
             if(select.value === 'perspective')
                 this.perspective()
             else
+                this.orthoOffCenter()
+        })
+        window.addEventListener('resize', ()=>{
+            if(select.value === 'ortho')
                 this.orthoOffCenter()
         })
     }
