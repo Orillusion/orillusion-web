@@ -72,6 +72,18 @@
             });
             intersectionObserver.observe(document.body);
         }
+
+        try{
+            let version = navigator.userAgent.match(/chrome\/\d+/i)
+            if(version[0].split('/')[1] < 113)
+                throw new Error()
+        }catch(e){
+            let p= document.createElement('p')
+            p.setAttribute('style', 'position:fixed;z-index:1111111111;top:40%;left:0;right:0;text-align:center;color:white;')
+            p.innerHTML = 'Orillusion powered by WebGPU on Chrome 113+<br><br>Please upgrade to latest <a href="https://www.google.com/chrome/canary/" target="_blank">Chrome Canary</a>'
+            document.body.appendChild(p)
+            window.postMessage("rendering")
+        }
     </script>
 </body>
 </html>
