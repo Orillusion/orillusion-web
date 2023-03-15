@@ -47,7 +47,6 @@ async function demo() {
     let text: UITextField = textQuad.addComponent(UITextField);
     // set textfield size
     text.uiTransform.resize(400, 60);
-    text.uiTransform.y = 100;
     // set text value
     text.text = 'Hello，Orillusion！';
     text.fontSize = 32;

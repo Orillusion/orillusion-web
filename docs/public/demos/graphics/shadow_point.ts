@@ -4,7 +4,7 @@ async function demo() {
     // 配置 shadow 参数
     Engine3D.setting.shadow.autoUpdate = true;
     Engine3D.setting.shadow.shadowBound = 100;
-    Engine3D.setting.shadow.pointShadowBias = 0.0075;
+    Engine3D.setting.shadow.pointShadowBias = 0.4;
     Engine3D.setting.shadow.type = 'SOFT'
 
     await Engine3D.init();

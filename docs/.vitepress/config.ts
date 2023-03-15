@@ -287,8 +287,7 @@ function sidebarGuide():SidebarItem{
         { text: '简介', link: '/guide/gui/Readme.md' },
         { text: '文本', link: '/guide/gui/textfield.md' },
         { text: '图片', link: '/guide/gui/image.md' },
-        { text: '按钮', link: '/guide/gui/button.md' },
-        { text: '图集和字体', link: '/guide/gui/atlas.md' },
+        { text: '按钮', link: '/guide/gui/button.md' }
       ],
     },
     {
@@ -333,16 +332,17 @@ function sidebarGuide():SidebarItem{
         { text: 'WebGPU Shader',
           link: '/guide/advanced/shader/shader_intro.md',
           items: [
-            { text: '着色器实例', link: '/guide/advanced/shader/shader_material.md' },
+            { text: 'RenderShader', link: '/guide/advanced/shader/shader_material.md' },
+            { text: '代码引用', link: '/guide/advanced/shader/shader_include.md' },
+            { text: '代码宏', link: '/guide/advanced/shader/shader_define.md' },
             { text: '着色器变体', link: '/guide/advanced/shader/shader_variants.md' },
             { text: '着色器内置变量', link: '/guide/advanced/shader/shader_internal.md' },
-            { text: '代码引用', link: '/guide/advanced/shader/shader_include.md' },
-            { text: '无光材质球', link: '/guide/advanced/shader/shader_unlit.md' },
-            { text: '计算着色器', link: '/guide/advanced/shader/shader_compute.md' },
+            { text: '自定义材质示例', link: '/guide/advanced/shader/shader_unlit.md' },
+            { text: 'ComputeShader', link: '/guide/advanced/shader/shader_compute.md' },
           ]
         },
         {
-          text: 'PostEffects',
+          text: '后处理特效',
           link: '/guide/advanced/posteffect.md',
           items: [
             { text: 'DepthOfFieldPost', link: '/guide/advanced/post_depthOfField.md' },
@@ -354,7 +354,7 @@ function sidebarGuide():SidebarItem{
             { text: 'TAAPost', link: '/guide/advanced/post_taa.md' }
           ]
         },
-        { text: 'GlobalIllumination', link: '/guide/advanced/gi.md' },
+        { text: '全局光照', link: '/guide/advanced/gi.md' },
       ]
     }
   ]

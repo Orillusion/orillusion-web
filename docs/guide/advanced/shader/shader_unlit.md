@@ -1,8 +1,8 @@
 # 无光材质球
-本篇将以`UnlitMaterial`为例，介绍如何创建一个材质球。
+本篇将以引擎内置的 `UnlitMaterial` 为例，介绍如何创建一个材质球。
 
-### 创建材质球
-通过继承`MaterialBase`创建新的class`UnLitMaterial`。
+## 创建材质球
+通过继承 `MaterialBase` 创建新的 `UnLitMaterial`。
 ```ts
 export class UnLitMaterial extends MaterialBase {
     constructor() {
@@ -12,7 +12,7 @@ export class UnLitMaterial extends MaterialBase {
 }
 ```
 
-### 编写着色器代码
+## 编写着色器代码
 首先需要准备编辑着色器脚本。
 无光材质球作为比较基础的材质球，很多地方我们只需要`include`进来现有的代码段即可；
 
@@ -57,7 +57,7 @@ fn frag(){
 将上述脚本通过特定的key`UnLitShader`放入ShaderLib中管理。
 ```ts
 let Unlit:string = `${shaderCode}`;
- ShaderLib['UnLitShader'] = UnLit;
+ ShaderLib.register('UnLitShader', UnLit);
 ```
 
 ### 创建着色器`RenderShader`
@@ -76,25 +76,24 @@ shader.setShaderEntry(`VertMain`,`FragMain`)
 在这里我们提取了四个变量供外部修改。
 ```ts
 //第一道UV的变换系数
-shader.setUniformVector4(`transformUV1`,new Vector4(0, 0, 1, 1));
+shader.setUniformVector4(`transformUV1`, new Vector4(0, 0, 1, 1));
 //第二道UV的变换系数
-shader.setUniformVector4(`transformUV2`,new Vector4(0, 0, 1, 1));
+shader.setUniformVector4(`transformUV2`, new Vector4(0, 0, 1, 1));
 //基础颜色
-shader.setUniformColor(`baseColor`,new Color());
+shader.setUniformColor(`baseColor`, new Color());
 //透明裁剪阈值
-shader.setUniformFloat(`alphaCutoff`,0.5);
+shader.setUniformFloat(`alphaCutoff`, 0.5);
 
 ```
 
 ### 配置材质球的宏定义
 材质球有一些通用的宏定义，需要显示的设置：
-1. `useLight`是否接受灯光影响;
-2. `acceptGI`是否接受全局光照`GI`;
-3. `acceptShadow`是否接受阴影；
-4. `castShadow`是否产生阴影；
-5. `receiveEnv`是否介绍环境光；
-6. `useZ`；//todo 解释
-7. ...
+1. `useLight` 是否接受灯光影响;
+2. `acceptGI` 是否接受全局光照 `GI`;
+3. `acceptShadow` 是否接受阴影；
+4. `castShadow` 是否产生阴影；
+5. `receiveEnv` 是否介绍环境光；
+6. ...
 
 或许你还需要设置如下属性：
 1. `renderLayer`所在渲染层级；

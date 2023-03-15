@@ -1,14 +1,14 @@
 # 着色器内置变量
-在Orillusion引擎中，为了能够更规范和高效的编写一些复杂的着色器脚本（比如PBR材质着色逻辑），我们对着色器代码进行了拆分和封装。
+在 `Orillusion` 引擎中，为了能够更规范和高效的编写一些复杂的着色器脚本（比如PBR材质着色逻辑），我们对着色器代码进行了拆分和封装。
 本篇将会介绍拆分之后的一些常用内置着色器脚本，比如变量、结构体定义、函数实现等给予解释。
 
-###变量
-最初始的数据来自于管线中的顶点流`VertexAttributes`，以及常量寄存器中定义的Uniform数据`globalUniform`，以及脚本头部自定义的一些数学常量比如`PI=3.14`等：
+## 公共变量
+最初始的数据来自于管线中的顶点流 `VertexAttributes`，以及常量寄存器中定义的`Uniform` 数据 - `globalUniform`，以及脚本头部自定义的一些数学常量比如 `PI=3.14` 等：
 解析完这些数据后，我们能得到如下内置变量：
 
-#### globalUniform
-引擎在准备渲染钱搜集到的数据，通过Uniform的形式绑定到渲染管线中，可看做只读形式的全局数据。
-解析`globalUniform`可以得到的内置变量有：
+### globalUniform
+引擎在准备渲染钱搜集到的数据，通过 `Uniform` 的形式绑定到渲染管线中，可看做只读形式的全局数据。
+解析 `globalUniform` 可以得到的内置变量有：
  ```wgsl
 //x：引擎当前的frame数据；y：引擎运行的当前时间；z：当前帧与上一帧之间的时间跨度。
 var<private> TIME: vec4<f32>;
@@ -35,8 +35,8 @@ var<private> ORI_CAMERAMATRIX: mat4x4<f32>;
 //变换normal到世界坐标，使用到的矩阵
 var<private> ORI_NORMALMATRIX: mat3x3<f32>;
 ```
-#### ORI_VertexOut
-在通用的顶点流处理流程`Common_vert.wgsl`中，解析顶点数据`VertexAttributes`得到的结构体。
+### ORI_VertexOut
+在通用的顶点流处理流程 `Common_vert.wgsl` 中，解析顶点数据 `VertexAttributes` 得到的结构体。
 ```wgsl
 //定义顶点数据结构
 struct VertexOutput {
@@ -70,9 +70,9 @@ struct VertexOutput {
 
 var<private> ORI_VertexOut: VertexOutput ;
 ```
-#### ORI_VertexVarying
-顶点着色器传入到片段着色器，经过权重插值后的输入数据。通过与`VertexOutput`的比较分析，不难看出他们是一一对应的。
-`face`属性除外。
+### ORI_VertexVarying
+顶点着色器传入到片段着色器，经过权重插值后的输入数据。通过与 `VertexOutput` 的比较分析，不难看出他们是一一对应的。
+`face` 属性除外。
 ```wgsl
  struct FragmentVarying {
         @location(0) fragUV0: vec2<f32>,
@@ -100,7 +100,7 @@ var<private> ORI_VertexOut: VertexOutput ;
 
 ```
 
-#### ORI_ShadingInput
+### ORI_ShadingInput
 该变量为PBR材质球量身定制，集合了PBR着色需要用到的各种参数。方便在后续使用的时候获取。
 以及着色之后，用户可以追加自定义特效，可以从这个变量里提取自己需要的数据。
 ```wgsl
@@ -138,10 +138,10 @@ struct ShadingInput{
 var<private> ORI_ShadingInput: ShadingInput;
 ```
 
-#### ORI_FragmentOutput
+### ORI_FragmentOutput
 片元着色的结果，将放入到该变量中，默认情况片元着色的结构就只有颜色数据需要输出。
-如果有一些后期特效需要处理的话，需要输出更多的内容到`GBuffer`中，方便计算。
-通常情况，需要参与后期计算的参数有世界坐标`worldPos`，法向量`worldNormal`和一些材质球信息`material`(光滑度/粗糙度/是否发光等)，
+如果有一些后期特效需要处理的话，需要输出更多的内容到 `GBuffer` 中，方便计算。
+通常情况，需要参与后期计算的参数有世界坐标 `worldPos`，法向量 `worldNormal` 和一些材质球信息 `material` (光滑度/粗糙度/是否发光等)，
 
 ```wgsl
 struct FragmentOutput {
@@ -162,28 +162,28 @@ struct FragmentOutput {
 }
 ```
 
-#### materialUniform
-在材质球中定义，与特定材质球关联的`materialUniform`，该变量携带绘制该材质球所需要的变量。不同的材质球`materialUniform`数据结构定义应该各不相同。
-接下来以`LitMaterial`作为例子，简单介绍`materialUniform`内部的一些变量：
+### materialUniform
+在材质球中定义，与特定材质球关联的 `materialUniform`，该变量携带绘制该材质球所需要的变量。不同的材质球 `materialUniform` 数据结构定义应该各不相同。
+接下来以 `LitMaterial` 作为例子，简单介绍 `materialUniform` 内部的一些变量：
 
-> `LitMaterial`中使用到的materialUniform定义结构体，当前被封装到了`PhysicMaterialUniform_frag`。
+> `LitMaterial`中使用到的 `materialUniform` 定义结构体，当前被封装到了`PhysicMaterialUniform_frag`。
  ```wgsl
 struct MaterialUniform{
-   #if USE_BRDF
-    //物理着色，材质球数据描述内容
-    #include "PhysicMaterialUniform_frag"
-   #endif
+    #if USE_BRDF
+        //物理着色，材质球数据描述内容
+        #include "PhysicMaterialUniform_frag"
+    #endif
 
-   #if USE_ColorLit
-   #endif
+    #if USE_ColorLit
+    #endif
 
-   #if USE_UnLit
-   #endif
+    #if USE_UnLit
+    #endif
 }
  
  ```
 
-> 继续在`PhysicMaterialUniform_frag`中查看更多的内容：
+> 继续在 `PhysicMaterialUniform_frag` 中查看更多的内容：
 
 ```wgsl
 //PhysicMaterialUniform_frag文件定义的结构体
@@ -233,13 +233,14 @@ struct MaterialUniform {
   clearcoatRoughnessFactor: f32,
 };
 ```
-### 内置函数
+## 公共文件
 相较于普通程序编写函数定义的意义，着色器脚本里同样需要定义各种函数，提供功能复用和方便维护。以下介绍一些常用的函数：
-1. `LightingFunction_frag` 光照计算需要用到的函数；
-2. `NormalMap_frag` 封装有各种法线计算相关的函数；
-3. `IESProfiles_frag` 光源描述文件解析函数；
-4. `BRDF_frag` BRDF模型着色需要用到的函数；
-5. `FastMath_shader` 快速开方，快速计算向量长度；
+
+- `LightingFunction_frag` 光照计算需要用到的函数；
+- `NormalMap_frag` 封装有各种法线计算相关的函数；
+- `IESProfiles_frag` 光源描述文件解析函数；
+- `BRDF_frag` BRDF模型着色需要用到的函数；
+- `FastMath_shader` 快速开方，快速计算向量长度；
 
 
 ## 总结

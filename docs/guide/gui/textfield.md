@@ -1,14 +1,13 @@
 # UITextField
 
-UITextField组件提供文本的显示功能；
+[UITextField](/api/classes/UITextField.md) 组件提供文本的显示功能；
 
-
-> 文本组件依赖于字体图集，你需要先加载字体图集到引擎中，文本才能被正常显示出来。
+> 文本组件依赖于 `BMFont` 图集，你需要先加载字体图集到引擎中，文本才能被正常显示出来。
 
 
 ```ts
 import { Engine3D } from '@orillusion/core';
-// 加载font文件
+// 加载 BMFont 文件
 await Engine3D.res.loadFont('fnt/0.fnt');
 // 创建用于显示UI的面板
 let panelRoot: Object3D = new Object3D();
@@ -27,62 +26,47 @@ this.text.fontSize = 32;
 this.text.alignment = TextAnchor.MiddleCenter;
 ```
 
-# font
-
-字体：匹配字体素材的字段`face="微软雅黑"`。
-
+## 设置字体
+文本组件依赖于 `BMFont` 图集，你需要先加载 `fnt` 图集文件到引擎中，然后文本才能被正常显示出来
 ```ts
+// 加载 BMFont字体
+await Engine3D.res.loadFont('path/to/font.fnt');
 text.font = '微软雅黑';
 ```
 
-# text
-
-文本内容：get/set文本内容。
-
+## 设置内容
 ```ts
+// 修改组件text
 text.text = 'Hello，Orillusion！';
 ```
 
-# fontSize
-
-字体大小：基于字体素材字段`size=42`，对文本尺寸加以线性缩放。
-
+## 字体大小
 ```ts
 text.fontSize = 32;
 ```
 
-# alignment
-
-对齐方式：参考`TextAnchor`，枚举有九种对齐方式。
-
+## 对齐方式
+参考 [TextAnchor](/api/enums/TextAnchor.md)，有九种对齐方式
 ```ts
 text.alignment = TextAnchor.UpperLeft;
 ```
 
-# color
-
-颜色：修改文本的颜色(Color)，默认白色。
-
+## 字体颜色
 ```ts
-text.color = new Color(1.0, 0.0, 0.0, 1.0);//red
+text.color = new Color(1.0, 0.0, 0.0, 1.0);// 默认为白色
 ```
 
-# lineSpacing
-
-行距：设置文本的上下行距离，默认距离为字号的一倍。
-
+## 行间距
 ```ts
-text.lineSpacing = 1.5;//设置行距为字号尺寸的1.5倍。
+text.lineSpacing = 1.5; //设置行距为字号尺寸的1.5倍。
 ```
 
-# resize
-
-重设文本块尺寸。
-
+## 文本框大小
+可以通过 `resize` 调整大小
 ```ts
 text.resize(200, 200);//设置文本块为（200,200）。
 ```
 
 <Demo :height="500" src="/demos/gui/textfield.ts"></Demo>
 
-<<< @/public/demos/gui/textfield.ts`
+<<< @/public/demos/gui/textfield.ts

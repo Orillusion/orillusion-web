@@ -1,7 +1,7 @@
 # Shader示例
 
 ## GPU Buffer
-开始使用`compute shader`前，我们需要先了解`compute shader`中都有哪些数据类型，为了方便使用，我们封装了以下数据Buffer对象：
+开始使用 `compute shader` 前，我们需要先了解 `compute shader` 中都有哪些数据类型，为了方便使用，我们封装了以下数据 `Buffer` 对象：
 | 类型 | 描述 |
 | --- | --- |
 | ComputeGPUBuffer | 常用的数据Buffer封装对象 |
@@ -10,7 +10,7 @@
 | StructStorageGPUBuffer | 基于结构体的`Storage`数据Buffer封装对象 |
 
 ### ComputeGPUBuffer的用法
-`ComputeGPUBuffer`是比较常用的数据Buffer对象，该对象接受两个参数，数据大小以及一个可选的数据源：
+`ComputeGPUBuffer` 是比较常用的数据 `Buffer` 对象，该对象接受两个参数，数据大小以及一个可选的数据源：
 ```ts
 // 创建一个大小为 64 float32的 ComputeGPUBuffer 数据对象
 var buffer = new ComputeGPUBuffer(64);
@@ -178,7 +178,6 @@ GPUContext.compute_command(command, [this.mGaussianBlurShader]);
 ## 总结
 本节以一个高斯模糊示例，介绍了引擎中如何使用`Compute Shader`，如何创建`ComputeShader`所使用的各类`GPU Buffer`对象，`GPU Buffer`对象如何赋值，以及`ComputeShader`调度时参数设置，更多`ComputeShader`相关示例参见：
 
-## 本节完整示例
 <Demo :height="500" src="/demos/compute/gaussianBlur.ts"></Demo>
 
 <<< @/public/demos/compute/gaussianBlur.ts

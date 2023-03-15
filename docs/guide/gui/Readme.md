@@ -5,13 +5,15 @@ Orillusion提供了高性能的用户界面（GUI）组件供开发者使用。�
 
 > 用户界面往往会依赖一些外部字体数据、精灵图集等素材。制作这些图集请参考文档制作文本图集、制作精灵图集。
 
-## UI的两种呈现模式`GUISpace`，ViewSpace/WorldSpace：
+## GUI 空间模式
 
-1.ViewSpace模式：在这种模式下，UI在屏幕空间中，不随3D相机的更改而变动；
-2.WorldSpace模式：在这种模式下，UI可看做三维空间的一块画布，拥有3D属性（旋转、缩放、平移），能够参与深度检测等，实现与其他对象遮挡和被遮挡关系。
+目前 `GUISpace` 支持两种模式 `ViewSpace` 和 `WorldSpace`：
 
-> 引擎内置有Canvas`guiCanvas`节点作为GUI的根节点，用户的每一个面板`UIPanel`都将放入到Canvas节点中被搜集用于UI绘制；
-> 每个UIPanel可以视为面板根节点，在Panel下可以组织各种UI组件，用于展示UI细节。
+- ViewSpace模式：在这种模式下，UI在屏幕空间中，不随3D相机的更改而变动；
+- WorldSpace模式：在这种模式下，UI可看做三维空间的一块画布，拥有3D属性（旋转、缩放、平移），能够参与深度检测等，实现与其他对象遮挡和被遮挡关系。
+
+引擎内置有Canvas `guiCanvas` 节点作为GUI的根节点，用户的每一个面板`UIPanel`都将放入到Canvas节点中被搜集用于UI绘制；
+每个UIPanel可以视为面板根节点，在Panel下可以组织各种UI组件，用于展示UI细节。
 
 ```ts
 import { Engine3D } from '@orillusion/core';

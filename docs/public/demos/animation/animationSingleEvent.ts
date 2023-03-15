@@ -76,10 +76,10 @@ async function demo() {
 
 
     // 开启渲染任务(前向渲染);
-    let forwardRenderJob = new ForwardRenderJob(scene);
-    forwardRenderJob.addPost(new FXAAPost());
-    forwardRenderJob.addPost(new HDRBloomPost());
-    Engine3D.startRender(forwardRenderJob);
+    let renderJob = new ForwardRenderJob(scene);
+    renderJob.addPost(new FXAAPost());
+    renderJob.addPost(new HDRBloomPost());
+    Engine3D.startRender(renderJob);
 }
 
 demo();
