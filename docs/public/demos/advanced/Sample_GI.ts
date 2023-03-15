@@ -1,143 +1,231 @@
-import { Camera3D, CameraUtil, defaultTexture, DirectLight, Engine3D, ForwardRenderJob, GlobalIlluminationComponent, GUIHelp, HDRBloomPost, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, SphereGeometry, webGPUContext } from '@orillusion/core';
+import {
+  Camera3D,
+  defaultTexture,
+  DirectLight,
+  Engine3D,
+  ForwardRenderJob,
+  GLTFParser,
+  GUIHelp,
+  LitMaterial,
+  HoverCameraController,
+  KelvinUtil,
+  MeshRenderer,
+  Object3D,
+  PlaneGeometry,
+  Scene3D,
+  SphereGeometry,
+  SSRPost,
+  SSR_IS_Kernel,
+  Time,
+  CameraUtil,
+  webGPUContext,
+  GTAOPost,
+  HDRBloomPost,
+  TAAPost,
+  GlobalIlluminationComponent,
+  PointLight,
+  BoxGeometry,
+  Color,
+} from "@orillusion/core";
 
 export class Sample_GI {
-	lightObj: Object3D;
-	cameraObj: Camera3D;
-	scene: Scene3D;
-	hover: HoverCameraController;
-	constructor() { }
+  lightObj: Object3D;
+  cameraObj: Camera3D;
+  scene: Scene3D;
+  hover: HoverCameraController;
 
-	async run() {
-		await Engine3D.init({});
-		Engine3D.setting.gi.enable = true;
-		Engine3D.setting.gi.debug = true;
-		Engine3D.setting.gi.gridYCount = 3;
-		Engine3D.setting.gi.gridXCount = 6;
-		Engine3D.setting.gi.gridZCount = 6;
-		Engine3D.setting.gi.probeSpace = 36;
-		Engine3D.setting.gi.offsetX = -4;
-		Engine3D.setting.gi.offsetY = 29;
-		Engine3D.setting.gi.offsetZ = 7;
-		Engine3D.setting.gi.indirectIntensity = 2;
-		Engine3D.setting.gi.probeSize = 32;
-		Engine3D.setting.gi.octRTSideSize = 32;
-		Engine3D.setting.gi.autoRenderProbe = true;
+  constructor() {}
 
-		Engine3D.setting.shadow.shadowBound = 100;
-		Engine3D.setting.shadow.shadowBias = 0.00005;
-		Engine3D.setting.shadow.debug = true;
+  async run() {
+    await Engine3D.init({});
 
-		Engine3D.setting.shadow.autoUpdate = true;
-		Engine3D.setting.shadow.updateFrameRate = 1;
+    Engine3D.setting.material.materialChannelDebug = true;
+    Engine3D.setting.material.materialDebug = false;
 
-		Engine3D.setting.render.postProcessing.bloom = {
-			enable: true,
-			blurX: 4,
-			blurY: 4,
-			intensity: 0.5,
-			brightness: 1.25,
-		};
-		GUIHelp.init();
+    Engine3D.setting.gi.enable = true;
+    Engine3D.setting.gi.debug = true;
 
-		this.scene = new Scene3D();
-		let camera = CameraUtil.createCamera3DObject(this.scene);
-		camera.perspective(60, webGPUContext.aspect, 1, 5000.0);
-		let ctrl = camera.object3D.addComponent(HoverCameraController);
-		ctrl.setCamera(-60, -25, 100);
+    Engine3D.setting.gi.probeYCount = 3;
+    Engine3D.setting.gi.probeXCount = 6;
+    Engine3D.setting.gi.probeZCount = 6;
+    Engine3D.setting.gi.probeSpace = 60;
+    Engine3D.setting.gi.offsetX = 0;
+    Engine3D.setting.gi.offsetY = 60;
+    Engine3D.setting.gi.offsetZ = 0;
+    Engine3D.setting.gi.indirectIntensity = 1;
+    Engine3D.setting.gi.probeSize = 64;
+    Engine3D.setting.gi.octRTSideSize = 64;
+    Engine3D.setting.gi.octRTMaxSize = 2048;
+    Engine3D.setting.gi.ddgiGamma = 1;
+    Engine3D.setting.gi.autoRenderProbe = true;
 
-		let renderJob = new ForwardRenderJob(this.scene);
-		renderJob.addPost(new HDRBloomPost());
+    Engine3D.setting.shadow.shadowBound = 200;
+    Engine3D.setting.shadow.shadowBias = 0.002;
+    Engine3D.setting.shadow.debug = true;
 
-		this.addGIProbes();
+    Engine3D.setting.shadow.autoUpdate = true;
+    Engine3D.setting.shadow.updateFrameRate = 1;
 
-		renderJob.debug();
-		Engine3D.startRender(renderJob);
+    Engine3D.setting.render.postProcessing.bloom = {
+      enable: true,
+      debug: false,
+      blurX: 4,
+      blurY: 4,
+      intensity: 0.5,
+      brightness: 1.25,
+    };
+    GUIHelp.init();
 
-		await this.initScene();
-	}
+    this.scene = new Scene3D();
+    Camera3D.mainCamera = CameraUtil.createCamera3DObject(this.scene);
+    Camera3D.mainCamera.perspective(60, webGPUContext.aspect, 1, 5000.0);
+    let ctrl = Camera3D.mainCamera.object3D.addComponent(HoverCameraController);
+    ctrl.setCamera(-60, -25, 150);
 
-	private addGIProbes() {
-		let probeObj = new Object3D();
-		let component = probeObj.addComponent(GlobalIlluminationComponent);
-		this.scene.addChild(probeObj);
-	}
+    let renderJob = new ForwardRenderJob(this.scene);
+    renderJob.debug();
+    this.addGIProbes();
+    Engine3D.startRender(renderJob);
 
-	async initScene() {
-		/******** light *******/
-		{
-			this.lightObj = new Object3D();
-			this.lightObj.rotationX = 15;
-			this.lightObj.rotationY = 110;
-			this.lightObj.rotationZ = 0;
-			let lc = this.lightObj.addComponent(DirectLight);
-			lc.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
-			lc.castShadow = true;
-			lc.intensity = 10;
-			lc.debug();
-			this.scene.addChild(this.lightObj);
-		}
+    await this.initScene();
+  }
 
-		let ball: Object3D;
-		{
-			let mat = new LitMaterial();
-			mat.baseMap = defaultTexture.whiteTexture;
-			mat.normalMap = defaultTexture.normalTexture;
-			mat.aoMap = defaultTexture.whiteTexture;
-			mat.maskMap = defaultTexture.createTexture(32, 32, 255.0, 255.0, 0.0, 1);
-			mat.emissiveMap = defaultTexture.blackTexture;
-			mat.roughness = 0.5;
-			mat.metallic = 0.2;
+  private addGIProbes() {
+    let probeObj = new Object3D();
+    let component = probeObj.addComponent(GlobalIlluminationComponent);
+    this.scene.addChild(probeObj);
+  }
 
-			let floor = new Object3D();
-			let mr = floor.addComponent(MeshRenderer);
-			mr.geometry = new PlaneGeometry(2000, 2000);
-			mr.material = mat;
-			this.scene.addChild(floor);
+  async initScene() {
+    /******** light *******/
+    {
+      this.lightObj = new Object3D();
+      this.lightObj.rotationX = 15;
+      this.lightObj.rotationY = 110;
+      this.lightObj.rotationZ = 0;
+      let lc = this.lightObj.addComponent(DirectLight);
+      lc.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
+      lc.castShadow = true;
+      lc.intensity = 18;
+      lc.debug();
+      this.scene.addChild(this.lightObj);
+    }
 
-			ball = new Object3D();
-			mr = ball.addComponent(MeshRenderer);
-			mr.geometry = new SphereGeometry(6, 20, 20);
-			mr.material = mat;
-			mat.shaderState.acceptGI = true;
-			this.scene.addChild(ball);
-			ball.transform.x = -17;
-			ball.transform.y = 34;
-			ball.transform.z = 23;
-		}
+    {
+      let po4 = new Object3D();
+      let pl4 = po4.addComponent(PointLight);
+      pl4.intensity = 2.5;
+      pl4.range = 1000;
+      pl4.castShadow = true;
+      po4.x = 86;
+      po4.y = 23.61;
+      po4.z = -23.61;
+      this.scene.addChild(po4);
+      pl4.debug();
+      pl4.debugDraw(true);
+    }
 
-		let chair = (await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/SheenChair/SheenChair.gltf', { onProgress: (e) => this.onLoadProgress(e), onComplete: (e) => this.onComplete(e) })) as Object3D;
-		chair.scaleX = chair.scaleY = chair.scaleZ = 60;
-		chair.transform.y = 0;
-		this.scene.addChild(chair);
+    {
+      let floorHeight = 20;
+      let floor = this.GetSingleCube(1000, floorHeight, 1000, 0.6, 0.6, 0.6);
+      floor.y = -floorHeight;
+      this.scene.addChild(floor);
+    }
 
-		let Duck = (await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/Duck/Duck.gltf', { onProgress: (e) => this.onLoadProgress(e), onComplete: (e) => this.onComplete(e) })) as Object3D;
-		Duck.scaleX = Duck.scaleY = Duck.scaleZ = 0.15;
-		Duck.transform.y = 0;
-		Duck.transform.x = -16;
-		Duck.transform.z = 36;
-		this.scene.addChild(Duck);
+    {
+      let greenBall = this.GetSingleSphere(30, 0.1, 0.8, 0.2);
+      this.scene.addChild(greenBall);
+      greenBall.x = -70;
+      greenBall.y = 40;
+    }
 
-		GUIHelp.addFolder('Move Ball')
-		GUIHelp.add(ball.transform, 'x', -80, 80, 1);
-		GUIHelp.add(ball.transform, 'z', -80, 80, 1);
-		GUIHelp.endFolder();
+    {
+      let chair = (await Engine3D.res.loadGltf(
+        "https://cdn.orillusion.com/PBR/SheenChair/SheenChair.gltf",
+        {
+          onProgress: (e) => this.onLoadProgress(e),
+          onComplete: (e) => this.onComplete(e),
+        }
+      )) as Object3D;
+      chair.scaleX = chair.scaleY = chair.scaleZ = 100;
+      chair.rotationZ = chair.rotationX = 130;
+      chair.z = -120;
+      this.scene.addChild(chair);
+    }
 
-		GUIHelp.addFolder('Move Duck')
-		GUIHelp.add(Duck.transform, 'x', -80, 80, 1);
-		GUIHelp.add(Duck.transform, 'z', -80, 80, 1);
-		GUIHelp.endFolder();
-	}
+    {
+      let Duck = (await Engine3D.res.loadGltf(
+        "https://cdn.orillusion.com/PBR/Duck/Duck.gltf",
+        {
+          onProgress: (e) => this.onLoadProgress(e),
+          onComplete: (e) => this.onComplete(e),
+        }
+      )) as Object3D;
+      Duck.scaleX = Duck.scaleY = Duck.scaleZ = 0.3;
+      Duck.transform.y = 0;
+      Duck.transform.x = 0;
+      Duck.transform.z = 80;
+      this.scene.addChild(Duck);
+      GUIHelp.addFolder("Move Duck");
+      GUIHelp.add(Duck.transform, "x", -80, 80, 1);
+      GUIHelp.add(Duck.transform, "z", -80, 80, 1);
+      GUIHelp.endFolder();
+    }
 
-	onLoadProgress(e) {
-		console.log(e);
-	}
+    {
+      //   let car = await Engine3D.res.loadGltf(
+      //     "https://cdn.orillusion.com/gltfs/pbrCar/pbrCar.gltf"
+      //   );
+      //   car.scaleX = car.scaleY = car.scaleZ = 1.5;
+      //   this.scene.addChild(car);
+      //   car.x = 20;
+    }
 
-	onComplete(e) {
-		console.log(e);
-	}
+    GUIHelp.addButton("Start GI", () => {
+      Engine3D.renderJob.probeRenderer.startRenderGI();
+    });
+  }
 
-	renderUpdate() {
+  onLoadProgress(e) {
+    console.log(e);
+  }
 
-	}
+  onComplete(e) {
+    console.log(e);
+  }
+
+  renderUpdate() {}
+
+  public GetSingleCube(
+    sizeX: number,
+    sizeY: number,
+    sizeZ: number,
+    r: number,
+    g: number,
+    b: number
+  ) {
+    let mat = new LitMaterial();
+    mat.baseColor = new Color(r, g, b, 1);
+
+    let obj = new Object3D();
+    let mr = obj.addComponent(MeshRenderer);
+    mr.castGI = true;
+    mr.geometry = new BoxGeometry(sizeX, sizeY, sizeZ);
+    mr.material = mat;
+    return obj;
+  }
+
+  public GetSingleSphere(radius: number, r: number, g: number, b: number) {
+    let mat = new LitMaterial();
+    mat.baseColor = new Color(r, g, b, 1);
+
+    let obj = new Object3D();
+    let mr = obj.addComponent(MeshRenderer);
+    mr.castGI = true;
+    mr.geometry = new SphereGeometry(radius, 20, 20);
+    mr.material = mat;
+    return obj;
+  }
 }
+
 new Sample_GI().run();
