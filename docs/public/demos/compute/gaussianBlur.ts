@@ -1,4 +1,4 @@
-import { WebGPUDescriptorPool, BoxGeometry, CameraUtil, ComputeShader, Engine3D, ForwardRenderJob, GPUContext, GPUTextureFormat, GUIHelp, LitMaterial, HoverCameraController, MeshRenderer, Object3D, PostBase, RendererPassState, Scene3D, UniformGPUBuffer, Vector3, VirtualTexture, webGPUContext } from "@orillusion/core";
+import { WebGPUDescriptorPool, BoxGeometry, CameraUtil, ComputeShader, Engine3D, ForwardRenderJob, GPUContext, GPUTextureFormat, GUIHelp, LitMaterial, HoverCameraController, MeshRenderer, Object3D, PostBase, RendererPassState, Scene3D, UniformGPUBuffer, Vector3, VirtualTexture, webGPUContext, RTFrame, RTDescript } from "@orillusion/core";
 
 export class Demo_GaussianBlur {
     async run() {
@@ -15,9 +15,9 @@ export class Demo_GaussianBlur {
         let ctl = mainCamera.object3D.addComponent(HoverCameraController);
         ctl.setCamera(45, -30, 5)
 
-        let forwardRenderJob = new ForwardRenderJob(scene);
-        forwardRenderJob.addPost(new GaussianBlurPost());
-        Engine3D.startRender(forwardRenderJob);
+        let renderJob = new ForwardRenderJob(scene);
+        renderJob.addPost(new GaussianBlurPost());
+        Engine3D.startRender(renderJob);
     }
 
     async initScene(scene: Scene3D) {
@@ -34,6 +34,7 @@ export class GaussianBlurPost extends PostBase {
     private mGaussianBlurArgs: UniformGPUBuffer;
     private mRendererPassState: RendererPassState;
     private mBlurResultTexture: VirtualTexture;
+    private mRTFrame: RTFrame;
 
     constructor() {
         super();
@@ -41,12 +42,21 @@ export class GaussianBlurPost extends PostBase {
 
     private createResource() {
         let presentationSize = webGPUContext.presentationSize;
+
         this.mBlurResultTexture = new VirtualTexture(presentationSize[0], presentationSize[1], GPUTextureFormat.rgba16float, false, GPUTextureUsage.STORAGE_BINDING | GPUTextureUsage.TEXTURE_BINDING);
-        this.mBlurResultTexture.clearValue = [0, 0, 0, 1];
-        this.mBlurResultTexture.loadOp = `clear`;
         this.mBlurResultTexture.name = 'gaussianBlurResultTexture';
 
-        this.mRendererPassState = WebGPUDescriptorPool.createRendererPassState([this.mBlurResultTexture], false);
+        let descript = new RTDescript();
+        descript.clearValue = [0, 0, 0, 1];
+        descript.loadOp = `clear`;
+        this.mRTFrame = new RTFrame([
+            this.mBlurResultTexture
+        ],[
+            descript
+        ]);
+
+        this.mRendererPassState = WebGPUDescriptorPool.createRendererPassState(this.mRTFrame);
+        this.mRendererPassState.label = "GaussianBlur" ;
     }
 
     private createComputeShader() {

@@ -142,9 +142,17 @@ let presentationSize = webGPUContext.presentationSize;
 
 // 创建一张空的VirtualTexture
 this.mBlurResultTexture = new VirtualTexture(presentationSize[0], presentationSize[1], GPUTextureFormat.rgba16float, false, GPUTextureUsage.STORAGE_BINDING | GPUTextureUsage.TEXTURE_BINDING);
-this.mBlurResultTexture.clearValue = [0, 0, 0, 1];
-this.mBlurResultTexture.loadOp = `clear`;
 this.mBlurResultTexture.name = 'gaussianBlurResultTexture';
+
+// 设置 RTDescript 的相关参数(VirtualTexture的数据载入行为等)
+let descript = new RTDescript();
+descript.clearValue = [0, 0, 0, 1];
+descript.loadOp = `clear`;
+this.mRTFrame = new RTFrame([
+    this.mBlurResultTexture
+],[
+    descript
+]);
 
 // 将该纹理关联到ComputeShader
 this.mGaussianBlurShader.setStorageTexture(`resultTex`, this.mBlurResultTexture);
