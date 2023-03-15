@@ -51,7 +51,7 @@ async function demo() {
     scene.addChild(soldier);
 
     // 获取动画控制器;
-    let animation = soldier.getComponentInChild(SkeletonAnimation);
+    let animation = soldier.getComponentsInChild(SkeletonAnimation)[0];
     animation.play('Idle');
 
     GUIHelp.addFolder("Animation-weight").open();

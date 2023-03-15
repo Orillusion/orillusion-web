@@ -53,7 +53,7 @@ async function demo() {
     scene.addChild(cesiumMan_skeleton);
 
     // 获取动画控制器;
-    var cesiumManAnimator = cesiumMan_skeleton.getComponentInChild(SkeletonAnimation);
+    var cesiumManAnimator = cesiumMan_skeleton.getComponentsInChild(SkeletonAnimation)[0];
     cesiumManAnimator.play('anim_0', 1);
 
     // clone

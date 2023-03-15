@@ -30,7 +30,7 @@ soldier.localScale.set(2, 2, 2);
 scene.addChild(soldier);
 
 // 获取动画控制器;
-let animator = soldier.getComponentInChild(SkeletonAnimation);
+let animator = soldier.getComponentsInChild(SkeletonAnimation)[0];
 animator.play('Walk');
 ```
 

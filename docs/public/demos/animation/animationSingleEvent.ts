@@ -50,7 +50,7 @@ async function demo() {
     scene.addChild(soldier);
 
     // 获取动画控制器;
-    let animation = soldier.getComponentInChild(SkeletonAnimation);
+    let animation = soldier.getComponentsInChild(SkeletonAnimation)[0];
 
     const runClip = animation.getAnimationClip("Run");
     runClip.addEvent("Begin", 0);
