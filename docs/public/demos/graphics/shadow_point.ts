@@ -29,7 +29,6 @@ async function demo() {
         obj.rotationY = 0;
         obj.rotationZ = 0;
         light.intensity = 30;
-        light.radius = 1;
         light.range = 100;
         light.castShadow = true;
         light.debug();

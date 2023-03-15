@@ -41,10 +41,9 @@ export class Sample_Light {
       light.lightColor.g = 157 / 255;
       light.lightColor.b = 5 / 255;
       light.intensity = 100;
-      light.radius = 1;
       light.range = 500;
       light.outerAngle = 110;
-      light.innerAngle = 50;
+      light.innerAngle = 30;
       scene.addChild(spotLight);
 
       light.debug();

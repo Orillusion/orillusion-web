@@ -38,8 +38,6 @@ export class Sample_Light {
       let light = pointLight.addComponent(PointLight);
       light.intensity = 100;
       light.range = 300;
-      light.at = 1;
-      light.radius = 1;
       light.lightColor.r = 255 / 255;
       light.lightColor.g = 157 / 255;
       light.lightColor.b = 5 / 255;

@@ -54,8 +54,6 @@ let target = dl.direction
 | lightColor | Color | 灯光的颜色, 默认是白色 `rgb(1.0,1.0,1.0)` |
 | intensity | Number | 光照强度，默认值为 `1` |
 | range | Number | 光照最远距离 |
-| radius | Number | 光照半径 |
-| at | Number | 光照指数衰减系数，默认`1` |
 
 
 ```ts
@@ -87,8 +85,6 @@ pointLight.lightColor = new Color(1.0, 0.95, 0.84, 1.0);
 | intensity | Number | 光照强度，默认值为 `1` |
 | direction | Vector3 | 只读属性，获取聚光的方向向量 |
 | range | Number | 光照最远距离 |
-| radius | Number | 光照半径 |
-| at | Number | 光照指数衰减系数，默认`1` |
 | innerAngle | Number | 光锥内切角，聚光在小于这个角度的范围内有光线 |
 | outerAngle | Number | 光锥外切角，光线会在内切角到外切角的范围内逐步衰减到0 |
     
@@ -104,7 +100,6 @@ let spotLight = spotLightObj.addComponent(SpotLight);
 spotLight.lightColor = new Color(1.0, 0.95, 0.84, 1.0);
 spotLight.intensity = 20;
 spotLight.range = 200;
-spotLight.radius = 1;
 spotLight.innerAngle = 20;
 spotLight.outerAngle = 35;
 ```

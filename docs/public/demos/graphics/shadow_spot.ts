@@ -32,7 +32,6 @@ async function demo() {
         obj.rotationY = 145;
         obj.rotationZ = 0;
         light.intensity = 50;
-        light.radius = 1;
         light.range = 150;
         light.outerAngle = 110;
         light.innerAngle = 30;
