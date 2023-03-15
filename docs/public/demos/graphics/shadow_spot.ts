@@ -51,13 +51,6 @@ async function demo() {
         mr.material = new LitMaterial();
         mr.castShadow = true;
         scene3D.addChild(castShadowObj);
-        GUIHelp.addButton("castShadow", () => mr.castShadow = !mr.castShadow);
-        
-        GUIHelp.addFolder(`BoxRotation`);
-        GUIHelp.add(castShadowObj, 'rotationX', -180, 180, 0.001);
-        GUIHelp.add(castShadowObj, 'rotationY', -180, 180, 0.001);
-        GUIHelp.add(castShadowObj, 'rotationZ', -180, 180, 0.001);
-        GUIHelp.endFolder();
     }
 
     //创建一个plane，用于接受阴影
@@ -69,7 +62,6 @@ async function demo() {
         // mr2.material.debug();
         mr.receiveShadow = true;
         scene3D.addChild(receiveShadowObj);
-        GUIHelp.addButton("receiveShadow", () => mr.receiveShadow = !mr.receiveShadow);
     }
     // 创建渲染任务
     let renderJob: ForwardRenderJob = new ForwardRenderJob(scene3D);

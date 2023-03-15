@@ -8,7 +8,6 @@ async function demo() {
     Engine3D.setting.shadow.shadowBias = 0;
 
     await Engine3D.init();
-    GUIHelp.init();
     let scene3D: Scene3D = new Scene3D();
     let cameraObj: Object3D = new Object3D();
     let camera = cameraObj.addComponent(Camera3D);
@@ -16,7 +15,8 @@ async function demo() {
     let controller = cameraObj.addComponent(HoverCameraController);
     controller.setCamera(0, -45, 100, new Vector3(0, 0, 0));
     scene3D.addChild(cameraObj);
-
+    GUIHelp.init();
+    GUIHelp.endFolder()
     GUIHelp.add(Engine3D.setting.shadow,'shadowBias', 0, 0.003)
     {
         let obj = new Object3D();
