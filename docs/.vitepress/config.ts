@@ -91,8 +91,8 @@ export default async () => defineConfig({
       appId: 'A4SU9IUJ2M',
       apiKey: '1a3b57b41821e82cafdd80621f042c9c',
       indexName: 'orillusion',
-      locales: {
-        zh: {
+      // locales: {
+      //   zh: {
           placeholder: '搜索文档',
           translations: {
             button: {
@@ -132,8 +132,8 @@ export default async () => defineConfig({
               }
             }
           }
-        }
-      }
+      //   }
+      // }
     },
 
     lastUpdatedText: '最后更新',
