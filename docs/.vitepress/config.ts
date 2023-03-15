@@ -67,7 +67,7 @@ export default async () => defineConfig({
     },
 
     editLink: {
-      pattern: 'https://github.com/Orillusion/orillusion-web/edit/main/docs/:path',
+      pattern: 'https://github.com/Orillusion/orillusion-web/edit/master/docs/:path',
       text: '为此页提供修改建议'
     },
 
