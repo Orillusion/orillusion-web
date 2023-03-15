@@ -1,4 +1,4 @@
-import { Engine3D, Scene3D, Vector3, Object3D, Camera3D, ForwardRenderJob, LitMaterial, BoxGeometry, MeshRenderer } from "@orillusion/core";
+import { Engine3D, Scene3D, Object3D, Camera3D, ForwardRenderJob, LitMaterial, BoxGeometry, MeshRenderer, HoverCameraController } from "@orillusion/core";
 
 export default class CameraType {
     cameraObj: Object3D;
@@ -9,7 +9,11 @@ export default class CameraType {
 
     async run() {
         console.log('start demo');
-        await Engine3D.init({});
+        await Engine3D.init({
+            canvasConfig: {
+                alpha: true
+            }
+        });
         await this.initScene();
         await this.initCamera();
         await this.createBoxes();
@@ -22,12 +26,14 @@ export default class CameraType {
 
     async initScene() {
         this.scene = new Scene3D();
+        this.scene.hideSky()
     }
 
     async initCamera() {
         this.cameraObj = new Object3D();
         this.camera = this.cameraObj.addComponent(Camera3D)
-        this.camera.lookAt(new Vector3(0, 0, -350), new Vector3(0, 0, 0));
+        let hc = this.cameraObj.addComponent(HoverCameraController);
+        hc.setCamera(0, 0, 500)
         this.scene.addChild(this.cameraObj);
         this.perspective();
     }
@@ -72,7 +78,7 @@ export default class CameraType {
         `
         select.setAttribute('style', 'position:fixed;right:5px;top:5px')
         document.body.appendChild(select)
-
+        document.body.style.background = '#aaa'
         select.addEventListener('change', ()=>{
             if(select.value === 'perspective')
                 this.perspective()

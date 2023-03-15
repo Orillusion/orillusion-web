@@ -31,7 +31,7 @@ export class Sample_ParticleAnim {
         Camera3D.mainCamera.perspective(60, webGPUContext.aspect, 0.1, 5000.0);
 
         let ctrl = Camera3D.mainCamera.object3D.addComponent(HoverCameraController);
-        ctrl.setCamera(45, -20, 100, new Vector3(0, 15, 51));
+        ctrl.setCamera(45, -20, 30, new Vector3(0, 15, 51));
 
         await this.initScene(scene);
 
