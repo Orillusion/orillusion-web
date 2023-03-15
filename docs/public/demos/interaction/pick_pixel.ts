@@ -32,8 +32,8 @@ export class Sample_MousePick {
     constructor() { }
 
     async run() {
-        Engine3D.setting.pickerMode.enable = true;
-        Engine3D.setting.pickerMode.mode = `pixel`;
+        Engine3D.setting.pick.enable = true;
+        Engine3D.setting.pick.mode = `pixel`;
         Engine3D.setting.shadow.debug = false;
 
         await Engine3D.init({});

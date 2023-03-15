@@ -16,9 +16,9 @@
 
 ```ts
 //引擎启动前需要配置开启拾取和拾取类型
-Engine3D.setting.pickerMode.enable = true;
+Engine3D.setting.pick.enable = true;
 // Bound: 包围盒拾取, pixel: 帧缓冲区拾取
-Engine3D.setting.pickerMode.mode = `bound`; // or 'pixel'
+Engine3D.setting.pick.mode = `bound`; // or 'pixel'
 
 await Engine3D.init()
 // 拾取检测依赖 Collider 碰撞组件

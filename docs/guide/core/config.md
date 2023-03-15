@@ -20,16 +20,16 @@ await Engine3D.init();
 引擎默认配置是 `bound` 模式， 包围盒拾取通过计算模型的AABB包围盒来拾取，精度不如 `pixel` 模式，但是计算更快，性能更好。包围盒拾取的模式可以通过 `pickerMode` 属性来设置。
 
 ```ts
-Engine3D.setting.pickerMode.enable = true;
-Engine3D.setting.pickerMode.mode = `bound`;
+Engine3D.setting.pick.enable = true;
+Engine3D.setting.pick.mode = `bound`;
 await Engine3D.init();
 ```
 
 像素级拾取模式同样可以通过 `pickerMode` 属性来设置。
 
 ```ts
-Engine3D.setting.pickerMode.enable = true;
-Engine3D.setting.pickerMode.mode = `pixel`;
+Engine3D.setting.pick.enable = true;
+Engine3D.setting.pick.mode = `pixel`;
 await Engine3D.init();
 ```
 

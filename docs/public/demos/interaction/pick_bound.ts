@@ -12,8 +12,8 @@ export default class TouchDemo {
     async run() {
         console.log('start demo');
 
-        Engine3D.setting.pickerMode.enable = true;
-        Engine3D.setting.pickerMode.mode = `bound`;
+        Engine3D.setting.pick.enable = true;
+        Engine3D.setting.pick.mode = `bound`;
 
         await Engine3D.init();
 
