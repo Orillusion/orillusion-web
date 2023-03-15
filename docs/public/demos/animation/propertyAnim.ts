@@ -1,6 +1,5 @@
 import {
     Camera3D,
-    defaultTexture,
     DirectLight,
     Engine3D,
     ForwardRenderJob,
@@ -14,8 +13,6 @@ import {
     Scene3D,
     CameraUtil,
     webGPUContext,
-    GTAOPost,
-    TAAPost,
     PropertyAnimation,
     PropertyAnimClip,
     WrapMode,
@@ -29,24 +26,8 @@ export class Sample_PropertyAnim {
     constructor() { }
 
     async run() {
-        Engine3D.setting.debug.materialChannelDebug = false;
-        Engine3D.setting.debug.materialDebug = false;
-        Engine3D.setting.gi.enable = true;
-        Engine3D.setting.render.postProcessing.gtao.debug = false;
-        Engine3D.setting.render.postProcessing.taa.debug = false;
-        Engine3D.setting.gi.indirectIntensity = 5;
-        Engine3D.setting.shadow.enable = true;
-        Engine3D.setting.shadow.debug = false;
-        Engine3D.setting.shadow.shadowBias = -0.001;
-
-        Engine3D.setting.shadow.autoUpdate = true;
-        Engine3D.setting.shadow.updateFrameRate = 1;
-
-        await Engine3D.init({
-            renderLoop: () => this.loop(),
-        });
-
-        GUIHelp.init();
+        await Engine3D.init();
+        GUIHelp.init()
 
         this.scene = new Scene3D();
         Camera3D.mainCamera = CameraUtil.createCamera3DObject(this.scene, 'camera');
@@ -57,9 +38,6 @@ export class Sample_PropertyAnim {
         await this.initScene(this.scene);
 
         let renderJob = new ForwardRenderJob(this.scene);
-        renderJob.addPost(new TAAPost());
-        renderJob.addPost(new GTAOPost());
-        renderJob.debug();
         Engine3D.startRender(renderJob);
 
         GUIHelp.addButton('Restart', () => {
@@ -80,7 +58,6 @@ export class Sample_PropertyAnim {
     private async makePropertyAnim(node: Object3D) {
         // 添加组件
         let animation = node.addComponent(PropertyAnimation);
-
         // 加载clip素材
         let res = await fetch('https://cdn.orillusion.com/json/anim_0.json');
         let json = await res.json();
@@ -108,11 +85,9 @@ export class Sample_PropertyAnim {
             this.lightObj.rotationZ = 45;
             let lc = this.lightObj.addComponent(DirectLight);
             lc.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
-            lc.castShadow = true;
-            lc.intensity = 10.7;
+            lc.intensity = 20;
             scene.addChild(this.lightObj);
         }
-        this.createFloor(scene);
 
         let duck = await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/Duck/Duck.gltf');
         this.scene.addChild(duck);
@@ -123,28 +98,6 @@ export class Sample_PropertyAnim {
 
         return true;
     }
-
-    private createFloor(scene: Scene3D) {
-        let mat = new LitMaterial();
-        mat.baseMap = defaultTexture.whiteTexture;
-        mat.normalMap = defaultTexture.normalTexture;
-        mat.aoMap = defaultTexture.whiteTexture;
-        mat.emissiveMap = defaultTexture.blackTexture;
-        mat.roughness = 0.5;
-        mat.roughness_max = 0.1;
-        mat.metallic = 0.5;
-
-        {
-            let planeGeometry = new PlaneGeometry(1000, 1000);
-            let floor: Object3D = new Object3D();
-            let mr = floor.addComponent(MeshRenderer);
-            mr.material = mat;
-            mr.geometry = planeGeometry;
-            scene.addChild(floor);
-        }
-    }
-
-    private loop(): void { }
 }
 
 new Sample_PropertyAnim().run();

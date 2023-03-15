@@ -1,7 +1,7 @@
 import {
     Camera3D,
     Engine3D,
-    RendererMaskUtil,
+    DirectLight,
     ForwardRenderJob,
     GUIHelp,
     HoverCameraController,
@@ -9,11 +9,11 @@ import {
     Object3D,
     RendererMask,
     Scene3D,
-    webGPUContext
+    webGPUContext,
+    Color
 } from '@orillusion/core';
 
 class Sample_morph {
-    lightObj: Object3D;
     scene: Scene3D;
     hoverCameraController: HoverCameraController;
 
@@ -65,7 +65,15 @@ class Sample_morph {
             GUIHelp.open();
             GUIHelp.endFolder();
         }
-
+        {
+            let ligthObj = new Object3D();
+            ligthObj.rotationY = 135
+            ligthObj.rotationX = 45
+            let dl = ligthObj.addComponent(DirectLight);
+            dl.lightColor = new Color(1.0, 0.95, 0.84, 1.0);
+            scene.addChild(ligthObj);
+            dl.intensity = 15;
+        }
         return true;
     }
 
