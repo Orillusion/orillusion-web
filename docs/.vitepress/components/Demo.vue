@@ -10,9 +10,11 @@
             <a class="toggle" @click="full = !full">{{ full ? '<': '>'}}</a>
         </template>
         <template v-else>
-            <p><img src="/images/logo_white.png" width="100" style="margin:0 auto 15px auto"></p>
-            <p>Orillusion powered by WebGPU on Chrome 113+</p>
-            <p>Please use latest <a href="https://www.google.com/chrome/canary/" target="_blank" style="color: var(--vp-c-brand)">Chrome Canary</a></p>
+            <p>
+                <img src="/images/logo_white.png" width="100" style="margin:0 auto 15px auto" /><br>
+                Orillusion powered by WebGPU on Chrome 113+<br>
+                Please use latest <a href="https://www.google.com/chrome/canary/" target="_blank" style="color: var(--vp-c-brand)">Chrome Canary</a>
+            </p>
         </template>
     </div>
 </template>
