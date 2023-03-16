@@ -75,6 +75,8 @@ export default {
     computed: {
         support(){
             try{
+                if(navigator.userAgent.match(/iphone|ipad|android/))
+                    throw new Error()
                 let version = navigator.userAgent.match(/chrome\/\d+/i)
                 if(version[0].split('/')[1] < 113)
                     throw new Error()
