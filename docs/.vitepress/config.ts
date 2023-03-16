@@ -13,7 +13,7 @@ type SidebarItem = {
 }[]
 export default async () => defineConfig({
   base: '/',
-  lang: 'en-US',
+  lang: 'zh',
   title: 'Orillusion',
   description: 'The Next Generation WebGPU Engine',
   lastUpdated: true,
@@ -91,6 +91,9 @@ export default async () => defineConfig({
       appId: 'A4SU9IUJ2M',
       apiKey: '1a3b57b41821e82cafdd80621f042c9c',
       indexName: 'orillusion',
+      searchParameters:{
+        facetFilters: ["tags:latest"],
+      },
       // locales: {
       //   zh: {
           placeholder: '搜索文档',
