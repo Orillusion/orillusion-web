@@ -1,11 +1,19 @@
 <template>
     <div class="demo" :class="{
         full: full,
-        code: code
+        code: code,
+        ban: !support 
     }" :style="{height: height + 'px'}">
-        <iframe ref="iframe" :src="href" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
-        <Logo v-show="loading" class="loading-wrap"></Logo>
-        <a class="toggle" @click="full = !full">{{ full ? '<': '>'}}</a>
+        <template v-if="support">
+            <iframe ref="iframe" :src="href" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
+            <Logo v-show="loading" class="loading-wrap"></Logo>
+            <a class="toggle" @click="full = !full">{{ full ? '<': '>'}}</a>
+        </template>
+        <template v-else>
+            <p><img src="/images/logo_white.png" width="100" style="margin:0 auto 15px auto"></p>
+            <p>Orillusion powered by WebGPU on Chrome 113+</p>
+            <p>Please use latest <a href="https://www.google.com/chrome/canary/" target="_blank" style="color: var(--vp-c-brand)">Chrome Canary</a></p>
+        </template>
     </div>
 </template>
 
@@ -48,7 +56,7 @@ export default {
             style.innerHTML = `.demo.code[${uid}] + div[class*=language-] {height: ${this.height}px}`
             this.$el.appendChild(style)
         }
-        this.$refs.iframe.contentWindow.addEventListener('message', (e)=>{
+        this.$refs.iframe?.contentWindow.addEventListener('message', (e)=>{
             if(e.data === 'rendering'){
                 this.loading = false
             }
@@ -63,6 +71,16 @@ export default {
         }
     },
     computed: {
+        support(){
+            try{
+                let version = navigator.userAgent.match(/chrome\/\d+/i)
+                if(version[0].split('/')[1] >= 113)
+                    throw new Error()
+                return true
+            }catch(e){
+                return false
+            }
+        },
         href(){
             return withBase('/demos/index.html')+ '?' + withBase(this.src)
         }
@@ -73,6 +91,16 @@ export default {
 <style scoped>
 .demo{
     position: relative;
+}
+.demo.ban{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+.demo.ban > p{
+    margin: 0;
+    text-align: center; 
+    padding: 0 10px
 }
 .demo > iframe{
     width: 100%;
@@ -92,6 +120,9 @@ export default {
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
 }
+.demo.code.ban > p {
+    width: 50%;
+}
 @media (max-width: 719px) {
     .demo > iframe{
         border-radius: 8px;
@@ -102,6 +133,9 @@ export default {
         margin-bottom: 0.85rem;
     }
     .demo.code > iframe {
+        width: 100%;
+    }
+    .demo.code.ban > p {
         width: 100%;
     }
     .demo.code > :deep(.loading-wrap){
