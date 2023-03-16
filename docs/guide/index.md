@@ -5,7 +5,7 @@
 `Orillusion` 引擎是一款完全支持 [WebGPU](https://www.orillusion.com/webgpu.html) 标准的轻量级渲染引擎。基于最新的 `Web` 图形API标准，我们做了大量的探索和尝试，实现了很多曾经在 `Web` 中很难实现或者根本实现不了的技术和功能。我们自己从以下几个方面对引擎的架构和功能特点做出了总结。
 
 ## WebGPU 支持
-引擎底层没有考虑到兼容现有的 [WebGL](https://www.khronos.org/webgl/) 标准，而是完全向最新的 `WebGPU` 标准看起。随着`WebGPU API` 和 `WGSL` 的持续发展，我们也将快速更新迭代引擎底层 `WebGPU` 的计算和渲染能力，提升引擎性能优势。
+引擎底层没有考虑到兼容现有的 [WebGL](https://www.khronos.org/webgl/) 标准，而是完全向最新的 `WebGPU` 标准看齐。随着`WebGPU API` 和 `WGSL` 的持续发展，我们也将快速更新迭代引擎底层 `WebGPU` 的计算和渲染能力，提升引擎性能优势。
 
 ## ECS 组件式系统
 引擎框架发展至今，业内普遍开始采用 `组合优于继承` 的开发设计原则。因此，我们放弃继承式架构，而选择了最新的 [ECS](https://wikipedia.org/wiki/Entity_component_system) 组件式架构做为引擎的成体设计思路。消除了继承模式中的继承链复杂，功能交织的问题，通过解耦，封装和模块化重新的设计，开发者可以更灵活的进行功能组合及扩展。
