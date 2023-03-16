@@ -74,7 +74,7 @@ export default {
         support(){
             try{
                 let version = navigator.userAgent.match(/chrome\/\d+/i)
-                if(version[0].split('/')[1] >= 113)
+                if(version[0].split('/')[1] < 113)
                     throw new Error()
                 return true
             }catch(e){
