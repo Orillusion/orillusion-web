@@ -12,8 +12,8 @@
         <template v-else>
             <p>
                 <img src="/images/logo_white.png" width="100" style="margin:0 auto 15px auto" /><br>
-                Orillusion powered by WebGPU on Chrome 113+<br>
-                Please use latest <a href="https://www.google.com/chrome/canary/" target="_blank" style="color: var(--vp-c-brand)">Chrome Canary</a>
+                Orillusion powered by WebGPU on Chrome/Edge 113+<br>
+                Please upgrade to latest <a href="https://www.google.com/chrome/canary/" target="_blank">Chrome</a>/<a href="https://www.microsoftedgeinsider.com/download/canary" target="_blank">Edge</a>
             </p>
         </template>
     </div>
@@ -250,5 +250,8 @@ a.toggle {
 }
 .demo.code > .loading-wrap{
     right: 50%;
+}
+a[href]{
+    color: var(--vp-c-brand)
 }
 </style>

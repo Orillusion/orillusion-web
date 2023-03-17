@@ -2,6 +2,7 @@
     <div class="image-bg"></div>
 </template>
 <script>
+    import logo from './logo.svg?raw'
     import { withBase } from 'vitepress'
     
     export default {
@@ -18,23 +19,18 @@
             }
         },
         async mounted(){
-            let svg = localStorage.logo
-            if(!svg){
-                let res = await fetch(withBase('/images/logo.svg'))
-                svg = await res.text()
-            }
             let target = this.target = this.homeHero ? document.querySelector('.VPHomeHero .image-bg') : this.$el
             if(this.homeHero){
                 target.nextElementSibling?.remove()
                 target.nextElementSibling?.remove()
             }
-            target.innerHTML = svg
+            target.innerHTML = localStorage.logo || logo
             if(this.animation)
                 this.$nextTick(this.loadSvg)
         },
         methods:{
             loadSvg(){
-                if(!localStorage.logo){
+                if(!this.target.innerHTML.match(/transform-origin/)){
                     let paths = this.target.querySelectorAll('svg path')
                     let center = 132.84 / 2
                     for(let i = 0; i < paths.length; i++){
@@ -50,7 +46,8 @@
                         p.setAttribute('transform-origin', x + ' ' + y)
                         p.setAttribute('style', `animation-delay: ${offset * 0.02}s`)
                     }
-                    setTimeout(() => localStorage.logo = this.target.innerHTML)
+                    if(!localStorage.logo)
+                        localStorage.logo = this.target.innerHTML
                 }
                 this.intersectionObserver = new IntersectionObserver(function (entries) {
                     if (entries[0].isIntersecting) {
