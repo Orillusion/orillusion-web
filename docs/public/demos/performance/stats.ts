@@ -1,16 +1,5 @@
 import {
-    Engine3D,
-    Scene3D,
-    Object3D,
-    Camera3D,
-    ForwardRenderJob,
-    LitMaterial,
-    BoxGeometry,
-    MeshRenderer,
-    DirectLight,
-    HoverCameraController,
-    Color,
-    ComponentBase
+    Engine3D, Scene3D, Object3D, Camera3D, ForwardRenderJob, LitMaterial, BoxGeometry, MeshRenderer, DirectLight, HoverCameraController, Color, ComponentBase
 } from "@orillusion/core";
 import {Stats} from  '@orillusion/stats';
 

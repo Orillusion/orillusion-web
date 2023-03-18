@@ -1,16 +1,5 @@
 import {
-    Camera3D,
-    Engine3D,
-    DirectLight,
-    ForwardRenderJob,
-    GUIHelp,
-    HoverCameraController,
-    MeshRenderer,
-    Object3D,
-    RendererMask,
-    Scene3D,
-    webGPUContext,
-    Color
+    Camera3D, Engine3D, DirectLight, ForwardRenderJob, GUIHelp, HoverCameraController, MeshRenderer, Object3D, RendererMask, Scene3D, webGPUContext, Color
 } from '@orillusion/core';
 
 class Sample_morph {

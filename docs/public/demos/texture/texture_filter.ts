@@ -1,17 +1,5 @@
 import {
-    Engine3D,
-    Vector3,
-    Scene3D,
-    Object3D,
-    Camera3D,
-    ForwardRenderJob,
-    UnLitMaterial,
-    MeshRenderer,
-    HoverCameraController,
-    PlaneGeometry,
-    BitmapTexture2D,
-    DirectLight,
-    Color
+    Engine3D, Vector3, Scene3D, Object3D, Camera3D, ForwardRenderJob, UnLitMaterial, MeshRenderer, HoverCameraController, PlaneGeometry, BitmapTexture2D, DirectLight, Color
 } from "@orillusion/core";
 
 async function demo() {

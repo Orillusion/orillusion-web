@@ -1,15 +1,5 @@
 import {
-    Engine3D,
-    Scene3D,
-    Object3D,
-    Camera3D,
-    ForwardRenderJob,
-    ViewPanel,
-    UIImage,
-    DirectLight,
-    HoverCameraController,
-    Color,
-    ImageType,
+    Engine3D, Scene3D, Object3D, Camera3D, ForwardRenderJob, ViewPanel, UIImage, DirectLight, HoverCameraController, Color, ImageType,
 } from "@orillusion/core";
 import {log} from "util";
 

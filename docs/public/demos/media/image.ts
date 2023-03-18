@@ -1,14 +1,5 @@
 import {
-    Engine3D,
-    Vector3,
-    Scene3D,
-    Object3D,
-    Camera3D,
-    ForwardRenderJob,
-    MeshRenderer,
-    HoverCameraController,
-    PlaneGeometry,
-    GUIHelp
+    Engine3D, Vector3, Scene3D, Object3D, Camera3D, ForwardRenderJob, MeshRenderer, HoverCameraController, PlaneGeometry, GUIHelp
 } from "@orillusion/core";
 
 import { ImageMaterial } from "@orillusion/media-extention"

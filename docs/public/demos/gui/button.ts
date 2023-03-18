@@ -1,15 +1,5 @@
 import {
-    Engine3D,
-    Scene3D,
-    Object3D,
-    Camera3D,
-    ForwardRenderJob,
-    ViewPanel,
-    UIButton,
-    DirectLight,
-    HoverCameraController,
-    Color,
-    PointerEvent3D
+    Engine3D, Scene3D, Object3D, Camera3D, ForwardRenderJob, ViewPanel, UIButton, DirectLight, HoverCameraController, Color, PointerEvent3D
 } from "@orillusion/core";
 
 export class Sample_button {

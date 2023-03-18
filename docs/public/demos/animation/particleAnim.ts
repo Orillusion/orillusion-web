@@ -1,25 +1,5 @@
 import {
-    Camera3D,
-    Vector3,
-    Engine3D,
-    ForwardRenderJob,
-    HoverCameraController,
-    Object3D,
-    PlaneGeometry,
-    Scene3D,
-    CameraUtil,
-    webGPUContext,
-    HDRBloomPost,
-    ParticleSystem,
-    ParticleMaterial,
-    ParticleStandSimulator,
-    ParticleEmitModule,
-    ShapeType,
-    EmitLocation,
-    ParticleGravityModifierModule,
-    ParticleOverLifeColorModule,
-    Vector4,
-    BlendMode,
+    Camera3D, Vector3, Engine3D, ForwardRenderJob, HoverCameraController, Object3D, PlaneGeometry, Scene3D, CameraUtil, webGPUContext, HDRBloomPost, ParticleSystem, ParticleMaterial, ParticleStandSimulator, ParticleEmitModule, ShapeType, EmitLocation, ParticleGravityModifierModule, ParticleOverLifeColorModule, Vector4, BlendMode,
 } from '@orillusion/core';
 
 export class Sample_ParticleAnim {
@@ -78,8 +58,7 @@ export class Sample_ParticleAnim {
 
         // 添加生命周期色彩模块
         simulator.addModule(ParticleOverLifeColorModule).colorSegments = [
-            new Vector4(1, 0.3, 0, 1),
-            new Vector4(0, 0.6, 1, 0)
+            new Vector4(1, 0.3, 0, 1),         new Vector4(0, 0.6, 1, 0)
         ];
 
         // 开始播放

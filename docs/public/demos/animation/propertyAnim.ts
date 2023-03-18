@@ -1,21 +1,5 @@
 import {
-    Camera3D,
-    DirectLight,
-    Engine3D,
-    ForwardRenderJob,
-    GUIHelp,
-    LitMaterial,
-    HoverCameraController,
-    KelvinUtil,
-    MeshRenderer,
-    Object3D,
-    PlaneGeometry,
-    Scene3D,
-    CameraUtil,
-    webGPUContext,
-    PropertyAnimation,
-    PropertyAnimClip,
-    WrapMode,
+    Camera3D, DirectLight, Engine3D, ForwardRenderJob, GUIHelp, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, CameraUtil, webGPUContext, PropertyAnimation, PropertyAnimClip, WrapMode,
 } from '@orillusion/core';
 
 export class Sample_PropertyAnim {

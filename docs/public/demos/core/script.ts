@@ -1,22 +1,4 @@
-import {
-  ComponentBase,
-  Time,
-  DirectLight,
-  Color,
-  LitMaterial,
-  MeshRenderer,
-  defaultTexture,
-  Vector3,
-  CubicBezierPath,
-  CubicBezierType,
-  Scene3D,
-  BoxGeometry,
-  Object3D,
-  Engine3D,
-  Camera3D,
-  HoverCameraController,
-  ForwardRenderJob,
-} from '@orillusion/core';
+import {ComponentBase, Time, DirectLight, Color, LitMaterial, MeshRenderer, defaultTexture, Vector3, CubicBezierPath, CubicBezierType, Scene3D, BoxGeometry, Object3D, Engine3D, Camera3D, HoverCameraController, ForwardRenderJob} from '@orillusion/core';
 
 class LightAnimation extends ComponentBase {
   private light: DirectLight;

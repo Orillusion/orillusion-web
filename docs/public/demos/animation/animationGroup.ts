@@ -1,18 +1,5 @@
 import {
-    Engine3D,
-    Scene3D,
-    Object3D,
-    Camera3D,
-    ForwardRenderJob,
-    DirectLight,
-    HoverCameraController,
-    RGBEParser,
-    Color,
-    GUIHelp,
-    CameraUtil,
-    SkeletonAnimation,
-    FXAAPost,
-    HDRBloomPost
+    Engine3DScene3DObject3DCamera3DForwardRenderJobDirectLightHoverCameraControllerRGBEParserColorGUIHelpCameraUtilSkeletonAnimationFXAAPostHDRBloomPost
 } from "@orillusion/core";
 
 async function demo() {

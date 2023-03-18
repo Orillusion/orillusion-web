@@ -1,17 +1,4 @@
-import {
-  Engine3D,
-  Scene3D,
-  Object3D,
-  Camera3D,
-  ForwardRenderJob,
-  LitMaterial,
-  BoxGeometry,
-  MeshRenderer,
-  DirectLight,
-  HoverCameraController,
-  Color,
-  ComponentBase
-} from "@orillusion/core";
+import { Engine3D, Scene3D, Object3D, Camera3D, ForwardRenderJob, LitMaterial, BoxGeometry, MeshRenderer, DirectLight, HoverCameraController, Color, ComponentBase } from "@orillusion/core";
 
 class RotateScript extends ComponentBase {
   public update() {
@@ -54,10 +41,8 @@ async function demo() {
   mr.geometry = new BoxGeometry(5, 5, 5);
   // set material
   mr.material = new LitMaterial();
-  
   // add script
   obj.addComponent(RotateScript)
-
   // add object
   scene3D.addChild(obj);
   

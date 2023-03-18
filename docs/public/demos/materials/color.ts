@@ -7,8 +7,6 @@ export class Sample_Materials {
     constructor() {}
 
     async run() {
-        Engine3D.setting.shadow.debug = false
-
         await Engine3D.init();
         GUIHelp.init();
         this.scene = new Scene3D();

@@ -1,26 +1,5 @@
 import {
-    BoxColliderShape,
-    Camera3D,
-    CameraUtil,
-    Collider,
-    Color,
-    defaultTexture,
-    DirectLight,
-    Engine3D,
-    ForwardRenderJob,
-    GUIHelp,
-    HDRBloomPost,
-    LitMaterial,
-    HoverCameraController,
-    KelvinUtil,
-    MeshRenderer,
-    Object3D,
-    PointerEvent3D,
-    Scene3D,
-
-    SphereGeometry,
-    Vector3,
-    webGPUContext,
+    BoxColliderShape, Camera3D, CameraUtil, Collider, Color, defaultTexture, DirectLight, Engine3D, ForwardRenderJob, GUIHelp, HDRBloomPost, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PointerEvent3D, Scene3D, SphereGeometry, Vector3, webGPUContext,
 } from '@orillusion/core';
 
 export class Sample_MousePick {

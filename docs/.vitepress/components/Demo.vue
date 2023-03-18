@@ -7,7 +7,7 @@
         <template v-if="support">
             <iframe ref="iframe" :src="href" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
             <Logo v-show="loading" class="loading-wrap"></Logo>
-            <a class="toggle" @click="full = !full">{{ full ? '<': '>'}}</a>
+            <a class="toggle" v-if="code" @click="full = !full">{{ full ? '>': '<'}}</a>
         </template>
         <template v-else>
             <p>
@@ -95,6 +95,7 @@ export default {
 <style scoped>
 .demo{
     position: relative;
+    background: var(--vp-c-bg);
 }
 .demo.ban{
    display: flex;
@@ -118,118 +119,70 @@ export default {
     line-height: 0;
     position: absolute;
     width: 100%;
+    z-index: 11;
 }
-.demo.code > iframe {
-    width: 50%;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
+.demo.code.full {
+    background: none;
+    z-index: 1;
 }
-.demo.code.ban > p {
-    width: 50%;
+.demo.code.full > iframe{
+    visibility: hidden;
 }
-@media (max-width: 719px) {
-    .demo > iframe{
-        border-radius: 8px;
-    }
-    .demo.code{
-        position: relative;
-        width: auto;
-        margin-bottom: 0.85rem;
-    }
-    .demo.code > iframe {
-        width: 100%;
-    }
-    .demo.code.ban > p {
-        width: 100%;
-    }
-    .demo.code > :deep(.loading-wrap){
-        right: 0 !important;
-    }
-}
+
 .demo.code + :deep(div[class*=language-]) {
-    width: 50%;
     height: 300px;
     overflow: auto;
-    border-radius: 0;
 }
-.demo.code + :deep(div[class*=language-]) > .line-numbers-wrapper{
+/* .demo.code + :deep(div[class*=language-]) > .line-numbers-wrapper{
     bottom: auto;
 }
 .demo.code + :deep(div[class*=language-]) > .highlight-lines {
     bottom: auto;
-}
+} */
 .demo.code + :deep(div[class*=language-]) > span.lang{
     position: sticky;
     float: right;
-    left: calc(100% - 25px);
-    right: auto;
+    margin-right: -30px;
 }
 .demo.code + :deep(div[class*=language-]) > button.copy{
     position: sticky;
     float: right;
-    left: calc(100% - 40px);
-    right: auto;
 }
-.demo.code + :deep(div[class*=language-]) > pre {
+/* .demo.code + :deep(div[class*=language-]) > pre {
     overflow-x: unset;
+} */
+.demo.code > a.toggle{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 37px;
+    bottom: 10px;
+    right: 10px;
+    font-size: 20px;
+    text-align: center;
+    opacity: 0;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.15s;
+    border: 1px solid var(--vp-code-copy-code-border-color);
+    background-color: var(--vp-code-copy-code-bg);
+    border-radius: 4px;
+    color: #eee;
+    text-decoration: none;
+    z-index: 111111;
 }
-a.toggle {
-    display: none;
+.demo.code.full > a.toggle{
+    opacity: 1;
 }
-@media (min-width: 720px) {
-    .demo.code + :deep(div[class*=language-]) {
-        margin-left: 50%;
-        border-top-left-radius: 0px;
-        border-top-right-radius: 8px;
-        border-bottom-right-radius: 8px;
-        border-bottom-left-radius: 0px;
-    }
-    .demo.code.full > iframe{
-        width: 100%;
-    }
-    .demo.code.full + :deep(div[class*=language-]) {
-        visibility: hidden;
-    }
-    .demo.code > a.toggle{
-        display: inline-block;
-        width: 40px;
-        height: 40px;
-        line-height: 40px;
-        border-radius: 4px;
-        bottom: 10px;
-        right: calc(50% + 8px);
-        font-size: 20px;
-        text-align: center;
-        opacity: 0;
-        position: absolute;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        transition: opacity 0.3s, background-color 0.1s;
-        background-color: rgba(0,0,0,.3);
-        color: #eee;
-    }
-
-    .demo.code:hover > a.toggle{
-        opacity: 0.8;
-    }
-    .demo.code:hover > a.toggle:hover{
-        opacity: 1;
-        background-color: rgba(0,0,0,.5);
-    }
-    .demo.code.full > a.toggle{
-        right: 8px;
-    }
+.demo.code:hover > a.toggle{
+    opacity: 1;
 }
-@media (max-width: 719px) {
-    .demo.code + :deep(div[class*=language-]) {
-        width: auto;
-        top: auto;
-        left: auto;
-        border-radius: 8px;
-    }
+.demo.code:hover > a.toggle:hover{
+    border-color: var(--vp-code-copy-code-hover-border-color);
+    background-color: var(--vp-code-copy-code-hover-bg);
 }
-
 .loading-wrap{
     position: absolute;
     left: 0;
@@ -247,9 +200,6 @@ a.toggle {
 .loading-wrap :deep(svg){
     width: 100px;
     margin: 0 auto;
-}
-.demo.code > .loading-wrap{
-    right: 50%;
 }
 a[href]{
     color: var(--vp-c-brand)
