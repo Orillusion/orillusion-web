@@ -7,7 +7,6 @@
         <template v-if="support">
             <iframe ref="iframe" :src="href" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
             <Logo v-show="loading" class="loading-wrap"></Logo>
-            <a class="toggle" v-if="code" @click="full = !full">{{ full ? '>': '<'}}</a>
         </template>
         <template v-else>
             <p>
@@ -16,6 +15,7 @@
                 Please upgrade to latest <a href="https://www.google.com/chrome/canary/" target="_blank">Chrome</a>/<a href="https://www.microsoftedgeinsider.com/download/canary" target="_blank">Edge</a>
             </p>
         </template>
+        <a class="toggle" v-if="code" @click="full = !full">{{ full ? '>': '<'}}</a>
     </div>
 </template>
 
@@ -128,6 +128,9 @@ export default {
 .demo.code.full > iframe{
     visibility: hidden;
 }
+.demo.code.full > p{
+    visibility: hidden;
+}
 
 .demo.code + :deep(div[class*=language-]) {
     height: 300px;
@@ -165,7 +168,7 @@ export default {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    transition: all 0.15s;
+    transition: all 0.3s;
     border: 1px solid var(--vp-code-copy-code-border-color);
     background-color: var(--vp-code-copy-code-bg);
     border-radius: 4px;
@@ -173,10 +176,10 @@ export default {
     text-decoration: none;
     z-index: 111111;
 }
-.demo.code.full > a.toggle{
+.demo.code:hover > a.toggle{
     opacity: 1;
 }
-.demo.code:hover > a.toggle{
+.demo.code.full > a.toggle{
     opacity: 1;
 }
 .demo.code:hover > a.toggle:hover{
