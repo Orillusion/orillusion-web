@@ -6,6 +6,8 @@ export class Sample_bloom {
 
 	async run() {
 		await Engine3D.init({});
+		GUIHelp.init();
+
 		this.scene = new Scene3D();
 		let mainCamera = CameraUtil.createCamera3DObject(this.scene);
 		mainCamera.perspective(60, webGPUContext.aspect, 1, 2000.0);
@@ -17,6 +19,8 @@ export class Sample_bloom {
 		// 开启渲染任务(前向渲染);
 		let renderJob = new ForwardRenderJob(this.scene);
 		let bloom = new HDRBloomPost();
+		bloom.debug();
+		
 		renderJob.addPost(bloom);
 		Engine3D.startRender(renderJob);
 	}
