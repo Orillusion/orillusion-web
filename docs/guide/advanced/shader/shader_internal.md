@@ -75,29 +75,28 @@ var<private> ORI_VertexOut: VertexOutput ;
 `face` 属性除外。
 ```wgsl
  struct FragmentVarying {
-        @location(0) fragUV0: vec2<f32>,
-        @location(1) fragUV1: vec2<f32>,
-        @location(2) viewPosition: vec4<f32>,
-        @location(3) fragPosition: vec4<f32>,
-        @location(4) vWorldPos: vec4<f32>,
-        @location(5) vWorldNormal: vec3<f32>,
-        @location(6) vColor: vec4<f32>,
+    @location(0) fragUV0: vec2<f32>,
+    @location(1) fragUV1: vec2<f32>,
+    @location(2) viewPosition: vec4<f32>,
+    @location(3) fragPosition: vec4<f32>,
+    @location(4) vWorldPos: vec4<f32>,
+    @location(5) vWorldNormal: vec3<f32>,
+    @location(6) vColor: vec4<f32>,
 
-        #if USE_SHADOWMAPING
-            @location(7) vShadowPos: vec4<f32>,
-        #endif
+    #if USE_SHADOWMAPING
+        @location(7) vShadowPos: vec4<f32>,
+    #endif
 
-        #if USE_TANGENT
-            @location(8) TANGENT: vec4<f32>,
-        #endif
-        
-        //正面渲染or反面渲染
-        @builtin(front_facing) face: bool,
-        @builtin(position) fragCoord : vec4<f32>
-    };
+    #if USE_TANGENT
+        @location(8) TANGENT: vec4<f32>,
+    #endif
     
-    var<private> ORI_VertexVarying: FragmentVarying;
-
+    //正面渲染or反面渲染
+    @builtin(front_facing) face: bool,
+    @builtin(position) fragCoord : vec4<f32>
+};
+    
+var<private> ORI_VertexVarying: FragmentVarying;
 ```
 
 ### ORI_ShadingInput
@@ -145,20 +144,20 @@ var<private> ORI_ShadingInput: ShadingInput;
 
 ```wgsl
 struct FragmentOutput {
-  //颜色
-  @location(0) color: vec4<f32>,
-  #if USE_WORLDPOS
-      //世界坐标
-      @location(1) worldPos: vec4<f32>,
-  #endif
-  #if USEGBUFFER
-      //法向量
-      @location(2) worldNormal: vec4<f32>,
-      //材质球数据
-      @location(3) material: vec4<f32>
-  #endif
-  
-  var<private> ORI_FragmentOutput: FragmentOutput;
+    //颜色
+    @location(0) color: vec4<f32>,
+    #if USE_WORLDPOS
+        //世界坐标
+        @location(1) worldPos: vec4<f32>,
+    #endif
+    #if USEGBUFFER
+        //法向量
+        @location(2) worldNormal: vec4<f32>,
+        //材质球数据
+        @location(3) material: vec4<f32>
+    #endif
+    
+    var<private> ORI_FragmentOutput: FragmentOutput;
 }
 ```
 
@@ -189,48 +188,48 @@ struct MaterialUniform{
 //PhysicMaterialUniform_frag文件定义的结构体
 //定义BRDF模型着色，材质球参数
 struct MaterialUniform {
-  //第一道UV偏移数据 x:U方向偏移 y:V方向偏移 z:U方向缩放 w:V方向缩放
-  transformUV1:vec4<f32>,
-  //第二道UV x:U方向偏移 y:V方向偏移 z:U方向缩放 w:V方向缩放
-  transformUV2:vec4<f32>,
-  //基础颜色(参考其他命名tintColor)
-  baseColor: vec4<f32>,
-  //发光颜色
-  emissiveColor: vec4<f32>,
-  //f0反射率
-  materialF0: vec4<f32>,
-  //接受环境光加成系数
-  envIntensity: f32,
-  //法向量缩放系数
-  normalScale: f32,
-  //粗糙度
-  roughness: f32,
-  //金属度
-  metallic: f32,
-  //环境光遮蔽强度
-  ao: f32,
-  //粗糙度最小值
-  roughness_min: f32,
-  //粗糙度最大值
-  roughness_max: f32,
-  //金属最小值
-  metallic_min: f32,
-  //金属最大值
-  metallic_max: f32,
-  //发光强度
-  emissiveIntensity: f32,
-  //透明剔除阈值
-  alphaCutoff: f32,
-  //折射率
-  ior: f32,
-  //清漆涂层颜色
-  clearcoatColor: vec4<f32>,
-  //清漆涂层权重
-  clearcoatWeight: f32,
-    //清漆涂层强度
-  clearcoatFactor: f32,
-    //清漆涂层粗糙度
-  clearcoatRoughnessFactor: f32,
+    //第一道UV偏移数据 x:U方向偏移 y:V方向偏移 z:U方向缩放 w:V方向缩放
+    transformUV1:vec4<f32>,
+    //第二道UV x:U方向偏移 y:V方向偏移 z:U方向缩放 w:V方向缩放
+    transformUV2:vec4<f32>,
+    //基础颜色(参考其他命名tintColor)
+    baseColor: vec4<f32>,
+    //发光颜色
+    emissiveColor: vec4<f32>,
+    //f0反射率
+    materialF0: vec4<f32>,
+    //接受环境光加成系数
+    envIntensity: f32,
+    //法向量缩放系数
+    normalScale: f32,
+    //粗糙度
+    roughness: f32,
+    //金属度
+    metallic: f32,
+    //环境光遮蔽强度
+    ao: f32,
+    //粗糙度最小值
+    roughness_min: f32,
+    //粗糙度最大值
+    roughness_max: f32,
+    //金属最小值
+    metallic_min: f32,
+    //金属最大值
+    metallic_max: f32,
+    //发光强度
+    emissiveIntensity: f32,
+    //透明剔除阈值
+    alphaCutoff: f32,
+    //折射率
+    ior: f32,
+    //清漆涂层颜色
+    clearcoatColor: vec4<f32>,
+    //清漆涂层权重
+    clearcoatWeight: f32,
+        //清漆涂层强度
+    clearcoatFactor: f32,
+        //清漆涂层粗糙度
+    clearcoatRoughnessFactor: f32,
 };
 ```
 ## 公共文件
