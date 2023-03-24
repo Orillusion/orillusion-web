@@ -118,8 +118,14 @@ export default {
 .demo.code{
     line-height: 0;
     position: absolute;
-    width: 100%;
+    left:0;right:0;
     z-index: 11;
+}
+@media screen and (max-width: 639px) {
+    .demo.code{
+        margin-left: -24px;
+        margin-right: -24px;
+    }
 }
 .demo.code.full {
     background: none;

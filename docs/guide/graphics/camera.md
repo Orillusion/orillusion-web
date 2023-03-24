@@ -117,11 +117,11 @@ let cameraObj = new Object3D();
 // 加载一个相机组件
 let camera = cameraObj.addComponent(Camera3D);
 // 加载控制器组件
-let flyCameraController = cameraObj.addComponent(FlyCameraController);
+let flyController = cameraObj.addComponent(FlyCameraController);
 // 通过组件 setCamera 设置相机位置
 flyController.setCamera(new Vector3(0, 0, 15), new Vector3(0, 0, 0));
 // 设置鼠标移动速度
-flyCameraController.moveSpeed = 10;
+flyController.moveSpeed = 10;
 ```
 自由相机可以通过 [setCamera](/api/classes/FlyCameraController#setcamera) 设定自身位置和朝向
 

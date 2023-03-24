@@ -18,6 +18,7 @@ import {
   BoxGeometry,
   MeshRenderer,
   DirectLight,
+  HoverCameraController
 } from '@orillusion/core';
 ```
 | 模块 | 说明 |
@@ -31,6 +32,7 @@ import {
 | BoxGeometry | 通过 BoxGeometry 类可以创建一个长方体几何体 |
 | MeshRenderer | MeshRenderer组件，为物体提供 mesh 对象几何渲染 |
 | DirectLight | 平行光组件，可以设置平行光组件的颜色、强度属性和光照角度来获得合适的光照效果 |
+| HoverCameraController | 盘旋相机组件，可以控制相机围绕观察点移动
 
 ## 初始化引擎
 ```ts

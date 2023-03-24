@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "@types/node": "^18.11.9",
-    "vitepress": "1.0.0-alpha.60",
+    "vitepress": "1.0.0-alpha.61",
     "vue": "^3.2.47"
   },
   "pnpm": {
