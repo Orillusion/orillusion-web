@@ -12,16 +12,16 @@ type SidebarItem = {
     })[];
 }[]
 export default async () => defineConfig({
-    base: '/',
-    lang: 'zh',
+    base: '/en',
+    lang: 'en',
     title: 'Orillusion',
     description: 'The Next Generation WebGPU Engine',
     lastUpdated: true,
     ignoreDeadLinks: true,
     appearance: 'dark',
     head: [
-        ['link', { rel: 'shortcut icon', type: "image/png", href: '/zh/images/icons/icon-192.png' }],
-        ['link', { rel: 'apple-touch-icon', href: '/zh/images/icons/icon-512.png' }],
+        ['link', { rel: 'shortcut icon', type: "image/png", href: '/images/icons/icon-192.png' }],
+        ['link', { rel: 'apple-touch-icon', href: '/images/icons/icon-512.png' }],
         ['link', { rel: 'prefetch', href: 'https://cdn.orillusion.com/orillusion.es.js' }],
         ['link', { rel: 'prefetch', href: 'https://cdn.orillusion.com/physics.es.js' }],
         ['script', { async: 'true', src: 'https://www.googletagmanager.com/gtag/js?id=G-0H9189CS0W' }],
@@ -29,15 +29,14 @@ export default async () => defineConfig({
         ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no' }],
     ],
     locales: {
-        root: { label: '简体中文' },
-        zh: { label: 'English', link: 'https://www.orillusion.com/en/' }
+        root: { label: 'English' },
+        zh: { label: '简体中文', link: 'https://www.orillusion.com/' }
     },
     themeConfig: {
         logo: {
             light: '/images/logo_black.png',
             dark: '/images/logo_white.png'
         },
-        outlineTitle: '本页内容',
         outline: [2, 3],
         nav: nav(),
         sidebar: {
@@ -46,33 +45,11 @@ export default async () => defineConfig({
             '/physics/': sidebar('', 'physics'),
             '/stats/': sidebar('', 'stats'),
             '/media-extention/': sidebar('', 'media-extention'),
-            '/example/': sidebarExample(),
-            '/cdn/': [{
-                text: '3DHub CDN',
-                items: [
-                    {
-                        text: '认证与授权',
-                        link: '/cdn/index.md'
-                    },
-                    {
-                        text: '模型 API',
-                        link: '/cdn/models.md'
-                    },
-                    {
-                        text: '分享 API',
-                        link: '/cdn/links.md'
-                    },
-                    {
-                        text: '场景 API',
-                        link: '/cdn/scenes.md'
-                    }
-                ]
-            }]
+            '/example/': sidebarExample()
         },
 
         editLink: {
             pattern: 'https://github.com/Orillusion/orillusion-web/edit/master/docs/:path',
-            text: '为此页提供修改建议'
         },
 
         socialLinks: [
@@ -80,7 +57,7 @@ export default async () => defineConfig({
         ],
 
         footer: {
-            message: '<a href="https://beian.miit.gov.cn/" target="_blank">京ICP备2021027896号</a>',
+            message: 'Released under the MIT License',
             copyright: 'Copyright © 2021-Present Orillusion'
         },
 
@@ -90,55 +67,8 @@ export default async () => defineConfig({
             indexName: 'orillusion',
             searchParameters: {
                 facetFilters: ["tags:latest"],
-            },
-            placeholder: '搜索文档',
-            translations: {
-                button: {
-                    buttonText: '搜索文档',
-                    buttonAriaLabel: '搜索文档'
-                },
-                modal: {
-                    searchBox: {
-                        resetButtonTitle: '清除查询条件',
-                        resetButtonAriaLabel: '清除查询条件',
-                        cancelButtonText: '取消',
-                        cancelButtonAriaLabel: '取消'
-                    },
-                    startScreen: {
-                        recentSearchesTitle: '搜索历史',
-                        noRecentSearchesText: '没有搜索历史',
-                        saveRecentSearchButtonTitle: '保存至搜索历史',
-                        removeRecentSearchButtonTitle: '从搜索历史中移除',
-                        favoriteSearchesTitle: '收藏',
-                        removeFavoriteSearchButtonTitle: '从收藏中移除'
-                    },
-                    errorScreen: {
-                        titleText: '无法获取结果',
-                        helpText: '你可能需要检查你的网络连接'
-                    },
-                    footer: {
-                        selectText: '选择',
-                        navigateText: '切换',
-                        closeText: '关闭',
-                        searchByText: '搜索提供者'
-                    },
-                    noResultsScreen: {
-                        noResultsText: '无法找到相关结果',
-                        suggestedQueryText: '你可以尝试查询',
-                        reportMissingResultsText: '你认为该查询应该有结果？',
-                        reportMissingResultsLinkText: '点击反馈'
-                    }
-                }
             }
-        },
-
-        lastUpdatedText: '最后更新',
-
-        docFooter: {
-            prev: '上一篇',
-            next: '下一篇'
         }
-
     },
     markdown: {
         lineNumbers: true
@@ -148,14 +78,14 @@ export default async () => defineConfig({
 function nav() {
     return [
         {
-            text: '文档',
+            text: 'Doc',
             items: [
                 {
-                    text: '教程',
+                    text: 'Guide',
                     link: '/guide/'
                 },
                 // {
-                //   text: '示例',
+                //   text: 'Example',
                 //   link: '/example/Animation/sample1'
                 // }
             ]
@@ -172,19 +102,15 @@ function nav() {
                 {
                     text: 'WebGPU',
                     items: [
-                        { text: '规范标准', link: 'https://www.orillusion.com/zh/webgpu.html' },
-                        { text: '着色器语言', link: 'https://www.orillusion.com/zh/wgsl.html' },
-                        { text: '说明', link: 'https://www.orillusion.com/zh/explainer.html' }
+                        { text: 'Spec', link: 'https://gpuweb.github.io/gpuweb/' },
+                        { text: 'WGSL', link: 'https://gpuweb.github.io/gpuweb/wgsl/' },
+                        { text: 'Explainer', link: 'https://gpuweb.github.io/gpuweb/explainer/' }
                     ]
                 }
             ]
         },
-        // {
-        //   text: '3DHub',
-        //   link: 'https://3dhub.orillusion.com'
-        // },
         {
-            text: '论坛',
+            text: 'Forum',
             link: 'https://forum.orillusion.com'
         }
     ]
@@ -193,116 +119,116 @@ function nav() {
 function sidebarGuide(): SidebarItem {
     return [
         {
-            text: '快速入门',
+            text: 'Get Started',
             collapsible: true,
             items: [
-                { text: '引擎特点', link: '/guide/index.md' },
-                { text: '安装', link: '/guide/getting_start/install.md' },
-                { text: '初始化引擎', link: '/guide/getting_start/initialization.md' },
-                { text: '绘制立方体', link: '/guide/getting_start/draw_cube.md' },
-                { text: '加载3D模型', link: '/guide/getting_start/load_model.md' },
-                { text: '第一个脚本组件', link: '/guide/getting_start/script.md' },
+                { text: 'Intro', link: '/guide/index.md' },
+                { text: 'Install', link: '/guide/getting_start/install.md' },
+                { text: 'Engine Init', link: '/guide/getting_start/initialization.md' },
+                { text: 'Draw Cube', link: '/guide/getting_start/draw_cube.md' },
+                { text: 'Load 3D Model', link: '/guide/getting_start/load_model.md' },
+                { text: 'First Script', link: '/guide/getting_start/script.md' },
             ],
         },
         {
-            text: '核心',
+            text: 'Core',
             collapsible: true,
             items: [
-                { text: '实体与组件', link: '/guide/core/component.md' },
+                { text: 'Entity & Component', link: '/guide/core/component.md' },
                 { text: 'Object3D', link: '/guide/core/object.md' },
                 { text: 'Scene3D', link: '/guide/core/scene.md' },
-                { text: '坐标变换', link: '/guide/core/transform.md' },
-                { text: '脚本组件', link: '/guide/core/script.md' },
+                { text: 'Transform', link: '/guide/core/transform.md' },
+                { text: 'Script', link: '/guide/core/script.md' },
                 { text: 'Engine3D', link: '/guide/core/engine.md' },
-                { text: '配置', link: '/guide/core/config.md' },
+                { text: 'Config', link: '/guide/core/config.md' },
             ],
         },
         {
-            text: '图形',
+            text: 'Graphics',
             collapsible: true,
             items: [
-                { text: '摄像机', link: '/guide/graphics/camera.md' },
-                { text: '光照', link: '/guide/graphics/lighting.md' },
-                { text: '阴影', link: '/guide/graphics/shadow.md' },
-                { text: '网格', link: '/guide/graphics/mesh.md' },
-                { text: '材质', link: '/guide/graphics/materials.md' },
-                { text: '纹理', link: '/guide/graphics/texture.md' },
+                { text: 'Camera', link: '/guide/graphics/camera.md' },
+                { text: 'Light', link: '/guide/graphics/lighting.md' },
+                { text: 'Shadow', link: '/guide/graphics/shadow.md' },
+                { text: 'Mesh', link: '/guide/graphics/mesh.md' },
+                { text: 'Material', link: '/guide/graphics/materials.md' },
+                { text: 'Texture', link: '/guide/graphics/texture.md' },
             ],
         },
         {
-            text: '动画',
+            text: 'Animation',
             collapsible: true,
             items: [
-                { text: '骨骼动画', link: '/guide/animation/skeleton.md' },
-                { text: '属性动画', link: '/guide/animation/property.md' },
-                { text: 'Morph动画', link: '/guide/animation/morph.md' },
-                { text: '粒子动画', link: '/guide/animation/particle.md' },
+                { text: 'Skeleton', link: '/guide/animation/skeleton.md' },
+                { text: 'Property', link: '/guide/animation/property.md' },
+                { text: 'Morph', link: '/guide/animation/morph.md' },
+                { text: 'Particle', link: '/guide/animation/particle.md' },
             ],
         },
         {
-            text: '物理',
+            text: 'Physics',
             collapsible: true,
             items: [
-                { text: '物理总览', link: '/guide/physics/Readme.md' },
-                { text: '刚体', link: '/guide/physics/rigidbody.md' },
-                { text: '碰撞体', link: '/guide/physics/collider.md' },
+                { text: 'Intro', link: '/guide/physics/Readme.md' },
+                { text: 'Rigid Body', link: '/guide/physics/rigidbody.md' },
+                { text: 'collider', link: '/guide/physics/collider.md' },
             ],
         },
         {
-            text: '交互',
+            text: 'Interaction',
             collapsible: true,
             items: [
-                { text: '触控', link: '/guide/interaction/pointer.md' },
-                { text: '键盘', link: '/guide/interaction/keyboard.md' },
-                { text: '拾取事件', link: '/guide/interaction/pickfire.md' },
-                { text: '自定义事件', link: '/guide/interaction/event.md' },
+                { text: 'InputSystem', link: '/guide/interaction/pointer.md' },
+                { text: 'Keyboard', link: '/guide/interaction/keyboard.md' },
+                { text: 'Pick', link: '/guide/interaction/pickfire.md' },
+                { text: 'Custom Event', link: '/guide/interaction/event.md' },
             ],
         },
         {
-            text: '媒体扩展',
+            text: 'Media',
             collapsible: true,
             items: [
-                { text: '安装', link: '/guide/media/Readme.md' },
-                { text: '图片', link: '/guide/media/image.md' },
-                { text: '视频', link: '/guide/media/video.md' },
-                { text: '视频(背景过滤)', link: '/guide/media/chromakey.md' },
+                { text: 'Intro', link: '/guide/media/Readme.md' },
+                { text: 'Image', link: '/guide/media/image.md' },
+                { text: 'Video', link: '/guide/media/video.md' },
+                { text: 'ChromaKey', link: '/guide/media/chromakey.md' },
             ],
         },
         {
-            text: '资源',
+            text: 'Resource',
             collapsible: true,
             items: [
-                { text: '资源加载', link: '/guide/resource/Readme.md' },
+                { text: 'Res', link: '/guide/resource/Readme.md' },
                 { text: 'GLTF', link: '/guide/resource/gltf.md' },
             ],
         },
         {
-            text: '用户界面',
+            text: 'GUI',
             collapsible: true,
             items: [
-                { text: '简介', link: '/guide/gui/Readme.md' },
-                { text: '文本', link: '/guide/gui/textfield.md' },
-                { text: '图片', link: '/guide/gui/image.md' },
-                { text: '按钮', link: '/guide/gui/button.md' },
+                { text: 'Intro', link: '/guide/gui/Readme.md' },
+                { text: 'Text', link: '/guide/gui/textfield.md' },
+                { text: 'Image', link: '/guide/gui/image.md' },
+                { text: 'Button', link: '/guide/gui/button.md' },
                 { text: 'WorldSpace', link: '/guide/gui/panel.md' }
             ],
         },
         {
-            text: '性能调试',
+            text: 'Stats',
             collapsible: true,
             items: [
-                { text: '统计面板', link: '/guide/performance/Readme.md' },
+                { text: 'Intro', link: '/guide/performance/Readme.md' },
             ],
         },
         {
-            text: '工具库',
+            text: 'Utils',
             collapsible: true,
             items: [
-                { text: '数学', link: '/guide/tools/math.md' },
+                { text: 'Math', link: '/guide/tools/math.md' },
             ],
         },
         {
-            text: '高级功能',
+            text: 'Advanced',
             collapsible: true,
             items: [
                 {
@@ -310,16 +236,16 @@ function sidebarGuide(): SidebarItem {
                     link: '/guide/advanced/shader/shader_intro.md',
                     items: [
                         { text: 'RenderShader', link: '/guide/advanced/shader/shader_material.md' },
-                        { text: '代码引用', link: '/guide/advanced/shader/shader_include.md' },
-                        { text: '代码宏', link: '/guide/advanced/shader/shader_define.md' },
-                        { text: '着色器变体', link: '/guide/advanced/shader/shader_variants.md' },
-                        { text: '着色器内置变量', link: '/guide/advanced/shader/shader_internal.md' },
-                        { text: '自定义材质示例', link: '/guide/advanced/shader/shader_unlit.md' },
+                        { text: 'Include', link: '/guide/advanced/shader/shader_include.md' },
+                        { text: 'Define', link: '/guide/advanced/shader/shader_define.md' },
+                        { text: 'Variants', link: '/guide/advanced/shader/shader_variants.md' },
+                        { text: 'Public Variables', link: '/guide/advanced/shader/shader_internal.md' },
+                        { text: 'Custom Material', link: '/guide/advanced/shader/shader_unlit.md' },
                         { text: 'ComputeShader', link: '/guide/advanced/shader/shader_compute.md' },
                     ]
                 },
                 {
-                    text: '后处理特效',
+                    text: 'Post Effects',
                     link: '/guide/advanced/posteffect.md',
                     items: [
                         { text: 'DepthOfFieldPost', link: '/guide/advanced/post_depthOfField.md' },
@@ -331,7 +257,7 @@ function sidebarGuide(): SidebarItem {
                         { text: 'TAAPost', link: '/guide/advanced/post_taa.md' }
                     ]
                 },
-                { text: '全局光照', link: '/guide/advanced/gi.md' },
+                { text: 'Global Illumination', link: '/guide/advanced/gi.md' },
             ]
         }
     ]

@@ -1,31 +1,34 @@
 ---
 layout: home
 title: Orillusion
-titleTemplate: 专业WebGPU中文社区
+titleTemplate: Next Generation WebGPU Engine
 
 hero:
   name: Orillusion
   image:
     light: /images/logo_black.png
     dark: /images/logo_white.png
-  text: 次时代 WebGPU 引擎
-  tagline: 简单易用，功能强大，为 Web3D 提供完善开发工具
+  text: Next Generation WebGPU Engine
+  tagline: Simple but powerful for Web3D developers
   actions:
     - theme: brand
-      text: 快速开始
+      text: Get Started
       link: /guide/
     - theme: alt
       text: GitHub
       link: https://github.com/Orillusion/orillusion
 
 features:
-  - title: 简单易用
-    details: 极其简单的数据驱动开发，易用的 JavaScript & TypeScript API，免费，永久开源！
-  - title: 灵活扩展
-    details: 可扩展的ECS框架，可以简单做为一个库使用，也可以通过完善的组件库自如伸缩至一套完整框架
-  - title: 超强性能
+  - title: Approachable
+    details: A refreshingly simple data-driven 3D engine built in JavaScript. Free and Open Source Forever!
+  - title: Versatile
+    details: An incrementally extensible ECS framework that scales between a library and a full-featured product.
+  - title: Performant
     details: 
-      原生 Web 跨平台运行环境，超快的 WebGPU 渲染技术，最省心的优化体验
+      Pure Web Cross-Platform Runtime.<br>
+      Blazing Fast WebGPU Renderer.<br>
+      Minimal Optimization Efforts.
+
 ---
 
 <div class="heroDemos">
