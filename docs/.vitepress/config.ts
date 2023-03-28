@@ -13,7 +13,7 @@ type SidebarItem = {
 }[]
 export default async () => defineConfig({
     base: '/en',
-    lang: 'en',
+    lang: 'en-US',
     title: 'Orillusion',
     description: 'The Next Generation WebGPU Engine',
     lastUpdated: true,
