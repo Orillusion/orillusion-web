@@ -49,7 +49,7 @@ export default async () => defineConfig({
         },
 
         editLink: {
-            pattern: 'https://github.com/Orillusion/orillusion-web/edit/master/docs/:path',
+            pattern: 'https://github.com/Orillusion/orillusion-web/edit/en/docs/:path',
         },
 
         socialLinks: [
