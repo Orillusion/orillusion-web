@@ -20,8 +20,8 @@ export default async () => defineConfig({
     ignoreDeadLinks: true,
     appearance: 'dark',
     head: [
-        ['link', { rel: 'shortcut icon', type: "image/png", href: '/zh/images/icons/icon-192.png' }],
-        ['link', { rel: 'apple-touch-icon', href: '/zh/images/icons/icon-512.png' }],
+        ['link', { rel: 'shortcut icon', type: "image/png", href: '/images/icons/icon-192.png' }],
+        ['link', { rel: 'apple-touch-icon', href: '/images/icons/icon-512.png' }],
         ['link', { rel: 'prefetch', href: 'https://cdn.orillusion.com/orillusion.es.js' }],
         ['link', { rel: 'prefetch', href: 'https://cdn.orillusion.com/physics.es.js' }],
         ['script', { async: 'true', src: 'https://www.googletagmanager.com/gtag/js?id=G-0H9189CS0W' }],
@@ -30,7 +30,7 @@ export default async () => defineConfig({
     ],
     locales: {
         root: { label: '简体中文' },
-        zh: { label: 'English', link: 'https://www.orillusion.com/en/' }
+        en: { label: 'English', link: 'https://www.orillusion.com/en/' }
     },
     themeConfig: {
         logo: {
