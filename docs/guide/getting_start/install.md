@@ -1,7 +1,7 @@
 # Installation
 
 ## Install by NPM
-We recommend using frontend build tools based on Node.js to develop Web3D applications. For example, you can use frontend ecosystem frameworks such as vite or webpack to build complex frontend projects. You can also use TypeScript for more convenient development.
+We recommend using frontend build tools based on `Node.js` to develop `Web3D` applications. For example, you can use frontend frameworks such as [vite](https://vitejs.dev/) or [webpack](https://webpack.js.org/) to build complex frontend projects. You can also use [TypeScript](https://www.typescriptlang.org/) for more convenient development.
 
 1. Installing dependencies
 Use the npm command in the command prompt to install engine dependencies:
@@ -19,7 +19,7 @@ or you can import the entire module:
 import * as Orillusion from '@orillusion/core'
 ```
 
-## Use via `CDN` links
+## Import via `CDN` links
 We also support quick access to the `orillusion` engine directly through a `CDN` link with the `<script>` tag. Here is an example of the official `Orillusion` `CDN` link, showing three different ways to bring it in.
 > Users can also use any third-party links that provide `npm` packages, such as [unpkg](https://unpkg.com/@orillusion/core) or [jsdelivr](https://www.jsdelivr.com/package/npm/@orillusion/ core), etc. If you have local development needs, you can also download the relevant files locally and deploy them on your own.
 
