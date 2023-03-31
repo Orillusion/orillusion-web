@@ -47,7 +47,7 @@ let scene3D = new Scene3D();
 ## 添加摄像机控件
 ```ts
 // 新建摄像机实例
-let cameraObj:Object3D = new Object3D();
+let cameraObj = new Object3D();
 let camera = cameraObj.addComponent(Camera3D);
 // 根据窗口大小设置摄像机视角
 camera.perspective(60, window.innerWidth / window.innerHeight, 1, 5000.0);
@@ -61,7 +61,7 @@ scene3D.addChild(cameraObj);
 ## 添加光照
 ```ts
 // 新建光照
-let light: Object3D = new Object3D();
+let light = new Object3D();
 // 添加直接光组件
 let component = light.addComponent(DirectLight);
 // 调整光照参数
@@ -77,7 +77,7 @@ scene3D.addChild(light);
 为对象添 MeshRenderer 后，我们需要将几何体和材质挂载到对象的 MeshRenderer 上。
 ```ts
 // 新建对象
-const obj= new Object3D();
+const obj = new Object3D();
 // 为对象添 MeshRenderer
 let mr = obj.addComponent(MeshRenderer);
 // 设置几何体
