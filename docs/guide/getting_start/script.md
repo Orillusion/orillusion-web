@@ -19,7 +19,7 @@ class RotateScript extends ComponentBase {
 }
 ```
 
-We can get the current [object3D](/guide/core/object) object that the component is mounted on through `this.object3D`, and then change the state of the node. For example, in `update`, update `object3D.rotationY`, that is, rotate around the `Y` axis by `1` degree every frame.
+We can get the current [object3D](/guide/core/object) of the component by `this.object3D`, and then change the state of the node. For example, in `update()` we increase `object3D.rotationY`, in order to rotate the object around the `Y` axis by `1` degree every frame.
 
 ```ts
 public update() {

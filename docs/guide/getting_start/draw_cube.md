@@ -8,7 +8,7 @@ In this section, we will take a quick look at the flow of the engine through an 
 
 ## import modules
 
-First, we need to import the corresponding modules we need:
+First, we need to import the corresponding modules:
 
 ```ts
 import {
