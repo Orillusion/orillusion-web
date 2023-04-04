@@ -23,7 +23,7 @@ import * as Orillusion from '@orillusion/core'
 We also support quick access to the `orillusion` engine directly through a `CDN` link with the `<script>` tag. Here is an example of the official `Orillusion` `CDN` link, showing three different ways to bring it in.
 > Users can also use any third-party links that provide `npm` packages, such as [unpkg](https://unpkg.com/@orillusion/core) or [jsdelivr](https://www.jsdelivr.com/package/npm/@orillusion/core), etc. If you have local development needs, you can also download the relevant files locally and deploy them on your own.
 
-### 1. Global build version
+### 1. Using global build 
 ```html
 <script src="https://cdn.orillusion.com/orillusion.umd.js"></script>
 ```
@@ -34,7 +34,7 @@ The page globally loads `<script>`, and a global `Orillusion` variable is introd
 </script>
 ```
 
-### 2. ESModule build version
+### 2. Using the ESModule build
 We recommend to use [ESModule](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Modules) for develop. Most browsers already support the native `ES` module, and users can directly import the `orillusion.es.js` build that complies with `ESNext` for rapid development.
 
 ```html
@@ -49,7 +49,7 @@ import { Engine3D, Camera3D } from "https://cdn.orillusion.com/orillusion.es.js"
 ```
 
 
-### 3. Use `importmap`
+### 3. Using `importmap`
 To make it easier to manage the names of dependencies, we recommend using [Import Maps](https://caniuse.com/import-maps) to manage how the browser locates dependent packages:
 ```html
 <!-- You can define the name and corresponding address of the ES module -->
