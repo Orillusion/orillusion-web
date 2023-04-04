@@ -1,25 +1,25 @@
 ---
 aside: false
 ---
-# 第一个脚本组件
-`Orillusion` 的核心是 [组件系统](/guide/core/component)，除了引擎内置的基础组件，用户也可以通过编写自定义组件来扩充任意功能。这一节我们将学习如何利用自定义组件为物体添加动画脚本，比如为上一节创建的立方体添加旋转动画。先来看看最终的效果：我们为立方体添加了一个自定义 `RotateScript` 组件，使之绕 `Y` 轴连续转动。
+# first script
+The core of `Orillusion` is [component system](/guide/core/component), in addition to the basic components built into the engine, users can also write custom components to extend any functionality. In this section we will learn how to use custom components to add animation scripts to objects, such as adding a rotation animation to the cube created in the previous section. Let's take a look at the final result: we added a custom `RotateScript` component to the cube to make it rotate continuously around the `Y` axis.
 
 <Demo :height="500" src="/demos/getting_start/script.ts"></Demo>
 
 <<< @/public/demos/getting_start/script.ts
 
-用户可以继承 `ComponentBase` 基类，并通过组件的 [生命周期](/guide/core/component#组件生命周期) 回调中编写自己的逻辑代码。借助脚本组件的更新回调设置每一帧物体的行为，状态和方位。   
-示例中我们以一个包含 `update` 生命周期的简单脚本组件为例，编写一个为物体添加旋转动画的脚本。
+Users can inherit from the `ComponentBase` base class, by using [Life Cycle](/guide/core/component#life-cycle) of component to write your own logic code in callbacks. Set the behavior, state and orientation of the object for each frame by setting update callbacks of the script component.   
+In the example, we use a simple script component with `update` lifecycle, and write a script to add rotation animation to the object.
 
 ```ts
 class RotateScript extends ComponentBase {
-  public update() {
-    // update 生命周期，主循环每一帧执行
-  }
+    public update() {
+        //update lifecycle, executed every frame in the main loop
+    }
 }
 ```
 
-我们可以通过 `this.object3D` 获取当前组件挂载到的 [object3D](/guide/core/object) 对象，从而更改节点的状态。例如，在 `update` 中更新 `object3D.rotationY`, 即每一帧围绕 `Y` 轴旋转加 `1` 度。
+We can get the current [object3D](/guide/core/object) object that the component is mounted on through `this.object3D`, and then change the state of the node. For example, in `update`, update `object3D.rotationY`, that is, rotate around the `Y` axis by `1` degree every frame.
 
 ```ts
 public update() {
@@ -27,9 +27,9 @@ public update() {
 }
 ```
 
-定义好组件后，我们利用 [addComponent](/api/classes/Object3D#addcomponent) 将组件挂载到对象上即可。
+After defining the component, we can use [addComponent](/api/classes/Object3D#addcomponent) to mount the component to the object.
 
 ```ts
 obj.addComponent(RotateScript);
 ```
-引擎主循环会自动运行 `update` 回调完成动画效果，更多自定义组件的使用方法可参考 [自定义组件](/guide/core/component) 页面。
+The main loop of engine will run `update` callback automatically to complete the animation effect. For more usage of custom components, please refer to [Custom Components](/guide/core/component) page.

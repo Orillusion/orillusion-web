@@ -69,18 +69,18 @@ let light = obj.getComponent(DirectLight)
 light.enable = true
 ```
 
-## 组件生命周期
-组件继承自 [CompnentBase](/api/classes/ComponentBase) 类，该类定义了几个基本生命周期：
+## Life Cycle
+This component extends from the [CompnentBase](/api/classes/ComponentBase) class, which defines several basic life cycles:
 
-| 周期 | 描述 |
-| :---: | --- |
-| init | 组件初始化，只在被添加创建时运行一次 |
-| start   | 组件开始运行，只在第一次 `onUpdate` 之前调用 |
-| update | 组件每帧更新时运行 |
-| beforeUpdate | 组件渲染更新前运行 |
-| lateUpdate | 组件渲染更新后运行 |
-| onEnable | 组件 `enable = true` 时回调，组件加入主循环更新 |
-| onDisable | 组件 `enable = false` 时触发，组件将不再触发循环 |
-| stop | 组件销毁前被调用 |
+|    Cycle     | Description                                                                   |
+|:------------:|-------------------------------------------------------------------------------|
+|     init     | Component initialization, only run once when the component is created         |
+|    start     | Component start running, only called before the first `onUpdate`              |
+|    update    | Component update every frame                                                  |
+| beforeUpdate | Component update before rendering                                             |
+|  lateUpdate  | Component update after rendering                                              |
+|   onEnable   | Component `enable = true` callback, component join the main loop update       |
+|  onDisable   | Component `enable = false` trigger, component will no longer trigger the loop |
+|     stop     | Component is destroyed before being called                                    |
 
-用户可以通过继承 [CompnentBase](/api/classes/ComponentBase) 基类来扩展不同的自定义功能，详情参考 [脚本组件](/guide/core/script)
+User can extend different custom functions by inheriting the [CompnentBase](/api/classes/ComponentBase) base class, see [Script Component](/guide/core/script) for details.

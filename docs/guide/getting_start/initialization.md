@@ -1,38 +1,38 @@
-# 初始化引擎
-## 创建 Engine3D 实例
-在使用引擎前，必须通过 `Engine3D.init()` 方法进行初始化，引擎会自动创建一个 `Engine3D` 实例用于后续的操作
+# Initialization
+## creat instance of Engine3D 
+Before using the engine, it must be initialized by the `Engine3D.init()` method, and the engine will automatically create an `Engine3D` instance for following operations
 ```ts
 import { Engine3D } from '@orillusion/core';
 
 Engine3D.init().then(()=>{
-  // 进行后续操作
+  // for following operations
 })
 ```
-注意，`Engine3D.init()` 是一个异步 API，推荐配合 `async/await` 进行调用
+Note that `Engine3D.init()` is an asynchronous API, it is recommended to be use with `async/await`
 
 ```ts
 import { Engine3D } from '@orillusion/core';
 
 async function demo(){
   await Engine3D.init();
-  // 进行后续操作
+  // for following operations
 }
 demo()
 ```
 
-## 手动创建 Canvas
-默认参数下，`Engine3D.init()` 实例会自动生成一个以屏幕大小为宽高的 `canvas` 画布。如果不想使用引擎自动创建的画布，用户也可以手动创建画布。
-比如，用户可以在 HTML 中插入一个 `<canvas>` 标签，并指定一个 id：
+## Create Canvas manually
+By default, the `Engine3D.init()` instance automatically generates a `canvas` canvas with the screen size (width and height). If you do not want to use the canvas automatically created by the engine, you can also create the canvas manually.
+For example, the user can insert a `<canvas>` label into the HTML and specify an id:
 ```html
 <canvas id="canvas" width="800" height="500" />
 ```
 
-接下来，在 ts 代码中通过 `document.getElementById` 获取到该画布：
+then using `document.getElementById`  in Typescript to get the canvas:
 ```ts
 let canvas = document.getElementById('canvas')
 ```
 
-并使用 `canvasConfig` 将 `canvas` 参数传入 `init()` 方法中进行初始化：
+and using `canvasConfig` to pass paraments of `canvas` into `init()` method for initialization:
 ```ts
 import { Engine3D } from '@orillusion/core';
 
@@ -42,5 +42,5 @@ await Engine3D.init({
 });
 ```
 
-更多配置请参看 [Engine3D](/guide/core/engine)
+Get more information of configuration form [Engine3D](/guide/core/engine)
 
