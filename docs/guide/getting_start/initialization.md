@@ -1,5 +1,5 @@
 # Initialization
-## creat instance of Engine3D 
+## Creat instance of Engine3D 
 Before using the engine, it must be initialized by the `Engine3D.init()` method, and the engine will automatically create an `Engine3D` instance for following operations
 ```ts
 import { Engine3D } from '@orillusion/core';

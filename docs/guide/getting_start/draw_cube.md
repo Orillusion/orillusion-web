@@ -6,7 +6,7 @@ In this section, we will take a quick look at the flow of the engine through an 
 
 <<< @/public/demos/getting_start/cube.ts
 
-## import modules
+## Import modules
 
 First, we need to import the corresponding modules:
 
@@ -37,7 +37,7 @@ import {
 | DirectLight           | Parallel light component allows you to set the color, intensity properties and light angle of the parallel light component to get the right lighting effect |
 | HoverCameraController | HoverCamera component allows to control camera movement around the observation point                                                                        |
 
-## initialize the engine
+## Initialize the engine
 
 ```ts
 await Engine3D.init();
@@ -95,13 +95,13 @@ mr.geometry = new BoxGeometry(5, 5, 5);
 mr.material = new LitMaterial();
 ```
 
-## add object to scene
+## Add object to scene
 
 ```ts
 scene3D.addChild(obj);
 ```
 
-## render scene
+## Render scene
 
 ```ts
 // create forward rendering job

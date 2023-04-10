@@ -1,7 +1,7 @@
 ---
 aside: false
 ---
-# first script
+# First script
 The core of `Orillusion` is [component system](/guide/core/component), in addition to the basic components built into the engine, users can also write custom components to extend any functionality. In this section we will learn how to use custom components to add animation scripts to objects, such as adding a rotation animation to the cube created in the previous section. Let's take a look at the final result: we added a custom `RotateScript` component to the cube to make it rotate continuously around the `Y` axis.
 
 <Demo :height="500" src="/demos/getting_start/script.ts"></Demo>
