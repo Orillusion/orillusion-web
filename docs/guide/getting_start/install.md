@@ -8,26 +8,26 @@ Use the npm command in the command prompt to install engine dependencies:
 ```bash
 npm install @orillusion/core --save
 ```
-2. import modules
+2. Import modules
 
-import certain modules:
+Import certain modules:
 ```ts
 import { Engine3D, Camera3D } from '@orillusion/core'
 ```
-or you can import the entire module:
+Or you can import the entire module:
 ```ts
 import * as Orillusion from '@orillusion/core'
 ```
 
 ## Import via `CDN` links
-We also support quick access to the `orillusion` engine directly through a `CDN` link with the `<script>` tag. Here is an example of the official `Orillusion` `CDN` link, showing three different ways to bring it in.
-> Users can also use any third-party links that provide `npm` packages, such as [unpkg](https://unpkg.com/@orillusion/core) or [jsdelivr](https://www.jsdelivr.com/package/npm/@orillusion/core), etc. If you have local development needs, you can also download the relevant files locally and deploy them on your own.
+We support quick access to the `orillusion` engine directly through a `CDN` link with the `<script>` tag. Here is an example of using `Orillusion` engine form `CDN` link.
+> Users can use any third-party links that provide `npm` packages, such as [unpkg](https://unpkg.com/@orillusion/core), [jsdelivr](https://www.jsdelivr.com/package/npm/@orillusion/core) or some others. You can download and deploy relevant files locally.
 
 ### 1. Using global build 
 ```html
 <script src="https://cdn.orillusion.com/orillusion.umd.js"></script>
 ```
-The page globally loads `<script>`, and a global `Orillusion` variable is introduced in the `window` object, which can be used directly as follows:
+The page globally loads `<script>`, and a global variable (named `Orillusion`) is declared in the `window` object, which can be used directly as follows:
 ```html
 <script>
   const { Engine3D, Camera3D } = Orillusion
@@ -35,7 +35,7 @@ The page globally loads `<script>`, and a global `Orillusion` variable is introd
 ```
 
 ### 2. Using the ESModule build
-We recommend to use [ESModule](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Modules) for develop. Most browsers already support the native `ES` module, and users can directly import the `orillusion.es.js` build that complies with `ESNext` for rapid development.
+We recommend using [ESModule](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Modules) for development. Most browsers already support the native `ES` module, and users can directly import the `orillusion.es.js` build that complies with `ESNext` for rapid development.
 
 ```html
 <script type="module">
@@ -43,7 +43,7 @@ We recommend to use [ESModule](https://developer.mozilla.org/zh-CN/docs/Web/Java
 </script>
 ```
 
-Note that we use the `<script type="module">` label, which allows us to use modular syntax like `import` and `export` directly in the browser. Of course with the `vite` or `webpack` front-end build tools, we can also import `CDN` links directly into our code for development.
+Note that we use the `<script type="module">` label, which allows us to use modular syntax like `import` and `export` directly in the browser. And with the `vite` or `webpack` front-end build tools, we can import `CDN` links directly into our code for development.
 ```ts
 import { Engine3D, Camera3D } from "https://cdn.orillusion.com/orillusion.es.js"
 ```
@@ -52,7 +52,7 @@ import { Engine3D, Camera3D } from "https://cdn.orillusion.com/orillusion.es.js"
 ### 3. Using `importmap`
 To make it easier to manage the names of dependencies, we recommend using [Import Maps](https://caniuse.com/import-maps) to manage how the browser locates dependent packages:
 ```html
-<!-- You can define the name and corresponding address of the ES module -->
+<!-- Define the names and corresponding addresses of the ES module -->
 <script type="importmap">
 {
   "imports": {
@@ -60,7 +60,7 @@ To make it easier to manage the names of dependencies, we recommend using [Impor
   }
 }
 </script>
-<!-- You can use custom names to import -->
+<!-- Use custom names to import -->
 <script type="module">
   import { Engine3D, Camera3D } from "@orillusion/core"
 </script>
