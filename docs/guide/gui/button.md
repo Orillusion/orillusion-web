@@ -1,30 +1,30 @@
 # UIButton
 
-[UIButton](/api/classes/UIButton.md) 继承自 [UIInteractive](/api/classes/UIInteractive)（可交互组件）, 实现基本的按钮功能。 按钮组件内部封装有 `UIImage` 用于显示背景图，集成自可交互组件 `UIInteractive`，使用内置的 `UITransform` 描述的方形区域作为感应热区。
+[UIButton](/api/classes/UIButton.md) inherits from [UIInteractive](/api/classes/UIInteractive)(an interactive component), implementing basic button functions. The button component is internally encapsulated with `UIImage` for displaying background images, integrated with the interactive component `UIInteractive`, and uses the square area described by the built-in `UITransform` as the sensing heat zone.
 
-## 组件贴图
+## Component mapping
 
-组件有多种状态 [UIInteractiveStyle](/api/enums/UIInteractiveStyle.md)，每种状态对应一个贴图
-- `upTexture` - 默认状态对应的贴图
-- `downTexture` - 鼠标按下时对应的贴图
-- `overTexture` - 鼠标 over 时对应的贴图
-- `disableTexture` - 组件被禁用时的贴图
+Components have multiple states [UIInteractiveStyle](/api/enums/UIInteractiveStyle.md), with each state corresponding to a map
+- `upTexture` - The map corresponding to the default state
+- `downTexture` - The corresponding texture when the mouse is pressed down
+- `overTexture` - The corresponding texture when the mouse is over
+- `disableTexture` - The texture when the component is disabled
 
-我们可以设置组件各种状态下对应的背景图，即可获得按钮随状态切换变换样式的效果。
+We can set the corresponding background images of the components in various states to achieve the effect of buttons changing styles with state switching.
 
-## 组件交互
-我们可以使用事件监听器，监听组件的 `object3D` 对象的`GUI` 系列事件，即可获得用户操作响应函数回调:
+## Component interaction
+We can use an event listener to listen to the `GUI` series of events of the `object3D` object of the component, and obtain the user action response function callback:
 
-- `PointerEvent3D.PICK_CLICK_GUI`：鼠标点击
-- `PointerEvent3D.PICK_OVER_GUI`：鼠标滑入
-- `PointerEvent3D.PICK_OUT_GUI`：鼠标移除
-- `PointerEvent3D.PICK_UP_GUI`：鼠标抬起
-- `PointerEvent3D.PICK_DOWN_GUI`：鼠标按下
+- `PointerEvent3D.PICK_CLICK_GUI`：Mouse click
+- `PointerEvent3D.PICK_OVER_GUI`：Mouse sliding in
+- `PointerEvent3D.PICK_OUT_GUI`：mouse removal
+- `PointerEvent3D.PICK_UP_GUI`：Mouse Up
+- `PointerEvent3D.PICK_DOWN_GUI`：Mouse pressed
 
-## 启用/禁用
-设置组件是否有效：
-- `true` - 按钮会响应鼠标事件
-- `false` - 不响应鼠标事件，并且呈现 `disableTexture` 的贴图
+## Enable/Disable
+Set whether the component is valid:
+- `true` - The button will respond to mouse events
+- `false` - does not respond to mouse events and renders a `disableTexture` texture
 
 ```ts
 image.enable = true; //false

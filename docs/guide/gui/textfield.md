@@ -1,20 +1,20 @@
 # UITextField
 
-[UITextField](/api/classes/UITextField.md) 组件提供文本的显示功能；
+[UITextField](/api/classes/UITextField.md) component provides text display functionality;
 
-> 文本组件依赖于 `BMFont` 图集，你需要先加载字体图集到引擎中，文本才能被正常显示出来。
+> The text component relies on the `BMFont` atlas, and you need to load the font atlas into the engine before the text can be displayed normally.
 
 
 ```ts
 import { Engine3D } from '@orillusion/core';
-// 加载 BMFont 文件
+// Load BMFont file
 await Engine3D.res.loadFont('fnt/0.fnt');
-// 创建用于显示UI的面板
+// Create a panel for displaying the UI
 let panelRoot: Object3D = new Object3D();
 panelRoot.addComponent(ViewPanel);
-// 面板加入到系统canvas中
+// Adding panels to system canvas
 renderJob.guiCanvas.addGUIChild(panelRoot);
-// 创建文本节点
+// Create Text Node
 let textQuad = new Object3D();
 panelRoot.addChild(textQuad);
 this.text = textQuad.addComponent(UITextField);
@@ -26,45 +26,45 @@ this.text.fontSize = 32;
 this.text.alignment = TextAnchor.MiddleCenter;
 ```
 
-## 设置字体
-文本组件依赖于 `BMFont` 图集，你需要先加载 `fnt` 图集文件到引擎中，然后文本才能被正常显示出来
+## Set Font
+The text component depends on the `BMFont` atlas. You need to load the `fnt` atlas file into the engine first before the text can be displayed normally
 ```ts
-// 加载 BMFont字体
+// Load BMFont font
 await Engine3D.res.loadFont('path/to/font.fnt');
 text.font = '微软雅黑';
 ```
 
-## 设置内容
+## Set Content
 ```ts
-// 修改组件text
+// Modify component text
 text.text = 'Hello，Orillusion！';
 ```
 
-## 字体大小
+## Font size
 ```ts
 text.fontSize = 32;
 ```
 
-## 对齐方式
-参考 [TextAnchor](/api/enums/TextAnchor.md)，有九种对齐方式
+## Alignment
+Referring to [TextAnchor](/api/enums/TextAnchor.md), there are nine alignment methods
 ```ts
 text.alignment = TextAnchor.UpperLeft;
 ```
 
-## 字体颜色
+## Font Color
 ```ts
-text.color = new Color(1.0, 0.0, 0.0, 1.0);// 默认为白色
+text.color = new Color(1.0, 0.0, 0.0, 1.0);// Default to white
 ```
 
-## 行间距
+## Row spacing
 ```ts
-text.lineSpacing = 1.5; //设置行距为字号尺寸的1.5倍。
+text.lineSpacing = 1.5; //Set the line spacing to 1.5 times the font size.
 ```
 
-## 文本框大小
-可以通过 `resize` 调整大小
+## Text box size
+You can adjust the size through `resize`
 ```ts
-text.resize(200, 200);//设置文本块为（200,200）。
+text.resize(200, 200);//设Set the text block to (200200).
 ```
 
 <Demo :height="500" src="/demos/gui/textfield.ts"></Demo>
