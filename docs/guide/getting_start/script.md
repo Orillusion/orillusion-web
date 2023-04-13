@@ -8,7 +8,7 @@ The core of `Orillusion` is [component system](/guide/core/component), in additi
 
 <<< @/public/demos/getting_start/script.ts
 
-Users can inherit from the `ComponentBase` base class, by using [Life Cycle](/guide/core/component#life-cycle) of component to write your own logic code in callbacks. Set the behavior, state and orientation of the object for each frame by setting update callbacks of the script component.   
+Users can extend functions from the `ComponentBase` class, and by using callbacks of [Life Cycle](/guide/core/component#life-cycle) to write your own logic. Set the behavior, state and orientation of the object for each frame by setting update callbacks of the script component.   
 In the example, we use a simple script component with `update` lifecycle, and write a script to add rotation animation to the object.
 
 ```ts

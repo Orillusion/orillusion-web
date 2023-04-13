@@ -11,7 +11,7 @@ let data = await Engine3D.res.loadGltf('sample.gltf');
 // add to scene
 scene.addChild(data);
 ```
-You can refer [GLTF Introduction](/guide/resource/gltf) for more detail information.
+You can refer [GLTF Introduction](/guide/resource/gltf) for more detailed information.
 
 ## Example
 Here is a simple example of loading a model:
