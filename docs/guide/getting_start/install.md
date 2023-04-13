@@ -20,7 +20,7 @@ import * as Orillusion from '@orillusion/core'
 ```
 
 ## Import via `CDN` links
-We support quick access to the `orillusion` engine directly through a `CDN` link with the `<script>` tag. Here is an example of using `Orillusion` engine form `CDN` link.
+We support quick access to the `orillusion` engine directly through a `CDN` link with the `<script>` tag. Here is an example of using `Orillusion` engine from `CDN` link.
 > Users can use any third-party links that provide `npm` packages, such as [unpkg](https://unpkg.com/@orillusion/core), [jsdelivr](https://www.jsdelivr.com/package/npm/@orillusion/core) or some others. You can download and deploy relevant files locally.
 
 ### 1. Using global build 
