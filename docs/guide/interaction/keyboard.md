@@ -29,7 +29,7 @@ export class keyScript extends ComponentBase {
 ## KeyEvent
 The engine will listen to the keyboard events under the current `window` by default. After calling the listening function, the event of type [KeyEvent](/api/classes/KeyEvent) will be obtained in the callback function.
 
-| 参数 | 类型 | 说明 |
+| Parameter | Type | Description |
 | --- | --- | --- |
 | KEY_DOWN | string | 	Triggered every time a key is pressed. |
 | KEY_UP | string | Triggered every time a key is released. |

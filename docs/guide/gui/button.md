@@ -1,8 +1,8 @@
 # UIButton
 
-[UIButton](/api/classes/UIButton.md) inherits from [UIInteractive](/api/classes/UIInteractive)(an interactive component), implementing basic button functions. The button component is internally encapsulated with `UIImage` for displaying background images, integrated with the interactive component `UIInteractive`, and uses the square area described by the built-in `UITransform` as the sensing heat zone.
+[UIButton](/api/classes/UIButton.md) inherits from [UIInteractive](/api/classes/UIInteractive)(an interactive component), implementing basic button functions. The button component is internally encapsulated with `UIImage` for displaying background images, integrated with the interactive component `UIInteractive`, and uses the square area described by the built-in `UITransform` as the hotspot.
 
-## Component mapping
+## Component map
 
 Components have multiple states [UIInteractiveStyle](/api/enums/UIInteractiveStyle.md), with each state corresponding to a map
 - `upTexture` - The map corresponding to the default state

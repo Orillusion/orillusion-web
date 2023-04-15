@@ -1,8 +1,8 @@
 # GUI
 
-Orillusion provides high-performance user interface (GUI) components for developers to use. Before using this module, it is necessary to load some relevant material resources for user interface component rendering.
+Orillusion provides high-performance user interface (GUI) components for developers to use. Before using these modules, it is necessary to load some relevant material resources for user interface components rendering.
 
-Based on the layout and layout of art design drawings, a reasonable combination of GUI components can display 2D/3D GUI content in the project.
+User interfaces often rely on external font data, sprite sheets, and other assets. Please refer to the documentation on creating text atlas and sprite sheets for creating these assets.
 
 > GUI often rely on external font data, sprite atlases, and other materials. Please refer to the documentation for creating these atlases, such as text atlases and spirit atlases.
 
@@ -10,10 +10,10 @@ Based on the layout and layout of art design drawings, a reasonable combination 
 
 Currently, `GUISpace` supports two modes: `ViewSpace` and `WorldSpace`：
 
-- ViewSpace mode: In this mode, the UI is in screen space and does not change with changes to the 3D camera;
-- WorldSpace mode: In this mode, the UI can be seen as a canvas in 3D space, with 3D attributes (rotation, scaling, translation), and can participate in depth detection, achieving occlusion and occlusion relationships with other objects.
+- ViewSpace mode: In this mode, the UI is in screen space and does not change with the 3D camera's movements.a;
+- WorldSpace mode: In this mode, the UI is considered a canvas in the 3D space and has 3D properties such as rotation, scaling, and translation. It can participate in depth testing and achieve occlusion relationships with other objects.
 
-The engine has a built-in Canvas `guiCanvas` node as the root node of the GUI, and each user's panel`UIPanel`will be placed in the Canvas node and collected for UI rendering;
+The engine has a built-in Canvas `guiCanvas` node as the root node of the GUI, and each panel's `UIPanel`will be placed in the Canvas node and collected for UI rendering;
 Each UIPanel can be considered as the root node of the panel, under which various UI components can be organized to display UI details.
 
 ```ts

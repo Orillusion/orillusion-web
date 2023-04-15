@@ -17,9 +17,9 @@ Engine3D.inputSystem.dispatchEvent(customEvent);
 ## Event Listening
 Event listening associates events with handler functions.
 ```ts
-// 监听事件
+// Listen to events
 Engine3D.inputSystem.addEventListener("UserEvent", this.OnUserEvent, this);
-// 处理函数
+// Handler function
 private OnUserEvent(e: CEvent) {
     let params = e.data;
 }

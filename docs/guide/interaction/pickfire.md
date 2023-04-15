@@ -64,7 +64,7 @@ collider.shape = new BoxColliderShape().setFromCenterAndSize(new Vector3(0, 0, 0
 
 
 ## Frame Buffer Picking
-Unlike the `pixel` mode and the `bound` mode, `帧缓冲拾取` utilizes the pixel detection of the `GPU` , which consumes almost no `CPU` performance and can ignore the number and complexity of interactive objects in the scene, supporting all touch events. When the shape of the scene model is complex or there are a large number of objects, we recommend using the `pixel` mode for picking detection.
+Unlike the `pixel` mode and the `bound` mode, `Frame Buffer Picking` utilizes the pixel detection of the `GPU` , which consumes almost no `CPU` performance and can ignore the number and complexity of interactive objects in the scene, supporting all touch events. When the shape of the scene model is complex or there are a large number of objects, we recommend using the `pixel` mode for picking detection.
 
 <Demo :height="400" src="/demos/interaction/pick_pixel.ts"></Demo>
 

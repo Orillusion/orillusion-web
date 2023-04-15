@@ -10,7 +10,7 @@ import { Engine3D } from '@orillusion/core';
 // Create a panel for displaying the UI
 let panelRoot: Object3D = new Object3D();
 panelRoot.addComponent(ViewPanel);
-// Adding panels to system canvas
+// Create panels to system canvas
 renderJob.guiCanvas.addGUIChild(panelRoot);
 // Create Image Node
 let imageQuad = new Object3D();
@@ -19,7 +19,7 @@ this.image = imageQuad.addComponent(UIImage);
 this.image.uiTransform.resize(400, 60);
 this.image.uiTransform.y = 100;
 
-// Loading Atlas Materials
+// Create Atlas Materials
 await Engine3D.res.loadAtlas('atlas/UI_atlas.json');
 this.image.texture = Engine3D.res.getSubTexture('logo');
 ```
