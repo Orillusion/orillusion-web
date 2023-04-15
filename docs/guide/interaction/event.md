@@ -1,12 +1,12 @@
-# 自定义事件
-除了基本的鼠标和键盘事件，引擎还提供了自定义事件 [CEvent](#cevent) 类方便开发者使用，可以使用 `Engine3D.inputSystem` 触发和监听任意的自定义事件。我们推荐组件间需要交互时使用事件系统通信。
+# Custom Event
+In addition to basic mouse and keyboard events, the engine also provides a [CEvent](#cevent) class for custom events, which can be triggered and listened to using `Engine3D.inputSystem` We recommend using the event system to communicate between components when necessary.
 
 <Demo :height="500" src="/demos/interaction/event.ts"></Demo>
 
 <<< @/public/demos/interaction/event.ts
 
-## 事件派发
-调用 `Engine3D.inputSystem.dispatchEvent` 方法可以派发事件，派发对应事件会触发监听事件回调函数的执行。
+## Event Dispatching
+Call the `Engine3D.inputSystem.dispatchEvent` method to dispatch an event. Dispatching the corresponding event will trigger the execution of the callback function that listens for the event.
 ```ts
 import {Engine3D, CEvent} from '@orillusion/core';
 
@@ -14,8 +14,8 @@ let customEvent = new CEvent("UserEvent", {name:'name',data:'data'});
 Engine3D.inputSystem.dispatchEvent(customEvent);
 ```
 
-## 事件监听
-事件监听可以将事件与处理函数相关连
+## Event Listening
+Event listening associates events with handler functions.
 ```ts
 // 监听事件
 Engine3D.inputSystem.addEventListener("UserEvent", this.OnUserEvent, this);
@@ -25,15 +25,15 @@ private OnUserEvent(e: CEvent) {
 }
 ```
 
-## 移除事件
-不再需要的事件可以移除
+## Removing Events
+Events that are no longer needed can be removed.
 ```ts
 Engine3D.inputSystem.removeEventListener("UserEvent", this.OnUserEvent, this);
 ```
 
 ## CEvent
-事件处理函数的参数是 [CEvent](/api/classes/CEvent) 类型，从该参数获取事件信息
-| 参数 | 类型 | 描述 | 示例 |
+The event handling function takes a parameter of type [CEvent](/api/classes/CEvent) , from which event information can be obtained.
+| Parameter	 | Type | Description | Example |
 | --- | --- | --- | --- |
-| type | string |  引擎中的事件的类型标识字符串 | "UserEvent" | 
-| data | any |  附加数据 | {{ {name: 'name', data: 'any'} }} |
+| type | string |  The type identifier string for the event in the engine. | "UserEvent" | 
+| data | any |  Additional data. | {{ {name: 'name', data: 'any'} }} |
