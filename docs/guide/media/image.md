@@ -1,26 +1,26 @@
-# 图片材质
-该材质继承于 [UnLit](../graphics/materials.md#unlit-材质) 材质，同样不计算光照，仅通过图片像素颜色渲染的基础材质，不同的是，增加了空间裁剪 `(clip)` 的设置，可以更自由的进行图片的显示。
+# Image Material
+This material inherits from the [UnLit](../graphics/materials.md#unlit-材质) material, which also does not calculate lighting and is a basic material that only renders based on the pixel color of the image. The difference is that it adds the setting of spatial clipping `(clip)` , which can make the display of images more flexible.
 
-支持以下属性：
-| 属性 | 描述 |
+The following properties are supported:
+| Property | Description |
 | :---: | :---: |
-| baseColor | 基础颜色 |
-| uv_offsetX | x方向位移 |
-| uv_offsetY | y方向位移 |
-| uv_scaleX | x方向缩放 |
-| uv_scaleY | y方向缩放 |
-| clip_left | 左方裁剪 |
-| clip_top | 上方裁剪 |
-| clip_right | 右方裁剪 |
-| clip_bottom | 下方裁剪 |
+| baseColor | Base color |
+| uv_offsetX | x-axis displacement |
+| uv_offsetY | y-axis displacement |
+| uv_scaleX | x-axis scaling |
+| uv_scaleY | y-axis scaling |
+| clip_left | Left clipping |
+| clip_top | Top clipping |
+| clip_right | Right clipping |
+| clip_bottom | Bottom clipping |
 
-## 用法
+## Usage
 ```ts
 import {ImageMaterial} from '@orillusion/media-extention'
 
-// 创建图片材质
+// Create image material
 let mat = new ImageMaterial();
-// 加载2D纹理
+// Load 2D texture
 let texture = await Engine3D.res.loadTexture('path/to/image');
 mat.baseMap = texture;
 ```
