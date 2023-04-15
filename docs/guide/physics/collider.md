@@ -1,10 +1,10 @@
-# 碰撞体
-碰撞体定义物体响应碰撞的实际物理性状，通常在渲染层是不可见的。通过碰撞体组件的设定，物理系统可以判定两个物体是否相交，从而产生碰撞效果。
+# Collider
+Collider defines the actual physical characteristics of an object's response to collisions, which is typically invisible at the rendering layer. By setting the Collider component, the physical system can determine whether two objects intersect, resulting in a collision effect.
 
-## 碰撞体组件概览
-我们封装了以下几个常见的碰撞体形状类型，方便用户使用：
+## Overview of Collider Components
+We have encapsulated the following common types of collider shapes for user convenience:
 
-1. 盒型碰撞体
+1. Box Collider
 
 ![Box Collider](/images/cube.webp)
 
@@ -17,11 +17,11 @@ collider.shape = new BoxColliderShape();
 // set shape parameters...
 collider.shape.size = new Vector3(2, 2, 2);
 ```
-| 参数 | 类型 | 描述 |
+| Parameter | Type | Description |
 | --- | --- | --- |
-| size | Vecter3 | 盒型碰撞体的大小。默认以物体中心为长方体中心，通过新建Vecter3实例分别指定长方体沿x、y、z坐标轴的长度大小 |
+| size | Vecter3 | The size of the box collider. By default, the center of the box is at the object's center, and the length of the box is specified by creating a new instance of Vector3 and setting the length along the x, y, and z axes respectively. |
 
-2. 球形碰撞体
+2. Sphere Collider
 
 ![Sphere Collider](/images/sphere.webp)
 
@@ -34,11 +34,11 @@ collider.shape = new SphereColliderShape();
 // set shape parameters...
 collider.radius = 5;
 ```
-| 参数 | 类型 | 描述 |
+| Parameter | Type | Description |
 | --- | --- | --- |
-| radius | number | 球形碰撞体的半径。默认以物体中心为球体中心 |
+| radius | number | The radius of the sphere collider. By default, the center of the sphere is at the object's center. |
 
-3. 胶囊碰撞体
+3. Capsule Collider
 
 ![Capsule Collider](/images/capsule.webp)
 
@@ -52,14 +52,14 @@ collider.shape = new CapsuleColliderShape();
 collider.radius = 2.5;
 collider.height = 10;
 ```
-| 参数 | 类型 | 描述 |
+| Parameter | Type | Description |
 | --- | --- | --- |
-| radius | number | 胶囊碰撞体上下半球体的半径 |
-| height | number | 胶囊碰撞体的高度，默认以物体中心为胶囊体中心 |
+| radius | number | The radius of the upper or lower half-sphere of the capsule collider. |
+| height | number | The height of the capsule collider. By default, the center of the capsule is at the object's center. |
 
 
-## 碰撞体组件应用示例
-在为对象添加了刚体组件后，我们再为它添加一个碰撞体，并指定碰撞体的形状类型，便可以让该对象响应碰撞了：
+## Example of Applying Collider Components
+After adding a Rigidbody component to an object, we can add a collider and specify the shape type of the collider to make the object respond to collisions:
 ```ts
 import { Vecter3D, Object3D } from '@orillusion/core'
 import { BoxColliderShape, Rigidbody } from '@orillusion/physics'
@@ -71,7 +71,7 @@ collider.shape = new BoxColliderShape();
 collider.shape.size = new Vector3(2, 2, 2);
 ```
 
-利用碰撞组件，我们可以模拟出逼真的物理效果，下面我们通过展示一个更复杂的示例，进一步了解物理系统可以实现的效果。
+By using collider components, we can simulate realistic physical effects. The following example demonstrates a more complex scenario to further understand the effects that can be achieved through the physical system.
 
 <Demo src="/demos/physics/demo2.ts"></Demo>
 
