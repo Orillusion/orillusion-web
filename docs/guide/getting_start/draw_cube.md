@@ -53,7 +53,7 @@ let scene3D = new Scene3D();
 ## Add camera controller component
 
 ```ts
-// Creat a camera object
+// Create a camera object
 let cameraObj = new Object3D();
 let camera = cameraObj.addComponent(Camera3D);
 // Set the camera perspective according to the window size
