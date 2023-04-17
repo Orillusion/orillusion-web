@@ -1,61 +1,61 @@
-# Shader示例
+# Shader Example
 
 ## GPU Buffer
-开始使用 `compute shader` 前，我们需要先了解 `compute shader` 中都有哪些数据类型，为了方便使用，我们封装了以下数据 `Buffer` 对象：
-| 类型 | 描述 |
+Before using the `compute shader` , we need to understand the data types in the `compute shader` . For convenience, we encapsulate the following data `Buffer` objects:
+| Type | Description |
 | --- | --- |
-| ComputeGPUBuffer | 常用的数据Buffer封装对象 |
-| UniformGPUBuffer | `Uniform` 数据Buffer封装对象 |
-| StorageGPUBuffer | `Storage` 数据Buffer封装对象 |
-| StructStorageGPUBuffer | 基于结构体的`Storage`数据Buffer封装对象 |
+| ComputeGPUBuffer | Commonly used data buffer encapsulation object |
+| UniformGPUBuffer | Encapsulation object of `Uniform` data buffer |
+| StorageGPUBuffer | Encapsulation object of `Storage` data buffer |
+| StructStorageGPUBuffer | Encapsulation object of `Storage`data buffer based on structure |
 
-### ComputeGPUBuffer的用法
-`ComputeGPUBuffer` 是比较常用的数据 `Buffer` 对象，该对象接受两个参数，数据大小以及一个可选的数据源：
+### Usage of ComputeGPUBuffer
+`ComputeGPUBuffer` is a commonly used data `Buffer` object. This object accepts two parameters, the data size and an optional data source:
 ```ts
-// 创建一个大小为 64 float32的 ComputeGPUBuffer 数据对象
+// Create a ComputeGPUBuffer data object with a size of 64 float32
 var buffer = new ComputeGPUBuffer(64);
 
-// 创建一个 ComputeGPUBuffer 数据对象，并给与初始数据
+// Create a ComputeGPUBuffer data object and give it initial data
 var data = new Float32Array(64);
 data[0] = 1;
 data[1] = 2;
 data[2] = 3;
 var buffer2 = new ComputeGPUBuffer(data.length, data);
 
-// 创建一个大小为 64 float32的 ComputeGPUBuffer 数据对象
+// Create a ComputeGPUBuffer data object with a size of 64 float32
 var buffer3 = new ComputeGPUBuffer(64);
-// 设置该对象数据
+// Set the data of this object
 buffer3.setFloat32Array("data", data);
-// 应用更新(将同步到GPU)
+// Apply the update (will be synchronized to GPU)
 buffer3.apply();
 ```
 
-### UniformGPUBuffer的用法
-`UniformGPUBuffer` 是 `Uniform` 类型数据Buffer的封装对象，该对象与上述`ComputeGPUBuffer` 用法一致，也是接受两个参数，数据大小以及一个可选的数据源：
+### Usage of UniformGPUBuffer
+`UniformGPUBuffer` is an encapsulation object of `Uniform` type data buffer. This object has the same usage as`ComputeGPUBuffer` described above. It also accepts two parameters, the data size and an optional data source:
 ```ts
-// 创建一个大小为 32 float32的 UniformGPUBuffer 数据对象
+// Create a UniformGPUBuffer data object with a size of 32 float32
 var buffer = new UniformGPUBuffer(32);
 
-// 创建一个 UniformGPUBuffer 数据对象，并给与初始数据
+// Create a UniformGPUBuffer data object and give it initial data
 var data = new Float32Array(64);
 data[0] = 1;
 data[1] = 2;
 data[2] = 3;
 var buffer2 = new UniformGPUBuffer(data.length, data);
 
-// 创建一个大小为 64 float32的 UniformGPUBuffer 数据对象
+// Create a UniformGPUBuffer data object with a size of 64 float32
 var buffer3 = new UniformGPUBuffer(64);
-// 设置该对象数据
+// Set the data of this object
 buffer3.setFloat32Array("data", data);
-// 应用更新(将同步到GPU)
+// Apply the update (will be synchronized to GPU)
 buffer3.apply();
 ```
 
-### StorageGPUBuffer的用法
-`StorageGPUBuffer` 是 `Storage` 类型数据Buffer的封装对象，用法与上述`ComputeGPUBuffer`、`UniformGPUBuffer`一致，这里不再展开介绍。
+### Usage of StorageGPUBuffer
+`StorageGPUBuffer` is an encapsulation object of `Storage` type data buffer. Its usage is the same as that of`ComputeGPUBuffer`and`UniformGPUBuffer`, and is not described here.
 
-### StructStorageGPUBuffer的用法
-`StructStorageGPUBuffer` 是基于结构体的 `Storage` 数据Buffer封装对象，该对象接受两个参数，结构类型和结构对象个数：
+### Usage of StructStorageGPUBuffer
+`StructStorageGPUBuffer` is an encapsulation object of `Storage` data buffer based on structure. This object accepts two parameters, the structure type and the number of structure objects:
 ```ts
 class MyStructA extends Struct {
     public x: number = 0;
@@ -64,27 +64,27 @@ class MyStructA extends Struct {
     public w: number = 0;
 }
 
-// 创建一个拥有 1 个MyStructA元素的 StructStorageGPUBuffer
+// Create a StructStorageGPUBuffer with 1 MyStructA element
 var buffer1 = new StructStorageGPUBuffer(MyStructA, 1);
 
-// 创建一个拥有 3 个MyStructA元素的 StructStorageGPUBuffer（相当于一维数组，数组长度为3）
+// Create a StructStorageGPUBuffer with 3 MyStructA elements (equivalent to a one-dimensional array with a length of 3)
 var buffer2 = new StructStorageGPUBuffer(MyStructA, 3);
 
-// 为下标为 2 的MyStructA设置值
+// Set the value of MyStructA with an index of 2
 var value = new MyStructA();
 value.x = 100;
 buffer2.setStruct(MyStructA, 2, value);
-// 应用更新(将同步到GPU)
+// Apply the update (will be synchronized to GPU)
 buffer2.apply();
 ```
 
 ## Compute Shader
-为了方便使用，我们封装了 `ComputeShader` 对象，该对象接受一段WGSL代码作为初始化参数，例如：
+To make it convenient to use, we have encapsulated a `ComputeShader` object that accepts a piece of WGSL code as an initialization parameter, for example:
 ```ts
 this.mGaussianBlurShader = new ComputeShader(cs_shader);
 ```
 
-`cs_shader` 内容如下:
+Here's what `cs_shader` looks like:
 ```wgsl
 struct GaussianBlurArgs {
     radius: f32,
@@ -114,37 +114,37 @@ fn CsMain( @builtin(global_invocation_id) globalInvocation_id: vec3<u32>) {
     textureStore(resultTex, pixelCoord, result);
 }
 ```
-这里对WGSL基本语法不做过多说明，详情查看 [WebGPU Shader Language](https://www.orillusion.com/zh/wgsl.html).
+We will not go into too much detail about the basic syntax of WGSL here. For more information, please refer to [WebGPU Shader Language](https://www.orillusion.com/zh/wgsl.html).
 
-当 `ComputeShader` 对象被创建后，我们需要关联它所使用到的相关数据，也就是上述代码中使用到的各类 `GPU Buffer` 和 `Texture` (本例为 `args`，`colorMap`，`resultTex`)。
+After the `ComputeShader` object is created, we need to associate it with the relevant data it uses, which are various `GPU Buffer` and `Texture` used in the code above(`args`，`colorMap`，`resultTex`)。
 
-`args` 为 `uniform` 数据类型，此处用于存放配置信息，所以我们创建一个`UniformGPUBuffer` 对象用于管理该数据：
+`args` is of the `uniform` data type and is used to store configuration information, so we create a`UniformGPUBuffer` object to manage the data:
 ```ts
 this.mGaussianBlurArgs = new UniformGPUBuffer(28);
 this.mGaussianBlurArgs.setFloat('radius', 2);
 this.mGaussianBlurArgs.apply();
 ```
 
-`args` 所使用的数据有了以后，还需要将其关联到 `ComputeShader` 对象供`ComputeShader` 执行时访问：
+After `args` data is prepared, we also need to associate it with the `ComputeShader` object for access during`ComputeShader` execution:
 ```ts
 this.mGaussianBlurShader.setUniformBuffer('args', this.mGaussianBlurArgs);
 ```
 
-`colorMap` 是需要被高斯模糊的原始纹理，这里我们用引擎内部的全屏 `colorMap` 关联到`ComputeShader` 对象
+`colorMap` is the original texture to be blurred. Here we associate the engine's full-screen `colorMap` with the`ComputeShader` object:
 ```ts
 this.autoSetColorTexture('colorMap', this.mGaussianBlurShader, false);
 ```
 
-`resultTex` 是被模糊过的结果纹理，我们需要新建一张空纹理用于存储：
+`resultTex` is the blurred result texture. We need to create a new empty texture to store it:
 ```ts
-// 获取呈现大小(全屏大小)
+// Get presentation size (full screen size)
 let presentationSize = webGPUContext.presentationSize;
 
-// 创建一张空的VirtualTexture
+// Create an empty VirtualTexture
 this.mBlurResultTexture = new VirtualTexture(presentationSize[0], presentationSize[1], GPUTextureFormat.rgba16float, false, GPUTextureUsage.STORAGE_BINDING | GPUTextureUsage.TEXTURE_BINDING);
 this.mBlurResultTexture.name = 'gaussianBlurResultTexture';
 
-// 设置 RTDescript 的相关参数(VirtualTexture的数据载入行为等)
+// Set RTDescript's relevant parameters (data loading behavior of VirtualTexture, etc.)
 let descript = new RTDescript();
 descript.clearValue = [0, 0, 0, 1];
 descript.loadOp = `clear`;
@@ -154,37 +154,37 @@ this.mRTFrame = new RTFrame([
     descript
 ]);
 
-// 将该纹理关联到ComputeShader
+// Associate the texture with the ComputeShader
 this.mGaussianBlurShader.setStorageTexture(`resultTex`, this.mBlurResultTexture);
 ```
 
-到这里，`ComputeShader`的初始化，相关 `GPU Buffer` 和 `Texture` 的创建与关联都已完成，接下来是执行 `ComputeShader`，在执行之前，我们还需要根据需求设置好派发调度时工作组数量，也就是参数 `workerSizeX`、
-`workerSizeY`、`workerSizeZ`：
+At this point, the initialization of the`ComputeShader`, creation and association of relevant `GPU Buffer` and `Texture` have been completed. Next, we need to execute the `ComputeShader`. Before executing, we need to set the number of workgroups according to the requirements, which are the parameters `workerSizeX`,
+`workerSizeY`,and`workerSizeZ`:
 ```ts
 this.mGaussianBlurShader.workerSizeX = Math.ceil(this.mBlurResultTexture.width / 8);
 this.mGaussianBlurShader.workerSizeY = Math.ceil(this.mBlurResultTexture.height / 8);
-this.mGaussianBlurShader.workerSizeZ = 1; // 默认为1，这里可不写
+this.mGaussianBlurShader.workerSizeZ = 1; // default is 1, can be omitted here
 ```
 
-`workerSizeX`、`workerSizeY`、`workerSizeZ` 参数为派发计算时工作组数量，如图：
+The parameters `workerSizeX`,`workerSizeY`, and`workerSizeZ` represent the number of workgroups dispatched for computation, as shown in the figure:
 ![Working Group](/images/working_group.avif)
 
-每个红色立方体代表一个工作组(Working Group)，由 `WGSL` 内置字段：`@workgroup_size(x,y,z)` 定义，`x,y,z`默认为 `1`，例如图中红色立方体的工作组，可通过 `@workgroup_size(4,4,4)` 表示。
-在WGSL里，内置变量 `global_invocation_id` 为全局调度编号，`local_invocation_id` 为工作组局部调度编号，上图 a、b、c 三点的全局与局部编号如下：
-| 位置点 | 局部编号 | 全局编号 |
+Each red cube represents a workgroup, which is defined by the built-in field`@workgroup_size(x,y,z)`  in WGSL. The default values of`x,y,z`are `1`. For example, the workgroup of the red cube in the figure can be represented by  `@workgroup_size(4,4,4)` .
+In WGSL, the built-in variable `global_invocation_id` represents the global dispatch number, and`local_invocation_id` represents the local dispatch number of the workgroup. The global and local numbers of points a, b, and c in the figure are as follows:
+| Position | Local ID | Global ID |
 | :---: | :---: | :---: |
 | a | 0,0,0 | 0,0,0 |
 | b | 0,0,0 | 4,0,0 |
 | c | 1,1,0 | 5,5,0 |
 
 
-最后录入`ComputeShader`执行调度命令：
+Finally, execute the`ComputeShader`by entering the dispatch command:
 ```ts
 GPUContext.compute_command(command, [this.mGaussianBlurShader]);
 ```
 
-## 总结
-本节以一个高斯模糊示例，介绍了引擎中如何使用`Compute Shader`，如何创建`ComputeShader`所使用的各类`GPU Buffer`对象，`GPU Buffer`对象如何赋值，以及`ComputeShader`调度时参数设置，更多`ComputeShader`相关示例参见：
+## Summary
+In this section, we introduced how to use`Compute Shader`in the engine using an example of Gaussian blur. We explained how to create various `GPU Buffer`objects used by `ComputeShader`, how to assign values to`GPU Buffer`objects, and how to set parameters for`ComputeShader`dispatch. For more`ComputeShader`related examples, please refer to:
 
 <Demo :height="500" src="/demos/compute/gaussianBlur.ts"></Demo>
 

@@ -1,13 +1,13 @@
 # WebGPU Shader
 
-本章节主要介绍如何使用 `wgsl` 语言编写 `orillusion` 着色器代码和注意事项
+This chapter mainly introduces how to use the `wgsl` language to write `orillusion` shader code and considerations.
 
-与目前主流的3D引擎类似，`orillusion` 渲染模块的 `MeshRender` 中可以有多材质球，每个材质球可以定义多个渲染通道；在完成一个渲染任务期间，引擎会根据材质球类型、渲染通道的类型以及优先级按照规则对渲染输出不同的结果。
+Similar to mainstream 3D engines, the`MeshRender` 渲in the  `orillusion` rendering module can have multiple materials, and each material can define multiple rendering channels. During a rendering task, the engine outputs different results according to the rules based on the material type, rendering channel type, and priority.
 
-## Shader 分类
-`Orillusion` 中 `shader` 可以分为两大类，每个类别的用途不同，使用方式也不同:
+## Shader Classification
+In `Orillusion` , `shader` can be divided into two categories, each with a different purpose and usage:
 
-- [RenderShader](./shader_material.md) - 用于顶点着色和片元着色阶段的 `shader` 程序
-- [ComputeShader](./shader_compute.md) - 在常规图形管线之外，在GPU上执行通用计算的 `shader` 程序
+- [RenderShader](./shader_material.md) - `shader` program used for vertex shading and fragment shading stages
+- [ComputeShader](./shader_compute.md) - `shader` program used for general-purpose computing on the GPU outside of the conventional graphics pipeline
 
  

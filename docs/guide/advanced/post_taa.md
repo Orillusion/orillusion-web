@@ -1,10 +1,10 @@
 ---
 aside: false
 ---
-# 反走样 - TAAPost
-一种3D渲染 `抗锯齿` 实现方案。3D渲染栅格化过程将显示对象按二位数组点阵的形式存储起来，得到的原始图像中物体边缘难免会有锯齿样。`TAA` 采用的方法为按照一定策略轻微的给相机设置一些偏移值，让物体在栅格化时会因不同的相机偏移值得到略微不同的结果。特别是在边缘的地方更为明显。最终输出到屏幕的颜色采用插值历史帧和当前帧的作为结果，且该结果用于下一次的插值。
+# TAAPost
+TAAPost is a 3D rendering anti-aliasing implementation. In the process of rasterizing 3D rendering, the display objects are stored in the form of a two-dimensional array matrix, and the edges of objects in the original image inevitably have jagged edges. The method used by TAA is to slightly offset the camera according to a certain strategy, so that the objects will get slightly different results during rasterization due to different camera offset values. This is particularly evident at the edges. The color output to the screen is the result of interpolating the historical frame and the current frame, and this result is used for the next interpolation.
 ```ts
-//初始化引擎
+//Initialize the engine
 await Engine3D.init();
 
 Engine3D.setting.render.postProcessing.taa.jitterSeedCount = 8;
@@ -13,20 +13,20 @@ Engine3D.setting.render.postProcessing.taa.sharpFactor = 0.6;
 Engine3D.setting.render.postProcessing.taa.sharpPreBlurFactor = 0.5;
 Engine3D.setting.render.postProcessing.taa.temporalJitterScale = 0.6;
 
-//创建渲染器
+//Create the renderer
 let renderJob = new ForwardRenderJob(this.scene);
 renderJob.addPost(new TAAPost());
 Engine3D.startRender(renderJob);
 ```
 
-[Engine3D.setting.render.postProcessing.taa](../../api/types/TAASetting.md) 配置参数。
-| 参数 | 类型 | 描述 |
+[Engine3D.setting.render.postProcessing.taa](../../api/types/TAASetting.md) Configuration Parameters.
+| Parameter	 | Type | 	Description |
 | --- | --- | --- |
-| jitterSeedCount | number | 抖动相机随机种子采用个数，默认8个。（降低个数可以解决一些抖动太明显的问题，但是锯齿会变得更明显） |
-| blendFactor | number | 合并历史帧与当前帧的系数，参数越小，当前帧占比越小。|
-| sharpFactor | number | 图像锐化系数[0.1,1.9]：系数越小锐化效果越弱抗锯齿效果好，反之锐化越强抗锯齿效果越弱。|
-| sharpPreBlurFactor | number | 消图像锐化采样系数缩放系数：锐化时候采样的偏移量缩放。|
-| temporalJitterScale | number | 抖动相机随机偏移值的缩放系数[0,1]：系数越小抗锯齿效果变弱，像素抖动也会变弱。|
+| jitterSeedCount | number | The number of random seeds used for jittering the camera. Default is 8. (Reducing the number can solve some problems where the jitter is too obvious, but the jaggedness will become more obvious.) |
+| blendFactor | number | 	The coefficient for blending the historical frame and the current frame. The smaller the parameter, the smaller the current frame ratio.|
+| sharpFactor | number | The image sharpening coefficient [0.1,1.9]: the smaller the coefficient, the weaker the sharpening effect and the better the anti-aliasing effect. Conversely, the stronger the sharpening, the weaker the anti-aliasing effect.|
+| sharpPreBlurFactor | number | The scaling factor of the sampling coefficient used when blurring the image.|
+| temporalJitterScale | number | The scaling factor of the random offset value of the jittering camera [0,1]: the smaller the coefficient, the weaker the anti-aliasing effect, and the weaker the pixel jitter.|
 
 <Demo src="/demos/advanced/Sample_taa.ts"></Demo>
 

@@ -1,14 +1,15 @@
 ---
 aside: false
 ---
-# 全局光照
+# Global Illumination
 
-一般光照系统只考虑光源直接照射到物体表面所产生的效果，不会计算光源经过物体表面反射或折射的光线，即`间接光照`。全局光照系统能够对间接光照进行建模，实现更加逼真的光线效果。
+Conventional lighting systems only consider the direct lighting effect produced by light sources shining directly onto object surfaces and do not calculate the light rays that are reflected or refracted by object surfaces, i.e.,`indirect lighting`. Global illumination systems can model indirect lighting to achieve more realistic lighting effects.
 
 ```ts
-//初始化引擎
+//Initialize the engine
 await Engine3D.init({ });
 
+// Configure global illumination settings
 Engine3D.setting.gi.enable = true;
 Engine3D.setting.gi.gridYCount = 3;
 Engine3D.setting.gi.gridXCount = 4;
@@ -22,32 +23,33 @@ Engine3D.setting.gi.probeSize = 64;
 Engine3D.setting.gi.octRTSideSize = 128;
 Engine3D.setting.gi.autoRenderProbe = true;
 
+// Create a probe object and add the GlobalIlluminationComponent
 let probeObj = new Object3D();
 let component = probeObj.addComponent(GlobalIlluminationComponent);
 this.scene.addChild(probeObj);
 
-//创建渲染器
+//Create a renderer
 let renderJob = new ForwardRenderJob(this.scene);
 Engine3D.startRender(renderJob);
 ```
-[Engine3D.setting.gi](../../api/types/GlobalIlluminationSetting.md) 配置参数。
+[Engine3D.setting.gi](../../api/types/GlobalIlluminationSetting.md) configuration parameters.
 
-| 参数 | 类型 | 描述 |
+| Parameter | Type | Description |
 | --- | --- | --- |
-| enable | boolean | 开启/关闭 |
-| offsetX | number | 探针组的注册点在x轴的偏移量 |
-| offsetY | number | 探针组的注册点在y轴的偏移量 |
-| offsetZ | number | 探针组的注册点在z轴的偏移量 |
-| gridXCount | number | 探针在x轴的数量 |
-| gridYCount | number | 探针在y轴的数量 |
-| gridZCount | numbe` | 探针在z轴的数量 |
-| ProbeSize | number | 每个探针采样到的数据尺寸 |
-| probeSpace | number | 探针与探针之间的距离 |
-| indirectIntensity | number | 间接光的光照强度 |
-| bounceIntensity | number | 反射光的光照强度 |
-| octRTMaxSize | number | 设置八面体贴图的总尺寸 |
-| octRTSideSize | number | 设置八面体贴图，每个八面体正方形的尺寸 |
-| autoRenderProbe | boolean | 设置探针是否自动更新 |
+| enable | boolean | 	On/Off |
+| offsetX | number | The x-axis offset of the probe group registration point |
+| offsetY | number | The y-axis offset of the probe group registration point |
+| offsetZ | number | The z-axis offset of the probe group registration point |
+| gridXCount | number | The number of probes in the x-axis |
+| gridYCount | number | The number of probes in the y-axis|
+| gridZCount | numbe` | The number of probes in the z-axis |
+| ProbeSize | number | The data size sampled by each probe|
+| probeSpace | number | The distance between probes |
+| indirectIntensity | number | The lighting intensity of indirect lighting |
+| bounceIntensity | number | The lighting intensity of reflection |
+| octRTMaxSize | number | The total size of the octahedral texture |
+| octRTSideSize | number | The size of each octahedral square |
+| autoRenderProbe | boolean | Whether the probe is automatically updated |
 
 <Demo src="/demos/advanced/Sample_GI.ts"></Demo>
 
