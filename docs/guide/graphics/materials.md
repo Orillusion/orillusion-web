@@ -1,73 +1,74 @@
-# 材质
-## 材质总览
-引擎通过 [MeshRenderer](/api/classes/MeshRenderer) 组件给物体添加相应的 `材质` 对象，用来模拟其颜色、光照、纹理等属性。目前引擎内置了2种经典材质模型：
-| 名称 | 描述 |
-| :---: | --- |
-| UnLitMaterial | 不计算光照，仅渲染原始颜色与纹理信息 |
-| LitMaterial | `PBR` 即基于物理渲染，旨在模拟现实世界光照效果 |
+# Materials
+## Overview of Materials
+Our engine adds the corresponding `material` object to the object through the [MeshRenderer](/api/classes/MeshRenderer) component to simulate its color, lighting, texture, etc. Currently, the engine has two built-in classic material models:
 
-我们推荐使用的 [glTF](/guide/resource/gltf) 格式文件包含了物体材质信息。用户可以通过常用建模软件设计并修改模型文件。引擎解析模型文件后，自动赋予物体相应材质。
+|     Name      | Description                                                                                     |
+|:-------------:|-------------------------------------------------------------------------------------------------|
+| UnLitMaterial | Does not calculate lighting, only renders original color and texture information                |
+|  LitMaterial  | `PBR` is based on physical rendering, aiming to simulate the lighting effects of the real world |
 
-## 基础用法
+We recommend that users use the [glTF](/guide/resource/gltf) format file to contain the material information of the object. Users can design and modify the model file through common modeling software. After the engine parses the model file, it automatically assigns the corresponding material to the object.
+
+## Basic Usages
 ```ts
 import {Object3D. MeshRenderer, LitMaterial, SphereGeometry, Color} from '@orillusion/core'
 
 let object = new Object3D();
-// 添加 MeshRenderer 组件
+// Add MeshRenderer component
 let mesh = object.addComponent(MeshRenderer);
 
-// 设置组件 material
+// Set component material
 mesh.material = new UnLitMaterial();
 mesh.material.baseColor = new Color(1, 1, 1, 1);
 
-// 切换 Material
+// Switch Material
 mesh.material = new LitMaterial();
 ```
 
-## Unlit 材质
-引擎提供了 [UnLitMaterial](/api/classes/CylinderGeometry) 类以进行 `Unlit` 材质的渲染。
+## Unlit Material
+The engine provides the [UnLitMaterial](/api/classes/UnLitMaterial) class for rendering `Unlit` materials.
 
-| 属性 | 描述 |
-| :---: | :---: |
-| baseColor | 基础颜色 |
-| baseMap | 基础贴图 |
-| envMap | 环境贴图 |
-| shadowMap | 阴影贴图 |
+| Attribute |   Description   |
+|:---------:|:---------------:|
+| baseColor |   Base color    |
+|  baseMap  |    Base map     |
+|  envMap   | Environment map |
+| shadowMap |   Shadow map    |
 
 <Demo src="/demos/materials/UnLitMaterial.ts"></Demo>
 
 <<< @/public/demos/materials/UnLitMaterial.ts
 
-## PBR 材质
-我们提倡使用 [PBR](/api/classes/LitMaterial) 材质进行渲染，`PBR` 全称是`Physicallly-Based Rendering`，是指基于物理渲染的材质，它更符合真实的物理光照模型。
+## PBR Material
+We recommend using the [PBR](/api/classes/LitMaterial) material for rendering, `PBR` stands for `Physicallly-Based Rendering`, which is a material based on physical rendering, which is more in line with the physical lighting model of reality.
 
-| 属性 | 描述 |
-| :---: | :---: |
-| baseColor | 材质基础颜色 |
-| emissiveColor | 材质发光颜色 |
-| emissiveIntensity | 材质发光强度，需要开启 HDRBloomPost 才能显示发光效果 |
-| roughness | 材质粗糙程度 |
-| metallic | 材料金属度 |
-| normalScale | 法线贴图对材质的影响程度 |
-| clearCoat | 透明涂层强度 |
-| envMap | 环境贴图 |
-| envIntensity | 环境光强度 |
-| materialF0 | 材质反射率 |
-| ao | Ambient Occlussion, 处理环境光对物体遮挡的效果 |
-| aoMap | 环境光遮挡贴图 |
-| baseMap | 基础贴图 |
-| normalMap | 法线贴图 |
-| maskMap | 遮罩贴图 |
-| emissiveMap | 材质发光贴图 |
-| brdfLUT | BRDF查找表 |
+|     Attribute     |                                     Description                                     |
+|:-----------------:|:-----------------------------------------------------------------------------------:|
+|     baseColor     |                                     Base color                                      |
+|   emissiveColor   |                                   Emissive color                                    |
+| emissiveIntensity |      Emissive intensity, need to open HDRBloomPost to display the glow effect       |
+|     roughness     |                              Roughness of the material                              |
+|     metallic      |                              Metallic of the material                               |
+|    normalScale    |                    The effect of the normal map on the material                     |
+|     clearCoat     |                                Clear coat intensity                                 |
+|      envMap       |                                   Environment map                                   |
+|   envIntensity    |                             Environment light intensity                             |
+|    materialF0     |                                Material reflectance                                 |
+|        ao         | Ambient Occlussion, handles the effect of ambient light on the occlusion of objects |
+|       aoMap       |                             Ambient light occlusion map                             |
+|      baseMap      |                                      Base map                                       |
+|     normalMap     |                                     Normal map                                      |
+|      maskMap      |                                      Mask map                                       |
+|    emissiveMap    |                                    Emissive map                                     |
+|      brdfLUT      |                                  BRDF lookup table                                  |
 
 <Demo src="/demos/materials/PBR.ts"></Demo>
 
 <<< @/public/demos/materials/PBR.ts
 
 
-## 材质设置
-### 颜色
+## Material Settings
+### Color
 ```ts
 let mat = new UnLitMaterial();
 mat.baseColor = new Color(1, 0, 0, 1);
@@ -75,7 +76,7 @@ mat.baseColor = new Color(1, 0, 0, 1);
 
 <Demo :height="300" :code="false" src="/demos/materials/color.ts"></Demo>
 
-### 透明度 & 混合模式
+### Transparency & Blend Mode
 ```ts
 let mat = new UnLitMaterial();
 mat.transparent = true;
@@ -85,25 +86,25 @@ mat.baseColor = new Color(1, 0, 0, 0.5);
 
 <Demo :height="300" :code="false" src="/demos/materials/blendMode.ts"></Demo>
 
-混合模式详情请参考 [BlendMode](/api/enums/BlendMode.html)
+See more about [BlendMode](/api/enums/BlendMode.html)
 
-### 切换剔除模式
-为了节省 `GPU` 性能，`Orillusion` 默认使用 `back` 剔除模式，即只渲染物体正面材质，我们可以设置材质 [cullMode](/api/classes/LitMaterial#cullMode) 属性来切换显示模式
+### Switching Cull Mode
+In order to save GPU performance, Orillusion uses the `back` culling mode by default, that is, only the front face material of the object is rendered. Set the material [cullMode](/api/classes/LitMaterial#cullMode) property to switch the display mode.
 ```ts
 let mat = new LitMaterial();
-mat.cullMode = GPUCullMode.none; // 不剔除，双面显示
-mat.cullMode = GPUCullMode.front; // 剔除正面，显示后面
-mat.cullMode = GPUCullMode.back; // 剔除后面，显示正面
+mat.cullMode = GPUCullMode.none; // Do not cull, display both sides
+mat.cullMode = GPUCullMode.front; // Cull the front, display the back
+mat.cullMode = GPUCullMode.back; // Cull the back, display the front
 ```
 
 <Demo :height="300" :code="false" src="/demos/materials/cullMode.ts"></Demo>
 
-### UV 变换
-模型顶点会存有多组纹理映射坐标，定义了该顶点在纹理中对应的2D坐标，它通常由一个二维变量 `(u,v)` 表示，所以也被称为 `UV坐标`。   
-我们可以通过对模型的 `uv` 坐标进行矩阵变换来自定义纹理的映射关系。比如，设定材质的 `uvTransform_1` 属性来对原始 `uv` 进行 `位移（offset）` 和 `缩放（scaling）` 的坐标变换: 
+### UV Transform
+The model vertex will store multiple sets of texture mapping coordinates, which define the 2D coordinates in the texture corresponding to the vertex. It is usually represented by a two-dimensional variable `(u,v)`, so it is also called `UV coordinates`.   
+We can customize the texture mapping relationship by performing matrix transformations on the `uv` coordinates of the model. For example, set the material's `uvTransform_1` property to perform coordinate transformations of the original `uv` for `offset` and `scaling`:
 ```ts
 let mat = new LitMaterial();
-// 定义 Vector4, 分别调节 offsetU, offsetV, scalingU, scalingV
+// Define Vector4, adjust offsetU, offsetV, scalingU, scalingV separately
 mat.uvTransform_1 = new Vector4(0, 0, 1, 1);
 ```
 
