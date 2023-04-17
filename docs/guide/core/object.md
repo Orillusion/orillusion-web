@@ -32,9 +32,9 @@ let child = new Object3D();
 parent.addChild(child);
 //Remove the node
 parent.removeChild(child);
-//or remove the child node by itself
+//Or remove the child node by itself
 child.removeFromParent();
-//or remove all child nodes
+//Or remove all child nodes
 parent.removeAllChild();
 ```
 
@@ -63,7 +63,7 @@ class CustomComponent extends ComponentBase {
 ## Get Other Components of Node
 Using the built-in [getComponent](/api/classes/Object3D#getComponent) method of `Object3D`, you can easily get the components on the node.
 ```ts
-//Custom component, to change another light component on the node, change the color of the light
+//Custom a component, to change another light component on the node, change the color of the light
 class CustomComponent extends ComponentBase {
     public start() {
         let light = this.object3D.getComponent(DirectLight)

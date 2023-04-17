@@ -53,8 +53,7 @@ await Engine3D.init({
 });
 ```
 
-## 启动渲染任务
-## Start Render Job
+## Start Rendering Job
 After the engine is initialized, you need to start the rendering task to start rendering. At least one scene [Scene3D](/guide/core/scene) and one renderer [ForwardRenderJob](/api/classes/ForwardRenderJob) are required to start the rendering task, the basic usage is as follows:
 
 ```ts

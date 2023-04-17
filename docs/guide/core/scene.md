@@ -14,7 +14,7 @@ Main functions of `Scene3D`:
 await Engine3D.init();
 // Specify the size of sky box
 Engine3D.setting.sky.defaultFar = 5000;
-// Creat a scene
+// Create a scene
 let scene = new Scene3D();
 // Add one object node
 let obj = new Object3D();

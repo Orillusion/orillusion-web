@@ -40,7 +40,7 @@ And more built-in components can be found in [Components](/api/#components)
 
 ## Basic Usage
 ```ts
-//Creat a new entity
+//Create a new entity
 let obj = new Object3D();
 //Add the entity to scene
 scene.addChild(obj);
@@ -85,4 +85,4 @@ The component extends from the [CompnentBase](/api/classes/ComponentBase), which
 |  onDisable   | Work when `enable = false` , component will no longer trigger loop    |
 |     stop     | Component is called before destruction                                |
 
-User can extend different custom functions by inheriting the [CompnentBase](/api/classes/ComponentBase) base class, see [Script Component](/guide/core/script) for details.
+Users can extend different custom functions by inheriting the [CompnentBase](/api/classes/ComponentBase) base class, see [Script Component](/guide/core/script) for details.
