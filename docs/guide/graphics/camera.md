@@ -1,218 +1,218 @@
-# 摄像机
+# Camera
 
-相机是为用户显示或捕获虚拟世界的工具，好比现实世界中观察事物的眼睛，所有炫酷的影像都需要通过相机渲染。在每个场景中必须至少有一个相机才能查看到场景内的对象。`Orillusion` 已经封装了常用的 [相机类型](#相机类型) 和 [控制器](#相机组件)，用户也可以通过 [自定义组件](/guide/core/component) 为相机扩展功能。
+Camera is a tool for users to display or capture the virtual world, just like the eyes that observe things in the real world. All the cool images need to be rendered through the camera. At least one camera must be present in each scene to view the objects in the scene. `Orillusion` has already encapsulated the [camera types](#camera-type) and [controllers](#camera-component) commonly used, and users can also extend the function of the camera by [custom components](/guide/core/component).
 
-## 基本用法
+## Basic Usage
 ```ts
 import { Object3D, Scene3D, Camera3D } from '@orillusion/core'
-// 实例化一个场景
+// Initialize a scene
 let scene = new Scene3D();
-// 实例化一个节点
+// Initialize a camera node
 let cameraObj = new Object3D();
-// 加载一个相机组件
+// Add a camera component to the node
 let camera = cameraObj.addComponent(Camera3D);
-// 将相机添加至场景
+// Add the camera node to scene
 scene.addChild(cameraObj);
 ```
-如果场景内有多个相机，默认以第一个创建的相机组件为主相机，可以通过 `Camera3D.mainCamera` 手动切换主相机:
+If there are multiple cameras in the scene, the first created camera component is the main camera by default. You can manually switch the main camera through `Camera3D.mainCamera`:
 ```ts
-// 如果有多个相机
+// If multiple cameras exist in the scene
 let cameraObj1 = new Object3D();
 let camera1 = cameraObj.addComponent(Camera3D);
 let cameraObj2 = new Object3D();
 let camera2 = cameraObj.addComponent(Camera3D);
 
-// 设定/切换场景主相机
+// Set/Switch the main camera of the scene
 Camera3D.mainCamera = camera2;
 ```
 
-## 相机位置
-更改相机位置主要有三种方式：
-1. 通过 `TransForm` 变换：通过相机节点 `Object3D` 的 [transForm](/guide/core/transform) 属性可以手动设置相机的位置和方向角度：
+## Camera Position
+There are three ways to change the camera position:
+1. By `TransForm` transformation: The position and direction angle of the camera can be manually set through the [transForm](/guide/core/transform) property of the camera node `Object3D`:
 ```ts
-// 创建一个节点
+// Create a node
 let cameraObj = new Object3D();
-// 添加相机组件
+// Add a camera component to the node
 let camera = cameraObj.addComponent(Camera3D);
-// 设定 Object3D 的 Position 或 Rotation 
+// Set the Position or Rotation of the Object3D
 cameraObj.x = 10;
 cameraObj.rotateX = 90;
 ...
 ```
 
-2. 通过组件 `lookAt` 函数：相机组件提供的 [lookAt](/api/classes/Camera3D#lookat) 函数 可以同时设置相机 `Object3D` 的位置和观察目标位置：
+2. By 'lookAt' function of the component: The [lookAt](/api/classes/Camera3D#lookat) function of the camera component can set the position of the camera `Object3D` and the position of the target to be observed at the same time:
 
 ```ts
-// 创建一个节点
+// Create a node
 let cameraObj = new Object3D();
-// 添加相机组件
+// Add a camera component to the node
 let camera = cameraObj.addComponent(Camera3D);
-// 使用 Camera3D 组件 lookAt 改变 Object3D 的位置和方向角度
+// Use the lookAt function of the Camera3D component to change the position and direction angle of the Object3D
 camera.lookAt(new Vecter3(0,0,10), new Vecter3(0,0,0), new Vecter3(0,0,1));
 ```
-| 参数 | 类型 | 描述 | 示例 |
-| --- | --- | ------ | --- |
-| pos | Vecter3 | 自身的位置 （全局） | Vector3(0, 0, 0) |
-| target | Vecter3 | 目标的位置 （全局） | Vector3(0, 1, 0) |
-| up | Vecter3 | 相机朝上方向的坐标轴 | Vector3(0, 1, 0) |
-3. 相机控制器：引擎内置了几种常用的 [控制器组件](#相机组件)，可以根据用户的输入交互自动调整相机的位置属性。
+| Parameter | Type    | Description                                                  | Example          |
+|-----------|---------|--------------------------------------------------------------|------------------|
+| pos       | Vecter3 | The position of the object itself (global)                   | Vector3(0, 0, 0) |
+| target    | Vecter3 | The position of the target (global)                          | Vector3(0, 1, 0) |
+| up        | Vecter3 | The coordinate axis of the direction the camera is facing up | Vector3(0, 1, 0) |
+3. Camera Controller: Several common [controller components](#camera-component) are built in the engine, which can automatically adjust the position properties of the camera according to the user's input interaction.
 
 
-## 相机类型
-目前主要支持正交相机、透视相机供开发者使用。
+## Camera Type
+The engine mainly supports orthographic cameras and perspective cameras for developers to use currently.
 
-### 正交投影   
+### Orthographic Projection
 
-在正交相机模式下无论物体距离相机远或近在渲染结果中物体的大小不变，我们通常在2D绘图中使用正交相机，并在我们的几何图形中将 `z` 坐标设为 `0.0`。但是 `z` 轴可以延伸到任何我们想要的长度。使用正交相机对显示对象进行投影，得到的结果是按照同比例缩放，不会有畸变产生。
+In orthographic camera mode, the size of the object does not change regardless of how far the object is from the camera. We usually use orthographic cameras in 2D drawing, and set the `z` coordinate to `0.0` in our geometric graphics. But the `z` axis can be extended to any length we want. Using an orthographic camera to project the display object, the result is scaled proportionally without distortion.
 
 ![camera_orthoOffCenter](/images/camera_orthoOffCenter.webp)
 
-调用 [camera.orthoOffCenter](/api/classes/Camera3D.html#orthooffcenter) API 可以按照需求设置相机成正交相机：
+Use [camera.orthoOffCenter](/api/classes/Camera3D.html#orthooffcenter) API to set the camera to an orthographic camera:
 
-| 参数 | 类型 | 描述 | 示例 |
-| --- | --- | --- | --- |
-| left | number | 视锥体x轴最小值 | -window.innerWidth / 2 | 
-| right | number | 视锥体x轴最大值 | window.innerWidth / 2 | 
-| bottom | number | 视锥体y轴最小值 | -window.innerHeight / 2 | 
-| top | number | 视锥体y轴最大值 | window.innerHeight / 2 | 
-| near | number | 视锥体近截面z值| 1 |
-| far | number | 视锥体远截面z值| 5000 |
+| Parameter | Type   | Description                                                   | Example                 |
+|-----------|--------|---------------------------------------------------------------|-------------------------|
+| left      | number | The minimum value of the x-axis of the viewing frustum        | -window.innerWidth / 2  |
+| right     | number | The maximum value of the x-axis of the viewing frustum        | window.innerWidth / 2   |
+| bottom    | number | The minimum value of the y-axis of the viewing frustum        | -window.innerHeight / 2 |
+| top       | number | The maximum value of the y-axis of the viewing frustum        | window.innerHeight / 2  |
+| near      | number | The z value of the near clipping plane of the viewing frustum | 1                       |
+| far       | number | The z value of the far clipping plane of the viewing frustum  | 5000                    |
 
-
-### 透视投影
-透视投影会利用透视除法对距离观察者很远的对象进行缩短和收缩，逻辑尺寸相同的对象在可视区域靠前位置比靠后位置显得更大，可以实现逼近人眼的观察效果，是3D场景中最常用的投影模式。
+### Perspective Projection
+Perspective projection will use perspective division to shorten and shrink objects that are far away from the observer. Objects with the same logical size appear larger in the front position than in the back position in the visible area, which can achieve the observation effect close to the human eye. It is the most commonly used projection mode in 3D scenes.
 
 ![camera_perspective](/images/camera_perspective.webp)
 
-调用 [camera.perspective](/api/classes/Camera3D#perspective) 可以按照需求设置相机为透视相机：
+Use [camera.perspective](/api/classes/Camera3D#perspective) API to set the camera to a perspective camera:
 
-| 参数 | 类型 | 描述 | 示例 |
-| --- | --- | --- | --- |
-| fov  | number | 透视度 | 60 |
-| aspect | number | 视口比例 | window.innerWidth / window.innerHeight |
-| near | number | 近截面 | 0.1 |
-| far | number | 远截面 | 1000 |
+| Parameter | Type   | Description                                                   | Example                                |
+|-----------|--------|---------------------------------------------------------------|----------------------------------------|
+| fov       | number | The perspective degree                                        | 60                                     |
+| aspect    | number | The aspect ratio of the viewport                              | window.innerWidth / window.innerHeight |
+| near      | number | The z value of the near clipping plane of the viewing frustum | 0.1                                    |
+| far       | number | The z value of the far clipping plane of the viewing frustum  | 1000                                   |
 
 <Demo :height="500" src="/demos/graphics/camera_type.ts"></Demo>
 
 <<< @/public/demos/graphics/camera_type.ts{35-41}
 
-## 相机组件
-相机组件为相机提供灵活的扩展支持，可以直接使用预定义组件，也可以自定义组件实现更个性化的需求。组件通过自身的 `update` 函数，执行与 `Engine3D` 主循环同步的自我更新逻辑。
+## Camera Conponent
+The Camera component provides flexible extension support for the camera, which can be used directly with predefined components, or can be customized to implement more personalized requirements. The component executes its own update logic in sync with the `Engine3D` main loop through its `update` function.
 
-### [自由相机](/api/classes/FlyCameraController)
-该像机控制器 ，实现摄像机自由移动。它的交互功能有：
-  - 通过 W A S D 向着朝向方向 前进 后退 左右移动
-  - 通过按住鼠标左键控制相机的移动朝向
+### [FlyCamera](/api/classes/FlyCameraController)
+This controller implements the camera's free movement. Its interaction features are:
+  - Move forward, backward and left and right by pressing W A S D
+  - Control the movement direction of the camera by holding down the left mouse button
 
 <Demo :height="500" src="/demos/graphics/camera_fly.ts"></Demo>
 
 <<< @/public/demos/graphics/camera_fly.ts
 
-基本用法：
+Basic usage:
 ```ts
 import { Scene3D, Camera3D, FlyCameraController } from '@orillusion/core'
-// 实例化一个节点
+// Create a node
 let cameraObj = new Object3D();
-// 加载一个相机组件
+// Add a camera component to the node
 let camera = cameraObj.addComponent(Camera3D);
-// 加载控制器组件
+// Add a controller component to the node
 let flyController = cameraObj.addComponent(FlyCameraController);
-// 通过组件 setCamera 设置相机位置
+// Set the camera position through the component setCamera
 flyController.setCamera(new Vector3(0, 0, 15), new Vector3(0, 0, 0));
-// 设置鼠标移动速度
+// Set the mouse movement speed
 flyController.moveSpeed = 10;
 ```
-自由相机可以通过 [setCamera](/api/classes/FlyCameraController#setcamera) 设定自身位置和朝向
+The fly camera can be set by [setCamera](/api/classes/FlyCameraController#setcamera) to set its own position and orientation
 
-| 参数 | 类型 | 描述 | 示例 |
-| --- | --- | --- | --- |
-| targetPos | Vector3 | 自身位置 | new Vector3(0,0,10) |
-| lookAtPos | Vector3 | 目标位置  | new Vector3(0,0,0) |
+| Parameter | Type    | Description                | Example             |
+|-----------|---------|----------------------------|---------------------|
+| targetPos | Vector3 | The position of the camera | new Vector3(0,0,10) |
+| lookAtPos | Vector3 | The position of the target | new Vector3(0,0,0)  |
 
-还可以修改 `moveSpeed` 来调整移动的速度快慢
+Also, you can modify `moveSpeed` to adjust the speed of movement
 
-| 参数 | 类型 | 描述 | 示例 |
-| --- | --- | --- | --- |
-| moveSpeed | number | 移动毒素 | 10 |
+| Parameter | Type   | Description           | Example |
+|-----------|--------|-----------------------|---------|
+| moveSpeed | number | The speed of movement | 10      |
 
-### [盘旋相机](/api/classes/HoverCameraController)
+### [HoverCameraC](/api/classes/HoverCameraController)
 
-该相机控制器，实现摄像机在 `xz` 平面移动/围绕当前观察点旋转。它的交互功能有：
-  - 按下鼠标左键并移动鼠标，可以使相机围绕当前观察目标进行旋转。
-  - 按下鼠标右键并移动鼠标，可以使相机根据鼠标移动的方向与距离平滑移动当前场景可视区域
-  - 滑动鼠标滚轮可以控制摄像机的视距
+This camera controller implements the camera's movement in the `xz` plane and rotation around the current observation point. Its interaction features are:
+  - Press the left mouse button and move the mouse to rotate the camera around the current observation target.
+  - Press the right mouse button and move the mouse to move the camera smoothly in the direction and distance of the mouse movement in the current scene visible area.
+  - Scroll the mouse wheel to control the camera's viewing distance
 
-<Demo :height="500" src="/demos/graphics/camera_hover.ts"></Demo>
+  - <Demo :height="500" src="/demos/graphics/camera_hover.ts"></Demo>
 
 <<< @/public/demos/graphics/camera_hover.ts
 
 
-基本用法：
+Basic usage:
 ```ts
 import { Scene3D, Camera3D, HoverCameraController } from '@orillusion/core'
-// 实例化一个节点
+// Create a node
 let cameraObj = new Object3D();
-// 加载一个相机组件
+// Add a camera component to the node
 let camera = cameraObj.addComponent(Camera3D);
-// 加载控制器组件
+// Add a controller component to the node
 let hoverCameraController = cameraObj.addComponent(HoverCameraController);
-// 通过组件 setCamera 设置相机位置
+// Set the camera position through the component setCamera
 hoverController.setCamera(15, -15, 15, new Vector3(0, 0, 0));
 ```
-盘旋相机可以通过 [setCamera](/api/classes/HoverCameraController#setcamera) 控制相机位置和朝向
-| 参数 | 类型 | 描述 | 示例 |
-| --- | --- | --- | --- |
-| roll   | number | 围绕y轴旋转  | 0 |
-| pitch  | number | 围绕x轴旋转  | 0 |
-| distance | number | 相机与目标的距离 | 10 |
-| target?   | Vecter3 | 朝向目标坐标  | new Vector3(0,0,0) |
+The hover camera can be controlled by [setCamera](/api/classes/HoverCameraController#setcamera) to set its own position and orientation
+
+| Parameter | Type    | Description                | Example             |
+|-----------|---------|----------------------------|---------------------|
+| roll      | number  | Rotate around the y axis   | 0                   |
+| pitch     | number  | Rotate around the x axis   | 0                   |
+| distance  | number  | Distance from the target   | 10                  |
+| target?   | Vecter3 | Target coordinate          | new Vector3(0,0,0)  |
 
 
-### [轨道相机](/api/classes/OrbitController)
-该相机控制器，跟盘旋相机很相似，也是围绕一个坐标观察点旋转。但它可以直接设置相机的 `Object3D` 的位置和渲染来控制视角位置和朝向。主要特性如下：
-  - 按下鼠标左键并移动鼠标，可以使相机围绕当前观察目标进行全向旋转
-  - 按下鼠标右键并移动鼠标，可以根据鼠标移动方向在空间各个方向内移动相机中心，不仅可以在 `xz` 平面内自由移动，也支持 `y` 方向的自由移动
-  - 滑动鼠标滚轮可以控制摄像机和中心的距离
-  - 可以设置相机自动旋转
-  - 可以设置旋转，缩放，平移的速度
-  - 可以设置仰角最大值和最小值
+### [OrbitCamera](/api/classes/OrbitController)
+This camera controller is similar to the hover camera, but it can directly set the position and orientation of the camera `Object3D` to control the position and orientation of the view. The main features are as follows:
+  - Press the left mouse button and move the mouse to rotate the camera around the current observation target.
+  - Press the right mouse button and move the mouse to move the camera smoothly in the direction and distance of the mouse movement in the current scene visible area.
+  - Scroll the mouse wheel to control the camera's viewing distance
+  - You can set the camera to automatically rotate
+  - You can set the rotation, zoom, and translation speed
+  - You can set the maximum and minimum angles of elevation
 
 <Demo :height="500" src="/demos/graphics/camera_orbit.ts"></Demo>
 
 <<< @/public/demos/graphics/camera_orbit.ts{12-17}
 
 
-基本用法：
+Basic usage:
 ```ts
 import { Scene3D, Camera3D, OrbitController } from '@orillusion/core'
-// 实例化一个节点
+// Create a node
 let cameraObj = new Object3D();
-// 加载一个相机组件
+// Add a camera component to the node
 let camera = cameraObj.addComponent(Camera3D);
-// 加载控制器组件
+// Add a controller component to the node
 let orbit = cameraObj.addComponent(OrbitController);
-// 设置相机 Object3D 位置
+// Set the position of the camera Object3D
 cameraObj.localPosition.set(0, 10, 30);
-// 开启自动旋转
+// Enable automatic rotation
 orbit.autoRotate = true
-// 自动旋转速度
+// Automatic rotation speed
 orbit.autoRotateSpeed = 0.1
-// 缩放速度系数
+// Zoom speed coefficient
 orbit.zoomFactor = 0.1
-// 视角平移速度系数
+// View angle translation speed coefficient
 orbit.panFactor = 0.25
-// 视角平滑系数
+// View angle smoothing coefficient
 orbit.smooth = 5
-// 缩放最小距离
+// Zoom minimum distance
 orbit.minDistance = 1
-// 缩放最大距离
+// Zoom maximum distance
 orbit.maxDistance = 1000
-// 仰角最小值
+// Minimum elevation angle
 orbit.minPolarAngle = -90
-// 仰角最大值
+// Maximum elevation angle
 orbit.minPolarAngle = 90
 ```
 
-### 自定义控制器
-用户可以通过 [自定义组件](/guide/core/script) 来扩展额外的相机组件，可以参考 [OrbitController](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/controller/OrbitController.ts) 的实现方式。
+### Custom Controller
+Users can extend additional camera components through [custom components](/guide/core/script), See [OrbitController](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/controller/OrbitController.ts) as an example.
