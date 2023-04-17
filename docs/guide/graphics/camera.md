@@ -161,12 +161,12 @@ hoverController.setCamera(15, -15, 15, new Vector3(0, 0, 0));
 ```
 The hover camera can be controlled by [setCamera](/api/classes/HoverCameraController#setcamera) to set its own position and orientation
 
-| Parameter | Type    | Description                | Example             |
-|-----------|---------|----------------------------|---------------------|
-| roll      | number  | Rotate around the y axis   | 0                   |
-| pitch     | number  | Rotate around the x axis   | 0                   |
-| distance  | number  | Distance from the target   | 10                  |
-| target?   | Vecter3 | Target coordinate          | new Vector3(0,0,0)  |
+| Parameter | Type    | Description              | Example            |
+|-----------|---------|--------------------------|--------------------|
+| roll      | number  | Rotate around the y axis | 0                  |
+| pitch     | number  | Rotate around the x axis | 0                  |
+| distance  | number  | Distance from the target | 10                 |
+| target    | Vecter3 | Target coordinate        | new Vector3(0,0,0) |
 
 
 ### [OrbitCamera](/api/classes/OrbitController)
