@@ -114,7 +114,7 @@ struct ShadingInput{
     Specular:f32,
     //自发光颜色
     EmissiveColor:vec4<f32>,
-    //
+    //表面颜色
     SurfaceColor:vec4<f32>,
     //法向量
     Normal:vec3<f32>,
