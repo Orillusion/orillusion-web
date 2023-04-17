@@ -1,70 +1,80 @@
-# 光照
+# Lighting
 
-光照使场景更有层次感，使用光照，能建立更真实的三维场景。`Orillusion` 引擎的光照系统主要由以下几部分组成：
+Lighting can make the scene more layered, using lighting, you can build a more realistic three-dimensional scene. The
+lighting system of the `Orillusion` engine is mainly composed of the following parts:
 
-| 光源 | 说明 |
-| :---: | :---: |
-| 灯光组件 | 基础光源组件：平行光，点光源 和 聚光灯 |
-| 环境反射 | 天空盒环境光，全局曝光 |
-| 全局光照 | 场景中反射或折射的间接光源 |
+|    Light Source    |                              Description                               |
+|:------------------:|:----------------------------------------------------------------------:|
+|  Light Component   | Basic light source components: direct light, point light and spotlight |
+| Ambient Reflection |               Skybox environment light, global exposure                |
+|  Global Lighting   |       Indirect light sources reflected or refracted in the scene       |
 
-## 灯光组件
-引擎目前内置了3种经典的光源类型：
+## Light Component
 
-### 平行光
+There are currently three types of classic light sources built into the engine:
 
-[平行光](/api/classes/DirectLight) 表示的是光线从以某个方向均匀射出，光线之间是平行的，太阳照射在地球表面的光可以认为是平行光，因为太阳和地球距离的远大于地球半径，所以照射在地球的阳光可以看作是来自同一个方向的光，即平行光。`平行光` 有 `4` 个主要个特性：
+### Drict Light
 
-| 属性 | 类型 | 说明 |
-| --- | --- | --- |
-| lightColor | Color | 灯光的颜色, 默认是白色 `rgb(1.0,1.0,1.0)` |
-| intensity | Number | 光照强度，默认值为 `1` |
-| direction | Vector3 | 只读属性，获取平行光的方向向量 |
-| castShadow | Boolean | 是否开启投影, 默认 `false` 不开启 |
+[Driect Light](/api/classes/DirectLight) represents the light that is emitted uniformly from a certain direction. The
+light between them is parallel. The light from the sun to the surface of the earth can be considered as the parallel
+light, because the distance between the sun and the earth is far greater than the radius of the earth, so the light from
+the sun to the earth can be seen as light from the same direction, that is, the parallel light. The `direct light`
+has `4` main features:
 
-一般使用平行光所在的 `Object3D` 的 `rotation` 控制灯光方向
+| Attribute  | Type    | Description                                                        |
+|------------|---------|--------------------------------------------------------------------|
+| lightColor | Color   | The color of the light, the default is white `rgb(1.0,1.0,1.0)`    |
+| intensity  | Number  | The intensity of the light, the default value is `1`               |
+| direction  | Vector3 | Read-only property, get the direction vector of the parallel light |
+| castShadow | Boolean | Whether to enable projection, the default `false` is disabled      |
+
+Normally, the `rotation` of the `Object3D` where the `direct light` is located is used to control the direction of the
+light.
+
 ```ts
 let lightObj = new Object3D();
 scene.addChild(lightObj);
 
-//添加平行光
+// Add direct light
 let dl = lightObj.addComponent(DirectLight);
-//设置颜色
+// Set color
 dl.lightColor = new Color(1.0, 0.95, 0.84, 1.0);
-//设置强度
+// Set intensity
 dl.intensity = 20;
 
-// 通过 Object3D 设置光源的方向
+// Set the direction of the light source through Object3D
 lightObj.rotateX = 45;
 lightObj.rotateY = 45;
-// 可以通过 direction 获取方向向量
+// You can get the direction vector through direction
 let target = dl.direction
 ```
 
 <Demo :height="500" src="/demos/graphics/lighting_dir.ts"></Demo>
- 
+
 <<< @/public/demos/graphics/lighting_dir.ts
 
-### 点光源
+### Point Light
 
-[点光源](/api/classes/PointLight) 是存在于空间中的一个点，由该点向四面八方发射光线，超过有效距离的地方将无法接受到点光源的光线，并且离光源越远光照强度也会逐渐降低。通常用来模拟生活中常见的灯泡。点光源有主要以下属性：
+[Point Light](/api/classes/PointLight) is a point that exists in space, and light is emitted from that point in all
+directions. The light beyond the effective distance cannot receive the light from the point light, and the intensity of
+the light will gradually decrease as the light source moves away. It is usually used to simulate the common bulbs in
+life. The point light has the following main attributes:
 
-| 属性 | 类型 | 说明 |
-| --- | --- | --- |
-| lightColor | Color | 灯光的颜色, 默认是白色 `rgb(1.0,1.0,1.0)` |
-| intensity | Number | 光照强度，默认值为 `1` |
-| range | Number | 光照最远距离 |
-
+| Attribute  | Type   | Description                                                     |
+|------------|--------|-----------------------------------------------------------------|
+| lightColor | Color  | The color of the light, the default is white `rgb(1.0,1.0,1.0)` |
+| intensity  | Number | The intensity of the light, the default value is `1`            |
+| range      | Number | The farthest distance of the light, the default value is `10`   |
 
 ```ts
 let pointLightObj = new Object3D();
-// 设置光源 Object3D 的位置
+// Set the position of the light source Object3D
 pointLightObj.x = -10;
 pointLightObj.y = 10;
 pointLightObj.z = 10;
 scene.addChild(pointLightObj);
 
-// 设置点光源组件的半径，强度和颜色
+// Set the radius, intensity and color of the point light component
 let pointLight = pointLightObj.addComponent(PointLight);
 pointLight.range = 20;
 pointLight.intensity = 10;
@@ -72,30 +82,32 @@ pointLight.lightColor = new Color(1.0, 0.95, 0.84, 1.0);
 ```
 
 <Demo :height="500" src="/demos/graphics/lighting_point.ts"></Demo>
- 
-<<< @/public/demos/graphics/lighting_point.ts
-    
-### 聚光灯
-    
-[聚光灯](/api/classes/SpotLight) 和 `点光源` 类似，但是它的光线不是朝四面八方发射，而是朝某个方向范围，就像现实生活中的手电筒发出的光。聚光灯有几个主要特性：
 
-| 属性 | 类型 | 说明 |
-| --- | --- | --- |
-| lightColor | Color | 灯光的颜色, 默认是白色 `rgb(1.0,1.0,1.0)` |
-| intensity | Number | 光照强度，默认值为 `1` |
-| direction | Vector3 | 只读属性，获取聚光的方向向量 |
-| range | Number | 光照最远距离 |
-| innerAngle | Number | 光锥内切角，聚光在小于这个角度的范围内有光线 |
-| outerAngle | Number | 光锥外切角，光线会在内切角到外切角的范围内逐步衰减到0 |
-    
+<<< @/public/demos/graphics/lighting_point.ts
+
+### Spot Light
+
+[Spot Light](/api/classes/SpotLight) is similar to the `point light`, but its light is not emitted in all directions,
+but in a certain direction range, just like the light emitted by the flashlight in real life. The spotlight has several
+main features:
+
+| Attribute  | Type    | Description                                                                                                                   |
+|------------|---------|-------------------------------------------------------------------------------------------------------------------------------|
+| lightColor | Color   | The color of the light, the default is white `rgb(1.0,1.0,1.0)`                                                               |
+| intensity  | Number  | The intensity of the light, the default value is `1`                                                                          |
+| direction  | Vector3 | Read-only property, get the direction vector of the spotlight                                                                 |
+| range      | Number  | The farthest distance of the light, the default value is `10`                                                                 |
+| innerAngle | Number  | The inner angle of the spotlight, the light has light in the range of less than this angle                                    |
+| outerAngle | Number  | The outer angle of the spotlight, the light will gradually decrease to 0 in the range from the inner angle to the outer angle |
+
 ```ts
 let spotLightObj = new Object3D();
-// 设置光源 Object3D 的位置
+// Set the position of the light source Object3D
 spotLightObj.y = 100;
-spotLightObj.rotationX= 90;
+spotLightObj.rotationX = 90;
 scene.addChild(spotLightObj);
 
-// 设置聚光灯组件的属性
+// Set the attributes of the spotlight component
 let spotLight = spotLightObj.addComponent(SpotLight);
 spotLight.lightColor = new Color(1.0, 0.95, 0.84, 1.0);
 spotLight.intensity = 20;
@@ -105,28 +117,32 @@ spotLight.outerAngle = 35;
 ```
 
 <Demo :height="500" src="/demos/graphics/lighting_spot.ts"></Demo>
- 
+
 <<< @/public/demos/graphics/lighting_spot.ts
 
-## IES 灯光信息
-照明工程学会（IES）定义了一种文件格式，可以描述真实灯光在现实世界的光照强度分布情况。IES 文件描述了各种类型的灯具的光线强弱度，衰减曲线，模拟灯珠的透射，折射等光线变化行为，最终解码成指定的2D数据图进行3D空间的灯光映射。
+## IES Light Information
 
-### IES 灯光示例
+The Illuminating Engineering Society(IES) defines a file format that can describe the light intensity distribution of real light in the real world. The IES file describes the light intensity of various types of lamps, attenuation curves, simulating the transmission and refraction of the lamp beads, and finally decoding into a specified 2D data map for 3D space lighting mapping.
+
+### IES Light Example
+
 ![ies_0](/images/ies/image2017-6-29_11-38-7584f.webp)
 ![ies_1](/images/ies/image2017-6-29_11-41-2a59d.webp)
 ![ies_2](/images/ies/image2017-6-30_19-21-325aef.webp)
 
-### 加载 IES 贴图
-除了常规的光源类型设置，引擎还支持通过加载预设的 `IES` 贴图来设置复杂的光线分布：
+### Load IES Texture
+
+Besides the common light source type settings, the engine also supports setting complex light distribution by loading preset `IES` textures:
+
 ```ts
-// 加载 IES 贴图
+// Load IES texture
 let iesTexture = await Engine3D.res.loadTexture("https://cdn.orillusion.com/ies/ies_2.png");
-// 创建 IES 对象
+// Create IES object
 let iesPofiles = new IESProfiles();
 iesPofiles.IESTexture = iesTexture;
 let light = new Object3d()
 let pointLight = light.addComponent(PointLight);
-// 设置灯光 IES 分布
+// Set light IES distribution
 pointLight.iesPofile = iesPofiles;
 ```
 
@@ -134,18 +150,21 @@ pointLight.iesPofile = iesPofiles;
 
 <<< @/public/demos/graphics/lighting_pointIes.ts
 
-### 获取 IES 贴图
-社区中有大量优质的 `IES` 资源分享社区，一些灯光设备厂商也会分享专业的 `IES` 文件，它们一般都是免费的，比如：
+### Get IES Texture
+
+The community has a lot of high-quality `IES` resources, some lighting equipment manufacturers will also share professional `IES` files, they are generally free, such as:
 
 - [ieslibrary](https://ieslibrary.com/en/home)
 - [leomoon](https://leomoon.com/store/shaders/ies-lights-pack/)
 - [Lithonia Lighting](https://lithonia.acuitybrands.com/resources/technical-downloads/photometricdownloads)
 - [Philips](https://www.usa.lighting.philips.com/support/support/literature/photometric-data)
 
-社区中同样有很多专业的 `IES` 预览/转换的软件，比如 [IESviewer](http://photometricviewer.com/)，您也可以使用专业的3D建模软件来将 `IES` 文件转换到普通的 `png` 贴图文件，最后加载到引擎中来。
+The community also has a lot of professional `IES` preview/conversion software, such as [IESviewer](http://photometricviewer.com/), you can also use professional 3D modeling software to convert the `IES` file to a normal `png` texture file, and then load it into the engine.
 
-##  环境光
-除了直接的光源，引擎通过设置 `Scene3D.evnMap` 天空盒贴图进行基本的环境光渲染，详情参考 [天空盒](/guide/core/scene.html#天空盒) 相关设置
+## Environment Light
 
-## 全局光照
-一般光照系统只考虑光源直接照射到物体表面所产生的效果，不会计算光源经过物体表面反射或折射的光线，即间接光照。全局光照系统能够对间接光照进行建模，实现更加逼真的光线效果。详情参考 [高级 GI](/guide/advanced/gi)
+Besides the direct light source, the engine can also render basic environment lighting by setting the `Scene3D.evnMap` skybox texture, see [Skybox](/guide/core/scene.html#sky-box) for related settings.
+
+## Global Illumination
+
+Nomal lighting system only considers the effect of light source directly irradiating the surface of the object, and does not calculate the light reflected or refracted by the light source through the surface of the object, that is, indirect lighting. Global illumination system can model indirect lighting to achieve more realistic lighting effects. See [Advanced GI](/guide/advanced/gi) for details.
