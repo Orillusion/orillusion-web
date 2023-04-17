@@ -58,7 +58,7 @@ mr.geometry = new SphereGeometry(2, 50, 50);
 
 
 ## 圆柱体
-[CylinderGeometry](/api/classes/CylinderGeometry) 类提供球体创建功能。
+[CylinderGeometry](/api/classes/CylinderGeometry) 类提供圆柱体创建功能。
 
 参数概览：
 | 参数 | 描述 |
