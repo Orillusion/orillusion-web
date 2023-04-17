@@ -31,7 +31,7 @@ class Script extends ComponentBase {
 let ball: Object3D = new Object3D();
 ball.addComponent( Script );
 ```
-在自定义脚本中，可以通过 `this.object3D` 获取当前组件挂载到的 `object` 对象，从而进行对象状态的更改。   
+在自定义脚本中，可以通过 `this.object3D` 获取当前组件挂载到的 `object3D` 对象，从而进行对象状态的更改。   
 游戏/动画开发的一个关键点是在每一帧渲染前更新物体的行为，状态和方位。这些更新操作通常可以定义在组件自己的 `update` 回调中。引擎会自动注册 `update` 回调到主循环，实现每帧更新逻辑。
 
 ## 示例
