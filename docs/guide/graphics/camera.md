@@ -166,7 +166,7 @@ hoverController.setCamera(15, -15, 15, new Vector3(0, 0, 0));
 | roll   | number | 围绕y轴旋转  | 0 |
 | pitch  | number | 围绕x轴旋转  | 0 |
 | distance | number | 相机与目标的距离 | 10 |
-| target?   | Vecter3 | 朝向目标坐标  | new Vector3(0,0,0) |
+| target   | Vecter3 | 朝向目标坐标  | new Vector3(0,0,0) |
 
 
 ### [轨道相机](/api/classes/OrbitController)
