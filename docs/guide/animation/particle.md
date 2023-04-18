@@ -1,80 +1,79 @@
-# 粒子动画
-粒子动画由组件 [ParticleSystem](/api/classes/ParticleSystem) 驱动，通过 `ParticleSimulator` 使用 `ComputeShader` 模拟粒子运动轨迹，实现粒子动画特效。
+# Particle Animation
+Particle Animation is driven by the [ParticleSystem](/api/classes/ParticleSystem) component, which uses `ParticleSimulator` to simulate the trajectory of particle motion using `ComputeShader` to achieve particle animation effects.
+## Basic Module
+Using the `ParticleSystem` component, you need to specify a particle simulator. Currently only the `ParticleStandSimulator` simulator is available, and the particle simulator has the following basic modules:
 
-## 基本模块
-使用 `ParticleSystem` 组件时，需要指定一个粒子仿真器，目前仅 `ParticleStandSimulator` 仿真器可用，该粒子仿真器有以下基本模块：
-
-| 名称 | 描述 |
+| Name | Description |
 | :---: | --- |
-| ParticleEmitModule | 粒子发射器模块(必备模块) |
-| ParticleOverLifeScaleModule | 粒子生命周期内大小变化模块 |
-| ParticleOverLifeSpeedModule | 粒子生命周期内速度变化模块 |
-| ParticleOverLifeRotationModule | 粒子生命周期内旋转变化模块 |
-| ParticleGravityModifierModule | 粒子全局的重力变化模块 |
-| ParticleRotationModule | 粒子角速度旋转模块 |
-| ParticleTextureSheetModule | 粒子图集动画模块 |
+| ParticleEmitModule | Particle emitter module (essential module) |
+| ParticleOverLifeScaleModule | Particle size change module during particle lifetime |
+| ParticleOverLifeSpeedModule | Particle speed change module during particle lifetime |
+| ParticleOverLifeRotationModule | Particle rotation change module during particle lifetime |
+| ParticleGravityModifierModule | Particle global gravity change module |
+| ParticleRotationModule | Particle angular velocity rotation module |
+| ParticleTextureSheetModule | Particle atlas animation module |
 
-## 基本使用
+## Basic Usage
 <Demo :height="500" src="/demos/animation/particleAnim.ts"></Demo>
 
 <<< @/public/demos/animation/particleAnim.ts
 
-以火焰Demo为例，首先给场景指定的对象添加 `ParticleSystem` 组件，并指定粒子的形状，材质:
+Using the fire Demo as an example, first add the `ParticleSystem` component to the object specified by the scene, and specify the shape and material of the particle:
 ```ts
-// 创建一个3D对象实体，并添加到场景
+// Create a 3D object entity and add it to the scene
 let obj = new Object3D();
 scene.addChild(obj);
 
-// 为该对象添加 ParticleSystem 组件
+// Add the ParticleSystem component to the object
 let particleSystem = obj.addComponent(ParticleSystem);
 
-// 创建粒子材质，并加载指定的粒子纹理
+// Create a particle material and load the specified particle texture
 let material = new ParticleMaterial();
 material.baseMap = await Engine3D.res.loadTexture('https://cdn.orillusion.com/particle/fx_a_glow_003.png');
 
-// 设置单个粒子的形态
+// Set the shape of a single particle
 particleSystem.geometry = new PlaneGeometry(5, 5, 1, 1, Vector3.Z_AXIS);
 particleSystem.material = material;
 
 ```
 
-为 `ParticleSystem` 组件指定要使用的仿真器 `ParticleStandSimulator`:
+Specify the simulator `ParticleStandSimulator` to be used by the `ParticleSystem` component:
 ```ts
-// 使用指定仿真器
+// Use the specified simulator
 let simulator = particleSystem.useSimulator(ParticleStandSimulator);
 
-// 添加发射器模块(必要模块，不可缺少)
+// Add emitter module (essential module, not missing)
 let emitter = simulator.addModule(ParticleEmitModule);
-// 设置最大粒子数
+// Set the maximum number of particles
 emitter.maxParticle = 1 * 10000;
-// 设置持续发射时间
+// Set the duration of continuous emission
 emitter.duration = 10;
-// 设置发射速率(x个/秒)
+// Set the emission rate (x per second)
 emitter.emissionRate = 50;
-// 设置粒子生命周期大小
+// Set the size of the particle lifetime
 emitter.startLifecycle.setScalar(1);
-// 设置发射器发射形状
+// Set the shape of the emitter
 emitter.shapeType = ShapeType.Box;
-// 设置发射器从发射形状的哪个位置发射(这里从外壳发射)
+// Set where the emitter emits from the shape of the emitter (here from the shell)
 emitter.emitLocation = EmitLocation.Shell;
-// 设置发射器大小
+// Set the size of the emitter
 emitter.boxSize = new Vector3(1, 0, 1);
 ```
 
-为仿真器添加粒子模块，并配置属性参数:
+Add particle modules to the simulator and configure the property parameters:
 ```ts
-// 添加重力修改模块(给予一个向上的微重力)
+// Add gravity modification module (give a microgravity upwards)
 simulator.addModule(ParticleGravityModifierModule).gravity = new Vector3(0, 0.2, 0);
 
-// 添加生命周期色彩模块
+// Add lifecycle color module
 simulator.addModule(ParticleOverLifeColorModule).colorSegments = [
     new Vector4(1, 0.3, 0, 1),
     new Vector4(0, 0.6, 1, 0)
 ];
 ```
 
-开始播放粒子:
+Start playing particles:
 ```ts
-// 开始播放
+// Start playing
 particleSystem.play();
 ```
