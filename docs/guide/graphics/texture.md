@@ -56,14 +56,14 @@ let HDRTextureCube = Engine3D.res.loadHDRTextureCube('path/to/sky.hdr');
 The texture actually corresponds to the color value of each pixel, that is, the `RGBA` channel. We can manually create `Uint8Array` to fill in the specific numerical values of the `rgba` color channel, and then create the texture through [Uint8ArrayTexture](/api/classes/Uint8ArrayTexture) class:
 
 ```ts
-// Parameters of picture
+// Parameters of the picture
 let w = 32;
 let h = 32;
 let r = 255;
 let g = 0;
 let b = 0;
 let a = 255;
-// Creat raw Uint8Array
+// Create raw Uint8Array
 let textureData = new Uint8Array(w * h * 4);
 // Fill rgba values
 for (let i = 0; i < w; i++) {
@@ -164,7 +164,7 @@ texture.addressModeV = GPUAddressMode.repeat;
 
 `WebGPU` currently supports the following repeat modes:
 
-- Repeat: default mode, the range beyond the range is resampled from `[0,1]` starting from the beginning.
+- Repeat: default mode, the range beyond is resampled from `[0,1]`.
 
 ![repeat](/images/repeat.webp)
 
@@ -192,7 +192,7 @@ texture.magFilter = 'linear';
 // Minification mode, default linear mode
 texture.minFilter = 'linear';
 ```
-`WenGPU` currently supports `linear` sampling and `nearest` point sampling modes.   
+`WebGPU` currently supports `linear` sampling and `nearest` point sampling modes.   
 Generally speaking, the `linear` mode has a smoother pixel edge, which is suitable for complex graphic transitions; the `nearest` mode has a sharper pixel edge, which is suitable for textures with clear color distribution and obvious edges. We can see the effect of different sampling modes on the texture display through the following example:
 
 <Demo :height="500" src="/demos/texture/texture_filter.ts"></Demo>
@@ -200,7 +200,7 @@ Generally speaking, the `linear` mode has a smoother pixel edge, which is suitab
 <<< @/public/demos/texture/texture_filter.ts
 
 ### 3. Mipmap
-In 3D world, different objects and cameras have different distances, the corresponding texture images are large and small. If the same resolution texture is used, for distant objects, a small part of the pixel color needs to be picked up from the high resolution original image, which not only wastes GPU performance, but also causes a sense of unreality or a large number of moire patterns due to pixel distortion.  
+In 3D world, different objects and cameras have different distances, the corresponding texture can be large or small. If the same resolution texture is used, for distant objects, a small part of the pixel color needs to be picked up from the high resolution original image, which not only wastes GPU performance, but also causes a sense of unreality or a large number of moire patterns due to pixel distortion.  
 `Orillusion` uses the concept of `mipmap` to solve this problem. Simply put, it is a high resolution graphic that is automatically scaled into a series of different resolution textures. According to the distance between the texture and the observer, different resolution textures are used. Distant objects use low resolution textures, which are more natural in resolution, and can also effectively save GPU performance.
 
 We can enable or disable it through `useMipmap`, which is enabled by default:

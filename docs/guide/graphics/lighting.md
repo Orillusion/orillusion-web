@@ -3,23 +3,19 @@
 Lighting can make the scene more layered, using lighting, you can build a more realistic three-dimensional scene. The
 lighting system of the `Orillusion` engine is mainly composed of the following parts:
 
-|    Light Source    |                              Description                               |
-|:------------------:|:----------------------------------------------------------------------:|
-|  Light Component   | Basic light source components: direct light, point light and spotlight |
-| Ambient Reflection |               Skybox environment light, global exposure                |
-|  Global Lighting   |       Indirect light sources reflected or refracted in the scene       |
+|     Light Source     |                              Description                               |
+|:--------------------:|:----------------------------------------------------------------------:|
+|   Light Component    | Basic light source components: direct light, point light and spotlight |
+|  Ambient Reflection  |               Skybox environment light, global exposure                |
+| Global  Illumination |       Indirect light sources reflected or refracted in the scene       |
 
 ## Light Component
 
 There are currently three types of classic light sources built into the engine:
 
-### Drict Light
+### Direct Light
 
-[Driect Light](/api/classes/DirectLight) represents the light that is emitted uniformly from a certain direction. The
-light between them is parallel. The light from the sun to the surface of the earth can be considered as the parallel
-light, because the distance between the sun and the earth is far greater than the radius of the earth, so the light from
-the sun to the earth can be seen as light from the same direction, that is, the parallel light. The `direct light`
-has `4` main features:
+[Direct Light](/api/classes/DirectLight) represents the light that is emitted uniformly from a certain direction and lights between them are parallel. The lights from the sun to the earth can be considered as the parallel light, because the distance between the sun and the earth is far greater than the radius of the earth, so the lights from the sun to the earth can be seen as lights from the same direction, that is, the parallel light. The `direct light` has `4` main features:
 
 | Attribute  | Type    | Description                                                        |
 |------------|---------|--------------------------------------------------------------------|
@@ -28,8 +24,7 @@ has `4` main features:
 | direction  | Vector3 | Read-only property, get the direction vector of the parallel light |
 | castShadow | Boolean | Whether to enable projection, the default `false` is disabled      |
 
-Normally, the `rotation` of the `Object3D` where the `direct light` is located is used to control the direction of the
-light.
+Normally, the `rotation` of the `Object3D`, where the `direct light` is located is used to control the direction of the light.
 
 ```ts
 let lightObj = new Object3D();
@@ -74,7 +69,7 @@ pointLightObj.y = 10;
 pointLightObj.z = 10;
 scene.addChild(pointLightObj);
 
-// Set the radius, intensity and color of the point light component
+// Set the radius, intensity, and color of the point light component
 let pointLight = pointLightObj.addComponent(PointLight);
 pointLight.range = 20;
 pointLight.intensity = 10;
@@ -167,4 +162,4 @@ Besides the direct light source, the engine can also render basic environment li
 
 ## Global Illumination
 
-Nomal lighting system only considers the effect of light source directly irradiating the surface of the object, and does not calculate the light reflected or refracted by the light source through the surface of the object, that is, indirect lighting. Global illumination system can model indirect lighting to achieve more realistic lighting effects. See [Advanced GI](/guide/advanced/gi) for details.
+Normal lighting system only considers the effect of light source directly irradiating the surface of the object, and does not calculate the light reflected or refracted by the light source through the surface of the object, that is, indirect lighting. Global illumination system can model indirect lighting to achieve more realistic lighting effects. See [Advanced GI](/guide/advanced/gi) for details.

@@ -17,7 +17,7 @@ let object = new Object3D();
 // Add MeshRenderer component
 let mesh = object.addComponent(MeshRenderer);
 
-// Set component material
+// Set material of MeshRenderer
 mesh.material = new UnLitMaterial();
 mesh.material.baseColor = new Color(1, 1, 1, 1);
 
@@ -40,7 +40,7 @@ The engine provides the [UnLitMaterial](/api/classes/UnLitMaterial) class for re
 <<< @/public/demos/materials/UnLitMaterial.ts
 
 ## PBR Material
-We recommend using the [PBR](/api/classes/LitMaterial) material for rendering, `PBR` stands for `Physicallly-Based Rendering`, which is a material based on physical rendering, which is more in line with the physical lighting model of reality.
+We recommend using the [PBR](/api/classes/LitMaterial) material for rendering, `PBR` stands for `Physicallly-Based Rendering`, which is a material based on physical rendering. That means to be more in line with the physical lighting model of reality.
 
 |     Attribute     |                                     Description                                     |
 |:-----------------:|:-----------------------------------------------------------------------------------:|
@@ -100,7 +100,7 @@ mat.cullMode = GPUCullMode.back; // Cull the back, display the front
 <Demo :height="300" :code="false" src="/demos/materials/cullMode.ts"></Demo>
 
 ### UV Transform
-The model vertex will store multiple sets of texture mapping coordinates, which define the 2D coordinates in the texture corresponding to the vertex. It is usually represented by a two-dimensional variable `(u,v)`, so it is also called `UV coordinates`.   
+The model vertex will store multiple sets of texture mapping coordinates, which define the 2D coordinates corresponding to the vertex in the texture. It is usually represented by a two-dimensional variable `(u,v)`, so it is also called `UV coordinates`.   
 We can customize the texture mapping relationship by performing matrix transformations on the `uv` coordinates of the model. For example, set the material's `uvTransform_1` property to perform coordinate transformations of the original `uv` for `offset` and `scaling`:
 ```ts
 let mat = new LitMaterial();

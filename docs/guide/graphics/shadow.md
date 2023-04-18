@@ -11,7 +11,7 @@ let lightObj = new Object3D();
 lightObj.x = 0;
 lightObj.y = 0;
 lightObj.z = 0;
-// Set the angle of the light, rotate 45 degrees around the X axis
+// Set the angle of the light and rotate 45 degrees around the X axis
 lightObj.rotationX = 45;
 lightObj.rotationY = 0;
 lightObj.rotationZ = 0;
@@ -73,7 +73,7 @@ Engine3D.setting.shadow.shadowBias = 0.0002 // Shadow bias for direct light
 Engine3D.setting.shadow.pointShadowBias = 0.2 // Shadow bias for point light or spot light
 ```
 
-> Nomally, if `shadowBias` is set too small, it will cause large areas of moire or completely cover the shadow; on the contrary, if it is set too large, it will cause the shadow and object to be separated (leakage).
+> Normally, if `shadowBias` is set too small, it will cause large areas of moire or completely cover the shadow; on the contrary, if it is set too large, it will cause the shadow and object to be separated (leakage).
 
 <Demo :height="500" src="/demos/graphics/shadow_bias.ts"></Demo>
 
