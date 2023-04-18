@@ -1,41 +1,41 @@
-# 骨骼动画
-骨骼动画 [SkeletonAnimation](/api/classes/SkeletonAnimation) 是模型动画中的一种，通过骨骼关节 `Joint` 的旋转、平移，变换 `Mesh` 顶点位置，达到驱动模型动画的目的。
+# Skeleton Animation
+[SkeletonAnimation](/api/classes/SkeletonAnimation) is a type of model animation, which drives the model animation by rotating and translating the `Joint` of the skeleton, transforming the position of the `Mesh` vertex.
 
-> 目前引擎只支持模型内置的骨骼动画，需要用户提前通过3D建模软件制作对应的骨骼动画素材
+> Our Engine only supports the built-in skeleton animation of the model, which needs to be pre-made by 3D modeling software.
 
-## 简介
-`Mesh` 上的每个顶点数据，都包含该点受影响的骨骼索引编号，以及受该骨骼影响的权重，这类数据信息统称为蒙皮信息，顶点受影响的骨骼一般限制为4根，更多的骨骼数只会增加计算量，对动画质量没有显著提高。
+## Introduction
+Every vertex data on the `Mesh` contains the index number of the skeleton affected by the point, as well as the weight affected by the skeleton. This type of data information is called skinning information. The vertex affected by the skeleton is generally limited to 4 bones, and more bones will only increase the calculation. The quality of the animation has no significant improvement.
 
-`Joint` 是骨骼关节，拥有名称，旋转、平移、父骨骼等信息，多个 `Joint` 组成一套完整的骨架 `Skeleton`：
+`Joint` is the skeleton joint, which has the name, rotation, translation, parent skeleton, etc. Multiple `Joint` form a complete `Skeleton`:
 ![Skeleton](/images/skeleton.jpg)
 
 
-`JointPose` 用于存放骨骼关节姿势数据，拥有当前骨骼变换到该姿势时的矩阵数据，多个 `JointPose` 组成一套完整的骨架姿势 `SkeletonPose`：
+`JointPose` is used to store the skeleton joint pose data, which has the matrix data of the current skeleton transformation to this pose. Multiple `JointPose` form a complete `SkeletonPose`:
 ![SkeletonPose](/images/skeletonpose.jpg)
 
-`SkeletonAnimationClip` 是一系列骨架姿势(`SkeletonPose`)组成的时间序列，也叫关键帧序列，该对象只存储动画姿势数据，通过 `SkeletonAnimationClipState` 驱动。
+`SkeletonAnimationClip` is a time sequence of a series of skeleton poses (`SkeletonPose`), also called keyframe sequence, which only stores animation pose data through `SkeletonAnimationClipState`:
 
-`SkeletonAnimationClipState` 为动画播放状态，它与 `SkeletonAnimationClip` 关联，用于维护播放状态，计算帧之间的过渡姿势 `SkeletonPose`。
+`SkeletonAnimationClipState` is the animation playback state, which is associated with `SkeletonAnimationClip` to maintain the playback state and calculate the transition pose `SkeletonPose` between frames.
 
-`SkeletonAnimation` 是整个骨骼动画控制组件，它与多个 `SkeletonAnimationClipState` 关联，用来在多个动画状态之间切换，融合，驱动整个骨骼动画的最终变换姿势。
+`SkeletonAnimation` is the overall skeleton animation control component, which is associated with multiple `SkeletonAnimationClipState` to switch, blend, and drive the final transformation pose of the entire skeleton animation between animation states.
 
 
-## 加载动画模型
-当加载带有骨骼动画数据的模型文件后，引擎会自动为模型添加一个 `SkeletonAnimation` 组件，并将模型中的动画剪辑数据加入其中。可以直接在模型的根实体上获取 `SkeletonAnimation` 组件，并播放指定动画。
+## Load Animation Model
+When loading a model file with skeleton animation data, the engine will automatically add a `SkeletonAnimation` component to the model, and add the animation clip data in the model to it. You can directly get the `SkeletonAnimation` component on the root entity of the model, and play the specified animation.
 ```ts
-// 加载外部模型;
+// Load external model;
 let soldier = await Engine3D.res.loadGltf('gltfs/glb/Soldier.glb');
 soldier.rotationY = -90;
 soldier.localScale.set(2, 2, 2);
 scene.addChild(soldier);
 
-// 获取动画控制器;
+// Get animation controller;
 let animator = soldier.getComponentsInChild(SkeletonAnimation)[0];
 animator.play('Walk');
 ```
 
-## 获取动画名称
-组件提供 [getAnimationClips](/api/classes/SkeletonAnimation#getanimationclips) 方法，用来获取所有动画剪辑数据对象，该对象都有唯一的 `name` 属性，用以区分不同动画状态。
+## Get Animation Name
+This component provides the [getAnimationClips](/api/classes/SkeletonAnimation#getanimationclips) method to get all animation clip data objects, which all have a unique `name` property to distinguish different animation states.
 ```ts
 let clips = animation.getAnimationClips();
 for (var i = 0; i < clips.length; i++) {
@@ -43,48 +43,48 @@ for (var i = 0; i < clips.length; i++) {
 }
 ```
 
-## 播放指定动画
-`SkeletonAnimation` 组件提供 [play](/api/classes/SkeletonAnimation#play) 方法来播放指定动画：
+## Play Specified Animation
+`SkeletonAnimation` provides the [play](/api/classes/SkeletonAnimation#play) method to play the specified animation:
 ```ts
-// 播放 Walk 名称的动画
+//Play animation with name 'Walk'
 animator.play('Walk');
 
-// 播放列表中首个动画
+// Play the first animation in the list
 let clips = animation.getAnimationClips();
 animator.play(clips[0].name);
 ```
 
-## 调整播放速度
-`play` 方法播放指定动画时，默认为正常速度播放`(1.0)`，如需加速播放通过参数 `speed` 设置，数值越大播放速度越快，数值越小播放速度越慢，当该值为负时将进行倒播。
+## Adjust Playback Speed
+`play` method plays the specified animation at the default normal speed `(1.0)`, if you need to accelerate the playback, set the parameter `speed`, the larger the number, the faster the playback speed, the smaller the number, the slower the playback speed, when the value is negative, it will be reversed.
 ```ts
-// 正常播放
+// Normal speed
 animator.play('Walk', 1);
 
-// 2倍减速
+// 2 times slower
 animator.play('Walk', 0.5);
 
-// 3倍加速
+// 3 times faster
 animator.play('Walk', 3.0);
 
-// 正常倒播
+// Reverse playback
 animator.play('Walk', -1.0);
 
-// 3倍加速倒播
+// 3 times faster reverse playback
 animator.play('Walk', -3.0);
 ```
 
-也可通过 `SkeletonAnimation` 上的 `timeScale` 属性设置全局时间线缩放，与 `speed` 相同，数值越大播放速度越快，数值越小播放速度越慢，当该值为负时将进行倒播。
+You can also set the global timeline scaling through the `timeScale` property on `SkeletonAnimation`, which is the same as `speed`. The larger the number, the faster the playback speed, the smaller the number, the slower the playback speed, and when the value is negative, it will be reversed.
 ```ts
-// 正常播放
+// Normal speed
 animator.timeScale = 1.0;
 
-// 2倍减速
+// 2 times slower
 animator.timeScale = 0.5;
 
-// 2倍加速
+// 2 times faster
 animator.timeScale = 2.0;
 
-// 2倍加速倒播
+// 2 times faster reverse playback
 animator.timeScale = -2.0;
 ```
 
@@ -92,56 +92,57 @@ animator.timeScale = -2.0;
 
 <<< @/public/demos/animation/animationSingle.ts
  
-## 添加动画剪辑
-一般情况动画师都会给模型独立制作动画剪辑，每个动画剪辑拥有一个唯一名称，但也有全部动画状态做在同一个动画剪辑中的情况。例如一个包含`待机`、`走`、`跑`等状态的动画剪辑，通过不同时间段区分，比如 0~1s 为待机、1~3s为走路、3~6s为跑步。为了方便状态切换，可以在引擎中通过指定的动画剪辑创建多个子状态，并通过 [addAnimationClip](/api/classes/SkeletonAnimation#addanimationclip) 方法添加到控制器中，例如：
+## Add Animation Clip
+
+Normally, the animator will make a separate animation clip for each model, and each animation clip has a unique name. But there are also cases where all animation states are in the same animation clip. For example, an animation clip containing `Idle`, `Walk`, `Run` and other states, which are differentiated by different time periods, such as 0~1s for idle, 1~3s for walking, and 3~6s for running. In order to facilitate state switching, you can create multiple substates in the engine by specifying the animation clip, and add them to the controller through the [addAnimationClip](/api/classes/SkeletonAnimation#addanimationclip) method, for example:
 ```ts
-// 获取首个动画剪辑数据对象
+// Get the first animation clip data object
 let clip = animator.getAnimationClips()[0];
 
-// 裁剪并创建新的动画剪辑数据对象（截取待机动画）
+// Cut and create a new animation clip data object (cut idle animation)
 animator.addAnimationClip(clip.createSubClip('Idel', 0, 1.0))
 
-// 裁剪并创建新的动画剪辑数据对象（截取走路动画）
+// Cut and create a new animation clip data object (cut walking animation)
 animator.addAnimationClip(clip.createSubClip('Walk', 1.0, 3.0))
 
-// 裁剪并创建新的动画剪辑数据对象（截取跑步动画）
+// Cut and create a new animation clip data object (cut running animation)
 animator.addAnimationClip(clip.createSubClip('Run', 3.0, 6.0))
 ```
 
-## 获取动画状态
-可以使用 [currName](/api/classes/SkeletonAnimation#currname) 属性来获取当前正在播放的动画名称，如需获取更详细的播放状态信息，可以通过 [getAnimationClipState](/api/classes/SkeletonAnimation#getanimationclipstate) 方法获取：
+## Get Animation State
+You can use the [currName](/api/classes/SkeletonAnimation#currname) property to get the name of the animation currently being played. If you need more detailed playback status information, you can use the [getAnimationClipState](/api/classes/SkeletonAnimation#getanimationclipstate) method to get it:
 ```ts
-// 获取当前在播放的动画名称
+// Get the name of the animation currently being played
 var currentPlayName = animator.currName;
 
-// 获取当前在播放的动画剪辑状态;
+// Get the current animation clip state
 const currentState = animator.getAnimationClipState(animator.currName);
 ```
 
-## 设置动画循环
-加载的动画剪辑默认状态为循环播放，可通过 [setAnimIsLoop](/api/classes/SkeletonAnimation#setanimisloop) 方法设置是否循环：
+## Set Animation Loop
+The loaded animation clip is in a default loop state, which can be set to loop or not through the [setAnimIsLoop](/api/classes/SkeletonAnimation#setanimisloop) method:
 ```ts
-// 设置死亡动画为单次播放(不循环播放)
+// Set the death animation to play once (not loop)
 animation.setAnimIsLoop('death', false);
-// 播放死亡动画
+// Play death animation
 animation.play('death');
 ```
-也可直接修改 `SkeletonAnimationClipState` 的 `loop` 属性：
+Also, you can directly modify the `loop` property of `SkeletonAnimationClipState`:
 ```ts
-// 获取死亡动画的 SkeletonAnimationClipState 对象
+// Get the SkeletonAnimationClipState object of the death animation
 var deathClipState = animation.getAnimationClipState('death');
-// 设置死亡动画为单次播放(不循环播放)
+// Set the death animation to play once (not loop)
 deathClipState.loop = false;
-// 播放死亡动画
+// Play death animation
 animation.play('death');
 ```
 
-## 动画过渡
-可以使用 [crossFade](/api/classes/SkeletonAnimation#crossfade) 方法来使当前动画过渡到指定状态。第一个参数为要过渡到的动画状态名称，第二个参数为过渡时间`(秒)`。
+## Animation Transition
+You can use the [crossFade](/api/classes/SkeletonAnimation#crossfade) method to transition the current animation to the specified state. The first parameter is the name of the animation state to transition to, and the second parameter is the transition time `(seconds)`.
 ```ts
-// 播放走路动画
+// Play walk animation
 animation.play('Walk');
-// 从走路状态历时1秒过度到跑步状态
+// Transition from walk state to run state in 1 second
 animation.crossFade('Run', 1.0);
 ```
 
@@ -149,24 +150,24 @@ animation.crossFade('Run', 1.0);
 
 <<< @/public/demos/animation/animationSingleMix.ts
  
-## 动画事件
-可以通过 `SkeletonAnimationClip` 上的 `addEvent` 方法为 `clip` 添加事件点，该方法接受两个参数，第一个为时间名称，第二个为触发时刻(秒)，当 `clip` 动画播放到指定时刻时，将触发事件：
+## Animation Event
+You can add an event point to the `clip` through the `addEvent` method on `SkeletonAnimationClip`, which takes two parameters, the first is the time name, and the second is the trigger time (seconds). When the `clip` animation plays to the specified time, the event will be triggered:
 ```ts
-// 获取指定名称的clip
+// Get the clip with the specified name
 const runClip = animation.getAnimationClip("Run");
 
-// 在 0.0 秒时刻添加一个名称为 BeginRun 的事件
+// Add an event named BeginRun at 0.0 seconds
 runClip.addEvent("BeginRun", 0);
 
-// 在末尾时刻添加一个名称为 EndRun 的事件
+// Add an event named EndRun at the end
 runClip.addEvent("EndRun", runClip.totalTime);
 
-// 添加 BeginRun 事件监听
+// Add BeginRun event listener
 animation.events.addEventListener("BeginRun", (e: AnimationEvent) => {
     console.log("Run-Begin", e.skeletonAnimation.getAnimationClipState('Run').time)
 }, this);
 
-// 添加 EndRun 事件监听
+// Add EndRun event listener
 animation.events.addEventListener("EndRun", (e: AnimationEvent) => {
     console.log("Run-End:", e.skeletonAnimation.getAnimationClipState('Run').time)
     e.skeletonAnimation.crossFade("Idle", 0.5);
