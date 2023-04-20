@@ -38,7 +38,7 @@ renderer.setMorphInfluence('mouth', 1); // Set to 1, completely open the mouth
 ```
 
 ## Instructions
-`morph` animation, for example, the face expression, assuming that the part of the face animation is `eyes` and `lips`. You need to make the corresponding model in advance, including `eye` and `lip` two parts of the `morph` animation state:
+`morph` animation, for example, the face expression, assuming that the parts of the face animation are `eyes` and `lips`. You need to make the corresponding model in advance, including `eye` and `lip` two parts of the `morph` animation state:
 
 1. Define the basic state of the model: `open eyes` and `close mouth`;
 2. Define the completely closed eye state: `anim_close_eye`;

@@ -151,7 +151,7 @@ animation.crossFade('Run', 1.0);
 <<< @/public/demos/animation/animationSingleMix.ts
  
 ## Animation Event
-You can add an event point to the `clip` through the `addEvent` method on `SkeletonAnimationClip`, which takes two parameters, the first is the time name, and the second is the trigger time (seconds). When the `clip` animation plays to the specified time, the event will be triggered:
+You can add an event point to the `clip` through the `addEvent` method on `SkeletonAnimationClip`, which takes two parameters, the first is the event name, and the second is the trigger time (seconds). When the `clip` animation plays to the specified time, the event will be triggered:
 ```ts
 // Get the clip with the specified name
 const runClip = animation.getAnimationClip("Run");

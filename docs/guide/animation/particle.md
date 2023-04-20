@@ -1,14 +1,14 @@
 # Particle Animation
-Particle Animation is driven by the [ParticleSystem](/api/classes/ParticleSystem) component, which uses `ParticleSimulator` to simulate the trajectory of particle motion using `ComputeShader` to achieve particle animation effects.
+Particle Animation is driven by the [ParticleSystem](/api/classes/ParticleSystem) component, which uses `ComputeShader` by `ParticleSimulator` to simulate the trajectory of particle motion and to achieve particle animation effects.
 ## Basic Module
 Using the `ParticleSystem` component, you need to specify a particle simulator. Currently only the `ParticleStandSimulator` simulator is available, and the particle simulator has the following basic modules:
 
 | Name | Description |
 | :---: | --- |
 | ParticleEmitModule | Particle emitter module (essential module) |
-| ParticleOverLifeScaleModule | Particle size change module during particle lifetime |
-| ParticleOverLifeSpeedModule | Particle speed change module during particle lifetime |
-| ParticleOverLifeRotationModule | Particle rotation change module during particle lifetime |
+| ParticleOverLifeScaleModule | Particle size change module during lifetime or lifespan |
+| ParticleOverLifeSpeedModule | Particle speed change module during lifetime or lifespan |
+| ParticleOverLifeRotationModule | Particle rotation change module during lifetime or lifespan |
 | ParticleGravityModifierModule | Particle global gravity change module |
 | ParticleRotationModule | Particle angular velocity rotation module |
 | ParticleTextureSheetModule | Particle atlas animation module |
