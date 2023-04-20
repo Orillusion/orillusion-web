@@ -63,7 +63,7 @@ class CustomComponent extends ComponentBase {
 ## Get Other Components of Node
 Using the built-in [getComponent](/api/classes/Object3D#getComponent) method of `Object3D`, you can easily get the components on the node.
 ```ts
-//Custom a component, to change another light component on the node, change the color of the light
+//Customize a component, to change another light component on the node, change the color of the light
 class CustomComponent extends ComponentBase {
     public start() {
         let light = this.object3D.getComponent(DirectLight)
