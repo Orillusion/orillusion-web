@@ -43,7 +43,7 @@ class myShader extends MaterialBase{
 ```
 
 ## Set Shader Entry Function
-After creating the shader instance, you need to set the entry function name for the vertex and fragment shaders.
+After creating the shader instance, you need to set the entry function names for the vertex and fragment shaders.
 ```ts
 //  Set shader code entry function name
 renderShader.setShaderEntry( `VertMain`, `FragMain` )

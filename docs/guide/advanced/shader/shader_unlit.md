@@ -101,13 +101,13 @@ You may also need to set the following properties:
 The macros for non-lighting material shaders are as follows:
 ```ts
 let shaderState = shader.shaderState;
-//do not accept shadows
+//Do not accept shadows
 shaderState.acceptShadow = false;
-//do not receive environmental lighting
+//Do not receive environmental lighting
 shaderState.receiveEnv = false;
-//do not accept global illumination
+//Do not accept global illumination
 shaderState.acceptGI = false;
-//not affected by lighting
+//Not affected by lighting
 shaderState.useLight = false;
 
 ```

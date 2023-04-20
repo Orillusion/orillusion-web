@@ -15,7 +15,7 @@ The supported pick events are:
 Picking events depend on the [Collider](/guide/physics/collider) component, and we can directly listen for `PointerEvent3D` events on the `Object3D` . The engine has unified two types of picking methods that can be switched through simple configuration.
 
 ```ts
-//pick and pick type need to be configured before the engine starts
+//Pick and pick type need to be configured before the engine starts
 Engine3D.setting.pick.enable = true;
 // Bound: ray box picking, pixel: frame buffer picking
 Engine3D.setting.pick.mode = `bound`; // or 'pixel'

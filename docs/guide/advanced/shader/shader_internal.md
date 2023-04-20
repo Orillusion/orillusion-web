@@ -143,16 +143,16 @@ Generally, the parameters that need to be involved in post-processing include wo
 
 ```wgsl
 struct FragmentOutput {
-    //color
+    //Color
     @location(0) color: vec4<f32>,
     #if USE_WORLDPOS
-        //world coordinates
+        //World coordinates
         @location(1) worldPos: vec4<f32>,
     #endif
     #if USEGBUFFER
-        //normal vector
+        //Normal vector
         @location(2) worldNormal: vec4<f32>,
-        //material data
+        //Material data
         @location(3) material: vec4<f32>
     #endif
     

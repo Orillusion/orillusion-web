@@ -5,7 +5,7 @@
 ## Component map
 
 Components have multiple states [UIInteractiveStyle](/api/enums/UIInteractiveStyle.md), with each state corresponding to a map
-- `upTexture` - The map corresponding to the default state
+- `upTexture` - The corresponding texture when the mouse is pressed up
 - `downTexture` - The corresponding texture when the mouse is pressed down
 - `overTexture` - The corresponding texture when the mouse is over
 - `disableTexture` - The texture when the component is disabled

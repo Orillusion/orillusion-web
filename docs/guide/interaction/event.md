@@ -1,5 +1,5 @@
 # Custom Event
-In addition to basic mouse and keyboard events, the engine also provides a [CEvent](#cevent) class for custom events, which can be triggered and listened to using `Engine3D.inputSystem` We recommend using the event system to communicate between components when necessary.
+In addition to basic mouse and keyboard events, the engine also provides a [CEvent](#cevent) class for custom events, which can be triggered and listened to using `Engine3D.inputSystem`. We recommend using the event system to communicate between components when necessary.
 
 <Demo :height="500" src="/demos/interaction/event.ts"></Demo>
 

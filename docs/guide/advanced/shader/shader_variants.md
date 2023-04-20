@@ -4,7 +4,7 @@ For developers, the same shader code may face different usage scenarios and may 
 - Set different macro definitions `setDefine()`；
 - Set different constants `setConst()`； 
 
-For example, if we want to create two materials `shader`, one that accepts light and one that does not, with all other code being identical, we can flexibly load different `shader` code by defining the macro variable `USE_LIGHT` 代码:
+For example, if we want to create two materials `shader`, one that accepts light and one that does not, with all other code being identical, we can flexibly load different `shader` code by defining the macro variable `USE_LIGHT` code:
 
 For a model with `LIGHT` data, its material ball needs to set macro `setDefine("USE_LIGHT", true)`;
 

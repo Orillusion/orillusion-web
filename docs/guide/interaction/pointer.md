@@ -17,7 +17,7 @@ export class PickScript extends ComponentBase {
 }
 ```
 
-he engine has integrated the operation of touch screen and mouse, using a unified event model and specifying the specific event type with[PointerEvent3D](/api/classes/PointerEvent3D) 
+The engine has integrated the operation of touch screen and mouse, using a unified event model and specifying the specific event type with[PointerEvent3D](/api/classes/PointerEvent3D) 
 | Event | Description |
 | --- | --- |
 | POINTER_CLICK | Touch click event  |
