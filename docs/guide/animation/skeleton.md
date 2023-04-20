@@ -150,7 +150,7 @@ animation.crossFade('Run', 1.0);
 <<< @/public/demos/animation/animationSingleMix.ts
  
 ## 动画事件
-可以通过 `SkeletonAnimationClip` 上的 `addEvent` 方法为 `clip` 添加事件点，该方法接受两个参数，第一个为时间名称，第二个为触发时刻(秒)，当 `clip` 动画播放到指定时刻时，将触发事件：
+可以通过 `SkeletonAnimationClip` 上的 `addEvent` 方法为 `clip` 添加事件点，该方法接受两个参数，第一个为事件名称，第二个为触发时刻(秒)，当 `clip` 动画播放到指定时刻时，将触发事件：
 ```ts
 // 获取指定名称的clip
 const runClip = animation.getAnimationClip("Run");
