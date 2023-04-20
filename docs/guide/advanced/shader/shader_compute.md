@@ -158,7 +158,7 @@ this.mRTFrame = new RTFrame([
 this.mGaussianBlurShader.setStorageTexture(`resultTex`, this.mBlurResultTexture);
 ```
 
-At this point, the initialization of the`ComputeShader`, creation and association of relevant `GPU Buffer` and `Texture` have been completed. Next, we need to execute the `ComputeShader`. Before executing, we need to set the number of workgroups according to the requirements, which are the parameters `workerSizeX`,
+At this point, the initialization of the`ComputeShader`, and the creation and the association of relevant `GPU Buffer` and `Texture` have been completed. Next, we need to execute the `ComputeShader`. Before executing, we need to set the number of workgroups according to the requirements, which are the parameters `workerSizeX`,
 `workerSizeY`,and`workerSizeZ`:
 ```ts
 this.mGaussianBlurShader.workerSizeX = Math.ceil(this.mBlurResultTexture.width / 8);

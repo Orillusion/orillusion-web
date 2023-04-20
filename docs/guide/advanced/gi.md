@@ -3,7 +3,7 @@ aside: false
 ---
 # Global Illumination
 
-Conventional lighting systems only consider the direct lighting effect produced by light sources shining directly onto object surfaces and do not calculate the light rays that are reflected or refracted by object surfaces, i.e.,`indirect lighting`. Global illumination systems can model indirect lighting to achieve more realistic lighting effects.
+Conventional lighting systems only consider direct lighting.They only factor in the light shining directly onto object surfaces.Reflected or refracted light rays are not accounted for.This approach may not result in optimal lighting conditions, i.e.,`indirect lighting`. Global illumination systems can model indirect lighting to achieve more realistic lighting effects.
 
 ```ts
 //Initialize the engine

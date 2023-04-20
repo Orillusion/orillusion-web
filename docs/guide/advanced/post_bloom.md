@@ -2,7 +2,7 @@
 aside: false
 ---
 # HDRBloom
-HDRBloom, also known as highlight overflow, is a post-processing effect that creates an optical illusion. Parts of the screen with brightness higher than a threshold value will diffuse into surrounding pixels and gradually decrease with distance, creating a glowing and hazy effect.
+HDRBloom, also known as highlight overflow, is a post-processing effect that creates an optical illusion. Parts of the screen with brightness higher than a threshold value will diffuse into surrounding pixels and gradually decrease with distance, which creates a glowing and hazy effect.
 ```ts
 //Initialize the engine
 await Engine3D.init();

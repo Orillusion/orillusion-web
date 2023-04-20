@@ -33,7 +33,7 @@ Engine3D.startRender(renderJob);
 | height | number |  The influence of height on the fog|
 | density | number | Density coefficient of the fog for exponential and exponential squared fog |
 | ins | number |The influence of height on the fog (working with "height" parameter) |
-| fogColor | Color | 	The color of the fog |
+| fogColor | Color | The color of the fog |
 
 <Demo src="/demos/advanced/Sample_fog.ts"></Demo>
 

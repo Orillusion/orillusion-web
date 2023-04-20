@@ -2,7 +2,8 @@
 aside: false
 ---
 # GTAO
-`AO` is used to describe the effect of objects obscuring the diffuse light around them when they intersect or come close to each other, and can solve or improve problems such as light leakage, floating, and unrealistic shadows. It can also improve the unclear representation of gaps, folds, wall corners, edges, and small objects in the scene, comprehensively improve details, especially dark shadows, enhance the sense of depth and realism of space, and strengthen and improve the contrast between light and dark in the picture, enhancing the artistic effect of the image. Within the engine, by sampling the pixels within a specified distance range in the screen range and integrating them, the current pixel `AO` coefficient is assigned.
+`AO` is used to describe the effect of objects obscuring the diffuse light around them when they intersect or come close to each other, and can solve or improve problems such as light leakage, floating, and unrealistic shadows. It improves the representation of gaps, folds, and edges.
+Small objects in the scene are also better represented.It enhances details, especially in dark shadows.The sense of depth and realism of space is improved.The contrast between light and dark is strengthened and improved.The overall artistic effect of the image is enhanced.Within the engine, by sampling the pixels within a specified distance range in the screen range and integrating them, the current pixel `AO` coefficient is assigned.
 ```ts
 //Engine initialization
 await Engine3D.init();

@@ -12,7 +12,7 @@ let panelRoot: Object3D = new Object3D();
 panelRoot.addComponent(ViewPanel);
 // Create panels to system canvas
 renderJob.guiCanvas.addGUIChild(panelRoot);
-// Create Image Node
+// Add Image Node
 let imageQuad = new Object3D();
 panelRoot.addChild(imageQuad);
 this.image = imageQuad.addComponent(UIImage);
@@ -29,7 +29,7 @@ this.image.texture = Engine3D.res.getSubTexture('logo');
 `Atlas` encapsulates a set of bitmap image objects. We can load all the atlases through `Engine3D.res.loadAtlas` , and then obtain one of the element images through `Engine3D.res.getSubTexture` , assign them to the component for rendering.
 
 ```ts
-// Loading Atlas Materials
+// Load Atlas Materials
 await Engine3D.res.loadAtlas('atlas/UI_atlas.json');
 // Define logo materials in the UI_atlas.json
 image.texture = Engine3D.res.getSubTexture('logo');

@@ -9,7 +9,7 @@ When writing shader code, we often encounter situations like these:
 In the past, we would copy the same code snippet to wherever it was needed. This meant that if the code logic needed to be adjusted, we had to make the same adjustments everywhere it was used. 
 This was something that programmers found difficult and required experience to handle. So we introduced the `#include` keyword into `shader` .
 
-### #include
+### #Include
 Following the previous chapter's approach, suppose we have registered a global code snippet to `ShaderLib`and used `GlobalUniform` as the only `key`:
 
 ```ts
@@ -44,7 +44,7 @@ After that, in other `shader` , we can include the code snippet and data from `G
 
 ### Built-in Common Shader Code Snippets
 
-The following are some commonly seen built-in code snippet definitions:
+Followings are some common built-in code snippet definitions:
 
 ```wgsl
 #include "Common_vert"  //Common vertex shader code

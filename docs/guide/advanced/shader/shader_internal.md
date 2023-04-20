@@ -1,6 +1,6 @@
 # Shader Built-in Variables
 In `Orillusion` engine, in order to write complex shader scripts (such as PBR material shading logic) in a more standardized and efficient manner, we have split and encapsulated the shader code.
-This article will introduce some commonly used built-in shader scripts after the split, such as variable, struct definition, function implementation, etc.
+This article will introduce some commonly used built-in shader scripts, such as variable, struct definition, function implementation, etc.
 
 ## Common Variables
 The initial data comes from the vertex stream `VertexAttributes`in the pipeline, the`Uniform` data defined in the constant register - `globalUniform`，, and some mathematical constants defined in the script header, such as `PI=3.14` , etc.
@@ -44,7 +44,7 @@ struct VertexOutput {
     @location(0) varying_UV0: vec2<f32>,
     //The second UV, generally used for shadow mapping, can also be used for other purposes
     @location(1) varying_UV1: vec2<f32>,
-    //oordinates in view space
+    //Coordinates in view space
     @location(2) varying_ViewPos: vec4<f32>,
     //Coordinates in NDC space
     @location(3) varying_Clip: vec4<f32>,
@@ -103,33 +103,33 @@ The variable ORI_ShadingInput is customized for PBR material, which includes var
 After shading, users can append custom effects and extract the required data from this variable.
 ```wgsl
 struct ShadingInput{
-    //base color, usually the default white
+    //Base color, usually the default white
     BaseColor:vec4<f32>,
-    //roughness
+    //Roughness
     Roughness:f32,
-    //metallic
+    //Metallic
     Metallic:f32,
-    //specular coefficient
+    //Specular coefficient
     Specular:f32,
-    //emissive color
+    //Emissive color
     EmissiveColor:vec4<f32>,
-    //surface color
+    //Surface color
     SurfaceColor:vec4<f32>,
-    //normal vector
+    //Normal vector
     Normal:vec3<f32>,
-    //tangent vector
+    //Tangent vector
     Tangent:vec4<f32>,
-    //to be explained
+    //To be explained
     WorldPositionOffset:vec3<f32>,
-    //ambient occlusion coefficient
+    //Ambient occlusion coefficient
     AmbientOcclusion:f32,
-    //to be explained
+    //To be explained
     PixelDepthOffset:f32,
-    //opacity
+    //Opacity
     Opacity:f32,
-    //opacity mask coefficient
+    //Opacity mask coefficient
     OpacityMask:f32,
-    //refraction coefficient
+    //Refraction coefficient
     Refraction:f32,
 }
         

@@ -2,7 +2,7 @@
 aside: false
 ---
 # SSR
-SSR is a screen-space reflection effect that simulates the visual effect of smooth surfaces reflecting the surrounding objects' images in real-time. The reflection effect has the advantages of real-time rendering, where when an object moves, the reflected objects in the image also move, and it can reflect precisely from each pixel. The disadvantage is that it cannot reflect the backside of an object, and objects outside the screen cannot reflect onto other objects.
+SSR is a screen-space reflection effect that simulates the visual effect of smooth surfaces reflecting the surrounding objects' images in real-time. The reflection effect has the advantages of real-time rendering. When an object moves, the reflected objects in the image also move. And it can reflect precisely from each pixel. The disadvantage is that it cannot reflect the backside of an object, and objects outside the screen cannot reflect onto other objects.
 
 ```ts
 //Engine initialization
