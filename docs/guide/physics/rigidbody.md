@@ -1,7 +1,7 @@
-# 刚体
-刚体是指在受到外力后自身形变可以忽略的物体。尽管理想刚体不可能真实存在，但在速度远小于光速的条件下，许多硬质物体通常都可以假定为完美刚体。根据刚体的特性，引擎物理系统可以模拟真实世界中物体的运动、碰撞逻辑，使之产生逼真的动画效果。
+# Rigid Body
+A rigid body is an object whose own deformation can be neglected after being subjected to external forces. Although ideal rigid bodies cannot exist in reality, many hard objects can be assumed to be perfect rigid bodies under the condition of speeds much smaller than the speed of light. Based on the characteristics of rigid bodies, the physics system of the engine can simulate the motion and collision logic of objects in the real world, creating realistic animation effects.
 
-刚体是引擎物理系统中的重要组件，连接刚体后，我们即可以使模型对象像真实世界的物体一样，拥有质量，并响应重力。为了方便用户使用，我们封装了刚体组件 [Rigidbody](/physics/classes/Rigidbody)，通过添加组件的方式，即可为对象添加刚体：
+The rigid body is an important component in the engine's physics system. After connecting a rigid body, we can make the model object have mass and respond to gravity like a real-world object. For user convenience, we have encapsulated the rigid body component [Rigidbody](/physics/classes/Rigidbody). By adding the component, the rigid body can be added to the object:
 ```ts
 import { Object3D } from '@orillusion/core'
 import { Rigidbody } from '@orillusion/physics'
@@ -10,20 +10,20 @@ let object = new Object3D();
 let rigidbody = object.addComponent(Rigidbody);
 ```
 
-为刚体设置质量（单位：kg）：
+Set the mass (unit: kg) for the rigid body:
 ```ts
 rigidbody.mass = 50;
 ```
 
-如果需要静态刚体，则设置mass为0即可实现：
+If a static rigid body is required, set the mass to 0:
 
 ```ts
 rigidbody.mass = 0;
 ```
 
-如果想要操作原生的ammo.js的刚体，可以通过下面方式来获取：
+If you want to manipulate the native ammo.js rigid body, you can get it through the following method:
 ```ts
 let bt = rigidbody.btRigidbody;
 ```
 
-添加刚体后，需要为继续物体添加碰撞体，才能使物体正确响应重力与碰撞。碰撞体组件 [Collider](/guide/physics/collider) 详细内容将会在下一节为大家介绍。
+After adding the rigid body, you need to add a collider to the object to enable the object to respond to gravity and collisions correctly. The details of the collider component [Collider](/guide/physics/collider) will be introduced in the next section.

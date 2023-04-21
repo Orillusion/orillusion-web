@@ -1,6 +1,6 @@
 # WorldSpace
 
-除了屏幕空间（ScreenSpace）, `GUI`组件都可以在 `WorldSpace` 中渲染
+Except for ScreenSpace, all `GUI`components can be rendered in `WorldSpace` 
 
 <Demo :height="500" src="/demos/gui/panel.ts"></Demo>
 

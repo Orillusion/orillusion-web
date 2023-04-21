@@ -1,16 +1,16 @@
-# 键盘
-引擎同样可以通过 [inputSystem](/api/classes/InputSystem) 监听键盘输入事件，而且支持开发者随时查询当前的键盘交互实况，不需引入额外包且调用接口十分简单。
+# Keyboard
+The engine can also listen to keyboard input events through the [inputSystem](/api/classes/InputSystem) and support developers to query the current keyboard interaction status at any time without introducing additional packages and the calling interface is very simple.
 
-## 监听事件
-跟监听鼠标事件一样，开发者可以将感兴趣的键盘按键挂载到事件系统，当该按钮触发后引擎会触发对应的回调函数。
+## Listen to Events
+Similar to listening to mouse events, developers can attach interested keyboard keys to the event system, and when the button is triggered, the engine will trigger the corresponding callback function.
 
-键盘事件支持的类型
-| 事件 | 说明 |
+Keyboard event types supported:
+| Event | Description |
 | --- | --- |
-| KEY_DOWN | 按键每次按下时响应。 |
-| KEY_UP | 按键每次回弹时响应。 |
+| KEY_DOWN | Responds every time the button is pressed down. |
+| KEY_UP | Responds every time the button is released. |
 
-基本使用方法:
+Basic usage:
 
 ```ts{6}
 import { ComponentBase, KeyEvent, Engine3D } from "@orillusion/core";
@@ -21,23 +21,23 @@ export class keyScript extends ComponentBase {
     Engine3D.inputSystem.addEventListener(KeyEvent.KEY_UP, this.onKeyUp, this);
   }
   onKeyUp(e: KeyEvent) {
-    // 按键回调
+    // Callback function for keyup
   }
 }
 ```
 
 ## KeyEvent
-引擎会默认监听当前 `window` 下的键盘事件，调用监听函数后会在回调函数中获取到 [KeyEvent](/api/classes/KeyEvent) 类型的事件。
+The engine will listen to the keyboard events under the current `window` by default. After calling the listening function, the event of type [KeyEvent](/api/classes/KeyEvent) will be obtained in the callback function.
 
-| 参数 | 类型 | 说明 |
+| Parameter | Type | Description |
 | --- | --- | --- |
-| KEY_DOWN | string | 按键每次按下时响应。 |
-| KEY_UP | string | 按键每次回弹时响应。 |
-| keyCode | number | 对应的按键码，详情请参考 [keycode](/api/enums/KeyCode) 定义。 |
+| KEY_DOWN | string | 	Triggered every time a key is pressed. |
+| KEY_UP | string | Triggered every time a key is released. |
+| keyCode | number | Corresponding keycode, please refer to [keycode](/api/enums/KeyCode) definition for details. |
 
 
-## 示例
-该示例演示 W、S、A、D、Q、E六个按钮的操作
+## Example
+This example demonstrates the operation of six buttons: W, S, A, D, Q, E.
 
 <Demo :height="500" src="/demos/interaction/keyboard.ts"></Demo>
 

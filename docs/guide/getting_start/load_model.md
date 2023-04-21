@@ -1,21 +1,20 @@
-# 加载3D模型
-我们推荐使用 `glTF`（Graphics Language Transmission Format）作为模型加载格式。
+# Load 3D model
+We recommend using `glTF` (Graphics Language Transmission Format) as the model loading format.
 
-`glTF`（Graphics Language Transmission Format）规范由 `khronos` 发布，能够高效传输和加载 3D 场景、模型。`glTF`（Graphics Language Transmission Format）会压缩 3D 资源大小，以减少应用文件大小及处理难度。更多关于 `glTF` 的介绍请参看 [glTF官网](https://www.khronos.org/gltf/)。
-
-## 基本使用
-引擎内已经封装了简易的 [资源管理](/guide/resource/Readme) 模块，我们可以使用 [loadGltf](/api/classes/Res#loadgltf) API 很方便的加载 `gltf` 或 `glb` 文件:
+The `glTF` (Graphics Language Transmission Format) format, published by `khronos`, enables efficient transfer and loading of 3D scenes and models. The `glTF` (Graphics Language Transmission Format) compresses the size of 3D resources to reduce application file sizes and processing difficulties. For more information about `glTF`, please refer to [glTF official website](https://www.khronos.org/gltf/).
+## Basic usage
+A simple [resource management](/guide/resource/Readme) module has been included in the engine, we can use [loadGltf](/api/classes/Res#loadgltf) API easily to load`gltf` or `glb` files:
 ```ts
 let scene = new Scene3D();
-// 加载 gltf 文件
+// load gltf file
 let data = await Engine3D.res.loadGltf('sample.gltf');
-// 添加至场景
+// add to scene
 scene.addChild(data);
 ```
-更多详细用法，请参考 [GLTF](/guide/resource/gltf) 介绍
+You can refer [GLTF Introduction](/guide/resource/gltf) for more detailed information.
 
-## 示例
-这里我们来看一个加载模型的简单示例：
+## Example
+Here is a simple example of loading a model:
 
 <Demo src="/demos/getting_start/load_model.ts"></Demo>
 

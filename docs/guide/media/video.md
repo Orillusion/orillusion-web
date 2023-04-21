@@ -1,27 +1,28 @@
-# 视频材质
-该材质继承于 [UnLit](../graphics/materials.md#unlit-材质) 材质，同样不计算光照，仅通过视频像素颜色渲染的基础材质，不同的是，可以自动同步视频播放的帧内容，另外，也增加了空间裁剪 `(clip)` 的设置，可以更自由的进行裁剪。
+# Video Material
+Video Material
+This material inherits from the [UnLit](../graphics/materials.md#unlit-材质) material, which does not calculate lighting and only renders based on the color of the video pixels. The difference is that it can automatically synchronize the frame content of the video being played, and it also adds space clipping `(clip)` settings, which allows for more freedom in clipping.
 
-视频材质支持以下属性：
-| 属性 | 描述 |
+The video material supports the following properties:
+| Property | Description |
 | :---: | :---: |
-| baseColor | 基础颜色 |
-| uv_offsetX | x方向位移 |
-| uv_offsetY | y方向位移 |
-| uv_scaleX | x方向缩放 |
-| uv_scaleY | y方向缩放 |
-| clip_left | 左方裁剪 |
-| clip_top | 上方裁剪 |
-| clip_right | 右方裁剪 |
-| clip_bottom | 下方裁剪 |
+| baseColor | Base color |
+| uv_offsetX | X-axis offset |
+| uv_offsetY | Y-axis offset |
+| uv_scaleX | X-axis scaling |
+| uv_scaleY | Y-axis scaling |
+| clip_left | Left clipping |
+| clip_top | Top clipping |
+| clip_right | Right clipping |
+| clip_bottom | Bottom clipping |
 
-## 用法
+## Usage
 ```ts
 import {VideoMaterial, VideoTexture} from '@orillusion/media-extention'
 
-// 创建视频纹理
+// Create a video texture
 let videoTexture = new VideoTexture();
 await videoTexture.load('https://cdn.orillusion.com/videos/bunny.mp4')
-// 创建视频材质
+// Create a video material
 let mat = new VideoMaterial();
 mat.baseMap = videoTexture;
 ```

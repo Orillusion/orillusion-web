@@ -1,17 +1,17 @@
-# 物理总览
-物理系统是对真实世界的模拟，使场景中的模型对象可以像真实环境中的物体一样，拥有质量并正确响应重力及各种碰撞。引擎以插件的形式提供了物理引擎支持（基于[ammo.js](https://github.com/kripken/ammo.js)），并封装了常用的组件，可以帮助用户在项目中模拟物理系统。
+# Overview of Physics
+The physics system is a simulation of the real world, allowing the modeled objects in the scene to behave like physical objects with mass, respond correctly to gravity and various collisions, just like in the real environment. The engine provides physics engine support （based on[ammo.js](https://github.com/kripken/ammo.js)）in the form of plugins and encapsulates commonly used components to help users simulate the physical system in their projects.
 
-跟引擎安装方法一致，我们可以通过 `NPM` 和 `CDN` 链接两种方式来引入物理插件:
+Similar to the engine installation method, we can introduce the physics plugin in two ways through `NPM` and `CDN` links:
 ```bash
 npm install @orillusion/core --save
 npm install @orillusion/physics --save
 ```
-引入模块
+Import modules:
 ```ts
 import { Engine3D } from "@orillusion/core"
 import { Physics } from "@orillusion/physics"
 ```
-或全局加载 `<script>`，在全局 `Orillusion` 变量中获取 `Physics` 模块：
+Or load globally using `<script>`, obtain the `Physics` module from the global  `Orillusion`  variable:
 ```html
 <script src="https://cdn.orillusion.com/orillusion.umd.js"></script>
 <script src="https://cdn.orillusion.com/physics.umd.js"></script>
@@ -20,18 +20,18 @@ import { Physics } from "@orillusion/physics"
 const { Engine3D, Physics } = Orillusion 
 ```
 
-目前 [Physics](/physics/classes/Physics) 支持的参数及方法如下表所示：
+Currently, the parameters and methods supported by [Physics](/physics/classes/Physics) are shown in the following table:
 
-| API | 描述 |
+| API | Description |
 | --- | --- |
-| init(): void | 初始化物理引擎 |
-| update(): void | 更新物理系统，需要在 loop 主体中调用 |
-| gravity: Vecter3 | 重力参数 |
-| isStop: boolean | 控制物理世界是否暂停运行 |
-| world: Ammo.btDiscreteDynamicsWorld | ammo.js 原生物理世界 |
+| init(): void | Initialize the physics engine |
+| update(): void | Update the physical system, needs to be called in the loop body |
+| gravity: Vecter3 | Gravity parameter |
+| isStop: boolean | Control whether the physical world is running or paused |
+| world: Ammo.btDiscreteDynamicsWorld | Native physical world in ammo.js |
 
-## 物理环境的运行
-我们可以初始化Physics来开启物理系统，并通过在主循环中调用 `Physics.update()` 实现物理世界的运行：
+## Running the Physics Environment
+We can initialize the Physics to start the physical system, and run the physical world by calling `Physics.update()` in the main loop:
 ```ts
 import { Engine3D } from '@orillusion/core'
 import { Physics } from '@orillusion/physics'
@@ -47,37 +47,37 @@ loop() {
   }
 }
 ```
-通过以上方法开启并运行物理系统后，引擎会在每一帧渲染时，根据设定的参数计算并更新物体模型对物理世界的实际响应。
+After opening and running the physical system with the above method, the engine will calculate and update the actual response of the object model to the physical world based on the set parameters for rendering each frame.
 
-在一些项目中通常会有暂停物理世界模拟的需求，因此我们提供了一个参数可以暂停&恢复物理世界的运行：
+In some projects, there is usually a need to pause the physical world simulation, so we provide a parameter to pause and resume the physical world operation:
 ```ts
 Physics.isStop = !Physics.isStop;
 ```
 
-## 重力环境模拟
-目前引擎中默认的重力参数为 `Vector3(0, -9.8, 0)`，模拟的是地球的重力。如果需要自定义重力参数的话，只需更改 `Physics.gravity` 属性即可，不过切记需要在初始化之前更改，否则无法生效。
+## Gravity Simulation
+Currently, the default gravity parameter in the engine is `Vector3(0, -9.8, 0)`, simulating the gravity of the earth. If you need to customize the gravity parameter, simply change the `Physics.gravity` property, but remember to change it before initialization, otherwise it will not take effect.
 
-例如，如果需要模拟太空中的无重力环境，则在初始化前更改 `gravity` 参数为：
+For example, if you want to simulate zero gravity in space, change the `gravity` parameter before initialization:
 ```ts
 Physics.gravity = new Vector3(0,0,0);
 await Physics.init();
 ```
-即可。请注意，需要在物理系统初始化前更改才能生效。
+Please note that it needs to be changed before the initialization of the physical system to take effect.
 
-## 扩展
-此外，用户可以通过以下代码来获取 `ammo.js`原生的物理世界，通过 `ammo.js` 自身提供的api 实现更多自定化需求：
+## Extension
+In addition, users can use the following code to obtain the native physical world of `ammo.js`and implement more customization requirements through the api provided by `ammo.js` itself:
 ```bash
 let world: Ammo.btDiscreteDynamicsWorld = Physics.world;
 ```
 
-## 物体落地的简单示例
-这里我们通过模拟一个正方体掉落在地上的过程，看一下物理系统具体可以提供哪下效果。
+## Simple Example of Object Landing
+Here, we simulate the process of a cube falling on the ground to see what specific effects the physics system can provide.
 
 <Demo src="/demos/physics/demo1.ts"></Demo>
 
 <<< @/public/demos/physics/demo1.ts
 
-依照前面章节所介绍的流程，我们首先将场景、相机、环境贴图、光照等基础组件初始化并设定好参数。
+Following the process described in the previous chapters, we first initialize and set the parameters for basic components such as the scene, camera, environment map, and lighting.
 ```ts
 let scene3D = new Scene3D();
 let cameraObj = new Object3D();
@@ -97,7 +97,7 @@ component.intensity = 0.1;
 scene3D.addChild(light);
 ```
 
-接下来，我们创建一个立方体，并为其添加刚体与碰撞体组件，使之拥有质量并能正确响应重力与碰撞。
+Next, we create a cube and add rigid body and collider components to it, so that it has mass and can correctly respond to gravity and collisions.
 ```ts
 const obj = new Object3D();
 let mr = obj.addComponent(MeshRenderer);
@@ -113,7 +113,7 @@ collider.shape.size = new Vector3(5, 5, 5);
 scene3D.addChild(obj);
 ```
 
-之后，我们在正方体下方创建一个平面，作为地面，同样为其添加刚体与碰撞体组件。由于地面是静止的，所以我们设置其质量为0。
+Then, we create a plane below the cube as the ground and also add rigid body and collider components to it. Since the ground is stationary, we set its mass to 0.
 ```ts
 const obj = new Object3D();
 let mr = obj.addComponent(MeshRenderer);
@@ -129,4 +129,4 @@ collider.shape.size = new Vector3(size.x, 0.1, size.y);
 scene.addChild(obj);
 ```
 
-物理系统启动后，引擎立即根据物体质量响应其重力感应，所以我们将看到立方体从空中掉落的画面。由于我们设置了碰撞体组件，当立方体和地面的碰撞体形状产生交集时，即响应碰撞。在示例中我们可以看到真实的物体落地碰撞效果。
+Once the physics system is started, the engine immediately responds to the object's gravity based on its mass. Therefore, we will see the cube falling from the air. Since we have set up collider components, the collision is detected when the cube and ground collider shapes intersect. In the example, we can see the realistic collision effect when the cube hits the ground.
