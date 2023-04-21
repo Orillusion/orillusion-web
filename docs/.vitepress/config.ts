@@ -60,29 +60,7 @@ export default async () => defineConfig({
             message: 'Released under the MIT License',
             copyright: 'Copyright © 2021-Present Orillusion'
         },
-        // search: {
-        //     provider: 'local',
-        //     options: {
-        //         locales: {
-        //             zh: {
-        //                 translations: {
-        //                     button: {
-        //                         buttonText: '搜索文档',
-        //                         buttonAriaLabel: '搜索文档'
-        //                     },
-        //                     modal: {
-        //                         noResultsText: '无法找到相关结果',
-        //                         resetButtonTitle: '清除查询条件',
-        //                         footer: {
-        //                             selectText: '选择',
-        //                             navigateText: '切换'
-        //                         }
-        //                     }
-        //                 }
-        //             }
-        //         }
-        //     }
-        // },
+        
         algolia: {
             appId: 'A4SU9IUJ2M',
             apiKey: '1a3b57b41821e82cafdd80621f042c9c',
