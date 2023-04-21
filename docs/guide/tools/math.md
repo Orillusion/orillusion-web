@@ -218,7 +218,7 @@ let result1 = c1.getHex();
 
 
 ## Quaternion
-Quaternions are simple hypercomplex number numbers. In the graphics engine, quaternions are mainly used for 3D rotation (the relationship between quaternions and 3D rotation). They can represent not only quaternions but also Euler angles, axis angles, matrices and other forms of rotation. Quaternions have the following advantages:
+Quaternions are simple hypercomplex numbers. In the graphics engine, quaternions are mainly used for 3D rotation (the relationship between quaternions and 3D rotation). They can represent not only quaternions but also Euler angles, axis angles, matrices and other forms of rotation. Quaternions have the following advantages:
 
 * Solved the problem of universal joint deadlock
 * Only four floating point numbers need to be stored, which is lighter than the matrix

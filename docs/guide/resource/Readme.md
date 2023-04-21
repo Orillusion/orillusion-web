@@ -1,67 +1,67 @@
-# 资源加载
-引擎通常需要加载不同的资源文件，为了统一管理所有文件的加载和读取，我们在 `Engine3D` 里封装了统一的 `res` 资源管理器，可以方便用户加载，存储和读取各种文件资源。
+# Resource Loading
+Engines usually need to load different resource files. To manage the loading and reading of all files uniformly, we have encapsulated a unified `res` resource manager in `Engine3D` that makes it easy for users to load, store, and read various file resources.
 
 
-## 基本用法
+## Basic Usage
 ```ts
-// 加载 2D贴图
+// Load 2D texture
 let texture = await Engine3D.res.loadTexture('path/to/image.png');
-// 加载 GLTF/GLB 模型
+// Load GLTF/GLB model
 let gltf = await Engine3D.res.loadGltf('path/to/model.gltf');
 let glb = await Engine3D.res.loadGltf('path/to/model.glb');
 ```
 
-## 下载进度回调
-`res` 支持下载进度回调，我们可以配置 [LoaderFunctions](/api/types/LoaderFunctions) 用来监听文件加载事件回调，常用于 UI 加载进度提示:
+## Download Progress Callback
+`res` supports a download progress callback, which can be configured with [LoaderFunctions](/api/types/LoaderFunctions) to listen for file loading events callbacks, commonly used for UI loading progress prompts:
 ```ts
 
 let parser = await Engine3D.res.loadGltf('/sample.gltf',{
   onProgress: (receivedLength:number, contentLength:number, url:string) => {
-    // 监听下载进度
+    // Listen to download progress
   },
   onComplete: (url:string) => {
-    // 文件下载完成
+    // File download completed
   },
   onError: (e) => {
-    // 文件加载错误
+    // File loading error
   },
   onUrl: (url:string) =>{
-    // 可以根据需求，修改原始url，返回自定义路径
+    // Can modify the original url according to the requirement and return a custom path
   }
 });
 ```
 
-## 贴图管理器
-我们可以将加载的贴图统一储存在 `res` 资源池中，使用时直接读取即可，方便集中下载和管理贴图
+## Texture Manager
+We can store the loaded textures uniformly in the `res` resource pool, and read them directly when needed, making it easy to centrally download and manage textures.
 ```ts
-// 提前下载贴图
+// Pre-download textures
 let brdfLUTTexture = new BitmapTexture2D();
 await brdfLUTTexture.load('PBR/BRDFLUT.png');
-// 统一存储
+// Uniform storage
 Engine3D.res.addTexture('BRDFLUT', brdfLUTTexture);
-// 需要时取出
+// Take out when needed
 let brdfLUTTexture = Engine3D.res.getTexture('BRDFLUT');
 ```
 
-## 材质球管理器
-同理，统一将各类材质球添加到材质球管理器，方便后续使用
+## Material Manager
+Similarly, add all kinds of materials to the material manager uniformly for later use.
 ```ts
 let floorMat = new LitMaterial();
 Engine3D.res.addMat('floorMat', floorMat );
-// 需要时取出
+// Take out when needed
 let floorMat = Engine3D.res.getMat('floorMat');
 ```
 
-## 预设体管理器
-也可以将 `Object3D` 节点添加到资源管理内，方便查找和调用
+## Prefab Manager
+We can also add `Object3D` nodes to the resource management for easy searching and calling.
 ```ts 
 let box = new Object3D();
 res.addPrefab('box', box);
-// 需要时取出
+// Take out when needed
 let box = res.getPrefab('box');
 ```
 
-## 示例
+## Example
 <Demo :height="500" src="/demos/resource/resource.ts"></Demo>
 
 <<< @/public/demos/resource/resource.ts
