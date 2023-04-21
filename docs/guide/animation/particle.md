@@ -3,15 +3,15 @@ Particle Animation is driven by the [ParticleSystem](/api/classes/ParticleSystem
 ## Basic Module
 Using the `ParticleSystem` component, you need to specify a particle simulator. Currently only the `ParticleStandSimulator` simulator is available, and the particle simulator has the following basic modules:
 
-| Name | Description |
-| :---: | --- |
-| ParticleEmitModule | Particle emitter module (essential module) |
-| ParticleOverLifeScaleModule | Particle size change module during lifetime or lifespan |
-| ParticleOverLifeSpeedModule | Particle speed change module during lifetime or lifespan |
-| ParticleOverLifeRotationModule | Particle rotation change module during lifetime or lifespan |
-| ParticleGravityModifierModule | Particle global gravity change module |
-| ParticleRotationModule | Particle angular velocity rotation module |
-| ParticleTextureSheetModule | Particle atlas animation module |
+|              Name              | Description                                     |
+|:------------------------------:|-------------------------------------------------|
+|       ParticleEmitModule       | Particle emitter module (essential module)      |
+|  ParticleOverLifeScaleModule   | Particle size change module during lifespan     |
+|  ParticleOverLifeSpeedModule   | Particle speed change module during lifespan    |
+| ParticleOverLifeRotationModule | Particle rotation change module during lifespan |
+| ParticleGravityModifierModule  | Particle global gravity change module           |
+|     ParticleRotationModule     | Particle angular velocity rotation module       |
+|   ParticleTextureSheetModule   | Particle atlas animation module                 |
 
 ## Basic Usage
 <Demo :height="500" src="/demos/animation/particleAnim.ts"></Demo>
