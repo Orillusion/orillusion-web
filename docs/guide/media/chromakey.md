@@ -1,40 +1,40 @@
-# 色键材质(过滤背景色)
-色键 `(ChromaKey)` 材质在 [Video](./video.md) 材质之上添加了过滤了背景色的功能，支持基本的视频材质UV以下属性：
+# Color Key Material (Filter Background Color)
+The ChromaKey material adds a background color filtering feature on top of the Video [Video](./video.md) material, supporting the following properties of the basic video material UV:
 
-| 属性 | 描述 |
+| Property | Description |
 | :---: | :---: |
-| baseColor | 基础颜色 |
-| uv_offsetX | x方向位移 |
-| uv_offsetY | y方向位移 |
-| uv_scaleX | x方向缩放 |
-| uv_scaleY | y方向缩放 |
-| clip_left | 左方裁剪 |
-| clip_top | 上方裁剪 |
-| clip_right | 右方裁剪 |
-| clip_bottom | 下方裁剪 |
+| baseColor | Base color |
+| uv_offsetX | x-direction displacement |
+| uv_offsetY | y-direction displacement |
+| uv_scaleX | x-axis scaling |
+| uv_scaleY | y-axis scaling |
+| clip_left | left clipping |
+| clip_top | top clipping |
+| clip_right | right clipping |
+| clip_bottom | bottom clipping |
 
-另外，`ChromaKeyMaterial` 还提供背景色过滤功能:
-| 属性 | 描述 |
+In addition, `ChromaKeyMaterial` also provides background color filtering function:
+| Property | Description |
 | :---: | :---: |
-| keyColor | 背景关键色 |
-| colorCutoff | 镂空强度 |
-| colorFeathering | 颜色羽化系数 |
-| maskFeathering | 边缘羽化系数 |
-| sharpening | 边缘锐化系数 |
-| despoil | 环境光削弱系数 |
-| despoilLuminanceAdd | 削弱后补光强度 |
+| keyColor | background key color |
+| colorCutoff | hollowing intensity |
+| colorFeathering | color feathering coefficient |
+| maskFeathering | edge feathering coefficient |
+| sharpening | edge sharpening coefficient |
+| despoil | environmental light attenuation coefficient |
+| despoilLuminanceAdd | fill light intensity after weakening |
 
-## 用法
+## Usage
 ```ts
 import {ChromaKeyMaterial, VideoTexture} from '@orillusion/media-extention'
 
-// 创建视频纹理
+// create video texture
 let videoTexture = new VideoTexture();
 await videoTexture.load('path/to/video')
-// 创建视频材质
+// create video material
 let mat = new ChromaKeyMaterial();
 mat.baseMap = videoTexture;
-// 设置过滤绿色
+// set green filtering
 mat.keyColor = new Color(0.0, 1.0, 0.0, 0.0)
 mat.colorCutoff = 0.2
 ```

@@ -1,54 +1,54 @@
-# 代码引用
-在实际编写着色器代码的时候，我们会经常碰到这些情况：
- - 会频繁的解析 `normalMap` 获得贴图提供的法向量
- - 定义过的 `struct` 在另外一个地方也要有同样的定义
- - 特定的一组 `texture` 和对应的 `sampler` 需要重复定义
- - 特定的一组 `GPUBuffer`会被一些关联 `pass` 重复绑定
+# Code Inclusion
+When writing shader code, we often encounter situations like these:
+ - Frequent parsing of `normalMap` to obtain normal vectors provided by the texture.
+ - The need to define a struct in one place and use it in another.
+ - A specific group of textures and corresponding samplers that need to be defined repeatedly.
+ - A specific set of GPU buffers that are repeatedly bound by some related passes.
 
 
-于是我们最初的情况是 `copy` 同样的代码片段在需要使用的地方，这就意味着如果这段代码逻辑有调整，需要将所有被使用到的地方都要做一样的调整。
-这是程序员最不容易也最有经验去处理的事情。于是我们引入 `#include` 关键字到 `shader` 中。
+In the past, we would copy the same code snippet to wherever it was needed. This meant that if the code logic needed to be adjusted, we had to make the same adjustments everywhere it was used. 
+This was something that programmers found difficult and required experience to handle. So we introduced the `#include` keyword into `shader` .
 
-### #include
-按照上一章的方法，假设我们已经注册了一段全局代码到 `ShaderLib`, 并使用 `GlobalUniform` 作为唯一的 `key`:
+### #Include
+Following the previous chapter's approach, suppose we have registered a global code snippet to `ShaderLib`and used `GlobalUniform` as the only `key`:
 
 ```ts
-// 注册GlobalUniform代码片段
+// Register GlobalUniform code snippet
 ShaderLib.register('GlobalUniform', GlobalUniform );
 ```
 
-这样后续在其它 `shader` 中，只需要有一行代码，即可引入 `GlobalUniform` 的代码片段和数据。我们只需要修改 `GlobalUniform` 代码的内容，就能获得全局修改的效果。
+After that, in other `shader` , we can include the code snippet and data from `GlobalUniform` with just one line of code. We only need to modify the contents of the `GlobalUniform`  code to obtain global modifications.
 ::: code-group
 ```wgsl [shader1]
-// 引入 GlobalUniform 代码片段
+// Include GlobalUniform code snippet
 #include `GlobalUniform`
 
-// 其它代码
+// Other code
 ....
 ```
 ```wgsl [shader2]
-// 引入 GlobalUniform 代码片段
+// Include GlobalUniform code snippet
 #include `GlobalUniform`
 
-// 其它代码
+// Other code
 ....
 ```
 ```wgsl [shader3]
-// 引入 GlobalUniform 代码片段
+// Include GlobalUniform code snippet
 #include `GlobalUniform`
 
-// 其它代码
+// Other code
 ....
 ```
 :::
 
-### 内置公共着色代码片段
+### Built-in Common Shader Code Snippets
 
-以下举例了一些经常会见到的内置过的代码片段定义：
+Followings are some common built-in code snippet definitions:
 
 ```wgsl
-#include "Common_vert"  //顶点着色器通用代码
-#include "Common_frag"  //片元着色器通用代码
-#include "BxDF_frag"    //使用BxDF方程片元着色代码
-#include "UnLit_frag"   //使用无光着色的片元着色代码
+#include "Common_vert"  //Common vertex shader code
+#include "Common_frag"  //Common fragment shader code
+#include "BxDF_frag"    //Fragment shader code using the BxDF equation
+#include "UnLit_frag"   //Fragment shader code using unlit shading
 ```

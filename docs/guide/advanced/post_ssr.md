@@ -1,13 +1,14 @@
 ---
 aside: false
 ---
-# 屏幕空间反射 - SSR
-一种基于屏幕空间的反射效果实现，模拟光滑物体表面可以实时反射其周边物体影像的视觉效果。该反射效果优点为实时渲染，某一个物体发生移动，反射画面中物体也会发生移动；能精确的从每个像素反射。缺点为不能够反射出物体的背面，且屏幕范围外的物体也不能够被反射到其他的物体上。
+# SSR
+SSR is a screen-space reflection effect that simulates the visual effect of smooth surfaces reflecting the surrounding objects' images in real-time. The reflection effect has the advantages of real-time rendering. When an object moves, the reflected objects in the image also move. And it can reflect precisely from each pixel. The disadvantage is that it cannot reflect the backside of an object, and objects outside the screen cannot reflect onto other objects.
 
 ```ts
-//初始化引擎
+//Engine initialization
 await Engine3D.init();
 
+// Setting SSR parameters
 Engine3D.setting.render.postProcessing.ssr.fadeEdgeRatio = 0.2;
 Engine3D.setting.render.postProcessing.ssr.rayMarchRatio = 0.5;
 Engine3D.setting.render.postProcessing.ssr.fadeDistanceMin = 600;
@@ -15,22 +16,22 @@ Engine3D.setting.render.postProcessing.ssr.fadeDistanceMax = 2000;
 Engine3D.setting.render.postProcessing.ssr.roughnessThreshold = 0.5;
 Engine3D.setting.render.postProcessing.ssr.powDotRN = 0.2;
 
-//创建渲染器
+// Creating the renderer
 let renderJob = new ForwardRenderJob(this.scene);
 renderJob.addPost(new SSRPost());
 Engine3D.startRender(renderJob);
 ```
 
-[Engine3D.setting.render.postProcessing.ssr](../../api/types/SSRSetting.md) 配置参数。
+[Engine3D.setting.render.postProcessing.ssr](../../api/types/SSRSetting.md) Configuration parameters.
 
-| 参数 | 类型 | 描述 |
+| Parameter | Type	 | Description |
 | --- | --- | --- |
-| fadeEdgeRatio | number | 渐变速率。|
-| rayMarchRatio | number | 光线步进速率。|
-| fadeDistanceMin | number | 消退距离最小值。|
-| fadeDistanceMax | number | 消退距离最大值。|
-| roughnessThreshold | number | 粗糙度阈值。|
-| powDotRN | number | normal和reflection点积的pow参数。|
+| fadeEdgeRatio | number | Gradient speed.|
+| rayMarchRatio | number | 	Light step speed.|
+| fadeDistanceMin | number | Minimum fading distance.|
+| fadeDistanceMax | number | 	Maximum fading distance.|
+| roughnessThreshold | number | Roughness threshold.|
+| powDotRN | number | pow parameter of normal and reflection dot product.|
 
 <Demo src="/demos/advanced/Sample_ssr.ts"></Demo>
 

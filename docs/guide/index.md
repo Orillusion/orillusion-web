@@ -2,44 +2,44 @@
 
 ---
 
-`Orillusion` 引擎是一款完全支持 [WebGPU](https://www.orillusion.com/webgpu.html) 标准的轻量级渲染引擎。基于最新的 `Web` 图形API标准，我们做了大量的探索和尝试，实现了很多曾经在 `Web` 中很难实现或者根本实现不了的技术和功能。我们自己从以下几个方面对引擎的架构和功能特点做出了总结。
+`Orillusion` engine is a lightweight rendering engine that fully supports the [WebGPU](https://www.orillusion.com/webgpu.html) standard. Based on the latest `Web` graphics API standard, we have made a lot of exploration and attempts to implement many techniques and functions that were previously difficult or impossible to achieve on the web. We have summarized the architecture and feature characteristics of the engine from the following aspects.
 
-## WebGPU 支持
-引擎底层没有考虑到兼容现有的 [WebGL](https://www.khronos.org/webgl/) 标准，而是完全向最新的 `WebGPU` 标准看齐。随着`WebGPU API` 和 `WGSL` 的持续发展，我们也将快速更新迭代引擎底层 `WebGPU` 的计算和渲染能力，提升引擎性能优势。
+## WebGPU Support
+The engine's underlying design completely follows the latest `WebGPU` standard without considering compatibility with the existing [WebGL](https://www.khronos.org/webgl/) standard. With the continuous development of the `WebGPU API` and `WGSL` , we will also rapidly update and iterate the computing and rendering capabilities of the engine's underlying `WebGPU` , enhancing the engine's performance advantages.
 
-## ECS 组件式系统
-引擎框架发展至今，业内普遍开始采用 `组合优于继承` 的开发设计原则。因此，我们放弃继承式架构，而选择了最新的 [ECS](https://wikipedia.org/wiki/Entity_component_system) 组件式架构做为引擎的成体设计思路。消除了继承模式中的继承链复杂，功能交织的问题，通过解耦，封装和模块化重新的设计，开发者可以更灵活的进行功能组合及扩展。
+## ECS Component-Based System
+As the engine framework has developed, the industry has generally begun to adopt the development design principle of `composition over inheritance.` Therefore, we have abandoned an inheritance-based architecture and chosen the latest [ECS](https://wikipedia.org/wiki/Entity_component_system) component-based architecture as the design philosophy for the engine's body. By eliminating the complexity of inheritance chains and interwoven functionality in the inheritance model and redesigning through decoupling, encapsulation, and modularization, developers can flexibly combine and extend functionality.
 
-## 面向数据（DO）设计
-严格的 `ECS` 架构要求，要求 `Entity`, `Component` 和 `System` 要完全独立分隔。这种设计范式下对于数据优化和性能是可以得到更大的提升。但是同时也会带来很大的负面问题就是开发成本和难度非常大。因此我们考虑到开发者的使用难度，以及Web开发者的开发习惯。我们采用了 `ECS` 中核心 `Data Oritented (面向数据开发)` 理念，实现按需 `DO` 的结构。目前的使用方式为，在 `GPU` 中创建连续内存，同时在 `CPU` 和 `GPU` 之间通过内存映射的方式，实现数据的连续高效传递，减少 `CPU` 和 `GPU` 之间数据交换的等待时间和次数。既能提高缓存命中率，实现性能的提升，也同时可以保证整体引擎开发和使用的易用性。
+## Data-Oriented Design
+The strict `ECS` architecture requires that `Entity`, `Component` , and `System` be completely independently separated. This design paradigm can result in greater improvements in data optimization and performance. However, it also brings significant negative issues, namely, high development costs and difficulties. Therefore, considering the difficulty of developers' use and the development habits of web developers, we have adopted the core `Data Oritented (DO)` concept in `ECS` and implemented an on-demand `DO` structure. The current usage is to create continuous memory in the `GPU` and implement efficient data transfer between the `CPU` and `GPU` through memory mapping, reducing the waiting time and frequency of data exchange between the `CPU` and `GPU`. This approach can improve cache hit rates, improve performance, and ensure the overall ease of development and use of the engine.
 
-<!-- ## WASM 加速
-`JavaScript` 在 [V8](https://v8.dev/) 内核中运行效率已经非常高了，但是和原生环境还有些差距。3D场景中很多复杂的数学计算逻辑仍然需要 `CPU` 来运算，为了提高效率我们引入了 [WASM](https://webassembly.org/) 支持，将大量的 `CPU` 计算需求交给原生的计算模块，不再依靠 `JS` 线程来完成，可以极大的提高 `CPU` 利用率和运算性能。 -->
+<!-- ## WASM Acceleration
+`JavaScript`'s running efficiency in the [V8](https://v8.dev/) kernel is already very high, but there is still some gap between it and the native environment. Many complex mathematical calculation logics in 3D scenes still need to be computed by the `CPU`. To improve efficiency, we introduced [WASM](https://webassembly.org/) support, which hands over a large number of `CPU` computing demands to native computing modules rather than relying on the `JS` thread to complete, which greatly improves `CPU` utilization and computational performance. -->
 
-<!-- ## 集群前向渲染
-普通的前向渲染是最为简单的渲染管线。但是它的计算复杂度为 `M x N`（M为物件数目，N为动态光源数目），不适合动态光源复杂的场景，而且会有大量的 `Overdraw`。我们的做法是，首先实现 `Tile Forward Rendering/Forward+ Rendering` 渲染管线，在二维的屏幕空间进行 `Tile` 划分，通过预计算好的深度信息，通过 `Compute Shader` 完成对 `Tile` 中没有贡献的光源进行剔除，减少计算压力。再进一步，我们采用 `Cluster Light Culling` 的技术，在深度方向上也同样进行一次划分，进一步缩小光照的影响范围，实现了对动态多光源场景很好的渲染效果。 -->
+<!-- ## Cluster Forward Rendering
+Ordinary forward rendering is the simplest rendering pipeline, but its computational complexity is `M x N` (M is the number of objects and N is the number of dynamic light sources), which is not suitable for scenes with complex dynamic light sources, and there will be a lot of `Overdraw`. Our approach is to first implement the `Tile Forward Rendering/Forward+ Rendering` rendering pipeline, which divides the screen space into `Tile` in two dimensions. By pre-calculating depth information and using a `Compute Shader` to remove light sources that do not contribute to the `Tile`, we reduce the computational burden. Furthermore, we adopt the `Cluster Light Culling` technique to divide the depth direction as well, further reducing the range of lighting influence and achieving good rendering results for dynamic scenes with multiple light sources. -->
 
-## 集群光照剔除
-这里也就是 `Clustered Forward Rendering` 中的光照剔除方案。在二维 `(Tile)` 和三维 `(Cluster)` 同时对于空间进行块状分割，最后只计算对这个块状空间有光照贡献的光源，完成无效光源的剔除过程，提高计算效率。基于 `WebGL` 的 `Uniform Buffer` 有很多限制，光源数量支持比较少，一般在10个以内。`WebGPU` 有了具备了 `Storage Buffer`，基本上就是直接对标 `GPU` 显存的限制。只要做好自身的内存管理和优化，就可以充分利用GPU的能力，实现多光源渲染的场景。
+## Clustered Light Culling
+This is the light culling scheme in `Clustered Forward Rendering`. The spatial division is performed in two dimensions `(Tile)` and three dimensions `(Cluster)`, and only the light sources that contribute to the block space are calculated to remove ineffective light sources and improve computational efficiency. Due to the limitations of `WebGL`'s `Uniform Buffer`, the number of supported light sources is relatively small, usually within 10. With the introduction of `Storage Buffer` in `WebGPU`, it basically directly targets the limit of GPU memory. As long as self-memory management and optimization are done well, the power of the `GPU` can be fully utilized to achieve multi-light source rendering.
 
-## 物理仿真系统
-我们首先接入了 `ammo.js`，做为CPU端的基本物理仿真功能实现。同时我们正在搭建基于`Compute Shader` 的 `GPU` 端物理仿真引擎，包括粒子，流体，软体，刚体，布料等。在`WebGL` 时期，只能依靠顶点和纹理的数据结构进行相应的计算过程，实现复杂，效率不高。通过`WebGPU` 的 `Compute Shader`，内存和数据结构更加灵活，给了我们很大的想象空间。目前已经实现了很多优秀的物理仿真案例，更多更强的物理仿真的功能正在快速迭代过程中。
+## Physics Simulation System
+We first implemented `ammo.js` as the basic physics simulation on the CPU side. At the same time, we are building a `GPU`-based physics simulation engine based on `Compute Shader`, including particles, fluids, soft bodies, rigid bodies, clothing, etc. During the `WebGL` era, only the data structure of vertices and textures could be used for the corresponding calculation process, which was complex and inefficient. With the `Compute Shader` in `WebGPU`, memory and data structures are more flexible, giving us a lot of room for imagination. Currently, many excellent physics simulation cases have been implemented, and more powerful physics simulation functions are being rapidly iterated.
 
-## 基于物理的材质渲染
-我们实现了最基本的 `Blinn-phong` 模型材质渲染。为了增加更好的真实感渲染效果，我们依靠 `HDR Light` ，也实现了基于 `PBR (Physically-based rendering)` 的材质渲染。也是目前主流引擎的标配了，是一项比较普及的基本引擎要求。
+## Physics-Based Material Rendering
+We have implemented the most basic `Blinn-phong` model material rendering. In order to achieve better realism rendering effects, we rely on `HDR Light` and have also implemented material rendering based on `PBR (Physically-based rendering)`. This is currently a standard feature in mainstream engines and is a common basic engine requirement.
 
-## 动态漫反射全局光照
-`DDGI (Dynamic Diffuse Global Illumination)` 算法是一个基于 `Probe` 的全局光照算法。需要在空间中摆放许多个的 `Probe`，并进行分组，每组 `Probe` 打包成一个 `DDGI Volume`。`Compute Shader` 来计算每个`Probe` 的辐照度（光照信息）和 `G-buffer（几何信息）`，这些信息从球面映射到八面体再映射到正方形来存储。当需要着色时，只需要查看着色点周围的 `probe` 中存储的光照和几何信息来计算着色点的光照信息。将 `Volume` 绑定到摄像机上跟随移动，`Volume` 内的物体会应用间接光照，即被间接光照亮。从渲染效果等方面综合考量，目前我们设置的最大间接光源数量是32个。
+## Dynamic Diffuse Global Illumination (DDGI)
+The `DDGI (Dynamic Diffuse Global Illumination)` algorithm is a global illumination algorithm based on `Probe`. A large number of `Probe` need to be placed in space and grouped together to form a `DDGI Volume`. A `Compute Shader` is used to calculate the irradiance (light information) and `G-buffer (geometry information)` of each `Probe`, which are stored by mapping from a sphere to an octahedron and then to a square. When shading, only the light and geometry information stored in the surrounding `probe` need to be accessed to calculate the shading information of the shading point. Binding the `Volume` to the camera and moving with it will apply indirect lighting to objects within the `Volume`. Currently, we set a maximum of 32 indirect light sources, based on overall rendering performance.
 
-<!-- ## GPU骨骼动画
-基于 `WebGL` 框架，蒙皮动画在顶点着色器中是容易实现的。骨骼动画一般都是在 `JavaScript` 中计算，然后把数据传递到 `GPU` 完成渲染。由于具备了 `WebGPU` 的 `Compute Shader`，更灵活的数据结构允许我们将骨骼动画的计算过程转移到 `GPU` 当中，大幅度提高了计算效率和性能。当然我们同时也提供给客户基于 `CPU` 的骨骼动画方案，用户可以按需选择。 -->
+<!-- ## GPU Skeletal Animation
+Based on the `WebGL` framework, skinning animation is easy to implement in the vertex shader. Skeletal animation is generally calculated in `JavaScript` and then passed to the `GPU` for rendering. With the `Compute Shader` of `WebGPU`, which has more flexible data structures, we can transfer the calculation process of skeletal animation to the `GPU`, greatly improving the computational efficiency and performance. Of course, we also provide customers with skeletal animation solutions based on `CPU`, which users can choose as needed. -->
 
-<!-- ## 视锥体剔除
-视锥剔除的目的就是只需要渲染摄像头视椎体内部的物体。目前渲染管线的 `GPU` 裁剪阶段会完成自动剔除功能，但是在之前 `CPU` 仍然会通过 `DrawCall` 把信息传递给 `GPU` 的 `Vertex Shader`，这些视锥体之外的信息也会参与到很多计算环节中。我们采用视椎体出方案就是在最源头解决这些额外信息的计算问题。首先为模型建立 `AABB` 包围盒，依靠 `DO` 的优势，完成索引数据从 `CPU` 向 `GPU` 的共享传输，然后通过 `Compute Shader` 来计算视锥体和包围体是否相交，相交就提交 `DrawCall`，反之不进行绘制。这样可以极大的提高渲染效率，减少额外的计算消耗。 -->
+<!-- ## Frustum Culling
+The purpose of frustum culling is to only render objects inside the camera's view frustum. Currently, the `GPU` clipping stage of the rendering pipeline will automatically perform culling, but previously the `CPU` would still pass information to the `GPU`'s `Vertex Shader` through `DrawCall`, and this information outside the frustum would also participate in many calculation processes. Our solution based on view frustum is to solve the calculation problem of this additional information at the source. First, we create an `AABB` bounding box for the model, relying on the advantages of `DO`, complete the shared transmission of index data from `CPU` to `GPU`, and then use the `Compute Shader` to calculate whether the frustum and bounding box intersect. If they intersect, we submit the `DrawCall`, otherwise no rendering is performed. This greatly improves rendering efficiency and reduces additional computation costs. -->
 
-## 丰富的后处理特效
-`后处理特效` 是使得渲染内容氛围敢提升的重要处理方式。我们基于 `WebGPU` 的 `compute shader`，目前实现了 `HDR 泛光`，`屏幕空间反射`, `环境光屏蔽` 等常用的后处理效果。依靠 `WebGPU` 的通用计算能力可以更高效的利用 `GPU` 计算优势，实现非常好的效果。
+## Rich Post-Processing Effects
+`Post-processing effects` are an important way to enhance the atmosphere of rendered content. Based on the `compute shader` of `WebGPU`, we have currently implemented commonly used post-processing effects such as `HDR Bloom`, `Screen Space Reflections`, and `Ambient Occlusion`. By relying on the general computing capabilities of `WebGPU`, we can more efficiently utilize the computational advantages of the `GPU` and achieve very good results.
 
-例如，[屏幕空间反射 (SSR)](/guide/advanced/post_ssr) 是基于屏幕空间大小来实现反射效果。相比平面反射，可以实现场景任意表面反射，而且不需要额外的 `DrawCall`，是非常流行的实时反射技术。首先，屏幕空间物体的每个像素需要计算其反射向量。然后，需要判断屏幕空间的 `Ray Marching` 坐标的深度和深度缓存中存储的物体深度是否相交。最后，适当的调节粗糙度，把交点的颜色做为反射颜色完成着色。这个过程中的计算过程，我们都通过 `WebGPU` 的 `Compute Shader` 来实现，避免了 `CPU` 的消耗。最终在浏览器中可以呈现出非常良好的反射效果。
+For example, [Screen Space Reflections (SSR)](/guide/advanced/post_ssr) is a reflection effect implemented based on the size of the screen space. Compared to planar reflections, it can achieve reflections on any surface in the scene without additional `DrawCall`, and is a very popular real-time reflection technique. First, each pixel of the screen space object needs to calculate its reflection vector. Then, it is necessary to determine whether the depth of the screen space `Ray Marching` coordinate and the depth of the object stored in the depth buffer intersect. Finally, adjust the roughness appropriately, and use the intersection point color as the reflection color to complete the shading. We implement all the calculations in this process using the `Compute Shader` of `WebGPU`, avoiding the consumption of `CPU`. In the end, we can present very good reflection effects in the browser.
 
-更多扩展后处理特效请参考 [PostEffects](/guide/advanced/posteffect)
+For more extended post-processing effects, please refer to [PostEffects](/guide/advanced/posteffect)

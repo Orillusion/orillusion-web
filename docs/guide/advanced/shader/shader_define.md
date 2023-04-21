@@ -1,22 +1,22 @@
-# 代码宏
+# Code Macros
 
-跟[代码引用](./shader_include.md)类似，除了直接引用 `shader` 外，我们还可以在通过简单的宏 `(if-else-endif)` 语句来进行代码选择性的加载
+Similar to[code referencing](./shader_include.md), in addition to directly referencing shaders, we can also selectively load code using simple macro `(if-else-endif)` statements.
 
-比如，要创建两个材质球 `shader`，一个接受光，一个不接受光，除此之外所有代码相同，我们就可以通过定义 `USE_LIGHT` 宏变量来灵活的加载不同的 shader 代码：
+For example, to create two material shaders, one with lighting and one without lighting, with all other code being the same, we can use the `USE_LIGHT` macro variable to flexibly load different shader code:
 
 ```wgsl
-// 加载全局 shader
+// Load global shader
 #include `GlobalUniform`
 
-// 根据宏定义 USE_LIGHT 选择加载 不同的 shader
+// Choose to load different shader code based on the USE_LIGHT macro definition
 #if USE_LIGHT
     #include `shader1`
 #else
     #include `shader2`
 #endif
 
-// 其他代码
+// Other code
 ...
 ```
 
-关于 `宏` 定义，请见下章 [着色提变体](./shader_variants.md)
+For more information on macro definitions, see the next chapter on [Shader Variants](./shader_variants.md)
