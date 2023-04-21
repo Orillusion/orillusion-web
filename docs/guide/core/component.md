@@ -1,86 +1,88 @@
-# 实体与组件
+# Entity and Component
 `Orillusion` 核心借鉴了 [ECS](https://wikipedia.org/wiki/Entity_component_system) 结构，遵循 `组合优于继承` 的开发设计原则，实现了自己的组件系统。我们将传统复杂的逻辑划分为独立的、可重复利用的部分，每个部分可以单独封装运行逻辑。然后通过灵活组合的形式，将多个简单组件合并在一起运行从而表现复杂的功能和逻辑。
+The core of 'Orillusion' is inspired by the [ECS](https://wikipedia.org/wiki/Entity_component_system) structure, and follows the principle of 'Composition over inheritance'. Implemented own component system. We divide the traditional complex logic into independent and reusable parts. Each part can be encapsulated and run independently. Then, by flexible combination, multiple simple components are combined to perform complex functions and logic.
 
 ![ECS](/images/component.svg)
 
-## 实体 - Entity
-`Entity` 是组件的容器，用于连接各个组件。它没有实际的功能，如果不添加任何组件，它不会进行任何渲染和功能的表达。
-在实际使用中，我们不会直接操作 `Entity`，一般使用 [Object3D](/guide/core/object) 和 [Scene3D](/guide/core/scene) 作为场景容器节点来连接各个组件。
+## Entity
+`Entity` is a container for components to connect various components. It doesn't have actual function and will not render or express any functions if no components are added to it.
+In practice, we will not operate `Entity` directly. Usually, we use [Object3D](/guide/core/object) and [Scene3D](/guide/core/scene) as scene container nodes to connect various components.
+
+## Compnent
+`Component` is a series of reusable modules or data. All the functions of `Entity` are implemented by loading `Component`. By defining the logic callback and lifecycle of the component, we can freely combine different components to make the `Entity` have different functions, such as:
+
+- `a camera = Position + Rotation + Camera3D`  
+- `a bulb = Position + Rotation + PointLight + Shadow` 
+- `a box = Position + Rotation + Scale + BoxGeometry + Material` 
+
+Among them, all components are independent and equal, and each performs a single function. This split makes the `Position` and `Rotation` modules reusable, and they can be combined as needed, which greatly improves the efficiency of code reuse, and also effectively reduces the coupling between modules.
+
+## Built-in Components
+
+We have built-in a lot of basic components in the Orillusion engine, which encapsulates a lot of basic functions. For example, `Object3D` has already built-in the `Transform` component, which contains the `Position`, `Rotation`, `Scale` and other related functions. Make it convenient for users to operate the spatial transformation of `Object3D`.
 
 
-## 组件 - Compnent
-`Component` 是一系列可重复利用的模块或数据，`Entity` 的所有功能都要通过加载 `Component` 来实现。通过定义组件的逻辑回调和生命周期，我们可以将不同的组件进行自由组合，让 `Entity` 具备不同的功能，比如：
+These are the commonly used built-in components in the Orillusion engine:
 
-- `相机 = Position + Rotation + Camera3D`  
-- `灯泡 = Position + Rotation + PointLight + Shadow` 
-- `盒子 = Position + Rotation + Scale + BoxGeometry + Material` 
+|         Name          |                                       Description                                       |
+|:---------------------:|:---------------------------------------------------------------------------------------:|
+|       Camera3D        |                          Camera component, set the camera node                          |
+| HoverCameraController |      Camera controlort, used to control the position and orientation of the camera      |
+|     MeshRenderer      |              Mesh renderer component, used to render meshes and materials               |
+|      DirectLight      |         Directional light, set the type and parameters of the directional light         |
+|      PointLight       |           Point light source, set the type and parameters of the point light            |
+|       SpotLight       |                 Spotlight, set the type and parameters of the spotlight                 |
+|       Collider        |                      Collider component, used to detect collisions                      |
+|   SkeletonAnimation   |            Skeleton animation component, used to control animation playback             |
+|       Transform       | Transform component, used to control the matrix coordinate transformation of the object |
 
-其中，所有组件都是独立且平等的，且各自只负责一个单独的功能，这样的拆分使得 `Position` 和 `Rotation` 模块可以重复利用，在使用时按需要组合即可，大大提高代码的利用效率，也能有效降低各个模块间的耦合性。
+And more built-in components can be found in [Components](/api/#components)
 
-## 内置组件
-
-在 Orillusion 引擎中，我们已经内置了常用的基础组件，封装了大量的基础功能。比如，`Object3D` 已经内置了 `Transform` 组件，已经包含了 `Position`, `Rotation`, `Scale` 等相关功能，方便用户去操作 `Object3D` 的空间变换。
-
-以下是常用的引擎内置组件列表：
-| 名称 | 描述 |
-| :---: | :---: |
-| Camera3D | 相机组件，设置相机节点 |
-| HoverCameraController | 相机控制组件，用于控制相机位置和朝向 |
-| MeshRenderer | 网格渲染器组件, 用于渲染网格和材质 |
-| DirectLight | 方向光，设定方向光类型和参数 |
-| PointLight | 点光源，设定点光类型和参数 |
-| SpotLight | 聚光灯，设定聚光类型和参数 |
-| Collider | 碰撞体组件，用于检测碰撞 |
-| SkeletonAnimation | 骨骼动画组件，用于控制动画播放 |
-| Transform | 变换组件，用于控制物体矩阵坐标变换 |
-
-更多内置组件详见 [Components](/api/#components)
-
-## 基础用法
+## Basic Usage
 ```ts
-//创建一个实体
+//Create a new entity
 let obj = new Object3D();
-//将实体添加到场景中
+//Add the entity to scene
 scene.addChild(obj);
 ```
-## 添加组件
+## Add Component
 ```ts
 let obj = new Object3D();
 let light = obj.addComponent(DirectLight)
 ```
 
-## 删除组件
+## Delete Component
 ```ts
 let obj = new Object3D();
 let light = obj.removeComponent(DirectLight)
 ```
 
-## 停用组件
+## Disable Component
 ```ts
 let obj = new Object3D();
 let light = obj.getComponent(DirectLight)
 light.enable = false
 ```
 
-## 启用组件
+## Enable Component
 ```ts
 let obj = new Object3D();
 let light = obj.getComponent(DirectLight)
 light.enable = true
 ```
 
-## Life Cycle
-This component extends from the [CompnentBase](/api/classes/ComponentBase) class, which defines several basic life cycles:
+## Lifecycle of Component
+The component extends from the [CompnentBase](/api/classes/ComponentBase), which defines several basic lifecycles:
 
-|    Cycle     | Description                                                                   |
-|:------------:|-------------------------------------------------------------------------------|
-|     init     | Component initialization, only run once when the component is created         |
-|    start     | Component start running, only called before the first `onUpdate`              |
-|    update    | Component update every frame                                                  |
-| beforeUpdate | Component update before rendering                                             |
-|  lateUpdate  | Component update after rendering                                              |
-|   onEnable   | Component `enable = true` callback, component join the main loop update       |
-|  onDisable   | Component `enable = false` trigger, component will no longer trigger the loop |
-|     stop     | Component is destroyed before being called                                    |
+|  Lifecycle   | Description                                                           |
+|:------------:|-----------------------------------------------------------------------|
+|     init     | Component initialization, only run once when the component is created |
+|    start     | Component starts running, only called before the first `onUpdate`     |
+|    update    | Component runs every frame                                            |
+| beforeUpdate | Component runs before rendering update                                |
+|  lateUpdate  | Component runs after rendering update                                 |
+|   onEnable   | Work when `enable = true` , component joins the main loop update      |
+|  onDisable   | Work when `enable = false` , component will no longer trigger loop    |
+|     stop     | Component is called before destruction                                |
 
-User can extend different custom functions by inheriting the [CompnentBase](/api/classes/ComponentBase) base class, see [Script Component](/guide/core/script) for details.
+Users can extend different custom functions by inheriting the [CompnentBase](/api/classes/ComponentBase) base class, see [Script Component](/guide/core/script) for details.
