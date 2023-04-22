@@ -93,12 +93,12 @@ and end with a line which only contains `` </div> ``. There must be only one
 syntactic rule between these lines.
 * Each syntactic rule must define itself for Bikeshed. Each syntactic rule definition must start with two spaces
 and then place the rule name between `` <dfn for=syntax> `` and `` </dfn> : `` on the same line.
-* Each syntactic rule item must start with four spaces and then list members after `` | `` followed by a space.
+* Each syntactic rule item must start with four spaces and then list members after `` | `` followed by a space.
     * Syntactic rule items can be split to multiple lines. For this, start the next line with six spaces.
 * Each syntactic rule item must be surrounded by only a space before and after,
 trailing space at the end of the line being redundant.
 * Members of syntactic rules items can be references to existing rules. These must be placed between
-`` [=syntax/ `` and `` =] ``.
+`` [=syntax/ `` and `` =] ``.
 * Members of syntactic rules can contain groups which should contain the group members between `` ( `` and `` ) ``.
 * Members of syntactic rule items which denote a string should start with `` `' ``
 and end with `` '` `` and not contain any space character or line break between these two.
@@ -107,6 +107,11 @@ and end with `` /` `` and not contain any space character or line break between 
 * If a member is optional, then it must be followed by a `` ? `` member token.
 * If a member can repeat and must appear at least once, then it must be followed by a `` + `` member token.
 * If a member can repeat and does not have to appear, then it must be followed by a `` * `` member token.
+
+WGSL specification normalizes its normative and informative sources to
+promote interoperability between developers using different input mechanisms.
+A developer intending to contribute can automatically normalize sources by
+passing `--fix` to `check-nfkc.py` in the tools directory.
 
 ## Tagging conventions
 
@@ -122,13 +127,13 @@ attribute on an element does two things:
 1. It scopes variables to that element. In a browser, clicking on one use of a variable
     will highlight all the uses of that variable in the same scope.
 
-For example, the definition of a matrix type has two parameters: _N_ and _M_.
-The uses of `|N|` and `|M|` are scoped to the `tr` element having the `algorithm` attribute:
+For example, the definition of a matrix type has two parameters: _C_ and _R_.
+The uses of `|C|` and `|R|` are scoped to the `tr` element having the `algorithm` attribute:
 
     <tr algorithm="matrix type">
-      <td>mat|N|x|M|&lt;f32&gt;
-      <td>Matrix of |N| columns and |M| rows, where |N| and |M| are both in {2, 3, 4}.
-          Equivalently, it can be viewed as |N| column vectors of type vec|M|&lt;f32&gt;.
+      <td>mat|C|x|R|&lt;f32&gt;
+      <td>Matrix of |C| columns and |R| rows, where |C| and |R| are both in {2, 3, 4}.
+          Equivalently, it can be viewed as |C| column vectors of type vec|R|&lt;f32&gt;.
 
 The following kinds of document elements should have `algorithm` attribute:
 
@@ -156,8 +161,8 @@ For example:
 
     <div class='example wgsl global-scope' heading='Trivial fragment shader'>
       <xmp highlight='rust'>
-        [[stage(fragment)]]
-        fn main() -> [[location(0)]] vec4<f32> {
+        @stage(fragment)
+        fn main() -> @location(0) vec4<f32> {
           return vec4<f32>(0.4,0.4,0.8,1.0);
         }
       </xmp>
@@ -168,5 +173,12 @@ Code samples in languages other than WGSL should name the language, for example:
 
     <div class='example spirv barrier mapping' heading="Mapping workgroupBarrier to SPIR-V">
 
+
+## In-progress extensions are developed outside the main spec text
+
+Once a language extension is fully developed, it should be described in the WGSL specification.
+
+Before then, an extension is considered to be "in progress", and should not be discussed in the main WGSL specification.
+Extensions which require a lot of iteration can be freely developed in a branch or some other document.
 
 [Bikeshed]: https://tabatkins.github.io/bikeshed "Bikeshed"

@@ -1,4 +1,7 @@
 # WebGPU Specification
+This is a public archive for WebGPU API and WebGPU Shading Language (WGSL) specifications. 
+
+You can find the original specifications from https://gpuweb.github.io/gpuweb/
 
 ## Dependencies
 
@@ -13,15 +16,17 @@ To install the necessary tools, run:
 
 Alternatively, invoke `pip3`/`npx` directly, using the commands in [that script](../tools/install-dependencies.sh).
 
-## Building this spec
-
-If Bikeshed is not installed locally, the Bikeshed API will be used to generate the specification
+> If Bikeshed is not installed locally, the Bikeshed API will be used to generate the specification
 (this is generally slower).
 
-To generate the specification and `webgpu.idl`, type:
+## Building
+To generate the specification, type `make` in each subfolder:
 
 ```bash
 make
 ```
 
-When the specification is generated, it is written to `index.html`.
+You may also need `tree_sitter` to build WGSL
+```bash
+pip3 install tree_sitter
+```

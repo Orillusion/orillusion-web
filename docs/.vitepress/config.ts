@@ -60,7 +60,7 @@ export default async () => defineConfig({
             message: 'Released under the MIT License',
             copyright: 'Copyright © 2021-Present Orillusion'
         },
-
+        
         algolia: {
             appId: 'A4SU9IUJ2M',
             apiKey: '1a3b57b41821e82cafdd80621f042c9c',
