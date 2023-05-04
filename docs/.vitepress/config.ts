@@ -12,7 +12,7 @@ type SidebarItem = {
     })[];
 }[]
 export default async () => defineConfig({
-    base: '/',
+    base: '/0.5',
     lang: 'zh',
     title: 'Orillusion',
     description: 'The Next Generation WebGPU Engine',
@@ -30,7 +30,7 @@ export default async () => defineConfig({
     ],
     locales: {
         root: { label: '简体中文' },
-        en: { label: 'English', link: 'https://www.orillusion.com/en/' }
+        en: { label: 'English', link: 'https://www.orillusion.com/en/0.5/' }
     },
     themeConfig: {
         logo: {
@@ -71,7 +71,7 @@ export default async () => defineConfig({
         },
 
         editLink: {
-            pattern: 'https://github.com/Orillusion/orillusion-web/edit/master/docs/:path',
+            pattern: 'https://github.com/Orillusion/orillusion-web/edit/0.5/docs/:path',
             text: '为此页提供修改建议'
         },
 
