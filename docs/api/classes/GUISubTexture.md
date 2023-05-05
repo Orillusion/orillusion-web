@@ -41,7 +41,7 @@ ___
 
 ### sourceTexture
 
-• **sourceTexture**: [`GUITextureSource`](GUITextureSource.md) = `defaultTexture.defaultTextureSource`
+• **sourceTexture**: [`GUITextureSource`](GUITextureSource.md) = `Engine3D.res.defaultTextureSource`
 
 #### Defined in
 

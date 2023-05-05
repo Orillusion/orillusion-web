@@ -31,7 +31,7 @@ Engine3D.startRender(renderJob);
 一般我们可以通过对物体材质添加发光贴图和颜色来控制物体的发光效果：
 ```ts
 let mat = new LitMaterial();
-mat.emissiveMap = defaultTexture.whiteTexture;
+mat.emissiveMap = Engine3D.res.whiteTexture;
 mat.emissiveColor = new Color(1.0, 0.0, 0.0);
 mat.emissiveIntensity = 3;
 ```

@@ -1,27 +1,17 @@
 import {
   Camera3D,
-  defaultTexture,
   DirectLight,
   Engine3D,
-  ForwardRenderJob,
-  GLTFParser,
-  GUIHelp,
+  View3D,
   LitMaterial,
   HoverCameraController,
   KelvinUtil,
   MeshRenderer,
   Object3D,
-  PlaneGeometry,
   Scene3D,
   SphereGeometry,
-  SSRPost,
-  SSR_IS_Kernel,
-  Time,
   CameraUtil,
   webGPUContext,
-  GTAOPost,
-  HDRBloomPost,
-  TAAPost,
   GlobalIlluminationComponent,
   PointLight,
   BoxGeometry,
@@ -77,15 +67,17 @@ export class Sample_GI {
     GUIHelp.init();
 
     this.scene = new Scene3D();
-    Camera3D.mainCamera = CameraUtil.createCamera3DObject(this.scene);
-    Camera3D.mainCamera.perspective(60, webGPUContext.aspect, 1, 5000.0);
-    let ctrl = Camera3D.mainCamera.object3D.addComponent(HoverCameraController);
+    let mainCamera = CameraUtil.createCamera3DObject(this.scene);
+    mainCamera.perspective(60, webGPUContext.aspect, 1, 5000.0);
+    let ctrl = mainCamera.object3D.addComponent(HoverCameraController);
     ctrl.setCamera(-60, -25, 150);
 
-    let renderJob = new ForwardRenderJob(this.scene);
-    renderJob.debug();
     this.addGIProbes();
-    Engine3D.startRender(renderJob);
+
+    let view = new View3D();
+    view.scene = this.scene;
+    view.camera = mainCamera;
+    Engine3D.startRenderView(view);
 
     await this.initScene();
   }

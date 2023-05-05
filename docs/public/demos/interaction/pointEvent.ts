@@ -1,4 +1,4 @@
-import { Engine3D, Scene3D, Vector3, Object3D, Camera3D, ForwardRenderJob, LitMaterial, MeshRenderer, BoxGeometry, MouseCode, PointerEvent3D } from "@orillusion/core";
+import { Engine3D, Scene3D, Vector3, AtmosphericComponent, Object3D, Camera3D, View3D, LitMaterial, MeshRenderer, BoxGeometry, MouseCode, PointerEvent3D } from "@orillusion/core";
 
 let scene: Scene3D;
 let cameraObj: Object3D;
@@ -9,16 +9,16 @@ async function init() {
 
     // 创建场景实例
     scene = new Scene3D();
+    scene.addComponent(AtmosphericComponent);
 
     // 创建相机实例
     cameraObj = new Object3D();
     camera = cameraObj.addComponent(Camera3D);
     // 设置正交相机
-    camera.perspective(60, window.innerWidth / window.innerHeight, 1, 5000.0);
+    camera.perspective(60, Engine3D.aspect, 1, 5000.0);
     camera.lookAt(new Vector3(0, 5, 15), new Vector3(0, 0, 0));
 
     // 设置主相机
-    Camera3D.mainCamera = camera;
     scene.addChild(cameraObj);
 
     // 添加物体
@@ -32,10 +32,11 @@ async function init() {
     // 添加对象至场景
     scene.addChild(boxObj);
 
-    //进行前向渲染
-    let renderJob = new ForwardRenderJob(scene);
-    // 开始执行渲染
-    Engine3D.startRender(renderJob);
+    let view = new View3D();
+    view.scene = scene;
+    view.camera = camera;
+    // start render
+    Engine3D.startRenderView(view);
 }
 
 async function demo() {
@@ -47,11 +48,11 @@ async function demo() {
         } else if (e.mouseCode == MouseCode.MOUSE_RIGHT) {
             boxObj.rotationY += 20;
         }
-    });
+    }, this);
+
     Engine3D.inputSystem.addEventListener(PointerEvent3D.POINTER_WHEEL, (e: PointerEvent3D) => {
         boxObj.z += Engine3D.inputSystem.wheelDelta / 120;
-    });
-
+    }, this);
 }
 
 demo();

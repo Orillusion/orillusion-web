@@ -160,7 +160,7 @@ ___
 
 ### rtDescripts
 
-• **rtDescripts**: [`RTDescript`](RTDescript.md)[]
+• **rtDescripts**: [`RTDescriptor`](RTDescriptor.md)[]
 
 #### Inherited from
 

@@ -1,4 +1,4 @@
-import { BoxGeometry, CameraUtil, Color, defaultTexture, DirectLight, Engine3D, ForwardRenderJob, GLTFParser, GUIHelp, HDRBloomPost, LitMaterial, HoverCameraController, MeshRenderer, Object3D, Scene3D, webGPUContext } from '@orillusion/core';
+import { BoxGeometry, CameraUtil, Color, View3D, DirectLight, Engine3D, PostProcessingComponent, HDRBloomPost, LitMaterial, HoverCameraController, MeshRenderer, Object3D, Scene3D, webGPUContext, AtmosphericComponent } from '@orillusion/core';
 
 export class Sample_bloom {
 	scene: Scene3D;
@@ -6,9 +6,10 @@ export class Sample_bloom {
 
 	async run() {
 		await Engine3D.init({});
-		GUIHelp.init();
 
 		this.scene = new Scene3D();
+		this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
+
 		let mainCamera = CameraUtil.createCamera3DObject(this.scene);
 		mainCamera.perspective(60, webGPUContext.aspect, 1, 2000.0);
 		let hoverCameraController = mainCamera.object3D.addComponent(HoverCameraController);
@@ -16,13 +17,13 @@ export class Sample_bloom {
 
 		await this.initScene();
 
-		// 开启渲染任务(前向渲染);
-		let renderJob = new ForwardRenderJob(this.scene);
-		let bloom = new HDRBloomPost();
-		bloom.debug();
-		
-		renderJob.addPost(bloom);
-		Engine3D.startRender(renderJob);
+        let view = new View3D();
+        view.scene = this.scene;
+        view.camera = mainCamera;
+        Engine3D.startRenderView(view);
+
+		let postProcessing = this.scene.addComponent(PostProcessingComponent);
+		let bloom = postProcessing.addPost(HDRBloomPost);
 	}
 
 	async initScene() {
@@ -36,7 +37,7 @@ export class Sample_bloom {
 		{
 			//emisstive
 			let lightMat = new LitMaterial();
-			lightMat.emissiveMap = defaultTexture.whiteTexture;
+			lightMat.emissiveMap = Engine3D.res.whiteTexture;
 			lightMat.emissiveColor = new Color(1.0, 1.0, 0.0);
 			lightMat.emissiveIntensity = 5;
 
@@ -51,7 +52,7 @@ export class Sample_bloom {
 		{
 			//emisstive
 			let lightMat = new LitMaterial();
-			lightMat.emissiveMap = defaultTexture.whiteTexture;
+			lightMat.emissiveMap = Engine3D.res.whiteTexture;
 			lightMat.emissiveColor = new Color(0.0, 1.0, 1.0);
 			lightMat.emissiveIntensity = 3;
 

@@ -1,12 +1,11 @@
 import {
-    Engine3D, Vector3, Scene3D, Object3D, Camera3D, ForwardRenderJob, MeshRenderer, HoverCameraController, PlaneGeometry, GUIHelp, Color
+    Engine3D, Vector3, Scene3D, Object3D, Camera3D, View3D, MeshRenderer, HoverCameraController, PlaneGeometry, Color
 } from "@orillusion/core";
 
 import { VideoTexture,ChromaKeyMaterial } from "@orillusion/media-extention"
 
 async function demo() {
     await Engine3D.init();
-    GUIHelp.init();
     let scene = new Scene3D();
     let camera = new Object3D();
     scene.addChild(camera)
@@ -21,7 +20,6 @@ async function demo() {
     // 创建视频(背景过滤)材质
     let mat = new ChromaKeyMaterial();
     mat.baseMap = videoTexture;
-    mat.roughness = 1;
     mat.debug();
     // 设置过滤
     mat.keyColor = new Color(0,1,0,0)
@@ -35,8 +33,11 @@ async function demo() {
     mr.material = mat;
     scene.addChild(planeObj);
 
-    let renderJob = new ForwardRenderJob(scene);
-    Engine3D.startRender(renderJob);
+    let view = new View3D();
+    view.scene = scene;
+    view.camera = mainCamera;
+    // start render
+    Engine3D.startRenderView(view);
 }
 
 demo();

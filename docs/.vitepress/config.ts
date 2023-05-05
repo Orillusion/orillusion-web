@@ -298,17 +298,6 @@ function sidebarGuide(): SidebarItem {
             ],
         },
         {
-            text: '用户界面',
-            collapsible: true,
-            items: [
-                { text: '简介', link: '/guide/gui/Readme.md' },
-                { text: '文本', link: '/guide/gui/textfield.md' },
-                { text: '图片', link: '/guide/gui/image.md' },
-                { text: '按钮', link: '/guide/gui/button.md' },
-                { text: 'WorldSpace', link: '/guide/gui/panel.md' }
-            ],
-        },
-        {
             text: '性能调试',
             collapsible: true,
             items: [

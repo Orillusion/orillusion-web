@@ -1,6 +1,7 @@
 import {
     Engine3D, Scene3D, Object3D, Camera3D, AtmosphericComponent, View3D, DirectLight, HoverCameraController, Color, CameraUtil, SkeletonAnimationComponent, FXAAPost, HDRBloomPost, Vector3, OAnimationEvent
 } from "@orillusion/core";
+import * as dat from "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js"
 
 async function demo() {
     // 初始化引擎环境;
@@ -51,12 +52,11 @@ async function demo() {
         e.skeletonAnimation.crossFade("Idle", 0.5);
     }, this);
 
-    // GUIHelp.addFolder("Animation-play").open();
-    // animation.getAnimationClipStates().forEach((clipState, _) => {
-    //     GUIHelp.addButton(clipState.name, () => animation.play(clipState.name));
-    // });
-    // GUIHelp.endFolder();
-
+    const GUIHelp = new dat.GUI();
+    GUIHelp.addFolder("Animation-play").open();
+    animation.getAnimationClipStates().forEach((clipState, _) => {
+        GUIHelp.add({click:() => animation.play(clipState.name)}, 'click').name(clipState.name);
+    });
 
     scene.addComponent(AtmosphericComponent).sunY = 0.6;
 

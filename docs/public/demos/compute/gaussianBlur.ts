@@ -1,4 +1,5 @@
-import { WebGPUDescriptorCreator, PostProcessingComponent, BoxGeometry, CameraUtil, ComputeShader, Engine3D, ForwardRenderJob, GPUContext, GPUTextureFormat, LitMaterial, HoverCameraController, MeshRenderer, Object3D, PostBase, RendererPassState, Scene3D, UniformGPUBuffer, Vector3, VirtualTexture, webGPUContext, RTFrame, RTDescript, AtmosphericComponent, View3D } from "@orillusion/core";
+import { WebGPUDescriptorCreator, PostProcessingComponent, BoxGeometry, CameraUtil, ComputeShader, Engine3D, ForwardRenderJob, GPUContext, GPUTextureFormat, LitMaterial, HoverCameraController, MeshRenderer, Object3D, PostBase, RendererPassState, Scene3D, UniformGPUBuffer, Vector3, VirtualTexture, webGPUContext, RTFrame, RTDescriptor, AtmosphericComponent, View3D } from "@orillusion/core";
+import * as dat from "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js"
 
 export class Demo_GaussianBlur {
     async run() {
@@ -16,11 +17,9 @@ export class Demo_GaussianBlur {
 
         scene.addComponent(AtmosphericComponent).sunY = 0.6;
 
-        // create a view with target scene and camera
         let view = new View3D();
         view.scene = scene;
         view.camera = mainCamera;
-        // start render
         Engine3D.startRenderView(view);
 
         let postProcessing = scene.addComponent(PostProcessingComponent);
@@ -53,7 +52,7 @@ export class GaussianBlurPost extends PostBase {
         this.mBlurResultTexture = new VirtualTexture(presentationSize[0], presentationSize[1], GPUTextureFormat.rgba16float, false, GPUTextureUsage.STORAGE_BINDING | GPUTextureUsage.TEXTURE_BINDING);
         this.mBlurResultTexture.name = 'gaussianBlurResultTexture';
 
-        let descript = new RTDescript();
+        let descript = new RTDescriptor();
         descript.clearValue = [0, 0, 0, 1];
         descript.loadOp = `clear`;
         this.mRTFrame = new RTFrame([
@@ -112,14 +111,15 @@ export class GaussianBlurPost extends PostBase {
     }
 
     public debug(){
-        // GUIHelp.addFolder('GaussianBlur');
-        // GUIHelp.add(this.mGaussianBlurArgs.memoryNodes.get(`radius`), `x`, 1, 10, 1).onChange(() => {
-        //     this.mGaussianBlurArgs.apply();
-        // });
+        const GUIHelp = new dat.GUI();
+        GUIHelp.addFolder('GaussianBlur');
+        GUIHelp.add(this.mGaussianBlurArgs.memoryNodes.get(`radius`), `x`, 1, 10, 1).onChange(() => {
+            this.mGaussianBlurArgs.apply();
+        });
         // GUIHelp.endFolder();
     }
 
-    render(command: GPUCommandEncoder, scene: Scene3D) {
+    render(view: View3D, command: GPUCommandEncoder) {
         if (!this.mGaussianBlurShader) {
             this.createResource();
             this.createComputeShader();

@@ -2,6 +2,8 @@ import {
     Engine3D, Scene3D, Object3D, Camera3D, AtmosphericComponent, View3D, DirectLight, HoverCameraController, Color, CameraUtil, SkeletonAnimationComponent, FXAAPost, HDRBloomPost, Vector3
 } from "@orillusion/core";
 
+import * as dat from "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js"
+
 async function demo() {
     // 初始化引擎环境;
     await Engine3D.init();
@@ -37,22 +39,23 @@ async function demo() {
     let animation = soldier.getComponentsInChild(SkeletonAnimationComponent)[0];
     animation.play('Idle');
 
-    // GUIHelp.addFolder("Animation-weight").open();
-    // animation.getAnimationClipStates().forEach((clipState, _) => {
-    //     GUIHelp.add(clipState, 'weight', 0, 1.0, 0.01).name(clipState.name);
-    // });
+    const GUIHelp = new dat.GUI();
+    GUIHelp.addFolder("Animation-weight").open();
+    animation.getAnimationClipStates().forEach((clipState, _) => {
+        GUIHelp.add(clipState, 'weight', 0, 1.0, 0.01).name(clipState.name);
+    });
     // GUIHelp.endFolder();
 
-    // GUIHelp.addFolder("Animation-play").open();
-    // animation.getAnimationClipStates().forEach((clipState, _) => {
-    //     GUIHelp.addButton(clipState.name, () => animation.play(clipState.name));
-    // });
+    GUIHelp.addFolder("Animation-play").open();
+    animation.getAnimationClipStates().forEach((clipState, _) => {
+        GUIHelp.add({click:() => animation.play(clipState.name)}, 'click').name(clipState.name);
+    });
     // GUIHelp.endFolder();
 
-    // GUIHelp.addFolder("Animation-crossFade").open();
-    // animation.getAnimationClipStates().forEach((clipState, _) => {
-    //     GUIHelp.addButton('crossFade(' + clipState.name + ')', () => animation.crossFade(clipState.name, 0.3));
-    // });
+    GUIHelp.addFolder("Animation-crossFade").open();
+    animation.getAnimationClipStates().forEach((clipState, _) => {
+        GUIHelp.add({click:() => animation.crossFade(clipState.name, 0.3)}, 'click').name('crossFade(' + clipState.name + ')');
+    });
     // GUIHelp.endFolder();
 
     scene.addComponent(AtmosphericComponent).sunY = 0.6;

@@ -1,10 +1,7 @@
 import {
-	Camera3D,
-	defaultTexture,
 	DirectLight,
 	Engine3D,
-	ForwardRenderJob,
-	GUIHelp,
+	View3D,
 	LitMaterial,
 	HoverCameraController,
 	KelvinUtil,
@@ -13,18 +10,15 @@ import {
 	PlaneGeometry,
 	Scene3D,
 	SphereGeometry,
-	Time,
+	PostProcessingComponent,
 	CameraUtil,
 	webGPUContext,
-	BoxGeometry,
-	GTAOPost,
-	Vector3,
-	TAAPost,
-	SSRPost,
 	OutlinePost,
 	outlinePostManager,
+	AtmosphericComponent
 	Color,
 } from '@orillusion/core';
+import * as dat from "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js"
 
 export class Sample_Outline {
 	lightObj: Object3D;
@@ -33,31 +27,31 @@ export class Sample_Outline {
 	constructor() { }
 
 	async run() {
-		Engine3D.setting.gi.enable = true;
-		Engine3D.setting.gi.indirectIntensity = 5;
 		Engine3D.setting.shadow.debug = false;
 		Engine3D.setting.shadow.enable = false;
 		Engine3D.setting.shadow.shadowBias = 0.002;
-		Engine3D.setting.render.postProcessing.taa.debug = false;
-		Engine3D.setting.render.postProcessing.gtao.debug = false;
+
 		await Engine3D.init();
 
-		GUIHelp.init();
-
 		this.scene = new Scene3D();
-		Camera3D.mainCamera = CameraUtil.createCamera3DObject(this.scene, 'camera');
-		Camera3D.mainCamera.perspective(60, webGPUContext.aspect, 1, 2000.0);
-		let ctrl = Camera3D.mainCamera.object3D.addComponent(HoverCameraController);
+		this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
+
+		let mainCamera = CameraUtil.createCamera3DObject(this.scene, 'camera');
+		mainCamera.perspective(60, webGPUContext.aspect, 1, 2000.0);
+		let ctrl = mainCamera.object3D.addComponent(HoverCameraController);
 		ctrl.setCamera(180, -45, 15);
 
 		await this.initScene(this.scene);
 
-		let renderJob = new ForwardRenderJob(this.scene);
-		renderJob.addPost(new TAAPost());
-		renderJob.addPost(new GTAOPost());
-		renderJob.addPost(new OutlinePost());
-		Engine3D.startRender(renderJob);
+		let view = new View3D();
+		view.scene = this.scene;
+		view.camera = mainCamera;
+		Engine3D.startRenderView(view);
 
+		let postProcessing = this.scene.addComponent(PostProcessingComponent);
+		let outlinePost = postProcessing.addPost(OutlinePost);
+
+		const GUIHelp = new dat.GUI();
 		GUIHelp.addButton('Outline Button (click me)', () => {
 			this.selectBall();
 		});
@@ -103,10 +97,10 @@ export class Sample_Outline {
 
 	private createPlane(scene: Scene3D) {
 		let mat = new LitMaterial();
-		mat.baseMap = defaultTexture.whiteTexture;
-		mat.normalMap = defaultTexture.normalTexture;
-		mat.aoMap = defaultTexture.whiteTexture;
-		mat.emissiveMap = defaultTexture.blackTexture;
+		mat.baseMap = Engine3D.res.whiteTexture;
+		mat.normalMap = Engine3D.res.normalTexture;
+		mat.aoMap = Engine3D.res.whiteTexture;
+		mat.emissiveMap = Engine3D.res.blackTexture;
 		mat.roughness = 0.5;
 		mat.roughness_max = 0.1;
 		mat.metallic = 0.5;

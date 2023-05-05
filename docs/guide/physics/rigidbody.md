@@ -26,4 +26,4 @@ rigidbody.mass = 0;
 let bt = rigidbody.btRigidbody;
 ```
 
-添加刚体后，需要为继续物体添加碰撞体，才能使物体正确响应重力与碰撞。碰撞体组件 [Collider](/guide/physics/collider) 详细内容将会在下一节为大家介绍。
+添加刚体后，需要为继续物体添加碰撞体，才能使物体正确响应重力与碰撞。碰撞体组件 [ColliderComponent](/guide/physics/collider) 详细内容将会在下一节为大家介绍。

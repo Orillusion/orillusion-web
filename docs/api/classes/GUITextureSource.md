@@ -30,7 +30,7 @@ ___
 
 ### texture
 
-• **texture**: [`Texture`](Texture.md) = `defaultTexture.whiteTexture`
+• **texture**: [`Texture`](Texture.md) = `Engine3D.res.whiteTexture`
 
 #### Defined in
 

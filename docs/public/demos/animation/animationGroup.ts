@@ -6,9 +6,6 @@ async function demo() {
     // 初始化引擎环境;
     await Engine3D.init({});
 
-    // 启用GUI调试面板;
-    // GUIHelp.init();
-
     // 创建场景对象;
     let scene = new Scene3D();
 

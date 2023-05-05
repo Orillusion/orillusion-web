@@ -2,6 +2,8 @@ import {
     Engine3D, Scene3D, Object3D, Camera3D, PostProcessingComponent, AtmosphericComponent, View3D, DirectLight, HoverCameraController, Color, CameraUtil, SkeletonAnimationComponent, FXAAPost, HDRBloomPost, Vector3
 } from "@orillusion/core";
 
+import * as dat from "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js"
+
 async function demo() {
     // 初始化引擎环境;
     await Engine3D.init({});
@@ -36,14 +38,12 @@ async function demo() {
     let soldierAnimation = soldier.getComponentsInChild(SkeletonAnimationComponent)[0];
     soldierAnimation.play('Idle');
 
-    // GUIHelp.addFolder('Animation');
-    // GUIHelp.add(soldierAnimation, 'timeScale', -6, 6, 0.01);
-    // GUIHelp.addButton('Idle', () => soldierAnimation.play('Idle'));
-    // GUIHelp.addButton('Walk', () => soldierAnimation.play('Walk'));
-    // GUIHelp.addButton('Run', () => {
-    //     soldierAnimation.play('Run')
-    // });
-    // GUIHelp.endFolder();
+    const GUIHelp = new dat.GUI();
+    GUIHelp.addFolder('Animation');
+    GUIHelp.add(soldierAnimation, 'timeScale', -6, 6, 0.01);
+    GUIHelp.add({Idle: () => soldierAnimation.play('Idle')}, 'Idle');
+    GUIHelp.add({Walk: () => soldierAnimation.play('Walk')}, 'Walk');
+    GUIHelp.add({Run: () => soldierAnimation.play('Run')}, 'Run');
 
     scene.addComponent(AtmosphericComponent).sunY = 0.6;
 
@@ -56,7 +56,7 @@ async function demo() {
     Engine3D.startRenderView(view);
 
     let postProcessing = scene.addComponent(PostProcessingComponent);
-    postProcessing.addPost(FXAAPost);
+    // postProcessing.addPost(FXAAPost);
     postProcessing.addPost(HDRBloomPost);
 
 }

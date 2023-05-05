@@ -1,4 +1,4 @@
-import { BoxColliderShape, BoxGeometry, Camera3D, Collider, Color, ComponentBase, DirectLight, Engine3D, ForwardRenderJob, LitMaterial, HoverCameraController, MeshRenderer, Object3D, PlaneGeometry, Scene3D, Vector2, Vector3 } from "@orillusion/core";
+import { BoxColliderShape, BoxGeometry, Camera3D, ColliderComponent, Color, ComponentBase, DirectLight, Engine3D, AtmosphericComponent, View3D, LitMaterial, HoverCameraController, MeshRenderer, Object3D, PlaneGeometry, Scene3D, Vector2, Vector3 } from "@orillusion/core";
 import { Physics, Rigidbody } from "@orillusion/physics";
 
 export class Sample_colliders {
@@ -21,7 +21,7 @@ export class Sample_colliders {
     // 添加刚体碰撞体
     let rigidbody = obj.addComponent(Rigidbody);
     rigidbody.mass = 0;
-    let collider = obj.addComponent(Collider);
+    let collider = obj.addComponent(ColliderComponent);
     collider.shape = new BoxColliderShape();
     collider.shape.size = new Vector3(size.x, 0.1, size.y);
 
@@ -44,6 +44,7 @@ export class Sample_colliders {
     });
 
     let scene3D = new Scene3D();
+    scene3D.addComponent(AtmosphericComponent);
     // 新建摄像机实例
     let cameraObj = new Object3D();
     let mainCamera = cameraObj.addComponent(Camera3D);
@@ -70,10 +71,11 @@ export class Sample_colliders {
     this.addPlane(scene3D, new Vector2(100, 100), new Vector3(0, 0, 0), new Vector3(0, 0, 0))
     scene3D.addComponent(BoxGenerator);
 
-    // 新建前向渲染业务
-    let renderJob = new ForwardRenderJob(scene3D);
-    // 开始渲染
-    Engine3D.startRender(renderJob);
+    let view = new View3D();
+    view.scene = scene3D;
+    view.camera = mainCamera;
+    // start render
+    Engine3D.startRenderView(view);
   }
 }
 
@@ -82,7 +84,7 @@ class BoxGenerator extends ComponentBase {
   private _lastTime: number = performance.now()
 
   // 脚本更新回调
-  public update(): void {
+  public onUpdate(): void {
     // 计算新的间隔时间
     let now: number = performance.now()
     // 每间隔300ms，添加一个桌子
@@ -114,7 +116,7 @@ class BoxGenerator extends ComponentBase {
     // 添加刚体碰撞体
     let rigidbody = obj.addComponent(Rigidbody);
     rigidbody.mass = 10;
-    let collider = obj.addComponent(Collider);
+    let collider = obj.addComponent(ColliderComponent);
     collider.shape = new BoxColliderShape();
     collider.shape.size = new Vector3(5, 5, 5);
 

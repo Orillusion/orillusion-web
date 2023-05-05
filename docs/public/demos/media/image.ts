@@ -1,12 +1,11 @@
 import {
-    Engine3D, Vector3, Scene3D, Object3D, Camera3D, ForwardRenderJob, MeshRenderer, HoverCameraController, PlaneGeometry, GUIHelp
+    Engine3D, Vector3, Scene3D, Object3D, Camera3D, ForwardRenderJob, MeshRenderer, HoverCameraController, PlaneGeometry, View3D
 } from "@orillusion/core";
 
 import { ImageMaterial } from "@orillusion/media-extention"
 
 async function demo() {
     await Engine3D.init();
-    GUIHelp.init();
     let scene = new Scene3D();
     let camera = new Object3D();
     scene.addChild(camera)
@@ -20,8 +19,7 @@ async function demo() {
     // 创建图片材质
     let mat = new ImageMaterial();
     mat.baseMap = texture;
-    mat.roughness = 1;
-    mat.debug();
+    // mat.debug();
 
     // 创建2D平面
     let planeObj = new Object3D();
@@ -30,8 +28,11 @@ async function demo() {
     mr.material = mat;
     scene.addChild(planeObj);
 
-    let renderJob = new ForwardRenderJob(scene);
-    Engine3D.startRender(renderJob);
+    let view = new View3D();
+    view.scene = scene;
+    view.camera = mainCamera;
+    // start render
+    Engine3D.startRenderView(view);
 }
 
 demo();

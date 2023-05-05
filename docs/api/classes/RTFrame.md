@@ -65,7 +65,7 @@ ___
 
 ### rtDescripts
 
-• **rtDescripts**: [`RTDescript`](RTDescript.md)[]
+• **rtDescripts**: [`RTDescriptor`](RTDescriptor.md)[]
 
 #### Defined in
 
@@ -142,7 +142,7 @@ ___
 | Name | Type | Default value |
 | :------ | :------ | :------ |
 | `attachments` | `VirtualTexture`[] | `undefined` |
-| `rtDescripts` | [`RTDescript`](RTDescript.md)[] | `undefined` |
+| `rtDescripts` | [`RTDescriptor`](RTDescriptor.md)[] | `undefined` |
 | `depthTexture?` | `VirtualTexture` | `undefined` |
 | `zPreTexture?` | `VirtualTexture` | `undefined` |
 | `isOutTarget` | `boolean` | `true` |

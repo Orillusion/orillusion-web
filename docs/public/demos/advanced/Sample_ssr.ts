@@ -1,11 +1,9 @@
 import {
   Camera3D,
-  defaultTexture,
   DirectLight,
   Engine3D,
   ForwardRenderJob,
-  GLTFParser,
-  GUIHelp,
+  View3D,
   LitMaterial,
   HoverCameraController,
   KelvinUtil,
@@ -15,64 +13,56 @@ import {
   Scene3D,
   SphereGeometry,
   SSRPost,
-  SSR_IS_Kernel,
   Time,
   CameraUtil,
   webGPUContext,
+  PostProcessingComponent,
   GTAOPost,
   HDRBloomPost,
   TAAPost,
+  AtmosphericComponent
 } from "@orillusion/core";
+import * as dat from "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js"
 
 export class Sample_SSR {
   lightObj: Object3D;
   scene: Scene3D;
   mats: any[];
 
-  constructor() {}
+  constructor() { }
 
   async run() {
-    Engine3D.setting.material.materialChannelDebug = false;
-    Engine3D.setting.material.materialDebug = false;
-
     Engine3D.setting.shadow.shadowBound = 200;
     Engine3D.setting.shadow.shadowBias = 0.002;
     Engine3D.setting.shadow.debug = false;
-
     Engine3D.setting.shadow.autoUpdate = true;
     Engine3D.setting.shadow.updateFrameRate = 1;
 
-    Engine3D.setting.render.postProcessing.taa.debug = false;
-    Engine3D.setting.render.postProcessing.gtao.debug = false;
-    Engine3D.setting.render.postProcessing.bloom.debug = false;
     await Engine3D.init({
       renderLoop: () => this.loop(),
     });
 
-    GUIHelp.init();
-
     this.scene = new Scene3D();
-    Camera3D.mainCamera = CameraUtil.createCamera3DObject(this.scene, "camera");
-    Camera3D.mainCamera.perspective(60, webGPUContext.aspect, 1, 2000.0);
-    let ctrl = Camera3D.mainCamera.object3D.addComponent(HoverCameraController);
+    this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
+
+    let mainCamera = CameraUtil.createCamera3DObject(this.scene, "camera");
+    mainCamera.perspective(60, webGPUContext.aspect, 1, 2000.0);
+    let ctrl = mainCamera.object3D.addComponent(HoverCameraController);
     ctrl.setCamera(180, -5, 60);
     await this.initScene(this.scene);
 
-    let renderJob = new ForwardRenderJob(this.scene);
-    renderJob.addPost(new GTAOPost());
-    renderJob.addPost(new SSRPost());
-    renderJob.addPost(new TAAPost());
-    renderJob.addPost(new HDRBloomPost());
+    let view = new View3D();
+    view.scene = this.scene;
+    view.camera = mainCamera;
+    Engine3D.startRenderView(view);
 
-    Engine3D.startRender(renderJob);
+    let postProcessing = this.scene.addComponent(PostProcessingComponent);
+    postProcessing.addPost(GTAOPost);
+    postProcessing.addPost(SSRPost);
+    postProcessing.addPost(TAAPost);
+    postProcessing.addPost(HDRBloomPost);
   }
 
-  /**
-   * @ch asdasda
-   * @en asdasdas
-   * @param scene
-   * @returns
-   */
   async initScene(scene: Scene3D) {
     /******** light *******/
     {
@@ -103,20 +93,20 @@ export class Sample_SSR {
 
   private async createPlane(scene: Scene3D) {
     let mat = new LitMaterial();
-    mat.baseMap = defaultTexture.grayTexture;
-    mat.normalMap = defaultTexture.normalTexture;
-    mat.aoMap = defaultTexture.whiteTexture;
-    mat.emissiveMap = defaultTexture.blackTexture;
+    mat.baseMap = Engine3D.res.grayTexture;
+    mat.normalMap = Engine3D.res.normalTexture;
+    mat.aoMap = Engine3D.res.whiteTexture;
+    mat.emissiveMap = Engine3D.res.blackTexture;
     mat.roughness = 0.2;
     mat.roughness_max = 0.1;
     mat.metallic = 0.5;
 
     {
       let floorMaterial = new LitMaterial();
-      floorMaterial.baseMap = defaultTexture.grayTexture;
-      floorMaterial.normalMap = defaultTexture.normalTexture;
-      floorMaterial.aoMap = defaultTexture.whiteTexture;
-      floorMaterial.emissiveMap = defaultTexture.blackTexture;
+      floorMaterial.baseMap = Engine3D.res.grayTexture;
+      floorMaterial.normalMap = Engine3D.res.normalTexture;
+      floorMaterial.aoMap = Engine3D.res.whiteTexture;
+      floorMaterial.emissiveMap = Engine3D.res.blackTexture;
       floorMaterial.roughness = 0.5;
       floorMaterial.roughness_max = 0.1;
       floorMaterial.metallic = 0.5;
@@ -128,6 +118,7 @@ export class Sample_SSR {
       mr.geometry = planeGeometry;
       scene.addChild(floor);
 
+      const GUIHelp = new dat.GUI();
       GUIHelp.add(floorMaterial, "roughness", 0, 1, 0.01);
       GUIHelp.add(floorMaterial, "metallic", 0, 1, 0.01);
     }
@@ -149,10 +140,10 @@ export class Sample_SSR {
       for (let i = 0; i < 10; i += 2) {
         for (let j = 0; j < 10; j += 2) {
           let rmMaterial = new LitMaterial();
-          rmMaterial.baseMap = defaultTexture.grayTexture;
-          rmMaterial.normalMap = defaultTexture.normalTexture;
-          rmMaterial.aoMap = defaultTexture.whiteTexture;
-          rmMaterial.emissiveMap = defaultTexture.blackTexture;
+          rmMaterial.baseMap = Engine3D.res.grayTexture;
+          rmMaterial.normalMap = Engine3D.res.normalTexture;
+          rmMaterial.aoMap = Engine3D.res.whiteTexture;
+          rmMaterial.emissiveMap = Engine3D.res.blackTexture;
           rmMaterial.roughness = j / 10;
           rmMaterial.roughness_max = 1;
           rmMaterial.metallic = i / 10;

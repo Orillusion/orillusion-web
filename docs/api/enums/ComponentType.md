@@ -6,7 +6,7 @@
 - [none](ComponentType.md#none)
 - [renderNode](ComponentType.md#rendernode)
 - [meshRenderer](ComponentType.md#meshrenderer)
-- [collider](ComponentType.md#collider)
+- [ColliderComponent](ComponentType.md#collider)
 - [skyRenderer](ComponentType.md#skyrenderer)
 - [transform](ComponentType.md#transform)
 - [camera3D](ComponentType.md#camera3d)
