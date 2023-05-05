@@ -11,7 +11,7 @@ async function demo() {
 
     // 初始化相机;
     let mainCamera = CameraUtil.createCamera3DObject(scene);
-    mainCamera.perspective(60, window.innerWidth / window.innerHeight, 0.1, 10000.0);
+    mainCamera.perspective(60, Engine3D.aspect, 0.1, 10000.0);
     mainCamera.object3D.addComponent(HoverCameraController);
 
     // 初始化环境图;

@@ -13,8 +13,17 @@ let cameraObj = new Object3D();
 let camera = cameraObj.addComponent(Camera3D);
 // 将相机添加至场景
 scene.addChild(cameraObj);
+
+// 创建3D视图
+let view = new View3D();
+// 填充场景至3D视图
+view.scene = scene;
+// 填充相机至3D视图
+view.camera = camera;
+// 开始渲染
+Engine3D.startRenderView(view);
 ```
-如果场景内有多个相机，默认以第一个创建的相机组件为主相机，可以通过 `Camera3D.mainCamera` 手动切换主相机:
+如果场景内有多个相机，可以通过 `View3D.camera` 手动切换当前相机:
 ```ts
 // 如果有多个相机
 let cameraObj1 = new Object3D();
@@ -23,7 +32,14 @@ let cameraObj2 = new Object3D();
 let camera2 = cameraObj.addComponent(Camera3D);
 
 // 设定/切换场景主相机
-Camera3D.mainCamera = camera2;
+
+// 创建3D视图
+let view = new View3D();
+// 填充场景至3D视图
+...
+// 填充相机至3D视图 使camera2生效
+view.camera = camera2;
+
 ```
 
 ## 相机位置

@@ -9,7 +9,7 @@ async function demo() {
     let cameraObj = new Object3D();
     cameraObj.y = 0;
     let camera = cameraObj.addComponent(Camera3D);
-    camera.perspective(60, window.innerWidth / window.innerHeight, 0.1, 5000.0);
+    camera.perspective(60, Engine3D.aspect, 0.1, 5000.0);
 
     let flyController = cameraObj.addComponent(FlyCameraController);
     flyController.setCamera(new Vector3(0, 15, 15), new Vector3(0, 10, 0));

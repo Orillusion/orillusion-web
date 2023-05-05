@@ -8,7 +8,7 @@ export default class CameraType {
     constructor() { }
 
     async run() {
-        console.log('start demo');
+
         await Engine3D.init({
             canvasConfig: {
                 alpha: true
@@ -32,7 +32,6 @@ export default class CameraType {
 
     async initScene() {
         this.scene = new Scene3D();
-        this.scene.hideSky()
     }
 
     async initCamera() {
@@ -50,7 +49,7 @@ export default class CameraType {
     }
 
     async perspective() {
-        this.camera.perspective(60, window.innerWidth / window.innerHeight, 1, 10000.0);
+        this.camera.perspective(60, Engine3D.aspect, 1, 10000.0);
     }
 
     async createBox(name: string) {

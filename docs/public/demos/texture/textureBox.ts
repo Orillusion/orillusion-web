@@ -1,4 +1,4 @@
-import { Camera3D, DirectLight, Engine3D, AtmosphericComponent, View3D, HoverCameraController, KelvinUtil, Object3D, Scene3D, webGPUContext, BitmapTextureCube } from '@orillusion/core';
+import { Camera3D, Engine3D, AtmosphericComponent, View3D, HoverCameraController, Object3D, Scene3D, webGPUContext, BitmapTextureCube } from '@orillusion/core';
 
 async function demo() {
     await Engine3D.init();
@@ -21,7 +21,7 @@ async function demo() {
     urls.push('https://cdn.orillusion.com/textures/cubemap/skybox_nz.png');
     urls.push('https://cdn.orillusion.com/textures/cubemap/skybox_pz.png');
     await evnMap.load(urls);
-    
+
     // create a view with target scene and camera
     let view = new View3D();
     view.scene = scene;
@@ -32,7 +32,7 @@ async function demo() {
     // [bug]
     scene.addComponent(AtmosphericComponent).sunY = 0.6;
     setTimeout(() => {
-        scene.envMap = evnMap; 
+        scene.envMap = evnMap;
     }, 500);
 }
 

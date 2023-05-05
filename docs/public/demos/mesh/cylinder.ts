@@ -8,7 +8,7 @@ async function demo() {
 	let cameraObj:Object3D = new Object3D();
 	let camera = cameraObj.addComponent(Camera3D);
 	// 调整摄像机视角
-	camera.perspective(60, window.innerWidth / window.innerHeight, 1, 5000.0);
+	camera.perspective(60, Engine3D.aspect, 1, 5000.0);
 	// 设置相机控制器
 	let controller = camera.object3D.addComponent(HoverCameraController);
   	controller.setCamera(0, -15, 10);
