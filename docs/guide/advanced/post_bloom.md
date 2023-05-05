@@ -12,11 +12,15 @@ Engine3D.setting.render.postProcessing.bloom.blurY = 4;
 Engine3D.setting.render.postProcessing.bloom.intensity = 0.25;
 Engine3D.setting.render.postProcessing.bloom.brightness = 0.25;
 
+// 添加 HDRBloomPost
+let postProcessing = this.scene.addComponent(PostProcessingComponent);
+postProcessing.addPost(HDRBloomPost);
 
-//创建渲染器
-let renderJob = new ForwardRenderJob(this.scene);
-renderJob.addPost(new HDRBloomPost());
-Engine3D.startRender(renderJob);
+//开始渲染
+let view = new View3D();
+view.scene = this.scene;
+view.camera = this.camera;
+Engine3D.startRenderView(view);
 ```
 
 [Engine3D.setting.render.postProcessing.bloom](../../api/types/BloomSetting.md) 配置参数。

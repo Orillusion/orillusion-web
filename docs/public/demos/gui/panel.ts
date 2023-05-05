@@ -1,4 +1,4 @@
-import { Engine3D, Scene3D, Object3D, Camera3D, ForwardRenderJob, TextAnchor, UITextField, DirectLight, HoverCameraController, Color, GUIHelp, CameraUtil, webGPUContext, Vector3, CEvent, CEventDispatcher, WorldPanel, KelvinUtil, Time, clamp, UIImage, PointerEvent3D, UIInteractive, ImageType, LitMaterial, BoxGeometry, MeshRenderer } from "@orillusion/core";
+import { Engine3D, Scene3D, Object3D, Camera3D, View3D, TextAnchor, UITextField, DirectLight, HoverCameraController, Color, GUIHelp, CameraUtil, webGPUContext, Vector3, CEvent, CEventDispatcher, WorldPanel, KelvinUtil, Time, clamp, UIImage, PointerEvent3D, UIInteractive, ImageType, LitMaterial, BoxGeometry, MeshRenderer } from "@orillusion/core";
 
 var scene: Scene3D;
 var hover;
@@ -23,9 +23,11 @@ async function demo() {
     hover = camera.object3D.addComponent(HoverCameraController);
     hover.setCamera(45, -45, 200, new Vector3(0, 20, 0));
 
-    let renderJob = new ForwardRenderJob(scene);
+    let view = new View3D();
+    view.scene = scene;
+    view.camera = camera;
+    Engine3D.startRenderView(view);
 
-    Engine3D.startRender(renderJob);
     await initScene();
 
     let model = await Engine3D.res.loadGltf(

@@ -5,9 +5,8 @@
 ```
       //配置描边的参数
       let cfg = {@link Engine3D.setting.render.postProcessing.outline};
-      let renderJob = new ForwardRenderJob(this.scene);
-      renderJob.addPost(new OutlinePost());
-      Engine3D.startRender(renderJob);
+      let postProcessing = this.scene.addComponent(PostProcessingComponent);
+      postProcessing.addPost(OutlinePost);
 ```
 
 ## Hierarchy

@@ -8,9 +8,10 @@
       cfg.near = 150;
       cfg.far = 300;
       cfg.pixelOffset = 1.0;
-      let renderJob = new ForwardRenderJob(this.scene);
-      renderJob.addPost(new DepthOfFieldPost());
-      Engine3D.startRender(renderJob);
+      let view = new View3D();
+      view.scene = scene;
+      view.camera = camera;
+      Engine3D.startRenderView(view);
 ```
 
 ## Hierarchy

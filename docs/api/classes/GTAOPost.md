@@ -5,9 +5,8 @@
 ```
       //配置gtao参数
       let cfg = {@link Engine3D.setting.render.postProcessing.gtao};
-      let renderJob = new ForwardRenderJob(this.scene);
-      renderJob.addPost(new GTAOPost());
-      Engine3D.startRender(renderJob);
+      let postProcessing = this.scene.addComponent(PostProcessingComponent);
+      postProcessing.addPost(GTAOPost);
 ```
 
 ## Hierarchy

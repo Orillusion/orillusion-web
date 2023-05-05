@@ -1,4 +1,4 @@
-import { Engine3D, Scene3D, Object3D, Camera3D, ForwardRenderJob, LitMaterial, BoxGeometry, MeshRenderer, DirectLight, HoverCameraController, Color, ComponentBase, View3D, AtmosphericComponent } from "@orillusion/core";
+import { Engine3D, Scene3D, Object3D, Camera3D, LitMaterial, BoxGeometry, MeshRenderer, DirectLight, HoverCameraController, Color, ComponentBase, View3D, AtmosphericComponent } from "@orillusion/core";
 
 class RotateScript extends ComponentBase {
   public onUpdate() {

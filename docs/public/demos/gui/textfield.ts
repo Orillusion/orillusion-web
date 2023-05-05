@@ -1,4 +1,4 @@
-import { Engine3D, Scene3D, Object3D, Camera3D, ForwardRenderJob, ViewPanel, TextAnchor, UITextField, DirectLight, HoverCameraController, Color } from "@orillusion/core";
+import { Engine3D, Scene3D, Object3D, Camera3D, View3D, ViewPanel, TextAnchor, UITextField, DirectLight, HoverCameraController, Color } from "@orillusion/core";
 
 async function demo() {
     // initializa engine
@@ -29,10 +29,10 @@ async function demo() {
 
     await Engine3D.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt');
     
-    // create new forward rendering job
-    let renderJob:ForwardRenderJob = new ForwardRenderJob(scene3D);
-    // start rendering
-    Engine3D.startRender(renderJob);
+    let view = new View3D();
+    view.scene = scene3D;
+    view.camera = camera;
+    Engine3D.startRenderView(view);
     
     // create panel root
     let panelRoot: Object3D = new Object3D();

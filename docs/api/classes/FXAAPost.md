@@ -5,8 +5,10 @@ FXAA(fast approximate antialiasing)屏幕抗锯齿
 ```
 //配置相关参数
 let cfg = {@link Engine3D.setting.render.postProcessing.fxaa};
-let renderJob = new ForwardRenderJob(this.scene);
-Engine3D.startRender(renderJob);
+let view = new View3D();
+view.scene = scene;
+view.camera = camera;
+Engine3D.startRenderView(view);
 ```
 
 ## Hierarchy

@@ -20,12 +20,15 @@ let scene = new Scene3D();
 let obj = new Object3D();
 scene.addChild(obj);
 // 添加相机节点
-let camera = new Object3D();
-camera.addComponent(Camera3D);
-scene.addChild(camera);
-// 开启渲染循环
-let renderJob = new ForwardRenderJob(this.scene);
-Engine3D.startRender(renderJob);
+let cameraObj = new Object3D();
+let camera = cameraObj.addComponent(Camera3D);
+scene.addChild(cameraObj);
+
+// 开始渲染
+let view = new View3D();
+view.scene = scene;
+view.camera = camera;
+Engine3D.startRenderView(view);
 
 // 移除一个节点
 scene.removeChild(obj);

@@ -1,4 +1,4 @@
-import { Engine3D, Scene3D, Object3D, Camera3D, ForwardRenderJob, AtmosphericComponent, View3D} from "@orillusion/core";
+import { Engine3D, Scene3D, Object3D, Camera3D, AtmosphericComponent, View3D} from "@orillusion/core";
 
 async function demo() {
 	// initializa engine

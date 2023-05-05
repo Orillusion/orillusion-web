@@ -53,22 +53,24 @@ await Engine3D.init({
 });
 ```
 
-## 启动渲染任务
-在引擎初始化完成之后，需要启动渲染任务来开始渲染。渲染任务至少需要一个场景 [Scene3D](/guide/core/scene) 和一个渲染器 [ForwardRenderJob](/api/classes/ForwardRenderJob) 才能启动，基本用法如下：
+## 开始渲染
+在引擎初始化完成之后，需要创建一个View3D来开始渲染。View3D至少需要一个场景 [Scene3D](/guide/core/scene) 和一个观察相机 [Camera3D](/api/classes/Camera3D) 才能启动，基本用法如下：
 
 ```ts
 await Engine3D.init();
 // 创建场景
 this.scene = new Scene3D();
-// 创建一个前向渲染器
-let renderJob = new ForwardRenderJob(this.scene);
-// 开始渲染任务
-Engine3D.startRender(renderJob);
+
+//开始渲染
+let view = new View3D();
+view.scene = this.scene;
+view.camera = this.camera;
+Engine3D.startRenderView(view);
 
 // 暂停渲染循环
-Engine3D.renderJob.pause();
+Engine3D.pause();
 // 恢复渲染循环
-Engine3D.renderJob.resume();
+Engine3D.resume();
 ```
 ---
 详细用法请参考 [Engine3D](/api/classes/Engine3D) API

@@ -1,4 +1,4 @@
-import { ComponentBase, Time, DirectLight, Color, LitMaterial, MeshRenderer, Scene3D, BoxGeometry, Object3D, Engine3D, Camera3D, HoverCameraController, ForwardRenderJob, HDRBloomPost, View3D, AtmosphericComponent, PostProcessingComponent } from '@orillusion/core';
+import { ComponentBase, Time, DirectLight, Color, LitMaterial, MeshRenderer, Scene3D, BoxGeometry, Object3D, Engine3D, Camera3D, HoverCameraController, HDRBloomPost, View3D, AtmosphericComponent, PostProcessingComponent } from '@orillusion/core';
 
 class MaterialAnimation extends ComponentBase {
   private material: LitMaterial;

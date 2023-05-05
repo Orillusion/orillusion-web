@@ -1,4 +1,4 @@
-import { Camera3D, OrbitController, DirectLight, Engine3D, ForwardRenderJob, GlobalIlluminationComponent, GUIHelp, HDRBloomPost, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, Scene3D, SSAOPost, SSRPost, GTAOPost, GlobalFog, webGPUContext } from '@orillusion/core';
+import { Camera3D, OrbitController, DirectLight, Engine3D, View3D, PostProcessingComponent, HDRBloomPost, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, Scene3D, SSAOPost, SSRPost, GTAOPost, GlobalFog, webGPUContext } from '@orillusion/core';
 
 export class Sample_FlightHelmet {
     lightObj: Object3D;
@@ -42,17 +42,20 @@ export class Sample_FlightHelmet {
         await this.initScene();
 
 
-        let renderJob = new ForwardRenderJob(this.scene);
-        renderJob.addPost(new GTAOPost());
-        renderJob.addPost(new HDRBloomPost());
-        Engine3D.startRender(renderJob);
+        let view = new View3D();
+        view.scene = this.scene;
+        view.camera = mainCamera;
+        Engine3D.startRenderView(view);
+
+		let postProcessing = this.scene.addComponent(PostProcessingComponent);
+		postProcessing.addPost(GTAOPost);
+        postProcessing.addPost(HDRBloomPost);
     }
 
     async initScene() {
         /******** sky *******/
         {
             this.scene.hideSky();
-            this.scene.envMap.sunY = 0.65;
             this.scene.exposure = 1.5
         }
         /******** light *******/

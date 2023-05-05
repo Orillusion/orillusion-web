@@ -26,9 +26,11 @@ let probeObj = new Object3D();
 let component = probeObj.addComponent(GlobalIlluminationComponent);
 this.scene.addChild(probeObj);
 
-//创建渲染器
-let renderJob = new ForwardRenderJob(this.scene);
-Engine3D.startRender(renderJob);
+//开始渲染
+let view = new View3D();
+view.scene = this.scene;
+view.camera = this.camera;
+Engine3D.startRenderView(view);
 ```
 [Engine3D.setting.gi](../../api/types/GlobalIlluminationSetting.md) 配置参数。
 

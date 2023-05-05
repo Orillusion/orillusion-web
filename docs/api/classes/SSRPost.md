@@ -4,9 +4,8 @@
 ```
       //配置相关参数
       let cfg = {@link Engine3D.setting.render.postProcessing.ssr};
-      let renderJob = new ForwardRenderJob(this.scene);
-      renderJob.addPost(new SSRPost());
-      Engine3D.startRender(renderJob);
+      let postProcessing = this.scene.addComponent(PostProcessingComponent);
+      postProcessing.addPost(SSRPost);
 ```
 
 ## Hierarchy

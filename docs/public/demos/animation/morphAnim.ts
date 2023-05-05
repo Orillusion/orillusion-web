@@ -1,6 +1,7 @@
 import {
     Camera3D, Engine3D, DirectLight, AtmosphericComponent, View3D, HoverCameraController, MeshRenderer, Object3D, RendererMask, Scene3D, webGPUContext, Color
 } from '@orillusion/core';
+import * as dat from "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js"
 
 class Sample_morph {
     scene: Scene3D;
@@ -40,7 +41,9 @@ class Sample_morph {
             data.y = -80.0;
             data.x = -30.0
             scene.addChild(data);
-            // GUIHelp.addFolder('morph controller');
+
+            const GUIHelp = new dat.GUI();
+            GUIHelp.addFolder('morph controller');
 
             let meshRenders: MeshRenderer[] = this.fetchMorphRenderers(data);
             for (const renderer of meshRenders) {
@@ -48,10 +51,10 @@ class Sample_morph {
                 for (const key in renderer.geometry.morphTargetDictionary) {
                     this.influenceData[key] = 0;
                     this.targetRenderers[key] = renderer;
-                    // GUIHelp.add(this.influenceData, key, 0, 1, 0.01).onChange((v) => {
-                    //     this.influenceData[key] = v;
-                    //     this.track(this.influenceData, this.targetRenderers);
-                    // });
+                    GUIHelp.add(this.influenceData, key, 0, 1, 0.01).onChange((v) => {
+                        this.influenceData[key] = v;
+                        this.track(this.influenceData, this.targetRenderers);
+                    });
                 }
             }
             // GUIHelp.open();

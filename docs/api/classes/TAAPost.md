@@ -5,9 +5,8 @@
 ```
       //配置反走样的相关参数
       let cfg = {@link Engine3D.setting.render.postProcessing.taa};
-      let renderJob = new ForwardRenderJob(this.scene);
-      renderJob.addPost(new TAAPost());
-      Engine3D.startRender(renderJob);
+      let postProcessing = this.scene.addComponent(PostProcessingComponent);
+      postProcessing.addPost(TAAPost);
 ```
 
 ## Hierarchy

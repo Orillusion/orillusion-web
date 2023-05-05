@@ -13,7 +13,7 @@ import {
   Scene3D,
   Object3D,
   Camera3D,
-  ForwardRenderJob,
+  View3D,
   LitMaterial,
   BoxGeometry,
   MeshRenderer,
@@ -27,7 +27,7 @@ import {
 | Scene3D | 通过新建 Scene3D 类可以创建一个场景实例，该场景实例在程序中通常作为根节点被使用 |
 | Object3D | Object3D 类定义了物体对象，该对象包含常用的物体属性如位置、旋转等参数 |
 | Camera3D | 通过新建 Camera3D 类可以创建一个摄像机3D组件的实例，该实例可以作为相机节点添加到场景中 |
-| ForwardRenderJob | 前向渲染业务，为引擎提供前向渲染方法 |
+| View3D | View3D，为引擎渲染时指定场景和观察相机 |
 | LitMaterial | 通过 LitMaterial 类可以创建材质实例，并通过设置材质参数实现不同的材质效果 |
 | BoxGeometry | 通过 BoxGeometry 类可以创建一个长方体几何体 |
 | MeshRenderer | MeshRenderer组件，为物体提供 mesh 对象几何渲染 |
@@ -93,8 +93,12 @@ scene3D.addChild(obj);
 
 ## 渲染场景
 ```ts
-// 新建前向渲染业务
-let renderJob = new ForwardRenderJob(scene3D);
+// 创建Viee3D对象
+let view = new View3D();
+// 指定渲染的场景
+view.scene = scene;
+// 指定使用的相机
+view.camera = camera;
 // 开始渲染
-Engine3D.startRender(renderJob);
+Engine3D.startRenderView(view);
 ```

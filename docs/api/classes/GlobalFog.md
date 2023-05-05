@@ -4,9 +4,8 @@
 ```
       //配置相关参数
       let cfg = {@link Engine3D.setting.render.postProcessing.globalFog};
-      let renderJob = new ForwardRenderJob(this.scene);
-      renderJob.addPost(new GlobalFog());
-      Engine3D.startRender(renderJob);
+      let postProcessing = this.scene.addComponent(PostProcessingComponent);
+      postProcessing.addPost(GlobalFog);
 ```
 
 ## Hierarchy

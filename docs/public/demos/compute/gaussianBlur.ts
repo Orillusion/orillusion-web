@@ -1,4 +1,4 @@
-import { WebGPUDescriptorCreator, PostProcessingComponent, BoxGeometry, CameraUtil, ComputeShader, Engine3D, ForwardRenderJob, GPUContext, GPUTextureFormat, LitMaterial, HoverCameraController, MeshRenderer, Object3D, PostBase, RendererPassState, Scene3D, UniformGPUBuffer, Vector3, VirtualTexture, webGPUContext, RTFrame, RTDescriptor, AtmosphericComponent, View3D } from "@orillusion/core";
+import { WebGPUDescriptorCreator, PostProcessingComponent, BoxGeometry, CameraUtil, ComputeShader, Engine3D, GPUContext, GPUTextureFormat, LitMaterial, HoverCameraController, MeshRenderer, Object3D, PostBase, RendererPassState, Scene3D, UniformGPUBuffer, Vector3, VirtualTexture, webGPUContext, RTFrame, RTDescriptor, AtmosphericComponent, View3D } from "@orillusion/core";
 import * as dat from "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js"
 
 export class Demo_GaussianBlur {

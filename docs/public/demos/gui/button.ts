@@ -1,5 +1,5 @@
 import {
-    Engine3D, Scene3D, Object3D, Camera3D, ForwardRenderJob, ViewPanel, UIButton, DirectLight, HoverCameraController, Color, PointerEvent3D
+    Engine3D, Scene3D, Object3D, Camera3D, ViewPanel, UIButton, DirectLight, HoverCameraController, Color, PointerEvent3D, View3D
 } from "@orillusion/core";
 
 export class Sample_button {
@@ -32,10 +32,10 @@ export class Sample_button {
 
         await Engine3D.res.loadAtlas('https://cdn.orillusion.com/atlas/UI_atlas.json');
 
-        // create new forward rendering job
-        let renderJob: ForwardRenderJob = new ForwardRenderJob(scene3D);
-        // start rendering
-        Engine3D.startRender(renderJob);
+        let view = new View3D();
+        view.scene = scene3D;
+        view.camera = camera;
+        Engine3D.startRenderView(view);
 
         // create panel root
         let panelRoot: Object3D = new Object3D();
