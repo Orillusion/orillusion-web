@@ -134,7 +134,7 @@ flyController.moveSpeed = 10;
 
 | 参数 | 类型 | 描述 | 示例 |
 | --- | --- | --- | --- |
-| moveSpeed | number | 移动像素 | 10 |
+| moveSpeed | number | 移动速度 | 10 |
 
 ### [盘旋相机](/api/classes/HoverCameraController)
 
