@@ -1,7 +1,7 @@
-import { Engine3D, Scene3D, Object3D, Camera3D, ForwardRenderJob, LitMaterial, BoxGeometry, MeshRenderer, DirectLight, HoverCameraController, Color, ComponentBase } from "@orillusion/core";
+import { Engine3D, Scene3D, Object3D, Camera3D, ForwardRenderJob, LitMaterial, BoxGeometry, MeshRenderer, DirectLight, HoverCameraController, Color, ComponentBase, View3D, AtmosphericComponent } from "@orillusion/core";
 
 class RotateScript extends ComponentBase {
-  public update() {
+  public onUpdate() {
     // update lifecycle codes
     this.object3D.rotationY += 1;
   }
@@ -12,7 +12,9 @@ async function demo() {
   await Engine3D.init({});
   // create new scene as root node
   let scene3D = new Scene3D();
-    
+	// add an Atmospheric sky enviroment
+	let sky = scene3D.addComponent(AtmosphericComponent);
+	sky.sunY = 0.6;
   // create camera
   let cameraObj = new Object3D();
   let camera = cameraObj.addComponent(Camera3D);
@@ -46,10 +48,12 @@ async function demo() {
   // add object
   scene3D.addChild(obj);
   
-  // create new forward rendering job
-  let renderJob = new ForwardRenderJob(scene3D);
-  // start rendering
-  Engine3D.startRender(renderJob);
+	// create a view with target scene and camera
+	let view = new View3D();
+	view.scene = scene3D;
+	view.camera = camera;
+	// start render
+	Engine3D.startRenderView(view);
 }
 
 demo();

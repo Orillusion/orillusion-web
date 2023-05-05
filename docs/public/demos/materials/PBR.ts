@@ -1,4 +1,4 @@
-import { Camera3D, DirectLight, Engine3D, ForwardRenderJob, GUIHelp, HoverCameraController, MeshRenderer, Object3D, Scene3D, SphereGeometry, LitMaterial } from '@orillusion/core';
+import { Camera3D, DirectLight, Engine3D, AtmosphericComponent, View3D, HoverCameraController, MeshRenderer, Object3D, Scene3D, SphereGeometry, LitMaterial } from '@orillusion/core';
 
 export class Sample_Materials {
     scene: Scene3D;
@@ -17,8 +17,14 @@ export class Sample_Materials {
 
         await this.initScene();
         
-        let renderJob = new ForwardRenderJob(this.scene);
-        Engine3D.startRender(renderJob);
+        // add an Atmospheric sky enviroment
+        this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
+        // create a view with target scene and camera
+        let view = new View3D();
+        view.scene = this.scene;
+        view.camera = mainCamera;
+        // start render
+        Engine3D.startRenderView(view);
     }
 
     async initScene() {

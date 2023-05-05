@@ -1,4 +1,4 @@
-import { Engine3D, Scene3D, Object3D, Camera3D, ForwardRenderJob, LitMaterial, BoxGeometry, MeshRenderer, DirectLight, HoverCameraController, Color, Vector3 } from "@orillusion/core";
+import { Engine3D, Scene3D, Object3D, Camera3D, LitMaterial, BoxGeometry, MeshRenderer, DirectLight, HoverCameraController, Color, Vector3, AtmosphericComponent, View3D } from "@orillusion/core";
 async function demo() {
 	// 初始化引擎
 	await Engine3D.init({});
@@ -38,9 +38,13 @@ async function demo() {
   	obj.localRotation = new Vector3(0, 45, 0);
 	// 添加对象
 	scene3D.addChild(obj);
-	// 新建前向渲染业务
-	let renderJob:ForwardRenderJob = new ForwardRenderJob(scene3D);
-	// 开始渲染
-	Engine3D.startRender(renderJob);
+    // add an Atmospheric sky enviroment
+    scene3D.addComponent(AtmosphericComponent).sunY = 0.6;
+    // create a view with target scene and camera
+    let view = new View3D();
+    view.scene = scene3D;
+    view.camera = camera;
+    // start render
+    Engine3D.startRenderView(view);
 }
 demo();

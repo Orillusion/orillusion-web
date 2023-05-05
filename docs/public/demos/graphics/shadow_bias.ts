@@ -1,4 +1,4 @@
-import { GUIHelp, Engine3D, Scene3D, Object3D, Camera3D, Vector3, ForwardRenderJob, LitMaterial, BoxGeometry, MeshRenderer, UnLitMaterial, SphereGeometry, DirectLight, PointLight, SpotLight, HoverCameraController, PlaneGeometry } from "@orillusion/core";
+import { Engine3D, Scene3D, Object3D, Camera3D, Vector3, AtmosphericComponent, View3D, LitMaterial, BoxGeometry, MeshRenderer, UnLitMaterial, SphereGeometry, DirectLight, PointLight, SpotLight, HoverCameraController, PlaneGeometry } from "@orillusion/core";
 
 async function demo() {
     // 配置 shadow 参数
@@ -15,9 +15,8 @@ async function demo() {
     let controller = cameraObj.addComponent(HoverCameraController);
     controller.setCamera(0, -45, 100, new Vector3(0, 0, 0));
     scene3D.addChild(cameraObj);
-    GUIHelp.init();
-    GUIHelp.endFolder()
-    GUIHelp.add(Engine3D.setting.shadow,'shadowBias', 0, 0.003)
+    // GUIHelp.endFolder()
+    // GUIHelp.add(Engine3D.setting.shadow,'shadowBias', 0, 0.003)
     {
         let obj = new Object3D();
         let light = obj.addComponent(DirectLight);
@@ -47,8 +46,14 @@ async function demo() {
         scene3D.addChild(receiveShadowObj);
     }
     // 创建渲染任务
-    let renderJob: ForwardRenderJob = new ForwardRenderJob(scene3D);
-    Engine3D.startRender(renderJob);
+    // add an Atmospheric sky enviroment
+    scene3D.addComponent(AtmosphericComponent).sunY = 0.6;
+    // create a view with target scene and camera
+    let view = new View3D();
+    view.scene = scene3D;
+    view.camera = camera;
+    // start render
+    Engine3D.startRenderView(view);
 }
 
 demo();

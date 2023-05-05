@@ -1,4 +1,4 @@
-import { BoxColliderShape, BoxGeometry, Camera3D, Collider, Color, DirectLight, Engine3D, ForwardRenderJob, LitMaterial, HoverCameraController, MeshRenderer, Object3D, PlaneGeometry, Scene3D, Vector2, Vector3 } from "@orillusion/core";
+import { BoxColliderShape, BoxGeometry, Camera3D, AtmosphericComponent, ColliderComponent, Color, DirectLight, Engine3D, View3D, LitMaterial, HoverCameraController, MeshRenderer, Object3D, PlaneGeometry, Scene3D, Vector2, Vector3 } from "@orillusion/core";
 import { Physics, Rigidbody } from "@orillusion/physics";
 
 export class Sample_box {
@@ -20,7 +20,7 @@ export class Sample_box {
     // 添加刚体碰撞体
     let rigidbody = obj.addComponent(Rigidbody);
     rigidbody.mass = 0;
-    let collider = obj.addComponent(Collider);
+    let collider = obj.addComponent(ColliderComponent);
     collider.shape = new BoxColliderShape();
     collider.shape.size = new Vector3(size.x, 0.1, size.y);
     scene.addChild(obj);
@@ -39,6 +39,7 @@ export class Sample_box {
       renderLoop: () => this.loop()
     });
     let scene3D = new Scene3D();
+    scene3D.addComponent(AtmosphericComponent);
     // 新建摄像机实例
     let cameraObj = new Object3D();
     let mainCamera = cameraObj.addComponent(Camera3D);
@@ -78,16 +79,19 @@ export class Sample_box {
     // 添加刚体碰撞体
     let rigidbody = obj.addComponent(Rigidbody);
     rigidbody.mass = 10;
-    let collider = obj.addComponent(Collider);
+    let collider = obj.addComponent(ColliderComponent);
     collider.shape = new BoxColliderShape();
     collider.shape.size = new Vector3(5, 5, 5);
 
     scene3D.addChild(obj);
 
-    // 新建前向渲染业务
-    let renderJob = new ForwardRenderJob(scene3D);
-    // 开始渲染
-    Engine3D.startRender(renderJob);
+    
+
+    let view = new View3D();
+    view.scene = scene3D;
+    view.camera = mainCamera;
+    // start render
+    Engine3D.startRenderView(view);
   }
 }
 

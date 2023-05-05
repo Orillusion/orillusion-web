@@ -1,4 +1,4 @@
-import { BlendMode, Camera3D, CameraUtil, Color, DirectLight, Engine3D, ForwardRenderJob, GPUCullMode, GUIHelp, HDRBloomPost, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, UnLitMaterial, webGPUContext } from '@orillusion/core';
+import { BlendMode, Camera3D, CameraUtil, Color, DirectLight, Engine3D, GPUCullMode, HDRBloomPost, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, UnLitMaterial, webGPUContext, AtmosphericComponent, View3D, PostProcessingComponent } from '@orillusion/core';
 
 export class Sample_BlendMode {
     lightObj: Object3D;
@@ -13,13 +13,13 @@ export class Sample_BlendMode {
 
         Engine3D.setting.shadow.shadowBound = 5;
         Engine3D.setting.shadow.shadowBias = -0.0012;
-        Engine3D.setting.render.postProcessing.bloom = {
-            enable: true,
-            blurX: 4,
-            blurY: 4,
-            intensity: 5,
-            brightness: 0.629 ,
-        };
+        // Engine3D.setting.render.postProcessing.bloom = {
+        //     enable: true,
+        //     blurX: 4,
+        //     blurY: 4,
+        //     intensity: 5,
+        //     brightness: 0.629 ,
+        // };
 
         this.scene = new Scene3D();
         let camera = CameraUtil.createCamera3DObject(this.scene);
@@ -28,10 +28,22 @@ export class Sample_BlendMode {
         this.hover = camera.object3D.addComponent(HoverCameraController);
         this.hover.setCamera(0, 0, 100);
 
-        let renderJob = new ForwardRenderJob(this.scene);
-        renderJob.addPost(new HDRBloomPost());
 
-        Engine3D.startRender(renderJob);   
+        // add an Atmospheric sky enviroment
+        this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
+        // create a view with target scene and camera
+        let view = new View3D();
+        view.scene = this.scene;
+        view.camera = camera;
+        // start render
+        Engine3D.startRenderView(view);
+
+        let postProcessing = this.scene.addComponent(PostProcessingComponent);
+        let bloom = postProcessing.addPost(HDRBloomPost);
+        bloom.blurX = 4;
+        bloom.blurY = 4;
+        bloom.bloomStrength = 5;
+        bloom.luminosityThreshold = 0.629;
 
         await this.initScene();
     }
@@ -39,7 +51,7 @@ export class Sample_BlendMode {
     async initScene() {
         /******** sky *******/
         {
-            this.scene.debugAtomSky();
+            // this.scene.debugAtomSky();
             this.scene.exposure = 1 ;
             this.scene.roughness = 0.56 ;
         }

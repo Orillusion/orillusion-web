@@ -1,5 +1,5 @@
 import {
-    Camera3D, Engine3D, DirectLight, ForwardRenderJob, GUIHelp, HoverCameraController, MeshRenderer, Object3D, RendererMask, Scene3D, webGPUContext, Color
+    Camera3D, Engine3D, DirectLight, AtmosphericComponent, View3D, HoverCameraController, MeshRenderer, Object3D, RendererMask, Scene3D, webGPUContext, Color
 } from '@orillusion/core';
 
 class Sample_morph {
@@ -8,7 +8,6 @@ class Sample_morph {
 
     async run() {
         await Engine3D.init();
-        GUIHelp.init();
 
         this.scene = new Scene3D();
         let cameraObj = new Object3D();
@@ -22,10 +21,14 @@ class Sample_morph {
 
         await this.initScene(this.scene);
 
-        let renderJob = new ForwardRenderJob(this.scene);
+        this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
 
-        renderJob.debug();
-        Engine3D.startRender(renderJob);
+        // create a view with target scene and camera
+        let view = new View3D();
+        view.scene = this.scene;
+        view.camera = mainCamera;
+        // start render
+        Engine3D.startRenderView(view);
     }
 
     private influenceData: { [key: string]: number } = {};
@@ -37,7 +40,7 @@ class Sample_morph {
             data.y = -80.0;
             data.x = -30.0
             scene.addChild(data);
-            GUIHelp.addFolder('morph controller');
+            // GUIHelp.addFolder('morph controller');
 
             let meshRenders: MeshRenderer[] = this.fetchMorphRenderers(data);
             for (const renderer of meshRenders) {
@@ -45,14 +48,14 @@ class Sample_morph {
                 for (const key in renderer.geometry.morphTargetDictionary) {
                     this.influenceData[key] = 0;
                     this.targetRenderers[key] = renderer;
-                    GUIHelp.add(this.influenceData, key, 0, 1, 0.01).onChange((v) => {
-                        this.influenceData[key] = v;
-                        this.track(this.influenceData, this.targetRenderers);
-                    });
+                    // GUIHelp.add(this.influenceData, key, 0, 1, 0.01).onChange((v) => {
+                    //     this.influenceData[key] = v;
+                    //     this.track(this.influenceData, this.targetRenderers);
+                    // });
                 }
             }
-            GUIHelp.open();
-            GUIHelp.endFolder();
+            // GUIHelp.open();
+            // GUIHelp.endFolder();
         }
         {
             let ligthObj = new Object3D();

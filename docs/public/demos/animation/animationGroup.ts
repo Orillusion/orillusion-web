@@ -1,5 +1,5 @@
 import {
-    Engine3DScene3DObject3DCamera3DForwardRenderJobDirectLightHoverCameraControllerRGBEParserColorGUIHelpCameraUtilSkeletonAnimationFXAAPostHDRBloomPost
+    Engine3D, Scene3D, CameraUtil, HoverCameraController, Object3D, DirectLight, Color, SkeletonAnimationComponent, AtmosphericComponent, View3D
 } from "@orillusion/core";
 
 async function demo() {
@@ -11,17 +11,15 @@ async function demo() {
 
     // 创建场景对象;
     let scene = new Scene3D();
-    scene.exposure = 0.377;
 
     // 初始化相机;
     let mainCamera = CameraUtil.createCamera3DObject(scene);
-    Camera3D.mainCamera = mainCamera;
     mainCamera.perspective(60, window.innerWidth / window.innerHeight, 0.1, 10000.0);
     mainCamera.object3D.addComponent(HoverCameraController);
 
     // 初始化环境图;
-    let envMap = await Engine3D.res.loadHDRTextureCube('https://cdn.orillusion.com/hdri/1428_v5_low.hdr');
-    scene.envMap = envMap;
+    // let envMap = await Engine3D.res.loadHDRTextureCube('https://cdn.orillusion.com/hdri/1428_v5_low.hdr');
+    // scene.envMap = envMap;
 
     // 初始化场景;
     let ligthObj = new Object3D();
@@ -40,7 +38,7 @@ async function demo() {
     scene.addChild(cesiumMan_skeleton);
 
     // 获取动画控制器;
-    var cesiumManAnimator = cesiumMan_skeleton.getComponentsInChild(SkeletonAnimation)[0];
+    var cesiumManAnimator = cesiumMan_skeleton.getComponentsInChild(SkeletonAnimationComponent)[0];
     cesiumManAnimator.play('anim_0', 1);
 
     // clone
@@ -50,11 +48,18 @@ async function demo() {
         scene.addChild(cesiumMan_clone);
     }
 
-    // 开启渲染任务(前向渲染);
-    let renderJob = new ForwardRenderJob(scene);
-    renderJob.addPost(new FXAAPost());
-    renderJob.addPost(new HDRBloomPost());
-    Engine3D.startRender(renderJob);
+    scene.addComponent(AtmosphericComponent).sunY = 0.6;
+
+    // create a view with target scene and camera
+    let view = new View3D();
+    view.scene = scene;
+    view.camera = mainCamera;
+    // start render
+    Engine3D.startRenderView(view);
+
+    // let postProcessing = scene.addComponent(PostProcessingComponent);
+    // postProcessing.addPost(FXAAPost);
+    // postProcessing.addPost(HDRBloomPost);
 }
 
 demo();

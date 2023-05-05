@@ -1,4 +1,4 @@
-import { Camera3D, DirectLight, Engine3D, ForwardRenderJob, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, Scene3D, SphereGeometry, UnLitMaterial, Color, GUIHelp } from '@orillusion/core';
+import { Camera3D, DirectLight, Engine3D, AtmosphericComponent, View3D, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, Scene3D, SphereGeometry, UnLitMaterial, Color } from '@orillusion/core';
 
 export class Sample_Materials {
     scene: Scene3D;
@@ -8,7 +8,6 @@ export class Sample_Materials {
 
     async run() {
         await Engine3D.init();
-        GUIHelp.init();
         this.scene = new Scene3D();
         let cameraObj = new Object3D();
         cameraObj.name = `cameraObj`;
@@ -19,8 +18,14 @@ export class Sample_Materials {
 
         await this.initScene();
 
-        let renderJob = new ForwardRenderJob(this.scene);
-        Engine3D.startRender(renderJob);
+        // add an Atmospheric sky enviroment
+        this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
+        // create a view with target scene and camera
+        let view = new View3D();
+        view.scene = this.scene;
+        view.camera = mainCamera;
+        // start render
+        Engine3D.startRenderView(view);
     }
 
     async initScene() {
@@ -48,21 +53,21 @@ export class Sample_Materials {
             mr.material = mat;
             this.scene.addChild(sphere);
             sphere.localPosition.set(0, 0, 0);
-            GUIHelp.add(mat.baseColor, 'r', 0,1,0.1).onChange(v=>{
-                let old = mat.baseColor
-                old.r = v
-                mat.baseColor = old.clone()
-            })
-            GUIHelp.add(mat.baseColor, 'g', 0,1,0.1).onChange(v=>{
-                let old = mat.baseColor
-                old.g = v
-                mat.baseColor = old.clone()
-            })
-            GUIHelp.add(mat.baseColor, 'b', 0,1,0.1).onChange(v=>{
-                let old = mat.baseColor
-                old.b = v
-                mat.baseColor = old.clone()
-            })
+            // GUIHelp.add(mat.baseColor, 'r', 0,1,0.1).onChange(v=>{
+            //     let old = mat.baseColor
+            //     old.r = v
+            //     mat.baseColor = old.clone()
+            // })
+            // GUIHelp.add(mat.baseColor, 'g', 0,1,0.1).onChange(v=>{
+            //     let old = mat.baseColor
+            //     old.g = v
+            //     mat.baseColor = old.clone()
+            // })
+            // GUIHelp.add(mat.baseColor, 'b', 0,1,0.1).onChange(v=>{
+            //     let old = mat.baseColor
+            //     old.b = v
+            //     mat.baseColor = old.clone()
+            // })
         }
 
     }

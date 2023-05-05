@@ -1,4 +1,4 @@
-import { Camera3D, DirectLight, Engine3D, ForwardRenderJob, HoverCameraController, Object3D, Scene3D, webGPUContext, GUIHelp } from "@orillusion/core";
+import { Camera3D, Engine3D, AtmosphericComponent, View3D, HoverCameraController, Object3D, Scene3D, webGPUContext } from "@orillusion/core";
 
 async function demo() {
     await Engine3D.init();
@@ -13,10 +13,17 @@ async function demo() {
     ctrl.setCamera(180, 0, 10);
 
     let hdrTextureCube = await Engine3D.res.loadHDRTextureCube('https://cdn.orillusion.com/hdri/T_Panorama05_HDRI.HDR');
-    scene.envMap = hdrTextureCube;
 
-    let renderJob = new ForwardRenderJob(scene);
-    Engine3D.startRender(renderJob);
+    let view = new View3D();
+    view.scene = scene;
+    view.camera = mainCamera;
+    Engine3D.startRenderView(view);
+
+    // [bug]
+    scene.addComponent(AtmosphericComponent).sunY = 0.6;
+    setTimeout(() => {
+        scene.envMap = hdrTextureCube; 
+    }, 500);
 }
 
 demo()

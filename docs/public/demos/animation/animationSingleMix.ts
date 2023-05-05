@@ -1,13 +1,10 @@
 import {
-    Engine3D, Scene3D, Object3D, Camera3D, ForwardRenderJob, DirectLight, HoverCameraController, Color, GUIHelp, CameraUtil, SkeletonAnimation, FXAAPost, HDRBloomPost, Vector3
+    Engine3D, Scene3D, Object3D, Camera3D, AtmosphericComponent, View3D, DirectLight, HoverCameraController, Color, CameraUtil, SkeletonAnimationComponent, FXAAPost, HDRBloomPost, Vector3
 } from "@orillusion/core";
 
 async function demo() {
     // 初始化引擎环境;
     await Engine3D.init();
-
-    // 启用GUI调试面板;
-    GUIHelp.init();
 
     // 创建场景对象;
     let scene = new Scene3D();
@@ -15,7 +12,6 @@ async function demo() {
 
     // 初始化相机;
     let mainCamera = CameraUtil.createCamera3DObject(scene);
-    Camera3D.mainCamera = mainCamera;
     mainCamera.perspective(60, window.innerWidth / window.innerHeight, 0.1, 10000.0);
     let hc = mainCamera.object3D.addComponent(HoverCameraController);
     hc.setCamera(0, -15, 10, new Vector3(0, 1, 0))
@@ -38,32 +34,39 @@ async function demo() {
     scene.addChild(soldier);
 
     // 获取动画控制器;
-    let animation = soldier.getComponentsInChild(SkeletonAnimation)[0];
+    let animation = soldier.getComponentsInChild(SkeletonAnimationComponent)[0];
     animation.play('Idle');
 
-    GUIHelp.addFolder("Animation-weight").open();
-    animation.getAnimationClipStates().forEach((clipState, _) => {
-        GUIHelp.add(clipState, 'weight', 0, 1.0, 0.01).name(clipState.name);
-    });
-    GUIHelp.endFolder();
+    // GUIHelp.addFolder("Animation-weight").open();
+    // animation.getAnimationClipStates().forEach((clipState, _) => {
+    //     GUIHelp.add(clipState, 'weight', 0, 1.0, 0.01).name(clipState.name);
+    // });
+    // GUIHelp.endFolder();
 
-    GUIHelp.addFolder("Animation-play").open();
-    animation.getAnimationClipStates().forEach((clipState, _) => {
-        GUIHelp.addButton(clipState.name, () => animation.play(clipState.name));
-    });
-    GUIHelp.endFolder();
+    // GUIHelp.addFolder("Animation-play").open();
+    // animation.getAnimationClipStates().forEach((clipState, _) => {
+    //     GUIHelp.addButton(clipState.name, () => animation.play(clipState.name));
+    // });
+    // GUIHelp.endFolder();
 
-    GUIHelp.addFolder("Animation-crossFade").open();
-    animation.getAnimationClipStates().forEach((clipState, _) => {
-        GUIHelp.addButton('crossFade(' + clipState.name + ')', () => animation.crossFade(clipState.name, 0.3));
-    });
-    GUIHelp.endFolder();
+    // GUIHelp.addFolder("Animation-crossFade").open();
+    // animation.getAnimationClipStates().forEach((clipState, _) => {
+    //     GUIHelp.addButton('crossFade(' + clipState.name + ')', () => animation.crossFade(clipState.name, 0.3));
+    // });
+    // GUIHelp.endFolder();
 
-    // 开启渲染任务(前向渲染);
-    let renderJob = new ForwardRenderJob(scene);
-    renderJob.addPost(new FXAAPost());
-    renderJob.addPost(new HDRBloomPost());
-    Engine3D.startRender(renderJob);
+    scene.addComponent(AtmosphericComponent).sunY = 0.6;
+
+    // create a view with target scene and camera
+    let view = new View3D();
+    view.scene = scene;
+    view.camera = mainCamera;
+    // start render
+    Engine3D.startRenderView(view);
+
+    // let postProcessing = scene.addComponent(PostProcessingComponent);
+    // postProcessing.addPost(FXAAPost);
+    // postProcessing.addPost(HDRBloomPost);
 }
 
 demo();

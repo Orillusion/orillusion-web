@@ -1,4 +1,4 @@
-import { Engine3D, Vector3, Scene3D, Object3D, Camera3D, ForwardRenderJob, LitMaterial, BoxGeometry, MeshRenderer, HoverCameraController } from "@orillusion/core";
+import { Engine3D, Vector3, Scene3D, Object3D, Camera3D, AtmosphericComponent, LitMaterial, BoxGeometry, MeshRenderer, HoverCameraController, View3D } from "@orillusion/core";
 
 export default class CameraType {
     cameraObj: Object3D;
@@ -18,8 +18,14 @@ export default class CameraType {
         await this.initCamera();
         await this.createBoxes();
 
-        let renderJob = new ForwardRenderJob(this.scene);
-        Engine3D.startRender(renderJob);
+        // add an Atmospheric sky enviroment
+        this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
+        // create a view with target scene and camera
+        let view = new View3D();
+        view.scene = this.scene;
+        view.camera = this.camera;
+        // start render
+        Engine3D.startRenderView(view);
 
         this.addGui();
     }

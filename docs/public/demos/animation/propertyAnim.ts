@@ -1,5 +1,5 @@
 import {
-    Camera3D, DirectLight, Engine3D, ForwardRenderJob, GUIHelp, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, CameraUtil, webGPUContext, PropertyAnimation, PropertyAnimClip, WrapMode,
+    Camera3D, DirectLight, Engine3D, AtmosphericComponent, View3D, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, CameraUtil, webGPUContext, PropertyAnimation, PropertyAnimClip, WrapMode,
 } from '@orillusion/core';
 
 export class Sample_PropertyAnim {
@@ -11,32 +11,37 @@ export class Sample_PropertyAnim {
 
     async run() {
         await Engine3D.init();
-        GUIHelp.init()
 
         this.scene = new Scene3D();
-        Camera3D.mainCamera = CameraUtil.createCamera3DObject(this.scene, 'camera');
-        Camera3D.mainCamera.perspective(60, webGPUContext.aspect, 1, 2000.0);
-        let ctrl = Camera3D.mainCamera.object3D.addComponent(HoverCameraController);
+        let camera = CameraUtil.createCamera3DObject(this.scene, 'camera');
+        camera.perspective(60, webGPUContext.aspect, 1, 2000.0);
+        let ctrl = camera.object3D.addComponent(HoverCameraController);
         ctrl.setCamera(180, -20, 15);
 
         await this.initScene(this.scene);
 
-        let renderJob = new ForwardRenderJob(this.scene);
-        Engine3D.startRender(renderJob);
+        this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
 
-        GUIHelp.addButton('Restart', () => {
-            this.animation.play('anim_0', true);
-        });
-        let guiData = {} as any;
-        guiData.Seek = 0;
-        guiData.Speed = 1;
-        GUIHelp.add(guiData, 'Seek', 0, 1, 0.01).onChange((v) => {
-            this.animation.stop();
-            this.animation.seek(v);
-        });
-        GUIHelp.add(guiData, 'Speed', 0, 1, 0.01).onChange((v) => {
-            this.animation.speed = v;
-        });
+        // create a view with target scene and camera
+        let view = new View3D();
+        view.scene = this.scene;
+        view.camera = camera;
+        // start render
+        Engine3D.startRenderView(view);
+
+        // GUIHelp.addButton('Restart', () => {
+        //     this.animation.play('anim_0', true);
+        // });
+        // let guiData = {} as any;
+        // guiData.Seek = 0;
+        // guiData.Speed = 1;
+        // GUIHelp.add(guiData, 'Seek', 0, 1, 0.01).onChange((v) => {
+        //     this.animation.stop();
+        //     this.animation.seek(v);
+        // });
+        // GUIHelp.add(guiData, 'Speed', 0, 1, 0.01).onChange((v) => {
+        //     this.animation.speed = v;
+        // });
     }
 
     private async makePropertyAnim(node: Object3D) {

@@ -1,4 +1,6 @@
-import { Camera3D, CameraUtil, DirectLight, Engine3D, ForwardRenderJob, GUIHelp, HDRBloomPost, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, LitMaterial, UnLitMaterial, webGPUContext, Vector4 } from '@orillusion/core';
+import { Camera3D, CameraUtil, DirectLight, Engine3D, AtmosphericComponent, View3D, HDRBloomPost, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, PostProcessingComponent, UnLitMaterial, webGPUContext, Vector4 } from '@orillusion/core';
+import * as dat from "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js"
+
 
 export class Sample_UV {
     lightObj: Object3D;
@@ -10,17 +12,16 @@ export class Sample_UV {
 
     async run() {
         await Engine3D.init({ canvasConfig: { alpha: false, zIndex: 0 } });
-        GUIHelp.init()
         Engine3D.setting.shadow.debug = false
         Engine3D.setting.shadow.shadowBound = 5;
         Engine3D.setting.shadow.shadowBias = -0.0012;
-        Engine3D.setting.render.postProcessing.bloom = {
-            enable: true,
-            blurX: 4,
-            blurY: 4,
-            intensity: 5,
-            brightness: 0.629 ,
-        };
+        // Engine3D.setting.render.postProcessing.bloom = {
+        //     enable: true,
+        //     blurX: 4,
+        //     blurY: 4,
+        //     intensity: 5,
+        //     brightness: 0.629 ,
+        // };
 
         this.scene = new Scene3D();
         let camera = CameraUtil.createCamera3DObject(this.scene);
@@ -29,9 +30,21 @@ export class Sample_UV {
         this.hover = camera.object3D.addComponent(HoverCameraController);
         this.hover.setCamera(0, 0, 100);
 
-        let renderJob = new ForwardRenderJob(this.scene);
-        renderJob.addPost(new HDRBloomPost());
-        Engine3D.startRender(renderJob);   
+        // add an Atmospheric sky enviroment
+        this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
+        // create a view with target scene and camera
+        let view = new View3D();
+        view.scene = this.scene;
+        view.camera = camera;
+        // start render
+        Engine3D.startRenderView(view);
+
+        let postProcessing = this.scene.addComponent(PostProcessingComponent);
+        let bloom = postProcessing.addPost(HDRBloomPost);
+        bloom.blurX = 4;
+        bloom.blurY = 4;
+        bloom.bloomStrength = 5;
+        bloom.luminosityThreshold = 0.629;
 
         await this.initScene();
     }
@@ -61,6 +74,7 @@ export class Sample_UV {
             mat.uvTransform_1 = new Vector4(0,0,1,1)
             mat.baseMap = tex;
 
+            const GUIHelp = new dat.GUI();  
             GUIHelp.add(mat.uvTransform_1, 'x', -1,1,0.001).onChange((v)=>{
                 let old = mat.uvTransform_1
                 old.x = v

@@ -1,5 +1,5 @@
 import {
-    Engine3D, Vector3, Scene3D, Object3D, Camera3D, ForwardRenderJob, UnLitMaterial, MeshRenderer, HoverCameraController, PlaneGeometry, BitmapTexture2D, DirectLight, Color
+    Engine3D, Vector3, Scene3D, Object3D, Camera3D, AtmosphericComponent, View3D, UnLitMaterial, MeshRenderer, HoverCameraController, PlaneGeometry, BitmapTexture2D, DirectLight, Color
 } from "@orillusion/core";
 
 async function demo() {
@@ -20,8 +20,14 @@ async function demo() {
     light.intensity = 10;
     scene.addChild(lightObj);
 
-    let renderJob = new ForwardRenderJob(scene);
-    Engine3D.startRender(renderJob);
+    // add an Atmospheric sky enviroment
+    scene.addComponent(AtmosphericComponent).sunY = 0.6;
+    // create a view with target scene and camera
+    let view = new View3D();
+    view.scene = scene;
+    view.camera = mainCamera;
+    // start render
+    Engine3D.startRenderView(view);
 
     let texture = new BitmapTexture2D();
     await texture.load('https://cdn.orillusion.com/gltfs/cube/material_02.png');
@@ -30,7 +36,6 @@ async function demo() {
     
     let mat = new UnLitMaterial();
     mat.baseMap = texture;
-    mat.roughness = 1;
     let planeObj = new Object3D();
     let mr = planeObj.addComponent(MeshRenderer);
     mr.geometry = new PlaneGeometry(2, 2, 10, 10, Vector3.Z_AXIS);

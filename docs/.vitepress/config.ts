@@ -258,7 +258,6 @@ function sidebarGuide(): SidebarItem {
                 { text: '骨骼动画', link: '/guide/animation/skeleton.md' },
                 { text: '属性动画', link: '/guide/animation/property.md' },
                 { text: 'Morph动画', link: '/guide/animation/morph.md' },
-                { text: '粒子动画', link: '/guide/animation/particle.md' },
             ],
         },
         {
@@ -353,7 +352,6 @@ function sidebarGuide(): SidebarItem {
                         { text: 'TAAPost', link: '/guide/advanced/post_taa.md' }
                     ]
                 },
-                { text: '全局光照', link: '/guide/advanced/gi.md' },
             ]
         }
     ]

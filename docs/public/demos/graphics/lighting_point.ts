@@ -1,4 +1,4 @@
-import { BoxGeometry, Camera3D, defaultTexture, Engine3D, ForwardRenderJob, GUIHelp, LitMaterial, HoverCameraController, MeshRenderer, Object3D, Scene3D, SphereGeometry, PointLight, Vector3, webGPUContext } from '@orillusion/core';
+import { BoxGeometry, Camera3D, Engine3D, AtmosphericComponent, LitMaterial, HoverCameraController, MeshRenderer, Object3D, Scene3D, SphereGeometry, PointLight, Vector3, webGPUContext, View3D } from '@orillusion/core';
 
 export class Sample_Light {
   scene: Scene3D;
@@ -8,7 +8,6 @@ export class Sample_Light {
 
   async run() {
     await Engine3D.init();
-    GUIHelp.init();
 
     this.scene = new Scene3D();
     let cameraObj = new Object3D();
@@ -22,8 +21,14 @@ export class Sample_Light {
     this.hoverCameraController.setCamera(0, -45, 1200);
     await this.initScene(this.scene);
 
-    let renderJob = new ForwardRenderJob(this.scene);
-    Engine3D.startRender(renderJob);
+    // add an Atmospheric sky enviroment
+    this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
+    // create a view with target scene and camera
+    let view = new View3D();
+    view.scene = this.scene;
+    view.camera = mainCamera;
+    // start render
+    Engine3D.startRenderView(view);
   }
 
   initScene(scene: Scene3D) {
@@ -47,7 +52,7 @@ export class Sample_Light {
     }
 
     let mat = new LitMaterial();
-    mat.baseMap = defaultTexture.grayTexture;
+    mat.baseMap = Engine3D.res.grayTexture;
 
     let floor = new Object3D();
     let mr = floor.addComponent(MeshRenderer);

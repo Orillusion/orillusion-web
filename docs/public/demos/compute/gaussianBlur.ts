@@ -1,10 +1,8 @@
-import { WebGPUDescriptorPool, BoxGeometry, CameraUtil, ComputeShader, Engine3D, ForwardRenderJob, GPUContext, GPUTextureFormat, GUIHelp, LitMaterial, HoverCameraController, MeshRenderer, Object3D, PostBase, RendererPassState, Scene3D, UniformGPUBuffer, Vector3, VirtualTexture, webGPUContext, RTFrame, RTDescript } from "@orillusion/core";
+import { WebGPUDescriptorCreator, PostProcessingComponent, BoxGeometry, CameraUtil, ComputeShader, Engine3D, ForwardRenderJob, GPUContext, GPUTextureFormat, LitMaterial, HoverCameraController, MeshRenderer, Object3D, PostBase, RendererPassState, Scene3D, UniformGPUBuffer, Vector3, VirtualTexture, webGPUContext, RTFrame, RTDescript, AtmosphericComponent, View3D } from "@orillusion/core";
 
 export class Demo_GaussianBlur {
     async run() {
         await Engine3D.init({});
-
-        GUIHelp.init();
 
         let scene = new Scene3D();
         await this.initScene(scene);
@@ -15,9 +13,18 @@ export class Demo_GaussianBlur {
         let ctl = mainCamera.object3D.addComponent(HoverCameraController);
         ctl.setCamera(45, -30, 5)
 
-        let renderJob = new ForwardRenderJob(scene);
-        renderJob.addPost(new GaussianBlurPost());
-        Engine3D.startRender(renderJob);
+
+        scene.addComponent(AtmosphericComponent).sunY = 0.6;
+
+        // create a view with target scene and camera
+        let view = new View3D();
+        view.scene = scene;
+        view.camera = mainCamera;
+        // start render
+        Engine3D.startRenderView(view);
+
+        let postProcessing = scene.addComponent(PostProcessingComponent);
+        postProcessing.addPost(GaussianBlurPost);
     }
 
     async initScene(scene: Scene3D) {
@@ -55,7 +62,7 @@ export class GaussianBlurPost extends PostBase {
             descript
         ]);
 
-        this.mRendererPassState = WebGPUDescriptorPool.createRendererPassState(this.mRTFrame);
+        this.mRendererPassState = WebGPUDescriptorCreator.createRendererPassState(this.mRTFrame);
         this.mRendererPassState.label = "GaussianBlur" ;
     }
 
@@ -94,7 +101,7 @@ export class GaussianBlurPost extends PostBase {
             }
         `);
         this.mGaussianBlurShader.setUniformBuffer('args', this.mGaussianBlurArgs);
-        this.autoSetColorTexture('colorMap', this.mGaussianBlurShader, false);
+        this.autoSetColorTexture('colorMap', this.mGaussianBlurShader);
         this.mGaussianBlurShader.setStorageTexture(`resultTex`, this.mBlurResultTexture);
 
         this.mGaussianBlurShader.workerSizeX = Math.ceil(this.mBlurResultTexture.width / 8);
@@ -105,11 +112,11 @@ export class GaussianBlurPost extends PostBase {
     }
 
     public debug(){
-        GUIHelp.addFolder('GaussianBlur');
-        GUIHelp.add(this.mGaussianBlurArgs.memoryNodes.get(`radius`), `x`, 1, 10, 1).onChange(() => {
-            this.mGaussianBlurArgs.apply();
-        });
-        GUIHelp.endFolder();
+        // GUIHelp.addFolder('GaussianBlur');
+        // GUIHelp.add(this.mGaussianBlurArgs.memoryNodes.get(`radius`), `x`, 1, 10, 1).onChange(() => {
+        //     this.mGaussianBlurArgs.apply();
+        // });
+        // GUIHelp.endFolder();
     }
 
     render(command: GPUCommandEncoder, scene: Scene3D) {
@@ -118,8 +125,8 @@ export class GaussianBlurPost extends PostBase {
             this.createComputeShader();
         }
 
-        this.autoSetColorTexture('colorMap', this.mGaussianBlurShader, false);
-        GPUContext.compute_command(command, [this.mGaussianBlurShader]);
+        this.autoSetColorTexture('colorMap', this.mGaussianBlurShader);
+        GPUContext.computeCommand(command, [this.mGaussianBlurShader]);
         GPUContext.lastRenderPassState = this.mRendererPassState;
     }
 }
