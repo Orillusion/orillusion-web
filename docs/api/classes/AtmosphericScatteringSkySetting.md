@@ -1,6 +1,6 @@
 # Class: AtmosphericScatteringSkySetting
 
-大气散射天空属性对象
+AtmosphericScattering Sky Setting
 
 
 ### Constructors
@@ -20,6 +20,7 @@
 - [displaySun](AtmosphericScatteringSkySetting.md#displaysun)
 - [defaultTextureCubeSize](AtmosphericScatteringSkySetting.md#defaulttexturecubesize)
 - [defaultTexture2DSize](AtmosphericScatteringSkySetting.md#defaulttexture2dsize)
+- [skyColor](AtmosphericScatteringSkySetting.md#skycolor)
 
 ## Constructors
 
@@ -35,7 +36,7 @@
 
 #### Defined in
 
-[src/engine/textures/AtmosphericScatteringSky.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/engine/textures/AtmosphericScatteringSky.ts#L15)
+[src/textures/AtmosphericScatteringSky.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L15)
 
 ___
 
@@ -45,7 +46,7 @@ ___
 
 #### Defined in
 
-[src/engine/textures/AtmosphericScatteringSky.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/engine/textures/AtmosphericScatteringSky.ts#L16)
+[src/textures/AtmosphericScatteringSky.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L16)
 
 ___
 
@@ -55,7 +56,7 @@ ___
 
 #### Defined in
 
-[src/engine/textures/AtmosphericScatteringSky.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/engine/textures/AtmosphericScatteringSky.ts#L17)
+[src/textures/AtmosphericScatteringSky.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L17)
 
 ___
 
@@ -65,7 +66,7 @@ ___
 
 #### Defined in
 
-[src/engine/textures/AtmosphericScatteringSky.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/engine/textures/AtmosphericScatteringSky.ts#L18)
+[src/textures/AtmosphericScatteringSky.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L18)
 
 ___
 
@@ -75,7 +76,7 @@ ___
 
 #### Defined in
 
-[src/engine/textures/AtmosphericScatteringSky.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/engine/textures/AtmosphericScatteringSky.ts#L19)
+[src/textures/AtmosphericScatteringSky.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L19)
 
 ___
 
@@ -85,7 +86,7 @@ ___
 
 #### Defined in
 
-[src/engine/textures/AtmosphericScatteringSky.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/engine/textures/AtmosphericScatteringSky.ts#L20)
+[src/textures/AtmosphericScatteringSky.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L20)
 
 ___
 
@@ -95,7 +96,7 @@ ___
 
 #### Defined in
 
-[src/engine/textures/AtmosphericScatteringSky.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/engine/textures/AtmosphericScatteringSky.ts#L21)
+[src/textures/AtmosphericScatteringSky.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L21)
 
 ___
 
@@ -105,7 +106,7 @@ ___
 
 #### Defined in
 
-[src/engine/textures/AtmosphericScatteringSky.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/engine/textures/AtmosphericScatteringSky.ts#L22)
+[src/textures/AtmosphericScatteringSky.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L22)
 
 ___
 
@@ -115,7 +116,7 @@ ___
 
 #### Defined in
 
-[src/engine/textures/AtmosphericScatteringSky.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/engine/textures/AtmosphericScatteringSky.ts#L23)
+[src/textures/AtmosphericScatteringSky.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L23)
 
 ___
 
@@ -125,7 +126,7 @@ ___
 
 #### Defined in
 
-[src/engine/textures/AtmosphericScatteringSky.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/engine/textures/AtmosphericScatteringSky.ts#L25)
+[src/textures/AtmosphericScatteringSky.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L24)
 
 ___
 
@@ -135,4 +136,14 @@ ___
 
 #### Defined in
 
-[src/engine/textures/AtmosphericScatteringSky.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/engine/textures/AtmosphericScatteringSky.ts#L26)
+[src/textures/AtmosphericScatteringSky.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L25)
+
+___
+
+### skyColor
+
+• **skyColor**: [`Color`](Color.md)
+
+#### Defined in
+
+[src/textures/AtmosphericScatteringSky.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L26)

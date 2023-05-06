@@ -2,18 +2,20 @@
 
 Ƭ **CanvasConfig**: `Object`
 
-外部canvas功能配置
+config data for canvas
 
 #### Type declaration
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `canvas?` | `HTMLCanvasElement` | 需要外部传入的canvas |
-| `alpha?` | `boolean` | 是否使用3D透明背景层 在使用3D透明背景时注意设置 [SkyRenderer](../classes/SkyRenderer.md)天空渲染组件的 enable 为 false skyRender.enable = false |
+| `canvas?` | `HTMLCanvasElement` | reference of canvas |
+| `alpha?` | `boolean` | wheter use transparent background Pay attention to settings when using 3D transparent backgrounds[SkyRenderer](../classes/SkyRenderer.md) The enable of the sky rendering component is false skyRender.enable = false |
 | `zIndex?` | `number` | canvas styler zIndex |
 | `devicePixelRatio?` | `number` | canvas pixel ratio |
 | `backgroundImage?` | `string` | canvas background image need call scene.hideSky() and set CanvasConfig.alpha is true |
+| `width?` | `number` | canvas width |
+| `height?` | `number` | canvas width |
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/WebGpuCanvasConfig.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/WebGpuCanvasConfig.ts#L7)
+[src/gfx/graphics/webGpu/CanvasConfig.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/CanvasConfig.ts#L6)

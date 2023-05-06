@@ -28,7 +28,7 @@
 
 #### Defined in
 
-[src/engine/assets/shader/anim/SkeletonAnimation_shader.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/shader/anim/SkeletonAnimation_shader.ts#L2)
+[src/assets/shader/anim/SkeletonAnimation_shader.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/assets/shader/anim/SkeletonAnimation_shader.ts#L2)
 
 ## Constructors
 

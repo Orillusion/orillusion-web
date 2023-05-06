@@ -25,7 +25,7 @@
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/descriptor/RTDescriptor.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/descriptor/RTDescriptor.ts#L4)
+[src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts#L2)
 
 ___
 
@@ -35,7 +35,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/descriptor/RTDescriptor.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/descriptor/RTDescriptor.ts#L5)
+[src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts:3](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts#L3)
 
 ___
 
@@ -45,4 +45,4 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/descriptor/RTDescriptor.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/descriptor/RTDescriptor.ts#L6)
+[src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts#L4)

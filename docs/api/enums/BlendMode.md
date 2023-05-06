@@ -1,18 +1,7 @@
 # Enumeration: BlendMode
 
-混合模式
-|名称|描述|
-|:---:|:---:|
-|None| 仅在WebGPU中工作，可能会提高没有alpha的大背景图像的性能。源像素未与目标像素混合，因此GPU不会从目标像素读取颜色。|
-|ABOVE| 显示对象显示在背景上方。当背景透明时，显示对象的像素值不可见 |
-|NORMAL| 正常混合模式 |
-|ADD| 将显示对象的组成颜色的值添加到其背景颜色中 |
-|BELOW| 显示对象显示在背景后面。背景对象的像素值覆盖显示对象的像素值。如果背景是透明的，则显示对象可见|
-|ERASE| 基于显示对象的alpha值擦除背景。|
-|MUL| 将显示对象组成颜色的值乘以背景色的颜色，然后除以0xFF进行归一化，得到较暗的颜色。|
-|SCREEN| 将源图像和目标图像的分量的逆相乘，然后求逆结果。|
-|DIVD| |
-|SOFT_ADD| |
+Blend mode
+|name|description|
 
 
 ### Enumeration Members
@@ -35,11 +24,12 @@
 
 • **NONE** = ``0``
 
-仅在WebGPU中工作，可能会提高没有alpha的大背景图像的性能。源像素未与目标像素混合，因此GPU不会从目标像素读取颜色。
+Working only in WebGPU may improve the performance of large background images without alpha.
+The source pixel is not mixed with the target pixel, so the GPU will not read colors from the target pixel.
 
 #### Defined in
 
-[src/engine/materials/BlendMode.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/BlendMode.ts#L21)
+[src/materials/BlendMode.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/materials/BlendMode.ts#L11)
 
 ___
 
@@ -47,11 +37,12 @@ ___
 
 • **ABOVE** = ``1``
 
-显示对象显示在背景上方。当背景透明时，显示对象的像素值不可见。
+Display objects above the background. When the background is transparent, 
+the pixel values of the displayed object are not visible.
 
 #### Defined in
 
-[src/engine/materials/BlendMode.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/BlendMode.ts#L25)
+[src/materials/BlendMode.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/materials/BlendMode.ts#L16)
 
 ___
 
@@ -59,11 +50,11 @@ ___
 
 • **ALPHA** = ``2``
 
-透明模式
+Transparent mode
 
 #### Defined in
 
-[src/engine/materials/BlendMode.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/BlendMode.ts#L30)
+[src/materials/BlendMode.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/materials/BlendMode.ts#L21)
 
 ___
 
@@ -71,11 +62,11 @@ ___
 
 • **NORMAL** = ``3``
 
-正常混合模式
+Normal blend mode
 
 #### Defined in
 
-[src/engine/materials/BlendMode.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/BlendMode.ts#L35)
+[src/materials/BlendMode.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/materials/BlendMode.ts#L26)
 
 ___
 
@@ -83,11 +74,11 @@ ___
 
 • **ADD** = ``4``
 
-将显示对象的组成颜色的值添加到其背景颜色中
+Add the values of the component colors of the displayed object to its background color
 
 #### Defined in
 
-[src/engine/materials/BlendMode.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/BlendMode.ts#L40)
+[src/materials/BlendMode.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/materials/BlendMode.ts#L31)
 
 ___
 
@@ -95,11 +86,11 @@ ___
 
 • **BELOW** = ``5``
 
-将显示对象的组成颜色的值添加到其背景颜色中
+Add the values of the component colors of the displayed object to its background color
 
 #### Defined in
 
-[src/engine/materials/BlendMode.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/BlendMode.ts#L45)
+[src/materials/BlendMode.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/materials/BlendMode.ts#L36)
 
 ___
 
@@ -107,11 +98,11 @@ ___
 
 • **ERASE** = ``6``
 
-基于显示对象的alpha值擦除背景。
+Erase the background based on the alpha value of the displayed object.
 
 #### Defined in
 
-[src/engine/materials/BlendMode.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/BlendMode.ts#L49)
+[src/materials/BlendMode.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/materials/BlendMode.ts#L40)
 
 ___
 
@@ -119,11 +110,12 @@ ___
 
 • **MUL** = ``7``
 
-将显示对象组成颜色的值乘以背景色的颜色，然后除以0xFF进行归一化，得到较暗的颜色。
+Multiply the values of the displayed object's constituent colors by the background color, 
+and then divide by 0xFF for normalization to obtain a darker color.
 
 #### Defined in
 
-[src/engine/materials/BlendMode.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/BlendMode.ts#L53)
+[src/materials/BlendMode.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/materials/BlendMode.ts#L45)
 
 ___
 
@@ -131,11 +123,11 @@ ___
 
 • **SCREEN** = ``8``
 
-将源图像和目标图像的分量的逆相乘，然后求逆结果。
+Multiply the inverse of the components of the source and target images, and then calculate the inverse result.
 
 #### Defined in
 
-[src/engine/materials/BlendMode.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/BlendMode.ts#L57)
+[src/materials/BlendMode.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/materials/BlendMode.ts#L49)
 
 ___
 
@@ -145,7 +137,7 @@ ___
 
 #### Defined in
 
-[src/engine/materials/BlendMode.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/BlendMode.ts#L58)
+[src/materials/BlendMode.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/materials/BlendMode.ts#L50)
 
 ___
 
@@ -155,4 +147,4 @@ ___
 
 #### Defined in
 
-[src/engine/materials/BlendMode.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/BlendMode.ts#L59)
+[src/materials/BlendMode.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/materials/BlendMode.ts#L51)

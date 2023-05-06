@@ -1,15 +1,15 @@
 # @orillusion/physics
 
 
-## Namespaces
+### Namespaces
 
 - [Ammo](modules/Ammo.md)
 
-## Plugin
+### Plugin
 
 - [\_Physics](classes/Physics.md)
 - [Physics](variables/Physics.md)
 
-## Components
+### Components
 
 - [Rigidbody](classes/Rigidbody.md)

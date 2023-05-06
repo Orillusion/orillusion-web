@@ -1,6 +1,6 @@
 # Class: BoxGeometry
 
-一个用于生成立方体的类。
+Box geometry
 
 ## Hierarchy
 
@@ -13,10 +13,7 @@
 
 - [uuid](BoxGeometry.md#uuid)
 - [name](BoxGeometry.md#name)
-- [onChange](BoxGeometry.md#onchange)
 - [subGeometries](BoxGeometry.md#subgeometries)
-- [geometrySource](BoxGeometry.md#geometrysource)
-- [attributeArrays](BoxGeometry.md#attributearrays)
 - [morphTargetsRelative](BoxGeometry.md#morphtargetsrelative)
 - [morphTargetDictionary](BoxGeometry.md#morphtargetdictionary)
 - [bounds](BoxGeometry.md#bounds)
@@ -24,22 +21,26 @@
 - [height](BoxGeometry.md#height)
 - [depth](BoxGeometry.md#depth)
 
-### Methods
-
-- [setGeometryBounds](BoxGeometry.md#setgeometrybounds)
-- [addSubGeometry](BoxGeometry.md#addsubgeometry)
-- [setAttributes](BoxGeometry.md#setattributes)
-- [hasAttribute](BoxGeometry.md#hasattribute)
-- [getAttribute](BoxGeometry.md#getattribute)
-- [generate](BoxGeometry.md#generate)
-- [genWireframe](BoxGeometry.md#genwireframe)
-- [isPrimitive](BoxGeometry.md#isprimitive)
-- [serialization](BoxGeometry.md#serialization)
-
 ### Accessors
 
+- [indicesBuffer](BoxGeometry.md#indicesbuffer)
 - [vertexBuffer](BoxGeometry.md#vertexbuffer)
-- [indexBuffer](BoxGeometry.md#indexbuffer)
+- [vertexAttributes](BoxGeometry.md#vertexattributes)
+- [vertexAttributeMap](BoxGeometry.md#vertexattributemap)
+- [geometryType](BoxGeometry.md#geometrytype)
+
+### Methods
+
+- [updateBounds](BoxGeometry.md#updatebounds)
+- [addSubGeometry](BoxGeometry.md#addsubgeometry)
+- [generate](BoxGeometry.md#generate)
+- [setIndices](BoxGeometry.md#setindices)
+- [setAttribute](BoxGeometry.md#setattribute)
+- [getAttribute](BoxGeometry.md#getattribute)
+- [hasAttribute](BoxGeometry.md#hasattribute)
+- [genWireframe](BoxGeometry.md#genwireframe)
+- [compute](BoxGeometry.md#compute)
+- [isPrimitive](BoxGeometry.md#isprimitive)
 
 ### Constructors
 
@@ -49,9 +50,7 @@
 
 ### uuid
 
-• **uuid**: `string` = `''`
-
-唯一标识符
+• **uuid**: `string`
 
 #### Inherited from
 
@@ -59,7 +58,7 @@
 
 #### Defined in
 
-[src/engine/core/geometry/GeometryBase.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/geometry/GeometryBase.ts#L37)
+[src/core/geometry/GeometryBase.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L33)
 
 ___
 
@@ -67,31 +66,13 @@ ___
 
 • **name**: `string`
 
-名称
-
 #### Inherited from
 
 [GeometryBase](GeometryBase.md).[name](GeometryBase.md#name)
 
 #### Defined in
 
-[src/engine/core/geometry/GeometryBase.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/geometry/GeometryBase.ts#L41)
-
-___
-
-### onChange
-
-• **onChange**: `boolean` = `true`
-
-是否正在变化
-
-#### Inherited from
-
-[GeometryBase](GeometryBase.md).[onChange](GeometryBase.md#onchange)
-
-#### Defined in
-
-[src/engine/core/geometry/GeometryBase.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/geometry/GeometryBase.ts#L45)
+[src/core/geometry/GeometryBase.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L34)
 
 ___
 
@@ -99,45 +80,13 @@ ___
 
 • **subGeometries**: [`SubGeometry`](SubGeometry.md)[] = `[]`
 
-子几何体集合
-
 #### Inherited from
 
 [GeometryBase](GeometryBase.md).[subGeometries](GeometryBase.md#subgeometries)
 
 #### Defined in
 
-[src/engine/core/geometry/GeometryBase.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/geometry/GeometryBase.ts#L49)
-
-___
-
-### geometrySource
-
-• **geometrySource**: [`SerializeGeometrySource`](SerializeGeometrySource.md)
-
-#### Inherited from
-
-[GeometryBase](GeometryBase.md).[geometrySource](GeometryBase.md#geometrysource)
-
-#### Defined in
-
-[src/engine/core/geometry/GeometryBase.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/geometry/GeometryBase.ts#L52)
-
-___
-
-### attributeArrays
-
-• **attributeArrays**: `AttributeInfos`
-
-参数数组
-
-#### Inherited from
-
-[GeometryBase](GeometryBase.md).[attributeArrays](GeometryBase.md#attributearrays)
-
-#### Defined in
-
-[src/engine/core/geometry/GeometryBase.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/geometry/GeometryBase.ts#L57)
+[src/core/geometry/GeometryBase.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L35)
 
 ___
 
@@ -145,23 +94,19 @@ ___
 
 • **morphTargetsRelative**: `boolean`
 
-morph动画类型
-
 #### Inherited from
 
 [GeometryBase](GeometryBase.md).[morphTargetsRelative](GeometryBase.md#morphtargetsrelative)
 
 #### Defined in
 
-[src/engine/core/geometry/GeometryBase.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/geometry/GeometryBase.ts#L62)
+[src/core/geometry/GeometryBase.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L36)
 
 ___
 
 ### morphTargetDictionary
 
 • **morphTargetDictionary**: `Object`
-
-morph动画key列表
 
 #### Type declaration
 
@@ -176,7 +121,7 @@ morph动画key列表
 
 #### Defined in
 
-[src/engine/core/geometry/GeometryBase.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/geometry/GeometryBase.ts#L66)
+[src/core/geometry/GeometryBase.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L37)
 
 ___
 
@@ -184,15 +129,13 @@ ___
 
 • **bounds**: `BoundingBox`
 
-包围盒
-
 #### Inherited from
 
 [GeometryBase](GeometryBase.md).[bounds](GeometryBase.md#bounds)
 
 #### Defined in
 
-[src/engine/core/geometry/GeometryBase.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/geometry/GeometryBase.ts#L70)
+[src/core/geometry/GeometryBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L38)
 
 ___
 
@@ -200,11 +143,11 @@ ___
 
 • **width**: `number`
 
-宽度，x轴方向的长度。
+box width
 
 #### Defined in
 
-[src/engine/shape/BoxGeometry.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/engine/shape/BoxGeometry.ts#L21)
+[src/shape/BoxGeometry.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/shape/BoxGeometry.ts#L14)
 
 ___
 
@@ -212,11 +155,11 @@ ___
 
 • **height**: `number`
 
-高度，y轴方向的长度。
+box height
 
 #### Defined in
 
-[src/engine/shape/BoxGeometry.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/engine/shape/BoxGeometry.ts#L25)
+[src/shape/BoxGeometry.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/shape/BoxGeometry.ts#L18)
 
 ___
 
@@ -224,19 +167,127 @@ ___
 
 • **depth**: `number`
 
-深度，z轴方向的长度。
+box depth
 
 #### Defined in
 
-[src/engine/shape/BoxGeometry.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/engine/shape/BoxGeometry.ts#L29)
+[src/shape/BoxGeometry.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/shape/BoxGeometry.ts#L22)
+
+## Accessors
+
+### indicesBuffer
+
+• `get` **indicesBuffer**(): [`GeometryIndicesBuffer`](GeometryIndicesBuffer.md)
+
+#### Returns
+
+[`GeometryIndicesBuffer`](GeometryIndicesBuffer.md)
+
+#### Inherited from
+
+GeometryBase.indicesBuffer
+
+#### Defined in
+
+[src/core/geometry/GeometryBase.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L61)
+
+___
+
+### vertexBuffer
+
+• `get` **vertexBuffer**(): [`GeometryVertexBuffer`](GeometryVertexBuffer.md)
+
+#### Returns
+
+[`GeometryVertexBuffer`](GeometryVertexBuffer.md)
+
+#### Inherited from
+
+GeometryBase.vertexBuffer
+
+#### Defined in
+
+[src/core/geometry/GeometryBase.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L65)
+
+___
+
+### vertexAttributes
+
+• `get` **vertexAttributes**(): `string`[]
+
+#### Returns
+
+`string`[]
+
+#### Inherited from
+
+GeometryBase.vertexAttributes
+
+#### Defined in
+
+[src/core/geometry/GeometryBase.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L69)
+
+___
+
+### vertexAttributeMap
+
+• `get` **vertexAttributeMap**(): `Map`<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
+
+#### Returns
+
+`Map`<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
+
+#### Inherited from
+
+GeometryBase.vertexAttributeMap
+
+#### Defined in
+
+[src/core/geometry/GeometryBase.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L73)
+
+___
+
+### geometryType
+
+• `get` **geometryType**(): [`GeometryVertexType`](../enums/GeometryVertexType.md)
+
+#### Returns
+
+[`GeometryVertexType`](../enums/GeometryVertexType.md)
+
+#### Inherited from
+
+GeometryBase.geometryType
+
+#### Defined in
+
+[src/core/geometry/GeometryBase.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L77)
+
+• `set` **geometryType**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | [`GeometryVertexType`](../enums/GeometryVertexType.md) |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+GeometryBase.geometryType
+
+#### Defined in
+
+[src/core/geometry/GeometryBase.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L80)
 
 ## Methods
 
-### setGeometryBounds
+### updateBounds
 
-▸ **setGeometryBounds**(`min`, `max`): `void`
-
-根据顶点坐标写入bounds
+▸ **updateBounds**(`min`, `max`): `void`
 
 #### Parameters
 
@@ -251,25 +302,29 @@ ___
 
 #### Inherited from
 
-[GeometryBase](GeometryBase.md).[setGeometryBounds](GeometryBase.md#setgeometrybounds)
+[GeometryBase](GeometryBase.md).[updateBounds](GeometryBase.md#updatebounds)
 
 #### Defined in
 
-[src/engine/core/geometry/GeometryBase.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/geometry/GeometryBase.ts#L93)
+[src/core/geometry/GeometryBase.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L86)
 
 ___
 
 ### addSubGeometry
 
-▸ **addSubGeometry**(`...subGeometry`): `void`
+▸ **addSubGeometry**(`...lodLevels`): `void`
 
-添加子几何体
+add subGeometry form lod level
+
+**`See`**
+
+LodLevel
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `...subGeometry` | [`SubGeometry`](SubGeometry.md)[] |
+| `...lodLevels` | [`LodLevel`](../types/LodLevel.md)[] |
 
 #### Returns
 
@@ -281,90 +336,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/geometry/GeometryBase.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/geometry/GeometryBase.ts#L133)
-
-___
-
-### setAttributes
-
-▸ **setAttributes**(`modelName`, `attribArrays`): `void`
-
-添加参数
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `modelName` | `string` | 模型名称 |
-| `attribArrays` | `AttributeInfos` | 参数数组 |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[GeometryBase](GeometryBase.md).[setAttributes](GeometryBase.md#setattributes)
-
-#### Defined in
-
-[src/engine/core/geometry/GeometryBase.ts:144](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/geometry/GeometryBase.ts#L144)
-
-___
-
-### hasAttribute
-
-▸ **hasAttribute**(`name`): `boolean`
-
-是否存在某个参数
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `name` | `string` | 参数名称 |
-
-#### Returns
-
-`boolean`
-
-返回一个布尔值代表是否存在
-
-#### Inherited from
-
-[GeometryBase](GeometryBase.md).[hasAttribute](GeometryBase.md#hasattribute)
-
-#### Defined in
-
-[src/engine/core/geometry/GeometryBase.ts:154](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/geometry/GeometryBase.ts#L154)
-
-___
-
-### getAttribute
-
-▸ **getAttribute**(`name`): `AttributeInfo`
-
-获取指定参数
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `name` | `string` | 参数名称 |
-
-#### Returns
-
-`AttributeInfo`
-
-返回参数
-
-#### Inherited from
-
-[GeometryBase](GeometryBase.md).[getAttribute](GeometryBase.md#getattribute)
-
-#### Defined in
-
-[src/engine/core/geometry/GeometryBase.ts:164](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/geometry/GeometryBase.ts#L164)
+[src/core/geometry/GeometryBase.ts:94](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L94)
 
 ___
 
@@ -372,7 +344,7 @@ ___
 
 ▸ **generate**(`shaderReflection`): `void`
 
-几何体生成
+create geometry by shaderReflection
 
 #### Parameters
 
@@ -390,7 +362,104 @@ ___
 
 #### Defined in
 
-[src/engine/core/geometry/GeometryBase.ts:173](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/geometry/GeometryBase.ts#L173)
+[src/core/geometry/GeometryBase.ts:104](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L104)
+
+___
+
+### setIndices
+
+▸ **setIndices**(`data`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `data` | [`ArrayBufferData`](../types/ArrayBufferData.md) |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[GeometryBase](GeometryBase.md).[setIndices](GeometryBase.md#setindices)
+
+#### Defined in
+
+[src/core/geometry/GeometryBase.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L110)
+
+___
+
+### setAttribute
+
+▸ **setAttribute**(`attribute`, `data`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `attribute` | `string` |
+| `data` | [`ArrayBufferData`](../types/ArrayBufferData.md) |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[GeometryBase](GeometryBase.md).[setAttribute](GeometryBase.md#setattribute)
+
+#### Defined in
+
+[src/core/geometry/GeometryBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L122)
+
+___
+
+### getAttribute
+
+▸ **getAttribute**(`attribute`): [`VertexAttributeData`](../types/VertexAttributeData.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `attribute` | `string` |
+
+#### Returns
+
+[`VertexAttributeData`](../types/VertexAttributeData.md)
+
+#### Inherited from
+
+[GeometryBase](GeometryBase.md).[getAttribute](GeometryBase.md#getattribute)
+
+#### Defined in
+
+[src/core/geometry/GeometryBase.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L135)
+
+___
+
+### hasAttribute
+
+▸ **hasAttribute**(`attribute`): `boolean`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `attribute` | `string` |
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+[GeometryBase](GeometryBase.md).[hasAttribute](GeometryBase.md#hasattribute)
+
+#### Defined in
+
+[src/core/geometry/GeometryBase.ts:139](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L139)
 
 ___
 
@@ -408,7 +477,25 @@ ___
 
 #### Defined in
 
-[src/engine/core/geometry/GeometryBase.ts:188](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/geometry/GeometryBase.ts#L188)
+[src/core/geometry/GeometryBase.ts:143](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L143)
+
+___
+
+### compute
+
+▸ **compute**(): `void`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[GeometryBase](GeometryBase.md).[compute](GeometryBase.md#compute)
+
+#### Defined in
+
+[src/core/geometry/GeometryBase.ts:167](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L167)
 
 ___
 
@@ -426,109 +513,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/geometry/GeometryBase.ts:216](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/geometry/GeometryBase.ts#L216)
-
-___
-
-### serialization
-
-▸ **serialization**(): [`SerializeGeometryInstance`](SerializeGeometryInstance.md)
-
-#### Returns
-
-[`SerializeGeometryInstance`](SerializeGeometryInstance.md)
-
-#### Overrides
-
-[GeometryBase](GeometryBase.md).[serialization](GeometryBase.md#serialization)
-
-#### Defined in
-
-[src/engine/shape/BoxGeometry.ts:206](https://github.com/Orillusion/orillusion/blob/main/src/engine/shape/BoxGeometry.ts#L206)
-
-## Accessors
-
-### vertexBuffer
-
-• `get` **vertexBuffer**(): `CompositeVertexGeometryBuffer`
-
-获取顶点缓存
-
-#### Returns
-
-`CompositeVertexGeometryBuffer`
-
-#### Inherited from
-
-GeometryBase.vertexBuffer
-
-#### Defined in
-
-[src/engine/core/geometry/GeometryBase.ts:100](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/geometry/GeometryBase.ts#L100)
-
-• `set` **vertexBuffer**(`value`): `void`
-
-设置顶点缓存
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `CompositeVertexGeometryBuffer` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-GeometryBase.vertexBuffer
-
-#### Defined in
-
-[src/engine/core/geometry/GeometryBase.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/geometry/GeometryBase.ts#L107)
-
-___
-
-### indexBuffer
-
-• `get` **indexBuffer**(): `IndexGeometryBuffer`
-
-获取索引缓存
-
-#### Returns
-
-`IndexGeometryBuffer`
-
-#### Inherited from
-
-GeometryBase.indexBuffer
-
-#### Defined in
-
-[src/engine/core/geometry/GeometryBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/geometry/GeometryBase.ts#L115)
-
-• `set` **indexBuffer**(`value`): `void`
-
-设置索引缓存
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `IndexGeometryBuffer` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-GeometryBase.indexBuffer
-
-#### Defined in
-
-[src/engine/core/geometry/GeometryBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/geometry/GeometryBase.ts#L122)
+[src/core/geometry/GeometryBase.ts:177](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L177)
 
 ## Constructors
 
@@ -536,15 +521,13 @@ GeometryBase.indexBuffer
 
 • **new BoxGeometry**(`width?`, `height?`, `depth?`)
 
-创建新的立方体对象。
-
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `width` | `number` | `1` | {number} 立方体的宽度，默认值为1。 |
-| `height` | `number` | `1` | {number} 立方体的高度，默认值为1。 |
-| `depth` | `number` | `1` | {number} 立方体的深度，默认值为1。 |
+| `width` | `number` | `1` | {number} box width, default value is 1 |
+| `height` | `number` | `1` | {number} box height, default value is 1 |
+| `depth` | `number` | `1` | {number} box depth, default value is 1 |
 
 #### Overrides
 
@@ -552,4 +535,4 @@ GeometryBase.indexBuffer
 
 #### Defined in
 
-[src/engine/shape/BoxGeometry.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/engine/shape/BoxGeometry.ts#L38)
+[src/shape/BoxGeometry.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/shape/BoxGeometry.ts#L30)

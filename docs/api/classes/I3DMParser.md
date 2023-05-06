@@ -41,7 +41,7 @@ ParserBase.format
 
 #### Defined in
 
-[src/engine/loader/parser/I3DMParser.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/I3DMParser.ts#L5)
+[src/loader/parser/I3DMParser.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/I3DMParser.ts#L5)
 
 ___
 
@@ -55,7 +55,7 @@ ParserBase.baseUrl
 
 #### Defined in
 
-[src/engine/loader/parser/ParserBase.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/ParserBase.ts#L9)
+[src/loader/parser/ParserBase.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L10)
 
 ___
 
@@ -69,7 +69,7 @@ ParserBase.initUrl
 
 #### Defined in
 
-[src/engine/loader/parser/ParserBase.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/ParserBase.ts#L10)
+[src/loader/parser/ParserBase.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L11)
 
 ___
 
@@ -83,7 +83,7 @@ ParserBase.loaderFunctions
 
 #### Defined in
 
-[src/engine/loader/parser/ParserBase.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/ParserBase.ts#L11)
+[src/loader/parser/ParserBase.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L12)
 
 ___
 
@@ -97,7 +97,7 @@ ParserBase.userData
 
 #### Defined in
 
-[src/engine/loader/parser/ParserBase.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/ParserBase.ts#L12)
+[src/loader/parser/ParserBase.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L13)
 
 ___
 
@@ -111,7 +111,7 @@ ParserBase.data
 
 #### Defined in
 
-[src/engine/loader/parser/ParserBase.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/ParserBase.ts#L25)
+[src/loader/parser/ParserBase.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L14)
 
 ## Constructors
 
@@ -145,7 +145,7 @@ ParserBase.parseBuffer
 
 #### Defined in
 
-[src/engine/loader/parser/I3DMParser.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/I3DMParser.ts#L7)
+[src/loader/parser/I3DMParser.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/I3DMParser.ts#L7)
 
 ___
 
@@ -153,7 +153,7 @@ ___
 
 ▸ **verification**(): `boolean`
 
-验证解析有效性
+Verify parsing validity
 
 #### Returns
 
@@ -165,7 +165,7 @@ ParserBase.verification
 
 #### Defined in
 
-[src/engine/loader/parser/I3DMParser.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/I3DMParser.ts#L18)
+[src/loader/parser/I3DMParser.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/I3DMParser.ts#L18)
 
 ___
 
@@ -189,7 +189,7 @@ ParserBase.parserString
 
 #### Defined in
 
-[src/engine/loader/parser/ParserBase.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/ParserBase.ts#L13)
+[src/loader/parser/ParserBase.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L16)
 
 ___
 
@@ -213,7 +213,7 @@ ParserBase.parserJson
 
 #### Defined in
 
-[src/engine/loader/parser/ParserBase.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/ParserBase.ts#L15)
+[src/loader/parser/ParserBase.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L18)
 
 ___
 
@@ -237,7 +237,7 @@ ParserBase.parserTexture
 
 #### Defined in
 
-[src/engine/loader/parser/ParserBase.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/ParserBase.ts#L19)
+[src/loader/parser/ParserBase.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L22)
 
 ___
 
@@ -261,4 +261,4 @@ ParserBase.parse
 
 #### Defined in
 
-[src/engine/loader/parser/ParserBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/ParserBase.ts#L23)
+[src/loader/parser/ParserBase.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L26)

@@ -1,6 +1,6 @@
 # Class: \_Physics
 
-物理引擎
+Physics Engine
 
 **`Not Exported`**
 
@@ -38,7 +38,7 @@
 
 #### Defined in
 
-[libs/physics/Physics.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/libs/physics/Physics.ts#L38)
+[packages/physics/Physics.ts:38](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Physics.ts#L38)
 
 ## Constructors
 
@@ -48,7 +48,7 @@
 
 #### Defined in
 
-[libs/physics/Physics.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/libs/physics/Physics.ts#L40)
+[packages/physics/Physics.ts:40](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Physics.ts#L40)
 
 ## Methods
 
@@ -56,7 +56,7 @@
 
 ▸ **init**(): `Promise`<`void`\>
 
-初始化物理引擎
+Init Physics Engine
 
 #### Returns
 
@@ -64,7 +64,7 @@
 
 #### Defined in
 
-[libs/physics/Physics.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/libs/physics/Physics.ts#L45)
+[packages/physics/Physics.ts:45](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Physics.ts#L45)
 
 ___
 
@@ -78,7 +78,7 @@ ___
 
 #### Defined in
 
-[libs/physics/Physics.ts:137](https://github.com/Orillusion/orillusion/blob/main/src/libs/physics/Physics.ts#L137)
+[packages/physics/Physics.ts:133](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Physics.ts#L133)
 
 ___
 
@@ -98,7 +98,7 @@ ___
 
 #### Defined in
 
-[libs/physics/Physics.ts:149](https://github.com/Orillusion/orillusion/blob/main/src/libs/physics/Physics.ts#L149)
+[packages/physics/Physics.ts:145](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Physics.ts#L145)
 
 ___
 
@@ -118,7 +118,7 @@ ___
 
 #### Defined in
 
-[libs/physics/Physics.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/libs/physics/Physics.ts#L153)
+[packages/physics/Physics.ts:149](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Physics.ts#L149)
 
 ___
 
@@ -138,7 +138,7 @@ ___
 
 #### Defined in
 
-[libs/physics/Physics.ts:157](https://github.com/Orillusion/orillusion/blob/main/src/libs/physics/Physics.ts#L157)
+[packages/physics/Physics.ts:153](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Physics.ts#L153)
 
 ## Accessors
 
@@ -152,7 +152,7 @@ ___
 
 #### Defined in
 
-[libs/physics/Physics.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/libs/physics/Physics.ts#L63)
+[packages/physics/Physics.ts:59](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Physics.ts#L59)
 
 • `set` **maxSubSteps**(`value`): `void`
 
@@ -168,7 +168,7 @@ ___
 
 #### Defined in
 
-[libs/physics/Physics.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/libs/physics/Physics.ts#L66)
+[packages/physics/Physics.ts:62](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Physics.ts#L62)
 
 ___
 
@@ -182,7 +182,7 @@ ___
 
 #### Defined in
 
-[libs/physics/Physics.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/libs/physics/Physics.ts#L70)
+[packages/physics/Physics.ts:66](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Physics.ts#L66)
 
 • `set` **fixedTimeStep**(`value`): `void`
 
@@ -198,7 +198,7 @@ ___
 
 #### Defined in
 
-[libs/physics/Physics.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/libs/physics/Physics.ts#L73)
+[packages/physics/Physics.ts:69](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Physics.ts#L69)
 
 ___
 
@@ -212,7 +212,7 @@ ___
 
 #### Defined in
 
-[libs/physics/Physics.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/libs/physics/Physics.ts#L77)
+[packages/physics/Physics.ts:73](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Physics.ts#L73)
 
 • `set` **isStop**(`value`): `void`
 
@@ -228,7 +228,7 @@ ___
 
 #### Defined in
 
-[libs/physics/Physics.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/libs/physics/Physics.ts#L81)
+[packages/physics/Physics.ts:77](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Physics.ts#L77)
 
 ___
 
@@ -242,7 +242,7 @@ ___
 
 #### Defined in
 
-[libs/physics/Physics.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/libs/physics/Physics.ts#L89)
+[packages/physics/Physics.ts:85](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Physics.ts#L85)
 
 • `set` **gravity**(`gravity`): `void`
 
@@ -258,7 +258,7 @@ ___
 
 #### Defined in
 
-[libs/physics/Physics.ts:85](https://github.com/Orillusion/orillusion/blob/main/src/libs/physics/Physics.ts#L85)
+[packages/physics/Physics.ts:81](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Physics.ts#L81)
 
 ___
 
@@ -272,7 +272,7 @@ ___
 
 #### Defined in
 
-[libs/physics/Physics.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/libs/physics/Physics.ts#L93)
+[packages/physics/Physics.ts:89](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Physics.ts#L89)
 
 ___
 
@@ -286,4 +286,4 @@ ___
 
 #### Defined in
 
-[libs/physics/Physics.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/libs/physics/Physics.ts#L120)
+[packages/physics/Physics.ts:116](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Physics.ts#L116)

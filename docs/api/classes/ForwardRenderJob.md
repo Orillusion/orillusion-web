@@ -1,7 +1,11 @@
 # Class: ForwardRenderJob
 
-前向渲染。
-每进行一次前向渲染，会渲染该对象的图元 ，并计算颜色、深度缓冲的值 深度缓冲将决定一个片元是否可见 如果可见 将颜色缓冲中的值更新。
+Forward+
+Every time a forward rendering is performed, 
+the entity of the object is rendered, and 
+the color and depth buffer values are calculated. 
+The depth buffer will determine whether a tile is visible. 
+If visible, the values in the color buffer will be updated.
 
 ## Hierarchy
 
@@ -17,32 +21,34 @@
 ### Methods
 
 - [start](ForwardRenderJob.md#start)
+- [addRenderer](ForwardRenderJob.md#addrenderer)
 - [stop](ForwardRenderJob.md#stop)
 - [pause](ForwardRenderJob.md#pause)
 - [resume](ForwardRenderJob.md#resume)
 - [addPost](ForwardRenderJob.md#addpost)
 - [removePost](ForwardRenderJob.md#removepost)
+- [renderFrame](ForwardRenderJob.md#renderframe)
 
 ### Properties
 
-- [colorPassRenderer](ForwardRenderJob.md#colorpassrenderer)
-- [gBufferFrame](ForwardRenderJob.md#gbufferframe)
+- [pickFire](ForwardRenderJob.md#pickfire)
+- [graphic3D](ForwardRenderJob.md#graphic3d)
 
 ### Accessors
 
-- [guiCanvas](ForwardRenderJob.md#guicanvas)
+- [view](ForwardRenderJob.md#view)
 
 ## Constructors
 
 ### constructor
 
-• **new ForwardRenderJob**(`scene`)
+• **new ForwardRenderJob**(`view`)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `scene` | [`Scene3D`](Scene3D.md) |
+| `view` | [`View3D`](View3D.md) |
 
 #### Overrides
 
@@ -50,7 +56,7 @@ RendererJob.constructor
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/ForwardRenderJob.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/ForwardRenderJob.ts#L15)
+[src/gfx/renderJob/jobs/ForwardRenderJob.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/ForwardRenderJob.ts#L17)
 
 ## Methods
 
@@ -68,7 +74,38 @@ RendererJob.start
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/ForwardRenderJob.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/ForwardRenderJob.ts#L19)
+[src/gfx/renderJob/jobs/ForwardRenderJob.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/ForwardRenderJob.ts#L21)
+
+___
+
+### addRenderer
+
+▸ **addRenderer**<`T`\>(`c`, `param?`): `T`
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `RendererBase`<`T`\> |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `c` | [`Ctor`](../types/Ctor.md)<`T`\> |
+| `param?` | `any` |
+
+#### Returns
+
+`T`
+
+#### Inherited from
+
+RendererJob.addRenderer
+
+#### Defined in
+
+[src/gfx/renderJob/jobs/RendererJob.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L109)
 
 ___
 
@@ -76,7 +113,7 @@ ___
 
 ▸ **stop**(): `void`
 
-停止
+stop render task
 
 #### Returns
 
@@ -88,7 +125,7 @@ RendererJob.stop
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/RendererJob.ts:139](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/RendererJob.ts#L139)
+[src/gfx/renderJob/jobs/RendererJob.ts:144](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L144)
 
 ___
 
@@ -96,7 +133,7 @@ ___
 
 ▸ **pause**(): `void`
 
-暂停渲染任务
+pause render task
 
 #### Returns
 
@@ -108,7 +145,7 @@ RendererJob.pause
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/RendererJob.ts:144](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/RendererJob.ts#L144)
+[src/gfx/renderJob/jobs/RendererJob.ts:149](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L149)
 
 ___
 
@@ -116,7 +153,7 @@ ___
 
 ▸ **resume**(): `void`
 
-恢复渲染任务
+back render task
 
 #### Returns
 
@@ -128,7 +165,7 @@ RendererJob.resume
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/RendererJob.ts:151](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/RendererJob.ts#L151)
+[src/gfx/renderJob/jobs/RendererJob.ts:156](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L156)
 
 ___
 
@@ -136,13 +173,13 @@ ___
 
 ▸ **addPost**(`post`): `PostBase` \| `PostBase`[]
 
-添加后处理效果
+Add a post processing special effects task
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `post` | `PostBase` \| `PostBase`[] |
+| `post` | `PostBase` |
 
 #### Returns
 
@@ -154,7 +191,7 @@ RendererJob.addPost
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/RendererJob.ts:168](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/RendererJob.ts#L168)
+[src/gfx/renderJob/jobs/RendererJob.ts:172](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L172)
 
 ___
 
@@ -162,7 +199,7 @@ ___
 
 ▸ **removePost**(`post`): `void`
 
-移除后处理效果
+Remove specified post-processing effects
 
 #### Parameters
 
@@ -180,50 +217,78 @@ RendererJob.removePost
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/RendererJob.ts:185](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/RendererJob.ts#L185)
-
-## Properties
-
-### colorPassRenderer
-
-• **colorPassRenderer**: `ColorPassRenderer`
-
-#### Inherited from
-
-RendererJob.colorPassRenderer
-
-#### Defined in
-
-[src/engine/gfx/renderJob/jobs/RendererJob.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/RendererJob.ts#L61)
+[src/gfx/renderJob/jobs/RendererJob.ts:185](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L185)
 
 ___
 
-### gBufferFrame
+### renderFrame
 
-• **gBufferFrame**: [`GBufferFrame`](GBufferFrame.md)
+▸ **renderFrame**(): `void`
 
-#### Inherited from
-
-RendererJob.gBufferFrame
-
-#### Defined in
-
-[src/engine/gfx/renderJob/jobs/RendererJob.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/RendererJob.ts#L69)
-
-## Accessors
-
-### guiCanvas
-
-• `get` **guiCanvas**(): [`UICanvas`](UICanvas.md)
+To render a frame of the scene
 
 #### Returns
 
-[`UICanvas`](UICanvas.md)
+`void`
 
 #### Inherited from
 
-RendererJob.guiCanvas
+RendererJob.renderFrame
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/RendererJob.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/RendererJob.ts#L122)
+[src/gfx/renderJob/jobs/RendererJob.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L198)
+
+## Properties
+
+### pickFire
+
+• **pickFire**: [`PickFire`](PickFire.md)
+
+#### Inherited from
+
+RendererJob.pickFire
+
+#### Defined in
+
+[src/gfx/renderJob/jobs/RendererJob.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L74)
+
+___
+
+### graphic3D
+
+• **graphic3D**: [`Graphic3D`](Graphic3D.md)
+
+Graphics renderers (lines, rectangles, etc.)
+
+#### Inherited from
+
+RendererJob.graphic3D
+
+#### Defined in
+
+[src/gfx/renderJob/jobs/RendererJob.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L79)
+
+## Accessors
+
+### view
+
+• `set` **view**(`view`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+RendererJob.view
+
+#### Defined in
+
+[src/gfx/renderJob/jobs/RendererJob.ts:127](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L127)

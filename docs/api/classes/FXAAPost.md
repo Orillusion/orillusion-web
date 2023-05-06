@@ -1,15 +1,9 @@
 # Class: FXAAPost
 
-FXAA(fast approximate antialiasing)屏幕抗锯齿
-一种比较注重性能的形变抗锯齿方式，只需要一次 Pass 就能得到结果，FXAA 注重快速的视觉抗锯齿效果，而非追求完美的真实抗锯齿效果。
-```
-//配置相关参数
-let cfg = {@link Engine3D.setting.render.postProcessing.fxaa};
-let view = new View3D();
-view.scene = scene;
-view.camera = camera;
-Engine3D.startRenderView(view);
-```
+FXAA(fast approximate antialiasing)
+A deformation anti-aliasing method that pays more attention to performance. 
+It only needs one pass to get the result. FXAA focuses on fast visual anti-aliasing effect, 
+rather than pursuing perfect real anti-aliasing effect.
 
 ## Hierarchy
 
@@ -21,6 +15,15 @@ Engine3D.startRenderView(view);
 ### Constructors
 
 - [constructor](FXAAPost.md#constructor)
+
+### Properties
+
+- [enable](FXAAPost.md#enable)
+- [postRenderer](FXAAPost.md#postrenderer)
+
+### Methods
+
+- [destroy](FXAAPost.md#destroy)
 
 ## Constructors
 
@@ -34,4 +37,50 @@ PostBase.constructor
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/FXAAPost.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/FXAAPost.ts#L24)
+[src/gfx/renderJob/post/FXAAPost.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/FXAAPost.ts#L21)
+
+## Properties
+
+### enable
+
+• **enable**: `boolean` = `true`
+
+#### Inherited from
+
+PostBase.enable
+
+#### Defined in
+
+[src/gfx/renderJob/post/PostBase.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L18)
+
+___
+
+### postRenderer
+
+• **postRenderer**: `PostRenderer`
+
+#### Inherited from
+
+PostBase.postRenderer
+
+#### Defined in
+
+[src/gfx/renderJob/post/PostBase.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L19)
+
+## Methods
+
+### destroy
+
+▸ **destroy**(): `void`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+PostBase.destroy
+
+#### Defined in
+
+[src/gfx/renderJob/post/PostBase.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L79)

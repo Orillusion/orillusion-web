@@ -9,8 +9,8 @@ await Engine3D.init();
 
 Engine3D.setting.render.postProcessing.bloom.blurX = 4;
 Engine3D.setting.render.postProcessing.bloom.blurY = 4;
-Engine3D.setting.render.postProcessing.bloom.bloomStrength = 0.25;
-Engine3D.setting.render.postProcessing.bloom.bloomRadius = 1;
+Engine3D.setting.render.postProcessing.bloom.intensity = 0.25;
+Engine3D.setting.render.postProcessing.bloom.brightness = 0.25;
 
 // 添加 HDRBloomPost
 let postProcessing = this.scene.addComponent(PostProcessingComponent);

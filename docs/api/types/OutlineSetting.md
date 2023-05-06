@@ -2,20 +2,20 @@
 
 Ƭ **OutlineSetting**: `Object`
 
-Outline描边
+Outline Setting
 
 #### Type declaration
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `enable` | `boolean` | - |
-| `groupCount` | `number` | 分组设定，可以设置最多8组：通过OutlineManager开放的函数， 传入不同Object3D列表以及颜色参数获得分组过的描边效果。 |
-| `outlinePixel` | `number` | 描边硬边的像素宽度 |
-| `fadeOutlinePixel` | `number` | 描边淡出像素宽度 |
-| `strength` | `number` | 描边强度 |
-| `useAddMode` | `boolean` | 混合模式：true使用叠加模式，false：使用默认Alpha混合 |
-| `debug` | `boolean` | 是否显示GUI调试面板 |
+| `groupCount` | `number` | Group settings can be set up to 8 groups: through functions opened by OutlineManager, Pass in different Object 3D lists and color parameters to obtain grouped stroke effects. |
+| `outlinePixel` | `number` | Pixel width of stroke hard edges |
+| `fadeOutlinePixel` | `number` | Stroke Fade Pixel Width |
+| `strength` | `number` | Stroke strength |
+| `useAddMode` | `boolean` | Blend mode: true Use overlay mode, false Use default alpha blend |
+| `debug` | `boolean` |  |
 
 #### Defined in
 
-[src/engine/EngineConfig.ts:340](https://github.com/Orillusion/orillusion/blob/main/src/engine/EngineConfig.ts#L340)
+[src/setting/post/OutlineSetting.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/OutlineSetting.ts#L5)

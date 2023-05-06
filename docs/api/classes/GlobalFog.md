@@ -1,12 +1,6 @@
 # Class: GlobalFog
 
-屏幕空间雾化
-```
-      //配置相关参数
-      let cfg = {@link Engine3D.setting.render.postProcessing.globalFog};
-      let postProcessing = this.scene.addComponent(PostProcessingComponent);
-      postProcessing.addPost(GlobalFog);
-```
+screen space fog
 
 ## Hierarchy
 
@@ -22,6 +16,7 @@
 ### Methods
 
 - [debug](GlobalFog.md#debug)
+- [destroy](GlobalFog.md#destroy)
 
 ### Accessors
 
@@ -31,6 +26,11 @@
 - [end](GlobalFog.md#end)
 - [ins](GlobalFog.md#ins)
 - [density](GlobalFog.md#density)
+
+### Properties
+
+- [enable](GlobalFog.md#enable)
+- [postRenderer](GlobalFog.md#postrenderer)
 
 ## Constructors
 
@@ -44,7 +44,7 @@ PostBase.constructor
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/GlobalFog.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/GlobalFog.ts#L36)
+[src/gfx/renderJob/post/GlobalFog.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L26)
 
 ## Methods
 
@@ -58,7 +58,25 @@ PostBase.constructor
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/GlobalFog.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/GlobalFog.ts#L63)
+[src/gfx/renderJob/post/GlobalFog.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L69)
+
+___
+
+### destroy
+
+▸ **destroy**(): `void`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+PostBase.destroy
+
+#### Defined in
+
+[src/gfx/renderJob/post/PostBase.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L79)
 
 ## Accessors
 
@@ -72,7 +90,7 @@ PostBase.constructor
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/GlobalFog.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/GlobalFog.ts#L81)
+[src/gfx/renderJob/post/GlobalFog.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L74)
 
 • `set` **fogType**(`v`): `void`
 
@@ -88,7 +106,7 @@ PostBase.constructor
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/GlobalFog.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/GlobalFog.ts#L78)
+[src/gfx/renderJob/post/GlobalFog.ts:71](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L71)
 
 ___
 
@@ -102,7 +120,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/GlobalFog.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/GlobalFog.ts#L87)
+[src/gfx/renderJob/post/GlobalFog.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L80)
 
 • `set` **height**(`v`): `void`
 
@@ -118,7 +136,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/GlobalFog.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/GlobalFog.ts#L84)
+[src/gfx/renderJob/post/GlobalFog.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L77)
 
 ___
 
@@ -132,7 +150,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/GlobalFog.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/GlobalFog.ts#L93)
+[src/gfx/renderJob/post/GlobalFog.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L86)
 
 • `set` **start**(`v`): `void`
 
@@ -148,7 +166,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/GlobalFog.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/GlobalFog.ts#L90)
+[src/gfx/renderJob/post/GlobalFog.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L83)
 
 ___
 
@@ -162,7 +180,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/GlobalFog.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/GlobalFog.ts#L99)
+[src/gfx/renderJob/post/GlobalFog.ts:92](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L92)
 
 • `set` **end**(`v`): `void`
 
@@ -178,7 +196,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/GlobalFog.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/GlobalFog.ts#L96)
+[src/gfx/renderJob/post/GlobalFog.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L89)
 
 ___
 
@@ -192,7 +210,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/GlobalFog.ts:105](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/GlobalFog.ts#L105)
+[src/gfx/renderJob/post/GlobalFog.ts:98](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L98)
 
 • `set` **ins**(`v`): `void`
 
@@ -208,7 +226,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/GlobalFog.ts:102](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/GlobalFog.ts#L102)
+[src/gfx/renderJob/post/GlobalFog.ts:95](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L95)
 
 ___
 
@@ -222,7 +240,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/GlobalFog.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/GlobalFog.ts#L111)
+[src/gfx/renderJob/post/GlobalFog.ts:104](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L104)
 
 • `set` **density**(`v`): `void`
 
@@ -238,4 +256,32 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/GlobalFog.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/GlobalFog.ts#L108)
+[src/gfx/renderJob/post/GlobalFog.ts:101](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L101)
+
+## Properties
+
+### enable
+
+• **enable**: `boolean` = `true`
+
+#### Inherited from
+
+PostBase.enable
+
+#### Defined in
+
+[src/gfx/renderJob/post/PostBase.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L18)
+
+___
+
+### postRenderer
+
+• **postRenderer**: `PostRenderer`
+
+#### Inherited from
+
+PostBase.postRenderer
+
+#### Defined in
+
+[src/gfx/renderJob/post/PostBase.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L19)

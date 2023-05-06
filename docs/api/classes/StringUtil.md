@@ -1,6 +1,6 @@
 # Class: StringUtil
 
-字符串处理工具类
+String processing tool class
 
 
 ### Methods
@@ -36,24 +36,24 @@
 
 ▸ `Static` **hasString**(`fields`, `str`): `number`
 
-是否存在此字符串
+Does the string exist
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `fields` | `string`[] | 被检测的列表 |
-| `str` | `string` | 比较字符串 |
+| `fields` | `string`[] | List of detected string |
+| `str` | `string` | source string |
 
 #### Returns
 
 `number`
 
-返回所在的索引位置，若不存在返回-1
+Return the index position where it is located. If it does not exist, return -1
 
 #### Defined in
 
-[src/engine/util/StringUtil.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/StringUtil.ts#L15)
+[src/util/StringUtil.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L15)
 
 ___
 
@@ -61,24 +61,24 @@ ___
 
 ▸ `Static` **getEllipsis**(`str`, `len?`): `string`
 
-获取超出范围的以省略号结尾字符串表示
+Gets an ellipsis terminated string representation that exceeds the range
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `str` | `any` | `undefined` | 需处理字符串 |
-| `len` | `number` | `4` | 长度范围 |
+| `str` | `any` | `undefined` | source string |
+| `len` | `number` | `4` | range of string |
 
 #### Returns
 
 `string`
 
-处理结果
+result string
 
 #### Defined in
 
-[src/engine/util/StringUtil.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/StringUtil.ts#L31)
+[src/util/StringUtil.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L31)
 
 ___
 
@@ -86,23 +86,23 @@ ___
 
 ▸ `Static` **getURLName**(`url`): `string`
 
-获取url命名
+get name based on URL
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `url` | `string` | 原始url字符串 |
+| `url` | `string` | source url |
 
 #### Returns
 
 `string`
 
-url命名
+name
 
 #### Defined in
 
-[src/engine/util/StringUtil.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/StringUtil.ts#L43)
+[src/util/StringUtil.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L43)
 
 ___
 
@@ -110,23 +110,23 @@ ___
 
 ▸ `Static` **getFileFormat**(`url`): `string`
 
-获取url文件格式
+get suffix of file name from url
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `url` | `string` | 原始url字符串 |
+| `url` | `string` | source url |
 
 #### Returns
 
 `string`
 
-url文件格式字符串
+suffix
 
 #### Defined in
 
-[src/engine/util/StringUtil.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/StringUtil.ts#L57)
+[src/util/StringUtil.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L57)
 
 ___
 
@@ -134,14 +134,14 @@ ___
 
 ▸ `Static` **readLineProperty**(`line`, `data`): `void`
 
-获取字符串存储的数据信息
+get information stored in a string
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `line` | `string` | 字符串 |
-| `data` | `any` | 要传入的存储信息对象 |
+| `line` | `string` | source string |
+| `data` | `any` | result data reference |
 
 #### Returns
 
@@ -149,7 +149,7 @@ ___
 
 #### Defined in
 
-[src/engine/util/StringUtil.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/StringUtil.ts#L74)
+[src/util/StringUtil.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L74)
 
 ___
 
@@ -157,23 +157,19 @@ ___
 
 ▸ `Static` **getPath**(`url`): `string`
 
-获取url路径
-
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `url` | `string` | 原始url字符串 |
+| Name | Type |
+| :------ | :------ |
+| `url` | `string` |
 
 #### Returns
 
 `string`
 
-url路径
-
 #### Defined in
 
-[src/engine/util/StringUtil.ts:98](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/StringUtil.ts#L98)
+[src/util/StringUtil.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L93)
 
 ___
 
@@ -193,7 +189,7 @@ ___
 
 #### Defined in
 
-[src/engine/util/StringUtil.ts:104](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/StringUtil.ts#L104)
+[src/util/StringUtil.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L99)
 
 ___
 
@@ -201,24 +197,24 @@ ___
 
 ▸ `Static` **getStringList**(`str`, `char?`): `string`[]
 
-用来切割指定字符
+Used to cut specified characters
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `str` | `string` | `undefined` | 字符串 |
-| `char` | `string` | `';'` | 切割符 |
+| `str` | `string` | `undefined` | source string |
+| `char` | `string` | `';'` | cut string |
 
 #### Returns
 
 `string`[]
 
-结果数组
+result string array
 
 #### Defined in
 
-[src/engine/util/StringUtil.ts:140](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/StringUtil.ts#L140)
+[src/util/StringUtil.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L135)
 
 ___
 
@@ -226,23 +222,21 @@ ___
 
 ▸ `Static` **formatTime**(`time`): `string`[]
 
-格式化时间
+Format timestamp data
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `time` | `number` | 时间戳 |
+| `time` | `number` | timestamp |
 
 #### Returns
 
 `string`[]
 
-格式化后的字符串数组
-
 #### Defined in
 
-[src/engine/util/StringUtil.ts:149](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/StringUtil.ts#L149)
+[src/util/StringUtil.ts:144](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L144)
 
 ___
 
@@ -250,98 +244,98 @@ ___
 
 ▸ `Static` **trim**(`str`): `any`
 
-去除左右空空格
+trim
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `str` | `any` | 字符串 |
+| `str` | `any` | source string |
 
 #### Returns
 
 `any`
 
-去除左右空格后的结果
+result string
 
 #### Defined in
 
-[src/engine/util/StringUtil.ts:163](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/StringUtil.ts#L163)
+[src/util/StringUtil.ts:158](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L158)
 
 ___
 
 ### isEmpty
 
-▸ `Static` **isEmpty**(`obj`): `boolean`
+▸ `Static` **isEmpty**(`value`): `boolean`
 
-判断字符串是否为空
+Determine if the string is empty, null, '' or 'null'
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `obj` | `any` | 输入对象 |
+| `value` | `any` | source string |
 
 #### Returns
 
 `boolean`
 
-返回一个布尔值
+boolean
 
 #### Defined in
 
-[src/engine/util/StringUtil.ts:172](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/StringUtil.ts#L172)
+[src/util/StringUtil.ts:167](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L167)
 
 ___
 
 ### strCut
 
-▸ `Static` **strCut**(`str`, `len`): `any`
+▸ `Static` **strCut**(`str`, `len`): `string`
 
-处理超出长度范围的字符串，如超出范围添加...
+Handle strings that exceed the length range, such as adding strings that exceed the range
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `str` | `any` | 要处理字符串 |
-| `len` | `any` | 长度范围 |
-
-#### Returns
-
-`any`
-
-处理结果
-
-#### Defined in
-
-[src/engine/util/StringUtil.ts:182](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/StringUtil.ts#L182)
-
-___
-
-### toQueryPair
-
-▸ `Static` **toQueryPair**(`key`, `value`, `isEncode?`): `string`
-
-根据参拼接请求参数对
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `key` | `any` | `undefined` | key值 |
-| `value` | `any` | `undefined` | value值 |
-| `isEncode` | `boolean` | `false` | 是否编码 |
+| `str` | `any` | source string |
+| `len` | `any` | length |
 
 #### Returns
 
 `string`
 
-返回拼接后的字符串结果
+result string
 
 #### Defined in
 
-[src/engine/util/StringUtil.ts:214](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/StringUtil.ts#L214)
+[src/util/StringUtil.ts:177](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L177)
+
+___
+
+### toQueryPair
+
+▸ `Static` **toQueryPair**(`key`, `value`, `isEncodeURI?`): `string`
+
+According to the splicing request parameters
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `key` | `any` | `undefined` | key string |
+| `value` | `any` | `undefined` | value string |
+| `isEncodeURI` | `boolean` | `false` | isEncodeURI |
+
+#### Returns
+
+`string`
+
+result string
+
+#### Defined in
+
+[src/util/StringUtil.ts:207](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L207)
 
 ___
 
@@ -349,24 +343,24 @@ ___
 
 ▸ `Static` **stringFormat**(`str`, `...params`): `string`
 
-格式化字符串
+format a string
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `str` | `string` | 需格式化的字符串 |
-| `...params` | `any`[] | 传入正则处理参数数组 |
+| `str` | `string` | source string |
+| `...params` | `any`[] | Pass in a regular processing parameter array |
 
 #### Returns
 
 `string`
 
-返回经过正则处理后的字符串
+result string
 
 #### Defined in
 
-[src/engine/util/StringUtil.ts:224](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/StringUtil.ts#L224)
+[src/util/StringUtil.ts:217](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L217)
 
 ___
 
@@ -374,24 +368,24 @@ ___
 
 ▸ `Static` **parseJson2String**(`json`, `options?`): `string`
 
-JSON对象转换为字符串
+Convert JSON objects to strings
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `json` | `any` | json对象 |
-| `options?` | `any` | 可选项 |
+| `json` | `any` | object of json |
+| `options?` | `any` |  |
 
 #### Returns
 
 `string`
 
-转换后的字符串结果
+result string
 
 #### Defined in
 
-[src/engine/util/StringUtil.ts:251](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/StringUtil.ts#L251)
+[src/util/StringUtil.ts:244](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L244)
 
 ___
 
@@ -399,24 +393,24 @@ ___
 
 ▸ `Static` **compareVersion**(`v1`, `v2`): ``1`` \| ``0`` \| ``-1``
 
-兼容方式 - 版本比较
+Compatibility mode - version comparison
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `v1` | `any` | 版本1 |
-| `v2` | `any` | 版本2 |
+| `v1` | `any` | Version 1 |
+| `v2` | `any` | Version 2 |
 
 #### Returns
 
 ``1`` \| ``0`` \| ``-1``
 
-返回1，-1 或0，分别表示版本号大于，小于，或等于
+Returns 1, -1, or 0, indicating that the version number is greater, less, or equal, respectively
 
 #### Defined in
 
-[src/engine/util/StringUtil.ts:317](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/StringUtil.ts#L317)
+[src/util/StringUtil.ts:310](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L310)
 
 ___
 
@@ -424,17 +418,17 @@ ___
 
 ▸ `Static` **buildRandomCode**(): `string`
 
-生成不重复的随机字符串码
+Generate non repeating random string codes
 
 #### Returns
 
 `string`
 
-不重复的随机字符串码
+result
 
 #### Defined in
 
-[src/engine/util/StringUtil.ts:347](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/StringUtil.ts#L347)
+[src/util/StringUtil.ts:340](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L340)
 
 ___
 
@@ -442,17 +436,17 @@ ___
 
 ▸ `Static` **UUID**(): `string`
 
-生成唯一标识符
+UUID
 
 #### Returns
 
 `string`
 
-唯一标识符
+UUID
 
 #### Defined in
 
-[src/engine/util/StringUtil.ts:363](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/StringUtil.ts#L363)
+[src/util/StringUtil.ts:356](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L356)
 
 ___
 
@@ -460,23 +454,23 @@ ___
 
 ▸ `Static` **stringToHash**(`str`): `number`
 
-生成对应hash
+make hash code
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `str` | `any` | 输入字符串 |
+| `str` | `any` | source value |
 
 #### Returns
 
 `number`
 
-hash码
+hash code
 
 #### Defined in
 
-[src/engine/util/StringUtil.ts:376](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/StringUtil.ts#L376)
+[src/util/StringUtil.ts:369](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L369)
 
 ___
 
@@ -484,24 +478,24 @@ ___
 
 ▸ `Static` **parseUrl**(`base`, `url`): `string`
 
-转换 GLTF URL 地址
+Convert GLTF URL Address
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `base` | `string` | baseURL |
-| `url` | `string` | GLTF 原始URL |
+| `url` | `string` | source url |
 
 #### Returns
 
 `string`
 
-转换后URL
+result url
 
 #### Defined in
 
-[src/engine/util/StringUtil.ts:393](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/StringUtil.ts#L393)
+[src/util/StringUtil.ts:386](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L386)
 
 ## Constructors
 

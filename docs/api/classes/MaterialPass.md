@@ -1,11 +1,5 @@
 # Class: MaterialPass
 
-## Hierarchy
-
-- **`MaterialPass`**
-
-  ↳ [`OutLinePass`](OutLinePass.md)
-
 
 ### Constructors
 
@@ -14,7 +8,6 @@
 ### Properties
 
 - [renderPasses](MaterialPass.md#renderpasses)
-- [transparent](MaterialPass.md#transparent)
 - [enable](MaterialPass.md#enable)
 - [renderShader](MaterialPass.md#rendershader)
 
@@ -23,6 +16,7 @@
 - [sort](MaterialPass.md#sort)
 - [shaderID](MaterialPass.md#shaderid)
 - [blendMode](MaterialPass.md#blendmode)
+- [transparent](MaterialPass.md#transparent)
 - [frontFace](MaterialPass.md#frontface)
 - [doubleSide](MaterialPass.md#doubleside)
 - [cullMode](MaterialPass.md#cullmode)
@@ -51,19 +45,7 @@
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L7)
-
-___
-
-### transparent
-
-• **transparent**: `boolean` = `false`
-
-是否透明
-
-#### Defined in
-
-[src/engine/materials/MaterialPass.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L13)
+[src/materials/MaterialPass.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L8)
 
 ___
 
@@ -71,11 +53,11 @@ ___
 
 • **enable**: `boolean` = `true`
 
-材质是否启用
+whether the pass is enable
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L18)
+[src/materials/MaterialPass.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L13)
 
 ___
 
@@ -85,7 +67,7 @@ ___
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L20)
+[src/materials/MaterialPass.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L15)
 
 ## Accessors
 
@@ -99,7 +81,7 @@ ___
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L26)
+[src/materials/MaterialPass.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L23)
 
 • `set` **sort**(`value`): `void`
 
@@ -115,7 +97,7 @@ ___
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L30)
+[src/materials/MaterialPass.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L27)
 
 ___
 
@@ -129,7 +111,7 @@ ___
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L34)
+[src/materials/MaterialPass.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L31)
 
 • `set` **shaderID**(`value`): `void`
 
@@ -145,7 +127,7 @@ ___
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L38)
+[src/materials/MaterialPass.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L35)
 
 ___
 
@@ -153,7 +135,7 @@ ___
 
 • `get` **blendMode**(): [`BlendMode`](../enums/BlendMode.md)
 
-获取混合模式
+Get blend mode, see [BlendMode](../enums/BlendMode.md)
 
 #### Returns
 
@@ -161,11 +143,11 @@ ___
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L56)
+[src/materials/MaterialPass.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L53)
 
 • `set` **blendMode**(`value`): `void`
 
-设置混合模式
+Set blend mode, see [BlendMode](../enums/BlendMode.md)
 
 #### Parameters
 
@@ -179,49 +161,15 @@ ___
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L63)
+[src/materials/MaterialPass.ts:60](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L60)
 
 ___
 
-### frontFace
+### transparent
 
-• `get` **frontFace**(): `GPUFrontFace`
+• `get` **transparent**(): `boolean`
 
-获取面朝向
-
-#### Returns
-
-`GPUFrontFace`
-
-#### Defined in
-
-[src/engine/materials/MaterialPass.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L72)
-
-• `set` **frontFace**(`value`): `void`
-
-设置面朝向
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `GPUFrontFace` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/engine/materials/MaterialPass.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L79)
-
-___
-
-### doubleSide
-
-• `get` **doubleSide**(): `boolean`
-
-获取是否为双面模式
+Get whether use transparent mode to render
 
 #### Returns
 
@@ -229,11 +177,11 @@ ___
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L86)
+[src/materials/MaterialPass.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L68)
 
-• `set` **doubleSide**(`value`): `void`
+• `set` **transparent**(`value`): `void`
 
-设置是否为双面模式
+Set whether use transparent mode to render
 
 #### Parameters
 
@@ -247,7 +195,75 @@ ___
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L93)
+[src/materials/MaterialPass.ts:75](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L75)
+
+___
+
+### frontFace
+
+• `get` **frontFace**(): `GPUFrontFace`
+
+Return GPUFrontFace
+
+#### Returns
+
+`GPUFrontFace`
+
+#### Defined in
+
+[src/materials/MaterialPass.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L82)
+
+• `set` **frontFace**(`value`): `void`
+
+Set GPUFrontFace
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `GPUFrontFace` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/materials/MaterialPass.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L89)
+
+___
+
+### doubleSide
+
+• `get` **doubleSide**(): `boolean`
+
+Get whether use double side to render object
+
+#### Returns
+
+`boolean`
+
+#### Defined in
+
+[src/materials/MaterialPass.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L96)
+
+• `set` **doubleSide**(`value`): `void`
+
+Set whether use double side to render object
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/materials/MaterialPass.ts:103](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L103)
 
 ___
 
@@ -255,7 +271,7 @@ ___
 
 • `get` **cullMode**(): `GPUCullMode`
 
-获取剔除模式
+get cull mode, see GPUCullMode
 
 #### Returns
 
@@ -263,11 +279,11 @@ ___
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:100](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L100)
+[src/materials/MaterialPass.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L110)
 
 • `set` **cullMode**(`value`): `void`
 
-设置剔除模式
+set cull mode, see GPUCullMode
 
 #### Parameters
 
@@ -281,7 +297,7 @@ ___
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L107)
+[src/materials/MaterialPass.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L117)
 
 ___
 
@@ -295,7 +311,7 @@ ___
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L111)
+[src/materials/MaterialPass.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L121)
 
 • `set` **depthBias**(`value`): `void`
 
@@ -311,7 +327,7 @@ ___
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L115)
+[src/materials/MaterialPass.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L125)
 
 ___
 
@@ -319,7 +335,7 @@ ___
 
 • `get` **depthCompare**(): `GPUCompareFunction`
 
-获取剔除模式
+get depth compare mode, see GPUCompareFunction
 
 #### Returns
 
@@ -327,11 +343,11 @@ ___
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L122)
+[src/materials/MaterialPass.ts:132](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L132)
 
 • `set` **depthCompare**(`value`): `void`
 
-设置剔除模式
+set depth compare mode, see GPUCompareFunction
 
 #### Parameters
 
@@ -345,7 +361,7 @@ ___
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L129)
+[src/materials/MaterialPass.ts:139](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L139)
 
 ## Methods
 
@@ -366,7 +382,7 @@ ___
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L42)
+[src/materials/MaterialPass.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L39)
 
 ___
 
@@ -380,7 +396,7 @@ ___
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L49)
+[src/materials/MaterialPass.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L46)
 
 ___
 
@@ -388,13 +404,15 @@ ___
 
 ▸ **destroy**(): `void`
 
+release material pass
+
 #### Returns
 
 `void`
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L133)
+[src/materials/MaterialPass.ts:146](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L146)
 
 ___
 
@@ -408,7 +426,7 @@ ___
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:148](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L148)
+[src/materials/MaterialPass.ts:161](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L161)
 
 ___
 
@@ -422,4 +440,4 @@ ___
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:152](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L152)
+[src/materials/MaterialPass.ts:165](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L165)

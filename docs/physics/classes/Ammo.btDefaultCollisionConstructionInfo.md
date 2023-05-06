@@ -15,4 +15,4 @@
 
 #### Defined in
 
-[libs/ammo/ammo.d.ts:419](https://github.com/Orillusion/orillusion/blob/main/src/libs/ammo/ammo.d.ts#L419)
+[packages/ammo/ammo.d.ts:419](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L419)

@@ -16,11 +16,9 @@
 
 ▪ `Static` **lambert\_frag\_wgsl**: `string`
 
-片元着色器
-
 #### Defined in
 
-[src/engine/assets/shader/materials/Lambert_shader.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/shader/materials/Lambert_shader.ts#L6)
+[src/assets/shader/materials/Lambert_shader.ts:3](https://github.com/Orillusion/orillusion/blob/main/src/assets/shader/materials/Lambert_shader.ts#L3)
 
 ___
 
@@ -28,11 +26,9 @@ ___
 
 ▪ `Static` **lambert\_vert\_wgsl**: `string`
 
-顶点着色器
-
 #### Defined in
 
-[src/engine/assets/shader/materials/Lambert_shader.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/shader/materials/Lambert_shader.ts#L73)
+[src/assets/shader/materials/Lambert_shader.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/assets/shader/materials/Lambert_shader.ts#L67)
 
 ## Constructors
 

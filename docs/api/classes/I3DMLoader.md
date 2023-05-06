@@ -9,7 +9,6 @@
 
 ### Properties
 
-- [adjustmentTransform](I3DMLoader.md#adjustmenttransform)
 - [tempFwd](I3DMLoader.md#tempfwd)
 - [tempUp](I3DMLoader.md#tempup)
 - [tempRight](I3DMLoader.md#tempright)
@@ -17,6 +16,7 @@
 - [tempQuat](I3DMLoader.md#tempquat)
 - [tempSca](I3DMLoader.md#tempsca)
 - [tempMat](I3DMLoader.md#tempmat)
+- [adjustmentTransform](I3DMLoader.md#adjustmenttransform)
 
 ### Constructors
 
@@ -28,23 +28,13 @@
 
 ## Properties
 
-### adjustmentTransform
-
-• **adjustmentTransform**: [`Matrix4`](Matrix4.md)
-
-#### Defined in
-
-[src/engine/loader/parser/i3dm/I3DMLoader.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/i3dm/I3DMLoader.ts#L13)
-
-___
-
 ### tempFwd
 
 ▪ `Static` **tempFwd**: [`Vector3`](Vector3.md)
 
 #### Defined in
 
-[src/engine/loader/parser/i3dm/I3DMLoader.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/i3dm/I3DMLoader.ts#L16)
+[src/loader/parser/i3dm/I3DMLoader.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/i3dm/I3DMLoader.ts#L12)
 
 ___
 
@@ -54,7 +44,7 @@ ___
 
 #### Defined in
 
-[src/engine/loader/parser/i3dm/I3DMLoader.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/i3dm/I3DMLoader.ts#L17)
+[src/loader/parser/i3dm/I3DMLoader.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/i3dm/I3DMLoader.ts#L13)
 
 ___
 
@@ -64,7 +54,7 @@ ___
 
 #### Defined in
 
-[src/engine/loader/parser/i3dm/I3DMLoader.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/i3dm/I3DMLoader.ts#L18)
+[src/loader/parser/i3dm/I3DMLoader.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/i3dm/I3DMLoader.ts#L14)
 
 ___
 
@@ -74,7 +64,7 @@ ___
 
 #### Defined in
 
-[src/engine/loader/parser/i3dm/I3DMLoader.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/i3dm/I3DMLoader.ts#L19)
+[src/loader/parser/i3dm/I3DMLoader.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/i3dm/I3DMLoader.ts#L15)
 
 ___
 
@@ -84,7 +74,7 @@ ___
 
 #### Defined in
 
-[src/engine/loader/parser/i3dm/I3DMLoader.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/i3dm/I3DMLoader.ts#L20)
+[src/loader/parser/i3dm/I3DMLoader.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/i3dm/I3DMLoader.ts#L16)
 
 ___
 
@@ -94,7 +84,7 @@ ___
 
 #### Defined in
 
-[src/engine/loader/parser/i3dm/I3DMLoader.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/i3dm/I3DMLoader.ts#L21)
+[src/loader/parser/i3dm/I3DMLoader.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/i3dm/I3DMLoader.ts#L17)
 
 ___
 
@@ -104,7 +94,17 @@ ___
 
 #### Defined in
 
-[src/engine/loader/parser/i3dm/I3DMLoader.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/i3dm/I3DMLoader.ts#L23)
+[src/loader/parser/i3dm/I3DMLoader.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/i3dm/I3DMLoader.ts#L18)
+
+___
+
+### adjustmentTransform
+
+• **adjustmentTransform**: [`Matrix4`](Matrix4.md)
+
+#### Defined in
+
+[src/loader/parser/i3dm/I3DMLoader.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/i3dm/I3DMLoader.ts#L19)
 
 ## Constructors
 
@@ -118,7 +118,7 @@ ___
 
 #### Defined in
 
-[src/engine/loader/parser/i3dm/I3DMLoader.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/i3dm/I3DMLoader.ts#L25)
+[src/loader/parser/i3dm/I3DMLoader.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/i3dm/I3DMLoader.ts#L22)
 
 ## Methods
 
@@ -142,4 +142,4 @@ ___
 
 #### Defined in
 
-[src/engine/loader/parser/i3dm/I3DMLoader.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/i3dm/I3DMLoader.ts#L30)
+[src/loader/parser/i3dm/I3DMLoader.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/i3dm/I3DMLoader.ts#L27)

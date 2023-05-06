@@ -1,44 +1,72 @@
 # Class: Bezier2D
 
-贝塞尔曲线路径类
+2D Bezier Curve
 
-
-### Properties
-
-- [points](Bezier2D.md#points)
 
 ### Constructors
 
 - [constructor](Bezier2D.md#constructor)
+
+### Accessors
+
+- [points](Bezier2D.md#points)
 
 ### Methods
 
 - [getValue](Bezier2D.md#getvalue)
 - [createBezierPoints](Bezier2D.md#createbezierpoints)
 
-## Properties
-
-### points
-
-• **points**: [`Vector2`](Vector2.md)[]
-
-控制点
-
-#### Defined in
-
-[src/engine/math/Bezier2D.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Bezier2D.ts#L11)
-
 ## Constructors
 
 ### constructor
 
-• **new Bezier2D**()
+• **new Bezier2D**(`vec2Ds?`)
 
-创建一个贝塞尔曲线对象
+instance bezier class
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `vec2Ds` | [`Vector2`](Vector2.md)[] | `[]` |
 
 #### Defined in
 
-[src/engine/math/Bezier2D.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Bezier2D.ts#L18)
+[src/math/Bezier2D.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/math/Bezier2D.ts#L16)
+
+## Accessors
+
+### points
+
+• `get` **points**(): [`Vector2`](Vector2.md)[]
+
+get all bezier 2d points
+
+#### Returns
+
+[`Vector2`](Vector2.md)[]
+
+#### Defined in
+
+[src/math/Bezier2D.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/math/Bezier2D.ts#L24)
+
+• `set` **points**(`value`): `void`
+
+set bezier 2d point[x,y] list must great 4
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | [`Vector2`](Vector2.md)[] |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/math/Bezier2D.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/math/Bezier2D.ts#L31)
 
 ## Methods
 
@@ -46,23 +74,23 @@
 
 ▸ **getValue**(`v`): [`Vector2`](Vector2.md)
 
-获取贝塞尔曲线上指定位置的点
+get point2d at curve
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `v` | `number` | 变化值 |
+| `v` | `number` | 0.0 ~ 1.0 |
 
 #### Returns
 
 [`Vector2`](Vector2.md)
 
-当前v应对的点
+return point2D at curve
 
 #### Defined in
 
-[src/engine/math/Bezier2D.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Bezier2D.ts#L28)
+[src/math/Bezier2D.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/math/Bezier2D.ts#L40)
 
 ___
 
@@ -70,21 +98,21 @@ ___
 
 ▸ `Static` **createBezierPoints**(`anchorpoints`, `pointsAmount`): [`Bezier2D`](Bezier2D.md)
 
-生成贝塞尔曲线坐标集
+caclute bezier curve points at line [ 0.0 , 1.0 ]
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `anchorpoints` | [`Vector2`](Vector2.md)[] | 贝塞尔基点 |
-| `pointsAmount` | `number` | 生成的点数 |
+| `anchorpoints` | [`Vector2`](Vector2.md)[] | bezier anchor |
+| `pointsAmount` | `number` | point count |
 
 #### Returns
 
 [`Bezier2D`](Bezier2D.md)
 
-生成的贝塞尔曲线
+get a bezier curve [Bezier2D]
 
 #### Defined in
 
-[src/engine/math/Bezier2D.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Bezier2D.ts#L52)
+[src/math/Bezier2D.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/math/Bezier2D.ts#L64)

@@ -2,20 +2,20 @@
 
 Ƭ **TAASetting**: `Object`
 
-TAA抗锯齿设置
+TAA Setting
 
 #### Type declaration
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `enable` | `boolean` | - |
-| `jitterSeedCount` | `number` | 抖动相机随机种子采用个数，默认8个。 （降低个数可以解决一些抖动太明显的问题，但是锯齿会变得更明显） |
-| `blendFactor` | `number` | 合并历史帧与当前帧的系数，参数越小，当前帧占比越小 |
-| `temporalJitterScale` | `number` | 抖动相机随机偏移值的缩放系数[0,1]：系数越小抗锯齿效果变弱，像素抖动也会变弱 |
-| `sharpFactor` | `number` | 图像锐化系数[0.1,1.9]：系数越小锐化效果越弱抗锯齿效果好，反之锐化越强抗锯齿效果越弱 |
-| `sharpPreBlurFactor` | `number` | 图像锐化采样系数缩放系数：锐化时候采样的偏移量缩放。 |
-| `debug` | `boolean` | 是否显示GUI调试面板 |
+| `jitterSeedCount` | `number` | The number of random seed for dithering camera is 8 by default. Reducing the number can solve some problems with noticeable jitter, but the jagginess will become more pronounced |
+| `blendFactor` | `number` | Merge the coefficients of the historical frame and the current frame. The smaller the parameter, the smaller the proportion of the current frame |
+| `temporalJitterScale` | `number` | The scaling coefficient of the random offset value of the jitter camera [0,1]: The smaller the coefficient, the weaker the anti aliasing effect, and the weaker the pixel jitter |
+| `sharpFactor` | `number` | Image sharpening coefficient [0.1-0.9]: The smaller the coefficient, the weaker the sharpening effect, the better the anti aliasing effect. Conversely, the stronger the sharpening, the weaker the anti aliasing effect |
+| `sharpPreBlurFactor` | `number` | Image sharpening sampling coefficient scaling coefficient: Scales the sampling offset during sharpening. |
+| `debug` | `boolean` |  |
 
 #### Defined in
 
-[src/engine/EngineConfig.ts:373](https://github.com/Orillusion/orillusion/blob/main/src/engine/EngineConfig.ts#L373)
+[src/setting/post/TAASetting.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/TAASetting.ts#L5)

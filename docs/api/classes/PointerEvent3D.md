@@ -1,6 +1,6 @@
 # Class: PointerEvent3D
 
-PointerEvent 是所有引擎中可操作触摸事件节点 的事件类型标记。
+enum event type of pointer.
 [InputSystem](InputSystem.md)
 
 ## Hierarchy
@@ -26,6 +26,7 @@ PointerEvent 是所有引擎中可操作触摸事件节点 的事件类型标记
 - [targetTouches](PointerEvent3D.md#targettouches)
 - [changedTouches](PointerEvent3D.md#changedtouches)
 - [touches](PointerEvent3D.md#touches)
+- [view](PointerEvent3D.md#view)
 - [PICK\_OVER](PointerEvent3D.md#pick_over)
 - [PICK\_OVER\_GUI](PointerEvent3D.md#pick_over_gui)
 - [PICK\_CLICK](PointerEvent3D.md#pick_click)
@@ -76,8 +77,7 @@ PointerEvent 是所有引擎中可操作触摸事件节点 的事件类型标记
 
 • **target**: [`Object3D`](Object3D.md)
 
-事件目标。
-一般为注册事件的对象本身。
+Event target, it's usually event dispatcher
 
 #### Inherited from
 
@@ -85,7 +85,7 @@ PointerEvent 是所有引擎中可操作触摸事件节点 的事件类型标记
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L14)
+[src/event/CEvent.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L13)
 
 ___
 
@@ -93,8 +93,7 @@ ___
 
 • **currentTarget**: `CEventListener`
 
-事件当前目标。
-一般为注册事件的对象本身。
+Current event target, it's current bubble object
 
 #### Inherited from
 
@@ -102,7 +101,7 @@ ___
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L20)
+[src/event/CEvent.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L18)
 
 ___
 
@@ -110,7 +109,7 @@ ___
 
 • **type**: `string`
 
-引擎中的事件的类型标识字符串
+event type, it's registered string of key
 
 #### Inherited from
 
@@ -118,7 +117,7 @@ ___
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L26)
+[src/event/CEvent.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L23)
 
 ___
 
@@ -126,8 +125,7 @@ ___
 
 • **data**: `any`
 
-附加数据。
-例如,保存QueueLoader加载后的原始数据,加载完毕后,作为参数传出。
+extra data.Used for the transmission process of events, carrying data
 
 #### Inherited from
 
@@ -135,7 +133,7 @@ ___
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L33)
+[src/event/CEvent.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L28)
 
 ___
 
@@ -143,7 +141,7 @@ ___
 
 • **param**: `any`
 
-注册事件时传递的参数
+The param data when event is registered
 
 #### Inherited from
 
@@ -151,7 +149,7 @@ ___
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L39)
+[src/event/CEvent.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L34)
 
 ___
 
@@ -159,7 +157,7 @@ ___
 
 • **time**: `number` = `0`
 
-当前时间戳。
+the time when event is
 
 #### Inherited from
 
@@ -167,7 +165,7 @@ ___
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L45)
+[src/event/CEvent.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L40)
 
 ___
 
@@ -175,7 +173,7 @@ ___
 
 • **delay**: `number` = `0`
 
-每帧间隔延时。
+the delay time when event is dispatched.
 
 #### Inherited from
 
@@ -183,7 +181,7 @@ ___
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L51)
+[src/event/CEvent.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L46)
 
 ___
 
@@ -191,7 +189,11 @@ ___
 
 • **mouseCode**: `number` = `0`
 
-鼠标code值,枚举值可以参考MouseCode [MouseCode](../enums/MouseCode.md)
+mouse code, see
+
+**`Mouse Code`**
+
+[MouseCode](../enums/MouseCode.md)
 
 #### Inherited from
 
@@ -199,7 +201,7 @@ ___
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L57)
+[src/event/CEvent.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L52)
 
 ___
 
@@ -207,7 +209,7 @@ ___
 
 • **ctrlKey**: `boolean`
 
-事件发生时 Ctrl 是否被按下
+Is Ctrl key pressed when the event occurs
 
 #### Inherited from
 
@@ -215,7 +217,7 @@ ___
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L62)
+[src/event/CEvent.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L57)
 
 ___
 
@@ -223,7 +225,7 @@ ___
 
 • **altKey**: `boolean`
 
-事件发生时 Alt 是否被按下
+Is Alt key pressed when the event occurs
 
 #### Inherited from
 
@@ -231,7 +233,7 @@ ___
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L67)
+[src/event/CEvent.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L62)
 
 ___
 
@@ -239,7 +241,7 @@ ___
 
 • **shiftKey**: `boolean`
 
-事件发生时 Shift 是否被按下
+Is Shift key pressed when the event occurs
 
 #### Inherited from
 
@@ -247,7 +249,7 @@ ___
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L72)
+[src/event/CEvent.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L67)
 
 ___
 
@@ -255,8 +257,7 @@ ___
 
 • **targetTouches**: `TouchData`[]
 
-手指触摸到绑定事件的节点上的触摸点的集合
-touch列表 TouchData
+Collection of finger touch points, which registered
 
 #### Inherited from
 
@@ -264,7 +265,7 @@ touch列表 TouchData
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L78)
+[src/event/CEvent.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L72)
 
 ___
 
@@ -272,8 +273,7 @@ ___
 
 • **changedTouches**: `TouchData`[]
 
-触摸事件时改变触摸点的集合
-touch列表 TouchData
+Collection of finger touch points changed
 
 #### Inherited from
 
@@ -281,7 +281,7 @@ touch列表 TouchData
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L84)
+[src/event/CEvent.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L77)
 
 ___
 
@@ -289,8 +289,7 @@ ___
 
 • **touches**: `TouchData`[]
 
-手指触摸到屏幕上引起的当前所有触摸点的集合
-touch列表 TouchData
+Collection of finger touch points
 
 #### Inherited from
 
@@ -298,7 +297,23 @@ touch列表 TouchData
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L90)
+[src/event/CEvent.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L82)
+
+___
+
+### view
+
+• **view**: [`View3D`](View3D.md)
+
+binded view3D object in event.
+
+#### Inherited from
+
+[CEvent](CEvent.md).[view](CEvent.md#view)
+
+#### Defined in
+
+[src/event/CEvent.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L89)
 
 ___
 
@@ -306,11 +321,11 @@ ___
 
 ▪ `Static` **PICK\_OVER**: `string` = `'onPickOver'`
 
-当触控点进入碰撞体范围时触发一次
+Triggered when the touch point enters the collision
 
 #### Defined in
 
-[src/engine/event/eventConst/PointerEvent3D.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/eventConst/PointerEvent3D.ts#L13)
+[src/event/eventConst/PointerEvent3D.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L13)
 
 ___
 
@@ -318,9 +333,11 @@ ___
 
 ▪ `Static` **PICK\_OVER\_GUI**: `string` = `'onPickOverGUI'`
 
+Triggered when the touch point enters the interactive GUI
+
 #### Defined in
 
-[src/engine/event/eventConst/PointerEvent3D.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/eventConst/PointerEvent3D.ts#L14)
+[src/event/eventConst/PointerEvent3D.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L18)
 
 ___
 
@@ -328,11 +345,11 @@ ___
 
 ▪ `Static` **PICK\_CLICK**: `string` = `'onPickClick'`
 
-当触控点在碰撞体范围内按下并松开，在松开时触发一次
+Triggered when the touch point clicked the collision
 
 #### Defined in
 
-[src/engine/event/eventConst/PointerEvent3D.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/eventConst/PointerEvent3D.ts#L19)
+[src/event/eventConst/PointerEvent3D.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L23)
 
 ___
 
@@ -340,9 +357,11 @@ ___
 
 ▪ `Static` **PICK\_CLICK\_GUI**: `string` = `'onPickClickGUI'`
 
+Triggered when the touch point clicked the interactive GUI
+
 #### Defined in
 
-[src/engine/event/eventConst/PointerEvent3D.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/eventConst/PointerEvent3D.ts#L20)
+[src/event/eventConst/PointerEvent3D.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L28)
 
 ___
 
@@ -350,11 +369,11 @@ ___
 
 ▪ `Static` **PICK\_OUT**: `string` = `'onPickOut'`
 
-当触控点离开碰撞体范围时触发一次
+Triggered when the touch point leave the collision
 
 #### Defined in
 
-[src/engine/event/eventConst/PointerEvent3D.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/eventConst/PointerEvent3D.ts#L25)
+[src/event/eventConst/PointerEvent3D.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L33)
 
 ___
 
@@ -362,9 +381,11 @@ ___
 
 ▪ `Static` **PICK\_OUT\_GUI**: `string` = `'onPickOutGUI'`
 
+Triggered when the touch point leave the interactive GUI
+
 #### Defined in
 
-[src/engine/event/eventConst/PointerEvent3D.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/eventConst/PointerEvent3D.ts#L26)
+[src/event/eventConst/PointerEvent3D.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L38)
 
 ___
 
@@ -372,11 +393,11 @@ ___
 
 ▪ `Static` **PICK\_MOVE**: `string` = `'onPickMove'`
 
-当触控点在碰撞体范围内移动时触发
+Triggered when the touch point move on the collision
 
 #### Defined in
 
-[src/engine/event/eventConst/PointerEvent3D.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/eventConst/PointerEvent3D.ts#L31)
+[src/event/eventConst/PointerEvent3D.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L43)
 
 ___
 
@@ -384,11 +405,11 @@ ___
 
 ▪ `Static` **PICK\_UP**: `string` = `'onPickUp'`
 
-当触控点在碰撞体范围内松开时触发一次
+Triggered when the touch point release from the collision
 
 #### Defined in
 
-[src/engine/event/eventConst/PointerEvent3D.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/eventConst/PointerEvent3D.ts#L36)
+[src/event/eventConst/PointerEvent3D.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L48)
 
 ___
 
@@ -396,9 +417,11 @@ ___
 
 ▪ `Static` **PICK\_UP\_GUI**: `string` = `'onPickUpGUI'`
 
+Triggered when the touch point release from the interactive GUI
+
 #### Defined in
 
-[src/engine/event/eventConst/PointerEvent3D.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/eventConst/PointerEvent3D.ts#L37)
+[src/event/eventConst/PointerEvent3D.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L53)
 
 ___
 
@@ -406,11 +429,11 @@ ___
 
 ▪ `Static` **PICK\_DOWN**: `string` = `'onPickDown'`
 
-当触控点在碰撞体范围内按下时触发一次
+Triggered when the touch point pressed the collision
 
 #### Defined in
 
-[src/engine/event/eventConst/PointerEvent3D.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/eventConst/PointerEvent3D.ts#L42)
+[src/event/eventConst/PointerEvent3D.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L58)
 
 ___
 
@@ -418,9 +441,11 @@ ___
 
 ▪ `Static` **PICK\_DOWN\_GUI**: `string` = `'onPickDownGUI'`
 
+Triggered when the touch point pressed the interactive GUI
+
 #### Defined in
 
-[src/engine/event/eventConst/PointerEvent3D.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/eventConst/PointerEvent3D.ts#L43)
+[src/event/eventConst/PointerEvent3D.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L63)
 
 ___
 
@@ -428,12 +453,11 @@ ___
 
 ▪ `Static` **POINTER\_RIGHT\_CLICK**: `string` = `'onPointerRightClick'`
 
-POINTER_RIGHT_CLICK 常量定义 鼠标右击事件标识。
-事件响应状态 : 鼠标右击时触发。
+Triggered when the right pointer clicked
 
 #### Defined in
 
-[src/engine/event/eventConst/PointerEvent3D.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/eventConst/PointerEvent3D.ts#L50)
+[src/event/eventConst/PointerEvent3D.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L69)
 
 ___
 
@@ -441,12 +465,11 @@ ___
 
 ▪ `Static` **POINTER\_MID\_UP**: `string` = `'onPointerMidUp'`
 
-POINTER_MID_UP 常量定义 鼠标中键松开事件标识。
-事件响应状态 : 鼠标中键松开时触发。
+Triggered when the middle pointer released
 
 #### Defined in
 
-[src/engine/event/eventConst/PointerEvent3D.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/eventConst/PointerEvent3D.ts#L56)
+[src/event/eventConst/PointerEvent3D.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L74)
 
 ___
 
@@ -454,12 +477,11 @@ ___
 
 ▪ `Static` **POINTER\_MID\_DOWN**: `string` = `'onPointerMidDown'`
 
-POINTER_MID_DOWN 常量定义 鼠标中键按下事件标识。
-事件响应状态 : 鼠标中键按下时触发。
+Triggered when the middle pointer pressed
 
 #### Defined in
 
-[src/engine/event/eventConst/PointerEvent3D.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/eventConst/PointerEvent3D.ts#L62)
+[src/event/eventConst/PointerEvent3D.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L79)
 
 ___
 
@@ -467,12 +489,11 @@ ___
 
 ▪ `Static` **POINTER\_CLICK**: `string` = `'onPointerClick'`
 
-POINTER_CLICK 常量定义 指针点击事件标识。      
-事件响应状态 : 指针点击时触发。
+Triggered when the pointer clicked
 
 #### Defined in
 
-[src/engine/event/eventConst/PointerEvent3D.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/eventConst/PointerEvent3D.ts#L67)
+[src/event/eventConst/PointerEvent3D.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L84)
 
 ___
 
@@ -480,12 +501,11 @@ ___
 
 ▪ `Static` **POINTER\_MOVE**: `string` = `'onPointerMove'`
 
-POINTER_MOVE 常量定义 指针移动事件标识。     
-事件响应状态 : 指针移动时触发。
+Triggered when the pointer moved
 
 #### Defined in
 
-[src/engine/event/eventConst/PointerEvent3D.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/eventConst/PointerEvent3D.ts#L74)
+[src/event/eventConst/PointerEvent3D.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L90)
 
 ___
 
@@ -493,12 +513,11 @@ ___
 
 ▪ `Static` **POINTER\_DOWN**: `string` = `'onPointerDown'`
 
-POINTER_DOWN 常量定义 指针按下事件标识。
-事件响应状态 : 指针按下开始触发。
+Triggered when the pointer pressed
 
 #### Defined in
 
-[src/engine/event/eventConst/PointerEvent3D.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/eventConst/PointerEvent3D.ts#L81)
+[src/event/eventConst/PointerEvent3D.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L96)
 
 ___
 
@@ -506,12 +525,11 @@ ___
 
 ▪ `Static` **POINTER\_UP**: `string` = `'onPointerUp'`
 
-POINTER_UP 常量定义 指针松开事件标识。
-事件响应状态 : 指针松开时触发。
+Triggered when the pointer released
 
 #### Defined in
 
-[src/engine/event/eventConst/PointerEvent3D.ts:88](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/eventConst/PointerEvent3D.ts#L88)
+[src/event/eventConst/PointerEvent3D.ts:102](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L102)
 
 ___
 
@@ -519,12 +537,11 @@ ___
 
 ▪ `Static` **POINTER\_OUT**: `string` = `'onPointerOut'`
 
-POINTER_OUT 常量定义 指针滑出事件标识。
-事件响应状态 : 指针滑出触发。
+Triggered when the pointer move out
 
 #### Defined in
 
-[src/engine/event/eventConst/PointerEvent3D.ts:95](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/eventConst/PointerEvent3D.ts#L95)
+[src/event/eventConst/PointerEvent3D.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L108)
 
 ___
 
@@ -532,12 +549,11 @@ ___
 
 ▪ `Static` **POINTER\_OVER**: `string` = `'onPointerOver'`
 
-POINTER_OVER 常量定义 指针滑入事件标识。
-事件响应状态 : 指针滑入触发。
+Triggered when the pointer move over
 
 #### Defined in
 
-[src/engine/event/eventConst/PointerEvent3D.ts:102](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/eventConst/PointerEvent3D.ts#L102)
+[src/event/eventConst/PointerEvent3D.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L114)
 
 ___
 
@@ -545,12 +561,11 @@ ___
 
 ▪ `Static` **POINTER\_WHEEL**: `string` = `'onPointerWheel'`
 
-POINTER_WHEEL 常量定义 滚动事件标识。
-事件响应状态 : 滚动触发。
+Triggered when the wheel pointer is used
 
 #### Defined in
 
-[src/engine/event/eventConst/PointerEvent3D.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/eventConst/PointerEvent3D.ts#L109)
+[src/event/eventConst/PointerEvent3D.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L120)
 
 ___
 
@@ -558,11 +573,11 @@ ___
 
 • **pointerId**: `number`
 
-对于某个由指针引起的事件的唯一标识。
+A unique identifier for an event caused by a pointer.
 
 #### Defined in
 
-[src/engine/event/eventConst/PointerEvent3D.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/eventConst/PointerEvent3D.ts#L114)
+[src/event/eventConst/PointerEvent3D.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L125)
 
 ___
 
@@ -570,11 +585,11 @@ ___
 
 • **pointerType**: `string`
 
-表明引发该事件的设备类型（鼠标/笔/触摸等）。
+event type
 
 #### Defined in
 
-[src/engine/event/eventConst/PointerEvent3D.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/eventConst/PointerEvent3D.ts#L119)
+[src/event/eventConst/PointerEvent3D.ts:130](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L130)
 
 ___
 
@@ -582,11 +597,11 @@ ___
 
 • **isPrimary**: `boolean`
 
-表示该指针是否为该类型指针中的首选指针。
+whether it's the preferred pointer in this type of pointer.
 
 #### Defined in
 
-[src/engine/event/eventConst/PointerEvent3D.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/eventConst/PointerEvent3D.ts#L123)
+[src/event/eventConst/PointerEvent3D.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L135)
 
 ___
 
@@ -594,11 +609,11 @@ ___
 
 • **pressure**: `number`
 
-规范化后的指针输入的压力值，取值范围为 0 到 1，0 代表硬件可检测到的压力最小值，1 代表最大值。
+Normalize values
 
 #### Defined in
 
-[src/engine/event/eventConst/PointerEvent3D.ts:128](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/eventConst/PointerEvent3D.ts#L128)
+[src/event/eventConst/PointerEvent3D.ts:140](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L140)
 
 ___
 
@@ -606,11 +621,11 @@ ___
 
 • **mouseX**: `number`
 
-当前x坐标
+coord x of mouse
 
 #### Defined in
 
-[src/engine/event/eventConst/PointerEvent3D.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/eventConst/PointerEvent3D.ts#L133)
+[src/event/eventConst/PointerEvent3D.ts:145](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L145)
 
 ___
 
@@ -618,11 +633,11 @@ ___
 
 • **mouseY**: `number`
 
-当前y坐标
+coord y of mouse
 
 #### Defined in
 
-[src/engine/event/eventConst/PointerEvent3D.ts:138](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/eventConst/PointerEvent3D.ts#L138)
+[src/event/eventConst/PointerEvent3D.ts:150](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L150)
 
 ___
 
@@ -630,11 +645,11 @@ ___
 
 • **movementX**: `number`
 
-当前事件和上一个鼠标事件之间鼠标在水平方向上的移动值。
+delta of coord x of mouse
 
 #### Defined in
 
-[src/engine/event/eventConst/PointerEvent3D.ts:143](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/eventConst/PointerEvent3D.ts#L143)
+[src/event/eventConst/PointerEvent3D.ts:155](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L155)
 
 ___
 
@@ -642,11 +657,11 @@ ___
 
 • **movementY**: `number`
 
-当前事件和上一个鼠标事件之间鼠标在垂直方向上的移动值。
+delta of coord y of mouse
 
 #### Defined in
 
-[src/engine/event/eventConst/PointerEvent3D.ts:148](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/eventConst/PointerEvent3D.ts#L148)
+[src/event/eventConst/PointerEvent3D.ts:160](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L160)
 
 ___
 
@@ -654,11 +669,12 @@ ___
 
 • **deltaX**: `number`
 
-在向左滚动时返回负双值，向右滚动时返回正双值，否则为0。
+Returns a negative value when scrolling left, 
+a positive value when scrolling right, otherwise 0.
 
 #### Defined in
 
-[src/engine/event/eventConst/PointerEvent3D.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/eventConst/PointerEvent3D.ts#L153)
+[src/event/eventConst/PointerEvent3D.ts:166](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L166)
 
 ___
 
@@ -666,11 +682,12 @@ ___
 
 • **deltaY**: `number`
 
-在向下滚动时返回正值，向上滚动时返回负值，否则为0。
+Returns a positive value when scrolling down,
+ a negative value when scrolling up, otherwise 0.
 
 #### Defined in
 
-[src/engine/event/eventConst/PointerEvent3D.ts:158](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/eventConst/PointerEvent3D.ts#L158)
+[src/event/eventConst/PointerEvent3D.ts:172](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L172)
 
 ## Constructors
 
@@ -678,14 +695,14 @@ ___
 
 • **new PointerEvent3D**(`eventType?`, `data?`)
 
-创建一个作为参数传递给事件侦听器的 Event对象。
+Create a new event, with type and data
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `eventType` | `string` | `null` | {any} 事件类型 |
-| `data` | `any` | `null` | {any} 附加数据(可选) |
+| `eventType` | `string` | `null` | {any} eventType |
+| `data` | `any` | `null` | {any} param |
 
 #### Inherited from
 
@@ -693,7 +710,7 @@ ___
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:100](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L100)
+[src/event/CEvent.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L97)
 
 ## Methods
 
@@ -701,7 +718,7 @@ ___
 
 ▸ **stopImmediatePropagation**(): `void`
 
-防止对事件流中当前节点的后续节点中的所有事件侦听器进行处理。
+Prevent bubbling of all event listeners in subsequent nodes of the current node in the event flow.
 
 #### Returns
 
@@ -713,7 +730,7 @@ ___
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L108)
+[src/event/CEvent.ts:105](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L105)
 
 ## Accessors
 
@@ -721,7 +738,7 @@ ___
 
 • `get` **isStopImmediatePropagation**(): `boolean`
 
-(只读)是否调用过 stopImmediatePropagation() 方法.
+Returns stopImmediatePropagation value
 
 #### Returns
 
@@ -733,4 +750,4 @@ CEvent.isStopImmediatePropagation
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L123)
+[src/event/CEvent.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L120)

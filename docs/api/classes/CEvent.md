@@ -1,12 +1,12 @@
 # Class: CEvent
 
-所有事件类的基类
+Basic class of Event
 
 ## Hierarchy
 
 - **`CEvent`**
 
-  ↳ [`AnimationEvent`](AnimationEvent.md)
+  ↳ [`OAnimationEvent`](OAnimationEvent.md)
 
   ↳ [`KeyEvent`](KeyEvent.md)
 
@@ -29,6 +29,7 @@
 - [targetTouches](CEvent.md#targettouches)
 - [changedTouches](CEvent.md#changedtouches)
 - [touches](CEvent.md#touches)
+- [view](CEvent.md#view)
 
 ### Constructors
 
@@ -48,12 +49,11 @@
 
 • **target**: [`Object3D`](Object3D.md)
 
-事件目标。
-一般为注册事件的对象本身。
+Event target, it's usually event dispatcher
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L14)
+[src/event/CEvent.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L13)
 
 ___
 
@@ -61,12 +61,11 @@ ___
 
 • **currentTarget**: `CEventListener`
 
-事件当前目标。
-一般为注册事件的对象本身。
+Current event target, it's current bubble object
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L20)
+[src/event/CEvent.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L18)
 
 ___
 
@@ -74,11 +73,11 @@ ___
 
 • **type**: `string`
 
-引擎中的事件的类型标识字符串
+event type, it's registered string of key
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L26)
+[src/event/CEvent.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L23)
 
 ___
 
@@ -86,12 +85,11 @@ ___
 
 • **data**: `any`
 
-附加数据。
-例如,保存QueueLoader加载后的原始数据,加载完毕后,作为参数传出。
+extra data.Used for the transmission process of events, carrying data
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L33)
+[src/event/CEvent.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L28)
 
 ___
 
@@ -99,11 +97,11 @@ ___
 
 • **param**: `any`
 
-注册事件时传递的参数
+The param data when event is registered
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L39)
+[src/event/CEvent.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L34)
 
 ___
 
@@ -111,11 +109,11 @@ ___
 
 • **time**: `number` = `0`
 
-当前时间戳。
+the time when event is
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L45)
+[src/event/CEvent.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L40)
 
 ___
 
@@ -123,11 +121,11 @@ ___
 
 • **delay**: `number` = `0`
 
-每帧间隔延时。
+the delay time when event is dispatched.
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L51)
+[src/event/CEvent.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L46)
 
 ___
 
@@ -135,11 +133,15 @@ ___
 
 • **mouseCode**: `number` = `0`
 
-鼠标code值,枚举值可以参考MouseCode [MouseCode](../enums/MouseCode.md)
+mouse code, see
+
+**`Mouse Code`**
+
+[MouseCode](../enums/MouseCode.md)
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L57)
+[src/event/CEvent.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L52)
 
 ___
 
@@ -147,11 +149,11 @@ ___
 
 • **ctrlKey**: `boolean`
 
-事件发生时 Ctrl 是否被按下
+Is Ctrl key pressed when the event occurs
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L62)
+[src/event/CEvent.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L57)
 
 ___
 
@@ -159,11 +161,11 @@ ___
 
 • **altKey**: `boolean`
 
-事件发生时 Alt 是否被按下
+Is Alt key pressed when the event occurs
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L67)
+[src/event/CEvent.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L62)
 
 ___
 
@@ -171,11 +173,11 @@ ___
 
 • **shiftKey**: `boolean`
 
-事件发生时 Shift 是否被按下
+Is Shift key pressed when the event occurs
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L72)
+[src/event/CEvent.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L67)
 
 ___
 
@@ -183,12 +185,11 @@ ___
 
 • **targetTouches**: `TouchData`[]
 
-手指触摸到绑定事件的节点上的触摸点的集合
-touch列表 TouchData
+Collection of finger touch points, which registered
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L78)
+[src/event/CEvent.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L72)
 
 ___
 
@@ -196,12 +197,11 @@ ___
 
 • **changedTouches**: `TouchData`[]
 
-触摸事件时改变触摸点的集合
-touch列表 TouchData
+Collection of finger touch points changed
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L84)
+[src/event/CEvent.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L77)
 
 ___
 
@@ -209,12 +209,23 @@ ___
 
 • **touches**: `TouchData`[]
 
-手指触摸到屏幕上引起的当前所有触摸点的集合
-touch列表 TouchData
+Collection of finger touch points
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L90)
+[src/event/CEvent.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L82)
+
+___
+
+### view
+
+• **view**: [`View3D`](View3D.md)
+
+binded view3D object in event.
+
+#### Defined in
+
+[src/event/CEvent.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L89)
 
 ## Constructors
 
@@ -222,18 +233,18 @@ touch列表 TouchData
 
 • **new CEvent**(`eventType?`, `data?`)
 
-创建一个作为参数传递给事件侦听器的 Event对象。
+Create a new event, with type and data
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `eventType` | `string` | `null` | {any} 事件类型 |
-| `data` | `any` | `null` | {any} 附加数据(可选) |
+| `eventType` | `string` | `null` | {any} eventType |
+| `data` | `any` | `null` | {any} param |
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:100](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L100)
+[src/event/CEvent.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L97)
 
 ## Methods
 
@@ -241,7 +252,7 @@ touch列表 TouchData
 
 ▸ **stopImmediatePropagation**(): `void`
 
-防止对事件流中当前节点的后续节点中的所有事件侦听器进行处理。
+Prevent bubbling of all event listeners in subsequent nodes of the current node in the event flow.
 
 #### Returns
 
@@ -249,7 +260,7 @@ touch列表 TouchData
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L108)
+[src/event/CEvent.ts:105](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L105)
 
 ## Accessors
 
@@ -257,7 +268,7 @@ touch列表 TouchData
 
 • `get` **isStopImmediatePropagation**(): `boolean`
 
-(只读)是否调用过 stopImmediatePropagation() 方法.
+Returns stopImmediatePropagation value
 
 #### Returns
 
@@ -265,4 +276,4 @@ touch列表 TouchData
 
 #### Defined in
 
-[src/engine/event/CEvent.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEvent.ts#L123)
+[src/event/CEvent.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L120)

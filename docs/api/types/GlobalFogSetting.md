@@ -2,21 +2,22 @@
 
 Ƭ **GlobalFogSetting**: `Object`
 
-屏幕反光设置
+Global fog effect setting
 
 #### Type declaration
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `enable` | `boolean` | 开始/关闭 |
-| `fogType` | `number` | 雾的类型：0/1/2，对应线性/指数/指数平方 |
-| `height` | `number` | 设置高度对雾的影响 |
-| `start` | `number` | 设定物体距离相机为distance，则在start和end区间内，雾的浓度被线性插值 |
-| `end` | `number` | 设定物体距离相机为distance，则在start和end区间内，雾的浓度被线性插值 |
-| `density` | `number` | 指数/指数平方雾类型下，雾浓度系数加成 |
-| `ins` | `number` | 设置高度对于雾的影响（与height共同作用） |
-| `fogColor` | [`Color`](../classes/Color.md) | 雾的颜色 |
+| `debug` | `any` | - |
+| `enable` | `boolean` | enable |
+| `fogType` | `number` | type of fog: 0: linear exponent 2: squar exponent |
+| `height` | `number` | Setting the Influence of Height on Fog |
+| `start` | `number` | If the distance between the object and the camera is set as distance, the fog concentration will be linear interpolation between start and end |
+| `end` | `number` | If the distance between the object and the camera is set as distance, the fog concentration will be linear interpolation between start and end |
+| `density` | `number` | When the type is exponential square fog, the fog concentration coefficient is added |
+| `ins` | `number` | The effect of setting height on fog (working together with height) |
+| `fogColor` | [`Color`](../classes/Color.md) | fog color |
 
 #### Defined in
 
-[src/engine/EngineConfig.ts:270](https://github.com/Orillusion/orillusion/blob/main/src/engine/EngineConfig.ts#L270)
+[src/setting/post/GlobalFogSetting.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L7)

@@ -1,6 +1,6 @@
 # Class: Ray
 
-射线
+Ray
 
 
 ### Properties
@@ -18,6 +18,7 @@
 
 ### Methods
 
+- [clone](Ray.md#clone)
 - [intersectsBox](Ray.md#intersectsbox)
 - [intersectBox](Ray.md#intersectbox)
 - [at](Ray.md#at)
@@ -39,11 +40,11 @@
 
 • **origin**: [`Vector3`](Vector3.md)
 
-射线起始点
+Ray starting point
 
 #### Defined in
 
-[src/engine/math/Ray.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Ray.ts#L19)
+[src/math/Ray.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L16)
 
 ___
 
@@ -51,11 +52,11 @@ ___
 
 • **length**: `number` = `Number.MAX_VALUE`
 
-长度
+length
 
 #### Defined in
 
-[src/engine/math/Ray.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Ray.ts#L27)
+[src/math/Ray.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L21)
 
 ## Constructors
 
@@ -63,18 +64,18 @@ ___
 
 • **new Ray**(`origin?`, `dir?`)
 
-构建新的射线对象
+Build a new ray object
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `origin?` | [`Vector3`](Vector3.md) | 射线起始点 |
-| `dir?` | [`Vector3`](Vector3.md) | 射线方向 |
+| `origin?` | [`Vector3`](Vector3.md) | Ray starting point |
+| `dir?` | [`Vector3`](Vector3.md) | Ray direction |
 
 #### Defined in
 
-[src/engine/math/Ray.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Ray.ts#L34)
+[src/math/Ray.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L34)
 
 ## Accessors
 
@@ -82,7 +83,7 @@ ___
 
 • `get` **direction**(): [`Vector3`](Vector3.md)
 
-获取射线方向
+Ray direction
 
 #### Returns
 
@@ -90,17 +91,15 @@ ___
 
 #### Defined in
 
-[src/engine/math/Ray.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Ray.ts#L43)
+[src/math/Ray.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L43)
 
 • `set` **direction**(`dir`): `void`
 
-设置射线方向
-
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `dir` | [`Vector3`](Vector3.md) | 方向向量 |
+| Name | Type |
+| :------ | :------ |
+| `dir` | [`Vector3`](Vector3.md) |
 
 #### Returns
 
@@ -108,31 +107,47 @@ ___
 
 #### Defined in
 
-[src/engine/math/Ray.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Ray.ts#L51)
+[src/math/Ray.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L47)
 
 ## Methods
+
+### clone
+
+▸ **clone**(): [`Ray`](Ray.md)
+
+Clone a new Ray object
+
+#### Returns
+
+[`Ray`](Ray.md)
+
+#### Defined in
+
+[src/math/Ray.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L56)
+
+___
 
 ### intersectsBox
 
 ▸ **intersectsBox**(`box`): `boolean`
 
-判断是否和某包围盒相交
+Determine whether it intersects a bounding box
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `box` | `IBound` | 包围盒 |
+| `box` | `IBound` | bounding box |
 
 #### Returns
 
 `boolean`
 
-返回是否相交
+whether intersect
 
 #### Defined in
 
-[src/engine/math/Ray.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Ray.ts#L61)
+[src/math/Ray.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L65)
 
 ___
 
@@ -140,24 +155,25 @@ ___
 
 ▸ **intersectBox**(`box`, `target`): [`Vector3`](Vector3.md)
 
-判断是否和某包围盒相交，并计算交点
+Determine whether it intersects with a bounding box and 
+calculate the intersection point
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `box` | `IBound` | 包围盒 |
-| `target` | [`Vector3`](Vector3.md) | 输出交点 |
+| `box` | `IBound` | bounding box |
+| `target` | [`Vector3`](Vector3.md) | Output intersection |
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-返回是否相交
+whether intersect
 
 #### Defined in
 
-[src/engine/math/Ray.ts:71](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Ray.ts#L71)
+[src/math/Ray.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L76)
 
 ___
 
@@ -165,24 +181,24 @@ ___
 
 ▸ **at**(`t`, `target`): [`Vector3`](Vector3.md)
 
-计算射线上的某点
+Calculate a point on the ray
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `t` | `number` | 长度标量 |
-| `target` | [`Vector3`](Vector3.md) | 输出值 |
+| `t` | `number` | Length scalar |
+| `target` | [`Vector3`](Vector3.md) | output target |
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-输出值
+result
 
 #### Defined in
 
-[src/engine/math/Ray.ts:132](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Ray.ts#L132)
+[src/math/Ray.ts:137](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L137)
 
 ___
 
@@ -190,23 +206,23 @@ ___
 
 ▸ **copy**(`src`): [`Ray`](Ray.md)
 
-将射线设置为从原射线的拷贝
+Sets the ray to be a copy of the original ray
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `src` | [`Ray`](Ray.md) | 原射线 |
+| `src` | [`Ray`](Ray.md) | Ray object source |
 
 #### Returns
 
 [`Ray`](Ray.md)
 
-拷贝后的射线对象本身
+New ray object
 
 #### Defined in
 
-[src/engine/math/Ray.ts:147](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Ray.ts#L147)
+[src/math/Ray.ts:150](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L150)
 
 ___
 
@@ -214,13 +230,13 @@ ___
 
 ▸ **setApproxDirection**(`dir`): `void`
 
-快速射至近似射线方向
+Fast to the approximate ray direction
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `dir` | [`Vector3`](Vector3.md) | 输入方向 |
+| `dir` | [`Vector3`](Vector3.md) | direction |
 
 #### Returns
 
@@ -228,7 +244,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Ray.ts:159](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Ray.ts#L159)
+[src/math/Ray.ts:162](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L162)
 
 ___
 
@@ -236,13 +252,13 @@ ___
 
 ▸ **setOrigin**(`origin`): `void`
 
-设置射线起点
+Set ray origin
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `origin` | [`Vector3`](Vector3.md) | 输入起点 |
+| `origin` | [`Vector3`](Vector3.md) | ray origin |
 
 #### Returns
 
@@ -250,7 +266,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Ray.ts:167](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Ray.ts#L167)
+[src/math/Ray.ts:170](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L170)
 
 ___
 
@@ -258,7 +274,7 @@ ___
 
 ▸ **getOrigin**(): [`Vector3`](Vector3.md)
 
-获取射线起点
+Get ray origin
 
 #### Returns
 
@@ -266,7 +282,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Ray.ts:174](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Ray.ts#L174)
+[src/math/Ray.ts:177](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L177)
 
 ___
 
@@ -274,23 +290,23 @@ ___
 
 ▸ **getPoint**(`t`): [`Vector3`](Vector3.md)
 
-获取射线上指定位置的点
+Gets the point at the specified position on the ray
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `t` | `number` | 长度位置 |
+| `t` | `number` | Length position |
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-返回指定位置的点
+Returns a point at the specified location
 
 #### Defined in
 
-[src/engine/math/Ray.ts:183](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Ray.ts#L183)
+[src/math/Ray.ts:186](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L186)
 
 ___
 
@@ -298,23 +314,23 @@ ___
 
 ▸ **sqrDistToPoint**(`P`): `number`
 
-计算距某点的距离
+Calculate the distance from a point
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `P` | [`Vector3`](Vector3.md) | 指定点 |
+| `P` | [`Vector3`](Vector3.md) | Specify Point |
 
 #### Returns
 
 `number`
 
-返回计算结果
+result
 
 #### Defined in
 
-[src/engine/math/Ray.ts:193](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Ray.ts#L193)
+[src/math/Ray.ts:196](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L196)
 
 ___
 
@@ -322,13 +338,13 @@ ___
 
 ▸ **applyMatrix**(`mat4`): `void`
 
-应用矩阵变换
+Applied matrix transformation
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `mat4` | [`Matrix4`](Matrix4.md) | 变换矩阵 |
+| `mat4` | [`Matrix4`](Matrix4.md) | matrix |
 
 #### Returns
 
@@ -336,7 +352,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Ray.ts:209](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Ray.ts#L209)
+[src/math/Ray.ts:212](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L212)
 
 ___
 
@@ -344,26 +360,26 @@ ___
 
 ▸ **pointInTriangle**(`P`, `A`, `B`, `C`): `boolean`
 
-计算指定点是否在某个三角形内
+Calculates whether a specified point is inside a triangle
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `P` | [`Vector3`](Vector3.md) | 输入点 |
-| `A` | [`Vector3`](Vector3.md) | 三角形顶点1 |
-| `B` | [`Vector3`](Vector3.md) | 三角形顶点2 |
-| `C` | [`Vector3`](Vector3.md) | 三角形顶点3 |
+| `P` | [`Vector3`](Vector3.md) | point |
+| `A` | [`Vector3`](Vector3.md) | Triangle vertex 1 |
+| `B` | [`Vector3`](Vector3.md) | Triangle vertex 2 |
+| `C` | [`Vector3`](Vector3.md) | Triangle vertex 3 |
 
 #### Returns
 
 `boolean`
 
-返回是否在三角形内
+whether it is inside a triangle
 
 #### Defined in
 
-[src/engine/math/Ray.ts:226](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Ray.ts#L226)
+[src/math/Ray.ts:229](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L229)
 
 ___
 
@@ -371,25 +387,25 @@ ___
 
 ▸ **intersectTriangle**(`orig`, `dir`, `face`): [`Vector3`](Vector3.md)
 
-判断某射线是否和某三角型相交
+Determine whether a ray intersects a triangle
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `orig` | [`Vector3`](Vector3.md) | 射线起始点 |
-| `dir` | [`Vector3`](Vector3.md) | 射线方向 |
-| `face` | `Triangle` | 三角形 |
+| `orig` | [`Vector3`](Vector3.md) | Ray starting point |
+| `dir` | [`Vector3`](Vector3.md) | Ray direction |
+| `face` | `Triangle` | triangle |
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-交点
+point of intersection
 
 #### Defined in
 
-[src/engine/math/Ray.ts:271](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Ray.ts#L271)
+[src/math/Ray.ts:274](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L274)
 
 ___
 
@@ -397,26 +413,26 @@ ___
 
 ▸ **intersectSphere**(`o`, `dir`, `center`, `radius`): [`Vector3`](Vector3.md)
 
-判断某射线是否和球面相交
+Determine whether a ray intersects the sphere
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `o` | [`Vector3`](Vector3.md) | 射线起始点 |
-| `dir` | [`Vector3`](Vector3.md) | 射线方向 |
-| `center` | [`Vector3`](Vector3.md) | 球体中心 |
-| `radius` | `number` | 球体半径 |
+| `o` | [`Vector3`](Vector3.md) | Ray starting point |
+| `dir` | [`Vector3`](Vector3.md) | Ray direction |
+| `center` | [`Vector3`](Vector3.md) | Sphere center |
+| `radius` | `number` | radius of sphericity |
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-交点
+point of intersection
 
 #### Defined in
 
-[src/engine/math/Ray.ts:342](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Ray.ts#L342)
+[src/math/Ray.ts:337](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L337)
 
 ___
 
@@ -424,21 +440,22 @@ ___
 
 ▸ **intersectionSegment**(`sega`, `segb`, `threshold`): `Object`
 
-在给定容差（阈值）内，射线与给定线段之间的相交测试
+A test of the intersection between a ray and 
+a given line segment within a given tolerance (threshold)
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `sega` | [`Vector3`](Vector3.md) | 用于测试交点的线段的第一个点 |
-| `segb` | [`Vector3`](Vector3.md) | 用于测试交点的线段的第二个点 |
-| `threshold` | `number` | 容差余量，如果光线不与线段相交但接近给定阈值，则相交成功 |
+| `sega` | [`Vector3`](Vector3.md) | The first point of a line segment used to test the intersection |
+| `segb` | [`Vector3`](Vector3.md) | The second point of a line segment used to test the intersection |
+| `threshold` | `number` | Margin, if the ray does not intersect the line segment but is close to the given threshold, the intersection is successful |
 
 #### Returns
 
 `Object`
 
-如果有交点，则从射线原点到交点的距离，如果没有交点，则为 -1
+If there is an intersection, then the distance from the ray origin to the intersection, if there is no intersection, is -1
 
 | Name | Type |
 | :------ | :------ |
@@ -447,4 +464,4 @@ ___
 
 #### Defined in
 
-[src/engine/math/Ray.ts:373](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Ray.ts#L373)
+[src/math/Ray.ts:369](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L369)
