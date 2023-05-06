@@ -1,5 +1,5 @@
 import {
-    Engine3D, Vector3, Scene3D, Object3D, Camera3D, AtmosphericComponent, View3D, UnLitMaterial, MeshRenderer, HoverCameraController, PlaneGeometry, BitmapTexture2D, Vector4, GPUAddressMode, DirectLight, Color
+    Engine3D, Vector3, Scene3D, Object3D, Camera3D, AtmosphericComponent, View3D, UnLitMaterial, MeshRenderer, HoverCameraController, PlaneGeometry, Vector4, GPUAddressMode, DirectLight, Color
 } from "@orillusion/core";
 
 async function demo() {
@@ -8,7 +8,7 @@ async function demo() {
     let camera = new Object3D();
     scene.addChild(camera)
     let mainCamera = camera.addComponent(Camera3D);
-    mainCamera.perspective(60, window.innerWidth / window.innerHeight, 0.1, 10000.0);
+    mainCamera.perspective(60, Engine3D.aspect, 0.1, 10000.0);
     let hc = camera.addComponent(HoverCameraController);
     hc.setCamera(0, 0, 2);
 

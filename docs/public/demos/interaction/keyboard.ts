@@ -91,7 +91,7 @@ async function init() {
     cameraObj = new Object3D();
     camera = cameraObj.addComponent(Camera3D);
     // 设置正交相机
-    camera.perspective(60, window.innerWidth / window.innerHeight, 1, 5000.0);
+    camera.perspective(60, Engine3D.aspect, 1, 5000.0);
     camera.lookAt(new Vector3(0, 5, 15), new Vector3(0, 0, 0));
 
     // 设置主相机

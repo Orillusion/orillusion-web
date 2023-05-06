@@ -9,7 +9,7 @@ async function demo() {
     camera.z = 3;
     scene.addChild(camera)
     let mainCamera = camera.addComponent(Camera3D);
-    mainCamera.perspective(60, window.innerWidth / window.innerHeight, 0.1, 10000.0);
+    mainCamera.perspective(60, Engine3D.aspect, 0.1, 10000.0);
     let oribit = camera.addComponent(OrbitController);
     oribit.autoRotate = true;
     oribit.autoRotateSpeed = 1;

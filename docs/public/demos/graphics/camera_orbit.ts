@@ -8,7 +8,7 @@ async function demo() {
 
     let cameraObj = new Object3D();
     let camera = cameraObj.addComponent(Camera3D);
-    camera.perspective(60, window.innerWidth / window.innerHeight, 0.1, 5000.0);
+    camera.perspective(60, Engine3D.aspect, 0.1, 5000.0);
     // 设置 cameraObj 位置即可调节视角
     cameraObj.localPosition.set(0, 10, 20);
     let orbit = cameraObj.addComponent(OrbitController);

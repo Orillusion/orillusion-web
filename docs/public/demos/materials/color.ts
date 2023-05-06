@@ -13,7 +13,7 @@ export class Sample_Materials {
         cameraObj.name = `cameraObj`;
         let mainCamera = cameraObj.addComponent(Camera3D);
         this.scene.addChild(cameraObj);
-        mainCamera.perspective(60, window.innerWidth / window.innerHeight, 1, 5000.0);
+        mainCamera.perspective(60, Engine3D.aspect, 1, 5000.0);
         cameraObj.addComponent(HoverCameraController);
 
         await this.initScene();

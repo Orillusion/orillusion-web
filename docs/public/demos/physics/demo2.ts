@@ -50,7 +50,7 @@ export class Sample_colliders {
     let mainCamera = cameraObj.addComponent(Camera3D);
     // 调整摄像机视角
     mainCamera.lookAt(new Vector3(0, 0, 10), new Vector3(0, 0, 0));
-    mainCamera.perspective(60, window.innerWidth / window.innerHeight, 1, 5000.0);
+    mainCamera.perspective(60, Engine3D.aspect, 1, 5000.0);
     let controller = mainCamera.object3D.addComponent(HoverCameraController);
     controller.setCamera(45, -15, 150, new Vector3(0, 30, 0));
     // 添加相机节点

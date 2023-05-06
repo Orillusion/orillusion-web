@@ -1,5 +1,5 @@
 import {
-    Engine3D, Scene3D, Object3D, Camera3D, AtmosphericComponent, View3D, DirectLight, HoverCameraController, Color, CameraUtil, SkeletonAnimationComponent, FXAAPost, HDRBloomPost, Vector3
+    Engine3D, Scene3D, Object3D, AtmosphericComponent, View3D, DirectLight, HoverCameraController, Color, CameraUtil, SkeletonAnimationComponent, Vector3
 } from "@orillusion/core";
 
 import * as dat from "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js"
@@ -14,7 +14,7 @@ async function demo() {
 
     // 初始化相机;
     let mainCamera = CameraUtil.createCamera3DObject(scene);
-    mainCamera.perspective(60, window.innerWidth / window.innerHeight, 0.1, 10000.0);
+    mainCamera.perspective(60, Engine3D.aspect, 0.1, 10000.0);
     let hc = mainCamera.object3D.addComponent(HoverCameraController);
     hc.setCamera(0, -15, 10, new Vector3(0, 1, 0))
 

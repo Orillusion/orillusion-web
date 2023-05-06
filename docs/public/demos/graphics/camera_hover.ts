@@ -8,7 +8,7 @@ async function demo() {
 
     let cameraObj = new Object3D();
     let camera = cameraObj.addComponent(Camera3D);
-    camera.perspective(60, window.innerWidth / window.innerHeight, 0.1, 5000.0);
+    camera.perspective(60, Engine3D.aspect, 0.1, 5000.0);
     let hoverController = cameraObj.addComponent(HoverCameraController);
     hoverController.setCamera(15, -15, 15, new Vector3(0, 0, 0));
     scene.addChild(cameraObj);

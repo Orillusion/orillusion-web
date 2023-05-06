@@ -9,7 +9,7 @@ export class Demo_GaussianBlur {
         await this.initScene(scene);
 
         let mainCamera = CameraUtil.createCamera3DObject(scene);
-        mainCamera.perspective(60, window.innerWidth / window.innerHeight, 0.01, 10000.0);
+        mainCamera.perspective(60, Engine3D.aspect, 0.01, 10000.0);
 
         let ctl = mainCamera.object3D.addComponent(HoverCameraController);
         ctl.setCamera(45, -30, 5)
