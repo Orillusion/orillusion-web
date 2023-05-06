@@ -20,7 +20,7 @@ export class Sample_MousePick {
         this.scene = new Scene3D();
         this.scene.addComponent(AtmosphericComponent);
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, webGPUContext.aspect, 1, 5000.0);
+        camera.perspective(60, Engine3D.aspect, 1, 5000.0);
 
         this.hover = camera.object3D.addComponent(HoverCameraController);
         this.hover.setCamera(-45, -45, 120);

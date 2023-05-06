@@ -23,7 +23,7 @@ export default class TouchDemo {
         this.camera = this.cameraObj.addComponent(Camera3D)
         this.scene.addChild(this.cameraObj);
         this.camera.lookAt(new Vector3(0, 0, 10), new Vector3(0, 0, 0));
-        this.camera.perspective(60, window.innerWidth / window.innerHeight, 1, 10000.0);
+        this.camera.perspective(60, Engine3D.aspect, 1, 10000.0);
 
         let box = this.createBox(-2, 0, 0);
         let sphere = this.createSphere(2, 0, 0);

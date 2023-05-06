@@ -30,7 +30,7 @@ export class Sample_PBRMaterial {
         this.camera.z = 20
         this.scene.addChild(this.camera)
         let mainCamera = this.camera.addComponent(Camera3D)
-        mainCamera.perspective(60, window.innerWidth / window.innerHeight, 0.01, 5000.0);
+        mainCamera.perspective(60, Engine3D.aspect, 0.01, 5000.0);
 
         let orbit = this.camera.addComponent(OrbitController)
         orbit.minDistance = 10

@@ -26,7 +26,7 @@ async function initCamera() {
     let scene3D: Scene3D = new Scene3D();
     cameraObj = new Object3D();
     camera = cameraObj.addComponent(Camera3D);
-    camera.perspective(60, window.innerWidth / window.innerHeight, 0.1, 10000.0);
+    camera.perspective(60, Engine3D.aspect, 0.1, 10000.0);
     cameraObj.addComponent(HoverCameraController);
     camera.lookAt(new Vector3(0, 0, -350), new Vector3(0, 0, 0));
     scene3D.addChild(cameraObj);

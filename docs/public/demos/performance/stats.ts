@@ -11,7 +11,7 @@ async function demo() {
     scene3D.addComponent(Stats);
     let cameraObj = new Object3D();
     let camera = cameraObj.addComponent(Camera3D);
-    camera.perspective(60, window.innerWidth / window.innerHeight, 1, 5000.0);
+    camera.perspective(60, Engine3D.aspect, 1, 5000.0);
     cameraObj.addComponent(HoverCameraController);
     scene3D.addChild(cameraObj);
 

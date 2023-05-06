@@ -19,7 +19,7 @@ async function demo() {
   let cameraObj = new Object3D();
   let camera = cameraObj.addComponent(Camera3D);
   // adjust camera view
-  camera.perspective(60, window.innerWidth / window.innerHeight, 1, 5000.0);
+  camera.perspective(60, Engine3D.aspect, 1, 5000.0);
   // set camera controller
   cameraObj.addComponent(HoverCameraController);
   // add camera node
