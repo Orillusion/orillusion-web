@@ -1,5 +1,5 @@
 import { Engine3D, Scene3D, Object3D, Camera3D, Vector3, AtmosphericComponent, View3D, LitMaterial, BoxGeometry, MeshRenderer, UnLitMaterial, SphereGeometry, DirectLight, PointLight, SpotLight, HoverCameraController, PlaneGeometry } from "@orillusion/core";
-import * as dat from "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js"
+import * as dat from "dat.gui"
 
 async function demo() {
     // 配置 shadow 参数

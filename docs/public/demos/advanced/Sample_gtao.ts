@@ -1,5 +1,5 @@
 import { DirectLight, Engine3D, PostProcessingComponent, View3D, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, SphereGeometry, Time, CameraUtil, webGPUContext, AtmosphericComponent, GTAOPost, Vector3, TAAPost, SSRPost } from '@orillusion/core';
-import * as dat from "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js"
+import * as dat from "dat.gui"
 
 export class Sample_GTAO {
 	lightObj: Object3D;

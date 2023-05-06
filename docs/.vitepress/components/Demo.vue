@@ -4,17 +4,13 @@
         code: code,
         ban: !support 
     }" :style="{height: height + 'px'}">
-        <template v-if="support">
-            <iframe ref="iframe" :src="href" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
-            <Logo v-show="loading" class="loading-wrap"></Logo>
-        </template>
-        <template v-else>
-            <p>
+            <iframe v-if="support" ref="iframe" :src="href" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
+            <Logo v-show="support && loading" class="loading-wrap"></Logo>
+            <p v-if="!support">
                 <img src="/images/logo_white.png" width="100" style="margin:0 auto 15px auto" /><br>
                 Orillusion powered by WebGPU on Chrome/Edge 113+<br>
-                Please upgrade to latest <a href="https://www.google.com/chrome/canary/" target="_blank">Chrome</a>/<a href="https://www.microsoftedgeinsider.com/download/canary" target="_blank">Edge</a>
+                Please upgrade to latest <a href="https://www.google.com/chrome/" target="_blank">Chrome</a>/<a href="https://www.microsoftedgeinsider.com/download/" target="_blank">Edge</a>
             </p>
-        </template>
         <a class="toggle" v-if="code" @click="full = !full">{{ full ? '>': '<'}}</a>
     </div>
 </template>
@@ -199,13 +195,16 @@ export default {
     top: 0;
     bottom: 0;
     display: flex;
-    z-index: -1;
+    z-index: 0;
     background: transparent;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     height: 100% !important;
 }
+/* .demo:not(.code) > .loading-wrap{
+    z-index: 0;
+} */
 .loading-wrap :deep(svg){
     width: 100px;
     margin: 0 auto;

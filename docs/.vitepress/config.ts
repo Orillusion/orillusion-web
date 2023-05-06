@@ -1,6 +1,5 @@
 import { defineConfig } from 'vitepress'
 import { readFileSync, readdirSync } from 'fs'
-
 type SidebarItem = {
     text: string;
     collapsible?: boolean;
@@ -22,8 +21,10 @@ export default async () => defineConfig({
     head: [
         ['link', { rel: 'shortcut icon', type: "image/png", href: '/images/icons/icon-192.png' }],
         ['link', { rel: 'apple-touch-icon', href: '/images/icons/icon-512.png' }],
-        ['link', { rel: 'prefetch', href: 'https://cdn.orillusion.com/orillusion.es.js' }],
-        ['link', { rel: 'prefetch', href: 'https://cdn.orillusion.com/physics.es.js' }],
+        ['link', { rel: 'prefetch', href: 'https://unpkg.com/@orillusion/core@0.6/dist/orillusion.es.js' }],
+        ['link', { rel: 'prefetch', href: 'https://unpkg.com/@orillusion/physics@0.2/dist/physics.es.js' }],
+        ['link', { rel: 'prefetch', href: 'https://unpkg.com/@orillusion/stats@0.2/dist/stats.es.js' }],
+        ['link', { rel: 'prefetch', href: 'https://unpkg.com/@orillusion/media-extention@0.2/dist/media.es.js' }],
         ['script', { async: 'true', src: 'https://www.googletagmanager.com/gtag/js?id=G-0H9189CS0W' }],
         ['meta', { name: 'theme-color', content: '#242424' }],
         ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no' }],
@@ -86,26 +87,24 @@ export default async () => defineConfig({
         // search: {
         //     provider: 'local',
         //     options: {
-        //         locales: {
-        //             zh: {
-        //                 translations: {
-        //                     button: {
-        //                         buttonText: '搜索文档',
-        //                         buttonAriaLabel: '搜索文档'
-        //                     },
-        //                     modal: {
-        //                         noResultsText: '无法找到相关结果',
-        //                         resetButtonTitle: '清除查询条件',
-        //                         footer: {
-        //                             selectText: '选择',
-        //                             navigateText: '切换'
-        //                         }
-        //                     }
+        //         translations: {
+        //             button: {
+        //                 buttonText: '搜索文档',
+        //                 buttonAriaLabel: '搜索文档'
+        //             },
+        //             modal: {
+        //                 noResultsText: '无法找到相关结果',
+        //                 resetButtonTitle: '清除查询条件',
+        //                 footer: {
+        //                     selectText: '选择',
+        //                     navigateText: '切换',
+        //                     closeText: '关闭'
         //                 }
         //             }
         //         }
         //     }
         // },
+
         algolia: {
             appId: 'A4SU9IUJ2M',
             apiKey: '1a3b57b41821e82cafdd80621f042c9c',

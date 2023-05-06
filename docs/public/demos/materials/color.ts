@@ -1,5 +1,5 @@
 import { Camera3D, DirectLight, Engine3D, AtmosphericComponent, View3D, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, Scene3D, SphereGeometry, UnLitMaterial, Color } from '@orillusion/core';
-import * as dat from "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js"
+import * as dat from "dat.gui"
 
 export class Sample_Materials {
     scene: Scene3D;

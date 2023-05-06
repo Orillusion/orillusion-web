@@ -2,7 +2,7 @@ import {
     Engine3D, Scene3D, Object3D, PostProcessingComponent, AtmosphericComponent, View3D, DirectLight, HoverCameraController, Color, CameraUtil, SkeletonAnimationComponent, HDRBloomPost, Vector3
 } from "@orillusion/core";
 
-import * as dat from "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js"
+import * as dat from "dat.gui"
 
 async function demo() {
     // 初始化引擎环境;
