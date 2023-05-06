@@ -15,10 +15,10 @@ import {
 	webGPUContext,
 	OutlinePost,
 	outlinePostManager,
-	AtmosphericComponent
-	Color,
+	AtmosphericComponent,
+	Color
 } from '@orillusion/core';
-import * as dat from "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js"
+import * as dat from "dat.gui"
 
 export class Sample_Outline {
 	lightObj: Object3D;

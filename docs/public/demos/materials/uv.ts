@@ -1,5 +1,5 @@
 import { Camera3D, CameraUtil, DirectLight, Engine3D, AtmosphericComponent, View3D, HDRBloomPost, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, PostProcessingComponent, UnLitMaterial, webGPUContext, Vector4 } from '@orillusion/core';
-import * as dat from "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js"
+import * as dat from "dat.gui"
 
 
 export class Sample_UV {

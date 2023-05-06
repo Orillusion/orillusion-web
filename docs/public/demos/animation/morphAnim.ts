@@ -1,7 +1,7 @@
 import {
     Camera3D, Engine3D, DirectLight, AtmosphericComponent, View3D, HoverCameraController, MeshRenderer, Object3D, RendererMask, Scene3D, webGPUContext, Color, MorphTargetBlender
 } from '@orillusion/core';
-import * as dat from "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js"
+import * as dat from "dat.gui"
 
 class Sample_morph {
     scene: Scene3D;

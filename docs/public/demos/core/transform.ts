@@ -1,5 +1,5 @@
 import { Engine3D, Scene3D, Object3D, Camera3D, AtmosphericComponent, LitMaterial, BoxGeometry, MeshRenderer, DirectLight, HoverCameraController, RGBEParser, Color, Vector3, View3D } from "@orillusion/core";
-import * as dat from 'https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js'
+import * as dat from 'dat.gui'
 
 async function demo() {
 	// 初始化引擎
@@ -61,12 +61,5 @@ async function demo() {
 	view.camera = camera;
 	// start render
 	Engine3D.startRenderView(view);
-
-	Object.keys(GUIHelp.gui.__folders).map((name) => {
-		if (name !== 'Box Transform')
-			GUIHelp.gui.removeFolder(GUIHelp.gui.__folders[name])
-		else
-			GUIHelp.gui.__folders[name].open()
-	})
 }
 demo();

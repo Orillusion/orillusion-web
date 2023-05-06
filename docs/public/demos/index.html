@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Orillusion | Demo</title>
-    <meta http-equiv="origin-trial"
-        content="AmrJejS15UQik5Bl2crgz9XLixMLM1/Ovg2+BRXKlTGgbJyEgxUw600RFcB7sBRBpHxunblzXWanr4yORZItPwQAAABheyJvcmlnaW4iOiJodHRwczovL29yaWxsdXNpb24uY29tOjQ0MyIsImZlYXR1cmUiOiJXZWJHUFUiLCJleHBpcnkiOjE2OTE3MTE5OTksImlzU3ViZG9tYWluIjp0cnVlfQ==">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <style>
         body{margin:0;height:100vh;background:transparent;touch-action:none}
@@ -15,11 +13,11 @@
     <script type="importmap">
         {
             "imports": {
-                "@orillusion/core": "https://cdn.orillusion.com/orillusion.es.js",
-                "@orillusion/dev": "https://cdn.orillusion.com/orillusion.test.js",
-                "@orillusion/physics": "https://cdn.orillusion.com/physics.es.js",
-                "@orillusion/stats": "https://cdn.orillusion.com/stats.es.js",
-                "@orillusion/media-extention": "https://cdn.orillusion.com/media.es.js"
+                "@orillusion/core": "https://unpkg.com/@orillusion/core@0.6/dist/orillusion.es.js",
+                "@orillusion/physics": "https://unpkg.com/@orillusion/physics@0.2/dist/physics.es.js",
+                "@orillusion/stats": "https://unpkg.com/@orillusion/stats@0.2/dist/stats.es.js",
+                "@orillusion/media-extention": "https://unpkg.com/@orillusion/media-extention@0.2/dist/media.es.js",
+                "dat.gui": "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js"
             }
         }
     </script>
@@ -45,15 +43,15 @@
         function createScript(code){
             const script = document.createElement('script')
             script.innerHTML = code.replace(
-                'Engine3D.startRender(renderJob);', 
-                `Engine3D.startRender(renderJob);
+                'Engine3D.startRenderView(view);', 
+                `Engine3D.startRenderView(view);
                 window.postMessage("rendering");
                 document.body.classList.remove('loading')
                 window.onmessage = e=>{
                     if(e.data === 'pause')
-                        Engine3D.renderJob.pause()
+                        Engine3D.pause()
                     else if(e.data === 'resume')
-                        Engine3D.renderJob.resume()
+                        Engine3D.resume()
                 }
                 `
             )
