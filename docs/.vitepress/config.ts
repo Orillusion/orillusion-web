@@ -22,16 +22,14 @@ export default async () => defineConfig({
     head: [
         ['link', { rel: 'shortcut icon', type: "image/png", href: '/images/icons/icon-192.png' }],
         ['link', { rel: 'apple-touch-icon', href: '/images/icons/icon-512.png' }],
-        ['link', { rel: 'prefetch', href: 'https://cdn.orillusion.com/orillusion.es.js' }],
-        ['link', { rel: 'prefetch', href: 'https://cdn.orillusion.com/physics.es.js' }],
         ['script', { async: 'true', src: 'https://www.googletagmanager.com/gtag/js?id=G-0H9189CS0W' }],
         ['meta', { name: 'theme-color', content: '#242424' }],
         ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no' }],
     ],
-    locales: {
-        root: { label: '简体中文' },
-        en: { label: 'English', link: 'https://www.orillusion.com/en/0.5/' }
-    },
+    // locales: {
+    //     root: { label: '简体中文' },
+    //     en: { label: 'English', link: 'https://www.orillusion.com/en/0.5/' }
+    // },
     themeConfig: {
         logo: {
             light: '/images/logo_black.png',
@@ -83,72 +81,24 @@ export default async () => defineConfig({
             message: '<a href="https://beian.miit.gov.cn/" target="_blank">京ICP备2021027896号</a>',
             copyright: 'Copyright © 2021-Present Orillusion'
         },
-        // search: {
-        //     provider: 'local',
-        //     options: {
-        //         locales: {
-        //             zh: {
-        //                 translations: {
-        //                     button: {
-        //                         buttonText: '搜索文档',
-        //                         buttonAriaLabel: '搜索文档'
-        //                     },
-        //                     modal: {
-        //                         noResultsText: '无法找到相关结果',
-        //                         resetButtonTitle: '清除查询条件',
-        //                         footer: {
-        //                             selectText: '选择',
-        //                             navigateText: '切换'
-        //                         }
-        //                     }
-        //                 }
-        //             }
-        //         }
-        //     }
-        // },
-        algolia: {
-            appId: 'A4SU9IUJ2M',
-            apiKey: '1a3b57b41821e82cafdd80621f042c9c',
-            indexName: 'orillusion',
-            searchParameters: {
-                facetFilters: ["tags:latest"],
-            },
-            placeholder: '搜索文档',
-            translations: {
-                button: {
-                    buttonText: '搜索文档',
-                    buttonAriaLabel: '搜索文档'
-                },
-                modal: {
-                    searchBox: {
-                        resetButtonTitle: '清除查询条件',
-                        resetButtonAriaLabel: '清除查询条件',
-                        cancelButtonText: '取消',
-                        cancelButtonAriaLabel: '取消'
+
+        search: {
+            provider: 'local',
+            options: {
+                disableDetailedView: true,
+                translations: {
+                    button: {
+                        buttonText: '搜索文档',
+                        buttonAriaLabel: '搜索文档'
                     },
-                    startScreen: {
-                        recentSearchesTitle: '搜索历史',
-                        noRecentSearchesText: '没有搜索历史',
-                        saveRecentSearchButtonTitle: '保存至搜索历史',
-                        removeRecentSearchButtonTitle: '从搜索历史中移除',
-                        favoriteSearchesTitle: '收藏',
-                        removeFavoriteSearchButtonTitle: '从收藏中移除'
-                    },
-                    errorScreen: {
-                        titleText: '无法获取结果',
-                        helpText: '你可能需要检查你的网络连接'
-                    },
-                    footer: {
-                        selectText: '选择',
-                        navigateText: '切换',
-                        closeText: '关闭',
-                        searchByText: '搜索提供者'
-                    },
-                    noResultsScreen: {
+                    modal: {
                         noResultsText: '无法找到相关结果',
-                        suggestedQueryText: '你可以尝试查询',
-                        reportMissingResultsText: '你认为该查询应该有结果？',
-                        reportMissingResultsLinkText: '点击反馈'
+                        resetButtonTitle: '清除查询条件',
+                        footer: {
+                            closeText: '关闭',
+                            selectText: '选择',
+                            navigateText: '切换'
+                        }
                     }
                 }
             }
