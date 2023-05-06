@@ -57,10 +57,10 @@ Engine3D.setting.shadow.shadowSize = 2048; // 阴影贴图大小
 ```
 详见 [阴影](/guide/graphics/shadow)
 
-## 全局光照设置
+<!-- ## 全局光照设置
 通过配置中的 `gi` 属性来设置全局光照。
 ```ts
 Engine3D.setting.gi.enable = true;
 ```
-详见 [全局光照](/guide/advanced/gi)
+详见 [全局光照](/guide/advanced/gi) -->
 

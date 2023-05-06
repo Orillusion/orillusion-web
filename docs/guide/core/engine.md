@@ -1,7 +1,7 @@
 # Engine3D
 `Engine3D` 是引擎核心唯一的全局实例，主要有以下几个常用方法：
 1. 调用 `Engine3D.init()` 来初始化引擎
-2. 调用 `Engine3D.startRender()` 开启渲染循环
+2. 调用 `Engine3D.startRenderView()` 开启视图渲染循环
 3. `Engine3D.res` 加载网络贴图或模型资源，详见 [资源加载](/guide/resource/Readme)
 4. `Engine3D.inputSystem` 统一管理用户的输入事件，详见 [交互](/guide/interaction/pointer)
 5. `Engine3D.setting` 统一配置渲染相关功能，详见 [配置](/guide/core/config)
