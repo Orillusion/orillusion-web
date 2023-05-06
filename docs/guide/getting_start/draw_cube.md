@@ -9,6 +9,7 @@
 首先，我们需要引入相应的模块：
 ```ts
 import {
+  Color,
   Engine3D,
   Scene3D,
   Object3D,
@@ -23,6 +24,7 @@ import {
 ```
 | 模块 | 说明 |
 | --- | --- |
+| Color | Color 类为颜色定义 |
 | Engine3D | Engine3D 类为引擎主体，包含引擎初始化启动、运行渲染等核心方法 |
 | Scene3D | 通过新建 Scene3D 类可以创建一个场景实例，该场景实例在程序中通常作为根节点被使用 |
 | Object3D | Object3D 类定义了物体对象，该对象包含常用的物体属性如位置、旋转等参数 |
