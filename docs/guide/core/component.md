@@ -76,11 +76,12 @@ light.enable = true
 | :---: | --- |
 | init | 组件初始化，只在被添加创建时运行一次 |
 | start   | 组件开始运行，只在第一次 `onUpdate` 之前调用 |
-| update | 组件每帧更新时运行 |
-| beforeUpdate | 组件渲染更新前运行 |
-| lateUpdate | 组件渲染更新后运行 |
+| onUpdate | 组件每帧更新时运行 |
+| onBeforeUpdate | 组件渲染更新前运行 |
+| onLateUpdate | 组件渲染更新后运行 |
 | onEnable | 组件 `enable = true` 时回调，组件加入主循环更新 |
 | onDisable | 组件 `enable = false` 时触发，组件将不再触发循环 |
 | stop | 组件销毁前被调用 |
+| destroy | 组件销毁时调用 |
 
 用户可以通过继承 [CompnentBase](/api/classes/ComponentBase) 基类来扩展不同的自定义功能，详情参考 [脚本组件](/guide/core/script)

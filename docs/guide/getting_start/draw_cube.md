@@ -44,6 +44,11 @@ await Engine3D.init();
 let scene3D = new Scene3D();
 ```
 
+## 添加天空盒
+```ts
+let sky = scene3D.addComponent(AtmosphericComponent);
+```
+
 ## 添加摄像机控件
 ```ts
 // 新建摄像机实例
