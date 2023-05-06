@@ -35,13 +35,16 @@ scene.removeChild(obj);
 ```
 
 ## 天空盒
-默认配置下，引擎会创建一个 [AtmosphericScatteringSky](/api/classes/AtmosphericScatteringSky) 天空盒，可以通过 `envMap` 设置太阳的位置等参数。
-
+可以通过以下代码创建天空盒：
+```ts
+let sky = scene3D.addComponent(AtmosphericComponent);
+```
+详见以下示例：
 <Demo src="/demos/core/scene.ts"></Demo>
 
 <<< @/public/demos/core/scene.ts{7-13}
 
-引擎默认使用天空盒贴图做为场景的环境光，通过 `Scene3D` 对象的 `exposure` 属性来调整环境光的曝光度。
+可以通过 `Scene3D` 对象的 `exposure` 属性来调整环境光的曝光度。
 
 ```ts
 let scene = new Scene3D();
