@@ -1,5 +1,5 @@
 import {
-    Camera3D, Engine3D, DirectLight, AtmosphericComponent, View3D, HoverCameraController, MeshRenderer, Object3D, RendererMask, Scene3D, webGPUContext, Color
+    Camera3D, Engine3D, DirectLight, AtmosphericComponent, View3D, HoverCameraController, MeshRenderer, Object3D, RendererMask, Scene3D, webGPUContext, Color, MorphTargetBlender
 } from '@orillusion/core';
 import * as dat from "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js"
 
@@ -38,6 +38,7 @@ class Sample_morph {
     async initScene(scene: Scene3D) {
         {
             let data = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/glb/lion.glb');
+            data.addComponent(MorphTargetBlender);
             data.y = -80.0;
             data.x = -30.0
             scene.addChild(data);
