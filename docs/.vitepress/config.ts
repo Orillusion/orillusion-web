@@ -29,10 +29,10 @@ export default async () => defineConfig({
         ['meta', { name: 'theme-color', content: '#242424' }],
         ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no' }],
     ],
-    locales: {
-        root: { label: '简体中文' },
-        en: { label: 'English', link: 'https://www.orillusion.com/en/' }
-    },
+    // locales: {
+    //     root: { label: '简体中文' },
+    //     en: { label: 'English', link: 'https://www.orillusion.com/en/' }
+    // },
     themeConfig: {
         logo: {
             light: '/images/logo_black.png',
@@ -162,7 +162,8 @@ export default async () => defineConfig({
 
     },
     markdown: {
-        lineNumbers: true
+        lineNumbers: true,
+        attrs: { disable: true }
     }
 })
 
