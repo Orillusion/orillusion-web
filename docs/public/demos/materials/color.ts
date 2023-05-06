@@ -50,26 +50,15 @@ export class Sample_Materials {
             let mr = sphere.addComponent(MeshRenderer);
             mr.geometry = new SphereGeometry(2.5, 30, 30);
             let mat = new UnLitMaterial();
-            mat.baseColor = new Color(1, 1, 1, 1);
+            mat.baseColor = new Color(1, 1, 1);
             mr.material = mat;
             this.scene.addChild(sphere);
             sphere.localPosition.set(0, 0, 0);
             const GUIHelp = new dat.GUI();
-            GUIHelp.add(mat.baseColor, 'r', 0,1,0.1).onChange(v=>{
-                let old = mat.baseColor
-                old.r = v
-                mat.baseColor = old.clone()
+            GUIHelp.addColor({color: [255,255,255]}, 'color').onChange(v=>{
+                mat.baseColor = new Color(...v.map(c => c/255))
             })
-            GUIHelp.add(mat.baseColor, 'g', 0,1,0.1).onChange(v=>{
-                let old = mat.baseColor
-                old.g = v
-                mat.baseColor = old.clone()
-            })
-            GUIHelp.add(mat.baseColor, 'b', 0,1,0.1).onChange(v=>{
-                let old = mat.baseColor
-                old.b = v
-                mat.baseColor = old.clone()
-            })
+            
         }
 
     }

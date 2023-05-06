@@ -17,6 +17,7 @@ import {
 	webGPUContext,
 	AtmosphericComponent
 } from '@orillusion/core';
+import * as dat from 'dat.gui'
 
 export class Sample_DepthOfView {
 	lightObj: Object3D;
@@ -26,11 +27,9 @@ export class Sample_DepthOfView {
 	async run() {
 		Engine3D.setting.shadow.enable = true;
 		Engine3D.setting.shadow.debug = false;
-		Engine3D.setting.shadow.shadowBound = 10;
-		Engine3D.setting.shadow.shadowBias = -0.001;
-		await Engine3D.init({
-			renderLoop: () => this.loop(),
-		});
+		Engine3D.setting.shadow.shadowBound = 100;
+		Engine3D.setting.shadow.shadowBias = 0.0001;
+		await Engine3D.init();
 
 		this.scene = new Scene3D();
 		this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
@@ -49,6 +48,14 @@ export class Sample_DepthOfView {
 
 		let postProcessing = this.scene.addComponent(PostProcessingComponent);
 		let DOFPost = postProcessing.addPost(DepthOfFieldPost);
+		DOFPost.near = 0
+		DOFPost.far = 150
+		DOFPost.pixelOffset = 2
+
+		let GUIHelp = new dat.GUI()
+		GUIHelp.addFolder('Depth of Field')
+		GUIHelp.add(DOFPost, 'near', 0, 100, 1)
+		GUIHelp.add(DOFPost, 'far', 150, 300, 1)
 	}
 
 	async initScene(scene: Scene3D) {
@@ -61,7 +68,7 @@ export class Sample_DepthOfView {
 			let lc = this.lightObj.addComponent(DirectLight);
 			lc.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
 			lc.castShadow = true;
-			lc.intensity = 5;
+			lc.intensity = 10;
 			scene.addChild(this.lightObj);
 		}
 
@@ -121,9 +128,6 @@ export class Sample_DepthOfView {
 				scene.addChild(obj);
 			}
 		}
-	}
-
-	private loop(): void {
 	}
 }
 

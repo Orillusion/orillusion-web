@@ -52,8 +52,6 @@ export class Sample_LightIES {
         po.y = 22;
         po.z = 15 ;
         this.scene.addChild(po);
-        pl.debug();
-        pl.debugDraw(true);
     }
     
     let ball: Object3D;

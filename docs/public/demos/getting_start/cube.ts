@@ -1,4 +1,4 @@
-import { Engine3D, Scene3D, Object3D, Camera3D, LitMaterial, BoxGeometry, MeshRenderer, DirectLight, HoverCameraController, Color, Vector3, View3D, AtmosphericComponent } from "@orillusion/core";
+import { Engine3D, Scene3D, Object3D, Camera3D, LitMaterial, BoxGeometry, MeshRenderer, DirectLight, HoverCameraController, View3D, AtmosphericComponent } from "@orillusion/core";
 
 async function demo() {
 	// initializa engine
@@ -25,7 +25,6 @@ async function demo() {
 	// adjust lighting
 	light.rotationX = 45;
 	light.rotationY = 30;
-	component.lightColor = new Color(1.0, 1.0, 1.0, 1.0);
 	component.intensity = 1;
 	// add light object
 	scene3D.addChild(light);
@@ -37,9 +36,8 @@ async function demo() {
 	mr.geometry = new BoxGeometry(5, 5, 5);
 	// set material
 	mr.material = new LitMaterial();
-	// set position and rotation
-	obj.localPosition = new Vector3(0, 0, 0);
-  	obj.localRotation = new Vector3(0, 45, 0);
+	// set rotation
+  	obj.rotationY = 45;
 	// add object
 	scene3D.addChild(obj);
 	// create a view with target scene and camera

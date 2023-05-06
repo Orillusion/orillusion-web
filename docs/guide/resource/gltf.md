@@ -17,6 +17,7 @@ scene.addChild(data);
 目前支持以下 `glTF` 插件，若 `glTF` 文件中包含相应插件，则会自动加载相应功能：
 | 插件 | 功能 |
 | --- | --- |
+| KHRdracomesh_compression | 支持 Draco 压缩，能有效节省模型体积 |
 | KHRlightspunctual | 支持多光源组合，会解析成引擎的光源，详见 [光照教程](/guide/graphics/lighting) |
 | KHRmaterialspbrSpecularGlossiness | 支持 `PBR`  高光-光泽度工作流 |
 | KHRmaterialsunlit | 支持  `Unlit` 材质 |

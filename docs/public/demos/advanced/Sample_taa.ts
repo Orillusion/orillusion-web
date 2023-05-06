@@ -8,17 +8,14 @@ import {
 export class Sample_TAA {
 	lightObj: Object3D;
 	scene: Scene3D;
-	constructor() { }
 
 	async run() {
 		Engine3D.setting.shadow.enable = false;
 		Engine3D.setting.shadow.debug = true;
 		Engine3D.setting.shadow.shadowBound = 100;
-		Engine3D.setting.shadow.shadowBias = 0.0002;
+		Engine3D.setting.shadow.shadowBias = 0.0001;
 
-		await Engine3D.init({
-			renderLoop: () => this.loop(),
-		});
+		await Engine3D.init();
 
 		this.scene = new Scene3D();
 		this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
@@ -37,7 +34,6 @@ export class Sample_TAA {
 		let postProcessing = this.scene.addComponent(PostProcessingComponent);
 		postProcessing.addPost(TAAPost);
 	}
-
 
 	async initScene() {
 		{
@@ -112,9 +108,6 @@ export class Sample_TAA {
 				scene.addChild(obj);
 			}
 		}
-	}
-
-	private loop(): void {
 	}
 }
 

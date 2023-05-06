@@ -33,17 +33,6 @@ async function demo() {
 	scene3D.addChild(light);
 	// 新建对象
 	const obj: Object3D = new Object3D();
-	const GUIHelp = new dat.GUI({name: 'Orillusion'});
-	GUIHelp.addFolder('Box Transform');
-	GUIHelp.add(obj.transform, 'x', -10.0, 10.0, 0.01);
-	GUIHelp.add(obj.transform, 'y', -10.0, 10.0, 0.01);
-	GUIHelp.add(obj.transform, 'z', -10.0, 10.0, 0.01);
-	GUIHelp.add(obj.transform, 'rotationX', 0.0, 360.0, 0.01);
-	GUIHelp.add(obj.transform, 'rotationY', 0.0, 360.0, 0.01);
-	GUIHelp.add(obj.transform, 'rotationZ', 0.0, 360.0, 0.01);
-	GUIHelp.add(obj.transform, 'scaleX', 0.0, 2.0, 0.01);
-	GUIHelp.add(obj.transform, 'scaleY', 0.0, 2.0, 0.01);
-	GUIHelp.add(obj.transform, 'scaleZ', 0.0, 2.0, 0.01);
 	// 为对象添 MeshRenderer
 	let mr: MeshRenderer = obj.addComponent(MeshRenderer);
 	// 设置几何体
@@ -61,5 +50,17 @@ async function demo() {
 	view.camera = camera;
 	// start render
 	Engine3D.startRenderView(view);
+
+	const GUIHelp = new dat.GUI();
+	GUIHelp.addFolder('Box Transform');
+	GUIHelp.add(obj.transform, 'x', -10.0, 10.0, 0.01);
+	GUIHelp.add(obj.transform, 'y', -10.0, 10.0, 0.01);
+	GUIHelp.add(obj.transform, 'z', -10.0, 10.0, 0.01);
+	GUIHelp.add(obj.transform, 'rotationX', 0.0, 360.0, 0.01);
+	GUIHelp.add(obj.transform, 'rotationY', 0.0, 360.0, 0.01);
+	GUIHelp.add(obj.transform, 'rotationZ', 0.0, 360.0, 0.01);
+	GUIHelp.add(obj.transform, 'scaleX', 0.0, 2.0, 0.01);
+	GUIHelp.add(obj.transform, 'scaleY', 0.0, 2.0, 0.01);
+	GUIHelp.add(obj.transform, 'scaleZ', 0.0, 2.0, 0.01);
 }
 demo();

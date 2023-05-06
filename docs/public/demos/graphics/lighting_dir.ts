@@ -13,12 +13,13 @@ import {
   webGPUContext,
   View3D
 } from "@orillusion/core";
+import * as dat from 'dat.gui'
 
 export class Sample_Light {
   scene: Scene3D;
   hoverCameraController: HoverCameraController;
   lightObj: any;
-  constructor() {}
+  constructor() { }
 
   async run() {
     await Engine3D.init();
@@ -34,7 +35,7 @@ export class Sample_Light {
 
     //set camera data
     this.hoverCameraController.setCamera(0, -45, 2000);
-    await this.initScene(this.scene);
+    this.initScene(this.scene);
 
     // add an Atmospheric sky enviroment
     this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
@@ -56,8 +57,17 @@ export class Sample_Light {
       light.lightColor.r = 255 / 255;
       light.lightColor.g = 157 / 255;
       light.lightColor.b = 5 / 255;
-      light.debug()
       scene.addChild(dirLight);
+
+      let GUIHelp = new dat.GUI()
+      GUIHelp.addFolder('Direct Light')
+      GUIHelp.add(dirLight, 'rotationX', -180, 180, 1)
+      GUIHelp.add(dirLight, 'rotationY', -180, 180, 1)
+      GUIHelp.add(dirLight, 'rotationZ', -180, 180, 1)
+      GUIHelp.addColor({color: Object.values(light.lightColor).map(v=>v*255)}, 'color').onChange(v=>{
+        light.lightColor.copyFormArray(v)
+      })
+      GUIHelp.add(light, 'intensity', 0, 100, 1)
     }
 
     let mat = new LitMaterial();

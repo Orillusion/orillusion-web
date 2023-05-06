@@ -23,7 +23,7 @@ view.camera = camera;
 // 开始渲染
 Engine3D.startRenderView(view);
 ```
-如果场景内有多个相机，可以通过 `View3D.camera` 手动切换当前相机:
+如果场景内有多个相机，可以通过设置 `view.camera` 来切换目标相机:
 ```ts
 // 如果有多个相机
 let cameraObj1 = new Object3D();
@@ -31,13 +31,14 @@ let camera1 = cameraObj.addComponent(Camera3D);
 let cameraObj2 = new Object3D();
 let camera2 = cameraObj.addComponent(Camera3D);
 
-// 设定/切换场景主相机
-
 // 创建3D视图
 let view = new View3D();
-// 填充场景至3D视图
+// 设置渲染场景
+view.scene = scene;
+// 设置 camera1
+view.camera = camera1;
 ...
-// 填充相机至3D视图 使camera2生效
+// 切换使用 camera2 进行渲染
 view.camera = camera2;
 
 ```

@@ -1,4 +1,5 @@
 import { BoxGeometry, Camera3D, Engine3D, AtmosphericComponent, LitMaterial, HoverCameraController, MeshRenderer, Object3D, Scene3D, SphereGeometry, PointLight, Vector3, webGPUContext, View3D } from '@orillusion/core';
+import * as dat from 'dat.gui';
 
 export class Sample_Light {
   scene: Scene3D;
@@ -48,7 +49,16 @@ export class Sample_Light {
       light.lightColor.b = 5 / 255;
       scene.addChild(pointLight);
 
-      light.debug();
+      let GUIHelp = new dat.GUI()
+      GUIHelp.addFolder('Direct Light')
+      GUIHelp.add(pointLight, 'x', -180, 180, 1)
+      GUIHelp.add(pointLight, 'y', -180, 180, 1)
+      GUIHelp.add(pointLight, 'z', -180, 180, 1)
+      GUIHelp.addColor({color: Object.values(light.lightColor).map(v=>v*255)}, 'color').onChange(v=>{
+        light.lightColor.copyFormArray(v)
+      })
+      GUIHelp.add(light, 'intensity', 0, 100, 1)
+      GUIHelp.add(light, 'range', 100, 500, 1)
     }
 
     let mat = new LitMaterial();

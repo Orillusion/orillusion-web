@@ -1,4 +1,4 @@
-import {ComponentBase, Time, DirectLight, Color, LitMaterial, MeshRenderer, Scene3D, BoxGeometry, Object3D, Engine3D, Camera3D, HoverCameraController, View3D, AtmosphericComponent } from '@orillusion/core';
+import { ComponentBase, Time, DirectLight, Color, LitMaterial, MeshRenderer, Scene3D, BoxGeometry, Object3D, Engine3D, Camera3D, HoverCameraController, View3D, AtmosphericComponent } from '@orillusion/core';
 
 class PathAnimation extends ComponentBase {
   onUpdate() {
@@ -56,8 +56,8 @@ class UserLogic {
     controller.setCamera(45, 0, 15);
     // 添加相机节点
     this.scene.addChild(cameraObj);
-	  // add an Atmospheric sky enviroment
-	  this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
+    // add an Atmospheric sky enviroment
+    this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
     // create a view with target scene and camera
     let view = new View3D();
     view.scene = this.scene;

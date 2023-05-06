@@ -1,8 +1,8 @@
 import { BoxGeometry, CameraUtil, Color, View3D, DirectLight, Engine3D, PostProcessingComponent, HDRBloomPost, LitMaterial, HoverCameraController, MeshRenderer, Object3D, Scene3D, webGPUContext, AtmosphericComponent } from '@orillusion/core';
+import * as dat from 'dat.gui'
 
 export class Sample_bloom {
 	scene: Scene3D;
-	constructor() { }
 
 	async run() {
 		await Engine3D.init({});
@@ -24,6 +24,12 @@ export class Sample_bloom {
 
 		let postProcessing = this.scene.addComponent(PostProcessingComponent);
 		let bloom = postProcessing.addPost(HDRBloomPost);
+		let GUIHelp = new dat.GUI()
+		GUIHelp.addFolder('Depth of Field')
+		GUIHelp.add(bloom, 'blurX', 0, 10, 1)
+		GUIHelp.add(bloom, 'blurY', 0, 10, 1)
+		GUIHelp.add(bloom, 'bloomStrength', 0, 5, 0.1)
+		GUIHelp.add(bloom, 'bloomRadius', 0, 5, 0.1)
 	}
 
 	async initScene() {
@@ -73,10 +79,6 @@ export class Sample_bloom {
 			obj.transform.x = 5;
 			this.scene.addChild(obj);
 		}
-
-		// 加载外部模型文件;
-		let minimalObj = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/wukong/wukong.gltf');
-		this.scene.addChild(minimalObj);
 	}
 }
 new Sample_bloom().run();

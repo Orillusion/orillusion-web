@@ -1,4 +1,4 @@
-import { Camera3D, CameraUtil, DirectLight, Engine3D, AtmosphericComponent, View3D, HDRBloomPost, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, PostProcessingComponent, UnLitMaterial, webGPUContext, Vector4 } from '@orillusion/core';
+import { Camera3D, CameraUtil, DirectLight, Engine3D, AtmosphericComponent, View3D, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, UnLitMaterial, webGPUContext, Vector4 } from '@orillusion/core';
 import * as dat from "dat.gui"
 
 
@@ -15,36 +15,23 @@ export class Sample_UV {
         Engine3D.setting.shadow.debug = false
         Engine3D.setting.shadow.shadowBound = 5;
         Engine3D.setting.shadow.shadowBias = -0.0012;
-        // Engine3D.setting.render.postProcessing.bloom = {
-        //     enable: true,
-        //     blurX: 4,
-        //     blurY: 4,
-        //     intensity: 5,
-        //     brightness: 0.629 ,
-        // };
 
         this.scene = new Scene3D();
+        // add an Atmospheric sky enviroment
+        this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
+
         let camera = CameraUtil.createCamera3DObject(this.scene);
         camera.perspective(60, webGPUContext.aspect, 0.01, 5000.0);
 
         this.hover = camera.object3D.addComponent(HoverCameraController);
         this.hover.setCamera(0, 0, 100);
 
-        // add an Atmospheric sky enviroment
-        this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
         // create a view with target scene and camera
         let view = new View3D();
         view.scene = this.scene;
         view.camera = camera;
         // start render
         Engine3D.startRenderView(view);
-
-        let postProcessing = this.scene.addComponent(PostProcessingComponent);
-        let bloom = postProcessing.addPost(HDRBloomPost);
-        bloom.blurX = 4;
-        bloom.blurY = 4;
-        bloom.bloomStrength = 5;
-        bloom.luminosityThreshold = 0.629;
 
         await this.initScene();
     }

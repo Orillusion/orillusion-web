@@ -1,4 +1,4 @@
-import { Camera3D, OrbitController, DirectLight, Engine3D, View3D, KelvinUtil, Object3D, Scene3D, HDRBloomPost, GTAOPost, GlobalFog, PostProcessingComponent } from "@orillusion/core"
+import { Camera3D, OrbitController, DirectLight, Engine3D, View3D, KelvinUtil, Object3D, Scene3D, HDRBloomPost, GTAOPost, PostProcessingComponent, AtmosphericComponent } from "@orillusion/core"
 
 export class Sample_PBRMaterial {
     lightObj: Object3D;
@@ -15,8 +15,9 @@ export class Sample_PBRMaterial {
         Engine3D.setting.shadow.autoUpdate = true;
         Engine3D.setting.shadow.updateFrameRate = 1;
         Engine3D.setting.shadow.shadowBound = 50;
-        Engine3D.setting.shadow.shadowBias = 0.002;
+        Engine3D.setting.shadow.shadowBias = 0.0001;
         Engine3D.setting.render.postProcessing.bloom = {
+            debug: false,
             enable: true,
             blurX: 4,
             blurY: 4,
@@ -54,8 +55,9 @@ export class Sample_PBRMaterial {
     async initScene() {
         /******** sky *******/
         {
-            this.scene.hideSky();
-            this.scene.exposure = 1
+            let sky = this.scene.addComponent(AtmosphericComponent)
+            sky.sunY = 0.6
+            sky.enable = false
         }
         /******** light *******/
         {

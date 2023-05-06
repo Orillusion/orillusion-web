@@ -4,7 +4,7 @@ async function demo() {
     // 配置 shadow 参数
     Engine3D.setting.shadow.autoUpdate = true;
     Engine3D.setting.shadow.shadowBound = 100;
-    Engine3D.setting.shadow.pointShadowBias = 0.3;
+    Engine3D.setting.shadow.pointShadowBias = 0.0001;
     Engine3D.setting.shadow.type = 'HARD'
 
     await Engine3D.init();
@@ -53,9 +53,6 @@ async function demo() {
         mr.receiveShadow = true;
         scene3D.addChild(receiveShadowObj);
     }
-    // 创建渲染任务
-    // add an Atmospheric sky enviroment
-    scene3D.addComponent(AtmosphericComponent).sunY = 0.6;
     // create a view with target scene and camera
     let view = new View3D();
     view.scene = scene3D;

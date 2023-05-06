@@ -15,9 +15,7 @@ import {
   CameraUtil,
   webGPUContext,
   PostProcessingComponent,
-  GTAOPost,
   HDRBloomPost,
-  TAAPost,
   AtmosphericComponent
 } from "@orillusion/core";
 import * as dat from "dat.gui"
@@ -31,7 +29,7 @@ export class Sample_SSR {
 
   async run() {
     Engine3D.setting.shadow.shadowBound = 200;
-    Engine3D.setting.shadow.shadowBias = 0.002;
+    Engine3D.setting.shadow.shadowBias = 0.0001;
     Engine3D.setting.shadow.debug = false;
     Engine3D.setting.shadow.autoUpdate = true;
     Engine3D.setting.shadow.updateFrameRate = 1;
@@ -55,9 +53,7 @@ export class Sample_SSR {
     Engine3D.startRenderView(view);
 
     let postProcessing = this.scene.addComponent(PostProcessingComponent);
-    postProcessing.addPost(GTAOPost);
     postProcessing.addPost(SSRPost);
-    postProcessing.addPost(TAAPost);
     postProcessing.addPost(HDRBloomPost);
   }
 
@@ -72,7 +68,6 @@ export class Sample_SSR {
       lc.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
       lc.castShadow = true;
       lc.intensity = 27;
-      lc.debug();
       scene.addChild(this.lightObj);
     }
 

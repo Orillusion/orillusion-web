@@ -1,4 +1,4 @@
-import { Engine3D, Scene3D, Object3D, Camera3D, Vector3, AtmosphericComponent, View3D, LitMaterial, BoxGeometry, MeshRenderer, UnLitMaterial, SphereGeometry, DirectLight, PointLight, SpotLight, HoverCameraController, PlaneGeometry } from "@orillusion/core";
+import { Engine3D, Scene3D, Object3D, Camera3D, Vector3, AtmosphericComponent, View3D, LitMaterial, BoxGeometry, MeshRenderer, UnLitMaterial, SphereGeometry, DirectLight, PointLight, SpotLight, HoverCameraController, PlaneGeometry, Color } from "@orillusion/core";
 import * as dat from "dat.gui"
 
 async function demo() {
@@ -17,8 +17,6 @@ async function demo() {
     controller.setCamera(0, -45, 100, new Vector3(0, 0, 0));
     scene3D.addChild(cameraObj);
 
-    const GUIHelp = new dat.GUI();
-    GUIHelp.add(Engine3D.setting.shadow,'shadowBias', 0, 0.003)
     {
         let obj = new Object3D();
         let light = obj.addComponent(DirectLight);
@@ -36,6 +34,7 @@ async function demo() {
         let mr = castShadowObj.addComponent(MeshRenderer);
         mr.geometry = new BoxGeometry(10, 10, 10);
         mr.material = new LitMaterial();
+        mr.material.baseColor = new Color(1,0,0)
         mr.castShadow = true;
         scene3D.addChild(castShadowObj);
     }
@@ -48,14 +47,15 @@ async function demo() {
         scene3D.addChild(receiveShadowObj);
     }
     // 创建渲染任务
-    // add an Atmospheric sky enviroment
-    scene3D.addComponent(AtmosphericComponent).sunY = 0.6;
     // create a view with target scene and camera
     let view = new View3D();
     view.scene = scene3D;
     view.camera = camera;
     // start render
     Engine3D.startRenderView(view);
+
+    const GUIHelp = new dat.GUI();
+    GUIHelp.add(Engine3D.setting.shadow, 'shadowBias', 0, 0.003, 0.0001)
 }
 
 demo();

@@ -18,7 +18,9 @@ import {
   BoxGeometry,
   MeshRenderer,
   DirectLight,
-  HoverCameraController
+  HoverCameraController,
+  AtmosphericComponent,
+  Color
 } from '@orillusion/core';
 ```
 | 模块 | 说明 |
@@ -27,12 +29,14 @@ import {
 | Scene3D | 通过新建 Scene3D 类可以创建一个场景实例，该场景实例在程序中通常作为根节点被使用 |
 | Object3D | Object3D 类定义了物体对象，该对象包含常用的物体属性如位置、旋转等参数 |
 | Camera3D | 通过新建 Camera3D 类可以创建一个摄像机3D组件的实例，该实例可以作为相机节点添加到场景中 |
-| View3D | View3D，为引擎渲染时指定场景和观察相机 |
+| View3D | View3D，指定引擎渲染的目标场景和观察相机 |
 | LitMaterial | 通过 LitMaterial 类可以创建材质实例，并通过设置材质参数实现不同的材质效果 |
 | BoxGeometry | 通过 BoxGeometry 类可以创建一个长方体几何体 |
 | MeshRenderer | MeshRenderer组件，为物体提供 mesh 对象几何渲染 |
 | DirectLight | 平行光组件，可以设置平行光组件的颜色、强度属性和光照角度来获得合适的光照效果 |
-| HoverCameraController | 盘旋相机组件，可以控制相机围绕观察点移动
+| HoverCameraController | 盘旋相机组件，可以控制相机围绕观察点移动 |
+| AtmosphericComponent | 引擎内置的大气天空盒组件 |
+| Color | 定义颜色对象 |
 
 ## 初始化引擎
 ```ts
@@ -73,7 +77,6 @@ let component = light.addComponent(DirectLight);
 // 调整光照参数
 light.rotationX = 45;
 light.rotationY = 30;
-component.lightColor = new Color(1.0, 0.6, 0.6, 1);
 component.intensity = 2;
 // 添加光照对象
 scene3D.addChild(light);

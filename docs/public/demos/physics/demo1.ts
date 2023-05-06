@@ -58,7 +58,7 @@ export class Sample_box {
     light.rotationX = 45;
     light.rotationY = 30;
     component.lightColor = new Color(1.0, 1.0, 1.0, 1.0);
-    component.intensity = 1;
+    component.intensity = 20;
     // 添加光照对象
     scene3D.addChild(light);
 
@@ -82,10 +82,7 @@ export class Sample_box {
     let collider = obj.addComponent(ColliderComponent);
     collider.shape = new BoxColliderShape();
     collider.shape.size = new Vector3(5, 5, 5);
-
     scene3D.addChild(obj);
-
-    
 
     let view = new View3D();
     view.scene = scene3D;

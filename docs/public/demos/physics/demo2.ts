@@ -64,7 +64,7 @@ export class Sample_colliders {
     light.rotationX = 45;
     light.rotationY = 30;
     component.lightColor = new Color(1.0, 1.0, 1.0, 1.0);
-    component.intensity = 1;
+    component.intensity = 20;
     // 添加光照对象
     scene3D.addChild(light);
 

@@ -30,15 +30,13 @@ export class Sample_PropertyAnim {
         // start render
         Engine3D.startRenderView(view);
 
+        let guiData = {
+            click: () => this.animation.play('anim_0', true),
+            Seek: 0,
+            Speed: 1
+        }
         const GUIHelp = new dat.GUI();
-        GUIHelp.addButton({
-            click: () => {
-                this.animation.play('anim_0', true);
-            }
-        }, 'click').name('Restart');
-        let guiData = {} as any;
-        guiData.Seek = 0;
-        guiData.Speed = 1;
+        GUIHelp.add(guiData, 'click').name('Restart');
         GUIHelp.add(guiData, 'Seek', 0, 1, 0.01).onChange((v) => {
             this.animation.stop();
             this.animation.seek(v);

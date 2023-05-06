@@ -131,7 +131,7 @@ async function demo() {
         mr.receiveShadow = true;
         scene3D.addChild(receiveShadowObj);
     }
-    // 创建渲染任务
+    
     // add an Atmospheric sky enviroment
     scene3D.addComponent(AtmosphericComponent).sunY = 0.6;
     // create a view with target scene and camera

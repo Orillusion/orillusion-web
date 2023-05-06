@@ -1,8 +1,8 @@
 import {
     Engine3D, Vector3, Scene3D, Object3D, Camera3D, View3D, MeshRenderer, HoverCameraController, PlaneGeometry, Color
 } from "@orillusion/core";
-
 import { VideoTexture,ChromaKeyMaterial } from "@orillusion/media-extention"
+import * as dat from 'dat.gui'
 
 async function demo() {
     await Engine3D.init();
@@ -20,11 +20,20 @@ async function demo() {
     // 创建视频(背景过滤)材质
     let mat = new ChromaKeyMaterial();
     mat.baseMap = videoTexture;
-    mat.debug();
+
     // 设置过滤
     mat.keyColor = new Color(0,1,0,0)
     mat.colorCutoff = 0.06
     mat.colorFeathering = 0.25
+
+    let GUIHelp = new dat.GUI()
+    GUIHelp.addFolder('ChromaKek')
+    GUIHelp.addColor({color: [0,255,0]}, 'color').onChange(v=>{
+        mat.keyColor = new Color(0,1,0).copyFormArray(v)
+    })
+    GUIHelp.add(mat, 'colorCutoff', 0, 1, 0.01)
+    GUIHelp.add(mat, 'colorFeathering', 0, 1, 0.01)
+    GUIHelp.add(mat, 'sharpening', 0, 1, 0.01)
 
     // 创建2D平面
     let planeObj = new Object3D();

@@ -33,7 +33,7 @@ async function demo() {
     scene.addComponent(AtmosphericComponent).sunY = 0.6;
     setTimeout(() => {
         scene.envMap = evnMap;
-    }, 500);
+    });
 }
 
 demo()

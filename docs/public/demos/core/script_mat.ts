@@ -4,9 +4,9 @@ class MaterialAnimation extends ComponentBase {
   private material: LitMaterial;
   private time: number = 0;
 
-  protected start() {
+  start() {
     let mr = this.object3D.getComponent(MeshRenderer);
-    this.material = mr.material;
+    this.material = mr.material as LitMaterial;
   }
 
   public onUpdate() {
@@ -65,8 +65,8 @@ class UserLogic {
     // 添加相机节点
     this.scene.addChild(cameraObj);
 
-	  // add an Atmospheric sky enviroment
-	  this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
+    // add an Atmospheric sky enviroment
+    this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
     // create a view with target scene and camera
     let view = new View3D();
     view.scene = this.scene;

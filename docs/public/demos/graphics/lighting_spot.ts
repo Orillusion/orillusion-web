@@ -1,4 +1,5 @@
 import { BoxGeometry, Camera3D, Engine3D, AtmosphericComponent, LitMaterial, HoverCameraController, MeshRenderer, Object3D, Scene3D, SphereGeometry, SpotLight, Vector3, webGPUContext, View3D } from '@orillusion/core';
+import * as dat from 'dat.gui'
 
 export class Sample_Light {
   scene: Scene3D;
@@ -7,7 +8,7 @@ export class Sample_Light {
   constructor() { }
 
   async run() {
-    await Engine3D.init({});
+    await Engine3D.init();
 
     this.scene = new Scene3D();
     let cameraObj = new Object3D();
@@ -19,7 +20,7 @@ export class Sample_Light {
 
     //set camera data
     this.hoverCameraController.setCamera(0, -45, 1000);
-    await this.initScene(this.scene);
+    this.initScene(this.scene);
 
     // add an Atmospheric sky enviroment
     this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
@@ -52,7 +53,21 @@ export class Sample_Light {
       light.innerAngle = 30;
       scene.addChild(spotLight);
 
-      light.debug();
+      let GUIHelp = new dat.GUI()
+      GUIHelp.addFolder('Direct Light')
+      GUIHelp.add(spotLight, 'x', -180, 180, 1)
+      GUIHelp.add(spotLight, 'y', -180, 180, 1)
+      GUIHelp.add(spotLight, 'z', -180, 180, 1)
+      GUIHelp.add(spotLight, 'rotationX', -180, 180, 1)
+      GUIHelp.add(spotLight, 'rotationY', -180, 180, 1)
+      GUIHelp.add(spotLight, 'rotationZ', -180, 180, 1)
+      GUIHelp.addColor({color: Object.values(light.lightColor).map(v=>v*255)}, 'color').onChange(v=>{
+        light.lightColor.copyFormArray(v)
+      })
+      GUIHelp.add(light, 'intensity', 0, 100, 1)
+      GUIHelp.add(light, 'range', 100, 500, 1)
+      GUIHelp.add(light, 'outerAngle', 0, 180, 1)
+      GUIHelp.add(light, 'innerAngle', 0, 100, 1)
     }
 
     let mat = new LitMaterial();

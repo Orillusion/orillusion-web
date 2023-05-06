@@ -12,8 +12,6 @@
 ## 基础用法
 ```ts
 await Engine3D.init();
-// 指定天空盒子大小
-Engine3D.setting.sky.defaultFar = 5000;
 // 创建场景
 let scene = new Scene3D();
 // 添加一个节点

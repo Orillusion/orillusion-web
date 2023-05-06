@@ -1,4 +1,5 @@
-import { BoxGeometry, View3D, CameraUtil, PostProcessingComponent, DirectLight, Engine3D, GlobalFog, AtmosphericComponent, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, TAAPost, webGPUContext } from '@orillusion/core';
+import { BoxGeometry, View3D, CameraUtil, PostProcessingComponent, DirectLight, Engine3D, GlobalFog, AtmosphericComponent, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, TAAPost, webGPUContext, Color } from '@orillusion/core';
+import * as dat from 'dat.gui'
 
 export class Sample_fog {
 	constructor() { }
@@ -33,6 +34,15 @@ export class Sample_fog {
 
 		let postProcessing = this.scene.addComponent(PostProcessingComponent);
 		let fogPost = postProcessing.addPost(GlobalFog);
+
+		let GUIHelp = new dat.GUI()
+		GUIHelp.addFolder('Fog')
+		GUIHelp.add(fogPost, 'start', 0, 1000, 1)
+		GUIHelp.add(fogPost, 'end', 0, 1000, 1)
+		GUIHelp.add(fogPost, 'ins', 0, 1, 0.01)
+		GUIHelp.addColor({color: Object.values(fogPost.fogColor).map(v=>v*255)}, 'color').onChange(v=>{
+			fogPost.fogColor = new Color(1,1,1).copyFormArray(v)
+		})
 	}
 
 	async initScene() {

@@ -12,8 +12,6 @@ async function demo() {
     let ctrl = camera.addComponent(HoverCameraController);
     ctrl.setCamera(180, 0, 10);
 
-    let hdrTextureCube = await Engine3D.res.loadHDRTextureCube('https://cdn.orillusion.com/hdri/T_Panorama05_HDRI.HDR');
-
     let view = new View3D();
     view.scene = scene;
     view.camera = mainCamera;
@@ -21,9 +19,10 @@ async function demo() {
 
     // [bug]
     scene.addComponent(AtmosphericComponent).sunY = 0.6;
-    setTimeout(() => {
+    let hdrTextureCube = await Engine3D.res.loadHDRTextureCube('https://cdn.orillusion.com/hdri/T_Panorama05_HDRI.HDR');
+    setTimeout(()=>{
         scene.envMap = hdrTextureCube; 
-    }, 500);
+    })
 }
 
 demo()

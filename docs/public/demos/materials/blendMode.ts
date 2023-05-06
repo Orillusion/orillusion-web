@@ -13,24 +13,17 @@ export class Sample_BlendMode {
 
         Engine3D.setting.shadow.shadowBound = 5;
         Engine3D.setting.shadow.shadowBias = -0.0012;
-        // Engine3D.setting.render.postProcessing.bloom = {
-        //     enable: true,
-        //     blurX: 4,
-        //     blurY: 4,
-        //     intensity: 5,
-        //     brightness: 0.629 ,
-        // };
 
         this.scene = new Scene3D();
+        // add an Atmospheric sky enviroment
+        this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
+
         let camera = CameraUtil.createCamera3DObject(this.scene);
         camera.perspective(60, webGPUContext.aspect, 0.01, 5000.0);
 
         this.hover = camera.object3D.addComponent(HoverCameraController);
         this.hover.setCamera(0, 0, 100);
 
-
-        // add an Atmospheric sky enviroment
-        this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
         // create a view with target scene and camera
         let view = new View3D();
         view.scene = this.scene;
@@ -51,7 +44,6 @@ export class Sample_BlendMode {
     async initScene() {
         /******** sky *******/
         {
-            // this.scene.debugAtomSky();
             this.scene.exposure = 1 ;
             this.scene.roughness = 0.56 ;
         }

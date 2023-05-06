@@ -12,9 +12,9 @@ async function demo() {
   await Engine3D.init({});
   // create new scene as root node
   let scene3D = new Scene3D();
-	// add an Atmospheric sky enviroment
-	let sky = scene3D.addComponent(AtmosphericComponent);
-	sky.sunY = 0.6;
+  // add an Atmospheric sky enviroment
+  let sky = scene3D.addComponent(AtmosphericComponent);
+  sky.sunY = 0.6;
   // create camera
   let cameraObj = new Object3D();
   let camera = cameraObj.addComponent(Camera3D);
@@ -36,7 +36,7 @@ async function demo() {
   scene3D.addChild(light);
 
   // create new object
-  const obj= new Object3D();
+  const obj = new Object3D();
   // add MeshRenderer
   let mr = obj.addComponent(MeshRenderer);
   // set geometry
@@ -47,13 +47,13 @@ async function demo() {
   obj.addComponent(RotateScript)
   // add object
   scene3D.addChild(obj);
-  
-	// create a view with target scene and camera
-	let view = new View3D();
-	view.scene = scene3D;
-	view.camera = camera;
-	// start render
-	Engine3D.startRenderView(view);
+
+  // create a view with target scene and camera
+  let view = new View3D();
+  view.scene = scene3D;
+  view.camera = camera;
+  // start render
+  Engine3D.startRenderView(view);
 }
 
 demo();
