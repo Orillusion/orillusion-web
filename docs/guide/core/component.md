@@ -82,5 +82,6 @@ light.enable = true
 | onEnable | 组件 `enable = true` 时回调，组件加入主循环更新 |
 | onDisable | 组件 `enable = false` 时触发，组件将不再触发循环 |
 | stop | 组件销毁前被调用 |
+| destroy | 组件销毁时调用 |
 
 用户可以通过继承 [CompnentBase](/api/classes/ComponentBase) 基类来扩展不同的自定义功能，详情参考 [脚本组件](/guide/core/script)
