@@ -6,8 +6,6 @@
 
 例如设置场景中可支持的最大节点数量：
 ```ts
-// 最大实体数量
-Engine3D.setting.memory.doMatrixMaxCount = 100000;
 // 最大灯光数量
 Engine3D.setting.light.maxLight = 1024;
 // 先配置，后初始化

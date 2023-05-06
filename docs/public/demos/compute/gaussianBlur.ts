@@ -116,7 +116,6 @@ export class GaussianBlurPost extends PostBase {
         GUIHelp.add(this.mGaussianBlurArgs.memoryNodes.get(`radius`), `x`, 1, 10, 1).onChange(() => {
             this.mGaussianBlurArgs.apply();
         });
-        // GUIHelp.endFolder();
     }
 
     render(view: View3D, command: GPUCommandEncoder) {

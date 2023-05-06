@@ -44,7 +44,6 @@ async function demo() {
 	GUIHelp.add(obj.transform, 'scaleX', 0.0, 2.0, 0.01);
 	GUIHelp.add(obj.transform, 'scaleY', 0.0, 2.0, 0.01);
 	GUIHelp.add(obj.transform, 'scaleZ', 0.0, 2.0, 0.01);
-	// GUIHelp.endFolder();
 	// 为对象添 MeshRenderer
 	let mr: MeshRenderer = obj.addComponent(MeshRenderer);
 	// 设置几何体

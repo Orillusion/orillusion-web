@@ -1,4 +1,5 @@
 import { Camera3D, DirectLight, Engine3D, AtmosphericComponent, View3D, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, Scene3D, SphereGeometry, UnLitMaterial, Color } from '@orillusion/core';
+import * as dat from "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js"
 
 export class Sample_Materials {
     scene: Scene3D;
@@ -53,21 +54,22 @@ export class Sample_Materials {
             mr.material = mat;
             this.scene.addChild(sphere);
             sphere.localPosition.set(0, 0, 0);
-            // GUIHelp.add(mat.baseColor, 'r', 0,1,0.1).onChange(v=>{
-            //     let old = mat.baseColor
-            //     old.r = v
-            //     mat.baseColor = old.clone()
-            // })
-            // GUIHelp.add(mat.baseColor, 'g', 0,1,0.1).onChange(v=>{
-            //     let old = mat.baseColor
-            //     old.g = v
-            //     mat.baseColor = old.clone()
-            // })
-            // GUIHelp.add(mat.baseColor, 'b', 0,1,0.1).onChange(v=>{
-            //     let old = mat.baseColor
-            //     old.b = v
-            //     mat.baseColor = old.clone()
-            // })
+            const GUIHelp = new dat.GUI();
+            GUIHelp.add(mat.baseColor, 'r', 0,1,0.1).onChange(v=>{
+                let old = mat.baseColor
+                old.r = v
+                mat.baseColor = old.clone()
+            })
+            GUIHelp.add(mat.baseColor, 'g', 0,1,0.1).onChange(v=>{
+                let old = mat.baseColor
+                old.g = v
+                mat.baseColor = old.clone()
+            })
+            GUIHelp.add(mat.baseColor, 'b', 0,1,0.1).onChange(v=>{
+                let old = mat.baseColor
+                old.b = v
+                mat.baseColor = old.clone()
+            })
         }
 
     }

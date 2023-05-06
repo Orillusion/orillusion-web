@@ -13,7 +13,6 @@ export class Sample_FlightHelmet {
             canvasConfig: { alpha: true, zIndex: 0 },
             renderLoop: this.loop.bind(this)
         });
-        // GUIHelp.init()
         Engine3D.setting.shadow.autoUpdate = true;
         Engine3D.setting.shadow.updateFrameRate = 1;
         Engine3D.setting.shadow.shadowBound = 50;

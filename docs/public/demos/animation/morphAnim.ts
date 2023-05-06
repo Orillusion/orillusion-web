@@ -57,8 +57,6 @@ class Sample_morph {
                     });
                 }
             }
-            // GUIHelp.open();
-            // GUIHelp.endFolder();
         }
         {
             let ligthObj = new Object3D();

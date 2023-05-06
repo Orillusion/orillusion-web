@@ -64,7 +64,6 @@ export class Sample_GI {
       intensity: 0.5,
       brightness: 1.25,
     };
-    GUIHelp.init();
 
     this.scene = new Scene3D();
     let mainCamera = CameraUtil.createCamera3DObject(this.scene);

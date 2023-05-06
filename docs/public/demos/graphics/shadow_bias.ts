@@ -1,4 +1,5 @@
 import { Engine3D, Scene3D, Object3D, Camera3D, Vector3, AtmosphericComponent, View3D, LitMaterial, BoxGeometry, MeshRenderer, UnLitMaterial, SphereGeometry, DirectLight, PointLight, SpotLight, HoverCameraController, PlaneGeometry } from "@orillusion/core";
+import * as dat from "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js"
 
 async function demo() {
     // 配置 shadow 参数
@@ -15,8 +16,9 @@ async function demo() {
     let controller = cameraObj.addComponent(HoverCameraController);
     controller.setCamera(0, -45, 100, new Vector3(0, 0, 0));
     scene3D.addChild(cameraObj);
-    // GUIHelp.endFolder()
-    // GUIHelp.add(Engine3D.setting.shadow,'shadowBias', 0, 0.003)
+
+    const GUIHelp = new dat.GUI();
+    GUIHelp.add(Engine3D.setting.shadow,'shadowBias', 0, 0.003)
     {
         let obj = new Object3D();
         let light = obj.addComponent(DirectLight);

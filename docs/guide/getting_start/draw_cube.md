@@ -46,6 +46,7 @@ let scene3D = new Scene3D();
 
 ## 添加天空盒
 ```ts
+// 添加大气散射天空组件
 let sky = scene3D.addComponent(AtmosphericComponent);
 ```
 

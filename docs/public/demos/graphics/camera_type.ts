@@ -8,7 +8,6 @@ export default class CameraType {
     constructor() { }
 
     async run() {
-
         await Engine3D.init({
             canvasConfig: {
                 alpha: true
@@ -39,7 +38,7 @@ export default class CameraType {
         this.camera = this.cameraObj.addComponent(Camera3D)
         this.camera.lookAt(new Vector3(0, 0, -350), new Vector3(0, 0, 0));
         let hc = this.cameraObj.addComponent(HoverCameraController);
-        hc.setCamera(-90, 0, 500)
+        // hc.setCamera(-90, 0, 500)
         this.scene.addChild(this.cameraObj);
         this.perspective();
     }

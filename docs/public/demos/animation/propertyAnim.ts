@@ -1,6 +1,7 @@
 import {
     DirectLight, Engine3D, AtmosphericComponent, View3D, HoverCameraController, KelvinUtil, Object3D, Scene3D, CameraUtil, webGPUContext, PropertyAnimation, PropertyAnimClip, WrapMode,
 } from '@orillusion/core';
+import * as dat from "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js"
 
 export class Sample_PropertyAnim {
     lightObj: Object3D;
@@ -29,19 +30,22 @@ export class Sample_PropertyAnim {
         // start render
         Engine3D.startRenderView(view);
 
-        // GUIHelp.addButton('Restart', () => {
-        //     this.animation.play('anim_0', true);
-        // });
-        // let guiData = {} as any;
-        // guiData.Seek = 0;
-        // guiData.Speed = 1;
-        // GUIHelp.add(guiData, 'Seek', 0, 1, 0.01).onChange((v) => {
-        //     this.animation.stop();
-        //     this.animation.seek(v);
-        // });
-        // GUIHelp.add(guiData, 'Speed', 0, 1, 0.01).onChange((v) => {
-        //     this.animation.speed = v;
-        // });
+        const GUIHelp = new dat.GUI();
+        GUIHelp.addButton({
+            click: () => {
+                this.animation.play('anim_0', true);
+            }
+        }, 'click').name('Restart');
+        let guiData = {} as any;
+        guiData.Seek = 0;
+        guiData.Speed = 1;
+        GUIHelp.add(guiData, 'Seek', 0, 1, 0.01).onChange((v) => {
+            this.animation.stop();
+            this.animation.seek(v);
+        });
+        GUIHelp.add(guiData, 'Speed', 0, 1, 0.01).onChange((v) => {
+            this.animation.speed = v;
+        });
     }
 
     private async makePropertyAnim(node: Object3D) {

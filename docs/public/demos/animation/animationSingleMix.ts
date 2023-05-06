@@ -44,19 +44,16 @@ async function demo() {
     animation.getAnimationClipStates().forEach((clipState, _) => {
         GUIHelp.add(clipState, 'weight', 0, 1.0, 0.01).name(clipState.name);
     });
-    // GUIHelp.endFolder();
 
     GUIHelp.addFolder("Animation-play").open();
     animation.getAnimationClipStates().forEach((clipState, _) => {
         GUIHelp.add({click:() => animation.play(clipState.name)}, 'click').name(clipState.name);
     });
-    // GUIHelp.endFolder();
 
     GUIHelp.addFolder("Animation-crossFade").open();
     animation.getAnimationClipStates().forEach((clipState, _) => {
         GUIHelp.add({click:() => animation.crossFade(clipState.name, 0.3)}, 'click').name('crossFade(' + clipState.name + ')');
     });
-    // GUIHelp.endFolder();
 
     scene.addComponent(AtmosphericComponent).sunY = 0.6;
 

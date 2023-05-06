@@ -37,6 +37,7 @@ scene.removeChild(obj);
 ## 天空盒
 可以通过以下代码创建天空盒：
 ```ts
+// 添加大气散射天空组件
 let sky = scene3D.addComponent(AtmosphericComponent);
 ```
 详见以下示例：

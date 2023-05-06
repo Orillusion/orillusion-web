@@ -1,4 +1,4 @@
-import { Engine3D, Scene3D, Object3D, Camera3D, View3D, TextAnchor, UITextField, DirectLight, HoverCameraController, Color, GUIHelp, CameraUtil, webGPUContext, Vector3, CEvent, CEventDispatcher, WorldPanel, KelvinUtil, Time, clamp, UIImage, PointerEvent3D, UIInteractive, ImageType, LitMaterial, BoxGeometry, MeshRenderer } from "@orillusion/core";
+import { Engine3D, Scene3D, Object3D, Camera3D, View3D, TextAnchor, UITextField, DirectLight, HoverCameraController, Color, CameraUtil, webGPUContext, Vector3, CEvent, CEventDispatcher, WorldPanel, KelvinUtil, Time, clamp, UIImage, PointerEvent3D, UIInteractive, ImageType, LitMaterial, BoxGeometry, MeshRenderer } from "@orillusion/core";
 
 var scene: Scene3D;
 var hover;
