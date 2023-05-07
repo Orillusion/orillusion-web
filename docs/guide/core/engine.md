@@ -41,17 +41,21 @@ await Engine3D.init({
 ```
 
 ## 配置 Canvas
-除了配置渲染回调，在初始化时还可以指定渲染的 `canvas` ，如果没有指定，则默认创建一个新的覆盖整个窗口的 `canvas`。
+除了配置渲染回调，在初始化时还可以指定渲染的 `canvas`，如果没有指定，则引擎默认创建一个覆盖整个窗口的不透明 `canvas`。
 
 ```ts
 await Engine3D.init({
     canvasConfig:{
-        canvas: document.getElementById("webGpuCanvas"),
-        alpha: false, // 是否背景透明
-        zIndex: 1 // css z-index
+        canvas: document.getElementById("xxx") // 指定 canvas 元素, 可以自定义管理 canvas 大小或布局
+        alpha: true, // 是否背景透明, 默认 false
+        zIndex: 1 // CSS z-index, 默认 0
+        backgroundImage: "path/to/bg" // 若 alpha 透明时的背景图片
+        devicePixelRatio: 1 // 渲染 DPR, 默认使用 window.devicePixelRatio
     }
 });
-```
+``` 
+> 降低 `devicePixelRatio` 可以有效降低渲染压力，提高渲染性能，但同时渲染分辨率也会降低，可能增加锯齿效果
+
 更多详细配置，请参考 [CanvasConfig](/api/types/CanvasConfig)
 
 ## 开始渲染
