@@ -24,8 +24,8 @@ HDR Bloom effect
 
 ### Accessors
 
-- [bloomStrength](HDRBloomPost.md#bloomstrength)
-- [bloomRadius](HDRBloomPost.md#bloomradius)
+- [strength](HDRBloomPost.md#strength)
+- [radius](HDRBloomPost.md#radius)
 - [luminosityThreshold](HDRBloomPost.md#luminositythreshold)
 
 ### Properties
@@ -69,7 +69,7 @@ PostBase.onAttach
 
 #### Defined in
 
-[src/gfx/renderJob/post/HDRBloomPost.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/HDRBloomPost.ts#L87)
+[src/gfx/renderJob/post/HDRBloomPost.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/HDRBloomPost.ts#L89)
 
 ___
 
@@ -93,7 +93,7 @@ PostBase.onDetach
 
 #### Defined in
 
-[src/gfx/renderJob/post/HDRBloomPost.ts:91](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/HDRBloomPost.ts#L91)
+[src/gfx/renderJob/post/HDRBloomPost.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/HDRBloomPost.ts#L93)
 
 ___
 
@@ -107,7 +107,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/post/HDRBloomPost.ts:94](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/HDRBloomPost.ts#L94)
+[src/gfx/renderJob/post/HDRBloomPost.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/HDRBloomPost.ts#L96)
 
 ___
 
@@ -129,9 +129,9 @@ PostBase.destroy
 
 ## Accessors
 
-### bloomStrength
+### strength
 
-• `get` **bloomStrength**(): `number`
+• `get` **strength**(): `number`
 
 #### Returns
 
@@ -139,9 +139,9 @@ PostBase.destroy
 
 #### Defined in
 
-[src/gfx/renderJob/post/HDRBloomPost.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/HDRBloomPost.ts#L97)
+[src/gfx/renderJob/post/HDRBloomPost.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/HDRBloomPost.ts#L99)
 
-• `set` **bloomStrength**(`value`): `void`
+• `set` **strength**(`value`): `void`
 
 #### Parameters
 
@@ -155,13 +155,13 @@ PostBase.destroy
 
 #### Defined in
 
-[src/gfx/renderJob/post/HDRBloomPost.ts:101](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/HDRBloomPost.ts#L101)
+[src/gfx/renderJob/post/HDRBloomPost.ts:103](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/HDRBloomPost.ts#L103)
 
 ___
 
-### bloomRadius
+### radius
 
-• `get` **bloomRadius**(): `number`
+• `get` **radius**(): `number`
 
 #### Returns
 
@@ -169,9 +169,9 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/post/HDRBloomPost.ts:105](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/HDRBloomPost.ts#L105)
+[src/gfx/renderJob/post/HDRBloomPost.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/HDRBloomPost.ts#L107)
 
-• `set` **bloomRadius**(`value`): `void`
+• `set` **radius**(`value`): `void`
 
 #### Parameters
 
@@ -185,7 +185,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/post/HDRBloomPost.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/HDRBloomPost.ts#L109)
+[src/gfx/renderJob/post/HDRBloomPost.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/HDRBloomPost.ts#L111)
 
 ___
 
@@ -199,7 +199,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/post/HDRBloomPost.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/HDRBloomPost.ts#L113)
+[src/gfx/renderJob/post/HDRBloomPost.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/HDRBloomPost.ts#L115)
 
 • `set` **luminosityThreshold**(`value`): `void`
 
@@ -215,7 +215,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/post/HDRBloomPost.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/HDRBloomPost.ts#L117)
+[src/gfx/renderJob/post/HDRBloomPost.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/HDRBloomPost.ts#L119)
 
 ## Properties
 

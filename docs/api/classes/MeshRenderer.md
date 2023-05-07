@@ -984,7 +984,7 @@ RenderNode.renderPass
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:245](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L245)
+[src/components/renderer/RenderNode.ts:243](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L243)
 
 ___
 
@@ -1015,7 +1015,7 @@ RenderNode.renderPass2
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:294](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L294)
+[src/components/renderer/RenderNode.ts:291](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L291)
 
 ___
 
@@ -1044,7 +1044,7 @@ RenderNode.recordRenderPass2
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:334](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L334)
+[src/components/renderer/RenderNode.ts:328](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L328)
 
 ## Constructors
 

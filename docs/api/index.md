@@ -1,6 +1,6 @@
 # @orillusion/core
 
-## engine3D
+## Engine3D
 
 - [Engine3D](classes/Engine3D.md)
 - [CanvasConfig](types/CanvasConfig.md)
