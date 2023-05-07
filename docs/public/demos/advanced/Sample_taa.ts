@@ -10,8 +10,7 @@ export class Sample_TAA {
 	scene: Scene3D;
 
 	async run() {
-		Engine3D.setting.shadow.enable = false;
-		Engine3D.setting.shadow.debug = true;
+		Engine3D.setting.shadow.enable = true;
 		Engine3D.setting.shadow.shadowBound = 100;
 		Engine3D.setting.shadow.shadowBias = 0.0001;
 
@@ -23,7 +22,7 @@ export class Sample_TAA {
 		let mainCamera = CameraUtil.createCamera3DObject(this.scene, 'camera');
 		mainCamera.perspective(60, webGPUContext.aspect, 1, 5000.0);
 		let ctrl = mainCamera.object3D.addComponent(HoverCameraController);
-		ctrl.setCamera(0, -15, 20);
+		ctrl.setCamera(0, -15, 30);
 		await this.initScene();
 
 		let view = new View3D();
