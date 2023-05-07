@@ -29,11 +29,13 @@
         } else {
             Promise.all([
                 fetch(location.search.slice(1)).then(r => r.text()),
-                import('https://cdn.orillusion.com/esbuild.js').then(async esbuild=>{
-                    await esbuild.initialize({
-                        wasmURL: 'https://cdn.orillusion.com/esbuild.wasm'
-                    })
-                    return esbuild
+                new Promise(async r=>{
+                    function check(){
+                        if(window.parent.esbuild)
+                            r(window.parent.esbuild)
+                        else setTimeout(check, 50)
+                    }
+                    check()
                 })
             ]).then(async res =>{
                 const ts = await res[1].transform(res[0], {loader: 'ts'})

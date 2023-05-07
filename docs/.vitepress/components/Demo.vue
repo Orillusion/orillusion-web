@@ -59,6 +59,13 @@ export default {
                 this.loading = false
             }
         })
+        if(!location.hostname.match(/orillusion/) && !window.esbuild){
+            const esbuild = await import('https://cdn.orillusion.com/esbuild.js')
+            await esbuild.initialize({
+                wasmURL: 'https://cdn.orillusion.com/esbuild.wasm'
+            })
+            window.esbuild = esbuild
+        }
     },
     watch:{
         code(v){
@@ -82,7 +89,7 @@ export default {
             }
         },
         href(){
-            return withBase('/demos/index.html')+ '?' + withBase(this.src)
+            return withBase('/demo.html')+ '?' + withBase(this.src)
         }
     }
 }
