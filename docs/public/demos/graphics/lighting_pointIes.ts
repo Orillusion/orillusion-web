@@ -47,7 +47,7 @@ export class Sample_LightIES {
         pl.range = 100;
         pl.castShadow = true;
         pl.realTimeShadow = true;
-        pl.iesPofile = iesPofiles;
+        pl.iesProfiles = iesPofiles;
         po.x = 0;
         po.y = 22;
         po.z = 15 ;

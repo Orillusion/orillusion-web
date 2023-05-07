@@ -21,8 +21,9 @@ export class Sample_PBRMaterial {
             enable: true,
             blurX: 4,
             blurY: 4,
-            intensity: 2,
-            brightness: 1
+            strength: 2,
+            radius: 1,
+            luminosityThreshold: 1
         };
 
         this.scene = new Scene3D();

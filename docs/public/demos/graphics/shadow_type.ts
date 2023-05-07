@@ -13,7 +13,7 @@ async function demo() {
     let camera = cameraObj.addComponent(Camera3D);
     camera.perspective(60, Engine3D.aspect, 1, 5000.0);
     let controller = cameraObj.addComponent(HoverCameraController);
-    controller.setCamera(0, -45, 150, new Vector3(0, 0, 0));
+    controller.setCamera(0, -45, 50, new Vector3(0, 0, 0));
     scene3D.addChild(cameraObj);
 
     //PointLight 

@@ -8,9 +8,8 @@ export class Sample_GTAO {
 
 	async run() {
 		Engine3D.setting.shadow.enable = true;
-		Engine3D.setting.shadow.debug = false;
 		Engine3D.setting.shadow.shadowBound = 40;
-		Engine3D.setting.shadow.shadowBias = 0.0005;
+		Engine3D.setting.shadow.shadowBias = 0.0001;
 		Engine3D.setting.shadow.autoUpdate = true;
 		Engine3D.setting.shadow.updateFrameRate = 1;
 		await Engine3D.init({
