@@ -8,7 +8,9 @@ async function demo() {
     Engine3D.setting.shadow.pointShadowBias = 0.0001;
     Engine3D.setting.shadow.type = 'HARD'
 
-    await Engine3D.init();
+    await Engine3D.init({
+        canvasConfig:{devicePixelRatio: 1}
+    });
     let scene3D: Scene3D = new Scene3D();
     let cameraObj: Object3D = new Object3D();
     let camera = cameraObj.addComponent(Camera3D);

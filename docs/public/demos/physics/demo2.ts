@@ -40,6 +40,7 @@ export class Sample_colliders {
     await Physics.init();
     // 初始化引擎环境;
     await Engine3D.init({
+      canvasConfig:{devicePixelRatio: 1},
       renderLoop: () => this.loop()
     });
 

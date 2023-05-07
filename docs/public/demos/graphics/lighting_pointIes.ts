@@ -10,7 +10,9 @@ export class Sample_LightIES {
     Engine3D.setting.shadow.pointShadowBias = 0.6;
     Engine3D.setting.shadow.type = `HARD`;
     
-    await Engine3D.init();
+    await Engine3D.init({
+      canvasConfig:{devicePixelRatio: 1}
+    });
 
     this.scene = new Scene3D();
     let cameraObj = new Object3D();

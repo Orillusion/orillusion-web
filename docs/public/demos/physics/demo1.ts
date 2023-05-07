@@ -36,6 +36,7 @@ export class Sample_box {
     await Physics.init();
     // 初始化引擎环境;
     await Engine3D.init({
+      canvasConfig:{devicePixelRatio: 1},
       renderLoop: () => this.loop()
     });
     let scene3D = new Scene3D();

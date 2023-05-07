@@ -1,5 +1,5 @@
-# EngineConifg
-通过 [EngineConfig](/api/types/EngineConfig) 可以设置引擎的一些常见配置，`EngineConifg` 主要由几个不同配置组成，包括拾取模式，渲染管线，阴影设置，后处理设置，天空盒设置等等。
+# EngineSetting
+通过 [EngineSetting](/api/types/EngineSetting) 可以设置引擎的一些常见配置，`EngineSetting` 主要由几个不同配置组成，包括拾取模式，渲染管线，阴影设置，后处理设置，天空盒设置等等。
 
 ## 基础使用
 在引擎初始化前，需要先设置引擎的配置，可以通过 `Engine3D` 的 `setting` 的属性来设置。

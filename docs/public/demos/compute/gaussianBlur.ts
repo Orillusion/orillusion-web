@@ -3,7 +3,11 @@ import * as dat from "dat.gui"
 
 export class Demo_GaussianBlur {
     async run() {
-        await Engine3D.init({});
+        await Engine3D.init({
+            canvasConfig:{
+                devicePixelRatio: 1
+            }
+        });
 
         let scene = new Scene3D();
         await this.initScene(scene);

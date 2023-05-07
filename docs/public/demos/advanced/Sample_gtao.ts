@@ -13,7 +13,10 @@ export class Sample_GTAO {
 		Engine3D.setting.shadow.autoUpdate = true;
 		Engine3D.setting.shadow.updateFrameRate = 1;
 		await Engine3D.init({
-			renderLoop: () => this.loop(),
+			canvasConfig: {
+				devicePixelRatio: 1
+			},
+			renderLoop: () => this.loop()
 		});
 
 		this.scene = new Scene3D();

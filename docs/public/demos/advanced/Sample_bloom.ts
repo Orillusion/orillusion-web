@@ -5,7 +5,9 @@ export class Sample_bloom {
 	scene: Scene3D;
 
 	async run() {
-		await Engine3D.init({});
+		await Engine3D.init({
+			canvasConfig: { devicePixelRatio: 1 }
+		});
 
 		this.scene = new Scene3D();
 		this.scene.addComponent(AtmosphericComponent).sunY = 0.6;

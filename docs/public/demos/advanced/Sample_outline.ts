@@ -31,7 +31,11 @@ export class Sample_Outline {
 		Engine3D.setting.shadow.enable = false;
 		Engine3D.setting.shadow.shadowBias = 0.002;
 
-		await Engine3D.init();
+		await Engine3D.init({
+			canvasConfig: {
+				devicePixelRatio: 1
+			}
+		});
 
 		this.scene = new Scene3D();
 		this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
@@ -50,7 +54,7 @@ export class Sample_Outline {
 
 		let postProcessing = this.scene.addComponent(PostProcessingComponent);
 		let outlinePost = postProcessing.addPost(OutlinePost);
-
+		
 		const GUIHelp = new dat.GUI();
 		GUIHelp.addFolder('Outline')
 		GUIHelp.add(outlinePost, 'outlinePixel', 0, 5)

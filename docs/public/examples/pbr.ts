@@ -87,5 +87,9 @@ export class Sample_PBRMaterial {
         this.obj.transform.rotationY += 0.2
     }
 }
-
 new Sample_PBRMaterial().run()
+
+// for index page
+let css = document.createElement('style')
+css.innerText = `body.loading > canvas{width:560px !important;height:450px !important}`
+document.head.appendChild(css)
