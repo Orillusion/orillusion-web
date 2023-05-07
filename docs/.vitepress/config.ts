@@ -208,6 +208,13 @@ function nav() {
         {
             text: '论坛',
             link: 'https://forum.orillusion.com'
+        },
+        {
+            text: 'v0.6',
+            items: [
+                { text: 'Changelog', link: 'https://github.com/Orillusion/orillusion/releases' },
+                { text: 'NPM', link: 'https://www.npmjs.com/package/@orillusion/core' }
+            ]
         }
     ]
 }
