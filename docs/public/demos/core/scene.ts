@@ -6,14 +6,14 @@ async function demo() {
 	await Engine3D.init();
 	// create a Scene3D
 	let scene3D = new Scene3D();
-	// set environment light exposure
-	scene3D.exposure = 1;
 
 	// add an Atmospheric sky enviroment
 	let sky = scene3D.addComponent(AtmosphericComponent);
     // set sun position
     sky.sunX = 0.8;
 	sky.sunY = 0.54
+	// set exposure
+	sky.exposure = 1
 	
 	// create a camera
 	let cameraObj:Object3D = new Object3D();
