@@ -89,3 +89,8 @@ export class Sample_FlightHelmet {
 }
 
 new Sample_FlightHelmet().run()
+
+// for index page
+let css = document.createElement('style')
+css.innerText = `body.loading > canvas{width:560px !important;height:450px !important}`
+document.head.appendChild(css)

@@ -8,7 +8,9 @@ export class Sample_Light {
   constructor() { }
 
   async run() {
-    await Engine3D.init();
+    await Engine3D.init({
+      canvasConfig: {devicePixelRatio: 1}
+    });
 
     this.scene = new Scene3D();
     let cameraObj = new Object3D();

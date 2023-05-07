@@ -15,7 +15,7 @@ let rigidbody = object.addComponent(Rigidbody);
 rigidbody.mass = 50;
 ```
 
-如果需要静态刚体，则设置mass为0即可实现：
+如果需要静态刚体，则设置`mass` 为 `0` 即可实现：
 
 ```ts
 rigidbody.mass = 0;

@@ -12,7 +12,11 @@ export class Sample_fog {
 		Engine3D.setting.shadow.shadowBias = 0.0005;
 
 		// 初始化引擎环境;
-		await Engine3D.init({});
+		await Engine3D.init({
+			canvasConfig: {
+				devicePixelRatio: 1
+			}
+		});
 
 		// 创建场景对象;
 		this.scene = new Scene3D();

@@ -47,14 +47,15 @@ await Engine3D.init({
 await Engine3D.init({
     canvasConfig:{
         canvas: document.getElementById("webGpuCanvas"),
-        alpha: false,
-        zIndex: 1
+        alpha: false, // 是否背景透明
+        zIndex: 1 // css z-index
     }
 });
 ```
+更多详细配置，请参考 [CanvasConfig](/api/types/CanvasConfig)
 
 ## 开始渲染
-在引擎初始化完成之后，需要创建一个View3D来开始渲染。View3D至少需要一个场景 [Scene3D](/guide/core/scene) 和一个观察相机 [Camera3D](/api/classes/Camera3D) 才能启动，基本用法如下：
+在引擎初始化完成之后，需要创建一个 [View3D](/api/classes/View3D) 来开始渲染。`View3D` 至少需要一个场景 [Scene3D](/guide/core/scene) 和一个观察相机 [Camera3D](/api/classes/Camera3D) 才能启动，基本用法如下：
 
 ```ts
 await Engine3D.init();

@@ -14,7 +14,11 @@ export class Sample_TAA {
 		Engine3D.setting.shadow.shadowBound = 100;
 		Engine3D.setting.shadow.shadowBias = 0.0001;
 
-		await Engine3D.init();
+		await Engine3D.init({
+			canvasConfig: {
+				devicePixelRatio: 1
+			}
+		});
 
 		this.scene = new Scene3D();
 		this.scene.addComponent(AtmosphericComponent).sunY = 0.6;

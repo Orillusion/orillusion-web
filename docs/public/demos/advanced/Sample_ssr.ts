@@ -35,6 +35,9 @@ export class Sample_SSR {
     Engine3D.setting.shadow.updateFrameRate = 1;
 
     await Engine3D.init({
+      canvasConfig: {
+        devicePixelRatio: 1
+      },
       renderLoop: () => this.loop(),
     });
 
