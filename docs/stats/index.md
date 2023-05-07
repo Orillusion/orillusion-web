@@ -1,6 +1,5 @@
 # @orillusion/stats
 
-
-### Plugin
+## Plugin
 
 - [Stats](classes/Stats.md)

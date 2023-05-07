@@ -2,7 +2,6 @@
 
 Ammo.js by Bullet2
 
-
 ### Functions
 
 - [destroy](../functions/Ammo.destroy.md)
