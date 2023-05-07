@@ -10,7 +10,7 @@
     "build:demos": "esbuild `find docs/public \\( -name '*.ts' \\)` --outdir=docs/.vitepress/dist"
   },
   "devDependencies": {
-    "@orillusion/core": "^0.6.0",
+    "@orillusion/core": "^0.6.1",
     "@orillusion/media-extention": "^0.2.0",
     "@orillusion/physics": "^0.2.0",
     "@orillusion/stats": "^0.2.0",

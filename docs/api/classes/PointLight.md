@@ -26,7 +26,8 @@ A common example is to simulate the light emitted by a light bulb, where a point
 
 - [transform](PointLight.md#transform)
 - [enable](PointLight.md#enable)
-- [iesPofile](PointLight.md#iespofile)
+- [iesProfiles](PointLight.md#iesprofiles)
+- [iesProfile](PointLight.md#iesprofile)
 - [r](PointLight.md#r)
 - [g](PointLight.md#g)
 - [b](PointLight.md#b)
@@ -260,29 +261,15 @@ LightBase.enable
 
 ___
 
-### iesPofile
+### iesProfiles
 
-• `get` **iesPofile**(): [`IESProfiles`](IESProfiles.md)
-
-#### Returns
-
-[`IESProfiles`](IESProfiles.md)
-
-#### Inherited from
-
-LightBase.iesPofile
-
-#### Defined in
-
-[src/components/lights/LightBase.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L116)
-
-• `set` **iesPofile**(`iesPofiles`): `void`
+• `set` **iesProfiles**(`iesProfiles`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `iesPofiles` | [`IESProfiles`](IESProfiles.md) |
+| `iesProfiles` | [`IESProfiles`](IESProfiles.md) |
 
 #### Returns
 
@@ -290,11 +277,29 @@ LightBase.iesPofile
 
 #### Inherited from
 
-LightBase.iesPofile
+LightBase.iesProfiles
 
 #### Defined in
 
 [src/components/lights/LightBase.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L109)
+
+___
+
+### iesProfile
+
+• `get` **iesProfile**(): [`IESProfiles`](IESProfiles.md)
+
+#### Returns
+
+[`IESProfiles`](IESProfiles.md)
+
+#### Inherited from
+
+LightBase.iesProfile
+
+#### Defined in
+
+[src/components/lights/LightBase.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L116)
 
 ___
 

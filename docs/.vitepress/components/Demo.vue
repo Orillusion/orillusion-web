@@ -59,7 +59,8 @@ export default {
                 this.loading = false
             }
         })
-        if(!location.hostname.match(/orillusion/) && !window.esbuild){
+        if(!location.hostname.match(/orillusion/) && !window.esbuild && !window._esbuild){
+            window._esbuild = true
             const esbuild = await import('https://cdn.orillusion.com/esbuild.js')
             await esbuild.initialize({
                 wasmURL: 'https://cdn.orillusion.com/esbuild.wasm'

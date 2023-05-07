@@ -5,7 +5,7 @@ async function demo() {
     Engine3D.setting.shadow.autoUpdate = true;
     Engine3D.setting.shadow.shadowBound = 100;
     Engine3D.setting.shadow.shadowBias = 0.0001;
-    Engine3D.setting.shadow.type = 'SOFT'
+    Engine3D.setting.shadow.type = 'HARD'
 
     await Engine3D.init();
     let scene3D: Scene3D = new Scene3D();

@@ -28,8 +28,8 @@ export class Sample_bloom {
 		GUIHelp.addFolder('Depth of Field')
 		GUIHelp.add(bloom, 'blurX', 0, 10, 1)
 		GUIHelp.add(bloom, 'blurY', 0, 10, 1)
-		GUIHelp.add(bloom, 'bloomStrength', 0, 5, 0.1)
-		GUIHelp.add(bloom, 'bloomRadius', 0, 5, 0.1)
+		GUIHelp.add(bloom, 'strength', 0, 5, 0.1)
+		GUIHelp.add(bloom, 'radius', 0, 5, 0.1)
 	}
 
 	async initScene() {

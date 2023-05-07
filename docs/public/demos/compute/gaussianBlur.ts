@@ -113,7 +113,7 @@ export class GaussianBlurPost extends PostBase {
     public debug(){
         const GUIHelp = new dat.GUI();
         GUIHelp.addFolder('GaussianBlur');
-        GUIHelp.add(this.mGaussianBlurArgs.memoryNodes.get(`radius`), `x`, 1, 10, 1).onChange(() => {
+        GUIHelp.add(this.mGaussianBlurArgs.memoryNodes.get(`radius`), `x`, 1, 10, 1).name('Blur Radius').onChange(() => {
             this.mGaussianBlurArgs.apply();
         });
     }

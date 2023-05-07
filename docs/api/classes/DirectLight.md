@@ -29,7 +29,8 @@ The light of this light source is parallel, for example, sunlight. This light so
 - [radius](DirectLight.md#radius)
 - [indirect](DirectLight.md#indirect)
 - [castShadow](DirectLight.md#castshadow)
-- [iesPofile](DirectLight.md#iespofile)
+- [iesProfiles](DirectLight.md#iesprofiles)
+- [iesProfile](DirectLight.md#iesprofile)
 - [r](DirectLight.md#r)
 - [g](DirectLight.md#g)
 - [b](DirectLight.md#b)
@@ -379,29 +380,15 @@ LightBase.castShadow
 
 ___
 
-### iesPofile
+### iesProfiles
 
-• `get` **iesPofile**(): [`IESProfiles`](IESProfiles.md)
-
-#### Returns
-
-[`IESProfiles`](IESProfiles.md)
-
-#### Inherited from
-
-LightBase.iesPofile
-
-#### Defined in
-
-[src/components/lights/LightBase.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L116)
-
-• `set` **iesPofile**(`iesPofiles`): `void`
+• `set` **iesProfiles**(`iesProfiles`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `iesPofiles` | [`IESProfiles`](IESProfiles.md) |
+| `iesProfiles` | [`IESProfiles`](IESProfiles.md) |
 
 #### Returns
 
@@ -409,11 +396,29 @@ LightBase.iesPofile
 
 #### Inherited from
 
-LightBase.iesPofile
+LightBase.iesProfiles
 
 #### Defined in
 
 [src/components/lights/LightBase.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L109)
+
+___
+
+### iesProfile
+
+• `get` **iesProfile**(): [`IESProfiles`](IESProfiles.md)
+
+#### Returns
+
+[`IESProfiles`](IESProfiles.md)
+
+#### Inherited from
+
+LightBase.iesProfile
+
+#### Defined in
+
+[src/components/lights/LightBase.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L116)
 
 ___
 

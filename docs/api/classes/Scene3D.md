@@ -52,8 +52,6 @@ It represents an independent 3D scene where 3D objects can be created and manipu
 
 ### Methods
 
-- [showSky](Scene3D.md#showsky)
-- [hideSky](Scene3D.md#hidesky)
 - [getObjectByName](Scene3D.md#getobjectbyname)
 - [addChild](Scene3D.md#addchild)
 - [removeChild](Scene3D.md#removechild)
@@ -264,7 +262,7 @@ Exposure of Sky Box. A larger value produces a sky box with stronger exposure an
 
 #### Defined in
 
-[src/core/Scene3D.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/core/Scene3D.ts#L64)
+[src/core/Scene3D.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/core/Scene3D.ts#L54)
 
 • `set` **exposure**(`value`): `void`
 
@@ -282,7 +280,7 @@ Set the exposure of the Sky Box.
 
 #### Defined in
 
-[src/core/Scene3D.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/core/Scene3D.ts#L73)
+[src/core/Scene3D.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/core/Scene3D.ts#L63)
 
 ___
 
@@ -298,7 +296,7 @@ Get the roughness of the Sky Box.
 
 #### Defined in
 
-[src/core/Scene3D.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/core/Scene3D.ts#L83)
+[src/core/Scene3D.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/core/Scene3D.ts#L73)
 
 • `set` **roughness**(`value`): `void`
 
@@ -316,7 +314,7 @@ Set the roughness of the Sky Box.
 
 #### Defined in
 
-[src/core/Scene3D.ts:92](https://github.com/Orillusion/orillusion/blob/main/src/core/Scene3D.ts#L92)
+[src/core/Scene3D.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/core/Scene3D.ts#L82)
 
 ___
 
@@ -1039,34 +1037,6 @@ Object3D.rotationZ
 [src/core/entities/Object3D.ts:461](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L461)
 
 ## Methods
-
-### showSky
-
-▸ **showSky**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/core/Scene3D.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/core/Scene3D.ts#L50)
-
-___
-
-### hideSky
-
-▸ **hideSky**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/core/Scene3D.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/core/Scene3D.ts#L55)
-
-___
 
 ### getObjectByName
 
