@@ -1,4 +1,4 @@
-import { Engine3D, Scene3D, Object3D, Camera3D, ForwardRenderJob, LitMaterial, SkyBoxGeometry, MeshRenderer, DirectLight, HoverCameraController, Color, Vector3 } from "@orillusion/core";
+import { Engine3D, Scene3D, Object3D, Camera3D, AtmosphericComponent, View3D, LitMaterial, SphereGeometry, MeshRenderer, DirectLight, HoverCameraController, Color, Vector3 } from "@orillusion/core";
 async function demo() {
 	// 初始化引擎
 	await Engine3D.init({});
@@ -8,7 +8,7 @@ async function demo() {
 	let cameraObj:Object3D = new Object3D();
 	let camera = cameraObj.addComponent(Camera3D);
 	// 调整摄像机视角
-	camera.perspective(60, window.innerWidth / window.innerHeight, 1, 5000.0);
+	camera.perspective(60, Engine3D.aspect, 1, 5000.0);
 	// 设置相机控制器
 	let controller = camera.object3D.addComponent(HoverCameraController);
   	controller.setCamera(0, 0, 15);
@@ -30,16 +30,20 @@ async function demo() {
 	// 为对象添 MeshRenderer
 	let mr:MeshRenderer = obj.addComponent(MeshRenderer);
 	// 设置几何体
-	mr.geometry = new SkyBoxGeometry(100, 100, 100);
+	mr.geometry = new SphereGeometry(Engine3D.setting.sky.defaultFar, 20, 20);
 	// 设置材质
 	mr.material = new LitMaterial();
 	// 设置位置和旋转
 	obj.localPosition = new Vector3(0, 0, 0);
 	// 添加对象
 	scene3D.addChild(obj);
-	// 新建前向渲染业务
-	let renderJob:ForwardRenderJob = new ForwardRenderJob(scene3D);
-	// 开始渲染
-	Engine3D.startRender(renderJob);
+    // add an Atmospheric sky enviroment
+    // scene3D.addComponent(AtmosphericComponent).sunY = 0.6;
+    // create a view with target scene and camera
+    let view = new View3D();
+    view.scene = scene3D;
+    view.camera = camera;
+    // start render
+    Engine3D.startRenderView(view);
 }
 demo();

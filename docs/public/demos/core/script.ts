@@ -1,24 +1,25 @@
-import {ComponentBase, Time, DirectLight, Color, LitMaterial, MeshRenderer, defaultTexture, Vector3, CubicBezierPath, CubicBezierType, Scene3D, BoxGeometry, Object3D, Engine3D, Camera3D, HoverCameraController, ForwardRenderJob} from '@orillusion/core';
+import {ComponentBase, Time, DirectLight, Color, AtmosphericComponent, LitMaterial, MeshRenderer, View3D, Vector3, CubicBezierPath, CubicBezierType, Scene3D, BoxGeometry, Object3D, Engine3D, Camera3D, HoverCameraController} from '@orillusion/core';
 
 class LightAnimation extends ComponentBase {
   private light: DirectLight;
 
   constructor() {
+    super();
     console.log(this.object3D, 'LightAnimation constructor');
   }
 
-  protected init() {
+  public init() {
     //meshRender可能没被创建、或者MeshRender自身没有start
     console.log(this.object3D, 'LightAnimation init');
   }
 
-  protected start() {
+  public start() {
     this.light = this.object3D.getComponent(DirectLight);
     this.color = this.light.lightColor;
   }
 
   private color: Color;
-  update() {
+  public onUpdate() {
     this.color.r = (Math.sin(Time.time * 0.01) + 1) * 0.5;
     this.light.lightColor = this.color;
   }
@@ -32,22 +33,22 @@ class MaterialAnimation extends ComponentBase {
     console.log(this.object3D, 'constructor');
   }
 
-  protected init() {
+  public init() {
     //meshRender可能没被创建、或者MeshRender自身没有start
     console.log(this.object3D, 'init');
   }
 
-  protected start() {
+  public start() {
     let mr = this.object3D.getComponent(MeshRenderer);
     this.material = mr.material as LitMaterial;
-    this.material.emissiveMap = defaultTexture.grayTexture;
+    this.material.emissiveMap = Engine3D.res.grayTexture;
   }
 
   private time: number = 0;
-  update() {
+  public onUpdate() {
     let i = Math.sin(Time.time * 0.01) + 1; //0-2
     this.material.emissiveIntensity = i * 0.5 + 0.5; //0~2
-    this.time += Time.detail; //
+    this.time += Time.delta; //
     if (this.time > 4000) {
       // this.stop();
     }
@@ -57,7 +58,7 @@ class MaterialAnimation extends ComponentBase {
 class PathAnimation extends ComponentBase {
   private bezier: CubicBezierPath;
 
-  protected start() {
+  public start() {
     let points: Vector3[] = [];
     for (let i = 0; i < 10; i++) {
       let point = new Vector3();
@@ -70,7 +71,7 @@ class PathAnimation extends ComponentBase {
     this.bezier.InterpolatePoints(points, CubicBezierType.Closed);
   }
 
-  update() {
+  public onUpdate() {
     let t = ((Time.time * 0.001) % 4) / 4;
     let position = this.bezier.GetPoint(t);
     this.object3D.localPosition = position;
@@ -82,30 +83,33 @@ class UserLogic {
   private cube: Object3D;
   private light: DirectLight;
 
-  init(scene3D: Scene3D) {
+  public init(scene3D: Scene3D) {
     this.scene = scene3D;
-    this.createCube();
-    this.createLight();
-    this.createComponents();
+	// add an Atmospheric sky enviroment
+	let sky = scene3D.addComponent(AtmosphericComponent);
+	sky.sunY = 0.6;
+    // this.createCube();
+    // this.createLight();
+    // this.createComponents();
   }
 
   private createCube() {
     let mat = new LitMaterial();
-    mat.baseMap = defaultTexture.whiteTexture;
-    mat.normalMap = defaultTexture.normalTexture;
-    mat.aoMap = defaultTexture.whiteTexture;
-    mat.maskMap = defaultTexture.createTexture(32, 32, 255.0, 255.0, 0.0, 1);
-    mat.emissiveMap = defaultTexture.blackTexture;
+    mat.baseMap = Engine3D.res.whiteTexture;
+    mat.normalMap = Engine3D.res.normalTexture;
+    mat.aoMap = Engine3D.res.whiteTexture;
+    mat.maskMap = Engine3D.res.createTexture(32, 32, 255.0, 255.0, 0.0, 1);
+    mat.emissiveMap = Engine3D.res.blackTexture;
     mat.roughness = 1.0;
     mat.metallic = 0.0;
     mat.emissiveIntensity = 0.5;
 
     let mat2 = new LitMaterial();
-    mat2.baseMap = defaultTexture.whiteTexture;
-    mat2.normalMap = defaultTexture.normalTexture;
-    mat2.aoMap = defaultTexture.whiteTexture;
-    mat2.maskMap = defaultTexture.createTexture(32, 32, 255.0, 255.0, 0.0, 1);
-    mat2.emissiveMap = defaultTexture.blackTexture;
+    mat2.baseMap = Engine3D.res.whiteTexture;
+    mat2.normalMap = Engine3D.res.normalTexture;
+    mat2.aoMap = Engine3D.res.whiteTexture;
+    mat2.maskMap = Engine3D.res.createTexture(32, 32, 255.0, 255.0, 0.0, 1);
+    mat2.emissiveMap = Engine3D.res.blackTexture;
     mat2.roughness = 1.0;
     mat2.metallic = 0.0;
     mat2.emissiveIntensity = 0.5;
@@ -157,16 +161,18 @@ class UserLogic {
     let cameraObj = new Object3D();
     let camera = cameraObj.addComponent(Camera3D);
     // 调整摄像机视角
-    camera.perspective(60, window.innerWidth / window.innerHeight, 1, 5000.0);
+    camera.perspective(60, Engine3D.aspect, 1, 5000.0);
     // 设置主相机
-    Camera3D.mainCamera = camera;
     let controller = camera.object3D.addComponent(HoverCameraController);
     controller.setCamera(0, 0, 15);
     // 添加相机节点
     this.scene.addChild(cameraObj);
-    let renderJob:ForwardRenderJob = new ForwardRenderJob(this.scene);
-    // 开始渲染
-    Engine3D.startRender(renderJob);
+    // create a view with target scene and camera
+    let view = new View3D();
+    view.scene = this.scene;
+    view.camera = camera;
+    // start render
+    Engine3D.startRenderView(view);
   }
 }
 new UserLogic().run();

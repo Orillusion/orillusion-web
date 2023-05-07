@@ -4,4 +4,4 @@
 
 #### Defined in
 
-[src/engine/assets/shader/test/GlassShader.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/shader/test/GlassShader.ts#L2)
+[src/assets/shader/materials/GlassShader.ts:1](https://github.com/Orillusion/orillusion/blob/main/src/assets/shader/materials/GlassShader.ts#L1)

@@ -1,14 +1,14 @@
 # Enumeration: LightType
 
-光源的类型
+Type of light source
 
-|类型|描述|
+Type Description|
 |:---:|:---:|
-|None|无|
-|PointLight|点光源|
-|DirectionLight|平行光源|
-|spotLight|聚光灯光源|
-|SkyLight|天光|
+None|
+PointLight|
+DirectionLight|
+SpotLight|
+SkyLight|
 
 
 ### Enumeration Members
@@ -27,7 +27,7 @@
 
 #### Defined in
 
-[src/engine/components/lights/LightData.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/LightData.ts#L20)
+[src/components/lights/LightData.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightData.ts#L18)
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 #### Defined in
 
-[src/engine/components/lights/LightData.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/LightData.ts#L21)
+[src/components/lights/LightData.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightData.ts#L19)
 
 ___
 
@@ -47,7 +47,7 @@ ___
 
 #### Defined in
 
-[src/engine/components/lights/LightData.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/LightData.ts#L22)
+[src/components/lights/LightData.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightData.ts#L20)
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 #### Defined in
 
-[src/engine/components/lights/LightData.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/LightData.ts#L23)
+[src/components/lights/LightData.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightData.ts#L21)
 
 ___
 
@@ -67,4 +67,4 @@ ___
 
 #### Defined in
 
-[src/engine/components/lights/LightData.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/LightData.ts#L24)
+[src/components/lights/LightData.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightData.ts#L22)

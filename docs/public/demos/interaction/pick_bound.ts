@@ -1,4 +1,4 @@
-import { Engine3D, Scene3D, Vector3, Object3D, Camera3D, ForwardRenderJob, LitMaterial, MeshRenderer, BoxColliderShape, Collider, BoxGeometry, ComponentBase, Color, PointerEvent3D, SphereGeometry } from "@orillusion/core";
+import { Engine3D, Scene3D, Vector3, Object3D, AtmosphericComponent, Camera3D, View3D, LitMaterial, MeshRenderer, BoxColliderShape, ColliderComponent, BoxGeometry, ComponentBase, Color, PointerEvent3D, SphereGeometry } from "@orillusion/core";
 
 export default class TouchDemo {
     scene: Scene3D;
@@ -18,20 +18,24 @@ export default class TouchDemo {
         await Engine3D.init();
 
         this.scene = new Scene3D();
+        this.scene.addComponent(AtmosphericComponent);
         this.cameraObj = new Object3D();
         this.camera = this.cameraObj.addComponent(Camera3D)
         this.scene.addChild(this.cameraObj);
         this.camera.lookAt(new Vector3(0, 0, 10), new Vector3(0, 0, 0));
-        this.camera.perspective(60, window.innerWidth / window.innerHeight, 1, 10000.0);
+        this.camera.perspective(60, Engine3D.aspect, 1, 10000.0);
 
         let box = this.createBox(-2, 0, 0);
         let sphere = this.createSphere(2, 0, 0);
 
-        let renderJob = new ForwardRenderJob(this.scene);
-        Engine3D.startRender(renderJob);
+        let view = new View3D();
+        view.scene = this.scene;
+        view.camera = this.camera;
+        // start render
+        Engine3D.startRenderView(view);
         
         // 统一监听点击事件
-        Engine3D.pickFire.addEventListener(PointerEvent3D.PICK_CLICK, this.onPick, this);
+        view.pickFire.addEventListener(PointerEvent3D.PICK_CLICK, this.onPick, this);
     }
 
     createBox(x: number, y: number, z: number) {
@@ -41,7 +45,7 @@ export default class TouchDemo {
         let size: number = 2;
         let shape: BoxColliderShape = new BoxColliderShape().setFromCenterAndSize(new Vector3(0, 0, 0), new Vector3(size, size, size));
         //加一个碰撞盒子。
-        let collider = boxObj.addComponent(Collider);
+        let collider = boxObj.addComponent(ColliderComponent);
         collider.shape = shape;
         // 为对象添 MeshRenderer
         let mr: MeshRenderer = boxObj.addComponent(MeshRenderer);
@@ -60,7 +64,7 @@ export default class TouchDemo {
         let size: number = 2;
         let shape: BoxColliderShape = new BoxColliderShape().setFromCenterAndSize(new Vector3(0, 0, 0), new Vector3(size, size, size));
         //加一个碰撞盒子。
-        let collider = sphereObj.addComponent(Collider);
+        let collider = sphereObj.addComponent(ColliderComponent);
         collider.shape = shape;
         // 为对象添 MeshRenderer
         let mr: MeshRenderer = sphereObj.addComponent(MeshRenderer);

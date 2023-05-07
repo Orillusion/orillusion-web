@@ -25,19 +25,18 @@ scene.addComponent(Stats);
 ```
 ```ts
 const { Scene3D, Stats } = Orillusion 
-
 let scene = new Scene3D();
 scene.addComponent(Stats);
 ```
 
 <Demo :height="400" src="/demos/performance/stats.ts"></Demo>
 
-<<< @/public/demos/performance/stats.ts{12,21}
+<<< @/public/demos/performance/stats.ts{11}
 
 默认窗口内会在左上方出现一个矩形悬浮面板，如果需要修改位置，可以通过修改 `stats.container` 的 `style` 属性进行设置，或者添加 `css` 对 `.stats` class 进行设置。
 
 ```ts
-  let stats = scene.addComponent(Stats);
-  stats.container.style.left = '10px';
-  stats.container.style.top = '10px';
+let stats = scene.addComponent(Stats);
+stats.container.style.left = '10px';
+stats.container.style.top = '10px';
 ```

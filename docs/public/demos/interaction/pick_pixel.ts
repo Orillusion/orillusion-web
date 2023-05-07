@@ -1,5 +1,5 @@
 import {
-    BoxColliderShape, Camera3D, CameraUtil, Collider, Color, defaultTexture, DirectLight, Engine3D, ForwardRenderJob, GUIHelp, HDRBloomPost, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PointerEvent3D, Scene3D, SphereGeometry, Vector3, webGPUContext,
+    AtmosphericComponent, BoxColliderShape, Camera3D, CameraUtil, ColliderComponent, Color, View3D, DirectLight, Engine3D, HDRBloomPost, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PointerEvent3D, Scene3D, SphereGeometry, Vector3, webGPUContext,
 } from '@orillusion/core';
 
 export class Sample_MousePick {
@@ -17,11 +17,10 @@ export class Sample_MousePick {
 
         await Engine3D.init({});
 
-        GUIHelp.init();
-
         this.scene = new Scene3D();
+        this.scene.addComponent(AtmosphericComponent);
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, webGPUContext.aspect, 1, 5000.0);
+        camera.perspective(60, Engine3D.aspect, 1, 5000.0);
 
         this.hover = camera.object3D.addComponent(HoverCameraController);
         this.hover.setCamera(-45, -45, 120);
@@ -33,24 +32,26 @@ export class Sample_MousePick {
         wukong.transform.scaleZ = 20;
         wukong.forChild((node) => {
             if (node.hasComponent(MeshRenderer)){ 
-                node.addComponent(Collider)
+                node.addComponent(ColliderComponent)
             }
         });
         this.scene.addChild(wukong);
 
         this.initPickObject(this.scene);
 
-        let renderJob = new ForwardRenderJob(this.scene);
-        renderJob.addPost(new HDRBloomPost());
-        Engine3D.startRender(renderJob);
+        let view = new View3D();
+        view.scene = this.scene;
+        view.camera = camera;
+        // start render
+        Engine3D.startRenderView(view);
 
         // 统一监听鼠标拾取
-        Engine3D.pickFire.addEventListener(PointerEvent3D.PICK_UP, this.onUp, this);
-        Engine3D.pickFire.addEventListener(PointerEvent3D.PICK_DOWN, this.onDow, this);
-        Engine3D.pickFire.addEventListener(PointerEvent3D.PICK_CLICK, this.onPick, this);
-        Engine3D.pickFire.addEventListener(PointerEvent3D.PICK_OVER, this.onOver, this);
-        Engine3D.pickFire.addEventListener(PointerEvent3D.PICK_OUT, this.onOut, this);
-        Engine3D.pickFire.addEventListener(PointerEvent3D.PICK_MOVE, this.onMove, this);
+        view.pickFire.addEventListener(PointerEvent3D.PICK_UP, this.onUp, this);
+        view.pickFire.addEventListener(PointerEvent3D.PICK_DOWN, this.onDow, this);
+        view.pickFire.addEventListener(PointerEvent3D.PICK_CLICK, this.onPick, this);
+        view.pickFire.addEventListener(PointerEvent3D.PICK_OVER, this.onOver, this);
+        view.pickFire.addEventListener(PointerEvent3D.PICK_OUT, this.onOut, this);
+        view.pickFire.addEventListener(PointerEvent3D.PICK_MOVE, this.onMove, this);
     }
 
     private initPickObject(scene: Scene3D): void {
@@ -80,13 +81,13 @@ export class Sample_MousePick {
             obj.x = (i - 5) * 10;
 
             let mat = new LitMaterial();
-            mat.emissiveMap = defaultTexture.grayTexture;
+            mat.emissiveMap = Engine3D.res.grayTexture;
             mat.emissiveIntensity = 0.0;
 
             let renderer = obj.addComponent(MeshRenderer);
             renderer.geometry = geometry;
             renderer.material = mat;
-            obj.addComponent(Collider);
+            obj.addComponent(ColliderComponent);
         }
     }
 

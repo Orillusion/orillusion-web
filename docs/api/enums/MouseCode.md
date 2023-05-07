@@ -1,6 +1,6 @@
 # Enumeration: MouseCode
 
-鼠标键码
+Mouse Key Code
 
 
 ### Enumeration Members
@@ -15,11 +15,11 @@
 
 • **MOUSE\_LEFT** = ``0``
 
-鼠标左键
+key code of mouse left
 
 #### Defined in
 
-[src/engine/event/MouseCode.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/MouseCode.ts#L11)
+[src/event/MouseCode.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/event/MouseCode.ts#L11)
 
 ___
 
@@ -27,11 +27,11 @@ ___
 
 • **MOUSE\_MID** = ``1``
 
-鼠标中键
+key code of mouse middle
 
 #### Defined in
 
-[src/engine/event/MouseCode.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/MouseCode.ts#L18)
+[src/event/MouseCode.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/event/MouseCode.ts#L18)
 
 ___
 
@@ -39,8 +39,8 @@ ___
 
 • **MOUSE\_RIGHT** = ``2``
 
-鼠标右键
+key code of mouse right
 
 #### Defined in
 
-[src/engine/event/MouseCode.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/MouseCode.ts#L25)
+[src/event/MouseCode.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/event/MouseCode.ts#L25)

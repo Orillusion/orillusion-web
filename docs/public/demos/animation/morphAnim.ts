@@ -1,6 +1,7 @@
 import {
-    Camera3D, Engine3D, DirectLight, ForwardRenderJob, GUIHelp, HoverCameraController, MeshRenderer, Object3D, RendererMask, Scene3D, webGPUContext, Color
+    Camera3D, Engine3D, DirectLight, AtmosphericComponent, View3D, HoverCameraController, MeshRenderer, Object3D, RendererMask, Scene3D, webGPUContext, Color, MorphTargetBlender
 } from '@orillusion/core';
+import * as dat from "dat.gui"
 
 class Sample_morph {
     scene: Scene3D;
@@ -8,7 +9,6 @@ class Sample_morph {
 
     async run() {
         await Engine3D.init();
-        GUIHelp.init();
 
         this.scene = new Scene3D();
         let cameraObj = new Object3D();
@@ -22,10 +22,14 @@ class Sample_morph {
 
         await this.initScene(this.scene);
 
-        let renderJob = new ForwardRenderJob(this.scene);
+        this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
 
-        renderJob.debug();
-        Engine3D.startRender(renderJob);
+        // create a view with target scene and camera
+        let view = new View3D();
+        view.scene = this.scene;
+        view.camera = mainCamera;
+        // start render
+        Engine3D.startRenderView(view);
     }
 
     private influenceData: { [key: string]: number } = {};
@@ -34,9 +38,12 @@ class Sample_morph {
     async initScene(scene: Scene3D) {
         {
             let data = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/glb/lion.glb');
+            data.addComponent(MorphTargetBlender);
             data.y = -80.0;
             data.x = -30.0
             scene.addChild(data);
+
+            const GUIHelp = new dat.GUI();
             GUIHelp.addFolder('morph controller');
 
             let meshRenders: MeshRenderer[] = this.fetchMorphRenderers(data);
@@ -51,8 +58,6 @@ class Sample_morph {
                     });
                 }
             }
-            GUIHelp.open();
-            GUIHelp.endFolder();
         }
         {
             let ligthObj = new Object3D();

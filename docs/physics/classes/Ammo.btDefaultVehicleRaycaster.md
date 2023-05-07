@@ -41,7 +41,7 @@
 
 #### Defined in
 
-[libs/ammo/ammo.d.ts:700](https://github.com/Orillusion/orillusion/blob/main/src/libs/ammo/ammo.d.ts#L700)
+[packages/ammo/ammo.d.ts:700](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L700)
 
 ## Constructors
 
@@ -61,4 +61,4 @@
 
 #### Defined in
 
-[libs/ammo/ammo.d.ts:703](https://github.com/Orillusion/orillusion/blob/main/src/libs/ammo/ammo.d.ts#L703)
+[packages/ammo/ammo.d.ts:703](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L703)

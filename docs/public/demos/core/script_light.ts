@@ -1,14 +1,14 @@
-import { ComponentBase, Time, DirectLight, Color,LitMaterial, MeshRenderer, Scene3D, BoxGeometry, Object3D, Engine3D, Camera3D, HoverCameraController, ForwardRenderJob } from '@orillusion/core';
+import { ComponentBase, Time, DirectLight, Color, LitMaterial, MeshRenderer, Scene3D, BoxGeometry, Object3D, Engine3D, Camera3D, HoverCameraController, View3D, AtmosphericComponent } from '@orillusion/core';
 
 class LightAnimation extends ComponentBase {
   private light: DirectLight;
   private color: Color;
 
-  protected start() {
+  public start() {
     this.light = this.object3D.getComponent(DirectLight);
     this.color = this.light.lightColor;
   }
-  update() {
+  public onUpdate() {
     this.color.r = Math.pow(Math.sin(Time.time * 0.001), 10);
     this.light.lightColor = this.color;
   }
@@ -58,14 +58,19 @@ class UserLogic {
     let cameraObj = new Object3D();
     let camera = cameraObj.addComponent(Camera3D);
     // 调整摄像机视角
-    camera.perspective(60, window.innerWidth / window.innerHeight, 1, 5000.0);
+    camera.perspective(60, Engine3D.aspect, 1, 5000.0);
     let controller = camera.object3D.addComponent(HoverCameraController);
     controller.setCamera(-135, 0, 15);
     // 添加相机节点
     this.scene.addChild(cameraObj);
-    let renderJob:ForwardRenderJob = new ForwardRenderJob(this.scene);
-    // 开始渲染
-    Engine3D.startRender(renderJob);
+    // add an Atmospheric sky enviroment
+    this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
+    // create a view with target scene and camera
+    let view = new View3D();
+    view.scene = this.scene;
+    view.camera = camera;
+    // start render
+    Engine3D.startRenderView(view);
   }
 }
 new UserLogic().run();

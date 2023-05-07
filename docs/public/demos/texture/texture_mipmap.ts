@@ -1,5 +1,5 @@
 import {
-    Engine3D, Scene3D, Object3D, Camera3D, ForwardRenderJob, UnLitMaterial, MeshRenderer, PlaneGeometry, BitmapTexture2D, Vector4, OrbitController, DirectLight, Color
+    Engine3D, Scene3D, Object3D, Camera3D, AtmosphericComponent, View3D, UnLitMaterial, MeshRenderer, PlaneGeometry, BitmapTexture2D, Vector4, OrbitController, DirectLight, Color
 } from "@orillusion/core";
 
 async function demo() {
@@ -10,7 +10,7 @@ async function demo() {
     camera.z = 30;
     scene.addChild(camera)
     let mainCamera = camera.addComponent(Camera3D);
-    mainCamera.perspective(60, window.innerWidth / window.innerHeight, 0.1, 10000.0);
+    mainCamera.perspective(60, Engine3D.aspect, 0.1, 10000.0);
     let oribit = camera.addComponent(OrbitController);
     oribit.autoRotate = true;
 
@@ -22,8 +22,14 @@ async function demo() {
     light.intensity = 1;
     scene.addChild(lightObj);
 
-    let renderJob = new ForwardRenderJob(scene);
-    Engine3D.startRender(renderJob);
+    // add an Atmospheric sky enviroment
+    scene.addComponent(AtmosphericComponent).sunY = 0.6;
+    // create a view with target scene and camera
+    let view = new View3D();
+    view.scene = scene;
+    view.camera = mainCamera;
+    // start render
+    Engine3D.startRenderView(view);
     
 
     const imageCanvas = document.createElement( 'canvas' );
@@ -42,7 +48,6 @@ async function demo() {
     await texture.load(image);
     let mat = new UnLitMaterial();
     mat.baseMap = texture;
-    mat.roughness = 1;
     mat.uvTransform_1 = new Vector4(0,0, 100, 100)
 
     let plane = new PlaneGeometry(1000, 1000, 10, 10)

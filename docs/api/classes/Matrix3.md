@@ -1,11 +1,10 @@
 # Class: Matrix3
 
-3*3 的矩阵
+3*3 Matrix
 
 
 ### Properties
 
-- [help\_matrix3](Matrix3.md#help_matrix3)
 - [a](Matrix3.md#a)
 - [b](Matrix3.md#b)
 - [c](Matrix3.md#c)
@@ -24,7 +23,6 @@
 - [copyFrom](Matrix3.md#copyfrom)
 - [identity](Matrix3.md#identity)
 - [invert](Matrix3.md#invert)
-- [$invertInto](Matrix3.md#$invertinto)
 - [rotate](Matrix3.md#rotate)
 - [scale](Matrix3.md#scale)
 - [setTo](Matrix3.md#setto)
@@ -42,25 +40,15 @@
 
 ## Properties
 
-### help\_matrix3
-
-▪ `Static` **help\_matrix3**: [`Matrix3`](Matrix3.md)
-
-#### Defined in
-
-[src/engine/math/Matrix3.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix3.ts#L26)
-
-___
-
 ### a
 
 • **a**: `number`
 
-x 的宽度
+The width of x
 
 #### Defined in
 
-[src/engine/math/Matrix3.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix3.ts#L31)
+[src/math/Matrix3.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L31)
 
 ___
 
@@ -68,11 +56,11 @@ ___
 
 • **b**: `number`
 
-y 的倾斜
+The slope of y
 
 #### Defined in
 
-[src/engine/math/Matrix3.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix3.ts#L36)
+[src/math/Matrix3.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L36)
 
 ___
 
@@ -80,11 +68,11 @@ ___
 
 • **c**: `number`
 
-x 的倾斜
+The slope of x
 
 #### Defined in
 
-[src/engine/math/Matrix3.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix3.ts#L41)
+[src/math/Matrix3.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L41)
 
 ___
 
@@ -92,11 +80,11 @@ ___
 
 • **d**: `number`
 
-y 的高度
+The height of y
 
 #### Defined in
 
-[src/engine/math/Matrix3.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix3.ts#L46)
+[src/math/Matrix3.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L46)
 
 ___
 
@@ -104,11 +92,11 @@ ___
 
 • **tx**: `number`
 
-x 坐标的位置
+The position of the x coordinate
 
 #### Defined in
 
-[src/engine/math/Matrix3.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix3.ts#L51)
+[src/math/Matrix3.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L51)
 
 ___
 
@@ -116,11 +104,11 @@ ___
 
 • **ty**: `number`
 
-y 坐标的位置
+The position of the y coordinate
 
 #### Defined in
 
-[src/engine/math/Matrix3.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix3.ts#L56)
+[src/math/Matrix3.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L56)
 
 ## Constructors
 
@@ -128,22 +116,22 @@ y 坐标的位置
 
 • **new Matrix3**(`a?`, `b?`, `c?`, `d?`, `tx?`, `ty?`)
 
-创建一个对象
+Create a Matrix3
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `a` | `number` | `1` | x 的宽度 |
-| `b` | `number` | `0` | y 的倾斜 |
-| `c` | `number` | `0` | x 的倾斜 |
-| `d` | `number` | `1` | y 的高度 |
-| `tx` | `number` | `0` | x 坐标的位置 |
-| `ty` | `number` | `0` | y 坐标的位置 |
+| `a` | `number` | `1` | The width of x |
+| `b` | `number` | `0` | The slope of y |
+| `c` | `number` | `0` | The slope of x |
+| `d` | `number` | `1` | The height of y |
+| `tx` | `number` | `0` | The position of the x coordinate |
+| `ty` | `number` | `0` | The position of the y coordinate |
 
 #### Defined in
 
-[src/engine/math/Matrix3.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix3.ts#L67)
+[src/math/Matrix3.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L67)
 
 ## Methods
 
@@ -151,17 +139,17 @@ y 坐标的位置
 
 ▸ **clone**(): [`Matrix3`](Matrix3.md)
 
-复制对象
+Clone an Matrix3 object
 
 #### Returns
 
 [`Matrix3`](Matrix3.md)
 
-复制的对象
+New Matrix3 object
 
 #### Defined in
 
-[src/engine/math/Matrix3.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix3.ts#L80)
+[src/math/Matrix3.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L80)
 
 ___
 
@@ -169,13 +157,13 @@ ___
 
 ▸ **concat**(`matrix`): `void`
 
-将当前矩阵与目标矩阵合并
+Merges the current matrix with the target matrix
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `matrix` | [`Matrix3`](Matrix3.md) | 目标矩阵 |
+| `matrix` | [`Matrix3`](Matrix3.md) | target matrix |
 
 #### Returns
 
@@ -183,7 +171,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Matrix3.ts:88](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix3.ts#L88)
+[src/math/Matrix3.ts:88](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L88)
 
 ___
 
@@ -191,23 +179,23 @@ ___
 
 ▸ **copyFrom**(`other`): [`Matrix3`](Matrix3.md)
 
-向当前矩阵值由目标矩阵值覆盖
+The current matrix value is overwritten by the target matrix value
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `other` | [`Matrix3`](Matrix3.md) | 目标矩阵 |
+| `other` | [`Matrix3`](Matrix3.md) | target matrix value |
 
 #### Returns
 
 [`Matrix3`](Matrix3.md)
 
-当前矩阵
+current matrix
 
 #### Defined in
 
-[src/engine/math/Matrix3.ts:105](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix3.ts#L105)
+[src/math/Matrix3.ts:105](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L105)
 
 ___
 
@@ -215,7 +203,7 @@ ___
 
 ▸ **identity**(): [`Matrix3`](Matrix3.md)
 
-重置为单位矩阵
+Reset to the identity matrix
 
 #### Returns
 
@@ -223,7 +211,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Matrix3.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix3.ts#L118)
+[src/math/Matrix3.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L118)
 
 ___
 
@@ -231,7 +219,7 @@ ___
 
 ▸ **invert**(): `void`
 
-倒置本矩阵
+Invert this matrix
 
 #### Returns
 
@@ -239,29 +227,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Matrix3.ts:127](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix3.ts#L127)
-
-___
-
-### $invertInto
-
-▸ **$invertInto**(`target`): `void`
-
-将给定的矩阵倒置
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `target` | [`Matrix3`](Matrix3.md) | 需要倒置的矩阵 |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/engine/math/Matrix3.ts:136](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix3.ts#L136)
+[src/math/Matrix3.ts:127](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L127)
 
 ___
 
@@ -269,13 +235,13 @@ ___
 
 ▸ **rotate**(`angle`): `void`
 
-根据角度旋转
+Rotate according to Angle
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `angle` | `number` | 旋转角度 |
+| `angle` | `number` | rotation angle |
 
 #### Returns
 
@@ -283,7 +249,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Matrix3.ts:174](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix3.ts#L174)
+[src/math/Matrix3.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L135)
 
 ___
 
@@ -291,14 +257,14 @@ ___
 
 ▸ **scale**(`sx`, `sy`): `void`
 
-根据偏移量缩放
+Scale by offset
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `sx` | `number` | x 轴缩放 |
-| `sy` | `number` | y 轴缩放 |
+| `sx` | `number` | x axis scaling |
+| `sy` | `number` | y axis scaling |
 
 #### Returns
 
@@ -306,7 +272,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Matrix3.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix3.ts#L200)
+[src/math/Matrix3.ts:161](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L161)
 
 ___
 
@@ -314,28 +280,28 @@ ___
 
 ▸ **setTo**(`a`, `b`, `c`, `d`, `tx`, `ty`): [`Matrix3`](Matrix3.md)
 
-重新设置矩阵值
+Reset the matrix value
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `a` | `number` | 矩阵元素a |
-| `b` | `number` | 矩阵元素b |
-| `c` | `number` | 矩阵元素c |
-| `d` | `number` | 矩阵元素d |
-| `tx` | `number` | 矩阵元素tx |
-| `ty` | `number` | 矩阵元素ty |
+| `a` | `number` | Matrix element a |
+| `b` | `number` | Matrix element b |
+| `c` | `number` | Matrix element c |
+| `d` | `number` | Matrix element d |
+| `tx` | `number` | Matrix element tx |
+| `ty` | `number` | Matrix element ty |
 
 #### Returns
 
 [`Matrix3`](Matrix3.md)
 
-修改后的矩阵
+The modified matrix
 
 #### Defined in
 
-[src/engine/math/Matrix3.ts:223](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix3.ts#L223)
+[src/math/Matrix3.ts:184](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L184)
 
 ___
 
@@ -343,25 +309,25 @@ ___
 
 ▸ **transformPoint**(`pointX`, `pointY`, `resultPoint?`): [`Vector3`](Vector3.md)
 
-坐标变换
+transformation of coordinates
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `pointX` | `number` | x 坐标 |
-| `pointY` | `number` | y 坐标 |
-| `resultPoint?` | [`Vector3`](Vector3.md) | 结果向量 |
+| `pointX` | `number` | x coordinate |
+| `pointY` | `number` | y coordinate |
+| `resultPoint?` | [`Vector3`](Vector3.md) | Vector of results |
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-如果没有结果向量则新创建向量
+Vector of results
 
 #### Defined in
 
-[src/engine/math/Matrix3.ts:240](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix3.ts#L240)
+[src/math/Matrix3.ts:201](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L201)
 
 ___
 
@@ -369,14 +335,14 @@ ___
 
 ▸ **setTranslate**(`x`, `y`): `void`
 
-平移
+translation
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `x` | `number` | x 坐标 |
-| `y` | `number` | y 坐标 |
+| `x` | `number` | x coordinate |
+| `y` | `number` | y coordinate |
 
 #### Returns
 
@@ -384,7 +350,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Matrix3.ts:255](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix3.ts#L255)
+[src/math/Matrix3.ts:216](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L216)
 
 ___
 
@@ -392,14 +358,14 @@ ___
 
 ▸ **translate**(`dx`, `dy`): `void`
 
-偏移
+Translates the specified offset
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `dx` | `number` | x 坐标偏移量 |
-| `dy` | `number` | y 坐标偏移量 |
+| `dx` | `number` | The x-coordinate offset |
+| `dy` | `number` | The y-coordinate offset |
 
 #### Returns
 
@@ -407,7 +373,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Matrix3.ts:265](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix3.ts#L265)
+[src/math/Matrix3.ts:226](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L226)
 
 ___
 
@@ -415,13 +381,13 @@ ___
 
 ▸ **mul**(`t`): `void`
 
-相乘
+multiply
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `t` | [`Matrix3`](Matrix3.md) | 因数 |
+| `t` | [`Matrix3`](Matrix3.md) | target matrix |
 
 #### Returns
 
@@ -429,7 +395,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Matrix3.ts:274](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix3.ts#L274)
+[src/math/Matrix3.ts:235](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L235)
 
 ___
 
@@ -437,13 +403,13 @@ ___
 
 ▸ **equals**(`other`): `boolean`
 
-与给定矩阵计算是否相等
+Is equal to the given matrix
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `other` | [`Matrix3`](Matrix3.md) | 给定矩阵 |
+| `other` | [`Matrix3`](Matrix3.md) | matrix |
 
 #### Returns
 
@@ -451,7 +417,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Matrix3.ts:311](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix3.ts#L311)
+[src/math/Matrix3.ts:273](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L273)
 
 ___
 
@@ -459,28 +425,28 @@ ___
 
 ▸ **prepend**(`a`, `b`, `c`, `d`, `tx`, `ty`): [`Matrix3`](Matrix3.md)
 
-通过相乘获得一个前置矩阵
+get a front matrix by multiplication
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `a` | `number` | 相乘a值 |
-| `b` | `number` | 相乘b值 |
-| `c` | `number` | 相乘c值 |
-| `d` | `number` | 相乘d值 |
-| `tx` | `number` | 相乘tx值 |
-| `ty` | `number` | 相乘ty值 |
+| `a` | `number` | Multiply by a |
+| `b` | `number` | Multiply by b |
+| `c` | `number` | Multiply by c |
+| `d` | `number` | Multiply by d |
+| `tx` | `number` | Multiply by tx |
+| `ty` | `number` | Multiply by ty |
 
 #### Returns
 
 [`Matrix3`](Matrix3.md)
 
-前置矩阵
+prematrix
 
 #### Defined in
 
-[src/engine/math/Matrix3.ts:325](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix3.ts#L325)
+[src/math/Matrix3.ts:287](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L287)
 
 ___
 
@@ -488,23 +454,23 @@ ___
 
 ▸ **append**(`mat`): [`Matrix3`](Matrix3.md)
 
-通过相乘获得一个后置矩阵
+Obtain a post-multiplication matrix by multiplication.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `mat` | [`Matrix3`](Matrix3.md) | 相乘因数 |
+| `mat` | [`Matrix3`](Matrix3.md) | Matrix |
 
 #### Returns
 
 [`Matrix3`](Matrix3.md)
 
-后置矩阵
+result
 
 #### Defined in
 
-[src/engine/math/Matrix3.ts:345](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix3.ts#L345)
+[src/math/Matrix3.ts:307](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L307)
 
 ___
 
@@ -512,13 +478,13 @@ ___
 
 ▸ **deltaTransformPoint**(`point`): [`Vector3`](Vector3.md)
 
-使用给定的点进行转换，忽略x，y坐标
+Use the given point for the transformation, ignoring the x, y coordinates
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `point` | [`Vector3`](Vector3.md) | 给定的点 |
+| `point` | [`Vector3`](Vector3.md) | A given point |
 
 #### Returns
 
@@ -526,7 +492,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Matrix3.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix3.ts#L367)
+[src/math/Matrix3.ts:329](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L329)
 
 ___
 
@@ -534,7 +500,7 @@ ___
 
 ▸ **toString**(): `string`
 
-格式化矩阵值
+Converts the current matrix to string form
 
 #### Returns
 
@@ -542,7 +508,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Matrix3.ts:378](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix3.ts#L378)
+[src/math/Matrix3.ts:340](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L340)
 
 ___
 
@@ -550,17 +516,17 @@ ___
 
 ▸ **createBox**(`scaleX`, `scaleY`, `rotation?`, `tx?`, `ty?`): `void`
 
-设置矩阵的缩放、旋转、转换参数
+Set the matrix scaling, rotation, and conversion parameters
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `scaleX` | `number` | `undefined` | x轴缩放 |
-| `scaleY` | `number` | `undefined` | y轴缩放 |
-| `rotation` | `number` | `0` | 旋转 |
-| `tx` | `number` | `0` | x坐标 |
-| `ty` | `number` | `0` | y坐标 |
+| `scaleX` | `number` | `undefined` | x axis scaling |
+| `scaleY` | `number` | `undefined` | y axis scaling |
+| `rotation` | `number` | `0` | rotation |
+| `tx` | `number` | `0` | x-coordinate |
+| `ty` | `number` | `0` | y-coordinate |
 
 #### Returns
 
@@ -568,7 +534,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Matrix3.ts:390](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix3.ts#L390)
+[src/math/Matrix3.ts:352](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L352)
 
 ___
 
@@ -576,17 +542,17 @@ ___
 
 ▸ **createGradientBox**(`width`, `height`, `rotation?`, `tx?`, `ty?`): `void`
 
-创建渐变框
+Create a gradient box
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `width` | `number` | `undefined` | 宽度 |
-| `height` | `number` | `undefined` | 高度 |
-| `rotation` | `number` | `0` | 旋转 |
-| `tx` | `number` | `0` | x坐标 |
-| `ty` | `number` | `0` | y坐标 |
+| `width` | `number` | `undefined` | width |
+| `height` | `number` | `undefined` | height |
+| `rotation` | `number` | `0` | rotation |
+| `tx` | `number` | `0` | x-coordinate |
+| `ty` | `number` | `0` | y-coordinate |
 
 #### Returns
 
@@ -594,4 +560,4 @@ ___
 
 #### Defined in
 
-[src/engine/math/Matrix3.ts:418](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix3.ts#L418)
+[src/math/Matrix3.ts:380](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L380)

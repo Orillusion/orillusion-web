@@ -14,4 +14,4 @@
 
 #### Defined in
 
-[src/engine/util/ProfilerUtil.ts:1](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/ProfilerUtil.ts#L1)
+[src/util/ProfilerUtil.ts:1](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L1)

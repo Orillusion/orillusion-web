@@ -1,15 +1,15 @@
-import { ComponentBase, Time, DirectLight, Color, LitMaterial, MeshRenderer, defaultTexture, Scene3D, BoxGeometry, Object3D, Engine3D, Camera3D, HoverCameraController, ForwardRenderJob, HDRBloomPost } from '@orillusion/core';
+import { ComponentBase, Time, DirectLight, Color, LitMaterial, MeshRenderer, Scene3D, BoxGeometry, Object3D, Engine3D, Camera3D, HoverCameraController, HDRBloomPost, View3D, AtmosphericComponent, PostProcessingComponent } from '@orillusion/core';
 
 class MaterialAnimation extends ComponentBase {
   private material: LitMaterial;
   private time: number = 0;
 
-  protected start() {
+  start() {
     let mr = this.object3D.getComponent(MeshRenderer);
-    this.material = mr.material;
+    this.material = mr.material as LitMaterial;
   }
 
-  update() {
+  public onUpdate() {
     let delta = Time.time * 0.001
     this.material.baseColor = new Color(Math.sin(delta), Math.cos(delta), Math.sin(delta));
   }
@@ -59,15 +59,24 @@ class UserLogic {
     let cameraObj = new Object3D();
     let camera = cameraObj.addComponent(Camera3D);
     // 调整摄像机视角
-    camera.perspective(60, window.innerWidth / window.innerHeight, 1, 5000.0);
+    camera.perspective(60, Engine3D.aspect, 1, 5000.0);
     let controller = camera.object3D.addComponent(HoverCameraController);
     controller.setCamera(45, 0, 15);
     // 添加相机节点
     this.scene.addChild(cameraObj);
-    let renderJob:ForwardRenderJob = new ForwardRenderJob(this.scene);
-    renderJob.addPost(new HDRBloomPost());
-    // 开始渲染
-    Engine3D.startRender(renderJob);
+
+    // add an Atmospheric sky enviroment
+    this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
+    // create a view with target scene and camera
+    let view = new View3D();
+    view.scene = this.scene;
+    view.camera = camera;
+    // start render
+    Engine3D.startRenderView(view);
+
+    // 添加bloom后处理
+    let postProcessing = this.scene.addComponent(PostProcessingComponent);
+    let bloomPost = postProcessing.addPost(HDRBloomPost);
   }
 }
 new UserLogic().run();

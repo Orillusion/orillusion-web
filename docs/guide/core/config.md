@@ -4,10 +4,8 @@
 ## 基础使用
 在引擎初始化前，需要先设置引擎的配置，可以通过 `Engine3D` 的 `setting` 的属性来设置。
 
-例如设置场景中可支持的最大节点数量：
+例如设置场景中可支持的最大灯光数量：
 ```ts
-// 最大实体数量
-Engine3D.setting.memory.doMatrixMaxCount = 100000;
 // 最大灯光数量
 Engine3D.setting.light.maxLight = 1024;
 // 先配置，后初始化
@@ -57,10 +55,10 @@ Engine3D.setting.shadow.shadowSize = 2048; // 阴影贴图大小
 ```
 详见 [阴影](/guide/graphics/shadow)
 
-## 全局光照设置
+<!-- ## 全局光照设置
 通过配置中的 `gi` 属性来设置全局光照。
 ```ts
 Engine3D.setting.gi.enable = true;
 ```
-详见 [全局光照](/guide/advanced/gi)
+详见 [全局光照](/guide/advanced/gi) -->
 

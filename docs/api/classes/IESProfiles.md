@@ -28,7 +28,7 @@
 
 #### Defined in
 
-[src/engine/components/lights/IESProfiles.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/IESProfiles.ts#L8)
+[src/components/lights/IESProfiles.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L8)
 
 ___
 
@@ -38,7 +38,7 @@ ___
 
 #### Defined in
 
-[src/engine/components/lights/IESProfiles.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/IESProfiles.ts#L9)
+[src/components/lights/IESProfiles.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L9)
 
 ___
 
@@ -48,7 +48,7 @@ ___
 
 #### Defined in
 
-[src/engine/components/lights/IESProfiles.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/IESProfiles.ts#L10)
+[src/components/lights/IESProfiles.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L10)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[src/engine/components/lights/IESProfiles.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/IESProfiles.ts#L12)
+[src/components/lights/IESProfiles.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L12)
 
 ## Constructors
 
@@ -68,7 +68,7 @@ ___
 
 #### Defined in
 
-[src/engine/components/lights/IESProfiles.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/IESProfiles.ts#L13)
+[src/components/lights/IESProfiles.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L13)
 
 ## Accessors
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[src/engine/components/lights/IESProfiles.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/IESProfiles.ts#L36)
+[src/components/lights/IESProfiles.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L38)
 
 • `set` **IESTexture**(`texture`): `void`
 
@@ -98,7 +98,7 @@ ___
 
 #### Defined in
 
-[src/engine/components/lights/IESProfiles.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/IESProfiles.ts#L21)
+[src/components/lights/IESProfiles.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L23)
 
 ## Methods
 
@@ -119,4 +119,4 @@ ___
 
 #### Defined in
 
-[src/engine/components/lights/IESProfiles.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/IESProfiles.ts#L40)
+[src/components/lights/IESProfiles.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L42)

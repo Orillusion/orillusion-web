@@ -12,8 +12,6 @@
 ### Methods
 
 - [loadTileSet](TilesRenderer.md#loadtileset)
-- [onLoadProgress](TilesRenderer.md#onloadprogress)
-- [onComplete](TilesRenderer.md#oncomplete)
 
 ## Properties
 
@@ -23,7 +21,7 @@
 
 #### Defined in
 
-[src/engine/loader/parser/tileRenderer/TilesRenderer.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/tileRenderer/TilesRenderer.ts#L11)
+[src/loader/parser/tileRenderer/TilesRenderer.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TilesRenderer.ts#L10)
 
 ## Constructors
 
@@ -33,7 +31,7 @@
 
 #### Defined in
 
-[src/engine/loader/parser/tileRenderer/TilesRenderer.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/tileRenderer/TilesRenderer.ts#L15)
+[src/loader/parser/tileRenderer/TilesRenderer.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TilesRenderer.ts#L15)
 
 ## Methods
 
@@ -54,44 +52,4 @@
 
 #### Defined in
 
-[src/engine/loader/parser/tileRenderer/TilesRenderer.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/tileRenderer/TilesRenderer.ts#L19)
-
-___
-
-### onLoadProgress
-
-▸ **onLoadProgress**(`e`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `e` | `any` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/engine/loader/parser/tileRenderer/TilesRenderer.ts:98](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/tileRenderer/TilesRenderer.ts#L98)
-
-___
-
-### onComplete
-
-▸ **onComplete**(`e`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `e` | `any` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/engine/loader/parser/tileRenderer/TilesRenderer.ts:101](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/tileRenderer/TilesRenderer.ts#L101)
+[src/loader/parser/tileRenderer/TilesRenderer.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TilesRenderer.ts#L19)

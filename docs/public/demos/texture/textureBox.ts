@@ -1,4 +1,4 @@
-import { Camera3D, DirectLight, Engine3D, ForwardRenderJob, GUIHelp, HoverCameraController, KelvinUtil, Object3D, Scene3D, webGPUContext, BitmapTextureCube } from '@orillusion/core';
+import { Camera3D, Engine3D, View3D, HoverCameraController, Object3D, Scene3D, BitmapTextureCube, SkyRenderer } from '@orillusion/core';
 
 async function demo() {
     await Engine3D.init();
@@ -8,7 +8,7 @@ async function demo() {
     scene.addChild(camera);
 
     let mainCamera = camera.addComponent(Camera3D);
-    mainCamera.perspective(60, webGPUContext.aspect, 1, 2000.0);
+    mainCamera.perspective(60, Engine3D.aspect, 1, 2000.0);
     let ctrl = camera.addComponent(HoverCameraController);
     ctrl.setCamera(180, 0, 10);
 
@@ -21,9 +21,16 @@ async function demo() {
     urls.push('https://cdn.orillusion.com/textures/cubemap/skybox_nz.png');
     urls.push('https://cdn.orillusion.com/textures/cubemap/skybox_pz.png');
     await evnMap.load(urls);
-    scene.envMap = evnMap;
-    let renderJob = new ForwardRenderJob(scene);
-    Engine3D.startRender(renderJob);
+
+    let sky = scene.addComponent(SkyRenderer)
+    sky.map = evnMap
+
+    // create a view with target scene and camera
+    let view = new View3D();
+    view.scene = scene;
+    view.camera = mainCamera;
+    // start render
+    Engine3D.startRenderView(view);
 }
 
 demo()

@@ -2,28 +2,28 @@
 
 Ƭ **GlobalIlluminationSetting**: `Object`
 
-全局光照设置
+GI setting
 
 #### Type declaration
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `debug` | `boolean` | - |
-| `debugCamera?` | `boolean` | 测试GI相机 debug 是否开启 |
-| `enable` | `boolean` | 开启/关闭 |
-| `offsetX` | `number` | 探针组的注册点在x轴的偏移量 |
-| `offsetY` | `number` | 探针组的注册点在y轴的偏移量 |
-| `offsetZ` | `number` | 探针组的注册点在z轴的偏移量 |
-| `probeXCount` | `number` | 探针在x轴的数量 |
-| `probeYCount` | `number` | 探针在y轴的数量 |
-| `probeZCount` | `number` | 探针在z轴的数量 |
-| `probeSize` | `number` | 每个探针采样到的数据尺寸 |
-| `indirectIntensity` | `number` | 间接光的光照强度 |
-| `ddgiGamma` | `number` | - |
-| `bounceIntensity` | `number` | 反射光的光照强度 |
-| `realTimeGI` | `boolean` | 实时GI计算 |
-| `autoRenderProbe` | `boolean` | 设置探针是否自动采集信息 |
+| `debugCamera?` | `boolean` |  |
+| `enable` | `boolean` | enable |
+| `offsetX` | `number` | offset position X of volume of GI |
+| `offsetY` | `number` | offset position Y of volume of GI |
+| `offsetZ` | `number` | offset position Z of volume of GI |
+| `probeXCount` | `number` | Number of probes on the x-axis |
+| `probeYCount` | `number` | Number of probes on the y-axis |
+| `probeZCount` | `number` | Number of probes on the z-axis |
+| `probeSize` | `number` | The size of the data sampled by a probe on the map |
+| `indirectIntensity` | `number` | Illumination intensity of indirect light |
+| `ddgiGamma` | `number` |  |
+| `bounceIntensity` | `number` | The intensity of light rebound |
+| `realTimeGI` | `boolean` | Set whether to use real-time update GI |
+| `autoRenderProbe` | `boolean` | Set whether the probe automatically render scene |
 
 #### Defined in
 
-[src/engine/EngineConfig.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/engine/EngineConfig.ts#L8)
+[src/setting/GlobalIlluminationSetting.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/setting/GlobalIlluminationSetting.ts#L5)

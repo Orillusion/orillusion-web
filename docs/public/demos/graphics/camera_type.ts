@@ -1,6 +1,7 @@
-import { Engine3D, Vector3, Scene3D, Object3D, Camera3D, ForwardRenderJob, LitMaterial, BoxGeometry, MeshRenderer, HoverCameraController } from "@orillusion/core";
+import { Engine3D, Vector3, Scene3D, Object3D, Camera3D, AtmosphericComponent, LitMaterial, BoxGeometry, MeshRenderer, HoverCameraController, View3D, CameraType } from "@orillusion/core";
+import * as dat from 'dat.gui'
 
-export default class CameraType {
+export default class CameraDemo {
     cameraObj: Object3D;
     camera: Camera3D;
     scene: Scene3D;
@@ -8,7 +9,6 @@ export default class CameraType {
     constructor() { }
 
     async run() {
-        console.log('start demo');
         await Engine3D.init({
             canvasConfig: {
                 alpha: true
@@ -18,15 +18,20 @@ export default class CameraType {
         await this.initCamera();
         await this.createBoxes();
 
-        let renderJob = new ForwardRenderJob(this.scene);
-        Engine3D.startRender(renderJob);
+        let sky = this.scene.addComponent(AtmosphericComponent)
+        sky.sunY = 0.6;
+        sky.enable = false
+
+        let view = new View3D();
+        view.scene = this.scene;
+        view.camera = this.camera;
+        Engine3D.startRenderView(view);
 
         this.addGui();
     }
 
     async initScene() {
         this.scene = new Scene3D();
-        this.scene.hideSky()
     }
 
     async initCamera() {
@@ -44,17 +49,14 @@ export default class CameraType {
     }
 
     async perspective() {
-        this.camera.perspective(60, window.innerWidth / window.innerHeight, 1, 10000.0);
+        this.camera.perspective(60, Engine3D.aspect, 1, 10000.0);
     }
 
     async createBox(name: string) {
         let obj: Object3D = new Object3D();
         obj.name = name;
-        // 为对象添 MeshRenderer
         let mr: MeshRenderer = obj.addComponent(MeshRenderer);
-        // 设置几何体
         mr.geometry = new BoxGeometry(50, 50, 50);
-        // 设置材质
         mr.material = new LitMaterial();
         return obj;
     }
@@ -72,26 +74,17 @@ export default class CameraType {
     }
 
     async addGui() {
-        let select = document.createElement('select')
-        select.innerHTML = `
-        <option value="perspective">Perspective</option>
-        <option value="ortho">Orthographic</option>
-        `
-        select.setAttribute('style', 'position:fixed;right:5px;top:5px')
-        document.body.appendChild(select)
-        document.body.style.background = '#aaa'
-        select.addEventListener('change', ()=>{
-            if(select.value === 'perspective')
-                this.perspective()
-            else
-                this.orthoOffCenter()
-        })
+        const GUIHelp = new dat.GUI();
+        GUIHelp.addFolder('Camera Type');
+        GUIHelp.add({Perspective: () => this.perspective()}, 'Perspective');
+        GUIHelp.add({Orthographic: () => this.orthoOffCenter()}, 'Orthographic');
+        
         window.addEventListener('resize', ()=>{
-            if(select.value === 'ortho')
+            if(this.camera.type === CameraType.ortho)
                 this.orthoOffCenter()
         })
     }
-
 }
-new CameraType().run();
+new CameraDemo().run();
+document.body.style.background = '#aaa'
 

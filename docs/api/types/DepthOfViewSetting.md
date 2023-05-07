@@ -2,18 +2,18 @@
 
 Ƭ **DepthOfViewSetting**: `Object`
 
-景深效果设置
+dpeth of view effect
 
 #### Type declaration
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `enable` | `boolean` | - |
-| `iterationCount` | `number` | 模糊效果迭代次数 |
-| `pixelOffset` | `number` | 模糊效果像素扩散距离 |
-| `near` | `number` | 设定低于该距离的物体将不会被模糊处理 |
-| `far` | `number` | 设定高于该距离的物体将会得到最大程度的模糊， [near,far]之间的对象将会使用[0,1]之间线性插值过的系数做模糊处理 |
+| `iterationCount` | `number` | Blur Effect Iterations |
+| `pixelOffset` | `number` | the distance of Blur effect pixel diffusion |
+| `near` | `number` | the pixel below this distance to camera will not be blurred |
+| `far` | `number` | the pixel above this distance will experience maximum blurring, [near,far]: the pixel between near and far will be blurred with linear interpolation coefficients between [0,1] |
 
 #### Defined in
 
-[src/engine/EngineConfig.ts:226](https://github.com/Orillusion/orillusion/blob/main/src/engine/EngineConfig.ts#L226)
+[src/setting/post/DepthOfViewSetting.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/DepthOfViewSetting.ts#L7)

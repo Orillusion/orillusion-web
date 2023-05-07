@@ -17,7 +17,7 @@
 
 #### Defined in
 
-[src/engine/gfx/renderJob/passRenderer/graphic/GraphicConfig.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/passRenderer/graphic/GraphicConfig.ts#L2)
+[src/gfx/renderJob/passRenderer/graphic/GraphicConfig.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/GraphicConfig.ts#L2)
 
 ## Constructors
 

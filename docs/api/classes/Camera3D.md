@@ -1,6 +1,6 @@
 # Class: Camera3D
 
-Camera摄像机组件
+Camera components
 
 ## Hierarchy
 
@@ -12,7 +12,6 @@ Camera摄像机组件
 ### Properties
 
 - [object3D](Camera3D.md#object3d)
-- [serializeTag](Camera3D.md#serializetag)
 - [fov](Camera3D.md#fov)
 - [name](Camera3D.md#name)
 - [aspect](Camera3D.md#aspect)
@@ -23,9 +22,6 @@ Camera摄像机组件
 - [isShadowCamera](Camera3D.md#isshadowcamera)
 - [lookTarget](Camera3D.md#looktarget)
 - [type](Camera3D.md#type)
-- [mainCamera](Camera3D.md#maincamera)
-- [tmp](Camera3D.md#tmp)
-- [sampleIndex](Camera3D.md#sampleindex)
 
 ### Accessors
 
@@ -34,8 +30,8 @@ Camera摄像机组件
 - [viewMatrix](Camera3D.md#viewmatrix)
 - [shadowViewMatrix](Camera3D.md#shadowviewmatrix)
 - [pvMatrix](Camera3D.md#pvmatrix)
+- [pvMatrix2](Camera3D.md#pvmatrix2)
 - [pvMatrixInv](Camera3D.md#pvmatrixinv)
-- [pvMatrix2Inv](Camera3D.md#pvmatrix2inv)
 - [projectionMatrixInv](Camera3D.md#projectionmatrixinv)
 - [jitterFrameIndex](Camera3D.md#jitterframeindex)
 - [jitterX](Camera3D.md#jitterx)
@@ -43,19 +39,24 @@ Camera摄像机组件
 
 ### Methods
 
-- [onVisible](Camera3D.md#onvisible)
-- [cloneTo](Camera3D.md#cloneto)
-- [destroy](Camera3D.md#destroy)
-- [onUpdate](Camera3D.md#onupdate)
+- [start](Camera3D.md#start)
+- [stop](Camera3D.md#stop)
+- [onEnable](Camera3D.md#onenable)
+- [onDisable](Camera3D.md#ondisable)
 - [onLateUpdate](Camera3D.md#onlateupdate)
 - [onBeforeUpdate](Camera3D.md#onbeforeupdate)
+- [onCompute](Camera3D.md#oncompute)
+- [onGraphic](Camera3D.md#ongraphic)
+- [cloneTo](Camera3D.md#cloneto)
+- [destroy](Camera3D.md#destroy)
+- [init](Camera3D.md#init)
 - [perspective](Camera3D.md#perspective)
 - [ortho](Camera3D.md#ortho)
 - [orthoOffCenter](Camera3D.md#orthooffcenter)
 - [orthoZo](Camera3D.md#orthozo)
 - [object3DToScreenRay](Camera3D.md#object3dtoscreenray)
-- [ScreenRayToObject3D](Camera3D.md#screenraytoobject3d)
-- [unproject](Camera3D.md#unproject)
+- [screenRayToObject3D](Camera3D.md#screenraytoobject3d)
+- [unProject](Camera3D.md#unproject)
 - [screenPointToRay](Camera3D.md#screenpointtoray)
 - [screenPointToWorld](Camera3D.md#screenpointtoworld)
 - [worldToScreenPoint](Camera3D.md#worldtoscreenpoint)
@@ -63,8 +64,6 @@ Camera摄像机组件
 - [enableJitterProjection](Camera3D.md#enablejitterprojection)
 - [getCastShadowLightSpaceMatrix](Camera3D.md#getcastshadowlightspacematrix)
 - [getWorldDirection](Camera3D.md#getworlddirection)
-- [serialization](Camera3D.md#serialization)
-- [unSerialization](Camera3D.md#unserialization)
 
 ### Constructors
 
@@ -76,7 +75,7 @@ Camera摄像机组件
 
 • **object3D**: [`Object3D`](Object3D.md) = `null`
 
-此组件附加到的Object3D对象。
+owner object3D
 
 #### Inherited from
 
@@ -84,21 +83,7 @@ Camera摄像机组件
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L14)
-
-___
-
-### serializeTag
-
-• `Optional` **serializeTag**: [`SerializeTag`](../types/SerializeTag.md)
-
-#### Inherited from
-
-[ComponentBase](ComponentBase.md).[serializeTag](ComponentBase.md#serializetag)
-
-#### Defined in
-
-[src/engine/components/ComponentBase.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L30)
+[src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
 
 ___
 
@@ -106,11 +91,11 @@ ___
 
 • **fov**: `number` = `1`
 
-透视度
+camera Perspective
 
 #### Defined in
 
-[src/engine/core/Camera3D.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L24)
+[src/core/Camera3D.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L24)
 
 ___
 
@@ -118,11 +103,11 @@ ___
 
 • **name**: `string`
 
-组件名称
+camera use name
 
 #### Defined in
 
-[src/engine/core/Camera3D.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L29)
+[src/core/Camera3D.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L29)
 
 ___
 
@@ -130,11 +115,11 @@ ___
 
 • **aspect**: `number` = `1`
 
-视口比例
+Viewport width and height Scale
 
 #### Defined in
 
-[src/engine/core/Camera3D.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L34)
+[src/core/Camera3D.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L34)
 
 ___
 
@@ -142,11 +127,11 @@ ___
 
 • **near**: `number` = `1`
 
-近截面
+camera near plane
 
 #### Defined in
 
-[src/engine/core/Camera3D.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L39)
+[src/core/Camera3D.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L39)
 
 ___
 
@@ -154,11 +139,11 @@ ___
 
 • **far**: `number` = `5000`
 
-远截面
+camera far plane
 
 #### Defined in
 
-[src/engine/core/Camera3D.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L44)
+[src/core/Camera3D.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L44)
 
 ___
 
@@ -166,11 +151,11 @@ ___
 
 • **viewPort**: [`Rect`](Rect.md)
 
-视口矩形
+camera view port size
 
 #### Defined in
 
-[src/engine/core/Camera3D.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L48)
+[src/core/Camera3D.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L49)
 
 ___
 
@@ -178,11 +163,11 @@ ___
 
 • **frustum**: `Frustum`
 
-视锥体
+camera frustum
 
 #### Defined in
 
-[src/engine/core/Camera3D.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L53)
+[src/core/Camera3D.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L54)
 
 ___
 
@@ -190,11 +175,11 @@ ___
 
 • **isShadowCamera**: `boolean` = `false`
 
-是否为 Shadow 渲染相机
+this camera is shadow camera
 
 #### Defined in
 
-[src/engine/core/Camera3D.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L58)
+[src/core/Camera3D.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L59)
 
 ___
 
@@ -202,11 +187,11 @@ ___
 
 • **lookTarget**: [`Vector3`](Vector3.md)
 
-相机朝向
+camera look at from where point
 
 #### Defined in
 
-[src/engine/core/Camera3D.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L82)
+[src/core/Camera3D.ts:85](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L85)
 
 ___
 
@@ -214,43 +199,11 @@ ___
 
 • **type**: [`CameraType`](../enums/CameraType.md) = `CameraType.perspective`
 
-相机类型
+camera type
 
 #### Defined in
 
-[src/engine/core/Camera3D.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L87)
-
-___
-
-### mainCamera
-
-▪ `Static` **mainCamera**: [`Camera3D`](Camera3D.md)
-
-场景上的主相机
-
-#### Defined in
-
-[src/engine/core/Camera3D.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L96)
-
-___
-
-### tmp
-
-• **tmp**: [`Matrix4`](Matrix4.md)
-
-#### Defined in
-
-[src/engine/core/Camera3D.ts:272](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L272)
-
-___
-
-### sampleIndex
-
-• **sampleIndex**: `number` = `0`
-
-#### Defined in
-
-[src/engine/core/Camera3D.ts:416](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L416)
+[src/core/Camera3D.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L90)
 
 ## Accessors
 
@@ -258,7 +211,7 @@ ___
 
 • `get` **transform**(): [`Transform`](Transform.md)
 
-附加到此 Object3D对象 的 Transform组件。
+Return the Transform component attached to the Object3D.
 
 #### Returns
 
@@ -270,7 +223,7 @@ ComponentBase.transform
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L39)
+[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
 
 ___
 
@@ -278,7 +231,7 @@ ___
 
 • `get` **enable**(): `boolean`
 
-启用/禁用 组件。启用的组件可更新，禁用的组件不可更新。
+Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
 #### Returns
 
@@ -290,9 +243,11 @@ ComponentBase.enable
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L62)
+[src/components/ComponentBase.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L59)
 
 • `set` **enable**(`value`): `void`
+
+Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
 #### Parameters
 
@@ -310,7 +265,7 @@ ComponentBase.enable
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L43)
+[src/components/ComponentBase.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L45)
 
 ___
 
@@ -318,7 +273,7 @@ ___
 
 • `get` **viewMatrix**(): [`Matrix4`](Matrix4.md)
 
-view 空间矩阵
+view invert matrix
 
 #### Returns
 
@@ -326,7 +281,7 @@ view 空间矩阵
 
 #### Defined in
 
-[src/engine/core/Camera3D.ts:183](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L183)
+[src/core/Camera3D.ts:172](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L172)
 
 ___
 
@@ -334,7 +289,7 @@ ___
 
 • `get` **shadowViewMatrix**(): [`Matrix4`](Matrix4.md)
 
-view 空间矩阵
+shadow camera view invert matrix
 
 #### Returns
 
@@ -342,7 +297,7 @@ view 空间矩阵
 
 #### Defined in
 
-[src/engine/core/Camera3D.ts:193](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L193)
+[src/core/Camera3D.ts:182](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L182)
 
 ___
 
@@ -350,7 +305,7 @@ ___
 
 • `get` **pvMatrix**(): [`Matrix4`](Matrix4.md)
 
-获取project投影矩阵。
+get project * view matrix
 
 #### Returns
 
@@ -358,7 +313,21 @@ ___
 
 #### Defined in
 
-[src/engine/core/Camera3D.ts:258](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L258)
+[src/core/Camera3D.ts:236](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L236)
+
+___
+
+### pvMatrix2
+
+• `get` **pvMatrix2**(): [`Matrix4`](Matrix4.md)
+
+#### Returns
+
+[`Matrix4`](Matrix4.md)
+
+#### Defined in
+
+[src/core/Camera3D.ts:241](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L241)
 
 ___
 
@@ -366,7 +335,7 @@ ___
 
 • `get` **pvMatrixInv**(): [`Matrix4`](Matrix4.md)
 
-获取project逆向投影矩阵。
+get (project * view) invert matrix
 
 #### Returns
 
@@ -374,23 +343,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/Camera3D.ts:266](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L266)
-
-___
-
-### pvMatrix2Inv
-
-• `get` **pvMatrix2Inv**(): [`Matrix4`](Matrix4.md)
-
-获取project逆向投影矩阵。
-
-#### Returns
-
-[`Matrix4`](Matrix4.md)
-
-#### Defined in
-
-[src/engine/core/Camera3D.ts:277](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L277)
+[src/core/Camera3D.ts:249](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L249)
 
 ___
 
@@ -398,7 +351,7 @@ ___
 
 • `get` **projectionMatrixInv**(): [`Matrix4`](Matrix4.md)
 
-获取投影逆矩阵
+get project invert matrix
 
 #### Returns
 
@@ -406,7 +359,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/Camera3D.ts:287](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L287)
+[src/core/Camera3D.ts:258](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L258)
 
 ___
 
@@ -420,7 +373,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/Camera3D.ts:420](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L420)
+[src/core/Camera3D.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L389)
 
 ___
 
@@ -434,7 +387,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/Camera3D.ts:424](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L424)
+[src/core/Camera3D.ts:393](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L393)
 
 ___
 
@@ -448,19 +401,13 @@ ___
 
 #### Defined in
 
-[src/engine/core/Camera3D.ts:428](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L428)
+[src/core/Camera3D.ts:397](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L397)
 
 ## Methods
 
-### onVisible
+### start
 
-▸ **onVisible**(`value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
+▸ **start**(): `void`
 
 #### Returns
 
@@ -468,11 +415,174 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onVisible](ComponentBase.md#onvisible)
+[ComponentBase](ComponentBase.md).[start](ComponentBase.md#start)
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L66)
+[src/components/ComponentBase.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L107)
+
+___
+
+### stop
+
+▸ **stop**(): `void`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[stop](ComponentBase.md#stop)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L108)
+
+___
+
+### onEnable
+
+▸ `Optional` **onEnable**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onEnable](ComponentBase.md#onenable)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L109)
+
+___
+
+### onDisable
+
+▸ `Optional` **onDisable**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onDisable](ComponentBase.md#ondisable)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L110)
+
+___
+
+### onLateUpdate
+
+▸ `Optional` **onLateUpdate**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onLateUpdate](ComponentBase.md#onlateupdate)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L112)
+
+___
+
+### onBeforeUpdate
+
+▸ `Optional` **onBeforeUpdate**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onBeforeUpdate](ComponentBase.md#onbeforeupdate)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
+
+___
+
+### onCompute
+
+▸ `Optional` **onCompute**(`view?`, `command?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+| `command?` | `GPUCommandEncoder` |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onCompute](ComponentBase.md#oncompute)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
+
+___
+
+### onGraphic
+
+▸ `Optional` **onGraphic**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onGraphic](ComponentBase.md#ongraphic)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L115)
 
 ___
 
@@ -480,13 +590,13 @@ ___
 
 ▸ **cloneTo**(`obj`): `void`
 
-创建新的组件，复制当前组件的属性，并添加到目标对象上。
+clone component data to target object3D
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `obj` | [`Object3D`](Object3D.md) | 源对象 |
+| `obj` | [`Object3D`](Object3D.md) | target object3D |
 
 #### Returns
 
@@ -498,7 +608,7 @@ ___
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L114)
+[src/components/ComponentBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L122)
 
 ___
 
@@ -506,7 +616,7 @@ ___
 
 ▸ **destroy**(): `void`
 
-移除组件时候调用
+release this component
 
 #### Returns
 
@@ -518,85 +628,25 @@ ___
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L119)
+[src/components/ComponentBase.ts:189](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L189)
 
 ___
 
-### onUpdate
+### init
 
-▸ **onUpdate**(`call`): `void`
-
-添加更新函数。会在每帧更新时执行。
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `call` | `Function` | 回调函数 |
+▸ **init**(): `void`
 
 #### Returns
 
 `void`
 
-#### Inherited from
+#### Overrides
 
-[ComponentBase](ComponentBase.md).[onUpdate](ComponentBase.md#onupdate)
-
-#### Defined in
-
-[src/engine/components/ComponentBase.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L135)
-
-___
-
-### onLateUpdate
-
-▸ **onLateUpdate**(`call`): `void`
-
-添加延迟更新函数。
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `call` | `Function` | 回调函数 |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[ComponentBase](ComponentBase.md).[onLateUpdate](ComponentBase.md#onlateupdate)
+[ComponentBase](ComponentBase.md).[init](ComponentBase.md#init)
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:148](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L148)
-
-___
-
-### onBeforeUpdate
-
-▸ **onBeforeUpdate**(`call`): `void`
-
-添加帧更新前执行的函数。
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `call` | `Function` | 回调函数 |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[ComponentBase](ComponentBase.md).[onBeforeUpdate](ComponentBase.md#onbeforeupdate)
-
-#### Defined in
-
-[src/engine/components/ComponentBase.ts:161](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L161)
+[src/core/Camera3D.ts:102](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L102)
 
 ___
 
@@ -604,16 +654,16 @@ ___
 
 ▸ **perspective**(`fov`, `aspect`, `near`, `far`): `void`
 
-生成一个透视相机
+Create a perspective camera
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `fov` | `number` | 摄像机视锥体垂直视野角度 |
-| `aspect` | `number` | 摄像机视锥体长宽比 |
-| `near` | `number` | 摄像机视锥体近端面 |
-| `far` | `number` | 摄像机视锥体远端面 |
+| Name | Type |
+| :------ | :------ |
+| `fov` | `number` |
+| `aspect` | `number` |
+| `near` | `number` |
+| `far` | `number` |
 
 #### Returns
 
@@ -621,7 +671,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/Camera3D.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L131)
+[src/core/Camera3D.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L121)
 
 ___
 
@@ -629,16 +679,16 @@ ___
 
 ▸ **ortho**(`width`, `height`, `znear`, `zfar`): `void`
 
-生成一个透视投影矩阵.
+Create an orthographic camera
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `width` | `number` | 屏幕的宽度。 |
-| `height` | `number` | 屏幕的高度. |
-| `znear` | `number` | 近裁剪面位置Z值. |
-| `zfar` | `number` | 远裁剪面位置Z值. |
+| `width` | `number` | screen width |
+| `height` | `number` | screen height |
+| `znear` | `number` | camera near plane |
+| `zfar` | `number` | camera far plane |
 
 #### Returns
 
@@ -646,7 +696,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/Camera3D.ts:148](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L148)
+[src/core/Camera3D.ts:137](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L137)
 
 ___
 
@@ -654,18 +704,18 @@ ___
 
 ▸ **orthoOffCenter**(`l`, `r`, `b`, `t`, `zn`, `zf`): `void`
 
-生成一个透视投影矩阵.
+Create an orthographic camera
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `l` | `number` | 观察时X轴最小值. |
-| `r` | `number` | 观察时X轴最大值. |
-| `b` | `number` | 观察时Y轴最小值。 |
-| `t` | `number` | 观察时Y轴最大值. |
-| `zn` | `number` | 近裁剪面位置Z值. |
-| `zf` | `number` | 远裁剪面位置Z值. |
+| `l` | `number` |  |
+| `r` | `number` |  |
+| `b` | `number` |  |
+| `t` | `number` |  |
+| `zn` | `number` | camera near plane |
+| `zf` | `number` | camera far plane |
 
 #### Returns
 
@@ -673,7 +723,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/Camera3D.ts:165](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L165)
+[src/core/Camera3D.ts:154](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L154)
 
 ___
 
@@ -698,7 +748,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/Camera3D.ts:172](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L172)
+[src/core/Camera3D.ts:161](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L161)
 
 ___
 
@@ -706,14 +756,14 @@ ___
 
 ▸ **object3DToScreenRay**(`n`, `target?`): [`Vector3`](Vector3.md)
 
-三维坐标转二维屏幕坐标
+world space object to screen
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `n` | [`Vector3`](Vector3.md) | `undefined` | 三维坐标 |
-| `target` | [`Vector3`](Vector3.md) | `null` | 二维屏幕坐标 默认为null 为null会返回一个新的对象 |
+| `n` | [`Vector3`](Vector3.md) | `undefined` | world space |
+| `target` | [`Vector3`](Vector3.md) | `null` | Creating an orthogonal camera with 2D screen coordinates that default to null will return a new object |
 
 #### Returns
 
@@ -721,22 +771,22 @@ ___
 
 #### Defined in
 
-[src/engine/core/Camera3D.ts:215](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L215)
+[src/core/Camera3D.ts:194](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L194)
 
 ___
 
-### ScreenRayToObject3D
+### screenRayToObject3D
 
-▸ **ScreenRayToObject3D**(`n`, `target?`): [`Vector3`](Vector3.md)
+▸ **screenRayToObject3D**(`n`, `target?`): [`Vector3`](Vector3.md)
 
-二维屏幕坐标转三维坐标
+Convert 2D screen coordinates to 3D coordinates as world space
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `n` | [`Vector3`](Vector3.md) | `undefined` | 二维屏幕坐标 |
-| `target` | [`Vector3`](Vector3.md) | `null` | 三维坐标 默认为null 为null会返回一个新的对象 |
+| `n` | [`Vector3`](Vector3.md) | `undefined` | 2D screen coordinates |
+| `target` | [`Vector3`](Vector3.md) | `null` | 3D coordinates as world space |
 
 #### Returns
 
@@ -744,34 +794,34 @@ ___
 
 #### Defined in
 
-[src/engine/core/Camera3D.ts:236](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L236)
+[src/core/Camera3D.ts:214](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L214)
 
 ___
 
-### unproject
+### unProject
 
-▸ **unproject**(`nX`, `nY`, `sZ`, `target?`): [`Vector3`](Vector3.md)
+▸ **unProject**(`nX`, `nY`, `sZ`, `target?`): [`Vector3`](Vector3.md)
 
-输入一个3D坐标点，获得投影后的坐标点。
+Enter a 3D coordinate point to obtain the projected coordinate point
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `nX` | `number` | 3D x坐标 |
-| `nY` | `number` | 3D y坐标 |
-| `sZ` | `number` | 3D z坐标 |
-| `target?` | [`Vector3`](Vector3.md) | 投影后的坐标点，可为空 |
+| `nX` | `number` | 3D x |
+| `nY` | `number` | 3D y |
+| `sZ` | `number` | 3D z |
+| `target?` | [`Vector3`](Vector3.md) | The projected coordinate point can be empty |
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-投影后的坐标
+Coordinates after projection
 
 #### Defined in
 
-[src/engine/core/Camera3D.ts:301](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L301)
+[src/core/Camera3D.ts:272](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L272)
 
 ___
 
@@ -779,24 +829,24 @@ ___
 
 ▸ **screenPointToRay**(`viewPortPosX`, `viewPortPosY`): [`Ray`](Ray.md)
 
-输入屏幕2D坐标，获取到从相机位置出发，经过该屏幕位置对应的3D位置的一条射线。
+Enter the 2D coordinates of the screen to obtain a ray that starts from the camera position and passes through the corresponding 3D position of the screen.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `viewPortPosX` | `number` | 屏幕x坐标 |
-| `viewPortPosY` | `number` | 屏幕y坐标 |
+| `viewPortPosX` | `number` | Screen x coordinate |
+| `viewPortPosY` | `number` | Screen y coordinate |
 
 #### Returns
 
 [`Ray`](Ray.md)
 
-射线
+ray
 
 #### Defined in
 
-[src/engine/core/Camera3D.ts:341](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L341)
+[src/core/Camera3D.ts:311](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L311)
 
 ___
 
@@ -804,25 +854,25 @@ ___
 
 ▸ **screenPointToWorld**(`viewPortPosX`, `viewPortPosY`, `z`): [`Vector3`](Vector3.md)
 
-屏幕坐标转换为世界坐标
+Convert screen coordinates to world coordinates
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `viewPortPosX` | `number` | 屏幕x坐标 |
-| `viewPortPosY` | `number` | 屏幕y坐标 |
-| `z` | `number` | 屏幕z坐标 |
+| `viewPortPosX` | `number` | Screen x coordinate |
+| `viewPortPosY` | `number` | Screen y coordinate |
+| `z` | `number` | Screen z coordinate |
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-世界坐标
+World coordinates
 
 #### Defined in
 
-[src/engine/core/Camera3D.ts:362](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L362)
+[src/core/Camera3D.ts:332](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L332)
 
 ___
 
@@ -830,7 +880,7 @@ ___
 
 ▸ **worldToScreenPoint**(`point`, `target?`): [`Vector3`](Vector3.md)
 
-世界坐标转换为屏幕坐标
+Convert world coordinates to screen coordinates
 
 #### Parameters
 
@@ -843,11 +893,11 @@ ___
 
 [`Vector3`](Vector3.md)
 
-世界坐标
+World coordinates
 
 #### Defined in
 
-[src/engine/core/Camera3D.ts:374](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L374)
+[src/core/Camera3D.ts:344](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L344)
 
 ___
 
@@ -855,15 +905,15 @@ ___
 
 ▸ **lookAt**(`pos`, `target`, `up?`): `void`
 
-当前对象对视位置 （全局） (修改的是自身的全局变换)
+Current object's gaze position (global) (modified by its own global transformation)
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `pos` | [`Vector3`](Vector3.md) | `undefined` | 自身的位置 （全局） |
-| `target` | [`Vector3`](Vector3.md) | `undefined` | 目标的位置 （全局） |
-| `up` | [`Vector3`](Vector3.md) | `Vector3.Y_AXIS` | 向上的方向 |
+| `pos` | [`Vector3`](Vector3.md) | `undefined` | Own position (global) |
+| `target` | [`Vector3`](Vector3.md) | `undefined` | Location of the target (global) |
+| `up` | [`Vector3`](Vector3.md) | `Vector3.Y_AXIS` | Upward direction |
 
 #### Returns
 
@@ -871,7 +921,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/Camera3D.ts:386](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L386)
+[src/core/Camera3D.ts:355](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L355)
 
 ___
 
@@ -891,7 +941,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/Camera3D.ts:432](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L432)
+[src/core/Camera3D.ts:401](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L401)
 
 ___
 
@@ -912,7 +962,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/Camera3D.ts:489](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L489)
+[src/core/Camera3D.ts:447](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L447)
 
 ___
 
@@ -932,56 +982,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/Camera3D.ts:551](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L551)
-
-___
-
-### serialization
-
-▸ **serialization**(`assets`): [`SerializeComponentBase`](SerializeComponentBase.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `assets` | [`ISerializeAssetsCollect`](../interfaces/ISerializeAssetsCollect.md) |
-
-#### Returns
-
-[`SerializeComponentBase`](SerializeComponentBase.md)
-
-#### Overrides
-
-[ComponentBase](ComponentBase.md).[serialization](ComponentBase.md#serialization)
-
-#### Defined in
-
-[src/engine/core/Camera3D.ts:558](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L558)
-
-___
-
-### unSerialization
-
-▸ **unSerialization**(`componentData`, `data`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `componentData` | [`SerializeComponentBase`](SerializeComponentBase.md) |
-| `data` | [`UnSerializeData`](UnSerializeData.md) |
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-[ComponentBase](ComponentBase.md).[unSerialization](ComponentBase.md#unserialization)
-
-#### Defined in
-
-[src/engine/core/Camera3D.ts:576](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L576)
+[src/core/Camera3D.ts:506](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L506)
 
 ## Constructors
 
@@ -995,4 +996,4 @@ ___
 
 #### Defined in
 
-[src/engine/core/Camera3D.ts:98](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/Camera3D.ts#L98)
+[src/core/Camera3D.ts:98](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L98)

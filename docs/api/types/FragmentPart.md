@@ -16,4 +16,4 @@
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L12)
+[src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L12)

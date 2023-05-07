@@ -1,10 +1,10 @@
-import { Engine3D, Scene3D, Object3D, Camera3D, Vector3, HoverCameraController, FlyCameraController, FirstPersonCameraController, ThirdPersonCameraController, ForwardRenderJob, LitMaterial, BoxGeometry, MeshRenderer } from "@orillusion/core";
+import { Engine3D, Scene3D, Object3D, Camera3D, Vector3, HoverCameraController, FlyCameraController, FirstPersonCameraController, ThirdPersonCameraController, AtmosphericComponent, LitMaterial, BoxGeometry, MeshRenderer, View3D } from "@orillusion/core";
 
 let camera: Camera3D;
 let cameraObj: Object3D;
 let obj: Object3D;
 
-async function createCube(name: string): Object3D {
+async function createCube(name: string): Promise<Object3D> {
     const obj: Object3D = new Object3D();
     obj.name = name;
     obj.x = 0;
@@ -26,7 +26,7 @@ async function initCamera() {
     let scene3D: Scene3D = new Scene3D();
     cameraObj = new Object3D();
     camera = cameraObj.addComponent(Camera3D);
-    camera.perspective(60, window.innerWidth / window.innerHeight, 0.1, 10000.0);
+    camera.perspective(60, Engine3D.aspect, 0.1, 10000.0);
     cameraObj.addComponent(HoverCameraController);
     camera.lookAt(new Vector3(0, 0, -350), new Vector3(0, 0, 0));
     scene3D.addChild(cameraObj);
@@ -35,10 +35,14 @@ async function initCamera() {
 
     scene3D.addChild(obj);
 
-    // 新建前向渲染业务
-    let renderJob: ForwardRenderJob = new ForwardRenderJob(scene3D);
-    // 开始渲染
-    Engine3D.startRender(renderJob);
+	// add an Atmospheric sky enviroment
+	scene3D.addComponent(AtmosphericComponent).sunY = 0.6;
+    // create a view with target scene and camera
+    let view = new View3D();
+    view.scene = scene3D;
+    view.camera = camera;
+    // start render
+    Engine3D.startRenderView(view);
 
 }
 

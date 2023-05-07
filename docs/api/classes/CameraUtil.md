@@ -1,6 +1,6 @@
 # Class: CameraUtil
 
-Camera相机工具类
+Camera3D tool class
 
 
 ### Methods
@@ -17,14 +17,14 @@ Camera相机工具类
 
 ▸ `Static` **createCamera3DObject**(`parent?`, `name?`): [`Camera3D`](Camera3D.md)
 
-添加一个Camera3D组件
+create a Camera3D component
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `parent?` | [`Object3D`](Object3D.md) | Object3D对象 |
-| `name?` | `string` | Object3D对象的名称 |
+| `parent?` | [`Object3D`](Object3D.md) | parent object3D |
+| `name?` | `string` | set name to the owner of this camera3D |
 
 #### Returns
 
@@ -32,7 +32,7 @@ Camera相机工具类
 
 #### Defined in
 
-[src/engine/util/CameraUtil.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/CameraUtil.ts#L17)
+[src/util/CameraUtil.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/util/CameraUtil.ts#L18)
 
 ## Constructors
 

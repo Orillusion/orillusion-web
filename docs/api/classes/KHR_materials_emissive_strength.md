@@ -29,7 +29,7 @@
 
 #### Defined in
 
-[src/engine/loader/parser/gltf/extends/KHR_materials_emissive_strength.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/gltf/extends/KHR_materials_emissive_strength.ts#L4)
+[src/loader/parser/gltf/extends/KHR_materials_emissive_strength.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/extends/KHR_materials_emissive_strength.ts#L6)
 
 ## Constructors
 

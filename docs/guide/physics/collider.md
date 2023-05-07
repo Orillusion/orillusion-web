@@ -12,7 +12,7 @@
 import { BoxColliderShape } from '@orillusion/physics'
 
 // some codes here to create object...
-let collider = object.addComponent(Collider);
+let collider = object.addComponent(ColliderComponent);
 collider.shape = new BoxColliderShape();
 // set shape parameters...
 collider.shape.size = new Vector3(2, 2, 2);
@@ -29,7 +29,7 @@ collider.shape.size = new Vector3(2, 2, 2);
 import { SphereColliderShape } from '@orillusion/physics'
 
 // some codes here to create object...
-let collider = object.addComponent(Collider);
+let collider = object.addComponent(ColliderComponent);
 collider.shape = new SphereColliderShape();
 // set shape parameters...
 collider.radius = 5;
@@ -46,7 +46,7 @@ collider.radius = 5;
 import { CapsuleColliderShape } from '@orillusion/physics'
 
 // some codes here to create object...
-let collider = object.addComponent(Collider);
+let collider = object.addComponent(ColliderComponent);
 collider.shape = new CapsuleColliderShape();
 // set shape parameters...
 collider.radius = 2.5;
@@ -66,7 +66,7 @@ import { BoxColliderShape, Rigidbody } from '@orillusion/physics'
 
 let object = new Object3D();
 object.addComponent(Rigidbody);
-let collider = obj.addComponent(Collider);
+let collider = obj.addComponent(ColliderComponent);
 collider.shape = new BoxColliderShape();
 collider.shape.size = new Vector3(2, 2, 2);
 ```

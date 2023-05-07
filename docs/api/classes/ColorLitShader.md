@@ -17,7 +17,7 @@
 
 #### Defined in
 
-[src/engine/assets/shader/test/ColorLitShader.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/shader/test/ColorLitShader.ts#L2)
+[src/assets/shader/materials/ColorLitShader.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/assets/shader/materials/ColorLitShader.ts#L2)
 
 ## Constructors
 
