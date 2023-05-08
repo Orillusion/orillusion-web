@@ -20,8 +20,7 @@ import {
   MeshRenderer,
   DirectLight,
   HoverCameraController,
-  AtmosphericComponent,
-  Color
+  AtmosphericComponent
 } from '@orillusion/core';
 ```
 | 模块 | 说明 |
@@ -38,7 +37,6 @@ import {
 | DirectLight | 平行光组件，可以设置平行光组件的颜色、强度属性和光照角度来获得合适的光照效果 |
 | HoverCameraController | 盘旋相机组件，可以控制相机围绕观察点移动 |
 | AtmosphericComponent | 引擎内置的大气天空盒组件 |
-| Color | 定义颜色对象 |
 
 ## 初始化引擎
 ```ts
