@@ -102,7 +102,7 @@ scene3D.addChild(obj);
 
 ## 渲染场景
 ```ts
-// 创建Viee3D对象
+// 创建View3D对象
 let view = new View3D();
 // 指定渲染的场景
 view.scene = scene;
