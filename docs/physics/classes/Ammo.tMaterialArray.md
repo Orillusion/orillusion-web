@@ -30,7 +30,7 @@
 
 #### Defined in
 
-[libs/ammo/ammo.d.ts:931](https://github.com/Orillusion/orillusion/blob/main/src/libs/ammo/ammo.d.ts#L931)
+[packages/ammo/ammo.d.ts:931](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L931)
 
 ___
 
@@ -50,4 +50,4 @@ ___
 
 #### Defined in
 
-[libs/ammo/ammo.d.ts:932](https://github.com/Orillusion/orillusion/blob/main/src/libs/ammo/ammo.d.ts#L932)
+[packages/ammo/ammo.d.ts:932](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L932)

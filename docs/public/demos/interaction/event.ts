@@ -1,4 +1,4 @@
-import { Engine3D, Scene3D, Vector3, Object3D, Camera3D, ForwardRenderJob, LitMaterial, MeshRenderer, ComponentBase, CEvent, BoxGeometry } from "@orillusion/core";
+import { Engine3D, Scene3D, Vector3, Object3D, Camera3D, View3D, AtmosphericComponent, LitMaterial, MeshRenderer, ComponentBase, CEvent, BoxGeometry } from "@orillusion/core";
 import dat from 'https://cdn.skypack.dev/dat.gui';
 
 class UserEventScriptLeft extends ComponentBase {
@@ -20,12 +20,12 @@ class UserEventScriptLeft extends ComponentBase {
         this.rotation = 0
     }
 
-    protected start() {
+    public start() {
         Engine3D.inputSystem.addEventListener("RunEvent", this.OnRunEvent, this);
         Engine3D.inputSystem.addEventListener("StopEvent", this.OnStopEvent, this);
     }
 
-    update() {
+    public onUpdate() {
         this.object3D.transform.rotationY += this.rotation;
     }
 }
@@ -39,11 +39,12 @@ async function init() {
     await Engine3D.init({});
     // 创建场景实例
     scene = new Scene3D();
+    scene.addComponent(AtmosphericComponent);
     // 创建相机实例
     cameraObj = new Object3D();
     camera = cameraObj.addComponent(Camera3D);
     // 设置正交相机
-    camera.perspective(60, window.innerWidth / window.innerHeight, 1, 5000.0);
+    camera.perspective(60, Engine3D.aspect, 1, 5000.0);
     camera.lookAt(new Vector3(0, 5, 15), new Vector3(0, 0, 0));
     // 设置主相机
     scene.addChild(cameraObj);
@@ -61,10 +62,11 @@ async function init() {
     // 添加对象至场景
     scene.addChild(boxObj);
 
-    //进行前向渲染
-    let renderJob = new ForwardRenderJob(scene);
-    // 开始执行渲染
-    Engine3D.startRender(renderJob);
+    let view = new View3D();
+    view.scene = scene;
+    view.camera = camera;
+    // start render
+    Engine3D.startRenderView(view);
 }
 
 

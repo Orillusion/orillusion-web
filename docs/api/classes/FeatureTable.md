@@ -33,7 +33,7 @@
 
 #### Defined in
 
-[src/engine/loader/parser/b3dm/FeatureTable.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/b3dm/FeatureTable.ts#L9)
+[src/loader/parser/b3dm/FeatureTable.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/b3dm/FeatureTable.ts#L9)
 
 ## Methods
 
@@ -47,7 +47,7 @@
 
 #### Defined in
 
-[src/engine/loader/parser/b3dm/FeatureTable.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/b3dm/FeatureTable.ts#L30)
+[src/loader/parser/b3dm/FeatureTable.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/b3dm/FeatureTable.ts#L30)
 
 ___
 
@@ -70,4 +70,4 @@ ___
 
 #### Defined in
 
-[src/engine/loader/parser/b3dm/FeatureTable.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/b3dm/FeatureTable.ts#L36)
+[src/loader/parser/b3dm/FeatureTable.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/b3dm/FeatureTable.ts#L36)

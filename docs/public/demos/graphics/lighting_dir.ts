@@ -1,10 +1,8 @@
 import {
   BoxGeometry,
   Camera3D,
-  defaultTexture,
   Engine3D,
-  ForwardRenderJob,
-  GUIHelp,
+  AtmosphericComponent,
   LitMaterial,
   HoverCameraController,
   MeshRenderer,
@@ -12,18 +10,21 @@ import {
   Scene3D,
   DirectLight,
   Vector3,
-  webGPUContext
+  webGPUContext,
+  View3D
 } from "@orillusion/core";
+import * as dat from 'dat.gui'
 
 export class Sample_Light {
   scene: Scene3D;
   hoverCameraController: HoverCameraController;
   lightObj: any;
-  constructor() {}
+  constructor() { }
 
   async run() {
-    await Engine3D.init();
-    GUIHelp.init()
+    await Engine3D.init({
+      canvasConfig:{devicePixelRatio: 1}
+    });
     this.scene = new Scene3D();
     let cameraObj = new Object3D();
     let mainCamera = cameraObj.addComponent(Camera3D);
@@ -36,10 +37,16 @@ export class Sample_Light {
 
     //set camera data
     this.hoverCameraController.setCamera(0, -45, 2000);
-    await this.initScene(this.scene);
+    this.initScene(this.scene);
 
-    let renderJob = new ForwardRenderJob(this.scene);
-    Engine3D.startRender(renderJob);
+    // add an Atmospheric sky enviroment
+    this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
+    // create a view with target scene and camera
+    let view = new View3D();
+    view.scene = this.scene;
+    view.camera = mainCamera;
+    // start render
+    Engine3D.startRenderView(view);
   }
 
   initScene(scene: Scene3D) {
@@ -52,12 +59,21 @@ export class Sample_Light {
       light.lightColor.r = 255 / 255;
       light.lightColor.g = 157 / 255;
       light.lightColor.b = 5 / 255;
-      light.debug()
       scene.addChild(dirLight);
+
+      let GUIHelp = new dat.GUI()
+      GUIHelp.addFolder('Direct Light')
+      GUIHelp.add(dirLight, 'rotationX', -180, 180, 1)
+      GUIHelp.add(dirLight, 'rotationY', -180, 180, 1)
+      GUIHelp.add(dirLight, 'rotationZ', -180, 180, 1)
+      GUIHelp.addColor({color: Object.values(light.lightColor).map(v=>v*255)}, 'color').onChange(v=>{
+        light.lightColor.copyFormArray(v)
+      })
+      GUIHelp.add(light, 'intensity', 0, 100, 1)
     }
 
     let mat = new LitMaterial();
-    mat.baseMap = defaultTexture.grayTexture;
+    mat.baseMap = Engine3D.res.grayTexture;
 
     let floor = new Object3D();
     let mr = floor.addComponent(MeshRenderer);

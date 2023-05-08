@@ -28,7 +28,7 @@
 
 #### Defined in
 
-[src/engine/loader/parser/b3dm/B3DMLoader.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/b3dm/B3DMLoader.ts#L7)
+[src/loader/parser/b3dm/B3DMLoader.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/b3dm/B3DMLoader.ts#L10)
 
 ## Constructors
 
@@ -42,7 +42,7 @@
 
 #### Defined in
 
-[src/engine/loader/parser/b3dm/B3DMLoader.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/b3dm/B3DMLoader.ts#L11)
+[src/loader/parser/b3dm/B3DMLoader.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/b3dm/B3DMLoader.ts#L14)
 
 ## Methods
 
@@ -66,7 +66,7 @@
 
 #### Defined in
 
-[src/engine/loader/parser/b3dm/B3DMLoader.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/b3dm/B3DMLoader.ts#L17)
+[src/loader/parser/b3dm/B3DMLoader.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/b3dm/B3DMLoader.ts#L20)
 
 ___
 
@@ -86,4 +86,4 @@ ___
 
 #### Defined in
 
-[src/engine/loader/parser/b3dm/B3DMLoader.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/b3dm/B3DMLoader.ts#L61)
+[src/loader/parser/b3dm/B3DMLoader.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/b3dm/B3DMLoader.ts#L64)

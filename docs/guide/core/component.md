@@ -25,14 +25,15 @@
 | 名称 | 描述 |
 | :---: | :---: |
 | Camera3D | 相机组件，设置相机节点 |
+| Transform | 变换组件，用于控制物体矩阵坐标变换 |
 | HoverCameraController | 相机控制组件，用于控制相机位置和朝向 |
 | MeshRenderer | 网格渲染器组件, 用于渲染网格和材质 |
 | DirectLight | 方向光，设定方向光类型和参数 |
 | PointLight | 点光源，设定点光类型和参数 |
 | SpotLight | 聚光灯，设定聚光类型和参数 |
-| Collider | 碰撞体组件，用于检测碰撞 |
-| SkeletonAnimation | 骨骼动画组件，用于控制动画播放 |
-| Transform | 变换组件，用于控制物体矩阵坐标变换 |
+| ColliderComponent | 碰撞体组件，用于检测碰撞 |
+| SkeletonAnimationComponent | 骨骼动画组件，用于控制动画播放 |
+| AtmosphericComponent | 大气天空盒组件 |
 
 更多内置组件详见 [Components](/api/#components)
 
@@ -75,12 +76,12 @@ light.enable = true
 | 周期 | 描述 |
 | :---: | --- |
 | init | 组件初始化，只在被添加创建时运行一次 |
-| start   | 组件开始运行，只在第一次 `onUpdate` 之前调用 |
-| update | 组件每帧更新时运行 |
-| beforeUpdate | 组件渲染更新前运行 |
-| lateUpdate | 组件渲染更新后运行 |
+| start | 组件开始运行，只在第一次 `onUpdate` 之前调用 |
+| stop | 组件销毁前被调用 |
+| onUpdate | 组件每帧更新时运行 |
+| onBeforeUpdate | 组件渲染更新前运行 |
+| onLateUpdate | 组件渲染更新后运行 |
 | onEnable | 组件 `enable = true` 时回调，组件加入主循环更新 |
 | onDisable | 组件 `enable = false` 时触发，组件将不再触发循环 |
-| stop | 组件销毁前被调用 |
 
 用户可以通过继承 [CompnentBase](/api/classes/ComponentBase) 基类来扩展不同的自定义功能，详情参考 [脚本组件](/guide/core/script)

@@ -4,16 +4,21 @@ aside: false
 # 轮廓描边 - Outline
 引擎内实现了为指定的物体描绘未被遮挡的部分轮廓的功能。你可以为描边的轮廓线单独设置实线、淡出部分的宽度实现不同样式。
 ```ts
-import {Engine3D,ForwardRenderJob, OutlinePost } from '@orillusion/core';
+import {Engine3D, View3D, OutlinePost } from '@orillusion/core';
 // 初始化引擎
 await Engine3D.init();
 Engine3D.setting.render.postProcessing.outline.outlinePixel = 2;
 Engine3D.setting.render.postProcessing.outline.fadeOutlinePixel = 4;
 
-// 创建渲染器
-let renderJob = new ForwardRenderJob(scene);
-renderJob.addPost(new OutlinePost());
-Engine3D.startRender(renderJob);
+// 添加 OutlinePost
+let postProcessing = this.scene.addComponent(PostProcessingComponent);
+postProcessing.addPost(OutlinePost);
+
+//开始渲染
+let view = new View3D();
+view.scene = this.scene;
+view.camera = this.camera;
+Engine3D.startRenderView(view);
 ```
 [Engine3D.setting.render.postProcessing.outline](/api/types/OutlineSetting.md) 配置参数。
 

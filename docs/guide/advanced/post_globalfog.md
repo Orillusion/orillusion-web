@@ -16,10 +16,15 @@ Engine3D.setting.render.postProcessing.globalFog.density = 0.02;
 Engine3D.setting.render.postProcessing.globalFog.ins = 1;
 Engine3D.setting.render.postProcessing.globalFog.fogColor = new Color(84,90,239,255);
 
-//创建渲染器
-let renderJob = new ForwardRenderJob(this.scene);
-renderJob.addPost(new GlobalFog());
-Engine3D.startRender(renderJob);
+// 添加 GlobalFog
+let postProcessing = this.scene.addComponent(PostProcessingComponent);
+postProcessing.addPost(GlobalFog);
+
+//开始渲染
+let view = new View3D();
+view.scene = this.scene;
+view.camera = this.camera;
+Engine3D.startRenderView(view);
 ```
 
 [Engine3D.setting.render.postProcessing.globalFog](../../api/types/GlobalFogSetting.md) 配置参数。

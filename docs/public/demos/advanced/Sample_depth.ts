@@ -1,11 +1,9 @@
 import {
-	defaultTexture,
 	DepthOfFieldPost,
 	DirectLight,
 	Engine3D,
-	ForwardRenderJob,
-	GLTFParser,
-	GUIHelp,
+	PostProcessingComponent,
+	View3D,
 	LitMaterial,
 	HoverCameraController,
 	KelvinUtil,
@@ -17,7 +15,9 @@ import {
 	SSR_IS_Kernel,
 	CameraUtil,
 	webGPUContext,
+	AtmosphericComponent
 } from '@orillusion/core';
+import * as dat from 'dat.gui'
 
 export class Sample_DepthOfView {
 	lightObj: Object3D;
@@ -25,19 +25,19 @@ export class Sample_DepthOfView {
 	constructor() { }
 
 	async run() {
-		Engine3D.setting.gi.enable = true;
 		Engine3D.setting.shadow.enable = true;
 		Engine3D.setting.shadow.debug = false;
-		Engine3D.setting.shadow.shadowBound = 10;
-		Engine3D.setting.shadow.shadowBias = -0.001;
-
+		Engine3D.setting.shadow.shadowBound = 100;
+		Engine3D.setting.shadow.shadowBias = 0.0001;
 		await Engine3D.init({
-			renderLoop: () => this.loop(),
+			canvasConfig: {
+				devicePixelRatio: 1
+			}
 		});
 
-		GUIHelp.init();
-
 		this.scene = new Scene3D();
+		this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
+
 		let camera = CameraUtil.createCamera3DObject(this.scene);
 		camera.perspective(60, webGPUContext.aspect, 1, 5000.0);
 		let ctrl = camera.object3D.addComponent(HoverCameraController);
@@ -45,12 +45,21 @@ export class Sample_DepthOfView {
 
 		await this.initScene(this.scene);
 
-		let renderJob = new ForwardRenderJob(this.scene);
-		renderJob.addPost(new DepthOfFieldPost());
-		//
-		renderJob.debug();
+        let view = new View3D();
+        view.scene = this.scene;
+        view.camera = camera;
+        Engine3D.startRenderView(view);
 
-		Engine3D.startRender(renderJob);
+		let postProcessing = this.scene.addComponent(PostProcessingComponent);
+		let DOFPost = postProcessing.addPost(DepthOfFieldPost);
+		DOFPost.near = 0
+		DOFPost.far = 150
+		DOFPost.pixelOffset = 2
+
+		let GUIHelp = new dat.GUI()
+		GUIHelp.addFolder('Depth of Field')
+		GUIHelp.add(DOFPost, 'near', 0, 100, 1)
+		GUIHelp.add(DOFPost, 'far', 150, 300, 1)
 	}
 
 	async initScene(scene: Scene3D) {
@@ -63,7 +72,7 @@ export class Sample_DepthOfView {
 			let lc = this.lightObj.addComponent(DirectLight);
 			lc.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
 			lc.castShadow = true;
-			lc.intensity = 5;
+			lc.intensity = 10;
 			scene.addChild(this.lightObj);
 		}
 
@@ -78,11 +87,11 @@ export class Sample_DepthOfView {
 
 	private createPlane(scene: Scene3D) {
 		let mat = new LitMaterial();
-		mat.baseMap = defaultTexture.grayTexture;
-		mat.normalMap = defaultTexture.normalTexture;
-		mat.aoMap = defaultTexture.whiteTexture;
-		mat.maskMap = defaultTexture.createTexture(32, 32, 255.0, 10.0, 0.0, 1);
-		mat.emissiveMap = defaultTexture.blackTexture;
+		mat.baseMap = Engine3D.res.grayTexture;
+		mat.normalMap = Engine3D.res.normalTexture;
+		mat.aoMap = Engine3D.res.whiteTexture;
+		mat.maskMap = Engine3D.res.createTexture(32, 32, 255.0, 10.0, 0.0, 1);
+		mat.emissiveMap = Engine3D.res.blackTexture;
 		mat.roughness = 0.1;
 		mat.roughness_max = 0.1;
 		mat.metallic = 0.0;
@@ -123,9 +132,6 @@ export class Sample_DepthOfView {
 				scene.addChild(obj);
 			}
 		}
-	}
-
-	private loop(): void {
 	}
 }
 

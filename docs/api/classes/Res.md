@@ -1,6 +1,6 @@
 # Class: Res
 
-纹理，材质，模型，预设体的资源管理类。
+Resource management classes for textures, materials, models, and preset bodies.
 
 
 ### Constructors
@@ -10,10 +10,6 @@
 ### Methods
 
 - [getGltf](Res.md#getgltf)
-- [getPrefabLoader](Res.md#getprefabloader)
-- [addAtlas](Res.md#addatlas)
-- [getAtlas](Res.md#getatlas)
-- [getSubTexture](Res.md#getsubtexture)
 - [addTexture](Res.md#addtexture)
 - [getTexture](Res.md#gettexture)
 - [addMat](Res.md#addmat)
@@ -24,16 +20,28 @@
 - [loadObj](Res.md#loadobj)
 - [loadB3DM](Res.md#loadb3dm)
 - [loadI3DM](Res.md#loadi3dm)
-- [loadFont](Res.md#loadfont)
-- [loadAtlas](Res.md#loadatlas)
 - [loadTexture](Res.md#loadtexture)
 - [loadHDRTexture](Res.md#loadhdrtexture)
 - [loadHDRTextureCube](Res.md#loadhdrtexturecube)
 - [loadLDRTextureCube](Res.md#loadldrtexturecube)
 - [loadTextureCubeMaps](Res.md#loadtexturecubemaps)
 - [loadTextureCubeStd](Res.md#loadtexturecubestd)
-- [loadPrefab](Res.md#loadprefab)
 - [loadJSON](Res.md#loadjson)
+- [createTexture](Res.md#createtexture)
+- [fillColor](Res.md#fillcolor)
+
+### Properties
+
+- [normalTexture](Res.md#normaltexture)
+- [maskTexture](Res.md#masktexture)
+- [whiteTexture](Res.md#whitetexture)
+- [blackTexture](Res.md#blacktexture)
+- [redTexture](Res.md#redtexture)
+- [blueTexture](Res.md#bluetexture)
+- [greenTexture](Res.md#greentexture)
+- [yellowTexture](Res.md#yellowtexture)
+- [grayTexture](Res.md#graytexture)
+- [defaultSky](Res.md#defaultsky)
 
 ## Constructors
 
@@ -41,11 +49,9 @@
 
 • **new Res**()
 
-创建一个资源管理类对象
-
 #### Defined in
 
-[src/engine/assets/Res.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/Res.ts#L41)
+[src/assets/Res.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L35)
 
 ## Methods
 
@@ -65,88 +71,7 @@
 
 #### Defined in
 
-[src/engine/assets/Res.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/Res.ts#L50)
-
-___
-
-### getPrefabLoader
-
-▸ **getPrefabLoader**(`url`): [`PrefabLoader`](PrefabLoader.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `url` | `string` |
-
-#### Returns
-
-[`PrefabLoader`](PrefabLoader.md)
-
-#### Defined in
-
-[src/engine/assets/Res.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/Res.ts#L54)
-
-___
-
-### addAtlas
-
-▸ **addAtlas**(`name`, `atlas`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `name` | `string` |
-| `atlas` | [`GUIAtlasTexture`](GUIAtlasTexture.md) |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/engine/assets/Res.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/Res.ts#L58)
-
-___
-
-### getAtlas
-
-▸ **getAtlas**(`name`): [`GUIAtlasTexture`](GUIAtlasTexture.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `name` | `string` |
-
-#### Returns
-
-[`GUIAtlasTexture`](GUIAtlasTexture.md)
-
-#### Defined in
-
-[src/engine/assets/Res.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/Res.ts#L63)
-
-___
-
-### getSubTexture
-
-▸ **getSubTexture**(`id`): [`GUISubTexture`](GUISubTexture.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
-
-#### Returns
-
-[`GUISubTexture`](GUISubTexture.md)
-
-#### Defined in
-
-[src/engine/assets/Res.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/Res.ts#L67)
+[src/assets/Res.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L45)
 
 ___
 
@@ -154,14 +79,14 @@ ___
 
 ▸ **addTexture**(`url`, `texture`): `void`
 
-添加纹理对象到资源池
+add a texture with reference of url
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `url` | `string` | 资源路径 |
-| `texture` | [`Texture`](Texture.md) | 纹理数据 |
+| `url` | `string` | file path |
+| `texture` | [`Texture`](Texture.md) | source texture |
 
 #### Returns
 
@@ -169,7 +94,7 @@ ___
 
 #### Defined in
 
-[src/engine/assets/Res.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/Res.ts#L80)
+[src/assets/Res.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L54)
 
 ___
 
@@ -177,13 +102,13 @@ ___
 
 ▸ **getTexture**(`url`): [`Texture`](Texture.md)
 
-获取纹理对象
+get texture by url
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `url` | `string` | 资源路径 |
+| `url` | `string` | file path |
 
 #### Returns
 
@@ -191,7 +116,7 @@ ___
 
 #### Defined in
 
-[src/engine/assets/Res.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/Res.ts#L89)
+[src/assets/Res.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L63)
 
 ___
 
@@ -199,14 +124,14 @@ ___
 
 ▸ **addMat**(`name`, `mat`): `Map`<`string`, `MaterialBase`\>
 
-添加材质对象到资源池
+add a material with reference of name
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `name` | `string` | 材质对象名称 |
-| `mat` | `MaterialBase` | 材质对象 |
+| `name` | `string` | material name |
+| `mat` | `MaterialBase` | target material |
 
 #### Returns
 
@@ -214,7 +139,7 @@ ___
 
 #### Defined in
 
-[src/engine/assets/Res.ts:98](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/Res.ts#L98)
+[src/assets/Res.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L72)
 
 ___
 
@@ -222,13 +147,13 @@ ___
 
 ▸ **getMat**(`name`): `MaterialBase`
 
-获取材质对象
+get material by name
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `name` | `string` | 材质对象名称 |
+| `name` | `string` | material name |
 
 #### Returns
 
@@ -236,7 +161,7 @@ ___
 
 #### Defined in
 
-[src/engine/assets/Res.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/Res.ts#L107)
+[src/assets/Res.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L81)
 
 ___
 
@@ -244,14 +169,14 @@ ___
 
 ▸ **addPrefab**(`name`, `rootScene`): `void`
 
-添加预设体到资源池
+add prefab with reference name
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `name` | `string` | 预设体名称 |
-| `rootScene` | [`Object3D`](Object3D.md) |  |
+| `name` | `string` | prefab name |
+| `rootScene` | [`Object3D`](Object3D.md) | root object of prefab |
 
 #### Returns
 
@@ -259,7 +184,7 @@ ___
 
 #### Defined in
 
-[src/engine/assets/Res.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/Res.ts#L116)
+[src/assets/Res.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L90)
 
 ___
 
@@ -267,13 +192,13 @@ ___
 
 ▸ **getPrefab**(`name`): [`Object3D`](Object3D.md)
 
-获取预设体
+get prefab by name
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `name` | `string` | 预设体名称 |
+| `name` | `string` | prefab name |
 
 #### Returns
 
@@ -281,7 +206,7 @@ ___
 
 #### Defined in
 
-[src/engine/assets/Res.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/Res.ts#L125)
+[src/assets/Res.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L99)
 
 ___
 
@@ -289,14 +214,14 @@ ___
 
 ▸ **loadGltf**(`url`, `loaderFunctions?`): `Promise`<[`Object3D`](Object3D.md)\>
 
-加载模型文件
+load a gltf file
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `url` | `string` | 模型路径 |
-| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | 加载回调函数 |
+| `url` | `string` | the url of file |
+| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | callback |
 
 #### Returns
 
@@ -304,7 +229,7 @@ ___
 
 #### Defined in
 
-[src/engine/assets/Res.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/Res.ts#L135)
+[src/assets/Res.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L109)
 
 ___
 
@@ -312,14 +237,14 @@ ___
 
 ▸ **loadObj**(`url`, `loaderFunctions?`): `Promise`<[`Object3D`](Object3D.md)\>
 
-加载模型文件
+load obj file
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `url` | `string` | 模型路径 |
-| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | 加载回调函数 |
+| `url` | `string` | obj file path |
+| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | callback |
 
 #### Returns
 
@@ -327,7 +252,7 @@ ___
 
 #### Defined in
 
-[src/engine/assets/Res.ts:162](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/Res.ts#L162)
+[src/assets/Res.ts:136](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L136)
 
 ___
 
@@ -335,14 +260,14 @@ ___
 
 ▸ **loadB3DM**(`url`, `loaderFunctions?`, `userData?`): `Promise`<[`Object3D`](Object3D.md)\>
 
-加载b3dm文件
+load b3dm file by url
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `url` | `string` | 模型路径 |
-| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | 加载回调函数 |
+| `url` | `string` | path of file |
+| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | callback |
 | `userData?` | `any` | - |
 
 #### Returns
@@ -351,7 +276,7 @@ ___
 
 #### Defined in
 
-[src/engine/assets/Res.ts:185](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/Res.ts#L185)
+[src/assets/Res.ts:159](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L159)
 
 ___
 
@@ -359,14 +284,14 @@ ___
 
 ▸ **loadI3DM**(`url`, `loaderFunctions?`, `userData?`): `Promise`<[`Object3D`](Object3D.md)\>
 
-加载i3dm文件
+load i3dm file by url
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `url` | `string` | 模型路径 |
-| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | 加载回调函数 |
+| `url` | `string` | path of i3dm file |
+| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | callback |
 | `userData?` | `any` | - |
 
 #### Returns
@@ -375,54 +300,7 @@ ___
 
 #### Defined in
 
-[src/engine/assets/Res.ts:202](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/Res.ts#L202)
-
-___
-
-### loadFont
-
-▸ **loadFont**(`url`, `loaderFunctions?`, `userData?`): `Promise`<[`FontInfo`](FontInfo.md)\>
-
-加载字体文件
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `url` | `string` | 字体路径 |
-| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | 加载回调函数 |
-| `userData?` | `any` | - |
-
-#### Returns
-
-`Promise`<[`FontInfo`](FontInfo.md)\>
-
-#### Defined in
-
-[src/engine/assets/Res.ts:219](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/Res.ts#L219)
-
-___
-
-### loadAtlas
-
-▸ **loadAtlas**(`url`, `loaderFunctions?`): `Promise`<[`FontInfo`](FontInfo.md)\>
-
-加载图集
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `url` | `string` | 图集路径 |
-| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | 加载回调函数 |
-
-#### Returns
-
-`Promise`<[`FontInfo`](FontInfo.md)\>
-
-#### Defined in
-
-[src/engine/assets/Res.ts:233](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/Res.ts#L233)
+[src/assets/Res.ts:176](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L176)
 
 ___
 
@@ -430,15 +308,15 @@ ___
 
 ▸ **loadTexture**(`url`, `loaderFunctions?`, `flipY?`): `Promise`<[`Texture`](Texture.md)\>
 
-加载贴图
+load texture by url
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `url` | `string` | 文件路径 |
-| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | 加载回调函数 |
-| `flipY?` | `boolean` | 是否颠倒y轴 |
+| `url` | `string` | texture path |
+| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | callback |
+| `flipY?` | `boolean` | use flip y or not |
 
 #### Returns
 
@@ -446,7 +324,7 @@ ___
 
 #### Defined in
 
-[src/engine/assets/Res.ts:246](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/Res.ts#L246)
+[src/assets/Res.ts:194](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L194)
 
 ___
 
@@ -454,14 +332,14 @@ ___
 
 ▸ **loadHDRTexture**(`url`, `loaderFunctions?`): `Promise`<[`Texture`](Texture.md)\>
 
-加载HDR单张纹理
+load a hdr texture
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `url` | `string` | 文件路径 |
-| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | 加载回调函数 |
+| `url` | `string` | texture url |
+| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | callback |
 
 #### Returns
 
@@ -469,7 +347,7 @@ ___
 
 #### Defined in
 
-[src/engine/assets/Res.ts:264](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/Res.ts#L264)
+[src/assets/Res.ts:211](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L211)
 
 ___
 
@@ -477,14 +355,14 @@ ___
 
 ▸ **loadHDRTextureCube**(`url`, `loaderFunctions?`): `Promise`<[`Texture`](Texture.md)\>
 
-加载HDR立方体纹理
+load hdr cube texture
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `url` | `string` | 文件路径 |
-| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | 加载回调函数 |
+| `url` | `string` | file url |
+| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | callback |
 
 #### Returns
 
@@ -492,7 +370,7 @@ ___
 
 #### Defined in
 
-[src/engine/assets/Res.ts:283](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/Res.ts#L283)
+[src/assets/Res.ts:229](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L229)
 
 ___
 
@@ -500,14 +378,14 @@ ___
 
 ▸ **loadLDRTextureCube**(`url`, `loaderFunctions?`): `Promise`<[`Texture`](Texture.md)\>
 
-加载LDR立方体纹理
+load ldr cube texture
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `url` | `string` | 文件路径 |
-| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | 加载回调函数 |
+| `url` | `string` | file path |
+| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | callback |
 
 #### Returns
 
@@ -515,7 +393,7 @@ ___
 
 #### Defined in
 
-[src/engine/assets/Res.ts:300](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/Res.ts#L300)
+[src/assets/Res.ts:245](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L245)
 
 ___
 
@@ -523,13 +401,15 @@ ___
 
 ▸ **loadTextureCubeMaps**(`urls`): `Promise`<[`Texture`](Texture.md)\>
 
-加载立方体纹理
+load texture data from array of web url.
+make sure there are six images in a group,
+and the order is: nx, px, py, ny, nz, pz
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `urls` | `string`[] | 6 张 2D 纹理按顺序排列组合成一个立方盒子 |
+| Name | Type |
+| :------ | :------ |
+| `urls` | `string`[] |
 
 #### Returns
 
@@ -537,7 +417,7 @@ ___
 
 #### Defined in
 
-[src/engine/assets/Res.ts:316](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/Res.ts#L316)
+[src/assets/Res.ts:261](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L261)
 
 ___
 
@@ -545,13 +425,14 @@ ___
 
 ▸ **loadTextureCubeStd**(`url`, `loaderFunctions?`): `Promise`<[`Texture`](Texture.md)\>
 
-加载立方体纹理(十字型)
+load texture data from url.
+the image is assembled from six images into cross shaped image.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `url` | `string` | 文件路径 |
+| `url` | `string` | the path of image |
 | `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | - |
 
 #### Returns
@@ -560,30 +441,7 @@ ___
 
 #### Defined in
 
-[src/engine/assets/Res.ts:334](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/Res.ts#L334)
-
-___
-
-### loadPrefab
-
-▸ **loadPrefab**(`url`, `loaderFunctions?`): `Promise`<[`Object3D`](Object3D.md)\>
-
-加载Prefab文件
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `url` | `string` | 文件路径 |
-| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | - |
-
-#### Returns
-
-`Promise`<[`Object3D`](Object3D.md)\>
-
-#### Defined in
-
-[src/engine/assets/Res.ts:350](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/Res.ts#L350)
+[src/assets/Res.ts:278](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L278)
 
 ___
 
@@ -591,12 +449,14 @@ ___
 
 ▸ **loadJSON**(`url`, `loaderFunctions?`): `Promise`<`void` \| `object`\>
 
+load json data from url.
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `url` | `string` |
-| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `url` | `string` | the path of image |
+| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | - |
 
 #### Returns
 
@@ -604,4 +464,162 @@ ___
 
 #### Defined in
 
-[src/engine/assets/Res.ts:362](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/Res.ts#L362)
+[src/assets/Res.ts:292](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L292)
+
+___
+
+### createTexture
+
+▸ **createTexture**(`width`, `height`, `r`, `g`, `b`, `a`, `name?`): [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
+
+create a texture
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `width` | `number` | width of texture |
+| `height` | `number` | height of texture |
+| `r` | `number` | component-red |
+| `g` | `number` | component-green |
+| `b` | `number` | component-blue |
+| `a` | `number` | component-alpha（0 for transparent，1 for opaque） |
+| `name?` | `string` | name string |
+
+#### Returns
+
+[`Uint8ArrayTexture`](Uint8ArrayTexture.md)
+
+#### Defined in
+
+[src/assets/Res.ts:329](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L329)
+
+___
+
+### fillColor
+
+▸ **fillColor**(`array`, `w`, `h`, `r`, `g`, `b`, `a`): `void`
+
+fill slod color to this texture
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `array` | `any` | data of texture |
+| `w` | `number` | width of texture |
+| `h` | `number` | height of texture |
+| `r` | `number` | component-red |
+| `g` | `number` | component-green |
+| `b` | `number` | component-blue |
+| `a` | `number` | component-alpha（0 for transparent，1 for opaque） |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/assets/Res.ts:353](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L353)
+
+## Properties
+
+### normalTexture
+
+• **normalTexture**: [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
+
+normal texture
+
+#### Defined in
+
+[src/assets/Res.ts:306](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L306)
+
+___
+
+### maskTexture
+
+• **maskTexture**: [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
+
+#### Defined in
+
+[src/assets/Res.ts:307](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L307)
+
+___
+
+### whiteTexture
+
+• **whiteTexture**: [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
+
+#### Defined in
+
+[src/assets/Res.ts:308](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L308)
+
+___
+
+### blackTexture
+
+• **blackTexture**: [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
+
+#### Defined in
+
+[src/assets/Res.ts:309](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L309)
+
+___
+
+### redTexture
+
+• **redTexture**: [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
+
+#### Defined in
+
+[src/assets/Res.ts:310](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L310)
+
+___
+
+### blueTexture
+
+• **blueTexture**: [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
+
+#### Defined in
+
+[src/assets/Res.ts:311](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L311)
+
+___
+
+### greenTexture
+
+• **greenTexture**: [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
+
+#### Defined in
+
+[src/assets/Res.ts:312](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L312)
+
+___
+
+### yellowTexture
+
+• **yellowTexture**: [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
+
+#### Defined in
+
+[src/assets/Res.ts:313](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L313)
+
+___
+
+### grayTexture
+
+• **grayTexture**: [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
+
+#### Defined in
+
+[src/assets/Res.ts:314](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L314)
+
+___
+
+### defaultSky
+
+• **defaultSky**: [`HDRTextureCube`](HDRTextureCube.md)
+
+#### Defined in
+
+[src/assets/Res.ts:316](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L316)

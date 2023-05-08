@@ -1,6 +1,6 @@
 # Class: Rect
 
-矩形区域
+Rectangular region
 
 
 ### Properties
@@ -21,11 +21,11 @@
 
 ### Methods
 
+- [pointInRect](Rect.md#pointinrect)
 - [clone](Rect.md#clone)
 - [copyFrom](Rect.md#copyfrom)
 - [copyTo](Rect.md#copyto)
 - [inner](Rect.md#inner)
-- [pointInRect](Rect.md#pointinrect)
 - [equal](Rect.md#equal)
 - [equalArea](Rect.md#equalarea)
 - [equalInnerArea](Rect.md#equalinnerarea)
@@ -38,11 +38,11 @@
 
 • **x**: `number`
 
-矩形的x坐标
+The x-coordinate of the rectangle
 
 #### Defined in
 
-[src/engine/math/Rect.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Rect.ts#L10)
+[src/math/Rect.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L10)
 
 ___
 
@@ -50,11 +50,11 @@ ___
 
 • **y**: `number`
 
-矩形的y坐标
+The y-coordinate of the rectangle
 
 #### Defined in
 
-[src/engine/math/Rect.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Rect.ts#L14)
+[src/math/Rect.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L15)
 
 ___
 
@@ -62,11 +62,11 @@ ___
 
 • **w**: `number`
 
-矩形的宽度
+Width of a rectangle
 
 #### Defined in
 
-[src/engine/math/Rect.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Rect.ts#L18)
+[src/math/Rect.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L20)
 
 ___
 
@@ -74,11 +74,11 @@ ___
 
 • **h**: `number`
 
-矩形的高度
+Height of rectangle
 
 #### Defined in
 
-[src/engine/math/Rect.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Rect.ts#L22)
+[src/math/Rect.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L25)
 
 ## Constructors
 
@@ -86,20 +86,20 @@ ___
 
 • **new Rect**(`x?`, `y?`, `width?`, `height?`)
 
-创建一个新的矩形区域对象
+Creates a new rectangular area object
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `x` | `number` | `0` | 矩形的x坐标 |
-| `y` | `number` | `0` | 矩形的y坐标 |
-| `width` | `number` | `0` | 矩形的宽度 |
-| `height` | `number` | `0` | 矩形的高度 |
+| `x` | `number` | `0` | The x-coordinate of the rectangle |
+| `y` | `number` | `0` | The y coordinate of the rectangle |
+| `width` | `number` | `0` | Width of a rectangle |
+| `height` | `number` | `0` | Height of rectangle |
 
 #### Defined in
 
-[src/engine/math/Rect.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Rect.ts#L30)
+[src/math/Rect.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L34)
 
 ## Accessors
 
@@ -107,7 +107,7 @@ ___
 
 • `get` **width**(): `number`
 
-矩形的宽度
+Width of a rectangle
 
 #### Returns
 
@@ -115,7 +115,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Rect.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Rect.ts#L42)
+[src/math/Rect.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L44)
 
 • `set` **width**(`v`): `void`
 
@@ -131,7 +131,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Rect.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Rect.ts#L36)
+[src/math/Rect.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L48)
 
 ___
 
@@ -139,7 +139,7 @@ ___
 
 • `get` **height**(): `number`
 
-矩形的高度
+Height of rectangle
 
 #### Returns
 
@@ -147,7 +147,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Rect.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Rect.ts#L51)
+[src/math/Rect.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L55)
 
 • `set` **height**(`v`): `void`
 
@@ -163,15 +163,42 @@ ___
 
 #### Defined in
 
-[src/engine/math/Rect.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Rect.ts#L45)
+[src/math/Rect.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L59)
 
 ## Methods
+
+### pointInRect
+
+▸ `Static` **pointInRect**(`x`, `y`, `lt_x`, `lt_y`, `rb_x`, `rb_y`): `boolean`
+
+Whether the point is within the specified area
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `x` | `number` | x value of point |
+| `y` | `number` | y value of point |
+| `lt_x` | `number` | The x value in the upper left corner |
+| `lt_y` | `number` | The y value in the upper left corner |
+| `rb_x` | `number` | The x value in the lower right corner |
+| `rb_y` | `number` | The y value in the lower right corner |
+
+#### Returns
+
+`boolean`
+
+#### Defined in
+
+[src/math/Rect.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L73)
+
+___
 
 ### clone
 
 ▸ **clone**(): [`Rect`](Rect.md)
 
-返回一个新的矩形区域对象，其具有和当前这个矩形区域相同属性
+Returns a new rectangular area object with the same properties as the current rectangular area
 
 #### Returns
 
@@ -179,7 +206,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Rect.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Rect.ts#L58)
+[src/math/Rect.ts:85](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L85)
 
 ___
 
@@ -187,7 +214,7 @@ ___
 
 ▸ **copyFrom**(`rect`): `void`
 
-将源对象的属性复制给此对象
+Copy the properties of the source object to this object
 
 #### Parameters
 
@@ -201,7 +228,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Rect.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Rect.ts#L66)
+[src/math/Rect.ts:94](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L94)
 
 ___
 
@@ -209,7 +236,7 @@ ___
 
 ▸ **copyTo**(`rect`): `void`
 
-将此对象的属性复制给目标对象
+Copy the properties of this object to the target object
 
 #### Parameters
 
@@ -223,7 +250,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Rect.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Rect.ts#L77)
+[src/math/Rect.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L106)
 
 ___
 
@@ -231,14 +258,14 @@ ___
 
 ▸ **inner**(`x`, `y`): `boolean`
 
-点是否在此区域内
+Whether the point is in this area
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `x` | `number` | 点的x值 |
-| `y` | `number` | 点的y值 |
+| `x` | `number` | x value of point |
+| `y` | `number` | y value of point |
 
 #### Returns
 
@@ -246,34 +273,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Rect.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Rect.ts#L86)
-
-___
-
-### pointInRect
-
-▸ `Static` **pointInRect**(`x`, `y`, `lt_x`, `lt_y`, `rb_x`, `rb_y`): `boolean`
-
-点是否在指定的区域内
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `x` | `number` | 点的x值 |
-| `y` | `number` | 点的y值 |
-| `lt_x` | `number` | 左上角的x值 |
-| `lt_y` | `number` | 左上角的y值 |
-| `rb_x` | `number` | 右下角的x值 |
-| `rb_y` | `number` | 右下角的y值 |
-
-#### Returns
-
-`boolean`
-
-#### Defined in
-
-[src/engine/math/Rect.ts:102](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Rect.ts#L102)
+[src/math/Rect.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L116)
 
 ___
 
@@ -281,13 +281,13 @@ ___
 
 ▸ **equal**(`rectangle`): `boolean`
 
-当前矩形与目标矩形是否相等
+Whether the current rectangle is equal to the target rectangle
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `rectangle` | [`Rect`](Rect.md) | 目标矩形 |
+| `rectangle` | [`Rect`](Rect.md) | Target rectangle |
 
 #### Returns
 
@@ -295,7 +295,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Rect.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Rect.ts#L114)
+[src/math/Rect.ts:128](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L128)
 
 ___
 
@@ -303,16 +303,16 @@ ___
 
 ▸ **equalArea**(`x`, `y`, `width`, `height`): `boolean`
 
-当前矩形与目标矩形是否相等
+Whether the current rectangle is equal to the target rectangle
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `x` | `number` | 矩形的x值 |
-| `y` | `number` | 矩形的y值 |
-| `width` | `number` | 矩形宽度 |
-| `height` | `number` | 矩形高度 |
+| `x` | `number` | The x value of the rectangle |
+| `y` | `number` | The y value of the rectangle |
+| `width` | `number` | Rectangle width |
+| `height` | `number` | Rectangular height |
 
 #### Returns
 
@@ -320,7 +320,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Rect.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Rect.ts#L125)
+[src/math/Rect.ts:140](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L140)
 
 ___
 
@@ -328,13 +328,13 @@ ___
 
 ▸ **equalInnerArea**(`source`): `boolean`
 
-此矩形与目标对象是否有重叠的部分
+Whether this rectangle overlaps with the target object
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `source` | [`Rect`](Rect.md) | 源对象 |
+| `source` | [`Rect`](Rect.md) | Source object |
 
 #### Returns
 
@@ -342,7 +342,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Rect.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Rect.ts#L133)
+[src/math/Rect.ts:149](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L149)
 
 ___
 
@@ -350,14 +350,14 @@ ___
 
 ▸ **innerArea**(`source`, `target`): [`Rect`](Rect.md)
 
-返回两个矩形重叠的部分
+Returns the overlap of two rectangles
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `source` | [`Rect`](Rect.md) | 源对象 |
-| `target` | [`Rect`](Rect.md) | 目标对象 |
+| `source` | [`Rect`](Rect.md) | source object |
+| `target` | [`Rect`](Rect.md) | target object |
 
 #### Returns
 
@@ -365,7 +365,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Rect.ts:157](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Rect.ts#L157)
+[src/math/Rect.ts:174](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L174)
 
 ___
 
@@ -373,16 +373,16 @@ ___
 
 ▸ **setTo**(`x`, `y`, `width`, `height`): `void`
 
-设置矩形的属性
+Sets the properties of the rectangle
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `x` | `number` | x的值 |
-| `y` | `number` | y的值 |
-| `width` | `number` | 矩形宽度 |
-| `height` | `number` | 矩形高度 |
+| `x` | `number` | x value |
+| `y` | `number` | y value |
+| `width` | `number` | Rectangle width |
+| `height` | `number` | Rectangular height |
 
 #### Returns
 
@@ -390,4 +390,4 @@ ___
 
 #### Defined in
 
-[src/engine/math/Rect.ts:197](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Rect.ts#L197)
+[src/math/Rect.ts:213](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L213)

@@ -1,7 +1,7 @@
 # Class: BoxColliderShape
 
-盒型碰撞体。
-是一种基本的长方体形状原始碰撞体。
+Box shaped collision body.
+It is a basic box shaped primitive collision body.
 
 ## Hierarchy
 
@@ -14,16 +14,16 @@
 
 - [constructor](BoxColliderShape.md#constructor)
 
-### Methods
-
-- [setFromCenterAndSize](BoxColliderShape.md#setfromcenterandsize)
-- [serialization](BoxColliderShape.md#serialization)
-
 ### Accessors
 
+- [shapeType](BoxColliderShape.md#shapetype)
 - [center](BoxColliderShape.md#center)
 - [size](BoxColliderShape.md#size)
 - [halfSize](BoxColliderShape.md#halfsize)
+
+### Methods
+
+- [setFromCenterAndSize](BoxColliderShape.md#setfromcenterandsize)
 
 ## Constructors
 
@@ -31,68 +31,39 @@
 
 • **new BoxColliderShape**()
 
-创建一个盒型碰撞体对象。
-
 #### Overrides
 
 [ColliderShape](ColliderShape.md).[constructor](ColliderShape.md#constructor)
 
 #### Defined in
 
-[src/engine/components/colliders/shape/BoxColliderShape.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/colliders/shape/BoxColliderShape.ts#L23)
-
-## Methods
-
-### setFromCenterAndSize
-
-▸ **setFromCenterAndSize**(`ct?`, `sz?`): [`BoxColliderShape`](BoxColliderShape.md)
-
-设置碰撞体的位置和大小
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `ct?` | [`Vector3`](Vector3.md) | 碰撞体在对象局部空间中的位置。 |
-| `sz?` | [`Vector3`](Vector3.md) | 碰撞体在 X、Y、Z 方向上的大小。 |
-
-#### Returns
-
-[`BoxColliderShape`](BoxColliderShape.md)
-
-#### Inherited from
-
-[ColliderShape](ColliderShape.md).[setFromCenterAndSize](ColliderShape.md#setfromcenterandsize)
-
-#### Defined in
-
-[src/engine/components/colliders/shape/ColliderShape.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/colliders/shape/ColliderShape.ts#L36)
-
-___
-
-### serialization
-
-▸ **serialization**(): `any`
-
-#### Returns
-
-`any`
-
-#### Inherited from
-
-[ColliderShape](ColliderShape.md).[serialization](ColliderShape.md#serialization)
-
-#### Defined in
-
-[src/engine/components/colliders/shape/ColliderShape.ts:85](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/colliders/shape/ColliderShape.ts#L85)
+[src/components/shape/BoxColliderShape.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/BoxColliderShape.ts#L24)
 
 ## Accessors
+
+### shapeType
+
+• `get` **shapeType**(): [`ColliderShapeType`](../enums/ColliderShapeType.md)
+
+#### Returns
+
+[`ColliderShapeType`](../enums/ColliderShapeType.md)
+
+#### Inherited from
+
+ColliderShape.shapeType
+
+#### Defined in
+
+[src/components/shape/ColliderShape.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L30)
+
+___
 
 ### center
 
 • `get` **center**(): [`Vector3`](Vector3.md)
 
-碰撞体在对象局部空间中的位置。
+The position of the collision object in the local space of the object.
 
 #### Returns
 
@@ -104,7 +75,7 @@ ColliderShape.center
 
 #### Defined in
 
-[src/engine/components/colliders/shape/ColliderShape.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/colliders/shape/ColliderShape.ts#L45)
+[src/components/shape/ColliderShape.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L49)
 
 • `set` **center**(`value`): `void`
 
@@ -124,7 +95,7 @@ ColliderShape.center
 
 #### Defined in
 
-[src/engine/components/colliders/shape/ColliderShape.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/colliders/shape/ColliderShape.ts#L49)
+[src/components/shape/ColliderShape.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L53)
 
 ___
 
@@ -132,7 +103,7 @@ ___
 
 • `get` **size**(): [`Vector3`](Vector3.md)
 
-碰撞体在 X、Y、Z 方向上的大小。
+The size of the collision body in the X, Y, and Z directions.
 
 #### Returns
 
@@ -146,7 +117,7 @@ ColliderShape.size
 
 #### Defined in
 
-[src/engine/components/colliders/shape/ColliderShape.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/colliders/shape/ColliderShape.ts#L58)
+[src/components/shape/ColliderShape.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L62)
 
 • `set` **size**(`value`): `void`
 
@@ -166,7 +137,7 @@ ColliderShape.size
 
 #### Defined in
 
-[src/engine/components/colliders/shape/ColliderShape.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/colliders/shape/ColliderShape.ts#L62)
+[src/components/shape/ColliderShape.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L66)
 
 ___
 
@@ -174,7 +145,7 @@ ___
 
 • `get` **halfSize**(): [`Vector3`](Vector3.md)
 
-碰撞体大小的1/2。
+Half the size of the collision body.
 
 #### Returns
 
@@ -186,4 +157,31 @@ ColliderShape.halfSize
 
 #### Defined in
 
-[src/engine/components/colliders/shape/ColliderShape.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/colliders/shape/ColliderShape.ts#L70)
+[src/components/shape/ColliderShape.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L74)
+
+## Methods
+
+### setFromCenterAndSize
+
+▸ **setFromCenterAndSize**(`ct?`, `sz?`): [`BoxColliderShape`](BoxColliderShape.md)
+
+Set the position and size of collision objects
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `ct?` | [`Vector3`](Vector3.md) | The position of the collision object in the local space of the object. |
+| `sz?` | [`Vector3`](Vector3.md) | The size of the collision body in the X, Y, and Z directions. |
+
+#### Returns
+
+[`BoxColliderShape`](BoxColliderShape.md)
+
+#### Inherited from
+
+[ColliderShape](ColliderShape.md).[setFromCenterAndSize](ColliderShape.md#setfromcenterandsize)
+
+#### Defined in
+
+[src/components/shape/ColliderShape.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L40)

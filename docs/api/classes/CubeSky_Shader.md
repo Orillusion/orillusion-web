@@ -18,7 +18,7 @@
 
 #### Defined in
 
-[src/engine/assets/shader/materials/sky/CubeSky_Shader.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/shader/materials/sky/CubeSky_Shader.ts#L2)
+[src/assets/shader/sky/CubeSky_Shader.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/assets/shader/sky/CubeSky_Shader.ts#L2)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-[src/engine/assets/shader/materials/sky/CubeSky_Shader.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/shader/materials/sky/CubeSky_Shader.ts#L44)
+[src/assets/shader/sky/CubeSky_Shader.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/assets/shader/sky/CubeSky_Shader.ts#L44)
 
 ## Constructors
 

@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/OutlinePost.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/OutlinePost.ts#L32)
+[src/io/OutlinePostData.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L12)
 
 ___
 
@@ -36,7 +36,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/OutlinePost.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/OutlinePost.ts#L33)
+[src/io/OutlinePostData.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L13)
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/OutlinePost.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/OutlinePost.ts#L34)
+[src/io/OutlinePostData.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L14)
 
 ## Constructors
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/OutlinePost.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/OutlinePost.ts#L39)
+[src/io/OutlinePostData.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L19)
 
 ## Methods
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/OutlinePost.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/OutlinePost.ts#L50)
+[src/io/OutlinePostData.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L30)
 
 ___
 
@@ -90,7 +90,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/OutlinePost.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/OutlinePost.ts#L56)
+[src/io/OutlinePostData.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L36)
 
 ___
 
@@ -112,7 +112,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/OutlinePost.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/OutlinePost.ts#L65)
+[src/io/OutlinePostData.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L45)
 
 ___
 
@@ -134,4 +134,4 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/OutlinePost.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/OutlinePost.ts#L79)
+[src/io/OutlinePostData.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L59)

@@ -24,7 +24,7 @@
 
 #### Defined in
 
-[src/engine/loader/parser/tileRenderer/TileSet.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/tileRenderer/TileSet.ts#L32)
+[src/loader/parser/tileRenderer/TileSet.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L32)
 
 ___
 
@@ -41,4 +41,4 @@ ___
 
 #### Defined in
 
-[src/engine/loader/parser/tileRenderer/TileSet.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/tileRenderer/TileSet.ts#L33)
+[src/loader/parser/tileRenderer/TileSet.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L33)

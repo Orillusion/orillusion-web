@@ -1,4 +1,4 @@
-import { Camera3D, OrbitController, DirectLight, Engine3D, ForwardRenderJob, GlobalIlluminationComponent, GUIHelp, HDRBloomPost, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, Scene3D, SSAOPost, SSRPost, GTAOPost, GlobalFog, webGPUContext } from '@orillusion/core';
+import { Camera3D, OrbitController, DirectLight, Engine3D, View3D, PostProcessingComponent, HDRBloomPost, KelvinUtil, Object3D, Scene3D, GTAOPost, webGPUContext, AtmosphericComponent } from '@orillusion/core';
 
 export class Sample_FlightHelmet {
     lightObj: Object3D;
@@ -13,17 +13,18 @@ export class Sample_FlightHelmet {
             canvasConfig: { alpha: true, zIndex: 0 },
             renderLoop: this.loop.bind(this)
         });
-        // GUIHelp.init()
         Engine3D.setting.shadow.autoUpdate = true;
         Engine3D.setting.shadow.updateFrameRate = 1;
         Engine3D.setting.shadow.shadowBound = 50;
-        Engine3D.setting.shadow.shadowBias = 0.001;
+        Engine3D.setting.shadow.shadowBias = 0.0001;
         Engine3D.setting.render.postProcessing.bloom = {
+            debug: false,
             enable: true,
             blurX: 4,
             blurY: 4,
-            intensity: 2,
-            brightness: 1.25,
+            strength: 2,
+            radius: 1.25,
+            luminosityThreshold: 1
         };
 
         this.scene = new Scene3D();
@@ -42,18 +43,22 @@ export class Sample_FlightHelmet {
         await this.initScene();
 
 
-        let renderJob = new ForwardRenderJob(this.scene);
-        renderJob.addPost(new GTAOPost());
-        renderJob.addPost(new HDRBloomPost());
-        Engine3D.startRender(renderJob);
+        let view = new View3D();
+        view.scene = this.scene;
+        view.camera = mainCamera;
+        Engine3D.startRenderView(view);
+
+		let postProcessing = this.scene.addComponent(PostProcessingComponent);
+		postProcessing.addPost(GTAOPost);
+        postProcessing.addPost(HDRBloomPost);
     }
 
     async initScene() {
         /******** sky *******/
         {
-            this.scene.hideSky();
-            this.scene.envMap.sunY = 0.65;
-            this.scene.exposure = 1.5
+            let sky = this.scene.addComponent(AtmosphericComponent)
+            sky.sunY = 0.6
+            sky.enable = false
         }
         /******** light *******/
         {
@@ -84,3 +89,8 @@ export class Sample_FlightHelmet {
 }
 
 new Sample_FlightHelmet().run()
+
+// for index page
+let css = document.createElement('style')
+css.innerText = `body.loading > canvas{width:560px !important;height:450px !important}`
+document.head.appendChild(css)

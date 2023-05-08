@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Orillusion | Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <style>
+        body{margin:0;height:100vh;background:transparent;touch-action:none}
+        body.loading > canvas{width:1920px !important;height:1080px !important}
+    </style>
+</head>
+<body class="loading">
+    <script type="importmap">
+        {
+            "imports": {
+                "@orillusion/core": "https://unpkg.com/@orillusion/core@0.6/dist/orillusion.es.js",
+                "@orillusion/physics": "https://unpkg.com/@orillusion/physics@0.2/dist/physics.es.js",
+                "@orillusion/stats": "https://unpkg.com/@orillusion/stats@0.2/dist/stats.es.js",
+                "@orillusion/media-extention": "https://unpkg.com/@orillusion/media-extention@0.2/dist/media.es.js",
+                "dat.gui": "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js"
+            }
+        }
+    </script>
+    <script type="module">
+        if (location.hostname.match(/orillusion/)) {
+            fetch(location.search.slice(1).replace('.ts', '.js'))
+            .then(res=>res.text())
+            .then(code=>createScript(code))
+        } else {
+            Promise.all([
+                fetch(location.search.slice(1)).then(r => r.text()),
+                new Promise(async r=>{
+                    function check(){
+                        if(window.parent.esbuild)
+                            r(window.parent.esbuild)
+                        else setTimeout(check, 50)
+                    }
+                    check()
+                })
+            ]).then(async res =>{
+                const ts = await res[1].transform(res[0], {loader: 'ts'})
+                createScript(ts.code)
+            })
+        }
+        function createScript(code){
+            const script = document.createElement('script')
+            script.innerHTML = code.replace(
+                'Engine3D.startRenderView(view);', 
+                `Engine3D.startRenderView(view);
+                window.postMessage("rendering");
+                document.body.classList.remove('loading')
+                window.onmessage = e=>{
+                    if(e.data === 'pause')
+                        Engine3D.pause()
+                    else if(e.data === 'resume')
+                        Engine3D.resume()
+                }
+                `
+            )
+            script.type = 'module'
+            const intersectionObserver = new IntersectionObserver(function (entries) {
+                if (entries[0].isIntersecting) {
+                    if(!window.__ready){
+                        window.__ready = true
+                        document.body.appendChild(script)
+                    }else{
+                        window.postMessage("resume")
+                    }
+                }else{
+                    window.postMessage("pause")
+                }
+            });
+            intersectionObserver.observe(document.body);
+        }
+    </script>
+</body>
+</html>

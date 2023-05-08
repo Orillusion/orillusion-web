@@ -106,7 +106,7 @@ mr.material = new LitMaterial();
 ...
 let rigidbody = obj.addComponent(Rigidbody);
 rigidbody.mass = 10;
-let collider = obj.addComponent(Collider);
+let collider = obj.addComponent(ColliderComponent);
 collider.shape = new BoxColliderShape();
 collider.shape.size = new Vector3(5, 5, 5);
 
@@ -122,7 +122,7 @@ mr.material = new LitMaterial();
 ...
 let rigidbody = obj.addComponent(Rigidbody);
 rigidbody.mass = 0;
-let collider = obj.addComponent(Collider);
+let collider = obj.addComponent(ColliderComponent);
 collider.shape = new BoxColliderShape();
 collider.shape.size = new Vector3(size.x, 0.1, size.y);
 

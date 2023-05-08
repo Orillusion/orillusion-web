@@ -1,15 +1,20 @@
-import { GUIHelp, Engine3D, Scene3D, Object3D, Camera3D, ForwardRenderJob, LitMaterial, BoxGeometry, MeshRenderer, DirectLight, HoverCameraController, RGBEParser, Color, Vector3 } from "@orillusion/core";
+import { Engine3D, Scene3D, Object3D, Camera3D, AtmosphericComponent, LitMaterial, BoxGeometry, MeshRenderer, DirectLight, HoverCameraController, RGBEParser, Color, Vector3, View3D } from "@orillusion/core";
+import * as dat from 'dat.gui'
+
 async function demo() {
 	// 初始化引擎
 	await Engine3D.init({});
-	GUIHelp.init();
+
 	// 新建场景根节点
 	let scene3D: Scene3D = new Scene3D();
+	// add an Atmospheric sky enviroment
+	let sky = scene3D.addComponent(AtmosphericComponent);
+	sky.sunY = 0.6;
 	// 新建摄像机实例
 	let cameraObj: Object3D = new Object3D();
 	let camera = cameraObj.addComponent(Camera3D);
 	// 调整摄像机视角
-	camera.perspective(60, window.innerWidth / window.innerHeight, 1, 5000.0);
+	camera.perspective(60, Engine3D.aspect, 1, 5000.0);
 	// 设置相机位置
 	let controller = camera.object3D.addComponent(HoverCameraController);
 	controller.setCamera(0, 0, 15);
@@ -28,17 +33,6 @@ async function demo() {
 	scene3D.addChild(light);
 	// 新建对象
 	const obj: Object3D = new Object3D();
-	GUIHelp.addFolder('Box Transform');
-	GUIHelp.add(obj.transform, 'x', -10.0, 10.0, 0.01);
-	GUIHelp.add(obj.transform, 'y', -10.0, 10.0, 0.01);
-	GUIHelp.add(obj.transform, 'z', -10.0, 10.0, 0.01);
-	GUIHelp.add(obj.transform, 'rotationX', 0.0, 360.0, 0.01);
-	GUIHelp.add(obj.transform, 'rotationY', 0.0, 360.0, 0.01);
-	GUIHelp.add(obj.transform, 'rotationZ', 0.0, 360.0, 0.01);
-	GUIHelp.add(obj.transform, 'scaleX', 0.0, 2.0, 0.01);
-	GUIHelp.add(obj.transform, 'scaleY', 0.0, 2.0, 0.01);
-	GUIHelp.add(obj.transform, 'scaleZ', 0.0, 2.0, 0.01);
-	GUIHelp.endFolder();
 	// 为对象添 MeshRenderer
 	let mr: MeshRenderer = obj.addComponent(MeshRenderer);
 	// 设置几何体
@@ -50,16 +44,23 @@ async function demo() {
 	obj.localRotation = new Vector3(0, 45, 0);
 	// 添加对象
 	scene3D.addChild(obj);
-	// 新建前向渲染业务
-	let renderJob: ForwardRenderJob = new ForwardRenderJob(scene3D);
-	// 开始渲染
-	Engine3D.startRender(renderJob);
+	// create a view with target scene and camera
+	let view = new View3D();
+	view.scene = scene3D;
+	view.camera = camera;
+	// start render
+	Engine3D.startRenderView(view);
 
-	Object.keys(GUIHelp.gui.__folders).map((name) => {
-		if (name !== 'Box Transform')
-			GUIHelp.gui.removeFolder(GUIHelp.gui.__folders[name])
-		else
-			GUIHelp.gui.__folders[name].open()
-	})
+	const GUIHelp = new dat.GUI();
+	GUIHelp.addFolder('Box Transform');
+	GUIHelp.add(obj.transform, 'x', -10.0, 10.0, 0.01);
+	GUIHelp.add(obj.transform, 'y', -10.0, 10.0, 0.01);
+	GUIHelp.add(obj.transform, 'z', -10.0, 10.0, 0.01);
+	GUIHelp.add(obj.transform, 'rotationX', 0.0, 360.0, 0.01);
+	GUIHelp.add(obj.transform, 'rotationY', 0.0, 360.0, 0.01);
+	GUIHelp.add(obj.transform, 'rotationZ', 0.0, 360.0, 0.01);
+	GUIHelp.add(obj.transform, 'scaleX', 0.0, 2.0, 0.01);
+	GUIHelp.add(obj.transform, 'scaleY', 0.0, 2.0, 0.01);
+	GUIHelp.add(obj.transform, 'scaleZ', 0.0, 2.0, 0.01);
 }
 demo();

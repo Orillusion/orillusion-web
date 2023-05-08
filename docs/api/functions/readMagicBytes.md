@@ -14,4 +14,4 @@
 
 #### Defined in
 
-[src/engine/loader/parser/b3dm/readMagicBytes.ts:1](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/b3dm/readMagicBytes.ts#L1)
+[src/loader/parser/b3dm/readMagicBytes.ts:1](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/b3dm/readMagicBytes.ts#L1)

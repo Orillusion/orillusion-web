@@ -1,26 +1,44 @@
 # Class: ShaderUtil
 
 
+### Properties
+
+- [renderShaderModulePool](ShaderUtil.md#rendershadermodulepool)
+- [renderShader](ShaderUtil.md#rendershader)
+
 ### Methods
 
-- [createShader](ShaderUtil.md#createshader)
+- [init](ShaderUtil.md#init)
 
 ### Constructors
 
 - [constructor](ShaderUtil.md#constructor)
 
+## Properties
+
+### renderShaderModulePool
+
+▪ `Static` **renderShaderModulePool**: `Map`<`string`, `GPUShaderModule`\>
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L23)
+
+___
+
+### renderShader
+
+▪ `Static` **renderShader**: `Map`<`string`, [`RenderShader`](RenderShader.md)\>
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L24)
+
 ## Methods
 
-### createShader
+### init
 
-▸ `Static` **createShader**(`vertexParts`, `fragmentShader`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `vertexParts` | [`VertexPart`](../types/VertexPart.md) |
-| `fragmentShader` | [`FragmentPart`](../types/FragmentPart.md) |
+▸ `Static` **init**(): `void`
 
 #### Returns
 
@@ -28,7 +46,7 @@
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L28)
+[src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L26)
 
 ## Constructors
 

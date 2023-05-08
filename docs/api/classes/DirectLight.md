@@ -1,7 +1,7 @@
 # Class: DirectLight
 
-平行光源。   
-该光源的光线是平行的 例如，太阳光线。该光源可以产生阴影。
+Directional light source.
+The light of this light source is parallel, for example, sunlight. This light source can generate shadows.
 
 ## Hierarchy
 
@@ -13,14 +13,13 @@
 ### Properties
 
 - [object3D](DirectLight.md#object3d)
-- [serializeTag](DirectLight.md#serializetag)
 - [shadowCamera](DirectLight.md#shadowcamera)
 - [name](DirectLight.md#name)
 - [size](DirectLight.md#size)
 - [lightData](DirectLight.md#lightdata)
 - [dirFix](DirectLight.md#dirfix)
 - [bindOnChange](DirectLight.md#bindonchange)
-- [needUpdataShadow](DirectLight.md#needupdatashadow)
+- [needUpdateShadow](DirectLight.md#needupdateshadow)
 - [realTimeShadow](DirectLight.md#realtimeshadow)
 
 ### Accessors
@@ -30,7 +29,8 @@
 - [radius](DirectLight.md#radius)
 - [indirect](DirectLight.md#indirect)
 - [castShadow](DirectLight.md#castshadow)
-- [iesPofile](DirectLight.md#iespofile)
+- [iesProfiles](DirectLight.md#iesprofiles)
+- [iesProfile](DirectLight.md#iesprofile)
 - [r](DirectLight.md#r)
 - [g](DirectLight.md#g)
 - [b](DirectLight.md#b)
@@ -42,16 +42,19 @@
 
 ### Methods
 
-- [onVisible](DirectLight.md#onvisible)
-- [cloneTo](DirectLight.md#cloneto)
+- [stop](DirectLight.md#stop)
 - [onUpdate](DirectLight.md#onupdate)
 - [onLateUpdate](DirectLight.md#onlateupdate)
 - [onBeforeUpdate](DirectLight.md#onbeforeupdate)
+- [onCompute](DirectLight.md#oncompute)
+- [onGraphic](DirectLight.md#ongraphic)
+- [cloneTo](DirectLight.md#cloneto)
+- [init](DirectLight.md#init)
 - [start](DirectLight.md#start)
 - [debug](DirectLight.md#debug)
-- [unSerialization](DirectLight.md#unserialization)
+- [onEnable](DirectLight.md#onenable)
+- [onDisable](DirectLight.md#ondisable)
 - [destroy](DirectLight.md#destroy)
-- [serialization](DirectLight.md#serialization)
 
 ### Constructors
 
@@ -63,7 +66,7 @@
 
 • **object3D**: [`Object3D`](Object3D.md) = `null`
 
-此组件附加到的Object3D对象。
+owner object3D
 
 #### Inherited from
 
@@ -71,21 +74,7 @@ LightBase.object3D
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L14)
-
-___
-
-### serializeTag
-
-• `Optional` **serializeTag**: [`SerializeTag`](../types/SerializeTag.md)
-
-#### Inherited from
-
-LightBase.serializeTag
-
-#### Defined in
-
-[src/engine/components/ComponentBase.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L30)
+[src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
 
 ___
 
@@ -95,7 +84,7 @@ ___
 
 #### Defined in
 
-[src/engine/components/lights/DirectLight.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/DirectLight.ts#L20)
+[src/components/lights/DirectLight.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L12)
 
 ___
 
@@ -103,7 +92,7 @@ ___
 
 • **name**: `string`
 
-名称
+light name
 
 #### Inherited from
 
@@ -111,7 +100,7 @@ LightBase.name
 
 #### Defined in
 
-[src/engine/components/lights/LightBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/LightBase.ts#L28)
+[src/components/lights/LightBase.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L21)
 
 ___
 
@@ -119,7 +108,7 @@ ___
 
 • **size**: `number` = `1`
 
-大小
+light size
 
 #### Inherited from
 
@@ -127,7 +116,7 @@ LightBase.size
 
 #### Defined in
 
-[src/engine/components/lights/LightBase.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/LightBase.ts#L32)
+[src/components/lights/LightBase.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L25)
 
 ___
 
@@ -135,7 +124,7 @@ ___
 
 • **lightData**: `LightData`
 
-光照数据
+light source data
 
 #### Inherited from
 
@@ -143,7 +132,7 @@ LightBase.lightData
 
 #### Defined in
 
-[src/engine/components/lights/LightBase.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/LightBase.ts#L36)
+[src/components/lights/LightBase.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L30)
 
 ___
 
@@ -151,7 +140,7 @@ ___
 
 • **dirFix**: `number` = `1`
 
-修复光面背面或正面
+fix light direction
 
 #### Inherited from
 
@@ -159,7 +148,7 @@ LightBase.dirFix
 
 #### Defined in
 
-[src/engine/components/lights/LightBase.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/LightBase.ts#L40)
+[src/components/lights/LightBase.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L35)
 
 ___
 
@@ -171,7 +160,7 @@ ___
 
 ▸ (): `void`
 
-绑定变化时的回调函数
+Callback function when binding changes
 
 ##### Returns
 
@@ -183,31 +172,29 @@ LightBase.bindOnChange
 
 #### Defined in
 
-[src/engine/components/lights/LightBase.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/LightBase.ts#L53)
+[src/components/lights/LightBase.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L40)
 
 ___
 
-### needUpdataShadow
+### needUpdateShadow
 
-• **needUpdataShadow**: `boolean` = `true`
-
-是否需要更新阴影
+• **needUpdateShadow**: `boolean` = `true`
 
 #### Inherited from
 
-LightBase.needUpdataShadow
+LightBase.needUpdateShadow
 
 #### Defined in
 
-[src/engine/components/lights/LightBase.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/LightBase.ts#L61)
+[src/components/lights/LightBase.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L42)
 
 ___
 
 ### realTimeShadow
 
-• **realTimeShadow**: `boolean` = `false`
+• **realTimeShadow**: `boolean` = `true`
 
-是否开启实时渲染阴影
+Whether to enable real-time rendering of shadows
 
 #### Inherited from
 
@@ -215,7 +202,7 @@ LightBase.realTimeShadow
 
 #### Defined in
 
-[src/engine/components/lights/LightBase.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/LightBase.ts#L66)
+[src/components/lights/LightBase.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L47)
 
 ## Accessors
 
@@ -223,7 +210,7 @@ LightBase.realTimeShadow
 
 • `get` **transform**(): [`Transform`](Transform.md)
 
-附加到此 Object3D对象 的 Transform组件。
+Return the Transform component attached to the Object3D.
 
 #### Returns
 
@@ -235,7 +222,7 @@ LightBase.transform
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L39)
+[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
 
 ___
 
@@ -243,7 +230,7 @@ ___
 
 • `get` **enable**(): `boolean`
 
-启用/禁用 组件。启用的组件可更新，禁用的组件不可更新。
+Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
 #### Returns
 
@@ -255,9 +242,11 @@ LightBase.enable
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L62)
+[src/components/ComponentBase.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L59)
 
 • `set` **enable**(`value`): `void`
+
+Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
 #### Parameters
 
@@ -275,7 +264,7 @@ LightBase.enable
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L43)
+[src/components/ComponentBase.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L45)
 
 ___
 
@@ -283,7 +272,7 @@ ___
 
 • `get` **radius**(): `number`
 
-获取平行光源的半径
+Get the radius of a directional light source
 
 #### Returns
 
@@ -291,11 +280,11 @@ ___
 
 #### Defined in
 
-[src/engine/components/lights/DirectLight.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/DirectLight.ts#L47)
+[src/components/lights/DirectLight.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L37)
 
 • `set` **radius**(`value`): `void`
 
-设置平行光源的半径
+Set the radius of a directional light source
 
 #### Parameters
 
@@ -309,7 +298,7 @@ ___
 
 #### Defined in
 
-[src/engine/components/lights/DirectLight.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/DirectLight.ts#L54)
+[src/components/lights/DirectLight.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L44)
 
 ___
 
@@ -317,7 +306,7 @@ ___
 
 • `get` **indirect**(): `number`
 
-获取平行光源的半径
+Get the radius of a directional light source
 
 #### Returns
 
@@ -325,11 +314,11 @@ ___
 
 #### Defined in
 
-[src/engine/components/lights/DirectLight.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/DirectLight.ts#L63)
+[src/components/lights/DirectLight.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L53)
 
 • `set` **indirect**(`value`): `void`
 
-设置平行光源的半径
+Set the radius of a directional light source
 
 #### Parameters
 
@@ -343,7 +332,7 @@ ___
 
 #### Defined in
 
-[src/engine/components/lights/DirectLight.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/DirectLight.ts#L70)
+[src/components/lights/DirectLight.ts:60](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L60)
 
 ___
 
@@ -351,7 +340,7 @@ ___
 
 • `get` **castShadow**(): `boolean`
 
-投影
+get cast shadow
 
 #### Returns
 
@@ -365,17 +354,17 @@ LightBase.castShadow
 
 #### Defined in
 
-[src/engine/components/lights/DirectLight.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/DirectLight.ts#L112)
+[src/components/lights/DirectLight.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L80)
 
 • `set` **castShadow**(`value`): `void`
 
-投影
+Set cast shadow
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `value` | `boolean` | 如果设置为true，就会产生阴影 |
+| Name | Type |
+| :------ | :------ |
+| `value` | `boolean` |
 
 #### Returns
 
@@ -387,13 +376,37 @@ LightBase.castShadow
 
 #### Defined in
 
-[src/engine/components/lights/DirectLight.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/DirectLight.ts#L79)
+[src/components/lights/DirectLight.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L69)
 
 ___
 
-### iesPofile
+### iesProfiles
 
-• `get` **iesPofile**(): [`IESProfiles`](IESProfiles.md)
+• `set` **iesProfiles**(`iesProfiles`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `iesProfiles` | [`IESProfiles`](IESProfiles.md) |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+LightBase.iesProfiles
+
+#### Defined in
+
+[src/components/lights/LightBase.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L109)
+
+___
+
+### iesProfile
+
+• `get` **iesProfile**(): [`IESProfiles`](IESProfiles.md)
 
 #### Returns
 
@@ -401,31 +414,11 @@ ___
 
 #### Inherited from
 
-LightBase.iesPofile
+LightBase.iesProfile
 
 #### Defined in
 
-[src/engine/components/lights/LightBase.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/LightBase.ts#L97)
-
-• `set` **iesPofile**(`iesPofiles`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `iesPofiles` | [`IESProfiles`](IESProfiles.md) |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-LightBase.iesPofile
-
-#### Defined in
-
-[src/engine/components/lights/LightBase.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/LightBase.ts#L90)
+[src/components/lights/LightBase.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L116)
 
 ___
 
@@ -433,7 +426,7 @@ ___
 
 • `get` **r**(): `number`
 
-获取光照颜色红色分量
+Get the red component of the lighting color
 
 #### Returns
 
@@ -445,11 +438,11 @@ LightBase.r
 
 #### Defined in
 
-[src/engine/components/lights/LightBase.ts:160](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/LightBase.ts#L160)
+[src/components/lights/LightBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L123)
 
 • `set` **r**(`value`): `void`
 
-设置光照颜色红色分量
+Set the red component of the lighting color
 
 #### Parameters
 
@@ -467,7 +460,7 @@ LightBase.r
 
 #### Defined in
 
-[src/engine/components/lights/LightBase.ts:166](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/LightBase.ts#L166)
+[src/components/lights/LightBase.ts:130](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L130)
 
 ___
 
@@ -475,7 +468,7 @@ ___
 
 • `get` **g**(): `number`
 
-获取光照颜色绿色分量
+Get the green component of the lighting color
 
 #### Returns
 
@@ -487,11 +480,11 @@ LightBase.g
 
 #### Defined in
 
-[src/engine/components/lights/LightBase.ts:174](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/LightBase.ts#L174)
+[src/components/lights/LightBase.ts:138](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L138)
 
 • `set` **g**(`value`): `void`
 
-设置光照颜色绿色分量
+Set the green component of the lighting color
 
 #### Parameters
 
@@ -509,7 +502,7 @@ LightBase.g
 
 #### Defined in
 
-[src/engine/components/lights/LightBase.ts:180](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/LightBase.ts#L180)
+[src/components/lights/LightBase.ts:145](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L145)
 
 ___
 
@@ -517,7 +510,7 @@ ___
 
 • `get` **b**(): `number`
 
-获取光照颜色蓝色分量
+Get the blue component of the lighting color
 
 #### Returns
 
@@ -529,11 +522,11 @@ LightBase.b
 
 #### Defined in
 
-[src/engine/components/lights/LightBase.ts:188](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/LightBase.ts#L188)
+[src/components/lights/LightBase.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L153)
 
 • `set` **b**(`value`): `void`
 
-获取光照颜色蓝色分量
+Set the blue component of the lighting color
 
 #### Parameters
 
@@ -551,7 +544,7 @@ LightBase.b
 
 #### Defined in
 
-[src/engine/components/lights/LightBase.ts:194](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/LightBase.ts#L194)
+[src/components/lights/LightBase.ts:159](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L159)
 
 ___
 
@@ -559,7 +552,7 @@ ___
 
 • `get` **lightColor**(): [`Color`](Color.md)
 
-光源颜色
+Get light source color
 
 #### Returns
 
@@ -573,11 +566,11 @@ LightBase.lightColor
 
 #### Defined in
 
-[src/engine/components/lights/LightBase.ts:202](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/LightBase.ts#L202)
+[src/components/lights/LightBase.ts:167](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L167)
 
 • `set` **lightColor**(`value`): `void`
 
-光源颜色
+Set light source color
 
 #### Parameters
 
@@ -595,7 +588,7 @@ LightBase.lightColor
 
 #### Defined in
 
-[src/engine/components/lights/LightBase.ts:209](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/LightBase.ts#L209)
+[src/components/lights/LightBase.ts:174](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L174)
 
 ___
 
@@ -603,7 +596,7 @@ ___
 
 • `get` **intensity**(): `number`
 
-光源的照射强度
+Get Illumination intensity of light source
 
 #### Returns
 
@@ -617,11 +610,11 @@ LightBase.intensity
 
 #### Defined in
 
-[src/engine/components/lights/LightBase.ts:217](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/LightBase.ts#L217)
+[src/components/lights/LightBase.ts:182](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L182)
 
 • `set` **intensity**(`value`): `void`
 
-光源的照射强度，默认为1
+Set Illumination intensity of light source
 
 #### Parameters
 
@@ -639,7 +632,7 @@ LightBase.intensity
 
 #### Defined in
 
-[src/engine/components/lights/LightBase.ts:224](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/LightBase.ts#L224)
+[src/components/lights/LightBase.ts:189](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L189)
 
 ___
 
@@ -647,7 +640,7 @@ ___
 
 • `get` **shadowIndex**(): `number`
 
-获取投影下标
+get shadow index at shadow map list
 
 #### Returns
 
@@ -659,7 +652,7 @@ LightBase.shadowIndex
 
 #### Defined in
 
-[src/engine/components/lights/LightBase.ts:239](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/LightBase.ts#L239)
+[src/components/lights/LightBase.ts:204](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L204)
 
 ___
 
@@ -667,7 +660,7 @@ ___
 
 • `get` **castGI**(): `boolean`
 
-投影
+get gi is enable
 
 #### Returns
 
@@ -681,57 +674,11 @@ LightBase.castGI
 
 #### Defined in
 
-[src/engine/components/lights/LightBase.ts:254](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/LightBase.ts#L254)
+[src/components/lights/LightBase.ts:219](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L219)
 
 • `set` **castGI**(`value`): `void`
 
-产生GI
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `value` | `boolean` | 如果设置为true，就会影响GI |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-LightBase.castGI
-
-#### Defined in
-
-[src/engine/components/lights/LightBase.ts:261](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/LightBase.ts#L261)
-
-___
-
-### direction
-
-• `get` **direction**(): [`Vector3`](Vector3.md)
-
-平行光的方向
-
-#### Returns
-
-[`Vector3`](Vector3.md)
-
-Vector3
-
-#### Inherited from
-
-LightBase.direction
-
-#### Defined in
-
-[src/engine/components/lights/LightBase.ts:275](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/LightBase.ts#L275)
-
-## Methods
-
-### onVisible
-
-▸ **onVisible**(`value`): `void`
+set gi is enable
 
 #### Parameters
 
@@ -745,11 +692,172 @@ LightBase.direction
 
 #### Inherited from
 
-LightBase.onVisible
+LightBase.castGI
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L66)
+[src/components/lights/LightBase.ts:226](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L226)
+
+___
+
+### direction
+
+• `get` **direction**(): [`Vector3`](Vector3.md)
+
+light source direction
+
+#### Returns
+
+[`Vector3`](Vector3.md)
+
+Vector3
+
+#### Inherited from
+
+LightBase.direction
+
+#### Defined in
+
+[src/components/lights/LightBase.ts:240](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L240)
+
+## Methods
+
+### stop
+
+▸ **stop**(): `void`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+LightBase.stop
+
+#### Defined in
+
+[src/components/ComponentBase.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L108)
+
+___
+
+### onUpdate
+
+▸ `Optional` **onUpdate**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+LightBase.onUpdate
+
+#### Defined in
+
+[src/components/ComponentBase.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L111)
+
+___
+
+### onLateUpdate
+
+▸ `Optional` **onLateUpdate**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+LightBase.onLateUpdate
+
+#### Defined in
+
+[src/components/ComponentBase.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L112)
+
+___
+
+### onBeforeUpdate
+
+▸ `Optional` **onBeforeUpdate**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+LightBase.onBeforeUpdate
+
+#### Defined in
+
+[src/components/ComponentBase.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
+
+___
+
+### onCompute
+
+▸ `Optional` **onCompute**(`view?`, `command?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+| `command?` | `GPUCommandEncoder` |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+LightBase.onCompute
+
+#### Defined in
+
+[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
+
+___
+
+### onGraphic
+
+▸ `Optional` **onGraphic**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+LightBase.onGraphic
+
+#### Defined in
+
+[src/components/ComponentBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L115)
 
 ___
 
@@ -757,13 +865,13 @@ ___
 
 ▸ **cloneTo**(`obj`): `void`
 
-创建新的组件，复制当前组件的属性，并添加到目标对象上。
+clone component data to target object3D
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `obj` | [`Object3D`](Object3D.md) | 源对象 |
+| `obj` | [`Object3D`](Object3D.md) | target object3D |
 
 #### Returns
 
@@ -775,85 +883,25 @@ LightBase.cloneTo
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L114)
+[src/components/ComponentBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L122)
 
 ___
 
-### onUpdate
+### init
 
-▸ **onUpdate**(`call`): `void`
-
-添加更新函数。会在每帧更新时执行。
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `call` | `Function` | 回调函数 |
+▸ **init**(): `void`
 
 #### Returns
 
 `void`
 
-#### Inherited from
+#### Overrides
 
-LightBase.onUpdate
-
-#### Defined in
-
-[src/engine/components/ComponentBase.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L135)
-
-___
-
-### onLateUpdate
-
-▸ **onLateUpdate**(`call`): `void`
-
-添加延迟更新函数。
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `call` | `Function` | 回调函数 |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-LightBase.onLateUpdate
+LightBase.init
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:148](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L148)
-
-___
-
-### onBeforeUpdate
-
-▸ **onBeforeUpdate**(`call`): `void`
-
-添加帧更新前执行的函数。
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `call` | `Function` | 回调函数 |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-LightBase.onBeforeUpdate
-
-#### Defined in
-
-[src/engine/components/ComponentBase.ts:161](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L161)
+[src/components/lights/DirectLight.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L18)
 
 ___
 
@@ -871,7 +919,7 @@ LightBase.start
 
 #### Defined in
 
-[src/engine/components/lights/DirectLight.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/DirectLight.ts#L33)
+[src/components/lights/DirectLight.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L28)
 
 ___
 
@@ -879,7 +927,7 @@ ___
 
 ▸ **debug**(): `void`
 
-启用GUI调试
+enable light debug gui
 
 #### Returns
 
@@ -887,32 +935,43 @@ ___
 
 #### Defined in
 
-[src/engine/components/lights/DirectLight.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/DirectLight.ts#L119)
+[src/components/lights/DirectLight.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L87)
 
 ___
 
-### unSerialization
+### onEnable
 
-▸ **unSerialization**(`componentData`, `data`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `componentData` | [`SerializeComponentBase`](SerializeComponentBase.md) |
-| `data` | [`UnSerializeData`](UnSerializeData.md) |
+▸ **onEnable**(): `void`
 
 #### Returns
 
 `void`
 
-#### Overrides
+#### Inherited from
 
-LightBase.unSerialization
+LightBase.onEnable
 
 #### Defined in
 
-[src/engine/components/lights/DirectLight.ts:130](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/DirectLight.ts#L130)
+[src/components/lights/LightBase.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L99)
+
+___
+
+### onDisable
+
+▸ **onDisable**(): `void`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+LightBase.onDisable
+
+#### Defined in
+
+[src/components/lights/LightBase.ts:104](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L104)
 
 ___
 
@@ -930,31 +989,7 @@ LightBase.destroy
 
 #### Defined in
 
-[src/engine/components/lights/LightBase.ts:279](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/LightBase.ts#L279)
-
-___
-
-### serialization
-
-▸ **serialization**(`assets`): [`SerializeComponentBase`](SerializeComponentBase.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `assets` | [`ISerializeAssetsCollect`](../interfaces/ISerializeAssetsCollect.md) |
-
-#### Returns
-
-[`SerializeComponentBase`](SerializeComponentBase.md)
-
-#### Inherited from
-
-LightBase.serialization
-
-#### Defined in
-
-[src/engine/components/lights/LightBase.ts:287](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/LightBase.ts#L287)
+[src/components/lights/LightBase.ts:244](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L244)
 
 ## Constructors
 
@@ -968,4 +1003,4 @@ LightBase.constructor
 
 #### Defined in
 
-[src/engine/components/lights/DirectLight.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/lights/DirectLight.ts#L22)
+[src/components/lights/DirectLight.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L14)

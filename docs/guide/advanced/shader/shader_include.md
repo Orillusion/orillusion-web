@@ -23,21 +23,21 @@ ShaderLib.register('GlobalUniform', GlobalUniform );
 // 引入 GlobalUniform 代码片段
 #include `GlobalUniform`
 
-// 其它代码
+// 其它代码1
 ....
 ```
 ```wgsl [shader2]
 // 引入 GlobalUniform 代码片段
 #include `GlobalUniform`
 
-// 其它代码
+// 其它代码2
 ....
 ```
 ```wgsl [shader3]
 // 引入 GlobalUniform 代码片段
 #include `GlobalUniform`
 
-// 其它代码
+// 其它代码3
 ....
 ```
 :::

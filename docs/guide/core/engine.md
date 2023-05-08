@@ -1,7 +1,7 @@
 # Engine3D
 `Engine3D` 是引擎核心唯一的全局实例，主要有以下几个常用方法：
 1. 调用 `Engine3D.init()` 来初始化引擎
-2. 调用 `Engine3D.startRender()` 开启渲染循环
+2. 调用 `Engine3D.startRenderView()` 开启视图渲染循环
 3. `Engine3D.res` 加载网络贴图或模型资源，详见 [资源加载](/guide/resource/Readme)
 4. `Engine3D.inputSystem` 统一管理用户的输入事件，详见 [交互](/guide/interaction/pointer)
 5. `Engine3D.setting` 统一配置渲染相关功能，详见 [配置](/guide/core/config)
@@ -41,34 +41,41 @@ await Engine3D.init({
 ```
 
 ## 配置 Canvas
-除了配置渲染回调，在初始化时还可以指定渲染的 `canvas` ，如果没有指定，则默认创建一个新的覆盖整个窗口的 `canvas`。
+除了配置渲染回调，在初始化时还可以指定渲染的 `canvas`，如果没有指定，则引擎默认创建一个覆盖整个窗口的不透明 `canvas`。
 
 ```ts
 await Engine3D.init({
     canvasConfig:{
-        canvas: document.getElementById("webGpuCanvas"),
-        alpha: false,
-        zIndex: 1
+        canvas: document.getElementById("xxx"), // 指定 canvas 元素, 可以自定义管理 canvas 大小或布局
+        alpha: true, // 是否背景透明, 默认 false
+        zIndex: 1, // CSS z-index, 默认 0
+        backgroundImage: "path/to/bg", // 若 alpha 透明时的背景图片
+        devicePixelRatio: 1 // 渲染 DPR, 默认使用 window.devicePixelRatio
     }
 });
-```
+``` 
+> 降低 `devicePixelRatio` 可以有效降低渲染压力，提高渲染性能，但同时渲染分辨率也会降低，可能增加锯齿效果
 
-## 启动渲染任务
-在引擎初始化完成之后，需要启动渲染任务来开始渲染。渲染任务至少需要一个场景 [Scene3D](/guide/core/scene) 和一个渲染器 [ForwardRenderJob](/api/classes/ForwardRenderJob) 才能启动，基本用法如下：
+更多详细配置，请参考 [CanvasConfig](/api/types/CanvasConfig)
+
+## 开始渲染
+在引擎初始化完成之后，需要创建一个 [View3D](/api/classes/View3D) 来开始渲染。`View3D` 至少需要一个场景 [Scene3D](/guide/core/scene) 和一个观察相机 [Camera3D](/api/classes/Camera3D) 才能启动，基本用法如下：
 
 ```ts
 await Engine3D.init();
 // 创建场景
 this.scene = new Scene3D();
-// 创建一个前向渲染器
-let renderJob = new ForwardRenderJob(this.scene);
-// 开始渲染任务
-Engine3D.startRender(renderJob);
+
+//开始渲染
+let view = new View3D();
+view.scene = this.scene;
+view.camera = this.camera;
+Engine3D.startRenderView(view);
 
 // 暂停渲染循环
-Engine3D.renderJob.pause();
+Engine3D.pause();
 // 恢复渲染循环
-Engine3D.renderJob.resume();
+Engine3D.resume();
 ```
 ---
 详细用法请参考 [Engine3D](/api/classes/Engine3D) API

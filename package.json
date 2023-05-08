@@ -10,8 +10,14 @@
     "build:demos": "esbuild `find docs/public \\( -name '*.ts' \\)` --outdir=docs/.vitepress/dist"
   },
   "devDependencies": {
+    "@orillusion/core": "^0.6.1",
+    "@orillusion/media-extention": "^0.2.0",
+    "@orillusion/physics": "^0.2.0",
+    "@orillusion/stats": "^0.2.0",
+    "@types/dat.gui": "^0.7.10",
     "@types/node": "^18.15.13",
-    "vitepress": "1.0.0-alpha.73",
+    "esbuild": "^0.17.18",
+    "vitepress": "1.0.0-alpha.75",
     "vue": "^3.2.47"
   },
   "pnpm": {

@@ -44,4 +44,4 @@
 
 #### Defined in
 
-[libs/ammo/ammo.d.ts:803](https://github.com/Orillusion/orillusion/blob/main/src/libs/ammo/ammo.d.ts#L803)
+[packages/ammo/ammo.d.ts:803](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L803)

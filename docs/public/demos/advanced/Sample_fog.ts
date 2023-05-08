@@ -1,4 +1,5 @@
-import { BoxGeometry, Camera3D, CameraUtil, defaultTexture, DirectLight, Engine3D, ForwardRenderJob, GlobalFog, GTAOPost, GUIHelp, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, TAAPost, webGPUContext } from '@orillusion/core';
+import { BoxGeometry, View3D, CameraUtil, PostProcessingComponent, DirectLight, Engine3D, GlobalFog, AtmosphericComponent, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, TAAPost, webGPUContext, Color } from '@orillusion/core';
+import * as dat from 'dat.gui'
 
 export class Sample_fog {
 	constructor() { }
@@ -6,37 +7,46 @@ export class Sample_fog {
 	scene: Scene3D;
 
 	async run() {
-		Engine3D.setting.render.postProcessing.taa.debug = false;
-		Engine3D.setting.render.postProcessing.gtao.debug = false;
 		Engine3D.setting.shadow.shadowBound = 100;
 		Engine3D.setting.shadow.debug = false;
 		Engine3D.setting.shadow.shadowBias = 0.0005;
-		// 初始化引擎环境;
-		await Engine3D.init({});
 
-		// 启用GUI调试面板;
-		GUIHelp.init();
+		// 初始化引擎环境;
+		await Engine3D.init({
+			canvasConfig: {
+				devicePixelRatio: 1
+			}
+		});
 
 		// 创建场景对象;
 		this.scene = new Scene3D();
+		this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
 
 		// 初始化相机;
 		let mainCamera = CameraUtil.createCamera3DObject(this.scene);
 
 		mainCamera.perspective(60, webGPUContext.aspect, 1, 5000.0);
-		let ctrl = Camera3D.mainCamera.object3D.addComponent(HoverCameraController);
+		let ctrl = mainCamera.object3D.addComponent(HoverCameraController);
 		ctrl.setCamera(0, -20, 150);
 
 		await this.initScene();
 
-		// 开启渲染任务(前向渲染);
-		let renderJob = new ForwardRenderJob(this.scene);
-		renderJob.addPost(new TAAPost());
-		renderJob.addPost(new GTAOPost());
-		let fog = new GlobalFog();
-		fog.debug();
-		renderJob.addPost(fog);
-		Engine3D.startRender(renderJob);
+        let view = new View3D();
+        view.scene = this.scene;
+        view.camera = mainCamera;
+        Engine3D.startRenderView(view);
+
+		let postProcessing = this.scene.addComponent(PostProcessingComponent);
+		let fogPost = postProcessing.addPost(GlobalFog);
+
+		let GUIHelp = new dat.GUI()
+		GUIHelp.addFolder('Fog')
+		GUIHelp.add(fogPost, 'start', 0, 1000, 1)
+		GUIHelp.add(fogPost, 'end', 0, 1000, 1)
+		GUIHelp.add(fogPost, 'ins', 0, 1, 0.01)
+		GUIHelp.addColor({color: Object.values(fogPost.fogColor).map(v=>v*255)}, 'color').onChange(v=>{
+			fogPost.fogColor = new Color(1,1,1).copyFormArray(v)
+		})
 	}
 
 	async initScene() {
@@ -53,11 +63,11 @@ export class Sample_fog {
 
 		{
 			let mat = new LitMaterial();
-			mat.baseMap = defaultTexture.whiteTexture;
-			mat.normalMap = defaultTexture.normalTexture;
-			mat.aoMap = defaultTexture.whiteTexture;
-			mat.maskMap = defaultTexture.createTexture(32, 32, 255.0, 255.0, 0.0, 1);
-			mat.emissiveMap = defaultTexture.blackTexture;
+			mat.baseMap = Engine3D.res.whiteTexture;
+			mat.normalMap = Engine3D.res.normalTexture;
+			mat.aoMap = Engine3D.res.whiteTexture;
+			mat.maskMap = Engine3D.res.createTexture(32, 32, 255.0, 255.0, 0.0, 1);
+			mat.emissiveMap = Engine3D.res.blackTexture;
 			mat.roughness = 1.0;
 			mat.metallic = 0.0;
 
@@ -73,11 +83,11 @@ export class Sample_fog {
 
 	private createPlane(scene: Scene3D) {
 		let mat = new LitMaterial();
-		mat.baseMap = defaultTexture.grayTexture;
-		mat.normalMap = defaultTexture.normalTexture;
-		mat.aoMap = defaultTexture.whiteTexture;
-		mat.maskMap = defaultTexture.createTexture(32, 32, 255.0, 10.0, 0.0, 1);
-		mat.emissiveMap = defaultTexture.blackTexture;
+		mat.baseMap = Engine3D.res.grayTexture;
+		mat.normalMap = Engine3D.res.normalTexture;
+		mat.aoMap = Engine3D.res.whiteTexture;
+		mat.maskMap = Engine3D.res.createTexture(32, 32, 255.0, 10.0, 0.0, 1);
+		mat.emissiveMap = Engine3D.res.blackTexture;
 		mat.roughness = 0.1;
 		mat.roughness_max = 0.1;
 		mat.metallic = 0.0;

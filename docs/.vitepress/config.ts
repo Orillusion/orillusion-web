@@ -1,6 +1,5 @@
 import { defineConfig } from 'vitepress'
 import { readFileSync, readdirSync } from 'fs'
-
 type SidebarItem = {
     text: string;
     collapsible?: boolean;
@@ -22,16 +21,18 @@ export default async () => defineConfig({
     head: [
         ['link', { rel: 'shortcut icon', type: "image/png", href: '/images/icons/icon-192.png' }],
         ['link', { rel: 'apple-touch-icon', href: '/images/icons/icon-512.png' }],
-        ['link', { rel: 'prefetch', href: 'https://cdn.orillusion.com/orillusion.es.js' }],
-        ['link', { rel: 'prefetch', href: 'https://cdn.orillusion.com/physics.es.js' }],
+        ['link', { rel: 'prefetch', href: 'https://unpkg.com/@orillusion/core@0.6/dist/orillusion.es.js' }],
+        ['link', { rel: 'prefetch', href: 'https://unpkg.com/@orillusion/physics@0.2/dist/physics.es.js' }],
+        ['link', { rel: 'prefetch', href: 'https://unpkg.com/@orillusion/stats@0.2/dist/stats.es.js' }],
+        ['link', { rel: 'prefetch', href: 'https://unpkg.com/@orillusion/media-extention@0.2/dist/media.es.js' }],
         ['script', { async: 'true', src: 'https://www.googletagmanager.com/gtag/js?id=G-0H9189CS0W' }],
         ['meta', { name: 'theme-color', content: '#242424' }],
         ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no' }],
     ],
-    locales: {
-        root: { label: '简体中文' },
-        en: { label: 'English', link: 'https://www.orillusion.com/en/' }
-    },
+    // locales: {
+    //     root: { label: '简体中文' },
+    //     en: { label: 'English', link: 'https://www.orillusion.com/en/' }
+    // },
     themeConfig: {
         logo: {
             light: '/images/logo_black.png',
@@ -86,26 +87,24 @@ export default async () => defineConfig({
         // search: {
         //     provider: 'local',
         //     options: {
-        //         locales: {
-        //             zh: {
-        //                 translations: {
-        //                     button: {
-        //                         buttonText: '搜索文档',
-        //                         buttonAriaLabel: '搜索文档'
-        //                     },
-        //                     modal: {
-        //                         noResultsText: '无法找到相关结果',
-        //                         resetButtonTitle: '清除查询条件',
-        //                         footer: {
-        //                             selectText: '选择',
-        //                             navigateText: '切换'
-        //                         }
-        //                     }
+        //         translations: {
+        //             button: {
+        //                 buttonText: '搜索文档',
+        //                 buttonAriaLabel: '搜索文档'
+        //             },
+        //             modal: {
+        //                 noResultsText: '无法找到相关结果',
+        //                 resetButtonTitle: '清除查询条件',
+        //                 footer: {
+        //                     selectText: '选择',
+        //                     navigateText: '切换',
+        //                     closeText: '关闭'
         //                 }
         //             }
         //         }
         //     }
         // },
+
         algolia: {
             appId: 'A4SU9IUJ2M',
             apiKey: '1a3b57b41821e82cafdd80621f042c9c',
@@ -163,7 +162,8 @@ export default async () => defineConfig({
 
     },
     markdown: {
-        lineNumbers: true
+        lineNumbers: true,
+        attrs: { disable: true }
     }
 })
 
@@ -208,6 +208,13 @@ function nav() {
         {
             text: '论坛',
             link: 'https://forum.orillusion.com'
+        },
+        {
+            text: 'v0.6',
+            items: [
+                { text: 'Changelog', link: 'https://github.com/Orillusion/orillusion/releases' },
+                { text: 'NPM', link: 'https://www.npmjs.com/package/@orillusion/core' }
+            ]
         }
     ]
 }
@@ -258,7 +265,6 @@ function sidebarGuide(): SidebarItem {
                 { text: '骨骼动画', link: '/guide/animation/skeleton.md' },
                 { text: '属性动画', link: '/guide/animation/property.md' },
                 { text: 'Morph动画', link: '/guide/animation/morph.md' },
-                { text: '粒子动画', link: '/guide/animation/particle.md' },
             ],
         },
         {
@@ -296,17 +302,6 @@ function sidebarGuide(): SidebarItem {
             items: [
                 { text: '资源加载', link: '/guide/resource/Readme.md' },
                 { text: 'GLTF', link: '/guide/resource/gltf.md' },
-            ],
-        },
-        {
-            text: '用户界面',
-            collapsible: true,
-            items: [
-                { text: '简介', link: '/guide/gui/Readme.md' },
-                { text: '文本', link: '/guide/gui/textfield.md' },
-                { text: '图片', link: '/guide/gui/image.md' },
-                { text: '按钮', link: '/guide/gui/button.md' },
-                { text: 'WorldSpace', link: '/guide/gui/panel.md' }
             ],
         },
         {
@@ -353,7 +348,6 @@ function sidebarGuide(): SidebarItem {
                         { text: 'TAAPost', link: '/guide/advanced/post_taa.md' }
                     ]
                 },
-                { text: '全局光照', link: '/guide/advanced/gi.md' },
             ]
         }
     ]
