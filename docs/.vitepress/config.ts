@@ -186,7 +186,10 @@ function nav() {
                 {
                     text: 'Orillusion',
                     items: [
-                        { text: 'API', link: '/api/' },
+                        { text: 'Core', link: '/api/' },
+                        { text: 'Physics', link: '/physics/' },
+                        { text: 'Media Extention', link: '/media-extention/' },
+                        { text: 'Stats', link: '/stats/' },
                     ]
                 },
                 {
@@ -210,8 +213,9 @@ function nav() {
         {
             text: 'v0.6',
             items: [
-                { text: 'Changelog', link: 'https://github.com/Orillusion/orillusion/releases' },
-                { text: 'NPM', link: 'https://www.npmjs.com/package/@orillusion/core' }
+                { text: '更新日志', link: 'https://github.com/Orillusion/orillusion/releases' },
+                { text: 'NPM', link: 'https://www.npmjs.com/package/@orillusion/core' },
+                { text: '贡献代码', link: 'https://github.com/Orillusion/orillusion/blob/main/.github/contributing.md' }
             ]
         }
     ]
