@@ -16,15 +16,7 @@ export class Sample_PBRMaterial {
         Engine3D.setting.shadow.updateFrameRate = 1;
         Engine3D.setting.shadow.shadowBound = 50;
         Engine3D.setting.shadow.shadowBias = 0.0001;
-        Engine3D.setting.render.postProcessing.bloom = {
-            debug: false,
-            enable: true,
-            blurX: 4,
-            blurY: 4,
-            strength: 2,
-            radius: 1,
-            luminosityThreshold: 1
-        };
+        Engine3D.setting.render.postProcessing.bloom!.strength = 1.25
 
         this.scene = new Scene3D();
         this.camera = new Object3D()
@@ -57,7 +49,7 @@ export class Sample_PBRMaterial {
         /******** sky *******/
         {
             let sky = this.scene.addComponent(AtmosphericComponent)
-            sky.sunY = 0.6
+            sky.sunY = 0.7
             sky.enable = false
         }
         /******** light *******/
