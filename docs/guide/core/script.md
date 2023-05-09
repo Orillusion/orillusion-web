@@ -1,9 +1,9 @@
 # Script
 
 We have introduced the [Component](/guide/core/component) in the [Component Lifecycle](/guide/core/component#life-cycle), users can extend from [ComponentBase](/api/classes/ComponentBase) class to develop custom components. Users can customize the running logic by overwriting the lifecycle functions of the component base class:
- - `Initialize/stop`: like `init` and `stop`
+ - `Initialize/stop`: like `init` and `destroy`
  - `State change`: like `start`, `onEnable` and `onDisable`
- - `Update logic`: like `update`, `lateUpdate` and `beforeUpdate`
+ - `Update logic`: like `onUpdate`, `onLateUpdate` and `onBeforeUpdate`
 
 
 ## Basic Usage
@@ -20,8 +20,8 @@ class Script extends ComponentBase {
         // This function is called before the component starts rendering,
         // At this time, you can access this.object3D to get the attributes of the node or other components
     }
-    // Overwrite update
-    public update() {
+    // Overwrite onUpdate
+    public onUpdate() {
         // This function is called every frame rendering loop, usually defined the node's loop logic
         // For example, update the rotation angle of the object every frame
         this.object3D.rotationY += 1;
@@ -32,7 +32,7 @@ let ball: Object3D = new Object3D();
 ball.addComponent(Script);
 ```
 In a custom script, you can get the `object3D` object which current component mounted through `this.object3D`, and then change the object state.  
-A key point of game or animation development is to update the behavior, state and orientation of the object before each frame rendering. These update operations can usually be defined in the `update` callback of the component itself. The engine will automatically register the `update` callback to the main loop to achieve the update logic of each frame.
+A key point of game or animation development is to update the behavior, state and orientation of the object before each frame rendering. These update operations can usually be defined in the `onUpdate` callback of the component itself. The engine will automatically register the `onUpdate` callback to the main loop to achieve the update logic of each frame.
 
 ## Examples
 Here are three different script animation examples to show you more complex script component usage.
@@ -54,7 +54,7 @@ class LightAnimation extends ComponentBase {
         this.color = this.light.lightColor;
     }
 
-    update() {
+    onUpdate() {
         // Update lightColor
         this.color.r = Math.pow(Math.sin(Time.time * 0.001), 10);
         this.light.lightColor = this.color;
@@ -79,7 +79,7 @@ class MaterialAnimation extends ComponentBase {
         this.material = mr.material;
     }
 
-    update() {
+    onUpdate() {
         // Update baseColor
         let delta = Time.time * 0.001
         this.material.baseColor = new Color(Math.sin(delta), Math.cos(delta), Math.sin(delta));
@@ -96,7 +96,7 @@ Similar to above, we can change the material object of the object, such as chang
 
 ```ts
 class PathAnimation extends ComponentBase {
-  update() {
+    onUpdate() {
     // Update Position
     this.object3D.x = Math.sin(Time.time * 0.001) * 2;
     this.object3D.y = Math.cos(Time.time * 0.001) * 2;
