@@ -9,11 +9,11 @@ The core of `Orillusion` is [component system](/guide/core/component), in additi
 <<< @/public/demos/getting_start/script.ts
 
 Users can extend functions from the `ComponentBase` class, and by using callbacks of [Life Cycle](/guide/core/component#life-cycle) to write your own logic. Set the behavior, state and orientation of the object for each frame by setting update callbacks of the script component.   
-In the example, we use a simple script component with `update` lifecycle, and write a script to add rotation animation to the object.
+In the example, we use a simple script component with `onUpdate` lifecycle, and write a script to add rotation animation to the object.
 
 ```ts
 class RotateScript extends ComponentBase {
-    public update() {
+    public onUpdate() {
         //update lifecycle, executed every frame in the main loop
     }
 }
@@ -22,7 +22,7 @@ class RotateScript extends ComponentBase {
 We can get the current [object3D](/guide/core/object) of the component by `this.object3D`, and then change the state of the node. For example, in `update()` we increase `object3D.rotationY`, in order to rotate the object around the `Y` axis by `1` degree every frame.
 
 ```ts
-public update() {
+public onUpdate() {
   this.object3D.rotationY += 1;
 }
 ```
@@ -32,4 +32,4 @@ After defining the component, we can use [addComponent](/api/classes/Object3D#ad
 ```ts
 obj.addComponent(RotateScript);
 ```
-The main loop of engine will run `update` callback automatically to complete the animation effect. For more usage of custom components, please refer to [Custom Components](/guide/core/component) page.
+The main loop of engine will run `onUpdate` callback automatically to complete the animation effect. For more usage of custom components, please refer to [Custom Components](/guide/core/component) page.
