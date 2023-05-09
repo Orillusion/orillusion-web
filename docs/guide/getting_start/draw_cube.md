@@ -16,12 +16,13 @@ import {
     Scene3D,
     Object3D,
     Camera3D,
-    ForwardRenderJob,
+    View3D,
     LitMaterial,
     BoxGeometry,
     MeshRenderer,
     DirectLight,
-    HoverCameraController
+    HoverCameraController,
+    AtmosphericComponent
 } from '@orillusion/core';
 ```
 
@@ -31,12 +32,13 @@ import {
 | Scene3D               | By creating a new Scene3D class, you can create a instance scene, which is usually used as the root node in the program                                 |
 | Object3D              | The Object3D class defines an object for object(things) that contains common object(things) properties such as position, rotation, and other parameters |
 | Camera3D              | By creating a new Camera3D class you can create an instance of the camera 3D component, which can be added to the scene as a camera node                |
-| ForwardRenderJob      | Forward rendering operations, providing forward rendering methods for the engine                                                                        |
+| View3D                | View3D, specify the target scene and observation camera for engine rendering                                                                            |                                                                                                                                               |
 | LitMaterial           | The LitMaterial class allows you to create material instances and set material parameters to achieve different material effects.                        |
 | BoxGeometry           | The BoxGeometry class allows you to create a rectangular(box) geometry                                                                                  |
-| MeshRenderer          | The MeshRenderer component provids mesh object geometry rendering for objects                                                                           |
+| MeshRenderer          | The MeshRenderer component provides mesh object geometry rendering for objects                                                                          |
 | DirectLight           | DirectLight component allows you to set the color, intensity properties and light angle of light to get the Suitable light effect                       |
 | HoverCameraController | HoverCamera component allows to control camera movement around the observation point                                                                    |
+| AtmosphericComponent  | The built-in skybox component                                                                                                                           |
 
 ## Initialize the engine
 
@@ -50,6 +52,11 @@ await Engine3D.init();
 let scene3D = new Scene3D();
 ```
 
+## Add Skybox
+```ts
+// Add atmospheric scattering skybox component
+let sky = scene3D.addComponent(AtmosphericComponent);
+```
 ## Add camera controller component
 
 ```ts
@@ -75,7 +82,6 @@ let component = light.addComponent(DirectLight);
 // Adjust light parameters
 light.rotationX = 45;
 light.rotationY = 30;
-component.lightColor = new Color(1.0, 0.6, 0.6, 1);
 component.intensity = 2;
 // Add light node to sence
 scene3D.addChild(light);
@@ -105,8 +111,12 @@ scene3D.addChild(obj);
 ## Render scene
 
 ```ts
-// Create forward rendering job
-let renderJob = new ForwardRenderJob(scene3D);
+// Create View3D object
+let view = new View3D();
+// Specify the scene to render
+view.scene = scene;
+// Specify the camera to use
+view.camera = camera;
 // Start rendering
-Engine3D.startRender(renderJob);
+Engine3D.startRenderView(view);
 ```
