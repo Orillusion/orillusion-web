@@ -17,15 +17,7 @@ export class Sample_FlightHelmet {
         Engine3D.setting.shadow.updateFrameRate = 1;
         Engine3D.setting.shadow.shadowBound = 50;
         Engine3D.setting.shadow.shadowBias = 0.0001;
-        Engine3D.setting.render.postProcessing.bloom = {
-            debug: false,
-            enable: true,
-            blurX: 4,
-            blurY: 4,
-            strength: 2,
-            radius: 1.25,
-            luminosityThreshold: 1
-        };
+        Engine3D.setting.render.postProcessing.bloom!.strength = 1.5
 
         this.scene = new Scene3D();
         let camera = new Object3D();
@@ -41,8 +33,6 @@ export class Sample_FlightHelmet {
         orbit.rotateFactor = 0.3
 
         await this.initScene();
-
-
         let view = new View3D();
         view.scene = this.scene;
         view.camera = mainCamera;
@@ -57,7 +47,7 @@ export class Sample_FlightHelmet {
         /******** sky *******/
         {
             let sky = this.scene.addComponent(AtmosphericComponent)
-            sky.sunY = 0.6
+            sky.sunY = 0.7
             sky.enable = false
         }
         /******** light *******/
@@ -69,7 +59,7 @@ export class Sample_FlightHelmet {
             let lc = this.lightObj.addComponent(DirectLight);
             lc.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
             lc.castShadow = true;
-            lc.intensity = 40 ;
+            lc.intensity = 40;
             this.scene.addChild(this.lightObj);
         }
 
