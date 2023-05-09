@@ -105,7 +105,7 @@ scene3D.addChild(obj);
 // 创建View3D对象
 let view = new View3D();
 // 指定渲染的场景
-view.scene = scene;
+view.scene = scene3D;
 // 指定使用的相机
 view.camera = camera;
 // 开始渲染
