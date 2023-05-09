@@ -8,6 +8,7 @@ specifiers:
   '@types/dat.gui': ^0.7.10
   '@types/node': ^18.15.13
   esbuild: ^0.17.18
+  prettier: ^2.8.8
   vitepress: 1.0.0-alpha.75
   vue: ^3.2.47
 
@@ -19,6 +20,7 @@ devDependencies:
   '@types/dat.gui': 0.7.10
   '@types/node': 18.15.13
   esbuild: 0.17.18
+  prettier: 2.8.8
   vitepress: 1.0.0-alpha.75_@types+node@18.15.13
   vue: 3.2.47
 
@@ -1934,6 +1936,12 @@ packages:
 
   /preact/10.13.2:
     resolution: {integrity: sha512-q44QFLhOhty2Bd0Y46fnYW0gD/cbVM9dUVtNTDKPcdXSMA7jfY+Jpd6rk3GB0lcQss0z5s/6CmVP0Z/hV+g6pw==}
+    dev: true
+
+  /prettier/2.8.8:
+    resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
     dev: true
 
   /process-nextick-args/2.0.1:

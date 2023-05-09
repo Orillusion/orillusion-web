@@ -19,17 +19,17 @@ git clone https://github.com/Orillusion/orillusion-web.git
 2. Install dependencies
 
 ```bash
-yarn # or npm install
+$ pnpm i
 ```
 
 3. Start local development environment
 
 ```bash
-yarn dev # or npm run dev
+$ pnpm dev
 ```
 
 ## Build Site
 
 ```bash
-yarn build # or npm run build
+$ pnpm build
 ```
