@@ -12,7 +12,7 @@ The supported pick events are:
 | PICK_DOWN | Triggered once when the touch point is pressed within the collision body range |
 
 ## Listening to Events
-Picking events depend on the [Collider](/guide/physics/collider) component, and we can directly listen for `PointerEvent3D` events on the `Object3D` . The engine has unified two types of picking methods that can be switched through simple configuration.
+Picking events depend on the [ColliderComponent](/guide/physics/collider) component, and we can directly listen for `PointerEvent3D` events on the `Object3D` . The engine has unified two types of picking methods that can be switched through simple configuration.
 
 ```ts
 //Pick and pick type need to be configured before the engine starts
@@ -23,13 +23,13 @@ Engine3D.setting.pick.mode = `bound`; // or 'pixel'
 await Engine3D.init()
 // Picking detection depends on the Collider component
 let obj = Object3D();
-obj.addComponent(Collider);
+obj.addComponent(ColliderComponent);
 
 // Add a PickEvent event listener to the node, where the corresponding event can be obtained in the callback function
 obj.addEventListener(PointerEvent3D.PICK_CLICK, onPick, this);
 
-// Or listen to all object click events through Engine3D.pickFire
-Engine3D.pickFire.addEventListener(PointerEvent3D.PICK_CLICK, onPick, this);
+// Or listen to all object click events through view.pickFire
+view.pickFire.addEventListener(PointerEvent3D.PICK_CLICK, onPick, this);
 
 //Get event information in the callback function
 function onPick(e: PointerEvent3D) {
@@ -38,7 +38,7 @@ function onPick(e: PointerEvent3D) {
 ```
 
 ## Ray Box Picking
-Ray box picking is a commonly used CPU-based picking method. It needs to calculate the intersection of the [Collider](/guide/physics/collider) component's `shape` and the mouse ray. It performs well in scenes with few objects, but has poor accuracy because the bounding box often cannot accurately represent the true shape of the object.   
+Ray box picking is a commonly used CPU-based picking method. It needs to calculate the intersection of the [ColliderComponent](/guide/physics/collider) component's `shape` and the mouse ray. It performs well in scenes with few objects, but has poor accuracy because the bounding box often cannot accurately represent the true shape of the object.   
 > In order to maintain `cpu` performance, currently, ray box picking only supports active `pick` click picking and does not support `over/hover` state picking.
 
 ```ts
@@ -49,7 +49,7 @@ let mr = box.addComponent(MeshRenderer);
 // Set the box geometry
 mr.geometry = new BoxGeometry(1,1,1);
 // Add collision box detection
-let collider = box.addComponent(Collider);
+let collider = box.addComponent(ColliderComponent);
 // For the bound mode, the style and size of the collision box need to be set manually
 // The picking accuracy depends on the match between box.geometry and collider.shape
 collider.shape = new BoxColliderShape().setFromCenterAndSize(new Vector3(0, 0, 0), new Vector3(1, 1, 1));
