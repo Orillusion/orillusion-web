@@ -53,6 +53,7 @@ async function demo() {
 
     const GUIHelp = new dat.GUI()
     GUIHelp.addFolder('Box Transform')
+    GUIHelp.add(obj.transform, 'enable')
     GUIHelp.add(obj.transform, 'x', -10.0, 10.0, 0.01)
     GUIHelp.add(obj.transform, 'y', -10.0, 10.0, 0.01)
     GUIHelp.add(obj.transform, 'z', -10.0, 10.0, 0.01)
