@@ -42,7 +42,6 @@ We recommend using [ESModule](https://developer.mozilla.org/zh-CN/docs/Web/JavaS
 
 ```html
 <script type="module">
-    // 加载最新版本
     // Use the latest published version
     import { Engine3D, Camera3D } from "https://cdn.orillusion.com/orillusion.es.js"
     // Or use the specified version through unpkg.com 
