@@ -15,7 +15,7 @@ export default async () =>
         base: '/',
         lang: 'zh',
         title: 'Orillusion',
-        description: 'The Next Generation WebGPU Engine',
+        description: '次时代 WebGPU 引擎, 简单易用，永久开源，为 Web3D 提供完善开发工具',
         lastUpdated: true,
         ignoreDeadLinks: true,
         appearance: 'dark',
