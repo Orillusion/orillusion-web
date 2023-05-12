@@ -19,21 +19,22 @@
     </head>
     <body class="loading">
         <script type="importmap">
-            {
-                "imports": {
-                    "@orillusion/core": "https://unpkg.com/@orillusion/core@0.6/dist/orillusion.es.js",
-                    "@orillusion/physics": "https://unpkg.com/@orillusion/physics@0.2/dist/physics.es.js",
-                    "@orillusion/stats": "https://unpkg.com/@orillusion/stats@0.2/dist/stats.es.js",
-                    "@orillusion/media-extention": "https://unpkg.com/@orillusion/media-extention@0.2/dist/media.es.js",
-                    "dat.gui": "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js"
-                }
+        {
+            "imports": {
+                "@orillusion/core": "https://unpkg.com/@orillusion/core@0.6/dist/orillusion.es.js",
+                "@orillusion/physics": "https://unpkg.com/@orillusion/physics@0.2/dist/physics.es.js",
+                "@orillusion/stats": "https://unpkg.com/@orillusion/stats@0.2/dist/stats.es.js",
+                "@orillusion/media-extention": "https://unpkg.com/@orillusion/media-extention@0.2/dist/media.es.js",
+                "dat.gui": "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js"
             }
+        }
         </script>
         <script type="module">
             if (location.hostname.match(/orillusion/)) {
-                fetch(location.search.slice(1).replace('.ts', '.js'))
-                    .then((res) => res.text())
-                    .then((code) => createScript(code))
+                Promise.all([
+                    fetch(location.search.slice(1)).then(r=>r.text()),
+                    fetch(location.search.slice(1).replace('.ts', '.js')).then(r=>r.text())
+                ]).then(res=>createScript(res[1], res[0]))
             } else {
                 Promise.all([
                     fetch(location.search.slice(1)).then((r) => r.text()),
@@ -45,13 +46,13 @@
                         check()
                     })
                 ]).then(async (res) => {
-                    const ts = await res[1].transform(res[0], { loader: 'ts' })
-                    createScript(ts.code)
+                    const js = await res[1].transform(res[0], { loader: 'ts'})
+                    createScript(js.code, res[0])
                 })
             }
-            function createScript(code) {
+            function createScript(js, ts) {
                 const script = document.createElement('script')
-                script.innerHTML = code.replace(
+                script.innerHTML = js.replace(
                     'Engine3D.startRenderView(view);',
                     `Engine3D.startRenderView(view);
                 window.postMessage("rendering");
@@ -78,6 +79,14 @@
                     }
                 })
                 intersectionObserver.observe(document.body)
+                // open new tab to codepen
+                window.codepen = ()=> JSON.stringify({
+                    editors: "001",
+                    title: window.parent.document.title,
+                    html: document.querySelector('script[type="importmap"]').outerHTML,
+                    js: ts,
+                    js_pre_processor: 'typescript'
+                })
             }
         </script>
     </body>
