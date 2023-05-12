@@ -16,10 +16,14 @@ Engine3D.setting.render.postProcessing.ssr.fadeDistanceMax = 2000;
 Engine3D.setting.render.postProcessing.ssr.roughnessThreshold = 0.5;
 Engine3D.setting.render.postProcessing.ssr.powDotRN = 0.2;
 
-// Creating the renderer
-let renderJob = new ForwardRenderJob(this.scene);
-renderJob.addPost(new SSRPost());
-Engine3D.startRender(renderJob);
+// Add SSRPost
+let postProcessing = this.scene.addComponent(PostProcessingComponent);
+postProcessing.addPost(SSRPost);
+//Start rendering
+let view = new View3D();
+view.scene = this.scene;
+view.camera = this.camera;
+Engine3D.startRenderView(view);
 ```
 
 [Engine3D.setting.render.postProcessing.ssr](../../api/types/SSRSetting.md) Configuration parameters.

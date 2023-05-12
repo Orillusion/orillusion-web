@@ -4,19 +4,30 @@ aside: false
 # TAAPost
 TAAPost is a 3D rendering anti-aliasing implementation. In the process of rasterizing 3D rendering, the display objects are stored in the form of a two-dimensional array matrix, and the edges of objects in the original image inevitably have jagged edges. The method used by TAA is to slightly offset the camera according to a certain strategy, so that the objects will get slightly different results during rasterization due to different camera offset values. This is particularly evident at the edges. The color output to the screen is the result of interpolating the historical frame and the current frame, and this result is used for the next interpolation.
 ```ts
-//Initialize the engine
-await Engine3D.init();
-
+// Engine Global Configuration Settings
 Engine3D.setting.render.postProcessing.taa.jitterSeedCount = 8;
 Engine3D.setting.render.postProcessing.taa.blendFactor = 0.1;
 Engine3D.setting.render.postProcessing.taa.sharpFactor = 0.6;
 Engine3D.setting.render.postProcessing.taa.sharpPreBlurFactor = 0.5;
 Engine3D.setting.render.postProcessing.taa.temporalJitterScale = 0.6;
 
-//Create the renderer
-let renderJob = new ForwardRenderJob(this.scene);
-renderJob.addPost(new TAAPost());
-Engine3D.startRender(renderJob);
+//Initialize Engine
+await Engine3D.init();
+// Add post-processing components
+let postProcessing = this.scene.addComponent(PostProcessingComponent);
+// Add TAAPost
+let taaPost = postProcessing.addPost(TAAPost);
+// By setting up the taaPost object (the engine's global configuration and the taaPost object based settings here are equivalent)
+taaPost.jitterSeedCount = 8;
+taaPost.blendFactor = 0.1;
+taaPost.sharpFactor = 0.6;
+taaPost.sharpPreBlurFactor = 0.5;
+taaPost.temporalJitterScale = 0.6;
+// Start rendering the view
+let view = new View3D();
+view.scene = this.scene;
+view.camera = mainCamera;
+Engine3D.startRenderView(view);
 ```
 
 [Engine3D.setting.render.postProcessing.taa](../../api/types/TAASetting.md) Configuration Parameters.

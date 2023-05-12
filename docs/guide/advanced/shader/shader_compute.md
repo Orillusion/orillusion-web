@@ -132,7 +132,7 @@ this.mGaussianBlurShader.setUniformBuffer('args', this.mGaussianBlurArgs);
 
 `colorMap` is the original texture to be blurred. Here we associate the engine's full-screen `colorMap` with the`ComputeShader` object:
 ```ts
-this.autoSetColorTexture('colorMap', this.mGaussianBlurShader, false);
+this.autoSetColorTexture('colorMap', this.mGaussianBlurShader);
 ```
 
 `resultTex` is the blurred result texture. We need to create a new empty texture to store it:
@@ -144,8 +144,8 @@ let presentationSize = webGPUContext.presentationSize;
 this.mBlurResultTexture = new VirtualTexture(presentationSize[0], presentationSize[1], GPUTextureFormat.rgba16float, false, GPUTextureUsage.STORAGE_BINDING | GPUTextureUsage.TEXTURE_BINDING);
 this.mBlurResultTexture.name = 'gaussianBlurResultTexture';
 
-// Set RTDescript's relevant parameters (data loading behavior of VirtualTexture, etc.)
-let descript = new RTDescript();
+// Set RTDescriptor's relevant parameters (data loading behavior of VirtualTexture, etc.)
+let descript = new RTDescriptor();
 descript.clearValue = [0, 0, 0, 1];
 descript.loadOp = `clear`;
 this.mRTFrame = new RTFrame([
@@ -180,7 +180,7 @@ In WGSL, the built-in variable `global_invocation_id` represents the global disp
 
 Finally, execute the`ComputeShader`by entering the dispatch command:
 ```ts
-GPUContext.compute_command(command, [this.mGaussianBlurShader]);
+GPUContext.computeCommand(command, [this.mGaussianBlurShader]);
 ```
 
 ## Summary
