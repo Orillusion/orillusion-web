@@ -1,7 +1,6 @@
 # Class: LitMaterial
 
-HDRLit材质
-基于物理渲染，旨在模拟现实世界光照效果
+a type of material, based on physical lighting model
 
 ## Hierarchy
 
@@ -14,11 +13,10 @@ HDRLit材质
 
 - [count](LitMaterial.md#count)
 - [name](LitMaterial.md#name)
-- [uuid](LitMaterial.md#uuid)
+- [instanceID](LitMaterial.md#instanceid)
 - [isPassMaterial](LitMaterial.md#ispassmaterial)
 - [receiveEnv](LitMaterial.md#receiveenv)
 - [renderPasses](LitMaterial.md#renderpasses)
-- [transparent](LitMaterial.md#transparent)
 - [enable](LitMaterial.md#enable)
 - [renderShader](LitMaterial.md#rendershader)
 
@@ -30,14 +28,11 @@ HDRLit材质
 
 - [clone](LitMaterial.md#clone)
 - [debug](LitMaterial.md#debug)
-- [useDefine](LitMaterial.md#usedefine)
-- [getTextures](LitMaterial.md#gettextures)
 - [setDefine](LitMaterial.md#setdefine)
+- [hasPass](LitMaterial.md#haspass)
 - [addPass](LitMaterial.md#addpass)
 - [removePass](LitMaterial.md#removepass)
 - [destroy](LitMaterial.md#destroy)
-- [serialization](LitMaterial.md#serialization)
-- [unSerialization](LitMaterial.md#unserialization)
 - [setShader](LitMaterial.md#setshader)
 - [getShader](LitMaterial.md#getshader)
 - [useCleanCoat](LitMaterial.md#usecleancoat)
@@ -45,7 +40,7 @@ HDRLit材质
 ### Accessors
 
 - [shaderState](LitMaterial.md#shaderstate)
-- [tintColor](LitMaterial.md#tintcolor)
+- [normalMapYFlip](LitMaterial.md#normalmapyflip)
 - [shadowMap](LitMaterial.md#shadowmap)
 - [envMap](LitMaterial.md#envmap)
 - [baseMap](LitMaterial.md#basemap)
@@ -59,6 +54,7 @@ HDRLit材质
 - [sort](LitMaterial.md#sort)
 - [shaderID](LitMaterial.md#shaderid)
 - [blendMode](LitMaterial.md#blendmode)
+- [transparent](LitMaterial.md#transparent)
 - [frontFace](LitMaterial.md#frontface)
 - [doubleSide](LitMaterial.md#doubleside)
 - [cullMode](LitMaterial.md#cullmode)
@@ -93,11 +89,9 @@ HDRLit材质
 
 ▪ `Static` **count**: `number` = `0`
 
-实例个数
-
 #### Defined in
 
-[src/engine/materials/LitMaterial.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/LitMaterial.ts#L17)
+[src/materials/LitMaterial.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L11)
 
 ___
 
@@ -105,7 +99,7 @@ ___
 
 • **name**: `string`
 
-材质名称
+name of this material
 
 #### Inherited from
 
@@ -113,23 +107,23 @@ PhysicMaterial.name
 
 #### Defined in
 
-[src/engine/materials/MaterialBase.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L26)
+[src/materials/MaterialBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L23)
 
 ___
 
-### uuid
+### instanceID
 
-• **uuid**: `string`
+• **instanceID**: `string`
 
-材质唯一标识符
+Material Unique Identifier
 
 #### Inherited from
 
-PhysicMaterial.uuid
+PhysicMaterial.instanceID
 
 #### Defined in
 
-[src/engine/materials/MaterialBase.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L31)
+[src/materials/MaterialBase.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L29)
 
 ___
 
@@ -137,7 +131,7 @@ ___
 
 • **isPassMaterial**: `boolean` = `false`
 
-是否为PassMaterial
+is PassMaterial
 
 #### Inherited from
 
@@ -145,7 +139,7 @@ PhysicMaterial.isPassMaterial
 
 #### Defined in
 
-[src/engine/materials/MaterialBase.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L35)
+[src/materials/MaterialBase.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L34)
 
 ___
 
@@ -153,7 +147,7 @@ ___
 
 • **receiveEnv**: `boolean` = `true`
 
-是否接收Env
+Whether to receive environment effect
 
 #### Inherited from
 
@@ -161,7 +155,7 @@ PhysicMaterial.receiveEnv
 
 #### Defined in
 
-[src/engine/materials/MaterialBase.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L44)
+[src/materials/MaterialBase.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L39)
 
 ___
 
@@ -175,23 +169,7 @@ PhysicMaterial.renderPasses
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L7)
-
-___
-
-### transparent
-
-• **transparent**: `boolean` = `false`
-
-是否透明
-
-#### Inherited from
-
-PhysicMaterial.transparent
-
-#### Defined in
-
-[src/engine/materials/MaterialPass.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L13)
+[src/materials/MaterialPass.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L8)
 
 ___
 
@@ -199,7 +177,7 @@ ___
 
 • **enable**: `boolean` = `true`
 
-材质是否启用
+whether the pass is enable
 
 #### Inherited from
 
@@ -207,7 +185,7 @@ PhysicMaterial.enable
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L18)
+[src/materials/MaterialPass.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L13)
 
 ___
 
@@ -221,7 +199,7 @@ PhysicMaterial.renderShader
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L20)
+[src/materials/MaterialPass.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L15)
 
 ## Constructors
 
@@ -229,15 +207,13 @@ PhysicMaterial.renderShader
 
 • **new LitMaterial**()
 
-创建新的pbr材质对象
-
 #### Overrides
 
 PhysicMaterial.constructor
 
 #### Defined in
 
-[src/engine/materials/LitMaterial.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/LitMaterial.ts#L22)
+[src/materials/LitMaterial.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L16)
 
 ## Methods
 
@@ -255,7 +231,7 @@ PhysicMaterial.clone
 
 #### Defined in
 
-[src/engine/materials/LitMaterial.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/LitMaterial.ts#L51)
+[src/materials/LitMaterial.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L48)
 
 ___
 
@@ -263,7 +239,7 @@ ___
 
 ▸ **debug**(): `void`
 
-启用GUI调试
+internal
 
 #### Returns
 
@@ -275,60 +251,7 @@ PhysicMaterial.debug
 
 #### Defined in
 
-[src/engine/materials/LitMaterial.ts:85](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/LitMaterial.ts#L85)
-
-___
-
-### useDefine
-
-▸ **useDefine**(`define`, `value?`): `void`
-
-启用材质球的定义
-
-**`Memberof`**
-
-MaterialBase
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `define` | `string` | `undefined` |
-| `value?` | `boolean` | `true` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.useDefine
-
-#### Defined in
-
-[src/engine/materials/MaterialBase.ts:155](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L155)
-
-___
-
-### getTextures
-
-▸ **getTextures**(): `Object`
-
-获取纹理
-
-#### Returns
-
-`Object`
-
-返回材质纹理
-
-#### Inherited from
-
-PhysicMaterial.getTextures
-
-#### Defined in
-
-[src/engine/materials/MaterialBase.ts:300](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L300)
+[src/materials/LitMaterial.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L82)
 
 ___
 
@@ -336,14 +259,18 @@ ___
 
 ▸ **setDefine**(`define`, `bool`): `void`
 
-设置当前定义状态
+Enable/Disable the definition of shaders
+
+**`Memberof`**
+
+MaterialBase
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `define` | `string` |
-| `bool` | `boolean` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `define` | `string` | key |
+| `bool` | `boolean` | - |
 
 #### Returns
 
@@ -355,7 +282,31 @@ PhysicMaterial.setDefine
 
 #### Defined in
 
-[src/engine/materials/MaterialBase.ts:309](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L309)
+[src/materials/MaterialBase.ts:309](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L309)
+
+___
+
+### hasPass
+
+▸ **hasPass**(`passType`): `boolean`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `passType` | `RendererType` |
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+PhysicMaterial.hasPass
+
+#### Defined in
+
+[src/materials/MaterialBase.ts:313](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L313)
 
 ___
 
@@ -381,7 +332,7 @@ PhysicMaterial.addPass
 
 #### Defined in
 
-[src/engine/materials/MaterialBase.ts:313](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L313)
+[src/materials/MaterialBase.ts:317](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L317)
 
 ___
 
@@ -406,7 +357,7 @@ PhysicMaterial.removePass
 
 #### Defined in
 
-[src/engine/materials/MaterialBase.ts:329](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L329)
+[src/materials/MaterialBase.ts:333](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L333)
 
 ___
 
@@ -414,7 +365,7 @@ ___
 
 ▸ **destroy**(): `void`
 
-材质球资源回收
+destroy self
 
 #### Returns
 
@@ -426,50 +377,7 @@ PhysicMaterial.destroy
 
 #### Defined in
 
-[src/engine/materials/MaterialBase.ts:342](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L342)
-
-___
-
-### serialization
-
-▸ **serialization**(): [`SerializeMaterialInstance`](SerializeMaterialInstance.md)
-
-#### Returns
-
-[`SerializeMaterialInstance`](SerializeMaterialInstance.md)
-
-#### Inherited from
-
-PhysicMaterial.serialization
-
-#### Defined in
-
-[src/engine/materials/MaterialBase.ts:357](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L357)
-
-___
-
-### unSerialization
-
-▸ **unSerialization**(`instance`, `data`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `instance` | [`SerializeMaterialInstance`](SerializeMaterialInstance.md) |
-| `data` | [`UnSerializeData`](UnSerializeData.md) |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.unSerialization
-
-#### Defined in
-
-[src/engine/materials/MaterialBase.ts:373](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L373)
+[src/materials/MaterialBase.ts:346](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L346)
 
 ___
 
@@ -494,7 +402,7 @@ PhysicMaterial.setShader
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L42)
+[src/materials/MaterialPass.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L39)
 
 ___
 
@@ -512,13 +420,15 @@ PhysicMaterial.getShader
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L49)
+[src/materials/MaterialPass.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L46)
 
 ___
 
 ### useCleanCoat
 
 ▸ **useCleanCoat**(): `void`
+
+valid USE_CLEARCOAT define in shader
 
 #### Returns
 
@@ -530,7 +440,7 @@ PhysicMaterial.useCleanCoat
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:311](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L311)
+[src/materials/PhysicMaterial.ts:288](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L288)
 
 ## Accessors
 
@@ -548,7 +458,7 @@ PhysicMaterial.shaderState
 
 #### Defined in
 
-[src/engine/materials/MaterialBase.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L49)
+[src/materials/MaterialBase.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L44)
 
 • `set` **shaderState**(`value`): `void`
 
@@ -568,33 +478,33 @@ PhysicMaterial.shaderState
 
 #### Defined in
 
-[src/engine/materials/MaterialBase.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L53)
+[src/materials/MaterialBase.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L48)
 
 ___
 
-### tintColor
+### normalMapYFlip
 
-• `get` **tintColor**(): [`Color`](Color.md)
+• `get` **normalMapYFlip**(): `boolean`
 
 #### Returns
 
-[`Color`](Color.md)
+`boolean`
 
 #### Inherited from
 
-PhysicMaterial.tintColor
+PhysicMaterial.normalMapYFlip
 
 #### Defined in
 
-[src/engine/materials/MaterialBase.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L57)
+[src/materials/MaterialBase.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L53)
 
-• `set` **tintColor**(`value`): `void`
+• `set` **normalMapYFlip**(`value`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `value` | [`Color`](Color.md) |
+| `value` | `boolean` |
 
 #### Returns
 
@@ -602,11 +512,11 @@ PhysicMaterial.tintColor
 
 #### Inherited from
 
-PhysicMaterial.tintColor
+PhysicMaterial.normalMapYFlip
 
 #### Defined in
 
-[src/engine/materials/MaterialBase.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L61)
+[src/materials/MaterialBase.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L57)
 
 ___
 
@@ -614,7 +524,7 @@ ___
 
 • `set` **shadowMap**(`texture`): `void`
 
-设置阴影贴图
+Set shadow map
 
 #### Parameters
 
@@ -632,7 +542,7 @@ PhysicMaterial.shadowMap
 
 #### Defined in
 
-[src/engine/materials/MaterialBase.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L68)
+[src/materials/MaterialBase.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L67)
 
 ___
 
@@ -640,7 +550,7 @@ ___
 
 • `set` **envMap**(`texture`): `void`
 
-设置环境贴图
+Set environment map
 
 #### Parameters
 
@@ -658,7 +568,7 @@ PhysicMaterial.envMap
 
 #### Defined in
 
-[src/engine/materials/MaterialBase.ts:75](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L75)
+[src/materials/MaterialBase.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L74)
 
 ___
 
@@ -666,7 +576,7 @@ ___
 
 • `get` **baseMap**(): [`Texture`](Texture.md)
 
-获取基础贴图
+Get base map(main map)
 
 #### Returns
 
@@ -678,11 +588,11 @@ PhysicMaterial.baseMap
 
 #### Defined in
 
-[src/engine/materials/MaterialBase.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L89)
+[src/materials/MaterialBase.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L90)
 
 • `set` **baseMap**(`texture`): `void`
 
-设置基础贴图
+Set base map(main map)
 
 #### Parameters
 
@@ -700,7 +610,7 @@ PhysicMaterial.baseMap
 
 #### Defined in
 
-[src/engine/materials/MaterialBase.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L82)
+[src/materials/MaterialBase.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L81)
 
 ___
 
@@ -708,7 +618,7 @@ ___
 
 • `get` **normalMap**(): [`Texture`](Texture.md)
 
-获取法线贴图
+Get normal map
 
 #### Returns
 
@@ -720,17 +630,17 @@ PhysicMaterial.normalMap
 
 #### Defined in
 
-[src/engine/materials/MaterialBase.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L96)
+[src/materials/MaterialBase.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L97)
 
-• `set` **normalMap**(`value`): `void`
+• `set` **normalMap**(`texture`): `void`
 
-设置法线贴图
+Set normal map
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `value` | [`Texture`](Texture.md) |
+| `texture` | [`Texture`](Texture.md) |
 
 #### Returns
 
@@ -742,7 +652,7 @@ PhysicMaterial.normalMap
 
 #### Defined in
 
-[src/engine/materials/MaterialBase.ts:103](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L103)
+[src/materials/MaterialBase.ts:104](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L104)
 
 ___
 
@@ -750,7 +660,7 @@ ___
 
 • `get` **emissiveColor**(): [`Color`](Color.md)
 
-获取发光颜色
+Get emissive color
 
 #### Returns
 
@@ -762,11 +672,11 @@ PhysicMaterial.emissiveColor
 
 #### Defined in
 
-[src/engine/materials/MaterialBase.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L118)
+[src/materials/MaterialBase.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L119)
 
 • `set` **emissiveColor**(`value`): `void`
 
-设置发光颜色
+Set emissive color
 
 #### Parameters
 
@@ -784,7 +694,7 @@ PhysicMaterial.emissiveColor
 
 #### Defined in
 
-[src/engine/materials/MaterialBase.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L125)
+[src/materials/MaterialBase.ts:126](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L126)
 
 ___
 
@@ -792,7 +702,7 @@ ___
 
 • `get` **emissiveIntensity**(): `number`
 
-获取发光强度
+Get emissive intensity
 
 #### Returns
 
@@ -804,11 +714,11 @@ PhysicMaterial.emissiveIntensity
 
 #### Defined in
 
-[src/engine/materials/MaterialBase.ts:145](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L145)
+[src/materials/MaterialBase.ts:142](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L142)
 
 • `set` **emissiveIntensity**(`value`): `void`
 
-设置发光强度
+Set emissive intensity
 
 #### Parameters
 
@@ -826,7 +736,7 @@ PhysicMaterial.emissiveIntensity
 
 #### Defined in
 
-[src/engine/materials/MaterialBase.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L135)
+[src/materials/MaterialBase.ts:134](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L134)
 
 ___
 
@@ -834,7 +744,7 @@ ___
 
 • `get` **alphaCutoff**(): `number`
 
-获取alphaCutoff，通道透明阈值参数
+Get alphaCutoff, channel transparency threshold parameter
 
 #### Returns
 
@@ -846,11 +756,11 @@ PhysicMaterial.alphaCutoff
 
 #### Defined in
 
-[src/engine/materials/MaterialBase.ts:199](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L199)
+[src/materials/MaterialBase.ts:191](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L191)
 
 • `set` **alphaCutoff**(`value`): `void`
 
-设置alphaCutoff，通道透明阈值参数
+Set alphaCutoff, channel transparency threshold parameter
 
 #### Parameters
 
@@ -868,7 +778,7 @@ PhysicMaterial.alphaCutoff
 
 #### Defined in
 
-[src/engine/materials/MaterialBase.ts:206](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L206)
+[src/materials/MaterialBase.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L198)
 
 ___
 
@@ -876,7 +786,7 @@ ___
 
 • `get` **irradianceMap**(): [`Texture`](Texture.md)
 
-获取irradiance发光贴图
+Get irradiance map
 
 #### Returns
 
@@ -888,11 +798,11 @@ PhysicMaterial.irradianceMap
 
 #### Defined in
 
-[src/engine/materials/MaterialBase.ts:213](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L213)
+[src/materials/MaterialBase.ts:214](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L214)
 
 • `set` **irradianceMap**(`value`): `void`
 
-设置irradiance发光贴图
+Set irradiance map
 
 #### Parameters
 
@@ -910,7 +820,7 @@ PhysicMaterial.irradianceMap
 
 #### Defined in
 
-[src/engine/materials/MaterialBase.ts:220](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L220)
+[src/materials/MaterialBase.ts:221](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L221)
 
 ___
 
@@ -918,7 +828,7 @@ ___
 
 • `get` **irradianceDepthMap**(): [`Texture`](Texture.md)
 
-获取发光深度贴图
+Get irradiance depth map
 
 #### Returns
 
@@ -930,11 +840,11 @@ PhysicMaterial.irradianceDepthMap
 
 #### Defined in
 
-[src/engine/materials/MaterialBase.ts:229](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L229)
+[src/materials/MaterialBase.ts:229](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L229)
 
 • `set` **irradianceDepthMap**(`value`): `void`
 
-设置发光深度贴图
+Set irradiance depth map
 
 #### Parameters
 
@@ -952,7 +862,7 @@ PhysicMaterial.irradianceDepthMap
 
 #### Defined in
 
-[src/engine/materials/MaterialBase.ts:236](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L236)
+[src/materials/MaterialBase.ts:236](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L236)
 
 ___
 
@@ -960,7 +870,7 @@ ___
 
 • `get` **baseColor**(): [`Color`](Color.md)
 
-获取基础颜色
+Get base color(tint color)
 
 #### Returns
 
@@ -972,11 +882,11 @@ PhysicMaterial.baseColor
 
 #### Defined in
 
-[src/engine/materials/MaterialBase.ts:245](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L245)
+[src/materials/MaterialBase.ts:244](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L244)
 
 • `set` **baseColor**(`value`): `void`
 
-设置基础颜色
+Set base color(tint color)
 
 #### Parameters
 
@@ -994,7 +904,7 @@ PhysicMaterial.baseColor
 
 #### Defined in
 
-[src/engine/materials/MaterialBase.ts:252](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialBase.ts#L252)
+[src/materials/MaterialBase.ts:251](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L251)
 
 ___
 
@@ -1012,7 +922,7 @@ PhysicMaterial.sort
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L26)
+[src/materials/MaterialPass.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L23)
 
 • `set` **sort**(`value`): `void`
 
@@ -1032,7 +942,7 @@ PhysicMaterial.sort
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L30)
+[src/materials/MaterialPass.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L27)
 
 ___
 
@@ -1050,7 +960,7 @@ PhysicMaterial.shaderID
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L34)
+[src/materials/MaterialPass.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L31)
 
 • `set` **shaderID**(`value`): `void`
 
@@ -1070,7 +980,7 @@ PhysicMaterial.shaderID
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L38)
+[src/materials/MaterialPass.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L35)
 
 ___
 
@@ -1078,7 +988,7 @@ ___
 
 • `get` **blendMode**(): [`BlendMode`](../enums/BlendMode.md)
 
-获取混合模式
+Get blend mode, see [BlendMode](../enums/BlendMode.md)
 
 #### Returns
 
@@ -1090,11 +1000,11 @@ PhysicMaterial.blendMode
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L56)
+[src/materials/MaterialPass.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L53)
 
 • `set` **blendMode**(`value`): `void`
 
-设置混合模式
+Set blend mode, see [BlendMode](../enums/BlendMode.md)
 
 #### Parameters
 
@@ -1112,7 +1022,49 @@ PhysicMaterial.blendMode
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L63)
+[src/materials/MaterialPass.ts:60](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L60)
+
+___
+
+### transparent
+
+• `get` **transparent**(): `boolean`
+
+Get whether use transparent mode to render
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+PhysicMaterial.transparent
+
+#### Defined in
+
+[src/materials/MaterialPass.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L68)
+
+• `set` **transparent**(`value`): `void`
+
+Set whether use transparent mode to render
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+PhysicMaterial.transparent
+
+#### Defined in
+
+[src/materials/MaterialPass.ts:75](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L75)
 
 ___
 
@@ -1120,7 +1072,7 @@ ___
 
 • `get` **frontFace**(): `GPUFrontFace`
 
-获取面朝向
+Return GPUFrontFace
 
 #### Returns
 
@@ -1132,11 +1084,11 @@ PhysicMaterial.frontFace
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L72)
+[src/materials/MaterialPass.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L82)
 
 • `set` **frontFace**(`value`): `void`
 
-设置面朝向
+Set GPUFrontFace
 
 #### Parameters
 
@@ -1154,7 +1106,7 @@ PhysicMaterial.frontFace
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L79)
+[src/materials/MaterialPass.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L89)
 
 ___
 
@@ -1162,7 +1114,7 @@ ___
 
 • `get` **doubleSide**(): `boolean`
 
-获取是否为双面模式
+Get whether use double side to render object
 
 #### Returns
 
@@ -1174,11 +1126,11 @@ PhysicMaterial.doubleSide
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L86)
+[src/materials/MaterialPass.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L96)
 
 • `set` **doubleSide**(`value`): `void`
 
-设置是否为双面模式
+Set whether use double side to render object
 
 #### Parameters
 
@@ -1196,7 +1148,7 @@ PhysicMaterial.doubleSide
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L93)
+[src/materials/MaterialPass.ts:103](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L103)
 
 ___
 
@@ -1204,7 +1156,7 @@ ___
 
 • `get` **cullMode**(): `GPUCullMode`
 
-获取剔除模式
+get cull mode, see GPUCullMode
 
 #### Returns
 
@@ -1216,11 +1168,11 @@ PhysicMaterial.cullMode
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:100](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L100)
+[src/materials/MaterialPass.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L110)
 
 • `set` **cullMode**(`value`): `void`
 
-设置剔除模式
+set cull mode, see GPUCullMode
 
 #### Parameters
 
@@ -1238,7 +1190,7 @@ PhysicMaterial.cullMode
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L107)
+[src/materials/MaterialPass.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L117)
 
 ___
 
@@ -1256,7 +1208,7 @@ PhysicMaterial.depthBias
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L111)
+[src/materials/MaterialPass.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L121)
 
 • `set` **depthBias**(`value`): `void`
 
@@ -1276,7 +1228,7 @@ PhysicMaterial.depthBias
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L115)
+[src/materials/MaterialPass.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L125)
 
 ___
 
@@ -1284,7 +1236,7 @@ ___
 
 • `get` **depthCompare**(): `GPUCompareFunction`
 
-获取剔除模式
+get depth compare mode, see GPUCompareFunction
 
 #### Returns
 
@@ -1296,11 +1248,11 @@ PhysicMaterial.depthCompare
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L122)
+[src/materials/MaterialPass.ts:132](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L132)
 
 • `set` **depthCompare**(`value`): `void`
 
-设置剔除模式
+set depth compare mode, see GPUCompareFunction
 
 #### Parameters
 
@@ -1318,7 +1270,7 @@ PhysicMaterial.depthCompare
 
 #### Defined in
 
-[src/engine/materials/MaterialPass.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialPass.ts#L129)
+[src/materials/MaterialPass.ts:139](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L139)
 
 ___
 
@@ -1326,7 +1278,7 @@ ___
 
 • `get` **uvTransform_1**(): `Vector4`
 
-获取uvTransform_1
+get transformUV1
 
 #### Returns
 
@@ -1338,11 +1290,11 @@ PhysicMaterial.uvTransform\_1
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L22)
+[src/materials/PhysicMaterial.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L18)
 
 • `set` **uvTransform_1**(`value`): `void`
 
-设置uvTransform_1
+set transformUV1
 
 #### Parameters
 
@@ -1360,7 +1312,7 @@ PhysicMaterial.uvTransform\_1
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L29)
+[src/materials/PhysicMaterial.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L25)
 
 ___
 
@@ -1368,7 +1320,7 @@ ___
 
 • `get` **uvTransform_2**(): `Vector4`
 
-获取uvTransform_2
+get transformUV2
 
 #### Returns
 
@@ -1380,11 +1332,11 @@ PhysicMaterial.uvTransform\_2
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L37)
+[src/materials/PhysicMaterial.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L33)
 
 • `set` **uvTransform_2**(`value`): `void`
 
-设置uvTransform_2
+set transformUV2
 
 #### Parameters
 
@@ -1402,7 +1354,7 @@ PhysicMaterial.uvTransform\_2
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L44)
+[src/materials/PhysicMaterial.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L40)
 
 ___
 
@@ -1410,7 +1362,7 @@ ___
 
 • `get` **materialF0**(): `Vector4`
 
-获取材质反射率
+get reflectivity
 
 #### Returns
 
@@ -1422,11 +1374,11 @@ PhysicMaterial.materialF0
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L56)
+[src/materials/PhysicMaterial.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L48)
 
 • `set` **materialF0**(`value`): `void`
 
-设置材质反射率
+set reflectivity
 
 #### Parameters
 
@@ -1444,7 +1396,7 @@ PhysicMaterial.materialF0
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L63)
+[src/materials/PhysicMaterial.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L55)
 
 ___
 
@@ -1452,7 +1404,7 @@ ___
 
 • `get` **roughness**(): `number`
 
-获取材质粗糙程度
+get roughness
 
 #### Returns
 
@@ -1464,11 +1416,11 @@ PhysicMaterial.roughness
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L70)
+[src/materials/PhysicMaterial.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L62)
 
 • `set` **roughness**(`value`): `void`
 
-设置材质粗糙程度
+set roughness
 
 #### Parameters
 
@@ -1486,7 +1438,7 @@ PhysicMaterial.roughness
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L77)
+[src/materials/PhysicMaterial.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L69)
 
 ___
 
@@ -1494,7 +1446,7 @@ ___
 
 • `get` **metallic**(): `number`
 
-获取材质金属度
+get metallic
 
 #### Returns
 
@@ -1506,11 +1458,11 @@ PhysicMaterial.metallic
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L84)
+[src/materials/PhysicMaterial.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L76)
 
 • `set` **metallic**(`value`): `void`
 
-设置材质金属度
+set metallic
 
 #### Parameters
 
@@ -1528,7 +1480,7 @@ PhysicMaterial.metallic
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:91](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L91)
+[src/materials/PhysicMaterial.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L83)
 
 ___
 
@@ -1536,7 +1488,7 @@ ___
 
 • `get` **ao**(): `number`
 
-获取Ambient Occlussion, 处理环境光对物体遮挡的效果
+get Ambient Occlussion, dealing with the effect of ambient light on object occlusion
 
 #### Returns
 
@@ -1548,11 +1500,11 @@ PhysicMaterial.ao
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:98](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L98)
+[src/materials/PhysicMaterial.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L90)
 
 • `set` **ao**(`value`): `void`
 
-设置Ambient Occlussion, 处理环境光对物体遮挡的效果
+set Ambient Occlussion, dealing with the effect of ambient light on object occlusion
 
 #### Parameters
 
@@ -1570,7 +1522,7 @@ PhysicMaterial.ao
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:105](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L105)
+[src/materials/PhysicMaterial.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L97)
 
 ___
 
@@ -1578,7 +1530,7 @@ ___
 
 • `get` **metallic_min**(): `number`
 
-获取最小金属度
+get min metallic
 
 #### Returns
 
@@ -1590,11 +1542,11 @@ PhysicMaterial.metallic\_min
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L112)
+[src/materials/PhysicMaterial.ts:104](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L104)
 
 • `set` **metallic_min**(`value`): `void`
 
-设置最小金属度
+set min metallic
 
 #### Parameters
 
@@ -1612,7 +1564,7 @@ PhysicMaterial.metallic\_min
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L119)
+[src/materials/PhysicMaterial.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L111)
 
 ___
 
@@ -1620,7 +1572,7 @@ ___
 
 • `get` **metallic_max**(): `number`
 
-获取最大金属度
+get max metallic
 
 #### Returns
 
@@ -1632,11 +1584,11 @@ PhysicMaterial.metallic\_max
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:126](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L126)
+[src/materials/PhysicMaterial.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L118)
 
 • `set` **metallic_max**(`value`): `void`
 
-设置最大金属度
+set max metallic
 
 #### Parameters
 
@@ -1654,7 +1606,7 @@ PhysicMaterial.metallic\_max
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L133)
+[src/materials/PhysicMaterial.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L125)
 
 ___
 
@@ -1662,7 +1614,7 @@ ___
 
 • `get` **roughness_min**(): `number`
 
-设置最小粗糙程度
+get min roughness
 
 #### Returns
 
@@ -1674,11 +1626,11 @@ PhysicMaterial.roughness\_min
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:140](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L140)
+[src/materials/PhysicMaterial.ts:132](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L132)
 
 • `set` **roughness_min**(`value`): `void`
 
-设置最小粗糙程度
+set min roughness
 
 #### Parameters
 
@@ -1696,7 +1648,7 @@ PhysicMaterial.roughness\_min
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:147](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L147)
+[src/materials/PhysicMaterial.ts:139](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L139)
 
 ___
 
@@ -1704,7 +1656,7 @@ ___
 
 • `get` **roughness_max**(): `number`
 
-获取最大粗糙程度
+get max roughness
 
 #### Returns
 
@@ -1716,11 +1668,11 @@ PhysicMaterial.roughness\_max
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:154](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L154)
+[src/materials/PhysicMaterial.ts:146](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L146)
 
 • `set` **roughness_max**(`value`): `void`
 
-设置最大粗糙程度
+set max roughness
 
 #### Parameters
 
@@ -1738,7 +1690,7 @@ PhysicMaterial.roughness\_max
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:161](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L161)
+[src/materials/PhysicMaterial.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L153)
 
 ___
 
@@ -1746,7 +1698,7 @@ ___
 
 • `get` **normalScale**(): `number`
 
-获取法线贴图对材质的影响程度
+Get the influence of Normal mapping on materials
 
 #### Returns
 
@@ -1758,11 +1710,11 @@ PhysicMaterial.normalScale
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:168](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L168)
+[src/materials/PhysicMaterial.ts:160](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L160)
 
 • `set` **normalScale**(`value`): `void`
 
-设置法线贴图对材质的影响程度
+Set the influence of Normal mapping on materials
 
 #### Parameters
 
@@ -1780,7 +1732,7 @@ PhysicMaterial.normalScale
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:175](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L175)
+[src/materials/PhysicMaterial.ts:167](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L167)
 
 ___
 
@@ -1788,7 +1740,11 @@ ___
 
 • `get` **maskMap**(): [`Texture`](Texture.md)
 
-获取遮罩贴图
+get Mask Map
+R_chanel -> AoMap 
+G_chanel -> Roughness
+B_chanel -> Metallic
+A_chanel -> C
 
 #### Returns
 
@@ -1800,11 +1756,11 @@ PhysicMaterial.maskMap
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:204](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L204)
+[src/materials/PhysicMaterial.ts:178](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L178)
 
 • `set` **maskMap**(`value`): `void`
 
-设置遮罩贴图
+set Mask Map
 R_chanel -> AoMap 
 G_chanel -> Roughness
 B_chanel -> Metallic
@@ -1826,7 +1782,7 @@ PhysicMaterial.maskMap
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:215](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L215)
+[src/materials/PhysicMaterial.ts:189](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L189)
 
 ___
 
@@ -1834,7 +1790,7 @@ ___
 
 • `get` **aoMap**(): [`Texture`](Texture.md)
 
-获取ao贴图
+get Ambient Occlussion Map, dealing with the effect of ambient light on object occlusion
 
 #### Returns
 
@@ -1846,11 +1802,11 @@ PhysicMaterial.aoMap
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:234](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L234)
+[src/materials/PhysicMaterial.ts:208](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L208)
 
 • `set` **aoMap**(`value`): `void`
 
-设置ao贴图
+set Ambient Occlussion Map, dealing with the effect of ambient light on object occlusion
 
 #### Parameters
 
@@ -1868,7 +1824,7 @@ PhysicMaterial.aoMap
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:223](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L223)
+[src/materials/PhysicMaterial.ts:197](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L197)
 
 ___
 
@@ -1876,7 +1832,7 @@ ___
 
 • `get` **clearCoatRoughnessMap**(): [`Texture`](Texture.md)
 
-获取clearCoatRoughnessMap贴图
+get clearCoatRoughnessMap
 
 #### Returns
 
@@ -1888,11 +1844,11 @@ PhysicMaterial.clearCoatRoughnessMap
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:250](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L250)
+[src/materials/PhysicMaterial.ts:224](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L224)
 
 • `set` **clearCoatRoughnessMap**(`value`): `void`
 
-设置clearCoatRoughnessMap贴图
+set clearCoatRoughnessMap
 
 #### Parameters
 
@@ -1910,7 +1866,7 @@ PhysicMaterial.clearCoatRoughnessMap
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:241](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L241)
+[src/materials/PhysicMaterial.ts:215](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L215)
 
 ___
 
@@ -1918,7 +1874,7 @@ ___
 
 • `get` **brdfLUT**(): [`Texture`](Texture.md)
 
-获取brdf查询表
+get brdf query map
 
 #### Returns
 
@@ -1930,11 +1886,11 @@ PhysicMaterial.brdfLUT
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:257](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L257)
+[src/materials/PhysicMaterial.ts:231](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L231)
 
 • `set` **brdfLUT**(`value`): `void`
 
-设置brdf查询表
+set brdf query map
 
 #### Parameters
 
@@ -1952,7 +1908,7 @@ PhysicMaterial.brdfLUT
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:264](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L264)
+[src/materials/PhysicMaterial.ts:238](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L238)
 
 ___
 
@@ -1960,7 +1916,7 @@ ___
 
 • `get` **emissiveMap**(): [`Texture`](Texture.md)
 
-获取发光贴图
+get emissive map
 
 #### Returns
 
@@ -1972,11 +1928,11 @@ PhysicMaterial.emissiveMap
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:272](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L272)
+[src/materials/PhysicMaterial.ts:246](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L246)
 
 • `set` **emissiveMap**(`value`): `void`
 
-设置发光贴图
+set emissive map
 
 #### Parameters
 
@@ -1994,7 +1950,7 @@ PhysicMaterial.emissiveMap
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:279](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L279)
+[src/materials/PhysicMaterial.ts:253](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L253)
 
 ___
 
@@ -2002,7 +1958,7 @@ ___
 
 • `get` **envIntensity**(): `number`
 
-获取环境强度
+get intensity of environment light or color of sampled by texture
 
 #### Returns
 
@@ -2014,11 +1970,11 @@ PhysicMaterial.envIntensity
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:293](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L293)
+[src/materials/PhysicMaterial.ts:267](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L267)
 
 • `set` **envIntensity**(`value`): `void`
 
-设置环境强度
+set intensity of environment light or color of sampled by texture
 
 #### Parameters
 
@@ -2036,7 +1992,7 @@ PhysicMaterial.envIntensity
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:286](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L286)
+[src/materials/PhysicMaterial.ts:260](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L260)
 
 ___
 
@@ -2044,7 +2000,7 @@ ___
 
 • `get` **ior**(): `number`
 
-获取折射系数
+get factor of refractive
 
 #### Returns
 
@@ -2056,11 +2012,11 @@ PhysicMaterial.ior
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:307](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L307)
+[src/materials/PhysicMaterial.ts:281](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L281)
 
 • `set` **ior**(`value`): `void`
 
-设置折射系数
+set factor of refractive
 
 #### Parameters
 
@@ -2078,7 +2034,7 @@ PhysicMaterial.ior
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:300](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L300)
+[src/materials/PhysicMaterial.ts:274](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L274)
 
 ___
 
@@ -2086,7 +2042,7 @@ ___
 
 • `get` **clearcoatFactor**(): `number`
 
-获取透明涂层强度系数
+get the factor of the clearcoat
 
 #### Returns
 
@@ -2098,11 +2054,11 @@ PhysicMaterial.clearcoatFactor
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:325](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L325)
+[src/materials/PhysicMaterial.ts:302](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L302)
 
 • `set` **clearcoatFactor**(`value`): `void`
 
-设置透明涂层强度系数
+Set the factor of the clearcoat
 
 #### Parameters
 
@@ -2120,7 +2076,7 @@ PhysicMaterial.clearcoatFactor
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:318](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L318)
+[src/materials/PhysicMaterial.ts:295](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L295)
 
 ___
 
@@ -2128,7 +2084,7 @@ ___
 
 • `get` **clearcoatRoughnessFactor**(): `number`
 
-获取透明涂层粗糙程度系数
+get the factor of the clearcoat Roughness
 
 #### Returns
 
@@ -2140,11 +2096,11 @@ PhysicMaterial.clearcoatRoughnessFactor
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:339](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L339)
+[src/materials/PhysicMaterial.ts:316](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L316)
 
 • `set` **clearcoatRoughnessFactor**(`value`): `void`
 
-设置透明涂层粗糙程度系数
+set the factor of the clearcoat Roughness
 
 #### Parameters
 
@@ -2162,7 +2118,7 @@ PhysicMaterial.clearcoatRoughnessFactor
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:332](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L332)
+[src/materials/PhysicMaterial.ts:309](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L309)
 
 ___
 
@@ -2170,7 +2126,7 @@ ___
 
 • `get` **clearcoatWeight**(): `number`
 
-获取透明涂层权重
+get the weight of the clearcoat
 
 #### Returns
 
@@ -2182,11 +2138,11 @@ PhysicMaterial.clearcoatWeight
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:353](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L353)
+[src/materials/PhysicMaterial.ts:330](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L330)
 
 • `set` **clearcoatWeight**(`value`): `void`
 
-设置透明涂层权重
+set the weight of the clearcoat
 
 #### Parameters
 
@@ -2204,7 +2160,7 @@ PhysicMaterial.clearcoatWeight
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:346](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L346)
+[src/materials/PhysicMaterial.ts:323](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L323)
 
 ___
 
@@ -2212,7 +2168,7 @@ ___
 
 • `get` **clearcoatColor**(): [`Color`](Color.md)
 
-获取透明涂层颜色
+set the color of the clearcoat
 
 #### Returns
 
@@ -2224,11 +2180,11 @@ PhysicMaterial.clearcoatColor
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L367)
+[src/materials/PhysicMaterial.ts:344](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L344)
 
 • `set` **clearcoatColor**(`value`): `void`
 
-设置透明涂层颜色
+get the color of the clearcoat
 
 #### Parameters
 
@@ -2246,4 +2202,4 @@ PhysicMaterial.clearcoatColor
 
 #### Defined in
 
-[src/engine/materials/PhysicMaterial.ts:360](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/PhysicMaterial.ts#L360)
+[src/materials/PhysicMaterial.ts:337](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L337)

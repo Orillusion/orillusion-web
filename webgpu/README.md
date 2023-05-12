@@ -1,5 +1,5 @@
 # WebGPU Specification
-This is a public archive for WebGPU API and WebGPU Shading Language (WGSL) specifications. 
+This is a repository for Chinese translation of WebGPU API and WebGPU Shading Language (WGSL) specifications. 
 
 You can find the original specifications from https://gpuweb.github.io/gpuweb/
 

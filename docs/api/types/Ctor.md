@@ -10,9 +10,15 @@
 
 #### Call signature
 
-• **new Ctor**(): `T`
+• **new Ctor**(`any?`): `T`
 
 Constructor
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `any?` | `any` |
 
 ##### Returns
 
@@ -26,4 +32,4 @@ Constructor
 
 #### Defined in
 
-[src/engine/util/Global.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/Global.ts#L40)
+[src/util/Global.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/util/Global.ts#L40)

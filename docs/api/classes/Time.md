@@ -1,6 +1,6 @@
 # Class: Time
 
-时间工具类
+Tool of time
 
 
 ### Properties
@@ -19,11 +19,11 @@
 
 ▪ `Static` **time**: `number` = `0`
 
-引擎运行的时间
+The time the engine has been running
 
 #### Defined in
 
-[src/engine/util/Time.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/Time.ts#L9)
+[src/util/Time.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/util/Time.ts#L9)
 
 ___
 
@@ -31,11 +31,11 @@ ___
 
 ▪ `Static` **frame**: `number` = `0`
 
-引擎运行的帧数
+the frame count engine is running
 
 #### Defined in
 
-[src/engine/util/Time.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/Time.ts#L13)
+[src/util/Time.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/util/Time.ts#L13)
 
 ___
 
@@ -43,11 +43,11 @@ ___
 
 ▪ `Static` **delta**: `number` = `0`
 
-距离上一帧到现在的时间
+Time from previous frame to present
 
 #### Defined in
 
-[src/engine/util/Time.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/Time.ts#L17)
+[src/util/Time.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/util/Time.ts#L17)
 
 ## Constructors
 

@@ -1,22 +1,36 @@
 # Class: Matrix4
 
-4*4 的矩阵
+math 4*4 matrix
 
 
 ### Properties
 
 - [blockBytes](Matrix4.md#blockbytes)
-- [count](Matrix4.md#count)
-- [EPSILON](Matrix4.md#epsilon)
-- [index](Matrix4.md#index)
+- [allocCount](Matrix4.md#alloccount)
+- [maxCount](Matrix4.md#maxcount)
+- [useCount](Matrix4.md#usecount)
+- [matrixBytes](Matrix4.md#matrixbytes)
+- [globalMatrixRef](Matrix4.md#globalmatrixref)
 - [help\_matrix\_0](Matrix4.md#help_matrix_0)
 - [help\_matrix\_1](Matrix4.md#help_matrix_1)
 - [help\_matrix\_2](Matrix4.md#help_matrix_2)
+- [helpMatrix](Matrix4.md#helpmatrix)
+- [helpMatrix2](Matrix4.md#helpmatrix2)
+- [index](Matrix4.md#index)
 - [rawData](Matrix4.md#rawdata)
 
 ### Methods
 
-- [init](Matrix4.md#init)
+- [allocMatrix](Matrix4.md#allocmatrix)
+- [fromToRotation](Matrix4.md#fromtorotation)
+- [getAxisRotation](Matrix4.md#getaxisrotation)
+- [sanitizeEuler](Matrix4.md#sanitizeeuler)
+- [makePositive](Matrix4.md#makepositive)
+- [matrixToEuler](Matrix4.md#matrixtoeuler)
+- [matrixMultiply](Matrix4.md#matrixmultiply)
+- [matrixAppend](Matrix4.md#matrixappend)
+- [matrixRotateY](Matrix4.md#matrixrotatey)
+- [matrixRotate](Matrix4.md#matrixrotate)
 - [lookAt](Matrix4.md#lookat)
 - [multiply](Matrix4.md#multiply)
 - [multiplyMatrices](Matrix4.md#multiplymatrices)
@@ -29,7 +43,6 @@
 - [orthoZO](Matrix4.md#orthozo)
 - [orthoOffCenter](Matrix4.md#orthooffcenter)
 - [transformDir](Matrix4.md#transformdir)
-- [fromToRotation](Matrix4.md#fromtorotation)
 - [append](Matrix4.md#append)
 - [add](Matrix4.md#add)
 - [sub](Matrix4.md#sub)
@@ -59,25 +72,16 @@
 - [transformPoint](Matrix4.md#transformpoint)
 - [transformVector](Matrix4.md#transformvector)
 - [transpose](Matrix4.md#transpose)
-- [getAxisRotation](Matrix4.md#getaxisrotation)
 - [getPosition](Matrix4.md#getposition)
 - [toString](Matrix4.md#tostring)
 - [lerp](Matrix4.md#lerp)
 - [get](Matrix4.md#get)
 - [set](Matrix4.md#set)
 - [getMaxScaleOnAxis](Matrix4.md#getmaxscaleonaxis)
-- [sanitizeEuler](Matrix4.md#sanitizeeuler)
-- [makePositive](Matrix4.md#makepositive)
-- [matrixToEuler](Matrix4.md#matrixtoeuler)
 - [translate](Matrix4.md#translate)
 - [setTRInverse](Matrix4.md#settrinverse)
 - [setScale](Matrix4.md#setscale)
-- [matrix\_Multiply](Matrix4.md#matrix_multiply)
-- [matrix\_Append](Matrix4.md#matrix_append)
-- [matrix\_RotateY](Matrix4.md#matrix_rotatey)
-- [matrix\_Rotate](Matrix4.md#matrix_rotate)
 - [makeBasis](Matrix4.md#makebasis)
-- [setElements](Matrix4.md#setelements)
 - [makeRotationAxis](Matrix4.md#makerotationaxis)
 
 ### Constructors
@@ -96,47 +100,71 @@
 
 ▪ `Static` **blockBytes**: `number`
 
-区块大小
+matrix44 bytes block size
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L15)
+[src/math/Matrix4.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L17)
 
 ___
 
-### count
+### allocCount
 
-▪ `Static` **count**: `number` = `31000`
+▪ `Static` **allocCount**: `number` = `0`
 
-初始化的区块数量
+matrix do total count
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L25)
+[src/math/Matrix4.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L27)
 
 ___
 
-### EPSILON
+### maxCount
 
-▪ `Static` **EPSILON**: `number` = `0.000001`
+▪ `Static` **maxCount**: `number` = `200000`
 
-保留的最小精度
+matrix has max limit count
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L30)
+[src/math/Matrix4.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L32)
 
 ___
 
-### index
+### useCount
 
-• **index**: `number` = `0`
+▪ `Static` **useCount**: `number` = `0`
 
-矩阵索引值
+current matrix use count
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L35)
+[src/math/Matrix4.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L37)
+
+___
+
+### matrixBytes
+
+▪ `Static` **matrixBytes**: `Float32Array`
+
+matrix do use share bytesArray
+
+#### Defined in
+
+[src/math/Matrix4.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L53)
+
+___
+
+### globalMatrixRef
+
+▪ `Static` **globalMatrixRef**: [`Matrix4`](Matrix4.md)[]
+
+cache all use do matrix
+
+#### Defined in
+
+[src/math/Matrix4.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L58)
 
 ___
 
@@ -144,11 +172,11 @@ ___
 
 ▪ `Static` **help\_matrix\_0**: [`Matrix4`](Matrix4.md)
 
-临时缓存矩阵
+help fix global matrix 0
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L57)
+[src/math/Matrix4.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L68)
 
 ___
 
@@ -156,11 +184,11 @@ ___
 
 ▪ `Static` **help\_matrix\_1**: [`Matrix4`](Matrix4.md)
 
-临时缓存矩阵
+help fix global matrix 1
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L62)
+[src/math/Matrix4.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L73)
 
 ___
 
@@ -168,11 +196,47 @@ ___
 
 ▪ `Static` **help\_matrix\_2**: [`Matrix4`](Matrix4.md)
 
-临时缓存矩阵
+help fix global matrix 2
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L67)
+[src/math/Matrix4.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L78)
+
+___
+
+### helpMatrix
+
+▪ `Static` **helpMatrix**: [`Matrix4`](Matrix4.md)
+
+help fix global matrix 3
+
+#### Defined in
+
+[src/math/Matrix4.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L83)
+
+___
+
+### helpMatrix2
+
+▪ `Static` **helpMatrix2**: [`Matrix4`](Matrix4.md)
+
+help fix global matrix 4
+
+#### Defined in
+
+[src/math/Matrix4.ts:88](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L88)
+
+___
+
+### index
+
+• **index**: `number` = `0`
+
+matrix index at global matrix list
+
+#### Defined in
+
+[src/math/Matrix4.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L99)
 
 ___
 
@@ -180,44 +244,267 @@ ___
 
 • **rawData**: `Float32Array`
 
-**`Language`**
+matrix raw data format Float32Array
 
-zh_CN
-一个由 16 个数字组成的矢量，其中，每四个元素可以是 4x4 矩阵的一行或一列
+**`See`**
+
+Float32Array
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L133)
+[src/math/Matrix4.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L111)
 
 ## Methods
 
-### init
+### allocMatrix
 
-▸ `Static` **init**(`count`): `Promise`<`void`\>
+▸ `Static` **allocMatrix**(`allocCount`): `void`
 
-初始化矩阵，分配wasm内存
+alloc web runtime cpu memory totalCount * 4(float) * 4
+init matrix memory by totalCount * 4(float) * 4
+
+**`Version`**
+
+Orillusion3D  0.5.1
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `allocCount` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/math/Matrix4.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L122)
+
+___
+
+### fromToRotation
+
+▸ `Static` **fromToRotation**(`fromDirection`, `toDirection`, `target?`): [`Matrix4`](Matrix4.md)
+
+create matrix from two direction
+
+**`Version`**
+
+Orillusion3D  0.5.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `count` | `number` | 分配的区块数量 |
+| `fromDirection` | [`Vector3`](Vector3.md) | first direction |
+| `toDirection` | [`Vector3`](Vector3.md) | second direction |
+| `target?` | [`Matrix4`](Matrix4.md) | ref matrix |
 
 #### Returns
 
-`Promise`<`void`\>
+[`Matrix4`](Matrix4.md)
+
+return new one matrix
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L86)
+[src/math/Matrix4.ts:155](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L155)
+
+___
+
+### getAxisRotation
+
+▸ `Static` **getAxisRotation**(`x`, `y`, `z`, `degrees`): [`Matrix4`](Matrix4.md)
+
+Generate a matrix (rotate degrees with x,y,z as the center axis)
+
+**`Version`**
+
+Orillusion3D  0.5.1
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `x` | `number` | x on the central axis |
+| `y` | `number` | y on the central axis |
+| `z` | `number` | z on the central axis |
+| `degrees` | `number` | rotation angle |
+
+#### Returns
+
+[`Matrix4`](Matrix4.md)
+
+Matrix4 result
+
+#### Defined in
+
+[src/math/Matrix4.ts:170](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L170)
+
+___
+
+### sanitizeEuler
+
+▸ `Static` **sanitizeEuler**(`euler`): `void`
+
+Arrange the Euler values
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `euler` | [`Vector3`](Vector3.md) | Euler values |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/math/Matrix4.ts:204](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L204)
+
+___
+
+### makePositive
+
+▸ `Static` **makePositive**(`euler`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `euler` | [`Vector3`](Vector3.md) |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/math/Matrix4.ts:212](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L212)
+
+___
+
+### matrixToEuler
+
+▸ `Static` **matrixToEuler**(`matrix`, `v`): `boolean`
+
+Convert the matrix to Euler angles
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `matrix` | [`Matrix4`](Matrix4.md) | Matrix to be transformed |
+| `v` | [`Vector3`](Vector3.md) | euler angle |
+
+#### Returns
+
+`boolean`
+
+#### Defined in
+
+[src/math/Matrix4.ts:244](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L244)
+
+___
+
+### matrixMultiply
+
+▸ `Static` **matrixMultiply**(`aMat`, `bMat`, `target_Mat`): `void`
+
+Multiply the world matrix, specifying parameters and results according to the index
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `aMat` | [`Matrix4`](Matrix4.md) | Matrix to be multiplied (please specify index) |
+| `bMat` | [`Matrix4`](Matrix4.md) | Matrix to be multiplied (please specify index) |
+| `target_Mat` | [`Matrix4`](Matrix4.md) | Result matrix (get results based on index) |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/math/Matrix4.ts:281](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L281)
+
+___
+
+### matrixAppend
+
+▸ `Static` **matrixAppend**(`aMat`, `bMat`, `target_Mat`): `void`
+
+World matrix extension, according to the index to specify parameters and results
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `aMat` | [`Matrix4`](Matrix4.md) | Matrix to be multiplied (please specify index) |
+| `bMat` | [`Matrix4`](Matrix4.md) | Matrix to be multiplied (please specify index) |
+| `target_Mat` | [`Matrix4`](Matrix4.md) | Result matrix (get results based on index) |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/math/Matrix4.ts:291](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L291)
+
+___
+
+### matrixRotateY
+
+▸ `Static` **matrixRotateY**(`rad`, `target_Mat`): `void`
+
+The Y-axis is rotated between the world matrix, and the parameters and results are specified according to the index
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `rad` | `number` | - |
+| `target_Mat` | [`Matrix4`](Matrix4.md) | Result matrix (get results based on index) |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/math/Matrix4.ts:301](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L301)
+
+___
+
+### matrixRotate
+
+▸ `Static` **matrixRotate**(`rad`, `axis`, `target_Mat`): `void`
+
+Rotate the world matrix, specifying parameters and results according to the index
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `rad` | `number` | - |
+| `axis` | [`Vector3`](Vector3.md) | - |
+| `target_Mat` | [`Matrix4`](Matrix4.md) | Result matrix (get results based on index) |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/math/Matrix4.ts:311](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L311)
 
 ___
 
@@ -225,26 +512,19 @@ ___
 
 ▸ **lookAt**(`eye`, `at`, `up?`): `void`
 
-**`Language`**
-
-zh_CN
-生成一个注视目标的矩阵.
+current matrix move position and rotation to target
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `eye` | [`Vector3`](Vector3.md) | `undefined` | 眼睛的位置. |
-| `at` | [`Vector3`](Vector3.md) | `undefined` | 目标的位置. |
-| `up` | [`Vector3`](Vector3.md) | `Vector3.Y_AXIS` | 向上的方向. |
+| `eye` | [`Vector3`](Vector3.md) | `undefined` | eye position |
+| `at` | [`Vector3`](Vector3.md) | `undefined` | target position |
+| `up` | [`Vector3`](Vector3.md) | `Vector3.Y_AXIS` | normalize axis way |
 
 #### Returns
 
@@ -252,7 +532,7 @@ Web,Native
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:169](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L169)
+[src/math/Matrix4.ts:349](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L349)
 
 ___
 
@@ -260,24 +540,17 @@ ___
 
 ▸ **multiply**(`mat4`): `void`
 
-**`Language`**
-
-zh_CN
-矩阵相乘.
+matrix multiply
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `mat4` | [`Matrix4`](Matrix4.md) | 相乘的矩阵 |
+| `mat4` | [`Matrix4`](Matrix4.md) | multiply target |
 
 #### Returns
 
@@ -285,7 +558,7 @@ Web,Native
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:223](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L223)
+[src/math/Matrix4.ts:403](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L403)
 
 ___
 
@@ -306,7 +579,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:266](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L266)
+[src/math/Matrix4.ts:452](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L452)
 
 ___
 
@@ -314,24 +587,25 @@ ___
 
 ▸ **multiplyPoint3**(`v`, `output?`): [`Vector3`](Vector3.md)
 
-当前矩阵与3维相乘
+convert a vector3 to this matrix space
+if output not set , return a new one
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `v` | [`Vector3`](Vector3.md) | 相剩的3维向量 |
-| `output?` | [`Vector3`](Vector3.md) | 结果向量 |
+| `v` | [`Vector3`](Vector3.md) | target vector3 |
+| `output?` | [`Vector3`](Vector3.md) | save target |
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-结果向量
+save target
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:312](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L312)
+[src/math/Matrix4.ts:499](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L499)
 
 ___
 
@@ -352,7 +626,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:323](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L323)
+[src/math/Matrix4.ts:508](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L508)
 
 ___
 
@@ -360,35 +634,29 @@ ___
 
 ▸ **transformVector4**(`v`, `target?`): [`Vector3`](Vector3.md)
 
-**`Language`**
-
-zh_CN
-用当前矩阵变换一个3D向量
+convert a vector3 to this matrix space
+if output not set , return a new one
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `v` | [`Vector3`](Vector3.md) | 变换的向量 w 会进行计算 |
-| `target?` | [`Vector3`](Vector3.md) | 如果当前参数为null那么就会new一个新的Vector3返回 |
+| `v` | [`Vector3`](Vector3.md) | convert target |
+| `target?` | [`Vector3`](Vector3.md) | ref one vector3 |
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-Vector3 变换后的向量
+Vector3
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:359](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L359)
+[src/math/Matrix4.ts:540](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L540)
 
 ___
 
@@ -396,14 +664,14 @@ ___
 
 ▸ **perspectiveMultiplyPoint3**(`v`, `output`): `boolean`
 
-将投影坐标转换为3D坐标
+Convert projection coordinates to 3D coordinates
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `v` | [`Vector3`](Vector3.md) | 投影坐标点 |
-| `output` | [`Vector3`](Vector3.md) | 3D坐标点 |
+| `v` | [`Vector3`](Vector3.md) | vector3 target |
+| `output` | [`Vector3`](Vector3.md) | ref vector3d |
 
 #### Returns
 
@@ -411,7 +679,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:385](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L385)
+[src/math/Matrix4.ts:564](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L564)
 
 ___
 
@@ -419,27 +687,20 @@ ___
 
 ▸ **perspective**(`fov`, `aspect`, `zn`, `zf`): `void`
 
-**`Language`**
-
-zh_CN
-生成一个透视投影矩阵.
+set matrix perspective
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `fov` | `number` | 观察时y 轴方向的角度，就是观察范围夹角。 |
-| `aspect` | `number` | 横纵比，在视空间宽度除以高度. |
-| `zn` | `number` | 近裁剪面位置Z值. |
-| `zf` | `number` | 远裁剪面位置Z值. |
+| `fov` | `number` | perspective angle 0 ~ 90 |
+| `aspect` | `number` | aspect ratio |
+| `zn` | `number` | near plane |
+| `zf` | `number` | far plane |
 
 #### Returns
 
@@ -447,43 +708,37 @@ Web,Native
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:468](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L468)
+[src/math/Matrix4.ts:594](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L594)
 
 ___
 
 ### ortho
 
-▸ **ortho**(`w`, `h`, `zn`, `zf`): `void`
-
-**`Language`**
-
-zh_CN
-生成一个透视投影矩阵.
+▸ **ortho**(`w`, `h`, `zn`, `zf`): [`Matrix4`](Matrix4.md)
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
+set matrix orthogonal projection
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `w` | `number` | 屏幕的宽度。 |
-| `h` | `number` | 屏幕的高度. |
-| `zn` | `number` | 近裁剪面位置Z值. |
-| `zf` | `number` | 远裁剪面位置Z值. |
+| `w` | `number` | screen width |
+| `h` | `number` | screen height |
+| `zn` | `number` | camera near plane |
+| `zf` | `number` | camera far plane |
 
 #### Returns
 
-`void`
+[`Matrix4`](Matrix4.md)
+
+this matrix
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:506](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L506)
+[src/math/Matrix4.ts:634](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L634)
 
 ___
 
@@ -491,28 +746,28 @@ ___
 
 ▸ **orthoZO**(`left`, `right`, `bottom`, `top`, `near`, `far`): [`Matrix4`](Matrix4.md)
 
-计算一个正交投影矩阵。
+set matrix orthogonal projection by view side
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `left` | `number` | 视图的左边界 |
-| `right` | `number` | 视图的右边界 |
-| `bottom` | `number` | 视图的下边界 |
-| `top` | `number` | 视图的左上界 |
-| `near` | `number` | 近截面 |
-| `far` | `number` | 远截面 |
+| `left` | `number` | orthogonal view left |
+| `right` | `number` | orthogonal view right |
+| `bottom` | `number` | orthogonal view bottom |
+| `top` | `number` | orthogonal view top |
+| `near` | `number` | camera near plane |
+| `far` | `number` | camera far plane |
 
 #### Returns
 
 [`Matrix4`](Matrix4.md)
 
-结果矩阵
+this matrix
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:540](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L540)
+[src/math/Matrix4.ts:670](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L670)
 
 ___
 
@@ -520,29 +775,18 @@ ___
 
 ▸ **orthoOffCenter**(`l`, `r`, `b`, `t`, `zn`, `zf`): `void`
 
-**`Language`**
-
-zh_CN
-生成一个透视投影矩阵.
-
-**`Version`**
-
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+set matrix orthogonal projection by view center
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `l` | `number` | 观察时X轴最小值. |
-| `r` | `number` | 观察时X轴最大值. |
-| `b` | `number` | 观察时Y轴最小值。 |
-| `t` | `number` | 观察时Y轴最大值. |
-| `zn` | `number` | 近裁剪面位置Z值. |
-| `zf` | `number` | 远裁剪面位置Z值. |
+| Name | Type |
+| :------ | :------ |
+| `l` | `number` |
+| `r` | `number` |
+| `b` | `number` |
+| `t` | `number` |
+| `zn` | `number` |
+| `zf` | `number` |
 
 #### Returns
 
@@ -550,7 +794,7 @@ Web,Native
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:576](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L576)
+[src/math/Matrix4.ts:697](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L697)
 
 ___
 
@@ -558,25 +802,18 @@ ___
 
 ▸ **transformDir**(`fromDirection`, `toDirection`): `void`
 
-**`Language`**
-
-zh_CN
-计算出一个方向变换到另一个方向的旋转矩阵
+set matrix form two direction
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `fromDirection` | [`Vector3`](Vector3.md) | 初始方向 |
-| `toDirection` | [`Vector3`](Vector3.md) | 变换后的方向 |
+| `fromDirection` | [`Vector3`](Vector3.md) | first direction |
+| `toDirection` | [`Vector3`](Vector3.md) | second direction |
 
 #### Returns
 
@@ -584,44 +821,7 @@ Web,Native
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:608](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L608)
-
-___
-
-### fromToRotation
-
-▸ `Static` **fromToRotation**(`fromDirection`, `toDirection`, `target?`): [`Matrix4`](Matrix4.md)
-
-**`Language`**
-
-zh_CN
-计算出一个方向变换到另一个方向的旋转矩阵
-
-**`Version`**
-
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `fromDirection` | [`Vector3`](Vector3.md) | 初始方向 |
-| `toDirection` | [`Vector3`](Vector3.md) | 变换后的方向 |
-| `target?` | [`Matrix4`](Matrix4.md) | 计算出的旋转矩阵 默认为null 结果会返回 |
-
-#### Returns
-
-[`Matrix4`](Matrix4.md)
-
-Matrix4 计算出的旋转矩阵 如果 target为null 就会创建新实例返回
-
-#### Defined in
-
-[src/engine/math/Matrix4.ts:713](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L713)
+[src/math/Matrix4.ts:727](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L727)
 
 ___
 
@@ -629,24 +829,17 @@ ___
 
 ▸ **append**(`lhs`): `void`
 
-**`Language`**
-
-zh_CN
-通过将当前 Matrix4 对象与另一个 Matrix4 对象相乘来前置一个矩阵
+multiply matrix a b
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `lhs` | [`Matrix4`](Matrix4.md) | 目标矩阵. |
+| `lhs` | [`Matrix4`](Matrix4.md) | target matrix |
 
 #### Returns
 
@@ -654,7 +847,7 @@ Web,Native
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:729](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L729)
+[src/math/Matrix4.ts:847](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L847)
 
 ___
 
@@ -662,34 +855,27 @@ ___
 
 ▸ **add**(`lhs`): [`Matrix4`](Matrix4.md)
 
-**`Language`**
-
-zh_CN
-矩阵相加.
+matrix a add matrix b
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `lhs` | [`Matrix4`](Matrix4.md) | 目标矩阵. |
+| `lhs` | [`Matrix4`](Matrix4.md) | target matrix. |
 
 #### Returns
 
 [`Matrix4`](Matrix4.md)
 
-Matrix4 相加后的结果.
+Matrix4 result.
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:777](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L777)
+[src/math/Matrix4.ts:893](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L893)
 
 ___
 
@@ -697,34 +883,27 @@ ___
 
 ▸ **sub**(`lhs`): [`Matrix4`](Matrix4.md)
 
-**`Language`**
-
-zh_CN
-矩阵相减.
+matrix a sub matrix b
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `lhs` | [`Matrix4`](Matrix4.md) | 目标矩阵. |
+| `lhs` | [`Matrix4`](Matrix4.md) | target matrix b. |
 
 #### Returns
 
 [`Matrix4`](Matrix4.md)
 
-Matrix4 相加减的结果.
+Matrix4 .
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:842](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L842)
+[src/math/Matrix4.ts:956](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L956)
 
 ___
 
@@ -732,34 +911,27 @@ ___
 
 ▸ **mult**(`v`): [`Matrix4`](Matrix4.md)
 
-**`Language`**
-
-zh_CN
-矩阵乘分量.
+Matrix times components.
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `v` | `number` | 该矩阵会乘以这个值 |
+| `v` | `number` | This matrix is going to be multiplied by this value |
 
 #### Returns
 
 [`Matrix4`](Matrix4.md)
 
-Matrix4 返回一个相乘后的结果 矩阵.
+Matrix4 Returns a multiplicative result matrix.
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:908](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L908)
+[src/math/Matrix4.ts:1020](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1020)
 
 ___
 
@@ -767,25 +939,18 @@ ___
 
 ▸ **appendRotation**(`degrees`, `axis`): `void`
 
-**`Language`**
-
-zh_CN
-给当前矩阵追加一个方向角旋转 (按axis轴旋转degrees角度创建出来的矩阵)
+Add a direction Angle rotation to the current matrix (the matrix created by rotating degrees according to axis)
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `degrees` | `number` | 旋转角度. |
-| `axis` | [`Vector3`](Vector3.md) | 绕axis轴旋转角度 |
+| `degrees` | `number` | Angle of rotation. |
+| `axis` | [`Vector3`](Vector3.md) | Angle of rotation around axis axis |
 
 #### Returns
 
@@ -793,7 +958,7 @@ Web,Native
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:958](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L958)
+[src/math/Matrix4.ts:1067](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1067)
 
 ___
 
@@ -801,25 +966,18 @@ ___
 
 ▸ **createByRotation**(`degrees`, `axis`): `void`
 
-**`Language`**
-
-zh_CN
-根据坐标轴和旋转角，创建矩阵 (按axis轴旋转degrees角度创建出来的矩阵)
+Create a matrix based on the axis and rotation Angle (the matrix created by rotating the degrees according to the axis)
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `degrees` | `number` | 旋转角度. |
-| `axis` | [`Vector3`](Vector3.md) | 绕axis轴旋转角度.axis需要指定为x/y/z之间的一个轴的朝向 |
+| `degrees` | `number` | Angle of rotation. |
+| `axis` | [`Vector3`](Vector3.md) | Rotation Angle around axis axis. Axis needs to be specified as the orientation of an axis between x/y/z |
 
 #### Returns
 
@@ -827,7 +985,7 @@ Web,Native
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:971](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L971)
+[src/math/Matrix4.ts:1078](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1078)
 
 ___
 
@@ -835,26 +993,19 @@ ___
 
 ▸ **appendScale**(`xScale`, `yScale`, `zScale`): `void`
 
-**`Language`**
-
-zh_CN
-追加三轴缩放值
+Append the triaxial scaling value
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `xScale` | `number` | x轴缩放 |
-| `yScale` | `number` | y轴缩放 |
-| `zScale` | `number` | z轴缩放 |
+| `xScale` | `number` | x axis scaling |
+| `yScale` | `number` | y axis scaling |
+| `zScale` | `number` | z axis scaling |
 
 #### Returns
 
@@ -862,7 +1013,7 @@ Web,Native
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:1048](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L1048)
+[src/math/Matrix4.ts:1154](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1154)
 
 ___
 
@@ -870,26 +1021,19 @@ ___
 
 ▸ **createByScale**(`xScale`, `yScale`, `zScale`): `void`
 
-**`Language`**
-
-zh_CN
-生成一个缩放矩阵，其他的属性会被重置
+A scaling matrix is generated and other properties are reset
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `xScale` | `number` | x轴缩放 |
-| `yScale` | `number` | y轴缩放 |
-| `zScale` | `number` | z轴缩放 |
+| `xScale` | `number` | x axis scaling |
+| `yScale` | `number` | y axis scaling |
+| `zScale` | `number` | z axis scaling |
 
 #### Returns
 
@@ -897,7 +1041,7 @@ Web,Native
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:1062](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L1062)
+[src/math/Matrix4.ts:1166](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1166)
 
 ___
 
@@ -905,26 +1049,19 @@ ___
 
 ▸ **appendTranslation**(`x`, `y`, `z`): `void`
 
-**`Language`**
-
-zh_CN
-加上一个平移矩阵
+Plus a translation matrix
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `x` | `number` | x轴坐标 |
-| `y` | `number` | y轴坐标 |
-| `z` | `number` | z轴坐标 |
+| `x` | `number` | x axis scaling |
+| `y` | `number` | y axis scaling |
+| `z` | `number` | z axis scaling |
 
 #### Returns
 
@@ -932,7 +1069,7 @@ Web,Native
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:1091](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L1091)
+[src/math/Matrix4.ts:1193](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1193)
 
 ___
 
@@ -940,28 +1077,21 @@ ___
 
 ▸ **clone**(): [`Matrix4`](Matrix4.md)
 
-**`Language`**
-
-zh_CN
-返回一个当前矩阵的克隆矩阵
+Returns a clone of the current matrix
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Returns
 
 [`Matrix4`](Matrix4.md)
 
-Matrix4 克隆后的矩阵
+Matrix4 The cloned matrix
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:1105](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L1105)
+[src/math/Matrix4.ts:1205](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1205)
 
 ___
 
@@ -969,25 +1099,18 @@ ___
 
 ▸ **copyRowFrom**(`row`, `Vector3`): `void`
 
-**`Language`**
-
-zh_CN
-给当前矩阵其中一行赋值
+Assigns a value to one row of the current matrix
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `row` | `number` | 拷贝的行 |
-| `Vector3` | [`Vector3`](Vector3.md) | 拷贝的值 |
+| `row` | `number` | Row of copy |
+| `Vector3` | [`Vector3`](Vector3.md) | Value of copy |
 
 #### Returns
 
@@ -995,7 +1118,7 @@ Web,Native
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:1119](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L1119)
+[src/math/Matrix4.ts:1217](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1217)
 
 ___
 
@@ -1003,25 +1126,18 @@ ___
 
 ▸ **copyRowTo**(`row`, `Vector3`): `void`
 
-**`Language`**
-
-zh_CN
-拷贝矩阵中的其中一行 把值存在Vector3.
+One of the rows in the copy matrix stores the values in Vector3.
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `row` | `number` | 拷贝的行 |
-| `Vector3` | [`Vector3`](Vector3.md) | 拷贝存值目标 |
+| `row` | `number` | Row of copy |
+| `Vector3` | [`Vector3`](Vector3.md) | Copy the storage target |
 
 #### Returns
 
@@ -1029,7 +1145,7 @@ Web,Native
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:1159](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L1159)
+[src/math/Matrix4.ts:1255](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1255)
 
 ___
 
@@ -1037,34 +1153,27 @@ ___
 
 ▸ **copyFrom**(`sourceMatrix3D`): [`Matrix4`](Matrix4.md)
 
-**`Language`**
-
-zh_CN
-把一个矩阵的值赋给当前矩阵.
+Assigns the value of a matrix to the current matrix.
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `sourceMatrix3D` | [`Matrix4`](Matrix4.md) | 源矩阵. |
+| `sourceMatrix3D` | [`Matrix4`](Matrix4.md) | source Matrix |
 
 #### Returns
 
 [`Matrix4`](Matrix4.md)
 
-返回当前矩阵
+Returns the current matrix
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:1199](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L1199)
+[src/math/Matrix4.ts:1293](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1293)
 
 ___
 
@@ -1072,26 +1181,19 @@ ___
 
 ▸ **copyRawDataTo**(`vector`, `index?`, `transpose?`): `void`
 
-**`Language`**
-
-zh_CN
-把当前矩阵的值拷贝给一个 float 数组.
+CoMath.PIes the value of the current matrix to a float array.
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `vector` | `Float32Array` | `undefined` | 目标数组. |
-| `index` | `number` | `0` | 从数组的index 开始copy. |
-| `transpose` | `boolean` | `false` | 是否转置当前矩阵. |
+| `vector` | `Float32Array` | `undefined` | The target array. |
+| `index` | `number` | `0` | copy from the index of the array. |
+| `transpose` | `boolean` | `false` | Whether to transpose the current matrix. |
 
 #### Returns
 
@@ -1099,7 +1201,7 @@ Web,Native
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:1229](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L1229)
+[src/math/Matrix4.ts:1321](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1321)
 
 ___
 
@@ -1107,25 +1209,18 @@ ___
 
 ▸ **copyColFrom**(`col`, `Vector3`): `void`
 
-**`Language`**
-
-zh_CN
-给当前矩阵的某一列 赋值
+Assigns a value to a column of the current matrix
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `col` | `number` | 列 |
-| `Vector3` | [`Vector3`](Vector3.md) | 值来源 |
+| `col` | `number` | column |
+| `Vector3` | [`Vector3`](Vector3.md) | Source of value |
 
 #### Returns
 
@@ -1133,7 +1228,7 @@ Web,Native
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:1257](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L1257)
+[src/math/Matrix4.ts:1347](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1347)
 
 ___
 
@@ -1141,25 +1236,18 @@ ___
 
 ▸ **copyColTo**(`col`, `Vector3`): `void`
 
-**`Language`**
-
-zh_CN
-拷贝当前矩阵的某一列
+Copy a column of the current matrix
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `col` | `number` | 列 |
-| `Vector3` | [`Vector3`](Vector3.md) | 拷贝目标 |
+| `col` | `number` | column |
+| `Vector3` | [`Vector3`](Vector3.md) | Target of copy |
 
 #### Returns
 
@@ -1167,7 +1255,7 @@ Web,Native
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:1297](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L1297)
+[src/math/Matrix4.ts:1385](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1385)
 
 ___
 
@@ -1175,24 +1263,17 @@ ___
 
 ▸ **copyToMatrix3D**(`dest`): `void`
 
-**`Language`**
-
-zh_CN
-拷贝当前矩阵
+Copy the current matrix
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `dest` | [`Matrix4`](Matrix4.md) | 拷贝目标 |
+| `dest` | [`Matrix4`](Matrix4.md) | Target of copy |
 
 #### Returns
 
@@ -1200,7 +1281,7 @@ Web,Native
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:1336](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L1336)
+[src/math/Matrix4.ts:1422](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1422)
 
 ___
 
@@ -1208,13 +1289,13 @@ ___
 
 ▸ **makeRotationFromQuaternion**(`quaternion`): [`Matrix4`](Matrix4.md)
 
-计算旋转矩阵
+Calculate rotation matrix
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `quaternion` | [`Quaternion`](Quaternion.md) | 旋转 |
+| `quaternion` | [`Quaternion`](Quaternion.md) | Rotate the quaternion |
 
 #### Returns
 
@@ -1222,7 +1303,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:1348](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L1348)
+[src/math/Matrix4.ts:1431](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1431)
 
 ___
 
@@ -1230,30 +1311,23 @@ ___
 
 ▸ **decompose**(`orientationStyle?`, `target?`): [`Vector3`](Vector3.md)[]
 
-**`Language`**
-
-zh_CN
-分解当前矩阵
+Decompose the current matrix
 
 **`See`**
 
- - fly.Orientation3D.AXIS_ANGLE
- - fly.Orientation3D.EULER_ANGLES
- - fly.Orientation3D.QUATERNION
+ - Orientation3D.AXIS_ANGLE
+ - Orientation3D.EULER_ANGLES
+ - Orientation3D.QUATERNION
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `orientationStyle` | `string` | `'eulerAngles'` | 分解类型 默认为 Orientation3D.EULER_ANGLES |
+| `orientationStyle` | `string` | `'eulerAngles'` | The default decomposition type is Orientation3D.EULER_ANGLES |
 | `target?` | [`Vector3`](Vector3.md)[] | `undefined` | - |
 
 #### Returns
@@ -1264,7 +1338,7 @@ Vector3[3] pos rot scale
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:1466](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L1466)
+[src/math/Matrix4.ts:1445](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1445)
 
 ___
 
@@ -1272,16 +1346,16 @@ ___
 
 ▸ `Static` **getEuler**(`target`, `quaternion`, `isDegree?`, `order?`): [`Vector3`](Vector3.md)
 
-获取欧拉向量
+Get the Euler vector
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `target` | [`Vector3`](Vector3.md) | `undefined` | 结果向量 |
-| `quaternion` | [`Quaternion`](Quaternion.md) | `undefined` | 旋转 |
-| `isDegree` | `boolean` | `true` | 是否转换为角度 |
-| `order?` | `string` | `undefined` | 转换顺序 |
+| `target` | [`Vector3`](Vector3.md) | `undefined` | Vector of results |
+| `quaternion` | [`Quaternion`](Quaternion.md) | `undefined` | Rotate the quaternion |
+| `isDegree` | `boolean` | `true` | Whether to convert to Angle |
+| `order?` | `string` | `undefined` | convert order |
 
 #### Returns
 
@@ -1289,7 +1363,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:1590](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L1590)
+[src/math/Matrix4.ts:1573](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1573)
 
 ___
 
@@ -1297,15 +1371,15 @@ ___
 
 ▸ **compose**(`position`, `quaternion`, `scale`): [`Matrix4`](Matrix4.md)
 
-计算位移、旋转、缩放组合矩阵
+Calculate the combined matrix of displacement, rotation and scaling
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `position` | [`Vector3`](Vector3.md) | 位移 |
-| `quaternion` | [`Quaternion`](Quaternion.md) | 旋转 |
-| `scale` | [`Vector3`](Vector3.md) | 缩放 |
+| `position` | [`Vector3`](Vector3.md) | translation |
+| `quaternion` | [`Quaternion`](Quaternion.md) | rotation |
+| `scale` | [`Vector3`](Vector3.md) | scale |
 
 #### Returns
 
@@ -1313,7 +1387,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:1603](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L1603)
+[src/math/Matrix4.ts:1586](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1586)
 
 ___
 
@@ -1321,35 +1395,28 @@ ___
 
 ▸ **deltaTransformVector**(`v`, `target?`): [`Vector3`](Vector3.md)
 
-**`Language`**
-
-zh_CN
-当前矩阵变换一个向量
+The current matrix transforms a vector
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `v` | [`Vector3`](Vector3.md) | 要变换的向量 |
-| `target?` | [`Vector3`](Vector3.md) | 默认为 null 如果当前参数为null那么就会new一个新的Vector3返回 |
+| `v` | [`Vector3`](Vector3.md) | Vector to transform |
+| `target?` | [`Vector3`](Vector3.md) | The default is null and if the current argument is null then a new Vector3 will be returned |
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-Vector3 变换后的向量
+Vector3 The transformed vector
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:1659](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L1659)
+[src/math/Matrix4.ts:1640](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1640)
 
 ___
 
@@ -1357,18 +1424,11 @@ ___
 
 ▸ **identity**(): [`Matrix4`](Matrix4.md)
 
-**`Language`**
-
-zh_CN
-单位化当前矩阵
+Unifies the current matrix
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Returns
 
@@ -1376,7 +1436,7 @@ Web,Native
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:1681](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L1681)
+[src/math/Matrix4.ts:1659](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1659)
 
 ___
 
@@ -1384,24 +1444,17 @@ ___
 
 ▸ **fill**(`value`): `void`
 
-**`Language`**
-
-zh_CN
-填充当前矩阵
+Fill the current matrix
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `value` | `number` | 填充的值 |
+| `value` | `number` | The filled value |
 
 #### Returns
 
@@ -1409,7 +1462,7 @@ Web,Native
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:1710](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L1710)
+[src/math/Matrix4.ts:1686](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1686)
 
 ___
 
@@ -1417,18 +1470,11 @@ ___
 
 ▸ **invers33**(): `void`
 
-**`Language`**
-
-zh_CN
-当前矩阵求逆
+Invert the current matrix
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Returns
 
@@ -1436,7 +1482,7 @@ Web,Native
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:1736](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L1736)
+[src/math/Matrix4.ts:1710](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1710)
 
 ___
 
@@ -1444,28 +1490,21 @@ ___
 
 ▸ **invert**(): `boolean`
 
-**`Language`**
-
-zh_CN
-当前矩阵求逆
+Invert the current matrix
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Returns
 
 `boolean`
 
-boolean 是否能求逆
+boolean Whether can invert it
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:1834](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L1834)
+[src/math/Matrix4.ts:1747](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1747)
 
 ___
 
@@ -1473,24 +1512,24 @@ ___
 
 ▸ **transformPoint**(`v`, `target?`): [`Vector3`](Vector3.md)
 
-将当前坐标转换为世界坐标
+Converts the current coordinates to the world coordinates
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `v` | [`Vector3`](Vector3.md) | 当前坐标 |
-| `target?` | [`Vector3`](Vector3.md) | 世界坐标 |
+| `v` | [`Vector3`](Vector3.md) | Current coordinates |
+| `target?` | [`Vector3`](Vector3.md) | world coordinate |
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-世界坐标
+world coordinate
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:1993](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L1993)
+[src/math/Matrix4.ts:1797](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1797)
 
 ___
 
@@ -1498,35 +1537,28 @@ ___
 
 ▸ **transformVector**(`v`, `target?`): [`Vector3`](Vector3.md)
 
-**`Language`**
-
-zh_CN
-用当前矩阵变换一个3D向量 不处理位移
+Transforming a 3D vector with the current matrix does not deal with displacement
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `v` | [`Vector3`](Vector3.md) | 变换的向量 |
-| `target?` | [`Vector3`](Vector3.md) | 如果当前参数为null那么就会new一个新的Vector3返回 |
+| `v` | [`Vector3`](Vector3.md) | Vector of transformation |
+| `target?` | [`Vector3`](Vector3.md) | If the current argument is null then a new Vector3 will be returned |
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-Vector3 变换后的向量
+Vector3 The transformed vector
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:2020](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L2020)
+[src/math/Matrix4.ts:1819](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1819)
 
 ___
 
@@ -1534,18 +1566,11 @@ ___
 
 ▸ **transpose**(): `void`
 
-**`Language`**
-
-zh_CN
-当前矩阵转置
+The current matrix transpose
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Returns
 
@@ -1553,45 +1578,7 @@ Web,Native
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:2044](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L2044)
-
-___
-
-### getAxisRotation
-
-▸ `Static` **getAxisRotation**(`x`, `y`, `z`, `degrees`): [`Matrix4`](Matrix4.md)
-
-**`Language`**
-
-zh_CN
-生成一个(以x,y,z为中心轴旋转degrees角度)的矩阵
-
-**`Version`**
-
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `x` | `number` | 中心轴的x |
-| `y` | `number` | 中心轴的y |
-| `z` | `number` | 中心轴的z |
-| `degrees` | `number` | 旋转角度 |
-
-#### Returns
-
-[`Matrix4`](Matrix4.md)
-
-Matrix4 矩阵
-
-#### Defined in
-
-[src/engine/math/Matrix4.ts:2076](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L2076)
+[src/math/Matrix4.ts:1839](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1839)
 
 ___
 
@@ -1599,23 +1586,23 @@ ___
 
 ▸ **getPosition**(`out?`): [`Vector3`](Vector3.md)
 
-返回矩阵位移
+Return matrix displacement
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `out?` | [`Vector3`](Vector3.md) | 位移 |
+| `out?` | [`Vector3`](Vector3.md) | Position of translation |
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-位移
+Position of translation
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:2129](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L2129)
+[src/math/Matrix4.ts:1882](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1882)
 
 ___
 
@@ -1623,28 +1610,21 @@ ___
 
 ▸ **toString**(): `string`
 
-**`Language`**
-
-zh_CN
-以字符串返回矩阵的值
+Returns the value of the matrix as a string
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Returns
 
 `string`
 
-string 字符
+string
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:2203](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L2203)
+[src/math/Matrix4.ts:1944](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1944)
 
 ___
 
@@ -1652,26 +1632,19 @@ ___
 
 ▸ **lerp**(`m0`, `m1`, `t`): `void`
 
-**`Language`**
-
-zh_CN
-求两个矩阵之间的插值
+Interpolate between two matrices
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `m0` | [`Matrix4`](Matrix4.md) | 矩阵0 |
-| `m1` | [`Matrix4`](Matrix4.md) | 矩阵1 |
-| `t` | `number` | 时间差 0.0 - 1.0 |
+| `m0` | [`Matrix4`](Matrix4.md) | Matrix 0 |
+| `m1` | [`Matrix4`](Matrix4.md) | Matrix 1 |
+| `t` | `number` | Factor of interpolation 0.0 - 1.0 |
 
 #### Returns
 
@@ -1679,7 +1652,7 @@ Web,Native
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:2251](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L2251)
+[src/math/Matrix4.ts:1990](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1990)
 
 ___
 
@@ -1687,14 +1660,14 @@ ___
 
 ▸ **get**(`row`, `column`): `number`
 
-读取矩阵元素值
+Read matrix element values
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `row` | `number` | 行 |
-| `column` | `number` | 列 |
+| `row` | `number` | row |
+| `column` | `number` | column |
 
 #### Returns
 
@@ -1702,7 +1675,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:2262](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L2262)
+[src/math/Matrix4.ts:2001](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2001)
 
 ___
 
@@ -1710,15 +1683,15 @@ ___
 
 ▸ **set**(`row`, `column`, `v`): `void`
 
-设置矩阵元素值
+Sets the matrix element values
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `row` | `number` | 行 |
-| `column` | `number` | 列 |
-| `v` | `number` | 值 |
+| `row` | `number` | row |
+| `column` | `number` | column |
+| `v` | `number` | value |
 
 #### Returns
 
@@ -1726,7 +1699,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:2272](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L2272)
+[src/math/Matrix4.ts:2011](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2011)
 
 ___
 
@@ -1734,18 +1707,11 @@ ___
 
 ▸ **getMaxScaleOnAxis**(): `number`
 
-**`Language`**
-
-zh_CN
-求矩阵在各个轴上缩放的最大值
+Get the maximum value of the matrix scaled on each axis
 
 **`Version`**
 
-UU3D 4.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1 4.0
 
 #### Returns
 
@@ -1753,72 +1719,7 @@ Web,Native
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:2282](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L2282)
-
-___
-
-### sanitizeEuler
-
-▸ `Static` **sanitizeEuler**(`euler`): `void`
-
-整理欧拉值
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `euler` | [`Vector3`](Vector3.md) | 待整理区拉值 |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/engine/math/Matrix4.ts:2296](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L2296)
-
-___
-
-### makePositive
-
-▸ `Static` **makePositive**(`euler`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `euler` | [`Vector3`](Vector3.md) |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/engine/math/Matrix4.ts:2304](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L2304)
-
-___
-
-### matrixToEuler
-
-▸ `Static` **matrixToEuler**(`matrix`, `v`): `boolean`
-
-将矩阵转换为欧拉角
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `matrix` | [`Matrix4`](Matrix4.md) | 待转换矩阵 |
-| `v` | [`Vector3`](Vector3.md) | 欧拉角 |
-
-#### Returns
-
-`boolean`
-
-#### Defined in
-
-[src/engine/math/Matrix4.ts:2324](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L2324)
+[src/math/Matrix4.ts:2019](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2019)
 
 ___
 
@@ -1826,23 +1727,23 @@ ___
 
 ▸ **translate**(`inTrans`): [`Matrix4`](Matrix4.md)
 
-根据向量计算位移
+Calculate the displacement from the vector
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `inTrans` | [`Vector3`](Vector3.md) | 需要位移的向量 |
+| `inTrans` | [`Vector3`](Vector3.md) | Vector |
 
 #### Returns
 
 [`Matrix4`](Matrix4.md)
 
-当前矩阵
+current matrix
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:2360](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L2360)
+[src/math/Matrix4.ts:2034](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2034)
 
 ___
 
@@ -1850,7 +1751,7 @@ ___
 
 ▸ **setTRInverse**(`pos`, `q`): `void`
 
-form unity API
+form unity AMath.PI
 
 #### Parameters
 
@@ -1865,7 +1766,7 @@ form unity API
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:2378](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L2378)
+[src/math/Matrix4.ts:2051](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2051)
 
 ___
 
@@ -1873,118 +1774,23 @@ ___
 
 ▸ **setScale**(`inScale`): [`Matrix4`](Matrix4.md)
 
-缩放
+Set scale value
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `inScale` | [`Vector3`](Vector3.md) | 缩放向量 |
+| `inScale` | [`Vector3`](Vector3.md) | scale value |
 
 #### Returns
 
 [`Matrix4`](Matrix4.md)
 
-当前矩阵
+this matrix
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:2389](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L2389)
-
-___
-
-### matrix\_Multiply
-
-▸ `Static` **matrix_Multiply**(`aMat`, `bMat`, `target_Mat`): `void`
-
-世界矩阵间相乘，根据索引指定参数与结果
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `aMat` | [`Matrix4`](Matrix4.md) | 待乘矩阵(请指定索引) |
-| `bMat` | [`Matrix4`](Matrix4.md) | 待乘矩阵(请指定索引) |
-| `target_Mat` | [`Matrix4`](Matrix4.md) | 结果矩阵(根据索引获取结果) |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/engine/math/Matrix4.ts:2418](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L2418)
-
-___
-
-### matrix\_Append
-
-▸ `Static` **matrix_Append**(`aMat`, `bMat`, `target_Mat`): `void`
-
-世界矩阵间伸展，根据索引指定参数与结果
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `aMat` | [`Matrix4`](Matrix4.md) | 待乘矩阵(请指定索引) |
-| `bMat` | [`Matrix4`](Matrix4.md) | 待乘矩阵(请指定索引) |
-| `target_Mat` | [`Matrix4`](Matrix4.md) | 结果矩阵(根据索引获取结果) |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/engine/math/Matrix4.ts:2428](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L2428)
-
-___
-
-### matrix\_RotateY
-
-▸ `Static` **matrix_RotateY**(`rad`, `target_Mat`): `void`
-
-世界矩阵间延Y轴旋转，根据索引指定参数与结果
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `rad` | `number` | - |
-| `target_Mat` | [`Matrix4`](Matrix4.md) | 结果矩阵(根据索引获取结果) |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/engine/math/Matrix4.ts:2438](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L2438)
-
-___
-
-### matrix\_Rotate
-
-▸ `Static` **matrix_Rotate**(`rad`, `axis`, `target_Mat`): `void`
-
-世界矩阵间旋转，根据索引指定参数与结果
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `rad` | `number` | - |
-| `axis` | [`Vector3`](Vector3.md) | - |
-| `target_Mat` | [`Matrix4`](Matrix4.md) | 结果矩阵(根据索引获取结果) |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/engine/math/Matrix4.ts:2448](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L2448)
+[src/math/Matrix4.ts:2062](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2062)
 
 ___
 
@@ -1992,7 +1798,7 @@ ___
 
 ▸ **makeBasis**(`xAxis`, `yAxis`, `zAxis`): [`Matrix4`](Matrix4.md)
 
-根据三轴生成矩阵
+Generate the matrix according to the three axes
 
 #### Parameters
 
@@ -2008,42 +1814,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:2458](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L2458)
-
-___
-
-### setElements
-
-▸ **setElements**(`n11`, `n12`, `n13`, `n14`, `n21`, `n22`, `n23`, `n24`, `n31`, `n32`, `n33`, `n34`, `n41`, `n42`, `n43`, `n44`): [`Matrix4`](Matrix4.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `n11` | `any` |
-| `n12` | `any` |
-| `n13` | `any` |
-| `n14` | `any` |
-| `n21` | `any` |
-| `n22` | `any` |
-| `n23` | `any` |
-| `n24` | `any` |
-| `n31` | `any` |
-| `n32` | `any` |
-| `n33` | `any` |
-| `n34` | `any` |
-| `n41` | `any` |
-| `n42` | `any` |
-| `n43` | `any` |
-| `n44` | `any` |
-
-#### Returns
-
-[`Matrix4`](Matrix4.md)
-
-#### Defined in
-
-[src/engine/math/Matrix4.ts:2469](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L2469)
+[src/math/Matrix4.ts:2088](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2088)
 
 ___
 
@@ -2055,8 +1826,8 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `axis` | `any` |
-| `angle` | `any` |
+| `axis` | [`Vector3`](Vector3.md) |
+| `angle` | `number` |
 
 #### Returns
 
@@ -2064,37 +1835,23 @@ ___
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:2482](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L2482)
+[src/math/Matrix4.ts:2098](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2098)
 
 ## Constructors
 
 ### constructor
 
-• **new Matrix4**(`noWasm?`)
-
-构造函数，创建一个矩阵实例
-
-**`Language`**
-
-zh_CN
-
-**`Version`**
-
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+• **new Matrix4**(`doMatrix?`)
 
 #### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `noWasm` | `boolean` | `true` |
+| `doMatrix` | `boolean` | `false` |
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:142](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L142)
+[src/math/Matrix4.ts:320](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L320)
 
 ## Accessors
 
@@ -2102,28 +1859,21 @@ Web,Native
 
 • `get` **determinant**(): `number`
 
-**`Language`**
-
-zh_CN
-返回矩阵行列式
+Returns the matrix determinant
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Returns
 
 `number`
 
-number 行列式值
+number determinant
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:2112](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L2112)
+[src/math/Matrix4.ts:1865](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1865)
 
 ___
 
@@ -2131,49 +1881,35 @@ ___
 
 • `get` **position**(): [`Vector3`](Vector3.md)
 
-**`Language`**
-
-zh_CN
-返回矩阵位移
+Return translation
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-Vector3 位移
+Vector3 Position of translation
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:2148](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L2148)
+[src/math/Matrix4.ts:1896](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1896)
 
 • `set` **position**(`value`): `void`
 
-**`Language`**
-
-zh_CN
-设置矩阵位移
+Set Position of translation
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `value` | [`Vector3`](Vector3.md) | 位移 |
+| `value` | [`Vector3`](Vector3.md) | Position of translation |
 
 #### Returns
 
@@ -2181,7 +1917,7 @@ Web,Native
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:2161](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L2161)
+[src/math/Matrix4.ts:1906](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1906)
 
 ___
 
@@ -2189,32 +1925,25 @@ ___
 
 • `get` **scale**(): [`Vector3`](Vector3.md)
 
-**`Language`**
-
-zh_CN
-返回矩阵缩放
+get Component of scale
 
 **`Version`**
 
-UU3D 3.0
-
-**`Platform`**
-
-Web,Native
+Orillusion3D  0.5.1
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-Vector3 缩放
+Vector3 scale
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:2176](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L2176)
+[src/math/Matrix4.ts:1919](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1919)
 
 • `set` **scale**(`value`): `void`
 
-设置矩阵缩放
+Set component of scale
 
 #### Parameters
 
@@ -2228,4 +1957,4 @@ Vector3 缩放
 
 #### Defined in
 
-[src/engine/math/Matrix4.ts:2184](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Matrix4.ts#L2184)
+[src/math/Matrix4.ts:1927](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1927)

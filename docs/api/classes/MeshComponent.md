@@ -1,6 +1,6 @@
 # Class: MeshComponent
 
-网格组件
+Mesh component
 
 ## Hierarchy
 
@@ -12,7 +12,6 @@
 ### Properties
 
 - [object3D](MeshComponent.md#object3d)
-- [serializeTag](MeshComponent.md#serializetag)
 
 ### Accessors
 
@@ -22,13 +21,16 @@
 
 ### Methods
 
-- [onVisible](MeshComponent.md#onvisible)
-- [destroy](MeshComponent.md#destroy)
+- [start](MeshComponent.md#start)
+- [stop](MeshComponent.md#stop)
+- [onEnable](MeshComponent.md#onenable)
+- [onDisable](MeshComponent.md#ondisable)
 - [onUpdate](MeshComponent.md#onupdate)
 - [onLateUpdate](MeshComponent.md#onlateupdate)
 - [onBeforeUpdate](MeshComponent.md#onbeforeupdate)
-- [serialization](MeshComponent.md#serialization)
-- [unSerialization](MeshComponent.md#unserialization)
+- [onCompute](MeshComponent.md#oncompute)
+- [onGraphic](MeshComponent.md#ongraphic)
+- [destroy](MeshComponent.md#destroy)
 - [init](MeshComponent.md#init)
 - [cloneTo](MeshComponent.md#cloneto)
 
@@ -42,7 +44,7 @@
 
 • **object3D**: [`Object3D`](Object3D.md) = `null`
 
-此组件附加到的Object3D对象。
+owner object3D
 
 #### Inherited from
 
@@ -50,21 +52,7 @@
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L14)
-
-___
-
-### serializeTag
-
-• `Optional` **serializeTag**: [`SerializeTag`](../types/SerializeTag.md)
-
-#### Inherited from
-
-[ComponentBase](ComponentBase.md).[serializeTag](ComponentBase.md#serializetag)
-
-#### Defined in
-
-[src/engine/components/ComponentBase.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L30)
+[src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
 
 ## Accessors
 
@@ -72,7 +60,7 @@ ___
 
 • `get` **transform**(): [`Transform`](Transform.md)
 
-附加到此 Object3D对象 的 Transform组件。
+Return the Transform component attached to the Object3D.
 
 #### Returns
 
@@ -84,7 +72,7 @@ ComponentBase.transform
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L39)
+[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
 
 ___
 
@@ -92,7 +80,7 @@ ___
 
 • `get` **enable**(): `boolean`
 
-启用/禁用 组件。启用的组件可更新，禁用的组件不可更新。
+Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
 #### Returns
 
@@ -104,9 +92,11 @@ ComponentBase.enable
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L62)
+[src/components/ComponentBase.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L59)
 
 • `set` **enable**(`value`): `void`
+
+Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
 #### Parameters
 
@@ -124,7 +114,7 @@ ComponentBase.enable
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L43)
+[src/components/ComponentBase.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L45)
 
 ___
 
@@ -138,7 +128,7 @@ ___
 
 #### Defined in
 
-[src/engine/components/MeshComponent.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/MeshComponent.ts#L12)
+[src/components/renderer/MeshComponent.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshComponent.ts#L12)
 
 • `set` **geometry**(`value`): `void`
 
@@ -154,19 +144,13 @@ ___
 
 #### Defined in
 
-[src/engine/components/MeshComponent.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/MeshComponent.ts#L15)
+[src/components/renderer/MeshComponent.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshComponent.ts#L15)
 
 ## Methods
 
-### onVisible
+### start
 
-▸ **onVisible**(`value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
+▸ **start**(): `void`
 
 #### Returns
 
@@ -174,11 +158,198 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onVisible](ComponentBase.md#onvisible)
+[ComponentBase](ComponentBase.md).[start](ComponentBase.md#start)
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L66)
+[src/components/ComponentBase.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L107)
+
+___
+
+### stop
+
+▸ **stop**(): `void`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[stop](ComponentBase.md#stop)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L108)
+
+___
+
+### onEnable
+
+▸ `Optional` **onEnable**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onEnable](ComponentBase.md#onenable)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L109)
+
+___
+
+### onDisable
+
+▸ `Optional` **onDisable**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onDisable](ComponentBase.md#ondisable)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L110)
+
+___
+
+### onUpdate
+
+▸ `Optional` **onUpdate**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onUpdate](ComponentBase.md#onupdate)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L111)
+
+___
+
+### onLateUpdate
+
+▸ `Optional` **onLateUpdate**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onLateUpdate](ComponentBase.md#onlateupdate)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L112)
+
+___
+
+### onBeforeUpdate
+
+▸ `Optional` **onBeforeUpdate**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onBeforeUpdate](ComponentBase.md#onbeforeupdate)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
+
+___
+
+### onCompute
+
+▸ `Optional` **onCompute**(`view?`, `command?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+| `command?` | `GPUCommandEncoder` |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onCompute](ComponentBase.md#oncompute)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
+
+___
+
+### onGraphic
+
+▸ `Optional` **onGraphic**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onGraphic](ComponentBase.md#ongraphic)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L115)
 
 ___
 
@@ -186,7 +357,7 @@ ___
 
 ▸ **destroy**(): `void`
 
-移除组件时候调用
+release this component
 
 #### Returns
 
@@ -198,134 +369,7 @@ ___
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L119)
-
-___
-
-### onUpdate
-
-▸ **onUpdate**(`call`): `void`
-
-添加更新函数。会在每帧更新时执行。
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `call` | `Function` | 回调函数 |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[ComponentBase](ComponentBase.md).[onUpdate](ComponentBase.md#onupdate)
-
-#### Defined in
-
-[src/engine/components/ComponentBase.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L135)
-
-___
-
-### onLateUpdate
-
-▸ **onLateUpdate**(`call`): `void`
-
-添加延迟更新函数。
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `call` | `Function` | 回调函数 |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[ComponentBase](ComponentBase.md).[onLateUpdate](ComponentBase.md#onlateupdate)
-
-#### Defined in
-
-[src/engine/components/ComponentBase.ts:148](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L148)
-
-___
-
-### onBeforeUpdate
-
-▸ **onBeforeUpdate**(`call`): `void`
-
-添加帧更新前执行的函数。
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `call` | `Function` | 回调函数 |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[ComponentBase](ComponentBase.md).[onBeforeUpdate](ComponentBase.md#onbeforeupdate)
-
-#### Defined in
-
-[src/engine/components/ComponentBase.ts:161](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L161)
-
-___
-
-### serialization
-
-▸ **serialization**(`assets`): [`SerializeComponentBase`](SerializeComponentBase.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `assets` | [`ISerializeAssetsCollect`](../interfaces/ISerializeAssetsCollect.md) |
-
-#### Returns
-
-[`SerializeComponentBase`](SerializeComponentBase.md)
-
-#### Inherited from
-
-[ComponentBase](ComponentBase.md).[serialization](ComponentBase.md#serialization)
-
-#### Defined in
-
-[src/engine/components/ComponentBase.ts:170](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L170)
-
-___
-
-### unSerialization
-
-▸ **unSerialization**(`componentData`, `data`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `componentData` | [`SerializeComponentBase`](SerializeComponentBase.md) |
-| `data` | [`UnSerializeData`](UnSerializeData.md) |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[ComponentBase](ComponentBase.md).[unSerialization](ComponentBase.md#unserialization)
-
-#### Defined in
-
-[src/engine/components/ComponentBase.ts:175](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L175)
+[src/components/ComponentBase.ts:189](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L189)
 
 ___
 
@@ -339,11 +383,11 @@ ___
 
 #### Overrides
 
-ComponentBase.init
+[ComponentBase](ComponentBase.md).[init](ComponentBase.md#init)
 
 #### Defined in
 
-[src/engine/components/MeshComponent.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/MeshComponent.ts#L36)
+[src/components/renderer/MeshComponent.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshComponent.ts#L36)
 
 ___
 
@@ -351,13 +395,13 @@ ___
 
 ▸ **cloneTo**(`obj`): `void`
 
-创建新的组件，复制当前组件的属性，并添加到目标对象上。
+clone component data to target object3D
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `obj` | [`Object3D`](Object3D.md) | 源对象 |
+| `obj` | [`Object3D`](Object3D.md) | target object3D |
 
 #### Returns
 
@@ -369,7 +413,7 @@ ___
 
 #### Defined in
 
-[src/engine/components/MeshComponent.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/MeshComponent.ts#L38)
+[src/components/renderer/MeshComponent.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshComponent.ts#L38)
 
 ## Constructors
 
@@ -383,4 +427,4 @@ ___
 
 #### Defined in
 
-[src/engine/components/MeshComponent.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/MeshComponent.ts#L32)
+[src/components/renderer/MeshComponent.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshComponent.ts#L32)

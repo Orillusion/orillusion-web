@@ -15,4 +15,4 @@
 
 #### Defined in
 
-[src/engine/util/ProfilerUtil.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/ProfilerUtil.ts#L10)
+[src/util/ProfilerUtil.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L10)

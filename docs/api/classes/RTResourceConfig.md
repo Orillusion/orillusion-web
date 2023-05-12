@@ -23,7 +23,7 @@
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/RTResourceConfig.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/RTResourceConfig.ts#L2)
+[src/gfx/renderJob/config/RTResourceConfig.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/config/RTResourceConfig.ts#L2)
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/RTResourceConfig.ts:3](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/RTResourceConfig.ts#L3)
+[src/gfx/renderJob/config/RTResourceConfig.ts:3](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/config/RTResourceConfig.ts#L3)
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/RTResourceConfig.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/RTResourceConfig.ts#L4)
+[src/gfx/renderJob/config/RTResourceConfig.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/config/RTResourceConfig.ts#L4)
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/RTResourceConfig.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/RTResourceConfig.ts#L5)
+[src/gfx/renderJob/config/RTResourceConfig.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/config/RTResourceConfig.ts#L5)
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/RTResourceConfig.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/RTResourceConfig.ts#L6)
+[src/gfx/renderJob/config/RTResourceConfig.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/config/RTResourceConfig.ts#L6)
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/RTResourceConfig.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/RTResourceConfig.ts#L7)
+[src/gfx/renderJob/config/RTResourceConfig.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/config/RTResourceConfig.ts#L7)
 
 ___
 
@@ -83,7 +83,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/RTResourceConfig.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/RTResourceConfig.ts#L8)
+[src/gfx/renderJob/config/RTResourceConfig.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/config/RTResourceConfig.ts#L8)
 
 ## Constructors
 

@@ -33,7 +33,7 @@
 
 #### Defined in
 
-[src/engine/loader/parser/tileRenderer/TileSet.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/tileRenderer/TileSet.ts#L18)
+[src/loader/parser/tileRenderer/TileSet.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L18)
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 #### Defined in
 
-[src/engine/loader/parser/tileRenderer/TileSet.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/tileRenderer/TileSet.ts#L19)
+[src/loader/parser/tileRenderer/TileSet.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L19)
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 #### Defined in
 
-[src/engine/loader/parser/tileRenderer/TileSet.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/tileRenderer/TileSet.ts#L20)
+[src/loader/parser/tileRenderer/TileSet.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L20)
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 #### Defined in
 
-[src/engine/loader/parser/tileRenderer/TileSet.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/tileRenderer/TileSet.ts#L21)
+[src/loader/parser/tileRenderer/TileSet.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L21)
 
 ___
 
@@ -79,4 +79,4 @@ ___
 
 #### Defined in
 
-[src/engine/loader/parser/tileRenderer/TileSet.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/tileRenderer/TileSet.ts#L22)
+[src/loader/parser/tileRenderer/TileSet.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L22)

@@ -5,7 +5,7 @@ Shadow is a way to add depth and realism to a scene or model. Shadows can show t
 
 Shadow is implemented by light sources. Currently, [DirectLight](/guide/graphics/lighting.html#DirectLight), [PointLight](/guide/graphics/lighting.html#PointLight), and [SpotLight](/guide/graphics/lighting.html#SpotLight) in the engine can produce shadows. When rendering shadow effects, just set the `castShadow` property of the corresponding light source to `true`.
 
-```ts
+```ts{12}
 let lightObj = new Object3D();
 // Set the position of the light
 lightObj.x = 0;
@@ -90,10 +90,11 @@ Configuration shadow type:
 ```ts
 Engine3D.setting.shadow.type = 'HARD'; // PCF by default
 ```
+<!-- 
+<Demo :height="500" src="/demos/graphics/shadow_type.ts"></Demo>
 
-<!-- <Demo :height="500" src="/demos/graphics/shadow_type.ts"></Demo>
-
-<<< @/public/demos/graphics/shadow_type.ts -->
+<<< @/public/demos/graphics/shadow_type.ts
+-->
 
 ## Shadow Attribute
 

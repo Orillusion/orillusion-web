@@ -32,7 +32,7 @@
 
 #### Defined in
 
-[src/engine/loader/parser/b3dm/FeatureTable.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/b3dm/FeatureTable.ts#L30)
+[src/loader/parser/b3dm/FeatureTable.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/b3dm/FeatureTable.ts#L30)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[src/engine/loader/parser/b3dm/FeatureTable.ts:160](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/b3dm/FeatureTable.ts#L160)
+[src/loader/parser/b3dm/FeatureTable.ts:160](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/b3dm/FeatureTable.ts#L160)
 
 ## Constructors
 
@@ -82,4 +82,4 @@ ___
 
 #### Defined in
 
-[src/engine/loader/parser/b3dm/FeatureTable.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/b3dm/FeatureTable.ts#L153)
+[src/loader/parser/b3dm/FeatureTable.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/b3dm/FeatureTable.ts#L153)

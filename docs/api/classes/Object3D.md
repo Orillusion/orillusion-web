@@ -1,6 +1,6 @@
 # Class: Object3D
 
-大部分对象的基类，提供了一系列的属性和方法来对三维空间中的物体进行操作。
+The base class of most objects provides a series of properties and methods for manipulating objects in three-dimensional space.
 
 ## Hierarchy
 
@@ -12,9 +12,7 @@
 
   ↳↳ [`InstancedMesh`](InstancedMesh.md)
 
-  ↳↳ [`Graphic3DRender`](Graphic3DRender.md)
-
-  ↳↳ [`GUIMesh`](GUIMesh.md)
+  ↳↳ [`Graphic3D`](Graphic3D.md)
 
 
 ### Properties
@@ -24,16 +22,14 @@
 - [renderNode](Object3D.md#rendernode)
 - [entityChildren](Object3D.md#entitychildren)
 - [components](Object3D.md#components)
-- [bound](Object3D.md#bound)
-- [serializeTag](Object3D.md#serializetag)
 - [prefabRef](Object3D.md#prefabref)
 
 ### Accessors
 
 - [uuid](Object3D.md#uuid)
 - [renderLayer](Object3D.md#renderlayer)
-- [visible](Object3D.md#visible)
 - [numChildren](Object3D.md#numchildren)
+- [bound](Object3D.md#bound)
 - [isScene3D](Object3D.md#isscene3d)
 - [localPosition](Object3D.md#localposition)
 - [localRotation](Object3D.md#localrotation)
@@ -57,6 +53,7 @@
 - [addChild](Object3D.md#addchild)
 - [removeChild](Object3D.md#removechild)
 - [removeAllChild](Object3D.md#removeallchild)
+- [removeSelf](Object3D.md#removeself)
 - [removeChildByIndex](Object3D.md#removechildbyindex)
 - [hasChild](Object3D.md#haschild)
 - [removeFromParent](Object3D.md#removefromparent)
@@ -75,12 +72,8 @@
 - [getComponentsExt](Object3D.md#getcomponentsext)
 - [clone](Object3D.md#clone)
 - [notifyChange](Object3D.md#notifychange)
-- [getWorldPosition](Object3D.md#getworldposition)
 - [traverse](Object3D.md#traverse)
 - [destroy](Object3D.md#destroy)
-- [serialization](Object3D.md#serialization)
-- [unSerialize](Object3D.md#unserialize)
-- [showDebugAxis](Object3D.md#showdebugaxis)
 - [dispatchEvent](Object3D.md#dispatchevent)
 - [addEventListener](Object3D.md#addeventlistener)
 - [removeEventListener](Object3D.md#removeeventlistener)
@@ -99,7 +92,7 @@
 
 • **name**: `string` = `''`
 
-对象的名称。默认值是一个空字符串。
+The name of the object. The default value is an empty string.
 
 #### Inherited from
 
@@ -107,7 +100,7 @@
 
 #### Defined in
 
-[src/engine/core/entities/Entity.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L24)
+[src/core/entities/Entity.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L24)
 
 ___
 
@@ -115,7 +108,7 @@ ___
 
 • **transform**: [`Transform`](Transform.md)
 
-附加到此对象的Transform。
+The Transform attached to this object.
 
 #### Inherited from
 
@@ -123,7 +116,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Entity.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L58)
+[src/core/entities/Entity.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L59)
 
 ___
 
@@ -131,7 +124,7 @@ ___
 
 • **renderNode**: `RenderNode`
 
-渲染器组件
+Renderer components
 
 #### Inherited from
 
@@ -139,7 +132,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Entity.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L63)
+[src/core/entities/Entity.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L64)
 
 ___
 
@@ -147,7 +140,7 @@ ___
 
 • **entityChildren**: [`Entity`](Entity.md)[]
 
-包含对象子对象的数组
+An array containing sub objects of an object
 
 #### Inherited from
 
@@ -155,15 +148,15 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Entity.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L68)
+[src/core/entities/Entity.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L69)
 
 ___
 
 ### components
 
-• **components**: `Map`<`any`, [`ComponentBase`](ComponentBase.md)\>
+• **components**: `Map`<`any`, [`IComponent`](../interfaces/IComponent.md)\>
 
-对象所附加的组件列表
+List of components attached to an object
 
 #### Inherited from
 
@@ -171,33 +164,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Entity.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L73)
-
-___
-
-### bound
-
-• **bound**: `IBound`
-
-对象的的包围体
-
-#### Inherited from
-
-[Entity](Entity.md).[bound](Entity.md#bound)
-
-#### Defined in
-
-[src/engine/core/entities/Entity.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L78)
-
-___
-
-### serializeTag
-
-• `Optional` **serializeTag**: [`SerializeTag`](../types/SerializeTag.md)
-
-#### Defined in
-
-[src/engine/core/entities/Object3D.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L19)
+[src/core/entities/Entity.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L74)
 
 ___
 
@@ -207,7 +174,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L20)
+[src/core/entities/Object3D.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L14)
 
 ## Accessors
 
@@ -215,7 +182,7 @@ ___
 
 • `get` **uuid**(): `string`
 
-该对象的唯一标识符。
+The unique identifier of the object.
 
 #### Returns
 
@@ -227,7 +194,7 @@ Entity.uuid
 
 #### Defined in
 
-[src/engine/core/entities/Entity.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L31)
+[src/core/entities/Entity.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L31)
 
 ___
 
@@ -245,7 +212,7 @@ Entity.renderLayer
 
 #### Defined in
 
-[src/engine/core/entities/Entity.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L42)
+[src/core/entities/Entity.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L43)
 
 • `set` **renderLayer**(`value`): `void`
 
@@ -265,49 +232,7 @@ Entity.renderLayer
 
 #### Defined in
 
-[src/engine/core/entities/Entity.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L46)
-
-___
-
-### visible
-
-• `get` **visible**(): `boolean`
-
-对象是否可见
-
-#### Returns
-
-`boolean`
-
-#### Inherited from
-
-Entity.visible
-
-#### Defined in
-
-[src/engine/core/entities/Entity.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L116)
-
-• `set` **visible**(`value`): `void`
-
-设置对象是否可见
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-Entity.visible
-
-#### Defined in
-
-[src/engine/core/entities/Entity.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L123)
+[src/core/entities/Entity.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L47)
 
 ___
 
@@ -315,7 +240,7 @@ ___
 
 • `get` **numChildren**(): `number`
 
-返回对象子对象的数量
+Returns the number of child objects of an object
 
 #### Returns
 
@@ -327,7 +252,45 @@ Entity.numChildren
 
 #### Defined in
 
-[src/engine/core/entities/Entity.ts:154](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L154)
+[src/core/entities/Entity.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L129)
+
+___
+
+### bound
+
+• `get` **bound**(): `IBound`
+
+#### Returns
+
+`IBound`
+
+#### Inherited from
+
+Entity.bound
+
+#### Defined in
+
+[src/core/entities/Entity.ts:317](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L317)
+
+• `set` **bound**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `IBound` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+Entity.bound
+
+#### Defined in
+
+[src/core/entities/Entity.ts:324](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L324)
 
 ___
 
@@ -341,7 +304,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L29)
+[src/core/entities/Object3D.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L24)
 
 ___
 
@@ -349,7 +312,7 @@ ___
 
 • `get` **localPosition**(): [`Vector3`](Vector3.md)
 
-物体相对于父级的位置
+Get the position of an object relative to its parent
 
 #### Returns
 
@@ -357,11 +320,11 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:239](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L239)
+[src/core/entities/Object3D.ts:257](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L257)
 
 • `set` **localPosition**(`value`): `void`
 
-设置物体相对于父级的位置
+Set the position of an object relative to its parent
 
 #### Parameters
 
@@ -375,7 +338,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:246](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L246)
+[src/core/entities/Object3D.ts:264](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L264)
 
 ___
 
@@ -383,7 +346,7 @@ ___
 
 • `get` **localRotation**(): [`Vector3`](Vector3.md)
 
-物体相对于父级的旋转属性
+Get the rotation attribute of an object relative to its parent
 
 #### Returns
 
@@ -391,11 +354,11 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:253](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L253)
+[src/core/entities/Object3D.ts:271](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L271)
 
 • `set` **localRotation**(`value`): `void`
 
-设置物体相对于父级的旋转属性
+Set the rotation attribute of an object relative to its parent
 
 #### Parameters
 
@@ -409,7 +372,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:260](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L260)
+[src/core/entities/Object3D.ts:278](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L278)
 
 ___
 
@@ -417,7 +380,7 @@ ___
 
 • `get` **localScale**(): [`Vector3`](Vector3.md)
 
-物体相对于父级的缩放属性
+Get the scaling attribute of an object relative to its parent
 
 #### Returns
 
@@ -425,11 +388,11 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:267](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L267)
+[src/core/entities/Object3D.ts:285](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L285)
 
 • `set` **localScale**(`value`): `void`
 
-设置物体相对于父级的缩放属性
+Set the scaling attribute of an object relative to its parent
 
 #### Parameters
 
@@ -443,7 +406,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:274](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L274)
+[src/core/entities/Object3D.ts:292](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L292)
 
 ___
 
@@ -451,7 +414,7 @@ ___
 
 • `get` **localQuaternion**(): [`Quaternion`](Quaternion.md)
 
-物体相对于父级变换属性，以四元数形式存储
+Get the rotation attribute of an object relative to its parent, which is a quaternion
 
 #### Returns
 
@@ -459,11 +422,11 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:281](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L281)
+[src/core/entities/Object3D.ts:299](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L299)
 
 • `set` **localQuaternion**(`value`): `void`
 
-设置物体相对于父级变换属性，以四元数形式存储
+Set the rotation attribute of an object relative to its parent, which is a quaternion
 
 #### Parameters
 
@@ -477,7 +440,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:288](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L288)
+[src/core/entities/Object3D.ts:306](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L306)
 
 ___
 
@@ -485,7 +448,7 @@ ___
 
 • `get` **parent**(): [`Transform`](Transform.md)
 
-对象父容器的Transform组件
+Transform component of object parent
 
 #### Returns
 
@@ -493,7 +456,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:303](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L303)
+[src/core/entities/Object3D.ts:321](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L321)
 
 ___
 
@@ -501,7 +464,7 @@ ___
 
 • `get` **parentObject**(): [`Object3D`](Object3D.md)
 
-该对象的父级对象
+parent object3D
 
 #### Returns
 
@@ -509,7 +472,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:311](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L311)
+[src/core/entities/Object3D.ts:329](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L329)
 
 ___
 
@@ -517,7 +480,7 @@ ___
 
 • `get` **x**(): `number`
 
-相对于父容器的局部坐标的x坐标。
+Get the x coordinate relative to the local coordinates of the parent container.
 
 #### Returns
 
@@ -525,11 +488,11 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:327](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L327)
+[src/core/entities/Object3D.ts:345](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L345)
 
 • `set` **x**(`value`): `void`
 
-设置相对于父容器的局部坐标的x坐标。
+Set the x coordinate relative to the local coordinates of the parent container.
 
 #### Parameters
 
@@ -543,7 +506,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:319](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L319)
+[src/core/entities/Object3D.ts:337](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L337)
 
 ___
 
@@ -551,7 +514,7 @@ ___
 
 • `get` **y**(): `number`
 
-相对于父容器的局部坐标的y坐标。
+Get the y coordinate relative to the local coordinates of the parent container.
 
 #### Returns
 
@@ -559,11 +522,11 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:342](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L342)
+[src/core/entities/Object3D.ts:360](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L360)
 
 • `set` **y**(`value`): `void`
 
-设置相对于父容器的局部坐标的y坐标。
+Set the y coordinate relative to the local coordinates of the parent container.
 
 #### Parameters
 
@@ -577,7 +540,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:334](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L334)
+[src/core/entities/Object3D.ts:352](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L352)
 
 ___
 
@@ -585,7 +548,7 @@ ___
 
 • `get` **z**(): `number`
 
-相对于父容器的局部坐标的z坐标。
+Get the z coordinate relative to the local coordinates of the parent container.
 
 #### Returns
 
@@ -593,11 +556,11 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:357](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L357)
+[src/core/entities/Object3D.ts:374](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L374)
 
 • `set` **z**(`value`): `void`
 
-设置相对于父容器的局部坐标的z坐标。
+Set the z coordinate relative to the local coordinates of the parent container.
 
 #### Parameters
 
@@ -611,7 +574,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:349](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L349)
+[src/core/entities/Object3D.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L367)
 
 ___
 
@@ -619,7 +582,7 @@ ___
 
 • `get` **scaleX**(): `number`
 
-沿x轴相对于局部坐标的比例。
+Get the x scale relative to the local coordinates of the parent container.
 
 #### Returns
 
@@ -627,11 +590,11 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:372](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L372)
+[src/core/entities/Object3D.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L389)
 
 • `set` **scaleX**(`value`): `void`
 
-设置沿x轴相对于局部坐标的比例。
+Set the x scale relative to the local coordinates of the parent container.
 
 #### Parameters
 
@@ -645,7 +608,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:364](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L364)
+[src/core/entities/Object3D.ts:381](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L381)
 
 ___
 
@@ -653,7 +616,7 @@ ___
 
 • `get` **scaleY**(): `number`
 
-沿y轴相对于局部坐标的比例。
+Get the y scale relative to the local coordinates of the parent container.
 
 #### Returns
 
@@ -661,11 +624,11 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:388](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L388)
+[src/core/entities/Object3D.ts:405](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L405)
 
 • `set` **scaleY**(`value`): `void`
 
-设置沿y轴相对于局部坐标的比例。
+Set the y scale relative to the local coordinates of the parent container.
 
 #### Parameters
 
@@ -679,7 +642,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:380](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L380)
+[src/core/entities/Object3D.ts:397](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L397)
 
 ___
 
@@ -687,7 +650,7 @@ ___
 
 • `get` **scaleZ**(): `number`
 
-沿z轴相对于局部坐标的比例。
+Get the z scale relative to the local coordinates of the parent container.
 
 #### Returns
 
@@ -695,11 +658,11 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:404](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L404)
+[src/core/entities/Object3D.ts:421](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L421)
 
 • `set` **scaleZ**(`value`): `void`
 
-设置沿z轴相对于局部坐标的比例。
+Set the z scale relative to the local coordinates of the parent container.
 
 #### Parameters
 
@@ -713,7 +676,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:396](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L396)
+[src/core/entities/Object3D.ts:413](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L413)
 
 ___
 
@@ -721,7 +684,7 @@ ___
 
 • `get` **rotationX**(): `number`
 
-绕X轴旋转的角度。
+Get the x rotation relative to the local coordinates of the parent container.
 
 #### Returns
 
@@ -729,11 +692,11 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:420](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L420)
+[src/core/entities/Object3D.ts:437](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L437)
 
 • `set` **rotationX**(`value`): `void`
 
-设置绕X轴旋转的角度。
+Set the x rotation relative to the local coordinates of the parent container.
 
 #### Parameters
 
@@ -747,7 +710,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:412](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L412)
+[src/core/entities/Object3D.ts:429](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L429)
 
 ___
 
@@ -755,7 +718,7 @@ ___
 
 • `get` **rotationY**(): `number`
 
-绕Y轴旋转的角度。
+Get the y rotation relative to the local coordinates of the parent container.
 
 #### Returns
 
@@ -763,11 +726,11 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:436](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L436)
+[src/core/entities/Object3D.ts:453](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L453)
 
 • `set` **rotationY**(`value`): `void`
 
-设置绕Y轴旋转的角度。
+Set the y rotation relative to the local coordinates of the parent container.
 
 #### Parameters
 
@@ -781,7 +744,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:428](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L428)
+[src/core/entities/Object3D.ts:445](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L445)
 
 ___
 
@@ -789,7 +752,7 @@ ___
 
 • `get` **rotationZ**(): `number`
 
-绕Z轴旋转的角度。
+Set the z rotation relative to the local coordinates of the parent container.
 
 #### Returns
 
@@ -797,11 +760,11 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:452](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L452)
+[src/core/entities/Object3D.ts:469](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L469)
 
 • `set` **rotationZ**(`value`): `void`
 
-设置绕Z轴旋转的角度。
+Set the z rotation relative to the local coordinates of the parent container.
 
 #### Parameters
 
@@ -815,7 +778,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:444](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L444)
+[src/core/entities/Object3D.ts:461](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L461)
 
 ## Methods
 
@@ -823,20 +786,20 @@ ___
 
 ▸ **getObjectByName**(`name`): [`Entity`](Entity.md)
 
-从对象本身开始搜索对象及其子对象，并返回第一个具有匹配名称的子对象。
-对于大多数对象，默认情况下名称为空字符串。您必须手动设置才能使用此方法。
+Starting from the object itself, search for the object and its children, and return the first child object with a matching name.
+For most objects, the name is an empty string by default. You must manually set it to use this method.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `name` | `string` | 对象名称 |
+| `name` | `string` | input name |
 
 #### Returns
 
 [`Entity`](Entity.md)
 
-子对象
+result Entity
 
 #### Inherited from
 
@@ -844,7 +807,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Entity.ts:95](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L95)
+[src/core/entities/Entity.ts:94](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L94)
 
 ___
 
@@ -852,14 +815,14 @@ ___
 
 ▸ **addChild**(`child`): [`Entity`](Entity.md)
 
-将对象添加为此对象的子对象。可以添加任意数量的对象。
-传递到此处的对象上的任何当前父对象都将被删除，因为一个对象最多只能有一个父对象。
+Add an object as a child of this object. You can add any number of objects.
+Any current parent object on the object passed here will be deleted, as an object can only have at most one parent object.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `child` | [`Entity`](Entity.md) | 待添加的对象 |
+| `child` | [`Entity`](Entity.md) | target child entity |
 
 #### Returns
 
@@ -871,7 +834,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Entity.ts:213](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L213)
+[src/core/entities/Entity.ts:140](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L140)
 
 ___
 
@@ -879,13 +842,13 @@ ___
 
 ▸ **removeChild**(`child`): `any`
 
-移除对象的子对象。可以移除任意数量的对象。
+Remove the child objects of the object. You can remove any number of objects.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `child` | [`Entity`](Entity.md) | 移除的对象 |
+| `child` | [`Entity`](Entity.md) | Removed objects |
 
 #### Returns
 
@@ -897,7 +860,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Entity.ts:234](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L234)
+[src/core/entities/Entity.ts:166](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L166)
 
 ___
 
@@ -905,7 +868,7 @@ ___
 
 ▸ **removeAllChild**(): `void`
 
-移除当前对象的所有子对象
+Remove all children of the current object
 
 #### Returns
 
@@ -917,7 +880,29 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Entity.ts:249](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L249)
+[src/core/entities/Entity.ts:180](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L180)
+
+___
+
+### removeSelf
+
+▸ **removeSelf**(): [`Object3D`](Object3D.md)
+
+Remove the current node from the parent
+
+#### Returns
+
+[`Object3D`](Object3D.md)
+
+this
+
+#### Inherited from
+
+[Entity](Entity.md).[removeSelf](Entity.md#removeself)
+
+#### Defined in
+
+[src/core/entities/Entity.ts:191](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L191)
 
 ___
 
@@ -925,13 +910,13 @@ ___
 
 ▸ **removeChildByIndex**(`index`): `void`
 
-搜索对象子级，移除带有匹配索引的子对象。
+Search for child nodes of objects and remove child objects with matching indexes.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `index` | `number` | 标识该对象实例的索引 |
+| `index` | `number` | assign index |
 
 #### Returns
 
@@ -943,7 +928,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Entity.ts:261](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L261)
+[src/core/entities/Entity.ts:201](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L201)
 
 ___
 
@@ -951,19 +936,19 @@ ___
 
 ▸ **hasChild**(`child`): `boolean`
 
-当前对象的子对象中是否包含某一对象
+Does the current object contain a certain object
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `child` | [`Entity`](Entity.md) | 指定对象 |
+| `child` | [`Entity`](Entity.md) | certain object |
 
 #### Returns
 
 `boolean`
 
-是否包含该对象
+boolean
 
 #### Inherited from
 
@@ -971,7 +956,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Entity.ts:275](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L275)
+[src/core/entities/Entity.ts:215](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L215)
 
 ___
 
@@ -979,13 +964,13 @@ ___
 
 ▸ **removeFromParent**(): [`Object3D`](Object3D.md)
 
-将此对象从其当前父对象中删除。
+Remove the current node from the parent
 
 #### Returns
 
 [`Object3D`](Object3D.md)
 
-当前对象
+this
 
 #### Inherited from
 
@@ -993,7 +978,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Entity.ts:285](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L285)
+[src/core/entities/Entity.ts:225](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L225)
 
 ___
 
@@ -1001,19 +986,19 @@ ___
 
 ▸ **getChildByIndex**(`index`): [`Entity`](Entity.md)
 
-搜索对象子级，返回第一个带有匹配索引的子对象。
+Search for object children and return the first child object with a matching index.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `index` | `number` | 标识该对象实例的索引 |
+| `index` | `number` | matching index |
 
 #### Returns
 
 [`Entity`](Entity.md)
 
-子对象
+child entity
 
 #### Inherited from
 
@@ -1021,7 +1006,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Entity.ts:299](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L299)
+[src/core/entities/Entity.ts:239](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L239)
 
 ___
 
@@ -1029,20 +1014,20 @@ ___
 
 ▸ **getChildByName**(`name`, `loopChild?`): `any`
 
-搜索对象子级，返回一个带有匹配名称的子对象。
+Search for object children and return a child object with a matching name.
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `name` | `string` | `undefined` | 对象名称 |
-| `loopChild` | `boolean` | `true` | 是否遍历子对象的子级。默认值为true |
+| `name` | `string` | `undefined` | matching name |
+| `loopChild` | `boolean` | `true` | Whether to traverse the children of the child object. The default value is true |
 
 #### Returns
 
 `any`
 
-子对象
+result
 
 #### Inherited from
 
@@ -1050,7 +1035,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Entity.ts:314](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L314)
+[src/core/entities/Entity.ts:254](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L254)
 
 ___
 
@@ -1058,7 +1043,7 @@ ___
 
 ▸ **genBounds**(): `IBound`
 
-返回一个矩形，该矩形定义指定层的显示区域。
+Returns a bounding box that defines the display area of the specified layer.
 
 #### Returns
 
@@ -1070,7 +1055,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Entity.ts:406](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L406)
+[src/core/entities/Entity.ts:332](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L332)
 
 ___
 
@@ -1078,13 +1063,14 @@ ___
 
 ▸ **forChild**(`call`): `void`
 
-从对象本身开始遍历所有子对象。如果子对象中还有子对象，则递归遍历。
+Traverse all sub objects starting from the object itself.
+ If there are still sub objects in the sub object, recursively traverse.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `call` | `Function` | 函数执行体。会将子对象作为参数执行 |
+| Name | Type |
+| :------ | :------ |
+| `call` | `Function` |
 
 #### Returns
 
@@ -1092,7 +1078,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L39)
+[src/core/entities/Object3D.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L35)
 
 ___
 
@@ -1100,30 +1086,31 @@ ___
 
 ▸ **addComponent**<`T`\>(`c`, `param?`): `T`
 
-创建新组件并将其添加到对象中，并返回组件的实例。 如果已经存在该类型的组件，则不会添加，并返回null。
+Create a new component and add it to the object, and return an instance of the component.
+ If a component of this type already exists, it will not be added and will return null.
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`ComponentBase`](ComponentBase.md)<`T`\> |
+| `T` | extends [`IComponent`](../interfaces/IComponent.md) |
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)<`T`\> | 组件的类型 |
+| `c` | [`Ctor`](../types/Ctor.md)<`T`\> | class of component |
 | `param?` | `any` | - |
 
 #### Returns
 
 `T`
 
-添加的组件
+result component
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L52)
+[src/core/entities/Object3D.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L49)
 
 ___
 
@@ -1131,29 +1118,30 @@ ___
 
 ▸ **getOrAddComponent**<`T`\>(`c`): `T`
 
-返回指定类型的组件对象实例，如果没有该类型的组件则创建新组件并将其添加到对象中。
+Returns an instance of a component object of the specified type.
+ If there are no components of that type, a new component is created and added to the object.
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`ComponentBase`](ComponentBase.md)<`T`\> |
+| `T` | extends [`IComponent`](../interfaces/IComponent.md) |
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)<`T`\> | 组件类型 |
+| `c` | [`Ctor`](../types/Ctor.md)<`T`\> | class of component |
 
 #### Returns
 
 `T`
 
-组件实例
+result component
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:71](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L71)
+[src/core/entities/Object3D.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L81)
 
 ___
 
@@ -1161,19 +1149,19 @@ ___
 
 ▸ **removeComponent**<`T`\>(`c`): `void`
 
-移除指定类型的组件
+Remove components of the specified type
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`ComponentBase`](ComponentBase.md)<`T`\> |
+| `T` | extends [`IComponent`](../interfaces/IComponent.md) |
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)<`T`\> | 组件类型 |
+| `c` | [`Ctor`](../types/Ctor.md)<`T`\> | class of component |
 
 #### Returns
 
@@ -1181,7 +1169,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L84)
+[src/core/entities/Object3D.ts:95](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L95)
 
 ___
 
@@ -1189,29 +1177,29 @@ ___
 
 ▸ **hasComponent**<`T`\>(`c`): `boolean`
 
-是否有指定类型的组件
+Is there a component of the specified type
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`ComponentBase`](ComponentBase.md)<`T`\> |
+| `T` | extends [`IComponent`](../interfaces/IComponent.md) |
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)<`T`\> | 组件类型 |
+| `c` | [`Ctor`](../types/Ctor.md)<`T`\> | type of component |
 
 #### Returns
 
 `boolean`
 
-返回true存在该类型的组件，返回false不存在该类型的组件
+boolean
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:98](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L98)
+[src/core/entities/Object3D.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L111)
 
 ___
 
@@ -1219,29 +1207,29 @@ ___
 
 ▸ **getComponent**<`T`\>(`c`): `T`
 
-返回指定类型的组件对象。
+Returns a component of the specified type.
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`ComponentBase`](ComponentBase.md)<`T`\> |
+| `T` | extends [`IComponent`](../interfaces/IComponent.md) |
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)<`T`\> | 组件类型 |
+| `c` | [`Ctor`](../types/Ctor.md)<`T`\> | class of component |
 
 #### Returns
 
 `T`
 
-指定类型的组件对象
+result component
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L108)
+[src/core/entities/Object3D.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L122)
 
 ___
 
@@ -1249,29 +1237,31 @@ ___
 
 ▸ **getComponentFromParent**<`T`\>(`c`): `T`
 
-从父节点返回指定类型的组件对象，如果没有该类型的组件则调用父对象的父对象查找
+Returns a component object of the specified type from the parent node.
+ If there are no components of that type,
+ calls the parent object lookup of the parent object
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`ComponentBase`](ComponentBase.md)<`T`\> |
+| `T` | extends [`IComponent`](../interfaces/IComponent.md) |
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)<`T`\> | 组件类型 |
+| `c` | [`Ctor`](../types/Ctor.md)<`T`\> | class of component |
 
 #### Returns
 
 `T`
 
-指定类型的组件对象
+reulst component
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L118)
+[src/core/entities/Object3D.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L135)
 
 ___
 
@@ -1279,29 +1269,30 @@ ___
 
 ▸ **getComponentsInChild**<`T`\>(`c`): `T`[]
 
-返回指定类型的组件对象数组，如果没有该类型的组件则在自身子类对象列表中查找
+Returns an array of component objects of the specified type.
+ If there are no components of that type, search in the list of self body class objects
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`ComponentBase`](ComponentBase.md)<`T`\> |
+| `T` | extends [`IComponent`](../interfaces/IComponent.md) |
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)<`T`\> | 组件类型 |
+| `c` | [`Ctor`](../types/Ctor.md)<`T`\> | class of component |
 
 #### Returns
 
 `T`[]
 
-指定类型的组件对象
+result components
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:137](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L137)
+[src/core/entities/Object3D.ts:155](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L155)
 
 ___
 
@@ -1309,21 +1300,22 @@ ___
 
 ▸ **getComponents**<`T`\>(`c`, `outList?`, `includeInactive?`): `T`[]
 
-返回当前对象和子对象包含的所有的指定类型的组件，如果子对象还有子对象，则递归查找。
+Returns all components of the specified type contained in the current object and its children.
+ If there are children in the child object, recursively search.
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`ComponentBase`](ComponentBase.md)<`T`\> |
+| `T` | extends [`IComponent`](../interfaces/IComponent.md) |
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)<`T`\> | 组件类型 |
-| `outList?` | `T`[] | 组件列表 |
-| `includeInactive?` | `boolean` | 是否包含不可见对象，默认为false |
+| `c` | [`Ctor`](../types/Ctor.md)<`T`\> | class of component |
+| `outList?` | `T`[] | result component list |
+| `includeInactive?` | `boolean` | Whether to include invisible objects, default to false |
 
 #### Returns
 
@@ -1331,7 +1323,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:159](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L159)
+[src/core/entities/Object3D.ts:179](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L179)
 
 ___
 
@@ -1339,7 +1331,7 @@ ___
 
 ▸ **getComponentsExt**<`T`\>(`c`, `ret?`, `includeInactive?`): `T`[]
 
-快速获取组件，在某节点获取到了之后，不再访问子节点
+Quickly obtain components and no longer access child nodes after obtaining them at a certain node
 
 **`Memberof`**
 
@@ -1349,15 +1341,15 @@ ELPObject3D
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`ComponentBase`](ComponentBase.md)<`T`\> |
+| `T` | extends [`IComponent`](../interfaces/IComponent.md) |
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)<`T`\> |  |
-| `ret?` | `T`[] | 传入T的list |
-| `includeInactive?` | `boolean` | 是否包含不可见对象，默认为false |
+| `c` | [`Ctor`](../types/Ctor.md)<`T`\> | class of component |
+| `ret?` | `T`[] | List of incoming T |
+| `includeInactive?` | `boolean` | Whether to include invisible objects, default to false |
 
 #### Returns
 
@@ -1367,7 +1359,7 @@ ELPObject3D
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:185](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L185)
+[src/core/entities/Object3D.ts:204](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L204)
 
 ___
 
@@ -1375,7 +1367,7 @@ ___
 
 ▸ **clone**(): [`Object3D`](Object3D.md)
 
-克隆自身
+clone a Object3D
 
 #### Returns
 
@@ -1383,7 +1375,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:207](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L207)
+[src/core/entities/Object3D.ts:225](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L225)
 
 ___
 
@@ -1391,7 +1383,7 @@ ___
 
 ▸ **notifyChange**(): `void`
 
-通知变换属性更新
+Notify transformation attribute updates
 
 #### Returns
 
@@ -1399,27 +1391,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:295](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L295)
-
-___
-
-### getWorldPosition
-
-▸ **getWorldPosition**(`target?`): [`Vector3`](Vector3.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `target?` | [`Vector3`](Vector3.md) |
-
-#### Returns
-
-[`Vector3`](Vector3.md)
-
-#### Defined in
-
-[src/engine/core/entities/Object3D.ts:468](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L468)
+[src/core/entities/Object3D.ts:313](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L313)
 
 ___
 
@@ -1427,13 +1399,13 @@ ___
 
 ▸ **traverse**(`callback`): `void`
 
-递归子节点
+Recursive child nodes and execute specified function
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `callback` | (`child`: `any`) => `void` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `callback` | (`child`: `any`) => `void` | specified function |
 
 #### Returns
 
@@ -1441,7 +1413,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:480](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L480)
+[src/core/entities/Object3D.ts:490](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L490)
 
 ___
 
@@ -1449,74 +1421,19 @@ ___
 
 ▸ **destroy**(): `void`
 
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/engine/core/entities/Object3D.ts:491](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L491)
-
-___
-
-### serialization
-
-▸ **serialization**(`assets`): [`SerializeObject3D`](SerializeObject3D.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `assets` | [`ISerializeAssetsCollect`](../interfaces/ISerializeAssetsCollect.md) |
-
-#### Returns
-
-[`SerializeObject3D`](SerializeObject3D.md)
-
-#### Defined in
-
-[src/engine/core/entities/Object3D.ts:495](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L495)
-
-___
-
-### unSerialize
-
-▸ **unSerialize**(`nodeData`, `data`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `nodeData` | [`SerializeObject3D`](SerializeObject3D.md) |
-| `data` | [`UnSerializeData`](UnSerializeData.md) |
+Release self
 
 #### Returns
 
 `void`
 
-#### Defined in
+#### Overrides
 
-[src/engine/core/entities/Object3D.ts:516](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L516)
-
-___
-
-### showDebugAxis
-
-▸ **showDebugAxis**(`show`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `show` | `boolean` |
-
-#### Returns
-
-`void`
+[Entity](Entity.md).[destroy](Entity.md#destroy)
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:523](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L523)
+[src/core/entities/Object3D.ts:505](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L505)
 
 ___
 
@@ -1524,7 +1441,7 @@ ___
 
 ▸ **dispatchEvent**(`event`): `void`
 
-派发一个 Event3D 事件到所有注册了特定类型侦听器的对象中。
+Dispatch an event to all registered objects with a specific type of listener.
 
 #### Parameters
 
@@ -1542,7 +1459,7 @@ ___
 
 #### Defined in
 
-[src/engine/event/CEventDispatcher.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEventDispatcher.ts#L22)
+[src/event/CEventDispatcher.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L24)
 
 ___
 
@@ -1550,23 +1467,23 @@ ___
 
 ▸ **addEventListener**(`type`, `callback`, `thisObject`, `param?`, `priority?`): `number`
 
-使用 EventDispatcher 对象注册事件侦听器对象，以使侦听器能够接收事件通知。可以为特定类型的事件和优先级注册事件侦听器。成功注册一个事件侦听器后，无法通过额外调用 addCEventListener() 来更改其优先级。要更改侦听器的优先级，必须首先调用 removeCEventListener()。然后，可以使用新的优先级再次注册该侦听器。
+register an event listener to event distancher.
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `type` | `string` \| `number` | `undefined` | {string} 事件的类型标识符。 |
-| `callback` | `Function` | `undefined` | {Function} 处理事件的侦听器函数。此函数必须接受 Event3D 对象作为其唯一的参数，并且不能返回任何结果， 如下面的示例所示： function(evt:Event3D):void 函数可以有任何名称。 |
-| `thisObject` | `any` | `undefined` | {any} 当前注册对象。 |
-| `param` | `any` | `null` | {any} 事件携带参数，默认为空。 |
-| `priority` | `number` | `0` | {number} 事件侦听器的优先级。优先级由一个带符号的 32 位整数指定。数字越大，优先级越高。优先级为 n 的所有侦听器会在 优先级为 n -1 的侦听器之前得到处理。如果两个或更多个侦听器共享相同的优先级，则按照它们的添加顺序进行处理。默认优先级为 0。 |
+| `type` | `string` \| `number` | `undefined` | {string} event type. |
+| `callback` | `Function` | `undefined` | {Function} The callback function that handles events. This function must accept an Event3D object as its unique parameter and cannot return any result. for example: function(evt:Event3D):void. |
+| `thisObject` | `any` | `undefined` | {any} Current registration object, it'll call callback function. |
+| `param` | `any` | `null` | {any} the data binded to registered event, the default value is null. |
+| `priority` | `number` | `0` | {number} The priority of callback function execution, with a larger set value having priority to call |
 
 #### Returns
 
 `number`
 
-注册事件位置标识id
+Returns register event id
 
 #### Inherited from
 
@@ -1574,7 +1491,7 @@ ___
 
 #### Defined in
 
-[src/engine/event/CEventDispatcher.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEventDispatcher.ts#L77)
+[src/event/CEventDispatcher.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L79)
 
 ___
 
@@ -1582,15 +1499,15 @@ ___
 
 ▸ **removeEventListener**(`type`, `callback`, `thisObject`): `void`
 
-移除事件侦听器。
+Remove Event Listening
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `type` | `string` \| `number` | {string} 事件名。 |
-| `callback` | `Function` | {Function} 侦听函数。 |
-| `thisObject` | `any` | {any} 当前注册对象。 |
+| `type` | `string` \| `number` | {string} event type |
+| `callback` | `Function` | {Function} callback function of event register |
+| `thisObject` | `any` | {any} The current registered object. |
 
 #### Returns
 
@@ -1602,25 +1519,25 @@ ___
 
 #### Defined in
 
-[src/engine/event/CEventDispatcher.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEventDispatcher.ts#L111)
+[src/event/CEventDispatcher.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L113)
 
 ___
 
 ### removeEventListenerAt
 
-▸ **removeEventListenerAt**(`id`): `void`
+▸ **removeEventListenerAt**(`id`): `boolean`
 
-移除事件侦听器。
+Remove an event Listening with id
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `id` | `number` | 事件id,调用addCEventListener的返回值即为事件id. |
+| Name | Type |
+| :------ | :------ |
+| `id` | `number` |
 
 #### Returns
 
-`void`
+`boolean`
 
 #### Inherited from
 
@@ -1628,7 +1545,7 @@ ___
 
 #### Defined in
 
-[src/engine/event/CEventDispatcher.ts:130](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEventDispatcher.ts#L130)
+[src/event/CEventDispatcher.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L133)
 
 ___
 
@@ -1636,8 +1553,8 @@ ___
 
 ▸ **removeAllEventListener**(`eventType?`): `void`
 
-移除指定类型的事件侦听器。
-eventType 不指定类型 则移除所有的事件
+Specify a event type to remove all related event listeners
+eventType event type, set null to remove all event listeners
 
 #### Parameters
 
@@ -1655,7 +1572,7 @@ eventType 不指定类型 则移除所有的事件
 
 #### Defined in
 
-[src/engine/event/CEventDispatcher.ts:149](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEventDispatcher.ts#L149)
+[src/event/CEventDispatcher.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L153)
 
 ___
 
@@ -1663,19 +1580,19 @@ ___
 
 ▸ **containEventListener**(`type`): `boolean`
 
-检测是否存在监听器。
+whether the target presence of a listener with event type.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `type` | `string` | {string} 事件类型标识符 |
+| `type` | `string` | {string} event type. |
 
 #### Returns
 
 `boolean`
 
-是否存在该类型监视器，true为存在，反之不存在。
+Returns a boolean.
 
 #### Inherited from
 
@@ -1683,7 +1600,7 @@ ___
 
 #### Defined in
 
-[src/engine/event/CEventDispatcher.ts:181](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEventDispatcher.ts#L181)
+[src/event/CEventDispatcher.ts:185](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L185)
 
 ___
 
@@ -1691,21 +1608,21 @@ ___
 
 ▸ **hasEventListener**(`type`, `callback?`, `thisObject?`): `boolean`
 
-检测是否存在监听器。
+whether the target presence of a listener with event type. it associate more registration parameters.
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `type` | `string` \| `number` | `undefined` | {string} 事件名 |
-| `callback` | `Function` | `null` | {Function} 处理事件的侦听器函数 |
-| `thisObject` | `any` | `null` | {any} 注册对象。 |
+| `type` | `string` \| `number` | `undefined` | {string} event name. |
+| `callback` | `Function` | `null` | {Function} callback function of event register. |
+| `thisObject` | `any` | `null` | {any} The registered object. |
 
 #### Returns
 
 `boolean`
 
-是否存在该事件，true为存在，反之不存在。
+Returns a boolean.
 
 #### Inherited from
 
@@ -1713,7 +1630,7 @@ ___
 
 #### Defined in
 
-[src/engine/event/CEventDispatcher.ts:194](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEventDispatcher.ts#L194)
+[src/event/CEventDispatcher.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L198)
 
 ## Constructors
 
@@ -1721,7 +1638,7 @@ ___
 
 • **new Object3D**()
 
-创建一个3D对象
+Instantiate a 3D object
 
 #### Overrides
 
@@ -1729,4 +1646,4 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Object3D.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Object3D.ts#L24)
+[src/core/entities/Object3D.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L19)

@@ -1,6 +1,6 @@
 # Class: Plane
 
-平面数学类
+Plane mathematics class
 
 
 ### Properties
@@ -24,11 +24,11 @@
 
 • **point**: [`Vector3`](Vector3.md)
 
-平面中心位置
+Center position of plane
 
 #### Defined in
 
-[src/engine/math/Plane.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Plane.ts#L11)
+[src/math/Plane.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane.ts#L12)
 
 ___
 
@@ -36,11 +36,11 @@ ___
 
 • **normal**: [`Vector3`](Vector3.md) = `Vector3.UP`
 
-平面法向量
+Plane normal vector
 
 #### Defined in
 
-[src/engine/math/Plane.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Plane.ts#L15)
+[src/math/Plane.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane.ts#L17)
 
 ## Constructors
 
@@ -48,18 +48,18 @@ ___
 
 • **new Plane**(`pos`, `normal`)
 
-构造新的平面对象
+Constructs a new plane object
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `pos` | [`Vector3`](Vector3.md) | 平面位置 |
-| `normal` | [`Vector3`](Vector3.md) | 平面法线量 |
+| `pos` | [`Vector3`](Vector3.md) | Plane position |
+| `normal` | [`Vector3`](Vector3.md) | Plane normal quantity |
 
 #### Defined in
 
-[src/engine/math/Plane.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Plane.ts#L25)
+[src/math/Plane.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane.ts#L29)
 
 ## Methods
 
@@ -67,17 +67,17 @@ ___
 
 ▸ **clone**(): [`Plane`](Plane.md)
 
-复制平面
+Clones the current plane object
 
 #### Returns
 
 [`Plane`](Plane.md)
 
-返回拷贝的新平面
+New plane object
 
 #### Defined in
 
-[src/engine/math/Plane.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Plane.ts#L34)
+[src/math/Plane.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane.ts#L38)
 
 ___
 
@@ -85,25 +85,25 @@ ___
 
 ▸ **intersectsLine**(`start`, `end`, `point`): `boolean`
 
-判断平面是否和某线段相交，并计算交点
+Determine whether the plane intersects a line segment and calculate the intersection point
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `start` | `any` | 线段起始点 |
-| `end` | `any` | 线段结束点 |
-| `point` | `any` | 输出交点 |
+| `start` | [`Vector3`](Vector3.md) | Starting point of line segment |
+| `end` | [`Vector3`](Vector3.md) | End point of line segment |
+| `point` | [`Vector3`](Vector3.md) | Point of output intersection |
 
 #### Returns
 
 `boolean`
 
-返回是否相交
+Returns whether it intersects
 
 #### Defined in
 
-[src/engine/math/Plane.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Plane.ts#L46)
+[src/math/Plane.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane.ts#L50)
 
 ___
 
@@ -111,21 +111,21 @@ ___
 
 ▸ **intersectsRay**(`ray`, `targetPoint?`): `boolean`
 
-判断平面是否和某射线相交，并计算交点
+Determine whether the plane intersects a ray and calculate the intersection point
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `ray` | [`Ray`](Ray.md) | 输入射线 |
+| `ray` | [`Ray`](Ray.md) | Ray of input |
 | `targetPoint?` | [`Vector3`](Vector3.md) | - |
 
 #### Returns
 
 `boolean`
 
-返回是否相交
+Returns whether it intersects
 
 #### Defined in
 
-[src/engine/math/Plane.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Plane.ts#L64)
+[src/math/Plane.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane.ts#L70)

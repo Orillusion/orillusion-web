@@ -31,7 +31,7 @@
 
 #### Defined in
 
-[src/engine/core/pool/ObjectPool.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/pool/ObjectPool.ts#L6)
+[src/core/pool/ObjectPool.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/core/pool/ObjectPool.ts#L6)
 
 ## Methods
 
@@ -51,7 +51,7 @@
 
 #### Defined in
 
-[src/engine/core/pool/ObjectPool.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/pool/ObjectPool.ts#L11)
+[src/core/pool/ObjectPool.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/core/pool/ObjectPool.ts#L11)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/pool/ObjectPool.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/pool/ObjectPool.ts#L19)
+[src/core/pool/ObjectPool.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/core/pool/ObjectPool.ts#L19)
 
 ___
 
@@ -85,4 +85,4 @@ ___
 
 #### Defined in
 
-[src/engine/core/pool/ObjectPool.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/pool/ObjectPool.ts#L34)
+[src/core/pool/ObjectPool.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/core/pool/ObjectPool.ts#L34)

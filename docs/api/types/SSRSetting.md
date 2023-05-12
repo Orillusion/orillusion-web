@@ -2,23 +2,23 @@
 
 Ƭ **SSRSetting**: `Object`
 
-屏幕空间反射设置
+Screen Space Reflection Setting
 
 #### Type declaration
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `debug` | `any` | - |
-| `enable` | `boolean` | 开始/关闭 |
-| `pixelRatio` | `number` | 像素比率 |
-| `fadeEdgeRatio` | `number` | 渐变速率 |
-| `rayMarchRatio` | `number` | 光线步进速率 |
-| `fadeDistanceMin` | `number` | 消退距离最小值 |
-| `fadeDistanceMax` | `number` | 消退距离最大值 |
-| `roughnessThreshold` | `number` | 粗糙度阈值 |
-| `powDotRN` | `number` | normal和reflection点积的pow参数 |
-| `mixThreshold` | `number` | ssr颜色混合参数，某个像素位置，当前帧和上帧的位置差超过mixThreshold，则快速保留当前帧多一些。 |
+| `enable` | `boolean` | enable |
+| `pixelRatio` | `number` | pixel ratio, Smaller pixel ratios can achieve better performance, but the visual effect will decrease |
+| `fadeEdgeRatio` | `number` | fade out when pixel is closed to edge |
+| `rayMarchRatio` | `number` | fade alpha from ray trace step count |
+| `fadeDistanceMin` | `number` | fade alpha by distance from camera to hit point (min) |
+| `fadeDistanceMax` | `number` | fade alpha by distance from camera to hit point (max) |
+| `roughnessThreshold` | `number` | threshold of roughness, determine effect refrection |
+| `powDotRN` | `number` | Pow parameter of normal and reflection dot product |
+| `mixThreshold` | `number` | SSR color mixing parameter: If the position difference between the current frame and the previous frame exceeds the mixThreshold at a certain pixel position, the current frame will be quickly retained to have more. |
 
 #### Defined in
 
-[src/engine/EngineConfig.ts:447](https://github.com/Orillusion/orillusion/blob/main/src/engine/EngineConfig.ts#L447)
+[src/setting/post/SSRSetting.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/SSRSetting.ts#L6)
