@@ -28,7 +28,7 @@
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/shader/util/MorePassParser.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/shader/util/MorePassParser.ts#L22)
+[src/gfx/graphics/webGpu/shader/util/MorePassParser.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/MorePassParser.ts#L22)
 
 ## Constructors
 

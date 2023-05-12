@@ -1,6 +1,6 @@
 # Class: Color
 
-颜色
+RGBA Color Object
 
 
 ### Properties
@@ -162,21 +162,18 @@
 
 ### Methods
 
-- [converToHDRRGB](Color.md#convertohdrrgb)
+- [convertToHDRRGB](Color.md#converttohdrrgb)
 - [unSerialized](Color.md#unserialized)
-- [updateRGBColor](Color.md#updatergbcolor)
-- [updateRGBAColor](Color.md#updatergbacolor)
+- [hexToRGB](Color.md#hextorgb)
+- [hexToRGBA](Color.md#hextorgba)
 - [random](Color.md#random)
 - [setTo](Color.md#setto)
 - [setHex](Color.md#sethex)
 - [getHex](Color.md#gethex)
 - [clone](Color.md#clone)
-- [copy](Color.md#copy)
-- [copyByArray](Color.md#copybyarray)
-- [copyToBytes](Color.md#copytobytes)
-- [updateRGBColor](Color.md#updatergbcolor-1)
-- [updateRGBAColor](Color.md#updatergbacolor-1)
-- [hexColor](Color.md#hexcolor)
+- [copyForm](Color.md#copyform)
+- [copyFormArray](Color.md#copyformarray)
+- [hexRGBColor](Color.md#hexrgbcolor)
 
 ### Accessors
 
@@ -189,11 +186,11 @@
 
 ▪ `Static` **COLOR\_RED**: [`Color`](Color.md)
 
-红色Color对象
+red color
 
 #### Defined in
 
-[src/engine/math/Color.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L11)
+[src/math/Color.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L10)
 
 ___
 
@@ -201,11 +198,11 @@ ___
 
 ▪ `Static` **COLOR\_GREEN**: [`Color`](Color.md)
 
-绿色Color对象
+green color
 
 #### Defined in
 
-[src/engine/math/Color.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L15)
+[src/math/Color.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L15)
 
 ___
 
@@ -213,11 +210,11 @@ ___
 
 ▪ `Static` **COLOR\_BLUE**: [`Color`](Color.md)
 
-蓝色Color对象
+blue color
 
 #### Defined in
 
-[src/engine/math/Color.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L19)
+[src/math/Color.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L20)
 
 ___
 
@@ -225,11 +222,11 @@ ___
 
 ▪ `Static` **COLOR\_WHITE**: [`Color`](Color.md)
 
-白色Color对象
+white color
 
 #### Defined in
 
-[src/engine/math/Color.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L23)
+[src/math/Color.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L25)
 
 ___
 
@@ -237,11 +234,11 @@ ___
 
 • **r**: `number` = `0`
 
-红色分量
+red channel
 
 #### Defined in
 
-[src/engine/math/Color.ts:60](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L60)
+[src/math/Color.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L68)
 
 ___
 
@@ -249,11 +246,11 @@ ___
 
 • **g**: `number` = `0`
 
-绿色分量
+green channel
 
 #### Defined in
 
-[src/engine/math/Color.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L64)
+[src/math/Color.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L73)
 
 ___
 
@@ -261,11 +258,11 @@ ___
 
 • **b**: `number` = `0`
 
-蓝色分量
+blue channel
 
 #### Defined in
 
-[src/engine/math/Color.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L68)
+[src/math/Color.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L78)
 
 ___
 
@@ -273,11 +270,11 @@ ___
 
 • **a**: `number` = `0`
 
-透明度
+alpha channel
 
 #### Defined in
 
-[src/engine/math/Color.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L72)
+[src/math/Color.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L83)
 
 ___
 
@@ -287,7 +284,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Color.ts:323](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L323)
+[src/math/Color.ts:296](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L296)
 
 ___
 
@@ -297,7 +294,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Color.ts:324](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L324)
+[src/math/Color.ts:297](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L297)
 
 ___
 
@@ -307,7 +304,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Color.ts:325](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L325)
+[src/math/Color.ts:298](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L298)
 
 ___
 
@@ -315,11 +312,9 @@ ___
 
 ▪ `Static` **WHITE**: `number` = `0xffffff`
 
-白色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:329](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L329)
+[src/math/Color.ts:300](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L300)
 
 ___
 
@@ -327,11 +322,9 @@ ___
 
 ▪ `Static` **IVORY**: `number` = `0xfffff0`
 
-象牙色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:333](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L333)
+[src/math/Color.ts:301](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L301)
 
 ___
 
@@ -339,11 +332,9 @@ ___
 
 ▪ `Static` **LIGHTYELLOW**: `number` = `0xffffe0`
 
-亮黄色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:337](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L337)
+[src/math/Color.ts:302](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L302)
 
 ___
 
@@ -351,11 +342,9 @@ ___
 
 ▪ `Static` **YELLOW**: `number` = `0xffff00`
 
-黄色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:341](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L341)
+[src/math/Color.ts:303](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L303)
 
 ___
 
@@ -363,11 +352,9 @@ ___
 
 ▪ `Static` **SNOW**: `number` = `0xfffafa`
 
-雪白色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:345](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L345)
+[src/math/Color.ts:304](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L304)
 
 ___
 
@@ -375,11 +362,9 @@ ___
 
 ▪ `Static` **FLORALWHITE**: `number` = `0xfffaf0`
 
-花白色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:349](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L349)
+[src/math/Color.ts:305](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L305)
 
 ___
 
@@ -387,11 +372,9 @@ ___
 
 ▪ `Static` **LEMONCHIFFON**: `number` = `0xfffacd`
 
-柠檬绸十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:353](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L353)
+[src/math/Color.ts:306](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L306)
 
 ___
 
@@ -399,11 +382,9 @@ ___
 
 ▪ `Static` **CORNSILK**: `number` = `0xfff8dc`
 
-米绸色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:357](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L357)
+[src/math/Color.ts:307](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L307)
 
 ___
 
@@ -411,11 +392,9 @@ ___
 
 ▪ `Static` **SEASHELL**: `number` = `0xfff5ee`
 
-海贝色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:361](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L361)
+[src/math/Color.ts:308](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L308)
 
 ___
 
@@ -423,11 +402,9 @@ ___
 
 ▪ `Static` **LAVENDERBLUSH**: `number` = `0xfff0f5`
 
-淡紫红十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:365](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L365)
+[src/math/Color.ts:309](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L309)
 
 ___
 
@@ -435,11 +412,9 @@ ___
 
 ▪ `Static` **PAPAYAWHIP**: `number` = `0xffefd5`
 
-番木色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:369](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L369)
+[src/math/Color.ts:310](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L310)
 
 ___
 
@@ -447,11 +422,9 @@ ___
 
 ▪ `Static` **BLANCHEDALMOND**: `number` = `0xffebcd`
 
-白杏色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:373](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L373)
+[src/math/Color.ts:311](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L311)
 
 ___
 
@@ -459,11 +432,9 @@ ___
 
 ▪ `Static` **MISTYROSE**: `number` = `0xffe4e1`
 
-浅玫瑰色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:377](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L377)
+[src/math/Color.ts:312](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L312)
 
 ___
 
@@ -471,11 +442,9 @@ ___
 
 ▪ `Static` **BISQUE**: `number` = `0xffe4c4`
 
-桔黄色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:381](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L381)
+[src/math/Color.ts:313](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L313)
 
 ___
 
@@ -483,11 +452,9 @@ ___
 
 ▪ `Static` **MOCCASIN**: `number` = `0xffe4b5`
 
-鹿皮色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:385](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L385)
+[src/math/Color.ts:314](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L314)
 
 ___
 
@@ -495,11 +462,9 @@ ___
 
 ▪ `Static` **NAVAJOWHITE**: `number` = `0xffdead`
 
-纳瓦白十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L389)
+[src/math/Color.ts:315](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L315)
 
 ___
 
@@ -507,11 +472,9 @@ ___
 
 ▪ `Static` **PEACHPUFF**: `number` = `0xffdab9`
 
-桃色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:393](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L393)
+[src/math/Color.ts:316](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L316)
 
 ___
 
@@ -519,11 +482,9 @@ ___
 
 ▪ `Static` **GOLD**: `number` = `0xffd700`
 
-金色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:397](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L397)
+[src/math/Color.ts:317](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L317)
 
 ___
 
@@ -531,11 +492,9 @@ ___
 
 ▪ `Static` **PINK**: `number` = `0xffc0cb`
 
-粉红色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:401](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L401)
+[src/math/Color.ts:318](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L318)
 
 ___
 
@@ -543,11 +502,9 @@ ___
 
 ▪ `Static` **LIGHTPINK**: `number` = `0xffb6c1`
 
-亮粉红色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:405](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L405)
+[src/math/Color.ts:319](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L319)
 
 ___
 
@@ -555,11 +512,9 @@ ___
 
 ▪ `Static` **ORANGE**: `number` = `0xffa500`
 
-橙色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:409](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L409)
+[src/math/Color.ts:320](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L320)
 
 ___
 
@@ -567,11 +522,9 @@ ___
 
 ▪ `Static` **LIGHTSALMON**: `number` = `0xffa07a`
 
-亮肉色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:413](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L413)
+[src/math/Color.ts:321](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L321)
 
 ___
 
@@ -579,11 +532,9 @@ ___
 
 ▪ `Static` **DARKORANGE**: `number` = `0xff8c00`
 
-暗桔黄色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:417](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L417)
+[src/math/Color.ts:322](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L322)
 
 ___
 
@@ -591,11 +542,9 @@ ___
 
 ▪ `Static` **CORAL**: `number` = `0xff7f50`
 
-珊瑚色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:421](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L421)
+[src/math/Color.ts:323](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L323)
 
 ___
 
@@ -603,11 +552,9 @@ ___
 
 ▪ `Static` **HOTPINK**: `number` = `0xff69b4`
 
-热粉红色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:425](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L425)
+[src/math/Color.ts:324](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L324)
 
 ___
 
@@ -615,11 +562,9 @@ ___
 
 ▪ `Static` **TOMATO**: `number` = `0xff6347`
 
-西红柿色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:429](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L429)
+[src/math/Color.ts:325](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L325)
 
 ___
 
@@ -627,11 +572,9 @@ ___
 
 ▪ `Static` **ORANGERED**: `number` = `0xff4500`
 
-红橙色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:433](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L433)
+[src/math/Color.ts:326](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L326)
 
 ___
 
@@ -639,11 +582,9 @@ ___
 
 ▪ `Static` **DEEPPINK**: `number` = `0xff1493`
 
-深粉红色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:437](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L437)
+[src/math/Color.ts:327](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L327)
 
 ___
 
@@ -651,11 +592,9 @@ ___
 
 ▪ `Static` **FUCHSIA**: `number` = `0xff00ff`
 
-紫红色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:441](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L441)
+[src/math/Color.ts:328](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L328)
 
 ___
 
@@ -663,11 +602,9 @@ ___
 
 ▪ `Static` **MAGENTA**: `number` = `0xff00ff`
 
-红紫色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:445](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L445)
+[src/math/Color.ts:329](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L329)
 
 ___
 
@@ -675,11 +612,9 @@ ___
 
 ▪ `Static` **RED**: `number` = `0xff0000`
 
-红色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:449](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L449)
+[src/math/Color.ts:330](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L330)
 
 ___
 
@@ -687,11 +622,9 @@ ___
 
 ▪ `Static` **OLDLACE**: `number` = `0xfdf5e6`
 
-老花色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:453](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L453)
+[src/math/Color.ts:331](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L331)
 
 ___
 
@@ -699,11 +632,9 @@ ___
 
 ▪ `Static` **LIGHTGOLDENRODYELLOW**: `number` = `0xfafad2`
 
-亮金黄色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:457](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L457)
+[src/math/Color.ts:332](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L332)
 
 ___
 
@@ -711,11 +642,9 @@ ___
 
 ▪ `Static` **LINEN**: `number` = `0xfaf0e6`
 
-亚麻色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:461](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L461)
+[src/math/Color.ts:333](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L333)
 
 ___
 
@@ -723,11 +652,9 @@ ___
 
 ▪ `Static` **ANTIQUEWHITE**: `number` = `0xfaebd7`
 
-古董白十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:465](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L465)
+[src/math/Color.ts:334](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L334)
 
 ___
 
@@ -735,11 +662,9 @@ ___
 
 ▪ `Static` **SALMON**: `number` = `0xfa8072`
 
-鲜肉色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:469](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L469)
+[src/math/Color.ts:335](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L335)
 
 ___
 
@@ -747,11 +672,9 @@ ___
 
 ▪ `Static` **GHOSTWHITE**: `number` = `0xf8f8ff`
 
-幽灵白十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:473](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L473)
+[src/math/Color.ts:336](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L336)
 
 ___
 
@@ -759,11 +682,9 @@ ___
 
 ▪ `Static` **MINTCREAM**: `number` = `0xf5fffa`
 
-薄荷色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:477](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L477)
+[src/math/Color.ts:337](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L337)
 
 ___
 
@@ -771,11 +692,9 @@ ___
 
 ▪ `Static` **WHITESMOKE**: `number` = `0xf5f5f5`
 
-烟白色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:481](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L481)
+[src/math/Color.ts:338](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L338)
 
 ___
 
@@ -783,11 +702,9 @@ ___
 
 ▪ `Static` **BEIGE**: `number` = `0xf5f5dc`
 
-米色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:485](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L485)
+[src/math/Color.ts:339](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L339)
 
 ___
 
@@ -795,11 +712,9 @@ ___
 
 ▪ `Static` **WHEAT**: `number` = `0xf5deb3`
 
-浅黄色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:489](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L489)
+[src/math/Color.ts:340](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L340)
 
 ___
 
@@ -807,11 +722,9 @@ ___
 
 ▪ `Static` **SANDYBROWN**: `number` = `0xf4a460`
 
-沙褐色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:493](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L493)
+[src/math/Color.ts:341](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L341)
 
 ___
 
@@ -819,11 +732,9 @@ ___
 
 ▪ `Static` **AZURE**: `number` = `0xf0ffff`
 
-天蓝色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:497](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L497)
+[src/math/Color.ts:342](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L342)
 
 ___
 
@@ -831,11 +742,9 @@ ___
 
 ▪ `Static` **HONEYDEW**: `number` = `0xf0fff0`
 
-蜜色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:501](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L501)
+[src/math/Color.ts:343](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L343)
 
 ___
 
@@ -843,11 +752,9 @@ ___
 
 ▪ `Static` **ALICEBLUE**: `number` = `0xf0f8ff`
 
-艾利斯兰色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:505](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L505)
+[src/math/Color.ts:344](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L344)
 
 ___
 
@@ -855,11 +762,9 @@ ___
 
 ▪ `Static` **KHAKI**: `number` = `0xf0e68c`
 
-黄褐色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:509](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L509)
+[src/math/Color.ts:345](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L345)
 
 ___
 
@@ -867,11 +772,9 @@ ___
 
 ▪ `Static` **LIGHTCORAL**: `number` = `0xf08080`
 
-亮珊瑚色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:513](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L513)
+[src/math/Color.ts:346](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L346)
 
 ___
 
@@ -879,11 +782,9 @@ ___
 
 ▪ `Static` **PALEGOLDENROD**: `number` = `0xeee8aa`
 
-苍麒麟色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:517](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L517)
+[src/math/Color.ts:347](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L347)
 
 ___
 
@@ -891,11 +792,9 @@ ___
 
 ▪ `Static` **VIOLET**: `number` = `0xee82ee`
 
-紫罗兰色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:521](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L521)
+[src/math/Color.ts:348](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L348)
 
 ___
 
@@ -903,11 +802,9 @@ ___
 
 ▪ `Static` **DARKSALMON**: `number` = `0xe9967a`
 
-暗肉色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:525](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L525)
+[src/math/Color.ts:349](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L349)
 
 ___
 
@@ -915,11 +812,9 @@ ___
 
 ▪ `Static` **LAVENDER**: `number` = `0xe6e6fa`
 
-淡紫色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:529](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L529)
+[src/math/Color.ts:350](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L350)
 
 ___
 
@@ -927,11 +822,9 @@ ___
 
 ▪ `Static` **LIGHTCYAN**: `number` = `0xe0ffff`
 
-亮青色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:533](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L533)
+[src/math/Color.ts:351](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L351)
 
 ___
 
@@ -939,11 +832,9 @@ ___
 
 ▪ `Static` **BURLYWOOD**: `number` = `0xdeb887`
 
-实木色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:537](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L537)
+[src/math/Color.ts:352](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L352)
 
 ___
 
@@ -951,11 +842,9 @@ ___
 
 ▪ `Static` **PLUM**: `number` = `0xdda0dd`
 
-洋李色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:541](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L541)
+[src/math/Color.ts:353](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L353)
 
 ___
 
@@ -963,11 +852,9 @@ ___
 
 ▪ `Static` **GAINSBORO**: `number` = `0xdcdcdc`
 
-淡灰色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:545](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L545)
+[src/math/Color.ts:354](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L354)
 
 ___
 
@@ -975,11 +862,9 @@ ___
 
 ▪ `Static` **CRIMSON**: `number` = `0xdc143c`
 
-暗深红色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:549](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L549)
+[src/math/Color.ts:355](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L355)
 
 ___
 
@@ -987,11 +872,9 @@ ___
 
 ▪ `Static` **PALEVIOLETRED**: `number` = `0xdb7093`
 
-苍紫罗兰色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:553](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L553)
+[src/math/Color.ts:356](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L356)
 
 ___
 
@@ -999,11 +882,9 @@ ___
 
 ▪ `Static` **GOLDENROD**: `number` = `0xdaa520`
 
-金麒麟色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:557](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L557)
+[src/math/Color.ts:358](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L358)
 
 ___
 
@@ -1011,11 +892,9 @@ ___
 
 ▪ `Static` **ORCHID**: `number` = `0xda70d6`
 
-淡紫色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:561](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L561)
+[src/math/Color.ts:359](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L359)
 
 ___
 
@@ -1023,11 +902,9 @@ ___
 
 ▪ `Static` **THISTLE**: `number` = `0xd8bfd8`
 
-蓟色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:565](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L565)
+[src/math/Color.ts:360](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L360)
 
 ___
 
@@ -1035,11 +912,9 @@ ___
 
 ▪ `Static` **LIGHTGREY**: `number` = `0xd3d3d3`
 
-亮灰色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:569](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L569)
+[src/math/Color.ts:361](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L361)
 
 ___
 
@@ -1047,11 +922,9 @@ ___
 
 ▪ `Static` **TAN**: `number` = `0xd2b48c`
 
-茶色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:573](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L573)
+[src/math/Color.ts:362](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L362)
 
 ___
 
@@ -1059,11 +932,9 @@ ___
 
 ▪ `Static` **CHOCOLATE**: `number` = `0xd2691e`
 
-巧可力色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:577](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L577)
+[src/math/Color.ts:363](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L363)
 
 ___
 
@@ -1071,11 +942,9 @@ ___
 
 ▪ `Static` **PERU**: `number` = `0xcd853f`
 
-秘鲁色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:581](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L581)
+[src/math/Color.ts:364](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L364)
 
 ___
 
@@ -1083,11 +952,9 @@ ___
 
 ▪ `Static` **INDIANRED**: `number` = `0xcd5c5c`
 
-印第安红十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:585](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L585)
+[src/math/Color.ts:365](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L365)
 
 ___
 
@@ -1095,11 +962,9 @@ ___
 
 ▪ `Static` **MEDIUMVIOLETRED**: `number` = `0xc71585`
 
-中紫罗兰色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:589](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L589)
+[src/math/Color.ts:366](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L366)
 
 ___
 
@@ -1107,11 +972,9 @@ ___
 
 ▪ `Static` **SILVER**: `number` = `0xc0c0c0`
 
-银色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:593](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L593)
+[src/math/Color.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L367)
 
 ___
 
@@ -1119,11 +982,9 @@ ___
 
 ▪ `Static` **DARKKHAKI**: `number` = `0xbdb76b`
 
-暗黄褐色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:597](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L597)
+[src/math/Color.ts:368](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L368)
 
 ___
 
@@ -1131,11 +992,9 @@ ___
 
 ▪ `Static` **ROSYBROWN**: `number` = `0xbc8f8f`
 
-褐玫瑰红十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:601](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L601)
+[src/math/Color.ts:369](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L369)
 
 ___
 
@@ -1143,11 +1002,9 @@ ___
 
 ▪ `Static` **MEDIUMORCHID**: `number` = `0xba55d3`
 
-中粉紫色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:605](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L605)
+[src/math/Color.ts:370](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L370)
 
 ___
 
@@ -1155,11 +1012,9 @@ ___
 
 ▪ `Static` **DARKGOLDENROD**: `number` = `0xb8860b`
 
-暗金黄色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:609](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L609)
+[src/math/Color.ts:371](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L371)
 
 ___
 
@@ -1167,11 +1022,9 @@ ___
 
 ▪ `Static` **FIREBRICK**: `number` = `0xb22222`
 
-火砖色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:613](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L613)
+[src/math/Color.ts:372](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L372)
 
 ___
 
@@ -1179,11 +1032,9 @@ ___
 
 ▪ `Static` **POWDERBLUE**: `number` = `0xb0e0e6`
 
-粉蓝色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:617](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L617)
+[src/math/Color.ts:373](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L373)
 
 ___
 
@@ -1191,11 +1042,9 @@ ___
 
 ▪ `Static` **LIGHTSTEELBLUE**: `number` = `0xb0c4de`
 
-亮钢兰色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:621](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L621)
+[src/math/Color.ts:374](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L374)
 
 ___
 
@@ -1203,11 +1052,9 @@ ___
 
 ▪ `Static` **PALETURQUOISE**: `number` = `0xafeeee`
 
-苍宝石绿十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:625](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L625)
+[src/math/Color.ts:375](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L375)
 
 ___
 
@@ -1215,11 +1062,9 @@ ___
 
 ▪ `Static` **GREENYELLOW**: `number` = `0xadff2f`
 
-黄绿色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:629](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L629)
+[src/math/Color.ts:376](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L376)
 
 ___
 
@@ -1227,11 +1072,9 @@ ___
 
 ▪ `Static` **LIGHTBLUE**: `number` = `0xadd8e6`
 
-亮蓝色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:633](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L633)
+[src/math/Color.ts:377](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L377)
 
 ___
 
@@ -1239,11 +1082,9 @@ ___
 
 ▪ `Static` **DARKGRAY**: `number` = `0xa9a9a9`
 
-暗灰色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:637](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L637)
+[src/math/Color.ts:378](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L378)
 
 ___
 
@@ -1251,11 +1092,9 @@ ___
 
 ▪ `Static` **BROWN**: `number` = `0xa52a2a`
 
-褐色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:641](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L641)
+[src/math/Color.ts:379](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L379)
 
 ___
 
@@ -1263,11 +1102,9 @@ ___
 
 ▪ `Static` **SIENNA**: `number` = `0xa0522d`
 
-赭色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:645](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L645)
+[src/math/Color.ts:380](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L380)
 
 ___
 
@@ -1275,11 +1112,9 @@ ___
 
 ▪ `Static` **DARKORCHID**: `number` = `0x9932cc`
 
-暗紫色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:649](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L649)
+[src/math/Color.ts:381](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L381)
 
 ___
 
@@ -1287,11 +1122,9 @@ ___
 
 ▪ `Static` **PALEGREEN**: `number` = `0x98fb98`
 
-苍绿色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:653](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L653)
+[src/math/Color.ts:382](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L382)
 
 ___
 
@@ -1299,11 +1132,9 @@ ___
 
 ▪ `Static` **DARKVIOLET**: `number` = `0x9400d3`
 
-暗紫罗兰色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:657](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L657)
+[src/math/Color.ts:383](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L383)
 
 ___
 
@@ -1311,11 +1142,9 @@ ___
 
 ▪ `Static` **MEDIUMPURPLE**: `number` = `0x9370db`
 
-中紫色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:661](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L661)
+[src/math/Color.ts:384](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L384)
 
 ___
 
@@ -1323,11 +1152,9 @@ ___
 
 ▪ `Static` **LIGHTGREEN**: `number` = `0x90ee90`
 
-亮绿色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:665](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L665)
+[src/math/Color.ts:385](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L385)
 
 ___
 
@@ -1335,11 +1162,9 @@ ___
 
 ▪ `Static` **DARKSEAGREEN**: `number` = `0x8fbc8f`
 
-暗海兰色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:669](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L669)
+[src/math/Color.ts:386](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L386)
 
 ___
 
@@ -1347,11 +1172,9 @@ ___
 
 ▪ `Static` **SADDLEBROWN**: `number` = `0x8b4513`
 
-重褐色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:673](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L673)
+[src/math/Color.ts:387](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L387)
 
 ___
 
@@ -1359,11 +1182,9 @@ ___
 
 ▪ `Static` **DARKMAGENTA**: `number` = `0x8b008b`
 
-暗洋红十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:677](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L677)
+[src/math/Color.ts:388](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L388)
 
 ___
 
@@ -1371,11 +1192,9 @@ ___
 
 ▪ `Static` **DARKRED**: `number` = `0x8b0000`
 
-暗红色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:681](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L681)
+[src/math/Color.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L389)
 
 ___
 
@@ -1383,11 +1202,9 @@ ___
 
 ▪ `Static` **BLUEVIOLET**: `number` = `0x8a2be2`
 
-紫罗兰蓝色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:685](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L685)
+[src/math/Color.ts:390](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L390)
 
 ___
 
@@ -1395,11 +1212,9 @@ ___
 
 ▪ `Static` **LIGHTSKYBLUE**: `number` = `0x87cefa`
 
-亮天蓝色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:689](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L689)
+[src/math/Color.ts:391](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L391)
 
 ___
 
@@ -1407,11 +1222,9 @@ ___
 
 ▪ `Static` **SKYBLUE**: `number` = `0x87ceeb`
 
-天蓝色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:693](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L693)
+[src/math/Color.ts:392](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L392)
 
 ___
 
@@ -1419,11 +1232,9 @@ ___
 
 ▪ `Static` **GRAY**: `number` = `0x808080`
 
-灰色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:697](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L697)
+[src/math/Color.ts:393](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L393)
 
 ___
 
@@ -1431,11 +1242,9 @@ ___
 
 ▪ `Static` **OLIVE**: `number` = `0x808000`
 
-橄榄色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:701](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L701)
+[src/math/Color.ts:394](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L394)
 
 ___
 
@@ -1443,11 +1252,9 @@ ___
 
 ▪ `Static` **PURPLE**: `number` = `0x800080`
 
-紫色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:705](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L705)
+[src/math/Color.ts:395](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L395)
 
 ___
 
@@ -1455,11 +1262,9 @@ ___
 
 ▪ `Static` **MAROON**: `number` = `0x800000`
 
-粟色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:709](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L709)
+[src/math/Color.ts:396](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L396)
 
 ___
 
@@ -1467,11 +1272,9 @@ ___
 
 ▪ `Static` **AQUAMARINE**: `number` = `0x7fffd4`
 
-碧绿色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:713](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L713)
+[src/math/Color.ts:397](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L397)
 
 ___
 
@@ -1479,11 +1282,9 @@ ___
 
 ▪ `Static` **CHARTREUSE**: `number` = `0x7fff00`
 
-黄绿色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:717](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L717)
+[src/math/Color.ts:398](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L398)
 
 ___
 
@@ -1491,11 +1292,9 @@ ___
 
 ▪ `Static` **LAWNGREEN**: `number` = `0x7cfc00`
 
-草绿色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:721](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L721)
+[src/math/Color.ts:399](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L399)
 
 ___
 
@@ -1503,11 +1302,9 @@ ___
 
 ▪ `Static` **MEDIUMSLATEBLUE**: `number` = `0x7b68ee`
 
-中暗蓝色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:725](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L725)
+[src/math/Color.ts:400](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L400)
 
 ___
 
@@ -1515,11 +1312,9 @@ ___
 
 ▪ `Static` **LIGHTSLATEGRAY**: `number` = `0x778899`
 
-亮蓝灰十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:729](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L729)
+[src/math/Color.ts:401](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L401)
 
 ___
 
@@ -1527,11 +1322,9 @@ ___
 
 ▪ `Static` **SLATEGRAY**: `number` = `0x708090`
 
-灰石色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:733](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L733)
+[src/math/Color.ts:402](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L402)
 
 ___
 
@@ -1539,11 +1332,9 @@ ___
 
 ▪ `Static` **OLIVEDRAB**: `number` = `0x6b8e23`
 
-深绿褐色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:737](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L737)
+[src/math/Color.ts:403](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L403)
 
 ___
 
@@ -1551,11 +1342,9 @@ ___
 
 ▪ `Static` **SLATEBLUE**: `number` = `0x6a5acd`
 
-石蓝色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:741](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L741)
+[src/math/Color.ts:404](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L404)
 
 ___
 
@@ -1563,11 +1352,9 @@ ___
 
 ▪ `Static` **DIMGRAY**: `number` = `0x696969`
 
-暗灰色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:745](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L745)
+[src/math/Color.ts:405](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L405)
 
 ___
 
@@ -1575,11 +1362,9 @@ ___
 
 ▪ `Static` **MEDIUMAQUAMARINE**: `number` = `0x66cdaa`
 
-中绿色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:749](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L749)
+[src/math/Color.ts:406](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L406)
 
 ___
 
@@ -1587,11 +1372,9 @@ ___
 
 ▪ `Static` **CORNFLOWERBLUE**: `number` = `0x6495ed`
 
-菊兰色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:753](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L753)
+[src/math/Color.ts:407](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L407)
 
 ___
 
@@ -1599,11 +1382,9 @@ ___
 
 ▪ `Static` **CADETBLUE**: `number` = `0x5f9ea0`
 
-军兰色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:757](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L757)
+[src/math/Color.ts:408](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L408)
 
 ___
 
@@ -1611,11 +1392,9 @@ ___
 
 ▪ `Static` **DARKOLIVEGREEN**: `number` = `0x556b2f`
 
-暗橄榄绿色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:761](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L761)
+[src/math/Color.ts:409](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L409)
 
 ___
 
@@ -1623,11 +1402,9 @@ ___
 
 ▪ `Static` **INDIGO**: `number` = `0x4b0082`
 
-靛青色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:765](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L765)
+[src/math/Color.ts:410](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L410)
 
 ___
 
@@ -1635,11 +1412,9 @@ ___
 
 ▪ `Static` **MEDIUMTURQUOISE**: `number` = `0x48d1cc`
 
-中绿宝石色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:769](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L769)
+[src/math/Color.ts:411](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L411)
 
 ___
 
@@ -1647,11 +1422,9 @@ ___
 
 ▪ `Static` **DARKSLATEBLUE**: `number` = `0x483d8b`
 
-暗灰蓝色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:773](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L773)
+[src/math/Color.ts:412](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L412)
 
 ___
 
@@ -1659,11 +1432,9 @@ ___
 
 ▪ `Static` **STEELBLUE**: `number` = `0x4682b4`
 
-钢兰色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:777](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L777)
+[src/math/Color.ts:413](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L413)
 
 ___
 
@@ -1671,11 +1442,9 @@ ___
 
 ▪ `Static` **ROYALBLUE**: `number` = `0x4169e1`
 
-皇家蓝色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:781](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L781)
+[src/math/Color.ts:414](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L414)
 
 ___
 
@@ -1683,11 +1452,9 @@ ___
 
 ▪ `Static` **TURQUOISE**: `number` = `0x40e0d0`
 
-青绿色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:785](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L785)
+[src/math/Color.ts:415](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L415)
 
 ___
 
@@ -1695,11 +1462,9 @@ ___
 
 ▪ `Static` **MEDIUMSEAGREEN**: `number` = `0x3cb371`
 
-中海蓝色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:789](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L789)
+[src/math/Color.ts:416](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L416)
 
 ___
 
@@ -1707,11 +1472,9 @@ ___
 
 ▪ `Static` **LIMEGREEN**: `number` = `0x32cd32`
 
-橙绿色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:793](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L793)
+[src/math/Color.ts:417](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L417)
 
 ___
 
@@ -1719,11 +1482,9 @@ ___
 
 ▪ `Static` **DARKSLATEGRAY**: `number` = `0x2f4f4f`
 
-暗瓦灰色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:797](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L797)
+[src/math/Color.ts:418](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L418)
 
 ___
 
@@ -1731,11 +1492,9 @@ ___
 
 ▪ `Static` **SEAGREEN**: `number` = `0x2e8b57`
 
-海绿色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:801](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L801)
+[src/math/Color.ts:419](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L419)
 
 ___
 
@@ -1743,11 +1502,9 @@ ___
 
 ▪ `Static` **FORESTGREEN**: `number` = `0x228b22`
 
-森林绿十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:805](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L805)
+[src/math/Color.ts:420](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L420)
 
 ___
 
@@ -1755,11 +1512,9 @@ ___
 
 ▪ `Static` **LIGHTSEAGREEN**: `number` = `0x20b2aa`
 
-亮海蓝色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:809](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L809)
+[src/math/Color.ts:421](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L421)
 
 ___
 
@@ -1767,11 +1522,9 @@ ___
 
 ▪ `Static` **DODGERBLUE**: `number` = `0x1e90ff`
 
-闪兰色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:813](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L813)
+[src/math/Color.ts:422](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L422)
 
 ___
 
@@ -1779,11 +1532,9 @@ ___
 
 ▪ `Static` **MIDNIGHTBLUE**: `number` = `0x191970`
 
-中灰兰色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:817](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L817)
+[src/math/Color.ts:423](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L423)
 
 ___
 
@@ -1791,11 +1542,9 @@ ___
 
 ▪ `Static` **AQUA**: `number` = `0x00ffff`
 
-浅绿色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:821](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L821)
+[src/math/Color.ts:424](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L424)
 
 ___
 
@@ -1803,11 +1552,9 @@ ___
 
 ▪ `Static` **CYAN**: `number` = `0x00ffff`
 
-青色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:825](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L825)
+[src/math/Color.ts:425](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L425)
 
 ___
 
@@ -1815,11 +1562,9 @@ ___
 
 ▪ `Static` **SPRINGGREEN**: `number` = `0x00ff7f`
 
-春绿色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:829](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L829)
+[src/math/Color.ts:426](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L426)
 
 ___
 
@@ -1827,11 +1572,9 @@ ___
 
 ▪ `Static` **LIME**: `number` = `0x00ff00`
 
-酸橙色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:833](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L833)
+[src/math/Color.ts:427](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L427)
 
 ___
 
@@ -1839,11 +1582,9 @@ ___
 
 ▪ `Static` **MEDIUMSPRINGGREEN**: `number` = `0x00fa9a`
 
-中春绿色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:837](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L837)
+[src/math/Color.ts:428](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L428)
 
 ___
 
@@ -1851,11 +1592,9 @@ ___
 
 ▪ `Static` **DARKTURQUOISE**: `number` = `0x00ced1`
 
-暗宝石绿色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:841](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L841)
+[src/math/Color.ts:429](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L429)
 
 ___
 
@@ -1863,11 +1602,9 @@ ___
 
 ▪ `Static` **DEEPSKYBLUE**: `number` = `0x00bfff`
 
-深天蓝色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:845](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L845)
+[src/math/Color.ts:430](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L430)
 
 ___
 
@@ -1875,11 +1612,9 @@ ___
 
 ▪ `Static` **DARKCYAN**: `number` = `0x008b8b`
 
-暗青色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:849](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L849)
+[src/math/Color.ts:431](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L431)
 
 ___
 
@@ -1887,11 +1622,9 @@ ___
 
 ▪ `Static` **TEAL**: `number` = `0x008080`
 
-水鸭色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:853](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L853)
+[src/math/Color.ts:432](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L432)
 
 ___
 
@@ -1899,11 +1632,9 @@ ___
 
 ▪ `Static` **GREEN**: `number` = `0x008000`
 
-绿色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:857](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L857)
+[src/math/Color.ts:433](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L433)
 
 ___
 
@@ -1911,11 +1642,9 @@ ___
 
 ▪ `Static` **DARKGREEN**: `number` = `0x006400`
 
-暗绿色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:861](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L861)
+[src/math/Color.ts:434](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L434)
 
 ___
 
@@ -1923,11 +1652,9 @@ ___
 
 ▪ `Static` **BLUE**: `number` = `0x0000ff`
 
-蓝色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:865](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L865)
+[src/math/Color.ts:435](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L435)
 
 ___
 
@@ -1935,11 +1662,9 @@ ___
 
 ▪ `Static` **MEDIUMBLUE**: `number` = `0x0000cd`
 
-中兰色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:869](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L869)
+[src/math/Color.ts:436](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L436)
 
 ___
 
@@ -1947,11 +1672,9 @@ ___
 
 ▪ `Static` **DARKBLUE**: `number` = `0x00008b`
 
-暗蓝色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:873](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L873)
+[src/math/Color.ts:437](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L437)
 
 ___
 
@@ -1959,11 +1682,9 @@ ___
 
 ▪ `Static` **NAVY**: `number` = `0x000080`
 
-海军色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:877](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L877)
+[src/math/Color.ts:438](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L438)
 
 ___
 
@@ -1971,11 +1692,9 @@ ___
 
 ▪ `Static` **BLACK**: `number` = `0x000000`
 
-黑色十六进制值
-
 #### Defined in
 
-[src/engine/math/Color.ts:881](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L881)
+[src/math/Color.ts:439](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L439)
 
 ## Constructors
 
@@ -1983,26 +1702,28 @@ ___
 
 • **new Color**(`r?`, `g?`, `b?`, `a?`)
 
-创建一个新的Color类对象
+create new color instance
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `r` | `number` | `1.0` | 红色分量 |
-| `g` | `number` | `1.0` | 绿色分量 |
-| `b` | `number` | `1.0` | 蓝色分量 |
-| `a` | `number` | `1.0` | 透明度 |
+| `r` | `number` | `1.0` | red channel |
+| `g` | `number` | `1.0` | green channel |
+| `b` | `number` | `1.0` | blue channel |
+| `a` | `number` | `1.0` | alpha channel |
 
 #### Defined in
 
-[src/engine/math/Color.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L81)
+[src/math/Color.ts:92](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L92)
 
 ## Methods
 
-### converToHDRRGB
+### convertToHDRRGB
 
-▸ **converToHDRRGB**(): [`Color`](Color.md)
+▸ **convertToHDRRGB**(): [`Color`](Color.md)
+
+convert to hdr color , channel a is intensity
 
 #### Returns
 
@@ -2010,7 +1731,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Color.ts:85](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L85)
+[src/math/Color.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L99)
 
 ___
 
@@ -2018,7 +1739,7 @@ ___
 
 ▸ **unSerialized**(`data`): [`Color`](Color.md)
 
-设置data对象的r，g，b，a的值到此颜色。
+unSerialized color by data
 
 #### Parameters
 
@@ -2032,15 +1753,15 @@ ___
 
 #### Defined in
 
-[src/engine/math/Color.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L97)
+[src/math/Color.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L111)
 
 ___
 
-### updateRGBColor
+### hexToRGB
 
-▸ **updateRGBColor**(`value`): `void`
+▸ **hexToRGB**(`value`): `void`
 
-设置该此颜色的r，g，b的值。
+update this color rgb form hexadecimal no alpha
 
 #### Parameters
 
@@ -2054,15 +1775,15 @@ ___
 
 #### Defined in
 
-[src/engine/math/Color.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L109)
+[src/math/Color.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L123)
 
 ___
 
-### updateRGBAColor
+### hexToRGBA
 
-▸ **updateRGBAColor**(`value`): `void`
+▸ **hexToRGBA**(`value`): `void`
 
-设置该此颜色的r，g，b，a的值。
+update this color rgb form hexadecimal has alpha
 
 #### Parameters
 
@@ -2076,15 +1797,21 @@ ___
 
 #### Defined in
 
-[src/engine/math/Color.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L119)
+[src/math/Color.ts:134](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L134)
 
 ___
 
 ### random
 
-▸ `Static` **random**(): [`Color`](Color.md)
+▸ `Static` **random**(`base?`): [`Color`](Color.md)
 
-随机创建一个颜色
+random on color
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `base` | `number` | `1.0` |
 
 #### Returns
 
@@ -2092,7 +1819,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Color.ts:130](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L130)
+[src/math/Color.ts:145](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L145)
 
 ___
 
@@ -2100,16 +1827,16 @@ ___
 
 ▸ **setTo**(`r`, `g`, `b`, `a`): `void`
 
-设置此颜色的值
+set rgba to this color
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `r` | `number` | 红色分量 |
-| `g` | `number` | 绿色分量 |
-| `b` | `number` | 蓝色分量 |
-| `a` | `number` | 透明度 |
+| `r` | `number` | red channel |
+| `g` | `number` | green channel |
+| `b` | `number` | blue channel |
+| `a` | `number` | alpha channel |
 
 #### Returns
 
@@ -2117,7 +1844,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Color.ts:146](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L146)
+[src/math/Color.ts:161](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L161)
 
 ___
 
@@ -2125,13 +1852,13 @@ ___
 
 ▸ **setHex**(`hex`): `void`
 
-设置此颜色的值
+update this color rgba form hexadecimal
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `hex` | `string` | 十六进制值字符串。 |
+| `hex` | `string` | hex string. |
 
 #### Returns
 
@@ -2139,7 +1866,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Color.ts:165](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L165)
+[src/math/Color.ts:172](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L172)
 
 ___
 
@@ -2147,7 +1874,7 @@ ___
 
 ▸ **getHex**(): `string`
 
-将此颜色的十六进制值作为字符串返回。
+convert this color to hex string code
 
 #### Returns
 
@@ -2155,7 +1882,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Color.ts:202](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L202)
+[src/math/Color.ts:208](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L208)
 
 ___
 
@@ -2163,7 +1890,7 @@ ___
 
 ▸ **clone**(): [`Color`](Color.md)
 
-返回一个与当前颜色的 r， g 和 b 相同的颜色。
+clone this color
 
 #### Returns
 
@@ -2171,15 +1898,15 @@ ___
 
 #### Defined in
 
-[src/engine/math/Color.ts:241](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L241)
+[src/math/Color.ts:253](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L253)
 
 ___
 
-### copy
+### copyForm
 
-▸ **copy**(`src`): [`Color`](Color.md)
+▸ **copyForm**(`src`): [`Color`](Color.md)
 
-拷贝数据
+copy color form source color
 
 #### Parameters
 
@@ -2193,111 +1920,22 @@ ___
 
 #### Defined in
 
-[src/engine/math/Color.ts:248](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L248)
+[src/math/Color.ts:261](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L261)
 
 ___
 
-### copyByArray
+### copyFormArray
 
-▸ **copyByArray**(`arr`, `scalar?`): [`Color`](Color.md)
+▸ **copyFormArray**(`arr`, `scalar?`): [`Color`](Color.md)
 
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `arr` | `number`[] | `undefined` |
-| `scalar` | `number` | `255` |
-
-#### Returns
-
-[`Color`](Color.md)
-
-#### Defined in
-
-[src/engine/math/Color.ts:256](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L256)
-
-___
-
-### copyToBytes
-
-▸ **copyToBytes**(`byte`): `void`
-
-克隆当前颜色的 r， g 和 b ，a的值
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `byte` | `DataView` | 输出字节 |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/engine/math/Color.ts:268](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L268)
-
-___
-
-### updateRGBColor
-
-▸ `Static` **updateRGBColor**(`value`, `dis`): `void`
-
-设置颜色rgb值到指定Color对象
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `value` | `number` | 颜色的值 |
-| `dis` | [`Color`](Color.md) | 输出对象 |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/engine/math/Color.ts:287](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L287)
-
-___
-
-### updateRGBAColor
-
-▸ `Static` **updateRGBAColor**(`value`, `dis`): `void`
-
-设置颜色rgba值到指定Color对象
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `value` | `number` | 颜色的值 |
-| `dis` | [`Color`](Color.md) | 输出对象 |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/engine/math/Color.ts:298](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L298)
-
-___
-
-### hexColor
-
-▸ `Static` **hexColor**(`hexColor`, `dst?`): [`Color`](Color.md)
-
-通过十六进制的RGB值构建一个Color对象
+copy color form array
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `hexColor` | `number` | `undefined` | 颜色的值 |
-| `dst` | [`Color`](Color.md) | `null` | 输出对象 |
+| `arr` | `number`[] | `undefined` | [ 255 , 255 , 255 , 255 ] |
+| `scalar` | `number` | `255` |  |
 
 #### Returns
 
@@ -2305,7 +1943,30 @@ ___
 
 #### Defined in
 
-[src/engine/math/Color.ts:310](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L310)
+[src/math/Color.ts:275](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L275)
+
+___
+
+### hexRGBColor
+
+▸ `Static` **hexRGBColor**(`hexColor`, `dst?`): [`Color`](Color.md)
+
+update this color rgb form hexadecimal no alpha
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `hexColor` | `number` | `undefined` | rgb color |
+| `dst` | [`Color`](Color.md) | `null` | ref out color |
+
+#### Returns
+
+[`Color`](Color.md)
+
+#### Defined in
+
+[src/math/Color.ts:288](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L288)
 
 ## Accessors
 
@@ -2313,7 +1974,7 @@ ___
 
 • `get` **rgb**(): `number`[]
 
-此颜色的rgb值
+get rgb to array
 
 #### Returns
 
@@ -2321,9 +1982,11 @@ ___
 
 #### Defined in
 
-[src/engine/math/Color.ts:218](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L218)
+[src/math/Color.ts:224](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L224)
 
 • `set` **rgb**(`c`): `void`
+
+set rgb by array
 
 #### Parameters
 
@@ -2337,7 +2000,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Color.ts:222](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L222)
+[src/math/Color.ts:231](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L231)
 
 ___
 
@@ -2345,7 +2008,7 @@ ___
 
 • `get` **rgba**(): `number`[]
 
-此颜色的rgba值
+get rgba to array
 
 #### Returns
 
@@ -2353,9 +2016,11 @@ ___
 
 #### Defined in
 
-[src/engine/math/Color.ts:229](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L229)
+[src/math/Color.ts:238](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L238)
 
 • `set` **rgba**(`c`): `void`
+
+set rgb by array
 
 #### Parameters
 
@@ -2369,4 +2034,4 @@ ___
 
 #### Defined in
 
-[src/engine/math/Color.ts:233](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Color.ts#L233)
+[src/math/Color.ts:245](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L245)

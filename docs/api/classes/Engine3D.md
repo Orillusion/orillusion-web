@@ -1,116 +1,95 @@
-# Class: \_Engine3D
+# Class: Engine3D
 
-Orillusion 3D引擎
+Orillusion 3D Engine
 
-**`Not Exported`**
+-- Engine3D.setting.*
 
-## Indexable
+-- await Engine3D.init();
 
-▪ [x: `string`]: `any`
-
-
-### Constructors
-
-- [constructor](Engine3D.md#constructor)
 
 ### Properties
 
 - [res](Engine3D.md#res)
 - [inputSystem](Engine3D.md#inputsystem)
-- [pickFire](Engine3D.md#pickfire)
-- [pickUI](Engine3D.md#pickui)
+- [views](Engine3D.md#views)
 - [setting](Engine3D.md#setting)
-- [graphic3D](Engine3D.md#graphic3d)
 
 ### Accessors
 
 - [frameRate](Engine3D.md#framerate)
+- [size](Engine3D.md#size)
+- [aspect](Engine3D.md#aspect)
+- [width](Engine3D.md#width)
+- [height](Engine3D.md#height)
 
 ### Methods
 
 - [init](Engine3D.md#init)
-- [startRender](Engine3D.md#startrender)
-- [updateFrame](Engine3D.md#updateframe)
+- [startRenderView](Engine3D.md#startrenderview)
+- [startRenderViews](Engine3D.md#startrenderviews)
+- [getRenderJob](Engine3D.md#getrenderjob)
+- [pause](Engine3D.md#pause)
+- [resume](Engine3D.md#resume)
 
-## Constructors
+### Constructors
 
-### constructor
-
-• **new _Engine3D**()
+- [constructor](Engine3D.md#constructor)
 
 ## Properties
 
 ### res
 
-• **res**: [`Res`](Res.md)
+▪ `Static` **res**: [`Res`](Res.md)
 
-资源管理类
+resource manager in engine3d
 
 #### Defined in
 
-[src/engine/Engine3D.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/engine/Engine3D.ts#L33)
+[src/Engine3D.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L34)
 
 ___
 
 ### inputSystem
 
-• **inputSystem**: [`InputSystem`](InputSystem.md)
+▪ `Static` **inputSystem**: [`InputSystem`](InputSystem.md)
 
-交互系统
+input system in engine3d
 
 #### Defined in
 
-[src/engine/Engine3D.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/engine/Engine3D.ts#L37)
+[src/Engine3D.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L39)
 
 ___
 
-### pickFire
+### views
 
-• **pickFire**: [`PickFire`](PickFire.md)
+▪ `Static` **views**: [`View3D`](View3D.md)[]
 
-#### Defined in
-
-[src/engine/Engine3D.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/engine/Engine3D.ts#L39)
-
-___
-
-### pickUI
-
-• **pickUI**: [`PickUI`](PickUI.md)
+more view in engine3d
 
 #### Defined in
 
-[src/engine/Engine3D.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/engine/Engine3D.ts#L40)
+[src/Engine3D.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L44)
 
 ___
 
 ### setting
 
-• **setting**: [`EngineConfig`](../types/EngineConfig.md)
+▪ `Static` **setting**: [`EngineSetting`](../types/EngineSetting.md)
 
-引擎配置信息
-
-#### Defined in
-
-[src/engine/Engine3D.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/engine/Engine3D.ts#L58)
-
-___
-
-### graphic3D
-
-• **graphic3D**: [`Graphic3DRender`](Graphic3DRender.md)
-
-图形渲染器(线、矩形等)
+engine setting
 
 #### Defined in
 
-[src/engine/Engine3D.ts:254](https://github.com/Orillusion/orillusion/blob/main/src/engine/Engine3D.ts#L254)
+[src/Engine3D.ts:104](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L104)
 
 ## Accessors
 
 ### frameRate
 
-• `get` **frameRate**(): `number`
+• `Static` `get` **frameRate**(): `number`
+
+set engine render frameRate 24/30/60/114/120/144/240/360 fps or other
 
 #### Returns
 
@@ -118,9 +97,11 @@ ___
 
 #### Defined in
 
-[src/engine/Engine3D.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/engine/Engine3D.ts#L45)
+[src/Engine3D.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L58)
 
-• `set` **frameRate**(`value`): `void`
+• `Static` `set` **frameRate**(`value`): `void`
+
+get engine render frameRate
 
 #### Parameters
 
@@ -134,26 +115,90 @@ ___
 
 #### Defined in
 
-[src/engine/Engine3D.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/engine/Engine3D.ts#L48)
+[src/Engine3D.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L65)
+
+___
+
+### size
+
+• `Static` `get` **size**(): `number`[]
+
+get render window size width and height
+
+#### Returns
+
+`number`[]
+
+#### Defined in
+
+[src/Engine3D.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L76)
+
+___
+
+### aspect
+
+• `Static` `get` **aspect**(): `number`
+
+get render window aspect
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[src/Engine3D.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L83)
+
+___
+
+### width
+
+• `Static` `get` **width**(): `number`
+
+get render window size width
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[src/Engine3D.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L90)
+
+___
+
+### height
+
+• `Static` `get` **height**(): `number`
+
+get render window size height
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[src/Engine3D.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L97)
 
 ## Methods
 
 ### init
 
-▸ **init**(`descriptor?`): `Promise`<`void`\>
+▸ `Static` **init**(`descriptor?`): `Promise`<`void`\>
 
-初始化3D引擎
+create webgpu 3d engine
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `descriptor` | `Object` |
-| `descriptor.canvasConfig?` | [`CanvasConfig`](../types/CanvasConfig.md) |
-| `descriptor.beforeRender?` | `Function` |
-| `descriptor.renderLoop?` | `Function` |
-| `descriptor.lateRender?` | `Function` |
-| `descriptor.engineSetting?` | [`EngineConfig`](../types/EngineConfig.md) |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `descriptor` | `Object` | [CanvasConfig](../types/CanvasConfig.md) |
+| `descriptor.canvasConfig?` | [`CanvasConfig`](../types/CanvasConfig.md) | - |
+| `descriptor.beforeRender?` | `Function` | - |
+| `descriptor.renderLoop?` | `Function` | - |
+| `descriptor.lateRender?` | `Function` | - |
+| `descriptor.engineSetting?` | [`EngineSetting`](../types/EngineSetting.md) | - |
 
 #### Returns
 
@@ -161,21 +206,43 @@ ___
 
 #### Defined in
 
-[src/engine/Engine3D.ts:261](https://github.com/Orillusion/orillusion/blob/main/src/engine/Engine3D.ts#L261)
+[src/Engine3D.ts:257](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L257)
 
 ___
 
-### startRender
+### startRenderView
 
-▸ **startRender**(`renderJob`): `void`
+▸ `Static` **startRenderView**(`view`): [`ForwardRenderJob`](ForwardRenderJob.md)
 
-开始渲染任务
+set render view and start renderer
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `renderJob` | `RendererJob` |
+| `view` | [`View3D`](View3D.md) |
+
+#### Returns
+
+[`ForwardRenderJob`](ForwardRenderJob.md)
+
+#### Defined in
+
+[src/Engine3D.ts:291](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L291)
+
+___
+
+### startRenderViews
+
+▸ `Static` **startRenderViews**(`views`): `void`
+
+set render views and start renderer
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `views` | [`View3D`](View3D.md)[] |
 
 #### Returns
 
@@ -183,19 +250,37 @@ ___
 
 #### Defined in
 
-[src/engine/Engine3D.ts:293](https://github.com/Orillusion/orillusion/blob/main/src/engine/Engine3D.ts#L293)
+[src/Engine3D.ts:308](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L308)
 
 ___
 
-### updateFrame
+### getRenderJob
 
-▸ **updateFrame**(`time`): `void`
+▸ `Static` **getRenderJob**(`view`): `RendererJob`
+
+get view render job instance
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `time` | `number` |
+| `view` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`RendererJob`
+
+#### Defined in
+
+[src/Engine3D.ts:326](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L326)
+
+___
+
+### pause
+
+▸ `Static` **pause**(): `void`
+
+Pause the engine render
 
 #### Returns
 
@@ -203,4 +288,26 @@ ___
 
 #### Defined in
 
-[src/engine/Engine3D.ts:334](https://github.com/Orillusion/orillusion/blob/main/src/engine/Engine3D.ts#L334)
+[src/Engine3D.ts:333](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L333)
+
+___
+
+### resume
+
+▸ `Static` **resume**(): `void`
+
+Resume the engine render
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/Engine3D.ts:343](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L343)
+
+## Constructors
+
+### constructor
+
+• **new Engine3D**()

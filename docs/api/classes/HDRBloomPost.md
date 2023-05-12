@@ -1,13 +1,8 @@
 # Class: HDRBloomPost
 
-HDRBloom泛光效果
+HDR Bloom effect
 ```
-      //配置相关参数
-      let cfg = {@link Engine3D.setting.render.postProcessing.bloom};
-      let renderJob = new ForwardRenderJob(this.scene);
-      renderJob.addPost(new HDRBloomPost());
-      Engine3D.startRender(renderJob);
-```
+@group Post Effects
 
 ## Hierarchy
 
@@ -22,13 +17,21 @@ HDRBloom泛光效果
 
 ### Methods
 
+- [onAttach](HDRBloomPost.md#onattach)
+- [onDetach](HDRBloomPost.md#ondetach)
 - [debug](HDRBloomPost.md#debug)
+- [destroy](HDRBloomPost.md#destroy)
 
 ### Accessors
 
-- [bloomStrength](HDRBloomPost.md#bloomstrength)
-- [bloomRadius](HDRBloomPost.md#bloomradius)
+- [strength](HDRBloomPost.md#strength)
+- [radius](HDRBloomPost.md#radius)
 - [luminosityThreshold](HDRBloomPost.md#luminositythreshold)
+
+### Properties
+
+- [enable](HDRBloomPost.md#enable)
+- [postRenderer](HDRBloomPost.md#postrenderer)
 
 ## Constructors
 
@@ -42,9 +45,57 @@ PostBase.constructor
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/HDRBloomPost.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/HDRBloomPost.ts#L36)
+[src/gfx/renderJob/post/HDRBloomPost.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/HDRBloomPost.ts#L29)
 
 ## Methods
+
+### onAttach
+
+▸ **onAttach**(`view`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+PostBase.onAttach
+
+#### Defined in
+
+[src/gfx/renderJob/post/HDRBloomPost.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/HDRBloomPost.ts#L89)
+
+___
+
+### onDetach
+
+▸ **onDetach**(`view`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+PostBase.onDetach
+
+#### Defined in
+
+[src/gfx/renderJob/post/HDRBloomPost.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/HDRBloomPost.ts#L93)
+
+___
 
 ### debug
 
@@ -56,43 +107,31 @@ PostBase.constructor
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/HDRBloomPost.ts:95](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/HDRBloomPost.ts#L95)
-
-## Accessors
-
-### bloomStrength
-
-• `get` **bloomStrength**(): `number`
-
-#### Returns
-
-`number`
-
-#### Defined in
-
-[src/engine/gfx/renderJob/post/HDRBloomPost.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/HDRBloomPost.ts#L107)
-
-• `set` **bloomStrength**(`value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/engine/gfx/renderJob/post/HDRBloomPost.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/HDRBloomPost.ts#L111)
+[src/gfx/renderJob/post/HDRBloomPost.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/HDRBloomPost.ts#L96)
 
 ___
 
-### bloomRadius
+### destroy
 
-• `get` **bloomRadius**(): `number`
+▸ **destroy**(): `void`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+PostBase.destroy
+
+#### Defined in
+
+[src/gfx/renderJob/post/PostBase.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L79)
+
+## Accessors
+
+### strength
+
+• `get` **strength**(): `number`
 
 #### Returns
 
@@ -100,9 +139,9 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/HDRBloomPost.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/HDRBloomPost.ts#L115)
+[src/gfx/renderJob/post/HDRBloomPost.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/HDRBloomPost.ts#L99)
 
-• `set` **bloomRadius**(`value`): `void`
+• `set` **strength**(`value`): `void`
 
 #### Parameters
 
@@ -116,7 +155,37 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/HDRBloomPost.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/HDRBloomPost.ts#L119)
+[src/gfx/renderJob/post/HDRBloomPost.ts:103](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/HDRBloomPost.ts#L103)
+
+___
+
+### radius
+
+• `get` **radius**(): `number`
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[src/gfx/renderJob/post/HDRBloomPost.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/HDRBloomPost.ts#L107)
+
+• `set` **radius**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/gfx/renderJob/post/HDRBloomPost.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/HDRBloomPost.ts#L111)
 
 ___
 
@@ -130,7 +199,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/HDRBloomPost.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/HDRBloomPost.ts#L123)
+[src/gfx/renderJob/post/HDRBloomPost.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/HDRBloomPost.ts#L115)
 
 • `set` **luminosityThreshold**(`value`): `void`
 
@@ -146,4 +215,32 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/HDRBloomPost.ts:127](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/HDRBloomPost.ts#L127)
+[src/gfx/renderJob/post/HDRBloomPost.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/HDRBloomPost.ts#L119)
+
+## Properties
+
+### enable
+
+• **enable**: `boolean` = `true`
+
+#### Inherited from
+
+PostBase.enable
+
+#### Defined in
+
+[src/gfx/renderJob/post/PostBase.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L18)
+
+___
+
+### postRenderer
+
+• **postRenderer**: `PostRenderer`
+
+#### Inherited from
+
+PostBase.postRenderer
+
+#### Defined in
+
+[src/gfx/renderJob/post/PostBase.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L19)

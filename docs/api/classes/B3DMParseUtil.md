@@ -33,4 +33,4 @@
 
 #### Defined in
 
-[src/engine/loader/parser/B3DMParser.ts:127](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/B3DMParser.ts#L127)
+[src/loader/parser/B3DMParser.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L107)

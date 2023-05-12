@@ -1,6 +1,6 @@
 # Class: CubicBezierCurve
 
-三阶贝塞尔曲线
+Cubic Bezier Curve
 
 
 ### Constructors
@@ -9,7 +9,7 @@
 
 ### Methods
 
-- [setControlVerts](CubicBezierCurve.md#setcontrolverts)
+- [setControlVertices](CubicBezierCurve.md#setcontrolvertices)
 - [getPoint](CubicBezierCurve.md#getpoint)
 - [getTangent](CubicBezierCurve.md#gettangent)
 - [getClosestParam](CubicBezierCurve.md#getclosestparam)
@@ -21,31 +21,29 @@
 
 • **new CubicBezierCurve**(`cvs`)
 
-创建贝塞尔曲线对象
-
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `cvs` | [`Vector3`](Vector3.md)[] | 控制点 |
+| `cvs` | [`Vector3`](Vector3.md)[] | controller points |
 
 #### Defined in
 
-[src/engine/math/CubicBezierCurve.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/CubicBezierCurve.ts#L13)
+[src/math/CubicBezierCurve.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierCurve.ts#L14)
 
 ## Methods
 
-### setControlVerts
+### setControlVertices
 
-▸ **setControlVerts**(`cvs`): `void`
+▸ **setControlVertices**(`cvs`): `void`
 
-设置控制点
+update controller points
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `cvs` | [`Vector3`](Vector3.md)[] | 控制点数组 |
+| `cvs` | [`Vector3`](Vector3.md)[] | controller points |
 
 #### Returns
 
@@ -53,7 +51,7 @@
 
 #### Defined in
 
-[src/engine/math/CubicBezierCurve.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/CubicBezierCurve.ts#L21)
+[src/math/CubicBezierCurve.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierCurve.ts#L22)
 
 ___
 
@@ -61,23 +59,23 @@ ___
 
 ▸ **getPoint**(`t`): [`Vector3`](Vector3.md)
 
-获取给定位置的坐标
+get position by calc from curve
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `t` | `number` | 坐标中的位置 必须在[0-1]范围 |
+| `t` | `number` | a position in range [0-1] |
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-选定的坐值
+Vector3
 
 #### Defined in
 
-[src/engine/math/CubicBezierCurve.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/CubicBezierCurve.ts#L31)
+[src/math/CubicBezierCurve.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierCurve.ts#L34)
 
 ___
 
@@ -85,23 +83,24 @@ ___
 
 ▸ **getTangent**(`t`): [`Vector3`](Vector3.md)
 
-返回指定点的切线向量
+get tagent by calc from curve
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `t` | `number` | 坐标中的位置 必须在[0-1]范围 |
+| `t` | `number` | a position in range [0-1] |
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-切线向量
+tagent direction
+See: http://bimixual.org/AnimationLibrary/beziertangents.html
 
 #### Defined in
 
-[src/engine/math/CubicBezierCurve.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/CubicBezierCurve.ts#L52)
+[src/math/CubicBezierCurve.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierCurve.ts#L56)
 
 ___
 
@@ -109,24 +108,24 @@ ___
 
 ▸ **getClosestParam**(`pos`, `paramThreshold?`): `number`
 
-获取临近坐标
+get adjacent coordinates
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `pos` | [`Vector3`](Vector3.md) | `undefined` | 位置 |
-| `paramThreshold` | `number` | `0.000001` | 临界值 |
+| `pos` | [`Vector3`](Vector3.md) | `undefined` | position |
+| `paramThreshold` | `number` | `0.000001` | threshold value |
 
 #### Returns
 
 `number`
 
-临近值
+a position in range [0-1]
 
 #### Defined in
 
-[src/engine/math/CubicBezierCurve.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/CubicBezierCurve.ts#L73)
+[src/math/CubicBezierCurve.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierCurve.ts#L77)
 
 ___
 
@@ -134,16 +133,16 @@ ___
 
 ▸ **getClosestParamRec**(`pos`, `beginT`, `endT`, `thresholdT`): `number`
 
-根据给定范围计算临近值
+get adjacent coordinates by given range
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `pos` | [`Vector3`](Vector3.md) | 位置 |
-| `beginT` | `number` | 起始范围 |
-| `endT` | `number` | 终止范围 |
-| `thresholdT` | `number` | 临界值 |
+| `pos` | [`Vector3`](Vector3.md) | position |
+| `beginT` | `number` | range from |
+| `endT` | `number` | range end |
+| `thresholdT` | `number` | threshold value |
 
 #### Returns
 
@@ -151,4 +150,4 @@ ___
 
 #### Defined in
 
-[src/engine/math/CubicBezierCurve.ts:85](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/CubicBezierCurve.ts#L85)
+[src/math/CubicBezierCurve.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierCurve.ts#L89)

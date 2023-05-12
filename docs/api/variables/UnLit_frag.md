@@ -4,4 +4,4 @@
 
 #### Defined in
 
-[src/engine/assets/shader/lighting/UnLit_frag.ts:1](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/shader/lighting/UnLit_frag.ts#L1)
+[src/assets/shader/lighting/UnLit_frag.ts:1](https://github.com/Orillusion/orillusion/blob/main/src/assets/shader/lighting/UnLit_frag.ts#L1)

@@ -1,7 +1,8 @@
 # Class: Entity
 
-实体类为所有被视为在场景中具有“存在”的场景对象提供了一个抽象基类，它可以被视为具有位置和大小的实际对象。
-实体类是一个抽象类，不能被实例化，如果要实例化，请使用Object3D类。
+The entity class provides an abstract base class for all scene objects that are considered to have "existence" in the scene,
+ which can be considered as actual objects with positions and sizes.
+Entity class is an abstract class and cannot be instantiated. If you want to instantiate it, please use the Object 3D class.
 
 ## Hierarchy
 
@@ -19,14 +20,13 @@
 - [renderNode](Entity.md#rendernode)
 - [entityChildren](Entity.md#entitychildren)
 - [components](Entity.md#components)
-- [bound](Entity.md#bound)
 
 ### Accessors
 
 - [uuid](Entity.md#uuid)
 - [renderLayer](Entity.md#renderlayer)
-- [visible](Entity.md#visible)
 - [numChildren](Entity.md#numchildren)
+- [bound](Entity.md#bound)
 
 ### Methods
 
@@ -34,12 +34,14 @@
 - [addChild](Entity.md#addchild)
 - [removeChild](Entity.md#removechild)
 - [removeAllChild](Entity.md#removeallchild)
+- [removeSelf](Entity.md#removeself)
 - [removeChildByIndex](Entity.md#removechildbyindex)
 - [hasChild](Entity.md#haschild)
 - [removeFromParent](Entity.md#removefromparent)
 - [getChildByIndex](Entity.md#getchildbyindex)
 - [getChildByName](Entity.md#getchildbyname)
 - [genBounds](Entity.md#genbounds)
+- [destroy](Entity.md#destroy)
 - [dispatchEvent](Entity.md#dispatchevent)
 - [addEventListener](Entity.md#addeventlistener)
 - [removeEventListener](Entity.md#removeeventlistener)
@@ -58,11 +60,11 @@
 
 • **name**: `string` = `''`
 
-对象的名称。默认值是一个空字符串。
+The name of the object. The default value is an empty string.
 
 #### Defined in
 
-[src/engine/core/entities/Entity.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L24)
+[src/core/entities/Entity.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L24)
 
 ___
 
@@ -70,11 +72,11 @@ ___
 
 • **transform**: [`Transform`](Transform.md)
 
-附加到此对象的Transform。
+The Transform attached to this object.
 
 #### Defined in
 
-[src/engine/core/entities/Entity.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L58)
+[src/core/entities/Entity.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L59)
 
 ___
 
@@ -82,11 +84,11 @@ ___
 
 • **renderNode**: `RenderNode`
 
-渲染器组件
+Renderer components
 
 #### Defined in
 
-[src/engine/core/entities/Entity.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L63)
+[src/core/entities/Entity.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L64)
 
 ___
 
@@ -94,35 +96,23 @@ ___
 
 • **entityChildren**: [`Entity`](Entity.md)[]
 
-包含对象子对象的数组
+An array containing sub objects of an object
 
 #### Defined in
 
-[src/engine/core/entities/Entity.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L68)
+[src/core/entities/Entity.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L69)
 
 ___
 
 ### components
 
-• **components**: `Map`<`any`, [`ComponentBase`](ComponentBase.md)\>
+• **components**: `Map`<`any`, [`IComponent`](../interfaces/IComponent.md)\>
 
-对象所附加的组件列表
-
-#### Defined in
-
-[src/engine/core/entities/Entity.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L73)
-
-___
-
-### bound
-
-• **bound**: `IBound`
-
-对象的的包围体
+List of components attached to an object
 
 #### Defined in
 
-[src/engine/core/entities/Entity.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L78)
+[src/core/entities/Entity.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L74)
 
 ## Accessors
 
@@ -130,7 +120,7 @@ ___
 
 • `get` **uuid**(): `string`
 
-该对象的唯一标识符。
+The unique identifier of the object.
 
 #### Returns
 
@@ -138,7 +128,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Entity.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L31)
+[src/core/entities/Entity.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L31)
 
 ___
 
@@ -152,7 +142,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Entity.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L42)
+[src/core/entities/Entity.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L43)
 
 • `set` **renderLayer**(`value`): `void`
 
@@ -168,41 +158,7 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Entity.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L46)
-
-___
-
-### visible
-
-• `get` **visible**(): `boolean`
-
-对象是否可见
-
-#### Returns
-
-`boolean`
-
-#### Defined in
-
-[src/engine/core/entities/Entity.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L116)
-
-• `set` **visible**(`value`): `void`
-
-设置对象是否可见
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/engine/core/entities/Entity.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L123)
+[src/core/entities/Entity.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L47)
 
 ___
 
@@ -210,7 +166,7 @@ ___
 
 • `get` **numChildren**(): `number`
 
-返回对象子对象的数量
+Returns the number of child objects of an object
 
 #### Returns
 
@@ -218,214 +174,13 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Entity.ts:154](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L154)
-
-## Methods
-
-### getObjectByName
-
-▸ **getObjectByName**(`name`): [`Entity`](Entity.md)
-
-从对象本身开始搜索对象及其子对象，并返回第一个具有匹配名称的子对象。
-对于大多数对象，默认情况下名称为空字符串。您必须手动设置才能使用此方法。
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `name` | `string` | 对象名称 |
-
-#### Returns
-
-[`Entity`](Entity.md)
-
-子对象
-
-#### Defined in
-
-[src/engine/core/entities/Entity.ts:95](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L95)
+[src/core/entities/Entity.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L129)
 
 ___
 
-### addChild
+### bound
 
-▸ **addChild**(`child`): [`Entity`](Entity.md)
-
-将对象添加为此对象的子对象。可以添加任意数量的对象。
-传递到此处的对象上的任何当前父对象都将被删除，因为一个对象最多只能有一个父对象。
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `child` | [`Entity`](Entity.md) | 待添加的对象 |
-
-#### Returns
-
-[`Entity`](Entity.md)
-
-#### Defined in
-
-[src/engine/core/entities/Entity.ts:213](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L213)
-
-___
-
-### removeChild
-
-▸ **removeChild**(`child`): `any`
-
-移除对象的子对象。可以移除任意数量的对象。
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `child` | [`Entity`](Entity.md) | 移除的对象 |
-
-#### Returns
-
-`any`
-
-#### Defined in
-
-[src/engine/core/entities/Entity.ts:234](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L234)
-
-___
-
-### removeAllChild
-
-▸ **removeAllChild**(): `void`
-
-移除当前对象的所有子对象
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/engine/core/entities/Entity.ts:249](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L249)
-
-___
-
-### removeChildByIndex
-
-▸ **removeChildByIndex**(`index`): `void`
-
-搜索对象子级，移除带有匹配索引的子对象。
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `index` | `number` | 标识该对象实例的索引 |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/engine/core/entities/Entity.ts:261](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L261)
-
-___
-
-### hasChild
-
-▸ **hasChild**(`child`): `boolean`
-
-当前对象的子对象中是否包含某一对象
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `child` | [`Entity`](Entity.md) | 指定对象 |
-
-#### Returns
-
-`boolean`
-
-是否包含该对象
-
-#### Defined in
-
-[src/engine/core/entities/Entity.ts:275](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L275)
-
-___
-
-### removeFromParent
-
-▸ **removeFromParent**(): [`Entity`](Entity.md)
-
-将此对象从其当前父对象中删除。
-
-#### Returns
-
-[`Entity`](Entity.md)
-
-当前对象
-
-#### Defined in
-
-[src/engine/core/entities/Entity.ts:285](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L285)
-
-___
-
-### getChildByIndex
-
-▸ **getChildByIndex**(`index`): [`Entity`](Entity.md)
-
-搜索对象子级，返回第一个带有匹配索引的子对象。
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `index` | `number` | 标识该对象实例的索引 |
-
-#### Returns
-
-[`Entity`](Entity.md)
-
-子对象
-
-#### Defined in
-
-[src/engine/core/entities/Entity.ts:299](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L299)
-
-___
-
-### getChildByName
-
-▸ **getChildByName**(`name`, `loopChild?`): `any`
-
-搜索对象子级，返回一个带有匹配名称的子对象。
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `name` | `string` | `undefined` | 对象名称 |
-| `loopChild` | `boolean` | `true` | 是否遍历子对象的子级。默认值为true |
-
-#### Returns
-
-`any`
-
-子对象
-
-#### Defined in
-
-[src/engine/core/entities/Entity.ts:314](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L314)
-
-___
-
-### genBounds
-
-▸ **genBounds**(): `IBound`
-
-返回一个矩形，该矩形定义指定层的显示区域。
+• `get` **bound**(): `IBound`
 
 #### Returns
 
@@ -433,7 +188,272 @@ ___
 
 #### Defined in
 
-[src/engine/core/entities/Entity.ts:406](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L406)
+[src/core/entities/Entity.ts:317](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L317)
+
+• `set` **bound**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `IBound` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/core/entities/Entity.ts:324](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L324)
+
+## Methods
+
+### getObjectByName
+
+▸ **getObjectByName**(`name`): [`Entity`](Entity.md)
+
+Starting from the object itself, search for the object and its children, and return the first child object with a matching name.
+For most objects, the name is an empty string by default. You must manually set it to use this method.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `name` | `string` | input name |
+
+#### Returns
+
+[`Entity`](Entity.md)
+
+result Entity
+
+#### Defined in
+
+[src/core/entities/Entity.ts:94](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L94)
+
+___
+
+### addChild
+
+▸ **addChild**(`child`): [`Entity`](Entity.md)
+
+Add an object as a child of this object. You can add any number of objects.
+Any current parent object on the object passed here will be deleted, as an object can only have at most one parent object.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `child` | [`Entity`](Entity.md) | target child entity |
+
+#### Returns
+
+[`Entity`](Entity.md)
+
+#### Defined in
+
+[src/core/entities/Entity.ts:140](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L140)
+
+___
+
+### removeChild
+
+▸ **removeChild**(`child`): `any`
+
+Remove the child objects of the object. You can remove any number of objects.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `child` | [`Entity`](Entity.md) | Removed objects |
+
+#### Returns
+
+`any`
+
+#### Defined in
+
+[src/core/entities/Entity.ts:166](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L166)
+
+___
+
+### removeAllChild
+
+▸ **removeAllChild**(): `void`
+
+Remove all children of the current object
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/core/entities/Entity.ts:180](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L180)
+
+___
+
+### removeSelf
+
+▸ **removeSelf**(): [`Entity`](Entity.md)
+
+Remove the current node from the parent
+
+#### Returns
+
+[`Entity`](Entity.md)
+
+this
+
+#### Defined in
+
+[src/core/entities/Entity.ts:191](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L191)
+
+___
+
+### removeChildByIndex
+
+▸ **removeChildByIndex**(`index`): `void`
+
+Search for child nodes of objects and remove child objects with matching indexes.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `index` | `number` | assign index |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/core/entities/Entity.ts:201](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L201)
+
+___
+
+### hasChild
+
+▸ **hasChild**(`child`): `boolean`
+
+Does the current object contain a certain object
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `child` | [`Entity`](Entity.md) | certain object |
+
+#### Returns
+
+`boolean`
+
+boolean
+
+#### Defined in
+
+[src/core/entities/Entity.ts:215](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L215)
+
+___
+
+### removeFromParent
+
+▸ **removeFromParent**(): [`Entity`](Entity.md)
+
+Remove the current node from the parent
+
+#### Returns
+
+[`Entity`](Entity.md)
+
+this
+
+#### Defined in
+
+[src/core/entities/Entity.ts:225](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L225)
+
+___
+
+### getChildByIndex
+
+▸ **getChildByIndex**(`index`): [`Entity`](Entity.md)
+
+Search for object children and return the first child object with a matching index.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `index` | `number` | matching index |
+
+#### Returns
+
+[`Entity`](Entity.md)
+
+child entity
+
+#### Defined in
+
+[src/core/entities/Entity.ts:239](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L239)
+
+___
+
+### getChildByName
+
+▸ **getChildByName**(`name`, `loopChild?`): `any`
+
+Search for object children and return a child object with a matching name.
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `name` | `string` | `undefined` | matching name |
+| `loopChild` | `boolean` | `true` | Whether to traverse the children of the child object. The default value is true |
+
+#### Returns
+
+`any`
+
+result
+
+#### Defined in
+
+[src/core/entities/Entity.ts:254](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L254)
+
+___
+
+### genBounds
+
+▸ **genBounds**(): `IBound`
+
+Returns a bounding box that defines the display area of the specified layer.
+
+#### Returns
+
+`IBound`
+
+#### Defined in
+
+[src/core/entities/Entity.ts:332](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L332)
+
+___
+
+### destroy
+
+▸ **destroy**(): `void`
+
+release current object
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/core/entities/Entity.ts:348](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L348)
 
 ___
 
@@ -441,7 +461,7 @@ ___
 
 ▸ **dispatchEvent**(`event`): `void`
 
-派发一个 Event3D 事件到所有注册了特定类型侦听器的对象中。
+Dispatch an event to all registered objects with a specific type of listener.
 
 #### Parameters
 
@@ -459,7 +479,7 @@ ___
 
 #### Defined in
 
-[src/engine/event/CEventDispatcher.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEventDispatcher.ts#L22)
+[src/event/CEventDispatcher.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L24)
 
 ___
 
@@ -467,23 +487,23 @@ ___
 
 ▸ **addEventListener**(`type`, `callback`, `thisObject`, `param?`, `priority?`): `number`
 
-使用 EventDispatcher 对象注册事件侦听器对象，以使侦听器能够接收事件通知。可以为特定类型的事件和优先级注册事件侦听器。成功注册一个事件侦听器后，无法通过额外调用 addCEventListener() 来更改其优先级。要更改侦听器的优先级，必须首先调用 removeCEventListener()。然后，可以使用新的优先级再次注册该侦听器。
+register an event listener to event distancher.
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `type` | `string` \| `number` | `undefined` | {string} 事件的类型标识符。 |
-| `callback` | `Function` | `undefined` | {Function} 处理事件的侦听器函数。此函数必须接受 Event3D 对象作为其唯一的参数，并且不能返回任何结果， 如下面的示例所示： function(evt:Event3D):void 函数可以有任何名称。 |
-| `thisObject` | `any` | `undefined` | {any} 当前注册对象。 |
-| `param` | `any` | `null` | {any} 事件携带参数，默认为空。 |
-| `priority` | `number` | `0` | {number} 事件侦听器的优先级。优先级由一个带符号的 32 位整数指定。数字越大，优先级越高。优先级为 n 的所有侦听器会在 优先级为 n -1 的侦听器之前得到处理。如果两个或更多个侦听器共享相同的优先级，则按照它们的添加顺序进行处理。默认优先级为 0。 |
+| `type` | `string` \| `number` | `undefined` | {string} event type. |
+| `callback` | `Function` | `undefined` | {Function} The callback function that handles events. This function must accept an Event3D object as its unique parameter and cannot return any result. for example: function(evt:Event3D):void. |
+| `thisObject` | `any` | `undefined` | {any} Current registration object, it'll call callback function. |
+| `param` | `any` | `null` | {any} the data binded to registered event, the default value is null. |
+| `priority` | `number` | `0` | {number} The priority of callback function execution, with a larger set value having priority to call |
 
 #### Returns
 
 `number`
 
-注册事件位置标识id
+Returns register event id
 
 #### Inherited from
 
@@ -491,7 +511,7 @@ ___
 
 #### Defined in
 
-[src/engine/event/CEventDispatcher.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEventDispatcher.ts#L77)
+[src/event/CEventDispatcher.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L79)
 
 ___
 
@@ -499,15 +519,15 @@ ___
 
 ▸ **removeEventListener**(`type`, `callback`, `thisObject`): `void`
 
-移除事件侦听器。
+Remove Event Listening
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `type` | `string` \| `number` | {string} 事件名。 |
-| `callback` | `Function` | {Function} 侦听函数。 |
-| `thisObject` | `any` | {any} 当前注册对象。 |
+| `type` | `string` \| `number` | {string} event type |
+| `callback` | `Function` | {Function} callback function of event register |
+| `thisObject` | `any` | {any} The current registered object. |
 
 #### Returns
 
@@ -519,25 +539,25 @@ ___
 
 #### Defined in
 
-[src/engine/event/CEventDispatcher.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEventDispatcher.ts#L111)
+[src/event/CEventDispatcher.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L113)
 
 ___
 
 ### removeEventListenerAt
 
-▸ **removeEventListenerAt**(`id`): `void`
+▸ **removeEventListenerAt**(`id`): `boolean`
 
-移除事件侦听器。
+Remove an event Listening with id
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `id` | `number` | 事件id,调用addCEventListener的返回值即为事件id. |
+| Name | Type |
+| :------ | :------ |
+| `id` | `number` |
 
 #### Returns
 
-`void`
+`boolean`
 
 #### Inherited from
 
@@ -545,7 +565,7 @@ ___
 
 #### Defined in
 
-[src/engine/event/CEventDispatcher.ts:130](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEventDispatcher.ts#L130)
+[src/event/CEventDispatcher.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L133)
 
 ___
 
@@ -553,8 +573,8 @@ ___
 
 ▸ **removeAllEventListener**(`eventType?`): `void`
 
-移除指定类型的事件侦听器。
-eventType 不指定类型 则移除所有的事件
+Specify a event type to remove all related event listeners
+eventType event type, set null to remove all event listeners
 
 #### Parameters
 
@@ -572,7 +592,7 @@ eventType 不指定类型 则移除所有的事件
 
 #### Defined in
 
-[src/engine/event/CEventDispatcher.ts:149](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEventDispatcher.ts#L149)
+[src/event/CEventDispatcher.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L153)
 
 ___
 
@@ -580,19 +600,19 @@ ___
 
 ▸ **containEventListener**(`type`): `boolean`
 
-检测是否存在监听器。
+whether the target presence of a listener with event type.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `type` | `string` | {string} 事件类型标识符 |
+| `type` | `string` | {string} event type. |
 
 #### Returns
 
 `boolean`
 
-是否存在该类型监视器，true为存在，反之不存在。
+Returns a boolean.
 
 #### Inherited from
 
@@ -600,7 +620,7 @@ ___
 
 #### Defined in
 
-[src/engine/event/CEventDispatcher.ts:181](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEventDispatcher.ts#L181)
+[src/event/CEventDispatcher.ts:185](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L185)
 
 ___
 
@@ -608,21 +628,21 @@ ___
 
 ▸ **hasEventListener**(`type`, `callback?`, `thisObject?`): `boolean`
 
-检测是否存在监听器。
+whether the target presence of a listener with event type. it associate more registration parameters.
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `type` | `string` \| `number` | `undefined` | {string} 事件名 |
-| `callback` | `Function` | `null` | {Function} 处理事件的侦听器函数 |
-| `thisObject` | `any` | `null` | {any} 注册对象。 |
+| `type` | `string` \| `number` | `undefined` | {string} event name. |
+| `callback` | `Function` | `null` | {Function} callback function of event register. |
+| `thisObject` | `any` | `null` | {any} The registered object. |
 
 #### Returns
 
 `boolean`
 
-是否存在该事件，true为存在，反之不存在。
+Returns a boolean.
 
 #### Inherited from
 
@@ -630,7 +650,7 @@ ___
 
 #### Defined in
 
-[src/engine/event/CEventDispatcher.ts:194](https://github.com/Orillusion/orillusion/blob/main/src/engine/event/CEventDispatcher.ts#L194)
+[src/event/CEventDispatcher.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L198)
 
 ## Constructors
 
@@ -638,12 +658,10 @@ ___
 
 • **new Entity**()
 
-创建一个新的实体类对象
-
 #### Overrides
 
 [CEventDispatcher](CEventDispatcher.md).[constructor](CEventDispatcher.md#constructor)
 
 #### Defined in
 
-[src/engine/core/entities/Entity.ts:140](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/entities/Entity.ts#L140)
+[src/core/entities/Entity.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L117)

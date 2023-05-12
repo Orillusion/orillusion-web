@@ -1,7 +1,7 @@
 # Class: CapsuleColliderShape
 
-胶囊碰撞体。
-由两个半球体与一个圆柱体相连接而构成。
+Capsule collision body.
+Composed of two hemispheres connected to a cylinder.
 
 ## Hierarchy
 
@@ -19,17 +19,17 @@
 
 - [constructor](CapsuleColliderShape.md#constructor)
 
+### Accessors
+
+- [shapeType](CapsuleColliderShape.md#shapetype)
+- [center](CapsuleColliderShape.md#center)
+- [size](CapsuleColliderShape.md#size)
+- [halfSize](CapsuleColliderShape.md#halfsize)
+
 ### Methods
 
 - [setFromCenterAndSize](CapsuleColliderShape.md#setfromcenterandsize)
 - [rayPick](CapsuleColliderShape.md#raypick)
-- [serialization](CapsuleColliderShape.md#serialization)
-
-### Accessors
-
-- [center](CapsuleColliderShape.md#center)
-- [size](CapsuleColliderShape.md#size)
-- [halfSize](CapsuleColliderShape.md#halfsize)
 
 ## Properties
 
@@ -37,11 +37,11 @@
 
 • **radius**: `number` = `2.5`
 
-碰撞体的局部宽度的半径。
+The radius of the local width of the collision body.
 
 #### Defined in
 
-[src/engine/components/colliders/shape/CapsuleColliderShape.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/colliders/shape/CapsuleColliderShape.ts#L11)
+[src/components/shape/CapsuleColliderShape.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/CapsuleColliderShape.ts#L11)
 
 ___
 
@@ -49,11 +49,11 @@ ___
 
 • **height**: `number` = `10`
 
-碰撞体的总高度。
+The total height of the collision body.
 
 #### Defined in
 
-[src/engine/components/colliders/shape/CapsuleColliderShape.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/colliders/shape/CapsuleColliderShape.ts#L15)
+[src/components/shape/CapsuleColliderShape.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/CapsuleColliderShape.ts#L15)
 
 ## Constructors
 
@@ -67,96 +67,33 @@ ___
 
 #### Defined in
 
-[src/engine/components/colliders/shape/CapsuleColliderShape.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/colliders/shape/CapsuleColliderShape.ts#L17)
-
-## Methods
-
-### setFromCenterAndSize
-
-▸ **setFromCenterAndSize**(`ct?`, `sz?`): [`CapsuleColliderShape`](CapsuleColliderShape.md)
-
-设置碰撞体的位置和大小
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `ct?` | [`Vector3`](Vector3.md) | 碰撞体在对象局部空间中的位置。 |
-| `sz?` | [`Vector3`](Vector3.md) | 碰撞体在 X、Y、Z 方向上的大小。 |
-
-#### Returns
-
-[`CapsuleColliderShape`](CapsuleColliderShape.md)
-
-#### Inherited from
-
-[ColliderShape](ColliderShape.md).[setFromCenterAndSize](ColliderShape.md#setfromcenterandsize)
-
-#### Defined in
-
-[src/engine/components/colliders/shape/ColliderShape.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/colliders/shape/ColliderShape.ts#L36)
-
-___
-
-### rayPick
-
-▸ **rayPick**(`ray`, `fromMatrix`): `Object`
-
-射线拾取。
-即是从指定位置发射一条射线，检测与射线碰撞的物体。
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `ray` | [`Ray`](Ray.md) | 射线 |
-| `fromMatrix` | [`Matrix4`](Matrix4.md) | 变换矩阵 |
-
-#### Returns
-
-`Object`
-
-拾取结果 intersect：是否碰撞；intersectPoint：碰撞点； distance：射线原点到碰撞点的距离。
-
-| Name | Type |
-| :------ | :------ |
-| `intersect` | `boolean` |
-| `intersectPoint?` | [`Vector3`](Vector3.md) |
-| `distance` | `number` |
-
-#### Inherited from
-
-[ColliderShape](ColliderShape.md).[rayPick](ColliderShape.md#raypick)
-
-#### Defined in
-
-[src/engine/components/colliders/shape/ColliderShape.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/colliders/shape/ColliderShape.ts#L81)
-
-___
-
-### serialization
-
-▸ **serialization**(): `any`
-
-#### Returns
-
-`any`
-
-#### Inherited from
-
-[ColliderShape](ColliderShape.md).[serialization](ColliderShape.md#serialization)
-
-#### Defined in
-
-[src/engine/components/colliders/shape/ColliderShape.ts:85](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/colliders/shape/ColliderShape.ts#L85)
+[src/components/shape/CapsuleColliderShape.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/CapsuleColliderShape.ts#L17)
 
 ## Accessors
+
+### shapeType
+
+• `get` **shapeType**(): [`ColliderShapeType`](../enums/ColliderShapeType.md)
+
+#### Returns
+
+[`ColliderShapeType`](../enums/ColliderShapeType.md)
+
+#### Inherited from
+
+ColliderShape.shapeType
+
+#### Defined in
+
+[src/components/shape/ColliderShape.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L30)
+
+___
 
 ### center
 
 • `get` **center**(): [`Vector3`](Vector3.md)
 
-碰撞体在对象局部空间中的位置。
+The position of the collision object in the local space of the object.
 
 #### Returns
 
@@ -168,7 +105,7 @@ ColliderShape.center
 
 #### Defined in
 
-[src/engine/components/colliders/shape/ColliderShape.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/colliders/shape/ColliderShape.ts#L45)
+[src/components/shape/ColliderShape.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L49)
 
 • `set` **center**(`value`): `void`
 
@@ -188,7 +125,7 @@ ColliderShape.center
 
 #### Defined in
 
-[src/engine/components/colliders/shape/ColliderShape.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/colliders/shape/ColliderShape.ts#L49)
+[src/components/shape/ColliderShape.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L53)
 
 ___
 
@@ -196,7 +133,7 @@ ___
 
 • `get` **size**(): [`Vector3`](Vector3.md)
 
-碰撞体在 X、Y、Z 方向上的大小。
+The size of the collision body in the X, Y, and Z directions.
 
 #### Returns
 
@@ -210,7 +147,7 @@ ColliderShape.size
 
 #### Defined in
 
-[src/engine/components/colliders/shape/ColliderShape.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/colliders/shape/ColliderShape.ts#L58)
+[src/components/shape/ColliderShape.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L62)
 
 • `set` **size**(`value`): `void`
 
@@ -230,7 +167,7 @@ ColliderShape.size
 
 #### Defined in
 
-[src/engine/components/colliders/shape/ColliderShape.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/colliders/shape/ColliderShape.ts#L62)
+[src/components/shape/ColliderShape.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L66)
 
 ___
 
@@ -238,7 +175,7 @@ ___
 
 • `get` **halfSize**(): [`Vector3`](Vector3.md)
 
-碰撞体大小的1/2。
+Half the size of the collision body.
 
 #### Returns
 
@@ -250,4 +187,68 @@ ColliderShape.halfSize
 
 #### Defined in
 
-[src/engine/components/colliders/shape/ColliderShape.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/colliders/shape/ColliderShape.ts#L70)
+[src/components/shape/ColliderShape.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L74)
+
+## Methods
+
+### setFromCenterAndSize
+
+▸ **setFromCenterAndSize**(`ct?`, `sz?`): [`CapsuleColliderShape`](CapsuleColliderShape.md)
+
+Set the position and size of collision objects
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `ct?` | [`Vector3`](Vector3.md) | The position of the collision object in the local space of the object. |
+| `sz?` | [`Vector3`](Vector3.md) | The size of the collision body in the X, Y, and Z directions. |
+
+#### Returns
+
+[`CapsuleColliderShape`](CapsuleColliderShape.md)
+
+#### Inherited from
+
+[ColliderShape](ColliderShape.md).[setFromCenterAndSize](ColliderShape.md#setfromcenterandsize)
+
+#### Defined in
+
+[src/components/shape/ColliderShape.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L40)
+
+___
+
+### rayPick
+
+▸ **rayPick**(`ray`, `fromMatrix`): `Object`
+
+Ray pickup.Emit a ray from a designated location to detect objects colliding with the ray.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `ray` | [`Ray`](Ray.md) | emit ray |
+| `fromMatrix` | [`Matrix4`](Matrix4.md) | matrix |
+
+#### Returns
+
+`Object`
+
+Pick result intersect: whether to collide;
+ IntersectPoint: collision point;
+ Distance: The distance from the origin of the ray to the collision point.
+
+| Name | Type |
+| :------ | :------ |
+| `intersect` | `boolean` |
+| `intersectPoint?` | [`Vector3`](Vector3.md) |
+| `distance` | `number` |
+
+#### Inherited from
+
+[ColliderShape](ColliderShape.md).[rayPick](ColliderShape.md#raypick)
+
+#### Defined in
+
+[src/components/shape/ColliderShape.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L86)

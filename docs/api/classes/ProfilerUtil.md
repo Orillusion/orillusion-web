@@ -31,7 +31,7 @@
 
 #### Defined in
 
-[src/engine/util/ProfilerUtil.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/ProfilerUtil.ts#L22)
+[src/util/ProfilerUtil.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L22)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[src/engine/util/ProfilerUtil.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/ProfilerUtil.ts#L41)
+[src/util/ProfilerUtil.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L41)
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[src/engine/util/ProfilerUtil.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/ProfilerUtil.ts#L49)
+[src/util/ProfilerUtil.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L49)
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 #### Defined in
 
-[src/engine/util/ProfilerUtil.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/ProfilerUtil.ts#L72)
+[src/util/ProfilerUtil.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L72)
 
 ___
 
@@ -113,7 +113,7 @@ ___
 
 #### Defined in
 
-[src/engine/util/ProfilerUtil.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/ProfilerUtil.ts#L93)
+[src/util/ProfilerUtil.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L93)
 
 ## Constructors
 

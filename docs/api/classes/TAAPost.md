@@ -1,12 +1,14 @@
 # Class: TAAPost
 
-反走样。
-通过抖镜头的方式获得反走样样本。
+Temporal AA
 ```
-      //配置反走样的相关参数
+      //setting
       let cfg = {@link Engine3D.setting.render.postProcessing.taa};
-      let renderJob = new ForwardRenderJob(this.scene);
-      renderJob.addPost(new TAAPost());
+        let view = new View3D();
+       view.scene = this.scene;
+       view.camera = mainCamera;
+       
+      
       Engine3D.startRender(renderJob);
 ```
 
@@ -19,12 +21,18 @@
 
 ### Properties
 
+- [enable](TAAPost.md#enable)
+- [postRenderer](TAAPost.md#postrenderer)
 - [outTexture](TAAPost.md#outtexture)
 - [copyTexCompute](TAAPost.md#copytexcompute)
 - [sharpCompute](TAAPost.md#sharpcompute)
 - [preColorTex](TAAPost.md#precolortex)
 - [preViewMatrix](TAAPost.md#previewmatrix)
 - [rtFrame](TAAPost.md#rtframe)
+
+### Methods
+
+- [destroy](TAAPost.md#destroy)
 
 ### Constructors
 
@@ -40,13 +48,41 @@
 
 ## Properties
 
+### enable
+
+• **enable**: `boolean` = `true`
+
+#### Inherited from
+
+PostBase.enable
+
+#### Defined in
+
+[src/gfx/renderJob/post/PostBase.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L18)
+
+___
+
+### postRenderer
+
+• **postRenderer**: `PostRenderer`
+
+#### Inherited from
+
+PostBase.postRenderer
+
+#### Defined in
+
+[src/gfx/renderJob/post/PostBase.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L19)
+
+___
+
 ### outTexture
 
 • **outTexture**: `VirtualTexture`
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/TAAPost.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/TAAPost.ts#L44)
+[src/gfx/renderJob/post/TAAPost.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/TAAPost.ts#L42)
 
 ___
 
@@ -56,7 +92,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/TAAPost.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/TAAPost.ts#L53)
+[src/gfx/renderJob/post/TAAPost.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/TAAPost.ts#L51)
 
 ___
 
@@ -66,7 +102,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/TAAPost.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/TAAPost.ts#L54)
+[src/gfx/renderJob/post/TAAPost.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/TAAPost.ts#L52)
 
 ___
 
@@ -76,7 +112,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/TAAPost.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/TAAPost.ts#L64)
+[src/gfx/renderJob/post/TAAPost.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/TAAPost.ts#L62)
 
 ___
 
@@ -86,7 +122,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/TAAPost.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/TAAPost.ts#L70)
+[src/gfx/renderJob/post/TAAPost.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/TAAPost.ts#L68)
 
 ___
 
@@ -96,7 +132,25 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/TAAPost.ts:71](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/TAAPost.ts#L71)
+[src/gfx/renderJob/post/TAAPost.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/TAAPost.ts#L69)
+
+## Methods
+
+### destroy
+
+▸ **destroy**(): `void`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+PostBase.destroy
+
+#### Defined in
+
+[src/gfx/renderJob/post/PostBase.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L79)
 
 ## Constructors
 
@@ -110,7 +164,7 @@ PostBase.constructor
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/TAAPost.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/TAAPost.ts#L73)
+[src/gfx/renderJob/post/TAAPost.ts:71](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/TAAPost.ts#L71)
 
 ## Accessors
 
@@ -124,7 +178,7 @@ PostBase.constructor
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/TAAPost.ts:91](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/TAAPost.ts#L91)
+[src/gfx/renderJob/post/TAAPost.ts:91](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/TAAPost.ts#L91)
 
 • `set` **jitterSeedCount**(`value`): `void`
 
@@ -140,7 +194,7 @@ PostBase.constructor
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/TAAPost.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/TAAPost.ts#L96)
+[src/gfx/renderJob/post/TAAPost.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/TAAPost.ts#L96)
 
 ___
 
@@ -154,7 +208,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/TAAPost.ts:103](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/TAAPost.ts#L103)
+[src/gfx/renderJob/post/TAAPost.ts:103](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/TAAPost.ts#L103)
 
 • `set` **blendFactor**(`value`): `void`
 
@@ -170,7 +224,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/TAAPost.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/TAAPost.ts#L108)
+[src/gfx/renderJob/post/TAAPost.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/TAAPost.ts#L108)
 
 ___
 
@@ -184,7 +238,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/TAAPost.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/TAAPost.ts#L114)
+[src/gfx/renderJob/post/TAAPost.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/TAAPost.ts#L114)
 
 • `set` **sharpFactor**(`value`): `void`
 
@@ -200,7 +254,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/TAAPost.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/TAAPost.ts#L119)
+[src/gfx/renderJob/post/TAAPost.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/TAAPost.ts#L119)
 
 ___
 
@@ -214,7 +268,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/TAAPost.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/TAAPost.ts#L125)
+[src/gfx/renderJob/post/TAAPost.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/TAAPost.ts#L125)
 
 • `set` **sharpPreBlurFactor**(`value`): `void`
 
@@ -230,7 +284,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/TAAPost.ts:130](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/TAAPost.ts#L130)
+[src/gfx/renderJob/post/TAAPost.ts:130](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/TAAPost.ts#L130)
 
 ___
 
@@ -244,7 +298,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/TAAPost.ts:136](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/TAAPost.ts#L136)
+[src/gfx/renderJob/post/TAAPost.ts:136](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/TAAPost.ts#L136)
 
 • `set` **temporalJitterScale**(`value`): `void`
 
@@ -260,4 +314,4 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/TAAPost.ts:141](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/TAAPost.ts#L141)
+[src/gfx/renderJob/post/TAAPost.ts:141](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/TAAPost.ts#L141)

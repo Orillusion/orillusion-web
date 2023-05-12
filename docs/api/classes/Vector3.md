@@ -1,6 +1,6 @@
 # Class: Vector3
 
-三维向量
+Vector 3D
 
 
 ### Properties
@@ -10,6 +10,7 @@
 - [SAFE\_MAX](Vector3.md#safe_max)
 - [SAFE\_MIN](Vector3.md#safe_min)
 - [X\_AXIS](Vector3.md#x_axis)
+- [neg\_X\_AXIS](Vector3.md#neg_x_axis)
 - [Y\_AXIS](Vector3.md#y_axis)
 - [Z\_AXIS](Vector3.md#z_axis)
 - [x](Vector3.md#x)
@@ -41,15 +42,26 @@
 
 ### Methods
 
-- [set](Vector3.md#set)
+- [getTowPointbyDir](Vector3.md#gettowpointbydir)
+- [pointToLine](Vector3.md#pointtoline)
+- [cross](Vector3.md#cross)
+- [dot](Vector3.md#dot)
+- [getPoints](Vector3.md#getpoints)
+- [getPointNumbers](Vector3.md#getpointnumbers)
+- [getAngle](Vector3.md#getangle)
+- [sqrMagnitude](Vector3.md#sqrmagnitude)
+- [getZYAngle](Vector3.md#getzyangle)
+- [sub](Vector3.md#sub)
 - [add](Vector3.md#add)
+- [distance](Vector3.md#distance)
+- [distanceXZ](Vector3.md#distancexz)
+- [set](Vector3.md#set)
+- [add](Vector3.md#add-1)
 - [addXYZW](Vector3.md#addxyzw)
 - [clone](Vector3.md#clone)
 - [copyFrom](Vector3.md#copyfrom)
 - [crossProduct](Vector3.md#crossproduct)
 - [decrementBy](Vector3.md#decrementby)
-- [distance](Vector3.md#distance)
-- [distanceXZ](Vector3.md#distancexz)
 - [dotProduct](Vector3.md#dotproduct)
 - [equals](Vector3.md#equals)
 - [incrementBy](Vector3.md#incrementby)
@@ -70,104 +82,111 @@
 - [lerp](Vector3.md#lerp)
 - [clamp](Vector3.md#clamp)
 - [toString](Vector3.md#tostring)
-- [getTowPointbyDir](Vector3.md#gettowpointbydir)
-- [pointToLine](Vector3.md#pointtoline)
 - [normalizeToWay2D\_XY](Vector3.md#normalizetoway2d_xy)
 - [toArray](Vector3.md#toarray)
 - [copyToBytes](Vector3.md#copytobytes)
-- [cross](Vector3.md#cross)
+- [cross](Vector3.md#cross-1)
 - [multiplyScalar](Vector3.md#multiplyscalar)
 - [setFromArray](Vector3.md#setfromarray)
 - [divideScalar](Vector3.md#dividescalar)
 - [clampLength](Vector3.md#clamplength)
-- [cross](Vector3.md#cross-1)
-- [dot](Vector3.md#dot)
-- [getPoints](Vector3.md#getpoints)
-- [getPointNumbers](Vector3.md#getpointnumbers)
-- [getAngle](Vector3.md#getangle)
-- [sqrMagnitude](Vector3.md#sqrmagnitude)
-- [getZYAngle](Vector3.md#getzyangle)
-- [sub](Vector3.md#sub)
-- [add](Vector3.md#add-1)
 - [setScalar](Vector3.md#setscalar)
 
 ## Properties
 
 ### MAX
 
-▪ `Static` **MAX**: [`Vector3`](Vector3.md)
+▪ `Static` `Readonly` **MAX**: [`Vector3`](Vector3.md)
 
-向量最大值
+Vector maximum
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L9)
+[src/math/Vector3.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L11)
 
 ___
 
 ### MIN
 
-▪ `Static` **MIN**: [`Vector3`](Vector3.md)
+▪ `Static` `Readonly` **MIN**: [`Vector3`](Vector3.md)
+
+Vector minimum
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L10)
+[src/math/Vector3.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L16)
 
 ___
 
 ### SAFE\_MAX
 
-▪ `Static` **SAFE\_MAX**: [`Vector3`](Vector3.md)
+▪ `Static` `Readonly` **SAFE\_MAX**: [`Vector3`](Vector3.md)
+
+Vector maximum integer value
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L12)
+[src/math/Vector3.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L21)
 
 ___
 
 ### SAFE\_MIN
 
-▪ `Static` **SAFE\_MIN**: [`Vector3`](Vector3.md)
+▪ `Static` `Readonly` **SAFE\_MIN**: [`Vector3`](Vector3.md)
+
+Vector minimum integer value
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L13)
+[src/math/Vector3.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L26)
 
 ___
 
 ### X\_AXIS
 
-▪ `Static` **X\_AXIS**: [`Vector3`](Vector3.md)
+▪ `Static` `Readonly` **X\_AXIS**: [`Vector3`](Vector3.md)
 
-X轴坐标 (1,0,0).
+X axis positive axis coordinate (1, 0, 0).
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L22)
+[src/math/Vector3.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L31)
+
+___
+
+### neg\_X\_AXIS
+
+▪ `Static` `Readonly` **neg\_X\_AXIS**: [`Vector3`](Vector3.md)
+
+The X-axis is negative (-1, 0, 0).
+
+#### Defined in
+
+[src/math/Vector3.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L36)
 
 ___
 
 ### Y\_AXIS
 
-▪ `Static` **Y\_AXIS**: [`Vector3`](Vector3.md)
+▪ `Static` `Readonly` **Y\_AXIS**: [`Vector3`](Vector3.md)
 
-Y轴坐标 (0,1,0).
+The y axis defined as a Vector3 object with coordinates (0,1,0).
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L36)
+[src/math/Vector3.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L41)
 
 ___
 
 ### Z\_AXIS
 
-▪ `Static` **Z\_AXIS**: [`Vector3`](Vector3.md)
+▪ `Static` `Readonly` **Z\_AXIS**: [`Vector3`](Vector3.md)
 
-Z轴坐标 (0,0,1).
+The z axis defined as a Vector3 object with coordinates (0,0,1).
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L46)
+[src/math/Vector3.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L46)
 
 ___
 
@@ -175,11 +194,12 @@ ___
 
 • **x**: `number` = `0`
 
-向量的x分量，默认值是0
+The first element of a Vector3 object, such as the x coordinate of
+a point in the three-dimensional space. The default value is 0.
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:144](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L144)
+[src/math/Vector3.ts:148](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L148)
 
 ___
 
@@ -187,11 +207,12 @@ ___
 
 • **y**: `number` = `0`
 
-向量的y分量，默认值是0
+The second element of a Vector3 object, such as the y coordinate of
+a point in the three-dimensional space. The default value is 0.
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:154](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L154)
+[src/math/Vector3.ts:154](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L154)
 
 ___
 
@@ -199,11 +220,12 @@ ___
 
 • **z**: `number` = `0`
 
-向量的z分量，默认值是0
+The third element of a Vector3 object, such as the y coordinate of
+a point in the three-dimensional space. The default value is 0.
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:165](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L165)
+[src/math/Vector3.ts:160](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L160)
 
 ___
 
@@ -211,13 +233,13 @@ ___
 
 • **w**: `number` = `1`
 
-向量的z分量，
-可作为一种透视投影的三维位置或投影
-也可以做四元数中的w
+The z component of the vector,
+A three-dimensional position or projection that can be used as a perspective projection
+We can also do w in the quaternion
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:172](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L172)
+[src/math/Vector3.ts:167](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L167)
 
 ## Accessors
 
@@ -225,7 +247,7 @@ ___
 
 • `Static` `get` **ZERO**(): [`Vector3`](Vector3.md)
 
-返回一个新的x，y，z分量都为0的向量
+Returns a new vector with zero x, y, and z components
 
 #### Returns
 
@@ -233,7 +255,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L87)
+[src/math/Vector3.ts:91](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L91)
 
 ___
 
@@ -241,7 +263,7 @@ ___
 
 • `Static` `get` **ONE**(): [`Vector3`](Vector3.md)
 
-返回一个新的x，y，z分量都为1的向量
+Returns a new vector whose x, y, and z components are all 1
 
 #### Returns
 
@@ -249,7 +271,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:94](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L94)
+[src/math/Vector3.ts:98](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L98)
 
 ___
 
@@ -257,7 +279,7 @@ ___
 
 • `Static` `get` **LEFT**(): [`Vector3`](Vector3.md)
 
-返回一个新的指向左方向的向量，即x为-1，y为0，z为0
+Returns a new vector pointing to the left, x is -1, y is 0, and z is 0
 
 #### Returns
 
@@ -265,7 +287,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:101](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L101)
+[src/math/Vector3.ts:105](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L105)
 
 ___
 
@@ -273,7 +295,7 @@ ___
 
 • `Static` `get` **RIGHT**(): [`Vector3`](Vector3.md)
 
-返回一个新的指向右方向的向量，即x为1，y为0，z为0
+Returns a new vector pointing in the right direction, where x is 1, y is 0, and z is 0
 
 #### Returns
 
@@ -281,7 +303,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L107)
+[src/math/Vector3.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L112)
 
 ___
 
@@ -289,7 +311,7 @@ ___
 
 • `Static` `get` **UP**(): [`Vector3`](Vector3.md)
 
-返回一个新的指向上方的向量，即x为0，y为1，z为0
+Returns a new vector pointing upwards, that is, x equals 0, y equals 1, and z equals 0
 
 #### Returns
 
@@ -297,7 +319,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L113)
+[src/math/Vector3.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L119)
 
 ___
 
@@ -305,7 +327,7 @@ ___
 
 • `Static` `get` **DOWN**(): [`Vector3`](Vector3.md)
 
-返回一个新的指向下方的向量，即x为0，y为-1，z为0
+Returns a new vector pointing down, where x is 0, y is -1, and z is 0
 
 #### Returns
 
@@ -313,7 +335,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L119)
+[src/math/Vector3.ts:126](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L126)
 
 ___
 
@@ -321,7 +343,7 @@ ___
 
 • `Static` `get` **BACK**(): [`Vector3`](Vector3.md)
 
-返回一个新的指向后方的向量，即x为0，y为0，z为-1
+Returns a new backward vector, x equals 0, y equals 0, and z equals negative 1
 
 #### Returns
 
@@ -329,7 +351,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L125)
+[src/math/Vector3.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L133)
 
 ___
 
@@ -337,7 +359,7 @@ ___
 
 • `Static` `get` **FORWARD**(): [`Vector3`](Vector3.md)
 
-返回一个新的指向前方的向量，即x为0，y为0，z为1
+Returns a new forward-pointing vector, that is, x is 0, y is 0, and z is 1
 
 #### Returns
 
@@ -345,7 +367,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L131)
+[src/math/Vector3.ts:140](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L140)
 
 ___
 
@@ -353,27 +375,27 @@ ___
 
 • `get` **a**(): `number`
 
-得到w分量
+get the w component
 
 #### Returns
 
 `number`
 
-获得w的值
+value of w
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:211](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L211)
+[src/math/Vector3.ts:233](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L233)
 
 • `set` **a**(`value`): `void`
 
-设置w分量
+Set w component
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `value` | `number` | 设置给w的值 |
+| Name | Type |
+| :------ | :------ |
+| `value` | `number` |
 
 #### Returns
 
@@ -381,7 +403,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:179](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L179)
+[src/math/Vector3.ts:201](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L201)
 
 ___
 
@@ -389,27 +411,27 @@ ___
 
 • `get` **r**(): `number`
 
-得到x分量
+get the x component
 
 #### Returns
 
 `number`
 
-获得x的值
+value of x
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:219](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L219)
+[src/math/Vector3.ts:241](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L241)
 
 • `set` **r**(`value`): `void`
 
-设置x分量
+Set x component
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `value` | `number` | 设置给x的值 |
+| Name | Type |
+| :------ | :------ |
+| `value` | `number` |
 
 #### Returns
 
@@ -417,7 +439,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:186](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L186)
+[src/math/Vector3.ts:209](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L209)
 
 ___
 
@@ -425,27 +447,27 @@ ___
 
 • `get` **g**(): `number`
 
-得到y分量
+get the y component
 
 #### Returns
 
 `number`
 
-获得y的值
+value of y
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:227](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L227)
+[src/math/Vector3.ts:249](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L249)
 
 • `set` **g**(`value`): `void`
 
-设置y分量
+Set the y component
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `value` | `number` | 设置给x的值 |
+| Name | Type |
+| :------ | :------ |
+| `value` | `number` |
 
 #### Returns
 
@@ -453,7 +475,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:194](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L194)
+[src/math/Vector3.ts:217](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L217)
 
 ___
 
@@ -461,27 +483,27 @@ ___
 
 • `get` **b**(): `number`
 
-得到z分量
+get the z component
 
 #### Returns
 
 `number`
 
-获得z的值
+value of z
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:235](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L235)
+[src/math/Vector3.ts:257](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L257)
 
 • `set` **b**(`value`): `void`
 
-设置z分量
+Set z component
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `value` | `number` | 设置给x的值 |
+| Name | Type |
+| :------ | :------ |
+| `value` | `number` |
 
 #### Returns
 
@@ -489,7 +511,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:203](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L203)
+[src/math/Vector3.ts:225](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L225)
 
 ___
 
@@ -497,7 +519,7 @@ ___
 
 • `get` **length**(): `number`
 
-向量的长度，原点(0, 0, 0)到(x, y, z)的距离
+The length of the vector, the distance from the origin (0, 0, 0) to (x, y, z)
 
 #### Returns
 
@@ -505,7 +527,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:250](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L250)
+[src/math/Vector3.ts:264](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L264)
 
 ___
 
@@ -513,7 +535,7 @@ ___
 
 • `get` **lengthSquared**(): `number`
 
-获得向量长度的平方
+You get the square of the length of the vector
 
 #### Returns
 
@@ -521,7 +543,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:267](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L267)
+[src/math/Vector3.ts:272](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L272)
 
 ___
 
@@ -529,7 +551,7 @@ ___
 
 • `get` **position**(): `this`
 
-获得当前向量
+Get the current vector
 
 #### Returns
 
@@ -537,7 +559,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:310](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L310)
+[src/math/Vector3.ts:279](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L279)
 
 ## Constructors
 
@@ -545,32 +567,331 @@ ___
 
 • **new Vector3**(`x?`, `y?`, `z?`, `w?`)
 
-创建一个对象实例，默认为(0, 0, 0, 0)
-
-**`Platform`**
-
-Native
+Creates an instance of a Vector3 object. If you do not specify a.
+parameter for the constructor, a Vector3 object is created with
+the elements (0,0,0,0).
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `x` | `number` | `0` | x的值 |
-| `y` | `number` | `0` | y的值 |
-| `z` | `number` | `0` | z的值 |
-| `w` | `number` | `0` | w的值 |
+| `x` | `number` | `0` | The first element, such as the x coordinate. |
+| `y` | `number` | `0` | The second element, such as the y coordinate. |
+| `z` | `number` | `0` | The third element, such as the z coordinate. |
+| `w` | `number` | `0` | An optional element for additional data such as the angle of rotation. |
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:301](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L301)
+[src/math/Vector3.ts:191](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L191)
 
 ## Methods
+
+### getTowPointbyDir
+
+▸ `Static` **getTowPointbyDir**(`dir`, `tp1`, `tp2`, `width`, `aix`): `void`
+
+Obtain a vertical line segment with width through an orientation
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `dir` | [`Vector3`](Vector3.md) |
+| `tp1` | [`Vector3`](Vector3.md) |
+| `tp2` | [`Vector3`](Vector3.md) |
+| `width` | `number` |
+| `aix` | [`Vector3`](Vector3.md) |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/math/Vector3.ts:290](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L290)
+
+___
+
+### pointToLine
+
+▸ `Static` **pointToLine**(`point1`, `point2`, `position`): `number`
+
+Calculate the distance from the point to the line
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `point1` | [`Vector3`](Vector3.md) | Starting point of line segment |
+| `point2` | [`Vector3`](Vector3.md) | End point of line segment |
+| `position` | [`Vector3`](Vector3.md) | Point position |
+
+#### Returns
+
+`number`
+
+Distance from a point to a line segment
+
+#### Defined in
+
+[src/math/Vector3.ts:319](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L319)
+
+___
+
+### cross
+
+▸ `Static` **cross**(`a`, `b`, `target?`): [`Vector3`](Vector3.md)
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `a` | [`Vector3`](Vector3.md) | `undefined` |
+| `b` | [`Vector3`](Vector3.md) | `undefined` |
+| `target` | [`Vector3`](Vector3.md) | `null` |
+
+#### Returns
+
+[`Vector3`](Vector3.md)
+
+#### Defined in
+
+[src/math/Vector3.ts:347](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L347)
+
+___
+
+### dot
+
+▸ `Static` **dot**(`a`, `b`): `number`
+
+Take the dot product of two vectors.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `a` | [`Vector3`](Vector3.md) | Vector a |
+| `b` | [`Vector3`](Vector3.md) | Vector b |
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[src/math/Vector3.ts:362](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L362)
+
+___
+
+### getPoints
+
+▸ `Static` **getPoints**(`total`, `randSeed`): `any`[]
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `total` | `number` |
+| `randSeed` | `number` |
+
+#### Returns
+
+`any`[]
+
+#### Defined in
+
+[src/math/Vector3.ts:366](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L366)
+
+___
+
+### getPointNumbers
+
+▸ `Static` **getPointNumbers**(`total`, `randSeed`): `any`[]
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `total` | `number` |
+| `randSeed` | `number` |
+
+#### Returns
+
+`any`[]
+
+#### Defined in
+
+[src/math/Vector3.ts:375](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L375)
+
+___
+
+### getAngle
+
+▸ `Static` **getAngle**(`from`, `to`): `number`
+
+Returns the Angle, in degrees, between the source vector and the target vector.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `from` | [`Vector3`](Vector3.md) | source vector. |
+| `to` | [`Vector3`](Vector3.md) | target vector. |
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[src/math/Vector3.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L389)
+
+___
+
+### sqrMagnitude
+
+▸ `Static` **sqrMagnitude**(`arg0`): `number`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `arg0` | [`Vector3`](Vector3.md) |
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[src/math/Vector3.ts:394](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L394)
+
+___
+
+### getZYAngle
+
+▸ `Static` **getZYAngle**(`zd`, `yd`): `number`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `zd` | [`Vector3`](Vector3.md) |
+| `yd` | [`Vector3`](Vector3.md) |
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[src/math/Vector3.ts:398](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L398)
+
+___
+
+### sub
+
+▸ `Static` **sub**(`a`, `b`, `target?`): [`Vector3`](Vector3.md)
+
+Subtract two vectors
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `a` | [`Vector3`](Vector3.md) | `undefined` | Vector a |
+| `b` | [`Vector3`](Vector3.md) | `undefined` | Vector b |
+| `target` | [`Vector3`](Vector3.md) | `null` | output vector |
+
+#### Returns
+
+[`Vector3`](Vector3.md)
+
+#### Defined in
+
+[src/math/Vector3.ts:408](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L408)
+
+___
+
+### add
+
+▸ `Static` **add**(`a`, `b`, `target?`): [`Vector3`](Vector3.md)
+
+Add two vectors
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `a` | [`Vector3`](Vector3.md) | `undefined` | Vector a |
+| `b` | [`Vector3`](Vector3.md) | `undefined` | Vector b |
+| `target` | [`Vector3`](Vector3.md) | `null` | output vector |
+
+#### Returns
+
+[`Vector3`](Vector3.md)
+
+#### Defined in
+
+[src/math/Vector3.ts:424](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L424)
+
+___
+
+### distance
+
+▸ `Static` **distance**(`pt1`, `pt2`): `number`
+
+Calculate the distance between two vectors
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `pt1` | [`Vector3`](Vector3.md) | Vector 1 |
+| `pt2` | [`Vector3`](Vector3.md) | Vector 2 |
+
+#### Returns
+
+`number`
+
+number The distance between two vectors
+
+#### Defined in
+
+[src/math/Vector3.ts:467](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L467)
+
+___
+
+### distanceXZ
+
+▸ `Static` **distanceXZ**(`pt1`, `pt2`): `number`
+
+Calculate the distance between two vectors XZ axes
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `pt1` | [`Vector3`](Vector3.md) | Vector 1 |
+| `pt2` | [`Vector3`](Vector3.md) | Vector 2 |
+
+#### Returns
+
+`number`
+
+number The distance between two vectors
+
+#### Defined in
+
+[src/math/Vector3.ts:480](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L480)
+
+___
 
 ### set
 
 ▸ **set**(`x`, `y`, `z`, `w?`): [`Vector3`](Vector3.md)
 
-设置当前向量x，y，z，w分量
+Sets the current vector x, y, z, and w components
 
 #### Parameters
 
@@ -587,7 +908,7 @@ Native
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:322](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L322)
+[src/math/Vector3.ts:495](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L495)
 
 ___
 
@@ -595,24 +916,24 @@ ___
 
 ▸ **add**(`a`, `target?`): [`Vector3`](Vector3.md)
 
-该向量与向量相加
+The vector is added to the vector
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `a` | [`Vector3`](Vector3.md) | `undefined` | 相加的向量 |
-| `target` | [`Vector3`](Vector3.md) | `null` | 返回向量 |
+| `a` | [`Vector3`](Vector3.md) | `undefined` | Additive vector |
+| `target` | [`Vector3`](Vector3.md) | `null` | Return vector |
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-Vector3 结果返回
+result
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:359](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L359)
+[src/math/Vector3.ts:509](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L509)
 
 ___
 
@@ -636,7 +957,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:376](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L376)
+[src/math/Vector3.ts:526](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L526)
 
 ___
 
@@ -644,8 +965,7 @@ ___
 
 ▸ **clone**(): [`Vector3`](Vector3.md)
 
-/**
- * 克隆一个与当前向量分量相同的向量
+Clone a vector with the same components as the current vector
 
 #### Returns
 
@@ -653,7 +973,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:405](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L405)
+[src/math/Vector3.ts:545](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L545)
 
 ___
 
@@ -661,13 +981,13 @@ ___
 
 ▸ **copyFrom**(`src`): [`Vector3`](Vector3.md)
 
-源向量的分量设置到当前向量中
+The components of the source vector are set to the current vector
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `src` | [`Vector3`](Vector3.md) | 原向量 |
+| `src` | [`Vector3`](Vector3.md) | Original vector |
 
 #### Returns
 
@@ -675,7 +995,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:421](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L421)
+[src/math/Vector3.ts:554](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L554)
 
 ___
 
@@ -683,25 +1003,25 @@ ___
 
 ▸ **crossProduct**(`a`, `target?`): [`Vector3`](Vector3.md)
 
-两个向量进行叉乘，
-叉乘后的结果是这两条向量的垂直向量
+You take the cross product of two vectors,
+The cross product is going to be the perpendicular vector between these two vectors
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `a` | [`Vector3`](Vector3.md) | `undefined` | 求叉乘的另外一个向量 |
+| `a` | [`Vector3`](Vector3.md) | `undefined` | Take the cross product of another vector |
 | `target` | [`Vector3`](Vector3.md) | `null` | - |
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-Vector3 返回叉乘结果向量
+Vector3 returns the cross product vector
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:455](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L455)
+[src/math/Vector3.ts:569](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L569)
 
 ___
 
@@ -709,13 +1029,13 @@ ___
 
 ▸ **decrementBy**(`a`): `void`
 
-两个向量相减，结果赋值给自己
+Subtract two vectors and assign the result to yourself
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `a` | [`Vector3`](Vector3.md) | 减去的向量 |
+| `a` | [`Vector3`](Vector3.md) | Minus vector |
 
 #### Returns
 
@@ -723,53 +1043,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:482](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L482)
-
-___
-
-### distance
-
-▸ `Static` **distance**(`pt1`, `pt2`): `number`
-
-计算两个向量之间的距离
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `pt1` | [`Vector3`](Vector3.md) | 向量1 |
-| `pt2` | [`Vector3`](Vector3.md) | 向量2 |
-
-#### Returns
-
-`number`
-
-number 两个向量之间的距离
-
-#### Defined in
-
-[src/engine/math/Vector3.ts:507](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L507)
-
-___
-
-### distanceXZ
-
-▸ `Static` **distanceXZ**(`pt1`, `pt2`): `number`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `pt1` | [`Vector3`](Vector3.md) |
-| `pt2` | [`Vector3`](Vector3.md) |
-
-#### Returns
-
-`number`
-
-#### Defined in
-
-[src/engine/math/Vector3.ts:514](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L514)
+[src/math/Vector3.ts:582](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L582)
 
 ___
 
@@ -777,23 +1051,23 @@ ___
 
 ▸ **dotProduct**(`a`): `number`
 
-计算两个向量的点积,返回两个向量之间的夹角关系
+Calculate the dot product of two vectors and return the Angle relationship between the two vectors
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `a` | [`Vector3`](Vector3.md) | 需要计算的向量 |
+| `a` | [`Vector3`](Vector3.md) | The vector that you need to compute |
 
 #### Returns
 
 `number`
 
-number 返回两个向量之间的夹角关系
+number Returns the Angle relationship between two vectors
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:527](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L527)
+[src/math/Vector3.ts:594](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L594)
 
 ___
 
@@ -801,24 +1075,24 @@ ___
 
 ▸ **equals**(`toCompare`, `allFour?`): `boolean`
 
-求两个向量的值是否全等
+Find whether the values of two vectors are identical
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `toCompare` | [`Vector3`](Vector3.md) | `undefined` | 进行比较的向量 |
-| `allFour` | `boolean` | `false` | 默认参数为1，是否比较w分量 |
+| `toCompare` | [`Vector3`](Vector3.md) | `undefined` | The vector to compare |
+| `allFour` | `boolean` | `false` | The default parameter is 1, whether to compare the w component |
 
 #### Returns
 
 `boolean`
 
-boolean 全等返回true
+A value of true if the specified Vector3 object is equal to the current Vector3 object; false if it is not equal.
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:549](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L549)
+[src/math/Vector3.ts:616](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L616)
 
 ___
 
@@ -826,13 +1100,13 @@ ___
 
 ▸ **incrementBy**(`a`): `void`
 
-当前向量加等于向量，只加x y z 3个分量
+The current vector plus is equal to the vector, plus just the x, y, and z components
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `a` | [`Vector3`](Vector3.md) | 加等的向量 |
+| `a` | [`Vector3`](Vector3.md) | vector |
 
 #### Returns
 
@@ -840,7 +1114,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:569](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L569)
+[src/math/Vector3.ts:636](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L636)
 
 ___
 
@@ -848,23 +1122,23 @@ ___
 
 ▸ **divide**(`v`): [`Vector3`](Vector3.md)
 
-当前向量除以向量或者分量
+The current vector divided by the vector or component
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `v` | `any` | 要除的向量或者分量 |
+| `v` | `any` | The vector or component that you want to divide |
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-Vector3 返回自己，计算之后的结果
+Vector3 Returns the result of the calculation
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:581](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L581)
+[src/math/Vector3.ts:648](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L648)
 
 ___
 
@@ -872,7 +1146,10 @@ ___
 
 ▸ **negate**(): [`Vector3`](Vector3.md)
 
-当前向量x，y，z分量取反
+Sets the current Vector3 object to its inverse. The inverse object
+is also considered the opposite of the original object. The value of
+the x, y, and z properties of the current Vector3 object is changed
+to -x, -y, and -z.
 
 #### Returns
 
@@ -880,7 +1157,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:608](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L608)
+[src/math/Vector3.ts:665](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L665)
 
 ___
 
@@ -888,13 +1165,14 @@ ___
 
 ▸ **normalize**(`thickness?`): [`Vector3`](Vector3.md)
 
-当前向量标准化
+Scales the line segment between(0,0) and the current point to a set
+length.
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `thickness` | `number` | `1` | 默认参数为1，使当前向量的长度为thickness 原点(0, 0, 0)到(x, y, z)的距离 |
+| `thickness` | `number` | `1` | The scaling value. For example, if the current Vector3 object is (0,3,4), and you normalize it to 1, the point returned is at(0,0.6,0.8). |
 
 #### Returns
 
@@ -902,7 +1180,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:631](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L631)
+[src/math/Vector3.ts:680](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L680)
 
 ___
 
@@ -910,11 +1188,13 @@ ___
 
 ▸ **applyQuaternion**(`q`): [`Vector3`](Vector3.md)
 
+Apply the rotation quaternion
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `q` | `any` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `q` | `any` | quaternion |
 
 #### Returns
 
@@ -922,7 +1202,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:646](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L646)
+[src/math/Vector3.ts:697](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L697)
 
 ___
 
@@ -930,13 +1210,18 @@ ___
 
 ▸ **scaleBy**(`s`): [`Vector3`](Vector3.md)
 
-当前向量扩大s倍
+Scales the current Vector3 object by a scalar, a magnitude. The
+Vector3 object's x, y, and z elements are multiplied by the scalar
+number specified in the parameter. For example, if the vector is
+scaled by ten, the result is a vector that is ten times longer. The
+scalar can also change the direction of the vector. Multiplying the
+vector by a negative number reverses its direction.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `s` | `number` | 扩大的倍数 |
+| `s` | `number` | A multiplier (scalar) used to scale a Vector3 object. |
 
 #### Returns
 
@@ -944,7 +1229,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:688](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L688)
+[src/math/Vector3.ts:732](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L732)
 
 ___
 
@@ -952,13 +1237,13 @@ ___
 
 ▸ **mul**(`s`): [`Vector3`](Vector3.md)
 
-当前向量乘以标量s
+The current vector times the scalar s
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `s` | `number` | 标量s |
+| `s` | `number` | scalar s |
 
 #### Returns
 
@@ -966,7 +1251,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:700](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L700)
+[src/math/Vector3.ts:744](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L744)
 
 ___
 
@@ -986,7 +1271,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:708](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L708)
+[src/math/Vector3.ts:752](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L752)
 
 ___
 
@@ -1007,7 +1292,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:715](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L715)
+[src/math/Vector3.ts:759](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L759)
 
 ___
 
@@ -1015,16 +1300,19 @@ ___
 
 ▸ **setTo**(`xa`, `ya`, `za`, `wa?`): `void`
 
-填充当前向量的分量
+**`Language`**
+
+en_US
+Sets the members of Vector3 to the specified values
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `xa` | `number` | `undefined` |
-| `ya` | `number` | `undefined` |
-| `za` | `number` | `undefined` |
-| `wa` | `number` | `1` |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `xa` | `number` | `undefined` | The first element, such as the x coordinate. |
+| `ya` | `number` | `undefined` | The second element, such as the y coordinate. |
+| `za` | `number` | `undefined` | The third element, such as the z coordinate. |
+| `wa` | `number` | `1` | - |
 
 #### Returns
 
@@ -1032,7 +1320,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:742](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L742)
+[src/math/Vector3.ts:778](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L778)
 
 ___
 
@@ -1040,13 +1328,13 @@ ___
 
 ▸ **copy**(`src`): [`Vector3`](Vector3.md)
 
-复制源向量的分量到此向量
+Copy the components of the source vector to this vector
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `src` | [`Vector3`](Vector3.md) | 源向量 |
+| `src` | [`Vector3`](Vector3.md) | Source vector |
 
 #### Returns
 
@@ -1054,7 +1342,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:754](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L754)
+[src/math/Vector3.ts:790](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L790)
 
 ___
 
@@ -1062,22 +1350,32 @@ ___
 
 ▸ **subtract**(`a`, `target?`): [`Vector3`](Vector3.md)
 
-将该向量减去向量。
+**`Language`**
+
+en_US
+Subtracts the value of the x, y, and z elements of the current
+Vector3 object from the values of the x, y, and z elements of
+another Vector3 object. The <code>subtract()</code> method does not
+change the current Vector3 object. Instead, this method returns a
+new Vector3 object with the new values.
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `a` | [`Vector3`](Vector3.md) | `undefined` | 相减的向量 |
-| `target` | [`Vector3`](Vector3.md) | `null` | 返回的向量 |
+| `a` | [`Vector3`](Vector3.md) | `undefined` | The Vector3 object to be subtracted from the current Vector3 object. |
+| `target` | [`Vector3`](Vector3.md) | `null` | - |
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
+A new Vector3 object that is the difference between the
+         current Vector3 and the specified Vector3 object.
+
 #### Defined in
 
-[src/engine/math/Vector3.ts:782](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L782)
+[src/math/Vector3.ts:811](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L811)
 
 ___
 
@@ -1085,14 +1383,14 @@ ___
 
 ▸ **multiply**(`other`, `target?`): [`Vector3`](Vector3.md)
 
-将该向量乘以向量。
+Let's multiply that vector times that vector.
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `other` | [`Vector3`](Vector3.md) | `undefined` | 相乘的向量 |
-| `target` | [`Vector3`](Vector3.md) | `null` | 返回的向量 |
+| `other` | [`Vector3`](Vector3.md) | `undefined` | Multiplied vectors |
+| `target` | [`Vector3`](Vector3.md) | `null` | Returned vector |
 
 #### Returns
 
@@ -1100,7 +1398,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:796](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L796)
+[src/math/Vector3.ts:825](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L825)
 
 ___
 
@@ -1108,14 +1406,14 @@ ___
 
 ▸ **divided**(`other`, `target?`): [`Vector3`](Vector3.md)
 
-将该向量除以向量。
+Let's divide this vector by this vector.
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `other` | [`Vector3`](Vector3.md) | `undefined` | 相除的向量 |
-| `target` | [`Vector3`](Vector3.md) | `null` | 返回的向量 |
+| `other` | [`Vector3`](Vector3.md) | `undefined` | The vector that divides |
+| `target` | [`Vector3`](Vector3.md) | `null` | Returned vector |
 
 #### Returns
 
@@ -1123,7 +1421,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:819](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L819)
+[src/math/Vector3.ts:848](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L848)
 
 ___
 
@@ -1131,14 +1429,14 @@ ___
 
 ▸ **div**(`v`, `target?`): [`Vector3`](Vector3.md)
 
-将该向量除以标量
+Divide that vector by the scalar
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `v` | `number` | 相除的标量 |
-| `target?` | [`Vector3`](Vector3.md) | 输出Vector3向量 |
+| `v` | `number` | The scalar that divides |
+| `target?` | [`Vector3`](Vector3.md) | Output a Vector3 vector |
 
 #### Returns
 
@@ -1146,7 +1444,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:841](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L841)
+[src/math/Vector3.ts:871](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L871)
 
 ___
 
@@ -1154,15 +1452,15 @@ ___
 
 ▸ **lerp**(`v0`, `v1`, `t`): `void`
 
-计算两个Vector3之间的线性插值，结果为当前对象
+Computes the linear interpolation between two Vector3, and the result is the current object
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `v0` | [`Vector3`](Vector3.md) | 向量1 |
-| `v1` | [`Vector3`](Vector3.md) | 向量2 |
-| `t` | `number` | 时刻 |
+| `v0` | [`Vector3`](Vector3.md) | Vector 1 |
+| `v1` | [`Vector3`](Vector3.md) | Vector 2 |
+| `t` | `number` | Interpolation factor |
 
 #### Returns
 
@@ -1170,7 +1468,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:862](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L862)
+[src/math/Vector3.ts:891](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L891)
 
 ___
 
@@ -1178,14 +1476,14 @@ ___
 
 ▸ **clamp**(`min`, `max`): [`Vector3`](Vector3.md)
 
-将该向量x分量、 y分量以及z分量向上取整为最接近的整数。
+The x, y, and z components of this vector are rounded upward to the nearest integers.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `min` | [`Vector3`](Vector3.md) | x值、y值和z的最小值。 |
-| `max` | [`Vector3`](Vector3.md) | x值、y值和z的最大值。 |
+| `min` | [`Vector3`](Vector3.md) | minimum value |
+| `max` | [`Vector3`](Vector3.md) | maximum value |
 
 #### Returns
 
@@ -1193,7 +1491,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:884](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L884)
+[src/math/Vector3.ts:913](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L913)
 
 ___
 
@@ -1201,7 +1499,7 @@ ___
 
 ▸ **toString**(): `string`
 
-返回当前向量的字符串形式
+Returns the string form of the current vector
 
 #### Returns
 
@@ -1209,55 +1507,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:952](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L952)
-
-___
-
-### getTowPointbyDir
-
-▸ `Static` **getTowPointbyDir**(`dir`, `tp1`, `tp2`, `width`, `aix`): `void`
-
-通过一个朝向，获取一条垂直有宽度的垂直线段
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `dir` | [`Vector3`](Vector3.md) |
-| `tp1` | [`Vector3`](Vector3.md) |
-| `tp2` | [`Vector3`](Vector3.md) |
-| `width` | `number` |
-| `aix` | [`Vector3`](Vector3.md) |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/engine/math/Vector3.ts:976](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L976)
-
-___
-
-### pointToLine
-
-▸ `Static` **pointToLine**(`point1`, `point2`, `position`): `number`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `point1` | [`Vector3`](Vector3.md) |
-| `point2` | [`Vector3`](Vector3.md) |
-| `position` | [`Vector3`](Vector3.md) |
-
-#### Returns
-
-`number`
-
-#### Defined in
-
-[src/engine/math/Vector3.ts:998](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L998)
+[src/math/Vector3.ts:979](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L979)
 
 ___
 
@@ -1265,15 +1515,13 @@ ___
 
 ▸ **normalizeToWay2D_XY**(): `void`
 
-规整为正轴
-
 #### Returns
 
 `void`
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:1033](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L1033)
+[src/math/Vector3.ts:995](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L995)
 
 ___
 
@@ -1287,7 +1535,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:1051](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L1051)
+[src/math/Vector3.ts:1013](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1013)
 
 ___
 
@@ -1307,7 +1555,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:1055](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L1055)
+[src/math/Vector3.ts:1017](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1017)
 
 ___
 
@@ -1315,25 +1563,25 @@ ___
 
 ▸ **cross**(`a`, `target?`): [`Vector3`](Vector3.md)
 
-两个Vector3进行叉乘 this 叉乘 a
-叉乘后的结果是这两条向量的垂直向量
+The cross product of two Vector3s is this cross product of a
+The cross product is going to be the perpendicular vector between these two vectors
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `a` | [`Vector3`](Vector3.md) | `undefined` | 求叉乘的另外一个向量 |
+| `a` | [`Vector3`](Vector3.md) | `undefined` | Take the cross product of another vector |
 | `target` | [`Vector3`](Vector3.md) | `null` | - |
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-Vector3 返回叉乘结果向量
+Vector3 Returns the cross product vector
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:1068](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L1068)
+[src/math/Vector3.ts:1029](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1029)
 
 ___
 
@@ -1353,7 +1601,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:1077](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L1077)
+[src/math/Vector3.ts:1038](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1038)
 
 ___
 
@@ -1374,7 +1622,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:1085](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L1085)
+[src/math/Vector3.ts:1046](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1046)
 
 ___
 
@@ -1394,7 +1642,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:1091](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L1091)
+[src/math/Vector3.ts:1052](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1052)
 
 ___
 
@@ -1415,206 +1663,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:1095](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L1095)
-
-___
-
-### cross
-
-▸ `Static` **cross**(`a`, `b`, `target?`): [`Vector3`](Vector3.md)
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `a` | [`Vector3`](Vector3.md) | `undefined` |
-| `b` | [`Vector3`](Vector3.md) | `undefined` |
-| `target` | [`Vector3`](Vector3.md) | `null` |
-
-#### Returns
-
-[`Vector3`](Vector3.md)
-
-#### Defined in
-
-[src/engine/math/Vector3.ts:1100](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L1100)
-
-___
-
-### dot
-
-▸ `Static` **dot**(`a`, `b`): `number`
-
-计算两个向量的点积（dot product）。
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `a` | [`Vector3`](Vector3.md) | 向量a |
-| `b` | [`Vector3`](Vector3.md) | 向量b |
-
-#### Returns
-
-`number`
-
-#### Defined in
-
-[src/engine/math/Vector3.ts:1114](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L1114)
-
-___
-
-### getPoints
-
-▸ `Static` **getPoints**(`total`, `randSeed`): `any`[]
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `total` | `number` |
-| `randSeed` | `number` |
-
-#### Returns
-
-`any`[]
-
-#### Defined in
-
-[src/engine/math/Vector3.ts:1118](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L1118)
-
-___
-
-### getPointNumbers
-
-▸ `Static` **getPointNumbers**(`total`, `randSeed`): `any`[]
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `total` | `number` |
-| `randSeed` | `number` |
-
-#### Returns
-
-`any`[]
-
-#### Defined in
-
-[src/engine/math/Vector3.ts:1127](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L1127)
-
-___
-
-### getAngle
-
-▸ `Static` **getAngle**(`from`, `to`): `number`
-
-返回 源向量 与 目标向量 之间的角度（以度为单位）。
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `from` | [`Vector3`](Vector3.md) | 源向量。 |
-| `to` | [`Vector3`](Vector3.md) | 目标向量。 |
-
-#### Returns
-
-`number`
-
-#### Defined in
-
-[src/engine/math/Vector3.ts:1149](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L1149)
-
-___
-
-### sqrMagnitude
-
-▸ `Static` **sqrMagnitude**(`arg0`): `number`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `arg0` | [`Vector3`](Vector3.md) |
-
-#### Returns
-
-`number`
-
-#### Defined in
-
-[src/engine/math/Vector3.ts:1154](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L1154)
-
-___
-
-### getZYAngle
-
-▸ `Static` **getZYAngle**(`zd`, `yd`): `number`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `zd` | [`Vector3`](Vector3.md) |
-| `yd` | [`Vector3`](Vector3.md) |
-
-#### Returns
-
-`number`
-
-#### Defined in
-
-[src/engine/math/Vector3.ts:1158](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L1158)
-
-___
-
-### sub
-
-▸ `Static` **sub**(`a`, `b`, `target?`): [`Vector3`](Vector3.md)
-
-两个向量相减
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `a` | [`Vector3`](Vector3.md) | `undefined` | 向量a |
-| `b` | [`Vector3`](Vector3.md) | `undefined` | 向量b |
-| `target` | [`Vector3`](Vector3.md) | `null` | 输出向量 |
-
-#### Returns
-
-[`Vector3`](Vector3.md)
-
-#### Defined in
-
-[src/engine/math/Vector3.ts:1168](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L1168)
-
-___
-
-### add
-
-▸ `Static` **add**(`a`, `b`, `target?`): [`Vector3`](Vector3.md)
-
-两个向量相加
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `a` | [`Vector3`](Vector3.md) | `undefined` | 向量a |
-| `b` | [`Vector3`](Vector3.md) | `undefined` | 向量b |
-| `target` | [`Vector3`](Vector3.md) | `null` | 输出向量 |
-
-#### Returns
-
-[`Vector3`](Vector3.md)
-
-#### Defined in
-
-[src/engine/math/Vector3.ts:1184](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L1184)
+[src/math/Vector3.ts:1056](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1056)
 
 ___
 
@@ -1634,4 +1683,4 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector3.ts:1243](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector3.ts#L1243)
+[src/math/Vector3.ts:1061](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1061)

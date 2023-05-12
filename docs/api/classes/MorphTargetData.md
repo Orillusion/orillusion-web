@@ -3,8 +3,9 @@
 
 ### Properties
 
-- [morphTargetsRelative](MorphTargetData.md#morphtargetsrelative)
 - [enable](MorphTargetData.md#enable)
+- [morphTargetsRelative](MorphTargetData.md#morphtargetsrelative)
+- [MaxMorphTargetCount](MorphTargetData.md#maxmorphtargetcount)
 
 ### Constructors
 
@@ -12,21 +13,12 @@
 
 ### Methods
 
-- [reset](MorphTargetData.md#reset)
-- [setInfluence](MorphTargetData.md#setinfluence)
-- [getDataBuffer](MorphTargetData.md#getdatabuffer)
+- [initMorphTarget](MorphTargetData.md#initmorphtarget)
+- [applyRenderShader](MorphTargetData.md#applyrendershader)
+- [computeMorphTarget](MorphTargetData.md#computemorphtarget)
+- [updateInfluence](MorphTargetData.md#updateinfluence)
 
 ## Properties
-
-### morphTargetsRelative
-
-• **morphTargetsRelative**: `boolean`
-
-#### Defined in
-
-[src/engine/components/anim/morphAnim/MorphTargetData.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/anim/morphAnim/MorphTargetData.ts#L6)
-
-___
 
 ### enable
 
@@ -34,7 +26,27 @@ ___
 
 #### Defined in
 
-[src/engine/components/anim/morphAnim/MorphTargetData.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/anim/morphAnim/MorphTargetData.ts#L9)
+[src/components/anim/morphAnim/MorphTargetData.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L48)
+
+___
+
+### morphTargetsRelative
+
+• **morphTargetsRelative**: `boolean`
+
+#### Defined in
+
+[src/components/anim/morphAnim/MorphTargetData.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L49)
+
+___
+
+### MaxMorphTargetCount
+
+• `Readonly` **MaxMorphTargetCount**: `number` = `64`
+
+#### Defined in
+
+[src/components/anim/morphAnim/MorphTargetData.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L50)
 
 ## Constructors
 
@@ -44,13 +56,19 @@ ___
 
 #### Defined in
 
-[src/engine/components/anim/morphAnim/MorphTargetData.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/anim/morphAnim/MorphTargetData.ts#L11)
+[src/components/anim/morphAnim/MorphTargetData.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L70)
 
 ## Methods
 
-### reset
+### initMorphTarget
 
-▸ **reset**(): `void`
+▸ **initMorphTarget**(`geometry`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `geometry` | [`GeometryBase`](GeometryBase.md) |
 
 #### Returns
 
@@ -58,13 +76,53 @@ ___
 
 #### Defined in
 
-[src/engine/components/anim/morphAnim/MorphTargetData.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/anim/morphAnim/MorphTargetData.ts#L17)
+[src/components/anim/morphAnim/MorphTargetData.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L77)
 
 ___
 
-### setInfluence
+### applyRenderShader
 
-▸ **setInfluence**(`index`, `value`): `void`
+▸ **applyRenderShader**(`renderShader`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `renderShader` | [`RenderShader`](RenderShader.md) |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/components/anim/morphAnim/MorphTargetData.ts:100](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L100)
+
+___
+
+### computeMorphTarget
+
+▸ **computeMorphTarget**(`command`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `command` | `GPUCommandEncoder` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/components/anim/morphAnim/MorphTargetData.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L112)
+
+___
+
+### updateInfluence
+
+▸ **updateInfluence**(`index`, `value`): `void`
 
 #### Parameters
 
@@ -79,18 +137,4 @@ ___
 
 #### Defined in
 
-[src/engine/components/anim/morphAnim/MorphTargetData.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/anim/morphAnim/MorphTargetData.ts#L22)
-
-___
-
-### getDataBuffer
-
-▸ **getDataBuffer**(): `UniformGPUBuffer`
-
-#### Returns
-
-`UniformGPUBuffer`
-
-#### Defined in
-
-[src/engine/components/anim/morphAnim/MorphTargetData.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/anim/morphAnim/MorphTargetData.ts#L27)
+[src/components/anim/morphAnim/MorphTargetData.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L131)

@@ -1,24 +1,23 @@
 # Class: ComponentBase
 
-组件用于在实体对象上附加功能。组件可以在每个帧接收更新事件。
+Components are used to attach functionality to object3D, it has an owner object3D.
+The component can receive update events at each frame.
 
 ## Hierarchy
 
 - **`ComponentBase`**
 
-  ↳ [`BillboardEffect`](BillboardEffect.md)
+  ↳ [`BillboardComponent`](BillboardComponent.md)
 
-  ↳ [`MaterialComponent`](MaterialComponent.md)
+  ↳ [`ColliderComponent`](ColliderComponent.md)
 
-  ↳ [`MeshComponent`](MeshComponent.md)
+  ↳ [`SkeletonAnimationComponent`](SkeletonAnimationComponent.md)
 
   ↳ [`Transform`](Transform.md)
 
   ↳ [`PropertyAnimation`](PropertyAnimation.md)
 
-  ↳ [`SkeletonAnimation`](SkeletonAnimation.md)
-
-  ↳ [`Collider`](Collider.md)
+  ↳ [`MorphTargetBlender`](MorphTargetBlender.md)
 
   ↳ [`FlyCameraController`](FlyCameraController.md)
 
@@ -26,21 +25,22 @@
 
   ↳ [`OrbitController`](OrbitController.md)
 
-  ↳ [`GlobalIlluminationComponent`](GlobalIlluminationComponent.md)
+  ↳ [`PostProcessingComponent`](PostProcessingComponent.md)
+
+  ↳ [`MaterialComponent`](MaterialComponent.md)
+
+  ↳ [`MeshComponent`](MeshComponent.md)
 
   ↳ [`Camera3D`](Camera3D.md)
 
-  ↳ [`UIComponentBase`](UIComponentBase.md)
+## Implements
 
-  ↳ [`UITransform`](UITransform.md)
-
-  ↳ [`UICanvas`](UICanvas.md)
+- [`IComponent`](../interfaces/IComponent.md)
 
 
 ### Properties
 
 - [object3D](ComponentBase.md#object3d)
-- [serializeTag](ComponentBase.md#serializetag)
 
 ### Constructors
 
@@ -53,14 +53,18 @@
 
 ### Methods
 
-- [onVisible](ComponentBase.md#onvisible)
-- [cloneTo](ComponentBase.md#cloneto)
-- [destroy](ComponentBase.md#destroy)
+- [init](ComponentBase.md#init)
+- [start](ComponentBase.md#start)
+- [stop](ComponentBase.md#stop)
+- [onEnable](ComponentBase.md#onenable)
+- [onDisable](ComponentBase.md#ondisable)
 - [onUpdate](ComponentBase.md#onupdate)
 - [onLateUpdate](ComponentBase.md#onlateupdate)
 - [onBeforeUpdate](ComponentBase.md#onbeforeupdate)
-- [serialization](ComponentBase.md#serialization)
-- [unSerialization](ComponentBase.md#unserialization)
+- [onCompute](ComponentBase.md#oncompute)
+- [onGraphic](ComponentBase.md#ongraphic)
+- [cloneTo](ComponentBase.md#cloneto)
+- [destroy](ComponentBase.md#destroy)
 
 ## Properties
 
@@ -68,21 +72,15 @@
 
 • **object3D**: [`Object3D`](Object3D.md) = `null`
 
-此组件附加到的Object3D对象。
+owner object3D
+
+#### Implementation of
+
+[IComponent](../interfaces/IComponent.md).[object3D](../interfaces/IComponent.md#object3d)
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L14)
-
-___
-
-### serializeTag
-
-• `Optional` **serializeTag**: [`SerializeTag`](../types/SerializeTag.md)
-
-#### Defined in
-
-[src/engine/components/ComponentBase.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L30)
+[src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
 
 ## Constructors
 
@@ -92,7 +90,7 @@ ___
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L32)
+[src/components/ComponentBase.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L31)
 
 ## Accessors
 
@@ -100,15 +98,19 @@ ___
 
 • `get` **transform**(): [`Transform`](Transform.md)
 
-附加到此 Object3D对象 的 Transform组件。
+Return the Transform component attached to the Object3D.
 
 #### Returns
 
 [`Transform`](Transform.md)
 
+#### Implementation of
+
+[IComponent](../interfaces/IComponent.md).[transform](../interfaces/IComponent.md#transform)
+
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L39)
+[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
 
 ___
 
@@ -116,18 +118,24 @@ ___
 
 • `get` **enable**(): `boolean`
 
-启用/禁用 组件。启用的组件可更新，禁用的组件不可更新。
+Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
 #### Returns
 
 `boolean`
 
+#### Implementation of
+
+[IComponent](../interfaces/IComponent.md).[enable](../interfaces/IComponent.md#enable)
+
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L62)
+[src/components/ComponentBase.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L59)
 
 • `set` **enable**(`value`): `void`
 
+Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
+
 #### Parameters
 
 | Name | Type |
@@ -138,29 +146,242 @@ ___
 
 `void`
 
+#### Implementation of
+
+[IComponent](../interfaces/IComponent.md).[enable](../interfaces/IComponent.md#enable)
+
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L43)
+[src/components/ComponentBase.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L45)
 
 ## Methods
 
-### onVisible
+### init
 
-▸ **onVisible**(`value`): `void`
+▸ **init**(`param?`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `value` | `boolean` |
+| `param?` | `any` |
 
 #### Returns
 
 `void`
 
+#### Implementation of
+
+[IComponent](../interfaces/IComponent.md).[init](../interfaces/IComponent.md#init)
+
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L66)
+[src/components/ComponentBase.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L106)
+
+___
+
+### start
+
+▸ **start**(): `void`
+
+#### Returns
+
+`void`
+
+#### Implementation of
+
+[IComponent](../interfaces/IComponent.md).[start](../interfaces/IComponent.md#start)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L107)
+
+___
+
+### stop
+
+▸ **stop**(): `void`
+
+#### Returns
+
+`void`
+
+#### Implementation of
+
+[IComponent](../interfaces/IComponent.md).[stop](../interfaces/IComponent.md#stop)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L108)
+
+___
+
+### onEnable
+
+▸ `Optional` **onEnable**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Implementation of
+
+[IComponent](../interfaces/IComponent.md).[onEnable](../interfaces/IComponent.md#onenable)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L109)
+
+___
+
+### onDisable
+
+▸ `Optional` **onDisable**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Implementation of
+
+[IComponent](../interfaces/IComponent.md).[onDisable](../interfaces/IComponent.md#ondisable)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L110)
+
+___
+
+### onUpdate
+
+▸ `Optional` **onUpdate**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Implementation of
+
+[IComponent](../interfaces/IComponent.md).[onUpdate](../interfaces/IComponent.md#onupdate)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L111)
+
+___
+
+### onLateUpdate
+
+▸ `Optional` **onLateUpdate**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Implementation of
+
+[IComponent](../interfaces/IComponent.md).[onLateUpdate](../interfaces/IComponent.md#onlateupdate)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L112)
+
+___
+
+### onBeforeUpdate
+
+▸ `Optional` **onBeforeUpdate**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Implementation of
+
+[IComponent](../interfaces/IComponent.md).[onBeforeUpdate](../interfaces/IComponent.md#onbeforeupdate)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
+
+___
+
+### onCompute
+
+▸ `Optional` **onCompute**(`view?`, `command?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+| `command?` | `GPUCommandEncoder` |
+
+#### Returns
+
+`any`
+
+#### Implementation of
+
+[IComponent](../interfaces/IComponent.md).[onCompute](../interfaces/IComponent.md#oncompute)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
+
+___
+
+### onGraphic
+
+▸ `Optional` **onGraphic**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Implementation of
+
+[IComponent](../interfaces/IComponent.md).[onGraphic](../interfaces/IComponent.md#ongraphic)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L115)
 
 ___
 
@@ -168,21 +389,25 @@ ___
 
 ▸ **cloneTo**(`obj`): `void`
 
-创建新的组件，复制当前组件的属性，并添加到目标对象上。
+clone component data to target object3D
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `obj` | [`Object3D`](Object3D.md) | 源对象 |
+| `obj` | [`Object3D`](Object3D.md) | target object3D |
 
 #### Returns
 
 `void`
 
+#### Implementation of
+
+[IComponent](../interfaces/IComponent.md).[cloneTo](../interfaces/IComponent.md#cloneto)
+
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L114)
+[src/components/ComponentBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L122)
 
 ___
 
@@ -190,119 +415,16 @@ ___
 
 ▸ **destroy**(): `void`
 
-移除组件时候调用
+release this component
 
 #### Returns
 
 `void`
 
-#### Defined in
+#### Implementation of
 
-[src/engine/components/ComponentBase.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L119)
-
-___
-
-### onUpdate
-
-▸ **onUpdate**(`call`): `void`
-
-添加更新函数。会在每帧更新时执行。
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `call` | `Function` | 回调函数 |
-
-#### Returns
-
-`void`
+[IComponent](../interfaces/IComponent.md).[destroy](../interfaces/IComponent.md#destroy)
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L135)
-
-___
-
-### onLateUpdate
-
-▸ **onLateUpdate**(`call`): `void`
-
-添加延迟更新函数。
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `call` | `Function` | 回调函数 |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/engine/components/ComponentBase.ts:148](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L148)
-
-___
-
-### onBeforeUpdate
-
-▸ **onBeforeUpdate**(`call`): `void`
-
-添加帧更新前执行的函数。
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `call` | `Function` | 回调函数 |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/engine/components/ComponentBase.ts:161](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L161)
-
-___
-
-### serialization
-
-▸ **serialization**(`assets`): [`SerializeComponentBase`](SerializeComponentBase.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `assets` | [`ISerializeAssetsCollect`](../interfaces/ISerializeAssetsCollect.md) |
-
-#### Returns
-
-[`SerializeComponentBase`](SerializeComponentBase.md)
-
-#### Defined in
-
-[src/engine/components/ComponentBase.ts:170](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L170)
-
-___
-
-### unSerialization
-
-▸ **unSerialization**(`componentData`, `data`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `componentData` | [`SerializeComponentBase`](SerializeComponentBase.md) |
-| `data` | [`UnSerializeData`](UnSerializeData.md) |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/engine/components/ComponentBase.ts:175](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L175)
+[src/components/ComponentBase.ts:189](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L189)

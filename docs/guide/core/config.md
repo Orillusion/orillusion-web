@@ -1,23 +1,23 @@
 # EngineConifg
-通过 [EngineConfig](/api/types/EngineConfig) 可以设置引擎的一些常见配置，`EngineConifg` 主要由几个不同配置组成，包括拾取模式，渲染管线，阴影设置，后处理设置，天空盒设置等等。
+You can set some common configurations of the engine through [EngineConfig](/api/types/EngineConfig), `EngineConifg` is mainly composed of several configurations, including pick mode, render pipeline, shadow settings, post-processing settings, skybox settings, etc.
 
-## 基础使用
-在引擎初始化前，需要先设置引擎的配置，可以通过 `Engine3D` 的 `setting` 的属性来设置。
+## Basic Usage
+Before initializing the engine, you need to set the engine configuration first, which can be set through the `setting` property of `Engine3D`.
 
-例如设置场景中可支持的最大节点数量：
+For example, set the maximum number of nodes supported in the scene:
 ```ts
-// 最大实体数量
+// Maximum number of entities
 Engine3D.setting.memory.doMatrixMaxCount = 100000;
-// 最大灯光数量
+// Maximum number of lights
 Engine3D.setting.light.maxLight = 1024;
-// 先配置，后初始化
+// Configure first, then initialize
 await Engine3D.init();
 ```
 
-## 拾取模式
-引擎支持两种拾取模式，一种是 `像素级拾取 (pixel)`，一种是 `包围盒拾取 (bound)`。
+## Pick Mode
+Engine supports two pick modes, one is `pixel` and the other is `bound`.
 
-引擎默认配置是 `bound` 模式， 包围盒拾取通过计算模型的AABB包围盒来拾取，精度不如 `pixel` 模式，但是计算更快，性能更好。包围盒拾取的模式可以通过引擎配置中的 `pick` 属性来设置。
+The default configuration is `bound` mode, which picks up the model by calculating the AABB bounding box of the model. The accuracy is not as good as `pixel` mode, but the calculation is faster and the performance is better. The bounding box picking mode can be set through the `pick` property of the engine configuration.
 
 ```ts
 Engine3D.setting.pick.enable = true;
@@ -25,7 +25,7 @@ Engine3D.setting.pick.mode = `bound`;
 await Engine3D.init();
 ```
 
-像素级拾取模式同样可以通过 `pick` 属性来设置。
+Also, the pixel picking mode can also be set through the `pick` property.
 
 ```ts
 Engine3D.setting.pick.enable = true;
@@ -33,34 +33,34 @@ Engine3D.setting.pick.mode = `pixel`;
 await Engine3D.init();
 ```
 
-详细用法请参考 [拾取事件](/guide/interaction/pickfire)
+See more about [Pick Event](/guide/interaction/pickfire)
 
-## 后处理设置
-引擎支持多种后处理，包括各种抗锯齿，bloom，环境光遮蔽等等，可以通过 `render` 配置中的 `postProcessing` 属性来设置。
+## Post Processing Settings
+Engine supports multiple post-processing effects, including various anti-aliasing, bloom, ambient occlusion, etc., which can be set through the `postProcessing` property of the `render` configuration.
 
-例如设置 `bloom` 后处理效果：
+For example, set the `bloom` post-processing effect:
 ```ts
-// 开启 bloom 
+// Enable bloom 
 Engine3D.setting.render.postProcessing.bloom.enable = true;
-// 设置强度
+// Set the intensity of bloom
 Engine3D.setting.render.postProcessing.bloom.intensity = 0.5;
 ```
-更多后处理相关设置，详见 [后处理](/guide/advanced/posteffect)
+See more about [Post Processing](/guide/advanced/posteffect)
 
-## 阴影设置
-设置阴影的方法和属性，可以通过引擎配置中的 `shadow` 属性来设置。
+## Shadow Settings
+Setting the shadow method and attributes through the `shadow` property of the engine configuration.
 
 ```ts
-Engine3D.setting.shadow.enable = true; // 开启阴影
-Engine3D.setting.shadow.type = `SOFT`; // 软阴影类型
-Engine3D.setting.shadow.shadowSize = 2048; // 阴影贴图大小
+Engine3D.setting.shadow.enable = true; // Enable shadow
+Engine3D.setting.shadow.type = `SOFT`; // The type of shadow, SOFT
+Engine3D.setting.shadow.shadowSize = 2048; // The size of the shadow map
 ```
-详见 [阴影](/guide/graphics/shadow)
+See more about [Shadow](/guide/graphics/shadow)
 
-## 全局光照设置
-通过配置中的 `gi` 属性来设置全局光照。
+## Global Illumination Settings
+Setting the global illumination through the `gi` property of the configuration.
 ```ts
 Engine3D.setting.gi.enable = true;
 ```
-详见 [全局光照](/guide/advanced/gi)
+See more about [Global Illumination](/guide/advanced/gi)
 

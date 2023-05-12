@@ -21,7 +21,7 @@
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/bindGroups/GlobalBindGroupLayout.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/bindGroups/GlobalBindGroupLayout.ts#L6)
+[src/gfx/graphics/webGpu/core/bindGroups/GlobalBindGroupLayout.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/bindGroups/GlobalBindGroupLayout.ts#L6)
 
 ## Constructors
 

@@ -18,7 +18,7 @@
 
 #### Defined in
 
-[src/engine/components/anim/skeletonAnim/JointPose.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/anim/skeletonAnim/JointPose.ts#L4)
+[src/components/anim/skeletonAnim/JointPose.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/JointPose.ts#L4)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-[src/engine/components/anim/skeletonAnim/JointPose.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/anim/skeletonAnim/JointPose.ts#L5)
+[src/components/anim/skeletonAnim/JointPose.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/JointPose.ts#L5)
 
 ## Constructors
 
@@ -45,4 +45,4 @@ ___
 
 #### Defined in
 
-[src/engine/components/anim/skeletonAnim/JointPose.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/anim/skeletonAnim/JointPose.ts#L6)
+[src/components/anim/skeletonAnim/JointPose.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/JointPose.ts#L6)
