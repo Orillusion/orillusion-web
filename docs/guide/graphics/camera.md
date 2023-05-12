@@ -13,8 +13,17 @@ let cameraObj = new Object3D();
 let camera = cameraObj.addComponent(Camera3D);
 // Add the camera node to scene
 scene.addChild(cameraObj);
+
+// Create 3D view
+let view = new View3D();
+// Fill the scene to the 3D view
+view.scene = scene;
+// Fill the camera to the 3D view
+view.camera = camera;
+// Start rendering
+Engine3D.startRenderView(view);
 ```
-If there are multiple cameras in the scene, the first created camera component is the main camera by default. You can manually switch the main camera through `Camera3D.mainCamera`:
+If there are multiple cameras in the scene, you can manually switch the target camera through `view.camera`:
 ```ts
 // If multiple cameras exist in the scene
 let cameraObj1 = new Object3D();
@@ -22,8 +31,16 @@ let camera1 = cameraObj.addComponent(Camera3D);
 let cameraObj2 = new Object3D();
 let camera2 = cameraObj.addComponent(Camera3D);
 
-// Set/Switch the main camera of the scene
-Camera3D.mainCamera = camera2;
+// Create 3D view
+let view = new View3D();
+// Set the rendering scene
+view.scene = scene;
+// camera1 Set camera1
+view.camera = camera1;
+...
+// Switch to use camera2 for rendering
+view.camera = camera2;
+
 ```
 
 ## Camera Position
