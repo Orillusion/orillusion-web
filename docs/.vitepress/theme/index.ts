@@ -6,7 +6,7 @@ import './custom.css'
 
 export default {
     ...DefaultTheme,
-    enhanceApp({ app }) {
+    enhanceApp({ app, router }) {
         app.component('Demo', Demo)
         app.component('Logo', Logo)
 
@@ -31,17 +31,16 @@ export default {
         }
         // nav to zh without new tab
         if(globalThis.document){
-            let timer = setInterval(()=>{
-                let link = globalThis.document?.querySelector('.VPNavBarTranslations a.VPLink')
-                if(link){
-                    clearInterval(timer)
-                    link.addEventListener('click', (e)=>{
+            router.onAfterRouteChanged = ()=>{
+                setTimeout(()=>{
+                    let link = globalThis.document?.querySelector('.VPNavBarTranslations a.VPLink')
+                    link?.addEventListener('click', (e)=>{
                         e.preventDefault()
                         globalThis.localStorage._lang = 'zh'
                         globalThis.location.href = e.target.href
                     })
-                }
-            }, 20)
+                }, 100)
+            }
         }
     }
 }
