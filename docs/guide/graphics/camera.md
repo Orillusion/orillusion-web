@@ -232,4 +232,4 @@ orbit.minPolarAngle = 90
 ```
 
 ### 自定义控制器
-用户可以通过 [自定义组件](/guide/core/script) 来扩展额外的相机组件，可以参考 [OrbitController](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/controller/OrbitController.ts) 的实现方式。
+用户可以通过 [自定义组件](/guide/core/script) 来扩展额外的相机组件，可以参考 [OrbitController](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts) 的实现方式。

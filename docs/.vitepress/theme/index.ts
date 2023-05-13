@@ -28,5 +28,11 @@ export default {
                 globalThis.esbuild = esbuild
             })
         }
+
+        // jump to /en on first visit 
+        if( !globalThis.localStorage._first && !/zh/i.test(globalThis.navigator.language) ){
+            globalThis.localStorage._first = true
+            globalThis.location.href = '/en' + globalThis.location.pathname
+        }
     }
 }

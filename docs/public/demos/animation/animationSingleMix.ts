@@ -15,9 +15,8 @@ async function demo() {
     mainCamera.perspective(60, Engine3D.aspect, 0.1, 10000.0)
     let hc = mainCamera.object3D.addComponent(HoverCameraController)
     hc.setCamera(0, -15, 10, new Vector3(0, 1, 0))
-
-    // 初始化环境图;
-    scene.envMap = await Engine3D.res.loadHDRTextureCube('https://cdn.orillusion.com/hdri/1428_v5_low.hdr')
+    
+    // set light
     {
         let ligthObj = new Object3D()
         let dl = ligthObj.addComponent(DirectLight)
@@ -38,21 +37,24 @@ async function demo() {
     animation.play('Idle')
 
     const GUIHelp = new dat.GUI()
-    GUIHelp.addFolder('Animation-weight').open()
+    let f = GUIHelp.addFolder('Animation-weight')
     animation.getAnimationClipStates().forEach((clipState, _) => {
-        GUIHelp.add(clipState, 'weight', 0, 1.0, 0.01).name(clipState.name)
+        f.add(clipState, 'weight', 0, 1.0, 0.01).name(clipState.name)
     })
+    f.open()
 
-    GUIHelp.addFolder('Animation-play').open()
+    f = GUIHelp.addFolder('Animation-play')
     animation.getAnimationClipStates().forEach((clipState, _) => {
-        GUIHelp.add({ click: () => animation.play(clipState.name) }, 'click').name(clipState.name)
+        f.add({ click: () => animation.play(clipState.name) }, 'click').name(clipState.name)
     })
+    f.open()
 
-    GUIHelp.addFolder('Animation-crossFade').open()
+    f = GUIHelp.addFolder('Animation-crossFade')
     animation.getAnimationClipStates().forEach((clipState, _) => {
-        GUIHelp.add({ click: () => animation.crossFade(clipState.name, 0.3) }, 'click').name('crossFade(' + clipState.name + ')')
+        f.add({ click: () => animation.crossFade(clipState.name, 0.3) }, 'click').name('crossFade(' + clipState.name + ')')
     })
-
+    f.open()
+    // set skybox
     scene.addComponent(AtmosphericComponent).sunY = 0.6
 
     // create a view with target scene and camera
@@ -61,10 +63,6 @@ async function demo() {
     view.camera = mainCamera
     // start render
     Engine3D.startRenderView(view)
-
-    // let postProcessing = scene.addComponent(PostProcessingComponent);
-    // postProcessing.addPost(FXAAPost);
-    // postProcessing.addPost(HDRBloomPost);
 }
 
 demo()
