@@ -50,10 +50,10 @@ export default async () =>
             ['meta', { name: 'theme-color', content: '#242424' }],
             ['link', { rel: 'manifest', href: '/manifest.json' }]
         ],
-        // locales: {
-        //     root: { label: '简体中文' },
-        //     en: { label: 'English', link: 'https://www.orillusion.com/en/' }
-        // },
+        locales: {
+            root: { label: '简体中文' },
+            en: { label: 'English', link: 'https://www.orillusion.com/en/' }
+        },
         themeConfig: {
             logo: {
                 light: '/images/logo_black.png',
