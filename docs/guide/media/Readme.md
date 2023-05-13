@@ -33,7 +33,7 @@ Or load the `UMD` version through `<script>` tag, and get the `VideoMaterial` mo
 </script>
 ```
 
-## 媒体材质
+## Media Material
 Currently, [media-extention](/media-extention/) supports the following types of materials:
 
 | Material | Description |
