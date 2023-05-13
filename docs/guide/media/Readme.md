@@ -2,18 +2,38 @@
 
 `Orillusion` provides the [@orillusion/media-extention](/media-extention/) extension package to support multimedia, enabling easy loading and display of images and videos, as well as providing corresponding processing capabilities. Please note that it needs to be installed separately, and the usage method after installation is similar to that of ordinary textures and materials.
 
-Consistent with the engine installation method, we can introduce media extensions through two methods: `NPM` and `CDN` linking:
+## Installation
+Same as the engine installation, we can import physic plugins through two methods: `NPM` and `CDN` linking:
+
+## 1. Install by NPM
 ```bash
 npm install @orillusion/core --save
 npm install @orillusion/media-extention --save
 ```
-
-Or globally load the `<script>`and obtain the `Media` module in the global `Orillusion` variable:
-```html
-<script src="https://cdn.orillusion.com/orillusion.umd.js"></script>
-<script src="https://cdn.orillusion.com/media.umd.js"></script>
+```ts
+import { Engine3D } from "@orillusion/core"
+import { Physics } from "@orillusion/media-extention"
 ```
 
+## 2. Import via `CDN` links
+We recommend using the `ESModule` build version:
+```html
+<script type="module">
+    import { Engine3D } from "https://unpkg.com/@orillusion/core/dist/orillusion.es.js"
+    import { VideoMaterial } from "https://unpkg.com/@orillusion/media-extention/dist/media.es.js"
+</script>
+```
+
+Or load the `UMD` version through `<script>` tag, and get the `VideoMaterial` module from the global `Orillusion` variable:
+```html
+<script src="https://unpkg.com/@orillusion/core/orillusion.umd.js"></script>
+<script src="https://unpkg.com/@orillusion/media-extention/dist/media.umd.js"></script>
+<script>
+  const {Engine3D, VideoMaterial} = Orillusion
+</script>
+```
+
+## Media Material
 Currently, [media-extention](/media-extention/) supports the following types of materials:
 
 | Material | Description |
