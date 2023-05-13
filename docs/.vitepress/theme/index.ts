@@ -27,20 +27,21 @@ export default {
                 })
                 globalThis.esbuild = esbuild
             })
-            
+            return
         }
-
         // nav to zh without new tab
-        let timer = setInterval(()=>{
-            let link = document.querySelector('.VPNavBarTranslations a.VPLink')
-            if(link){
-                clearInterval(timer)
-                link.addEventListener('click', (e)=>{
-                    e.preventDefault()
-                    localStorage._lang = 'zh'
-                    location.href = e.target.href
-                })
-            }
-        }, 20)
+        if(globalThis.document){
+            let timer = setInterval(()=>{
+                let link = globalThis.document?.querySelector('.VPNavBarTranslations a.VPLink')
+                if(link){
+                    clearInterval(timer)
+                    link.addEventListener('click', (e)=>{
+                        e.preventDefault()
+                        globalThis.localStorage._lang = 'zh'
+                        globalThis.location.href = e.target.href
+                    })
+                }
+            }, 20)
+        }
     }
 }
