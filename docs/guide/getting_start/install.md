@@ -65,6 +65,7 @@ To standardize the management of dependencies with its address, we recommend usi
 </script>
 <!-- Use custom names to import -->
 <script type="module">
-  import ...
+    import { Engine3D, Camera3D } from "@orillusion/core"
+    import { Stats } from "@orillusion/stats"
 </script>
 ```
