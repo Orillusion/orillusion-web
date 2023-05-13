@@ -1,13 +1,11 @@
-# EngineConifg
-You can set some common configurations of the engine through [EngineConfig](/api/types/EngineConfig), `EngineConifg` is mainly composed of several configurations, including pick mode, render pipeline, shadow settings, post-processing settings, skybox settings, etc.
+# EngineSetting
+You can set some common configurations of the engine through [EngineSetting](/api/types/EngineSetting), `EngineSetting` is mainly composed of several configurations, including pick mode, render pipeline, shadow settings, post-processing settings, skybox settings, etc.
 
 ## Basic Usage
 Before initializing the engine, you need to set the engine configuration first, which can be set through the `setting` property of `Engine3D`.
 
-For example, set the maximum number of nodes supported in the scene:
+For example, set the maximum number of lights supported in the scene:
 ```ts
-// Maximum number of entities
-Engine3D.setting.memory.doMatrixMaxCount = 100000;
 // Maximum number of lights
 Engine3D.setting.light.maxLight = 1024;
 // Configure first, then initialize
@@ -57,10 +55,10 @@ Engine3D.setting.shadow.shadowSize = 2048; // The size of the shadow map
 ```
 See more about [Shadow](/guide/graphics/shadow)
 
-## Global Illumination Settings
+<!-- ## Global Illumination Settings
 Setting the global illumination through the `gi` property of the configuration.
 ```ts
 Engine3D.setting.gi.enable = true;
 ```
-See more about [Global Illumination](/guide/advanced/gi)
+See more about [Global Illumination](/guide/advanced/gi) -->
 

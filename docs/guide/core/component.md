@@ -24,17 +24,18 @@ We have built-in a lot of basic components in the Orillusion engine, which encap
 
 These are the commonly used built-in components in the Orillusion engine:
 
-|         Name          |                                       Description                                       |
-|:---------------------:|:---------------------------------------------------------------------------------------:|
-|       Camera3D        |                          Camera component, set the camera node                          |
-| HoverCameraController |      Camera controlort, used to control the position and orientation of the camera      |
-|     MeshRenderer      |              Mesh renderer component, used to render meshes and materials               |
-|      DirectLight      |         Directional light, set the type and parameters of the directional light         |
-|      PointLight       |           Point light source, set the type and parameters of the point light            |
-|       SpotLight       |                 Spotlight, set the type and parameters of the spotlight                 |
-|       Collider        |                      Collider component, used to detect collisions                      |
-|   SkeletonAnimation   |            Skeleton animation component, used to control animation playback             |
-|       Transform       | Transform component, used to control the matrix coordinate transformation of the object |
+|            Name            |                                       Description                                       |
+|:--------------------------:|:---------------------------------------------------------------------------------------:|
+|          Camera3D          |                          Camera component, set the camera node                          |
+|         Transform          | Transform component, used to control the matrix coordinate transformation of the object |
+|   HoverCameraController    |      Camera controlort, used to control the position and orientation of the camera      |
+|        MeshRenderer        |              Mesh renderer component, used to render meshes and materials               |
+|        DirectLight         |         Directional light, set the type and parameters of the directional light         |
+|         PointLight         |           Point light source, set the type and parameters of the point light            |
+|         SpotLight          |                 Spotlight, set the type and parameters of the spotlight                 |
+|     ColliderComponent      |                      Collider component, used to detect collisions                      |
+| SkeletonAnimationComponent |            Skeleton animation component, used to control animation playback             |
+|    AtmosphericComponent    |                              Atmospheric skybox component                               |
 
 And more built-in components can be found in [Components](/api/#components)
 
@@ -74,15 +75,15 @@ light.enable = true
 ## Lifecycle of Component
 The component extends from the [CompnentBase](/api/classes/ComponentBase), which defines several basic lifecycles:
 
-|  Lifecycle   | Description                                                           |
-|:------------:|-----------------------------------------------------------------------|
-|     init     | Component initialization, only run once when the component is created |
-|    start     | Component starts running, only called before the first `onUpdate`     |
-|    update    | Component runs every frame                                            |
-| beforeUpdate | Component runs before rendering update                                |
-|  lateUpdate  | Component runs after rendering update                                 |
-|   onEnable   | Work when `enable = true` , component joins the main loop update      |
-|  onDisable   | Work when `enable = false` , component will no longer trigger loop    |
-|     stop     | Component is called before destruction                                |
+|   Lifecycle    | Description                                                           |
+|:--------------:|-----------------------------------------------------------------------|
+|      init      | Component initialization, only run once when the component is created |
+|     start      | Component starts running, only called before the first `onUpdate`     |
+|      stop      | Component runs before destruction                                     |
+|    onUpdate    | Component runs every frame                                            |
+| onBeforeUpdate | Component runs before rendering update                                |
+|  onLateUpdate  | Component runs after rendering update                                 |
+|    onEnable    | Work when `enable = true` , component joins the main loop update      |
+|   onDisable    | Work when `enable = false` , component will no longer trigger loop    |
 
-Users can extend different custom functions by inheriting the [CompnentBase](/api/classes/ComponentBase) base class, see [Script Component](/guide/core/script) for details.
+Users can extend different custom functions by inheriting the [ComponentBase](/api/classes/ComponentBase) base class, see [Script Component](/guide/core/script) for details.
