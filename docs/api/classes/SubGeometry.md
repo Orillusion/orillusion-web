@@ -1,6 +1,6 @@
 # Class: SubGeometry
 
-子几何体
+geometry split more subGeometry descriptor
 
 
 ### Constructors
@@ -9,7 +9,7 @@
 
 ### Properties
 
-- [lodLevel](SubGeometry.md#lodlevel)
+- [lodLevels](SubGeometry.md#lodlevels)
 
 ## Constructors
 
@@ -19,10 +19,10 @@
 
 ## Properties
 
-### lodLevel
+### lodLevels
 
-• **lodLevel**: { `indexStart`: `number` ; `indexCount`: `number` ; `vertexStart`: `number` ; `index`: `number`  }[]
+• **lodLevels**: [`LodLevel`](../types/LodLevel.md)[]
 
 #### Defined in
 
-[src/engine/core/geometry/GeometryBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/engine/core/geometry/GeometryBase.ts#L20)
+[src/core/geometry/GeometryBase.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L25)

@@ -1,7 +1,6 @@
 # Namespace: Ammo
 
-Ammo 原生类 by Bullet2
-
+Ammo.js by Bullet2
 
 ### Functions
 

@@ -1,0 +1,8 @@
+*.md
+*.vue
+dist
+pnpm-lock.yaml
+cache
+template
+temp
+webgpu

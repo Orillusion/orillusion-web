@@ -2,78 +2,78 @@ import { defineConfig } from 'vitepress'
 import { readFileSync, readdirSync } from 'fs'
 
 type SidebarItem = {
-    text: string;
-    collapsible?: boolean;
-    collapsed?: boolean;
-    items: ({
-        text: string;
-        link: string;
-        items?: { text: string; link: string; }[];
-    })[];
+    text: string
+    collapsible?: boolean
+    collapsed?: boolean
+    items: {
+        text: string
+        link: string
+        items?: { text: string; link: string }[]
+    }[]
 }[]
-export default async () => defineConfig({
-    base: '/en',
-    lang: 'en-US',
-    title: 'Orillusion',
-    description: 'The Next Generation WebGPU Engine',
-    lastUpdated: true,
-    ignoreDeadLinks: true,
-    appearance: 'dark',
-    head: [
-        ['link', { rel: 'shortcut icon', type: "image/png", href: '/images/icons/icon-192.png' }],
-        ['link', { rel: 'apple-touch-icon', href: '/images/icons/icon-512.png' }],
-        ['link', { rel: 'prefetch', href: 'https://cdn.orillusion.com/orillusion.es.js' }],
-        ['link', { rel: 'prefetch', href: 'https://cdn.orillusion.com/physics.es.js' }],
-        ['script', { async: 'true', src: 'https://www.googletagmanager.com/gtag/js?id=G-0H9189CS0W' }],
-        ['meta', { name: 'theme-color', content: '#242424' }],
-        ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no' }],
-    ],
-    locales: {
-        root: { label: 'English' },
-        zh: { label: '简体中文', link: 'https://www.orillusion.com/' }
-    },
-    themeConfig: {
-        logo: {
-            light: '/images/logo_black.png',
-            dark: '/images/logo_white.png'
-        },
-        outline: [2, 3],
-        nav: nav(),
-        sidebar: {
-            '/guide/': sidebarGuide(),
-            '/api/': sidebar('', 'api'),
-            '/physics/': sidebar('', 'physics'),
-            '/stats/': sidebar('', 'stats'),
-            '/media-extention/': sidebar('', 'media-extention'),
-            '/example/': sidebarExample()
-        },
-
-        editLink: {
-            pattern: 'https://github.com/Orillusion/orillusion-web/edit/en/docs/:path',
-        },
-
-        socialLinks: [
-            { icon: 'github', link: 'https://github.com/Orillusion/orillusion' }
+export default async () =>
+    defineConfig({
+        base: '/en',
+        lang: 'en-US',
+        title: 'Orillusion',
+        description: 'The Next Generation WebGPU Engine',
+        lastUpdated: true,
+        ignoreDeadLinks: true,
+        appearance: 'dark',
+        head: [
+            ['link', { rel: 'shortcut icon', type: 'image/png', href: '/images/icons/icon-192.png' }],
+            ['link', { rel: 'apple-touch-icon', href: '/images/icons/icon-512.png' }],
+            ['link', { rel: 'dns-prefetch', href: 'https://unpkg.com' }],
+            ['link', { rel: 'dns-prefetch', href: 'https://cdn.orillusion.com' }],
+            ['script', { async: 'true', src: 'https://www.googletagmanager.com/gtag/js?id=G-0H9189CS0W' }],
+            ['meta', { name: 'theme-color', content: '#242424' }],
+            ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no' }]
         ],
-
-        footer: {
-            message: 'Released under the MIT License',
-            copyright: 'Copyright © 2021-Present Orillusion'
+        locales: {
+            root: { label: 'English' },
+            zh: { label: '简体中文', link: 'https://www.orillusion.com/' }
         },
-        
-        algolia: {
-            appId: 'A4SU9IUJ2M',
-            apiKey: '1a3b57b41821e82cafdd80621f042c9c',
-            indexName: 'orillusion',
-            searchParameters: {
-                facetFilters: ["tags:latest"],
+        themeConfig: {
+            logo: {
+                light: '/images/logo_black.png',
+                dark: '/images/logo_white.png'
+            },
+            outline: [2, 3],
+            nav: nav(),
+            sidebar: {
+                '/guide/': sidebarGuide(),
+                '/api/': sidebar('', 'api'),
+                '/physics/': sidebar('', 'physics'),
+                '/stats/': sidebar('', 'stats'),
+                '/media-extention/': sidebar('', 'media-extention'),
+                '/example/': sidebarExample()
+            },
+
+            editLink: {
+                pattern: 'https://github.com/Orillusion/orillusion-web/edit/en/docs/:path'
+            },
+
+            socialLinks: [{ icon: 'github', link: 'https://github.com/Orillusion/orillusion' }],
+
+            footer: {
+                message: 'Released under the MIT License',
+                copyright: 'Copyright © 2021-Present Orillusion'
+            },
+
+            algolia: {
+                appId: 'TJ3C7RARIT',
+                apiKey: 'ab01334a5b0c198b8702054b2cafd5da',
+                indexName: 'orillugion_en',
+                searchParameters: {
+                    facetFilters: ['tags:latest']
+                }
             }
+        },
+        markdown: {
+            lineNumbers: true,
+            attrs: { disable: true }
         }
-    },
-    markdown: {
-        lineNumbers: true
-    }
-})
+    })
 
 function nav() {
     return [
@@ -83,7 +83,7 @@ function nav() {
                 {
                     text: 'Guide',
                     link: '/guide/'
-                },
+                }
                 // {
                 //   text: 'Example',
                 //   link: '/example/Animation/sample1'
@@ -96,7 +96,10 @@ function nav() {
                 {
                     text: 'Orillusion',
                     items: [
-                        { text: 'API', link: '/api/' },
+                        { text: 'Core', link: '/api/' },
+                        { text: 'Physics', link: '/physics/' },
+                        { text: 'Media Extention', link: '/media-extention/' },
+                        { text: 'Stats', link: '/stats/' }
                     ]
                 },
                 {
@@ -112,6 +115,23 @@ function nav() {
         {
             text: 'Forum',
             link: 'https://forum.orillusion.com'
+        },
+        {
+            text: 'v0.6',
+            items: [
+                {
+                    text: 'Changelog',
+                    link: 'https://github.com/Orillusion/orillusion/releases'
+                },
+                {
+                    text: 'NPM',
+                    link: 'https://www.npmjs.com/package/@orillusion/core'
+                },
+                {
+                    text: 'Contributing',
+                    link: 'https://github.com/Orillusion/orillusion/blob/main/.github/contributing.md'
+                }
+            ]
         }
     ]
 }
@@ -127,8 +147,8 @@ function sidebarGuide(): SidebarItem {
                 { text: 'Engine Init', link: '/guide/getting_start/initialization.md' },
                 { text: 'Draw Cube', link: '/guide/getting_start/draw_cube.md' },
                 { text: 'Load 3D Model', link: '/guide/getting_start/load_model.md' },
-                { text: 'First Script', link: '/guide/getting_start/script.md' },
-            ],
+                { text: 'First Script', link: '/guide/getting_start/script.md' }
+            ]
         },
         {
             text: 'Core',
@@ -140,8 +160,8 @@ function sidebarGuide(): SidebarItem {
                 { text: 'Transform', link: '/guide/core/transform.md' },
                 { text: 'Script', link: '/guide/core/script.md' },
                 { text: 'Engine3D', link: '/guide/core/engine.md' },
-                { text: 'Config', link: '/guide/core/config.md' },
-            ],
+                { text: 'Config', link: '/guide/core/config.md' }
+            ]
         },
         {
             text: 'Graphics',
@@ -152,8 +172,8 @@ function sidebarGuide(): SidebarItem {
                 { text: 'Shadow', link: '/guide/graphics/shadow.md' },
                 { text: 'Mesh', link: '/guide/graphics/mesh.md' },
                 { text: 'Material', link: '/guide/graphics/materials.md' },
-                { text: 'Texture', link: '/guide/graphics/texture.md' },
-            ],
+                { text: 'Texture', link: '/guide/graphics/texture.md' }
+            ]
         },
         {
             text: 'Animation',
@@ -161,9 +181,8 @@ function sidebarGuide(): SidebarItem {
             items: [
                 { text: 'Skeleton', link: '/guide/animation/skeleton.md' },
                 { text: 'Property', link: '/guide/animation/property.md' },
-                { text: 'Morph', link: '/guide/animation/morph.md' },
-                { text: 'Particle', link: '/guide/animation/particle.md' },
-            ],
+                { text: 'Morph', link: '/guide/animation/morph.md' }
+            ]
         },
         {
             text: 'Physics',
@@ -171,8 +190,8 @@ function sidebarGuide(): SidebarItem {
             items: [
                 { text: 'Intro', link: '/guide/physics/Readme.md' },
                 { text: 'Rigid Body', link: '/guide/physics/rigidbody.md' },
-                { text: 'collider', link: '/guide/physics/collider.md' },
-            ],
+                { text: 'collider', link: '/guide/physics/collider.md' }
+            ]
         },
         {
             text: 'Interaction',
@@ -181,8 +200,8 @@ function sidebarGuide(): SidebarItem {
                 { text: 'InputSystem', link: '/guide/interaction/pointer.md' },
                 { text: 'Keyboard', link: '/guide/interaction/keyboard.md' },
                 { text: 'Pick', link: '/guide/interaction/pickfire.md' },
-                { text: 'Custom Event', link: '/guide/interaction/event.md' },
-            ],
+                { text: 'Custom Event', link: '/guide/interaction/event.md' }
+            ]
         },
         {
             text: 'Media',
@@ -191,41 +210,26 @@ function sidebarGuide(): SidebarItem {
                 { text: 'Intro', link: '/guide/media/Readme.md' },
                 { text: 'Image', link: '/guide/media/image.md' },
                 { text: 'Video', link: '/guide/media/video.md' },
-                { text: 'ChromaKey', link: '/guide/media/chromakey.md' },
-            ],
+                { text: 'ChromaKey', link: '/guide/media/chromakey.md' }
+            ]
         },
         {
             text: 'Resource',
             collapsible: true,
             items: [
                 { text: 'Res', link: '/guide/resource/Readme.md' },
-                { text: 'GLTF', link: '/guide/resource/gltf.md' },
-            ],
-        },
-        {
-            text: 'GUI',
-            collapsible: true,
-            items: [
-                { text: 'Intro', link: '/guide/gui/Readme.md' },
-                { text: 'Text', link: '/guide/gui/textfield.md' },
-                { text: 'Image', link: '/guide/gui/image.md' },
-                { text: 'Button', link: '/guide/gui/button.md' },
-                { text: 'WorldSpace', link: '/guide/gui/panel.md' }
-            ],
+                { text: 'GLTF', link: '/guide/resource/gltf.md' }
+            ]
         },
         {
             text: 'Stats',
             collapsible: true,
-            items: [
-                { text: 'Intro', link: '/guide/performance/Readme.md' },
-            ],
+            items: [{ text: 'Intro', link: '/guide/performance/Readme.md' }]
         },
         {
             text: 'Utils',
             collapsible: true,
-            items: [
-                { text: 'Math', link: '/guide/tools/math.md' },
-            ],
+            items: [{ text: 'Math', link: '/guide/tools/math.md' }]
         },
         {
             text: 'Advanced',
@@ -241,7 +245,7 @@ function sidebarGuide(): SidebarItem {
                         { text: 'Variants', link: '/guide/advanced/shader/shader_variants.md' },
                         { text: 'Public Variables', link: '/guide/advanced/shader/shader_internal.md' },
                         { text: 'Custom Material', link: '/guide/advanced/shader/shader_unlit.md' },
-                        { text: 'ComputeShader', link: '/guide/advanced/shader/shader_compute.md' },
+                        { text: 'ComputeShader', link: '/guide/advanced/shader/shader_compute.md' }
                     ]
                 },
                 {
@@ -256,20 +260,18 @@ function sidebarGuide(): SidebarItem {
                         { text: 'GTAOPost', link: '/guide/advanced/post_gtao.md' },
                         { text: 'TAAPost', link: '/guide/advanced/post_taa.md' }
                     ]
-                },
-                { text: 'Global Illumination', link: '/guide/advanced/gi.md' },
+                }
             ]
         }
     ]
 }
 
 function sidebar(root: string = '', packages: string) {
-    const index: { [key: string]: { text: string, link: string }[] } = {}
+    const index: { [key: string]: { text: string; link: string }[] } = {}
     const mds = readFileSync(`${__dirname}/../${packages}/index.md`, 'utf-8').match(/.*.(\n|\r)/g) as string[]
     let lastTitle = ''
     for (let line of mds) {
-        if (line.match(/# @/))
-            continue
+        if (line.match(/# @/)) continue
         else if (line.match(/##\s\w+/)) {
             lastTitle = line.slice(3, -1).trim()
             index[lastTitle] = []
@@ -284,22 +286,29 @@ function sidebar(root: string = '', packages: string) {
             }
         }
     }
-    const sidebar: SidebarItem = [{
-        text: 'Packages',
-        items: [{
-            text: '@orillusion/core',
-            link: '/api/'
-        }, {
-            text: '@orillusion/physics',
-            link: '/physics/'
-        }, {
-            text: '@orillusion/stats',
-            link: '/stats/'
-        }, {
-            text: '@orillusion/media-extention',
-            link: '/media-extention/'
-        }]
-    }]
+    const sidebar: SidebarItem = [
+        {
+            text: 'Packages',
+            items: [
+                {
+                    text: '@orillusion/core',
+                    link: '/api/'
+                },
+                {
+                    text: '@orillusion/physics',
+                    link: '/physics/'
+                },
+                {
+                    text: '@orillusion/stats',
+                    link: '/stats/'
+                },
+                {
+                    text: '@orillusion/media-extention',
+                    link: '/media-extention/'
+                }
+            ]
+        }
+    ]
     for (let i in index) {
         sidebar.push({
             text: i,
@@ -323,7 +332,7 @@ function sidebarExample(root: string = '') {
 
     const examples: SidebarItem = []
     for (let i in index) {
-        const mds = readdirSync(__dirname + '/../example/' + i, 'utf-8').filter(v => /\.md$/.test(v))
+        const mds = readdirSync(__dirname + '/../example/' + i, 'utf-8').filter((v) => /\.md$/.test(v))
         examples.push({
             text: i,
             collapsible: true,

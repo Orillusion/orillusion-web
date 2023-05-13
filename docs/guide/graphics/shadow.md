@@ -90,7 +90,6 @@ Configuration shadow type:
 ```ts
 Engine3D.setting.shadow.type = 'HARD'; // PCF by default
 ```
-
 <!-- 
 <Demo :height="500" src="/demos/graphics/shadow_type.ts"></Demo>
 

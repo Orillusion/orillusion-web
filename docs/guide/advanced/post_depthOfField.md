@@ -12,10 +12,15 @@ Engine3D.setting.render.postProcessing.depthOfView.near = 150;
 Engine3D.setting.render.postProcessing.depthOfView.far = 300;
 Engine3D.setting.render.postProcessing.depthOfView.pixelOffset = 1;
 
-//Create a renderer and add the depth of field effect to it.
-let renderJob = new ForwardRenderJob(this.scene);
-renderJob.addPost(new DepthOfFieldPost());
-Engine3D.startRender(renderJob);
+// Add DepthOfFieldPost
+let postProcessing = this.scene.addComponent(PostProcessingComponent);
+postProcessing.addPost(DepthOfFieldPost); //Depth of field effect.
+
+//Start rendering
+let view = new View3D();
+view.scene = this.scene;
+view.camera = this.camera;
+Engine3D.startRenderView(view);
 ```
 
 [Engine3D.setting.render.postProcessing.depthOfView](../../api/types/DepthOfViewSetting.md) configuration parameters

@@ -15,10 +15,14 @@ Engine3D.setting.render.postProcessing.gtao.rayMarchSegment = 6;
 Engine3D.setting.render.postProcessing.gtao.multiBounce = true;
 Engine3D.setting.render.postProcessing.gtao.blendColor = true;
 
-//Renderer creation
-let renderJob = new ForwardRenderJob(this.scene);
-renderJob.addPost(new GTAOPost());
-Engine3D.startRender(renderJob);
+// Add GTAOPost
+let postProcessing = this.scene.addComponent(PostProcessingComponent);
+postProcessing.addPost(GTAOPost);
+//Start rendering
+let view = new View3D();
+view.scene = this.scene;
+view.camera = this.camera;
+Engine3D.startRenderView(view);
 ```
 
 [Engine3D.setting.render.postProcessing.gtao](../../api/types/GTAOSetting.md) 配置参数。

@@ -4,4 +4,4 @@
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/OutlinePost.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/OutlinePost.ts#L87)
+[src/io/OutlinePostData.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L67)

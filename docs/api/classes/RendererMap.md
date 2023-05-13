@@ -20,7 +20,7 @@
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/RenderMap.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/RenderMap.ts#L11)
+[src/gfx/renderJob/jobs/RenderMap.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RenderMap.ts#L11)
 
 ## Methods
 
@@ -40,7 +40,7 @@
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/RenderMap.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/RenderMap.ts#L16)
+[src/gfx/renderJob/jobs/RenderMap.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RenderMap.ts#L16)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/RenderMap.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/RenderMap.ts#L28)
+[src/gfx/renderJob/jobs/RenderMap.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RenderMap.ts#L27)
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/RenderMap.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/RenderMap.ts#L36)
+[src/gfx/renderJob/jobs/RenderMap.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RenderMap.ts#L35)
 
 ___
 
@@ -88,4 +88,4 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/RenderMap.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/RenderMap.ts#L40)
+[src/gfx/renderJob/jobs/RenderMap.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RenderMap.ts#L39)

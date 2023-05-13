@@ -33,7 +33,7 @@ get any type value memory size
 
 #### Defined in
 
-[src/engine/util/struct/Struct.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/struct/Struct.ts#L45)
+[src/util/struct/Struct.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L45)
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 #### Defined in
 
-[src/engine/util/struct/Struct.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/struct/Struct.ts#L81)
+[src/util/struct/Struct.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L90)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[src/engine/util/struct/Struct.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/struct/Struct.ts#L87)
+[src/util/struct/Struct.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L96)
 
 ___
 
@@ -113,7 +113,7 @@ get any struct memory size
 
 #### Defined in
 
-[src/engine/util/struct/Struct.ts:100](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/struct/Struct.ts#L100)
+[src/util/struct/Struct.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L109)
 
 ___
 
@@ -129,7 +129,7 @@ get reflection name
 
 #### Defined in
 
-[src/engine/util/struct/Struct.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/struct/Struct.ts#L22)
+[src/util/struct/Struct.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L22)
 
 ## Constructors
 

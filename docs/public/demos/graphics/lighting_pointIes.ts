@@ -1,84 +1,88 @@
-import { BoxGeometry, Camera3D, defaultTexture, Engine3D, ForwardRenderJob, GUIHelp, LitMaterial, HoverCameraController,BitmapTexture2D, MeshRenderer, Object3D, Scene3D, SphereGeometry, PointLight, Vector3, webGPUContext , IESProfiles} from '@orillusion/core';
+import { BoxGeometry, Camera3D, Engine3D, View3D, LitMaterial, HoverCameraController, BitmapTexture2D, MeshRenderer, Object3D, Scene3D, SphereGeometry, PointLight, Vector3, webGPUContext, IESProfiles, AtmosphericComponent } from '@orillusion/core'
 
 export class Sample_LightIES {
-  scene: Scene3D;
-  hoverCameraController: HoverCameraController;
-  lightObj: any;
-  constructor() { }
+    scene: Scene3D
+    hoverCameraController: HoverCameraController
+    lightObj: any
+    constructor() {}
 
-  async run() {
-    Engine3D.setting.shadow.pointShadowBias = 0.6;
-    Engine3D.setting.shadow.type = `HARD`;
-    
-    await Engine3D.init();
-    GUIHelp.init();
+    async run() {
+        Engine3D.setting.shadow.pointShadowBias = 0.6
+        Engine3D.setting.shadow.type = `HARD`
 
-    this.scene = new Scene3D();
-    let cameraObj = new Object3D();
-    let mainCamera = cameraObj.addComponent(Camera3D);
-    mainCamera.perspective(37, webGPUContext.aspect, 1, 5000.0);
+        await Engine3D.init({
+            canvasConfig: { devicePixelRatio: 1 }
+        })
 
-    this.hoverCameraController = mainCamera.object3D.addComponent(HoverCameraController);
-    this.scene.addChild(cameraObj);
+        this.scene = new Scene3D()
+        let cameraObj = new Object3D()
+        let mainCamera = cameraObj.addComponent(Camera3D)
+        mainCamera.perspective(37, webGPUContext.aspect, 1, 5000.0)
 
-    //set camera data
-    this.hoverCameraController.setCamera(0, -45, 200);
-    await this.initScene(this.scene);
+        this.hoverCameraController = mainCamera.object3D.addComponent(HoverCameraController)
+        this.scene.addChild(cameraObj)
 
-    let renderJob = new ForwardRenderJob(this.scene);
-    Engine3D.startRender(renderJob);
-  }
+        //set camera data
+        this.hoverCameraController.setCamera(0, -45, 200)
+        await this.initScene(this.scene)
 
-  async initScene(scene: Scene3D) {
-
-    let iesTexture = await Engine3D.res.loadTexture("https://cdn.orillusion.com/ies/ies_2.png") as BitmapTexture2D;
-    var iesPofiles = new IESProfiles();
-    iesPofiles.IESTexture = iesTexture;
-
-    {
-        let po = new Object3D();
-        let pl = po.addComponent(PointLight);
-        pl.intensity = 10;
-        pl.range = 100;
-        pl.castShadow = true;
-        pl.realTimeShadow = true;
-        pl.iesPofile = iesPofiles;
-        po.x = 0;
-        po.y = 22;
-        po.z = 15 ;
-        this.scene.addChild(po);
-        pl.debug();
-        pl.debugDraw(true);
+        // add an Atmospheric sky enviroment
+        this.scene.addComponent(AtmosphericComponent).sunY = 0.6
+        // create a view with target scene and camera
+        let view = new View3D()
+        view.scene = this.scene
+        view.camera = mainCamera
+        // start render
+        Engine3D.startRenderView(view)
     }
-    
-    let ball: Object3D;
-    {
-        let mat = new LitMaterial();
-        mat.baseMap = defaultTexture.whiteTexture;
-        mat.normalMap = defaultTexture.normalTexture;
-        mat.aoMap = defaultTexture.whiteTexture;
-        mat.maskMap = defaultTexture.createTexture(32, 32, 255.0, 255.0, 0.0, 1);
-        mat.emissiveMap = defaultTexture.blackTexture;
-        mat.roughness = 0.5;
-        mat.metallic = 0.2;
 
-        ball = new Object3D();
-        let mr = ball.addComponent(MeshRenderer);
-        mr.geometry = new SphereGeometry(6, 20, 20);
-        mr.material = mat;
-        this.scene.addChild(ball);
-        ball.transform.x = -17;
-        ball.transform.y = 10;
-        ball.transform.z = 10;
+    async initScene(scene: Scene3D) {
+        let iesTexture = (await Engine3D.res.loadTexture('https://cdn.orillusion.com/ies/ies_2.png')) as BitmapTexture2D
+        var iesPofiles = new IESProfiles()
+        iesPofiles.IESTexture = iesTexture
 
-        //wall
-        let back_wall =  new Object3D();
-        let mr2 = back_wall.addComponent(MeshRenderer);
-        mr2.geometry = new BoxGeometry(500,500,10);
-        mr2.material = mat;
-        this.scene.addChild(back_wall);       
+        {
+            let po = new Object3D()
+            let pl = po.addComponent(PointLight)
+            pl.intensity = 10
+            pl.range = 100
+            pl.castShadow = true
+            pl.realTimeShadow = true
+            pl.iesProfiles = iesPofiles
+            po.x = 0
+            po.y = 22
+            po.z = 15
+            this.scene.addChild(po)
+        }
+
+        let ball: Object3D
+        {
+            let mat = new LitMaterial()
+            mat.baseMap = Engine3D.res.whiteTexture
+            mat.normalMap = Engine3D.res.normalTexture
+            mat.aoMap = Engine3D.res.whiteTexture
+            mat.maskMap = Engine3D.res.createTexture(32, 32, 255.0, 255.0, 0.0, 1)
+            mat.emissiveMap = Engine3D.res.blackTexture
+            mat.roughness = 0.5
+            mat.metallic = 0.2
+
+            ball = new Object3D()
+            let mr = ball.addComponent(MeshRenderer)
+            mr.geometry = new SphereGeometry(6, 20, 20)
+            mr.material = mat
+            this.scene.addChild(ball)
+            ball.transform.x = -17
+            ball.transform.y = 10
+            ball.transform.z = 10
+
+            //wall
+            let back_wall = new Object3D()
+            let mr2 = back_wall.addComponent(MeshRenderer)
+            mr2.geometry = new BoxGeometry(500, 500, 10)
+            mr2.material = mat
+            this.scene.addChild(back_wall)
+        }
     }
-  }
 }
 
 new Sample_LightIES().run()

@@ -1,6 +1,6 @@
 # Class: Quaternion
 
-四元数用于表示旋转。
+Quaternions are used to represent rotations.
 
 
 ### Properties
@@ -18,6 +18,7 @@
 ### Methods
 
 - [identity](Quaternion.md#identity)
+- [quaternionToMatrix](Quaternion.md#quaterniontomatrix)
 - [set](Quaternion.md#set)
 - [divide](Quaternion.md#divide)
 - [multiply](Quaternion.md#multiply)
@@ -38,7 +39,6 @@
 - [transformVector](Quaternion.md#transformvector)
 - [copyFrom](Quaternion.md#copyfrom)
 - [mul](Quaternion.md#mul)
-- [quaternionToMatrix](Quaternion.md#quaterniontomatrix)
 
 ### Accessors
 
@@ -52,7 +52,7 @@
 
 #### Defined in
 
-[src/engine/math/Quaternion.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Quaternion.ts#L9)
+[src/math/Quaternion.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L10)
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Quaternion.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Quaternion.ts#L10)
+[src/math/Quaternion.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L11)
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Quaternion.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Quaternion.ts#L11)
+[src/math/Quaternion.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L12)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Quaternion.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Quaternion.ts#L12)
+[src/math/Quaternion.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L13)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Quaternion.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Quaternion.ts#L13)
+[src/math/Quaternion.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L14)
 
 ## Constructors
 
@@ -100,20 +100,20 @@ ___
 
 • **new Quaternion**(`x?`, `y?`, `z?`, `w?`)
 
-创建一个新的四元素对象
+Create a new quaternion object
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `x` | `number` | `0` | 四元数的 X 分量。请勿直接修改四元数。 |
-| `y` | `number` | `0` | 四元数的 y 分量。请勿直接修改四元数。 |
-| `z` | `number` | `0` | 四元数的 z 分量。请勿直接修改四元数。 |
-| `w` | `number` | `1` | 四元数的 w 分量。请勿直接修改四元数。 |
+| `x` | `number` | `0` | The X component of a quaternion. |
+| `y` | `number` | `0` | The Y component of a quaternion. |
+| `z` | `number` | `0` | The Z component of a quaternion. |
+| `w` | `number` | `1` | The W component of a quaternion. |
 
 #### Defined in
 
-[src/engine/math/Quaternion.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Quaternion.ts#L38)
+[src/math/Quaternion.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L39)
 
 ## Methods
 
@@ -121,7 +121,7 @@ ___
 
 ▸ `Static` **identity**(): [`Quaternion`](Quaternion.md)
 
-单位旋转。
+Identity quaternion
 
 #### Returns
 
@@ -129,24 +129,22 @@ ___
 
 #### Defined in
 
-[src/engine/math/Quaternion.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Quaternion.ts#L49)
+[src/math/Quaternion.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L50)
 
 ___
 
-### set
+### quaternionToMatrix
 
-▸ **set**(`x?`, `y?`, `z?`, `w?`): `void`
+▸ `Static` **quaternionToMatrix**(`q`, `m`): `void`
 
-设置现有四元数的 x、y、z 和 w 分量。
+Converts quaternions to matrices
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `x` | `number` | `0` | 四元数的 X 分量。请勿直接修改四元数。 |
-| `y` | `number` | `0` | 四元数的 y 分量。请勿直接修改四元数。 |
-| `z` | `number` | `0` | 四元数的 z 分量。请勿直接修改四元数。 |
-| `w` | `number` | `1` | 四元数的 w 分量。请勿直接修改四元数。 |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `q` | [`Quaternion`](Quaternion.md) | Quaternion |
+| `m` | `any` | Matrix |
 
 #### Returns
 
@@ -154,7 +152,32 @@ ___
 
 #### Defined in
 
-[src/engine/math/Quaternion.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Quaternion.ts#L64)
+[src/math/Quaternion.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L59)
+
+___
+
+### set
+
+▸ **set**(`x?`, `y?`, `z?`, `w?`): `void`
+
+Set the x, y, z, and w components of the existing quaternions.
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `x` | `number` | `0` | The X component of a quaternion. |
+| `y` | `number` | `0` | The Y component of a quaternion. |
+| `z` | `number` | `0` | The Z component of a quaternion. |
+| `w` | `number` | `1` | The W component of a quaternion. |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/math/Quaternion.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L112)
 
 ___
 
@@ -174,7 +197,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Quaternion.ts:71](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Quaternion.ts#L71)
+[src/math/Quaternion.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L119)
 
 ___
 
@@ -182,14 +205,14 @@ ___
 
 ▸ **multiply**(`qa`, `qb`): `void`
 
-两个四元素相乘
+Multiply two quaternions
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `qa` | [`Quaternion`](Quaternion.md) | 四元数1 |
-| `qb` | [`Quaternion`](Quaternion.md) | 四元数2 |
+| `qa` | [`Quaternion`](Quaternion.md) | Quaternion 1 |
+| `qb` | [`Quaternion`](Quaternion.md) | Quaternion 2 |
 
 #### Returns
 
@@ -197,7 +220,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Quaternion.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Quaternion.ts#L97)
+[src/math/Quaternion.ts:147](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L147)
 
 ___
 
@@ -218,7 +241,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Quaternion.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Quaternion.ts#L113)
+[src/math/Quaternion.ts:163](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L163)
 
 ___
 
@@ -226,14 +249,14 @@ ___
 
 ▸ **fromAxisAngle**(`axis`, `angle`): `void`
 
-从由轴和角度所给定的旋转来设置该四元数。
+Set the quaternion with a given rotation of the axis and Angle.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `axis` | [`Vector3`](Vector3.md) | 轴 |
-| `angle` | `number` | 弧度 |
+| `axis` | [`Vector3`](Vector3.md) | axis |
+| `angle` | `number` | angle |
 
 #### Returns
 
@@ -241,7 +264,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Quaternion.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Quaternion.ts#L135)
+[src/math/Quaternion.ts:182](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L182)
 
 ___
 
@@ -249,13 +272,13 @@ ___
 
 ▸ **toAxisAngle**(`axis`): `number`
 
-把四元数转成角度返回
+Turn quaternions into angles
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `axis` | [`Vector3`](Vector3.md) | 指定轴 |
+| `axis` | [`Vector3`](Vector3.md) | axis |
 
 #### Returns
 
@@ -263,7 +286,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Quaternion.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Quaternion.ts#L153)
+[src/math/Quaternion.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L200)
 
 ___
 
@@ -271,15 +294,15 @@ ___
 
 ▸ **slerp**(`qa`, `qb`, `t`): `void`
 
-两个四元数之间球形插值，插值之间提供旋转恒定角变化率。
+Spherically interpolates between two quaternions, providing an interpolation between rotations with constant angle change rate.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `qa` | [`Quaternion`](Quaternion.md) | 四元数1 |
-| `qb` | [`Quaternion`](Quaternion.md) | 四元数2 |
-| `t` | `number` | 插值时刻 |
+| `qa` | [`Quaternion`](Quaternion.md) | The first quaternion to interpolate. |
+| `qb` | [`Quaternion`](Quaternion.md) | The second quaternion to interpolate. |
+| `t` | `number` | The interpolation weight, a value between 0 and 1. |
 
 #### Returns
 
@@ -287,7 +310,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Quaternion.ts:187](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Quaternion.ts#L187)
+[src/math/Quaternion.ts:225](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L225)
 
 ___
 
@@ -295,15 +318,15 @@ ___
 
 ▸ **lerp**(`qa`, `qb`, `t`): `void`
 
-两个四元数之间的线性插值
+Linearly interpolates between two quaternions.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `qa` | [`Quaternion`](Quaternion.md) | 四元数1 |
-| `qb` | [`Quaternion`](Quaternion.md) | 四元数2 |
-| `t` | `number` | 插值时刻 |
+| `qa` | [`Quaternion`](Quaternion.md) | The first quaternion to interpolate. |
+| `qb` | [`Quaternion`](Quaternion.md) | The second quaternion to interpolate. |
+| `t` | `number` | The interpolation weight, a value between 0 and 1. |
 
 #### Returns
 
@@ -311,7 +334,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Quaternion.ts:247](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Quaternion.ts#L247)
+[src/math/Quaternion.ts:275](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L275)
 
 ___
 
@@ -319,25 +342,23 @@ ___
 
 ▸ **fromEulerAngles**(`ax`, `ay`, `az`): [`Quaternion`](Quaternion.md)
 
-用数值表示给定的欧拉旋转填充四元数对象。
+Fills the quaternion object with values representing the given euler rotation.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `ax` | `number` | x轴旋转角度 |
-| `ay` | `number` | y轴旋转角度 |
-| `az` | `number` | z轴旋转角度 |
+| `ax` | `number` | The angle in radians of the rotation around the ax axis. |
+| `ay` | `number` | The angle in radians of the rotation around the ay axis. |
+| `az` | `number` | The angle in radians of the rotation around the az axis. |
 
 #### Returns
 
 [`Quaternion`](Quaternion.md)
 
-Quaternion 四元数对象
-
 #### Defined in
 
-[src/engine/math/Quaternion.ts:296](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Quaternion.ts#L296)
+[src/math/Quaternion.ts:312](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L312)
 
 ___
 
@@ -345,25 +366,23 @@ ___
 
 ▸ **toEulerAngles**(`target?`): [`Vector3`](Vector3.md)
 
-把四元数转成欧拉角返回
-
-**`Retruns`**
-
-Vector3D 转成的欧拉返回值
+Fills a target Vector3D object with the Euler angles that form the rotation represented by this quaternion.
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `target` | [`Vector3`](Vector3.md) | `null` | 默认参数为null，转成的欧拉返回值，如果为null就新建一个对象返回 |
+| `target` | [`Vector3`](Vector3.md) | `null` | An optional Vector3D object to contain the Euler angles. If not provided, a new object is created. |
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
+The Vector3D containing the Euler angles.
+
 #### Defined in
 
-[src/engine/math/Quaternion.ts:333](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Quaternion.ts#L333)
+[src/math/Quaternion.ts:340](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L340)
 
 ___
 
@@ -371,7 +390,7 @@ ___
 
 ▸ **setFromRotationMatrix**(`m`): [`Quaternion`](Quaternion.md)
 
-创建一个旋转
+Sets the current quaternion from the rotation matrix
 
 #### Parameters
 
@@ -385,7 +404,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Quaternion.ts:365](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Quaternion.ts#L365)
+[src/math/Quaternion.ts:360](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L360)
 
 ___
 
@@ -393,7 +412,7 @@ ___
 
 ▸ **getEulerAngles**(`eulers?`): [`Vector3`](Vector3.md)
 
-返回一个旋转
+Get the Euler Angle
 
 #### Parameters
 
@@ -407,7 +426,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Quaternion.ts:416](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Quaternion.ts#L416)
+[src/math/Quaternion.ts:411](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L411)
 
 ___
 
@@ -415,13 +434,13 @@ ___
 
 ▸ **normalize**(`val?`): `void`
 
-单位化四元数。将此四元数转换为单位系数。
+The normalize of the quaternion. Convert this quaternion to a normalize coefficient.
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `val` | `number` | `1` | 单位系数，默认为1 |
+| `val` | `number` | `1` | normalize coefficient, which is 1 by default |
 
 #### Returns
 
@@ -429,7 +448,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Quaternion.ts:448](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Quaternion.ts#L448)
+[src/math/Quaternion.ts:450](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L450)
 
 ___
 
@@ -437,7 +456,7 @@ ___
 
 ▸ **toString**(): `string`
 
-以字符串形式返回四元数的值
+Returns the value of a quaternion as a string
 
 #### Returns
 
@@ -445,7 +464,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Quaternion.ts:461](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Quaternion.ts#L461)
+[src/math/Quaternion.ts:463](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L463)
 
 ___
 
@@ -453,13 +472,13 @@ ___
 
 ▸ **fromMatrix**(`matrix`): `void`
 
-用一个旋转矩阵生成四元数
+Extracts a quaternion rotation matrix out of a given Matrix3D object.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `matrix` | `any` | 旋转矩阵 |
+| `matrix` | `any` | The Matrix3D out of which the rotation will be extracted. |
 
 #### Returns
 
@@ -467,7 +486,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Quaternion.ts:524](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Quaternion.ts#L524)
+[src/math/Quaternion.ts:471](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L471)
 
 ___
 
@@ -475,23 +494,23 @@ ___
 
 ▸ **inverse**(`target?`): [`Quaternion`](Quaternion.md)
 
-返回一个把当前四元数取逆后的四元数
+Returns a quaternion that inverts the current quaternion
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `target` | [`Quaternion`](Quaternion.md) | `null` | 默认参数为null,如果当前参数为null那么就会new一个新的四元数对象返回 |
+| `target` | [`Quaternion`](Quaternion.md) | `null` | The default parameter is null. If the current parameter is null, a new quaternion object is returned |
 
 #### Returns
 
 [`Quaternion`](Quaternion.md)
 
-Quaternion 四元数
+Quaternion Result
 
 #### Defined in
 
-[src/engine/math/Quaternion.ts:539](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Quaternion.ts#L539)
+[src/math/Quaternion.ts:484](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L484)
 
 ___
 
@@ -499,17 +518,17 @@ ___
 
 ▸ **clone**(): [`Quaternion`](Quaternion.md)
 
-克隆一个四元数
+Clones the quaternion.
 
 #### Returns
 
 [`Quaternion`](Quaternion.md)
 
-Quaternion 当前四元数复制后返回新对象.
+An exact duplicate of the current Quaternion.
 
 #### Defined in
 
-[src/engine/math/Quaternion.ts:568](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Quaternion.ts#L568)
+[src/math/Quaternion.ts:504](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L504)
 
 ___
 
@@ -517,24 +536,24 @@ ___
 
 ▸ **transformVector**(`vector`, `target?`): [`Vector3`](Vector3.md)
 
-旋转一个3量坐标点
+Rotates a point.
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `vector` | [`Vector3`](Vector3.md) | `undefined` | 被旋转的对象 |
-| `target` | [`Vector3`](Vector3.md) | `null` | 默认参数为null，旋转后的坐标对象。如果为null，将创建一个新的对象 |
+| `vector` | [`Vector3`](Vector3.md) | `undefined` | The Vector3D object to be rotated. |
+| `target` | [`Vector3`](Vector3.md) | `null` | An optional Vector3D object that will contain the rotated coordinates. If not provided, a new object will be created. |
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-Vector3D 返回旋转后的坐标对象
+A Vector3D object containing the rotated point.
 
 #### Defined in
 
-[src/engine/math/Quaternion.ts:587](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Quaternion.ts#L587)
+[src/math/Quaternion.ts:514](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L514)
 
 ___
 
@@ -542,13 +561,13 @@ ___
 
 ▸ **copyFrom**(`q`): `void`
 
-将数据从四元数复制到该实例
+Copies the data from a quaternion into this instance.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `q` | [`Vector3`](Vector3.md) \| [`Quaternion`](Quaternion.md) | 被复制的四元数对象 |
+| `q` | [`Vector3`](Vector3.md) \| [`Quaternion`](Quaternion.md) | The quaternion to copy from. |
 
 #### Returns
 
@@ -556,7 +575,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Quaternion.ts:620](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Quaternion.ts#L620)
+[src/math/Quaternion.ts:541](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L541)
 
 ___
 
@@ -581,30 +600,7 @@ op
 
 #### Defined in
 
-[src/engine/math/Quaternion.ts:632](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Quaternion.ts#L632)
-
-___
-
-### quaternionToMatrix
-
-▸ `Static` **quaternionToMatrix**(`q`, `m`): `void`
-
-将四元素转换为矩阵
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `q` | [`Quaternion`](Quaternion.md) | 四元素对象 |
-| `m` | `any` | 矩阵 |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/engine/math/Quaternion.ts:646](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Quaternion.ts#L646)
+[src/math/Quaternion.ts:553](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L553)
 
 ## Accessors
 
@@ -618,4 +614,4 @@ ___
 
 #### Defined in
 
-[src/engine/math/Quaternion.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Quaternion.ts#L53)
+[src/math/Quaternion.ts:101](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L101)

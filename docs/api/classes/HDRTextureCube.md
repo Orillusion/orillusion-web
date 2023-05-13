@@ -1,6 +1,6 @@
 # Class: HDRTextureCube
 
-一个用于生成HDR立方体纹理的类
+HDR TextureCube
 
 ## Hierarchy
 
@@ -15,7 +15,6 @@
 
 ### Properties
 
-- [textureSource](HDRTextureCube.md#texturesource)
 - [name](HDRTextureCube.md#name)
 - [url](HDRTextureCube.md#url)
 - [pid](HDRTextureCube.md#pid)
@@ -29,7 +28,7 @@
 - [textureDescriptor](HDRTextureCube.md#texturedescriptor)
 - [sampler\_comparisonBindingLayout](HDRTextureCube.md#sampler_comparisonbindinglayout)
 - [flipY](HDRTextureCube.md#flipy)
-- [sourceImageData](HDRTextureCube.md#sourceimagedata)
+- [isVideoTexture](HDRTextureCube.md#isvideotexture)
 - [mipmapCount](HDRTextureCube.md#mipmapcount)
 - [width](HDRTextureCube.md#width)
 - [height](HDRTextureCube.md#height)
@@ -47,8 +46,6 @@
 - [unBindStateChange](HDRTextureCube.md#unbindstatechange)
 - [destoryView](HDRTextureCube.md#destoryview)
 - [destroy](HDRTextureCube.md#destroy)
-- [serialization](HDRTextureCube.md#serialization)
-- [unSerialization](HDRTextureCube.md#unserialization)
 - [createFromHDRData](HDRTextureCube.md#createfromhdrdata)
 - [createFromTexture](HDRTextureCube.md#createfromtexture)
 - [uploadErpTexture](HDRTextureCube.md#uploaderptexture)
@@ -75,25 +72,11 @@
 
 ## Properties
 
-### textureSource
-
-• `Readonly` **textureSource**: [`SerializeTextureSource`](SerializeTextureSource.md)
-
-#### Inherited from
-
-TextureCube.textureSource
-
-#### Defined in
-
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L13)
-
-___
-
 ### name
 
 • **name**: `string`
 
-纹理名称
+name of texture
 
 #### Inherited from
 
@@ -101,7 +84,7 @@ TextureCube.name
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L17)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L14)
 
 ___
 
@@ -109,7 +92,7 @@ ___
 
 • **url**: `string`
 
-纹理来源URL
+source url
 
 #### Inherited from
 
@@ -117,7 +100,7 @@ TextureCube.url
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L21)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L18)
 
 ___
 
@@ -125,7 +108,7 @@ ___
 
 • **pid**: `number`
 
-数组贴图用到时的索引
+Return index in texture array
 
 #### Inherited from
 
@@ -133,7 +116,7 @@ TextureCube.pid
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L31)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L27)
 
 ___
 
@@ -141,7 +124,7 @@ ___
 
 • **view**: `GPUTextureView`
 
-纹理视图
+GPUTextureView
 
 #### Inherited from
 
@@ -149,7 +132,7 @@ TextureCube.view
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L36)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L32)
 
 ___
 
@@ -157,7 +140,7 @@ ___
 
 • **gpuSampler**: `GPUSampler`
 
-gpu采样器
+GPUSampler
 
 #### Inherited from
 
@@ -165,7 +148,7 @@ TextureCube.gpuSampler
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L41)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L37)
 
 ___
 
@@ -173,7 +156,7 @@ ___
 
 • **gpuSampler\_comparison**: `GPUSampler`
 
-gpu比较采样器
+GPUSampler for comparison
 
 #### Inherited from
 
@@ -181,7 +164,7 @@ TextureCube.gpuSampler\_comparison
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L46)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L42)
 
 ___
 
@@ -189,7 +172,7 @@ ___
 
 • **format**: `GPUTextureFormat`
 
-格式
+GPUTextureFormat
 
 #### Inherited from
 
@@ -197,7 +180,7 @@ TextureCube.format
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L51)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L47)
 
 ___
 
@@ -205,7 +188,7 @@ ___
 
 • **usage**: `number`
 
-纹理用途
+GPUTextureUsage
 
 #### Inherited from
 
@@ -213,7 +196,7 @@ TextureCube.usage
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L55)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L51)
 
 ___
 
@@ -221,13 +204,15 @@ ___
 
 • **numberLayer**: `number` = `1`
 
+depth or layers, default value is 1
+
 #### Inherited from
 
 TextureCube.numberLayer
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L68)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L67)
 
 ___
 
@@ -235,7 +220,7 @@ ___
 
 • **viewDescriptor**: `GPUTextureViewDescriptor`
 
-纹理视图描述符
+GPUTextureViewDescriptor
 
 #### Inherited from
 
@@ -243,7 +228,7 @@ TextureCube.viewDescriptor
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L72)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:71](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L71)
 
 ___
 
@@ -251,7 +236,7 @@ ___
 
 • **textureDescriptor**: `GPUTextureDescriptor`
 
-纹理描述符
+GPUTextureDescriptor
 
 #### Inherited from
 
@@ -259,7 +244,7 @@ TextureCube.textureDescriptor
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L76)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:75](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L75)
 
 ___
 
@@ -267,13 +252,15 @@ ___
 
 • **sampler\_comparisonBindingLayout**: `GPUSamplerBindingLayout`
 
+GPUSamplerBindingLayout
+
 #### Inherited from
 
 TextureCube.sampler\_comparisonBindingLayout
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L96)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L97)
 
 ___
 
@@ -281,27 +268,31 @@ ___
 
 • **flipY**: `boolean`
 
+whether to flip the image on the y-axis
+
 #### Inherited from
 
 TextureCube.flipY
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:101](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L101)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:104](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L104)
 
 ___
 
-### sourceImageData
+### isVideoTexture
 
-• **sourceImageData**: `HTMLCanvasElement` \| `ImageBitmap` \| `OffscreenCanvas`
+• `Optional` **isVideoTexture**: `boolean`
+
+whether is video texture
 
 #### Inherited from
 
-TextureCube.sourceImageData
+TextureCube.isVideoTexture
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L108)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L108)
 
 ___
 
@@ -309,13 +300,15 @@ ___
 
 • **mipmapCount**: `number` = `1`
 
+mipmap Count, default value is 1
+
 #### Inherited from
 
 TextureCube.mipmapCount
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L109)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L116)
 
 ___
 
@@ -323,7 +316,7 @@ ___
 
 • **width**: `number` = `4`
 
-立方体纹理宽度，默认为4
+texture width, default value is 4
 
 #### Inherited from
 
@@ -331,7 +324,7 @@ TextureCube.width
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/TextureCube.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/TextureCube.ts#L12)
+[src/gfx/graphics/webGpu/core/texture/TextureCube.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/TextureCube.ts#L12)
 
 ___
 
@@ -339,7 +332,7 @@ ___
 
 • **height**: `number` = `4`
 
-立方体纹理高度，默认为4
+texture height, default value is 4
 
 #### Inherited from
 
@@ -347,7 +340,7 @@ TextureCube.height
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/TextureCube.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/TextureCube.ts#L16)
+[src/gfx/graphics/webGpu/core/texture/TextureCube.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/TextureCube.ts#L16)
 
 ___
 
@@ -355,7 +348,7 @@ ___
 
 • **depthOrArrayLayers**: `number` = `6`
 
-立方体纹理深度或层数，默认为6
+depth or array layers, default value is 6
 
 #### Inherited from
 
@@ -363,7 +356,7 @@ TextureCube.depthOrArrayLayers
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/TextureCube.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/TextureCube.ts#L20)
+[src/gfx/graphics/webGpu/core/texture/TextureCube.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/TextureCube.ts#L20)
 
 ___
 
@@ -371,7 +364,7 @@ ___
 
 • **visibility**: `number` = `GPUShaderStage.FRAGMENT`
 
-立方体纹理可视性
+GPUShaderStage
 
 #### Inherited from
 
@@ -379,7 +372,7 @@ TextureCube.visibility
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/TextureCube.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/TextureCube.ts#L25)
+[src/gfx/graphics/webGpu/core/texture/TextureCube.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/TextureCube.ts#L25)
 
 ___
 
@@ -387,7 +380,7 @@ ___
 
 • **textureBindingLayout**: `GPUTextureBindingLayout`
 
-绑定纹理，包含viewDimension和multisampled两个参数
+GPUTextureBindingLayout
 
 #### Inherited from
 
@@ -395,7 +388,7 @@ TextureCube.textureBindingLayout
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/TextureCube.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/TextureCube.ts#L30)
+[src/gfx/graphics/webGpu/core/texture/TextureCube.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/TextureCube.ts#L30)
 
 ___
 
@@ -403,7 +396,7 @@ ___
 
 • **samplerBindingLayout**: `GPUSamplerBindingLayout`
 
-绑定采样器，包含type参数
+GPUSamplerBindingLayout
 
 #### Inherited from
 
@@ -411,17 +404,17 @@ TextureCube.samplerBindingLayout
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/TextureCube.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/TextureCube.ts#L38)
+[src/gfx/graphics/webGpu/core/texture/TextureCube.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/TextureCube.ts#L38)
 
 ## Methods
 
 ### init
 
-▸ **init**(): `void`
+▸ **init**(): [`HDRTextureCube`](HDRTextureCube.md)
 
 #### Returns
 
-`void`
+[`HDRTextureCube`](HDRTextureCube.md)
 
 #### Inherited from
 
@@ -429,7 +422,7 @@ TextureCube.init
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:126](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L126)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:138](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L138)
 
 ___
 
@@ -437,13 +430,13 @@ ___
 
 ▸ **getGPUTexture**(): `GPUTexture`
 
-更新gpu纹理
+create or get GPUTexture
 
 #### Returns
 
 `GPUTexture`
 
-返回gpu纹理
+GPUTexture
 
 #### Inherited from
 
@@ -451,7 +444,7 @@ TextureCube.getGPUTexture
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:278](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L278)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:291](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L291)
 
 ___
 
@@ -459,7 +452,7 @@ ___
 
 ▸ **getGPUView**(`index?`): `GPUTextureView` \| `GPUExternalTexture`
 
-获取gpu视图
+create or get GPUTextureView
 
 #### Parameters
 
@@ -471,7 +464,7 @@ ___
 
 `GPUTextureView` \| `GPUExternalTexture`
 
-返回纹理视图
+GPUTextureView | GPUExternalTexture
 
 #### Inherited from
 
@@ -479,7 +472,7 @@ TextureCube.getGPUView
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:289](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L289)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:302](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L302)
 
 ___
 
@@ -504,7 +497,7 @@ TextureCube.bindStateChange
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:300](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L300)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:313](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L313)
 
 ___
 
@@ -528,17 +521,17 @@ TextureCube.unBindStateChange
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:304](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L304)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:317](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L317)
 
 ___
 
 ### destoryView
 
-▸ **destoryView**(): `void`
+▸ **destoryView**(): [`HDRTextureCube`](HDRTextureCube.md)
 
 #### Returns
 
-`void`
+[`HDRTextureCube`](HDRTextureCube.md)
 
 #### Inherited from
 
@@ -546,7 +539,7 @@ TextureCube.destoryView
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:315](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L315)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:328](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L328)
 
 ___
 
@@ -554,7 +547,7 @@ ___
 
 ▸ **destroy**(): `void`
 
-销毁纹理
+release the texture
 
 #### Returns
 
@@ -566,49 +559,7 @@ TextureCube.destroy
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:322](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L322)
-
-___
-
-### serialization
-
-▸ **serialization**(): [`SerializeTextureInstance`](SerializeTextureInstance.md)
-
-#### Returns
-
-[`SerializeTextureInstance`](SerializeTextureInstance.md)
-
-#### Inherited from
-
-TextureCube.serialization
-
-#### Defined in
-
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:474](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L474)
-
-___
-
-### unSerialization
-
-▸ **unSerialization**(`instance`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `instance` | [`SerializeTextureInstance`](SerializeTextureInstance.md) |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-TextureCube.unSerialization
-
-#### Defined in
-
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:495](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L495)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:336](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L336)
 
 ___
 
@@ -616,14 +567,14 @@ ___
 
 ▸ **createFromHDRData**(`size`, `data`): [`HDRTextureCube`](HDRTextureCube.md)
 
-创建一个纹理立方体
+fill this texture by array of numbers;the format as [red0, green0, blue0, alpha0, red1, green1, blue1, alpha1...]
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `size` | `number` | 立方体一个面的正方形边长 |
-| `data` | `Object` | 加载的HDR图 |
+| `size` | `number` | assign the cube texture size |
+| `data` | `Object` | raw data of cubeTexture; the format is { width: number; height: number; array: Uint8Array } |
 | `data.width` | `number` | - |
 | `data.height` | `number` | - |
 | `data.array` | `Uint8Array` | - |
@@ -632,11 +583,9 @@ ___
 
 [`HDRTextureCube`](HDRTextureCube.md)
 
-新的纹理立方体对象
-
 #### Defined in
 
-[src/engine/textures/HDRTextureCube.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/engine/textures/HDRTextureCube.ts#L35)
+[src/textures/HDRTextureCube.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/textures/HDRTextureCube.ts#L36)
 
 ___
 
@@ -644,24 +593,22 @@ ___
 
 ▸ **createFromTexture**(`size`, `texture`): [`HDRTextureCube`](HDRTextureCube.md)
 
-创建一个纹理立方体
+fill this texture by a texture2D, which is a 360 panorama image
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `size` | `number` | 立方体一个面的正方形边长 |
-| `texture` | [`Texture`](Texture.md) | 纹理对象 |
+| `size` | `number` | assign the cube texture size |
+| `texture` | [`Texture`](Texture.md) | the image texture |
 
 #### Returns
 
 [`HDRTextureCube`](HDRTextureCube.md)
 
-新的纹理立方体对象
-
 #### Defined in
 
-[src/engine/textures/HDRTextureCube.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/engine/textures/HDRTextureCube.ts#L51)
+[src/textures/HDRTextureCube.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/textures/HDRTextureCube.ts#L51)
 
 ___
 
@@ -669,23 +616,21 @@ ___
 
 ▸ **uploadErpTexture**(`texture`): [`HDRTextureCube`](HDRTextureCube.md)
 
-上传Erp纹理
+fill this texture by a texture2D, which is a 360 panorama image
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `texture` | [`Texture`](Texture.md) | 纹理对象 |
+| `texture` | [`Texture`](Texture.md) | a panorama image |
 
 #### Returns
 
 [`HDRTextureCube`](HDRTextureCube.md)
 
-纹理立方体对象
-
 #### Defined in
 
-[src/engine/textures/HDRTextureCube.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/engine/textures/HDRTextureCube.ts#L76)
+[src/textures/HDRTextureCube.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/textures/HDRTextureCube.ts#L76)
 
 ___
 
@@ -693,24 +638,23 @@ ___
 
 ▸ **uploadTexture**(`mip`, `texture`): [`HDRTextureCube`](HDRTextureCube.md)
 
-上传纹理
+fill this texture by a texture2D, which is a 360 panorama image
+assign mipmap level
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `mip` | `number` | Mipmap级数 |
-| `texture` | [`Texture`](Texture.md) | 纹理对象 |
+| `mip` | `number` | mipmap level |
+| `texture` | [`Texture`](Texture.md) | a panorama image |
 
 #### Returns
 
 [`HDRTextureCube`](HDRTextureCube.md)
 
-纹理立方体对象
-
 #### Defined in
 
-[src/engine/textures/HDRTextureCube.ts:91](https://github.com/Orillusion/orillusion/blob/main/src/engine/textures/HDRTextureCube.ts#L91)
+[src/textures/HDRTextureCube.ts:92](https://github.com/Orillusion/orillusion/blob/main/src/textures/HDRTextureCube.ts#L92)
 
 ___
 
@@ -718,12 +662,14 @@ ___
 
 ▸ **load**(`url`, `loaderFunctions?`): `Promise`<[`HDRTextureCube`](HDRTextureCube.md)\>
 
+load texture data from web url, which is a 360 panorama image
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `url` | `string` |
-| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `url` | `string` | web url |
+| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | callback function when load complete |
 
 #### Returns
 
@@ -731,7 +677,7 @@ ___
 
 #### Defined in
 
-[src/engine/textures/HDRTextureCube.ts:147](https://github.com/Orillusion/orillusion/blob/main/src/engine/textures/HDRTextureCube.ts#L147)
+[src/textures/HDRTextureCube.ts:154](https://github.com/Orillusion/orillusion/blob/main/src/textures/HDRTextureCube.ts#L154)
 
 ## Accessors
 
@@ -739,7 +685,7 @@ ___
 
 • `get` **useMipmap**(): `boolean`
 
-开启/关闭mipmap的使用
+enable/disable mipmap
 
 #### Returns
 
@@ -751,11 +697,11 @@ TextureCube.useMipmap
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:220](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L220)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:233](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L233)
 
 • `set` **useMipmap**(`value`): `void`
 
-开启/关闭mipmap的使用
+get mipmap
 
 #### Parameters
 
@@ -773,7 +719,7 @@ TextureCube.useMipmap
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:227](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L227)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:240](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L240)
 
 ___
 
@@ -791,7 +737,7 @@ TextureCube.addressModeU
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:340](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L340)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:346](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L346)
 
 • `set` **addressModeU**(`value`): `void`
 
@@ -811,7 +757,7 @@ TextureCube.addressModeU
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:343](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L343)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:349](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L349)
 
 ___
 
@@ -829,7 +775,7 @@ TextureCube.addressModeV
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:352](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L352)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:358](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L358)
 
 • `set` **addressModeV**(`value`): `void`
 
@@ -849,7 +795,7 @@ TextureCube.addressModeV
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:355](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L355)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:361](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L361)
 
 ___
 
@@ -867,7 +813,7 @@ TextureCube.addressModeW
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:366](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L366)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:372](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L372)
 
 • `set` **addressModeW**(`value`): `void`
 
@@ -887,7 +833,7 @@ TextureCube.addressModeW
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:369](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L369)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:375](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L375)
 
 ___
 
@@ -905,7 +851,7 @@ TextureCube.magFilter
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:380](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L380)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:386](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L386)
 
 • `set` **magFilter**(`value`): `void`
 
@@ -925,7 +871,7 @@ TextureCube.magFilter
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:383](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L383)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L389)
 
 ___
 
@@ -943,7 +889,7 @@ TextureCube.minFilter
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:393](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L393)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:399](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L399)
 
 • `set` **minFilter**(`value`): `void`
 
@@ -963,7 +909,7 @@ TextureCube.minFilter
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:396](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L396)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:402](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L402)
 
 ___
 
@@ -981,7 +927,7 @@ TextureCube.mipmapFilter
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:406](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L406)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:412](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L412)
 
 • `set` **mipmapFilter**(`value`): `void`
 
@@ -1001,7 +947,7 @@ TextureCube.mipmapFilter
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:409](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L409)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:415](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L415)
 
 ___
 
@@ -1019,7 +965,7 @@ TextureCube.lodMinClamp
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:418](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L418)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:424](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L424)
 
 • `set` **lodMinClamp**(`value`): `void`
 
@@ -1039,7 +985,7 @@ TextureCube.lodMinClamp
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:421](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L421)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:427](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L427)
 
 ___
 
@@ -1057,7 +1003,7 @@ TextureCube.lodMaxClamp
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:432](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L432)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:438](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L438)
 
 • `set` **lodMaxClamp**(`value`): `void`
 
@@ -1077,7 +1023,7 @@ TextureCube.lodMaxClamp
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:435](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L435)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:441](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L441)
 
 ___
 
@@ -1095,7 +1041,7 @@ TextureCube.compare
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:448](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L448)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:454](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L454)
 
 • `set` **compare**(`value`): `void`
 
@@ -1115,7 +1061,7 @@ TextureCube.compare
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:451](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L451)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:457](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L457)
 
 ___
 
@@ -1133,7 +1079,7 @@ TextureCube.maxAnisotropy
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:464](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L464)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:470](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L470)
 
 • `set` **maxAnisotropy**(`value`): `void`
 
@@ -1153,7 +1099,7 @@ TextureCube.maxAnisotropy
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/Texture.ts:467](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/Texture.ts#L467)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:473](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L473)
 
 ## Constructors
 
@@ -1161,7 +1107,7 @@ TextureCube.maxAnisotropy
 
 • **new HDRTextureCube**()
 
-创建新的HDR立方体纹理对象
+create a cube texture, it's high dynamic range texture
 
 #### Overrides
 
@@ -1169,4 +1115,4 @@ TextureCube.constructor
 
 #### Defined in
 
-[src/engine/textures/HDRTextureCube.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/engine/textures/HDRTextureCube.ts#L21)
+[src/textures/HDRTextureCube.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/textures/HDRTextureCube.ts#L23)

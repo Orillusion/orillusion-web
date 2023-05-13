@@ -35,7 +35,7 @@ Class for generating the Halton low-discrepancy series for Quasi Monte Carlo int
 
 #### Defined in
 
-[src/engine/math/HaltonSeq.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/HaltonSeq.ts#L10)
+[src/math/HaltonSeq.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/math/HaltonSeq.ts#L10)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/HaltonSeq.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/HaltonSeq.ts#L24)
+[src/math/HaltonSeq.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/math/HaltonSeq.ts#L24)
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/HaltonSeq.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/HaltonSeq.ts#L34)
+[src/math/HaltonSeq.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/math/HaltonSeq.ts#L34)
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/HaltonSeq.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/HaltonSeq.ts#L48)
+[src/math/HaltonSeq.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/math/HaltonSeq.ts#L48)
 
 ## Constructors
 

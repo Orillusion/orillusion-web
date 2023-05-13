@@ -16,10 +16,14 @@ Engine3D.setting.render.postProcessing.globalFog.density = 0.02;
 Engine3D.setting.render.postProcessing.globalFog.ins = 1;
 Engine3D.setting.render.postProcessing.globalFog.fogColor = new Color(84,90,239,255);
 
-//Create a renderer and add Global Fog post-processing effect
-let renderJob = new ForwardRenderJob(this.scene);
-renderJob.addPost(new GlobalFog());
-Engine3D.startRender(renderJob);
+// Add GlobalFog
+let postProcessing = this.scene.addComponent(PostProcessingComponent);
+postProcessing.addPost(GlobalFog);
+//Start rendering
+let view = new View3D();
+view.scene = this.scene;
+view.camera = this.camera;
+Engine3D.startRenderView(view);
 ```
 
 [Engine3D.setting.render.postProcessing.globalFog](../../api/types/GlobalFogSetting.md) configuration parameters:

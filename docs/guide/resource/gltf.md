@@ -17,6 +17,7 @@ scene.addChild(data);
 Currently, the following `glTF` plugins are supported. If the `glTF` file contains the corresponding plugins, the corresponding functions will be automatically loaded:
 | Plugins | Features |
 | --- | --- |
+| KHRdracomesh_compression | Support Draco compression, which can effectively save model volume |
 | KHRlightspunctual | Supports multiple light source combinations, which will be resolved into engine light sources. Please refer to the [Lighting Tutorial](/guide/graphics/lighting) |
 | KHRmaterialspbrSpecularGlossiness | Supports the 'PBR' highlight glossiness workflow |
 | KHRmaterialsunlit | Supports  `Unlit` materials |

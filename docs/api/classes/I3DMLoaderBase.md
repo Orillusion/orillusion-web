@@ -39,4 +39,4 @@
 
 #### Defined in
 
-[src/engine/loader/parser/i3dm/I3DMLoaderBase.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/i3dm/I3DMLoaderBase.ts#L6)
+[src/loader/parser/i3dm/I3DMLoaderBase.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/i3dm/I3DMLoaderBase.ts#L6)

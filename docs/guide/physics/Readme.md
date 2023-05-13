@@ -1,25 +1,37 @@
 # Overview of Physics
 The physics system is a simulation of the real world, allowing the modeled objects in the scene to behave like physical objects with mass, respond correctly to gravity and various collisions, just like in the real environment. The engine provides physics engine support （based on[ammo.js](https://github.com/kripken/ammo.js)）in the form of plugins and encapsulates commonly used components to help users simulate the physical system in their projects.
 
-Similar to the engine installation method, we can introduce the physics plugin in two ways through `NPM` and `CDN` links:
+## Installation
+Similar to installation of engine, we can introduce the physics plugin in two ways through `NPM` and `CDN` links:
+
+### 1. Install by `NPM`
 ```bash
 npm install @orillusion/core --save
 npm install @orillusion/physics --save
 ```
-Import modules:
 ```ts
 import { Engine3D } from "@orillusion/core"
 import { Physics } from "@orillusion/physics"
 ```
-Or load globally using `<script>`, obtain the `Physics` module from the global  `Orillusion`  variable:
+### 2. Import via `CDN` links
+We recommend using the `ESModule` build version:
 ```html
-<script src="https://cdn.orillusion.com/orillusion.umd.js"></script>
-<script src="https://cdn.orillusion.com/physics.umd.js"></script>
-```
-```ts
-const { Engine3D, Physics } = Orillusion 
+<script type="module">
+  import { Engine3D } from "https://unpkg.com/@orillusion/core/dist/orillusion.es.js" 
+  import { Physics } from "https://unpkg.com/@orillusion/physics/dist/physics.es.js" 
+</script>
 ```
 
+Or using the `<script>` to load the `UMD` version, and get the `Physics` module in the global `Orillusion` variable:
+```html
+<script src="https://unpkg.com/@orillusion/core/dist/orillusion.umd.js"></script>
+<script src="https://unpkg.com/@orillusion/physics/dist/physics.umd.js"></script>
+<script>
+  const {Engine3D, Physics} = Orillusion
+</script>
+```
+
+## Running the Physics Environment
 Currently, the parameters and methods supported by [Physics](/physics/classes/Physics) are shown in the following table:
 
 | API | Description |
@@ -30,22 +42,20 @@ Currently, the parameters and methods supported by [Physics](/physics/classes/Ph
 | isStop: boolean | Control whether the physical world is running or paused |
 | world: Ammo.btDiscreteDynamicsWorld | Native physical world in ammo.js |
 
-## Running the Physics Environment
-We can initialize the Physics to start the physical system, and run the physical world by calling `Physics.update()` in the main loop:
+
+We can initialize `init()` to start the physical system, and run the physical world by calling `Physics.update()` in the main loop of rendering:
 ```ts
 import { Engine3D } from '@orillusion/core'
 import { Physics } from '@orillusion/physics'
 
 await Physics.init();
 await Engine3D.init({
-  renderLoop: () => this.loop(),
+    renderLoop: () => {
+        if (Physics.isInited) {
+            Physics.update();
+        }
+    }
 });
-
-loop() {
-  if (Physics.isInited) {
-    Physics.update();
-  }
-}
 ```
 After opening and running the physical system with the above method, the engine will calculate and update the actual response of the object model to the physical world based on the set parameters for rendering each frame.
 
@@ -66,7 +76,7 @@ Please note that it needs to be changed before the initialization of the physica
 
 ## Extension
 In addition, users can use the following code to obtain the native physical world of `ammo.js`and implement more customization requirements through the api provided by `ammo.js` itself:
-```bash
+```ts
 let world: Ammo.btDiscreteDynamicsWorld = Physics.world;
 ```
 
@@ -78,24 +88,6 @@ Here, we simulate the process of a cube falling on the ground to see what specif
 <<< @/public/demos/physics/demo1.ts
 
 Following the process described in the previous chapters, we first initialize and set the parameters for basic components such as the scene, camera, environment map, and lighting.
-```ts
-let scene3D = new Scene3D();
-let cameraObj = new Object3D();
-let mainCamera = cameraObj.addComponent(Camera3D);
-mainCamera.perspective(60, window.innerWidth / window.innerHeight, 1, 5000.0);
-Camera3D.mainCamera = mainCamera;
-let controller = mainCamera.object3D.addComponent(HoverCameraController);
-controller.setCamera(45, -15, 200, new Vector3(0, 100, 0));
-scene3D.addChild(cameraObj);
-
-let light: Object3D = new Object3D();
-let component = light.addComponent(DirectLight);
-light.rotationX = 45;
-light.rotationY = 30;
-component.lightColor = new Color(1.0, 1.0, 1.0, 1.0);
-component.intensity = 0.1;
-scene3D.addChild(light);
-```
 
 Next, we create a cube and add rigid body and collider components to it, so that it has mass and can correctly respond to gravity and collisions.
 ```ts
@@ -103,26 +95,28 @@ const obj = new Object3D();
 let mr = obj.addComponent(MeshRenderer);
 mr.geometry = new BoxGeometry(5, 5, 5);
 mr.material = new LitMaterial();
-...
+// Respond to gravity
 let rigidbody = obj.addComponent(Rigidbody);
 rigidbody.mass = 10;
-let collider = obj.addComponent(Collider);
+// Add collider
+let collider = obj.addComponent(ColliderComponent);
 collider.shape = new BoxColliderShape();
 collider.shape.size = new Vector3(5, 5, 5);
 
 scene3D.addChild(obj);
 ```
 
-Then, we create a plane below the cube as the ground and also add rigid body and collider components to it. Since the ground is stationary, we set its mass to 0.
+Then, we create a plane below the cube as the ground and also add rigid body and collider components to it. Since the ground is stationary, we set its mass to `0`.
 ```ts
 const obj = new Object3D();
 let mr = obj.addComponent(MeshRenderer);
 mr.geometry = new PlaneGeometry(size.x, size.y);
 mr.material = new LitMaterial();
-...
+//Static rigid body, no response to gravity
 let rigidbody = obj.addComponent(Rigidbody);
 rigidbody.mass = 0;
-let collider = obj.addComponent(Collider);
+// Add collider
+let collider = obj.addComponent(ColliderComponent);
 collider.shape = new BoxColliderShape();
 collider.shape.size = new Vector3(size.x, 0.1, size.y);
 

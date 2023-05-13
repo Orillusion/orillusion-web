@@ -9,14 +9,18 @@ await Engine3D.init();
 
 Engine3D.setting.render.postProcessing.bloom.blurX = 4;
 Engine3D.setting.render.postProcessing.bloom.blurY = 4;
-Engine3D.setting.render.postProcessing.bloom.intensity = 0.25;
-Engine3D.setting.render.postProcessing.bloom.brightness = 0.25;
+Engine3D.setting.render.postProcessing.bloom.strength = 0.25;
+Engine3D.setting.render.postProcessing.bloom.radius = 0.25;
 
+// Add a HDRBloomPost
+let postProcessing = this.scene.addComponent(PostProcessingComponent);
+postProcessing.addPost(HDRBloomPost);
 
-//Create a renderer
-let renderJob = new ForwardRenderJob(this.scene);
-renderJob.addPost(new HDRBloomPost());
-Engine3D.startRender(renderJob);
+//Start rendering
+let view = new View3D();
+view.scene = this.scene;
+view.camera = this.camera;
+Engine3D.startRenderView(view);
 ```
 
 [Engine3D.setting.render.postProcessing.bloom](../../api/types/BloomSetting.md) 配置参数。
@@ -25,13 +29,14 @@ Engine3D.startRender(renderJob);
 | --- | --- | --- |
 | blurX | number | The horizontal blur radius of the screen.|
 | blurY | number |  The vertical blur radius of the screen.|
-| intensity | number |  	The intensity of the effect.|
-| brightness | number |  The brightness of the effect.|
+| strength | number |  Bloom intensity.|
+| radius | number |  Bloom radius.|
+| luminosityThreshold | number | Bloom intensity filtering threshold.|
 
 Generally, we can control the object's bloom effect by adding an emissive texture and color to its material:
 ```ts
 let mat = new LitMaterial();
-mat.emissiveMap = defaultTexture.whiteTexture;
+mat.emissiveMap = Engine3D.res.whiteTexture;
 mat.emissiveColor = new Color(1.0, 0.0, 0.0);
 mat.emissiveIntensity = 3;
 ```

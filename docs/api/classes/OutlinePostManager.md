@@ -1,6 +1,6 @@
 # Class: OutlinePostManager
 
-描边管理类
+manager of outline effect
 
 
 ### Constructors
@@ -25,12 +25,15 @@
 
 ▸ **setOutline**(`objectList`, `color?`): `void`
 
+config outline manager.
+Specify specific 3D objects to use the specified color for display outline
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `objectList` | [`Object3D`](Object3D.md)[] |
-| `color?` | [`Color`](Color.md) |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `objectList` | [`Object3D`](Object3D.md)[] | A set of 3D objects |
+| `color?` | [`Color`](Color.md) | Specified color for outline |
 
 #### Returns
 
@@ -38,7 +41,7 @@
 
 #### Defined in
 
-[src/engine/io/OutlinePostManager.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/engine/io/OutlinePostManager.ts#L11)
+[src/io/OutlineManager.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/io/OutlineManager.ts#L20)
 
 ___
 
@@ -46,12 +49,15 @@ ___
 
 ▸ **setOutlineList**(`groupList`, `colorList?`): `void`
 
+config outline manager.
+The first set of objects uses the first color to display outline, and so on
+
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `groupList` | [`Object3D`](Object3D.md)[][] |
-| `colorList?` | [`Color`](Color.md)[] |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `groupList` | [`Object3D`](Object3D.md)[][] | A group of 3D objects set |
+| `colorList?` | [`Color`](Color.md)[] | Specified color list for outline |
 
 #### Returns
 
@@ -59,18 +65,20 @@ ___
 
 #### Defined in
 
-[src/engine/io/OutlinePostManager.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/engine/io/OutlinePostManager.ts#L15)
+[src/io/OutlineManager.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/io/OutlineManager.ts#L30)
 
 ___
 
 ### clearOutline
 
-▸ **clearOutline**(): `void`
+▸ **clearOutline**(): [`OutlinePostManager`](OutlinePostManager.md)
+
+clear outline effect
 
 #### Returns
 
-`void`
+[`OutlinePostManager`](OutlinePostManager.md)
 
 #### Defined in
 
-[src/engine/io/OutlinePostManager.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/engine/io/OutlinePostManager.ts#L32)
+[src/io/OutlineManager.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/io/OutlineManager.ts#L50)

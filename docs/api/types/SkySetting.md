@@ -2,18 +2,18 @@
 
 Ƭ **SkySetting**: `Object`
 
-天空设置
+Sky setting
 
 #### Type declaration
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `type` | ``"HDRSKY"`` \| ``"ShaderSky"`` | 天空类型 |
-| `sky` | [`HDRTextureCube`](../classes/HDRTextureCube.md) | HDR立方体纹理 |
-| `skyExposure` | `number` | 天空曝光面 |
-| `defaultFar` | `number` | 默认远截面大小 |
-| `defaultNear` | `number` | 默认近截面大小 |
+| `type` | ``"HDRSKY"`` \| ``"ShaderSky"`` | sky texture type |
+| `sky` | [`HDRTextureCube`](../classes/HDRTextureCube.md) | HDRTextureCube |
+| `skyExposure` | `number` | exposure |
+| `defaultFar` | `number` | default far |
+| `defaultNear` | `number` | default near |
 
 #### Defined in
 
-[src/engine/EngineConfig.ts:199](https://github.com/Orillusion/orillusion/blob/main/src/engine/EngineConfig.ts#L199)
+[src/setting/SkySetting.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/setting/SkySetting.ts#L7)

@@ -22,7 +22,7 @@
 - [label](ProbeGBufferFrame.md#label)
 - [customSize](ProbeGBufferFrame.md#customsize)
 - [attachments](ProbeGBufferFrame.md#attachments)
-- [rtDescripts](ProbeGBufferFrame.md#rtdescripts)
+- [rtDescriptors](ProbeGBufferFrame.md#rtdescriptors)
 - [zPreTexture](ProbeGBufferFrame.md#zpretexture)
 - [depthTexture](ProbeGBufferFrame.md#depthtexture)
 - [depthViewIndex](ProbeGBufferFrame.md#depthviewindex)
@@ -49,7 +49,7 @@
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/ProbeGBufferFrame.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/ProbeGBufferFrame.ts#L8)
+[src/gfx/renderJob/frame/ProbeGBufferFrame.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/ProbeGBufferFrame.ts#L10)
 
 ## Methods
 
@@ -70,7 +70,7 @@
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/ProbeGBufferFrame.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/ProbeGBufferFrame.ts#L13)
+[src/gfx/renderJob/frame/ProbeGBufferFrame.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/ProbeGBufferFrame.ts#L15)
 
 ___
 
@@ -94,7 +94,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/RTFrame.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/RTFrame.ts#L27)
+[src/gfx/renderJob/frame/RTFrame.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L27)
 
 ___
 
@@ -112,7 +112,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/RTFrame.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/RTFrame.ts#L42)
+[src/gfx/renderJob/frame/RTFrame.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L42)
 
 ## Properties
 
@@ -126,7 +126,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/RTFrame.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/RTFrame.ts#L6)
+[src/gfx/renderJob/frame/RTFrame.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L6)
 
 ___
 
@@ -140,7 +140,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/RTFrame.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/RTFrame.ts#L7)
+[src/gfx/renderJob/frame/RTFrame.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L7)
 
 ___
 
@@ -154,21 +154,21 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/RTFrame.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/RTFrame.ts#L8)
+[src/gfx/renderJob/frame/RTFrame.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L8)
 
 ___
 
-### rtDescripts
+### rtDescriptors
 
-• **rtDescripts**: [`RTDescript`](RTDescript.md)[]
+• **rtDescriptors**: [`RTDescriptor`](RTDescriptor.md)[]
 
 #### Inherited from
 
-[RTFrame](RTFrame.md).[rtDescripts](RTFrame.md#rtdescripts)
+[RTFrame](RTFrame.md).[rtDescriptors](RTFrame.md#rtdescriptors)
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/RTFrame.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/RTFrame.ts#L9)
+[src/gfx/renderJob/frame/RTFrame.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L9)
 
 ___
 
@@ -182,7 +182,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/RTFrame.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/RTFrame.ts#L11)
+[src/gfx/renderJob/frame/RTFrame.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L11)
 
 ___
 
@@ -196,7 +196,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/RTFrame.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/RTFrame.ts#L12)
+[src/gfx/renderJob/frame/RTFrame.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L12)
 
 ___
 
@@ -210,7 +210,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/RTFrame.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/RTFrame.ts#L14)
+[src/gfx/renderJob/frame/RTFrame.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L14)
 
 ___
 
@@ -224,7 +224,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/RTFrame.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/RTFrame.ts#L15)
+[src/gfx/renderJob/frame/RTFrame.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L15)
 
 ___
 
@@ -238,7 +238,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/RTFrame.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/RTFrame.ts#L16)
+[src/gfx/renderJob/frame/RTFrame.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L16)
 
 ___
 
@@ -252,4 +252,4 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/jobs/RTFrame.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/jobs/RTFrame.ts#L17)
+[src/gfx/renderJob/frame/RTFrame.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L17)
