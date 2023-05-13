@@ -33,7 +33,7 @@ scene.removeChild(obj);
 ## Atmospheric Sky Box
 You can use [AtmosphericComponent](/api/classes/AtmosphericComponent.md) component to set the atmospheric sky box of the scene.
 ```ts
-// 添加大气天空盒组件，自动生成背景和环境光
+// Add an Atmospheric Skybox, auto generate background and enviroment light
 let sky = scene3D.addComponent(AtmosphericComponent);
 ```
 See the following example for details:

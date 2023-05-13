@@ -25,7 +25,7 @@ view.camera = this.camera;
 Engine3D.startRenderView(view);
 ```
 
-[Engine3D.setting.render.postProcessing.gtao](../../api/types/GTAOSetting.md) 配置参数。
+[Engine3D.setting.render.postProcessing.gtao](../../api/types/GTAOSetting.md) configuration parameters:
 | Parameter | Type | Description |
 | --- | --- | --- |
 | maxDistance | number | Sets the maximum distance when searching the 3D space around during AO sampling.|

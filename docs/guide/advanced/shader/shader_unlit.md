@@ -53,7 +53,7 @@ fn frag(){
     UnLit();
 }
 ```
-Put the above script into ShaderLib for management by a specific key`UnLitShader`.
+Put the above script into ShaderLib for management by a specific key `UnLitShader`.
 ```ts
 let Unlit:string = `${shaderCode}`;
  ShaderLib.register('UnLitShader', UnLit);

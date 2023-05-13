@@ -10,7 +10,7 @@ In the past, we would copy the same code snippet to wherever it was needed. This
 This was something that programmers found difficult and required experience to handle. So we introduced the `#include` keyword into `shader` .
 
 ### #Include
-Following the previous chapter's approach, suppose we have registered a global code snippet to `ShaderLib`and used `GlobalUniform` as the only `key`:
+Following the previous chapter's approach, suppose we have registered a global code snippet to `ShaderLib` and used `GlobalUniform` as the only `key`:
 
 ```ts
 // Register GlobalUniform code snippet

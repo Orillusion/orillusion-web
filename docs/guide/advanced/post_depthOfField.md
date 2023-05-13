@@ -23,7 +23,7 @@ view.camera = this.camera;
 Engine3D.startRenderView(view);
 ```
 
-[Engine3D.setting.render.postProcessing.depthOfView](../../api/types/DepthOfViewSetting.md) configuration parameters
+[Engine3D.setting.render.postProcessing.depthOfView](../../api/types/DepthOfViewSetting.md) configuration parameters:
 
 | Parameter | Type | Description |
 | --- | --- | --- |

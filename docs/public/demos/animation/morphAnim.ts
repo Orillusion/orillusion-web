@@ -19,7 +19,7 @@ class Sample_morph {
         this.hoverCameraController.setCamera(0, 0, 110)
 
         await this.initScene(this.scene)
-
+        // set skybox
         this.scene.addComponent(AtmosphericComponent).sunY = 0.6
 
         // create a view with target scene and camera
@@ -56,6 +56,15 @@ class Sample_morph {
                     })
                 }
             }
+            GUIHelp.add({
+                random: ()=>{
+                    for(let i in this.influenceData){
+                        this.influenceData[i] = Math.random()
+                    }
+                    GUIHelp.updateDisplay()
+                    this.track(this.influenceData, this.targetRenderers)
+                }
+            }, 'random')
         }
         {
             let ligthObj = new Object3D()

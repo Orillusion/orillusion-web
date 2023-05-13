@@ -30,7 +30,8 @@ view.camera = mainCamera;
 Engine3D.startRenderView(view);
 ```
 
-[Engine3D.setting.render.postProcessing.taa](../../api/types/TAASetting.md) Configuration Parameters.
+[Engine3D.setting.render.postProcessing.taa](../../api/types/TAASetting.md) Configuration Parameters:
+
 | Parameter	 | Type | 	Description |
 | --- | --- | --- |
 | jitterSeedCount | number | The number of random seeds used for jittering the camera. Default is 8. (Reducing the number can solve some problems where the jitter is too obvious, but the jaggedness will become more obvious.) |

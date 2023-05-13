@@ -12,10 +12,6 @@ async function demo() {
     mainCamera.perspective(60, Engine3D.aspect, 0.1, 10000.0)
     mainCamera.object3D.addComponent(HoverCameraController)
 
-    // 初始化环境图;
-    // let envMap = await Engine3D.res.loadHDRTextureCube('https://cdn.orillusion.com/hdri/1428_v5_low.hdr');
-    // scene.envMap = envMap;
-
     // 初始化场景;
     let ligthObj = new Object3D()
     let dl = ligthObj.addComponent(DirectLight)
@@ -42,7 +38,7 @@ async function demo() {
         cesiumMan_clone.localPosition.set(-100 + Math.random() * 200, 0, -100 + Math.random() * 200)
         scene.addChild(cesiumMan_clone)
     }
-
+    // set skybox
     scene.addComponent(AtmosphericComponent).sunY = 0.6
 
     // create a view with target scene and camera
@@ -51,10 +47,6 @@ async function demo() {
     view.camera = mainCamera
     // start render
     Engine3D.startRenderView(view)
-
-    // let postProcessing = scene.addComponent(PostProcessingComponent);
-    // postProcessing.addPost(FXAAPost);
-    // postProcessing.addPost(HDRBloomPost);
 }
 
 demo()

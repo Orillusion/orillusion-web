@@ -2,7 +2,7 @@
 
 This chapter mainly introduces how to use the `wgsl` language to write `orillusion` shader code and considerations.
 
-Similar to mainstream 3D engines, the`MeshRender` in the  `orillusion` rendering module can have multiple materials, and each material can define multiple rendering channels. During a rendering task, the engine outputs different results according to the rules based on the material type, rendering channel type, and priority.
+Similar to mainstream 3D engines, the`MeshRender` in the `orillusion` rendering module can have multiple materials, and each material can define multiple rendering channels. During a rendering task, the engine outputs different results according to the rules based on the material type, rendering channel type, and priority.
 
 ## Shader Classification
 In `Orillusion` , `shader` can be divided into two categories, each with a different purpose and usage:

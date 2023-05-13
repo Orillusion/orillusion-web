@@ -35,13 +35,17 @@ export class Sample_PropertyAnim {
         }
         const GUIHelp = new dat.GUI()
         GUIHelp.add(guiData, 'click').name('Restart')
-        GUIHelp.add(guiData, 'Seek', 0, 1, 0.01).onChange((v) => {
+        GUIHelp.add(guiData, 'Seek', 0, 1, 0.01).onChange(v => {
             this.animation.stop()
             this.animation.seek(v)
         })
-        GUIHelp.add(guiData, 'Speed', 0, 1, 0.01).onChange((v) => {
+        GUIHelp.add(guiData, 'Speed', 0, 1, 0.01).onChange(v =>{
             this.animation.speed = v
         })
+        this.animation.onLateUpdate = ()=>{
+            guiData.Seek = this.animation.time
+            GUIHelp.updateDisplay()
+        }
     }
 
     private async makePropertyAnim(node: Object3D) {

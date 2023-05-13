@@ -1,5 +1,4 @@
 # Entity and Component
-`Orillusion` 核心借鉴了 [ECS](https://wikipedia.org/wiki/Entity_component_system) 结构，遵循 `组合优于继承` 的开发设计原则，实现了自己的组件系统。我们将传统复杂的逻辑划分为独立的、可重复利用的部分，每个部分可以单独封装运行逻辑。然后通过灵活组合的形式，将多个简单组件合并在一起运行从而表现复杂的功能和逻辑。
 The core of 'Orillusion' is inspired by the [ECS](https://wikipedia.org/wiki/Entity_component_system) structure, and follows the principle of 'Composition over inheritance'. Implemented own component system. We divide the traditional complex logic into independent and reusable parts. Each part can be encapsulated and run independently. Then, by flexible combination, multiple simple components are combined to perform complex functions and logic.
 
 ![ECS](/images/component.svg)
