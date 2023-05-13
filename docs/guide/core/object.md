@@ -10,11 +10,11 @@ By default, `Object3D` has a built-in component [Transform](/guide/core/transfor
 
 ## State of Node
 
-When you initialize an `Object3D` object, it is enabled by default. By setting the `enable` property, you can change the state of the node. If set to `false`, this will disable this node and all child node objects of this node. Also all components attached to these nodes will also stop calling.
+When you initialize an `Object3D` object, it is displayed by default. You can change the state of the node by the `transform.enable` attribute. If set to `false`, this will disable this node and all child node objects of this node. Also all components attached to these nodes will also stop calling.
 
 ```ts
 let obj = new Object3D();
-obj.enable = false;
+obj.transform.enable = false; //Hide the node and all child nodes
 ```
 
 ## Add and Remove a Node
