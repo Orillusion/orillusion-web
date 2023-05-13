@@ -69,7 +69,7 @@ export default async () =>
             algolia: {
                 appId: 'TJ3C7RARIT',
                 apiKey: 'ab01334a5b0c198b8702054b2cafd5da',
-                indexName: 'orillugion_en',
+                indexName: 'orillusion',
                 searchParameters: {
                     facetFilters: ['tags:latest']
                 }
