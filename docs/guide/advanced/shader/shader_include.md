@@ -23,21 +23,21 @@ After that, in other `shader` , we can include the code snippet and data from `G
 // Include GlobalUniform code snippet
 #include `GlobalUniform`
 
-// Other code
+// Other code 1
 ....
 ```
 ```wgsl [shader2]
 // Include GlobalUniform code snippet
 #include `GlobalUniform`
 
-// Other code
+// Other code 2
 ....
 ```
 ```wgsl [shader3]
 // Include GlobalUniform code snippet
 #include `GlobalUniform`
 
-// Other code
+// Other code 3
 ....
 ```
 :::

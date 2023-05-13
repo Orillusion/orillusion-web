@@ -4,7 +4,7 @@ aside: false
 # Outline
 The engine implements the function of drawing the unobstructed parts of a specified object. You can set different styles for the outlined contour line, such as solid line and faded part width.
 ```ts
-import {Engine3D,ForwardRenderJob, OutlinePost } from '@orillusion/core';
+import {Engine3D, View3D, OutlinePost } from '@orillusion/core';
 // Initialize the engine
 await Engine3D.init();
 
@@ -12,10 +12,14 @@ await Engine3D.init();
 Engine3D.setting.render.postProcessing.outline.outlinePixel = 2;
 Engine3D.setting.render.postProcessing.outline.fadeOutlinePixel = 4;
 
-// Create a renderer
-let renderJob = new ForwardRenderJob(scene);
-renderJob.addPost(new OutlinePost());
-Engine3D.startRender(renderJob);
+// Add OutlinePost
+let postProcessing = this.scene.addComponent(PostProcessingComponent);
+postProcessing.addPost(OutlinePost);
+//Start rendering
+let view = new View3D();
+view.scene = this.scene;
+view.camera = this.camera;
+Engine3D.startRenderView(view);
 ```
 [Engine3D.setting.render.postProcessing.outline](/api/types/OutlineSetting.md) configuration parameters:
 
