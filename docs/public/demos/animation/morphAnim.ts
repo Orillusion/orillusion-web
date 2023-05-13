@@ -56,6 +56,15 @@ class Sample_morph {
                     })
                 }
             }
+            GUIHelp.add({
+                random: ()=>{
+                    for(let i in this.influenceData){
+                        this.influenceData[i] = Math.random()
+                    }
+                    GUIHelp.updateDisplay()
+                    this.track(this.influenceData, this.targetRenderers)
+                }
+            }, 'random')
         }
         {
             let ligthObj = new Object3D()
