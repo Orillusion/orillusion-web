@@ -114,7 +114,7 @@ scene3D.addChild(obj);
 // Create View3D object
 let view = new View3D();
 // Specify the scene to render
-view.scene = scene;
+view.scene = scene3D;
 // Specify the camera to use
 view.camera = camera;
 // Start rendering
