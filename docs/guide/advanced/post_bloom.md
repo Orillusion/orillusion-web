@@ -29,9 +29,9 @@ Engine3D.startRenderView(view);
 | --- | --- | --- |
 | blurX | number | The horizontal blur radius of the screen.|
 | blurY | number |  The vertical blur radius of the screen.|
-| strength | number |  Omni intensity.|
-| radius | number |  Omni radius.|
-| luminosityThreshold | number | Flood intensity filtering threshold.|
+| strength | number |  Bloom intensity.|
+| radius | number |  Bloom radius.|
+| luminosityThreshold | number | Bloom intensity filtering threshold.|
 
 Generally, we can control the object's bloom effect by adding an emissive texture and color to its material:
 ```ts
