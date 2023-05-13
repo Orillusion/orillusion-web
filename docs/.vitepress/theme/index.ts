@@ -6,10 +6,10 @@ import './custom.css'
 
 export default {
     ...DefaultTheme,
-    enhanceApp({ app }) {
+    enhanceApp({ app, router, siteData }) {
         app.component('Demo', Demo)
         app.component('Logo', Logo)
-
+        
         // ga
         globalThis.dataLayer = globalThis.dataLayer || []
         function gtag() {
@@ -27,12 +27,28 @@ export default {
                 })
                 globalThis.esbuild = esbuild
             })
+            return
         }
 
-        // jump to /en on first visit 
-        if( !globalThis.localStorage._first && !/zh/i.test(globalThis.navigator.language) ){
-            globalThis.localStorage._first = true
-            globalThis.location.href = '/en' + globalThis.location.pathname
+        if(globalThis.document)
+            router.onAfterRouteChanged = ()=>{
+                let link = globalThis.document?.querySelector('.VPNavBarTranslations a.VPLink')
+                setTimeout(()=>{
+                    let link = globalThis.document?.querySelector('.VPNavBarTranslations a.VPLink')
+                    if(link){
+                        link.addEventListener('click', (e)=>{
+                            e.preventDefault()
+                            globalThis.localStorage._lang = 'en'
+                            globalThis.location.href = e.target.href
+                        })
+                    }
+                }, 100)
+            }
+            
+        // redirect to /en
+        if(globalThis.localStorage && globalThis.localStorage?._lang !=='zh' && !/zh/i.test(globalThis.navigator.language) ){
+            globalThis.localStorage._lang = 'en'
+            globalThis.location.href = siteData.value.locales.en.link.slice(0, -1) + globalThis.location.pathname
         }
     }
 }
