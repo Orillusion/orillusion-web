@@ -39,7 +39,7 @@ export default {
                         globalThis.localStorage._lang = 'zh'
                         globalThis.location.href = e.target.href
                     })
-                }, 100)
+                })
             }
         }
     }
