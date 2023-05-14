@@ -46,7 +46,7 @@ export default {
             }
             
         // redirect to /en
-        if(globalThis.localStorage && globalThis.localStorage?._lang !=='zh' && !/zh/i.test(globalThis.navigator.language) ){
+        if(globalThis.localStorage && globalThis.localStorage?._lang !=='zh' && !/googlebot/i.globalThis.navigator.userAgent && !/zh/i.test(globalThis.navigator.language) ){
             globalThis.localStorage._lang = 'en'
             globalThis.location.href = siteData.value.locales.en.link.slice(0, -1) + globalThis.location.pathname
         }
