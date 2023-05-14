@@ -32,14 +32,17 @@ export default {
         // nav to zh without new tab
         if(globalThis.document){
             router.onAfterRouteChanged = ()=>{
-                setTimeout(()=>{
-                    let link = globalThis.document?.querySelector('.VPNavBarTranslations a.VPLink')
-                    link?.addEventListener('click', (e)=>{
-                        e.preventDefault()
-                        globalThis.localStorage._lang = 'zh'
-                        globalThis.location.href = e.target.href
+                if(!globalThis._translation)
+                    setTimeout(()=>{
+                        globalThis.document.querySelector('.VPNav')?.addEventListener('click', (e)=>{
+                            if(e.target.href && e.target.href.startsWith('https://www.orillusion.com/')){
+                                e.preventDefault()
+                                globalThis.localStorage._lang = 'zh'
+                                globalThis.location.href = e.target.href
+                            }
+                        })
+                        globalThis._translation = true    
                     })
-                })
             }
         }
     }
