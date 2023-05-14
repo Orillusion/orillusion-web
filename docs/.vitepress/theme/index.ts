@@ -31,18 +31,15 @@ export default {
         }
 
         if(globalThis.document)
-            router.onAfterRouteChanged = ()=>{
-                let link = globalThis.document?.querySelector('.VPNavBarTranslations a.VPLink')
+            router.onAfterRouteChanged = ()=>{  
                 setTimeout(()=>{
                     let link = globalThis.document?.querySelector('.VPNavBarTranslations a.VPLink')
-                    if(link){
-                        link.addEventListener('click', (e)=>{
-                            e.preventDefault()
-                            globalThis.localStorage._lang = 'en'
-                            globalThis.location.href = e.target.href
-                        })
-                    }
-                }, 100)
+                    link.addEventListener('click', (e)=>{
+                        e.preventDefault()
+                        globalThis.localStorage._lang = 'en'
+                        globalThis.location.href = e.target.href
+                    })
+                })
             }
             
         // redirect to /en
