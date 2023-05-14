@@ -20,30 +20,11 @@ export default async () =>
         ignoreDeadLinks: true,
         appearance: 'dark',
         head: [
-            [
-                'link',
-                {
-                    rel: 'shortcut icon',
-                    type: 'image/png',
-                    href: '/images/icons/icon-192.png'
-                }
-            ],
-            ['link', { rel: 'dns-prefetch', href: 'https://unpkg.com' }],
+            ['link', { rel: 'shortcut icon', type: 'image/png', href: '/images/icons/icon-192.png' }],
+            ['link', { rel: 'dns-prefetch', href: 'https://npm.elemecdn.com' }],
             ['link', { rel: 'dns-prefetch', href: 'https://cdn.orillusion.com' }],
-            [
-                'script',
-                {
-                    async: 'true',
-                    src: 'https://www.googletagmanager.com/gtag/js?id=G-0H9189CS0W'
-                }
-            ],
-            [
-                'meta',
-                {
-                    name: 'viewport',
-                    content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no'
-                }
-            ],
+            ['script', { async: 'true', src: 'https://www.googletagmanager.com/gtag/js?id=G-0H9189CS0W' }],
+            ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no' }],
             ['meta', { name: 'mobile-web-app-capable', content: 'yes' }],
             ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
             ['link', { rel: 'apple-touch-icon', href: '/images/icons/icon-512.png' }],
@@ -105,7 +86,9 @@ export default async () =>
                     link: 'https://github.com/Orillusion/orillusion'
                 },
                 {
-                    icon: {svg: '<svg viewBox="0 0 1024 1024"><path d="M490.338 592.738c11.816 11.816 29.539 11.816 41.354 0L976.738 179.2c7.877-15.754 5.908-41.354-25.6-41.354l-880.246 1.97c-23.63 0-43.323 21.66-25.6 41.353l445.046 411.57z m494.277-252.061c0-19.692-23.63-31.508-39.384-17.723L596.677 643.938c-23.63 21.662-53.17 33.477-84.677 33.477s-61.046-11.815-84.677-31.507L80.738 322.954c-15.753-13.785-39.384-3.939-39.384 17.723-1.97-5.908-1.97 447.015-1.97 447.015 0 43.323 35.447 78.77 78.77 78.77h787.692c43.323 0 78.77-35.447 78.77-78.77V340.677z"></path></svg>'},
+                    icon: {
+                        svg: '<svg viewBox="0 0 1024 1024"><path d="M490.338 592.738c11.816 11.816 29.539 11.816 41.354 0L976.738 179.2c7.877-15.754 5.908-41.354-25.6-41.354l-880.246 1.97c-23.63 0-43.323 21.66-25.6 41.353l445.046 411.57z m494.277-252.061c0-19.692-23.63-31.508-39.384-17.723L596.677 643.938c-23.63 21.662-53.17 33.477-84.677 33.477s-61.046-11.815-84.677-31.507L80.738 322.954c-15.753-13.785-39.384-3.939-39.384 17.723-1.97-5.908-1.97 447.015-1.97 447.015 0 43.323 35.447 78.77 78.77 78.77h787.692c43.323 0 78.77-35.447 78.77-78.77V340.677z"></path></svg>'
+                    },
                     link: 'mailto:business@orillusion.com'
                 }
             ],
