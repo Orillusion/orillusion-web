@@ -131,3 +131,6 @@ td > code {
     position: absolute;
     left: 3.5em
 }
+.VPNavBar .VPLink > svg{
+    pointer-events: none;
+}
