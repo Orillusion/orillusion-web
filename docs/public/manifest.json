@@ -2,7 +2,7 @@
     "name": "Orillusion",
     "short_name": "Orillusion",
     "description": "The Next Generation WebGPU Engine",
-    "start_url": "/index.html",
+    "start_url": "/en/index.html",
     "display": "standalone",
     "background_color": "#1e1e20",
     "theme_color": "#1e1e20",
@@ -18,5 +18,5 @@
             "type": "image/png"
         }
     ],
-    "lang": "zh"
+    "lang": "en-US"
 }

@@ -22,12 +22,15 @@ export default async () =>
         appearance: 'dark',
         head: [
             ['link', { rel: 'shortcut icon', type: 'image/png', href: '/images/icons/icon-192.png' }],
-            ['link', { rel: 'apple-touch-icon', href: '/images/icons/icon-512.png' }],
             ['link', { rel: 'dns-prefetch', href: 'https://unpkg.com' }],
             ['link', { rel: 'dns-prefetch', href: 'https://cdn.orillusion.com' }],
             ['script', { async: 'true', src: 'https://www.googletagmanager.com/gtag/js?id=G-0H9189CS0W' }],
+            ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no' }],
+            ['meta', { name: 'mobile-web-app-capable', content: 'yes' }],
+            ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
+            ['link', { rel: 'apple-touch-icon', href: '/images/icons/icon-512.png' }],
             ['meta', { name: 'theme-color', content: '#242424' }],
-            ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no' }]
+            ['link', { rel: 'manifest', href: '/en/manifest.json' }]
         ],
         locales: {
             root: { label: 'English' },
