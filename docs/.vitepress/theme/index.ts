@@ -32,13 +32,16 @@ export default {
 
         if(globalThis.document)
             router.onAfterRouteChanged = ()=>{  
+                if(!globalThis._translation)
                 setTimeout(()=>{
-                    let link = globalThis.document?.querySelector('.VPNavBarTranslations a.VPLink')
-                    link.addEventListener('click', (e)=>{
-                        e.preventDefault()
-                        globalThis.localStorage._lang = 'en'
-                        globalThis.location.href = e.target.href
+                    globalThis.document.querySelector('.VPNav')?.addEventListener('click', (e)=>{
+                        if(e.target.href && e.target.href.startsWith('https://www.orillusion.com/en/')){
+                            e.preventDefault()
+                            globalThis.localStorage._lang = 'en'
+                            globalThis.location.href = e.target.href
+                        }
                     })
+                    globalThis._translation = true
                 })
             }
             
