@@ -86,6 +86,42 @@ parent.forChild((child)=>{
 })
 ```
 
+## 释放节点资源
+通过方法 [destroy](/api/classes/Object3D#destroy) 可以释放当前节点的资源，包括对象本身和对象加载的所有组件。但默认情况下，渲染组件所需的材质、几何体以及贴图资源不会随着节点一起释放，因为多个物体可能正在共享同一个材质和几何体，或者未来场景需要使用到这些资源。如果想要释放所有资源，一般需要手动释放渲染对象。
+```ts
+// 创建对象
+let obj = new Object3D();
+//为节点添加渲染组件
+let mr = obj.addComponent(MeshRenderer)
+let geometry = mr.geometry = new BoxGeometry()
+let material = mr.material = new LitMaterial()
+
+// 销毁对象，释放内存
+obj.destroy() // 但不会释放主动释放 geometry 和 material
+geometry.destroy() // 手动释放几何资源
+material.destroy() // 手动释放材质资源
+```
+如果确定节点资源不再使用，可以使用 `destroy(true)` 附加参数来强制销毁节点的所有相关资源。
+> 注意：如果渲染对象正在被共享使用，强制删除可能会触发引擎错误，导致渲染无法继续
+```ts
+let obj1 = new Object3D();
+let obj2 = new Object3D();
+
+// 创建几何体和材质
+let metry = new BoxGeometry()
+let material = new LitMaterial()
+
+//为节点添加渲染组件, 共享几何和材质信息
+let mr1 = obj1.addComponent(MeshRenderer)
+let mr2 = obj2.addComponent(MeshRenderer)
+mr1.geometry = mr2.geometry = geometry
+mr2.material = mr2.material = material
+
+// 销毁其中一个
+obj.detroy(true) // 会强制释放 geometry 和 material
+// 引擎报错，渲染无法继续
+```
+
 更多详细用法请参看 [Object3D](/api/classes/Object3D) API
 
 
