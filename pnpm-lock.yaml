@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@orillusion/core': ^0.6.1
+  '@orillusion/core': ^0.6.2
   '@orillusion/media-extention': ^0.2.0
   '@orillusion/physics': ^0.2.0
   '@orillusion/stats': ^0.2.0
@@ -13,7 +13,7 @@ specifiers:
   vue: ^3.2.47
 
 devDependencies:
-  '@orillusion/core': 0.6.1
+  '@orillusion/core': 0.6.2
   '@orillusion/media-extention': 0.2.0
   '@orillusion/physics': 0.2.0
   '@orillusion/stats': 0.2.0
@@ -448,8 +448,8 @@ packages:
     resolution: {integrity: sha512-5zjxCQq8FKQihxh8ZWI5ASelTaIz/QUino5HISOWWvpwXrYtzwptDA8MuQonASseQwo1WkWu+jmuNMdusdNuww==}
     dev: true
 
-  /@orillusion/core/0.6.1:
-    resolution: {integrity: sha512-pFeLTRPYPO+XHYxZMBotTV4vvDdfrV083r7h/SGXM58ehQi4/nDjOA2um7PFuXuMDA2vBawxTqN9TqSBl3NrLA==}
+  /@orillusion/core/0.6.2:
+    resolution: {integrity: sha512-NEpDOAVwVTphsz6EeHj59ACzdDqxcTvB9gwNiizBrsZNvm6//pwGC1VJagM65FVPVrlgeGB2pdF4dNL++duDag==}
     optionalDependencies:
       conventional-changelog-cli: 2.2.2
       electron: 25.0.0-beta.1
@@ -462,7 +462,7 @@ packages:
   /@orillusion/media-extention/0.2.0:
     resolution: {integrity: sha512-yZEaXfwYH/1tO1/JDNQQyL9ukmcwhpgERaQcSU6BO9yA/yW7CiYruNTouAU9y7hrl/bEnBzAgnZGswq95ScBMQ==}
     dependencies:
-      '@orillusion/core': 0.6.1
+      '@orillusion/core': 0.6.2
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -471,7 +471,7 @@ packages:
     resolution: {integrity: sha512-1X1kKm2sHAWTGTRQbotIVfqLbLwLLbii5024OmuTYcqSsOC5ZEWig6gwuxxdElX8mKkif05/H5zTLAuZEjDMwQ==}
     dependencies:
       '@orillusion/ammo': 0.1.1
-      '@orillusion/core': 0.6.1
+      '@orillusion/core': 0.6.2
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -479,7 +479,7 @@ packages:
   /@orillusion/stats/0.2.0:
     resolution: {integrity: sha512-/ghMZlwPoAepyVpDdxNMEbEZTtatPWl9ee0X9f/cNBWrkHrapBi4M+QzimlGfXqDtkcbzvQYyuyr8ImidVpItQ==}
     dependencies:
-      '@orillusion/core': 0.6.1
+      '@orillusion/core': 0.6.2
     transitivePeerDependencies:
       - supports-color
     dev: true

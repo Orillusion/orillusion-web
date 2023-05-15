@@ -1,4 +1,4 @@
-import { Engine3D, Scene3D, Object3D, Camera3D, AtmosphericComponent, View3D, LitMaterial, CylinderGeometry, MeshRenderer, DirectLight, HoverCameraController, Color, Vector3 } from '@orillusion/core'
+import { Engine3D, Scene3D, Object3D, Camera3D, LitMaterial, BoxGeometry, MeshRenderer, DirectLight, HoverCameraController, Color, Vector3, AtmosphericComponent, View3D, TorusGeometry } from '@orillusion/core'
 async function demo() {
     // 初始化引擎
     await Engine3D.init()
@@ -11,7 +11,7 @@ async function demo() {
     camera.perspective(60, Engine3D.aspect, 1, 5000.0)
     // 设置相机控制器
     let controller = camera.object3D.addComponent(HoverCameraController)
-    controller.setCamera(0, -15, 10)
+    controller.setCamera(0, 0, 15)
     // 添加相机节点
     scene3D.addChild(cameraObj)
     // 新建光照
@@ -30,12 +30,12 @@ async function demo() {
     // 为对象添 MeshRenderer
     let mr: MeshRenderer = obj.addComponent(MeshRenderer)
     // 设置几何体
-    mr.geometry = new CylinderGeometry(1, 1, 1, 8, 8, false, 0, 2 * Math.PI)
+    mr.geometry = new TorusGeometry(3, 1, 32, 32)
     // 设置材质
-    let material = new LitMaterial()
-    mr.materials = [material, material, material]
+    mr.material = new LitMaterial()
     // 设置位置和旋转
     obj.localPosition = new Vector3(0, 0, 0)
+    obj.localRotation = new Vector3(90, 0, 0)
     // 添加对象
     scene3D.addChild(obj)
     // add an Atmospheric sky enviroment
