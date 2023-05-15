@@ -199,16 +199,16 @@ function sidebarGuide(): SidebarItem {
             items: [
                 { text: 'Intro', link: '/guide/physics/Readme.md' },
                 { text: 'Rigid Body', link: '/guide/physics/rigidbody.md' },
-                { text: 'collider', link: '/guide/physics/collider.md' }
+                { text: 'Collider', link: '/guide/physics/collider.md' }
             ]
         },
         {
             text: 'Interaction',
             collapsible: true,
             items: [
-                { text: 'InputSystem', link: '/guide/interaction/pointer.md' },
+                { text: 'Input System', link: '/guide/interaction/pointer.md' },
                 { text: 'Keyboard', link: '/guide/interaction/keyboard.md' },
-                { text: 'Pick', link: '/guide/interaction/pickfire.md' },
+                { text: 'Mouse Pick', link: '/guide/interaction/pickfire.md' },
                 { text: 'Custom Event', link: '/guide/interaction/event.md' }
             ]
         },
@@ -226,7 +226,7 @@ function sidebarGuide(): SidebarItem {
             text: 'Resource',
             collapsible: true,
             items: [
-                { text: 'Res', link: '/guide/resource/Readme.md' },
+                { text: 'Resource Loading', link: '/guide/resource/Readme.md' },
                 { text: 'GLTF', link: '/guide/resource/gltf.md' }
             ]
         },
