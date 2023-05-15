@@ -94,7 +94,6 @@ mr.geometry = new CylinderGeometry(2, 2, 10);
 | --- | --- |
 | radius | 圆环半径，默认值0.4 |
 | tube | 管道半径，默认值0.1 |
-| height | 桶高度，默认值为1 |
 | radialSegments | 圆环细分数量，默认值32 |
 | tubularSegments | 管道细分数量，默认值32 |
 
