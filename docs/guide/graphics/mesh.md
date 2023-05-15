@@ -88,6 +88,31 @@ mr.geometry = new CylinderGeometry(2, 2, 10);
 
 <<< @/public/demos/mesh/cylinder.ts
 
+## Torus
+[TorusGeometry](/api/classes/TorusGeometry) class provides the function of creating a Torus.
+
+Parameters overview:
+
+| Parameter | Description |
+| --- | --- |
+| radius | The radius of the Torus，default value 0.4 |
+| tube | The pipe radius，default value 0.1 |
+| radialSegments | Number of torus segments, default value 32 |
+| tubularSegments | Number of pipeline segments，default value 32 |
+
+Example:
+```ts
+import {Object3D, MeshRenderer, TorusGeometry} from '@orillusion/core';
+
+let obj = new Object3D();
+// Add MeshRenderer component
+let mr = obj.addComponent(MeshRenderer);
+// set a torus geometry
+mr.geometry = new TorusGeometry(3, 1, 32, 32);
+```
+<Demo src="/demos/mesh/torus.ts"></Demo>
+
+<<< @/public/demos/mesh/torus.ts
 
 ## Plane
 [PlaneGeometry](/api/classes/PlaneGeometry) class provides the function of creating a plane.
@@ -115,5 +140,35 @@ mr.geometry = new PlaneGeometry(100, 100, 1, 1);
 
 <<< @/public/demos/mesh/plane.ts
 
-<!-- ## 自定义 Geometry
-?? 缺失 -->
+## Custom Geometry
+We can customize the shape of the geometry by updating the vertices of the existing geometry’s [vertexBuffer](/api/classes/GeometryVertexBuffer).
+
+Example：
+```ts
+import {Object3D, MeshRenderer, PlaneGeometry, LitMaterial, VertexAttributeName} from '@orillusion/core';
+
+let obj = new Object3D();
+// Add MeshRenderer component
+let mr = obj.addComponent(MeshRenderer);
+// Set a base plane geometry, easy to set size and segments
+mr.geometry = new PlaneGeometry(100, 100, 100, 100);
+mr.material = new LitMaterial()
+
+// get current vertex position buffer
+let posAttrData = mr.geometry.getAttribute(VertexAttributeName.position);
+// you can reset all vertex position
+for (let i = 0, count = posAttrData.data.length / 3; i < count; i++) {
+    posAttrData.data[i * 3 + 0] = Math.random(); // position x
+    posAttrData.data[i * 3 + 1] = Math.random(); // position y
+    posAttrData.data[i * 3 + 2] = Math.random(); // poisiton z
+}
+// reuplaod the vertex buffer
+mr.geometry.vertexBuffer.upload(VertexAttributeName.position, posAttrData);
+// recompute normal buffer
+mr.geometry.computeNormals();
+```
+We can even change the vertex buffer in the main loop every frame:
+
+<Demo src="/demos/mesh/custom.ts"></Demo>
+
+<<< @/public/demos/mesh/custom.ts

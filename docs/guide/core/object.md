@@ -88,6 +88,43 @@ parent.forChild((child)=>{
 })
 ```
 
+## Release Object
+Using [destroy](/api/classes/Object3D#destroy) method, you can release relative resources of current node, including the `Object3D` itself and all components added to this node。However, by dafault, the materials, geometries, and texture resources required in rendering processes will not be released along with the node, as multiple objects may be sharing the same material and geometry or the resources may be needed for future scenes. If you want to release all resources, you generally need to manually release the rendering objects.
+
+```ts
+// create object
+let obj = new Object3D();
+// add MeshRenderer component
+let mr = obj.addComponent(MeshRenderer)
+let geometry = mr.geometry = new BoxGeometry()
+let material = mr.material = new LitMaterial()
+
+// destroy the obj
+obj.destroy() // but this won't release the geometry and material object
+geometry.destroy() // call destory geometry manually
+material.destroy() // call destory material manually
+```
+f you are sure that the node resources are no longer in use, you can use the `destroy(true)` with additional parameter to forcibly destroy all related resources of the node.
+> Note: If the rendering objects are being shared, forcing deletion may trigger engine errors and cause rendering failure.
+```ts
+let obj1 = new Object3D();
+let obj2 = new Object3D();
+
+// crate geometry and material
+let metry = new BoxGeometry()
+let material = new LitMaterial()
+
+// set MeshRenderer to objects and share geometry and material objects
+let mr1 = obj1.addComponent(MeshRenderer)
+let mr2 = obj2.addComponent(MeshRenderer)
+mr1.geometry = mr2.geometry = geometry
+mr2.material = mr2.material = material
+
+// destroy one object
+obj.detroy(true) // this could force release geometry and material
+// throw engine errors and stop rendering
+```
+
 See [Object3D](/api/classes/Object3D) API for more details.
 
 
