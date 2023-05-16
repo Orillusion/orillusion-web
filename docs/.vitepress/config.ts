@@ -22,12 +22,15 @@ export default async () =>
         appearance: 'dark',
         head: [
             ['link', { rel: 'shortcut icon', type: 'image/png', href: '/images/icons/icon-192.png' }],
-            ['link', { rel: 'apple-touch-icon', href: '/images/icons/icon-512.png' }],
             ['link', { rel: 'dns-prefetch', href: 'https://unpkg.com' }],
             ['link', { rel: 'dns-prefetch', href: 'https://cdn.orillusion.com' }],
             ['script', { async: 'true', src: 'https://www.googletagmanager.com/gtag/js?id=G-0H9189CS0W' }],
+            ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no' }],
+            ['meta', { name: 'mobile-web-app-capable', content: 'yes' }],
+            ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
+            ['link', { rel: 'apple-touch-icon', href: '/images/icons/icon-512.png' }],
             ['meta', { name: 'theme-color', content: '#242424' }],
-            ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no' }]
+            ['link', { rel: 'manifest', href: '/en/manifest.json' }]
         ],
         locales: {
             root: { label: 'English' },
@@ -53,17 +56,23 @@ export default async () =>
                 pattern: 'https://github.com/Orillusion/orillusion-web/edit/en/docs/:path'
             },
 
-            socialLinks: [{ icon: 'github', link: 'https://github.com/Orillusion/orillusion' }],
+            socialLinks: [
+                { icon: 'github', link: 'https://github.com/Orillusion/orillusion' },
+                {
+                    icon: {svg: '<svg viewBox="0 0 1024 1024"><path d="M490.338 592.738c11.816 11.816 29.539 11.816 41.354 0L976.738 179.2c7.877-15.754 5.908-41.354-25.6-41.354l-880.246 1.97c-23.63 0-43.323 21.66-25.6 41.353l445.046 411.57z m494.277-252.061c0-19.692-23.63-31.508-39.384-17.723L596.677 643.938c-23.63 21.662-53.17 33.477-84.677 33.477s-61.046-11.815-84.677-31.507L80.738 322.954c-15.753-13.785-39.384-3.939-39.384 17.723-1.97-5.908-1.97 447.015-1.97 447.015 0 43.323 35.447 78.77 78.77 78.77h787.692c43.323 0 78.77-35.447 78.77-78.77V340.677z"></path></svg>'},
+                    link: 'mailto:business@orillusion.com'
+                }
+            ],
 
             footer: {
                 message: 'Released under the MIT License',
-                copyright: 'Copyright © 2021-Present Orillusion'
+                copyright: 'Copyright © 2021-Present <a href="mailto:business@orillusion.com">Orillusion</a>'
             },
 
             algolia: {
                 appId: 'TJ3C7RARIT',
                 apiKey: 'ab01334a5b0c198b8702054b2cafd5da',
-                indexName: 'orillugion_en',
+                indexName: 'orillusion',
                 searchParameters: {
                     facetFilters: ['tags:latest']
                 }
@@ -190,16 +199,16 @@ function sidebarGuide(): SidebarItem {
             items: [
                 { text: 'Intro', link: '/guide/physics/Readme.md' },
                 { text: 'Rigid Body', link: '/guide/physics/rigidbody.md' },
-                { text: 'collider', link: '/guide/physics/collider.md' }
+                { text: 'Collider', link: '/guide/physics/collider.md' }
             ]
         },
         {
             text: 'Interaction',
             collapsible: true,
             items: [
-                { text: 'InputSystem', link: '/guide/interaction/pointer.md' },
+                { text: 'Input System', link: '/guide/interaction/pointer.md' },
                 { text: 'Keyboard', link: '/guide/interaction/keyboard.md' },
-                { text: 'Pick', link: '/guide/interaction/pickfire.md' },
+                { text: 'Mouse Pick', link: '/guide/interaction/pickfire.md' },
                 { text: 'Custom Event', link: '/guide/interaction/event.md' }
             ]
         },
@@ -217,7 +226,7 @@ function sidebarGuide(): SidebarItem {
             text: 'Resource',
             collapsible: true,
             items: [
-                { text: 'Res', link: '/guide/resource/Readme.md' },
+                { text: 'Resource Loading', link: '/guide/resource/Readme.md' },
                 { text: 'GLTF', link: '/guide/resource/gltf.md' }
             ]
         },

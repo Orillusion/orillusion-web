@@ -15,7 +15,7 @@ Set the mass (unit: kg) for the rigid body:
 rigidbody.mass = 50;
 ```
 
-If a static rigid body is required, set the mass to 0:
+If a static rigid body is required, set the `mass` to `0`:
 
 ```ts
 rigidbody.mass = 0;
@@ -26,4 +26,4 @@ If you want to manipulate the native ammo.js rigid body, you can get it through 
 let bt = rigidbody.btRigidbody;
 ```
 
-After adding the rigid body, you need to add a collider to the object to enable the object to respond to gravity and collisions correctly. The details of the collider component [Collider](/guide/physics/collider) will be introduced in the next section.
+After adding the rigid body, you need to add a collider to the object to enable the object to respond to gravity and collisions correctly. The details of the collider component [ColliderComponent](/guide/physics/collider) will be introduced in the next section.

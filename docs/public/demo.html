@@ -12,8 +12,8 @@
                 touch-action: none;
             }
             body.loading > canvas {
-                width: 1920px !important;
-                height: 1080px !important;
+                width: 1280px !important;
+                height: 720px !important;
             }
         </style>
     </head>
@@ -30,6 +30,7 @@
         }
         </script>
         <script type="module">
+            window.devicePixelRatio = Math.min(2, window.devicePixelRatio)
             if (location.hostname.match(/orillusion/)) {
                 Promise.all([
                     fetch(location.search.slice(1)).then(r=>r.text()),

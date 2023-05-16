@@ -13,8 +13,17 @@ let cameraObj = new Object3D();
 let camera = cameraObj.addComponent(Camera3D);
 // Add the camera node to scene
 scene.addChild(cameraObj);
+
+// Create 3D view
+let view = new View3D();
+// Fill the scene to the 3D view
+view.scene = scene;
+// Fill the camera to the 3D view
+view.camera = camera;
+// Start rendering
+Engine3D.startRenderView(view);
 ```
-If there are multiple cameras in the scene, the first created camera component is the main camera by default. You can manually switch the main camera through `Camera3D.mainCamera`:
+If there are multiple cameras in the scene, you can manually switch the target camera through `view.camera`:
 ```ts
 // If multiple cameras exist in the scene
 let cameraObj1 = new Object3D();
@@ -22,8 +31,16 @@ let camera1 = cameraObj.addComponent(Camera3D);
 let cameraObj2 = new Object3D();
 let camera2 = cameraObj.addComponent(Camera3D);
 
-// Set/Switch the main camera of the scene
-Camera3D.mainCamera = camera2;
+// Create 3D view
+let view = new View3D();
+// Set the rendering scene
+view.scene = scene;
+// camera1 Set camera1
+view.camera = camera1;
+...
+// Switch to use camera2 for rendering
+view.camera = camera2;
+
 ```
 
 ## Camera Position
@@ -135,17 +152,16 @@ Also, you can modify `moveSpeed` to adjust the speed of movement
 |-----------|--------|-----------------------|---------|
 | moveSpeed | number | The speed of movement | 10      |
 
-### [HoverCameraC](/api/classes/HoverCameraController)
+### [HoverCamera](/api/classes/HoverCameraController)
 
 This camera controller implements the camera's movement in the `xz` plane and rotation around the current observation point. Its interaction features are:
   - Press the left mouse button and move the mouse to rotate the camera around the current observation target.
   - Press the right mouse button and move the mouse to move the camera smoothly in the direction and distance of the mouse movement in the current scene visible area.
   - Scroll the mouse wheel to control the camera's viewing distance
 
-  - <Demo :height="500" src="/demos/graphics/camera_hover.ts"></Demo>
+<Demo :height="500" src="/demos/graphics/camera_hover.ts"></Demo>
 
 <<< @/public/demos/graphics/camera_hover.ts
-
 
 Basic usage:
 ```ts
@@ -169,7 +185,7 @@ The hover camera can be controlled by [setCamera](/api/classes/HoverCameraContro
 | target    | Vecter3 | Target coordinate        | new Vector3(0,0,0) |
 
 
-### [OrbitCamera](/api/classes/OrbitController)
+### [Orbit](/api/classes/OrbitController)
 This camera controller is similar to the hover camera, but it can directly set the position and orientation of the camera `Object3D` to control the position and orientation of the view. The main features are as follows:
   - Press the left mouse button and move the mouse to rotate the camera around the current observation target.
   - Press the right mouse button and move the mouse to move the camera smoothly in the direction and distance of the mouse movement in the current scene visible area.
@@ -215,4 +231,4 @@ orbit.minPolarAngle = 90
 ```
 
 ### Custom Controller
-Users can extend additional camera components through [custom components](/guide/core/script), See [OrbitController](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/controller/OrbitController.ts) as an example.
+Users can extend additional camera components through [custom components](/guide/core/script), See [OrbitController](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts) as an example.

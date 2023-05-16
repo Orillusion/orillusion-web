@@ -3,7 +3,7 @@ In `Orillusion` engine, in order to write complex shader scripts (such as PBR ma
 This article will introduce some commonly used built-in shader scripts, such as variable, struct definition, function implementation, etc.
 
 ## Common Variables
-The initial data comes from the vertex stream `VertexAttributes`in the pipeline, the`Uniform` data defined in the constant register - `globalUniform`，, and some mathematical constants defined in the script header, such as `PI=3.14` , etc.
+The initial data comes from the vertex stream `VertexAttributes`in the pipeline, the `Uniform` data defined in the constant register - `globalUniform`，, and some mathematical constants defined in the script header, such as `PI=3.14` , etc.
 After parsing these data, we can get the following built-in variables:
 
 ### globalUniform
@@ -71,7 +71,7 @@ struct VertexOutput {
 var<private> ORI_VertexOut: VertexOutput ;
 ```
 ### ORI_VertexVarying
-This is the input data interpolated by weights from the vertex shader to the fragment shader. By comparing it with `VertexOutput` , it is easy to see that they correspond one-to-one, except for the`face` attribute.
+This is the input data interpolated by weights from the vertex shader to the fragment shader. By comparing it with `VertexOutput` , it is easy to see that they correspond one-to-one, except for the `face` attribute.
 ```wgsl
  struct FragmentVarying {
     @location(0) fragUV0: vec2<f32>,
@@ -139,7 +139,7 @@ var<private> ORI_ShadingInput: ShadingInput;
 ### ORI_FragmentOutput
 The ORI_FragmentOutput variable stores the result of fragment shading, and by default, only color data needs to be output in fragment shading.
 If there are some post-effects that need to be processed, more content needs to be output to the `GBuffer` for easy calculation. 
-Generally, the parameters that need to be involved in post-processing include world coordinates `worldPos`, normal vectors `worldNormal` , and some material information `material`(smoothness/roughness/whether to emit light, etc.).
+Generally, the parameters that need to be involved in post-processing include world coordinates `worldPos`, normal vectors `worldNormal` , and some material information `material` (smoothness/roughness/whether to emit light, etc.).
 
 ```wgsl
 struct FragmentOutput {

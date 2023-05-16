@@ -26,7 +26,7 @@ view.camera = this.camera;
 Engine3D.startRenderView(view);
 ```
 
-[Engine3D.setting.render.postProcessing.ssr](../../api/types/SSRSetting.md) Configuration parameters.
+[Engine3D.setting.render.postProcessing.ssr](../../api/types/SSRSetting.md) Configuration parameters:
 
 | Parameter | Type	 | Description |
 | --- | --- | --- |

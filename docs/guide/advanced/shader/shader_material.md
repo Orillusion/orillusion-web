@@ -56,4 +56,4 @@ Using macro definitions can optimize your shader code and allow the program to e
 renderShader.setDefine("USE_TANGENT", true);
 ```
 
-> More macro definition related content will be introduced in [着色器变体](./shader_variants.md) 
+> More macro definition related content will be introduced in [Shader Variants](./shader_variants.md) 

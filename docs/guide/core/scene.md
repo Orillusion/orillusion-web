@@ -12,54 +12,67 @@ Main functions of `Scene3D`:
 ## Basic Usage
 ```ts
 await Engine3D.init();
-// Specify the size of sky box
-Engine3D.setting.sky.defaultFar = 5000;
 // Create a scene
 let scene = new Scene3D();
 // Add one object node
 let obj = new Object3D();
 scene.addChild(obj);
 // Add a camera node
-let camera = new Object3D();
-camera.addComponent(Camera3D);
-scene.addChild(camera);
+let cameraObj = new Object3D();
+let camera = cameraObj.addComponent(Camera3D);
+scene.addChild(cameraObj);
 // Start render loop
-let renderJob = new ForwardRenderJob(this.scene);
-Engine3D.startRender(renderJob);
+let view = new View3D();
+view.scene = scene;
+view.camera = camera;
+Engine3D.startRenderView(view);
 // Remove the node
 scene.removeChild(obj);
 ```
 
-## Sky Box
-By default, the engine will create an [AtmosphericScatteringSky](/api/classes/AtmosphericScatteringSky) skybox, which can set the position of the sun and other parameters by `envMap`.
-
-
+## Atmospheric Sky Box
+You can use [AtmosphericComponent](/api/classes/AtmosphericComponent.md) component to set the atmospheric sky box of the scene.
+```ts
+// Add an Atmospheric Skybox, auto generate background and enviroment light
+let sky = scene3D.addComponent(AtmosphericComponent);
+```
+See the following example for details:
 <Demo src="/demos/core/scene.ts"></Demo>
 
-<<< @/public/demos/core/scene.ts{7-13}
+<<< @/public/demos/core/scene.ts
 
-The engine uses skybox textures as the scene's ambient light by default. The ambient light exposure can be adjusted by the `exposure` property of the `Scene3D` object.
+Use the `sunY`, `exposure` properties of the `AtmosphericComponent` component to adjust the change of ambient light.
 
 ```ts
-let scene = new Scene3D();
-// Adjust the ambient light exposure (the default value is 1) 
-scene.exposure = 1.5; 
+let sky = scene3D.addComponent(AtmosphericComponent);
+sky.sunY = 0.54 // The vertical position of the sun, you can adjust the ambient light brightness
+sky.exposure = 1.5; // Adjust the ambient light exposure, default value 1
 ```
 
-You can customize the skybox material by updating the `envMap` property of the `Scene3D` object.
-### 1. Solid Color Background
-A solid color background can be created by [SolidColorSky](/api/classes/SolidColorSky):
-```ts{5}
-import {Scene3D, SolidColorSky, Color} from '@orillusion/core';
+## Custom Sky Box
+If you want to customize the skybox material texture, you can add the `SkyRenderer` component to the `Scene3D` to display the custom background; at the same time, you can set the ambient light through the `envMap` property of the `Scene3D` object.
+
+
+### 1. Solid Color Background and Ambient Light
+A solid color background and ambient light can be created by [SolidColorSky](/api/classes/SolidColorSky):
+```ts
+import {Scene3D, SolidColorSky, Color, SkyRenderer} from '@orillusion/core';
 
 let scene = new Scene3D();
-// Set a solid color background
-scene.envMap = new SolidColorSky(new Color(0.5, 1.0, 0.8, 1));
+// Create a solid color map
+let colorSky = new SolidColorSky(new Color(0.5, 1.0, 0.8, 1))
+// Add SkyRenderer component, then set map texture
+let sky = scene.addComponent(SkyRenderer);
+sky.map = colorSky;
+
+// Set monochrome ambient light at the same time
+scene.envMap = colorSky;
 ```
 
 ### 2. Cross Sky Box
 You can set skybox by loading [cross texture cube](/guide/graphics/texture#cross-texture-cube):
 ```ts
+// Load an entire cube texture
 let textureCube = Engine3D.res.loadTextureCube('path/to/sky.png')
 // Or load 6 separate cube textures
 textureCube = Engine3D.res.loadTextureCube([
@@ -70,7 +83,11 @@ textureCube = Engine3D.res.loadTextureCube([
     'path/to/sky5.png',
     'path/to/sky6.png'
 ])
-// Set skybox
+// Add SkyRenderer component, then set map texture
+let sky = scene.addComponent(SkyRenderer);
+sky.map = textureCube;
+
+// Set ambient light
 scene.envMap = textureCube;
 ```
 > The cross skybox currently only supports `LDR` normal format images.
@@ -82,24 +99,39 @@ The engine also supports setting the [equirectangular](https://en.wikipedia.org/
 let skyTexture = Engine3D.res.loadLDRTextureCube('path/to/sky.png');
 // HDR equirectangular skybox
 skyTexture = Engine3D.res.loadHDRTextureCube('path/to/sky.hdr');
-// Set skybox
+
+// Add SkyRenderer component, then set map texture
+let sky = scene.addComponent(SkyRenderer);
+sky.map = skyTexture;
+
+// Set ambient light
 scene.envMap = skyTexture;
 ```
 
 ### 4. Transparent Background
-If you want to show a transparent background, you can call [hideSky](/api/classes/Scene3D#hidesky) to hide the skybox. Note that you also need to configure [Canvas](/guide/core/engine#config-canvas) transparent:
+If you want to display a transparent background, you can hide the background by turning off the skybox component. Note that you generally need to use a transparent [Canvas](/guide/core/engine#config-canvas) to take effect:
 
 ```ts
-// Initialize the engine, use transparent Canvas configuration
+// Initialize the engine
 await Engine3D.init({
     canvasConfig:{
-        alpha: true,
+        alpha: true, //use transparent Canvas configuration
         zIndex: 1
     }
 });
 let scene = new Scene3D();
-// Hide skybox
-scene.hideSky();
+
+// Add the atmospheric skybox first to get the basic ambient light
+let sky = scene3D.addComponent(AtmosphericComponent);
+// Then hide the atmospheric skybox, the ambient light will not disappear
+sky.enable = false
+```
+Of course, you can also not add an atmospheric skybox or background, and directly set the ambient light:
+```ts
+// Set a simple white ambient light
+scene.envMap = new SolidColorSky(new Color(0.75, 0.75, 0.75));
+// Or load the environment map
+scene.envMap = await Engine3D.res.loadHDRTextureCube('path/to/sky.hdr');
 ```
 
 

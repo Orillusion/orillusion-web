@@ -23,7 +23,7 @@ view.camera = this.camera;
 Engine3D.startRenderView(view);
 ```
 
-[Engine3D.setting.render.postProcessing.bloom](../../api/types/BloomSetting.md) 配置参数。
+[Engine3D.setting.render.postProcessing.bloom](../../api/types/BloomSetting.md) configuration parameters:
 
 | Parameter | Type | Description |
 | --- | --- | --- |

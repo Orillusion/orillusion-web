@@ -16,7 +16,6 @@ async function demo() {
     hc.setCamera(0, -15, 10, new Vector3(0, 1, 0))
 
     // 初始化环境图;
-    // scene.envMap = await Engine3D.res.loadHDRTextureCube('https://cdn.orillusion.com/hdri/1428_v5_low.hdr');
     {
         let ligthObj = new Object3D()
         let dl = ligthObj.addComponent(DirectLight)
@@ -42,7 +41,7 @@ async function demo() {
     GUIHelp.add({ Idle: () => soldierAnimation.play('Idle') }, 'Idle')
     GUIHelp.add({ Walk: () => soldierAnimation.play('Walk') }, 'Walk')
     GUIHelp.add({ Run: () => soldierAnimation.play('Run') }, 'Run')
-
+    // set skybox
     scene.addComponent(AtmosphericComponent).sunY = 0.6
 
     // create a view with target scene and camera
@@ -51,10 +50,6 @@ async function demo() {
     view.camera = mainCamera
     // start render
     Engine3D.startRenderView(view)
-
-    let postProcessing = scene.addComponent(PostProcessingComponent)
-    // postProcessing.addPost(FXAAPost);
-    postProcessing.addPost(HDRBloomPost)
 }
 
 demo()

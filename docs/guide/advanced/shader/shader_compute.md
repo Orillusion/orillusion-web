@@ -31,7 +31,7 @@ buffer3.apply();
 ```
 
 ### Usage of UniformGPUBuffer
-`UniformGPUBuffer` is an encapsulation object of `Uniform` type data buffer. This object has the same usage as`ComputeGPUBuffer` described above. It also accepts two parameters, the data size and an optional data source:
+`UniformGPUBuffer` is an encapsulation object of `Uniform` type data buffer. This object has the same usage as `ComputeGPUBuffer` described above. It also accepts two parameters, the data size and an optional data source:
 ```ts
 // Create a UniformGPUBuffer data object with a size of 32 float32
 var buffer = new UniformGPUBuffer(32);
@@ -52,7 +52,7 @@ buffer3.apply();
 ```
 
 ### Usage of StorageGPUBuffer
-`StorageGPUBuffer` is an encapsulation object of `Storage` type data buffer. Its usage is the same as that of`ComputeGPUBuffer`and`UniformGPUBuffer`, and is not described here.
+`StorageGPUBuffer` is an encapsulation object of `Storage` type data buffer. Its usage is the same as that of `ComputeGPUBuffer` and `UniformGPUBuffer`, and is not described here.
 
 ### Usage of StructStorageGPUBuffer
 `StructStorageGPUBuffer` is an encapsulation object of `Storage` data buffer based on structure. This object accepts two parameters, the structure type and the number of structure objects:
@@ -118,7 +118,7 @@ We will not go into too much detail about the basic syntax of WGSL here. For mor
 
 After the `ComputeShader` object is created, we need to associate it with the relevant data it uses, which are various `GPU Buffer` and `Texture` used in the code above(`args`，`colorMap`，`resultTex`)。
 
-`args` is of the `uniform` data type and is used to store configuration information, so we create a`UniformGPUBuffer` object to manage the data:
+`args` is of the `uniform` data type and is used to store configuration information, so we create a `UniformGPUBuffer` object to manage the data:
 ```ts
 this.mGaussianBlurArgs = new UniformGPUBuffer(28);
 this.mGaussianBlurArgs.setFloat('radius', 2);
@@ -130,7 +130,7 @@ After `args` data is prepared, we also need to associate it with the `ComputeSha
 this.mGaussianBlurShader.setUniformBuffer('args', this.mGaussianBlurArgs);
 ```
 
-`colorMap` is the original texture to be blurred. Here we associate the engine's full-screen `colorMap` with the`ComputeShader` object:
+`colorMap` is the original texture to be blurred. Here we associate the engine's full-screen `colorMap` with the `ComputeShader` object:
 ```ts
 this.autoSetColorTexture('colorMap', this.mGaussianBlurShader);
 ```
@@ -158,8 +158,8 @@ this.mRTFrame = new RTFrame([
 this.mGaussianBlurShader.setStorageTexture(`resultTex`, this.mBlurResultTexture);
 ```
 
-At this point, the initialization of the`ComputeShader`, and the creation and the association of relevant `GPU Buffer` and `Texture` have been completed. Next, we need to execute the `ComputeShader`. Before executing, we need to set the number of workgroups according to the requirements, which are the parameters `workerSizeX`,
-`workerSizeY`,and`workerSizeZ`:
+At this point, the initialization of the `ComputeShader`, and the creation and the association of relevant `GPU Buffer` and `Texture` have been completed. Next, we need to execute the `ComputeShader`. Before executing, we need to set the number of workgroups according to the requirements, which are the parameters `workerSizeX`,
+`workerSizeY`,and `workerSizeZ`:
 ```ts
 this.mGaussianBlurShader.workerSizeX = Math.ceil(this.mBlurResultTexture.width / 8);
 this.mGaussianBlurShader.workerSizeY = Math.ceil(this.mBlurResultTexture.height / 8);
@@ -169,8 +169,8 @@ this.mGaussianBlurShader.workerSizeZ = 1; // default is 1, can be omitted here
 The parameters `workerSizeX`,`workerSizeY`, and`workerSizeZ` represent the number of workgroups dispatched for computation, as shown in the figure:
 ![Working Group](/images/working_group.avif)
 
-Each red cube represents a workgroup, which is defined by the built-in field`@workgroup_size(x,y,z)`  in WGSL. The default values of`x,y,z`are `1`. For example, the workgroup of the red cube in the figure can be represented by  `@workgroup_size(4,4,4)` .
-In WGSL, the built-in variable `global_invocation_id` represents the global dispatch number, and`local_invocation_id` represents the local dispatch number of the workgroup. The global and local numbers of points a, b, and c in the figure are as follows:
+Each red cube represents a workgroup, which is defined by the built-in field `@workgroup_size(x,y,z)`  in WGSL. The default values of `x,y,z` are `1`. For example, the workgroup of the red cube in the figure can be represented by `@workgroup_size(4,4,4)`.
+In WGSL, the built-in variable `global_invocation_id` represents the global dispatch number, and `local_invocation_id` represents the local dispatch number of the workgroup. The global and local numbers of points a, b, and c in the figure are as follows:
 | Position | Local ID | Global ID |
 | :---: | :---: | :---: |
 | a | 0,0,0 | 0,0,0 |
@@ -178,13 +178,13 @@ In WGSL, the built-in variable `global_invocation_id` represents the global disp
 | c | 1,1,0 | 5,5,0 |
 
 
-Finally, execute the`ComputeShader`by entering the dispatch command:
+Finally, execute the `ComputeShader` by entering the dispatch command:
 ```ts
 GPUContext.computeCommand(command, [this.mGaussianBlurShader]);
 ```
 
 ## Summary
-In this section, we introduced how to use`Compute Shader`in the engine using an example of Gaussian blur. We explained how to create various `GPU Buffer`objects used by `ComputeShader`, how to assign values to`GPU Buffer`objects, and how to set parameters for`ComputeShader`dispatch. For more`ComputeShader`related examples, please refer to:
+In this section, we introduced how to use `Compute Shader` in the engine using an example of Gaussian blur. We explained how to create various `GPU Buffer` objects used by `ComputeShader`, how to assign values to `GPU Buffer`objects, and how to set parameters for `ComputeShader` dispatch. For more `ComputeShader` related examples, please refer to:
 
 <Demo :height="500" src="/demos/compute/gaussianBlur.ts"></Demo>
 

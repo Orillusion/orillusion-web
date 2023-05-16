@@ -143,7 +143,6 @@ let hdrTextureCube = await Engine3D.res.loadHDRTextureCube('path/to/sky.hdr');
 
 ## Texture Settings
 
-### 1. 纹理重复
 ### 1. Texture Repeat
 
 The default range of texture sampling is `[0,1]`, that is, the texture is tiled to the entire plane. We can manually change the coordinate range of texture repetition by setting the [uvTransform_1](/api/classes/LitMaterial#uvtransform-1) property of the [material](/guide/graphics/materials):
