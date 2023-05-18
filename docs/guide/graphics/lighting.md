@@ -24,7 +24,7 @@ There are currently three types of classic light sources built into the engine:
 | direction  | Vector3 | Read-only property, get the direction vector of the parallel light |
 | castShadow | Boolean | Whether to enable projection, the default `false` is disabled      |
 
-Normally, the `rotation` of the `Object3D`, where the `direct light` is located is used to control the direction of the light.
+Normally, the `rotation` of the `Object3D`, where the `direct light` is located, is used to control the direction of the light.
 
 ```ts
 let lightObj = new Object3D();
