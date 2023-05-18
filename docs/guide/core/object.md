@@ -19,11 +19,11 @@ obj.transform.enable = false; //Hide the node and all child nodes
 
 ## Add and Remove a Node
 
-To add a child node, you can use [addChild](/api/classes/Object3D#addchild) method
-To delete a child node, you can use [removeChild](/api/classes/Object3D#removeChild) method
-To remove a child node at a specific position, you can use [removeChildByIndex](/api/classes/Object3D#removeChildByIndex) method
-To remove this from the parent, you can use [removeFromParent](/api/classes/Object3D#removeFromParent) method
-To remove all child nodes, you can use [removeAllChild](/api/classes/Object3D#removeAllChild) method
+To add a child node, you can use [addChild](/api/classes/Object3D#addchild) method.
+To delete a child node, you can use [removeChild](/api/classes/Object3D#removeChild) method.
+To remove a child node at a specific position, you can use [removeChildByIndex](/api/classes/Object3D#removeChildByIndex) method.
+To remove this from the parent, you can use [removeFromParent](/api/classes/Object3D#removeFromParent) method.
+To remove all child nodes, you can use [removeAllChild](/api/classes/Object3D#removeAllChild) method.
 
 ```ts
 let parent = new Object3D();
@@ -76,8 +76,8 @@ obj.addComponent(CustomComponent);
 ```
 
 ## Get Child Node
-Using [getChildByIndex](/api/classes/Object3D#getChildByIndex) method, you can get the child node by the order of the child node hierarchy
-Using [getChildByName](/api/classes/Object3D#getChildByName) method, you can get the child node by the name of the child node
+Using [getChildByIndex](/api/classes/Object3D#getChildByIndex) method, you can get the child node by the order of the child node hierarchy.
+Using [getChildByName](/api/classes/Object3D#getChildByName) method, you can get the child node by the name of the child node.
 
 ## Traverse all child nodes
 Using [forChild](/api/classes/Object3D#forChild) method, you can traverse all child nodes under the current node, including the child nodes of the child nodes, and complete the specific operation through the callback function.

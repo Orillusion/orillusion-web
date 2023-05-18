@@ -1,5 +1,5 @@
 # Entity and Component
-The core of 'Orillusion' is inspired by the [ECS](https://wikipedia.org/wiki/Entity_component_system) structure, and follows the principle of 'Composition over inheritance'. Implemented own component system. We divide the traditional complex logic into independent and reusable parts. Each part can be encapsulated and run independently. Then, by flexible combination, multiple simple components are combined to perform complex functions and logic.
+The core of `Orillusion` is inspired by the [ECS](https://wikipedia.org/wiki/Entity_component_system) structure, and follows the principle of `Composition over inheritance`. Implemented own component system. We divide the traditional complex logic into independent and reusable parts. Each part can be encapsulated and run independently. Then, by flexible combination, multiple simple components are combined to perform complex functions and logic.
 
 ![ECS](/images/component.svg)
 

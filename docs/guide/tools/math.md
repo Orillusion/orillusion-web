@@ -349,7 +349,7 @@ let scale = m1.scale;
 
 ```
 
-## Flat
+## Plane
 ```ts
 import { Plane, Vector3, Ray } from '@orillusion/core';
 

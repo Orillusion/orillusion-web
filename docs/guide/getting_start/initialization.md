@@ -1,5 +1,5 @@
 # Initialization
-## Create instances of Engine3D 
+## Create Instances of Engine3D 
 Before using the engine, it must be initialized by the `Engine3D.init()` method, and the engine will automatically create an `Engine3D` instance for following operations
 ```ts
 import { Engine3D } from '@orillusion/core';
@@ -20,7 +20,7 @@ async function demo(){
 demo()
 ```
 
-## Create Canvas manually
+## Create Canvas Manually
 By default, the `Engine3D.init()` instance automatically generates a `canvas` canvas with the screen size (width and height). If you do not want to use the canvas automatically created by the engine, you can also create the canvas manually.
 For example, the user can insert a `<canvas>` label into the HTML and specify an id:
 ```html

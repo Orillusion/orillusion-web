@@ -89,7 +89,7 @@ mat.baseColor = new Color(1, 0, 0, 0.5);
 See more about [BlendMode](/api/enums/BlendMode.html)
 
 ### Switching Cull Mode
-In order to save GPU performance, Orillusion uses the `back` culling mode by default, that is, only the front face material of the object is rendered. Set the material [cullMode](/api/classes/LitMaterial#cullMode) property to switch the display mode.
+In order to save `GPU` performance, `Orillusion` uses the `back` culling mode by default, that is, only the front face material of the object is rendered. Set the material [cullMode](/api/classes/LitMaterial#cullMode) property to switch the display mode.
 ```ts
 let mat = new LitMaterial();
 mat.cullMode = GPUCullMode.none; // Do not cull, display both sides
