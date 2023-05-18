@@ -1,5 +1,5 @@
 # Overview of Physics
-The physics system is a simulation of the real world, allowing the modeled objects in the scene to behave like physical objects with mass, respond correctly to gravity and various collisions, just like in the real environment. The engine provides physics engine support （based on[ammo.js](https://github.com/kripken/ammo.js)）in the form of plugins and encapsulates commonly used components to help users simulate the physical system in their projects.
+The physics system is a simulation of the real world, allowing the modeled objects in the scene to behave like physical objects with mass, respond correctly to gravity and various collisions, just like in the real environment. The engine provides physics engine support （based on [ammo.js](https://github.com/kripken/ammo.js)）in the form of plugins and encapsulates commonly used components to help users simulate the physical system in their projects.
 
 ## Installation
 Similar to installation of engine, we can introduce the physics plugin in two ways through `NPM` and `CDN` links:

@@ -1,9 +1,9 @@
 # Code Inclusion
 When writing shader code, we often encounter situations like these:
  - Frequent parsing of `normalMap` to obtain normal vectors provided by the texture.
- - The need to define a struct in one place and use it in another.
- - A specific group of textures and corresponding samplers that need to be defined repeatedly.
- - A specific set of GPU buffers that are repeatedly bound by some related passes.
+ - The need to define a `struct` in one place and use it in another.
+ - A specific group of `textures` and corresponding `samplers` that need to be defined repeatedly.
+ - A specific set of `GPU buffers` that are repeatedly bound by some related `passes`.
 
 
 In the past, we would copy the same code snippet to wherever it was needed. This meant that if the code logic needed to be adjusted, we had to make the same adjustments everywhere it was used. 
