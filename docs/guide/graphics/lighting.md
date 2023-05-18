@@ -59,7 +59,7 @@ life. The point light has the following main attributes:
 |------------|--------|-----------------------------------------------------------------|
 | lightColor | Color  | The color of the light, the default is white `rgb(1.0,1.0,1.0)` |
 | intensity  | Number | The intensity of the light, the default value is `1`            |
-| range      | Number | The farthest distance of the light, the default value is `10`   |
+| range      | Number | The farthest distance of the light   |
 
 ```ts
 let pointLightObj = new Object3D();
@@ -91,7 +91,7 @@ main features:
 | lightColor | Color   | The color of the light, the default is white `rgb(1.0,1.0,1.0)`                                                               |
 | intensity  | Number  | The intensity of the light, the default value is `1`                                                                          |
 | direction  | Vector3 | Read-only property, get the direction vector of the spotlight                                                                 |
-| range      | Number  | The farthest distance of the light, the default value is `10`                                                                 |
+| range      | Number  | The farthest distance of the light                                                                 |
 | innerAngle | Number  | The inner angle of the spotlight, the light has light in the range of less than this angle                                    |
 | outerAngle | Number  | The outer angle of the spotlight, the light will gradually decrease to 0 in the range from the inner angle to the outer angle |
 
