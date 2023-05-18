@@ -199,7 +199,7 @@ Generally speaking, the `linear` mode has a smoother pixel edge, which is suitab
 <<< @/public/demos/texture/texture_filter.ts
 
 ### 3. Mipmap
-In 3D world, different objects and cameras have different distances, the corresponding texture can be large or small. If the same resolution texture is used, for distant objects, a small part of the pixel color needs to be picked up from the high resolution original image, which not only wastes GPU performance, but also causes a sense of unreality or a large number of moire patterns due to pixel distortion.  
+In 3D world, different objects and cameras have different distances, the corresponding texture can be large or small. If the same resolution texture is used, for distant objects, a small part of the pixel color needs to be picked up from the high resolution original image, which not only wastes GPU performance, but also causes a sense of unreality or a large number of `moire patterns` due to pixel distortion.  
 `Orillusion` uses the concept of `mipmap` to solve this problem. Simply put, it is a high resolution graphic that is automatically scaled into a series of different resolution textures. According to the distance between the texture and the observer, different resolution textures are used. Distant objects use low resolution textures, which are more natural in resolution, and can also effectively save GPU performance.
 
 We can enable or disable it through `useMipmap`, which is enabled by default:
