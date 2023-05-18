@@ -19,11 +19,11 @@ Or you can import the entire module:
 import * as Orillusion from '@orillusion/core'
 ```
 
-## Import via `CDN` links
+## Import Via `CDN` Links
 We support quick access to the `orillusion` engine directly through a `CDN` link with the `<script>` tag. Here is an example of using `@orillusion/core` link.
 > Users can use third-party `NPM` distribution services to load various versions of `orillusion` files, such as [unpkg](https://unpkg.com/@orillusion/core) or [jsdelivr](https://www.jsdelivr.com/package/npm/@orillusion/core). For local development, users can download the corresponding version of `js` file.
 
-### 1. Using global build 
+### 1. Using Global Build 
 ```html
 <!- Use the latest published version ->
 <script src="https://cdn.orillusion.com/orillusion.umd.js"></script>
@@ -37,7 +37,7 @@ The page globally loads `<script>`, and a global variable (named `Orillusion`) i
 </script>
 ```
 
-### 2. Using the ESModule build
+### 2. Using the ESModule Build
 We recommend using [ESModule](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Modules) for development. Most browsers already support the native `ES` module, and users can directly import the `orillusion.es.js` build that complies with `ESNext` for rapid development.
 
 ```html

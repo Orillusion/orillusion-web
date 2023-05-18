@@ -55,7 +55,7 @@ animator.play(clips[0].name);
 ```
 
 ## Adjust Playback Speed
-`play` method plays the specified animation at the default normal speed `(1.0)`, if you need to accelerate the playback, set the parameter `speed`, the larger the number, the faster the playback speed, the smaller the number, the slower the playback speed, when the value is negative, it will be reversed.
+`Play` method plays the specified animation at the default normal speed `(1.0)`, if you need to accelerate the playback, set the parameter `speed`, the larger the number, the faster the playback speed, the smaller the number, the slower the playback speed, when the value is negative, it will be reversed.
 ```ts
 // Normal speed
 animator.play('Walk', 1);

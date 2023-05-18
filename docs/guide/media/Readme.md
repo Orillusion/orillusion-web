@@ -15,7 +15,7 @@ import { Engine3D } from "@orillusion/core"
 import { Physics } from "@orillusion/media-extention"
 ```
 
-## 2. Import via `CDN` links
+## 2. Import via `CDN` Links
 We recommend using the `ESModule` build version:
 ```html
 <script type="module">

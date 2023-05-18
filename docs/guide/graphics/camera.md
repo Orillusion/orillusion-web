@@ -57,7 +57,7 @@ cameraObj.rotateX = 90;
 ...
 ```
 
-2. By 'lookAt' function of the component: The [lookAt](/api/classes/Camera3D#lookat) function of the camera component can set the position of the camera `Object3D` and the position of the target to be observed at the same time:
+2. By `lookAt` function of the component: The [lookAt](/api/classes/Camera3D#lookat) function of the camera component can set the position of the camera `Object3D` and the position of the target to be observed at the same time:
 
 ```ts
 // Create a node

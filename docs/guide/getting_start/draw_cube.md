@@ -6,7 +6,7 @@ In this section, we will take a quick look at the using steps of the engine thro
 
 <<< @/public/demos/getting_start/cube.ts
 
-## Import modules
+## Import Modules
 
 First, we need to import the corresponding modules:
 
@@ -42,13 +42,13 @@ import {
 | HoverCameraController | HoverCamera component allows to control camera movement around the observation point                                                                    |
 | AtmosphericComponent  | The built-in skybox component                                                                                                                           |
 
-## Initialize the engine
+## Initialize the Engine
 
 ```ts
 await Engine3D.init();
 ```
 
-## Create new scene root-node
+## Create New Scene Root-node
 
 ```ts
 let scene3D = new Scene3D();
@@ -59,7 +59,7 @@ let scene3D = new Scene3D();
 // Add atmospheric scattering skybox component
 let sky = scene3D.addComponent(AtmosphericComponent);
 ```
-## Add camera controller component
+## Add Camera Controller Component
 
 ```ts
 // Create a camera object
@@ -74,7 +74,7 @@ controller.setCamera(0, 0, 15);
 scene3D.addChild(cameraObj);
 ```
 
-## Add light to scene
+## Add Light to Scene
 
 ```ts
 // Create a light object
@@ -89,7 +89,7 @@ component.intensity = 2;
 scene3D.addChild(light);
 ```
 
-## Create a new object and Add MeshRenderer
+## Create a New Object and Add MeshRenderer
 
 After adding the MeshRenderer to the object, we need to attach the geometry and materials to the object's MeshRenderer.
 
@@ -104,13 +104,13 @@ mr.geometry = new BoxGeometry(5, 5, 5);
 mr.material = new LitMaterial();
 ```
 
-## Add object to scene
+## Add Object to Scene
 
 ```ts
 scene3D.addChild(obj);
 ```
 
-## Render scene
+## Render Scene
 
 ```ts
 // Create View3D object

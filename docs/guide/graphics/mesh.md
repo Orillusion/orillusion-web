@@ -1,7 +1,7 @@
 # Mesh
-`mesh` describes the geometric information `(geometry)` and material information `(material)` of the model. If you want to use an `Object3D` object to display a 3D model, then it must add the [MeshRenderer](/api/classes/MeshRenderer) component, which mainly contains two properties:
-1. `geometry` object, which determines the specific geometry of the object, including `vertex position`, `topology`, `UV`, etc.;
-2. `material` object, which determines the material ball style of the object, including `texture`, `color`, `transparency`, etc.
+`Mesh` describes the geometric information `(geometry)` and material information `(material)` of the model. If you want to use an `Object3D` object to display a 3D model, then it must add the [MeshRenderer](/api/classes/MeshRenderer) component, which mainly contains two properties:
+1. `Geometry` object, which determines the specific geometry of the object, including `vertex position`, `topology`, `UV`, etc.;
+2. `Material` object, which determines the material ball style of the object, including `texture`, `color`, `transparency`, etc.
 
 `Orillusion` has several built-in geometry types, which can be used to create different types of `mesh`:
 ## Rectangular Cuboid

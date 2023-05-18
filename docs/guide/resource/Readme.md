@@ -12,7 +12,7 @@ let glb = await Engine3D.res.loadGltf('path/to/model.glb');
 ```
 
 ## Download Progress Callback
-`res` supports a download progress callback, which can be configured with [LoaderFunctions](/api/types/LoaderFunctions) to listen for file loading events callbacks, commonly used for UI loading progress prompts:
+`Res` supports a download progress callback, which can be configured with [LoaderFunctions](/api/types/LoaderFunctions) to listen for file loading events callbacks, commonly used for UI loading progress prompts:
 ```ts
 
 let parser = await Engine3D.res.loadGltf('/sample.gltf',{
