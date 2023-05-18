@@ -1502,7 +1502,7 @@ interface GPUAdapterInfo {
      以下步骤：
 
      1. 让 |adapterInfo| 成为一个新的 {{GPUAdapterInfo}}。
-     1. 让 |unmaskedValues| 成为 |adapter|。{{适配器/[[unmaskedIdentifiers]]}}
+     1. 让 |unmaskedValues| 成为 |adapter|.{{适配器/[[unmaskedIdentifiers]]}}
      1. 如果 |unmaskedValues| [=set/contains=] `"vendor"` 并且供应商是已知的：
          1. 将 |adapterInfo|.{{GPUAdapterInfo/vendor}} 设置为 |adapter| 供应商的名称作为 [=规范化标识符字符串=]。
 
@@ -3438,7 +3438,7 @@ namespace GPUTextureUsage {
 
     : <dfn>RENDER_ATTACHMENT</dfn>
     ::
-        纹理可以用作渲染过程中的颜色或深度/模板附件。 （示例：作为 {{GPURenderPassColorAttachment}}。{{GPURenderPassColorAttachment/view}} 或 {{GPURenderPassDepthStencilAttachment}}。{{GPURenderPassDepthStencilAttachment/view}}。）
+        纹理可以用作渲染过程中的颜色或深度/模板附件。 （示例：作为 {{GPURenderPassColorAttachment}}.{{GPURenderPassColorAttachment/view}} 或 {{GPURenderPassDepthStencilAttachment}}.{{GPURenderPassDepthStencilAttachment/view}}。）
 </dl>
 
 <div algorithm>
@@ -5077,7 +5077,7 @@ A {{GPUBindGroupLayout}} 对象具有以下内部插槽：
 
                 [=Content timeline=] steps:
 
-                1. 对于每个 {{GPUBindGroupLayoutEntry}} 在 |descriptor| 中的 |entry|。{{GPUBindGroupLayoutDescriptor/entries}}:
+                1. 对于每个 {{GPUBindGroupLayoutEntry}} 在 |descriptor| 中的 |entry|.{{GPUBindGroupLayoutDescriptor/entries}}:
                     1. 如果 |entry|.{{GPUBindGroupLayoutEntry/storageTexture}} 为 [=map/exist|provided=]:
                         1. 验证所需特性的纹理格式对于 |entry|.{{GPUBindGroupLayoutEntry/storageTexture}}.{{GPUStorageTextureBindingLayout/format}} 与 |this|.{{GPUObjectBase/[[device]]}}。
                 1. 让 |layout| 是一个新的 {{GPUBindGroupLayout}} 对象。
@@ -5503,7 +5503,7 @@ dictionary GPUPipelineLayoutDescriptor
 
                     <div class=validusage>
                         - 每个 |descriptor|.{{GPUPipelineLayoutDescriptor/bindGroupLayouts}} 中的 {{GPUBindGroupLayout}} 必须与 |this| 一起[$valid to use with$]，并且 {{GPUBindGroupLayout/[[exclusivePipeline]]}} 为 null。
-                        - |descriptor|.{{GPUPipelineLayoutDescriptor/bindGroupLayouts}} 的[=list/size=] 必须 ≤ |limits|。{{supported limits/maxBindGroups}}。
+                        - |descriptor|.{{GPUPipelineLayoutDescriptor/bindGroupLayouts}} 的[=list/size=] 必须 ≤ |limits|.{{supported limits/maxBindGroups}}。
                         - |allEntries| 一定不能超过 |limits| 的绑定槽数量限制。
                     </div>
 
@@ -6737,15 +6737,15 @@ dictionary GPURenderPipelineDescriptor
             <div data-timeline=device>
                 [=设备时间线=] |initialization steps|:
 
-                1. 如果 |descriptor|。{{GPUPipelineDescriptorBase/layout}} 是 {{GPUAutoLayoutMode/“auto”}}，则让 |layout| 成为 |pipeline| 的一个新的[$默认管道布局$]，否则为 |descriptor|.{{GPUPipelineDescriptorBase/layout}}。
+                1. 如果 |descriptor|.{{GPUPipelineDescriptorBase/layout}} 是 {{GPUAutoLayoutMode/“auto”}}，则让 |layout| 成为 |pipeline| 的一个新的[$默认管道布局$]，否则为 |descriptor|.{{GPUPipelineDescriptorBase/layout}}。
                 1. 如果任何以下条件不满足： [$产生一个验证错误$]，使 |pipeline| [=无效=]，并停止。
 
                     <div class=validusage>
                         - |layout| 可以与 |this| 一起[$有效使用$]。
                         - [$验证GPURenderPipelineDescriptor$](|descriptor|, |layout|, |this|)成功。
                         - |layout|.{{GPUPipelineLayout/[[bindGroupLayouts]]}}.length + |vertexBufferCount| ≤
-                            |this|.{{GPUObjectBase/[[device]]}}。{{设备/[[限制]]}}。{{支持的限制/maxBindGroupsPlusVertexBuffers}}，
-                            其中 |vertexBufferCount| 是 |descriptor|。{{GPURenderPipelineDescriptor/vertex}}。{{GPUVertexState/buffers}}中值为 `未定义` 的最大索引。
+                            |this|.{{GPUObjectBase/[[device]]}}.{{设备/[[限制]]}}.{{支持的限制/maxBindGroupsPlusVertexBuffers}}，
+                            其中 |vertexBufferCount| 是 |descriptor|.{{GPURenderPipelineDescriptor/vertex}}.{{GPUVertexState/buffers}}中值为 `未定义` 的最大索引。
                     </div>
 
                 1. 将|descriptor|设置为|pipeline|.{{GPURenderPipeline/[[descriptor]]}}。
@@ -9247,7 +9247,7 @@ dictionary GPUComputePassDescriptor
                     <div class=validusage>
                         - |pipeline| 与此一起使用 [$是有效的$] 。
                     </div>
-                1. 设置 |this|。{{GPUComputePassEncoder/[[pipeline]]}} 为 |管道|。
+                1. 设置 |this|.{{GPUComputePassEncoder/[[pipeline]]}} 为 |管道|。
             </div>
         </div>
 
