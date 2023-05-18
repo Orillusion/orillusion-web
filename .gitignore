@@ -6,7 +6,6 @@ docs/.vitepress/cache
 # Node modules
 node_modules/
 package-lock.json
-pnpm-lock.yaml
 yarn.lock
 
 # MacOS Desktop Services Store

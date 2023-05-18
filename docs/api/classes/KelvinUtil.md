@@ -1,6 +1,6 @@
 # Class: KelvinUtil
 
-色温颜色转换器
+Temperature Color Converter
 
 
 ### Methods
@@ -20,13 +20,13 @@
 
 ▸ `Static` **color_temperature_to_rgb**(`color_temperature_Kelvin`): [`Color`](Color.md)
 
-将色温转换为颜色对象
+Convert color temperature to color object
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `color_temperature_Kelvin` | `number` | 色温值 |
+| `color_temperature_Kelvin` | `number` | Color temperature value |
 
 #### Returns
 
@@ -34,7 +34,7 @@
 
 #### Defined in
 
-[src/engine/util/KelvinUtil.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/KelvinUtil.ts#L13)
+[src/util/KelvinUtil.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/util/KelvinUtil.ts#L13)
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 ▸ `Static` **get_red**(`temperature`): `number`
 
-颜色的红色分量。
+Return red component [0-255]
 
 #### Parameters
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[src/engine/util/KelvinUtil.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/KelvinUtil.ts#L32)
+[src/util/KelvinUtil.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/util/KelvinUtil.ts#L32)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 ▸ `Static` **get_green**(`temperature`): `number`
 
-颜色的绿色分量。
+Return green component [0-255]
 
 #### Parameters
 
@@ -78,7 +78,7 @@ ___
 
 #### Defined in
 
-[src/engine/util/KelvinUtil.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/KelvinUtil.ts#L42)
+[src/util/KelvinUtil.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/util/KelvinUtil.ts#L42)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 ▸ `Static` **get_blue**(`temperature`): `number`
 
-颜色的蓝色分量。
+Return blue component [0-255]
 
 #### Parameters
 
@@ -100,7 +100,7 @@ ___
 
 #### Defined in
 
-[src/engine/util/KelvinUtil.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/engine/util/KelvinUtil.ts#L56)
+[src/util/KelvinUtil.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/util/KelvinUtil.ts#L56)
 
 ## Constructors
 

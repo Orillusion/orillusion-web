@@ -36,7 +36,7 @@
 
 #### Defined in
 
-[src/engine/loader/parser/tileRenderer/TileSet.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/tileRenderer/TileSet.ts#L2)
+[src/loader/parser/tileRenderer/TileSet.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L2)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[src/engine/loader/parser/tileRenderer/TileSet.ts:3](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/tileRenderer/TileSet.ts#L3)
+[src/loader/parser/tileRenderer/TileSet.ts:3](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L3)
 
 ___
 
@@ -62,7 +62,7 @@ ___
 
 #### Defined in
 
-[src/engine/loader/parser/tileRenderer/TileSet.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/tileRenderer/TileSet.ts#L4)
+[src/loader/parser/tileRenderer/TileSet.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L4)
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[src/engine/loader/parser/tileRenderer/TileSet.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/tileRenderer/TileSet.ts#L5)
+[src/loader/parser/tileRenderer/TileSet.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L5)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[src/engine/loader/parser/tileRenderer/TileSet.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/tileRenderer/TileSet.ts#L6)
+[src/loader/parser/tileRenderer/TileSet.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L6)
 
 ___
 
@@ -92,4 +92,4 @@ ___
 
 #### Defined in
 
-[src/engine/loader/parser/tileRenderer/TileSet.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/engine/loader/parser/tileRenderer/TileSet.ts#L7)
+[src/loader/parser/tileRenderer/TileSet.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L7)

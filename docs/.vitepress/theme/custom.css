@@ -2,41 +2,41 @@
     --vp-layout-max-width: 1920px;
     /* scroll-behavior: smooth; */
 }
-.content-container{
+.content-container {
     width: 90%;
     max-width: 1440px !important;
 }
 
-@media (max-width: 600px){
-    .content-container{
+@media (max-width: 600px) {
+    .content-container {
         width: 100%;
     }
 }
-@media (min-width: 1440px) and (max-width: 1919px){
-    .VPSidebar{
+@media (min-width: 1440px) and (max-width: 1919px) {
+    .VPSidebar {
         padding-left: 32px !important;
         width: auto !important;
     }
-    .VPContent.has-sidebar{
+    .VPContent.has-sidebar {
         padding-left: var(--vp-sidebar-width) !important;
         padding-right: none !important;
     }
-    .VPNavBar.has-sidebar > .container > .content{
+    .VPNavBar.has-sidebar > .container > .content {
         padding-left: var(--vp-sidebar-width) !important;
         padding-right: 32px !important;
     }
-    .VPNavBar.has-sidebar .curtain{
+    .VPNavBar.has-sidebar .curtain {
         width: calc(100% - var(--vp-sidebar-width) - 32px) !important;
     }
-    .VPNavBar.has-sidebar > .container > .title{
+    .VPNavBar.has-sidebar > .container > .title {
         width: var(--vp-sidebar-width) !important;
     }
 }
-.heroDemos{
+.heroDemos {
     padding: 0 24px;
     margin-top: 48px;
 }
-.heroDemos > .container{
+.heroDemos > .container {
     margin: 0 auto;
     max-width: 1152px;
     display: flex;
@@ -44,59 +44,61 @@
     gap: 2em;
 }
 @media (min-width: 640px) {
-    .heroDemos{
+    .heroDemos {
         padding: 0 48px;
     }
 }
 @media (min-width: 960px) {
-    .heroDemos{
+    .heroDemos {
         padding: 0 64px;
     }
 }
-.heroDemos .demo{
+.heroDemos .demo {
     width: calc(50% - 1em);
 }
 /* .heroDemos .demo+.demo{
     margin-left: 16px;
 } */
-.heroDemos .demo > iframe{
+.heroDemos .demo > iframe {
     border-radius: 0;
 }
 @media (max-width: 499px) {
-    .heroDemos .demo{
+    .heroDemos .demo {
         width: 100%;
     }
-    .heroDemos .demo+.demo{
+    .heroDemos .demo + .demo {
         margin-left: 0;
     }
 }
-.VPHome{
+.VPHome {
     padding-bottom: 36px !important;
 }
-.vp-doc p{
+.vp-doc p {
     text-align: justify;
 }
-.vp-doc table{
+.vp-doc table {
     width: 100%;
     display: table;
     table-layout: auto;
 }
-thead, tbody{
+thead,
+tbody {
     width: 100%;
 }
-tr{
+tr {
     width: 100%;
 }
-td,th{
+td,
+th {
     max-width: 50%;
     overflow: auto;
     word-break: normal;
 }
-td > code{
+td > code {
     word-break: normal;
 }
 
-#type-alias-engineconfig ~ table{
+#type-alias-engineconfig ~ table {
     table-layout: fixed;
 }
 
@@ -107,16 +109,28 @@ td > code{
     flex-wrap: wrap;
     column-gap: 2em;
 }
-#orillusion-core ~ ul > li{
+#orillusion-core ~ ul > li {
     width: calc(33% - 2em);
     display: flex;
     margin-top: 8px;
 }
-#orillusion-core ~ ul > li > a{
+#orillusion-core ~ ul > li > a {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-.aside-curtain{
+.aside-curtain {
     display: none;
+}
+
+.VPNavBar .VPNavBarTranslations svg.option-icon{
+   margin-right: 2.5em;
+}
+.VPNavBar .VPNavBarTranslations > .button > .text::after{
+    content: '中文';
+    position: absolute;
+    left: 3.5em
+}
+.VPNavBar .VPLink > svg{
+    pointer-events: none;
 }

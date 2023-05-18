@@ -11,10 +11,15 @@ Engine3D.setting.render.postProcessing.depthOfView.near = 150;
 Engine3D.setting.render.postProcessing.depthOfView.far = 300;
 Engine3D.setting.render.postProcessing.depthOfView.pixelOffset = 1;
 
-//创建渲染器
-let renderJob = new ForwardRenderJob(this.scene);
-renderJob.addPost(new DepthOfFieldPost());//景深效果。
-Engine3D.startRender(renderJob);
+// 添加 DepthOfFieldPost
+let postProcessing = this.scene.addComponent(PostProcessingComponent);
+postProcessing.addPost(DepthOfFieldPost); //景深效果。
+
+//开始渲染
+let view = new View3D();
+view.scene = this.scene;
+view.camera = this.camera;
+Engine3D.startRenderView(view);
 ```
 
 [Engine3D.setting.render.postProcessing.depthOfView](../../api/types/DepthOfViewSetting.md) 配置参数。

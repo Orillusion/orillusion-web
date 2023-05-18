@@ -132,7 +132,7 @@ this.mGaussianBlurShader.setUniformBuffer('args', this.mGaussianBlurArgs);
 
 `colorMap` 是需要被高斯模糊的原始纹理，这里我们用引擎内部的全屏 `colorMap` 关联到`ComputeShader` 对象
 ```ts
-this.autoSetColorTexture('colorMap', this.mGaussianBlurShader, false);
+this.autoSetColorTexture('colorMap', this.mGaussianBlurShader);
 ```
 
 `resultTex` 是被模糊过的结果纹理，我们需要新建一张空纹理用于存储：
@@ -144,8 +144,8 @@ let presentationSize = webGPUContext.presentationSize;
 this.mBlurResultTexture = new VirtualTexture(presentationSize[0], presentationSize[1], GPUTextureFormat.rgba16float, false, GPUTextureUsage.STORAGE_BINDING | GPUTextureUsage.TEXTURE_BINDING);
 this.mBlurResultTexture.name = 'gaussianBlurResultTexture';
 
-// 设置 RTDescript 的相关参数(VirtualTexture的数据载入行为等)
-let descript = new RTDescript();
+// 设置 RTDescriptor 的相关参数(VirtualTexture的数据载入行为等)
+let descript = new RTDescriptor();
 descript.clearValue = [0, 0, 0, 1];
 descript.loadOp = `clear`;
 this.mRTFrame = new RTFrame([
@@ -180,7 +180,7 @@ this.mGaussianBlurShader.workerSizeZ = 1; // 默认为1，这里可不写
 
 最后录入`ComputeShader`执行调度命令：
 ```ts
-GPUContext.compute_command(command, [this.mGaussianBlurShader]);
+GPUContext.computeCommand(command, [this.mGaussianBlurShader]);
 ```
 
 ## 总结

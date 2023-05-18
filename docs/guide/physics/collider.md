@@ -9,10 +9,10 @@
 ![Box Collider](/images/cube.webp)
 
 ```ts
-import { BoxColliderShape } from '@orillusion/physics'
+import { ColliderComponent, BoxColliderShape } from '@orillusion/core'
 
 // some codes here to create object...
-let collider = object.addComponent(Collider);
+let collider = object.addComponent(ColliderComponent);
 collider.shape = new BoxColliderShape();
 // set shape parameters...
 collider.shape.size = new Vector3(2, 2, 2);
@@ -26,10 +26,10 @@ collider.shape.size = new Vector3(2, 2, 2);
 ![Sphere Collider](/images/sphere.webp)
 
 ```ts
-import { SphereColliderShape } from '@orillusion/physics'
+import { ColliderComponent, BoxColliderShape } from '@orillusion/core'
 
 // some codes here to create object...
-let collider = object.addComponent(Collider);
+let collider = object.addComponent(ColliderComponent);
 collider.shape = new SphereColliderShape();
 // set shape parameters...
 collider.radius = 5;
@@ -43,10 +43,10 @@ collider.radius = 5;
 ![Capsule Collider](/images/capsule.webp)
 
 ```ts
-import { CapsuleColliderShape } from '@orillusion/physics'
+import { ColliderComponent, BoxColliderShape } from '@orillusion/core'
 
 // some codes here to create object...
-let collider = object.addComponent(Collider);
+let collider = object.addComponent(ColliderComponent);
 collider.shape = new CapsuleColliderShape();
 // set shape parameters...
 collider.radius = 2.5;
@@ -61,12 +61,12 @@ collider.height = 10;
 ## 碰撞体组件应用示例
 在为对象添加了刚体组件后，我们再为它添加一个碰撞体，并指定碰撞体的形状类型，便可以让该对象响应碰撞了：
 ```ts
-import { Vecter3D, Object3D } from '@orillusion/core'
-import { BoxColliderShape, Rigidbody } from '@orillusion/physics'
+import { Vecter3D, Object3D, ColliderComponent, BoxColliderShape } from '@orillusion/core'
+import { Rigidbody } from '@orillusion/physics'
 
 let object = new Object3D();
 object.addComponent(Rigidbody);
-let collider = obj.addComponent(Collider);
+let collider = obj.addComponent(ColliderComponent);
 collider.shape = new BoxColliderShape();
 collider.shape.size = new Vector3(2, 2, 2);
 ```

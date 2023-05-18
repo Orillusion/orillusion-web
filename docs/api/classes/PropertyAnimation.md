@@ -1,6 +1,6 @@
 # Class: PropertyAnimation
 
-属性动画组件
+Attribute Animation Component
 
 ## Hierarchy
 
@@ -12,7 +12,6 @@
 ### Properties
 
 - [object3D](PropertyAnimation.md#object3d)
-- [serializeTag](PropertyAnimation.md#serializetag)
 - [defaultClip](PropertyAnimation.md#defaultclip)
 - [autoPlay](PropertyAnimation.md#autoplay)
 
@@ -20,21 +19,20 @@
 
 - [transform](PropertyAnimation.md#transform)
 - [enable](PropertyAnimation.md#enable)
-- [eventDispatch](PropertyAnimation.md#eventdispatch)
 - [speed](PropertyAnimation.md#speed)
 - [currentClip](PropertyAnimation.md#currentclip)
 - [time](PropertyAnimation.md#time)
 
 ### Methods
 
-- [onVisible](PropertyAnimation.md#onvisible)
-- [destroy](PropertyAnimation.md#destroy)
-- [onUpdate](PropertyAnimation.md#onupdate)
+- [onEnable](PropertyAnimation.md#onenable)
+- [onDisable](PropertyAnimation.md#ondisable)
 - [onLateUpdate](PropertyAnimation.md#onlateupdate)
 - [onBeforeUpdate](PropertyAnimation.md#onbeforeupdate)
-- [serialization](PropertyAnimation.md#serialization)
-- [unSerialization](PropertyAnimation.md#unserialization)
-- [interestKeyFrame](PropertyAnimation.md#interestkeyframe)
+- [onCompute](PropertyAnimation.md#oncompute)
+- [onGraphic](PropertyAnimation.md#ongraphic)
+- [destroy](PropertyAnimation.md#destroy)
+- [registerEventKeyFrame](PropertyAnimation.md#registereventkeyframe)
 - [appendClip](PropertyAnimation.md#appendclip)
 - [stop](PropertyAnimation.md#stop)
 - [toggle](PropertyAnimation.md#toggle)
@@ -53,7 +51,7 @@
 
 • **object3D**: [`Object3D`](Object3D.md) = `null`
 
-此组件附加到的Object3D对象。
+owner object3D
 
 #### Inherited from
 
@@ -61,21 +59,7 @@
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L14)
-
-___
-
-### serializeTag
-
-• `Optional` **serializeTag**: [`SerializeTag`](../types/SerializeTag.md)
-
-#### Inherited from
-
-[ComponentBase](ComponentBase.md).[serializeTag](ComponentBase.md#serializetag)
-
-#### Defined in
-
-[src/engine/components/ComponentBase.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L30)
+[src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
 
 ___
 
@@ -83,11 +67,11 @@ ___
 
 • **defaultClip**: `string`
 
-默认状态
+name of default animation clip
 
 #### Defined in
 
-[src/engine/components/anim/curveAnim/PropertyAnimation.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/anim/curveAnim/PropertyAnimation.ts#L18)
+[src/components/anim/curveAnim/PropertyAnimation.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L17)
 
 ___
 
@@ -95,11 +79,11 @@ ___
 
 • **autoPlay**: `boolean`
 
-是否自动播放
+is it play auto
 
 #### Defined in
 
-[src/engine/components/anim/curveAnim/PropertyAnimation.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/anim/curveAnim/PropertyAnimation.ts#L22)
+[src/components/anim/curveAnim/PropertyAnimation.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L21)
 
 ## Accessors
 
@@ -107,7 +91,7 @@ ___
 
 • `get` **transform**(): [`Transform`](Transform.md)
 
-附加到此 Object3D对象 的 Transform组件。
+Return the Transform component attached to the Object3D.
 
 #### Returns
 
@@ -119,7 +103,7 @@ ComponentBase.transform
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L39)
+[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
 
 ___
 
@@ -127,7 +111,7 @@ ___
 
 • `get` **enable**(): `boolean`
 
-启用/禁用 组件。启用的组件可更新，禁用的组件不可更新。
+Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
 #### Returns
 
@@ -139,9 +123,11 @@ ComponentBase.enable
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L62)
+[src/components/ComponentBase.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L59)
 
 • `set` **enable**(`value`): `void`
+
+Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
 #### Parameters
 
@@ -159,23 +145,7 @@ ComponentBase.enable
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L43)
-
-___
-
-### eventDispatch
-
-• `get` **eventDispatch**(): [`CEventDispatcher`](CEventDispatcher.md)
-
-当前动画的事件派发器
-
-#### Returns
-
-[`CEventDispatcher`](CEventDispatcher.md)
-
-#### Defined in
-
-[src/engine/components/anim/curveAnim/PropertyAnimation.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/anim/curveAnim/PropertyAnimation.ts#L52)
+[src/components/ComponentBase.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L45)
 
 ___
 
@@ -183,7 +153,7 @@ ___
 
 • `get` **speed**(): `number`
 
-获得播放速度
+get playing speed
 
 #### Returns
 
@@ -191,11 +161,11 @@ ___
 
 #### Defined in
 
-[src/engine/components/anim/curveAnim/PropertyAnimation.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/anim/curveAnim/PropertyAnimation.ts#L121)
+[src/components/anim/curveAnim/PropertyAnimation.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L99)
 
 • `set` **speed**(`value`): `void`
 
-设置动画播放速度
+set playing speed
 
 #### Parameters
 
@@ -209,7 +179,7 @@ ___
 
 #### Defined in
 
-[src/engine/components/anim/curveAnim/PropertyAnimation.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/anim/curveAnim/PropertyAnimation.ts#L114)
+[src/components/anim/curveAnim/PropertyAnimation.ts:92](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L92)
 
 ___
 
@@ -217,7 +187,7 @@ ___
 
 • `get` **currentClip**(): `PropertyAnimClip`
 
-获得当前正在播放的动画
+get animation clip which is playing now
 
 #### Returns
 
@@ -225,7 +195,7 @@ ___
 
 #### Defined in
 
-[src/engine/components/anim/curveAnim/PropertyAnimation.ts:154](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/anim/curveAnim/PropertyAnimation.ts#L154)
+[src/components/anim/curveAnim/PropertyAnimation.ts:132](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L132)
 
 ___
 
@@ -233,7 +203,7 @@ ___
 
 • `get` **time**(): `number`
 
-动画播放的时间
+get time of current animator
 
 #### Returns
 
@@ -241,31 +211,152 @@ ___
 
 #### Defined in
 
-[src/engine/components/anim/curveAnim/PropertyAnimation.ts:164](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/anim/curveAnim/PropertyAnimation.ts#L164)
+[src/components/anim/curveAnim/PropertyAnimation.ts:142](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L142)
 
 ## Methods
 
-### onVisible
+### onEnable
 
-▸ **onVisible**(`value`): `void`
+▸ `Optional` **onEnable**(`view?`): `any`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `value` | `boolean` |
+| `view?` | [`View3D`](View3D.md) |
 
 #### Returns
 
-`void`
+`any`
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onVisible](ComponentBase.md#onvisible)
+[ComponentBase](ComponentBase.md).[onEnable](ComponentBase.md#onenable)
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L66)
+[src/components/ComponentBase.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L109)
+
+___
+
+### onDisable
+
+▸ `Optional` **onDisable**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onDisable](ComponentBase.md#ondisable)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L110)
+
+___
+
+### onLateUpdate
+
+▸ `Optional` **onLateUpdate**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onLateUpdate](ComponentBase.md#onlateupdate)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L112)
+
+___
+
+### onBeforeUpdate
+
+▸ `Optional` **onBeforeUpdate**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onBeforeUpdate](ComponentBase.md#onbeforeupdate)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
+
+___
+
+### onCompute
+
+▸ `Optional` **onCompute**(`view?`, `command?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+| `command?` | `GPUCommandEncoder` |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onCompute](ComponentBase.md#oncompute)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
+
+___
+
+### onGraphic
+
+▸ `Optional` **onGraphic**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onGraphic](ComponentBase.md#ongraphic)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L115)
 
 ___
 
@@ -273,7 +364,7 @@ ___
 
 ▸ **destroy**(): `void`
 
-移除组件时候调用
+release this component
 
 #### Returns
 
@@ -285,148 +376,21 @@ ___
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L119)
+[src/components/ComponentBase.ts:189](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L189)
 
 ___
 
-### onUpdate
+### registerEventKeyFrame
 
-▸ **onUpdate**(`call`): `void`
+▸ **registerEventKeyFrame**(`frame`): `void`
 
-添加更新函数。会在每帧更新时执行。
+register a event to animator
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `call` | `Function` | 回调函数 |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[ComponentBase](ComponentBase.md).[onUpdate](ComponentBase.md#onupdate)
-
-#### Defined in
-
-[src/engine/components/ComponentBase.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L135)
-
-___
-
-### onLateUpdate
-
-▸ **onLateUpdate**(`call`): `void`
-
-添加延迟更新函数。
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `call` | `Function` | 回调函数 |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[ComponentBase](ComponentBase.md).[onLateUpdate](ComponentBase.md#onlateupdate)
-
-#### Defined in
-
-[src/engine/components/ComponentBase.ts:148](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L148)
-
-___
-
-### onBeforeUpdate
-
-▸ **onBeforeUpdate**(`call`): `void`
-
-添加帧更新前执行的函数。
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `call` | `Function` | 回调函数 |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[ComponentBase](ComponentBase.md).[onBeforeUpdate](ComponentBase.md#onbeforeupdate)
-
-#### Defined in
-
-[src/engine/components/ComponentBase.ts:161](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L161)
-
-___
-
-### serialization
-
-▸ **serialization**(`assets`): [`SerializeComponentBase`](SerializeComponentBase.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `assets` | [`ISerializeAssetsCollect`](../interfaces/ISerializeAssetsCollect.md) |
-
-#### Returns
-
-[`SerializeComponentBase`](SerializeComponentBase.md)
-
-#### Inherited from
-
-[ComponentBase](ComponentBase.md).[serialization](ComponentBase.md#serialization)
-
-#### Defined in
-
-[src/engine/components/ComponentBase.ts:170](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L170)
-
-___
-
-### unSerialization
-
-▸ **unSerialization**(`componentData`, `data`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `componentData` | [`SerializeComponentBase`](SerializeComponentBase.md) |
-| `data` | [`UnSerializeData`](UnSerializeData.md) |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[ComponentBase](ComponentBase.md).[unSerialization](ComponentBase.md#unserialization)
-
-#### Defined in
-
-[src/engine/components/ComponentBase.ts:175](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L175)
-
-___
-
-### interestKeyFrame
-
-▸ **interestKeyFrame**(`frame`): `void`
-
-插入关键帧
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `frame` | `AnimatorEventKeyframe` | 关键帧数据 |
+| `frame` | `AnimatorEventKeyframe` | source AnimatorEventKeyframe |
 
 #### Returns
 
@@ -434,7 +398,7 @@ ___
 
 #### Defined in
 
-[src/engine/components/anim/curveAnim/PropertyAnimation.ts:60](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/anim/curveAnim/PropertyAnimation.ts#L60)
+[src/components/anim/curveAnim/PropertyAnimation.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L38)
 
 ___
 
@@ -442,13 +406,13 @@ ___
 
 ▸ **appendClip**(`clip`): `void`
 
-添加属性动画
+append a perperty animation clip
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `clip` | `PropertyAnimClip` | 属性动画数据 |
+| `clip` | `PropertyAnimClip` | source PropertyAnimClip |
 
 #### Returns
 
@@ -456,7 +420,7 @@ ___
 
 #### Defined in
 
-[src/engine/components/anim/curveAnim/PropertyAnimation.ts:88](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/anim/curveAnim/PropertyAnimation.ts#L88)
+[src/components/anim/curveAnim/PropertyAnimation.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L66)
 
 ___
 
@@ -464,7 +428,7 @@ ___
 
 ▸ **stop**(): `void`
 
-停止播放
+stop playing
 
 #### Returns
 
@@ -472,11 +436,11 @@ ___
 
 #### Overrides
 
-ComponentBase.stop
+[ComponentBase](ComponentBase.md).[stop](ComponentBase.md#stop)
 
 #### Defined in
 
-[src/engine/components/anim/curveAnim/PropertyAnimation.ts:128](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/anim/curveAnim/PropertyAnimation.ts#L128)
+[src/components/anim/curveAnim/PropertyAnimation.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L106)
 
 ___
 
@@ -484,7 +448,7 @@ ___
 
 ▸ **toggle**(): `void`
 
-暂停或者恢复播放
+stop or resume playing
 
 #### Returns
 
@@ -492,7 +456,7 @@ ___
 
 #### Defined in
 
-[src/engine/components/anim/curveAnim/PropertyAnimation.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/anim/curveAnim/PropertyAnimation.ts#L135)
+[src/components/anim/curveAnim/PropertyAnimation.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L113)
 
 ___
 
@@ -500,13 +464,13 @@ ___
 
 ▸ **getClip**(`clip`): `PropertyAnimClip`
 
-获取动画
+get animation clip by clip name
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `clip` | `string` | 动画名称 |
+| `clip` | `string` | name of PropertyAnimClip |
 
 #### Returns
 
@@ -514,7 +478,7 @@ ___
 
 #### Defined in
 
-[src/engine/components/anim/curveAnim/PropertyAnimation.ts:144](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/anim/curveAnim/PropertyAnimation.ts#L144)
+[src/components/anim/curveAnim/PropertyAnimation.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L122)
 
 ___
 
@@ -522,13 +486,13 @@ ___
 
 ▸ **seek**(`time`): `void`
 
-将动画设置到指定时间
+seek the animation to assign time
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `time` | `number` | 指定时间 |
+| `time` | `number` | assign time |
 
 #### Returns
 
@@ -536,7 +500,7 @@ ___
 
 #### Defined in
 
-[src/engine/components/anim/curveAnim/PropertyAnimation.ts:172](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/anim/curveAnim/PropertyAnimation.ts#L172)
+[src/components/anim/curveAnim/PropertyAnimation.ts:150](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L150)
 
 ___
 
@@ -544,14 +508,14 @@ ___
 
 ▸ **play**(`clip`, `reset?`): `PropertyAnimClip`
 
-播放指定动画
+play animation by given name
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `clip` | `string` | `undefined` | 动画名称 |
-| `reset` | `boolean` | `true` | 默认为true时，每次播放从头开始 |
+| `clip` | `string` | `undefined` | animation name |
+| `reset` | `boolean` | `true` | if true, play the animation from time 0 |
 
 #### Returns
 
@@ -559,7 +523,7 @@ ___
 
 #### Defined in
 
-[src/engine/components/anim/curveAnim/PropertyAnimation.ts:184](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/anim/curveAnim/PropertyAnimation.ts#L184)
+[src/components/anim/curveAnim/PropertyAnimation.ts:162](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L162)
 
 ___
 
@@ -567,13 +531,14 @@ ___
 
 ▸ **cloneTo**(`obj`): `void`
 
-创建新的PropertyAnimation组件，复制当前组件的属性，并添加到目标对象上。
+Create a new PropertyAnimation component, copy the properties of the current component, 
+and add them to the target object.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `obj` | [`Object3D`](Object3D.md) | 目标对象 |
+| `obj` | [`Object3D`](Object3D.md) | target object3D |
 
 #### Returns
 
@@ -585,7 +550,7 @@ ___
 
 #### Defined in
 
-[src/engine/components/anim/curveAnim/PropertyAnimation.ts:206](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/anim/curveAnim/PropertyAnimation.ts#L206)
+[src/components/anim/curveAnim/PropertyAnimation.ts:185](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L185)
 
 ## Constructors
 
@@ -599,4 +564,4 @@ ___
 
 #### Defined in
 
-[src/engine/components/anim/curveAnim/PropertyAnimation.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/anim/curveAnim/PropertyAnimation.ts#L29)
+[src/components/anim/curveAnim/PropertyAnimation.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L27)

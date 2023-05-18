@@ -6,6 +6,6 @@
 - [ImageMaterial](classes/ImageMaterial.md)
 - [VideoMaterial](classes/VideoMaterial.md)
 
-## Classes
+## Texture
 
 - [VideoTexture](classes/VideoTexture.md)

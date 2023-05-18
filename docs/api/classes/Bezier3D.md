@@ -1,6 +1,6 @@
 # Class: Bezier3D
 
-贝塞尔曲线工具类
+3D Bezier Curve
 
 
 ### Methods
@@ -18,27 +18,27 @@
 
 ▸ `Static` **calculateCubicBezierPoint**(`t`, `p0`, `c1`, `c2`, `p3`): [`Vector3`](Vector3.md)
 
-根据T值获得贝塞尔曲线点
+get cubic curve point value form t at bezier data
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `t` | `number` | T值 给定位置的贝塞尔曲线的值 |
-| `p0` | [`Vector3`](Vector3.md) | 起始点 |
-| `c1` | [`Vector3`](Vector3.md) | 控制点 |
-| `c2` | [`Vector3`](Vector3.md) | 控制点 |
-| `p3` | [`Vector3`](Vector3.md) | 目标点 |
+| `t` | `number` | interval value |
+| `p0` | [`Vector3`](Vector3.md) | start point |
+| `c1` | [`Vector3`](Vector3.md) | left control point |
+| `c2` | [`Vector3`](Vector3.md) | right control point |
+| `p3` | [`Vector3`](Vector3.md) | end point |
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-根据T值计算出来的贝赛尔曲线点
+cubic curve point
 
 #### Defined in
 
-[src/engine/math/Bezier3D.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Bezier3D.ts#L16)
+[src/math/Bezier3D.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/math/Bezier3D.ts#L18)
 
 ___
 
@@ -46,26 +46,26 @@ ___
 
 ▸ `Static` **bezierPoint**(`t`, `p0`, `c1`, `p1`): [`Vector3`](Vector3.md)
 
-评估给定点处贝塞尔曲线的坐标
+get curve point form three point bezier curve
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `t` | `number` | T值 用作曲线坐标的开始和结束之间的位置 |
-| `p0` | [`Vector3`](Vector3.md) | 第一个点 |
-| `c1` | [`Vector3`](Vector3.md) | 控制点 |
-| `p1` | [`Vector3`](Vector3.md) | 第二点 |
+| `t` | `number` | interval value |
+| `p0` | [`Vector3`](Vector3.md) | start point |
+| `c1` | [`Vector3`](Vector3.md) | contrl point |
+| `p1` | [`Vector3`](Vector3.md) | end point |
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-给定位置的贝塞尔曲线的值
+get bezier point at curve
 
 #### Defined in
 
-[src/engine/math/Bezier3D.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Bezier3D.ts#L52)
+[src/math/Bezier3D.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/math/Bezier3D.ts#L50)
 
 ## Constructors
 

@@ -1,15 +1,18 @@
 # Class: DepthOfFieldPost
 
-景深效果。
-模拟摄像机镜头对焦特性的一种常见的后处理效果。
+depth of field effect.
+A common post-processing effect that simulates the focusing characteristics of a camera lens.
 ```
-      //配置景深的相关参数
+      //Configure parameters related to depth of field
       let cfg = {@link Engine3D.setting.render.postProcessing.depthOfView};
       cfg.near = 150;
       cfg.far = 300;
       cfg.pixelOffset = 1.0;
-      let renderJob = new ForwardRenderJob(this.scene);
-      renderJob.addPost(new DepthOfFieldPost());
+        let view = new View3D();
+       view.scene = this.scene;
+       view.camera = mainCamera;
+       
+      
       Engine3D.startRender(renderJob);
 ```
 
@@ -23,6 +26,8 @@
 ### Properties
 
 - [rtFrame](DepthOfFieldPost.md#rtframe)
+- [enable](DepthOfFieldPost.md#enable)
+- [postRenderer](DepthOfFieldPost.md#postrenderer)
 
 ### Constructors
 
@@ -34,6 +39,10 @@
 - [near](DepthOfFieldPost.md#near)
 - [far](DepthOfFieldPost.md#far)
 
+### Methods
+
+- [destroy](DepthOfFieldPost.md#destroy)
+
 ## Properties
 
 ### rtFrame
@@ -42,7 +51,35 @@
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/DepthOfFieldPost.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/DepthOfFieldPost.ts#L59)
+[src/gfx/renderJob/post/DepthOfFieldPost.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L63)
+
+___
+
+### enable
+
+• **enable**: `boolean` = `true`
+
+#### Inherited from
+
+PostBase.enable
+
+#### Defined in
+
+[src/gfx/renderJob/post/PostBase.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L18)
+
+___
+
+### postRenderer
+
+• **postRenderer**: `PostRenderer`
+
+#### Inherited from
+
+PostBase.postRenderer
+
+#### Defined in
+
+[src/gfx/renderJob/post/PostBase.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L19)
 
 ## Constructors
 
@@ -56,7 +93,7 @@ PostBase.constructor
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/DepthOfFieldPost.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/DepthOfFieldPost.ts#L61)
+[src/gfx/renderJob/post/DepthOfFieldPost.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L65)
 
 ## Accessors
 
@@ -70,7 +107,7 @@ PostBase.constructor
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/DepthOfFieldPost.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/DepthOfFieldPost.ts#L86)
+[src/gfx/renderJob/post/DepthOfFieldPost.ts:85](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L85)
 
 • `set` **pixelOffset**(`value`): `void`
 
@@ -86,7 +123,7 @@ PostBase.constructor
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/DepthOfFieldPost.ts:91](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/DepthOfFieldPost.ts#L91)
+[src/gfx/renderJob/post/DepthOfFieldPost.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L90)
 
 ___
 
@@ -100,7 +137,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/DepthOfFieldPost.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/DepthOfFieldPost.ts#L97)
+[src/gfx/renderJob/post/DepthOfFieldPost.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L96)
 
 • `set` **near**(`value`): `void`
 
@@ -116,7 +153,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/DepthOfFieldPost.ts:102](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/DepthOfFieldPost.ts#L102)
+[src/gfx/renderJob/post/DepthOfFieldPost.ts:101](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L101)
 
 ___
 
@@ -130,7 +167,7 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/DepthOfFieldPost.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/DepthOfFieldPost.ts#L108)
+[src/gfx/renderJob/post/DepthOfFieldPost.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L107)
 
 • `set` **far**(`value`): `void`
 
@@ -146,4 +183,22 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/renderJob/post/DepthOfFieldPost.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/renderJob/post/DepthOfFieldPost.ts#L113)
+[src/gfx/renderJob/post/DepthOfFieldPost.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L112)
+
+## Methods
+
+### destroy
+
+▸ **destroy**(): `void`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+PostBase.destroy
+
+#### Defined in
+
+[src/gfx/renderJob/post/PostBase.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L79)

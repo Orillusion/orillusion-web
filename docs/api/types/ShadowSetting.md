@@ -2,28 +2,28 @@
 
 Ƭ **ShadowSetting**: `Object`
 
-阴影设置
+Shadow setting
 
 #### Type declaration
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `debug` | `any` | - |
-| `enable` | `boolean` | 开启/关闭 |
+| `enable` | `boolean` | enable |
 | `needUpdate` | `boolean` |  |
-| `autoUpdate` | `boolean` | 阴影自动更新 |
-| `updateFrameRate` | `number` | 阴影的更新频率 |
-| `type` | ``"PCF"`` \| ``"HARD"`` \| ``"SOFT"`` | 百分比渐近过滤(PCF)是一个简单，常见的进行阴影边缘反走的技术。 软阴影(soft shadow),是比较柔和的阴影,模糊的阴影,是光打下来离物体比较远的阴影。 硬阴影(hard shadow),是比较锐利的阴影,在和物体的交替(接)处或者是光打下来离物体比较近的地方,在比较闭塞的地方,阳光不容易照射到的地方。 |
-| `shadowBias` | `number` | 阴影的偏移量 |
-| `pointShadowBias` | `number` | 点光源阴影的偏移量 |
-| `shadowQuality` | `number` | 阴影品质 |
-| `shadowBound` | `number` | 阴影边界 |
-| `shadowSize` | `number` | 朝向阴影贴图尺寸 |
-| `shadowSoft` | `number` | 阴影软硬程度 |
-| `pointShadowSize` | `number` | 点阴影贴图尺寸 |
-| `shadowNear` | `number` | 阴影近截面 |
-| `shadowFar` | `number` | 阴影远截面 |
+| `autoUpdate` | `boolean` | update shadown automatic |
+| `updateFrameRate` | `number` | frequency for shadows update |
+| `type` | ``"PCF"`` \| ``"HARD"`` \| ``"SOFT"`` | Percentage-Closer Filtering(PCF)is a simple, often seen technique for removing shadow edges. Soft shadow, is a soft and blurred shadow that is farther away from the object when the light is shot down. Hard shadow, is a sharper shadow, at the exchange (connection) with the object or the place where the light hits and close to the object, or the occluded place where the sunlight cannot reach. |
+| `shadowBias` | `number` | Shadow offset |
+| `pointShadowBias` | `number` | Offset of point light shadow |
+| `shadowQuality` | `number` | Shadow quality |
+| `shadowBound` | `number` | shadow boundary |
+| `shadowSize` | `number` | shadow mapping Size |
+| `shadowSoft` | `number` | Shadow softness |
+| `pointShadowSize` | `number` | Point shadow mapping size |
+| `shadowNear` | `number` | Shadow near section |
+| `shadowFar` | `number` | Shadow Far Section |
 
 #### Defined in
 
-[src/engine/EngineConfig.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/engine/EngineConfig.ts#L123)
+[src/setting/ShadowSetting.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L6)

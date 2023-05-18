@@ -1,6 +1,6 @@
 # Enumeration: CubicBezierType
 
-曲线类型
+cubicBezierType
 
 
 ### Enumeration Members
@@ -14,11 +14,9 @@
 
 • **Open** = ``0``
 
-开放
-
 #### Defined in
 
-[src/engine/math/CubicBezierPath.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/CubicBezierPath.ts#L16)
+[src/math/CubicBezierPath.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L10)
 
 ___
 
@@ -26,8 +24,6 @@ ___
 
 • **Closed** = ``1``
 
-闭合
-
 #### Defined in
 
-[src/engine/math/CubicBezierPath.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/CubicBezierPath.ts#L20)
+[src/math/CubicBezierPath.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L11)

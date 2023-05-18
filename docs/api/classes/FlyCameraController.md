@@ -1,8 +1,8 @@
 # Class: FlyCameraController
 
-自由相机控制器。
-通过 W A S D 向着朝向方向 前进 后退 左右移动。
-通过按住鼠标左键控制相机的移动朝向
+Free camera controller.
+Move forward, backward, left, and right in the direction of W A S D.
+Control the camera's movement direction by holding down the left mouse button
 
 ## Hierarchy
 
@@ -14,7 +14,6 @@
 ### Properties
 
 - [object3D](FlyCameraController.md#object3d)
-- [serializeTag](FlyCameraController.md#serializetag)
 - [moveSpeed](FlyCameraController.md#movespeed)
 - [targetPos](FlyCameraController.md#targetpos)
 - [lookAtPos](FlyCameraController.md#lookatpos)
@@ -28,14 +27,17 @@
 
 ### Methods
 
-- [onVisible](FlyCameraController.md#onvisible)
-- [cloneTo](FlyCameraController.md#cloneto)
-- [onUpdate](FlyCameraController.md#onupdate)
+- [init](FlyCameraController.md#init)
+- [stop](FlyCameraController.md#stop)
+- [onEnable](FlyCameraController.md#onenable)
+- [onDisable](FlyCameraController.md#ondisable)
 - [onLateUpdate](FlyCameraController.md#onlateupdate)
 - [onBeforeUpdate](FlyCameraController.md#onbeforeupdate)
-- [serialization](FlyCameraController.md#serialization)
-- [unSerialization](FlyCameraController.md#unserialization)
+- [onCompute](FlyCameraController.md#oncompute)
+- [onGraphic](FlyCameraController.md#ongraphic)
+- [cloneTo](FlyCameraController.md#cloneto)
 - [setCamera](FlyCameraController.md#setcamera)
+- [onUpdate](FlyCameraController.md#onupdate)
 
 ### Constructors
 
@@ -47,7 +49,7 @@
 
 • **object3D**: [`Object3D`](Object3D.md) = `null`
 
-此组件附加到的Object3D对象。
+owner object3D
 
 #### Inherited from
 
@@ -55,21 +57,7 @@
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L14)
-
-___
-
-### serializeTag
-
-• `Optional` **serializeTag**: [`SerializeTag`](../types/SerializeTag.md)
-
-#### Inherited from
-
-[ComponentBase](ComponentBase.md).[serializeTag](ComponentBase.md#serializetag)
-
-#### Defined in
-
-[src/engine/components/ComponentBase.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L30)
+[src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
 
 ___
 
@@ -77,11 +65,11 @@ ___
 
 • **moveSpeed**: `number` = `2`
 
-相机移动速度
+Camera movement speed
 
 #### Defined in
 
-[src/engine/components/controller/FlyCameraController.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/controller/FlyCameraController.ts#L16)
+[src/components/controller/FlyCameraController.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/FlyCameraController.ts#L20)
 
 ___
 
@@ -89,11 +77,11 @@ ___
 
 • **targetPos**: [`Vector3`](Vector3.md)
 
-特定对象的坐标
+Coordinates of specific objects
 
 #### Defined in
 
-[src/engine/components/controller/FlyCameraController.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/controller/FlyCameraController.ts#L27)
+[src/components/controller/FlyCameraController.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/FlyCameraController.ts#L25)
 
 ___
 
@@ -101,11 +89,11 @@ ___
 
 • **lookAtPos**: [`Vector3`](Vector3.md)
 
-相机朝向坐标
+Camera orientation coordinates
 
 #### Defined in
 
-[src/engine/components/controller/FlyCameraController.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/controller/FlyCameraController.ts#L32)
+[src/components/controller/FlyCameraController.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/FlyCameraController.ts#L30)
 
 ## Accessors
 
@@ -113,7 +101,7 @@ ___
 
 • `get` **transform**(): [`Transform`](Transform.md)
 
-附加到此 Object3D对象 的 Transform组件。
+Return the Transform component attached to the Object3D.
 
 #### Returns
 
@@ -125,7 +113,7 @@ ComponentBase.transform
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L39)
+[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
 
 ___
 
@@ -133,7 +121,7 @@ ___
 
 • `get` **enable**(): `boolean`
 
-启用/禁用 组件。启用的组件可更新，禁用的组件不可更新。
+Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
 #### Returns
 
@@ -145,9 +133,11 @@ ComponentBase.enable
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L62)
+[src/components/ComponentBase.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L59)
 
 • `set` **enable**(`value`): `void`
+
+Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
 #### Parameters
 
@@ -165,7 +155,7 @@ ComponentBase.enable
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L43)
+[src/components/ComponentBase.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L45)
 
 ___
 
@@ -173,7 +163,7 @@ ___
 
 • `get` **factory**(): `number`
 
-键盘控制相机的平滑度
+Get the smoothness of the camera by keyboard control
 
 #### Returns
 
@@ -181,11 +171,11 @@ ___
 
 #### Defined in
 
-[src/engine/components/controller/FlyCameraController.ts:178](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/controller/FlyCameraController.ts#L178)
+[src/components/controller/FlyCameraController.ts:176](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/FlyCameraController.ts#L176)
 
 • `set` **factory**(`value`): `void`
 
-键盘控制相机的平滑度
+Set the smoothness of the camera by keyboard control
 
 #### Parameters
 
@@ -199,7 +189,7 @@ ___
 
 #### Defined in
 
-[src/engine/components/controller/FlyCameraController.ts:186](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/controller/FlyCameraController.ts#L186)
+[src/components/controller/FlyCameraController.ts:184](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/FlyCameraController.ts#L184)
 
 ___
 
@@ -207,7 +197,7 @@ ___
 
 • `get` **mouseFactory**(): `number`
 
-鼠标控制相机的平滑度
+Get the smoothness of the camera by mouse control
 
 #### Returns
 
@@ -215,11 +205,11 @@ ___
 
 #### Defined in
 
-[src/engine/components/controller/FlyCameraController.ts:194](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/controller/FlyCameraController.ts#L194)
+[src/components/controller/FlyCameraController.ts:192](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/FlyCameraController.ts#L192)
 
 • `set` **mouseFactory**(`value`): `void`
 
-鼠标控制相机的平滑度
+Set the smoothness of the camera by mouse control
 
 #### Parameters
 
@@ -233,19 +223,19 @@ ___
 
 #### Defined in
 
-[src/engine/components/controller/FlyCameraController.ts:202](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/controller/FlyCameraController.ts#L202)
+[src/components/controller/FlyCameraController.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/FlyCameraController.ts#L200)
 
 ## Methods
 
-### onVisible
+### init
 
-▸ **onVisible**(`value`): `void`
+▸ **init**(`param?`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `value` | `boolean` |
+| `param?` | `any` |
 
 #### Returns
 
@@ -253,11 +243,174 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onVisible](ComponentBase.md#onvisible)
+[ComponentBase](ComponentBase.md).[init](ComponentBase.md#init)
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L66)
+[src/components/ComponentBase.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L106)
+
+___
+
+### stop
+
+▸ **stop**(): `void`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[stop](ComponentBase.md#stop)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L108)
+
+___
+
+### onEnable
+
+▸ `Optional` **onEnable**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onEnable](ComponentBase.md#onenable)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L109)
+
+___
+
+### onDisable
+
+▸ `Optional` **onDisable**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onDisable](ComponentBase.md#ondisable)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L110)
+
+___
+
+### onLateUpdate
+
+▸ `Optional` **onLateUpdate**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onLateUpdate](ComponentBase.md#onlateupdate)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L112)
+
+___
+
+### onBeforeUpdate
+
+▸ `Optional` **onBeforeUpdate**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onBeforeUpdate](ComponentBase.md#onbeforeupdate)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
+
+___
+
+### onCompute
+
+▸ `Optional` **onCompute**(`view?`, `command?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+| `command?` | `GPUCommandEncoder` |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onCompute](ComponentBase.md#oncompute)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
+
+___
+
+### onGraphic
+
+▸ `Optional` **onGraphic**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onGraphic](ComponentBase.md#ongraphic)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L115)
 
 ___
 
@@ -265,13 +418,13 @@ ___
 
 ▸ **cloneTo**(`obj`): `void`
 
-创建新的组件，复制当前组件的属性，并添加到目标对象上。
+clone component data to target object3D
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `obj` | [`Object3D`](Object3D.md) | 源对象 |
+| `obj` | [`Object3D`](Object3D.md) | target object3D |
 
 #### Returns
 
@@ -283,134 +436,7 @@ ___
 
 #### Defined in
 
-[src/engine/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L114)
-
-___
-
-### onUpdate
-
-▸ **onUpdate**(`call`): `void`
-
-添加更新函数。会在每帧更新时执行。
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `call` | `Function` | 回调函数 |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[ComponentBase](ComponentBase.md).[onUpdate](ComponentBase.md#onupdate)
-
-#### Defined in
-
-[src/engine/components/ComponentBase.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L135)
-
-___
-
-### onLateUpdate
-
-▸ **onLateUpdate**(`call`): `void`
-
-添加延迟更新函数。
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `call` | `Function` | 回调函数 |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[ComponentBase](ComponentBase.md).[onLateUpdate](ComponentBase.md#onlateupdate)
-
-#### Defined in
-
-[src/engine/components/ComponentBase.ts:148](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L148)
-
-___
-
-### onBeforeUpdate
-
-▸ **onBeforeUpdate**(`call`): `void`
-
-添加帧更新前执行的函数。
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `call` | `Function` | 回调函数 |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[ComponentBase](ComponentBase.md).[onBeforeUpdate](ComponentBase.md#onbeforeupdate)
-
-#### Defined in
-
-[src/engine/components/ComponentBase.ts:161](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L161)
-
-___
-
-### serialization
-
-▸ **serialization**(`assets`): [`SerializeComponentBase`](SerializeComponentBase.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `assets` | [`ISerializeAssetsCollect`](../interfaces/ISerializeAssetsCollect.md) |
-
-#### Returns
-
-[`SerializeComponentBase`](SerializeComponentBase.md)
-
-#### Inherited from
-
-[ComponentBase](ComponentBase.md).[serialization](ComponentBase.md#serialization)
-
-#### Defined in
-
-[src/engine/components/ComponentBase.ts:170](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L170)
-
-___
-
-### unSerialization
-
-▸ **unSerialization**(`componentData`, `data`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `componentData` | [`SerializeComponentBase`](SerializeComponentBase.md) |
-| `data` | [`UnSerializeData`](UnSerializeData.md) |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[ComponentBase](ComponentBase.md).[unSerialization](ComponentBase.md#unserialization)
-
-#### Defined in
-
-[src/engine/components/ComponentBase.ts:175](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/ComponentBase.ts#L175)
+[src/components/ComponentBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L122)
 
 ___
 
@@ -418,14 +444,14 @@ ___
 
 ▸ **setCamera**(`cameraPos`, `lookAt`): `void`
 
-初始化相机数据
+Initialize camera data
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `cameraPos` | [`Vector3`](Vector3.md) | 特定对象的坐标 |
-| `lookAt` | [`Vector3`](Vector3.md) | 相机朝向 |
+| `cameraPos` | [`Vector3`](Vector3.md) | source position |
+| `lookAt` | [`Vector3`](Vector3.md) | target position |
 
 #### Returns
 
@@ -433,7 +459,25 @@ ___
 
 #### Defined in
 
-[src/engine/components/controller/FlyCameraController.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/controller/FlyCameraController.ts#L76)
+[src/components/controller/FlyCameraController.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/FlyCameraController.ts#L74)
+
+___
+
+### onUpdate
+
+▸ **onUpdate**(): `void`
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+[ComponentBase](ComponentBase.md).[onUpdate](ComponentBase.md#onupdate)
+
+#### Defined in
+
+[src/components/controller/FlyCameraController.ts:215](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/FlyCameraController.ts#L215)
 
 ## Constructors
 
@@ -441,12 +485,10 @@ ___
 
 • **new FlyCameraController**()
 
-创建自由相机控制器对象
-
 #### Overrides
 
 [ComponentBase](ComponentBase.md).[constructor](ComponentBase.md#constructor)
 
 #### Defined in
 
-[src/engine/components/controller/FlyCameraController.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/controller/FlyCameraController.ts#L55)
+[src/components/controller/FlyCameraController.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/FlyCameraController.ts#L54)

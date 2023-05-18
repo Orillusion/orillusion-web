@@ -24,7 +24,7 @@
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/shader/util/MorePassParser.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/shader/util/MorePassParser.ts#L4)
+[src/gfx/graphics/webGpu/shader/util/MorePassParser.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/MorePassParser.ts#L4)
 
 ___
 
@@ -34,4 +34,4 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/shader/util/MorePassParser.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/shader/util/MorePassParser.ts#L5)
+[src/gfx/graphics/webGpu/shader/util/MorePassParser.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/MorePassParser.ts#L5)

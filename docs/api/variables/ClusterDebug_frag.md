@@ -4,4 +4,4 @@
 
 #### Defined in
 
-[src/engine/assets/shader/materials/program/ClusterDebug_frag.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/engine/assets/shader/materials/program/ClusterDebug_frag.ts#L2)
+[src/assets/shader/materials/program/ClusterDebug_frag.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/assets/shader/materials/program/ClusterDebug_frag.ts#L2)

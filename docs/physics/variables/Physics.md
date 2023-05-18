@@ -2,14 +2,11 @@
 
 • **Physics**: [`_Physics`](../classes/Physics.md)
 
-物理引擎实例，通常全局只申明一个实例
-配置
-```
-{ 
-   await Physics.init();  
-}
+Only init one physics instance
+```ts
+await Physics.init();  
 ```
 
 #### Defined in
 
-[libs/physics/Physics.ts:180](https://github.com/Orillusion/orillusion/blob/main/src/libs/physics/Physics.ts#L180)
+[packages/physics/Physics.ts:173](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Physics.ts#L173)

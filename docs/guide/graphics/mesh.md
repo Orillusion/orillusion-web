@@ -86,6 +86,30 @@ mr.geometry = new CylinderGeometry(2, 2, 10);
 
 <<< @/public/demos/mesh/cylinder.ts
 
+## 圆环
+[TorusGeometry](/api/classes/TorusGeometry) 类提供圆柱体创建功能。
+
+参数概览：
+| 参数 | 描述 |
+| --- | --- |
+| radius | 圆环半径，默认值0.4 |
+| tube | 管道半径，默认值0.1 |
+| radialSegments | 圆环细分数量，默认值32 |
+| tubularSegments | 管道细分数量，默认值32 |
+
+使用示例：
+```ts
+import {Object3D, MeshRenderer, TorusGeometry} from '@orillusion/core';
+
+let obj = new Object3D();
+// 添加 MeshRenderer 组件
+let mr = obj.addComponent(MeshRenderer);
+// 设置组件 geometry
+mr.geometry = new TorusGeometry(3, 1, 32, 32);
+```
+<Demo src="/demos/mesh/torus.ts"></Demo>
+
+<<< @/public/demos/mesh/torus.ts
 
 ## 平面
 [PlaneGeometry](/api/classes/PlaneGeometry) 类提供平面创建功能。
@@ -113,5 +137,35 @@ mr.geometry = new PlaneGeometry(100, 100, 1, 1);
 
 <<< @/public/demos/mesh/plane.ts
 
-<!-- ## 自定义 Geometry
-?? 缺失 -->
+## 自定义几何体
+我们可以通过更新现有的几何体的顶点 [vertexBuffer](/api/classes/GeometryVertexBuffer) 来自定义几何体的形状
+
+使用示例：
+```ts
+import {Object3D, MeshRenderer, PlaneGeometry, LitMaterial, VertexAttributeName} from '@orillusion/core';
+
+let obj = new Object3D();
+// 添加 MeshRenderer 组件
+let mr = obj.addComponent(MeshRenderer);
+// 设置一个平面作为基础, 定义大小和分段数量
+mr.geometry = new PlaneGeometry(100, 100, 100, 100);
+mr.material = new LitMaterial()
+
+// 获得现有顶点信息
+let posAttrData = mr.geometry.getAttribute(VertexAttributeName.position);
+// 重写所有顶点 xyz 坐标
+for (let i = 0, count = posAttrData.data.length / 3; i < count; i++) {
+    posAttrData.data[i * 3 + 0] = Math.random(); // position x
+    posAttrData.data[i * 3 + 1] = Math.random(); // position y
+    posAttrData.data[i * 3 + 2] = Math.random(); // poisiton z
+}
+// 更新顶点信息
+mr.geometry.vertexBuffer.upload(VertexAttributeName.position, posAttrData);
+// 重新计算法向量
+mr.geometry.computeNormals();
+```
+我们甚至可以在主循环中每帧更改顶点信息
+
+<Demo src="/demos/mesh/custom.ts"></Demo>
+
+<<< @/public/demos/mesh/custom.ts

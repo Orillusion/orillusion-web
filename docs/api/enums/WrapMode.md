@@ -1,15 +1,5 @@
 # Enumeration: WrapMode
 
-角色动画播放完成后四种接续模式
-|名称|描述|
-|:---:|:---:|
-|Default| 从动画剪辑中读取循环模式。|
-|Clamp| 当时间到达动画片段的末尾时，片段将自动停止播放，时间将重置为片段的开头。|
-|Once| 当时间播放到末尾的时候停止动画的播放。|
-|Loop| 当时间播放到末尾的时候重新播放从开始播放。|
-|PingPong| 播放动画。当它到达终点时，它将继续播放最后一帧，并且从不停止播放。|
-|ClampForever| 播放动画。当播放到结尾的时候，动画总是处于最后一帧的采样状态。|
-
 
 ### Enumeration Members
 
@@ -26,11 +16,11 @@
 
 • **Default** = ``0``
 
-从动画剪辑中读取循环模式。
+Read loop mode from animation clips.
 
 #### Defined in
 
-[src/engine/components/anim/curveAnim/PropertyAnimClip.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/anim/curveAnim/PropertyAnimClip.ts#L25)
+[src/components/anim/curveAnim/PropertyAnimClip.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimClip.ts#L16)
 
 ___
 
@@ -38,11 +28,11 @@ ___
 
 • **Clamp** = ``1``
 
-当时间到达动画片段的末尾时，片段将自动停止播放，时间将重置为片段的开头。
+When the time reaches the end of the animation clip, the clip will automatically stop playing and the time will be reset to the beginning of the clip.
 
 #### Defined in
 
-[src/engine/components/anim/curveAnim/PropertyAnimClip.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/anim/curveAnim/PropertyAnimClip.ts#L29)
+[src/components/anim/curveAnim/PropertyAnimClip.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimClip.ts#L20)
 
 ___
 
@@ -50,11 +40,11 @@ ___
 
 • **Once** = ``1``
 
-当时间播放到末尾的时候停止动画的播放。
+Stop the animation when the time reaches the end.
 
 #### Defined in
 
-[src/engine/components/anim/curveAnim/PropertyAnimClip.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/anim/curveAnim/PropertyAnimClip.ts#L33)
+[src/components/anim/curveAnim/PropertyAnimClip.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimClip.ts#L24)
 
 ___
 
@@ -62,11 +52,11 @@ ___
 
 • **Loop** = ``2``
 
-当时间播放到末尾的时候重新播放从开始播放。
+When the time reaches the end, replay from the beginning.
 
 #### Defined in
 
-[src/engine/components/anim/curveAnim/PropertyAnimClip.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/anim/curveAnim/PropertyAnimClip.ts#L37)
+[src/components/anim/curveAnim/PropertyAnimClip.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimClip.ts#L28)
 
 ___
 
@@ -74,11 +64,11 @@ ___
 
 • **PingPong** = ``4``
 
-播放动画。当它到达终点时，它将继续播放最后一帧，并且从不停止播放。
+Play the animation. When it reaches the endpoint, it will continue to play the last frame and never stop playing.
 
 #### Defined in
 
-[src/engine/components/anim/curveAnim/PropertyAnimClip.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/anim/curveAnim/PropertyAnimClip.ts#L41)
+[src/components/anim/curveAnim/PropertyAnimClip.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimClip.ts#L32)
 
 ___
 
@@ -86,8 +76,8 @@ ___
 
 • **ClampForever** = ``8``
 
-播放动画。当播放到结尾的时候，动画总是处于最后一帧的采样状态。
+Play the animation. When playing to the end, the animation is always in the sampling state of the last frame.
 
 #### Defined in
 
-[src/engine/components/anim/curveAnim/PropertyAnimClip.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/engine/components/anim/curveAnim/PropertyAnimClip.ts#L45)
+[src/components/anim/curveAnim/PropertyAnimClip.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimClip.ts#L36)

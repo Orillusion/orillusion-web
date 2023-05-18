@@ -2,14 +2,14 @@
 
 Ƭ **LightSetting**: `Object`
 
-光源设置
+Light Setting
 
 #### Type declaration
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `maxLight` | `number` | 最大光源数 |
+| `maxLight` | `number` | Maximum number of lights |
 
 #### Defined in
 
-[src/engine/EngineConfig.ts:490](https://github.com/Orillusion/orillusion/blob/main/src/engine/EngineConfig.ts#L490)
+[src/setting/LightSetting.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/setting/LightSetting.ts#L6)

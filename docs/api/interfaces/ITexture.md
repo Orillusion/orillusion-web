@@ -3,18 +3,18 @@
 
 ### Methods
 
-- [create\_BindingLayoutDesc](ITexture.md#create_bindinglayoutdesc)
-- [create\_Texture](ITexture.md#create_texture)
-- [create\_View](ITexture.md#create_view)
-- [create\_Sample](ITexture.md#create_sample)
+- [internalCreateBindingLayoutDesc](ITexture.md#internalcreatebindinglayoutdesc)
+- [internalCreateTexture](ITexture.md#internalcreatetexture)
+- [internalCreateView](ITexture.md#internalcreateview)
+- [internalCreateSampler](ITexture.md#internalcreatesampler)
 
 ## Methods
 
-### create\_BindingLayoutDesc
+### internalCreateBindingLayoutDesc
 
-▸ **create_BindingLayoutDesc**(): `any`
+▸ **internalCreateBindingLayoutDesc**(): `any`
 
-创建 贴图的绑定描述
+create binding layout description
 
 #### Returns
 
@@ -22,15 +22,15 @@
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/ITexture.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/ITexture.ts#L5)
+[src/gfx/graphics/webGpu/core/texture/ITexture.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/ITexture.ts#L5)
 
 ___
 
-### create\_Texture
+### internalCreateTexture
 
-▸ **create_Texture**(): `any`
+▸ **internalCreateTexture**(): `any`
 
-创建 申请创建GPU Texture 实例资源
+create texture instance
 
 #### Returns
 
@@ -38,15 +38,15 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/ITexture.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/ITexture.ts#L10)
+[src/gfx/graphics/webGpu/core/texture/ITexture.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/ITexture.ts#L10)
 
 ___
 
-### create\_View
+### internalCreateView
 
-▸ **create_View**(): `any`
+▸ **internalCreateView**(): `any`
 
-创建 贴图申请创建GPU View 实例资源
+create GPU View
 
 #### Returns
 
@@ -54,15 +54,15 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/ITexture.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/ITexture.ts#L15)
+[src/gfx/graphics/webGpu/core/texture/ITexture.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/ITexture.ts#L15)
 
 ___
 
-### create\_Sample
+### internalCreateSampler
 
-▸ **create_Sample**(): `any`
+▸ **internalCreateSampler**(): `any`
 
-创建 贴图申请创建GPU Sample 实例资源
+create CPU Sample
 
 #### Returns
 
@@ -70,4 +70,4 @@ ___
 
 #### Defined in
 
-[src/engine/gfx/graphics/webGpu/core/texture/ITexture.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/engine/gfx/graphics/webGpu/core/texture/ITexture.ts#L20)
+[src/gfx/graphics/webGpu/core/texture/ITexture.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/ITexture.ts#L20)

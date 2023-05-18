@@ -5,7 +5,7 @@
 
 阴影是通过光源来实现的，目前引擎中 [平行光(DirectLight)](/guide/graphics/lighting.html#平行光)、[点光源(PointLight)](/guide/graphics/lighting.html#点光源)、[聚光灯(SpotLight)](/guide/graphics/lighting.html#聚光灯) 都可以产生阴影。需要渲染阴影效果时，只需要将对应灯光的 `castShadow` 属性设置为 `true` 即可。
 
-```ts
+```ts{12}
 let lightObj = new Object3D();
 // 设置灯光位置
 lightObj.x = 0;
@@ -89,10 +89,11 @@ Engine3D.setting.shadow.pointShadowBias = 0.2 // 点光源/聚光灯阴影偏移
 ```ts
 Engine3D.setting.shadow.type = 'HARD'; // 默认 PCF
 ```
+<!-- 
+<Demo :height="500" src="/demos/graphics/shadow_type.ts"></Demo>
 
-<!-- <Demo :height="500" src="/demos/graphics/shadow_type.ts"></Demo>
-
-<<< @/public/demos/graphics/shadow_type.ts -->
+<<< @/public/demos/graphics/shadow_type.ts
+-->
 
 ## 阴影属性
 

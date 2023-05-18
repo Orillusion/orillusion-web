@@ -6,7 +6,7 @@
 
 | Name | Type |
 | :------ | :------ |
-| `name` | [`MaterialClassName`](../types/MaterialClassName.md) |
+| `name` | `MaterialClassName` |
 | `cls` | [`Ctor`](../types/Ctor.md)<`MaterialBase`\> |
 
 #### Returns
@@ -15,4 +15,4 @@
 
 #### Defined in
 
-[src/engine/materials/MaterialRegister.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/engine/materials/MaterialRegister.ts#L33)
+[src/materials/MaterialRegister.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialRegister.ts#L37)

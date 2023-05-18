@@ -1,7 +1,7 @@
 ---
 layout: home
 title: Orillusion
-titleTemplate: 专业WebGPU中文社区
+titleTemplate: 专业 WebGPU 引擎
 
 hero:
   name: Orillusion

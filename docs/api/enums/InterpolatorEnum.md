@@ -1,17 +1,17 @@
 # Enumeration: InterpolatorEnum
 
-插值器枚举
-|名称|描述|
+Interpolator enumeration
+|Name|Describe|
 |:---:|:---:|
-|AccelerateInterpolator| 加速插值器，动画加速运行至结束。|
-|DecelerateInterpolator| 减速插值器，动画减速运行至结束。|
-|AccelerateDecelerateInterpolator| 加减速插值器，动画先加速后减速。|
-|LinearInterpolator| 线性插值器，动画匀速运动。|
-|BounceInterpolator| 弹性插值器，在动画结束之前会有一个弹性动画的效果。|
-|AnticipateInterpolator| 先后退一小步再加速前进至结束。|
-|AnticipateOvershootInterpolator| 先后退一小步再加速前进，超出终点一小部分后再回到终点。|
-|CycleInterpolator| 周期运动。 |
-|OvershootInterpolator| 快速完成动画，超出终点一小部分后再回到终点。|
+|AccelerateInterpolator| Acceleration interpolator, animation acceleration runs to the end.|
+|DecelerateInterpolator| Slow down interpolator, animation slow down run to end.|
+|AccelerateDecelerateInterpolator| Acceleration and deceleration interpolator, animation first speed up and then decelerate.|
+|LinearInterpolator| Linear interpolator, animation uniform motion.|
+|BounceInterpolator| Elastic interpolator, before the end of the animation will have an elastic animation effect.|
+|AnticipateInterpolator| Step back and then speed up to the end.|
+|AnticipateOvershootInterpolator| Take a small step back, then speed up, then go a little beyond the finish line and then come back.|
+|CycleInterpolator| cyclic motion|
+|OvershootInterpolator| Finish the animation quickly, go a little beyond the end point and then go back to the end point.|
 
 
 ### Enumeration Members
@@ -32,11 +32,11 @@
 
 • **AccelerateInterpolator** = ``0``
 
-加速插值器，动画加速运行至结束。
+Acceleration interpolator, animation acceleration runs to the end.
 
 #### Defined in
 
-[src/engine/math/TimeInterpolator.ts:297](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/TimeInterpolator.ts#L297)
+[src/math/TimeInterpolator.ts:305](https://github.com/Orillusion/orillusion/blob/main/src/math/TimeInterpolator.ts#L305)
 
 ___
 
@@ -44,11 +44,11 @@ ___
 
 • **DecelerateInterpolator** = ``1``
 
-减速插值器，动画减速运行至结束。
+Slow down interpolator, animation slow down run to end.
 
 #### Defined in
 
-[src/engine/math/TimeInterpolator.ts:301](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/TimeInterpolator.ts#L301)
+[src/math/TimeInterpolator.ts:309](https://github.com/Orillusion/orillusion/blob/main/src/math/TimeInterpolator.ts#L309)
 
 ___
 
@@ -56,11 +56,11 @@ ___
 
 • **AccelerateDecelerateInterpolator** = ``2``
 
-加减速插值器，动画先加速后减速。
+Acceleration and deceleration interpolator, animation first speed up and then decelerate.
 
 #### Defined in
 
-[src/engine/math/TimeInterpolator.ts:305](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/TimeInterpolator.ts#L305)
+[src/math/TimeInterpolator.ts:313](https://github.com/Orillusion/orillusion/blob/main/src/math/TimeInterpolator.ts#L313)
 
 ___
 
@@ -68,11 +68,11 @@ ___
 
 • **LinearInterpolator** = ``3``
 
-线性插值器，动画匀速运动。
+Linear interpolator, animation uniform motion.
 
 #### Defined in
 
-[src/engine/math/TimeInterpolator.ts:309](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/TimeInterpolator.ts#L309)
+[src/math/TimeInterpolator.ts:317](https://github.com/Orillusion/orillusion/blob/main/src/math/TimeInterpolator.ts#L317)
 
 ___
 
@@ -80,11 +80,11 @@ ___
 
 • **BounceInterpolator** = ``4``
 
-弹性插值器，在动画结束之前会有一个弹性动画的效果。
+Elastic interpolator, before the end of the animation will have an elastic animation effect.
 
 #### Defined in
 
-[src/engine/math/TimeInterpolator.ts:313](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/TimeInterpolator.ts#L313)
+[src/math/TimeInterpolator.ts:321](https://github.com/Orillusion/orillusion/blob/main/src/math/TimeInterpolator.ts#L321)
 
 ___
 
@@ -92,11 +92,11 @@ ___
 
 • **AnticipateInterpolator** = ``5``
 
-先后退一小步再加速前进至结束。
+Step back and then speed up to the end.
 
 #### Defined in
 
-[src/engine/math/TimeInterpolator.ts:317](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/TimeInterpolator.ts#L317)
+[src/math/TimeInterpolator.ts:325](https://github.com/Orillusion/orillusion/blob/main/src/math/TimeInterpolator.ts#L325)
 
 ___
 
@@ -104,11 +104,11 @@ ___
 
 • **AnticipateOvershootInterpolator** = ``6``
 
-先后退一小步再加速前进，超出终点一小部分后再回到终点。
+Take a small step back, then speed up, then go a little beyond the finish line and then come back.
 
 #### Defined in
 
-[src/engine/math/TimeInterpolator.ts:321](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/TimeInterpolator.ts#L321)
+[src/math/TimeInterpolator.ts:329](https://github.com/Orillusion/orillusion/blob/main/src/math/TimeInterpolator.ts#L329)
 
 ___
 
@@ -116,11 +116,11 @@ ___
 
 • **CycleInterpolator** = ``7``
 
-周期运动。
+Cyclic motion
 
 #### Defined in
 
-[src/engine/math/TimeInterpolator.ts:325](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/TimeInterpolator.ts#L325)
+[src/math/TimeInterpolator.ts:333](https://github.com/Orillusion/orillusion/blob/main/src/math/TimeInterpolator.ts#L333)
 
 ___
 
@@ -128,8 +128,8 @@ ___
 
 • **OvershootInterpolator** = ``8``
 
-快速完成动画，超出终点一小部分后再回到终点。
+Finish the animation quickly, go a little beyond the end point and then go back to the end point.
 
 #### Defined in
 
-[src/engine/math/TimeInterpolator.ts:329](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/TimeInterpolator.ts#L329)
+[src/math/TimeInterpolator.ts:337](https://github.com/Orillusion/orillusion/blob/main/src/math/TimeInterpolator.ts#L337)

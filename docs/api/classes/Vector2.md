@@ -1,15 +1,15 @@
 # Class: Vector2
 
-二维向量
+Vector 2D
 
 
 ### Properties
 
+- [ZERO](Vector2.md#zero)
 - [SAFE\_MAX](Vector2.md#safe_max)
 - [SAFE\_MIN](Vector2.md#safe_min)
 - [x](Vector2.md#x)
 - [y](Vector2.md#y)
-- [ZERO](Vector2.md#zero)
 
 ### Constructors
 
@@ -17,6 +17,9 @@
 
 ### Methods
 
+- [getAngle](Vector2.md#getangle)
+- [slerp](Vector2.md#slerp)
+- [lerp](Vector2.md#lerp)
 - [set](Vector2.md#set)
 - [distance](Vector2.md#distance)
 - [add](Vector2.md#add)
@@ -27,7 +30,6 @@
 - [neg](Vector2.md#neg)
 - [abs](Vector2.md#abs)
 - [length](Vector2.md#length)
-- [getAngle](Vector2.md#getangle)
 - [getAngle](Vector2.md#getangle-1)
 - [unt](Vector2.md#unt)
 - [angleTo](Vector2.md#angleto)
@@ -36,59 +38,12 @@
 - [clone](Vector2.md#clone)
 - [copyFrom](Vector2.md#copyfrom)
 - [dot](Vector2.md#dot)
-- [slerp](Vector2.md#slerp)
-- [lerp](Vector2.md#lerp)
 - [normalize](Vector2.md#normalize)
 - [addInPlace](Vector2.md#addinplace)
 - [addScalar](Vector2.md#addscalar)
 - [clampScalar](Vector2.md#clampscalar)
-- [copyToBytes](Vector2.md#copytobytes)
 
 ## Properties
-
-### SAFE\_MAX
-
-▪ `Static` **SAFE\_MAX**: [`Vector2`](Vector2.md)
-
-#### Defined in
-
-[src/engine/math/Vector2.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector2.ts#L7)
-
-___
-
-### SAFE\_MIN
-
-▪ `Static` **SAFE\_MIN**: [`Vector2`](Vector2.md)
-
-#### Defined in
-
-[src/engine/math/Vector2.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector2.ts#L8)
-
-___
-
-### x
-
-• **x**: `number` = `0.0`
-
-向量的x分量，默认值是0。
-
-#### Defined in
-
-[src/engine/math/Vector2.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector2.ts#L14)
-
-___
-
-### y
-
-• **y**: `number` = `0.0`
-
-向量的y分量，默认值是0。
-
-#### Defined in
-
-[src/engine/math/Vector2.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector2.ts#L18)
-
-___
 
 ### ZERO
 
@@ -96,7 +51,51 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector2.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector2.ts#L30)
+[src/math/Vector2.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L18)
+
+___
+
+### SAFE\_MAX
+
+▪ `Static` `Readonly` **SAFE\_MAX**: [`Vector2`](Vector2.md)
+
+#### Defined in
+
+[src/math/Vector2.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L20)
+
+___
+
+### SAFE\_MIN
+
+▪ `Static` `Readonly` **SAFE\_MIN**: [`Vector2`](Vector2.md)
+
+#### Defined in
+
+[src/math/Vector2.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L22)
+
+___
+
+### x
+
+• **x**: `number` = `0.0`
+
+The x component of the vector, the default value is 0.
+
+#### Defined in
+
+[src/math/Vector2.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L27)
+
+___
+
+### y
+
+• **y**: `number` = `0.0`
+
+The y component of the vector, the default value is 0.
+
+#### Defined in
+
+[src/math/Vector2.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L32)
 
 ## Constructors
 
@@ -104,33 +103,106 @@ ___
 
 • **new Vector2**(`x?`, `y?`)
 
-创建一个新的Vector2。
+Create a new Vector2.
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `x` | `number` | `0` | 向量的x分量，默认为0。 |
-| `y` | `number` | `0` | 向量的y分量，默认为0。 |
+| `x` | `number` | `0` | The x component of the vector, which defaults to 0. |
+| `y` | `number` | `0` | The y component of the vector, which defaults to 0. |
 
 #### Defined in
 
-[src/engine/math/Vector2.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector2.ts#L37)
+[src/math/Vector2.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L39)
 
 ## Methods
+
+### getAngle
+
+▸ `Static` **getAngle**(`a`, `b`): `number`
+
+Returns the Angle, in radians, between two vectors.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `a` | [`Vector2`](Vector2.md) | Vector a |
+| `b` | [`Vector2`](Vector2.md) | Vector b |
+
+#### Returns
+
+`number`
+
+result
+
+#### Defined in
+
+[src/math/Vector2.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L50)
+
+___
+
+### slerp
+
+▸ `Static` **slerp**(`from`, `to`, `t`): [`Vector2`](Vector2.md)
+
+Computes linear interpolation between two vectors.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `from` | [`Vector2`](Vector2.md) | starting vector |
+| `to` | [`Vector2`](Vector2.md) | The vector in which you interpolate |
+| `t` | `number` |  |
+
+#### Returns
+
+[`Vector2`](Vector2.md)
+
+#### Defined in
+
+[src/math/Vector2.ts:60](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L60)
+
+___
+
+### lerp
+
+▸ `Static` **lerp**(`from`, `to`, `t`): [`Vector2`](Vector2.md)
+
+Linear interpolation between two vectors.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `from` | [`Vector2`](Vector2.md) | starting vector |
+| `to` | [`Vector2`](Vector2.md) | The vector in which you interpolate |
+| `t` | `number` |  |
+
+#### Returns
+
+[`Vector2`](Vector2.md)
+
+#### Defined in
+
+[src/math/Vector2.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L89)
+
+___
 
 ### set
 
 ▸ **set**(`x?`, `y?`): `void`
 
-设置该向量的x、y分量。
+Sets the x and y components of this vector.
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `x` | `number` | `0` | 向量的x分量，默认为0。 |
-| `y` | `number` | `0` | 向量的y分量，默认为0。 |
+| `x` | `number` | `0` | The x component of the vector, which defaults to 0. |
+| `y` | `number` | `0` | The y component of the vector, which defaults to 0. |
 
 #### Returns
 
@@ -138,7 +210,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector2.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector2.ts#L47)
+[src/math/Vector2.ts:102](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L102)
 
 ___
 
@@ -146,13 +218,13 @@ ___
 
 ▸ **distance**(`a`): `number`
 
-计算该向量到传入的向量之间的距离。
+Calculate the distance between this vector and the incoming vector.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `a` | [`Vector2`](Vector2.md) | 目标向量 |
+| `a` | [`Vector2`](Vector2.md) | Target vector |
 
 #### Returns
 
@@ -160,7 +232,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector2.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector2.ts#L57)
+[src/math/Vector2.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L112)
 
 ___
 
@@ -168,7 +240,7 @@ ___
 
 ▸ **add**(`a`, `target?`): [`Vector2`](Vector2.md)
 
-向量相加。
+Add the vectors.
 
 #### Parameters
 
@@ -183,7 +255,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector2.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector2.ts#L67)
+[src/math/Vector2.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L122)
 
 ___
 
@@ -191,7 +263,7 @@ ___
 
 ▸ **sub**(`a`, `target?`): [`Vector2`](Vector2.md)
 
-向量相减
+Vector subtraction
 
 #### Parameters
 
@@ -206,7 +278,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector2.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector2.ts#L80)
+[src/math/Vector2.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L135)
 
 ___
 
@@ -214,7 +286,7 @@ ___
 
 ▸ **scale**(`v`): `void`
 
-将该向量的x、y值同时乘以v。
+Let's multiply the x and y values of this vector times v.
 
 #### Parameters
 
@@ -228,7 +300,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector2.ts:91](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector2.ts#L91)
+[src/math/Vector2.ts:146](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L146)
 
 ___
 
@@ -236,7 +308,7 @@ ___
 
 ▸ **multiply**(`a`, `target?`): [`Vector2`](Vector2.md)
 
-将该向量的x、y值同时乘以a。
+Let's multiply the x and y values of this vector by a.
 
 #### Parameters
 
@@ -251,7 +323,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector2.ts:101](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector2.ts#L101)
+[src/math/Vector2.ts:157](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L157)
 
 ___
 
@@ -259,7 +331,7 @@ ___
 
 ▸ **divide**(`v`, `target?`): [`Vector2`](Vector2.md)
 
-将该向量的x、y值同时除以v。
+We're going to divide the x and y values of this vector by v.
 
 #### Parameters
 
@@ -274,7 +346,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector2.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector2.ts#L114)
+[src/math/Vector2.ts:170](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L170)
 
 ___
 
@@ -282,7 +354,7 @@ ___
 
 ▸ **neg**(`target?`): [`Vector2`](Vector2.md)
 
-向量取反
+Vector inversion
 
 #### Parameters
 
@@ -296,7 +368,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector2.ts:126](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector2.ts#L126)
+[src/math/Vector2.ts:182](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L182)
 
 ___
 
@@ -310,7 +382,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector2.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector2.ts#L133)
+[src/math/Vector2.ts:189](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L189)
 
 ___
 
@@ -318,7 +390,7 @@ ___
 
 ▸ **length**(): `number`
 
-向量的长度
+Length of vector
 
 #### Returns
 
@@ -326,7 +398,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector2.ts:141](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector2.ts#L141)
+[src/math/Vector2.ts:197](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L197)
 
 ___
 
@@ -334,13 +406,13 @@ ___
 
 ▸ **getAngle**(`target`): `number`
 
-返回 当前向量 与 目标向量 之间的角度（以弧度为单位）。
+Returns the Angle, in radians, between the current vector and the target vector.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `target` | [`Vector2`](Vector2.md) | 目标向量 |
+| `target` | [`Vector2`](Vector2.md) | Target vector |
 
 #### Returns
 
@@ -348,30 +420,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector2.ts:150](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector2.ts#L150)
-
-___
-
-### getAngle
-
-▸ `Static` **getAngle**(`a`, `b`): `number`
-
-返回两个向量之间的角度（以弧度为单位）。
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `a` | [`Vector2`](Vector2.md) | 目标向量a |
-| `b` | [`Vector2`](Vector2.md) | 目标向量b |
-
-#### Returns
-
-`number`
-
-#### Defined in
-
-[src/engine/math/Vector2.ts:159](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector2.ts#L159)
+[src/math/Vector2.ts:206](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L206)
 
 ___
 
@@ -391,7 +440,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector2.ts:167](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector2.ts#L167)
+[src/math/Vector2.ts:210](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L210)
 
 ___
 
@@ -411,7 +460,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector2.ts:175](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector2.ts#L175)
+[src/math/Vector2.ts:218](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L218)
 
 ___
 
@@ -419,13 +468,13 @@ ___
 
 ▸ **equals**(`a`): `boolean`
 
-两个向量是否相等
+Whether two vectors are equal
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `a` | [`Vector2`](Vector2.md) | 比较的向量 |
+| `a` | [`Vector2`](Vector2.md) | Vector of comparison |
 
 #### Returns
 
@@ -433,7 +482,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector2.ts:186](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector2.ts#L186)
+[src/math/Vector2.ts:229](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L229)
 
 ___
 
@@ -453,7 +502,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector2.ts:191](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector2.ts#L191)
+[src/math/Vector2.ts:234](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L234)
 
 ___
 
@@ -461,7 +510,7 @@ ___
 
 ▸ **clone**(): [`Vector2`](Vector2.md)
 
-返回一个新的向量，其具有和当前这个向量相同的x和y。
+Returns a new vector that has the same x and y as the current vector.
 
 #### Returns
 
@@ -469,7 +518,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector2.ts:203](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector2.ts#L203)
+[src/math/Vector2.ts:246](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L246)
 
 ___
 
@@ -477,13 +526,13 @@ ___
 
 ▸ **copyFrom**(`v`): [`Vector2`](Vector2.md)
 
-将源向量的x和y属性复制给此向量
+Copy the x and y properties of the source vector to this vector
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `v` | [`Vector2`](Vector2.md) | 源向量 |
+| `v` | [`Vector2`](Vector2.md) | Source vector |
 
 #### Returns
 
@@ -491,7 +540,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector2.ts:212](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector2.ts#L212)
+[src/math/Vector2.ts:255](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L255)
 
 ___
 
@@ -499,13 +548,13 @@ ___
 
 ▸ **dot**(`value`): `number`
 
-计算两个向量的点积（dot product）。
+Take the dot product of two vectors.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `value` | [`Vector2`](Vector2.md) | 目标向量 |
+| `value` | [`Vector2`](Vector2.md) | Target vector |
 
 #### Returns
 
@@ -513,55 +562,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector2.ts:222](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector2.ts#L222)
-
-___
-
-### slerp
-
-▸ `Static` **slerp**(`from`, `to`, `t`): [`Vector2`](Vector2.md)
-
-计算两个向量之间的线性插值。
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `from` | [`Vector2`](Vector2.md) | 起始向量 |
-| `to` | [`Vector2`](Vector2.md) | 朝着进行插值的向量 |
-| `t` | `number` |  |
-
-#### Returns
-
-[`Vector2`](Vector2.md)
-
-#### Defined in
-
-[src/engine/math/Vector2.ts:235](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector2.ts#L235)
-
-___
-
-### lerp
-
-▸ `Static` **lerp**(`from`, `to`, `t`): [`Vector2`](Vector2.md)
-
-两个向量之间的线性插值。
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `from` | [`Vector2`](Vector2.md) | 起始向量 |
-| `to` | [`Vector2`](Vector2.md) | 朝着进行插值的向量 |
-| `t` | `number` |  |
-
-#### Returns
-
-[`Vector2`](Vector2.md)
-
-#### Defined in
-
-[src/engine/math/Vector2.ts:264](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector2.ts#L264)
+[src/math/Vector2.ts:266](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L266)
 
 ___
 
@@ -569,7 +570,7 @@ ___
 
 ▸ **normalize**(): `void`
 
-将该向量转换为单位向量。
+Convert this vector to a unit vector.
 
 #### Returns
 
@@ -577,7 +578,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector2.ts:275](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector2.ts#L275)
+[src/math/Vector2.ts:273](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L273)
 
 ___
 
@@ -585,13 +586,13 @@ ___
 
 ▸ **addInPlace**(`otherVector`): [`Vector2`](Vector2.md)
 
-两个向量相加
+Add two vectors
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `otherVector` | [`Vector2`](Vector2.md) | 相加的向量 |
+| `otherVector` | [`Vector2`](Vector2.md) | Additive vector |
 
 #### Returns
 
@@ -599,7 +600,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector2.ts:286](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector2.ts#L286)
+[src/math/Vector2.ts:284](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L284)
 
 ___
 
@@ -607,13 +608,13 @@ ___
 
 ▸ **addScalar**(`s`): [`Vector2`](Vector2.md)
 
-从该向量的x和y中加上标量。
+Add the scalar to the x and y of this vector.
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `s` | `number` | 相加的标量 |
+| `s` | `number` | Additive scalar |
 
 #### Returns
 
@@ -621,7 +622,7 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector2.ts:297](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector2.ts#L297)
+[src/math/Vector2.ts:295](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L295)
 
 ___
 
@@ -633,8 +634,8 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `minVal` | `number` | 分量将被限制为的最小值 |
-| `maxVal` | `number` | 分量将被限制为的最大值 |
+| `minVal` | `number` | Component will be limited to the minimum value of |
+| `maxVal` | `number` | The component will be limited to the maximum value of |
 
 #### Returns
 
@@ -642,26 +643,4 @@ ___
 
 #### Defined in
 
-[src/engine/math/Vector2.ts:310](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector2.ts#L310)
-
-___
-
-### copyToBytes
-
-▸ **copyToBytes**(`byte`): `void`
-
-复制该向量的x和y 到目标对象
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `byte` | `DataView` | 目标对象 |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/engine/math/Vector2.ts:321](https://github.com/Orillusion/orillusion/blob/main/src/engine/math/Vector2.ts#L321)
+[src/math/Vector2.ts:308](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L308)

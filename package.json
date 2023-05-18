@@ -1,24 +1,32 @@
 {
-  "name": "orillusion-web",
-  "version": "1.0.0",
-  "repository": "https://github.com/Orillusion/orillusion-web",
-  "license": "MIT",
-  "scripts": {
-    "dev": "vitepress dev docs",
-    "build": "vitepress build docs && npm run build:demos",
-    "build:webgpu": "bash webgpu/build.sh",
-    "build:demos": "esbuild `find docs/public \\( -name '*.ts' \\)` --outdir=docs/.vitepress/dist"
-  },
-  "devDependencies": {
-    "@types/node": "^18.15.13",
-    "vitepress": "1.0.0-alpha.73",
-    "vue": "^3.2.47"
-  },
-  "pnpm": {
-    "peerDependencyRules": {
-      "ignoreMissing": [
-        "@algolia/client-search"
-      ]
+    "name": "orillusion-web",
+    "version": "1.0.0",
+    "repository": "https://github.com/Orillusion/orillusion-web",
+    "license": "MIT",
+    "scripts": {
+        "dev": "vitepress dev docs",
+        "build": "vitepress build docs && npm run build:demos",
+        "build:webgpu": "bash webgpu/build.sh",
+        "build:demos": "esbuild `find docs/public \\( -name '*.ts' \\)` --outdir=docs/.vitepress/dist",
+        "format": "prettier --check --write ."
+    },
+    "devDependencies": {
+        "@orillusion/core": "^0.6.2",
+        "@orillusion/media-extention": "^0.2.0",
+        "@orillusion/physics": "^0.2.0",
+        "@orillusion/stats": "^0.2.0",
+        "@types/dat.gui": "^0.7.10",
+        "@types/node": "^18.15.13",
+        "esbuild": "^0.17.18",
+        "prettier": "^2.8.8",
+        "vitepress": "1.0.0-alpha.75",
+        "vue": "^3.2.47"
+    },
+    "pnpm": {
+        "peerDependencyRules": {
+            "ignoreMissing": [
+                "@algolia/client-search"
+            ]
+        }
     }
-  }
 }
