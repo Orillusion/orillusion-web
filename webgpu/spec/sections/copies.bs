@@ -1,38 +1,37 @@
-# Copies # {#copies}
+# 副本 # {#copies}
 
-## Buffer Copies ## {#buffer-copies}
+## 缓冲副本 ## {#buffer-copies}
 
-Buffer copy operations operate on raw bytes.
+缓冲区复制操作操作原始字节。
 
-WebGPU provides "buffered" {{GPUCommandEncoder}} commands:
+WebGPU 提供 "缓冲" 的 {{GPUCommandEncoder}} 命令:
 
 - {{GPUCommandEncoder/copyBufferToBuffer()}}
 - {{GPUCommandEncoder/clearBuffer()}}
 
-and "immediate" {{GPUQueue}} operations:
+还有 “即时” {{GPUQueue}} 操作：
 
-- {{GPUQueue/writeBuffer()}}, for {{ArrayBuffer}}-to-{{GPUBuffer}} writes
+- {{GPUQueue/writeBuffer()}}, 用于 {{ArrayBuffer}} 到 {{GPUBuffer}} 的写入
 
-## Image Copies ## {#image-copies}
+## 图片副本 ## {#image-copies}
 
-<dfn dfn>Image copy</dfn> operations operate on texture/"image" data, rather than bytes.
+<dfn dfn>图像复制</dfn>操作对纹理/“图像”数据进行操作，而不是字节。
 
-WebGPU provides "buffered" {{GPUCommandEncoder}} commands:
+
+WebGPU 为 {{GPUCommandEncoder}} 命令提供了“缓冲”:
 
 - {{GPUCommandEncoder/copyTextureToTexture()}}
 - {{GPUCommandEncoder/copyBufferToTexture()}}
 - {{GPUCommandEncoder/copyTextureToBuffer()}}
 
-and "immediate" {{GPUQueue}} operations:
+以及“即时”{{GPUQueue}} 操作：
 
-- {{GPUQueue/writeTexture()}}, for {{ArrayBuffer}}-to-{{GPUTexture}} writes
-- {{GPUQueue/copyExternalImageToTexture()}}, for copies from Web Platform image sources to textures
+- {{GPUQueue/writeTexture()}}, 用于 {{ArrayBuffer}} 到 {{GPUTexture}}的写入
+- {{GPUQueue/copyExternalImageToTexture()}}, 用于从 Web 平台图像源到纹理的复制
 
-Some texel values have multiple possible representations of some values,
-e.g. as `r8snorm`, -1.0 can be represented as either -127 or -128.
-Copy commands are not guaranteed to preserve the source's bit-representation.
+有些像素值具有多种可能的表示形式，例如，作为 r8snorm，-1.0 可以表示为 -127 或 -128。复制命令不能保证保留源的位表示。
 
-The following definitions are used by these methods.
+以下定义由这些方法使用。
 
 <h4 id=gpuimagedatalayout data-dfn-type=dictionary>`GPUImageDataLayout`
 <span id=gpu-image-data-layout></span>
@@ -46,55 +45,50 @@ dictionary GPUImageDataLayout {
 };
 </script>
 
-A {{GPUImageDataLayout}} is a layout of <dfn dfn>images</dfn> within some linear memory.
-It's used when copying data between a [=texture=] and a {{GPUBuffer}}, or when scheduling a
-write into a [=texture=] from the {{GPUQueue}}.
+{{GPUImageDataLayout}} 是线性内存中 <dfn dfn>图像</dfn> 的布局。
+在将数据从 [=纹理=] 复制到 {{GPUBuffer}} 之间，或是安排从 {{GPUQueue}} 中写入 [=texture=] 时使用。
 
-- For {{GPUTextureDimension/2d}} textures, data is copied between one or multiple contiguous [=images=] and [=array layers=].
-- For {{GPUTextureDimension/3d}} textures, data is copied between one or multiple contiguous [=images=] and depth [=slices=].
+- 对于 {{GPUTextureDimension/2d}} 纹理，数据在一个或多个连续的 [=images=] 和 [=array layers=] 之间复制。
+- 对于 {{GPUTextureDimension/3d}} 纹理，数据在一个或多个连续的 [=images=] 和深度 [=slices=] 之间复制。
 
-Issue: Define images more precisely. In particular, define them as being comprised of [=texel blocks=].
+问题：更精确地定义图像。特别是将它们定义为由 [=纹素块=] 组成。
 
-Operations that copy between byte arrays and textures always work with rows of [=texel blocks=],
-which we'll call <dfn dfn>block row</dfn>s. It's not possible to update only a part of a [=texel block=].
+在字节数组和纹理之间复制的操作始终处理 [=纹素块=] 的行，我们将其称为 <dfn dfn>块行</dfn>。不可能仅更新 [=纹素块=] 的一部分。
 
-[=Texel blocks=] are tightly packed within each [=block row=] in the linear memory layout of an
-image copy, with each subsequent texel block immediately following the previous texel block,
-with no padding.
-This includes [[#copying-depth-stencil|copies]] to/from specific aspects of [=depth-or-stencil format=] textures:
-stencil values are tightly packed in an array of bytes;
-depth values are tightly packed in an array of the appropriate type ("depth16unorm" or "depth32float").
+在图像复制的线性内存布局中，每个 [=块行=] 内的 [=纹素块=] 紧密排列，每个随后的 texel block 紧跟在前一个 texel block 后面，没有填充。
+这包括将 [=depth-or-stencil format=] 纹理的特定方面进行[[#copying-depth-stencil|复制]]：
+模具值紧密包装在一组字节中；
+深度值紧密包装在适当类型的数组中（“depth16unorm”或“depth32float”）。
 
-Issue: Define the exact copy semantics, by reference to common algorithms shared by the copy methods.
+问题：通过引用复制方法共享的常见算法来定义确切的复制语义。
 
 <dl dfn-type=dict-member dfn-for=GPUImageDataLayout>
     : <dfn>offset</dfn>
     ::
-        The offset, in bytes, from the beginning of the image data source (such as a
-        {{GPUImageCopyBuffer/buffer|GPUImageCopyBuffer.buffer}}) to the start of the image data
-        within that source.
+        偏移量（以字节为单位），从图像数据源（如 {{GPUImageCopyBuffer/buffer|GPUImageCopyBuffer.buffer}}）的开头到该源内图像数据开始的偏移量。
 
     : <dfn>bytesPerRow</dfn>
     ::
-        The stride, in bytes, between the beginning of each [=block row=] and the subsequent [=block row=].
+        在字节中，从每个[=块行=]的开始到随后的[=块行=]之间的步幅。
 
-        Required if there are multiple [=block rows=] (i.e. the copy height or depth is more than one block).
+
+        如果有多个[=块行=]（即，复制高度或深度大于一个块），则需要。
 
     : <dfn>rowsPerImage</dfn>
     ::
-        Number of [=block rows=] per single [=image=] of the [=texture=].
-        {{GPUImageDataLayout/rowsPerImage}} &times;
-        {{GPUImageDataLayout/bytesPerRow}} is the stride, in bytes, between the beginning of each [=image=] of data and the subsequent [=image=].
+        图像数量[=块行=]每个[=纹理=]的单个[=图像=]。
+        {{GPUImageDataLayout/rowsPerImage}} ×
+        {{GPUImageDataLayout/bytesPerRow}} 是数据的每个 [=图像=] 之间和后续[=图像=]之间的字节间距。
 
-        Required if there are multiple [=images=] (i.e. the copy depth is more than one).
+
+        如果有多个 [=图像=]（即复制深度大于1），则需要。
 </dl>
 
 <h4 id=gpuimagecopybuffer data-dfn-type=dictionary>`GPUImageCopyBuffer`
 <span id=gpu-image-copy-buffer></span>
 </h4>
 
-In an [=image copy=] operation, {{GPUImageCopyBuffer}} defines a {{GPUBuffer}} and, together with
-the `copySize`, how image data is laid out in the buffer's memory (see {{GPUImageDataLayout}}).
+在[=image copy=]操作中，{{GPUImageCopyBuffer}}定义了一个{{GPUBuffer}}，并结合 `copySize`，说明了图像数据如何在缓冲区的内存中布局（参见{{GPUImageDataLayout}}）。
 
 <script type=idl>
 dictionary GPUImageCopyBuffer
@@ -106,8 +100,8 @@ dictionary GPUImageCopyBuffer
 <dl dfn-type=dict-member dfn-for=GPUImageCopyBuffer>
     : <dfn>buffer</dfn>
     ::
-        A buffer which either contains image data to be copied or will store the image data being
-        copied, depending on the method it is being passed to.
+        
+        一个缓冲区，它可以包含要复制的图像数据，也可以存储正在复制的图像数据，具体取决于传递给它的方法。
 </dl>
 
 <div algorithm class=validusage>
@@ -119,18 +113,16 @@ dictionary GPUImageCopyBuffer
 
     **Returns:** {{boolean}}
 
-    1. Return `true` if and only if all of the following conditions are satisfied:
-        - |imageCopyBuffer|.{{GPUImageCopyBuffer/buffer}} must be a [=valid=] {{GPUBuffer}}.
-        - |imageCopyBuffer|.{{GPUImageDataLayout/bytesPerRow}} must be a multiple of 256.
+    当且仅当满足以下所有条件时返回 `true`：
+        - |imageCopyBuffer|.{{GPUImageCopyBuffer/buffer}}必须是一个 [=valid=] {{GPUBuffer}}。
+        - |imageCopyBuffer|.{{GPUImageDataLayout/bytesPerRow}} 必须是256的倍数。
 </div>
 
 <h4 id=gpuimagecopytexture data-dfn-type=dictionary>`GPUImageCopyTexture`
 <span id=gpu-image-copy-texture></span>
 </h4>
 
-In an [=image copy=] operation, a {{GPUImageCopyTexture}} defines a {{GPUTexture}} and, together with
-the `copySize`, the sub-region of the texture (spanning one or more contiguous
-[=texture subresources=] at the same mip-map level).
+在[=image copy=]操作中，{{GPUImageCopyTexture}} 定义了一个 {{GPUTexture}}，并与 copySize 一起定义了纹理的子区域（跨一个或多个连续的 [=纹理子资源=]，在相同的 mip-map 级别上）。
 
 <script type=idl>
 dictionary GPUImageCopyTexture {
@@ -144,20 +136,19 @@ dictionary GPUImageCopyTexture {
 <dl dfn-type=dict-member dfn-for=GPUImageCopyTexture>
     : <dfn>texture</dfn>
     ::
-        Texture to copy to/from.
+        要复制到/从中复制的纹理。
 
     : <dfn>mipLevel</dfn>
     ::
-        Mip-map level of the {{GPUImageCopyTexture/texture}} to copy to/from.
+        要复制到/从中复制的 {{GPUImageCopyTexture/texture}} 的 Mip-map 级别。
 
     : <dfn>origin</dfn>
     ::
-        Defines the origin of the copy - the minimum corner of the texture sub-region to copy to/from.
-        Together with `copySize`, defines the full copy sub-region.
+        定义复制的起点 - 将要复制到/从的纹理子区域的最小角。与 `copySize` 一起, 定义完整的复制子区域。
 
     : <dfn>aspect</dfn>
     ::
-        Defines which aspects of the {{GPUImageCopyTexture/texture}} to copy to/from.
+        定义从 {{GPUImageCopyTexture/texture}} 复制到/从哪些方面的内容。
 </dl>
 
 <div algorithm class=validusage>
@@ -170,35 +161,30 @@ dictionary GPUImageCopyTexture {
 
     **Returns:** {{boolean}}
 
-    1. Let |blockWidth| be the [=texel block width=] of |imageCopyTexture|.{{GPUImageCopyTexture/texture}}.{{GPUTexture/format}}.
-    1. Let |blockHeight| be the [=texel block height=] of |imageCopyTexture|.{{GPUImageCopyTexture/texture}}.{{GPUTexture/format}}.
+    1. 令 |blockWidth| 为 |imageCopyTexture| .{{GPUImageCopyTexture/texture}}.{{GPUTexture/format}} 的 [=texel block width=]。
 
-    1. Return `true` if and only if all of the following conditions apply:
-        - |imageCopyTexture|.{{GPUImageCopyTexture/texture}} must be a [=valid=] {{GPUTexture}}.
-        - |imageCopyTexture|.{{GPUImageCopyTexture/mipLevel}} must be &lt;
-            |imageCopyTexture|.{{GPUImageCopyTexture/texture}}.{{GPUTexture/mipLevelCount}}.
-        - |imageCopyTexture|.{{GPUImageCopyTexture/origin}}.[=GPUOrigin3D/x=] must be a multiple of |blockWidth|.
-        - |imageCopyTexture|.{{GPUImageCopyTexture/origin}}.[=GPUOrigin3D/y=] must be a multiple of |blockHeight|.
-        - The [=imageCopyTexture subresource size=] of |imageCopyTexture| is equal to |copySize| if either of
-            the following conditions is true:
-            - |imageCopyTexture|.{{GPUImageCopyTexture/texture}}.{{GPUTexture/format}} is a depth-stencil format.
-            - |imageCopyTexture|.{{GPUImageCopyTexture/texture}}.{{GPUTexture/sampleCount}} &gt; 1.
+    1. 令 |blockHeight| 为 |imageCopyTexture| .{{GPUImageCopyTexture/texture}}.{{GPUTexture/format}} 的 [=texel block height=]。
+
+    1. 当且仅当满足以下所有条件时返回 true：
+
+        - |imageCopyTexture| .{{GPUImageCopyTexture/texture}} 必须是一个 [=valid=] {{GPUTexture}}。
+        - |imageCopyTexture|.{{GPUImageCopyTexture/mipLevel}} 必须小于 |imageCopyTexture|.{{GPUImageCopyTexture/texture}}.{{GPUTexture/mipLevelCount}}。
+        - |imageCopyTexture|.{{GPUImageCopyTexture/origin}}.[=GPUOrigin3D/x=] 必须是 |blockWidth| 的倍数。
+        - |imageCopyTexture|.{{GPUImageCopyTexture/origin}}.[=GPUOrigin3D/y=] 必须是 |blockHeight| 的倍数。
+        - 如果满足以下任一条件，|imageCopyTexture| 的 [=imageCopyTexture subresource size=] 等于 |copySize|：
+            - |imageCopyTexture|.{{GPUImageCopyTexture/texture}}.{{GPUTexture/format}} 是深度-模板格式。
+            - |imageCopyTexture|.{{GPUImageCopyTexture/texture}}.{{GPUTexture/sampleCount}} &gt; 1。
 </div>
 
-Issue(gpuweb/gpuweb#69): Define the copies with {{GPUTextureDimension/1d}} and {{GPUTextureDimension/3d}} textures.
+问题(gpuweb/gpuweb#69)：定义具有{{GPUTextureDimension/1d}}和{{GPUTextureDimension/3d}}纹理的副本。
 
 <h4 id=gpuimagecopytexturetagged data-dfn-type=dictionary>`GPUImageCopyTextureTagged`
 <span id=gpu-image-copy-texture-tagged></span>
 </h4>
 
-WebGPU textures hold raw numeric data, and are not tagged with semantic metadata describing colors.
-However, {{GPUQueue/copyExternalImageToTexture()}} copies from sources that describe colors.
+WebGPU 纹理包含原始数值数据，不带有描述颜色的语义元数据。然而，{{GPUQueue/copyExternalImageToTexture()}} 从描述颜色的资源中复制。
 
-A {{GPUImageCopyTextureTagged}} is a {{GPUImageCopyTexture}} which is additionally tagged with
-color space/encoding and alpha-premultiplication metadata, so that semantic color data may be
-preserved during copies.
-This metadata affects only the semantics of the {{GPUQueue/copyExternalImageToTexture()}}
-operation, not the semantics of the destination texture.
+{{GPUImageCopyTextureTagged}} 是一个带有颜色空间/编码和 alpha 预乘元数据的 {{GPUImageCopyTexture}}，这样语义颜色数据在复制过程中可以保留。这个元数据仅影响 {{GPUQueue/copyExternalImageToTexture()}} 操作的语义，而不影响目标纹理的语义。
 
 <script type=idl>
 dictionary GPUImageCopyTextureTagged
@@ -211,28 +197,27 @@ dictionary GPUImageCopyTextureTagged
 <dl dfn-type=dict-member dfn-for=GPUImageCopyTextureTagged>
     : <dfn>colorSpace</dfn>
     ::
-        Describes the color space and encoding used to encode data into the destination texture.
+        描述用于将数据编码到目标纹理中的颜色空间和编码方式。
 
-        This [[#color-space-conversions|may result]] in values outside of the range [0, 1]
-        being written to the target texture, if its format can represent them.
-        Otherwise, the results are clamped to the target texture format's range.
 
-        Note:
-        If {{GPUImageCopyTextureTagged/colorSpace}} matches the source image,
-        conversion may not be necessary. See [[#color-space-conversion-elision]].
+        这 [[#color-space-conversions|可能导致]] 在范围 [0, 1] 之外的值
+        被写入目标纹理, 如果其格式可以表示它们。
+        否则，结果将被截断到目标纹理格式的范围。
+
+        注意:
+        如果 {{GPUImageCopyTextureTagged/colorSpace}} 与源图像相匹配，
+        则可能不需要转换。请参见[[#color-space-conversion-elision]]。
 
     : <dfn>premultipliedAlpha</dfn>
     ::
-        Describes whether the data written into the texture should have its RGB channels
-        premultiplied by the alpha channel, or not.
+        描述数据写入纹理时，是否应该将其 RGB 通道预先乘以 alpha 通道。
 
-        If this option is set to `true` and the {{GPUImageCopyExternalImage/source}} is also
-        premultiplied, the source RGB values must be preserved even if they exceed their
-        corresponding alpha values.
 
-        Note:
-        If {{GPUImageCopyTextureTagged/premultipliedAlpha}} matches the source image,
-        conversion may not be necessary. See [[#color-space-conversion-elision]].
+        如果此选项设置为 `true`，并且 {{GPUImageCopyExternalImage/source}} 也预先乘以 alpha，则即使源 RGB 值超过其相应的 alpha 值，也必须保留这些值。
+
+
+        注意：
+        如果 {{GPUImageCopyTextureTagged/premultipliedAlpha}} 与源图像匹配，则可能不需要进行转换。请参阅[[#color-space-conversion-elision]]。
 </dl>
 
 <h4 id=gpuimagecopyexternalimage data-dfn-type=dictionary>`GPUImageCopyExternalImage`
@@ -252,9 +237,7 @@ dictionary GPUImageCopyExternalImage {
 <dl dfn-type=dict-member dfn-for=GPUImageCopyExternalImage>
     : <dfn>source</dfn>
     ::
-        The source of the [=image copy=]. The copy source data is captured at the moment that
-        {{GPUQueue/copyExternalImageToTexture()}} is issued. Source size is defined by source
-        type, given by this table:
+        [=image copy=]的来源。在发出 {{GPUQueue/copyExternalImageToTexture()}} 时捕获复制源数据。来源大小由来源类型定义，如下表所示：
         
         <table class=data>
             <thead>
@@ -285,17 +268,16 @@ dictionary GPUImageCopyExternalImage {
 
     : <dfn>origin</dfn>
     ::
-        Defines the origin of the copy - the minimum (top-left) corner of the source sub-region to copy from.
-        Together with `copySize`, defines the full copy sub-region.
+        定义副本的来源 - 要从中复制的源子区域的最小（左上）角。
+        结合 `copySize`，定义完整的复制子区域。
 
     : <dfn>flipY</dfn>
     ::
-        Describes whether the source image is vertically flipped, or not.
+        描述源图像是否垂直翻转。
 
-        If this option is set to `true`, the copy is flipped vertically: the bottom row of the source
-        region is copied into the first row of the destination region, and so on.
-        The {{GPUImageCopyExternalImage/origin}} option is still relative to the top-left corner
-        of the source image, increasing downward.
+
+        如果此选项设置为 `true`，副本将垂直翻转：源区域的底部行被复制到目标区域的第一行，依此类推。
+        {{GPUImageCopyExternalImage/origin}}选项仍然相对于源图像的左上角，向下增加。
 </dl>
 
 ### Subroutines ### {#image-copies-subroutines}
@@ -309,11 +291,9 @@ dictionary GPUImageCopyExternalImage {
 
     **Returns:** {{GPUExtent3D}}
 
-    The [=imageCopyTexture subresource size=] of |imageCopyTexture| is calculated as follows:
+    |imageCopyTexture| 的 [=imageCopyTexture 子资源大小=] 计算如下:
 
-    Its [=GPUExtent3D/width=], [=GPUExtent3D/height=] and [=GPUExtent3D/depthOrArrayLayers=] are the width, height, and depth, respectively,
-    of the [=physical miplevel-specific texture extent=] of |imageCopyTexture|.{{GPUImageCopyTexture/texture}} [=subresource=] at [=mipmap level=]
-    |imageCopyTexture|.{{GPUImageCopyTexture/mipLevel}}.
+    其 [=GPUExtent3D/width=]、[=GPUExtent3D/height=] 和 [=GPUExtent3D/depthOrArrayLayers=] 分别是 |imageCopyTexture| 的宽度、高度和深度，对应于 |imageCopyTexture|.{{GPUImageCopyTexture/texture}} [=子资源=] 在 [=mipmap 级别=] |imageCopyTexture|.{{GPUImageCopyTexture/mipLevel}} 的 [=物理 miplevel 特定纹理范围=]。
 </div>
 
 <div algorithm>
@@ -322,50 +302,49 @@ dictionary GPUImageCopyExternalImage {
     **Arguments:**
 
     : {{GPUImageDataLayout}} |layout|
-    :: Layout of the linear texture data.
+    :: 线性纹理数据的布局。
     : {{GPUSize64}} |byteSize|
-    :: Total size of the linear data, in bytes.
+    :: 线性数据的总大小，以字节为单位。
     : {{GPUTextureFormat}} |format|
-    :: Format of the texture.
+    :: 纹理的格式。
     : {{GPUExtent3D}} |copyExtent|
-    :: Extent of the texture to copy.
+    ::  要复制的纹理范围。
 
-    1. Let:
-        - |widthInBlocks| be |copyExtent|.[=GPUExtent3D/width=] &divide; the [=texel block width=] of |format|.
-            [=Assert=] this is an integer.
-        - |heightInBlocks| be |copyExtent|.[=GPUExtent3D/height=] &divide; the [=texel block height=] of |format|.
-            [=Assert=] this is an integer.
-        - |bytesInLastRow| be |widthInBlocks| &times; the [=texel block copy footprint=] of |format|.
-    1. Fail if the following input validation requirements are not met:
+    1. 让：
+
+
+        - |widthInBlocks| 是 |copyExtent|.[=GPUExtent3D/width=] 除以 |format| 的 [=texel block width=]。[=Assert=] 这是一个整数。
+        - |heightInBlocks| 是 |copyExtent|.[=GPUExtent3D/height=] 除以 |format| 的 [=texel block height=]。[=Assert=] 这是一个整数。
+        - |bytesInLastRow| 是 |widthInBlocks| 乘以 |format| 的 [=texel block copy footprint=]。
+
+    1. 如果以下输入验证要求不满足，则失败：
+
 
         <div class=validusage>
-            - If |heightInBlocks| &gt; 1,
-                |layout|.{{GPUImageDataLayout/bytesPerRow}} must be specified.
-            - If |copyExtent|.[=GPUExtent3D/depthOrArrayLayers=] &gt; 1,
-                |layout|.{{GPUImageDataLayout/bytesPerRow}} and
-                |layout|.{{GPUImageDataLayout/rowsPerImage}} must be specified.
-            - If specified, |layout|.{{GPUImageDataLayout/bytesPerRow}}
-                must be &ge; |bytesInLastRow|.
-            - If specified, |layout|.{{GPUImageDataLayout/rowsPerImage}}
-                must be &ge; |heightInBlocks|.
+            - 如果 |heightInBlocks| &gt; 1，那么必须指定 |layout|.{{GPUImageDataLayout/bytesPerRow}}。
+            - 如果 |copyExtent|.[=GPUExtent3D/depthOrArrayLayers=] &gt; 1，那么必须指定 |layout|.{{GPUImageDataLayout/bytesPerRow}} 和 |layout|.{{GPUImageDataLayout/rowsPerImage}}。
+            - 如果指定了 |layout|.{{GPUImageDataLayout/bytesPerRow}}，那么它必须大于等于 |bytesInLastRow|。
+            - 如果指定了 |layout|.{{GPUImageDataLayout/rowsPerImage}}，那么它必须大于等于 |heightInBlocks|。
         </div>
-    1. Let:
-        - |bytesPerRow| be |layout|.{{GPUImageDataLayout/bytesPerRow}} ?? 0.
-        - |rowsPerImage| be |layout|.{{GPUImageDataLayout/rowsPerImage}} ?? 0.
 
-        Note: These default values have no effect, as they're always multiplied by 0.
-    1. Let |requiredBytesInCopy| be 0.
-    1. If |copyExtent|.[=GPUExtent3D/depthOrArrayLayers=] &gt; 0:
-        1. Increment |requiredBytesInCopy| by
-            |bytesPerRow| &times; |rowsPerImage| &times; (|copyExtent|.[=GPUExtent3D/depthOrArrayLayers=] &minus; 1).
-        1. If |heightInBlocks| &gt; 0:
-            1. Increment |requiredBytesInCopy| by
-                |bytesPerRow| &times; (|heightInBlocks| &minus; 1) + |bytesInLastRow|.
-    1. Fail if the following condition is not satisfied:
+    1. 让：
+
+
+        - |bytesPerRow| 是 |layout|.{{GPUImageDataLayout/bytesPerRow}}？？0。
+
+        - |rowsPerImage| 是 |layout|.{{GPUImageDataLayout/rowsPerImage}}？？0。
+
+        注意：这些默认值没有效果，因为它们总是乘以0。
+    1. 让 |requiredBytesInCopy| 等于 0。
+    1. 如果 |copyExtent|.[=GPUExtent3D/depthOrArrayLayers=] &gt; 0：
+        1. 使 |requiredBytesInCopy| 增加 |bytesPerRow| 乘以 |rowsPerImage| 乘以 (|copyExtent|.[=GPUExtent3D/depthOrArrayLayers=] - 1)。
+        1. 如果 |heightInBlocks| &gt; 0：
+            1. 使 |requiredBytesInCopy| 增加 |bytesPerRow| 乘以 (|heightInBlocks| - 1) + |bytesInLastRow|。
+
+    1. 如果以下条件不满足，则失败：
 
         <div class=validusage>
-            - The layout fits inside the linear data:
-                |layout|.{{GPUImageDataLayout/offset}} + |requiredBytesInCopy| &le; |byteSize|.
+            - 布局适应线性数据：|layout|.{{GPUImageDataLayout/offset}} + |requiredBytesInCopy| &le; |byteSize|。
         </div>
 </div>
 
@@ -375,41 +354,37 @@ dictionary GPUImageCopyExternalImage {
     **Arguments:**
 
     : {{GPUImageCopyTexture}} |imageCopyTexture|
-    :: The texture subresource being copied into and copy origin.
+    :: 复制到的纹理子资源和复制起点。
     : {{GPUExtent3D}} |copySize|
-    :: The size of the texture.
+    :: 纹理的大小。
 
-    1. Let |blockWidth| be the [=texel block width=] of |imageCopyTexture|.{{GPUImageCopyTexture/texture}}.{{GPUTexture/format}}.
-    1. Let |blockHeight| be the [=texel block height=] of |imageCopyTexture|.{{GPUImageCopyTexture/texture}}.{{GPUTexture/format}}.
-    1. Let |subresourceSize| be the [=imageCopyTexture subresource size=] of |imageCopyTexture|.
-    1. Return whether all the conditions below are satisfied:
+
+    1. 让 |blockWidth| 是 |imageCopyTexture| 的 [=texel block width=]。{{GPUImageCopyTexture/texture}}.{{GPUTexture/format}}.
+    1. 让 |blockHeight| 是 |imageCopyTexture| 的 [=texel block height=]。{{GPUImageCopyTexture/texture}}.{{GPUTexture/format}}.
+    1. 让 |subresourceSize| 是 |imageCopyTexture| 的 [=imageCopyTexture subresource size=]。
+    1. 如果满足以下所有条件，则返回：
 
         - (|imageCopyTexture|.{{GPUImageCopyTexture/origin}}.[=GPUOrigin3D/x=] + |copySize|.[=GPUExtent3D/width=]) &le; |subresourceSize|.[=GPUExtent3D/width=]
         - (|imageCopyTexture|.{{GPUImageCopyTexture/origin}}.[=GPUOrigin3D/y=] + |copySize|.[=GPUExtent3D/height=]) &le; |subresourceSize|.[=GPUExtent3D/height=]
         - (|imageCopyTexture|.{{GPUImageCopyTexture/origin}}.[=GPUOrigin3D/z=] + |copySize|.[=GPUExtent3D/depthOrArrayLayers=]) &le; |subresourceSize|.[=GPUExtent3D/depthOrArrayLayers=]
-        - |copySize|.[=GPUExtent3D/width=] must be a multiple of |blockWidth|.
-        - |copySize|.[=GPUExtent3D/height=] must be a multiple of |blockHeight|.
+        - |copySize|.[=GPUExtent3D/width=] 必须是 |blockWidth| 的倍数。
+        - |copySize|.[=GPUExtent3D/height=] 必须是 |blockHeight| 的倍数。
 </div>
 
 <div algorithm>
-    Two {{GPUTextureFormat}}s |format1| and |format2| are <dfn dfn>copy-compatible</dfn> if:
+    两个 {{GPUTextureFormat}} |format1| 和 |format2| 是 <dfn dfn>兼容复制</dfn> 的如果：
 
-    - |format1| equals |format2|, or
-    - |format1| and |format2| differ only in whether they are `srgb` formats (have the `-srgb` suffix).
+
+    - |format1| 等于 |format2|，或者
+    - |format1| 和 |format2| 之间的差异仅在于它们是否为 `srgb` 格式（具有 `-srgb` 后缀）。
 </div>
 
 <div algorithm>
-    The <dfn abstract-op>set of subresources for texture copy</dfn>(|imageCopyTexture|, |copySize|)
-    is the subset of subresources of |texture| = |imageCopyTexture|.{{GPUImageCopyTexture/texture}}
-    for which each subresource |s| satisfies the following:
+    <dfn abstract-op>纹理拷贝的子资源集合</dfn>（|imageCopyTexture|，|copySize|）是满足以下条件的|texture| = |imageCopyTexture|.{{GPUImageCopyTexture/texture}}的子资源的子集：
 
-    - The [=mipmap level=] of |s| equals
-        |imageCopyTexture|.{{GPUImageCopyTexture/mipLevel}}.
-    - The [=aspect=] of |s| is in the [=GPUTextureAspect/set of aspects=] of
-        |imageCopyTexture|.{{GPUImageCopyTexture/aspect}}.
-    - If |texture|.{{GPUTexture/dimension}} is {{GPUTextureDimension/"2d"}}:
-        - The [=array layer=] of |s| is &ge;
-            |imageCopyTexture|.{{GPUImageCopyTexture/origin}}.[=GPUOrigin3D/z=] and &lt;
-            |imageCopyTexture|.{{GPUImageCopyTexture/origin}}.[=GPUOrigin3D/z=] +
-            |copySize|.[=GPUExtent3D/depthOrArrayLayers=].
+
+    - |s|的[=mipmap level=]等于|imageCopyTexture|.{{GPUImageCopyTexture/mipLevel}}。
+    - |s|的[=aspect=]在|imageCopyTexture|.{{GPUImageCopyTexture/aspect}}的[=GPUTextureAspect/set of aspects=]中。
+    - 如果|texture|.{{GPUTexture/dimension}}是{{GPUTextureDimension/“2d”}}：
+        - |s|的[=array layer=] ≥ |imageCopyTexture|.{{GPUImageCopyTexture/origin}}.[=GPUOrigin3D/z=]且 < |imageCopyTexture|.{{GPUImageCopyTexture/origin}}.[=GPUOrigin3D/z=] + |copySize|.[=GPUExtent3D/depthOrArrayLayers=]。
 </div>

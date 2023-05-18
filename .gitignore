@@ -20,6 +20,7 @@ yarn.lock
 
 #webgpu
 /webgpu/**/index.html
+/webgpu/**/index.pre.html
 /webgpu/**/*.idl
 /.idea/.idea.orillusion-web-dev.dir/.idea/.gitignore
 /.idea/.idea.orillusion-web-dev.dir/.idea/indexLayout.xml

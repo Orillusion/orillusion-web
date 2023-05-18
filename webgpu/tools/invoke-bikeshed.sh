@@ -30,7 +30,7 @@ if type bikeshed >/dev/null && [ -z "$BIKESHED_DISALLOW_LOCAL" ] ; then
     trap 'rm -f -- "$tmp_tar"' EXIT
 
     tar cf "$tmp_tar" "$@"
-    bikeshed $opts spec "$tmp_tar" "$output"
+    bikeshed --allow-execute spec "$tmp_tar" "$output"
     exit
 elif [ -z "$BIKESHED_DISALLOW_ONLINE" ] ; then
     # Build using Bikeshed API.
