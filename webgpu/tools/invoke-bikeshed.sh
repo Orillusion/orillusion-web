@@ -43,7 +43,7 @@ elif [ -z "$BIKESHED_DISALLOW_ONLINE" ] ; then
     if [ "$DIE_ON" ] ; then
         opts="-Fdie-on=$DIE_ON"
     fi
-    tar c "$@" | curl -s https://api.csswg.org/bikeshed/ -Ffile=@- -allow-execute -o"$tmp_body" -D"$tmp_headers"
+    tar c "$@" | curl -s https://api.csswg.org/bikeshed/ -Ffile=@- -Fdie-on=nothing -o"$tmp_body" -D"$tmp_headers"
 
     if grep -q '^HTTP/1.1 200' "$tmp_headers" ; then
         # If successful, write to output file
