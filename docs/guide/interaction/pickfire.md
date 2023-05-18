@@ -64,7 +64,7 @@ collider.shape = new BoxColliderShape().setFromCenterAndSize(new Vector3(0, 0, 0
 
 
 ## 帧缓冲拾取
-`pixel` 模式和 `bound` 模式不同，`帧缓冲拾取` 利用的是 `GPU` 的像素检测，几乎不消耗 `CPU` 性能，可以无视场景中交互对象的数量和形状复杂度，支持所有触控事件。当场景模型形状复杂或物体数量众多的时候，我们推荐使用 `pixel` 模式进行拾取检测。
+`Pixel` 模式和 `bound` 模式不同，`帧缓冲拾取` 利用的是 `GPU` 的像素检测，几乎不消耗 `CPU` 性能，可以无视场景中交互对象的数量和形状复杂度，支持所有触控事件。当场景模型形状复杂或物体数量众多的时候，我们推荐使用 `pixel` 模式进行拾取检测。
 
 <Demo :height="400" src="/demos/interaction/pick_pixel.ts"></Demo>
 
