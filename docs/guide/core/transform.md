@@ -7,7 +7,7 @@
 
 <<< @/public/demos/core/transform.ts
 
-## Position
+## 位置
 场景节点相对父容器的位置
 ```ts
 let obj = new Object3D();
