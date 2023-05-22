@@ -57,13 +57,13 @@ scene.addChild(receiveShadowObj);
 ---
 <Demo :height="500" src="/demos/graphics/shadow_point.ts"></Demo>
 
-<<< @/public/demos/graphics/shadow_dir.ts
+<<< @/public/demos/graphics/shadow_point.ts
 
 ### 聚光灯阴影
 ---
 <Demo :height="500" src="/demos/graphics/shadow_spot.ts"></Demo>
 
-<<< @/public/demos/graphics/shadow_dir.ts
+<<< @/public/demos/graphics/shadow_spot.ts
 
 ## 阴影偏移
 阴影偏移 `shadowBias` 是影响阴影渲染的重要参数，因为一般阴影贴图的尺寸和最终渲染贴图的尺寸不完全相同的，会造成阴影采样失真等情况，通常可以通过手动设置一个微小的偏移量 `shadowBias` 来解决采样失真的情况。
