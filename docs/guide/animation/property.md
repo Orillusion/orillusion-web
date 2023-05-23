@@ -16,7 +16,7 @@
 > 目前引擎只支持导入经过专业建模软件制作的 `Clip` 素材，暂不支持代码中自定义属性动画，后续版本会加入
 
 ```ts
-// 加载外部模型;
+// load test model
 let node = new Object3D();
 scene.addChild(node);
 // 添加组件

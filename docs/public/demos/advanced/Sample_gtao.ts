@@ -34,9 +34,9 @@ export class Sample_GTAO {
         Engine3D.startRenderView(view)
 
         let postProcessing = this.scene.addComponent(PostProcessingComponent)
-        let gtao = postProcessing.addPost(GTAOPost)
+        postProcessing.addPost(GTAOPost)
 
-        //
+        // load a test gltf model
         let data = await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/Duck/Duck.gltf')
         this.scene.addChild(data)
         data.scaleX = data.scaleY = data.scaleZ = 0.05
@@ -99,7 +99,7 @@ export class Sample_GTAO {
         }
     }
 
-    private runBall: boolean = true
+    runBall: boolean = true
     private loop(): void {
         if (this.sphere && this.runBall) {
             this.sphere.x = Math.sin(Time.time * 0.001) * 10

@@ -8,10 +8,7 @@ export class Sample_Outline {
     constructor() {}
 
     async run() {
-        Engine3D.setting.shadow.debug = false
         Engine3D.setting.shadow.enable = false
-        Engine3D.setting.shadow.shadowBias = 0.002
-
         await Engine3D.init({
             canvasConfig: {
                 devicePixelRatio: 1

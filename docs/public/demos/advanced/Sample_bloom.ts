@@ -35,7 +35,7 @@ export class Sample_bloom {
     }
 
     async initScene() {
-        // 初始化平行光;
+        // add a dir light
         let ligthObj = new Object3D()
         let dl = ligthObj.addComponent(DirectLight)
         dl.lightColor = new Color(1.0, 0.95, 0.84, 1.0)

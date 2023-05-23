@@ -7,7 +7,7 @@ export class Sample_LightIES {
     constructor() {}
 
     async run() {
-        Engine3D.setting.shadow.pointShadowBias = 0.6
+        Engine3D.setting.shadow.pointShadowBias = 0.0001
         Engine3D.setting.shadow.type = `HARD`
 
         await Engine3D.init({
@@ -37,7 +37,8 @@ export class Sample_LightIES {
     }
 
     async initScene(scene: Scene3D) {
-        let iesTexture = (await Engine3D.res.loadTexture('https://cdn.orillusion.com/ies/ies_2.png')) as BitmapTexture2D
+        // load ies texture
+        let iesTexture = await Engine3D.res.loadTexture('https://cdn.orillusion.com/ies/ies_2.png')
         var iesPofiles = new IESProfiles()
         iesPofiles.IESTexture = iesTexture
 

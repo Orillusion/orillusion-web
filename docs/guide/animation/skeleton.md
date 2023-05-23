@@ -23,13 +23,13 @@
 ## 加载动画模型
 当加载带有骨骼动画数据的模型文件后，引擎会自动为模型添加一个 `SkeletonAnimation` 组件，并将模型中的动画剪辑数据加入其中。可以直接在模型的根实体上获取 `SkeletonAnimation` 组件，并播放指定动画。
 ```ts
-// 加载外部模型;
+// load test model
 let soldier = await Engine3D.res.loadGltf('gltfs/glb/Soldier.glb');
 soldier.rotationY = -90;
 soldier.localScale.set(2, 2, 2);
 scene.addChild(soldier);
 
-// 获取动画控制器;
+// get animation controller
 let animator = soldier.getComponentsInChild(SkeletonAnimation)[0];
 animator.play('Walk');
 ```

@@ -56,15 +56,18 @@ class Sample_morph {
                     })
                 }
             }
-            GUIHelp.add({
-                random: ()=>{
-                    for(let i in this.influenceData){
-                        this.influenceData[i] = Math.random()
+            GUIHelp.add(
+                {
+                    random: () => {
+                        for (let i in this.influenceData) {
+                            this.influenceData[i] = Math.random()
+                        }
+                        GUIHelp.updateDisplay()
+                        this.track(this.influenceData, this.targetRenderers)
                     }
-                    GUIHelp.updateDisplay()
-                    this.track(this.influenceData, this.targetRenderers)
-                }
-            }, 'random')
+                },
+                'random'
+            )
         }
         {
             let ligthObj = new Object3D()
@@ -79,9 +82,9 @@ class Sample_morph {
     }
 
     /**
-     * 将morph的数据绑定到3D显示对象
-     * @param data 格式{leftEye:0, rightEye:0.5, mouth:0.3}
-     * @param targets 每个morph对象的MeshRender引用
+     * update morph data to mesh
+     * @param data {leftEye:0, rightEye:0.5, ...}
+     * @param targets {leftEye: MeshRenderer, rightEye: MeshRenderer, ...}
      * @returns
      */
     private track(data: { [key: string]: number }, targets: { [key: string]: MeshRenderer }): void {
