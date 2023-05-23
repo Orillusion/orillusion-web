@@ -35,33 +35,33 @@ export class Sample_PropertyAnim {
         }
         const GUIHelp = new dat.GUI()
         GUIHelp.add(guiData, 'click').name('Restart')
-        GUIHelp.add(guiData, 'Seek', 0, 1, 0.01).onChange(v => {
+        GUIHelp.add(guiData, 'Seek', 0, 1, 0.01).onChange((v) => {
             this.animation.stop()
             this.animation.seek(v)
         })
-        GUIHelp.add(guiData, 'Speed', 0, 1, 0.01).onChange(v =>{
+        GUIHelp.add(guiData, 'Speed', 0, 1, 0.01).onChange((v) => {
             this.animation.speed = v
         })
-        this.animation.onLateUpdate = ()=>{
+        this.animation.onLateUpdate = () => {
             guiData.Seek = this.animation.time
             GUIHelp.updateDisplay()
         }
     }
 
     private async makePropertyAnim(node: Object3D) {
-        // 添加组件
+        // add PropertyAnimation
         let animation = node.addComponent(PropertyAnimation)
-        // 加载clip素材
+        // load clip source
         let res = await fetch('https://cdn.orillusion.com/json/anim_0.json')
         let json = await res.json()
-        // 初始化clip
+        // init clip
         let animClip = new PropertyAnimClip()
-        // 解析clip
+        // parse clip
         animClip.parser(json)
         animClip.wrapMode = WrapMode.Loop
         animation.defaultClip = animClip.name
         animation.autoPlay = true
-        // 将clip追加至组件
+        // add clip to animation
         animation.appendClip(animClip)
         return animation
     }
