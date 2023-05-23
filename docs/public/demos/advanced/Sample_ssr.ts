@@ -9,12 +9,7 @@ export class Sample_SSR {
     constructor() {}
 
     async run() {
-        Engine3D.setting.shadow.shadowBound = 200
-        Engine3D.setting.shadow.shadowBias = 0.0001
-        Engine3D.setting.shadow.debug = false
-        Engine3D.setting.shadow.autoUpdate = true
-        Engine3D.setting.shadow.updateFrameRate = 1
-
+        Engine3D.setting.shadow.enable = false
         await Engine3D.init({
             canvasConfig: {
                 devicePixelRatio: 1
@@ -55,7 +50,7 @@ export class Sample_SSR {
             scene.addChild(this.lightObj)
         }
 
-        // 加载外部模型文件;
+        // load test model
         let minimalObj = await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/ToyCar/ToyCar.gltf')
         minimalObj.scaleX = minimalObj.scaleY = minimalObj.scaleZ = 1000
         scene.addChild(minimalObj)

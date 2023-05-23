@@ -64,7 +64,7 @@ export class Sample_Light {
             GUIHelp.add(spotLight, 'rotationY', -180, 180, 1)
             GUIHelp.add(spotLight, 'rotationZ', -180, 180, 1)
             GUIHelp.addColor({ color: Object.values(light.lightColor).map((v) => v * 255) }, 'color').onChange((v) => {
-                light.lightColor.copyFormArray(v)
+                light.lightColor.copyFromArray(v)
             })
             GUIHelp.add(light, 'intensity', 0, 100, 1)
             GUIHelp.add(light, 'range', 100, 500, 1)

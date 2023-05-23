@@ -58,11 +58,9 @@ class UserLogic {
         this.init(new Scene3D())
         let cameraObj = new Object3D()
         let camera = cameraObj.addComponent(Camera3D)
-        // 调整摄像机视角
         camera.perspective(60, Engine3D.aspect, 1, 5000.0)
         let controller = camera.object3D.addComponent(HoverCameraController)
         controller.setCamera(45, 0, 15)
-        // 添加相机节点
         this.scene.addChild(cameraObj)
 
         // add an Atmospheric sky enviroment
@@ -74,9 +72,9 @@ class UserLogic {
         // start render
         Engine3D.startRenderView(view)
 
-        // 添加bloom后处理
+        // add a bloom post
         let postProcessing = this.scene.addComponent(PostProcessingComponent)
-        let bloomPost = postProcessing.addPost(HDRBloomPost)
+        postProcessing.addPost(HDRBloomPost)
     }
 }
 new UserLogic().run()

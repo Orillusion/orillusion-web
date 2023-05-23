@@ -8,7 +8,6 @@ export class Sample_DepthOfView {
 
     async run() {
         Engine3D.setting.shadow.enable = true
-        Engine3D.setting.shadow.debug = false
         Engine3D.setting.shadow.shadowBound = 100
         Engine3D.setting.shadow.shadowBias = 0.0001
         await Engine3D.init({
@@ -58,7 +57,7 @@ export class Sample_DepthOfView {
             scene.addChild(this.lightObj)
         }
 
-        // 加载外部模型文件;
+        // load a test gltf model
         let minimalObj = await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/ToyCar/ToyCar.gltf')
         minimalObj.scaleX = minimalObj.scaleY = minimalObj.scaleZ = 800
         scene.addChild(minimalObj)

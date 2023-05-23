@@ -11,7 +11,7 @@ export default class TouchDemo {
 
     async run() {
         console.log('start demo')
-
+        // enable pick and use bound mode
         Engine3D.setting.pick.enable = true
         Engine3D.setting.pick.mode = `bound`
 
@@ -34,7 +34,7 @@ export default class TouchDemo {
         // start render
         Engine3D.startRenderView(view)
 
-        // 统一监听点击事件
+        // listen all pick_click events
         view.pickFire.addEventListener(PointerEvent3D.PICK_CLICK, this.onPick, this)
     }
 
@@ -44,14 +44,11 @@ export default class TouchDemo {
 
         let size: number = 2
         let shape: BoxColliderShape = new BoxColliderShape().setFromCenterAndSize(new Vector3(0, 0, 0), new Vector3(size, size, size))
-        //加一个碰撞盒子。
+        // add a box collider
         let collider = boxObj.addComponent(ColliderComponent)
         collider.shape = shape
-        // 为对象添 MeshRenderer
         let mr: MeshRenderer = boxObj.addComponent(MeshRenderer)
-        // 设置几何体
         mr.geometry = new BoxGeometry(size, size, size)
-        // 设置材质
         mr.material = new LitMaterial()
         this.scene.addChild(boxObj)
         return boxObj
@@ -63,14 +60,11 @@ export default class TouchDemo {
 
         let size: number = 2
         let shape: BoxColliderShape = new BoxColliderShape().setFromCenterAndSize(new Vector3(0, 0, 0), new Vector3(size, size, size))
-        //加一个碰撞盒子。
+        // add a box collider
         let collider = sphereObj.addComponent(ColliderComponent)
         collider.shape = shape
-        // 为对象添 MeshRenderer
         let mr: MeshRenderer = sphereObj.addComponent(MeshRenderer)
-        // 设置几何体
         mr.geometry = new SphereGeometry(size / 2, 20, 20)
-        // 设置材质
         mr.material = new LitMaterial()
         this.scene.addChild(sphereObj)
         return sphereObj

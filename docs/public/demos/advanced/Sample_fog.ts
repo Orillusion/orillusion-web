@@ -7,22 +7,20 @@ export class Sample_fog {
     scene: Scene3D
 
     async run() {
-        Engine3D.setting.shadow.shadowBound = 100
-        Engine3D.setting.shadow.debug = false
-        Engine3D.setting.shadow.shadowBias = 0.0005
+        Engine3D.setting.shadow.enable = false
 
-        // 初始化引擎环境;
+        // init Engine3D
         await Engine3D.init({
             canvasConfig: {
                 devicePixelRatio: 1
             }
         })
 
-        // 创建场景对象;
+        // create Scene3D
         this.scene = new Scene3D()
         this.scene.addComponent(AtmosphericComponent).sunY = 0.6
 
-        // 初始化相机;
+        // create a camera object with camera3D component
         let mainCamera = CameraUtil.createCamera3DObject(this.scene)
 
         mainCamera.perspective(60, webGPUContext.aspect, 1, 5000.0)
@@ -45,7 +43,7 @@ export class Sample_fog {
         GUIHelp.add(fogPost, 'end', 0, 1000, 1)
         GUIHelp.add(fogPost, 'ins', 0, 1, 0.01)
         GUIHelp.addColor({ color: Object.values(fogPost.fogColor).map((v) => v * 255) }, 'color').onChange((v) => {
-            fogPost.fogColor = new Color(1, 1, 1).copyFormArray(v)
+            fogPost.fogColor = new Color(1, 1, 1).copyFromArray(v)
         })
     }
 

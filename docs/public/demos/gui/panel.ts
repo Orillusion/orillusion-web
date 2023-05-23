@@ -29,7 +29,6 @@ import {
 
 var scene: Scene3D
 var hover
-async function demo() {
     // initializa engine
     await Engine3D.init({
         renderLoop: () => {
@@ -307,6 +306,4 @@ class _GUIPanelPOI {
         image.color.setTo(r, g, b, a)
         return image
     }
-}
 
-demo()

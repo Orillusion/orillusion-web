@@ -1,25 +1,4 @@
-import {
-    AtmosphericComponent,
-    BoxColliderShape,
-    Camera3D,
-    CameraUtil,
-    ColliderComponent,
-    Color,
-    View3D,
-    DirectLight,
-    Engine3D,
-    HDRBloomPost,
-    LitMaterial,
-    HoverCameraController,
-    KelvinUtil,
-    MeshRenderer,
-    Object3D,
-    PointerEvent3D,
-    Scene3D,
-    SphereGeometry,
-    Vector3,
-    webGPUContext
-} from '@orillusion/core'
+import { AtmosphericComponent, BoxColliderShape, Camera3D, CameraUtil, ColliderComponent, Color, View3D, DirectLight, Engine3D, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PointerEvent3D, Scene3D, SphereGeometry, Vector3 } from '@orillusion/core'
 
 export class Sample_MousePick {
     lightObj: Object3D
@@ -30,6 +9,7 @@ export class Sample_MousePick {
     constructor() {}
 
     async run() {
+        // enable pick and use pixel mode
         Engine3D.setting.pick.enable = true
         Engine3D.setting.pick.mode = `pixel`
         Engine3D.setting.shadow.debug = false
@@ -64,7 +44,7 @@ export class Sample_MousePick {
         // start render
         Engine3D.startRenderView(view)
 
-        // 统一监听鼠标拾取
+        // listen all mouse events
         view.pickFire.addEventListener(PointerEvent3D.PICK_UP, this.onUp, this)
         view.pickFire.addEventListener(PointerEvent3D.PICK_DOWN, this.onDow, this)
         view.pickFire.addEventListener(PointerEvent3D.PICK_CLICK, this.onPick, this)
