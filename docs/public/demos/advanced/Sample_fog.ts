@@ -1,4 +1,4 @@
-import { BoxGeometry, View3D, CameraUtil, PostProcessingComponent, DirectLight, Engine3D, GlobalFog, AtmosphericComponent, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, TAAPost, webGPUContext, Color } from '@orillusion/core'
+import { BoxGeometry, View3D, CameraUtil, PostProcessingComponent, DirectLight, Engine3D, GlobalFog, AtmosphericComponent, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, webGPUContext, Color, SphereGeometry, UnLitMaterial, GPUCullMode } from '@orillusion/core'
 import * as dat from 'dat.gui'
 
 export class Sample_fog {
@@ -18,8 +18,9 @@ export class Sample_fog {
 
         // create Scene3D
         this.scene = new Scene3D()
-        this.scene.addComponent(AtmosphericComponent).sunY = 0.6
-
+        let sky = this.scene.addComponent(AtmosphericComponent)
+        sky.enable = false
+        
         // create a camera object with camera3D component
         let mainCamera = CameraUtil.createCamera3DObject(this.scene)
 
@@ -75,11 +76,20 @@ export class Sample_fog {
             mr.material = mat
             this.scene.addChild(floor)
         }
-
-        this.createPlane(this.scene)
+        {
+            // use a sphere to cover fog background
+            let box = new Object3D()
+            let mr = box.addComponent(MeshRenderer)
+            mr.geometry = new SphereGeometry(2000, 4, 4)
+            mr.material = new UnLitMaterial()
+            mr.material.baseColor = new Color(84/255, 90/255, 239/255)
+            mr.material.cullMode = GPUCullMode.front
+            this.scene.addChild(box)
+        }
+        this.createBuilding()
     }
 
-    private createPlane(scene: Scene3D) {
+    private createBuilding() {
         let mat = new LitMaterial()
         mat.baseMap = Engine3D.res.grayTexture
         mat.normalMap = Engine3D.res.normalTexture
@@ -90,7 +100,7 @@ export class Sample_fog {
         mat.roughness_max = 0.1
         mat.metallic = 0.0
 
-        const length = 10
+        const length = 20
         let cubeGeometry = new BoxGeometry(1, 1, 1)
         for (let i = 0; i < length; i++) {
             for (let j = 0; j < length; j++) {
@@ -99,12 +109,12 @@ export class Sample_fog {
                 mr.material = mat
                 mr.geometry = cubeGeometry
                 building.localScale = building.localScale
-                building.x = (i - 5) * (Math.random() * 0.5 + 0.5) * 50
-                building.z = (j - 5) * (Math.random() * 0.5 + 0.5) * 50
+                building.x = (i - 5) * (Math.random() * 0.5 + 0.5) * 70
+                building.z = (j - 5) * (Math.random() * 0.5 + 0.5) * 70
                 building.scaleX = 10 * (Math.random() * 0.5 + 0.5)
                 building.scaleZ = 10 * (Math.random() * 0.5 + 0.5)
                 building.scaleY = 50 * (Math.random() * 0.5 + 0.5)
-                scene.addChild(building)
+                this.scene.addChild(building)
             }
         }
     }
