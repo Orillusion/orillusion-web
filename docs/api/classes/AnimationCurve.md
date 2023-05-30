@@ -3,7 +3,6 @@
 Animation Cureve 
 has frame list data
 
-
 ### Properties
 
 - [curve](AnimationCurve.md#curve)
@@ -178,7 +177,7 @@ ___
 
 ▸ **removeKeyFrame**(`keyFrame`): `void`
 
-remove keyframe form this curve
+remove keyframe from this curve
 
 #### Parameters
 

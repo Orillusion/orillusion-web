@@ -1,6 +1,5 @@
 # Enumeration: ColliderShapeType
 
-
 ### Enumeration Members
 
 - [None](ColliderShapeType.md#none)

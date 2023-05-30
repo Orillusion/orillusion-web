@@ -1,6 +1,5 @@
 # Class: TileSetChildContentMetaData
 
-
 ### Constructors
 
 - [constructor](TileSetChildContentMetaData.md#constructor)

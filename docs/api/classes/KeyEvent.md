@@ -8,7 +8,6 @@ enum keyboard event[InputSystem](InputSystem.md)
 
   ↳ **`KeyEvent`**
 
-
 ### Properties
 
 - [target](KeyEvent.md#target)

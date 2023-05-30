@@ -2,7 +2,6 @@
 
 Rectangular region
 
-
 ### Properties
 
 - [x](Rect.md#x)

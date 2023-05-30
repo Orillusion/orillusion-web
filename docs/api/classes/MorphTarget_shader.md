@@ -1,6 +1,5 @@
 # Class: MorphTarget\_shader
 
-
 ### Methods
 
 - [getMorphTargetShaderBinding](MorphTarget_shader.md#getmorphtargetshaderbinding)

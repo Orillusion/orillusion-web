@@ -1,6 +1,5 @@
 # Enumeration: BillboardType
 
-
 ### Enumeration Members
 
 - [Normal](BillboardType.md#normal)
@@ -15,7 +14,7 @@
 
 #### Defined in
 
-[src/components/BillboardComponent.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/components/BillboardComponent.ts#L7)
+[src/components/gui/GUIConfig.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIConfig.ts#L22)
 
 ___
 
@@ -25,7 +24,7 @@ ___
 
 #### Defined in
 
-[src/components/BillboardComponent.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/components/BillboardComponent.ts#L8)
+[src/components/gui/GUIConfig.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIConfig.ts#L23)
 
 ___
 
@@ -35,4 +34,4 @@ ___
 
 #### Defined in
 
-[src/components/BillboardComponent.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/components/BillboardComponent.ts#L9)
+[src/components/gui/GUIConfig.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIConfig.ts#L24)

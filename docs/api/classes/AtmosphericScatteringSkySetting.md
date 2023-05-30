@@ -2,7 +2,6 @@
 
 AtmosphericScattering Sky Setting
 
-
 ### Constructors
 
 - [constructor](AtmosphericScatteringSkySetting.md#constructor)
@@ -42,7 +41,7 @@ ___
 
 ### sunRadiance
 
-• **sunRadiance**: `number` = `10.0`
+• **sunRadiance**: `number` = `11.0`
 
 #### Defined in
 
@@ -92,7 +91,7 @@ ___
 
 ### sunY
 
-• **sunY**: `number` = `0.54`
+• **sunY**: `number` = `0.56`
 
 #### Defined in
 

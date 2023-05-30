@@ -1,6 +1,5 @@
 # Class: RTDescriptor
 
-
 ### Constructors
 
 - [constructor](RTDescriptor.md#constructor)

@@ -8,7 +8,6 @@ a type of material, based on physical lighting model
 
   ↳ **`LitMaterial`**
 
-
 ### Properties
 
 - [count](LitMaterial.md#count)
@@ -28,11 +27,11 @@ a type of material, based on physical lighting model
 
 - [clone](LitMaterial.md#clone)
 - [debug](LitMaterial.md#debug)
+- [destroy](LitMaterial.md#destroy)
 - [setDefine](LitMaterial.md#setdefine)
 - [hasPass](LitMaterial.md#haspass)
 - [addPass](LitMaterial.md#addpass)
 - [removePass](LitMaterial.md#removepass)
-- [destroy](LitMaterial.md#destroy)
 - [setShader](LitMaterial.md#setshader)
 - [getShader](LitMaterial.md#getshader)
 - [useCleanCoat](LitMaterial.md#usecleancoat)
@@ -255,6 +254,30 @@ PhysicMaterial.debug
 
 ___
 
+### destroy
+
+▸ **destroy**(`force?`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+PhysicMaterial.destroy
+
+#### Defined in
+
+[src/materials/LitMaterial.ts:85](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L85)
+
+___
+
 ### setDefine
 
 ▸ **setDefine**(`define`, `bool`): `void`
@@ -358,26 +381,6 @@ PhysicMaterial.removePass
 #### Defined in
 
 [src/materials/MaterialBase.ts:333](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L333)
-
-___
-
-### destroy
-
-▸ **destroy**(): `void`
-
-destroy self
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.destroy
-
-#### Defined in
-
-[src/materials/MaterialBase.ts:346](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L346)
 
 ___
 
@@ -1042,7 +1045,7 @@ PhysicMaterial.transparent
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L68)
+[src/materials/MaterialPass.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L67)
 
 • `set` **transparent**(`value`): `void`
 
@@ -1064,7 +1067,7 @@ PhysicMaterial.transparent
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:75](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L75)
+[src/materials/MaterialPass.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L74)
 
 ___
 
@@ -1084,7 +1087,7 @@ PhysicMaterial.frontFace
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L82)
+[src/materials/MaterialPass.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L81)
 
 • `set` **frontFace**(`value`): `void`
 
@@ -1106,7 +1109,7 @@ PhysicMaterial.frontFace
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L89)
+[src/materials/MaterialPass.ts:88](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L88)
 
 ___
 
@@ -1126,7 +1129,7 @@ PhysicMaterial.doubleSide
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L96)
+[src/materials/MaterialPass.ts:95](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L95)
 
 • `set` **doubleSide**(`value`): `void`
 
@@ -1148,7 +1151,7 @@ PhysicMaterial.doubleSide
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:103](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L103)
+[src/materials/MaterialPass.ts:102](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L102)
 
 ___
 
@@ -1168,7 +1171,7 @@ PhysicMaterial.cullMode
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L110)
+[src/materials/MaterialPass.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L109)
 
 • `set` **cullMode**(`value`): `void`
 
@@ -1190,7 +1193,7 @@ PhysicMaterial.cullMode
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L117)
+[src/materials/MaterialPass.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L116)
 
 ___
 
@@ -1208,7 +1211,7 @@ PhysicMaterial.depthBias
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L121)
+[src/materials/MaterialPass.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L120)
 
 • `set` **depthBias**(`value`): `void`
 
@@ -1228,7 +1231,7 @@ PhysicMaterial.depthBias
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L125)
+[src/materials/MaterialPass.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L124)
 
 ___
 
@@ -1248,7 +1251,7 @@ PhysicMaterial.depthCompare
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:132](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L132)
+[src/materials/MaterialPass.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L131)
 
 • `set` **depthCompare**(`value`): `void`
 
@@ -1270,7 +1273,7 @@ PhysicMaterial.depthCompare
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:139](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L139)
+[src/materials/MaterialPass.ts:138](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L138)
 
 ___
 

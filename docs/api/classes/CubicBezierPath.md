@@ -1,6 +1,5 @@
 # Class: CubicBezierPath
 
-
 ### Constructors
 
 - [constructor](CubicBezierPath.md#constructor)

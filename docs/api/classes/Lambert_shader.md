@@ -1,6 +1,5 @@
 # Class: Lambert\_shader
 
-
 ### Properties
 
 - [lambert\_frag\_wgsl](Lambert_shader.md#lambert_frag_wgsl)

@@ -1,6 +1,5 @@
 # Class: KHR\_materials\_emissive\_strength
 
-
 ### Methods
 
 - [apply](KHR_materials_emissive_strength.md#apply)

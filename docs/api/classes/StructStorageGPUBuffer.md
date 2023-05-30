@@ -16,7 +16,6 @@ usage GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_DST GPUBufferUsage
 
   ↳ **`StructStorageGPUBuffer`**
 
-
 ### Properties
 
 - [bufferType](StructStorageGPUBuffer.md#buffertype)
@@ -52,8 +51,10 @@ usage GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_DST GPUBufferUsage
 - [setArray](StructStorageGPUBuffer.md#setarray)
 - [setFloat32Array](StructStorageGPUBuffer.md#setfloat32array)
 - [setInt32Array](StructStorageGPUBuffer.md#setint32array)
+- [setUint32Array](StructStorageGPUBuffer.md#setuint32array)
 - [setStruct](StructStorageGPUBuffer.md#setstruct)
 - [setStructArray](StructStorageGPUBuffer.md#setstructarray)
+- [clean](StructStorageGPUBuffer.md#clean)
 - [apply](StructStorageGPUBuffer.md#apply)
 - [destroy](StructStorageGPUBuffer.md#destroy)
 - [readBuffer](StructStorageGPUBuffer.md#readbuffer)
@@ -493,7 +494,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `name` | `string` |
-| `v4` | [`Quaternion`](Quaternion.md) \| `Vector4` |
+| `v4` | `Vector4` \| [`Quaternion`](Quaternion.md) |
 
 #### Returns
 
@@ -709,6 +710,31 @@ GPUBufferBase.setInt32Array
 
 ___
 
+### setUint32Array
+
+▸ **setUint32Array**(`name`, `data`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `name` | `string` |
+| `data` | `Uint32Array` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+GPUBufferBase.setUint32Array
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:222](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L222)
+
+___
+
 ### setStruct
 
 ▸ **setStruct**<`T`\>(`c`, `index`, `data`, `property?`): `void`
@@ -738,7 +764,7 @@ GPUBufferBase.setStruct
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:221](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L221)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:231](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L231)
 
 ___
 
@@ -770,7 +796,25 @@ GPUBufferBase.setStructArray
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:274](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L274)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:284](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L284)
+
+___
+
+### clean
+
+▸ **clean**(): `void`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+GPUBufferBase.clean
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:297](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L297)
 
 ___
 
@@ -788,13 +832,19 @@ GPUBufferBase.apply
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:287](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L287)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:302](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L302)
 
 ___
 
 ### destroy
 
-▸ **destroy**(): `void`
+▸ **destroy**(`force?`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
 
 #### Returns
 
@@ -806,7 +856,7 @@ GPUBufferBase.destroy
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:291](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L291)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:306](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L306)
 
 ___
 
@@ -824,7 +874,7 @@ GPUBufferBase.readBuffer
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:345](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L345)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:383](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L383)
 
 ## Constructors
 

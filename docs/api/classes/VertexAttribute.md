@@ -4,7 +4,6 @@
 
 - `GPUVertexAttribute`
 
-
 ### Constructors
 
 - [constructor](VertexAttribute.md#constructor)

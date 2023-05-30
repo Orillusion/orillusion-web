@@ -2,7 +2,6 @@
 
 geometry split more subGeometry descriptor
 
-
 ### Constructors
 
 - [constructor](SubGeometry.md#constructor)

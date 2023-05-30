@@ -2,7 +2,6 @@
 
 3D Bezier Curve
 
-
 ### Methods
 
 - [calculateCubicBezierPoint](Bezier3D.md#calculatecubicbezierpoint)
@@ -18,7 +17,7 @@
 
 ▸ `Static` **calculateCubicBezierPoint**(`t`, `p0`, `c1`, `c2`, `p3`): [`Vector3`](Vector3.md)
 
-get cubic curve point value form t at bezier data
+get cubic curve point value from t at bezier data
 
 #### Parameters
 
@@ -46,7 +45,7 @@ ___
 
 ▸ `Static` **bezierPoint**(`t`, `p0`, `c1`, `p1`): [`Vector3`](Vector3.md)
 
-get curve point form three point bezier curve
+get curve point from three point bezier curve
 
 #### Parameters
 

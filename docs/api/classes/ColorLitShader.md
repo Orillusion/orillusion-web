@@ -1,6 +1,5 @@
 # Class: ColorLitShader
 
-
 ### Properties
 
 - [Ori\_AllShader](ColorLitShader.md#ori_allshader)

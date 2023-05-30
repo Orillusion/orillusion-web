@@ -2,7 +2,6 @@
 
 Vector 3D
 
-
 ### Properties
 
 - [MAX](Vector3.md#max)

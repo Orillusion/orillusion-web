@@ -2,7 +2,6 @@
 
 manager of outline effect
 
-
 ### Constructors
 
 - [constructor](OutlinePostManager.md#constructor)

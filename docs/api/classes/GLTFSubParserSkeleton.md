@@ -1,6 +1,5 @@
 # Class: GLTFSubParserSkeleton
 
-
 ### Constructors
 
 - [constructor](GLTFSubParserSkeleton.md#constructor)

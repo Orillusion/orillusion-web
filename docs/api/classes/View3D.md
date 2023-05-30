@@ -6,10 +6,12 @@
 
   ↳ **`View3D`**
 
-
 ### Properties
 
 - [pickFire](View3D.md#pickfire)
+- [guiPick](View3D.md#guipick)
+- [canvasList](View3D.md#canvaslist)
+- [graphic3D](View3D.md#graphic3d)
 - [id](View3D.md#id)
 - [current](View3D.md#current)
 - [type](View3D.md#type)
@@ -29,10 +31,11 @@
 - [scene](View3D.md#scene)
 - [camera](View3D.md#camera)
 - [viewPort](View3D.md#viewport)
-- [graphic3D](View3D.md#graphic3d)
 
 ### Methods
 
+- [enableUICanvas](View3D.md#enableuicanvas)
+- [disableUICanvas](View3D.md#disableuicanvas)
 - [equalCurrentListener](View3D.md#equalcurrentlistener)
 - [dispose](View3D.md#dispose)
 
@@ -44,7 +47,39 @@
 
 #### Defined in
 
-[src/core/View3D.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L16)
+[src/core/View3D.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L18)
+
+___
+
+### guiPick
+
+• **guiPick**: [`GUIPick`](GUIPick.md)
+
+#### Defined in
+
+[src/core/View3D.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L19)
+
+___
+
+### canvasList
+
+• `Readonly` **canvasList**: [`GUICanvas`](GUICanvas.md)[]
+
+#### Defined in
+
+[src/core/View3D.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L20)
+
+___
+
+### graphic3D
+
+• **graphic3D**: [`Graphic3D`](Graphic3D.md)
+
+Graphics renderers (lines, rectangles, etc.)
+
+#### Defined in
+
+[src/core/View3D.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L25)
 
 ___
 
@@ -179,7 +214,7 @@ CEventListener.constructor
 
 #### Defined in
 
-[src/core/View3D.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L18)
+[src/core/View3D.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L27)
 
 ## Accessors
 
@@ -193,7 +228,7 @@ CEventListener.constructor
 
 #### Defined in
 
-[src/core/View3D.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L24)
+[src/core/View3D.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L35)
 
 • `set` **enable**(`value`): `void`
 
@@ -209,7 +244,7 @@ CEventListener.constructor
 
 #### Defined in
 
-[src/core/View3D.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L28)
+[src/core/View3D.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L39)
 
 ___
 
@@ -223,7 +258,7 @@ ___
 
 #### Defined in
 
-[src/core/View3D.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L32)
+[src/core/View3D.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L43)
 
 • `set` **enablePick**(`value`): `void`
 
@@ -239,7 +274,7 @@ ___
 
 #### Defined in
 
-[src/core/View3D.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L36)
+[src/core/View3D.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L47)
 
 ___
 
@@ -253,7 +288,7 @@ ___
 
 #### Defined in
 
-[src/core/View3D.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L44)
+[src/core/View3D.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L55)
 
 • `set` **scene**(`value`): `void`
 
@@ -269,7 +304,7 @@ ___
 
 #### Defined in
 
-[src/core/View3D.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L48)
+[src/core/View3D.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L59)
 
 ___
 
@@ -283,7 +318,7 @@ ___
 
 #### Defined in
 
-[src/core/View3D.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L53)
+[src/core/View3D.ts:75](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L75)
 
 • `set` **camera**(`value`): `void`
 
@@ -299,7 +334,7 @@ ___
 
 #### Defined in
 
-[src/core/View3D.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L57)
+[src/core/View3D.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L79)
 
 ___
 
@@ -313,7 +348,7 @@ ___
 
 #### Defined in
 
-[src/core/View3D.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L61)
+[src/core/View3D.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L83)
 
 • `set` **viewPort**(`value`): `void`
 
@@ -329,23 +364,49 @@ ___
 
 #### Defined in
 
-[src/core/View3D.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L65)
+[src/core/View3D.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L87)
 
-___
+## Methods
 
-### graphic3D
+### enableUICanvas
 
-• `get` **graphic3D**(): [`Graphic3D`](Graphic3D.md)
+▸ **enableUICanvas**(`index?`): [`GUICanvas`](GUICanvas.md)
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `index` | `number` | `0` |
 
 #### Returns
 
-[`Graphic3D`](Graphic3D.md)
+[`GUICanvas`](GUICanvas.md)
 
 #### Defined in
 
-[src/core/View3D.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L69)
+[src/core/View3D.ts:91](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L91)
 
-## Methods
+___
+
+### disableUICanvas
+
+▸ **disableUICanvas**(`index?`): `void`
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `index` | `number` | `0` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/core/View3D.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L110)
+
+___
 
 ### equalCurrentListener
 

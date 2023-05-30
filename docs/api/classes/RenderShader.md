@@ -6,7 +6,6 @@
 
   ↳ **`RenderShader`**
 
-
 ### Properties
 
 - [useRz](RenderShader.md#userz)
@@ -81,7 +80,7 @@
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L32)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L33)
 
 ___
 
@@ -93,7 +92,7 @@ Vertex shader name
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L37)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L38)
 
 ___
 
@@ -105,7 +104,7 @@ Fragment shader name
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L42)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L43)
 
 ___
 
@@ -117,7 +116,7 @@ State of the shader
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L47)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L48)
 
 ___
 
@@ -133,7 +132,7 @@ The collection of textures used in shading
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L52)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L53)
 
 ___
 
@@ -145,7 +144,7 @@ Render pipeline
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L57)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L58)
 
 ___
 
@@ -157,7 +156,7 @@ BindGroup layout
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L62)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L63)
 
 ___
 
@@ -169,7 +168,7 @@ Uniform data for materials
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L67)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L68)
 
 ___
 
@@ -346,7 +345,7 @@ Uniforms data collection
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:85](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L85)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L86)
 
 ## Accessors
 
@@ -362,7 +361,7 @@ Cull mode
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L120)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L121)
 
 • `set` **cullMode**(`value`): `void`
 
@@ -378,7 +377,7 @@ Cull mode
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L124)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L125)
 
 ___
 
@@ -394,7 +393,7 @@ Front face
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:134](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L134)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L135)
 
 • `set` **frontFace**(`value`): `void`
 
@@ -410,7 +409,7 @@ Front face
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:138](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L138)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:139](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L139)
 
 ___
 
@@ -426,7 +425,7 @@ Depth bias
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:148](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L148)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:149](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L149)
 
 • `set` **depthBias**(`value`): `void`
 
@@ -442,7 +441,7 @@ Depth bias
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:152](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L152)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L153)
 
 ___
 
@@ -458,7 +457,7 @@ Primitive topology
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:162](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L162)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:163](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L163)
 
 • `set` **topology**(`value`): `void`
 
@@ -474,7 +473,7 @@ Primitive topology
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:166](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L166)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:167](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L167)
 
 ___
 
@@ -490,7 +489,7 @@ Blend mode
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:176](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L176)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:177](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L177)
 
 • `set` **blendMode**(`value`): `void`
 
@@ -506,7 +505,7 @@ Blend mode
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:180](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L180)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:181](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L181)
 
 ___
 
@@ -522,7 +521,7 @@ Depth compare function
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:190](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L190)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:191](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L191)
 
 • `set` **depthCompare**(`value`): `void`
 
@@ -538,7 +537,7 @@ Depth compare function
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:194](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L194)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:195](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L195)
 
 ## Methods
 
@@ -563,7 +562,7 @@ Returns the instance ID of the RenderShader
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:207](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L207)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:208](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L208)
 
 ___
 
@@ -585,7 +584,7 @@ Destroy a RenderShader object
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:218](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L218)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:219](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L219)
 
 ___
 
@@ -609,7 +608,7 @@ RenderShader object
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:231](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L231)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:232](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L232)
 
 ___
 
@@ -632,7 +631,7 @@ Set the material shader for the specified render type
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:240](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L240)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:241](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L241)
 
 ___
 
@@ -654,7 +653,7 @@ Get the material shader for the specified render type
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:249](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L249)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:250](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L250)
 
 ___
 
@@ -677,7 +676,7 @@ Sets the entry point names for the RenderShader vertex phase and fragment phase
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:259](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L259)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:260](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L260)
 
 ___
 
@@ -700,7 +699,7 @@ Set the texture used in the Render Shader code
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:269](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L269)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:270](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L270)
 
 ___
 
@@ -724,7 +723,7 @@ Texture object
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:287](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L287)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:288](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L288)
 
 ___
 
@@ -747,7 +746,7 @@ Create a rendering pipeline
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:296](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L296)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:297](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L297)
 
 ___
 
@@ -770,7 +769,7 @@ Recompile the shader and create the rendering pipeline
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:306](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L306)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:307](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L307)
 
 ___
 
@@ -795,7 +794,7 @@ Apply render shader state value
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:320](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L320)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:321](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L321)
 
 ___
 
@@ -817,7 +816,7 @@ Precompile the shader code
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:347](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L347)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:348](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L348)
 
 ___
 
@@ -840,7 +839,7 @@ Apply defines syntax values
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:360](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L360)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:361](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L361)
 
 ___
 
@@ -863,7 +862,7 @@ Set GPUBindGroup to the specified index slot
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:396](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L396)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:397](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L397)
 
 ___
 
@@ -879,15 +878,21 @@ Set the render shader default value
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:403](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L403)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:404](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L404)
 
 ___
 
 ### destroy
 
-▸ **destroy**(): `void`
+▸ **destroy**(`force?`): `void`
 
 Destroy and release render shader related resources
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
 
 #### Returns
 
@@ -899,7 +904,7 @@ Destroy and release render shader related resources
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:431](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L431)
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:432](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L432)
 
 ___
 
@@ -999,7 +1004,7 @@ set struct storage gpu buffer
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/ShaderBase.ts:103](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L103)
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L106)
 
 ___
 
@@ -1026,7 +1031,7 @@ set uniform gpu buffer min size 256
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/ShaderBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L114)
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L120)
 
 ___
 
@@ -1053,7 +1058,7 @@ set define value
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/ShaderBase.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L125)
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:134](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L134)
 
 ___
 
@@ -1079,7 +1084,7 @@ Whether there is a define key
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/ShaderBase.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L135)
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:144](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L144)
 
 ___
 
@@ -1105,7 +1110,7 @@ delete define value
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/ShaderBase.ts:143](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L143)
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:152](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L152)
 
 ___
 
@@ -1132,7 +1137,7 @@ set uniform float value
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/ShaderBase.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L153)
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:162](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L162)
 
 ___
 
@@ -1159,7 +1164,7 @@ set uniform vector2 value
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/ShaderBase.ts:167](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L167)
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:176](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L176)
 
 ___
 
@@ -1186,7 +1191,7 @@ set uniform vector3 value
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/ShaderBase.ts:180](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L180)
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:189](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L189)
 
 ___
 
@@ -1213,7 +1218,7 @@ set uniform vector4 value
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/ShaderBase.ts:193](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L193)
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:202](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L202)
 
 ___
 
@@ -1240,7 +1245,7 @@ set uniform color value
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/ShaderBase.ts:206](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L206)
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:215](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L215)
 
 ___
 
@@ -1267,4 +1272,4 @@ set uniform array value
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/ShaderBase.ts:219](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L219)
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:228](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L228)

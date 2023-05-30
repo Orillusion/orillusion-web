@@ -6,7 +6,6 @@
 
   ↳ [`B3DMLoader`](B3DMLoader.md)
 
-
 ### Constructors
 
 - [constructor](B3DMLoaderBase.md#constructor)

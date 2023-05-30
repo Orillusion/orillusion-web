@@ -9,7 +9,6 @@ If the current event does not occur within the View3D, it will not be dispatched
 
   ↳ **`InputSystem`**
 
-
 ### Constructors
 
 - [constructor](InputSystem.md#constructor)

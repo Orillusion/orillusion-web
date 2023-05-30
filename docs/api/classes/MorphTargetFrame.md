@@ -1,6 +1,5 @@
 # Class: MorphTargetFrame
 
-
 ### Constructors
 
 - [constructor](MorphTargetFrame.md#constructor)

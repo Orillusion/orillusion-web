@@ -13,7 +13,6 @@ If visible, the values in the color buffer will be updated.
 
   ↳ **`ForwardRenderJob`**
 
-
 ### Constructors
 
 - [constructor](ForwardRenderJob.md#constructor)
@@ -32,7 +31,6 @@ If visible, the values in the color buffer will be updated.
 ### Properties
 
 - [pickFire](ForwardRenderJob.md#pickfire)
-- [graphic3D](ForwardRenderJob.md#graphic3d)
 
 ### Accessors
 
@@ -105,7 +103,7 @@ RendererJob.addRenderer
 
 #### Defined in
 
-[src/gfx/renderJob/jobs/RendererJob.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L109)
+[src/gfx/renderJob/jobs/RendererJob.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L96)
 
 ___
 
@@ -125,7 +123,7 @@ RendererJob.stop
 
 #### Defined in
 
-[src/gfx/renderJob/jobs/RendererJob.ts:144](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L144)
+[src/gfx/renderJob/jobs/RendererJob.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L131)
 
 ___
 
@@ -145,7 +143,7 @@ RendererJob.pause
 
 #### Defined in
 
-[src/gfx/renderJob/jobs/RendererJob.ts:149](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L149)
+[src/gfx/renderJob/jobs/RendererJob.ts:136](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L136)
 
 ___
 
@@ -165,7 +163,7 @@ RendererJob.resume
 
 #### Defined in
 
-[src/gfx/renderJob/jobs/RendererJob.ts:156](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L156)
+[src/gfx/renderJob/jobs/RendererJob.ts:143](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L143)
 
 ___
 
@@ -191,7 +189,7 @@ RendererJob.addPost
 
 #### Defined in
 
-[src/gfx/renderJob/jobs/RendererJob.ts:172](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L172)
+[src/gfx/renderJob/jobs/RendererJob.ts:159](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L159)
 
 ___
 
@@ -217,7 +215,7 @@ RendererJob.removePost
 
 #### Defined in
 
-[src/gfx/renderJob/jobs/RendererJob.ts:185](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L185)
+[src/gfx/renderJob/jobs/RendererJob.ts:172](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L172)
 
 ___
 
@@ -237,7 +235,7 @@ RendererJob.renderFrame
 
 #### Defined in
 
-[src/gfx/renderJob/jobs/RendererJob.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L198)
+[src/gfx/renderJob/jobs/RendererJob.ts:185](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L185)
 
 ## Properties
 
@@ -251,23 +249,7 @@ RendererJob.pickFire
 
 #### Defined in
 
-[src/gfx/renderJob/jobs/RendererJob.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L74)
-
-___
-
-### graphic3D
-
-• **graphic3D**: [`Graphic3D`](Graphic3D.md)
-
-Graphics renderers (lines, rectangles, etc.)
-
-#### Inherited from
-
-RendererJob.graphic3D
-
-#### Defined in
-
-[src/gfx/renderJob/jobs/RendererJob.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L79)
+[src/gfx/renderJob/jobs/RendererJob.ts:71](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L71)
 
 ## Accessors
 
@@ -291,4 +273,4 @@ RendererJob.view
 
 #### Defined in
 
-[src/gfx/renderJob/jobs/RendererJob.ts:127](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L127)
+[src/gfx/renderJob/jobs/RendererJob.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L114)

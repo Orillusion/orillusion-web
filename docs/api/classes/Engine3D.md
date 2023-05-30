@@ -6,12 +6,12 @@ Orillusion 3D Engine
 
 -- await Engine3D.init();
 
-
 ### Properties
 
 - [res](Engine3D.md#res)
 - [inputSystem](Engine3D.md#inputsystem)
 - [views](Engine3D.md#views)
+- [Engine3D](Engine3D.md#engine3d)
 - [setting](Engine3D.md#setting)
 
 ### Accessors
@@ -45,7 +45,7 @@ resource manager in engine3d
 
 #### Defined in
 
-[src/Engine3D.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L34)
+[src/Engine3D.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L35)
 
 ___
 
@@ -57,7 +57,7 @@ input system in engine3d
 
 #### Defined in
 
-[src/Engine3D.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L39)
+[src/Engine3D.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L40)
 
 ___
 
@@ -69,7 +69,17 @@ more view in engine3d
 
 #### Defined in
 
-[src/Engine3D.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L44)
+[src/Engine3D.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L45)
+
+___
+
+### Engine3D
+
+▪ `Static` **Engine3D**: `any`
+
+#### Defined in
+
+[src/Engine3D.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L55)
 
 ___
 
@@ -81,7 +91,7 @@ engine setting
 
 #### Defined in
 
-[src/Engine3D.ts:104](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L104)
+[src/Engine3D.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L106)
 
 ## Accessors
 
@@ -97,7 +107,7 @@ set engine render frameRate 24/30/60/114/120/144/240/360 fps or other
 
 #### Defined in
 
-[src/Engine3D.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L58)
+[src/Engine3D.ts:60](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L60)
 
 • `Static` `set` **frameRate**(`value`): `void`
 
@@ -115,7 +125,7 @@ get engine render frameRate
 
 #### Defined in
 
-[src/Engine3D.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L65)
+[src/Engine3D.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L67)
 
 ___
 
@@ -131,7 +141,7 @@ get render window size width and height
 
 #### Defined in
 
-[src/Engine3D.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L76)
+[src/Engine3D.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L78)
 
 ___
 
@@ -147,7 +157,7 @@ get render window aspect
 
 #### Defined in
 
-[src/Engine3D.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L83)
+[src/Engine3D.ts:85](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L85)
 
 ___
 
@@ -163,7 +173,7 @@ get render window size width
 
 #### Defined in
 
-[src/Engine3D.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L90)
+[src/Engine3D.ts:92](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L92)
 
 ___
 
@@ -179,7 +189,7 @@ get render window size height
 
 #### Defined in
 
-[src/Engine3D.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L97)
+[src/Engine3D.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L99)
 
 ## Methods
 
@@ -206,7 +216,7 @@ create webgpu 3d engine
 
 #### Defined in
 
-[src/Engine3D.ts:257](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L257)
+[src/Engine3D.ts:259](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L259)
 
 ___
 

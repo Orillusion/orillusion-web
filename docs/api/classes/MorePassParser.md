@@ -1,6 +1,5 @@
 # Class: MorePassParser
 
-
 ### Methods
 
 - [parser](MorePassParser.md#parser)

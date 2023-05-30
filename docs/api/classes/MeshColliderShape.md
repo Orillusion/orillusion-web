@@ -8,7 +8,6 @@ Mesh collision body
 
   ↳ **`MeshColliderShape`**
 
-
 ### Accessors
 
 - [shapeType](MeshColliderShape.md#shapetype)

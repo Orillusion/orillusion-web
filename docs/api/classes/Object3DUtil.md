@@ -1,13 +1,12 @@
 # Class: Object3DUtil
 
-
 ### Methods
 
 - [genMeshBounds](Object3DUtil.md#genmeshbounds)
 - [GetCube](Object3DUtil.md#getcube)
 - [GetSingleCube](Object3DUtil.md#getsinglecube)
 - [GetSingleSphere](Object3DUtil.md#getsinglesphere)
-- [getSinglepCube](Object3DUtil.md#getsinglepcube)
+- [GetSingleCube2](Object3DUtil.md#getsinglecube2)
 
 ### Accessors
 
@@ -105,9 +104,9 @@ ___
 
 ___
 
-### getSinglepCube
+### GetSingleCube2
 
-▸ `Static` **getSinglepCube**(`mat`, `size?`): [`Object3D`](Object3D.md)
+▸ `Static` **GetSingleCube2**(`mat`, `size?`): [`Object3D`](Object3D.md)
 
 #### Parameters
 

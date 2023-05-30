@@ -1,6 +1,5 @@
 # Class: TilesRenderer
 
-
 ### Properties
 
 - [group](TilesRenderer.md#group)

@@ -8,7 +8,6 @@ Skeleton animation event
 
   ↳ **`OAnimationEvent`**
 
-
 ### Properties
 
 - [skeletonAnimation](OAnimationEvent.md#skeletonanimation)

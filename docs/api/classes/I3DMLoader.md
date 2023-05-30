@@ -6,7 +6,6 @@
 
   ↳ **`I3DMLoader`**
 
-
 ### Properties
 
 - [tempFwd](I3DMLoader.md#tempfwd)

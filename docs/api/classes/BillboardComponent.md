@@ -9,7 +9,6 @@ The component can receive update events at each frame.
 
   ↳ **`BillboardComponent`**
 
-
 ### Properties
 
 - [type](BillboardComponent.md#type)
@@ -33,6 +32,7 @@ The component can receive update events at each frame.
 - [onBeforeUpdate](BillboardComponent.md#onbeforeupdate)
 - [onCompute](BillboardComponent.md#oncompute)
 - [onGraphic](BillboardComponent.md#ongraphic)
+- [onParentChange](BillboardComponent.md#onparentchange)
 - [destroy](BillboardComponent.md#destroy)
 
 ### Accessors
@@ -48,7 +48,7 @@ The component can receive update events at each frame.
 
 #### Defined in
 
-[src/components/BillboardComponent.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/components/BillboardComponent.ts#L13)
+[src/components/BillboardComponent.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/components/BillboardComponent.ts#L8)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[src/components/BillboardComponent.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/components/BillboardComponent.ts#L14)
+[src/components/BillboardComponent.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/components/BillboardComponent.ts#L9)
 
 ___
 
@@ -88,7 +88,7 @@ owner object3D
 
 #### Defined in
 
-[src/components/BillboardComponent.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/BillboardComponent.ts#L17)
+[src/components/BillboardComponent.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/BillboardComponent.ts#L12)
 
 ## Methods
 
@@ -106,7 +106,7 @@ owner object3D
 
 #### Defined in
 
-[src/components/BillboardComponent.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/components/BillboardComponent.ts#L22)
+[src/components/BillboardComponent.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/BillboardComponent.ts#L17)
 
 ___
 
@@ -132,7 +132,7 @@ clone component data to target object3D
 
 #### Defined in
 
-[src/components/BillboardComponent.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/components/BillboardComponent.ts#L41)
+[src/components/BillboardComponent.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/components/BillboardComponent.ts#L35)
 
 ___
 
@@ -341,11 +341,42 @@ ___
 
 ___
 
+### onParentChange
+
+▸ `Optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `lastParent?` | [`Object3D`](Object3D.md) |
+| `currentParent?` | [`Object3D`](Object3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onParentChange](ComponentBase.md#onparentchange)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L116)
+
+___
+
 ### destroy
 
-▸ **destroy**(): `void`
+▸ **destroy**(`force?`): `void`
 
 release this component
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
 
 #### Returns
 
@@ -357,7 +388,7 @@ release this component
 
 #### Defined in
 
-[src/components/ComponentBase.ts:189](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L189)
+[src/components/ComponentBase.ts:190](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L190)
 
 ## Accessors
 

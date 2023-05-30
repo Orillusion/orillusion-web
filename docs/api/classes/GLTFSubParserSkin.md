@@ -1,6 +1,5 @@
 # Class: GLTFSubParserSkin
 
-
 ### Constructors
 
 - [constructor](GLTFSubParserSkin.md#constructor)

@@ -1,6 +1,5 @@
 # Class: Bloom\_shader
 
-
 ### Properties
 
 - [Bloom\_Brightness\_frag\_wgsl](Bloom_shader.md#bloom_brightness_frag_wgsl)

@@ -3,7 +3,6 @@
 Skeleton animation consists of many skeleton pose, 
 and each pose describes the transformation information of all bone
 
-
 ### Properties
 
 - [time](SkeletonPose.md#time)

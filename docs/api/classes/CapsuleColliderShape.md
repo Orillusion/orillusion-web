@@ -9,7 +9,6 @@ Composed of two hemispheres connected to a cylinder.
 
   ↳ **`CapsuleColliderShape`**
 
-
 ### Properties
 
 - [radius](CapsuleColliderShape.md#radius)

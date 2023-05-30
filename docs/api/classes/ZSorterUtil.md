@@ -2,7 +2,6 @@
 
 Sort a data with world coordinates based on the camera's camera by z
 
-
 ### Constructors
 
 - [constructor](ZSorterUtil.md#constructor)
@@ -10,6 +9,7 @@ Sort a data with world coordinates based on the camera's camera by z
 ### Methods
 
 - [sort](ZSorterUtil.md#sort)
+- [worldToCameraDepth](ZSorterUtil.md#worldtocameradepth)
 
 ## Constructors
 
@@ -41,3 +41,24 @@ Sort userDataList by z based on the view coordinates of camera3D
 #### Defined in
 
 [src/util/ZSorterUtil.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/util/ZSorterUtil.ts#L39)
+
+___
+
+### worldToCameraDepth
+
+▸ **worldToCameraDepth**(`obj3d`, `camera?`): `number`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `obj3d` | [`Object3D`](Object3D.md) |
+| `camera?` | [`Camera3D`](Camera3D.md) |
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[src/util/ZSorterUtil.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/util/ZSorterUtil.ts#L61)

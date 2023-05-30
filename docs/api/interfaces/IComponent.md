@@ -4,7 +4,6 @@
 
 - [`ComponentBase`](../classes/ComponentBase.md)
 
-
 ### Properties
 
 - [object3D](IComponent.md#object3d)
@@ -26,6 +25,7 @@
 - [onGraphic](IComponent.md#ongraphic)
 - [cloneTo](IComponent.md#cloneto)
 - [destroy](IComponent.md#destroy)
+- [onParentChange](IComponent.md#onparentchange)
 
 ## Properties
 
@@ -280,7 +280,13 @@ ___
 
 ### destroy
 
-▸ **destroy**(): `any`
+▸ **destroy**(`force?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
 
 #### Returns
 
@@ -289,3 +295,24 @@ ___
 #### Defined in
 
 [src/components/IComponent.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/components/IComponent.ts#L22)
+
+___
+
+### onParentChange
+
+▸ `Optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `lastParent?` | [`Object3D`](../classes/Object3D.md) |
+| `currentParent?` | [`Object3D`](../classes/Object3D.md) |
+
+#### Returns
+
+`any`
+
+#### Defined in
+
+[src/components/IComponent.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/IComponent.ts#L23)
