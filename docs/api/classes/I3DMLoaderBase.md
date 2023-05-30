@@ -6,7 +6,6 @@
 
   ↳ [`I3DMLoader`](I3DMLoader.md)
 
-
 ### Constructors
 
 - [constructor](I3DMLoaderBase.md#constructor)

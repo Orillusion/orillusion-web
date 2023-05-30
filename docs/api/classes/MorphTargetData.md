@@ -1,6 +1,5 @@
 # Class: MorphTargetData
 
-
 ### Properties
 
 - [enable](MorphTargetData.md#enable)

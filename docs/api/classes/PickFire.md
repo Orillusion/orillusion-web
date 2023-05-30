@@ -8,7 +8,6 @@ Management and triggering for picking 3D objects
 
   ↳ **`PickFire`**
 
-
 ### Methods
 
 - [dispatchEvent](PickFire.md#dispatchevent)

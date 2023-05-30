@@ -1,6 +1,5 @@
 # Class: Keyframe
 
-
 ### Properties
 
 - [serializedVersion](Keyframe.md#serializedversion)

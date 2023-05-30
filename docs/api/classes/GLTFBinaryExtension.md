@@ -1,6 +1,5 @@
 # Class: GLTFBinaryExtension
 
-
 ### Properties
 
 - [name](GLTFBinaryExtension.md#name)

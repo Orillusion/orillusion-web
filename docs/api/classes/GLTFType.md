@@ -1,6 +1,5 @@
 # Class: GLTFType
 
-
 ### Properties
 
 - [GLTF\_NODE\_INDEX\_PROPERTY](GLTFType.md#gltf_node_index_property)

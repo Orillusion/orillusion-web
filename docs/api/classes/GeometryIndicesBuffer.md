@@ -1,6 +1,5 @@
 # Class: GeometryIndicesBuffer
 
-
 ### Properties
 
 - [uuid](GeometryIndicesBuffer.md#uuid)
@@ -18,6 +17,7 @@
 - [createIndicesBuffer](GeometryIndicesBuffer.md#createindicesbuffer)
 - [upload](GeometryIndicesBuffer.md#upload)
 - [compute](GeometryIndicesBuffer.md#compute)
+- [destroy](GeometryIndicesBuffer.md#destroy)
 
 ## Properties
 
@@ -27,7 +27,7 @@
 
 #### Defined in
 
-[src/core/geometry/GeometryIndicesBuffer.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L7)
+[src/core/geometry/GeometryIndicesBuffer.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L8)
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryIndicesBuffer.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L8)
+[src/core/geometry/GeometryIndicesBuffer.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L9)
 
 ___
 
@@ -47,7 +47,7 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryIndicesBuffer.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L9)
+[src/core/geometry/GeometryIndicesBuffer.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L10)
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryIndicesBuffer.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L10)
+[src/core/geometry/GeometryIndicesBuffer.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L11)
 
 ___
 
@@ -67,7 +67,7 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryIndicesBuffer.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L11)
+[src/core/geometry/GeometryIndicesBuffer.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L12)
 
 ## Constructors
 
@@ -77,7 +77,7 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryIndicesBuffer.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L12)
+[src/core/geometry/GeometryIndicesBuffer.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L13)
 
 ## Methods
 
@@ -97,7 +97,7 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryIndicesBuffer.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L15)
+[src/core/geometry/GeometryIndicesBuffer.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L16)
 
 ___
 
@@ -117,7 +117,7 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryIndicesBuffer.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L25)
+[src/core/geometry/GeometryIndicesBuffer.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L26)
 
 ___
 
@@ -131,4 +131,18 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryIndicesBuffer.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L30)
+[src/core/geometry/GeometryIndicesBuffer.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L31)
+
+___
+
+### destroy
+
+▸ **destroy**(): `void`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/core/geometry/GeometryIndicesBuffer.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L35)

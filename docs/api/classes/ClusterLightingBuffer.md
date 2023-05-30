@@ -1,6 +1,5 @@
 # Class: ClusterLightingBuffer
 
-
 ### Properties
 
 - [clusterBuffer](ClusterLightingBuffer.md#clusterbuffer)
@@ -24,7 +23,7 @@
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts#L6)
+[src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts#L5)
 
 ___
 
@@ -34,7 +33,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts#L7)
+[src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts#L6)
 
 ___
 
@@ -44,7 +43,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts#L8)
+[src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts#L7)
 
 ___
 
@@ -54,7 +53,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts#L9)
+[src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts#L8)
 
 ## Constructors
 
@@ -71,7 +70,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts#L11)
+[src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts#L10)
 
 ## Methods
 
@@ -100,4 +99,4 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts#L22)
+[src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts#L21)

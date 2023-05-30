@@ -1,6 +1,5 @@
 # Class: MaterialPass
 
-
 ### Constructors
 
 - [constructor](MaterialPass.md#constructor)
@@ -177,7 +176,7 @@ Get whether use transparent mode to render
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L68)
+[src/materials/MaterialPass.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L67)
 
 • `set` **transparent**(`value`): `void`
 
@@ -195,7 +194,7 @@ Set whether use transparent mode to render
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:75](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L75)
+[src/materials/MaterialPass.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L74)
 
 ___
 
@@ -211,7 +210,7 @@ Return GPUFrontFace
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L82)
+[src/materials/MaterialPass.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L81)
 
 • `set` **frontFace**(`value`): `void`
 
@@ -229,7 +228,7 @@ Set GPUFrontFace
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L89)
+[src/materials/MaterialPass.ts:88](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L88)
 
 ___
 
@@ -245,7 +244,7 @@ Get whether use double side to render object
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L96)
+[src/materials/MaterialPass.ts:95](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L95)
 
 • `set` **doubleSide**(`value`): `void`
 
@@ -263,7 +262,7 @@ Set whether use double side to render object
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:103](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L103)
+[src/materials/MaterialPass.ts:102](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L102)
 
 ___
 
@@ -279,7 +278,7 @@ get cull mode, see GPUCullMode
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L110)
+[src/materials/MaterialPass.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L109)
 
 • `set` **cullMode**(`value`): `void`
 
@@ -297,7 +296,7 @@ set cull mode, see GPUCullMode
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L117)
+[src/materials/MaterialPass.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L116)
 
 ___
 
@@ -311,7 +310,7 @@ ___
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L121)
+[src/materials/MaterialPass.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L120)
 
 • `set` **depthBias**(`value`): `void`
 
@@ -327,7 +326,7 @@ ___
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L125)
+[src/materials/MaterialPass.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L124)
 
 ___
 
@@ -343,7 +342,7 @@ get depth compare mode, see GPUCompareFunction
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:132](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L132)
+[src/materials/MaterialPass.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L131)
 
 • `set` **depthCompare**(`value`): `void`
 
@@ -361,7 +360,7 @@ set depth compare mode, see GPUCompareFunction
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:139](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L139)
+[src/materials/MaterialPass.ts:138](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L138)
 
 ## Methods
 
@@ -402,9 +401,15 @@ ___
 
 ### destroy
 
-▸ **destroy**(): `void`
+▸ **destroy**(`force?`): `void`
 
 release material pass
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
 
 #### Returns
 
@@ -412,7 +417,7 @@ release material pass
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:146](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L146)
+[src/materials/MaterialPass.ts:145](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L145)
 
 ___
 
@@ -426,7 +431,7 @@ ___
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:161](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L161)
+[src/materials/MaterialPass.ts:162](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L162)
 
 ___
 
@@ -440,4 +445,4 @@ ___
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:165](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L165)
+[src/materials/MaterialPass.ts:166](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L166)

@@ -6,7 +6,6 @@
 
   ↳ **`GBufferFrame`**
 
-
 ### Properties
 
 - [gBufferMap](GBufferFrame.md#gbuffermap)

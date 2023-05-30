@@ -1,6 +1,5 @@
 # Class: JointPose
 
-
 ### Properties
 
 - [index](JointPose.md#index)

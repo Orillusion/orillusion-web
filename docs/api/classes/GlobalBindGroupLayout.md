@@ -1,6 +1,5 @@
 # Class: GlobalBindGroupLayout
 
-
 ### Methods
 
 - [getGlobalDataBindGroupLayout](GlobalBindGroupLayout.md#getglobaldatabindgrouplayout)

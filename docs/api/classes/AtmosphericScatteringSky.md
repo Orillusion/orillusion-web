@@ -4,10 +4,9 @@ Atmospheric Scattering Sky Texture
 
 ## Hierarchy
 
-- [`HDRTextureCube`](HDRTextureCube.md)
+- [`LDRTextureCube`](LDRTextureCube.md)
 
   ↳ **`AtmosphericScatteringSky`**
-
 
 ### Properties
 
@@ -25,6 +24,7 @@ Atmospheric Scattering Sky Texture
 - [sampler\_comparisonBindingLayout](AtmosphericScatteringSky.md#sampler_comparisonbindinglayout)
 - [flipY](AtmosphericScatteringSky.md#flipy)
 - [isVideoTexture](AtmosphericScatteringSky.md#isvideotexture)
+- [isHDRTexture](AtmosphericScatteringSky.md#ishdrtexture)
 - [mipmapCount](AtmosphericScatteringSky.md#mipmapcount)
 - [width](AtmosphericScatteringSky.md#width)
 - [height](AtmosphericScatteringSky.md#height)
@@ -41,13 +41,9 @@ Atmospheric Scattering Sky Texture
 - [getGPUView](AtmosphericScatteringSky.md#getgpuview)
 - [bindStateChange](AtmosphericScatteringSky.md#bindstatechange)
 - [unBindStateChange](AtmosphericScatteringSky.md#unbindstatechange)
-- [destoryView](AtmosphericScatteringSky.md#destoryview)
 - [destroy](AtmosphericScatteringSky.md#destroy)
-- [createFromHDRData](AtmosphericScatteringSky.md#createfromhdrdata)
-- [createFromTexture](AtmosphericScatteringSky.md#createfromtexture)
-- [uploadErpTexture](AtmosphericScatteringSky.md#uploaderptexture)
-- [uploadTexture](AtmosphericScatteringSky.md#uploadtexture)
 - [load](AtmosphericScatteringSky.md#load)
+- [createFromTexture](AtmosphericScatteringSky.md#createfromtexture)
 
 ### Accessors
 
@@ -63,6 +59,7 @@ Atmospheric Scattering Sky Texture
 - [compare](AtmosphericScatteringSky.md#compare)
 - [maxAnisotropy](AtmosphericScatteringSky.md#maxanisotropy)
 - [texture2D](AtmosphericScatteringSky.md#texture2d)
+- [ldrImageUrl](AtmosphericScatteringSky.md#ldrimageurl)
 
 ### Constructors
 
@@ -78,7 +75,7 @@ name of texture
 
 #### Inherited from
 
-[HDRTextureCube](HDRTextureCube.md).[name](HDRTextureCube.md#name)
+[LDRTextureCube](LDRTextureCube.md).[name](LDRTextureCube.md#name)
 
 #### Defined in
 
@@ -94,11 +91,11 @@ source url
 
 #### Inherited from
 
-[HDRTextureCube](HDRTextureCube.md).[url](HDRTextureCube.md#url)
+[LDRTextureCube](LDRTextureCube.md).[url](LDRTextureCube.md#url)
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L18)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L19)
 
 ___
 
@@ -110,11 +107,11 @@ Return index in texture array
 
 #### Inherited from
 
-[HDRTextureCube](HDRTextureCube.md).[pid](HDRTextureCube.md#pid)
+[LDRTextureCube](LDRTextureCube.md).[pid](LDRTextureCube.md#pid)
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L27)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L29)
 
 ___
 
@@ -126,11 +123,11 @@ GPUTextureView
 
 #### Inherited from
 
-[HDRTextureCube](HDRTextureCube.md).[view](HDRTextureCube.md#view)
+[LDRTextureCube](LDRTextureCube.md).[view](LDRTextureCube.md#view)
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L32)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L34)
 
 ___
 
@@ -142,11 +139,11 @@ GPUSampler
 
 #### Inherited from
 
-[HDRTextureCube](HDRTextureCube.md).[gpuSampler](HDRTextureCube.md#gpusampler)
+[LDRTextureCube](LDRTextureCube.md).[gpuSampler](LDRTextureCube.md#gpusampler)
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L37)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L39)
 
 ___
 
@@ -158,11 +155,11 @@ GPUSampler for comparison
 
 #### Inherited from
 
-[HDRTextureCube](HDRTextureCube.md).[gpuSampler_comparison](HDRTextureCube.md#gpusampler_comparison)
+[LDRTextureCube](LDRTextureCube.md).[gpuSampler_comparison](LDRTextureCube.md#gpusampler_comparison)
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L42)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L44)
 
 ___
 
@@ -174,11 +171,11 @@ GPUTextureFormat
 
 #### Inherited from
 
-[HDRTextureCube](HDRTextureCube.md).[format](HDRTextureCube.md#format)
+[LDRTextureCube](LDRTextureCube.md).[format](LDRTextureCube.md#format)
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L47)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L49)
 
 ___
 
@@ -190,11 +187,11 @@ GPUTextureUsage
 
 #### Inherited from
 
-[HDRTextureCube](HDRTextureCube.md).[usage](HDRTextureCube.md#usage)
+[LDRTextureCube](LDRTextureCube.md).[usage](LDRTextureCube.md#usage)
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L51)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L54)
 
 ___
 
@@ -206,11 +203,11 @@ depth or layers, default value is 1
 
 #### Inherited from
 
-[HDRTextureCube](HDRTextureCube.md).[numberLayer](HDRTextureCube.md#numberlayer)
+[LDRTextureCube](LDRTextureCube.md).[numberLayer](LDRTextureCube.md#numberlayer)
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L67)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L74)
 
 ___
 
@@ -222,11 +219,11 @@ GPUTextureViewDescriptor
 
 #### Inherited from
 
-[HDRTextureCube](HDRTextureCube.md).[viewDescriptor](HDRTextureCube.md#viewdescriptor)
+[LDRTextureCube](LDRTextureCube.md).[viewDescriptor](LDRTextureCube.md#viewdescriptor)
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:71](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L71)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L79)
 
 ___
 
@@ -238,11 +235,11 @@ GPUTextureDescriptor
 
 #### Inherited from
 
-[HDRTextureCube](HDRTextureCube.md).[textureDescriptor](HDRTextureCube.md#texturedescriptor)
+[LDRTextureCube](LDRTextureCube.md).[textureDescriptor](LDRTextureCube.md#texturedescriptor)
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:75](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L75)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L84)
 
 ___
 
@@ -254,11 +251,11 @@ GPUSamplerBindingLayout
 
 #### Inherited from
 
-[HDRTextureCube](HDRTextureCube.md).[sampler_comparisonBindingLayout](HDRTextureCube.md#sampler_comparisonbindinglayout)
+[LDRTextureCube](LDRTextureCube.md).[sampler_comparisonBindingLayout](LDRTextureCube.md#sampler_comparisonbindinglayout)
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L97)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L110)
 
 ___
 
@@ -270,11 +267,11 @@ whether to flip the image on the y-axis
 
 #### Inherited from
 
-[HDRTextureCube](HDRTextureCube.md).[flipY](HDRTextureCube.md#flipy)
+[LDRTextureCube](LDRTextureCube.md).[flipY](LDRTextureCube.md#flipy)
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:104](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L104)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L117)
 
 ___
 
@@ -286,11 +283,25 @@ whether is video texture
 
 #### Inherited from
 
-[HDRTextureCube](HDRTextureCube.md).[isVideoTexture](HDRTextureCube.md#isvideotexture)
+[LDRTextureCube](LDRTextureCube.md).[isVideoTexture](LDRTextureCube.md#isvideotexture)
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L108)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L122)
+
+___
+
+### isHDRTexture
+
+• `Optional` **isHDRTexture**: `boolean`
+
+#### Inherited from
+
+[LDRTextureCube](LDRTextureCube.md).[isHDRTexture](LDRTextureCube.md#ishdrtexture)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L123)
 
 ___
 
@@ -302,11 +313,11 @@ mipmap Count, default value is 1
 
 #### Inherited from
 
-[HDRTextureCube](HDRTextureCube.md).[mipmapCount](HDRTextureCube.md#mipmapcount)
+[LDRTextureCube](LDRTextureCube.md).[mipmapCount](LDRTextureCube.md#mipmapcount)
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L116)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:190](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L190)
 
 ___
 
@@ -318,7 +329,7 @@ texture width, default value is 4
 
 #### Inherited from
 
-[HDRTextureCube](HDRTextureCube.md).[width](HDRTextureCube.md#width)
+[LDRTextureCube](LDRTextureCube.md).[width](LDRTextureCube.md#width)
 
 #### Defined in
 
@@ -334,7 +345,7 @@ texture height, default value is 4
 
 #### Inherited from
 
-[HDRTextureCube](HDRTextureCube.md).[height](HDRTextureCube.md#height)
+[LDRTextureCube](LDRTextureCube.md).[height](LDRTextureCube.md#height)
 
 #### Defined in
 
@@ -350,7 +361,7 @@ depth or array layers, default value is 6
 
 #### Inherited from
 
-[HDRTextureCube](HDRTextureCube.md).[depthOrArrayLayers](HDRTextureCube.md#depthorarraylayers)
+[LDRTextureCube](LDRTextureCube.md).[depthOrArrayLayers](LDRTextureCube.md#depthorarraylayers)
 
 #### Defined in
 
@@ -366,7 +377,7 @@ GPUShaderStage
 
 #### Inherited from
 
-[HDRTextureCube](HDRTextureCube.md).[visibility](HDRTextureCube.md#visibility)
+[LDRTextureCube](LDRTextureCube.md).[visibility](LDRTextureCube.md#visibility)
 
 #### Defined in
 
@@ -382,7 +393,7 @@ GPUTextureBindingLayout
 
 #### Inherited from
 
-[HDRTextureCube](HDRTextureCube.md).[textureBindingLayout](HDRTextureCube.md#texturebindinglayout)
+[LDRTextureCube](LDRTextureCube.md).[textureBindingLayout](LDRTextureCube.md#texturebindinglayout)
 
 #### Defined in
 
@@ -398,7 +409,7 @@ GPUSamplerBindingLayout
 
 #### Inherited from
 
-[HDRTextureCube](HDRTextureCube.md).[samplerBindingLayout](HDRTextureCube.md#samplerbindinglayout)
+[LDRTextureCube](LDRTextureCube.md).[samplerBindingLayout](LDRTextureCube.md#samplerbindinglayout)
 
 #### Defined in
 
@@ -426,11 +437,11 @@ ___
 
 #### Inherited from
 
-[HDRTextureCube](HDRTextureCube.md).[init](HDRTextureCube.md#init)
+[LDRTextureCube](LDRTextureCube.md).[init](LDRTextureCube.md#init)
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:138](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L138)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:214](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L214)
 
 ___
 
@@ -448,11 +459,11 @@ GPUTexture
 
 #### Inherited from
 
-[HDRTextureCube](HDRTextureCube.md).[getGPUTexture](HDRTextureCube.md#getgputexture)
+[LDRTextureCube](LDRTextureCube.md).[getGPUTexture](LDRTextureCube.md#getgputexture)
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:291](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L291)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L367)
 
 ___
 
@@ -476,11 +487,11 @@ GPUTextureView | GPUExternalTexture
 
 #### Inherited from
 
-[HDRTextureCube](HDRTextureCube.md).[getGPUView](HDRTextureCube.md#getgpuview)
+[LDRTextureCube](LDRTextureCube.md).[getGPUView](LDRTextureCube.md#getgpuview)
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:302](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L302)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:378](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L378)
 
 ___
 
@@ -501,11 +512,11 @@ ___
 
 #### Inherited from
 
-[HDRTextureCube](HDRTextureCube.md).[bindStateChange](HDRTextureCube.md#bindstatechange)
+[LDRTextureCube](LDRTextureCube.md).[bindStateChange](LDRTextureCube.md#bindstatechange)
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:313](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L313)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L389)
 
 ___
 
@@ -525,37 +536,25 @@ ___
 
 #### Inherited from
 
-[HDRTextureCube](HDRTextureCube.md).[unBindStateChange](HDRTextureCube.md#unbindstatechange)
+[LDRTextureCube](LDRTextureCube.md).[unBindStateChange](LDRTextureCube.md#unbindstatechange)
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:317](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L317)
-
-___
-
-### destoryView
-
-▸ **destoryView**(): [`AtmosphericScatteringSky`](AtmosphericScatteringSky.md)
-
-#### Returns
-
-[`AtmosphericScatteringSky`](AtmosphericScatteringSky.md)
-
-#### Inherited from
-
-[HDRTextureCube](HDRTextureCube.md).[destoryView](HDRTextureCube.md#destoryview)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:328](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L328)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:393](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L393)
 
 ___
 
 ### destroy
 
-▸ **destroy**(): `void`
+▸ **destroy**(`force?`): `void`
 
 release the texture
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
 
 #### Returns
 
@@ -563,128 +562,17 @@ release the texture
 
 #### Inherited from
 
-[HDRTextureCube](HDRTextureCube.md).[destroy](HDRTextureCube.md#destroy)
+[LDRTextureCube](LDRTextureCube.md).[destroy](LDRTextureCube.md#destroy)
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:336](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L336)
-
-___
-
-### createFromHDRData
-
-▸ **createFromHDRData**(`size`, `data`): [`AtmosphericScatteringSky`](AtmosphericScatteringSky.md)
-
-fill this texture by array of numbers;the format as [red0, green0, blue0, alpha0, red1, green1, blue1, alpha1...]
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `size` | `number` | assign the cube texture size |
-| `data` | `Object` | raw data of cubeTexture; the format is { width: number; height: number; array: Uint8Array } |
-| `data.width` | `number` | - |
-| `data.height` | `number` | - |
-| `data.array` | `Uint8Array` | - |
-
-#### Returns
-
-[`AtmosphericScatteringSky`](AtmosphericScatteringSky.md)
-
-#### Inherited from
-
-[HDRTextureCube](HDRTextureCube.md).[createFromHDRData](HDRTextureCube.md#createfromhdrdata)
-
-#### Defined in
-
-[src/textures/HDRTextureCube.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/textures/HDRTextureCube.ts#L36)
-
-___
-
-### createFromTexture
-
-▸ **createFromTexture**(`size`, `texture`): [`AtmosphericScatteringSky`](AtmosphericScatteringSky.md)
-
-fill this texture by a texture2D, which is a 360 panorama image
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `size` | `number` | assign the cube texture size |
-| `texture` | [`Texture`](Texture.md) | the image texture |
-
-#### Returns
-
-[`AtmosphericScatteringSky`](AtmosphericScatteringSky.md)
-
-#### Inherited from
-
-[HDRTextureCube](HDRTextureCube.md).[createFromTexture](HDRTextureCube.md#createfromtexture)
-
-#### Defined in
-
-[src/textures/HDRTextureCube.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/textures/HDRTextureCube.ts#L51)
-
-___
-
-### uploadErpTexture
-
-▸ **uploadErpTexture**(`texture`): [`AtmosphericScatteringSky`](AtmosphericScatteringSky.md)
-
-fill this texture by a texture2D, which is a 360 panorama image
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `texture` | [`Texture`](Texture.md) | a panorama image |
-
-#### Returns
-
-[`AtmosphericScatteringSky`](AtmosphericScatteringSky.md)
-
-#### Inherited from
-
-[HDRTextureCube](HDRTextureCube.md).[uploadErpTexture](HDRTextureCube.md#uploaderptexture)
-
-#### Defined in
-
-[src/textures/HDRTextureCube.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/textures/HDRTextureCube.ts#L76)
-
-___
-
-### uploadTexture
-
-▸ **uploadTexture**(`mip`, `texture`): [`AtmosphericScatteringSky`](AtmosphericScatteringSky.md)
-
-fill this texture by a texture2D, which is a 360 panorama image
-assign mipmap level
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `mip` | `number` | mipmap level |
-| `texture` | [`Texture`](Texture.md) | a panorama image |
-
-#### Returns
-
-[`AtmosphericScatteringSky`](AtmosphericScatteringSky.md)
-
-#### Inherited from
-
-[HDRTextureCube](HDRTextureCube.md).[uploadTexture](HDRTextureCube.md#uploadtexture)
-
-#### Defined in
-
-[src/textures/HDRTextureCube.ts:92](https://github.com/Orillusion/orillusion/blob/main/src/textures/HDRTextureCube.ts#L92)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:407](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L407)
 
 ___
 
 ### load
 
-▸ **load**(`url`, `loaderFunctions?`): `Promise`<[`HDRTextureCube`](HDRTextureCube.md)\>
+▸ **load**(`url`, `loaderFunctions?`): `Promise`<[`LDRTextureCube`](LDRTextureCube.md)\>
 
 load texture data from web url, which is a 360 panorama image
 
@@ -697,15 +585,42 @@ load texture data from web url, which is a 360 panorama image
 
 #### Returns
 
-`Promise`<[`HDRTextureCube`](HDRTextureCube.md)\>
+`Promise`<[`LDRTextureCube`](LDRTextureCube.md)\>
 
 #### Inherited from
 
-[HDRTextureCube](HDRTextureCube.md).[load](HDRTextureCube.md#load)
+[LDRTextureCube](LDRTextureCube.md).[load](LDRTextureCube.md#load)
 
 #### Defined in
 
-[src/textures/HDRTextureCube.ts:154](https://github.com/Orillusion/orillusion/blob/main/src/textures/HDRTextureCube.ts#L154)
+[src/textures/LDRTextureCube.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/textures/LDRTextureCube.ts#L37)
+
+___
+
+### createFromTexture
+
+▸ **createFromTexture**(`size`, `texture`): [`AtmosphericScatteringSky`](AtmosphericScatteringSky.md)
+
+create cube texture by environment image
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `size` | `number` | size of cube texture |
+| `texture` | [`Texture`](Texture.md) | source texture |
+
+#### Returns
+
+[`AtmosphericScatteringSky`](AtmosphericScatteringSky.md)
+
+#### Inherited from
+
+[LDRTextureCube](LDRTextureCube.md).[createFromTexture](LDRTextureCube.md#createfromtexture)
+
+#### Defined in
+
+[src/textures/LDRTextureCube.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/textures/LDRTextureCube.ts#L64)
 
 ## Accessors
 
@@ -721,11 +636,11 @@ enable/disable mipmap
 
 #### Inherited from
 
-HDRTextureCube.useMipmap
+LDRTextureCube.useMipmap
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:233](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L233)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:309](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L309)
 
 • `set` **useMipmap**(`value`): `void`
 
@@ -743,11 +658,11 @@ get mipmap
 
 #### Inherited from
 
-HDRTextureCube.useMipmap
+LDRTextureCube.useMipmap
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:240](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L240)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:316](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L316)
 
 ___
 
@@ -761,11 +676,11 @@ ___
 
 #### Inherited from
 
-HDRTextureCube.addressModeU
+LDRTextureCube.addressModeU
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:346](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L346)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:419](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L419)
 
 • `set` **addressModeU**(`value`): `void`
 
@@ -781,11 +696,11 @@ HDRTextureCube.addressModeU
 
 #### Inherited from
 
-HDRTextureCube.addressModeU
+LDRTextureCube.addressModeU
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:349](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L349)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:423](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L423)
 
 ___
 
@@ -799,11 +714,11 @@ ___
 
 #### Inherited from
 
-HDRTextureCube.addressModeV
+LDRTextureCube.addressModeV
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:358](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L358)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:430](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L430)
 
 • `set` **addressModeV**(`value`): `void`
 
@@ -819,11 +734,11 @@ HDRTextureCube.addressModeV
 
 #### Inherited from
 
-HDRTextureCube.addressModeV
+LDRTextureCube.addressModeV
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:361](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L361)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:434](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L434)
 
 ___
 
@@ -837,11 +752,11 @@ ___
 
 #### Inherited from
 
-HDRTextureCube.addressModeW
+LDRTextureCube.addressModeW
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:372](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L372)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:441](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L441)
 
 • `set` **addressModeW**(`value`): `void`
 
@@ -857,11 +772,11 @@ HDRTextureCube.addressModeW
 
 #### Inherited from
 
-HDRTextureCube.addressModeW
+LDRTextureCube.addressModeW
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:375](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L375)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:445](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L445)
 
 ___
 
@@ -875,11 +790,11 @@ ___
 
 #### Inherited from
 
-HDRTextureCube.magFilter
+LDRTextureCube.magFilter
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:386](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L386)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:452](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L452)
 
 • `set` **magFilter**(`value`): `void`
 
@@ -895,11 +810,11 @@ HDRTextureCube.magFilter
 
 #### Inherited from
 
-HDRTextureCube.magFilter
+LDRTextureCube.magFilter
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L389)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:456](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L456)
 
 ___
 
@@ -913,11 +828,11 @@ ___
 
 #### Inherited from
 
-HDRTextureCube.minFilter
+LDRTextureCube.minFilter
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:399](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L399)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:463](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L463)
 
 • `set` **minFilter**(`value`): `void`
 
@@ -933,11 +848,11 @@ HDRTextureCube.minFilter
 
 #### Inherited from
 
-HDRTextureCube.minFilter
+LDRTextureCube.minFilter
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:402](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L402)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:467](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L467)
 
 ___
 
@@ -951,11 +866,11 @@ ___
 
 #### Inherited from
 
-HDRTextureCube.mipmapFilter
+LDRTextureCube.mipmapFilter
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:412](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L412)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:474](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L474)
 
 • `set` **mipmapFilter**(`value`): `void`
 
@@ -971,11 +886,11 @@ HDRTextureCube.mipmapFilter
 
 #### Inherited from
 
-HDRTextureCube.mipmapFilter
+LDRTextureCube.mipmapFilter
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:415](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L415)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:478](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L478)
 
 ___
 
@@ -989,11 +904,11 @@ ___
 
 #### Inherited from
 
-HDRTextureCube.lodMinClamp
+LDRTextureCube.lodMinClamp
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:424](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L424)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:485](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L485)
 
 • `set` **lodMinClamp**(`value`): `void`
 
@@ -1009,11 +924,11 @@ HDRTextureCube.lodMinClamp
 
 #### Inherited from
 
-HDRTextureCube.lodMinClamp
+LDRTextureCube.lodMinClamp
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:427](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L427)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:489](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L489)
 
 ___
 
@@ -1027,11 +942,11 @@ ___
 
 #### Inherited from
 
-HDRTextureCube.lodMaxClamp
+LDRTextureCube.lodMaxClamp
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:438](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L438)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:496](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L496)
 
 • `set` **lodMaxClamp**(`value`): `void`
 
@@ -1047,11 +962,11 @@ HDRTextureCube.lodMaxClamp
 
 #### Inherited from
 
-HDRTextureCube.lodMaxClamp
+LDRTextureCube.lodMaxClamp
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:441](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L441)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:500](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L500)
 
 ___
 
@@ -1065,11 +980,11 @@ ___
 
 #### Inherited from
 
-HDRTextureCube.compare
+LDRTextureCube.compare
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:454](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L454)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:507](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L507)
 
 • `set` **compare**(`value`): `void`
 
@@ -1085,11 +1000,11 @@ HDRTextureCube.compare
 
 #### Inherited from
 
-HDRTextureCube.compare
+LDRTextureCube.compare
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:457](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L457)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:511](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L511)
 
 ___
 
@@ -1103,11 +1018,11 @@ ___
 
 #### Inherited from
 
-HDRTextureCube.maxAnisotropy
+LDRTextureCube.maxAnisotropy
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:470](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L470)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:518](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L518)
 
 • `set` **maxAnisotropy**(`value`): `void`
 
@@ -1123,11 +1038,11 @@ HDRTextureCube.maxAnisotropy
 
 #### Inherited from
 
-HDRTextureCube.maxAnisotropy
+LDRTextureCube.maxAnisotropy
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:473](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L473)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:522](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L522)
 
 ___
 
@@ -1143,6 +1058,26 @@ ___
 
 [src/textures/AtmosphericScatteringSky.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L54)
 
+___
+
+### ldrImageUrl
+
+• `get` **ldrImageUrl**(): `string`
+
+constructor: create a cube texture, it's low dynamic range texture
+
+#### Returns
+
+`string`
+
+#### Inherited from
+
+LDRTextureCube.ldrImageUrl
+
+#### Defined in
+
+[src/textures/LDRTextureCube.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/textures/LDRTextureCube.ts#L21)
+
 ## Constructors
 
 ### constructor
@@ -1157,7 +1092,7 @@ ___
 
 #### Overrides
 
-[HDRTextureCube](HDRTextureCube.md).[constructor](HDRTextureCube.md#constructor)
+[LDRTextureCube](LDRTextureCube.md).[constructor](LDRTextureCube.md#constructor)
 
 #### Defined in
 

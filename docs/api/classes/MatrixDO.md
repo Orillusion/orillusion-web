@@ -1,6 +1,5 @@
 # Class: MatrixDO
 
-
 ### Constructors
 
 - [constructor](MatrixDO.md#constructor)

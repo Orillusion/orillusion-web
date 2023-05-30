@@ -1,6 +1,5 @@
 # Class: GraphicConfig
 
-
 ### Properties
 
 - [ShapeVertexSize](GraphicConfig.md#shapevertexsize)

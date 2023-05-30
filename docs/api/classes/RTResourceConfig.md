@@ -1,6 +1,5 @@
 # Class: RTResourceConfig
 
-
 ### Properties
 
 - [colorBufferTex\_NAME](RTResourceConfig.md#colorbuffertex_name)

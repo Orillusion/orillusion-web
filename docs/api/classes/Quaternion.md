@@ -2,7 +2,6 @@
 
 Quaternions are used to represent rotations.
 
-
 ### Properties
 
 - [HELP\_0](Quaternion.md#help_0)

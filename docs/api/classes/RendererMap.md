@@ -1,6 +1,5 @@
 # Class: RendererMap
 
-
 ### Constructors
 
 - [constructor](RendererMap.md#constructor)

@@ -8,7 +8,6 @@ Plane geometry
 
   ↳ **`PlaneGeometry`**
 
-
 ### Properties
 
 - [uuid](PlaneGeometry.md#uuid)
@@ -16,7 +15,6 @@ Plane geometry
 - [subGeometries](PlaneGeometry.md#subgeometries)
 - [morphTargetsRelative](PlaneGeometry.md#morphtargetsrelative)
 - [morphTargetDictionary](PlaneGeometry.md#morphtargetdictionary)
-- [bounds](PlaneGeometry.md#bounds)
 - [width](PlaneGeometry.md#width)
 - [height](PlaneGeometry.md#height)
 - [segmentW](PlaneGeometry.md#segmentw)
@@ -30,10 +28,10 @@ Plane geometry
 - [vertexAttributes](PlaneGeometry.md#vertexattributes)
 - [vertexAttributeMap](PlaneGeometry.md#vertexattributemap)
 - [geometryType](PlaneGeometry.md#geometrytype)
+- [bounds](PlaneGeometry.md#bounds)
 
 ### Methods
 
-- [updateBounds](PlaneGeometry.md#updatebounds)
 - [addSubGeometry](PlaneGeometry.md#addsubgeometry)
 - [generate](PlaneGeometry.md#generate)
 - [setIndices](PlaneGeometry.md#setindices)
@@ -42,7 +40,9 @@ Plane geometry
 - [hasAttribute](PlaneGeometry.md#hasattribute)
 - [genWireframe](PlaneGeometry.md#genwireframe)
 - [compute](PlaneGeometry.md#compute)
+- [computeNormals](PlaneGeometry.md#computenormals)
 - [isPrimitive](PlaneGeometry.md#isprimitive)
+- [destroy](PlaneGeometry.md#destroy)
 
 ### Constructors
 
@@ -60,7 +60,7 @@ Plane geometry
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L33)
+[src/core/geometry/GeometryBase.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L34)
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L34)
+[src/core/geometry/GeometryBase.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L35)
 
 ___
 
@@ -88,7 +88,7 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L35)
+[src/core/geometry/GeometryBase.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L36)
 
 ___
 
@@ -102,7 +102,7 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L36)
+[src/core/geometry/GeometryBase.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L37)
 
 ___
 
@@ -120,20 +120,6 @@ ___
 #### Inherited from
 
 [GeometryBase](GeometryBase.md).[morphTargetDictionary](GeometryBase.md#morphtargetdictionary)
-
-#### Defined in
-
-[src/core/geometry/GeometryBase.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L37)
-
-___
-
-### bounds
-
-• **bounds**: `BoundingBox`
-
-#### Inherited from
-
-[GeometryBase](GeometryBase.md).[bounds](GeometryBase.md#bounds)
 
 #### Defined in
 
@@ -215,7 +201,7 @@ GeometryBase.indicesBuffer
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L61)
+[src/core/geometry/GeometryBase.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L56)
 
 ___
 
@@ -233,7 +219,7 @@ GeometryBase.vertexBuffer
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L65)
+[src/core/geometry/GeometryBase.ts:60](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L60)
 
 ___
 
@@ -251,7 +237,7 @@ GeometryBase.vertexAttributes
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L69)
+[src/core/geometry/GeometryBase.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L64)
 
 ___
 
@@ -269,7 +255,7 @@ GeometryBase.vertexAttributeMap
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L73)
+[src/core/geometry/GeometryBase.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L68)
 
 ___
 
@@ -287,7 +273,7 @@ GeometryBase.geometryType
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L77)
+[src/core/geometry/GeometryBase.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L72)
 
 • `set` **geometryType**(`value`): `void`
 
@@ -307,20 +293,33 @@ GeometryBase.geometryType
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L80)
+[src/core/geometry/GeometryBase.ts:75](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L75)
 
-## Methods
+___
 
-### updateBounds
+### bounds
 
-▸ **updateBounds**(`min`, `max`): `void`
+• `get` **bounds**(): `BoundingBox`
+
+#### Returns
+
+`BoundingBox`
+
+#### Inherited from
+
+GeometryBase.bounds
+
+#### Defined in
+
+[src/core/geometry/GeometryBase.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L79)
+
+• `set` **bounds**(`value`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `min` | [`Vector3`](Vector3.md) |
-| `max` | [`Vector3`](Vector3.md) |
+| `value` | `BoundingBox` |
 
 #### Returns
 
@@ -328,19 +327,19 @@ GeometryBase.geometryType
 
 #### Inherited from
 
-[GeometryBase](GeometryBase.md).[updateBounds](GeometryBase.md#updatebounds)
+GeometryBase.bounds
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L86)
+[src/core/geometry/GeometryBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L122)
 
-___
+## Methods
 
 ### addSubGeometry
 
 ▸ **addSubGeometry**(`...lodLevels`): `void`
 
-add subGeometry form lod level
+add subGeometry from lod level
 
 **`See`**
 
@@ -362,7 +361,7 @@ LodLevel
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:94](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L94)
+[src/core/geometry/GeometryBase.ts:130](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L130)
 
 ___
 
@@ -388,7 +387,7 @@ create geometry by shaderReflection
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:104](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L104)
+[src/core/geometry/GeometryBase.ts:140](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L140)
 
 ___
 
@@ -412,7 +411,7 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L110)
+[src/core/geometry/GeometryBase.ts:146](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L146)
 
 ___
 
@@ -437,7 +436,7 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L122)
+[src/core/geometry/GeometryBase.ts:158](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L158)
 
 ___
 
@@ -461,7 +460,7 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L135)
+[src/core/geometry/GeometryBase.ts:171](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L171)
 
 ___
 
@@ -485,7 +484,7 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:139](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L139)
+[src/core/geometry/GeometryBase.ts:175](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L175)
 
 ___
 
@@ -503,7 +502,7 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:143](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L143)
+[src/core/geometry/GeometryBase.ts:179](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L179)
 
 ___
 
@@ -521,7 +520,25 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:167](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L167)
+[src/core/geometry/GeometryBase.ts:203](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L203)
+
+___
+
+### computeNormals
+
+▸ **computeNormals**(): [`PlaneGeometry`](PlaneGeometry.md)
+
+#### Returns
+
+[`PlaneGeometry`](PlaneGeometry.md)
+
+#### Inherited from
+
+[GeometryBase](GeometryBase.md).[computeNormals](GeometryBase.md#computenormals)
+
+#### Defined in
+
+[src/core/geometry/GeometryBase.ts:222](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L222)
 
 ___
 
@@ -539,7 +556,31 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:177](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L177)
+[src/core/geometry/GeometryBase.ts:264](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L264)
+
+___
+
+### destroy
+
+▸ **destroy**(`force?`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[GeometryBase](GeometryBase.md).[destroy](GeometryBase.md#destroy)
+
+#### Defined in
+
+[src/core/geometry/GeometryBase.ts:268](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L268)
 
 ## Constructors
 

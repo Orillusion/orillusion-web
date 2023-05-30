@@ -2,7 +2,6 @@
 
 Built-in mathematical basic calculation factory function
 
-
 ### Methods
 
 - [clampf](MathUtil.md#clampf)

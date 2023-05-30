@@ -2,7 +2,6 @@
 
 2D Bezier Curve
 
-
 ### Constructors
 
 - [constructor](Bezier2D.md#constructor)

@@ -8,7 +8,6 @@
 
   ↳ [`ProbeGBufferFrame`](ProbeGBufferFrame.md)
 
-
 ### Properties
 
 - [label](RTFrame.md#label)

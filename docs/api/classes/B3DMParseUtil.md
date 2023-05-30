@@ -1,6 +1,5 @@
 # Class: B3DMParseUtil
 
-
 ### Constructors
 
 - [constructor](B3DMParseUtil.md#constructor)

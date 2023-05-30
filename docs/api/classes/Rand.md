@@ -3,7 +3,6 @@
 'Rand' is a random number generator based on an improved xorshift algorithm, 
 which is a modification of the Linear Congruential Generator (LCG) method.
 
-
 ### Constructors
 
 - [constructor](Rand.md#constructor)

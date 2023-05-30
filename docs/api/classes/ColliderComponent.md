@@ -8,7 +8,6 @@ collider component
 
   ↳ **`ColliderComponent`**
 
-
 ### Constructors
 
 - [constructor](ColliderComponent.md#constructor)
@@ -34,6 +33,7 @@ collider component
 - [onBeforeUpdate](ColliderComponent.md#onbeforeupdate)
 - [onCompute](ColliderComponent.md#oncompute)
 - [onGraphic](ColliderComponent.md#ongraphic)
+- [onParentChange](ColliderComponent.md#onparentchange)
 - [cloneTo](ColliderComponent.md#cloneto)
 
 ## Constructors
@@ -375,6 +375,31 @@ ___
 
 ___
 
+### onParentChange
+
+▸ `Optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `lastParent?` | [`Object3D`](Object3D.md) |
+| `currentParent?` | [`Object3D`](Object3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onParentChange](ComponentBase.md#onparentchange)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L116)
+
+___
+
 ### cloneTo
 
 ▸ **cloneTo**(`obj`): `void`
@@ -397,4 +422,4 @@ clone component data to target object3D
 
 #### Defined in
 
-[src/components/ComponentBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L122)
+[src/components/ComponentBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L123)

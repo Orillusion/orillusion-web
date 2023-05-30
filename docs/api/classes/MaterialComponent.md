@@ -8,7 +8,6 @@ Material component
 
   ↳ **`MaterialComponent`**
 
-
 ### Properties
 
 - [object3D](MaterialComponent.md#object3d)
@@ -32,6 +31,7 @@ Material component
 - [onBeforeUpdate](MaterialComponent.md#onbeforeupdate)
 - [onCompute](MaterialComponent.md#oncompute)
 - [onGraphic](MaterialComponent.md#ongraphic)
+- [onParentChange](MaterialComponent.md#onparentchange)
 - [destroy](MaterialComponent.md#destroy)
 - [cloneTo](MaterialComponent.md#cloneto)
 
@@ -408,11 +408,42 @@ ___
 
 ___
 
+### onParentChange
+
+▸ `Optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `lastParent?` | [`Object3D`](Object3D.md) |
+| `currentParent?` | [`Object3D`](Object3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onParentChange](ComponentBase.md#onparentchange)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L116)
+
+___
+
 ### destroy
 
-▸ **destroy**(): `void`
+▸ **destroy**(`force?`): `void`
 
 release this component
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
 
 #### Returns
 
@@ -424,7 +455,7 @@ release this component
 
 #### Defined in
 
-[src/components/ComponentBase.ts:189](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L189)
+[src/components/ComponentBase.ts:190](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L190)
 
 ___
 

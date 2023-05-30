@@ -6,7 +6,6 @@
 
   ↳ **`B3DMLoader`**
 
-
 ### Properties
 
 - [adjustmentTransform](B3DMLoader.md#adjustmenttransform)

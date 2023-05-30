@@ -2,7 +2,6 @@
 
 String processing tool class
 
-
 ### Methods
 
 - [hasString](StringUtil.md#hasstring)

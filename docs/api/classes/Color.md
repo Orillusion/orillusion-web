@@ -2,7 +2,6 @@
 
 RGBA Color Object
 
-
 ### Properties
 
 - [COLOR\_RED](Color.md#color_red)
@@ -171,8 +170,8 @@ RGBA Color Object
 - [setHex](Color.md#sethex)
 - [getHex](Color.md#gethex)
 - [clone](Color.md#clone)
-- [copyForm](Color.md#copyform)
-- [copyFormArray](Color.md#copyformarray)
+- [copyFrom](Color.md#copyfrom)
+- [copyFromArray](Color.md#copyfromarray)
 - [hexRGBColor](Color.md#hexrgbcolor)
 
 ### Accessors
@@ -1761,7 +1760,7 @@ ___
 
 ▸ **hexToRGB**(`value`): `void`
 
-update this color rgb form hexadecimal no alpha
+update this color rgb from hexadecimal no alpha
 
 #### Parameters
 
@@ -1783,7 +1782,7 @@ ___
 
 ▸ **hexToRGBA**(`value`): `void`
 
-update this color rgb form hexadecimal has alpha
+update this color rgb from hexadecimal has alpha
 
 #### Parameters
 
@@ -1852,7 +1851,7 @@ ___
 
 ▸ **setHex**(`hex`): `void`
 
-update this color rgba form hexadecimal
+update this color rgba from hexadecimal
 
 #### Parameters
 
@@ -1902,11 +1901,11 @@ clone this color
 
 ___
 
-### copyForm
+### copyFrom
 
-▸ **copyForm**(`src`): [`Color`](Color.md)
+▸ **copyFrom**(`src`): [`Color`](Color.md)
 
-copy color form source color
+copy color from source color
 
 #### Parameters
 
@@ -1924,11 +1923,11 @@ copy color form source color
 
 ___
 
-### copyFormArray
+### copyFromArray
 
-▸ **copyFormArray**(`arr`, `scalar?`): [`Color`](Color.md)
+▸ **copyFromArray**(`arr`, `scalar?`): [`Color`](Color.md)
 
-copy color form array
+copy color from array
 
 #### Parameters
 
@@ -1951,7 +1950,7 @@ ___
 
 ▸ `Static` **hexRGBColor**(`hexColor`, `dst?`): [`Color`](Color.md)
 
-update this color rgb form hexadecimal no alpha
+update this color rgb from hexadecimal no alpha
 
 #### Parameters
 

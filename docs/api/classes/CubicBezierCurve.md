@@ -2,7 +2,6 @@
 
 Cubic Bezier Curve
 
-
 ### Constructors
 
 - [constructor](CubicBezierCurve.md#constructor)
