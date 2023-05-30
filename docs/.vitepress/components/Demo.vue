@@ -8,7 +8,7 @@
             <Logo v-show="support && loading" class="loading-wrap"></Logo>
             <p v-if="!support">
                 <img src="/images/logo_white.png" width="100" style="margin:0 auto 15px auto" /><br>
-                Orillusion powered by WebGPU on Chrome/Edge 113+<br>
+                WebGPU is not supported in your browser<br>
                 Please upgrade to latest <a href="https://www.google.com/chrome/" target="_blank">Chrome</a>/<a href="https://www.microsoftedgeinsider.com/download/" target="_blank">Edge</a>
             </p>
         <a class="toggle" title="Check Code" v-if="code" @click="full = !full">{{ full ? '>': '<'}}</a>
@@ -76,15 +76,14 @@ export default {
     },
     computed: {
         support(){
-            try{
-                if(navigator.userAgent.match(/iphone|ipad|android/i))
-                    throw new Error()
-                let version = navigator.userAgent.match(/chrome\/\d+/i)
-                if(version[0].split('/')[1] < 113)
-                    throw new Error()
-                return true
-            }catch(e){
+            if(!globalThis.navigator?.gpu?.requestAdapter)
                 return false
+            else{
+                let version = globalThis.navigator?.userAgent?.match(/chrome\/(\d+)/i)
+                if(version && version[1] >= 113)
+                    return true
+                else
+                    return false
             }
         },
         href(){
