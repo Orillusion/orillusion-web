@@ -86,14 +86,6 @@ export class Sample_Outline {
 
     private createPlane(scene: Scene3D) {
         let mat = new LitMaterial()
-        mat.baseMap = Engine3D.res.whiteTexture
-        mat.normalMap = Engine3D.res.normalTexture
-        mat.aoMap = Engine3D.res.whiteTexture
-        mat.emissiveMap = Engine3D.res.blackTexture
-        mat.roughness = 0.5
-        mat.roughness_max = 0.1
-        mat.metallic = 0.5
-
         {
             let debugGeo = new PlaneGeometry(1000, 1000)
             let obj: Object3D = new Object3D()
