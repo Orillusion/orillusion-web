@@ -2,7 +2,6 @@
 
 WebGPU api use context
 
-
 ### Properties
 
 - [lastGeometry](GPUContext.md#lastgeometry)

@@ -2,7 +2,6 @@
 
 Ray
 
-
 ### Properties
 
 - [origin](Ray.md#origin)
@@ -19,9 +18,8 @@ Ray
 ### Methods
 
 - [clone](Ray.md#clone)
-- [intersectsBox](Ray.md#intersectsbox)
 - [intersectBox](Ray.md#intersectbox)
-- [at](Ray.md#at)
+- [pointAt](Ray.md#pointat)
 - [copy](Ray.md#copy)
 - [setApproxDirection](Ray.md#setapproxdirection)
 - [setOrigin](Ray.md#setorigin)
@@ -127,9 +125,9 @@ Clone a new Ray object
 
 ___
 
-### intersectsBox
+### intersectBox
 
-▸ **intersectsBox**(`box`): `boolean`
+▸ **intersectBox**(`box`, `target?`): [`Vector3`](Vector3.md)
 
 Determine whether it intersects a bounding box
 
@@ -138,32 +136,7 @@ Determine whether it intersects a bounding box
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `box` | `IBound` | bounding box |
-
-#### Returns
-
-`boolean`
-
-whether intersect
-
-#### Defined in
-
-[src/math/Ray.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L65)
-
-___
-
-### intersectBox
-
-▸ **intersectBox**(`box`, `target`): [`Vector3`](Vector3.md)
-
-Determine whether it intersects with a bounding box and 
-calculate the intersection point
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `box` | `IBound` | bounding box |
-| `target` | [`Vector3`](Vector3.md) | Output intersection |
+| `target?` | [`Vector3`](Vector3.md) | - |
 
 #### Returns
 
@@ -173,13 +146,13 @@ whether intersect
 
 #### Defined in
 
-[src/math/Ray.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L76)
+[src/math/Ray.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L69)
 
 ___
 
-### at
+### pointAt
 
-▸ **at**(`t`, `target`): [`Vector3`](Vector3.md)
+▸ **pointAt**(`t`, `target`): [`Vector3`](Vector3.md)
 
 Calculate a point on the ray
 
@@ -198,7 +171,7 @@ result
 
 #### Defined in
 
-[src/math/Ray.ts:137](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L137)
+[src/math/Ray.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L122)
 
 ___
 
@@ -222,7 +195,7 @@ New ray object
 
 #### Defined in
 
-[src/math/Ray.ts:150](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L150)
+[src/math/Ray.ts:137](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L137)
 
 ___
 
@@ -244,7 +217,7 @@ Fast to the approximate ray direction
 
 #### Defined in
 
-[src/math/Ray.ts:162](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L162)
+[src/math/Ray.ts:149](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L149)
 
 ___
 
@@ -266,7 +239,7 @@ Set ray origin
 
 #### Defined in
 
-[src/math/Ray.ts:170](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L170)
+[src/math/Ray.ts:157](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L157)
 
 ___
 
@@ -282,7 +255,7 @@ Get ray origin
 
 #### Defined in
 
-[src/math/Ray.ts:177](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L177)
+[src/math/Ray.ts:164](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L164)
 
 ___
 
@@ -306,7 +279,7 @@ Returns a point at the specified location
 
 #### Defined in
 
-[src/math/Ray.ts:186](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L186)
+[src/math/Ray.ts:173](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L173)
 
 ___
 
@@ -330,7 +303,7 @@ result
 
 #### Defined in
 
-[src/math/Ray.ts:196](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L196)
+[src/math/Ray.ts:183](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L183)
 
 ___
 
@@ -352,7 +325,7 @@ Applied matrix transformation
 
 #### Defined in
 
-[src/math/Ray.ts:212](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L212)
+[src/math/Ray.ts:199](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L199)
 
 ___
 
@@ -379,7 +352,7 @@ whether it is inside a triangle
 
 #### Defined in
 
-[src/math/Ray.ts:229](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L229)
+[src/math/Ray.ts:216](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L216)
 
 ___
 
@@ -405,7 +378,7 @@ point of intersection
 
 #### Defined in
 
-[src/math/Ray.ts:274](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L274)
+[src/math/Ray.ts:261](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L261)
 
 ___
 
@@ -432,7 +405,7 @@ point of intersection
 
 #### Defined in
 
-[src/math/Ray.ts:337](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L337)
+[src/math/Ray.ts:324](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L324)
 
 ___
 
@@ -464,4 +437,4 @@ If there is an intersection, then the distance from the ray origin to the inters
 
 #### Defined in
 
-[src/math/Ray.ts:369](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L369)
+[src/math/Ray.ts:356](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L356)

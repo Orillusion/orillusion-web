@@ -4,7 +4,6 @@ https://en.wikipedia.org/wiki/Halton_sequence
 https://baike.baidu.com/item/Halton%20sequence/16697800
 Class for generating the Halton low-discrepancy series for Quasi Monte Carlo integration.
 
-
 ### Methods
 
 - [get](HaltonSeq.md#get)

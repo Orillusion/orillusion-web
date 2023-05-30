@@ -1,6 +1,5 @@
 # Class: TileSet
 
-
 ### Constructors
 
 - [constructor](TileSet.md#constructor)

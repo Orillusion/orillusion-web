@@ -12,7 +12,6 @@ Basic class of Event
 
   ↳ [`PointerEvent3D`](PointerEvent3D.md)
 
-
 ### Properties
 
 - [target](CEvent.md#target)

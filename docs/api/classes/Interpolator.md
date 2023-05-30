@@ -2,7 +2,6 @@
 
 interpolator class
 
-
 ### Methods
 
 - [to](Interpolator.md#to)

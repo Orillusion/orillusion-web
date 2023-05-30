@@ -1,6 +1,5 @@
 # Class: SkeletonAnimation\_shader
 
-
 ### Methods
 
 - [groupBindingAndFunctions](SkeletonAnimation_shader.md#groupbindingandfunctions)

@@ -2,7 +2,6 @@
 
 Tool of time
 
-
 ### Properties
 
 - [time](Time.md#time)

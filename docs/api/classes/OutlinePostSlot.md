@@ -1,6 +1,5 @@
 # Class: OutlinePostSlot
 
-
 ### Constructors
 
 - [constructor](OutlinePostSlot.md#constructor)

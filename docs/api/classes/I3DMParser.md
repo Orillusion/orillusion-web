@@ -6,7 +6,6 @@
 
   ↳ **`I3DMParser`**
 
-
 ### Properties
 
 - [format](I3DMParser.md#format)
@@ -24,9 +23,9 @@
 
 - [parseBuffer](I3DMParser.md#parsebuffer)
 - [verification](I3DMParser.md#verification)
-- [parserString](I3DMParser.md#parserstring)
-- [parserJson](I3DMParser.md#parserjson)
-- [parserTexture](I3DMParser.md#parsertexture)
+- [parseString](I3DMParser.md#parsestring)
+- [parseJson](I3DMParser.md#parsejson)
+- [parseTexture](I3DMParser.md#parsetexture)
 - [parse](I3DMParser.md#parse)
 
 ## Properties
@@ -169,9 +168,9 @@ ParserBase.verification
 
 ___
 
-### parserString
+### parseString
 
-▸ **parserString**(`str`): `void`
+▸ **parseString**(`str`): `void`
 
 #### Parameters
 
@@ -185,7 +184,7 @@ ___
 
 #### Inherited from
 
-ParserBase.parserString
+ParserBase.parseString
 
 #### Defined in
 
@@ -193,9 +192,9 @@ ParserBase.parserString
 
 ___
 
-### parserJson
+### parseJson
 
-▸ **parserJson**(`obj`): `void`
+▸ **parseJson**(`obj`): `void`
 
 #### Parameters
 
@@ -209,7 +208,7 @@ ___
 
 #### Inherited from
 
-ParserBase.parserJson
+ParserBase.parseJson
 
 #### Defined in
 
@@ -217,9 +216,9 @@ ParserBase.parserJson
 
 ___
 
-### parserTexture
+### parseTexture
 
-▸ **parserTexture**(`buffer`): [`Texture`](Texture.md)
+▸ **parseTexture**(`buffer`): [`Texture`](Texture.md)
 
 #### Parameters
 
@@ -233,7 +232,7 @@ ___
 
 #### Inherited from
 
-ParserBase.parserTexture
+ParserBase.parseTexture
 
 #### Defined in
 

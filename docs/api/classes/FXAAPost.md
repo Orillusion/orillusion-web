@@ -11,7 +11,6 @@ rather than pursuing perfect real anti-aliasing effect.
 
   ↳ **`FXAAPost`**
 
-
 ### Constructors
 
 - [constructor](FXAAPost.md#constructor)
@@ -51,7 +50,7 @@ PostBase.enable
 
 #### Defined in
 
-[src/gfx/renderJob/post/PostBase.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L18)
+[src/gfx/renderJob/post/PostBase.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L19)
 
 ___
 
@@ -65,13 +64,19 @@ PostBase.postRenderer
 
 #### Defined in
 
-[src/gfx/renderJob/post/PostBase.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L19)
+[src/gfx/renderJob/post/PostBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L20)
 
 ## Methods
 
 ### destroy
 
-▸ **destroy**(): `void`
+▸ **destroy**(`force?`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
 
 #### Returns
 
@@ -83,4 +88,4 @@ PostBase.destroy
 
 #### Defined in
 
-[src/gfx/renderJob/post/PostBase.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L79)
+[src/gfx/renderJob/post/PostBase.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L81)

@@ -4,7 +4,6 @@
 
 - `GPUVertexBufferLayout`
 
-
 ### Constructors
 
 - [constructor](VertexBufferLayout.md#constructor)

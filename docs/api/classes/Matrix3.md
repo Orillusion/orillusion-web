@@ -2,7 +2,6 @@
 
 3*3 Matrix
 
-
 ### Properties
 
 - [a](Matrix3.md#a)

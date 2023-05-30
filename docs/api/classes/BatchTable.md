@@ -6,7 +6,6 @@
 
   ↳ **`BatchTable`**
 
-
 ### Methods
 
 - [getKeys](BatchTable.md#getkeys)

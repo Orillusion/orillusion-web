@@ -1,6 +1,5 @@
 # Class: IESProfiles
 
-
 ### Properties
 
 - [use](IESProfiles.md#use)

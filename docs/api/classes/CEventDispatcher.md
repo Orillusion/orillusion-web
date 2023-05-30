@@ -14,7 +14,6 @@ deregistration, distribution, and unregister.
 
   ↳ [`PickFire`](PickFire.md)
 
-
 ### Constructors
 
 - [constructor](CEventDispatcher.md#constructor)

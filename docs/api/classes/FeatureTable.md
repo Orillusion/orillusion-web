@@ -6,7 +6,6 @@
 
   ↳ [`BatchTable`](BatchTable.md)
 
-
 ### Constructors
 
 - [constructor](FeatureTable.md#constructor)

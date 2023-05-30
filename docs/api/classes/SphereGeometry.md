@@ -8,7 +8,6 @@ Sphere Geometry
 
   ↳ **`SphereGeometry`**
 
-
 ### Properties
 
 - [uuid](SphereGeometry.md#uuid)
@@ -16,7 +15,6 @@ Sphere Geometry
 - [subGeometries](SphereGeometry.md#subgeometries)
 - [morphTargetsRelative](SphereGeometry.md#morphtargetsrelative)
 - [morphTargetDictionary](SphereGeometry.md#morphtargetdictionary)
-- [bounds](SphereGeometry.md#bounds)
 - [shape\_vertices](SphereGeometry.md#shape_vertices)
 - [shape\_indices](SphereGeometry.md#shape_indices)
 - [radius](SphereGeometry.md#radius)
@@ -34,10 +32,10 @@ Sphere Geometry
 - [vertexAttributes](SphereGeometry.md#vertexattributes)
 - [vertexAttributeMap](SphereGeometry.md#vertexattributemap)
 - [geometryType](SphereGeometry.md#geometrytype)
+- [bounds](SphereGeometry.md#bounds)
 
 ### Methods
 
-- [updateBounds](SphereGeometry.md#updatebounds)
 - [addSubGeometry](SphereGeometry.md#addsubgeometry)
 - [generate](SphereGeometry.md#generate)
 - [setIndices](SphereGeometry.md#setindices)
@@ -46,7 +44,9 @@ Sphere Geometry
 - [hasAttribute](SphereGeometry.md#hasattribute)
 - [genWireframe](SphereGeometry.md#genwireframe)
 - [compute](SphereGeometry.md#compute)
+- [computeNormals](SphereGeometry.md#computenormals)
 - [isPrimitive](SphereGeometry.md#isprimitive)
+- [destroy](SphereGeometry.md#destroy)
 
 ### Constructors
 
@@ -64,7 +64,7 @@ Sphere Geometry
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L33)
+[src/core/geometry/GeometryBase.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L34)
 
 ___
 
@@ -78,7 +78,7 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L34)
+[src/core/geometry/GeometryBase.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L35)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L35)
+[src/core/geometry/GeometryBase.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L36)
 
 ___
 
@@ -106,7 +106,7 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L36)
+[src/core/geometry/GeometryBase.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L37)
 
 ___
 
@@ -127,20 +127,6 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L37)
-
-___
-
-### bounds
-
-• **bounds**: `BoundingBox`
-
-#### Inherited from
-
-[GeometryBase](GeometryBase.md).[bounds](GeometryBase.md#bounds)
-
-#### Defined in
-
 [src/core/geometry/GeometryBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L38)
 
 ___
@@ -151,7 +137,7 @@ ___
 
 #### Defined in
 
-[src/shape/SphereGeometry.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/shape/SphereGeometry.ts#L9)
+[src/shape/SphereGeometry.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/shape/SphereGeometry.ts#L10)
 
 ___
 
@@ -161,7 +147,7 @@ ___
 
 #### Defined in
 
-[src/shape/SphereGeometry.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/shape/SphereGeometry.ts#L10)
+[src/shape/SphereGeometry.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/shape/SphereGeometry.ts#L11)
 
 ___
 
@@ -173,7 +159,7 @@ radius of sphere
 
 #### Defined in
 
-[src/shape/SphereGeometry.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/shape/SphereGeometry.ts#L15)
+[src/shape/SphereGeometry.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/shape/SphereGeometry.ts#L16)
 
 ___
 
@@ -185,7 +171,7 @@ Define the number of horizontal segments
 
 #### Defined in
 
-[src/shape/SphereGeometry.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/shape/SphereGeometry.ts#L19)
+[src/shape/SphereGeometry.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/shape/SphereGeometry.ts#L20)
 
 ___
 
@@ -197,7 +183,7 @@ Define the number of vertical segments
 
 #### Defined in
 
-[src/shape/SphereGeometry.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/shape/SphereGeometry.ts#L23)
+[src/shape/SphereGeometry.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/shape/SphereGeometry.ts#L24)
 
 ___
 
@@ -209,7 +195,7 @@ The starting point radian of the equatorial line of a sphere
 
 #### Defined in
 
-[src/shape/SphereGeometry.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/shape/SphereGeometry.ts#L27)
+[src/shape/SphereGeometry.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/shape/SphereGeometry.ts#L28)
 
 ___
 
@@ -221,7 +207,7 @@ The arc length of the equatorial line of a sphere
 
 #### Defined in
 
-[src/shape/SphereGeometry.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/shape/SphereGeometry.ts#L31)
+[src/shape/SphereGeometry.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/shape/SphereGeometry.ts#L32)
 
 ___
 
@@ -233,7 +219,7 @@ The radian of the starting point of the sphere's meridian
 
 #### Defined in
 
-[src/shape/SphereGeometry.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/shape/SphereGeometry.ts#L35)
+[src/shape/SphereGeometry.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/shape/SphereGeometry.ts#L36)
 
 ___
 
@@ -245,7 +231,7 @@ Arc length of sphere meridian
 
 #### Defined in
 
-[src/shape/SphereGeometry.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/shape/SphereGeometry.ts#L39)
+[src/shape/SphereGeometry.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/shape/SphereGeometry.ts#L40)
 
 ## Accessors
 
@@ -263,7 +249,7 @@ GeometryBase.indicesBuffer
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L61)
+[src/core/geometry/GeometryBase.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L56)
 
 ___
 
@@ -281,7 +267,7 @@ GeometryBase.vertexBuffer
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L65)
+[src/core/geometry/GeometryBase.ts:60](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L60)
 
 ___
 
@@ -299,7 +285,7 @@ GeometryBase.vertexAttributes
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L69)
+[src/core/geometry/GeometryBase.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L64)
 
 ___
 
@@ -317,7 +303,7 @@ GeometryBase.vertexAttributeMap
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L73)
+[src/core/geometry/GeometryBase.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L68)
 
 ___
 
@@ -335,7 +321,7 @@ GeometryBase.geometryType
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L77)
+[src/core/geometry/GeometryBase.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L72)
 
 • `set` **geometryType**(`value`): `void`
 
@@ -355,20 +341,33 @@ GeometryBase.geometryType
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L80)
+[src/core/geometry/GeometryBase.ts:75](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L75)
 
-## Methods
+___
 
-### updateBounds
+### bounds
 
-▸ **updateBounds**(`min`, `max`): `void`
+• `get` **bounds**(): `BoundingBox`
+
+#### Returns
+
+`BoundingBox`
+
+#### Inherited from
+
+GeometryBase.bounds
+
+#### Defined in
+
+[src/core/geometry/GeometryBase.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L79)
+
+• `set` **bounds**(`value`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `min` | [`Vector3`](Vector3.md) |
-| `max` | [`Vector3`](Vector3.md) |
+| `value` | `BoundingBox` |
 
 #### Returns
 
@@ -376,19 +375,19 @@ GeometryBase.geometryType
 
 #### Inherited from
 
-[GeometryBase](GeometryBase.md).[updateBounds](GeometryBase.md#updatebounds)
+GeometryBase.bounds
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L86)
+[src/core/geometry/GeometryBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L122)
 
-___
+## Methods
 
 ### addSubGeometry
 
 ▸ **addSubGeometry**(`...lodLevels`): `void`
 
-add subGeometry form lod level
+add subGeometry from lod level
 
 **`See`**
 
@@ -410,7 +409,7 @@ LodLevel
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:94](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L94)
+[src/core/geometry/GeometryBase.ts:130](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L130)
 
 ___
 
@@ -436,7 +435,7 @@ create geometry by shaderReflection
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:104](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L104)
+[src/core/geometry/GeometryBase.ts:140](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L140)
 
 ___
 
@@ -460,7 +459,7 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L110)
+[src/core/geometry/GeometryBase.ts:146](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L146)
 
 ___
 
@@ -485,7 +484,7 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L122)
+[src/core/geometry/GeometryBase.ts:158](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L158)
 
 ___
 
@@ -509,7 +508,7 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L135)
+[src/core/geometry/GeometryBase.ts:171](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L171)
 
 ___
 
@@ -533,7 +532,7 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:139](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L139)
+[src/core/geometry/GeometryBase.ts:175](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L175)
 
 ___
 
@@ -551,7 +550,7 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:143](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L143)
+[src/core/geometry/GeometryBase.ts:179](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L179)
 
 ___
 
@@ -569,7 +568,25 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:167](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L167)
+[src/core/geometry/GeometryBase.ts:203](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L203)
+
+___
+
+### computeNormals
+
+▸ **computeNormals**(): [`SphereGeometry`](SphereGeometry.md)
+
+#### Returns
+
+[`SphereGeometry`](SphereGeometry.md)
+
+#### Inherited from
+
+[GeometryBase](GeometryBase.md).[computeNormals](GeometryBase.md#computenormals)
+
+#### Defined in
+
+[src/core/geometry/GeometryBase.ts:222](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L222)
 
 ___
 
@@ -587,7 +604,31 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:177](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L177)
+[src/core/geometry/GeometryBase.ts:264](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L264)
+
+___
+
+### destroy
+
+▸ **destroy**(`force?`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[GeometryBase](GeometryBase.md).[destroy](GeometryBase.md#destroy)
+
+#### Defined in
+
+[src/core/geometry/GeometryBase.ts:268](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L268)
 
 ## Constructors
 
@@ -613,4 +654,4 @@ ___
 
 #### Defined in
 
-[src/shape/SphereGeometry.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/shape/SphereGeometry.ts#L52)
+[src/shape/SphereGeometry.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/shape/SphereGeometry.ts#L53)

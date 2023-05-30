@@ -1,6 +1,5 @@
 # Class: ProfilerUtil
 
-
 ### Methods
 
 - [start](ProfilerUtil.md#start)

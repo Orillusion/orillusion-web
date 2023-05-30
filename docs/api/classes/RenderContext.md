@@ -1,6 +1,5 @@
 # Class: RenderContext
 
-
 ### Properties
 
 - [command](RenderContext.md#command)

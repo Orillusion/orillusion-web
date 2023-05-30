@@ -9,7 +9,6 @@ enum event type of pointer.
 
   ↳ **`PointerEvent3D`**
 
-
 ### Properties
 
 - [target](PointerEvent3D.md#target)

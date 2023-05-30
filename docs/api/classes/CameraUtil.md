@@ -2,7 +2,6 @@
 
 Camera3D tool class
 
-
 ### Methods
 
 - [createCamera3DObject](CameraUtil.md#createcamera3dobject)

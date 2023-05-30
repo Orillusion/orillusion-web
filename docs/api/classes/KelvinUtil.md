@@ -2,7 +2,6 @@
 
 Temperature Color Converter
 
-
 ### Methods
 
 - [color\_temperature\_to\_rgb](KelvinUtil.md#color_temperature_to_rgb)

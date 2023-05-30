@@ -1,6 +1,5 @@
 # Enumeration: GeometryVertexType
 
-
 ### Enumeration Members
 
 - [split](GeometryVertexType.md#split)

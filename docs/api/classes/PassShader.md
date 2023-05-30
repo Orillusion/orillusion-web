@@ -1,6 +1,5 @@
 # Class: PassShader
 
-
 ### Constructors
 
 - [constructor](PassShader.md#constructor)

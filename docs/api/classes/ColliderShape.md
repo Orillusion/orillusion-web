@@ -14,7 +14,6 @@ Shape of collider body, Base class of collider shape
 
   ↳ [`SphereColliderShape`](SphereColliderShape.md)
 
-
 ### Constructors
 
 - [constructor](ColliderShape.md#constructor)

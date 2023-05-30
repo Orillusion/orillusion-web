@@ -9,7 +9,6 @@ It is a basic box shaped primitive collision body.
 
   ↳ **`BoxColliderShape`**
 
-
 ### Constructors
 
 - [constructor](BoxColliderShape.md#constructor)

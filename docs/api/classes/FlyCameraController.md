@@ -10,7 +10,6 @@ Control the camera's movement direction by holding down the left mouse button
 
   ↳ **`FlyCameraController`**
 
-
 ### Properties
 
 - [object3D](FlyCameraController.md#object3d)
@@ -35,6 +34,7 @@ Control the camera's movement direction by holding down the left mouse button
 - [onBeforeUpdate](FlyCameraController.md#onbeforeupdate)
 - [onCompute](FlyCameraController.md#oncompute)
 - [onGraphic](FlyCameraController.md#ongraphic)
+- [onParentChange](FlyCameraController.md#onparentchange)
 - [cloneTo](FlyCameraController.md#cloneto)
 - [setCamera](FlyCameraController.md#setcamera)
 - [onUpdate](FlyCameraController.md#onupdate)
@@ -414,6 +414,31 @@ ___
 
 ___
 
+### onParentChange
+
+▸ `Optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `lastParent?` | [`Object3D`](Object3D.md) |
+| `currentParent?` | [`Object3D`](Object3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onParentChange](ComponentBase.md#onparentchange)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L116)
+
+___
+
 ### cloneTo
 
 ▸ **cloneTo**(`obj`): `void`
@@ -436,7 +461,7 @@ clone component data to target object3D
 
 #### Defined in
 
-[src/components/ComponentBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L122)
+[src/components/ComponentBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L123)
 
 ___
 

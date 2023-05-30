@@ -6,7 +6,6 @@
 
   ↳ **`ProbeGBufferFrame`**
 
-
 ### Constructors
 
 - [constructor](ProbeGBufferFrame.md#constructor)

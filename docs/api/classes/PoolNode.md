@@ -6,7 +6,6 @@
 | :------ |
 | `T` |
 
-
 ### Constructors
 
 - [constructor](PoolNode.md#constructor)

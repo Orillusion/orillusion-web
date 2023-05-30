@@ -1,6 +1,5 @@
 # Class: OutlinePostData
 
-
 ### Properties
 
 - [SlotCount](OutlinePostData.md#slotcount)

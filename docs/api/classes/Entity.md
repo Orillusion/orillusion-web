@@ -12,7 +12,6 @@ Entity class is an abstract class and cannot be instantiated. If you want to ins
 
   ↳↳ [`Object3D`](Object3D.md)
 
-
 ### Properties
 
 - [name](Entity.md#name)
@@ -41,6 +40,7 @@ Entity class is an abstract class and cannot be instantiated. If you want to ins
 - [getChildByIndex](Entity.md#getchildbyindex)
 - [getChildByName](Entity.md#getchildbyname)
 - [genBounds](Entity.md#genbounds)
+- [updateBound](Entity.md#updatebound)
 - [destroy](Entity.md#destroy)
 - [dispatchEvent](Entity.md#dispatchevent)
 - [addEventListener](Entity.md#addeventlistener)
@@ -64,7 +64,7 @@ The name of the object. The default value is an empty string.
 
 #### Defined in
 
-[src/core/entities/Entity.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L24)
+[src/core/entities/Entity.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L25)
 
 ___
 
@@ -76,7 +76,7 @@ The Transform attached to this object.
 
 #### Defined in
 
-[src/core/entities/Entity.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L59)
+[src/core/entities/Entity.ts:60](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L60)
 
 ___
 
@@ -88,7 +88,7 @@ Renderer components
 
 #### Defined in
 
-[src/core/entities/Entity.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L64)
+[src/core/entities/Entity.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L65)
 
 ___
 
@@ -100,7 +100,7 @@ An array containing sub objects of an object
 
 #### Defined in
 
-[src/core/entities/Entity.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L69)
+[src/core/entities/Entity.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L70)
 
 ___
 
@@ -112,7 +112,7 @@ List of components attached to an object
 
 #### Defined in
 
-[src/core/entities/Entity.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L74)
+[src/core/entities/Entity.ts:75](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L75)
 
 ## Accessors
 
@@ -128,7 +128,7 @@ The unique identifier of the object.
 
 #### Defined in
 
-[src/core/entities/Entity.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L31)
+[src/core/entities/Entity.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L32)
 
 ___
 
@@ -142,7 +142,7 @@ ___
 
 #### Defined in
 
-[src/core/entities/Entity.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L43)
+[src/core/entities/Entity.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L44)
 
 • `set` **renderLayer**(`value`): `void`
 
@@ -158,7 +158,7 @@ ___
 
 #### Defined in
 
-[src/core/entities/Entity.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L47)
+[src/core/entities/Entity.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L48)
 
 ___
 
@@ -437,15 +437,13 @@ Returns a bounding box that defines the display area of the specified layer.
 
 #### Defined in
 
-[src/core/entities/Entity.ts:332](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L332)
+[src/core/entities/Entity.ts:333](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L333)
 
 ___
 
-### destroy
+### updateBound
 
-▸ **destroy**(): `void`
-
-release current object
+▸ **updateBound**(): `void`
 
 #### Returns
 
@@ -453,7 +451,29 @@ release current object
 
 #### Defined in
 
-[src/core/entities/Entity.ts:348](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L348)
+[src/core/entities/Entity.ts:345](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L345)
+
+___
+
+### destroy
+
+▸ **destroy**(`force?`): `void`
+
+release current object
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/core/entities/Entity.ts:370](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L370)
 
 ___
 

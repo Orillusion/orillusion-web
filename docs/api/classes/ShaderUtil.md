@@ -1,6 +1,5 @@
 # Class: ShaderUtil
 
-
 ### Properties
 
 - [renderShaderModulePool](ShaderUtil.md#rendershadermodulepool)

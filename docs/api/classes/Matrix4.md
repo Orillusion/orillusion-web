@@ -2,7 +2,6 @@
 
 math 4*4 matrix
 
-
 ### Properties
 
 - [blockBytes](Matrix4.md#blockbytes)
@@ -802,7 +801,7 @@ ___
 
 ▸ **transformDir**(`fromDirection`, `toDirection`): `void`
 
-set matrix form two direction
+set matrix from two direction
 
 **`Version`**
 
@@ -1751,7 +1750,7 @@ ___
 
 ▸ **setTRInverse**(`pos`, `q`): `void`
 
-form unity AMath.PI
+from unity AMath.PI
 
 #### Parameters
 

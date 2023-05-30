@@ -2,7 +2,6 @@
 
 Plane mathematics class
 
-
 ### Properties
 
 - [point](Plane.md#point)

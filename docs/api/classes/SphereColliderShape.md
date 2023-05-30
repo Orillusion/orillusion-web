@@ -8,7 +8,6 @@ Spherical collision body
 
   ↳ **`SphereColliderShape`**
 
-
 ### Accessors
 
 - [shapeType](SphereColliderShape.md#shapetype)

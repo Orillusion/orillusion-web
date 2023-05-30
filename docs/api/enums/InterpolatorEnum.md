@@ -13,7 +13,6 @@ Interpolator enumeration
 |CycleInterpolator| cyclic motion|
 |OvershootInterpolator| Finish the animation quickly, go a little beyond the end point and then go back to the end point.|
 
-
 ### Enumeration Members
 
 - [AccelerateInterpolator](InterpolatorEnum.md#accelerateinterpolator)

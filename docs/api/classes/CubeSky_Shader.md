@@ -1,6 +1,5 @@
 # Class: CubeSky\_Shader
 
-
 ### Properties
 
 - [sky\_vs\_frag\_wgsl](CubeSky_Shader.md#sky_vs_frag_wgsl)

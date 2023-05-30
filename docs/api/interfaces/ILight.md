@@ -1,6 +1,5 @@
 # Interface: ILight
 
-
 ### Properties
 
 - [name](ILight.md#name)

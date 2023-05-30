@@ -1,6 +1,5 @@
 # Class: Struct
 
-
 ### Methods
 
 - [getValueSize](Struct.md#getvaluesize)
