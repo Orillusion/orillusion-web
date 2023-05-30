@@ -76,10 +76,10 @@ export default {
     },
     computed: {
         support(){
-            if(!navigator.gpu?.requestAdapter)
+            if(!globalThis.navigator?.gpu?.requestAdapter)
                 return false
             else{
-                let version = navigator.userAgent.match(/chrome\/(\d+)/i)
+                let version = globalThis.navigator?.userAgent?.match(/chrome\/(\d+)/i)
                 if(version && version[1] >= 113)
                     return true
                 else
