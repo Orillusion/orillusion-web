@@ -310,7 +310,8 @@ function sidebarGuide(): SidebarItem {
             items: [
                 { text: '骨骼动画', link: '/guide/animation/skeleton.md' },
                 { text: '属性动画', link: '/guide/animation/property.md' },
-                { text: 'Morph动画', link: '/guide/animation/morph.md' }
+                { text: 'Morph动画', link: '/guide/animation/morph.md' },
+                { text: '粒子动画', link: '/guide/animation/particle.md' },
             ]
         },
         {
@@ -349,6 +350,17 @@ function sidebarGuide(): SidebarItem {
                 { text: '资源加载', link: '/guide/resource/Readme.md' },
                 { text: 'GLTF', link: '/guide/resource/gltf.md' }
             ]
+        },
+        {
+            text: '用户界面',
+            collapsible: true,
+            items: [
+                { text: '简介', link: '/guide/gui/Readme.md' },
+                { text: '文本', link: '/guide/gui/textfield.md' },
+                { text: '图片', link: '/guide/gui/image.md' },
+                { text: '按钮', link: '/guide/gui/button.md' },
+                { text: 'WorldSpace', link: '/guide/gui/panel.md' }
+            ],
         },
         {
             text: '性能调试',
