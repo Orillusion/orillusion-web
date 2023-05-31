@@ -1,181 +1,7 @@
-import {
-    Engine3D,
-    Scene3D,
-    Object3D,
-    Camera3D,
-    View3D,
-    TextAnchor,
-    UITextField,
-    DirectLight,
-    HoverCameraController,
-    Color,
-    CameraUtil,
-    webGPUContext,
-    Vector3,
-    CEvent,
-    CEventDispatcher,
-    WorldPanel,
-    KelvinUtil,
-    Time,
-    clamp,
-    UIImage,
-    PointerEvent3D,
-    UIInteractive,
-    ImageType,
-    LitMaterial,
-    BoxGeometry,
-    MeshRenderer
-} from '@orillusion/core'
+import { AtmosphericComponent, CEvent, CEventDispatcher, Camera3D, Color, DirectLight, Engine3D, HoverCameraController, ImageType, Object3D, Object3DUtil, PointerEvent3D, Scene3D, TextAnchor, Time, UIImage, UIInteractive, UITextField, Vector3, View3D, WorldPanel, clamp } from '@orillusion/core'
 
-var scene: Scene3D
-var hover
-async function demo() {
-    // initializa engine
-    await Engine3D.init({
-        renderLoop: () => {
-            renderUpdate()
-        }
-    })
-
-    Engine3D.setting.shadow.shadowBound = 200
-    Engine3D.setting.shadow.shadowBias = 0.002
-
-    Engine3D.setting.shadow.autoUpdate = true
-    Engine3D.setting.shadow.updateFrameRate = 1
-
-    scene = new Scene3D()
-    let camera = CameraUtil.createCamera3DObject(scene)
-    camera.perspective(60, webGPUContext.aspect, 1, 5000.0)
-
-    hover = camera.object3D.addComponent(HoverCameraController)
-    hover.setCamera(45, -45, 200, new Vector3(0, 20, 0))
-
-    let view = new View3D()
-    view.scene = scene
-    view.camera = camera
-    Engine3D.startRenderView(view)
-
-    await initScene()
-
-    let model = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/wukong/wukong.gltf')
-    let scale = 50
-    model.localScale = new Vector3(scale, scale, scale)
-    scene.addChild(model)
-    scene.addChild(GetSingleCube(400, 1, 400, 0.2, 0.2, 0.2))
-
-    await Engine3D.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt')
-    await Engine3D.res.loadAtlas('https://cdn.orillusion.com/atlas/Sheet_atlas.json')
-
-    makeUIPanelList()
-}
-
-var sampleUIPanelClick: CEvent = new CEvent('ClickUIPanel')
-var sampleUIPanelDispatcher: CEventDispatcher = new CEventDispatcher()
-var nodeList: _GUIPanelBinder[] = []
-var bindTarget3DRoot: Object3D
-var lightObj
-function makeUIPanelList(): void {
-    let uiRoot = new Object3D()
-    bindTarget3DRoot = new Object3D()
-    bindTarget3DRoot.y = 50
-    scene.addChild(bindTarget3DRoot)
-    Engine3D.renderJob.guiCanvas.addGUIChild(uiRoot)
-
-    for (let i = 0; i < 50; i++) {
-        //panel
-        let panelRoot: Object3D = uiRoot.addChild(new Object3D()) as Object3D
-        panelRoot.addComponent(WorldPanel)
-
-        //random position
-        let angle = Math.PI * 2 * Math.random()
-        let pos = new Vector3()
-        pos.set(Math.sin(angle), Math.cos(angle), (Math.random() - 0.5) * 2)
-        pos.multiplyScalar(50 * Math.sqrt(Math.random() + 0.25))
-
-        let ball = new Object3D()
-        ball.localPosition = pos
-        bindTarget3DRoot.addChild(ball)
-
-        //binder
-        let node = new _GUIPanelBinder(ball, panelRoot, i)
-        nodeList.push(node)
-    }
-    sampleUIPanelDispatcher.addEventListener(
-        sampleUIPanelClick.type,
-        (e) => {
-            let target = e.data as Object3D
-            let targetPos = Camera3D.mainCamera.worldToScreenPoint(target.transform.worldPosition)
-            let orginPos = Camera3D.mainCamera.worldToScreenPoint(new Vector3())
-            isSpeedAdd = targetPos.x > orginPos.x ? 1 : -1
-            speedAngle += 50
-        },
-        this
-    )
-}
-
-function GetSingleCube(sizeX: number, sizeY: number, sizeZ: number, r: number, g: number, b: number) {
-    let mat = new LitMaterial()
-    mat.baseColor = new Color(r, g, b, 1)
-
-    let obj = new Object3D()
-    let mr = obj.addComponent(MeshRenderer)
-    mr.castGI = true
-    mr.geometry = new BoxGeometry(sizeX, sizeY, sizeZ)
-    mr.material = mat
-    return obj
-}
-
-async function initScene() {
-    /******** light *******/
-    {
-        lightObj = new Object3D()
-        lightObj.rotationX = 54
-        lightObj.rotationY = 100
-        lightObj.rotationZ = 0
-        let lc = lightObj.addComponent(DirectLight)
-        lc.lightColor = KelvinUtil.color_temperature_to_rgb(5355)
-        lc.castShadow = true
-        lc.intensity = 40
-        scene.addChild(lightObj)
-    }
-}
-
-var speedAngle = 1
-var isSpeedAdd = 1
-function renderUpdate() {
-    if (bindTarget3DRoot) {
-        speedAngle -= 0.2
-        speedAngle = Math.max(speedAngle, 1)
-        bindTarget3DRoot.rotationY += 0.01 * speedAngle * isSpeedAdd
-
-        for (let binder of nodeList) {
-            binder.update(Time.delta)
-        }
-    }
-}
-
-export class _GUIPanelBinder {
-    objUI: Object3D
-    panel: _GUIPanelPOI
-    private ball: Object3D
-
-    constructor(ball: Object3D, ui: Object3D, index: number) {
-        this.ball = ball
-        this.objUI = ui
-        this.objUI.name = 'panel ' + index
-        this.objUI.scaleX = this.objUI.scaleY = this.objUI.scaleZ = 0.1
-        this.panel = new _GUIPanelPOI(this.objUI, index)
-    }
-
-    update(delta: number) {
-        this.objUI.localPosition = this.ball.transform.worldPosition
-        this.panel.update(delta)
-    }
-}
-
-class _GUIPanelPOI {
+export class GUIPanelPOI {
     private readonly alpha = 0.8
-
     private objUI: Object3D
     private index: number
     private _originColor: Color = new Color()
@@ -217,7 +43,7 @@ class _GUIPanelPOI {
         if (newIndex != this.lastIndex) {
             this.lastIndex = newIndex
             let frameKey = (this.lastIndex + this.frameStart).toString().padStart(5, '0')
-            this._icon.texture = Engine3D.res.getSubTexture(frameKey)
+            this._icon.sprite = Engine3D.res.getGUISprite(frameKey)
         }
     }
 
@@ -289,11 +115,11 @@ class _GUIPanelPOI {
         {
             let textChild = this.objUI.addChild(new Object3D()) as Object3D
             let text = textChild.addComponent(UITextField)
-            text.uiTransform.resize(120, 60)
+            text.uiTransform.resize(140, 60)
             text.uiTransform.x = 110
             text.uiTransform.y = -100
             text.alignment = TextAnchor.UpperLeft
-            text.text = 'Hello WebGPU，次时代三维引擎'
+            text.text = '次时代WebGPU 3D Engine'
             text.fontSize = 18
             text.color = new Color(0.8, 0.8, 0.8, 1.0)
         }
@@ -301,11 +127,154 @@ class _GUIPanelPOI {
 
     private addImage(obj: Object3D, texture: string, w: number, h: number, r: number, g: number, b: number, a: number = 1): UIImage {
         let image = obj.addComponent(UIImage)
-        image.texture = Engine3D.res.getSubTexture(texture)
+        image.sprite = Engine3D.res.getGUISprite(texture)
         image.uiTransform.resize(w, h)
         image.imageType = ImageType.Sliced
         image.color.setTo(r, g, b, a)
         return image
     }
 }
-demo()
+export class GUIPanelBinder {
+    objUI: Object3D
+    panel: GUIPanelPOI
+    ball: Object3D
+
+    constructor(ball: Object3D, ui: Object3D, index: number) {
+        this.ball = ball
+        this.objUI = ui
+        this.objUI.name = 'panel ' + index
+        this.objUI.scaleX = this.objUI.scaleY = this.objUI.scaleZ = 0.1
+        this.panel = new GUIPanelPOI(this.objUI, index)
+    }
+
+    update(delta: number) {
+        this.objUI.localPosition = this.ball.transform.worldPosition
+        this.panel.update(delta)
+    }
+}
+
+export let sampleUIPanelClick: CEvent = new CEvent('ClickUIPanel')
+export let sampleUIPanelDispatcher: CEventDispatcher = new CEventDispatcher()
+
+export class Sample_UIMultiPanel {
+    camera: Camera3D
+    scene: Scene3D
+    view: View3D
+
+    async run() {
+        Engine3D.setting.shadow.autoUpdate = true
+        Engine3D.setting.shadow.shadowBias = 0.0001
+        Engine3D.setting.shadow.shadowBound = 20
+
+        await Engine3D.init({
+            renderLoop: () => {
+                this.renderUpdate()
+            }
+        })
+
+        // create new scene as root node
+        let scene3D: Scene3D = new Scene3D()
+        scene3D.addComponent(AtmosphericComponent)
+        // create camera
+        let cameraObj: Object3D = new Object3D()
+        let camera = cameraObj.addComponent(Camera3D)
+        // adjust camera view
+        camera.perspective(60, Engine3D.aspect, 1, 5000.0)
+        // set camera controller
+        let controller = cameraObj.addComponent(HoverCameraController)
+        controller.setCamera(0, -30, 150)
+        // add camera node
+        scene3D.addChild(cameraObj)
+        // create light
+        let light: Object3D = new Object3D()
+        // add direct light component
+        let component: DirectLight = light.addComponent(DirectLight)
+        // adjust lighting
+        light.rotationX = 21
+        light.rotationZ = 10
+        component.lightColor = new Color(1.0, 1.0, 1.0, 1.0)
+        component.intensity = 10
+        component.castShadow = true
+        // add light object
+        scene3D.addChild(light)
+
+        let view = new View3D()
+        view.scene = scene3D
+        view.camera = camera
+        Engine3D.startRenderView(view)
+        this.scene = scene3D
+        this.camera = view.camera
+        this.view = view
+
+        let model = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/wukong/wukong.gltf')
+        model.localScale = new Vector3(1, 1, 1).multiplyScalar(50)
+
+        this.scene.addChild(model)
+        this.scene.addChild(Object3DUtil.GetSingleCube(400, 1, 400, 0.2, 0.2, 0.2))
+
+        await Engine3D.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt')
+        await Engine3D.res.loadAtlas('https://cdn.orillusion.com/atlas/Sheet_atlas.json')
+
+        this.makeUIPanelList()
+    }
+
+    private nodeList: GUIPanelBinder[] = []
+    private bindTarget3DRoot: Object3D
+
+    private makeUIPanelList(): void {
+        this.bindTarget3DRoot = new Object3D()
+        this.bindTarget3DRoot.y = 50
+        this.scene.addChild(this.bindTarget3DRoot)
+        let canvas = this.view.enableUICanvas()
+
+        for (let i = 0; i < 50; i++) {
+            //panel
+            let panelRoot: Object3D = new Object3D()
+            let panel = panelRoot.addComponent(WorldPanel, { billboard: true })
+            panel.needSortOnCameraZ = true
+            canvas.addChild(panel.object3D)
+
+            //random position
+            let angle = Math.PI * 2 * Math.random()
+            let pos = new Vector3()
+            pos.set(Math.sin(angle), Math.cos(angle), (Math.random() - 0.5) * 2)
+            pos.multiplyScalar(50 * Math.sqrt(Math.random() + 0.25))
+
+            let ball = this.bindTarget3DRoot.addChild(new Object3D()) as Object3D
+            ball.localPosition = pos
+
+            //binder
+            let node = new GUIPanelBinder(ball, panelRoot, i)
+            this.nodeList.push(node)
+        }
+
+        sampleUIPanelDispatcher.addEventListener(
+            sampleUIPanelClick.type,
+            (e) => {
+                let target = e.data as Object3D
+                let targetPos = this.view.camera.worldToScreenPoint(target.transform.worldPosition)
+                let orginPos = this.view.camera.worldToScreenPoint(new Vector3())
+                this.isSpeedAdd = targetPos.x > orginPos.x ? 1 : -1
+                this.speedAngle += 50
+                console.log(this.isSpeedAdd)
+            },
+            this
+        )
+    }
+    private speedAngle: number = 1
+    private isSpeedAdd: number = 1
+
+    renderUpdate() {
+        if (this.bindTarget3DRoot) {
+            this.speedAngle -= 0.2
+            this.speedAngle = Math.max(this.speedAngle, 1)
+            this.bindTarget3DRoot.rotationY += 0.01 * this.speedAngle * this.isSpeedAdd
+
+            for (let binder of this.nodeList) {
+                binder.update(Time.delta)
+            }
+        }
+    }
+}
+
+new Sample_UIMultiPanel().run()

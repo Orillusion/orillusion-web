@@ -12,27 +12,73 @@ Orillusion提供了高性能的用户界面（GUI）组件供开发者使用。�
 - ViewSpace模式：在这种模式下，UI在屏幕空间中，不随3D相机的更改而变动；
 - WorldSpace模式：在这种模式下，UI可看做三维空间的一块画布，拥有3D属性（旋转、缩放、平移），能够参与深度检测等，实现与其他对象遮挡和被遮挡关系。
 
-引擎内置有Canvas `guiCanvas` 节点作为GUI的根节点，用户的每一个面板`UIPanel`都将放入到Canvas节点中被搜集用于UI绘制；
-每个UIPanel可以视为面板根节点，在Panel下可以组织各种UI组件，用于展示UI细节。
+引擎中，每个View3D中内置有Canvas的数组，用于激活`UICanvas`：
+> 通过指定下标index来主动激活 `guiCanvas` :
 
 ```ts
-import { Engine3D } from '@orillusion/core';
-// 加载支持 Morph 状态模型
-await Engine3D.res.loadFont('fnt/0.fnt');
-// 创建用于显示UI的面板
-let panelRoot: Object3D = new Object3D();
-panelRoot.addComponent(ViewPanel);
-// 面板加入到系统canvas中
-renderJob.guiCanvas.addGUIChild(panelRoot);
-// 创建文本节点
-let textQuad = new Object3D();
-panelRoot.addChild(textQuad);
-this.text = textQuad.addComponent(UITextField);
-this.text.uiTransform.resize(400, 60);
-this.text.uiTransform.y = 100;
+let index = 0;
+let canvas = exampleScene.view.enableUICanvas(index);
+```
 
-this.text.text = 'Hello，Orillusion！';
-this.text.fontSize = 32;
-this.text.alignment = TextAnchor.MiddleCenter;
+> 可以同时存在多个`UICanvas`，他们互相独立:
+
+```ts
+let canvas0 = exampleScene.view.enableUICanvas(0);
+let canvas1 = exampleScene.view.enableUICanvas(1);
+let canvas2 = exampleScene.view.enableUICanvas(2);
+//...
+```
+
+> 用户的每一个面板`UIPanel`都需要放入到`UICanvas`节点中被搜集用于UI绘制；
+```ts
+let panel: UIPanel;
+let canvas = exampleScene.view.enableUICanvas();//默认启用下标为0的UICanvas
+canvas.addChild(panel.object3D);
+```
+
+> 每个UIPanel可以视为面板根节点，在Panel下可以组织各种UI组件，用于展示UI细节。
+
+```ts
+let panel: UIPanel;
+let imageQuad = new Object3D();
+panel.object3D.addChild(imageQuad);
+let image = imageQuad.addComponent(UIImage);
+```
+
+
+```ts
+import { Object3D, Engine3D, GUISpace, WorldPanel, ViewPanel, UITextField, TextAnchor, Object3DUtil, UIPanel, UIImage, UIShadow } from "@orillusion/core";
+
+// 加载fnt数据
+function initUI(){
+    await Engine3D.res.loadFont('fnt/0.fnt');
+    //激活UICanvas（index:0）
+    let canvas = this.scene.view.enableUICanvas();
+    //定义panel的空间类型
+    let space: GUISpace = GUISpace.World; // View or World
+    let panel: UIPanel;
+    //创建Panel
+    if (space == GUISpace.World) {
+        panelRoot.scaleX = panelRoot.scaleY = panelRoot.scaleZ = 0.2;
+        panel = panelRoot.addComponent(WorldPanel, { billboard: true });//激活billboard
+    } else {
+        panel = panelRoot.addComponent(ViewPanel);
+    }
+    //将panel放入到canvas中
+    canvas.addChild(panel.object3D);
+    //创建文本节点
+    let textQuad = new Object3D();
+    panelRoot.addChild(textQuad);
+    //加入UIImage组件作为background
+    let backGround = textQuad.addComponent(UIImage);
+    backGround.color.a = 0.2;
+    //创建文本组件
+    this.text = textQuad.addComponent(UITextField);
+    this.text.uiTransform.resize(400, 60);
+    this.text.uiTransform.y = 100;
+    this.text.text = 'Hello，Orillusion！';
+    this.text.fontSize = 32;
+    this.text.alignment = TextAnchor.MiddleCenter;
+}
 
 ```

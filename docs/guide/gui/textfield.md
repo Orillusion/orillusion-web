@@ -9,15 +9,18 @@
 import { Engine3D } from '@orillusion/core';
 // 加载 BMFont 文件
 await Engine3D.res.loadFont('fnt/0.fnt');
+// 激活UICanvas
+let canvas = this.scene.view.enableUICanvas();
 // 创建用于显示UI的面板
 let panelRoot: Object3D = new Object3D();
 panelRoot.addComponent(ViewPanel);
 // 面板加入到系统canvas中
-renderJob.guiCanvas.addGUIChild(panelRoot);
+canvas.addGUIChild(panelRoot);
 // 创建文本节点
 let textQuad = new Object3D();
 panelRoot.addChild(textQuad);
 this.text = textQuad.addComponent(UITextField);
+// 设置Rect尺寸，该尺寸会影响文本框大小
 this.text.uiTransform.resize(400, 60);
 this.text.uiTransform.y = 100;
 
@@ -62,9 +65,18 @@ text.lineSpacing = 1.5; //设置行距为字号尺寸的1.5倍。
 ```
 
 ## 文本框大小
-可以通过 `resize` 调整大小
 ```ts
-text.resize(200, 200);//设置文本块为（200,200）。
+text.uiTransform.resize(200, 200);//设置文本块为（200,200）。
+```
+
+## 设置组件visible（可见/隐藏）
+```ts
+text.visible = false;//true
+```
+
+## 销毁文本
+```ts
+text.destroy();
 ```
 
 <Demo :height="500" src="/demos/gui/textfield.ts"></Demo>

@@ -5,10 +5,10 @@
 ## 组件贴图
 
 组件有多种状态 [UIInteractiveStyle](/api/enums/UIInteractiveStyle.md)，每种状态对应一个贴图
-- `upTexture` - 默认状态对应的贴图
-- `downTexture` - 鼠标按下时对应的贴图
-- `overTexture` - 鼠标 over 时对应的贴图
-- `disableTexture` - 组件被禁用时的贴图
+- `normalSprite` - 默认状态对应的贴图
+- `downSprite` - 鼠标按下时对应的贴图
+- `overSprite` - 鼠标 over 时对应的贴图
+- `disableSprite` - 组件被禁用时的贴图
 
 我们可以设置组件各种状态下对应的背景图，即可获得按钮随状态切换变换样式的效果。
 
@@ -24,10 +24,10 @@
 ## 启用/禁用
 设置组件是否有效：
 - `true` - 按钮会响应鼠标事件
-- `false` - 不响应鼠标事件，并且呈现 `disableTexture` 的贴图
+- `false` - 不响应鼠标事件，并且呈现 `disableSprite` 的贴图
 
 ```ts
-image.enable = true; //false
+button.enable = true; //false
 ```
 
 <Demo :height="500" src="/demos/gui/button.ts"></Demo>

@@ -1,9 +1,10 @@
-import { Engine3D, Scene3D, Object3D, Camera3D, View3D, ViewPanel, TextAnchor, UITextField, DirectLight, HoverCameraController, Color } from '@orillusion/core'
+import { Engine3D, Scene3D, Object3D, Camera3D, View3D, ViewPanel, TextAnchor, UITextField, DirectLight, HoverCameraController, Color, AtmosphericComponent } from '@orillusion/core'
 
 // initializa engine
 await Engine3D.init()
 // create new scene as root node
 let scene3D: Scene3D = new Scene3D()
+scene3D.addComponent(AtmosphericComponent)
 // create camera
 let cameraObj: Object3D = new Object3D()
 let camera = cameraObj.addComponent(Camera3D)
@@ -37,7 +38,8 @@ Engine3D.startRenderView(view)
 let panelRoot: Object3D = new Object3D()
 panelRoot.addComponent(ViewPanel)
 
-renderJob.guiCanvas.addGUIChild(panelRoot)
+let canvas = view.enableUICanvas()
+canvas.addChild(panelRoot)
 
 // create text node
 let textQuad = new Object3D()

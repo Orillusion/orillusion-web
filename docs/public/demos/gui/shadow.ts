@@ -1,4 +1,4 @@
-import { Engine3D, Scene3D, Object3D, Camera3D, View3D, ViewPanel, UIImage, HoverCameraController, Color, ImageType, AtmosphericComponent, BitmapTexture2D, makeAloneSprite } from '@orillusion/core'
+import { Engine3D, Scene3D, Object3D, Camera3D, View3D, ViewPanel, UIImage, HoverCameraController, Color, ImageType, AtmosphericComponent, UIShadow, UITextField, fonts, TextAnchor, Vector2, Time } from '@orillusion/core'
 
 export class Sample_button {
     async run() {
@@ -14,7 +14,7 @@ export class Sample_button {
         camera.perspective(60, Engine3D.aspect, 1, 5000.0)
         // set camera controller
         let controller = cameraObj.addComponent(HoverCameraController)
-        controller.setCamera(0, -20, 15)
+        controller.setCamera(0, 0, 15)
         // add camera node
         scene3D.addChild(cameraObj)
 
@@ -29,19 +29,35 @@ export class Sample_button {
 
         let canvas = view.enableUICanvas()
         canvas.addChild(panelRoot)
+        await Engine3D.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt')
 
         // create image node
         let imageQuad = new Object3D()
         panelRoot.addChild(imageQuad)
         // create image component
         let image: UIImage = imageQuad.addComponent(UIImage)
+        image.color = new Color(0.2, 0.2, 0.2, 0.5)
+        image.isShadowless = true
         // set image size
-        image.uiTransform.resize(320, 320)
-        let bitmapTexture2D = new BitmapTexture2D()
-        bitmapTexture2D.flipY = true
+        image.uiTransform.resize(480, 120)
 
-        await bitmapTexture2D.load('https://cdn.orillusion.com/textures/KB3D_NTT_Ads_basecolor.png')
-        image.sprite = makeAloneSprite('KB3D_NTT_Ads_basecolor', bitmapTexture2D)
+        let text = imageQuad.addComponent(UITextField)
+        text.fontSize = 42
+        text.alignment = TextAnchor.MiddleCenter
+        text.color = new Color(0.8, 0.8, 0.8, 1.0)
+        text.text = 'Orillusion'
+
+        // add shadow
+        let shadow = imageQuad.addComponent(UIShadow)
+        let shadowColor = new Color(1.0, 0.5, 0.5, 0.8)
+        shadow.shadowQuality = 4
+        shadow.shadowOffset = new Vector2(2, -2)
+        shadow.shadowRadius = 2
+        setInterval(() => {
+            let value = Math.sin(Time.time * 0.001) + 1
+            shadowColor.r = shadowColor.g = value * 0.25
+            shadow.shadowColor = shadowColor
+        }, 50)
     }
 }
 
