@@ -1,84 +1,70 @@
 # 用户界面（GUI）
 
-Orillusion提供了高性能的用户界面（GUI）组件供开发者使用。在使用该过模块之前，需要加载一些相关的素材资源供用户界面组件渲染。
+`Orillusion` 提供了高性能的用户界面（GUI）组件供开发者使用。在使用该过模块之前，需要加载一些相关的素材资源供用户界面组件渲染。
 根据美术设计图稿的排版和布局，合理搭配使用GUI组件，即可在项目中展示2D/3D的GUI内容。
 
 > 用户界面往往会依赖一些外部字体数据、精灵图集等素材。制作这些图集请参考文档制作文本图集、制作精灵图集。
 
 ## GUI 空间模式
 
-目前 `GUISpace` 支持两种模式 `ViewSpace` 和 `WorldSpace`：
+目前 `GUI` 支持两种模式渲染 `ViewSpace` 和 `WorldSpace`：
 
-- ViewSpace模式：在这种模式下，UI在屏幕空间中，不随3D相机的更改而变动；
-- WorldSpace模式：在这种模式下，UI可看做三维空间的一块画布，拥有3D属性（旋转、缩放、平移），能够参与深度检测等，实现与其他对象遮挡和被遮挡关系。
-
-引擎中，每个View3D中内置有Canvas的数组，用于激活`UICanvas`：
-> 通过指定下标index来主动激活 `guiCanvas` :
+- ViewSpace 模式：在这种模式下，GUI 在屏幕空间中，不随3D相机的更改而变动；
+- WorldSpace 模式：在这种模式下，GUI 可看做三维空间的一块画布，拥有3D属性（旋转、缩放、平移），能够参与深度检测等，实现与其他对象遮挡和被遮挡关系。
 
 ```ts
+import { ViewPanel, WorldPanel } from '@orillusion/core'
+
+// 创建一个面板对象
+let panelRoot: Object3D = new Object3D()
+// 添加 ViewPanel，设定为 ViewSpace 模式
+panelRoot.addComponent(ViewPanel)
+// 或 添加 WorldPanel，设定为 WorldSpace 模式
+panelRoot.addComponent(WorldPanel)
+```
+
+## UICanvas
+
+GUI 组件同样需要画布进行绘制，引擎中每个 `View3D` 中都内置有 `Canvas` 的数组，我们可以通过指定 `index` 来主动激活对应的 `UICanvas` 对象：
+
+```ts
+let view = new View3D()
+...
 let index = 0;
-let canvas = exampleScene.view.enableUICanvas(index);
+let canvas = view.enableUICanvas(index);
 ```
 
 > 可以同时存在多个`UICanvas`，他们互相独立:
 
 ```ts
-let canvas0 = exampleScene.view.enableUICanvas(0);
-let canvas1 = exampleScene.view.enableUICanvas(1);
-let canvas2 = exampleScene.view.enableUICanvas(2);
+let canvas0 = view.enableUICanvas(0);
+let canvas1 = view.enableUICanvas(1);
+let canvas2 = view.enableUICanvas(2);
 //...
 ```
 
-> 用户的每一个面板`UIPanel`都需要放入到`UICanvas`节点中被搜集用于UI绘制；
+## UIPanel
+
+面板 `UIPanel` 用于承载具体的 GUI 组件渲染，需要添加到 `UICanvas` 中；
 ```ts
-let panel: UIPanel;
-let canvas = exampleScene.view.enableUICanvas();//默认启用下标为0的UICanvas
-canvas.addChild(panel.object3D);
+let panelObj = new Object3D();
+let panel: UIPanel = panelObj.addComponent(ViewPanel) // 创建一个屏幕空间面板组件
+let canvas = view.enableUICanvas(); // 默认启用下标为 0 的 UICanvas
+canvas.addChild(panel.object3D); // 添加面板
 ```
 
-> 每个UIPanel可以视为面板根节点，在Panel下可以组织各种UI组件，用于展示UI细节。
+每个 `UIPanel` 可以视为 GUI 组件的根节点，在 `UIPanel` 内可以添加各种 GUI 组件，用于展示 GUI 细节:
 
 ```ts
-let panel: UIPanel;
+// 创建一个 UIImage 组件
 let imageQuad = new Object3D();
-panel.object3D.addChild(imageQuad);
 let image = imageQuad.addComponent(UIImage);
+// 创建一个 UIPanel
+let panel: UIPanel = new Object3D().addComponent(ViewPanel); // 创建一个屏幕空间面板组件
+// 将 GUI 对象添加到 UIPanel 中
+panel.object3D.addChild(imageQuad);
 ```
 
+<Demo :height="500" src="/demos/gui/panel.ts"></Demo>
 
-```ts
-import { Object3D, Engine3D, GUISpace, WorldPanel, ViewPanel, UITextField, TextAnchor, Object3DUtil, UIPanel, UIImage, UIShadow } from "@orillusion/core";
-
-// 加载fnt数据
-function initUI(){
-    await Engine3D.res.loadFont('fnt/0.fnt');
-    //激活UICanvas（index:0）
-    let canvas = this.scene.view.enableUICanvas();
-    //定义panel的空间类型
-    let space: GUISpace = GUISpace.World; // View or World
-    let panel: UIPanel;
-    //创建Panel
-    if (space == GUISpace.World) {
-        panelRoot.scaleX = panelRoot.scaleY = panelRoot.scaleZ = 0.2;
-        panel = panelRoot.addComponent(WorldPanel, { billboard: true });//激活billboard
-    } else {
-        panel = panelRoot.addComponent(ViewPanel);
-    }
-    //将panel放入到canvas中
-    canvas.addChild(panel.object3D);
-    //创建文本节点
-    let textQuad = new Object3D();
-    panelRoot.addChild(textQuad);
-    //加入UIImage组件作为background
-    let backGround = textQuad.addComponent(UIImage);
-    backGround.color.a = 0.2;
-    //创建文本组件
-    this.text = textQuad.addComponent(UITextField);
-    this.text.uiTransform.resize(400, 60);
-    this.text.uiTransform.y = 100;
-    this.text.text = 'Hello，Orillusion！';
-    this.text.fontSize = 32;
-    this.text.alignment = TextAnchor.MiddleCenter;
-}
-
-```
+<<< @/public/demos/gui/panel.ts

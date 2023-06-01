@@ -1,4 +1,4 @@
-import { Engine3D, Scene3D, Object3D, Camera3D, ViewPanel, UIButton, HoverCameraController, PointerEvent3D, View3D, AtmosphericComponent } from '@orillusion/core'
+import { Engine3D, Scene3D, Object3D, Camera3D, ViewPanel, UIButton, HoverCameraController, PointerEvent3D, View3D, AtmosphericComponent, UITextField, Color, TextAnchor } from '@orillusion/core'
 
 export class Sample_button {
     async run() {
@@ -17,8 +17,6 @@ export class Sample_button {
         controller.setCamera(0, -20, 15)
         // add camera node
         scene3D.addChild(cameraObj)
-
-        await Engine3D.res.loadAtlas('https://cdn.orillusion.com/atlas/UI_atlas.json')
 
         let view = new View3D()
         view.scene = scene3D
@@ -40,10 +38,22 @@ export class Sample_button {
         // set button size
         button.uiTransform.resize(180, 60)
 
+        // set button status
+        // load sprite resource
+        await Engine3D.res.loadAtlas('https://cdn.orillusion.com/atlas/UI_atlas.json')
         button.normalSprite = Engine3D.res.getGUISprite('button-up')
         button.downSprite = Engine3D.res.getGUISprite('button-down')
         button.overSprite = Engine3D.res.getGUISprite('button-over')
         button.disableSprite = Engine3D.res.getGUISprite('button-disable')
+
+        // add button text
+        // load font resource
+        await Engine3D.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt')
+        let buttonLabel = buttonQuad.addComponent(UITextField);
+        buttonLabel.text = 'Click me';
+        buttonLabel.fontSize = 24;
+        buttonLabel.color = new Color(1, 0.8, 0.4);
+        buttonLabel.alignment = TextAnchor.MiddleCenter;
 
         // add listener
         buttonQuad.addEventListener(PointerEvent3D.PICK_CLICK_GUI, this.onClick, this)

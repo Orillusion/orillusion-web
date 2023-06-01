@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@orillusion/core': ^0.6.2
+  '@orillusion/core': ^0.6.3
   '@orillusion/media-extention': ^0.2.0
   '@orillusion/physics': ^0.2.0
   '@orillusion/stats': ^0.2.0
@@ -13,7 +13,7 @@ specifiers:
   vue: ^3.2.47
 
 devDependencies:
-  '@orillusion/core': 0.6.2
+  '@orillusion/core': 0.6.3
   '@orillusion/media-extention': 0.2.0
   '@orillusion/physics': 0.2.0
   '@orillusion/stats': 0.2.0
@@ -452,11 +452,11 @@ packages:
     resolution: {integrity: sha512-5zjxCQq8FKQihxh8ZWI5ASelTaIz/QUino5HISOWWvpwXrYtzwptDA8MuQonASseQwo1WkWu+jmuNMdusdNuww==}
     dev: true
 
-  /@orillusion/core/0.6.2:
-    resolution: {integrity: sha512-NEpDOAVwVTphsz6EeHj59ACzdDqxcTvB9gwNiizBrsZNvm6//pwGC1VJagM65FVPVrlgeGB2pdF4dNL++duDag==}
+  /@orillusion/core/0.6.3:
+    resolution: {integrity: sha512-jclgrBHuRFzE1LTwVKmOzT18Kwtjzp4euNBEKYnx7z+ucwWNUnZhFRNp8ZESFMA+98M01EMqfzSr1T24gXk6Mg==}
     optionalDependencies:
       conventional-changelog-cli: 2.2.2
-      electron: 25.0.0-beta.1
+      electron: 25.0.0-beta.8
       uglify-js: 3.17.4
       xvfb-maybe: 0.2.1
     transitivePeerDependencies:
@@ -466,7 +466,7 @@ packages:
   /@orillusion/media-extention/0.2.0:
     resolution: {integrity: sha512-yZEaXfwYH/1tO1/JDNQQyL9ukmcwhpgERaQcSU6BO9yA/yW7CiYruNTouAU9y7hrl/bEnBzAgnZGswq95ScBMQ==}
     dependencies:
-      '@orillusion/core': 0.6.2
+      '@orillusion/core': 0.6.3
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -475,7 +475,7 @@ packages:
     resolution: {integrity: sha512-1X1kKm2sHAWTGTRQbotIVfqLbLwLLbii5024OmuTYcqSsOC5ZEWig6gwuxxdElX8mKkif05/H5zTLAuZEjDMwQ==}
     dependencies:
       '@orillusion/ammo': 0.1.1
-      '@orillusion/core': 0.6.2
+      '@orillusion/core': 0.6.3
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -483,7 +483,7 @@ packages:
   /@orillusion/stats/0.2.0:
     resolution: {integrity: sha512-/ghMZlwPoAepyVpDdxNMEbEZTtatPWl9ee0X9f/cNBWrkHrapBi4M+QzimlGfXqDtkcbzvQYyuyr8ImidVpItQ==}
     dependencies:
-      '@orillusion/core': 0.6.2
+      '@orillusion/core': 0.6.3
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -1271,8 +1271,8 @@ packages:
     dev: true
     optional: true
 
-  /electron/25.0.0-beta.1:
-    resolution: {integrity: sha512-iUEuOKtjzzENNv+wvpvaMR9iRTjribFAttBTAEvd0Aemvoy8WH1P0UAxe4GxTLkoEpMQUToxqIHZnpN3K2Qcnw==}
+  /electron/25.0.0-beta.8:
+    resolution: {integrity: sha512-o3X0pkg1PyR/yawlSJzTXrh5GG8sH7jjtOzr74f0Zb4PnInzI3MIr8NopyhcGCW0JmOwFu+DLZX4bDlaLmtyGQ==}
     engines: {node: '>= 12.20.55'}
     hasBin: true
     requiresBuild: true

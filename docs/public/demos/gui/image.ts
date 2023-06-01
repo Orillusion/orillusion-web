@@ -29,6 +29,11 @@ export class Sample_button {
 
         let canvas = view.enableUICanvas()
         canvas.addChild(panelRoot)
+        
+        // load a BitmapTexture2D
+        let bitmapTexture2D = new BitmapTexture2D()
+        bitmapTexture2D.flipY = true
+        await bitmapTexture2D.load('https://cdn.orillusion.com/images/webgpu.png')
 
         // create image node
         let imageQuad = new Object3D()
@@ -37,11 +42,8 @@ export class Sample_button {
         let image: UIImage = imageQuad.addComponent(UIImage)
         // set image size
         image.uiTransform.resize(320, 320)
-        let bitmapTexture2D = new BitmapTexture2D()
-        bitmapTexture2D.flipY = true
-
-        await bitmapTexture2D.load('https://cdn.orillusion.com/textures/KB3D_NTT_Ads_basecolor.png')
-        image.sprite = makeAloneSprite('KB3D_NTT_Ads_basecolor', bitmapTexture2D)
+        // set image source
+        image.sprite = makeAloneSprite('webgpu', bitmapTexture2D)
     }
 }
 

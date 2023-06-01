@@ -1,4 +1,5 @@
-import { Engine3D, Scene3D, Object3D, Camera3D, View3D, ViewPanel, UIImage, HoverCameraController, Color, ImageType, AtmosphericComponent, UIShadow, UITextField, fonts, TextAnchor, Vector2, Time } from '@orillusion/core'
+import { Engine3D, Scene3D, Object3D, Camera3D, View3D, ViewPanel, UIImage, HoverCameraController, Color, AtmosphericComponent, UIShadow, UITextField, TextAnchor, Vector2, Time } from '@orillusion/core'
+import * as dat from 'dat.gui'
 
 export class Sample_button {
     async run() {
@@ -53,11 +54,22 @@ export class Sample_button {
         shadow.shadowQuality = 4
         shadow.shadowOffset = new Vector2(2, -2)
         shadow.shadowRadius = 2
-        setInterval(() => {
-            let value = Math.sin(Time.time * 0.001) + 1
-            shadowColor.r = shadowColor.g = value * 0.25
+
+        let GUIHelp = new dat.GUI()
+        let f = GUIHelp.addFolder('GUI Shadow')
+        f.add(shadow, 'shadowQuality', 0, 4, 1)
+        f.add(shadow, 'shadowRadius', 0, 10, 0.01)
+        f.add(shadow.shadowOffset, 'x', -100, 100, 0.1).onChange(()=>{
+            shadow.shadowOffset = shadow.shadowOffset
+        })
+        f.add(shadow.shadowOffset, 'y', -100, 100, 0.1).onChange(()=>{
+            shadow.shadowOffset = shadow.shadowOffset
+        })
+        f.addColor({ color: Object.values(shadowColor).map((v) => v * 255) }, 'color').onChange((v) => {
+            shadowColor.copyFromArray(v)
             shadow.shadowColor = shadowColor
-        }, 50)
+        })
+        f.open()
     }
 }
 

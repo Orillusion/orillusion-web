@@ -27,20 +27,20 @@ component.intensity = 1
 // add light object
 scene3D.addChild(light)
 
-await Engine3D.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt')
-
 let view = new View3D()
 view.scene = scene3D
 view.camera = camera
 Engine3D.startRenderView(view)
 
-// create panel root
+// create UIpanel root
 let panelRoot: Object3D = new Object3D()
 panelRoot.addComponent(ViewPanel)
-
+// add to UIcanvas
 let canvas = view.enableUICanvas()
 canvas.addChild(panelRoot)
 
+// load base font
+await Engine3D.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt')
 // create text node
 let textQuad = new Object3D()
 panelRoot.addChild(textQuad)

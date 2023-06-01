@@ -1,6 +1,6 @@
 # UIImage
 
-[UIImage](/api/classes/UIImage) 组件提供图片的显示功能, 你可以通过加载`Atlas`获得精灵图集`GUISprite`的列表到引擎中，然后指定`GUISprite`赋予图片组件供渲染。
+[UIImage](/api/classes/UIImage) 组件提供图片的显示功能, 你可以通过加载 `Atlas` 获得精灵图集 `GUISprite` 的列表到引擎中，然后指定 `GUISprite` 赋予图片组件供渲染。
 
 > 默认 `UIImage` 组件未设置精灵，将以白色方块形式呈现
 
@@ -38,7 +38,7 @@ image.sprite = Engine3D.res.getGUISprite('logo');
 ```
 
 ## 创建单个图片Sprite
-我们也可以通过已经创建好的`Texture2D`对象来主动生成一个`GUISprite`，然后赋予`UIImage`组件供显示：
+我们也可以通过已经创建好的 `Texture2D` 对象来主动生成一个 `GUISprite`，然后赋予 `UIImage` 组件供显示：
 ```ts
 let bitmapTexture2D = new BitmapTexture2D();
 //设置y轴翻转
