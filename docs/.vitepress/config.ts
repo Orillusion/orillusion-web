@@ -231,6 +231,18 @@ function sidebarGuide(): SidebarItem {
             ]
         },
         {
+            text: 'GUI',
+            collapsible: true,
+            items: [
+                { text: 'Intro', link: '/guide/gui/Readme.md' },
+                { text: 'Text', link: '/guide/gui/textfield.md' },
+                { text: 'Image', link: '/guide/gui/image.md' },
+                { text: 'Button', link: '/guide/gui/button.md' },
+                { text: 'Shadow', link: '/guide/gui/shadow.md' },
+                { text: 'Multi UIPanel', link: '/guide/gui/panel.md' }
+            ]
+        },
+        {
             text: 'Stats',
             collapsible: true,
             items: [{ text: 'Intro', link: '/guide/performance/Readme.md' }]

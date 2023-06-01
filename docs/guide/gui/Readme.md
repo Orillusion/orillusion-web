@@ -1,39 +1,70 @@
-# GUI
+# 用户界面（GUI）
 
-Orillusion provides high-performance user interface (GUI) components for developers to use. Before using these modules, it is necessary to load some relevant material resources for user interface components rendering.
+`Orillusion` 提供了高性能的用户界面（GUI）组件供开发者使用。在使用该过模块之前，需要加载一些相关的素材资源供用户界面组件渲染。
+根据美术设计图稿的排版和布局，合理搭配使用GUI组件，即可在项目中展示2D/3D的GUI内容。
 
-User interfaces often rely on external font data, sprite sheets, and other assets. Please refer to the documentation on creating text atlas and sprite sheets for creating these assets.
+> 用户界面往往会依赖一些外部字体数据、精灵图集等素材。制作这些图集请参考文档制作文本图集、制作精灵图集。
 
-> GUI often rely on external font data, sprite atlases, and other materials. Please refer to the documentation for creating these atlases, such as text atlases and spirit atlases.
+## GUI 空间模式
 
-## GUI spatial mode
+目前 `GUI` 支持两种模式渲染 `ViewSpace` 和 `WorldSpace`：
 
-Currently, `GUISpace` supports two modes: `ViewSpace` and `WorldSpace`：
-
-- ViewSpace mode: In this mode, the UI is in screen space and does not change with the 3D camera's movements.a;
-- WorldSpace mode: In this mode, the UI is considered a canvas in the 3D space and has 3D properties such as rotation, scaling, and translation. It can participate in depth testing and achieve occlusion relationships with other objects.
-
-The engine has a built-in Canvas `guiCanvas` node as the root node of the GUI, and each panel's `UIPanel`will be placed in the Canvas node and collected for UI rendering;
-Each UIPanel can be considered as the root node of the panel, under which various UI components can be organized to display UI details.
+- ViewSpace 模式：在这种模式下，GUI 在屏幕空间中，不随3D相机的更改而变动；
+- WorldSpace 模式：在这种模式下，GUI 可看做三维空间的一块画布，拥有3D属性（旋转、缩放、平移），能够参与深度检测等，实现与其他对象遮挡和被遮挡关系。
 
 ```ts
-import { Engine3D } from '@orillusion/core';
-// Load support Morph state model
-await Engine3D.res.loadFont('fnt/0.fnt');
-// Create a panel for displaying UI
-let panelRoot: Object3D = new Object3D();
-panelRoot.addComponent(ViewPanel);
-// Adding panels to system canvas
-renderJob.guiCanvas.addGUIChild(panelRoot);
-// Create Text Node
-let textQuad = new Object3D();
-panelRoot.addChild(textQuad);
-this.text = textQuad.addComponent(UITextField);
-this.text.uiTransform.resize(400, 60);
-this.text.uiTransform.y = 100;
+import { ViewPanel, WorldPanel } from '@orillusion/core'
 
-this.text.text = 'Hello，Orillusion！';
-this.text.fontSize = 32;
-this.text.alignment = TextAnchor.MiddleCenter;
-
+// 创建一个面板对象
+let panelRoot: Object3D = new Object3D()
+// 添加 ViewPanel，设定为 ViewSpace 模式
+panelRoot.addComponent(ViewPanel)
+// 或 添加 WorldPanel，设定为 WorldSpace 模式
+panelRoot.addComponent(WorldPanel)
 ```
+
+## UICanvas
+
+GUI 组件同样需要画布进行绘制，引擎中每个 `View3D` 中都内置有 `Canvas` 的数组，我们可以通过指定 `index` 来主动激活对应的 `UICanvas` 对象：
+
+```ts
+let view = new View3D()
+...
+let index = 0;
+let canvas = view.enableUICanvas(index);
+```
+
+> 可以同时存在多个`UICanvas`，他们互相独立:
+
+```ts
+let canvas0 = view.enableUICanvas(0);
+let canvas1 = view.enableUICanvas(1);
+let canvas2 = view.enableUICanvas(2);
+//...
+```
+
+## UIPanel
+
+面板 `UIPanel` 用于承载具体的 GUI 组件渲染，需要添加到 `UICanvas` 中；
+```ts
+let panelObj = new Object3D();
+let panel: UIPanel = panelObj.addComponent(ViewPanel) // 创建一个屏幕空间面板组件
+let canvas = view.enableUICanvas(); // 默认启用下标为 0 的 UICanvas
+canvas.addChild(panel.object3D); // 添加面板
+```
+
+每个 `UIPanel` 可以视为 GUI 组件的根节点，在 `UIPanel` 内可以添加各种 GUI 组件，用于展示 GUI 细节:
+
+```ts
+// 创建一个 UIImage 组件
+let imageQuad = new Object3D();
+let image = imageQuad.addComponent(UIImage);
+// 创建一个 UIPanel
+let panel: UIPanel = new Object3D().addComponent(ViewPanel); // 创建一个屏幕空间面板组件
+// 将 GUI 对象添加到 UIPanel 中
+panel.object3D.addChild(imageQuad);
+```
+
+<Demo :height="500" src="/demos/gui/panel.ts"></Demo>
+
+<<< @/public/demos/gui/panel.ts
