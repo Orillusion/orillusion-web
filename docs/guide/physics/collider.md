@@ -19,7 +19,7 @@ collider.shape.size = new Vector3(2, 2, 2);
 ```
 | 参数 | 类型 | 描述 |
 | --- | --- | --- |
-| size | Vecter3 | 盒型碰撞体的大小。默认以物体中心为长方体中心，通过新建Vecter3实例分别指定长方体沿x、y、z坐标轴的长度大小 |
+| size | Vector3 | 盒型碰撞体的大小。默认以物体中心为长方体中心，通过新建Vector3实例分别指定长方体沿x、y、z坐标轴的长度大小 |
 
 2. 球形碰撞体
 
@@ -61,7 +61,7 @@ collider.height = 10;
 ## 碰撞体组件应用示例
 在为对象添加了刚体组件后，我们再为它添加一个碰撞体，并指定碰撞体的形状类型，便可以让该对象响应碰撞了：
 ```ts
-import { Vecter3D, Object3D, ColliderComponent, BoxColliderShape } from '@orillusion/core'
+import { Vector3D, Object3D, ColliderComponent, BoxColliderShape } from '@orillusion/core'
 import { Rigidbody } from '@orillusion/physics'
 
 let object = new Object3D();
