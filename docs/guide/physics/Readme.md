@@ -38,7 +38,7 @@ Currently, the parameters and methods supported by [Physics](/physics/classes/Ph
 | --- | --- |
 | init(): void | Initialize the physics engine |
 | update(): void | Update the physical system, needs to be called in the loop body |
-| gravity: Vecter3 | Gravity parameter |
+| gravity: Vector3 | Gravity parameter |
 | isStop: boolean | Control whether the physical world is running or paused |
 | world: Ammo.btDiscreteDynamicsWorld | Native physical world in ammo.js |
 

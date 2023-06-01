@@ -19,7 +19,7 @@ collider.shape.size = new Vector3(2, 2, 2);
 ```
 | Parameter | Type | Description |
 | --- | --- | --- |
-| size | Vecter3 | The size of the box collider. By default, the center of the box is at the object's center, and the length of the box is specified by creating a new instance of Vector3 and setting the length along the x, y, and z axes respectively. |
+| size | Vector3 | The size of the box collider. By default, the center of the box is at the object's center, and the length of the box is specified by creating a new instance of Vector3 and setting the length along the x, y, and z axes respectively. |
 
 2. Sphere Collider
 
@@ -61,7 +61,7 @@ collider.height = 10;
 ## Example of Applying Collider Components
 After adding a Rigidbody component to an object, we can add a collider and specify the shape type of the collider to make the object respond to collisions:
 ```ts
-import { Vecter3D, Object3D, ColliderComponent, BoxColliderShape } from '@orillusion/core'
+import { Vector3D, Object3D, ColliderComponent, BoxColliderShape } from '@orillusion/core'
 import { Rigidbody } from '@orillusion/physics'
 
 let object = new Object3D();

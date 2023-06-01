@@ -65,13 +65,13 @@ let cameraObj = new Object3D();
 // Add a camera component to the node
 let camera = cameraObj.addComponent(Camera3D);
 // Use the lookAt function of the Camera3D component to change the position and direction angle of the Object3D
-camera.lookAt(new Vecter3(0,0,10), new Vecter3(0,0,0), new Vecter3(0,0,1));
+camera.lookAt(new Vector3(0,0,10), new Vector3(0,0,0), new Vector3(0,0,1));
 ```
 | Parameter | Type    | Description                                                  | Example          |
 |-----------|---------|--------------------------------------------------------------|------------------|
-| pos       | Vecter3 | The position of the object itself (global)                   | Vector3(0, 0, 0) |
-| target    | Vecter3 | The position of the target (global)                          | Vector3(0, 1, 0) |
-| up        | Vecter3 | The coordinate axis of the direction the camera is facing up | Vector3(0, 1, 0) |
+| pos       | Vector3 | The position of the object itself (global)                   | Vector3(0, 0, 0) |
+| target    | Vector3 | The position of the target (global)                          | Vector3(0, 1, 0) |
+| up        | Vector3 | The coordinate axis of the direction the camera is facing up | Vector3(0, 1, 0) |
 3. Camera Controller: Several common [controller components](#camera-component) are built in the engine, which can automatically adjust the position properties of the camera according to the user's input interaction.
 
 
@@ -182,7 +182,7 @@ The hover camera can be controlled by [setCamera](/api/classes/HoverCameraContro
 | roll      | number  | Rotate around the y axis | 0                  |
 | pitch     | number  | Rotate around the x axis | 0                  |
 | distance  | number  | Distance from the target | 10                 |
-| target    | Vecter3 | Target coordinate        | new Vector3(0,0,0) |
+| target    | Vector3 | Target coordinate        | new Vector3(0,0,0) |
 
 
 ### [Orbit](/api/classes/OrbitController)
