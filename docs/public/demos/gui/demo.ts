@@ -1,6 +1,6 @@
 import { AtmosphericComponent, CEvent, CEventDispatcher, Camera3D, Color, DirectLight, Engine3D, HoverCameraController, ImageType, Object3D, Object3DUtil, PointerEvent3D, Scene3D, TextAnchor, Time, UIImage, UIInteractive, UITextField, Vector3, View3D, WorldPanel, clamp } from '@orillusion/core'
 
-export class GUIPanelPOI {
+class GUIPanelPOI {
     private readonly alpha = 0.8
     private objUI: Object3D
     private index: number
@@ -134,7 +134,7 @@ export class GUIPanelPOI {
         return image
     }
 }
-export class GUIPanelBinder {
+class GUIPanelBinder {
     objUI: Object3D
     panel: GUIPanelPOI
     ball: Object3D
@@ -153,10 +153,10 @@ export class GUIPanelBinder {
     }
 }
 
-export let sampleUIPanelClick: CEvent = new CEvent('ClickUIPanel')
-export let sampleUIPanelDispatcher: CEventDispatcher = new CEventDispatcher()
+let sampleUIPanelClick: CEvent = new CEvent('ClickUIPanel')
+let sampleUIPanelDispatcher: CEventDispatcher = new CEventDispatcher()
 
-export class Sample_UIMultiPanel {
+class Sample_UIMultiPanel {
     camera: Camera3D
     scene: Scene3D
     view: View3D
