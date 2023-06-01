@@ -1,9 +1,10 @@
-import { Engine3D, Scene3D, Object3D, Camera3D, View3D, ViewPanel, TextAnchor, UITextField, DirectLight, HoverCameraController, Color } from '@orillusion/core'
+import { Engine3D, Scene3D, Object3D, Camera3D, View3D, ViewPanel, TextAnchor, UITextField, DirectLight, HoverCameraController, Color, AtmosphericComponent } from '@orillusion/core'
 
 // initializa engine
 await Engine3D.init()
 // create new scene as root node
 let scene3D: Scene3D = new Scene3D()
+scene3D.addComponent(AtmosphericComponent)
 // create camera
 let cameraObj: Object3D = new Object3D()
 let camera = cameraObj.addComponent(Camera3D)
@@ -26,19 +27,20 @@ component.intensity = 1
 // add light object
 scene3D.addChild(light)
 
-await Engine3D.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt')
-
 let view = new View3D()
 view.scene = scene3D
 view.camera = camera
 Engine3D.startRenderView(view)
 
-// create panel root
+// create UIpanel root
 let panelRoot: Object3D = new Object3D()
 panelRoot.addComponent(ViewPanel)
+// add to UIcanvas
+let canvas = view.enableUICanvas()
+canvas.addChild(panelRoot)
 
-renderJob.guiCanvas.addGUIChild(panelRoot)
-
+// load base font
+await Engine3D.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt')
 // create text node
 let textQuad = new Object3D()
 panelRoot.addChild(textQuad)
