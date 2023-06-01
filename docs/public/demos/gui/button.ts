@@ -1,4 +1,4 @@
-import { Engine3D, Scene3D, Object3D, Camera3D, ViewPanel, UIButton, HoverCameraController, PointerEvent3D, View3D, AtmosphericComponent, UITextField, Color, TextAnchor } from '@orillusion/core'
+import { Engine3D, Scene3D, Object3D, Camera3D, ViewPanel, UIButton, HoverCameraController, PointerEvent3D, View3D, AtmosphericComponent, UITextField, Color, TextAnchor, WorldPanel, UIPanel, GPUCullMode } from '@orillusion/core'
 
 export class Sample_button {
     async run() {
@@ -14,7 +14,7 @@ export class Sample_button {
         camera.perspective(60, Engine3D.aspect, 1, 5000.0)
         // set camera controller
         let controller = cameraObj.addComponent(HoverCameraController)
-        controller.setCamera(0, -20, 15)
+        controller.setCamera(0, -20, 30)
         // add camera node
         scene3D.addChild(cameraObj)
 
@@ -25,8 +25,9 @@ export class Sample_button {
 
         // create panel root
         let panelRoot: Object3D = new Object3D()
-        panelRoot.addComponent(ViewPanel)
-
+        let panel: UIPanel = panelRoot.addComponent(WorldPanel)
+        panel.guiMesh.uiRenderer.material.cullMode = GPUCullMode.none
+        panelRoot.localScale.set(0.1, 0.1, 0.1)
         let canvas = view.enableUICanvas()
         canvas.addChild(panelRoot)
 

@@ -44,9 +44,9 @@ let bitmapTexture2D = new BitmapTexture2D();
 //设置y轴翻转
 bitmapTexture2D.flipY = true;
 //加载贴图
-await bitmapTexture2D.load('textures/KB3D_NTT_Ads_basecolor.png');
+await bitmapTexture2D.load('images/webgpu.png');
 //创建GUISprite
-let mySprite = makeAloneSprite('KB3D_NTT_Ads_basecolor', bitmapTexture2D);
+let mySprite = makeAloneSprite('webgpu', bitmapTexture2D);
 //将GUISprite赋予UIImage组件
 this.image.sprite = mySprite;
 ```
