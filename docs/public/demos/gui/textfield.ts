@@ -1,4 +1,4 @@
-import { Engine3D, Scene3D, Object3D, Camera3D, View3D, ViewPanel, TextAnchor, UITextField, DirectLight, HoverCameraController, Color, AtmosphericComponent } from '@orillusion/core'
+import { Engine3D, Scene3D, Object3D, Camera3D, View3D, ViewPanel, TextAnchor, UITextField, DirectLight, HoverCameraController, Color, AtmosphericComponent, WorldPanel } from '@orillusion/core'
 
 // initializa engine
 await Engine3D.init()
@@ -12,7 +12,7 @@ let camera = cameraObj.addComponent(Camera3D)
 camera.perspective(60, Engine3D.aspect, 1, 5000.0)
 // set camera controller
 let controller = cameraObj.addComponent(HoverCameraController)
-controller.setCamera(0, -20, 15)
+controller.setCamera(0, -20, 30)
 // add camera node
 scene3D.addChild(cameraObj)
 // create light
@@ -34,7 +34,7 @@ Engine3D.startRenderView(view)
 
 // create UIpanel root
 let panelRoot: Object3D = new Object3D()
-panelRoot.addComponent(ViewPanel)
+panelRoot.addComponent(WorldPanel)
 // add to UIcanvas
 let canvas = view.enableUICanvas()
 canvas.addChild(panelRoot)
@@ -43,12 +43,13 @@ canvas.addChild(panelRoot)
 await Engine3D.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt')
 // create text node
 let textQuad = new Object3D()
+textQuad.localScale.set(0.1, 0.1, 0.1)
 panelRoot.addChild(textQuad)
 // create textfield component
 let text: UITextField = textQuad.addComponent(UITextField)
 // set textfield size
-text.uiTransform.resize(400, 60)
+text.uiTransform.resize(300, 60)
 // set text value
-text.text = 'Hello，Orillusion！'
+text.text = 'Hello, Orillusion!'
 text.fontSize = 32
 text.alignment = TextAnchor.MiddleCenter
