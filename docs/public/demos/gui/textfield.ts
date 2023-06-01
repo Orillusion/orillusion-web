@@ -1,4 +1,4 @@
-import { Engine3D, Scene3D, Object3D, Camera3D, View3D, ViewPanel, TextAnchor, UITextField, DirectLight, HoverCameraController, Color, AtmosphericComponent, WorldPanel } from '@orillusion/core'
+import { Engine3D, Scene3D, Object3D, Camera3D, View3D, ViewPanel, TextAnchor, UITextField, DirectLight, HoverCameraController, Color, AtmosphericComponent, WorldPanel, GPUCullMode, UIPanel } from '@orillusion/core'
 
 // initializa engine
 await Engine3D.init()
@@ -34,7 +34,8 @@ Engine3D.startRenderView(view)
 
 // create UIpanel root
 let panelRoot: Object3D = new Object3D()
-panelRoot.addComponent(WorldPanel)
+let panel: UIPanel = panelRoot.addComponent(WorldPanel)
+panel.guiMesh.uiRenderer.material.cullMode = GPUCullMode.none
 // add to UIcanvas
 let canvas = view.enableUICanvas()
 canvas.addChild(panelRoot)

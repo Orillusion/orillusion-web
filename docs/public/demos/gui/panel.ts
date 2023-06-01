@@ -1,4 +1,4 @@
-import { Engine3D, Scene3D, Object3D, Camera3D, View3D, ViewPanel, TextAnchor, UITextField, HoverCameraController, AtmosphericComponent, BitmapTexture2D, UIImage, makeAloneSprite, WorldPanel } from '@orillusion/core'
+import { Engine3D, Scene3D, Object3D, Camera3D, View3D, ViewPanel, TextAnchor, UITextField, HoverCameraController, AtmosphericComponent, BitmapTexture2D, UIImage, makeAloneSprite, WorldPanel, GPUCullMode, UIPanel } from '@orillusion/core'
 import * as dat from 'dat.gui'
 
 // initializa engine
@@ -24,16 +24,18 @@ Engine3D.startRenderView(view)
 
 // create a UICanvas
 let canvas = view.enableUICanvas()
-// create view sapce panel root
+// create view sapce panel
 let viewPanel: Object3D = new Object3D()
 viewPanel.addComponent(ViewPanel)
 // add to UICanvas
 canvas.addChild(viewPanel)
 
-// create world sapce panel root
+// create world sapce panel
 let worldPanel: Object3D = new Object3D()
 worldPanel.localScale.set(0.15, 0.15, 0.15)
-worldPanel.addComponent(WorldPanel)
+let panel: UIPanel = worldPanel.addComponent(WorldPanel)
+// render double side
+panel.guiMesh.uiRenderer.material.cullMode = GPUCullMode.none
 // add to UICanvas
 canvas.addChild(worldPanel)
 
