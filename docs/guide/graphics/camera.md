@@ -65,13 +65,13 @@ let cameraObj = new Object3D();
 // 添加相机组件
 let camera = cameraObj.addComponent(Camera3D);
 // 使用 Camera3D 组件 lookAt 改变 Object3D 的位置和方向角度
-camera.lookAt(new Vecter3(0,0,10), new Vecter3(0,0,0), new Vecter3(0,0,1));
+camera.lookAt(new Vector3(0,0,10), new Vector3(0,0,0), new Vector3(0,0,1));
 ```
 | 参数 | 类型 | 描述 | 示例 |
 | --- | --- | ------ | --- |
-| pos | Vecter3 | 自身的位置 （全局） | Vector3(0, 0, 0) |
-| target | Vecter3 | 目标的位置 （全局） | Vector3(0, 1, 0) |
-| up | Vecter3 | 相机朝上方向的坐标轴 | Vector3(0, 1, 0) |
+| pos | Vector3 | 自身的位置 （全局） | Vector3(0, 0, 0) |
+| target | Vector3 | 目标的位置 （全局） | Vector3(0, 1, 0) |
+| up | Vector3 | 相机朝上方向的坐标轴 | Vector3(0, 1, 0) |
 3. 相机控制器：引擎内置了几种常用的 [控制器组件](#相机组件)，可以根据用户的输入交互自动调整相机的位置属性。
 
 
@@ -183,7 +183,7 @@ hoverController.setCamera(15, -15, 15, new Vector3(0, 0, 0));
 | roll   | number | 围绕y轴旋转  | 0 |
 | pitch  | number | 围绕x轴旋转  | 0 |
 | distance | number | 相机与目标的距离 | 10 |
-| target   | Vecter3 | 朝向目标坐标  | new Vector3(0,0,0) |
+| target   | Vector3 | 朝向目标坐标  | new Vector3(0,0,0) |
 
 
 ### [轨道相机](/api/classes/OrbitController)

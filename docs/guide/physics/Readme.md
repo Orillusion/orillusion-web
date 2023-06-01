@@ -40,7 +40,7 @@ import { Physics } from "@orillusion/physics"
 | --- | --- |
 | init(): void | 初始化物理引擎 |
 | update(): void | 更新物理系统，需要在 loop 主体中调用 |
-| gravity: Vecter3 | 重力参数 |
+| gravity: Vector3 | 重力参数 |
 | isStop: boolean | 控制物理世界是否暂停运行 |
 | world: Ammo.btDiscreteDynamicsWorld | ammo.js 原生物理世界 |
 
