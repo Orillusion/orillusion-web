@@ -15,7 +15,7 @@ panelRoot.addComponent(ViewPanel);
 // 激活UICanvas
 let canvas = this.scene.view.enableUICanvas();
 // 面板加入到系统canvas中
-canvas.addGUIChild(panelRoot);
+canvas.addChild(panelRoot);
 // 创建图片节点
 let imageQuad = new Object3D();
 panelRoot.addChild(imageQuad);
@@ -32,7 +32,7 @@ shadow.quality = 1;//[0-4] 0：取消投影，1，单投影，2/3/4多投影
 
 | 0 | 1 | 2 | 3 | 4 |
 | :---: | :---: | :---: | :---: | :---: |
-| 无阴影 | 单投影 | 双投影 | 三重投影 | 四重投影 |
+| 无阴影 | 单阴影 | 双阴影 | 三重阴影 | 四重阴影 |
 
 ```ts
 let shadow: UIShadow;
@@ -64,12 +64,12 @@ shadow.shadowColor = new Color(0.1, 0.5, 0.0, 0.8);
 ```
 
 ## isShadowless
-通过设置 `isShadowless` 可以设置组件是否产生投影
+通过设置 `isShadowless` 可以设置组件是否屏蔽投影
 ```ts
 let image: UIImage;
-shadow.isShadowless = true; //设置为屏蔽投影
+shadow.isShadowless = true; //设置为屏蔽投影（默认为false）
 ```
-当有多个 `GUI` 组件挂载在同一个 `Object3D`上时，会产生多个投影造成干扰，我们可以设置 `isShadowless` 屏蔽某个组件投影
+当有多个 `GUIRenderer` 组件挂载在同一个 `Object3D`上时，会产生多个投影源，投影组件取哪个作为源的问题。这会让开发者有点费解，为了方便组件的使用，我们可以设置投影源的属性 `isShadowless` 屏蔽指定组件投影能力，只保留你想要投影的组件至正常投影即可。
 ```ts
 // 创建ui节点
 let root = new Object3D();
@@ -88,7 +88,7 @@ shadow.shadowColor = new Color(0.1, 0.5, 0.0, 0.8);
 shadow.shadowOffset = new Vector2(4.0, -4.0);
 shadow.shadowRadius = 4.0;
 ```
-由于 `image` 屏蔽了投影能力，`UIShadow` 将只会作用于 `textField` 上
+由于 `image` 屏蔽了投影能力，`UIShadow` 将只会作用于 `textField` 上。
 
 <Demo :height="500" src="/demos/gui/shadow.ts"></Demo>
 

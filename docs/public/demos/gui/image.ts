@@ -1,6 +1,6 @@
 import { Engine3D, Scene3D, Object3D, Camera3D, View3D, ViewPanel, UIImage, HoverCameraController, Color, ImageType, AtmosphericComponent, BitmapTexture2D, makeAloneSprite, WorldPanel, GPUCullMode, UIPanel } from '@orillusion/core'
 
-export class Sample_button {
+class Sample_Image {
     async run() {
         // initializa engine
         await Engine3D.init()
@@ -30,7 +30,7 @@ export class Sample_button {
         panelRoot.localScale.set(0.1, 0.1, 0.1)
         let canvas = view.enableUICanvas()
         canvas.addChild(panelRoot)
-        
+
         // load a BitmapTexture2D
         let bitmapTexture2D = new BitmapTexture2D()
         bitmapTexture2D.flipY = true
@@ -48,4 +48,4 @@ export class Sample_button {
     }
 }
 
-new Sample_button().run()
+new Sample_Image().run()

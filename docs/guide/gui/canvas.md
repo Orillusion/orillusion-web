@@ -1,4 +1,4 @@
-# 用户界面（GUI）
+# 用户界面（GPU GUI）
 
 `Orillusion` 提供了高性能的用户界面（GUI）组件供开发者使用。在使用该过模块之前，需要加载一些相关的素材资源供用户界面组件渲染。
 根据美术设计图稿的排版和布局，合理搭配使用GUI组件，即可在项目中展示2D/3D的GUI内容。
@@ -65,6 +65,8 @@ let panel: UIPanel = new Object3D().addComponent(ViewPanel); // 创建一个屏�
 panel.object3D.addChild(imageQuad);
 ```
 
-<Demo :height="500" src="/demos/gui/panel.ts"></Demo>
+以下示例展示了多个`UICanvas`共存的表现：
 
-<<< @/public/demos/gui/panel.ts
+<Demo :height="500" src="/demos/gui/canvas.ts"></Demo>
+
+<<< @/public/demos/gui/canvas.ts

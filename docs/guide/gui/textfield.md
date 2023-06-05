@@ -15,7 +15,7 @@ let canvas = this.scene.view.enableUICanvas();
 let panelRoot: Object3D = new Object3D();
 panelRoot.addComponent(ViewPanel);
 // 面板加入到系统canvas中
-canvas.addGUIChild(panelRoot);
+canvas.addChild(panelRoot);
 // 创建文本节点
 let textQuad = new Object3D();
 panelRoot.addChild(textQuad);

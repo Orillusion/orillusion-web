@@ -13,7 +13,7 @@ panelRoot.addComponent(ViewPanel);
 // 激活UICanvas
 let canvas = this.scene.view.enableUICanvas();
 // 面板加入到系统canvas中
-canvas.addGUIChild(panelRoot);
+canvas.addChild(panelRoot);
 // 创建图片节点
 let imageQuad = new Object3D();
 panelRoot.addChild(imageQuad);
@@ -71,7 +71,7 @@ image.visible = false;//true
 image.destroy();
 ```
 
-## 渲染类型
+## 拉伸/平铺类型
 
 精灵图类型：参考 [ImageType](/api/enums/ImageType.md)，设置精灵的渲染类型；
 
@@ -79,6 +79,10 @@ image.destroy();
 - Sliced：按照九宫格的方式进行拉伸渲染
 - Tiled：未支持
 - Filled：未支持
+
+```ts
+image.imageType = ImageType.Simple;
+```
 
 <Demo :height="500" src="/demos/gui/image.ts"></Demo>
 
