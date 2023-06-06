@@ -1,4 +1,4 @@
-import { Engine3D, Object3DUtil, Object3D, UIImage, ImageType, Color, UIPanel, ViewPanel, Scene3D, Vector2, UITextField, UIShadow, AtmosphericComponent, Camera3D, HoverCameraController, View3D } from '@orillusion/core'
+import { Engine3D, Object3D, UIImage, ImageType, Color, UIPanel, ViewPanel, Scene3D, Vector2, UITextField, UIShadow, AtmosphericComponent, Camera3D, HoverCameraController, View3D } from '@orillusion/core'
 
 class Sample_UIMultiCanvas {
     async run() {
@@ -19,7 +19,7 @@ class Sample_UIMultiCanvas {
         camera.perspective(60, Engine3D.aspect, 1, 5000.0)
         // set camera controller
         let controller = cameraObj.addComponent(HoverCameraController)
-        controller.setCamera(0, -20, 30)
+        controller.setCamera(0, -20, 50)
         // add camera node
         scene3D.addChild(cameraObj)
 
@@ -27,11 +27,6 @@ class Sample_UIMultiCanvas {
         view.scene = scene3D
         view.camera = camera
         Engine3D.startRenderView(view)
-
-        // create floor
-        let floor = Object3DUtil.GetSingleCube(100, 2, 50, 0.5, 0.5, 0.5)
-        scene3D.addChild(floor)
-        floor.y = -40
 
         let total: number = 4
         for (let i = 0; i < total; i++) {

@@ -45,6 +45,8 @@ class Sample_Image {
         image.uiTransform.resize(150, 150)
         // set image source
         image.sprite = makeAloneSprite('webgpu', bitmapTexture2D)
+
+        
     }
 }
 

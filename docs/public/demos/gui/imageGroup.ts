@@ -57,13 +57,20 @@ class Sample_UIImageGroup {
     private halfSize = 0
     createGUI() {
         let GUIHelp = new dat.GUI()
+        let quat = this.imageGroup.getQuad(1)
         let f = GUIHelp.addFolder('Position')
-        let xy = this.imageGroup.getXY(1)
-        let pos = { x: 0, y: xy.y }
+        let pos = { x: quat.x, y: quat.y }
         let action = () => this.imageGroup.setXY(1, pos.x, pos.y)
-        GUIHelp.add(pos, 'x', -Engine3D.width * 0.5, Engine3D.width * 0.5, 1).onChange(action)
-        GUIHelp.add(pos, 'y', -Engine3D.height * 0.5, Engine3D.height * 0.5, 1).onChange(action)
-        GUIHelp.open()
+        f.add(pos, 'x', -Engine3D.width * 0.5, Engine3D.width * 0.5, 1).onChange(action)
+        f.add(pos, 'y', -Engine3D.height * 0.5, Engine3D.height * 0.5, 1).onChange(action)
+        f.open()
+        
+        f = GUIHelp.addFolder('Size')
+        let size = { width: quat.width, height: quat.height }
+        let action2 = () => this.imageGroup.setSize(1, size.width, size.height)
+        f.add(size, 'width', 0, 256, 1).onChange(action2)
+        f.add(size, 'height', 0, 256, 1).onChange(action2)
+        f.open()
     }
 
     private createSpriteSheets(root: Object3D, texture: Texture): UIImageGroup {

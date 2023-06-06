@@ -57,7 +57,7 @@ export class Sample_PropertyAnim {
         // init clip
         let animClip = new PropertyAnimClip()
         // parse clip
-        animClip.parser(json)
+        animClip.parse(json)
         animClip.wrapMode = WrapMode.Loop
         animation.defaultClip = animClip.name
         animation.autoPlay = true

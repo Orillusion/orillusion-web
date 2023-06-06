@@ -355,14 +355,12 @@ function sidebarGuide(): SidebarItem {
             text: '用户界面',
             collapsible: true,
             items: [
-                { text: '简介', link: '/guide/gui/canvas.md' },
-                { text: '面板', link: '/guide/gui/panel.md' },
+                { text: '简介', link: '/guide/gui/Readme.md' },
                 { text: '图片', link: '/guide/gui/image.md' },
                 { text: '图片组', link: '/guide/gui/imageGroup.md' },
                 { text: '文本', link: '/guide/gui/textfield.md' },
                 { text: '按钮', link: '/guide/gui/button.md' },
                 { text: '投影', link: '/guide/gui/shadow.md' },
-                { text: 'POI示例', link: '/guide/gui/poi.md' },
                 { text: '多面板示例', link: '/guide/gui/demo.md' }
             ]
         },

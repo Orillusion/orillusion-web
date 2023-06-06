@@ -1,27 +1,4 @@
-import {
-    Scene3D,
-    PropertyAnimation,
-    Engine3D,
-    Object3D,
-    Object3DUtil,
-    PropertyAnimClip,
-    WrapMode,
-    WorldPanel,
-    BillboardType,
-    TextAnchor,
-    UIImage,
-    UIShadow,
-    UITextField,
-    Vector3,
-    Color,
-    Time,
-    AtmosphericComponent,
-    Camera3D,
-    HoverCameraController,
-    View3D,
-    GPUCullMode,
-    UIPanel
-} from '@orillusion/core'
+import { Scene3D, PropertyAnimation, Engine3D, Object3D, Object3DUtil, PropertyAnimClip, WrapMode, WorldPanel, BillboardType, TextAnchor, UIImage, UIShadow, UITextField, Vector3, Color, Time, AtmosphericComponent, Camera3D, GPUCullMode, HoverCameraController, UIPanel, View3D } from "@orillusion/core";
 import * as dat from 'dat.gui'
 
 class Sample_POI {
@@ -36,7 +13,7 @@ class Sample_POI {
         Engine3D.setting.shadow.shadowBias = 0.0001
 
         // initializa engine
-        await Engine3D.init()
+        await Engine3D.init({ renderLoop: () => this.loop() });
         // create new scene as root node
         let scene3D: Scene3D = new Scene3D()
         scene3D.addComponent(AtmosphericComponent)
