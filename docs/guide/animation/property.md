@@ -28,7 +28,7 @@ let json = await res.json()
 // 初始化clip
 let animClip = new PropertyAnimClip();
 // 解析clip
-animClip.parser(json);
+animClip.parse(json);
 animClip.wrapMode = WrapMode.Once;
 animation.defaultClip = animClip.name;
 animation.autoPlay = false;
