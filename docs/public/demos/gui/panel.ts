@@ -13,7 +13,7 @@ let camera = cameraObj.addComponent(Camera3D)
 camera.perspective(60, Engine3D.aspect, 1, 5000.0)
 // set camera controller
 let controller = cameraObj.addComponent(HoverCameraController)
-controller.setCamera(0, -20, 15)
+controller.setCamera(0, -20, 100)
 // add camera node
 scene3D.addChild(cameraObj)
 

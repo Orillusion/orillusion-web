@@ -49,6 +49,7 @@ export default async () =>
                 '/physics/': sidebar('', 'physics'),
                 '/stats/': sidebar('', 'stats'),
                 '/media-extention/': sidebar('', 'media-extention'),
+                '/particle/': sidebar('', 'particle'),
                 '/example/': sidebarExample()
             },
 
@@ -108,7 +109,8 @@ function nav() {
                         { text: 'Core', link: '/api/' },
                         { text: 'Physics', link: '/physics/' },
                         { text: 'Media Extention', link: '/media-extention/' },
-                        { text: 'Stats', link: '/stats/' }
+                        { text: 'Stats', link: '/stats/' },
+                        { text: 'Particle', link: '/particle/' }
                     ]
                 },
                 {
@@ -194,6 +196,16 @@ function sidebarGuide(): SidebarItem {
             ]
         },
         {
+            text: 'Particle',
+            collapsible: true,
+            items: [
+                { text: 'Intro', link: '/guide/particle/Readme.md' },
+                { text: 'Emitter', link: '/guide/particle/emitter.md' },
+                // { text: 'Renderer', link: '/guide/particle/renderer.md' },
+                { text: 'Base Module', link: '/guide/particle/BaseModule.md' }
+            ]
+        },
+        {
             text: 'Physics',
             collapsible: true,
             items: [
@@ -235,11 +247,12 @@ function sidebarGuide(): SidebarItem {
             collapsible: true,
             items: [
                 { text: 'Intro', link: '/guide/gui/Readme.md' },
-                { text: 'Text', link: '/guide/gui/textfield.md' },
                 { text: 'Image', link: '/guide/gui/image.md' },
+                { text: 'Image Group', link: '/guide/gui/imageGroup.md' },
+                { text: 'Text', link: '/guide/gui/textfield.md' },
                 { text: 'Button', link: '/guide/gui/button.md' },
                 { text: 'Shadow', link: '/guide/gui/shadow.md' },
-                { text: 'Multi UIPanel', link: '/guide/gui/panel.md' }
+                { text: 'Multi UIPanel', link: '/guide/gui/demo.md' }
             ]
         },
         {
@@ -326,6 +339,10 @@ function sidebar(root: string = '', packages: string) {
                 {
                     text: '@orillusion/media-extention',
                     link: '/media-extention/'
+                },
+                {
+                    text: '@orillusion/particle',
+                    link: '/particle/'
                 }
             ]
         }

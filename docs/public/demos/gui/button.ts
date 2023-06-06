@@ -1,6 +1,6 @@
 import { Engine3D, Scene3D, Object3D, Camera3D, ViewPanel, UIButton, HoverCameraController, PointerEvent3D, View3D, AtmosphericComponent, UITextField, Color, TextAnchor, WorldPanel, UIPanel, GPUCullMode } from '@orillusion/core'
 
-export class Sample_button {
+class Sample_button {
     async run() {
         // initializa engine
         await Engine3D.init()
@@ -50,11 +50,11 @@ export class Sample_button {
         // add button text
         // load font resource
         await Engine3D.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt')
-        let buttonLabel = buttonQuad.addComponent(UITextField);
-        buttonLabel.text = 'Click me';
-        buttonLabel.fontSize = 24;
-        buttonLabel.color = new Color(1, 0.8, 0.4);
-        buttonLabel.alignment = TextAnchor.MiddleCenter;
+        let buttonLabel = buttonQuad.addComponent(UITextField)
+        buttonLabel.text = 'Click me'
+        buttonLabel.fontSize = 24
+        buttonLabel.color = new Color(1, 0.8, 0.4)
+        buttonLabel.alignment = TextAnchor.MiddleCenter
 
         // add listener
         buttonQuad.addEventListener(PointerEvent3D.PICK_CLICK_GUI, this.onClick, this)

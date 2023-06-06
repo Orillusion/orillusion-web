@@ -1,13 +1,10 @@
 # UITextField
 
-[UITextField](/api/classes/UITextField.md) 组件提供文本的显示功能；
-
-> 文本组件依赖于 `BMFont` 图集，你需要先加载字体图集到引擎中，文本才能被正常显示出来。
-
+[UITextField](/api/classes/UITextField.md) 组件可以加载基于 `BMFont` 的字体图集，在引擎中提供高性能的文本渲染能力。
 
 ```ts
 import { Engine3D } from '@orillusion/core';
-// 加载 BMFont 文件
+// 加载 BMFont 字体文件
 await Engine3D.res.loadFont('fnt/0.fnt');
 // 激活UICanvas
 let canvas = this.scene.view.enableUICanvas();
@@ -15,7 +12,7 @@ let canvas = this.scene.view.enableUICanvas();
 let panelRoot: Object3D = new Object3D();
 panelRoot.addComponent(ViewPanel);
 // 面板加入到系统canvas中
-canvas.addGUIChild(panelRoot);
+canvas.addChild(panelRoot);
 // 创建文本节点
 let textQuad = new Object3D();
 panelRoot.addChild(textQuad);
@@ -31,8 +28,9 @@ this.text.alignment = TextAnchor.MiddleCenter;
 
 ## 设置字体
 文本组件依赖于 `BMFont` 图集，你需要先加载 `fnt` 图集文件到引擎中，然后文本才能被正常显示出来
+> 制作 `BMFont` 字体文件依赖外部第三方工具，用户可以自行搜索
 ```ts
-// 加载 BMFont字体
+// 加载支持微软雅黑的 BMFont 字体文件
 await Engine3D.res.loadFont('path/to/font.fnt');
 text.font = '微软雅黑';
 ```

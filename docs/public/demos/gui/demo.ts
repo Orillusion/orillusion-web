@@ -182,7 +182,7 @@ class Sample_UIMultiPanel {
         camera.perspective(60, Engine3D.aspect, 1, 5000.0)
         // set camera controller
         let controller = cameraObj.addComponent(HoverCameraController)
-        controller.setCamera(0, -30, 150, new Vector3(0, 15, 0))
+        controller.setCamera(0, -10, 150, new Vector3(0, 15, 0))
         // add camera node
         scene3D.addChild(cameraObj)
         // create light
