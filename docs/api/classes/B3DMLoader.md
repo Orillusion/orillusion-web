@@ -6,28 +6,18 @@
 
   ↳ **`B3DMLoader`**
 
-### Properties
-
-- [adjustmentTransform](B3DMLoader.md#adjustmenttransform)
-
 ### Constructors
 
 - [constructor](B3DMLoader.md#constructor)
+
+### Properties
+
+- [adjustmentTransform](B3DMLoader.md#adjustmenttransform)
 
 ### Methods
 
 - [parse](B3DMLoader.md#parse)
 - [decodeText](B3DMLoader.md#decodetext)
-
-## Properties
-
-### adjustmentTransform
-
-• **adjustmentTransform**: [`Matrix4`](Matrix4.md)
-
-#### Defined in
-
-[src/loader/parser/b3dm/B3DMLoader.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/b3dm/B3DMLoader.ts#L10)
 
 ## Constructors
 
@@ -42,6 +32,16 @@
 #### Defined in
 
 [src/loader/parser/b3dm/B3DMLoader.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/b3dm/B3DMLoader.ts#L14)
+
+## Properties
+
+### adjustmentTransform
+
+• **adjustmentTransform**: [`Matrix4`](Matrix4.md)
+
+#### Defined in
+
+[src/loader/parser/b3dm/B3DMLoader.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/b3dm/B3DMLoader.ts#L10)
 
 ## Methods
 

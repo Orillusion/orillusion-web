@@ -8,6 +8,10 @@ PointMaterial
 
   ↳ **`PointMaterial`**
 
+### Constructors
+
+- [constructor](PointMaterial.md#constructor)
+
 ### Properties
 
 - [name](PointMaterial.md#name)
@@ -59,9 +63,19 @@ PointMaterial
 - [getShader](PointMaterial.md#getshader)
 - [debug](PointMaterial.md#debug)
 
-### Constructors
+## Constructors
 
-- [constructor](PointMaterial.md#constructor)
+### constructor
+
+• **new PointMaterial**()
+
+#### Overrides
+
+MaterialBase.constructor
+
+#### Defined in
+
+[src/materials/PointMaterial.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/materials/PointMaterial.ts#L20)
 
 ## Properties
 
@@ -1055,7 +1069,7 @@ MaterialBase.cullMode
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L109)
+[src/materials/MaterialPass.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L114)
 
 • `set` **cullMode**(`value`): `void`
 
@@ -1077,7 +1091,7 @@ MaterialBase.cullMode
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L116)
+[src/materials/MaterialPass.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L121)
 
 ___
 
@@ -1095,7 +1109,7 @@ MaterialBase.depthBias
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L120)
+[src/materials/MaterialPass.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L125)
 
 • `set` **depthBias**(`value`): `void`
 
@@ -1115,7 +1129,7 @@ MaterialBase.depthBias
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L124)
+[src/materials/MaterialPass.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L129)
 
 ___
 
@@ -1135,7 +1149,7 @@ MaterialBase.depthCompare
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L131)
+[src/materials/MaterialPass.ts:136](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L136)
 
 • `set` **depthCompare**(`value`): `void`
 
@@ -1157,7 +1171,7 @@ MaterialBase.depthCompare
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:138](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L138)
+[src/materials/MaterialPass.ts:143](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L143)
 
 ___
 
@@ -1425,17 +1439,3 @@ MaterialBase.debug
 #### Defined in
 
 [src/materials/PointMaterial.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/materials/PointMaterial.ts#L56)
-
-## Constructors
-
-### constructor
-
-• **new PointMaterial**()
-
-#### Overrides
-
-MaterialBase.constructor
-
-#### Defined in
-
-[src/materials/PointMaterial.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/materials/PointMaterial.ts#L20)

@@ -1,15 +1,23 @@
 # Class: GUIConfig
 
+### Constructors
+
+- [constructor](GUIConfig.md#constructor)
+
 ### Properties
 
 - [vertexScale](GUIConfig.md#vertexscale)
 - [quadMaxCountForWorld](GUIConfig.md#quadmaxcountforworld)
 - [quadMaxCountForView](GUIConfig.md#quadmaxcountforview)
-- [SortOrderStart](GUIConfig.md#sortorderstart)
+- [SortOrderStartWorld](GUIConfig.md#sortorderstartworld)
+- [SortOrderStartView](GUIConfig.md#sortorderstartview)
+- [SortOrderCanvasSpan](GUIConfig.md#sortordercanvasspan)
 
-### Constructors
+## Constructors
 
-- [constructor](GUIConfig.md#constructor)
+### constructor
+
+• **new GUIConfig**()
 
 ## Properties
 
@@ -43,16 +51,30 @@ ___
 
 ___
 
-### SortOrderStart
+### SortOrderStartWorld
 
-▪ `Static` `Readonly` **SortOrderStart**: `number` = `8000`
+▪ `Static` `Readonly` **SortOrderStartWorld**: `number` = `7000`
 
 #### Defined in
 
 [src/components/gui/GUIConfig.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIConfig.ts#L5)
 
-## Constructors
+___
 
-### constructor
+### SortOrderStartView
 
-• **new GUIConfig**()
+▪ `Static` `Readonly` **SortOrderStartView**: `number` = `8000`
+
+#### Defined in
+
+[src/components/gui/GUIConfig.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIConfig.ts#L6)
+
+___
+
+### SortOrderCanvasSpan
+
+▪ `Static` `Readonly` **SortOrderCanvasSpan**: `number` = `10000`
+
+#### Defined in
+
+[src/components/gui/GUIConfig.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIConfig.ts#L7)

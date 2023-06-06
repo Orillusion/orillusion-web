@@ -1,31 +1,17 @@
 # Class: TextureCubeFaceData
 
-### Properties
-
-- [faceTextureRef](TextureCubeFaceData.md#facetextureref)
-
 ### Constructors
 
 - [constructor](TextureCubeFaceData.md#constructor)
+
+### Properties
+
+- [faceTextureRef](TextureCubeFaceData.md#facetextureref)
 
 ### Methods
 
 - [uploadTexture](TextureCubeFaceData.md#uploadtexture)
 - [getGpuSource](TextureCubeFaceData.md#getgpusource)
-
-## Properties
-
-### faceTextureRef
-
-• **faceTextureRef**: `Object`
-
-#### Index signature
-
-▪ [key: `string`]: { `t`: `GPUTexture` ; `v`: `GPUTextureView`  }
-
-#### Defined in
-
-[src/textures/TextureCubeFaceData.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/textures/TextureCubeFaceData.ts#L6)
 
 ## Constructors
 
@@ -42,6 +28,20 @@
 #### Defined in
 
 [src/textures/TextureCubeFaceData.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/textures/TextureCubeFaceData.ts#L9)
+
+## Properties
+
+### faceTextureRef
+
+• **faceTextureRef**: `Object`
+
+#### Index signature
+
+▪ [key: `string`]: { `t`: `GPUTexture` ; `v`: `GPUTextureView`  }
+
+#### Defined in
+
+[src/textures/TextureCubeFaceData.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/textures/TextureCubeFaceData.ts#L6)
 
 ## Methods
 

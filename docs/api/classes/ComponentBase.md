@@ -43,13 +43,13 @@ The component can receive update events at each frame.
 
 - [`IComponent`](../interfaces/IComponent.md)
 
-### Properties
-
-- [object3D](ComponentBase.md#object3d)
-
 ### Constructors
 
 - [constructor](ComponentBase.md#constructor)
+
+### Properties
+
+- [object3D](ComponentBase.md#object3d)
 
 ### Accessors
 
@@ -72,6 +72,16 @@ The component can receive update events at each frame.
 - [cloneTo](ComponentBase.md#cloneto)
 - [destroy](ComponentBase.md#destroy)
 
+## Constructors
+
+### constructor
+
+• **new ComponentBase**()
+
+#### Defined in
+
+[src/components/ComponentBase.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L31)
+
 ## Properties
 
 ### object3D
@@ -87,16 +97,6 @@ owner object3D
 #### Defined in
 
 [src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
-
-## Constructors
-
-### constructor
-
-• **new ComponentBase**()
-
-#### Defined in
-
-[src/components/ComponentBase.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L31)
 
 ## Accessors
 

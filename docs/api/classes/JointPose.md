@@ -1,13 +1,30 @@
 # Class: JointPose
 
+### Constructors
+
+- [constructor](JointPose.md#constructor)
+
 ### Properties
 
 - [index](JointPose.md#index)
 - [worldMatrix](JointPose.md#worldmatrix)
 
-### Constructors
+## Constructors
 
-- [constructor](JointPose.md#constructor)
+### constructor
+
+• **new JointPose**(`index`, `useGlobalMatrix?`)
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `index` | `number` | `undefined` |
+| `useGlobalMatrix` | `boolean` | `false` |
+
+#### Defined in
+
+[src/components/anim/skeletonAnim/JointPose.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/JointPose.ts#L6)
 
 ## Properties
 
@@ -28,20 +45,3 @@ ___
 #### Defined in
 
 [src/components/anim/skeletonAnim/JointPose.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/JointPose.ts#L5)
-
-## Constructors
-
-### constructor
-
-• **new JointPose**(`index`, `useGlobalMatrix?`)
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `index` | `number` | `undefined` |
-| `useGlobalMatrix` | `boolean` | `false` |
-
-#### Defined in
-
-[src/components/anim/skeletonAnim/JointPose.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/JointPose.ts#L6)

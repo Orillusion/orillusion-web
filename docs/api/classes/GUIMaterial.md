@@ -12,20 +12,15 @@ material used in rendering GUI
 
 - [constructor](GUIMaterial.md#constructor)
 
-### Methods
+### Properties
 
-- [setLimitVertex](GUIMaterial.md#setlimitvertex)
-- [setScreenSize](GUIMaterial.md#setscreensize)
-- [setTextures](GUIMaterial.md#settextures)
-- [setDefine](GUIMaterial.md#setdefine)
-- [hasPass](GUIMaterial.md#haspass)
-- [addPass](GUIMaterial.md#addpass)
-- [removePass](GUIMaterial.md#removepass)
-- [destroy](GUIMaterial.md#destroy)
-- [clone](GUIMaterial.md#clone)
-- [setShader](GUIMaterial.md#setshader)
-- [getShader](GUIMaterial.md#getshader)
-- [debug](GUIMaterial.md#debug)
+- [name](GUIMaterial.md#name)
+- [instanceID](GUIMaterial.md#instanceid)
+- [isPassMaterial](GUIMaterial.md#ispassmaterial)
+- [receiveEnv](GUIMaterial.md#receiveenv)
+- [renderPasses](GUIMaterial.md#renderpasses)
+- [enable](GUIMaterial.md#enable)
+- [renderShader](GUIMaterial.md#rendershader)
 
 ### Accessors
 
@@ -56,15 +51,20 @@ material used in rendering GUI
 - [depthBias](GUIMaterial.md#depthbias)
 - [depthCompare](GUIMaterial.md#depthcompare)
 
-### Properties
+### Methods
 
-- [name](GUIMaterial.md#name)
-- [instanceID](GUIMaterial.md#instanceid)
-- [isPassMaterial](GUIMaterial.md#ispassmaterial)
-- [receiveEnv](GUIMaterial.md#receiveenv)
-- [renderPasses](GUIMaterial.md#renderpasses)
-- [enable](GUIMaterial.md#enable)
-- [renderShader](GUIMaterial.md#rendershader)
+- [setLimitVertex](GUIMaterial.md#setlimitvertex)
+- [setScreenSize](GUIMaterial.md#setscreensize)
+- [setTextures](GUIMaterial.md#settextures)
+- [setDefine](GUIMaterial.md#setdefine)
+- [hasPass](GUIMaterial.md#haspass)
+- [addPass](GUIMaterial.md#addpass)
+- [removePass](GUIMaterial.md#removepass)
+- [destroy](GUIMaterial.md#destroy)
+- [clone](GUIMaterial.md#clone)
+- [setShader](GUIMaterial.md#setshader)
+- [getShader](GUIMaterial.md#getshader)
+- [debug](GUIMaterial.md#debug)
 
 ## Constructors
 
@@ -84,289 +84,115 @@ MaterialBase.constructor
 
 #### Defined in
 
-[src/components/gui/core/GUIMaterial.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L10)
+[src/components/gui/core/GUIMaterial.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L17)
 
-## Methods
+## Properties
 
-### setLimitVertex
+### name
 
-▸ **setLimitVertex**(`vertexCount`): `void`
+• **name**: `string`
 
-Write effective vertex count (vertex index < vertexCount)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `vertexCount` | `number` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/components/gui/core/GUIMaterial.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L38)
-
-___
-
-### setScreenSize
-
-▸ **setScreenSize**(`width`, `height`): [`GUIMaterial`](GUIMaterial.md)
-
-Write screen size to the shader
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `width` | `number` |
-| `height` | `number` |
-
-#### Returns
-
-[`GUIMaterial`](GUIMaterial.md)
-
-#### Defined in
-
-[src/components/gui/core/GUIMaterial.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L47)
-
-___
-
-### setTextures
-
-▸ **setTextures**(`list`): `void`
-
-Update texture used in GUI
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `list` | [`Texture`](Texture.md)[] |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/components/gui/core/GUIMaterial.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L56)
-
-___
-
-### setDefine
-
-▸ **setDefine**(`define`, `bool`): `void`
-
-Enable/Disable the definition of shaders
-
-**`Memberof`**
-
-MaterialBase
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `define` | `string` | key |
-| `bool` | `boolean` | - |
-
-#### Returns
-
-`void`
+name of this material
 
 #### Inherited from
 
-MaterialBase.setDefine
+MaterialBase.name
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:309](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L309)
+[src/materials/MaterialBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L23)
 
 ___
 
-### hasPass
+### instanceID
 
-▸ **hasPass**(`passType`): `boolean`
+• **instanceID**: `string`
 
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `passType` | `RendererType` |
-
-#### Returns
-
-`boolean`
+Material Unique Identifier
 
 #### Inherited from
 
-MaterialBase.hasPass
+MaterialBase.instanceID
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:313](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L313)
+[src/materials/MaterialBase.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L29)
 
 ___
 
-### addPass
+### isPassMaterial
 
-▸ **addPass**(`passType`, `pass`, `index?`): [`MaterialPass`](MaterialPass.md)[]
+• **isPassMaterial**: `boolean` = `false`
 
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `passType` | `RendererType` | `undefined` |
-| `pass` | [`MaterialPass`](MaterialPass.md) | `undefined` |
-| `index` | `number` | `-1` |
-
-#### Returns
-
-[`MaterialPass`](MaterialPass.md)[]
+is PassMaterial
 
 #### Inherited from
 
-MaterialBase.addPass
+MaterialBase.isPassMaterial
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:317](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L317)
+[src/materials/MaterialBase.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L34)
 
 ___
 
-### removePass
+### receiveEnv
 
-▸ **removePass**(`passType`, `index`): `void`
+• **receiveEnv**: `boolean` = `true`
 
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `passType` | `RendererType` |
-| `index` | `number` |
-
-#### Returns
-
-`void`
+Whether to receive environment effect
 
 #### Inherited from
 
-MaterialBase.removePass
+MaterialBase.receiveEnv
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:333](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L333)
+[src/materials/MaterialBase.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L39)
 
 ___
 
-### destroy
+### renderPasses
 
-▸ **destroy**(`force?`): `void`
-
-destroy self
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
-
-#### Returns
-
-`void`
+• **renderPasses**: `Map`<`RendererType`, [`MaterialPass`](MaterialPass.md)[]\>
 
 #### Inherited from
 
-MaterialBase.destroy
+MaterialBase.renderPasses
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:346](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L346)
+[src/materials/MaterialPass.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L8)
 
 ___
 
-### clone
+### enable
 
-▸ **clone**(): `any`
+• **enable**: `boolean` = `true`
 
-clone one material
-
-#### Returns
-
-`any`
-
-Material
+whether the pass is enable
 
 #### Inherited from
 
-MaterialBase.clone
+MaterialBase.enable
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:355](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L355)
+[src/materials/MaterialPass.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L13)
 
 ___
 
-### setShader
+### renderShader
 
-▸ **setShader**(`vs`, `fs`): [`RenderShader`](RenderShader.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `vs` | `string` |
-| `fs` | `string` |
-
-#### Returns
-
-[`RenderShader`](RenderShader.md)
+• **renderShader**: [`RenderShader`](RenderShader.md)
 
 #### Inherited from
 
-MaterialBase.setShader
+MaterialBase.renderShader
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L39)
-
-___
-
-### getShader
-
-▸ **getShader**(): [`RenderShader`](RenderShader.md)
-
-#### Returns
-
-[`RenderShader`](RenderShader.md)
-
-#### Inherited from
-
-MaterialBase.getShader
-
-#### Defined in
-
-[src/materials/MaterialPass.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L46)
-
-___
-
-### debug
-
-▸ **debug**(): `void`
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-MaterialBase.debug
-
-#### Defined in
-
-[src/materials/MaterialPass.ts:166](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L166)
+[src/materials/MaterialPass.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L15)
 
 ## Accessors
 
@@ -390,7 +216,7 @@ MaterialBase.envMap
 
 #### Defined in
 
-[src/components/gui/core/GUIMaterial.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L77)
+[src/components/gui/core/GUIMaterial.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L84)
 
 ___
 
@@ -414,7 +240,7 @@ MaterialBase.shadowMap
 
 #### Defined in
 
-[src/components/gui/core/GUIMaterial.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L78)
+[src/components/gui/core/GUIMaterial.ts:85](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L85)
 
 ___
 
@@ -438,7 +264,7 @@ MaterialBase.baseMap
 
 #### Defined in
 
-[src/components/gui/core/GUIMaterial.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L79)
+[src/components/gui/core/GUIMaterial.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L86)
 
 ___
 
@@ -462,7 +288,7 @@ MaterialBase.normalMap
 
 #### Defined in
 
-[src/components/gui/core/GUIMaterial.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L80)
+[src/components/gui/core/GUIMaterial.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L87)
 
 ___
 
@@ -486,7 +312,7 @@ MaterialBase.emissiveMap
 
 #### Defined in
 
-[src/components/gui/core/GUIMaterial.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L81)
+[src/components/gui/core/GUIMaterial.ts:88](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L88)
 
 ___
 
@@ -510,7 +336,7 @@ MaterialBase.irradianceMap
 
 #### Defined in
 
-[src/components/gui/core/GUIMaterial.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L82)
+[src/components/gui/core/GUIMaterial.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L89)
 
 ___
 
@@ -534,7 +360,7 @@ MaterialBase.irradianceDepthMap
 
 #### Defined in
 
-[src/components/gui/core/GUIMaterial.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L83)
+[src/components/gui/core/GUIMaterial.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L90)
 
 ___
 
@@ -1210,7 +1036,7 @@ MaterialBase.cullMode
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L109)
+[src/materials/MaterialPass.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L114)
 
 • `set` **cullMode**(`value`): `void`
 
@@ -1232,7 +1058,7 @@ MaterialBase.cullMode
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L116)
+[src/materials/MaterialPass.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L121)
 
 ___
 
@@ -1250,7 +1076,7 @@ MaterialBase.depthBias
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L120)
+[src/materials/MaterialPass.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L125)
 
 • `set` **depthBias**(`value`): `void`
 
@@ -1270,7 +1096,7 @@ MaterialBase.depthBias
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L124)
+[src/materials/MaterialPass.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L129)
 
 ___
 
@@ -1290,7 +1116,7 @@ MaterialBase.depthCompare
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L131)
+[src/materials/MaterialPass.ts:136](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L136)
 
 • `set` **depthCompare**(`value`): `void`
 
@@ -1312,112 +1138,286 @@ MaterialBase.depthCompare
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:138](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L138)
+[src/materials/MaterialPass.ts:143](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L143)
 
-## Properties
+## Methods
 
-### name
+### setLimitVertex
 
-• **name**: `string`
+▸ **setLimitVertex**(`vertexCount`): `void`
 
-name of this material
+Write effective vertex count (vertex index < vertexCount)
 
-#### Inherited from
+#### Parameters
 
-MaterialBase.name
+| Name | Type |
+| :------ | :------ |
+| `vertexCount` | `number` |
+
+#### Returns
+
+`void`
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L23)
+[src/components/gui/core/GUIMaterial.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L45)
 
 ___
 
-### instanceID
+### setScreenSize
 
-• **instanceID**: `string`
+▸ **setScreenSize**(`width`, `height`): [`GUIMaterial`](GUIMaterial.md)
 
-Material Unique Identifier
+Write screen size to the shader
 
-#### Inherited from
+#### Parameters
 
-MaterialBase.instanceID
+| Name | Type |
+| :------ | :------ |
+| `width` | `number` |
+| `height` | `number` |
+
+#### Returns
+
+[`GUIMaterial`](GUIMaterial.md)
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L29)
+[src/components/gui/core/GUIMaterial.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L54)
 
 ___
 
-### isPassMaterial
+### setTextures
 
-• **isPassMaterial**: `boolean` = `false`
+▸ **setTextures**(`list`): `void`
 
-is PassMaterial
+Update texture used in GUI
 
-#### Inherited from
+#### Parameters
 
-MaterialBase.isPassMaterial
+| Name | Type |
+| :------ | :------ |
+| `list` | [`Texture`](Texture.md)[] |
+
+#### Returns
+
+`void`
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L34)
+[src/components/gui/core/GUIMaterial.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L63)
 
 ___
 
-### receiveEnv
+### setDefine
 
-• **receiveEnv**: `boolean` = `true`
+▸ **setDefine**(`define`, `bool`): `void`
 
-Whether to receive environment effect
+Enable/Disable the definition of shaders
+
+**`Memberof`**
+
+MaterialBase
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `define` | `string` | key |
+| `bool` | `boolean` | - |
+
+#### Returns
+
+`void`
 
 #### Inherited from
 
-MaterialBase.receiveEnv
+MaterialBase.setDefine
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L39)
+[src/materials/MaterialBase.ts:309](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L309)
 
 ___
 
-### renderPasses
+### hasPass
 
-• **renderPasses**: `Map`<`RendererType`, [`MaterialPass`](MaterialPass.md)[]\>
+▸ **hasPass**(`passType`): `boolean`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `passType` | `RendererType` |
+
+#### Returns
+
+`boolean`
 
 #### Inherited from
 
-MaterialBase.renderPasses
+MaterialBase.hasPass
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L8)
+[src/materials/MaterialBase.ts:313](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L313)
 
 ___
 
-### enable
+### addPass
 
-• **enable**: `boolean` = `true`
+▸ **addPass**(`passType`, `pass`, `index?`): [`MaterialPass`](MaterialPass.md)[]
 
-whether the pass is enable
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `passType` | `RendererType` | `undefined` |
+| `pass` | [`MaterialPass`](MaterialPass.md) | `undefined` |
+| `index` | `number` | `-1` |
+
+#### Returns
+
+[`MaterialPass`](MaterialPass.md)[]
 
 #### Inherited from
 
-MaterialBase.enable
+MaterialBase.addPass
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L13)
+[src/materials/MaterialBase.ts:317](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L317)
 
 ___
 
-### renderShader
+### removePass
 
-• **renderShader**: [`RenderShader`](RenderShader.md)
+▸ **removePass**(`passType`, `index`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `passType` | `RendererType` |
+| `index` | `number` |
+
+#### Returns
+
+`void`
 
 #### Inherited from
 
-MaterialBase.renderShader
+MaterialBase.removePass
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L15)
+[src/materials/MaterialBase.ts:333](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L333)
+
+___
+
+### destroy
+
+▸ **destroy**(`force?`): `void`
+
+destroy self
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+MaterialBase.destroy
+
+#### Defined in
+
+[src/materials/MaterialBase.ts:346](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L346)
+
+___
+
+### clone
+
+▸ **clone**(): `any`
+
+clone one material
+
+#### Returns
+
+`any`
+
+Material
+
+#### Inherited from
+
+MaterialBase.clone
+
+#### Defined in
+
+[src/materials/MaterialBase.ts:355](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L355)
+
+___
+
+### setShader
+
+▸ **setShader**(`vs`, `fs`): [`RenderShader`](RenderShader.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `vs` | `string` |
+| `fs` | `string` |
+
+#### Returns
+
+[`RenderShader`](RenderShader.md)
+
+#### Inherited from
+
+MaterialBase.setShader
+
+#### Defined in
+
+[src/materials/MaterialPass.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L39)
+
+___
+
+### getShader
+
+▸ **getShader**(): [`RenderShader`](RenderShader.md)
+
+#### Returns
+
+[`RenderShader`](RenderShader.md)
+
+#### Inherited from
+
+MaterialBase.getShader
+
+#### Defined in
+
+[src/materials/MaterialPass.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L46)
+
+___
+
+### debug
+
+▸ **debug**(): `void`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+MaterialBase.debug
+
+#### Defined in
+
+[src/materials/MaterialPass.ts:171](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L171)

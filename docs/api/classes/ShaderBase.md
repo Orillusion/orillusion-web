@@ -6,6 +6,10 @@
 
   ↳ [`RenderShader`](RenderShader.md)
 
+### Constructors
+
+- [constructor](ShaderBase.md#constructor)
+
 ### Properties
 
 - [instanceID](ShaderBase.md#instanceid)
@@ -17,10 +21,6 @@
 - [defineValue](ShaderBase.md#definevalue)
 - [constValues](ShaderBase.md#constvalues)
 - [uniforms](ShaderBase.md#uniforms)
-
-### Constructors
-
-- [constructor](ShaderBase.md#constructor)
 
 ### Methods
 
@@ -39,6 +39,16 @@
 - [setUniformColor](ShaderBase.md#setuniformcolor)
 - [setUniformArray](ShaderBase.md#setuniformarray)
 - [destroy](ShaderBase.md#destroy)
+
+## Constructors
+
+### constructor
+
+• **new ShaderBase**()
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L65)
 
 ## Properties
 
@@ -159,16 +169,6 @@ Uniforms data collection
 #### Defined in
 
 [src/gfx/graphics/webGpu/shader/ShaderBase.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L59)
-
-## Constructors
-
-### constructor
-
-• **new ShaderBase**()
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/shader/ShaderBase.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L65)
 
 ## Methods
 

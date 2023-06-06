@@ -1,26 +1,16 @@
 # Class: TilesRenderer
 
-### Properties
-
-- [group](TilesRenderer.md#group)
-
 ### Constructors
 
 - [constructor](TilesRenderer.md#constructor)
 
+### Properties
+
+- [group](TilesRenderer.md#group)
+
 ### Methods
 
 - [loadTileSet](TilesRenderer.md#loadtileset)
-
-## Properties
-
-### group
-
-• `Readonly` **group**: [`Object3D`](Object3D.md)
-
-#### Defined in
-
-[src/loader/parser/tileRenderer/TilesRenderer.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TilesRenderer.ts#L10)
 
 ## Constructors
 
@@ -31,6 +21,16 @@
 #### Defined in
 
 [src/loader/parser/tileRenderer/TilesRenderer.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TilesRenderer.ts#L15)
+
+## Properties
+
+### group
+
+• `Readonly` **group**: [`Object3D`](Object3D.md)
+
+#### Defined in
+
+[src/loader/parser/tileRenderer/TilesRenderer.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TilesRenderer.ts#L10)
 
 ## Methods
 

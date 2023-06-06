@@ -10,6 +10,10 @@ usage GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_DST
 
   ↳ **`StorageGPUBuffer`**
 
+### Constructors
+
+- [constructor](StorageGPUBuffer.md#constructor)
+
 ### Properties
 
 - [bufferType](StorageGPUBuffer.md#buffertype)
@@ -53,9 +57,27 @@ usage GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_DST
 - [destroy](StorageGPUBuffer.md#destroy)
 - [readBuffer](StorageGPUBuffer.md#readbuffer)
 
-### Constructors
+## Constructors
 
-- [constructor](StorageGPUBuffer.md#constructor)
+### constructor
+
+• **new StorageGPUBuffer**(`size`, `usage?`, `data?`)
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `size` | `number` | `undefined` |
+| `usage` | `number` | `0` |
+| `data?` | [`ArrayBufferData`](../types/ArrayBufferData.md) | `undefined` |
+
+#### Overrides
+
+GPUBufferBase.constructor
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/buffer/StorageGPUBuffer.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/StorageGPUBuffer.ts#L11)
 
 ## Properties
 
@@ -868,26 +890,4 @@ GPUBufferBase.readBuffer
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:383](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L383)
-
-## Constructors
-
-### constructor
-
-• **new StorageGPUBuffer**(`size`, `usage?`, `data?`)
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `size` | `number` | `undefined` |
-| `usage` | `number` | `0` |
-| `data?` | [`ArrayBufferData`](../types/ArrayBufferData.md) | `undefined` |
-
-#### Overrides
-
-GPUBufferBase.constructor
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/buffer/StorageGPUBuffer.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/StorageGPUBuffer.ts#L11)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:382](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L382)

@@ -8,6 +8,10 @@ enum keyboard event[InputSystem](InputSystem.md)
 
   ↳ **`KeyEvent`**
 
+### Constructors
+
+- [constructor](KeyEvent.md#constructor)
+
 ### Properties
 
 - [target](KeyEvent.md#target)
@@ -29,17 +33,36 @@ enum keyboard event[InputSystem](InputSystem.md)
 - [KEY\_UP](KeyEvent.md#key_up)
 - [keyCode](KeyEvent.md#keycode)
 
-### Constructors
+### Accessors
 
-- [constructor](KeyEvent.md#constructor)
+- [isStopImmediatePropagation](KeyEvent.md#isstopimmediatepropagation)
 
 ### Methods
 
 - [stopImmediatePropagation](KeyEvent.md#stopimmediatepropagation)
 
-### Accessors
+## Constructors
 
-- [isStopImmediatePropagation](KeyEvent.md#isstopimmediatepropagation)
+### constructor
+
+• **new KeyEvent**(`eventType?`, `data?`)
+
+Create a new event, with type and data
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `eventType` | `string` | `null` | {any} eventType |
+| `data` | `any` | `null` | {any} param |
+
+#### Inherited from
+
+[CEvent](CEvent.md).[constructor](CEvent.md#constructor)
+
+#### Defined in
+
+[src/event/CEvent.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L97)
 
 ## Properties
 
@@ -343,28 +366,25 @@ Web,Native
 
 [src/event/eventConst/KeyEvent.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/KeyEvent.ts#L32)
 
-## Constructors
+## Accessors
 
-### constructor
+### isStopImmediatePropagation
 
-• **new KeyEvent**(`eventType?`, `data?`)
+• `get` **isStopImmediatePropagation**(): `boolean`
 
-Create a new event, with type and data
+Returns stopImmediatePropagation value
 
-#### Parameters
+#### Returns
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `eventType` | `string` | `null` | {any} eventType |
-| `data` | `any` | `null` | {any} param |
+`boolean`
 
 #### Inherited from
 
-[CEvent](CEvent.md).[constructor](CEvent.md#constructor)
+CEvent.isStopImmediatePropagation
 
 #### Defined in
 
-[src/event/CEvent.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L97)
+[src/event/CEvent.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L120)
 
 ## Methods
 
@@ -385,23 +405,3 @@ Prevent bubbling of all event listeners in subsequent nodes of the current node 
 #### Defined in
 
 [src/event/CEvent.ts:105](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L105)
-
-## Accessors
-
-### isStopImmediatePropagation
-
-• `get` **isStopImmediatePropagation**(): `boolean`
-
-Returns stopImmediatePropagation value
-
-#### Returns
-
-`boolean`
-
-#### Inherited from
-
-CEvent.isStopImmediatePropagation
-
-#### Defined in
-
-[src/event/CEvent.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L120)

@@ -9,6 +9,10 @@ enum event type of pointer.
 
   ↳ **`PointerEvent3D`**
 
+### Constructors
+
+- [constructor](PointerEvent3D.md#constructor)
+
 ### Properties
 
 - [target](PointerEvent3D.md#target)
@@ -58,17 +62,36 @@ enum event type of pointer.
 - [deltaX](PointerEvent3D.md#deltax)
 - [deltaY](PointerEvent3D.md#deltay)
 
-### Constructors
+### Accessors
 
-- [constructor](PointerEvent3D.md#constructor)
+- [isStopImmediatePropagation](PointerEvent3D.md#isstopimmediatepropagation)
 
 ### Methods
 
 - [stopImmediatePropagation](PointerEvent3D.md#stopimmediatepropagation)
 
-### Accessors
+## Constructors
 
-- [isStopImmediatePropagation](PointerEvent3D.md#isstopimmediatepropagation)
+### constructor
+
+• **new PointerEvent3D**(`eventType?`, `data?`)
+
+Create a new event, with type and data
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `eventType` | `string` | `null` | {any} eventType |
+| `data` | `any` | `null` | {any} param |
+
+#### Inherited from
+
+[CEvent](CEvent.md).[constructor](CEvent.md#constructor)
+
+#### Defined in
+
+[src/event/CEvent.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L97)
 
 ## Properties
 
@@ -688,28 +711,25 @@ Returns a positive value when scrolling down,
 
 [src/event/eventConst/PointerEvent3D.ts:172](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L172)
 
-## Constructors
+## Accessors
 
-### constructor
+### isStopImmediatePropagation
 
-• **new PointerEvent3D**(`eventType?`, `data?`)
+• `get` **isStopImmediatePropagation**(): `boolean`
 
-Create a new event, with type and data
+Returns stopImmediatePropagation value
 
-#### Parameters
+#### Returns
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `eventType` | `string` | `null` | {any} eventType |
-| `data` | `any` | `null` | {any} param |
+`boolean`
 
 #### Inherited from
 
-[CEvent](CEvent.md).[constructor](CEvent.md#constructor)
+CEvent.isStopImmediatePropagation
 
 #### Defined in
 
-[src/event/CEvent.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L97)
+[src/event/CEvent.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L120)
 
 ## Methods
 
@@ -730,23 +750,3 @@ Prevent bubbling of all event listeners in subsequent nodes of the current node 
 #### Defined in
 
 [src/event/CEvent.ts:105](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L105)
-
-## Accessors
-
-### isStopImmediatePropagation
-
-• `get` **isStopImmediatePropagation**(): `boolean`
-
-Returns stopImmediatePropagation value
-
-#### Returns
-
-`boolean`
-
-#### Inherited from
-
-CEvent.isStopImmediatePropagation
-
-#### Defined in
-
-[src/event/CEvent.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L120)

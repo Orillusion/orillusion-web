@@ -8,6 +8,10 @@
 
   ↳ [`ProbeGBufferFrame`](ProbeGBufferFrame.md)
 
+### Constructors
+
+- [constructor](RTFrame.md#constructor)
+
 ### Properties
 
 - [label](RTFrame.md#label)
@@ -21,14 +25,30 @@
 - [depthLoadOp](RTFrame.md#depthloadop)
 - [isOutTarget](RTFrame.md#isouttarget)
 
-### Constructors
-
-- [constructor](RTFrame.md#constructor)
-
 ### Methods
 
 - [clone2Frame](RTFrame.md#clone2frame)
 - [clone](RTFrame.md#clone)
+
+## Constructors
+
+### constructor
+
+• **new RTFrame**(`attachments`, `rtDescriptors`, `depthTexture?`, `zPreTexture?`, `isOutTarget?`)
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `attachments` | `VirtualTexture`[] | `undefined` |
+| `rtDescriptors` | [`RTDescriptor`](RTDescriptor.md)[] | `undefined` |
+| `depthTexture?` | `VirtualTexture` | `undefined` |
+| `zPreTexture?` | `VirtualTexture` | `undefined` |
+| `isOutTarget` | `boolean` | `true` |
+
+#### Defined in
+
+[src/gfx/renderJob/frame/RTFrame.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L19)
 
 ## Properties
 
@@ -129,26 +149,6 @@ ___
 #### Defined in
 
 [src/gfx/renderJob/frame/RTFrame.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L17)
-
-## Constructors
-
-### constructor
-
-• **new RTFrame**(`attachments`, `rtDescriptors`, `depthTexture?`, `zPreTexture?`, `isOutTarget?`)
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `attachments` | `VirtualTexture`[] | `undefined` |
-| `rtDescriptors` | [`RTDescriptor`](RTDescriptor.md)[] | `undefined` |
-| `depthTexture?` | `VirtualTexture` | `undefined` |
-| `zPreTexture?` | `VirtualTexture` | `undefined` |
-| `isOutTarget` | `boolean` | `true` |
-
-#### Defined in
-
-[src/gfx/renderJob/frame/RTFrame.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L19)
 
 ## Methods
 

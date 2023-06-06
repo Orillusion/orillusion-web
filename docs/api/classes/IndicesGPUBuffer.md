@@ -10,6 +10,10 @@ usage GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_DST | GPUBufferUsage.INDEX | 
 
   ↳ **`IndicesGPUBuffer`**
 
+### Constructors
+
+- [constructor](IndicesGPUBuffer.md#constructor)
+
 ### Properties
 
 - [bufferType](IndicesGPUBuffer.md#buffertype)
@@ -54,9 +58,25 @@ usage GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_DST | GPUBufferUsage.INDEX | 
 - [destroy](IndicesGPUBuffer.md#destroy)
 - [readBuffer](IndicesGPUBuffer.md#readbuffer)
 
-### Constructors
+## Constructors
 
-- [constructor](IndicesGPUBuffer.md#constructor)
+### constructor
+
+• **new IndicesGPUBuffer**(`data?`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `data?` | [`ArrayBufferData`](../types/ArrayBufferData.md) |
+
+#### Overrides
+
+GPUBufferBase.constructor
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/buffer/IndicesGPUBuffer.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/IndicesGPUBuffer.ts#L15)
 
 ## Properties
 
@@ -879,24 +899,4 @@ GPUBufferBase.readBuffer
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:383](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L383)
-
-## Constructors
-
-### constructor
-
-• **new IndicesGPUBuffer**(`data?`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `data?` | [`ArrayBufferData`](../types/ArrayBufferData.md) |
-
-#### Overrides
-
-GPUBufferBase.constructor
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/buffer/IndicesGPUBuffer.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/IndicesGPUBuffer.ts#L15)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:382](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L382)

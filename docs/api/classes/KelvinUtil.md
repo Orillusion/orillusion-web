@@ -2,6 +2,10 @@
 
 Temperature Color Converter
 
+### Constructors
+
+- [constructor](KelvinUtil.md#constructor)
+
 ### Methods
 
 - [color\_temperature\_to\_rgb](KelvinUtil.md#color_temperature_to_rgb)
@@ -9,9 +13,11 @@ Temperature Color Converter
 - [get\_green](KelvinUtil.md#get_green)
 - [get\_blue](KelvinUtil.md#get_blue)
 
-### Constructors
+## Constructors
 
-- [constructor](KelvinUtil.md#constructor)
+### constructor
+
+• **new KelvinUtil**()
 
 ## Methods
 
@@ -100,9 +106,3 @@ Return blue component [0-255]
 #### Defined in
 
 [src/util/KelvinUtil.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/util/KelvinUtil.ts#L56)
-
-## Constructors
-
-### constructor
-
-• **new KelvinUtil**()

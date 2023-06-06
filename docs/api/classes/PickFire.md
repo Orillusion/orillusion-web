@@ -8,6 +8,16 @@ Management and triggering for picking 3D objects
 
   ↳ **`PickFire`**
 
+### Constructors
+
+- [constructor](PickFire.md#constructor)
+
+### Properties
+
+- [ray](PickFire.md#ray)
+- [isTouching](PickFire.md#istouching)
+- [mouseEnableMap](PickFire.md#mouseenablemap)
+
 ### Methods
 
 - [dispatchEvent](PickFire.md#dispatchevent)
@@ -21,15 +31,61 @@ Management and triggering for picking 3D objects
 - [start](PickFire.md#start)
 - [stop](PickFire.md#stop)
 
-### Properties
+## Constructors
 
-- [ray](PickFire.md#ray)
-- [isTouching](PickFire.md#istouching)
-- [mouseEnableMap](PickFire.md#mouseenablemap)
+### constructor
 
-### Constructors
+• **new PickFire**(`view`)
 
-- [constructor](PickFire.md#constructor)
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view` | [`View3D`](View3D.md) |
+
+#### Overrides
+
+[CEventDispatcher](CEventDispatcher.md).[constructor](CEventDispatcher.md#constructor)
+
+#### Defined in
+
+[src/io/PickFire.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L44)
+
+## Properties
+
+### ray
+
+• **ray**: [`Ray`](Ray.md)
+
+The ray used to pick 3D objects
+
+#### Defined in
+
+[src/io/PickFire.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L19)
+
+___
+
+### isTouching
+
+• **isTouching**: `boolean` = `false`
+
+whether it's touching
+
+#### Defined in
+
+[src/io/PickFire.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L24)
+
+___
+
+### mouseEnableMap
+
+• **mouseEnableMap**: `Map`<`number`, [`ColliderComponent`](ColliderComponent.md)\>
+
+a map records the association information between meshID(matrix id) and ColliderComponent
+
+#### Defined in
+
+[src/io/PickFire.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L41)
 
 ## Methods
 
@@ -279,59 +335,3 @@ stop this manager
 #### Defined in
 
 [src/io/PickFire.ts:85](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L85)
-
-## Properties
-
-### ray
-
-• **ray**: [`Ray`](Ray.md)
-
-The ray used to pick 3D objects
-
-#### Defined in
-
-[src/io/PickFire.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L19)
-
-___
-
-### isTouching
-
-• **isTouching**: `boolean` = `false`
-
-whether it's touching
-
-#### Defined in
-
-[src/io/PickFire.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L24)
-
-___
-
-### mouseEnableMap
-
-• **mouseEnableMap**: `Map`<`number`, [`ColliderComponent`](ColliderComponent.md)\>
-
-a map records the association information between meshID(matrix id) and ColliderComponent
-
-#### Defined in
-
-[src/io/PickFire.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L41)
-
-## Constructors
-
-### constructor
-
-• **new PickFire**(`view`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
-
-#### Overrides
-
-[CEventDispatcher](CEventDispatcher.md).[constructor](CEventDispatcher.md#constructor)
-
-#### Defined in
-
-[src/io/PickFire.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L44)

@@ -2,16 +2,16 @@
 
 Rectangular region
 
+### Constructors
+
+- [constructor](Rect.md#constructor)
+
 ### Properties
 
 - [x](Rect.md#x)
 - [y](Rect.md#y)
 - [w](Rect.md#w)
 - [h](Rect.md#h)
-
-### Constructors
-
-- [constructor](Rect.md#constructor)
 
 ### Accessors
 
@@ -30,6 +30,27 @@ Rectangular region
 - [equalInnerArea](Rect.md#equalinnerarea)
 - [innerArea](Rect.md#innerarea)
 - [setTo](Rect.md#setto)
+
+## Constructors
+
+### constructor
+
+• **new Rect**(`x?`, `y?`, `width?`, `height?`)
+
+Creates a new rectangular area object
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `x` | `number` | `0` | The x-coordinate of the rectangle |
+| `y` | `number` | `0` | The y coordinate of the rectangle |
+| `width` | `number` | `0` | Width of a rectangle |
+| `height` | `number` | `0` | Height of rectangle |
+
+#### Defined in
+
+[src/math/Rect.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L34)
 
 ## Properties
 
@@ -78,27 +99,6 @@ Height of rectangle
 #### Defined in
 
 [src/math/Rect.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L25)
-
-## Constructors
-
-### constructor
-
-• **new Rect**(`x?`, `y?`, `width?`, `height?`)
-
-Creates a new rectangular area object
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `x` | `number` | `0` | The x-coordinate of the rectangle |
-| `y` | `number` | `0` | The y coordinate of the rectangle |
-| `width` | `number` | `0` | Width of a rectangle |
-| `height` | `number` | `0` | Height of rectangle |
-
-#### Defined in
-
-[src/math/Rect.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L34)
 
 ## Accessors
 

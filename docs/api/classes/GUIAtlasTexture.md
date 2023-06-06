@@ -1,42 +1,24 @@
 # Class: GUIAtlasTexture
 
-### Properties
-
-- [textureSize](GUIAtlasTexture.md#texturesize)
-- [name](GUIAtlasTexture.md#name)
+Atlas data
 
 ### Constructors
 
 - [constructor](GUIAtlasTexture.md#constructor)
 
-### Methods
+### Properties
 
-- [setTexture](GUIAtlasTexture.md#settexture)
-- [getSprite](GUIAtlasTexture.md#getsprite)
+- [textureSize](GUIAtlasTexture.md#texturesize)
+- [name](GUIAtlasTexture.md#name)
 
 ### Accessors
 
 - [spriteList](GUIAtlasTexture.md#spritelist)
 
-## Properties
+### Methods
 
-### textureSize
-
-• `Readonly` **textureSize**: [`Vector2`](Vector2.md)
-
-#### Defined in
-
-[src/components/gui/core/GUIAtlasTexture.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIAtlasTexture.ts#L11)
-
-___
-
-### name
-
-• **name**: `string`
-
-#### Defined in
-
-[src/components/gui/core/GUIAtlasTexture.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIAtlasTexture.ts#L12)
+- [setTexture](GUIAtlasTexture.md#settexture)
+- [getSprite](GUIAtlasTexture.md#getsprite)
 
 ## Constructors
 
@@ -54,7 +36,45 @@ ___
 
 #### Defined in
 
+[src/components/gui/core/GUIAtlasTexture.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIAtlasTexture.ts#L19)
+
+## Properties
+
+### textureSize
+
+• `Readonly` **textureSize**: [`Vector2`](Vector2.md)
+
+#### Defined in
+
 [src/components/gui/core/GUIAtlasTexture.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIAtlasTexture.ts#L15)
+
+___
+
+### name
+
+• **name**: `string`
+
+#### Defined in
+
+[src/components/gui/core/GUIAtlasTexture.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIAtlasTexture.ts#L16)
+
+## Accessors
+
+### spriteList
+
+• `get` **spriteList**(): [`GUISprite`](GUISprite.md)[]
+
+Returns all sprite list
+
+#### Returns
+
+[`GUISprite`](GUISprite.md)[]
+
+list of GUISprite
+
+#### Defined in
+
+[src/components/gui/core/GUIAtlasTexture.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIAtlasTexture.ts#L50)
 
 ## Methods
 
@@ -68,7 +88,7 @@ create a sprite
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `srcTexture` | [`GUITexture`](GUITexture.md) | Usually it's an atlas diagram |
+| `srcTexture` | `GUITexture` | Usually it's an atlas diagram |
 | `id` | `string` | key of sprite |
 | `detail` | `any` | description of sprite |
 
@@ -80,7 +100,7 @@ GUISprite
 
 #### Defined in
 
-[src/components/gui/core/GUIAtlasTexture.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIAtlasTexture.ts#L26)
+[src/components/gui/core/GUIAtlasTexture.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIAtlasTexture.ts#L30)
 
 ___
 
@@ -104,22 +124,4 @@ GUISprite
 
 #### Defined in
 
-[src/components/gui/core/GUIAtlasTexture.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIAtlasTexture.ts#L38)
-
-## Accessors
-
-### spriteList
-
-• `get` **spriteList**(): [`GUISprite`](GUISprite.md)[]
-
-Returns all sprite list
-
-#### Returns
-
-[`GUISprite`](GUISprite.md)[]
-
-list of GUISprite
-
-#### Defined in
-
-[src/components/gui/core/GUIAtlasTexture.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIAtlasTexture.ts#L46)
+[src/components/gui/core/GUIAtlasTexture.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIAtlasTexture.ts#L42)

@@ -10,6 +10,10 @@ usage GPUBufferUsage.UNIFORM & GPUBufferUsage.COPY_DST & GPUBufferUsage.COPY_SRC
 
   ↳ **`UniformGPUBuffer`**
 
+### Constructors
+
+- [constructor](UniformGPUBuffer.md#constructor)
+
 ### Properties
 
 - [bufferType](UniformGPUBuffer.md#buffertype)
@@ -54,9 +58,26 @@ usage GPUBufferUsage.UNIFORM & GPUBufferUsage.COPY_DST & GPUBufferUsage.COPY_SRC
 - [readBuffer](UniformGPUBuffer.md#readbuffer)
 - [genUniformNodes](UniformGPUBuffer.md#genuniformnodes)
 
-### Constructors
+## Constructors
 
-- [constructor](UniformGPUBuffer.md#constructor)
+### constructor
+
+• **new UniformGPUBuffer**(`size`, `data?`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `size` | `number` |
+| `data?` | `Float32Array` |
+
+#### Overrides
+
+GPUBufferBase.constructor
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/buffer/UniformGPUBuffer.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/UniformGPUBuffer.ts#L10)
 
 ## Properties
 
@@ -869,7 +890,7 @@ GPUBufferBase.readBuffer
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:383](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L383)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:382](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L382)
 
 ___
 
@@ -884,24 +905,3 @@ ___
 #### Defined in
 
 [src/gfx/graphics/webGpu/core/buffer/UniformGPUBuffer.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/UniformGPUBuffer.ts#L16)
-
-## Constructors
-
-### constructor
-
-• **new UniformGPUBuffer**(`size`, `data?`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `size` | `number` |
-| `data?` | `Float32Array` |
-
-#### Overrides
-
-GPUBufferBase.constructor
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/buffer/UniformGPUBuffer.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/UniformGPUBuffer.ts#L10)

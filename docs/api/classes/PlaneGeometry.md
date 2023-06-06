@@ -8,6 +8,10 @@ Plane geometry
 
   ↳ **`PlaneGeometry`**
 
+### Constructors
+
+- [constructor](PlaneGeometry.md#constructor)
+
 ### Properties
 
 - [uuid](PlaneGeometry.md#uuid)
@@ -44,9 +48,29 @@ Plane geometry
 - [isPrimitive](PlaneGeometry.md#isprimitive)
 - [destroy](PlaneGeometry.md#destroy)
 
-### Constructors
+## Constructors
 
-- [constructor](PlaneGeometry.md#constructor)
+### constructor
+
+• **new PlaneGeometry**(`width`, `height`, `segmentW?`, `segmentH?`, `up?`)
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `width` | `number` | `undefined` | Width of the plane |
+| `height` | `number` | `undefined` | Height of the plane |
+| `segmentW` | `number` | `1` | Number of width segments of a plane |
+| `segmentH` | `number` | `1` | Number of height segments of a plane |
+| `up` | [`Vector3`](Vector3.md) | `Vector3.Y_AXIS` | Define the normal vector of a plane |
+
+#### Overrides
+
+[GeometryBase](GeometryBase.md).[constructor](GeometryBase.md#constructor)
+
+#### Defined in
+
+[src/shape/PlaneGeometry.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/shape/PlaneGeometry.ts#L41)
 
 ## Properties
 
@@ -581,27 +605,3 @@ ___
 #### Defined in
 
 [src/core/geometry/GeometryBase.ts:268](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L268)
-
-## Constructors
-
-### constructor
-
-• **new PlaneGeometry**(`width`, `height`, `segmentW?`, `segmentH?`, `up?`)
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `width` | `number` | `undefined` | Width of the plane |
-| `height` | `number` | `undefined` | Height of the plane |
-| `segmentW` | `number` | `1` | Number of width segments of a plane |
-| `segmentH` | `number` | `1` | Number of height segments of a plane |
-| `up` | [`Vector3`](Vector3.md) | `Vector3.Y_AXIS` | Define the normal vector of a plane |
-
-#### Overrides
-
-[GeometryBase](GeometryBase.md).[constructor](GeometryBase.md#constructor)
-
-#### Defined in
-
-[src/shape/PlaneGeometry.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/shape/PlaneGeometry.ts#L41)

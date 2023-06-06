@@ -13,20 +13,15 @@ let cfg = {@link Engine3D.setting.render.postProcessing.gtao};
 
   ↳ **`GTAOPost`**
 
+### Constructors
+
+- [constructor](GTAOPost.md#constructor)
+
 ### Properties
 
 - [rtFrame](GTAOPost.md#rtframe)
 - [enable](GTAOPost.md#enable)
 - [postRenderer](GTAOPost.md#postrenderer)
-
-### Constructors
-
-- [constructor](GTAOPost.md#constructor)
-
-### Methods
-
-- [onDetach](GTAOPost.md#ondetach)
-- [destroy](GTAOPost.md#destroy)
 
 ### Accessors
 
@@ -37,6 +32,25 @@ let cfg = {@link Engine3D.setting.render.postProcessing.gtao};
 - [multiBounce](GTAOPost.md#multibounce)
 - [blendColor](GTAOPost.md#blendcolor)
 - [usePosFloat32](GTAOPost.md#useposfloat32)
+
+### Methods
+
+- [onDetach](GTAOPost.md#ondetach)
+- [destroy](GTAOPost.md#destroy)
+
+## Constructors
+
+### constructor
+
+• **new GTAOPost**()
+
+#### Overrides
+
+PostBase.constructor
+
+#### Defined in
+
+[src/gfx/renderJob/post/GTAOPost.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L62)
 
 ## Properties
 
@@ -75,68 +89,6 @@ PostBase.postRenderer
 #### Defined in
 
 [src/gfx/renderJob/post/PostBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L20)
-
-## Constructors
-
-### constructor
-
-• **new GTAOPost**()
-
-#### Overrides
-
-PostBase.constructor
-
-#### Defined in
-
-[src/gfx/renderJob/post/GTAOPost.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L62)
-
-## Methods
-
-### onDetach
-
-▸ **onDetach**(`view`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-PostBase.onDetach
-
-#### Defined in
-
-[src/gfx/renderJob/post/GTAOPost.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L76)
-
-___
-
-### destroy
-
-▸ **destroy**(`force?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PostBase.destroy
-
-#### Defined in
-
-[src/gfx/renderJob/post/PostBase.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L81)
 
 ## Accessors
 
@@ -347,3 +299,51 @@ ___
 #### Defined in
 
 [src/gfx/renderJob/post/GTAOPost.ts:151](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L151)
+
+## Methods
+
+### onDetach
+
+▸ **onDetach**(`view`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+PostBase.onDetach
+
+#### Defined in
+
+[src/gfx/renderJob/post/GTAOPost.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L76)
+
+___
+
+### destroy
+
+▸ **destroy**(`force?`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+PostBase.destroy
+
+#### Defined in
+
+[src/gfx/renderJob/post/PostBase.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L81)

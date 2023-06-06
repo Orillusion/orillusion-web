@@ -2,6 +2,10 @@
 
 RGBA Color Object
 
+### Constructors
+
+- [constructor](Color.md#constructor)
+
 ### Properties
 
 - [COLOR\_RED](Color.md#color_red)
@@ -155,9 +159,10 @@ RGBA Color Object
 - [NAVY](Color.md#navy)
 - [BLACK](Color.md#black)
 
-### Constructors
+### Accessors
 
-- [constructor](Color.md#constructor)
+- [rgb](Color.md#rgb)
+- [rgba](Color.md#rgba)
 
 ### Methods
 
@@ -174,10 +179,26 @@ RGBA Color Object
 - [copyFromArray](Color.md#copyfromarray)
 - [hexRGBColor](Color.md#hexrgbcolor)
 
-### Accessors
+## Constructors
 
-- [rgb](Color.md#rgb)
-- [rgba](Color.md#rgba)
+### constructor
+
+• **new Color**(`r?`, `g?`, `b?`, `a?`)
+
+create new color instance
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `r` | `number` | `1.0` | red channel |
+| `g` | `number` | `1.0` | green channel |
+| `b` | `number` | `1.0` | blue channel |
+| `a` | `number` | `1.0` | alpha channel |
+
+#### Defined in
+
+[src/math/Color.ts:92](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L92)
 
 ## Properties
 
@@ -1695,26 +1716,73 @@ ___
 
 [src/math/Color.ts:439](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L439)
 
-## Constructors
+## Accessors
 
-### constructor
+### rgb
 
-• **new Color**(`r?`, `g?`, `b?`, `a?`)
+• `get` **rgb**(): `number`[]
 
-create new color instance
+get rgb to array
 
-#### Parameters
+#### Returns
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `r` | `number` | `1.0` | red channel |
-| `g` | `number` | `1.0` | green channel |
-| `b` | `number` | `1.0` | blue channel |
-| `a` | `number` | `1.0` | alpha channel |
+`number`[]
 
 #### Defined in
 
-[src/math/Color.ts:92](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L92)
+[src/math/Color.ts:224](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L224)
+
+• `set` **rgb**(`c`): `void`
+
+set rgb by array
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `c` | `number`[] |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/math/Color.ts:231](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L231)
+
+___
+
+### rgba
+
+• `get` **rgba**(): `number`[]
+
+get rgba to array
+
+#### Returns
+
+`number`[]
+
+#### Defined in
+
+[src/math/Color.ts:238](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L238)
+
+• `set` **rgba**(`c`): `void`
+
+set rgb by array
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `c` | `number`[] |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/math/Color.ts:245](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L245)
 
 ## Methods
 
@@ -1966,71 +2034,3 @@ update this color rgb from hexadecimal no alpha
 #### Defined in
 
 [src/math/Color.ts:288](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L288)
-
-## Accessors
-
-### rgb
-
-• `get` **rgb**(): `number`[]
-
-get rgb to array
-
-#### Returns
-
-`number`[]
-
-#### Defined in
-
-[src/math/Color.ts:224](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L224)
-
-• `set` **rgb**(`c`): `void`
-
-set rgb by array
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `c` | `number`[] |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/math/Color.ts:231](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L231)
-
-___
-
-### rgba
-
-• `get` **rgba**(): `number`[]
-
-get rgba to array
-
-#### Returns
-
-`number`[]
-
-#### Defined in
-
-[src/math/Color.ts:238](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L238)
-
-• `set` **rgba**(`c`): `void`
-
-set rgb by array
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `c` | `number`[] |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/math/Color.ts:245](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L245)

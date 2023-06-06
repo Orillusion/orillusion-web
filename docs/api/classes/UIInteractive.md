@@ -1,7 +1,6 @@
 # Class: UIInteractive
 
-Components are used to attach functionality to object3D, it has an owner object3D.
-The component can receive update events at each frame.
+The basic class of interactive GUI component
 
 ## Hierarchy
 
@@ -15,13 +14,13 @@ The component can receive update events at each frame.
 
 - [`IUIInteractive`](../interfaces/IUIInteractive.md)
 
-### Properties
-
-- [object3D](UIInteractive.md#object3d)
-
 ### Constructors
 
 - [constructor](UIInteractive.md#constructor)
+
+### Properties
+
+- [object3D](UIInteractive.md#object3d)
 
 ### Accessors
 
@@ -45,11 +44,25 @@ The component can receive update events at each frame.
 - [onCompute](UIInteractive.md#oncompute)
 - [onGraphic](UIInteractive.md#ongraphic)
 - [onParentChange](UIInteractive.md#onparentchange)
-- [copyComponent](UIInteractive.md#copycomponent)
 - [init](UIInteractive.md#init)
 - [destroy](UIInteractive.md#destroy)
 - [rayPick](UIInteractive.md#raypick)
 - [cloneTo](UIInteractive.md#cloneto)
+- [copyComponent](UIInteractive.md#copycomponent)
+
+## Constructors
+
+### constructor
+
+• **new UIInteractive**()
+
+#### Inherited from
+
+[UIComponentBase](UIComponentBase.md).[constructor](UIComponentBase.md#constructor)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L31)
 
 ## Properties
 
@@ -70,20 +83,6 @@ owner object3D
 #### Defined in
 
 [src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
-
-## Constructors
-
-### constructor
-
-• **new UIInteractive**()
-
-#### Inherited from
-
-[UIComponentBase](UIComponentBase.md).[constructor](UIComponentBase.md#constructor)
-
-#### Defined in
-
-[src/components/ComponentBase.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L31)
 
 ## Accessors
 
@@ -171,7 +170,7 @@ UIComponentBase.uiTransform
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIComponentBase.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L12)
+[src/components/gui/uiComponents/UIComponentBase.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L16)
 
 ___
 
@@ -193,7 +192,7 @@ UIComponentBase.visible
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIComponentBase.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L16)
+[src/components/gui/uiComponents/UIComponentBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L20)
 
 • `set` **visible**(`value`): `void`
 
@@ -217,7 +216,7 @@ UIComponentBase.visible
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIComponentBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L20)
+[src/components/gui/uiComponents/UIComponentBase.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L24)
 
 ___
 
@@ -235,7 +234,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIInteractive.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L17)
+[src/components/gui/uiComponents/UIInteractive.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L21)
 
 • `set` **interactive**(`value`): `void`
 
@@ -255,7 +254,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIInteractive.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L13)
+[src/components/gui/uiComponents/UIInteractive.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L17)
 
 ___
 
@@ -279,7 +278,7 @@ IUIInteractive.mouseStyle
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIInteractive.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L21)
+[src/components/gui/uiComponents/UIInteractive.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L25)
 
 ___
 
@@ -297,7 +296,7 @@ IUIInteractive.interactiveVisible
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIInteractive.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L25)
+[src/components/gui/uiComponents/UIInteractive.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L29)
 
 ## Methods
 
@@ -531,30 +530,6 @@ ___
 
 ___
 
-### copyComponent
-
-▸ **copyComponent**(`from`): [`UIInteractive`](UIInteractive.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `from` | [`UIInteractive`](UIInteractive.md) |
-
-#### Returns
-
-[`UIInteractive`](UIInteractive.md)
-
-#### Inherited from
-
-[UIComponentBase](UIComponentBase.md).[copyComponent](UIComponentBase.md#copycomponent)
-
-#### Defined in
-
-[src/components/gui/uiComponents/UIComponentBase.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L37)
-
-___
-
 ### init
 
 ▸ **init**(`param?`): `void`
@@ -575,7 +550,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIInteractive.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L29)
+[src/components/gui/uiComponents/UIInteractive.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L33)
 
 ___
 
@@ -599,7 +574,7 @@ release this component
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIInteractive.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L34)
+[src/components/gui/uiComponents/UIInteractive.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L38)
 
 ___
 
@@ -631,7 +606,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIInteractive.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L39)
+[src/components/gui/uiComponents/UIInteractive.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L43)
 
 ___
 
@@ -657,4 +632,28 @@ clone component data to target object3D
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIInteractive.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L44)
+[src/components/gui/uiComponents/UIInteractive.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L48)
+
+___
+
+### copyComponent
+
+▸ **copyComponent**(`from`): [`UIInteractive`](UIInteractive.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `from` | [`UIInteractive`](UIInteractive.md) |
+
+#### Returns
+
+[`UIInteractive`](UIInteractive.md)
+
+#### Overrides
+
+[UIComponentBase](UIComponentBase.md).[copyComponent](UIComponentBase.md#copycomponent)
+
+#### Defined in
+
+[src/components/gui/uiComponents/UIInteractive.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L53)

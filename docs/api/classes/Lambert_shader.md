@@ -1,13 +1,19 @@
 # Class: Lambert\_shader
 
+### Constructors
+
+- [constructor](Lambert_shader.md#constructor)
+
 ### Properties
 
 - [lambert\_frag\_wgsl](Lambert_shader.md#lambert_frag_wgsl)
 - [lambert\_vert\_wgsl](Lambert_shader.md#lambert_vert_wgsl)
 
-### Constructors
+## Constructors
 
-- [constructor](Lambert_shader.md#constructor)
+### constructor
+
+• **new Lambert_shader**()
 
 ## Properties
 
@@ -28,9 +34,3 @@ ___
 #### Defined in
 
 [src/assets/shader/materials/Lambert_shader.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/assets/shader/materials/Lambert_shader.ts#L67)
-
-## Constructors
-
-### constructor
-
-• **new Lambert_shader**()

@@ -8,6 +8,10 @@ skeleton animation
 
   ↳ **`SkeletonAnimationComponent`**
 
+### Constructors
+
+- [constructor](SkeletonAnimationComponent.md#constructor)
+
 ### Properties
 
 - [object3D](SkeletonAnimationComponent.md#object3d)
@@ -51,9 +55,19 @@ skeleton animation
 - [removeJointBind](SkeletonAnimationComponent.md#removejointbind)
 - [cloneTo](SkeletonAnimationComponent.md#cloneto)
 
-### Constructors
+## Constructors
 
-- [constructor](SkeletonAnimationComponent.md#constructor)
+### constructor
+
+• **new SkeletonAnimationComponent**()
+
+#### Overrides
+
+[ComponentBase](ComponentBase.md).[constructor](ComponentBase.md#constructor)
+
+#### Defined in
+
+[src/components/SkeletonAnimationComponent.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L35)
 
 ## Properties
 
@@ -797,17 +811,3 @@ Clones the current component to the specified object
 #### Defined in
 
 [src/components/SkeletonAnimationComponent.ts:320](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L320)
-
-## Constructors
-
-### constructor
-
-• **new SkeletonAnimationComponent**()
-
-#### Overrides
-
-[ComponentBase](ComponentBase.md).[constructor](ComponentBase.md#constructor)
-
-#### Defined in
-
-[src/components/SkeletonAnimationComponent.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L35)

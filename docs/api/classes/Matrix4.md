@@ -2,6 +2,10 @@
 
 math 4*4 matrix
 
+### Constructors
+
+- [constructor](Matrix4.md#constructor)
+
 ### Properties
 
 - [blockBytes](Matrix4.md#blockbytes)
@@ -17,6 +21,12 @@ math 4*4 matrix
 - [helpMatrix2](Matrix4.md#helpmatrix2)
 - [index](Matrix4.md#index)
 - [rawData](Matrix4.md#rawdata)
+
+### Accessors
+
+- [determinant](Matrix4.md#determinant)
+- [position](Matrix4.md#position)
+- [scale](Matrix4.md#scale)
 
 ### Methods
 
@@ -83,15 +93,21 @@ math 4*4 matrix
 - [makeBasis](Matrix4.md#makebasis)
 - [makeRotationAxis](Matrix4.md#makerotationaxis)
 
-### Constructors
+## Constructors
 
-- [constructor](Matrix4.md#constructor)
+### constructor
 
-### Accessors
+• **new Matrix4**(`doMatrix?`)
 
-- [determinant](Matrix4.md#determinant)
-- [position](Matrix4.md#position)
-- [scale](Matrix4.md#scale)
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `doMatrix` | `boolean` | `false` |
+
+#### Defined in
+
+[src/math/Matrix4.ts:320](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L320)
 
 ## Properties
 
@@ -256,6 +272,112 @@ Orillusion3D  0.5.1
 #### Defined in
 
 [src/math/Matrix4.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L111)
+
+## Accessors
+
+### determinant
+
+• `get` **determinant**(): `number`
+
+Returns the matrix determinant
+
+**`Version`**
+
+Orillusion3D  0.5.1
+
+#### Returns
+
+`number`
+
+number determinant
+
+#### Defined in
+
+[src/math/Matrix4.ts:1865](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1865)
+
+___
+
+### position
+
+• `get` **position**(): [`Vector3`](Vector3.md)
+
+Return translation
+
+**`Version`**
+
+Orillusion3D  0.5.1
+
+#### Returns
+
+[`Vector3`](Vector3.md)
+
+Vector3 Position of translation
+
+#### Defined in
+
+[src/math/Matrix4.ts:1896](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1896)
+
+• `set` **position**(`value`): `void`
+
+Set Position of translation
+
+**`Version`**
+
+Orillusion3D  0.5.1
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value` | [`Vector3`](Vector3.md) | Position of translation |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/math/Matrix4.ts:1906](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1906)
+
+___
+
+### scale
+
+• `get` **scale**(): [`Vector3`](Vector3.md)
+
+get Component of scale
+
+**`Version`**
+
+Orillusion3D  0.5.1
+
+#### Returns
+
+[`Vector3`](Vector3.md)
+
+Vector3 scale
+
+#### Defined in
+
+[src/math/Matrix4.ts:1919](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1919)
+
+• `set` **scale**(`value`): `void`
+
+Set component of scale
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | [`Vector3`](Vector3.md) |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/math/Matrix4.ts:1927](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1927)
 
 ## Methods
 
@@ -1835,125 +1957,3 @@ ___
 #### Defined in
 
 [src/math/Matrix4.ts:2098](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2098)
-
-## Constructors
-
-### constructor
-
-• **new Matrix4**(`doMatrix?`)
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `doMatrix` | `boolean` | `false` |
-
-#### Defined in
-
-[src/math/Matrix4.ts:320](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L320)
-
-## Accessors
-
-### determinant
-
-• `get` **determinant**(): `number`
-
-Returns the matrix determinant
-
-**`Version`**
-
-Orillusion3D  0.5.1
-
-#### Returns
-
-`number`
-
-number determinant
-
-#### Defined in
-
-[src/math/Matrix4.ts:1865](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1865)
-
-___
-
-### position
-
-• `get` **position**(): [`Vector3`](Vector3.md)
-
-Return translation
-
-**`Version`**
-
-Orillusion3D  0.5.1
-
-#### Returns
-
-[`Vector3`](Vector3.md)
-
-Vector3 Position of translation
-
-#### Defined in
-
-[src/math/Matrix4.ts:1896](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1896)
-
-• `set` **position**(`value`): `void`
-
-Set Position of translation
-
-**`Version`**
-
-Orillusion3D  0.5.1
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `value` | [`Vector3`](Vector3.md) | Position of translation |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/math/Matrix4.ts:1906](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1906)
-
-___
-
-### scale
-
-• `get` **scale**(): [`Vector3`](Vector3.md)
-
-get Component of scale
-
-**`Version`**
-
-Orillusion3D  0.5.1
-
-#### Returns
-
-[`Vector3`](Vector3.md)
-
-Vector3 scale
-
-#### Defined in
-
-[src/math/Matrix4.ts:1919](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1919)
-
-• `set` **scale**(`value`): `void`
-
-Set component of scale
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | [`Vector3`](Vector3.md) |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/math/Matrix4.ts:1927](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1927)

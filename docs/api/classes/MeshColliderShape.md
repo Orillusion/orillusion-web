@@ -8,6 +8,14 @@ Mesh collision body
 
   ↳ **`MeshColliderShape`**
 
+### Constructors
+
+- [constructor](MeshColliderShape.md#constructor)
+
+### Properties
+
+- [mesh](MeshColliderShape.md#mesh)
+
 ### Accessors
 
 - [shapeType](MeshColliderShape.md#shapetype)
@@ -20,13 +28,31 @@ Mesh collision body
 - [setFromCenterAndSize](MeshColliderShape.md#setfromcenterandsize)
 - [rayPick](MeshColliderShape.md#raypick)
 
-### Properties
+## Constructors
 
-- [mesh](MeshColliderShape.md#mesh)
+### constructor
 
-### Constructors
+• **new MeshColliderShape**()
 
-- [constructor](MeshColliderShape.md#constructor)
+#### Overrides
+
+[ColliderShape](ColliderShape.md).[constructor](ColliderShape.md#constructor)
+
+#### Defined in
+
+[src/components/shape/MeshColliderShape.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/MeshColliderShape.ts#L13)
+
+## Properties
+
+### mesh
+
+• **mesh**: [`MeshComponent`](MeshComponent.md)
+
+meshComponent
+
+#### Defined in
+
+[src/components/shape/MeshColliderShape.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/MeshColliderShape.ts#L11)
 
 ## Accessors
 
@@ -211,29 +237,3 @@ Pick result intersect: whether to collide;
 #### Defined in
 
 [src/components/shape/ColliderShape.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L86)
-
-## Properties
-
-### mesh
-
-• **mesh**: [`MeshComponent`](MeshComponent.md)
-
-meshComponent
-
-#### Defined in
-
-[src/components/shape/MeshColliderShape.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/MeshColliderShape.ts#L11)
-
-## Constructors
-
-### constructor
-
-• **new MeshColliderShape**()
-
-#### Overrides
-
-[ColliderShape](ColliderShape.md).[constructor](ColliderShape.md#constructor)
-
-#### Defined in
-
-[src/components/shape/MeshColliderShape.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/MeshColliderShape.ts#L13)

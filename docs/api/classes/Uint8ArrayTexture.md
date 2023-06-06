@@ -8,6 +8,10 @@ create texture by number array, which format is uint8
 
   ↳ **`Uint8ArrayTexture`**
 
+### Constructors
+
+- [constructor](Uint8ArrayTexture.md#constructor)
+
 ### Properties
 
 - [name](Uint8ArrayTexture.md#name)
@@ -33,21 +37,6 @@ create texture by number array, which format is uint8
 - [isHDRTexture](Uint8ArrayTexture.md#ishdrtexture)
 - [mipmapCount](Uint8ArrayTexture.md#mipmapcount)
 
-### Constructors
-
-- [constructor](Uint8ArrayTexture.md#constructor)
-
-### Methods
-
-- [init](Uint8ArrayTexture.md#init)
-- [getGPUTexture](Uint8ArrayTexture.md#getgputexture)
-- [getGPUView](Uint8ArrayTexture.md#getgpuview)
-- [bindStateChange](Uint8ArrayTexture.md#bindstatechange)
-- [unBindStateChange](Uint8ArrayTexture.md#unbindstatechange)
-- [destroy](Uint8ArrayTexture.md#destroy)
-- [create](Uint8ArrayTexture.md#create)
-- [updateTexture](Uint8ArrayTexture.md#updatetexture)
-
 ### Accessors
 
 - [useMipmap](Uint8ArrayTexture.md#usemipmap)
@@ -61,6 +50,41 @@ create texture by number array, which format is uint8
 - [lodMaxClamp](Uint8ArrayTexture.md#lodmaxclamp)
 - [compare](Uint8ArrayTexture.md#compare)
 - [maxAnisotropy](Uint8ArrayTexture.md#maxanisotropy)
+
+### Methods
+
+- [init](Uint8ArrayTexture.md#init)
+- [getGPUTexture](Uint8ArrayTexture.md#getgputexture)
+- [getGPUView](Uint8ArrayTexture.md#getgpuview)
+- [bindStateChange](Uint8ArrayTexture.md#bindstatechange)
+- [unBindStateChange](Uint8ArrayTexture.md#unbindstatechange)
+- [destroy](Uint8ArrayTexture.md#destroy)
+- [create](Uint8ArrayTexture.md#create)
+- [updateTexture](Uint8ArrayTexture.md#updatetexture)
+
+## Constructors
+
+### constructor
+
+• **new Uint8ArrayTexture**(`width?`, `height?`, `numberLayer?`)
+
+Create a texture2D
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `width` | `number` | `32` | size of texture width |
+| `height` | `number` | `32` | height of texture width |
+| `numberLayer` | `number` | `1` | number layer of texture |
+
+#### Inherited from
+
+[Texture](Texture.md).[constructor](Texture.md#constructor)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:201](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L201)
 
 ## Properties
 
@@ -411,222 +435,6 @@ mipmap Count, default value is 1
 #### Defined in
 
 [src/gfx/graphics/webGpu/core/texture/Texture.ts:190](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L190)
-
-## Constructors
-
-### constructor
-
-• **new Uint8ArrayTexture**(`width?`, `height?`, `numberLayer?`)
-
-Create a texture2D
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `width` | `number` | `32` | size of texture width |
-| `height` | `number` | `32` | height of texture width |
-| `numberLayer` | `number` | `1` | number layer of texture |
-
-#### Inherited from
-
-[Texture](Texture.md).[constructor](Texture.md#constructor)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:201](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L201)
-
-## Methods
-
-### init
-
-▸ **init**(): [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
-
-#### Returns
-
-[`Uint8ArrayTexture`](Uint8ArrayTexture.md)
-
-#### Inherited from
-
-[Texture](Texture.md).[init](Texture.md#init)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:214](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L214)
-
-___
-
-### getGPUTexture
-
-▸ **getGPUTexture**(): `GPUTexture`
-
-create or get GPUTexture
-
-#### Returns
-
-`GPUTexture`
-
-GPUTexture
-
-#### Inherited from
-
-[Texture](Texture.md).[getGPUTexture](Texture.md#getgputexture)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L367)
-
-___
-
-### getGPUView
-
-▸ **getGPUView**(`index?`): `GPUTextureView` \| `GPUExternalTexture`
-
-create or get GPUTextureView
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `index` | `number` | `0` |
-
-#### Returns
-
-`GPUTextureView` \| `GPUExternalTexture`
-
-GPUTextureView | GPUExternalTexture
-
-#### Inherited from
-
-[Texture](Texture.md).[getGPUView](Texture.md#getgpuview)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:378](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L378)
-
-___
-
-### bindStateChange
-
-▸ **bindStateChange**(`fun`, `ref`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `fun` | `Function` |
-| `ref` | `any` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[Texture](Texture.md).[bindStateChange](Texture.md#bindstatechange)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L389)
-
-___
-
-### unBindStateChange
-
-▸ **unBindStateChange**(`ref`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `ref` | `any` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[Texture](Texture.md).[unBindStateChange](Texture.md#unbindstatechange)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:393](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L393)
-
-___
-
-### destroy
-
-▸ **destroy**(`force?`): `void`
-
-release the texture
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[Texture](Texture.md).[destroy](Texture.md#destroy)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:407](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L407)
-
-___
-
-### create
-
-▸ **create**(`width`, `height`, `data`, `useMipmap?`): [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
-
-create texture by number array, which format is uint8
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `width` | `number` | `undefined` | width of texture |
-| `height` | `number` | `undefined` | height of texture |
-| `data` | `Uint8Array` | `undefined` | uint8 array |
-| `useMipmap` | `boolean` | `false` | whether or not gen mipmap |
-
-#### Returns
-
-[`Uint8ArrayTexture`](Uint8ArrayTexture.md)
-
-#### Defined in
-
-[src/textures/Uint8ArrayTexture.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/textures/Uint8ArrayTexture.ts#L22)
-
-___
-
-### updateTexture
-
-▸ **updateTexture**(`width`, `height`, `data`): `void`
-
-validate the change of this texture
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `width` | `number` |
-| `height` | `number` |
-| `data` | `Uint8Array` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/textures/Uint8ArrayTexture.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/textures/Uint8ArrayTexture.ts#L63)
 
 ## Accessors
 
@@ -1049,3 +857,195 @@ Texture.maxAnisotropy
 #### Defined in
 
 [src/gfx/graphics/webGpu/core/texture/Texture.ts:522](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L522)
+
+## Methods
+
+### init
+
+▸ **init**(): [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
+
+#### Returns
+
+[`Uint8ArrayTexture`](Uint8ArrayTexture.md)
+
+#### Inherited from
+
+[Texture](Texture.md).[init](Texture.md#init)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:214](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L214)
+
+___
+
+### getGPUTexture
+
+▸ **getGPUTexture**(): `GPUTexture`
+
+create or get GPUTexture
+
+#### Returns
+
+`GPUTexture`
+
+GPUTexture
+
+#### Inherited from
+
+[Texture](Texture.md).[getGPUTexture](Texture.md#getgputexture)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L367)
+
+___
+
+### getGPUView
+
+▸ **getGPUView**(`index?`): `GPUTextureView` \| `GPUExternalTexture`
+
+create or get GPUTextureView
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `index` | `number` | `0` |
+
+#### Returns
+
+`GPUTextureView` \| `GPUExternalTexture`
+
+GPUTextureView | GPUExternalTexture
+
+#### Inherited from
+
+[Texture](Texture.md).[getGPUView](Texture.md#getgpuview)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:378](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L378)
+
+___
+
+### bindStateChange
+
+▸ **bindStateChange**(`fun`, `ref`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `fun` | `Function` |
+| `ref` | `any` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Texture](Texture.md).[bindStateChange](Texture.md#bindstatechange)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L389)
+
+___
+
+### unBindStateChange
+
+▸ **unBindStateChange**(`ref`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `ref` | `any` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Texture](Texture.md).[unBindStateChange](Texture.md#unbindstatechange)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:393](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L393)
+
+___
+
+### destroy
+
+▸ **destroy**(`force?`): `void`
+
+release the texture
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Texture](Texture.md).[destroy](Texture.md#destroy)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:407](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L407)
+
+___
+
+### create
+
+▸ **create**(`width`, `height`, `data`, `useMipmap?`): [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
+
+create texture by number array, which format is uint8
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `width` | `number` | `undefined` | width of texture |
+| `height` | `number` | `undefined` | height of texture |
+| `data` | `Uint8Array` | `undefined` | uint8 array |
+| `useMipmap` | `boolean` | `false` | whether or not gen mipmap |
+
+#### Returns
+
+[`Uint8ArrayTexture`](Uint8ArrayTexture.md)
+
+#### Defined in
+
+[src/textures/Uint8ArrayTexture.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/textures/Uint8ArrayTexture.ts#L22)
+
+___
+
+### updateTexture
+
+▸ **updateTexture**(`width`, `height`, `data`): `void`
+
+validate the change of this texture
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `width` | `number` |
+| `height` | `number` |
+| `data` | `Uint8Array` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/textures/Uint8ArrayTexture.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/textures/Uint8ArrayTexture.ts#L63)

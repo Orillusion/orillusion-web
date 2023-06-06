@@ -2,14 +2,14 @@
 
 Ray
 
+### Constructors
+
+- [constructor](Ray.md#constructor)
+
 ### Properties
 
 - [origin](Ray.md#origin)
 - [length](Ray.md#length)
-
-### Constructors
-
-- [constructor](Ray.md#constructor)
 
 ### Accessors
 
@@ -31,6 +31,25 @@ Ray
 - [intersectTriangle](Ray.md#intersecttriangle)
 - [intersectSphere](Ray.md#intersectsphere)
 - [intersectionSegment](Ray.md#intersectionsegment)
+
+## Constructors
+
+### constructor
+
+• **new Ray**(`origin?`, `dir?`)
+
+Build a new ray object
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `origin?` | [`Vector3`](Vector3.md) | Ray starting point |
+| `dir?` | [`Vector3`](Vector3.md) | Ray direction |
+
+#### Defined in
+
+[src/math/Ray.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L34)
 
 ## Properties
 
@@ -55,25 +74,6 @@ length
 #### Defined in
 
 [src/math/Ray.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L21)
-
-## Constructors
-
-### constructor
-
-• **new Ray**(`origin?`, `dir?`)
-
-Build a new ray object
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `origin?` | [`Vector3`](Vector3.md) | Ray starting point |
-| `dir?` | [`Vector3`](Vector3.md) | Ray direction |
-
-#### Defined in
-
-[src/math/Ray.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L34)
 
 ## Accessors
 

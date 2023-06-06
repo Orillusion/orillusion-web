@@ -19,6 +19,10 @@ OutlinePostManager,
 
   ↳ **`OutlinePost`**
 
+### Constructors
+
+- [constructor](OutlinePost.md#constructor)
+
 ### Properties
 
 - [lowTex](OutlinePost.md#lowtex)
@@ -34,10 +38,6 @@ OutlinePostManager,
 - [enable](OutlinePost.md#enable)
 - [postRenderer](OutlinePost.md#postrenderer)
 
-### Constructors
-
-- [constructor](OutlinePost.md#constructor)
-
 ### Accessors
 
 - [outlinePixel](OutlinePost.md#outlinepixel)
@@ -48,6 +48,20 @@ OutlinePostManager,
 ### Methods
 
 - [destroy](OutlinePost.md#destroy)
+
+## Constructors
+
+### constructor
+
+• **new OutlinePost**()
+
+#### Overrides
+
+PostBase.constructor
+
+#### Defined in
+
+[src/gfx/renderJob/post/OutlinePost.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L78)
 
 ## Properties
 
@@ -176,20 +190,6 @@ PostBase.postRenderer
 #### Defined in
 
 [src/gfx/renderJob/post/PostBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L20)
-
-## Constructors
-
-### constructor
-
-• **new OutlinePost**()
-
-#### Overrides
-
-PostBase.constructor
-
-#### Defined in
-
-[src/gfx/renderJob/post/OutlinePost.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L78)
 
 ## Accessors
 

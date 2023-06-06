@@ -8,6 +8,10 @@ HDR Texture
 
   ↳ **`HDRTexture`**
 
+### Constructors
+
+- [constructor](HDRTexture.md#constructor)
+
 ### Properties
 
 - [name](HDRTexture.md#name)
@@ -33,17 +37,6 @@ HDR Texture
 - [isHDRTexture](HDRTexture.md#ishdrtexture)
 - [mipmapCount](HDRTexture.md#mipmapcount)
 
-### Methods
-
-- [init](HDRTexture.md#init)
-- [getGPUTexture](HDRTexture.md#getgputexture)
-- [getGPUView](HDRTexture.md#getgpuview)
-- [bindStateChange](HDRTexture.md#bindstatechange)
-- [unBindStateChange](HDRTexture.md#unbindstatechange)
-- [destroy](HDRTexture.md#destroy)
-- [create](HDRTexture.md#create)
-- [load](HDRTexture.md#load)
-
 ### Accessors
 
 - [useMipmap](HDRTexture.md#usemipmap)
@@ -58,9 +51,30 @@ HDR Texture
 - [compare](HDRTexture.md#compare)
 - [maxAnisotropy](HDRTexture.md#maxanisotropy)
 
-### Constructors
+### Methods
 
-- [constructor](HDRTexture.md#constructor)
+- [init](HDRTexture.md#init)
+- [getGPUTexture](HDRTexture.md#getgputexture)
+- [getGPUView](HDRTexture.md#getgpuview)
+- [bindStateChange](HDRTexture.md#bindstatechange)
+- [unBindStateChange](HDRTexture.md#unbindstatechange)
+- [destroy](HDRTexture.md#destroy)
+- [create](HDRTexture.md#create)
+- [load](HDRTexture.md#load)
+
+## Constructors
+
+### constructor
+
+• **new HDRTexture**()
+
+#### Overrides
+
+[Texture](Texture.md).[constructor](Texture.md#constructor)
+
+#### Defined in
+
+[src/textures/HDRTexture.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/textures/HDRTexture.ts#L14)
 
 ## Properties
 
@@ -411,197 +425,6 @@ mipmap Count, default value is 1
 #### Defined in
 
 [src/gfx/graphics/webGpu/core/texture/Texture.ts:190](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L190)
-
-## Methods
-
-### init
-
-▸ **init**(): [`HDRTexture`](HDRTexture.md)
-
-#### Returns
-
-[`HDRTexture`](HDRTexture.md)
-
-#### Inherited from
-
-[Texture](Texture.md).[init](Texture.md#init)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:214](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L214)
-
-___
-
-### getGPUTexture
-
-▸ **getGPUTexture**(): `GPUTexture`
-
-create or get GPUTexture
-
-#### Returns
-
-`GPUTexture`
-
-GPUTexture
-
-#### Inherited from
-
-[Texture](Texture.md).[getGPUTexture](Texture.md#getgputexture)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L367)
-
-___
-
-### getGPUView
-
-▸ **getGPUView**(`index?`): `GPUTextureView` \| `GPUExternalTexture`
-
-create or get GPUTextureView
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `index` | `number` | `0` |
-
-#### Returns
-
-`GPUTextureView` \| `GPUExternalTexture`
-
-GPUTextureView | GPUExternalTexture
-
-#### Inherited from
-
-[Texture](Texture.md).[getGPUView](Texture.md#getgpuview)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:378](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L378)
-
-___
-
-### bindStateChange
-
-▸ **bindStateChange**(`fun`, `ref`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `fun` | `Function` |
-| `ref` | `any` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[Texture](Texture.md).[bindStateChange](Texture.md#bindstatechange)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L389)
-
-___
-
-### unBindStateChange
-
-▸ **unBindStateChange**(`ref`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `ref` | `any` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[Texture](Texture.md).[unBindStateChange](Texture.md#unbindstatechange)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:393](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L393)
-
-___
-
-### destroy
-
-▸ **destroy**(`force?`): `void`
-
-release the texture
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[Texture](Texture.md).[destroy](Texture.md#destroy)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:407](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L407)
-
-___
-
-### create
-
-▸ **create**(`width?`, `height?`, `data?`, `useMipmap?`): [`HDRTexture`](HDRTexture.md)
-
-fill this texture by array of numbers;the format as [red0, green0, blue0, e0, red1, green1, blue1, e1...]
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `width` | `number` | `32` | assign the texture width |
-| `height` | `number` | `32` | assign the texture height |
-| `data` | `ArrayBuffer` | `null` | color of each pixel |
-| `useMipmap` | `boolean` | `true` | gen mipmap or not |
-
-#### Returns
-
-[`HDRTexture`](HDRTexture.md)
-
-#### Defined in
-
-[src/textures/HDRTexture.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/textures/HDRTexture.ts#L27)
-
-___
-
-### load
-
-▸ **load**(`url`, `loaderFunctions?`): `Promise`<[`HDRTexture`](HDRTexture.md)\>
-
-load one hdr image
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `url` | `string` | the url of hdr image |
-| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | callback when load complete |
-
-#### Returns
-
-`Promise`<[`HDRTexture`](HDRTexture.md)\>
-
-#### Defined in
-
-[src/textures/HDRTexture.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/textures/HDRTexture.ts#L84)
 
 ## Accessors
 
@@ -1025,16 +848,193 @@ Texture.maxAnisotropy
 
 [src/gfx/graphics/webGpu/core/texture/Texture.ts:522](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L522)
 
-## Constructors
+## Methods
 
-### constructor
+### init
 
-• **new HDRTexture**()
+▸ **init**(): [`HDRTexture`](HDRTexture.md)
 
-#### Overrides
+#### Returns
 
-[Texture](Texture.md).[constructor](Texture.md#constructor)
+[`HDRTexture`](HDRTexture.md)
+
+#### Inherited from
+
+[Texture](Texture.md).[init](Texture.md#init)
 
 #### Defined in
 
-[src/textures/HDRTexture.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/textures/HDRTexture.ts#L14)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:214](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L214)
+
+___
+
+### getGPUTexture
+
+▸ **getGPUTexture**(): `GPUTexture`
+
+create or get GPUTexture
+
+#### Returns
+
+`GPUTexture`
+
+GPUTexture
+
+#### Inherited from
+
+[Texture](Texture.md).[getGPUTexture](Texture.md#getgputexture)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L367)
+
+___
+
+### getGPUView
+
+▸ **getGPUView**(`index?`): `GPUTextureView` \| `GPUExternalTexture`
+
+create or get GPUTextureView
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `index` | `number` | `0` |
+
+#### Returns
+
+`GPUTextureView` \| `GPUExternalTexture`
+
+GPUTextureView | GPUExternalTexture
+
+#### Inherited from
+
+[Texture](Texture.md).[getGPUView](Texture.md#getgpuview)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:378](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L378)
+
+___
+
+### bindStateChange
+
+▸ **bindStateChange**(`fun`, `ref`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `fun` | `Function` |
+| `ref` | `any` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Texture](Texture.md).[bindStateChange](Texture.md#bindstatechange)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L389)
+
+___
+
+### unBindStateChange
+
+▸ **unBindStateChange**(`ref`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `ref` | `any` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Texture](Texture.md).[unBindStateChange](Texture.md#unbindstatechange)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:393](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L393)
+
+___
+
+### destroy
+
+▸ **destroy**(`force?`): `void`
+
+release the texture
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Texture](Texture.md).[destroy](Texture.md#destroy)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:407](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L407)
+
+___
+
+### create
+
+▸ **create**(`width?`, `height?`, `data?`, `useMipmap?`): [`HDRTexture`](HDRTexture.md)
+
+fill this texture by array of numbers;the format as [red0, green0, blue0, e0, red1, green1, blue1, e1...]
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `width` | `number` | `32` | assign the texture width |
+| `height` | `number` | `32` | assign the texture height |
+| `data` | `ArrayBuffer` | `null` | color of each pixel |
+| `useMipmap` | `boolean` | `true` | gen mipmap or not |
+
+#### Returns
+
+[`HDRTexture`](HDRTexture.md)
+
+#### Defined in
+
+[src/textures/HDRTexture.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/textures/HDRTexture.ts#L27)
+
+___
+
+### load
+
+▸ **load**(`url`, `loaderFunctions?`): `Promise`<[`HDRTexture`](HDRTexture.md)\>
+
+load one hdr image
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `url` | `string` | the url of hdr image |
+| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | callback when load complete |
+
+#### Returns
+
+`Promise`<[`HDRTexture`](HDRTexture.md)\>
+
+#### Defined in
+
+[src/textures/HDRTexture.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/textures/HDRTexture.ts#L84)

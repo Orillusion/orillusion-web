@@ -16,6 +16,10 @@ usage GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_DST GPUBufferUsage
 
   ↳ **`StructStorageGPUBuffer`**
 
+### Constructors
+
+- [constructor](StructStorageGPUBuffer.md#constructor)
+
 ### Properties
 
 - [bufferType](StructStorageGPUBuffer.md#buffertype)
@@ -59,9 +63,33 @@ usage GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_DST GPUBufferUsage
 - [destroy](StructStorageGPUBuffer.md#destroy)
 - [readBuffer](StructStorageGPUBuffer.md#readbuffer)
 
-### Constructors
+## Constructors
 
-- [constructor](StructStorageGPUBuffer.md#constructor)
+### constructor
+
+• **new StructStorageGPUBuffer**<`T`\>(`struct`, `count`, `usage?`)
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends [`Struct`](Struct.md)<`T`\> |
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `struct` | () => `T` | `undefined` |
+| `count` | `number` | `undefined` |
+| `usage` | `number` | `0` |
+
+#### Overrides
+
+GPUBufferBase.constructor
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/buffer/StructStorageGPUBuffer.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/StructStorageGPUBuffer.ts#L11)
 
 ## Properties
 
@@ -874,32 +902,4 @@ GPUBufferBase.readBuffer
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:383](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L383)
-
-## Constructors
-
-### constructor
-
-• **new StructStorageGPUBuffer**<`T`\>(`struct`, `count`, `usage?`)
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`Struct`](Struct.md)<`T`\> |
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `struct` | () => `T` | `undefined` |
-| `count` | `number` | `undefined` |
-| `usage` | `number` | `0` |
-
-#### Overrides
-
-GPUBufferBase.constructor
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/buffer/StructStorageGPUBuffer.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/StructStorageGPUBuffer.ts#L11)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:382](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L382)

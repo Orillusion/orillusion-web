@@ -2,6 +2,10 @@
 
 extra function of vector3
 
+### Constructors
+
+- [constructor](Vector3Ex.md#constructor)
+
 ### Methods
 
 - [add](Vector3Ex.md#add)
@@ -16,9 +20,11 @@ extra function of vector3
 - [getRandomXYZ](Vector3Ex.md#getrandomxyz)
 - [getRandomV3](Vector3Ex.md#getrandomv3)
 
-### Constructors
+## Constructors
 
-- [constructor](Vector3Ex.md#constructor)
+### constructor
+
+• **new Vector3Ex**()
 
 ## Methods
 
@@ -292,9 +298,3 @@ random vector
 #### Defined in
 
 [src/util/Vector3Ex.ts:157](https://github.com/Orillusion/orillusion/blob/main/src/util/Vector3Ex.ts#L157)
-
-## Constructors
-
-### constructor
-
-• **new Vector3Ex**()

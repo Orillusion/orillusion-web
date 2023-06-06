@@ -8,6 +8,10 @@ Camera components
 
   ↳ **`Camera3D`**
 
+### Constructors
+
+- [constructor](Camera3D.md#constructor)
+
 ### Properties
 
 - [object3D](Camera3D.md#object3d)
@@ -65,9 +69,19 @@ Camera components
 - [getCastShadowLightSpaceMatrix](Camera3D.md#getcastshadowlightspacematrix)
 - [getWorldDirection](Camera3D.md#getworlddirection)
 
-### Constructors
+## Constructors
 
-- [constructor](Camera3D.md#constructor)
+### constructor
+
+• **new Camera3D**()
+
+#### Overrides
+
+[ComponentBase](ComponentBase.md).[constructor](ComponentBase.md#constructor)
+
+#### Defined in
+
+[src/core/Camera3D.ts:98](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L98)
 
 ## Properties
 
@@ -1014,17 +1028,3 @@ ___
 #### Defined in
 
 [src/core/Camera3D.ts:506](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L506)
-
-## Constructors
-
-### constructor
-
-• **new Camera3D**()
-
-#### Overrides
-
-[ComponentBase](ComponentBase.md).[constructor](ComponentBase.md#constructor)
-
-#### Defined in
-
-[src/core/Camera3D.ts:98](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L98)

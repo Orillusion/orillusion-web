@@ -13,6 +13,16 @@ A non glossy surface material without specular highlights.
 
 - [constructor](LambertMaterial.md#constructor)
 
+### Properties
+
+- [name](LambertMaterial.md#name)
+- [instanceID](LambertMaterial.md#instanceid)
+- [isPassMaterial](LambertMaterial.md#ispassmaterial)
+- [receiveEnv](LambertMaterial.md#receiveenv)
+- [renderPasses](LambertMaterial.md#renderpasses)
+- [enable](LambertMaterial.md#enable)
+- [renderShader](LambertMaterial.md#rendershader)
+
 ### Accessors
 
 - [baseColor](LambertMaterial.md#basecolor)
@@ -41,16 +51,6 @@ A non glossy surface material without specular highlights.
 - [depthBias](LambertMaterial.md#depthbias)
 - [depthCompare](LambertMaterial.md#depthcompare)
 
-### Properties
-
-- [name](LambertMaterial.md#name)
-- [instanceID](LambertMaterial.md#instanceid)
-- [isPassMaterial](LambertMaterial.md#ispassmaterial)
-- [receiveEnv](LambertMaterial.md#receiveenv)
-- [renderPasses](LambertMaterial.md#renderpasses)
-- [enable](LambertMaterial.md#enable)
-- [renderShader](LambertMaterial.md#rendershader)
-
 ### Methods
 
 - [setDefine](LambertMaterial.md#setdefine)
@@ -76,6 +76,114 @@ MaterialBase.constructor
 #### Defined in
 
 [src/materials/LambertMaterial.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/materials/LambertMaterial.ts#L21)
+
+## Properties
+
+### name
+
+• **name**: `string`
+
+name of this material
+
+#### Inherited from
+
+MaterialBase.name
+
+#### Defined in
+
+[src/materials/MaterialBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L23)
+
+___
+
+### instanceID
+
+• **instanceID**: `string`
+
+Material Unique Identifier
+
+#### Inherited from
+
+MaterialBase.instanceID
+
+#### Defined in
+
+[src/materials/MaterialBase.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L29)
+
+___
+
+### isPassMaterial
+
+• **isPassMaterial**: `boolean` = `false`
+
+is PassMaterial
+
+#### Inherited from
+
+MaterialBase.isPassMaterial
+
+#### Defined in
+
+[src/materials/MaterialBase.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L34)
+
+___
+
+### receiveEnv
+
+• **receiveEnv**: `boolean` = `true`
+
+Whether to receive environment effect
+
+#### Inherited from
+
+MaterialBase.receiveEnv
+
+#### Defined in
+
+[src/materials/MaterialBase.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L39)
+
+___
+
+### renderPasses
+
+• **renderPasses**: `Map`<`RendererType`, [`MaterialPass`](MaterialPass.md)[]\>
+
+#### Inherited from
+
+MaterialBase.renderPasses
+
+#### Defined in
+
+[src/materials/MaterialPass.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L8)
+
+___
+
+### enable
+
+• **enable**: `boolean` = `true`
+
+whether the pass is enable
+
+#### Inherited from
+
+MaterialBase.enable
+
+#### Defined in
+
+[src/materials/MaterialPass.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L13)
+
+___
+
+### renderShader
+
+• **renderShader**: [`RenderShader`](RenderShader.md)
+
+#### Inherited from
+
+MaterialBase.renderShader
+
+#### Defined in
+
+[src/materials/MaterialPass.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L15)
 
 ## Accessors
 
@@ -987,7 +1095,7 @@ MaterialBase.cullMode
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L109)
+[src/materials/MaterialPass.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L114)
 
 • `set` **cullMode**(`value`): `void`
 
@@ -1009,7 +1117,7 @@ MaterialBase.cullMode
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L116)
+[src/materials/MaterialPass.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L121)
 
 ___
 
@@ -1027,7 +1135,7 @@ MaterialBase.depthBias
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L120)
+[src/materials/MaterialPass.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L125)
 
 • `set` **depthBias**(`value`): `void`
 
@@ -1047,7 +1155,7 @@ MaterialBase.depthBias
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L124)
+[src/materials/MaterialPass.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L129)
 
 ___
 
@@ -1067,7 +1175,7 @@ MaterialBase.depthCompare
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L131)
+[src/materials/MaterialPass.ts:136](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L136)
 
 • `set` **depthCompare**(`value`): `void`
 
@@ -1089,115 +1197,7 @@ MaterialBase.depthCompare
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:138](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L138)
-
-## Properties
-
-### name
-
-• **name**: `string`
-
-name of this material
-
-#### Inherited from
-
-MaterialBase.name
-
-#### Defined in
-
-[src/materials/MaterialBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L23)
-
-___
-
-### instanceID
-
-• **instanceID**: `string`
-
-Material Unique Identifier
-
-#### Inherited from
-
-MaterialBase.instanceID
-
-#### Defined in
-
-[src/materials/MaterialBase.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L29)
-
-___
-
-### isPassMaterial
-
-• **isPassMaterial**: `boolean` = `false`
-
-is PassMaterial
-
-#### Inherited from
-
-MaterialBase.isPassMaterial
-
-#### Defined in
-
-[src/materials/MaterialBase.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L34)
-
-___
-
-### receiveEnv
-
-• **receiveEnv**: `boolean` = `true`
-
-Whether to receive environment effect
-
-#### Inherited from
-
-MaterialBase.receiveEnv
-
-#### Defined in
-
-[src/materials/MaterialBase.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L39)
-
-___
-
-### renderPasses
-
-• **renderPasses**: `Map`<`RendererType`, [`MaterialPass`](MaterialPass.md)[]\>
-
-#### Inherited from
-
-MaterialBase.renderPasses
-
-#### Defined in
-
-[src/materials/MaterialPass.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L8)
-
-___
-
-### enable
-
-• **enable**: `boolean` = `true`
-
-whether the pass is enable
-
-#### Inherited from
-
-MaterialBase.enable
-
-#### Defined in
-
-[src/materials/MaterialPass.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L13)
-
-___
-
-### renderShader
-
-• **renderShader**: [`RenderShader`](RenderShader.md)
-
-#### Inherited from
-
-MaterialBase.renderShader
-
-#### Defined in
-
-[src/materials/MaterialPass.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L15)
+[src/materials/MaterialPass.ts:143](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L143)
 
 ## Methods
 
@@ -1412,4 +1412,4 @@ MaterialBase.debug
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:166](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L166)
+[src/materials/MaterialPass.ts:171](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L171)

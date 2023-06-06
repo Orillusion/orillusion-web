@@ -6,6 +6,10 @@
 
   ↳ **`FontParser`**
 
+### Constructors
+
+- [constructor](FontParser.md#constructor)
+
 ### Properties
 
 - [format](FontParser.md#format)
@@ -25,9 +29,15 @@
 - [parseTexture](FontParser.md#parsetexture)
 - [parse](FontParser.md#parse)
 
-### Constructors
+## Constructors
 
-- [constructor](FontParser.md#constructor)
+### constructor
+
+• **new FontParser**()
+
+#### Inherited from
+
+ParserBase.constructor
 
 ## Properties
 
@@ -123,7 +133,7 @@ ParserBase.data
 
 | Name | Type |
 | :------ | :------ |
-| `guiTexture` | [`GUITexture`](GUITexture.md)[] |
+| `guiTexture` | `GUITexture`[] |
 | `fontData` | [`FontInfo`](FontInfo.md) |
 
 #### Returns
@@ -273,13 +283,3 @@ ParserBase.parse
 #### Defined in
 
 [src/loader/parser/ParserBase.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L26)
-
-## Constructors
-
-### constructor
-
-• **new FontParser**()
-
-#### Inherited from
-
-ParserBase.constructor

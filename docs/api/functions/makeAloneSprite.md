@@ -15,4 +15,4 @@
 
 #### Defined in
 
-[src/components/gui/GUIExtension.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIExtension.ts#L51)
+[src/components/gui/GUIExtension.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIExtension.ts#L6)

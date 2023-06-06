@@ -1,7 +1,6 @@
 # Class: UIRenderAble
 
-Components are used to attach functionality to object3D, it has an owner object3D.
-The component can receive update events at each frame.
+The basic class of render able GUI component
 
 ## Hierarchy
 
@@ -17,16 +16,16 @@ The component can receive update events at each frame.
 
   ↳↳ [`UITextField`](UITextField.md)
 
+### Constructors
+
+- [constructor](UIRenderAble.md#constructor)
+
 ### Properties
 
 - [object3D](UIRenderAble.md#object3d)
 - [isUIShadow](UIRenderAble.md#isuishadow)
 - [isShadowless](UIRenderAble.md#isshadowless)
 - [needUpdateShadow](UIRenderAble.md#needupdateshadow)
-
-### Constructors
-
-- [constructor](UIRenderAble.md#constructor)
 
 ### Accessors
 
@@ -56,6 +55,20 @@ The component can receive update events at each frame.
 - [getShadowRender](UIRenderAble.md#getshadowrender)
 - [copyComponent](UIRenderAble.md#copycomponent)
 
+## Constructors
+
+### constructor
+
+• **new UIRenderAble**()
+
+#### Inherited from
+
+[UIComponentBase](UIComponentBase.md).[constructor](UIComponentBase.md#constructor)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L31)
+
 ## Properties
 
 ### object3D
@@ -80,7 +93,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIRenderAble.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L8)
+[src/components/gui/uiComponents/UIRenderAble.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L12)
 
 ___
 
@@ -90,7 +103,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIRenderAble.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L9)
+[src/components/gui/uiComponents/UIRenderAble.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L13)
 
 ___
 
@@ -100,21 +113,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIRenderAble.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L10)
-
-## Constructors
-
-### constructor
-
-• **new UIRenderAble**()
-
-#### Inherited from
-
-[UIComponentBase](UIComponentBase.md).[constructor](UIComponentBase.md#constructor)
-
-#### Defined in
-
-[src/components/ComponentBase.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L31)
+[src/components/gui/uiComponents/UIRenderAble.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L14)
 
 ## Accessors
 
@@ -194,7 +193,7 @@ UIComponentBase.uiTransform
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIComponentBase.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L12)
+[src/components/gui/uiComponents/UIComponentBase.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L16)
 
 ___
 
@@ -212,7 +211,7 @@ UIComponentBase.visible
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIComponentBase.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L16)
+[src/components/gui/uiComponents/UIComponentBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L20)
 
 • `set` **visible**(`value`): `void`
 
@@ -232,7 +231,7 @@ UIComponentBase.visible
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIComponentBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L20)
+[src/components/gui/uiComponents/UIComponentBase.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L24)
 
 ___
 
@@ -246,7 +245,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIRenderAble.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L40)
+[src/components/gui/uiComponents/UIRenderAble.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L44)
 
 ## Methods
 
@@ -508,7 +507,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIRenderAble.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L12)
+[src/components/gui/uiComponents/UIRenderAble.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L16)
 
 ___
 
@@ -528,7 +527,7 @@ release this component
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIRenderAble.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L17)
+[src/components/gui/uiComponents/UIRenderAble.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L21)
 
 ___
 
@@ -546,7 +545,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIRenderAble.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L26)
+[src/components/gui/uiComponents/UIRenderAble.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L30)
 
 ___
 
@@ -566,7 +565,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIRenderAble.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L44)
+[src/components/gui/uiComponents/UIRenderAble.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L48)
 
 ___
 
@@ -586,7 +585,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIRenderAble.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L48)
+[src/components/gui/uiComponents/UIRenderAble.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L52)
 
 ___
 
@@ -600,7 +599,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIRenderAble.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L52)
+[src/components/gui/uiComponents/UIRenderAble.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L56)
 
 ___
 
@@ -624,4 +623,4 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIRenderAble.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L116)
+[src/components/gui/uiComponents/UIRenderAble.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L120)

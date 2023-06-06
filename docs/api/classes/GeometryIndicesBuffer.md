@@ -1,5 +1,9 @@
 # Class: GeometryIndicesBuffer
 
+### Constructors
+
+- [constructor](GeometryIndicesBuffer.md#constructor)
+
 ### Properties
 
 - [uuid](GeometryIndicesBuffer.md#uuid)
@@ -8,16 +12,22 @@
 - [indicesFormat](GeometryIndicesBuffer.md#indicesformat)
 - [indicesCount](GeometryIndicesBuffer.md#indicescount)
 
-### Constructors
-
-- [constructor](GeometryIndicesBuffer.md#constructor)
-
 ### Methods
 
 - [createIndicesBuffer](GeometryIndicesBuffer.md#createindicesbuffer)
 - [upload](GeometryIndicesBuffer.md#upload)
 - [compute](GeometryIndicesBuffer.md#compute)
 - [destroy](GeometryIndicesBuffer.md#destroy)
+
+## Constructors
+
+### constructor
+
+• **new GeometryIndicesBuffer**()
+
+#### Defined in
+
+[src/core/geometry/GeometryIndicesBuffer.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L13)
 
 ## Properties
 
@@ -68,16 +78,6 @@ ___
 #### Defined in
 
 [src/core/geometry/GeometryIndicesBuffer.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L12)
-
-## Constructors
-
-### constructor
-
-• **new GeometryIndicesBuffer**()
-
-#### Defined in
-
-[src/core/geometry/GeometryIndicesBuffer.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L13)
 
 ## Methods
 

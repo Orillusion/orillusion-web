@@ -1,12 +1,18 @@
 # Class: GlobalBindGroupLayout
 
+### Constructors
+
+- [constructor](GlobalBindGroupLayout.md#constructor)
+
 ### Methods
 
 - [getGlobalDataBindGroupLayout](GlobalBindGroupLayout.md#getglobaldatabindgrouplayout)
 
-### Constructors
+## Constructors
 
-- [constructor](GlobalBindGroupLayout.md#constructor)
+### constructor
+
+• **new GlobalBindGroupLayout**()
 
 ## Methods
 
@@ -21,9 +27,3 @@
 #### Defined in
 
 [src/gfx/graphics/webGpu/core/bindGroups/GlobalBindGroupLayout.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/bindGroups/GlobalBindGroupLayout.ts#L6)
-
-## Constructors
-
-### constructor
-
-• **new GlobalBindGroupLayout**()

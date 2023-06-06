@@ -10,6 +10,10 @@ A common example is to simulate the light emitted by a light bulb, where a point
 
   ↳ **`PointLight`**
 
+### Constructors
+
+- [constructor](PointLight.md#constructor)
+
 ### Properties
 
 - [object3D](PointLight.md#object3d)
@@ -59,9 +63,19 @@ A common example is to simulate the light emitted by a light bulb, where a point
 - [debug](PointLight.md#debug)
 - [debugDraw](PointLight.md#debugdraw)
 
-### Constructors
+## Constructors
 
-- [constructor](PointLight.md#constructor)
+### constructor
+
+• **new PointLight**()
+
+#### Overrides
+
+LightBase.constructor
+
+#### Defined in
+
+[src/components/lights/PointLight.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/PointLight.ts#L15)
 
 ## Properties
 
@@ -1100,17 +1114,3 @@ ___
 #### Defined in
 
 [src/components/lights/PointLight.ts:126](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/PointLight.ts#L126)
-
-## Constructors
-
-### constructor
-
-• **new PointLight**()
-
-#### Overrides
-
-LightBase.constructor
-
-#### Defined in
-
-[src/components/lights/PointLight.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/PointLight.ts#L15)

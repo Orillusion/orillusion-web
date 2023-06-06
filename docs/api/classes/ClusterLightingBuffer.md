@@ -1,5 +1,9 @@
 # Class: ClusterLightingBuffer
 
+### Constructors
+
+- [constructor](ClusterLightingBuffer.md#constructor)
+
 ### Properties
 
 - [clusterBuffer](ClusterLightingBuffer.md#clusterbuffer)
@@ -7,13 +11,26 @@
 - [assignTableBuffer](ClusterLightingBuffer.md#assigntablebuffer)
 - [clustersUniformBuffer](ClusterLightingBuffer.md#clustersuniformbuffer)
 
-### Constructors
-
-- [constructor](ClusterLightingBuffer.md#constructor)
-
 ### Methods
 
 - [update](ClusterLightingBuffer.md#update)
+
+## Constructors
+
+### constructor
+
+• **new ClusterLightingBuffer**(`numClusters`, `maxNumLightsPerCluster`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `numClusters` | `number` |
+| `maxNumLightsPerCluster` | `number` |
+
+#### Defined in
+
+[src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts#L10)
 
 ## Properties
 
@@ -54,23 +71,6 @@ ___
 #### Defined in
 
 [src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts#L8)
-
-## Constructors
-
-### constructor
-
-• **new ClusterLightingBuffer**(`numClusters`, `maxNumLightsPerCluster`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `numClusters` | `number` |
-| `maxNumLightsPerCluster` | `number` |
-
-#### Defined in
-
-[src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts#L10)
 
 ## Methods
 

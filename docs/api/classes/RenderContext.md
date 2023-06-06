@@ -1,13 +1,17 @@
 # Class: RenderContext
 
+### Constructors
+
+- [constructor](RenderContext.md#constructor)
+
 ### Properties
 
 - [command](RenderContext.md#command)
 - [encoder](RenderContext.md#encoder)
 
-### Constructors
+### Accessors
 
-- [constructor](RenderContext.md#constructor)
+- [rendererPassState](RenderContext.md#rendererpassstate)
 
 ### Methods
 
@@ -20,9 +24,21 @@
 - [beginNewEncoder](RenderContext.md#beginnewencoder)
 - [endEncoder](RenderContext.md#endencoder)
 
-### Accessors
+## Constructors
 
-- [rendererPassState](RenderContext.md#rendererpassstate)
+### constructor
+
+• **new RenderContext**(`rtFrame`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `rtFrame` | [`RTFrame`](RTFrame.md) |
+
+#### Defined in
+
+[src/gfx/renderJob/passRenderer/RenderContext.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L12)
 
 ## Properties
 
@@ -44,21 +60,19 @@ ___
 
 [src/gfx/renderJob/passRenderer/RenderContext.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L8)
 
-## Constructors
+## Accessors
 
-### constructor
+### rendererPassState
 
-• **new RenderContext**(`rtFrame`)
+• `get` **rendererPassState**(): `RendererPassState`
 
-#### Parameters
+#### Returns
 
-| Name | Type |
-| :------ | :------ |
-| `rtFrame` | [`RTFrame`](RTFrame.md) |
+`RendererPassState`
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/RenderContext.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L12)
+[src/gfx/renderJob/passRenderer/RenderContext.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L45)
 
 ## Methods
 
@@ -173,17 +187,3 @@ ___
 #### Defined in
 
 [src/gfx/renderJob/passRenderer/RenderContext.ts:75](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L75)
-
-## Accessors
-
-### rendererPassState
-
-• `get` **rendererPassState**(): `RendererPassState`
-
-#### Returns
-
-`RendererPassState`
-
-#### Defined in
-
-[src/gfx/renderJob/passRenderer/RenderContext.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L45)

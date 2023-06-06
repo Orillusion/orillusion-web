@@ -6,6 +6,10 @@
 
   ↳ **`BitmapTextureCube`**
 
+### Constructors
+
+- [constructor](BitmapTextureCube.md#constructor)
+
 ### Properties
 
 - [name](BitmapTextureCube.md#name)
@@ -31,17 +35,6 @@
 - [textureBindingLayout](BitmapTextureCube.md#texturebindinglayout)
 - [samplerBindingLayout](BitmapTextureCube.md#samplerbindinglayout)
 
-### Methods
-
-- [init](BitmapTextureCube.md#init)
-- [getGPUTexture](BitmapTextureCube.md#getgputexture)
-- [getGPUView](BitmapTextureCube.md#getgpuview)
-- [bindStateChange](BitmapTextureCube.md#bindstatechange)
-- [unBindStateChange](BitmapTextureCube.md#unbindstatechange)
-- [destroy](BitmapTextureCube.md#destroy)
-- [load](BitmapTextureCube.md#load)
-- [loadStd](BitmapTextureCube.md#loadstd)
-
 ### Accessors
 
 - [useMipmap](BitmapTextureCube.md#usemipmap)
@@ -57,9 +50,30 @@
 - [maxAnisotropy](BitmapTextureCube.md#maxanisotropy)
 - [images](BitmapTextureCube.md#images)
 
-### Constructors
+### Methods
 
-- [constructor](BitmapTextureCube.md#constructor)
+- [init](BitmapTextureCube.md#init)
+- [getGPUTexture](BitmapTextureCube.md#getgputexture)
+- [getGPUView](BitmapTextureCube.md#getgpuview)
+- [bindStateChange](BitmapTextureCube.md#bindstatechange)
+- [unBindStateChange](BitmapTextureCube.md#unbindstatechange)
+- [destroy](BitmapTextureCube.md#destroy)
+- [load](BitmapTextureCube.md#load)
+- [loadStd](BitmapTextureCube.md#loadstd)
+
+## Constructors
+
+### constructor
+
+• **new BitmapTextureCube**()
+
+#### Overrides
+
+TextureCube.constructor
+
+#### Defined in
+
+[src/textures/BitmapTextureCube.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/textures/BitmapTextureCube.ts#L20)
 
 ## Properties
 
@@ -410,196 +424,6 @@ TextureCube.samplerBindingLayout
 #### Defined in
 
 [src/gfx/graphics/webGpu/core/texture/TextureCube.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/TextureCube.ts#L38)
-
-## Methods
-
-### init
-
-▸ **init**(): [`BitmapTextureCube`](BitmapTextureCube.md)
-
-#### Returns
-
-[`BitmapTextureCube`](BitmapTextureCube.md)
-
-#### Inherited from
-
-TextureCube.init
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:214](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L214)
-
-___
-
-### getGPUTexture
-
-▸ **getGPUTexture**(): `GPUTexture`
-
-create or get GPUTexture
-
-#### Returns
-
-`GPUTexture`
-
-GPUTexture
-
-#### Inherited from
-
-TextureCube.getGPUTexture
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L367)
-
-___
-
-### getGPUView
-
-▸ **getGPUView**(`index?`): `GPUTextureView` \| `GPUExternalTexture`
-
-create or get GPUTextureView
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `index` | `number` | `0` |
-
-#### Returns
-
-`GPUTextureView` \| `GPUExternalTexture`
-
-GPUTextureView | GPUExternalTexture
-
-#### Inherited from
-
-TextureCube.getGPUView
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:378](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L378)
-
-___
-
-### bindStateChange
-
-▸ **bindStateChange**(`fun`, `ref`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `fun` | `Function` |
-| `ref` | `any` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-TextureCube.bindStateChange
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L389)
-
-___
-
-### unBindStateChange
-
-▸ **unBindStateChange**(`ref`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `ref` | `any` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-TextureCube.unBindStateChange
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:393](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L393)
-
-___
-
-### destroy
-
-▸ **destroy**(`force?`): `void`
-
-release the texture
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-TextureCube.destroy
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:407](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L407)
-
-___
-
-### load
-
-▸ **load**(`urls`): `Promise`<`boolean`\>
-
-load texture data from array of web url.
-make sure there are six images in a group,
-and the order is: nx, px, py, ny, nz, pz
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `urls` | `string`[] | array of image url |
-
-#### Returns
-
-`Promise`<`boolean`\>
-
-#### Defined in
-
-[src/textures/BitmapTextureCube.ts:172](https://github.com/Orillusion/orillusion/blob/main/src/textures/BitmapTextureCube.ts#L172)
-
-___
-
-### loadStd
-
-▸ **loadStd**(`url`): `Promise`<`boolean`\>
-
-load texture data from url.
-the image is assembled from six images into cross shaped image.
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `url` | `string` | the path of image |
-
-#### Returns
-
-`Promise`<`boolean`\>
-
-#### Defined in
-
-[src/textures/BitmapTextureCube.ts:203](https://github.com/Orillusion/orillusion/blob/main/src/textures/BitmapTextureCube.ts#L203)
 
 ## Accessors
 
@@ -1057,16 +881,192 @@ set images of this texture
 
 [src/textures/BitmapTextureCube.ts:137](https://github.com/Orillusion/orillusion/blob/main/src/textures/BitmapTextureCube.ts#L137)
 
-## Constructors
+## Methods
 
-### constructor
+### init
 
-• **new BitmapTextureCube**()
+▸ **init**(): [`BitmapTextureCube`](BitmapTextureCube.md)
 
-#### Overrides
+#### Returns
 
-TextureCube.constructor
+[`BitmapTextureCube`](BitmapTextureCube.md)
+
+#### Inherited from
+
+TextureCube.init
 
 #### Defined in
 
-[src/textures/BitmapTextureCube.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/textures/BitmapTextureCube.ts#L20)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:214](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L214)
+
+___
+
+### getGPUTexture
+
+▸ **getGPUTexture**(): `GPUTexture`
+
+create or get GPUTexture
+
+#### Returns
+
+`GPUTexture`
+
+GPUTexture
+
+#### Inherited from
+
+TextureCube.getGPUTexture
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L367)
+
+___
+
+### getGPUView
+
+▸ **getGPUView**(`index?`): `GPUTextureView` \| `GPUExternalTexture`
+
+create or get GPUTextureView
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `index` | `number` | `0` |
+
+#### Returns
+
+`GPUTextureView` \| `GPUExternalTexture`
+
+GPUTextureView | GPUExternalTexture
+
+#### Inherited from
+
+TextureCube.getGPUView
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:378](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L378)
+
+___
+
+### bindStateChange
+
+▸ **bindStateChange**(`fun`, `ref`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `fun` | `Function` |
+| `ref` | `any` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+TextureCube.bindStateChange
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L389)
+
+___
+
+### unBindStateChange
+
+▸ **unBindStateChange**(`ref`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `ref` | `any` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+TextureCube.unBindStateChange
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:393](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L393)
+
+___
+
+### destroy
+
+▸ **destroy**(`force?`): `void`
+
+release the texture
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+TextureCube.destroy
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:407](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L407)
+
+___
+
+### load
+
+▸ **load**(`urls`): `Promise`<`boolean`\>
+
+load texture data from array of web url.
+make sure there are six images in a group,
+and the order is: nx, px, py, ny, nz, pz
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `urls` | `string`[] | array of image url |
+
+#### Returns
+
+`Promise`<`boolean`\>
+
+#### Defined in
+
+[src/textures/BitmapTextureCube.ts:172](https://github.com/Orillusion/orillusion/blob/main/src/textures/BitmapTextureCube.ts#L172)
+
+___
+
+### loadStd
+
+▸ **loadStd**(`url`): `Promise`<`boolean`\>
+
+load texture data from url.
+the image is assembled from six images into cross shaped image.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `url` | `string` | the path of image |
+
+#### Returns
+
+`Promise`<`boolean`\>
+
+#### Defined in
+
+[src/textures/BitmapTextureCube.ts:203](https://github.com/Orillusion/orillusion/blob/main/src/textures/BitmapTextureCube.ts#L203)
