@@ -8,6 +8,10 @@ Real time Uniform GPUBuffer used by shaders
 
   ↳ **`MaterialDataUniformGPUBuffer`**
 
+### Constructors
+
+- [constructor](MaterialDataUniformGPUBuffer.md#constructor)
+
 ### Properties
 
 - [bufferType](MaterialDataUniformGPUBuffer.md#buffertype)
@@ -53,9 +57,19 @@ Real time Uniform GPUBuffer used by shaders
 - [initDataUniform](MaterialDataUniformGPUBuffer.md#initdatauniform)
 - [apply](MaterialDataUniformGPUBuffer.md#apply)
 
-### Constructors
+## Constructors
 
-- [constructor](MaterialDataUniformGPUBuffer.md#constructor)
+### constructor
+
+• **new MaterialDataUniformGPUBuffer**()
+
+#### Overrides
+
+GPUBufferBase.constructor
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/buffer/MaterialDataUniformGPUBuffer.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/MaterialDataUniformGPUBuffer.ts#L11)
 
 ## Properties
 
@@ -860,7 +874,7 @@ GPUBufferBase.readBuffer
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:383](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L383)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:382](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L382)
 
 ___
 
@@ -908,17 +922,3 @@ GPUBufferBase.apply
 #### Defined in
 
 [src/gfx/graphics/webGpu/core/buffer/MaterialDataUniformGPUBuffer.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/MaterialDataUniformGPUBuffer.ts#L53)
-
-## Constructors
-
-### constructor
-
-• **new MaterialDataUniformGPUBuffer**()
-
-#### Overrides
-
-GPUBufferBase.constructor
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/buffer/MaterialDataUniformGPUBuffer.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/MaterialDataUniformGPUBuffer.ts#L11)

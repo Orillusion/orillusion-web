@@ -6,6 +6,10 @@
 
   ↳ **`GBufferFrame`**
 
+### Constructors
+
+- [constructor](GBufferFrame.md#constructor)
+
 ### Properties
 
 - [gBufferMap](GBufferFrame.md#gbuffermap)
@@ -20,10 +24,6 @@
 - [depthLoadOp](GBufferFrame.md#depthloadop)
 - [isOutTarget](GBufferFrame.md#isouttarget)
 
-### Constructors
-
-- [constructor](GBufferFrame.md#constructor)
-
 ### Methods
 
 - [crateGBuffer](GBufferFrame.md#crategbuffer)
@@ -33,6 +33,20 @@
 - [getMaterialMap](GBufferFrame.md#getmaterialmap)
 - [clone](GBufferFrame.md#clone)
 - [clone2Frame](GBufferFrame.md#clone2frame)
+
+## Constructors
+
+### constructor
+
+• **new GBufferFrame**()
+
+#### Overrides
+
+[RTFrame](RTFrame.md).[constructor](RTFrame.md#constructor)
+
+#### Defined in
+
+[src/gfx/renderJob/frame/GBufferFrame.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L12)
 
 ## Properties
 
@@ -183,20 +197,6 @@ ___
 #### Defined in
 
 [src/gfx/renderJob/frame/RTFrame.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L17)
-
-## Constructors
-
-### constructor
-
-• **new GBufferFrame**()
-
-#### Overrides
-
-[RTFrame](RTFrame.md).[constructor](RTFrame.md#constructor)
-
-#### Defined in
-
-[src/gfx/renderJob/frame/GBufferFrame.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L12)
 
 ## Methods
 

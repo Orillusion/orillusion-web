@@ -1,5 +1,9 @@
 # Class: Struct
 
+### Constructors
+
+- [constructor](Struct.md#constructor)
+
 ### Methods
 
 - [getValueSize](Struct.md#getvaluesize)
@@ -8,9 +12,11 @@
 - [GetSize](Struct.md#getsize)
 - [getValueType](Struct.md#getvaluetype)
 
-### Constructors
+## Constructors
 
-- [constructor](Struct.md#constructor)
+### constructor
+
+• **new Struct**()
 
 ## Methods
 
@@ -129,9 +135,3 @@ get reflection name
 #### Defined in
 
 [src/util/struct/Struct.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L22)
-
-## Constructors
-
-### constructor
-
-• **new Struct**()

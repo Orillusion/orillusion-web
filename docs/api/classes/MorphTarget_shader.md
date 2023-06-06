@@ -1,18 +1,34 @@
 # Class: MorphTarget\_shader
 
+### Constructors
+
+- [constructor](MorphTarget_shader.md#constructor)
+
+### Properties
+
+- [CsMain](MorphTarget_shader.md#csmain)
+
 ### Methods
 
 - [getMorphTargetShaderBinding](MorphTarget_shader.md#getmorphtargetshaderbinding)
 - [getMorphTargetAttr](MorphTarget_shader.md#getmorphtargetattr)
 - [getMorphTargetCalcVertex](MorphTarget_shader.md#getmorphtargetcalcvertex)
 
-### Properties
+## Constructors
 
-- [CsMain](MorphTarget_shader.md#csmain)
+### constructor
 
-### Constructors
+• **new MorphTarget_shader**()
 
-- [constructor](MorphTarget_shader.md#constructor)
+## Properties
+
+### CsMain
+
+▪ `Static` **CsMain**: `string`
+
+#### Defined in
+
+[src/components/anim/morphAnim/MorphTarget_shader.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTarget_shader.ts#L55)
 
 ## Methods
 
@@ -68,19 +84,3 @@ ___
 #### Defined in
 
 [src/components/anim/morphAnim/MorphTarget_shader.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTarget_shader.ts#L45)
-
-## Properties
-
-### CsMain
-
-▪ `Static` **CsMain**: `string`
-
-#### Defined in
-
-[src/components/anim/morphAnim/MorphTarget_shader.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTarget_shader.ts#L55)
-
-## Constructors
-
-### constructor
-
-• **new MorphTarget_shader**()

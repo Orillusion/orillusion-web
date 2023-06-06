@@ -17,6 +17,14 @@ If visible, the values in the color buffer will be updated.
 
 - [constructor](ForwardRenderJob.md#constructor)
 
+### Properties
+
+- [pickFire](ForwardRenderJob.md#pickfire)
+
+### Accessors
+
+- [view](ForwardRenderJob.md#view)
+
 ### Methods
 
 - [start](ForwardRenderJob.md#start)
@@ -27,14 +35,6 @@ If visible, the values in the color buffer will be updated.
 - [addPost](ForwardRenderJob.md#addpost)
 - [removePost](ForwardRenderJob.md#removepost)
 - [renderFrame](ForwardRenderJob.md#renderframe)
-
-### Properties
-
-- [pickFire](ForwardRenderJob.md#pickfire)
-
-### Accessors
-
-- [view](ForwardRenderJob.md#view)
 
 ## Constructors
 
@@ -55,6 +55,44 @@ RendererJob.constructor
 #### Defined in
 
 [src/gfx/renderJob/jobs/ForwardRenderJob.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/ForwardRenderJob.ts#L17)
+
+## Properties
+
+### pickFire
+
+• **pickFire**: [`PickFire`](PickFire.md)
+
+#### Inherited from
+
+RendererJob.pickFire
+
+#### Defined in
+
+[src/gfx/renderJob/jobs/RendererJob.ts:71](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L71)
+
+## Accessors
+
+### view
+
+• `set` **view**(`view`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+RendererJob.view
+
+#### Defined in
+
+[src/gfx/renderJob/jobs/RendererJob.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L114)
 
 ## Methods
 
@@ -236,41 +274,3 @@ RendererJob.renderFrame
 #### Defined in
 
 [src/gfx/renderJob/jobs/RendererJob.ts:185](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L185)
-
-## Properties
-
-### pickFire
-
-• **pickFire**: [`PickFire`](PickFire.md)
-
-#### Inherited from
-
-RendererJob.pickFire
-
-#### Defined in
-
-[src/gfx/renderJob/jobs/RendererJob.ts:71](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L71)
-
-## Accessors
-
-### view
-
-• `set` **view**(`view`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-RendererJob.view
-
-#### Defined in
-
-[src/gfx/renderJob/jobs/RendererJob.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L114)

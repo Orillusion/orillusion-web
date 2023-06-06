@@ -8,6 +8,14 @@ Spherical collision body
 
   ↳ **`SphereColliderShape`**
 
+### Constructors
+
+- [constructor](SphereColliderShape.md#constructor)
+
+### Properties
+
+- [radius](SphereColliderShape.md#radius)
+
 ### Accessors
 
 - [shapeType](SphereColliderShape.md#shapetype)
@@ -20,13 +28,37 @@ Spherical collision body
 - [setFromCenterAndSize](SphereColliderShape.md#setfromcenterandsize)
 - [rayPick](SphereColliderShape.md#raypick)
 
-### Properties
+## Constructors
 
-- [radius](SphereColliderShape.md#radius)
+### constructor
 
-### Constructors
+• **new SphereColliderShape**(`radius`)
 
-- [constructor](SphereColliderShape.md#constructor)
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `radius` | `number` | radius of this collider |
+
+#### Overrides
+
+[ColliderShape](ColliderShape.md).[constructor](ColliderShape.md#constructor)
+
+#### Defined in
+
+[src/components/shape/SphereColliderShape.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/SphereColliderShape.ts#L30)
+
+## Properties
+
+### radius
+
+• **radius**: `number` = `0.5`
+
+radius of this collider
+
+#### Defined in
+
+[src/components/shape/SphereColliderShape.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/SphereColliderShape.ts#L24)
 
 ## Accessors
 
@@ -211,35 +243,3 @@ Pick result intersect: whether to collide;
 #### Defined in
 
 [src/components/shape/SphereColliderShape.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/SphereColliderShape.ts#L37)
-
-## Properties
-
-### radius
-
-• **radius**: `number` = `0.5`
-
-radius of this collider
-
-#### Defined in
-
-[src/components/shape/SphereColliderShape.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/SphereColliderShape.ts#L24)
-
-## Constructors
-
-### constructor
-
-• **new SphereColliderShape**(`radius`)
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `radius` | `number` | radius of this collider |
-
-#### Overrides
-
-[ColliderShape](ColliderShape.md).[constructor](ColliderShape.md#constructor)
-
-#### Defined in
-
-[src/components/shape/SphereColliderShape.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/SphereColliderShape.ts#L30)

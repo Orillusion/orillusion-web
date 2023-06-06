@@ -8,6 +8,10 @@ Sphere Geometry
 
   ↳ **`SphereGeometry`**
 
+### Constructors
+
+- [constructor](SphereGeometry.md#constructor)
+
 ### Properties
 
 - [uuid](SphereGeometry.md#uuid)
@@ -48,9 +52,31 @@ Sphere Geometry
 - [isPrimitive](SphereGeometry.md#isprimitive)
 - [destroy](SphereGeometry.md#destroy)
 
-### Constructors
+## Constructors
 
-- [constructor](SphereGeometry.md#constructor)
+### constructor
+
+• **new SphereGeometry**(`radius`, `widthSegments`, `heightSegments`, `phiStart?`, `phiLength?`, `thetaStart?`, `thetaLength?`)
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `radius` | `any` | radius of sphere |
+| `widthSegments` | `any` | Define the number of horizontal segments |
+| `heightSegments` | `any` | Define the number of vertical segments |
+| `phiStart?` | `any` | The starting point radian of the equatorial line of a sphere |
+| `phiLength?` | `any` | The arc length of the equatorial line of a sphere |
+| `thetaStart?` | `any` | The radian of the starting point of the sphere's meridian |
+| `thetaLength?` | `any` | Arc length of sphere meridian |
+
+#### Overrides
+
+[GeometryBase](GeometryBase.md).[constructor](GeometryBase.md#constructor)
+
+#### Defined in
+
+[src/shape/SphereGeometry.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/shape/SphereGeometry.ts#L53)
 
 ## Properties
 
@@ -629,29 +655,3 @@ ___
 #### Defined in
 
 [src/core/geometry/GeometryBase.ts:268](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L268)
-
-## Constructors
-
-### constructor
-
-• **new SphereGeometry**(`radius`, `widthSegments`, `heightSegments`, `phiStart?`, `phiLength?`, `thetaStart?`, `thetaLength?`)
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `radius` | `any` | radius of sphere |
-| `widthSegments` | `any` | Define the number of horizontal segments |
-| `heightSegments` | `any` | Define the number of vertical segments |
-| `phiStart?` | `any` | The starting point radian of the equatorial line of a sphere |
-| `phiLength?` | `any` | The arc length of the equatorial line of a sphere |
-| `thetaStart?` | `any` | The radian of the starting point of the sphere's meridian |
-| `thetaLength?` | `any` | Arc length of sphere meridian |
-
-#### Overrides
-
-[GeometryBase](GeometryBase.md).[constructor](GeometryBase.md#constructor)
-
-#### Defined in
-
-[src/shape/SphereGeometry.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/shape/SphereGeometry.ts#L53)

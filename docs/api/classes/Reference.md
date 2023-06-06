@@ -3,6 +3,10 @@
 instance reference statistics module
 apply any instance , used full destroy
 
+### Constructors
+
+- [constructor](Reference.md#constructor)
+
 ### Methods
 
 - [getInstance](Reference.md#getinstance)
@@ -12,9 +16,11 @@ apply any instance , used full destroy
 - [getReferenceCount](Reference.md#getreferencecount)
 - [getReference](Reference.md#getreference)
 
-### Constructors
+## Constructors
 
-- [constructor](Reference.md#constructor)
+### constructor
+
+• **new Reference**()
 
 ## Methods
 
@@ -141,9 +147,3 @@ get current instance reference from where
 #### Defined in
 
 [src/util/Reference.ts:71](https://github.com/Orillusion/orillusion/blob/main/src/util/Reference.ts#L71)
-
-## Constructors
-
-### constructor
-
-• **new Reference**()

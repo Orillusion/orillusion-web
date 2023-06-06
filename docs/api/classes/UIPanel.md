@@ -1,17 +1,20 @@
 # Class: UIPanel
 
-Components are used to attach functionality to object3D, it has an owner object3D.
-The component can receive update events at each frame.
+Container for UI components
 
 ## Hierarchy
 
-- [`UIComponentBase`](UIComponentBase.md)
+- [`UIImage`](UIImage.md)
 
   ↳ **`UIPanel`**
 
   ↳↳ [`ViewPanel`](ViewPanel.md)
 
   ↳↳ [`WorldPanel`](WorldPanel.md)
+
+### Constructors
+
+- [constructor](UIPanel.md#constructor)
 
 ### Properties
 
@@ -22,10 +25,9 @@ The component can receive update events at each frame.
 - [panelOrder](UIPanel.md#panelorder)
 - [needSortOnCameraZ](UIPanel.md#needsortoncameraz)
 - [isUIPanel](UIPanel.md#isuipanel)
-
-### Constructors
-
-- [constructor](UIPanel.md#constructor)
+- [isUIShadow](UIPanel.md#isuishadow)
+- [isShadowless](UIPanel.md#isshadowless)
+- [needUpdateShadow](UIPanel.md#needupdateshadow)
 
 ### Accessors
 
@@ -33,13 +35,16 @@ The component can receive update events at each frame.
 - [enable](UIPanel.md#enable)
 - [uiTransform](UIPanel.md#uitransform)
 - [visible](UIPanel.md#visible)
+- [sprite](UIPanel.md#sprite)
+- [color](UIPanel.md#color)
+- [imageType](UIPanel.md#imagetype)
 - [guiMesh](UIPanel.md#guimesh)
+- [billboard](UIPanel.md#billboard)
+- [cullMode](UIPanel.md#cullmode)
+- [mainQuads](UIPanel.md#mainquads)
 
 ### Methods
 
-- [onParentChange](UIPanel.md#onparentchange)
-- [cloneTo](UIPanel.md#cloneto)
-- [start](UIPanel.md#start)
 - [stop](UIPanel.md#stop)
 - [onEnable](UIPanel.md#onenable)
 - [onDisable](UIPanel.md#ondisable)
@@ -48,9 +53,29 @@ The component can receive update events at each frame.
 - [onBeforeUpdate](UIPanel.md#onbeforeupdate)
 - [onCompute](UIPanel.md#oncompute)
 - [onGraphic](UIPanel.md#ongraphic)
-- [destroy](UIPanel.md#destroy)
+- [onParentChange](UIPanel.md#onparentchange)
+- [cloneTo](UIPanel.md#cloneto)
 - [copyComponent](UIPanel.md#copycomponent)
 - [init](UIPanel.md#init)
+- [destroy](UIPanel.md#destroy)
+- [start](UIPanel.md#start)
+- [setShadowRenderer](UIPanel.md#setshadowrenderer)
+- [setShadowSource](UIPanel.md#setshadowsource)
+- [getShadowRender](UIPanel.md#getshadowrender)
+
+## Constructors
+
+### constructor
+
+• **new UIPanel**()
+
+#### Inherited from
+
+[UIImage](UIImage.md).[constructor](UIImage.md#constructor)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L31)
 
 ## Properties
 
@@ -62,7 +87,7 @@ owner object3D
 
 #### Inherited from
 
-[UIComponentBase](UIComponentBase.md).[object3D](UIComponentBase.md#object3d)
+[UIImage](UIImage.md).[object3D](UIImage.md#object3d)
 
 #### Defined in
 
@@ -76,17 +101,17 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIPanel.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L8)
+[src/components/gui/uiComponents/UIPanel.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L12)
 
 ___
 
 ### space
 
-• **space**: `number` = `GUISpace.World`
+• `Readonly` **space**: `number` = `GUISpace.World`
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIPanel.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L9)
+[src/components/gui/uiComponents/UIPanel.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L13)
 
 ___
 
@@ -96,7 +121,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIPanel.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L10)
+[src/components/gui/uiComponents/UIPanel.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L14)
 
 ___
 
@@ -106,7 +131,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIPanel.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L11)
+[src/components/gui/uiComponents/UIPanel.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L15)
 
 ___
 
@@ -116,7 +141,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIPanel.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L12)
+[src/components/gui/uiComponents/UIPanel.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L16)
 
 ___
 
@@ -126,21 +151,49 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIPanel.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L14)
+[src/components/gui/uiComponents/UIPanel.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L20)
 
-## Constructors
+___
 
-### constructor
+### isUIShadow
 
-• **new UIPanel**()
+• `Optional` **isUIShadow**: `boolean`
 
 #### Inherited from
 
-[UIComponentBase](UIComponentBase.md).[constructor](UIComponentBase.md#constructor)
+[UIImage](UIImage.md).[isUIShadow](UIImage.md#isuishadow)
 
 #### Defined in
 
-[src/components/ComponentBase.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L31)
+[src/components/gui/uiComponents/UIRenderAble.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L12)
+
+___
+
+### isShadowless
+
+• `Optional` **isShadowless**: `boolean`
+
+#### Inherited from
+
+[UIImage](UIImage.md).[isShadowless](UIImage.md#isshadowless)
+
+#### Defined in
+
+[src/components/gui/uiComponents/UIRenderAble.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L13)
+
+___
+
+### needUpdateShadow
+
+• **needUpdateShadow**: `boolean`
+
+#### Inherited from
+
+[UIImage](UIImage.md).[needUpdateShadow](UIImage.md#needupdateshadow)
+
+#### Defined in
+
+[src/components/gui/uiComponents/UIRenderAble.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L14)
 
 ## Accessors
 
@@ -156,7 +209,7 @@ Return the Transform component attached to the Object3D.
 
 #### Inherited from
 
-UIComponentBase.transform
+UIImage.transform
 
 #### Defined in
 
@@ -176,7 +229,7 @@ Enable/disable components. The enabled components can be updated, while the disa
 
 #### Inherited from
 
-UIComponentBase.enable
+UIImage.enable
 
 #### Defined in
 
@@ -198,7 +251,7 @@ Enable/disable components. The enabled components can be updated, while the disa
 
 #### Inherited from
 
-UIComponentBase.enable
+UIImage.enable
 
 #### Defined in
 
@@ -216,11 +269,11 @@ ___
 
 #### Inherited from
 
-UIComponentBase.uiTransform
+UIImage.uiTransform
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIComponentBase.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L12)
+[src/components/gui/uiComponents/UIComponentBase.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L16)
 
 ___
 
@@ -234,11 +287,11 @@ ___
 
 #### Inherited from
 
-UIComponentBase.visible
+UIImage.visible
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIComponentBase.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L16)
+[src/components/gui/uiComponents/UIComponentBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L20)
 
 • `set` **visible**(`value`): `void`
 
@@ -254,11 +307,125 @@ UIComponentBase.visible
 
 #### Inherited from
 
-UIComponentBase.visible
+UIImage.visible
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIComponentBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L20)
+[src/components/gui/uiComponents/UIComponentBase.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L24)
+
+___
+
+### sprite
+
+• `get` **sprite**(): [`GUISprite`](GUISprite.md)
+
+#### Returns
+
+[`GUISprite`](GUISprite.md)
+
+#### Inherited from
+
+UIImage.sprite
+
+#### Defined in
+
+[src/components/gui/uiComponents/UIImage.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIImage.ts#L54)
+
+• `set` **sprite**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | [`GUISprite`](GUISprite.md) |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+UIImage.sprite
+
+#### Defined in
+
+[src/components/gui/uiComponents/UIImage.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIImage.ts#L34)
+
+___
+
+### color
+
+• `get` **color**(): [`Color`](Color.md)
+
+#### Returns
+
+[`Color`](Color.md)
+
+#### Inherited from
+
+UIImage.color
+
+#### Defined in
+
+[src/components/gui/uiComponents/UIImage.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIImage.ts#L74)
+
+• `set` **color**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | [`Color`](Color.md) |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+UIImage.color
+
+#### Defined in
+
+[src/components/gui/uiComponents/UIImage.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIImage.ts#L78)
+
+___
+
+### imageType
+
+• `get` **imageType**(): [`ImageType`](../enums/ImageType.md)
+
+#### Returns
+
+[`ImageType`](../enums/ImageType.md)
+
+#### Inherited from
+
+UIImage.imageType
+
+#### Defined in
+
+[src/components/gui/uiComponents/UIImage.ts:85](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIImage.ts#L85)
+
+• `set` **imageType**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | [`ImageType`](../enums/ImageType.md) |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+UIImage.imageType
+
+#### Defined in
+
+[src/components/gui/uiComponents/UIImage.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIImage.ts#L89)
 
 ___
 
@@ -272,9 +439,274 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIPanel.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L15)
+[src/components/gui/uiComponents/UIPanel.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L21)
+
+___
+
+### billboard
+
+• `get` **billboard**(): [`BillboardType`](../enums/BillboardType.md)
+
+#### Returns
+
+[`BillboardType`](../enums/BillboardType.md)
+
+#### Defined in
+
+[src/components/gui/uiComponents/UIPanel.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L62)
+
+• `set` **billboard**(`type`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `type` | [`BillboardType`](../enums/BillboardType.md) |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/components/gui/uiComponents/UIPanel.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L47)
+
+___
+
+### cullMode
+
+• `get` **cullMode**(): `GPUCullMode`
+
+#### Returns
+
+`GPUCullMode`
+
+#### Defined in
+
+[src/components/gui/uiComponents/UIPanel.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L74)
+
+• `set` **cullMode**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `GPUCullMode` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/components/gui/uiComponents/UIPanel.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L66)
+
+___
+
+### mainQuads
+
+• `get` **mainQuads**(): [`GUIQuad`](GUIQuad.md)[]
+
+#### Returns
+
+[`GUIQuad`](GUIQuad.md)[]
+
+#### Inherited from
+
+UIImage.mainQuads
+
+#### Defined in
+
+[src/components/gui/uiComponents/UIRenderAble.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L44)
 
 ## Methods
+
+### stop
+
+▸ **stop**(): `void`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[UIImage](UIImage.md).[stop](UIImage.md#stop)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L108)
+
+___
+
+### onEnable
+
+▸ `Optional` **onEnable**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[UIImage](UIImage.md).[onEnable](UIImage.md#onenable)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L109)
+
+___
+
+### onDisable
+
+▸ `Optional` **onDisable**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[UIImage](UIImage.md).[onDisable](UIImage.md#ondisable)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L110)
+
+___
+
+### onUpdate
+
+▸ `Optional` **onUpdate**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[UIImage](UIImage.md).[onUpdate](UIImage.md#onupdate)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L111)
+
+___
+
+### onLateUpdate
+
+▸ `Optional` **onLateUpdate**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[UIImage](UIImage.md).[onLateUpdate](UIImage.md#onlateupdate)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L112)
+
+___
+
+### onBeforeUpdate
+
+▸ `Optional` **onBeforeUpdate**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[UIImage](UIImage.md).[onBeforeUpdate](UIImage.md#onbeforeupdate)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
+
+___
+
+### onCompute
+
+▸ `Optional` **onCompute**(`view?`, `command?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+| `command?` | `GPUCommandEncoder` |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[UIImage](UIImage.md).[onCompute](UIImage.md#oncompute)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
+
+___
+
+### onGraphic
+
+▸ `Optional` **onGraphic**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[UIImage](UIImage.md).[onGraphic](UIImage.md#ongraphic)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L115)
+
+___
 
 ### onParentChange
 
@@ -293,7 +725,7 @@ ___
 
 #### Inherited from
 
-[UIComponentBase](UIComponentBase.md).[onParentChange](UIComponentBase.md#onparentchange)
+[UIImage](UIImage.md).[onParentChange](UIImage.md#onparentchange)
 
 #### Defined in
 
@@ -317,244 +749,13 @@ clone component data to target object3D
 
 `void`
 
-#### Inherited from
-
-[UIComponentBase](UIComponentBase.md).[cloneTo](UIComponentBase.md#cloneto)
-
-#### Defined in
-
-[src/components/ComponentBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L123)
-
-___
-
-### start
-
-▸ **start**(): `void`
-
-#### Returns
-
-`void`
-
 #### Overrides
 
-[UIComponentBase](UIComponentBase.md).[start](UIComponentBase.md#start)
-
-#### Defined in
-
-[src/components/gui/uiComponents/UIPanel.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L19)
-
-___
-
-### stop
-
-▸ **stop**(): `void`
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-[UIComponentBase](UIComponentBase.md).[stop](UIComponentBase.md#stop)
-
-#### Defined in
-
-[src/components/gui/uiComponents/UIPanel.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L22)
-
-___
-
-### onEnable
-
-▸ `Optional` **onEnable**(`view?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-[UIComponentBase](UIComponentBase.md).[onEnable](UIComponentBase.md#onenable)
+[UIImage](UIImage.md).[cloneTo](UIImage.md#cloneto)
 
 #### Defined in
 
 [src/components/gui/uiComponents/UIPanel.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L25)
-
-___
-
-### onDisable
-
-▸ `Optional` **onDisable**(`view?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-[UIComponentBase](UIComponentBase.md).[onDisable](UIComponentBase.md#ondisable)
-
-#### Defined in
-
-[src/components/gui/uiComponents/UIPanel.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L28)
-
-___
-
-### onUpdate
-
-▸ `Optional` **onUpdate**(`view?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-[UIComponentBase](UIComponentBase.md).[onUpdate](UIComponentBase.md#onupdate)
-
-#### Defined in
-
-[src/components/gui/uiComponents/UIPanel.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L31)
-
-___
-
-### onLateUpdate
-
-▸ `Optional` **onLateUpdate**(`view?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-[UIComponentBase](UIComponentBase.md).[onLateUpdate](UIComponentBase.md#onlateupdate)
-
-#### Defined in
-
-[src/components/gui/uiComponents/UIPanel.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L34)
-
-___
-
-### onBeforeUpdate
-
-▸ `Optional` **onBeforeUpdate**(`view?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-[UIComponentBase](UIComponentBase.md).[onBeforeUpdate](UIComponentBase.md#onbeforeupdate)
-
-#### Defined in
-
-[src/components/gui/uiComponents/UIPanel.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L37)
-
-___
-
-### onCompute
-
-▸ `Optional` **onCompute**(`view?`, `command?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
-| `command?` | `GPUCommandEncoder` |
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-[UIComponentBase](UIComponentBase.md).[onCompute](UIComponentBase.md#oncompute)
-
-#### Defined in
-
-[src/components/gui/uiComponents/UIPanel.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L40)
-
-___
-
-### onGraphic
-
-▸ `Optional` **onGraphic**(`view?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-[UIComponentBase](UIComponentBase.md).[onGraphic](UIComponentBase.md#ongraphic)
-
-#### Defined in
-
-[src/components/gui/uiComponents/UIPanel.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L43)
-
-___
-
-### destroy
-
-▸ **destroy**(`force?`): `void`
-
-release this component
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-[UIComponentBase](UIComponentBase.md).[destroy](UIComponentBase.md#destroy)
-
-#### Defined in
-
-[src/components/gui/uiComponents/UIPanel.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L47)
 
 ___
 
@@ -574,11 +775,11 @@ ___
 
 #### Overrides
 
-[UIComponentBase](UIComponentBase.md).[copyComponent](UIComponentBase.md#copycomponent)
+[UIImage](UIImage.md).[copyComponent](UIImage.md#copycomponent)
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIPanel.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L50)
+[src/components/gui/uiComponents/UIPanel.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L30)
 
 ___
 
@@ -598,8 +799,112 @@ ___
 
 #### Overrides
 
-[UIComponentBase](UIComponentBase.md).[init](UIComponentBase.md#init)
+[UIImage](UIImage.md).[init](UIImage.md#init)
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIPanel.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L58)
+[src/components/gui/uiComponents/UIPanel.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L40)
+
+___
+
+### destroy
+
+▸ **destroy**(): `void`
+
+release this component
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[UIImage](UIImage.md).[destroy](UIImage.md#destroy)
+
+#### Defined in
+
+[src/components/gui/uiComponents/UIRenderAble.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L21)
+
+___
+
+### start
+
+▸ **start**(): `void`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[UIImage](UIImage.md).[start](UIImage.md#start)
+
+#### Defined in
+
+[src/components/gui/uiComponents/UIRenderAble.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L30)
+
+___
+
+### setShadowRenderer
+
+▸ **setShadowRenderer**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | [`UIRenderAble`](UIRenderAble.md) |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[UIImage](UIImage.md).[setShadowRenderer](UIImage.md#setshadowrenderer)
+
+#### Defined in
+
+[src/components/gui/uiComponents/UIRenderAble.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L48)
+
+___
+
+### setShadowSource
+
+▸ **setShadowSource**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | [`UIRenderAble`](UIRenderAble.md) |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[UIImage](UIImage.md).[setShadowSource](UIImage.md#setshadowsource)
+
+#### Defined in
+
+[src/components/gui/uiComponents/UIRenderAble.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L52)
+
+___
+
+### getShadowRender
+
+▸ **getShadowRender**(): [`UIRenderAble`](UIRenderAble.md)
+
+#### Returns
+
+[`UIRenderAble`](UIRenderAble.md)
+
+#### Inherited from
+
+[UIImage](UIImage.md).[getShadowRender](UIImage.md#getshadowrender)
+
+#### Defined in
+
+[src/components/gui/uiComponents/UIRenderAble.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L56)

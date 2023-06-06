@@ -8,6 +8,10 @@ Orbit Camera Controller
 
   ↳ **`OrbitController`**
 
+### Constructors
+
+- [constructor](OrbitController.md#constructor)
+
 ### Properties
 
 - [object3D](OrbitController.md#object3d)
@@ -40,9 +44,19 @@ Orbit Camera Controller
 - [cloneTo](OrbitController.md#cloneto)
 - [destroy](OrbitController.md#destroy)
 
-### Constructors
+## Constructors
 
-- [constructor](OrbitController.md#constructor)
+### constructor
+
+• **new OrbitController**()
+
+#### Overrides
+
+[ComponentBase](ComponentBase.md).[constructor](ComponentBase.md#constructor)
+
+#### Defined in
+
+[src/components/controller/OrbitController.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L57)
 
 ## Properties
 
@@ -625,17 +639,3 @@ release this component
 #### Defined in
 
 [src/components/ComponentBase.ts:190](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L190)
-
-## Constructors
-
-### constructor
-
-• **new OrbitController**()
-
-#### Overrides
-
-[ComponentBase](ComponentBase.md).[constructor](ComponentBase.md#constructor)
-
-#### Defined in
-
-[src/components/controller/OrbitController.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L57)

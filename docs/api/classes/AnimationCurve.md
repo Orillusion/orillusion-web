@@ -3,6 +3,10 @@
 Animation Cureve 
 has frame list data
 
+### Constructors
+
+- [constructor](AnimationCurve.md#constructor)
+
 ### Properties
 
 - [curve](AnimationCurve.md#curve)
@@ -10,10 +14,6 @@ has frame list data
 - [preWarpMode](AnimationCurve.md#prewarpmode)
 - [postWarpMode](AnimationCurve.md#postwarpmode)
 - [rotationOrder](AnimationCurve.md#rotationorder)
-
-### Constructors
-
-- [constructor](AnimationCurve.md#constructor)
 
 ### Accessors
 
@@ -32,6 +32,24 @@ has frame list data
 - [unSerialized](AnimationCurve.md#unserialized)
 - [unSerialized2](AnimationCurve.md#unserialized2)
 - [scaleCurveValue](AnimationCurve.md#scalecurvevalue)
+
+## Constructors
+
+### constructor
+
+• **new AnimationCurve**(`frames?`, `preWarpMode?`, `postWarpMode?`)
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `frames?` | [`Keyframe`](Keyframe.md)[] | `undefined` |
+| `preWarpMode` | [`WrapTimeMode`](../enums/WrapTimeMode.md) | `WrapTimeMode.Repeat` |
+| `postWarpMode` | [`WrapTimeMode`](../enums/WrapTimeMode.md) | `WrapTimeMode.Repeat` |
+
+#### Defined in
+
+[src/math/AnimationCurve.ts:88](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L88)
 
 ## Properties
 
@@ -82,24 +100,6 @@ ___
 #### Defined in
 
 [src/math/AnimationCurve.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L86)
-
-## Constructors
-
-### constructor
-
-• **new AnimationCurve**(`frames?`, `preWarpMode?`, `postWarpMode?`)
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `frames?` | [`Keyframe`](Keyframe.md)[] | `undefined` |
-| `preWarpMode` | [`WrapTimeMode`](../enums/WrapTimeMode.md) | `WrapTimeMode.Repeat` |
-| `postWarpMode` | [`WrapTimeMode`](../enums/WrapTimeMode.md) | `WrapTimeMode.Repeat` |
-
-#### Defined in
-
-[src/math/AnimationCurve.ts:88](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L88)
 
 ## Accessors
 

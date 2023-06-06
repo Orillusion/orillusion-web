@@ -2,6 +2,10 @@
 
 3*3 Matrix
 
+### Constructors
+
+- [constructor](Matrix3.md#constructor)
+
 ### Properties
 
 - [a](Matrix3.md#a)
@@ -10,10 +14,6 @@
 - [d](Matrix3.md#d)
 - [tx](Matrix3.md#tx)
 - [ty](Matrix3.md#ty)
-
-### Constructors
-
-- [constructor](Matrix3.md#constructor)
 
 ### Methods
 
@@ -36,6 +36,29 @@
 - [toString](Matrix3.md#tostring)
 - [createBox](Matrix3.md#createbox)
 - [createGradientBox](Matrix3.md#creategradientbox)
+
+## Constructors
+
+### constructor
+
+• **new Matrix3**(`a?`, `b?`, `c?`, `d?`, `tx?`, `ty?`)
+
+Create a Matrix3
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `a` | `number` | `1` | The width of x |
+| `b` | `number` | `0` | The slope of y |
+| `c` | `number` | `0` | The slope of x |
+| `d` | `number` | `1` | The height of y |
+| `tx` | `number` | `0` | The position of the x coordinate |
+| `ty` | `number` | `0` | The position of the y coordinate |
+
+#### Defined in
+
+[src/math/Matrix3.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L67)
 
 ## Properties
 
@@ -108,29 +131,6 @@ The position of the y coordinate
 #### Defined in
 
 [src/math/Matrix3.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L56)
-
-## Constructors
-
-### constructor
-
-• **new Matrix3**(`a?`, `b?`, `c?`, `d?`, `tx?`, `ty?`)
-
-Create a Matrix3
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `a` | `number` | `1` | The width of x |
-| `b` | `number` | `0` | The slope of y |
-| `c` | `number` | `0` | The slope of x |
-| `d` | `number` | `1` | The height of y |
-| `tx` | `number` | `0` | The position of the x coordinate |
-| `ty` | `number` | `0` | The position of the y coordinate |
-
-#### Defined in
-
-[src/math/Matrix3.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L67)
 
 ## Methods
 

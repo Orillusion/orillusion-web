@@ -9,15 +9,20 @@ The component can receive update events at each frame.
 
   ↳ **`BillboardComponent`**
 
+### Constructors
+
+- [constructor](BillboardComponent.md#constructor)
+
 ### Properties
 
 - [type](BillboardComponent.md#type)
 - [camera](BillboardComponent.md#camera)
 - [object3D](BillboardComponent.md#object3d)
 
-### Constructors
+### Accessors
 
-- [constructor](BillboardComponent.md#constructor)
+- [transform](BillboardComponent.md#transform)
+- [enable](BillboardComponent.md#enable)
 
 ### Methods
 
@@ -35,10 +40,19 @@ The component can receive update events at each frame.
 - [onParentChange](BillboardComponent.md#onparentchange)
 - [destroy](BillboardComponent.md#destroy)
 
-### Accessors
+## Constructors
 
-- [transform](BillboardComponent.md#transform)
-- [enable](BillboardComponent.md#enable)
+### constructor
+
+• **new BillboardComponent**()
+
+#### Overrides
+
+[ComponentBase](ComponentBase.md).[constructor](ComponentBase.md#constructor)
+
+#### Defined in
+
+[src/components/BillboardComponent.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/BillboardComponent.ts#L12)
 
 ## Properties
 
@@ -76,19 +90,67 @@ owner object3D
 
 [src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
 
-## Constructors
+## Accessors
 
-### constructor
+### transform
 
-• **new BillboardComponent**()
+• `get` **transform**(): [`Transform`](Transform.md)
 
-#### Overrides
+Return the Transform component attached to the Object3D.
 
-[ComponentBase](ComponentBase.md).[constructor](ComponentBase.md#constructor)
+#### Returns
+
+[`Transform`](Transform.md)
+
+#### Inherited from
+
+ComponentBase.transform
 
 #### Defined in
 
-[src/components/BillboardComponent.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/BillboardComponent.ts#L12)
+[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
+
+___
+
+### enable
+
+• `get` **enable**(): `boolean`
+
+Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+ComponentBase.enable
+
+#### Defined in
+
+[src/components/ComponentBase.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L59)
+
+• `set` **enable**(`value`): `void`
+
+Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+ComponentBase.enable
+
+#### Defined in
+
+[src/components/ComponentBase.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L45)
 
 ## Methods
 
@@ -132,7 +194,7 @@ clone component data to target object3D
 
 #### Defined in
 
-[src/components/BillboardComponent.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/components/BillboardComponent.ts#L35)
+[src/components/BillboardComponent.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/components/BillboardComponent.ts#L34)
 
 ___
 
@@ -389,65 +451,3 @@ release this component
 #### Defined in
 
 [src/components/ComponentBase.ts:190](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L190)
-
-## Accessors
-
-### transform
-
-• `get` **transform**(): [`Transform`](Transform.md)
-
-Return the Transform component attached to the Object3D.
-
-#### Returns
-
-[`Transform`](Transform.md)
-
-#### Inherited from
-
-ComponentBase.transform
-
-#### Defined in
-
-[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
-
-___
-
-### enable
-
-• `get` **enable**(): `boolean`
-
-Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
-
-#### Returns
-
-`boolean`
-
-#### Inherited from
-
-ComponentBase.enable
-
-#### Defined in
-
-[src/components/ComponentBase.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L59)
-
-• `set` **enable**(`value`): `void`
-
-Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-ComponentBase.enable
-
-#### Defined in
-
-[src/components/ComponentBase.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L45)

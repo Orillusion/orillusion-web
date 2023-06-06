@@ -1,7 +1,6 @@
 # Class: GUICanvas
 
-Components are used to attach functionality to object3D, it has an owner object3D.
-The component can receive update events at each frame.
+GUI Root Container
 
 ## Hierarchy
 
@@ -9,13 +8,14 @@ The component can receive update events at each frame.
 
   ↳ **`GUICanvas`**
 
-### Properties
-
-- [object3D](GUICanvas.md#object3d)
-
 ### Constructors
 
 - [constructor](GUICanvas.md#constructor)
+
+### Properties
+
+- [object3D](GUICanvas.md#object3d)
+- [index](GUICanvas.md#index)
 
 ### Accessors
 
@@ -40,6 +40,20 @@ The component can receive update events at each frame.
 - [onUpdate](GUICanvas.md#onupdate)
 - [cloneTo](GUICanvas.md#cloneto)
 
+## Constructors
+
+### constructor
+
+• **new GUICanvas**()
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[constructor](ComponentBase.md#constructor)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L31)
+
 ## Properties
 
 ### object3D
@@ -56,19 +70,15 @@ owner object3D
 
 [src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
 
-## Constructors
+___
 
-### constructor
+### index
 
-• **new GUICanvas**()
-
-#### Inherited from
-
-[ComponentBase](ComponentBase.md).[constructor](ComponentBase.md#constructor)
+• **index**: `number` = `0`
 
 #### Defined in
 
-[src/components/ComponentBase.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L31)
+[src/components/gui/core/GUICanvas.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUICanvas.ts#L18)
 
 ## Accessors
 
@@ -380,7 +390,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/core/GUICanvas.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUICanvas.ts#L14)
+[src/components/gui/core/GUICanvas.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUICanvas.ts#L19)
 
 ___
 
@@ -402,7 +412,7 @@ Add an Object3D
 
 #### Defined in
 
-[src/components/gui/core/GUICanvas.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUICanvas.ts#L25)
+[src/components/gui/core/GUICanvas.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUICanvas.ts#L30)
 
 ___
 
@@ -424,7 +434,7 @@ Remove the child
 
 #### Defined in
 
-[src/components/gui/core/GUICanvas.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUICanvas.ts#L35)
+[src/components/gui/core/GUICanvas.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUICanvas.ts#L40)
 
 ___
 
@@ -442,7 +452,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/core/GUICanvas.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUICanvas.ts#L40)
+[src/components/gui/core/GUICanvas.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUICanvas.ts#L45)
 
 ___
 
@@ -468,4 +478,4 @@ clone component data to target object3D
 
 #### Defined in
 
-[src/components/gui/core/GUICanvas.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUICanvas.ts#L70)
+[src/components/gui/core/GUICanvas.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUICanvas.ts#L81)

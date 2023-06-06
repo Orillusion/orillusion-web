@@ -6,6 +6,10 @@
 
   ↳ **`View3D`**
 
+### Constructors
+
+- [constructor](View3D.md#constructor)
+
 ### Properties
 
 - [pickFire](View3D.md#pickfire)
@@ -19,10 +23,6 @@
 - [handler](View3D.md#handler)
 - [param](View3D.md#param)
 - [priority](View3D.md#priority)
-
-### Constructors
-
-- [constructor](View3D.md#constructor)
 
 ### Accessors
 
@@ -38,6 +38,29 @@
 - [disableUICanvas](View3D.md#disableuicanvas)
 - [equalCurrentListener](View3D.md#equalcurrentlistener)
 - [dispose](View3D.md#dispose)
+
+## Constructors
+
+### constructor
+
+• **new View3D**(`x?`, `y?`, `width?`, `height?`)
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `x` | `number` | `0` |
+| `y` | `number` | `0` |
+| `width` | `number` | `0` |
+| `height` | `number` | `0` |
+
+#### Overrides
+
+CEventListener.constructor
+
+#### Defined in
+
+[src/core/View3D.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L27)
 
 ## Properties
 
@@ -192,29 +215,6 @@ CEventListener.priority
 #### Defined in
 
 [src/event/CEventListener.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventListener.ts#L32)
-
-## Constructors
-
-### constructor
-
-• **new View3D**(`x?`, `y?`, `width?`, `height?`)
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `x` | `number` | `0` |
-| `y` | `number` | `0` |
-| `width` | `number` | `0` |
-| `height` | `number` | `0` |
-
-#### Overrides
-
-CEventListener.constructor
-
-#### Defined in
-
-[src/core/View3D.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L27)
 
 ## Accessors
 
@@ -404,7 +404,7 @@ ___
 
 #### Defined in
 
-[src/core/View3D.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L110)
+[src/core/View3D.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L111)
 
 ___
 

@@ -13,19 +13,6 @@ an rendering material implemented by simulating glass surfaces
 
 - [constructor](GlassMaterial.md#constructor)
 
-### Methods
-
-- [clone](GlassMaterial.md#clone)
-- [setDefine](GlassMaterial.md#setdefine)
-- [hasPass](GlassMaterial.md#haspass)
-- [addPass](GlassMaterial.md#addpass)
-- [removePass](GlassMaterial.md#removepass)
-- [setShader](GlassMaterial.md#setshader)
-- [getShader](GlassMaterial.md#getshader)
-- [debug](GlassMaterial.md#debug)
-- [useCleanCoat](GlassMaterial.md#usecleancoat)
-- [destroy](GlassMaterial.md#destroy)
-
 ### Properties
 
 - [name](GlassMaterial.md#name)
@@ -82,6 +69,19 @@ an rendering material implemented by simulating glass surfaces
 - [clearcoatWeight](GlassMaterial.md#clearcoatweight)
 - [clearcoatColor](GlassMaterial.md#clearcoatcolor)
 
+### Methods
+
+- [clone](GlassMaterial.md#clone)
+- [setDefine](GlassMaterial.md#setdefine)
+- [hasPass](GlassMaterial.md#haspass)
+- [addPass](GlassMaterial.md#addpass)
+- [removePass](GlassMaterial.md#removepass)
+- [setShader](GlassMaterial.md#setshader)
+- [getShader](GlassMaterial.md#getshader)
+- [debug](GlassMaterial.md#debug)
+- [useCleanCoat](GlassMaterial.md#usecleancoat)
+- [destroy](GlassMaterial.md#destroy)
+
 ## Constructors
 
 ### constructor
@@ -95,235 +95,6 @@ PhysicMaterial.constructor
 #### Defined in
 
 [src/materials/GlassMaterial.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/materials/GlassMaterial.ts#L18)
-
-## Methods
-
-### clone
-
-▸ **clone**(): [`GlassMaterial`](GlassMaterial.md)
-
-#### Returns
-
-[`GlassMaterial`](GlassMaterial.md)
-
-#### Overrides
-
-PhysicMaterial.clone
-
-#### Defined in
-
-[src/materials/GlassMaterial.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/materials/GlassMaterial.ts#L48)
-
-___
-
-### setDefine
-
-▸ **setDefine**(`define`, `bool`): `void`
-
-Enable/Disable the definition of shaders
-
-**`Memberof`**
-
-MaterialBase
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `define` | `string` | key |
-| `bool` | `boolean` | - |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.setDefine
-
-#### Defined in
-
-[src/materials/MaterialBase.ts:309](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L309)
-
-___
-
-### hasPass
-
-▸ **hasPass**(`passType`): `boolean`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `passType` | `RendererType` |
-
-#### Returns
-
-`boolean`
-
-#### Inherited from
-
-PhysicMaterial.hasPass
-
-#### Defined in
-
-[src/materials/MaterialBase.ts:313](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L313)
-
-___
-
-### addPass
-
-▸ **addPass**(`passType`, `pass`, `index?`): [`MaterialPass`](MaterialPass.md)[]
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `passType` | `RendererType` | `undefined` |
-| `pass` | [`MaterialPass`](MaterialPass.md) | `undefined` |
-| `index` | `number` | `-1` |
-
-#### Returns
-
-[`MaterialPass`](MaterialPass.md)[]
-
-#### Inherited from
-
-PhysicMaterial.addPass
-
-#### Defined in
-
-[src/materials/MaterialBase.ts:317](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L317)
-
-___
-
-### removePass
-
-▸ **removePass**(`passType`, `index`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `passType` | `RendererType` |
-| `index` | `number` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.removePass
-
-#### Defined in
-
-[src/materials/MaterialBase.ts:333](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L333)
-
-___
-
-### setShader
-
-▸ **setShader**(`vs`, `fs`): [`RenderShader`](RenderShader.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `vs` | `string` |
-| `fs` | `string` |
-
-#### Returns
-
-[`RenderShader`](RenderShader.md)
-
-#### Inherited from
-
-PhysicMaterial.setShader
-
-#### Defined in
-
-[src/materials/MaterialPass.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L39)
-
-___
-
-### getShader
-
-▸ **getShader**(): [`RenderShader`](RenderShader.md)
-
-#### Returns
-
-[`RenderShader`](RenderShader.md)
-
-#### Inherited from
-
-PhysicMaterial.getShader
-
-#### Defined in
-
-[src/materials/MaterialPass.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L46)
-
-___
-
-### debug
-
-▸ **debug**(): `void`
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.debug
-
-#### Defined in
-
-[src/materials/MaterialPass.ts:166](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L166)
-
-___
-
-### useCleanCoat
-
-▸ **useCleanCoat**(): `void`
-
-valid USE_CLEARCOAT define in shader
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.useCleanCoat
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:288](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L288)
-
-___
-
-### destroy
-
-▸ **destroy**(`force?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.destroy
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:348](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L348)
 
 ## Properties
 
@@ -1159,7 +930,7 @@ PhysicMaterial.cullMode
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L109)
+[src/materials/MaterialPass.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L114)
 
 • `set` **cullMode**(`value`): `void`
 
@@ -1181,7 +952,7 @@ PhysicMaterial.cullMode
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L116)
+[src/materials/MaterialPass.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L121)
 
 ___
 
@@ -1199,7 +970,7 @@ PhysicMaterial.depthBias
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L120)
+[src/materials/MaterialPass.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L125)
 
 • `set` **depthBias**(`value`): `void`
 
@@ -1219,7 +990,7 @@ PhysicMaterial.depthBias
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L124)
+[src/materials/MaterialPass.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L129)
 
 ___
 
@@ -1239,7 +1010,7 @@ PhysicMaterial.depthCompare
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L131)
+[src/materials/MaterialPass.ts:136](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L136)
 
 • `set` **depthCompare**(`value`): `void`
 
@@ -1261,7 +1032,7 @@ PhysicMaterial.depthCompare
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:138](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L138)
+[src/materials/MaterialPass.ts:143](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L143)
 
 ___
 
@@ -2194,3 +1965,232 @@ PhysicMaterial.clearcoatColor
 #### Defined in
 
 [src/materials/PhysicMaterial.ts:337](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L337)
+
+## Methods
+
+### clone
+
+▸ **clone**(): [`GlassMaterial`](GlassMaterial.md)
+
+#### Returns
+
+[`GlassMaterial`](GlassMaterial.md)
+
+#### Overrides
+
+PhysicMaterial.clone
+
+#### Defined in
+
+[src/materials/GlassMaterial.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/materials/GlassMaterial.ts#L48)
+
+___
+
+### setDefine
+
+▸ **setDefine**(`define`, `bool`): `void`
+
+Enable/Disable the definition of shaders
+
+**`Memberof`**
+
+MaterialBase
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `define` | `string` | key |
+| `bool` | `boolean` | - |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+PhysicMaterial.setDefine
+
+#### Defined in
+
+[src/materials/MaterialBase.ts:309](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L309)
+
+___
+
+### hasPass
+
+▸ **hasPass**(`passType`): `boolean`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `passType` | `RendererType` |
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+PhysicMaterial.hasPass
+
+#### Defined in
+
+[src/materials/MaterialBase.ts:313](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L313)
+
+___
+
+### addPass
+
+▸ **addPass**(`passType`, `pass`, `index?`): [`MaterialPass`](MaterialPass.md)[]
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `passType` | `RendererType` | `undefined` |
+| `pass` | [`MaterialPass`](MaterialPass.md) | `undefined` |
+| `index` | `number` | `-1` |
+
+#### Returns
+
+[`MaterialPass`](MaterialPass.md)[]
+
+#### Inherited from
+
+PhysicMaterial.addPass
+
+#### Defined in
+
+[src/materials/MaterialBase.ts:317](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L317)
+
+___
+
+### removePass
+
+▸ **removePass**(`passType`, `index`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `passType` | `RendererType` |
+| `index` | `number` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+PhysicMaterial.removePass
+
+#### Defined in
+
+[src/materials/MaterialBase.ts:333](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L333)
+
+___
+
+### setShader
+
+▸ **setShader**(`vs`, `fs`): [`RenderShader`](RenderShader.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `vs` | `string` |
+| `fs` | `string` |
+
+#### Returns
+
+[`RenderShader`](RenderShader.md)
+
+#### Inherited from
+
+PhysicMaterial.setShader
+
+#### Defined in
+
+[src/materials/MaterialPass.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L39)
+
+___
+
+### getShader
+
+▸ **getShader**(): [`RenderShader`](RenderShader.md)
+
+#### Returns
+
+[`RenderShader`](RenderShader.md)
+
+#### Inherited from
+
+PhysicMaterial.getShader
+
+#### Defined in
+
+[src/materials/MaterialPass.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L46)
+
+___
+
+### debug
+
+▸ **debug**(): `void`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+PhysicMaterial.debug
+
+#### Defined in
+
+[src/materials/MaterialPass.ts:171](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L171)
+
+___
+
+### useCleanCoat
+
+▸ **useCleanCoat**(): `void`
+
+valid USE_CLEARCOAT define in shader
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+PhysicMaterial.useCleanCoat
+
+#### Defined in
+
+[src/materials/PhysicMaterial.ts:288](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L288)
+
+___
+
+### destroy
+
+▸ **destroy**(`force?`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+PhysicMaterial.destroy
+
+#### Defined in
+
+[src/materials/PhysicMaterial.ts:348](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L348)

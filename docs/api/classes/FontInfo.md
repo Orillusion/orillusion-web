@@ -1,5 +1,9 @@
 # Class: FontInfo
 
+### Constructors
+
+- [constructor](FontInfo.md#constructor)
+
 ### Properties
 
 - [face](FontInfo.md#face)
@@ -23,9 +27,15 @@
 - [fontPage](FontInfo.md#fontpage)
 - [fontChar](FontInfo.md#fontchar)
 
-### Constructors
+## Constructors
 
-- [constructor](FontInfo.md#constructor)
+### constructor
+
+• **new FontInfo**()
+
+#### Defined in
+
+[src/loader/parser/FontParser.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L30)
 
 ## Properties
 
@@ -230,13 +240,3 @@ ___
 #### Defined in
 
 [src/loader/parser/FontParser.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L28)
-
-## Constructors
-
-### constructor
-
-• **new FontInfo**()
-
-#### Defined in
-
-[src/loader/parser/FontParser.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L30)

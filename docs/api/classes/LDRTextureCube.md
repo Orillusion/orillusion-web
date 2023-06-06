@@ -12,6 +12,10 @@ LDRTextureCube: create a cube texture, it's low dynamic range texture
 
   ↳↳ [`SolidColorSky`](SolidColorSky.md)
 
+### Constructors
+
+- [constructor](LDRTextureCube.md#constructor)
+
 ### Properties
 
 - [name](LDRTextureCube.md#name)
@@ -37,17 +41,6 @@ LDRTextureCube: create a cube texture, it's low dynamic range texture
 - [textureBindingLayout](LDRTextureCube.md#texturebindinglayout)
 - [samplerBindingLayout](LDRTextureCube.md#samplerbindinglayout)
 
-### Methods
-
-- [init](LDRTextureCube.md#init)
-- [getGPUTexture](LDRTextureCube.md#getgputexture)
-- [getGPUView](LDRTextureCube.md#getgpuview)
-- [bindStateChange](LDRTextureCube.md#bindstatechange)
-- [unBindStateChange](LDRTextureCube.md#unbindstatechange)
-- [destroy](LDRTextureCube.md#destroy)
-- [load](LDRTextureCube.md#load)
-- [createFromTexture](LDRTextureCube.md#createfromtexture)
-
 ### Accessors
 
 - [useMipmap](LDRTextureCube.md#usemipmap)
@@ -63,9 +56,30 @@ LDRTextureCube: create a cube texture, it's low dynamic range texture
 - [maxAnisotropy](LDRTextureCube.md#maxanisotropy)
 - [ldrImageUrl](LDRTextureCube.md#ldrimageurl)
 
-### Constructors
+### Methods
 
-- [constructor](LDRTextureCube.md#constructor)
+- [init](LDRTextureCube.md#init)
+- [getGPUTexture](LDRTextureCube.md#getgputexture)
+- [getGPUView](LDRTextureCube.md#getgpuview)
+- [bindStateChange](LDRTextureCube.md#bindstatechange)
+- [unBindStateChange](LDRTextureCube.md#unbindstatechange)
+- [destroy](LDRTextureCube.md#destroy)
+- [load](LDRTextureCube.md#load)
+- [createFromTexture](LDRTextureCube.md#createfromtexture)
+
+## Constructors
+
+### constructor
+
+• **new LDRTextureCube**()
+
+#### Overrides
+
+TextureCube.constructor
+
+#### Defined in
+
+[src/textures/LDRTextureCube.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/textures/LDRTextureCube.ts#L24)
 
 ## Properties
 
@@ -416,195 +430,6 @@ TextureCube.samplerBindingLayout
 #### Defined in
 
 [src/gfx/graphics/webGpu/core/texture/TextureCube.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/TextureCube.ts#L38)
-
-## Methods
-
-### init
-
-▸ **init**(): [`LDRTextureCube`](LDRTextureCube.md)
-
-#### Returns
-
-[`LDRTextureCube`](LDRTextureCube.md)
-
-#### Inherited from
-
-TextureCube.init
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:214](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L214)
-
-___
-
-### getGPUTexture
-
-▸ **getGPUTexture**(): `GPUTexture`
-
-create or get GPUTexture
-
-#### Returns
-
-`GPUTexture`
-
-GPUTexture
-
-#### Inherited from
-
-TextureCube.getGPUTexture
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L367)
-
-___
-
-### getGPUView
-
-▸ **getGPUView**(`index?`): `GPUTextureView` \| `GPUExternalTexture`
-
-create or get GPUTextureView
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `index` | `number` | `0` |
-
-#### Returns
-
-`GPUTextureView` \| `GPUExternalTexture`
-
-GPUTextureView | GPUExternalTexture
-
-#### Inherited from
-
-TextureCube.getGPUView
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:378](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L378)
-
-___
-
-### bindStateChange
-
-▸ **bindStateChange**(`fun`, `ref`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `fun` | `Function` |
-| `ref` | `any` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-TextureCube.bindStateChange
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L389)
-
-___
-
-### unBindStateChange
-
-▸ **unBindStateChange**(`ref`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `ref` | `any` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-TextureCube.unBindStateChange
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:393](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L393)
-
-___
-
-### destroy
-
-▸ **destroy**(`force?`): `void`
-
-release the texture
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-TextureCube.destroy
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:407](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L407)
-
-___
-
-### load
-
-▸ **load**(`url`, `loaderFunctions?`): `Promise`<[`LDRTextureCube`](LDRTextureCube.md)\>
-
-load texture data from web url, which is a 360 panorama image
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `url` | `string` | web url |
-| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | callback function when load complete |
-
-#### Returns
-
-`Promise`<[`LDRTextureCube`](LDRTextureCube.md)\>
-
-#### Defined in
-
-[src/textures/LDRTextureCube.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/textures/LDRTextureCube.ts#L37)
-
-___
-
-### createFromTexture
-
-▸ **createFromTexture**(`size`, `texture`): [`LDRTextureCube`](LDRTextureCube.md)
-
-create cube texture by environment image
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `size` | `number` | size of cube texture |
-| `texture` | [`Texture`](Texture.md) | source texture |
-
-#### Returns
-
-[`LDRTextureCube`](LDRTextureCube.md)
-
-#### Defined in
-
-[src/textures/LDRTextureCube.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/textures/LDRTextureCube.ts#L64)
 
 ## Accessors
 
@@ -1044,16 +869,191 @@ constructor: create a cube texture, it's low dynamic range texture
 
 [src/textures/LDRTextureCube.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/textures/LDRTextureCube.ts#L21)
 
-## Constructors
+## Methods
 
-### constructor
+### init
 
-• **new LDRTextureCube**()
+▸ **init**(): [`LDRTextureCube`](LDRTextureCube.md)
 
-#### Overrides
+#### Returns
 
-TextureCube.constructor
+[`LDRTextureCube`](LDRTextureCube.md)
+
+#### Inherited from
+
+TextureCube.init
 
 #### Defined in
 
-[src/textures/LDRTextureCube.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/textures/LDRTextureCube.ts#L24)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:214](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L214)
+
+___
+
+### getGPUTexture
+
+▸ **getGPUTexture**(): `GPUTexture`
+
+create or get GPUTexture
+
+#### Returns
+
+`GPUTexture`
+
+GPUTexture
+
+#### Inherited from
+
+TextureCube.getGPUTexture
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L367)
+
+___
+
+### getGPUView
+
+▸ **getGPUView**(`index?`): `GPUTextureView` \| `GPUExternalTexture`
+
+create or get GPUTextureView
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `index` | `number` | `0` |
+
+#### Returns
+
+`GPUTextureView` \| `GPUExternalTexture`
+
+GPUTextureView | GPUExternalTexture
+
+#### Inherited from
+
+TextureCube.getGPUView
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:378](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L378)
+
+___
+
+### bindStateChange
+
+▸ **bindStateChange**(`fun`, `ref`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `fun` | `Function` |
+| `ref` | `any` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+TextureCube.bindStateChange
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L389)
+
+___
+
+### unBindStateChange
+
+▸ **unBindStateChange**(`ref`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `ref` | `any` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+TextureCube.unBindStateChange
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:393](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L393)
+
+___
+
+### destroy
+
+▸ **destroy**(`force?`): `void`
+
+release the texture
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+TextureCube.destroy
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:407](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L407)
+
+___
+
+### load
+
+▸ **load**(`url`, `loaderFunctions?`): `Promise`<[`LDRTextureCube`](LDRTextureCube.md)\>
+
+load texture data from web url, which is a 360 panorama image
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `url` | `string` | web url |
+| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | callback function when load complete |
+
+#### Returns
+
+`Promise`<[`LDRTextureCube`](LDRTextureCube.md)\>
+
+#### Defined in
+
+[src/textures/LDRTextureCube.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/textures/LDRTextureCube.ts#L37)
+
+___
+
+### createFromTexture
+
+▸ **createFromTexture**(`size`, `texture`): [`LDRTextureCube`](LDRTextureCube.md)
+
+create cube texture by environment image
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `size` | `number` | size of cube texture |
+| `texture` | [`Texture`](Texture.md) | source texture |
+
+#### Returns
+
+[`LDRTextureCube`](LDRTextureCube.md)
+
+#### Defined in
+
+[src/textures/LDRTextureCube.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/textures/LDRTextureCube.ts#L64)

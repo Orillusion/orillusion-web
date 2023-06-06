@@ -9,13 +9,13 @@ The component can receive update events at each frame.
 
   ↳ **`PostProcessingComponent`**
 
-### Properties
-
-- [object3D](PostProcessingComponent.md#object3d)
-
 ### Constructors
 
 - [constructor](PostProcessingComponent.md#constructor)
+
+### Properties
+
+- [object3D](PostProcessingComponent.md#object3d)
 
 ### Accessors
 
@@ -41,6 +41,20 @@ The component can receive update events at each frame.
 - [removePost](PostProcessingComponent.md#removepost)
 - [getPost](PostProcessingComponent.md#getpost)
 
+## Constructors
+
+### constructor
+
+• **new PostProcessingComponent**()
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[constructor](ComponentBase.md#constructor)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L31)
+
 ## Properties
 
 ### object3D
@@ -56,20 +70,6 @@ owner object3D
 #### Defined in
 
 [src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
-
-## Constructors
-
-### constructor
-
-• **new PostProcessingComponent**()
-
-#### Inherited from
-
-[ComponentBase](ComponentBase.md).[constructor](ComponentBase.md#constructor)
-
-#### Defined in
-
-[src/components/ComponentBase.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L31)
 
 ## Accessors
 

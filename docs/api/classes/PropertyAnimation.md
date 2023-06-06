@@ -8,6 +8,10 @@ Attribute Animation Component
 
   ↳ **`PropertyAnimation`**
 
+### Constructors
+
+- [constructor](PropertyAnimation.md#constructor)
+
 ### Properties
 
 - [object3D](PropertyAnimation.md#object3d)
@@ -41,9 +45,19 @@ Attribute Animation Component
 - [play](PropertyAnimation.md#play)
 - [cloneTo](PropertyAnimation.md#cloneto)
 
-### Constructors
+## Constructors
 
-- [constructor](PropertyAnimation.md#constructor)
+### constructor
+
+• **new PropertyAnimation**()
+
+#### Overrides
+
+[ComponentBase](ComponentBase.md).[constructor](ComponentBase.md#constructor)
+
+#### Defined in
+
+[src/components/anim/curveAnim/PropertyAnimation.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L27)
 
 ## Properties
 
@@ -582,17 +596,3 @@ and add them to the target object.
 #### Defined in
 
 [src/components/anim/curveAnim/PropertyAnimation.ts:185](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L185)
-
-## Constructors
-
-### constructor
-
-• **new PropertyAnimation**()
-
-#### Overrides
-
-[ComponentBase](ComponentBase.md).[constructor](ComponentBase.md#constructor)
-
-#### Defined in
-
-[src/components/anim/curveAnim/PropertyAnimation.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L27)

@@ -6,6 +6,10 @@ Orillusion 3D Engine
 
 -- await Engine3D.init();
 
+### Constructors
+
+- [constructor](Engine3D.md#constructor)
+
 ### Properties
 
 - [res](Engine3D.md#res)
@@ -31,9 +35,11 @@ Orillusion 3D Engine
 - [pause](Engine3D.md#pause)
 - [resume](Engine3D.md#resume)
 
-### Constructors
+## Constructors
 
-- [constructor](Engine3D.md#constructor)
+### constructor
+
+• **new Engine3D**()
 
 ## Properties
 
@@ -315,9 +321,3 @@ Resume the engine render
 #### Defined in
 
 [src/Engine3D.ts:343](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L343)
-
-## Constructors
-
-### constructor
-
-• **new Engine3D**()

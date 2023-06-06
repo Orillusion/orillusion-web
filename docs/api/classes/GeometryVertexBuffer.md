@@ -1,14 +1,14 @@
 # Class: GeometryVertexBuffer
 
+### Constructors
+
+- [constructor](GeometryVertexBuffer.md#constructor)
+
 ### Properties
 
 - [vertexCount](GeometryVertexBuffer.md#vertexcount)
 - [vertexGPUBuffer](GeometryVertexBuffer.md#vertexgpubuffer)
 - [geometryType](GeometryVertexBuffer.md#geometrytype)
-
-### Constructors
-
-- [constructor](GeometryVertexBuffer.md#constructor)
 
 ### Accessors
 
@@ -21,6 +21,16 @@
 - [updateAttributes](GeometryVertexBuffer.md#updateattributes)
 - [compute](GeometryVertexBuffer.md#compute)
 - [destroy](GeometryVertexBuffer.md#destroy)
+
+## Constructors
+
+### constructor
+
+• **new GeometryVertexBuffer**()
+
+#### Defined in
+
+[src/core/geometry/GeometryVertexBuffer.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L18)
 
 ## Properties
 
@@ -51,16 +61,6 @@ ___
 #### Defined in
 
 [src/core/geometry/GeometryVertexBuffer.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L13)
-
-## Constructors
-
-### constructor
-
-• **new GeometryVertexBuffer**()
-
-#### Defined in
-
-[src/core/geometry/GeometryVertexBuffer.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L18)
 
 ## Accessors
 

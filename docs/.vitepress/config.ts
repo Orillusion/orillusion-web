@@ -49,6 +49,7 @@ export default async () =>
                 '/physics/': sidebar('', 'physics'),
                 '/stats/': sidebar('', 'stats'),
                 '/media-extention/': sidebar('', 'media-extention'),
+                '/particle/': sidebar('', 'particle'),
                 '/example/': sidebarExample(),
                 '/cdn/': [
                     {
@@ -203,7 +204,8 @@ function nav() {
                         { text: 'Core', link: '/api/' },
                         { text: 'Physics', link: '/physics/' },
                         { text: 'Media Extention', link: '/media-extention/' },
-                        { text: 'Stats', link: '/stats/' }
+                        { text: 'Stats', link: '/stats/' },
+                        { text: 'Particle', link: '/particle/' }
                     ]
                 },
                 {
@@ -496,6 +498,10 @@ function sidebar(root: string = '', packages: string) {
                 {
                     text: '@orillusion/media-extention',
                     link: '/media-extention/'
+                },
+                {
+                    text: '@orillusion/particle',
+                    link: '/particle/'
                 }
             ]
         }

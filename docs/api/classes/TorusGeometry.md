@@ -8,6 +8,10 @@ Torus Geometry
 
   ↳ **`TorusGeometry`**
 
+### Constructors
+
+- [constructor](TorusGeometry.md#constructor)
+
 ### Properties
 
 - [uuid](TorusGeometry.md#uuid)
@@ -43,9 +47,28 @@ Torus Geometry
 - [isPrimitive](TorusGeometry.md#isprimitive)
 - [destroy](TorusGeometry.md#destroy)
 
-### Constructors
+## Constructors
 
-- [constructor](TorusGeometry.md#constructor)
+### constructor
+
+• **new TorusGeometry**(`radius?`, `tube?`, `radialSegments?`, `tubularSegments?`)
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `radius` | `number` | `0.4` | {number} Radius of torus, default value is 0.4 |
+| `tube` | `number` | `0.1` | {number} Pipe radius, default value is 0.1. |
+| `radialSegments` | `number` | `32` | {number}Number of torus segments, default value is 32. |
+| `tubularSegments` | `number` | `32` | {number} Number of pipeline segments, defualt value is 32. |
+
+#### Overrides
+
+[GeometryBase](GeometryBase.md).[constructor](GeometryBase.md#constructor)
+
+#### Defined in
+
+[src/shape/TorusGeometry.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/shape/TorusGeometry.ts#L39)
 
 ## Properties
 
@@ -568,26 +591,3 @@ ___
 #### Defined in
 
 [src/core/geometry/GeometryBase.ts:268](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L268)
-
-## Constructors
-
-### constructor
-
-• **new TorusGeometry**(`radius?`, `tube?`, `radialSegments?`, `tubularSegments?`)
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `radius` | `number` | `0.4` | {number} Radius of torus, default value is 0.4 |
-| `tube` | `number` | `0.1` | {number} Pipe radius, default value is 0.1. |
-| `radialSegments` | `number` | `32` | {number}Number of torus segments, default value is 32. |
-| `tubularSegments` | `number` | `32` | {number} Number of pipeline segments, defualt value is 32. |
-
-#### Overrides
-
-[GeometryBase](GeometryBase.md).[constructor](GeometryBase.md#constructor)
-
-#### Defined in
-
-[src/shape/TorusGeometry.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/shape/TorusGeometry.ts#L39)

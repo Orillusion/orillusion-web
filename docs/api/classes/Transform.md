@@ -9,6 +9,10 @@ Each object (Object 3D) has a Transform component
 
   ↳ **`Transform`**
 
+### Constructors
+
+- [constructor](Transform.md#constructor)
+
 ### Properties
 
 - [object3D](Transform.md#object3d)
@@ -64,9 +68,19 @@ Each object (Object 3D) has a Transform component
 - [cloneTo](Transform.md#cloneto)
 - [destroy](Transform.md#destroy)
 
-### Constructors
+## Constructors
 
-- [constructor](Transform.md#constructor)
+### constructor
+
+• **new Transform**()
+
+#### Overrides
+
+[ComponentBase](ComponentBase.md).[constructor](ComponentBase.md#constructor)
+
+#### Defined in
+
+[src/components/Transform.ts:174](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L174)
 
 ## Properties
 
@@ -1273,17 +1287,3 @@ release this component
 #### Defined in
 
 [src/components/Transform.ts:721](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L721)
-
-## Constructors
-
-### constructor
-
-• **new Transform**()
-
-#### Overrides
-
-[ComponentBase](ComponentBase.md).[constructor](ComponentBase.md#constructor)
-
-#### Defined in
-
-[src/components/Transform.ts:174](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L174)

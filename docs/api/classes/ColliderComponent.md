@@ -12,15 +12,15 @@ collider component
 
 - [constructor](ColliderComponent.md#constructor)
 
+### Properties
+
+- [object3D](ColliderComponent.md#object3d)
+
 ### Accessors
 
 - [shape](ColliderComponent.md#shape)
 - [transform](ColliderComponent.md#transform)
 - [enable](ColliderComponent.md#enable)
-
-### Properties
-
-- [object3D](ColliderComponent.md#object3d)
 
 ### Methods
 
@@ -49,6 +49,22 @@ collider component
 #### Defined in
 
 [src/components/ColliderComponent.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/components/ColliderComponent.ts#L15)
+
+## Properties
+
+### object3D
+
+• **object3D**: [`Object3D`](Object3D.md) = `null`
+
+owner object3D
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[object3D](ComponentBase.md#object3d)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
 
 ## Accessors
 
@@ -145,22 +161,6 @@ ComponentBase.enable
 #### Defined in
 
 [src/components/ComponentBase.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L45)
-
-## Properties
-
-### object3D
-
-• **object3D**: [`Object3D`](Object3D.md) = `null`
-
-owner object3D
-
-#### Inherited from
-
-[ComponentBase](ComponentBase.md).[object3D](ComponentBase.md#object3d)
-
-#### Defined in
-
-[src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
 
 ## Methods
 

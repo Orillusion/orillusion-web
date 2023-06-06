@@ -81,7 +81,7 @@ ___
 
 ### sunX
 
-• **sunX**: `number` = `0.55`
+• **sunX**: `number` = `0.71`
 
 #### Defined in
 

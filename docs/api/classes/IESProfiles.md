@@ -1,15 +1,15 @@
 # Class: IESProfiles
 
+### Constructors
+
+- [constructor](IESProfiles.md#constructor)
+
 ### Properties
 
 - [use](IESProfiles.md#use)
 - [iesTexture](IESProfiles.md#iestexture)
 - [ies\_list](IESProfiles.md#ies_list)
 - [index](IESProfiles.md#index)
-
-### Constructors
-
-- [constructor](IESProfiles.md#constructor)
 
 ### Accessors
 
@@ -18,6 +18,16 @@
 ### Methods
 
 - [create](IESProfiles.md#create)
+
+## Constructors
+
+### constructor
+
+• **new IESProfiles**()
+
+#### Defined in
+
+[src/components/lights/IESProfiles.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L13)
 
 ## Properties
 
@@ -58,16 +68,6 @@ ___
 #### Defined in
 
 [src/components/lights/IESProfiles.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L12)
-
-## Constructors
-
-### constructor
-
-• **new IESProfiles**()
-
-#### Defined in
-
-[src/components/lights/IESProfiles.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L13)
 
 ## Accessors
 

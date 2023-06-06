@@ -8,6 +8,10 @@ Mesh component
 
   ↳ **`MeshComponent`**
 
+### Constructors
+
+- [constructor](MeshComponent.md#constructor)
+
 ### Properties
 
 - [object3D](MeshComponent.md#object3d)
@@ -34,9 +38,19 @@ Mesh component
 - [init](MeshComponent.md#init)
 - [cloneTo](MeshComponent.md#cloneto)
 
-### Constructors
+## Constructors
 
-- [constructor](MeshComponent.md#constructor)
+### constructor
+
+• **new MeshComponent**()
+
+#### Overrides
+
+[ComponentBase](ComponentBase.md).[constructor](ComponentBase.md#constructor)
+
+#### Defined in
+
+[src/components/renderer/MeshComponent.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshComponent.ts#L32)
 
 ## Properties
 
@@ -445,17 +459,3 @@ clone component data to target object3D
 #### Defined in
 
 [src/components/renderer/MeshComponent.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshComponent.ts#L38)
-
-## Constructors
-
-### constructor
-
-• **new MeshComponent**()
-
-#### Overrides
-
-[ComponentBase](ComponentBase.md).[constructor](ComponentBase.md#constructor)
-
-#### Defined in
-
-[src/components/renderer/MeshComponent.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshComponent.ts#L32)

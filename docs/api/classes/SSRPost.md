@@ -18,20 +18,16 @@ Screen space reflection
 
   ↳ **`SSRPost`**
 
+### Constructors
+
+- [constructor](SSRPost.md#constructor)
+
 ### Properties
 
 - [enable](SSRPost.md#enable)
 - [postRenderer](SSRPost.md#postrenderer)
 - [rtFrame](SSRPost.md#rtframe)
 - [historyPosition](SSRPost.md#historyposition)
-
-### Methods
-
-- [destroy](SSRPost.md#destroy)
-
-### Constructors
-
-- [constructor](SSRPost.md#constructor)
 
 ### Accessors
 
@@ -41,6 +37,24 @@ Screen space reflection
 - [fadeDistanceMin](SSRPost.md#fadedistancemin)
 - [fadeDistanceMax](SSRPost.md#fadedistancemax)
 - [powDotRN](SSRPost.md#powdotrn)
+
+### Methods
+
+- [destroy](SSRPost.md#destroy)
+
+## Constructors
+
+### constructor
+
+• **new SSRPost**()
+
+#### Overrides
+
+PostBase.constructor
+
+#### Defined in
+
+[src/gfx/renderJob/post/SSRPost.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L76)
 
 ## Properties
 
@@ -89,44 +103,6 @@ ___
 #### Defined in
 
 [src/gfx/renderJob/post/SSRPost.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L74)
-
-## Methods
-
-### destroy
-
-▸ **destroy**(`force?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PostBase.destroy
-
-#### Defined in
-
-[src/gfx/renderJob/post/PostBase.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L81)
-
-## Constructors
-
-### constructor
-
-• **new SSRPost**()
-
-#### Overrides
-
-PostBase.constructor
-
-#### Defined in
-
-[src/gfx/renderJob/post/SSRPost.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L76)
 
 ## Accessors
 
@@ -307,3 +283,27 @@ ___
 #### Defined in
 
 [src/gfx/renderJob/post/SSRPost.ts:155](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L155)
+
+## Methods
+
+### destroy
+
+▸ **destroy**(`force?`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+PostBase.destroy
+
+#### Defined in
+
+[src/gfx/renderJob/post/PostBase.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L81)

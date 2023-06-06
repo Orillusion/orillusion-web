@@ -2,6 +2,10 @@
 
 Quaternions are used to represent rotations.
 
+### Constructors
+
+- [constructor](Quaternion.md#constructor)
+
 ### Properties
 
 - [HELP\_0](Quaternion.md#help_0)
@@ -10,9 +14,9 @@ Quaternions are used to represent rotations.
 - [\_zero](Quaternion.md#_zero)
 - [CALCULATION\_QUATERNION](Quaternion.md#calculation_quaternion)
 
-### Constructors
+### Accessors
 
-- [constructor](Quaternion.md#constructor)
+- [magnitude](Quaternion.md#magnitude)
 
 ### Methods
 
@@ -39,9 +43,26 @@ Quaternions are used to represent rotations.
 - [copyFrom](Quaternion.md#copyfrom)
 - [mul](Quaternion.md#mul)
 
-### Accessors
+## Constructors
 
-- [magnitude](Quaternion.md#magnitude)
+### constructor
+
+• **new Quaternion**(`x?`, `y?`, `z?`, `w?`)
+
+Create a new quaternion object
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `x` | `number` | `0` | The X component of a quaternion. |
+| `y` | `number` | `0` | The Y component of a quaternion. |
+| `z` | `number` | `0` | The Z component of a quaternion. |
+| `w` | `number` | `1` | The W component of a quaternion. |
+
+#### Defined in
+
+[src/math/Quaternion.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L39)
 
 ## Properties
 
@@ -93,26 +114,19 @@ ___
 
 [src/math/Quaternion.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L14)
 
-## Constructors
+## Accessors
 
-### constructor
+### magnitude
 
-• **new Quaternion**(`x?`, `y?`, `z?`, `w?`)
+• `get` **magnitude**(): `number`
 
-Create a new quaternion object
+#### Returns
 
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `x` | `number` | `0` | The X component of a quaternion. |
-| `y` | `number` | `0` | The Y component of a quaternion. |
-| `z` | `number` | `0` | The Z component of a quaternion. |
-| `w` | `number` | `1` | The W component of a quaternion. |
+`number`
 
 #### Defined in
 
-[src/math/Quaternion.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L39)
+[src/math/Quaternion.ts:101](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L101)
 
 ## Methods
 
@@ -600,17 +614,3 @@ op
 #### Defined in
 
 [src/math/Quaternion.ts:553](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L553)
-
-## Accessors
-
-### magnitude
-
-• `get` **magnitude**(): `number`
-
-#### Returns
-
-`number`
-
-#### Defined in
-
-[src/math/Quaternion.ts:101](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L101)

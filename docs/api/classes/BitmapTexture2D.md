@@ -8,6 +8,10 @@ bitmap texture
 
   ↳ **`BitmapTexture2D`**
 
+### Constructors
+
+- [constructor](BitmapTexture2D.md#constructor)
+
 ### Properties
 
 - [name](BitmapTexture2D.md#name)
@@ -33,17 +37,6 @@ bitmap texture
 - [isHDRTexture](BitmapTexture2D.md#ishdrtexture)
 - [mipmapCount](BitmapTexture2D.md#mipmapcount)
 
-### Methods
-
-- [init](BitmapTexture2D.md#init)
-- [getGPUTexture](BitmapTexture2D.md#getgputexture)
-- [getGPUView](BitmapTexture2D.md#getgpuview)
-- [bindStateChange](BitmapTexture2D.md#bindstatechange)
-- [unBindStateChange](BitmapTexture2D.md#unbindstatechange)
-- [destroy](BitmapTexture2D.md#destroy)
-- [load](BitmapTexture2D.md#load)
-- [loadFromBlob](BitmapTexture2D.md#loadfromblob)
-
 ### Accessors
 
 - [useMipmap](BitmapTexture2D.md#usemipmap)
@@ -59,9 +52,36 @@ bitmap texture
 - [maxAnisotropy](BitmapTexture2D.md#maxanisotropy)
 - [source](BitmapTexture2D.md#source)
 
-### Constructors
+### Methods
 
-- [constructor](BitmapTexture2D.md#constructor)
+- [init](BitmapTexture2D.md#init)
+- [getGPUTexture](BitmapTexture2D.md#getgputexture)
+- [getGPUView](BitmapTexture2D.md#getgpuview)
+- [bindStateChange](BitmapTexture2D.md#bindstatechange)
+- [unBindStateChange](BitmapTexture2D.md#unbindstatechange)
+- [destroy](BitmapTexture2D.md#destroy)
+- [load](BitmapTexture2D.md#load)
+- [loadFromBlob](BitmapTexture2D.md#loadfromblob)
+
+## Constructors
+
+### constructor
+
+• **new BitmapTexture2D**(`useMipmap?`)
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `useMipmap` | `boolean` | `true` | Set whether to use mipmap |
+
+#### Overrides
+
+[Texture](Texture.md).[constructor](Texture.md#constructor)
+
+#### Defined in
+
+[src/textures/BitmapTexture2D.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/textures/BitmapTexture2D.ts#L18)
 
 ## Properties
 
@@ -412,194 +432,6 @@ mipmap Count, default value is 1
 #### Defined in
 
 [src/gfx/graphics/webGpu/core/texture/Texture.ts:190](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L190)
-
-## Methods
-
-### init
-
-▸ **init**(): [`BitmapTexture2D`](BitmapTexture2D.md)
-
-#### Returns
-
-[`BitmapTexture2D`](BitmapTexture2D.md)
-
-#### Inherited from
-
-[Texture](Texture.md).[init](Texture.md#init)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:214](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L214)
-
-___
-
-### getGPUTexture
-
-▸ **getGPUTexture**(): `GPUTexture`
-
-create or get GPUTexture
-
-#### Returns
-
-`GPUTexture`
-
-GPUTexture
-
-#### Inherited from
-
-[Texture](Texture.md).[getGPUTexture](Texture.md#getgputexture)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L367)
-
-___
-
-### getGPUView
-
-▸ **getGPUView**(`index?`): `GPUTextureView` \| `GPUExternalTexture`
-
-create or get GPUTextureView
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `index` | `number` | `0` |
-
-#### Returns
-
-`GPUTextureView` \| `GPUExternalTexture`
-
-GPUTextureView | GPUExternalTexture
-
-#### Inherited from
-
-[Texture](Texture.md).[getGPUView](Texture.md#getgpuview)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:378](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L378)
-
-___
-
-### bindStateChange
-
-▸ **bindStateChange**(`fun`, `ref`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `fun` | `Function` |
-| `ref` | `any` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[Texture](Texture.md).[bindStateChange](Texture.md#bindstatechange)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L389)
-
-___
-
-### unBindStateChange
-
-▸ **unBindStateChange**(`ref`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `ref` | `any` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[Texture](Texture.md).[unBindStateChange](Texture.md#unbindstatechange)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:393](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L393)
-
-___
-
-### destroy
-
-▸ **destroy**(`force?`): `void`
-
-release the texture
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[Texture](Texture.md).[destroy](Texture.md#destroy)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:407](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L407)
-
-___
-
-### load
-
-▸ **load**(`url`, `loaderFunctions?`): `Promise`<`boolean`\>
-
-load texture data from web url
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `url` | `string` | web url |
-| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | callback function when load complete |
-
-#### Returns
-
-`Promise`<`boolean`\>
-
-#### Defined in
-
-[src/textures/BitmapTexture2D.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/textures/BitmapTexture2D.ts#L56)
-
-___
-
-### loadFromBlob
-
-▸ **loadFromBlob**(`imgData`): `Promise`<`boolean`\>
-
-load data from Blob
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `imgData` | `Blob` | blob data which contains image |
-
-#### Returns
-
-`Promise`<`boolean`\>
-
-#### Defined in
-
-[src/textures/BitmapTexture2D.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/textures/BitmapTexture2D.ts#L96)
 
 ## Accessors
 
@@ -1057,22 +889,190 @@ set raw data of this texture
 
 [src/textures/BitmapTexture2D.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/textures/BitmapTexture2D.ts#L33)
 
-## Constructors
+## Methods
 
-### constructor
+### init
 
-• **new BitmapTexture2D**(`useMipmap?`)
+▸ **init**(): [`BitmapTexture2D`](BitmapTexture2D.md)
 
-#### Parameters
+#### Returns
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `useMipmap` | `boolean` | `true` | Set whether to use mipmap |
+[`BitmapTexture2D`](BitmapTexture2D.md)
 
-#### Overrides
+#### Inherited from
 
-[Texture](Texture.md).[constructor](Texture.md#constructor)
+[Texture](Texture.md).[init](Texture.md#init)
 
 #### Defined in
 
-[src/textures/BitmapTexture2D.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/textures/BitmapTexture2D.ts#L18)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:214](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L214)
+
+___
+
+### getGPUTexture
+
+▸ **getGPUTexture**(): `GPUTexture`
+
+create or get GPUTexture
+
+#### Returns
+
+`GPUTexture`
+
+GPUTexture
+
+#### Inherited from
+
+[Texture](Texture.md).[getGPUTexture](Texture.md#getgputexture)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L367)
+
+___
+
+### getGPUView
+
+▸ **getGPUView**(`index?`): `GPUTextureView` \| `GPUExternalTexture`
+
+create or get GPUTextureView
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `index` | `number` | `0` |
+
+#### Returns
+
+`GPUTextureView` \| `GPUExternalTexture`
+
+GPUTextureView | GPUExternalTexture
+
+#### Inherited from
+
+[Texture](Texture.md).[getGPUView](Texture.md#getgpuview)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:378](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L378)
+
+___
+
+### bindStateChange
+
+▸ **bindStateChange**(`fun`, `ref`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `fun` | `Function` |
+| `ref` | `any` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Texture](Texture.md).[bindStateChange](Texture.md#bindstatechange)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L389)
+
+___
+
+### unBindStateChange
+
+▸ **unBindStateChange**(`ref`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `ref` | `any` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Texture](Texture.md).[unBindStateChange](Texture.md#unbindstatechange)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:393](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L393)
+
+___
+
+### destroy
+
+▸ **destroy**(`force?`): `void`
+
+release the texture
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Texture](Texture.md).[destroy](Texture.md#destroy)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:407](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L407)
+
+___
+
+### load
+
+▸ **load**(`url`, `loaderFunctions?`): `Promise`<`boolean`\>
+
+load texture data from web url
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `url` | `string` | web url |
+| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | callback function when load complete |
+
+#### Returns
+
+`Promise`<`boolean`\>
+
+#### Defined in
+
+[src/textures/BitmapTexture2D.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/textures/BitmapTexture2D.ts#L56)
+
+___
+
+### loadFromBlob
+
+▸ **loadFromBlob**(`imgData`): `Promise`<`boolean`\>
+
+load data from Blob
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `imgData` | `Blob` | blob data which contains image |
+
+#### Returns
+
+`Promise`<`boolean`\>
+
+#### Defined in
+
+[src/textures/BitmapTexture2D.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/textures/BitmapTexture2D.ts#L96)

@@ -6,6 +6,10 @@
 
   ↳ **`I3DMParser`**
 
+### Constructors
+
+- [constructor](I3DMParser.md#constructor)
+
 ### Properties
 
 - [format](I3DMParser.md#format)
@@ -15,10 +19,6 @@
 - [userData](I3DMParser.md#userdata)
 - [data](I3DMParser.md#data)
 
-### Constructors
-
-- [constructor](I3DMParser.md#constructor)
-
 ### Methods
 
 - [parseBuffer](I3DMParser.md#parsebuffer)
@@ -27,6 +27,16 @@
 - [parseJson](I3DMParser.md#parsejson)
 - [parseTexture](I3DMParser.md#parsetexture)
 - [parse](I3DMParser.md#parse)
+
+## Constructors
+
+### constructor
+
+• **new I3DMParser**()
+
+#### Inherited from
+
+ParserBase.constructor
 
 ## Properties
 
@@ -111,16 +121,6 @@ ParserBase.data
 #### Defined in
 
 [src/loader/parser/ParserBase.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L14)
-
-## Constructors
-
-### constructor
-
-• **new I3DMParser**()
-
-#### Inherited from
-
-ParserBase.constructor
 
 ## Methods
 

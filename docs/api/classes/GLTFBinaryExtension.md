@@ -1,5 +1,9 @@
 # Class: GLTFBinaryExtension
 
+### Constructors
+
+- [constructor](GLTFBinaryExtension.md#constructor)
+
 ### Properties
 
 - [name](GLTFBinaryExtension.md#name)
@@ -7,9 +11,21 @@
 - [body](GLTFBinaryExtension.md#body)
 - [header](GLTFBinaryExtension.md#header)
 
-### Constructors
+## Constructors
 
-- [constructor](GLTFBinaryExtension.md#constructor)
+### constructor
+
+• **new GLTFBinaryExtension**(`data`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `data` | `ArrayBuffer` |
+
+#### Defined in
+
+[src/loader/parser/B3DMParser.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L57)
 
 ## Properties
 
@@ -58,19 +74,3 @@ ___
 #### Defined in
 
 [src/loader/parser/B3DMParser.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L55)
-
-## Constructors
-
-### constructor
-
-• **new GLTFBinaryExtension**(`data`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `data` | `ArrayBuffer` |
-
-#### Defined in
-
-[src/loader/parser/B3DMParser.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L57)

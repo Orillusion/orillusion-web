@@ -6,7 +6,7 @@
 
 | Name | Type |
 | :------ | :------ |
-| `source` | [`GUITexture`](../classes/GUITexture.md) |
+| `source` | `GUITexture` |
 | `id` | `string` |
 | `data` | `any` |
 
@@ -16,4 +16,4 @@
 
 #### Defined in
 
-[src/components/gui/GUIExtension.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIExtension.ts#L70)
+[src/components/gui/GUIExtension.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIExtension.ts#L25)

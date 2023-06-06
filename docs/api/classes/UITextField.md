@@ -1,13 +1,16 @@
 # Class: UITextField
 
-Components are used to attach functionality to object3D, it has an owner object3D.
-The component can receive update events at each frame.
+The textField component for gui
 
 ## Hierarchy
 
 - [`UIRenderAble`](UIRenderAble.md)
 
   ↳ **`UITextField`**
+
+### Constructors
+
+- [constructor](UITextField.md#constructor)
 
 ### Properties
 
@@ -48,12 +51,22 @@ The component can receive update events at each frame.
 - [setShadowRenderer](UITextField.md#setshadowrenderer)
 - [setShadowSource](UITextField.md#setshadowsource)
 - [getShadowRender](UITextField.md#getshadowrender)
-- [copyComponent](UITextField.md#copycomponent)
 - [cloneTo](UITextField.md#cloneto)
+- [copyComponent](UITextField.md#copycomponent)
 
-### Constructors
+## Constructors
 
-- [constructor](UITextField.md#constructor)
+### constructor
+
+• **new UITextField**()
+
+#### Overrides
+
+[UIRenderAble](UIRenderAble.md).[constructor](UIRenderAble.md#constructor)
+
+#### Defined in
+
+[src/components/gui/uiComponents/UITextField.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITextField.ts#L19)
 
 ## Properties
 
@@ -83,7 +96,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIRenderAble.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L8)
+[src/components/gui/uiComponents/UIRenderAble.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L12)
 
 ___
 
@@ -97,7 +110,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIRenderAble.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L9)
+[src/components/gui/uiComponents/UIRenderAble.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L13)
 
 ___
 
@@ -111,7 +124,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIRenderAble.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L10)
+[src/components/gui/uiComponents/UIRenderAble.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L14)
 
 ## Accessors
 
@@ -191,7 +204,7 @@ UIRenderAble.uiTransform
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIComponentBase.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L12)
+[src/components/gui/uiComponents/UIComponentBase.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L16)
 
 ___
 
@@ -209,7 +222,7 @@ UIRenderAble.visible
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIComponentBase.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L16)
+[src/components/gui/uiComponents/UIComponentBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L20)
 
 • `set` **visible**(`value`): `void`
 
@@ -229,7 +242,7 @@ UIRenderAble.visible
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIComponentBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L20)
+[src/components/gui/uiComponents/UIComponentBase.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L24)
 
 ___
 
@@ -247,7 +260,7 @@ UIRenderAble.mainQuads
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIRenderAble.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L40)
+[src/components/gui/uiComponents/UIRenderAble.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L44)
 
 ___
 
@@ -261,7 +274,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITextField.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITextField.ts#L31)
+[src/components/gui/uiComponents/UITextField.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITextField.ts#L40)
 
 ___
 
@@ -275,7 +288,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITextField.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITextField.ts#L35)
+[src/components/gui/uiComponents/UITextField.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITextField.ts#L44)
 
 • `set` **font**(`value`): `void`
 
@@ -291,7 +304,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITextField.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITextField.ts#L39)
+[src/components/gui/uiComponents/UITextField.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITextField.ts#L48)
 
 ___
 
@@ -305,7 +318,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITextField.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITextField.ts#L43)
+[src/components/gui/uiComponents/UITextField.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITextField.ts#L52)
 
 • `set` **fontSize**(`value`): `void`
 
@@ -321,7 +334,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITextField.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITextField.ts#L47)
+[src/components/gui/uiComponents/UITextField.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITextField.ts#L56)
 
 ___
 
@@ -335,7 +348,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITextField.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITextField.ts#L54)
+[src/components/gui/uiComponents/UITextField.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITextField.ts#L63)
 
 • `set` **text**(`value`): `void`
 
@@ -351,7 +364,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITextField.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITextField.ts#L58)
+[src/components/gui/uiComponents/UITextField.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITextField.ts#L67)
 
 ___
 
@@ -365,7 +378,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITextField.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITextField.ts#L108)
+[src/components/gui/uiComponents/UITextField.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITextField.ts#L117)
 
 • `set` **color**(`value`): `void`
 
@@ -381,7 +394,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITextField.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITextField.ts#L112)
+[src/components/gui/uiComponents/UITextField.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITextField.ts#L121)
 
 ___
 
@@ -395,7 +408,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITextField.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITextField.ts#L120)
+[src/components/gui/uiComponents/UITextField.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITextField.ts#L129)
 
 • `set` **alignment**(`value`): `void`
 
@@ -411,7 +424,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITextField.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITextField.ts#L124)
+[src/components/gui/uiComponents/UITextField.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITextField.ts#L133)
 
 ___
 
@@ -425,7 +438,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITextField.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITextField.ts#L131)
+[src/components/gui/uiComponents/UITextField.ts:140](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITextField.ts#L140)
 
 • `set` **lineSpacing**(`value`): `void`
 
@@ -441,7 +454,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITextField.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITextField.ts#L135)
+[src/components/gui/uiComponents/UITextField.ts:144](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITextField.ts#L144)
 
 ## Methods
 
@@ -677,7 +690,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIRenderAble.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L12)
+[src/components/gui/uiComponents/UIRenderAble.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L16)
 
 ___
 
@@ -697,7 +710,7 @@ release this component
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIRenderAble.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L17)
+[src/components/gui/uiComponents/UIRenderAble.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L21)
 
 ___
 
@@ -715,7 +728,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIRenderAble.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L26)
+[src/components/gui/uiComponents/UIRenderAble.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L30)
 
 ___
 
@@ -739,7 +752,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIRenderAble.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L44)
+[src/components/gui/uiComponents/UIRenderAble.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L48)
 
 ___
 
@@ -763,7 +776,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIRenderAble.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L48)
+[src/components/gui/uiComponents/UIRenderAble.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L52)
 
 ___
 
@@ -781,31 +794,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIRenderAble.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L52)
-
-___
-
-### copyComponent
-
-▸ **copyComponent**(`from`): [`UITextField`](UITextField.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `from` | [`UITextField`](UITextField.md) |
-
-#### Returns
-
-[`UITextField`](UITextField.md)
-
-#### Inherited from
-
-[UIRenderAble](UIRenderAble.md).[copyComponent](UIRenderAble.md#copycomponent)
-
-#### Defined in
-
-[src/components/gui/uiComponents/UIRenderAble.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L116)
+[src/components/gui/uiComponents/UIRenderAble.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L56)
 
 ___
 
@@ -831,18 +820,28 @@ clone component data to target object3D
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITextField.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITextField.ts#L19)
+[src/components/gui/uiComponents/UITextField.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITextField.ts#L23)
 
-## Constructors
+___
 
-### constructor
+### copyComponent
 
-• **new UITextField**()
+▸ **copyComponent**(`from`): [`UITextField`](UITextField.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `from` | [`UITextField`](UITextField.md) |
+
+#### Returns
+
+[`UITextField`](UITextField.md)
 
 #### Overrides
 
-[UIRenderAble](UIRenderAble.md).[constructor](UIRenderAble.md#constructor)
+[UIRenderAble](UIRenderAble.md).[copyComponent](UIRenderAble.md#copycomponent)
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITextField.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITextField.ts#L15)
+[src/components/gui/uiComponents/UITextField.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITextField.ts#L28)

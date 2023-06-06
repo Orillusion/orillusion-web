@@ -8,6 +8,10 @@ HDR TextureCube
 
   ↳ **`HDRTextureCube`**
 
+### Constructors
+
+- [constructor](HDRTextureCube.md#constructor)
+
 ### Properties
 
 - [name](HDRTextureCube.md#name)
@@ -33,18 +37,6 @@ HDR TextureCube
 - [textureBindingLayout](HDRTextureCube.md#texturebindinglayout)
 - [samplerBindingLayout](HDRTextureCube.md#samplerbindinglayout)
 
-### Methods
-
-- [init](HDRTextureCube.md#init)
-- [getGPUTexture](HDRTextureCube.md#getgputexture)
-- [getGPUView](HDRTextureCube.md#getgpuview)
-- [bindStateChange](HDRTextureCube.md#bindstatechange)
-- [unBindStateChange](HDRTextureCube.md#unbindstatechange)
-- [destroy](HDRTextureCube.md#destroy)
-- [createFromHDRData](HDRTextureCube.md#createfromhdrdata)
-- [createFromTexture](HDRTextureCube.md#createfromtexture)
-- [load](HDRTextureCube.md#load)
-
 ### Accessors
 
 - [useMipmap](HDRTextureCube.md#usemipmap)
@@ -59,9 +51,33 @@ HDR TextureCube
 - [compare](HDRTextureCube.md#compare)
 - [maxAnisotropy](HDRTextureCube.md#maxanisotropy)
 
-### Constructors
+### Methods
 
-- [constructor](HDRTextureCube.md#constructor)
+- [init](HDRTextureCube.md#init)
+- [getGPUTexture](HDRTextureCube.md#getgputexture)
+- [getGPUView](HDRTextureCube.md#getgpuview)
+- [bindStateChange](HDRTextureCube.md#bindstatechange)
+- [unBindStateChange](HDRTextureCube.md#unbindstatechange)
+- [destroy](HDRTextureCube.md#destroy)
+- [createFromHDRData](HDRTextureCube.md#createfromhdrdata)
+- [createFromTexture](HDRTextureCube.md#createfromtexture)
+- [load](HDRTextureCube.md#load)
+
+## Constructors
+
+### constructor
+
+• **new HDRTextureCube**()
+
+create a cube texture, it's high dynamic range texture
+
+#### Overrides
+
+TextureCube.constructor
+
+#### Defined in
+
+[src/textures/HDRTextureCube.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/textures/HDRTextureCube.ts#L23)
 
 ## Properties
 
@@ -412,221 +428,6 @@ TextureCube.samplerBindingLayout
 #### Defined in
 
 [src/gfx/graphics/webGpu/core/texture/TextureCube.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/TextureCube.ts#L38)
-
-## Methods
-
-### init
-
-▸ **init**(): [`HDRTextureCube`](HDRTextureCube.md)
-
-#### Returns
-
-[`HDRTextureCube`](HDRTextureCube.md)
-
-#### Inherited from
-
-TextureCube.init
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:214](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L214)
-
-___
-
-### getGPUTexture
-
-▸ **getGPUTexture**(): `GPUTexture`
-
-create or get GPUTexture
-
-#### Returns
-
-`GPUTexture`
-
-GPUTexture
-
-#### Inherited from
-
-TextureCube.getGPUTexture
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L367)
-
-___
-
-### getGPUView
-
-▸ **getGPUView**(`index?`): `GPUTextureView` \| `GPUExternalTexture`
-
-create or get GPUTextureView
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `index` | `number` | `0` |
-
-#### Returns
-
-`GPUTextureView` \| `GPUExternalTexture`
-
-GPUTextureView | GPUExternalTexture
-
-#### Inherited from
-
-TextureCube.getGPUView
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:378](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L378)
-
-___
-
-### bindStateChange
-
-▸ **bindStateChange**(`fun`, `ref`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `fun` | `Function` |
-| `ref` | `any` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-TextureCube.bindStateChange
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L389)
-
-___
-
-### unBindStateChange
-
-▸ **unBindStateChange**(`ref`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `ref` | `any` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-TextureCube.unBindStateChange
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:393](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L393)
-
-___
-
-### destroy
-
-▸ **destroy**(`force?`): `void`
-
-release the texture
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-TextureCube.destroy
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:407](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L407)
-
-___
-
-### createFromHDRData
-
-▸ **createFromHDRData**(`size`, `data`): [`HDRTextureCube`](HDRTextureCube.md)
-
-fill this texture by array of numbers;the format as [red0, green0, blue0, alpha0, red1, green1, blue1, alpha1...]
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `size` | `number` | assign the cube texture size |
-| `data` | `Object` | raw data of cubeTexture; the format is { width: number; height: number; array: Uint8Array } |
-| `data.width` | `number` | - |
-| `data.height` | `number` | - |
-| `data.array` | `Uint8Array` | - |
-
-#### Returns
-
-[`HDRTextureCube`](HDRTextureCube.md)
-
-#### Defined in
-
-[src/textures/HDRTextureCube.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/textures/HDRTextureCube.ts#L37)
-
-___
-
-### createFromTexture
-
-▸ **createFromTexture**(`size`, `texture`): [`HDRTextureCube`](HDRTextureCube.md)
-
-fill this texture by a texture2D, which is a 360 panorama image
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `size` | `number` | assign the cube texture size |
-| `texture` | [`Texture`](Texture.md) | the image texture |
-
-#### Returns
-
-[`HDRTextureCube`](HDRTextureCube.md)
-
-#### Defined in
-
-[src/textures/HDRTextureCube.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/textures/HDRTextureCube.ts#L52)
-
-___
-
-### load
-
-▸ **load**(`url`, `loaderFunctions?`): `Promise`<[`HDRTextureCube`](HDRTextureCube.md)\>
-
-load texture data from web url, which is a 360 panorama image
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `url` | `string` | web url |
-| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | callback function when load complete |
-
-#### Returns
-
-`Promise`<[`HDRTextureCube`](HDRTextureCube.md)\>
-
-#### Defined in
-
-[src/textures/HDRTextureCube.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/textures/HDRTextureCube.ts#L78)
 
 ## Accessors
 
@@ -1050,18 +851,217 @@ TextureCube.maxAnisotropy
 
 [src/gfx/graphics/webGpu/core/texture/Texture.ts:522](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L522)
 
-## Constructors
+## Methods
 
-### constructor
+### init
 
-• **new HDRTextureCube**()
+▸ **init**(): [`HDRTextureCube`](HDRTextureCube.md)
 
-create a cube texture, it's high dynamic range texture
+#### Returns
 
-#### Overrides
+[`HDRTextureCube`](HDRTextureCube.md)
 
-TextureCube.constructor
+#### Inherited from
+
+TextureCube.init
 
 #### Defined in
 
-[src/textures/HDRTextureCube.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/textures/HDRTextureCube.ts#L23)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:214](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L214)
+
+___
+
+### getGPUTexture
+
+▸ **getGPUTexture**(): `GPUTexture`
+
+create or get GPUTexture
+
+#### Returns
+
+`GPUTexture`
+
+GPUTexture
+
+#### Inherited from
+
+TextureCube.getGPUTexture
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L367)
+
+___
+
+### getGPUView
+
+▸ **getGPUView**(`index?`): `GPUTextureView` \| `GPUExternalTexture`
+
+create or get GPUTextureView
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `index` | `number` | `0` |
+
+#### Returns
+
+`GPUTextureView` \| `GPUExternalTexture`
+
+GPUTextureView | GPUExternalTexture
+
+#### Inherited from
+
+TextureCube.getGPUView
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:378](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L378)
+
+___
+
+### bindStateChange
+
+▸ **bindStateChange**(`fun`, `ref`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `fun` | `Function` |
+| `ref` | `any` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+TextureCube.bindStateChange
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L389)
+
+___
+
+### unBindStateChange
+
+▸ **unBindStateChange**(`ref`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `ref` | `any` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+TextureCube.unBindStateChange
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:393](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L393)
+
+___
+
+### destroy
+
+▸ **destroy**(`force?`): `void`
+
+release the texture
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+TextureCube.destroy
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:407](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L407)
+
+___
+
+### createFromHDRData
+
+▸ **createFromHDRData**(`size`, `data`): [`HDRTextureCube`](HDRTextureCube.md)
+
+fill this texture by array of numbers;the format as [red0, green0, blue0, alpha0, red1, green1, blue1, alpha1...]
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `size` | `number` | assign the cube texture size |
+| `data` | `Object` | raw data of cubeTexture; the format is { width: number; height: number; array: Uint8Array } |
+| `data.width` | `number` | - |
+| `data.height` | `number` | - |
+| `data.array` | `Uint8Array` | - |
+
+#### Returns
+
+[`HDRTextureCube`](HDRTextureCube.md)
+
+#### Defined in
+
+[src/textures/HDRTextureCube.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/textures/HDRTextureCube.ts#L37)
+
+___
+
+### createFromTexture
+
+▸ **createFromTexture**(`size`, `texture`): [`HDRTextureCube`](HDRTextureCube.md)
+
+fill this texture by a texture2D, which is a 360 panorama image
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `size` | `number` | assign the cube texture size |
+| `texture` | [`Texture`](Texture.md) | the image texture |
+
+#### Returns
+
+[`HDRTextureCube`](HDRTextureCube.md)
+
+#### Defined in
+
+[src/textures/HDRTextureCube.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/textures/HDRTextureCube.ts#L52)
+
+___
+
+### load
+
+▸ **load**(`url`, `loaderFunctions?`): `Promise`<[`HDRTextureCube`](HDRTextureCube.md)\>
+
+load texture data from web url, which is a 360 panorama image
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `url` | `string` | web url |
+| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | callback function when load complete |
+
+#### Returns
+
+`Promise`<[`HDRTextureCube`](HDRTextureCube.md)\>
+
+#### Defined in
+
+[src/textures/HDRTextureCube.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/textures/HDRTextureCube.ts#L78)

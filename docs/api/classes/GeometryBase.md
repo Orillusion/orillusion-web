@@ -16,6 +16,10 @@
 
   ↳ [`TorusGeometry`](TorusGeometry.md)
 
+### Constructors
+
+- [constructor](GeometryBase.md#constructor)
+
 ### Properties
 
 - [uuid](GeometryBase.md#uuid)
@@ -23,10 +27,6 @@
 - [subGeometries](GeometryBase.md#subgeometries)
 - [morphTargetsRelative](GeometryBase.md#morphtargetsrelative)
 - [morphTargetDictionary](GeometryBase.md#morphtargetdictionary)
-
-### Constructors
-
-- [constructor](GeometryBase.md#constructor)
 
 ### Accessors
 
@@ -50,6 +50,16 @@
 - [computeNormals](GeometryBase.md#computenormals)
 - [isPrimitive](GeometryBase.md#isprimitive)
 - [destroy](GeometryBase.md#destroy)
+
+## Constructors
+
+### constructor
+
+• **new GeometryBase**()
+
+#### Defined in
+
+[src/core/geometry/GeometryBase.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L45)
 
 ## Properties
 
@@ -107,16 +117,6 @@ ___
 #### Defined in
 
 [src/core/geometry/GeometryBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L38)
-
-## Constructors
-
-### constructor
-
-• **new GeometryBase**()
-
-#### Defined in
-
-[src/core/geometry/GeometryBase.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L45)
 
 ## Accessors
 

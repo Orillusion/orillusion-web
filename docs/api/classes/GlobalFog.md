@@ -12,10 +12,10 @@ screen space fog
 
 - [constructor](GlobalFog.md#constructor)
 
-### Methods
+### Properties
 
-- [debug](GlobalFog.md#debug)
-- [destroy](GlobalFog.md#destroy)
+- [enable](GlobalFog.md#enable)
+- [postRenderer](GlobalFog.md#postrenderer)
 
 ### Accessors
 
@@ -26,10 +26,10 @@ screen space fog
 - [ins](GlobalFog.md#ins)
 - [density](GlobalFog.md#density)
 
-### Properties
+### Methods
 
-- [enable](GlobalFog.md#enable)
-- [postRenderer](GlobalFog.md#postrenderer)
+- [debug](GlobalFog.md#debug)
+- [destroy](GlobalFog.md#destroy)
 
 ## Constructors
 
@@ -45,43 +45,33 @@ PostBase.constructor
 
 [src/gfx/renderJob/post/GlobalFog.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L26)
 
-## Methods
+## Properties
 
-### debug
+### enable
 
-▸ **debug**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/gfx/renderJob/post/GlobalFog.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L69)
-
-___
-
-### destroy
-
-▸ **destroy**(`force?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
-
-#### Returns
-
-`void`
+• **enable**: `boolean` = `true`
 
 #### Inherited from
 
-PostBase.destroy
+PostBase.enable
 
 #### Defined in
 
-[src/gfx/renderJob/post/PostBase.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L81)
+[src/gfx/renderJob/post/PostBase.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L19)
+
+___
+
+### postRenderer
+
+• **postRenderer**: `PostRenderer`
+
+#### Inherited from
+
+PostBase.postRenderer
+
+#### Defined in
+
+[src/gfx/renderJob/post/PostBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L20)
 
 ## Accessors
 
@@ -263,30 +253,40 @@ ___
 
 [src/gfx/renderJob/post/GlobalFog.ts:101](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L101)
 
-## Properties
+## Methods
 
-### enable
+### debug
 
-• **enable**: `boolean` = `true`
+▸ **debug**(): `void`
 
-#### Inherited from
+#### Returns
 
-PostBase.enable
+`void`
 
 #### Defined in
 
-[src/gfx/renderJob/post/PostBase.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L19)
+[src/gfx/renderJob/post/GlobalFog.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L69)
 
 ___
 
-### postRenderer
+### destroy
 
-• **postRenderer**: `PostRenderer`
+▸ **destroy**(`force?`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
+
+#### Returns
+
+`void`
 
 #### Inherited from
 
-PostBase.postRenderer
+PostBase.destroy
 
 #### Defined in
 
-[src/gfx/renderJob/post/PostBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L20)
+[src/gfx/renderJob/post/PostBase.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L81)

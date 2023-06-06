@@ -8,6 +8,10 @@ Atmospheric Scattering Sky Texture
 
   ↳ **`AtmosphericScatteringSky`**
 
+### Constructors
+
+- [constructor](AtmosphericScatteringSky.md#constructor)
+
 ### Properties
 
 - [name](AtmosphericScatteringSky.md#name)
@@ -34,17 +38,6 @@ Atmospheric Scattering Sky Texture
 - [samplerBindingLayout](AtmosphericScatteringSky.md#samplerbindinglayout)
 - [setting](AtmosphericScatteringSky.md#setting)
 
-### Methods
-
-- [init](AtmosphericScatteringSky.md#init)
-- [getGPUTexture](AtmosphericScatteringSky.md#getgputexture)
-- [getGPUView](AtmosphericScatteringSky.md#getgpuview)
-- [bindStateChange](AtmosphericScatteringSky.md#bindstatechange)
-- [unBindStateChange](AtmosphericScatteringSky.md#unbindstatechange)
-- [destroy](AtmosphericScatteringSky.md#destroy)
-- [load](AtmosphericScatteringSky.md#load)
-- [createFromTexture](AtmosphericScatteringSky.md#createfromtexture)
-
 ### Accessors
 
 - [useMipmap](AtmosphericScatteringSky.md#usemipmap)
@@ -61,9 +54,36 @@ Atmospheric Scattering Sky Texture
 - [texture2D](AtmosphericScatteringSky.md#texture2d)
 - [ldrImageUrl](AtmosphericScatteringSky.md#ldrimageurl)
 
-### Constructors
+### Methods
 
-- [constructor](AtmosphericScatteringSky.md#constructor)
+- [init](AtmosphericScatteringSky.md#init)
+- [getGPUTexture](AtmosphericScatteringSky.md#getgputexture)
+- [getGPUView](AtmosphericScatteringSky.md#getgpuview)
+- [bindStateChange](AtmosphericScatteringSky.md#bindstatechange)
+- [unBindStateChange](AtmosphericScatteringSky.md#unbindstatechange)
+- [destroy](AtmosphericScatteringSky.md#destroy)
+- [load](AtmosphericScatteringSky.md#load)
+- [createFromTexture](AtmosphericScatteringSky.md#createfromtexture)
+
+## Constructors
+
+### constructor
+
+• **new AtmosphericScatteringSky**(`setting`)
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `setting` | [`AtmosphericScatteringSkySetting`](AtmosphericScatteringSkySetting.md) | AtmosphericScatteringSkySetting |
+
+#### Overrides
+
+[LDRTextureCube](LDRTextureCube.md).[constructor](LDRTextureCube.md#constructor)
+
+#### Defined in
+
+[src/textures/AtmosphericScatteringSky.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L43)
 
 ## Properties
 
@@ -424,203 +444,6 @@ ___
 #### Defined in
 
 [src/textures/AtmosphericScatteringSky.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L36)
-
-## Methods
-
-### init
-
-▸ **init**(): [`AtmosphericScatteringSky`](AtmosphericScatteringSky.md)
-
-#### Returns
-
-[`AtmosphericScatteringSky`](AtmosphericScatteringSky.md)
-
-#### Inherited from
-
-[LDRTextureCube](LDRTextureCube.md).[init](LDRTextureCube.md#init)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:214](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L214)
-
-___
-
-### getGPUTexture
-
-▸ **getGPUTexture**(): `GPUTexture`
-
-create or get GPUTexture
-
-#### Returns
-
-`GPUTexture`
-
-GPUTexture
-
-#### Inherited from
-
-[LDRTextureCube](LDRTextureCube.md).[getGPUTexture](LDRTextureCube.md#getgputexture)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L367)
-
-___
-
-### getGPUView
-
-▸ **getGPUView**(`index?`): `GPUTextureView` \| `GPUExternalTexture`
-
-create or get GPUTextureView
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `index` | `number` | `0` |
-
-#### Returns
-
-`GPUTextureView` \| `GPUExternalTexture`
-
-GPUTextureView | GPUExternalTexture
-
-#### Inherited from
-
-[LDRTextureCube](LDRTextureCube.md).[getGPUView](LDRTextureCube.md#getgpuview)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:378](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L378)
-
-___
-
-### bindStateChange
-
-▸ **bindStateChange**(`fun`, `ref`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `fun` | `Function` |
-| `ref` | `any` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[LDRTextureCube](LDRTextureCube.md).[bindStateChange](LDRTextureCube.md#bindstatechange)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L389)
-
-___
-
-### unBindStateChange
-
-▸ **unBindStateChange**(`ref`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `ref` | `any` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[LDRTextureCube](LDRTextureCube.md).[unBindStateChange](LDRTextureCube.md#unbindstatechange)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:393](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L393)
-
-___
-
-### destroy
-
-▸ **destroy**(`force?`): `void`
-
-release the texture
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[LDRTextureCube](LDRTextureCube.md).[destroy](LDRTextureCube.md#destroy)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:407](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L407)
-
-___
-
-### load
-
-▸ **load**(`url`, `loaderFunctions?`): `Promise`<[`LDRTextureCube`](LDRTextureCube.md)\>
-
-load texture data from web url, which is a 360 panorama image
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `url` | `string` | web url |
-| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | callback function when load complete |
-
-#### Returns
-
-`Promise`<[`LDRTextureCube`](LDRTextureCube.md)\>
-
-#### Inherited from
-
-[LDRTextureCube](LDRTextureCube.md).[load](LDRTextureCube.md#load)
-
-#### Defined in
-
-[src/textures/LDRTextureCube.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/textures/LDRTextureCube.ts#L37)
-
-___
-
-### createFromTexture
-
-▸ **createFromTexture**(`size`, `texture`): [`AtmosphericScatteringSky`](AtmosphericScatteringSky.md)
-
-create cube texture by environment image
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `size` | `number` | size of cube texture |
-| `texture` | [`Texture`](Texture.md) | source texture |
-
-#### Returns
-
-[`AtmosphericScatteringSky`](AtmosphericScatteringSky.md)
-
-#### Inherited from
-
-[LDRTextureCube](LDRTextureCube.md).[createFromTexture](LDRTextureCube.md#createfromtexture)
-
-#### Defined in
-
-[src/textures/LDRTextureCube.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/textures/LDRTextureCube.ts#L64)
 
 ## Accessors
 
@@ -1078,22 +901,199 @@ LDRTextureCube.ldrImageUrl
 
 [src/textures/LDRTextureCube.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/textures/LDRTextureCube.ts#L21)
 
-## Constructors
+## Methods
 
-### constructor
+### init
 
-• **new AtmosphericScatteringSky**(`setting`)
+▸ **init**(): [`AtmosphericScatteringSky`](AtmosphericScatteringSky.md)
+
+#### Returns
+
+[`AtmosphericScatteringSky`](AtmosphericScatteringSky.md)
+
+#### Inherited from
+
+[LDRTextureCube](LDRTextureCube.md).[init](LDRTextureCube.md#init)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:214](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L214)
+
+___
+
+### getGPUTexture
+
+▸ **getGPUTexture**(): `GPUTexture`
+
+create or get GPUTexture
+
+#### Returns
+
+`GPUTexture`
+
+GPUTexture
+
+#### Inherited from
+
+[LDRTextureCube](LDRTextureCube.md).[getGPUTexture](LDRTextureCube.md#getgputexture)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L367)
+
+___
+
+### getGPUView
+
+▸ **getGPUView**(`index?`): `GPUTextureView` \| `GPUExternalTexture`
+
+create or get GPUTextureView
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `index` | `number` | `0` |
+
+#### Returns
+
+`GPUTextureView` \| `GPUExternalTexture`
+
+GPUTextureView | GPUExternalTexture
+
+#### Inherited from
+
+[LDRTextureCube](LDRTextureCube.md).[getGPUView](LDRTextureCube.md#getgpuview)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:378](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L378)
+
+___
+
+### bindStateChange
+
+▸ **bindStateChange**(`fun`, `ref`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `fun` | `Function` |
+| `ref` | `any` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[LDRTextureCube](LDRTextureCube.md).[bindStateChange](LDRTextureCube.md#bindstatechange)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L389)
+
+___
+
+### unBindStateChange
+
+▸ **unBindStateChange**(`ref`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `ref` | `any` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[LDRTextureCube](LDRTextureCube.md).[unBindStateChange](LDRTextureCube.md#unbindstatechange)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:393](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L393)
+
+___
+
+### destroy
+
+▸ **destroy**(`force?`): `void`
+
+release the texture
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[LDRTextureCube](LDRTextureCube.md).[destroy](LDRTextureCube.md#destroy)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:407](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L407)
+
+___
+
+### load
+
+▸ **load**(`url`, `loaderFunctions?`): `Promise`<[`LDRTextureCube`](LDRTextureCube.md)\>
+
+load texture data from web url, which is a 360 panorama image
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `setting` | [`AtmosphericScatteringSkySetting`](AtmosphericScatteringSkySetting.md) | AtmosphericScatteringSkySetting |
+| `url` | `string` | web url |
+| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | callback function when load complete |
 
-#### Overrides
+#### Returns
 
-[LDRTextureCube](LDRTextureCube.md).[constructor](LDRTextureCube.md#constructor)
+`Promise`<[`LDRTextureCube`](LDRTextureCube.md)\>
+
+#### Inherited from
+
+[LDRTextureCube](LDRTextureCube.md).[load](LDRTextureCube.md#load)
 
 #### Defined in
 
-[src/textures/AtmosphericScatteringSky.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L43)
+[src/textures/LDRTextureCube.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/textures/LDRTextureCube.ts#L37)
+
+___
+
+### createFromTexture
+
+▸ **createFromTexture**(`size`, `texture`): [`AtmosphericScatteringSky`](AtmosphericScatteringSky.md)
+
+create cube texture by environment image
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `size` | `number` | size of cube texture |
+| `texture` | [`Texture`](Texture.md) | source texture |
+
+#### Returns
+
+[`AtmosphericScatteringSky`](AtmosphericScatteringSky.md)
+
+#### Inherited from
+
+[LDRTextureCube](LDRTextureCube.md).[createFromTexture](LDRTextureCube.md#createfromtexture)
+
+#### Defined in
+
+[src/textures/LDRTextureCube.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/textures/LDRTextureCube.ts#L64)

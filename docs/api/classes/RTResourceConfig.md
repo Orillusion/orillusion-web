@@ -1,5 +1,9 @@
 # Class: RTResourceConfig
 
+### Constructors
+
+- [constructor](RTResourceConfig.md#constructor)
+
 ### Properties
 
 - [colorBufferTex\_NAME](RTResourceConfig.md#colorbuffertex_name)
@@ -10,9 +14,11 @@
 - [zPreDepthTexture\_NAME](RTResourceConfig.md#zpredepthtexture_name)
 - [outTex\_NAME](RTResourceConfig.md#outtex_name)
 
-### Constructors
+## Constructors
 
-- [constructor](RTResourceConfig.md#constructor)
+### constructor
+
+• **new RTResourceConfig**()
 
 ## Properties
 
@@ -83,9 +89,3 @@ ___
 #### Defined in
 
 [src/gfx/renderJob/config/RTResourceConfig.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/config/RTResourceConfig.ts#L8)
-
-## Constructors
-
-### constructor
-
-• **new RTResourceConfig**()

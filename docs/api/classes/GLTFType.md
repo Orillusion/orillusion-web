@@ -1,5 +1,9 @@
 # Class: GLTFType
 
+### Constructors
+
+- [constructor](GLTFType.md#constructor)
+
 ### Properties
 
 - [GLTF\_NODE\_INDEX\_PROPERTY](GLTFType.md#gltf_node_index_property)
@@ -23,9 +27,11 @@
 - [JOINT\_MATRICES\_UNIFORM](GLTFType.md#joint_matrices_uniform)
 - [ALPHA\_CUTOFF\_UNIFORM](GLTFType.md#alpha_cutoff_uniform)
 
-### Constructors
+## Constructors
 
-- [constructor](GLTFType.md#constructor)
+### constructor
+
+• **new GLTFType**()
 
 ## Properties
 
@@ -226,9 +232,3 @@ ___
 #### Defined in
 
 [src/loader/parser/gltf/GLTFType.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFType.ts#L40)
-
-## Constructors
-
-### constructor
-
-• **new GLTFType**()

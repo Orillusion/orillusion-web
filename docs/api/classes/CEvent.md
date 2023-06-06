@@ -12,6 +12,10 @@ Basic class of Event
 
   ↳ [`PointerEvent3D`](PointerEvent3D.md)
 
+### Constructors
+
+- [constructor](CEvent.md#constructor)
+
 ### Properties
 
 - [target](CEvent.md#target)
@@ -30,17 +34,32 @@ Basic class of Event
 - [touches](CEvent.md#touches)
 - [view](CEvent.md#view)
 
-### Constructors
+### Accessors
 
-- [constructor](CEvent.md#constructor)
+- [isStopImmediatePropagation](CEvent.md#isstopimmediatepropagation)
 
 ### Methods
 
 - [stopImmediatePropagation](CEvent.md#stopimmediatepropagation)
 
-### Accessors
+## Constructors
 
-- [isStopImmediatePropagation](CEvent.md#isstopimmediatepropagation)
+### constructor
+
+• **new CEvent**(`eventType?`, `data?`)
+
+Create a new event, with type and data
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `eventType` | `string` | `null` | {any} eventType |
+| `data` | `any` | `null` | {any} param |
+
+#### Defined in
+
+[src/event/CEvent.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L97)
 
 ## Properties
 
@@ -226,24 +245,21 @@ binded view3D object in event.
 
 [src/event/CEvent.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L89)
 
-## Constructors
+## Accessors
 
-### constructor
+### isStopImmediatePropagation
 
-• **new CEvent**(`eventType?`, `data?`)
+• `get` **isStopImmediatePropagation**(): `boolean`
 
-Create a new event, with type and data
+Returns stopImmediatePropagation value
 
-#### Parameters
+#### Returns
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `eventType` | `string` | `null` | {any} eventType |
-| `data` | `any` | `null` | {any} param |
+`boolean`
 
 #### Defined in
 
-[src/event/CEvent.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L97)
+[src/event/CEvent.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L120)
 
 ## Methods
 
@@ -260,19 +276,3 @@ Prevent bubbling of all event listeners in subsequent nodes of the current node 
 #### Defined in
 
 [src/event/CEvent.ts:105](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L105)
-
-## Accessors
-
-### isStopImmediatePropagation
-
-• `get` **isStopImmediatePropagation**(): `boolean`
-
-Returns stopImmediatePropagation value
-
-#### Returns
-
-`boolean`
-
-#### Defined in
-
-[src/event/CEvent.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L120)

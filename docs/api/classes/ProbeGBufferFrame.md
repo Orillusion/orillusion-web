@@ -10,12 +10,6 @@
 
 - [constructor](ProbeGBufferFrame.md#constructor)
 
-### Methods
-
-- [crateGBuffer](ProbeGBufferFrame.md#crategbuffer)
-- [clone2Frame](ProbeGBufferFrame.md#clone2frame)
-- [clone](ProbeGBufferFrame.md#clone)
-
 ### Properties
 
 - [label](ProbeGBufferFrame.md#label)
@@ -28,6 +22,12 @@
 - [depthCleanValue](ProbeGBufferFrame.md#depthcleanvalue)
 - [depthLoadOp](ProbeGBufferFrame.md#depthloadop)
 - [isOutTarget](ProbeGBufferFrame.md#isouttarget)
+
+### Methods
+
+- [crateGBuffer](ProbeGBufferFrame.md#crategbuffer)
+- [clone2Frame](ProbeGBufferFrame.md#clone2frame)
+- [clone](ProbeGBufferFrame.md#clone)
 
 ## Constructors
 
@@ -49,69 +49,6 @@
 #### Defined in
 
 [src/gfx/renderJob/frame/ProbeGBufferFrame.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/ProbeGBufferFrame.ts#L10)
-
-## Methods
-
-### crateGBuffer
-
-▸ **crateGBuffer**(`rtWidth`, `rtHeight`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `rtWidth` | `number` |
-| `rtHeight` | `number` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/gfx/renderJob/frame/ProbeGBufferFrame.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/ProbeGBufferFrame.ts#L15)
-
-___
-
-### clone2Frame
-
-▸ **clone2Frame**(`rtFrame`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `rtFrame` | [`RTFrame`](RTFrame.md) |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[RTFrame](RTFrame.md).[clone2Frame](RTFrame.md#clone2frame)
-
-#### Defined in
-
-[src/gfx/renderJob/frame/RTFrame.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L27)
-
-___
-
-### clone
-
-▸ **clone**(): [`RTFrame`](RTFrame.md)
-
-#### Returns
-
-[`RTFrame`](RTFrame.md)
-
-#### Inherited from
-
-[RTFrame](RTFrame.md).[clone](RTFrame.md#clone)
-
-#### Defined in
-
-[src/gfx/renderJob/frame/RTFrame.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L42)
 
 ## Properties
 
@@ -252,3 +189,66 @@ ___
 #### Defined in
 
 [src/gfx/renderJob/frame/RTFrame.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L17)
+
+## Methods
+
+### crateGBuffer
+
+▸ **crateGBuffer**(`rtWidth`, `rtHeight`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `rtWidth` | `number` |
+| `rtHeight` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/gfx/renderJob/frame/ProbeGBufferFrame.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/ProbeGBufferFrame.ts#L15)
+
+___
+
+### clone2Frame
+
+▸ **clone2Frame**(`rtFrame`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `rtFrame` | [`RTFrame`](RTFrame.md) |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[RTFrame](RTFrame.md).[clone2Frame](RTFrame.md#clone2frame)
+
+#### Defined in
+
+[src/gfx/renderJob/frame/RTFrame.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L27)
+
+___
+
+### clone
+
+▸ **clone**(): [`RTFrame`](RTFrame.md)
+
+#### Returns
+
+[`RTFrame`](RTFrame.md)
+
+#### Inherited from
+
+[RTFrame](RTFrame.md).[clone](RTFrame.md#clone)
+
+#### Defined in
+
+[src/gfx/renderJob/frame/RTFrame.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L42)

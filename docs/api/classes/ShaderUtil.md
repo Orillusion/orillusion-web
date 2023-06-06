@@ -1,5 +1,9 @@
 # Class: ShaderUtil
 
+### Constructors
+
+- [constructor](ShaderUtil.md#constructor)
+
 ### Properties
 
 - [renderShaderModulePool](ShaderUtil.md#rendershadermodulepool)
@@ -9,9 +13,11 @@
 
 - [init](ShaderUtil.md#init)
 
-### Constructors
+## Constructors
 
-- [constructor](ShaderUtil.md#constructor)
+### constructor
+
+• **new ShaderUtil**()
 
 ## Properties
 
@@ -46,9 +52,3 @@ ___
 #### Defined in
 
 [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L26)
-
-## Constructors
-
-### constructor
-
-• **new ShaderUtil**()

@@ -10,6 +10,10 @@ Control the camera's movement direction by holding down the left mouse button
 
   ↳ **`FlyCameraController`**
 
+### Constructors
+
+- [constructor](FlyCameraController.md#constructor)
+
 ### Properties
 
 - [object3D](FlyCameraController.md#object3d)
@@ -39,9 +43,19 @@ Control the camera's movement direction by holding down the left mouse button
 - [setCamera](FlyCameraController.md#setcamera)
 - [onUpdate](FlyCameraController.md#onupdate)
 
-### Constructors
+## Constructors
 
-- [constructor](FlyCameraController.md#constructor)
+### constructor
+
+• **new FlyCameraController**()
+
+#### Overrides
+
+[ComponentBase](ComponentBase.md).[constructor](ComponentBase.md#constructor)
+
+#### Defined in
+
+[src/components/controller/FlyCameraController.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/FlyCameraController.ts#L54)
 
 ## Properties
 
@@ -503,17 +517,3 @@ ___
 #### Defined in
 
 [src/components/controller/FlyCameraController.ts:215](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/FlyCameraController.ts#L215)
-
-## Constructors
-
-### constructor
-
-• **new FlyCameraController**()
-
-#### Overrides
-
-[ComponentBase](ComponentBase.md).[constructor](ComponentBase.md#constructor)
-
-#### Defined in
-
-[src/components/controller/FlyCameraController.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/FlyCameraController.ts#L54)

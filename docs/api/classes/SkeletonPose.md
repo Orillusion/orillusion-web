@@ -3,20 +3,13 @@
 Skeleton animation consists of many skeleton pose, 
 and each pose describes the transformation information of all bone
 
-### Properties
-
-- [time](SkeletonPose.md#time)
-
 ### Constructors
 
 - [constructor](SkeletonPose.md#constructor)
 
-### Methods
+### Properties
 
-- [buildSkeletonPose](SkeletonPose.md#buildskeletonpose)
-- [lerp](SkeletonPose.md#lerp)
-- [copyFrom](SkeletonPose.md#copyfrom)
-- [reset](SkeletonPose.md#reset)
+- [time](SkeletonPose.md#time)
 
 ### Accessors
 
@@ -24,17 +17,12 @@ and each pose describes the transformation information of all bone
 - [joints](SkeletonPose.md#joints)
 - [jointMatrixIndexTable](SkeletonPose.md#jointmatrixindextable)
 
-## Properties
+### Methods
 
-### time
-
-• **time**: `number`
-
-time of this pose in owner animation clip
-
-#### Defined in
-
-[src/components/anim/skeletonAnim/SkeletonPose.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L16)
+- [buildSkeletonPose](SkeletonPose.md#buildskeletonpose)
+- [lerp](SkeletonPose.md#lerp)
+- [copyFrom](SkeletonPose.md#copyfrom)
+- [reset](SkeletonPose.md#reset)
 
 ## Constructors
 
@@ -52,6 +40,66 @@ time of this pose in owner animation clip
 #### Defined in
 
 [src/components/anim/skeletonAnim/SkeletonPose.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L21)
+
+## Properties
+
+### time
+
+• **time**: `number`
+
+time of this pose in owner animation clip
+
+#### Defined in
+
+[src/components/anim/skeletonAnim/SkeletonPose.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L16)
+
+## Accessors
+
+### numJoint
+
+• `get` **numJoint**(): `number`
+
+Returns joints count of owner skeleton
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[src/components/anim/skeletonAnim/SkeletonPose.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L67)
+
+___
+
+### joints
+
+• `get` **joints**(): [`JointPose`](JointPose.md)[]
+
+Returns all joint pose
+
+#### Returns
+
+[`JointPose`](JointPose.md)[]
+
+#### Defined in
+
+[src/components/anim/skeletonAnim/SkeletonPose.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L74)
+
+___
+
+### jointMatrixIndexTable
+
+• `get` **jointMatrixIndexTable**(): `number`[]
+
+Returns list of matrix's index
+
+#### Returns
+
+`number`[]
+
+#### Defined in
+
+[src/components/anim/skeletonAnim/SkeletonPose.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L81)
 
 ## Methods
 
@@ -136,51 +184,3 @@ Reset this skeleton pose
 #### Defined in
 
 [src/components/anim/skeletonAnim/SkeletonPose.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L113)
-
-## Accessors
-
-### numJoint
-
-• `get` **numJoint**(): `number`
-
-Returns joints count of owner skeleton
-
-#### Returns
-
-`number`
-
-#### Defined in
-
-[src/components/anim/skeletonAnim/SkeletonPose.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L67)
-
-___
-
-### joints
-
-• `get` **joints**(): [`JointPose`](JointPose.md)[]
-
-Returns all joint pose
-
-#### Returns
-
-[`JointPose`](JointPose.md)[]
-
-#### Defined in
-
-[src/components/anim/skeletonAnim/SkeletonPose.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L74)
-
-___
-
-### jointMatrixIndexTable
-
-• `get` **jointMatrixIndexTable**(): `number`[]
-
-Returns list of matrix's index
-
-#### Returns
-
-`number`[]
-
-#### Defined in
-
-[src/components/anim/skeletonAnim/SkeletonPose.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L81)
