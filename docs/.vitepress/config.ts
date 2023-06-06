@@ -311,7 +311,16 @@ function sidebarGuide(): SidebarItem {
                 { text: '骨骼动画', link: '/guide/animation/skeleton.md' },
                 { text: '属性动画', link: '/guide/animation/property.md' },
                 { text: 'Morph动画', link: '/guide/animation/morph.md' }
-                // { text: '粒子动画', link: '/guide/animation/particle.md' }
+            ]
+        },
+        {
+            text: '粒子',
+            collapsible: true,
+            items: [
+                { text: '简介', link: '/guide/particle/Readme.md' },
+                { text: '发射器', link: '/guide/particle/emitter.md' },
+                // { text: '渲染器', link: '/guide/particle/renderer.md' },
+                { text: '基本模块', link: '/guide/particle/BaseModule.md' }
             ]
         },
         {
