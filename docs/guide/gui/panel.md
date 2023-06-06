@@ -65,6 +65,10 @@ let material = panel.guiMesh.uiRenderer.material;
 material.cullMode = GPUCullMode.back;//背面剔除
 ```
 
+`UIPanel`设计为继承自`UIImage`，但是默认该`visible`设置为`false`。
+如果需要将面板放置一个默认的背景图，你可以设置`visible`为`true`，然后当做`UIImage`来使用。
+> 关于`UIImage`的详细内容，请查看`图片`。
+
 下面这个例子展示了 `ViewPanel`与`WorldPanel`的切换，以及效果对比：
 <Demo :height="500" src="/demos/gui/panel.ts"></Demo>
 
