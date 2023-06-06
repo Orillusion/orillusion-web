@@ -297,6 +297,7 @@
 - [GUICanvas](classes/GUICanvas.md)
 - [GUIGeometry](classes/GUIGeometry.md)
 - [GUIGeometryRebuild](classes/GUIGeometryRebuild.md)
+- [GUIMaterial](classes/GUIMaterial.md)
 - [GUIMesh](classes/GUIMesh.md)
 - [GUIQuad](classes/GUIQuad.md)
 - [GUIRenderer](classes/GUIRenderer.md)
@@ -314,10 +315,6 @@
 - [UITransform](classes/UITransform.md)
 - [ViewPanel](classes/ViewPanel.md)
 - [WorldPanel](classes/WorldPanel.md)
-
-## GUI GPU
-
-- [GUIMaterial](classes/GUIMaterial.md)
 
 ## Geometry
 
