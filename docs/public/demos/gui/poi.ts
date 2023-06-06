@@ -5,6 +5,7 @@ class Sample_POI {
     scene: Scene3D
     panel: WorldPanel
     position: Vector3
+    gui: dat.GUI
 
     async run() {
         Engine3D.setting.shadow.autoUpdate = true
@@ -36,6 +37,7 @@ class Sample_POI {
         this.scene = scene3D
 
         await this.initScene()
+        this.gui = new dat.GUI()
         this.initDuckPOI()
         this.initScenePOI()
     }
@@ -106,7 +108,7 @@ class Sample_POI {
         text.fontSize = 4
         text.color = new Color(0, 0, 0, 1)
         text.alignment = TextAnchor.MiddleCenter
-        this.renderUIPanel(this.panel, true)
+        this.renderUIPanel(this.panel, 'Duck Panel')
     }
 
     private sceneText: UITextField
@@ -135,6 +137,8 @@ class Sample_POI {
 
         panelRoot.addComponent(UIShadow).shadowOffset.multiplyScaler(0.2)
         this.sceneText = text
+
+        this.renderUIPanel(panel, 'Chair Panel')
     }
 
     private charCount = 0
@@ -159,11 +163,8 @@ class Sample_POI {
         }
     }
 
-    renderUIPanel(panel: UIPanel, open: boolean = true, name?: string) {
-        name ||= 'GUI Panel'
-        let GUIHelp = new dat.GUI()
-
-        GUIHelp.addFolder(name)
+    renderUIPanel(panel: WorldPanel, name: string = 'GUI Panel') {
+        let f = this.gui.addFolder(name)
         //cull mode
         let cullMode = {}
         cullMode[GPUCullMode.none] = GPUCullMode.none
@@ -171,7 +172,7 @@ class Sample_POI {
         cullMode[GPUCullMode.back] = GPUCullMode.back
 
         // change cull mode by click dropdown box
-        GUIHelp.add({ cullMode: GPUCullMode.none }, 'cullMode', cullMode).onChange((v) => {
+        f.add({ cullMode: GPUCullMode.none }, 'cullMode', cullMode).onChange((v) => {
             panel.cullMode = v
         })
 
@@ -182,16 +183,13 @@ class Sample_POI {
         billboard['XYZ'] = BillboardType.BillboardXYZ
 
         // change billboard by click dropdown box
-        GUIHelp.add({ billboard: panel.billboard }, 'billboard', billboard).onChange((v) => {
+        f.add({ billboard: panel.billboard }, 'billboard', billboard).onChange((v) => {
             panel.billboard = v
         })
 
         //depth test
-        if (panel['isWorldPanel']) {
-            GUIHelp.add(panel, 'depthTest')
-        }
-
-        open && GUIHelp.open()
+        f.add(panel, 'depthTest')
+        f.open()
     }
 }
 

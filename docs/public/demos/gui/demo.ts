@@ -1,4 +1,4 @@
-import { AtmosphericComponent, CEvent, CEventDispatcher, Camera3D, Color, DirectLight, Engine3D, HoverCameraController, ImageType, Object3D, Object3DUtil, PointerEvent3D, Scene3D, TextAnchor, Time, UIImage, UIInteractive, UITextField, Vector3, View3D, WorldPanel, clamp } from '@orillusion/core'
+import { AtmosphericComponent, BillboardType, CEvent, CEventDispatcher, Camera3D, Color, DirectLight, Engine3D, HoverCameraController, ImageType, Object3D, Object3DUtil, PointerEvent3D, Scene3D, TextAnchor, Time, UIImage, UIInteractive, UITextField, Vector3, View3D, WorldPanel, clamp } from '@orillusion/core'
 
 class GUIPanelPOI {
     private readonly alpha = 0.8
@@ -230,7 +230,8 @@ class Sample_UIMultiPanel {
         for (let i = 0; i < 50; i++) {
             //panel
             let panelRoot: Object3D = new Object3D()
-            let panel = panelRoot.addComponent(WorldPanel, { billboard: true })
+            let panel = panelRoot.addComponent(WorldPanel)
+            panel.billboard = BillboardType.BillboardXYZ
             panel.needSortOnCameraZ = true
             canvas.addChild(panel.object3D)
 
