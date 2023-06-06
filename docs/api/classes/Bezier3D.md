@@ -2,14 +2,20 @@
 
 3D Bezier Curve
 
+### Constructors
+
+- [constructor](Bezier3D.md#constructor)
+
 ### Methods
 
 - [calculateCubicBezierPoint](Bezier3D.md#calculatecubicbezierpoint)
 - [bezierPoint](Bezier3D.md#bezierpoint)
 
-### Constructors
+## Constructors
 
-- [constructor](Bezier3D.md#constructor)
+### constructor
+
+• **new Bezier3D**()
 
 ## Methods
 
@@ -65,9 +71,3 @@ get bezier point at curve
 #### Defined in
 
 [src/math/Bezier3D.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/math/Bezier3D.ts#L50)
-
-## Constructors
-
-### constructor
-
-• **new Bezier3D**()

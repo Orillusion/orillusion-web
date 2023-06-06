@@ -16,6 +16,10 @@ The base class of most objects provides a series of properties and methods for m
 
   ↳↳ [`Graphic3D`](Graphic3D.md)
 
+### Constructors
+
+- [constructor](Object3D.md#constructor)
+
 ### Properties
 
 - [name](Object3D.md#name)
@@ -60,7 +64,6 @@ The base class of most objects provides a series of properties and methods for m
 - [removeFromParent](Object3D.md#removefromparent)
 - [getChildByIndex](Object3D.md#getchildbyindex)
 - [getChildByName](Object3D.md#getchildbyname)
-- [genBounds](Object3D.md#genbounds)
 - [updateBound](Object3D.md#updatebound)
 - [forChild](Object3D.md#forchild)
 - [addComponent](Object3D.md#addcomponent)
@@ -85,9 +88,21 @@ The base class of most objects provides a series of properties and methods for m
 - [containEventListener](Object3D.md#containeventlistener)
 - [hasEventListener](Object3D.md#haseventlistener)
 
-### Constructors
+## Constructors
 
-- [constructor](Object3D.md#constructor)
+### constructor
+
+• **new Object3D**()
+
+Instantiate a 3D object
+
+#### Overrides
+
+[Entity](Entity.md).[constructor](Entity.md#constructor)
+
+#### Defined in
+
+[src/core/entities/Object3D.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L19)
 
 ## Properties
 
@@ -255,7 +270,7 @@ Entity.numChildren
 
 #### Defined in
 
-[src/core/entities/Entity.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L129)
+[src/core/entities/Entity.ts:130](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L130)
 
 ___
 
@@ -273,7 +288,7 @@ Entity.bound
 
 #### Defined in
 
-[src/core/entities/Entity.ts:317](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L317)
+[src/core/entities/Entity.ts:318](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L318)
 
 • `set` **bound**(`value`): `void`
 
@@ -293,7 +308,7 @@ Entity.bound
 
 #### Defined in
 
-[src/core/entities/Entity.ts:324](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L324)
+[src/core/entities/Entity.ts:325](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L325)
 
 ___
 
@@ -810,7 +825,7 @@ result Entity
 
 #### Defined in
 
-[src/core/entities/Entity.ts:94](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L94)
+[src/core/entities/Entity.ts:95](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L95)
 
 ___
 
@@ -837,7 +852,7 @@ Any current parent object on the object passed here will be deleted, as an objec
 
 #### Defined in
 
-[src/core/entities/Entity.ts:140](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L140)
+[src/core/entities/Entity.ts:141](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L141)
 
 ___
 
@@ -863,7 +878,7 @@ Remove the child objects of the object. You can remove any number of objects.
 
 #### Defined in
 
-[src/core/entities/Entity.ts:166](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L166)
+[src/core/entities/Entity.ts:167](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L167)
 
 ___
 
@@ -883,7 +898,7 @@ Remove all children of the current object
 
 #### Defined in
 
-[src/core/entities/Entity.ts:180](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L180)
+[src/core/entities/Entity.ts:181](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L181)
 
 ___
 
@@ -905,7 +920,7 @@ this
 
 #### Defined in
 
-[src/core/entities/Entity.ts:191](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L191)
+[src/core/entities/Entity.ts:192](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L192)
 
 ___
 
@@ -931,7 +946,7 @@ Search for child nodes of objects and remove child objects with matching indexes
 
 #### Defined in
 
-[src/core/entities/Entity.ts:201](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L201)
+[src/core/entities/Entity.ts:202](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L202)
 
 ___
 
@@ -959,7 +974,7 @@ boolean
 
 #### Defined in
 
-[src/core/entities/Entity.ts:215](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L215)
+[src/core/entities/Entity.ts:216](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L216)
 
 ___
 
@@ -981,7 +996,7 @@ this
 
 #### Defined in
 
-[src/core/entities/Entity.ts:225](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L225)
+[src/core/entities/Entity.ts:226](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L226)
 
 ___
 
@@ -1009,7 +1024,7 @@ child entity
 
 #### Defined in
 
-[src/core/entities/Entity.ts:239](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L239)
+[src/core/entities/Entity.ts:240](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L240)
 
 ___
 
@@ -1038,27 +1053,7 @@ result
 
 #### Defined in
 
-[src/core/entities/Entity.ts:254](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L254)
-
-___
-
-### genBounds
-
-▸ **genBounds**(): `IBound`
-
-Returns a bounding box that defines the display area of the specified layer.
-
-#### Returns
-
-`IBound`
-
-#### Inherited from
-
-[Entity](Entity.md).[genBounds](Entity.md#genbounds)
-
-#### Defined in
-
-[src/core/entities/Entity.ts:333](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L333)
+[src/core/entities/Entity.ts:255](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L255)
 
 ___
 
@@ -1076,7 +1071,7 @@ ___
 
 #### Defined in
 
-[src/core/entities/Entity.ts:345](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L345)
+[src/core/entities/Entity.ts:331](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L331)
 
 ___
 
@@ -1356,7 +1351,7 @@ Quickly obtain components and no longer access child nodes after obtaining them 
 
 **`Memberof`**
 
-ELPObject3D
+Object3D
 
 #### Type parameters
 
@@ -1688,19 +1683,3 @@ Returns a boolean.
 #### Defined in
 
 [src/event/CEventDispatcher.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L198)
-
-## Constructors
-
-### constructor
-
-• **new Object3D**()
-
-Instantiate a 3D object
-
-#### Overrides
-
-[Entity](Entity.md).[constructor](Entity.md#constructor)
-
-#### Defined in
-
-[src/core/entities/Object3D.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L19)

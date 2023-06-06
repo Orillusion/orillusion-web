@@ -1,13 +1,21 @@
 # Class: GUIShader
 
+shader code
+
+### Constructors
+
+- [constructor](GUIShader.md#constructor)
+
 ### Properties
 
 - [GUI\_shader\_view](GUIShader.md#gui_shader_view)
 - [GUI\_shader\_world](GUIShader.md#gui_shader_world)
 
-### Constructors
+## Constructors
 
-- [constructor](GUIShader.md#constructor)
+### constructor
+
+• **new GUIShader**()
 
 ## Properties
 
@@ -17,7 +25,7 @@
 
 #### Defined in
 
-[src/components/gui/core/GUIShader.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIShader.ts#L153)
+[src/components/gui/core/GUIShader.ts:157](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIShader.ts#L157)
 
 ___
 
@@ -27,10 +35,4 @@ ___
 
 #### Defined in
 
-[src/components/gui/core/GUIShader.ts:186](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIShader.ts#L186)
-
-## Constructors
-
-### constructor
-
-• **new GUIShader**()
+[src/components/gui/core/GUIShader.ts:190](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIShader.ts#L190)

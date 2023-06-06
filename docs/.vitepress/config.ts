@@ -49,6 +49,7 @@ export default async () =>
                 '/physics/': sidebar('', 'physics'),
                 '/stats/': sidebar('', 'stats'),
                 '/media-extention/': sidebar('', 'media-extention'),
+                '/particle/': sidebar('', 'particle'),
                 '/example/': sidebarExample(),
                 '/cdn/': [
                     {
@@ -203,7 +204,8 @@ function nav() {
                         { text: 'Core', link: '/api/' },
                         { text: 'Physics', link: '/physics/' },
                         { text: 'Media Extention', link: '/media-extention/' },
-                        { text: 'Stats', link: '/stats/' }
+                        { text: 'Stats', link: '/stats/' },
+                        { text: 'Particle', link: '/particle/' }
                     ]
                 },
                 {
@@ -314,6 +316,16 @@ function sidebarGuide(): SidebarItem {
             ]
         },
         {
+            text: '粒子',
+            collapsible: true,
+            items: [
+                { text: '简介', link: '/guide/particle/Readme.md' },
+                { text: '发射器', link: '/guide/particle/emitter.md' },
+                // { text: '渲染器', link: '/guide/particle/renderer.md' },
+                { text: '基本模块', link: '/guide/particle/BaseModule.md' }
+            ]
+        },
+        {
             text: '物理',
             collapsible: true,
             items: [
@@ -348,6 +360,19 @@ function sidebarGuide(): SidebarItem {
             items: [
                 { text: '资源加载', link: '/guide/resource/Readme.md' },
                 { text: 'GLTF', link: '/guide/resource/gltf.md' }
+            ]
+        },
+        {
+            text: '用户界面',
+            collapsible: true,
+            items: [
+                { text: '简介', link: '/guide/gui/Readme.md' },
+                { text: '图片', link: '/guide/gui/image.md' },
+                { text: '图片组', link: '/guide/gui/imageGroup.md' },
+                { text: '文本', link: '/guide/gui/textfield.md' },
+                { text: '按钮', link: '/guide/gui/button.md' },
+                { text: '投影', link: '/guide/gui/shadow.md' },
+                { text: '多面板示例', link: '/guide/gui/demo.md' }
             ]
         },
         {
@@ -473,6 +498,10 @@ function sidebar(root: string = '', packages: string) {
                 {
                     text: '@orillusion/media-extention',
                     link: '/media-extention/'
+                },
+                {
+                    text: '@orillusion/particle',
+                    link: '/particle/'
                 }
             ]
         }

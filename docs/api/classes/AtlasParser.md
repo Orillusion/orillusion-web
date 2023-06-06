@@ -6,6 +6,10 @@
 
   ↳ **`AtlasParser`**
 
+### Constructors
+
+- [constructor](AtlasParser.md#constructor)
+
 ### Properties
 
 - [format](AtlasParser.md#format)
@@ -15,10 +19,6 @@
 - [userData](AtlasParser.md#userdata)
 - [data](AtlasParser.md#data)
 
-### Constructors
-
-- [constructor](AtlasParser.md#constructor)
-
 ### Methods
 
 - [parseString](AtlasParser.md#parsestring)
@@ -27,6 +27,16 @@
 - [parseBuffer](AtlasParser.md#parsebuffer)
 - [parseTexture](AtlasParser.md#parsetexture)
 - [parse](AtlasParser.md#parse)
+
+## Constructors
+
+### constructor
+
+• **new AtlasParser**()
+
+#### Inherited from
+
+ParserBase.constructor
 
 ## Properties
 
@@ -111,16 +121,6 @@ ParserBase.data
 #### Defined in
 
 [src/loader/parser/ParserBase.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L14)
-
-## Constructors
-
-### constructor
-
-• **new AtlasParser**()
-
-#### Inherited from
-
-ParserBase.constructor
 
 ## Methods
 

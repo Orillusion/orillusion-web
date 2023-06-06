@@ -1,12 +1,18 @@
 # Class: MorePassParser
 
+### Constructors
+
+- [constructor](MorePassParser.md#constructor)
+
 ### Methods
 
 - [parser](MorePassParser.md#parser)
 
-### Constructors
+## Constructors
 
-- [constructor](MorePassParser.md#constructor)
+### constructor
+
+• **new MorePassParser**()
 
 ## Methods
 
@@ -28,9 +34,3 @@
 #### Defined in
 
 [src/gfx/graphics/webGpu/shader/util/MorePassParser.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/MorePassParser.ts#L22)
-
-## Constructors
-
-### constructor
-
-• **new MorePassParser**()

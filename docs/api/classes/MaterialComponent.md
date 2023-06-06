@@ -8,6 +8,10 @@ Material component
 
   ↳ **`MaterialComponent`**
 
+### Constructors
+
+- [constructor](MaterialComponent.md#constructor)
+
 ### Properties
 
 - [object3D](MaterialComponent.md#object3d)
@@ -35,9 +39,19 @@ Material component
 - [destroy](MaterialComponent.md#destroy)
 - [cloneTo](MaterialComponent.md#cloneto)
 
-### Constructors
+## Constructors
 
-- [constructor](MaterialComponent.md#constructor)
+### constructor
+
+• **new MaterialComponent**()
+
+#### Overrides
+
+[ComponentBase](ComponentBase.md).[constructor](ComponentBase.md#constructor)
+
+#### Defined in
+
+[src/components/renderer/MaterialComponent.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MaterialComponent.ts#L12)
 
 ## Properties
 
@@ -482,17 +496,3 @@ clone component data to target object3D
 #### Defined in
 
 [src/components/renderer/MaterialComponent.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MaterialComponent.ts#L39)
-
-## Constructors
-
-### constructor
-
-• **new MaterialComponent**()
-
-#### Overrides
-
-[ComponentBase](ComponentBase.md).[constructor](ComponentBase.md#constructor)
-
-#### Defined in
-
-[src/components/renderer/MaterialComponent.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MaterialComponent.ts#L12)

@@ -9,6 +9,10 @@ The light of this light source is parallel, for example, sunlight. This light so
 
   ↳ **`DirectLight`**
 
+### Constructors
+
+- [constructor](DirectLight.md#constructor)
+
 ### Properties
 
 - [object3D](DirectLight.md#object3d)
@@ -56,9 +60,19 @@ The light of this light source is parallel, for example, sunlight. This light so
 - [onDisable](DirectLight.md#ondisable)
 - [destroy](DirectLight.md#destroy)
 
-### Constructors
+## Constructors
 
-- [constructor](DirectLight.md#constructor)
+### constructor
+
+• **new DirectLight**()
+
+#### Overrides
+
+LightBase.constructor
+
+#### Defined in
+
+[src/components/lights/DirectLight.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L14)
 
 ## Properties
 
@@ -1017,17 +1031,3 @@ LightBase.destroy
 #### Defined in
 
 [src/components/lights/LightBase.ts:252](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L252)
-
-## Constructors
-
-### constructor
-
-• **new DirectLight**()
-
-#### Overrides
-
-LightBase.constructor
-
-#### Defined in
-
-[src/components/lights/DirectLight.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L14)

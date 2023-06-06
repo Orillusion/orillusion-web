@@ -6,6 +6,10 @@
 
   ↳ **`I3DMLoader`**
 
+### Constructors
+
+- [constructor](I3DMLoader.md#constructor)
+
 ### Properties
 
 - [tempFwd](I3DMLoader.md#tempfwd)
@@ -17,13 +21,23 @@
 - [tempMat](I3DMLoader.md#tempmat)
 - [adjustmentTransform](I3DMLoader.md#adjustmenttransform)
 
-### Constructors
-
-- [constructor](I3DMLoader.md#constructor)
-
 ### Methods
 
 - [parse](I3DMLoader.md#parse)
+
+## Constructors
+
+### constructor
+
+• **new I3DMLoader**()
+
+#### Overrides
+
+[I3DMLoaderBase](I3DMLoaderBase.md).[constructor](I3DMLoaderBase.md#constructor)
+
+#### Defined in
+
+[src/loader/parser/i3dm/I3DMLoader.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/i3dm/I3DMLoader.ts#L22)
 
 ## Properties
 
@@ -104,20 +118,6 @@ ___
 #### Defined in
 
 [src/loader/parser/i3dm/I3DMLoader.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/i3dm/I3DMLoader.ts#L19)
-
-## Constructors
-
-### constructor
-
-• **new I3DMLoader**()
-
-#### Overrides
-
-[I3DMLoaderBase](I3DMLoaderBase.md).[constructor](I3DMLoaderBase.md#constructor)
-
-#### Defined in
-
-[src/loader/parser/i3dm/I3DMLoader.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/i3dm/I3DMLoader.ts#L22)
 
 ## Methods
 

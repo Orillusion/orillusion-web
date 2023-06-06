@@ -10,6 +10,10 @@ Similar to a desk lamp, chandelier, or flashlight, this light source can produce
 
   ↳ **`SpotLight`**
 
+### Constructors
+
+- [constructor](SpotLight.md#constructor)
+
 ### Properties
 
 - [object3D](SpotLight.md#object3d)
@@ -60,9 +64,19 @@ Similar to a desk lamp, chandelier, or flashlight, this light source can produce
 - [debug](SpotLight.md#debug)
 - [debugDraw](SpotLight.md#debugdraw)
 
-### Constructors
+## Constructors
 
-- [constructor](SpotLight.md#constructor)
+### constructor
+
+• **new SpotLight**()
+
+#### Overrides
+
+LightBase.constructor
+
+#### Defined in
+
+[src/components/lights/SpotLight.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/SpotLight.ts#L16)
 
 ## Properties
 
@@ -1131,17 +1145,3 @@ ___
 #### Defined in
 
 [src/components/lights/SpotLight.ts:156](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/SpotLight.ts#L156)
-
-## Constructors
-
-### constructor
-
-• **new SpotLight**()
-
-#### Overrides
-
-LightBase.constructor
-
-#### Defined in
-
-[src/components/lights/SpotLight.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/SpotLight.ts#L16)

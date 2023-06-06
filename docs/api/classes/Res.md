@@ -6,6 +6,21 @@ Resource management classes for textures, materials, models, and preset bodies.
 
 - [constructor](Res.md#constructor)
 
+### Properties
+
+- [normalTexture](Res.md#normaltexture)
+- [maskTexture](Res.md#masktexture)
+- [whiteTexture](Res.md#whitetexture)
+- [blackTexture](Res.md#blacktexture)
+- [redTexture](Res.md#redtexture)
+- [blueTexture](Res.md#bluetexture)
+- [greenTexture](Res.md#greentexture)
+- [yellowTexture](Res.md#yellowtexture)
+- [grayTexture](Res.md#graytexture)
+- [defaultSky](Res.md#defaultsky)
+- [defaultGUITexture](Res.md#defaultguitexture)
+- [defaultGUISprite](Res.md#defaultguisprite)
+
 ### Methods
 
 - [getGltf](Res.md#getgltf)
@@ -34,21 +49,6 @@ Resource management classes for textures, materials, models, and preset bodies.
 - [createTexture](Res.md#createtexture)
 - [fillColor](Res.md#fillcolor)
 
-### Properties
-
-- [normalTexture](Res.md#normaltexture)
-- [maskTexture](Res.md#masktexture)
-- [whiteTexture](Res.md#whitetexture)
-- [blackTexture](Res.md#blacktexture)
-- [redTexture](Res.md#redtexture)
-- [blueTexture](Res.md#bluetexture)
-- [greenTexture](Res.md#greentexture)
-- [yellowTexture](Res.md#yellowtexture)
-- [grayTexture](Res.md#graytexture)
-- [defaultSky](Res.md#defaultsky)
-- [defaultGUITexture](Res.md#defaultguitexture)
-- [defaultGUISprite](Res.md#defaultguisprite)
-
 ## Constructors
 
 ### constructor
@@ -58,6 +58,128 @@ Resource management classes for textures, materials, models, and preset bodies.
 #### Defined in
 
 [src/assets/Res.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L44)
+
+## Properties
+
+### normalTexture
+
+• **normalTexture**: [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
+
+normal texture
+
+#### Defined in
+
+[src/assets/Res.ts:362](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L362)
+
+___
+
+### maskTexture
+
+• **maskTexture**: [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
+
+#### Defined in
+
+[src/assets/Res.ts:363](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L363)
+
+___
+
+### whiteTexture
+
+• **whiteTexture**: [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
+
+#### Defined in
+
+[src/assets/Res.ts:364](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L364)
+
+___
+
+### blackTexture
+
+• **blackTexture**: [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
+
+#### Defined in
+
+[src/assets/Res.ts:365](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L365)
+
+___
+
+### redTexture
+
+• **redTexture**: [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
+
+#### Defined in
+
+[src/assets/Res.ts:366](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L366)
+
+___
+
+### blueTexture
+
+• **blueTexture**: [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
+
+#### Defined in
+
+[src/assets/Res.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L367)
+
+___
+
+### greenTexture
+
+• **greenTexture**: [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
+
+#### Defined in
+
+[src/assets/Res.ts:368](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L368)
+
+___
+
+### yellowTexture
+
+• **yellowTexture**: [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
+
+#### Defined in
+
+[src/assets/Res.ts:369](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L369)
+
+___
+
+### grayTexture
+
+• **grayTexture**: [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
+
+#### Defined in
+
+[src/assets/Res.ts:370](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L370)
+
+___
+
+### defaultSky
+
+• **defaultSky**: [`HDRTextureCube`](HDRTextureCube.md)
+
+#### Defined in
+
+[src/assets/Res.ts:372](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L372)
+
+___
+
+### defaultGUITexture
+
+• **defaultGUITexture**: `GUITexture`
+
+#### Defined in
+
+[src/assets/Res.ts:374](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L374)
+
+___
+
+### defaultGUISprite
+
+• **defaultGUISprite**: [`GUISprite`](GUISprite.md)
+
+#### Defined in
+
+[src/assets/Res.ts:375](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L375)
 
 ## Methods
 
@@ -635,125 +757,3 @@ fill slod color to this texture
 #### Defined in
 
 [src/assets/Res.ts:412](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L412)
-
-## Properties
-
-### normalTexture
-
-• **normalTexture**: [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
-
-normal texture
-
-#### Defined in
-
-[src/assets/Res.ts:362](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L362)
-
-___
-
-### maskTexture
-
-• **maskTexture**: [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
-
-#### Defined in
-
-[src/assets/Res.ts:363](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L363)
-
-___
-
-### whiteTexture
-
-• **whiteTexture**: [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
-
-#### Defined in
-
-[src/assets/Res.ts:364](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L364)
-
-___
-
-### blackTexture
-
-• **blackTexture**: [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
-
-#### Defined in
-
-[src/assets/Res.ts:365](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L365)
-
-___
-
-### redTexture
-
-• **redTexture**: [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
-
-#### Defined in
-
-[src/assets/Res.ts:366](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L366)
-
-___
-
-### blueTexture
-
-• **blueTexture**: [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
-
-#### Defined in
-
-[src/assets/Res.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L367)
-
-___
-
-### greenTexture
-
-• **greenTexture**: [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
-
-#### Defined in
-
-[src/assets/Res.ts:368](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L368)
-
-___
-
-### yellowTexture
-
-• **yellowTexture**: [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
-
-#### Defined in
-
-[src/assets/Res.ts:369](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L369)
-
-___
-
-### grayTexture
-
-• **grayTexture**: [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
-
-#### Defined in
-
-[src/assets/Res.ts:370](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L370)
-
-___
-
-### defaultSky
-
-• **defaultSky**: [`HDRTextureCube`](HDRTextureCube.md)
-
-#### Defined in
-
-[src/assets/Res.ts:372](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L372)
-
-___
-
-### defaultGUITexture
-
-• **defaultGUITexture**: [`GUITexture`](GUITexture.md)
-
-#### Defined in
-
-[src/assets/Res.ts:374](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L374)
-
-___
-
-### defaultGUISprite
-
-• **defaultGUISprite**: [`GUISprite`](GUISprite.md)
-
-#### Defined in
-
-[src/assets/Res.ts:375](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L375)

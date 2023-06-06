@@ -1,5 +1,20 @@
 # Class: GUIQuad
 
+The smallest unit in the GUI, basic information required for rendering a plane
+
+### Constructors
+
+- [constructor](GUIQuad.md#constructor)
+
+### Properties
+
+- [x](GUIQuad.md#x)
+- [y](GUIQuad.md#y)
+- [z](GUIQuad.md#z)
+- [width](GUIQuad.md#width)
+- [height](GUIQuad.md#height)
+- [dirtyAttributes](GUIQuad.md#dirtyattributes)
+
 ### Accessors
 
 - [quadPool](GUIQuad.md#quadpool)
@@ -22,18 +37,71 @@
 - [applyTransform](GUIQuad.md#applytransform)
 - [writeToGeometry](GUIQuad.md#writetogeometry)
 
-### Constructors
+## Constructors
 
-- [constructor](GUIQuad.md#constructor)
+### constructor
 
-### Properties
+• **new GUIQuad**()
 
-- [x](GUIQuad.md#x)
-- [y](GUIQuad.md#y)
-- [z](GUIQuad.md#z)
-- [width](GUIQuad.md#width)
-- [height](GUIQuad.md#height)
-- [dirtyAttributes](GUIQuad.md#dirtyattributes)
+## Properties
+
+### x
+
+• **x**: `number` = `0`
+
+#### Defined in
+
+[src/components/gui/core/GUIQuad.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L18)
+
+___
+
+### y
+
+• **y**: `number` = `0`
+
+#### Defined in
+
+[src/components/gui/core/GUIQuad.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L19)
+
+___
+
+### z
+
+• **z**: `number` = `0`
+
+#### Defined in
+
+[src/components/gui/core/GUIQuad.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L20)
+
+___
+
+### width
+
+• **width**: `number` = `1`
+
+#### Defined in
+
+[src/components/gui/core/GUIQuad.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L21)
+
+___
+
+### height
+
+• **height**: `number` = `1`
+
+#### Defined in
+
+[src/components/gui/core/GUIQuad.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L22)
+
+___
+
+### dirtyAttributes
+
+• **dirtyAttributes**: `GUIQuadAttrEnum` = `GUIQuadAttrEnum.MAX`
+
+#### Defined in
+
+[src/components/gui/core/GUIQuad.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L35)
 
 ## Accessors
 
@@ -47,7 +115,7 @@
 
 #### Defined in
 
-[src/components/gui/core/GUIQuad.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L35)
+[src/components/gui/core/GUIQuad.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L39)
 
 ___
 
@@ -61,7 +129,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/core/GUIQuad.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L54)
+[src/components/gui/core/GUIQuad.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L58)
 
 • `set` **imageType**(`value`): `void`
 
@@ -77,7 +145,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/core/GUIQuad.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L58)
+[src/components/gui/core/GUIQuad.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L62)
 
 ___
 
@@ -91,7 +159,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/core/GUIQuad.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L63)
+[src/components/gui/core/GUIQuad.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L67)
 
 • `set` **color**(`value`): `void`
 
@@ -107,7 +175,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/core/GUIQuad.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L67)
+[src/components/gui/core/GUIQuad.ts:71](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L71)
 
 ___
 
@@ -121,7 +189,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/core/GUIQuad.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L73)
+[src/components/gui/core/GUIQuad.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L77)
 
 • `set` **visible**(`value`): `void`
 
@@ -137,7 +205,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/core/GUIQuad.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L77)
+[src/components/gui/core/GUIQuad.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L81)
 
 ___
 
@@ -151,7 +219,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/core/GUIQuad.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L84)
+[src/components/gui/core/GUIQuad.ts:88](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L88)
 
 • `set` **sprite**(`value`): `void`
 
@@ -167,7 +235,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/core/GUIQuad.ts:88](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L88)
+[src/components/gui/core/GUIQuad.ts:92](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L92)
 
 ___
 
@@ -181,7 +249,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/core/GUIQuad.ts:95](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L95)
+[src/components/gui/core/GUIQuad.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L99)
 
 ___
 
@@ -195,7 +263,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/core/GUIQuad.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L99)
+[src/components/gui/core/GUIQuad.ts:103](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L103)
 
 ___
 
@@ -209,7 +277,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/core/GUIQuad.ts:103](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L103)
+[src/components/gui/core/GUIQuad.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L107)
 
 ___
 
@@ -223,7 +291,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/core/GUIQuad.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L107)
+[src/components/gui/core/GUIQuad.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L111)
 
 ## Methods
 
@@ -243,7 +311,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/core/GUIQuad.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L40)
+[src/components/gui/core/GUIQuad.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L44)
 
 ___
 
@@ -257,7 +325,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/core/GUIQuad.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L49)
+[src/components/gui/core/GUIQuad.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L53)
 
 ___
 
@@ -278,7 +346,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/core/GUIQuad.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L111)
+[src/components/gui/core/GUIQuad.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L115)
 
 ___
 
@@ -299,7 +367,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/core/GUIQuad.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L117)
+[src/components/gui/core/GUIQuad.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L121)
 
 ___
 
@@ -311,7 +379,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `attr` | [`GUIQuadAttrEnum`](../enums/GUIQuadAttrEnum.md) |
+| `attr` | `GUIQuadAttrEnum` |
 
 #### Returns
 
@@ -319,7 +387,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/core/GUIQuad.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L123)
+[src/components/gui/core/GUIQuad.ts:127](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L127)
 
 ___
 
@@ -339,7 +407,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/core/GUIQuad.ts:126](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L126)
+[src/components/gui/core/GUIQuad.ts:130](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L130)
 
 ___
 
@@ -360,70 +428,4 @@ ___
 
 #### Defined in
 
-[src/components/gui/core/GUIQuad.ts:171](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L171)
-
-## Constructors
-
-### constructor
-
-• **new GUIQuad**()
-
-## Properties
-
-### x
-
-• **x**: `number` = `0`
-
-#### Defined in
-
-[src/components/gui/core/GUIQuad.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L14)
-
-___
-
-### y
-
-• **y**: `number` = `0`
-
-#### Defined in
-
-[src/components/gui/core/GUIQuad.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L15)
-
-___
-
-### z
-
-• **z**: `number` = `0`
-
-#### Defined in
-
-[src/components/gui/core/GUIQuad.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L16)
-
-___
-
-### width
-
-• **width**: `number` = `1`
-
-#### Defined in
-
-[src/components/gui/core/GUIQuad.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L17)
-
-___
-
-### height
-
-• **height**: `number` = `1`
-
-#### Defined in
-
-[src/components/gui/core/GUIQuad.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L18)
-
-___
-
-### dirtyAttributes
-
-• **dirtyAttributes**: [`GUIQuadAttrEnum`](../enums/GUIQuadAttrEnum.md) = `GUIQuadAttrEnum.MAX`
-
-#### Defined in
-
-[src/components/gui/core/GUIQuad.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L31)
+[src/components/gui/core/GUIQuad.ts:175](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIQuad.ts#L175)

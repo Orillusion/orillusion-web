@@ -2,13 +2,19 @@
 
 Camera3D tool class
 
+### Constructors
+
+- [constructor](CameraUtil.md#constructor)
+
 ### Methods
 
 - [createCamera3DObject](CameraUtil.md#createcamera3dobject)
 
-### Constructors
+## Constructors
 
-- [constructor](CameraUtil.md#constructor)
+### constructor
+
+• **new CameraUtil**()
 
 ## Methods
 
@@ -32,9 +38,3 @@ create a Camera3D component
 #### Defined in
 
 [src/util/CameraUtil.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/util/CameraUtil.ts#L18)
-
-## Constructors
-
-### constructor
-
-• **new CameraUtil**()

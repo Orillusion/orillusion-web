@@ -1,7 +1,6 @@
 # Class: UIComponentBase
 
-Components are used to attach functionality to object3D, it has an owner object3D.
-The component can receive update events at each frame.
+The basic component for all GUI component
 
 ## Hierarchy
 
@@ -11,17 +10,15 @@ The component can receive update events at each frame.
 
   ↳↳ [`UIInteractive`](UIInteractive.md)
 
-  ↳↳ [`UIPanel`](UIPanel.md)
-
   ↳↳ [`UIRenderAble`](UIRenderAble.md)
-
-### Properties
-
-- [object3D](UIComponentBase.md#object3d)
 
 ### Constructors
 
 - [constructor](UIComponentBase.md#constructor)
+
+### Properties
+
+- [object3D](UIComponentBase.md#object3d)
 
 ### Accessors
 
@@ -47,6 +44,20 @@ The component can receive update events at each frame.
 - [init](UIComponentBase.md#init)
 - [copyComponent](UIComponentBase.md#copycomponent)
 
+## Constructors
+
+### constructor
+
+• **new UIComponentBase**()
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[constructor](ComponentBase.md#constructor)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L31)
+
 ## Properties
 
 ### object3D
@@ -62,20 +73,6 @@ owner object3D
 #### Defined in
 
 [src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
-
-## Constructors
-
-### constructor
-
-• **new UIComponentBase**()
-
-#### Inherited from
-
-[ComponentBase](ComponentBase.md).[constructor](ComponentBase.md#constructor)
-
-#### Defined in
-
-[src/components/ComponentBase.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L31)
 
 ## Accessors
 
@@ -151,7 +148,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIComponentBase.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L12)
+[src/components/gui/uiComponents/UIComponentBase.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L16)
 
 ___
 
@@ -165,7 +162,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIComponentBase.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L16)
+[src/components/gui/uiComponents/UIComponentBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L20)
 
 • `set` **visible**(`value`): `void`
 
@@ -181,7 +178,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIComponentBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L20)
+[src/components/gui/uiComponents/UIComponentBase.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L24)
 
 ## Methods
 
@@ -457,7 +454,7 @@ release this component
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIComponentBase.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L7)
+[src/components/gui/uiComponents/UIComponentBase.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L11)
 
 ___
 
@@ -481,7 +478,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIComponentBase.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L27)
+[src/components/gui/uiComponents/UIComponentBase.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L31)
 
 ___
 
@@ -501,4 +498,4 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIComponentBase.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L37)
+[src/components/gui/uiComponents/UIComponentBase.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L41)

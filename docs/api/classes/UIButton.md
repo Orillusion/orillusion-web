@@ -1,7 +1,6 @@
 # Class: UIButton
 
-Components are used to attach functionality to object3D, it has an owner object3D.
-The component can receive update events at each frame.
+The basic components used in the GUI to respond to user interaction behavior and have an image component
 
 ## Hierarchy
 
@@ -9,13 +8,13 @@ The component can receive update events at each frame.
 
   ↳ **`UIButton`**
 
-### Properties
-
-- [object3D](UIButton.md#object3d)
-
 ### Constructors
 
 - [constructor](UIButton.md#constructor)
+
+### Properties
+
+- [object3D](UIButton.md#object3d)
 
 ### Accessors
 
@@ -45,9 +44,23 @@ The component can receive update events at each frame.
 - [onEnable](UIButton.md#onenable)
 - [onDisable](UIButton.md#ondisable)
 - [cloneTo](UIButton.md#cloneto)
-- [destroy](UIButton.md#destroy)
 - [copyComponent](UIButton.md#copycomponent)
+- [destroy](UIButton.md#destroy)
 - [rayPick](UIButton.md#raypick)
+
+## Constructors
+
+### constructor
+
+• **new UIButton**()
+
+#### Inherited from
+
+[UIInteractive](UIInteractive.md).[constructor](UIInteractive.md#constructor)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L31)
 
 ## Properties
 
@@ -64,20 +77,6 @@ owner object3D
 #### Defined in
 
 [src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
-
-## Constructors
-
-### constructor
-
-• **new UIButton**()
-
-#### Inherited from
-
-[UIInteractive](UIInteractive.md).[constructor](UIInteractive.md#constructor)
-
-#### Defined in
-
-[src/components/ComponentBase.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L31)
 
 ## Accessors
 
@@ -163,7 +162,7 @@ UIInteractive.mouseStyle
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIButton.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIButton.ts#L31)
+[src/components/gui/uiComponents/UIButton.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIButton.ts#L35)
 
 ___
 
@@ -177,7 +176,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIButton.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIButton.ts#L36)
+[src/components/gui/uiComponents/UIButton.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIButton.ts#L40)
 
 • `set` **normalSprite**(`value`): `void`
 
@@ -193,7 +192,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIButton.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIButton.ts#L40)
+[src/components/gui/uiComponents/UIButton.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIButton.ts#L44)
 
 ___
 
@@ -207,7 +206,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIButton.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIButton.ts#L47)
+[src/components/gui/uiComponents/UIButton.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIButton.ts#L51)
 
 • `set` **overSprite**(`value`): `void`
 
@@ -223,7 +222,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIButton.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIButton.ts#L51)
+[src/components/gui/uiComponents/UIButton.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIButton.ts#L55)
 
 ___
 
@@ -237,7 +236,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIButton.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIButton.ts#L65)
+[src/components/gui/uiComponents/UIButton.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIButton.ts#L69)
 
 • `set` **downSprite**(`value`): `void`
 
@@ -253,7 +252,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIButton.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIButton.ts#L58)
+[src/components/gui/uiComponents/UIButton.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIButton.ts#L62)
 
 ___
 
@@ -267,7 +266,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIButton.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIButton.ts#L76)
+[src/components/gui/uiComponents/UIButton.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIButton.ts#L80)
 
 • `set` **disableSprite**(`value`): `void`
 
@@ -283,7 +282,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIButton.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIButton.ts#L69)
+[src/components/gui/uiComponents/UIButton.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIButton.ts#L73)
 
 ___
 
@@ -301,7 +300,7 @@ UIInteractive.uiTransform
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIComponentBase.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L12)
+[src/components/gui/uiComponents/UIComponentBase.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L16)
 
 ___
 
@@ -319,7 +318,7 @@ UIInteractive.visible
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIComponentBase.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L16)
+[src/components/gui/uiComponents/UIComponentBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L20)
 
 • `set` **visible**(`value`): `void`
 
@@ -339,7 +338,7 @@ UIInteractive.visible
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIComponentBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L20)
+[src/components/gui/uiComponents/UIComponentBase.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L24)
 
 ___
 
@@ -357,7 +356,7 @@ UIInteractive.interactive
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIInteractive.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L17)
+[src/components/gui/uiComponents/UIInteractive.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L21)
 
 • `set` **interactive**(`value`): `void`
 
@@ -377,7 +376,7 @@ UIInteractive.interactive
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIInteractive.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L13)
+[src/components/gui/uiComponents/UIInteractive.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L17)
 
 ___
 
@@ -395,7 +394,7 @@ UIInteractive.interactiveVisible
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIInteractive.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L25)
+[src/components/gui/uiComponents/UIInteractive.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L29)
 
 ## Methods
 
@@ -601,7 +600,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIButton.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIButton.ts#L12)
+[src/components/gui/uiComponents/UIButton.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIButton.ts#L16)
 
 ___
 
@@ -619,7 +618,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIButton.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIButton.ts#L23)
+[src/components/gui/uiComponents/UIButton.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIButton.ts#L27)
 
 ___
 
@@ -637,7 +636,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIButton.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIButton.ts#L27)
+[src/components/gui/uiComponents/UIButton.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIButton.ts#L31)
 
 ___
 
@@ -663,7 +662,31 @@ clone component data to target object3D
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIButton.ts:91](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIButton.ts#L91)
+[src/components/gui/uiComponents/UIButton.ts:95](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIButton.ts#L95)
+
+___
+
+### copyComponent
+
+▸ **copyComponent**(`from`): [`UIButton`](UIButton.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `from` | [`UIButton`](UIButton.md) |
+
+#### Returns
+
+[`UIButton`](UIButton.md)
+
+#### Overrides
+
+[UIInteractive](UIInteractive.md).[copyComponent](UIInteractive.md#copycomponent)
+
+#### Defined in
+
+[src/components/gui/uiComponents/UIButton.ts:100](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIButton.ts#L100)
 
 ___
 
@@ -683,31 +706,7 @@ release this component
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIButton.ts:102](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIButton.ts#L102)
-
-___
-
-### copyComponent
-
-▸ **copyComponent**(`from`): [`UIButton`](UIButton.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `from` | [`UIButton`](UIButton.md) |
-
-#### Returns
-
-[`UIButton`](UIButton.md)
-
-#### Inherited from
-
-[UIInteractive](UIInteractive.md).[copyComponent](UIInteractive.md#copycomponent)
-
-#### Defined in
-
-[src/components/gui/uiComponents/UIComponentBase.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L37)
+[src/components/gui/uiComponents/UIButton.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIButton.ts#L110)
 
 ___
 
@@ -739,4 +738,4 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIInteractive.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L39)
+[src/components/gui/uiComponents/UIInteractive.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L43)

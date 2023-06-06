@@ -8,6 +8,10 @@ Box geometry
 
   ↳ **`BoxGeometry`**
 
+### Constructors
+
+- [constructor](BoxGeometry.md#constructor)
+
 ### Properties
 
 - [uuid](BoxGeometry.md#uuid)
@@ -42,9 +46,27 @@ Box geometry
 - [isPrimitive](BoxGeometry.md#isprimitive)
 - [destroy](BoxGeometry.md#destroy)
 
-### Constructors
+## Constructors
 
-- [constructor](BoxGeometry.md#constructor)
+### constructor
+
+• **new BoxGeometry**(`width?`, `height?`, `depth?`)
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `width` | `number` | `1` | {number} box width, default value is 1 |
+| `height` | `number` | `1` | {number} box height, default value is 1 |
+| `depth` | `number` | `1` | {number} box depth, default value is 1 |
+
+#### Overrides
+
+[GeometryBase](GeometryBase.md).[constructor](GeometryBase.md#constructor)
+
+#### Defined in
+
+[src/shape/BoxGeometry.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/shape/BoxGeometry.ts#L30)
 
 ## Properties
 
@@ -555,25 +577,3 @@ ___
 #### Defined in
 
 [src/core/geometry/GeometryBase.ts:268](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L268)
-
-## Constructors
-
-### constructor
-
-• **new BoxGeometry**(`width?`, `height?`, `depth?`)
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `width` | `number` | `1` | {number} box width, default value is 1 |
-| `height` | `number` | `1` | {number} box height, default value is 1 |
-| `depth` | `number` | `1` | {number} box depth, default value is 1 |
-
-#### Overrides
-
-[GeometryBase](GeometryBase.md).[constructor](GeometryBase.md#constructor)
-
-#### Defined in
-
-[src/shape/BoxGeometry.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/shape/BoxGeometry.ts#L30)

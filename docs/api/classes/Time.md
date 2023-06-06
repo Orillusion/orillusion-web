@@ -2,15 +2,21 @@
 
 Tool of time
 
+### Constructors
+
+- [constructor](Time.md#constructor)
+
 ### Properties
 
 - [time](Time.md#time)
 - [frame](Time.md#frame)
 - [delta](Time.md#delta)
 
-### Constructors
+## Constructors
 
-- [constructor](Time.md#constructor)
+### constructor
+
+• **new Time**()
 
 ## Properties
 
@@ -47,9 +53,3 @@ Time from previous frame to present
 #### Defined in
 
 [src/util/Time.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/util/Time.ts#L17)
-
-## Constructors
-
-### constructor
-
-• **new Time**()

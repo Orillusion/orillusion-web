@@ -8,6 +8,10 @@ Cylinder geometry
 
   ↳ **`CylinderGeometry`**
 
+### Constructors
+
+- [constructor](CylinderGeometry.md#constructor)
+
 ### Properties
 
 - [uuid](CylinderGeometry.md#uuid)
@@ -47,9 +51,32 @@ Cylinder geometry
 - [isPrimitive](CylinderGeometry.md#isprimitive)
 - [destroy](CylinderGeometry.md#destroy)
 
-### Constructors
+## Constructors
 
-- [constructor](CylinderGeometry.md#constructor)
+### constructor
+
+• **new CylinderGeometry**(`radiusTop?`, `radiusBottom?`, `height?`, `radialSegments?`, `heightSegments?`, `openEnded?`, `thetaStart?`, `thetaLength?`)
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `radiusTop` | `number` | `1` |
+| `radiusBottom` | `number` | `1` |
+| `height` | `number` | `1` |
+| `radialSegments` | `number` | `8` |
+| `heightSegments` | `number` | `8` |
+| `openEnded` | `boolean` | `false` |
+| `thetaStart` | `number` | `0` |
+| `thetaLength` | `number` | `undefined` |
+
+#### Overrides
+
+[GeometryBase](GeometryBase.md).[constructor](GeometryBase.md#constructor)
+
+#### Defined in
+
+[src/shape/CylinderGeometry.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/shape/CylinderGeometry.ts#L57)
 
 ## Properties
 
@@ -620,30 +647,3 @@ ___
 #### Defined in
 
 [src/core/geometry/GeometryBase.ts:268](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L268)
-
-## Constructors
-
-### constructor
-
-• **new CylinderGeometry**(`radiusTop?`, `radiusBottom?`, `height?`, `radialSegments?`, `heightSegments?`, `openEnded?`, `thetaStart?`, `thetaLength?`)
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `radiusTop` | `number` | `1` |
-| `radiusBottom` | `number` | `1` |
-| `height` | `number` | `1` |
-| `radialSegments` | `number` | `8` |
-| `heightSegments` | `number` | `8` |
-| `openEnded` | `boolean` | `false` |
-| `thetaStart` | `number` | `0` |
-| `thetaLength` | `number` | `undefined` |
-
-#### Overrides
-
-[GeometryBase](GeometryBase.md).[constructor](GeometryBase.md#constructor)
-
-#### Defined in
-
-[src/shape/CylinderGeometry.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/shape/CylinderGeometry.ts#L57)

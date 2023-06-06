@@ -22,15 +22,15 @@ A common post-processing effect that simulates the focusing characteristics of a
 
   ↳ **`DepthOfFieldPost`**
 
+### Constructors
+
+- [constructor](DepthOfFieldPost.md#constructor)
+
 ### Properties
 
 - [rtFrame](DepthOfFieldPost.md#rtframe)
 - [enable](DepthOfFieldPost.md#enable)
 - [postRenderer](DepthOfFieldPost.md#postrenderer)
-
-### Constructors
-
-- [constructor](DepthOfFieldPost.md#constructor)
 
 ### Accessors
 
@@ -41,6 +41,20 @@ A common post-processing effect that simulates the focusing characteristics of a
 ### Methods
 
 - [destroy](DepthOfFieldPost.md#destroy)
+
+## Constructors
+
+### constructor
+
+• **new DepthOfFieldPost**()
+
+#### Overrides
+
+PostBase.constructor
+
+#### Defined in
+
+[src/gfx/renderJob/post/DepthOfFieldPost.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L65)
 
 ## Properties
 
@@ -79,20 +93,6 @@ PostBase.postRenderer
 #### Defined in
 
 [src/gfx/renderJob/post/PostBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L20)
-
-## Constructors
-
-### constructor
-
-• **new DepthOfFieldPost**()
-
-#### Overrides
-
-PostBase.constructor
-
-#### Defined in
-
-[src/gfx/renderJob/post/DepthOfFieldPost.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L65)
 
 ## Accessors
 

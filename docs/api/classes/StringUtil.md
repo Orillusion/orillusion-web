@@ -2,6 +2,10 @@
 
 String processing tool class
 
+### Constructors
+
+- [constructor](StringUtil.md#constructor)
+
 ### Methods
 
 - [hasString](StringUtil.md#hasstring)
@@ -25,9 +29,11 @@ String processing tool class
 - [stringToHash](StringUtil.md#stringtohash)
 - [parseUrl](StringUtil.md#parseurl)
 
-### Constructors
+## Constructors
 
-- [constructor](StringUtil.md#constructor)
+### constructor
+
+• **new StringUtil**()
 
 ## Methods
 
@@ -495,9 +501,3 @@ result url
 #### Defined in
 
 [src/util/StringUtil.ts:386](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L386)
-
-## Constructors
-
-### constructor
-
-• **new StringUtil**()

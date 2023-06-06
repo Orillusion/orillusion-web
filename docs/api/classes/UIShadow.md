@@ -1,7 +1,6 @@
 # Class: UIShadow
 
-Components are used to attach functionality to object3D, it has an owner object3D.
-The component can receive update events at each frame.
+The shadow component for gui
 
 ## Hierarchy
 
@@ -9,16 +8,16 @@ The component can receive update events at each frame.
 
   ↳ **`UIShadow`**
 
+### Constructors
+
+- [constructor](UIShadow.md#constructor)
+
 ### Properties
 
 - [object3D](UIShadow.md#object3d)
 - [isUIShadow](UIShadow.md#isuishadow)
 - [isShadowless](UIShadow.md#isshadowless)
 - [needUpdateShadow](UIShadow.md#needupdateshadow)
-
-### Constructors
-
-- [constructor](UIShadow.md#constructor)
 
 ### Accessors
 
@@ -47,10 +46,24 @@ The component can receive update events at each frame.
 - [setShadowRenderer](UIShadow.md#setshadowrenderer)
 - [setShadowSource](UIShadow.md#setshadowsource)
 - [getShadowRender](UIShadow.md#getshadowrender)
-- [copyComponent](UIShadow.md#copycomponent)
 - [init](UIShadow.md#init)
 - [cloneTo](UIShadow.md#cloneto)
+- [copyComponent](UIShadow.md#copycomponent)
 - [onUpdate](UIShadow.md#onupdate)
+
+## Constructors
+
+### constructor
+
+• **new UIShadow**()
+
+#### Inherited from
+
+[UIRenderAble](UIRenderAble.md).[constructor](UIRenderAble.md#constructor)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L31)
 
 ## Properties
 
@@ -80,7 +93,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIRenderAble.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L8)
+[src/components/gui/uiComponents/UIRenderAble.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L12)
 
 ___
 
@@ -94,7 +107,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIRenderAble.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L9)
+[src/components/gui/uiComponents/UIRenderAble.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L13)
 
 ___
 
@@ -108,21 +121,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIShadow.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIShadow.ts#L12)
-
-## Constructors
-
-### constructor
-
-• **new UIShadow**()
-
-#### Inherited from
-
-[UIRenderAble](UIRenderAble.md).[constructor](UIRenderAble.md#constructor)
-
-#### Defined in
-
-[src/components/ComponentBase.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L31)
+[src/components/gui/uiComponents/UIShadow.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIShadow.ts#L20)
 
 ## Accessors
 
@@ -202,7 +201,7 @@ UIRenderAble.uiTransform
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIComponentBase.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L12)
+[src/components/gui/uiComponents/UIComponentBase.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L16)
 
 ___
 
@@ -220,7 +219,7 @@ UIRenderAble.visible
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIComponentBase.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L16)
+[src/components/gui/uiComponents/UIComponentBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L20)
 
 • `set` **visible**(`value`): `void`
 
@@ -240,7 +239,7 @@ UIRenderAble.visible
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIComponentBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L20)
+[src/components/gui/uiComponents/UIComponentBase.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIComponentBase.ts#L24)
 
 ___
 
@@ -258,7 +257,7 @@ UIRenderAble.mainQuads
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIRenderAble.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L40)
+[src/components/gui/uiComponents/UIRenderAble.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L44)
 
 ___
 
@@ -272,7 +271,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIShadow.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIShadow.ts#L33)
+[src/components/gui/uiComponents/UIShadow.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIShadow.ts#L46)
 
 • `set` **shadowColor**(`value`): `void`
 
@@ -288,7 +287,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIShadow.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIShadow.ts#L37)
+[src/components/gui/uiComponents/UIShadow.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIShadow.ts#L50)
 
 ___
 
@@ -302,7 +301,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIShadow.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIShadow.ts#L49)
+[src/components/gui/uiComponents/UIShadow.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIShadow.ts#L62)
 
 • `set` **shadowQuality**(`value`): `void`
 
@@ -318,7 +317,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIShadow.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIShadow.ts#L42)
+[src/components/gui/uiComponents/UIShadow.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIShadow.ts#L55)
 
 ___
 
@@ -332,7 +331,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIShadow.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIShadow.ts#L58)
+[src/components/gui/uiComponents/UIShadow.ts:71](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIShadow.ts#L71)
 
 • `set` **shadowOffset**(`value`): `void`
 
@@ -348,7 +347,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIShadow.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIShadow.ts#L53)
+[src/components/gui/uiComponents/UIShadow.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIShadow.ts#L66)
 
 ___
 
@@ -362,7 +361,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIShadow.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIShadow.ts#L70)
+[src/components/gui/uiComponents/UIShadow.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIShadow.ts#L83)
 
 • `set` **shadowRadius**(`value`): `void`
 
@@ -378,7 +377,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIShadow.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIShadow.ts#L63)
+[src/components/gui/uiComponents/UIShadow.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIShadow.ts#L76)
 
 ## Methods
 
@@ -586,7 +585,7 @@ release this component
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIRenderAble.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L17)
+[src/components/gui/uiComponents/UIRenderAble.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L21)
 
 ___
 
@@ -604,7 +603,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIRenderAble.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L26)
+[src/components/gui/uiComponents/UIRenderAble.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L30)
 
 ___
 
@@ -628,7 +627,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIRenderAble.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L44)
+[src/components/gui/uiComponents/UIRenderAble.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L48)
 
 ___
 
@@ -652,7 +651,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIRenderAble.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L48)
+[src/components/gui/uiComponents/UIRenderAble.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L52)
 
 ___
 
@@ -670,31 +669,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIRenderAble.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L52)
-
-___
-
-### copyComponent
-
-▸ **copyComponent**(`from`): [`UIShadow`](UIShadow.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `from` | [`UIShadow`](UIShadow.md) |
-
-#### Returns
-
-[`UIShadow`](UIShadow.md)
-
-#### Inherited from
-
-[UIRenderAble](UIRenderAble.md).[copyComponent](UIRenderAble.md#copycomponent)
-
-#### Defined in
-
-[src/components/gui/uiComponents/UIRenderAble.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L116)
+[src/components/gui/uiComponents/UIRenderAble.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIRenderAble.ts#L56)
 
 ___
 
@@ -718,7 +693,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIShadow.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIShadow.ts#L14)
+[src/components/gui/uiComponents/UIShadow.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIShadow.ts#L22)
 
 ___
 
@@ -744,7 +719,31 @@ clone component data to target object3D
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIShadow.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIShadow.ts#L23)
+[src/components/gui/uiComponents/UIShadow.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIShadow.ts#L32)
+
+___
+
+### copyComponent
+
+▸ **copyComponent**(`from`): [`UIShadow`](UIShadow.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `from` | [`UIShadow`](UIShadow.md) |
+
+#### Returns
+
+[`UIShadow`](UIShadow.md)
+
+#### Overrides
+
+[UIRenderAble](UIRenderAble.md).[copyComponent](UIRenderAble.md#copycomponent)
+
+#### Defined in
+
+[src/components/gui/uiComponents/UIShadow.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIShadow.ts#L37)
 
 ___
 
@@ -768,4 +767,4 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIShadow.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIShadow.ts#L74)
+[src/components/gui/uiComponents/UIShadow.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIShadow.ts#L87)

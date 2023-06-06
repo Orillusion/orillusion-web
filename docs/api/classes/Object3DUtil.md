@@ -1,12 +1,8 @@
 # Class: Object3DUtil
 
-### Methods
+### Constructors
 
-- [genMeshBounds](Object3DUtil.md#genmeshbounds)
-- [GetCube](Object3DUtil.md#getcube)
-- [GetSingleCube](Object3DUtil.md#getsinglecube)
-- [GetSingleSphere](Object3DUtil.md#getsinglesphere)
-- [GetSingleCube2](Object3DUtil.md#getsinglecube2)
+- [constructor](Object3DUtil.md#constructor)
 
 ### Accessors
 
@@ -14,33 +10,62 @@
 - [SphereMesh](Object3DUtil.md#spheremesh)
 - [Sphere](Object3DUtil.md#sphere)
 
-### Constructors
+### Methods
 
-- [constructor](Object3DUtil.md#constructor)
+- [GetCube](Object3DUtil.md#getcube)
+- [GetSingleCube](Object3DUtil.md#getsinglecube)
+- [GetSingleSphere](Object3DUtil.md#getsinglesphere)
+- [GetSingleCube2](Object3DUtil.md#getsinglecube2)
 
-## Methods
+## Constructors
 
-### genMeshBounds
+### constructor
 
-▸ `Static` **genMeshBounds**(`obj`): `BoundingBox`
+• **new Object3DUtil**()
 
-Merge the bounding boxes that have been added to the world matrix based on the mesh of the children node
+## Accessors
 
-#### Parameters
+### CubeMesh
 
-| Name | Type |
-| :------ | :------ |
-| `obj` | [`Object3D`](Object3D.md) |
+• `Static` `get` **CubeMesh**(): [`BoxGeometry`](BoxGeometry.md)
 
 #### Returns
 
-`BoundingBox`
+[`BoxGeometry`](BoxGeometry.md)
 
 #### Defined in
 
-[src/util/Object3DUtil.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L18)
+[src/util/Object3DUtil.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L24)
 
 ___
+
+### SphereMesh
+
+• `Static` `get` **SphereMesh**(): [`SphereGeometry`](SphereGeometry.md)
+
+#### Returns
+
+[`SphereGeometry`](SphereGeometry.md)
+
+#### Defined in
+
+[src/util/Object3DUtil.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L29)
+
+___
+
+### Sphere
+
+• `Static` `get` **Sphere**(): [`Object3D`](Object3D.md)
+
+#### Returns
+
+[`Object3D`](Object3D.md)
+
+#### Defined in
+
+[src/util/Object3DUtil.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L73)
+
+## Methods
 
 ### GetCube
 
@@ -52,7 +77,7 @@ ___
 
 #### Defined in
 
-[src/util/Object3DUtil.ts:75](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L75)
+[src/util/Object3DUtil.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L34)
 
 ___
 
@@ -77,7 +102,7 @@ ___
 
 #### Defined in
 
-[src/util/Object3DUtil.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L86)
+[src/util/Object3DUtil.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L45)
 
 ___
 
@@ -100,7 +125,7 @@ ___
 
 #### Defined in
 
-[src/util/Object3DUtil.ts:100](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L100)
+[src/util/Object3DUtil.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L59)
 
 ___
 
@@ -121,52 +146,4 @@ ___
 
 #### Defined in
 
-[src/util/Object3DUtil.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L124)
-
-## Accessors
-
-### CubeMesh
-
-• `Static` `get` **CubeMesh**(): [`BoxGeometry`](BoxGeometry.md)
-
-#### Returns
-
-[`BoxGeometry`](BoxGeometry.md)
-
-#### Defined in
-
-[src/util/Object3DUtil.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L65)
-
-___
-
-### SphereMesh
-
-• `Static` `get` **SphereMesh**(): [`SphereGeometry`](SphereGeometry.md)
-
-#### Returns
-
-[`SphereGeometry`](SphereGeometry.md)
-
-#### Defined in
-
-[src/util/Object3DUtil.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L70)
-
-___
-
-### Sphere
-
-• `Static` `get` **Sphere**(): [`Object3D`](Object3D.md)
-
-#### Returns
-
-[`Object3D`](Object3D.md)
-
-#### Defined in
-
-[src/util/Object3DUtil.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L114)
-
-## Constructors
-
-### constructor
-
-• **new Object3DUtil**()
+[src/util/Object3DUtil.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L83)

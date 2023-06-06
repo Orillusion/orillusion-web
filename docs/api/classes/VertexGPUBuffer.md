@@ -10,6 +10,10 @@ usage GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_DST | GPUBufferUsage.VERTEX
 
   ↳ **`VertexGPUBuffer`**
 
+### Constructors
+
+- [constructor](VertexGPUBuffer.md#constructor)
+
 ### Properties
 
 - [bufferType](VertexGPUBuffer.md#buffertype)
@@ -54,9 +58,25 @@ usage GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_DST | GPUBufferUsage.VERTEX
 - [destroy](VertexGPUBuffer.md#destroy)
 - [readBuffer](VertexGPUBuffer.md#readbuffer)
 
-### Constructors
+## Constructors
 
-- [constructor](VertexGPUBuffer.md#constructor)
+### constructor
+
+• **new VertexGPUBuffer**(`size`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `size` | `number` |
+
+#### Overrides
+
+GPUBufferBase.constructor
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/buffer/VertexGPUBuffer.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/VertexGPUBuffer.ts#L14)
 
 ## Properties
 
@@ -879,24 +899,4 @@ GPUBufferBase.readBuffer
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:383](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L383)
-
-## Constructors
-
-### constructor
-
-• **new VertexGPUBuffer**(`size`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `size` | `number` |
-
-#### Overrides
-
-GPUBufferBase.constructor
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/buffer/VertexGPUBuffer.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/VertexGPUBuffer.ts#L14)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:382](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L382)

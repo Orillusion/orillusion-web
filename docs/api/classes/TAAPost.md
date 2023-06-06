@@ -18,6 +18,10 @@ Temporal AA
 
   ↳ **`TAAPost`**
 
+### Constructors
+
+- [constructor](TAAPost.md#constructor)
+
 ### Properties
 
 - [enable](TAAPost.md#enable)
@@ -29,14 +33,6 @@ Temporal AA
 - [preViewMatrix](TAAPost.md#previewmatrix)
 - [rtFrame](TAAPost.md#rtframe)
 
-### Methods
-
-- [destroy](TAAPost.md#destroy)
-
-### Constructors
-
-- [constructor](TAAPost.md#constructor)
-
 ### Accessors
 
 - [jitterSeedCount](TAAPost.md#jitterseedcount)
@@ -44,6 +40,24 @@ Temporal AA
 - [sharpFactor](TAAPost.md#sharpfactor)
 - [sharpPreBlurFactor](TAAPost.md#sharppreblurfactor)
 - [temporalJitterScale](TAAPost.md#temporaljitterscale)
+
+### Methods
+
+- [destroy](TAAPost.md#destroy)
+
+## Constructors
+
+### constructor
+
+• **new TAAPost**()
+
+#### Overrides
+
+PostBase.constructor
+
+#### Defined in
+
+[src/gfx/renderJob/post/TAAPost.ts:71](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/TAAPost.ts#L71)
 
 ## Properties
 
@@ -132,44 +146,6 @@ ___
 #### Defined in
 
 [src/gfx/renderJob/post/TAAPost.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/TAAPost.ts#L69)
-
-## Methods
-
-### destroy
-
-▸ **destroy**(`force?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PostBase.destroy
-
-#### Defined in
-
-[src/gfx/renderJob/post/PostBase.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L81)
-
-## Constructors
-
-### constructor
-
-• **new TAAPost**()
-
-#### Overrides
-
-PostBase.constructor
-
-#### Defined in
-
-[src/gfx/renderJob/post/TAAPost.ts:71](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/TAAPost.ts#L71)
 
 ## Accessors
 
@@ -320,3 +296,27 @@ ___
 #### Defined in
 
 [src/gfx/renderJob/post/TAAPost.ts:141](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/TAAPost.ts#L141)
+
+## Methods
+
+### destroy
+
+▸ **destroy**(`force?`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+PostBase.destroy
+
+#### Defined in
+
+[src/gfx/renderJob/post/PostBase.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L81)

@@ -2,6 +2,10 @@
 
 WebGPU api use context
 
+### Constructors
+
+- [constructor](GPUContext.md#constructor)
+
 ### Properties
 
 - [lastGeometry](GPUContext.md#lastgeometry)
@@ -31,9 +35,11 @@ WebGPU api use context
 - [endPass](GPUContext.md#endpass)
 - [computeCommand](GPUContext.md#computecommand)
 
-### Constructors
+## Constructors
 
-- [constructor](GPUContext.md#constructor)
+### constructor
+
+• **new GPUContext**()
 
 ## Properties
 
@@ -426,9 +432,3 @@ Perform the final calculation and submit the Shader to the GPU
 #### Defined in
 
 [src/gfx/renderJob/GPUContext.ts:217](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L217)
-
-## Constructors
-
-### constructor
-
-• **new GPUContext**()

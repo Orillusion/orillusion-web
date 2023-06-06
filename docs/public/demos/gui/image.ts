@@ -1,12 +1,12 @@
-import { Engine3D, Scene3D, Object3D, Camera3D, View3D, ViewPanel, UIImage, DirectLight, HoverCameraController, Color, ImageType } from '@orillusion/core'
-import { log } from 'util'
+import { Engine3D, Scene3D, Object3D, Camera3D, View3D, ViewPanel, UIImage, HoverCameraController, Color, ImageType, AtmosphericComponent, BitmapTexture2D, makeAloneSprite, WorldPanel, GPUCullMode, UIPanel } from '@orillusion/core'
 
-export class Sample_button {
+class Sample_Image {
     async run() {
         // initializa engine
         await Engine3D.init()
         // create new scene as root node
         let scene3D: Scene3D = new Scene3D()
+        scene3D.addComponent(AtmosphericComponent)
         // create camera
         let cameraObj: Object3D = new Object3D()
         let camera = cameraObj.addComponent(Camera3D)
@@ -14,22 +14,9 @@ export class Sample_button {
         camera.perspective(60, Engine3D.aspect, 1, 5000.0)
         // set camera controller
         let controller = cameraObj.addComponent(HoverCameraController)
-        controller.setCamera(0, -20, 15)
+        controller.setCamera(0, -20, 30)
         // add camera node
         scene3D.addChild(cameraObj)
-        // create light
-        let light: Object3D = new Object3D()
-        // add direct light component
-        let component: DirectLight = light.addComponent(DirectLight)
-        // adjust lighting
-        light.rotationX = 45
-        light.rotationY = 30
-        component.lightColor = new Color(1.0, 1.0, 1.0, 1.0)
-        component.intensity = 1
-        // add light object
-        scene3D.addChild(light)
-
-        await Engine3D.res.loadAtlas('https://cdn.orillusion.com/atlas/UI_atlas.json')
 
         let view = new View3D()
         view.scene = scene3D
@@ -38,9 +25,16 @@ export class Sample_button {
 
         // create panel root
         let panelRoot: Object3D = new Object3D()
-        panelRoot.addComponent(ViewPanel)
+        let panel: UIPanel = panelRoot.addComponent(WorldPanel)
+        panel.guiMesh.uiRenderer.material.cullMode = GPUCullMode.none
+        panelRoot.localScale.set(0.1, 0.1, 0.1)
+        let canvas = view.enableUICanvas()
+        canvas.addChild(panelRoot)
 
-        // renderJob.guiCanvas.addGUIChild(panelRoot);
+        // load a BitmapTexture2D
+        let bitmapTexture2D = new BitmapTexture2D()
+        bitmapTexture2D.flipY = true
+        await bitmapTexture2D.load('https://cdn.orillusion.com/images/webgpu.png')
 
         // create image node
         let imageQuad = new Object3D()
@@ -48,19 +42,12 @@ export class Sample_button {
         // create image component
         let image: UIImage = imageQuad.addComponent(UIImage)
         // set image size
-        image.uiTransform.resize(180, 60)
-        let color = new Color(1.0, 0.5, 0.5, 0.8)
+        image.uiTransform.resize(150, 150)
+        // set image source
+        image.sprite = makeAloneSprite('webgpu', bitmapTexture2D)
 
-        image.texture = Engine3D.res.getSubTexture('button-disable')
-        image.imageType = ImageType.Sliced
-
-        setInterval(() => {
-            color.r += 0.01
-            if (color.r > 1) color.r = 0
-            color.g = color.r
-            image.color = color
-        }, 50)
+        
     }
 }
 
-new Sample_button().run()
+new Sample_Image().run()

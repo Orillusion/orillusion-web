@@ -8,6 +8,10 @@ Hovering camera controller
 
   ↳ **`HoverCameraController`**
 
+### Constructors
+
+- [constructor](HoverCameraController.md#constructor)
+
 ### Properties
 
 - [object3D](HoverCameraController.md#object3d)
@@ -47,9 +51,19 @@ Hovering camera controller
 - [focusByBounds](HoverCameraController.md#focusbybounds)
 - [onBeforeUpdate](HoverCameraController.md#onbeforeupdate)
 
-### Constructors
+## Constructors
 
-- [constructor](HoverCameraController.md#constructor)
+### constructor
+
+• **new HoverCameraController**()
+
+#### Overrides
+
+[ComponentBase](ComponentBase.md).[constructor](ComponentBase.md#constructor)
+
+#### Defined in
+
+[src/components/controller/HoverCameraController.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L110)
 
 ## Properties
 
@@ -299,7 +313,7 @@ Get target position
 
 #### Defined in
 
-[src/components/controller/HoverCameraController.ts:163](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L163)
+[src/components/controller/HoverCameraController.ts:161](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L161)
 
 • `set` **target**(`target`): `void`
 
@@ -317,7 +331,7 @@ Set target position
 
 #### Defined in
 
-[src/components/controller/HoverCameraController.ts:155](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L155)
+[src/components/controller/HoverCameraController.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L153)
 
 ## Methods
 
@@ -624,18 +638,4 @@ ___
 
 #### Defined in
 
-[src/components/controller/HoverCameraController.ts:225](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L225)
-
-## Constructors
-
-### constructor
-
-• **new HoverCameraController**()
-
-#### Overrides
-
-[ComponentBase](ComponentBase.md).[constructor](ComponentBase.md#constructor)
-
-#### Defined in
-
-[src/components/controller/HoverCameraController.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L110)
+[src/components/controller/HoverCameraController.ts:223](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L223)

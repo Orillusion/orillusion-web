@@ -1,14 +1,14 @@
 # Class: MorphTargetData
 
+### Constructors
+
+- [constructor](MorphTargetData.md#constructor)
+
 ### Properties
 
 - [enable](MorphTargetData.md#enable)
 - [morphTargetsRelative](MorphTargetData.md#morphtargetsrelative)
 - [MaxMorphTargetCount](MorphTargetData.md#maxmorphtargetcount)
-
-### Constructors
-
-- [constructor](MorphTargetData.md#constructor)
 
 ### Methods
 
@@ -16,6 +16,16 @@
 - [applyRenderShader](MorphTargetData.md#applyrendershader)
 - [computeMorphTarget](MorphTargetData.md#computemorphtarget)
 - [updateInfluence](MorphTargetData.md#updateinfluence)
+
+## Constructors
+
+### constructor
+
+• **new MorphTargetData**()
+
+#### Defined in
+
+[src/components/anim/morphAnim/MorphTargetData.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L70)
 
 ## Properties
 
@@ -46,16 +56,6 @@ ___
 #### Defined in
 
 [src/components/anim/morphAnim/MorphTargetData.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L50)
-
-## Constructors
-
-### constructor
-
-• **new MorphTargetData**()
-
-#### Defined in
-
-[src/components/anim/morphAnim/MorphTargetData.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L70)
 
 ## Methods
 

@@ -1,12 +1,18 @@
 # Class: SkeletonAnimation\_shader
 
+### Constructors
+
+- [constructor](SkeletonAnimation_shader.md#constructor)
+
 ### Methods
 
 - [groupBindingAndFunctions](SkeletonAnimation_shader.md#groupbindingandfunctions)
 
-### Constructors
+## Constructors
 
-- [constructor](SkeletonAnimation_shader.md#constructor)
+### constructor
+
+• **new SkeletonAnimation_shader**()
 
 ## Methods
 
@@ -28,9 +34,3 @@
 #### Defined in
 
 [src/assets/shader/anim/SkeletonAnimation_shader.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/assets/shader/anim/SkeletonAnimation_shader.ts#L2)
-
-## Constructors
-
-### constructor
-
-• **new SkeletonAnimation_shader**()

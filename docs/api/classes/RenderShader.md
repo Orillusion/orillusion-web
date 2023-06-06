@@ -6,6 +6,10 @@
 
   ↳ **`RenderShader`**
 
+### Constructors
+
+- [constructor](RenderShader.md#constructor)
+
 ### Properties
 
 - [useRz](RenderShader.md#userz)
@@ -25,10 +29,6 @@
 - [defineValue](RenderShader.md#definevalue)
 - [constValues](RenderShader.md#constvalues)
 - [uniforms](RenderShader.md#uniforms)
-
-### Constructors
-
-- [constructor](RenderShader.md#constructor)
 
 ### Accessors
 
@@ -71,6 +71,27 @@
 - [setUniformVector4](RenderShader.md#setuniformvector4)
 - [setUniformColor](RenderShader.md#setuniformcolor)
 - [setUniformArray](RenderShader.md#setuniformarray)
+
+## Constructors
+
+### constructor
+
+• **new RenderShader**(`vs`, `fs`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `vs` | `string` |
+| `fs` | `string` |
+
+#### Overrides
+
+[ShaderBase](ShaderBase.md).[constructor](ShaderBase.md#constructor)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/shader/RenderShader.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L86)
 
 ## Properties
 
@@ -325,27 +346,6 @@ Uniforms data collection
 #### Defined in
 
 [src/gfx/graphics/webGpu/shader/ShaderBase.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L59)
-
-## Constructors
-
-### constructor
-
-• **new RenderShader**(`vs`, `fs`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `vs` | `string` |
-| `fs` | `string` |
-
-#### Overrides
-
-[ShaderBase](ShaderBase.md).[constructor](ShaderBase.md#constructor)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/shader/RenderShader.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShader.ts#L86)
 
 ## Accessors
 

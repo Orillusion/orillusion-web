@@ -1,5 +1,9 @@
 # Class: Keyframe
 
+### Constructors
+
+- [constructor](Keyframe.md#constructor)
+
 ### Properties
 
 - [serializedVersion](Keyframe.md#serializedversion)
@@ -9,14 +13,27 @@
 - [outSlope](Keyframe.md#outslope)
 - [tangentMode](Keyframe.md#tangentmode)
 
-### Constructors
-
-- [constructor](Keyframe.md#constructor)
-
 ### Methods
 
 - [unSerialized](Keyframe.md#unserialized)
 - [unSerialized2](Keyframe.md#unserialized2)
+
+## Constructors
+
+### constructor
+
+• **new Keyframe**(`time?`, `value?`)
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `time` | `number` | `0` |
+| `value` | `number` | `0` |
+
+#### Defined in
+
+[src/math/AnimationCurve.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L26)
 
 ## Properties
 
@@ -77,23 +94,6 @@ ___
 #### Defined in
 
 [src/math/AnimationCurve.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L24)
-
-## Constructors
-
-### constructor
-
-• **new Keyframe**(`time?`, `value?`)
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `time` | `number` | `0` |
-| `value` | `number` | `0` |
-
-#### Defined in
-
-[src/math/AnimationCurve.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L26)
 
 ## Methods
 

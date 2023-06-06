@@ -8,6 +8,10 @@ Skeleton animation event
 
   ↳ **`OAnimationEvent`**
 
+### Constructors
+
+- [constructor](OAnimationEvent.md#constructor)
+
 ### Properties
 
 - [skeletonAnimation](OAnimationEvent.md#skeletonanimation)
@@ -27,17 +31,34 @@ Skeleton animation event
 - [touches](OAnimationEvent.md#touches)
 - [view](OAnimationEvent.md#view)
 
-### Constructors
+### Accessors
 
-- [constructor](OAnimationEvent.md#constructor)
+- [isStopImmediatePropagation](OAnimationEvent.md#isstopimmediatepropagation)
 
 ### Methods
 
 - [stopImmediatePropagation](OAnimationEvent.md#stopimmediatepropagation)
 
-### Accessors
+## Constructors
 
-- [isStopImmediatePropagation](OAnimationEvent.md#isstopimmediatepropagation)
+### constructor
+
+• **new OAnimationEvent**(`name`, `time`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `name` | `string` |
+| `time` | `number` |
+
+#### Overrides
+
+[CEvent](CEvent.md).[constructor](CEvent.md#constructor)
+
+#### Defined in
+
+[src/components/anim/OAnimationEvent.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/OAnimationEvent.ts#L14)
 
 ## Properties
 
@@ -295,26 +316,25 @@ binded view3D object in event.
 
 [src/event/CEvent.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L89)
 
-## Constructors
+## Accessors
 
-### constructor
+### isStopImmediatePropagation
 
-• **new OAnimationEvent**(`name`, `time`)
+• `get` **isStopImmediatePropagation**(): `boolean`
 
-#### Parameters
+Returns stopImmediatePropagation value
 
-| Name | Type |
-| :------ | :------ |
-| `name` | `string` |
-| `time` | `number` |
+#### Returns
 
-#### Overrides
+`boolean`
 
-[CEvent](CEvent.md).[constructor](CEvent.md#constructor)
+#### Inherited from
+
+CEvent.isStopImmediatePropagation
 
 #### Defined in
 
-[src/components/anim/OAnimationEvent.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/OAnimationEvent.ts#L14)
+[src/event/CEvent.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L120)
 
 ## Methods
 
@@ -335,23 +355,3 @@ Prevent bubbling of all event listeners in subsequent nodes of the current node 
 #### Defined in
 
 [src/event/CEvent.ts:105](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L105)
-
-## Accessors
-
-### isStopImmediatePropagation
-
-• `get` **isStopImmediatePropagation**(): `boolean`
-
-Returns stopImmediatePropagation value
-
-#### Returns
-
-`boolean`
-
-#### Inherited from
-
-CEvent.isStopImmediatePropagation
-
-#### Defined in
-
-[src/event/CEvent.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L120)

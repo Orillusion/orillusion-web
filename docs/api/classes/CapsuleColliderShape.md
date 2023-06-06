@@ -9,14 +9,14 @@ Composed of two hemispheres connected to a cylinder.
 
   ↳ **`CapsuleColliderShape`**
 
+### Constructors
+
+- [constructor](CapsuleColliderShape.md#constructor)
+
 ### Properties
 
 - [radius](CapsuleColliderShape.md#radius)
 - [height](CapsuleColliderShape.md#height)
-
-### Constructors
-
-- [constructor](CapsuleColliderShape.md#constructor)
 
 ### Accessors
 
@@ -29,6 +29,20 @@ Composed of two hemispheres connected to a cylinder.
 
 - [setFromCenterAndSize](CapsuleColliderShape.md#setfromcenterandsize)
 - [rayPick](CapsuleColliderShape.md#raypick)
+
+## Constructors
+
+### constructor
+
+• **new CapsuleColliderShape**()
+
+#### Overrides
+
+[ColliderShape](ColliderShape.md).[constructor](ColliderShape.md#constructor)
+
+#### Defined in
+
+[src/components/shape/CapsuleColliderShape.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/CapsuleColliderShape.ts#L17)
 
 ## Properties
 
@@ -53,20 +67,6 @@ The total height of the collision body.
 #### Defined in
 
 [src/components/shape/CapsuleColliderShape.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/CapsuleColliderShape.ts#L15)
-
-## Constructors
-
-### constructor
-
-• **new CapsuleColliderShape**()
-
-#### Overrides
-
-[ColliderShape](ColliderShape.md).[constructor](ColliderShape.md#constructor)
-
-#### Defined in
-
-[src/components/shape/CapsuleColliderShape.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/CapsuleColliderShape.ts#L17)
 
 ## Accessors
 

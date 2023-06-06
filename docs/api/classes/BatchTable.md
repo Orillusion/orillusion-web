@@ -6,14 +6,38 @@
 
   ↳ **`BatchTable`**
 
+### Constructors
+
+- [constructor](BatchTable.md#constructor)
+
 ### Methods
 
 - [getKeys](BatchTable.md#getkeys)
 - [getData](BatchTable.md#getdata)
 
-### Constructors
+## Constructors
 
-- [constructor](BatchTable.md#constructor)
+### constructor
+
+• **new BatchTable**(`buffer`, `batchSize`, `start`, `headerLength`, `binLength`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `buffer` | `any` |
+| `batchSize` | `any` |
+| `start` | `any` |
+| `headerLength` | `any` |
+| `binLength` | `any` |
+
+#### Overrides
+
+[FeatureTable](FeatureTable.md).[constructor](FeatureTable.md#constructor)
+
+#### Defined in
+
+[src/loader/parser/b3dm/FeatureTable.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/b3dm/FeatureTable.ts#L153)
 
 ## Methods
 
@@ -58,27 +82,3 @@ ___
 #### Defined in
 
 [src/loader/parser/b3dm/FeatureTable.ts:160](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/b3dm/FeatureTable.ts#L160)
-
-## Constructors
-
-### constructor
-
-• **new BatchTable**(`buffer`, `batchSize`, `start`, `headerLength`, `binLength`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `buffer` | `any` |
-| `batchSize` | `any` |
-| `start` | `any` |
-| `headerLength` | `any` |
-| `binLength` | `any` |
-
-#### Overrides
-
-[FeatureTable](FeatureTable.md).[constructor](FeatureTable.md#constructor)
-
-#### Defined in
-
-[src/loader/parser/b3dm/FeatureTable.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/b3dm/FeatureTable.ts#L153)

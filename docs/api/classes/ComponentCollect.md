@@ -1,5 +1,9 @@
 # Class: ComponentCollect
 
+### Constructors
+
+- [constructor](ComponentCollect.md#constructor)
+
 ### Methods
 
 - [bindUpdate](ComponentCollect.md#bindupdate)
@@ -14,9 +18,11 @@
 - [unBindGraphic](ComponentCollect.md#unbindgraphic)
 - [appendWaitStart](ComponentCollect.md#appendwaitstart)
 
-### Constructors
+## Constructors
 
-- [constructor](ComponentCollect.md#constructor)
+### constructor
+
+• **new ComponentCollect**()
 
 ## Methods
 
@@ -253,9 +259,3 @@ ___
 #### Defined in
 
 [src/gfx/renderJob/collect/ComponentCollect.ts:141](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L141)
-
-## Constructors
-
-### constructor
-
-• **new ComponentCollect**()

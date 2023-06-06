@@ -1,12 +1,18 @@
 # Class: ColorLitShader
 
+### Constructors
+
+- [constructor](ColorLitShader.md#constructor)
+
 ### Properties
 
 - [Ori\_AllShader](ColorLitShader.md#ori_allshader)
 
-### Constructors
+## Constructors
 
-- [constructor](ColorLitShader.md#constructor)
+### constructor
+
+• **new ColorLitShader**()
 
 ## Properties
 
@@ -17,9 +23,3 @@
 #### Defined in
 
 [src/assets/shader/materials/ColorLitShader.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/assets/shader/materials/ColorLitShader.ts#L2)
-
-## Constructors
-
-### constructor
-
-• **new ColorLitShader**()

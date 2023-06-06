@@ -16,6 +16,10 @@ Texture
 
 - `GPUSamplerDescriptor`
 
+### Constructors
+
+- [constructor](Texture.md#constructor)
+
 ### Properties
 
 - [name](Texture.md#name)
@@ -41,19 +45,6 @@ Texture
 - [isHDRTexture](Texture.md#ishdrtexture)
 - [mipmapCount](Texture.md#mipmapcount)
 
-### Constructors
-
-- [constructor](Texture.md#constructor)
-
-### Methods
-
-- [init](Texture.md#init)
-- [getGPUTexture](Texture.md#getgputexture)
-- [getGPUView](Texture.md#getgpuview)
-- [bindStateChange](Texture.md#bindstatechange)
-- [unBindStateChange](Texture.md#unbindstatechange)
-- [destroy](Texture.md#destroy)
-
 ### Accessors
 
 - [useMipmap](Texture.md#usemipmap)
@@ -67,6 +58,35 @@ Texture
 - [lodMaxClamp](Texture.md#lodmaxclamp)
 - [compare](Texture.md#compare)
 - [maxAnisotropy](Texture.md#maxanisotropy)
+
+### Methods
+
+- [init](Texture.md#init)
+- [getGPUTexture](Texture.md#getgputexture)
+- [getGPUView](Texture.md#getgpuview)
+- [bindStateChange](Texture.md#bindstatechange)
+- [unBindStateChange](Texture.md#unbindstatechange)
+- [destroy](Texture.md#destroy)
+
+## Constructors
+
+### constructor
+
+• **new Texture**(`width?`, `height?`, `numberLayer?`)
+
+Create a texture2D
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `width` | `number` | `32` | size of texture width |
+| `height` | `number` | `32` | height of texture width |
+| `numberLayer` | `number` | `1` | number layer of texture |
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:201](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L201)
 
 ## Properties
 
@@ -329,145 +349,6 @@ mipmap Count, default value is 1
 #### Defined in
 
 [src/gfx/graphics/webGpu/core/texture/Texture.ts:190](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L190)
-
-## Constructors
-
-### constructor
-
-• **new Texture**(`width?`, `height?`, `numberLayer?`)
-
-Create a texture2D
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `width` | `number` | `32` | size of texture width |
-| `height` | `number` | `32` | height of texture width |
-| `numberLayer` | `number` | `1` | number layer of texture |
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:201](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L201)
-
-## Methods
-
-### init
-
-▸ **init**(): [`Texture`](Texture.md)
-
-#### Returns
-
-[`Texture`](Texture.md)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:214](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L214)
-
-___
-
-### getGPUTexture
-
-▸ **getGPUTexture**(): `GPUTexture`
-
-create or get GPUTexture
-
-#### Returns
-
-`GPUTexture`
-
-GPUTexture
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L367)
-
-___
-
-### getGPUView
-
-▸ **getGPUView**(`index?`): `GPUTextureView` \| `GPUExternalTexture`
-
-create or get GPUTextureView
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `index` | `number` | `0` |
-
-#### Returns
-
-`GPUTextureView` \| `GPUExternalTexture`
-
-GPUTextureView | GPUExternalTexture
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:378](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L378)
-
-___
-
-### bindStateChange
-
-▸ **bindStateChange**(`fun`, `ref`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `fun` | `Function` |
-| `ref` | `any` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L389)
-
-___
-
-### unBindStateChange
-
-▸ **unBindStateChange**(`ref`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `ref` | `any` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:393](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L393)
-
-___
-
-### destroy
-
-▸ **destroy**(`force?`): `void`
-
-release the texture
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:407](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L407)
 
 ## Accessors
 
@@ -882,3 +763,122 @@ GPUSamplerDescriptor.maxAnisotropy
 #### Defined in
 
 [src/gfx/graphics/webGpu/core/texture/Texture.ts:522](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L522)
+
+## Methods
+
+### init
+
+▸ **init**(): [`Texture`](Texture.md)
+
+#### Returns
+
+[`Texture`](Texture.md)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:214](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L214)
+
+___
+
+### getGPUTexture
+
+▸ **getGPUTexture**(): `GPUTexture`
+
+create or get GPUTexture
+
+#### Returns
+
+`GPUTexture`
+
+GPUTexture
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L367)
+
+___
+
+### getGPUView
+
+▸ **getGPUView**(`index?`): `GPUTextureView` \| `GPUExternalTexture`
+
+create or get GPUTextureView
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `index` | `number` | `0` |
+
+#### Returns
+
+`GPUTextureView` \| `GPUExternalTexture`
+
+GPUTextureView | GPUExternalTexture
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:378](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L378)
+
+___
+
+### bindStateChange
+
+▸ **bindStateChange**(`fun`, `ref`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `fun` | `Function` |
+| `ref` | `any` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L389)
+
+___
+
+### unBindStateChange
+
+▸ **unBindStateChange**(`ref`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `ref` | `any` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:393](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L393)
+
+___
+
+### destroy
+
+▸ **destroy**(`force?`): `void`
+
+release the texture
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:407](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L407)

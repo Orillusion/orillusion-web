@@ -13,19 +13,6 @@ If the current event does not occur within the View3D, it will not be dispatched
 
 - [constructor](InputSystem.md#constructor)
 
-### Methods
-
-- [dispatchEvent](InputSystem.md#dispatchevent)
-- [dispose](InputSystem.md#dispose)
-- [addEventListener](InputSystem.md#addeventlistener)
-- [removeEventListener](InputSystem.md#removeeventlistener)
-- [removeEventListenerAt](InputSystem.md#removeeventlistenerat)
-- [removeAllEventListener](InputSystem.md#removealleventlistener)
-- [containEventListener](InputSystem.md#containeventlistener)
-- [hasEventListener](InputSystem.md#haseventlistener)
-- [initCanvas](InputSystem.md#initcanvas)
-- [GetSlideDirection](InputSystem.md#getslidedirection)
-
 ### Properties
 
 - [canvasX](InputSystem.md#canvasx)
@@ -41,6 +28,19 @@ If the current event does not occur within the View3D, it will not be dispatched
 - [mouseLastX](InputSystem.md#mouselastx)
 - [mouseLastY](InputSystem.md#mouselasty)
 
+### Methods
+
+- [dispatchEvent](InputSystem.md#dispatchevent)
+- [dispose](InputSystem.md#dispose)
+- [addEventListener](InputSystem.md#addeventlistener)
+- [removeEventListener](InputSystem.md#removeeventlistener)
+- [removeEventListenerAt](InputSystem.md#removeeventlistenerat)
+- [removeAllEventListener](InputSystem.md#removealleventlistener)
+- [containEventListener](InputSystem.md#containeventlistener)
+- [hasEventListener](InputSystem.md#haseventlistener)
+- [initCanvas](InputSystem.md#initcanvas)
+- [GetSlideDirection](InputSystem.md#getslidedirection)
+
 ## Constructors
 
 ### constructor
@@ -50,6 +50,150 @@ If the current event does not occur within the View3D, it will not be dispatched
 #### Inherited from
 
 [CEventDispatcher](CEventDispatcher.md).[constructor](CEventDispatcher.md#constructor)
+
+## Properties
+
+### canvasX
+
+• **canvasX**: `number` = `0`
+
+coord x of canvas
+
+#### Defined in
+
+[src/io/InputSystem.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L22)
+
+___
+
+### canvasY
+
+• **canvasY**: `number` = `0`
+
+coord y of canvas
+
+#### Defined in
+
+[src/io/InputSystem.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L26)
+
+___
+
+### isMouseDown
+
+• **isMouseDown**: `boolean` = `false`
+
+whether the mouse is down now
+
+#### Defined in
+
+[src/io/InputSystem.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L31)
+
+___
+
+### isRightMouseDown
+
+• **isRightMouseDown**: `boolean` = `false`
+
+whether the mouse right key is down now
+
+#### Defined in
+
+[src/io/InputSystem.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L36)
+
+___
+
+### canvas
+
+• **canvas**: `HTMLCanvasElement`
+
+reference of canvas
+
+#### Defined in
+
+[src/io/InputSystem.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L41)
+
+___
+
+### mouseX
+
+• **mouseX**: `number` = `0`
+
+current mouse coordinate x of Canvas
+
+#### Defined in
+
+[src/io/InputSystem.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L46)
+
+___
+
+### mouseY
+
+• **mouseY**: `number` = `0`
+
+current mouse coordinate y of Canvas
+
+#### Defined in
+
+[src/io/InputSystem.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L51)
+
+___
+
+### wheelDelta
+
+• **wheelDelta**: `number` = `0`
+
+the delta value when mouse wheeled
+
+#### Defined in
+
+[src/io/InputSystem.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L56)
+
+___
+
+### mouseOffsetX
+
+• **mouseOffsetX**: `number` = `0`
+
+the delta value of mouse x
+
+#### Defined in
+
+[src/io/InputSystem.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L61)
+
+___
+
+### mouseOffsetY
+
+• **mouseOffsetY**: `number` = `0`
+
+the delta value of mouse y
+
+#### Defined in
+
+[src/io/InputSystem.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L66)
+
+___
+
+### mouseLastX
+
+• **mouseLastX**: `number` = `0`
+
+the history value of mouse x
+
+#### Defined in
+
+[src/io/InputSystem.ts:71](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L71)
+
+___
+
+### mouseLastY
+
+• **mouseLastY**: `number` = `0`
+
+the history value of mouse y
+
+#### Defined in
+
+[src/io/InputSystem.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L78)
 
 ## Methods
 
@@ -314,147 +458,3 @@ result {number} 1: up, 2: down, 3: left, 4: right, 0: not move
 #### Defined in
 
 [src/io/InputSystem.ts:452](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L452)
-
-## Properties
-
-### canvasX
-
-• **canvasX**: `number` = `0`
-
-coord x of canvas
-
-#### Defined in
-
-[src/io/InputSystem.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L22)
-
-___
-
-### canvasY
-
-• **canvasY**: `number` = `0`
-
-coord y of canvas
-
-#### Defined in
-
-[src/io/InputSystem.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L26)
-
-___
-
-### isMouseDown
-
-• **isMouseDown**: `boolean` = `false`
-
-whether the mouse is down now
-
-#### Defined in
-
-[src/io/InputSystem.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L31)
-
-___
-
-### isRightMouseDown
-
-• **isRightMouseDown**: `boolean` = `false`
-
-whether the mouse right key is down now
-
-#### Defined in
-
-[src/io/InputSystem.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L36)
-
-___
-
-### canvas
-
-• **canvas**: `HTMLCanvasElement`
-
-reference of canvas
-
-#### Defined in
-
-[src/io/InputSystem.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L41)
-
-___
-
-### mouseX
-
-• **mouseX**: `number` = `0`
-
-current mouse coordinate x of Canvas
-
-#### Defined in
-
-[src/io/InputSystem.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L46)
-
-___
-
-### mouseY
-
-• **mouseY**: `number` = `0`
-
-current mouse coordinate y of Canvas
-
-#### Defined in
-
-[src/io/InputSystem.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L51)
-
-___
-
-### wheelDelta
-
-• **wheelDelta**: `number` = `0`
-
-the delta value when mouse wheeled
-
-#### Defined in
-
-[src/io/InputSystem.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L56)
-
-___
-
-### mouseOffsetX
-
-• **mouseOffsetX**: `number` = `0`
-
-the delta value of mouse x
-
-#### Defined in
-
-[src/io/InputSystem.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L61)
-
-___
-
-### mouseOffsetY
-
-• **mouseOffsetY**: `number` = `0`
-
-the delta value of mouse y
-
-#### Defined in
-
-[src/io/InputSystem.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L66)
-
-___
-
-### mouseLastX
-
-• **mouseLastX**: `number` = `0`
-
-the history value of mouse x
-
-#### Defined in
-
-[src/io/InputSystem.ts:71](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L71)
-
-___
-
-### mouseLastY
-
-• **mouseLastY**: `number` = `0`
-
-the history value of mouse y
-
-#### Defined in
-
-[src/io/InputSystem.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L78)

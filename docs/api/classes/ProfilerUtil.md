@@ -1,5 +1,9 @@
 # Class: ProfilerUtil
 
+### Constructors
+
+- [constructor](ProfilerUtil.md#constructor)
+
 ### Methods
 
 - [start](ProfilerUtil.md#start)
@@ -8,9 +12,11 @@
 - [countEnd](ProfilerUtil.md#countend)
 - [print](ProfilerUtil.md#print)
 
-### Constructors
+## Constructors
 
-- [constructor](ProfilerUtil.md#constructor)
+### constructor
+
+• **new ProfilerUtil**()
 
 ## Methods
 
@@ -113,9 +119,3 @@ ___
 #### Defined in
 
 [src/util/ProfilerUtil.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L93)
-
-## Constructors
-
-### constructor
-
-• **new ProfilerUtil**()

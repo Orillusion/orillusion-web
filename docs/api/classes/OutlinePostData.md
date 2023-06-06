@@ -1,14 +1,14 @@
 # Class: OutlinePostData
 
+### Constructors
+
+- [constructor](OutlinePostData.md#constructor)
+
 ### Properties
 
 - [SlotCount](OutlinePostData.md#slotcount)
 - [MaxEntities](OutlinePostData.md#maxentities)
 - [defaultColor](OutlinePostData.md#defaultcolor)
-
-### Constructors
-
-- [constructor](OutlinePostData.md#constructor)
 
 ### Methods
 
@@ -16,6 +16,16 @@
 - [clearAt](OutlinePostData.md#clearat)
 - [fillDataAt](OutlinePostData.md#filldataat)
 - [fetchData](OutlinePostData.md#fetchdata)
+
+## Constructors
+
+### constructor
+
+• **new OutlinePostData**()
+
+#### Defined in
+
+[src/io/OutlinePostData.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L19)
 
 ## Properties
 
@@ -46,16 +56,6 @@ ___
 #### Defined in
 
 [src/io/OutlinePostData.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L14)
-
-## Constructors
-
-### constructor
-
-• **new OutlinePostData**()
-
-#### Defined in
-
-[src/io/OutlinePostData.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L19)
 
 ## Methods
 

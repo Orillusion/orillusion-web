@@ -8,6 +8,10 @@ create a cube texture, which filled by solid color.
 
   ↳ **`SolidColorSky`**
 
+### Constructors
+
+- [constructor](SolidColorSky.md#constructor)
+
 ### Properties
 
 - [name](SolidColorSky.md#name)
@@ -33,17 +37,6 @@ create a cube texture, which filled by solid color.
 - [textureBindingLayout](SolidColorSky.md#texturebindinglayout)
 - [samplerBindingLayout](SolidColorSky.md#samplerbindinglayout)
 
-### Methods
-
-- [init](SolidColorSky.md#init)
-- [getGPUTexture](SolidColorSky.md#getgputexture)
-- [getGPUView](SolidColorSky.md#getgpuview)
-- [bindStateChange](SolidColorSky.md#bindstatechange)
-- [unBindStateChange](SolidColorSky.md#unbindstatechange)
-- [destroy](SolidColorSky.md#destroy)
-- [load](SolidColorSky.md#load)
-- [createFromTexture](SolidColorSky.md#createfromtexture)
-
 ### Accessors
 
 - [useMipmap](SolidColorSky.md#usemipmap)
@@ -60,9 +53,38 @@ create a cube texture, which filled by solid color.
 - [ldrImageUrl](SolidColorSky.md#ldrimageurl)
 - [color](SolidColorSky.md#color)
 
-### Constructors
+### Methods
 
-- [constructor](SolidColorSky.md#constructor)
+- [init](SolidColorSky.md#init)
+- [getGPUTexture](SolidColorSky.md#getgputexture)
+- [getGPUView](SolidColorSky.md#getgpuview)
+- [bindStateChange](SolidColorSky.md#bindstatechange)
+- [unBindStateChange](SolidColorSky.md#unbindstatechange)
+- [destroy](SolidColorSky.md#destroy)
+- [load](SolidColorSky.md#load)
+- [createFromTexture](SolidColorSky.md#createfromtexture)
+
+## Constructors
+
+### constructor
+
+• **new SolidColorSky**(`color`)
+
+create a cube texture, which filled by solid color.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `color` | [`Color`](Color.md) | solid color |
+
+#### Overrides
+
+[LDRTextureCube](LDRTextureCube.md).[constructor](LDRTextureCube.md#constructor)
+
+#### Defined in
+
+[src/textures/SolidColorSky.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/textures/SolidColorSky.ts#L22)
 
 ## Properties
 
@@ -413,203 +435,6 @@ GPUSamplerBindingLayout
 #### Defined in
 
 [src/gfx/graphics/webGpu/core/texture/TextureCube.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/TextureCube.ts#L38)
-
-## Methods
-
-### init
-
-▸ **init**(): [`SolidColorSky`](SolidColorSky.md)
-
-#### Returns
-
-[`SolidColorSky`](SolidColorSky.md)
-
-#### Inherited from
-
-[LDRTextureCube](LDRTextureCube.md).[init](LDRTextureCube.md#init)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:214](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L214)
-
-___
-
-### getGPUTexture
-
-▸ **getGPUTexture**(): `GPUTexture`
-
-create or get GPUTexture
-
-#### Returns
-
-`GPUTexture`
-
-GPUTexture
-
-#### Inherited from
-
-[LDRTextureCube](LDRTextureCube.md).[getGPUTexture](LDRTextureCube.md#getgputexture)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L367)
-
-___
-
-### getGPUView
-
-▸ **getGPUView**(`index?`): `GPUTextureView` \| `GPUExternalTexture`
-
-create or get GPUTextureView
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `index` | `number` | `0` |
-
-#### Returns
-
-`GPUTextureView` \| `GPUExternalTexture`
-
-GPUTextureView | GPUExternalTexture
-
-#### Inherited from
-
-[LDRTextureCube](LDRTextureCube.md).[getGPUView](LDRTextureCube.md#getgpuview)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:378](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L378)
-
-___
-
-### bindStateChange
-
-▸ **bindStateChange**(`fun`, `ref`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `fun` | `Function` |
-| `ref` | `any` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[LDRTextureCube](LDRTextureCube.md).[bindStateChange](LDRTextureCube.md#bindstatechange)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L389)
-
-___
-
-### unBindStateChange
-
-▸ **unBindStateChange**(`ref`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `ref` | `any` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[LDRTextureCube](LDRTextureCube.md).[unBindStateChange](LDRTextureCube.md#unbindstatechange)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:393](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L393)
-
-___
-
-### destroy
-
-▸ **destroy**(`force?`): `void`
-
-release the texture
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[LDRTextureCube](LDRTextureCube.md).[destroy](LDRTextureCube.md#destroy)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:407](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L407)
-
-___
-
-### load
-
-▸ **load**(`url`, `loaderFunctions?`): `Promise`<[`LDRTextureCube`](LDRTextureCube.md)\>
-
-load texture data from web url, which is a 360 panorama image
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `url` | `string` | web url |
-| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | callback function when load complete |
-
-#### Returns
-
-`Promise`<[`LDRTextureCube`](LDRTextureCube.md)\>
-
-#### Inherited from
-
-[LDRTextureCube](LDRTextureCube.md).[load](LDRTextureCube.md#load)
-
-#### Defined in
-
-[src/textures/LDRTextureCube.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/textures/LDRTextureCube.ts#L37)
-
-___
-
-### createFromTexture
-
-▸ **createFromTexture**(`size`, `texture`): [`SolidColorSky`](SolidColorSky.md)
-
-create cube texture by environment image
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `size` | `number` | size of cube texture |
-| `texture` | [`Texture`](Texture.md) | source texture |
-
-#### Returns
-
-[`SolidColorSky`](SolidColorSky.md)
-
-#### Inherited from
-
-[LDRTextureCube](LDRTextureCube.md).[createFromTexture](LDRTextureCube.md#createfromtexture)
-
-#### Defined in
-
-[src/textures/LDRTextureCube.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/textures/LDRTextureCube.ts#L64)
 
 ## Accessors
 
@@ -1085,24 +910,199 @@ change solid color
 
 [src/textures/SolidColorSky.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/textures/SolidColorSky.ts#L50)
 
-## Constructors
+## Methods
 
-### constructor
+### init
 
-• **new SolidColorSky**(`color`)
+▸ **init**(): [`SolidColorSky`](SolidColorSky.md)
 
-create a cube texture, which filled by solid color.
+#### Returns
+
+[`SolidColorSky`](SolidColorSky.md)
+
+#### Inherited from
+
+[LDRTextureCube](LDRTextureCube.md).[init](LDRTextureCube.md#init)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:214](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L214)
+
+___
+
+### getGPUTexture
+
+▸ **getGPUTexture**(): `GPUTexture`
+
+create or get GPUTexture
+
+#### Returns
+
+`GPUTexture`
+
+GPUTexture
+
+#### Inherited from
+
+[LDRTextureCube](LDRTextureCube.md).[getGPUTexture](LDRTextureCube.md#getgputexture)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L367)
+
+___
+
+### getGPUView
+
+▸ **getGPUView**(`index?`): `GPUTextureView` \| `GPUExternalTexture`
+
+create or get GPUTextureView
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `index` | `number` | `0` |
+
+#### Returns
+
+`GPUTextureView` \| `GPUExternalTexture`
+
+GPUTextureView | GPUExternalTexture
+
+#### Inherited from
+
+[LDRTextureCube](LDRTextureCube.md).[getGPUView](LDRTextureCube.md#getgpuview)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:378](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L378)
+
+___
+
+### bindStateChange
+
+▸ **bindStateChange**(`fun`, `ref`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `fun` | `Function` |
+| `ref` | `any` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[LDRTextureCube](LDRTextureCube.md).[bindStateChange](LDRTextureCube.md#bindstatechange)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L389)
+
+___
+
+### unBindStateChange
+
+▸ **unBindStateChange**(`ref`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `ref` | `any` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[LDRTextureCube](LDRTextureCube.md).[unBindStateChange](LDRTextureCube.md#unbindstatechange)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:393](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L393)
+
+___
+
+### destroy
+
+▸ **destroy**(`force?`): `void`
+
+release the texture
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[LDRTextureCube](LDRTextureCube.md).[destroy](LDRTextureCube.md#destroy)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:407](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L407)
+
+___
+
+### load
+
+▸ **load**(`url`, `loaderFunctions?`): `Promise`<[`LDRTextureCube`](LDRTextureCube.md)\>
+
+load texture data from web url, which is a 360 panorama image
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `color` | [`Color`](Color.md) | solid color |
+| `url` | `string` | web url |
+| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | callback function when load complete |
 
-#### Overrides
+#### Returns
 
-[LDRTextureCube](LDRTextureCube.md).[constructor](LDRTextureCube.md#constructor)
+`Promise`<[`LDRTextureCube`](LDRTextureCube.md)\>
+
+#### Inherited from
+
+[LDRTextureCube](LDRTextureCube.md).[load](LDRTextureCube.md#load)
 
 #### Defined in
 
-[src/textures/SolidColorSky.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/textures/SolidColorSky.ts#L22)
+[src/textures/LDRTextureCube.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/textures/LDRTextureCube.ts#L37)
+
+___
+
+### createFromTexture
+
+▸ **createFromTexture**(`size`, `texture`): [`SolidColorSky`](SolidColorSky.md)
+
+create cube texture by environment image
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `size` | `number` | size of cube texture |
+| `texture` | [`Texture`](Texture.md) | source texture |
+
+#### Returns
+
+[`SolidColorSky`](SolidColorSky.md)
+
+#### Inherited from
+
+[LDRTextureCube](LDRTextureCube.md).[createFromTexture](LDRTextureCube.md#createfromtexture)
+
+#### Defined in
+
+[src/textures/LDRTextureCube.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/textures/LDRTextureCube.ts#L64)

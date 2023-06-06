@@ -1,13 +1,19 @@
 # Class: CubeSky\_Shader
 
+### Constructors
+
+- [constructor](CubeSky_Shader.md#constructor)
+
 ### Properties
 
 - [sky\_vs\_frag\_wgsl](CubeSky_Shader.md#sky_vs_frag_wgsl)
 - [sky\_fs\_frag\_wgsl](CubeSky_Shader.md#sky_fs_frag_wgsl)
 
-### Constructors
+## Constructors
 
-- [constructor](CubeSky_Shader.md#constructor)
+### constructor
+
+• **new CubeSky_Shader**()
 
 ## Properties
 
@@ -28,9 +34,3 @@ ___
 #### Defined in
 
 [src/assets/shader/sky/CubeSky_Shader.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/assets/shader/sky/CubeSky_Shader.ts#L44)
-
-## Constructors
-
-### constructor
-
-• **new CubeSky_Shader**()

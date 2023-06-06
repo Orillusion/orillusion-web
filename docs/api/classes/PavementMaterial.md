@@ -8,6 +8,10 @@ PavementMaterial
 
   ↳ **`PavementMaterial`**
 
+### Constructors
+
+- [constructor](PavementMaterial.md#constructor)
+
 ### Properties
 
 - [name](PavementMaterial.md#name)
@@ -76,9 +80,19 @@ PavementMaterial
 - [useCleanCoat](PavementMaterial.md#usecleancoat)
 - [destroy](PavementMaterial.md#destroy)
 
-### Constructors
+## Constructors
 
-- [constructor](PavementMaterial.md#constructor)
+### constructor
+
+• **new PavementMaterial**()
+
+#### Overrides
+
+PhysicMaterial.constructor
+
+#### Defined in
+
+[src/materials/PavementMaterial.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/materials/PavementMaterial.ts#L17)
 
 ## Properties
 
@@ -862,7 +876,7 @@ PhysicMaterial.cullMode
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L109)
+[src/materials/MaterialPass.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L114)
 
 • `set` **cullMode**(`value`): `void`
 
@@ -884,7 +898,7 @@ PhysicMaterial.cullMode
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L116)
+[src/materials/MaterialPass.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L121)
 
 ___
 
@@ -902,7 +916,7 @@ PhysicMaterial.depthBias
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L120)
+[src/materials/MaterialPass.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L125)
 
 • `set` **depthBias**(`value`): `void`
 
@@ -922,7 +936,7 @@ PhysicMaterial.depthBias
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L124)
+[src/materials/MaterialPass.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L129)
 
 ___
 
@@ -942,7 +956,7 @@ PhysicMaterial.depthCompare
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L131)
+[src/materials/MaterialPass.ts:136](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L136)
 
 • `set` **depthCompare**(`value`): `void`
 
@@ -964,7 +978,7 @@ PhysicMaterial.depthCompare
 
 #### Defined in
 
-[src/materials/MaterialPass.ts:138](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L138)
+[src/materials/MaterialPass.ts:143](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialPass.ts#L143)
 
 ___
 
@@ -2156,17 +2170,3 @@ PhysicMaterial.destroy
 #### Defined in
 
 [src/materials/PhysicMaterial.ts:348](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L348)
-
-## Constructors
-
-### constructor
-
-• **new PavementMaterial**()
-
-#### Overrides
-
-PhysicMaterial.constructor
-
-#### Defined in
-
-[src/materials/PavementMaterial.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/materials/PavementMaterial.ts#L17)

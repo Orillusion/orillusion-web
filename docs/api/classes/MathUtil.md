@@ -2,6 +2,10 @@
 
 Built-in mathematical basic calculation factory function
 
+### Constructors
+
+- [constructor](MathUtil.md#constructor)
+
 ### Methods
 
 - [clampf](MathUtil.md#clampf)
@@ -17,9 +21,11 @@ Built-in mathematical basic calculation factory function
 - [transformVector](MathUtil.md#transformvector)
 - [getRotationY](MathUtil.md#getrotationy)
 
-### Constructors
+## Constructors
 
-- [constructor](MathUtil.md#constructor)
+### constructor
+
+• **new MathUtil**()
 
 ## Methods
 
@@ -325,9 +331,3 @@ Return the calculation result
 #### Defined in
 
 [src/math/MathUtil.ts:219](https://github.com/Orillusion/orillusion/blob/main/src/math/MathUtil.ts#L219)
-
-## Constructors
-
-### constructor
-
-• **new MathUtil**()

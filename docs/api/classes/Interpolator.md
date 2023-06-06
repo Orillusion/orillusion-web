@@ -2,14 +2,20 @@
 
 interpolator class
 
+### Constructors
+
+- [constructor](Interpolator.md#constructor)
+
 ### Methods
 
 - [to](Interpolator.md#to)
 - [removeList](Interpolator.md#removelist)
 
-### Constructors
+## Constructors
 
-- [constructor](Interpolator.md#constructor)
+### constructor
+
+• **new Interpolator**()
 
 ## Methods
 
@@ -56,9 +62,3 @@ ___
 #### Defined in
 
 [src/math/TimeInterpolator.ts:451](https://github.com/Orillusion/orillusion/blob/main/src/math/TimeInterpolator.ts#L451)
-
-## Constructors
-
-### constructor
-
-• **new Interpolator**()

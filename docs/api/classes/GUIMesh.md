@@ -1,12 +1,16 @@
 # Class: GUIMesh
 
-The base class of most objects provides a series of properties and methods for manipulating objects in three-dimensional space.
+A object3D for GUI, holding material/geometry/renderer
 
 ## Hierarchy
 
 - [`Object3D`](Object3D.md)
 
   ↳ **`GUIMesh`**
+
+### Constructors
+
+- [constructor](GUIMesh.md#constructor)
 
 ### Properties
 
@@ -20,10 +24,6 @@ The base class of most objects provides a series of properties and methods for m
 - [entityChildren](GUIMesh.md#entitychildren)
 - [components](GUIMesh.md#components)
 - [prefabRef](GUIMesh.md#prefabref)
-
-### Constructors
-
-- [constructor](GUIMesh.md#constructor)
 
 ### Accessors
 
@@ -63,7 +63,6 @@ The base class of most objects provides a series of properties and methods for m
 - [removeFromParent](GUIMesh.md#removefromparent)
 - [getChildByIndex](GUIMesh.md#getchildbyindex)
 - [getChildByName](GUIMesh.md#getchildbyname)
-- [genBounds](GUIMesh.md#genbounds)
 - [forChild](GUIMesh.md#forchild)
 - [addComponent](GUIMesh.md#addcomponent)
 - [getOrAddComponent](GUIMesh.md#getoraddcomponent)
@@ -87,6 +86,27 @@ The base class of most objects provides a series of properties and methods for m
 - [containEventListener](GUIMesh.md#containeventlistener)
 - [hasEventListener](GUIMesh.md#haseventlistener)
 
+## Constructors
+
+### constructor
+
+• **new GUIMesh**(`space`, `param?`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `space` | [`GUISpace`](../enums/GUISpace.md) |
+| `param?` | `any` |
+
+#### Overrides
+
+[Object3D](Object3D.md).[constructor](Object3D.md#constructor)
+
+#### Defined in
+
+[src/components/gui/core/GUIMesh.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMesh.ts#L26)
+
 ## Properties
 
 ### uiRenderer
@@ -95,7 +115,7 @@ The base class of most objects provides a series of properties and methods for m
 
 #### Defined in
 
-[src/components/gui/core/GUIMesh.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMesh.ts#L12)
+[src/components/gui/core/GUIMesh.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMesh.ts#L17)
 
 ___
 
@@ -105,7 +125,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/core/GUIMesh.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMesh.ts#L13)
+[src/components/gui/core/GUIMesh.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMesh.ts#L18)
 
 ___
 
@@ -115,7 +135,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/core/GUIMesh.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMesh.ts#L14)
+[src/components/gui/core/GUIMesh.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMesh.ts#L19)
 
 ___
 
@@ -125,7 +145,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/core/GUIMesh.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMesh.ts#L16)
+[src/components/gui/core/GUIMesh.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMesh.ts#L21)
 
 ___
 
@@ -221,27 +241,6 @@ ___
 
 [src/core/entities/Object3D.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L14)
 
-## Constructors
-
-### constructor
-
-• **new GUIMesh**(`space`, `param?`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `space` | [`GUISpace`](../enums/GUISpace.md) |
-| `param?` | `any` |
-
-#### Overrides
-
-[Object3D](Object3D.md).[constructor](Object3D.md#constructor)
-
-#### Defined in
-
-[src/components/gui/core/GUIMesh.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMesh.ts#L22)
-
 ## Accessors
 
 ### quadMaxCount
@@ -256,7 +255,7 @@ Return How many Quads can a single GUIGeometry support at most
 
 #### Defined in
 
-[src/components/gui/core/GUIMesh.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMesh.ts#L32)
+[src/components/gui/core/GUIMesh.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMesh.ts#L36)
 
 ___
 
@@ -274,7 +273,7 @@ Object3D.bound
 
 #### Defined in
 
-[src/components/gui/core/GUIMesh.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMesh.ts#L45)
+[src/components/gui/core/GUIMesh.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMesh.ts#L50)
 
 • `set` **bound**(`value`): `void`
 
@@ -294,7 +293,7 @@ Object3D.bound
 
 #### Defined in
 
-[src/components/gui/core/GUIMesh.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMesh.ts#L41)
+[src/components/gui/core/GUIMesh.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMesh.ts#L45)
 
 ___
 
@@ -372,7 +371,7 @@ Object3D.numChildren
 
 #### Defined in
 
-[src/core/entities/Entity.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L129)
+[src/core/entities/Entity.ts:130](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L130)
 
 ___
 
@@ -994,7 +993,7 @@ Object3D.rotationZ
 
 #### Defined in
 
-[src/components/gui/core/GUIMesh.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMesh.ts#L36)
+[src/components/gui/core/GUIMesh.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMesh.ts#L40)
 
 ___
 
@@ -1016,7 +1015,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/core/GUIMesh.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMesh.ts#L69)
+[src/components/gui/core/GUIMesh.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMesh.ts#L68)
 
 ___
 
@@ -1045,7 +1044,7 @@ result Entity
 
 #### Defined in
 
-[src/core/entities/Entity.ts:94](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L94)
+[src/core/entities/Entity.ts:95](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L95)
 
 ___
 
@@ -1072,7 +1071,7 @@ Any current parent object on the object passed here will be deleted, as an objec
 
 #### Defined in
 
-[src/core/entities/Entity.ts:140](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L140)
+[src/core/entities/Entity.ts:141](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L141)
 
 ___
 
@@ -1098,7 +1097,7 @@ Remove the child objects of the object. You can remove any number of objects.
 
 #### Defined in
 
-[src/core/entities/Entity.ts:166](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L166)
+[src/core/entities/Entity.ts:167](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L167)
 
 ___
 
@@ -1118,7 +1117,7 @@ Remove all children of the current object
 
 #### Defined in
 
-[src/core/entities/Entity.ts:180](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L180)
+[src/core/entities/Entity.ts:181](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L181)
 
 ___
 
@@ -1140,7 +1139,7 @@ this
 
 #### Defined in
 
-[src/core/entities/Entity.ts:191](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L191)
+[src/core/entities/Entity.ts:192](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L192)
 
 ___
 
@@ -1166,7 +1165,7 @@ Search for child nodes of objects and remove child objects with matching indexes
 
 #### Defined in
 
-[src/core/entities/Entity.ts:201](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L201)
+[src/core/entities/Entity.ts:202](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L202)
 
 ___
 
@@ -1194,7 +1193,7 @@ boolean
 
 #### Defined in
 
-[src/core/entities/Entity.ts:215](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L215)
+[src/core/entities/Entity.ts:216](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L216)
 
 ___
 
@@ -1216,7 +1215,7 @@ this
 
 #### Defined in
 
-[src/core/entities/Entity.ts:225](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L225)
+[src/core/entities/Entity.ts:226](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L226)
 
 ___
 
@@ -1244,7 +1243,7 @@ child entity
 
 #### Defined in
 
-[src/core/entities/Entity.ts:239](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L239)
+[src/core/entities/Entity.ts:240](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L240)
 
 ___
 
@@ -1273,27 +1272,7 @@ result
 
 #### Defined in
 
-[src/core/entities/Entity.ts:254](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L254)
-
-___
-
-### genBounds
-
-▸ **genBounds**(): `IBound`
-
-Returns a bounding box that defines the display area of the specified layer.
-
-#### Returns
-
-`IBound`
-
-#### Inherited from
-
-[Object3D](Object3D.md).[genBounds](Object3D.md#genbounds)
-
-#### Defined in
-
-[src/core/entities/Entity.ts:333](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L333)
+[src/core/entities/Entity.ts:255](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L255)
 
 ___
 
@@ -1609,7 +1588,7 @@ Quickly obtain components and no longer access child nodes after obtaining them 
 
 **`Memberof`**
 
-ELPObject3D
+Object3D
 
 #### Type parameters
 
