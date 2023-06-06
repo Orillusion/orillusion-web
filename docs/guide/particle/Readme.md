@@ -87,8 +87,6 @@ emitter.emitLocation = EmitLocation.Shell;
 ps.play();
 ```
 
-### 示例
-
 <Demo :height="500" src="/demos/particle/ParticleSystem.ts"></Demo>
 
 <<< @/public/demos/particle/ParticleSystem.ts

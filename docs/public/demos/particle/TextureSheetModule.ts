@@ -1,6 +1,5 @@
 import {
-    Engine3D, AtmosphericComponent, Vector3, Vector4, View3D, Color, HoverCameraController, Object3D, PlaneGeometry, Scene3D, CameraUtil, webGPUContext, BoxGeometry, DEGREES_TO_RADIANS
-} from '@orillusion/core';
+    Engine3D, AtmosphericComponent, Vector3, View3D, HoverCameraController, Object3D, PlaneGeometry, Scene3D, CameraUtil, webGPUContext} from '@orillusion/core';
 
 import {
     ParticleSystem, ParticleMaterial, ParticleStandardSimulator, ParticleEmitterModule, ShapeType, EmitLocation, ParticleTextureSheetModule
@@ -37,7 +36,7 @@ export class Sample_OverLifeRotationModule {
 
         // 设置粒子材质
         let material = new ParticleMaterial();
-        material.baseMap = await Engine3D.res.loadTexture('particle/crystal_debug.png');
+        material.baseMap = await Engine3D.res.loadTexture('https://cdn.orillusion.com/particle/crystal_debug.png');
 
         // 设置粒子形状
         particleSystem.geometry = new PlaneGeometry(1, 1, 1, 1, Vector3.Z_AXIS);

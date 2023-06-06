@@ -1,3 +1,6 @@
+---
+aside: false
+---
 # 发射器模块
 发射器模块是粒子系统中的一个重要组成部分，用于定义和控制粒子的发射行为。它决定了粒子在空间中的初始位置、速度、方向以及其他属性，从而影响整个粒子系统的效果。
 
@@ -33,8 +36,6 @@ emitter.emitLocation = EmitLocation.Edge;
 | angle | 角度(当发射器形状为锥体时有效) |
 | radius | 半径(当发射器形状为圆形、球体、锥体时有效) |
 | boxSize | 矩形/盒子 大小 |
-
-### 示例
 
 <Demo :height="500" src="/demos/particle/ParticleEmitter.ts"></Demo>
 

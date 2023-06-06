@@ -1,7 +1,13 @@
 # 基本模块
-粒子系统的仿真器可添加各种属性模块，每个属性模块包含一种功能实现和与之相关的参数，例如 粒子生命周期内大小变化模块 `ParticleOverLifeScaleModule`，生命周期内速度变化模块 `ParticleOverLifeSpeedModule`，生命周期内自旋变化模块 `ParticleOverLifeRotationModule` 等.
+粒子系统的仿真器可添加各种属性模块，每个属性模块包含一种功能实现和与之相关的参数，目前内置有:
+- `ParticleOverLifeScaleModule` - 粒子生命周期内大小变化模块
+- `ParticleOverLifeSpeedModule` - 生命周期内速度变化模块
+- `ParticleOverLifeRotationModule` - 生命周期内自旋变化模块
+- `ParticleOverLifeColorModule` - 生命周期内颜色变化模块
+- `ParticleGravityModifierModule` - 重力变化模块
+- `ParticleTextureSheetModule` - 纹理图集模块
 
-## 生命周期内大小变换模块
+## 大小变换模块
 若想使单个粒子的大小在它自己的整个生命周期内，随着时间变换而变换时，可以给仿真器添加 `ParticleOverLifeScaleModule` 模块:
 ```ts
 // 添加生命周期内大小变换模块
@@ -17,7 +23,7 @@ overLifeScaleModule.scaleSegments = [
 
 <<< @/public/demos/particle/OverLifeScaleModule.ts
 
-## 生命周期内旋转变换模块
+## 内旋转变换模块
 若想使单个粒子的旋转角度在它自己的整个生命周期内，随着时间变换而变换时，可以给仿真器添加 `ParticleOverLifeRotationModule` 模块:
 ```ts
 // 添加生命周期内旋转变换模块
@@ -34,7 +40,7 @@ overLifeRotationModule.rotationSegments = [
 
 <<< @/public/demos/particle/OverLifeRotationModule.ts
 
-## 生命周期内颜色变换模块
+## 颜色变换模块
 若想使单个粒子的颜色在它自己的整个生命周期内，随着时间变换而变换时，可以给仿真器添加 `ParticleOverLifeColorModule` 模块:
 ```ts
 // 添加生命周期内颜色变换模块
