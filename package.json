@@ -14,6 +14,7 @@
         "@orillusion/core": "^0.6.3",
         "@orillusion/media-extention": "^0.2.0",
         "@orillusion/physics": "^0.2.0",
+        "@orillusion/particle": "^0.0.1",
         "@orillusion/stats": "^0.2.0",
         "@types/dat.gui": "^0.7.10",
         "@types/node": "^18.15.13",

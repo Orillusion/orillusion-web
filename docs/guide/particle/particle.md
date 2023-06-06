@@ -15,9 +15,9 @@
 | ParticleTextureSheetModule | 粒子图集动画模块 |
 
 ## 基本使用
-<Demo :height="500" src="/demos/animation/particleAnim.ts"></Demo>
+<Demo :height="500" src="/demos/particle/particleAnim.ts"></Demo>
 
-<<< @/public/demos/animation/particleAnim.ts
+<<< @/public/demos/particle/particleAnim.ts
 
 以火焰Demo为例，首先给场景指定的对象添加 `ParticleSystem` 组件，并指定粒子的形状，材质:
 ```ts
