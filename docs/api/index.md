@@ -228,6 +228,7 @@
 ## Animation
 
 - [SkeletonAnimationComponent](classes/SkeletonAnimationComponent.md)
+- [SkeletonPose](classes/SkeletonPose.md)
 - [OAnimationEvent](classes/OAnimationEvent.md)
 - [WrapMode](enums/WrapMode.md)
 - [PropertyAnimation](classes/PropertyAnimation.md)
@@ -400,10 +401,6 @@
 - [OutlineSetting](types/OutlineSetting.md)
 - [SSRSetting](types/SSRSetting.md)
 - [TAASetting](types/TAASetting.md)
-
-## SkeletonPose
-
-- [SkeletonPose](classes/SkeletonPose.md)
 
 ## Texture
 
