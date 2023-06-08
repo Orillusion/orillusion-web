@@ -160,6 +160,6 @@ The community also has a lot of professional `IES` preview/conversion software, 
 
 Besides the direct light source, the engine can also render basic environment lighting by setting the `Scene3D.evnMap` skybox texture, see [Skybox](/guide/core/scene.html#sky-box) for related settings.
 
-<!-- ## Global Illumination
+## Global Illumination
 
-Normal lighting system only considers the effect of light source directly irradiating the surface of the object, and does not calculate the light reflected or refracted by the light source through the surface of the object, that is, indirect lighting. Global illumination system can model indirect lighting to achieve more realistic lighting effects. See [Advanced GI](/guide/advanced/gi) for details. -->
+Normal lighting system only considers the effect of light source directly irradiating the surface of the object, and does not calculate the light reflected or refracted by the light source through the surface of the object, that is, indirect lighting. Global illumination system can model indirect lighting to achieve more realistic lighting effects. See [Advanced GI](/guide/advanced/gi) for details.
