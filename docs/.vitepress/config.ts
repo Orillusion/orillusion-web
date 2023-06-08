@@ -453,7 +453,8 @@ function sidebarGuide(): SidebarItem {
                         },
                         { text: 'TAAPost', link: '/guide/advanced/post_taa.md' }
                     ]
-                }
+                },
+                { text: '全局光照', link: '/guide/advanced/gi.md' }
             ]
         }
     ]
