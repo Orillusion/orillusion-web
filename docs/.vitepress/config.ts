@@ -202,7 +202,7 @@ function sidebarGuide(): SidebarItem {
                 { text: 'Intro', link: '/guide/particle/Readme.md' },
                 { text: 'Emitter', link: '/guide/particle/emitter.md' },
                 // { text: 'Renderer', link: '/guide/particle/renderer.md' },
-                { text: 'Base Module', link: '/guide/particle/BaseModule.md' }
+                { text: 'Base Module', link: '/guide/particle/baseModule.md' }
             ]
         },
         {
@@ -295,7 +295,7 @@ function sidebarGuide(): SidebarItem {
                         { text: 'TAAPost', link: '/guide/advanced/post_taa.md' }
                     ]
                 },
-                { text: '全局光照', link: '/guide/advanced/gi.md' }
+                { text: 'Global Illumination', link: '/guide/advanced/gi.md' }
             ]
         }
     ]
