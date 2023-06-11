@@ -322,7 +322,7 @@ function sidebarGuide(): SidebarItem {
                 { text: '简介', link: '/guide/particle/Readme.md' },
                 { text: '发射器', link: '/guide/particle/emitter.md' },
                 // { text: '渲染器', link: '/guide/particle/renderer.md' },
-                { text: '基本模块', link: '/guide/particle/BaseModule.md' }
+                { text: '基本模块', link: '/guide/particle/baseModule.md' }
             ]
         },
         {
