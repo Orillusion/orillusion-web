@@ -55,28 +55,28 @@ class Sample_UIPanelOrder {
 
     private createPanel(panelRoot: Object3D, canvas: GUICanvas, color: Color, type: string) {
         let f = this.GUIHelp.addFolder(panelRoot.name)
-        if(type === 'world'){
+        if (type === 'world') {
             let panel = panelRoot.addComponent(WorldPanel)
             f.add(panel, 'panelOrder', 0, 10, 1)
             panel.billboard = BillboardType.BillboardXYZ
             panel.needSortOnCameraZ = true
             f.add(panel, 'needSortOnCameraZ')
             f.add({ cullMode: GPUCullMode.none }, 'cullMode', {
-                'none' : GPUCullMode.none,
-                'front' : GPUCullMode.front,
-                'back' : GPUCullMode.back
+                none: GPUCullMode.none,
+                front: GPUCullMode.front,
+                back: GPUCullMode.back
             }).onChange((v) => {
                 panel.cullMode = v
             })
             f.add({ billboard: panel.billboard }, 'billboard', {
-                'None' : BillboardType.None,
-                'Y' : BillboardType.BillboardY,
-                'XYZ' : BillboardType.BillboardXYZ
+                None: BillboardType.None,
+                Y: BillboardType.BillboardY,
+                XYZ: BillboardType.BillboardXYZ
             }).onChange((v) => {
                 panel.billboard = v
             })
             f.add(panel, 'depthTest')
-        }else{
+        } else {
             let panel = panelRoot.addComponent(ViewPanel)
             f.add(panel, 'panelOrder', 0, 10, 1)
             canvas

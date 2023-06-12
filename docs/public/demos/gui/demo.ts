@@ -1,4 +1,28 @@
-import { AtmosphericComponent, BillboardType, CEvent, CEventDispatcher, Camera3D, Color, DirectLight, Engine3D, HoverCameraController, ImageType, Object3D, Object3DUtil, PointerEvent3D, Scene3D, TextAnchor, Time, UIImage, UIInteractive, UITextField, Vector3, View3D, WorldPanel, clamp } from '@orillusion/core'
+import {
+    AtmosphericComponent,
+    BillboardType,
+    CEvent,
+    CEventDispatcher,
+    Camera3D,
+    Color,
+    DirectLight,
+    Engine3D,
+    HoverCameraController,
+    ImageType,
+    Object3D,
+    Object3DUtil,
+    PointerEvent3D,
+    Scene3D,
+    TextAnchor,
+    Time,
+    UIImage,
+    UIInteractive,
+    UITextField,
+    Vector3,
+    View3D,
+    WorldPanel,
+    clamp
+} from '@orillusion/core'
 
 class GUIPanelPOI {
     private readonly alpha = 0.8

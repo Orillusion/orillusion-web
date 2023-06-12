@@ -7,26 +7,25 @@ aside: false
 
 > 以下为同一个测试场景，关闭GI（左图）和开启GI（右图）的效果对比
 
-![probe](/images/gi/gi.png)
+![probe](/images/gi/gi.webp)
 
 
 ## 实现方案简介
 
-引擎中采用基于探针(Probe)的全局光照，在场景中按照设定的行列以及纵深数量放置一系列探针。下图展示了（Probe）探测到的场景信息，并以颜色的形式展示出来：
+引擎中采用基于探针 (Probe) 的全局光照，在场景中按照设定的行列以及纵深数量放置一系列探针，收集周围物体的反射光信息。下图展示了几个（Probe）收集到的光照信息，并以颜色的形式展示出来：
 
-![probe](/images/gi/probe.png)
-
-
-它们根据所处位置对整个场景的光照信息进行搜集和存储，形成一个探针可生效的`Irrandiance Volume`区域。
-
-![volume](/images/gi/volume.png)
+![probe](/images/gi/probe.webp)
 
 
-在实时着色的时候，根据着色单元所处的世界坐标，找到对应的探针组，使用三线性插值获得光照信息。根据需要，你可以动态调整探针区域范围：
+它们根据所处位置对所在区域的光照信息进行搜集和存储，形成一个动态的间接光 `Irrandiance Volume` 区域。
 
-> 通过设置`offsetX`,`offsetY`,`offsetZ`调整区域中心位置；
+![volume](/images/gi/volume.webp)
 
-> 通过调整`probeSpace`,调整探针的间距；
+在实时着色的时候，除了计算直接光源的颜色和强度，还会根据着色单元所处的世界坐标，找到对应的探针组，使用三线性插值获得周围的间接光光照信息。根据需要，你可以动态调整探针区域范围：
+
+- 通过设置 `probeXCount`, `probeYCount`, `probeZCount` 调整探针数量（渲染前设置）；
+- 通过设置 `offsetX`, `offsetY`, `offsetZ` 调整区域中心位置；
+- 通过调整 `probeSpace` 调整探针的间距；
 
 ## 注意事项
 
@@ -48,6 +47,7 @@ Engine3D.setting.gi.probeSize = 64
 Engine3D.setting.gi.octRTSideSize = 64
 Engine3D.setting.gi.octRTMaxSize = 2048
 Engine3D.setting.gi.ddgiGamma = 1
+// 自动更新GI信息，静态场景中可以在渲染完成后手动关闭节省性能
 Engine3D.setting.gi.autoRenderProbe = true
 
 //初始化引擎
@@ -74,7 +74,7 @@ Engine3D.startRender(renderJob);
 | offsetZ | number | 探针组的注册点在z轴的偏移量 |
 | probeXCount | number | 探针在x轴的数量 |
 | probeYCount | number | 探针在y轴的数量 |
-| probeZCount | numbe` | 探针在z轴的数量 |
+| probeZCount | number | 探针在z轴的数量 |
 | probeSize | number | 每个探针采样到的数据尺寸 |
 | probeSpace | number | 探针与探针之间的距离 |
 | ddgiGamma | number | 颜色gamma校正系数 |
