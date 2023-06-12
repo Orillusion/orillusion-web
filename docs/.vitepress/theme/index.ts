@@ -19,7 +19,7 @@ export default {
         gtag('config', 'G-0H9189CS0W')
 
         // inject esbuild for dev
-        if (globalThis.location && !globalThis.location.hostname.match(/orillusion/) && !globalThis.esbuild && !globalThis._esbuild) {
+        if (globalThis.location && globalThis.location.hostname.match(/localhost/) && !globalThis.esbuild && !globalThis._esbuild) {
             globalThis._esbuild = true
             import('https://cdn.orillusion.com/esbuild.js').then(async (esbuild) => {
                 await esbuild.initialize({
@@ -34,11 +34,12 @@ export default {
             router.onAfterRouteChanged = () => {
                 if (!globalThis._translation)
                     setTimeout(() => {
+                        const host = 'https://www.orillusion.com/en/'
                         globalThis.document.querySelector('.VPNav')?.addEventListener('click', (e) => {
-                            if (e.target.href && e.target.href.startsWith('https://www.orillusion.com/en/')) {
+                            if (e.target.href && e.target.href.startsWith(host)) {
                                 e.preventDefault()
                                 globalThis.localStorage._lang = 'en'
-                                globalThis.location.href = e.target.href
+                                globalThis.location.href = e.target.href.replace(host, location.origin+'/en/')
                             }
                         })
                         globalThis._translation = true
@@ -48,7 +49,7 @@ export default {
         // redirect to /en
         if (globalThis.localStorage && globalThis.localStorage?._lang !== 'zh' && !/googlebot/i.test(globalThis.navigator.userAgent) && !/zh/i.test(globalThis.navigator.language)) {
             globalThis.localStorage._lang = 'en'
-            globalThis.location.href = siteData.value.locales.en.link.slice(0, -1) + globalThis.location.pathname
+            globalThis.location.href = globalThis.location.origin + '/en' + globalThis.location.pathname
         }
     }
 }
