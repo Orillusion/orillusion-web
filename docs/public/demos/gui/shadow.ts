@@ -59,10 +59,10 @@ export class Sample_button {
         let f = GUIHelp.addFolder('GUI Shadow')
         f.add(shadow, 'shadowQuality', 0, 4, 1)
         f.add(shadow, 'shadowRadius', 0, 10, 0.01)
-        f.add(shadow.shadowOffset, 'x', -100, 100, 0.1).onChange(()=>{
+        f.add(shadow.shadowOffset, 'x', -100, 100, 0.1).onChange(() => {
             shadow.shadowOffset = shadow.shadowOffset
         })
-        f.add(shadow.shadowOffset, 'y', -100, 100, 0.1).onChange(()=>{
+        f.add(shadow.shadowOffset, 'y', -100, 100, 0.1).onChange(() => {
             shadow.shadowOffset = shadow.shadowOffset
         })
         f.addColor({ color: Object.values(shadowColor).map((v) => v * 255) }, 'color').onChange((v) => {

@@ -64,7 +64,7 @@ class Sample_UIImageGroup {
         f.add(pos, 'x', -Engine3D.width * 0.5, Engine3D.width * 0.5, 1).onChange(action)
         f.add(pos, 'y', -Engine3D.height * 0.5, Engine3D.height * 0.5, 1).onChange(action)
         f.open()
-        
+
         f = GUIHelp.addFolder('Size')
         let size = { width: quat.width, height: quat.height }
         let action2 = () => this.imageGroup.setSize(1, size.width, size.height)
