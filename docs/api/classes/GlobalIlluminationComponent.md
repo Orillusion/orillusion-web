@@ -1,84 +1,57 @@
-# Class: ComponentBase
+# Class: GlobalIlluminationComponent
 
-Components are used to attach functionality to object3D, it has an owner object3D.
-The component can receive update events at each frame.
+Global illumination component.
+Use global illumination to achieve more realistic lighting.
+The global illumination system can model the way light reflects
+ or refracts on the surface to other surfaces (indirect lighting),
+ rather than limiting that light can only shine from the light
+ source to a certain surface.
 
 ## Hierarchy
 
-- **`ComponentBase`**
+- [`ComponentBase`](ComponentBase.md)
 
-  ↳ [`BillboardComponent`](BillboardComponent.md)
-
-  ↳ [`ColliderComponent`](ColliderComponent.md)
-
-  ↳ [`SkeletonAnimationComponent`](SkeletonAnimationComponent.md)
-
-  ↳ [`Transform`](Transform.md)
-
-  ↳ [`PropertyAnimation`](PropertyAnimation.md)
-
-  ↳ [`MorphTargetBlender`](MorphTargetBlender.md)
-
-  ↳ [`FlyCameraController`](FlyCameraController.md)
-
-  ↳ [`HoverCameraController`](HoverCameraController.md)
-
-  ↳ [`OrbitController`](OrbitController.md)
-
-  ↳ [`GUICanvas`](GUICanvas.md)
-
-  ↳ [`UIComponentBase`](UIComponentBase.md)
-
-  ↳ [`UITransform`](UITransform.md)
-
-  ↳ [`PostProcessingComponent`](PostProcessingComponent.md)
-
-  ↳ [`GlobalIlluminationComponent`](GlobalIlluminationComponent.md)
-
-  ↳ [`MaterialComponent`](MaterialComponent.md)
-
-  ↳ [`MeshComponent`](MeshComponent.md)
-
-  ↳ [`Camera3D`](Camera3D.md)
-
-## Implements
-
-- [`IComponent`](../interfaces/IComponent.md)
+  ↳ **`GlobalIlluminationComponent`**
 
 ### Constructors
 
-- [constructor](ComponentBase.md#constructor)
+- [constructor](GlobalIlluminationComponent.md#constructor)
 
 ### Properties
 
-- [object3D](ComponentBase.md#object3d)
+- [object3D](GlobalIlluminationComponent.md#object3d)
 
 ### Accessors
 
-- [transform](ComponentBase.md#transform)
-- [enable](ComponentBase.md#enable)
+- [transform](GlobalIlluminationComponent.md#transform)
+- [enable](GlobalIlluminationComponent.md#enable)
 
 ### Methods
 
-- [init](ComponentBase.md#init)
-- [start](ComponentBase.md#start)
-- [stop](ComponentBase.md#stop)
-- [onEnable](ComponentBase.md#onenable)
-- [onDisable](ComponentBase.md#ondisable)
-- [onUpdate](ComponentBase.md#onupdate)
-- [onLateUpdate](ComponentBase.md#onlateupdate)
-- [onBeforeUpdate](ComponentBase.md#onbeforeupdate)
-- [onCompute](ComponentBase.md#oncompute)
-- [onGraphic](ComponentBase.md#ongraphic)
-- [onParentChange](ComponentBase.md#onparentchange)
-- [cloneTo](ComponentBase.md#cloneto)
-- [destroy](ComponentBase.md#destroy)
+- [stop](GlobalIlluminationComponent.md#stop)
+- [onEnable](GlobalIlluminationComponent.md#onenable)
+- [onDisable](GlobalIlluminationComponent.md#ondisable)
+- [onLateUpdate](GlobalIlluminationComponent.md#onlateupdate)
+- [onBeforeUpdate](GlobalIlluminationComponent.md#onbeforeupdate)
+- [onCompute](GlobalIlluminationComponent.md#oncompute)
+- [onGraphic](GlobalIlluminationComponent.md#ongraphic)
+- [onParentChange](GlobalIlluminationComponent.md#onparentchange)
+- [cloneTo](GlobalIlluminationComponent.md#cloneto)
+- [destroy](GlobalIlluminationComponent.md#destroy)
+- [init](GlobalIlluminationComponent.md#init)
+- [start](GlobalIlluminationComponent.md#start)
+- [debug](GlobalIlluminationComponent.md#debug)
+- [onUpdate](GlobalIlluminationComponent.md#onupdate)
 
 ## Constructors
 
 ### constructor
 
-• **new ComponentBase**()
+• **new GlobalIlluminationComponent**()
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[constructor](ComponentBase.md#constructor)
 
 #### Defined in
 
@@ -92,9 +65,9 @@ The component can receive update events at each frame.
 
 owner object3D
 
-#### Implementation of
+#### Inherited from
 
-[IComponent](../interfaces/IComponent.md).[object3D](../interfaces/IComponent.md#object3d)
+[ComponentBase](ComponentBase.md).[object3D](ComponentBase.md#object3d)
 
 #### Defined in
 
@@ -112,9 +85,9 @@ Return the Transform component attached to the Object3D.
 
 [`Transform`](Transform.md)
 
-#### Implementation of
+#### Inherited from
 
-[IComponent](../interfaces/IComponent.md).[transform](../interfaces/IComponent.md#transform)
+ComponentBase.transform
 
 #### Defined in
 
@@ -132,9 +105,9 @@ Enable/disable components. The enabled components can be updated, while the disa
 
 `boolean`
 
-#### Implementation of
+#### Inherited from
 
-[IComponent](../interfaces/IComponent.md).[enable](../interfaces/IComponent.md#enable)
+ComponentBase.enable
 
 #### Defined in
 
@@ -154,57 +127,15 @@ Enable/disable components. The enabled components can be updated, while the disa
 
 `void`
 
-#### Implementation of
+#### Inherited from
 
-[IComponent](../interfaces/IComponent.md).[enable](../interfaces/IComponent.md#enable)
+ComponentBase.enable
 
 #### Defined in
 
 [src/components/ComponentBase.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L45)
 
 ## Methods
-
-### init
-
-▸ **init**(`param?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `param?` | `any` |
-
-#### Returns
-
-`void`
-
-#### Implementation of
-
-[IComponent](../interfaces/IComponent.md).[init](../interfaces/IComponent.md#init)
-
-#### Defined in
-
-[src/components/ComponentBase.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L106)
-
-___
-
-### start
-
-▸ **start**(): `void`
-
-#### Returns
-
-`void`
-
-#### Implementation of
-
-[IComponent](../interfaces/IComponent.md).[start](../interfaces/IComponent.md#start)
-
-#### Defined in
-
-[src/components/ComponentBase.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L107)
-
-___
 
 ### stop
 
@@ -214,9 +145,9 @@ ___
 
 `void`
 
-#### Implementation of
+#### Inherited from
 
-[IComponent](../interfaces/IComponent.md).[stop](../interfaces/IComponent.md#stop)
+[ComponentBase](ComponentBase.md).[stop](ComponentBase.md#stop)
 
 #### Defined in
 
@@ -238,9 +169,9 @@ ___
 
 `any`
 
-#### Implementation of
+#### Inherited from
 
-[IComponent](../interfaces/IComponent.md).[onEnable](../interfaces/IComponent.md#onenable)
+[ComponentBase](ComponentBase.md).[onEnable](ComponentBase.md#onenable)
 
 #### Defined in
 
@@ -262,37 +193,13 @@ ___
 
 `any`
 
-#### Implementation of
+#### Inherited from
 
-[IComponent](../interfaces/IComponent.md).[onDisable](../interfaces/IComponent.md#ondisable)
+[ComponentBase](ComponentBase.md).[onDisable](ComponentBase.md#ondisable)
 
 #### Defined in
 
 [src/components/ComponentBase.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L110)
-
-___
-
-### onUpdate
-
-▸ `Optional` **onUpdate**(`view?`): `any`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
-
-#### Returns
-
-`any`
-
-#### Implementation of
-
-[IComponent](../interfaces/IComponent.md).[onUpdate](../interfaces/IComponent.md#onupdate)
-
-#### Defined in
-
-[src/components/ComponentBase.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L111)
 
 ___
 
@@ -310,9 +217,9 @@ ___
 
 `any`
 
-#### Implementation of
+#### Inherited from
 
-[IComponent](../interfaces/IComponent.md).[onLateUpdate](../interfaces/IComponent.md#onlateupdate)
+[ComponentBase](ComponentBase.md).[onLateUpdate](ComponentBase.md#onlateupdate)
 
 #### Defined in
 
@@ -334,9 +241,9 @@ ___
 
 `any`
 
-#### Implementation of
+#### Inherited from
 
-[IComponent](../interfaces/IComponent.md).[onBeforeUpdate](../interfaces/IComponent.md#onbeforeupdate)
+[ComponentBase](ComponentBase.md).[onBeforeUpdate](ComponentBase.md#onbeforeupdate)
 
 #### Defined in
 
@@ -359,9 +266,9 @@ ___
 
 `any`
 
-#### Implementation of
+#### Inherited from
 
-[IComponent](../interfaces/IComponent.md).[onCompute](../interfaces/IComponent.md#oncompute)
+[ComponentBase](ComponentBase.md).[onCompute](ComponentBase.md#oncompute)
 
 #### Defined in
 
@@ -383,9 +290,9 @@ ___
 
 `any`
 
-#### Implementation of
+#### Inherited from
 
-[IComponent](../interfaces/IComponent.md).[onGraphic](../interfaces/IComponent.md#ongraphic)
+[ComponentBase](ComponentBase.md).[onGraphic](ComponentBase.md#ongraphic)
 
 #### Defined in
 
@@ -408,9 +315,9 @@ ___
 
 `any`
 
-#### Implementation of
+#### Inherited from
 
-[IComponent](../interfaces/IComponent.md).[onParentChange](../interfaces/IComponent.md#onparentchange)
+[ComponentBase](ComponentBase.md).[onParentChange](ComponentBase.md#onparentchange)
 
 #### Defined in
 
@@ -434,9 +341,9 @@ clone component data to target object3D
 
 `void`
 
-#### Implementation of
+#### Inherited from
 
-[IComponent](../interfaces/IComponent.md).[cloneTo](../interfaces/IComponent.md#cloneto)
+[ComponentBase](ComponentBase.md).[cloneTo](ComponentBase.md#cloneto)
 
 #### Defined in
 
@@ -460,10 +367,78 @@ release this component
 
 `void`
 
-#### Implementation of
+#### Inherited from
 
-[IComponent](../interfaces/IComponent.md).[destroy](../interfaces/IComponent.md#destroy)
+[ComponentBase](ComponentBase.md).[destroy](ComponentBase.md#destroy)
 
 #### Defined in
 
 [src/components/ComponentBase.ts:190](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L190)
+
+___
+
+### init
+
+▸ **init**(): `void`
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+[ComponentBase](ComponentBase.md).[init](ComponentBase.md#init)
+
+#### Defined in
+
+[src/components/renderer/GlobalIlluminationComponent.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/GlobalIlluminationComponent.ts#L29)
+
+___
+
+### start
+
+▸ **start**(): `void`
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+[ComponentBase](ComponentBase.md).[start](ComponentBase.md#start)
+
+#### Defined in
+
+[src/components/renderer/GlobalIlluminationComponent.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/GlobalIlluminationComponent.ts#L33)
+
+___
+
+### debug
+
+▸ **debug**(): `void`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/components/renderer/GlobalIlluminationComponent.ts:91](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/GlobalIlluminationComponent.ts#L91)
+
+___
+
+### onUpdate
+
+▸ **onUpdate**(): `void`
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+[ComponentBase](ComponentBase.md).[onUpdate](ComponentBase.md#onupdate)
+
+#### Defined in
+
+[src/components/renderer/GlobalIlluminationComponent.ts:146](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/GlobalIlluminationComponent.ts#L146)

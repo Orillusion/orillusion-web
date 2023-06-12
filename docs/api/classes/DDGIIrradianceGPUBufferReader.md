@@ -1,4 +1,4 @@
-# Class: CEventDispatcher
+# Class: DDGIIrradianceGPUBufferReader
 
 Basic class of event diapatcher.
 It includes the implementation of functions such as event registration, 
@@ -6,36 +6,60 @@ deregistration, distribution, and unregister.
 
 ## Hierarchy
 
-- **`CEventDispatcher`**
+- [`CEventDispatcher`](CEventDispatcher.md)
 
-  ↳ [`Entity`](Entity.md)
-
-  ↳ [`DDGIIrradianceGPUBufferReader`](DDGIIrradianceGPUBufferReader.md)
-
-  ↳ [`InputSystem`](InputSystem.md)
-
-  ↳ [`PickFire`](PickFire.md)
+  ↳ **`DDGIIrradianceGPUBufferReader`**
 
 ### Constructors
 
-- [constructor](CEventDispatcher.md#constructor)
+- [constructor](DDGIIrradianceGPUBufferReader.md#constructor)
+
+### Properties
+
+- [opDepthArray](DDGIIrradianceGPUBufferReader.md#opdeptharray)
+- [opColorArray](DDGIIrradianceGPUBufferReader.md#opcolorarray)
 
 ### Methods
 
-- [dispatchEvent](CEventDispatcher.md#dispatchevent)
-- [dispose](CEventDispatcher.md#dispose)
-- [addEventListener](CEventDispatcher.md#addeventlistener)
-- [removeEventListener](CEventDispatcher.md#removeeventlistener)
-- [removeEventListenerAt](CEventDispatcher.md#removeeventlistenerat)
-- [removeAllEventListener](CEventDispatcher.md#removealleventlistener)
-- [containEventListener](CEventDispatcher.md#containeventlistener)
-- [hasEventListener](CEventDispatcher.md#haseventlistener)
+- [dispatchEvent](DDGIIrradianceGPUBufferReader.md#dispatchevent)
+- [dispose](DDGIIrradianceGPUBufferReader.md#dispose)
+- [addEventListener](DDGIIrradianceGPUBufferReader.md#addeventlistener)
+- [removeEventListener](DDGIIrradianceGPUBufferReader.md#removeeventlistener)
+- [removeEventListenerAt](DDGIIrradianceGPUBufferReader.md#removeeventlistenerat)
+- [removeAllEventListener](DDGIIrradianceGPUBufferReader.md#removealleventlistener)
+- [containEventListener](DDGIIrradianceGPUBufferReader.md#containeventlistener)
+- [hasEventListener](DDGIIrradianceGPUBufferReader.md#haseventlistener)
+- [initReader](DDGIIrradianceGPUBufferReader.md#initreader)
 
 ## Constructors
 
 ### constructor
 
-• **new CEventDispatcher**()
+• **new DDGIIrradianceGPUBufferReader**()
+
+#### Inherited from
+
+[CEventDispatcher](CEventDispatcher.md).[constructor](CEventDispatcher.md#constructor)
+
+## Properties
+
+### opDepthArray
+
+• **opDepthArray**: `Float32Array`
+
+#### Defined in
+
+[src/gfx/renderJob/passRenderer/ddgi/DDGIIrradianceGPUBufferReader.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/ddgi/DDGIIrradianceGPUBufferReader.ts#L18)
+
+___
+
+### opColorArray
+
+• **opColorArray**: `Float32Array`
+
+#### Defined in
+
+[src/gfx/renderJob/passRenderer/ddgi/DDGIIrradianceGPUBufferReader.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/ddgi/DDGIIrradianceGPUBufferReader.ts#L19)
 
 ## Methods
 
@@ -55,6 +79,10 @@ Dispatch an event to all registered objects with a specific type of listener.
 
 `void`
 
+#### Inherited from
+
+[CEventDispatcher](CEventDispatcher.md).[dispatchEvent](CEventDispatcher.md#dispatchevent)
+
 #### Defined in
 
 [src/event/CEventDispatcher.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L24)
@@ -70,6 +98,10 @@ release all registered event.
 #### Returns
 
 `void`
+
+#### Inherited from
+
+[CEventDispatcher](CEventDispatcher.md).[dispose](CEventDispatcher.md#dispose)
 
 #### Defined in
 
@@ -99,6 +131,10 @@ register an event listener to event distancher.
 
 Returns register event id
 
+#### Inherited from
+
+[CEventDispatcher](CEventDispatcher.md).[addEventListener](CEventDispatcher.md#addeventlistener)
+
 #### Defined in
 
 [src/event/CEventDispatcher.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L79)
@@ -123,6 +159,10 @@ Remove Event Listening
 
 `void`
 
+#### Inherited from
+
+[CEventDispatcher](CEventDispatcher.md).[removeEventListener](CEventDispatcher.md#removeeventlistener)
+
 #### Defined in
 
 [src/event/CEventDispatcher.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L113)
@@ -144,6 +184,10 @@ Remove an event Listening with id
 #### Returns
 
 `boolean`
+
+#### Inherited from
+
+[CEventDispatcher](CEventDispatcher.md).[removeEventListenerAt](CEventDispatcher.md#removeeventlistenerat)
 
 #### Defined in
 
@@ -168,6 +212,10 @@ eventType event type, set null to remove all event listeners
 
 `void`
 
+#### Inherited from
+
+[CEventDispatcher](CEventDispatcher.md).[removeAllEventListener](CEventDispatcher.md#removealleventlistener)
+
 #### Defined in
 
 [src/event/CEventDispatcher.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L153)
@@ -191,6 +239,10 @@ whether the target presence of a listener with event type.
 `boolean`
 
 Returns a boolean.
+
+#### Inherited from
+
+[CEventDispatcher](CEventDispatcher.md).[containEventListener](CEventDispatcher.md#containeventlistener)
 
 #### Defined in
 
@@ -218,6 +270,32 @@ whether the target presence of a listener with event type. it associate more reg
 
 Returns a boolean.
 
+#### Inherited from
+
+[CEventDispatcher](CEventDispatcher.md).[hasEventListener](CEventDispatcher.md#haseventlistener)
+
 #### Defined in
 
 [src/event/CEventDispatcher.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L198)
+
+___
+
+### initReader
+
+▸ **initReader**(`probeRender`, `colorMap`, `depthMap`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `probeRender` | `DDGIProbeRenderer` |
+| `colorMap` | `VirtualTexture` |
+| `depthMap` | `VirtualTexture` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/gfx/renderJob/passRenderer/ddgi/DDGIIrradianceGPUBufferReader.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/ddgi/DDGIIrradianceGPUBufferReader.ts#L21)
