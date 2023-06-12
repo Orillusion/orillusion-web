@@ -32,7 +32,7 @@
         </script>
         <script type="module">
             window.devicePixelRatio = Math.min(2, window.devicePixelRatio)
-            if (location.hostname.match(/orillusion/)) {
+            if (!/localhost/.test(location.hostname)) {
                 Promise.all([
                     fetch(location.search.slice(1)).then(r=>r.text()),
                     fetch(location.search.slice(1).replace('.ts', '.js')).then(r=>r.text())
