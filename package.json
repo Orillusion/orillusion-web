@@ -11,7 +11,7 @@
         "format": "prettier --check --write ."
     },
     "devDependencies": {
-        "@orillusion/core": "^0.6.4",
+        "@orillusion/core": "^0.6.5",
         "@orillusion/media-extention": "^0.2.0",
         "@orillusion/particle": "^0.0.1",
         "@orillusion/physics": "^0.2.0",

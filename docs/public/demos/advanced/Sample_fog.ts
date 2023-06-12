@@ -1,4 +1,25 @@
-import { BoxGeometry, View3D, CameraUtil, PostProcessingComponent, DirectLight, Engine3D, GlobalFog, AtmosphericComponent, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, webGPUContext, Color, SphereGeometry, UnLitMaterial, GPUCullMode } from '@orillusion/core'
+import {
+    BoxGeometry,
+    View3D,
+    CameraUtil,
+    PostProcessingComponent,
+    DirectLight,
+    Engine3D,
+    GlobalFog,
+    AtmosphericComponent,
+    LitMaterial,
+    HoverCameraController,
+    KelvinUtil,
+    MeshRenderer,
+    Object3D,
+    PlaneGeometry,
+    Scene3D,
+    webGPUContext,
+    Color,
+    SphereGeometry,
+    UnLitMaterial,
+    GPUCullMode
+} from '@orillusion/core'
 import * as dat from 'dat.gui'
 
 export class Sample_fog {
@@ -20,7 +41,7 @@ export class Sample_fog {
         this.scene = new Scene3D()
         let sky = this.scene.addComponent(AtmosphericComponent)
         sky.enable = false
-        
+
         // create a camera object with camera3D component
         let mainCamera = CameraUtil.createCamera3DObject(this.scene)
 
@@ -82,7 +103,7 @@ export class Sample_fog {
             let mr = box.addComponent(MeshRenderer)
             mr.geometry = new SphereGeometry(2000, 4, 4)
             mr.material = new UnLitMaterial()
-            mr.material.baseColor = new Color(84/255, 90/255, 239/255)
+            mr.material.baseColor = new Color(84 / 255, 90 / 255, 239 / 255)
             mr.material.cullMode = GPUCullMode.front
             this.scene.addChild(box)
         }

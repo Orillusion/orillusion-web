@@ -57,10 +57,10 @@ image.sprite = makeAloneSprite('webgpu', bitmapTexture2D)
 let GUIHelp = new dat.GUI()
 let f = GUIHelp.addFolder('GUI Space')
 let params = {
-    'ViewSpace' : ()=>{
+    ViewSpace: () => {
         viewPanel.addChild(imageQuad)
     },
-    'WorldSpace': ()=>{
+    WorldSpace: () => {
         worldPanel.addChild(imageQuad)
     }
 }
