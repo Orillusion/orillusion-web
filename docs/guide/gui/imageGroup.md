@@ -1,73 +1,76 @@
 # UIImageGroup
 
-[UIImageGroup](/api/classes/UIImageGroup) 组件提供多图片的显示，该组件允许你在一个组件下，同时控制多个 `Quad` 渲染。相较于 `UIImage` 组件，其主要区别如下：
-1. `UIImageGroup` 多个 `Quad` 绑定在一个 `Object3D` 对象，在批量渲染同类型 `Sprite` 类型时，`UIImageGroup` 可以获得更加高效的渲染性能；
-2. `UIImageGroup` 中每个 `Quad` 使用自身的尺寸数据，节点所对应的`UITransform` 的缩放不会对每个 `Quad` 产生影响；
-3. `UIImageGroup` 需要指定下标 `index` 才能找到对应的 `Quad` 对象，设置 `Quad` 属性需要通过调用对应的 `set` API 进行设置。
+[UIImageGroup](/api/classes/UIImageGroup) provides the display function of multiple images. This component allows you to control multiple `Quad` rendering under one component. Compared with the `UIImage` component, the main differences are as follows:
+1. `UIImageGroup` multiple `Quad` is bound to an `Object3D` object. When rendering the same type of `Sprite` type in batches, `UIImageGroup` can get more efficient rendering performance;
+2. Each `Quad` in `UIImageGroup` uses its own size data, and the scaling of the `UITransform` corresponding to the node will not affect each `Quad`;
+3. `UIImageGroup` needs to specify the subscript `index` to find the corresponding `Quad` object, and the `Quad` attribute needs to be set by calling the corresponding `set` API.
 
-## 初始化图片组：
+## Initialize the image group:
 
 ```ts
 ...
-// 创建图片组节点
+// Create image group node
 let groupObj = new Object3D();
 panelRoot.addChild(groupObj);
 
-// ImageGroup 组件需要设置内置多少个 Quad，默认为 1 个 Quad 节点
+// The ImageGroup component needs to set how many Quad nodes are built in, the default is 1
 this.imageGroup = groupObj.addComponent(UIImageGroup, (count: 2));
 ```
 
-## 设置贴图
+## Set the texture
 
-和单个 `UIImage`一样，我们首先需要通过 `Engine3D.res.loadAtlas` 来加载精灵图集，然后通过 `setSprite` 赋予图片组中指定 `index` 的 `quad` 贴图内容：
+Same as a single `UIImage`, we first need to load the sprite atlas through `Engine3D.res.loadAtlas`, and then assign the texture content of the `quad` in the specified `index` in the image group through `setSprite`:
 
 ```ts
-// 加载 Atlas 图集素材
+// Load Atlas atlas material
 await Engine3D.res.loadAtlas('atlas/UI_atlas.json');
-// 设置 0 位精灵贴图 
+// Set the 0th sprite texture
 imageGroup.setSprite(0, Engine3D.res.getGUISprite('logo'));
 ```
 
-## 修改图片颜色
+## Modifying image color
 同样，通过 `setColor` 更改对应 `index` 的 `quad` 颜色，如果组件有设置贴图，会乘法叠加贴图像素颜色：
+Similarly, change the color of the corresponding `index` of `quad` through `setColor` in the same way. If the component has a texture, the pixel color of the texture will be multiplied and added:
 
 ```ts
 imageGroup.setColor(0, new Color(1.0, 0.0, 0.0, 1.0));
 ```
 
-## 修改图片大小
+## Modifying image size
 通过 `setSize` 更改对应 `index` 的 `quad` 大小：
+Change the size of the corresponding `index` of `quad` through `setSize`:
 
 ```ts
 imageGroup.setSize(0, 100, 100);
 ```
 
-## 组件 visible（可见/隐藏）
+## Component visible (visible / hidden)
 图片组中，可以设置 `visible` 属性统一修改所有 `quad` 显示或隐藏:
+In the image group, you can set the `visible` property to uniformly modify all `quad` display or hide:
 
 ```ts
 imageGroup.visible = false;//or true
 ```
 
-## 销毁图片组
+## Destroy image group
 ```ts
 imageGroup.destroy();
 ```
 
-## 修改指定下标精灵的拉伸/平铺类型
+## Modifying the stretching / tiling type of the specified subscript sprite
 
-精灵图类型：参考 [ImageType](/api/enums/ImageType.md)，设置精灵的渲染类型；
+Type of sprite map: refer to [ImageType](/api/enums/ImageType.md), set the rendering type of the sprite;
 
-- Simple：默认类型，精灵图被拉伸平铺到指定区域
-- Sliced：按照九宫格的方式进行拉伸渲染
-- Tiled：未支持
-- Filled：未支持
+- Simple: Default type, the sprite map is stretched and tiled to the specified area
+- Sliced: Stretched and rendered in a nine-grid manner
+- Tiled: Not supported
+- Filled: Not supported
 
 ```ts
 imageGroup.setImageType(0, ImageType.Simple);
 ```
 
-下面示例展示如何在 `UIImageGroup` 中设置单个 `Quad` 的位置和大小：
+Following example shows how to set the position and size of a single `Quad` in `UIImageGroup`:
 
 <Demo :height="500" src="/demos/gui/imageGroup.ts"></Demo>
 
