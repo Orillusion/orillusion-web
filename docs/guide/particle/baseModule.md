@@ -1,18 +1,18 @@
-# 基本模块
-粒子系统的仿真器可添加各种属性模块，每个属性模块包含一种功能实现和与之相关的参数，目前内置有:
-- `ParticleOverLifeScaleModule` - 粒子生命周期内大小变化模块
-- `ParticleOverLifeSpeedModule` - 生命周期内速度变化模块
-- `ParticleOverLifeRotationModule` - 生命周期内自旋变化模块
-- `ParticleOverLifeColorModule` - 生命周期内颜色变化模块
-- `ParticleGravityModifierModule` - 重力变化模块
-- `ParticleTextureSheetModule` - 纹理图集模块
+# Basic Modules
+The particle system simulator can add various attribute modules, each of which includes a functionality implementation and associated parameters. Currently, the following built-in modules are available:
+- `ParticleOverLifeScaleModule` - Module for size variation over the particle's lifetime.
+- `ParticleOverLifeSpeedModule` - Module for speed variation over the particle's lifetime.
+- `ParticleOverLifeRotationModule` - Module for rotation variation over the particle's lifetime.
+- `ParticleOverLifeColorModule` - Module for color variation over the particle's lifetime.
+- `ParticleGravityModifierModule` - Module for gravity modification.
+- `ParticleTextureSheetModule` - Module for texture atlas.
 
-## 大小变换模块
-若想使单个粒子的大小在它自己的整个生命周期内，随着时间变换而变换时，可以给仿真器添加 `ParticleOverLifeScaleModule` 模块:
+## Size Variation Module
+To make the size of individual particles change over their entire lifetimes, you can add the  `ParticleOverLifeScaleModule` module to the simulator:
 ```ts
-// 添加生命周期内大小变换模块
+// Add the module for size variation over the particle's lifetime
 let overLifeScaleModule = simulator.addModule(ParticleOverLifeScaleModule);
-// 设置大小变换参数，从起始的 1倍大小 到 结束时 3倍大小
+// Set the size variation parameters from 1x at the start to 3x at the end
 overLifeScaleModule.scaleSegments = [
     new Vector4(1, 1, 1),
     new Vector4(3, 3, 3),
@@ -23,12 +23,12 @@ overLifeScaleModule.scaleSegments = [
 
 <<< @/public/demos/particle/OverLifeScaleModule.ts
 
-## 内旋转变换模块
-若想使单个粒子的旋转角度在它自己的整个生命周期内，随着时间变换而变换时，可以给仿真器添加 `ParticleOverLifeRotationModule` 模块:
+## Rotation Variation Module
+To make the rotation angle of individual particles change over their entire lifetimes, you can add the `ParticleOverLifeRotationModule` module to the simulator:
 ```ts
-// 添加生命周期内旋转变换模块
+// Add the module for rotation variation over the particle's lifetime
 let overLifeRotationModule = simulator.addModule(ParticleOverLifeRotationModule);
-// 设置自旋变换参数，从起始的 0° 到 结束时 270°
+// Set the rotation variation parameters from 0° at the start to 270° at the end
 overLifeRotationModule.rotationSegments = [
     new Vector4(0, 0, 0),
     new Vector4(0, 90 * DEGREES_TO_RADIANS, 0),
@@ -40,18 +40,18 @@ overLifeRotationModule.rotationSegments = [
 
 <<< @/public/demos/particle/OverLifeRotationModule.ts
 
-## 颜色变换模块
-若想使单个粒子的颜色在它自己的整个生命周期内，随着时间变换而变换时，可以给仿真器添加 `ParticleOverLifeColorModule` 模块:
+## Color Variation Module
+To make the color of individual particles change over their entire lifetimes, you can add the `ParticleOverLifeColorModule` module to the simulator:
 ```ts
-// 添加生命周期内颜色变换模块
+// Add the module for color variation over the particle's lifetime
 let overLifeColorModule = simulator.addModule(ParticleOverLifeColorModule);
-// 设置起始时颜色
+// Set the starting color
 overLifeColorModule.startColor = new Color(1, 1, 0);
-// 设置起始时透明度
+// Set the starting alpha
 overLifeColorModule.startAlpha = 0.0;
-// 设置结束时颜色
+// Set the ending color
 overLifeColorModule.endColor = new Color(0.1, 0.6, 1);
-// 设置结束时透明度
+// Set the ending alpha
 overLifeColorModule.endAlpha = 1.0;
 ```
 
@@ -60,10 +60,10 @@ overLifeColorModule.endAlpha = 1.0;
 
 <<< @/public/demos/particle/OverLifeColorModule.ts
 
-## 重力修改模块
-在模拟粒子运动轨迹时可以给仿真器添加一个重力修改模块 `ParticleGravityModifierModule` ，使粒子可以根据重力方向移动：
+## Gravity Modifier Module
+To modify the trajectory of particles based on gravity, you can add the `ParticleGravityModifierModule` module to the simulator:
 ```ts
-// 添加重力修改模块
+// Add the gravity modifier module
 let gravityModifier = simulator.addModule(ParticleGravityModifierModule);
 gravityModifier.gravity = new Vector3(0, -0.98, 0);
 ```
@@ -72,21 +72,21 @@ gravityModifier.gravity = new Vector3(0, -0.98, 0);
 
 <<< @/public/demos/particle/GravityModifierModule.ts
 
-## 纹理图集模块
-当需要给每个粒子提供不同纹理或者使单个粒子附带纹理动画时可以给仿真器添加一个纹理图集模块 `ParticleTextureSheetModule`:
+## Texture Atlas Module
+To provide different textures for each particle or animate individual particles with textures, you can add the `ParticleTextureSheetModule`  module to the simulator:
 
 ```ts
-// 添加纹理图集模块
+// Add the texture atlas module
 let sheetModule = simulator.addModule(ParticleTextureSheetModule);
-// 设置每列包含多少个子块
+// Set the number of sub-rectangles per column
 sheetModule.clipCol = 4;
-// 设置整张纹理总共包含多少个子块
+// Set the total number of sub-rectangles in the entire texture
 sheetModule.totalClip = 4 * 4;
-// 设置整张纹理的宽度
+// Set the width of the entire texture
 sheetModule.textureWidth = material.baseMap.width;
-// 设置整张纹理的高度
+// Set the height of the entire texture
 sheetModule.textureHeight = material.baseMap.height;
-// 设置纹理动画播放速率
+// Set the playback rate of the texture animation
 sheetModule.playRate = 1.0;
 ```
 

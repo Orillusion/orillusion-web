@@ -1,41 +1,41 @@
 ---
 aside: false
 ---
-# 发射器模块
-发射器模块是粒子系统中的一个重要组成部分，用于定义和控制粒子的发射行为。它决定了粒子在空间中的初始位置、速度、方向以及其他属性，从而影响整个粒子系统的效果。
+# Particle Emitter Module
+The particle emitter module is an essential component of a particle system that defines and controls the emission behavior of particles. It determines the initial position, velocity, direction, and other properties of particles, thus influencing the overall effect of the particle system.
 
-## 使用方式
-发射器模块是粒子仿真器必备模块，以下代码展示如何为粒子仿真器添加一个发射器模块:
+## Usage
+The emitter module is a required module for the particle simulator. The following code demonstrates how to add an emitter module to a particle simulator:
 ```ts
 let emitter = simulator.addModule(ParticleEmitterModule);
-// 设置最大粒子数
+// Set the maximum number of particles
 emitter.maxParticle = 10000;
-// 设置持续发射时间
+// Set the duration of emission
 emitter.duration = 10;
-// 设置发射速率(x个/秒)
+// Set the emission rate (number of particles per second)
 emitter.emissionRate = 1000;
-// 设置粒子生命周期大小
+// Set the particle's lifecycle size
 emitter.startLifecycle.setScalar(1);
-// 设置发射器发射形状
+// Set the shape type of the emitter
 emitter.shapeType = ShapeType.Box;
-// 设置发射器发射形状的大小
+// Set the size of the emitter's shape
 emitter.boxSize = new Vector3(10, 10, 10);
-// 设置发射器从发射形状的哪个位置发射
+// Set the emission location on the shape
 emitter.emitLocation = EmitLocation.Edge;
 ```
 
-粒子发射器模块 `ParticleEmitterModule` 包含一些重要的发射参数，各参数作用如下：
-| 名称 | 描述 |
+The particle emitter module, `ParticleEmitterModule`  includes several important emission parameters. Each parameter has the following significance:
+| Name | Description |
 | :---: | --- |
-| maxParticle | 最大粒子数 |
-| duration | 粒子发射持续时间(单位:秒) |
-| emissionRate | 发射速率(每秒发射多少个粒子) |
-| startLifecycle | 粒子生命周期(单位:秒) |
-| shapeType | 发射器形状（圆形、矩形、球体、锥体） |
-| emitLocation | 发射位置（基于 实体，表面，边缘） |
-| angle | 角度(当发射器形状为锥体时有效) |
-| radius | 半径(当发射器形状为圆形、球体、锥体时有效) |
-| boxSize | 矩形/盒子 大小 |
+| maxParticle | Maximum number of particles |
+| duration | Duration of particle emission (in seconds) |
+| emissionRate | Emission rate (number of particles per second) |
+| startLifecycle | Particle lifecycle (in seconds) |
+| shapeType | Emitter shape (e.g., circle, rectangle, sphere, cone) |
+| emitLocation | Emission location (based on entity, surface, edge) |
+| angle | Angle (applicable when the emitter shape is a cone) |
+| radius | Radius (applicable when the emitter shape is a circle, sphere, or cone) |
+| boxSize | Size of the rectangle/box shape |
 
 <Demo :height="500" src="/demos/particle/ParticleEmitter.ts"></Demo>
 
