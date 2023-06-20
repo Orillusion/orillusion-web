@@ -1,34 +1,34 @@
-# 用户界面（GPU GUI）
+# GPU GUI
 
-`Orillusion` 提供了高性能的用户界面（GUI）组件供开发者使用。
-通过合理搭配使用 GUI 组件，即可在项目中灵活展示 2D/3D 的 GUI 内容。本章我们先了解几个 GUI 的基本概念：
+`Orillusion` provides high-performance GUI components for developers to use.  
+By using GUI components reasonably, you can flexibly display 2D/3D GUI content in the project. In this chapter, we first understand some basic concepts of GUI:
 
-## GUI 空间模式
+## GUI Space Mode
 
-目前 `GUI` 支持两种模式渲染 `ViewSpace` 和 `WorldSpace`：
+Currently, `GUI` supports two rendering modes `ViewSpace` and `WorldSpace`:
 
-- ViewSpace 模式：在这种模式下，GUI 组件被渲染在屏幕空间中，不随相机的视角更改而变动，也不会与其它物体产生 3D 空间遮挡关系；
-- WorldSpace 模式：在这种模式下，GUI 组件可看做三维空间的一块画布，拥有3D属性（旋转、缩放、平移），能够参与深度检测等，实现与其他对象遮挡和被遮挡关系。
+- ViewSpace mode: In this mode, the GUI component is rendered in screen space, and it will not change with the camera's perspective, nor will it have a 3D space occlusion relationship with other objects;
+- WorldSpace mode: In this mode, the GUI component can be regarded as a canvas in three-dimensional space, with 3D properties (rotation, scaling, translation), can participate in depth detection, etc., to achieve occlusion and occlusion relationship with other objects.
 
 ```ts
 import { ViewPanel, WorldPanel } from '@orillusion/core'
 
-// 创建一个面板对象
+// Create a panel object
 let panelRoot: Object3D = new Object3D()
-// 添加 ViewPanel，设定为 ViewSpace 模式
+// Add ViewPanel and set it to ViewSpace mode
 panelRoot.addComponent(ViewPanel)
-// 或 添加 WorldPanel，设定为 WorldSpace 模式
+// Or add WorldPanel and set it to WorldSpace mode
 panelRoot.addComponent(WorldPanel)
 ```
 
-下面这个例子展示了 `ViewPanel` 与 `WorldPanel` 的区别：
+This following example shows the difference between `ViewPanel` and `WorldPanel`:
 <Demo :height="500" src="/demos/gui/panel.ts"></Demo>
 
 <<< @/public/demos/gui/panel.ts
 
 ## UICanvas
 
-GUI 组件同样需要画布进行绘制，引擎中每个 `View3D` 中都内置有 `Canvas` 的数组，我们可以通过指定 `enableUICanvas` 来主动激活 `UICanvas` 对象：
+GUI components also need canvas for drawing. Each `View3D` in the engine has a built-in array of `Canvas`. We can activate the `UICanvas` object by specifying `enableUICanvas`:
 
 ```ts
 let view = new View3D()
@@ -36,7 +36,7 @@ let view = new View3D()
 let canvas:UICanvas = view.enableUICanvas();
 ```
 
-默认情况下，我们只需要一个 `UICanvas` 即可, 如果需要多个画布绘制，我们可以通过设置不同的 `index` 来激活多个 `UICanvas`，它们互相独立:
+By default, we only need one `UICanvas`. If we need multiple canvas drawings, we can activate multiple `UICanvas` by setting different `index`, which are independent of each other:
 
 ```ts
 let canvas0:UICanvas = view.enableUICanvas(0);
@@ -45,7 +45,7 @@ let canvas2:UICanvas = view.enableUICanvas(2);
 //...
 ```
 
-以下示例展示了多个 `UICanvas` 共存的表现：
+This following example shows the performance of multiple `UICanvas` coexistence:
 
 <Demo :height="500" src="/demos/gui/canvas.ts"></Demo>
 
@@ -53,32 +53,32 @@ let canvas2:UICanvas = view.enableUICanvas(2);
 
 ## UIPanel
 
-面板 `UIPanel` 用于承载具体的 GUI 组件渲染，需要添加到 `UICanvas` 中；
+The panel `UIPanel` is used to carry the specific GUI component rendering, and needs to be added to the `UICanvas`;
 ```ts
 let panelObj = new Object3D();
-let panel:UIPanel = panelObj.addComponent(ViewPanel) // 创建一个屏幕空间面板组件
-let canvas:UICanvas = view.enableUICanvas(); // 启用默认的 UICanvas
-canvas.addChild(panel.object3D); // 添加面板
+let panel:UIPanel = panelObj.addComponent(ViewPanel) // 创建一个屏幕空间面板组件 Create a screen space panel component
+let canvas:UICanvas = view.enableUICanvas(); // 启用默认的 UICanvas Enable the default UICanvas
+canvas.addChild(panel.object3D); // 添加面板 Add panel
 ```
 
-每个 `UIPanel` 可以视为 GUI 组件的根容器，在 `UIPanel` 内可以添加其它类型的 GUI 组件:
+Each `UIPanel` can be regarded as the root container of the GUI component. Other types of GUI components can be added in the `UIPanel`:
 
 ```ts
-// 创建一个 UIImage 组件
+// Create a UIImage component
 let imageQuad = new Object3D();
 let image:UIImage = imageQuad.addComponent(UIImage);
-// 创建一个 UIPanel
-let panel:UIPanel = new Object3D().addComponent(ViewPanel); // 创建一个屏幕空间面板组件
-// 将 UIImage 的 Object3D 添加到 UIPanel 的 Object3D 中
+// Create a UIPanel
+let panel:UIPanel = new Object3D().addComponent(ViewPanel); // 创建一个屏幕空间面板组件 Create a screen space panel component
+// Add the Object3D of UIImage to the Object3D of UIPanel
 panel.object3D.addChild(imageQuad);
 ```
 
-### 渲染顺序
-在同一个 `UICanvas` 下，可以允许有多个 `ViewPanel` 或者 `WorldPanel` 共存，它们的渲染层级满足以下规则：
+### Rendering Order
+In the same `UICanvas`, it is allowed to have multiple `ViewPanel` or `WorldPanel` coexist, and their rendering hierarchy meets the following rules:
 
-1. `ViewPanel` 总是会显示在 `WorldPanel` 之上。
-2. `ViewPanel` 之间通过属性 `panelOrder` 控制绘制优先级。相同 `panelOrder` 下，根据它们所挂载的 `Object3D` 在场景树中的顺序为准。
-3. `WorldPanel` 之间通过属性 `panelOrder` 控制绘制优先级。相同 `panelOrder` 下，可以通过 `needSortOnCameraZ` 来让 `UIPanel` 根据相机远近距离自动排序。
+1. `ViewPanel` will always be displayed above `WorldPanel`.
+2. The drawing priority of `ViewPanel` is controlled by the property `panelOrder`. Under the same `panelOrder`, the order of `Object3D` mounted in the scene tree is subject to.
+3. The drawing priority of `WorldPanel` is controlled by the property `panelOrder`. Under the same `panelOrder`, `UIPanel` can be automatically sorted according to the distance of the camera by `needSortOnCameraZ`.
 
 ```ts
 let panel1 = new Object3D().addComponent(ViewPanel);
@@ -86,58 +86,57 @@ let panel2 = new Object3D().addComponent(ViewPanel);
 let panel3 = new Object3D().addComponent(WorldPanel);
 let panel4 = new Object3D().addComponent(WorldPanel);
 
-// 手动设置 panelOrder, panel2 遮挡 panel1
+// Manually set panelOrder, panel2 covers panel1
 panel1.panelOrder = 1
 panel2.panelOrder = 2
 
-// ViewPanel 的 panel1/2 永远遮挡 WorldPanel 的 panel3/4
+// ViewPanel panel1/2 always covers WorldPanel panel3/4
 panel3.panelOrder = 3
-panel4.panelOrder = 4 // panel4 优先遮挡 panel3
+panel4.panelOrder = 4 // panel4 covers panel3 first
 
-// 若 panelOrder 相同，自动根据相机位置排序
+// If panelOrder is the same, sort automatically according to the camera position
 panel3.panelOrder = panel4.panelOrder = 3
 panel3.needSortOnCameraZ = true;
 panel4.needSortOnCameraZ = true;
 ```
 
 ### WorldPanel
-`WorldPanel` 组件相较于 `ViewPanel` 拥有更多的属性和功能：
+`WorldPanel` component has more properties and functions than `ViewPanel`:
 
-#### 相机锁定
-我们可以通过设置面板的 `billboard` 属性来控制面板的渲染角度：
+#### Camera Lock
+We can control the rendering angle of the panel by setting the `billboard` property of the panel:
 
 ```ts
 let panel = new Object3D().addComponent(WorldPanel);
-panel.billboard = BillboardType.None;           //默认视角，保持物体本身的渲染角度
-panel.billboard = BillboardType.BillboardY;     //锁定Y轴，面板的XZ平面始终朝向相机方向
-panel.billboard = BillboardType.BillboardXYZ;   //面板始终朝向相机
-
+panel.billboard = BillboardType.None;           // Default view, keep the rendering angle of the object itself
+panel.billboard = BillboardType.BillboardY;     // Lock the Y axis, the XZ plane of the panel always faces the camera direction
+panel.billboard = BillboardType.BillboardXYZ;   // Always face the camera
 ```
 
-#### 深度测试
-设置面板是否参与深度排序：
+#### Depth Test
+Set whether the panel participates in depth sorting:
 
 ```ts
 let panel = new Object3D().addComponent(WorldPanel);
-panel.depthTest = true;      //参与深度排序，获得遮挡关系
-panel.depthTest = false;     //不参与深度排序，始终悬浮于所有物体的表面
+panel.depthTest = true;      // Participate in depth sorting, get occlusion relationship
+panel.depthTest = false;     // Do not participate in depth sorting, always float on the surface of all objects
 ```
 
-#### 剔除模式
-跟 [材质剔除](guide/graphics/materials#切换剔除模式) 类似，我们也可以设置 `UIPanel` 渲染材质球的 `cullMode` 来切换剔除方式：
+#### Cull Mode
+Similar to [Material Culling](guide/graphics/materials#switching-cull-mode), we can also set the `cullMode` of the `UIPanel` rendering material ball to switch the culling method:
 
 ```ts
 let panel = new Object3D().addComponent(WorldPanel);
-panel.cullMode = GPUCullMode.none; // 双面显示
-panel.cullMode = GPUCullMode.front; // 前面剔除，背面显示
-panel.cullMode = GPUCullMode.back; // 默认背面剔除，前面显示
+panel.cullMode = GPUCullMode.none; // Both sides are displayed
+panel.cullMode = GPUCullMode.front; // Front culling, back display
+panel.cullMode = GPUCullMode.back; // Default back culling, front display
 
-// 或者直接设置 guiMesh.uiRenderer.material.cullMode 
+// Or directly set guiMesh.uiRenderer.material.cullMode
 let material = panel.guiMesh.uiRenderer.material;
-material.cullMode = GPUCullMode.back; //默认背面剔除
+material.cullMode = GPUCullMode.back; // Default back culling
 ```
 
-下面这个例子，集中展示了面板之间的空间关系和 `WorldPanel` 的渲染特性：
+The following example focuses on the spatial relationship between the panels and the rendering characteristics of `WorldPanel`:
 
 <Demo :height="500" src="/demos/gui/panelOrder.ts"></Demo>
 <<< @/public/demos/gui/panelOrder.ts
