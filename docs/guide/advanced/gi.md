@@ -7,7 +7,7 @@ Conventional lighting systems only consider the direct illumination from light s
 ![probe](/images/gi/gi.webp)
 
 
-## principle introduction
+## Principle introduction
 
 The engine places a series of `probes` in the scene, arranged in rows, columns, and depth as specified, to collect the reflected light information from the surrounding objects. Based on their positions, these probes gather and store the lighting information for their respective regions, forming a dynamic indirect light `Irradiance Volume` region:
 
