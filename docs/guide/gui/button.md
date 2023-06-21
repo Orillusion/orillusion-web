@@ -2,7 +2,7 @@
 
 [UIButton](/api/classes/UIButton.md) is a subclass of [UIInteractive](/api/classes/UIInteractive), which implements basic button functionality. The button component encapsulates `UIImage` for displaying background images, inherits from the interactive component `UIInteractive`, and uses the square area described by the built-in `UITransform` as the sensing hot zone.
 
-## 组件贴图
+## Component Texture
 
 The component has multiple states [UIInteractiveStyle](/api/enums/UIInteractiveStyle.md), each state corresponds to a texture
 - `normalSprite` - Texture by default
