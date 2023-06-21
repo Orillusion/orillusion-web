@@ -1,23 +1,23 @@
 # UITextField
 
-[UITextField](/api/classes/UITextField.md) 组件可以加载基于 `BMFont` 的字体图集，在引擎中提供高性能的文本渲染能力。
+[UITextField](/api/classes/UITextField.md) component can load font atlas based on `BMFont`, and provide high-performance text rendering capability in the engine.
 
 ```ts
 import { Engine3D } from '@orillusion/core';
-// 加载 BMFont 字体文件
+// Load BMFont font file
 await Engine3D.res.loadFont('fnt/0.fnt');
-// 激活UICanvas
+// Activate UICanvas
 let canvas = this.scene.view.enableUICanvas();
-// 创建用于显示UI的面板
+// Create a panel object for displaying UI
 let panelRoot: Object3D = new Object3D();
 panelRoot.addComponent(ViewPanel);
-// 面板加入到系统canvas中
+// Add panel to system canvas
 canvas.addChild(panelRoot);
-// 创建文本节点
+// Create text node
 let textQuad = new Object3D();
 panelRoot.addChild(textQuad);
 this.text = textQuad.addComponent(UITextField);
-// 设置Rect尺寸，该尺寸会影响文本框大小
+// Set the Rect size, which will affect the text box size
 this.text.uiTransform.resize(400, 60);
 this.text.uiTransform.y = 100;
 
@@ -26,53 +26,53 @@ this.text.fontSize = 32;
 this.text.alignment = TextAnchor.MiddleCenter;
 ```
 
-## 设置字体
-文本组件依赖于 `BMFont` 图集，你需要先加载 `fnt` 图集文件到引擎中，然后文本才能被正常显示出来
-> 制作 `BMFont` 字体文件依赖外部第三方工具，用户可以自行搜索
+## Set Font
+The text component depends on the `BMFont` atlas. You need to load the `fnt` atlas file into the engine first, and then the text can be displayed normally
+> Making `BMFont` font files depends on external third-party tools, users can search by themselves
 ```ts
-// 加载支持微软雅黑的 BMFont 字体文件
+// Load BMFont font file that supports Microsoft Yahei
 await Engine3D.res.loadFont('path/to/font.fnt');
-text.font = '微软雅黑';
+text.font = '微软雅黑';// 'Microsoft Yahei'
 ```
 
-## 设置内容
+## Set Content
 ```ts
-// 修改组件text
+// Modify component text
 text.text = 'Hello，Orillusion！';
 ```
 
-## 字体大小
+## Font Size
 ```ts
 text.fontSize = 32;
 ```
 
-## 对齐方式
-参考 [TextAnchor](/api/enums/TextAnchor.md)，有九种对齐方式
+## Alignment
+Refer to [TextAnchor](/api/enums/TextAnchor.md), which has 9 alignment methods
 ```ts
 text.alignment = TextAnchor.UpperLeft;
 ```
 
-## 字体颜色
+## Font Color
 ```ts
-text.color = new Color(1.0, 0.0, 0.0, 1.0);// 默认为白色
+text.color = new Color(1.0, 0.0, 0.0, 1.0);// Default is white
 ```
 
-## 行间距
+## Line Spacing
 ```ts
-text.lineSpacing = 1.5; //设置行距为字号尺寸的1.5倍。
+text.lineSpacing = 1.5; // Set the line spacing to 1.5 times the font size.
 ```
 
-## 文本框大小
+## Text Box Size
 ```ts
-text.uiTransform.resize(200, 200);//设置文本块为（200,200）。
+text.uiTransform.resize(200, 200);// Set the text block to (200,200).
 ```
 
-## 设置组件visible（可见/隐藏）
+## Set component visible (visible / hidden)
 ```ts
 text.visible = false;//true
 ```
 
-## 销毁文本
+## Destroy Text
 ```ts
 text.destroy();
 ```

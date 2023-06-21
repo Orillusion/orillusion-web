@@ -1,90 +1,91 @@
 # UIImage
 
-[UIImage](/api/classes/UIImage) 组件提供图片的显示功能, 你可以通过加载单个图片或通过 `loadAtlas` 加载精灵图集 `GUISprite` 的列表到引擎中，然后指定 `GUISprite` 赋予图片组件供渲染。
-> 制作 `Atlas` 精灵图集依赖外部第三方工具，请自行搜索制作方法。默认 `UIImage` 组件未设置精灵图，将以白色方块形式呈现
+[UIImage](/api/classes/UIImage) provides the display function of the image. You can load a single image or load a list of sprite atlas `GUISprite` to the engine through `loadAtlas`, and then specify `GUISprite` to assign to the image component for rendering.
+> Making `Atlas` sprite atlas depends on external third-party tools, please search for the production method by yourself. The default `UIImage` component does not set the sprite map, and it will be presented in the form of a white square
 
 ```ts
 import { Engine3D } from '@orillusion/core';
 
-// 创建用于显示UI的面板
+// Create a panel for displaying UI
 let panelRoot: Object3D = new Object3D();
 panelRoot.addComponent(ViewPanel);
-// 激活UICanvas
+// Enable UICanvas
 let canvas = this.scene.view.enableUICanvas();
-// 面板加入到系统canvas中
+// Add the panel to the system canvas
 canvas.addChild(panelRoot);
-// 创建图片节点
+// Create image node
 let imageQuad = new Object3D();
 panelRoot.addChild(imageQuad);
 this.image = imageQuad.addComponent(UIImage);
 this.image.uiTransform.resize(400, 60);
 this.image.uiTransform.y = 100;
 
-// 加载 Atlas 图集素材
+// Load Atlas atlas material
 await Engine3D.res.loadAtlas('atlas/UI_atlas.json');
 this.image.sprite = Engine3D.res.getGUISprite('logo');
 ```
 
-## 加载图集
+## Loading Atlas
 
-`Atlas` 封装了一组位图图片对象，我们可以通过 `Engine3D.res.loadAtlas` 加载全部图集，然后通过 `Engine3D.res.getGUISprite` 获取其中某一个元素图片，赋予组件进行渲染。
+`Atlas` contains a set of bitmap image objects. We can load all the atlas through `Engine3D.res.loadAtlas`, and then get one of the element images through `Engine3D.res.getGUISprite` and assign it to the component for rendering.
 
 ```ts
-// 加载 Atlas 图集素材
+// Load Atlas atlas material
 await Engine3D.res.loadAtlas('atlas/UI_atlas.json');
-// 在 UI_atlas.json 定义了 logo 素材
+// The logo material is defined in UI_atlas.json
 image.sprite = Engine3D.res.getGUISprite('logo');
 ```
 
-## 加载单个图片
-我们也可以通过已经创建好的 `Texture2D` 对象来主动生成一个 `GUISprite`，然后赋予 `UIImage` 组件供显示：
+## Loading Single Image
+We can also use the already created `Texture2D` object to automatically generate a `GUISprite`, and then assign it to the `UIImage` component for display:
 ```ts
 let bitmapTexture2D = new BitmapTexture2D();
-//设置y轴翻转
+// Set y-axis flip
 bitmapTexture2D.flipY = true;
-//加载贴图
+// Load texture
 await bitmapTexture2D.load('images/webgpu.png');
-//创建GUISprite
+// Create GUISprite
 let mySprite = makeAloneSprite('webgpu', bitmapTexture2D);
-//将GUISprite赋予UIImage组件
+// Assign GUISprite to UIImage component
 this.image.sprite = mySprite;
 ```
 
 
-## 修改图片颜色
+## Change Image Color
 
-通过设置 `color` 属性更改图片颜色，如果组件有设置贴图，会乘法叠加贴图像素颜色
+The color of the image can be changed by setting the `color` property. If the component has a texture, the pixel color of the texture will be multiplied and added.
 
 ```ts
 image.color = new Color(1.0, 0.0, 0.0, 1.0); //red
 ```
 
-## 修改图片大小
+## Modify image size
 通过调用 `uiTransform.resize()` 来进行图片大小的调节
+By calling `uiTransform.resize()` to adjust the size of the image
 
 ```ts
 image.uiTransform.resize(150, 150)
 ```
 
-## 组件visible（可见/隐藏）
+## Component visible (visible / hidden)
 
 ```ts
 image.visible = false;//true
 ```
 
-## 销毁图片
+## Destroy image
 ```ts
 image.destroy();
 ```
 
-## 拉伸/平铺类型
+## Stretch / tiling type
 
-精灵图类型：参考 [ImageType](/api/enums/ImageType.md)，设置精灵的渲染类型；
+Type of sprite map: refer to [ImageType](/api/enums/ImageType.md), set the rendering type of the sprite;
 
-- Simple：默认类型，精灵图被拉伸平铺到指定区域
-- Sliced：按照九宫格的方式进行拉伸渲染
-- Tiled：未支持
-- Filled：未支持
+- Simple: Default type, the sprite map is stretched and tiled to the specified area
+- Sliced: Stretched and rendered in a nine-grid manner
+- Tiled: Not supported
+- Filled: Not supported
 
 ```ts
 image.imageType = ImageType.Simple;
