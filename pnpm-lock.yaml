@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@orillusion/core': ^0.6.5
+  '@orillusion/core': ^0.6.6
   '@orillusion/media-extention': ^0.2.0
   '@orillusion/particle': ^0.0.1
   '@orillusion/physics': ^0.2.0
@@ -14,7 +14,7 @@ specifiers:
   vue: ^3.2.47
 
 devDependencies:
-  '@orillusion/core': 0.6.5
+  '@orillusion/core': 0.6.6
   '@orillusion/media-extention': 0.2.0
   '@orillusion/particle': 0.0.1
   '@orillusion/physics': 0.2.0
@@ -438,33 +438,33 @@ packages:
     resolution: {integrity: sha512-5zjxCQq8FKQihxh8ZWI5ASelTaIz/QUino5HISOWWvpwXrYtzwptDA8MuQonASseQwo1WkWu+jmuNMdusdNuww==}
     dev: true
 
-  /@orillusion/core/0.6.5:
-    resolution: {integrity: sha512-7l8VxMEAD3cxyLwk5hwiLnYIWeTItlIeXpEdi6MAZVt/aBzgylry/nktmiiylLVWgd1IOt0Sc+05K9ysWUDXuA==}
+  /@orillusion/core/0.6.6:
+    resolution: {integrity: sha512-4EMIWF/E/z2pqOABkz7E1GRbQ1WcZwdEbdoABzdglgBC0vdX3v5aS/uTuqPtYsI8xo9NdVXGG0g5Ckg+25Li6w==}
     dev: true
 
   /@orillusion/media-extention/0.2.0:
     resolution: {integrity: sha512-yZEaXfwYH/1tO1/JDNQQyL9ukmcwhpgERaQcSU6BO9yA/yW7CiYruNTouAU9y7hrl/bEnBzAgnZGswq95ScBMQ==}
     dependencies:
-      '@orillusion/core': 0.6.5
+      '@orillusion/core': 0.6.6
     dev: true
 
   /@orillusion/particle/0.0.1:
     resolution: {integrity: sha512-3HrgQv9JlVF5FIQGa9YVpzpNoGQuLio1Ralyxn9X88nxFF7iVjMtnRP3UgxUoSCD3F2nlW392IwkpEm2ZW6zTA==}
     dependencies:
-      '@orillusion/core': 0.6.5
+      '@orillusion/core': 0.6.6
     dev: true
 
   /@orillusion/physics/0.2.0:
     resolution: {integrity: sha512-1X1kKm2sHAWTGTRQbotIVfqLbLwLLbii5024OmuTYcqSsOC5ZEWig6gwuxxdElX8mKkif05/H5zTLAuZEjDMwQ==}
     dependencies:
       '@orillusion/ammo': 0.1.1
-      '@orillusion/core': 0.6.5
+      '@orillusion/core': 0.6.6
     dev: true
 
   /@orillusion/stats/0.2.0:
     resolution: {integrity: sha512-/ghMZlwPoAepyVpDdxNMEbEZTtatPWl9ee0X9f/cNBWrkHrapBi4M+QzimlGfXqDtkcbzvQYyuyr8ImidVpItQ==}
     dependencies:
-      '@orillusion/core': 0.6.5
+      '@orillusion/core': 0.6.6
     dev: true
 
   /@types/dat.gui/0.7.10:
