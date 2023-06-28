@@ -137,6 +137,40 @@ mr.geometry = new PlaneGeometry(100, 100, 1, 1);
 
 <<< @/public/demos/mesh/plane.ts
 
+## 挤压缓冲几何体
+[ExtrudeGeometry](/api/classes/ExtrudeGeometry.md) 类提供从一个形状路径中挤压出一个几何体的功能。
+
+使用示例:
+```ts
+import {Object3D, MeshRenderer, ExtrudeGeometry, Vector3} from '@orillusion/core';
+
+let conduitObject3D = new Object3D();
+// 添加 MeshRenderer 组件
+let mr = conduitObject3D.addComponent(MeshRenderer);
+// 创建自定义形状
+let shape: Vector3[] = [], vertexCount = 8, shapeRadius = 1
+for (let i = 0; i < vertexCount; i++) {
+    let angle = Math.PI * 2 * i / vertexCount;
+    let point = new Vector3(Math.sin(angle), 0, Math.cos(angle)).multiplyScalar(shapeRadius);
+    shape.push(point);
+}
+// 创建自定义路径
+let curve: Vector3[] = [], sectionCount = 60, modelRadius = 4
+for (let i = 0; i < sectionCount; i++) {
+    let angle = Math.PI * 2 * i / 20;
+    modelRadius += 0.1 * i / sectionCount;
+    let offsetY = 0.6 - Math.sqrt(i / sectionCount);
+    let point = new Vector3(Math.sin(angle), offsetY * 6, Math.cos(angle)).multiplyScalar(modelRadius);
+    curve.push(point);
+}
+// 创建 Extrude Geometry
+mr.geometry = new ExtrudeGeometry().build(shape, true, curve, 0.2);
+```
+
+<Demo src="/demos/mesh/extrude.ts"></Demo>
+
+<<< @/public/demos/mesh/extrude.ts
+
 ## 自定义几何体
 我们可以通过更新现有的几何体的顶点 [vertexBuffer](/api/classes/GeometryVertexBuffer) 来自定义几何体的形状
 

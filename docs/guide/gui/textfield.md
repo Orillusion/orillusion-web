@@ -1,10 +1,10 @@
 # UITextField
 
-[UITextField](/api/classes/UITextField.md) 组件可以加载基于 `BMFont` 的字体图集，在引擎中提供高性能的文本渲染能力。
+[UITextField](/api/classes/UITextField.md) 组件可以加载基于 `Bitmap Font` 的字体图集，在引擎中提供高性能的文本渲染能力。
 
 ```ts
 import { Engine3D } from '@orillusion/core';
-// 加载 BMFont 字体文件
+// 加载 Bitmap Font 字体文件
 await Engine3D.res.loadFont('fnt/0.fnt');
 // 激活UICanvas
 let canvas = this.scene.view.enableUICanvas();
@@ -27,10 +27,11 @@ this.text.alignment = TextAnchor.MiddleCenter;
 ```
 
 ## 设置字体
-文本组件依赖于 `BMFont` 图集，你需要先加载 `fnt` 图集文件到引擎中，然后文本才能被正常显示出来
-> 制作 `BMFont` 字体文件依赖外部第三方工具，用户可以自行搜索
+文本组件依赖于 `Bitmap Font` 图集，你需要先加载 `fnt` 图集文件到引擎中，然后文本才能被正常显示出来
+> 制作 `Bitmap Font` 字体依赖外部第三方工具，可以参考 [Hiero](https://libgdx.com/wiki/tools/hiero) 以及 [Distance field fonts
+](https://libgdx.com/wiki/graphics/2d/fonts/distance-field-fonts) 获取更多帮助
 ```ts
-// 加载支持微软雅黑的 BMFont 字体文件
+// e.g. 加载支持微软雅黑的 Bitmap Font 字体文件
 await Engine3D.res.loadFont('path/to/font.fnt');
 text.font = '微软雅黑';
 ```

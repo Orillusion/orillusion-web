@@ -131,10 +131,6 @@ let panel = new Object3D().addComponent(WorldPanel);
 panel.cullMode = GPUCullMode.none; // 双面显示
 panel.cullMode = GPUCullMode.front; // 前面剔除，背面显示
 panel.cullMode = GPUCullMode.back; // 默认背面剔除，前面显示
-
-// 或者直接设置 guiMesh.uiRenderer.material.cullMode 
-let material = panel.guiMesh.uiRenderer.material;
-material.cullMode = GPUCullMode.back; //默认背面剔除
 ```
 
 下面这个例子，集中展示了面板之间的空间关系和 `WorldPanel` 的渲染特性：
