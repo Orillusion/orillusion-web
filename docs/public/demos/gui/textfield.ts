@@ -35,7 +35,7 @@ Engine3D.startRenderView(view)
 // create UIpanel root
 let panelRoot: Object3D = new Object3D()
 let panel: UIPanel = panelRoot.addComponent(WorldPanel)
-panel.guiMesh.uiRenderer.material.cullMode = GPUCullMode.none
+panel.cullMode = GPUCullMode.none
 // add to UIcanvas
 let canvas = view.enableUICanvas()
 canvas.addChild(panelRoot)
