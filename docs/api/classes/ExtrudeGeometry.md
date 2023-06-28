@@ -1,63 +1,59 @@
-# Class: GeometryBase
+# Class: ExtrudeGeometry
 
 ## Hierarchy
 
-- **`GeometryBase`**
+- [`GeometryBase`](GeometryBase.md)
 
-  ↳ [`GUIGeometry`](GUIGeometry.md)
-
-  ↳ [`ExtrudeGeometry`](ExtrudeGeometry.md)
-
-  ↳ [`BoxGeometry`](BoxGeometry.md)
-
-  ↳ [`CylinderGeometry`](CylinderGeometry.md)
-
-  ↳ [`PlaneGeometry`](PlaneGeometry.md)
-
-  ↳ [`SphereGeometry`](SphereGeometry.md)
-
-  ↳ [`TorusGeometry`](TorusGeometry.md)
+  ↳ **`ExtrudeGeometry`**
 
 ### Constructors
 
-- [constructor](GeometryBase.md#constructor)
+- [constructor](ExtrudeGeometry.md#constructor)
 
 ### Properties
 
-- [uuid](GeometryBase.md#uuid)
-- [name](GeometryBase.md#name)
-- [subGeometries](GeometryBase.md#subgeometries)
-- [morphTargetsRelative](GeometryBase.md#morphtargetsrelative)
-- [morphTargetDictionary](GeometryBase.md#morphtargetdictionary)
+- [vScale](ExtrudeGeometry.md#vscale)
+- [uNegate](ExtrudeGeometry.md#unegate)
+- [sections](ExtrudeGeometry.md#sections)
+- [uuid](ExtrudeGeometry.md#uuid)
+- [name](ExtrudeGeometry.md#name)
+- [subGeometries](ExtrudeGeometry.md#subgeometries)
+- [morphTargetsRelative](ExtrudeGeometry.md#morphtargetsrelative)
+- [morphTargetDictionary](ExtrudeGeometry.md#morphtargetdictionary)
 
 ### Accessors
 
-- [indicesBuffer](GeometryBase.md#indicesbuffer)
-- [vertexBuffer](GeometryBase.md#vertexbuffer)
-- [vertexAttributes](GeometryBase.md#vertexattributes)
-- [vertexAttributeMap](GeometryBase.md#vertexattributemap)
-- [geometryType](GeometryBase.md#geometrytype)
-- [bounds](GeometryBase.md#bounds)
+- [indicesBuffer](ExtrudeGeometry.md#indicesbuffer)
+- [vertexBuffer](ExtrudeGeometry.md#vertexbuffer)
+- [vertexAttributes](ExtrudeGeometry.md#vertexattributes)
+- [vertexAttributeMap](ExtrudeGeometry.md#vertexattributemap)
+- [geometryType](ExtrudeGeometry.md#geometrytype)
+- [bounds](ExtrudeGeometry.md#bounds)
 
 ### Methods
 
-- [addSubGeometry](GeometryBase.md#addsubgeometry)
-- [generate](GeometryBase.md#generate)
-- [setIndices](GeometryBase.md#setindices)
-- [setAttribute](GeometryBase.md#setattribute)
-- [getAttribute](GeometryBase.md#getattribute)
-- [hasAttribute](GeometryBase.md#hasattribute)
-- [genWireframe](GeometryBase.md#genwireframe)
-- [compute](GeometryBase.md#compute)
-- [computeNormals](GeometryBase.md#computenormals)
-- [isPrimitive](GeometryBase.md#isprimitive)
-- [destroy](GeometryBase.md#destroy)
+- [build](ExtrudeGeometry.md#build)
+- [addSubGeometry](ExtrudeGeometry.md#addsubgeometry)
+- [generate](ExtrudeGeometry.md#generate)
+- [setIndices](ExtrudeGeometry.md#setindices)
+- [setAttribute](ExtrudeGeometry.md#setattribute)
+- [getAttribute](ExtrudeGeometry.md#getattribute)
+- [hasAttribute](ExtrudeGeometry.md#hasattribute)
+- [genWireframe](ExtrudeGeometry.md#genwireframe)
+- [compute](ExtrudeGeometry.md#compute)
+- [computeNormals](ExtrudeGeometry.md#computenormals)
+- [isPrimitive](ExtrudeGeometry.md#isprimitive)
+- [destroy](ExtrudeGeometry.md#destroy)
 
 ## Constructors
 
 ### constructor
 
-• **new GeometryBase**()
+• **new ExtrudeGeometry**()
+
+#### Inherited from
+
+[GeometryBase](GeometryBase.md).[constructor](GeometryBase.md#constructor)
 
 #### Defined in
 
@@ -65,9 +61,43 @@
 
 ## Properties
 
+### vScale
+
+• **vScale**: `number`
+
+#### Defined in
+
+[src/core/geometry/ExtrudeGeometry.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/ExtrudeGeometry.ts#L21)
+
+___
+
+### uNegate
+
+• **uNegate**: `boolean`
+
+#### Defined in
+
+[src/core/geometry/ExtrudeGeometry.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/ExtrudeGeometry.ts#L22)
+
+___
+
+### sections
+
+• **sections**: `Section`[]
+
+#### Defined in
+
+[src/core/geometry/ExtrudeGeometry.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/ExtrudeGeometry.ts#L23)
+
+___
+
 ### uuid
 
 • **uuid**: `string`
+
+#### Inherited from
+
+[GeometryBase](GeometryBase.md).[uuid](GeometryBase.md#uuid)
 
 #### Defined in
 
@@ -79,6 +109,10 @@ ___
 
 • **name**: `string`
 
+#### Inherited from
+
+[GeometryBase](GeometryBase.md).[name](GeometryBase.md#name)
+
 #### Defined in
 
 [src/core/geometry/GeometryBase.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L35)
@@ -89,6 +123,10 @@ ___
 
 • **subGeometries**: [`SubGeometry`](SubGeometry.md)[] = `[]`
 
+#### Inherited from
+
+[GeometryBase](GeometryBase.md).[subGeometries](GeometryBase.md#subgeometries)
+
 #### Defined in
 
 [src/core/geometry/GeometryBase.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L36)
@@ -98,6 +136,10 @@ ___
 ### morphTargetsRelative
 
 • **morphTargetsRelative**: `boolean`
+
+#### Inherited from
+
+[GeometryBase](GeometryBase.md).[morphTargetsRelative](GeometryBase.md#morphtargetsrelative)
 
 #### Defined in
 
@@ -116,6 +158,10 @@ ___
 | `value` | `string` |
 | `key` | `number` |
 
+#### Inherited from
+
+[GeometryBase](GeometryBase.md).[morphTargetDictionary](GeometryBase.md#morphtargetdictionary)
+
 #### Defined in
 
 [src/core/geometry/GeometryBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L38)
@@ -129,6 +175,10 @@ ___
 #### Returns
 
 [`GeometryIndicesBuffer`](GeometryIndicesBuffer.md)
+
+#### Inherited from
+
+GeometryBase.indicesBuffer
 
 #### Defined in
 
@@ -144,6 +194,10 @@ ___
 
 [`GeometryVertexBuffer`](GeometryVertexBuffer.md)
 
+#### Inherited from
+
+GeometryBase.vertexBuffer
+
 #### Defined in
 
 [src/core/geometry/GeometryBase.ts:60](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L60)
@@ -157,6 +211,10 @@ ___
 #### Returns
 
 `string`[]
+
+#### Inherited from
+
+GeometryBase.vertexAttributes
 
 #### Defined in
 
@@ -172,6 +230,10 @@ ___
 
 `Map`<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
 
+#### Inherited from
+
+GeometryBase.vertexAttributeMap
+
 #### Defined in
 
 [src/core/geometry/GeometryBase.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L68)
@@ -185,6 +247,10 @@ ___
 #### Returns
 
 [`GeometryVertexType`](../enums/GeometryVertexType.md)
+
+#### Inherited from
+
+GeometryBase.geometryType
 
 #### Defined in
 
@@ -202,6 +268,10 @@ ___
 
 `void`
 
+#### Inherited from
+
+GeometryBase.geometryType
+
 #### Defined in
 
 [src/core/geometry/GeometryBase.ts:75](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L75)
@@ -215,6 +285,10 @@ ___
 #### Returns
 
 `BoundingBox`
+
+#### Inherited from
+
+GeometryBase.bounds
 
 #### Defined in
 
@@ -232,11 +306,45 @@ ___
 
 `void`
 
+#### Inherited from
+
+GeometryBase.bounds
+
 #### Defined in
 
 [src/core/geometry/GeometryBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L122)
 
 ## Methods
+
+### build
+
+▸ **build**(`shape`, `isShapeClosed`, `path`, `vScale?`, `uNegate?`): [`ExtrudeGeometry`](ExtrudeGeometry.md)
+
+for the points of start and end:
+Please ensure that you do not actively clone the starting point to the end of the shape array;
+closed: true.
+      if you want them closed, it'll auto clone start point.
+closed: false.
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `shape` | [`Vector3`](Vector3.md)[] | `undefined` |
+| `isShapeClosed` | `boolean` | `undefined` |
+| `path` | [`Vector3`](Vector3.md)[] | `undefined` |
+| `vScale` | `number` | `1.0` |
+| `uNegate` | `boolean` | `true` |
+
+#### Returns
+
+[`ExtrudeGeometry`](ExtrudeGeometry.md)
+
+#### Defined in
+
+[src/core/geometry/ExtrudeGeometry.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/ExtrudeGeometry.ts#L34)
+
+___
 
 ### addSubGeometry
 
@@ -257,6 +365,10 @@ LodLevel
 #### Returns
 
 `void`
+
+#### Inherited from
+
+[GeometryBase](GeometryBase.md).[addSubGeometry](GeometryBase.md#addsubgeometry)
 
 #### Defined in
 
@@ -280,6 +392,10 @@ create geometry by shaderReflection
 
 `void`
 
+#### Inherited from
+
+[GeometryBase](GeometryBase.md).[generate](GeometryBase.md#generate)
+
 #### Defined in
 
 [src/core/geometry/GeometryBase.ts:140](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L140)
@@ -299,6 +415,10 @@ ___
 #### Returns
 
 `void`
+
+#### Inherited from
+
+[GeometryBase](GeometryBase.md).[setIndices](GeometryBase.md#setindices)
 
 #### Defined in
 
@@ -321,6 +441,10 @@ ___
 
 `void`
 
+#### Inherited from
+
+[GeometryBase](GeometryBase.md).[setAttribute](GeometryBase.md#setattribute)
+
 #### Defined in
 
 [src/core/geometry/GeometryBase.ts:158](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L158)
@@ -340,6 +464,10 @@ ___
 #### Returns
 
 [`VertexAttributeData`](../types/VertexAttributeData.md)
+
+#### Inherited from
+
+[GeometryBase](GeometryBase.md).[getAttribute](GeometryBase.md#getattribute)
 
 #### Defined in
 
@@ -361,6 +489,10 @@ ___
 
 `boolean`
 
+#### Inherited from
+
+[GeometryBase](GeometryBase.md).[hasAttribute](GeometryBase.md#hasattribute)
+
 #### Defined in
 
 [src/core/geometry/GeometryBase.ts:175](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L175)
@@ -374,6 +506,10 @@ ___
 #### Returns
 
 [`Vector3`](Vector3.md)[]
+
+#### Inherited from
+
+[GeometryBase](GeometryBase.md).[genWireframe](GeometryBase.md#genwireframe)
 
 #### Defined in
 
@@ -389,6 +525,10 @@ ___
 
 `void`
 
+#### Inherited from
+
+[GeometryBase](GeometryBase.md).[compute](GeometryBase.md#compute)
+
 #### Defined in
 
 [src/core/geometry/GeometryBase.ts:203](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L203)
@@ -397,11 +537,15 @@ ___
 
 ### computeNormals
 
-▸ **computeNormals**(): [`GeometryBase`](GeometryBase.md)
+▸ **computeNormals**(): [`ExtrudeGeometry`](ExtrudeGeometry.md)
 
 #### Returns
 
-[`GeometryBase`](GeometryBase.md)
+[`ExtrudeGeometry`](ExtrudeGeometry.md)
+
+#### Inherited from
+
+[GeometryBase](GeometryBase.md).[computeNormals](GeometryBase.md#computenormals)
 
 #### Defined in
 
@@ -416,6 +560,10 @@ ___
 #### Returns
 
 `boolean`
+
+#### Inherited from
+
+[GeometryBase](GeometryBase.md).[isPrimitive](GeometryBase.md#isprimitive)
 
 #### Defined in
 
@@ -436,6 +584,10 @@ ___
 #### Returns
 
 `void`
+
+#### Inherited from
+
+[GeometryBase](GeometryBase.md).[destroy](GeometryBase.md#destroy)
 
 #### Defined in
 

@@ -54,6 +54,9 @@ material used in rendering GUI
 ### Methods
 
 - [setLimitVertex](GUIMaterial.md#setlimitvertex)
+- [setScissorRect](GUIMaterial.md#setscissorrect)
+- [setScissorEnable](GUIMaterial.md#setscissorenable)
+- [setScissorCorner](GUIMaterial.md#setscissorcorner)
 - [setScreenSize](GUIMaterial.md#setscreensize)
 - [setTextures](GUIMaterial.md#settextures)
 - [setDefine](GUIMaterial.md#setdefine)
@@ -84,7 +87,7 @@ MaterialBase.constructor
 
 #### Defined in
 
-[src/components/gui/core/GUIMaterial.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L17)
+[src/components/gui/core/GUIMaterial.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L21)
 
 ## Properties
 
@@ -216,7 +219,7 @@ MaterialBase.envMap
 
 #### Defined in
 
-[src/components/gui/core/GUIMaterial.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L84)
+[src/components/gui/core/GUIMaterial.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L117)
 
 ___
 
@@ -240,7 +243,7 @@ MaterialBase.shadowMap
 
 #### Defined in
 
-[src/components/gui/core/GUIMaterial.ts:85](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L85)
+[src/components/gui/core/GUIMaterial.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L118)
 
 ___
 
@@ -264,7 +267,7 @@ MaterialBase.baseMap
 
 #### Defined in
 
-[src/components/gui/core/GUIMaterial.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L86)
+[src/components/gui/core/GUIMaterial.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L119)
 
 ___
 
@@ -288,7 +291,7 @@ MaterialBase.normalMap
 
 #### Defined in
 
-[src/components/gui/core/GUIMaterial.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L87)
+[src/components/gui/core/GUIMaterial.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L120)
 
 ___
 
@@ -312,7 +315,7 @@ MaterialBase.emissiveMap
 
 #### Defined in
 
-[src/components/gui/core/GUIMaterial.ts:88](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L88)
+[src/components/gui/core/GUIMaterial.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L121)
 
 ___
 
@@ -336,7 +339,7 @@ MaterialBase.irradianceMap
 
 #### Defined in
 
-[src/components/gui/core/GUIMaterial.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L89)
+[src/components/gui/core/GUIMaterial.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L122)
 
 ___
 
@@ -360,7 +363,7 @@ MaterialBase.irradianceDepthMap
 
 #### Defined in
 
-[src/components/gui/core/GUIMaterial.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L90)
+[src/components/gui/core/GUIMaterial.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L123)
 
 ___
 
@@ -1160,7 +1163,71 @@ Write effective vertex count (vertex index < vertexCount)
 
 #### Defined in
 
-[src/components/gui/core/GUIMaterial.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L45)
+[src/components/gui/core/GUIMaterial.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L51)
+
+___
+
+### setScissorRect
+
+▸ **setScissorRect**(`left`, `bottom`, `right`, `top`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `left` | `number` |
+| `bottom` | `number` |
+| `right` | `number` |
+| `top` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/components/gui/core/GUIMaterial.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L55)
+
+___
+
+### setScissorEnable
+
+▸ **setScissorEnable**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/components/gui/core/GUIMaterial.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L61)
+
+___
+
+### setScissorCorner
+
+▸ **setScissorCorner**(`radius`, `fadeOut`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `radius` | `number` |
+| `fadeOut` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/components/gui/core/GUIMaterial.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L73)
 
 ___
 
@@ -1183,7 +1250,7 @@ Write screen size to the shader
 
 #### Defined in
 
-[src/components/gui/core/GUIMaterial.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L54)
+[src/components/gui/core/GUIMaterial.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L81)
 
 ___
 
@@ -1205,7 +1272,7 @@ Update texture used in GUI
 
 #### Defined in
 
-[src/components/gui/core/GUIMaterial.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L63)
+[src/components/gui/core/GUIMaterial.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L90)
 
 ___
 

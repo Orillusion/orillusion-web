@@ -16,6 +16,9 @@ Global fog effect setting
 | `end` | `number` | If the distance between the object and the camera is set as distance, the fog concentration will be linear interpolation between start and end |
 | `density` | `number` | When the type is exponential square fog, the fog concentration coefficient is added |
 | `ins` | `number` | The effect of setting height on fog (working together with height) |
+| `skyFactor` | `number` | mix fog color with sky color |
+| `skyRoughness` | `number` | use mipmap level |
+| `overrideSkyFactor` | `number` | factor effect the sky |
 | `fogColor` | [`Color`](../classes/Color.md) | fog color |
 
 #### Defined in

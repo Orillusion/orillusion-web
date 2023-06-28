@@ -31,7 +31,6 @@ Quaternions are used to represent rotations.
 - [slerp](Quaternion.md#slerp)
 - [lerp](Quaternion.md#lerp)
 - [fromEulerAngles](Quaternion.md#fromeulerangles)
-- [toEulerAngles](Quaternion.md#toeulerangles)
 - [setFromRotationMatrix](Quaternion.md#setfromrotationmatrix)
 - [getEulerAngles](Quaternion.md#geteulerangles)
 - [normalize](Quaternion.md#normalize)
@@ -375,30 +374,6 @@ Fills the quaternion object with values representing the given euler rotation.
 
 ___
 
-### toEulerAngles
-
-▸ **toEulerAngles**(`target?`): [`Vector3`](Vector3.md)
-
-Fills a target Vector3D object with the Euler angles that form the rotation represented by this quaternion.
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `target` | [`Vector3`](Vector3.md) | `null` | An optional Vector3D object to contain the Euler angles. If not provided, a new object is created. |
-
-#### Returns
-
-[`Vector3`](Vector3.md)
-
-The Vector3D containing the Euler angles.
-
-#### Defined in
-
-[src/math/Quaternion.ts:340](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L340)
-
-___
-
 ### setFromRotationMatrix
 
 ▸ **setFromRotationMatrix**(`m`): [`Quaternion`](Quaternion.md)
@@ -409,7 +384,8 @@ Sets the current quaternion from the rotation matrix
 
 | Name | Type |
 | :------ | :------ |
-| `m` | `any` |
+| `m` | `Object` |
+| `m.rawData` | `Float32Array` |
 
 #### Returns
 
@@ -417,7 +393,7 @@ Sets the current quaternion from the rotation matrix
 
 #### Defined in
 
-[src/math/Quaternion.ts:360](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L360)
+[src/math/Quaternion.ts:340](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L340)
 
 ___
 
@@ -439,7 +415,7 @@ Get the Euler Angle
 
 #### Defined in
 
-[src/math/Quaternion.ts:411](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L411)
+[src/math/Quaternion.ts:391](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L391)
 
 ___
 
@@ -461,7 +437,7 @@ The normalize of the quaternion. Convert this quaternion to a normalize coeffici
 
 #### Defined in
 
-[src/math/Quaternion.ts:450](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L450)
+[src/math/Quaternion.ts:430](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L430)
 
 ___
 
@@ -477,7 +453,7 @@ Returns the value of a quaternion as a string
 
 #### Defined in
 
-[src/math/Quaternion.ts:463](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L463)
+[src/math/Quaternion.ts:443](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L443)
 
 ___
 
@@ -499,7 +475,7 @@ Extracts a quaternion rotation matrix out of a given Matrix3D object.
 
 #### Defined in
 
-[src/math/Quaternion.ts:471](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L471)
+[src/math/Quaternion.ts:451](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L451)
 
 ___
 
@@ -523,7 +499,7 @@ Quaternion Result
 
 #### Defined in
 
-[src/math/Quaternion.ts:484](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L484)
+[src/math/Quaternion.ts:464](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L464)
 
 ___
 
@@ -541,7 +517,7 @@ An exact duplicate of the current Quaternion.
 
 #### Defined in
 
-[src/math/Quaternion.ts:504](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L504)
+[src/math/Quaternion.ts:484](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L484)
 
 ___
 
@@ -566,13 +542,13 @@ A Vector3D object containing the rotated point.
 
 #### Defined in
 
-[src/math/Quaternion.ts:514](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L514)
+[src/math/Quaternion.ts:494](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L494)
 
 ___
 
 ### copyFrom
 
-▸ **copyFrom**(`q`): `void`
+▸ **copyFrom**(`q`): [`Quaternion`](Quaternion.md)
 
 Copies the data from a quaternion into this instance.
 
@@ -584,11 +560,11 @@ Copies the data from a quaternion into this instance.
 
 #### Returns
 
-`void`
+[`Quaternion`](Quaternion.md)
 
 #### Defined in
 
-[src/math/Quaternion.ts:541](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L541)
+[src/math/Quaternion.ts:521](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L521)
 
 ___
 
@@ -613,4 +589,4 @@ op
 
 #### Defined in
 
-[src/math/Quaternion.ts:553](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L553)
+[src/math/Quaternion.ts:534](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L534)

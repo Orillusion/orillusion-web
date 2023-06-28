@@ -23,7 +23,7 @@ deregistration, distribution, and unregister.
 ### Methods
 
 - [dispatchEvent](CEventDispatcher.md#dispatchevent)
-- [dispose](CEventDispatcher.md#dispose)
+- [destroy](CEventDispatcher.md#destroy)
 - [addEventListener](CEventDispatcher.md#addeventlistener)
 - [removeEventListener](CEventDispatcher.md#removeeventlistener)
 - [removeEventListenerAt](CEventDispatcher.md#removeeventlistenerat)
@@ -61,9 +61,9 @@ Dispatch an event to all registered objects with a specific type of listener.
 
 ___
 
-### dispose
+### destroy
 
-▸ **dispose**(): `void`
+▸ **destroy**(): `void`
 
 release all registered event.
 

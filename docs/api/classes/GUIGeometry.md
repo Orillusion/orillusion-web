@@ -407,7 +407,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/core/GUIGeometry.ts:146](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIGeometry.ts#L146)
+[src/components/gui/core/GUIGeometry.ts:144](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIGeometry.ts#L144)
 
 ___
 
