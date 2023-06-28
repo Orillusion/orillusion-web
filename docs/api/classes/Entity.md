@@ -201,7 +201,7 @@ ___
 
 #### Defined in
 
-[src/core/entities/Entity.ts:318](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L318)
+[src/core/entities/Entity.ts:310](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L310)
 
 • `set` **bound**(`value`): `void`
 
@@ -217,7 +217,7 @@ ___
 
 #### Defined in
 
-[src/core/entities/Entity.ts:325](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L325)
+[src/core/entities/Entity.ts:317](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L317)
 
 ## Methods
 
@@ -448,7 +448,7 @@ ___
 
 #### Defined in
 
-[src/core/entities/Entity.ts:331](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L331)
+[src/core/entities/Entity.ts:323](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L323)
 
 ___
 
@@ -468,9 +468,13 @@ release current object
 
 `void`
 
+#### Overrides
+
+[CEventDispatcher](CEventDispatcher.md).[destroy](CEventDispatcher.md#destroy)
+
 #### Defined in
 
-[src/core/entities/Entity.ts:343](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L343)
+[src/core/entities/Entity.ts:334](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L334)
 
 ___
 

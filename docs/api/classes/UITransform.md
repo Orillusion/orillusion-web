@@ -19,7 +19,6 @@ The component for gui, holding information such as size, scaling, position, etc
 - [parent](UITransform.md#parent)
 - [pivotX](UITransform.md#pivotx)
 - [pivotY](UITransform.md#pivoty)
-- [guiMesh](UITransform.md#guimesh)
 - [needUpdateQuads](UITransform.md#needupdatequads)
 
 ### Accessors
@@ -48,6 +47,7 @@ The component for gui, holding information such as size, scaling, position, etc
 - [onBeforeUpdate](UITransform.md#onbeforeupdate)
 - [onCompute](UITransform.md#oncompute)
 - [onGraphic](UITransform.md#ongraphic)
+- [beforeDestroy](UITransform.md#beforedestroy)
 - [destroy](UITransform.md#destroy)
 - [init](UITransform.md#init)
 - [addUIInteractive](UITransform.md#adduiinteractive)
@@ -74,7 +74,7 @@ The component for gui, holding information such as size, scaling, position, etc
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L33)
+[src/components/gui/uiComponents/UITransform.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L31)
 
 ## Properties
 
@@ -100,7 +100,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L17)
+[src/components/gui/uiComponents/UITransform.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L16)
 
 ___
 
@@ -110,7 +110,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L18)
+[src/components/gui/uiComponents/UITransform.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L17)
 
 ___
 
@@ -120,7 +120,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L19)
+[src/components/gui/uiComponents/UITransform.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L18)
 
 ___
 
@@ -130,17 +130,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L20)
-
-___
-
-### guiMesh
-
-• **guiMesh**: [`GUIMesh`](GUIMesh.md)
-
-#### Defined in
-
-[src/components/gui/uiComponents/UITransform.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L26)
+[src/components/gui/uiComponents/UITransform.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L19)
 
 ___
 
@@ -150,7 +140,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:197](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L197)
+[src/components/gui/uiComponents/UITransform.ts:195](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L195)
 
 ## Accessors
 
@@ -226,7 +216,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L29)
+[src/components/gui/uiComponents/UITransform.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L27)
 
 ___
 
@@ -240,7 +230,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L61)
+[src/components/gui/uiComponents/UITransform.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L59)
 
 ___
 
@@ -254,7 +244,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L73)
+[src/components/gui/uiComponents/UITransform.ts:71](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L71)
 
 • `set` **visible**(`value`): `void`
 
@@ -270,7 +260,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L65)
+[src/components/gui/uiComponents/UITransform.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L63)
 
 ___
 
@@ -284,7 +274,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:105](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L105)
+[src/components/gui/uiComponents/UITransform.ts:103](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L103)
 
 ___
 
@@ -298,7 +288,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L109)
+[src/components/gui/uiComponents/UITransform.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L107)
 
 ___
 
@@ -312,7 +302,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:126](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L126)
+[src/components/gui/uiComponents/UITransform.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L124)
 
 • `set` **x**(`value`): `void`
 
@@ -328,7 +318,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:130](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L130)
+[src/components/gui/uiComponents/UITransform.ts:128](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L128)
 
 ___
 
@@ -342,7 +332,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:137](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L137)
+[src/components/gui/uiComponents/UITransform.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L135)
 
 • `set` **y**(`value`): `void`
 
@@ -358,7 +348,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:141](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L141)
+[src/components/gui/uiComponents/UITransform.ts:139](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L139)
 
 ___
 
@@ -372,7 +362,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:155](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L155)
+[src/components/gui/uiComponents/UITransform.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L153)
 
 • `set` **z**(`value`): `void`
 
@@ -388,7 +378,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:159](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L159)
+[src/components/gui/uiComponents/UITransform.ts:157](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L157)
 
 ___
 
@@ -402,7 +392,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:166](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L166)
+[src/components/gui/uiComponents/UITransform.ts:164](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L164)
 
 • `set` **scaleX**(`value`): `void`
 
@@ -418,7 +408,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:170](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L170)
+[src/components/gui/uiComponents/UITransform.ts:168](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L168)
 
 ___
 
@@ -432,7 +422,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:175](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L175)
+[src/components/gui/uiComponents/UITransform.ts:173](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L173)
 
 • `set` **scaleY**(`value`): `void`
 
@@ -448,7 +438,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:179](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L179)
+[src/components/gui/uiComponents/UITransform.ts:177](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L177)
 
 ___
 
@@ -462,7 +452,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:184](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L184)
+[src/components/gui/uiComponents/UITransform.ts:182](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L182)
 
 • `set` **scaleZ**(`value`): `void`
 
@@ -478,7 +468,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:188](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L188)
+[src/components/gui/uiComponents/UITransform.ts:186](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L186)
 
 ___
 
@@ -492,7 +482,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:199](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L199)
+[src/components/gui/uiComponents/UITransform.ts:197](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L197)
 
 • `set` **onChange**(`value`): `void`
 
@@ -508,7 +498,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:205](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L205)
+[src/components/gui/uiComponents/UITransform.ts:203](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L203)
 
 ## Methods
 
@@ -526,7 +516,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L107)
+[src/components/ComponentBase.ts:104](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L104)
 
 ___
 
@@ -544,7 +534,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L108)
+[src/components/ComponentBase.ts:105](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L105)
 
 ___
 
@@ -568,7 +558,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L111)
+[src/components/ComponentBase.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L108)
 
 ___
 
@@ -592,7 +582,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L112)
+[src/components/ComponentBase.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L109)
 
 ___
 
@@ -616,7 +606,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
+[src/components/ComponentBase.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L110)
 
 ___
 
@@ -641,7 +631,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
+[src/components/ComponentBase.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L111)
 
 ___
 
@@ -665,7 +655,31 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L115)
+[src/components/ComponentBase.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L112)
+
+___
+
+### beforeDestroy
+
+▸ `Optional` **beforeDestroy**(`force?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[beforeDestroy](ComponentBase.md#beforedestroy)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
 
 ___
 
@@ -691,7 +705,7 @@ release this component
 
 #### Defined in
 
-[src/components/ComponentBase.ts:190](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L190)
+[src/components/ComponentBase.ts:188](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L188)
 
 ___
 
@@ -715,7 +729,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L39)
+[src/components/gui/uiComponents/UITransform.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L37)
 
 ___
 
@@ -735,7 +749,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L44)
+[src/components/gui/uiComponents/UITransform.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L42)
 
 ___
 
@@ -755,7 +769,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L50)
+[src/components/gui/uiComponents/UITransform.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L48)
 
 ___
 
@@ -780,7 +794,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L99)
+[src/components/gui/uiComponents/UITransform.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L97)
 
 ___
 
@@ -801,7 +815,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L113)
+[src/components/gui/uiComponents/UITransform.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L111)
 
 ___
 
@@ -822,7 +836,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:148](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L148)
+[src/components/gui/uiComponents/UITransform.ts:146](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L146)
 
 ___
 
@@ -840,7 +854,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:220](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L220)
+[src/components/gui/uiComponents/UITransform.ts:218](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L218)
 
 ___
 
@@ -858,7 +872,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:225](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L225)
+[src/components/gui/uiComponents/UITransform.ts:223](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L223)
 
 ___
 
@@ -872,7 +886,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:230](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L230)
+[src/components/gui/uiComponents/UITransform.ts:228](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L228)
 
 ___
 
@@ -898,7 +912,7 @@ clone component data to target object3D
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:241](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L241)
+[src/components/gui/uiComponents/UITransform.ts:239](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L239)
 
 ___
 
@@ -912,7 +926,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:257](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L257)
+[src/components/gui/uiComponents/UITransform.ts:255](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L255)
 
 ___
 
@@ -926,4 +940,4 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UITransform.ts:283](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L283)
+[src/components/gui/uiComponents/UITransform.ts:281](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UITransform.ts#L281)

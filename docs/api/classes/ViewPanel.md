@@ -15,10 +15,12 @@ UI component container for view/screen space
 ### Properties
 
 - [object3D](ViewPanel.md#object3d)
-- [order](ViewPanel.md#order)
 - [needUpdateGeometry](ViewPanel.md#needupdategeometry)
 - [panelOrder](ViewPanel.md#panelorder)
 - [needSortOnCameraZ](ViewPanel.md#needsortoncameraz)
+- [scissorEnable](ViewPanel.md#scissorenable)
+- [scissorCornerRadius](ViewPanel.md#scissorcornerradius)
+- [scissorFadeOutSize](ViewPanel.md#scissorfadeoutsize)
 - [isUIPanel](ViewPanel.md#isuipanel)
 - [isUIShadow](ViewPanel.md#isuishadow)
 - [isShadowless](ViewPanel.md#isshadowless)
@@ -35,7 +37,7 @@ UI component container for view/screen space
 - [sprite](ViewPanel.md#sprite)
 - [color](ViewPanel.md#color)
 - [imageType](ViewPanel.md#imagetype)
-- [guiMesh](ViewPanel.md#guimesh)
+- [quadMaxCount](ViewPanel.md#quadmaxcount)
 - [billboard](ViewPanel.md#billboard)
 - [cullMode](ViewPanel.md#cullmode)
 - [mainQuads](ViewPanel.md#mainquads)
@@ -45,14 +47,15 @@ UI component container for view/screen space
 - [stop](ViewPanel.md#stop)
 - [onEnable](ViewPanel.md#onenable)
 - [onDisable](ViewPanel.md#ondisable)
-- [onUpdate](ViewPanel.md#onupdate)
 - [onLateUpdate](ViewPanel.md#onlateupdate)
 - [onBeforeUpdate](ViewPanel.md#onbeforeupdate)
 - [onCompute](ViewPanel.md#oncompute)
 - [onGraphic](ViewPanel.md#ongraphic)
 - [onParentChange](ViewPanel.md#onparentchange)
+- [beforeDestroy](ViewPanel.md#beforedestroy)
 - [copyComponent](ViewPanel.md#copycomponent)
 - [init](ViewPanel.md#init)
+- [onUpdate](ViewPanel.md#onupdate)
 - [destroy](ViewPanel.md#destroy)
 - [start](ViewPanel.md#start)
 - [setShadowRenderer](ViewPanel.md#setshadowrenderer)
@@ -92,20 +95,6 @@ owner object3D
 
 ___
 
-### order
-
-• **order**: `number`
-
-#### Inherited from
-
-[UIPanel](UIPanel.md).[order](UIPanel.md#order)
-
-#### Defined in
-
-[src/components/gui/uiComponents/UIPanel.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L12)
-
-___
-
 ### needUpdateGeometry
 
 • **needUpdateGeometry**: `boolean` = `true`
@@ -116,7 +105,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIPanel.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L14)
+[src/components/gui/uiComponents/UIPanel.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L21)
 
 ___
 
@@ -130,7 +119,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIPanel.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L15)
+[src/components/gui/uiComponents/UIPanel.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L22)
 
 ___
 
@@ -144,7 +133,49 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIPanel.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L16)
+[src/components/gui/uiComponents/UIPanel.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L23)
+
+___
+
+### scissorEnable
+
+• **scissorEnable**: `boolean` = `false`
+
+#### Inherited from
+
+[UIPanel](UIPanel.md).[scissorEnable](UIPanel.md#scissorenable)
+
+#### Defined in
+
+[src/components/gui/uiComponents/UIPanel.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L27)
+
+___
+
+### scissorCornerRadius
+
+• **scissorCornerRadius**: `number` = `0`
+
+#### Inherited from
+
+[UIPanel](UIPanel.md).[scissorCornerRadius](UIPanel.md#scissorcornerradius)
+
+#### Defined in
+
+[src/components/gui/uiComponents/UIPanel.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L28)
+
+___
+
+### scissorFadeOutSize
+
+• **scissorFadeOutSize**: `number` = `0`
+
+#### Inherited from
+
+[UIPanel](UIPanel.md).[scissorFadeOutSize](UIPanel.md#scissorfadeoutsize)
+
+#### Defined in
+
+[src/components/gui/uiComponents/UIPanel.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L29)
 
 ___
 
@@ -158,7 +189,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIPanel.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L20)
+[src/components/gui/uiComponents/UIPanel.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L37)
 
 ___
 
@@ -460,21 +491,23 @@ UIPanel.imageType
 
 ___
 
-### guiMesh
+### quadMaxCount
 
-• `get` **guiMesh**(): [`GUIMesh`](GUIMesh.md)
+• `get` **quadMaxCount**(): `number`
+
+Return How many Quads can a single GUIGeometry support at most
 
 #### Returns
 
-[`GUIMesh`](GUIMesh.md)
+`number`
 
 #### Inherited from
 
-UIPanel.guiMesh
+UIPanel.quadMaxCount
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIPanel.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L21)
+[src/components/gui/uiComponents/UIPanel.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L78)
 
 ___
 
@@ -492,7 +525,7 @@ UIPanel.billboard
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIPanel.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L62)
+[src/components/gui/uiComponents/UIPanel.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L97)
 
 • `set` **billboard**(`type`): `void`
 
@@ -512,7 +545,7 @@ UIPanel.billboard
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIPanel.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L47)
+[src/components/gui/uiComponents/UIPanel.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L82)
 
 ___
 
@@ -530,7 +563,7 @@ UIPanel.cullMode
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIPanel.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L74)
+[src/components/gui/uiComponents/UIPanel.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L109)
 
 • `set` **cullMode**(`value`): `void`
 
@@ -550,7 +583,7 @@ UIPanel.cullMode
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIPanel.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L66)
+[src/components/gui/uiComponents/UIPanel.ts:101](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L101)
 
 ___
 
@@ -586,7 +619,7 @@ UIPanel.mainQuads
 
 #### Defined in
 
-[src/components/ComponentBase.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L108)
+[src/components/ComponentBase.ts:105](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L105)
 
 ___
 
@@ -610,7 +643,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L109)
+[src/components/ComponentBase.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L106)
 
 ___
 
@@ -634,31 +667,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L110)
-
-___
-
-### onUpdate
-
-▸ `Optional` **onUpdate**(`view?`): `any`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
-
-#### Returns
-
-`any`
-
-#### Inherited from
-
-[UIPanel](UIPanel.md).[onUpdate](UIPanel.md#onupdate)
-
-#### Defined in
-
-[src/components/ComponentBase.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L111)
+[src/components/ComponentBase.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L107)
 
 ___
 
@@ -682,7 +691,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L112)
+[src/components/ComponentBase.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L109)
 
 ___
 
@@ -706,7 +715,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
+[src/components/ComponentBase.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L110)
 
 ___
 
@@ -731,7 +740,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
+[src/components/ComponentBase.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L111)
 
 ___
 
@@ -755,7 +764,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L115)
+[src/components/ComponentBase.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L112)
 
 ___
 
@@ -780,7 +789,31 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L116)
+[src/components/ComponentBase.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
+
+___
+
+### beforeDestroy
+
+▸ `Optional` **beforeDestroy**(`force?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[UIPanel](UIPanel.md).[beforeDestroy](UIPanel.md#beforedestroy)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
 
 ___
 
@@ -804,7 +837,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIPanel.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L30)
+[src/components/gui/uiComponents/UIPanel.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L44)
 
 ___
 
@@ -828,7 +861,31 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIPanel.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L40)
+[src/components/gui/uiComponents/UIPanel.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L58)
+
+___
+
+### onUpdate
+
+▸ **onUpdate**(`view?`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[UIPanel](UIPanel.md).[onUpdate](UIPanel.md#onupdate)
+
+#### Defined in
+
+[src/components/gui/uiComponents/UIPanel.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L113)
 
 ___
 

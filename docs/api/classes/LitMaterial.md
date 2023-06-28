@@ -1992,7 +1992,7 @@ PhysicMaterial.clone
 
 #### Defined in
 
-[src/materials/LitMaterial.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L48)
+[src/materials/LitMaterial.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L50)
 
 ___
 
@@ -2012,7 +2012,7 @@ PhysicMaterial.debug
 
 #### Defined in
 
-[src/materials/LitMaterial.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L82)
+[src/materials/LitMaterial.ts:104](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L104)
 
 ___
 
@@ -2036,7 +2036,7 @@ PhysicMaterial.destroy
 
 #### Defined in
 
-[src/materials/LitMaterial.ts:85](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L85)
+[src/materials/LitMaterial.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L107)
 
 ___
 

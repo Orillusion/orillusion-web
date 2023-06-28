@@ -8,8 +8,6 @@ The base class of most objects provides a series of properties and methods for m
 
   ↳ **`Object3D`**
 
-  ↳↳ [`GUIMesh`](GUIMesh.md)
-
   ↳↳ [`Scene3D`](Scene3D.md)
 
   ↳↳ [`InstancedMesh`](InstancedMesh.md)
@@ -288,7 +286,7 @@ Entity.bound
 
 #### Defined in
 
-[src/core/entities/Entity.ts:318](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L318)
+[src/core/entities/Entity.ts:310](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L310)
 
 • `set` **bound**(`value`): `void`
 
@@ -308,7 +306,7 @@ Entity.bound
 
 #### Defined in
 
-[src/core/entities/Entity.ts:325](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L325)
+[src/core/entities/Entity.ts:317](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L317)
 
 ___
 
@@ -338,7 +336,7 @@ Get the position of an object relative to its parent
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:268](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L268)
+[src/core/entities/Object3D.ts:269](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L269)
 
 • `set` **localPosition**(`value`): `void`
 
@@ -356,7 +354,7 @@ Set the position of an object relative to its parent
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:275](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L275)
+[src/core/entities/Object3D.ts:276](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L276)
 
 ___
 
@@ -372,7 +370,7 @@ Get the rotation attribute of an object relative to its parent
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:282](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L282)
+[src/core/entities/Object3D.ts:283](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L283)
 
 • `set` **localRotation**(`value`): `void`
 
@@ -390,7 +388,7 @@ Set the rotation attribute of an object relative to its parent
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:289](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L289)
+[src/core/entities/Object3D.ts:290](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L290)
 
 ___
 
@@ -406,7 +404,7 @@ Get the scaling attribute of an object relative to its parent
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:296](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L296)
+[src/core/entities/Object3D.ts:297](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L297)
 
 • `set` **localScale**(`value`): `void`
 
@@ -424,7 +422,7 @@ Set the scaling attribute of an object relative to its parent
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:303](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L303)
+[src/core/entities/Object3D.ts:304](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L304)
 
 ___
 
@@ -440,7 +438,7 @@ Get the rotation attribute of an object relative to its parent, which is a quate
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:310](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L310)
+[src/core/entities/Object3D.ts:311](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L311)
 
 • `set` **localQuaternion**(`value`): `void`
 
@@ -458,7 +456,7 @@ Set the rotation attribute of an object relative to its parent, which is a quate
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:317](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L317)
+[src/core/entities/Object3D.ts:318](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L318)
 
 ___
 
@@ -474,7 +472,7 @@ Transform component of object parent
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:332](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L332)
+[src/core/entities/Object3D.ts:333](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L333)
 
 ___
 
@@ -490,7 +488,7 @@ parent object3D
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:340](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L340)
+[src/core/entities/Object3D.ts:341](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L341)
 
 ___
 
@@ -506,7 +504,7 @@ Get the x coordinate relative to the local coordinates of the parent container.
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:356](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L356)
+[src/core/entities/Object3D.ts:357](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L357)
 
 • `set` **x**(`value`): `void`
 
@@ -524,7 +522,7 @@ Set the x coordinate relative to the local coordinates of the parent container.
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:348](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L348)
+[src/core/entities/Object3D.ts:349](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L349)
 
 ___
 
@@ -540,7 +538,7 @@ Get the y coordinate relative to the local coordinates of the parent container.
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:371](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L371)
+[src/core/entities/Object3D.ts:372](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L372)
 
 • `set` **y**(`value`): `void`
 
@@ -558,7 +556,7 @@ Set the y coordinate relative to the local coordinates of the parent container.
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:363](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L363)
+[src/core/entities/Object3D.ts:364](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L364)
 
 ___
 
@@ -574,7 +572,7 @@ Get the z coordinate relative to the local coordinates of the parent container.
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:385](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L385)
+[src/core/entities/Object3D.ts:386](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L386)
 
 • `set` **z**(`value`): `void`
 
@@ -592,7 +590,7 @@ Set the z coordinate relative to the local coordinates of the parent container.
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:378](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L378)
+[src/core/entities/Object3D.ts:379](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L379)
 
 ___
 
@@ -608,7 +606,7 @@ Get the x scale relative to the local coordinates of the parent container.
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:400](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L400)
+[src/core/entities/Object3D.ts:401](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L401)
 
 • `set` **scaleX**(`value`): `void`
 
@@ -626,7 +624,7 @@ Set the x scale relative to the local coordinates of the parent container.
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:392](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L392)
+[src/core/entities/Object3D.ts:393](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L393)
 
 ___
 
@@ -642,7 +640,7 @@ Get the y scale relative to the local coordinates of the parent container.
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:416](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L416)
+[src/core/entities/Object3D.ts:417](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L417)
 
 • `set` **scaleY**(`value`): `void`
 
@@ -660,7 +658,7 @@ Set the y scale relative to the local coordinates of the parent container.
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:408](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L408)
+[src/core/entities/Object3D.ts:409](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L409)
 
 ___
 
@@ -676,7 +674,7 @@ Get the z scale relative to the local coordinates of the parent container.
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:432](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L432)
+[src/core/entities/Object3D.ts:433](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L433)
 
 • `set` **scaleZ**(`value`): `void`
 
@@ -694,7 +692,7 @@ Set the z scale relative to the local coordinates of the parent container.
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:424](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L424)
+[src/core/entities/Object3D.ts:425](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L425)
 
 ___
 
@@ -710,7 +708,7 @@ Get the x rotation relative to the local coordinates of the parent container.
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:448](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L448)
+[src/core/entities/Object3D.ts:449](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L449)
 
 • `set` **rotationX**(`value`): `void`
 
@@ -728,7 +726,7 @@ Set the x rotation relative to the local coordinates of the parent container.
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:440](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L440)
+[src/core/entities/Object3D.ts:441](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L441)
 
 ___
 
@@ -744,7 +742,7 @@ Get the y rotation relative to the local coordinates of the parent container.
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:464](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L464)
+[src/core/entities/Object3D.ts:465](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L465)
 
 • `set` **rotationY**(`value`): `void`
 
@@ -762,7 +760,7 @@ Set the y rotation relative to the local coordinates of the parent container.
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:456](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L456)
+[src/core/entities/Object3D.ts:457](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L457)
 
 ___
 
@@ -778,7 +776,7 @@ Set the z rotation relative to the local coordinates of the parent container.
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:480](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L480)
+[src/core/entities/Object3D.ts:481](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L481)
 
 • `set` **rotationZ**(`value`): `void`
 
@@ -796,7 +794,7 @@ Set the z rotation relative to the local coordinates of the parent container.
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:472](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L472)
+[src/core/entities/Object3D.ts:473](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L473)
 
 ## Methods
 
@@ -1071,7 +1069,7 @@ ___
 
 #### Defined in
 
-[src/core/entities/Entity.ts:331](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L331)
+[src/core/entities/Entity.ts:323](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L323)
 
 ___
 
@@ -1215,7 +1213,7 @@ boolean
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:101](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L101)
+[src/core/entities/Object3D.ts:102](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L102)
 
 ___
 
@@ -1245,7 +1243,7 @@ result component
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L112)
+[src/core/entities/Object3D.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L113)
 
 ___
 
@@ -1277,7 +1275,7 @@ reulst component
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L125)
+[src/core/entities/Object3D.ts:126](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L126)
 
 ___
 
@@ -1308,7 +1306,7 @@ result components
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:145](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L145)
+[src/core/entities/Object3D.ts:146](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L146)
 
 ___
 
@@ -1339,7 +1337,7 @@ Returns all components of the specified type contained in the current object and
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:169](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L169)
+[src/core/entities/Object3D.ts:170](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L170)
 
 ___
 
@@ -1375,7 +1373,7 @@ Object3D
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:194](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L194)
+[src/core/entities/Object3D.ts:195](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L195)
 
 ___
 
@@ -1405,7 +1403,7 @@ ___
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:209](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L209)
+[src/core/entities/Object3D.ts:210](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L210)
 
 ___
 
@@ -1421,7 +1419,7 @@ clone a Object3D
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:236](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L236)
+[src/core/entities/Object3D.ts:237](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L237)
 
 ___
 
@@ -1437,7 +1435,7 @@ Notify transformation attribute updates
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:324](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L324)
+[src/core/entities/Object3D.ts:325](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L325)
 
 ___
 
@@ -1459,7 +1457,7 @@ Recursive child nodes and execute specified function
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:501](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L501)
+[src/core/entities/Object3D.ts:502](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L502)
 
 ___
 
@@ -1485,7 +1483,7 @@ Release self
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:516](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L516)
+[src/core/entities/Object3D.ts:517](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L517)
 
 ___
 

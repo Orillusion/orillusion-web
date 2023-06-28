@@ -25,6 +25,7 @@
 - [onGraphic](IComponent.md#ongraphic)
 - [cloneTo](IComponent.md#cloneto)
 - [destroy](IComponent.md#destroy)
+- [beforeDestroy](IComponent.md#beforedestroy)
 - [onParentChange](IComponent.md#onparentchange)
 
 ## Properties
@@ -298,6 +299,26 @@ ___
 
 ___
 
+### beforeDestroy
+
+▸ `Optional` **beforeDestroy**(`force?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
+
+#### Returns
+
+`any`
+
+#### Defined in
+
+[src/components/IComponent.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/IComponent.ts#L23)
+
+___
+
 ### onParentChange
 
 ▸ `Optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
@@ -315,4 +336,4 @@ ___
 
 #### Defined in
 
-[src/components/IComponent.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/IComponent.ts#L23)
+[src/components/IComponent.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/components/IComponent.ts#L24)
