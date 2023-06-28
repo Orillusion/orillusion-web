@@ -140,6 +140,40 @@ mr.geometry = new PlaneGeometry(100, 100, 1, 1);
 
 <<< @/public/demos/mesh/plane.ts
 
+## Extruded Geometry
+[ExtrudeGeometry](/api/classes/ExtrudeGeometry.md) Creates extruded geometry from a path shape
+
+Example:
+```ts
+import {Object3D, MeshRenderer, ExtrudeGeometry, Vector3} from '@orillusion/core';
+
+let conduitObject3D = new Object3D();
+// Add MeshRenderer component
+let mr = conduitObject3D.addComponent(MeshRenderer);
+// Create a custom shape
+let shape: Vector3[] = [], vertexCount = 8, shapeRadius = 1
+for (let i = 0; i < vertexCount; i++) {
+    let angle = Math.PI * 2 * i / vertexCount;
+    let point = new Vector3(Math.sin(angle), 0, Math.cos(angle)).multiplyScalar(shapeRadius);
+    shape.push(point);
+}
+// Create a custom curve path
+let curve: Vector3[] = [], sectionCount = 60, modelRadius = 4
+for (let i = 0; i < sectionCount; i++) {
+    let angle = Math.PI * 2 * i / 20;
+    modelRadius += 0.1 * i / sectionCount;
+    let offsetY = 0.6 - Math.sqrt(i / sectionCount);
+    let point = new Vector3(Math.sin(angle), offsetY * 6, Math.cos(angle)).multiplyScalar(modelRadius);
+    curve.push(point);
+}
+// Build extruded geometry
+mr.geometry = new ExtrudeGeometry().build(shape, true, curve, 0.2);
+```
+
+<Demo src="/demos/mesh/extrude.ts"></Demo>
+
+<<< @/public/demos/mesh/extrude.ts
+
 ## Custom Geometry
 We can customize the shape of the geometry by updating the vertices of the existing geometry’s [vertexBuffer](/api/classes/GeometryVertexBuffer).
 

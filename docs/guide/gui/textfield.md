@@ -1,10 +1,10 @@
 # UITextField
 
-[UITextField](/api/classes/UITextField.md) component can load font atlas based on `BMFont`, and provide high-performance text rendering capability in the engine.
+[UITextField](/api/classes/UITextField.md) component can load font atlas based on `Bitmap Font`, and provide high-performance text rendering capability in the engine.
 
 ```ts
 import { Engine3D } from '@orillusion/core';
-// Load BMFont font file
+// Load Bitmap Font file
 await Engine3D.res.loadFont('fnt/0.fnt');
 // Activate UICanvas
 let canvas = this.scene.view.enableUICanvas();
@@ -27,8 +27,9 @@ this.text.alignment = TextAnchor.MiddleCenter;
 ```
 
 ## Set Font
-The text component depends on the `BMFont` atlas. You need to load the `fnt` atlas file into the engine first, and then the text can be displayed normally
-> Making `BMFont` font files depends on external third-party tools, users can search by themselves
+The text component depends on the `Bitmap Font` atlas. You need to load the `fnt` atlas file into the engine first, and then the text can be displayed normally
+> Making `Bitmap Font` font files depends on external third-party tools, users can refer to [Hiero](https://libgdx.com/wiki/tools/hiero) or [Distance field fonts
+](https://libgdx.com/wiki/graphics/2d/fonts/distance-field-fonts) for more help
 ```ts
 // Load BMFont font file that supports Microsoft Yahei
 await Engine3D.res.loadFont('path/to/font.fnt');

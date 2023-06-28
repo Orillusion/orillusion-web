@@ -158,7 +158,7 @@ The community also has a lot of professional `IES` preview/conversion software, 
 
 ## Environment Light
 
-Besides the direct light source, the engine can also render basic environment lighting by setting the `Scene3D.evnMap` skybox texture, see [Skybox](/guide/core/scene.html#sky-box) for related settings.
+Besides the direct light source, the engine can also render basic environment lighting by setting the `Scene3D.evnMap` skybox texture, see [Skybox](/guide/core/scene.html) for related settings.
 
 ## Global Illumination
 

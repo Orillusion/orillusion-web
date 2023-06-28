@@ -30,7 +30,7 @@ Engine3D.startRenderView(view);
 scene.removeChild(obj);
 ```
 
-## Atmospheric Sky Box
+## Atmospheric Skybox
 You can use [AtmosphericComponent](/api/classes/AtmosphericComponent.md) component to set the atmospheric sky box of the scene.
 ```ts
 // Add an Atmospheric Skybox, auto generate background and enviroment light
@@ -41,7 +41,7 @@ See the following example for details:
 
 <<< @/public/demos/core/scene.ts
 
-Use the `sunY`, `exposure` properties of the `AtmosphericComponent` component to adjust the change of ambient light.
+Use the `sunX`,`sunY`,`exposure` properties of the `AtmosphericComponent` to adjust the change of ambient light.
 
 ```ts
 let sky = scene3D.addComponent(AtmosphericComponent);
@@ -49,7 +49,23 @@ sky.sunY = 0.54 // The vertical position of the sun, you can adjust the ambient 
 sky.exposure = 1.5; // Adjust the ambient light exposure, default value 1
 ```
 
-## Custom Sky Box
+### Auto Transform
+In addition to manually setting the values of `sunX` and `sunY`, the engine also supports automatic adjustment of the atmospheric ambient light position according to the light angle in the scene.
+
+```ts
+// create a Directional Light
+let lightObj3D = new Object3D();
+lightObj3D.rotationX = 46;
+lightObj3D.rotationY = 62;
+lightObj3D.rotationZ = 0;
+let directLight = lightObj3D.addComponent(DirectLight);
+
+let sky = scene3D.addComponent(AtmosphericComponent);
+// auto change sunX/sunY based on directLight rotation
+sky.relativeTransform = directLight.transform
+```
+
+## Custom Skybox
 If you want to customize the skybox material texture, you can add the `SkyRenderer` component to the `Scene3D` to display the custom background; at the same time, you can set the ambient light through the `envMap` property of the `Scene3D` object.
 
 
@@ -69,7 +85,7 @@ sky.map = colorSky;
 scene.envMap = colorSky;
 ```
 
-### 2. Cross Sky Box
+### 2. Cross Skybox
 You can set skybox by loading [cross texture cube](/guide/graphics/texture#cross-texture-cube):
 ```ts
 // Load an entire cube texture

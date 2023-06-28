@@ -130,10 +130,6 @@ let panel = new Object3D().addComponent(WorldPanel);
 panel.cullMode = GPUCullMode.none; // Both sides are displayed
 panel.cullMode = GPUCullMode.front; // Front culling, back display
 panel.cullMode = GPUCullMode.back; // Default back culling, front display
-
-// Or directly set guiMesh.uiRenderer.material.cullMode
-let material = panel.guiMesh.uiRenderer.material;
-material.cullMode = GPUCullMode.back; // Default back culling
 ```
 
 The following example focuses on the spatial relationship between the panels and the rendering characteristics of `WorldPanel`:
