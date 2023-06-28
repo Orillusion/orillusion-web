@@ -25,6 +25,9 @@ screen space fog
 - [end](GlobalFog.md#end)
 - [ins](GlobalFog.md#ins)
 - [density](GlobalFog.md#density)
+- [skyRoughness](GlobalFog.md#skyroughness)
+- [skyFactor](GlobalFog.md#skyfactor)
+- [overrideSkyFactor](GlobalFog.md#overrideskyfactor)
 
 ### Methods
 
@@ -43,7 +46,7 @@ PostBase.constructor
 
 #### Defined in
 
-[src/gfx/renderJob/post/GlobalFog.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L26)
+[src/gfx/renderJob/post/GlobalFog.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L29)
 
 ## Properties
 
@@ -85,7 +88,7 @@ PostBase.postRenderer
 
 #### Defined in
 
-[src/gfx/renderJob/post/GlobalFog.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L74)
+[src/gfx/renderJob/post/GlobalFog.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L81)
 
 • `set` **fogType**(`v`): `void`
 
@@ -101,7 +104,7 @@ PostBase.postRenderer
 
 #### Defined in
 
-[src/gfx/renderJob/post/GlobalFog.ts:71](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L71)
+[src/gfx/renderJob/post/GlobalFog.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L78)
 
 ___
 
@@ -115,7 +118,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/post/GlobalFog.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L80)
+[src/gfx/renderJob/post/GlobalFog.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L87)
 
 • `set` **height**(`v`): `void`
 
@@ -131,7 +134,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/post/GlobalFog.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L77)
+[src/gfx/renderJob/post/GlobalFog.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L84)
 
 ___
 
@@ -145,7 +148,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/post/GlobalFog.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L86)
+[src/gfx/renderJob/post/GlobalFog.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L93)
 
 • `set` **start**(`v`): `void`
 
@@ -161,7 +164,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/post/GlobalFog.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L83)
+[src/gfx/renderJob/post/GlobalFog.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L90)
 
 ___
 
@@ -175,7 +178,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/post/GlobalFog.ts:92](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L92)
+[src/gfx/renderJob/post/GlobalFog.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L99)
 
 • `set` **end**(`v`): `void`
 
@@ -191,7 +194,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/post/GlobalFog.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L89)
+[src/gfx/renderJob/post/GlobalFog.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L96)
 
 ___
 
@@ -205,7 +208,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/post/GlobalFog.ts:98](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L98)
+[src/gfx/renderJob/post/GlobalFog.ts:105](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L105)
 
 • `set` **ins**(`v`): `void`
 
@@ -221,7 +224,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/post/GlobalFog.ts:95](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L95)
+[src/gfx/renderJob/post/GlobalFog.ts:102](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L102)
 
 ___
 
@@ -235,7 +238,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/post/GlobalFog.ts:104](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L104)
+[src/gfx/renderJob/post/GlobalFog.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L111)
 
 • `set` **density**(`v`): `void`
 
@@ -251,7 +254,97 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/post/GlobalFog.ts:101](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L101)
+[src/gfx/renderJob/post/GlobalFog.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L108)
+
+___
+
+### skyRoughness
+
+• `get` **skyRoughness**(): `number`
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[src/gfx/renderJob/post/GlobalFog.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L117)
+
+• `set` **skyRoughness**(`v`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `v` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/gfx/renderJob/post/GlobalFog.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L114)
+
+___
+
+### skyFactor
+
+• `get` **skyFactor**(): `number`
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[src/gfx/renderJob/post/GlobalFog.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L123)
+
+• `set` **skyFactor**(`v`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `v` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/gfx/renderJob/post/GlobalFog.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L120)
+
+___
+
+### overrideSkyFactor
+
+• `get` **overrideSkyFactor**(): `number`
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[src/gfx/renderJob/post/GlobalFog.ts:130](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L130)
+
+• `set` **overrideSkyFactor**(`v`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `v` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/gfx/renderJob/post/GlobalFog.ts:127](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L127)
 
 ## Methods
 
@@ -265,7 +358,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/post/GlobalFog.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L69)
+[src/gfx/renderJob/post/GlobalFog.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L76)
 
 ___
 

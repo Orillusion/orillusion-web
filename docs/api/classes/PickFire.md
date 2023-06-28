@@ -21,7 +21,7 @@ Management and triggering for picking 3D objects
 ### Methods
 
 - [dispatchEvent](PickFire.md#dispatchevent)
-- [dispose](PickFire.md#dispose)
+- [destroy](PickFire.md#destroy)
 - [addEventListener](PickFire.md#addeventlistener)
 - [removeEventListener](PickFire.md#removeeventlistener)
 - [removeEventListenerAt](PickFire.md#removeeventlistenerat)
@@ -115,9 +115,9 @@ Dispatch an event to all registered objects with a specific type of listener.
 
 ___
 
-### dispose
+### destroy
 
-▸ **dispose**(): `void`
+▸ **destroy**(): `void`
 
 release all registered event.
 
@@ -127,7 +127,7 @@ release all registered event.
 
 #### Inherited from
 
-[CEventDispatcher](CEventDispatcher.md).[dispose](CEventDispatcher.md#dispose)
+[CEventDispatcher](CEventDispatcher.md).[destroy](CEventDispatcher.md#destroy)
 
 #### Defined in
 

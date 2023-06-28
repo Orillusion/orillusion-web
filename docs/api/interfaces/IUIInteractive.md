@@ -99,13 +99,14 @@ ___
 
 ### rayPick
 
-▸ **rayPick**(`ray`, `screenPos`, `screenSize`): `any`
+▸ **rayPick**(`ray`, `panel`, `screenPos`, `screenSize`): `any`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `ray` | [`Ray`](../classes/Ray.md) |
+| `panel` | `any` |
 | `screenPos` | [`Vector2`](../classes/Vector2.md) |
 | `screenSize` | [`Vector2`](../classes/Vector2.md) |
 
