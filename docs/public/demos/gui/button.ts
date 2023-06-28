@@ -26,7 +26,7 @@ class Sample_button {
         // create panel root
         let panelRoot: Object3D = new Object3D()
         let panel: UIPanel = panelRoot.addComponent(WorldPanel)
-        panel.guiMesh.uiRenderer.material.cullMode = GPUCullMode.none
+        panel.cullMode = GPUCullMode.none
         panelRoot.localScale.set(0.1, 0.1, 0.1)
         let canvas = view.enableUICanvas()
         canvas.addChild(panelRoot)
