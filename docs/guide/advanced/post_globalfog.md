@@ -7,14 +7,16 @@ Fog is a very common effect that simulates the hazy feeling caused by a semi-tra
 //Engine initialization
 await Engine3D.init();
 
-//Liner: 0,Exp: 1,Exp2: 2,
-Engine3D.setting.render.postProcessing.globalFog.fogType = 0;
+Engine3D.setting.render.postProcessing.globalFog.fogType = 0; //Liner:0, Exp:1, Exp2:2
 Engine3D.setting.render.postProcessing.globalFog.start = 400;
 Engine3D.setting.render.postProcessing.globalFog.end = 0;
 Engine3D.setting.render.postProcessing.globalFog.height = 100;
 Engine3D.setting.render.postProcessing.globalFog.density = 0.02;
 Engine3D.setting.render.postProcessing.globalFog.ins = 1;
 Engine3D.setting.render.postProcessing.globalFog.fogColor = new Color(84,90,239,255);
+Engine3D.setting.render.postProcessing.globalFog.skyFactor = 0.5;
+Engine3D.setting.render.postProcessing.globalFog.skyRoughness = 0.4;
+Engine3D.setting.render.postProcessing.globalFog.overrideSkyFactor = 0.8;
 
 // Add GlobalFog
 let postProcessing = this.scene.addComponent(PostProcessingComponent);
@@ -31,13 +33,16 @@ Engine3D.startRenderView(view);
 | Parameter | Type | Description |
 | --- | --- | --- |
 | enable | boolean | Enable/Disable|
+| fogColor | Color | The color of the fog |
 | fogType | number | Type of the fog: Linear fog (0), Exponential fog (1), Exponential squared fog (2)|
 | start | number |  The distance of the object to the camera is "distance". The concentration of the fog is linearly interpolated between "start" and "end" |
 | end | number |  The distance of the object to the camera is "distance". The concentration of the fog is linearly interpolated between "start" and "end" |
-| height | number |  The influence of height on the fog|
 | density | number | Density coefficient of the fog for exponential and exponential squared fog |
+| height | number |  The influence of height on the fog|
 | ins | number |The influence of height on the fog (working with "height" parameter) |
-| fogColor | Color | The color of the fog |
+| skyFactor | number | mix fog color with sky color |
+| skyRoughness | number | use mipmap level |
+| overrideSkyFactor | number | factor effect the sky |
 
 <Demo src="/demos/advanced/Sample_fog.ts"></Demo>
 
