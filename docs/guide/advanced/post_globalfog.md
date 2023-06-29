@@ -7,14 +7,16 @@ aside: false
 //初始化引擎
 await Engine3D.init();
 
-//Liner: 0,Exp: 1,Exp2: 2,
-Engine3D.setting.render.postProcessing.globalFog.fogType = 0;
+Engine3D.setting.render.postProcessing.globalFog.fogType = 0; //Liner:0, Exp:1, Exp2:2
 Engine3D.setting.render.postProcessing.globalFog.start = 400;
 Engine3D.setting.render.postProcessing.globalFog.end = 0;
 Engine3D.setting.render.postProcessing.globalFog.height = 100;
 Engine3D.setting.render.postProcessing.globalFog.density = 0.02;
 Engine3D.setting.render.postProcessing.globalFog.ins = 1;
 Engine3D.setting.render.postProcessing.globalFog.fogColor = new Color(84,90,239,255);
+Engine3D.setting.render.postProcessing.globalFog.skyFactor = 0.5;
+Engine3D.setting.render.postProcessing.globalFog.skyRoughness = 0.4;
+Engine3D.setting.render.postProcessing.globalFog.overrideSkyFactor = 0.8;
 
 // 添加 GlobalFog
 let postProcessing = this.scene.addComponent(PostProcessingComponent);
@@ -32,13 +34,16 @@ Engine3D.startRenderView(view);
 | 参数 | 类型 | 描述 |
 | --- | --- | --- |
 | enable | boolean | 开启/关闭。|
-| fogType | number | 雾的类型：线性:Liner 0 ,指数:Exp 1,指数平方: Exp2: 2|
-| start | number |  设定物体距离相机为distance，则在start和end区间内，雾的浓度被线性插值 |
-| end | number |  设定物体距离相机为distance，则在start和end区间内，雾的浓度被线性插值 |
-| height | number |  设置高度对雾的影响 |
-| density | number | 指数/指数平方雾类型下，雾浓度系数加成 |
-| ins | number |设置高度对于雾的影响（与height共同作用） |
 | fogColor | Color | 雾的颜色 |
+| fogType | number | 雾的类型, 线性: 0, 指数: 1, 指数平方: 2 |
+| start | number |  雾的浓度衰减的起始距离，从 start 到 end 根据类型插值减小到0 |
+| end | number |  雾的浓度衰减的结束距离，从 start 到 end 根据类型插值减小0 |
+| density | number | 雾的浓度衰减系数，在指数/指数平方雾类型下，系数会额外加成 |
+| height | number |  雾的高度 |
+| ins | number | 高度影响系数 |
+| skyFactor | number | 雾的颜色和天空颜色混合系数 |
+| skyRoughness | number | 天空采样 mipmap 层级  |
+| overrideSkyFactor | number | 雾覆盖天空系数 |
 
 <Demo src="/demos/advanced/Sample_fog.ts"></Demo>
 
