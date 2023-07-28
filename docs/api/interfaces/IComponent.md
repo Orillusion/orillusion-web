@@ -4,6 +4,7 @@
 
 - [`ComponentBase`](../classes/ComponentBase.md)
 
+
 ### Properties
 
 - [object3D](IComponent.md#object3d)

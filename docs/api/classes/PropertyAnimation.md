@@ -20,6 +20,7 @@ Attribute Animation Component
 
 ### Accessors
 
+- [eventDispatcher](PropertyAnimation.md#eventdispatcher)
 - [transform](PropertyAnimation.md#transform)
 - [enable](PropertyAnimation.md#enable)
 - [speed](PropertyAnimation.md#speed)
@@ -44,6 +45,7 @@ Attribute Animation Component
 - [getClip](PropertyAnimation.md#getclip)
 - [seek](PropertyAnimation.md#seek)
 - [play](PropertyAnimation.md#play)
+- [copyComponent](PropertyAnimation.md#copycomponent)
 - [cloneTo](PropertyAnimation.md#cloneto)
 
 ## Constructors
@@ -102,6 +104,44 @@ is it play auto
 
 ## Accessors
 
+### eventDispatcher
+
+• `get` **eventDispatcher**(): [`CEventDispatcher`](CEventDispatcher.md)
+
+#### Returns
+
+[`CEventDispatcher`](CEventDispatcher.md)
+
+#### Inherited from
+
+ComponentBase.eventDispatcher
+
+#### Defined in
+
+[src/components/ComponentBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L23)
+
+• `set` **eventDispatcher**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | [`CEventDispatcher`](CEventDispatcher.md) |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+ComponentBase.eventDispatcher
+
+#### Defined in
+
+[src/components/ComponentBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L28)
+
+___
+
 ### transform
 
 • `get` **transform**(): [`Transform`](Transform.md)
@@ -118,7 +158,7 @@ ComponentBase.transform
 
 #### Defined in
 
-[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
+[src/components/ComponentBase.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L43)
 
 ___
 
@@ -138,7 +178,7 @@ ComponentBase.enable
 
 #### Defined in
 
-[src/components/ComponentBase.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L59)
+[src/components/ComponentBase.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L64)
 
 • `set` **enable**(`value`): `void`
 
@@ -160,7 +200,7 @@ ComponentBase.enable
 
 #### Defined in
 
-[src/components/ComponentBase.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L45)
+[src/components/ComponentBase.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L50)
 
 ___
 
@@ -176,7 +216,7 @@ get playing speed
 
 #### Defined in
 
-[src/components/anim/curveAnim/PropertyAnimation.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L99)
+[src/components/anim/curveAnim/PropertyAnimation.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L97)
 
 • `set` **speed**(`value`): `void`
 
@@ -194,7 +234,7 @@ set playing speed
 
 #### Defined in
 
-[src/components/anim/curveAnim/PropertyAnimation.ts:92](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L92)
+[src/components/anim/curveAnim/PropertyAnimation.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L90)
 
 ___
 
@@ -210,7 +250,7 @@ get animation clip which is playing now
 
 #### Defined in
 
-[src/components/anim/curveAnim/PropertyAnimation.ts:132](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L132)
+[src/components/anim/curveAnim/PropertyAnimation.ts:134](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L134)
 
 ___
 
@@ -226,7 +266,7 @@ get time of current animator
 
 #### Defined in
 
-[src/components/anim/curveAnim/PropertyAnimation.ts:142](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L142)
+[src/components/anim/curveAnim/PropertyAnimation.ts:141](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L141)
 
 ## Methods
 
@@ -250,7 +290,7 @@ get time of current animator
 
 #### Defined in
 
-[src/components/ComponentBase.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L106)
+[src/components/ComponentBase.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L111)
 
 ___
 
@@ -274,7 +314,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L107)
+[src/components/ComponentBase.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L112)
 
 ___
 
@@ -298,7 +338,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L109)
+[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
 
 ___
 
@@ -322,7 +362,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L110)
+[src/components/ComponentBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L115)
 
 ___
 
@@ -347,7 +387,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L111)
+[src/components/ComponentBase.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L116)
 
 ___
 
@@ -371,7 +411,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L112)
+[src/components/ComponentBase.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L117)
 
 ___
 
@@ -396,7 +436,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
+[src/components/ComponentBase.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L118)
 
 ___
 
@@ -420,7 +460,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
+[src/components/ComponentBase.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L119)
 
 ___
 
@@ -446,7 +486,7 @@ release this component
 
 #### Defined in
 
-[src/components/ComponentBase.ts:188](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L188)
+[src/components/ComponentBase.ts:195](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L195)
 
 ___
 
@@ -490,7 +530,7 @@ append a perperty animation clip
 
 #### Defined in
 
-[src/components/anim/curveAnim/PropertyAnimation.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L66)
+[src/components/anim/curveAnim/PropertyAnimation.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L65)
 
 ___
 
@@ -510,7 +550,7 @@ stop playing
 
 #### Defined in
 
-[src/components/anim/curveAnim/PropertyAnimation.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L106)
+[src/components/anim/curveAnim/PropertyAnimation.ts:104](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L104)
 
 ___
 
@@ -526,21 +566,21 @@ stop or resume playing
 
 #### Defined in
 
-[src/components/anim/curveAnim/PropertyAnimation.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L113)
+[src/components/anim/curveAnim/PropertyAnimation.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L111)
 
 ___
 
 ### getClip
 
-▸ **getClip**(`clip`): `PropertyAnimClip`
+▸ **getClip**(`name`): `PropertyAnimClip`
 
 get animation clip by clip name
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `clip` | `string` | name of PropertyAnimClip |
+| Name | Type |
+| :------ | :------ |
+| `name` | `string` |
 
 #### Returns
 
@@ -548,7 +588,7 @@ get animation clip by clip name
 
 #### Defined in
 
-[src/components/anim/curveAnim/PropertyAnimation.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L122)
+[src/components/anim/curveAnim/PropertyAnimation.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L120)
 
 ___
 
@@ -570,13 +610,13 @@ seek the animation to assign time
 
 #### Defined in
 
-[src/components/anim/curveAnim/PropertyAnimation.ts:150](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L150)
+[src/components/anim/curveAnim/PropertyAnimation.ts:149](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L149)
 
 ___
 
 ### play
 
-▸ **play**(`clip`, `reset?`): `PropertyAnimClip`
+▸ **play**(`name`, `reset?`): `PropertyAnimClip`
 
 play animation by given name
 
@@ -584,7 +624,7 @@ play animation by given name
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `clip` | `string` | `undefined` | animation name |
+| `name` | `string` | `undefined` | animation name |
 | `reset` | `boolean` | `true` | if true, play the animation from time 0 |
 
 #### Returns
@@ -593,7 +633,31 @@ play animation by given name
 
 #### Defined in
 
-[src/components/anim/curveAnim/PropertyAnimation.ts:162](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L162)
+[src/components/anim/curveAnim/PropertyAnimation.ts:159](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L159)
+
+___
+
+### copyComponent
+
+▸ **copyComponent**(`from`): [`PropertyAnimation`](PropertyAnimation.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `from` | [`PropertyAnimation`](PropertyAnimation.md) |
+
+#### Returns
+
+[`PropertyAnimation`](PropertyAnimation.md)
+
+#### Overrides
+
+[ComponentBase](ComponentBase.md).[copyComponent](ComponentBase.md#copycomponent)
+
+#### Defined in
+
+[src/components/anim/curveAnim/PropertyAnimation.ts:178](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L178)
 
 ___
 
@@ -620,4 +684,4 @@ and add them to the target object.
 
 #### Defined in
 
-[src/components/anim/curveAnim/PropertyAnimation.ts:185](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L185)
+[src/components/anim/curveAnim/PropertyAnimation.ts:193](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L193)

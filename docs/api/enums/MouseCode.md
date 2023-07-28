@@ -2,6 +2,7 @@
 
 Mouse Key Code
 
+
 ### Enumeration Members
 
 - [MOUSE\_LEFT](MouseCode.md#mouse_left)

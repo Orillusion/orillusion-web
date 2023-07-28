@@ -43,7 +43,6 @@ Vector 3D
 
 - [getTowPointbyDir](Vector3.md#gettowpointbydir)
 - [pointToLine](Vector3.md#pointtoline)
-- [cross](Vector3.md#cross)
 - [dot](Vector3.md#dot)
 - [getPoints](Vector3.md#getpoints)
 - [getPointNumbers](Vector3.md#getpointnumbers)
@@ -53,13 +52,15 @@ Vector 3D
 - [sub](Vector3.md#sub)
 - [add](Vector3.md#add)
 - [distance](Vector3.md#distance)
+- [squareDistance](Vector3.md#squaredistance)
 - [distanceXZ](Vector3.md#distancexz)
 - [set](Vector3.md#set)
 - [add](Vector3.md#add-1)
+- [subVectors](Vector3.md#subvectors)
+- [distanceToSquared](Vector3.md#distancetosquared)
 - [addXYZW](Vector3.md#addxyzw)
 - [clone](Vector3.md#clone)
 - [copyFrom](Vector3.md#copyfrom)
-- [crossProduct](Vector3.md#crossproduct)
 - [decrementBy](Vector3.md#decrementby)
 - [dotProduct](Vector3.md#dotproduct)
 - [equals](Vector3.md#equals)
@@ -84,7 +85,8 @@ Vector 3D
 - [normalizeToWay2D\_XY](Vector3.md#normalizetoway2d_xy)
 - [toArray](Vector3.md#toarray)
 - [copyToBytes](Vector3.md#copytobytes)
-- [cross](Vector3.md#cross-1)
+- [crossProduct](Vector3.md#crossproduct)
+- [crossVectors](Vector3.md#crossvectors)
 - [multiplyScalar](Vector3.md#multiplyscalar)
 - [setFromArray](Vector3.md#setfromarray)
 - [divideScalar](Vector3.md#dividescalar)
@@ -637,28 +639,6 @@ Distance from a point to a line segment
 
 ___
 
-### cross
-
-▸ `Static` **cross**(`a`, `b`, `target?`): [`Vector3`](Vector3.md)
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `a` | [`Vector3`](Vector3.md) | `undefined` |
-| `b` | [`Vector3`](Vector3.md) | `undefined` |
-| `target` | [`Vector3`](Vector3.md) | `null` |
-
-#### Returns
-
-[`Vector3`](Vector3.md)
-
-#### Defined in
-
-[src/math/Vector3.ts:347](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L347)
-
-___
-
 ### dot
 
 ▸ `Static` **dot**(`a`, `b`): `number`
@@ -678,7 +658,7 @@ Take the dot product of two vectors.
 
 #### Defined in
 
-[src/math/Vector3.ts:362](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L362)
+[src/math/Vector3.ts:353](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L353)
 
 ___
 
@@ -699,7 +679,7 @@ ___
 
 #### Defined in
 
-[src/math/Vector3.ts:366](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L366)
+[src/math/Vector3.ts:357](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L357)
 
 ___
 
@@ -720,7 +700,7 @@ ___
 
 #### Defined in
 
-[src/math/Vector3.ts:375](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L375)
+[src/math/Vector3.ts:366](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L366)
 
 ___
 
@@ -743,7 +723,7 @@ Returns the Angle, in degrees, between the source vector and the target vector.
 
 #### Defined in
 
-[src/math/Vector3.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L389)
+[src/math/Vector3.ts:380](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L380)
 
 ___
 
@@ -763,7 +743,7 @@ ___
 
 #### Defined in
 
-[src/math/Vector3.ts:394](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L394)
+[src/math/Vector3.ts:385](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L385)
 
 ___
 
@@ -784,7 +764,7 @@ ___
 
 #### Defined in
 
-[src/math/Vector3.ts:398](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L398)
+[src/math/Vector3.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L389)
 
 ___
 
@@ -808,7 +788,7 @@ Subtract two vectors
 
 #### Defined in
 
-[src/math/Vector3.ts:408](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L408)
+[src/math/Vector3.ts:399](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L399)
 
 ___
 
@@ -832,7 +812,7 @@ Add two vectors
 
 #### Defined in
 
-[src/math/Vector3.ts:424](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L424)
+[src/math/Vector3.ts:415](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L415)
 
 ___
 
@@ -857,7 +837,32 @@ number The distance between two vectors
 
 #### Defined in
 
-[src/math/Vector3.ts:467](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L467)
+[src/math/Vector3.ts:458](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L458)
+
+___
+
+### squareDistance
+
+▸ `Static` **squareDistance**(`pt1`, `pt2`): `number`
+
+Calculate the square distance between two vectors
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `pt1` | [`Vector3`](Vector3.md) | Vector 1 |
+| `pt2` | [`Vector3`](Vector3.md) | Vector 2 |
+
+#### Returns
+
+`number`
+
+number The square distance between two vectors
+
+#### Defined in
+
+[src/math/Vector3.ts:471](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L471)
 
 ___
 
@@ -882,7 +887,7 @@ number The distance between two vectors
 
 #### Defined in
 
-[src/math/Vector3.ts:480](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L480)
+[src/math/Vector3.ts:483](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L483)
 
 ___
 
@@ -907,7 +912,7 @@ Sets the current vector x, y, z, and w components
 
 #### Defined in
 
-[src/math/Vector3.ts:495](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L495)
+[src/math/Vector3.ts:498](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L498)
 
 ___
 
@@ -932,7 +937,48 @@ result
 
 #### Defined in
 
-[src/math/Vector3.ts:509](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L509)
+[src/math/Vector3.ts:512](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L512)
+
+___
+
+### subVectors
+
+▸ **subVectors**(`a`, `b`): [`Vector3`](Vector3.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `a` | [`Vector3`](Vector3.md) |
+| `b` | [`Vector3`](Vector3.md) |
+
+#### Returns
+
+[`Vector3`](Vector3.md)
+
+#### Defined in
+
+[src/math/Vector3.ts:527](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L527)
+
+___
+
+### distanceToSquared
+
+▸ **distanceToSquared**(`v`): `number`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `v` | [`Vector3`](Vector3.md) |
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[src/math/Vector3.ts:534](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L534)
 
 ___
 
@@ -956,7 +1002,7 @@ ___
 
 #### Defined in
 
-[src/math/Vector3.ts:524](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L524)
+[src/math/Vector3.ts:541](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L541)
 
 ___
 
@@ -972,7 +1018,7 @@ Clone a vector with the same components as the current vector
 
 #### Defined in
 
-[src/math/Vector3.ts:542](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L542)
+[src/math/Vector3.ts:559](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L559)
 
 ___
 
@@ -994,33 +1040,7 @@ The components of the source vector are set to the current vector
 
 #### Defined in
 
-[src/math/Vector3.ts:551](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L551)
-
-___
-
-### crossProduct
-
-▸ **crossProduct**(`a`, `target?`): [`Vector3`](Vector3.md)
-
-You take the cross product of two vectors,
-The cross product is going to be the perpendicular vector between these two vectors
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `a` | [`Vector3`](Vector3.md) | `undefined` | Take the cross product of another vector |
-| `target` | [`Vector3`](Vector3.md) | `null` | - |
-
-#### Returns
-
-[`Vector3`](Vector3.md)
-
-Vector3 returns the cross product vector
-
-#### Defined in
-
-[src/math/Vector3.ts:566](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L566)
+[src/math/Vector3.ts:568](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L568)
 
 ___
 
@@ -1042,7 +1062,7 @@ Subtract two vectors and assign the result to yourself
 
 #### Defined in
 
-[src/math/Vector3.ts:579](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L579)
+[src/math/Vector3.ts:581](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L581)
 
 ___
 
@@ -1066,7 +1086,7 @@ number Returns the Angle relationship between two vectors
 
 #### Defined in
 
-[src/math/Vector3.ts:591](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L591)
+[src/math/Vector3.ts:593](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L593)
 
 ___
 
@@ -1091,7 +1111,7 @@ A value of true if the specified Vector3 object is equal to the current Vector3 
 
 #### Defined in
 
-[src/math/Vector3.ts:613](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L613)
+[src/math/Vector3.ts:615](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L615)
 
 ___
 
@@ -1113,7 +1133,7 @@ The current vector plus is equal to the vector, plus just the x, y, and z compon
 
 #### Defined in
 
-[src/math/Vector3.ts:633](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L633)
+[src/math/Vector3.ts:635](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L635)
 
 ___
 
@@ -1137,7 +1157,7 @@ Vector3 Returns the result of the calculation
 
 #### Defined in
 
-[src/math/Vector3.ts:645](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L645)
+[src/math/Vector3.ts:647](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L647)
 
 ___
 
@@ -1156,7 +1176,7 @@ to -x, -y, and -z.
 
 #### Defined in
 
-[src/math/Vector3.ts:662](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L662)
+[src/math/Vector3.ts:664](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L664)
 
 ___
 
@@ -1179,7 +1199,7 @@ length.
 
 #### Defined in
 
-[src/math/Vector3.ts:677](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L677)
+[src/math/Vector3.ts:679](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L679)
 
 ___
 
@@ -1201,7 +1221,7 @@ Apply the rotation quaternion
 
 #### Defined in
 
-[src/math/Vector3.ts:694](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L694)
+[src/math/Vector3.ts:696](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L696)
 
 ___
 
@@ -1228,7 +1248,7 @@ vector by a negative number reverses its direction.
 
 #### Defined in
 
-[src/math/Vector3.ts:729](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L729)
+[src/math/Vector3.ts:731](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L731)
 
 ___
 
@@ -1250,7 +1270,7 @@ The current vector times the scalar s
 
 #### Defined in
 
-[src/math/Vector3.ts:741](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L741)
+[src/math/Vector3.ts:743](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L743)
 
 ___
 
@@ -1270,7 +1290,7 @@ ___
 
 #### Defined in
 
-[src/math/Vector3.ts:749](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L749)
+[src/math/Vector3.ts:751](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L751)
 
 ___
 
@@ -1291,7 +1311,7 @@ ___
 
 #### Defined in
 
-[src/math/Vector3.ts:756](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L756)
+[src/math/Vector3.ts:758](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L758)
 
 ___
 
@@ -1319,7 +1339,7 @@ Sets the members of Vector3 to the specified values
 
 #### Defined in
 
-[src/math/Vector3.ts:775](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L775)
+[src/math/Vector3.ts:777](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L777)
 
 ___
 
@@ -1341,7 +1361,7 @@ Copy the components of the source vector to this vector
 
 #### Defined in
 
-[src/math/Vector3.ts:787](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L787)
+[src/math/Vector3.ts:789](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L789)
 
 ___
 
@@ -1374,7 +1394,7 @@ A new Vector3 object that is the difference between the
 
 #### Defined in
 
-[src/math/Vector3.ts:808](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L808)
+[src/math/Vector3.ts:810](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L810)
 
 ___
 
@@ -1397,7 +1417,7 @@ Let's multiply that vector times that vector.
 
 #### Defined in
 
-[src/math/Vector3.ts:822](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L822)
+[src/math/Vector3.ts:824](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L824)
 
 ___
 
@@ -1420,7 +1440,7 @@ Let's divide this vector by this vector.
 
 #### Defined in
 
-[src/math/Vector3.ts:845](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L845)
+[src/math/Vector3.ts:847](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L847)
 
 ___
 
@@ -1443,7 +1463,7 @@ Divide that vector by the scalar
 
 #### Defined in
 
-[src/math/Vector3.ts:868](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L868)
+[src/math/Vector3.ts:870](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L870)
 
 ___
 
@@ -1467,7 +1487,7 @@ Computes the linear interpolation between two Vector3, and the result is the cur
 
 #### Defined in
 
-[src/math/Vector3.ts:888](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L888)
+[src/math/Vector3.ts:890](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L890)
 
 ___
 
@@ -1490,7 +1510,7 @@ The x, y, and z components of this vector are rounded upward to the nearest inte
 
 #### Defined in
 
-[src/math/Vector3.ts:910](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L910)
+[src/math/Vector3.ts:912](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L912)
 
 ___
 
@@ -1506,7 +1526,7 @@ Returns the string form of the current vector
 
 #### Defined in
 
-[src/math/Vector3.ts:976](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L976)
+[src/math/Vector3.ts:978](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L978)
 
 ___
 
@@ -1520,7 +1540,7 @@ ___
 
 #### Defined in
 
-[src/math/Vector3.ts:992](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L992)
+[src/math/Vector3.ts:994](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L994)
 
 ___
 
@@ -1534,7 +1554,7 @@ ___
 
 #### Defined in
 
-[src/math/Vector3.ts:1010](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1010)
+[src/math/Vector3.ts:1012](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1012)
 
 ___
 
@@ -1554,15 +1574,15 @@ ___
 
 #### Defined in
 
-[src/math/Vector3.ts:1014](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1014)
+[src/math/Vector3.ts:1016](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1016)
 
 ___
 
-### cross
+### crossProduct
 
-▸ **cross**(`a`, `target?`): [`Vector3`](Vector3.md)
+▸ **crossProduct**(`a`, `target?`): [`Vector3`](Vector3.md)
 
-The cross product of two Vector3s is this cross product of a
+You take the cross product of two vectors,
 The cross product is going to be the perpendicular vector between these two vectors
 
 #### Parameters
@@ -1576,11 +1596,32 @@ The cross product is going to be the perpendicular vector between these two vect
 
 [`Vector3`](Vector3.md)
 
-Vector3 Returns the cross product vector
+Vector3 returns the cross product vector
 
 #### Defined in
 
-[src/math/Vector3.ts:1026](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1026)
+[src/math/Vector3.ts:1028](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1028)
+
+___
+
+### crossVectors
+
+▸ **crossVectors**(`a`, `b`): [`Vector3`](Vector3.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `a` | [`Vector3`](Vector3.md) |
+| `b` | [`Vector3`](Vector3.md) |
+
+#### Returns
+
+[`Vector3`](Vector3.md)
+
+#### Defined in
+
+[src/math/Vector3.ts:1037](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1037)
 
 ___
 
@@ -1600,7 +1641,7 @@ ___
 
 #### Defined in
 
-[src/math/Vector3.ts:1035](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1035)
+[src/math/Vector3.ts:1042](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1042)
 
 ___
 
@@ -1621,7 +1662,7 @@ ___
 
 #### Defined in
 
-[src/math/Vector3.ts:1043](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1043)
+[src/math/Vector3.ts:1050](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1050)
 
 ___
 
@@ -1641,7 +1682,7 @@ ___
 
 #### Defined in
 
-[src/math/Vector3.ts:1049](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1049)
+[src/math/Vector3.ts:1056](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1056)
 
 ___
 
@@ -1662,7 +1703,7 @@ ___
 
 #### Defined in
 
-[src/math/Vector3.ts:1053](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1053)
+[src/math/Vector3.ts:1060](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1060)
 
 ___
 
@@ -1682,4 +1723,4 @@ ___
 
 #### Defined in
 
-[src/math/Vector3.ts:1058](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1058)
+[src/math/Vector3.ts:1065](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1065)

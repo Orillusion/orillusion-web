@@ -41,6 +41,7 @@ material used in rendering GUI
 - [baseColor](GUIMaterial.md#basecolor)
 - [uvTransform\_1](GUIMaterial.md#uvtransform_1)
 - [uvTransform\_2](GUIMaterial.md#uvtransform_2)
+- [topology](GUIMaterial.md#topology)
 - [sort](GUIMaterial.md#sort)
 - [shaderID](GUIMaterial.md#shaderid)
 - [blendMode](GUIMaterial.md#blendmode)
@@ -54,11 +55,13 @@ material used in rendering GUI
 ### Methods
 
 - [setLimitVertex](GUIMaterial.md#setlimitvertex)
+- [setGUISolution](GUIMaterial.md#setguisolution)
 - [setScissorRect](GUIMaterial.md#setscissorrect)
 - [setScissorEnable](GUIMaterial.md#setscissorenable)
 - [setScissorCorner](GUIMaterial.md#setscissorcorner)
 - [setScreenSize](GUIMaterial.md#setscreensize)
 - [setTextures](GUIMaterial.md#settextures)
+- [getBaseColor](GUIMaterial.md#getbasecolor)
 - [setDefine](GUIMaterial.md#setdefine)
 - [hasPass](GUIMaterial.md#haspass)
 - [addPass](GUIMaterial.md#addpass)
@@ -103,7 +106,7 @@ MaterialBase.name
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L23)
+[src/materials/MaterialBase.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L25)
 
 ___
 
@@ -119,7 +122,7 @@ MaterialBase.instanceID
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L29)
+[src/materials/MaterialBase.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L31)
 
 ___
 
@@ -135,7 +138,7 @@ MaterialBase.isPassMaterial
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L34)
+[src/materials/MaterialBase.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L36)
 
 ___
 
@@ -151,7 +154,7 @@ MaterialBase.receiveEnv
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L39)
+[src/materials/MaterialBase.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L41)
 
 ___
 
@@ -219,7 +222,7 @@ MaterialBase.envMap
 
 #### Defined in
 
-[src/components/gui/core/GUIMaterial.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L117)
+[src/components/gui/core/GUIMaterial.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L124)
 
 ___
 
@@ -243,7 +246,7 @@ MaterialBase.shadowMap
 
 #### Defined in
 
-[src/components/gui/core/GUIMaterial.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L118)
+[src/components/gui/core/GUIMaterial.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L125)
 
 ___
 
@@ -267,7 +270,7 @@ MaterialBase.baseMap
 
 #### Defined in
 
-[src/components/gui/core/GUIMaterial.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L119)
+[src/components/gui/core/GUIMaterial.ts:126](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L126)
 
 ___
 
@@ -291,7 +294,7 @@ MaterialBase.normalMap
 
 #### Defined in
 
-[src/components/gui/core/GUIMaterial.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L120)
+[src/components/gui/core/GUIMaterial.ts:127](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L127)
 
 ___
 
@@ -315,7 +318,7 @@ MaterialBase.emissiveMap
 
 #### Defined in
 
-[src/components/gui/core/GUIMaterial.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L121)
+[src/components/gui/core/GUIMaterial.ts:128](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L128)
 
 ___
 
@@ -339,7 +342,7 @@ MaterialBase.irradianceMap
 
 #### Defined in
 
-[src/components/gui/core/GUIMaterial.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L122)
+[src/components/gui/core/GUIMaterial.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L129)
 
 ___
 
@@ -363,7 +366,7 @@ MaterialBase.irradianceDepthMap
 
 #### Defined in
 
-[src/components/gui/core/GUIMaterial.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L123)
+[src/components/gui/core/GUIMaterial.ts:130](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L130)
 
 ___
 
@@ -381,7 +384,7 @@ MaterialBase.shaderState
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L44)
+[src/materials/MaterialBase.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L46)
 
 • `set` **shaderState**(`value`): `void`
 
@@ -401,7 +404,7 @@ MaterialBase.shaderState
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L48)
+[src/materials/MaterialBase.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L50)
 
 ___
 
@@ -419,7 +422,7 @@ MaterialBase.normalMapYFlip
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L53)
+[src/materials/MaterialBase.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L55)
 
 • `set` **normalMapYFlip**(`value`): `void`
 
@@ -439,7 +442,7 @@ MaterialBase.normalMapYFlip
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L57)
+[src/materials/MaterialBase.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L59)
 
 ___
 
@@ -459,7 +462,7 @@ MaterialBase.emissiveColor
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L119)
+[src/materials/MaterialBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L123)
 
 • `set` **emissiveColor**(`value`): `void`
 
@@ -481,7 +484,7 @@ MaterialBase.emissiveColor
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:126](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L126)
+[src/materials/MaterialBase.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L131)
 
 ___
 
@@ -501,7 +504,7 @@ MaterialBase.emissiveIntensity
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:142](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L142)
+[src/materials/MaterialBase.ts:149](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L149)
 
 • `set` **emissiveIntensity**(`value`): `void`
 
@@ -523,7 +526,7 @@ MaterialBase.emissiveIntensity
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:134](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L134)
+[src/materials/MaterialBase.ts:140](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L140)
 
 ___
 
@@ -543,7 +546,7 @@ MaterialBase.envIntensity
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:161](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L161)
+[src/materials/MaterialBase.ts:169](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L169)
 
 • `set` **envIntensity**(`value`): `void`
 
@@ -565,7 +568,7 @@ MaterialBase.envIntensity
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:168](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L168)
+[src/materials/MaterialBase.ts:177](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L177)
 
 ___
 
@@ -585,7 +588,7 @@ MaterialBase.normalScale
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:176](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L176)
+[src/materials/MaterialBase.ts:186](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L186)
 
 • `set` **normalScale**(`value`): `void`
 
@@ -607,7 +610,7 @@ MaterialBase.normalScale
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:183](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L183)
+[src/materials/MaterialBase.ts:193](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L193)
 
 ___
 
@@ -627,7 +630,7 @@ MaterialBase.alphaCutoff
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:191](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L191)
+[src/materials/MaterialBase.ts:201](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L201)
 
 • `set` **alphaCutoff**(`value`): `void`
 
@@ -649,7 +652,7 @@ MaterialBase.alphaCutoff
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L198)
+[src/materials/MaterialBase.ts:209](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L209)
 
 ___
 
@@ -669,7 +672,7 @@ MaterialBase.baseColor
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:244](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L244)
+[src/materials/MaterialBase.ts:260](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L260)
 
 • `set` **baseColor**(`value`): `void`
 
@@ -691,7 +694,7 @@ MaterialBase.baseColor
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:251](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L251)
+[src/materials/MaterialBase.ts:268](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L268)
 
 ___
 
@@ -711,7 +714,7 @@ MaterialBase.uvTransform\_1
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:260](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L260)
+[src/materials/MaterialBase.ts:278](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L278)
 
 • `set` **uvTransform_1**(`value`): `void`
 
@@ -733,7 +736,7 @@ MaterialBase.uvTransform\_1
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:267](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L267)
+[src/materials/MaterialBase.ts:285](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L285)
 
 ___
 
@@ -753,7 +756,7 @@ MaterialBase.uvTransform\_2
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:275](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L275)
+[src/materials/MaterialBase.ts:293](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L293)
 
 • `set` **uvTransform_2**(`value`): `void`
 
@@ -775,7 +778,31 @@ MaterialBase.uvTransform\_2
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:282](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L282)
+[src/materials/MaterialBase.ts:300](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L300)
+
+___
+
+### topology
+
+• `set` **topology**(`topology`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `topology` | `GPUPrimitiveTopology` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+MaterialBase.topology
+
+#### Defined in
+
+[src/materials/MaterialBase.ts:321](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L321)
 
 ___
 
@@ -1163,7 +1190,28 @@ Write effective vertex count (vertex index < vertexCount)
 
 #### Defined in
 
-[src/components/gui/core/GUIMaterial.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L51)
+[src/components/gui/core/GUIMaterial.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L53)
+
+___
+
+### setGUISolution
+
+▸ **setGUISolution**(`value`, `pixelRatio`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | [`Vector2`](Vector2.md) |
+| `pixelRatio` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/components/gui/core/GUIMaterial.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L57)
 
 ___
 
@@ -1186,7 +1234,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/core/GUIMaterial.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L55)
+[src/components/gui/core/GUIMaterial.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L62)
 
 ___
 
@@ -1206,7 +1254,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/core/GUIMaterial.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L61)
+[src/components/gui/core/GUIMaterial.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L68)
 
 ___
 
@@ -1227,7 +1275,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/core/GUIMaterial.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L73)
+[src/components/gui/core/GUIMaterial.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L80)
 
 ___
 
@@ -1235,7 +1283,7 @@ ___
 
 ▸ **setScreenSize**(`width`, `height`): [`GUIMaterial`](GUIMaterial.md)
 
-Write screen size to the shader
+Write screenSize size to the shader
 
 #### Parameters
 
@@ -1250,7 +1298,7 @@ Write screen size to the shader
 
 #### Defined in
 
-[src/components/gui/core/GUIMaterial.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L81)
+[src/components/gui/core/GUIMaterial.ts:88](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L88)
 
 ___
 
@@ -1272,7 +1320,31 @@ Update texture used in GUI
 
 #### Defined in
 
-[src/components/gui/core/GUIMaterial.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L90)
+[src/components/gui/core/GUIMaterial.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIMaterial.ts#L97)
+
+___
+
+### getBaseColor
+
+▸ **getBaseColor**(`ret?`): [`Color`](Color.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `ret?` | [`Color`](Color.md) |
+
+#### Returns
+
+[`Color`](Color.md)
+
+#### Inherited from
+
+MaterialBase.getBaseColor
+
+#### Defined in
+
+[src/materials/MaterialBase.ts:253](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L253)
 
 ___
 
@@ -1303,7 +1375,7 @@ MaterialBase.setDefine
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:309](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L309)
+[src/materials/MaterialBase.ts:333](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L333)
 
 ___
 
@@ -1327,7 +1399,7 @@ MaterialBase.hasPass
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:313](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L313)
+[src/materials/MaterialBase.ts:337](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L337)
 
 ___
 
@@ -1353,7 +1425,7 @@ MaterialBase.addPass
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:317](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L317)
+[src/materials/MaterialBase.ts:341](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L341)
 
 ___
 
@@ -1378,7 +1450,7 @@ MaterialBase.removePass
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:333](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L333)
+[src/materials/MaterialBase.ts:357](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L357)
 
 ___
 
@@ -1404,7 +1476,7 @@ MaterialBase.destroy
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:346](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L346)
+[src/materials/MaterialBase.ts:369](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L369)
 
 ___
 
@@ -1426,7 +1498,7 @@ MaterialBase.clone
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:355](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L355)
+[src/materials/MaterialBase.ts:383](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L383)
 
 ___
 
