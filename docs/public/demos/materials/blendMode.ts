@@ -35,8 +35,8 @@ export class Sample_BlendMode {
         let bloom = postProcessing.addPost(HDRBloomPost)
         bloom.blurX = 4
         bloom.blurY = 4
-        bloom.strength = 5
-        bloom.luminosityThreshold = 0.629
+        bloom.strength = 4
+        bloom.luminosityThreshold = 1
 
         await this.initScene()
     }

@@ -16,6 +16,7 @@ export class Sample_PBRMaterial {
         Engine3D.setting.shadow.updateFrameRate = 1
         Engine3D.setting.shadow.shadowBound = 50
         Engine3D.setting.shadow.shadowBias = 0.0001
+        Engine3D.setting.render.postProcessing.bloom!.luminosityThreshold = 0.8
         Engine3D.setting.render.postProcessing.bloom!.strength = 1.25
 
         this.scene = new Scene3D()
@@ -60,7 +61,8 @@ export class Sample_PBRMaterial {
             let lc = this.lightObj.addComponent(DirectLight)
             lc.lightColor = KelvinUtil.color_temperature_to_rgb(5355)
             lc.castShadow = true
-            lc.intensity = 40
+            lc.intensity = 50
+            lc.indirect = 1.4
             this.scene.addChild(this.lightObj)
         }
 

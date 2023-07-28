@@ -15,6 +15,7 @@ export class Sample_FlightHelmet {
         Engine3D.setting.shadow.updateFrameRate = 1
         Engine3D.setting.shadow.shadowBound = 50
         Engine3D.setting.shadow.shadowBias = 0.0001
+        Engine3D.setting.render.postProcessing.bloom!.luminosityThreshold = 0.1
         Engine3D.setting.render.postProcessing.bloom!.strength = 1.5
 
         this.scene = new Scene3D()
@@ -57,7 +58,7 @@ export class Sample_FlightHelmet {
             let lc = this.lightObj.addComponent(DirectLight)
             lc.lightColor = KelvinUtil.color_temperature_to_rgb(5355)
             lc.castShadow = true
-            lc.intensity = 40
+            lc.intensity = 50
             this.scene.addChild(this.lightObj)
         }
 
