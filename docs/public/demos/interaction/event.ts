@@ -1,4 +1,4 @@
-import { Engine3D, Scene3D, Vector3, Object3D, Camera3D, View3D, AtmosphericComponent, LitMaterial, MeshRenderer, ComponentBase, CEvent, BoxGeometry } from '@orillusion/core'
+import { Engine3D, Scene3D, Vector3, Object3D, Camera3D, View3D, AtmosphericComponent, LitMaterial, MeshRenderer, ComponentBase, CEvent, BoxGeometry, DirectLight } from '@orillusion/core'
 import dat from 'dat.gui'
 
 class UserEventScriptLeft extends ComponentBase {
@@ -43,6 +43,11 @@ camera = cameraObj.addComponent(Camera3D)
 camera.perspective(60, Engine3D.aspect, 1, 5000.0)
 camera.lookAt(new Vector3(0, 5, 15), new Vector3(0, 0, 0))
 scene.addChild(cameraObj)
+
+// add a base light
+let lightObj = new Object3D()
+lightObj.addComponent(DirectLight)
+scene.addChild(lightObj)
 
 boxObj = new Object3D()
 boxObj.addComponent(UserEventScriptLeft)

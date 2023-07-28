@@ -17,11 +17,13 @@ hc.setCamera(0, -15, 10, new Vector3(0, 1, 0))
 // add a dir light
 {
     let ligthObj = new Object3D()
+    ligthObj.rotationY = 135
+    ligthObj.rotationX = 45
     let dl = ligthObj.addComponent(DirectLight)
     dl.lightColor = new Color(1.0, 0.95, 0.84, 1.0)
     scene.addChild(ligthObj)
     dl.castShadow = true
-    dl.intensity = 1.7
+    dl.intensity = 15
 }
 
 // load test model
