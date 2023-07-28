@@ -1,5 +1,6 @@
 # Enumeration: Vertical
 
+
 ### Enumeration Members
 
 - [Upper](Vertical.md#upper)

@@ -49,7 +49,7 @@ Management and triggering for picking 3D objects
 
 #### Defined in
 
-[src/io/PickFire.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L44)
+[src/io/PickFire.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L46)
 
 ## Properties
 
@@ -61,7 +61,7 @@ The ray used to pick 3D objects
 
 #### Defined in
 
-[src/io/PickFire.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L19)
+[src/io/PickFire.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L21)
 
 ___
 
@@ -73,7 +73,7 @@ whether it's touching
 
 #### Defined in
 
-[src/io/PickFire.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L24)
+[src/io/PickFire.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L26)
 
 ___
 
@@ -85,7 +85,7 @@ a map records the association information between meshID(matrix id) and Collider
 
 #### Defined in
 
-[src/io/PickFire.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L41)
+[src/io/PickFire.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L43)
 
 ## Methods
 
@@ -318,7 +318,7 @@ start this manager
 
 #### Defined in
 
-[src/io/PickFire.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L69)
+[src/io/PickFire.ts:71](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L71)
 
 ___
 
@@ -334,4 +334,4 @@ stop this manager
 
 #### Defined in
 
-[src/io/PickFire.ts:85](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L85)
+[src/io/PickFire.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L89)

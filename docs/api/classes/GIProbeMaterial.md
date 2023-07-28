@@ -35,6 +35,7 @@
 - [irradianceMap](GIProbeMaterial.md#irradiancemap)
 - [irradianceDepthMap](GIProbeMaterial.md#irradiancedepthmap)
 - [baseColor](GIProbeMaterial.md#basecolor)
+- [topology](GIProbeMaterial.md#topology)
 - [sort](GIProbeMaterial.md#sort)
 - [shaderID](GIProbeMaterial.md#shaderid)
 - [blendMode](GIProbeMaterial.md#blendmode)
@@ -70,6 +71,7 @@
 ### Methods
 
 - [debug](GIProbeMaterial.md#debug)
+- [getBaseColor](GIProbeMaterial.md#getbasecolor)
 - [setDefine](GIProbeMaterial.md#setdefine)
 - [hasPass](GIProbeMaterial.md#haspass)
 - [addPass](GIProbeMaterial.md#addpass)
@@ -125,7 +127,7 @@ PhysicMaterial.name
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L23)
+[src/materials/MaterialBase.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L25)
 
 ___
 
@@ -141,7 +143,7 @@ PhysicMaterial.instanceID
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L29)
+[src/materials/MaterialBase.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L31)
 
 ___
 
@@ -157,7 +159,7 @@ PhysicMaterial.isPassMaterial
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L34)
+[src/materials/MaterialBase.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L36)
 
 ___
 
@@ -173,7 +175,7 @@ PhysicMaterial.receiveEnv
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L39)
+[src/materials/MaterialBase.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L41)
 
 ___
 
@@ -235,7 +237,7 @@ PhysicMaterial.shaderState
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L44)
+[src/materials/MaterialBase.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L46)
 
 • `set` **shaderState**(`value`): `void`
 
@@ -255,7 +257,7 @@ PhysicMaterial.shaderState
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L48)
+[src/materials/MaterialBase.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L50)
 
 ___
 
@@ -273,7 +275,7 @@ PhysicMaterial.normalMapYFlip
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L53)
+[src/materials/MaterialBase.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L55)
 
 • `set` **normalMapYFlip**(`value`): `void`
 
@@ -293,7 +295,7 @@ PhysicMaterial.normalMapYFlip
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L57)
+[src/materials/MaterialBase.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L59)
 
 ___
 
@@ -319,7 +321,7 @@ PhysicMaterial.shadowMap
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L67)
+[src/materials/MaterialBase.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L69)
 
 ___
 
@@ -345,7 +347,7 @@ PhysicMaterial.envMap
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L74)
+[src/materials/MaterialBase.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L76)
 
 ___
 
@@ -365,7 +367,7 @@ PhysicMaterial.baseMap
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L90)
+[src/materials/MaterialBase.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L93)
 
 • `set` **baseMap**(`texture`): `void`
 
@@ -387,7 +389,7 @@ PhysicMaterial.baseMap
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L81)
+[src/materials/MaterialBase.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L83)
 
 ___
 
@@ -407,7 +409,7 @@ PhysicMaterial.normalMap
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L97)
+[src/materials/MaterialBase.ts:101](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L101)
 
 • `set` **normalMap**(`texture`): `void`
 
@@ -429,7 +431,7 @@ PhysicMaterial.normalMap
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:104](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L104)
+[src/materials/MaterialBase.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L108)
 
 ___
 
@@ -449,7 +451,7 @@ PhysicMaterial.emissiveColor
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L119)
+[src/materials/MaterialBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L123)
 
 • `set` **emissiveColor**(`value`): `void`
 
@@ -471,7 +473,7 @@ PhysicMaterial.emissiveColor
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:126](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L126)
+[src/materials/MaterialBase.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L131)
 
 ___
 
@@ -491,7 +493,7 @@ PhysicMaterial.emissiveIntensity
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:142](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L142)
+[src/materials/MaterialBase.ts:149](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L149)
 
 • `set` **emissiveIntensity**(`value`): `void`
 
@@ -513,7 +515,7 @@ PhysicMaterial.emissiveIntensity
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:134](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L134)
+[src/materials/MaterialBase.ts:140](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L140)
 
 ___
 
@@ -533,7 +535,7 @@ PhysicMaterial.alphaCutoff
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:191](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L191)
+[src/materials/MaterialBase.ts:201](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L201)
 
 • `set` **alphaCutoff**(`value`): `void`
 
@@ -555,7 +557,7 @@ PhysicMaterial.alphaCutoff
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L198)
+[src/materials/MaterialBase.ts:209](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L209)
 
 ___
 
@@ -575,7 +577,7 @@ PhysicMaterial.irradianceMap
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:214](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L214)
+[src/materials/MaterialBase.ts:226](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L226)
 
 • `set` **irradianceMap**(`value`): `void`
 
@@ -597,7 +599,7 @@ PhysicMaterial.irradianceMap
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:221](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L221)
+[src/materials/MaterialBase.ts:233](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L233)
 
 ___
 
@@ -617,7 +619,7 @@ PhysicMaterial.irradianceDepthMap
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:229](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L229)
+[src/materials/MaterialBase.ts:241](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L241)
 
 • `set` **irradianceDepthMap**(`value`): `void`
 
@@ -639,7 +641,7 @@ PhysicMaterial.irradianceDepthMap
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:236](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L236)
+[src/materials/MaterialBase.ts:248](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L248)
 
 ___
 
@@ -659,7 +661,7 @@ PhysicMaterial.baseColor
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:244](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L244)
+[src/materials/MaterialBase.ts:260](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L260)
 
 • `set` **baseColor**(`value`): `void`
 
@@ -681,7 +683,31 @@ PhysicMaterial.baseColor
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:251](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L251)
+[src/materials/MaterialBase.ts:268](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L268)
+
+___
+
+### topology
+
+• `set` **topology**(`topology`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `topology` | `GPUPrimitiveTopology` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+PhysicMaterial.topology
+
+#### Defined in
+
+[src/materials/MaterialBase.ts:321](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L321)
 
 ___
 
@@ -1579,7 +1605,7 @@ PhysicMaterial.aoMap
 
 #### Defined in
 
-[src/materials/PhysicMaterial.ts:208](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L208)
+[src/materials/PhysicMaterial.ts:210](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L210)
 
 • `set` **aoMap**(`value`): `void`
 
@@ -1601,7 +1627,7 @@ PhysicMaterial.aoMap
 
 #### Defined in
 
-[src/materials/PhysicMaterial.ts:197](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L197)
+[src/materials/PhysicMaterial.ts:199](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L199)
 
 ___
 
@@ -1621,7 +1647,7 @@ PhysicMaterial.clearCoatRoughnessMap
 
 #### Defined in
 
-[src/materials/PhysicMaterial.ts:224](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L224)
+[src/materials/PhysicMaterial.ts:228](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L228)
 
 • `set` **clearCoatRoughnessMap**(`value`): `void`
 
@@ -1643,7 +1669,7 @@ PhysicMaterial.clearCoatRoughnessMap
 
 #### Defined in
 
-[src/materials/PhysicMaterial.ts:215](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L215)
+[src/materials/PhysicMaterial.ts:217](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L217)
 
 ___
 
@@ -1663,7 +1689,7 @@ PhysicMaterial.brdfLUT
 
 #### Defined in
 
-[src/materials/PhysicMaterial.ts:231](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L231)
+[src/materials/PhysicMaterial.ts:235](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L235)
 
 • `set` **brdfLUT**(`value`): `void`
 
@@ -1685,7 +1711,7 @@ PhysicMaterial.brdfLUT
 
 #### Defined in
 
-[src/materials/PhysicMaterial.ts:238](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L238)
+[src/materials/PhysicMaterial.ts:242](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L242)
 
 ___
 
@@ -1705,7 +1731,7 @@ PhysicMaterial.emissiveMap
 
 #### Defined in
 
-[src/materials/PhysicMaterial.ts:246](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L246)
+[src/materials/PhysicMaterial.ts:250](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L250)
 
 • `set` **emissiveMap**(`value`): `void`
 
@@ -1727,7 +1753,7 @@ PhysicMaterial.emissiveMap
 
 #### Defined in
 
-[src/materials/PhysicMaterial.ts:253](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L253)
+[src/materials/PhysicMaterial.ts:257](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L257)
 
 ___
 
@@ -1747,7 +1773,7 @@ PhysicMaterial.envIntensity
 
 #### Defined in
 
-[src/materials/PhysicMaterial.ts:267](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L267)
+[src/materials/PhysicMaterial.ts:271](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L271)
 
 • `set` **envIntensity**(`value`): `void`
 
@@ -1769,7 +1795,7 @@ PhysicMaterial.envIntensity
 
 #### Defined in
 
-[src/materials/PhysicMaterial.ts:260](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L260)
+[src/materials/PhysicMaterial.ts:264](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L264)
 
 ___
 
@@ -1789,7 +1815,7 @@ PhysicMaterial.ior
 
 #### Defined in
 
-[src/materials/PhysicMaterial.ts:281](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L281)
+[src/materials/PhysicMaterial.ts:285](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L285)
 
 • `set` **ior**(`value`): `void`
 
@@ -1811,7 +1837,7 @@ PhysicMaterial.ior
 
 #### Defined in
 
-[src/materials/PhysicMaterial.ts:274](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L274)
+[src/materials/PhysicMaterial.ts:278](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L278)
 
 ___
 
@@ -1831,7 +1857,7 @@ PhysicMaterial.clearcoatFactor
 
 #### Defined in
 
-[src/materials/PhysicMaterial.ts:302](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L302)
+[src/materials/PhysicMaterial.ts:307](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L307)
 
 • `set` **clearcoatFactor**(`value`): `void`
 
@@ -1853,7 +1879,7 @@ PhysicMaterial.clearcoatFactor
 
 #### Defined in
 
-[src/materials/PhysicMaterial.ts:295](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L295)
+[src/materials/PhysicMaterial.ts:299](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L299)
 
 ___
 
@@ -1873,7 +1899,7 @@ PhysicMaterial.clearcoatRoughnessFactor
 
 #### Defined in
 
-[src/materials/PhysicMaterial.ts:316](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L316)
+[src/materials/PhysicMaterial.ts:322](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L322)
 
 • `set` **clearcoatRoughnessFactor**(`value`): `void`
 
@@ -1895,7 +1921,7 @@ PhysicMaterial.clearcoatRoughnessFactor
 
 #### Defined in
 
-[src/materials/PhysicMaterial.ts:309](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L309)
+[src/materials/PhysicMaterial.ts:314](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L314)
 
 ___
 
@@ -1915,7 +1941,7 @@ PhysicMaterial.clearcoatWeight
 
 #### Defined in
 
-[src/materials/PhysicMaterial.ts:330](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L330)
+[src/materials/PhysicMaterial.ts:337](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L337)
 
 • `set` **clearcoatWeight**(`value`): `void`
 
@@ -1937,7 +1963,7 @@ PhysicMaterial.clearcoatWeight
 
 #### Defined in
 
-[src/materials/PhysicMaterial.ts:323](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L323)
+[src/materials/PhysicMaterial.ts:329](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L329)
 
 ___
 
@@ -1957,7 +1983,7 @@ PhysicMaterial.clearcoatColor
 
 #### Defined in
 
-[src/materials/PhysicMaterial.ts:344](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L344)
+[src/materials/PhysicMaterial.ts:352](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L352)
 
 • `set` **clearcoatColor**(`value`): `void`
 
@@ -1979,7 +2005,7 @@ PhysicMaterial.clearcoatColor
 
 #### Defined in
 
-[src/materials/PhysicMaterial.ts:337](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L337)
+[src/materials/PhysicMaterial.ts:344](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L344)
 
 ## Methods
 
@@ -1998,6 +2024,30 @@ PhysicMaterial.debug
 #### Defined in
 
 [src/materials/GIProbeMaterial.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/materials/GIProbeMaterial.ts#L50)
+
+___
+
+### getBaseColor
+
+▸ **getBaseColor**(`ret?`): [`Color`](Color.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `ret?` | [`Color`](Color.md) |
+
+#### Returns
+
+[`Color`](Color.md)
+
+#### Inherited from
+
+PhysicMaterial.getBaseColor
+
+#### Defined in
+
+[src/materials/MaterialBase.ts:253](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L253)
 
 ___
 
@@ -2028,7 +2078,7 @@ PhysicMaterial.setDefine
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:309](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L309)
+[src/materials/MaterialBase.ts:333](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L333)
 
 ___
 
@@ -2052,7 +2102,7 @@ PhysicMaterial.hasPass
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:313](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L313)
+[src/materials/MaterialBase.ts:337](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L337)
 
 ___
 
@@ -2078,7 +2128,7 @@ PhysicMaterial.addPass
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:317](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L317)
+[src/materials/MaterialBase.ts:341](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L341)
 
 ___
 
@@ -2103,7 +2153,7 @@ PhysicMaterial.removePass
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:333](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L333)
+[src/materials/MaterialBase.ts:357](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L357)
 
 ___
 
@@ -2125,7 +2175,7 @@ PhysicMaterial.clone
 
 #### Defined in
 
-[src/materials/MaterialBase.ts:355](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L355)
+[src/materials/MaterialBase.ts:383](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialBase.ts#L383)
 
 ___
 
@@ -2188,7 +2238,7 @@ PhysicMaterial.useCleanCoat
 
 #### Defined in
 
-[src/materials/PhysicMaterial.ts:288](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L288)
+[src/materials/PhysicMaterial.ts:292](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L292)
 
 ___
 
@@ -2212,4 +2262,4 @@ PhysicMaterial.destroy
 
 #### Defined in
 
-[src/materials/PhysicMaterial.ts:348](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L348)
+[src/materials/PhysicMaterial.ts:356](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L356)

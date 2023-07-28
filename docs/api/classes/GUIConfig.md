@@ -6,7 +6,8 @@
 
 ### Properties
 
-- [vertexScale](GUIConfig.md#vertexscale)
+- [pixelRatio](GUIConfig.md#pixelratio)
+- [solution](GUIConfig.md#solution)
 - [quadMaxCountForWorld](GUIConfig.md#quadmaxcountforworld)
 - [quadMaxCountForView](GUIConfig.md#quadmaxcountforview)
 - [SortOrderStartWorld](GUIConfig.md#sortorderstartworld)
@@ -21,13 +22,23 @@
 
 ## Properties
 
-### vertexScale
+### pixelRatio
 
-▪ `Static` `Readonly` **vertexScale**: `number` = `1`
+▪ `Static` **pixelRatio**: `number` = `1.0`
 
 #### Defined in
 
-[src/components/gui/GUIConfig.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIConfig.ts#L2)
+[src/components/gui/GUIConfig.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIConfig.ts#L4)
+
+___
+
+### solution
+
+▪ `Static` `Readonly` **solution**: [`Vector2`](Vector2.md)
+
+#### Defined in
+
+[src/components/gui/GUIConfig.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIConfig.ts#L5)
 
 ___
 
@@ -37,7 +48,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/GUIConfig.ts:3](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIConfig.ts#L3)
+[src/components/gui/GUIConfig.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIConfig.ts#L6)
 
 ___
 
@@ -47,7 +58,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/GUIConfig.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIConfig.ts#L4)
+[src/components/gui/GUIConfig.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIConfig.ts#L7)
 
 ___
 
@@ -57,7 +68,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/GUIConfig.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIConfig.ts#L5)
+[src/components/gui/GUIConfig.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIConfig.ts#L8)
 
 ___
 
@@ -67,7 +78,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/GUIConfig.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIConfig.ts#L6)
+[src/components/gui/GUIConfig.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIConfig.ts#L9)
 
 ___
 
@@ -77,4 +88,4 @@ ___
 
 #### Defined in
 
-[src/components/gui/GUIConfig.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIConfig.ts#L7)
+[src/components/gui/GUIConfig.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIConfig.ts#L10)

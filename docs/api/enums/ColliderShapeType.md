@@ -1,5 +1,6 @@
 # Enumeration: ColliderShapeType
 
+
 ### Enumeration Members
 
 - [None](ColliderShapeType.md#none)
@@ -16,7 +17,7 @@
 
 #### Defined in
 
-[src/components/shape/ColliderShape.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L7)
+[src/components/shape/ColliderShape.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L8)
 
 ___
 
@@ -26,7 +27,7 @@ ___
 
 #### Defined in
 
-[src/components/shape/ColliderShape.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L8)
+[src/components/shape/ColliderShape.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L9)
 
 ___
 
@@ -36,7 +37,7 @@ ___
 
 #### Defined in
 
-[src/components/shape/ColliderShape.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L9)
+[src/components/shape/ColliderShape.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L10)
 
 ___
 
@@ -46,7 +47,7 @@ ___
 
 #### Defined in
 
-[src/components/shape/ColliderShape.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L10)
+[src/components/shape/ColliderShape.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L11)
 
 ___
 
@@ -56,4 +57,4 @@ ___
 
 #### Defined in
 
-[src/components/shape/ColliderShape.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L11)
+[src/components/shape/ColliderShape.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L12)

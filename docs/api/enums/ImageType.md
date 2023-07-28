@@ -1,5 +1,6 @@
 # Enumeration: ImageType
 
+
 ### Enumeration Members
 
 - [Simple](ImageType.md#simple)
@@ -15,7 +16,7 @@
 
 #### Defined in
 
-[src/components/gui/GUIConfig.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIConfig.ts#L17)
+[src/components/gui/GUIConfig.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIConfig.ts#L20)
 
 ___
 
@@ -25,7 +26,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/GUIConfig.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIConfig.ts#L18)
+[src/components/gui/GUIConfig.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIConfig.ts#L21)
 
 ___
 
@@ -35,7 +36,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/GUIConfig.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIConfig.ts#L19)
+[src/components/gui/GUIConfig.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIConfig.ts#L22)
 
 ___
 
@@ -45,4 +46,4 @@ ___
 
 #### Defined in
 
-[src/components/gui/GUIConfig.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIConfig.ts#L20)
+[src/components/gui/GUIConfig.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIConfig.ts#L23)
