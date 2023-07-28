@@ -13,6 +13,7 @@
 ### Methods
 
 - [pushBack](PoolNode.md#pushback)
+- [getUseList](PoolNode.md#getuselist)
 - [getOne](PoolNode.md#getone)
 - [hasFree](PoolNode.md#hasfree)
 
@@ -54,15 +55,30 @@
 
 ___
 
+### getUseList
+
+▸ **getUseList**(): `T`[]
+
+#### Returns
+
+`T`[]
+
+#### Defined in
+
+[src/core/pool/ObjectPool.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/core/pool/ObjectPool.ts#L19)
+
+___
+
 ### getOne
 
-▸ **getOne**(`instance`): `T`
+▸ **getOne**(`instance`, `param?`): `T`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `instance` | () => `T` |
+| `instance` | (`arg?`: `any`) => `T` |
+| `param?` | `any` |
 
 #### Returns
 
@@ -70,7 +86,7 @@ ___
 
 #### Defined in
 
-[src/core/pool/ObjectPool.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/core/pool/ObjectPool.ts#L19)
+[src/core/pool/ObjectPool.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/core/pool/ObjectPool.ts#L23)
 
 ___
 
@@ -84,4 +100,4 @@ ___
 
 #### Defined in
 
-[src/core/pool/ObjectPool.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/core/pool/ObjectPool.ts#L34)
+[src/core/pool/ObjectPool.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/core/pool/ObjectPool.ts#L38)

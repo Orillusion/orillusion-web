@@ -19,6 +19,8 @@ extra function of vector3
 - [distance](Vector3Ex.md#distance)
 - [getRandomXYZ](Vector3Ex.md#getrandomxyz)
 - [getRandomV3](Vector3Ex.md#getrandomv3)
+- [sphere](Vector3Ex.md#sphere)
+- [sphereXYZ](Vector3Ex.md#spherexyz)
 
 ## Constructors
 
@@ -298,3 +300,47 @@ random vector
 #### Defined in
 
 [src/util/Vector3Ex.ts:157](https://github.com/Orillusion/orillusion/blob/main/src/util/Vector3Ex.ts#L157)
+
+___
+
+### sphere
+
+▸ `Static` **sphere**(`radius`): [`Vector3`](Vector3.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `radius` | `number` |
+
+#### Returns
+
+[`Vector3`](Vector3.md)
+
+#### Defined in
+
+[src/util/Vector3Ex.ts:161](https://github.com/Orillusion/orillusion/blob/main/src/util/Vector3Ex.ts#L161)
+
+___
+
+### sphereXYZ
+
+▸ `Static` **sphereXYZ**(`radiusMin`, `radiusMax`, `x?`, `y?`, `z?`): [`Vector3`](Vector3.md)
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `radiusMin` | `number` | `undefined` |
+| `radiusMax` | `number` | `undefined` |
+| `x` | `number` | `1` |
+| `y` | `number` | `1` |
+| `z` | `number` | `1` |
+
+#### Returns
+
+[`Vector3`](Vector3.md)
+
+#### Defined in
+
+[src/util/Vector3Ex.ts:169](https://github.com/Orillusion/orillusion/blob/main/src/util/Vector3Ex.ts#L169)

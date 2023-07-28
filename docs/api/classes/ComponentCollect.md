@@ -17,6 +17,8 @@
 - [bindGraphic](ComponentCollect.md#bindgraphic)
 - [unBindGraphic](ComponentCollect.md#unbindgraphic)
 - [appendWaitStart](ComponentCollect.md#appendwaitstart)
+- [bindEnablePick](ComponentCollect.md#bindenablepick)
+- [unBindEnablePick](ComponentCollect.md#unbindenablepick)
 
 ## Constructors
 
@@ -44,7 +46,7 @@
 
 #### Defined in
 
-[src/gfx/renderJob/collect/ComponentCollect.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L51)
+[src/gfx/renderJob/collect/ComponentCollect.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L58)
 
 ___
 
@@ -65,7 +67,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/collect/ComponentCollect.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L61)
+[src/gfx/renderJob/collect/ComponentCollect.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L68)
 
 ___
 
@@ -87,7 +89,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/collect/ComponentCollect.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L69)
+[src/gfx/renderJob/collect/ComponentCollect.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L76)
 
 ___
 
@@ -108,7 +110,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/collect/ComponentCollect.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L79)
+[src/gfx/renderJob/collect/ComponentCollect.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L86)
 
 ___
 
@@ -130,7 +132,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/collect/ComponentCollect.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L87)
+[src/gfx/renderJob/collect/ComponentCollect.ts:94](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L94)
 
 ___
 
@@ -151,7 +153,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/collect/ComponentCollect.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L97)
+[src/gfx/renderJob/collect/ComponentCollect.ts:104](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L104)
 
 ___
 
@@ -173,7 +175,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/collect/ComponentCollect.ts:105](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L105)
+[src/gfx/renderJob/collect/ComponentCollect.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L112)
 
 ___
 
@@ -194,7 +196,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/collect/ComponentCollect.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L115)
+[src/gfx/renderJob/collect/ComponentCollect.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L122)
 
 ___
 
@@ -216,7 +218,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/collect/ComponentCollect.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L123)
+[src/gfx/renderJob/collect/ComponentCollect.ts:130](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L130)
 
 ___
 
@@ -237,7 +239,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/collect/ComponentCollect.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L133)
+[src/gfx/renderJob/collect/ComponentCollect.ts:140](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L140)
 
 ___
 
@@ -258,4 +260,47 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/collect/ComponentCollect.ts:141](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L141)
+[src/gfx/renderJob/collect/ComponentCollect.ts:148](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L148)
+
+___
+
+### bindEnablePick
+
+▸ `Static` **bindEnablePick**(`view`, `component`, `call`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view` | [`View3D`](View3D.md) |
+| `component` | [`ColliderComponent`](ColliderComponent.md) |
+| `call` | `Function` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/gfx/renderJob/collect/ComponentCollect.ts:161](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L161)
+
+___
+
+### unBindEnablePick
+
+▸ `Static` **unBindEnablePick**(`view`, `component`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view` | [`View3D`](View3D.md) |
+| `component` | [`ColliderComponent`](ColliderComponent.md) |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/gfx/renderJob/collect/ComponentCollect.ts:171](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L171)

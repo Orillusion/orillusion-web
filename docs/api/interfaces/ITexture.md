@@ -1,5 +1,6 @@
 # Interface: ITexture
 
+
 ### Methods
 
 - [internalCreateBindingLayoutDesc](ITexture.md#internalcreatebindinglayoutdesc)

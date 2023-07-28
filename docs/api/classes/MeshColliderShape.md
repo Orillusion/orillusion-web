@@ -40,19 +40,19 @@ Mesh collision body
 
 #### Defined in
 
-[src/components/shape/MeshColliderShape.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/MeshColliderShape.ts#L13)
+[src/components/shape/MeshColliderShape.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/MeshColliderShape.ts#L17)
 
 ## Properties
 
 ### mesh
 
-• **mesh**: [`MeshComponent`](MeshComponent.md)
+• **mesh**: [`GeometryBase`](GeometryBase.md)
 
 meshComponent
 
 #### Defined in
 
-[src/components/shape/MeshColliderShape.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/MeshColliderShape.ts#L11)
+[src/components/shape/MeshColliderShape.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/MeshColliderShape.ts#L12)
 
 ## Accessors
 
@@ -70,7 +70,7 @@ ColliderShape.shapeType
 
 #### Defined in
 
-[src/components/shape/ColliderShape.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L30)
+[src/components/shape/ColliderShape.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L36)
 
 ___
 
@@ -90,7 +90,7 @@ ColliderShape.center
 
 #### Defined in
 
-[src/components/shape/ColliderShape.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L49)
+[src/components/shape/ColliderShape.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L55)
 
 • `set` **center**(`value`): `void`
 
@@ -110,7 +110,7 @@ ColliderShape.center
 
 #### Defined in
 
-[src/components/shape/ColliderShape.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L53)
+[src/components/shape/ColliderShape.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L59)
 
 ___
 
@@ -132,7 +132,7 @@ ColliderShape.size
 
 #### Defined in
 
-[src/components/shape/ColliderShape.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L62)
+[src/components/shape/ColliderShape.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L68)
 
 • `set` **size**(`value`): `void`
 
@@ -152,7 +152,7 @@ ColliderShape.size
 
 #### Defined in
 
-[src/components/shape/ColliderShape.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L66)
+[src/components/shape/ColliderShape.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L72)
 
 ___
 
@@ -172,7 +172,7 @@ ColliderShape.halfSize
 
 #### Defined in
 
-[src/components/shape/ColliderShape.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L74)
+[src/components/shape/ColliderShape.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L80)
 
 ## Methods
 
@@ -199,13 +199,13 @@ Set the position and size of collision objects
 
 #### Defined in
 
-[src/components/shape/ColliderShape.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L40)
+[src/components/shape/ColliderShape.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L46)
 
 ___
 
 ### rayPick
 
-▸ **rayPick**(`ray`, `fromMatrix`): `Object`
+▸ **rayPick**(`ray`, `fromMatrix`): [`HitInfo`](../types/HitInfo.md)
 
 Ray pickup.Emit a ray from a designated location to detect objects colliding with the ray.
 
@@ -218,22 +218,16 @@ Ray pickup.Emit a ray from a designated location to detect objects colliding wit
 
 #### Returns
 
-`Object`
+[`HitInfo`](../types/HitInfo.md)
 
 Pick result intersect: whether to collide;
  IntersectPoint: collision point;
  Distance: The distance from the origin of the ray to the collision point.
 
-| Name | Type |
-| :------ | :------ |
-| `intersect` | `boolean` |
-| `intersectPoint?` | [`Vector3`](Vector3.md) |
-| `distance` | `number` |
-
-#### Inherited from
+#### Overrides
 
 [ColliderShape](ColliderShape.md).[rayPick](ColliderShape.md#raypick)
 
 #### Defined in
 
-[src/components/shape/ColliderShape.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L86)
+[src/components/shape/MeshColliderShape.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/MeshColliderShape.ts#L22)

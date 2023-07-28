@@ -305,7 +305,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:310](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L310)
+[src/math/Color.ts:312](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L312)
 
 ___
 
@@ -315,7 +315,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:311](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L311)
+[src/math/Color.ts:313](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L313)
 
 ___
 
@@ -325,7 +325,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:312](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L312)
+[src/math/Color.ts:314](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L314)
 
 ___
 
@@ -335,7 +335,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:314](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L314)
+[src/math/Color.ts:316](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L316)
 
 ___
 
@@ -345,7 +345,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:315](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L315)
+[src/math/Color.ts:317](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L317)
 
 ___
 
@@ -355,7 +355,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:316](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L316)
+[src/math/Color.ts:318](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L318)
 
 ___
 
@@ -365,7 +365,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:317](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L317)
+[src/math/Color.ts:319](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L319)
 
 ___
 
@@ -375,7 +375,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:318](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L318)
+[src/math/Color.ts:320](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L320)
 
 ___
 
@@ -385,7 +385,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:319](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L319)
+[src/math/Color.ts:321](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L321)
 
 ___
 
@@ -395,7 +395,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:320](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L320)
+[src/math/Color.ts:322](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L322)
 
 ___
 
@@ -405,7 +405,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:321](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L321)
+[src/math/Color.ts:323](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L323)
 
 ___
 
@@ -415,7 +415,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:322](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L322)
+[src/math/Color.ts:324](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L324)
 
 ___
 
@@ -425,7 +425,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:323](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L323)
+[src/math/Color.ts:325](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L325)
 
 ___
 
@@ -435,7 +435,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:324](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L324)
+[src/math/Color.ts:326](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L326)
 
 ___
 
@@ -445,7 +445,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:325](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L325)
+[src/math/Color.ts:327](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L327)
 
 ___
 
@@ -455,7 +455,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:326](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L326)
+[src/math/Color.ts:328](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L328)
 
 ___
 
@@ -465,7 +465,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:327](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L327)
+[src/math/Color.ts:329](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L329)
 
 ___
 
@@ -475,7 +475,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:328](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L328)
+[src/math/Color.ts:330](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L330)
 
 ___
 
@@ -485,7 +485,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:329](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L329)
+[src/math/Color.ts:331](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L331)
 
 ___
 
@@ -495,7 +495,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:330](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L330)
+[src/math/Color.ts:332](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L332)
 
 ___
 
@@ -505,7 +505,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:331](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L331)
+[src/math/Color.ts:333](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L333)
 
 ___
 
@@ -515,7 +515,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:332](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L332)
+[src/math/Color.ts:334](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L334)
 
 ___
 
@@ -525,7 +525,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:333](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L333)
+[src/math/Color.ts:335](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L335)
 
 ___
 
@@ -535,7 +535,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:334](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L334)
+[src/math/Color.ts:336](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L336)
 
 ___
 
@@ -545,7 +545,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:335](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L335)
+[src/math/Color.ts:337](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L337)
 
 ___
 
@@ -555,7 +555,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:336](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L336)
+[src/math/Color.ts:338](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L338)
 
 ___
 
@@ -565,7 +565,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:337](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L337)
+[src/math/Color.ts:339](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L339)
 
 ___
 
@@ -575,7 +575,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:338](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L338)
+[src/math/Color.ts:340](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L340)
 
 ___
 
@@ -585,7 +585,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:339](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L339)
+[src/math/Color.ts:341](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L341)
 
 ___
 
@@ -595,7 +595,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:340](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L340)
+[src/math/Color.ts:342](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L342)
 
 ___
 
@@ -605,7 +605,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:341](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L341)
+[src/math/Color.ts:343](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L343)
 
 ___
 
@@ -615,7 +615,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:342](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L342)
+[src/math/Color.ts:344](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L344)
 
 ___
 
@@ -625,7 +625,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:343](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L343)
+[src/math/Color.ts:345](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L345)
 
 ___
 
@@ -635,7 +635,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:344](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L344)
+[src/math/Color.ts:346](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L346)
 
 ___
 
@@ -645,7 +645,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:345](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L345)
+[src/math/Color.ts:347](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L347)
 
 ___
 
@@ -655,7 +655,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:346](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L346)
+[src/math/Color.ts:348](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L348)
 
 ___
 
@@ -665,7 +665,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:347](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L347)
+[src/math/Color.ts:349](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L349)
 
 ___
 
@@ -675,7 +675,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:348](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L348)
+[src/math/Color.ts:350](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L350)
 
 ___
 
@@ -685,7 +685,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:349](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L349)
+[src/math/Color.ts:351](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L351)
 
 ___
 
@@ -695,7 +695,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:350](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L350)
+[src/math/Color.ts:352](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L352)
 
 ___
 
@@ -705,7 +705,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:351](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L351)
+[src/math/Color.ts:353](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L353)
 
 ___
 
@@ -715,7 +715,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:352](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L352)
+[src/math/Color.ts:354](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L354)
 
 ___
 
@@ -725,7 +725,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:353](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L353)
+[src/math/Color.ts:355](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L355)
 
 ___
 
@@ -735,7 +735,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:354](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L354)
+[src/math/Color.ts:356](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L356)
 
 ___
 
@@ -745,7 +745,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:355](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L355)
+[src/math/Color.ts:357](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L357)
 
 ___
 
@@ -755,7 +755,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:356](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L356)
+[src/math/Color.ts:358](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L358)
 
 ___
 
@@ -765,7 +765,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:357](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L357)
+[src/math/Color.ts:359](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L359)
 
 ___
 
@@ -775,7 +775,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:358](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L358)
+[src/math/Color.ts:360](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L360)
 
 ___
 
@@ -785,7 +785,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:359](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L359)
+[src/math/Color.ts:361](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L361)
 
 ___
 
@@ -795,7 +795,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:360](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L360)
+[src/math/Color.ts:362](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L362)
 
 ___
 
@@ -805,7 +805,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:361](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L361)
+[src/math/Color.ts:363](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L363)
 
 ___
 
@@ -815,7 +815,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:362](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L362)
+[src/math/Color.ts:364](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L364)
 
 ___
 
@@ -825,7 +825,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:363](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L363)
+[src/math/Color.ts:365](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L365)
 
 ___
 
@@ -835,7 +835,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:364](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L364)
+[src/math/Color.ts:366](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L366)
 
 ___
 
@@ -845,7 +845,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:365](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L365)
+[src/math/Color.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L367)
 
 ___
 
@@ -855,7 +855,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:366](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L366)
+[src/math/Color.ts:368](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L368)
 
 ___
 
@@ -865,7 +865,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L367)
+[src/math/Color.ts:369](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L369)
 
 ___
 
@@ -875,7 +875,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:368](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L368)
+[src/math/Color.ts:370](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L370)
 
 ___
 
@@ -885,7 +885,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:369](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L369)
+[src/math/Color.ts:371](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L371)
 
 ___
 
@@ -895,7 +895,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:370](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L370)
+[src/math/Color.ts:372](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L372)
 
 ___
 
@@ -905,7 +905,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:372](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L372)
+[src/math/Color.ts:374](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L374)
 
 ___
 
@@ -915,7 +915,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:373](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L373)
+[src/math/Color.ts:375](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L375)
 
 ___
 
@@ -925,7 +925,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:374](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L374)
+[src/math/Color.ts:376](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L376)
 
 ___
 
@@ -935,7 +935,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:375](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L375)
+[src/math/Color.ts:377](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L377)
 
 ___
 
@@ -945,7 +945,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:376](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L376)
+[src/math/Color.ts:378](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L378)
 
 ___
 
@@ -955,7 +955,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:377](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L377)
+[src/math/Color.ts:379](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L379)
 
 ___
 
@@ -965,7 +965,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:378](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L378)
+[src/math/Color.ts:380](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L380)
 
 ___
 
@@ -975,7 +975,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:379](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L379)
+[src/math/Color.ts:381](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L381)
 
 ___
 
@@ -985,7 +985,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:380](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L380)
+[src/math/Color.ts:382](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L382)
 
 ___
 
@@ -995,7 +995,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:381](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L381)
+[src/math/Color.ts:383](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L383)
 
 ___
 
@@ -1005,7 +1005,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:382](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L382)
+[src/math/Color.ts:384](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L384)
 
 ___
 
@@ -1015,7 +1015,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:383](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L383)
+[src/math/Color.ts:385](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L385)
 
 ___
 
@@ -1025,7 +1025,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:384](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L384)
+[src/math/Color.ts:386](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L386)
 
 ___
 
@@ -1035,7 +1035,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:385](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L385)
+[src/math/Color.ts:387](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L387)
 
 ___
 
@@ -1045,7 +1045,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:386](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L386)
+[src/math/Color.ts:388](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L388)
 
 ___
 
@@ -1055,7 +1055,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:387](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L387)
+[src/math/Color.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L389)
 
 ___
 
@@ -1065,7 +1065,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:388](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L388)
+[src/math/Color.ts:390](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L390)
 
 ___
 
@@ -1075,7 +1075,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L389)
+[src/math/Color.ts:391](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L391)
 
 ___
 
@@ -1085,7 +1085,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:390](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L390)
+[src/math/Color.ts:392](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L392)
 
 ___
 
@@ -1095,7 +1095,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:391](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L391)
+[src/math/Color.ts:393](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L393)
 
 ___
 
@@ -1105,7 +1105,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:392](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L392)
+[src/math/Color.ts:394](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L394)
 
 ___
 
@@ -1115,7 +1115,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:393](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L393)
+[src/math/Color.ts:395](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L395)
 
 ___
 
@@ -1125,7 +1125,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:394](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L394)
+[src/math/Color.ts:396](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L396)
 
 ___
 
@@ -1135,7 +1135,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:395](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L395)
+[src/math/Color.ts:397](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L397)
 
 ___
 
@@ -1145,7 +1145,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:396](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L396)
+[src/math/Color.ts:398](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L398)
 
 ___
 
@@ -1155,7 +1155,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:397](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L397)
+[src/math/Color.ts:399](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L399)
 
 ___
 
@@ -1165,7 +1165,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:398](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L398)
+[src/math/Color.ts:400](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L400)
 
 ___
 
@@ -1175,7 +1175,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:399](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L399)
+[src/math/Color.ts:401](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L401)
 
 ___
 
@@ -1185,7 +1185,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:400](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L400)
+[src/math/Color.ts:402](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L402)
 
 ___
 
@@ -1195,7 +1195,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:401](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L401)
+[src/math/Color.ts:403](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L403)
 
 ___
 
@@ -1205,7 +1205,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:402](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L402)
+[src/math/Color.ts:404](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L404)
 
 ___
 
@@ -1215,7 +1215,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:403](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L403)
+[src/math/Color.ts:405](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L405)
 
 ___
 
@@ -1225,7 +1225,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:404](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L404)
+[src/math/Color.ts:406](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L406)
 
 ___
 
@@ -1235,7 +1235,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:405](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L405)
+[src/math/Color.ts:407](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L407)
 
 ___
 
@@ -1245,7 +1245,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:406](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L406)
+[src/math/Color.ts:408](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L408)
 
 ___
 
@@ -1255,7 +1255,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:407](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L407)
+[src/math/Color.ts:409](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L409)
 
 ___
 
@@ -1265,7 +1265,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:408](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L408)
+[src/math/Color.ts:410](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L410)
 
 ___
 
@@ -1275,7 +1275,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:409](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L409)
+[src/math/Color.ts:411](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L411)
 
 ___
 
@@ -1285,7 +1285,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:410](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L410)
+[src/math/Color.ts:412](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L412)
 
 ___
 
@@ -1295,7 +1295,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:411](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L411)
+[src/math/Color.ts:413](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L413)
 
 ___
 
@@ -1305,7 +1305,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:412](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L412)
+[src/math/Color.ts:414](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L414)
 
 ___
 
@@ -1315,7 +1315,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:413](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L413)
+[src/math/Color.ts:415](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L415)
 
 ___
 
@@ -1325,7 +1325,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:414](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L414)
+[src/math/Color.ts:416](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L416)
 
 ___
 
@@ -1335,7 +1335,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:415](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L415)
+[src/math/Color.ts:417](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L417)
 
 ___
 
@@ -1345,7 +1345,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:416](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L416)
+[src/math/Color.ts:418](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L418)
 
 ___
 
@@ -1355,7 +1355,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:417](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L417)
+[src/math/Color.ts:419](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L419)
 
 ___
 
@@ -1365,7 +1365,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:418](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L418)
+[src/math/Color.ts:420](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L420)
 
 ___
 
@@ -1375,7 +1375,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:419](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L419)
+[src/math/Color.ts:421](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L421)
 
 ___
 
@@ -1385,7 +1385,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:420](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L420)
+[src/math/Color.ts:422](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L422)
 
 ___
 
@@ -1395,7 +1395,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:421](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L421)
+[src/math/Color.ts:423](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L423)
 
 ___
 
@@ -1405,7 +1405,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:422](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L422)
+[src/math/Color.ts:424](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L424)
 
 ___
 
@@ -1415,7 +1415,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:423](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L423)
+[src/math/Color.ts:425](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L425)
 
 ___
 
@@ -1425,7 +1425,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:424](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L424)
+[src/math/Color.ts:426](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L426)
 
 ___
 
@@ -1435,7 +1435,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:425](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L425)
+[src/math/Color.ts:427](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L427)
 
 ___
 
@@ -1445,7 +1445,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:426](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L426)
+[src/math/Color.ts:428](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L428)
 
 ___
 
@@ -1455,7 +1455,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:427](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L427)
+[src/math/Color.ts:429](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L429)
 
 ___
 
@@ -1465,7 +1465,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:428](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L428)
+[src/math/Color.ts:430](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L430)
 
 ___
 
@@ -1475,7 +1475,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:429](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L429)
+[src/math/Color.ts:431](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L431)
 
 ___
 
@@ -1485,7 +1485,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:430](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L430)
+[src/math/Color.ts:432](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L432)
 
 ___
 
@@ -1495,7 +1495,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:431](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L431)
+[src/math/Color.ts:433](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L433)
 
 ___
 
@@ -1505,7 +1505,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:432](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L432)
+[src/math/Color.ts:434](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L434)
 
 ___
 
@@ -1515,7 +1515,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:433](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L433)
+[src/math/Color.ts:435](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L435)
 
 ___
 
@@ -1525,7 +1525,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:434](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L434)
+[src/math/Color.ts:436](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L436)
 
 ___
 
@@ -1535,7 +1535,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:435](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L435)
+[src/math/Color.ts:437](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L437)
 
 ___
 
@@ -1545,7 +1545,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:436](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L436)
+[src/math/Color.ts:438](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L438)
 
 ___
 
@@ -1555,7 +1555,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:437](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L437)
+[src/math/Color.ts:439](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L439)
 
 ___
 
@@ -1565,7 +1565,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:438](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L438)
+[src/math/Color.ts:440](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L440)
 
 ___
 
@@ -1575,7 +1575,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:439](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L439)
+[src/math/Color.ts:441](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L441)
 
 ___
 
@@ -1585,7 +1585,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:440](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L440)
+[src/math/Color.ts:442](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L442)
 
 ___
 
@@ -1595,7 +1595,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:441](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L441)
+[src/math/Color.ts:443](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L443)
 
 ___
 
@@ -1605,7 +1605,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:442](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L442)
+[src/math/Color.ts:444](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L444)
 
 ___
 
@@ -1615,7 +1615,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:443](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L443)
+[src/math/Color.ts:445](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L445)
 
 ___
 
@@ -1625,7 +1625,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:444](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L444)
+[src/math/Color.ts:446](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L446)
 
 ___
 
@@ -1635,7 +1635,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:445](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L445)
+[src/math/Color.ts:447](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L447)
 
 ___
 
@@ -1645,7 +1645,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:446](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L446)
+[src/math/Color.ts:448](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L448)
 
 ___
 
@@ -1655,7 +1655,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:447](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L447)
+[src/math/Color.ts:449](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L449)
 
 ___
 
@@ -1665,7 +1665,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:448](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L448)
+[src/math/Color.ts:450](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L450)
 
 ___
 
@@ -1675,7 +1675,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:449](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L449)
+[src/math/Color.ts:451](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L451)
 
 ___
 
@@ -1685,7 +1685,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:450](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L450)
+[src/math/Color.ts:452](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L452)
 
 ___
 
@@ -1695,7 +1695,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:451](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L451)
+[src/math/Color.ts:453](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L453)
 
 ___
 
@@ -1705,7 +1705,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:452](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L452)
+[src/math/Color.ts:454](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L454)
 
 ___
 
@@ -1715,7 +1715,7 @@ ___
 
 #### Defined in
 
-[src/math/Color.ts:453](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L453)
+[src/math/Color.ts:455](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L455)
 
 ## Accessors
 
@@ -1731,7 +1731,7 @@ get rgb to array
 
 #### Defined in
 
-[src/math/Color.ts:224](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L224)
+[src/math/Color.ts:226](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L226)
 
 • `set` **rgb**(`c`): `void`
 
@@ -1749,7 +1749,7 @@ set rgb by array
 
 #### Defined in
 
-[src/math/Color.ts:231](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L231)
+[src/math/Color.ts:233](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L233)
 
 ___
 
@@ -1765,7 +1765,7 @@ get rgba to array
 
 #### Defined in
 
-[src/math/Color.ts:238](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L238)
+[src/math/Color.ts:240](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L240)
 
 • `set` **rgba**(`c`): `void`
 
@@ -1783,7 +1783,7 @@ set rgb by array
 
 #### Defined in
 
-[src/math/Color.ts:245](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L245)
+[src/math/Color.ts:247](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L247)
 
 ## Methods
 
@@ -1827,7 +1827,7 @@ ___
 
 ### hexToRGB
 
-▸ **hexToRGB**(`value`): `void`
+▸ **hexToRGB**(`value`): [`Color`](Color.md)
 
 update this color rgb from hexadecimal no alpha
 
@@ -1839,7 +1839,7 @@ update this color rgb from hexadecimal no alpha
 
 #### Returns
 
-`void`
+[`Color`](Color.md)
 
 #### Defined in
 
@@ -1849,7 +1849,7 @@ ___
 
 ### hexToRGBA
 
-▸ **hexToRGBA**(`value`): `void`
+▸ **hexToRGBA**(`value`): [`Color`](Color.md)
 
 update this color rgb from hexadecimal has alpha
 
@@ -1861,11 +1861,11 @@ update this color rgb from hexadecimal has alpha
 
 #### Returns
 
-`void`
+[`Color`](Color.md)
 
 #### Defined in
 
-[src/math/Color.ts:134](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L134)
+[src/math/Color.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L135)
 
 ___
 
@@ -1887,7 +1887,7 @@ random on color
 
 #### Defined in
 
-[src/math/Color.ts:145](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L145)
+[src/math/Color.ts:147](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L147)
 
 ___
 
@@ -1912,7 +1912,7 @@ set rgba to this color
 
 #### Defined in
 
-[src/math/Color.ts:161](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L161)
+[src/math/Color.ts:163](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L163)
 
 ___
 
@@ -1934,7 +1934,7 @@ update this color rgba from hexadecimal
 
 #### Defined in
 
-[src/math/Color.ts:172](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L172)
+[src/math/Color.ts:174](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L174)
 
 ___
 
@@ -1950,7 +1950,7 @@ convert this color to hex string code
 
 #### Defined in
 
-[src/math/Color.ts:208](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L208)
+[src/math/Color.ts:210](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L210)
 
 ___
 
@@ -1966,7 +1966,7 @@ clone this color
 
 #### Defined in
 
-[src/math/Color.ts:253](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L253)
+[src/math/Color.ts:255](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L255)
 
 ___
 
@@ -1988,7 +1988,7 @@ copy color from source color
 
 #### Defined in
 
-[src/math/Color.ts:261](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L261)
+[src/math/Color.ts:263](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L263)
 
 ___
 
@@ -2011,7 +2011,7 @@ copy color from array
 
 #### Defined in
 
-[src/math/Color.ts:275](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L275)
+[src/math/Color.ts:277](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L277)
 
 ___
 
@@ -2037,7 +2037,7 @@ copy color from vector3 or vector4
 
 #### Defined in
 
-[src/math/Color.ts:289](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L289)
+[src/math/Color.ts:291](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L291)
 
 ___
 
@@ -2060,4 +2060,4 @@ update this color rgb from hexadecimal no alpha
 
 #### Defined in
 
-[src/math/Color.ts:302](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L302)
+[src/math/Color.ts:304](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L304)

@@ -21,10 +21,10 @@
 
 - [SkeletonAnimation\_shader](classes/SkeletonAnimation_shader.md)
 - [ColorLitShader](classes/ColorLitShader.md)
-- [Lambert\_shader](classes/Lambert_shader.md)
 - [Bloom\_shader](classes/Bloom_shader.md)
 - [CubeSky\_Shader](classes/CubeSky_Shader.md)
 - [BillboardComponent](classes/BillboardComponent.md)
+- [PropertyAnimTag](classes/PropertyAnimTag.md)
 - [MorphTargetBlender](classes/MorphTargetBlender.md)
 - [MorphTargetData](classes/MorphTargetData.md)
 - [MorphTargetFrame](classes/MorphTargetFrame.md)
@@ -55,6 +55,7 @@
 - [ShaderUtil](classes/ShaderUtil.md)
 - [GPUContext](classes/GPUContext.md)
 - [ComponentCollect](classes/ComponentCollect.md)
+- [RenderShaderCollect](classes/RenderShaderCollect.md)
 - [RTResourceConfig](classes/RTResourceConfig.md)
 - [GBufferFrame](classes/GBufferFrame.md)
 - [ProbeGBufferFrame](classes/ProbeGBufferFrame.md)
@@ -112,17 +113,20 @@
 - [IComponent](interfaces/IComponent.md)
 - [IUIInteractive](interfaces/IUIInteractive.md)
 - [ILight](interfaces/ILight.md)
+- [IObject3DForPropertyAnim](interfaces/IObject3DForPropertyAnim.md)
 - [ITexture](interfaces/ITexture.md)
 
 ## Type Aliases
 
 - [MorphTargetMapper](types/MorphTargetMapper.md)
 - [MorphTargetStandardKey](types/MorphTargetStandardKey.md)
+- [HitInfo](types/HitInfo.md)
 - [LodLevel](types/LodLevel.md)
 - [VertexAttributeData](types/VertexAttributeData.md)
 - [ArrayBufferData](types/ArrayBufferData.md)
 - [VertexPart](types/VertexPart.md)
 - [FragmentPart](types/FragmentPart.md)
+- [RenderShaderList](types/RenderShaderList.md)
 - [GlobalIrradianceStatus](types/GlobalIrradianceStatus.md)
 - [EngineSetting](types/EngineSetting.md)
 - [MaterialSetting](types/MaterialSetting.md)
@@ -130,6 +134,7 @@
 - [Ctor](types/Ctor.md)
 - [ProfilerLabel2](types/ProfilerLabel2.md)
 - [ProfilerLabel](types/ProfilerLabel.md)
+- [SerializeTag](types/SerializeTag.md)
 
 ## Variables
 
@@ -176,10 +181,9 @@
 - [ZPassShader\_cs](variables/ZPassShader_cs.md)
 - [ZPassShader\_fs](variables/ZPassShader_fs.md)
 - [ZPassShader\_vs](variables/ZPassShader_vs.md)
+- [ClusterLight](variables/ClusterLight.md)
 - [ColorPassFragmentOutput](variables/ColorPassFragmentOutput.md)
 - [FragmentVarying](variables/FragmentVarying.md)
-- [LightStruct](variables/LightStruct.md)
-- [LightStructFrag](variables/LightStructFrag.md)
 - [ShadingInput](variables/ShadingInput.md)
 - [VertexAttributes](variables/VertexAttributes.md)
 - [QuadGlsl\_vs](variables/QuadGlsl_vs.md)
@@ -194,6 +198,7 @@
 - [UnLit\_frag](variables/UnLit_frag.md)
 - [GIProbeShader](variables/GIProbeShader.md)
 - [GlassShader](variables/GlassShader.md)
+- [LambertShader](variables/LambertShader.md)
 - [LitShader](variables/LitShader.md)
 - [OutlinePass](variables/OutlinePass.md)
 - [PBRLItShader](variables/PBRLItShader.md)
@@ -236,6 +241,14 @@
 - [arrayToString](functions/arrayToString.md)
 - [readMagicBytes](functions/readMagicBytes.md)
 - [registerMaterial](functions/registerMaterial.md)
+- [GetCountInstanceID](functions/GetCountInstanceID.md)
+- [ArrayHas](functions/ArrayHas.md)
+- [ArrayItemIndex](functions/ArrayItemIndex.md)
+- [NonSerialize](functions/NonSerialize.md)
+- [IsNonSerialize](functions/IsNonSerialize.md)
+- [EditorInspector](functions/EditorInspector.md)
+- [IsEditorInspector](functions/IsEditorInspector.md)
+- [RegisterComponent](functions/RegisterComponent.md)
 
 ## Animation
 
@@ -298,6 +311,7 @@
 - [ComputeGPUBuffer](classes/ComputeGPUBuffer.md)
 - [IndicesGPUBuffer](classes/IndicesGPUBuffer.md)
 - [MaterialDataUniformGPUBuffer](classes/MaterialDataUniformGPUBuffer.md)
+- [MatrixGPUBuffer](classes/MatrixGPUBuffer.md)
 - [StorageGPUBuffer](classes/StorageGPUBuffer.md)
 - [StructStorageGPUBuffer](classes/StructStorageGPUBuffer.md)
 - [UniformGPUBuffer](classes/UniformGPUBuffer.md)

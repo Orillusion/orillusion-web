@@ -2,6 +2,7 @@
 
 cubicBezierType
 
+
 ### Enumeration Members
 
 - [Open](CubicBezierType.md#open)
