@@ -1,4 +1,4 @@
-import { Engine3D, Vector3, Scene3D, Object3D, Camera3D, AtmosphericComponent, LitMaterial, BoxGeometry, MeshRenderer, HoverCameraController, View3D, CameraType } from '@orillusion/core'
+import { Engine3D, Vector3, Scene3D, Object3D, Camera3D, AtmosphericComponent, LitMaterial, BoxGeometry, MeshRenderer, HoverCameraController, View3D, CameraType, DirectLight } from '@orillusion/core'
 import * as dat from 'dat.gui'
 
 export default class CameraDemo {
@@ -21,6 +21,11 @@ export default class CameraDemo {
         let sky = this.scene.addComponent(AtmosphericComponent)
         sky.sunY = 0.6
         sky.enable = false
+        
+        // add a base light
+        let lightObj = new Object3D()
+        lightObj.addComponent(DirectLight)
+        this.scene.addChild(lightObj)
 
         let view = new View3D()
         view.scene = this.scene

@@ -26,6 +26,7 @@ export class Sample_bloom {
 
         let postProcessing = this.scene.addComponent(PostProcessingComponent)
         let bloom = postProcessing.addPost(HDRBloomPost)
+        bloom.strength = 2
         let GUIHelp = new dat.GUI()
         GUIHelp.addFolder('Depth of Field')
         GUIHelp.add(bloom, 'blurX', 0, 10, 1)

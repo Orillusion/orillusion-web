@@ -215,9 +215,9 @@ class Sample_UIMultiPanel {
         let component: DirectLight = light.addComponent(DirectLight)
         // adjust lighting
         light.rotationX = 21
-        light.rotationZ = -30
+        light.rotationY = 120
         component.lightColor = new Color(1.0, 1.0, 1.0, 1.0)
-        component.intensity = 20
+        component.intensity = 30
         component.castShadow = true
         // add light object
         scene3D.addChild(light)

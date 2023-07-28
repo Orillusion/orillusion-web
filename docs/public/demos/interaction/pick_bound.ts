@@ -1,4 +1,4 @@
-import { Engine3D, Scene3D, Vector3, Object3D, AtmosphericComponent, Camera3D, View3D, LitMaterial, MeshRenderer, BoxColliderShape, ColliderComponent, BoxGeometry, ComponentBase, Color, PointerEvent3D, SphereGeometry } from '@orillusion/core'
+import { Engine3D, Scene3D, Vector3, Object3D, AtmosphericComponent, Camera3D, View3D, LitMaterial, MeshRenderer, BoxColliderShape, ColliderComponent, BoxGeometry, ComponentBase, Color, PointerEvent3D, SphereGeometry, DirectLight } from '@orillusion/core'
 
 export default class TouchDemo {
     scene: Scene3D
@@ -24,6 +24,11 @@ export default class TouchDemo {
         this.scene.addChild(this.cameraObj)
         this.camera.lookAt(new Vector3(0, 0, 10), new Vector3(0, 0, 0))
         this.camera.perspective(60, Engine3D.aspect, 1, 10000.0)
+
+        // add a base light
+        let lightObj = new Object3D()
+        lightObj.addComponent(DirectLight)
+        this.scene.addChild(lightObj)
 
         let box = this.createBox(-2, 0, 0)
         let sphere = this.createSphere(2, 0, 0)

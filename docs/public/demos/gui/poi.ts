@@ -20,7 +20,8 @@ import {
     GPUCullMode,
     HoverCameraController,
     UIPanel,
-    View3D
+    View3D,
+    DirectLight
 } from '@orillusion/core'
 import * as dat from 'dat.gui'
 
@@ -51,6 +52,13 @@ class Sample_POI {
         controller.setCamera(0, -20, 15)
         // add camera node
         scene3D.addChild(cameraObj)
+
+        let lightObj = new Object3D()
+        lightObj.rotationX = 45
+        let dl = lightObj.addComponent(DirectLight)
+        dl.intensity = 10
+        dl.castShadow = true
+        scene3D.addChild(lightObj)
 
         let view = new View3D()
         view.scene = scene3D

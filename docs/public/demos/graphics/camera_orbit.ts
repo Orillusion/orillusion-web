@@ -1,4 +1,4 @@
-import { Engine3D, Scene3D, Object3D, Camera3D, Vector3, OrbitController, AtmosphericComponent, LitMaterial, BoxGeometry, MeshRenderer, View3D } from '@orillusion/core'
+import { Engine3D, Scene3D, Object3D, Camera3D, Vector3, OrbitController, AtmosphericComponent, LitMaterial, BoxGeometry, MeshRenderer, View3D, DirectLight } from '@orillusion/core'
 
 await Engine3D.init()
 let scene: Scene3D = new Scene3D()
@@ -14,6 +14,11 @@ let orbit = cameraObj.addComponent(OrbitController)
 orbit.autoRotateSpeed = 0.5
 orbit.autoRotate = true
 scene.addChild(cameraObj)
+
+// add a base light
+let lightObj = new Object3D()
+lightObj.addComponent(DirectLight)
+scene.addChild(lightObj)
 
 const boxObj: Object3D = new Object3D()
 boxObj.localPosition = new Vector3(0, 0, 0)
