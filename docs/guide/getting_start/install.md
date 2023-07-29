@@ -25,10 +25,10 @@ We support quick access to the `orillusion` engine directly through a `CDN` link
 
 ### 1. Using Global Build 
 ```html
-<!- Use the latest published version ->
-<script src="https://cdn.orillusion.com/orillusion.umd.js"></script>
-<!- Or use the specified version through unpkg ->
-<script src="https://unpkg.com/@orillusion/core@0.6.0/dist/orillusion.umd.js"></script>
+<!- Use the latest published version through unpkg->
+<script src="https://unpkg.com/@orillusion/core/dist/orillusion.umd.js"></script>
+<!- Or use the specified version ->
+<script src="https://unpkg.com/@orillusion/core@0.6.7/dist/orillusion.umd.js"></script>
 ```
 The page globally loads `<script>`, and a global variable (named `Orillusion`) is declared in the `window` object, which can be used directly as follows:
 ```html
@@ -42,10 +42,10 @@ We recommend using [ESModule](https://developer.mozilla.org/zh-CN/docs/Web/JavaS
 
 ```html
 <script type="module">
-    // Use the latest published version
-    import { Engine3D, Camera3D } from "https://cdn.orillusion.com/orillusion.es.js"
-    // Or use the specified version through unpkg.com 
-    import { Engine3D, Camera3D } from "https://unpkg.com/@orillusion/core@0.6.0/dist/orillusion.es.js" 
+    // Use the latest published version through unpkg.com 
+    import { Engine3D, Camera3D } from "https://unpkg.com/@orillusion/core/dist/orillusion.es.js"
+    // Or use the specified version
+    import { Engine3D, Camera3D } from "https://unpkg.com/@orillusion/core@0.6.7/dist/orillusion.es.js" 
 </script>
 ```
 
