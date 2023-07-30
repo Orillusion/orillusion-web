@@ -10,7 +10,7 @@ await Engine3D.init();
 Engine3D.setting.render.postProcessing.globalFog.fogType = 0; //Liner:0, Exp:1, Exp2:2
 Engine3D.setting.render.postProcessing.globalFog.start = 400;
 Engine3D.setting.render.postProcessing.globalFog.end = 0;
-Engine3D.setting.render.postProcessing.globalFog.height = 100;
+Engine3D.setting.render.postProcessing.globalFog.fogHeightScale = 1;
 Engine3D.setting.render.postProcessing.globalFog.density = 0.02;
 Engine3D.setting.render.postProcessing.globalFog.ins = 1;
 Engine3D.setting.render.postProcessing.globalFog.fogColor = new Color(84,90,239,255);
@@ -39,7 +39,7 @@ Engine3D.startRenderView(view);
 | start | number |  雾的浓度衰减的起始距离，从 start 到 end 根据类型插值减小到0 |
 | end | number |  雾的浓度衰减的结束距离，从 start 到 end 根据类型插值减小0 |
 | density | number | 雾的浓度衰减系数，在指数/指数平方雾类型下，系数会额外加成 |
-| height | number |  雾的高度 |
+| fogHeightScale | number |  雾的高度影响参数 |
 | ins | number | 高度影响系数 |
 | skyFactor | number | 雾的颜色和天空颜色混合系数 |
 | skyRoughness | number | 天空采样 mipmap 层级  |

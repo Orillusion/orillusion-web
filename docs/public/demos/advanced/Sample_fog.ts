@@ -40,7 +40,7 @@ class Sample_Fog {
         });
         f.add(fog, 'start', -0.0, 1000.0, 0.0001);
         f.add(fog, 'end', -0.0, 1000.0, 0.0001);
-        f.add(fog, 'height', -1000.0, 1000.0, 0.0001);
+        f.add(fog, 'fogHeightScale', 0.0001, 1.0, 0.0001);
         f.add(fog, 'density', 0.0, 1.0, 0.0001);
         f.add(fog, 'ins', 0.0, 5.0, 0.0001);
         f.add(fog, 'skyFactor', 0.0, 1.0, 0.0001);

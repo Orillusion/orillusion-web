@@ -21,7 +21,8 @@ import {
     RTFrame,
     RTDescriptor,
     AtmosphericComponent,
-    View3D
+    View3D,
+    DirectLight
 } from '@orillusion/core'
 import * as dat from 'dat.gui'
 
@@ -38,12 +39,16 @@ export class Demo_GaussianBlur {
 
         let mainCamera = CameraUtil.createCamera3DObject(scene)
         mainCamera.perspective(60, Engine3D.aspect, 0.01, 10000.0)
-
+        
         let ctl = mainCamera.object3D.addComponent(HoverCameraController)
         ctl.setCamera(45, -30, 5)
 
         scene.addComponent(AtmosphericComponent).sunY = 0.6
 
+        let light = new Object3D()
+        light.addComponent(DirectLight)
+        scene.addChild(light)
+        
         let view = new View3D()
         view.scene = scene
         view.camera = mainCamera

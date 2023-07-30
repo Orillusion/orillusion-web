@@ -23,15 +23,6 @@ mat.keyColor = new Color(0, 1, 0, 0)
 mat.colorCutoff = 0.06
 mat.colorFeathering = 0.25
 
-let GUIHelp = new dat.GUI()
-GUIHelp.addFolder('ChromaKek')
-GUIHelp.addColor({ color: [0, 255, 0] }, 'color').onChange((v) => {
-    mat.keyColor = new Color(0, 1, 0).copyFromArray(v)
-})
-GUIHelp.add(mat, 'colorCutoff', 0, 1, 0.01)
-GUIHelp.add(mat, 'colorFeathering', 0, 1, 0.01)
-GUIHelp.add(mat, 'sharpening', 0, 1, 0.01)
-
 // create a 2D plane to play the video
 let planeObj = new Object3D()
 let mr = planeObj.addComponent(MeshRenderer)
@@ -44,3 +35,13 @@ view.scene = scene
 view.camera = mainCamera
 // start render
 Engine3D.startRenderView(view)
+
+console.log(mat)
+let GUIHelp = new dat.GUI()
+GUIHelp.addFolder('ChromaKek')
+GUIHelp.addColor({ color: [0, 255, 0] }, 'color').onChange((v) => {
+    mat.keyColor = new Color(0, 1, 0).copyFromArray(v)
+})
+GUIHelp.add(mat, 'colorCutoff', 0, 1, 0.01)
+GUIHelp.add(mat, 'colorFeathering', 0, 1, 0.01)
+GUIHelp.add(mat, 'sharpening', 0, 1, 0.01)
