@@ -10,7 +10,7 @@ await Engine3D.init();
 Engine3D.setting.render.postProcessing.globalFog.fogType = 0; //Liner:0, Exp:1, Exp2:2
 Engine3D.setting.render.postProcessing.globalFog.start = 400;
 Engine3D.setting.render.postProcessing.globalFog.end = 0;
-Engine3D.setting.render.postProcessing.globalFog.height = 100;
+Engine3D.setting.render.postProcessing.globalFog.fogHeightScale = 1;
 Engine3D.setting.render.postProcessing.globalFog.density = 0.02;
 Engine3D.setting.render.postProcessing.globalFog.ins = 1;
 Engine3D.setting.render.postProcessing.globalFog.fogColor = new Color(84,90,239,255);
@@ -38,7 +38,7 @@ Engine3D.startRenderView(view);
 | start | number |  The distance of the object to the camera is "distance". The concentration of the fog is linearly interpolated between "start" and "end" |
 | end | number |  The distance of the object to the camera is "distance". The concentration of the fog is linearly interpolated between "start" and "end" |
 | density | number | Density coefficient of the fog for exponential and exponential squared fog |
-| height | number |  The influence of height on the fog|
+| fogHeightScale | number |  The influence of height on the fog|
 | ins | number |The influence of height on the fog (working with "height" parameter) |
 | skyFactor | number | mix fog color with sky color |
 | skyRoughness | number | use mipmap level |
