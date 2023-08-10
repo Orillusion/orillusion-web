@@ -122,7 +122,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends `RendererBase` |
+| `T` | extends `RendererBase`<`T`\> |
 
 #### Parameters
 

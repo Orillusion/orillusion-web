@@ -1,6 +1,5 @@
 # Enumeration: UIInteractiveStyle
 
-
 ### Enumeration Members
 
 - [NORMAL](UIInteractiveStyle.md#normal)

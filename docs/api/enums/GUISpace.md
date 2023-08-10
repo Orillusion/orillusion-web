@@ -1,6 +1,5 @@
 # Enumeration: GUISpace
 
-
 ### Enumeration Members
 
 - [View](GUISpace.md#view)
