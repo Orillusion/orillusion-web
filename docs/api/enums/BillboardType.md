@@ -1,6 +1,5 @@
 # Enumeration: BillboardType
 
-
 ### Enumeration Members
 
 - [None](BillboardType.md#none)

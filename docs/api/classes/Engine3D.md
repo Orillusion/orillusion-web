@@ -222,7 +222,7 @@ create webgpu 3d engine
 
 #### Defined in
 
-[src/Engine3D.ts:295](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L295)
+[src/Engine3D.ts:296](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L296)
 
 ___
 
@@ -244,7 +244,7 @@ set render view and start renderer
 
 #### Defined in
 
-[src/Engine3D.ts:327](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L327)
+[src/Engine3D.ts:328](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L328)
 
 ___
 
@@ -266,7 +266,7 @@ set render views and start renderer
 
 #### Defined in
 
-[src/Engine3D.ts:344](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L344)
+[src/Engine3D.ts:345](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L345)
 
 ___
 
@@ -288,7 +288,7 @@ get view render job instance
 
 #### Defined in
 
-[src/Engine3D.ts:362](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L362)
+[src/Engine3D.ts:363](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L363)
 
 ___
 
@@ -304,7 +304,7 @@ Pause the engine render
 
 #### Defined in
 
-[src/Engine3D.ts:369](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L369)
+[src/Engine3D.ts:370](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L370)
 
 ___
 
@@ -320,4 +320,4 @@ Resume the engine render
 
 #### Defined in
 
-[src/Engine3D.ts:379](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L379)
+[src/Engine3D.ts:380](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L380)

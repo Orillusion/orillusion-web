@@ -2,7 +2,6 @@
 
 RenderMask
 
-
 ### Enumeration Members
 
 - [Default](RendererMask.md#default)

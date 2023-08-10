@@ -14,7 +14,6 @@ value = value % repeatSpace
 
 value = max(min( value ,  1 ) , 0 )
 
-
 ### Enumeration Members
 
 - [PingPong](WrapTimeMode.md#pingpong)

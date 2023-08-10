@@ -1,6 +1,5 @@
 # Enumeration: Horizontal
 
-
 ### Enumeration Members
 
 - [Left](Horizontal.md#left)

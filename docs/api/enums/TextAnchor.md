@@ -1,6 +1,5 @@
 # Enumeration: TextAnchor
 
-
 ### Enumeration Members
 
 - [UpperLeft](TextAnchor.md#upperleft)

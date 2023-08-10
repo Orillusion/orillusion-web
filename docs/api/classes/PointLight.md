@@ -17,6 +17,7 @@ A common example is to simulate the light emitted by a light bulb, where a point
 ### Properties
 
 - [object3D](PointLight.md#object3d)
+- [isDestroyed](PointLight.md#isdestroyed)
 - [name](PointLight.md#name)
 - [size](PointLight.md#size)
 - [lightData](PointLight.md#lightdata)
@@ -28,6 +29,7 @@ A common example is to simulate the light emitted by a light bulb, where a point
 ### Accessors
 
 - [eventDispatcher](PointLight.md#eventdispatcher)
+- [isStart](PointLight.md#isstart)
 - [transform](PointLight.md#transform)
 - [enable](PointLight.md#enable)
 - [iesProfiles](PointLight.md#iesprofiles)
@@ -53,9 +55,9 @@ A common example is to simulate the light emitted by a light bulb, where a point
 - [onBeforeUpdate](PointLight.md#onbeforeupdate)
 - [onCompute](PointLight.md#oncompute)
 - [onParentChange](PointLight.md#onparentchange)
-- [beforeDestroy](PointLight.md#beforedestroy)
 - [cloneTo](PointLight.md#cloneto)
 - [copyComponent](PointLight.md#copycomponent)
+- [beforeDestroy](PointLight.md#beforedestroy)
 - [onEnable](PointLight.md#onenable)
 - [onDisable](PointLight.md#ondisable)
 - [destroy](PointLight.md#destroy)
@@ -95,6 +97,20 @@ LightBase.object3D
 #### Defined in
 
 [src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
+
+___
+
+### isDestroyed
+
+• `Optional` **isDestroyed**: `boolean`
+
+#### Inherited from
+
+LightBase.isDestroyed
+
+#### Defined in
+
+[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
 
 ___
 
@@ -254,6 +270,24 @@ LightBase.eventDispatcher
 
 ___
 
+### isStart
+
+• `get` **isStart**(): `boolean`
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+LightBase.isStart
+
+#### Defined in
+
+[src/components/ComponentBase.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L40)
+
+___
+
 ### transform
 
 • `get` **transform**(): [`Transform`](Transform.md)
@@ -270,7 +304,7 @@ LightBase.transform
 
 #### Defined in
 
-[src/components/ComponentBase.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L43)
+[src/components/ComponentBase.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L47)
 
 ___
 
@@ -290,7 +324,7 @@ LightBase.enable
 
 #### Defined in
 
-[src/components/ComponentBase.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L64)
+[src/components/ComponentBase.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
 
 • `set` **enable**(`value`): `void`
 
@@ -312,7 +346,7 @@ LightBase.enable
 
 #### Defined in
 
-[src/components/ComponentBase.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L50)
+[src/components/ComponentBase.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L54)
 
 ___
 
@@ -856,7 +890,7 @@ LightBase.stop
 
 #### Defined in
 
-[src/components/ComponentBase.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L110)
+[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
 
 ___
 
@@ -880,7 +914,7 @@ LightBase.onLateUpdate
 
 #### Defined in
 
-[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
+[src/components/ComponentBase.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L118)
 
 ___
 
@@ -904,7 +938,7 @@ LightBase.onBeforeUpdate
 
 #### Defined in
 
-[src/components/ComponentBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L115)
+[src/components/ComponentBase.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L119)
 
 ___
 
@@ -929,7 +963,7 @@ LightBase.onCompute
 
 #### Defined in
 
-[src/components/ComponentBase.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L116)
+[src/components/ComponentBase.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L120)
 
 ___
 
@@ -954,31 +988,7 @@ LightBase.onParentChange
 
 #### Defined in
 
-[src/components/ComponentBase.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L118)
-
-___
-
-### beforeDestroy
-
-▸ `Optional` **beforeDestroy**(`force?`): `any`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
-
-#### Returns
-
-`any`
-
-#### Inherited from
-
-LightBase.beforeDestroy
-
-#### Defined in
-
-[src/components/ComponentBase.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L119)
+[src/components/ComponentBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L122)
 
 ___
 
@@ -1004,7 +1014,7 @@ LightBase.cloneTo
 
 #### Defined in
 
-[src/components/ComponentBase.ts:126](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L126)
+[src/components/ComponentBase.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L129)
 
 ___
 
@@ -1028,7 +1038,33 @@ LightBase.copyComponent
 
 #### Defined in
 
-[src/components/ComponentBase.ts:128](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L128)
+[src/components/ComponentBase.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L131)
+
+___
+
+### beforeDestroy
+
+▸ **beforeDestroy**(`force?`): `void`
+
+before release this component, object refrences are not be set null now.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+LightBase.beforeDestroy
+
+#### Defined in
+
+[src/components/ComponentBase.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L198)
 
 ___
 

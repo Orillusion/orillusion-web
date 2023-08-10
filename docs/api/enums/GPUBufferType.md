@@ -1,6 +1,5 @@
 # Enumeration: GPUBufferType
 
-
 ### Enumeration Members
 
 - [IndicesGPUBuffer](GPUBufferType.md#indicesgpubuffer)

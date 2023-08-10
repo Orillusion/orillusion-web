@@ -1,6 +1,5 @@
 # Enumeration: ImageType
 
-
 ### Enumeration Members
 
 - [Simple](ImageType.md#simple)

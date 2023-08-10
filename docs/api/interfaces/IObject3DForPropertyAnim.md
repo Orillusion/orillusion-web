@@ -1,6 +1,5 @@
 # Interface: IObject3DForPropertyAnim
 
-
 ### Properties
 
 - [materialColor](IObject3DForPropertyAnim.md#materialcolor)

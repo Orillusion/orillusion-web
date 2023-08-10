@@ -1,6 +1,5 @@
 # Enumeration: UniformType
 
-
 ### Enumeration Members
 
 - [Number](UniformType.md#number)

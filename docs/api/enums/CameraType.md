@@ -1,6 +1,5 @@
 # Enumeration: CameraType
 
-
 ### Enumeration Members
 
 - [ortho](CameraType.md#ortho)
