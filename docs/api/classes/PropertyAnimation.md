@@ -15,12 +15,14 @@ Attribute Animation Component
 ### Properties
 
 - [object3D](PropertyAnimation.md#object3d)
+- [isDestroyed](PropertyAnimation.md#isdestroyed)
 - [defaultClip](PropertyAnimation.md#defaultclip)
 - [autoPlay](PropertyAnimation.md#autoplay)
 
 ### Accessors
 
 - [eventDispatcher](PropertyAnimation.md#eventdispatcher)
+- [isStart](PropertyAnimation.md#isstart)
 - [transform](PropertyAnimation.md#transform)
 - [enable](PropertyAnimation.md#enable)
 - [speed](PropertyAnimation.md#speed)
@@ -77,6 +79,20 @@ owner object3D
 #### Defined in
 
 [src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
+
+___
+
+### isDestroyed
+
+• `Optional` **isDestroyed**: `boolean`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[isDestroyed](ComponentBase.md#isdestroyed)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
 
 ___
 
@@ -142,6 +158,24 @@ ComponentBase.eventDispatcher
 
 ___
 
+### isStart
+
+• `get` **isStart**(): `boolean`
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+ComponentBase.isStart
+
+#### Defined in
+
+[src/components/ComponentBase.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L40)
+
+___
+
 ### transform
 
 • `get` **transform**(): [`Transform`](Transform.md)
@@ -158,7 +192,7 @@ ComponentBase.transform
 
 #### Defined in
 
-[src/components/ComponentBase.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L43)
+[src/components/ComponentBase.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L47)
 
 ___
 
@@ -178,7 +212,7 @@ ComponentBase.enable
 
 #### Defined in
 
-[src/components/ComponentBase.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L64)
+[src/components/ComponentBase.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
 
 • `set` **enable**(`value`): `void`
 
@@ -200,7 +234,7 @@ ComponentBase.enable
 
 #### Defined in
 
-[src/components/ComponentBase.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L50)
+[src/components/ComponentBase.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L54)
 
 ___
 
@@ -290,7 +324,7 @@ get time of current animator
 
 #### Defined in
 
-[src/components/ComponentBase.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L111)
+[src/components/ComponentBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L115)
 
 ___
 
@@ -314,7 +348,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L112)
+[src/components/ComponentBase.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L116)
 
 ___
 
@@ -338,7 +372,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
+[src/components/ComponentBase.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L118)
 
 ___
 
@@ -362,7 +396,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L115)
+[src/components/ComponentBase.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L119)
 
 ___
 
@@ -387,7 +421,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L116)
+[src/components/ComponentBase.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L120)
 
 ___
 
@@ -411,7 +445,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L117)
+[src/components/ComponentBase.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L121)
 
 ___
 
@@ -436,13 +470,15 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L118)
+[src/components/ComponentBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L122)
 
 ___
 
 ### beforeDestroy
 
-▸ `Optional` **beforeDestroy**(`force?`): `any`
+▸ **beforeDestroy**(`force?`): `void`
+
+before release this component, object refrences are not be set null now.
 
 #### Parameters
 
@@ -452,7 +488,7 @@ ___
 
 #### Returns
 
-`any`
+`void`
 
 #### Inherited from
 
@@ -460,7 +496,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L119)
+[src/components/ComponentBase.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L198)
 
 ___
 
@@ -486,7 +522,7 @@ release this component
 
 #### Defined in
 
-[src/components/ComponentBase.ts:195](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L195)
+[src/components/ComponentBase.ts:205](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L205)
 
 ___
 

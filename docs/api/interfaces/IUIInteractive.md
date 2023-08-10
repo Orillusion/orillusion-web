@@ -4,7 +4,6 @@
 
 - [`UIInteractive`](../classes/UIInteractive.md)
 
-
 ### Properties
 
 - [interactive](IUIInteractive.md#interactive)

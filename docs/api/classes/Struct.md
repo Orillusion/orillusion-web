@@ -50,7 +50,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`Struct`](Struct.md) |
+| `T` | extends [`Struct`](Struct.md)<`T`\> |
 
 #### Parameters
 
@@ -76,7 +76,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`Struct`](Struct.md) |
+| `T` | extends [`Struct`](Struct.md)<`T`\> |
 
 #### Parameters
 
@@ -104,7 +104,7 @@ get any struct memory size
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`Struct`](Struct.md) |
+| `T` | extends [`Struct`](Struct.md)<`T`\> |
 
 #### Parameters
 

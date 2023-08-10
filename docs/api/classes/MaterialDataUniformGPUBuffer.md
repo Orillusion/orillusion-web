@@ -762,7 +762,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`Struct`](Struct.md) |
+| `T` | extends [`Struct`](Struct.md)<`T`\> |
 
 #### Parameters
 
@@ -795,7 +795,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`Struct`](Struct.md) |
+| `T` | extends [`Struct`](Struct.md)<`T`\> |
 
 #### Parameters
 

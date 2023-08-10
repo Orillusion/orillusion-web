@@ -16,6 +16,7 @@ Each object (Object 3D) has a Transform component
 ### Properties
 
 - [object3D](Transform.md#object3d)
+- [isDestroyed](Transform.md#isdestroyed)
 - [\_localRot](Transform.md#_localrot)
 - [\_localChange](Transform.md#_localchange)
 - [\_worldMatrix](Transform.md#_worldmatrix)
@@ -24,6 +25,7 @@ Each object (Object 3D) has a Transform component
 ### Accessors
 
 - [eventDispatcher](Transform.md#eventdispatcher)
+- [isStart](Transform.md#isstart)
 - [transform](Transform.md#transform)
 - [targetPos](Transform.md#targetpos)
 - [parent](Transform.md#parent)
@@ -107,6 +109,20 @@ owner object3D
 
 ___
 
+### isDestroyed
+
+• `Optional` **isDestroyed**: `boolean`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[isDestroyed](ComponentBase.md#isdestroyed)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
+
+___
+
 ### \_localRot
 
 • **\_localRot**: [`Vector3`](Vector3.md)
@@ -185,6 +201,24 @@ ComponentBase.eventDispatcher
 
 ___
 
+### isStart
+
+• `get` **isStart**(): `boolean`
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+ComponentBase.isStart
+
+#### Defined in
+
+[src/components/ComponentBase.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L40)
+
+___
+
 ### transform
 
 • `get` **transform**(): [`Transform`](Transform.md)
@@ -201,7 +235,7 @@ ComponentBase.transform
 
 #### Defined in
 
-[src/components/ComponentBase.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L43)
+[src/components/ComponentBase.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L47)
 
 ___
 
@@ -391,7 +425,7 @@ ___
 
 #### Defined in
 
-[src/components/Transform.ts:228](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L228)
+[src/components/Transform.ts:225](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L225)
 
 • `set` **down**(`value`): `void`
 
@@ -407,7 +441,7 @@ ___
 
 #### Defined in
 
-[src/components/Transform.ts:233](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L233)
+[src/components/Transform.ts:230](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L230)
 
 ___
 
@@ -421,7 +455,7 @@ ___
 
 #### Defined in
 
-[src/components/Transform.ts:244](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L244)
+[src/components/Transform.ts:236](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L236)
 
 • `set` **forward**(`value`): `void`
 
@@ -437,7 +471,7 @@ ___
 
 #### Defined in
 
-[src/components/Transform.ts:249](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L249)
+[src/components/Transform.ts:241](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L241)
 
 ___
 
@@ -451,7 +485,7 @@ ___
 
 #### Defined in
 
-[src/components/Transform.ts:261](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L261)
+[src/components/Transform.ts:247](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L247)
 
 • `set` **back**(`value`): `void`
 
@@ -467,7 +501,7 @@ ___
 
 #### Defined in
 
-[src/components/Transform.ts:266](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L266)
+[src/components/Transform.ts:252](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L252)
 
 ___
 
@@ -481,7 +515,7 @@ ___
 
 #### Defined in
 
-[src/components/Transform.ts:278](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L278)
+[src/components/Transform.ts:258](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L258)
 
 • `set` **left**(`value`): `void`
 
@@ -497,7 +531,7 @@ ___
 
 #### Defined in
 
-[src/components/Transform.ts:283](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L283)
+[src/components/Transform.ts:263](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L263)
 
 ___
 
@@ -511,7 +545,7 @@ ___
 
 #### Defined in
 
-[src/components/Transform.ts:292](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L292)
+[src/components/Transform.ts:269](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L269)
 
 • `set` **right**(`value`): `void`
 
@@ -527,7 +561,7 @@ ___
 
 #### Defined in
 
-[src/components/Transform.ts:297](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L297)
+[src/components/Transform.ts:274](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L274)
 
 ___
 
@@ -543,7 +577,7 @@ The transformation property of the object relative to the parent, stored in the 
 
 #### Defined in
 
-[src/components/Transform.ts:311](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L311)
+[src/components/Transform.ts:284](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L284)
 
 • `set` **localRotQuat**(`value`): `void`
 
@@ -559,7 +593,7 @@ The transformation property of the object relative to the parent, stored in the 
 
 #### Defined in
 
-[src/components/Transform.ts:315](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L315)
+[src/components/Transform.ts:288](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L288)
 
 ___
 
@@ -575,7 +609,7 @@ The position of the object relative to its parent X-axis
 
 #### Defined in
 
-[src/components/Transform.ts:456](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L456)
+[src/components/Transform.ts:423](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L423)
 
 • `set` **x**(`value`): `void`
 
@@ -591,7 +625,7 @@ The position of the object relative to its parent X-axis
 
 #### Defined in
 
-[src/components/Transform.ts:441](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L441)
+[src/components/Transform.ts:408](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L408)
 
 ___
 
@@ -607,7 +641,7 @@ The position of the object relative to its parent Y-axis
 
 #### Defined in
 
-[src/components/Transform.ts:475](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L475)
+[src/components/Transform.ts:442](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L442)
 
 • `set` **y**(`value`): `void`
 
@@ -623,7 +657,7 @@ The position of the object relative to its parent Y-axis
 
 #### Defined in
 
-[src/components/Transform.ts:460](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L460)
+[src/components/Transform.ts:427](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L427)
 
 ___
 
@@ -639,7 +673,7 @@ The position of the object relative to its parent Y-axis
 
 #### Defined in
 
-[src/components/Transform.ts:494](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L494)
+[src/components/Transform.ts:461](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L461)
 
 • `set` **z**(`value`): `void`
 
@@ -655,7 +689,7 @@ The position of the object relative to its parent Y-axis
 
 #### Defined in
 
-[src/components/Transform.ts:479](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L479)
+[src/components/Transform.ts:446](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L446)
 
 ___
 
@@ -671,7 +705,7 @@ The scale of the object relative to its parent X-axis
 
 #### Defined in
 
-[src/components/Transform.ts:513](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L513)
+[src/components/Transform.ts:480](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L480)
 
 • `set` **scaleX**(`value`): `void`
 
@@ -687,7 +721,7 @@ The scale of the object relative to its parent X-axis
 
 #### Defined in
 
-[src/components/Transform.ts:498](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L498)
+[src/components/Transform.ts:465](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L465)
 
 ___
 
@@ -703,7 +737,7 @@ The scale of the object relative to its parent Y-axis
 
 #### Defined in
 
-[src/components/Transform.ts:532](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L532)
+[src/components/Transform.ts:499](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L499)
 
 • `set` **scaleY**(`value`): `void`
 
@@ -719,7 +753,7 @@ The scale of the object relative to its parent Y-axis
 
 #### Defined in
 
-[src/components/Transform.ts:517](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L517)
+[src/components/Transform.ts:484](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L484)
 
 ___
 
@@ -735,7 +769,7 @@ The scale of the object relative to its parent Z-axis
 
 #### Defined in
 
-[src/components/Transform.ts:552](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L552)
+[src/components/Transform.ts:519](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L519)
 
 • `set` **scaleZ**(`value`): `void`
 
@@ -751,7 +785,7 @@ The scale of the object relative to its parent Z-axis
 
 #### Defined in
 
-[src/components/Transform.ts:536](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L536)
+[src/components/Transform.ts:503](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L503)
 
 ___
 
@@ -767,7 +801,7 @@ The rotation of the object relative to its parent X-axis
 
 #### Defined in
 
-[src/components/Transform.ts:571](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L571)
+[src/components/Transform.ts:538](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L538)
 
 • `set` **rotationX**(`value`): `void`
 
@@ -783,7 +817,7 @@ The rotation of the object relative to its parent X-axis
 
 #### Defined in
 
-[src/components/Transform.ts:556](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L556)
+[src/components/Transform.ts:523](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L523)
 
 ___
 
@@ -799,7 +833,7 @@ The rotation of the object relative to its parent Y-axis
 
 #### Defined in
 
-[src/components/Transform.ts:590](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L590)
+[src/components/Transform.ts:557](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L557)
 
 • `set` **rotationY**(`value`): `void`
 
@@ -815,7 +849,7 @@ The rotation of the object relative to its parent Y-axis
 
 #### Defined in
 
-[src/components/Transform.ts:575](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L575)
+[src/components/Transform.ts:542](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L542)
 
 ___
 
@@ -831,7 +865,7 @@ The rotation of the object relative to its parent Z-axis
 
 #### Defined in
 
-[src/components/Transform.ts:609](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L609)
+[src/components/Transform.ts:576](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L576)
 
 • `set` **rotationZ**(`value`): `void`
 
@@ -847,7 +881,7 @@ The rotation of the object relative to its parent Z-axis
 
 #### Defined in
 
-[src/components/Transform.ts:594](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L594)
+[src/components/Transform.ts:561](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L561)
 
 ___
 
@@ -863,7 +897,7 @@ world position
 
 #### Defined in
 
-[src/components/Transform.ts:616](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L616)
+[src/components/Transform.ts:583](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L583)
 
 ___
 
@@ -879,7 +913,7 @@ The position of an object relative to its parent
 
 #### Defined in
 
-[src/components/Transform.ts:636](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L636)
+[src/components/Transform.ts:603](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L603)
 
 • `set` **localPosition**(`v`): `void`
 
@@ -895,7 +929,7 @@ The position of an object relative to its parent
 
 #### Defined in
 
-[src/components/Transform.ts:621](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L621)
+[src/components/Transform.ts:588](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L588)
 
 ___
 
@@ -911,7 +945,7 @@ The rotaion vector of an object relative to its parent
 
 #### Defined in
 
-[src/components/Transform.ts:656](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L656)
+[src/components/Transform.ts:623](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L623)
 
 • `set` **localRotation**(`v`): `void`
 
@@ -927,7 +961,7 @@ The rotaion vector of an object relative to its parent
 
 #### Defined in
 
-[src/components/Transform.ts:640](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L640)
+[src/components/Transform.ts:607](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L607)
 
 ___
 
@@ -943,7 +977,7 @@ The scale of an object relative to its parent
 
 #### Defined in
 
-[src/components/Transform.ts:675](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L675)
+[src/components/Transform.ts:642](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L642)
 
 • `set` **localScale**(`v`): `void`
 
@@ -959,7 +993,7 @@ The scale of an object relative to its parent
 
 #### Defined in
 
-[src/components/Transform.ts:660](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L660)
+[src/components/Transform.ts:627](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L627)
 
 ## Methods
 
@@ -983,7 +1017,7 @@ The scale of an object relative to its parent
 
 #### Defined in
 
-[src/components/ComponentBase.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L108)
+[src/components/ComponentBase.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L112)
 
 ___
 
@@ -1007,7 +1041,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L111)
+[src/components/ComponentBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L115)
 
 ___
 
@@ -1031,7 +1065,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L112)
+[src/components/ComponentBase.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L116)
 
 ___
 
@@ -1055,7 +1089,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
+[src/components/ComponentBase.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L117)
 
 ___
 
@@ -1079,7 +1113,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
+[src/components/ComponentBase.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L118)
 
 ___
 
@@ -1103,7 +1137,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L115)
+[src/components/ComponentBase.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L119)
 
 ___
 
@@ -1128,7 +1162,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L116)
+[src/components/ComponentBase.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L120)
 
 ___
 
@@ -1152,7 +1186,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L117)
+[src/components/ComponentBase.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L121)
 
 ___
 
@@ -1177,7 +1211,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L118)
+[src/components/ComponentBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L122)
 
 ___
 
@@ -1201,7 +1235,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:128](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L128)
+[src/components/ComponentBase.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L131)
 
 ___
 
@@ -1273,7 +1307,7 @@ Update the matrix4 in world space
 
 #### Defined in
 
-[src/components/Transform.ts:359](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L359)
+[src/components/Transform.ts:326](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L326)
 
 ___
 
@@ -1287,7 +1321,7 @@ ___
 
 #### Defined in
 
-[src/components/Transform.ts:374](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L374)
+[src/components/Transform.ts:341](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L341)
 
 ___
 
@@ -1308,7 +1342,7 @@ ___
 
 #### Defined in
 
-[src/components/Transform.ts:390](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L390)
+[src/components/Transform.ts:357](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L357)
 
 ___
 
@@ -1332,7 +1366,7 @@ Current object's gaze position (global) (modified by its own global transformati
 
 #### Defined in
 
-[src/components/Transform.ts:400](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L400)
+[src/components/Transform.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L367)
 
 ___
 
@@ -1353,7 +1387,7 @@ ___
 
 #### Defined in
 
-[src/components/Transform.ts:413](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L413)
+[src/components/Transform.ts:380](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L380)
 
 ___
 
@@ -1379,13 +1413,15 @@ Create a new component, copy the properties of the current component, and add it
 
 #### Defined in
 
-[src/components/Transform.ts:435](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L435)
+[src/components/Transform.ts:402](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L402)
 
 ___
 
 ### beforeDestroy
 
 ▸ **beforeDestroy**(`force?`): `void`
+
+before release this component, object refrences are not be set null now.
 
 #### Parameters
 
@@ -1403,7 +1439,7 @@ ___
 
 #### Defined in
 
-[src/components/Transform.ts:679](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L679)
+[src/components/Transform.ts:646](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L646)
 
 ___
 
@@ -1423,4 +1459,4 @@ release this component
 
 #### Defined in
 
-[src/components/Transform.ts:686](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L686)
+[src/components/Transform.ts:653](https://github.com/Orillusion/orillusion/blob/main/src/components/Transform.ts#L653)
