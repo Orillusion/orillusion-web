@@ -199,32 +199,43 @@ curl -H 'Content-Type: application/json' -H 'x-orillusion-id:accessId' -H 'x-ori
 ```
 
 **使用说明**
-* 响应参数 `entry` 是模型的入口文件链接，例如：`https://object.orillusion.com/model/xxxxx/scene.gltf`
+* 响应参数 `entry` 是模型的入口文件链接，例如：`https://object.orillusion.com/model/{model_id}/scene.gltf`
 
-* CDN 上模型文件及其资源是无法直接访问的，需要添加 `signature` 信息进行鉴权后才有权限加载模型。目前有两种添加 `signature` 的方法，适用于不同的需求：
-1. 可以对链接 url 添加 `cdn_sign` 的 query 参数，例如：`https://object.orillusion.com/model/xxxxx/scene.gltf?cdn_sign=xxxxxxx`。但请注意，因为签名是临时生成的，每次请求的链接地址都会不相同，所以无法在浏览器中进行缓存，相当于每次访问都需要重新通过网络加载所有模型资源，适合低频率或体积小的模型使用场景;
-2. 也可以把在访问请求中添加自定义 header: `x-cdn-sign` 进行鉴权访问模型。由于不改变原始 url 链接，所以浏览器可以进行本地缓存，大幅降低二次加载的时间和流量，例如：
+* CDN 上模型文件及其资源是无法直接访问的，需要添加 `signature` 信息进行鉴权后才有权限加载模型。目前有三种添加 `signature` 的方法，适用于不同的需求：
+1. 可以对链接 url 添加 `cdn_sign` 的 `query` 参数，例如：`https://object.orillusion.com/model/{model_id}/scene.gltf?cdn_sign={signature}`。但请注意，因为签名是临时生成的，每次请求的链接地址都会不相同，所以无法在浏览器中进行长期缓存，相当于每次访问都需要重新通过网络加载所有模型资源;
 ```ts
-    let res = await fetch('https://object.orillusion.com/model/xxxxx/scene.gltf', {
+    let res = await fetch('https://object.orillusion.com/model/{model_id}/scene.gltf?cdn_sign={signature}')
+    let gltf = await res.json()
+```
+2. 可以修改链接 url 的 `path` 部分进行修改，例如：`https://object.orillusion.com/model/{model_id}/{signature}/scene.gltf`。这种形式可以保持目录的统一，方便加载模型同目录下的其他依赖文件；同样，因为签名是临时生成的，每次请求的链接地址都会不相同，所以无法长期在浏览器中进行缓存;
+```ts
+    let res = await fetch('https://object.orillusion.com/model/{model_id}/{signature}/scene.gltf')
+    let gltf = await res.json()
+```
+3. 可以对访问请求添加自定义 header: `x-cdn-sign` 进行鉴权访问模型。由于 url 链接不会改变，所以浏览器可以长期保持本地缓存，大幅降低二次加载的时间和流量，例如：
+```ts
+    let res = await fetch('https://object.orillusion.com/model/{model_id}/scene.gltf', {
         headers:{
-            cdn_sign: 'xxxxxxxx'
+            cdn_sign: "{signature}" 
         }
     })
     let gltf = await res.json()
 ```
 
-* `gltf` 文件只是模型的入口文件，通常还需要加载相关的贴图等文件资源，需要对每一个请求都添加 `signature` 鉴权信息后才可以加载完整的模型。我们以 `Engine3D.res.loadGltf` 为例，用户需要设置 `onUrl` 回调或 `headers` 参数来动态加载 `gltf` 后续资源
+* `gltf` 文件只是模型的入口文件，通常还需要加载相关的贴图等文件资源，需要对每一个请求都添加 `signature` 鉴权信息后才可以加载完整的模型。我们以 `Engine3D.res.loadGltf` 为例，用户可以设置 `onUrl` 回调或 `headers` 参数来动态加载 `gltf` 同目录的后续资源
 ```ts
-// 以 url 形式进行鉴权
-let model = await Engine3D.res.loadGltf('https://object.orillusion.com/model/xxxxx/scene.gltf?cdn_sign=xxxxxxx', {
-    onUrl: url => url + '?cdn_sign=xxxxxxx'
+// 以 url query 形式进行鉴权
+let model = await Engine3D.res.loadGltf('https://object.orillusion.com/model/{model_id}/scene.gltf', {
+    onUrl: url => url + '?cdn_sign={signature}'
 })
 // 以 header 形式进行鉴权
-let model = await Engine3D.res.loadGltf('https://object.orillusion.com/model/xxxxx/scene.gltf', {
+let model = await Engine3D.res.loadGltf('https://object.orillusion.com/model/{model_id}/scene.gltf', {
     headers: {
-        cdn_sign: 'xxxxxxxx'
+        cdn_sign: "{signature}" 
     }
 })
+// 直接以 url path 形式进行鉴权
+let model = await Engine3D.res.loadGltf('https://object.orillusion.com/model/{model_id}/{signature}/scene.gltf')
 ```
 
 **错误提示：**
