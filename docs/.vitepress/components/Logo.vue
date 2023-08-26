@@ -3,7 +3,7 @@
 </template>
 <script>
     import logo from './logo.svg?raw'
-    import { withBase } from 'vitepress'
+    //import { withBase } from 'vitepress'
     
     export default {
         props: {

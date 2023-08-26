@@ -190,11 +190,11 @@ function nav() {
                 {
                     text: '教程',
                     link: '/guide/'
+                },
+                {
+                  text: '示例',
+                  link: '/example/Animation/sample1'
                 }
-                // {
-                //   text: '示例',
-                //   link: '/example/Animation/sample1'
-                // }
             ]
         },
         {
