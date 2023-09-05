@@ -11,7 +11,7 @@ npm install @orillusion/particle --save
 ```
 ```ts
 import { Engine3D } from "@orillusion/core"
-import { ParticleSysteam } from "@orillusion/particle"
+import { ParticleSystem } from "@orillusion/particle"
 ```
 
 ### 2. Importing via `CDN`
@@ -19,16 +19,16 @@ We recommend using the `ESModule` build version.
 ```html
 <script type="module">
   import { Engine3D } from "https://unpkg.com/@orillusion/core/dist/orillusion.es.js" 
-  import { ParticleSysteam } from "https://unpkg.com/@orillusion/particle/dist/particle.es.js" 
+  import { ParticleSystem } from "https://unpkg.com/@orillusion/particle/dist/particle.es.js" 
 </script>
 ```
 
-Alternatively, you can load the `UMD` build version via `<script>` and access the `ParticleSysteam` module through the global `Orillusion` module through the global
+Alternatively, you can load the `UMD` build version via `<script>` and access the `ParticleSystem` module through the global `Orillusion` module through the global
 ```html
 <script src="https://unpkg.com/@orillusion/core/dist/orillusion.umd.js"></script>
 <script src="https://unpkg.com/@orillusion/particle/dist/particle.umd.js"></script>
 <script>
-  const {Engine3D, ParticleSysteam} = Orillusion
+  const {Engine3D, ParticleSystem} = Orillusion
 </script>
 ```
 
