@@ -11,7 +11,7 @@ npm install @orillusion/particle --save
 ```
 ```ts
 import { Engine3D } from "@orillusion/core"
-import { ParticleSysteam } from "@orillusion/particle"
+import { ParticleSystem } from "@orillusion/particle"
 ```
 
 ### 2. 通过 `CDN` 链接引入
@@ -19,16 +19,16 @@ import { ParticleSysteam } from "@orillusion/particle"
 ```html
 <script type="module">
   import { Engine3D } from "https://unpkg.com/@orillusion/core/dist/orillusion.es.js" 
-  import { ParticleSysteam } from "https://unpkg.com/@orillusion/particle/dist/particle.es.js" 
+  import { ParticleSystem } from "https://unpkg.com/@orillusion/particle/dist/particle.es.js" 
 </script>
 ```
 
-或通过 `<script>` 加载构建 `UMD` 版本，在全局 `Orillusion` 变量中获取 `ParticleSysteam` 模块：
+或通过 `<script>` 加载构建 `UMD` 版本，在全局 `Orillusion` 变量中获取 `ParticleSystem` 模块：
 ```html
 <script src="https://unpkg.com/@orillusion/core/dist/orillusion.umd.js"></script>
 <script src="https://unpkg.com/@orillusion/particle/dist/particle.umd.js"></script>
 <script>
-  const {Engine3D, ParticleSysteam} = Orillusion
+  const {Engine3D, ParticleSystem} = Orillusion
 </script>
 ```
 
