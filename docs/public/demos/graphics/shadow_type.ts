@@ -1,10 +1,12 @@
+import { Color } from '@orillusion/core'
 import { Engine3D, Scene3D, Object3D, Camera3D, Vector3, AtmosphericComponent, View3D, LitMaterial, BoxGeometry, MeshRenderer, UnLitMaterial, SphereGeometry, DirectLight, PointLight, SpotLight, HoverCameraController, PlaneGeometry } from '@orillusion/core'
+import * as dat from 'dat.gui'
 
 // shadow setting
 Engine3D.setting.shadow.autoUpdate = true
 Engine3D.setting.shadow.shadowBound = 100
 Engine3D.setting.shadow.pointShadowBias = 0.0001
-Engine3D.setting.shadow.type = 'HARD'
+Engine3D.setting.shadow.type = sessionStorage._shadow_type || 'HARD'
 
 await Engine3D.init({
     canvasConfig: { devicePixelRatio: 1 }
@@ -41,6 +43,7 @@ scene3D.addChild(cameraObj)
     let mr = castShadowObj.addComponent(MeshRenderer)
     mr.geometry = new BoxGeometry(10, 10, 10)
     mr.material = new LitMaterial()
+    mr.material.baseColor = new Color(1,0,0)
     mr.castShadow = true
     scene3D.addChild(castShadowObj)
 }
@@ -60,3 +63,9 @@ view.scene = scene3D
 view.camera = camera
 // start render
 Engine3D.startRenderView(view)
+
+let gui = new dat.GUI()
+gui.add(Engine3D.setting.shadow, 'type', ['PCF', 'SOFT', 'HARD']).onChange((v)=>{
+    sessionStorage._shadow_type = v
+    location.reload()
+})

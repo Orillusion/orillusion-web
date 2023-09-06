@@ -12,7 +12,7 @@
         "format": "prettier --check --write ."
     },
     "devDependencies": {
-        "@orillusion/core": "0.6.9-beta.1",
+        "@orillusion/core": "0.6.9-beta.2",
         "@orillusion/media-extention": "^0.2.2",
         "@orillusion/particle": "^0.0.1",
         "@orillusion/physics": "^0.2.0",
@@ -21,7 +21,7 @@
         "@types/node": "^18.17.4",
         "esbuild": "^0.17.19",
         "prettier": "^2.8.8",
-        "vitepress": "1.0.0-rc.4",
+        "vitepress": "1.0.0-rc.10",
         "vue": "^3.3.4"
     },
     "pnpm": {

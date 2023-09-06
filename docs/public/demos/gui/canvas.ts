@@ -3,7 +3,6 @@ import { Engine3D, Object3D, UIImage, ImageType, Color, UIPanel, ViewPanel, Scen
 class Sample_UIMultiCanvas {
     async run() {
         Engine3D.setting.shadow.autoUpdate = true
-        Engine3D.setting.shadow.shadowBias = 0.002
 
         // initializa engine
         await Engine3D.init()

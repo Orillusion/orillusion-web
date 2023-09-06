@@ -7,7 +7,6 @@ class Sample_UIImageGroup {
 
     async run() {
         Engine3D.setting.shadow.autoUpdate = true
-        Engine3D.setting.shadow.shadowBias = 0.002
         // initializa engine
         await Engine3D.init()
         // create new scene as root node
