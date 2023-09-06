@@ -4,4 +4,4 @@
 
 #### Defined in
 
-[src/gfx/renderJob/collect/RenderShaderCollect.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/RenderShaderCollect.ts#L4)
+[src/gfx/renderJob/collect/RenderShaderCollect.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/RenderShaderCollect.ts#L5)

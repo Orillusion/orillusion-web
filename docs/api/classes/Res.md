@@ -250,7 +250,7 @@ ___
 
 ### addMat
 
-▸ **addMat**(`name`, `mat`): `Map`<`string`, `MaterialBase`\>
+▸ **addMat**(`name`, `mat`): `Map`<`string`, [`Material`](Material.md)\>
 
 add a material with reference of name
 
@@ -259,11 +259,11 @@ add a material with reference of name
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `name` | `string` | material name |
-| `mat` | `MaterialBase` | target material |
+| `mat` | [`Material`](Material.md) | target material |
 
 #### Returns
 
-`Map`<`string`, `MaterialBase`\>
+`Map`<`string`, [`Material`](Material.md)\>
 
 #### Defined in
 
@@ -273,7 +273,7 @@ ___
 
 ### getMat
 
-▸ **getMat**(`name`): `MaterialBase`
+▸ **getMat**(`name`): [`Material`](Material.md)
 
 get material by name
 
@@ -285,7 +285,7 @@ get material by name
 
 #### Returns
 
-`MaterialBase`
+[`Material`](Material.md)
 
 #### Defined in
 

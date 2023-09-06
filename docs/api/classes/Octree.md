@@ -21,6 +21,7 @@
 - [tryInsertEntity](Octree.md#tryinsertentity)
 - [rayCasts](Octree.md#raycasts)
 - [frustumCasts](Octree.md#frustumcasts)
+- [getRenderNode](Octree.md#getrendernode)
 - [boxCasts](Octree.md#boxcasts)
 - [clean](Octree.md#clean)
 
@@ -41,7 +42,7 @@
 
 #### Defined in
 
-[src/core/tree/octree/Octree.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L25)
+[src/core/tree/octree/Octree.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L26)
 
 ## Properties
 
@@ -51,7 +52,7 @@
 
 #### Defined in
 
-[src/core/tree/octree/Octree.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L15)
+[src/core/tree/octree/Octree.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L16)
 
 ___
 
@@ -61,7 +62,7 @@ ___
 
 #### Defined in
 
-[src/core/tree/octree/Octree.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L16)
+[src/core/tree/octree/Octree.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L17)
 
 ___
 
@@ -71,7 +72,7 @@ ___
 
 #### Defined in
 
-[src/core/tree/octree/Octree.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L17)
+[src/core/tree/octree/Octree.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L18)
 
 ___
 
@@ -81,7 +82,7 @@ ___
 
 #### Defined in
 
-[src/core/tree/octree/Octree.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L18)
+[src/core/tree/octree/Octree.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L19)
 
 ___
 
@@ -91,7 +92,7 @@ ___
 
 #### Defined in
 
-[src/core/tree/octree/Octree.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L19)
+[src/core/tree/octree/Octree.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L20)
 
 ___
 
@@ -101,7 +102,7 @@ ___
 
 #### Defined in
 
-[src/core/tree/octree/Octree.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L20)
+[src/core/tree/octree/Octree.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L21)
 
 ___
 
@@ -111,7 +112,7 @@ ___
 
 #### Defined in
 
-[src/core/tree/octree/Octree.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L22)
+[src/core/tree/octree/Octree.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L23)
 
 ___
 
@@ -121,7 +122,7 @@ ___
 
 #### Defined in
 
-[src/core/tree/octree/Octree.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L23)
+[src/core/tree/octree/Octree.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L24)
 
 ___
 
@@ -131,7 +132,7 @@ ___
 
 #### Defined in
 
-[src/core/tree/octree/Octree.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L83)
+[src/core/tree/octree/Octree.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L84)
 
 ## Methods
 
@@ -151,7 +152,7 @@ ___
 
 #### Defined in
 
-[src/core/tree/octree/Octree.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L34)
+[src/core/tree/octree/Octree.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L35)
 
 ___
 
@@ -172,7 +173,7 @@ ___
 
 #### Defined in
 
-[src/core/tree/octree/Octree.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L84)
+[src/core/tree/octree/Octree.ts:85](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L85)
 
 ___
 
@@ -193,7 +194,28 @@ ___
 
 #### Defined in
 
-[src/core/tree/octree/Octree.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L97)
+[src/core/tree/octree/Octree.ts:98](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L98)
+
+___
+
+### getRenderNode
+
+▸ **getRenderNode**(`frustum`, `ret`): `boolean`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `frustum` | `Frustum` |
+| `ret` | `CollectInfo` |
+
+#### Returns
+
+`boolean`
+
+#### Defined in
+
+[src/core/tree/octree/Octree.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L115)
 
 ___
 
@@ -214,7 +236,7 @@ ___
 
 #### Defined in
 
-[src/core/tree/octree/Octree.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L114)
+[src/core/tree/octree/Octree.ts:147](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L147)
 
 ___
 
@@ -228,4 +250,4 @@ ___
 
 #### Defined in
 
-[src/core/tree/octree/Octree.ts:127](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L127)
+[src/core/tree/octree/Octree.ts:160](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L160)

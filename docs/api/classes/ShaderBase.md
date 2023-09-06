@@ -25,7 +25,7 @@
 ### Methods
 
 - [noticeShaderChange](ShaderBase.md#noticeshaderchange)
-- [noticeStateChange](ShaderBase.md#noticestatechange)
+- [noticeValueChange](ShaderBase.md#noticevaluechange)
 - [setStorageBuffer](ShaderBase.md#setstoragebuffer)
 - [setStructStorageBuffer](ShaderBase.md#setstructstoragebuffer)
 - [setUniformBuffer](ShaderBase.md#setuniformbuffer)
@@ -38,6 +38,8 @@
 - [setUniformVector4](ShaderBase.md#setuniformvector4)
 - [setUniformColor](ShaderBase.md#setuniformcolor)
 - [setUniformArray](ShaderBase.md#setuniformarray)
+- [setUniform](ShaderBase.md#setuniform)
+- [getUniform](ShaderBase.md#getuniform)
 - [destroy](ShaderBase.md#destroy)
 
 ## Constructors
@@ -48,7 +50,7 @@
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/ShaderBase.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L65)
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L66)
 
 ## Properties
 
@@ -60,7 +62,7 @@ Shader Unique instance id
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/ShaderBase.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L19)
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L20)
 
 ___
 
@@ -72,7 +74,7 @@ Shader variant value
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/ShaderBase.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L24)
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L25)
 
 ___
 
@@ -84,7 +86,7 @@ Vertex stage entry point name
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/ShaderBase.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L29)
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L30)
 
 ___
 
@@ -96,7 +98,7 @@ Fragment stage entry point name
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/ShaderBase.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L34)
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L35)
 
 ___
 
@@ -108,7 +110,7 @@ BindGroup collection
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/ShaderBase.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L39)
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L40)
 
 ___
 
@@ -120,7 +122,7 @@ Shader reflection info
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/ShaderBase.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L44)
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L45)
 
 ___
 
@@ -136,7 +138,7 @@ The defined syntax value of the Shader when it is precompiled
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/ShaderBase.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L49)
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L50)
 
 ___
 
@@ -152,7 +154,7 @@ The constant value of the Shader when it is precompiled
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/ShaderBase.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L54)
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L55)
 
 ___
 
@@ -168,7 +170,7 @@ Uniforms data collection
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/ShaderBase.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L59)
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:60](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L60)
 
 ## Methods
 
@@ -184,13 +186,13 @@ notice shader change
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/ShaderBase.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L76)
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L77)
 
 ___
 
-### noticeStateChange
+### noticeValueChange
 
-▸ **noticeStateChange**(): `void`
+▸ **noticeValueChange**(): `void`
 
 notice shader state change
 
@@ -200,7 +202,7 @@ notice shader state change
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/ShaderBase.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L83)
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L84)
 
 ___
 
@@ -223,7 +225,7 @@ set storage gpu buffer
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/ShaderBase.ts:92](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L92)
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L93)
 
 ___
 
@@ -252,7 +254,7 @@ set struct storage gpu buffer
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/ShaderBase.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L106)
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L107)
 
 ___
 
@@ -275,7 +277,7 @@ set uniform gpu buffer min size 256
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/ShaderBase.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L120)
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L121)
 
 ___
 
@@ -298,7 +300,7 @@ set define value
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/ShaderBase.ts:134](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L134)
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L135)
 
 ___
 
@@ -411,7 +413,7 @@ set uniform vector3 value
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/ShaderBase.ts:194](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L194)
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:195](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L195)
 
 ___
 
@@ -434,7 +436,7 @@ set uniform vector4 value
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/ShaderBase.ts:207](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L207)
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:208](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L208)
 
 ___
 
@@ -457,7 +459,7 @@ set uniform color value
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/ShaderBase.ts:220](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L220)
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:221](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L221)
 
 ___
 
@@ -480,7 +482,48 @@ set uniform array value
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/ShaderBase.ts:233](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L233)
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:234](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L234)
+
+___
+
+### setUniform
+
+▸ **setUniform**(`name`, `value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `name` | `string` |
+| `value` | `any` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:242](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L242)
+
+___
+
+### getUniform
+
+▸ **getUniform**(`name`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `name` | `string` |
+
+#### Returns
+
+`any`
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:250](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L250)
 
 ___
 
@@ -502,4 +545,4 @@ destroy
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/ShaderBase.ts:248](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L248)
+[src/gfx/graphics/webGpu/shader/ShaderBase.ts:261](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/ShaderBase.ts#L261)

@@ -44,4 +44,4 @@ ___
 
 #### Defined in
 
-[src/assets/shader/post/Bloom_shader.ts:225](https://github.com/Orillusion/orillusion/blob/main/src/assets/shader/post/Bloom_shader.ts#L225)
+[src/assets/shader/post/Bloom_shader.ts:165](https://github.com/Orillusion/orillusion/blob/main/src/assets/shader/post/Bloom_shader.ts#L165)
