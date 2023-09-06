@@ -26,13 +26,15 @@ export class Sample_bloom {
 
         let postProcessing = this.scene.addComponent(PostProcessingComponent)
         let bloom = postProcessing.addPost(HDRBloomPost)
-        bloom.strength = 2
+        bloom.strength = 0.5
+        bloom.radius = 0.1
         let GUIHelp = new dat.GUI()
         GUIHelp.addFolder('Depth of Field')
         GUIHelp.add(bloom, 'blurX', 0, 10, 1)
         GUIHelp.add(bloom, 'blurY', 0, 10, 1)
-        GUIHelp.add(bloom, 'strength', 0, 5, 0.1)
-        GUIHelp.add(bloom, 'radius', 0, 5, 0.1)
+        GUIHelp.add(bloom, 'exposure', 0, 2, 0.1)
+        GUIHelp.add(bloom, 'strength', 0, 2, 0.1)
+        GUIHelp.add(bloom, 'radius', 0, 2, 0.1)
     }
 
     async initScene() {
