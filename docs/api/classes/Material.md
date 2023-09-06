@@ -1,60 +1,56 @@
-# Class: PointMaterial
-
-PointMaterial
+# Class: Material
 
 ## Hierarchy
 
-- [`Material`](Material.md)
+- **`Material`**
 
-  ↳ **`PointMaterial`**
+  ↳ [`GUIMaterial`](GUIMaterial.md)
+
+  ↳ [`LambertMaterial`](LambertMaterial.md)
+
+  ↳ [`PointMaterial`](PointMaterial.md)
+
+  ↳ [`UnLitMaterial`](UnLitMaterial.md)
 
 ### Constructors
 
-- [constructor](PointMaterial.md#constructor)
+- [constructor](Material.md#constructor)
 
 ### Properties
 
-- [name](PointMaterial.md#name)
-- [instanceID](PointMaterial.md#instanceid)
-- [enable](PointMaterial.md#enable)
+- [name](Material.md#name)
+- [instanceID](Material.md#instanceid)
+- [enable](Material.md#enable)
 
 ### Accessors
 
-- [depthCompare](PointMaterial.md#depthcompare)
-- [defaultPass](PointMaterial.md#defaultpass)
-- [doubleSide](PointMaterial.md#doubleside)
-- [castShadow](PointMaterial.md#castshadow)
-- [blendMode](PointMaterial.md#blendmode)
-- [transparent](PointMaterial.md#transparent)
-- [cullMode](PointMaterial.md#cullmode)
-- [baseMap](PointMaterial.md#basemap)
-- [envMap](PointMaterial.md#envmap)
-- [shadowMap](PointMaterial.md#shadowmap)
+- [depthCompare](Material.md#depthcompare)
+- [defaultPass](Material.md#defaultpass)
+- [doubleSide](Material.md#doubleside)
+- [castShadow](Material.md#castshadow)
+- [blendMode](Material.md#blendmode)
+- [transparent](Material.md#transparent)
+- [cullMode](Material.md#cullmode)
 
 ### Methods
 
-- [hasPass](PointMaterial.md#haspass)
-- [getPass](PointMaterial.md#getpass)
-- [getAllPass](PointMaterial.md#getallpass)
-- [addPass](PointMaterial.md#addpass)
-- [removePass](PointMaterial.md#removepass)
-- [clone](PointMaterial.md#clone)
-- [destroy](PointMaterial.md#destroy)
-- [debug](PointMaterial.md#debug)
+- [hasPass](Material.md#haspass)
+- [getPass](Material.md#getpass)
+- [getAllPass](Material.md#getallpass)
+- [addPass](Material.md#addpass)
+- [removePass](Material.md#removepass)
+- [clone](Material.md#clone)
+- [destroy](Material.md#destroy)
 
 ## Constructors
 
 ### constructor
 
-• **new PointMaterial**()
-
-#### Overrides
-
-[Material](Material.md).[constructor](Material.md#constructor)
+• **new Material**()
 
 #### Defined in
 
-[src/materials/PointMaterial.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/materials/PointMaterial.ts#L19)
+[src/materials/Material.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L27)
 
 ## Properties
 
@@ -63,10 +59,6 @@ PointMaterial
 • **name**: `string`
 
 name of this material
-
-#### Inherited from
-
-[Material](Material.md).[name](Material.md#name)
 
 #### Defined in
 
@@ -80,10 +72,6 @@ ___
 
 Material Unique Identifier
 
-#### Inherited from
-
-[Material](Material.md).[instanceID](Material.md#instanceid)
-
 #### Defined in
 
 [src/materials/Material.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L17)
@@ -93,10 +81,6 @@ ___
 ### enable
 
 • **enable**: `boolean` = `true`
-
-#### Inherited from
-
-[Material](Material.md).[enable](Material.md#enable)
 
 #### Defined in
 
@@ -111,10 +95,6 @@ ___
 #### Returns
 
 `GPUCompareFunction`
-
-#### Inherited from
-
-Material.depthCompare
 
 #### Defined in
 
@@ -132,10 +112,6 @@ Material.depthCompare
 
 `void`
 
-#### Inherited from
-
-Material.depthCompare
-
 #### Defined in
 
 [src/materials/Material.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L35)
@@ -149,10 +125,6 @@ ___
 #### Returns
 
 [`RenderShader`](RenderShader.md)
-
-#### Inherited from
-
-Material.defaultPass
 
 #### Defined in
 
@@ -170,10 +142,6 @@ Material.defaultPass
 
 `void`
 
-#### Inherited from
-
-Material.defaultPass
-
 #### Defined in
 
 [src/materials/Material.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L44)
@@ -187,10 +155,6 @@ ___
 #### Returns
 
 `boolean`
-
-#### Inherited from
-
-Material.doubleSide
 
 #### Defined in
 
@@ -208,10 +172,6 @@ Material.doubleSide
 
 `void`
 
-#### Inherited from
-
-Material.doubleSide
-
 #### Defined in
 
 [src/materials/Material.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L53)
@@ -225,10 +185,6 @@ ___
 #### Returns
 
 `boolean`
-
-#### Inherited from
-
-Material.castShadow
 
 #### Defined in
 
@@ -246,10 +202,6 @@ Material.castShadow
 
 `void`
 
-#### Inherited from
-
-Material.castShadow
-
 #### Defined in
 
 [src/materials/Material.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L62)
@@ -263,10 +215,6 @@ ___
 #### Returns
 
 [`BlendMode`](../enums/BlendMode.md)
-
-#### Inherited from
-
-Material.blendMode
 
 #### Defined in
 
@@ -284,10 +232,6 @@ Material.blendMode
 
 `void`
 
-#### Inherited from
-
-Material.blendMode
-
 #### Defined in
 
 [src/materials/Material.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L72)
@@ -301,10 +245,6 @@ ___
 #### Returns
 
 `boolean`
-
-#### Inherited from
-
-Material.transparent
 
 #### Defined in
 
@@ -322,10 +262,6 @@ Material.transparent
 
 `void`
 
-#### Inherited from
-
-Material.transparent
-
 #### Defined in
 
 [src/materials/Material.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L83)
@@ -339,10 +275,6 @@ ___
 #### Returns
 
 `GPUCullMode`
-
-#### Inherited from
-
-Material.cullMode
 
 #### Defined in
 
@@ -360,79 +292,9 @@ Material.cullMode
 
 `void`
 
-#### Inherited from
-
-Material.cullMode
-
 #### Defined in
 
 [src/materials/Material.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L96)
-
-___
-
-### baseMap
-
-• `set` **baseMap**(`texture`): `void`
-
-set environment texture, usually referring to cubemap
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `texture` | [`Texture`](Texture.md) |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/materials/PointMaterial.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/materials/PointMaterial.ts#L45)
-
-___
-
-### envMap
-
-• `set` **envMap**(`texture`): `void`
-
-set environment texture, usually referring to cubemap
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `texture` | [`Texture`](Texture.md) |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/materials/PointMaterial.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/materials/PointMaterial.ts#L53)
-
-___
-
-### shadowMap
-
-• `set` **shadowMap**(`texture`): `void`
-
-set shadow map
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `texture` | [`Texture`](Texture.md) |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/materials/PointMaterial.ts:60](https://github.com/Orillusion/orillusion/blob/main/src/materials/PointMaterial.ts#L60)
 
 ## Methods
 
@@ -449,10 +311,6 @@ set shadow map
 #### Returns
 
 `boolean`
-
-#### Inherited from
-
-[Material](Material.md).[hasPass](Material.md#haspass)
 
 #### Defined in
 
@@ -476,10 +334,6 @@ get render pass by renderType
 
 [`RenderShader`](RenderShader.md)[]
 
-#### Inherited from
-
-[Material](Material.md).[getPass](Material.md#getpass)
-
 #### Defined in
 
 [src/materials/Material.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L114)
@@ -495,10 +349,6 @@ get all color render pass
 #### Returns
 
 [`RenderShader`](RenderShader.md)[]
-
-#### Inherited from
-
-[Material](Material.md).[getAllPass](Material.md#getallpass)
 
 #### Defined in
 
@@ -522,10 +372,6 @@ ___
 
 [`RenderShader`](RenderShader.md)[]
 
-#### Inherited from
-
-[Material](Material.md).[addPass](Material.md#addpass)
-
 #### Defined in
 
 [src/materials/Material.ts:126](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L126)
@@ -547,10 +393,6 @@ ___
 
 `void`
 
-#### Inherited from
-
-[Material](Material.md).[removePass](Material.md#removepass)
-
 #### Defined in
 
 [src/materials/Material.ts:145](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L145)
@@ -568,10 +410,6 @@ clone one material
 `any`
 
 Material
-
-#### Inherited from
-
-[Material](Material.md).[clone](Material.md#clone)
 
 #### Defined in
 
@@ -593,24 +431,6 @@ ___
 
 `void`
 
-#### Inherited from
-
-[Material](Material.md).[destroy](Material.md#destroy)
-
 #### Defined in
 
 [src/materials/Material.ts:162](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L162)
-
-___
-
-### debug
-
-▸ **debug**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/materials/PointMaterial.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/materials/PointMaterial.ts#L64)

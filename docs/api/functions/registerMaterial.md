@@ -7,7 +7,7 @@
 | Name | Type |
 | :------ | :------ |
 | `name` | `MaterialClassName` |
-| `cls` | [`Ctor`](../types/Ctor.md)<`MaterialBase`\> |
+| `cls` | [`Ctor`](../types/Ctor.md)<[`Material`](../classes/Material.md)\> |
 
 #### Returns
 
