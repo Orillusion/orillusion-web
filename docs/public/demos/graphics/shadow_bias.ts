@@ -5,7 +5,6 @@ import * as dat from 'dat.gui'
 Engine3D.setting.shadow.autoUpdate = true
 Engine3D.setting.shadow.debug = false
 Engine3D.setting.shadow.shadowBound = 100
-Engine3D.setting.shadow.shadowBias = 0
 
 await Engine3D.init({
     canvasConfig: { devicePixelRatio: 1 }

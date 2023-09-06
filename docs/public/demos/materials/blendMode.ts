@@ -12,7 +12,6 @@ export class Sample_BlendMode {
         await Engine3D.init({ canvasConfig: { alpha: false, zIndex: 0 } })
 
         Engine3D.setting.shadow.shadowBound = 5
-        Engine3D.setting.shadow.shadowBias = -0.0012
 
         this.scene = new Scene3D()
         // add an Atmospheric sky enviroment
