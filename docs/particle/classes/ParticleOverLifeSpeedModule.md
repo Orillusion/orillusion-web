@@ -8,8 +8,6 @@ Particle module of move speed over life time
 
   ↳ **`ParticleOverLifeSpeedModule`**
 
-## Table of contents
-
 ### Constructors
 
 - [constructor](ParticleOverLifeSpeedModule.md#constructor)

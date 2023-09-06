@@ -8,8 +8,6 @@ Particle module of color change over life time
 
   ↳ **`ParticleOverLifeColorModule`**
 
-## Table of contents
-
 ### Constructors
 
 - [constructor](ParticleOverLifeColorModule.md#constructor)
