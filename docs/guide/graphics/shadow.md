@@ -65,7 +65,7 @@ In this way, you can see a `box` in the scene, which casts a shadow under the pa
 
 <<< @/public/demos/graphics/shadow_spot.ts
 
-## Shadow Bias
+<!-- ## Shadow Bias
 Shadow bias `shadowBias` is an important parameter that affects shadow rendering. Because the size of the shadow texture and the size of the final rendering texture are not completely the same, it will cause sampling distortion and other situations. Usually, you can manually set a small offset `shadowBias` to solve the sampling distortion.
 
 ```ts
@@ -77,7 +77,7 @@ Engine3D.setting.shadow.pointShadowBias = 0.2 // Shadow bias for point light or 
 
 <Demo :height="500" src="/demos/graphics/shadow_bias.ts"></Demo>
 
-<<< @/public/demos/graphics/shadow_bias.ts
+<<< @/public/demos/graphics/shadow_bias.ts -->
 
 ## Shadow Type
 
@@ -90,24 +90,29 @@ Configuration shadow type:
 ```ts
 Engine3D.setting.shadow.type = 'HARD'; // PCF by default
 ```
-<!-- 
+
 <Demo :height="500" src="/demos/graphics/shadow_type.ts"></Demo>
 
 <<< @/public/demos/graphics/shadow_type.ts
--->
+
+## Shadow Bound
+TODO
+
+## Cascaded Shadow Maps (CSM)
+TODO
 
 ## Shadow Attribute
 
-| Attribute       | Type    | Description                                                                                                                                                        |
-|-----------------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| enable          | Boolean | Whether to enable shadow, default false                                                                                                                            |
-| type            | String  | Shadow type, default PCF                                                                                                                                           |
-| shadowQuality   | Number  | Shadow rendering quality                                                                                                                                           |
-| shadowBound     | Number  | Shadow area range                                                                                                                                                  |
-| shadowBias      | Number  | Offset value of parallel light shadow, you can adjust the distance between the shadow and the object to avoid shadow distortion, reduce the stripe or wave pattern |
-| pointShadowBias | Number  | Offset value of point light and spotlight shadow                                                                                                                   |
-| shadowSize      | Number  | Size of parallel light shadow map, default 2048, the smaller the number, the lower the performance cost, but the more obvious the shadow aliasing                  |
-| pointShadowSize | Number  | Size of point light shadow map, default 1024                                                                                                                       |
-| shadowNear      | Number  | Shadow near plane                                                                                                                                                  |
-| shadowFar       | Number  | Shadow far plane                                                                                                                                                   |
-| autoUpdate      | Boolean | Whether to automatically update the shadow, default false                                                                                                          |
+| Attribute       | Type    | Description |
+|-----------------|---------|------------------------|
+| enable          | Boolean | Whether to enable shadow, default false |
+| type            | String  | Shadow type, default PCF |
+| shadowQuality   | Number  | Shadow rendering quality |
+| shadowBound     | Number  | Shadow area range |
+| pointShadowBias | Number  | Offset value of point light and spotlight shadow |
+| shadowSize      | Number  | Size of parallel light shadow map, default 2048, the smaller the number, the lower the performance cost, but the more obvious the shadow aliasing |
+| pointShadowSize | Number  | Size of point light shadow map, default 1024 |
+| autoUpdate      | Boolean | Whether to automatically update the shadow, default false |
+| csmMargin | Number | ? |
+| csmScatteringExp | Number | ? |
+| csmAreaScale | Number | ? |

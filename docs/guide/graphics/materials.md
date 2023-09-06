@@ -101,11 +101,13 @@ mat.cullMode = GPUCullMode.back; // Cull the back, display the front
 
 ### UV Transform
 The model vertex will store multiple sets of texture mapping coordinates, which define the 2D coordinates corresponding to the vertex in the texture. It is usually represented by a two-dimensional variable `(u,v)`, so it is also called `UV coordinates`.   
-We can customize the texture mapping relationship by performing matrix transformations on the `uv` coordinates of the model. For example, set the material's `uvTransform_1` property to perform coordinate transformations of the original `uv` for `offset` and `scaling`:
+We can customize the texture mapping relationship by performing matrix transformations on the `uv` coordinates of the model. For example, set the material `transformUV1` shader value to perform coordinate transformations of the original `uv` for `offset` and `scaling`:
 ```ts
 let mat = new LitMaterial();
-// Define Vector4, adjust offsetU, offsetV, scalingU, scalingV separately
-mat.uvTransform_1 = new Vector4(0, 0, 1, 1);
+// Get current uv transform
+let uv = mat.defaultPass.getUniform(`transformUV1`)
+// Set a new uv transform - Vector4(offsetU, offsetV, scalingU, scalingV)
+mat.defaultPass.setUniform(`transformUV1`, new Vector4(0, 0, 1, 1))
 ```
 
 <Demo :height="300" :code="false" src="/demos/materials/uv.ts"></Demo>
