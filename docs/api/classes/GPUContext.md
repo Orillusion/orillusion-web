@@ -431,4 +431,4 @@ Perform the final calculation and submit the Shader to the GPU
 
 #### Defined in
 
-[src/gfx/renderJob/GPUContext.ts:217](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L217)
+[src/gfx/renderJob/GPUContext.ts:215](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L215)

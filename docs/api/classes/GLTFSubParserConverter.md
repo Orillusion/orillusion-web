@@ -22,7 +22,7 @@
 
 #### Defined in
 
-[src/loader/parser/gltf/GLTFSubParserConverter.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFSubParserConverter.ts#L33)
+[src/loader/parser/gltf/GLTFSubParserConverter.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFSubParserConverter.ts#L31)
 
 ## Methods
 
@@ -43,4 +43,4 @@
 
 #### Defined in
 
-[src/loader/parser/gltf/GLTFSubParserConverter.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFSubParserConverter.ts#L38)
+[src/loader/parser/gltf/GLTFSubParserConverter.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFSubParserConverter.ts#L36)
