@@ -8,8 +8,6 @@ Particle module of rotation over life time
 
   ↳ **`ParticleOverLifeRotationModule`**
 
-## Table of contents
-
 ### Constructors
 
 - [constructor](ParticleOverLifeRotationModule.md#constructor)

@@ -8,8 +8,6 @@ Standard particle simulator
 
   ↳ **`ParticleStandardSimulator`**
 
-## Table of contents
-
 ### Constructors
 
 - [constructor](ParticleStandardSimulator.md#constructor)

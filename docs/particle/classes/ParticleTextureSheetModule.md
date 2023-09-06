@@ -8,8 +8,6 @@ Particle Module of texture sheet
 
   ↳ **`ParticleTextureSheetModule`**
 
-## Table of contents
-
 ### Constructors
 
 - [constructor](ParticleTextureSheetModule.md#constructor)
