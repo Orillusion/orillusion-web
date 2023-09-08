@@ -45,8 +45,7 @@ class Sample_AddRemove {
 
     private async test() {
         let list: Object3D[] = []
-        // let player = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/anim/Minion_Lane_Super_Dawn/Minion_Lane_Super_Dawn.glb');
-        let player = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/wukong/wukong.gltf')
+        let player = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/anim/Minion_Lane_Super_Dawn/Minion_Lane_Super_Dawn.gltf')
         // gui
         const gui = new dat.GUI()
         gui.domElement.style.zIndex = '10'
@@ -62,7 +61,9 @@ class Sample_AddRemove {
                 clone.transform.x = Math.random() * 100 - 50
                 clone.transform.y = Math.random() * 100 - 50
                 clone.transform.z = Math.random() * 100 - 50
-                clone.transform.localScale.set(20, 20, 20)
+                clone.transform.scaleX = 20
+                clone.transform.scaleY = 20
+                clone.transform.scaleZ = 20
 
                 this.view.scene.addChild(clone)
                 list.push(clone)

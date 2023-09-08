@@ -4,6 +4,7 @@ import { AtmosphericComponent, CameraUtil, Color, DirectLight, Engine3D, HoverCa
 
 // A sample to show boundingbox
 class Sample_BoundingBox {
+    scene: Scene3D
     view: View3D
     box: Object3D
     container: Object3D
@@ -16,102 +17,67 @@ class Sample_BoundingBox {
                 this.loop()
             }
         })
-
+        // init dat.gui
         const gui = new dat.GUI()
         gui.domElement.style.zIndex = '10'
         gui.domElement.parentElement.style.zIndex = '10'
-
         this.Ori = gui.addFolder('Orillusion')
         this.Ori.open()
 
-        let param = {
-            camera: {
-                near: 0.01,
-                far: 100,
-                distance: 2,
-                fov: 60,
-                pitch: -15,
-                roll: -30
-            },
-
-            scene: {
-                exposure: 1,
-                atmosphericSky: {}
-            },
-
-            light: {
-                position: {
-                    x: 0,
-                    y: 30,
-                    z: -40
-                },
-                euler: {
-                    x: 20,
-                    y: 160,
-                    z: 0
-                },
-
-                kelvin: 5355,
-                intensity: 30,
-                castShadow: true
-            }
-        }
-
+        // param.camera.near = 0.01
+        // param.camera.far = 1000
+        // param.camera.distance = 20
         // init Scene3D
-        let scene = new Scene3D()
-        scene.exposure = param.scene.exposure
-        scene.addComponent(Stats)
+        this.scene = new Scene3D()
+        this.scene.exposure = 1
+        this.scene.addComponent(Stats)
 
         // init sky
         let atmosphericSky: AtmosphericComponent
-        if (param.scene.atmosphericSky) {
-            atmosphericSky = scene.addComponent(AtmosphericComponent)
-        }
+        atmosphericSky = this.scene.addComponent(AtmosphericComponent)
 
         // init Camera3D
-        let cameraData = param.camera
-        let camera = CameraUtil.createCamera3DObject(scene)
-        camera.perspective(cameraData.fov, Engine3D.aspect, cameraData.near, cameraData.far)
+        let camera = CameraUtil.createCamera3DObject(this.scene)
+        camera.perspective(60, Engine3D.aspect, 0.01, 1000)
 
         // init Camera Controller
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController)
-        hoverCtrl.setCamera(cameraData.roll, cameraData.pitch, cameraData.distance)
+        hoverCtrl.setCamera(-30, -15, 20)
 
         // init View3D
-        this.view = new View3D()
-        this.view.scene = scene
-        this.view.camera = camera
+        let view = new View3D()
+        view.scene = this.scene
+        view.camera = camera
+        this.view = view
 
         // create direction light
-
         let lightObj3D = new Object3D()
-        lightObj3D.x = param.light.position.x
-        lightObj3D.y = param.light.position.y
-        lightObj3D.z = param.light.position.z
-        lightObj3D.rotationX = param.light.euler.x
-        lightObj3D.rotationY = param.light.euler.y
-        lightObj3D.rotationZ = param.light.euler.z
+        lightObj3D.x = 0
+        lightObj3D.y = 30
+        lightObj3D.z = -40
+        lightObj3D.rotationX = 20
+        lightObj3D.rotationY = 160
+        lightObj3D.rotationZ = 0
 
         let light = lightObj3D.addComponent(DirectLight)
-        light.lightColor = KelvinUtil.color_temperature_to_rgb(param.light.kelvin)
-        light.castShadow = param.light.castShadow
-        light.intensity = param.light.intensity
-        scene.addChild(light.object3D)
+        light.lightColor = KelvinUtil.color_temperature_to_rgb(5355)
+        light.castShadow = true
+        light.intensity = 30
+
+        this.scene.addChild(light.object3D)
 
         // relative light to sky
-        if (atmosphericSky) {
-            atmosphericSky.relativeTransform = light.transform
-        }
+        atmosphericSky.relativeTransform = light.transform
 
         Engine3D.startRenderViews([this.view])
         Engine3D.getRenderJob(this.view)
 
-        this.box = Object3DUtil.GetSingleCube(0.5, 0.3, 0.8, 1, 1, 1)
+        this.box = Object3DUtil.GetSingleCube(5, 3, 8, 1, 1, 1)
         this.box.transform.eventDispatcher.addEventListener(Transform.LOCAL_ONCHANGE, this.logChange, this)
 
         let parent = (this.container = new Object3D())
         parent.addChild(this.box)
-        scene.addChild(parent)
+        this.scene.addChild(parent)
 
         let button_remove = {
             Remove_Box: () => {
@@ -156,10 +122,10 @@ class Sample_BoundingBox {
     }
 
     red = new Color(1, 0, 0, 1)
-    gree = new Color(0, 1, 0, 1)
+    green = new Color(0, 1, 0, 1)
 
     loop() {
-        this.view.graphic3D.drawBoundingBox(this.box.instanceID, this.box.bound as any, this.gree)
+        this.view.graphic3D.drawBoundingBox(this.box.instanceID, this.box.bound as any, this.green)
         this.view.graphic3D.drawBoundingBox(this.container.instanceID, this.container.bound as any, this.red)
     }
 }
