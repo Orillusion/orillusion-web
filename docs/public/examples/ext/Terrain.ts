@@ -81,13 +81,13 @@ class Sample_Terrain {
         }
 
         //bitmap
-        let bitmapTexture = await Engine3D.res.loadTexture('terrain/test01/bitmap.png')
-        let heightTexture = await Engine3D.res.loadTexture('terrain/test01/height.png')
+        let bitmapTexture = await Engine3D.res.loadTexture('https://cdn.orillusion.com/terrain/test01/bitmap.webp')
+        let heightTexture = await Engine3D.res.loadTexture('https://cdn.orillusion.com/terrain/test01/height.webp')
         // let heightTexture = await Engine3D.res.loadTexture('terrain/test01/china.png');
 
         // let heightTexture = await Engine3D.res.loadTexture('terrain/grass/GustNoise.png');
-        let grassTexture = await Engine3D.res.loadTexture('terrain/grass/GrassThick.png')
-        let gustNoiseTexture = await Engine3D.res.loadTexture('terrain/grass/displ_noise_curl_1.png')
+        let grassTexture = await Engine3D.res.loadTexture('https://cdn.orillusion.com/terrain/grass/GrassThick.png')
+        let gustNoiseTexture = await Engine3D.res.loadTexture('https://cdn.orillusion.com/terrain/grass/displ_noise_curl_1.png')
         let terrainSizeW = 20488
         let terrainSizeH = 20488
         let terrainGeometry: TerrainGeometry
