@@ -372,7 +372,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/post/GlobalFog.ts:165](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L165)
+[src/gfx/renderJob/post/GlobalFog.ts:166](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L166)
 
 • `set` **falloff**(`v`): `void`
 
@@ -388,7 +388,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/post/GlobalFog.ts:160](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L160)
+[src/gfx/renderJob/post/GlobalFog.ts:161](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L161)
 
 ___
 
@@ -402,7 +402,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/post/GlobalFog.ts:174](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L174)
+[src/gfx/renderJob/post/GlobalFog.ts:175](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L175)
 
 • `set` **rayLength**(`v`): `void`
 
@@ -418,7 +418,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/post/GlobalFog.ts:169](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L169)
+[src/gfx/renderJob/post/GlobalFog.ts:170](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L170)
 
 ___
 
@@ -432,7 +432,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/post/GlobalFog.ts:183](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L183)
+[src/gfx/renderJob/post/GlobalFog.ts:184](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L184)
 
 • `set` **scatteringExponent**(`v`): `void`
 
@@ -448,7 +448,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/post/GlobalFog.ts:178](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L178)
+[src/gfx/renderJob/post/GlobalFog.ts:179](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L179)
 
 ___
 
@@ -462,7 +462,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/post/GlobalFog.ts:192](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L192)
+[src/gfx/renderJob/post/GlobalFog.ts:193](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L193)
 
 • `set` **dirHeightLine**(`v`): `void`
 
@@ -478,7 +478,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/post/GlobalFog.ts:187](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L187)
+[src/gfx/renderJob/post/GlobalFog.ts:188](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L188)
 
 ## Methods
 

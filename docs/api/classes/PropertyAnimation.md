@@ -250,7 +250,7 @@ get playing speed
 
 #### Defined in
 
-[src/components/anim/curveAnim/PropertyAnimation.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L97)
+[src/components/anim/curveAnim/PropertyAnimation.ts:98](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L98)
 
 • `set` **speed**(`value`): `void`
 
@@ -268,7 +268,7 @@ set playing speed
 
 #### Defined in
 
-[src/components/anim/curveAnim/PropertyAnimation.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L90)
+[src/components/anim/curveAnim/PropertyAnimation.ts:91](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L91)
 
 ___
 
@@ -284,7 +284,7 @@ get animation clip which is playing now
 
 #### Defined in
 
-[src/components/anim/curveAnim/PropertyAnimation.ts:134](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L134)
+[src/components/anim/curveAnim/PropertyAnimation.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L135)
 
 ___
 
@@ -300,7 +300,7 @@ get time of current animator
 
 #### Defined in
 
-[src/components/anim/curveAnim/PropertyAnimation.ts:141](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L141)
+[src/components/anim/curveAnim/PropertyAnimation.ts:142](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L142)
 
 ## Methods
 
@@ -586,7 +586,7 @@ stop playing
 
 #### Defined in
 
-[src/components/anim/curveAnim/PropertyAnimation.ts:104](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L104)
+[src/components/anim/curveAnim/PropertyAnimation.ts:105](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L105)
 
 ___
 
@@ -602,7 +602,7 @@ stop or resume playing
 
 #### Defined in
 
-[src/components/anim/curveAnim/PropertyAnimation.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L111)
+[src/components/anim/curveAnim/PropertyAnimation.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L112)
 
 ___
 
@@ -624,7 +624,7 @@ get animation clip by clip name
 
 #### Defined in
 
-[src/components/anim/curveAnim/PropertyAnimation.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L120)
+[src/components/anim/curveAnim/PropertyAnimation.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L121)
 
 ___
 
@@ -646,7 +646,7 @@ seek the animation to assign time
 
 #### Defined in
 
-[src/components/anim/curveAnim/PropertyAnimation.ts:149](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L149)
+[src/components/anim/curveAnim/PropertyAnimation.ts:150](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L150)
 
 ___
 
@@ -669,7 +669,7 @@ play animation by given name
 
 #### Defined in
 
-[src/components/anim/curveAnim/PropertyAnimation.ts:159](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L159)
+[src/components/anim/curveAnim/PropertyAnimation.ts:160](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L160)
 
 ___
 
@@ -693,7 +693,7 @@ ___
 
 #### Defined in
 
-[src/components/anim/curveAnim/PropertyAnimation.ts:178](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L178)
+[src/components/anim/curveAnim/PropertyAnimation.ts:179](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L179)
 
 ___
 
@@ -720,4 +720,4 @@ and add them to the target object.
 
 #### Defined in
 
-[src/components/anim/curveAnim/PropertyAnimation.ts:193](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L193)
+[src/components/anim/curveAnim/PropertyAnimation.ts:194](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyAnimation.ts#L194)

@@ -2,8 +2,6 @@
 
 enum emit loaction
 
-## Table of contents
-
 ### Enumeration Members
 
 - [Default](EmitLocation.md#default)

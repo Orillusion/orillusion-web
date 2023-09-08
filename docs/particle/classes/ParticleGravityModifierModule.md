@@ -8,8 +8,6 @@ Particle module of gravity modifier
 
   ↳ **`ParticleGravityModifierModule`**
 
-## Table of contents
-
 ### Constructors
 
 - [constructor](ParticleGravityModifierModule.md#constructor)

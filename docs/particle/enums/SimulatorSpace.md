@@ -2,8 +2,6 @@
 
 enumerate particle simulator space.
 
-## Table of contents
-
 ### Enumeration Members
 
 - [Local](SimulatorSpace.md#local)

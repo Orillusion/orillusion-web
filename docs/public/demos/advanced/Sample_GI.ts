@@ -24,7 +24,6 @@ class Sample_GICornellBox {
         Engine3D.setting.gi.autoRenderProbe = true
 
         Engine3D.setting.shadow.shadowBound = 50
-        Engine3D.setting.shadow.shadowBias = 0.00003
         Engine3D.setting.shadow.autoUpdate = true
         Engine3D.setting.shadow.updateFrameRate = 1
 

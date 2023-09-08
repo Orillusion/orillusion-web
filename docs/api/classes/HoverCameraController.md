@@ -763,4 +763,4 @@ ___
 
 #### Defined in
 
-[src/components/controller/HoverCameraController.ts:225](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L225)
+[src/components/controller/HoverCameraController.ts:226](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L226)

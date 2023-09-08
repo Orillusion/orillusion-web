@@ -8,8 +8,6 @@ Particle module of emit
 
   ↳ **`ParticleEmitterModule`**
 
-## Table of contents
-
 ### Constructors
 
 - [constructor](ParticleEmitterModule.md#constructor)

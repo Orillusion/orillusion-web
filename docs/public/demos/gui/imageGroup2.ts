@@ -59,7 +59,6 @@ class Sample_UIPerformance2 {
 
     async run() {
         Engine3D.setting.shadow.autoUpdate = true
-        Engine3D.setting.shadow.shadowBias = 0.002
 
         GUIConfig.quadMaxCountForView = 5001
 

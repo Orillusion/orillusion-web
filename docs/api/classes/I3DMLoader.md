@@ -141,4 +141,4 @@ ___
 
 #### Defined in
 
-[src/loader/parser/i3dm/I3DMLoader.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/i3dm/I3DMLoader.ts#L27)
+[src/loader/parser/i3dm/I3DMLoader.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/i3dm/I3DMLoader.ts#L36)

@@ -2,8 +2,6 @@
 
 enum shape of all particle emitter shapes
 
-## Table of contents
-
 ### Enumeration Members
 
 - [Box](ShapeType.md#box)

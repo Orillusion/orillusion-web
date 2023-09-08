@@ -28,7 +28,7 @@
 
 #### Defined in
 
-[src/gfx/renderJob/collect/RenderShaderCollect.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/RenderShaderCollect.ts#L7)
+[src/gfx/renderJob/collect/RenderShaderCollect.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/RenderShaderCollect.ts#L8)
 
 ___
 
@@ -38,7 +38,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/collect/RenderShaderCollect.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/RenderShaderCollect.ts#L8)
+[src/gfx/renderJob/collect/RenderShaderCollect.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/RenderShaderCollect.ts#L9)
 
 ## Methods
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/collect/RenderShaderCollect.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/RenderShaderCollect.ts#L10)
+[src/gfx/renderJob/collect/RenderShaderCollect.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/RenderShaderCollect.ts#L11)
 
 ___
 
@@ -78,4 +78,4 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/collect/RenderShaderCollect.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/RenderShaderCollect.ts#L42)
+[src/gfx/renderJob/collect/RenderShaderCollect.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/RenderShaderCollect.ts#L43)

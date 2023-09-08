@@ -13,7 +13,6 @@ export class Sample_UV {
         await Engine3D.init({ canvasConfig: { alpha: false, zIndex: 0 } })
         Engine3D.setting.shadow.debug = false
         Engine3D.setting.shadow.shadowBound = 5
-        Engine3D.setting.shadow.shadowBias = -0.0012
 
         this.scene = new Scene3D()
         // add an Atmospheric sky enviroment
@@ -57,29 +56,21 @@ export class Sample_UV {
         {
             let tex = await Engine3D.res.loadTexture('https://cdn.orillusion.com/images/T_Fx_Object_229.webp')
             let mat = new UnLitMaterial()
-            mat.uvTransform_1 = new Vector4(0, 0, 1, 1)
             mat.baseMap = tex
 
+            let uv = new Vector4(0, 0, 1, 1)
             const GUIHelp = new dat.GUI()
-            GUIHelp.add(mat.uvTransform_1, 'x', -1, 1, 0.001).onChange((v) => {
-                let old = mat.uvTransform_1
-                old.x = v
-                mat.uvTransform_1 = new Vector4().copyFrom(old)
+            GUIHelp.add(uv, 'x', -1, 1, 0.001).onChange(() => {
+                mat.defaultPass.setUniform(`transformUV1`, uv)
             })
-            GUIHelp.add(mat.uvTransform_1, 'y', -1, 1, 0.001).onChange((v) => {
-                let old = mat.uvTransform_1
-                old.y = v
-                mat.uvTransform_1 = new Vector4().copyFrom(old)
+            GUIHelp.add(uv, 'y', -1, 1, 0.001).onChange(() => {
+                mat.defaultPass.setUniform(`transformUV1`, uv)
             })
-            GUIHelp.add(mat.uvTransform_1, 'z', -5, 5, 0.01).onChange((v) => {
-                let old = mat.uvTransform_1
-                old.z = v
-                mat.uvTransform_1 = new Vector4().copyFrom(old)
+            GUIHelp.add(uv, 'z', -5, 5, 0.01).onChange(() => {
+                mat.defaultPass.setUniform(`transformUV1`, uv)
             })
-            GUIHelp.add(mat.uvTransform_1, 'w', -5, 5, 0.01).onChange((v) => {
-                let old = mat.uvTransform_1
-                old.w = v
-                mat.uvTransform_1 = new Vector4().copyFrom(old)
+            GUIHelp.add(uv, 'w', -5, 5, 0.01).onChange(() => {
+                mat.defaultPass.setUniform(`transformUV1`, uv)
             })
 
             let plane = new Object3D()

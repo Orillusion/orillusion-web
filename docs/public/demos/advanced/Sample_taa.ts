@@ -7,7 +7,6 @@ export class Sample_TAA {
     async run() {
         Engine3D.setting.shadow.enable = true
         Engine3D.setting.shadow.shadowBound = 100
-        Engine3D.setting.shadow.shadowBias = 0.0001
 
         await Engine3D.init({
             canvasConfig: {
