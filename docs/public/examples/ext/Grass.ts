@@ -1,146 +1,145 @@
-import dat from "dat.gui";
+import { Engine3D, View3D, Scene3D, CameraUtil, AtmosphericComponent, webGPUContext, HoverCameraController, Object3D, DirectLight, KelvinUtil, LitMaterial, MeshRenderer, Vector3, PostProcessingComponent, BitmapTexture2D, GlobalFog, Color } from '@orillusion/core';
+import { GrassComponent, TerrainGeometry } from '@orillusion/effect'
+import { Stats } from '@orillusion/stats'
+import dat from 'dat.gui'
 
-import { Engine3D, View3D, Scene3D, CameraUtil, AtmosphericComponent, webGPUContext, HoverCameraController, Object3D, DirectLight, KelvinUtil, PlaneGeometry, VertexAttributeName, LitMaterial, MeshRenderer, Vector4, Vector3, Matrix3, PostProcessingComponent, TAAPost, BitmapTexture2D, GlobalFog, Color } from "@orillusion/core";
-//import { GUIUtil } from "@samples/utils/GUIUtil";
-import { GrassComponent, TerrainGeometry } from "@orillusion/effect";
-import { Stats } from "@orillusion/stats";
 
 // An sample of custom vertex attribute of geometry
 export class Sample_Grass {
-    view: View3D;
-    post: PostProcessingComponent;
-    private Ori: dat.GUI | undefined;
-    
+    view: View3D
+    post: PostProcessingComponent
+    private Ori: dat.GUI | undefined
+
     async run() {
-        Engine3D.setting.shadow.autoUpdate = true;
-        Engine3D.setting.shadow.updateFrameRate = 1;
-        Engine3D.setting.shadow.shadowBound = 500;
-        Engine3D.setting.shadow.shadowSize = 1024;
+        Engine3D.setting.shadow.autoUpdate = true
+        Engine3D.setting.shadow.updateFrameRate = 1
+        Engine3D.setting.shadow.shadowBound = 500
+        Engine3D.setting.shadow.shadowSize = 1024
         // Engine3D.setting.render.zPrePass = true;
 
-        const gui = new dat.GUI();
-        gui.domElement.style.zIndex = "10";
-        gui.domElement.parentElement.style.zIndex = "10";
+        const gui = new dat.GUI()
+        gui.domElement.style.zIndex = '10'
+        gui.domElement.parentElement.style.zIndex = '10'
 
-        this.Ori = gui.addFolder("Orillusion");
-        this.Ori.open();
+        this.Ori = gui.addFolder('Orillusion')
+        this.Ori.open()
 
-        await Engine3D.init();
-        this.view = new View3D();
-        this.view.scene = new Scene3D();
-        this.view.scene.addComponent(AtmosphericComponent);
-        this.view.scene.addComponent(Stats);
+        await Engine3D.init()
+        this.view = new View3D()
+        this.view.scene = new Scene3D()
+        this.view.scene.addComponent(AtmosphericComponent)
+        this.view.scene.addComponent(Stats)
 
-        this.view.camera = CameraUtil.createCamera3DObject(this.view.scene);
-        this.view.camera.enableCSM = true;
-        this.view.camera.perspective(60, webGPUContext.aspect, 1, 5000.0);
-        this.view.camera.object3D.z = -15;
-        this.view.camera.object3D.addComponent(HoverCameraController).setCamera(35, -20, 500);
+        this.view.camera = CameraUtil.createCamera3DObject(this.view.scene)
+        this.view.camera.enableCSM = true
+        this.view.camera.perspective(60, webGPUContext.aspect, 1, 5000.0)
+        this.view.camera.object3D.z = -15
+        this.view.camera.object3D.addComponent(HoverCameraController).setCamera(35, -20, 500)
 
-        Engine3D.startRenderView(this.view);
+        Engine3D.startRenderView(this.view)
 
-        this.post = this.view.scene.addComponent(PostProcessingComponent);
-        let fog = this.post.addPost(GlobalFog);
-        fog.fogColor = new Color(136 / 255, 215 / 255, 236 / 255, 1);
-        fog.start = 0;
-        fog.overrideSkyFactor = 0.0764;
-        fog.ins = 1;
-        fog.falloff = 0.626;
-        fog.scatteringExponent = 3;
-        fog.dirHeightLine = 10;
+        this.post = this.view.scene.addComponent(PostProcessingComponent)
+        let fog = this.post.addPost(GlobalFog)
+        fog.fogColor = new Color(136 / 255, 215 / 255, 236 / 255, 1)
+        fog.start = 0
+        fog.overrideSkyFactor = 0.0764
+        fog.ins = 1
+        fog.falloff = 0.626
+        fog.scatteringExponent = 3
+        fog.dirHeightLine = 10
         // post.addPost(TAAPost);
 
-        this.createScene(this.view.scene);
+        this.createScene(this.view.scene)
     }
 
     private async createScene(scene: Scene3D) {
         //bitmap
-        let bitmapTexture = await Engine3D.res.loadTexture('terrain/test01/bitmap.png');
-        let heightTexture = await Engine3D.res.loadTexture('terrain/test01/height.png');
-        let grassTexture = await Engine3D.res.loadTexture('terrain/grass/GrassThick.png');
-        let gustNoiseTexture = await Engine3D.res.loadTexture('terrain/grass/displ_noise_curl_1.png');
-        let sunObj = new Object3D();
-        let sunLight = sunObj.addComponent(DirectLight);
-        sunLight.lightColor = KelvinUtil.color_temperature_to_rgb(6553);
-        sunLight.castShadow = true;
-        sunLight.intensity = 49;
-        sunObj.transform.rotationX = 50;
-        sunObj.transform.rotationY = 50;
-        
-        let DirLight = this.Ori.addFolder("DirectLight");
-        DirLight.add(sunlight, "enable");
-        DirLight.add(sunlight.transform, "rotationX", 0.0, 360.0, 0.01);
-        DirLight.add(sunlight.transform, "rotationY", 0.0, 360.0, 0.01);
-        DirLight.add(sunlight.transform, "rotationZ", 0.0, 360.0, 0.01);
-        DirLight.addColor(sunlight, "lightColor");
-        DirLight.add(sunlight, "intensity", 0.0, 160.0, 0.01);
-        DirLight.add(sunlight, "indirect", 0.0, 10.0, 0.01);
-        DirLight.add(sunlight, "castShadow");
-        DirLight.open();
-        
-        scene.addChild(sunObj);
+        let bitmapTexture = await Engine3D.res.loadTexture('terrain/test01/bitmap.png')
+        let heightTexture = await Engine3D.res.loadTexture('terrain/test01/height.png')
+        let grassTexture = await Engine3D.res.loadTexture('terrain/grass/GrassThick.png')
+        let gustNoiseTexture = await Engine3D.res.loadTexture('terrain/grass/displ_noise_curl_1.png')
+        let sunObj = new Object3D()
+        let sunLight = sunObj.addComponent(DirectLight)
+        sunLight.lightColor = KelvinUtil.color_temperature_to_rgb(6553)
+        sunLight.castShadow = true
+        sunLight.intensity = 49
+        sunObj.transform.rotationX = 50
+        sunObj.transform.rotationY = 50
 
-        let terrainSize = 1000;
-        let size = 1000;
-        let grassCount = 6795;
+        let DirLight = this.Ori.addFolder('DirectLight')
+        DirLight.add(sunLight, 'enable')
+        DirLight.add(sunLight.transform, 'rotationX', 0.0, 360.0, 0.01)
+        DirLight.add(sunLight.transform, 'rotationY', 0.0, 360.0, 0.01)
+        DirLight.add(sunLight.transform, 'rotationZ', 0.0, 360.0, 0.01)
+        DirLight.addColor(sunLight, 'lightColor')
+        DirLight.add(sunLight, 'intensity', 0.0, 160.0, 0.01)
+        DirLight.add(sunLight, 'indirect', 0.0, 10.0, 0.01)
+        DirLight.add(sunLight, 'castShadow')
+        DirLight.open()
+
+        scene.addChild(sunObj)
+
+        let terrainSize = 1000
+        let size = 1000
+        let grassCount = 6795
         // let grassCount = 10;
-        let des = 1;
-        let space = 2;
-        let terrainGeometry: TerrainGeometry;
+        let des = 1
+        let space = 2
+        let terrainGeometry: TerrainGeometry
         {
-            let mat = new LitMaterial();
-            terrainGeometry = new TerrainGeometry(terrainSize, terrainSize);
-            terrainGeometry.setHeight(heightTexture as BitmapTexture2D, 100);
-            let floor = new Object3D();
-            let mr = floor.addComponent(MeshRenderer);
-            mr.geometry = terrainGeometry;
-            mat.baseMap = bitmapTexture;
-            mr.material = mat;
-            scene.addChild(floor);
+            let mat = new LitMaterial()
+            terrainGeometry = new TerrainGeometry(terrainSize, terrainSize)
+            terrainGeometry.setHeight(heightTexture as BitmapTexture2D, 100)
+            let floor = new Object3D()
+            let mr = floor.addComponent(MeshRenderer)
+            mr.geometry = terrainGeometry
+            mat.baseMap = bitmapTexture
+            mr.material = mat
+            scene.addChild(floor)
         }
 
-        let grassCom: GrassComponent;
+        let grassCom: GrassComponent
         {
-            let grass = new Object3D();
-            grassCom = grass.addComponent(GrassComponent);
-            grassCom.setGrassTexture(Engine3D.res.whiteTexture);
+            let grass = new Object3D()
+            grassCom = grass.addComponent(GrassComponent)
+            grassCom.setGrassTexture(Engine3D.res.whiteTexture)
             // grassCom.setGrassTexture(grassTexture);
-            grassCom.setWindNoiseTexture(gustNoiseTexture);
-            grassCom.setGrass(18, 1, 5, 1, grassCount);
+            grassCom.setWindNoiseTexture(gustNoiseTexture)
+            grassCom.setGrass(18, 1, 5, 1, grassCount)
 
-            let tsw = terrainSize / terrainGeometry.segmentW;
-            let tsh = terrainSize / terrainGeometry.segmentH;
-            let index = 0;
+            let tsw = terrainSize / terrainGeometry.segmentW
+            let tsh = terrainSize / terrainGeometry.segmentH
+            let index = 0
             terrainGeometry.greenData.forEach((data) => {
                 for (let d = 0; d < des; d++) {
-                    let node = grassCom.nodes[index++];
+                    let node = grassCom.nodes[index++]
                     if (node) {
-                        let px = data.x * tsw - terrainSize * 0.5 + Math.random() * space - space * 0.5;
-                        let pz = data.z * tsh - terrainSize * 0.5 + Math.random() * space - space * 0.5;
-                        let pos = new Vector3(px, 0, pz);
+                        let px = data.x * tsw - terrainSize * 0.5 + Math.random() * space - space * 0.5
+                        let pz = data.z * tsh - terrainSize * 0.5 + Math.random() * space - space * 0.5
+                        let pos = new Vector3(px, 0, pz)
 
-                        let tw = terrainGeometry.segmentW;
-                        let th = terrainGeometry.segmentH;
-                        let tx = Math.floor(((pos.x + size * 0.5) / size) * (terrainGeometry.segmentW));
-                        let tz = Math.floor(((pos.z + size * 0.5) / size) * (terrainGeometry.segmentH));
+                        let tw = terrainGeometry.segmentW
+                        let th = terrainGeometry.segmentH
+                        let tx = Math.floor(((pos.x + size * 0.5) / size) * terrainGeometry.segmentW)
+                        let tz = Math.floor(((pos.z + size * 0.5) / size) * terrainGeometry.segmentH)
 
                         if (terrainGeometry.heightData.length > tz && terrainGeometry.heightData[tz].length > tx) {
-                            pos.y = terrainGeometry.heightData[tz][tx];
+                            pos.y = terrainGeometry.heightData[tz][tx]
                         }
 
                         let gassSize = 0.8
-                        let scale = (Math.random() * 0.75 + 0.25) * gassSize;
-                        node.localPosition = pos;
-                        node.localRotation.y = Math.random() * 360;
-                        node.localScale = new Vector3(scale, scale, scale);
-                        node.updateWorldMatrix(true);
+                        let scale = (Math.random() * 0.75 + 0.25) * gassSize
+                        node.localPosition = pos
+                        node.localRotation.y = Math.random() * 360
+                        node.localScale = new Vector3(scale, scale, scale)
+                        node.updateWorldMatrix(true)
                     }
                 }
-            });
-            scene.addChild(grass);
+            })
+            scene.addChild(grass)
         }
-        let grassDir = this.Ori.addFolder("grass-wind");
-//        GUIHelp.addFolder("grass-wind");
+        let grassDir = this.Ori.addFolder('grass-wind')
+        //        GUIHelp.addFolder("grass-wind");
         // GUIHelp.add(grassCom.grassMaterial.windBound, "x", -terrainSize * 0.5, terrainSize * 0.5, 0.0001).onChange((v) => {
         //     let bound = grassCom.grassMaterial.windBound;
         //     bound.x = v;
@@ -162,38 +161,33 @@ export class Sample_Grass {
         //     grassCom.grassMaterial.windBound = bound;
         // });
 
-        grassDir.addColor(grassCom.grassMaterial, "grassBaseColor");
-        grassDir.addColor(grassCom.grassMaterial, "grassTopColor");
-        grassDir.add(grassCom.grassMaterial.windDirection, "x", -1.0, 1, 0.0001).onChange((v) => {
-            let tv = grassCom.grassMaterial.windDirection;
-            tv.x = v;
-            grassCom.grassMaterial.windDirection = tv;
-        });
-        grassDir.add(grassCom.grassMaterial.windDirection, "y", -1.0, 1, 0.0001).onChange((v) => {
-            let tv = grassCom.grassMaterial.windDirection;
-            tv.y = v;
-            grassCom.grassMaterial.windDirection = tv;
-        });
-        grassDir.add(grassCom.grassMaterial, "windPower", 0.0, 20, 0.0001);
-        grassDir.add(grassCom.grassMaterial, "windSpeed", 0.0, 20, 0.0001);
-        grassDir.add(grassCom.grassMaterial, "curvature", 0.0, 1, 0.0001);
-        grassDir.add(grassCom.grassMaterial, "grassHeight", 0.0, 100, 0.0001);
-        grassDir.add(grassCom.grassMaterial, "roughness", 0.0, 1, 0.0001);
-        grassDir.add(grassCom.grassMaterial, "translucent", 0.0, 1, 0.0001);
-        grassDir.add(grassCom.grassMaterial, "soft", 0.0, 10, 0.0001);
-        grassDir.add(grassCom.grassMaterial, "specular", 0.0, 10, 0.0001);
-//        GUIHelp.endFolder();
+        grassDir.addColor(grassCom.grassMaterial, 'grassBaseColor')
+        grassDir.addColor(grassCom.grassMaterial, 'grassTopColor')
+        grassDir.add(grassCom.grassMaterial.windDirection, 'x', -1.0, 1, 0.0001).onChange((v) => {
+            let tv = grassCom.grassMaterial.windDirection
+            tv.x = v
+            grassCom.grassMaterial.windDirection = tv
+        })
+        grassDir.add(grassCom.grassMaterial.windDirection, 'y', -1.0, 1, 0.0001).onChange((v) => {
+            let tv = grassCom.grassMaterial.windDirection
+            tv.y = v
+            grassCom.grassMaterial.windDirection = tv
+        })
+        grassDir.add(grassCom.grassMaterial, 'windPower', 0.0, 20, 0.0001)
+        grassDir.add(grassCom.grassMaterial, 'windSpeed', 0.0, 20, 0.0001)
+        grassDir.add(grassCom.grassMaterial, 'curvature', 0.0, 1, 0.0001)
+        grassDir.add(grassCom.grassMaterial, 'grassHeight', 0.0, 100, 0.0001)
+        grassDir.add(grassCom.grassMaterial, 'roughness', 0.0, 1, 0.0001)
+        grassDir.add(grassCom.grassMaterial, 'translucent', 0.0, 1, 0.0001)
+        grassDir.add(grassCom.grassMaterial, 'soft', 0.0, 10, 0.0001)
+        grassDir.add(grassCom.grassMaterial, 'specular', 0.0, 10, 0.0001)
 
-        
-//        GUIHelp.addFolder("shadow");
-        let shadowDir = this.Ori.addFolder("shadow")
-        shadowDir.add(Engine3D.setting.shadow, "shadowBound", 0.0, 3000, 0.0001);
-//        GUIHelp.endFolder();
+        let shadowDir = this.Ori.addFolder('shadow')
+        shadowDir.add(Engine3D.setting.shadow, 'shadowBound', 0.0, 3000, 0.0001)
 
-        let globalFog = this.post.getPost(GlobalFog);
+        let globalFog = this.post.getPost(GlobalFog)
         // GUIUtil.renderFog(globalFog);
     }
-
 }
 
 // new Sample_Grass().run();
