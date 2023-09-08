@@ -523,6 +523,7 @@ function sidebarExample(root: string = '') {
     const index: { [key: string]: string[] } = {
         Animation: [],
         Camera: [],
+        Geometry: [],
         Light: [],
         Material: [],
         Texture: [],
