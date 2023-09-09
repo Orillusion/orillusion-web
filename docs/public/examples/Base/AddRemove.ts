@@ -5,7 +5,6 @@ import dat from 'dat.gui'
 // sample use component
 class Sample_AddRemove {
     view: View3D
-    private Ori: dat.GUI | undefined
     async run() {
         // init engine
         await Engine3D.init()
