@@ -15,11 +15,16 @@ class Sample_AddRemove {
         let sky = scene.addComponent(AtmosphericComponent)
         sky.sunY = 0.6
 
-        // init camera3D
-        let mainCamera = CameraUtil.createCamera3D(null, scene)
-        mainCamera.perspective(60, Engine3D.aspect, 1, 2000.0)
-        let hoverCameraController = mainCamera.object3D.addComponent(HoverCameraController)
-        hoverCameraController.setCamera(15, -30, 300)
+        // create camera
+        let cameraObj = new Object3D()
+        let camera = cameraObj.addComponent(Camera3D)
+        // adjust camera view
+        camera.perspective(60, Engine3D.aspect, 0.1, 5000.0)
+        // add camera node
+        scene3D.addChild(cameraObj)
+        // set camera controller
+        let controller = cameraObj.addComponent(HoverCameraController)
+        controller.setCamera(15, -30, 300)
 
         // add a basic direct light
         let lightObj = new Object3D()
