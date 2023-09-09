@@ -81,8 +81,8 @@ class Sample_Terrain {
         }
 
         //bitmap
-        let bitmapTexture = await Engine3D.res.loadTexture('https://cdn.orillusion.com/terrain/test01/bitmap.webp')
-        let heightTexture = await Engine3D.res.loadTexture('https://cdn.orillusion.com/terrain/test01/height.webp')
+        let bitmapTexture = await Engine3D.res.loadTexture('https://cdn.orillusion.com/terrain/test01/bitmap.png')
+        let heightTexture = await Engine3D.res.loadTexture('https://cdn.orillusion.com/terrain/test01/height.png')
         // let heightTexture = await Engine3D.res.loadTexture('terrain/test01/china.png');
 
         // let heightTexture = await Engine3D.res.loadTexture('terrain/grass/GustNoise.png');
@@ -110,24 +110,25 @@ class Sample_Terrain {
         // GUIUtil.renderGlobalFog(globalFog)
         let fogdir = this.Ori.addFolder('GlobalFog')
 
-        fogdir.add(GlobalFog, 'fogType', {
+        fogdir.add(globalFog, 'fogType', {
             Liner: 0,
             Exp: 1,
-            Exp2: 2
-        })
-        fogdir.add(GlobalFog, 'start', -0.0, 1000.0, 0.0001)
-        fogdir.add(GlobalFog, 'end', -0.0, 1000.0, 0.0001)
-        fogdir.add(GlobalFog, 'fogHeightScale', 0.0001, 1.0, 0.0001)
-        fogdir.add(GlobalFog, 'density', 0.0, 1.0, 0.0001)
-        fogdir.add(GlobalFog, 'ins', 0.0, 5.0, 0.0001)
-        fogdir.add(GlobalFog, 'skyFactor', 0.0, 1.0, 0.0001)
-        fogdir.add(GlobalFog, 'skyRoughness', 0.0, 1.0, 0.0001)
-        fogdir.add(GlobalFog, 'overrideSkyFactor', 0.0, 1.0, 0.0001)
-        fogdir.add(GlobalFog, 'falloff', 0.0, 100.0, 0.01)
-        fogdir.add(GlobalFog, 'rayLength', 0.01, 2000.0, 0.01)
-        fogdir.add(GlobalFog, 'scatteringExponent', 1, 40.0, 0.001)
-        fogdir.add(GlobalFog, 'dirHeightLine', 0.0, 20.0, 0.01)
-        fogdir.addColor(GlobalFog, 'fogColor')
+            Exp2: 2,
+        });
+        
+        fogdir.add(globalFog, 'start', -0.0, 1000.0, 0.0001)
+        fogdir.add(globalFog, 'end', -0.0, 1000.0, 0.0001)
+        fogdir.add(globalFog, 'fogHeightScale', 0.0001, 1.0, 0.0001)
+        fogdir.add(globalFog, 'density', 0.0, 1.0, 0.0001)
+        fogdir.add(globalFog, 'ins', 0.0, 5.0, 0.0001)
+        fogdir.add(globalFog, 'skyFactor', 0.0, 1.0, 0.0001)
+        fogdir.add(globalFog, 'skyRoughness', 0.0, 1.0, 0.0001)
+        fogdir.add(globalFog, 'overrideSkyFactor', 0.0, 1.0, 0.0001)
+        fogdir.add(globalFog, 'falloff', 0.0, 100.0, 0.01)
+        fogdir.add(globalFog, 'rayLength', 0.01, 2000.0, 0.01)
+        fogdir.add(globalFog, 'scatteringExponent', 1, 40.0, 0.001)
+        fogdir.add(globalFog, 'dirHeightLine', 0.0, 20.0, 0.01)
+        fogdir.addColor(globalFog, 'fogColor')
         fogdir.open()
     }
 }
