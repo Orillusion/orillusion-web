@@ -69,7 +69,9 @@ class Sample_BoundingBox {
         // relative light to sky
         atmosphericSky.relativeTransform = light.transform
 
-        Engine3D.startRenderViews([this.view])
+        // Engine3D.startRenderViews([this.view])
+        Engine3D.startRenderView(this.view)
+        
         Engine3D.getRenderJob(this.view)
 
         this.box = Object3DUtil.GetSingleCube(5, 3, 8, 1, 1, 1)

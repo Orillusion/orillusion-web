@@ -1,33 +1,9 @@
-import {
-    AtmosphericComponent,
-    BoxGeometry,
-    CameraUtil,
-    DirectLight,
-    Engine3D,
-    GTAOPost,
-    HDRBloomPost,
-    HoverCameraController,
-    KelvinUtil,
-    LambertMaterial,
-    LitMaterial,
-    MeshRenderer,
-    Object3D,
-    OcclusionSystem,
-    PlaneGeometry,
-    PostProcessingComponent,
-    Quaternion,
-    Scene3D,
-    SphereGeometry,
-    UnLitMaterial,
-    Vector3,
-    Vector3Ex,
-    View3D
-} from '@orillusion/core'
+import { AtmosphericComponent, CameraUtil, DirectLight, Engine3D, GTAOPost, HDRBloomPost, HoverCameraController, KelvinUtil, LitMaterial, MeshRenderer, Object3D, OcclusionSystem, PlaneGeometry, PostProcessingComponent, Scene3D, SphereGeometry, View3D } from '@orillusion/core';
 import { Stats } from '@orillusion/stats'
 import dat from 'dat.gui'
 
 // sample use component
-export class Sample_InitEngine {
+class Sample_InitEngine {
     view: View3D
     private Ori: dat.GUI | undefined
     async run() {
@@ -167,3 +143,5 @@ export class Sample_InitEngine {
         }
     }
 }
+
+new Sample_InitEngine().run()

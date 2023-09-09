@@ -1,4 +1,5 @@
-import { Engine3D, Scene3D, CameraUtil, View3D, AtmosphericComponent, ComponentBase, Time, AxisObject, Object3DUtil, KelvinUtil, DirectLight, Object3D, HoverCameraController } from '@orillusion/core'
+import { Engine3D, Scene3D, CameraUtil, View3D, AtmosphericComponent, ComponentBase, Time, Object3DUtil, KelvinUtil, DirectLight, Object3D, HoverCameraController } from '@orillusion/core'
+import { Stats } from '@orillusion/stats'
 import dat from 'dat.gui'
 
 // sample use component
@@ -11,6 +12,7 @@ class Sample_UseComponent {
         let scene = new Scene3D()
         // add atmospheric sky
         scene.addComponent(AtmosphericComponent)
+        scene.addComponent(Stats)
 
         // init camera3D
         let mainCamera = CameraUtil.createCamera3D(null, scene)
