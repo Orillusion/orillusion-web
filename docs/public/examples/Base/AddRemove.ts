@@ -45,32 +45,19 @@ class Sample_AddRemove {
 
     private async test() {
         let list: Object3D[] = []
-        let player = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/anim/Minion_Lane_Super_Dawn/Minion_Lane_Super_Dawn.gltf')
-        // gui
-        const gui = new dat.GUI()
-        gui.domElement.style.zIndex = '10'
-        gui.domElement.parentElement.style.zIndex = '10'
-
-        this.Ori = gui.addFolder('Orillusion')
-        this.Ori.open()
-
-        var button_add = {
+        let player = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/anim/Minion_Lane_Super_Dawn/Minion_Lane_Super_Dawn.glb')
+        let buttons = {
             add: async () => {
                 /******** player1 *******/
                 let clone = player.clone()
                 clone.transform.x = Math.random() * 100 - 50
                 clone.transform.y = Math.random() * 100 - 50
                 clone.transform.z = Math.random() * 100 - 50
-                clone.transform.scaleX = 20
-                clone.transform.scaleY = 20
-                clone.transform.scaleZ = 20
+                clone.scaleX = clone.scaleY = clone.scaleZ = 20
 
                 this.view.scene.addChild(clone)
                 list.push(clone)
-            }
-        }
-
-        var button_remove = {
+            },
             remove: async () => {
                 let index = Math.floor(list.length * Math.random())
                 let obj = list[index]
@@ -81,8 +68,14 @@ class Sample_AddRemove {
                 }
             }
         }
-        this.Ori.add(button_add, 'add')
-        this.Ori.add(button_remove, 'remove')
+        // add first one
+        await buttons.add()
+        // gui
+        const gui = new dat.GUI()
+        let folder = gui.addFolder('Orillusion')
+        folder.add(buttons, 'add')
+        folder.add(buttons, 'remove')
+        folder.open()
     }
 }
 
