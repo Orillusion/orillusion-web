@@ -5,7 +5,7 @@ import dat from 'dat.gui'
 
 
 // An sample of custom vertex attribute of geometry
-export class Sample_Grass {
+class Sample_Grass {
     view: View3D
     post: PostProcessingComponent
     private Ori: dat.GUI | undefined
@@ -139,27 +139,6 @@ export class Sample_Grass {
             scene.addChild(grass)
         }
         let grassDir = this.Ori.addFolder('grass-wind')
-        //        GUIHelp.addFolder("grass-wind");
-        // GUIHelp.add(grassCom.grassMaterial.windBound, "x", -terrainSize * 0.5, terrainSize * 0.5, 0.0001).onChange((v) => {
-        //     let bound = grassCom.grassMaterial.windBound;
-        //     bound.x = v;
-        //     grassCom.grassMaterial.windBound = bound;
-        // });
-        // GUIHelp.add(grassCom.grassMaterial.windBound, "y", -terrainSize * 0.5, terrainSize * 0.5, 0.0001).onChange((v) => {
-        //     let bound = grassCom.grassMaterial.windBound;
-        //     bound.y = v;
-        //     grassCom.grassMaterial.windBound = bound;
-        // });
-        // GUIHelp.add(grassCom.grassMaterial.windBound, "z", 0, terrainSize, 0.0001).onChange((v) => {
-        //     let bound = grassCom.grassMaterial.windBound;
-        //     bound.z = v;
-        //     grassCom.grassMaterial.windBound = bound;
-        // });
-        // GUIHelp.add(grassCom.grassMaterial.windBound, "w", 0, terrainSize, 0.0001).onChange((v) => {
-        //     let bound = grassCom.grassMaterial.windBound;
-        //     bound.w = v;
-        //     grassCom.grassMaterial.windBound = bound;
-        // });
 
         grassDir.addColor(grassCom.grassMaterial, 'grassBaseColor')
         grassDir.addColor(grassCom.grassMaterial, 'grassTopColor')
@@ -190,4 +169,4 @@ export class Sample_Grass {
     }
 }
 
-// new Sample_Grass().run();
+new Sample_Grass().run();
