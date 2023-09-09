@@ -70,7 +70,7 @@ ColliderShape.shapeType
 
 #### Defined in
 
-[src/components/shape/ColliderShape.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L36)
+[src/components/shape/ColliderShape.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L40)
 
 ___
 
@@ -90,7 +90,7 @@ ColliderShape.center
 
 #### Defined in
 
-[src/components/shape/ColliderShape.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L55)
+[src/components/shape/ColliderShape.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L59)
 
 • `set` **center**(`value`): `void`
 
@@ -110,7 +110,7 @@ ColliderShape.center
 
 #### Defined in
 
-[src/components/shape/ColliderShape.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L59)
+[src/components/shape/ColliderShape.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L63)
 
 ___
 
@@ -132,7 +132,7 @@ ColliderShape.size
 
 #### Defined in
 
-[src/components/shape/ColliderShape.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L68)
+[src/components/shape/ColliderShape.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L72)
 
 • `set` **size**(`value`): `void`
 
@@ -152,7 +152,7 @@ ColliderShape.size
 
 #### Defined in
 
-[src/components/shape/ColliderShape.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L72)
+[src/components/shape/ColliderShape.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L76)
 
 ___
 
@@ -172,7 +172,7 @@ ColliderShape.halfSize
 
 #### Defined in
 
-[src/components/shape/ColliderShape.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L80)
+[src/components/shape/ColliderShape.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L84)
 
 ## Methods
 
@@ -199,7 +199,7 @@ Set the position and size of collision objects
 
 #### Defined in
 
-[src/components/shape/ColliderShape.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L46)
+[src/components/shape/ColliderShape.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L50)
 
 ___
 

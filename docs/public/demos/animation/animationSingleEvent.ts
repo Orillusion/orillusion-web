@@ -12,7 +12,7 @@ scene.exposure = 0.3
 let mainCamera = CameraUtil.createCamera3DObject(scene)
 mainCamera.perspective(60, Engine3D.aspect, 0.1, 10000.0)
 let hc = mainCamera.object3D.addComponent(HoverCameraController)
-hc.setCamera(0, -15, 10, new Vector3(0, 1, 0))
+hc.setCamera(0, -15, 5, new Vector3(0, 1, 0))
 
 // add a dir light
 {

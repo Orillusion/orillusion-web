@@ -22,6 +22,7 @@
 | `drawTrMin` | `number` | - |
 | `drawTrMax` | `number` | - |
 | `zPrePass` | `boolean` | - |
+| `useLogDepth` | `boolean` | - |
 | `gi` | `boolean` | - |
 | `postProcessing` | { `enable?`: `boolean` ; `bloom?`: [`BloomSetting`](BloomSetting.md) ; `ssao?`: { `debug`: `any` ; `enable`: `boolean` ; `radius`: `number` ; `bias`: `number` ; `aoPower`: `number`  } ; `ssr?`: [`SSRSetting`](SSRSetting.md) ; `taa?`: [`TAASetting`](TAASetting.md) ; `gtao?`: [`GTAOSetting`](GTAOSetting.md) ; `outline?`: [`OutlineSetting`](OutlineSetting.md) ; `globalFog?`: [`GlobalFogSetting`](GlobalFogSetting.md) ; `fxaa?`: { `enable`: `boolean`  } ; `depthOfView?`: [`DepthOfViewSetting`](DepthOfViewSetting.md)  } | post effect |
 | `postProcessing.enable?` | `boolean` | - |

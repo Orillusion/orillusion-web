@@ -9,7 +9,7 @@ export class Sample_SSR {
     constructor() {}
 
     async run() {
-        Engine3D.setting.shadow.enable = false
+        Engine3D.setting.shadow.enable = true
         await Engine3D.init({
             canvasConfig: {
                 devicePixelRatio: 1

@@ -76,7 +76,7 @@ ___
 
 ### update
 
-▸ **update**(`width`, `height`, `clusterPix`, `clusterTileX`, `clusterTileY`, `clusterTileZ`, `maxNumLights`, `maxNumLightsPerCluster`, `near`, `far`): `void`
+▸ **update**(`width`, `height`, `clusterPix`, `clusterTileX`, `clusterTileY`, `clusterTileZ`, `numLights`, `maxNumLightsPerCluster`, `near`, `far`): `void`
 
 #### Parameters
 
@@ -88,7 +88,7 @@ ___
 | `clusterTileX` | `number` |
 | `clusterTileY` | `number` |
 | `clusterTileZ` | `number` |
-| `maxNumLights` | `number` |
+| `numLights` | `number` |
 | `maxNumLightsPerCluster` | `number` |
 | `near` | `number` |
 | `far` | `number` |

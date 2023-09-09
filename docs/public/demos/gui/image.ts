@@ -14,7 +14,7 @@ class Sample_Image {
         camera.perspective(60, Engine3D.aspect, 1, 5000.0)
         // set camera controller
         let controller = cameraObj.addComponent(HoverCameraController)
-        controller.setCamera(0, -20, 30)
+        controller.setCamera(0, -20, 100)
         // add camera node
         scene3D.addChild(cameraObj)
 
@@ -42,7 +42,7 @@ class Sample_Image {
         // create image component
         let image: UIImage = imageQuad.addComponent(UIImage)
         // set image size
-        image.uiTransform.resize(150, 150)
+        image.uiTransform.resize(50, 50)
         // set image source
         image.sprite = makeAloneSprite('webgpu', bitmapTexture2D)
     }

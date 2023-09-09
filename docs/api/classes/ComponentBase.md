@@ -35,10 +35,6 @@ The component can receive update events at each frame.
 
   ↳ [`GlobalIlluminationComponent`](GlobalIlluminationComponent.md)
 
-  ↳ [`MaterialComponent`](MaterialComponent.md)
-
-  ↳ [`MeshComponent`](MeshComponent.md)
-
   ↳ [`Camera3D`](Camera3D.md)
 
 ## Implements

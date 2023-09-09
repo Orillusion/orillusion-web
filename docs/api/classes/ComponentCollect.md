@@ -17,10 +17,9 @@
 - [bindGraphic](ComponentCollect.md#bindgraphic)
 - [unBindGraphic](ComponentCollect.md#unbindgraphic)
 - [appendWaitStart](ComponentCollect.md#appendwaitstart)
+- [removeWaitStart](ComponentCollect.md#removewaitstart)
 - [bindEnablePick](ComponentCollect.md#bindenablepick)
 - [unBindEnablePick](ComponentCollect.md#unbindenablepick)
-- [startComponents](ComponentCollect.md#startcomponents)
-- [removeWaitStart](ComponentCollect.md#removewaitstart)
 
 ## Constructors
 
@@ -265,6 +264,27 @@ ___
 
 ___
 
+### removeWaitStart
+
+▸ `Static` **removeWaitStart**(`obj`, `component`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `obj` | [`Object3D`](Object3D.md) |
+| `component` | [`IComponent`](../interfaces/IComponent.md) |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/gfx/renderJob/collect/ComponentCollect.ts:165](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L165)
+
+___
+
 ### bindEnablePick
 
 ▸ `Static` **bindEnablePick**(`view`, `component`, `call`): `void`
@@ -283,7 +303,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/collect/ComponentCollect.ts:165](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L165)
+[src/gfx/renderJob/collect/ComponentCollect.ts:176](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L176)
 
 ___
 
@@ -304,38 +324,4 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/collect/ComponentCollect.ts:175](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L175)
-
-___
-
-### startComponents
-
-▸ `Static` **startComponents**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/gfx/renderJob/collect/ComponentCollect.ts:183](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L183)
-
-___
-
-### removeWaitStart
-
-▸ `Static` **removeWaitStart**(`component`): `boolean`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `component` | [`IComponent`](../interfaces/IComponent.md) |
-
-#### Returns
-
-`boolean`
-
-#### Defined in
-
-[src/gfx/renderJob/collect/ComponentCollect.ts:233](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L233)
+[src/gfx/renderJob/collect/ComponentCollect.ts:186](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L186)

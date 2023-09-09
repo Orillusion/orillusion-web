@@ -8,8 +8,6 @@ Particle Module of rotate quad
 
   ↳ **`ParticleRotationModule`**
 
-## Table of contents
-
 ### Constructors
 
 - [constructor](ParticleRotationModule.md#constructor)

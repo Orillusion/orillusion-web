@@ -30,7 +30,7 @@ let texture = await Engine3D.res.loadTexture('https://cdn.orillusion.com/images/
 // texture.addressModeU = GPUAddressMode.repeat;
 // texture.addressModeV = GPUAddressMode.repeat;
 let mat = new UnLitMaterial()
-mat.uvTransform_1 = new Vector4(0, 0, 2, 2)
+mat.defaultPass.setUniform('transformUV1', new Vector4(0, 0, 2, 2))
 mat.baseMap = texture
 
 let planeObj = new Object3D()
