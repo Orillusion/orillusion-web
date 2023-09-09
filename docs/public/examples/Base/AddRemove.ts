@@ -17,9 +17,9 @@ class Sample_AddRemove {
 
         // create camera
         let cameraObj = new Object3D()
-        let camera = cameraObj.addComponent(Camera3D)
+        let mainCamera = cameraObj.addComponent(Camera3D)
         // adjust camera view
-        camera.perspective(60, Engine3D.aspect, 0.1, 5000.0)
+        mainCamera.perspective(60, Engine3D.aspect, 0.1, 5000.0)
         // add camera node
         scene3D.addChild(cameraObj)
         // set camera controller
