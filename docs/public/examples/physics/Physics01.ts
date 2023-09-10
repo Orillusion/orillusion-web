@@ -1,8 +1,6 @@
-import { GUIHelp } from "@orillusion/debug/GUIHelp";
 import { Physics, Rigidbody } from "@orillusion/physics";
 import { createExampleScene, createSceneParam } from "@samples/utils/ExampleScene";
 import { Scene3D, Object3D, LitMaterial, Engine3D, BoxGeometry, MeshRenderer, ColliderComponent, BoxColliderShape, Vector3, PlaneGeometry, Color } from "@orillusion/core";
-import { GUIUtil } from "@samples/utils/GUIUtil";
 
 class SamplePhysics01 {
     private scene: Scene3D;

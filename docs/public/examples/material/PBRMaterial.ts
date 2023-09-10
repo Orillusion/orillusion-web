@@ -1,13 +1,14 @@
-import { GUIHelp } from "@orillusion/debug/GUIHelp";
 import { Object3D, Scene3D, Engine3D, CameraUtil, HoverCameraController, View3D, AtmosphericComponent, DirectLight, KelvinUtil, MeshRenderer, LitMaterial } from "@orillusion/core";
-import { GUIUtil } from "@samples/utils/GUIUtil";
+import dat from 'dat.gui'
+import { Stats } from '@orillusion/stats'
 
 class Sample_PBRMaterial {
     lightObj3D: Object3D;
     scene: Scene3D;
+    private Ori: dat.GUI | undefined
 
     async run() {
-        await Engine3D.init({ canvasConfig: { alpha: true, zIndex: 11, backgroundImage: '/logo/bg.webp' } });
+        await Engine3D.init({ canvasConfig: { alpha: true, zIndex: 11, backgroundImage: 'https://cdn.orillusion.com/logo/bg.webp' } });
 
         //config settings
         Engine3D.setting.shadow.shadowBound = 50;
@@ -21,7 +22,12 @@ class Sample_PBRMaterial {
             debug: false
         };
 
-        GUIHelp.init(999);
+        const gui = new dat.GUI()
+            gui.domElement.style.zIndex = '10'
+            gui.domElement.parentElement.style.zIndex = '10'
+
+            this.Ori = gui.addFolder('Orillusion')
+            this.Ori.open()
 
         this.scene = new Scene3D();
         let camera = CameraUtil.createCamera3DObject(this.scene);
@@ -54,14 +60,23 @@ class Sample_PBRMaterial {
             directLight.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
             directLight.castShadow = true;
             directLight.intensity = 72;
-            GUIUtil.renderDirLight(directLight);
+            let DirLight = this.Ori.addFolder('DirectLight')
+            DirLight.add(directLight, 'enable')
+            DirLight.add(directLight.transform, 'rotationX', 0.0, 360.0, 0.01)
+            DirLight.add(directLight.transform, 'rotationY', 0.0, 360.0, 0.01)
+            DirLight.add(directLight.transform, 'rotationZ', 0.0, 360.0, 0.01)
+            DirLight.addColor(directLight, 'lightColor')
+            DirLight.add(directLight, 'intensity', 0.0, 160.0, 0.01)
+            DirLight.add(directLight, 'indirect', 0.0, 10.0, 0.01)
+            DirLight.add(directLight, 'castShadow')
+            DirLight.open()
             this.scene.addChild(this.lightObj3D);
 
             sky.relativeTransform = this.lightObj3D.transform;
         }
 
         {
-            let model = (await Engine3D.res.loadGltf('gltfs/wukong/wukong.gltf', {})) as Object3D;
+            let model = (await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/wukong/wukong.gltf', {})) as Object3D;
             let renderList = model.getComponentsInChild(MeshRenderer);
             for (const item of renderList) {
                 let material = item.material;

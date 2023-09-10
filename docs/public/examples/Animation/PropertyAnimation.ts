@@ -1,11 +1,12 @@
-import { GUIHelp } from "@orillusion/debug/GUIHelp";
 import { createExampleScene, createSceneParam } from "@samples/utils/ExampleScene";
-import { GUIUtil } from "@samples/utils/GUIUtil";
 import { Scene3D, PropertyAnimation, Engine3D, Object3D, Object3DUtil, PropertyAnimClip, WrapMode } from "@orillusion/core";
+import dat from 'dat.gui'
+import { Stats } from '@orillusion/stats'
 
 class Sample_PropertyAnimation {
     scene: Scene3D;
     animation: PropertyAnimation;
+    private Ori: dat.GUI | undefined
 
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
@@ -18,8 +19,23 @@ class Sample_PropertyAnimation {
         param.camera.distance = 16;
         let exampleScene = createExampleScene(param);
 
-        GUIHelp.init();
-        GUIUtil.renderDirLight(exampleScene.light, false);
+        const gui = new dat.GUI()
+        gui.domElement.style.zIndex = '10'
+        gui.domElement.parentElement.style.zIndex = '10'
+        this.Ori = gui.addFolder('Orillusion')
+        this.Ori.open()
+        // GUIUtil.renderDirLight(exampleScene.light, false);
+        // GUIUtil.renderDirLight(directLight);
+        let DirLight = this.Ori.addFolder('exampleScene.light')
+            DirLight.add(exampleScene.light, 'enable')
+            DirLight.add(exampleScene.light.transform, 'rotationX', 0.0, 360.0, 0.01)
+            DirLight.add(exampleScene.light.transform, 'rotationY', 0.0, 360.0, 0.01)
+            DirLight.add(exampleScene.light.transform, 'rotationZ', 0.0, 360.0, 0.01)
+            DirLight.addColor(exampleScene.light, 'lightColor')
+            DirLight.add(exampleScene.light, 'intensity', 0.0, 160.0, 0.01)
+            DirLight.add(exampleScene.light, 'indirect', 0.0, 10.0, 0.01)
+            DirLight.add(exampleScene.light, 'castShadow')
+            DirLight.open()
 
         this.scene = exampleScene.scene;
         exampleScene.camera.enableCSM = true;

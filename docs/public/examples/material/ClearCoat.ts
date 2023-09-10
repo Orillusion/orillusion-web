@@ -1,16 +1,22 @@
-import { GUIHelp } from "@orillusion/debug/GUIHelp";
 import { Object3D, Scene3D, Engine3D, CameraUtil, HoverCameraController, View3D, AtmosphericComponent, DirectLight, KelvinUtil, MeshRenderer, LitMaterial, SphereGeometry, Color, SkyRenderer } from "@orillusion/core";
-import { GUIUtil } from "@samples/utils/GUIUtil";
+import dat from 'dat.gui'
+import { Stats } from '@orillusion/stats'
 
 class Sample_ClearCoat {
     lightObj3D: Object3D;
     scene: Scene3D;
+    private Ori: dat.GUI | undefined
 
     async run() {
         Engine3D.setting.pick.enable = true;
         Engine3D.setting.pick.mode = `pixel`;
         Engine3D.setting.render.debug = true;
-        GUIHelp.init();
+        const gui = new dat.GUI()
+            gui.domElement.style.zIndex = '10'
+            gui.domElement.parentElement.style.zIndex = '10'
+
+            this.Ori = gui.addFolder('Orillusion')
+            this.Ori.open()
 
         await Engine3D.init();
 
@@ -51,7 +57,7 @@ class Sample_ClearCoat {
             // sky.map = tex;
             // sky.enable = true;
             let sky = this.scene.getOrAddComponent(SkyRenderer);
-            sky.map = await Engine3D.res.loadHDRTextureCube('/hdri/sunset.hdr');
+            sky.map = await Engine3D.res.loadHDRTextureCube('https://cdn.orillusion.com//hdri/sunset.hdr');
             this.scene.envMap = sky.map;
         }
         /******** light *******/
@@ -64,7 +70,16 @@ class Sample_ClearCoat {
             directLight.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
             directLight.castShadow = true;
             directLight.intensity = 43;
-            GUIUtil.renderDirLight(directLight);
+            let DirLight = this.Ori.addFolder('DirectLight')
+            DirLight.add(directLight, 'enable')
+            DirLight.add(directLight.transform, 'rotationX', 0.0, 360.0, 0.01)
+            DirLight.add(directLight.transform, 'rotationY', 0.0, 360.0, 0.01)
+            DirLight.add(directLight.transform, 'rotationZ', 0.0, 360.0, 0.01)
+            DirLight.addColor(directLight, 'lightColor')
+            DirLight.add(directLight, 'intensity', 0.0, 160.0, 0.01)
+            DirLight.add(directLight, 'indirect', 0.0, 10.0, 0.01)
+            DirLight.add(directLight, 'castShadow')
+            DirLight.open()
             this.scene.addChild(this.lightObj3D);
         }
 
@@ -82,7 +97,7 @@ class Sample_ClearCoat {
             // model.transform.scaleZ = 10;
             // model.transform.y = -5;
 
-            let clearCoatRoughnessTex = await Engine3D.res.loadTexture("PBR/ClearCoatTest/T_Imperfections_Wipe_Mask.PNG");
+            let clearCoatRoughnessTex = await Engine3D.res.loadTexture("https://cdn.orillusion.com/PBR/ClearCoatTest/T_Imperfections_Wipe_Mask.PNG");
 
             // this.scene.addChild(model);
             let space = 50;

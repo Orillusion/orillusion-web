@@ -1,10 +1,11 @@
 import { Scene3D, Engine3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, SphereGeometry, Object3D, MeshRenderer, LitMaterial, SpotLight, BoxGeometry, Vector3 } from "@orillusion/core";
-import { GUIHelp } from "@orillusion/debug/GUIHelp";
-import { GUIUtil } from "@samples/utils/GUIUtil";
+import dat from 'dat.gui'
+import { Stats } from '@orillusion/stats'
 
 // sample of SpotLight
 class Sample_SpotLight {
     scene: Scene3D;
+    private Ori: dat.GUI | undefined
 
     async run() {
         Engine3D.setting.occlusionQuery.enable = false;
@@ -12,7 +13,12 @@ class Sample_SpotLight {
         Engine3D.setting.shadow.pointShadowBias = 0.0001;
         await Engine3D.init({});
 
-        GUIHelp.init();
+        const gui = new dat.GUI()
+            gui.domElement.style.zIndex = '10'
+            gui.domElement.parentElement.style.zIndex = '10'
+
+            this.Ori = gui.addFolder('Orillusion')
+            this.Ori.open()
 
         this.scene = new Scene3D();
         this.scene.addComponent(AtmosphericComponent);
@@ -62,7 +68,16 @@ class Sample_SpotLight {
         spotLight.innerAngle = 0;
         spotLight.castShadow = true;
 
-        GUIUtil.showSpotLightGUI(spotLight);
+        let DirLight = this.Ori.addFolder('SpotLight')
+            DirLight.add(spotLight, 'enable')
+            DirLight.add(spotLight.transform, 'rotationX', 0.0, 360.0, 0.01)
+            DirLight.add(spotLight.transform, 'rotationY', 0.0, 360.0, 0.01)
+            DirLight.add(spotLight.transform, 'rotationZ', 0.0, 360.0, 0.01)
+            DirLight.addColor(spotLight, 'lightColor')
+            DirLight.add(spotLight, 'intensity', 0.0, 160.0, 0.01)
+            DirLight.add(spotLight, 'radius', 0.0, 10.0, 0.01)
+            DirLight.add(spotLight, 'castShadow')
+            DirLight.open()
     }
 
     // Build a slightly complex scene

@@ -1,17 +1,23 @@
-import { GUIHelp } from "@orillusion/debug/GUIHelp";
 import { Scene3D, HoverCameraController, Engine3D, AtmosphericComponent, Object3D, Camera3D, Vector3, View3D, DirectLight, KelvinUtil, LitMaterial, MeshRenderer, BoxGeometry, CameraUtil, SphereGeometry, Color, Object3DUtil } from "@orillusion/core";
-import { GUIUtil } from "@samples/utils/GUIUtil";
+import dat from 'dat.gui'
+import { Stats } from '@orillusion/stats'
 
 //sample of direction light
 class Sample_DirectLightShadow {
     scene: Scene3D;
+    private Ori: dat.GUI | undefined
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
         Engine3D.setting.shadow.shadowBound = 400;
 
         await Engine3D.init({});
 
-        GUIHelp.init();
+        const gui = new dat.GUI()
+            gui.domElement.style.zIndex = '10'
+            gui.domElement.parentElement.style.zIndex = '10'
+
+            this.Ori = gui.addFolder('Orillusion')
+            this.Ori.open()
 
         this.scene = new Scene3D();
         let sky = this.scene.addComponent(AtmosphericComponent);
@@ -45,7 +51,16 @@ class Sample_DirectLightShadow {
         sunLight.lightColor = KelvinUtil.color_temperature_to_rgb(6553);
         sunLight.castShadow = true;
 
-        GUIUtil.renderDirLight(sunLight);
+        let DirLight = this.Ori.addFolder('SunLight')
+            DirLight.add(sunLight, 'enable')
+            DirLight.add(sunLight.transform, 'rotationX', 0.0, 360.0, 0.01)
+            DirLight.add(sunLight.transform, 'rotationY', 0.0, 360.0, 0.01)
+            DirLight.add(sunLight.transform, 'rotationZ', 0.0, 360.0, 0.01)
+            DirLight.addColor(sunLight, 'lightColor')
+            DirLight.add(sunLight, 'intensity', 0.0, 160.0, 0.01)
+            DirLight.add(sunLight, 'indirect', 0.0, 10.0, 0.01)
+            DirLight.add(sunLight, 'castShadow')
+            DirLight.open()
         this.scene.addChild(lightObj3D);
         return sunLight.transform;
     }

@@ -1,11 +1,12 @@
-import { GUIHelp } from "@orillusion/debug/GUIHelp";
 import { Scene3D, Engine3D, AtmosphericComponent, CameraUtil, HoverCameraController, Vector3, View3D, SphereGeometry, Object3D, MeshRenderer, LitMaterial, PointLight, BoxGeometry, Object3DUtil } from "@orillusion/core";
-import { GUIUtil } from "@samples/utils/GUIUtil";
+import dat from 'dat.gui'
+import { Stats } from '@orillusion/stats'
 
 // sample of point light shadow
 class Sample_PointLightShadow {
     scene: Scene3D;
     lightObj: Object3D;
+    private Ori: dat.GUI | undefined
     async run() {
 
         Engine3D.setting.shadow.enable = true;
@@ -46,8 +47,22 @@ class Sample_PointLightShadow {
         scene.addChild(lightObj3D);
 
         //show gui
-        GUIHelp.init()
-        GUIUtil.showPointLightGUI(pointLight);
+        const gui = new dat.GUI()
+            gui.domElement.style.zIndex = '10'
+            gui.domElement.parentElement.style.zIndex = '10'
+
+            this.Ori = gui.addFolder('Orillusion')
+            this.Ori.open()
+            let DirLight = this.Ori.addFolder('PointLight')
+            DirLight.add(pointLight, 'enable')
+            DirLight.add(pointLight.transform, 'rotationX', 0.0, 360.0, 0.01)
+            DirLight.add(pointLight.transform, 'rotationY', 0.0, 360.0, 0.01)
+            DirLight.add(pointLight.transform, 'rotationZ', 0.0, 360.0, 0.01)
+            DirLight.addColor(pointLight, 'lightColor')
+            DirLight.add(pointLight, 'intensity', 0.0, 160.0, 0.01)
+            DirLight.add(pointLight, 'range', 0.0, 100.0, 0.01)
+            DirLight.add(pointLight, 'castShadow')
+            DirLight.open()
 
         let cubeGeometry = new BoxGeometry(10, 10, 10);
         let litMaterial = new LitMaterial();

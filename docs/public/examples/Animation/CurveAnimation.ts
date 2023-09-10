@@ -19,7 +19,7 @@ class Sample_AnimCurve {
         Engine3D.setting.shadow.autoUpdate = true;
         Engine3D.setting.shadow.updateFrameRate = 1;
         Engine3D.setting.shadow.type = `HARD`;
-        // Engine3D.setting.shadow.csmScatteringExp = 0.5;
+        Engine3D.setting.shadow.csmScatteringExp = 0.5;
         
         const gui = new dat.GUI()
         gui.domElement.style.zIndex = '10'
@@ -31,7 +31,7 @@ class Sample_AnimCurve {
         let sky = this.scene.addComponent(AtmosphericComponent);
 
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        // camera.enableCSM = true;
+        camera.enableCSM = true;
         camera.perspective(60, Engine3D.aspect, 0.01, 5000.0);
 
         camera.object3D.addComponent(HoverCameraController).setCamera(-30, -45, 200);
@@ -93,7 +93,7 @@ class Sample_AnimCurve {
         this.scene.addChild(Object3DUtil.GetSingleCube(300, 5, 300, 1, 1, 1));
 
         // load a gltf model
-        this.Duck = (await Engine3D.res.loadGltf('PBR/Duck/Duck.gltf')) as Object3D;
+        this.Duck = (await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/Duck/Duck.gltf')) as Object3D;
         this.Duck.scaleX = this.Duck.scaleY = this.Duck.scaleZ = 0.3;
         this.Duck.name = "Duck"
         this.scene.addChild(this.Duck);

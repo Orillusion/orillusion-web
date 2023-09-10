@@ -1,19 +1,20 @@
-import { GUIHelp } from "@orillusion/debug/GUIHelp";
 import { Object3D, Scene3D, HoverCameraController, Engine3D, CameraUtil, View3D, SSRPost, HDRBloomPost, AtmosphericComponent, DirectLight, KelvinUtil, Time } from "@orillusion/core";
-import { GUIUtil as GUIUtil } from "@samples/utils/GUIUtil";
+import dat from 'dat.gui'
+import { Stats } from '@orillusion/stats'
 
 class Sample_FlightHelmet {
     lightObj3D: Object3D;
     scene: Scene3D;
     autoRotate: boolean = false;
     flightHelmetObj: Object3D;
+    private Ori: dat.GUI | undefined
 
     async run() {
         await Engine3D.init({
             canvasConfig: {
                 alpha: true,
                 zIndex: 0,
-                backgroundImage: '/logo/bg.webp'
+                backgroundImage: 'https://cdn.orillusion.com/logo/bg.webp'
             },
             renderLoop: () => this.loop(),
         });
@@ -51,9 +52,13 @@ class Sample_FlightHelmet {
     async initScene() {
         /******** auto rotate *******/
         {
-            GUIHelp.init();
-            GUIHelp.add(this, 'autoRotate');
-            GUIHelp.open();
+            const gui = new dat.GUI()
+            gui.domElement.style.zIndex = '10'
+            gui.domElement.parentElement.style.zIndex = '10'
+
+            this.Ori = gui.addFolder('Orillusion')
+            this.Ori.add(this, 'autoRotate')
+            this.Ori.open()
         }
 
         /******** sky *******/
@@ -74,12 +79,22 @@ class Sample_FlightHelmet {
             directLight.castShadow = true;
             directLight.intensity = 44;
             this.scene.addChild(this.lightObj3D);
-            GUIUtil.renderDirLight(directLight);
+            
+            let DirLight = this.Ori.addFolder('DirectLight')
+            DirLight.add(directLight, 'enable')
+            DirLight.add(directLight.transform, 'rotationX', 0.0, 360.0, 0.01)
+            DirLight.add(directLight.transform, 'rotationY', 0.0, 360.0, 0.01)
+            DirLight.add(directLight.transform, 'rotationZ', 0.0, 360.0, 0.01)
+            DirLight.addColor(directLight, 'lightColor')
+            DirLight.add(directLight, 'intensity', 0.0, 160.0, 0.01)
+            DirLight.add(directLight, 'indirect', 0.0, 10.0, 0.01)
+            DirLight.add(directLight, 'castShadow')
+            DirLight.open()
         }
 
         /******** load model *******/
         {
-            let model = (await Engine3D.res.loadGltf('PBR/FlightHelmet/FlightHelmet.gltf', {})) as Object3D;
+            let model = (await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/FlightHelmet/FlightHelmet.gltf', {})) as Object3D;
             model.transform.scaleX = 10;
             model.transform.scaleY = 10;
             model.transform.scaleZ = 10;

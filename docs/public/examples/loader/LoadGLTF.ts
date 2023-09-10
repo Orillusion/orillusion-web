@@ -1,11 +1,12 @@
-import { GUIHelp } from "@orillusion/debug/GUIHelp";
 import { Object3D, Scene3D, Engine3D, CameraUtil, HoverCameraController, View3D, AtmosphericComponent, DirectLight, KelvinUtil } from "@orillusion/core";
-import { GUIUtil } from "@samples/utils/GUIUtil";
+import dat from 'dat.gui'
+import { Stats } from '@orillusion/stats'
 
 //Samples to show models, they are using PBR material
 class Sample_LoadGLTF {
     lightObj3D: Object3D;
     scene: Scene3D;
+    private Ori: dat.GUI | undefined
     async run() {
         //config settings
         Engine3D.setting.material.materialChannelDebug = true;
@@ -59,8 +60,22 @@ class Sample_LoadGLTF {
             directLight.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
             directLight.castShadow = true;
             directLight.intensity = 18;
-            GUIHelp.init();
-            GUIUtil.renderDirLight(directLight);
+            const gui = new dat.GUI()
+            gui.domElement.style.zIndex = '10'
+            gui.domElement.parentElement.style.zIndex = '10'
+
+            this.Ori = gui.addFolder('Orillusion')
+            this.Ori.open()
+            let DirLight = this.Ori.addFolder('DirectLight')
+            DirLight.add(directLight, 'enable')
+            DirLight.add(directLight.transform, 'rotationX', 0.0, 360.0, 0.01)
+            DirLight.add(directLight.transform, 'rotationY', 0.0, 360.0, 0.01)
+            DirLight.add(directLight.transform, 'rotationZ', 0.0, 360.0, 0.01)
+            DirLight.addColor(directLight, 'lightColor')
+            DirLight.add(directLight, 'intensity', 0.0, 160.0, 0.01)
+            DirLight.add(directLight, 'indirect', 0.0, 10.0, 0.01)
+            DirLight.add(directLight, 'castShadow')
+            DirLight.open()
             this.scene.addChild(this.lightObj3D);
 
             atmospheric.relativeTransform = this.lightObj3D.transform;
@@ -68,7 +83,7 @@ class Sample_LoadGLTF {
 
         {
             /******** player1 *******/
-            let player1 = (await Engine3D.res.loadGltf('gltfs/anim/Minion_Lane_Super_Dawn/Minion_Lane_Super_Dawn.glb', {})) as Object3D;
+            let player1 = (await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/anim/Minion_Lane_Super_Dawn/Minion_Lane_Super_Dawn.glb', {})) as Object3D;
             player1.transform.x = -10;
             player1.transform.y = -10;
             player1.transform.z = 20;
@@ -78,7 +93,7 @@ class Sample_LoadGLTF {
             this.scene.addChild(player1);
 
             /******** player2 *******/
-            let player2 = (await Engine3D.res.loadGltf('gltfs/anim/Minion_Lane_Super_Dawn/Prime_Helix.glb', {})) as Object3D;
+            let player2 = (await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/anim/Minion_Lane_Super_Dawn/Prime_Helix.glb', {})) as Object3D;
             player2.transform.x = 10;
             player2.transform.y = -10;
             player2.transform.scaleX = 10;
@@ -87,7 +102,7 @@ class Sample_LoadGLTF {
             this.scene.addChild(player2);
 
             /******** player3 *******/
-            let player3 = (await Engine3D.res.loadGltf('gltfs/anim/Minion_Lane_Super_Dawn/Minion_Lane_Ranged_Dusk.glb', {})) as Object3D;
+            let player3 = (await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/anim/Minion_Lane_Super_Dawn/Minion_Lane_Ranged_Dusk.glb', {})) as Object3D;
             player3.transform.x = 10;
             player3.transform.y = -10;
             player3.transform.z = 20;
