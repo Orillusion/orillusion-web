@@ -188,11 +188,11 @@ function nav() {
                 {
                     text: '教程',
                     link: '/guide/'
+                },
+                {
+                  text: '示例',
+                  link: '/example/Animation/sample1'
                 }
-                // {
-                //   text: '示例',
-                //   link: '/example/Animation/sample1'
-                // }
             ]
         },
         {
@@ -525,7 +525,12 @@ function sidebarExample(root: string = '') {
         Material: [],
         Texture: [],
         Benchmark: [],
-        Advance: []
+        Advance: [],
+        lights: [],
+        loader: [],
+        octree: [],
+        particle: [],
+        physics: []
     }
 
     const examples: SidebarItem = []
