@@ -1,9 +1,23 @@
-import { Object3D, Scene3D, Engine3D, GlobalIlluminationComponent, Vector3, GTAOPost, PostProcessingComponent, HDRBloomPost } from "@orillusion/core";
-import { Stats } from "@orillusion/stats";
+import {
+    Object3D,
+    Scene3D,
+    Engine3D,
+    GlobalIlluminationComponent,
+    Vector3,
+    GTAOPost,
+    PostProcessingComponent,
+    HDRBloomPost,
+    DirectLight,
+    KelvinUtil, HoverCameraController, AtmosphericComponent, CameraUtil, View3D
+} from "@orillusion/core";
+import {Stats} from "@orillusion/stats";
 import dat from "dat.gui";
 
 class Sample_GICornellBox {
     scene: Scene3D;
+    private Ori: dat.GUI;
+    private giComponent: GlobalIlluminationComponent;
+
     async run() {
 
         Engine3D.setting.material.materialChannelDebug = true;
@@ -48,40 +62,181 @@ class Sample_GICornellBox {
         await Engine3D.init({
             renderLoop: () => {
                 if (this.giComponent?.isStart) {
-                    GUIUtil.renderGIComponent(this.giComponent);
-                    this.giComponent = null;
+                    if (this.giComponent?.isStart) {
+                        // GUIUtil.renderGIComponent(this.giComponent);
+                        let volume = this.giComponent['_volume'];
+                        let giSetting = volume.setting;
+                        let view: View3D = Engine3D.views[0];
+                        let renderJob = Engine3D.getRenderJob(view);
+
+                        const onProbesChange = (): void => {
+                            this.giComponent['changeProbesPosition']();
+                        }
+
+                        const debugProbeRay = (probeIndex: number, array: Float32Array): void => {
+                            this.giComponent['debugProbeRay'](probeIndex, array);
+                        }
+
+                        let gidir = this.Ori.addFolder('GI');
+                        gidir.add(giSetting, `lerpHysteresis`, 0.001, 10, 0.0001).onChange(() => {
+                            onProbesChange();
+                        });
+                        gidir.add(giSetting, `depthSharpness`, 1.0, 100.0, 0.001).onChange(() => {
+                            onProbesChange();
+                        });
+                        gidir.add(giSetting, `normalBias`, -100.0, 100.0, 0.001).onChange(() => {
+                            onProbesChange();
+                        });
+                        gidir.add(giSetting, `irradianceChebyshevBias`, -100.0, 100.0, 0.001).onChange(() => {
+                            onProbesChange();
+                        });
+                        gidir.add(giSetting, `rayNumber`, 0, 512, 1).onChange(() => {
+                            onProbesChange();
+                        });
+                        gidir.add(giSetting, `irradianceDistanceBias`, 0.0, 200.0, 0.001).onChange(() => {
+                            onProbesChange();
+                        });
+                        gidir.add(giSetting, `indirectIntensity`, 0.0, 100.0, 0.001).onChange(() => {
+                            onProbesChange();
+                        });
+                        gidir.add(giSetting, `bounceIntensity`, 0.0, 1.0, 0.001).onChange(() => {
+                            onProbesChange();
+                        });
+                        gidir.add(giSetting, `probeRoughness`, 0.0, 1.0, 0.001).onChange(() => {
+                            onProbesChange();
+                        });
+                        gidir.add(giSetting, `ddgiGamma`, 0.0, 4.0, 0.001).onChange(() => {
+                            onProbesChange();
+                        });
+
+                        gidir.add(giSetting, 'autoRenderProbe');
+
+                        let probdir = this.Ori.addFolder('probe volume');
+                        probdir.add(volume.setting, 'probeSpace', 0.1, volume.setting.probeSpace * 5, 0.001).onChange(() => {
+                            onProbesChange();
+                        });
+                        probdir.add(volume.setting, 'offsetX', -100, 100, 0.001).onChange(() => {
+                            onProbesChange();
+                        });
+                        probdir.add(volume.setting, 'offsetY', -100, 100, 0.001).onChange(() => {
+                            onProbesChange();
+                        });
+                        probdir.add(volume.setting, 'offsetZ', -100, 100, 0.001).onChange(() => {
+                            onProbesChange();
+                        });
+                        let ddgiProbeRenderer = renderJob.ddgiProbeRenderer;
+
+                        let button_operation = {
+                            show: () => {
+                                this.giComponent.object3D.transform.enable = true;
+                            },
+                            hide: () => {
+                                this.giComponent.object3D.transform.enable = false;
+                            },
+                            showRays: () => {
+                                let array = ddgiProbeRenderer.irradianceComputePass['depthRaysBuffer'].readBuffer();
+                                let count = Engine3D.setting.gi.probeXCount * Engine3D.setting.gi.probeYCount * Engine3D.setting.gi.probeZCount
+                                for (let j = 0; j < count; j++) {
+                                    let probeIndex = j;
+                                    debugProbeRay(probeIndex, array);
+                                }
+                                debugProbeRay(0, array);
+                            },
+                            hideRays: () => {
+                                let count = Engine3D.setting.gi.probeXCount * Engine3D.setting.gi.probeYCount * Engine3D.setting.gi.probeZCount
+                                for (let j = 0; j < count; j++) {
+                                    let probeIndex = j;
+                                    const rayNumber = Engine3D.setting.gi.rayNumber;
+                                    for (let i = 0; i < rayNumber; i++) {
+                                        let id = `showRays${probeIndex}${i}`;
+                                        view.graphic3D.Clear(id);
+                                    }
+                                }
+                            }
+                        }
+                        probdir.add(button_operation, 'show');
+                        probdir.add(button_operation, 'hide');
+                        probdir.add(button_operation, 'showRays');
+                        probdir.add(button_operation, 'hideRays');
+
+
+                        this.giComponent = null;
+                    }
                 }
             }
         });
-        let param = createSceneParam();
-        param.camera.distance = 100;
 
-        let exampleScene = createExampleScene(param);
-        exampleScene.hoverCtrl.setCamera(0, 0, 20);
-        exampleScene.camera.enableCSM = true;
-        this.scene = exampleScene.scene;
+        // init Scene3D
+        this.scene = new Scene3D()
+        this.scene.exposure = 1
+        this.scene.addComponent(Stats)
+
+        // init sky
+        let atmosphericSky: AtmosphericComponent
+        atmosphericSky = this.scene.addComponent(AtmosphericComponent)
+
+        // init Camera3D
+        let camera = CameraUtil.createCamera3DObject(this.scene)
+        camera.perspective(60, Engine3D.aspect, 1, 100)
+        camera.enableCSM = true;
+
+        // init Camera Controller
+        let hoverCtrl = camera.object3D.addComponent(HoverCameraController)
+        hoverCtrl.setCamera(0, 0, 20)
+
+        // init View3D
+        let view = new View3D()
+        view.scene = this.scene
+        view.camera = camera
+
+        // create direction light
+        let lightObj3D = new Object3D()
+        lightObj3D.x = 0
+        lightObj3D.y = 30
+        lightObj3D.z = -40
+        lightObj3D.rotationX = 20
+        lightObj3D.rotationY = 160
+        lightObj3D.rotationZ = 0
+
+        let light = lightObj3D.addComponent(DirectLight)
+        light.lightColor = KelvinUtil.color_temperature_to_rgb(5355)
+        light.castShadow = true
+        light.intensity = 30
+
+        this.scene.addChild(light.object3D)
+
+        // relative light to sky
+        atmosphericSky.relativeTransform = light.transform
+
+        Engine3D.startRenderView(view)
+
         this.addGIProbes();
-        Engine3D.startRenderViews([exampleScene.view]);
 
         let postProcessing = this.scene.addComponent(PostProcessingComponent);
         postProcessing.addPost(GTAOPost);
         postProcessing.addPost(HDRBloomPost);
 
         Engine3D.setting.shadow.csmScatteringExp = 0.8;
-        GUIHelp.add(Engine3D.setting.shadow, 'csmScatteringExp', 0.5, 1, 0.001);
+        this.Ori.add(Engine3D.setting.shadow, 'csmScatteringExp', 0.5, 1, 0.001);
         await this.initScene();
     }
 
-    private giComponent: GlobalIlluminationComponent;
+
     private addGIProbes() {
         let probeObj = new Object3D();
-        GUIHelp.init();
+        // init dat.gui
+        const gui = new dat.GUI();
+        gui.domElement.style.zIndex = "10";
+        gui.domElement.parentElement.style.zIndex = "10";
+        this.Ori = gui.addFolder("Orillusion");
+        this.Ori.open();
+
         this.giComponent = probeObj.addComponent(GlobalIlluminationComponent);
         this.scene.addChild(probeObj);
     }
 
     async initScene() {
-        let box = await Engine3D.res.loadGltf('gltfs/cornellBox/cornellBox.gltf') as Object3D;
+        let box = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/cornellBox/cornellBox.gltf') as Object3D;
         box.localScale = new Vector3(10, 10, 10);
         this.scene.addChild(box);
     }

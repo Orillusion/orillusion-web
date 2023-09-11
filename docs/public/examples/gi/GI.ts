@@ -65,11 +65,11 @@ class Sample_GI {
                     let view: View3D = Engine3D.views[0];
                     let renderJob = Engine3D.getRenderJob(view);
 
-                    function onProbesChange(): void {
+                    const onProbesChange = (): void => {
                         this.giComponent['changeProbesPosition']();
                     }
 
-                    function debugProbeRay(probeIndex: number, array: Float32Array): void {
+                    const debugProbeRay = (probeIndex: number, array: Float32Array): void => {
                         this.giComponent['debugProbeRay'](probeIndex, array);
                     }
 
@@ -130,7 +130,7 @@ class Sample_GI {
                             this.giComponent.object3D.transform.enable = false;
                         },
                         showRays:()=>{
-                            let array = renderJob.ddgiProbeRenderer.irradianceComputePass['depthRaysBuffer'].readBuffer();
+                            let array = ddgiProbeRenderer.irradianceComputePass['depthRaysBuffer'].readBuffer();
                             let count = Engine3D.setting.gi.probeXCount * Engine3D.setting.gi.probeYCount * Engine3D.setting.gi.probeZCount
                             for (let j = 0; j < count; j++) {
                                 let probeIndex = j;
@@ -288,7 +288,7 @@ class Sample_GI {
         }
 
         {
-            let car = await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/Duck/Duck.gltf');
+            let car = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/pbrCar/pbrCar.gltf');
             car.scaleX = car.scaleY = car.scaleZ = 1.5;
             car.x = 20;
             obj3dList.push(car);
