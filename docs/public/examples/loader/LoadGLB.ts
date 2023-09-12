@@ -1,17 +1,57 @@
-import { Engine3D, LitMaterial, MeshRenderer, Object3D, PlaneGeometry, Scene3D } from "@orillusion/core";
-import { createExampleScene } from "@samples/utils/ExampleScene";
+import { AtmosphericComponent, CameraUtil, View3D, KelvinUtil, DirectLight, HoverCameraController, Engine3D, LitMaterial, MeshRenderer, Object3D, PlaneGeometry, Scene3D } from "@orillusion/core";
+import { Stats } from '@orillusion/stats'
 
 // Sample to load glb file
-export class Sample_LoadGLB {
+class Sample_LoadGLB {
     scene: Scene3D;
 
     async run() {
         Engine3D.setting.shadow.shadowBound = 100;
         await Engine3D.init();
         Engine3D.setting.shadow.autoUpdate = true;
-        let exampleScene = createExampleScene();
-        this.scene = exampleScene.scene;
-        Engine3D.startRenderView(exampleScene.view);
+        let scene = new Scene3D()
+        scene.exposure = 1
+        scene.addComponent(Stats)
+    
+        // init sky
+        let atmosphericSky: AtmosphericComponent
+        atmosphericSky = scene.addComponent(AtmosphericComponent)
+    
+        // init Camera3D
+        let camera = CameraUtil.createCamera3DObject(scene)
+        camera.perspective(60, Engine3D.aspect, 1, 5000)
+    
+        // init Camera Controller
+        let hoverCtrl = camera.object3D.addComponent(HoverCameraController)
+        hoverCtrl.setCamera(-30, -15, 100)
+    
+        // init View3D
+        let view = new View3D()
+        view.scene = scene
+        view.camera = camera
+    
+        // create direction light
+        let lightObj3D = new Object3D()
+        lightObj3D.x = 0
+        lightObj3D.y = 30
+        lightObj3D.z = -40
+        lightObj3D.rotationX = 20
+        lightObj3D.rotationY = 160
+        lightObj3D.rotationZ = 0
+    
+        let light = lightObj3D.addComponent(DirectLight)
+        light.lightColor = KelvinUtil.color_temperature_to_rgb(5355)
+        light.castShadow = true
+        light.intensity = 30
+    
+        scene.addChild(light.object3D)
+    
+        // relative light to sky
+        atmosphericSky.relativeTransform = light.transform
+
+
+        this.scene = scene;
+        Engine3D.startRenderView(view);
         await this.initScene();
     }
 
@@ -44,3 +84,4 @@ export class Sample_LoadGLB {
     }
 
 }
+new Sample_LoadGLB().run();
