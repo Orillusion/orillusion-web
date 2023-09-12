@@ -1,15 +1,4 @@
-import {
-    Object3D,
-    Scene3D,
-    Engine3D,
-    GlobalIlluminationComponent,
-    Object3DUtil,
-    GTAOPost,
-    HDRBloomPost,
-    PostProcessingComponent,
-    TAAPost,
-    DirectLight, KelvinUtil, View3D, HoverCameraController, CameraUtil, AtmosphericComponent
-} from "@orillusion/core";
+import { Object3D, Scene3D, Engine3D, GlobalIlluminationComponent, Object3DUtil, GTAOPost, HDRBloomPost, PostProcessingComponent, TAAPost, DirectLight, KelvinUtil, View3D, HoverCameraController, CameraUtil, AtmosphericComponent } from "@orillusion/core";
 import {Stats} from "@orillusion/stats";
 import dat from "dat.gui";
 

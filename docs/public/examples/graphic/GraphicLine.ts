@@ -1,19 +1,4 @@
-import {
-    Object3D,
-    Scene3D,
-    Engine3D,
-    GlobalIlluminationComponent,
-    Object3DUtil,
-    GTAOPost,
-    HDRBloomPost,
-    PostProcessingComponent,
-    TAAPost,
-    Vector3,
-    Color,
-    AnimationCurve,
-    Keyframe,
-    View3D, AtmosphericComponent, CameraUtil, HoverCameraController, DirectLight, KelvinUtil
-} from "@orillusion/core";
+import { Object3D, Scene3D, Engine3D, Vector3, Color, AnimationCurve, Keyframe, View3D, AtmosphericComponent, CameraUtil, HoverCameraController, DirectLight, KelvinUtil } from "@orillusion/core";
 import {Stats} from "@orillusion/stats";
 import dat from "dat.gui";
 
@@ -108,7 +93,7 @@ class GraphicLine {
 
     async initScene() {
         this.view.graphic3D.drawLines('line1', [Vector3.ZERO, new Vector3(0, 10, 0)], new Color().hexToRGB(Color.RED));
-        
+
         let animCurve = new AnimationCurve();
         animCurve.addKeyFrame(new Keyframe(0, 0.5));
         animCurve.addKeyFrame(new Keyframe(0.15, -0.2));
