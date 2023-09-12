@@ -1,15 +1,21 @@
-import { GUIHelp } from "@orillusion/debug/GUIHelp";
 import { Scene3D, HoverCameraController, Engine3D, AtmosphericComponent, Object3D, Camera3D, Vector3, View3D, DirectLight, KelvinUtil, LitMaterial, MeshRenderer, BoxGeometry, CameraUtil, Transform } from "@orillusion/core";
+import dat from 'dat.gui'
 
 //sample of direction light
 class Sample_DirectLight {
     scene: Scene3D;
     lightObj3D: any;
+    private Ori: dat.GUI | undefined
 
     async run() {
         await Engine3D.init({});
 
-        GUIHelp.init();
+        const gui = new dat.GUI()
+        gui.domElement.style.zIndex = '10'
+        gui.domElement.parentElement.style.zIndex = '10'
+
+        this.Ori = gui.addFolder('Orillusion')
+        this.Ori.open()
 
         this.scene = new Scene3D();
         let sky = this.scene.addComponent(AtmosphericComponent);
@@ -53,15 +59,15 @@ class Sample_DirectLight {
     // show gui
     // control light direction/color/intensity/indirect
     private showLightGUI(light: DirectLight): void {
-        GUIHelp.addFolder('DirectLight');
-        GUIHelp.add(light.transform, 'rotationX', 0.0, 360.0, 0.01);
-        GUIHelp.add(light.transform, 'rotationY', 0.0, 360.0, 0.01);
-        GUIHelp.add(light.transform, 'rotationZ', 0.0, 360.0, 0.01);
-        GUIHelp.addColor(light, 'lightColor');
-        GUIHelp.add(light, 'intensity', 0.0, 160.0, 0.01);
-        GUIHelp.add(light, 'indirect', 0.0, 10.0, 0.01);
-        GUIHelp.open();
-        GUIHelp.endFolder();
+        this.Ori.addFolder('DirectLight');
+        this.Ori.add(light.transform, 'rotationX', 0.0, 360.0, 0.01);
+        this.Ori.add(light.transform, 'rotationY', 0.0, 360.0, 0.01);
+        this.Ori.add(light.transform, 'rotationZ', 0.0, 360.0, 0.01);
+        this.Ori.addColor(light, 'lightColor');
+        this.Ori.add(light, 'intensity', 0.0, 160.0, 0.01);
+        this.Ori.add(light, 'indirect', 0.0, 10.0, 0.01);
+        this.Ori.add(light, 'castShadow');
+        this.Ori.open();
     }
 
     initScene() {

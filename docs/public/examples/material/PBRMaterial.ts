@@ -23,11 +23,11 @@ class Sample_PBRMaterial {
         };
 
         const gui = new dat.GUI()
-            gui.domElement.style.zIndex = '10'
-            gui.domElement.parentElement.style.zIndex = '10'
+        gui.domElement.style.zIndex = '999'
+        gui.domElement.parentElement.style.zIndex = '999'
 
-            this.Ori = gui.addFolder('Orillusion')
-            this.Ori.open()
+        this.Ori = gui.addFolder('Orillusion')
+        this.Ori.open()
 
         this.scene = new Scene3D();
         let camera = CameraUtil.createCamera3DObject(this.scene);

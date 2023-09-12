@@ -1,18 +1,24 @@
-import { GUIHelp } from "@orillusion/debug/GUIHelp";
 import { AtmosphericComponent, BoxGeometry, CameraUtil, Color, Engine3D, HoverCameraController, LitMaterial, MeshRenderer, Object3D, Object3DUtil, PointLight, Scene3D, SphereGeometry, View3D, } from "@orillusion/core";
 import { PointLightsScript } from "./PointLightsScript";
+import dat from 'dat.gui'
 
 class Sample_LightEnable {
     scene: Scene3D;
     hoverCameraController: HoverCameraController;
     lightObj: any;
+    private Ori: dat.GUI | undefined
     constructor() { }
 
     async run() {
 
         await Engine3D.init({});
 
-        GUIHelp.init();
+        const gui = new dat.GUI()
+        gui.domElement.style.zIndex = '10'
+        gui.domElement.parentElement.style.zIndex = '10'
+
+        this.Ori = gui.addFolder('Orillusion')
+        this.Ori.open()
 
         this.scene = new Scene3D();
         let sky = this.scene.addComponent(AtmosphericComponent);
@@ -77,13 +83,13 @@ class Sample_LightEnable {
 
             let obj = {};
             obj[pointLight.name + ":enable"] = true;
-            GUIHelp.add(obj, pointLight.name + ":enable").onChange((e) => {
+            this.Ori.add(obj, pointLight.name + ":enable").onChange((e) => {
                 script.enable = e;
             });
 
             let obj2 = {};
             obj2[pointLight.name + ":castShadow"] = true;
-            GUIHelp.add(obj2, pointLight.name + ":castShadow").onChange((e) => {
+            this.Ori.add(obj2, pointLight.name + ":castShadow").onChange((e) => {
                 script.castShadow = e;
             });
         }

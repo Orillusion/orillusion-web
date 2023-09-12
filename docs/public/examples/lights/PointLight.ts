@@ -1,18 +1,24 @@
-import { GUIHelp } from "@orillusion/debug/GUIHelp";
 import { AtmosphericComponent, BoxGeometry, CameraUtil, Engine3D, HoverCameraController, LitMaterial, MeshRenderer, Object3D, Object3DUtil, PointLight, Scene3D, SphereGeometry, View3D, } from "@orillusion/core";
 import { PointLightsScript } from "./PointLightsScript";
+import { Stats } from '@orillusion/stats'
 
 class Sample_PointLight {
     scene: Scene3D;
     hoverCameraController: HoverCameraController;
     lightObj: any;
+    private Ori: dat.GUI | undefined
     constructor() { }
 
     async run() {
 
         await Engine3D.init({});
 
-        GUIHelp.init();
+        const gui = new dat.GUI()
+        gui.domElement.style.zIndex = '10'
+        gui.domElement.parentElement.style.zIndex = '10'
+
+        this.Ori = gui.addFolder('Orillusion')
+        this.Ori.open()
 
         this.scene = new Scene3D();
         let sky = this.scene.addComponent(AtmosphericComponent);
