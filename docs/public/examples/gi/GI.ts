@@ -56,113 +56,10 @@ class Sample_GI {
             strength: 1.2
         };
 
-        await Engine3D.init({
-            renderLoop: () => {
-                if (this.giComponent?.isStart) {
-                    // GUIUtil.renderGIComponent(this.giComponent);
-                    let volume = this.giComponent['_volume'];
-                    let giSetting = volume.setting;
-                    let view: View3D = Engine3D.views[0];
-                    let renderJob = Engine3D.getRenderJob(view);
-
-                    const onProbesChange = (): void => {
-                        this.giComponent['changeProbesPosition']();
-                    }
-
-                    const debugProbeRay = (probeIndex: number, array: Float32Array): void => {
-                        this.giComponent['debugProbeRay'](probeIndex, array);
-                    }
-
-                    let gidir = this.Ori.addFolder('GI');
-                    gidir.add(giSetting, `lerpHysteresis`, 0.001, 10, 0.0001).onChange(() => {
-                        onProbesChange();
-                    });
-                    gidir.add(giSetting, `depthSharpness`, 1.0, 100.0, 0.001).onChange(() => {
-                        onProbesChange();
-                    });
-                    gidir.add(giSetting, `normalBias`, -100.0, 100.0, 0.001).onChange(() => {
-                        onProbesChange();
-                    });
-                    gidir.add(giSetting, `irradianceChebyshevBias`, -100.0, 100.0, 0.001).onChange(() => {
-                        onProbesChange();
-                    });
-                    gidir.add(giSetting, `rayNumber`, 0, 512, 1).onChange(() => {
-                        onProbesChange();
-                    });
-                    gidir.add(giSetting, `irradianceDistanceBias`, 0.0, 200.0, 0.001).onChange(() => {
-                        onProbesChange();
-                    });
-                    gidir.add(giSetting, `indirectIntensity`, 0.0, 100.0, 0.001).onChange(() => {
-                        onProbesChange();
-                    });
-                    gidir.add(giSetting, `bounceIntensity`, 0.0, 1.0, 0.001).onChange(() => {
-                        onProbesChange();
-                    });
-                    gidir.add(giSetting, `probeRoughness`, 0.0, 1.0, 0.001).onChange(() => {
-                        onProbesChange();
-                    });
-                    gidir.add(giSetting, `ddgiGamma`, 0.0, 4.0, 0.001).onChange(() => {
-                        onProbesChange();
-                    });
-
-                    gidir.add(giSetting, 'autoRenderProbe');
-
-                    let probdir = this.Ori.addFolder('probe volume');
-                    probdir.add(volume.setting, 'probeSpace', 0.1, volume.setting.probeSpace * 5, 0.001).onChange(() => {
-                        onProbesChange();
-                    });
-                    probdir.add(volume.setting, 'offsetX', -100, 100, 0.001).onChange(() => {
-                        onProbesChange();
-                    });
-                    probdir.add(volume.setting, 'offsetY', -100, 100, 0.001).onChange(() => {
-                        onProbesChange();
-                    });
-                    probdir.add(volume.setting, 'offsetZ', -100, 100, 0.001).onChange(() => {
-                        onProbesChange();
-                    });
-                    let ddgiProbeRenderer = renderJob.ddgiProbeRenderer;
-
-                    let button_operation={
-                        show:()=>{
-                            this.giComponent.object3D.transform.enable = true;
-                        },
-                        hide:()=>{
-                            this.giComponent.object3D.transform.enable = false;
-                        },
-                        showRays:()=>{
-                            let array = ddgiProbeRenderer.irradianceComputePass['depthRaysBuffer'].readBuffer();
-                            let count = Engine3D.setting.gi.probeXCount * Engine3D.setting.gi.probeYCount * Engine3D.setting.gi.probeZCount
-                            for (let j = 0; j < count; j++) {
-                                let probeIndex = j;
-                                debugProbeRay(probeIndex, array);
-                            }
-                            debugProbeRay(0, array);
-                        },
-                        hideRays:()=>{
-                            let count = Engine3D.setting.gi.probeXCount * Engine3D.setting.gi.probeYCount * Engine3D.setting.gi.probeZCount
-                            for (let j = 0; j < count; j++) {
-                                let probeIndex = j;
-                                const rayNumber = Engine3D.setting.gi.rayNumber;
-                                for (let i = 0; i < rayNumber; i++) {
-                                    let id = `showRays${probeIndex}${i}`;
-                                    view.graphic3D.Clear(id);
-                                }
-                            }
-                        }
-                    }
-                    probdir.add(button_operation, 'show');
-                    probdir.add(button_operation, 'hide');
-                    probdir.add(button_operation, 'showRays');
-                    probdir.add(button_operation, 'hideRays');
-
-
-                    this.giComponent = null;
-                }
-            }
-        });
+        await Engine3D.init();
         const gui = new dat.GUI();
-        gui.domElement.style.zIndex = "10";
-        gui.domElement.parentElement.style.zIndex = "10";
+        // gui.domElement.style.zIndex = "10";
+        // gui.domElement.parentElement.style.zIndex = "10";
         this.Ori = gui.addFolder("Orillusion");
         this.Ori.open();
 
@@ -215,19 +112,7 @@ class Sample_GI {
 
         await this.initScene();
         this.addGIProbes();
-        // GUIUtil.renderAtomosphericSky(exampleScene.atmosphericSky);
-        // let atodir = this.Ori.addFolder("AtmosphericSky");
-        // atodir.add(atmosphericSky, 'sunX', 0, 1, 0.01);
-        // atodir.add(atmosphericSky, 'sunY', 0.4, 1.6, 0.01);
-        // atodir.add(atmosphericSky, 'eyePos', 0, 5000, 1);
-        // atodir.add(atmosphericSky, 'sunRadius', 0, 1000, 0.01);
-        // atodir.add(atmosphericSky, 'sunRadiance', 0, 100, 0.01);
-        // atodir.add(atmosphericSky, 'sunBrightness', 0, 10, 0.01);
-        // atodir.add(atmosphericSky, 'exposure', 0, 2, 0.01);
-        // atodir.add(atmosphericSky, 'displaySun', 0, 1, 0.01);
-        // atodir.add(atmosphericSky, 'enable');
-        // atodir.open();
-        // GUIUtil.renderDirLight(exampleScene.light);
+
         let DirLight = this.Ori.addFolder("DirectLight");
         DirLight.add(light, "enable");
         DirLight.add(light.transform, "rotationX", 0.0, 360.0, 0.01);
@@ -246,12 +131,55 @@ class Sample_GI {
 
     }
 
-
-
     private addGIProbes() {
         let probeObj = new Object3D();
-        this.giComponent = probeObj.addComponent(GlobalIlluminationComponent);
+        let giComponent = probeObj.addComponent(GlobalIlluminationComponent);
         this.scene.addChild(probeObj);
+        this.renderGUI(giComponent)
+    }
+
+    private renderGUI(giComponent:GlobalIlluminationComponent){
+        if(!giComponent || !giComponent['_volume']){
+            return setTimeout(()=>this.renderGUI(giComponent), 50)
+        }
+        let volume = giComponent['_volume'];
+        let giSetting = volume.setting;
+        let view: View3D = Engine3D.views[0];
+        let renderJob = Engine3D.getRenderJob(view);
+
+        function onProbesChange(): void {
+            giComponent['changeProbesPosition']();
+        }
+
+        let gidir = this.Ori.addFolder('GI');
+        gidir.add(giSetting, `lerpHysteresis`, 0.001, 10, 0.0001).onChange(onProbesChange);
+        gidir.add(giSetting, `depthSharpness`, 1.0, 100.0, 0.001).onChange(onProbesChange);
+        gidir.add(giSetting, `normalBias`, -100.0, 100.0, 0.001).onChange(onProbesChange);
+        gidir.add(giSetting, `irradianceChebyshevBias`, -100.0, 100.0, 0.001).onChange(onProbesChange);
+        gidir.add(giSetting, `rayNumber`, 0, 512, 1).onChange(onProbesChange);
+        gidir.add(giSetting, `irradianceDistanceBias`, 0.0, 200.0, 0.001).onChange(onProbesChange);
+        gidir.add(giSetting, `indirectIntensity`, 0.0, 100.0, 0.001).onChange(onProbesChange);
+        gidir.add(giSetting, `bounceIntensity`, 0.0, 1.0, 0.001).onChange(onProbesChange);
+        gidir.add(giSetting, `probeRoughness`, 0.0, 1.0, 0.001).onChange(onProbesChange);
+        gidir.add(giSetting, `ddgiGamma`, 0.0, 4.0, 0.001).onChange(onProbesChange);
+        gidir.add(giSetting, 'autoRenderProbe');
+
+        let probdir = this.Ori.addFolder('probe volume');
+        probdir.add(volume.setting, 'probeSpace', 0.1, volume.setting.probeSpace * 5, 0.001).onChange(onProbesChange);
+        probdir.add(volume.setting, 'offsetX', -100, 100, 0.001).onChange(onProbesChange);
+        probdir.add(volume.setting, 'offsetY', -100, 100, 0.001).onChange(onProbesChange);
+        probdir.add(volume.setting, 'offsetZ', -100, 100, 0.001).onChange(onProbesChange);
+
+        let button_operation={
+            show:()=>{
+                giComponent.object3D.transform.enable = true;
+            },
+            hide:()=>{
+                giComponent.object3D.transform.enable = false;
+            }
+        }
+        probdir.add(button_operation, 'show');
+        probdir.add(button_operation, 'hide');
     }
 
     async initScene() {
