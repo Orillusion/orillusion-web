@@ -8,6 +8,7 @@ class Sample_Skeleton3 {
     scene: Scene3D;
     character: Object3D;
     view: View3D;
+    private Ori: dat.GUI | undefined
 
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
@@ -17,7 +18,12 @@ class Sample_Skeleton3 {
             renderLoop: () => this.onRenderLoop(),
         });
 
-        GUIHelp.init();
+        const gui = new dat.GUI()
+        gui.domElement.style.zIndex = '10'
+        gui.domElement.parentElement.style.zIndex = '10'
+
+        this.Ori = gui.addFolder('Orillusion')
+        this.Ori.open()
 
         this.scene = new Scene3D();
         let sky = this.scene.addComponent(AtmosphericComponent);
@@ -40,7 +46,7 @@ class Sample_Skeleton3 {
 
     async initScene(scene: Scene3D) {
         {
-            let rootNode = await Engine3D.res.loadGltf('gltfs/glb/Soldier_draco.glb');
+            let rootNode = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/glb/Soldier_draco.glb');
             this.character = rootNode.getObjectByName('Character') as Object3D;
             this.character.scaleX = 0.3;
             this.character.scaleY = 0.3;
@@ -67,30 +73,43 @@ class Sample_Skeleton3 {
             }, this);
 
             // change speed
-            GUIHelp.addFolder("Animation-speed").open();
-            GUIHelp.add(animation, 'timeScale', -6, 6, 0.01);
-            GUIHelp.endFolder();
+            this.Ori.addFolder("Animation-speed").open();
+            this.Ori.add(animation, 'timeScale', -6, 6, 0.01);
+            // GUIHelp.endFolder();
 
             // change animation weight
-            GUIHelp.addFolder("Animation-weight").open();
+            this.Ori.addFolder("Animation-weight").open();
             animation.getAnimationClipStates().forEach((clipState, _) => {
-                GUIHelp.add(clipState, 'weight', 0, 1.0, 0.01).name(clipState.name);
+                this.Ori.add(clipState, 'weight', 0, 1.0, 0.01).name(clipState.name);
             });
-            GUIHelp.endFolder();
+            // GUIHelp.endFolder();
 
             // toggle play/stop
-            GUIHelp.addFolder("Animation-play").open();
+            this.Ori.addFolder("Animation-play").open();
+            
             animation.getAnimationClipStates().forEach((clipState, _) => {
-                GUIHelp.addButton(clipState.name, () => animation.play(clipState.name));
+                let name = clipState.name
+                // this.Ori.addButton(name, () => animation.play(clipState.name));
+                var button_add = {
+                    name: () => animation.play(clipState.name)
+                }
+        
+                this.Ori.add(button_add, 'name')
             });
-            GUIHelp.endFolder();
+            // GUIHelp.endFolder();
 
             // cross fade animation
-            GUIHelp.addFolder("Animation-crossFade").open();
+            this.Ori.addFolder("Animation-crossFade").open();
             animation.getAnimationClipStates().forEach((clipState, _) => {
-                GUIHelp.addButton('crossFade(' + clipState.name + ')', () => animation.crossFade(clipState.name, 0.3));
+                let name1 = 'crossFade(' + clipState.name + ')'
+                // this.Ori.addButton(name1, () => animation.crossFade(clipState.name, 0.3));
+                var button_add = {
+                    name1:  () => animation.crossFade(clipState.name, 0.3)
+                }
+        
+                this.Ori.add(button_add, 'name1')
             });
-            GUIHelp.endFolder();
+            // GUIHelp.endFolder();
         }
 
         /******** floor *******/

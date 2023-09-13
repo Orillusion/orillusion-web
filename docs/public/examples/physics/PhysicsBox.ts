@@ -1,12 +1,12 @@
-import { GUIHelp } from "@orillusion/debug/GUIHelp";
 import { Physics, Rigidbody } from "@orillusion/physics";
-import { createExampleScene, createSceneParam } from "@samples/utils/ExampleScene";
-import { Scene3D, Object3D, LitMaterial, Engine3D, BoxGeometry, MeshRenderer, ColliderComponent, BoxColliderShape, Vector3, PlaneGeometry, Color, SphereColliderShape, SphereGeometry } from "@orillusion/core";
-import { GUIUtil } from "@samples/utils/GUIUtil";
+import { AtmosphericComponent,DirectLight, KelvinUtil, CameraUtil, HoverCameraController, View3D, Scene3D, Object3D, LitMaterial, Engine3D, BoxGeometry, MeshRenderer, ColliderComponent, BoxColliderShape, Vector3, PlaneGeometry, Color, SphereColliderShape, SphereGeometry } from "@orillusion/core";
+import dat from 'dat.gui'
+import { Stats } from '@orillusion/stats'
 
 class Sample_PhysicsBox {
     private scene: Scene3D;
     private materials: LitMaterial[];
+    private Ori: dat.GUI | undefined
 
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
@@ -17,17 +17,80 @@ class Sample_PhysicsBox {
         await Physics.init();
         await Engine3D.init({ renderLoop: () => this.loop() });
 
-        let sceneParam = createSceneParam();
-        sceneParam.camera.distance = 50;
-        let exampleScene = createExampleScene(sceneParam);
-        this.scene = exampleScene.scene;
+        // let sceneParam = createSceneParam();
+        // sceneParam.camera.distance = 50;
+        // let exampleScene = createExampleScene(sceneParam);
 
-        GUIHelp.init();
-        GUIUtil.renderDirLight(exampleScene.light, false);
+        let scene = new Scene3D()
+        scene.exposure = 1
+        scene.addComponent(Stats)
+    
+        // init sky
+        let atmosphericSky: AtmosphericComponent
+        atmosphericSky = scene.addComponent(AtmosphericComponent)
+    
+        // init Camera3D
+        let camera = CameraUtil.createCamera3DObject(scene)
+        camera.perspective(60, Engine3D.aspect, 1, 5000)
+    
+        // init Camera Controller
+        let hoverCtrl = camera.object3D.addComponent(HoverCameraController)
+        hoverCtrl.setCamera(-30, -15, 100)
+    
+        // init View3D
+        let view = new View3D()
+        view.scene = scene
+        view.camera = camera
+    
+        // create direction light
+        let lightObj3D = new Object3D()
+        lightObj3D.x = 0
+        lightObj3D.y = 30
+        lightObj3D.z = -40
+        lightObj3D.rotationX = 20
+        lightObj3D.rotationY = 160
+        lightObj3D.rotationZ = 0
+    
+        let light = lightObj3D.addComponent(DirectLight)
+        light.lightColor = KelvinUtil.color_temperature_to_rgb(5355)
+        light.castShadow = true
+        light.intensity = 30
+    
+        scene.addChild(light.object3D)
+    
+        // relative light to sky
+        atmosphericSky.relativeTransform = light.transform
+
+
+        this.scene = scene;
+
+        // GUIHelp.init();
+        // GUIUtil.renderDirLight(exampleScene.light, false);
+        const gui = new dat.GUI()
+        gui.domElement.style.zIndex = '10'
+        gui.domElement.parentElement.style.zIndex = '10'
+
+        this.Ori = gui.addFolder('Orillusion')
+        this.Ori.open()
+        let DirLight = this.Ori.addFolder('DirectLight')
+        DirLight.add(light, 'enable')
+        DirLight.add(light.transform, 'rotationX', 0.0, 360.0, 0.01)
+        DirLight.add(light.transform, 'rotationY', 0.0, 360.0, 0.01)
+        DirLight.add(light.transform, 'rotationZ', 0.0, 360.0, 0.01)
+        DirLight.addColor(light, 'lightColor')
+        DirLight.add(light, 'intensity', 0.0, 160.0, 0.01)
+        DirLight.add(light, 'indirect', 0.0, 10.0, 0.01)
+        DirLight.add(light, 'castShadow')
+        DirLight.open()
 
         await this.initScene(this.scene);
-        GUIHelp.addButton('Make Ball', () => { this.createSphere(); })
-        Engine3D.startRenderView(exampleScene.view);
+        // GUIHelp.addButton('Make Ball', () => { this.createSphere(); })
+        var button_add = {
+            Make_Ball: () => { this.createSphere(); }
+        }
+
+        this.Ori.add(button_add, 'Make_Ball')
+        Engine3D.startRenderView(view);
     }
 
     initMaterials() {
@@ -43,7 +106,7 @@ class Sample_PhysicsBox {
 
     async initScene(scene: Scene3D) {
         /******** load hdr sky *******/
-        let envMap = await Engine3D.res.loadHDRTextureCube('hdri/daytime.hdr');
+        let envMap = await Engine3D.res.loadHDRTextureCube('https://cdn.orillusion.com/hdri/daytime.hdr');
         scene.envMap = envMap;
 
         //

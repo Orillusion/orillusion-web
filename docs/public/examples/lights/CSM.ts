@@ -1,5 +1,6 @@
+import { GUIHelp } from "@orillusion/debug/GUIHelp";
 import { Scene3D, HoverCameraController, Engine3D, AtmosphericComponent, Object3D, Camera3D, Vector3, View3D, DirectLight, KelvinUtil, LitMaterial, MeshRenderer, BoxGeometry, CameraUtil, SphereGeometry, Color, Object3DUtil, BlendMode } from "@orillusion/core";
-import dat from 'dat.gui'
+import { GUIUtil } from "@samples/utils/GUIUtil";
 
 //sample of csm
 class Sample_CSM {
@@ -8,18 +9,12 @@ class Sample_CSM {
     light: DirectLight;
     boxRenderer: MeshRenderer;
     viewCamera: Camera3D;
-    private Ori: dat.GUI | undefined
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
         Engine3D.setting.shadow.shadowSize = 1024;
         await Engine3D.init({ renderLoop: () => { this.loop(); } });
 
-        const gui = new dat.GUI()
-        gui.domElement.style.zIndex = '10'
-        gui.domElement.parentElement.style.zIndex = '10'
-
-        this.Ori = gui.addFolder('Orillusion')
-        this.Ori.open()
+        GUIHelp.init();
 
         this.scene = new Scene3D();
         let sky = this.scene.addComponent(AtmosphericComponent);
@@ -42,11 +37,12 @@ class Sample_CSM {
         this.viewCamera = mainCamera;
 
         mainCamera.enableCSM = true;
-        this.Ori.addFolder('CSM')
-        this.Ori.add(mainCamera, 'enableCSM');
-        // this.Ori.add(Engine3D.setting.shadow, 'csmScatteringExp', 0.5, 1.0, 0.01);
-        // this.Ori.add(Engine3D.setting.shadow, 'csmMargin', 0.01, 0.5, 0.01);
-        this.Ori.open();
+        GUIHelp.addFolder('CSM')
+        GUIHelp.add(mainCamera, 'enableCSM');
+        GUIHelp.add(Engine3D.setting.shadow, 'csmScatteringExp', 0.5, 1.0, 0.01);
+        GUIHelp.add(Engine3D.setting.shadow, 'csmMargin', 0.01, 0.5, 0.01);
+        GUIHelp.open();
+        GUIHelp.endFolder();
         Engine3D.startRenderView(view);
     }
 
@@ -62,17 +58,7 @@ class Sample_CSM {
         sunLight.lightColor = KelvinUtil.color_temperature_to_rgb(6553);
         sunLight.castShadow = true;
 
-        // GUIUtil.renderDirLight(sunLight);
-        // let DirLight = this.Ori.addFolder('sunLight')
-        //     DirLight.add(sunLight, 'enable')
-        //     DirLight.add(sunLight.transform, 'rotationX', 0.0, 360.0, 0.01)
-        //     DirLight.add(sunLight.transform, 'rotationY', 0.0, 360.0, 0.01)
-        //     DirLight.add(sunLight.transform, 'rotationZ', 0.0, 360.0, 0.01)
-        //     DirLight.addColor(sunLight, 'lightColor')
-        //     DirLight.add(sunLight, 'intensity', 0.0, 160.0, 0.01)
-        //     DirLight.add(sunLight, 'indirect', 0.0, 10.0, 0.01)
-        //     DirLight.add(sunLight, 'castShadow')
-        //     DirLight.open()
+        GUIUtil.renderDirLight(sunLight);
         this.scene.addChild(lightObj3D);
         this.light = sunLight;
         return sunLight.transform;

@@ -1,12 +1,13 @@
-import { GUIHelp } from '@orillusion/debug/GUIHelp';
-import { BoundingBox, BoxGeometry, Color, Engine3D, LitMaterial, MeshRenderer, Object3D, Object3DUtil, PointerEvent3D, Time, Vector3, View3D, } from '@orillusion/core';
-import { createExampleScene, createSceneParam } from '@samples/utils/ExampleScene';
-import { OctreeEntity } from '../../src/core/tree/octree/OctreeEntity';
-import { Octree } from '../../src/core/tree/octree/Octree';
+import { BoundingBox, Scene3D, AtmosphericComponent, KelvinUtil, DirectLight, HoverCameraController, CameraUtil, BoxGeometry, Color, Engine3D, LitMaterial, MeshRenderer, Object3D, Object3DUtil, PointerEvent3D, Time, Vector3, View3D, } from '@orillusion/core';
+import { OctreeEntity } from './OctreeEntity';
+import { Octree } from './Octree';
+import dat from 'dat.gui'
+import { Stats } from '@orillusion/stats'
 
 // A sample to use octTree
-export class Sample_OctTreeBox {
+class Sample_OctTreeBox {
     view: View3D;
+    scene: Scene3D;
     entities: OctreeEntity[] = [];
     tree: Octree;
     red = new Color(1, 0, 0, 1);
@@ -16,20 +17,74 @@ export class Sample_OctTreeBox {
     white = new Color(1, 1, 1, 1)
 
     movingBox: BoundingBox;
+    private Ori: dat.GUI | undefined
 
     async run() {
         // init engine
         await Engine3D.init({ renderLoop: () => { this.loop() } });
-        GUIHelp.init();
-        let param = createSceneParam();
-        param.camera.distance = 400;
-        param.camera.near = 0.1;
-        param.camera.far = 10000;
-        let exampleScene = createExampleScene(param);
-        Engine3D.startRenderViews([exampleScene.view]);
-        Engine3D.getRenderJob(exampleScene.view);
+        const gui = new dat.GUI()
+        gui.domElement.style.zIndex = '10'
+        gui.domElement.parentElement.style.zIndex = '10'
 
-        this.view = exampleScene.view;
+        this.Ori = gui.addFolder('Orillusion')
+        this.Ori.open()
+        // let param = createSceneParam();
+        // param.camera.distance = 400;
+        // param.camera.near = 0.1;
+        // param.camera.far = 10000;
+        // let exampleScene = createExampleScene(param);
+
+
+        let scene = new Scene3D()
+        scene.exposure = 1
+        scene.addComponent(Stats)
+    
+        // init sky
+        let atmosphericSky: AtmosphericComponent
+        atmosphericSky = scene.addComponent(AtmosphericComponent)
+    
+        // init Camera3D
+        let camera = CameraUtil.createCamera3DObject(scene)
+        camera.perspective(60, Engine3D.aspect, 1, 5000)
+    
+        // init Camera Controller
+        let hoverCtrl = camera.object3D.addComponent(HoverCameraController)
+        hoverCtrl.setCamera(-30, -15, 100)
+    
+        // init View3D
+        let view = new View3D()
+        view.scene = scene
+        view.camera = camera
+    
+        // create direction light
+        let lightObj3D = new Object3D()
+        lightObj3D.x = 0
+        lightObj3D.y = 30
+        lightObj3D.z = -40
+        lightObj3D.rotationX = 20
+        lightObj3D.rotationY = 160
+        lightObj3D.rotationZ = 0
+    
+        let light = lightObj3D.addComponent(DirectLight)
+        light.lightColor = KelvinUtil.color_temperature_to_rgb(5355)
+        light.castShadow = true
+        light.intensity = 30
+    
+        scene.addChild(light.object3D)
+    
+        // relative light to sky
+        atmosphericSky.relativeTransform = light.transform
+
+
+        this.scene = scene;
+        Engine3D.startRenderView(view);
+        // await this.initScene(this.scene);
+
+
+        Engine3D.startRenderViews([view]);
+        Engine3D.getRenderJob(view);
+
+        this.view =view;
 
         let box: BoundingBox = new BoundingBox();
         box.setFromMinMax(new Vector3(-100, -100, -100), new Vector3(100, 100, 100));
@@ -44,17 +99,17 @@ export class Sample_OctTreeBox {
             this.movingBox.setFromCenterAndSize(this.movingBox.center, this.movingBox.size);
         }
 
-        GUIHelp.addFolder('Center');
-        GUIHelp.add(this.movingBox.center, 'x', -100, 100, 1).onChange(() => { updateBox(); });
-        GUIHelp.add(this.movingBox.center, 'y', -100, 100, 1).onChange(() => { updateBox(); });
-        GUIHelp.add(this.movingBox.center, 'z', -100, 100, 1).onChange(() => { updateBox(); });
-        GUIHelp.open();
-        GUIHelp.endFolder();
-        GUIHelp.addFolder('Size');
-        GUIHelp.add(this.movingBox.size, 'x', 1, 200, 1).onChange(() => { updateBox(); });
-        GUIHelp.add(this.movingBox.size, 'y', 1, 200, 1).onChange(() => { updateBox(); });
-        GUIHelp.add(this.movingBox.size, 'z', 1, 200, 1).onChange(() => { updateBox(); });
-        GUIHelp.endFolder();
+        this.Ori.addFolder('Center');
+        this.Ori.add(this.movingBox.center, 'x', -100, 100, 1).onChange(() => { updateBox(); });
+        this.Ori.add(this.movingBox.center, 'y', -100, 100, 1).onChange(() => { updateBox(); });
+        this.Ori.add(this.movingBox.center, 'z', -100, 100, 1).onChange(() => { updateBox(); });
+        this.Ori.open();
+        // GUIHelp.endFolder();
+        this.Ori.addFolder('Size');
+        this.Ori.add(this.movingBox.size, 'x', 1, 200, 1).onChange(() => { updateBox(); });
+        this.Ori.add(this.movingBox.size, 'y', 1, 200, 1).onChange(() => { updateBox(); });
+        this.Ori.add(this.movingBox.size, 'z', 1, 200, 1).onChange(() => { updateBox(); });
+        // GUIHelp.endFolder();
     }
 
     _material: LitMaterial;
@@ -113,3 +168,4 @@ export class Sample_OctTreeBox {
     }
 
 }
+new Sample_OctTreeBox().run();
