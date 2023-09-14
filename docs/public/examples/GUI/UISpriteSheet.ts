@@ -1,13 +1,4 @@
-﻿import {
-    AtmosphericComponent,
-    BillboardType, CameraUtil, Color,
-    ComponentBase, DirectLight,
-    Engine3D, GUIQuad, GUISprite, HoverCameraController, ImageType, KelvinUtil,
-    Object3D,
-    Object3DUtil, Scene3D,
-    UITransform, View3D,
-    WorldPanel
-} from "@orillusion/core";
+﻿import { AtmosphericComponent, BillboardType, CameraUtil, Color, ComponentBase, DirectLight, Engine3D, GUIQuad, GUISprite, HoverCameraController, ImageType, KelvinUtil, Object3D, Object3DUtil, Scene3D, UITransform, View3D, WorldPanel } from "@orillusion/core";
 import {Stats} from "@orillusion/stats";
 import dat from "dat.gui";
 

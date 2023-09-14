@@ -1,25 +1,4 @@
-﻿import {
-    Engine3D,
-    Object3DUtil,
-    Object3D,
-    Color,
-    WorldPanel,
-    GUICanvas,
-    UIImage,
-    makeAloneSprite,
-    UITextField,
-    UIShadow,
-    Time,
-    Scene3D,
-    KelvinUtil,
-    AtmosphericComponent,
-    CameraUtil,
-    HoverCameraController,
-    View3D,
-    DirectLight,
-    GPUCullMode,
-    BillboardType
-} from "@orillusion/core";
+﻿import { Engine3D, Object3DUtil, Object3D, Color, WorldPanel, GUICanvas, UIImage, makeAloneSprite, UITextField, UIShadow, Time, Scene3D, KelvinUtil, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight, GPUCullMode, BillboardType } from "@orillusion/core";
 import {VideoTexture} from "@orillusion/media-extention";
 import {Stats} from "@orillusion/stats";
 import dat from "dat.gui";

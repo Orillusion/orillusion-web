@@ -1,14 +1,5 @@
 ﻿import {VideoTexture} from "@orillusion/media-extention";
-import {
-    Engine3D,
-    Object3DUtil,
-    Object3D,
-    ViewPanel,
-    UIImage,
-    ImageType,
-    makeAloneSprite,
-    Scene3D, KelvinUtil, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight
-} from "@orillusion/core";
+import { Engine3D, Object3DUtil, Object3D, ViewPanel, UIImage, ImageType, makeAloneSprite, Scene3D, KelvinUtil, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight } from "@orillusion/core";
 import {Stats} from "@orillusion/stats";
 import dat from "dat.gui";
 

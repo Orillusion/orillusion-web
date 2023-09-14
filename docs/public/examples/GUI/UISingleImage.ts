@@ -1,17 +1,8 @@
-﻿import {
-    Engine3D,
-    Object3DUtil,
-    Object3D,
-    BitmapTexture2D,
-    makeAloneSprite,
-    WorldPanel,
-    GPUCullMode,
-    BillboardType, Scene3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight, KelvinUtil
-} from "@orillusion/core";
+﻿import { Engine3D, Object3DUtil, Object3D, BitmapTexture2D, makeAloneSprite, WorldPanel, GPUCullMode, BillboardType, Scene3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight, KelvinUtil } from "@orillusion/core";
 import {Stats} from "@orillusion/stats";
 import dat from "dat.gui";
 
-export class Sample_UISingleImage {
+class Sample_UISingleImage {
     Ori: dat.GUI;
     scene: Scene3D;
 

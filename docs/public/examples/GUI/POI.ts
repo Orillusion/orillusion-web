@@ -1,22 +1,4 @@
-import {
-    Scene3D,
-    PropertyAnimation,
-    Engine3D,
-    Object3D,
-    Object3DUtil,
-    PropertyAnimClip,
-    WrapMode,
-    WorldPanel,
-    BillboardType,
-    TextAnchor,
-    UIImage,
-    UIShadow,
-    UITextField,
-    Vector3,
-    Color,
-    Time,
-    HoverCameraController, AtmosphericComponent, CameraUtil, View3D, DirectLight, KelvinUtil, GPUCullMode
-} from "@orillusion/core";
+import { Scene3D, PropertyAnimation, Engine3D, Object3D, Object3DUtil, PropertyAnimClip, WrapMode, WorldPanel, BillboardType, TextAnchor, UIImage, UIShadow, UITextField, Vector3, Color, Time, HoverCameraController, AtmosphericComponent, CameraUtil, View3D, DirectLight, KelvinUtil, GPUCullMode } from "@orillusion/core";
 import {Stats} from "@orillusion/stats";
 import dat from "dat.gui";
 

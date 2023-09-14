@@ -1,24 +1,4 @@
-﻿import {
-    Engine3D,
-    Object3DUtil,
-    Object3D,
-    GUISpace,
-    WorldPanel,
-    ViewPanel,
-    UIButton,
-    UITextField,
-    Color,
-    TextAnchor,
-    PointerEvent3D,
-    UIImage,
-    ImageType,
-    ComponentBase,
-    View3D,
-    UIPanel,
-    UIInteractiveStyle,
-    UIButtonTransition,
-    Scene3D, AtmosphericComponent, CameraUtil, HoverCameraController, DirectLight, KelvinUtil
-} from "@orillusion/core";
+﻿import { Engine3D, Object3DUtil, Object3D, GUISpace, WorldPanel, ViewPanel, UIButton, UITextField, Color, TextAnchor, PointerEvent3D, UIImage, ImageType, ComponentBase, View3D, UIPanel, UIInteractiveStyle, UIButtonTransition, Scene3D, AtmosphericComponent, CameraUtil, HoverCameraController, DirectLight, KelvinUtil } from "@orillusion/core";
 import {Stats} from "@orillusion/stats";
 import dat from "dat.gui";
 

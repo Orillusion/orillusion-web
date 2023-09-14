@@ -1,18 +1,4 @@
-﻿import {
-    Engine3D,
-    Object3DUtil,
-    Object3D,
-    UIImage,
-    ImageType,
-    Color,
-    UIPanel,
-    ViewPanel,
-    Scene3D,
-    Vector2,
-    UITextField,
-    UIShadow,
-    AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight, KelvinUtil
-} from "@orillusion/core";
+﻿import { Engine3D, Object3DUtil, Object3D, UIImage, ImageType, Color, UIPanel, ViewPanel, Scene3D, Vector2, UITextField, UIShadow, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight, KelvinUtil } from "@orillusion/core";
 import {Stats} from "@orillusion/stats";
 
 class Sample_UIMultiCanvas {

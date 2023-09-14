@@ -1,17 +1,4 @@
-﻿import {
-    Engine3D,
-    Object3DUtil,
-    Object3D,
-    ViewPanel,
-    UIImage,
-    UIPanel,
-    makeAloneSprite,
-    Color,
-    Time,
-    UITransform,
-    BitmapTexture2D,
-    KelvinUtil, Scene3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight
-} from "@orillusion/core";
+﻿import { Engine3D, Object3DUtil, Object3D, ViewPanel, UIImage, UIPanel, makeAloneSprite, Color, Time, UITransform, BitmapTexture2D, KelvinUtil, Scene3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight } from "@orillusion/core";
 import {Stats} from "@orillusion/stats";
 import dat from "dat.gui";
 

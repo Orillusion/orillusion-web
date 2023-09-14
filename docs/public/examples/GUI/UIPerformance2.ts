@@ -1,19 +1,4 @@
-﻿import {
-    BoundingBox,
-    Color,
-    Engine3D,
-    GUIConfig,
-    GUIQuad,
-    Object3D,
-    Scene3D,
-    TextAnchor,
-    UIImageGroup,
-    UITextField,
-    Vector2,
-    Vector3,
-    ViewPanel,
-    clamp, KelvinUtil, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight
-} from "@orillusion/core";
+﻿import { BoundingBox, Color, Engine3D, GUIConfig, GUIQuad, Object3D, Scene3D, TextAnchor, UIImageGroup, UITextField, Vector2, Vector3, ViewPanel, clamp, KelvinUtil, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight } from "@orillusion/core";
 import {Stats} from "@orillusion/stats";
 import dat from "dat.gui";
 
