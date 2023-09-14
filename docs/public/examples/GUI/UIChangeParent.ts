@@ -1,24 +1,90 @@
-﻿import { GUIHelp } from "@orillusion/debug/GUIHelp";
-import { createExampleScene } from "@samples/utils/ExampleScene";
-import { Engine3D, Object3DUtil, Object3D, ViewPanel, UIImage, ImageType, UIPanel, makeAloneSprite, Color, Time, UITransform, BitmapTexture2D } from "@orillusion/core";
+﻿import {
+    Engine3D,
+    Object3DUtil,
+    Object3D,
+    ViewPanel,
+    UIImage,
+    UIPanel,
+    makeAloneSprite,
+    Color,
+    Time,
+    UITransform,
+    BitmapTexture2D,
+    KelvinUtil, Scene3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight
+} from "@orillusion/core";
+import {Stats} from "@orillusion/stats";
+import dat from "dat.gui";
 
-export class Sample_UIChangeParent {
+class Sample_UIChangeParent {
+    scene: Scene3D;
+    Ori: dat.GUI;
+    private holder1: UITransform;
+
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
 
-        GUIHelp.init();
+        // init dat.gui
+        const gui = new dat.GUI();
+        this.Ori = gui.addFolder("Orillusion");
+        this.Ori.domElement.style.zIndex = 1;
+        this.Ori.domElement.parentElement.style.zIndex = 1;
+        this.Ori.open();
 
-        await Engine3D.init({ renderLoop: () => { this.loop(); } });
-        let exampleScene = createExampleScene();
-        Engine3D.startRenderView(exampleScene.view);
+        await Engine3D.init({
+            renderLoop: () => {
+                this.loop();
+            }
+        });
+        // init Scene3D
+        this.scene = new Scene3D()
+        this.scene.exposure = 1
+        this.scene.addComponent(Stats)
+
+        // init sky
+        let atmosphericSky: AtmosphericComponent
+        atmosphericSky = this.scene.addComponent(AtmosphericComponent)
+
+        // init Camera3D
+        let camera = CameraUtil.createCamera3DObject(this.scene)
+        camera.perspective(60, Engine3D.aspect, 1, 5000)
+
+        // init Camera Controller
+        let hoverCtrl = camera.object3D.addComponent(HoverCameraController)
+        hoverCtrl.setCamera(-30, -15, 100)
+
+        // init View3D
+        let view = new View3D()
+        view.scene = this.scene
+        view.camera = camera
+
+        // create direction light
+        let lightObj3D = new Object3D()
+        lightObj3D.x = 0
+        lightObj3D.y = 30
+        lightObj3D.z = -40
+        lightObj3D.rotationX = 20
+        lightObj3D.rotationY = 160
+        lightObj3D.rotationZ = 0
+
+        let light = lightObj3D.addComponent(DirectLight)
+        light.lightColor = KelvinUtil.color_temperature_to_rgb(5355)
+        light.castShadow = true
+        light.intensity = 30
+
+        this.scene.addChild(light.object3D)
+
+        // relative light to sky
+        atmosphericSky.relativeTransform = light.transform
+
+        Engine3D.startRenderView(view)
 
         // create floor
         let floor = Object3DUtil.GetSingleCube(100, 2, 50, 0.5, 0.5, 0.5);
-        exampleScene.scene.addChild(floor);
+        this.scene.addChild(floor);
         floor.y = -40;
 
         // enable ui canvas at index 0
-        let canvas = exampleScene.view.enableUICanvas();
+        let canvas = view.enableUICanvas();
 
         //create UI root
         let panelRoot: Object3D = new Object3D();
@@ -36,7 +102,7 @@ export class Sample_UIChangeParent {
             let image1: UIImage = logoObject.addComponent(UIImage);
             let bitmapTexture2D = new BitmapTexture2D();
             bitmapTexture2D.flipY = true;
-            await bitmapTexture2D.load('png/logo.png');
+            await bitmapTexture2D.load('https://cdn.orillusion.com/png/logo.png');
             image1.sprite = makeAloneSprite('logo', bitmapTexture2D);
             image1.uiTransform.resize(100, 100);
         }
@@ -84,16 +150,20 @@ export class Sample_UIChangeParent {
             }
         }, 1000);
 
-        GUIHelp.addButton('Remove Background', () => {
-            holder0.removeComponent(UIImage);
-        })
-        GUIHelp.open();
+        let button_func = {
+            remove: () => {
+                holder0.removeComponent(UIImage);
+            }
+        }
+        this.Ori.add(button_func, 'remove');
     }
 
-    private holder1: UITransform;
+
     private loop(): void {
         if (this.holder1) {
             this.holder1.y = Math.sin(Time.time * 0.005) * 50;
         }
     }
 }
+
+new Sample_UIChangeParent().run();

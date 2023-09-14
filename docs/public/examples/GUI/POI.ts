@@ -1,12 +1,30 @@
-import { GUIHelp } from "@orillusion/debug/GUIHelp";
-import { createExampleScene, createSceneParam } from "@samples/utils/ExampleScene";
-import { Scene3D, PropertyAnimation, Engine3D, Object3D, Object3DUtil, PropertyAnimClip, WrapMode, WorldPanel, BillboardType, TextAnchor, UIImage, UIShadow, UITextField, Vector3, Color, Time } from "@orillusion/core";
-import { GUIUtil } from "@samples/utils/GUIUtil";
-
+import {
+    Scene3D,
+    PropertyAnimation,
+    Engine3D,
+    Object3D,
+    Object3DUtil,
+    PropertyAnimClip,
+    WrapMode,
+    WorldPanel,
+    BillboardType,
+    TextAnchor,
+    UIImage,
+    UIShadow,
+    UITextField,
+    Vector3,
+    Color,
+    Time,
+    HoverCameraController, AtmosphericComponent, CameraUtil, View3D, DirectLight, KelvinUtil, GPUCullMode
+} from "@orillusion/core";
+import { Stats } from "@orillusion/stats";
+import dat from "dat.gui";
 class Sample_POI {
     scene: Scene3D;
     panel: WorldPanel;
     position: Vector3;
+    Ori: dat.GUI;
+    private modelContainer: Object3D;
 
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
@@ -15,32 +33,69 @@ class Sample_POI {
         Engine3D.setting.shadow.csmScatteringExp = 1;
 
         await Engine3D.init({ renderLoop: () => { this.loop(); } });
-        let param = createSceneParam();
-        param.camera.distance = 16;
-        let exampleScene = createExampleScene(param);
+        // init Scene3D
+        this.scene = new Scene3D()
+        this.scene.exposure = 1
+        this.scene.addComponent(Stats)
 
-        GUIHelp.init();
+        // init sky
+        let atmosphericSky: AtmosphericComponent
+        atmosphericSky = this.scene.addComponent(AtmosphericComponent)
 
-        this.scene = exampleScene.scene;
-        exampleScene.camera.enableCSM = true;
+        // init Camera3D
+        let camera = CameraUtil.createCamera3DObject(this.scene)
+        camera.perspective(60, Engine3D.aspect, 1, 5000)
+        camera.enableCSM = true;
 
-        Engine3D.startRenderView(exampleScene.view);
+        // init Camera Controller
+        let hoverCtrl = camera.object3D.addComponent(HoverCameraController)
+        hoverCtrl.setCamera(-30, -15, 16)
+
+        // init View3D
+        let view = new View3D()
+        view.scene = this.scene
+        view.camera = camera
+
+        // create direction light
+        let lightObj3D = new Object3D()
+        lightObj3D.x = 0
+        lightObj3D.y = 30
+        lightObj3D.z = -40
+        lightObj3D.rotationX = 20
+        lightObj3D.rotationY = 160
+        lightObj3D.rotationZ = 0
+
+        let light = lightObj3D.addComponent(DirectLight)
+        light.lightColor = KelvinUtil.color_temperature_to_rgb(5355)
+        light.castShadow = true
+        light.intensity = 30
+
+        this.scene.addChild(light.object3D)
+
+        // relative light to sky
+        atmosphericSky.relativeTransform = light.transform
+
+        Engine3D.startRenderView(view)
+
+        // init dat.gui
+        const gui = new dat.GUI();
+        this.Ori = gui.addFolder("Orillusion");
+        this.Ori.open();
 
         await this.initScene();
         this.initDuckPOI();
         this.initScenePOI();
     }
 
-    private modelContainer: Object3D;
-
+    
     async initScene() {
         // floor
         let floor: Object3D = Object3DUtil.GetSingleCube(16, 0.1, 16, 1, 1, 1);
         this.scene.addChild(floor);
-        await Engine3D.res.loadFont('fnt/0.fnt');
+        await Engine3D.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt');
 
         // load external model
-        let model = await Engine3D.res.loadGltf('PBR/Duck/Duck.gltf') as Object3D;
+        let model = await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/Duck/Duck.gltf') as Object3D;
         model.rotationY = 180;
         this.modelContainer = new Object3D();
         this.modelContainer.addChild(model);
@@ -48,7 +103,7 @@ class Sample_POI {
         model.scaleX = model.scaleY = model.scaleZ = 0.01;
         await this.initPropertyAnim(this.modelContainer);
 
-        let chair = await Engine3D.res.loadGltf('PBR/SheenChair/SheenChair.gltf') as Object3D;
+        let chair = await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/SheenChair/SheenChair.gltf') as Object3D;
         chair.scaleX = chair.scaleY = chair.scaleZ = 8;
         this.scene.addChild(chair);
     }
@@ -58,7 +113,7 @@ class Sample_POI {
         let animation = owner.addComponent(PropertyAnimation);
 
         //load a animation clip
-        let json: any = await Engine3D.res.loadJSON('json/anim_0.json');
+        let json: any = await Engine3D.res.loadJSON('https://cdn.orillusion.com/json/anim_0.json');
         let animClip = new PropertyAnimClip();
         animClip.parse(json);
         animClip.wrapMode = WrapMode.Loop;
@@ -97,7 +152,78 @@ class Sample_POI {
         text.fontSize = 4;
         text.color = new Color(0, 0, 0, 1);
         text.alignment = TextAnchor.MiddleCenter;
-        GUIUtil.renderUIPanel(this.panel, true);
+        // GUIUtil.renderUIPanel(this.panel, true);
+        let uifolder = this.Ori.addFolder("GUI Panel");
+        //cull mode
+        let cullMode = {};
+        cullMode[GPUCullMode.none] = GPUCullMode.none;
+        cullMode[GPUCullMode.front] = GPUCullMode.front;
+        cullMode[GPUCullMode.back] = GPUCullMode.back;
+
+        // change cull mode by click dropdown box
+        uifolder.add({ cullMode: GPUCullMode.none }, 'cullMode', cullMode).onChange((v) => {
+            this.panel.cullMode = v;
+        });
+
+        //billboard
+        let billboard = {};
+        billboard['None'] = BillboardType.None;
+        billboard['Y'] = BillboardType.BillboardY;
+        billboard['XYZ'] = BillboardType.BillboardXYZ;
+
+        // change billboard by click dropdown box
+        uifolder.add({ billboard: this.panel.billboard }, 'billboard', billboard).onChange((v) => {
+            this.panel.billboard = v;
+        });
+
+        let scissorData = {
+            scissorCornerRadius: this.panel.scissorCornerRadius,
+            scissorFadeOutSize: this.panel.scissorFadeOutSize,
+            panelWidth: 400,
+            panelHeight: 300,
+            backGroundVisible: this.panel.visible,
+            backGroundColor: this.panel.color,
+            scissorEnable: this.panel.scissorEnable
+
+        };
+        let changeSissor = () => {
+            this.panel.scissorCornerRadius = scissorData.scissorCornerRadius;
+            this.panel.scissorEnable = scissorData.scissorEnable;
+            this.panel.scissorFadeOutSize = scissorData.scissorFadeOutSize;
+            this.panel.color = scissorData.backGroundColor;
+            this.panel.visible = scissorData.backGroundVisible;
+            this.panel.uiTransform.resize(scissorData.panelWidth, scissorData.panelHeight);
+        }
+        uifolder.add(scissorData, 'scissorCornerRadius', 0, 100, 0.1).onChange(() => {
+            changeSissor();
+        });
+        uifolder.add(scissorData, 'scissorFadeOutSize', 0, 100, 0.1).onChange(() => {
+            changeSissor();
+        });
+        uifolder.add(scissorData, 'panelWidth', 1, 400, 1).onChange(() => {
+            changeSissor();
+        });
+        uifolder.add(scissorData, 'panelHeight', 1, 300, 1).onChange(() => {
+            changeSissor();
+        });
+        uifolder.add(scissorData, 'backGroundVisible').onChange(() => {
+            changeSissor();
+        });
+
+        uifolder.addColor(scissorData, 'backGroundColor').onChange(() => {
+            changeSissor();
+        });
+
+        uifolder.add(scissorData, 'scissorEnable').onChange(() => {
+            changeSissor();
+        });
+
+        //depth test
+        if (this.panel['isWorldPanel']) {
+            uifolder.add(this.panel, 'depthTest');
+        }
+
+        uifolder.open();
     }
 
     private sceneText: UITextField;
