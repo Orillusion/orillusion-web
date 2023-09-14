@@ -9,8 +9,9 @@
     WorldPanel,
     DirectLight, KelvinUtil, View3D, Scene3D, AtmosphericComponent, CameraUtil, HoverCameraController
 } from "@orillusion/core";
-import { Stats } from "@orillusion/stats";
+import {Stats} from "@orillusion/stats";
 import dat from "dat.gui";
+
 class Sample_UIImageColor {
     scene: Scene3D;
     camera: Camera3D;
@@ -26,7 +27,11 @@ class Sample_UIImageColor {
         this.Ori = gui.addFolder("Orillusion");
         this.Ori.open();
 
-        await Engine3D.init({ renderLoop: () => { this.renderUpdate(); } });
+        await Engine3D.init({
+            renderLoop: () => {
+                this.renderUpdate();
+            }
+        });
 
         // init Scene3D
         this.scene = new Scene3D()

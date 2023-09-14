@@ -9,8 +9,9 @@
     UIShadow,
     Scene3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight, KelvinUtil, Color
 } from "@orillusion/core";
-import { Stats } from "@orillusion/stats";
+import {Stats} from "@orillusion/stats";
 import dat from "dat.gui";
+
 class Sample_UIImageShadow {
     private img: UIImage;
     scene: Scene3D;
@@ -99,7 +100,7 @@ class Sample_UIImageShadow {
         shadow.shadowOffset = shadow.shadowOffset.set(6, -6);
         // GUIUtil.renderUIShadow(shadow, true);
         let shadowfolder = this.Ori.addFolder("Image Shadow");
-        
+
         shadowfolder.add(shadow, 'shadowQuality', 0, 4, 1);
 
         shadowfolder.add(shadow, 'shadowRadius', 0.00, 10, 0.01);

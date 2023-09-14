@@ -8,7 +8,6 @@
     Vector3,
     WorldPanel,
     Time,
-    zSorterUtil,
     BillboardType,
     Color,
     UIImage,
@@ -22,7 +21,7 @@
     CEventDispatcher,
     AtmosphericComponent, CameraUtil, HoverCameraController, DirectLight, KelvinUtil
 } from "@orillusion/core";
-import { Stats } from "@orillusion/stats";
+import {Stats} from "@orillusion/stats";
 import dat from "dat.gui";
 
 class GUIPanelPOI {
@@ -159,6 +158,7 @@ class GUIPanelPOI {
         return image;
     }
 }
+
 class GUIPanelBinder {
     objUI: Object3D;
     panel: GUIPanelPOI;
@@ -180,6 +180,7 @@ class GUIPanelBinder {
 
 let sampleUIPanelClick: CEvent = new CEvent('ClickUIPanel');
 let sampleUIPanelDispatcher: CEventDispatcher = new CEventDispatcher();
+
 export class Sample_UIMultiPanel {
     camera: Camera3D;
     scene: Scene3D;
@@ -197,7 +198,11 @@ export class Sample_UIMultiPanel {
         this.Ori.open();
 
 
-        await Engine3D.init({ renderLoop: () => { this.renderUpdate(); } });
+        await Engine3D.init({
+            renderLoop: () => {
+                this.renderUpdate();
+            }
+        });
 
         // init Scene3D
         this.scene = new Scene3D()
@@ -220,7 +225,7 @@ export class Sample_UIMultiPanel {
         let view = new View3D()
         view.scene = this.scene
         view.camera = camera
-        this.view = view; 
+        this.view = view;
 
         // create direction light
         let lightObj3D = new Object3D()
@@ -299,6 +304,7 @@ export class Sample_UIMultiPanel {
             this,
         );
     }
+
     private speedAngle: number = 1;
     private isSpeedAdd: number = 1;
 

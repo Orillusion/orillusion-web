@@ -13,9 +13,11 @@
     UIShadow,
     AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight, KelvinUtil
 } from "@orillusion/core";
-import { Stats } from "@orillusion/stats";
+import {Stats} from "@orillusion/stats";
+
 class Sample_UIMultiCanvas {
     scene: Scene3D;
+
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
 

@@ -1,7 +1,21 @@
-﻿import { BoundingBox, Color, Engine3D, GUIConfig, Object3D, Scene3D, UIImage, TextAnchor, UITextField, Vector2, Vector3, ViewPanel, clamp } from "@orillusion/core";
-import { GUIHelp } from "@orillusion/debug/GUIHelp";
-import { createExampleScene } from "@samples/utils/ExampleScene";
-import { Stats } from "@orillusion/stats";
+﻿import {
+    BoundingBox,
+    Color,
+    Engine3D,
+    GUIConfig,
+    Object3D,
+    Scene3D,
+    UIImage,
+    TextAnchor,
+    UITextField,
+    Vector2,
+    Vector3,
+    ViewPanel,
+    clamp,
+    KelvinUtil, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight
+} from "@orillusion/core";
+import {Stats} from "@orillusion/stats";
+import dat from "dat.gui";
 
 class SpriteSheet {
     public static toggleMove: boolean = false;
@@ -15,6 +29,7 @@ class SpriteSheet {
     private keyFrames: string[];
     private moveSpeed: Vector2;
     private bound: BoundingBox;
+
     constructor(img: UIImage, keyFrames: string[], bound: BoundingBox) {
         this.img = img;
         this.bound = bound;
@@ -50,17 +65,23 @@ class SpriteSheet {
     }
 }
 
-export class Sample_UISpriteSheet {
+class Sample_UISpriteSheet {
+    spriteSheets: SpriteSheet[];
     text: UITextField;
     scene: Scene3D;
     keyFrames: string[];
+    Ori: dat.GUI;
 
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
 
         GUIConfig.quadMaxCountForView = 5001;
 
-        GUIHelp.init();
+        // init dat.gui
+        const gui = new dat.GUI();
+        this.Ori = gui.addFolder("Orillusion");
+        this.Ori.open();
+
         this.spriteSheets = [];
         this.keyFrames = [];
         let frameStart = 65;//65~77
@@ -69,29 +90,71 @@ export class Sample_UISpriteSheet {
             this.keyFrames.push((frameStart + i).toString().padStart(5, '0'));
         }
 
-        await Engine3D.init({ renderLoop: () => { this.renderUpdate(); } });
-        let exampleScene = createExampleScene();
-        this.scene = exampleScene.scene;
-        this.scene.addComponent(Stats);
-        Engine3D.startRenderView(exampleScene.view);
-        await Engine3D.res.loadAtlas('atlas/Sheet_atlas.json');
-        await Engine3D.res.loadFont('fnt/0.fnt');
+        await Engine3D.init({
+            renderLoop: () => {
+                this.renderUpdate();
+            }
+        });
+        // init Scene3D
+        this.scene = new Scene3D()
+        this.scene.exposure = 1
+        this.scene.addComponent(Stats)
+
+        // init sky
+        let atmosphericSky: AtmosphericComponent
+        atmosphericSky = this.scene.addComponent(AtmosphericComponent)
+
+        // init Camera3D
+        let camera = CameraUtil.createCamera3DObject(this.scene)
+        camera.perspective(60, Engine3D.aspect, 1, 5000)
+
+        // init Camera Controller
+        let hoverCtrl = camera.object3D.addComponent(HoverCameraController)
+        hoverCtrl.setCamera(-30, -15, 100)
+
+        // init View3D
+        let view = new View3D()
+        view.scene = this.scene
+        view.camera = camera
+
+        // create direction light
+        let lightObj3D = new Object3D()
+        lightObj3D.x = 0
+        lightObj3D.y = 30
+        lightObj3D.z = -40
+        lightObj3D.rotationX = 20
+        lightObj3D.rotationY = 160
+        lightObj3D.rotationZ = 0
+
+        let light = lightObj3D.addComponent(DirectLight)
+        light.lightColor = KelvinUtil.color_temperature_to_rgb(5355)
+        light.castShadow = true
+        light.intensity = 30
+
+        this.scene.addChild(light.object3D)
+
+        // relative light to sky
+        atmosphericSky.relativeTransform = light.transform
+
+        Engine3D.startRenderView(view)
+
+        await Engine3D.res.loadAtlas('https://cdn.orillusion.com/atlas/Sheet_atlas.json');
+        await Engine3D.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt');
 
         this.text = this.createText();
 
 
-        GUIHelp.add(SpriteSheet, 'toggleMove');
-        GUIHelp.add(SpriteSheet, 'toggleAnim');
+        this.Ori.add(SpriteSheet, 'toggleMove');
+        this.Ori.add(SpriteSheet, 'toggleAnim');
 
-        GUIHelp.addButton('Add Sprites', () => {
-            if (this.spriteSheets.length < 99999) {
-                this.addLotOfSprite();
+        let button = {
+            'add': () => {
+                if (this.spriteSheets.length < 99999) {
+                    this.addLotOfSprite();
+                }
             }
-        });
-
-        GUIHelp.open();
-        GUIHelp.endFolder();
-
+        }
+        this.Ori.add(button, 'add')
         this.addLotOfSprite();
     }
 
@@ -127,7 +190,6 @@ export class Sample_UISpriteSheet {
 
     }
 
-    spriteSheets: SpriteSheet[];
 
     private createSpriteSheets(root: Object3D) {
         let width = Engine3D.width;
@@ -165,3 +227,5 @@ export class Sample_UISpriteSheet {
     }
 
 }
+
+new Sample_UISpriteSheet().run();

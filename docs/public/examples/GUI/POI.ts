@@ -17,8 +17,9 @@ import {
     Time,
     HoverCameraController, AtmosphericComponent, CameraUtil, View3D, DirectLight, KelvinUtil, GPUCullMode
 } from "@orillusion/core";
-import { Stats } from "@orillusion/stats";
+import {Stats} from "@orillusion/stats";
 import dat from "dat.gui";
+
 class Sample_POI {
     scene: Scene3D;
     panel: WorldPanel;
@@ -32,7 +33,11 @@ class Sample_POI {
         Engine3D.setting.shadow.shadowBound = 20;
         Engine3D.setting.shadow.csmScatteringExp = 1;
 
-        await Engine3D.init({ renderLoop: () => { this.loop(); } });
+        await Engine3D.init({
+            renderLoop: () => {
+                this.loop();
+            }
+        });
         // init Scene3D
         this.scene = new Scene3D()
         this.scene.exposure = 1
@@ -87,7 +92,7 @@ class Sample_POI {
         this.initScenePOI();
     }
 
-    
+
     async initScene() {
         // floor
         let floor: Object3D = Object3DUtil.GetSingleCube(16, 0.1, 16, 1, 1, 1);
@@ -161,7 +166,7 @@ class Sample_POI {
         cullMode[GPUCullMode.back] = GPUCullMode.back;
 
         // change cull mode by click dropdown box
-        uifolder.add({ cullMode: GPUCullMode.none }, 'cullMode', cullMode).onChange((v) => {
+        uifolder.add({cullMode: GPUCullMode.none}, 'cullMode', cullMode).onChange((v) => {
             this.panel.cullMode = v;
         });
 
@@ -172,7 +177,7 @@ class Sample_POI {
         billboard['XYZ'] = BillboardType.BillboardXYZ;
 
         // change billboard by click dropdown box
-        uifolder.add({ billboard: this.panel.billboard }, 'billboard', billboard).onChange((v) => {
+        uifolder.add({billboard: this.panel.billboard}, 'billboard', billboard).onChange((v) => {
             this.panel.billboard = v;
         });
 
@@ -227,6 +232,7 @@ class Sample_POI {
     }
 
     private sceneText: UITextField;
+
     private initScenePOI() {
         let canvas = this.scene.view.enableUICanvas();
         //panel
@@ -257,6 +263,7 @@ class Sample_POI {
     private charCount = 0;
     private title: string = 'Hello, Orillusion';
     private lastTitle = this.title;
+
     private loop(): void {
         if (this.panel) {
             this.position ||= new Vector3();

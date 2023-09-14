@@ -1,30 +1,89 @@
-﻿import { GUIHelp } from "@orillusion/debug/GUIHelp";
-import { createExampleScene } from "@samples/utils/ExampleScene";
-import { Object3D, Engine3D, GUISpace, WorldPanel, ViewPanel, UITextField, TextAnchor, Object3DUtil, UIPanel, UIImage, UIShadow, BillboardType, GPUCullMode } from "@orillusion/core";
-import { GUIUtil } from "@samples/utils/GUIUtil";
+﻿import {
+    Object3D,
+    Engine3D,
+    GUISpace,
+    WorldPanel,
+    ViewPanel,
+    UITextField,
+    TextAnchor,
+    Object3DUtil,
+    UIPanel,
+    UIImage,
+    UIShadow,
+    BillboardType,
+    Scene3D, Color, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight, KelvinUtil
+} from "@orillusion/core";
+import {Stats} from "@orillusion/stats";
+import dat from "dat.gui";
 
-export class Sample_UITextField {
+class Sample_UITextField {
+    private text: UITextField;
+    scene: Scene3D
+    Ori: dat.GUI
 
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
 
-        GUIHelp.init();
+        // init dat.gui
+        const gui = new dat.GUI();
+        this.Ori = gui.addFolder("Orillusion");
+        this.Ori.open();
 
         await Engine3D.init();
-        let exampleScene = createExampleScene();
-        Engine3D.startRenderView(exampleScene.view);
+        // init Scene3D
+        this.scene = new Scene3D()
+        this.scene.exposure = 1
+        this.scene.addComponent(Stats)
+
+        // init sky
+        let atmosphericSky: AtmosphericComponent
+        atmosphericSky = this.scene.addComponent(AtmosphericComponent)
+
+        // init Camera3D
+        let camera = CameraUtil.createCamera3DObject(this.scene)
+        camera.perspective(60, Engine3D.aspect, 1, 5000)
+
+        // init Camera Controller
+        let hoverCtrl = camera.object3D.addComponent(HoverCameraController)
+        hoverCtrl.setCamera(-30, -15, 100)
+
+        // init View3D
+        let view = new View3D()
+        view.scene = this.scene
+        view.camera = camera
+
+        // create direction light
+        let lightObj3D = new Object3D()
+        lightObj3D.x = 0
+        lightObj3D.y = 30
+        lightObj3D.z = -40
+        lightObj3D.rotationX = 20
+        lightObj3D.rotationY = 160
+        lightObj3D.rotationZ = 0
+
+        let light = lightObj3D.addComponent(DirectLight)
+        light.lightColor = KelvinUtil.color_temperature_to_rgb(5355)
+        light.castShadow = true
+        light.intensity = 30
+
+        this.scene.addChild(light.object3D)
+
+        // relative light to sky
+        atmosphericSky.relativeTransform = light.transform
+
+        Engine3D.startRenderView(view)
 
         // create floor
         let floor = Object3DUtil.GetSingleCube(100, 20, 50, 0.5, 0.5, 0.5);
-        exampleScene.scene.addChild(floor);
+        this.scene.addChild(floor);
 
         // enable ui canvas at index 0
-        let canvas = exampleScene.view.enableUICanvas();
+        let canvas = view.enableUICanvas();
 
         //create UI root
         let panelRoot: Object3D = new Object3D();
 
-        await Engine3D.res.loadFont('fnt/0.fnt');
+        await Engine3D.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt');
 
         let space: GUISpace = GUISpace.World; // View
         let panel: UIPanel;
@@ -52,23 +111,38 @@ export class Sample_UITextField {
             this.text.text = 'Hello，Orillusion！';
             this.text.fontSize = 32;
             this.text.alignment = TextAnchor.MiddleCenter;
-            let size = { width: this.text.uiTransform.width, height: this.text.uiTransform.height };
+            let size = {width: this.text.uiTransform.width, height: this.text.uiTransform.height};
             let changeSize = () => {
                 this.text.uiTransform.resize(size.width, size.height);
             }
             let shadow = textQuad.addComponent(UIShadow);
-            GUIUtil.renderUIShadow(shadow, true);
-            GUIHelp.add(size, 'width', 100, 200, 1).onChange(() => {
+            // GUIUtil.renderUIShadow(shadow, true);
+            let shadowfolder = this.Ori.addFolder("Image Shadow");
+            shadowfolder.add(shadow, 'shadowQuality', 0, 4, 1);
+
+            shadowfolder.add(shadow, 'shadowRadius', 0.00, 10, 0.01);
+            //shadow color
+            shadow.shadowColor = new Color(0.1, 0.1, 0.1, 0.6);
+            shadowfolder.addColor(shadow, 'shadowColor');
+
+            let changeOffset = () => {
+                shadow.shadowOffset = shadow.shadowOffset;
+            }
+            shadowfolder.add(shadow.shadowOffset, 'x', -100, 100, 0.01).onChange(v => changeOffset());
+            shadowfolder.add(shadow.shadowOffset, 'y', -100, 100, 0.01).onChange(v => changeOffset());
+            let button = {
+                "del": () => {
+                    shadow.object3D.removeComponent(UIShadow);
+                }
+            }
+            shadowfolder.add(button, 'del');
+            shadowfolder.open();
+
+            shadowfolder.add(size, 'width', 100, 200, 1).onChange(() => {
                 changeSize();
             });
-            GUIHelp.open();
-            GUIHelp.endFolder();
-
         }
-
-
     }
-
-    private text: UITextField;
-
 }
+
+new Sample_UITextField().run();
