@@ -233,7 +233,8 @@ function sidebarGuide(): SidebarItem {
                 { text: 'Intro', link: '/guide/media/Readme.md' },
                 { text: 'Image', link: '/guide/media/image.md' },
                 { text: 'Video', link: '/guide/media/video.md' },
-                { text: 'ChromaKey', link: '/guide/media/chromakey.md' }
+                { text: 'ChromaKey', link: '/guide/media/chromakey.md' },
+                { text: 'Audio', link: '/guide/media/audio.md' }
             ]
         },
         {

@@ -19,25 +19,22 @@
     </head>
     <body class="loading">
         <script type="importmap">
-        {
-            "imports": {
-                "@orillusion/core": "https://unpkg.com/@orillusion/core@0.6.9/dist/orillusion.es.js",
-                "@orillusion/physics": "https://unpkg.com/@orillusion/physics@0.2.0/dist/physics.es.js",
-                "@orillusion/particle": "https://unpkg.com/@orillusion/particle@0.0.2/dist/particle.es.js",
-                "@orillusion/stats": "https://unpkg.com/@orillusion/stats@0.2.0/dist/stats.es.js",
-                "@orillusion/media-extention": "https://unpkg.com/@orillusion/media-extention@0.2.3/dist/media.es.js",
-                "@orillusion/effect": "https://unpkg.com/@orillusion/effect@0.1.0/dist/effect.es.js",
-                "dat.gui": "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js"
+            {
+                "imports": {
+                    "@orillusion/core": "https://unpkg.com/@orillusion/core@0.6.9/dist/orillusion.es.js",
+                    "@orillusion/physics": "https://unpkg.com/@orillusion/physics@0.2.0/dist/physics.es.js",
+                    "@orillusion/particle": "https://unpkg.com/@orillusion/particle@0.0.3/dist/particle.es.js",
+                    "@orillusion/stats": "https://unpkg.com/@orillusion/stats@0.2.0/dist/stats.es.js",
+                    "@orillusion/media-extention": "https://unpkg.com/@orillusion/media-extention@0.3.1/dist/media.es.js",
+                    "@orillusion/effect": "https://unpkg.com/@orillusion/effect@0.1.0/dist/effect.es.js",
+                    "dat.gui": "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js"
+                }
             }
-        }
         </script>
         <script type="module">
             window.devicePixelRatio = Math.min(2, window.devicePixelRatio)
             if (!/localhost/.test(location.hostname)) {
-                Promise.all([
-                    fetch(location.search.slice(1)).then(r=>r.text()),
-                    fetch(location.search.slice(1).replace('.ts', '.js')).then(r=>r.text())
-                ]).then(res=>createScript(res[1], res[0]))
+                Promise.all([fetch(location.search.slice(1)).then((r) => r.text()), fetch(location.search.slice(1).replace('.ts', '.js')).then((r) => r.text())]).then((res) => createScript(res[1], res[0]))
             } else {
                 Promise.all([
                     fetch(location.search.slice(1)).then((r) => r.text()),
@@ -49,7 +46,7 @@
                         check()
                     })
                 ]).then(async (res) => {
-                    const js = await res[1].transform(res[0], { loader: 'ts'})
+                    const js = await res[1].transform(res[0], { loader: 'ts' })
                     createScript(js.code, res[0])
                 })
             }
@@ -82,13 +79,14 @@
                 })
                 intersectionObserver.observe(document.body)
                 // open new tab to codepen
-                window.codepen = ()=> JSON.stringify({
-                    editors: "001",
-                    title: window.parent.document.title,
-                    html: document.querySelector('script[type="importmap"]').outerHTML,
-                    js: ts,
-                    js_pre_processor: 'typescript'
-                })
+                window.codepen = () =>
+                    JSON.stringify({
+                        editors: '001',
+                        title: window.parent.document.title,
+                        html: document.querySelector('script[type="importmap"]').outerHTML,
+                        js: ts,
+                        js_pre_processor: 'typescript'
+                    })
             }
         </script>
     </body>

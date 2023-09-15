@@ -1,6 +1,6 @@
 # Media Extension
 
-`Orillusion` provides the [@orillusion/media-extention](/media-extention/) extension package to support multimedia, enabling easy loading and display of images and videos, as well as providing corresponding processing capabilities. Please note that it needs to be installed separately, and the usage method after installation is similar to that of ordinary textures and materials.
+`Orillusion` provides the [@orillusion/media-extention](/media-extention/) extension package to support multimedia, enabling easy loading and display of images, videos and audios, as well as providing corresponding processing capabilities. Please note that it needs to be installed separately, and the usage method after installation is similar to that of ordinary textures, materials and components.
 
 ## Installation
 Same as the engine installation, we can import physic plugins through two methods: `NPM` and `CDN` linking:
@@ -41,3 +41,13 @@ Currently, [media-extention](/media-extention/) supports the following types of 
 | [ImageMaterial](/media-extention/classes/ImageMaterial.md) | Base material that does not calculate lighting and only renders through Image pixel colors |
 | [VideoMaterial](/media-extention/classes/VideoMaterial.md) | Base material that does not calculate lighting and only renders through the color of Video pixels |
 | [ChromaKeyMaterial](/media-extention/classes/ChromaKeyMaterial.md) | Does not calculate lighting, only renders the base material through Video pixel colors, and filters the background color |
+
+## Audio Components
+
+[media-extention](/media-extention/) also supports the following common audio components:
+
+| Component | Description |
+| --- | --- |
+| [AudioListener](/media-extention/classes/AudioListener.md) | Virtual audio listener,  used in conjunction PositionAudio or StaticAudio|
+| [StaticAudio](/media-extention/classes/StaticAudio.md) | non-positional audio，volume level does not vary depending on the position of the monitor |
+| [PositionAudio](/media-extention/classes/PositionAudio.md) | position based audio，volume varying based on the relative position of the monitor |
