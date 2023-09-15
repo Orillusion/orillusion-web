@@ -353,7 +353,8 @@ function sidebarGuide(): SidebarItem {
                 { text: '安装', link: '/guide/media/Readme.md' },
                 { text: '图片', link: '/guide/media/image.md' },
                 { text: '视频', link: '/guide/media/video.md' },
-                { text: '视频(背景过滤)', link: '/guide/media/chromakey.md' }
+                { text: '视频(背景过滤)', link: '/guide/media/chromakey.md' },
+                { text: '音频', link: '/guide/media/audio.md' },
             ]
         },
         {
