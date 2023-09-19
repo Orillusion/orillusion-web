@@ -11,17 +11,16 @@ class Sample_UIPanelScissor {
 
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
-
-        // init dat.gui
-        const gui = new dat.GUI();
-        this.Ori = gui.addFolder("Orillusion");
-        this.Ori.open();
-
         await Engine3D.init({
             renderLoop: () => {
                 this.loop();
             }
         });
+
+        // init dat.gui
+        const gui = new dat.GUI();
+        this.Ori = gui.addFolder("Orillusion");
+        this.Ori.open();
 
         // init Scene3D
         this.scene = new Scene3D()

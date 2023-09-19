@@ -66,6 +66,12 @@ class Sample_UIPerformance2 {
 
         GUIConfig.quadMaxCountForView = 5001;
 
+        await Engine3D.init({
+            renderLoop: () => {
+                this.renderUpdate();
+            }
+        });
+
         // init dat.gui
         const gui = new dat.GUI();
         this.Ori = gui.addFolder("Orillusion");
@@ -79,11 +85,6 @@ class Sample_UIPerformance2 {
             this.keyFrames.push((frameStart + i).toString().padStart(5, '0'));
         }
 
-        await Engine3D.init({
-            renderLoop: () => {
-                this.renderUpdate();
-            }
-        });
         // init Scene3D
         this.scene = new Scene3D()
         this.scene.exposure = 1

@@ -66,6 +66,7 @@ class Sample_POI {
 
         // init dat.gui
         const gui = new dat.GUI();
+        gui.domElement.style.zIndex = '10';
         this.Ori = gui.addFolder("Orillusion");
         this.Ori.open();
 

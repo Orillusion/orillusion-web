@@ -9,6 +9,11 @@ class Sample_UIChangeParent {
 
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
+        await Engine3D.init({
+            renderLoop: () => {
+                this.loop();
+            }
+        });
 
         // init dat.gui
         const gui = new dat.GUI();
@@ -17,11 +22,6 @@ class Sample_UIChangeParent {
         this.Ori.domElement.parentElement.style.zIndex = 1;
         this.Ori.open();
 
-        await Engine3D.init({
-            renderLoop: () => {
-                this.loop();
-            }
-        });
         // init Scene3D
         this.scene = new Scene3D()
         this.scene.exposure = 1

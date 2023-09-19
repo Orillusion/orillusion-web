@@ -8,13 +8,13 @@ class Sample_UISingleImage {
 
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
+        await Engine3D.init();
 
         // init dat.gui
         const gui = new dat.GUI();
         this.Ori = gui.addFolder("Orillusion");
         this.Ori.open();
 
-        await Engine3D.init();
         // init Scene3D
         this.scene = new Scene3D()
         this.scene.exposure = 1
