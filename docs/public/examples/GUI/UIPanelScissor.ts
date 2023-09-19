@@ -109,7 +109,7 @@ class Sample_UIPanelScissor {
         {
             // make video
             let videoTexture = new VideoTexture();
-            await videoTexture.load('https://cdn.orillusion.com/video/dt.mp4');
+            await videoTexture.load('https://cdn.orillusion.com/videos/bunny.mp4');
             image.sprite = makeAloneSprite('dt.mp4', videoTexture);
             image.uiTransform.resize(350, 250);
         }

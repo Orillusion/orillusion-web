@@ -67,7 +67,7 @@ class Sample_UIVideo {
         let canvas = view.enableUICanvas();
 
         let videoTexture = new VideoTexture();
-        await videoTexture.load('https://cdn.orillusion.com/video/dt.mp4');
+        await videoTexture.load('https://cdn.orillusion.com/videos/bunny.mp4');
 
         //create UI root
         let panelRoot: Object3D = new Object3D();
