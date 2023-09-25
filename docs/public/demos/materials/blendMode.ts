@@ -12,7 +12,6 @@ export class Sample_BlendMode {
         await Engine3D.init({ canvasConfig: { alpha: false, zIndex: 0 } })
 
         Engine3D.setting.shadow.shadowBound = 5
-        Engine3D.setting.shadow.shadowBias = -0.0012
 
         this.scene = new Scene3D()
         // add an Atmospheric sky enviroment
@@ -35,8 +34,8 @@ export class Sample_BlendMode {
         let bloom = postProcessing.addPost(HDRBloomPost)
         bloom.blurX = 4
         bloom.blurY = 4
-        bloom.strength = 5
-        bloom.luminosityThreshold = 0.629
+        bloom.strength = 4
+        bloom.luminosityThreshold = 1
 
         await this.initScene()
     }

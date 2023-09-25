@@ -12,6 +12,7 @@ Bloom
 | `blurX` | `number` | Screen horizontal blur radius |
 | `blurY` | `number` | Screen vertical blur radius |
 | `strength` | `number` | Strength setting |
+| `exposure?` | `number` | exposure setting |
 | `radius` | `number` | Radius setting |
 | `luminosityThreshold` | `number` | Luminosity threshold |
 | `debug` | `boolean` | use debug or not |

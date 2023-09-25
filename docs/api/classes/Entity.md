@@ -26,8 +26,7 @@ Entity class is an abstract class and cannot be instantiated. If you want to ins
 
 ### Accessors
 
-- [uuid](Entity.md#uuid)
-- [renderLayer](Entity.md#renderlayer)
+- [instanceID](Entity.md#instanceid)
 - [numChildren](Entity.md#numchildren)
 - [bound](Entity.md#bound)
 
@@ -43,7 +42,6 @@ Entity class is an abstract class and cannot be instantiated. If you want to ins
 - [removeFromParent](Entity.md#removefromparent)
 - [getChildByIndex](Entity.md#getchildbyindex)
 - [getChildByName](Entity.md#getchildbyname)
-- [updateBound](Entity.md#updatebound)
 - [destroy](Entity.md#destroy)
 - [dispatchEvent](Entity.md#dispatchevent)
 - [addEventListener](Entity.md#addeventlistener)
@@ -65,7 +63,7 @@ Entity class is an abstract class and cannot be instantiated. If you want to ins
 
 #### Defined in
 
-[src/core/entities/Entity.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L118)
+[src/core/entities/Entity.ts:104](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L104)
 
 ## Properties
 
@@ -77,7 +75,7 @@ The name of the object. The default value is an empty string.
 
 #### Defined in
 
-[src/core/entities/Entity.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L25)
+[src/core/entities/Entity.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L24)
 
 ___
 
@@ -89,7 +87,7 @@ The Transform attached to this object.
 
 #### Defined in
 
-[src/core/entities/Entity.ts:60](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L60)
+[src/core/entities/Entity.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L42)
 
 ___
 
@@ -101,7 +99,7 @@ Renderer components
 
 #### Defined in
 
-[src/core/entities/Entity.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L65)
+[src/core/entities/Entity.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L47)
 
 ___
 
@@ -113,7 +111,7 @@ An array containing sub objects of an object
 
 #### Defined in
 
-[src/core/entities/Entity.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L70)
+[src/core/entities/Entity.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L52)
 
 ___
 
@@ -125,13 +123,13 @@ List of components attached to an object
 
 #### Defined in
 
-[src/core/entities/Entity.ts:75](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L75)
+[src/core/entities/Entity.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L57)
 
 ## Accessors
 
-### uuid
+### instanceID
 
-• `get` **uuid**(): `string`
+• `get` **instanceID**(): `string`
 
 The unique identifier of the object.
 
@@ -142,36 +140,6 @@ The unique identifier of the object.
 #### Defined in
 
 [src/core/entities/Entity.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L32)
-
-___
-
-### renderLayer
-
-• `get` **renderLayer**(): `RenderLayer`
-
-#### Returns
-
-`RenderLayer`
-
-#### Defined in
-
-[src/core/entities/Entity.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L44)
-
-• `set` **renderLayer**(`value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `RenderLayer` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/core/entities/Entity.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L48)
 
 ___
 
@@ -187,7 +155,7 @@ Returns the number of child objects of an object
 
 #### Defined in
 
-[src/core/entities/Entity.ts:130](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L130)
+[src/core/entities/Entity.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L116)
 
 ___
 
@@ -201,7 +169,7 @@ ___
 
 #### Defined in
 
-[src/core/entities/Entity.ts:318](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L318)
+[src/core/entities/Entity.ts:275](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L275)
 
 • `set` **bound**(`value`): `void`
 
@@ -217,7 +185,7 @@ ___
 
 #### Defined in
 
-[src/core/entities/Entity.ts:325](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L325)
+[src/core/entities/Entity.ts:280](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L280)
 
 ## Methods
 
@@ -242,7 +210,7 @@ result Entity
 
 #### Defined in
 
-[src/core/entities/Entity.ts:95](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L95)
+[src/core/entities/Entity.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L81)
 
 ___
 
@@ -265,7 +233,7 @@ Any current parent object on the object passed here will be deleted, as an objec
 
 #### Defined in
 
-[src/core/entities/Entity.ts:141](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L141)
+[src/core/entities/Entity.ts:127](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L127)
 
 ___
 
@@ -287,7 +255,7 @@ Remove the child objects of the object. You can remove any number of objects.
 
 #### Defined in
 
-[src/core/entities/Entity.ts:167](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L167)
+[src/core/entities/Entity.ts:151](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L151)
 
 ___
 
@@ -303,7 +271,7 @@ Remove all children of the current object
 
 #### Defined in
 
-[src/core/entities/Entity.ts:181](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L181)
+[src/core/entities/Entity.ts:166](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L166)
 
 ___
 
@@ -321,7 +289,7 @@ this
 
 #### Defined in
 
-[src/core/entities/Entity.ts:192](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L192)
+[src/core/entities/Entity.ts:177](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L177)
 
 ___
 
@@ -343,7 +311,7 @@ Search for child nodes of objects and remove child objects with matching indexes
 
 #### Defined in
 
-[src/core/entities/Entity.ts:202](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L202)
+[src/core/entities/Entity.ts:187](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L187)
 
 ___
 
@@ -367,7 +335,7 @@ boolean
 
 #### Defined in
 
-[src/core/entities/Entity.ts:216](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L216)
+[src/core/entities/Entity.ts:201](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L201)
 
 ___
 
@@ -385,7 +353,7 @@ this
 
 #### Defined in
 
-[src/core/entities/Entity.ts:226](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L226)
+[src/core/entities/Entity.ts:211](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L211)
 
 ___
 
@@ -409,7 +377,7 @@ child entity
 
 #### Defined in
 
-[src/core/entities/Entity.ts:240](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L240)
+[src/core/entities/Entity.ts:225](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L225)
 
 ___
 
@@ -434,21 +402,7 @@ result
 
 #### Defined in
 
-[src/core/entities/Entity.ts:255](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L255)
-
-___
-
-### updateBound
-
-▸ **updateBound**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/core/entities/Entity.ts:331](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L331)
+[src/core/entities/Entity.ts:240](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L240)
 
 ___
 
@@ -468,9 +422,13 @@ release current object
 
 `void`
 
+#### Overrides
+
+[CEventDispatcher](CEventDispatcher.md).[destroy](CEventDispatcher.md#destroy)
+
 #### Defined in
 
-[src/core/entities/Entity.ts:343](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L343)
+[src/core/entities/Entity.ts:332](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L332)
 
 ___
 

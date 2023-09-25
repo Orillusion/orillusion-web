@@ -21,13 +21,13 @@
         <script type="importmap">
             {
                 "imports": {
-                    "@orillusion/core": "https://npm.elemecdn.com/@orillusion/core@0.6.5/dist/orillusion.es.js",
-                    "@orillusion/physics": "https://npm.elemecdn.com/@orillusion/physics@0.2/dist/physics.es.js",
-                    "@orillusion/particle": "https://npm.elemecdn.com/@orillusion/particle@0.0.1/dist/particle.es.js",
-                    "@orillusion/stats": "https://npm.elemecdn.com/@orillusion/stats@0.2/dist/stats.es.js",
-                    "@orillusion/media-extention": "https://npm.elemecdn.com/@orillusion/media-extention@0.2/dist/media.es.js",
-                    "@orillusion/particle": "https://npm.elemecdn.com/@orillusion/particle@0.0.1/dist/particle.es.js",
-                    "dat.gui": "https://npm.elemecdn.com/dat.gui@0.7.9/build/dat.gui.module.js"
+                    "@orillusion/core": "https://unpkg.com/@orillusion/core@0.6.9/dist/orillusion.es.js",
+                    "@orillusion/physics": "https://unpkg.com/@orillusion/physics@0.2.0/dist/physics.es.js",
+                    "@orillusion/particle": "https://unpkg.com/@orillusion/particle@0.0.3/dist/particle.es.js",
+                    "@orillusion/stats": "https://unpkg.com/@orillusion/stats@0.2.0/dist/stats.es.js",
+                    "@orillusion/media-extention": "https://unpkg.com/@orillusion/media-extention@0.3.1/dist/media.es.js",
+                    "@orillusion/effect": "https://unpkg.com/@orillusion/effect@0.1.0/dist/effect.es.js",
+                    "dat.gui": "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js"
                 }
             }
         </script>
@@ -53,17 +53,16 @@
             function createScript(js, ts) {
                 const script = document.createElement('script')
                 script.innerHTML = js.replace(
-                    'Engine3D.startRenderView(view);',
-                    `Engine3D.startRenderView(view);
-                window.postMessage("rendering");
-                document.body.classList.remove('loading')
-                window.onmessage = e=>{
-                    if(e.data === 'pause')
-                        Engine3D.pause()
-                    else if(e.data === 'resume')
-                        Engine3D.resume()
-                }
-                `
+                    /Engine3D\.startRenderView\((\S+)\)/,
+                    `Engine3D.startRenderView($1);
+                    window.postMessage("rendering");
+                    document.body.classList.remove('loading')
+                    window.onmessage = e=>{
+                        if(e.data === 'pause')
+                            Engine3D.pause()
+                        else if(e.data === 'resume')
+                            Engine3D.resume()
+                    }`
                 )
                 script.type = 'module'
                 const intersectionObserver = new IntersectionObserver(function (entries) {

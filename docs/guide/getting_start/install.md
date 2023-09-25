@@ -25,10 +25,10 @@ import * as Orillusion from '@orillusion/core'
 
 ### 1. 全局构建版本
 ```html
-<!- 最新发布版本 ->
-<script src="https://cdn.orillusion.com/orillusion.umd.js"></script>
-<!- 或通过 unpkg 加载指定版本 ->
-<script src="https://unpkg.com/@orillusion/core@0.6.0/dist/orillusion.umd.js"></script>
+<!- 通过 unpkg 加载最新发布版本 ->
+<script src="https://unpkg.com/@orillusion/core/dist/orillusion.umd.js"></script>
+<!- 或加载指定版本 ->
+<script src="https://unpkg.com/@orillusion/core@0.6.x/dist/orillusion.umd.js"></script>
 ```
 页面全局加载 `<script>`，`window` 对象中会引入一个全局 `Orillusion` 变量，直接使用即可：
 ```html
@@ -42,10 +42,10 @@ import * as Orillusion from '@orillusion/core'
 
 ```html
 <script type="module">
-  // 加载最新版本
-  import { Engine3D, Camera3D } from "https://cdn.orillusion.com/orillusion.es.js" 
-  // 或从 unpkg.com 加载指定版本 
-  import { Engine3D, Camera3D } from "https://unpkg.com/@orillusion/core@0.6.0/dist/orillusion.es.js" 
+  // 或从 unpkg.com 加载最新版本
+  import { Engine3D, Camera3D } from "https://unpkg.com/@orillusion/core/dist/orillusion.es.js" 
+  // 或加载指定版本 
+  import { Engine3D, Camera3D } from "https://unpkg.com/@orillusion/core@0.6.x/dist/orillusion.es.js" 
 </script>
 ```
 

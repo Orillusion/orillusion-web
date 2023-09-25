@@ -11,16 +11,18 @@ let scene = new Scene3D()
 let mainCamera = CameraUtil.createCamera3DObject(scene)
 mainCamera.perspective(60, Engine3D.aspect, 0.1, 10000.0)
 let hc = mainCamera.object3D.addComponent(HoverCameraController)
-hc.setCamera(0, -15, 10, new Vector3(0, 1, 0))
+hc.setCamera(0, -15, 5, new Vector3(0, 1, 0))
 
 // add a dir light
 {
     let ligthObj = new Object3D()
+    ligthObj.rotationY = 135
+    ligthObj.rotationX = 45
     let dl = ligthObj.addComponent(DirectLight)
     dl.lightColor = new Color(1.0, 0.95, 0.84, 1.0)
     scene.addChild(ligthObj)
     dl.castShadow = true
-    dl.intensity = 1.7
+    dl.intensity = 10
 }
 
 // load test model

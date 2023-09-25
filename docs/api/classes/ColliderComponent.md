@@ -15,19 +15,23 @@ collider component
 ### Properties
 
 - [object3D](ColliderComponent.md#object3d)
+- [isDestroyed](ColliderComponent.md#isdestroyed)
 
 ### Accessors
 
 - [shape](ColliderComponent.md#shape)
+- [eventDispatcher](ColliderComponent.md#eventdispatcher)
+- [isStart](ColliderComponent.md#isstart)
 - [transform](ColliderComponent.md#transform)
 - [enable](ColliderComponent.md#enable)
 
 ### Methods
 
-- [init](ColliderComponent.md#init)
-- [stop](ColliderComponent.md#stop)
 - [onEnable](ColliderComponent.md#onenable)
 - [onDisable](ColliderComponent.md#ondisable)
+- [beforeDestroy](ColliderComponent.md#beforedestroy)
+- [init](ColliderComponent.md#init)
+- [stop](ColliderComponent.md#stop)
 - [onUpdate](ColliderComponent.md#onupdate)
 - [onLateUpdate](ColliderComponent.md#onlateupdate)
 - [onBeforeUpdate](ColliderComponent.md#onbeforeupdate)
@@ -35,6 +39,8 @@ collider component
 - [onGraphic](ColliderComponent.md#ongraphic)
 - [onParentChange](ColliderComponent.md#onparentchange)
 - [cloneTo](ColliderComponent.md#cloneto)
+- [copyComponent](ColliderComponent.md#copycomponent)
+- [destroy](ColliderComponent.md#destroy)
 
 ## Constructors
 
@@ -48,7 +54,7 @@ collider component
 
 #### Defined in
 
-[src/components/ColliderComponent.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/components/ColliderComponent.ts#L15)
+[src/components/ColliderComponent.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/ColliderComponent.ts#L16)
 
 ## Properties
 
@@ -66,6 +72,20 @@ owner object3D
 
 [src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
 
+___
+
+### isDestroyed
+
+• `Optional` **isDestroyed**: `boolean`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[isDestroyed](ComponentBase.md#isdestroyed)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
+
 ## Accessors
 
 ### shape
@@ -80,7 +100,7 @@ Returns the shape of collider
 
 #### Defined in
 
-[src/components/ColliderComponent.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/ColliderComponent.ts#L31)
+[src/components/ColliderComponent.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/ColliderComponent.ts#L40)
 
 • `set` **shape**(`value`): `void`
 
@@ -98,7 +118,63 @@ Set the shape of collider
 
 #### Defined in
 
-[src/components/ColliderComponent.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ColliderComponent.ts#L38)
+[src/components/ColliderComponent.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/components/ColliderComponent.ts#L47)
+
+___
+
+### eventDispatcher
+
+• `get` **eventDispatcher**(): [`CEventDispatcher`](CEventDispatcher.md)
+
+#### Returns
+
+[`CEventDispatcher`](CEventDispatcher.md)
+
+#### Inherited from
+
+ComponentBase.eventDispatcher
+
+#### Defined in
+
+[src/components/ComponentBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L23)
+
+• `set` **eventDispatcher**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | [`CEventDispatcher`](CEventDispatcher.md) |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+ComponentBase.eventDispatcher
+
+#### Defined in
+
+[src/components/ComponentBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L28)
+
+___
+
+### isStart
+
+• `get` **isStart**(): `boolean`
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+ComponentBase.isStart
+
+#### Defined in
+
+[src/components/ComponentBase.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L40)
 
 ___
 
@@ -118,7 +194,7 @@ ComponentBase.transform
 
 #### Defined in
 
-[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
+[src/components/ComponentBase.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L47)
 
 ___
 
@@ -138,7 +214,7 @@ ComponentBase.enable
 
 #### Defined in
 
-[src/components/ComponentBase.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L59)
+[src/components/ComponentBase.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
 
 • `set` **enable**(`value`): `void`
 
@@ -160,9 +236,83 @@ ComponentBase.enable
 
 #### Defined in
 
-[src/components/ComponentBase.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L45)
+[src/components/ComponentBase.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L54)
 
 ## Methods
+
+### onEnable
+
+▸ **onEnable**(`view?`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+[ComponentBase](ComponentBase.md).[onEnable](ComponentBase.md#onenable)
+
+#### Defined in
+
+[src/components/ColliderComponent.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/components/ColliderComponent.ts#L29)
+
+___
+
+### onDisable
+
+▸ **onDisable**(`view?`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | [`View3D`](View3D.md) |
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+[ComponentBase](ComponentBase.md).[onDisable](ComponentBase.md#ondisable)
+
+#### Defined in
+
+[src/components/ColliderComponent.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/components/ColliderComponent.ts#L33)
+
+___
+
+### beforeDestroy
+
+▸ **beforeDestroy**(`force?`): `void`
+
+before release this component, object refrences are not be set null now.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+[ComponentBase](ComponentBase.md).[beforeDestroy](ComponentBase.md#beforedestroy)
+
+#### Defined in
+
+[src/components/ColliderComponent.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/components/ColliderComponent.ts#L63)
+
+___
 
 ### init
 
@@ -184,7 +334,7 @@ ComponentBase.enable
 
 #### Defined in
 
-[src/components/ComponentBase.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L106)
+[src/components/ComponentBase.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L112)
 
 ___
 
@@ -202,55 +352,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L108)
-
-___
-
-### onEnable
-
-▸ `Optional` **onEnable**(`view?`): `any`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
-
-#### Returns
-
-`any`
-
-#### Inherited from
-
-[ComponentBase](ComponentBase.md).[onEnable](ComponentBase.md#onenable)
-
-#### Defined in
-
-[src/components/ComponentBase.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L109)
-
-___
-
-### onDisable
-
-▸ `Optional` **onDisable**(`view?`): `any`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
-
-#### Returns
-
-`any`
-
-#### Inherited from
-
-[ComponentBase](ComponentBase.md).[onDisable](ComponentBase.md#ondisable)
-
-#### Defined in
-
-[src/components/ComponentBase.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L110)
+[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
 
 ___
 
@@ -274,7 +376,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L111)
+[src/components/ComponentBase.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L117)
 
 ___
 
@@ -298,7 +400,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L112)
+[src/components/ComponentBase.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L118)
 
 ___
 
@@ -322,7 +424,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
+[src/components/ComponentBase.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L119)
 
 ___
 
@@ -347,7 +449,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
+[src/components/ComponentBase.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L120)
 
 ___
 
@@ -371,7 +473,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L115)
+[src/components/ComponentBase.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L121)
 
 ___
 
@@ -396,7 +498,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L116)
+[src/components/ComponentBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L122)
 
 ___
 
@@ -422,4 +524,54 @@ clone component data to target object3D
 
 #### Defined in
 
-[src/components/ComponentBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L123)
+[src/components/ComponentBase.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L129)
+
+___
+
+### copyComponent
+
+▸ **copyComponent**(`from`): [`ColliderComponent`](ColliderComponent.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `from` | [`ColliderComponent`](ColliderComponent.md) |
+
+#### Returns
+
+[`ColliderComponent`](ColliderComponent.md)
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[copyComponent](ComponentBase.md#copycomponent)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L131)
+
+___
+
+### destroy
+
+▸ **destroy**(`force?`): `void`
+
+release this component
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[destroy](ComponentBase.md#destroy)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:205](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L205)

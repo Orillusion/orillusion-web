@@ -137,7 +137,7 @@ ___
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `mat` | `MaterialBase` | `undefined` |
+| `mat` | [`Material`](Material.md) | `undefined` |
 | `size` | `number` | `10` |
 
 #### Returns

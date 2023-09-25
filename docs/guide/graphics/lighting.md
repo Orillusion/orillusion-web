@@ -145,7 +145,7 @@ pointLight.iesPofile = iesPofiles;
 社区中同样有很多专业的 `IES` 预览/转换的软件，比如 [IESviewer](http://photometricviewer.com/)，您也可以使用专业的3D建模软件来将 `IES` 文件转换到普通的 `png` 贴图文件，最后加载到引擎中来。
 
 ##  环境光
-除了直接的光源，引擎通过设置 `Scene3D.evnMap` 天空盒贴图进行基本的环境光渲染，详情参考 [天空盒](/guide/core/scene.html#天空盒) 相关设置
+除了直接的光源，引擎通过设置 `Scene3D.evnMap` 天空盒贴图进行基本的环境光渲染，详情参考 [天空盒](/guide/core/scene.html) 相关介绍
 
 ## 全局光照
 一般光照系统只考虑光源直接照射到物体表面所产生的效果，不会计算光源经过物体表面反射或折射的光线，即间接光照。全局光照系统能够对间接光照进行建模，实现更加逼真的光线效果。详情参考 [高级 GI](/guide/advanced/gi)

@@ -22,7 +22,7 @@ deregistration, distribution, and unregister.
 ### Methods
 
 - [dispatchEvent](DDGIIrradianceGPUBufferReader.md#dispatchevent)
-- [dispose](DDGIIrradianceGPUBufferReader.md#dispose)
+- [destroy](DDGIIrradianceGPUBufferReader.md#destroy)
 - [addEventListener](DDGIIrradianceGPUBufferReader.md#addeventlistener)
 - [removeEventListener](DDGIIrradianceGPUBufferReader.md#removeeventlistener)
 - [removeEventListenerAt](DDGIIrradianceGPUBufferReader.md#removeeventlistenerat)
@@ -89,9 +89,9 @@ Dispatch an event to all registered objects with a specific type of listener.
 
 ___
 
-### dispose
+### destroy
 
-▸ **dispose**(): `void`
+▸ **destroy**(): `void`
 
 release all registered event.
 
@@ -101,7 +101,7 @@ release all registered event.
 
 #### Inherited from
 
-[CEventDispatcher](CEventDispatcher.md).[dispose](CEventDispatcher.md#dispose)
+[CEventDispatcher](CEventDispatcher.md).[destroy](CEventDispatcher.md#destroy)
 
 #### Defined in
 

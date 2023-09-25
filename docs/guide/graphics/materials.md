@@ -100,11 +100,13 @@ mat.cullMode = GPUCullMode.back; // 剔除后面，显示正面
 
 ### UV 变换
 模型顶点会存有多组纹理映射坐标，定义了该顶点在纹理中对应的2D坐标，它通常由一个二维变量 `(u,v)` 表示，所以也被称为 `UV坐标`。   
-我们可以通过对模型的 `uv` 坐标进行矩阵变换来自定义纹理的映射关系。比如，设定材质的 `uvTransform_1` 属性来对原始 `uv` 进行 `位移（offset）` 和 `缩放（scaling）` 的坐标变换: 
+我们可以通过对模型的 `uv` 坐标进行矩阵变换来自定义纹理的映射关系。比如，设置材质shader 中的 `transformUV1` 变量来对原始 `uv` 进行 `位移（offset）` 和 `缩放（scaling）` 的坐标变换: 
 ```ts
 let mat = new LitMaterial();
-// 定义 Vector4, 分别调节 offsetU, offsetV, scalingU, scalingV
-mat.uvTransform_1 = new Vector4(0, 0, 1, 1);
+// 获取当前 uv 变换
+let uv = mat.defaultPass.getUniform(`transformUV1`)
+// 设置新的 uv 变换 - Vector4(offsetU, offsetV, scalingU, scalingV)
+mat.defaultPass.setUniform(`transformUV1`, new Vector4(0, 0, 1, 1))
 ```
 
 <Demo :height="300" :code="false" src="/demos/materials/uv.ts"></Demo>

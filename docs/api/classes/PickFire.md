@@ -21,7 +21,7 @@ Management and triggering for picking 3D objects
 ### Methods
 
 - [dispatchEvent](PickFire.md#dispatchevent)
-- [dispose](PickFire.md#dispose)
+- [destroy](PickFire.md#destroy)
 - [addEventListener](PickFire.md#addeventlistener)
 - [removeEventListener](PickFire.md#removeeventlistener)
 - [removeEventListenerAt](PickFire.md#removeeventlistenerat)
@@ -49,7 +49,7 @@ Management and triggering for picking 3D objects
 
 #### Defined in
 
-[src/io/PickFire.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L44)
+[src/io/PickFire.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L47)
 
 ## Properties
 
@@ -61,7 +61,7 @@ The ray used to pick 3D objects
 
 #### Defined in
 
-[src/io/PickFire.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L19)
+[src/io/PickFire.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L22)
 
 ___
 
@@ -73,7 +73,7 @@ whether it's touching
 
 #### Defined in
 
-[src/io/PickFire.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L24)
+[src/io/PickFire.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L27)
 
 ___
 
@@ -85,7 +85,7 @@ a map records the association information between meshID(matrix id) and Collider
 
 #### Defined in
 
-[src/io/PickFire.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L41)
+[src/io/PickFire.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L44)
 
 ## Methods
 
@@ -115,9 +115,9 @@ Dispatch an event to all registered objects with a specific type of listener.
 
 ___
 
-### dispose
+### destroy
 
-▸ **dispose**(): `void`
+▸ **destroy**(): `void`
 
 release all registered event.
 
@@ -127,7 +127,7 @@ release all registered event.
 
 #### Inherited from
 
-[CEventDispatcher](CEventDispatcher.md).[dispose](CEventDispatcher.md#dispose)
+[CEventDispatcher](CEventDispatcher.md).[destroy](CEventDispatcher.md#destroy)
 
 #### Defined in
 
@@ -318,7 +318,7 @@ start this manager
 
 #### Defined in
 
-[src/io/PickFire.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L69)
+[src/io/PickFire.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L72)
 
 ___
 
@@ -334,4 +334,4 @@ stop this manager
 
 #### Defined in
 
-[src/io/PickFire.ts:85](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L85)
+[src/io/PickFire.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L90)

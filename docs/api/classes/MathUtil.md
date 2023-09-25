@@ -215,8 +215,8 @@ Calculate the Angle between two vectors
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `from` | `any` | Vector 1 |
-| `to` | `any` | Vector 2 |
+| `from` | [`Vector3`](Vector3.md) | Vector 1 |
+| `to` | [`Vector3`](Vector3.md) | Vector 2 |
 
 #### Returns
 

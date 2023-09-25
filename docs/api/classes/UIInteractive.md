@@ -21,9 +21,12 @@ The basic class of interactive GUI component
 ### Properties
 
 - [object3D](UIInteractive.md#object3d)
+- [isDestroyed](UIInteractive.md#isdestroyed)
 
 ### Accessors
 
+- [eventDispatcher](UIInteractive.md#eventdispatcher)
+- [isStart](UIInteractive.md#isstart)
 - [transform](UIInteractive.md#transform)
 - [enable](UIInteractive.md#enable)
 - [uiTransform](UIInteractive.md#uitransform)
@@ -44,6 +47,7 @@ The basic class of interactive GUI component
 - [onCompute](UIInteractive.md#oncompute)
 - [onGraphic](UIInteractive.md#ongraphic)
 - [onParentChange](UIInteractive.md#onparentchange)
+- [beforeDestroy](UIInteractive.md#beforedestroy)
 - [init](UIInteractive.md#init)
 - [destroy](UIInteractive.md#destroy)
 - [rayPick](UIInteractive.md#raypick)
@@ -59,10 +63,6 @@ The basic class of interactive GUI component
 #### Inherited from
 
 [UIComponentBase](UIComponentBase.md).[constructor](UIComponentBase.md#constructor)
-
-#### Defined in
-
-[src/components/ComponentBase.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L31)
 
 ## Properties
 
@@ -84,7 +84,77 @@ owner object3D
 
 [src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
 
+___
+
+### isDestroyed
+
+• `Optional` **isDestroyed**: `boolean`
+
+#### Inherited from
+
+[UIComponentBase](UIComponentBase.md).[isDestroyed](UIComponentBase.md#isdestroyed)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
+
 ## Accessors
+
+### eventDispatcher
+
+• `get` **eventDispatcher**(): [`CEventDispatcher`](CEventDispatcher.md)
+
+#### Returns
+
+[`CEventDispatcher`](CEventDispatcher.md)
+
+#### Inherited from
+
+UIComponentBase.eventDispatcher
+
+#### Defined in
+
+[src/components/ComponentBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L23)
+
+• `set` **eventDispatcher**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | [`CEventDispatcher`](CEventDispatcher.md) |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+UIComponentBase.eventDispatcher
+
+#### Defined in
+
+[src/components/ComponentBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L28)
+
+___
+
+### isStart
+
+• `get` **isStart**(): `boolean`
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+UIComponentBase.isStart
+
+#### Defined in
+
+[src/components/ComponentBase.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L40)
+
+___
 
 ### transform
 
@@ -102,7 +172,7 @@ UIComponentBase.transform
 
 #### Defined in
 
-[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
+[src/components/ComponentBase.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L47)
 
 ___
 
@@ -126,7 +196,7 @@ UIComponentBase.enable
 
 #### Defined in
 
-[src/components/ComponentBase.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L59)
+[src/components/ComponentBase.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
 
 • `set` **enable**(`value`): `void`
 
@@ -152,7 +222,7 @@ UIComponentBase.enable
 
 #### Defined in
 
-[src/components/ComponentBase.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L45)
+[src/components/ComponentBase.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L54)
 
 ___
 
@@ -234,7 +304,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIInteractive.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L21)
+[src/components/gui/uiComponents/UIInteractive.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L23)
 
 • `set` **interactive**(`value`): `void`
 
@@ -254,7 +324,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIInteractive.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L17)
+[src/components/gui/uiComponents/UIInteractive.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L19)
 
 ___
 
@@ -278,7 +348,7 @@ IUIInteractive.mouseStyle
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIInteractive.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L25)
+[src/components/gui/uiComponents/UIInteractive.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L27)
 
 ___
 
@@ -296,7 +366,7 @@ IUIInteractive.interactiveVisible
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIInteractive.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L29)
+[src/components/gui/uiComponents/UIInteractive.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L31)
 
 ## Methods
 
@@ -314,7 +384,7 @@ IUIInteractive.interactiveVisible
 
 #### Defined in
 
-[src/components/ComponentBase.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L107)
+[src/components/ComponentBase.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
 
 ___
 
@@ -332,7 +402,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L108)
+[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
 
 ___
 
@@ -356,7 +426,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L109)
+[src/components/ComponentBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L115)
 
 ___
 
@@ -380,7 +450,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L110)
+[src/components/ComponentBase.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L116)
 
 ___
 
@@ -404,7 +474,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L111)
+[src/components/ComponentBase.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L117)
 
 ___
 
@@ -428,7 +498,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L112)
+[src/components/ComponentBase.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L118)
 
 ___
 
@@ -452,7 +522,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
+[src/components/ComponentBase.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L119)
 
 ___
 
@@ -477,7 +547,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
+[src/components/ComponentBase.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L120)
 
 ___
 
@@ -501,7 +571,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L115)
+[src/components/ComponentBase.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L121)
 
 ___
 
@@ -526,7 +596,33 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L116)
+[src/components/ComponentBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L122)
+
+___
+
+### beforeDestroy
+
+▸ **beforeDestroy**(`force?`): `void`
+
+before release this component, object refrences are not be set null now.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[UIComponentBase](UIComponentBase.md).[beforeDestroy](UIComponentBase.md#beforedestroy)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L198)
 
 ___
 
@@ -550,7 +646,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIInteractive.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L33)
+[src/components/gui/uiComponents/UIInteractive.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L35)
 
 ___
 
@@ -574,31 +670,26 @@ release this component
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIInteractive.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L38)
+[src/components/gui/uiComponents/UIInteractive.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L40)
 
 ___
 
 ### rayPick
 
-▸ **rayPick**(`ray`, `screenPos`, `screenSize`): `Object`
+▸ **rayPick**(`ray`, `panel`, `screenPos`, `screenSize`): [`HitInfo`](../types/HitInfo.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `ray` | [`Ray`](Ray.md) |
+| `panel` | [`UIPanel`](UIPanel.md) |
 | `screenPos` | [`Vector2`](Vector2.md) |
 | `screenSize` | [`Vector2`](Vector2.md) |
 
 #### Returns
 
-`Object`
-
-| Name | Type |
-| :------ | :------ |
-| `intersect` | `boolean` |
-| `intersectPoint?` | [`Vector3`](Vector3.md) |
-| `distance` | `number` |
+[`HitInfo`](../types/HitInfo.md)
 
 #### Implementation of
 
@@ -606,7 +697,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIInteractive.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L43)
+[src/components/gui/uiComponents/UIInteractive.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L45)
 
 ___
 
@@ -632,7 +723,7 @@ clone component data to target object3D
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIInteractive.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L48)
+[src/components/gui/uiComponents/UIInteractive.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L49)
 
 ___
 
@@ -656,4 +747,4 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIInteractive.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L53)
+[src/components/gui/uiComponents/UIInteractive.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIInteractive.ts#L54)

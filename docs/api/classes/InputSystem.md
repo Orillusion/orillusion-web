@@ -31,7 +31,7 @@ If the current event does not occur within the View3D, it will not be dispatched
 ### Methods
 
 - [dispatchEvent](InputSystem.md#dispatchevent)
-- [dispose](InputSystem.md#dispose)
+- [destroy](InputSystem.md#destroy)
 - [addEventListener](InputSystem.md#addeventlistener)
 - [removeEventListener](InputSystem.md#removeeventlistener)
 - [removeEventListenerAt](InputSystem.md#removeeventlistenerat)
@@ -223,9 +223,9 @@ Dispatch an event to all registered objects with a specific type of listener.
 
 ___
 
-### dispose
+### destroy
 
-▸ **dispose**(): `void`
+▸ **destroy**(): `void`
 
 release all registered event.
 
@@ -235,7 +235,7 @@ release all registered event.
 
 #### Inherited from
 
-[CEventDispatcher](CEventDispatcher.md).[dispose](CEventDispatcher.md#dispose)
+[CEventDispatcher](CEventDispatcher.md).[destroy](CEventDispatcher.md#destroy)
 
 #### Defined in
 

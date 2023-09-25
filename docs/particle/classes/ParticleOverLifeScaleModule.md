@@ -8,8 +8,6 @@ Particle module of size scale over life time
 
   ↳ **`ParticleOverLifeScaleModule`**
 
-## Table of contents
-
 ### Constructors
 
 - [constructor](ParticleOverLifeScaleModule.md#constructor)

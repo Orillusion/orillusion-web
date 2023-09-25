@@ -14,7 +14,8 @@ Outline Setting
 | `fadeOutlinePixel` | `number` | Stroke Fade Pixel Width |
 | `strength` | `number` | Stroke strength |
 | `useAddMode` | `boolean` | Blend mode: true Use overlay mode, false Use default alpha blend |
-| `debug` | `boolean` |  |
+| `textureScale` | `number` | Set the scaling value of the offline map used for calculation relative to the GBuffer map |
+| `debug` | `boolean` | - |
 
 #### Defined in
 

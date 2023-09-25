@@ -43,13 +43,30 @@ let sky = scene3D.addComponent(AtmosphericComponent);
 
 <<< @/public/demos/core/scene.ts
 
-通过 `AtmosphericComponent` 组件的 `sunY`, `exposure` 等属性来调整环境光的的变化。
+通过 `AtmosphericComponent` 组件的 `sunX`, `sunY`, `exposure` 等属性来调整环境光的的变化。
 
 ```ts
 let sky = scene3D.addComponent(AtmosphericComponent);
 sky.sunY = 0.54  // 太阳垂直位置，可以调节环境光亮度
 sky.exposure = 1.5; //调整环境光曝光度, 默认值1
 ```
+
+### 自动跟随灯光
+除了手动设置 `sunX`, `sunY` 的数值，引擎还支持自动跟随场景中的灯光角度调整大气环境光位置
+
+```ts
+// 平行光
+let lightObj3D = new Object3D();
+lightObj3D.rotationX = 46;
+lightObj3D.rotationY = 62;
+lightObj3D.rotationZ = 0;
+let directLight = lightObj3D.addComponent(DirectLight);
+
+let sky = scene3D.addComponent(AtmosphericComponent);
+// 跟随平行光自动设置 sunX sunY
+sky.relativeTransform = directLight.transform
+```
+
 
 ## 自定义天空盒
 如果想要自定义天空盒材质纹理，可以通过给 `Scene3D` 添加 `SkyRenderer` 组件来显示自定义背景; 同时，可以通过 `Scene3D` 对象的 `envMap` 属性来设置环境光。

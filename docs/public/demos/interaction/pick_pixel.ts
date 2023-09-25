@@ -12,7 +12,6 @@ export class Sample_MousePick {
         // enable pick and use pixel mode
         Engine3D.setting.pick.enable = true
         Engine3D.setting.pick.mode = `pixel`
-        Engine3D.setting.shadow.debug = false
 
         await Engine3D.init()
 
@@ -22,7 +21,7 @@ export class Sample_MousePick {
         camera.perspective(60, Engine3D.aspect, 1, 5000.0)
 
         this.hover = camera.object3D.addComponent(HoverCameraController)
-        this.hover.setCamera(-45, -45, 120)
+        this.hover.setCamera(-30, -15, 120)
 
         let wukong = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/wukong/wukong.gltf')
         wukong.transform.y = 30
@@ -63,8 +62,7 @@ export class Sample_MousePick {
             let lc = this.lightObj.addComponent(DirectLight)
             lc.lightColor = KelvinUtil.color_temperature_to_rgb(5355)
             lc.castShadow = true
-            lc.intensity = 10
-            lc.debug()
+            lc.intensity = 20
             scene.addChild(this.lightObj)
         }
 

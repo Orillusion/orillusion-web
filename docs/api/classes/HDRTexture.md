@@ -40,6 +40,7 @@ HDR Texture
 ### Accessors
 
 - [useMipmap](HDRTexture.md#usemipmap)
+- [sourceImageData](HDRTexture.md#sourceimagedata)
 - [addressModeU](HDRTexture.md#addressmodeu)
 - [addressModeV](HDRTexture.md#addressmodev)
 - [addressModeW](HDRTexture.md#addressmodew)
@@ -470,6 +471,24 @@ Texture.useMipmap
 
 ___
 
+### sourceImageData
+
+• `get` **sourceImageData**(): `HTMLCanvasElement` \| `ImageBitmap` \| `OffscreenCanvas`
+
+#### Returns
+
+`HTMLCanvasElement` \| `ImageBitmap` \| `OffscreenCanvas`
+
+#### Inherited from
+
+Texture.sourceImageData
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:347](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L347)
+
+___
+
 ### addressModeU
 
 • `get` **addressModeU**(): `GPUAddressMode`
@@ -484,7 +503,7 @@ Texture.addressModeU
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:419](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L419)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:425](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L425)
 
 • `set` **addressModeU**(`value`): `void`
 
@@ -504,7 +523,7 @@ Texture.addressModeU
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:423](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L423)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:429](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L429)
 
 ___
 
@@ -522,7 +541,7 @@ Texture.addressModeV
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:430](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L430)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:436](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L436)
 
 • `set` **addressModeV**(`value`): `void`
 
@@ -542,7 +561,7 @@ Texture.addressModeV
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:434](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L434)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:440](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L440)
 
 ___
 
@@ -560,7 +579,7 @@ Texture.addressModeW
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:441](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L441)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:447](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L447)
 
 • `set` **addressModeW**(`value`): `void`
 
@@ -580,7 +599,7 @@ Texture.addressModeW
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:445](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L445)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:451](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L451)
 
 ___
 
@@ -598,7 +617,7 @@ Texture.magFilter
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:452](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L452)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:458](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L458)
 
 • `set` **magFilter**(`value`): `void`
 
@@ -618,7 +637,7 @@ Texture.magFilter
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:456](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L456)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:462](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L462)
 
 ___
 
@@ -636,7 +655,7 @@ Texture.minFilter
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:463](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L463)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:469](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L469)
 
 • `set` **minFilter**(`value`): `void`
 
@@ -656,7 +675,7 @@ Texture.minFilter
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:467](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L467)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:473](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L473)
 
 ___
 
@@ -674,7 +693,7 @@ Texture.mipmapFilter
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:474](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L474)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:480](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L480)
 
 • `set` **mipmapFilter**(`value`): `void`
 
@@ -694,7 +713,7 @@ Texture.mipmapFilter
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:478](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L478)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:484](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L484)
 
 ___
 
@@ -712,7 +731,7 @@ Texture.lodMinClamp
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:485](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L485)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:491](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L491)
 
 • `set` **lodMinClamp**(`value`): `void`
 
@@ -732,7 +751,7 @@ Texture.lodMinClamp
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:489](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L489)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:495](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L495)
 
 ___
 
@@ -750,7 +769,7 @@ Texture.lodMaxClamp
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:496](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L496)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:502](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L502)
 
 • `set` **lodMaxClamp**(`value`): `void`
 
@@ -770,7 +789,7 @@ Texture.lodMaxClamp
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:500](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L500)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:506](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L506)
 
 ___
 
@@ -788,7 +807,7 @@ Texture.compare
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:507](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L507)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:513](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L513)
 
 • `set` **compare**(`value`): `void`
 
@@ -808,7 +827,7 @@ Texture.compare
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:511](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L511)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:517](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L517)
 
 ___
 
@@ -826,7 +845,7 @@ Texture.maxAnisotropy
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:518](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L518)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:524](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L524)
 
 • `set` **maxAnisotropy**(`value`): `void`
 
@@ -846,7 +865,7 @@ Texture.maxAnisotropy
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:522](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L522)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:528](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L528)
 
 ## Methods
 
@@ -886,7 +905,7 @@ GPUTexture
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L367)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:371](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L371)
 
 ___
 
@@ -914,7 +933,7 @@ GPUTextureView | GPUExternalTexture
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:378](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L378)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:382](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L382)
 
 ___
 
@@ -939,7 +958,7 @@ ___
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L389)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:395](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L395)
 
 ___
 
@@ -963,7 +982,7 @@ ___
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:393](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L393)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:399](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L399)
 
 ___
 
@@ -989,7 +1008,7 @@ release the texture
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/texture/Texture.ts:407](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L407)
+[src/gfx/graphics/webGpu/core/texture/Texture.ts:413](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/Texture.ts#L413)
 
 ___
 

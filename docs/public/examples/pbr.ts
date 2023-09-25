@@ -1,3 +1,5 @@
+import { LitMaterial } from '@orillusion/core'
+import { MeshRenderer } from '@orillusion/core'
 import { Camera3D, OrbitController, DirectLight, Engine3D, View3D, KelvinUtil, Object3D, Scene3D, HDRBloomPost, GTAOPost, PostProcessingComponent, AtmosphericComponent } from '@orillusion/core'
 
 export class Sample_PBRMaterial {
@@ -15,8 +17,9 @@ export class Sample_PBRMaterial {
         Engine3D.setting.shadow.autoUpdate = true
         Engine3D.setting.shadow.updateFrameRate = 1
         Engine3D.setting.shadow.shadowBound = 50
-        Engine3D.setting.shadow.shadowBias = 0.0001
-        Engine3D.setting.render.postProcessing.bloom!.strength = 1.25
+        Engine3D.setting.render.postProcessing.bloom!.exposure = 1
+        Engine3D.setting.render.postProcessing.bloom!.luminosityThreshold = 0.8
+        Engine3D.setting.render.postProcessing.bloom!.strength = 0.86
 
         this.scene = new Scene3D()
         this.camera = new Object3D()
@@ -40,7 +43,7 @@ export class Sample_PBRMaterial {
         Engine3D.startRenderView(view)
 
         let postProcessing = this.scene.addComponent(PostProcessingComponent)
-        postProcessing.addPost(GTAOPost)
+        // postProcessing.addPost(GTAOPost)
         postProcessing.addPost(HDRBloomPost)
     }
 
@@ -48,7 +51,6 @@ export class Sample_PBRMaterial {
         /******** sky *******/
         {
             let sky = this.scene.addComponent(AtmosphericComponent)
-            sky.sunY = 0.7
             sky.enable = false
         }
         /******** light *******/
@@ -60,12 +62,12 @@ export class Sample_PBRMaterial {
             let lc = this.lightObj.addComponent(DirectLight)
             lc.lightColor = KelvinUtil.color_temperature_to_rgb(5355)
             lc.castShadow = true
-            lc.intensity = 40
+            lc.intensity = 70
             this.scene.addChild(this.lightObj)
         }
 
         {
-            let obj = (this.obj = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/wukong/wukong.gltf'))
+            let obj = this.obj = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/wukong/wukong.gltf')
             obj.transform.scaleX = 10
             obj.transform.scaleY = 10
             obj.transform.scaleZ = 10

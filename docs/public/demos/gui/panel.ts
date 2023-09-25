@@ -35,7 +35,7 @@ let worldPanel: Object3D = new Object3D()
 worldPanel.localScale.set(0.15, 0.15, 0.15)
 let panel: UIPanel = worldPanel.addComponent(WorldPanel)
 // render double side
-panel.guiMesh.uiRenderer.material.cullMode = GPUCullMode.none
+panel.cullMode = GPUCullMode.none
 // add to UICanvas
 canvas.addChild(worldPanel)
 

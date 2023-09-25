@@ -25,7 +25,7 @@ shader code
 
 #### Defined in
 
-[src/components/gui/core/GUIShader.ts:157](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIShader.ts#L157)
+[src/components/gui/core/GUIShader.ts:236](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIShader.ts#L236)
 
 ___
 
@@ -35,4 +35,4 @@ ___
 
 #### Defined in
 
-[src/components/gui/core/GUIShader.ts:190](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIShader.ts#L190)
+[src/components/gui/core/GUIShader.ts:271](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIShader.ts#L271)

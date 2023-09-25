@@ -16,6 +16,7 @@ The light of this light source is parallel, for example, sunlight. This light so
 ### Properties
 
 - [object3D](DirectLight.md#object3d)
+- [isDestroyed](DirectLight.md#isdestroyed)
 - [shadowCamera](DirectLight.md#shadowcamera)
 - [name](DirectLight.md#name)
 - [size](DirectLight.md#size)
@@ -27,6 +28,8 @@ The light of this light source is parallel, for example, sunlight. This light so
 
 ### Accessors
 
+- [eventDispatcher](DirectLight.md#eventdispatcher)
+- [isStart](DirectLight.md#isstart)
 - [transform](DirectLight.md#transform)
 - [enable](DirectLight.md#enable)
 - [radius](DirectLight.md#radius)
@@ -53,6 +56,8 @@ The light of this light source is parallel, for example, sunlight. This light so
 - [onGraphic](DirectLight.md#ongraphic)
 - [onParentChange](DirectLight.md#onparentchange)
 - [cloneTo](DirectLight.md#cloneto)
+- [copyComponent](DirectLight.md#copycomponent)
+- [beforeDestroy](DirectLight.md#beforedestroy)
 - [init](DirectLight.md#init)
 - [start](DirectLight.md#start)
 - [debug](DirectLight.md#debug)
@@ -89,6 +94,20 @@ LightBase.object3D
 #### Defined in
 
 [src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
+
+___
+
+### isDestroyed
+
+• `Optional` **isDestroyed**: `boolean`
+
+#### Inherited from
+
+LightBase.isDestroyed
+
+#### Defined in
+
+[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
 
 ___
 
@@ -220,6 +239,62 @@ LightBase.realTimeShadow
 
 ## Accessors
 
+### eventDispatcher
+
+• `get` **eventDispatcher**(): [`CEventDispatcher`](CEventDispatcher.md)
+
+#### Returns
+
+[`CEventDispatcher`](CEventDispatcher.md)
+
+#### Inherited from
+
+LightBase.eventDispatcher
+
+#### Defined in
+
+[src/components/ComponentBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L23)
+
+• `set` **eventDispatcher**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | [`CEventDispatcher`](CEventDispatcher.md) |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+LightBase.eventDispatcher
+
+#### Defined in
+
+[src/components/ComponentBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L28)
+
+___
+
+### isStart
+
+• `get` **isStart**(): `boolean`
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+LightBase.isStart
+
+#### Defined in
+
+[src/components/ComponentBase.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L40)
+
+___
+
 ### transform
 
 • `get` **transform**(): [`Transform`](Transform.md)
@@ -236,7 +311,7 @@ LightBase.transform
 
 #### Defined in
 
-[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
+[src/components/ComponentBase.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L47)
 
 ___
 
@@ -256,7 +331,7 @@ LightBase.enable
 
 #### Defined in
 
-[src/components/ComponentBase.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L59)
+[src/components/ComponentBase.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
 
 • `set` **enable**(`value`): `void`
 
@@ -278,7 +353,7 @@ LightBase.enable
 
 #### Defined in
 
-[src/components/ComponentBase.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L45)
+[src/components/ComponentBase.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L54)
 
 ___
 
@@ -294,7 +369,7 @@ Get the radius of a directional light source
 
 #### Defined in
 
-[src/components/lights/DirectLight.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L37)
+[src/components/lights/DirectLight.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L38)
 
 • `set` **radius**(`value`): `void`
 
@@ -312,7 +387,7 @@ Set the radius of a directional light source
 
 #### Defined in
 
-[src/components/lights/DirectLight.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L44)
+[src/components/lights/DirectLight.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L45)
 
 ___
 
@@ -328,7 +403,7 @@ Get the radius of a directional light source
 
 #### Defined in
 
-[src/components/lights/DirectLight.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L53)
+[src/components/lights/DirectLight.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L54)
 
 • `set` **indirect**(`value`): `void`
 
@@ -346,7 +421,7 @@ Set the radius of a directional light source
 
 #### Defined in
 
-[src/components/lights/DirectLight.ts:60](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L60)
+[src/components/lights/DirectLight.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L61)
 
 ___
 
@@ -370,7 +445,7 @@ LightBase.iesProfiles
 
 #### Defined in
 
-[src/components/lights/LightBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L115)
+[src/components/lights/LightBase.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L117)
 
 ___
 
@@ -388,7 +463,7 @@ LightBase.iesProfile
 
 #### Defined in
 
-[src/components/lights/LightBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L122)
+[src/components/lights/LightBase.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L124)
 
 ___
 
@@ -408,7 +483,7 @@ LightBase.r
 
 #### Defined in
 
-[src/components/lights/LightBase.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L129)
+[src/components/lights/LightBase.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L131)
 
 • `set` **r**(`value`): `void`
 
@@ -430,7 +505,7 @@ LightBase.r
 
 #### Defined in
 
-[src/components/lights/LightBase.ts:136](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L136)
+[src/components/lights/LightBase.ts:138](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L138)
 
 ___
 
@@ -450,7 +525,7 @@ LightBase.g
 
 #### Defined in
 
-[src/components/lights/LightBase.ts:144](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L144)
+[src/components/lights/LightBase.ts:146](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L146)
 
 • `set` **g**(`value`): `void`
 
@@ -472,7 +547,7 @@ LightBase.g
 
 #### Defined in
 
-[src/components/lights/LightBase.ts:151](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L151)
+[src/components/lights/LightBase.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L153)
 
 ___
 
@@ -492,7 +567,7 @@ LightBase.b
 
 #### Defined in
 
-[src/components/lights/LightBase.ts:159](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L159)
+[src/components/lights/LightBase.ts:161](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L161)
 
 • `set` **b**(`value`): `void`
 
@@ -514,7 +589,7 @@ LightBase.b
 
 #### Defined in
 
-[src/components/lights/LightBase.ts:165](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L165)
+[src/components/lights/LightBase.ts:167](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L167)
 
 ___
 
@@ -536,7 +611,7 @@ LightBase.lightColor
 
 #### Defined in
 
-[src/components/lights/LightBase.ts:173](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L173)
+[src/components/lights/LightBase.ts:175](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L175)
 
 • `set` **lightColor**(`value`): `void`
 
@@ -558,7 +633,7 @@ LightBase.lightColor
 
 #### Defined in
 
-[src/components/lights/LightBase.ts:180](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L180)
+[src/components/lights/LightBase.ts:182](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L182)
 
 ___
 
@@ -580,7 +655,7 @@ LightBase.intensity
 
 #### Defined in
 
-[src/components/lights/LightBase.ts:188](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L188)
+[src/components/lights/LightBase.ts:190](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L190)
 
 • `set` **intensity**(`value`): `void`
 
@@ -602,7 +677,7 @@ LightBase.intensity
 
 #### Defined in
 
-[src/components/lights/LightBase.ts:195](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L195)
+[src/components/lights/LightBase.ts:197](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L197)
 
 ___
 
@@ -620,7 +695,7 @@ LightBase.castShadow
 
 #### Defined in
 
-[src/components/lights/LightBase.ts:211](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L211)
+[src/components/lights/LightBase.ts:213](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L213)
 
 • `set` **castShadow**(`value`): `void`
 
@@ -642,7 +717,7 @@ LightBase.castShadow
 
 #### Defined in
 
-[src/components/lights/LightBase.ts:204](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L204)
+[src/components/lights/LightBase.ts:206](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L206)
 
 ___
 
@@ -662,7 +737,7 @@ LightBase.shadowIndex
 
 #### Defined in
 
-[src/components/lights/LightBase.ts:218](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L218)
+[src/components/lights/LightBase.ts:220](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L220)
 
 ___
 
@@ -684,7 +759,7 @@ LightBase.castGI
 
 #### Defined in
 
-[src/components/lights/LightBase.ts:227](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L227)
+[src/components/lights/LightBase.ts:229](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L229)
 
 • `set` **castGI**(`value`): `void`
 
@@ -706,7 +781,7 @@ LightBase.castGI
 
 #### Defined in
 
-[src/components/lights/LightBase.ts:234](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L234)
+[src/components/lights/LightBase.ts:236](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L236)
 
 ___
 
@@ -728,7 +803,7 @@ LightBase.direction
 
 #### Defined in
 
-[src/components/lights/LightBase.ts:248](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L248)
+[src/components/lights/LightBase.ts:250](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L250)
 
 ## Methods
 
@@ -746,7 +821,7 @@ LightBase.stop
 
 #### Defined in
 
-[src/components/ComponentBase.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L108)
+[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
 
 ___
 
@@ -770,7 +845,7 @@ LightBase.onUpdate
 
 #### Defined in
 
-[src/components/ComponentBase.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L111)
+[src/components/ComponentBase.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L117)
 
 ___
 
@@ -794,7 +869,7 @@ LightBase.onLateUpdate
 
 #### Defined in
 
-[src/components/ComponentBase.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L112)
+[src/components/ComponentBase.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L118)
 
 ___
 
@@ -818,7 +893,7 @@ LightBase.onBeforeUpdate
 
 #### Defined in
 
-[src/components/ComponentBase.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
+[src/components/ComponentBase.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L119)
 
 ___
 
@@ -843,7 +918,7 @@ LightBase.onCompute
 
 #### Defined in
 
-[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
+[src/components/ComponentBase.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L120)
 
 ___
 
@@ -867,7 +942,7 @@ LightBase.onGraphic
 
 #### Defined in
 
-[src/components/ComponentBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L115)
+[src/components/ComponentBase.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L121)
 
 ___
 
@@ -892,7 +967,7 @@ LightBase.onParentChange
 
 #### Defined in
 
-[src/components/ComponentBase.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L116)
+[src/components/ComponentBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L122)
 
 ___
 
@@ -918,7 +993,57 @@ LightBase.cloneTo
 
 #### Defined in
 
-[src/components/ComponentBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L123)
+[src/components/ComponentBase.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L129)
+
+___
+
+### copyComponent
+
+▸ **copyComponent**(`from`): [`DirectLight`](DirectLight.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `from` | [`DirectLight`](DirectLight.md) |
+
+#### Returns
+
+[`DirectLight`](DirectLight.md)
+
+#### Inherited from
+
+LightBase.copyComponent
+
+#### Defined in
+
+[src/components/ComponentBase.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L131)
+
+___
+
+### beforeDestroy
+
+▸ **beforeDestroy**(`force?`): `void`
+
+before release this component, object refrences are not be set null now.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+LightBase.beforeDestroy
+
+#### Defined in
+
+[src/components/ComponentBase.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L198)
 
 ___
 
@@ -954,7 +1079,7 @@ LightBase.start
 
 #### Defined in
 
-[src/components/lights/DirectLight.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L28)
+[src/components/lights/DirectLight.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L29)
 
 ___
 
@@ -970,7 +1095,7 @@ enable light debug gui
 
 #### Defined in
 
-[src/components/lights/DirectLight.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L87)
+[src/components/lights/DirectLight.ts:88](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L88)
 
 ___
 
@@ -988,7 +1113,7 @@ LightBase.onEnable
 
 #### Defined in
 
-[src/components/lights/LightBase.ts:105](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L105)
+[src/components/lights/LightBase.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L106)
 
 ___
 
@@ -1006,7 +1131,7 @@ LightBase.onDisable
 
 #### Defined in
 
-[src/components/lights/LightBase.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L110)
+[src/components/lights/LightBase.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L111)
 
 ___
 
@@ -1030,4 +1155,4 @@ LightBase.destroy
 
 #### Defined in
 
-[src/components/lights/LightBase.ts:252](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L252)
+[src/components/lights/LightBase.ts:254](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L254)
