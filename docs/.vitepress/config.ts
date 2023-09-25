@@ -528,7 +528,12 @@ function sidebarExample(root: string = '') {
         Material: [],
         Texture: [],
         Benchmark: [],
-        Advance: []
+        Advance: [],
+        lights: [],
+        loader: [],
+        octree: [],
+        particle: [],
+        physics: []
     }
 
     const examples: SidebarItem = []
