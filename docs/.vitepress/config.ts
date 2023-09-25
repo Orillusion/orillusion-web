@@ -525,6 +525,7 @@ function sidebarExample(root: string = '') {
         Animation: [],
         Base: [],
         Camera: [],
+        GUI: [],
         Geometry: [],
         Light: [],
         Material: [],
