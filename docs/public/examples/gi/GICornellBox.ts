@@ -66,7 +66,7 @@ class Sample_GICornellBox {
 
         // init Camera Controller
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController)
-        hoverCtrl.setCamera(0, 0, 20)
+        hoverCtrl.setCamera(0, 0, 50, new Vector3(0, 10, 0))
 
         // init View3D
         let view = new View3D()
