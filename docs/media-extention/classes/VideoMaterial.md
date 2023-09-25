@@ -9,6 +9,7 @@ Do not compute light, only read pixel color from a Video source
 
   ↳ **`VideoMaterial`**
 
+
 ### Constructors
 
 - [constructor](VideoMaterial.md#constructor)

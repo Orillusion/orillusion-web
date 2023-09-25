@@ -9,6 +9,7 @@ Do not compute light, only read pixel color from a Image source
 
   ↳ **`ImageMaterial`**
 
+
 ### Constructors
 
 - [constructor](ImageMaterial.md#constructor)
