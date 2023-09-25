@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@orillusion/core': 0.6.9
-  '@orillusion/media-extention': ^0.2.3
+  '@orillusion/media-extention': ^0.3.1
   '@orillusion/particle': ^0.0.2
   '@orillusion/physics': ^0.2.0
   '@orillusion/stats': ^0.2.0
@@ -10,12 +10,12 @@ specifiers:
   '@types/node': ^18.17.14
   esbuild: ^0.17.19
   prettier: ^2.8.8
-  vitepress: 1.0.0-rc.10
+  vitepress: 1.0.0-rc.13
   vue: ^3.3.4
 
 devDependencies:
   '@orillusion/core': 0.6.9
-  '@orillusion/media-extention': 0.2.3
+  '@orillusion/media-extention': 0.3.1
   '@orillusion/particle': 0.0.2
   '@orillusion/physics': 0.2.0
   '@orillusion/stats': 0.2.0
@@ -23,7 +23,7 @@ devDependencies:
   '@types/node': 18.17.14
   esbuild: 0.17.19
   prettier: 2.8.8
-  vitepress: 1.0.0-rc.10_@types+node@18.17.14
+  vitepress: 1.0.0-rc.13_@types+node@18.17.14
   vue: 3.3.4
 
 packages:
@@ -645,8 +645,8 @@ packages:
     resolution: {integrity: sha512-AYBqDUe8eykv1RX6oGM0iirhX1Rz05rme0GV1jNNP3DgfuxuOspW8II7ZYMwGdFpjNUsLBpJWRPRhv8WosbcxA==}
     dev: true
 
-  /@orillusion/media-extention/0.2.3:
-    resolution: {integrity: sha512-Iv++LJCpZWllJjb9ZfDABs/iwZqEsmv9eUH3uY3gpQEEWvXfLieiORCUER0os/0nC2Pnkz9BEgA19SsrYSMO/w==}
+  /@orillusion/media-extention/0.3.1:
+    resolution: {integrity: sha512-CmnTvUUBWUwh+dEHEZ19eFB1PlUJFcVMChTHWSHXZGI84hQ9cKBsuT3XPnItI7NgZyH08vFKtMPtLXBYXjCKEw==}
     dependencies:
       '@orillusion/core': 0.6.9
     dev: true
@@ -1064,8 +1064,8 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitepress/1.0.0-rc.10_@types+node@18.17.14:
-    resolution: {integrity: sha512-+MsahIWqq5WUEmj6MR4obcKYbT7im07jZPCQPdNJExkeOSbOAJ4xypSLx88x7rvtzWHhHc5aXbOhCRvGEGjFrw==}
+  /vitepress/1.0.0-rc.13_@types+node@18.17.14:
+    resolution: {integrity: sha512-TnVydQOZE38rtXu9gHCb7EGdN03jTcmYkDdhCqox6+pfKYgiyfm1qk2Uy8BZatnM9wXpa64f+T5p30R8P/9Z+A==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.5.2
