@@ -193,7 +193,7 @@ function nav() {
                 },
                 {
                   text: '示例',
-                  link: '/example/Animation/sample1'
+                  link: '/example/Animation/CurveAnimation'
                 }
             ]
         },
@@ -525,21 +525,17 @@ function sidebarExample(root: string = '') {
         Animation: [],
         Ext: [],
         Base: [],
-        Camera: [],
         GI: [],
         Graphic: [],
         GUI: [],
         Geometry: [],
-        Light: [],
         Material: [],
-        Texture: [],
         Benchmark: [],
-        Advance: [],
-        lights: [],
-        loader: [],
-        octree: [],
-        particle: [],
-        physics: []
+        Lights: [],
+        Loader: [],
+        Octree: [],
+        Particle: [],
+        Physics: []
     }
 
     const examples: SidebarItem = []

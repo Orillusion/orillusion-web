@@ -18,10 +18,10 @@
         "@orillusion/physics": "^0.2.0",
         "@orillusion/stats": "^0.2.0",
         "@types/dat.gui": "^0.7.10",
-        "@types/node": "^18.17.14",
+        "@types/node": "^18.17.19",
         "esbuild": "^0.17.19",
         "prettier": "^2.8.8",
-        "vitepress": "1.0.0-rc.13",
+        "vitepress": "1.0.0-rc.20",
         "vue": "^3.3.4"
     },
     "pnpm": {
