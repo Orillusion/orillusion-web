@@ -39,7 +39,7 @@ guiButton.enable = true; //false
 
 - `PointerEvent3D.PICK_CLICK_GUI`：鼠标点击
 - `PointerEvent3D.PICK_OVER_GUI`：鼠标滑入
-- `PointerEvent3D.PICK_OUT_GUI`：鼠标移除
+- `PointerEvent3D.PICK_OUT_GUI`：鼠标移出
 - `PointerEvent3D.PICK_UP_GUI`：鼠标抬起
 - `PointerEvent3D.PICK_DOWN_GUI`：鼠标按下
 
