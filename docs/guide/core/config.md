@@ -52,6 +52,8 @@ Engine3D.setting.render.postProcessing.bloom.intensity = 0.5;
 Engine3D.setting.shadow.enable = true; // 开启阴影
 Engine3D.setting.shadow.type = `SOFT`; // 软阴影类型
 Engine3D.setting.shadow.shadowSize = 2048; // 阴影贴图大小
+Engine3D.setting.shadow.shadowBound = 20; // 阴影区域的世界尺寸
+
 ```
 详见 [阴影](/guide/graphics/shadow)
 

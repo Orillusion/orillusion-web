@@ -97,7 +97,17 @@ Engine3D.setting.shadow.type = 'HARD'; // 默认 PCF
 TODO
 
 ## 联级阴影贴图(Cascaded Shadow Maps)
-TODO
+常用于支持大场景中更好的阴影渲染那效果，将视锥内阴影按四个等级进行划分，在着色处理阴影的阶段根据当前所处阴影等级选择合适的阴影贴图，能够获得更加精确、覆盖全视锥体范围的阴影效果。使用了CSM阴影后，能够解决阴影Bound范围过大，阴影的像素密度不够导致马赛克化过于严重；Bound范围小、阴影区域过小，远处的物体丢失阴影的问题。
+
+启用CSM阴影
+```ts
+let mainCamera:Camera3D;
+mainCamera.enableCSM = true;
+```
+
+<Demo :height="500" src="/demos/graphics/shadow_csm.ts"></Demo>
+
+<<< @/public/demos/graphics/shadow_csm.ts
 
 ## 阴影属性
 
@@ -111,6 +121,6 @@ TODO
 | pointShadowSize | Number | 点光源阴影贴图大小尺寸，默认1024 |
 | pointShadowBias | Number | 点光源和聚光灯的阴影偏移值 |
 | autoUpdate | Boolean | 是否自动更新阴影，默认 false |
-| csmMargin | Number | ? |
-| csmScatteringExp | Number | ? |
-| csmAreaScale | Number | ? |
+| csmMargin | Number | 设置不同级别阴影的过渡范围，在0-1区间调节 |
+| csmScatteringExp | Number | 微调各个级别阴影的范围，以满足不同的场景需求 |
+| csmAreaScale | Number | 微调阴影能够覆盖的最大范围，在0.0-1区间调节 |

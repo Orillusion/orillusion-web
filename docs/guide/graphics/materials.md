@@ -45,7 +45,7 @@ mesh.material = new LitMaterial();
 | :---: | :---: |
 | baseColor | 材质基础颜色 |
 | emissiveColor | 材质发光颜色 |
-| emissiveIntensity | 材质发光强度，需要开启 HDRBloomPost 才能显示发光效果 |
+| emissiveIntensity | 材质发光强度，需要开启 BloomPost 才能显示发光效果 |
 | roughness | 材质粗糙程度 |
 | metallic | 材料金属度 |
 | normalScale | 法线贴图对材质的影响程度 |

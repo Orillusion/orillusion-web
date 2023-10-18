@@ -1,4 +1,4 @@
-import { BlendMode, Camera3D, CameraUtil, Color, DirectLight, Engine3D, GPUCullMode, HDRBloomPost, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, UnLitMaterial, webGPUContext, AtmosphericComponent, View3D, PostProcessingComponent } from '@orillusion/core'
+import { BlendMode, Camera3D, CameraUtil, Color, BloomPost, DirectLight, Engine3D, GPUCullMode, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, UnLitMaterial, webGPUContext, AtmosphericComponent, View3D, PostProcessingComponent } from '@orillusion/core'
 
 export class Sample_BlendMode {
     lightObj: Object3D
@@ -31,11 +31,7 @@ export class Sample_BlendMode {
         Engine3D.startRenderView(view)
 
         let postProcessing = this.scene.addComponent(PostProcessingComponent)
-        let bloom = postProcessing.addPost(HDRBloomPost)
-        bloom.blurX = 4
-        bloom.blurY = 4
-        bloom.strength = 4
-        bloom.luminosityThreshold = 1
+        let bloom = postProcessing.addPost(BloomPost)
 
         await this.initScene()
     }

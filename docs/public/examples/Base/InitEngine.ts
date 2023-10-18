@@ -1,4 +1,4 @@
-import { AtmosphericComponent, CameraUtil, DirectLight, Engine3D, GTAOPost, HDRBloomPost, HoverCameraController, KelvinUtil, LitMaterial, MeshRenderer, Object3D, OcclusionSystem, PlaneGeometry, PostProcessingComponent, Scene3D, SphereGeometry, View3D } from '@orillusion/core';
+import { AtmosphericComponent, CameraUtil, DirectLight, Engine3D, GTAOPost, BloomPost, HoverCameraController, KelvinUtil, LitMaterial, MeshRenderer, Object3D, OcclusionSystem, PlaneGeometry, PostProcessingComponent, Scene3D, SphereGeometry, View3D } from '@orillusion/core'
 import { Stats } from '@orillusion/stats'
 import dat from 'dat.gui'
 
@@ -41,19 +41,17 @@ class Sample_InitEngine {
         Engine3D.startRenderView(this.view)
 
         let postCom = scene.addComponent(PostProcessingComponent)
-        let post = postCom.addPost(HDRBloomPost) as HDRBloomPost
+        let post = postCom.addPost(BloomPost) as BloomPost
         let post2 = postCom.addPost(GTAOPost) as GTAOPost
 
         // GUIUtil.renderBloom(post)
-        let postdir = this.Ori.addFolder('HDRBloom')
-        postdir.add(post, 'enable')
-        postdir.addColor(post, 'tintColor')
-        postdir.add(post, 'luminosityThreshold')
-        postdir.add(post, 'strength', 0, 3, 0.001)
-        postdir.add(post, 'exposure')
-        postdir.add(post, 'radius', 0, 1.0, 0.001)
-        postdir.add(post, 'blurX')
-        postdir.add(post, 'blurY')
+        let postdir = this.Ori.addFolder('BloomPost')
+        postdir.add(post, 'downSampleBlurSize', 3, 15, 1)
+        postdir.add(post, 'downSampleBlurSigma', 0.01, 1, 0.001)
+        postdir.add(post, 'upSampleBlurSize', 3, 15, 1)
+        postdir.add(post, 'upSampleBlurSigma', 0.01, 1, 0.001)
+        postdir.add(post, 'luminanceThreshole', 0.001, 10.0, 0.001)
+        postdir.add(post, 'bloomIntensity', 0.001, 10.0, 0.001)
         postdir.open()
         // GUIUtil.renderShadowSetting()
         let shadowdir = this.Ori.addFolder('ShadowSetting')

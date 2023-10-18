@@ -22,9 +22,9 @@ export default async () =>
         head: [
             ['link', { rel: 'shortcut icon', type: 'image/png', href: '/images/icons/icon-192.png' }],
             ['link', { rel: 'dns-prefetch', href: 'https://cdn.orillusion.com' }],
-            ['link', { rel: 'prefetch',  href: "https://unpkg.com/@orillusion/core@0.6.9-beta.1/dist/orillusion.es.js" }],
-            ['link', { rel: 'prefetch',  href: "https://unpkg.com/@orillusion/physics@0.2.0/dist/physics.es.js" }],
-            ['link', { rel: 'prefetch',  href: "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js" }],
+            ['link', { rel: 'prefetch', href: 'https://unpkg.com/@orillusion/core@0.6.9-beta.1/dist/orillusion.es.js' }],
+            ['link', { rel: 'prefetch', href: 'https://unpkg.com/@orillusion/physics@0.2.0/dist/physics.es.js' }],
+            ['link', { rel: 'prefetch', href: 'https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js' }],
             ['script', { async: 'true', src: 'https://www.googletagmanager.com/gtag/js?id=G-0H9189CS0W' }],
             ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no' }],
             ['meta', { name: 'mobile-web-app-capable', content: 'yes' }],
@@ -192,8 +192,8 @@ function nav() {
                     link: '/guide/'
                 },
                 {
-                  text: '示例',
-                  link: '/example/Animation/CurveAnimation'
+                    text: '示例',
+                    link: '/example/Animation/CurveAnimation'
                 }
             ]
         },
@@ -354,7 +354,7 @@ function sidebarGuide(): SidebarItem {
                 { text: '图片', link: '/guide/media/image.md' },
                 { text: '视频', link: '/guide/media/video.md' },
                 { text: '视频(背景过滤)', link: '/guide/media/chromakey.md' },
-                { text: '音频', link: '/guide/media/audio.md' },
+                { text: '音频', link: '/guide/media/audio.md' }
             ]
         },
         {
@@ -447,7 +447,7 @@ function sidebarGuide(): SidebarItem {
                             link: '/guide/advanced/post_globalfog.md'
                         },
                         {
-                            text: 'HDRBloomPost',
+                            text: 'BloomPost',
                             link: '/guide/advanced/post_bloom.md'
                         },
                         {

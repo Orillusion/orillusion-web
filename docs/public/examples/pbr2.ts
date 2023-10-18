@@ -1,4 +1,4 @@
-import { Camera3D, OrbitController, DirectLight, Engine3D, View3D, PostProcessingComponent, HDRBloomPost, KelvinUtil, Object3D, Scene3D, GTAOPost, webGPUContext, AtmosphericComponent } from '@orillusion/core'
+import { Camera3D, OrbitController, DirectLight, Engine3D, View3D, PostProcessingComponent, BloomPost, KelvinUtil, Object3D, Scene3D, GTAOPost, webGPUContext, AtmosphericComponent } from '@orillusion/core'
 
 export class Sample_FlightHelmet {
     lightObj: Object3D
@@ -38,7 +38,7 @@ export class Sample_FlightHelmet {
 
         let postProcessing = this.scene.addComponent(PostProcessingComponent)
         postProcessing.addPost(GTAOPost)
-        postProcessing.addPost(HDRBloomPost)
+        postProcessing.addPost(BloomPost)
     }
 
     async initScene() {

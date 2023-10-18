@@ -1,4 +1,4 @@
-import { DirectLight, Engine3D, View3D, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, SphereGeometry, SSRPost, Time, CameraUtil, webGPUContext, PostProcessingComponent, HDRBloomPost, AtmosphericComponent } from '@orillusion/core'
+import { DirectLight, Engine3D, View3D, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, SphereGeometry, SSRPost, Time, CameraUtil, webGPUContext, PostProcessingComponent, BloomPost, AtmosphericComponent } from '@orillusion/core'
 import * as dat from 'dat.gui'
 
 export class Sample_SSR {
@@ -33,7 +33,7 @@ export class Sample_SSR {
 
         let postProcessing = this.scene.addComponent(PostProcessingComponent)
         postProcessing.addPost(SSRPost)
-        postProcessing.addPost(HDRBloomPost)
+        postProcessing.addPost(BloomPost)
     }
 
     async initScene(scene: Scene3D) {

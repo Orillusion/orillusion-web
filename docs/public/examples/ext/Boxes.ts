@@ -1,7 +1,6 @@
-import { Engine3D, View3D, Scene3D, CameraUtil, AtmosphericComponent, webGPUContext, HoverCameraController, Object3D, DirectLight, KelvinUtil, LitMaterial, MeshRenderer, Vector3, PostProcessingComponent, GlobalFog, Color, BoxGeometry, GTAOPost, HDRBloomPost } from '@orillusion/core';
+import { Engine3D, View3D, Scene3D, CameraUtil, AtmosphericComponent, webGPUContext, HoverCameraController, Object3D, DirectLight, KelvinUtil, LitMaterial, MeshRenderer, Vector3, PostProcessingComponent, GlobalFog, Color, BoxGeometry, GTAOPost, BloomPost } from '@orillusion/core'
 import { Stats } from '@orillusion/stats'
 import dat from 'dat.gui'
-
 
 // An sample of custom vertex attribute of geometry
 class Sample_Boxes {
@@ -40,7 +39,7 @@ class Sample_Boxes {
 
         this.post = this.view.scene.addComponent(PostProcessingComponent)
         this.post.addPost(GTAOPost)
-        this.post.addPost(HDRBloomPost)
+        this.post.addPost(BloomPost)
         let fog = this.post.addPost(GlobalFog)
         fog.start = 91.0862
         fog.end = 487.5528
