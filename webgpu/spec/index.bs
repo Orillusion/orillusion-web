@@ -143,8 +143,11 @@ p, ul, ol, dl {
 
 /* Styling for "editorial" issues */
 .note.editorial {
-    border-color: var(--note-editorial-border);
+    border-color: var(--note-editorial-color);
     background: var(--note-editorial-bg);
+}
+.note.editorial > .marker {
+    color: var(--note-editorial-color);
 }
 
 /* Our SVGs aren't responsive to light/dark mode, so they're opaque with a
@@ -411,7 +414,7 @@ thead.stickyheader th, th.stickyheader {
     --tint-green: rgba(0, 255, 0, 10%);
     --tint-blue: rgba(0, 0, 255, 5%);
     --tint-purple: rgba(255, 0, 255, 5%);
-    --note-editorial-border: #ffa500;
+    --note-editorial-color: #c06e00;
     --note-editorial-bg: #ffeedd;
 }
 @media (prefers-color-scheme:dark) {
@@ -422,7 +425,7 @@ thead.stickyheader th, th.stickyheader {
         --tint-green: rgba(0, 255, 0, 18%);
         --tint-blue: rgba(0, 130, 255, 24%);
         --tint-purple: rgba(255, 0, 255, 22%);
-        --note-editorial-border: #ffa500;
+        --note-editorial-color: #ff9100;
         --note-editorial-bg: var(--borderedblock-bg);
     }
 }
@@ -467,8 +470,7 @@ WebGPU [=着色器=]在GPU硬件内部的计算单元中执行。在原生API中
 
 清除工作组内存的确切机制可能因平台而异。如果原生API没有提供清除它的功能，WebGPU实现将计算着色器转换为首先在所有调用中执行清除操作，然后同步它们，并继续执行开发者的代码。
 
-<div class=note>
-    注：
+<div class=note heading heading>
     在队列操作中使用的资源的初始化状态只能在操作入队时（例如，不是在编码到命令缓冲区时）获知。因此，一些实现将需要在入队时进行非优化的迟清除操作（例如，清除纹理，而不是将{{GPULoadOp}} {{GPULoadOp/“load”}}更改为{{GPULoadOp/“clear”}}）。
 
     因此，所有实现**应该**在开发者控制台中发出关于这种潜在性能损失的警告，即使在该实现中没有损失。
@@ -620,7 +622,7 @@ WebGPU计算管线能够在不受固定功能硬件限制的情况下访问GPU�
     术语 " Foo.Bar "的含义是 “值（或接口）Foo 的 Bar 成员”。
     如果Foo是一个[=有序映射=]，则[=断言=]键 Bar存在。
 
-    <p class=“note editorial”>编辑注：
+    <p class="note editorial"><span class=marker>编辑注:</span>
     这个规范中的一些措辞可能目前假设如果Bar不存在，那么这将解析为undefined。
 
     术语 " Foo.Bar 是 [=map/存在|提供=]" 的含义是 " Bar 成员在 [=map=] 值 Foo 中存在"。
@@ -712,7 +714,7 @@ interface mixin GPUObjectBase {
     ::
         一个由开发者提供的标签，以实现定义的方式使用。它可以被浏览器、操作系统或其他工具用于帮助开发者识别底层的 [=内部对象=]。示例包括在 {{GPUError}} 消息、控制台警告、浏览器开发者工具和平台调试实用程序中显示标签。
 
-        <div class=note>
+        <div class=note heading>
             实现者应该使用标签来增强错误消息，通过利用标签来识别WebGPU对象。
 
 
@@ -726,7 +728,7 @@ interface mixin GPUObjectBase {
             - 打印{{GPURenderBundle}}时使用源{{GPURenderBundleEncoder}}的标签。
         </div>
 
-        <div class=note>
+        <div class=note heading>
             注：
             {{GPUObjectBase/label}} 是 {{GPUObjectBase}} 的一个属性。两个 {{GPUObjectBase}} “包装器” 对象具有完全独立的标签状态，即使它们引用相同的底层对象（例如通过 {{GPUPipelineBase/getBindGroupLayout()}} 返回的对象）。{{GPUObjectBase/label}} 属性除了从JavaScript设置之外不会改变。
 
@@ -736,7 +738,7 @@ interface mixin GPUObjectBase {
         </div>
 </dl>
 
-<div class=note>
+<div class=note heading>
     注：
     理想情况下，[=WebGPU 接口=]不应阻止它们的父对象（例如拥有它们的 {{GPUObjectBase/[[device]]}}）被垃圾收集。然而，这不能得到保证，因为在某些实现中可能需要持有对父对象的强引用。
 
@@ -1057,7 +1059,7 @@ WebGPU的行为是以"时间线"的形式来描述的。每一个操作（被定
 
 问题：上面应该大概讲的是[=GPU命令=]。但是我们没有办法参考特定的 GPU 命令（如分派）。
 
-<div class=note>
+<div class=note heading>
 注：
      上述规则意味着以下示例资源使用**包含在 [=usage scope validation=] 中：
 
@@ -1109,10 +1111,6 @@ WebGPU的行为是以"时间线"的形式来描述的。每一个操作（被定
      : <dfn>\[[fallback]]</dfn>，布尔类型
      ::
          如果设置为“true”，则表示该适配器是 [=fallback adapter=]。
-
-     : <dfn>\[[unmaskedIdentifiers]]</dfn>，类型为 [=ordered set=]&lt;{{DOMString}}&gt;
-     ::
-         用户代理已选择为此适配器报告的 {{GPUAdapterInfo}} 字段的名称列表。 最初填充了用户代理在未经用户同意的情况下选择报告的任何 {{GPUAdapterInfo}} 字段的名称。
 </dl>
 
 [=Adapters=] 通过 {{GPUAdapter}} 暴露出来。
@@ -1477,7 +1475,7 @@ interface GPUSupportedFeatures {
 };
 </script>
 
-<div class=note>
+<div class=note heading>
     注：
     {{GPUSupportedFeatures}} [=set entries=] 的类型是 {{DOMString}} 以允许用户代理优雅地处理有效的 {{GPUFeatureName}}s，这些是在规范的后续修订中添加的，但用户代理尚未更新以识别。 如果 [=set entries=] 类型是 {{GPUFeatureName}}，则以下代码将抛出 {{TypeError}} 而不是报告 `false`：
 
@@ -1497,8 +1495,8 @@ interface GPUSupportedFeatures {
 <h5 id=gpuwgsllanguagefeatures data-dfn-type=interface>`WGSLLanguageFeatures`
 </h5>
 
-{{WGSLLanguageFeatures}} 是一个 [=setlike=] 接口。
-它的 [=set entries=] 是 WGSL [=language extensions=] 支持所有适配器的字符串名称。
+{{WGSLLanguageFeatures}}是<code>navigator.gpu.{{GPU/wgslLanguageFeatures}}</code>的[=setlike=]接口。
+它的[=set entries=]是由实现支持的WGSL[=language extensions=]的字符串名称（与适配器或设备无关）。
 
 <script type=idl>
 [Exposed=(Window, DedicatedWorker), SecureContext]
@@ -1559,34 +1557,13 @@ interface GPUAdapterInfo {
      以下步骤：
 
      1. 让 |adapterInfo| 成为一个新的 {{GPUAdapterInfo}}。
-     1. 让 |unmaskedValues| 成为 |adapter|.{{适配器/[[unmaskedIdentifiers]]}}
-     1. 如果 |unmaskedValues| [=set/contains=] `"vendor"` 并且供应商是已知的：
-         1. 将 |adapterInfo|.{{GPUAdapterInfo/vendor}} 设置为 |adapter| 供应商的名称作为 [=规范化标识符字符串=]。
+     1. 如果供应商已知，则将 |adapter| 的供应商名称作为标准化标识字符串设置为 |adapterInfo|.{{GPUAdapterInfo/vendor}}。为了保护隐私，用户代理也可以将 |adapterInfo|.{{GPUAdapterInfo/vendor}} 设置为空字符串或供应商的合理近似作为标准化标识字符串。
 
-         否则：
+     1. 如果架构已知，则将代表 |adapter| 所属适配器系列或类别的标准化标识字符串设置为 |adapterInfo|.{{GPUAdapterInfo/architecture}}。为了保护隐私，用户代理也可以将 |adapterInfo|.{{GPUAdapterInfo/architecture}} 设置为空字符串或架构的合理近似作为标准化标识字符串。
 
-         1. 将 |adapterInfo|.{{GPUAdapterInfo/vendor}} 设置为空字符串或供应商的合理近似值 [=标准化标识符字符串=]。
+     1. 如果设备已知，则将代表 |adapter| 的供应商特定标识符的标准化标识字符串设置为 |adapterInfo|.{{GPUAdapterInfo/device}}。为了保护隐私，用户代理也可以将 |adapterInfo|.{{GPUAdapterInfo/device}} 设置为空字符串或供应商特定标识符的合理近似作为标准化标识字符串。
 
-     1. 如果 |unmaskedValues| [=set/contains=] `"architecture"` 架构是已知的：
-         1. 将 |adapterInfo|.{{GPUAdapterInfo/architecture}} 设置为 [=normalized identifier string=] 表示 |adapter| 所属的适配器系列或类别 属于。
-
-         否则：
-
-         1. 将 |adapterInfo|.{{GPUAdapterInfo/architecture}} 设置为空字符串或架构的合理近似值 [=规范化标识符字符串=]。
-
-     1. 如果 |unmaskedValues| [=set/contains=] `"device"` 并且设备是已知的：
-         1. 将 |adapterInfo|.{{GPUAdapterInfo/device}} 设置为 [=normalized identifier string=] 表示 |adapter| 的供应商特定标识符。
-
-         否则：
-
-         1. 将 |adapterInfo|.{{GPUAdapterInfo/device}} 设置为空字符串或供应商特定标识符的合理近似值 [=标准化标识符字符串=]。
-
-     1. 如果 |unmaskedValues| [=set/contains=] `"description"` 并且描述是已知的：
-         1. 将 |adapterInfo|.{{GPUAdapterInfo/description}} 设置为 |adapter| 的描述 据司机报告。
-
-         否则：
-
-         1. 将 |adapterInfo|.{{GPUAdapterInfo/description}} 设置为空字符串或描述的合理近似值。
+     1. 如果有可用的描述信息，则将驱动程序报告的 |adapter| 描述作为 |adapterInfo|.{{GPUAdapterInfo/description}} 设置。为了保护隐私，用户代理也可以将 |adapterInfo|.{{GPUAdapterInfo/description}} 设置为空字符串或描述的合理近似作为标准化标识字符串。
 
      1. 返回 |adapterInfo|。
 </div>
@@ -1669,7 +1646,7 @@ WebGPU 定义了一个名为 [=自动过期任务源=] 的新 [=任务源=]。
 
 来自[=自动过期任务源=]的任务**应该**被高优先级处理； 特别是，一旦排队，它们**应该**在用户定义的（JavaScript）任务之前运行。
 
-<div class=note>
+<div class=note heading>
      注：
      这种行为更可预测，并且这种严格性有助于开发人员通过急切地检测可能难以检测的关于隐式生命周期的错误假设来编写更具可移植性的应用程序。
      仍然强烈鼓励开发人员在多个实现中进行测试。
@@ -2060,7 +2037,7 @@ interface GPUAdapter {
     readonly attribute boolean isFallbackAdapter;
 
     Promise<GPUDevice> requestDevice(optional GPUDeviceDescriptor descriptor = {});
-    Promise<GPUAdapterInfo> requestAdapterInfo(optional sequence<DOMString> unmaskHints = []);
+    Promise<GPUAdapterInfo> requestAdapterInfo();
 };
 </script>
 
@@ -2188,16 +2165,10 @@ interface GPUAdapter {
     ::
         请求此 {{GPUAdapter}} 的 {{GPUAdapterInfo}}。
 
-         注：适配器信息值与 Promise 一起返回，使用户代理有机会在请求未屏蔽的值时执行可能长时间运行的检查，例如在返回前征求用户同意。 但是，如果未指定 `unmaskHints`，则不应向用户显示任何对话框。
+        注：适配器信息值以Promise形式返回，以便为用户代理提供在未来执行可能耗时的检查的机会。
         <div algorithm=GPUAdapter.requestAdapterInfo>
             <div data-timeline=content>
                 **Called on:** {{GPUAdapter}} |this|.
-
-                **Arguments:**
-
-                <pre class=argumentdef for="GPUAdapter/requestAdapterInfo()">
-                    |unmaskHints|: {{GPUAdapterInfo}} 属性名称列表，如果可用，需要未屏蔽值。
-                </pre>
 
                 **Returns:** {{Promise}}&lt;{{GPUAdapterInfo}}&gt;
 
@@ -2205,14 +2176,7 @@ interface GPUAdapter {
 
                 1. 使 |promise| 为 [=a new promise=].
                 1. 使 |adapter| 为 |this|.{{GPUAdapter/[[adapter]]}}.
-                1. 如果 |this| 的 [=relevant global object=] 具有 [=transient activation=]，使 |hasActivation| 为 `true`, 否则为 `false`。
                 1. 在 [=in parallel=] 上运行以下步骤：
-                    1. 如果 |unmaskHints|.length &gt; `0`:
-                        1. 如果 |hasActivation| 为 `false` 以一个 {{NotAllowedError}} [=拒绝=] |promise| 并停止此步骤。
-                        1. 让 |unmaskedKeys| 是 |unmaskHints| 中指定的用户代理决定取消屏蔽的字段的 [=list=]，如果有的话。
-
-                             注：用户代理可以自由使用它认为合适的任何方法来决定要取消屏蔽哪些字段。
-                        1. [=set/Append=] |unmaskedKeys| 为 |adapter|.{{adapter/[[unmaskedIdentifiers]]}}。
                     1. 以一个 [$new adapter info$] 对 |adapter| [=解析=] |promise|。
 
                 1. 返回 |promise|.
@@ -2285,6 +2249,25 @@ dictionary GPUDeviceDescriptor
 
         const gpuDevice = await gpuAdapter.requestDevice({
             requiredFeatures
+        });
+    </pre>
+</div>
+
+<div class=example>
+    请求一个具有更高{{supported limits/maxColorAttachmentBytesPerSample}}限制的{{GPUDevice}}:
+
+    <pre highlight=js>
+        const gpuAdapter = await navigator.gpu.requestAdapter();
+
+        if (gpuAdapter.limits.maxColorAttachmentBytesPerSample < 64) {
+            // When the desired limit isn't supported, take action to either fall back to a code
+            // path that does not require the higher limit or notify the user that their device
+            // does not meet minimum requirements.
+        }
+
+        // Request higher limit of max color attachments bytes per sample.
+        const gpuDevice = await gpuAdapter.requestDevice({
+            requiredLimits: { maxColorAttachmentBytesPerSample: 64 },
         });
     </pre>
 </div>
@@ -2633,7 +2616,7 @@ enum GPUBufferMapState {
              1. 让 |size| 为 |range|[1] - |range|[0]。
              1. 让 |data| 为 [=?=] [$CreateByteDataBlock$](|size|)。
 
-                <div class=note>
+                <div class=note heading>
                     注：
                     这可能会导致抛出 {{RangeError}}。
                      为了一致性和可预测性：
@@ -3421,7 +3404,7 @@ dictionary GPUTextureDescriptor
     ::
         指定在调用 {{GPUTexture/createView()}} 时允许的 {{GPUTextureViewDescriptor/format}} 值（除实际的 {{GPUTextureDescriptor/format}} 之外）。
 
-        <div class=note>
+        <div class=note heading>
         注：
             向该列表添加格式可能会对性能产生显著影响，因此最好避免不必要地添加格式。
 
@@ -3635,7 +3618,7 @@ namespace GPUTextureUsage {
         [$maximum mipLevel count$](|descriptor|.{{GPUTextureDescriptor/dimension}}, |descriptor|.{{GPUTextureDescriptor/size}})。
     - 如果 |descriptor|.{{GPUTextureDescriptor/usage}} 包含 {{GPUTextureUsage/RENDER_ATTACHMENT}} 位：
         - |descriptor|.{{GPUTextureDescriptor/format}} 必须为 [=renderable format=].
-        - |descriptor|.{{GPUTextureDescriptor/dimension}} 必须为 {{GPUTextureDimension/"2d"}}.
+        - |descriptor|.{{GPUTextureDescriptor/dimension}} 必须为 {{GPUTextureDimension/"2d"}} 或 {{GPUTextureDimension/"3d"}}.
     - 如果 |descriptor|.{{GPUTextureDescriptor/usage}} 包含 {{GPUTextureUsage/STORAGE_BINDING}} 位：
         - 必须在 [[#plain-color-formats]] 表中列出具有 {{GPUTextureUsage/STORAGE_BINDING}} 能力。
     - 对每个 |descriptor|.{{GPUTextureDescriptor/viewFormats}} 中的 |viewFormat|：
@@ -3891,7 +3874,7 @@ enum GPUTextureAspect {
     ::
         创建一个 {{GPUTextureView}}.
 
-        <div class=note>
+        <div class=note heading>
             注：
             默认情况下，{{GPUTexture/createView()}} 将创建一个可以表示整个纹理的维度视图。例如，在一个具有多个图层的 {{GPUTextureDimension/“2d”}} 纹理上调用 {{GPUTexture/createView()}} 而不指定 {{GPUTextureViewDescriptor/dimension}} 会创建一个 {{GPUTextureViewDimension/“2d-array”}} {{GPUTextureView}}，即使指定了 {{GPUTextureViewDescriptor/arrayLayerCount}} 为 1。
 
@@ -4219,7 +4202,7 @@ enum GPUTextureFormat {
 {{GPUTextureFormat/stencil8}} 这种格式可以分为两种：
 实际的"stencil8"，或者"depth24stencil8"，其中深度方面为隐藏且无法访问。
 
-<div class=note>
+<div class=note heading>
 注：
 虽然 depth32float 通道的精度严格高于 [=24-bit depth=] 通道的精度（在可表示范围（0.0到1.0）内的所有值），但请注意，可表示值集合并非严格的超集。
 
@@ -4293,7 +4276,7 @@ enum GPUTextureFormat {
 它们通过使用 {{GPUBindGroupLayoutEntry/externalTexture}} 绑定组布局条目成员绑定到绑定组布局中。
 外部纹理使用了多个绑定槽：请参阅 [=超过绑定槽限制=]。
 
-    <div class=note>
+    <div class=note heading>
         注：
         外部纹理可以在不创建导入源副本的情况下实现，
         但这取决于实现定义的因素。
@@ -5665,7 +5648,7 @@ dictionary GPUShaderModuleDescriptor
          : GPUObjectDescriptorBase {
     required USVString code;
     object sourceMap;
-    record<USVString, GPUShaderModuleCompilationHint> hints;
+    record<USVString, (GPUShaderModuleCompilationHint or sequence<GPUShaderModuleCompilationHint>)> hints;
 };
 </script>
 
@@ -5684,10 +5667,28 @@ dictionary GPUShaderModuleDescriptor
 
     : <dfn>hints</dfn>
     ::
-        如果定义了一个从着色器映射的入口点名称到一个 {{GPUShaderModuleCompilationHint}}。这些 {{GPUShaderModuleCompilationHint}} 上不执行任何验证。实现应该使用 {{GPUShaderModuleCompilationHint}} 中的任何信息来执行尽可能多的 {{GPUDevice/createShaderModule()}} 内的编译。入口点名称遵循 [=WGSL 标识符比较=] 中定义的规则。
+        如果存在，将一个着色器中的入口点名称与一个或多个{{GPUShaderModuleCompilationHint}}关联起来。
 
 
-        注：在 {{GPUShaderModuleDescriptor/hints}} 中提供信息没有任何可观察的效果，除了性能。因为一个单独的着色器模块可以容纳多个入口点，并且可以从一个着色器模块创建多个管线，因此在 {{GPUDevice/createShaderModule()}} 中一次性进行尽可能多的编译会比在多个调用 {{GPUDevice/createComputePipeline()}} / {{GPUDevice/createRenderPipeline()}} 中多次编译性能更高。
+        每个提示应提供关于将从入口点最终创建的管线的信息。
+        实现应使用{{GPUShaderModuleCompilationHint}}中存在的任何信息在{{GPUDevice/createShaderModule()}}中尽可能多地进行编译。
+        入口点名称遵循[=WGSL标识符比较=]中定义的规则。
+
+
+        除了类型检查之外，这些提示没有以任何方式进行验证。
+
+
+        <div class=note heading>
+            在{{GPUShaderModuleDescriptor/hints}}中提供信息除了性能之外不会有任何可观察的影响。为从未被创建的管线提供提示可能对性能有害。
+
+
+            因为一个着色器模块可以持有多个入口点，并且可以从一个着色器模块创建多个管线，所以在{{GPUDevice/createShaderModule()}}中进行尽可能多的编译可能比在多次调用{{GPUDevice/createComputePipeline()}}或{{GPUDevice/createRenderPipeline()}}中进行多次编译更具性能优势。
+
+        </div>
+
+
+        注：
+        提示没有以可观察的方式进行验证，但用户代理可能向开发人员暴露可识别的错误（例如未知的入口点名称或不兼容的管线布局），例如在浏览器开发者控制台中。
 </dl>
 
 <dl dfn-type=method dfn-for=GPUDevice>
@@ -5730,7 +5731,7 @@ dictionary GPUShaderModuleDescriptor
 
                 问题：描述剩余的 {{GPUDevice/createShaderModule()}} 验证和算法步骤。
 
-                <div class=note>
+                <div class=note heading>
                     注：
                     用户代理不应该在此处引发的验证错误的 {{GPUError/message}} 文本中包含详细的编译器错误消息或着色器文本：
                     这些细节可以通过 {{GPUShaderModule/getCompilationInfo()}} 访问。
@@ -5789,7 +5790,7 @@ dictionary GPUShaderModuleCompilationHint {
         如果设置为 {{GPUAutoLayoutMode/“auto”}}，则将使用与此提示关联的入口点的[$默认管线布局$]。
 </dl>
 
-<div class=note>
+<div class=note heading>
     注：
     如果可能，作者应该同时向 {{GPUDevice/createShaderModule()}} 和 {{GPUDevice/createComputePipeline()}} / {{GPUDevice/createRenderPipeline()}} 提供相同的信息。
 
@@ -7585,6 +7586,9 @@ dictionary GPUDepthStencilState {
         - |descriptor|.{{GPUDepthStencilState/format}} 必须要有一个 depth 分量。
     - 如果 |descriptor|.{{GPUDepthStencilState/stencilFront}} 或者 |descriptor|.{{GPUDepthStencilState/stencilBack}} 不是默认值：
         - |descriptor|.{{GPUDepthStencilState/format}} 必须要有一个 stencil 分量。
+    - 如果 |descriptor|.{{GPUDepthStencilState/format}} 具有深度组件：
+        - |descriptor|.{{GPUDepthStencilState/depthWriteEnabled}} 必须 [=map/exist|provided=]。
+        - |descriptor|.{{GPUDepthStencilState/depthCompare}} 必须 [=map/exist|provided=]。
 
 </div>
 
@@ -7808,6 +7812,7 @@ enum GPUVertexFormat {
     "sint32x2",
     "sint32x3",
     "sint32x4",
+    "unorm10-10-10-2",
 };
 </script>
 
@@ -8001,6 +8006,12 @@ enum GPUVertexFormat {
             <td>4
             <td>16
             <td><code>vec4&lt;i32&gt;</code>
+        <tr>
+            <td><dfn>"unorm10-10-10-2"</dfn>
+            <td>unsigned normalized
+            <td>4
+            <td>4
+            <td><code>vec4&lt;f32&gt;</code>
     </tbody>
 </table>
 
@@ -8404,9 +8415,10 @@ dictionary GPUCommandEncoderDescriptor
                 1. 如果以下任何要求未满足，则将 |pass| 设为 [=invalid=] 并返回。
                     <div class=validusage>
                         - 设备 |this| 上的 |descriptor| 必须满足 {{GPUObjectBase/[[device]]}} 提供的 [$GPURenderPassDescriptor/有效使用$] 规则。
+                        - 在 |descriptor| 中，{{GPURenderPassDescriptor/colorAttachments}} 中的附件集必须是两两不相交的。 即，没有两个附件可以引用相同的区域，如 {{GPURenderPassColorAttachment/view}} 的纹理子资源范围所定义的区域， 以及（对于 {{GPUTextureViewDimension/“3d”}} 附件）附件的 {{GPURenderPassColorAttachment/depthSlice}}。
                     </div>
-                1. 对于 |descriptor|.{{GPURenderPassDescriptor/colorAttachments}} 中的每个非“null” |colorAttachment|：
-                    1. 在渲染操作期间，由 |colorAttachment|.{{GPURenderPassColorAttachment/view}} 观察到的 [=纹理子资源=] 被视为用作 [=内部使用/附件=]。
+                1. 对于非null的descriptor中的每个纹理子资源，将其视为渲染通道期间的内部使用/附件。
+                    如果一个子资源被多次使用，只考虑它被使用一次。附件在上面的验证规则中已经检查了重叠。
                 1. 让 |depthStencilAttachment| 成为 |descriptor|.{{GPURenderPassDescriptor/depthStencilAttachment}}，如果没有 [=map/exist|provided=] 则为“null”。
                 1. 如果 |depthStencilAttachment| 不是 `null`：
                     1. 让 |depthStencilView| 成为 |depthStencilAttachment|.{{GPURenderPassDepthStencilAttachment/view}}。
@@ -9466,7 +9478,7 @@ GPUComputePassEncoder includes GPUBindingCommandsMixin;
                     |workgroupCountZ|: 要调度的工作组网格的Z维度。
                 </pre>
 
-                <div class=note>
+                <div class=note heading>
                     注意：
                     传递给 {{GPUComputePassEncoder/dispatchWorkgroups()}}
                     和 {{GPUComputePassEncoder/dispatchWorkgroupsIndirect()}} 的 `x`， `y`和 `z` 值是要为每个维度调度的工作组数， *而不是* 而不是要在每个维度上执行的着色器调用数。这与现代原生GPU API的行为相匹配，但与OpenCL的行为不同。
@@ -9844,6 +9856,7 @@ GPURenderPassEncoder includes GPURenderCommandsMixin;
 <script type=idl>
 dictionary GPURenderPassColorAttachment {
     required GPUTextureView view;
+    GPUIntegerCoordinate depthSlice;
     GPUTextureView resolveTarget;
 
     GPUColor clearValue;
@@ -9856,6 +9869,10 @@ dictionary GPURenderPassColorAttachment {
     : <dfn>view</dfn>
     ::
         描述将为此颜色附件输出到的[=纹理子资源=]的{{GPUTextureView}} 。
+
+    : <dfn>depthSlice</dfn>
+    ::
+        指将输出到该颜色附件的{{GPUTextureViewDimension/“3d”}} {{GPURenderPassColorAttachment/view}}的深度切片索引。
 
     : <dfn>resolveTarget</dfn>
     ::
@@ -9896,6 +9913,13 @@ dictionary GPURenderPassColorAttachment {
 
     - |renderViewDescriptor|.{{GPUTextureViewDescriptor/format}} 必须是 [=彩色可渲染格式=]。
     - |this|.{{GPURenderPassColorAttachment/view}} 必须是 [$可渲染的纹理视图$]。
+    - 如果| renderViewDescriptor | .{{GPUTextureViewDescriptor / dimension}}为{{GPUTextureViewDimension / “3d”}}：
+        - | this | .{{GPURenderPassColorAttachment / depthSlice}}必须[= map / exist |提供=]，并且必须
+            小于|renderViewDescriptor|中在层级|renderViewDescriptor|.{{GPUTextureViewDescriptor / baseMipLevel}}处
+            的|renderTexture| [=子资源=]的逻辑mip级别纹理范围的[= GPUExtent3D / depthOrArrayLayers =]。
+
+        否则：
+        - |this| .{{GPURenderPassColorAttachment / depthSlice}}不得[=映射/存在|被提供=]。
     - 如果 |this|.{{GPURenderPassColorAttachment/loadOp}} 是 {{GPULoadOp/"clear"}}:
         - 将IDL值t |this|.{{GPURenderPassColorAttachment/clearValue}}
             [$转换为纹理格式$] |renderViewDescriptor|.{{GPUTextureViewDescriptor/format}}
@@ -9920,7 +9944,7 @@ dictionary GPURenderPassColorAttachment {
 
     - |view|.{{GPUTextureView/[[texture]]}}.{{GPUTexture/usage}}
         必须包含 {{GPUTextureUsage/RENDER_ATTACHMENT}}.
-    - |descriptor|.{{GPUTextureViewDescriptor/dimension}} 必须是 {{GPUTextureViewDimension/"2d"}}.
+    - |descriptor|.{{GPUTextureViewDescriptor/dimension}} 必须是 {{GPUTextureViewDimension/"2d"}} 或 {{GPUTextureViewDimension/"3d"}}.
     - |descriptor|.{{GPUTextureViewDescriptor/mipLevelCount}} 必须是 1.
     - |descriptor|.{{GPUTextureViewDescriptor/arrayLayerCount}} 必须是 1.
     - |descriptor|.{{GPUTextureViewDescriptor/aspect}} 必须引用|view|.{{GPUTextureView/[[texture]]}}的所有 [=方面=] 。
@@ -11372,7 +11396,7 @@ GPUQueue includes GPUObjectBase;
                         - |dataOffset| + |contentsSize| &le; |dataSize|.
                         - |contentsSize|，转换为字节，是 4 字节的倍数。
                     </div>
-                1. 让 |dataContents| 成为 [=get a copy of the buffer source|a copy of the bytes held by the buffer source=]。
+                1. 让 |dataContents| 成为 [=get a copy of the buffer source|a copy of the bytes held by the buffer source=] |data|。
                 1. 让 |contents| 成为从 |dataOffset| 元素开始的 |dataContents| 的 |contentsSize| 元素。
                 1. 在 |this| 的 [=Device timeline=] 上发布后续步骤。
             </div>
@@ -11992,7 +12016,7 @@ interface GPUCanvasContext {
     ::
         获取下一个将由 {{GPUCanvasContext}} 合成到文档中的 {{GPUTexture}}。
 
-        <div class=note>
+        <div class=note heading>
             注意：
             应用程序应在渲染到画布纹理的同一任务中调用 {{GPUCanvasContext/getCurrentTexture()}}。
             否则，在应用程序完成对其进行渲染之前，纹理可能会被这些步骤销毁。
@@ -12100,7 +12124,7 @@ interface GPUCanvasContext {
     当从具有 {{GPUCanvasContext}} |context| 的 {{HTMLCanvasElement}} 或 {{OffscreenCanvas}} 读取 "位图(bitmap)" 时：
 
     1. 返回 |context| 的 [$get a copy of the image contents of a context|图像副本$]。
-        <div class=note>
+        <div class=note heading>
             注意：
             这种情况发生在许多地方，包括：
 
@@ -12380,7 +12404,7 @@ interface GPUError {
 
         注意：{{GPUError/message}} 应遵循 [=best practices for language and direction information=]。这包括利用可能出现的任何关于报告字符串语言和方向元数据的未来标准。
 
-        <p class="note editorial">Editorial:
+        <p class="note editorial"><span class=marker>Editorial note:</span>
         在撰写本文时，尚无可用的语言/方向建议，可与遗留 API 兼容并保持一致，但是当有时，请正式采用它。
 </dl>
 
@@ -12674,7 +12698,7 @@ partial interface GPUDevice {
     </pre>
 </div>
 
-<div class=note>
+<div class=note heading>
 注意：错误范围可以涵盖尽可能多的命令。错误范围覆盖的命令数量通常与应用程序对错误的响应行为相关。
 
 例如：一个只包含创建单个资源（如纹理或缓冲区）的错误范围可以用于检测失败情况，比如内存不足的情况，此时应用程序可以尝试释放一些资源并再次进行分配。
@@ -12750,7 +12774,7 @@ partial interface GPUDevice {
 
 ## Transfer ## {#transfer-operations}
 
-<p class="note editorial">Editorial: describe the transfers at the high level
+<p class="note editorial"><span class=marker>Editorial note:</span> describe the transfers at the high level
 
 ## 计算 ## {#computing-operations}
 
@@ -12759,7 +12783,7 @@ partial interface GPUDevice {
 - {{GPUComputePassEncoder/dispatchWorkgroups()}}
 - {{GPUComputePassEncoder/dispatchWorkgroupsIndirect()}}
 
-<p class="note editorial">Editorial: describe the computing algorithm
+<p class="note editorial"><span class=marker>Editorial note:</span> describe the computing algorithm
 
 如果着色器没有在合理的时间内 [=shader execution end|执行完毕=]，由用户代理决定，那么 [=device=] 可能会 [=lose the device|丢失设备=]。
 
@@ -12811,11 +12835,11 @@ partial interface GPUDevice {
 
         1. **处理深度/模板**。
 
-            <p class="note editorial">Editorial: fill out the section, using |fragments|
+            <p class="note editorial"><span class=marker>Editorial note:</span> fill out the section, using |fragments|
 
         1. **写入像素**。
 
-            <p class="note editorial">Editorial: fill out the section
+            <p class="note editorial"><span class=marker>Editorial note:</span> fill out the section
 </div>
 
 ### 解析索引 ### {#index-resolution}
@@ -12848,7 +12872,7 @@ partial interface GPUDevice {
 
     注意：在间接绘制调用的情况下，将从间接缓冲区而不是绘制命令本身读取 |drawCall| 的 `indexCount`、`vertexCount` 和其他属性。
 
-    <p class="note editorial">Editorial: specify indirect commands better.
+    <p class="note editorial"><span class=marker>Editorial note:</span> specify indirect commands better.
 </div>
 
 <div algorithm>
@@ -12983,7 +13007,7 @@ partial interface GPUDevice {
                 三角形基本体由 (|vl|.0, |vl|.1, |vl|.2)，然后 (|vl|.2, |vl|.1, |vl|.3)，然后 (|vl|.2, |vl|.3, |vl|.4)，然后 (|vl|.4, |vl|.3, |vl|.5)，等等组成。每个后续基本体占用 1 个顶点。
         </dl>
 
-        <p class="note editorial">Editorial: should this be defined more formally?
+        <p class="note editorial"><span class=marker>Editorial note:</span> should this be defined more formally?
 
         任何不完整的基本体都将被丢弃。
 </div>
@@ -13025,7 +13049,7 @@ partial interface GPUDevice {
     ::
         插值比率根据 [=clip position=] 的透视坐标进行调整，以便插值的结果在屏幕空间中是线性的。
 
-        <p class="note editorial">Editorial: provide more specifics here, if possible
+        <p class="note editorial"><span class=marker>Editorial note:</span> provide more specifics here, if possible
 
     : "perspective"
     ::
@@ -13035,7 +13059,7 @@ partial interface GPUDevice {
 
 </dl>
 
-<p class="note editorial">Editorial: link to interpolation qualifiers in WGSL
+<p class="note editorial"><span class=marker>Editorial note:</span> link to interpolation qualifiers in WGSL
 
 基本体剪裁的结果是一组新的基本体，这些基本体包含在 [=clip volume=] 内。
 
@@ -13092,7 +13116,7 @@ partial interface GPUDevice {
     :: 指的是 [[#barycentric-coordinates]]
 </dl>
 
-<p class="note editorial">Editorial: define the depth computation algorithm
+<p class="note editorial"><span class=marker>Editorial note:</span> define the depth computation algorithm
 
 <div algorithm>
     <dfn abstract-op>rasterize</dfn>(primitiveList, state)
@@ -13122,7 +13146,7 @@ partial interface GPUDevice {
 
     1. 让 |rasterizationPoints| 为空列表。
 
-        <p class="note editorial">Editorial: specify that each rasterization point gets assigned an interpolated `divisor(p)`,
+        <p class="note editorial"><span class=marker>Editorial note:</span> specify that each rasterization point gets assigned an interpolated `divisor(p)`,
         `framebufferCoords(n)`, `depth(n)`, as well as the other attributes.
 
     1. 根据 {{GPURenderPipelineDescriptor/primitive}}.{{GPUPrimitiveState/topology}}，使用特定的光栅化算法继续：
@@ -13157,7 +13181,7 @@ partial interface GPUDevice {
 
 #### 线光栅化 #### {#line-rasterization}
 
-<p class="note editorial">Editorial: fill out this section
+<p class="note editorial"><span class=marker>Editorial note:</span> fill out this section
 
 #### 重心坐标 #### {#barycentric-coordinates}
 
@@ -13250,7 +13274,7 @@ partial interface GPUDevice {
 
         1. 让 |d|<sub>|i|</sub> 成为 |v|<sub>|i|</sub> 的深度值。
 
-            <p class="note editorial">Editorial: define how this value is constructed.
+            <p class="note editorial"><span class=marker>Editorial note:</span> define how this value is constructed.
         1. 将 |rp|.[=RasterizationPoint/depth=] 设置为 &sum; (|b|<sub>|i|</sub> &times; |d|<sub>|i|</sub>)
         1. 将 |rp| 追加到 |rasterizationPoints|。
 
@@ -13304,7 +13328,7 @@ partial interface GPUDevice {
         1. 对于片段阶段的每个用户指定的 [=shader stage input=]：
             1. 让 |value| 成为基于 |rp|.[=RasterizationPoint/barycentricCoordinates=]、|rp|.[=RasterizationPoint/primitiveVertices=] 和输入上的 [=interpolation=] 限定符的插值片段输入。
 
-                <p class="note editorial">Editorial: describe the exact equations.
+                <p class="note editorial"><span class=marker>Editorial note:</span> describe the exact equations.
             1. 将相应的片段着色器 [=location=] 输入设置为 |value|。
         1. 调用由 |desc| 描述的片段着色器入口点。
 
@@ -13327,7 +13351,7 @@ partial interface GPUDevice {
 
 ### 输出合并 ### {#output-merging}
 
-<p class="note editorial">Editorial: fill out this section
+<p class="note editorial"><span class=marker>Editorial note:</span> fill out this section
 
 此阶段的深度输入（如果有）将被截断到当前 {{RenderState/[[viewport]]}} 深度范围（无论片段着色器阶段是否写入 `frag_depth` builtin）。
 
@@ -13350,7 +13374,7 @@ partial interface GPUDevice {
 
 ### 采样频率着色 ### {#sample-frequency-shading}
 
-<p class="note editorial">Editorial: fill out the section
+<p class="note editorial"><span class=marker>Editorial note:</span> fill out the section
 
 ### 采样遮掩 ### {#sample-masking}
 
@@ -14215,7 +14239,7 @@ typedef (sequence<GPUIntegerCoordinate> or GPUExtent3DDict) GPUExtent3D;
 深度方面的深度24plus格式（{{GPUTextureFormat/"depth24plus"}} 和 {{GPUTextureFormat/"depth24plus-stencil8"}}）具有不透明的表示（实现为 [=24-bit depth=] 或 {{GPUTextureFormat/"depth32float"}}）。
 因此，不允许使用这些格式进行深度方面的 [=image copies=]。
 
-<div class=note>
+<div class=note heading>
      注意：
     可以模仿这些不允许的复制：
 
