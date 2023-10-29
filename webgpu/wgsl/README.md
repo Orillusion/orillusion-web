@@ -1,5 +1,7 @@
 # WebGPU Shading Language Specification
 
+**For general instructions on building, see [CONTRIBUTING.md](../CONTRIBUTING.md).**
+
 ## Dependencies
 
 The following tools are used:
@@ -62,7 +64,3 @@ It will fail if it finds a conflict.
 
 Tree-sitter's JSON representation of the WGSL grammar is used as an input to this step,
 so this step will execute the Tree-sitter step if required.
-
-```bash
-pip3 install tree_sitter
-```

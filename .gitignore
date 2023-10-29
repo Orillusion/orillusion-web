@@ -21,6 +21,7 @@ yarn.lock
 /webgpu/**/index.html
 /webgpu/**/index.pre.html
 /webgpu/**/*.idl
+/webgpu/**/*.pre
 
 #editor
 .idea

@@ -1864,38 +1864,6 @@
     "named": false
   },
   {
-    "type": "/[rgba]/",
-    "named": false
-  },
-  {
-    "type": "/[rgba][rgba]/",
-    "named": false
-  },
-  {
-    "type": "/[rgba][rgba][rgba]/",
-    "named": false
-  },
-  {
-    "type": "/[rgba][rgba][rgba][rgba]/",
-    "named": false
-  },
-  {
-    "type": "/[xyzw]/",
-    "named": false
-  },
-  {
-    "type": "/[xyzw][xyzw]/",
-    "named": false
-  },
-  {
-    "type": "/[xyzw][xyzw][xyzw]/",
-    "named": false
-  },
-  {
-    "type": "/[xyzw][xyzw][xyzw][xyzw]/",
-    "named": false
-  },
-  {
     "type": ":",
     "named": false
   },
@@ -1913,14 +1881,6 @@
   },
   {
     "type": "@",
-    "named": false
-  },
-  {
-    "type": "NULL",
-    "named": false
-  },
-  {
-    "type": "Self",
     "named": false
   },
   {
@@ -1944,14 +1904,6 @@
     "named": false
   },
   {
-    "type": "abstract",
-    "named": false
-  },
-  {
-    "type": "active",
-    "named": false
-  },
-  {
     "type": "alias",
     "named": false
   },
@@ -1960,51 +1912,7 @@
     "named": false
   },
   {
-    "type": "alignas",
-    "named": false
-  },
-  {
-    "type": "alignof",
-    "named": false
-  },
-  {
-    "type": "as",
-    "named": false
-  },
-  {
-    "type": "asm",
-    "named": false
-  },
-  {
-    "type": "asm_fragment",
-    "named": false
-  },
-  {
-    "type": "async",
-    "named": false
-  },
-  {
-    "type": "attribute",
-    "named": false
-  },
-  {
-    "type": "auto",
-    "named": false
-  },
-  {
-    "type": "await",
-    "named": false
-  },
-  {
-    "type": "become",
-    "named": false
-  },
-  {
     "type": "binding",
-    "named": false
-  },
-  {
-    "type": "binding_array",
     "named": false
   },
   {
@@ -2020,55 +1928,7 @@
     "named": false
   },
   {
-    "type": "cast",
-    "named": false
-  },
-  {
-    "type": "catch",
-    "named": false
-  },
-  {
-    "type": "class",
-    "named": false
-  },
-  {
-    "type": "co_await",
-    "named": false
-  },
-  {
-    "type": "co_return",
-    "named": false
-  },
-  {
-    "type": "co_yield",
-    "named": false
-  },
-  {
-    "type": "coherent",
-    "named": false
-  },
-  {
-    "type": "column_major",
-    "named": false
-  },
-  {
-    "type": "common",
-    "named": false
-  },
-  {
-    "type": "compile",
-    "named": false
-  },
-  {
-    "type": "compile_fragment",
-    "named": false
-  },
-  {
     "type": "compute",
-    "named": false
-  },
-  {
-    "type": "concept",
     "named": false
   },
   {
@@ -2080,22 +1940,6 @@
     "named": false
   },
   {
-    "type": "const_cast",
-    "named": false
-  },
-  {
-    "type": "consteval",
-    "named": false
-  },
-  {
-    "type": "constexpr",
-    "named": false
-  },
-  {
-    "type": "constinit",
-    "named": false
-  },
-  {
     "type": "continue_statement",
     "named": true
   },
@@ -2104,31 +1948,7 @@
     "named": false
   },
   {
-    "type": "crate",
-    "named": false
-  },
-  {
-    "type": "debugger",
-    "named": false
-  },
-  {
-    "type": "decltype",
-    "named": false
-  },
-  {
     "type": "default",
-    "named": false
-  },
-  {
-    "type": "delete",
-    "named": false
-  },
-  {
-    "type": "demote",
-    "named": false
-  },
-  {
-    "type": "demote_to_helper",
     "named": false
   },
   {
@@ -2140,14 +1960,6 @@
     "named": false
   },
   {
-    "type": "do",
-    "named": false
-  },
-  {
-    "type": "dynamic_cast",
-    "named": false
-  },
-  {
     "type": "else",
     "named": false
   },
@@ -2156,51 +1968,11 @@
     "named": false
   },
   {
-    "type": "enum",
-    "named": false
-  },
-  {
     "type": "error",
     "named": false
   },
   {
-    "type": "explicit",
-    "named": false
-  },
-  {
-    "type": "export",
-    "named": false
-  },
-  {
-    "type": "extends",
-    "named": false
-  },
-  {
-    "type": "extern",
-    "named": false
-  },
-  {
-    "type": "external",
-    "named": false
-  },
-  {
-    "type": "fallthrough",
-    "named": false
-  },
-  {
     "type": "false",
-    "named": false
-  },
-  {
-    "type": "filter",
-    "named": false
-  },
-  {
-    "type": "final",
-    "named": false
-  },
-  {
-    "type": "finally",
     "named": false
   },
   {
@@ -2216,40 +1988,12 @@
     "named": false
   },
   {
-    "type": "friend",
-    "named": false
-  },
-  {
-    "type": "from",
-    "named": false
-  },
-  {
-    "type": "fxgroup",
-    "named": false
-  },
-  {
-    "type": "get",
-    "named": false
-  },
-  {
-    "type": "goto",
-    "named": false
-  },
-  {
     "type": "group",
-    "named": false
-  },
-  {
-    "type": "groupshared",
     "named": false
   },
   {
     "type": "hex_int_literal",
     "named": true
-  },
-  {
-    "type": "highp",
-    "named": false
   },
   {
     "type": "id",
@@ -2264,31 +2008,7 @@
     "named": false
   },
   {
-    "type": "impl",
-    "named": false
-  },
-  {
-    "type": "implements",
-    "named": false
-  },
-  {
-    "type": "import",
-    "named": false
-  },
-  {
     "type": "info",
-    "named": false
-  },
-  {
-    "type": "inline",
-    "named": false
-  },
-  {
-    "type": "instanceof",
-    "named": false
-  },
-  {
-    "type": "interface",
     "named": false
   },
   {
@@ -2297,10 +2017,6 @@
   },
   {
     "type": "invariant",
-    "named": false
-  },
-  {
-    "type": "layout",
     "named": false
   },
   {
@@ -2316,91 +2032,7 @@
     "named": false
   },
   {
-    "type": "lowp",
-    "named": false
-  },
-  {
-    "type": "macro",
-    "named": false
-  },
-  {
-    "type": "macro_rules",
-    "named": false
-  },
-  {
-    "type": "match",
-    "named": false
-  },
-  {
-    "type": "mediump",
-    "named": false
-  },
-  {
-    "type": "meta",
-    "named": false
-  },
-  {
-    "type": "mod",
-    "named": false
-  },
-  {
-    "type": "module",
-    "named": false
-  },
-  {
-    "type": "move",
-    "named": false
-  },
-  {
     "type": "must_use",
-    "named": false
-  },
-  {
-    "type": "mut",
-    "named": false
-  },
-  {
-    "type": "mutable",
-    "named": false
-  },
-  {
-    "type": "namespace",
-    "named": false
-  },
-  {
-    "type": "new",
-    "named": false
-  },
-  {
-    "type": "nil",
-    "named": false
-  },
-  {
-    "type": "noexcept",
-    "named": false
-  },
-  {
-    "type": "noinline",
-    "named": false
-  },
-  {
-    "type": "nointerpolation",
-    "named": false
-  },
-  {
-    "type": "noperspective",
-    "named": false
-  },
-  {
-    "type": "null",
-    "named": false
-  },
-  {
-    "type": "nullptr",
-    "named": false
-  },
-  {
-    "type": "of",
     "named": false
   },
   {
@@ -2408,87 +2040,7 @@
     "named": false
   },
   {
-    "type": "operator",
-    "named": false
-  },
-  {
     "type": "override",
-    "named": false
-  },
-  {
-    "type": "package",
-    "named": false
-  },
-  {
-    "type": "packoffset",
-    "named": false
-  },
-  {
-    "type": "partition",
-    "named": false
-  },
-  {
-    "type": "pass",
-    "named": false
-  },
-  {
-    "type": "patch",
-    "named": false
-  },
-  {
-    "type": "pixelfragment",
-    "named": false
-  },
-  {
-    "type": "precise",
-    "named": false
-  },
-  {
-    "type": "precision",
-    "named": false
-  },
-  {
-    "type": "premerge",
-    "named": false
-  },
-  {
-    "type": "priv",
-    "named": false
-  },
-  {
-    "type": "protected",
-    "named": false
-  },
-  {
-    "type": "pub",
-    "named": false
-  },
-  {
-    "type": "public",
-    "named": false
-  },
-  {
-    "type": "readonly",
-    "named": false
-  },
-  {
-    "type": "ref",
-    "named": false
-  },
-  {
-    "type": "regardless",
-    "named": false
-  },
-  {
-    "type": "register",
-    "named": false
-  },
-  {
-    "type": "reinterpret_cast",
-    "named": false
-  },
-  {
-    "type": "require",
     "named": false
   },
   {
@@ -2496,27 +2048,7 @@
     "named": false
   },
   {
-    "type": "resource",
-    "named": false
-  },
-  {
-    "type": "restrict",
-    "named": false
-  },
-  {
     "type": "return",
-    "named": false
-  },
-  {
-    "type": "self",
-    "named": false
-  },
-  {
-    "type": "set",
-    "named": false
-  },
-  {
-    "type": "shared",
     "named": false
   },
   {
@@ -2524,43 +2056,7 @@
     "named": false
   },
   {
-    "type": "sizeof",
-    "named": false
-  },
-  {
-    "type": "smooth",
-    "named": false
-  },
-  {
-    "type": "snorm",
-    "named": false
-  },
-  {
-    "type": "static",
-    "named": false
-  },
-  {
-    "type": "static_assert",
-    "named": false
-  },
-  {
-    "type": "static_cast",
-    "named": false
-  },
-  {
-    "type": "std",
-    "named": false
-  },
-  {
     "type": "struct",
-    "named": false
-  },
-  {
-    "type": "subroutine",
-    "named": false
-  },
-  {
-    "type": "super",
     "named": false
   },
   {
@@ -2568,83 +2064,7 @@
     "named": false
   },
   {
-    "type": "target",
-    "named": false
-  },
-  {
-    "type": "template",
-    "named": false
-  },
-  {
-    "type": "this",
-    "named": false
-  },
-  {
-    "type": "thread_local",
-    "named": false
-  },
-  {
-    "type": "throw",
-    "named": false
-  },
-  {
-    "type": "trait",
-    "named": false
-  },
-  {
     "type": "true",
-    "named": false
-  },
-  {
-    "type": "try",
-    "named": false
-  },
-  {
-    "type": "type",
-    "named": false
-  },
-  {
-    "type": "typedef",
-    "named": false
-  },
-  {
-    "type": "typeid",
-    "named": false
-  },
-  {
-    "type": "typename",
-    "named": false
-  },
-  {
-    "type": "typeof",
-    "named": false
-  },
-  {
-    "type": "union",
-    "named": false
-  },
-  {
-    "type": "unless",
-    "named": false
-  },
-  {
-    "type": "unorm",
-    "named": false
-  },
-  {
-    "type": "unsafe",
-    "named": false
-  },
-  {
-    "type": "unsized",
-    "named": false
-  },
-  {
-    "type": "use",
-    "named": false
-  },
-  {
-    "type": "using",
     "named": false
   },
   {
@@ -2652,19 +2072,7 @@
     "named": false
   },
   {
-    "type": "varying",
-    "named": false
-  },
-  {
     "type": "vertex",
-    "named": false
-  },
-  {
-    "type": "virtual",
-    "named": false
-  },
-  {
-    "type": "volatile",
     "named": false
   },
   {
@@ -2672,31 +2080,11 @@
     "named": false
   },
   {
-    "type": "wgsl",
-    "named": false
-  },
-  {
-    "type": "where",
-    "named": false
-  },
-  {
     "type": "while",
     "named": false
   },
   {
-    "type": "with",
-    "named": false
-  },
-  {
     "type": "workgroup_size",
-    "named": false
-  },
-  {
-    "type": "writeonly",
-    "named": false
-  },
-  {
-    "type": "yield",
     "named": false
   },
   {

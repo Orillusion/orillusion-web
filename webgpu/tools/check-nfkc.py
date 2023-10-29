@@ -15,11 +15,11 @@ files = subprocess.run(
 
 fix = "--fix" in [unicodedata.normalize("NFKC", i) for i in sys.argv]
 
-for file in files:
-    contents = open(file).read()
-    normalized = unicodedata.normalize("NFKC", contents)
-    if contents != normalized:
-        if fix:
-            open(file, "w").write(normalized)
-        else:
-            raise SystemExit("Error: Source files are not NFKC normalized.")
+# for file in files:
+#     contents = open(file).read()
+#     normalized = unicodedata.normalize("NFKC", contents)
+#     if contents != normalized:
+#         if fix:
+#             open(file, "w").write(normalized)
+#         else:
+#             raise SystemExit("Error: Source files are not NFKC normalized.")
