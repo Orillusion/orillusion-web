@@ -28,7 +28,7 @@ import * as Orillusion from '@orillusion/core'
 <!- 通过 unpkg 加载最新发布版本 ->
 <script src="https://unpkg.com/@orillusion/core/dist/orillusion.umd.js"></script>
 <!- 或加载指定版本 ->
-<script src="https://unpkg.com/@orillusion/core@0.6.x/dist/orillusion.umd.js"></script>
+<script src="https://unpkg.com/@orillusion/core@0.7.x/dist/orillusion.umd.js"></script>
 ```
 页面全局加载 `<script>`，`window` 对象中会引入一个全局 `Orillusion` 变量，直接使用即可：
 ```html
@@ -45,7 +45,7 @@ import * as Orillusion from '@orillusion/core'
   // 或从 unpkg.com 加载最新版本
   import { Engine3D, Camera3D } from "https://unpkg.com/@orillusion/core/dist/orillusion.es.js" 
   // 或加载指定版本 
-  import { Engine3D, Camera3D } from "https://unpkg.com/@orillusion/core@0.6.x/dist/orillusion.es.js" 
+  import { Engine3D, Camera3D } from "https://unpkg.com/@orillusion/core@0.7.x/dist/orillusion.es.js" 
 </script>
 ```
 

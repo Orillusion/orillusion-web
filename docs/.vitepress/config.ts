@@ -191,10 +191,10 @@ function nav() {
                     text: '教程',
                     link: '/guide/'
                 },
-                {
-                    text: '示例',
-                    link: '/example/Animation/CurveAnimation'
-                }
+                // {
+                //     text: '示例',
+                //     link: '/example/Animation/CurveAnimation'
+                // }
             ]
         },
         {
@@ -238,7 +238,7 @@ function nav() {
             link: 'https://forum.orillusion.com'
         },
         {
-            text: 'v0.6',
+            text: 'v0.7',
             items: [
                 {
                     text: '更新日志',

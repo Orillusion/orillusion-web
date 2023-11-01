@@ -21,12 +21,12 @@
         <script type="importmap">
             {
                 "imports": {
-                    "@orillusion/core": "https://unpkg.com/@orillusion/core@0.6.9/dist/orillusion.es.js",
-                    "@orillusion/physics": "https://unpkg.com/@orillusion/physics@0.2.0/dist/physics.es.js",
-                    "@orillusion/particle": "https://unpkg.com/@orillusion/particle@0.0.3/dist/particle.es.js",
-                    "@orillusion/stats": "https://unpkg.com/@orillusion/stats@0.2.0/dist/stats.es.js",
-                    "@orillusion/media-extention": "https://unpkg.com/@orillusion/media-extention@0.3.1/dist/media.es.js",
-                    "@orillusion/effect": "https://unpkg.com/@orillusion/effect@0.1.0/dist/effect.es.js",
+                    "@orillusion/core": "https://unpkg.com/@orillusion/core@0.7.0/dist/orillusion.es.js",
+                    "@orillusion/physics": "https://unpkg.com/@orillusion/physics@0.2.1/dist/physics.es.js",
+                    "@orillusion/particle": "https://unpkg.com/@orillusion/particle@0.1.0/dist/particle.es.js",
+                    "@orillusion/stats": "https://unpkg.com/@orillusion/stats@0.2.1/dist/stats.es.js",
+                    "@orillusion/media-extention": "https://unpkg.com/@orillusion/media-extention@0.3.3/dist/media.es.js",
+                    "@orillusion/effect": "https://unpkg.com/@orillusion/effect@0.1.1/dist/effect.es.js",
                     "dat.gui": "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js"
                 }
             }
@@ -56,7 +56,7 @@
                     /Engine3D\.startRenderView\((\S+)\)/,
                     `Engine3D.startRenderView($1);
                     window.postMessage("rendering");
-                    document.body.classList.remove('loading')
+                    setTimeout("document.body.classList.remove('loading')")
                     window.onmessage = e=>{
                         if(e.data === 'pause')
                             Engine3D.pause()
