@@ -47,11 +47,6 @@ class Sample_GTAO {
 
         {
             let mat = new LitMaterial()
-            mat.baseMap = Engine3D.res.grayTexture
-            mat.normalMap = Engine3D.res.normalTexture
-            mat.aoMap = Engine3D.res.whiteTexture
-            mat.maskMap = Engine3D.res.createTexture(32, 32, 255.0, 255.0, 0.0, 1)
-            mat.emissiveMap = Engine3D.res.blackTexture
             mat.roughness = 1.0
             mat.metallic = 0.0
 

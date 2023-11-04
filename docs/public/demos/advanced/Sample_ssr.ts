@@ -63,22 +63,12 @@ export class Sample_SSR {
 
     private async createPlane(scene: Scene3D) {
         let mat = new LitMaterial()
-        mat.baseMap = Engine3D.res.grayTexture
-        mat.normalMap = Engine3D.res.normalTexture
-        mat.aoMap = Engine3D.res.whiteTexture
-        mat.emissiveMap = Engine3D.res.blackTexture
         mat.roughness = 0.2
-        mat.roughness_max = 0.1
         mat.metallic = 0.5
 
         {
             let floorMaterial = new LitMaterial()
-            floorMaterial.baseMap = Engine3D.res.grayTexture
-            floorMaterial.normalMap = Engine3D.res.normalTexture
-            floorMaterial.aoMap = Engine3D.res.whiteTexture
-            floorMaterial.emissiveMap = Engine3D.res.blackTexture
             floorMaterial.roughness = 0.5
-            floorMaterial.roughness_max = 0.1
             floorMaterial.metallic = 0.5
 
             let planeGeometry = new PlaneGeometry(200, 200)
@@ -110,12 +100,7 @@ export class Sample_SSR {
             for (let i = 0; i < 10; i += 2) {
                 for (let j = 0; j < 10; j += 2) {
                     let rmMaterial = new LitMaterial()
-                    rmMaterial.baseMap = Engine3D.res.grayTexture
-                    rmMaterial.normalMap = Engine3D.res.normalTexture
-                    rmMaterial.aoMap = Engine3D.res.whiteTexture
-                    rmMaterial.emissiveMap = Engine3D.res.blackTexture
                     rmMaterial.roughness = j / 10
-                    rmMaterial.roughness_max = 1
                     rmMaterial.metallic = i / 10
 
                     let obj: Object3D = new Object3D()

@@ -59,14 +59,6 @@ class Sample_Bloom {
 
         {
             let mat = new LitMaterial()
-            mat.baseMap = Engine3D.res.grayTexture
-            mat.normalMap = Engine3D.res.normalTexture
-            mat.aoMap = Engine3D.res.whiteTexture
-            mat.maskMap = Engine3D.res.createTexture(32, 32, 255.0, 255.0, 0.0, 1)
-            mat.emissiveMap = Engine3D.res.blackTexture
-            mat.roughness = 1.5
-            mat.metallic = 0.0
-
             let floor = new Object3D()
             let mr = floor.addComponent(MeshRenderer)
             mr.geometry = new PlaneGeometry(400, 400)
