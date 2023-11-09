@@ -94,7 +94,40 @@ Engine3D.setting.shadow.type = 'HARD'; // 默认 PCF
 <<< @/public/demos/graphics/shadow_type.ts
 
 ## 阴影大小
-TODO
+引擎的 `setting` 提供了对阴影大小的控制参数，可以通过参数控制不同场景下阴影所使用的纹理大小和区域大小。
+
+相关属性如下：
+| 属性 | 类型 | 说明 |
+| --- | --- | --- |
+| shadowBound | Number | 阴影区域范围 |
+| shadowSize | Number | 平行光阴影贴图尺寸大小，默认1024 |
+| pointShadowSize | Number | 点光源阴影贴图大小尺寸，默认1024 |
+
+阴影贴图尺寸大小(`shadowSize`、`pointShadowSize`)直接影响最终阴影质量，且数值越小性能开销越低，并且阴影锯齿感越明显。
+
+`shadowBound` 参数控制场景中受照阴影区域大小，区域越大，阴影贴图尺寸也应适当增大，当大区域投射在小阴影贴图上时，也会导致很明显的阴影锯齿。
+```ts
+Engine3D.setting.shadow.shadowBound = 100
+```
+
+设置平行光阴影贴图尺寸大小：
+```ts
+Engine3D.setting.shadow.shadowSize = 2048
+```
+<Demo :height="500" src="/demos/graphics/shadow_size.ts"></Demo>
+
+<<< @/public/demos/graphics/shadow_size.ts
+
+
+设置点光源阴影贴图大小尺寸：
+```ts
+Engine3D.setting.shadow.pointShadowSize = 2048
+```
+
+<Demo :height="500" src="/demos/graphics/shadow_size_point.ts"></Demo>
+
+<<< @/public/demos/graphics/shadow_size_point.ts
+
 
 ## 联级阴影贴图(Cascaded Shadow Maps)
 常用于支持大场景中更好的阴影渲染那效果，将视锥内阴影按四个等级进行划分，在着色处理阴影的阶段根据当前所处阴影等级选择合适的阴影贴图，能够获得更加精确、覆盖全视锥体范围的阴影效果。使用了CSM阴影后，能够解决阴影Bound范围过大，阴影的像素密度不够导致马赛克化过于严重；Bound范围小、阴影区域过小，远处的物体丢失阴影的问题。
