@@ -405,7 +405,7 @@ function sidebarGuide(): SidebarItem {
                             link: '/guide/advanced/shader/shader_include.md'
                         },
                         {
-                            text: '代码宏',
+                            text: '着色器宏定义',
                             link: '/guide/advanced/shader/shader_define.md'
                         },
                         {

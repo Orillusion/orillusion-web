@@ -1,8 +1,8 @@
-import { ComponentBase, MaterialBase, Vector4, MeshRenderer, Time } from "@orillusion/core";
+import { ComponentBase, Material, Vector4, MeshRenderer, Time } from "@orillusion/core";
 
 export class UVMoveComponent extends ComponentBase {
 
-    private _material: MaterialBase;
+    private _material: Material;
     private readonly _speed: Vector4 = new Vector4(0.1, 0.1, 1, 1);
 
     public get speed(): Vector4 {

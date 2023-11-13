@@ -13,18 +13,40 @@
 ShaderLib.register('vsCode', '....')
 ShaderLib.register('fsCode', '....')
 
-class shader1 extends MaterialBase{
+class shader1 extends Material{
     constructor() {
-        let renderShader = this.setShader('vsCode','fsCode');
-        //通过定义 USE_LIGHT 加载灯光模块
-        renderShader.setDefine(`USE_LIGHT`, true);
+        super();
+        // 创建RenderShaderPass实例
+        let renderShader = new RenderShaderPass('vsCode','fsCode');
+
+        // 创建材质Shader实例
+        let shader = new Shader();
+        // 添加RenderShaderPass实例
+        shader.addRenderPass(renderShader);
+
+        // 通过定义 USE_LIGHT 加载灯光模块
+        shader.setDefine("USE_LIGHT", true);
+
+        // 将材质Shader实例关联到当前材质对象上
+        this.shader = shader;
     }
 }
-class shader2 extends MaterialBase{
+class shader2 extends Material{
     constructor() {
-        let renderShader = this.setShader('vsCode','fsCode');
+        super();
+        // 创建RenderShaderPass实例
+        let renderShader = new RenderShaderPass('vsCode','fsCode');
+
+        // 创建材质Shader实例
+        let shader = new Shader();
+        // 添加RenderShaderPass实例
+        shader.addRenderPass(renderShader);
+
         //通过定义 USE_LIGHT 加载其他模块
-        renderShader.setDefine(`USE_LIGHT`, false);
+        shader.setDefine("USE_LIGHT", false);
+
+        // 将材质Shader实例关联到当前材质对象上
+        this.shader = shader;
     }
 }
 ```

@@ -2,9 +2,9 @@
 本篇将以引擎内置的 `UnlitMaterial` 为例，介绍如何创建一个材质球。
 
 ## 创建材质球
-通过继承 `MaterialBase` 创建新的 `UnLitMaterial`。
+通过继承 `Material` 创建新的 `UnLitMaterial`。
 ```ts
-export class UnLitMaterial extends MaterialBase {
+export class UnLitMaterial extends Material {
     constructor() {
         super();
         //...
