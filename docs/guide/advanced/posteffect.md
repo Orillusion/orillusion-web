@@ -14,3 +14,4 @@ aside: false
 | [Bloom](./post_bloom) | HDR 泛光  |
 | [GTAO](./post_gtao) | 环境光遮蔽  |
 | [TAAPost](./post_taa) | 反走样  |
+| [GodRay](./post_godRay) | 上帝射线  |

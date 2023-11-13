@@ -454,7 +454,8 @@ function sidebarGuide(): SidebarItem {
                             text: 'GTAOPost',
                             link: '/guide/advanced/post_gtao.md'
                         },
-                        { text: 'TAAPost', link: '/guide/advanced/post_taa.md' }
+                        { text: 'TAAPost', link: '/guide/advanced/post_taa.md' },
+                        { text: 'GodRayPost', link: '/guide/advanced/post_godRay.md' }
                     ]
                 },
                 { text: '全局光照', link: '/guide/advanced/gi.md' }
