@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@orillusion/core': 0.7.1-dev
+  '@orillusion/core': 0.7.1
   '@orillusion/media-extention': ^0.3.3
   '@orillusion/particle': ^0.1.0
   '@orillusion/physics': ^0.2.1
@@ -14,7 +14,7 @@ specifiers:
   vue: ^3.3.7
 
 devDependencies:
-  '@orillusion/core': 0.7.1-dev
+  '@orillusion/core': 0.7.1
   '@orillusion/media-extention': 0.3.3
   '@orillusion/particle': 0.1.0
   '@orillusion/physics': 0.2.1
@@ -641,37 +641,33 @@ packages:
     resolution: {integrity: sha512-5zjxCQq8FKQihxh8ZWI5ASelTaIz/QUino5HISOWWvpwXrYtzwptDA8MuQonASseQwo1WkWu+jmuNMdusdNuww==}
     dev: true
 
-  /@orillusion/core/0.7.0:
-    resolution: {integrity: sha512-BT+425vB7tVuyRjkTtJhdBzbWW/F0uYLSx0fxgSdHbK2vzMSVgjwUfv+DgnhCauzRx396DJR63T4shWreKU7Gw==}
-    dev: true
-
-  /@orillusion/core/0.7.1-dev:
-    resolution: {integrity: sha512-XU4tcKM8e89rkUqN1yvQVhVhUacNXADkiVH3ZL37x3uoSomsOmrDmn9VTlYQX0MbiFl/eNjW69VEpMtBSB+ddA==}
+  /@orillusion/core/0.7.1:
+    resolution: {integrity: sha512-NgCKoOpK0NX+PoyVRhHLMsMCFkM9W3aoMwSA1ZjH5mpL2OpxZAiOe6/GMVLPyDmFnmnMDcV2MaBkmSf33n1oyw==}
     dev: true
 
   /@orillusion/media-extention/0.3.3:
     resolution: {integrity: sha512-TfU5OU9tbJ9K9u7HwqzVtm9bxHr0QRetiR76g68Mk5J85yD+X4PydYVrf8cZWp4oaP0K/jVCu+z0IMax+qwGog==}
     dependencies:
-      '@orillusion/core': 0.7.0
+      '@orillusion/core': 0.7.1
     dev: true
 
   /@orillusion/particle/0.1.0:
     resolution: {integrity: sha512-dax6gyY2Ca4HDvBC6PCI31Bw9odxH+ndf59ESkA0u9n1jTMSagTqK9UBdhVDl4ykOuQz4uac4QA2iYVpKn9DlA==}
     dependencies:
-      '@orillusion/core': 0.7.0
+      '@orillusion/core': 0.7.1
     dev: true
 
   /@orillusion/physics/0.2.1:
     resolution: {integrity: sha512-D2VXDQSJR9cR7d3PGvn6nngqTYGg9AKiZGGxoN2iBb1db2KhiNC3o8WOOv/B/NnLSdjOhqUHk8JhufQlHHsHPA==}
     dependencies:
       '@orillusion/ammo': 0.1.1
-      '@orillusion/core': 0.7.0
+      '@orillusion/core': 0.7.1
     dev: true
 
   /@orillusion/stats/0.2.1:
     resolution: {integrity: sha512-ibbTUcTzxmQFZuD7azLdZw+DUyMZBSEdk1ltuj5w1FsaQdHzEHQhPVA01yezVxcZ/SV35xW0HSK4GK5+93PKuQ==}
     dependencies:
-      '@orillusion/core': 0.7.0
+      '@orillusion/core': 0.7.1
     dev: true
 
   /@types/dat.gui/0.7.11:
