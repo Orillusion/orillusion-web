@@ -6,6 +6,8 @@ Engine3D.setting.shadow.autoUpdate = true
 Engine3D.setting.shadow.shadowBound = sessionStorage._shadowBound || 100
 Engine3D.setting.shadow.type = 'HARD'
 Engine3D.setting.shadow.pointShadowSize = sessionStorage._pointShadowSize || 512
+Engine3D.setting.shadow.pointShadowBias = 0.0001
+
 
 await Engine3D.init({
     canvasConfig: { devicePixelRatio: 1 }
@@ -18,7 +20,7 @@ let controller = cameraObj.addComponent(HoverCameraController)
 controller.setCamera(-45, -45, 50, new Vector3(0, 0, 0))
 scene3D.addChild(cameraObj)
 
-//DirectLight
+//PointLight
 {
     let obj = new Object3D()
     obj.y = 50;

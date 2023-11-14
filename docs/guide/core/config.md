@@ -8,6 +8,8 @@
 ```ts
 // 最大灯光数量
 Engine3D.setting.light.maxLight = 1024;
+// 启动对数深度
+Engine3D.setting.render.useLogDepth = true;
 // 先配置，后初始化
 await Engine3D.init();
 ```
