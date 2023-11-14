@@ -12,6 +12,9 @@
 
   ↳↳ [`btCylinderShapeZ`](Ammo.btCylinderShapeZ.md)
 
+### Constructors
+
+- [constructor](Ammo.btCylinderShape.md#constructor)
 
 ### Methods
 
@@ -21,9 +24,25 @@
 - [setMargin](Ammo.btCylinderShape.md#setmargin)
 - [getMargin](Ammo.btCylinderShape.md#getmargin)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.btCylinderShape.md#constructor)
+### constructor
+
+• **new btCylinderShape**(`halfExtents`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `halfExtents` | [`btVector3`](Ammo.btVector3.md) |
+
+#### Overrides
+
+[btCollisionShape](Ammo.btCollisionShape.md).[constructor](Ammo.btCollisionShape.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:301](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L301)
 
 ## Methods
 
@@ -133,23 +152,3 @@ ___
 #### Defined in
 
 [packages/ammo/ammo.d.ts:303](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L303)
-
-## Constructors
-
-### constructor
-
-• **new btCylinderShape**(`halfExtents`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `halfExtents` | [`btVector3`](Ammo.btVector3.md) |
-
-#### Overrides
-
-[btCollisionShape](Ammo.btCollisionShape.md).[constructor](Ammo.btCollisionShape.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:301](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L301)

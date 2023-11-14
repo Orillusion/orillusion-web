@@ -8,6 +8,9 @@
 
   ↳ **`btQuaternion`**
 
+### Constructors
+
+- [constructor](Ammo.btQuaternion.md#constructor)
 
 ### Methods
 
@@ -39,9 +42,28 @@
 - [op\_mulq](Ammo.btQuaternion.md#op_mulq)
 - [op\_div](Ammo.btQuaternion.md#op_div)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.btQuaternion.md#constructor)
+### constructor
+
+• **new btQuaternion**(`x`, `y`, `z`, `w`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `x` | `number` |
+| `y` | `number` |
+| `z` | `number` |
+| `w` | `number` |
+
+#### Overrides
+
+[btQuadWord](Ammo.btQuadWord.md).[constructor](Ammo.btQuadWord.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:74](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L74)
 
 ## Methods
 
@@ -548,26 +570,3 @@ ___
 #### Defined in
 
 [packages/ammo/ammo.d.ts:93](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L93)
-
-## Constructors
-
-### constructor
-
-• **new btQuaternion**(`x`, `y`, `z`, `w`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `x` | `number` |
-| `y` | `number` |
-| `z` | `number` |
-| `w` | `number` |
-
-#### Overrides
-
-[btQuadWord](Ammo.btQuadWord.md).[constructor](Ammo.btQuadWord.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:74](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L74)

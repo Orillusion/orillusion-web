@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).btVehicleTuning
 
-
 ### Constructors
 
 - [constructor](Ammo.btVehicleTuning.md#constructor)

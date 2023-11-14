@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).DebugDrawer
 
-
 ### Constructors
 
 - [constructor](Ammo.DebugDrawer.md#constructor)

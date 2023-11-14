@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).btWheelInfoConstructionInfo
 
-
 ### Constructors
 
 - [constructor](Ammo.btWheelInfoConstructionInfo.md#constructor)

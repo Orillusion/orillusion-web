@@ -26,7 +26,6 @@
 
   ↳ [`btConcaveShape`](Ammo.btConcaveShape.md)
 
-
 ### Constructors
 
 - [constructor](Ammo.btCollisionShape.md#constructor)

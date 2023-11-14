@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).Material
 
-
 ### Constructors
 
 - [constructor](Ammo.Material.md#constructor)

@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).btSoftBodyHelpers
 
-
 ### Constructors
 
 - [constructor](Ammo.btSoftBodyHelpers.md#constructor)

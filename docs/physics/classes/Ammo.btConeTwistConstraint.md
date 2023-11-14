@@ -8,6 +8,9 @@
 
   ↳ **`btConeTwistConstraint`**
 
+### Constructors
+
+- [constructor](Ammo.btConeTwistConstraint.md#constructor)
 
 ### Methods
 
@@ -25,9 +28,45 @@
 - [setMotorTarget](Ammo.btConeTwistConstraint.md#setmotortarget)
 - [setMotorTargetInConstraintSpace](Ammo.btConeTwistConstraint.md#setmotortargetinconstraintspace)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.btConeTwistConstraint.md#constructor)
+### constructor
+
+• **new btConeTwistConstraint**(`rbA`, `rbB`, `rbAFrame`, `rbBFrame`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `rbA` | [`btRigidBody`](Ammo.btRigidBody.md) |
+| `rbB` | [`btRigidBody`](Ammo.btRigidBody.md) |
+| `rbAFrame` | [`btTransform`](Ammo.btTransform.md) |
+| `rbBFrame` | [`btTransform`](Ammo.btTransform.md) |
+
+#### Overrides
+
+[btTypedConstraint](Ammo.btTypedConstraint.md).[constructor](Ammo.btTypedConstraint.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:572](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L572)
+
+• **new btConeTwistConstraint**(`rbA`, `rbAFrame`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `rbA` | [`btRigidBody`](Ammo.btRigidBody.md) |
+| `rbAFrame` | [`btTransform`](Ammo.btTransform.md) |
+
+#### Overrides
+
+btTypedConstraint.constructor
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:573](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L573)
 
 ## Methods
 
@@ -306,43 +345,3 @@ ___
 #### Defined in
 
 [packages/ammo/ammo.d.ts:581](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L581)
-
-## Constructors
-
-### constructor
-
-• **new btConeTwistConstraint**(`rbA`, `rbB`, `rbAFrame`, `rbBFrame`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `rbA` | [`btRigidBody`](Ammo.btRigidBody.md) |
-| `rbB` | [`btRigidBody`](Ammo.btRigidBody.md) |
-| `rbAFrame` | [`btTransform`](Ammo.btTransform.md) |
-| `rbBFrame` | [`btTransform`](Ammo.btTransform.md) |
-
-#### Overrides
-
-[btTypedConstraint](Ammo.btTypedConstraint.md).[constructor](Ammo.btTypedConstraint.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:572](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L572)
-
-• **new btConeTwistConstraint**(`rbA`, `rbAFrame`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `rbA` | [`btRigidBody`](Ammo.btRigidBody.md) |
-| `rbAFrame` | [`btTransform`](Ammo.btTransform.md) |
-
-#### Overrides
-
-btTypedConstraint.constructor
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:573](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L573)

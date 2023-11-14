@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).btConstraintSolver
 
-
 ### Constructors
 
 - [constructor](Ammo.btConstraintSolver.md#constructor)

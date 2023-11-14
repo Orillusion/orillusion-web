@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).btConstraintSetting
 
-
 ### Constructors
 
 - [constructor](Ammo.btConstraintSetting.md#constructor)

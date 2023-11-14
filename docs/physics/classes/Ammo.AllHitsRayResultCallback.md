@@ -8,6 +8,9 @@
 
   ↳ **`AllHitsRayResultCallback`**
 
+### Constructors
+
+- [constructor](Ammo.AllHitsRayResultCallback.md#constructor)
 
 ### Methods
 
@@ -33,9 +36,26 @@
 - [get\_m\_hitFractions](Ammo.AllHitsRayResultCallback.md#get_m_hitfractions)
 - [set\_m\_hitFractions](Ammo.AllHitsRayResultCallback.md#set_m_hitfractions)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.AllHitsRayResultCallback.md#constructor)
+### constructor
+
+• **new AllHitsRayResultCallback**(`from`, `to`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `from` | [`btVector3`](Ammo.btVector3.md) |
+| `to` | [`btVector3`](Ammo.btVector3.md) |
+
+#### Overrides
+
+[RayResultCallback](Ammo.RayResultCallback.md).[constructor](Ammo.RayResultCallback.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:188](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L188)
 
 ## Methods
 
@@ -426,24 +446,3 @@ ___
 #### Defined in
 
 [packages/ammo/ammo.d.ts:200](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L200)
-
-## Constructors
-
-### constructor
-
-• **new AllHitsRayResultCallback**(`from`, `to`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `from` | [`btVector3`](Ammo.btVector3.md) |
-| `to` | [`btVector3`](Ammo.btVector3.md) |
-
-#### Overrides
-
-[RayResultCallback](Ammo.RayResultCallback.md).[constructor](Ammo.RayResultCallback.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:188](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L188)

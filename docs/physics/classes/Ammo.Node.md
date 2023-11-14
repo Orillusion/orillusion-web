@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).Node
 
-
 ### Constructors
 
 - [constructor](Ammo.Node.md#constructor)

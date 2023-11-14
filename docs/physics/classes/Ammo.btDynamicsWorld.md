@@ -10,7 +10,6 @@
 
   ↳↳ [`btDiscreteDynamicsWorld`](Ammo.btDiscreteDynamicsWorld.md)
 
-
 ### Constructors
 
 - [constructor](Ammo.btDynamicsWorld.md#constructor)

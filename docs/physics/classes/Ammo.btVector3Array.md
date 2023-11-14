@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).btVector3Array
 
-
 ### Constructors
 
 - [constructor](Ammo.btVector3Array.md#constructor)

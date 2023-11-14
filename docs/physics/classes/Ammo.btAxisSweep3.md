@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).btAxisSweep3
 
-
 ### Constructors
 
 - [constructor](Ammo.btAxisSweep3.md#constructor)

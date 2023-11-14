@@ -2,23 +2,6 @@
 
 Ammo.js by Bullet2
 
-### Functions
-
-- [destroy](../functions/Ammo.destroy.md)
-- [\_malloc](../functions/Ammo._malloc.md)
-- [\_free](../functions/Ammo._free.md)
-
-### Variables
-
-- [HEAP8](../variables/Ammo.HEAP8.md)
-- [HEAP16](../variables/Ammo.HEAP16.md)
-- [HEAP32](../variables/Ammo.HEAP32.md)
-- [HEAPU8](../variables/Ammo.HEAPU8.md)
-- [HEAPU16](../variables/Ammo.HEAPU16.md)
-- [HEAPU32](../variables/Ammo.HEAPU32.md)
-- [HEAPF32](../variables/Ammo.HEAPF32.md)
-- [HEAPF64](../variables/Ammo.HEAPF64.md)
-
 ### Classes
 
 - [btIDebugDraw](../classes/Ammo.btIDebugDraw.md)
@@ -144,3 +127,20 @@ Ammo.js by Bullet2
 - [PHY\_ScalarType](../types/Ammo.PHY_ScalarType.md)
 - [btConstraintParams](../types/Ammo.btConstraintParams.md)
 - [btInternalTickCallback](../types/Ammo.btInternalTickCallback.md)
+
+### Variables
+
+- [HEAP8](../variables/Ammo.HEAP8.md)
+- [HEAP16](../variables/Ammo.HEAP16.md)
+- [HEAP32](../variables/Ammo.HEAP32.md)
+- [HEAPU8](../variables/Ammo.HEAPU8.md)
+- [HEAPU16](../variables/Ammo.HEAPU16.md)
+- [HEAPU32](../variables/Ammo.HEAPU32.md)
+- [HEAPF32](../variables/Ammo.HEAPF32.md)
+- [HEAPF64](../variables/Ammo.HEAPF64.md)
+
+### Functions
+
+- [destroy](../functions/Ammo.destroy.md)
+- [\_malloc](../functions/Ammo._malloc.md)
+- [\_free](../functions/Ammo._free.md)

@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).btDefaultCollisionConstructionInfo
 
-
 ### Constructors
 
 - [constructor](Ammo.btDefaultCollisionConstructionInfo.md#constructor)

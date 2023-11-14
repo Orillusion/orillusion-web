@@ -8,6 +8,9 @@
 
   ↳ **`ClosestRayResultCallback`**
 
+### Constructors
+
+- [constructor](Ammo.ClosestRayResultCallback.md#constructor)
 
 ### Methods
 
@@ -29,9 +32,26 @@
 - [get\_m\_hitPointWorld](Ammo.ClosestRayResultCallback.md#get_m_hitpointworld)
 - [set\_m\_hitPointWorld](Ammo.ClosestRayResultCallback.md#set_m_hitpointworld)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.ClosestRayResultCallback.md#constructor)
+### constructor
+
+• **new ClosestRayResultCallback**(`from`, `to`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `from` | [`btVector3`](Ammo.btVector3.md) |
+| `to` | [`btVector3`](Ammo.btVector3.md) |
+
+#### Overrides
+
+[RayResultCallback](Ammo.RayResultCallback.md).[constructor](Ammo.RayResultCallback.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:169](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L169)
 
 ## Methods
 
@@ -354,24 +374,3 @@ ___
 #### Defined in
 
 [packages/ammo/ammo.d.ts:177](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L177)
-
-## Constructors
-
-### constructor
-
-• **new ClosestRayResultCallback**(`from`, `to`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `from` | [`btVector3`](Ammo.btVector3.md) |
-| `to` | [`btVector3`](Ammo.btVector3.md) |
-
-#### Overrides
-
-[RayResultCallback](Ammo.RayResultCallback.md).[constructor](Ammo.RayResultCallback.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:169](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L169)

@@ -8,7 +8,6 @@
 
   ↳ [`btVector4`](Ammo.btVector4.md)
 
-
 ### Constructors
 
 - [constructor](Ammo.btVector3.md#constructor)

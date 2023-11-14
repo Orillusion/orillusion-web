@@ -12,6 +12,9 @@
 
   ↳↳ [`btCapsuleShapeZ`](Ammo.btCapsuleShapeZ.md)
 
+### Constructors
+
+- [constructor](Ammo.btCapsuleShape.md#constructor)
 
 ### Methods
 
@@ -24,9 +27,26 @@
 - [getRadius](Ammo.btCapsuleShape.md#getradius)
 - [getHalfHeight](Ammo.btCapsuleShape.md#gethalfheight)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.btCapsuleShape.md#constructor)
+### constructor
+
+• **new btCapsuleShape**(`radius`, `height`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `radius` | `number` |
+| `height` | `number` |
+
+#### Overrides
+
+[btCollisionShape](Ammo.btCollisionShape.md).[constructor](Ammo.btCollisionShape.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:283](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L283)
 
 ## Methods
 
@@ -178,24 +198,3 @@ ___
 #### Defined in
 
 [packages/ammo/ammo.d.ts:288](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L288)
-
-## Constructors
-
-### constructor
-
-• **new btCapsuleShape**(`radius`, `height`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `radius` | `number` |
-| `height` | `number` |
-
-#### Overrides
-
-[btCollisionShape](Ammo.btCollisionShape.md).[constructor](Ammo.btCollisionShape.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:283](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L283)

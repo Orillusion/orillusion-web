@@ -8,6 +8,9 @@
 
   ↳ **`btMultiSphereShape`**
 
+### Constructors
+
+- [constructor](Ammo.btMultiSphereShape.md#constructor)
 
 ### Methods
 
@@ -17,9 +20,27 @@
 - [setMargin](Ammo.btMultiSphereShape.md#setmargin)
 - [getMargin](Ammo.btMultiSphereShape.md#getmargin)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.btMultiSphereShape.md#constructor)
+### constructor
+
+• **new btMultiSphereShape**(`positions`, `radii`, `numPoints`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `positions` | [`btVector3`](Ammo.btVector3.md) |
+| `radii` | readonly `number`[] |
+| `numPoints` | `number` |
+
+#### Overrides
+
+[btCollisionShape](Ammo.btCollisionShape.md).[constructor](Ammo.btCollisionShape.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:321](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L321)
 
 ## Methods
 
@@ -129,25 +150,3 @@ ___
 #### Defined in
 
 [packages/ammo/ammo.d.ts:271](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L271)
-
-## Constructors
-
-### constructor
-
-• **new btMultiSphereShape**(`positions`, `radii`, `numPoints`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `positions` | [`btVector3`](Ammo.btVector3.md) |
-| `radii` | readonly `number`[] |
-| `numPoints` | `number` |
-
-#### Overrides
-
-[btCollisionShape](Ammo.btCollisionShape.md).[constructor](Ammo.btCollisionShape.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:321](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L321)

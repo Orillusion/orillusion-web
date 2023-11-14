@@ -8,7 +8,6 @@
 
   ↳ [`btDefaultVehicleRaycaster`](Ammo.btDefaultVehicleRaycaster.md)
 
-
 ### Constructors
 
 - [constructor](Ammo.btVehicleRaycaster.md#constructor)

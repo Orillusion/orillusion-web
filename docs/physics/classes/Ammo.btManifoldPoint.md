@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).btManifoldPoint
 
-
 ### Constructors
 
 - [constructor](Ammo.btManifoldPoint.md#constructor)

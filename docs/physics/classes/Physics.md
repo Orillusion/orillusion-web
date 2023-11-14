@@ -4,22 +4,13 @@ Physics Engine
 
 **`Not Exported`**
 
-
-### Properties
-
-- [TEMP\_TRANSFORM](Physics.md#temp_transform)
-
 ### Constructors
 
 - [constructor](Physics.md#constructor)
 
-### Methods
+### Properties
 
-- [init](Physics.md#init)
-- [update](Physics.md#update)
-- [addRigidbody](Physics.md#addrigidbody)
-- [removeRigidbody](Physics.md#removerigidbody)
-- [checkBound](Physics.md#checkbound)
+- [TEMP\_TRANSFORM](Physics.md#temp_transform)
 
 ### Accessors
 
@@ -30,15 +21,13 @@ Physics Engine
 - [world](Physics.md#world)
 - [isInited](Physics.md#isinited)
 
-## Properties
+### Methods
 
-### TEMP\_TRANSFORM
-
-• **TEMP\_TRANSFORM**: [`btTransform`](Ammo.btTransform.md)
-
-#### Defined in
-
-[packages/physics/Physics.ts:38](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Physics.ts#L38)
+- [init](Physics.md#init)
+- [update](Physics.md#update)
+- [addRigidbody](Physics.md#addrigidbody)
+- [removeRigidbody](Physics.md#removerigidbody)
+- [checkBound](Physics.md#checkbound)
 
 ## Constructors
 
@@ -50,95 +39,15 @@ Physics Engine
 
 [packages/physics/Physics.ts:40](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Physics.ts#L40)
 
-## Methods
+## Properties
 
-### init
+### TEMP\_TRANSFORM
 
-▸ **init**(): `Promise`<`void`\>
-
-Init Physics Engine
-
-#### Returns
-
-`Promise`<`void`\>
+• **TEMP\_TRANSFORM**: [`btTransform`](Ammo.btTransform.md)
 
 #### Defined in
 
-[packages/physics/Physics.ts:45](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Physics.ts#L45)
-
-___
-
-### update
-
-▸ **update**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/physics/Physics.ts:133](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Physics.ts#L133)
-
-___
-
-### addRigidbody
-
-▸ **addRigidbody**(`rigidBody`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `rigidBody` | [`Rigidbody`](Rigidbody.md) |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/physics/Physics.ts:145](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Physics.ts#L145)
-
-___
-
-### removeRigidbody
-
-▸ **removeRigidbody**(`rigidBody`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `rigidBody` | [`Rigidbody`](Rigidbody.md) |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/physics/Physics.ts:149](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Physics.ts#L149)
-
-___
-
-### checkBound
-
-▸ **checkBound**(`body`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `body` | [`Rigidbody`](Rigidbody.md) |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/physics/Physics.ts:153](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Physics.ts#L153)
+[packages/physics/Physics.ts:38](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Physics.ts#L38)
 
 ## Accessors
 
@@ -287,3 +196,93 @@ ___
 #### Defined in
 
 [packages/physics/Physics.ts:116](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Physics.ts#L116)
+
+## Methods
+
+### init
+
+▸ **init**(): `Promise`<`void`\>
+
+Init Physics Engine
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[packages/physics/Physics.ts:45](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Physics.ts#L45)
+
+___
+
+### update
+
+▸ **update**(): `void`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[packages/physics/Physics.ts:133](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Physics.ts#L133)
+
+___
+
+### addRigidbody
+
+▸ **addRigidbody**(`rigidBody`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `rigidBody` | [`Rigidbody`](Rigidbody.md) |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[packages/physics/Physics.ts:145](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Physics.ts#L145)
+
+___
+
+### removeRigidbody
+
+▸ **removeRigidbody**(`rigidBody`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `rigidBody` | [`Rigidbody`](Rigidbody.md) |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[packages/physics/Physics.ts:149](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Physics.ts#L149)
+
+___
+
+### checkBound
+
+▸ **checkBound**(`body`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `body` | [`Rigidbody`](Rigidbody.md) |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[packages/physics/Physics.ts:153](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Physics.ts#L153)

@@ -18,7 +18,6 @@
 
   ↳ [`btFixedConstraint`](Ammo.btFixedConstraint.md)
 
-
 ### Constructors
 
 - [constructor](Ammo.btTypedConstraint.md#constructor)

@@ -8,6 +8,9 @@
 
   ↳ **`btSliderConstraint`**
 
+### Constructors
+
+- [constructor](Ammo.btSliderConstraint.md#constructor)
 
 ### Methods
 
@@ -21,9 +24,47 @@
 - [setLowerAngLimit](Ammo.btSliderConstraint.md#setloweranglimit)
 - [setUpperAngLimit](Ammo.btSliderConstraint.md#setupperanglimit)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.btSliderConstraint.md#constructor)
+### constructor
+
+• **new btSliderConstraint**(`rbA`, `rbB`, `frameInA`, `frameInB`, `useLinearReferenceFrameA`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `rbA` | [`btRigidBody`](Ammo.btRigidBody.md) |
+| `rbB` | [`btRigidBody`](Ammo.btRigidBody.md) |
+| `frameInA` | [`btTransform`](Ammo.btTransform.md) |
+| `frameInB` | [`btTransform`](Ammo.btTransform.md) |
+| `useLinearReferenceFrameA` | `boolean` |
+
+#### Overrides
+
+[btTypedConstraint](Ammo.btTypedConstraint.md).[constructor](Ammo.btTypedConstraint.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:595](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L595)
+
+• **new btSliderConstraint**(`rbB`, `frameInB`, `useLinearReferenceFrameA`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `rbB` | [`btRigidBody`](Ammo.btRigidBody.md) |
+| `frameInB` | [`btTransform`](Ammo.btTransform.md) |
+| `useLinearReferenceFrameA` | `boolean` |
+
+#### Overrides
+
+btTypedConstraint.constructor
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:596](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L596)
 
 ## Methods
 
@@ -221,45 +262,3 @@ ___
 #### Defined in
 
 [packages/ammo/ammo.d.ts:600](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L600)
-
-## Constructors
-
-### constructor
-
-• **new btSliderConstraint**(`rbA`, `rbB`, `frameInA`, `frameInB`, `useLinearReferenceFrameA`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `rbA` | [`btRigidBody`](Ammo.btRigidBody.md) |
-| `rbB` | [`btRigidBody`](Ammo.btRigidBody.md) |
-| `frameInA` | [`btTransform`](Ammo.btTransform.md) |
-| `frameInB` | [`btTransform`](Ammo.btTransform.md) |
-| `useLinearReferenceFrameA` | `boolean` |
-
-#### Overrides
-
-[btTypedConstraint](Ammo.btTypedConstraint.md).[constructor](Ammo.btTypedConstraint.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:595](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L595)
-
-• **new btSliderConstraint**(`rbB`, `frameInB`, `useLinearReferenceFrameA`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `rbB` | [`btRigidBody`](Ammo.btRigidBody.md) |
-| `frameInB` | [`btTransform`](Ammo.btTransform.md) |
-| `useLinearReferenceFrameA` | `boolean` |
-
-#### Overrides
-
-btTypedConstraint.constructor
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:596](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L596)

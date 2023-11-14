@@ -8,6 +8,9 @@
 
   ↳ **`btDefaultMotionState`**
 
+### Constructors
+
+- [constructor](Ammo.btDefaultMotionState.md#constructor)
 
 ### Methods
 
@@ -16,9 +19,26 @@
 - [get\_m\_graphicsWorldTrans](Ammo.btDefaultMotionState.md#get_m_graphicsworldtrans)
 - [set\_m\_graphicsWorldTrans](Ammo.btDefaultMotionState.md#set_m_graphicsworldtrans)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.btDefaultMotionState.md#constructor)
+### constructor
+
+• **new btDefaultMotionState**(`startTrans?`, `centerOfMassOffset?`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `startTrans?` | [`btTransform`](Ammo.btTransform.md) |
+| `centerOfMassOffset?` | [`btTransform`](Ammo.btTransform.md) |
+
+#### Overrides
+
+[btMotionState](Ammo.btMotionState.md).[constructor](Ammo.btMotionState.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:118](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L118)
 
 ## Methods
 
@@ -101,24 +121,3 @@ ___
 #### Defined in
 
 [packages/ammo/ammo.d.ts:120](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L120)
-
-## Constructors
-
-### constructor
-
-• **new btDefaultMotionState**(`startTrans?`, `centerOfMassOffset?`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `startTrans?` | [`btTransform`](Ammo.btTransform.md) |
-| `centerOfMassOffset?` | [`btTransform`](Ammo.btTransform.md) |
-
-#### Overrides
-
-[btMotionState](Ammo.btMotionState.md).[constructor](Ammo.btMotionState.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:118](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L118)

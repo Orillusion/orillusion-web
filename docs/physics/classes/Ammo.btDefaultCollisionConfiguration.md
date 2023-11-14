@@ -8,7 +8,6 @@
 
   ↳ [`btSoftBodyRigidBodyCollisionConfiguration`](Ammo.btSoftBodyRigidBodyCollisionConfiguration.md)
 
-
 ### Constructors
 
 - [constructor](Ammo.btDefaultCollisionConfiguration.md#constructor)

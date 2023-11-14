@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).btFaceArray
 
-
 ### Constructors
 
 - [constructor](Ammo.btFaceArray.md#constructor)

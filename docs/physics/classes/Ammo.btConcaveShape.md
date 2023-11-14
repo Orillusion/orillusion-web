@@ -16,7 +16,6 @@
 
   ↳↳ [`btHeightfieldTerrainShape`](Ammo.btHeightfieldTerrainShape.md)
 
-
 ### Constructors
 
 - [constructor](Ammo.btConcaveShape.md#constructor)

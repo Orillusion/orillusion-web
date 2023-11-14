@@ -10,7 +10,6 @@
 
   ↳ [`AllHitsRayResultCallback`](Ammo.AllHitsRayResultCallback.md)
 
-
 ### Constructors
 
 - [constructor](Ammo.RayResultCallback.md#constructor)

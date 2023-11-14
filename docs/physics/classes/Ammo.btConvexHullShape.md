@@ -8,6 +8,9 @@
 
   ↳ **`btConvexHullShape`**
 
+### Constructors
+
+- [constructor](Ammo.btConvexHullShape.md#constructor)
 
 ### Methods
 
@@ -22,9 +25,26 @@
 - [recalcLocalAabb](Ammo.btConvexHullShape.md#recalclocalaabb)
 - [getConvexPolyhedron](Ammo.btConvexHullShape.md#getconvexpolyhedron)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.btConvexHullShape.md#constructor)
+### constructor
+
+• **new btConvexHullShape**(`points?`, `numPoints?`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `points?` | readonly `number`[] |
+| `numPoints?` | `number` |
+
+#### Overrides
+
+[btCollisionShape](Ammo.btCollisionShape.md).[constructor](Ammo.btCollisionShape.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:357](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L357)
 
 ## Methods
 
@@ -217,24 +237,3 @@ ___
 #### Defined in
 
 [packages/ammo/ammo.d.ts:364](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L364)
-
-## Constructors
-
-### constructor
-
-• **new btConvexHullShape**(`points?`, `numPoints?`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `points?` | readonly `number`[] |
-| `numPoints?` | `number` |
-
-#### Overrides
-
-[btCollisionShape](Ammo.btCollisionShape.md).[constructor](Ammo.btCollisionShape.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:357](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L357)

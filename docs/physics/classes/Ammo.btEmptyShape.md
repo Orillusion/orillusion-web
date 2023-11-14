@@ -8,6 +8,9 @@
 
   ↳ **`btEmptyShape`**
 
+### Constructors
+
+- [constructor](Ammo.btEmptyShape.md#constructor)
 
 ### Methods
 
@@ -17,9 +20,19 @@
 - [setMargin](Ammo.btEmptyShape.md#setmargin)
 - [getMargin](Ammo.btEmptyShape.md#getmargin)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.btEmptyShape.md#constructor)
+### constructor
+
+• **new btEmptyShape**()
+
+#### Overrides
+
+[btConcaveShape](Ammo.btConcaveShape.md).[constructor](Ammo.btConcaveShape.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:404](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L404)
 
 ## Methods
 
@@ -129,17 +142,3 @@ ___
 #### Defined in
 
 [packages/ammo/ammo.d.ts:271](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L271)
-
-## Constructors
-
-### constructor
-
-• **new btEmptyShape**()
-
-#### Overrides
-
-[btConcaveShape](Ammo.btConcaveShape.md).[constructor](Ammo.btConcaveShape.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:404](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L404)

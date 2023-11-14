@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).btShapeHull
 
-
 ### Constructors
 
 - [constructor](Ammo.btShapeHull.md#constructor)

@@ -8,15 +8,34 @@
 
   ↳ **`btCollisionDispatcher`**
 
+### Constructors
+
+- [constructor](Ammo.btCollisionDispatcher.md#constructor)
 
 ### Methods
 
 - [getNumManifolds](Ammo.btCollisionDispatcher.md#getnummanifolds)
 - [getManifoldByIndexInternal](Ammo.btCollisionDispatcher.md#getmanifoldbyindexinternal)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.btCollisionDispatcher.md#constructor)
+### constructor
+
+• **new btCollisionDispatcher**(`conf`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `conf` | [`btDefaultCollisionConfiguration`](Ammo.btDefaultCollisionConfiguration.md) |
+
+#### Overrides
+
+[btDispatcher](Ammo.btDispatcher.md).[constructor](Ammo.btDispatcher.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:436](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L436)
 
 ## Methods
 
@@ -59,23 +78,3 @@ ___
 #### Defined in
 
 [packages/ammo/ammo.d.ts:433](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L433)
-
-## Constructors
-
-### constructor
-
-• **new btCollisionDispatcher**(`conf`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `conf` | [`btDefaultCollisionConfiguration`](Ammo.btDefaultCollisionConfiguration.md) |
-
-#### Overrides
-
-[btDispatcher](Ammo.btDispatcher.md).[constructor](Ammo.btDispatcher.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:436](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L436)

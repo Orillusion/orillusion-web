@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).btSoftBodyWorldInfo
 
-
 ### Constructors
 
 - [constructor](Ammo.btSoftBodyWorldInfo.md#constructor)
