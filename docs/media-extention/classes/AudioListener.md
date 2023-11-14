@@ -9,7 +9,6 @@ Used in conjunction [PositionAudio](PositionAudio.md) or [StaticAudio](StaticAud
 
   ↳ **`AudioListener`**
 
-
 ### Constructors
 
 - [constructor](AudioListener.md#constructor)

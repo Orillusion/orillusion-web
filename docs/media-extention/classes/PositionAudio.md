@@ -8,7 +8,6 @@ Dynamic audio component, with volume varying based on the relative position of t
 
   ↳ **`PositionAudio`**
 
-
 ### Constructors
 
 - [constructor](PositionAudio.md#constructor)
