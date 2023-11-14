@@ -23,8 +23,8 @@ export default async () =>
         head: [
             ['link', { rel: 'shortcut icon', type: 'image/png', href: '/images/icons/icon-192.png' }],
             ['link', { rel: 'dns-prefetch', href: 'https://cdn.orillusion.com' }],
-            ['link', { rel: 'prefetch',  href: "https://unpkg.com/@orillusion/core@0.6.9-beta.1/dist/orillusion.es.js" }],
-            ['link', { rel: 'prefetch',  href: "https://unpkg.com/@orillusion/physics@0.2.0/dist/physics.es.js" }],
+            ['link', { rel: 'prefetch',  href: "https://unpkg.com/@orillusion/core@0.7.1/dist/orillusion.es.js" }],
+            ['link', { rel: 'prefetch',  href: "https://unpkg.com/@orillusion/physics@0.2.1/dist/physics.es.js" }],
             ['link', { rel: 'prefetch',  href: "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js" }],
             ['script', { async: 'true', src: 'https://www.googletagmanager.com/gtag/js?id=G-0H9189CS0W' }],
             ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no' }],
@@ -130,7 +130,7 @@ function nav() {
             link: 'https://forum.orillusion.com'
         },
         {
-            text: 'v0.6',
+            text: 'v0.7',
             items: [
                 {
                     text: 'Changelog',
@@ -277,9 +277,9 @@ function sidebarGuide(): SidebarItem {
                     link: '/guide/advanced/shader/shader_intro.md',
                     items: [
                         { text: 'RenderShader', link: '/guide/advanced/shader/shader_material.md' },
-                        { text: 'Include', link: '/guide/advanced/shader/shader_include.md' },
-                        { text: 'Define', link: '/guide/advanced/shader/shader_define.md' },
-                        { text: 'Variants', link: '/guide/advanced/shader/shader_variants.md' },
+                        { text: 'Shader Include', link: '/guide/advanced/shader/shader_include.md' },
+                        { text: 'Shader Define', link: '/guide/advanced/shader/shader_define.md' },
+                        { text: 'Shader Variants', link: '/guide/advanced/shader/shader_variants.md' },
                         { text: 'Public Variables', link: '/guide/advanced/shader/shader_internal.md' },
                         { text: 'Custom Material', link: '/guide/advanced/shader/shader_unlit.md' },
                         { text: 'ComputeShader', link: '/guide/advanced/shader/shader_compute.md' }
@@ -295,7 +295,8 @@ function sidebarGuide(): SidebarItem {
                         { text: 'GlobalFog', link: '/guide/advanced/post_globalfog.md' },
                         { text: 'HDRBloomPost', link: '/guide/advanced/post_bloom.md' },
                         { text: 'GTAOPost', link: '/guide/advanced/post_gtao.md' },
-                        { text: 'TAAPost', link: '/guide/advanced/post_taa.md' }
+                        { text: 'TAAPost', link: '/guide/advanced/post_taa.md' },
+                        { text: 'GodRayPost', link: '/guide/advanced/post_godRay.md' }
                     ]
                 },
                 { text: 'Global Illumination', link: '/guide/advanced/gi.md' }
