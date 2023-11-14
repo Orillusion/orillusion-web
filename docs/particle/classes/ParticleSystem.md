@@ -183,7 +183,7 @@ RenderNode.instanceCount
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L33)
+[src/components/renderer/RenderNode.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L34)
 
 ___
 
@@ -197,7 +197,7 @@ RenderNode.lodLevel
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L34)
+[src/components/renderer/RenderNode.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L35)
 
 ___
 
@@ -211,7 +211,7 @@ RenderNode.alwaysRender
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L35)
+[src/components/renderer/RenderNode.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L36)
 
 ___
 
@@ -225,7 +225,7 @@ RenderNode.instanceID
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L36)
+[src/components/renderer/RenderNode.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L37)
 
 ___
 
@@ -239,7 +239,7 @@ RenderNode.drawType
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L37)
+[src/components/renderer/RenderNode.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L38)
 
 ___
 
@@ -253,7 +253,7 @@ RenderNode.isRenderOrderChange
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L52)
+[src/components/renderer/RenderNode.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L53)
 
 ___
 
@@ -267,7 +267,7 @@ RenderNode.needSortOnCameraZ
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L53)
+[src/components/renderer/RenderNode.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L54)
 
 ___
 
@@ -281,7 +281,7 @@ RenderNode.preInit
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L56)
+[src/components/renderer/RenderNode.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L57)
 
 ## Accessors
 
@@ -557,7 +557,7 @@ RenderNode.renderLayer
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:103](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L103)
+[src/components/renderer/RenderNode.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L107)
 
 • `set` **renderLayer**(`value`): `void`
 
@@ -577,7 +577,7 @@ RenderNode.renderLayer
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L107)
+[src/components/renderer/RenderNode.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L111)
 
 ___
 
@@ -595,7 +595,7 @@ RenderNode.rendererMask
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:141](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L141)
+[src/components/renderer/RenderNode.ts:145](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L145)
 
 • `set` **rendererMask**(`value`): `void`
 
@@ -615,7 +615,7 @@ RenderNode.rendererMask
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:145](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L145)
+[src/components/renderer/RenderNode.ts:149](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L149)
 
 ___
 
@@ -633,7 +633,7 @@ RenderNode.renderOrder
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:149](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L149)
+[src/components/renderer/RenderNode.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L153)
 
 • `set` **renderOrder**(`value`): `void`
 
@@ -653,7 +653,7 @@ RenderNode.renderOrder
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L153)
+[src/components/renderer/RenderNode.ts:157](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L157)
 
 ___
 
@@ -671,7 +671,7 @@ RenderNode.materials
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:161](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L161)
+[src/components/renderer/RenderNode.ts:165](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L165)
 
 • `set` **materials**(`value`): `void`
 
@@ -691,7 +691,7 @@ RenderNode.materials
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:166](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L166)
+[src/components/renderer/RenderNode.ts:170](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L170)
 
 ___
 
@@ -709,7 +709,7 @@ RenderNode.castShadow
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:315](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L315)
+[src/components/renderer/RenderNode.ts:337](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L337)
 
 • `set` **castShadow**(`value`): `void`
 
@@ -729,7 +729,7 @@ RenderNode.castShadow
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:320](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L320)
+[src/components/renderer/RenderNode.ts:342](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L342)
 
 ___
 
@@ -747,7 +747,7 @@ RenderNode.castGI
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:325](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L325)
+[src/components/renderer/RenderNode.ts:347](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L347)
 
 • `set` **castGI**(`value`): `void`
 
@@ -767,7 +767,7 @@ RenderNode.castGI
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:330](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L330)
+[src/components/renderer/RenderNode.ts:352](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L352)
 
 ___
 
@@ -785,7 +785,7 @@ RenderNode.castReflection
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:335](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L335)
+[src/components/renderer/RenderNode.ts:357](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L357)
 
 • `set` **castReflection**(`value`): `void`
 
@@ -805,7 +805,7 @@ RenderNode.castReflection
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:339](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L339)
+[src/components/renderer/RenderNode.ts:361](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L361)
 
 ## Methods
 
@@ -1107,7 +1107,7 @@ RenderNode.attachSceneOctree
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L72)
+[src/components/renderer/RenderNode.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L76)
 
 ___
 
@@ -1125,7 +1125,7 @@ RenderNode.detachSceneOctree
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L77)
+[src/components/renderer/RenderNode.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L81)
 
 ___
 
@@ -1149,7 +1149,7 @@ RenderNode.copyComponent
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L89)
+[src/components/renderer/RenderNode.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L93)
 
 ___
 
@@ -1173,7 +1173,7 @@ RenderNode.addMask
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L129)
+[src/components/renderer/RenderNode.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L133)
 
 ___
 
@@ -1197,7 +1197,7 @@ RenderNode.removeMask
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L133)
+[src/components/renderer/RenderNode.ts:137](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L137)
 
 ___
 
@@ -1221,7 +1221,7 @@ RenderNode.hasMask
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:137](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L137)
+[src/components/renderer/RenderNode.ts:141](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L141)
 
 ___
 
@@ -1245,7 +1245,7 @@ RenderNode.addRendererMask
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:201](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L201)
+[src/components/renderer/RenderNode.ts:221](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L221)
 
 ___
 
@@ -1269,7 +1269,7 @@ RenderNode.removeRendererMask
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:205](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L205)
+[src/components/renderer/RenderNode.ts:225](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L225)
 
 ___
 
@@ -1287,7 +1287,7 @@ RenderNode.onEnable
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:209](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L209)
+[src/components/renderer/RenderNode.ts:229](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L229)
 
 ___
 
@@ -1305,7 +1305,7 @@ RenderNode.onDisable
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:217](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L217)
+[src/components/renderer/RenderNode.ts:239](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L239)
 
 ___
 
@@ -1329,7 +1329,7 @@ RenderNode.selfCloneMaterials
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:221](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L221)
+[src/components/renderer/RenderNode.ts:243](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L243)
 
 ___
 
@@ -1342,7 +1342,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `view` | `View3D` |
-| `passType` | `RendererType` |
+| `passType` | `PassType` |
 | `renderContext` | `RenderContext` |
 
 #### Returns
@@ -1355,7 +1355,7 @@ RenderNode.renderPass
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:343](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L343)
+[src/components/renderer/RenderNode.ts:365](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L365)
 
 ___
 
@@ -1370,7 +1370,7 @@ render pass at passType
 | Name | Type | Default value |
 | :------ | :------ | :------ |
 | `view` | `View3D` | `undefined` |
-| `passType` | `RendererType` | `undefined` |
+| `passType` | `PassType` | `undefined` |
 | `rendererPassState` | `RendererPassState` | `undefined` |
 | `clusterLightingBuffer` | `ClusterLightingBuffer` | `undefined` |
 | `encoder` | `GPURenderPassEncoder` | `undefined` |
@@ -1386,7 +1386,7 @@ RenderNode.renderPass2
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:399](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L399)
+[src/components/renderer/RenderNode.ts:419](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L419)
 
 ___
 
@@ -1399,7 +1399,7 @@ ___
 | Name | Type | Default value |
 | :------ | :------ | :------ |
 | `view` | `View3D` | `undefined` |
-| `passType` | `RendererType` | `undefined` |
+| `passType` | `PassType` | `undefined` |
 | `rendererPassState` | `RendererPassState` | `undefined` |
 | `clusterLightingBuffer` | `ClusterLightingBuffer` | `undefined` |
 | `encoder` | `GPURenderPassEncoder` | `undefined` |
@@ -1415,7 +1415,7 @@ RenderNode.recordRenderPass2
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:444](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L444)
+[src/components/renderer/RenderNode.ts:465](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L465)
 
 ___
 
@@ -1428,7 +1428,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `view` | `View3D` |
-| `passType` | `RendererType` |
+| `passType` | `PassType` |
 | `renderPassState` | `RendererPassState` |
 | `clusterLightingBuffer?` | `ClusterLightingBuffer` |
 
@@ -1442,7 +1442,7 @@ RenderNode.nodeUpdate
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:475](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L475)
+[src/components/renderer/RenderNode.ts:496](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L496)
 
 ___
 
@@ -1466,7 +1466,7 @@ RenderNode.beforeDestroy
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:554](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L554)
+[src/components/renderer/RenderNode.ts:574](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L574)
 
 ___
 
@@ -1490,4 +1490,4 @@ RenderNode.destroy
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:570](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L570)
+[src/components/renderer/RenderNode.ts:590](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L590)
