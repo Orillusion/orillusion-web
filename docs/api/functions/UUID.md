@@ -17,4 +17,4 @@ UUID
 
 #### Defined in
 
-[src/util/Global.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/util/Global.ts#L8)
+[src/util/Global.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/util/Global.ts#L10)

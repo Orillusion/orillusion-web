@@ -31,7 +31,7 @@
 
 #### Defined in
 
-[src/loader/parser/FontParser.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L39)
+[src/loader/parser/FontParser.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L40)
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 #### Defined in
 
-[src/loader/parser/FontParser.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L40)
+[src/loader/parser/FontParser.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L41)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[src/loader/parser/FontParser.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L41)
+[src/loader/parser/FontParser.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L42)
 
 ___
 
@@ -61,7 +61,7 @@ ___
 
 #### Defined in
 
-[src/loader/parser/FontParser.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L42)
+[src/loader/parser/FontParser.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L43)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[src/loader/parser/FontParser.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L43)
+[src/loader/parser/FontParser.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L44)
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 #### Defined in
 
-[src/loader/parser/FontParser.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L44)
+[src/loader/parser/FontParser.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L45)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-[src/loader/parser/FontParser.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L45)
+[src/loader/parser/FontParser.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L46)
 
 ___
 
@@ -101,7 +101,7 @@ ___
 
 #### Defined in
 
-[src/loader/parser/FontParser.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L46)
+[src/loader/parser/FontParser.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L47)
 
 ___
 
@@ -111,7 +111,7 @@ ___
 
 #### Defined in
 
-[src/loader/parser/FontParser.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L47)
+[src/loader/parser/FontParser.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L48)
 
 ___
 
@@ -121,4 +121,4 @@ ___
 
 #### Defined in
 
-[src/loader/parser/FontParser.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L48)
+[src/loader/parser/FontParser.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L49)

@@ -1,5 +1,15 @@
 # Class: Struct
 
+## Hierarchy
+
+- **`Struct`**
+
+  ↳ [`GeometryInfo`](GeometryInfo.md)
+
+  ↳ [`ShapeInfo`](ShapeInfo.md)
+
+  ↳ [`RibbonStruct`](RibbonStruct.md)
+
 ### Constructors
 
 - [constructor](Struct.md#constructor)
@@ -22,7 +32,7 @@
 
 ### getValueSize
 
-▸ `Static` **getValueSize**(`value`): `number`
+▸ `Static` **getValueSize**(`value`): `any`
 
 get any type value memory size
 
@@ -34,11 +44,11 @@ get any type value memory size
 
 #### Returns
 
-`number`
+`any`
 
 #### Defined in
 
-[src/util/struct/Struct.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L45)
+[src/util/struct/Struct.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L48)
 
 ___
 
@@ -64,7 +74,7 @@ ___
 
 #### Defined in
 
-[src/util/struct/Struct.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L90)
+[src/util/struct/Struct.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L93)
 
 ___
 
@@ -90,7 +100,7 @@ ___
 
 #### Defined in
 
-[src/util/struct/Struct.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L96)
+[src/util/struct/Struct.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L99)
 
 ___
 
@@ -118,7 +128,7 @@ get any struct memory size
 
 #### Defined in
 
-[src/util/struct/Struct.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L109)
+[src/util/struct/Struct.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L112)
 
 ___
 
@@ -134,4 +144,4 @@ get reflection name
 
 #### Defined in
 
-[src/util/struct/Struct.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L22)
+[src/util/struct/Struct.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L25)

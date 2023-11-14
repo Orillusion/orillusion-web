@@ -51,7 +51,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `passType` | `RendererType` |
+| `passType` | `PassType` |
 
 #### Returns
 
@@ -65,11 +65,11 @@ ___
 
 ### getAllRenderer
 
-▸ **getAllRenderer**(): `Map`<`RendererType`, `RendererBase`\>
+▸ **getAllRenderer**(): `Map`<`PassType`, `RendererBase`\>
 
 #### Returns
 
-`Map`<`RendererType`, `RendererBase`\>
+`Map`<`PassType`, `RendererBase`\>
 
 #### Defined in
 

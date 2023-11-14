@@ -40,6 +40,7 @@ A common post-processing effect that simulates the focusing characteristics of a
 
 ### Methods
 
+- [onResize](DepthOfFieldPost.md#onresize)
 - [destroy](DepthOfFieldPost.md#destroy)
 
 ## Constructors
@@ -78,7 +79,7 @@ PostBase.enable
 
 #### Defined in
 
-[src/gfx/renderJob/post/PostBase.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L19)
+[src/gfx/renderJob/post/PostBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L20)
 
 ___
 
@@ -92,7 +93,7 @@ PostBase.postRenderer
 
 #### Defined in
 
-[src/gfx/renderJob/post/PostBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L20)
+[src/gfx/renderJob/post/PostBase.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L21)
 
 ## Accessors
 
@@ -106,7 +107,7 @@ PostBase.postRenderer
 
 #### Defined in
 
-[src/gfx/renderJob/post/DepthOfFieldPost.ts:85](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L85)
+[src/gfx/renderJob/post/DepthOfFieldPost.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L81)
 
 • `set` **pixelOffset**(`value`): `void`
 
@@ -122,7 +123,7 @@ PostBase.postRenderer
 
 #### Defined in
 
-[src/gfx/renderJob/post/DepthOfFieldPost.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L90)
+[src/gfx/renderJob/post/DepthOfFieldPost.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L86)
 
 ___
 
@@ -136,7 +137,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/post/DepthOfFieldPost.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L96)
+[src/gfx/renderJob/post/DepthOfFieldPost.ts:92](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L92)
 
 • `set` **near**(`value`): `void`
 
@@ -152,7 +153,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/post/DepthOfFieldPost.ts:101](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L101)
+[src/gfx/renderJob/post/DepthOfFieldPost.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L97)
 
 ___
 
@@ -166,7 +167,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/post/DepthOfFieldPost.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L107)
+[src/gfx/renderJob/post/DepthOfFieldPost.ts:103](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L103)
 
 • `set` **far**(`value`): `void`
 
@@ -182,9 +183,27 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/post/DepthOfFieldPost.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L112)
+[src/gfx/renderJob/post/DepthOfFieldPost.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L108)
 
 ## Methods
+
+### onResize
+
+▸ **onResize**(): `void`
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+PostBase.onResize
+
+#### Defined in
+
+[src/gfx/renderJob/post/DepthOfFieldPost.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L200)
+
+___
 
 ### destroy
 
@@ -206,4 +225,4 @@ PostBase.destroy
 
 #### Defined in
 
-[src/gfx/renderJob/post/PostBase.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L81)
+[src/gfx/renderJob/post/PostBase.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L87)

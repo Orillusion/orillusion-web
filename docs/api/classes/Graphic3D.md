@@ -962,7 +962,7 @@ ___
 
 ### removeChild
 
-▸ **removeChild**(`child`): `any`
+▸ **removeChild**(`child`): `void`
 
 Remove the child objects of the object. You can remove any number of objects.
 
@@ -974,7 +974,7 @@ Remove the child objects of the object. You can remove any number of objects.
 
 #### Returns
 
-`any`
+`void`
 
 #### Inherited from
 
@@ -2118,7 +2118,7 @@ ___
 
 ### drawMeshWireframe
 
-▸ **drawMeshWireframe**(`uuid`, `geometry`, `transform`, `color?`): `void`
+▸ **drawMeshWireframe**(`uuid`, `geometry`, `transform`, `color?`, `forceUpdate?`): `void`
 
 Draw wire frame for geometry
 
@@ -2130,6 +2130,7 @@ Draw wire frame for geometry
 | `geometry` | [`GeometryBase`](GeometryBase.md) | `undefined` | Geometric object |
 | `transform` | [`Transform`](Transform.md) | `undefined` | The Transform that needs to be bound |
 | `color` | [`Color`](Color.md) | `Color.COLOR_WHITE` | The color of the wire frame |
+| `forceUpdate` | `boolean` | `false` | - |
 
 #### Returns
 
@@ -2166,7 +2167,7 @@ Draw the fill sector
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:321](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L321)
+[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:322](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L322)
 
 ___
 
@@ -2190,7 +2191,7 @@ Draw bounding box
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:358](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L358)
+[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:359](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L359)
 
 ___
 
@@ -2213,7 +2214,7 @@ Draw the camera cone
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L367)
+[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:368](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L368)
 
 ___
 
@@ -2236,7 +2237,7 @@ Draws the bounding box of the object
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:428](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L428)
+[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:429](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L429)
 
 ___
 
@@ -2258,7 +2259,7 @@ Erases the specified graph
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:437](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L437)
+[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:438](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L438)
 
 ___
 
@@ -2274,7 +2275,7 @@ Erase all drawn graphics
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:448](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L448)
+[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:449](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L449)
 
 ___
 
@@ -2297,4 +2298,4 @@ Changes the specified graphics color
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:458](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L458)
+[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:459](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L459)

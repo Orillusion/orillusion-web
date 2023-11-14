@@ -23,7 +23,7 @@
 
 #### Defined in
 
-[src/loader/parser/FontParser.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L34)
+[src/loader/parser/FontParser.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L35)
 
 ___
 
@@ -33,4 +33,4 @@ ___
 
 #### Defined in
 
-[src/loader/parser/FontParser.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L35)
+[src/loader/parser/FontParser.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L36)

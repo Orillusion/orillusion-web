@@ -10,6 +10,10 @@
 - [morphTargetsRelative](MorphTargetData.md#morphtargetsrelative)
 - [MaxMorphTargetCount](MorphTargetData.md#maxmorphtargetcount)
 
+### Accessors
+
+- [blendShape](MorphTargetData.md#blendshape)
+
 ### Methods
 
 - [initMorphTarget](MorphTargetData.md#initmorphtarget)
@@ -25,7 +29,7 @@
 
 #### Defined in
 
-[src/components/anim/morphAnim/MorphTargetData.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L70)
+[src/components/anim/morphAnim/MorphTargetData.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L73)
 
 ## Properties
 
@@ -57,6 +61,20 @@ ___
 
 [src/components/anim/morphAnim/MorphTargetData.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L50)
 
+## Accessors
+
+### blendShape
+
+• `get` **blendShape**(): `Object`
+
+#### Returns
+
+`Object`
+
+#### Defined in
+
+[src/components/anim/morphAnim/MorphTargetData.ts:141](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L141)
+
 ## Methods
 
 ### initMorphTarget
@@ -75,7 +93,7 @@ ___
 
 #### Defined in
 
-[src/components/anim/morphAnim/MorphTargetData.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L77)
+[src/components/anim/morphAnim/MorphTargetData.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L80)
 
 ___
 
@@ -87,7 +105,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `renderShader` | [`RenderShader`](RenderShader.md) |
+| `renderShader` | [`RenderShaderPass`](RenderShaderPass.md) |
 
 #### Returns
 
@@ -95,7 +113,7 @@ ___
 
 #### Defined in
 
-[src/components/anim/morphAnim/MorphTargetData.ts:100](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L100)
+[src/components/anim/morphAnim/MorphTargetData.ts:103](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L103)
 
 ___
 
@@ -115,7 +133,7 @@ ___
 
 #### Defined in
 
-[src/components/anim/morphAnim/MorphTargetData.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L112)
+[src/components/anim/morphAnim/MorphTargetData.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L115)
 
 ___
 
@@ -136,4 +154,4 @@ ___
 
 #### Defined in
 
-[src/components/anim/morphAnim/MorphTargetData.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L131)
+[src/components/anim/morphAnim/MorphTargetData.ts:136](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L136)

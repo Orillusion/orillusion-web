@@ -20,12 +20,17 @@ Resource management classes for textures, materials, models, and preset bodies.
 - [defaultSky](Res.md#defaultsky)
 - [defaultGUITexture](Res.md#defaultguitexture)
 - [defaultGUISprite](Res.md#defaultguisprite)
+- [defaultMaterial](Res.md#defaultmaterial)
 
 ### Methods
 
 - [getGltf](Res.md#getgltf)
+- [addObj](Res.md#addobj)
+- [getObj](Res.md#getobj)
 - [addTexture](Res.md#addtexture)
 - [getTexture](Res.md#gettexture)
+- [addGeometry](Res.md#addgeometry)
+- [getGeometry](Res.md#getgeometry)
 - [addMat](Res.md#addmat)
 - [getMat](Res.md#getmat)
 - [addPrefab](Res.md#addprefab)
@@ -33,11 +38,13 @@ Resource management classes for textures, materials, models, and preset bodies.
 - [addAtlas](Res.md#addatlas)
 - [getAtlas](Res.md#getatlas)
 - [getGUISprite](Res.md#getguisprite)
+- [load](Res.md#load)
 - [loadGltf](Res.md#loadgltf)
 - [loadObj](Res.md#loadobj)
 - [loadB3DM](Res.md#loadb3dm)
 - [loadI3DM](Res.md#loadi3dm)
 - [loadTexture](Res.md#loadtexture)
+- [loadBitmapTextures](Res.md#loadbitmaptextures)
 - [loadHDRTexture](Res.md#loadhdrtexture)
 - [loadHDRTextureCube](Res.md#loadhdrtexturecube)
 - [loadLDRTextureCube](Res.md#loadldrtexturecube)
@@ -48,6 +55,7 @@ Resource management classes for textures, materials, models, and preset bodies.
 - [loadAtlas](Res.md#loadatlas)
 - [createTexture](Res.md#createtexture)
 - [fillColor](Res.md#fillcolor)
+- [initDefault](Res.md#initdefault)
 
 ## Constructors
 
@@ -57,7 +65,7 @@ Resource management classes for textures, materials, models, and preset bodies.
 
 #### Defined in
 
-[src/assets/Res.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L44)
+[src/assets/Res.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L50)
 
 ## Properties
 
@@ -69,7 +77,7 @@ normal texture
 
 #### Defined in
 
-[src/assets/Res.ts:362](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L362)
+[src/assets/Res.ts:435](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L435)
 
 ___
 
@@ -79,7 +87,7 @@ ___
 
 #### Defined in
 
-[src/assets/Res.ts:363](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L363)
+[src/assets/Res.ts:436](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L436)
 
 ___
 
@@ -89,7 +97,7 @@ ___
 
 #### Defined in
 
-[src/assets/Res.ts:364](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L364)
+[src/assets/Res.ts:437](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L437)
 
 ___
 
@@ -99,7 +107,7 @@ ___
 
 #### Defined in
 
-[src/assets/Res.ts:365](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L365)
+[src/assets/Res.ts:438](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L438)
 
 ___
 
@@ -109,7 +117,7 @@ ___
 
 #### Defined in
 
-[src/assets/Res.ts:366](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L366)
+[src/assets/Res.ts:439](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L439)
 
 ___
 
@@ -119,7 +127,7 @@ ___
 
 #### Defined in
 
-[src/assets/Res.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L367)
+[src/assets/Res.ts:440](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L440)
 
 ___
 
@@ -129,7 +137,7 @@ ___
 
 #### Defined in
 
-[src/assets/Res.ts:368](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L368)
+[src/assets/Res.ts:441](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L441)
 
 ___
 
@@ -139,7 +147,7 @@ ___
 
 #### Defined in
 
-[src/assets/Res.ts:369](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L369)
+[src/assets/Res.ts:442](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L442)
 
 ___
 
@@ -149,7 +157,7 @@ ___
 
 #### Defined in
 
-[src/assets/Res.ts:370](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L370)
+[src/assets/Res.ts:443](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L443)
 
 ___
 
@@ -159,7 +167,7 @@ ___
 
 #### Defined in
 
-[src/assets/Res.ts:372](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L372)
+[src/assets/Res.ts:445](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L445)
 
 ___
 
@@ -169,7 +177,7 @@ ___
 
 #### Defined in
 
-[src/assets/Res.ts:374](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L374)
+[src/assets/Res.ts:447](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L447)
 
 ___
 
@@ -179,7 +187,17 @@ ___
 
 #### Defined in
 
-[src/assets/Res.ts:375](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L375)
+[src/assets/Res.ts:448](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L448)
+
+___
+
+### defaultMaterial
+
+• **defaultMaterial**: [`LitMaterial`](LitMaterial.md)
+
+#### Defined in
+
+[src/assets/Res.ts:449](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L449)
 
 ## Methods
 
@@ -199,7 +217,52 @@ ___
 
 #### Defined in
 
-[src/assets/Res.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L55)
+[src/assets/Res.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L62)
+
+___
+
+### addObj
+
+▸ **addObj**(`url`, `obj`): `void`
+
+add a obj with reference of url
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `url` | `string` | file path |
+| `obj` | `any` | - |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/assets/Res.ts:71](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L71)
+
+___
+
+### getObj
+
+▸ **getObj**(`url`): `any`
+
+get obj by url
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `url` | `string` | file path |
+
+#### Returns
+
+`any`
+
+#### Defined in
+
+[src/assets/Res.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L80)
 
 ___
 
@@ -222,7 +285,7 @@ add a texture with reference of url
 
 #### Defined in
 
-[src/assets/Res.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L64)
+[src/assets/Res.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L89)
 
 ___
 
@@ -244,7 +307,48 @@ get texture by url
 
 #### Defined in
 
-[src/assets/Res.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L73)
+[src/assets/Res.ts:98](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L98)
+
+___
+
+### addGeometry
+
+▸ **addGeometry**(`url`, `geo`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `url` | `string` |
+| `geo` | [`GeometryBase`](GeometryBase.md) |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/assets/Res.ts:102](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L102)
+
+___
+
+### getGeometry
+
+▸ **getGeometry**(`url`): [`GeometryBase`](GeometryBase.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `url` | `string` |
+
+#### Returns
+
+[`GeometryBase`](GeometryBase.md)
+
+#### Defined in
+
+[src/assets/Res.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L106)
 
 ___
 
@@ -267,7 +371,7 @@ add a material with reference of name
 
 #### Defined in
 
-[src/assets/Res.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L82)
+[src/assets/Res.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L115)
 
 ___
 
@@ -289,7 +393,7 @@ get material by name
 
 #### Defined in
 
-[src/assets/Res.ts:91](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L91)
+[src/assets/Res.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L124)
 
 ___
 
@@ -312,7 +416,7 @@ add prefab with reference name
 
 #### Defined in
 
-[src/assets/Res.ts:100](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L100)
+[src/assets/Res.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L133)
 
 ___
 
@@ -334,7 +438,7 @@ get prefab by name
 
 #### Defined in
 
-[src/assets/Res.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L109)
+[src/assets/Res.ts:142](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L142)
 
 ___
 
@@ -355,7 +459,7 @@ ___
 
 #### Defined in
 
-[src/assets/Res.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L114)
+[src/assets/Res.ts:147](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L147)
 
 ___
 
@@ -375,7 +479,7 @@ ___
 
 #### Defined in
 
-[src/assets/Res.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L119)
+[src/assets/Res.ts:152](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L152)
 
 ___
 
@@ -395,7 +499,35 @@ ___
 
 #### Defined in
 
-[src/assets/Res.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L123)
+[src/assets/Res.ts:156](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L156)
+
+___
+
+### load
+
+▸ **load**<`T`\>(`url`, `c`, `loaderFunctions?`): `Promise`<`any`\>
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `ParserBase`<`T`\> |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `url` | `string` |
+| `c` | [`Parser`](../types/Parser.md)<`T`\> |
+| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) |
+
+#### Returns
+
+`Promise`<`any`\>
+
+#### Defined in
+
+[src/assets/Res.ts:165](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L165)
 
 ___
 
@@ -418,7 +550,7 @@ load a gltf file
 
 #### Defined in
 
-[src/assets/Res.ts:138](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L138)
+[src/assets/Res.ts:178](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L178)
 
 ___
 
@@ -441,7 +573,7 @@ load obj file
 
 #### Defined in
 
-[src/assets/Res.ts:165](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L165)
+[src/assets/Res.ts:205](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L205)
 
 ___
 
@@ -465,7 +597,7 @@ load b3dm file by url
 
 #### Defined in
 
-[src/assets/Res.ts:188](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L188)
+[src/assets/Res.ts:228](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L228)
 
 ___
 
@@ -489,7 +621,7 @@ load i3dm file by url
 
 #### Defined in
 
-[src/assets/Res.ts:205](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L205)
+[src/assets/Res.ts:245](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L245)
 
 ___
 
@@ -513,7 +645,30 @@ load texture by url
 
 #### Defined in
 
-[src/assets/Res.ts:223](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L223)
+[src/assets/Res.ts:263](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L263)
+
+___
+
+### loadBitmapTextures
+
+▸ **loadBitmapTextures**(`urls`, `count?`, `loaderFunctions?`, `flipY?`): `Promise`<[`BitmapTexture2D`](BitmapTexture2D.md)[]\>
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `urls` | `string`[] | `undefined` |
+| `count` | `number` | `5` |
+| `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) | `undefined` |
+| `flipY?` | `boolean` | `undefined` |
+
+#### Returns
+
+`Promise`<[`BitmapTexture2D`](BitmapTexture2D.md)[]\>
+
+#### Defined in
+
+[src/assets/Res.ts:296](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L296)
 
 ___
 
@@ -536,7 +691,7 @@ load a hdr texture
 
 #### Defined in
 
-[src/assets/Res.ts:240](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L240)
+[src/assets/Res.ts:313](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L313)
 
 ___
 
@@ -559,7 +714,7 @@ load hdr cube texture
 
 #### Defined in
 
-[src/assets/Res.ts:258](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L258)
+[src/assets/Res.ts:331](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L331)
 
 ___
 
@@ -582,7 +737,7 @@ load ldr cube texture
 
 #### Defined in
 
-[src/assets/Res.ts:274](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L274)
+[src/assets/Res.ts:347](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L347)
 
 ___
 
@@ -606,7 +761,7 @@ and the order is: nx, px, py, ny, nz, pz
 
 #### Defined in
 
-[src/assets/Res.ts:290](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L290)
+[src/assets/Res.ts:363](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L363)
 
 ___
 
@@ -630,7 +785,7 @@ the image is assembled from six images into cross shaped image.
 
 #### Defined in
 
-[src/assets/Res.ts:307](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L307)
+[src/assets/Res.ts:380](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L380)
 
 ___
 
@@ -653,7 +808,7 @@ load json data from url.
 
 #### Defined in
 
-[src/assets/Res.ts:321](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L321)
+[src/assets/Res.ts:394](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L394)
 
 ___
 
@@ -677,7 +832,7 @@ load font file by url
 
 #### Defined in
 
-[src/assets/Res.ts:339](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L339)
+[src/assets/Res.ts:412](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L412)
 
 ___
 
@@ -700,7 +855,7 @@ load a atlas file by url
 
 #### Defined in
 
-[src/assets/Res.ts:353](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L353)
+[src/assets/Res.ts:426](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L426)
 
 ___
 
@@ -728,7 +883,7 @@ create a texture
 
 #### Defined in
 
-[src/assets/Res.ts:388](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L388)
+[src/assets/Res.ts:462](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L462)
 
 ___
 
@@ -756,4 +911,20 @@ fill slod color to this texture
 
 #### Defined in
 
-[src/assets/Res.ts:412](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L412)
+[src/assets/Res.ts:486](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L486)
+
+___
+
+### initDefault
+
+▸ **initDefault**(): `void`
+
+Initialize a common texture object. Provide a universal solid color texture object.
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/assets/Res.ts:501](https://github.com/Orillusion/orillusion/blob/main/src/assets/Res.ts#L501)

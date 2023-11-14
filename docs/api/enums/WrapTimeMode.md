@@ -28,7 +28,7 @@ value = max(min( value ,  1 ) , 0 )
 
 #### Defined in
 
-[src/math/AnimationCurve.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L10)
+[src/math/enum/WrapTimeMode.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/WrapTimeMode.ts#L8)
 
 ___
 
@@ -38,7 +38,7 @@ ___
 
 #### Defined in
 
-[src/math/AnimationCurve.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L11)
+[src/math/enum/WrapTimeMode.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/WrapTimeMode.ts#L9)
 
 ___
 
@@ -48,4 +48,4 @@ ___
 
 #### Defined in
 
-[src/math/AnimationCurve.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L12)
+[src/math/enum/WrapTimeMode.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/WrapTimeMode.ts#L10)

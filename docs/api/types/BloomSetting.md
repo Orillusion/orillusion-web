@@ -6,16 +6,16 @@ Bloom
 
 #### Type declaration
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `enable` | `boolean` | enable |
-| `downSampleStep` | `number` | 下采样次数 |
-| `downSampleBlurSize` | `number` | 下采样模糊范围 |
-| `downSampleBlurSigma` | `number` | 下采样模糊计算指数 |
-| `upSampleBlurSize` | `number` | 上采样次数 |
-| `upSampleBlurSigma` | `number` | 上采样模糊范围 |
-| `luminanceThreshole` | `number` | Bloom高亮区域阈值 |
-| `bloomIntensity` | `boolean` | Bloom最终亮度加成系数 |
+| Name | Type |
+| :------ | :------ |
+| `enable?` | `boolean` |
+| `downSampleStep` | `number` |
+| `downSampleBlurSize` | `number` |
+| `downSampleBlurSigma` | `number` |
+| `upSampleBlurSize` | `number` |
+| `upSampleBlurSigma` | `number` |
+| `luminanceThreshole` | `number` |
+| `bloomIntensity` | `number` |
 
 #### Defined in
 

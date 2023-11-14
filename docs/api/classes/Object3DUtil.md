@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-[src/util/Object3DUtil.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L73)
+[src/util/Object3DUtil.ts:75](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L75)
 
 ## Methods
 
@@ -125,7 +125,7 @@ ___
 
 #### Defined in
 
-[src/util/Object3DUtil.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L59)
+[src/util/Object3DUtil.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L61)
 
 ___
 
@@ -146,4 +146,4 @@ ___
 
 #### Defined in
 
-[src/util/Object3DUtil.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L83)
+[src/util/Object3DUtil.ts:85](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L85)

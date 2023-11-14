@@ -827,7 +827,7 @@ ___
 
 ### removeChild
 
-▸ **removeChild**(`child`): `any`
+▸ **removeChild**(`child`): `void`
 
 Remove the child objects of the object. You can remove any number of objects.
 
@@ -839,7 +839,7 @@ Remove the child objects of the object. You can remove any number of objects.
 
 #### Returns
 
-`any`
+`void`
 
 #### Inherited from
 

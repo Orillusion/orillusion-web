@@ -15,4 +15,4 @@
 
 #### Defined in
 
-[src/util/Global.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/util/Global.ts#L45)
+[src/util/Global.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/util/Global.ts#L47)

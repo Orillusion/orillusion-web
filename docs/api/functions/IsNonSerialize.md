@@ -13,7 +13,7 @@
 | Name | Type |
 | :------ | :------ |
 | `instance` | `T` |
-| `key` | keyof `T` |
+| `key` | `string` |
 
 #### Returns
 

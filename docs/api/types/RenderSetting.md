@@ -24,7 +24,7 @@
 | `zPrePass` | `boolean` | - |
 | `useLogDepth` | `boolean` | - |
 | `gi` | `boolean` | - |
-| `postProcessing` | { `enable?`: `boolean` ; `bloom?`: [`BloomSetting`](BloomSetting.md) ; `ssao?`: { `debug`: `any` ; `enable`: `boolean` ; `radius`: `number` ; `bias`: `number` ; `aoPower`: `number`  } ; `ssr?`: [`SSRSetting`](SSRSetting.md) ; `taa?`: [`TAASetting`](TAASetting.md) ; `gtao?`: [`GTAOSetting`](GTAOSetting.md) ; `outline?`: [`OutlineSetting`](OutlineSetting.md) ; `globalFog?`: [`GlobalFogSetting`](GlobalFogSetting.md) ; `fxaa?`: { `enable`: `boolean`  } ; `depthOfView?`: [`DepthOfViewSetting`](DepthOfViewSetting.md)  } | post effect |
+| `postProcessing` | { `enable?`: `boolean` ; `bloom?`: [`BloomSetting`](BloomSetting.md) ; `ssao?`: { `debug`: `any` ; `enable`: `boolean` ; `radius`: `number` ; `bias`: `number` ; `aoPower`: `number`  } ; `ssr?`: [`SSRSetting`](SSRSetting.md) ; `taa?`: [`TAASetting`](TAASetting.md) ; `gtao?`: [`GTAOSetting`](GTAOSetting.md) ; `outline?`: [`OutlineSetting`](OutlineSetting.md) ; `globalFog?`: [`GlobalFogSetting`](GlobalFogSetting.md) ; `godRay?`: [`GodRaySetting`](GodRaySetting.md) ; `fxaa?`: { `enable`: `boolean`  } ; `depthOfView?`: [`DepthOfViewSetting`](DepthOfViewSetting.md)  } | post effect |
 | `postProcessing.enable?` | `boolean` | - |
 | `postProcessing.bloom?` | [`BloomSetting`](BloomSetting.md) | - |
 | `postProcessing.ssao?` | { `debug`: `any` ; `enable`: `boolean` ; `radius`: `number` ; `bias`: `number` ; `aoPower`: `number`  } | - |
@@ -38,10 +38,11 @@
 | `postProcessing.gtao?` | [`GTAOSetting`](GTAOSetting.md) | - |
 | `postProcessing.outline?` | [`OutlineSetting`](OutlineSetting.md) | - |
 | `postProcessing.globalFog?` | [`GlobalFogSetting`](GlobalFogSetting.md) | - |
+| `postProcessing.godRay?` | [`GodRaySetting`](GodRaySetting.md) | - |
 | `postProcessing.fxaa?` | { `enable`: `boolean`  } | - |
 | `postProcessing.fxaa.enable` | `boolean` | - |
 | `postProcessing.depthOfView?` | [`DepthOfViewSetting`](DepthOfViewSetting.md) | - |
 
 #### Defined in
 
-[src/setting/RenderSetting.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L9)
+[src/setting/RenderSetting.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L10)

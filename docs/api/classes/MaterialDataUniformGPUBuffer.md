@@ -52,9 +52,9 @@ Real time Uniform GPUBuffer used by shaders
 - [setStruct](MaterialDataUniformGPUBuffer.md#setstruct)
 - [setStructArray](MaterialDataUniformGPUBuffer.md#setstructarray)
 - [clean](MaterialDataUniformGPUBuffer.md#clean)
-- [applyMapAsync](MaterialDataUniformGPUBuffer.md#applymapasync)
 - [mapAsyncWrite](MaterialDataUniformGPUBuffer.md#mapasyncwrite)
 - [destroy](MaterialDataUniformGPUBuffer.md#destroy)
+- [resizeBuffer](MaterialDataUniformGPUBuffer.md#resizebuffer)
 - [readBuffer](MaterialDataUniformGPUBuffer.md#readbuffer)
 - [initDataUniform](MaterialDataUniformGPUBuffer.md#initdatauniform)
 - [onChange](MaterialDataUniformGPUBuffer.md#onchange)
@@ -817,7 +817,7 @@ GPUBufferBase.setStructArray
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:289](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L289)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:292](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L292)
 
 ___
 
@@ -835,25 +835,7 @@ GPUBufferBase.clean
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:302](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L302)
-
-___
-
-### applyMapAsync
-
-▸ **applyMapAsync**(): `void`
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-GPUBufferBase.applyMapAsync
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:312](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L312)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:305](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L305)
 
 ___
 
@@ -878,7 +860,7 @@ GPUBufferBase.mapAsyncWrite
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:316](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L316)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:315](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L315)
 
 ___
 
@@ -902,7 +884,32 @@ GPUBufferBase.destroy
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:356](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L356)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:355](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L355)
+
+___
+
+### resizeBuffer
+
+▸ **resizeBuffer**(`size`, `data?`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `size` | `number` |
+| `data?` | [`ArrayBufferData`](../types/ArrayBufferData.md) |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+GPUBufferBase.resizeBuffer
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:412](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L412)
 
 ___
 
@@ -920,7 +927,7 @@ GPUBufferBase.readBuffer
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:446](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L446)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:460](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L460)
 
 ___
 
