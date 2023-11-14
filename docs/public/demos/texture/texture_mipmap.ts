@@ -44,7 +44,7 @@ texture.useMipmap = true
 await texture.load(image)
 let mat = new UnLitMaterial()
 mat.baseMap = texture
-mat.defaultPass.setUniform('transformUV1', new Vector4(0, 0, 100, 100))
+mat.setUniformVector4('transformUV1', new Vector4(0, 0, 100, 100))
 
 let plane = new PlaneGeometry(1000, 1000, 10, 10)
 let planeObj = new Object3D()

@@ -1,4 +1,4 @@
-import { ComponentBase, Time, DirectLight, Color, LitMaterial, MeshRenderer, Scene3D, BoxGeometry, Object3D, Engine3D, Camera3D, HoverCameraController, HDRBloomPost, View3D, AtmosphericComponent, PostProcessingComponent } from '@orillusion/core'
+import { ComponentBase, Time, DirectLight, Color, LitMaterial, MeshRenderer, Scene3D, BoxGeometry, Object3D, Engine3D, Camera3D, HoverCameraController, BloomPost, View3D, AtmosphericComponent, PostProcessingComponent } from '@orillusion/core'
 
 class MaterialAnimation extends ComponentBase {
     private material: LitMaterial
@@ -74,7 +74,7 @@ class UserLogic {
 
         // add a bloom post
         let postProcessing = this.scene.addComponent(PostProcessingComponent)
-        postProcessing.addPost(HDRBloomPost)
+        postProcessing.addPost(BloomPost)
     }
 }
 new UserLogic().run()

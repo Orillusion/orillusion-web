@@ -67,15 +67,6 @@ export class Sample_DepthOfView {
 
     private createPlane(scene: Scene3D) {
         let mat = new LitMaterial()
-        mat.baseMap = Engine3D.res.grayTexture
-        mat.normalMap = Engine3D.res.normalTexture
-        mat.aoMap = Engine3D.res.whiteTexture
-        mat.maskMap = Engine3D.res.createTexture(32, 32, 255.0, 10.0, 0.0, 1)
-        mat.emissiveMap = Engine3D.res.blackTexture
-        mat.roughness = 0.1
-        mat.roughness_max = 0.1
-        mat.metallic = 0.0
-
         {
             let debugGeo = new PlaneGeometry(2000, 2000)
             let obj: Object3D = new Object3D()

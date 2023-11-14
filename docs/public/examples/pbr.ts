@@ -1,6 +1,6 @@
 import { LitMaterial } from '@orillusion/core'
 import { MeshRenderer } from '@orillusion/core'
-import { Camera3D, OrbitController, DirectLight, Engine3D, View3D, KelvinUtil, Object3D, Scene3D, HDRBloomPost, GTAOPost, PostProcessingComponent, AtmosphericComponent } from '@orillusion/core'
+import { Camera3D, OrbitController, DirectLight, Engine3D, View3D, KelvinUtil, Object3D, Scene3D, BloomPost, GTAOPost, PostProcessingComponent, AtmosphericComponent } from '@orillusion/core'
 
 export class Sample_PBRMaterial {
     lightObj: Object3D
@@ -17,9 +17,8 @@ export class Sample_PBRMaterial {
         Engine3D.setting.shadow.autoUpdate = true
         Engine3D.setting.shadow.updateFrameRate = 1
         Engine3D.setting.shadow.shadowBound = 50
-        Engine3D.setting.render.postProcessing.bloom!.exposure = 1
-        Engine3D.setting.render.postProcessing.bloom!.luminosityThreshold = 0.8
-        Engine3D.setting.render.postProcessing.bloom!.strength = 0.86
+        Engine3D.setting.render.postProcessing.bloom!.luminanceThreshole = 0.8
+        Engine3D.setting.render.postProcessing.bloom!.bloomIntensity = 0.86
 
         this.scene = new Scene3D()
         this.camera = new Object3D()
@@ -44,7 +43,7 @@ export class Sample_PBRMaterial {
 
         let postProcessing = this.scene.addComponent(PostProcessingComponent)
         // postProcessing.addPost(GTAOPost)
-        postProcessing.addPost(HDRBloomPost)
+        postProcessing.addPost(BloomPost)
     }
 
     async initScene() {
@@ -67,7 +66,7 @@ export class Sample_PBRMaterial {
         }
 
         {
-            let obj = this.obj = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/wukong/wukong.gltf')
+            let obj = (this.obj = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/wukong/wukong.gltf'))
             obj.transform.scaleX = 10
             obj.transform.scaleY = 10
             obj.transform.scaleZ = 10
@@ -81,8 +80,3 @@ export class Sample_PBRMaterial {
     }
 }
 new Sample_PBRMaterial().run()
-
-// for index page
-let css = document.createElement('style')
-css.innerText = `body.loading > canvas{width:560px !important;height:450px !important}`
-document.head.appendChild(css)

@@ -1,5 +1,5 @@
 // import {
-//     Engine3D, PostProcessingComponent, AtmosphericComponent, Vector3, View3D, HoverCameraController, Object3D, PlaneGeometry, Scene3D, CameraUtil, webGPUContext, HDRBloomPost, ParticleSystem, ParticleMaterial, ParticleStandSimulator, ParticleEmitModule, ShapeType, EmitLocation, ParticleGravityModifierModule, ParticleOverLifeColorModule, Vector4, BlendMode,
+//     Engine3D, PostProcessingComponent, AtmosphericComponent, Vector3, View3D, HoverCameraController, Object3D, PlaneGeometry, Scene3D, CameraUtil, webGPUContext, ParticleSystem, ParticleMaterial, ParticleStandSimulator, ParticleEmitModule, ShapeType, EmitLocation, ParticleGravityModifierModule, ParticleOverLifeColorModule, Vector4, BlendMode,
 // } from '@orillusion/core';
 
 // export class Sample_ParticleAnim {
@@ -23,7 +23,6 @@
 //         Engine3D.startRenderView(view);
 
 //         let postProcessing = scene.addComponent(PostProcessingComponent);
-//         postProcessing.addPost(HDRBloomPost);
 //     }
 
 //     async initScene(scene: Scene3D) {
