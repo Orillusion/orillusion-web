@@ -8,18 +8,20 @@ Performance info stats
 
   ↳ **`Stats`**
 
+### Constructors
+
+- [constructor](Stats.md#constructor)
 
 ### Properties
 
 - [container](Stats.md#container)
 - [object3D](Stats.md#object3d)
-
-### Constructors
-
-- [constructor](Stats.md#constructor)
+- [isDestroyed](Stats.md#isdestroyed)
 
 ### Accessors
 
+- [eventDispatcher](Stats.md#eventdispatcher)
+- [isStart](Stats.md#isstart)
 - [transform](Stats.md#transform)
 - [enable](Stats.md#enable)
 
@@ -30,8 +32,21 @@ Performance info stats
 - [onBeforeUpdate](Stats.md#onbeforeupdate)
 - [onCompute](Stats.md#oncompute)
 - [onGraphic](Stats.md#ongraphic)
+- [onParentChange](Stats.md#onparentchange)
 - [cloneTo](Stats.md#cloneto)
+- [copyComponent](Stats.md#copycomponent)
+- [beforeDestroy](Stats.md#beforedestroy)
 - [destroy](Stats.md#destroy)
+
+## Constructors
+
+### constructor
+
+• **new Stats**()
+
+#### Inherited from
+
+ComponentBase.constructor
 
 ## Properties
 
@@ -63,21 +78,77 @@ ComponentBase.object3D
 
 [src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
 
-## Constructors
+___
 
-### constructor
+### isDestroyed
 
-• **new Stats**()
+• `Optional` **isDestroyed**: `boolean`
 
 #### Inherited from
 
-ComponentBase.constructor
+ComponentBase.isDestroyed
 
 #### Defined in
 
-[src/components/ComponentBase.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L31)
+[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
 
 ## Accessors
+
+### eventDispatcher
+
+• `get` **eventDispatcher**(): `CEventDispatcher`
+
+#### Returns
+
+`CEventDispatcher`
+
+#### Inherited from
+
+ComponentBase.eventDispatcher
+
+#### Defined in
+
+[src/components/ComponentBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L23)
+
+• `set` **eventDispatcher**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `CEventDispatcher` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+ComponentBase.eventDispatcher
+
+#### Defined in
+
+[src/components/ComponentBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L28)
+
+___
+
+### isStart
+
+• `get` **isStart**(): `boolean`
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+ComponentBase.isStart
+
+#### Defined in
+
+[src/components/ComponentBase.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L40)
+
+___
 
 ### transform
 
@@ -95,7 +166,7 @@ ComponentBase.transform
 
 #### Defined in
 
-[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
+[src/components/ComponentBase.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L47)
 
 ___
 
@@ -115,7 +186,7 @@ ComponentBase.enable
 
 #### Defined in
 
-[src/components/ComponentBase.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L59)
+[src/components/ComponentBase.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
 
 • `set` **enable**(`value`): `void`
 
@@ -137,7 +208,7 @@ ComponentBase.enable
 
 #### Defined in
 
-[src/components/ComponentBase.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L45)
+[src/components/ComponentBase.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L54)
 
 ## Methods
 
@@ -155,7 +226,7 @@ ComponentBase.start
 
 #### Defined in
 
-[src/components/ComponentBase.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L107)
+[src/components/ComponentBase.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
 
 ___
 
@@ -179,7 +250,7 @@ ComponentBase.onLateUpdate
 
 #### Defined in
 
-[src/components/ComponentBase.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L112)
+[src/components/ComponentBase.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L118)
 
 ___
 
@@ -203,7 +274,7 @@ ComponentBase.onBeforeUpdate
 
 #### Defined in
 
-[src/components/ComponentBase.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
+[src/components/ComponentBase.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L119)
 
 ___
 
@@ -228,7 +299,7 @@ ComponentBase.onCompute
 
 #### Defined in
 
-[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
+[src/components/ComponentBase.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L120)
 
 ___
 
@@ -252,7 +323,32 @@ ComponentBase.onGraphic
 
 #### Defined in
 
-[src/components/ComponentBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L115)
+[src/components/ComponentBase.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L121)
+
+___
+
+### onParentChange
+
+▸ `Optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `lastParent?` | `Object3D` |
+| `currentParent?` | `Object3D` |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+ComponentBase.onParentChange
+
+#### Defined in
+
+[src/components/ComponentBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L122)
 
 ___
 
@@ -278,15 +374,71 @@ ComponentBase.cloneTo
 
 #### Defined in
 
-[src/components/ComponentBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L122)
+[src/components/ComponentBase.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L129)
+
+___
+
+### copyComponent
+
+▸ **copyComponent**(`from`): [`Stats`](Stats.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `from` | [`Stats`](Stats.md) |
+
+#### Returns
+
+[`Stats`](Stats.md)
+
+#### Inherited from
+
+ComponentBase.copyComponent
+
+#### Defined in
+
+[src/components/ComponentBase.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L131)
+
+___
+
+### beforeDestroy
+
+▸ **beforeDestroy**(`force?`): `void`
+
+before release this component, object refrences are not be set null now.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+ComponentBase.beforeDestroy
+
+#### Defined in
+
+[src/components/ComponentBase.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L198)
 
 ___
 
 ### destroy
 
-▸ **destroy**(): `void`
+▸ **destroy**(`force?`): `void`
 
 release this component
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
 
 #### Returns
 
@@ -298,4 +450,4 @@ ComponentBase.destroy
 
 #### Defined in
 
-[src/components/ComponentBase.ts:189](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L189)
+[src/components/ComponentBase.ts:205](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L205)
