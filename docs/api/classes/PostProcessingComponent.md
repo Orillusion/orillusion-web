@@ -474,7 +474,7 @@ ___
 
 #### Defined in
 
-[src/components/post/PostProcessingComponent.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/components/post/PostProcessingComponent.ts#L8)
+[src/components/post/PostProcessingComponent.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/components/post/PostProcessingComponent.ts#L11)
 
 ___
 
@@ -492,7 +492,7 @@ ___
 
 #### Defined in
 
-[src/components/post/PostProcessingComponent.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/post/PostProcessingComponent.ts#L12)
+[src/components/post/PostProcessingComponent.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/components/post/PostProcessingComponent.ts#L15)
 
 ___
 
@@ -510,7 +510,7 @@ ___
 
 #### Defined in
 
-[src/components/post/PostProcessingComponent.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/post/PostProcessingComponent.ts#L16)
+[src/components/post/PostProcessingComponent.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/components/post/PostProcessingComponent.ts#L19)
 
 ___
 
@@ -528,7 +528,7 @@ ___
 
 #### Defined in
 
-[src/components/post/PostProcessingComponent.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/post/PostProcessingComponent.ts#L20)
+[src/components/post/PostProcessingComponent.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/post/PostProcessingComponent.ts#L23)
 
 ___
 
@@ -546,7 +546,7 @@ ___
 
 #### Defined in
 
-[src/components/post/PostProcessingComponent.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/components/post/PostProcessingComponent.ts#L24)
+[src/components/post/PostProcessingComponent.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/components/post/PostProcessingComponent.ts#L27)
 
 ___
 
@@ -572,7 +572,7 @@ ___
 
 #### Defined in
 
-[src/components/post/PostProcessingComponent.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/components/post/PostProcessingComponent.ts#L44)
+[src/components/post/PostProcessingComponent.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/components/post/PostProcessingComponent.ts#L47)
 
 ___
 
@@ -598,7 +598,7 @@ ___
 
 #### Defined in
 
-[src/components/post/PostProcessingComponent.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/components/post/PostProcessingComponent.ts#L55)
+[src/components/post/PostProcessingComponent.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/components/post/PostProcessingComponent.ts#L65)
 
 ___
 
@@ -624,4 +624,4 @@ ___
 
 #### Defined in
 
-[src/components/post/PostProcessingComponent.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/components/post/PostProcessingComponent.ts#L65)
+[src/components/post/PostProcessingComponent.ts:75](https://github.com/Orillusion/orillusion/blob/main/src/components/post/PostProcessingComponent.ts#L75)

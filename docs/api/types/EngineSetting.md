@@ -12,7 +12,8 @@
 | `shadow` | [`ShadowSetting`](ShadowSetting.md) | shadow setting |
 | `gi` | [`GlobalIlluminationSetting`](GlobalIlluminationSetting.md) | global illumination setting |
 | `light` | [`LightSetting`](LightSetting.md) | light setting |
+| `loader` | [`LoaderSetting`](LoaderSetting.md) | loader setting |
 
 #### Defined in
 
-[src/setting/EngineSetting.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/setting/EngineSetting.ts#L10)
+[src/setting/EngineSetting.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/setting/EngineSetting.ts#L11)

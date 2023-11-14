@@ -13,9 +13,10 @@
 ### Properties
 
 - [gBufferMap](GBufferFrame.md#gbuffermap)
+- [bufferTexture](GBufferFrame.md#buffertexture)
 - [label](GBufferFrame.md#label)
 - [customSize](GBufferFrame.md#customsize)
-- [attachments](GBufferFrame.md#attachments)
+- [renderTargets](GBufferFrame.md#rendertargets)
 - [rtDescriptors](GBufferFrame.md#rtdescriptors)
 - [zPreTexture](GBufferFrame.md#zpretexture)
 - [depthTexture](GBufferFrame.md#depthtexture)
@@ -46,7 +47,7 @@
 
 #### Defined in
 
-[src/gfx/renderJob/frame/GBufferFrame.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L12)
+[src/gfx/renderJob/frame/GBufferFrame.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L13)
 
 ## Properties
 
@@ -56,7 +57,17 @@
 
 #### Defined in
 
-[src/gfx/renderJob/frame/GBufferFrame.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L10)
+[src/gfx/renderJob/frame/GBufferFrame.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L11)
+
+___
+
+### bufferTexture
+
+▪ `Static` **bufferTexture**: `boolean` = `false`
+
+#### Defined in
+
+[src/gfx/renderJob/frame/GBufferFrame.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L12)
 
 ___
 
@@ -70,7 +81,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/frame/RTFrame.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L6)
+[src/gfx/renderJob/frame/RTFrame.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L5)
 
 ___
 
@@ -84,21 +95,21 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/frame/RTFrame.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L7)
+[src/gfx/renderJob/frame/RTFrame.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L6)
 
 ___
 
-### attachments
+### renderTargets
 
-• **attachments**: `VirtualTexture`[]
+• **renderTargets**: `RenderTexture`[]
 
 #### Inherited from
 
-[RTFrame](RTFrame.md).[attachments](RTFrame.md#attachments)
+[RTFrame](RTFrame.md).[renderTargets](RTFrame.md#rendertargets)
 
 #### Defined in
 
-[src/gfx/renderJob/frame/RTFrame.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L8)
+[src/gfx/renderJob/frame/RTFrame.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L7)
 
 ___
 
@@ -112,13 +123,13 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/frame/RTFrame.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L9)
+[src/gfx/renderJob/frame/RTFrame.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L8)
 
 ___
 
 ### zPreTexture
 
-• **zPreTexture**: `VirtualTexture`
+• **zPreTexture**: `RenderTexture`
 
 #### Inherited from
 
@@ -126,13 +137,13 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/frame/RTFrame.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L11)
+[src/gfx/renderJob/frame/RTFrame.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L10)
 
 ___
 
 ### depthTexture
 
-• **depthTexture**: `VirtualTexture`
+• **depthTexture**: `RenderTexture`
 
 #### Inherited from
 
@@ -140,7 +151,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/frame/RTFrame.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L12)
+[src/gfx/renderJob/frame/RTFrame.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L11)
 
 ___
 
@@ -154,7 +165,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/frame/RTFrame.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L14)
+[src/gfx/renderJob/frame/RTFrame.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L13)
 
 ___
 
@@ -168,7 +179,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/frame/RTFrame.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L15)
+[src/gfx/renderJob/frame/RTFrame.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L14)
 
 ___
 
@@ -182,7 +193,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/frame/RTFrame.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L16)
+[src/gfx/renderJob/frame/RTFrame.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L15)
 
 ___
 
@@ -196,7 +207,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/frame/RTFrame.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L17)
+[src/gfx/renderJob/frame/RTFrame.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L16)
 
 ## Methods
 
@@ -218,63 +229,63 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/frame/GBufferFrame.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L16)
+[src/gfx/renderJob/frame/GBufferFrame.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L17)
 
 ___
 
 ### getColorMap
 
-▸ **getColorMap**(): `VirtualTexture`
+▸ **getColorMap**(): `RenderTexture`
 
 #### Returns
 
-`VirtualTexture`
+`RenderTexture`
 
 #### Defined in
 
-[src/gfx/renderJob/frame/GBufferFrame.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L48)
+[src/gfx/renderJob/frame/GBufferFrame.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L49)
 
 ___
 
 ### getPositionMap
 
-▸ **getPositionMap**(): `VirtualTexture`
+▸ **getPositionMap**(): `RenderTexture`
 
 #### Returns
 
-`VirtualTexture`
+`RenderTexture`
 
 #### Defined in
 
-[src/gfx/renderJob/frame/GBufferFrame.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L52)
+[src/gfx/renderJob/frame/GBufferFrame.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L53)
 
 ___
 
 ### getNormalMap
 
-▸ **getNormalMap**(): `VirtualTexture`
+▸ **getNormalMap**(): `RenderTexture`
 
 #### Returns
 
-`VirtualTexture`
+`RenderTexture`
 
 #### Defined in
 
-[src/gfx/renderJob/frame/GBufferFrame.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L56)
+[src/gfx/renderJob/frame/GBufferFrame.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L57)
 
 ___
 
 ### getMaterialMap
 
-▸ **getMaterialMap**(): `VirtualTexture`
+▸ **getMaterialMap**(): `RenderTexture`
 
 #### Returns
 
-`VirtualTexture`
+`RenderTexture`
 
 #### Defined in
 
-[src/gfx/renderJob/frame/GBufferFrame.ts:60](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L60)
+[src/gfx/renderJob/frame/GBufferFrame.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L61)
 
 ___
 
@@ -292,7 +303,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/frame/GBufferFrame.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L80)
+[src/gfx/renderJob/frame/GBufferFrame.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L81)
 
 ___
 
@@ -316,4 +327,4 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/frame/RTFrame.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L27)
+[src/gfx/renderJob/frame/RTFrame.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L26)

@@ -167,7 +167,7 @@ Copy skeleton pose from other skeleton pose
 
 #### Defined in
 
-[src/components/anim/skeletonAnim/SkeletonPose.ts:104](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L104)
+[src/components/anim/skeletonAnim/SkeletonPose.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L112)
 
 ___
 
@@ -183,4 +183,4 @@ Reset this skeleton pose
 
 #### Defined in
 
-[src/components/anim/skeletonAnim/SkeletonPose.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L113)
+[src/components/anim/skeletonAnim/SkeletonPose.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L121)

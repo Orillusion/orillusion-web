@@ -4,4 +4,4 @@
 
 #### Defined in
 
-[src/assets/shader/core/pass/CastShadow_pass.ts:156](https://github.com/Orillusion/orillusion/blob/main/src/assets/shader/core/pass/CastShadow_pass.ts#L156)
+[src/assets/shader/core/pass/CastShadow_pass.ts:222](https://github.com/Orillusion/orillusion/blob/main/src/assets/shader/core/pass/CastShadow_pass.ts#L222)

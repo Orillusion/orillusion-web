@@ -22,6 +22,7 @@ rather than pursuing perfect real anti-aliasing effect.
 
 ### Methods
 
+- [onResize](FXAAPost.md#onresize)
 - [destroy](FXAAPost.md#destroy)
 
 ## Constructors
@@ -36,7 +37,7 @@ PostBase.constructor
 
 #### Defined in
 
-[src/gfx/renderJob/post/FXAAPost.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/FXAAPost.ts#L21)
+[src/gfx/renderJob/post/FXAAPost.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/FXAAPost.ts#L19)
 
 ## Properties
 
@@ -50,7 +51,7 @@ PostBase.enable
 
 #### Defined in
 
-[src/gfx/renderJob/post/PostBase.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L19)
+[src/gfx/renderJob/post/PostBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L20)
 
 ___
 
@@ -64,9 +65,27 @@ PostBase.postRenderer
 
 #### Defined in
 
-[src/gfx/renderJob/post/PostBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L20)
+[src/gfx/renderJob/post/PostBase.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L21)
 
 ## Methods
+
+### onResize
+
+▸ **onResize**(): `void`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+PostBase.onResize
+
+#### Defined in
+
+[src/gfx/renderJob/post/PostBase.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L73)
+
+___
 
 ### destroy
 
@@ -88,4 +107,4 @@ PostBase.destroy
 
 #### Defined in
 
-[src/gfx/renderJob/post/PostBase.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L81)
+[src/gfx/renderJob/post/PostBase.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L87)

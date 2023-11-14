@@ -33,7 +33,7 @@ ___
 
 ### renderShader
 
-▪ `Static` **renderShader**: `Map`<`string`, [`RenderShader`](RenderShader.md)\>
+▪ `Static` **renderShader**: `Map`<`string`, [`RenderShaderPass`](RenderShaderPass.md)\>
 
 #### Defined in
 

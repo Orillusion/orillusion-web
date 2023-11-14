@@ -41,6 +41,7 @@ Screen space reflection
 ### Methods
 
 - [destroy](SSRPost.md#destroy)
+- [onResize](SSRPost.md#onresize)
 
 ## Constructors
 
@@ -68,7 +69,7 @@ PostBase.enable
 
 #### Defined in
 
-[src/gfx/renderJob/post/PostBase.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L19)
+[src/gfx/renderJob/post/PostBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L20)
 
 ___
 
@@ -82,7 +83,7 @@ PostBase.postRenderer
 
 #### Defined in
 
-[src/gfx/renderJob/post/PostBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L20)
+[src/gfx/renderJob/post/PostBase.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L21)
 
 ___
 
@@ -306,4 +307,22 @@ PostBase.destroy
 
 #### Defined in
 
-[src/gfx/renderJob/post/PostBase.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L81)
+[src/gfx/renderJob/post/PostBase.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L87)
+
+___
+
+### onResize
+
+▸ **onResize**(): `void`
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+PostBase.onResize
+
+#### Defined in
+
+[src/gfx/renderJob/post/SSRPost.ts:293](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L293)

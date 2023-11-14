@@ -4,4 +4,4 @@
 
 #### Defined in
 
-[src/assets/shader/quad/Quad_shader.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/assets/shader/quad/Quad_shader.ts#L117)
+[src/assets/shader/quad/Quad_shader.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/assets/shader/quad/Quad_shader.ts#L112)

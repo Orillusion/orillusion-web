@@ -17,6 +17,7 @@ Shadow setting
 | `pointShadowBias` | `number` | Offset of point light shadow |
 | `shadowBound?` | `number` | shadow boundary |
 | `shadowSize` | `number` | shadow mapping Size |
+| `shadowBias` | `number` | shadow depth offset bias |
 | `shadowSoft` | `number` | Shadow softness |
 | `pointShadowSize` | `number` | Point shadow mapping size |
 | `csmMargin` | `number` | Blend Shadow(0-1) |

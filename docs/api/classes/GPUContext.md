@@ -65,7 +65,7 @@ ___
 
 ### lastShader
 
-▪ `Static` **lastShader**: [`RenderShader`](RenderShader.md)
+▪ `Static` **lastShader**: [`RenderShaderPass`](RenderShaderPass.md)
 
 #### Defined in
 
@@ -154,7 +154,7 @@ renderPipeline before render need bind pipeline
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `encoder` | `GPURenderPassEncoder` \| `GPURenderBundleEncoder` | current GPURenderPassEncoder GPURenderPassEncoder GPURenderBundleEncoder |
-| `renderShader` | [`RenderShader`](RenderShader.md) | render pass shader [RenderShader](RenderShader.md) |
+| `renderShader` | [`RenderShaderPass`](RenderShaderPass.md) | render pass shader [RenderShaderPass](RenderShaderPass.md) |
 
 #### Returns
 

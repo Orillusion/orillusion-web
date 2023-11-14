@@ -289,8 +289,8 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `probeRender` | `DDGIProbeRenderer` |
-| `colorMap` | `VirtualTexture` |
-| `depthMap` | `VirtualTexture` |
+| `colorMap` | `RenderTexture` |
+| `depthMap` | `RenderTexture` |
 
 #### Returns
 

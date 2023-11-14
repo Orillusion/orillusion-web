@@ -13,16 +13,20 @@
 ### Properties
 
 - [rtFrame](GodRayPost.md#rtframe)
+- [enable](GodRayPost.md#enable)
+- [postRenderer](GodRayPost.md#postrenderer)
+
+### Accessors
+
 - [blendColor](GodRayPost.md#blendcolor)
 - [rayMarchCount](GodRayPost.md#raymarchcount)
 - [scatteringExponent](GodRayPost.md#scatteringexponent)
 - [intensity](GodRayPost.md#intensity)
-- [enable](GodRayPost.md#enable)
-- [postRenderer](GodRayPost.md#postrenderer)
 
 ### Methods
 
 - [onDetach](GodRayPost.md#ondetach)
+- [onResize](GodRayPost.md#onresize)
 - [destroy](GodRayPost.md#destroy)
 
 ## Constructors
@@ -51,46 +55,6 @@ PostBase.constructor
 
 ___
 
-### blendColor
-
-• **blendColor**: `boolean` = `true`
-
-#### Defined in
-
-[src/gfx/renderJob/post/GodRayPost.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L64)
-
-___
-
-### rayMarchCount
-
-• **rayMarchCount**: `number` = `16`
-
-#### Defined in
-
-[src/gfx/renderJob/post/GodRayPost.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L65)
-
-___
-
-### scatteringExponent
-
-• **scatteringExponent**: `number` = `5`
-
-#### Defined in
-
-[src/gfx/renderJob/post/GodRayPost.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L66)
-
-___
-
-### intensity
-
-• **intensity**: `number` = `0.5`
-
-#### Defined in
-
-[src/gfx/renderJob/post/GodRayPost.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L67)
-
-___
-
 ### enable
 
 • **enable**: `boolean` = `true`
@@ -101,7 +65,7 @@ PostBase.enable
 
 #### Defined in
 
-[src/gfx/renderJob/post/PostBase.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L19)
+[src/gfx/renderJob/post/PostBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L20)
 
 ___
 
@@ -115,7 +79,127 @@ PostBase.postRenderer
 
 #### Defined in
 
-[src/gfx/renderJob/post/PostBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L20)
+[src/gfx/renderJob/post/PostBase.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L21)
+
+## Accessors
+
+### blendColor
+
+• `get` **blendColor**(): `boolean`
+
+#### Returns
+
+`boolean`
+
+#### Defined in
+
+[src/gfx/renderJob/post/GodRayPost.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L64)
+
+• `set` **blendColor**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/gfx/renderJob/post/GodRayPost.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L67)
+
+___
+
+### rayMarchCount
+
+• `get` **rayMarchCount**(): `number`
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[src/gfx/renderJob/post/GodRayPost.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L70)
+
+• `set` **rayMarchCount**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/gfx/renderJob/post/GodRayPost.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L73)
+
+___
+
+### scatteringExponent
+
+• `get` **scatteringExponent**(): `number`
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[src/gfx/renderJob/post/GodRayPost.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L77)
+
+• `set` **scatteringExponent**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/gfx/renderJob/post/GodRayPost.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L80)
+
+___
+
+### intensity
+
+• `get` **intensity**(): `number`
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[src/gfx/renderJob/post/GodRayPost.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L84)
+
+• `set` **intensity**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/gfx/renderJob/post/GodRayPost.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L87)
 
 ## Methods
 
@@ -143,6 +227,24 @@ PostBase.onDetach
 
 ___
 
+### onResize
+
+▸ **onResize**(): `void`
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+PostBase.onResize
+
+#### Defined in
+
+[src/gfx/renderJob/post/GodRayPost.ts:138](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L138)
+
+___
+
 ### destroy
 
 ▸ **destroy**(`force?`): `void`
@@ -163,4 +265,4 @@ PostBase.destroy
 
 #### Defined in
 
-[src/gfx/renderJob/post/PostBase.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L81)
+[src/gfx/renderJob/post/PostBase.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L87)

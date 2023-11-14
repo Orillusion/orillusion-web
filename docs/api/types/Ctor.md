@@ -32,4 +32,4 @@ Constructor
 
 #### Defined in
 
-[src/util/Global.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/util/Global.ts#L73)
+[src/util/Global.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/util/Global.ts#L81)

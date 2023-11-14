@@ -40,6 +40,7 @@ The light of this light source is parallel, for example, sunlight. This light so
 - [g](DirectLight.md#g)
 - [b](DirectLight.md#b)
 - [lightColor](DirectLight.md#lightcolor)
+- [color](DirectLight.md#color)
 - [intensity](DirectLight.md#intensity)
 - [castShadow](DirectLight.md#castshadow)
 - [shadowIndex](DirectLight.md#shadowindex)
@@ -77,7 +78,7 @@ LightBase.constructor
 
 #### Defined in
 
-[src/components/lights/DirectLight.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L14)
+[src/components/lights/DirectLight.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L16)
 
 ## Properties
 
@@ -117,7 +118,7 @@ ___
 
 #### Defined in
 
-[src/components/lights/DirectLight.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L12)
+[src/components/lights/DirectLight.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L14)
 
 ___
 
@@ -369,7 +370,7 @@ Get the radius of a directional light source
 
 #### Defined in
 
-[src/components/lights/DirectLight.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L38)
+[src/components/lights/DirectLight.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L40)
 
 • `set` **radius**(`value`): `void`
 
@@ -387,7 +388,7 @@ Set the radius of a directional light source
 
 #### Defined in
 
-[src/components/lights/DirectLight.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L45)
+[src/components/lights/DirectLight.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L47)
 
 ___
 
@@ -403,7 +404,7 @@ Get the radius of a directional light source
 
 #### Defined in
 
-[src/components/lights/DirectLight.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L54)
+[src/components/lights/DirectLight.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L56)
 
 • `set` **indirect**(`value`): `void`
 
@@ -421,7 +422,7 @@ Set the radius of a directional light source
 
 #### Defined in
 
-[src/components/lights/DirectLight.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L61)
+[src/components/lights/DirectLight.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L63)
 
 ___
 
@@ -637,6 +638,50 @@ LightBase.lightColor
 
 ___
 
+### color
+
+• `get` **color**(): [`Color`](Color.md)
+
+Get light source color
+
+#### Returns
+
+[`Color`](Color.md)
+
+Color
+
+#### Inherited from
+
+LightBase.color
+
+#### Defined in
+
+[src/components/lights/LightBase.ts:191](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L191)
+
+• `set` **color**(`value`): `void`
+
+Set light source color
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | [`Color`](Color.md) |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+LightBase.color
+
+#### Defined in
+
+[src/components/lights/LightBase.ts:199](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L199)
+
+___
+
 ### intensity
 
 • `get` **intensity**(): `number`
@@ -655,7 +700,7 @@ LightBase.intensity
 
 #### Defined in
 
-[src/components/lights/LightBase.ts:190](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L190)
+[src/components/lights/LightBase.ts:208](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L208)
 
 • `set` **intensity**(`value`): `void`
 
@@ -677,7 +722,7 @@ LightBase.intensity
 
 #### Defined in
 
-[src/components/lights/LightBase.ts:197](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L197)
+[src/components/lights/LightBase.ts:216](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L216)
 
 ___
 
@@ -695,7 +740,7 @@ LightBase.castShadow
 
 #### Defined in
 
-[src/components/lights/LightBase.ts:213](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L213)
+[src/components/lights/LightBase.ts:232](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L232)
 
 • `set` **castShadow**(`value`): `void`
 
@@ -717,7 +762,7 @@ LightBase.castShadow
 
 #### Defined in
 
-[src/components/lights/LightBase.ts:206](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L206)
+[src/components/lights/LightBase.ts:225](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L225)
 
 ___
 
@@ -737,7 +782,7 @@ LightBase.shadowIndex
 
 #### Defined in
 
-[src/components/lights/LightBase.ts:220](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L220)
+[src/components/lights/LightBase.ts:239](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L239)
 
 ___
 
@@ -759,7 +804,7 @@ LightBase.castGI
 
 #### Defined in
 
-[src/components/lights/LightBase.ts:229](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L229)
+[src/components/lights/LightBase.ts:248](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L248)
 
 • `set` **castGI**(`value`): `void`
 
@@ -781,7 +826,7 @@ LightBase.castGI
 
 #### Defined in
 
-[src/components/lights/LightBase.ts:236](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L236)
+[src/components/lights/LightBase.ts:255](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L255)
 
 ___
 
@@ -803,7 +848,7 @@ LightBase.direction
 
 #### Defined in
 
-[src/components/lights/LightBase.ts:250](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L250)
+[src/components/lights/LightBase.ts:269](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L269)
 
 ## Methods
 
@@ -1061,7 +1106,7 @@ LightBase.init
 
 #### Defined in
 
-[src/components/lights/DirectLight.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L18)
+[src/components/lights/DirectLight.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L20)
 
 ___
 
@@ -1079,7 +1124,7 @@ LightBase.start
 
 #### Defined in
 
-[src/components/lights/DirectLight.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L29)
+[src/components/lights/DirectLight.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L31)
 
 ___
 
@@ -1095,7 +1140,7 @@ enable light debug gui
 
 #### Defined in
 
-[src/components/lights/DirectLight.ts:88](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L88)
+[src/components/lights/DirectLight.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/DirectLight.ts#L90)
 
 ___
 
@@ -1155,4 +1200,4 @@ LightBase.destroy
 
 #### Defined in
 
-[src/components/lights/LightBase.ts:254](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L254)
+[src/components/lights/LightBase.ts:273](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/LightBase.ts#L273)

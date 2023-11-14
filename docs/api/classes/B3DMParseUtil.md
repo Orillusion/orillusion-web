@@ -32,4 +32,4 @@
 
 #### Defined in
 
-[src/loader/parser/B3DMParser.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L107)
+[src/loader/parser/B3DMParser.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L108)

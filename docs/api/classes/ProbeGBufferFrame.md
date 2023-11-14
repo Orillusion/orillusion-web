@@ -14,7 +14,7 @@
 
 - [label](ProbeGBufferFrame.md#label)
 - [customSize](ProbeGBufferFrame.md#customsize)
-- [attachments](ProbeGBufferFrame.md#attachments)
+- [renderTargets](ProbeGBufferFrame.md#rendertargets)
 - [rtDescriptors](ProbeGBufferFrame.md#rtdescriptors)
 - [zPreTexture](ProbeGBufferFrame.md#zpretexture)
 - [depthTexture](ProbeGBufferFrame.md#depthtexture)
@@ -33,14 +33,15 @@
 
 ### constructor
 
-• **new ProbeGBufferFrame**(`rtWidth`, `rtHeight`)
+• **new ProbeGBufferFrame**(`rtWidth`, `rtHeight`, `autoResize?`)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `rtWidth` | `number` |
-| `rtHeight` | `number` |
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `rtWidth` | `number` | `undefined` |
+| `rtHeight` | `number` | `undefined` |
+| `autoResize` | `boolean` | `true` |
 
 #### Overrides
 
@@ -48,7 +49,7 @@
 
 #### Defined in
 
-[src/gfx/renderJob/frame/ProbeGBufferFrame.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/ProbeGBufferFrame.ts#L10)
+[src/gfx/renderJob/frame/ProbeGBufferFrame.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/ProbeGBufferFrame.ts#L8)
 
 ## Properties
 
@@ -62,7 +63,7 @@
 
 #### Defined in
 
-[src/gfx/renderJob/frame/RTFrame.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L6)
+[src/gfx/renderJob/frame/RTFrame.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L5)
 
 ___
 
@@ -76,21 +77,21 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/frame/RTFrame.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L7)
+[src/gfx/renderJob/frame/RTFrame.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L6)
 
 ___
 
-### attachments
+### renderTargets
 
-• **attachments**: `VirtualTexture`[]
+• **renderTargets**: `RenderTexture`[]
 
 #### Inherited from
 
-[RTFrame](RTFrame.md).[attachments](RTFrame.md#attachments)
+[RTFrame](RTFrame.md).[renderTargets](RTFrame.md#rendertargets)
 
 #### Defined in
 
-[src/gfx/renderJob/frame/RTFrame.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L8)
+[src/gfx/renderJob/frame/RTFrame.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L7)
 
 ___
 
@@ -104,13 +105,13 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/frame/RTFrame.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L9)
+[src/gfx/renderJob/frame/RTFrame.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L8)
 
 ___
 
 ### zPreTexture
 
-• **zPreTexture**: `VirtualTexture`
+• **zPreTexture**: `RenderTexture`
 
 #### Inherited from
 
@@ -118,13 +119,13 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/frame/RTFrame.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L11)
+[src/gfx/renderJob/frame/RTFrame.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L10)
 
 ___
 
 ### depthTexture
 
-• **depthTexture**: `VirtualTexture`
+• **depthTexture**: `RenderTexture`
 
 #### Inherited from
 
@@ -132,7 +133,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/frame/RTFrame.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L12)
+[src/gfx/renderJob/frame/RTFrame.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L11)
 
 ___
 
@@ -146,7 +147,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/frame/RTFrame.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L14)
+[src/gfx/renderJob/frame/RTFrame.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L13)
 
 ___
 
@@ -160,7 +161,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/frame/RTFrame.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L15)
+[src/gfx/renderJob/frame/RTFrame.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L14)
 
 ___
 
@@ -174,7 +175,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/frame/RTFrame.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L16)
+[src/gfx/renderJob/frame/RTFrame.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L15)
 
 ___
 
@@ -188,13 +189,13 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/frame/RTFrame.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L17)
+[src/gfx/renderJob/frame/RTFrame.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L16)
 
 ## Methods
 
 ### crateGBuffer
 
-▸ **crateGBuffer**(`rtWidth`, `rtHeight`): `void`
+▸ **crateGBuffer**(`rtWidth`, `rtHeight`, `autoResize`): `void`
 
 #### Parameters
 
@@ -202,6 +203,7 @@ ___
 | :------ | :------ |
 | `rtWidth` | `number` |
 | `rtHeight` | `number` |
+| `autoResize` | `boolean` |
 
 #### Returns
 
@@ -209,7 +211,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/frame/ProbeGBufferFrame.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/ProbeGBufferFrame.ts#L15)
+[src/gfx/renderJob/frame/ProbeGBufferFrame.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/ProbeGBufferFrame.ts#L13)
 
 ___
 
@@ -233,7 +235,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/frame/RTFrame.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L27)
+[src/gfx/renderJob/frame/RTFrame.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L26)
 
 ___
 
@@ -251,4 +253,4 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/frame/RTFrame.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L42)
+[src/gfx/renderJob/frame/RTFrame.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L41)
