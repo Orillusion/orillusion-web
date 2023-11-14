@@ -10,7 +10,6 @@ Static audio component, volume level does not vary depending on the position of 
 
   ↳↳ [`PositionAudio`](PositionAudio.md)
 
-
 ### Constructors
 
 - [constructor](StaticAudio.md#constructor)
