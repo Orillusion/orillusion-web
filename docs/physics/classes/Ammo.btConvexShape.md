@@ -10,7 +10,6 @@
 
   ↳↳ [`btConvexTriangleMeshShape`](Ammo.btConvexTriangleMeshShape.md)
 
-
 ### Constructors
 
 - [constructor](Ammo.btConvexShape.md#constructor)

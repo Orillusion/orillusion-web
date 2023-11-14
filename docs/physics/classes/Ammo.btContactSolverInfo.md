@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).btContactSolverInfo
 
-
 ### Constructors
 
 - [constructor](Ammo.btContactSolverInfo.md#constructor)

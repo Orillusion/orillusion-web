@@ -8,6 +8,9 @@
 
   ↳ **`btHeightfieldTerrainShape`**
 
+### Constructors
+
+- [constructor](Ammo.btHeightfieldTerrainShape.md#constructor)
 
 ### Methods
 
@@ -17,9 +20,33 @@
 - [setMargin](Ammo.btHeightfieldTerrainShape.md#setmargin)
 - [getMargin](Ammo.btHeightfieldTerrainShape.md#getmargin)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.btHeightfieldTerrainShape.md#constructor)
+### constructor
+
+• **new btHeightfieldTerrainShape**(`heightStickWidth`, `heightStickLength`, `heightfieldData`, `heightScale`, `minHeight`, `maxHeight`, `upAxis`, `hdt`, `flipQuadEdges`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `heightStickWidth` | `number` |
+| `heightStickLength` | `number` |
+| `heightfieldData` | `unknown` |
+| `heightScale` | `number` |
+| `minHeight` | `number` |
+| `maxHeight` | `number` |
+| `upAxis` | `number` |
+| `hdt` | [`PHY_ScalarType`](../types/Ammo.PHY_ScalarType.md) |
+| `flipQuadEdges` | `boolean` |
+
+#### Overrides
+
+[btConcaveShape](Ammo.btConcaveShape.md).[constructor](Ammo.btConcaveShape.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:414](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L414)
 
 ## Methods
 
@@ -129,31 +156,3 @@ ___
 #### Defined in
 
 [packages/ammo/ammo.d.ts:416](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L416)
-
-## Constructors
-
-### constructor
-
-• **new btHeightfieldTerrainShape**(`heightStickWidth`, `heightStickLength`, `heightfieldData`, `heightScale`, `minHeight`, `maxHeight`, `upAxis`, `hdt`, `flipQuadEdges`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `heightStickWidth` | `number` |
-| `heightStickLength` | `number` |
-| `heightfieldData` | `unknown` |
-| `heightScale` | `number` |
-| `minHeight` | `number` |
-| `maxHeight` | `number` |
-| `upAxis` | `number` |
-| `hdt` | [`PHY_ScalarType`](../types/Ammo.PHY_ScalarType.md) |
-| `flipQuadEdges` | `boolean` |
-
-#### Overrides
-
-[btConcaveShape](Ammo.btConcaveShape.md).[constructor](Ammo.btConcaveShape.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:414](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L414)

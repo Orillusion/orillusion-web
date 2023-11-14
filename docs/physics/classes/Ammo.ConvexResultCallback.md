@@ -8,7 +8,6 @@
 
   ↳ [`ClosestConvexResultCallback`](Ammo.ClosestConvexResultCallback.md)
 
-
 ### Constructors
 
 - [constructor](Ammo.ConvexResultCallback.md#constructor)

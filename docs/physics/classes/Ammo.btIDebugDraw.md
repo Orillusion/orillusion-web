@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).btIDebugDraw
 
-
 ### Constructors
 
 - [constructor](Ammo.btIDebugDraw.md#constructor)

@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).btGhostPairCallback
 
-
 ### Constructors
 
 - [constructor](Ammo.btGhostPairCallback.md#constructor)

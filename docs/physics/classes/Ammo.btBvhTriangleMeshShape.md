@@ -8,6 +8,9 @@
 
   ↳ **`btBvhTriangleMeshShape`**
 
+### Constructors
+
+- [constructor](Ammo.btBvhTriangleMeshShape.md#constructor)
 
 ### Methods
 
@@ -17,9 +20,27 @@
 - [setMargin](Ammo.btBvhTriangleMeshShape.md#setmargin)
 - [getMargin](Ammo.btBvhTriangleMeshShape.md#getmargin)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.btBvhTriangleMeshShape.md#constructor)
+### constructor
+
+• **new btBvhTriangleMeshShape**(`meshInterface`, `useQuantizedAabbCompression`, `buildBvh?`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `meshInterface` | [`btStridingMeshInterface`](Ammo.btStridingMeshInterface.md) |
+| `useQuantizedAabbCompression` | `boolean` |
+| `buildBvh?` | `boolean` |
+
+#### Overrides
+
+[btTriangleMeshShape](Ammo.btTriangleMeshShape.md).[constructor](Ammo.btTriangleMeshShape.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:411](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L411)
 
 ## Methods
 
@@ -129,25 +150,3 @@ ___
 #### Defined in
 
 [packages/ammo/ammo.d.ts:271](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L271)
-
-## Constructors
-
-### constructor
-
-• **new btBvhTriangleMeshShape**(`meshInterface`, `useQuantizedAabbCompression`, `buildBvh?`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `meshInterface` | [`btStridingMeshInterface`](Ammo.btStridingMeshInterface.md) |
-| `useQuantizedAabbCompression` | `boolean` |
-| `buildBvh?` | `boolean` |
-
-#### Overrides
-
-[btTriangleMeshShape](Ammo.btTriangleMeshShape.md).[constructor](Ammo.btTriangleMeshShape.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:411](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L411)

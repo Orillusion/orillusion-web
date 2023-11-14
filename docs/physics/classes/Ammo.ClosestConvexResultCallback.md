@@ -8,6 +8,9 @@
 
   ↳ **`ClosestConvexResultCallback`**
 
+### Constructors
+
+- [constructor](Ammo.ClosestConvexResultCallback.md#constructor)
 
 ### Methods
 
@@ -27,9 +30,26 @@
 - [get\_m\_hitPointWorld](Ammo.ClosestConvexResultCallback.md#get_m_hitpointworld)
 - [set\_m\_hitPointWorld](Ammo.ClosestConvexResultCallback.md#set_m_hitpointworld)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.ClosestConvexResultCallback.md#constructor)
+### constructor
+
+• **new ClosestConvexResultCallback**(`convexFromWorld`, `convexToWorld`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `convexFromWorld` | [`btVector3`](Ammo.btVector3.md) |
+| `convexToWorld` | [`btVector3`](Ammo.btVector3.md) |
+
+#### Overrides
+
+[ConvexResultCallback](Ammo.ConvexResultCallback.md).[constructor](Ammo.ConvexResultCallback.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:256](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L256)
 
 ## Methods
 
@@ -310,24 +330,3 @@ ___
 #### Defined in
 
 [packages/ammo/ammo.d.ts:264](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L264)
-
-## Constructors
-
-### constructor
-
-• **new ClosestConvexResultCallback**(`convexFromWorld`, `convexToWorld`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `convexFromWorld` | [`btVector3`](Ammo.btVector3.md) |
-| `convexToWorld` | [`btVector3`](Ammo.btVector3.md) |
-
-#### Overrides
-
-[ConvexResultCallback](Ammo.ConvexResultCallback.md).[constructor](Ammo.ConvexResultCallback.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:256](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L256)

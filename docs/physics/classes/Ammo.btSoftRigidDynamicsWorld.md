@@ -8,6 +8,9 @@
 
   ↳ **`btSoftRigidDynamicsWorld`**
 
+### Constructors
+
+- [constructor](Ammo.btSoftRigidDynamicsWorld.md#constructor)
 
 ### Methods
 
@@ -45,9 +48,29 @@
 - [getWorldInfo](Ammo.btSoftRigidDynamicsWorld.md#getworldinfo)
 - [getSoftBodyArray](Ammo.btSoftRigidDynamicsWorld.md#getsoftbodyarray)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.btSoftRigidDynamicsWorld.md#constructor)
+### constructor
+
+• **new btSoftRigidDynamicsWorld**(`dispatcher`, `pairCache`, `constraintSolver`, `collisionConfiguration`, `softBodySolver`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `dispatcher` | [`btDispatcher`](Ammo.btDispatcher.md) |
+| `pairCache` | [`btBroadphaseInterface`](Ammo.btBroadphaseInterface.md) |
+| `constraintSolver` | [`btConstraintSolver`](Ammo.btConstraintSolver.md) |
+| `collisionConfiguration` | [`btCollisionConfiguration`](Ammo.btCollisionConfiguration.md) |
+| `softBodySolver` | [`btSoftBodySolver`](Ammo.btSoftBodySolver.md) |
+
+#### Overrides
+
+[btDiscreteDynamicsWorld](Ammo.btDiscreteDynamicsWorld.md).[constructor](Ammo.btDiscreteDynamicsWorld.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:1055](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L1055)
 
 ## Methods
 
@@ -806,27 +829,3 @@ ___
 #### Defined in
 
 [packages/ammo/ammo.d.ts:1060](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L1060)
-
-## Constructors
-
-### constructor
-
-• **new btSoftRigidDynamicsWorld**(`dispatcher`, `pairCache`, `constraintSolver`, `collisionConfiguration`, `softBodySolver`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `dispatcher` | [`btDispatcher`](Ammo.btDispatcher.md) |
-| `pairCache` | [`btBroadphaseInterface`](Ammo.btBroadphaseInterface.md) |
-| `constraintSolver` | [`btConstraintSolver`](Ammo.btConstraintSolver.md) |
-| `collisionConfiguration` | [`btCollisionConfiguration`](Ammo.btCollisionConfiguration.md) |
-| `softBodySolver` | [`btSoftBodySolver`](Ammo.btSoftBodySolver.md) |
-
-#### Overrides
-
-[btDiscreteDynamicsWorld](Ammo.btDiscreteDynamicsWorld.md).[constructor](Ammo.btDiscreteDynamicsWorld.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:1055](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L1055)

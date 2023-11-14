@@ -8,6 +8,9 @@
 
   ↳ **`btKinematicCharacterController`**
 
+### Constructors
+
+- [constructor](Ammo.btKinematicCharacterController.md#constructor)
 
 ### Methods
 
@@ -32,9 +35,28 @@
 - [onGround](Ammo.btKinematicCharacterController.md#onground)
 - [setUpInterpolate](Ammo.btKinematicCharacterController.md#setupinterpolate)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.btKinematicCharacterController.md#constructor)
+### constructor
+
+• **new btKinematicCharacterController**(`ghostObject`, `convexShape`, `stepHeight`, `upAxis?`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `ghostObject` | [`btPairCachingGhostObject`](Ammo.btPairCachingGhostObject.md) |
+| `convexShape` | [`btConvexShape`](Ammo.btConvexShape.md) |
+| `stepHeight` | `number` |
+| `upAxis?` | `number` |
+
+#### Overrides
+
+[btActionInterface](Ammo.btActionInterface.md).[constructor](Ammo.btActionInterface.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:806](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L806)
 
 ## Methods
 
@@ -406,26 +428,3 @@ ___
 #### Defined in
 
 [packages/ammo/ammo.d.ts:825](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L825)
-
-## Constructors
-
-### constructor
-
-• **new btKinematicCharacterController**(`ghostObject`, `convexShape`, `stepHeight`, `upAxis?`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `ghostObject` | [`btPairCachingGhostObject`](Ammo.btPairCachingGhostObject.md) |
-| `convexShape` | [`btConvexShape`](Ammo.btConvexShape.md) |
-| `stepHeight` | `number` |
-| `upAxis?` | `number` |
-
-#### Overrides
-
-[btActionInterface](Ammo.btActionInterface.md).[constructor](Ammo.btActionInterface.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:806](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L806)

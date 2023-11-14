@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).LocalShapeInfo
 
-
 ### Constructors
 
 - [constructor](Ammo.LocalShapeInfo.md#constructor)

@@ -8,6 +8,9 @@
 
   ↳ **`btStaticPlaneShape`**
 
+### Constructors
+
+- [constructor](Ammo.btStaticPlaneShape.md#constructor)
 
 ### Methods
 
@@ -17,9 +20,26 @@
 - [setMargin](Ammo.btStaticPlaneShape.md#setmargin)
 - [getMargin](Ammo.btStaticPlaneShape.md#getmargin)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.btStaticPlaneShape.md#constructor)
+### constructor
+
+• **new btStaticPlaneShape**(`planeNormal`, `planeConstant`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `planeNormal` | [`btVector3`](Ammo.btVector3.md) |
+| `planeConstant` | `number` |
+
+#### Overrides
+
+[btConcaveShape](Ammo.btConcaveShape.md).[constructor](Ammo.btConcaveShape.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:407](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L407)
 
 ## Methods
 
@@ -129,24 +149,3 @@ ___
 #### Defined in
 
 [packages/ammo/ammo.d.ts:271](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L271)
-
-## Constructors
-
-### constructor
-
-• **new btStaticPlaneShape**(`planeNormal`, `planeConstant`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `planeNormal` | [`btVector3`](Ammo.btVector3.md) |
-| `planeConstant` | `number` |
-
-#### Overrides
-
-[btConcaveShape](Ammo.btConcaveShape.md).[constructor](Ammo.btConcaveShape.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:407](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L407)

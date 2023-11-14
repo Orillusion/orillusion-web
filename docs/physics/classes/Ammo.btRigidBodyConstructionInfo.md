@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).btRigidBodyConstructionInfo
 
-
 ### Constructors
 
 - [constructor](Ammo.btRigidBodyConstructionInfo.md#constructor)

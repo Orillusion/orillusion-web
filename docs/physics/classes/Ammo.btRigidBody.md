@@ -8,6 +8,9 @@
 
   ↳ **`btRigidBody`**
 
+### Constructors
+
+- [constructor](Ammo.btRigidBody.md#constructor)
 
 ### Methods
 
@@ -73,9 +76,25 @@
 - [getBroadphaseProxy](Ammo.btRigidBody.md#getbroadphaseproxy)
 - [clearForces](Ammo.btRigidBody.md#clearforces)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.btRigidBody.md#constructor)
+### constructor
+
+• **new btRigidBody**(`constructionInfo`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `constructionInfo` | [`btRigidBodyConstructionInfo`](Ammo.btRigidBodyConstructionInfo.md) |
+
+#### Overrides
+
+[btCollisionObject](Ammo.btCollisionObject.md).[constructor](Ammo.btCollisionObject.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:487](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L487)
 
 ## Methods
 
@@ -1259,23 +1278,3 @@ ___
 #### Defined in
 
 [packages/ammo/ammo.d.ts:520](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L520)
-
-## Constructors
-
-### constructor
-
-• **new btRigidBody**(`constructionInfo`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `constructionInfo` | [`btRigidBodyConstructionInfo`](Ammo.btRigidBodyConstructionInfo.md) |
-
-#### Overrides
-
-[btCollisionObject](Ammo.btCollisionObject.md).[constructor](Ammo.btCollisionObject.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:487](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L487)

@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).btDispatcherInfo
 
-
 ### Constructors
 
 - [constructor](Ammo.btDispatcherInfo.md#constructor)

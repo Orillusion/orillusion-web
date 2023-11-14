@@ -8,7 +8,6 @@
 
   ↳ [`btDefaultMotionState`](Ammo.btDefaultMotionState.md)
 
-
 ### Constructors
 
 - [constructor](Ammo.btMotionState.md#constructor)

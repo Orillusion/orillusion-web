@@ -8,7 +8,6 @@
 
   ↳ [`btCollisionDispatcher`](Ammo.btCollisionDispatcher.md)
 
-
 ### Constructors
 
 - [constructor](Ammo.btDispatcher.md#constructor)

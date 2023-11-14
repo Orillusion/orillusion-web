@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).RaycastInfo
 
-
 ### Constructors
 
 - [constructor](Ammo.RaycastInfo.md#constructor)

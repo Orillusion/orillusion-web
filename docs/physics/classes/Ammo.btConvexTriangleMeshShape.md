@@ -8,6 +8,9 @@
 
   ↳ **`btConvexTriangleMeshShape`**
 
+### Constructors
+
+- [constructor](Ammo.btConvexTriangleMeshShape.md#constructor)
 
 ### Methods
 
@@ -17,9 +20,26 @@
 - [setMargin](Ammo.btConvexTriangleMeshShape.md#setmargin)
 - [getMargin](Ammo.btConvexTriangleMeshShape.md#getmargin)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.btConvexTriangleMeshShape.md#constructor)
+### constructor
+
+• **new btConvexTriangleMeshShape**(`meshInterface`, `calcAabb?`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `meshInterface` | [`btStridingMeshInterface`](Ammo.btStridingMeshInterface.md) |
+| `calcAabb?` | `boolean` |
+
+#### Overrides
+
+[btConvexShape](Ammo.btConvexShape.md).[constructor](Ammo.btConvexShape.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:275](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L275)
 
 ## Methods
 
@@ -129,24 +149,3 @@ ___
 #### Defined in
 
 [packages/ammo/ammo.d.ts:271](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L271)
-
-## Constructors
-
-### constructor
-
-• **new btConvexTriangleMeshShape**(`meshInterface`, `calcAabb?`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `meshInterface` | [`btStridingMeshInterface`](Ammo.btStridingMeshInterface.md) |
-| `calcAabb?` | `boolean` |
-
-#### Overrides
-
-[btConvexShape](Ammo.btConvexShape.md).[constructor](Ammo.btConvexShape.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:275](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L275)

@@ -8,6 +8,9 @@
 
   ↳ **`btTriangleMesh`**
 
+### Constructors
+
+- [constructor](Ammo.btTriangleMesh.md#constructor)
 
 ### Methods
 
@@ -17,9 +20,26 @@
 - [addIndex](Ammo.btTriangleMesh.md#addindex)
 - [getIndexedMeshArray](Ammo.btTriangleMesh.md#getindexedmesharray)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.btTriangleMesh.md#constructor)
+### constructor
+
+• **new btTriangleMesh**(`use32bitIndices?`, `use4componentVertices?`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `use32bitIndices?` | `boolean` |
+| `use4componentVertices?` | `boolean` |
+
+#### Overrides
+
+[btStridingMeshInterface](Ammo.btStridingMeshInterface.md).[constructor](Ammo.btStridingMeshInterface.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:395](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L395)
 
 ## Methods
 
@@ -122,24 +142,3 @@ ___
 #### Defined in
 
 [packages/ammo/ammo.d.ts:399](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L399)
-
-## Constructors
-
-### constructor
-
-• **new btTriangleMesh**(`use32bitIndices?`, `use4componentVertices?`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `use32bitIndices?` | `boolean` |
-| `use4componentVertices?` | `boolean` |
-
-#### Overrides
-
-[btStridingMeshInterface](Ammo.btStridingMeshInterface.md).[constructor](Ammo.btStridingMeshInterface.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:395](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L395)

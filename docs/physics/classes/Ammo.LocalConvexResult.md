@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).LocalConvexResult
 
-
 ### Constructors
 
 - [constructor](Ammo.LocalConvexResult.md#constructor)

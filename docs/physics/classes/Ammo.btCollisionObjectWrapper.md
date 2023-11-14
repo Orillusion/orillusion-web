@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).btCollisionObjectWrapper
 
-
 ### Constructors
 
 - [constructor](Ammo.btCollisionObjectWrapper.md#constructor)

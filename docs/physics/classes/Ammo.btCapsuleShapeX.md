@@ -8,6 +8,9 @@
 
   ↳ **`btCapsuleShapeX`**
 
+### Constructors
+
+- [constructor](Ammo.btCapsuleShapeX.md#constructor)
 
 ### Methods
 
@@ -20,9 +23,26 @@
 - [setMargin](Ammo.btCapsuleShapeX.md#setmargin)
 - [getMargin](Ammo.btCapsuleShapeX.md#getmargin)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.btCapsuleShapeX.md#constructor)
+### constructor
+
+• **new btCapsuleShapeX**(`radius`, `height`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `radius` | `number` |
+| `height` | `number` |
+
+#### Overrides
+
+[btCapsuleShape](Ammo.btCapsuleShape.md).[constructor](Ammo.btCapsuleShape.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:291](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L291)
 
 ## Methods
 
@@ -186,24 +206,3 @@ ___
 #### Defined in
 
 [packages/ammo/ammo.d.ts:293](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L293)
-
-## Constructors
-
-### constructor
-
-• **new btCapsuleShapeX**(`radius`, `height`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `radius` | `number` |
-| `height` | `number` |
-
-#### Overrides
-
-[btCapsuleShape](Ammo.btCapsuleShape.md).[constructor](Ammo.btCapsuleShape.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:291](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L291)

@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).btSoftBodyArray
 
-
 ### Constructors
 
 - [constructor](Ammo.btSoftBodyArray.md#constructor)

@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).btBroadphaseProxy
 
-
 ### Constructors
 
 - [constructor](Ammo.btBroadphaseProxy.md#constructor)

@@ -8,6 +8,9 @@
 
   ↳ **`btHingeConstraint`**
 
+### Constructors
+
+- [constructor](Ammo.btHingeConstraint.md#constructor)
 
 ### Methods
 
@@ -23,9 +26,69 @@
 - [setMaxMotorImpulse](Ammo.btHingeConstraint.md#setmaxmotorimpulse)
 - [setMotorTarget](Ammo.btHingeConstraint.md#setmotortarget)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.btHingeConstraint.md#constructor)
+### constructor
+
+• **new btHingeConstraint**(`rbA`, `rbB`, `pivotInA`, `pivotInB`, `axisInA`, `axisInB`, `useReferenceFrameA?`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `rbA` | [`btRigidBody`](Ammo.btRigidBody.md) |
+| `rbB` | [`btRigidBody`](Ammo.btRigidBody.md) |
+| `pivotInA` | [`btVector3`](Ammo.btVector3.md) |
+| `pivotInB` | [`btVector3`](Ammo.btVector3.md) |
+| `axisInA` | [`btVector3`](Ammo.btVector3.md) |
+| `axisInB` | [`btVector3`](Ammo.btVector3.md) |
+| `useReferenceFrameA?` | `boolean` |
+
+#### Overrides
+
+[btTypedConstraint](Ammo.btTypedConstraint.md).[constructor](Ammo.btTypedConstraint.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:584](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L584)
+
+• **new btHingeConstraint**(`rbA`, `rbB`, `rbAFrame`, `rbBFrame`, `useReferenceFrameA?`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `rbA` | [`btRigidBody`](Ammo.btRigidBody.md) |
+| `rbB` | [`btRigidBody`](Ammo.btRigidBody.md) |
+| `rbAFrame` | [`btTransform`](Ammo.btTransform.md) |
+| `rbBFrame` | [`btTransform`](Ammo.btTransform.md) |
+| `useReferenceFrameA?` | `boolean` |
+
+#### Overrides
+
+btTypedConstraint.constructor
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:585](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L585)
+
+• **new btHingeConstraint**(`rbA`, `rbAFrame`, `useReferenceFrameA?`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `rbA` | [`btRigidBody`](Ammo.btRigidBody.md) |
+| `rbAFrame` | [`btTransform`](Ammo.btTransform.md) |
+| `useReferenceFrameA?` | `boolean` |
+
+#### Overrides
+
+btTypedConstraint.constructor
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:586](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L586)
 
 ## Methods
 
@@ -270,67 +333,3 @@ ___
 #### Defined in
 
 [packages/ammo/ammo.d.ts:592](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L592)
-
-## Constructors
-
-### constructor
-
-• **new btHingeConstraint**(`rbA`, `rbB`, `pivotInA`, `pivotInB`, `axisInA`, `axisInB`, `useReferenceFrameA?`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `rbA` | [`btRigidBody`](Ammo.btRigidBody.md) |
-| `rbB` | [`btRigidBody`](Ammo.btRigidBody.md) |
-| `pivotInA` | [`btVector3`](Ammo.btVector3.md) |
-| `pivotInB` | [`btVector3`](Ammo.btVector3.md) |
-| `axisInA` | [`btVector3`](Ammo.btVector3.md) |
-| `axisInB` | [`btVector3`](Ammo.btVector3.md) |
-| `useReferenceFrameA?` | `boolean` |
-
-#### Overrides
-
-[btTypedConstraint](Ammo.btTypedConstraint.md).[constructor](Ammo.btTypedConstraint.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:584](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L584)
-
-• **new btHingeConstraint**(`rbA`, `rbB`, `rbAFrame`, `rbBFrame`, `useReferenceFrameA?`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `rbA` | [`btRigidBody`](Ammo.btRigidBody.md) |
-| `rbB` | [`btRigidBody`](Ammo.btRigidBody.md) |
-| `rbAFrame` | [`btTransform`](Ammo.btTransform.md) |
-| `rbBFrame` | [`btTransform`](Ammo.btTransform.md) |
-| `useReferenceFrameA?` | `boolean` |
-
-#### Overrides
-
-btTypedConstraint.constructor
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:585](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L585)
-
-• **new btHingeConstraint**(`rbA`, `rbAFrame`, `useReferenceFrameA?`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `rbA` | [`btRigidBody`](Ammo.btRigidBody.md) |
-| `rbAFrame` | [`btTransform`](Ammo.btTransform.md) |
-| `useReferenceFrameA?` | `boolean` |
-
-#### Overrides
-
-btTypedConstraint.constructor
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:586](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L586)

@@ -8,6 +8,9 @@
 
   ↳ **`btCompoundShape`**
 
+### Constructors
+
+- [constructor](Ammo.btCompoundShape.md#constructor)
 
 ### Methods
 
@@ -23,9 +26,25 @@
 - [setMargin](Ammo.btCompoundShape.md#setmargin)
 - [getMargin](Ammo.btCompoundShape.md#getmargin)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.btCompoundShape.md#constructor)
+### constructor
+
+• **new btCompoundShape**(`enableDynamicAabbTree?`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `enableDynamicAabbTree?` | `boolean` |
+
+#### Overrides
+
+[btCollisionShape](Ammo.btCollisionShape.md).[constructor](Ammo.btCollisionShape.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:373](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L373)
 
 ## Methods
 
@@ -252,23 +271,3 @@ ___
 #### Defined in
 
 [packages/ammo/ammo.d.ts:381](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L381)
-
-## Constructors
-
-### constructor
-
-• **new btCompoundShape**(`enableDynamicAabbTree?`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `enableDynamicAabbTree?` | `boolean` |
-
-#### Overrides
-
-[btCollisionShape](Ammo.btCollisionShape.md).[constructor](Ammo.btCollisionShape.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:373](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L373)

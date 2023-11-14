@@ -8,7 +8,6 @@
 
   ↳ [`btQuaternion`](Ammo.btQuaternion.md)
 
-
 ### Constructors
 
 - [constructor](Ammo.btQuadWord.md#constructor)

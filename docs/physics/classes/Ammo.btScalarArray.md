@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).btScalarArray
 
-
 ### Constructors
 
 - [constructor](Ammo.btScalarArray.md#constructor)

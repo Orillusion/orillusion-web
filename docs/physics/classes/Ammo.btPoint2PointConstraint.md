@@ -8,6 +8,9 @@
 
   ↳ **`btPoint2PointConstraint`**
 
+### Constructors
+
+- [constructor](Ammo.btPoint2PointConstraint.md#constructor)
 
 ### Methods
 
@@ -23,9 +26,45 @@
 - [get\_m\_setting](Ammo.btPoint2PointConstraint.md#get_m_setting)
 - [set\_m\_setting](Ammo.btPoint2PointConstraint.md#set_m_setting)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.btPoint2PointConstraint.md#constructor)
+### constructor
+
+• **new btPoint2PointConstraint**(`rbA`, `rbB`, `pivotInA`, `pivotInB`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `rbA` | [`btRigidBody`](Ammo.btRigidBody.md) |
+| `rbB` | [`btRigidBody`](Ammo.btRigidBody.md) |
+| `pivotInA` | [`btVector3`](Ammo.btVector3.md) |
+| `pivotInB` | [`btVector3`](Ammo.btVector3.md) |
+
+#### Overrides
+
+[btTypedConstraint](Ammo.btTypedConstraint.md).[constructor](Ammo.btTypedConstraint.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:540](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L540)
+
+• **new btPoint2PointConstraint**(`rbA`, `pivotInA`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `rbA` | [`btRigidBody`](Ammo.btRigidBody.md) |
+| `pivotInA` | [`btVector3`](Ammo.btVector3.md) |
+
+#### Overrides
+
+btTypedConstraint.constructor
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:541](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L541)
 
 ## Methods
 
@@ -245,43 +284,3 @@ ___
 #### Defined in
 
 [packages/ammo/ammo.d.ts:547](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L547)
-
-## Constructors
-
-### constructor
-
-• **new btPoint2PointConstraint**(`rbA`, `rbB`, `pivotInA`, `pivotInB`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `rbA` | [`btRigidBody`](Ammo.btRigidBody.md) |
-| `rbB` | [`btRigidBody`](Ammo.btRigidBody.md) |
-| `pivotInA` | [`btVector3`](Ammo.btVector3.md) |
-| `pivotInB` | [`btVector3`](Ammo.btVector3.md) |
-
-#### Overrides
-
-[btTypedConstraint](Ammo.btTypedConstraint.md).[constructor](Ammo.btTypedConstraint.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:540](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L540)
-
-• **new btPoint2PointConstraint**(`rbA`, `pivotInA`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `rbA` | [`btRigidBody`](Ammo.btRigidBody.md) |
-| `pivotInA` | [`btVector3`](Ammo.btVector3.md) |
-
-#### Overrides
-
-btTypedConstraint.constructor
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:541](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L541)

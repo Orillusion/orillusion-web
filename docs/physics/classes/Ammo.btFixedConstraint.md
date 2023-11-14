@@ -8,6 +8,9 @@
 
   ↳ **`btFixedConstraint`**
 
+### Constructors
+
+- [constructor](Ammo.btFixedConstraint.md#constructor)
 
 ### Methods
 
@@ -17,9 +20,28 @@
 - [getParam](Ammo.btFixedConstraint.md#getparam)
 - [setParam](Ammo.btFixedConstraint.md#setparam)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.btFixedConstraint.md#constructor)
+### constructor
+
+• **new btFixedConstraint**(`rbA`, `rbB`, `frameInA`, `frameInB`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `rbA` | [`btRigidBody`](Ammo.btRigidBody.md) |
+| `rbB` | [`btRigidBody`](Ammo.btRigidBody.md) |
+| `frameInA` | [`btTransform`](Ammo.btTransform.md) |
+| `frameInB` | [`btTransform`](Ammo.btTransform.md) |
+
+#### Overrides
+
+[btTypedConstraint](Ammo.btTypedConstraint.md).[constructor](Ammo.btTypedConstraint.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:603](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L603)
 
 ## Methods
 
@@ -137,26 +159,3 @@ ___
 #### Defined in
 
 [packages/ammo/ammo.d.ts:536](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L536)
-
-## Constructors
-
-### constructor
-
-• **new btFixedConstraint**(`rbA`, `rbB`, `frameInA`, `frameInB`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `rbA` | [`btRigidBody`](Ammo.btRigidBody.md) |
-| `rbB` | [`btRigidBody`](Ammo.btRigidBody.md) |
-| `frameInA` | [`btTransform`](Ammo.btTransform.md) |
-| `frameInB` | [`btTransform`](Ammo.btTransform.md) |
-
-#### Overrides
-
-[btTypedConstraint](Ammo.btTypedConstraint.md).[constructor](Ammo.btTypedConstraint.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:603](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L603)

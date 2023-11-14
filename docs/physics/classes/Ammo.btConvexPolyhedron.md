@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).btConvexPolyhedron
 
-
 ### Constructors
 
 - [constructor](Ammo.btConvexPolyhedron.md#constructor)

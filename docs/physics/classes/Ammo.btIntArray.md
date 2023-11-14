@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).btIntArray
 
-
 ### Constructors
 
 - [constructor](Ammo.btIntArray.md#constructor)

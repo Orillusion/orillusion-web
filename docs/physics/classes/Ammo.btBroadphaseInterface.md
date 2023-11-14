@@ -8,7 +8,6 @@
 
   ↳ [`btDbvtBroadphase`](Ammo.btDbvtBroadphase.md)
 
-
 ### Constructors
 
 - [constructor](Ammo.btBroadphaseInterface.md#constructor)

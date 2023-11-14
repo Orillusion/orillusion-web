@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).btPersistentManifold
 
-
 ### Constructors
 
 - [constructor](Ammo.btPersistentManifold.md#constructor)

@@ -12,6 +12,9 @@
 
   ↳↳ [`btConeShapeZ`](Ammo.btConeShapeZ.md)
 
+### Constructors
+
+- [constructor](Ammo.btConeShape.md#constructor)
 
 ### Methods
 
@@ -21,9 +24,26 @@
 - [setMargin](Ammo.btConeShape.md#setmargin)
 - [getMargin](Ammo.btConeShape.md#getmargin)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.btConeShape.md#constructor)
+### constructor
+
+• **new btConeShape**(`radius`, `height`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `radius` | `number` |
+| `height` | `number` |
+
+#### Overrides
+
+[btCollisionShape](Ammo.btCollisionShape.md).[constructor](Ammo.btCollisionShape.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:324](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L324)
 
 ## Methods
 
@@ -133,24 +153,3 @@ ___
 #### Defined in
 
 [packages/ammo/ammo.d.ts:271](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L271)
-
-## Constructors
-
-### constructor
-
-• **new btConeShape**(`radius`, `height`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `radius` | `number` |
-| `height` | `number` |
-
-#### Overrides
-
-[btCollisionShape](Ammo.btCollisionShape.md).[constructor](Ammo.btCollisionShape.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:324](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L324)
