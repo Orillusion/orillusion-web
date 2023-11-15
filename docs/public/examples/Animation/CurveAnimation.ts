@@ -1,7 +1,5 @@
 import { Object3D, Scene3D, AnimationCurve, Engine3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight, KelvinUtil, Keyframe, Object3DUtil, Time } from "@orillusion/core";
-import * as dat from "dat.gui";
-import { Stats } from '@orillusion/stats'
-
+import { Stats } from "@orillusion/stats";
 
 class Sample_AnimCurve {
     lightObj3D: Object3D;
@@ -11,23 +9,15 @@ class Sample_AnimCurve {
     curve2: AnimationCurve;
     curve3: AnimationCurve;
     curve4: AnimationCurve;
-    private Ori: dat.GUI | undefined
 
     async run() {
-        await Engine3D.init({ beforeRender: () => this.renderUpdate() });
-
         Engine3D.setting.shadow.autoUpdate = true;
         Engine3D.setting.shadow.updateFrameRate = 1;
         Engine3D.setting.shadow.type = `HARD`;
-        Engine3D.setting.shadow.csmScatteringExp = 0.5;
-        
-        const gui = new dat.GUI()
-        gui.domElement.style.zIndex = '10'
-        gui.domElement.parentElement.style.zIndex = '10'
-        this.Ori = gui.addFolder('Orillusion')
-        this.Ori.open()
 
+        await Engine3D.init({ beforeRender: () => this.renderUpdate() });
         this.scene = new Scene3D();
+        this.scene.addComponent(Stats)
         let sky = this.scene.addComponent(AtmosphericComponent);
 
         let camera = CameraUtil.createCamera3DObject(this.scene);

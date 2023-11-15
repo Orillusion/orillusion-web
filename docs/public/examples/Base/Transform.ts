@@ -4,7 +4,6 @@ import dat from 'dat.gui'
 
 // simple base demo
 class Sample_Transform {
-    private Ori: dat.GUI | undefined
     async run() {
         // init engine
         await Engine3D.init()
@@ -56,14 +55,8 @@ class Sample_Transform {
 
         let transform = cubeObj.transform
         // debug GUI
-        const gui = new dat.GUI()
-        gui.domElement.style.zIndex = '10'
-        gui.domElement.parentElement.style.zIndex = '10'
-
-        this.Ori = gui.addFolder('Orillusion')
-        this.Ori.open()
-
-        let Trans = this.Ori.addFolder('Transform')
+        let gui = new dat.GUI()
+        let Trans = gui.addFolder('Transform')
         Trans.add(transform, 'x', -100.0, 100.0, 0.01)
         Trans.add(transform, 'y', -100.0, 100.0, 0.01)
         Trans.add(transform, 'z', -100.0, 100.0, 0.01)

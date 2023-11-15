@@ -1,8 +1,8 @@
-import { Engine3D, Scene3D, CameraUtil, View3D, AtmosphericComponent, ComponentBase, Time, AxisObject, Object3DUtil, KelvinUtil, DirectLight, Object3D, HoverCameraController, MeshRenderer, LitMaterial, BoxGeometry, UnLit, UnLitMaterial, Interpolator } from '@orillusion/core'
+import { Engine3D, Scene3D, CameraUtil, View3D, AtmosphericComponent, ComponentBase, Time, AxisObject, Object3DUtil, KelvinUtil, DirectLight, Object3D, HoverCameraController, MeshRenderer, LitMaterial, BoxGeometry, UnLit, UnLitMaterial, Interpolator, Camera3D } from '@orillusion/core'
 import { Stats } from '@orillusion/stats'
 import dat from 'dat.gui'
 
-// sample use component
+// sample add and remove object
 class Sample_AddRemove {
     view: View3D
     async run() {
@@ -21,7 +21,7 @@ class Sample_AddRemove {
         // adjust camera view
         mainCamera.perspective(60, Engine3D.aspect, 0.1, 5000.0)
         // add camera node
-        scene3D.addChild(cameraObj)
+        scene.addChild(cameraObj)
         // set camera controller
         let controller = cameraObj.addComponent(HoverCameraController)
         controller.setCamera(15, -30, 300)
@@ -33,7 +33,7 @@ class Sample_AddRemove {
         lightObj.rotationZ = 150
         let dirLight = lightObj.addComponent(DirectLight)
         dirLight.lightColor = KelvinUtil.color_temperature_to_rgb(5355)
-        dirLight.intensity = 10
+        dirLight.intensity = 40
         scene.addChild(lightObj)
         sky.relativeTransform = dirLight.transform
 
@@ -44,20 +44,20 @@ class Sample_AddRemove {
 
         // start render
         Engine3D.startRenderView(this.view)
-        await this.test()
+        await this.initScene()
     }
 
-    private async test() {
+    private async initScene() {
         let list: Object3D[] = []
-        let player = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/anim/Minion_Lane_Super_Dawn/Minion_Lane_Super_Dawn.glb')
+        let player = await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/Duck/Duck.gltf')
         let buttons = {
             add: async () => {
                 /******** player1 *******/
                 let clone = player.clone()
-                clone.transform.x = Math.random() * 100 - 50
-                clone.transform.y = Math.random() * 100 - 50
-                clone.transform.z = Math.random() * 100 - 50
-                clone.scaleX = clone.scaleY = clone.scaleZ = 20
+                clone.transform.x = Math.random() * 200 - 100
+                clone.transform.y = Math.random() * 200 - 100
+                clone.transform.z = Math.random() * 200 - 100
+                clone.scaleX = clone.scaleY = clone.scaleZ = 0.25
 
                 this.view.scene.addChild(clone)
                 list.push(clone)

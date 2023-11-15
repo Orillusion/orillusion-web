@@ -1,21 +1,14 @@
 ﻿import { BitmapTexture2D, Engine3D, Object3D, Scene3D, Texture, UIImageGroup, UIShadow, ViewPanel, makeAloneSprite, DirectLight, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, KelvinUtil, Color } from "@orillusion/core";
-import {Stats} from "@orillusion/stats";
+import { Stats } from "@orillusion/stats";
 import dat from "dat.gui";
-
 
 export class Sample_UIImageGroup {
     scene: Scene3D;
     imageGroup: UIImageGroup;
-    Ori: dat.GUI;
 
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
         await Engine3D.init();
-
-        // init dat.gui
-        const gui = new dat.GUI();
-        this.Ori = gui.addFolder("Orillusion");
-        this.Ori.open();
 
         // init Scene3D
         this.scene = new Scene3D()
@@ -52,14 +45,11 @@ export class Sample_UIImageGroup {
         light.lightColor = KelvinUtil.color_temperature_to_rgb(5355)
         light.castShadow = true
         light.intensity = 30
-
         this.scene.addChild(light.object3D)
 
         // relative light to sky
         atmosphericSky.relativeTransform = light.transform
-
         Engine3D.startRenderView(view)
-
         await this.createImageGroup();
     }
 
@@ -80,38 +70,8 @@ export class Sample_UIImageGroup {
         panelRoot.addChild(uiNode);
         //create sprite sheet list
         this.imageGroup = this.createSpriteSheets(uiNode, bitmapTexture2D);
-        let shadow = this.imageGroup.object3D.addComponent(UIShadow);
-
-        // GUIUtil.renderUIShadow(shadow, false);
-        let uishadowfolder = this.Ori.addFolder("Image Shadow");
-        uishadowfolder.add(shadow, 'shadowQuality', 0, 4, 1);
-
-        uishadowfolder.add(shadow, 'shadowRadius', 0.00, 10, 0.01);
-        //shadow color
-        shadow.shadowColor = new Color(0.1, 0.1, 0.1, 0.6);
-        uishadowfolder.addColor(shadow, 'shadowColor');
-
-        let changeOffset = () => {
-            shadow.shadowOffset = shadow.shadowOffset;
-        }
-        uishadowfolder.add(shadow.shadowOffset, 'x', -100, 100, 0.01).onChange(v => changeOffset());
-        uishadowfolder.add(shadow.shadowOffset, 'y', -100, 100, 0.01).onChange(v => changeOffset());
-
-        let button_func = {
-            'Destroy': () => {
-                shadow.object3D.removeComponent(UIShadow);
-            },
-        }
-        uishadowfolder.add(button_func, "Destroy");
-
-        this.createGUI();
-    }
-
-    private halfSize = 0;
-
-    createGUI() {
-        let positionfolder = this.Ori.addFolder("Position");
-
+        let gui = new dat.GUI()
+        let positionfolder = gui.addFolder("Position");
         let xy = this.imageGroup.getXY(1);
         let pos = {x: 0, y: xy.y};
         let action = () => this.imageGroup.setXY(1, pos.x, pos.y);
@@ -120,6 +80,7 @@ export class Sample_UIImageGroup {
         positionfolder.open();
     }
 
+    private halfSize = 0;
     private createSpriteSheets(root: Object3D, texture: Texture): UIImageGroup {
         let sprite = makeAloneSprite('KB3D_NTT_Ads_basecolor', texture);
         let imgGroup = root.addComponent(UIImageGroup, {count: 2});
@@ -135,7 +96,6 @@ export class Sample_UIImageGroup {
             }
         }
         return imgGroup;
-
     }
 }
 

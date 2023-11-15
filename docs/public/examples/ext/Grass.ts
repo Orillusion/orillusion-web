@@ -3,26 +3,15 @@ import { GrassComponent, TerrainGeometry } from '@orillusion/effect'
 import { Stats } from '@orillusion/stats'
 import dat from 'dat.gui'
 
-
-// An sample of custom vertex attribute of geometry
 class Sample_Grass {
     view: View3D
     post: PostProcessingComponent
-    private Ori: dat.GUI | undefined
 
     async run() {
         Engine3D.setting.shadow.autoUpdate = true
         Engine3D.setting.shadow.updateFrameRate = 1
         Engine3D.setting.shadow.shadowBound = 500
         Engine3D.setting.shadow.shadowSize = 1024
-        // Engine3D.setting.render.zPrePass = true;
-
-        const gui = new dat.GUI()
-        gui.domElement.style.zIndex = '10'
-        gui.domElement.parentElement.style.zIndex = '10'
-
-        this.Ori = gui.addFolder('Orillusion')
-        this.Ori.open()
 
         await Engine3D.init()
         this.view = new View3D()
@@ -33,22 +22,9 @@ class Sample_Grass {
         this.view.camera = CameraUtil.createCamera3DObject(this.view.scene)
         this.view.camera.enableCSM = true
         this.view.camera.perspective(60, webGPUContext.aspect, 1, 5000.0)
-        this.view.camera.object3D.z = -15
         this.view.camera.object3D.addComponent(HoverCameraController).setCamera(35, -20, 500)
 
         Engine3D.startRenderView(this.view)
-
-        this.post = this.view.scene.addComponent(PostProcessingComponent)
-        let fog = this.post.addPost(GlobalFog)
-        fog.fogColor = new Color(136 / 255, 215 / 255, 236 / 255, 1)
-        fog.start = 0
-        fog.overrideSkyFactor = 0.0764
-        fog.ins = 1
-        fog.falloff = 0.626
-        fog.scatteringExponent = 3
-        fog.dirHeightLine = 10
-        // post.addPost(TAAPost);
-
         this.createScene(this.view.scene)
     }
 
@@ -65,18 +41,6 @@ class Sample_Grass {
         sunLight.intensity = 49
         sunObj.transform.rotationX = 50
         sunObj.transform.rotationY = 50
-
-        let DirLight = this.Ori.addFolder('DirectLight')
-        DirLight.add(sunLight, 'enable')
-        DirLight.add(sunLight.transform, 'rotationX', 0.0, 360.0, 0.01)
-        DirLight.add(sunLight.transform, 'rotationY', 0.0, 360.0, 0.01)
-        DirLight.add(sunLight.transform, 'rotationZ', 0.0, 360.0, 0.01)
-        DirLight.addColor(sunLight, 'lightColor')
-        DirLight.add(sunLight, 'intensity', 0.0, 160.0, 0.01)
-        DirLight.add(sunLight, 'indirect', 0.0, 10.0, 0.01)
-        DirLight.add(sunLight, 'castShadow')
-        DirLight.open()
-
         scene.addChild(sunObj)
 
         let terrainSize = 1000
@@ -138,34 +102,29 @@ class Sample_Grass {
             })
             scene.addChild(grass)
         }
-        let grassDir = this.Ori.addFolder('grass-wind')
 
-        grassDir.addColor(grassCom.grassMaterial, 'grassBaseColor')
-        grassDir.addColor(grassCom.grassMaterial, 'grassTopColor')
-        grassDir.add(grassCom.grassMaterial.windDirection, 'x', -1.0, 1, 0.0001).onChange((v) => {
-            let tv = grassCom.grassMaterial.windDirection
-            tv.x = v
-            grassCom.grassMaterial.windDirection = tv
-        })
-        grassDir.add(grassCom.grassMaterial.windDirection, 'y', -1.0, 1, 0.0001).onChange((v) => {
-            let tv = grassCom.grassMaterial.windDirection
-            tv.y = v
-            grassCom.grassMaterial.windDirection = tv
-        })
-        grassDir.add(grassCom.grassMaterial, 'windPower', 0.0, 20, 0.0001)
-        grassDir.add(grassCom.grassMaterial, 'windSpeed', 0.0, 20, 0.0001)
-        grassDir.add(grassCom.grassMaterial, 'curvature', 0.0, 1, 0.0001)
-        grassDir.add(grassCom.grassMaterial, 'grassHeight', 0.0, 100, 0.0001)
-        grassDir.add(grassCom.grassMaterial, 'roughness', 0.0, 1, 0.0001)
-        grassDir.add(grassCom.grassMaterial, 'translucent', 0.0, 1, 0.0001)
-        grassDir.add(grassCom.grassMaterial, 'soft', 0.0, 10, 0.0001)
-        grassDir.add(grassCom.grassMaterial, 'specular', 0.0, 10, 0.0001)
-
-        let shadowDir = this.Ori.addFolder('shadow')
-        shadowDir.add(Engine3D.setting.shadow, 'shadowBound', 0.0, 3000, 0.0001)
-
-        let globalFog = this.post.getPost(GlobalFog)
-        // GUIUtil.renderFog(globalFog);
+        // let gui = new dat.GUI()
+        // let dir = gui.addFolder('grass-wind')
+        // dir.addColor(grassCom.grassMaterial, 'grassBaseColor')
+        // dir.addColor(grassCom.grassMaterial, 'grassTopColor')
+        // dir.add(grassCom.grassMaterial.windDirection, 'x', -1.0, 1, 0.0001).onChange((v) => {
+        //     let tv = grassCom.grassMaterial.windDirection
+        //     tv.x = v
+        //     grassCom.grassMaterial.windDirection = tv
+        // })
+        // dir.add(grassCom.grassMaterial.windDirection, 'y', -1.0, 1, 0.0001).onChange((v) => {
+        //     let tv = grassCom.grassMaterial.windDirection
+        //     tv.y = v
+        //     grassCom.grassMaterial.windDirection = tv
+        // })
+        // dir.add(grassCom.grassMaterial, 'windPower', 0.0, 20, 0.0001)
+        // dir.add(grassCom.grassMaterial, 'windSpeed', 0.0, 20, 0.0001)
+        // dir.add(grassCom.grassMaterial, 'curvature', 0.0, 1, 0.0001)
+        // dir.add(grassCom.grassMaterial, 'grassHeight', 0.0, 100, 0.0001)
+        // dir.add(grassCom.grassMaterial, 'roughness', 0.0, 1, 0.0001)
+        // dir.add(grassCom.grassMaterial, 'translucent', 0.0, 1, 0.0001)
+        // dir.add(grassCom.grassMaterial, 'soft', 0.0, 10, 0.0001)
+        // dir.add(grassCom.grassMaterial, 'specular', 0.0, 10, 0.0001)
     }
 }
 

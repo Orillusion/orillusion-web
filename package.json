@@ -31,5 +31,8 @@
                 "search-insights"
             ]
         }
+    },
+    "dependencies": {
+        "@orillusion/effect": "^0.1.2"
     }
 }

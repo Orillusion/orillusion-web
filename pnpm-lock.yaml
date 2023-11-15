@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@orillusion/core': 0.7.1
+  '@orillusion/effect': ^0.1.2
   '@orillusion/media-extention': ^0.3.3
   '@orillusion/particle': ^0.1.0
   '@orillusion/physics': ^0.2.1
@@ -12,6 +13,9 @@ specifiers:
   prettier: ^2.8.8
   vitepress: 1.0.0-rc.25
   vue: ^3.3.7
+
+dependencies:
+  '@orillusion/effect': 0.1.2
 
 devDependencies:
   '@orillusion/core': 0.7.1
@@ -643,7 +647,12 @@ packages:
 
   /@orillusion/core/0.7.1:
     resolution: {integrity: sha512-NgCKoOpK0NX+PoyVRhHLMsMCFkM9W3aoMwSA1ZjH5mpL2OpxZAiOe6/GMVLPyDmFnmnMDcV2MaBkmSf33n1oyw==}
-    dev: true
+
+  /@orillusion/effect/0.1.2:
+    resolution: {integrity: sha512-DjW9snxuISDgFZAPBclXr3wOvspja2QkoUPaviELPLPbDJ03pSIDNm4S+JHBLMBRuaIlDbtnXILn6fiHDXRTbQ==}
+    dependencies:
+      '@orillusion/core': 0.7.1
+    dev: false
 
   /@orillusion/media-extention/0.3.3:
     resolution: {integrity: sha512-TfU5OU9tbJ9K9u7HwqzVtm9bxHr0QRetiR76g68Mk5J85yD+X4PydYVrf8cZWp4oaP0K/jVCu+z0IMax+qwGog==}

@@ -1,52 +1,13 @@
 import { AtmosphericComponent, BitmapTexture2D, BlendMode, CameraUtil, Color, ComponentBase, DirectLight, Engine3D, ExtrudeGeometry, HoverCameraController, KelvinUtil, LitMaterial, Material, MeshRenderer, Object3D, Object3DUtil, Scene3D, Time, Vector3, Vector4, View3D } from '@orillusion/core'
 import { Stats } from '@orillusion/stats'
-import dat from 'dat.gui'
-
-class UVMoveComponent extends ComponentBase {
-    private _material: Material
-    private readonly _speed: Vector4 = new Vector4(0.1, 0.1, 1, 1)
-
-    public get speed(): Vector4 {
-        return this._speed
-    }
-
-    public set speed(value: Vector4) {
-        this._speed.copyFrom(value)
-    }
-
-    start(): void {
-        let mr = this.object3D.getComponent(MeshRenderer)
-        if (mr) {
-            this._material = mr.material
-        }
-    }
-
-    onUpdate(): void {
-        if (this._material) {
-            let value = this._material.defaultPass.getUniform(`transformUV1`)
-            value.x += Time.delta * this._speed.x * 0.001
-            value.y += Time.delta * this._speed.y * 0.001
-            value.z = this._speed.z
-            value.w = this._speed.w
-            this._material.defaultPass.setUniform(`transformUV1`, value)
-        }
-    }
-}
 
 // An sample to use ExtrudeGeometry and make uv move animation
 class Sample_ConduitGeometry3 {
     scene: Scene3D
     material: LitMaterial
     totalTime: number
-    private Ori: dat.GUI | undefined
 
     async run() {
-        // init dat.gui
-        const gui = new dat.GUI()
-        gui.domElement.style.zIndex = '10'
-        gui.domElement.parentElement.style.zIndex = '10'
-        this.Ori = gui.addFolder('Orillusion')
-        this.Ori.open()
         Engine3D.setting.shadow.shadowBound = 50
         await Engine3D.init()
 
@@ -130,15 +91,6 @@ class Sample_ConduitGeometry3 {
 
         let component = conduitObject3D.addComponent(UVMoveComponent)
         component.speed.set(0, -0.4, 4, 0.5)
-        // GUIUtil.renderUVMove(component);
-        let uvDir = this.Ori.addFolder('UV Move')
-        uvDir.add(component.speed, 'x', -1, 1, 0.01)
-        uvDir.add(component.speed, 'y', -1, 1, 0.01)
-        uvDir.add(component.speed, 'z', 0.1, 10, 0.01)
-        uvDir.add(component.speed, 'w', 0.1, 10, 0.01)
-        uvDir.add(component, 'enable')
-
-        uvDir.open()
     }
 
     private getShape(): Vector3[] {
@@ -167,6 +119,38 @@ class Sample_ConduitGeometry3 {
         vertexList.push(new Vector3(0, 0, 0))
         vertexList.push(new Vector3(0, 20, 0))
         return vertexList
+    }
+}
+
+
+class UVMoveComponent extends ComponentBase {
+    private _material: Material
+    private readonly _speed: Vector4 = new Vector4(0.1, 0.1, 1, 1)
+
+    public get speed(): Vector4 {
+        return this._speed
+    }
+
+    public set speed(value: Vector4) {
+        this._speed.copyFrom(value)
+    }
+
+    start(): void {
+        let mr = this.object3D.getComponent(MeshRenderer)
+        if (mr) {
+            this._material = mr.material
+        }
+    }
+
+    onUpdate(): void {
+        if (this._material) {
+            let value = this._material.getUniformV4(`transformUV1`)
+            value.x += Time.delta * this._speed.x * 0.001
+            value.y += Time.delta * this._speed.y * 0.001
+            value.z = this._speed.z
+            value.w = this._speed.w
+            this._material.setUniformVector4(`transformUV1`, value)
+        }
     }
 }
 

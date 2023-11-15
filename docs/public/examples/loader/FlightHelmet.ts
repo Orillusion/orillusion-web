@@ -1,103 +1,79 @@
-import { Object3D, Scene3D, HoverCameraController, Engine3D, CameraUtil, View3D, SSRPost, BloomPost, AtmosphericComponent, DirectLight, KelvinUtil, Time } from '@orillusion/core'
-import dat from 'dat.gui'
-import { Stats } from '@orillusion/stats'
+import { Camera3D, OrbitController, DirectLight, Engine3D, View3D, PostProcessingComponent, BloomPost, KelvinUtil, Object3D, Scene3D, GTAOPost, webGPUContext, AtmosphericComponent } from '@orillusion/core'
 
-class Sample_FlightHelmet {
-    lightObj3D: Object3D
+export class Sample_FlightHelmet {
+    lightObj: Object3D
+    cameraObj: Camera3D
     scene: Scene3D
-    autoRotate: boolean = false
-    flightHelmetObj: Object3D
-    private Ori: dat.GUI | undefined
+    obj: Object3D
 
     async run() {
         await Engine3D.init({
-            canvasConfig: {
-                alpha: true,
-                zIndex: 0,
-                backgroundImage: 'https://cdn.orillusion.com/logo/bg.webp'
-            },
-            renderLoop: () => this.loop()
+            canvasConfig: { alpha: true, zIndex: 0, backgroundImage:'https://cdn.orillusion.com/logo/bg.webp' },
+            renderLoop: this.loop.bind(this)
         })
-
         Engine3D.setting.shadow.autoUpdate = true
-        Engine3D.setting.shadow.shadowBound = 10
-        Engine3D.setting.render.postProcessing.ssao.radius = 0.018
-        Engine3D.setting.render.postProcessing.ssao.aoPower = 1
+        Engine3D.setting.shadow.updateFrameRate = 1
+        Engine3D.setting.shadow.shadowBound = 50
+        Engine3D.setting.render.postProcessing.bloom!.luminanceThreshole = 0.8
+        Engine3D.setting.render.postProcessing.bloom!.bloomIntensity = 1
 
         this.scene = new Scene3D()
-        let camera = CameraUtil.createCamera3DObject(this.scene)
-        camera.perspective(60, Engine3D.aspect, 1, 5000.0)
-
-        camera.object3D.addComponent(HoverCameraController).setCamera(-45, -30, 15)
-
-        let view = new View3D()
-        view.scene = this.scene
-        view.camera = camera
-
-        Engine3D.startRenderView(view)
+        let camera = new Object3D()
+        camera.y = 5
+        camera.z = 20
+        this.scene.addChild(camera)
+        let mainCamera = camera.addComponent(Camera3D)
+        mainCamera.perspective(60, webGPUContext.aspect, 0.01, 5000.0)
+        let orbit = camera.addComponent(OrbitController)
+        orbit.minDistance = 10
+        orbit.maxDistance = 30
+        orbit.panFactor = 0.1
+        orbit.rotateFactor = 0.3
 
         await this.initScene()
+        let view = new View3D()
+        view.scene = this.scene
+        view.camera = mainCamera
+        Engine3D.startRenderView(view)
+
+        let postProcessing = this.scene.addComponent(PostProcessingComponent)
+        postProcessing.addPost(GTAOPost)
+        postProcessing.addPost(BloomPost)
     }
 
     async initScene() {
-        /******** auto rotate *******/
-        {
-            const gui = new dat.GUI()
-            gui.domElement.style.zIndex = '10'
-            gui.domElement.parentElement.style.zIndex = '10'
-
-            this.Ori = gui.addFolder('Orillusion')
-            this.Ori.add(this, 'autoRotate')
-            this.Ori.open()
-        }
-
         /******** sky *******/
         {
-            let atmospheric = this.scene.addComponent(AtmosphericComponent)
-            atmospheric.sunY = 0.73
-            atmospheric.sunRadiance = 47
-            atmospheric.enable = false
+            let sky = this.scene.addComponent(AtmosphericComponent)
+            sky.sunY = 0.73
+            sky.sunRadiance = 47
+            sky.enable = false
         }
         /******** light *******/
         {
-            this.lightObj3D = new Object3D()
-            this.lightObj3D.rotationX = 53.2
-            this.lightObj3D.rotationY = 220
-            this.lightObj3D.rotationZ = 5.58
-            let directLight = this.lightObj3D.addComponent(DirectLight)
-            directLight.lightColor = KelvinUtil.color_temperature_to_rgb(5355)
-            directLight.castShadow = true
-            directLight.intensity = 44
-            this.scene.addChild(this.lightObj3D)
-
-            let DirLight = this.Ori.addFolder('DirectLight')
-            DirLight.add(directLight, 'enable')
-            DirLight.add(directLight.transform, 'rotationX', 0.0, 360.0, 0.01)
-            DirLight.add(directLight.transform, 'rotationY', 0.0, 360.0, 0.01)
-            DirLight.add(directLight.transform, 'rotationZ', 0.0, 360.0, 0.01)
-            DirLight.addColor(directLight, 'lightColor')
-            DirLight.add(directLight, 'intensity', 0.0, 160.0, 0.01)
-            DirLight.add(directLight, 'indirect', 0.0, 10.0, 0.01)
-            DirLight.add(directLight, 'castShadow')
-            DirLight.open()
+            this.lightObj = new Object3D()
+            this.lightObj.rotationX = 38
+            this.lightObj.rotationY = 220
+            this.lightObj.rotationZ = 5.58
+            let lc = this.lightObj.addComponent(DirectLight)
+            lc.lightColor = KelvinUtil.color_temperature_to_rgb(5355)
+            lc.castShadow = true
+            lc.intensity = 50
+            this.scene.addChild(this.lightObj)
         }
 
-        /******** load model *******/
         {
-            let model = (await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/FlightHelmet/FlightHelmet.gltf', {})) as Object3D
-            model.transform.scaleX = 10
-            model.transform.scaleY = 10
-            model.transform.scaleZ = 10
-            model.transform.y = -2
-            this.scene.addChild(model)
-            this.flightHelmetObj = model
+            let obj = (this.obj = await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/FlightHelmet/FlightHelmet.gltf'))
+            obj.transform.scaleX = 20
+            obj.transform.scaleY = 20
+            obj.transform.scaleZ = 20
+            obj.transform.y = -6
+            this.scene.addChild(obj)
         }
     }
 
     loop() {
-        if (this.flightHelmetObj && this.autoRotate) {
-            this.flightHelmetObj.rotationY += Time.delta * 0.05
-        }
+        this.obj.transform.rotationY -= 0.2
     }
 }
 

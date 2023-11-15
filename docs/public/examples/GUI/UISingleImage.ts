@@ -3,17 +3,11 @@ import {Stats} from "@orillusion/stats";
 import dat from "dat.gui";
 
 class Sample_UISingleImage {
-    Ori: dat.GUI;
     scene: Scene3D;
 
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
         await Engine3D.init();
-
-        // init dat.gui
-        const gui = new dat.GUI();
-        this.Ori = gui.addFolder("Orillusion");
-        this.Ori.open();
 
         // init Scene3D
         this.scene = new Scene3D()
@@ -72,13 +66,13 @@ class Sample_UISingleImage {
         // enable ui canvas 0
         let canvas = view.enableUICanvas();
 
-        await bitmapTexture2D.load('https://cdn.orillusion.com/textures/KB3D_NTT_Ads_basecolor.png');
+        await bitmapTexture2D.load('https://cdn.orillusion.com/images/webgpu.webp');
 
         let panel = panelRoot.addComponent(WorldPanel);
         panel.cullMode = GPUCullMode.none;
 
-        // GUIUtil.renderUIPanel(panel, true);
-        let guifolder = this.Ori.addFolder("GUI Panel")
+        let gui = new dat.GUI();
+        let guifolder = gui.addFolder("GUI Panel")
         //cull mode
         let cullMode = {};
         cullMode[GPUCullMode.none] = GPUCullMode.none;
@@ -101,62 +95,17 @@ class Sample_UISingleImage {
             panel.billboard = v;
         });
 
-        let scissorData = {
-            scissorCornerRadius: panel.scissorCornerRadius,
-            scissorFadeOutSize: panel.scissorFadeOutSize,
-            panelWidth: 400,
-            panelHeight: 300,
-            backGroundVisible: panel.visible,
-            backGroundColor: panel.color,
-            scissorEnable: panel.scissorEnable
-
-        };
-        let changeSissor = () => {
-            panel.scissorCornerRadius = scissorData.scissorCornerRadius;
-            panel.scissorEnable = scissorData.scissorEnable;
-            panel.scissorFadeOutSize = scissorData.scissorFadeOutSize;
-            panel.color = scissorData.backGroundColor;
-            panel.visible = scissorData.backGroundVisible;
-            panel.uiTransform.resize(scissorData.panelWidth, scissorData.panelHeight);
-        }
-        guifolder.add(scissorData, 'scissorCornerRadius', 0, 100, 0.1).onChange(() => {
-            changeSissor();
-        });
-        guifolder.add(scissorData, 'scissorFadeOutSize', 0, 100, 0.1).onChange(() => {
-            changeSissor();
-        });
-        guifolder.add(scissorData, 'panelWidth', 1, 400, 1).onChange(() => {
-            changeSissor();
-        });
-        guifolder.add(scissorData, 'panelHeight', 1, 300, 1).onChange(() => {
-            changeSissor();
-        });
-        guifolder.add(scissorData, 'backGroundVisible').onChange(() => {
-            changeSissor();
-        });
-
-        guifolder.addColor(scissorData, 'backGroundColor').onChange(() => {
-            changeSissor();
-        });
-
-        guifolder.add(scissorData, 'scissorEnable').onChange(() => {
-            changeSissor();
-        });
-
         //depth test
         if (panel['isWorldPanel']) {
             guifolder.add(panel, 'depthTest');
         }
-
         guifolder.open();
 
         canvas.addChild(panel.object3D);
-
-        panel.sprite = makeAloneSprite('KB3D_NTT_Ads_basecolor', bitmapTexture2D);
-        panel.uiTransform.resize(600, 400);
+        panel.sprite = makeAloneSprite('logo', bitmapTexture2D);
+        panel.uiTransform.resize(400, 400);
         panel.visible = true;
     }
-
 }
 
 new Sample_UISingleImage().run();

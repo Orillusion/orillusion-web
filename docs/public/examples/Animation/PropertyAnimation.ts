@@ -14,11 +14,7 @@ class Sample_PropertyAnimation {
         Engine3D.setting.shadow.shadowSize = 2048;
 
         await Engine3D.init();
-        // let param = createSceneParam();
-        // param.camera.distance = 16;
-        // let exampleScene = createExampleScene(param);
-        let scene = new Scene3D()
-        scene.exposure = 1
+        let scene = this.scene = new Scene3D()
         scene.addComponent(Stats)
     
         // init sky
@@ -28,10 +24,10 @@ class Sample_PropertyAnimation {
         // init Camera3D
         let camera = CameraUtil.createCamera3DObject(scene)
         camera.perspective(60, Engine3D.aspect, 1, 5000)
-    
+        camera.enableCSM = true
         // init Camera Controller
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController)
-        hoverCtrl.setCamera(-30, -15, 100)
+        hoverCtrl.setCamera(-30, -15, 20)
     
         // init View3D
         let view = new View3D()
@@ -51,34 +47,11 @@ class Sample_PropertyAnimation {
         light.lightColor = KelvinUtil.color_temperature_to_rgb(5355)
         light.castShadow = true
         light.intensity = 30
-    
         scene.addChild(light.object3D)
-    
         // relative light to sky
         atmosphericSky.relativeTransform = light.transform
 
-        const gui = new dat.GUI()
-        gui.domElement.style.zIndex = '10'
-        gui.domElement.parentElement.style.zIndex = '10'
-        this.Ori = gui.addFolder('Orillusion')
-        this.Ori.open()
-        // GUIUtil.renderDirLight(exampleScene.light, false);
-        // GUIUtil.renderDirLight(directLight);
-        let DirLight = this.Ori.addFolder('exampleScene.light')
-            DirLight.add(light, 'enable')
-            DirLight.add(light.transform, 'rotationX', 0.0, 360.0, 0.01)
-            DirLight.add(light.transform, 'rotationY', 0.0, 360.0, 0.01)
-            DirLight.add(light.transform, 'rotationZ', 0.0, 360.0, 0.01)
-            DirLight.addColor(light, 'lightColor')
-            DirLight.add(light, 'intensity', 0.0, 160.0, 0.01)
-            DirLight.add(light, 'indirect', 0.0, 10.0, 0.01)
-            DirLight.add(light, 'castShadow')
-            DirLight.open()
-
-        this.scene = scene;
-        camera.enableCSM = true;
         await this.initScene(this.scene);
-
         Engine3D.startRenderView(view);
 
         this.displayGUI();
@@ -122,30 +95,27 @@ class Sample_PropertyAnimation {
 
     private displayGUI() {
         // restart the animation clip
-
+        let gui = new dat.GUI()
         var button_add = {
             Restart: () => {
                 this.animation.play(this.animation.defaultClip, true);
             }
         }
 
-        this.Ori.add(button_add, 'Restart')
+        gui.add(button_add, 'Restart')
         let data = { Seek: 0, Speed: 1 };
 
         // seek the animation to the specified time
         let totalTime = this.animation.getClip(this.animation.defaultClip).totalTime;
-        this.Ori.add(data, 'Seek', 0, totalTime, 0.01).onChange((v) => {
+        gui.add(data, 'Seek', 0, totalTime, 0.01).onChange((v) => {
             this.animation.stop();
             this.animation.seek(v);
         });
 
         // change animation speed
-        this.Ori.add(data, 'Speed', 0, 1, 0.01).onChange((v) => {
+        gui.add(data, 'Speed', 0, 1, 0.01).onChange((v) => {
             this.animation.speed = v;
         });
-
-        this.Ori.open();
-        // GUIHelp.endFolder();
     }
 }
 

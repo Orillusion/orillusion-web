@@ -6,7 +6,6 @@ class Sample_POI {
     scene: Scene3D;
     panel: WorldPanel;
     position: Vector3;
-    Ori: dat.GUI;
     private modelContainer: Object3D;
 
     async run() {
@@ -63,12 +62,6 @@ class Sample_POI {
         atmosphericSky.relativeTransform = light.transform
 
         Engine3D.startRenderView(view)
-
-        // init dat.gui
-        const gui = new dat.GUI();
-        gui.domElement.style.zIndex = '10';
-        this.Ori = gui.addFolder("Orillusion");
-        this.Ori.open();
 
         await this.initScene();
         this.initDuckPOI();
@@ -140,8 +133,10 @@ class Sample_POI {
         text.fontSize = 4;
         text.color = new Color(0, 0, 0, 1);
         text.alignment = TextAnchor.MiddleCenter;
+
+        const gui = new dat.GUI();
         // GUIUtil.renderUIPanel(this.panel, true);
-        let uifolder = this.Ori.addFolder("GUI Panel");
+        let uifolder = gui.addFolder("GUI Panel");
         //cull mode
         let cullMode = {};
         cullMode[GPUCullMode.none] = GPUCullMode.none;
@@ -162,48 +157,6 @@ class Sample_POI {
         // change billboard by click dropdown box
         uifolder.add({billboard: this.panel.billboard}, 'billboard', billboard).onChange((v) => {
             this.panel.billboard = v;
-        });
-
-        let scissorData = {
-            scissorCornerRadius: this.panel.scissorCornerRadius,
-            scissorFadeOutSize: this.panel.scissorFadeOutSize,
-            panelWidth: 400,
-            panelHeight: 300,
-            backGroundVisible: this.panel.visible,
-            backGroundColor: this.panel.color,
-            scissorEnable: this.panel.scissorEnable
-
-        };
-        let changeSissor = () => {
-            this.panel.scissorCornerRadius = scissorData.scissorCornerRadius;
-            this.panel.scissorEnable = scissorData.scissorEnable;
-            this.panel.scissorFadeOutSize = scissorData.scissorFadeOutSize;
-            this.panel.color = scissorData.backGroundColor;
-            this.panel.visible = scissorData.backGroundVisible;
-            this.panel.uiTransform.resize(scissorData.panelWidth, scissorData.panelHeight);
-        }
-        uifolder.add(scissorData, 'scissorCornerRadius', 0, 100, 0.1).onChange(() => {
-            changeSissor();
-        });
-        uifolder.add(scissorData, 'scissorFadeOutSize', 0, 100, 0.1).onChange(() => {
-            changeSissor();
-        });
-        uifolder.add(scissorData, 'panelWidth', 1, 400, 1).onChange(() => {
-            changeSissor();
-        });
-        uifolder.add(scissorData, 'panelHeight', 1, 300, 1).onChange(() => {
-            changeSissor();
-        });
-        uifolder.add(scissorData, 'backGroundVisible').onChange(() => {
-            changeSissor();
-        });
-
-        uifolder.addColor(scissorData, 'backGroundColor').onChange(() => {
-            changeSissor();
-        });
-
-        uifolder.add(scissorData, 'scissorEnable').onChange(() => {
-            changeSissor();
         });
 
         //depth test
@@ -262,12 +215,9 @@ class Sample_POI {
                     this.sceneText.text = newTitle;
                     this.lastTitle = newTitle;
                 }
-
             }
-
         }
     }
-
 }
 
 new Sample_POI().run();

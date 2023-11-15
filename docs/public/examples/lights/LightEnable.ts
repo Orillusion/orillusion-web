@@ -6,19 +6,10 @@ class Sample_LightEnable {
     scene: Scene3D;
     hoverCameraController: HoverCameraController;
     lightObj: any;
-    private Ori: dat.GUI | undefined
     constructor() { }
 
     async run() {
-
-        await Engine3D.init({});
-
-        const gui = new dat.GUI()
-        gui.domElement.style.zIndex = '10'
-        gui.domElement.parentElement.style.zIndex = '10'
-
-        this.Ori = gui.addFolder('Orillusion')
-        this.Ori.open()
+        await Engine3D.init();
 
         this.scene = new Scene3D();
         let sky = this.scene.addComponent(AtmosphericComponent);
@@ -34,7 +25,7 @@ class Sample_LightEnable {
         view.scene = this.scene;
         view.camera = mainCamera;
 
-        Engine3D.startRenderViews([view]);
+        Engine3D.startRenderView(view);
     }
 
     initScene(scene: Scene3D) {
@@ -68,30 +59,27 @@ class Sample_LightEnable {
         let floor = Object3DUtil.GetSingleCube(2000, 1, 2000, 0.5, 0.5, 0.5);
         this.scene.addChild(floor);
 
+        let gui = new dat.GUI()
+        let f = gui.addFolder('Orillusion')
         for (let i = 0; i < 5; i++) {
             let pointLight = new Object3D();
-            pointLight.name = "pointLight_" + i;
-            let script = pointLight.addComponent(PointLight);
-            script.lightColor = Color.random();
-            script.intensity = 6 * Math.random() + 3;
-            script.range = 45 * Math.random() + 80;
-            script.castShadow = true;
+            pointLight.name = "Light" + i;
+            let light = pointLight.addComponent(PointLight);
+            light.lightColor = Color.random();
+            light.intensity = 6 * Math.random() + 3;
+            light.range = 45 * Math.random() + 80;
+            light.castShadow = true;
             pointLight.x = i * 55 + 15;
             pointLight.y = 5;
             pointLight.z = 0;
             scene.addChild(pointLight);
 
-            let obj = {};
-            obj[pointLight.name + ":enable"] = true;
-            this.Ori.add(obj, pointLight.name + ":enable").onChange((e) => {
-                script.enable = e;
-            });
-
-            let obj2 = {};
-            obj2[pointLight.name + ":castShadow"] = true;
-            this.Ori.add(obj2, pointLight.name + ":castShadow").onChange((e) => {
-                script.castShadow = e;
-            });
+            f.add(light, 'enable').onChange((e) => {
+                light.enable = e;
+            }).name(pointLight.name + ':enable')
+            f.add(light, 'castShadow').onChange((e) => {
+                light.castShadow = e;
+            }).name(pointLight.name + ':shadow')
         }
 
 

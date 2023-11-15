@@ -55,7 +55,6 @@ class Sample_UISpriteSheet {
     text: UITextField;
     scene: Scene3D;
     keyFrames: string[];
-    Ori: dat.GUI;
 
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
@@ -66,11 +65,6 @@ class Sample_UISpriteSheet {
                 this.renderUpdate();
             }
         });
-
-        // init dat.gui
-        const gui = new dat.GUI();
-        this.Ori = gui.addFolder("Orillusion");
-        this.Ori.open();
 
         this.spriteSheets = [];
         this.keyFrames = [];
@@ -128,9 +122,11 @@ class Sample_UISpriteSheet {
 
         this.text = this.createText();
 
-
-        this.Ori.add(SpriteSheet, 'toggleMove');
-        this.Ori.add(SpriteSheet, 'toggleAnim');
+        let gui = new dat.GUI()
+        let dir = gui.addFolder('Orillusion')
+        dir.open()
+        dir.add(SpriteSheet, 'toggleMove');
+        dir.add(SpriteSheet, 'toggleAnim');
 
         let button = {
             'add': () => {
@@ -139,7 +135,7 @@ class Sample_UISpriteSheet {
                 }
             }
         }
-        this.Ori.add(button, 'add')
+        dir.add(button, 'add')
         this.addLotOfSprite();
     }
 

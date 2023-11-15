@@ -1,5 +1,4 @@
 import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight, KelvinUtil, BitmapTexture2D, Color, PlaneGeometry, MeshRenderer, UnLitMaterial, SphereGeometry, LitMaterial } from "@orillusion/core";
-import { GUIHelp } from "@orillusion/debug/GUIHelp";
 
 class Sample_UnlitMaterial {
     lightObj3D: Object3D;
@@ -38,19 +37,18 @@ class Sample_UnlitMaterial {
             let directLight = this.lightObj3D.addComponent(DirectLight);
             directLight.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
             directLight.intensity = 20;
+            directLight.castShadow = true;
             scene.addChild(this.lightObj3D);
         }
 
-        // create a unlit plane
+        // create a lit plane
         {
             let texture = new BitmapTexture2D();
             await texture.load('https://cdn.orillusion.com/gltfs/Demonstration/T_Rollets_BC.jpg');
-            let mat = new UnLitMaterial();
+            let mat = new LitMaterial();
             mat.baseMap = texture;
             mat.baseColor = new Color(1, 1, 1, 1);
-
             let obj: Object3D = new Object3D();
-
             let render = obj.addComponent(MeshRenderer);
             render.material = mat;
             render.geometry = new PlaneGeometry(100, 100);

@@ -14,14 +14,6 @@ class Sample_UIChangeParent {
                 this.loop();
             }
         });
-
-        // init dat.gui
-        const gui = new dat.GUI();
-        this.Ori = gui.addFolder("Orillusion");
-        this.Ori.domElement.style.zIndex = 1;
-        this.Ori.domElement.parentElement.style.zIndex = 1;
-        this.Ori.open();
-
         // init Scene3D
         this.scene = new Scene3D()
         this.scene.exposure = 1
@@ -75,9 +67,7 @@ class Sample_UIChangeParent {
 
         //create UI root
         let panelRoot: Object3D = new Object3D();
-
         let panel: UIPanel = panelRoot.addComponent(ViewPanel);
-
         //add panel
         canvas.addChild(panel.object3D);
 
@@ -136,13 +126,6 @@ class Sample_UIChangeParent {
                 holder2.addChild(logoObject);
             }
         }, 1000);
-
-        let button_func = {
-            remove: () => {
-                holder0.removeComponent(UIImage);
-            }
-        }
-        this.Ori.add(button_func, 'remove');
     }
 
 

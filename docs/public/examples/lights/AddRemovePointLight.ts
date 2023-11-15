@@ -5,20 +5,12 @@ class Sample_AddRemovePointLight {
     scene: Scene3D;
     hoverCameraController: HoverCameraController;
     lightObj: any;
-    private Ori: dat.GUI | undefined
     
     constructor() { }
 
     async run() {
 
         await Engine3D.init({});
-
-        const gui = new dat.GUI()
-        gui.domElement.style.zIndex = '10'
-        gui.domElement.parentElement.style.zIndex = '10'
-
-        this.Ori = gui.addFolder('Orillusion')
-        this.Ori.open()
 
         this.scene = new Scene3D();
         let sky = this.scene.addComponent(AtmosphericComponent);
@@ -34,7 +26,7 @@ class Sample_AddRemovePointLight {
         view.scene = this.scene;
         view.camera = mainCamera;
 
-        Engine3D.startRenderViews([view]);
+        Engine3D.startRenderView(view);
     }
 
     initScene(scene: Scene3D) {
@@ -101,8 +93,10 @@ class Sample_AddRemovePointLight {
                 }
             }
         }
-        this.Ori.add(button_add, 'addPointLight')
-        this.Ori.add(button_remove, 'removePointLight')
+        let gui = new dat.GUI();
+        let f = gui.addFolder('Orillusion')
+        f.add(button_add, 'addPointLight')
+        f.add(button_remove, 'removePointLight')
 
     }
 }

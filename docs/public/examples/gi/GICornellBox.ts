@@ -8,9 +8,6 @@ class Sample_GICornellBox {
     private giComponent: GlobalIlluminationComponent
 
     async run() {
-        Engine3D.setting.material.materialChannelDebug = true
-        Engine3D.setting.material.materialDebug = false
-
         Engine3D.setting.gi.enable = true
         Engine3D.setting.gi.debug = true
         Engine3D.setting.gi.probeYCount = 6
@@ -32,11 +29,10 @@ class Sample_GICornellBox {
         Engine3D.setting.gi.autoRenderProbe = true
 
         Engine3D.setting.shadow.debug = true
+        Engine3D.setting.shadow.shadowBound = 50
         Engine3D.setting.shadow.shadowSize = 1024
         Engine3D.setting.shadow.autoUpdate = true
         Engine3D.setting.shadow.updateFrameRate = 1
-
-        Engine3D.setting.render.debug = true
 
         await Engine3D.init()
 
@@ -52,7 +48,6 @@ class Sample_GICornellBox {
         // init Camera3D
         let camera = CameraUtil.createCamera3DObject(this.scene)
         camera.perspective(60, Engine3D.aspect, 1, 100)
-        camera.enableCSM = true
 
         // init Camera Controller
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController)
@@ -90,8 +85,6 @@ class Sample_GICornellBox {
         postProcessing.addPost(GTAOPost)
         postProcessing.addPost(BloomPost)
 
-        Engine3D.setting.shadow.csmScatteringExp = 0.8
-        this.Ori.add(Engine3D.setting.shadow, 'csmScatteringExp', 0.5, 1, 0.001)
         await this.initScene()
     }
 
@@ -99,8 +92,6 @@ class Sample_GICornellBox {
         let probeObj = new Object3D()
         // init dat.gui
         const gui = new dat.GUI()
-        gui.domElement.style.zIndex = '10'
-        gui.domElement.parentElement.style.zIndex = '10'
         this.Ori = gui.addFolder('Orillusion')
         this.Ori.open()
 
@@ -133,13 +124,15 @@ class Sample_GICornellBox {
         gidir.add(giSetting, `probeRoughness`, 0.0, 1.0, 0.001).onChange(onProbesChange)
         gidir.add(giSetting, `ddgiGamma`, 0.0, 4.0, 0.001).onChange(onProbesChange)
         gidir.add(giSetting, 'autoRenderProbe')
+        gidir.open()
 
         let probdir = this.Ori.addFolder('probe volume')
         probdir.add(volume.setting, 'probeSpace', 0.1, volume.setting.probeSpace * 5, 0.001).onChange(onProbesChange)
         probdir.add(volume.setting, 'offsetX', -100, 100, 0.001).onChange(onProbesChange)
         probdir.add(volume.setting, 'offsetY', -100, 100, 0.001).onChange(onProbesChange)
         probdir.add(volume.setting, 'offsetZ', -100, 100, 0.001).onChange(onProbesChange)
-
+        probdir.open()
+        
         let button_operation = {
             show: () => {
                 giComponent.object3D.transform.enable = true

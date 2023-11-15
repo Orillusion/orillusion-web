@@ -6,11 +6,10 @@ import { Stats } from '@orillusion/stats'
 class Sample_ConduitGeometry {
     scene: Scene3D
     material: LitMaterial
-    object3Ds: Object3D[]
+    object3Ds: Object3D[] = []
     isClosedConduit: boolean = true
     shapeRadius = 1
     modelRadius = 4
-    private Ori: dat.GUI | undefined
     private geo: GeometryBase
     private mats: LitMaterial[]
 
@@ -32,7 +31,7 @@ class Sample_ConduitGeometry {
 
         // init Camera Controller
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController)
-        hoverCtrl.setCamera(-30, -15, 30)
+        hoverCtrl.setCamera(-30, -15, 50)
 
         // init View3D
         let view = new View3D()
@@ -62,20 +61,14 @@ class Sample_ConduitGeometry {
 
         await this.createMaterial()
 
-        const gui = new dat.GUI()
-        gui.domElement.style.zIndex = '10'
-        gui.domElement.parentElement.style.zIndex = '10'
-        this.Ori = gui.addFolder('Orillusion')
-        this.Ori.open()
-
-        this.Ori.add(this, 'isClosedConduit').onChange(() => {
-            if (this.object3Ds) {
+        let gui = new dat.GUI()
+        gui.add(this, 'isClosedConduit').onChange(() => {
+            if (this.object3Ds.length) {
                 for (let item of this.object3Ds) {
                     item.removeSelf()
                 }
             }
-            this.object3Ds = null
-
+            this.object3Ds.length = 0
             this.createConduit()
         })
         this.createConduit()
@@ -91,8 +84,6 @@ class Sample_ConduitGeometry {
     }
 
     private createConduit() {
-        this.object3Ds = []
-
         let shape = this.getShape()
         let curve = this.getCurve()
         let conduitObject3D = new Object3D()

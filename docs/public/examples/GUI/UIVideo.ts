@@ -1,7 +1,6 @@
 ﻿import {VideoTexture} from "@orillusion/media-extention";
 import { Engine3D, Object3DUtil, Object3D, ViewPanel, UIImage, ImageType, makeAloneSprite, Scene3D, KelvinUtil, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight } from "@orillusion/core";
 import {Stats} from "@orillusion/stats";
-import dat from "dat.gui";
 
 class Sample_UIVideo {
     Ori: dat.GUI
@@ -10,12 +9,6 @@ class Sample_UIVideo {
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
         await Engine3D.init();
-
-        // init dat.gui
-        const gui = new dat.GUI();
-        this.Ori = gui.addFolder("Orillusion");
-        this.Ori.open();
-
 
         // init Scene3D
         this.scene = new Scene3D()

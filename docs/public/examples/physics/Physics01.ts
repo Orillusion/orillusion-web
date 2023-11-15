@@ -13,18 +13,11 @@ class SamplePhysics01 {
         Engine3D.setting.shadow.autoUpdate = true;
         Engine3D.setting.shadow.updateFrameRate = 1;
         Engine3D.setting.shadow.shadowSize = 2048;
-        Engine3D.setting.shadow.shadowBound = 150;
 
         await Physics.init();
         await Engine3D.init({ renderLoop: () => this.loop() });
 
-        // let sceneParam = createSceneParam();
-        // sceneParam.camera.distance = 50;
-        // let exampleScene = createExampleScene(sceneParam);
-
-
         let scene = new Scene3D()
-        scene.exposure = 1
         scene.addComponent(Stats)
     
         // init sky
@@ -34,10 +27,10 @@ class SamplePhysics01 {
         // init Camera3D
         let camera = CameraUtil.createCamera3DObject(scene)
         camera.perspective(60, Engine3D.aspect, 1, 5000)
-    
+        camera.enableCSM = true
         // init Camera Controller
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController)
-        hoverCtrl.setCamera(-30, -15, 100)
+        hoverCtrl.setCamera(-30, -15, 50)
     
         // init View3D
         let view = new View3D()
@@ -63,19 +56,12 @@ class SamplePhysics01 {
         // relative light to sky
         atmosphericSky.relativeTransform = light.transform
 
-        const gui = new dat.GUI()
-        gui.domElement.style.zIndex = '10'
-        gui.domElement.parentElement.style.zIndex = '10'
-
-        this.Ori = gui.addFolder('Orillusion')
-        this.Ori.open()
-        // GUIUtil.renderDirLight(light, false);
-        let DirLight = this.Ori.addFolder('renderDirLight')
+        let gui = new dat.GUI()
+        let DirLight = gui.addFolder('Light')
         DirLight.add(light, 'enable')
         DirLight.add(light.transform, 'rotationX', 0.0, 360.0, 0.01)
         DirLight.add(light.transform, 'rotationY', 0.0, 360.0, 0.01)
         DirLight.add(light.transform, 'rotationZ', 0.0, 360.0, 0.01)
-        DirLight.addColor(light, 'lightColor')
         DirLight.add(light, 'intensity', 0.0, 160.0, 0.01)
         DirLight.add(light, 'indirect', 0.0, 10.0, 0.01)
         DirLight.add(light, 'castShadow')
@@ -142,7 +128,6 @@ class SamplePhysics01 {
         floorMat.baseMap = Engine3D.res.grayTexture;
         floorMat.roughness = 0.85;
         floorMat.metallic = 0.01;
-        floorMat.envIntensity = 0.01;
 
         let floor = new Object3D();
         let renderer = floor.addComponent(MeshRenderer);

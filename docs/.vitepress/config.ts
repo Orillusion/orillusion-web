@@ -191,10 +191,10 @@ function nav() {
                     text: '教程',
                     link: '/guide/'
                 },
-                // {
-                //     text: '示例',
-                //     link: '/example/Animation/CurveAnimation'
-                // }
+                {
+                    text: '示例',
+                    link: '/example/Base/AddRemove'
+                }
             ]
         },
         {
@@ -523,10 +523,8 @@ function sidebar(root: string = '', packages: string) {
 }
 function sidebarExample(root: string = '') {
     const index: { [key: string]: string[] } = {
-        Animation: [],
-        Ext: [],
         Base: [],
-        GI: [],
+        Animation: [],
         Graphic: [],
         GUI: [],
         Geometry: [],
@@ -534,9 +532,10 @@ function sidebarExample(root: string = '') {
         Benchmark: [],
         Lights: [],
         Loader: [],
-        Octree: [],
         Particle: [],
-        Physics: []
+        Physics: [],
+        Ext: [],
+        GI: []
     }
 
     const examples: SidebarItem = []

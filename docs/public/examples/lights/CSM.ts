@@ -1,6 +1,5 @@
-import { GUIHelp } from "@orillusion/debug/GUIHelp";
 import { Scene3D, HoverCameraController, Engine3D, AtmosphericComponent, Object3D, Camera3D, Vector3, View3D, DirectLight, KelvinUtil, LitMaterial, MeshRenderer, BoxGeometry, CameraUtil, SphereGeometry, Color, Object3DUtil, BlendMode } from "@orillusion/core";
-import { GUIUtil } from "@samples/utils/GUIUtil";
+import * as dat from "dat.gui";
 
 //sample of csm
 class Sample_CSM {
@@ -9,13 +8,15 @@ class Sample_CSM {
     light: DirectLight;
     boxRenderer: MeshRenderer;
     viewCamera: Camera3D;
+    gui: dat.GUI;
+
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
         Engine3D.setting.shadow.shadowSize = 1024;
         await Engine3D.init({ renderLoop: () => { this.loop(); } });
-
-        GUIHelp.init();
-
+        let gui = new dat.GUI();
+        this.gui = gui.addFolder('Orillusion')
+        this.gui.open();
         this.scene = new Scene3D();
         let sky = this.scene.addComponent(AtmosphericComponent);
 
@@ -37,13 +38,14 @@ class Sample_CSM {
         this.viewCamera = mainCamera;
 
         mainCamera.enableCSM = true;
-        GUIHelp.addFolder('CSM')
-        GUIHelp.add(mainCamera, 'enableCSM');
-        GUIHelp.add(Engine3D.setting.shadow, 'csmScatteringExp', 0.5, 1.0, 0.01);
-        GUIHelp.add(Engine3D.setting.shadow, 'csmMargin', 0.01, 0.5, 0.01);
-        GUIHelp.open();
-        GUIHelp.endFolder();
         Engine3D.startRenderView(view);
+
+        let f = gui.addFolder('CSM')
+        f.add(mainCamera, 'enableCSM');
+        f.add(Engine3D.setting.shadow, 'csmScatteringExp', 0.5, 1.0, 0.01);
+        f.add(Engine3D.setting.shadow, 'csmMargin', 0.01, 0.5, 0.01);
+        f.add(Engine3D.setting.shadow, 'csmAreaScale', 0.1, 1, 0.01);
+        f.open();
     }
 
     // create direction light
@@ -58,9 +60,9 @@ class Sample_CSM {
         sunLight.lightColor = KelvinUtil.color_temperature_to_rgb(6553);
         sunLight.castShadow = true;
 
-        GUIUtil.renderDirLight(sunLight);
         this.scene.addChild(lightObj3D);
         this.light = sunLight;
+        this.gui.add(sunLight, 'enable').name(name)
         return sunLight.transform;
     }
 
@@ -101,15 +103,12 @@ class Sample_CSM {
         let box = new Object3D();
         let geom = new BoxGeometry(1, 1, 1);
         let material = new LitMaterial();
-        material.transparent = true;
-        material.shaderState.depthWriteEnabled = false
         material.blendMode = BlendMode.NORMAL;
         material.cullMode = "front";
         material.baseColor = new Color(0.2, 0.2, 0, 0.1);
         let renderer = box.addComponent(MeshRenderer);
         renderer.material = material;
         renderer.geometry = geom;
-        // this.scene.addChild(box);
         this.boxRenderer = renderer;
     }
 

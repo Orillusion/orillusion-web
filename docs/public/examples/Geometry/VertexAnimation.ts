@@ -1,6 +1,5 @@
 import { View3D, PlaneGeometry, Engine3D, Scene3D, AtmosphericComponent, CameraUtil, HoverCameraController, Object3D, DirectLight, KelvinUtil, MeshRenderer, LitMaterial, VertexAttributeName, Time } from '@orillusion/core'
 import { Stats } from '@orillusion/stats'
-import dat from 'dat.gui'
 
 // An sample of dynamically updating a geometry vertex attribute
 class Smaple_VertexAnimation {
@@ -8,7 +7,6 @@ class Smaple_VertexAnimation {
     floorGeometry: PlaneGeometry
     scene: Scene3D
     lightObj: Object3D
-    private Ori: dat.GUI | undefined
     async run() {
         await Engine3D.init({ beforeRender: () => this.update() })
 
@@ -31,12 +29,6 @@ class Smaple_VertexAnimation {
     }
 
     private createScene() {
-        // init dat.gui
-        const gui = new dat.GUI()
-        gui.domElement.style.zIndex = '10'
-        gui.domElement.parentElement.style.zIndex = '10'
-        this.Ori = gui.addFolder('Orillusion')
-        this.Ori.open()
         // add light
         let lightObj3D = (this.lightObj = new Object3D())
         let directLight = lightObj3D.addComponent(DirectLight)
@@ -46,18 +38,6 @@ class Smaple_VertexAnimation {
         lightObj3D.rotationX = 53.2
         lightObj3D.rotationY = 220
         lightObj3D.rotationZ = 5.58
-        // GUIUtil.renderDirLight(directLight);
-        let DirLight = this.Ori.addFolder('DirectLight')
-        DirLight.add(directLight, 'enable')
-        DirLight.add(directLight.transform, 'rotationX', 0.0, 360.0, 0.01)
-        DirLight.add(directLight.transform, 'rotationY', 0.0, 360.0, 0.01)
-        DirLight.add(directLight.transform, 'rotationZ', 0.0, 360.0, 0.01)
-        DirLight.addColor(directLight, 'lightColor')
-        DirLight.add(directLight, 'intensity', 0.0, 160.0, 0.01)
-        DirLight.add(directLight, 'indirect', 0.0, 10.0, 0.01)
-        DirLight.add(directLight, 'castShadow')
-        DirLight.open()
-
         this.scene.addChild(lightObj3D)
 
         // add floor

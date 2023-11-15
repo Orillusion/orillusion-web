@@ -6,7 +6,6 @@ import * as dat from 'dat.gui'
 class DrawCallInstance {
     scene: Scene3D
     public anim: boolean = false
-    private Ori: dat.GUI | undefined
 
     async run() {
         Engine3D.setting.pick.enable = false
@@ -53,18 +52,11 @@ class DrawCallInstance {
         // start render
         Engine3D.startRenderView(view)
 
-        const gui = new dat.GUI()
-        gui.domElement.style.zIndex = '10'
-        gui.domElement.parentElement.style.zIndex = '10'
-
-        this.Ori = gui.addFolder('Orillusion')
-        this.Ori.open()
-
-        const controller = this.Ori.add(this, 'anim')
-        controller.onChange(() => {
-            // 当控制器值改变时执行的操作
-            this.anim != this.anim
-        })
+        let gui = new dat.GUI()
+        let f = gui.addFolder('Orillusion')
+        f.add({count: '100000'}, 'count')
+        f.add(this, 'anim').onChange(() => this.anim != this.anim)
+        f.open()
 
         this.initScene()
     }
@@ -78,19 +70,11 @@ class DrawCallInstance {
         material.baseColor = new Color(Math.random(), Math.random(), Math.random())
 
         let group = new Object3D()
-        let count = 50000
-        let label = 'use instance draw box'
-
-        const infoFolder = this.Ori.addFolder('info')
-        infoFolder.open() // 打开文件夹
-        infoFolder.add({ label }, 'label').name('label')
-        infoFolder.add({ count }, 'count').name('count')
+        let count = 100000
 
         let ii = 0
-        // let count = 70000;
         for (let i = 0; i < count; i++) {
             let pos = Vector3Ex.sphereXYZ(ii * 60 + 20, ii * 60 + 100, 100, i * 0.001 + 10, 100)
-            // let pos = Vector3Ex.getRandomXYZ(-2, 2);
             let obj = new Object3D()
             let mr = obj.addComponent(MeshRenderer)
             mr.geometry = shareGeometry
@@ -117,7 +101,6 @@ class DrawCallInstance {
 
         group.addComponent(InstanceDrawComponent)
         group.transform.localDetailRot = new Vector3(0, 1.0 * 0.001, 0)
-        this._rotList.push(1.0)
 
         group.bound = new BoundingBox(Vector3.SAFE_MIN, Vector3.SAFE_MAX)
         this._list.push(group)

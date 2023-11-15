@@ -18,14 +18,8 @@ class Sample_Skeleton3 {
             renderLoop: () => this.onRenderLoop(),
         });
 
-        const gui = new dat.GUI()
-        gui.domElement.style.zIndex = '10'
-        gui.domElement.parentElement.style.zIndex = '10'
-
-        this.Ori = gui.addFolder('Orillusion')
-        this.Ori.open()
-
         this.scene = new Scene3D();
+        this.scene.addComponent(Stats)
         let sky = this.scene.addComponent(AtmosphericComponent);
 
         let mainCamera = CameraUtil.createCamera3DObject(this.scene);
@@ -72,44 +66,33 @@ class Sample_Skeleton3 {
                 console.log("Run-End:", e.skeletonAnimation.getAnimationClipState('Run').time)
             }, this);
 
+            // gui
+            let gui = new dat.GUI()
             // change speed
-            this.Ori.addFolder("Animation-speed").open();
-            this.Ori.add(animation, 'timeScale', -6, 6, 0.01);
-            // GUIHelp.endFolder();
+            let folder = gui.addFolder("Animation-speed")
+            folder.open();
+            folder.add(animation, 'timeScale', -6, 6, 0.01);
 
             // change animation weight
-            this.Ori.addFolder("Animation-weight").open();
+            folder = gui.addFolder("Animation-weight")
+            folder.open();
             animation.getAnimationClipStates().forEach((clipState, _) => {
-                this.Ori.add(clipState, 'weight', 0, 1.0, 0.01).name(clipState.name);
+                folder.add(clipState, 'weight', 0, 1.0, 0.01).name(clipState.name);
             });
-            // GUIHelp.endFolder();
 
             // toggle play/stop
-            this.Ori.addFolder("Animation-play").open();
-            
+            folder = gui.addFolder("Animation-play")
+            folder.open();
             animation.getAnimationClipStates().forEach((clipState, _) => {
-                let name = clipState.name
-                // this.Ori.addButton(name, () => animation.play(clipState.name));
-                var button_add = {
-                    name: () => animation.play(clipState.name)
-                }
-        
-                this.Ori.add(button_add, 'name')
+                folder.add({[clipState.name]: () => animation.play(clipState.name)}, clipState.name)
             });
-            // GUIHelp.endFolder();
 
             // cross fade animation
-            this.Ori.addFolder("Animation-crossFade").open();
+            folder = gui.addFolder("Animation-crossFade")
+            folder.open();
             animation.getAnimationClipStates().forEach((clipState, _) => {
-                let name1 = 'crossFade(' + clipState.name + ')'
-                // this.Ori.addButton(name1, () => animation.crossFade(clipState.name, 0.3));
-                var button_add = {
-                    name1:  () => animation.crossFade(clipState.name, 0.3)
-                }
-        
-                this.Ori.add(button_add, 'name1')
+                folder.add({[clipState.name]:  () => animation.crossFade(clipState.name, 0.3)}, clipState.name)
             });
-            // GUIHelp.endFolder();
         }
 
         /******** floor *******/
@@ -128,7 +111,6 @@ class Sample_Skeleton3 {
             directLight.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
             directLight.castShadow = true;
             directLight.intensity = 40;
-            GUIUtil.renderDirLight(directLight);
             scene.addChild(this.lightObj3D);
         }
 

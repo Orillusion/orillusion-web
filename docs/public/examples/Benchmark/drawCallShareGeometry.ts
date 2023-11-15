@@ -79,17 +79,12 @@ export class Sample_drawCallShareGeometry {
 
         // start render
         Engine3D.startRenderView(view)
-        const gui = new dat.GUI()
-        gui.domElement.style.zIndex = '10'
-        gui.domElement.parentElement.style.zIndex = '10'
-        this.Ori = gui.addFolder('Orillusion')
-        this.Ori.open()
-
-        const controller = this.Ori.add(this, 'anim')
-        controller.onChange(() => {
-            // 当控制器值改变时执行的操作
-            this.anim != this.anim
-        })
+      
+        let gui = new dat.GUI()
+        let f = gui.addFolder('Orillusion')
+        f.add({count: '50000'}, 'count')
+        f.add(this, 'anim').onChange(() => this.anim != this.anim)
+        f.open()
 
         this.initScene()
     }
@@ -99,24 +94,15 @@ export class Sample_drawCallShareGeometry {
     initScene() {
         let shareGeometry = new BoxGeometry()
 
-        let mats = []
+        let mats:LambertMaterial[] = []
         for (let i = 0; i < 1; i++) {
             const mat = new LambertMaterial()
             mat.baseColor = new Color(Math.random() * 0.85, Math.random() * 0.85, Math.random() * 0.85)
-
-            // mat.baseColor = new Color().hexToRGB(0xcccccc)
             mats.push(mat)
         }
 
         let group = new Object3D()
         let count = 5 * 10000
-        let label = 'normal draw box'
-
-        let infodir = this.Ori.addFolder('info')
-        infodir.add({ label }, 'label').name('label')
-        infodir.add({ count }, 'count').name('count')
-        infodir.open()
-
         let ii = 0
         // let count = 70000;
         for (let i = 0; i < count; i++) {
@@ -146,8 +132,6 @@ export class Sample_drawCallShareGeometry {
                 ii++
             }
         }
-
-        // group.addComponent(InstanceDrawComponent);
         group.transform.localDetailRot = new Vector3(0, 1.0 * 0.001 * 0.15, 0)
         this._rotList.push(1.0 * 0.35)
 
@@ -161,8 +145,6 @@ export class Sample_drawCallShareGeometry {
             let i = 0
             for (let i = 0; i < this._list.length; i++) {
                 const element = this._list[i]
-                // element.transform.rotationY += Time.delta * 0.01 * this._rotList[i];
-                // element.transform._localRot.y += Time.delta * 0.01 * this._rotList[i];
                 element.transform.localChange = true
             }
         }

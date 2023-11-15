@@ -1,16 +1,11 @@
-import { GUIHelp } from '@orillusion/debug/GUIHelp'
-import { Scene3D, Engine3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, Object3D, DirectLight, KelvinUtil, MeshRenderer, UnLitMaterial, PlaneGeometry, LitMaterial, Color } from '@orillusion/core'
-import { UVMoveComponent } from '@samples/material/script/UVMoveComponent'
-import { GUIUtil } from '@samples/utils/GUIUtil'
+import { Scene3D, Engine3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, Object3D, DirectLight, KelvinUtil, MeshRenderer, PlaneGeometry, LitMaterial, Color, BlendMode, ComponentBase, Material, Time, Vector4 } from '@orillusion/core'
+import dat from 'dat.gui'
 
 class Sample_UVMove {
     scene: Scene3D
     lightObj: Object3D
     async run() {
         await Engine3D.init()
-
-        Engine3D.setting.material.materialChannelDebug = true
-        Engine3D.setting.shadow.shadowBound = 5
 
         this.scene = new Scene3D()
         let sky = this.scene.addComponent(AtmosphericComponent)
@@ -31,11 +26,6 @@ class Sample_UVMove {
     }
 
     async initScene() {
-        /******** sky *******/
-        {
-            this.scene.exposure = 1
-            this.scene.roughness = 0.0
-        }
         /******** light *******/
         {
             let lightObj = (this.lightObj = new Object3D())
@@ -45,33 +35,15 @@ class Sample_UVMove {
 
             let directLight = lightObj.addComponent(DirectLight)
             directLight.lightColor = KelvinUtil.color_temperature_to_rgb(5355)
-            directLight.castShadow = true
-            directLight.intensity = 6
+            directLight.intensity = 30
             this.scene.addChild(lightObj)
         }
-
-        {
-            // add plane into scene
-            let plane = new Object3D()
-            let renderer = plane.addComponent(MeshRenderer)
-            let material = new LitMaterial()
-            material.baseMap = await Engine3D.res.loadTexture('particle/T_Fx_Object_229.png')
-            renderer.material = material
-            renderer.geometry = new PlaneGeometry(100, 100, 1, 1)
-            this.scene.addChild(plane)
-
-            // add UVMoveComponents
-            GUIHelp.init()
-            let component = plane.addComponent(UVMoveComponent)
-            GUIUtil.renderUVMove(component)
-        }
-
         {
             // add floor
             let floor = new Object3D()
             let material = new LitMaterial()
             material.doubleSide = true
-            material.baseMap = await Engine3D.res.loadTexture('textures/diffuse.jpg')
+            material.baseMap = await Engine3D.res.loadTexture('https://cdn.orillusion.com/textures/diffuse.jpg')
 
             let renderer = floor.addComponent(MeshRenderer)
             renderer.material = material
@@ -79,6 +51,59 @@ class Sample_UVMove {
 
             floor.y = -10
             this.scene.addChild(floor)
+        }
+        {
+            // add plane
+            let plane = new Object3D()
+            let renderer = plane.addComponent(MeshRenderer)
+            let material = new LitMaterial()
+            material.baseMap = await Engine3D.res.loadTexture('https://cdn.orillusion.com/particle/T_Fx_Object_229.png')
+            renderer.material = material
+            material.blendMode = BlendMode.ADD
+            renderer.geometry = new PlaneGeometry(100, 100, 1, 1)
+            this.scene.addChild(plane)
+
+            let uvmove = plane.addComponent(UVMoveComponent)
+            let gui = new dat.GUI()
+            let f = gui.addFolder('UV Move')
+            f.add(uvmove.speed, 'x', -1, 1, 0.01);
+            f.add(uvmove.speed, 'y', -1, 1, 0.01);
+            f.add(uvmove.speed, 'z', 0.1, 10, 0.01);
+            f.add(uvmove.speed, 'w', 0.1, 10, 0.01);
+            f.add(uvmove, 'enable');
+            f.open()
+        }
+    }
+}
+
+class UVMoveComponent extends ComponentBase {
+
+    private _material: Material;
+    private readonly _speed: Vector4 = new Vector4(0.1, 0.1, 1, 1);
+
+    public get speed(): Vector4 {
+        return this._speed;
+    }
+
+    public set speed(value: Vector4) {
+        this._speed.copyFrom(value);
+    }
+
+    start(): void {
+        let mr = this.object3D.getComponent(MeshRenderer);
+        if (mr) {
+            this._material = mr.material;
+        }
+    }
+
+    onUpdate(): void {
+        if (this._material) {
+            let value = this._material.getUniformV4(`transformUV1`);
+            value.x += Time.delta * this._speed.x * 0.001;
+            value.y += Time.delta * this._speed.y * 0.001;
+            value.z = this._speed.z;
+            value.w = this._speed.w;
+            this._material.setUniformVector4(`transformUV1`, value);
         }
     }
 }

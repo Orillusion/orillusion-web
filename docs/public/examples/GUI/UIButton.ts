@@ -1,23 +1,13 @@
 ﻿import { Engine3D, Object3DUtil, Object3D, GUISpace, WorldPanel, ViewPanel, UIButton, UITextField, Color, TextAnchor, PointerEvent3D, UIImage, ImageType, ComponentBase, View3D, UIPanel, UIInteractiveStyle, UIButtonTransition, Scene3D, AtmosphericComponent, CameraUtil, HoverCameraController, DirectLight, KelvinUtil } from "@orillusion/core";
 import {Stats} from "@orillusion/stats";
-import dat from "dat.gui";
 
 class Sample_UIButton {
     scene: Scene3D;
     button: UIButton;
     scaler: ScalerComponent;
-    Ori: dat.GUI;
 
     async run() {
-
-        Engine3D.setting.shadow.autoUpdate = true;
         await Engine3D.init();
-
-        // init dat.gui
-        const gui = new dat.GUI();
-        gui.domElement.style.zIndex = '10';
-        this.Ori = gui.addFolder("Orillusion");
-        this.Ori.open();
 
         // init Scene3D
         this.scene = new Scene3D()
@@ -52,7 +42,6 @@ class Sample_UIButton {
 
         let light = lightObj3D.addComponent(DirectLight)
         light.lightColor = KelvinUtil.color_temperature_to_rgb(5355)
-        light.castShadow = true
         light.intensity = 30
 
         this.scene.addChild(light.object3D)
@@ -170,7 +159,6 @@ class Sample_UIButton {
         setTimeout(() => {
             this.button.enable = true;
             this.scaler.enable = false;
-
         }, 3000);
     }
 }

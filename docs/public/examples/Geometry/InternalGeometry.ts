@@ -1,24 +1,18 @@
 import { Engine3D, View3D, Scene3D, CameraUtil, AtmosphericComponent, webGPUContext, HoverCameraController, Object3D, DirectLight, KelvinUtil, PlaneGeometry, LitMaterial, MeshRenderer, BoxGeometry, SphereGeometry, CylinderGeometry, TorusGeometry, Color } from '@orillusion/core';
 import { Stats } from '@orillusion/stats'
-import dat from 'dat.gui'
 
 // An sample of display internal geometry
 class Sample_InternalGeometry {
     lightObj: Object3D
-    private Ori: dat.GUI | undefined
     async run() {
         Engine3D.setting.shadow.autoUpdate = true
         Engine3D.setting.shadow.shadowBound = 200
-        // init dat.gui
-        const gui = new dat.GUI()
-        gui.domElement.style.zIndex = '10'
-        gui.domElement.parentElement.style.zIndex = '10'
-        this.Ori = gui.addFolder('Orillusion')
-        this.Ori.open()
 
         await Engine3D.init()
         let view = new View3D()
         view.scene = new Scene3D()
+        view.scene.addComponent(Stats)
+
         let sky = view.scene.addComponent(AtmosphericComponent)
 
         view.camera = CameraUtil.createCamera3DObject(view.scene)
@@ -42,20 +36,7 @@ class Sample_InternalGeometry {
         lightObj3D.rotationX = 53.2
         lightObj3D.rotationY = 220
         lightObj3D.rotationZ = 5.58
-
-        // GUIUtil.renderDirLight(sunLight);
-        let DirLight = this.Ori.addFolder('DirectLight')
-        DirLight.add(sunLight, 'enable')
-        DirLight.add(sunLight.transform, 'rotationX', 0.0, 360.0, 0.01)
-        DirLight.add(sunLight.transform, 'rotationY', 0.0, 360.0, 0.01)
-        DirLight.add(sunLight.transform, 'rotationZ', 0.0, 360.0, 0.01)
-        DirLight.addColor(sunLight, 'lightColor')
-        DirLight.add(sunLight, 'intensity', 0.0, 160.0, 0.01)
-        DirLight.add(sunLight, 'indirect', 0.0, 10.0, 0.01)
-        DirLight.add(sunLight, 'castShadow')
-        DirLight.open()
         scene.addChild(lightObj3D)
-        scene.addComponent(Stats)
 
         let material = new LitMaterial()
 

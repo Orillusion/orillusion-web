@@ -5,16 +5,10 @@ import dat from "dat.gui";
 class Sample_UITextField {
     private text: UITextField;
     scene: Scene3D
-    Ori: dat.GUI
 
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
         await Engine3D.init();
-
-        // init dat.gui
-        const gui = new dat.GUI();
-        this.Ori = gui.addFolder("Orillusion");
-        this.Ori.open();
 
         // init Scene3D
         this.scene = new Scene3D()
@@ -102,29 +96,30 @@ class Sample_UITextField {
                 this.text.uiTransform.resize(size.width, size.height);
             }
             let shadow = textQuad.addComponent(UIShadow);
-            // GUIUtil.renderUIShadow(shadow, true);
-            let shadowfolder = this.Ori.addFolder("Image Shadow");
-            shadowfolder.add(shadow, 'shadowQuality', 0, 4, 1);
 
-            shadowfolder.add(shadow, 'shadowRadius', 0.00, 10, 0.01);
+            let gui = new dat.GUI()
+            let dir = gui.addFolder("UITextField");
+            dir.add(shadow, 'shadowQuality', 0, 4, 1);
+            dir.add(shadow, 'shadowRadius', 0.00, 10, 0.01);
             //shadow color
             shadow.shadowColor = new Color(0.1, 0.1, 0.1, 0.6);
-            shadowfolder.addColor(shadow, 'shadowColor');
+            dir.addColor({shadowColor: [0.1, 0.1, 0.1, 0.6].map((c,i)=>i===3? c: c*255)}, 'shadowColor').onChange(v=>{
+                shadow.shadowColor = new Color(v[0]/255, v[1]/255, v[2]/255, v[3]);
+            });
 
             let changeOffset = () => {
                 shadow.shadowOffset = shadow.shadowOffset;
             }
-            shadowfolder.add(shadow.shadowOffset, 'x', -100, 100, 0.01).onChange(v => changeOffset());
-            shadowfolder.add(shadow.shadowOffset, 'y', -100, 100, 0.01).onChange(v => changeOffset());
+            dir.add(shadow.shadowOffset, 'x', -100, 100, 0.01).onChange(v => changeOffset());
+            dir.add(shadow.shadowOffset, 'y', -100, 100, 0.01).onChange(v => changeOffset());
             let button = {
                 "del": () => {
                     shadow.object3D.removeComponent(UIShadow);
                 }
             }
-            shadowfolder.add(button, 'del');
-            shadowfolder.open();
-
-            shadowfolder.add(size, 'width', 100, 200, 1).onChange(() => {
+            dir.add(button, 'del');
+            dir.open();
+            dir.add(size, 'width', 100, 400, 1).onChange(() => {
                 changeSize();
             });
         }

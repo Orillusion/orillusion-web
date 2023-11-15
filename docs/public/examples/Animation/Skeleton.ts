@@ -1,5 +1,4 @@
 import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, webGPUContext, HoverCameraController, View3D, LitMaterial, MeshRenderer, BoxGeometry, DirectLight, KelvinUtil, Object3DUtil } from "@orillusion/core";
-import dat from 'dat.gui'
 import { Stats } from '@orillusion/stats'
 
 class Sample_Skeleton {
@@ -15,13 +14,14 @@ class Sample_Skeleton {
         await Engine3D.init();
 
         this.scene = new Scene3D();
+        this.scene.addComponent(Stats)
         let sky = this.scene.addComponent(AtmosphericComponent);
 
         let camera = CameraUtil.createCamera3DObject(this.scene);
         camera.perspective(60, Engine3D.aspect, 0.01, 5000.0);
 
         let ctrl = camera.object3D.addComponent(HoverCameraController);
-        ctrl.setCamera(0, -45, 100);
+        ctrl.setCamera(-30, -45, 100);
         ctrl.maxDistance = 1000;
 
         let view = new View3D();
@@ -34,14 +34,7 @@ class Sample_Skeleton {
         sky.relativeTransform = this.lightObj3D.transform;
     }
 
-
     async initScene(scene: Scene3D) {
-        const gui = new dat.GUI()
-            gui.domElement.style.zIndex = '10'
-            gui.domElement.parentElement.style.zIndex = '10'
-
-            this.Ori = gui.addFolder('Orillusion')
-            this.Ori.open()
         {
             // load model with skeleton animation
             let man = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/CesiumMan/CesiumMan_compress.gltf');
@@ -67,22 +60,9 @@ class Sample_Skeleton {
             directLight.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
             directLight.castShadow = true;
             directLight.intensity = 25;
-            let DirLight = this.Ori.addFolder('DirectLight')
-            DirLight.add(directLight, 'enable')
-            DirLight.add(directLight.transform, 'rotationX', 0.0, 360.0, 0.01)
-            DirLight.add(directLight.transform, 'rotationY', 0.0, 360.0, 0.01)
-            DirLight.add(directLight.transform, 'rotationZ', 0.0, 360.0, 0.01)
-            DirLight.addColor(directLight, 'lightColor')
-            DirLight.add(directLight, 'intensity', 0.0, 160.0, 0.01)
-            DirLight.add(directLight, 'indirect', 0.0, 10.0, 0.01)
-            DirLight.add(directLight, 'castShadow')
-            DirLight.open()
             scene.addChild(this.lightObj3D);
         }
-
-        return true;
     }
-
 }
 
 new Sample_Skeleton().run();

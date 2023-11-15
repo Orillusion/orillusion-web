@@ -1,16 +1,10 @@
 import dat from "dat.gui";
 import {Stats} from "@orillusion/stats";
-import {
-    AtmosphericComponent, BoxGeometry, CameraUtil, Color, Engine3D, HoverCameraController, LitMaterial, MeshRenderer, Object3D, PlaneGeometry, PointLight, Scene3D, SphereGeometry, Vector3, View3D, webGPUContext, Camera3D, Time, DEGREES_TO_RADIANS
-} from '@orillusion/core';
-
-import {
-    ParticleSystem, ParticleMaterial, ParticleStandardSimulator, EmitLocation, ParticleEmitterModule, ParticleGravityModifierModule, ParticleOverLifeColorModule, ShapeType, SimulatorSpace
-} from '@orillusion/particle';
+import {AtmosphericComponent, BoxGeometry, CameraUtil, Color, Engine3D, HoverCameraController, LitMaterial, MeshRenderer, Object3D, PlaneGeometry, PointLight, Scene3D, SphereGeometry, Vector3, View3D, webGPUContext, Camera3D, Time, DEGREES_TO_RADIANS} from '@orillusion/core';
+import {ParticleSystem, ParticleMaterial, ParticleStandardSimulator, EmitLocation, ParticleEmitterModule, ParticleGravityModifierModule, ParticleOverLifeColorModule, ShapeType, SimulatorSpace} from '@orillusion/particle';
 
 class Sample_CandleFlame {
     lightObj: Object3D;
-    private Ori: dat.GUI | undefined
     async run() {
         Engine3D.setting.shadow.enable = true;
         Engine3D.setting.shadow.pointShadowBias = 0.001;
@@ -55,12 +49,11 @@ class Sample_CandleFlame {
             pl.castShadow = true;
             pl.realTimeShadow = true;
             pl.lightColor = new Color(67 / 255, 195 / 255, 232 / 255);
-            pl.debug();
             obj.addChild(lightObj);
         }
 
         let material = new ParticleMaterial();
-        material.envMap = await Engine3D.res.loadTexture('https://cdn.orillusion.com/particle/fx_a_glow_003.png');
+        material.baseMap = await Engine3D.res.loadTexture('https://cdn.orillusion.com/particle/fx_a_glow_003.png');
 
         particleSystem.geometry = new PlaneGeometry(5, 5, 1, 1, Vector3.Z_AXIS);
         particleSystem.material = material;
@@ -103,13 +96,8 @@ class Sample_CandleFlame {
         Duck.transform.z = 36;
         scene.addChild(Duck);
 
-        if (true) {
+        {
             let mat = new LitMaterial();
-            mat.baseMap = Engine3D.res.whiteTexture;
-            mat.normalMap = Engine3D.res.normalTexture;
-            mat.aoMap = Engine3D.res.whiteTexture;
-            mat.maskMap = Engine3D.res.createTexture(32, 32, 255.0, 255.0, 0.0, 1);
-            mat.emissiveMap = Engine3D.res.blackTexture;
             mat.roughness = 0.5;
             mat.metallic = 0.2;
 
@@ -123,7 +111,6 @@ class Sample_CandleFlame {
             let mr = ball.addComponent(MeshRenderer);
             mr.geometry = new SphereGeometry(6, 20, 20);
             mr.material = mat;
-            mat.shaderState.acceptGI = true;
             scene.addChild(ball);
             ball.transform.x = -17;
             ball.transform.y = 34;

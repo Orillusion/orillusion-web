@@ -1,13 +1,12 @@
 import { Object3D, Scene3D, Engine3D, AtmosphericComponent, webGPUContext, HoverCameraController, View3D, DirectLight, KelvinUtil, Vector3, MorphTargetBlender, Entity, CameraUtil } from "@orillusion/core";
+import { Stats } from "@orillusion/stats";
 import dat from 'dat.gui'
-import { Stats } from '@orillusion/stats'
 
 // Sample of how to control the morphtarget animation
 class Sample_MorphTarget {
     lightObj3D: Object3D;
     scene: Scene3D;
     influenceData: { [key: string]: number } = {};
-    private Ori: dat.GUI | undefined
 
     async run() {
         Engine3D.setting.shadow.shadowBound = 100;
@@ -15,6 +14,7 @@ class Sample_MorphTarget {
         await Engine3D.init();
 
         this.scene = new Scene3D();
+        this.scene.addComponent(Stats)
         let sky = this.scene.addComponent(AtmosphericComponent);
 
         let camera = CameraUtil.createCamera3DObject(this.scene);
@@ -47,12 +47,7 @@ class Sample_MorphTarget {
     }
 
     private async initMorphModel() {
-        const gui = new dat.GUI()
-        gui.domElement.style.zIndex = '10'
-        gui.domElement.parentElement.style.zIndex = '10'
-
-        this.Ori = gui.addFolder('Orillusion')
-        
+        const gui = new dat.GUI()        
 
         // load lion model
         let model = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/glb/lion.glb');
@@ -60,7 +55,7 @@ class Sample_MorphTarget {
         model.x = -30.0;
         this.scene.addChild(model);
 
-        gui.addFolder('morph controller');
+        let folder = gui.addFolder('morph controller');
         // register MorphTargetBlender component
         let blendShapeComponent = model.addComponent(MorphTargetBlender);
         let targetRenderers = blendShapeComponent.cloneMorphRenderers();
@@ -68,7 +63,7 @@ class Sample_MorphTarget {
         // bind influenceData to gui
         for (let key in targetRenderers) {
             this.influenceData[key] = 0.0;
-            gui.add(this.influenceData, key, 0, 1, 0.01).onChange((v) => {
+            folder.add(this.influenceData, key, 0, 1, 0.01).onChange((v) => {
                 this.influenceData[key] = v;
                 let list = blendShapeComponent.getMorphRenderersByKey(key);
                 for (let renderer of list) {
@@ -77,23 +72,8 @@ class Sample_MorphTarget {
             });
         }
 
-        this.Ori.open()
-        // GUIHelp.endFolder();
-
-        // print hierarchy
-        this.printHierarchy(model);
+        folder.open()
     }
-
-
-    private printHierarchy(obj: Entity, path: string = '') {
-        console.log(path, obj.name);
-
-        path += '== ';
-        for (let child of obj.entityChildren) {
-            this.printHierarchy(child, path);
-        }
-    }
-
 }
 
 new Sample_MorphTarget().run();

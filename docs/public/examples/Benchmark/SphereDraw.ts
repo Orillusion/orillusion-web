@@ -6,7 +6,6 @@ import * as dat from "dat.gui";
 class Sample_SphereDraw {
     scene: Scene3D;
     public anim: boolean = false;
-    private Ori: dat.GUI | undefined
     async run() {
         // init engine
         Engine3D.setting.pick.enable = false;
@@ -49,18 +48,10 @@ class Sample_SphereDraw {
         // start render
         Engine3D.startRenderView(view);
 
-        const gui = new dat.GUI();
-        gui.domElement.style.zIndex = '10';
-        gui.domElement.parentElement.style.zIndex = '10';
-
-        this.Ori = gui.addFolder('Orillusion')
-        this.Ori.open()
-
-        const controller = this.Ori.add(this, 'anim');
-        controller.onChange(() => {
-            // 当控制器值改变时执行的操作
-            this.anim != this.anim;
-        });
+        let gui = new dat.GUI()
+        let f = gui.addFolder('Orillusion')
+        f.add(this, 'anim').onChange(() => this.anim != this.anim)
+        f.open()
 
         this.initScene();
     }
@@ -78,15 +69,11 @@ class Sample_SphereDraw {
             element.baseColor = Color.random();
         }
 
-        // let material = new LitMaterial();
-
         let group = new Object3D();
         this.scene.addChild(group);
-        // let count = 150000;
         let count = 10000;
         for (let i = 0; i < count; i++) {
             let pos = Vector3Ex.sphere(100);
-            // let pos = Vector3Ex.getRandomXYZ(-2, 2);
             let obj = new Object3D();
             let mr = obj.addComponent(MeshRenderer);
             mr.geometry = shareGeometry;
@@ -104,10 +91,8 @@ class Sample_SphereDraw {
             obj.transform.scaleZ = Math.random() * 5 + 1;
 
             obj.transform.forward = d;
-            obj["rot"] = (Math.random() * 1 - 1 * 0.5) * 2.0 * Math.random() * 20;
         }
         group.addComponent(InstanceDrawComponent);
-        group["rot"] = 1.0;
         group.bound = new BoundingBox(Vector3.SAFE_MIN, Vector3.SAFE_MAX);
         this._list.push(group);
     }
@@ -115,9 +100,6 @@ class Sample_SphereDraw {
     renderLoop() {
         if (this.anim) {
             this._list[this._list.length - 1].rotationY += Time.delta * 0.01;
-            this._list.forEach((v) => {
-                // v.transform.rotationY += Time.delta * 0.01 * v["rot"];
-            })
         }
     }
 }

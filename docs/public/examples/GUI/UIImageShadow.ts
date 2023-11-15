@@ -5,16 +5,10 @@ import dat from "dat.gui";
 class Sample_UIImageShadow {
     private img: UIImage;
     scene: Scene3D;
-    Ori: dat.GUI;
 
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
         await Engine3D.init();
-
-        // init dat.gui
-        const gui = new dat.GUI();
-        this.Ori = gui.addFolder("Orillusion");
-        this.Ori.open();
 
         // init Scene3D
         this.scene = new Scene3D()
@@ -88,15 +82,16 @@ class Sample_UIImageShadow {
         shadow.shadowQuality = 4;
         shadow.shadowRadius = 4;
         shadow.shadowOffset = shadow.shadowOffset.set(6, -6);
-        // GUIUtil.renderUIShadow(shadow, true);
-        let shadowfolder = this.Ori.addFolder("Image Shadow");
 
+        let gui = new dat.GUI()
+        let shadowfolder = gui.addFolder("Image Shadow");
         shadowfolder.add(shadow, 'shadowQuality', 0, 4, 1);
-
         shadowfolder.add(shadow, 'shadowRadius', 0.00, 10, 0.01);
         //shadow color
         shadow.shadowColor = new Color(0.1, 0.1, 0.1, 0.6);
-        shadowfolder.addColor(shadow, 'shadowColor');
+        shadowfolder.addColor({shadowColor: [0.1,0.1,0.1,0.6].map((c,i)=> i===3?c:c*255)}, 'shadowColor').onChange(v=>{
+            shadow.shadowColor = new Color(v[0]/255, v[1]/255, v[2]/255, v[3]);
+        })
 
         let changeOffset = () => {
             shadow.shadowOffset = shadow.shadowOffset;

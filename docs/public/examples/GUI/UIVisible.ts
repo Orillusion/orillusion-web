@@ -1,6 +1,5 @@
 ﻿import { Engine3D, Object3DUtil, Object3D, UIImage, ImageType, WorldPanel, UITransform, KelvinUtil, Scene3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight } from "@orillusion/core";
 import {Stats} from "@orillusion/stats";
-import dat from "dat.gui";
 
 class Sample_UIVisible {
     imageComponentList: UIImage[];
@@ -17,12 +16,6 @@ class Sample_UIVisible {
                 this.renderUpdate();
             }
         });
-
-        // init dat.gui
-        const gui = new dat.GUI();
-        this.Ori = gui.addFolder("Orillusion");
-        this.Ori.open();
-
 
         // init Scene3D
         this.scene = new Scene3D()

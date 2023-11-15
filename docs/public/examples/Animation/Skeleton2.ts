@@ -1,11 +1,9 @@
 import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, webGPUContext, HoverCameraController, View3D, LitMaterial, MeshRenderer, BoxGeometry, DirectLight, KelvinUtil, Object3DUtil, SkeletonAnimationComponent } from "@orillusion/core";
-import dat from 'dat.gui'
 import { Stats } from '@orillusion/stats'
 
 class Sample_Skeleton2 {
     lightObj3D: Object3D;
     scene: Scene3D;
-    private Ori: dat.GUI | undefined
 
     async run() {
 
@@ -16,6 +14,7 @@ class Sample_Skeleton2 {
         await Engine3D.init();
 
         this.scene = new Scene3D();
+        this.scene.addComponent(Stats)
         let sky = this.scene.addComponent(AtmosphericComponent);
         this.scene.exposure = 1;
 
@@ -54,22 +53,6 @@ class Sample_Skeleton2 {
             directLight.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
             directLight.castShadow = true;
             directLight.intensity = 40;
-            const gui = new dat.GUI()
-            gui.domElement.style.zIndex = '10'
-            gui.domElement.parentElement.style.zIndex = '10'
-
-            this.Ori = gui.addFolder('Orillusion')
-            this.Ori.open()
-            let DirLight = this.Ori.addFolder('DirectLight')
-            DirLight.add(directLight, 'enable')
-            DirLight.add(directLight.transform, 'rotationX', 0.0, 360.0, 0.01)
-            DirLight.add(directLight.transform, 'rotationY', 0.0, 360.0, 0.01)
-            DirLight.add(directLight.transform, 'rotationZ', 0.0, 360.0, 0.01)
-            DirLight.addColor(directLight, 'lightColor')
-            DirLight.add(directLight, 'intensity', 0.0, 160.0, 0.01)
-            DirLight.add(directLight, 'indirect', 0.0, 10.0, 0.01)
-            DirLight.add(directLight, 'castShadow')
-            DirLight.open()
             scene.addChild(this.lightObj3D);
         }
 

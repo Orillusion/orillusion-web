@@ -17,19 +17,8 @@ class Sample_BoundingBox {
                 this.loop()
             }
         })
-        // init dat.gui
-        const gui = new dat.GUI()
-        gui.domElement.style.zIndex = '10'
-        gui.domElement.parentElement.style.zIndex = '10'
-        this.Ori = gui.addFolder('Orillusion')
-        this.Ori.open()
 
-        // param.camera.near = 0.01
-        // param.camera.far = 1000
-        // param.camera.distance = 20
-        // init Scene3D
         this.scene = new Scene3D()
-        this.scene.exposure = 1
         this.scene.addComponent(Stats)
 
         // init sky
@@ -91,10 +80,12 @@ class Sample_BoundingBox {
                 !this.box.transform.parent && parent.addChild(this.box)
             }
         }
-        this.Ori.add(button_remove, 'Remove_Box')
-        this.Ori.add(button_add, 'Add_Box')
+        let gui = new dat.GUI()
+        let folder = gui.addFolder('Orillusion')
+        folder.add(button_remove, 'Remove_Box')
+        folder.add(button_add, 'Add_Box')
 
-        let Container = this.Ori.addFolder('Container')
+        let Container = gui.addFolder('Container')
         Container.add(parent.transform, 'x', -100.0, 100.0, 0.01)
         Container.add(parent.transform, 'y', -100.0, 100.0, 0.01)
         Container.add(parent.transform, 'z', -100.0, 100.0, 0.01)
@@ -106,7 +97,7 @@ class Sample_BoundingBox {
         Container.add(parent.transform, 'scaleZ', 0.0, 2.0, 0.01)
         Container.open()
 
-        let Box = this.Ori.addFolder('Box')
+        let Box = gui.addFolder('Box')
         Box.add(this.box.transform, 'x', -100.0, 100.0, 0.01)
         Box.add(this.box.transform, 'y', -100.0, 100.0, 0.01)
         Box.add(this.box.transform, 'z', -100.0, 100.0, 0.01)

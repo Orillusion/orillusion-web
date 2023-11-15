@@ -1,14 +1,15 @@
-import { AtmosphericComponent, CameraUtil, View3D, KelvinUtil, DirectLight, HoverCameraController, Engine3D, LitMaterial, MeshRenderer, Object3D, PlaneGeometry, Scene3D } from "@orillusion/core";
+import { Engine3D, AtmosphericComponent, KelvinUtil, DirectLight, View3D, CameraUtil, HoverCameraController, LitMaterial, MeshRenderer, Object3D, PlaneGeometry, Scene3D } from "@orillusion/core";
 import { Stats } from '@orillusion/stats'
 
 // Sample to load glb file
-class Sample_LoadGLB {
+class Sample_LoadGLB2 {
     scene: Scene3D;
 
     async run() {
-        Engine3D.setting.shadow.shadowBound = 100;
-        await Engine3D.init();
         Engine3D.setting.shadow.autoUpdate = true;
+        Engine3D.setting.render.useLogDepth = true;
+
+        await Engine3D.init();
         let scene = new Scene3D()
         scene.exposure = 1
         scene.addComponent(Stats)
@@ -19,7 +20,7 @@ class Sample_LoadGLB {
     
         // init Camera3D
         let camera = CameraUtil.createCamera3DObject(scene)
-        camera.perspective(60, Engine3D.aspect, 1, 5000)
+        camera.perspective(60, Engine3D.aspect, 0.1, 5000)
     
         // init Camera Controller
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController)
@@ -43,36 +44,29 @@ class Sample_LoadGLB {
         light.lightColor = KelvinUtil.color_temperature_to_rgb(5355)
         light.castShadow = true
         light.intensity = 30
-    
         scene.addChild(light.object3D)
-    
+
         // relative light to sky
         atmosphericSky.relativeTransform = light.transform
 
 
         this.scene = scene;
+        atmosphericSky.displaySun = false;
+        atmosphericSky.sunRadiance = 1;
+        hoverCtrl.setCamera(-45, -45, 10);
+        light.intensity = 10;
         Engine3D.startRenderView(view);
         await this.initScene();
     }
 
     async initScene() {
-        /******** floor *******/
-        {
-            let mat = new LitMaterial();
-            mat.baseMap = Engine3D.res.whiteTexture;
-            mat.roughness = 0.85;
-            mat.metallic = 0.1;
-            let floor = new Object3D();
-            let mr = floor.addComponent(MeshRenderer);
-            mr.geometry = new PlaneGeometry(200, 200);
-            mr.material = mat;
-            this.scene.addChild(floor);
-        }
-
-        /******** load glb file *******/
-        let model = (await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/UR3E/UR3E.glb', { onProgress: (e) => this.onLoadProgress(e), onComplete: (e) => this.onComplete(e) })) as Object3D;
+        /******** load compressed glb by draco *******/
+        let model = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/glb/BuildingWithCharacters/scene.glb', { 
+            onProgress: (e) => this.onLoadProgress(e), 
+            onComplete: (e) => this.onComplete(e) 
+        })
         this.scene.addChild(model);
-        model.scaleX = model.scaleY = model.scaleZ = 50;
+        model.scaleX = model.scaleY = model.scaleZ = 0.01;
     }
 
     onLoadProgress(e) {
@@ -82,6 +76,5 @@ class Sample_LoadGLB {
     onComplete(e) {
         console.log(e);
     }
-
 }
-new Sample_LoadGLB().run();
+new Sample_LoadGLB2().run();

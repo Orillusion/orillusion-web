@@ -1,22 +1,15 @@
 ﻿import { Engine3D, Object3DUtil, Object3D, UIImage, ImageType, Camera3D, Color, WorldPanel, DirectLight, KelvinUtil, View3D, Scene3D, AtmosphericComponent, CameraUtil, HoverCameraController } from "@orillusion/core";
 import {Stats} from "@orillusion/stats";
-import dat from "dat.gui";
 
 class Sample_UIImageColor {
     scene: Scene3D;
     camera: Camera3D;
     img: UIImage;
     counter: number = 0;
-    Ori: dat.GUI;
 
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
         await Engine3D.init({ renderLoop: () => { this.renderUpdate(); } });
-
-        // init dat.gui
-        const gui = new dat.GUI();
-        this.Ori = gui.addFolder("Orillusion");
-        this.Ori.open();
 
         // init Scene3D
         this.scene = new Scene3D()

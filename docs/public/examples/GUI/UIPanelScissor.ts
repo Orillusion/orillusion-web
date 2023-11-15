@@ -5,7 +5,6 @@ import dat from "dat.gui";
 
 class Sample_UIPanelScissor {
     scene: Scene3D;
-    Ori: dat.GUI;
     private textField: UITextField;
 
 
@@ -16,11 +15,6 @@ class Sample_UIPanelScissor {
                 this.loop();
             }
         });
-
-        // init dat.gui
-        const gui = new dat.GUI();
-        this.Ori = gui.addFolder("Orillusion");
-        this.Ori.open();
 
         // init Scene3D
         this.scene = new Scene3D()
@@ -99,14 +93,6 @@ class Sample_UIPanelScissor {
         image.uiTransform.resize(300, 200);
 
         {
-            //make sprite
-            // let texture = new BitmapTexture2D();
-            // texture.flipY = true;
-            // await texture.load('textures/KB3D_NTT_Ads_basecolor.png');
-            // image.sprite = makeAloneSprite('sprite', texture);
-        }
-
-        {
             // make video
             let videoTexture = new VideoTexture();
             await videoTexture.load('https://cdn.orillusion.com/videos/bunny.mp4');
@@ -127,8 +113,10 @@ class Sample_UIPanelScissor {
             child.addComponent(UIShadow);
         }
 
+        // init dat.gui
+        const gui = new dat.GUI();
         // GUIUtil.renderUIPanel(panel, true);
-        let guifolder = this.Ori.addFolder("GUI Panel")
+        let guifolder = gui.addFolder("GUI Panel")
         //cull mode
         let cullMode = {};
         cullMode[GPUCullMode.none] = GPUCullMode.none;
@@ -185,8 +173,8 @@ class Sample_UIPanelScissor {
             changeSissor();
         });
 
-        guifolder.addColor(scissorData, 'backGroundColor').onChange(() => {
-            changeSissor();
+        guifolder.addColor({backGroundColor: [255, 255, 255, 1]}, 'backGroundColor').onChange((v) => {
+            panel.color = new Color(v[0]/255, v[1]/255, v[2]/255, v[3])
         });
 
         guifolder.add(scissorData, 'scissorEnable').onChange(() => {
