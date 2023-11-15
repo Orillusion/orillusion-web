@@ -95,11 +95,11 @@ function nav() {
                 {
                     text: 'Guide',
                     link: '/guide/'
+                },
+                {
+                  text: 'Example',
+                  link: '/example/Base/AddRemove'
                 }
-                // {
-                //   text: 'Example',
-                //   link: '/example/Animation/sample1'
-                // }
             ]
         },
         {
@@ -364,13 +364,19 @@ function sidebar(root: string = '', packages: string) {
 }
 function sidebarExample(root: string = '') {
     const index: { [key: string]: string[] } = {
+        Base: [],
         Animation: [],
-        Camera: [],
-        Light: [],
+        Graphic: [],
+        GUI: [],
+        Geometry: [],
         Material: [],
-        Texture: [],
         Benchmark: [],
-        Advance: []
+        Lights: [],
+        Loader: [],
+        Particle: [],
+        Physics: [],
+        Ext: [],
+        GI: []
     }
 
     const examples: SidebarItem = []
