@@ -8,6 +8,7 @@ export class Sample_CSM {
     light: DirectLight
     boxRenderer: MeshRenderer
     viewCamera: Camera3D
+    GUIHelp: dat.GUI
     async run() {
         Engine3D.setting.shadow.autoUpdate = true
         Engine3D.setting.shadow.shadowSize = 1024
@@ -16,6 +17,7 @@ export class Sample_CSM {
                 this.loop()
             }
         })
+        this.GUIHelp = new dat.GUI()
 
         this.scene = new Scene3D()
         let sky = this.scene.addComponent(AtmosphericComponent)
@@ -39,12 +41,12 @@ export class Sample_CSM {
 
         mainCamera.enableCSM = true
 
-        let GUIHelp = new dat.GUI()
-        GUIHelp.addFolder('CSM')
-        GUIHelp.add(mainCamera, 'enableCSM')
-        GUIHelp.add(Engine3D.setting.shadow, 'csmScatteringExp', 0.5, 1.0, 0.01)
-        GUIHelp.add(Engine3D.setting.shadow, 'csmMargin', 0.01, 0.5, 0.01)
-        GUIHelp.add(Engine3D.setting.shadow, 'csmAreaScale', 0.1, 1, 0.01)
+        let f = this.GUIHelp.addFolder('CSM')
+        f.add(mainCamera, 'enableCSM')
+        f.add(Engine3D.setting.shadow, 'csmScatteringExp', 0.5, 1.0, 0.01)
+        f.add(Engine3D.setting.shadow, 'csmMargin', 0.01, 0.5, 0.01)
+        f.add(Engine3D.setting.shadow, 'csmAreaScale', 0.1, 1, 0.01)
+        f.open()
         Engine3D.startRenderView(view)
     }
 
@@ -60,7 +62,7 @@ export class Sample_CSM {
         sunLight.lightColor = KelvinUtil.color_temperature_to_rgb(6553)
         sunLight.castShadow = true
 
-        this.renderDirLight(sunLight)
+        this.renderDirLight(sunLight, true, name)
         this.scene.addChild(lightObj3D)
         this.light = sunLight
         return sunLight.transform
@@ -68,16 +70,9 @@ export class Sample_CSM {
 
     public renderDirLight(light: DirectLight, open: boolean = true, name?: string) {
         name ||= 'DirectLight'
-        let GUIHelp = new dat.GUI()
-        GUIHelp.addFolder(name)
-        GUIHelp.add(light, 'enable')
-        GUIHelp.add(light.transform, 'rotationX', 0.0, 360.0, 0.01)
-        GUIHelp.add(light.transform, 'rotationY', 0.0, 360.0, 0.01)
-        GUIHelp.add(light.transform, 'rotationZ', 0.0, 360.0, 0.01)
-        GUIHelp.addColor(light, 'lightColor')
-        GUIHelp.add(light, 'intensity', 0.0, 160.0, 0.01)
-        GUIHelp.add(light, 'indirect', 0.0, 10.0, 0.01)
-        GUIHelp.add(light, 'castShadow')
+        let f = this.GUIHelp.addFolder(name)
+        f.add(light, 'enable')
+        f.open()
     }
 
     initScene() {
