@@ -1,31 +1,4 @@
-import {
-    Engine3D,
-    Scene3D,
-    AtmosphericComponent,
-    CameraUtil,
-    HoverCameraController,
-    Object3D,
-    MeshRenderer,
-    BoxGeometry,
-    LitMaterial,
-    DirectLight,
-    KelvinUtil,
-    View3D,
-    Vector3,
-    Vector3Ex,
-    UnLitMaterial,
-    InstanceDrawComponent,
-    LambertMaterial,
-    Time,
-    BoundingBox,
-    Color,
-    OcclusionSystem,
-    PostProcessingComponent,
-    GlobalFog,
-    SphereGeometry,
-    RendererMask,
-    RenderLayer
-} from '@orillusion/core'
+import { Engine3D, Scene3D, AtmosphericComponent, CameraUtil, HoverCameraController, Object3D, BoxGeometry, DirectLight, KelvinUtil, View3D, LambertMaterial, OcclusionSystem, BoundingBox, Color, MeshRenderer, Vector3, Vector3Ex } from '@orillusion/core'
 import { Stats } from '@orillusion/stats'
 import dat from 'dat.gui'
 
@@ -79,10 +52,10 @@ export class Sample_drawCallShareGeometry {
 
         // start render
         Engine3D.startRenderView(view)
-      
+
         let gui = new dat.GUI()
         let f = gui.addFolder('Orillusion')
-        f.add({count: '50000'}, 'count')
+        f.add({ count: '50000' }, 'count')
         f.add(this, 'anim').onChange(() => this.anim != this.anim)
         f.open()
 
@@ -94,7 +67,7 @@ export class Sample_drawCallShareGeometry {
     initScene() {
         let shareGeometry = new BoxGeometry()
 
-        let mats:LambertMaterial[] = []
+        let mats: LambertMaterial[] = []
         for (let i = 0; i < 1; i++) {
             const mat = new LambertMaterial()
             mat.baseColor = new Color(Math.random() * 0.85, Math.random() * 0.85, Math.random() * 0.85)
