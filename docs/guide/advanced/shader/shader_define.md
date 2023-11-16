@@ -1,4 +1,4 @@
-# Code Macros
+# Shader Macros Define
 
 Similar to [code referencing](./shader_include.md), in addition to directly referencing shaders, we can also selectively load code using simple macro `(if-else-endif)` statements.
 

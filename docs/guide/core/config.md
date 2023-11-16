@@ -8,6 +8,8 @@ For example, set the maximum number of lights supported in the scene:
 ```ts
 // Maximum number of lights
 Engine3D.setting.light.maxLight = 1024;
+// Enbale use log depth
+Engine3D.setting.render.useLogDepth = true;
 // Configure first, then initialize
 await Engine3D.init();
 ```
@@ -52,6 +54,7 @@ Setting the shadow method and attributes through the `shadow` property of the en
 Engine3D.setting.shadow.enable = true; // Enable shadow
 Engine3D.setting.shadow.type = `SOFT`; // The type of shadow, SOFT
 Engine3D.setting.shadow.shadowSize = 2048; // The size of the shadow map
+Engine3D.setting.shadow.shadowBound = 20; // The bound of shadow
 ```
 See more about [Shadow](/guide/graphics/shadow)
 

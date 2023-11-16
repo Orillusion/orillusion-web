@@ -46,7 +46,7 @@ We recommend using the [PBR](/api/classes/LitMaterial) material for rendering, `
 |:-----------------:|:-----------------------------------------------------------------------------------:|
 |     baseColor     |                                     Base color                                      |
 |   emissiveColor   |                                   Emissive color                                    |
-| emissiveIntensity |      Emissive intensity, need to open HDRBloomPost to display the glow effect       |
+| emissiveIntensity |      Emissive intensity, need to open BloomPost to display the glow effect          |
 |     roughness     |                              Roughness of the material                              |
 |     metallic      |                              Metallic of the material                               |
 |    normalScale    |                    The effect of the normal map on the material                     |
@@ -105,9 +105,9 @@ We can customize the texture mapping relationship by performing matrix transform
 ```ts
 let mat = new LitMaterial();
 // Get current uv transform
-let uv = mat.defaultPass.getUniform(`transformUV1`)
+let uv = mat.getUniformV4(`transformUV1`)
 // Set a new uv transform - Vector4(offsetU, offsetV, scalingU, scalingV)
-mat.defaultPass.setUniform(`transformUV1`, new Vector4(0, 0, 1, 1))
+mat.setUniformVector4(`transformUV1`, new Vector4(0, 0, 1, 1))
 ```
 
 <Demo :height="300" :code="false" src="/demos/materials/uv.ts"></Demo>

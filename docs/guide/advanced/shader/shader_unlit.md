@@ -2,9 +2,9 @@
 This article will take the built-in `UnlitMaterial` as an example to illustrate how to create a material in the engine.
 
 ## Creating a Material
-Create a new `MaterialBase` by inheriting from `UnLitMaterial`。
+Create a new `Material` by inheriting from `UnLitMaterial`。
 ```ts
-export class UnLitMaterial extends MaterialBase {
+export class UnLitMaterial extends Material {
     constructor() {
         super();
         //...
