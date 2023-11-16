@@ -8,7 +8,7 @@
 let renderJob = new ForwardRenderJob(this.scene);
 renderJob.addPost(new SSAOPost());
 renderJob.addPost(new GlobalFog());
-renderJob.addPost(new HDRBloomPost());
+renderJob.addPost(new BloomPost());
 renderJob.addPost(new FXAAPost());
 ```
     2. Shadow 渲染器

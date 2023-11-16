@@ -96,10 +96,52 @@ Engine3D.setting.shadow.type = 'HARD'; // PCF by default
 <<< @/public/demos/graphics/shadow_type.ts
 
 ## Shadow Bound
-TODO
+The engine's "setting" provides control parameters for the shadow size, which can control the texture size and area size used by the shadow in different scenes.
+
+The relevant attributes are as follows:
+| Attribute       | Type    | Description |
+| --- | --- | --- |
+| shadowBound | Number | Shadow area range |
+| shadowSize | Number | Parallel light shadow map size, default 1024 |
+| pointShadowSize | Number | Point light Shadow Map Size Size, default 1024 |
+
+Shadow map size (`shadowSize`, `pointShadowSize`) directly affects the final shadow quality, and the smaller the value, the lower the performance overhead, and the more obvious the shadow jagged feeling.
+
+The `shadowBound` parameter controls the size of the illuminated shadow area in the scene. The larger the area, the size of the shadow map should also be increased appropriately. When a large area is cast on a small shadow map, it will also cause a significant shadow jagging.
+```ts
+Engine3D.setting.shadow.shadowBound = 100
+```
+
+Set the parallel light shadow map size:
+```ts
+Engine3D.setting.shadow.shadowSize = 2048
+```
+<Demo :height="500" src="/demos/graphics/shadow_size.ts"></Demo>
+
+<<< @/public/demos/graphics/shadow_size.ts
+
+
+Set point light shadow map size Size:
+```ts
+Engine3D.setting.shadow.pointShadowSize = 2048
+```
+
+<Demo :height="500" src="/demos/graphics/shadow_size_point.ts"></Demo>
+
+<<< @/public/demos/graphics/shadow_size_point.ts
 
 ## Cascaded Shadow Maps (CSM)
-TODO
+Often used to support better shadow rendering effect in large scenes, the shadow in the cone is divided into four levels, and the appropriate shadow map is selected according to the current shadow level in the shading process stage, which can obtain a more accurate shadow effect covering the full scope of the cone. After the use of CSM shadow, it can solve the problem that the shadow Bound range is too large, and the pixel density of the shadow is not enough, resulting in too serious Mosaic; The scope is small, the shadow area is too small, and distant objects lose their shadows.
+
+enable CSM shadow
+```ts
+let mainCamera:Camera3D;
+mainCamera.enableCSM = true;
+```
+
+<Demo :height="500" src="/demos/graphics/shadow_csm.ts"></Demo>
+
+<<< @/public/demos/graphics/shadow_csm.ts
 
 ## Shadow Attribute
 
@@ -113,6 +155,6 @@ TODO
 | shadowSize      | Number  | Size of parallel light shadow map, default 2048, the smaller the number, the lower the performance cost, but the more obvious the shadow aliasing |
 | pointShadowSize | Number  | Size of point light shadow map, default 1024 |
 | autoUpdate      | Boolean | Whether to automatically update the shadow, default false |
-| csmMargin | Number | ? |
-| csmScatteringExp | Number | ? |
-| csmAreaScale | Number | ? |
+| csmMargin | Number | Set the transition range for different levels of shadows and adjust it in the 0-1 range |
+| csmScatteringExp | Number | Fine-tune the range of shades at each level to suit different scene needs |
+| csmAreaScale | Number | Fine-tune the maximum range that the shadow can cover, adjusted in the range of 0.0-1 |

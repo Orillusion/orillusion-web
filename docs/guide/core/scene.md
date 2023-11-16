@@ -47,6 +47,7 @@ Use the `sunX`,`sunY`,`exposure` properties of the `AtmosphericComponent` to adj
 let sky = scene3D.addComponent(AtmosphericComponent);
 sky.sunY = 0.54 // The vertical position of the sun, you can adjust the ambient light brightness
 sky.exposure = 1.5; // Adjust the ambient light exposure, default value 1
+sky.roughness = 0.5; // Set Sky box background blur intensity, range [0, 1], default value 0
 ```
 
 ### Auto Transform

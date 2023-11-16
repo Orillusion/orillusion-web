@@ -1,5 +1,5 @@
 # RenderShader
-The material `Material` is used to describe the appearance of the rendered object surface and control how the engine renders it. A material must specify a `RenderShader`internally, and they are closely linked. Many properties of the material are stored on the shader.
+The material `Material` is used to describe the appearance of the rendered object surface and control how the engine renders it. A material must specify a `Shader` internally, a `Shader` can add one or more `RenderShaderpasses`, and they are closely linked. Many properties of the material are stored on the shader.
 - Materials and shaders have a many-to-one relationship, and a material has a reference to an instance of the shader. Multiple different materials can reuse the same shader.
 - In addition to containing a shader, a material also has other content, such as a texture list and rendering priority.
 
@@ -24,20 +24,33 @@ ShaderLib.register('myShader', MyShader)
 ```
 
 ## Create Shader Instance
-We can inherit from `MaterialBase` to create a new shader instance. After registering the corresponding `shader` code through `ShaderLib` , we can use `setShader(vs:string, fs:string)` to complete the creation of the shader.
+We can inherit from `Material` to create a new shader instance. After registering the corresponding `shader` code through `ShaderLib` , we can use `setShader(vs:string, fs:string)` to complete the creation of the shader.
 
 ```ts
 let vsShader = `.... ` //wgsl vs code
 let fsShader = `.... ` //wgsl fs code
 
-class myShader extends MaterialBase{
+class myShader extends Material{
     constructor() {
         super();
         // Register shaders
         ShaderLib.register("vsShader", vsShader);
         ShaderLib.register("fsShader", fsShader);
-        // Create renderShader instance
-        let renderShader = this.setShader('vsShader','fsShader');
+        
+        // Create RenderShaderPass instance
+        let renderShader = new RenderShaderPass('vsShader','fsShader');
+
+        // set ShaderPass entry
+        renderShader.setShaderEntry(`VertMain`, `FragMain`);
+
+        // create Shader instance
+        let shader = new Shader();
+
+        // create RenderShaderPass instance
+        shader.addRenderPass(renderShader);
+
+        // add Shader to this instance
+        this.shader = shader;
     }
 }
 ```
@@ -46,14 +59,14 @@ class myShader extends MaterialBase{
 After creating the shader instance, you need to set the entry function names for the vertex and fragment shaders.
 ```ts
 //  Set shader code entry function name
-renderShader.setShaderEntry( `VertMain`, `FragMain` )
+renderShader.setShaderEntry(`VertMain`, `FragMain`)
 ```
 
 ## Set Shader Define Macro
 Using macro definitions can optimize your shader code and allow the program to efficiently execute different branch paths based on the set variables.
 ```ts
 // Use code related to tangent
-renderShader.setDefine("USE_TANGENT", true);
+shader.setDefine("USE_TANGENT", true);
 ```
 
 > More macro definition related content will be introduced in [Shader Variants](./shader_variants.md) 

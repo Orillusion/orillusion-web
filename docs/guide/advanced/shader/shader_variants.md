@@ -13,18 +13,44 @@ For a model with `LIGHT` data, its material ball needs to set macro `setDefine("
 ShaderLib.register('vsCode', '....')
 ShaderLib.register('fsCode', '....')
 
-class shader1 extends MaterialBase{
+class shader1 extends Material {
     constructor() {
-        let renderShader = this.setShader('vsCode','fsCode');
-        //Load light module by defining USE_LIGHT
-        renderShader.setDefine(`USE_LIGHT`, true);
+        super();
+
+        // create RenderShaderPass instance
+        let renderShader = new RenderShaderPass('vsCode','fsCode');
+
+        // create Shader instance
+        let shader = new Shader();
+
+        // create RenderShaderPass instance
+        shader.addRenderPass(renderShader);
+
+        // add light through define USE_LIGHT
+        shader.setDefine("USE_LIGHT", true);
+
+        // add Shader to this instance
+        this.shader = shader;
     }
 }
-class shader2 extends MaterialBase{
+class shader2 extends Material {
     constructor() {
-        let renderShader = this.setShader('vsCode','fsCode');
-        //Load other modules by defining USE_LIGHT
-        renderShader.setDefine(`USE_LIGHT`, false);
+        super();
+        
+        // create RenderShaderPass instance
+        let renderShader = new RenderShaderPass('vsCode','fsCode');
+
+        // create Shader instance
+        let shader = new Shader();
+        
+        // create Shader instance
+        shader.addRenderPass(renderShader);
+
+        // add light through define USE_LIGHT
+        shader.setDefine("USE_LIGHT", false);
+
+        // add Shader to this instance
+        this.shader = shader;
     }
 }
 ```
