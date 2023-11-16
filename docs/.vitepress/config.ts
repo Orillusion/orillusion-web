@@ -193,7 +193,7 @@ function nav() {
                 },
                 {
                     text: '示例',
-                    link: '/example/Base/AddRemove'
+                    link: '/example/base/AddRemove'
                 }
             ]
         },
