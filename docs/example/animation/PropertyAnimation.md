@@ -4,6 +4,6 @@ aside: false
 
 # PropertyAnimation
 ---
-<Demo src="/examples/Animation/PropertyAnimation.ts" :code="false" :height="700"></Demo>
+<Demo src="/examples/animation/PropertyAnimation.ts" :code="false" :height="700"></Demo>
 
-<<< @/public/examples/Animation/PropertyAnimation.ts
+<<< @/public/examples/animation/PropertyAnimation.ts
