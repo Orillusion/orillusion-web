@@ -11,28 +11,23 @@
                 background: transparent;
                 touch-action: none;
             }
-            body.loading > canvas {
-                width: 1280px !important;
-                height: 720px !important;
-            }
         </style>
     </head>
-    <body class="loading">
+    <body>
         <script type="importmap">
             {
                 "imports": {
-                    "@orillusion/core": "https://unpkg.com/@orillusion/core@0.6.9/dist/orillusion.es.js",
-                    "@orillusion/physics": "https://unpkg.com/@orillusion/physics@0.2.0/dist/physics.es.js",
-                    "@orillusion/particle": "https://unpkg.com/@orillusion/particle@0.0.3/dist/particle.es.js",
-                    "@orillusion/stats": "https://unpkg.com/@orillusion/stats@0.2.0/dist/stats.es.js",
-                    "@orillusion/media-extention": "https://unpkg.com/@orillusion/media-extention@0.3.1/dist/media.es.js",
-                    "@orillusion/effect": "https://unpkg.com/@orillusion/effect@0.1.0/dist/effect.es.js",
+                    "@orillusion/core": "https://unpkg.com/@orillusion/core@0.7.1/dist/orillusion.es.js",
+                    "@orillusion/physics": "https://unpkg.com/@orillusion/physics@0.2.1/dist/physics.es.js",
+                    "@orillusion/particle": "https://unpkg.com/@orillusion/particle@0.1.0/dist/particle.es.js",
+                    "@orillusion/stats": "https://unpkg.com/@orillusion/stats@0.2.1/dist/stats.es.js",
+                    "@orillusion/media-extention": "https://unpkg.com/@orillusion/media-extention@0.3.3/dist/media.es.js",
+                    "@orillusion/effect": "https://unpkg.com/@orillusion/effect@0.1.2/dist/effect.es.js",
                     "dat.gui": "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js"
                 }
             }
         </script>
         <script type="module">
-            window.devicePixelRatio = Math.min(2, window.devicePixelRatio)
             if (!/localhost/.test(location.hostname)) {
                 Promise.all([fetch(location.search.slice(1)).then((r) => r.text()), fetch(location.search.slice(1).replace('.ts', '.js')).then((r) => r.text())]).then((res) => createScript(res[1], res[0]))
             } else {
@@ -56,7 +51,6 @@
                     /Engine3D\.startRenderView\((\S+)\)/,
                     `Engine3D.startRenderView($1);
                     window.postMessage("rendering");
-                    document.body.classList.remove('loading')
                     window.onmessage = e=>{
                         if(e.data === 'pause')
                             Engine3D.pause()
@@ -82,6 +76,7 @@
                 window.codepen = () =>
                     JSON.stringify({
                         editors: '001',
+                        layout: 'left',
                         title: window.parent.document.title,
                         html: document.querySelector('script[type="importmap"]').outerHTML,
                         js: ts,

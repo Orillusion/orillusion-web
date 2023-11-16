@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).btIndexedMeshArray
 
-
 ### Constructors
 
 - [constructor](Ammo.btIndexedMeshArray.md#constructor)

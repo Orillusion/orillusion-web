@@ -43,7 +43,7 @@ ParserBase.constructor
 
 ### format
 
-▪ `Static` **format**: `string` = `'text'`
+▪ `Static` **format**: [`ParserFormat`](../enums/ParserFormat.md) = `ParserFormat.TEXT`
 
 #### Overrides
 
@@ -51,7 +51,7 @@ ParserBase.format
 
 #### Defined in
 
-[src/loader/parser/FontParser.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L52)
+[src/loader/parser/FontParser.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L53)
 
 ___
 
@@ -65,7 +65,7 @@ ParserBase.baseUrl
 
 #### Defined in
 
-[src/loader/parser/ParserBase.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L10)
+[src/loader/parser/ParserBase.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L11)
 
 ___
 
@@ -79,7 +79,7 @@ ParserBase.initUrl
 
 #### Defined in
 
-[src/loader/parser/ParserBase.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L11)
+[src/loader/parser/ParserBase.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L12)
 
 ___
 
@@ -93,7 +93,7 @@ ParserBase.loaderFunctions
 
 #### Defined in
 
-[src/loader/parser/ParserBase.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L12)
+[src/loader/parser/ParserBase.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L13)
 
 ___
 
@@ -107,7 +107,7 @@ ParserBase.userData
 
 #### Defined in
 
-[src/loader/parser/ParserBase.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L13)
+[src/loader/parser/ParserBase.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L14)
 
 ___
 
@@ -121,7 +121,7 @@ ParserBase.data
 
 #### Defined in
 
-[src/loader/parser/ParserBase.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L14)
+[src/loader/parser/ParserBase.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L15)
 
 ## Methods
 
@@ -142,7 +142,7 @@ ParserBase.data
 
 #### Defined in
 
-[src/loader/parser/FontParser.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L54)
+[src/loader/parser/FontParser.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L55)
 
 ___
 
@@ -162,7 +162,7 @@ ParserBase.verification
 
 #### Defined in
 
-[src/loader/parser/FontParser.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L79)
+[src/loader/parser/FontParser.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L80)
 
 ___
 
@@ -186,7 +186,7 @@ ParserBase.parseString
 
 #### Defined in
 
-[src/loader/parser/FontParser.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L86)
+[src/loader/parser/FontParser.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/FontParser.ts#L87)
 
 ___
 
@@ -210,7 +210,7 @@ ParserBase.parseJson
 
 #### Defined in
 
-[src/loader/parser/ParserBase.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L18)
+[src/loader/parser/ParserBase.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L19)
 
 ___
 
@@ -234,7 +234,7 @@ ParserBase.parseBuffer
 
 #### Defined in
 
-[src/loader/parser/ParserBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L20)
+[src/loader/parser/ParserBase.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L21)
 
 ___
 
@@ -258,7 +258,7 @@ ParserBase.parseTexture
 
 #### Defined in
 
-[src/loader/parser/ParserBase.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L22)
+[src/loader/parser/ParserBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L23)
 
 ___
 
@@ -282,4 +282,4 @@ ParserBase.parse
 
 #### Defined in
 
-[src/loader/parser/ParserBase.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L26)
+[src/loader/parser/ParserBase.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L27)

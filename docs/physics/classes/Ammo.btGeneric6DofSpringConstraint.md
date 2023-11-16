@@ -8,6 +8,9 @@
 
   ↳ **`btGeneric6DofSpringConstraint`**
 
+### Constructors
+
+- [constructor](Ammo.btGeneric6DofSpringConstraint.md#constructor)
 
 ### Methods
 
@@ -26,9 +29,47 @@
 - [setDamping](Ammo.btGeneric6DofSpringConstraint.md#setdamping)
 - [setEquilibriumPoint](Ammo.btGeneric6DofSpringConstraint.md#setequilibriumpoint)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.btGeneric6DofSpringConstraint.md#constructor)
+### constructor
+
+• **new btGeneric6DofSpringConstraint**(`rbA`, `rbB`, `frameInA`, `frameInB`, `useLinearFrameReferenceFrameA`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `rbA` | [`btRigidBody`](Ammo.btRigidBody.md) |
+| `rbB` | [`btRigidBody`](Ammo.btRigidBody.md) |
+| `frameInA` | [`btTransform`](Ammo.btTransform.md) |
+| `frameInB` | [`btTransform`](Ammo.btTransform.md) |
+| `useLinearFrameReferenceFrameA` | `boolean` |
+
+#### Overrides
+
+[btGeneric6DofConstraint](Ammo.btGeneric6DofConstraint.md).[constructor](Ammo.btGeneric6DofConstraint.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:559](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L559)
+
+• **new btGeneric6DofSpringConstraint**(`rbB`, `frameInB`, `useLinearFrameReferenceFrameB`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `rbB` | [`btRigidBody`](Ammo.btRigidBody.md) |
+| `frameInB` | [`btTransform`](Ammo.btTransform.md) |
+| `useLinearFrameReferenceFrameB` | `boolean` |
+
+#### Overrides
+
+[btGeneric6DofConstraint](Ammo.btGeneric6DofConstraint.md).[constructor](Ammo.btGeneric6DofConstraint.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:560](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L560)
 
 ## Methods
 
@@ -370,45 +411,3 @@ ___
 #### Defined in
 
 [packages/ammo/ammo.d.ts:566](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L566)
-
-## Constructors
-
-### constructor
-
-• **new btGeneric6DofSpringConstraint**(`rbA`, `rbB`, `frameInA`, `frameInB`, `useLinearFrameReferenceFrameA`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `rbA` | [`btRigidBody`](Ammo.btRigidBody.md) |
-| `rbB` | [`btRigidBody`](Ammo.btRigidBody.md) |
-| `frameInA` | [`btTransform`](Ammo.btTransform.md) |
-| `frameInB` | [`btTransform`](Ammo.btTransform.md) |
-| `useLinearFrameReferenceFrameA` | `boolean` |
-
-#### Overrides
-
-[btGeneric6DofConstraint](Ammo.btGeneric6DofConstraint.md).[constructor](Ammo.btGeneric6DofConstraint.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:559](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L559)
-
-• **new btGeneric6DofSpringConstraint**(`rbB`, `frameInB`, `useLinearFrameReferenceFrameB`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `rbB` | [`btRigidBody`](Ammo.btRigidBody.md) |
-| `frameInB` | [`btTransform`](Ammo.btTransform.md) |
-| `useLinearFrameReferenceFrameB` | `boolean` |
-
-#### Overrides
-
-[btGeneric6DofConstraint](Ammo.btGeneric6DofConstraint.md).[constructor](Ammo.btGeneric6DofConstraint.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:560](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L560)

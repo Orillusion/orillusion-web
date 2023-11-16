@@ -124,10 +124,13 @@ GET
 | 参数名 | 类型 | 描述 |
 | :----: | :----: |:----: |
 | enable | boolean | 是否启用 |
-| blurX | number | 屏幕横向模糊半径 |
-| blurY | number | 屏幕纵向模糊半径 |
-| bloomStrength | number | 强度设置 |
-| bloomRadius | number | 亮度设置 |
+| `downSampleStep` | `number` | 下采样次数 |
+| `downSampleBlurSize` | `number` | 下采样模糊范围 |
+| `downSampleBlurSigma` | `number` | 下采样模糊计算指数 |
+| `upSampleBlurSize` | `number` | 上采样次数 |
+| `upSampleBlurSigma` | `number` | 上采样模糊范围 |
+| `luminanceThreshole` | `number` | Bloom高亮区域阈值 |
+| `bloomIntensity` | `boolean` | Bloom最终亮度加成系数 |
 
 #### **gi**
 | 参数名 | 类型 | 描述 |

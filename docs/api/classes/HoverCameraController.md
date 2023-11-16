@@ -52,6 +52,8 @@ Hovering camera controller
 - [cloneTo](HoverCameraController.md#cloneto)
 - [copyComponent](HoverCameraController.md#copycomponent)
 - [beforeDestroy](HoverCameraController.md#beforedestroy)
+- [flowTarget](HoverCameraController.md#flowtarget)
+- [getFlowTarget](HoverCameraController.md#getflowtarget)
 - [setCamera](HoverCameraController.md#setcamera)
 - [focusByBounds](HoverCameraController.md#focusbybounds)
 - [onBeforeUpdate](HoverCameraController.md#onbeforeupdate)
@@ -68,7 +70,7 @@ Hovering camera controller
 
 #### Defined in
 
-[src/components/controller/HoverCameraController.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L110)
+[src/components/controller/HoverCameraController.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L112)
 
 ## Properties
 
@@ -388,7 +390,7 @@ Get target position
 
 #### Defined in
 
-[src/components/controller/HoverCameraController.ts:163](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L163)
+[src/components/controller/HoverCameraController.ts:174](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L174)
 
 • `set` **target**(`target`): `void`
 
@@ -406,7 +408,7 @@ Set target position
 
 #### Defined in
 
-[src/components/controller/HoverCameraController.ts:155](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L155)
+[src/components/controller/HoverCameraController.ts:166](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L166)
 
 ## Methods
 
@@ -698,6 +700,41 @@ before release this component, object refrences are not be set null now.
 
 ___
 
+### flowTarget
+
+▸ **flowTarget**(`target`, `offset?`): `void`
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `target` | [`Object3D`](Object3D.md) | `undefined` |
+| `offset` | [`Vector3`](Vector3.md) | `Vector3.ZERO` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/components/controller/HoverCameraController.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L129)
+
+___
+
+### getFlowTarget
+
+▸ **getFlowTarget**(): [`Object3D`](Object3D.md)
+
+#### Returns
+
+[`Object3D`](Object3D.md)
+
+#### Defined in
+
+[src/components/controller/HoverCameraController.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L135)
+
+___
+
 ### setCamera
 
 ▸ **setCamera**(`roll`, `pitch`, `distance`, `target?`): `void`
@@ -719,7 +756,7 @@ Initialize Camera
 
 #### Defined in
 
-[src/components/controller/HoverCameraController.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L135)
+[src/components/controller/HoverCameraController.ts:146](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L146)
 
 ___
 
@@ -739,7 +776,7 @@ ___
 
 #### Defined in
 
-[src/components/controller/HoverCameraController.ts:147](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L147)
+[src/components/controller/HoverCameraController.ts:158](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L158)
 
 ___
 
@@ -763,4 +800,4 @@ ___
 
 #### Defined in
 
-[src/components/controller/HoverCameraController.ts:226](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L226)
+[src/components/controller/HoverCameraController.ts:237](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L237)

@@ -4,7 +4,7 @@ ColorLitMaterial
 
 ## Hierarchy
 
-- `PhysicMaterial`
+- [`Material`](Material.md)
 
   ↳ **`ColorLitMaterial`**
 
@@ -15,61 +15,48 @@ ColorLitMaterial
 ### Properties
 
 - [count](ColorLitMaterial.md#count)
-- [name](ColorLitMaterial.md#name)
 - [instanceID](ColorLitMaterial.md#instanceid)
+- [name](ColorLitMaterial.md#name)
 - [enable](ColorLitMaterial.md#enable)
 
 ### Accessors
 
-- [depthCompare](ColorLitMaterial.md#depthcompare)
-- [defaultPass](ColorLitMaterial.md#defaultpass)
+- [shader](ColorLitMaterial.md#shader)
+- [doubleSide](ColorLitMaterial.md#doubleside)
 - [castShadow](ColorLitMaterial.md#castshadow)
 - [blendMode](ColorLitMaterial.md#blendmode)
+- [depthCompare](ColorLitMaterial.md#depthcompare)
 - [transparent](ColorLitMaterial.md#transparent)
 - [cullMode](ColorLitMaterial.md#cullmode)
-- [baseMap](ColorLitMaterial.md#basemap)
-- [baseColor](ColorLitMaterial.md#basecolor)
-- [normalMap](ColorLitMaterial.md#normalmap)
-- [doubleSide](ColorLitMaterial.md#doubleside)
-- [alphaCutoff](ColorLitMaterial.md#alphacutoff)
-- [emissiveColor](ColorLitMaterial.md#emissivecolor)
-- [emissiveIntensity](ColorLitMaterial.md#emissiveintensity)
-- [uvTransform\_1](ColorLitMaterial.md#uvtransform_1)
-- [uvTransform\_2](ColorLitMaterial.md#uvtransform_2)
 - [depthWriteEnabled](ColorLitMaterial.md#depthwriteenabled)
-- [materialF0](ColorLitMaterial.md#materialf0)
-- [roughness](ColorLitMaterial.md#roughness)
-- [metallic](ColorLitMaterial.md#metallic)
-- [ao](ColorLitMaterial.md#ao)
-- [metallic\_min](ColorLitMaterial.md#metallic_min)
-- [metallic\_max](ColorLitMaterial.md#metallic_max)
-- [roughness\_min](ColorLitMaterial.md#roughness_min)
-- [roughness\_max](ColorLitMaterial.md#roughness_max)
-- [normalScale](ColorLitMaterial.md#normalscale)
-- [maskMap](ColorLitMaterial.md#maskmap)
-- [aoMap](ColorLitMaterial.md#aomap)
-- [clearCoatRoughnessMap](ColorLitMaterial.md#clearcoatroughnessmap)
-- [brdfLUT](ColorLitMaterial.md#brdflut)
-- [emissiveMap](ColorLitMaterial.md#emissivemap)
-- [envIntensity](ColorLitMaterial.md#envintensity)
-- [ior](ColorLitMaterial.md#ior)
-- [clearcoatFactor](ColorLitMaterial.md#clearcoatfactor)
-- [clearcoatRoughnessFactor](ColorLitMaterial.md#clearcoatroughnessfactor)
-- [clearcoatWeight](ColorLitMaterial.md#clearcoatweight)
-- [clearcoatColor](ColorLitMaterial.md#clearcoatcolor)
+- [useBillboard](ColorLitMaterial.md#usebillboard)
 
 ### Methods
 
 - [clone](ColorLitMaterial.md#clone)
 - [debug](ColorLitMaterial.md#debug)
-- [hasPass](ColorLitMaterial.md#haspass)
 - [getPass](ColorLitMaterial.md#getpass)
 - [getAllPass](ColorLitMaterial.md#getallpass)
-- [addPass](ColorLitMaterial.md#addpass)
-- [removePass](ColorLitMaterial.md#removepass)
 - [destroy](ColorLitMaterial.md#destroy)
-- [setDefault](ColorLitMaterial.md#setdefault)
-- [useCleanCoat](ColorLitMaterial.md#usecleancoat)
+- [setDefine](ColorLitMaterial.md#setdefine)
+- [setTexture](ColorLitMaterial.md#settexture)
+- [setStorageBuffer](ColorLitMaterial.md#setstoragebuffer)
+- [setUniformBuffer](ColorLitMaterial.md#setuniformbuffer)
+- [setUniformFloat](ColorLitMaterial.md#setuniformfloat)
+- [setUniformVector2](ColorLitMaterial.md#setuniformvector2)
+- [setUniformVector3](ColorLitMaterial.md#setuniformvector3)
+- [setUniformVector4](ColorLitMaterial.md#setuniformvector4)
+- [setUniformColor](ColorLitMaterial.md#setuniformcolor)
+- [getUniformFloat](ColorLitMaterial.md#getuniformfloat)
+- [getUniformV2](ColorLitMaterial.md#getuniformv2)
+- [getUniformV3](ColorLitMaterial.md#getuniformv3)
+- [getUniformV4](ColorLitMaterial.md#getuniformv4)
+- [getUniformColor](ColorLitMaterial.md#getuniformcolor)
+- [getTexture](ColorLitMaterial.md#gettexture)
+- [getStorageBuffer](ColorLitMaterial.md#getstoragebuffer)
+- [getStructStorageBuffer](ColorLitMaterial.md#getstructstoragebuffer)
+- [getUniformBuffer](ColorLitMaterial.md#getuniformbuffer)
+- [applyUniform](ColorLitMaterial.md#applyuniform)
 
 ## Constructors
 
@@ -79,11 +66,11 @@ ColorLitMaterial
 
 #### Overrides
 
-PhysicMaterial.constructor
+[Material](Material.md).[constructor](Material.md#constructor)
 
 #### Defined in
 
-[src/materials/ColorLitMaterial.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/materials/ColorLitMaterial.ts#L17)
+[src/materials/ColorLitMaterial.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/materials/ColorLitMaterial.ts#L16)
 
 ## Properties
 
@@ -93,23 +80,7 @@ PhysicMaterial.constructor
 
 #### Defined in
 
-[src/materials/ColorLitMaterial.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/materials/ColorLitMaterial.ts#L13)
-
-___
-
-### name
-
-• **name**: `string`
-
-name of this material
-
-#### Inherited from
-
-PhysicMaterial.name
-
-#### Defined in
-
-[src/materials/Material.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L11)
+[src/materials/ColorLitMaterial.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/materials/ColorLitMaterial.ts#L12)
 
 ___
 
@@ -121,11 +92,27 @@ Material Unique Identifier
 
 #### Inherited from
 
-PhysicMaterial.instanceID
+[Material](Material.md).[instanceID](Material.md#instanceid)
 
 #### Defined in
 
-[src/materials/Material.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L17)
+[src/materials/Material.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L19)
+
+___
+
+### name
+
+• **name**: `string`
+
+name of this material
+
+#### Inherited from
+
+[Material](Material.md).[name](Material.md#name)
+
+#### Defined in
+
+[src/materials/Material.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L25)
 
 ___
 
@@ -135,37 +122,37 @@ ___
 
 #### Inherited from
 
-PhysicMaterial.enable
+[Material](Material.md).[enable](Material.md#enable)
 
 #### Defined in
 
-[src/materials/Material.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L19)
+[src/materials/Material.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L27)
 
 ## Accessors
 
-### depthCompare
+### shader
 
-• `get` **depthCompare**(): `GPUCompareFunction`
+• `get` **shader**(): [`Shader`](Shader.md)
 
 #### Returns
 
-`GPUCompareFunction`
+[`Shader`](Shader.md)
 
 #### Inherited from
 
-PhysicMaterial.depthCompare
+Material.shader
 
 #### Defined in
 
-[src/materials/Material.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L31)
+[src/materials/Material.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L41)
 
-• `set` **depthCompare**(`value`): `void`
+• `set` **shader**(`shader`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `value` | `GPUCompareFunction` |
+| `shader` | [`Shader`](Shader.md) |
 
 #### Returns
 
@@ -173,37 +160,37 @@ PhysicMaterial.depthCompare
 
 #### Inherited from
 
-PhysicMaterial.depthCompare
+Material.shader
 
 #### Defined in
 
-[src/materials/Material.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L35)
+[src/materials/Material.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L36)
 
 ___
 
-### defaultPass
+### doubleSide
 
-• `get` **defaultPass**(): [`RenderShader`](RenderShader.md)
+• `get` **doubleSide**(): `boolean`
 
 #### Returns
 
-[`RenderShader`](RenderShader.md)
+`boolean`
 
 #### Inherited from
 
-PhysicMaterial.defaultPass
+Material.doubleSide
 
 #### Defined in
 
-[src/materials/Material.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L40)
+[src/materials/Material.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L45)
 
-• `set` **defaultPass**(`value`): `void`
+• `set` **doubleSide**(`value`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `value` | [`RenderShader`](RenderShader.md) |
+| `value` | `boolean` |
 
 #### Returns
 
@@ -211,11 +198,11 @@ PhysicMaterial.defaultPass
 
 #### Inherited from
 
-PhysicMaterial.defaultPass
+Material.doubleSide
 
 #### Defined in
 
-[src/materials/Material.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L44)
+[src/materials/Material.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L49)
 
 ___
 
@@ -229,11 +216,11 @@ ___
 
 #### Inherited from
 
-PhysicMaterial.castShadow
+Material.castShadow
 
 #### Defined in
 
-[src/materials/Material.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L57)
+[src/materials/Material.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L53)
 
 • `set` **castShadow**(`value`): `void`
 
@@ -249,11 +236,11 @@ PhysicMaterial.castShadow
 
 #### Inherited from
 
-PhysicMaterial.castShadow
+Material.castShadow
 
 #### Defined in
 
-[src/materials/Material.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L62)
+[src/materials/Material.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L57)
 
 ___
 
@@ -267,11 +254,11 @@ ___
 
 #### Inherited from
 
-PhysicMaterial.blendMode
+Material.blendMode
 
 #### Defined in
 
-[src/materials/Material.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L67)
+[src/materials/Material.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L61)
 
 • `set` **blendMode**(`value`): `void`
 
@@ -287,11 +274,49 @@ PhysicMaterial.blendMode
 
 #### Inherited from
 
-PhysicMaterial.blendMode
+Material.blendMode
 
 #### Defined in
 
-[src/materials/Material.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L72)
+[src/materials/Material.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L65)
+
+___
+
+### depthCompare
+
+• `get` **depthCompare**(): `GPUCompareFunction`
+
+#### Returns
+
+`GPUCompareFunction`
+
+#### Inherited from
+
+Material.depthCompare
+
+#### Defined in
+
+[src/materials/Material.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L69)
+
+• `set` **depthCompare**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `GPUCompareFunction` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+Material.depthCompare
+
+#### Defined in
+
+[src/materials/Material.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L73)
 
 ___
 
@@ -305,7 +330,7 @@ ___
 
 #### Inherited from
 
-PhysicMaterial.transparent
+Material.transparent
 
 #### Defined in
 
@@ -325,11 +350,11 @@ PhysicMaterial.transparent
 
 #### Inherited from
 
-PhysicMaterial.transparent
+Material.transparent
 
 #### Defined in
 
-[src/materials/Material.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L83)
+[src/materials/Material.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L82)
 
 ___
 
@@ -343,11 +368,11 @@ ___
 
 #### Inherited from
 
-PhysicMaterial.cullMode
+Material.cullMode
 
 #### Defined in
 
-[src/materials/Material.ts:91](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L91)
+[src/materials/Material.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L89)
 
 • `set` **cullMode**(`value`): `void`
 
@@ -363,361 +388,11 @@ PhysicMaterial.cullMode
 
 #### Inherited from
 
-PhysicMaterial.cullMode
+Material.cullMode
 
 #### Defined in
 
-[src/materials/Material.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L96)
-
-___
-
-### baseMap
-
-• `get` **baseMap**(): [`Texture`](Texture.md)
-
-#### Returns
-
-[`Texture`](Texture.md)
-
-#### Inherited from
-
-PhysicMaterial.baseMap
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L49)
-
-• `set` **baseMap**(`value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | [`Texture`](Texture.md) |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.baseMap
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L53)
-
-___
-
-### baseColor
-
-• `get` **baseColor**(): [`Color`](Color.md)
-
-#### Returns
-
-[`Color`](Color.md)
-
-#### Inherited from
-
-PhysicMaterial.baseColor
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L57)
-
-• `set` **baseColor**(`value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | [`Color`](Color.md) |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.baseColor
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L61)
-
-___
-
-### normalMap
-
-• `get` **normalMap**(): [`Texture`](Texture.md)
-
-#### Returns
-
-[`Texture`](Texture.md)
-
-#### Inherited from
-
-PhysicMaterial.normalMap
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L65)
-
-• `set` **normalMap**(`value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | [`Texture`](Texture.md) |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.normalMap
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L69)
-
-___
-
-### doubleSide
-
-• `get` **doubleSide**(): `boolean`
-
-#### Returns
-
-`boolean`
-
-#### Inherited from
-
-PhysicMaterial.doubleSide
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L73)
-
-• `set` **doubleSide**(`value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.doubleSide
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L76)
-
-___
-
-### alphaCutoff
-
-• `get` **alphaCutoff**(): `any`
-
-#### Returns
-
-`any`
-
-#### Inherited from
-
-PhysicMaterial.alphaCutoff
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L80)
-
-• `set` **alphaCutoff**(`value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `any` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.alphaCutoff
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L83)
-
-___
-
-### emissiveColor
-
-• `get` **emissiveColor**(): [`Color`](Color.md)
-
-#### Returns
-
-[`Color`](Color.md)
-
-#### Inherited from
-
-PhysicMaterial.emissiveColor
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L89)
-
-• `set` **emissiveColor**(`value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | [`Color`](Color.md) |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.emissiveColor
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L93)
-
-___
-
-### emissiveIntensity
-
-• `get` **emissiveIntensity**(): `number`
-
-#### Returns
-
-`number`
-
-#### Inherited from
-
-PhysicMaterial.emissiveIntensity
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L97)
-
-• `set` **emissiveIntensity**(`value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.emissiveIntensity
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:101](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L101)
-
-___
-
-### uvTransform\_1
-
-• `get` **uvTransform_1**(): `Vector4`
-
-get transformUV1
-
-#### Returns
-
-`Vector4`
-
-#### Inherited from
-
-PhysicMaterial.uvTransform\_1
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L108)
-
-• `set` **uvTransform_1**(`value`): `void`
-
-set transformUV1
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `Vector4` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.uvTransform\_1
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L115)
-
-___
-
-### uvTransform\_2
-
-• `get` **uvTransform_2**(): `Vector4`
-
-get transformUV2
-
-#### Returns
-
-`Vector4`
-
-#### Inherited from
-
-PhysicMaterial.uvTransform\_2
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L123)
-
-• `set` **uvTransform_2**(`value`): `void`
-
-set transformUV2
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `Vector4` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.uvTransform\_2
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:130](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L130)
+[src/materials/Material.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L93)
 
 ___
 
@@ -731,11 +406,11 @@ ___
 
 #### Inherited from
 
-PhysicMaterial.depthWriteEnabled
+Material.depthWriteEnabled
 
 #### Defined in
 
-[src/materials/PhysicMaterial.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L135)
+[src/materials/Material.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L97)
 
 • `set` **depthWriteEnabled**(`value`): `void`
 
@@ -751,41 +426,23 @@ PhysicMaterial.depthWriteEnabled
 
 #### Inherited from
 
-PhysicMaterial.depthWriteEnabled
+Material.depthWriteEnabled
 
 #### Defined in
 
-[src/materials/PhysicMaterial.ts:138](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L138)
+[src/materials/Material.ts:101](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L101)
 
 ___
 
-### materialF0
+### useBillboard
 
-• `get` **materialF0**(): `Vector4`
-
-get reflectivity
-
-#### Returns
-
-`Vector4`
-
-#### Inherited from
-
-PhysicMaterial.materialF0
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:145](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L145)
-
-• `set` **materialF0**(`value`): `void`
-
-set reflectivity
+• `set` **useBillboard**(`value`): `void`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `value` | `Vector4` |
+| `value` | `boolean` |
 
 #### Returns
 
@@ -793,817 +450,11 @@ set reflectivity
 
 #### Inherited from
 
-PhysicMaterial.materialF0
+Material.useBillboard
 
 #### Defined in
 
-[src/materials/PhysicMaterial.ts:152](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L152)
-
-___
-
-### roughness
-
-• `get` **roughness**(): `number`
-
-get roughness
-
-#### Returns
-
-`number`
-
-#### Inherited from
-
-PhysicMaterial.roughness
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:159](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L159)
-
-• `set` **roughness**(`value`): `void`
-
-set roughness
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.roughness
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:166](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L166)
-
-___
-
-### metallic
-
-• `get` **metallic**(): `number`
-
-get metallic
-
-#### Returns
-
-`number`
-
-#### Inherited from
-
-PhysicMaterial.metallic
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:173](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L173)
-
-• `set` **metallic**(`value`): `void`
-
-set metallic
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.metallic
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:180](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L180)
-
-___
-
-### ao
-
-• `get` **ao**(): `number`
-
-get Ambient Occlussion, dealing with the effect of ambient light on object occlusion
-
-#### Returns
-
-`number`
-
-#### Inherited from
-
-PhysicMaterial.ao
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:187](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L187)
-
-• `set` **ao**(`value`): `void`
-
-set Ambient Occlussion, dealing with the effect of ambient light on object occlusion
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.ao
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:194](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L194)
-
-___
-
-### metallic\_min
-
-• `get` **metallic_min**(): `number`
-
-get min metallic
-
-#### Returns
-
-`number`
-
-#### Inherited from
-
-PhysicMaterial.metallic\_min
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:201](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L201)
-
-• `set` **metallic_min**(`value`): `void`
-
-set min metallic
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.metallic\_min
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:208](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L208)
-
-___
-
-### metallic\_max
-
-• `get` **metallic_max**(): `number`
-
-get max metallic
-
-#### Returns
-
-`number`
-
-#### Inherited from
-
-PhysicMaterial.metallic\_max
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:215](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L215)
-
-• `set` **metallic_max**(`value`): `void`
-
-set max metallic
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.metallic\_max
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:222](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L222)
-
-___
-
-### roughness\_min
-
-• `get` **roughness_min**(): `number`
-
-get min roughness
-
-#### Returns
-
-`number`
-
-#### Inherited from
-
-PhysicMaterial.roughness\_min
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:229](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L229)
-
-• `set` **roughness_min**(`value`): `void`
-
-set min roughness
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.roughness\_min
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:236](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L236)
-
-___
-
-### roughness\_max
-
-• `get` **roughness_max**(): `number`
-
-get max roughness
-
-#### Returns
-
-`number`
-
-#### Inherited from
-
-PhysicMaterial.roughness\_max
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:243](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L243)
-
-• `set` **roughness_max**(`value`): `void`
-
-set max roughness
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.roughness\_max
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:250](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L250)
-
-___
-
-### normalScale
-
-• `get` **normalScale**(): `number`
-
-Get the influence of Normal mapping on materials
-
-#### Returns
-
-`number`
-
-#### Inherited from
-
-PhysicMaterial.normalScale
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:257](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L257)
-
-• `set` **normalScale**(`value`): `void`
-
-Set the influence of Normal mapping on materials
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.normalScale
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:264](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L264)
-
-___
-
-### maskMap
-
-• `get` **maskMap**(): [`Texture`](Texture.md)
-
-get Mask Map
-R_chanel -> AoMap 
-G_chanel -> Roughness
-B_chanel -> Metallic
-A_chanel -> C
-
-#### Returns
-
-[`Texture`](Texture.md)
-
-#### Inherited from
-
-PhysicMaterial.maskMap
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:275](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L275)
-
-• `set` **maskMap**(`value`): `void`
-
-set Mask Map
-R_chanel -> AoMap 
-G_chanel -> Roughness
-B_chanel -> Metallic
-A_chanel -> C
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | [`Texture`](Texture.md) |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.maskMap
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:286](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L286)
-
-___
-
-### aoMap
-
-• `get` **aoMap**(): [`Texture`](Texture.md)
-
-get Ambient Occlussion Map, dealing with the effect of ambient light on object occlusion
-
-#### Returns
-
-[`Texture`](Texture.md)
-
-#### Inherited from
-
-PhysicMaterial.aoMap
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:307](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L307)
-
-• `set` **aoMap**(`value`): `void`
-
-set Ambient Occlussion Map, dealing with the effect of ambient light on object occlusion
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | [`Texture`](Texture.md) |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.aoMap
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:296](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L296)
-
-___
-
-### clearCoatRoughnessMap
-
-• `get` **clearCoatRoughnessMap**(): [`Texture`](Texture.md)
-
-get clearCoatRoughnessMap
-
-#### Returns
-
-[`Texture`](Texture.md)
-
-#### Inherited from
-
-PhysicMaterial.clearCoatRoughnessMap
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:325](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L325)
-
-• `set` **clearCoatRoughnessMap**(`value`): `void`
-
-set clearCoatRoughnessMap
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | [`Texture`](Texture.md) |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.clearCoatRoughnessMap
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:314](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L314)
-
-___
-
-### brdfLUT
-
-• `get` **brdfLUT**(): [`Texture`](Texture.md)
-
-get brdf query map
-
-#### Returns
-
-[`Texture`](Texture.md)
-
-#### Inherited from
-
-PhysicMaterial.brdfLUT
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:332](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L332)
-
-• `set` **brdfLUT**(`value`): `void`
-
-set brdf query map
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | [`Texture`](Texture.md) |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.brdfLUT
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:339](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L339)
-
-___
-
-### emissiveMap
-
-• `get` **emissiveMap**(): [`Texture`](Texture.md)
-
-get emissive map
-
-#### Returns
-
-[`Texture`](Texture.md)
-
-#### Inherited from
-
-PhysicMaterial.emissiveMap
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:347](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L347)
-
-• `set` **emissiveMap**(`value`): `void`
-
-set emissive map
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | [`Texture`](Texture.md) |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.emissiveMap
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:354](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L354)
-
-___
-
-### envIntensity
-
-• `get` **envIntensity**(): `number`
-
-get intensity of environment light or color of sampled by texture
-
-#### Returns
-
-`number`
-
-#### Inherited from
-
-PhysicMaterial.envIntensity
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:368](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L368)
-
-• `set` **envIntensity**(`value`): `void`
-
-set intensity of environment light or color of sampled by texture
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.envIntensity
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:361](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L361)
-
-___
-
-### ior
-
-• `get` **ior**(): `number`
-
-get factor of refractive
-
-#### Returns
-
-`number`
-
-#### Inherited from
-
-PhysicMaterial.ior
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:382](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L382)
-
-• `set` **ior**(`value`): `void`
-
-set factor of refractive
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.ior
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:375](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L375)
-
-___
-
-### clearcoatFactor
-
-• `get` **clearcoatFactor**(): `number`
-
-get the factor of the clearcoat
-
-#### Returns
-
-`number`
-
-#### Inherited from
-
-PhysicMaterial.clearcoatFactor
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:404](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L404)
-
-• `set` **clearcoatFactor**(`value`): `void`
-
-Set the factor of the clearcoat
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.clearcoatFactor
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:396](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L396)
-
-___
-
-### clearcoatRoughnessFactor
-
-• `get` **clearcoatRoughnessFactor**(): `number`
-
-get the factor of the clearcoat Roughness
-
-#### Returns
-
-`number`
-
-#### Inherited from
-
-PhysicMaterial.clearcoatRoughnessFactor
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:419](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L419)
-
-• `set` **clearcoatRoughnessFactor**(`value`): `void`
-
-set the factor of the clearcoat Roughness
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.clearcoatRoughnessFactor
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:411](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L411)
-
-___
-
-### clearcoatWeight
-
-• `get` **clearcoatWeight**(): `number`
-
-get the weight of the clearcoat
-
-#### Returns
-
-`number`
-
-#### Inherited from
-
-PhysicMaterial.clearcoatWeight
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:434](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L434)
-
-• `set` **clearcoatWeight**(`value`): `void`
-
-set the weight of the clearcoat
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.clearcoatWeight
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:426](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L426)
-
-___
-
-### clearcoatColor
-
-• `get` **clearcoatColor**(): [`Color`](Color.md)
-
-set the color of the clearcoat
-
-#### Returns
-
-[`Color`](Color.md)
-
-#### Inherited from
-
-PhysicMaterial.clearcoatColor
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:449](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L449)
-
-• `set` **clearcoatColor**(`value`): `void`
-
-get the color of the clearcoat
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | [`Color`](Color.md) |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.clearcoatColor
-
-#### Defined in
-
-[src/materials/PhysicMaterial.ts:441](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L441)
+[src/materials/Material.ts:105](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L105)
 
 ## Methods
 
@@ -1611,17 +462,21 @@ PhysicMaterial.clearcoatColor
 
 ▸ **clone**(): [`ColorLitMaterial`](ColorLitMaterial.md)
 
+clone one material
+
 #### Returns
 
 [`ColorLitMaterial`](ColorLitMaterial.md)
 
+Material
+
 #### Overrides
 
-PhysicMaterial.clone
+[Material](Material.md).[clone](Material.md#clone)
 
 #### Defined in
 
-[src/materials/ColorLitMaterial.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/materials/ColorLitMaterial.ts#L44)
+[src/materials/ColorLitMaterial.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/materials/ColorLitMaterial.ts#L47)
 
 ___
 
@@ -1635,37 +490,13 @@ ___
 
 #### Defined in
 
-[src/materials/ColorLitMaterial.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/materials/ColorLitMaterial.ts#L48)
-
-___
-
-### hasPass
-
-▸ **hasPass**(`passType`): `boolean`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `passType` | `RendererType` |
-
-#### Returns
-
-`boolean`
-
-#### Inherited from
-
-PhysicMaterial.hasPass
-
-#### Defined in
-
-[src/materials/Material.ts:105](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L105)
+[src/materials/ColorLitMaterial.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/materials/ColorLitMaterial.ts#L51)
 
 ___
 
 ### getPass
 
-▸ **getPass**(`passType`): [`RenderShader`](RenderShader.md)[]
+▸ **getPass**(`passType`): [`RenderShaderPass`](RenderShaderPass.md)[]
 
 get render pass by renderType
 
@@ -1673,15 +504,15 @@ get render pass by renderType
 
 | Name | Type |
 | :------ | :------ |
-| `passType` | `RendererType` |
+| `passType` | `PassType` |
 
 #### Returns
 
-[`RenderShader`](RenderShader.md)[]
+[`RenderShaderPass`](RenderShaderPass.md)[]
 
 #### Inherited from
 
-PhysicMaterial.getPass
+[Material](Material.md).[getPass](Material.md#getpass)
 
 #### Defined in
 
@@ -1691,72 +522,21 @@ ___
 
 ### getAllPass
 
-▸ **getAllPass**(): [`RenderShader`](RenderShader.md)[]
+▸ **getAllPass**(): [`RenderShaderPass`](RenderShaderPass.md)[]
 
 get all color render pass
 
 #### Returns
 
-[`RenderShader`](RenderShader.md)[]
+[`RenderShaderPass`](RenderShaderPass.md)[]
 
 #### Inherited from
 
-PhysicMaterial.getAllPass
+[Material](Material.md).[getAllPass](Material.md#getallpass)
 
 #### Defined in
 
 [src/materials/Material.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L122)
-
-___
-
-### addPass
-
-▸ **addPass**(`passType`, `pass`, `index?`): [`RenderShader`](RenderShader.md)[]
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `passType` | `RendererType` | `undefined` |
-| `pass` | [`RenderShader`](RenderShader.md) | `undefined` |
-| `index` | `number` | `-1` |
-
-#### Returns
-
-[`RenderShader`](RenderShader.md)[]
-
-#### Inherited from
-
-PhysicMaterial.addPass
-
-#### Defined in
-
-[src/materials/Material.ts:126](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L126)
-
-___
-
-### removePass
-
-▸ **removePass**(`passType`, `index`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `passType` | `RendererType` |
-| `index` | `number` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-PhysicMaterial.removePass
-
-#### Defined in
-
-[src/materials/Material.ts:145](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L145)
 
 ___
 
@@ -1776,19 +556,24 @@ ___
 
 #### Inherited from
 
-PhysicMaterial.destroy
+[Material](Material.md).[destroy](Material.md#destroy)
 
 #### Defined in
 
-[src/materials/Material.ts:162](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L162)
+[src/materials/Material.ts:137](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L137)
 
 ___
 
-### setDefault
+### setDefine
 
-▸ **setDefault**(): `void`
+▸ **setDefine**(`define`, `value`): `void`
 
-Set the render shader default value
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `define` | `string` |
+| `value` | `boolean` |
 
 #### Returns
 
@@ -1796,19 +581,24 @@ Set the render shader default value
 
 #### Inherited from
 
-PhysicMaterial.setDefault
+[Material](Material.md).[setDefine](Material.md#setdefine)
 
 #### Defined in
 
-[src/materials/PhysicMaterial.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L22)
+[src/materials/Material.ts:143](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L143)
 
 ___
 
-### useCleanCoat
+### setTexture
 
-▸ **useCleanCoat**(): `void`
+▸ **setTexture**(`propertyName`, `texture`): `void`
 
-valid USE_CLEARCOAT define in shader
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `propertyName` | `string` |
+| `texture` | [`Texture`](Texture.md) |
 
 #### Returns
 
@@ -1816,8 +606,417 @@ valid USE_CLEARCOAT define in shader
 
 #### Inherited from
 
-PhysicMaterial.useCleanCoat
+[Material](Material.md).[setTexture](Material.md#settexture)
 
 #### Defined in
 
-[src/materials/PhysicMaterial.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/materials/PhysicMaterial.ts#L389)
+[src/materials/Material.ts:147](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L147)
+
+___
+
+### setStorageBuffer
+
+▸ **setStorageBuffer**(`propertyName`, `buffer`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `propertyName` | `string` |
+| `buffer` | [`StorageGPUBuffer`](StorageGPUBuffer.md) |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Material](Material.md).[setStorageBuffer](Material.md#setstoragebuffer)
+
+#### Defined in
+
+[src/materials/Material.ts:151](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L151)
+
+___
+
+### setUniformBuffer
+
+▸ **setUniformBuffer**(`propertyName`, `buffer`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `propertyName` | `string` |
+| `buffer` | [`UniformGPUBuffer`](UniformGPUBuffer.md) |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Material](Material.md).[setUniformBuffer](Material.md#setuniformbuffer)
+
+#### Defined in
+
+[src/materials/Material.ts:155](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L155)
+
+___
+
+### setUniformFloat
+
+▸ **setUniformFloat**(`propertyName`, `value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `propertyName` | `string` |
+| `value` | `number` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Material](Material.md).[setUniformFloat](Material.md#setuniformfloat)
+
+#### Defined in
+
+[src/materials/Material.ts:160](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L160)
+
+___
+
+### setUniformVector2
+
+▸ **setUniformVector2**(`propertyName`, `value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `propertyName` | `string` |
+| `value` | [`Vector2`](Vector2.md) |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Material](Material.md).[setUniformVector2](Material.md#setuniformvector2)
+
+#### Defined in
+
+[src/materials/Material.ts:164](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L164)
+
+___
+
+### setUniformVector3
+
+▸ **setUniformVector3**(`propertyName`, `value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `propertyName` | `string` |
+| `value` | [`Vector3`](Vector3.md) |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Material](Material.md).[setUniformVector3](Material.md#setuniformvector3)
+
+#### Defined in
+
+[src/materials/Material.ts:168](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L168)
+
+___
+
+### setUniformVector4
+
+▸ **setUniformVector4**(`propertyName`, `value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `propertyName` | `string` |
+| `value` | `Vector4` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Material](Material.md).[setUniformVector4](Material.md#setuniformvector4)
+
+#### Defined in
+
+[src/materials/Material.ts:172](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L172)
+
+___
+
+### setUniformColor
+
+▸ **setUniformColor**(`propertyName`, `value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `propertyName` | `string` |
+| `value` | [`Color`](Color.md) |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Material](Material.md).[setUniformColor](Material.md#setuniformcolor)
+
+#### Defined in
+
+[src/materials/Material.ts:176](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L176)
+
+___
+
+### getUniformFloat
+
+▸ **getUniformFloat**(`str`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `str` | `string` |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[Material](Material.md).[getUniformFloat](Material.md#getuniformfloat)
+
+#### Defined in
+
+[src/materials/Material.ts:180](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L180)
+
+___
+
+### getUniformV2
+
+▸ **getUniformV2**(`str`): [`Vector2`](Vector2.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `str` | `string` |
+
+#### Returns
+
+[`Vector2`](Vector2.md)
+
+#### Inherited from
+
+[Material](Material.md).[getUniformV2](Material.md#getuniformv2)
+
+#### Defined in
+
+[src/materials/Material.ts:184](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L184)
+
+___
+
+### getUniformV3
+
+▸ **getUniformV3**(`str`): [`Vector3`](Vector3.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `str` | `string` |
+
+#### Returns
+
+[`Vector3`](Vector3.md)
+
+#### Inherited from
+
+[Material](Material.md).[getUniformV3](Material.md#getuniformv3)
+
+#### Defined in
+
+[src/materials/Material.ts:188](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L188)
+
+___
+
+### getUniformV4
+
+▸ **getUniformV4**(`str`): `Vector4`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `str` | `string` |
+
+#### Returns
+
+`Vector4`
+
+#### Inherited from
+
+[Material](Material.md).[getUniformV4](Material.md#getuniformv4)
+
+#### Defined in
+
+[src/materials/Material.ts:192](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L192)
+
+___
+
+### getUniformColor
+
+▸ **getUniformColor**(`str`): [`Color`](Color.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `str` | `string` |
+
+#### Returns
+
+[`Color`](Color.md)
+
+#### Inherited from
+
+[Material](Material.md).[getUniformColor](Material.md#getuniformcolor)
+
+#### Defined in
+
+[src/materials/Material.ts:196](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L196)
+
+___
+
+### getTexture
+
+▸ **getTexture**(`str`): [`Texture`](Texture.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `str` | `string` |
+
+#### Returns
+
+[`Texture`](Texture.md)
+
+#### Inherited from
+
+[Material](Material.md).[getTexture](Material.md#gettexture)
+
+#### Defined in
+
+[src/materials/Material.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L200)
+
+___
+
+### getStorageBuffer
+
+▸ **getStorageBuffer**(`str`): [`StorageGPUBuffer`](StorageGPUBuffer.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `str` | `string` |
+
+#### Returns
+
+[`StorageGPUBuffer`](StorageGPUBuffer.md)
+
+#### Inherited from
+
+[Material](Material.md).[getStorageBuffer](Material.md#getstoragebuffer)
+
+#### Defined in
+
+[src/materials/Material.ts:204](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L204)
+
+___
+
+### getStructStorageBuffer
+
+▸ **getStructStorageBuffer**(`str`): `GPUBufferBase`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `str` | `string` |
+
+#### Returns
+
+`GPUBufferBase`
+
+#### Inherited from
+
+[Material](Material.md).[getStructStorageBuffer](Material.md#getstructstoragebuffer)
+
+#### Defined in
+
+[src/materials/Material.ts:208](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L208)
+
+___
+
+### getUniformBuffer
+
+▸ **getUniformBuffer**(`str`): `GPUBufferBase`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `str` | `string` |
+
+#### Returns
+
+`GPUBufferBase`
+
+#### Inherited from
+
+[Material](Material.md).[getUniformBuffer](Material.md#getuniformbuffer)
+
+#### Defined in
+
+[src/materials/Material.ts:212](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L212)
+
+___
+
+### applyUniform
+
+▸ **applyUniform**(): `void`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Material](Material.md).[applyUniform](Material.md#applyuniform)
+
+#### Defined in
+
+[src/materials/Material.ts:216](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L216)

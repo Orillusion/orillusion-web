@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).btSequentialImpulseConstraintSolver
 
-
 ### Constructors
 
 - [constructor](Ammo.btSequentialImpulseConstraintSolver.md#constructor)

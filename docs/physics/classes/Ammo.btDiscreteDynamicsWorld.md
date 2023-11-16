@@ -10,6 +10,9 @@
 
   ↳↳ [`btSoftRigidDynamicsWorld`](Ammo.btSoftRigidDynamicsWorld.md)
 
+### Constructors
+
+- [constructor](Ammo.btDiscreteDynamicsWorld.md#constructor)
 
 ### Methods
 
@@ -43,9 +46,28 @@
 - [setContactProcessedCallback](Ammo.btDiscreteDynamicsWorld.md#setcontactprocessedcallback)
 - [setContactDestroyedCallback](Ammo.btDiscreteDynamicsWorld.md#setcontactdestroyedcallback)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.btDiscreteDynamicsWorld.md#constructor)
+### constructor
+
+• **new btDiscreteDynamicsWorld**(`dispatcher`, `pairCache`, `constraintSolver`, `collisionConfiguration`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `dispatcher` | [`btDispatcher`](Ammo.btDispatcher.md) |
+| `pairCache` | [`btBroadphaseInterface`](Ammo.btBroadphaseInterface.md) |
+| `constraintSolver` | [`btConstraintSolver`](Ammo.btConstraintSolver.md) |
+| `collisionConfiguration` | [`btCollisionConfiguration`](Ammo.btCollisionConfiguration.md) |
+
+#### Overrides
+
+[btDynamicsWorld](Ammo.btDynamicsWorld.md).[constructor](Ammo.btDynamicsWorld.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:663](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L663)
 
 ## Methods
 
@@ -690,26 +712,3 @@ ___
 #### Defined in
 
 [packages/ammo/ammo.d.ts:674](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L674)
-
-## Constructors
-
-### constructor
-
-• **new btDiscreteDynamicsWorld**(`dispatcher`, `pairCache`, `constraintSolver`, `collisionConfiguration`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `dispatcher` | [`btDispatcher`](Ammo.btDispatcher.md) |
-| `pairCache` | [`btBroadphaseInterface`](Ammo.btBroadphaseInterface.md) |
-| `constraintSolver` | [`btConstraintSolver`](Ammo.btConstraintSolver.md) |
-| `collisionConfiguration` | [`btCollisionConfiguration`](Ammo.btCollisionConfiguration.md) |
-
-#### Overrides
-
-[btDynamicsWorld](Ammo.btDynamicsWorld.md).[constructor](Ammo.btDynamicsWorld.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:663](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L663)

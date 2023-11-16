@@ -10,7 +10,6 @@
 
   ↳ [`btRaycastVehicle`](Ammo.btRaycastVehicle.md)
 
-
 ### Constructors
 
 - [constructor](Ammo.btActionInterface.md#constructor)

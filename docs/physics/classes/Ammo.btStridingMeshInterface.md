@@ -8,7 +8,6 @@
 
   ↳ [`btTriangleMesh`](Ammo.btTriangleMesh.md)
 
-
 ### Constructors
 
 - [constructor](Ammo.btStridingMeshInterface.md#constructor)

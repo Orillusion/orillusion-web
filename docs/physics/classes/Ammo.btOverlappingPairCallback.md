@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).btOverlappingPairCallback
 
-
 ### Constructors
 
 - [constructor](Ammo.btOverlappingPairCallback.md#constructor)

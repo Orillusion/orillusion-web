@@ -1,4 +1,4 @@
-import { Camera3D, OrbitController, DirectLight, Engine3D, View3D, PostProcessingComponent, HDRBloomPost, KelvinUtil, Object3D, Scene3D, GTAOPost, webGPUContext, AtmosphericComponent } from '@orillusion/core'
+import { Camera3D, OrbitController, DirectLight, Engine3D, View3D, PostProcessingComponent, BloomPost, KelvinUtil, Object3D, Scene3D, GTAOPost, webGPUContext, AtmosphericComponent } from '@orillusion/core'
 
 export class Sample_FlightHelmet {
     lightObj: Object3D
@@ -14,8 +14,8 @@ export class Sample_FlightHelmet {
         Engine3D.setting.shadow.autoUpdate = true
         Engine3D.setting.shadow.updateFrameRate = 1
         Engine3D.setting.shadow.shadowBound = 50
-        Engine3D.setting.render.postProcessing.bloom!.luminosityThreshold = 0.8
-        Engine3D.setting.render.postProcessing.bloom!.strength = 1
+        Engine3D.setting.render.postProcessing.bloom!.luminanceThreshole = 0.8
+        Engine3D.setting.render.postProcessing.bloom!.bloomIntensity = 1
 
         this.scene = new Scene3D()
         let camera = new Object3D()
@@ -38,7 +38,7 @@ export class Sample_FlightHelmet {
 
         let postProcessing = this.scene.addComponent(PostProcessingComponent)
         postProcessing.addPost(GTAOPost)
-        postProcessing.addPost(HDRBloomPost)
+        postProcessing.addPost(BloomPost)
     }
 
     async initScene() {
@@ -78,8 +78,3 @@ export class Sample_FlightHelmet {
 }
 
 new Sample_FlightHelmet().run()
-
-// for index page
-let css = document.createElement('style')
-css.innerText = `body.loading > canvas{width:560px !important;height:450px !important}`
-document.head.appendChild(css)

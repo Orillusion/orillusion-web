@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).btOverlappingPairCache
 
-
 ### Constructors
 
 - [constructor](Ammo.btOverlappingPairCache.md#constructor)

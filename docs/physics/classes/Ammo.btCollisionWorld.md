@@ -8,7 +8,6 @@
 
   ↳ [`btDynamicsWorld`](Ammo.btDynamicsWorld.md)
 
-
 ### Constructors
 
 - [constructor](Ammo.btCollisionWorld.md#constructor)

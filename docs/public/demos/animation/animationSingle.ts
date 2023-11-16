@@ -1,4 +1,4 @@
-import { Engine3D, Scene3D, Object3D, AtmosphericComponent, View3D, DirectLight, HoverCameraController, Color, CameraUtil, SkeletonAnimationComponent, HDRBloomPost, Vector3 } from '@orillusion/core'
+import { Engine3D, Scene3D, Object3D, AtmosphericComponent, View3D, DirectLight, HoverCameraController, Color, CameraUtil, SkeletonAnimationComponent, Vector3 } from '@orillusion/core'
 import * as dat from 'dat.gui'
 
 // Init Engine3D

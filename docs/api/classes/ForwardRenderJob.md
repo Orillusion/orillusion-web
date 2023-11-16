@@ -20,6 +20,7 @@ If visible, the values in the color buffer will be updated.
 ### Properties
 
 - [pickFire](ForwardRenderJob.md#pickfire)
+- [renderState](ForwardRenderJob.md#renderstate)
 
 ### Accessors
 
@@ -54,7 +55,7 @@ RendererJob.constructor
 
 #### Defined in
 
-[src/gfx/renderJob/jobs/ForwardRenderJob.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/ForwardRenderJob.ts#L18)
+[src/gfx/renderJob/jobs/ForwardRenderJob.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/ForwardRenderJob.ts#L22)
 
 ## Properties
 
@@ -69,6 +70,20 @@ RendererJob.pickFire
 #### Defined in
 
 [src/gfx/renderJob/jobs/RendererJob.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L76)
+
+___
+
+### renderState
+
+• **renderState**: `boolean` = `false`
+
+#### Inherited from
+
+RendererJob.renderState
+
+#### Defined in
+
+[src/gfx/renderJob/jobs/RendererJob.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L77)
 
 ## Accessors
 
@@ -92,7 +107,7 @@ RendererJob.view
 
 #### Defined in
 
-[src/gfx/renderJob/jobs/RendererJob.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L119)
+[src/gfx/renderJob/jobs/RendererJob.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L120)
 
 ## Methods
 
@@ -110,7 +125,7 @@ RendererJob.start
 
 #### Defined in
 
-[src/gfx/renderJob/jobs/ForwardRenderJob.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/ForwardRenderJob.ts#L22)
+[src/gfx/renderJob/jobs/ForwardRenderJob.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/ForwardRenderJob.ts#L26)
 
 ___
 
@@ -141,7 +156,7 @@ RendererJob.addRenderer
 
 #### Defined in
 
-[src/gfx/renderJob/jobs/RendererJob.ts:101](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L101)
+[src/gfx/renderJob/jobs/RendererJob.ts:102](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L102)
 
 ___
 
@@ -161,7 +176,7 @@ RendererJob.stop
 
 #### Defined in
 
-[src/gfx/renderJob/jobs/RendererJob.ts:136](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L136)
+[src/gfx/renderJob/jobs/RendererJob.ts:138](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L138)
 
 ___
 
@@ -181,7 +196,7 @@ RendererJob.pause
 
 #### Defined in
 
-[src/gfx/renderJob/jobs/RendererJob.ts:141](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L141)
+[src/gfx/renderJob/jobs/RendererJob.ts:143](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L143)
 
 ___
 
@@ -201,7 +216,7 @@ RendererJob.resume
 
 #### Defined in
 
-[src/gfx/renderJob/jobs/RendererJob.ts:148](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L148)
+[src/gfx/renderJob/jobs/RendererJob.ts:150](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L150)
 
 ___
 
@@ -227,7 +242,7 @@ RendererJob.addPost
 
 #### Defined in
 
-[src/gfx/renderJob/jobs/RendererJob.ts:164](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L164)
+[src/gfx/renderJob/jobs/RendererJob.ts:166](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L166)
 
 ___
 
@@ -253,7 +268,7 @@ RendererJob.removePost
 
 #### Defined in
 
-[src/gfx/renderJob/jobs/RendererJob.ts:177](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L177)
+[src/gfx/renderJob/jobs/RendererJob.ts:182](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L182)
 
 ___
 
@@ -273,4 +288,4 @@ RendererJob.renderFrame
 
 #### Defined in
 
-[src/gfx/renderJob/jobs/RendererJob.ts:190](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L190)
+[src/gfx/renderJob/jobs/RendererJob.ts:195](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L195)

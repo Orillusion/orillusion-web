@@ -8,6 +8,9 @@
 
   ↳ **`btPairCachingGhostObject`**
 
+### Constructors
+
+- [constructor](Ammo.btPairCachingGhostObject.md#constructor)
 
 ### Methods
 
@@ -42,9 +45,19 @@
 - [getNumOverlappingObjects](Ammo.btPairCachingGhostObject.md#getnumoverlappingobjects)
 - [getOverlappingObject](Ammo.btPairCachingGhostObject.md#getoverlappingobject)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.btPairCachingGhostObject.md#constructor)
+### constructor
+
+• **new btPairCachingGhostObject**()
+
+#### Overrides
+
+[btGhostObject](Ammo.btGhostObject.md).[constructor](Ammo.btGhostObject.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:864](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L864)
 
 ## Methods
 
@@ -682,17 +695,3 @@ ___
 #### Defined in
 
 [packages/ammo/ammo.d.ts:861](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L861)
-
-## Constructors
-
-### constructor
-
-• **new btPairCachingGhostObject**()
-
-#### Overrides
-
-[btGhostObject](Ammo.btGhostObject.md).[constructor](Ammo.btGhostObject.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:864](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L864)

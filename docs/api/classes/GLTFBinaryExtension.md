@@ -25,7 +25,7 @@
 
 #### Defined in
 
-[src/loader/parser/B3DMParser.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L57)
+[src/loader/parser/B3DMParser.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L58)
 
 ## Properties
 
@@ -35,7 +35,7 @@
 
 #### Defined in
 
-[src/loader/parser/B3DMParser.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L52)
+[src/loader/parser/B3DMParser.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L53)
 
 ___
 
@@ -45,7 +45,7 @@ ___
 
 #### Defined in
 
-[src/loader/parser/B3DMParser.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L53)
+[src/loader/parser/B3DMParser.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L54)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[src/loader/parser/B3DMParser.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L54)
+[src/loader/parser/B3DMParser.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L55)
 
 ___
 
@@ -73,4 +73,4 @@ ___
 
 #### Defined in
 
-[src/loader/parser/B3DMParser.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L55)
+[src/loader/parser/B3DMParser.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L56)

@@ -8,14 +8,27 @@
 
   ↳ **`btDbvtBroadphase`**
 
+### Constructors
+
+- [constructor](Ammo.btDbvtBroadphase.md#constructor)
 
 ### Methods
 
 - [getOverlappingPairCache](Ammo.btDbvtBroadphase.md#getoverlappingpaircache)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.btDbvtBroadphase.md#constructor)
+### constructor
+
+• **new btDbvtBroadphase**()
+
+#### Overrides
+
+[btBroadphaseInterface](Ammo.btBroadphaseInterface.md).[constructor](Ammo.btBroadphaseInterface.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:451](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L451)
 
 ## Methods
 
@@ -34,17 +47,3 @@
 #### Defined in
 
 [packages/ammo/ammo.d.ts:447](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L447)
-
-## Constructors
-
-### constructor
-
-• **new btDbvtBroadphase**()
-
-#### Overrides
-
-[btBroadphaseInterface](Ammo.btBroadphaseInterface.md).[constructor](Ammo.btBroadphaseInterface.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:451](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L451)

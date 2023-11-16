@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).btTransform
 
-
 ### Constructors
 
 - [constructor](Ammo.btTransform.md#constructor)

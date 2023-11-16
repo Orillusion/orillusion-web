@@ -9,6 +9,31 @@ Rigid bodies can endow game objects with physical properties, allowing them to b
 
   ↳ **`Rigidbody`**
 
+### Constructors
+
+- [constructor](Rigidbody.md#constructor)
+
+### Properties
+
+- [object3D](Rigidbody.md#object3d)
+- [isDestroyed](Rigidbody.md#isdestroyed)
+
+### Accessors
+
+- [friction](Rigidbody.md#friction)
+- [rollingFriction](Rigidbody.md#rollingfriction)
+- [restitution](Rigidbody.md#restitution)
+- [btRigidbodyInited](Rigidbody.md#btrigidbodyinited)
+- [btRigidbody](Rigidbody.md#btrigidbody)
+- [mass](Rigidbody.md#mass)
+- [velocity](Rigidbody.md#velocity)
+- [angularVelocity](Rigidbody.md#angularvelocity)
+- [isKinematic](Rigidbody.md#iskinematic)
+- [isTrigger](Rigidbody.md#istrigger)
+- [eventDispatcher](Rigidbody.md#eventdispatcher)
+- [isStart](Rigidbody.md#isstart)
+- [transform](Rigidbody.md#transform)
+- [enable](Rigidbody.md#enable)
 
 ### Methods
 
@@ -25,337 +50,50 @@ Rigid bodies can endow game objects with physical properties, allowing them to b
 - [onBeforeUpdate](Rigidbody.md#onbeforeupdate)
 - [onCompute](Rigidbody.md#oncompute)
 - [onGraphic](Rigidbody.md#ongraphic)
+- [onParentChange](Rigidbody.md#onparentchange)
 - [cloneTo](Rigidbody.md#cloneto)
+- [copyComponent](Rigidbody.md#copycomponent)
+- [beforeDestroy](Rigidbody.md#beforedestroy)
 
-### Accessors
+## Constructors
 
-- [friction](Rigidbody.md#friction)
-- [rollingFriction](Rigidbody.md#rollingfriction)
-- [restitution](Rigidbody.md#restitution)
-- [btRigidbodyInited](Rigidbody.md#btrigidbodyinited)
-- [btRigidbody](Rigidbody.md#btrigidbody)
-- [mass](Rigidbody.md#mass)
-- [velocity](Rigidbody.md#velocity)
-- [angularVelocity](Rigidbody.md#angularvelocity)
-- [isKinematic](Rigidbody.md#iskinematic)
-- [isTrigger](Rigidbody.md#istrigger)
-- [transform](Rigidbody.md#transform)
-- [enable](Rigidbody.md#enable)
+### constructor
 
-### Properties
-
-- [object3D](Rigidbody.md#object3d)
-
-### Constructors
-
-- [constructor](Rigidbody.md#constructor)
-
-## Methods
-
-### init
-
-▸ **init**(): `void`
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-ComponentBase.init
-
-#### Defined in
-
-[packages/physics/Rigidbody.ts:51](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Rigidbody.ts#L51)
-
-___
-
-### start
-
-▸ **start**(): `void`
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-ComponentBase.start
-
-#### Defined in
-
-[packages/physics/Rigidbody.ts:55](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Rigidbody.ts#L55)
-
-___
-
-### addInitedFunction
-
-▸ **addInitedFunction**(`fun`, `thisObj`): `void`
-
-Add init callback
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `fun` | `Function` | callback function |
-| `thisObj` | `Object` | this |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/physics/Rigidbody.ts:148](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Rigidbody.ts#L148)
-
-___
-
-### removeInitedFunction
-
-▸ **removeInitedFunction**(`fun`, `thisObj`): `void`
-
-Remove init callback
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `fun` | `Function` | callback function |
-| `thisObj` | `Object` | this |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/physics/Rigidbody.ts:156](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Rigidbody.ts#L156)
-
-___
-
-### onUpdate
-
-▸ **onUpdate**(): `void`
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-ComponentBase.onUpdate
-
-#### Defined in
-
-[packages/physics/Rigidbody.ts:191](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Rigidbody.ts#L191)
-
-___
-
-### destroy
-
-▸ **destroy**(): `void`
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-ComponentBase.destroy
-
-#### Defined in
-
-[packages/physics/Rigidbody.ts:208](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Rigidbody.ts#L208)
-
-___
-
-### stop
-
-▸ **stop**(): `void`
-
-#### Returns
-
-`void`
+• **new Rigidbody**()
 
 #### Inherited from
 
-ComponentBase.stop
+ComponentBase.constructor
 
-#### Defined in
+## Properties
 
-[src/components/ComponentBase.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L108)
+### object3D
 
-___
+• **object3D**: `Object3D` = `null`
 
-### onEnable
-
-▸ `Optional` **onEnable**(`view?`): `any`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
-
-#### Returns
-
-`any`
+owner object3D
 
 #### Inherited from
 
-ComponentBase.onEnable
+ComponentBase.object3D
 
 #### Defined in
 
-[src/components/ComponentBase.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L109)
+[src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
 
 ___
 
-### onDisable
+### isDestroyed
 
-▸ `Optional` **onDisable**(`view?`): `any`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
-
-#### Returns
-
-`any`
+• `Optional` **isDestroyed**: `boolean`
 
 #### Inherited from
 
-ComponentBase.onDisable
+ComponentBase.isDestroyed
 
 #### Defined in
 
-[src/components/ComponentBase.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L110)
-
-___
-
-### onLateUpdate
-
-▸ `Optional` **onLateUpdate**(`view?`): `any`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
-
-#### Returns
-
-`any`
-
-#### Inherited from
-
-ComponentBase.onLateUpdate
-
-#### Defined in
-
-[src/components/ComponentBase.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L112)
-
-___
-
-### onBeforeUpdate
-
-▸ `Optional` **onBeforeUpdate**(`view?`): `any`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
-
-#### Returns
-
-`any`
-
-#### Inherited from
-
-ComponentBase.onBeforeUpdate
-
-#### Defined in
-
-[src/components/ComponentBase.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
-
-___
-
-### onCompute
-
-▸ `Optional` **onCompute**(`view?`, `command?`): `any`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
-| `command?` | `GPUCommandEncoder` |
-
-#### Returns
-
-`any`
-
-#### Inherited from
-
-ComponentBase.onCompute
-
-#### Defined in
-
-[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
-
-___
-
-### onGraphic
-
-▸ `Optional` **onGraphic**(`view?`): `any`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
-
-#### Returns
-
-`any`
-
-#### Inherited from
-
-ComponentBase.onGraphic
-
-#### Defined in
-
-[src/components/ComponentBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L115)
-
-___
-
-### cloneTo
-
-▸ **cloneTo**(`obj`): `void`
-
-clone component data to target object3D
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `obj` | `Object3D` | target object3D |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-ComponentBase.cloneTo
-
-#### Defined in
-
-[src/components/ComponentBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L122)
+[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
 
 ## Accessors
 
@@ -659,6 +397,62 @@ ___
 
 ___
 
+### eventDispatcher
+
+• `get` **eventDispatcher**(): `CEventDispatcher`
+
+#### Returns
+
+`CEventDispatcher`
+
+#### Inherited from
+
+ComponentBase.eventDispatcher
+
+#### Defined in
+
+[src/components/ComponentBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L23)
+
+• `set` **eventDispatcher**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `CEventDispatcher` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+ComponentBase.eventDispatcher
+
+#### Defined in
+
+[src/components/ComponentBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L28)
+
+___
+
+### isStart
+
+• `get` **isStart**(): `boolean`
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+ComponentBase.isStart
+
+#### Defined in
+
+[src/components/ComponentBase.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L40)
+
+___
+
 ### transform
 
 • `get` **transform**(): `Transform`
@@ -675,7 +469,7 @@ ComponentBase.transform
 
 #### Defined in
 
-[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
+[src/components/ComponentBase.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L47)
 
 ___
 
@@ -695,7 +489,7 @@ ComponentBase.enable
 
 #### Defined in
 
-[src/components/ComponentBase.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L59)
+[src/components/ComponentBase.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
 
 • `set` **enable**(`value`): `void`
 
@@ -717,34 +511,392 @@ ComponentBase.enable
 
 #### Defined in
 
-[src/components/ComponentBase.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L45)
+[src/components/ComponentBase.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L54)
 
-## Properties
+## Methods
 
-### object3D
+### init
 
-• **object3D**: `Object3D` = `null`
+▸ **init**(): `void`
 
-owner object3D
+#### Returns
 
-#### Inherited from
+`void`
 
-ComponentBase.object3D
+#### Overrides
 
-#### Defined in
-
-[src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
-
-## Constructors
-
-### constructor
-
-• **new Rigidbody**()
-
-#### Inherited from
-
-ComponentBase.constructor
+ComponentBase.init
 
 #### Defined in
 
-[src/components/ComponentBase.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L31)
+[packages/physics/Rigidbody.ts:51](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Rigidbody.ts#L51)
+
+___
+
+### start
+
+▸ **start**(): `void`
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+ComponentBase.start
+
+#### Defined in
+
+[packages/physics/Rigidbody.ts:55](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Rigidbody.ts#L55)
+
+___
+
+### addInitedFunction
+
+▸ **addInitedFunction**(`fun`, `thisObj`): `void`
+
+Add init callback
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `fun` | `Function` | callback function |
+| `thisObj` | `Object` | this |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[packages/physics/Rigidbody.ts:148](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Rigidbody.ts#L148)
+
+___
+
+### removeInitedFunction
+
+▸ **removeInitedFunction**(`fun`, `thisObj`): `void`
+
+Remove init callback
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `fun` | `Function` | callback function |
+| `thisObj` | `Object` | this |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[packages/physics/Rigidbody.ts:156](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Rigidbody.ts#L156)
+
+___
+
+### onUpdate
+
+▸ **onUpdate**(): `void`
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+ComponentBase.onUpdate
+
+#### Defined in
+
+[packages/physics/Rigidbody.ts:191](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Rigidbody.ts#L191)
+
+___
+
+### destroy
+
+▸ **destroy**(`force?`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+ComponentBase.destroy
+
+#### Defined in
+
+[packages/physics/Rigidbody.ts:208](https://github.com/Orillusion/orillusion/blob/main/packages/physics/Rigidbody.ts#L208)
+
+___
+
+### stop
+
+▸ **stop**(): `void`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+ComponentBase.stop
+
+#### Defined in
+
+[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
+
+___
+
+### onEnable
+
+▸ `Optional` **onEnable**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | `View3D` |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+ComponentBase.onEnable
+
+#### Defined in
+
+[src/components/ComponentBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L115)
+
+___
+
+### onDisable
+
+▸ `Optional` **onDisable**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | `View3D` |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+ComponentBase.onDisable
+
+#### Defined in
+
+[src/components/ComponentBase.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L116)
+
+___
+
+### onLateUpdate
+
+▸ `Optional` **onLateUpdate**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | `View3D` |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+ComponentBase.onLateUpdate
+
+#### Defined in
+
+[src/components/ComponentBase.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L118)
+
+___
+
+### onBeforeUpdate
+
+▸ `Optional` **onBeforeUpdate**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | `View3D` |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+ComponentBase.onBeforeUpdate
+
+#### Defined in
+
+[src/components/ComponentBase.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L119)
+
+___
+
+### onCompute
+
+▸ `Optional` **onCompute**(`view?`, `command?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | `View3D` |
+| `command?` | `GPUCommandEncoder` |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+ComponentBase.onCompute
+
+#### Defined in
+
+[src/components/ComponentBase.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L120)
+
+___
+
+### onGraphic
+
+▸ `Optional` **onGraphic**(`view?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view?` | `View3D` |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+ComponentBase.onGraphic
+
+#### Defined in
+
+[src/components/ComponentBase.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L121)
+
+___
+
+### onParentChange
+
+▸ `Optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `lastParent?` | `Object3D` |
+| `currentParent?` | `Object3D` |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+ComponentBase.onParentChange
+
+#### Defined in
+
+[src/components/ComponentBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L122)
+
+___
+
+### cloneTo
+
+▸ **cloneTo**(`obj`): `void`
+
+clone component data to target object3D
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `obj` | `Object3D` | target object3D |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+ComponentBase.cloneTo
+
+#### Defined in
+
+[src/components/ComponentBase.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L129)
+
+___
+
+### copyComponent
+
+▸ **copyComponent**(`from`): [`Rigidbody`](Rigidbody.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `from` | [`Rigidbody`](Rigidbody.md) |
+
+#### Returns
+
+[`Rigidbody`](Rigidbody.md)
+
+#### Inherited from
+
+ComponentBase.copyComponent
+
+#### Defined in
+
+[src/components/ComponentBase.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L131)
+
+___
+
+### beforeDestroy
+
+▸ **beforeDestroy**(`force?`): `void`
+
+before release this component, object refrences are not be set null now.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force?` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+ComponentBase.beforeDestroy
+
+#### Defined in
+
+[src/components/ComponentBase.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L198)

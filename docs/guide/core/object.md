@@ -97,7 +97,7 @@ let geometry = mr.geometry = new BoxGeometry()
 let material = mr.material = new LitMaterial()
 
 // 销毁对象，释放内存
-obj.destroy() // 但不会释放主动释放 geometry 和 material
+obj.destroy() // 但不会释放 geometry 和 material
 geometry.destroy() // 手动释放几何资源
 material.destroy() // 手动释放材质资源
 ```

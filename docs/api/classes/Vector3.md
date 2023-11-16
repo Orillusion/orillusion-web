@@ -2,6 +2,14 @@
 
 Vector 3D
 
+## Hierarchy
+
+- **`Vector3`**
+
+  ↳ [`Navi3DPoint`](Navi3DPoint.md)
+
+  ↳ [`Navi3DTriangle`](Navi3DTriangle.md)
+
 ### Constructors
 
 - [constructor](Vector3.md#constructor)
@@ -92,6 +100,8 @@ Vector 3D
 - [divideScalar](Vector3.md#dividescalar)
 - [clampLength](Vector3.md#clamplength)
 - [setScalar](Vector3.md#setscalar)
+- [pointInsideTriangle](Vector3.md#pointinsidetriangle)
+- [serialize](Vector3.md#serialize)
 
 ## Constructors
 
@@ -1724,3 +1734,46 @@ ___
 #### Defined in
 
 [src/math/Vector3.ts:1065](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1065)
+
+___
+
+### pointInsideTriangle
+
+▸ `Static` **pointInsideTriangle**(`pt`, `pt0`, `pt1`, `pt2`): `boolean`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `pt` | [`Vector3`](Vector3.md) |
+| `pt0` | [`Vector3`](Vector3.md) |
+| `pt1` | [`Vector3`](Vector3.md) |
+| `pt2` | [`Vector3`](Vector3.md) |
+
+#### Returns
+
+`boolean`
+
+#### Defined in
+
+[src/math/Vector3.ts:1094](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1094)
+
+___
+
+### serialize
+
+▸ `Static` **serialize**(`position`): [`Vector3`](Vector3.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `position` | [`Vector3`](Vector3.md) |
+
+#### Returns
+
+[`Vector3`](Vector3.md)
+
+#### Defined in
+
+[src/math/Vector3.ts:1123](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1123)

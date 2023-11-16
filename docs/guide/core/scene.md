@@ -49,6 +49,7 @@ let sky = scene3D.addComponent(AtmosphericComponent);
 let sky = scene3D.addComponent(AtmosphericComponent);
 sky.sunY = 0.54  // 太阳垂直位置，可以调节环境光亮度
 sky.exposure = 1.5; //调整环境光曝光度, 默认值1
+sky.roughness = 0.5; // 设置天空盒背景模糊强度, 范围[0, 1], 默认值0
 ```
 
 ### 自动跟随灯光

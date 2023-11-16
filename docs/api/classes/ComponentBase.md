@@ -15,6 +15,8 @@ The component can receive update events at each frame.
 
   ↳ [`Transform`](Transform.md)
 
+  ↳ [`AnimatorComponent`](AnimatorComponent.md)
+
   ↳ [`PropertyAnimation`](PropertyAnimation.md)
 
   ↳ [`MorphTargetBlender`](MorphTargetBlender.md)
@@ -36,6 +38,8 @@ The component can receive update events at each frame.
   ↳ [`GlobalIlluminationComponent`](GlobalIlluminationComponent.md)
 
   ↳ [`Camera3D`](Camera3D.md)
+
+  ↳ [`APatch`](APatch.md)
 
 ## Implements
 

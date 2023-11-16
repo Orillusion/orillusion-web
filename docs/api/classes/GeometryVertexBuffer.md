@@ -30,7 +30,7 @@
 
 #### Defined in
 
-[src/core/geometry/GeometryVertexBuffer.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L18)
+[src/core/geometry/GeometryVertexBuffer.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L19)
 
 ## Properties
 
@@ -40,7 +40,7 @@
 
 #### Defined in
 
-[src/core/geometry/GeometryVertexBuffer.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L11)
+[src/core/geometry/GeometryVertexBuffer.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L12)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryVertexBuffer.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L12)
+[src/core/geometry/GeometryVertexBuffer.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L13)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryVertexBuffer.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L13)
+[src/core/geometry/GeometryVertexBuffer.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L14)
 
 ## Accessors
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryVertexBuffer.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L24)
+[src/core/geometry/GeometryVertexBuffer.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L25)
 
 ## Methods
 
@@ -95,7 +95,7 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryVertexBuffer.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L28)
+[src/core/geometry/GeometryVertexBuffer.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L29)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryVertexBuffer.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L135)
+[src/core/geometry/GeometryVertexBuffer.ts:193](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L193)
 
 ___
 
@@ -136,7 +136,7 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryVertexBuffer.ts:161](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L161)
+[src/core/geometry/GeometryVertexBuffer.ts:222](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L222)
 
 ___
 
@@ -150,7 +150,7 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryVertexBuffer.ts:193](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L193)
+[src/core/geometry/GeometryVertexBuffer.ts:261](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L261)
 
 ___
 
@@ -170,4 +170,4 @@ ___
 
 #### Defined in
 
-[src/core/geometry/GeometryVertexBuffer.ts:197](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L197)
+[src/core/geometry/GeometryVertexBuffer.ts:265](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L265)

@@ -8,6 +8,9 @@
 
   ↳ **`btSoftBody`**
 
+### Constructors
+
+- [constructor](Ammo.btSoftBody.md#constructor)
 
 ### Methods
 
@@ -70,9 +73,28 @@
 - [generateBendingConstraints](Ammo.btSoftBody.md#generatebendingconstraints)
 - [upcast](Ammo.btSoftBody.md#upcast)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.btSoftBody.md#constructor)
+### constructor
+
+• **new btSoftBody**(`worldInfo`, `node_count`, `x`, `m`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `worldInfo` | [`btSoftBodyWorldInfo`](Ammo.btSoftBodyWorldInfo.md) |
+| `node_count` | `number` |
+| `x` | [`btVector3`](Ammo.btVector3.md) |
+| `m` | readonly `number`[] |
+
+#### Overrides
+
+[btCollisionObject](Ammo.btCollisionObject.md).[constructor](Ammo.btCollisionObject.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:1010](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L1010)
 
 ## Methods
 
@@ -1265,26 +1287,3 @@ ___
 #### Defined in
 
 [packages/ammo/ammo.d.ts:1041](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L1041)
-
-## Constructors
-
-### constructor
-
-• **new btSoftBody**(`worldInfo`, `node_count`, `x`, `m`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `worldInfo` | [`btSoftBodyWorldInfo`](Ammo.btSoftBodyWorldInfo.md) |
-| `node_count` | `number` |
-| `x` | [`btVector3`](Ammo.btVector3.md) |
-| `m` | readonly `number`[] |
-
-#### Overrides
-
-[btCollisionObject](Ammo.btCollisionObject.md).[constructor](Ammo.btCollisionObject.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:1010](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L1010)

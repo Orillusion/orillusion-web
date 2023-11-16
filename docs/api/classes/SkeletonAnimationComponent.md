@@ -72,7 +72,7 @@ skeleton animation
 
 #### Defined in
 
-[src/components/SkeletonAnimationComponent.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L35)
+[src/components/SkeletonAnimationComponent.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L37)
 
 ## Properties
 
@@ -114,7 +114,7 @@ Whether it is playing
 
 #### Defined in
 
-[src/components/SkeletonAnimationComponent.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L18)
+[src/components/SkeletonAnimationComponent.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L20)
 
 ___
 
@@ -126,7 +126,7 @@ Global animation time scaling
 
 #### Defined in
 
-[src/components/SkeletonAnimationComponent.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L23)
+[src/components/SkeletonAnimationComponent.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L25)
 
 ## Accessors
 
@@ -260,7 +260,7 @@ The name of the currently playing animation
 
 #### Defined in
 
-[src/components/SkeletonAnimationComponent.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L46)
+[src/components/SkeletonAnimationComponent.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L48)
 
 ___
 
@@ -276,7 +276,7 @@ Skeleton data
 
 #### Defined in
 
-[src/components/SkeletonAnimationComponent.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L68)
+[src/components/SkeletonAnimationComponent.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L70)
 
 • `set` **skeleton**(`value`): `void`
 
@@ -294,7 +294,7 @@ Skeleton data
 
 #### Defined in
 
-[src/components/SkeletonAnimationComponent.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L56)
+[src/components/SkeletonAnimationComponent.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L58)
 
 ___
 
@@ -310,7 +310,7 @@ Current final skeleton posture data
 
 #### Defined in
 
-[src/components/SkeletonAnimationComponent.ts:75](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L75)
+[src/components/SkeletonAnimationComponent.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L77)
 
 ___
 
@@ -326,7 +326,7 @@ Bone matrix index table data
 
 #### Defined in
 
-[src/components/SkeletonAnimationComponent.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L82)
+[src/components/SkeletonAnimationComponent.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L84)
 
 ## Methods
 
@@ -632,7 +632,7 @@ ___
 
 #### Defined in
 
-[src/components/SkeletonAnimationComponent.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L39)
+[src/components/SkeletonAnimationComponent.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L41)
 
 ___
 
@@ -656,7 +656,7 @@ bone index
 
 #### Defined in
 
-[src/components/SkeletonAnimationComponent.ts:91](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L91)
+[src/components/SkeletonAnimationComponent.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L93)
 
 ___
 
@@ -678,7 +678,7 @@ Add a skeleton animation clip
 
 #### Defined in
 
-[src/components/SkeletonAnimationComponent.ts:105](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L105)
+[src/components/SkeletonAnimationComponent.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L107)
 
 ___
 
@@ -702,7 +702,7 @@ Animation clip data object
 
 #### Defined in
 
-[src/components/SkeletonAnimationComponent.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L122)
+[src/components/SkeletonAnimationComponent.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L124)
 
 ___
 
@@ -720,7 +720,7 @@ Animation clip data object
 
 #### Defined in
 
-[src/components/SkeletonAnimationComponent.ts:134](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L134)
+[src/components/SkeletonAnimationComponent.ts:136](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L136)
 
 ___
 
@@ -744,7 +744,7 @@ Animation clip state object
 
 #### Defined in
 
-[src/components/SkeletonAnimationComponent.ts:143](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L143)
+[src/components/SkeletonAnimationComponent.ts:145](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L145)
 
 ___
 
@@ -762,7 +762,7 @@ Animation clip state object
 
 #### Defined in
 
-[src/components/SkeletonAnimationComponent.ts:154](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L154)
+[src/components/SkeletonAnimationComponent.ts:156](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L156)
 
 ___
 
@@ -778,7 +778,7 @@ stop playing
 
 #### Defined in
 
-[src/components/SkeletonAnimationComponent.ts:161](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L161)
+[src/components/SkeletonAnimationComponent.ts:163](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L163)
 
 ___
 
@@ -794,7 +794,7 @@ Resume playback
 
 #### Defined in
 
-[src/components/SkeletonAnimationComponent.ts:168](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L168)
+[src/components/SkeletonAnimationComponent.ts:170](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L170)
 
 ___
 
@@ -818,7 +818,7 @@ Play the specified animation
 
 #### Defined in
 
-[src/components/SkeletonAnimationComponent.ts:179](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L179)
+[src/components/SkeletonAnimationComponent.ts:181](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L181)
 
 ___
 
@@ -841,7 +841,7 @@ Fades the current animation and fades into another animation state for a specifi
 
 #### Defined in
 
-[src/components/SkeletonAnimationComponent.ts:209](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L209)
+[src/components/SkeletonAnimationComponent.ts:211](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L211)
 
 ___
 
@@ -864,7 +864,7 @@ Set the animation loop
 
 #### Defined in
 
-[src/components/SkeletonAnimationComponent.ts:249](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L249)
+[src/components/SkeletonAnimationComponent.ts:251](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L251)
 
 ___
 
@@ -887,7 +887,7 @@ Add joint bindings to the object
 
 #### Defined in
 
-[src/components/SkeletonAnimationComponent.ts:260](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L260)
+[src/components/SkeletonAnimationComponent.ts:262](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L262)
 
 ___
 
@@ -909,7 +909,7 @@ Removes the joint binding of the specified object
 
 #### Defined in
 
-[src/components/SkeletonAnimationComponent.ts:272](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L272)
+[src/components/SkeletonAnimationComponent.ts:274](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L274)
 
 ___
 
@@ -935,4 +935,4 @@ Clones the current component to the specified object
 
 #### Defined in
 
-[src/components/SkeletonAnimationComponent.ts:320](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L320)
+[src/components/SkeletonAnimationComponent.ts:322](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L322)

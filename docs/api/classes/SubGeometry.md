@@ -20,8 +20,8 @@ geometry split more subGeometry descriptor
 
 ### lodLevels
 
-• **lodLevels**: [`LodLevel`](../types/LodLevel.md)[]
+• **lodLevels**: [`LODDescriptor`](../types/LODDescriptor.md)[]
 
 #### Defined in
 
-[src/core/geometry/GeometryBase.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L25)
+[src/core/geometry/GeometryBase.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L30)

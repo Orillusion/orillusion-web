@@ -12,7 +12,6 @@
 
   ↳ [`btSoftBody`](Ammo.btSoftBody.md)
 
-
 ### Constructors
 
 - [constructor](Ammo.btCollisionObject.md#constructor)

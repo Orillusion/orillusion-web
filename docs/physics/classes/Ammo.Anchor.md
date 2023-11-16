@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).Anchor
 
-
 ### Constructors
 
 - [constructor](Ammo.Anchor.md#constructor)

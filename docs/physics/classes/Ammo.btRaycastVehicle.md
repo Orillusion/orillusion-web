@@ -8,6 +8,9 @@
 
   ↳ **`btRaycastVehicle`**
 
+### Constructors
+
+- [constructor](Ammo.btRaycastVehicle.md#constructor)
 
 ### Methods
 
@@ -41,9 +44,27 @@
 - [setUserConstraintId](Ammo.btRaycastVehicle.md#setuserconstraintid)
 - [getUserConstraintId](Ammo.btRaycastVehicle.md#getuserconstraintid)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.btRaycastVehicle.md#constructor)
+### constructor
+
+• **new btRaycastVehicle**(`tuning`, `chassis`, `raycaster`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `tuning` | [`btVehicleTuning`](Ammo.btVehicleTuning.md) |
+| `chassis` | [`btRigidBody`](Ammo.btRigidBody.md) |
+| `raycaster` | [`btVehicleRaycaster`](Ammo.btVehicleRaycaster.md) |
+
+#### Overrides
+
+[btActionInterface](Ammo.btActionInterface.md).[constructor](Ammo.btActionInterface.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:828](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L828)
 
 ## Methods
 
@@ -576,25 +597,3 @@ ___
 #### Defined in
 
 [packages/ammo/ammo.d.ts:856](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L856)
-
-## Constructors
-
-### constructor
-
-• **new btRaycastVehicle**(`tuning`, `chassis`, `raycaster`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `tuning` | [`btVehicleTuning`](Ammo.btVehicleTuning.md) |
-| `chassis` | [`btRigidBody`](Ammo.btRigidBody.md) |
-| `raycaster` | [`btVehicleRaycaster`](Ammo.btVehicleRaycaster.md) |
-
-#### Overrides
-
-[btActionInterface](Ammo.btActionInterface.md).[constructor](Ammo.btActionInterface.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:828](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L828)

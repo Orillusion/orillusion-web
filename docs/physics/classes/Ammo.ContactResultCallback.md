@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).ContactResultCallback
 
-
 ### Constructors
 
 - [constructor](Ammo.ContactResultCallback.md#constructor)

@@ -1,6 +1,6 @@
 import { Engine3D, Scene3D, Vector3, Object3D, AtmosphericComponent, Camera3D, View3D, LitMaterial, MeshRenderer, BoxColliderShape, ColliderComponent, BoxGeometry, ComponentBase, Color, PointerEvent3D, SphereGeometry, DirectLight } from '@orillusion/core'
 
-export default class TouchDemo {
+class TouchDemo {
     scene: Scene3D
 
     cameraObj: Object3D

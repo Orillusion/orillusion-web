@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).Face
 
-
 ### Constructors
 
 - [constructor](Ammo.Face.md#constructor)

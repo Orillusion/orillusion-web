@@ -558,13 +558,13 @@ ___
 
 #### Defined in
 
-[src/components/anim/morphAnim/MorphTargetBlender.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetBlender.ts#L17)
+[src/components/anim/morphAnim/MorphTargetBlender.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetBlender.ts#L19)
 
 ___
 
 ### getMorphRenderersByKey
 
-▸ **getMorphRenderersByKey**(`key`): [`MeshRenderer`](MeshRenderer.md)[]
+▸ **getMorphRenderersByKey**(`key`): [`SkinnedMeshRenderer2`](SkinnedMeshRenderer2.md)[]
 
 #### Parameters
 
@@ -574,11 +574,11 @@ ___
 
 #### Returns
 
-[`MeshRenderer`](MeshRenderer.md)[]
+[`SkinnedMeshRenderer2`](SkinnedMeshRenderer2.md)[]
 
 #### Defined in
 
-[src/components/anim/morphAnim/MorphTargetBlender.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetBlender.ts#L33)
+[src/components/anim/morphAnim/MorphTargetBlender.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetBlender.ts#L38)
 
 ___
 
@@ -592,7 +592,7 @@ ___
 
 #### Defined in
 
-[src/components/anim/morphAnim/MorphTargetBlender.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetBlender.ts#L37)
+[src/components/anim/morphAnim/MorphTargetBlender.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetBlender.ts#L42)
 
 ___
 
@@ -616,4 +616,4 @@ Inject arkit data into the model and let all meshRender below the node accept mo
 
 #### Defined in
 
-[src/components/anim/morphAnim/MorphTargetBlender.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetBlender.ts#L53)
+[src/components/anim/morphAnim/MorphTargetBlender.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetBlender.ts#L58)

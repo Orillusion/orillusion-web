@@ -61,16 +61,16 @@ export class Sample_UV {
             let uv = new Vector4(0, 0, 1, 1)
             const GUIHelp = new dat.GUI()
             GUIHelp.add(uv, 'x', -1, 1, 0.001).onChange(() => {
-                mat.defaultPass.setUniform(`transformUV1`, uv)
+                mat.setUniformVector4(`transformUV1`, uv)
             })
             GUIHelp.add(uv, 'y', -1, 1, 0.001).onChange(() => {
-                mat.defaultPass.setUniform(`transformUV1`, uv)
+                mat.setUniformVector4(`transformUV1`, uv)
             })
             GUIHelp.add(uv, 'z', -5, 5, 0.01).onChange(() => {
-                mat.defaultPass.setUniform(`transformUV1`, uv)
+                mat.setUniformVector4(`transformUV1`, uv)
             })
             GUIHelp.add(uv, 'w', -5, 5, 0.01).onChange(() => {
-                mat.defaultPass.setUniform(`transformUV1`, uv)
+                mat.setUniformVector4(`transformUV1`, uv)
             })
 
             let plane = new Object3D()

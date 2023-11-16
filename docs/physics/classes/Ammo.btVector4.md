@@ -8,6 +8,9 @@
 
   ↳ **`btVector4`**
 
+### Constructors
+
+- [constructor](Ammo.btVector4.md#constructor)
 
 ### Methods
 
@@ -27,9 +30,38 @@
 - [w](Ammo.btVector4.md#w)
 - [setValue](Ammo.btVector4.md#setvalue)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.btVector4.md#constructor)
+### constructor
+
+• **new btVector4**()
+
+#### Overrides
+
+[btVector3](Ammo.btVector3.md).[constructor](Ammo.btVector3.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:57](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L57)
+
+• **new btVector4**(`x`, `y`, `z`, `w`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `x` | `number` |
+| `y` | `number` |
+| `z` | `number` |
+| `w` | `number` |
+
+#### Overrides
+
+[btVector3](Ammo.btVector3.md).[constructor](Ammo.btVector3.md#constructor)
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:58](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L58)
 
 ## Methods
 
@@ -376,36 +408,3 @@ btVector3.setValue
 #### Defined in
 
 [packages/ammo/ammo.d.ts:61](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L61)
-
-## Constructors
-
-### constructor
-
-• **new btVector4**()
-
-#### Overrides
-
-[btVector3](Ammo.btVector3.md).[constructor](Ammo.btVector3.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:57](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L57)
-
-• **new btVector4**(`x`, `y`, `z`, `w`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `x` | `number` |
-| `y` | `number` |
-| `z` | `number` |
-| `w` | `number` |
-
-#### Overrides
-
-[btVector3](Ammo.btVector3.md).[constructor](Ammo.btVector3.md#constructor)
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:58](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L58)

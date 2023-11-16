@@ -1,6 +1,6 @@
 import { AtmosphericComponent, BoxColliderShape, Camera3D, CameraUtil, ColliderComponent, Color, View3D, DirectLight, Engine3D, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PointerEvent3D, Scene3D, SphereGeometry, Vector3 } from '@orillusion/core'
 
-export class Sample_MousePick {
+class Sample_MousePick {
     lightObj: Object3D
     cameraObj: Camera3D
     scene: Scene3D
@@ -13,7 +13,7 @@ export class Sample_MousePick {
         Engine3D.setting.pick.enable = true
         Engine3D.setting.pick.mode = `pixel`
 
-        await Engine3D.init()
+        await Engine3D.init({})
 
         this.scene = new Scene3D()
         this.scene.addComponent(AtmosphericComponent)

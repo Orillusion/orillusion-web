@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).tAnchorArray
 
-
 ### Constructors
 
 - [constructor](Ammo.tAnchorArray.md#constructor)

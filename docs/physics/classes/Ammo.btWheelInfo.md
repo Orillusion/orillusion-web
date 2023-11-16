@@ -2,6 +2,9 @@
 
 [Ammo](../modules/Ammo.md).btWheelInfo
 
+### Constructors
+
+- [constructor](Ammo.btWheelInfo.md#constructor)
 
 ### Methods
 
@@ -56,9 +59,21 @@
 - [get\_m\_skidInfo](Ammo.btWheelInfo.md#get_m_skidinfo)
 - [set\_m\_skidInfo](Ammo.btWheelInfo.md#set_m_skidinfo)
 
-### Constructors
+## Constructors
 
-- [constructor](Ammo.btWheelInfo.md#constructor)
+### constructor
+
+• **new btWheelInfo**(`ci`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `ci` | [`btWheelInfoConstructionInfo`](Ammo.btWheelInfoConstructionInfo.md) |
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:780](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L780)
 
 ## Methods
 
@@ -910,19 +925,3 @@ ___
 #### Defined in
 
 [packages/ammo/ammo.d.ts:800](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L800)
-
-## Constructors
-
-### constructor
-
-• **new btWheelInfo**(`ci`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `ci` | [`btWheelInfoConstructionInfo`](Ammo.btWheelInfoConstructionInfo.md) |
-
-#### Defined in
-
-[packages/ammo/ammo.d.ts:780](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L780)

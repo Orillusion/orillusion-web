@@ -1,4 +1,4 @@
-import { Object3D, Scene3D, Engine3D, GlobalIlluminationComponent, Vector3, GTAOPost, PostProcessingComponent, HDRBloomPost, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, webGPUContext, DirectLight, KelvinUtil } from '@orillusion/core'
+import { Object3D, Scene3D, Engine3D, GlobalIlluminationComponent, Vector3, GTAOPost, PostProcessingComponent, BloomPost, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, webGPUContext, DirectLight, KelvinUtil } from '@orillusion/core'
 import * as dat from 'dat.gui'
 
 class Sample_GICornellBox {
@@ -27,16 +27,6 @@ class Sample_GICornellBox {
         Engine3D.setting.shadow.autoUpdate = true
         Engine3D.setting.shadow.updateFrameRate = 1
 
-        Engine3D.setting.render.postProcessing.bloom = {
-            enable: true,
-            debug: false,
-            blurX: 4,
-            blurY: 4,
-            luminosityThreshold: 0.9,
-            radius: 4,
-            strength: 1.2
-        }
-
         await Engine3D.init({
             canvasConfig: {
                 devicePixelRatio: 1
@@ -58,7 +48,7 @@ class Sample_GICornellBox {
         Engine3D.startRenderView(view)
 
         let postProcessing = this.scene.addComponent(PostProcessingComponent)
-        postProcessing.addPost(HDRBloomPost)
+        postProcessing.addPost(BloomPost)
         // add GI
         this.addGIProbes()
     }

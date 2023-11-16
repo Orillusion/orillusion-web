@@ -41,4 +41,4 @@ Return the build result (the maximum number of textures supported by GUIMaterial
 
 #### Defined in
 
-[src/components/gui/core/GUIGeometryRebuild.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIGeometryRebuild.ts#L24)
+[src/components/gui/core/GUIGeometryRebuild.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIGeometryRebuild.ts#L27)

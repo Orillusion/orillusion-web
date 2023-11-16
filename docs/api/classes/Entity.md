@@ -239,7 +239,7 @@ ___
 
 ### removeChild
 
-▸ **removeChild**(`child`): `any`
+▸ **removeChild**(`child`): `void`
 
 Remove the child objects of the object. You can remove any number of objects.
 
@@ -251,7 +251,7 @@ Remove the child objects of the object. You can remove any number of objects.
 
 #### Returns
 
-`any`
+`void`
 
 #### Defined in
 
@@ -428,7 +428,7 @@ release current object
 
 #### Defined in
 
-[src/core/entities/Entity.ts:332](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L332)
+[src/core/entities/Entity.ts:333](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L333)
 
 ___
 

@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).tFaceArray
 
-
 ### Constructors
 
 - [constructor](Ammo.tFaceArray.md#constructor)

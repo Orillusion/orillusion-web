@@ -45,7 +45,7 @@ mesh.material = new LitMaterial();
 | :---: | :---: |
 | baseColor | 材质基础颜色 |
 | emissiveColor | 材质发光颜色 |
-| emissiveIntensity | 材质发光强度，需要开启 HDRBloomPost 才能显示发光效果 |
+| emissiveIntensity | 材质发光强度，需要开启 BloomPost 才能显示发光效果 |
 | roughness | 材质粗糙程度 |
 | metallic | 材料金属度 |
 | normalScale | 法线贴图对材质的影响程度 |
@@ -104,9 +104,9 @@ mat.cullMode = GPUCullMode.back; // 剔除后面，显示正面
 ```ts
 let mat = new LitMaterial();
 // 获取当前 uv 变换
-let uv = mat.defaultPass.getUniform(`transformUV1`)
+let uv = mat.getUniformV4(`transformUV1`)
 // 设置新的 uv 变换 - Vector4(offsetU, offsetV, scalingU, scalingV)
-mat.defaultPass.setUniform(`transformUV1`, new Vector4(0, 0, 1, 1))
+mat.setUniformVector4(`transformUV1`, new Vector4(0, 0, 1, 1))
 ```
 
 <Demo :height="300" :code="false" src="/demos/materials/uv.ts"></Demo>

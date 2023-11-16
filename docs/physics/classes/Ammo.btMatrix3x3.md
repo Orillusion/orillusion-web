@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).btMatrix3x3
 
-
 ### Constructors
 
 - [constructor](Ammo.btMatrix3x3.md#constructor)

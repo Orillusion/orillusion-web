@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).btVehicleRaycasterResult
 
-
 ### Constructors
 
 - [constructor](Ammo.btVehicleRaycasterResult.md#constructor)

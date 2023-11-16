@@ -8,7 +8,6 @@
 
   ↳ [`btDefaultSoftBodySolver`](Ammo.btDefaultSoftBodySolver.md)
 
-
 ### Constructors
 
 - [constructor](Ammo.btSoftBodySolver.md#constructor)

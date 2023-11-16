@@ -22,9 +22,9 @@ export default async () =>
         head: [
             ['link', { rel: 'shortcut icon', type: 'image/png', href: '/images/icons/icon-192.png' }],
             ['link', { rel: 'dns-prefetch', href: 'https://cdn.orillusion.com' }],
-            ['link', { rel: 'prefetch',  href: "https://unpkg.com/@orillusion/core@0.6.9-beta.1/dist/orillusion.es.js" }],
-            ['link', { rel: 'prefetch',  href: "https://unpkg.com/@orillusion/physics@0.2.0/dist/physics.es.js" }],
-            ['link', { rel: 'prefetch',  href: "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js" }],
+            ['link', { rel: 'prefetch', href: 'https://unpkg.com/@orillusion/core@0.7.1/dist/orillusion.es.js' }],
+            ['link', { rel: 'prefetch', href: 'https://unpkg.com/@orillusion/physics@0.2.1/dist/physics.es.js' }],
+            ['link', { rel: 'prefetch', href: 'https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js' }],
             ['script', { async: 'true', src: 'https://www.googletagmanager.com/gtag/js?id=G-0H9189CS0W' }],
             ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no' }],
             ['meta', { name: 'mobile-web-app-capable', content: 'yes' }],
@@ -190,11 +190,11 @@ function nav() {
                 {
                     text: '教程',
                     link: '/guide/'
+                },
+                {
+                    text: '示例',
+                    link: '/example/base/AddRemove'
                 }
-                // {
-                //   text: '示例',
-                //   link: '/example/Animation/sample1'
-                // }
             ]
         },
         {
@@ -238,7 +238,7 @@ function nav() {
             link: 'https://forum.orillusion.com'
         },
         {
-            text: 'v0.6',
+            text: 'v0.7',
             items: [
                 {
                     text: '更新日志',
@@ -354,7 +354,7 @@ function sidebarGuide(): SidebarItem {
                 { text: '图片', link: '/guide/media/image.md' },
                 { text: '视频', link: '/guide/media/video.md' },
                 { text: '视频(背景过滤)', link: '/guide/media/chromakey.md' },
-                { text: '音频', link: '/guide/media/audio.md' },
+                { text: '音频', link: '/guide/media/audio.md' }
             ]
         },
         {
@@ -405,7 +405,7 @@ function sidebarGuide(): SidebarItem {
                             link: '/guide/advanced/shader/shader_include.md'
                         },
                         {
-                            text: '代码宏',
+                            text: '着色器宏定义',
                             link: '/guide/advanced/shader/shader_define.md'
                         },
                         {
@@ -447,14 +447,15 @@ function sidebarGuide(): SidebarItem {
                             link: '/guide/advanced/post_globalfog.md'
                         },
                         {
-                            text: 'HDRBloomPost',
+                            text: 'BloomPost',
                             link: '/guide/advanced/post_bloom.md'
                         },
                         {
                             text: 'GTAOPost',
                             link: '/guide/advanced/post_gtao.md'
                         },
-                        { text: 'TAAPost', link: '/guide/advanced/post_taa.md' }
+                        { text: 'TAAPost', link: '/guide/advanced/post_taa.md' },
+                        { text: 'GodRayPost', link: '/guide/advanced/post_godRay.md' }
                     ]
                 },
                 { text: '全局光照', link: '/guide/advanced/gi.md' }
@@ -522,18 +523,25 @@ function sidebar(root: string = '', packages: string) {
 }
 function sidebarExample(root: string = '') {
     const index: { [key: string]: string[] } = {
+        Base: [],
         Animation: [],
-        Camera: [],
-        Light: [],
+        Graphic: [],
+        GUI: [],
+        Geometry: [],
         Material: [],
-        Texture: [],
         Benchmark: [],
-        Advance: []
+        Lights: [],
+        Loader: [],
+        Particle: [],
+        Physics: [],
+        Ext: [],
+        GI: []
     }
 
     const examples: SidebarItem = []
     for (let i in index) {
-        const mds = readdirSync(__dirname + '/../example/' + i, 'utf-8').filter((v) => /\.md$/.test(v))
+        const dir = i.toLowerCase()
+        const mds = readdirSync(__dirname + '/../example/' + dir, 'utf-8').filter((v) => /\.md$/.test(v))
         examples.push({
             text: i,
             collapsible: true,
@@ -541,7 +549,7 @@ function sidebarExample(root: string = '') {
             items: mds.map((v: string) => {
                 return {
                     text: v.slice(0, -3),
-                    link: `${root}/example/${i}/${v}`
+                    link: `${root}/example/${dir}/${v}`
                 }
             })
         })

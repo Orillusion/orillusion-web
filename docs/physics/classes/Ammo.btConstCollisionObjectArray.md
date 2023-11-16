@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).btConstCollisionObjectArray
 
-
 ### Constructors
 
 - [constructor](Ammo.btConstCollisionObjectArray.md#constructor)

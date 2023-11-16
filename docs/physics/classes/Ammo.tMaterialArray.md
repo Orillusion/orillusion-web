@@ -2,7 +2,6 @@
 
 [Ammo](../modules/Ammo.md).tMaterialArray
 
-
 ### Constructors
 
 - [constructor](Ammo.tMaterialArray.md#constructor)
