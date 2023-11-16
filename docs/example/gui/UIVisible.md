@@ -4,6 +4,6 @@ aside: false
 
 # UIVisible
 ---
-<Demo src="/examples/GUI/UIVisible.ts" :code="false" :height="700"></Demo>
+<Demo src="/examples/gui/UIVisible.ts" :code="false" :height="700"></Demo>
 
-<<< @/public/examples/GUI/UIVisible.ts
+<<< @/public/examples/gui/UIVisible.ts

@@ -4,6 +4,6 @@ aside: false
 
 # SphereDraw
 ---
-<Demo src="/examples/Benchmark/SphereDraw.ts" :code="false" :height="700"></Demo>
+<Demo src="/examples/benchmark/SphereDraw.ts" :code="false" :height="700"></Demo>
 
-<<< @/public/examples/Benchmark/SphereDraw.ts
+<<< @/public/examples/benchmark/SphereDraw.ts

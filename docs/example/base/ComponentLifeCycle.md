@@ -4,6 +4,6 @@ aside: false
 
 # ComponentLifeCycle
 ---
-<Demo src="/examples/Base/ComponentLifeCycle.ts" :code="false" :height="700"></Demo>
+<Demo src="/examples/base/ComponentLifeCycle.ts" :code="false" :height="700"></Demo>
 
-<<< @/public/examples/Base/ComponentLifeCycle.ts
+<<< @/public/examples/base/ComponentLifeCycle.ts

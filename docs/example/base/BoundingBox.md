@@ -4,6 +4,6 @@ aside: false
 
 # BoundingBox
 ---
-<Demo src="/examples/Base/BoundingBox.ts" :code="false" :height="700"></Demo>
+<Demo src="/examples/base/BoundingBox.ts" :code="false" :height="700"></Demo>
 
-<<< @/public/examples/Base/BoundingBox.ts
+<<< @/public/examples/base/BoundingBox.ts

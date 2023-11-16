@@ -4,6 +4,6 @@ aside: false
 
 # Transform
 ---
-<Demo src="/examples/Base/Transform.ts" :code="false" :height="700"></Demo>
+<Demo src="/examples/base/Transform.ts" :code="false" :height="700"></Demo>
 
-<<< @/public/examples/Base/Transform.ts
+<<< @/public/examples/base/Transform.ts

@@ -4,6 +4,6 @@ aside: false
 
 # UIImageColor
 ---
-<Demo src="/examples/GUI/UIImageColor.ts" :code="false" :height="700"></Demo>
+<Demo src="/examples/gui/UIImageColor.ts" :code="false" :height="700"></Demo>
 
-<<< @/public/examples/GUI/UIImageColor.ts
+<<< @/public/examples/gui/UIImageColor.ts

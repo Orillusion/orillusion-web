@@ -4,6 +4,6 @@ aside: false
 
 # UIPerformance
 ---
-<Demo src="/examples/GUI/UIPerformance.ts" :code="false" :height="700"></Demo>
+<Demo src="/examples/gui/UIPerformance.ts" :code="false" :height="700"></Demo>
 
-<<< @/public/examples/GUI/UIPerformance.ts
+<<< @/public/examples/gui/UIPerformance.ts

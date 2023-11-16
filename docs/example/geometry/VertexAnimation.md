@@ -3,6 +3,6 @@ aside: false
 ---
 # VertexAnimation
 ---
-<Demo src="examples/Geometry/VertexAnimation.ts" :code="false" :height="700"></Demo>
+<Demo src="examples/geometry/VertexAnimation.ts" :code="false" :height="700"></Demo>
 
-<<< @/public/examples/Geometry/VertexAnimation.ts
+<<< @/public/examples/geometry/VertexAnimation.ts

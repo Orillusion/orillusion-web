@@ -3,6 +3,6 @@ aside: false
 ---
 # ConduitGeometry2
 ---
-<Demo src="examples/Geometry/ConduitGeometry2.ts" :code="false" :height="700"></Demo>
+<Demo src="examples/geometry/ConduitGeometry2.ts" :code="false" :height="700"></Demo>
 
-<<< @/public/examples/Geometry/ConduitGeometry2.ts
+<<< @/public/examples/geometry/ConduitGeometry2.ts
