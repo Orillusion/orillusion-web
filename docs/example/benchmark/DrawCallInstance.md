@@ -4,6 +4,6 @@ aside: false
 
 # drawCallInstance
 ---
-<Demo src="/examples/Benchmark/drawCallInstance.ts" :code="false" :height="700"></Demo>
+<Demo src="/examples/benchmark/DrawCallInstance.ts" :code="false" :height="700"></Demo>
 
-<<< @/public/examples/Benchmark/drawCallInstance.ts
+<<< @/public/examples/benchmark/DrawCallInstance.ts

@@ -4,6 +4,6 @@ aside: false
 
 # drawCallShareGeometry
 ---
-<Demo src="/examples/Benchmark/DrawCallShareGeometry.ts" :code="false" :height="700"></Demo>
+<Demo src="/examples/benchmark/DrawCallShareGeometry.ts" :code="false" :height="700"></Demo>
 
-<<< @/public/examples/Benchmark/DrawCallShareGeometry.ts
+<<< @/public/examples/benchmark/DrawCallShareGeometry.ts
