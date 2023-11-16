@@ -540,7 +540,8 @@ function sidebarExample(root: string = '') {
 
     const examples: SidebarItem = []
     for (let i in index) {
-        const mds = readdirSync(__dirname + '/../example/' + i, 'utf-8').filter((v) => /\.md$/.test(v))
+        const dir = i.toLowerCase()
+        const mds = readdirSync(__dirname + '/../example/' + dir, 'utf-8').filter((v) => /\.md$/.test(v))
         examples.push({
             text: i,
             collapsible: true,
@@ -548,7 +549,7 @@ function sidebarExample(root: string = '') {
             items: mds.map((v: string) => {
                 return {
                     text: v.slice(0, -3),
-                    link: `${root}/example/${i}/${v}`
+                    link: `${root}/example/${dir}/${v}`
                 }
             })
         })
