@@ -101,9 +101,9 @@ The engine's "setting" provides control parameters for the shadow size, which ca
 The relevant attributes are as follows:
 | Attribute       | Type    | Description |
 | --- | --- | --- |
-| shadowBound | Number | 阴影区域范围 |
-| shadowSize | Number | 平行光阴影贴图尺寸大小，默认1024 |
-| pointShadowSize | Number | 点光源阴影贴图大小尺寸，默认1024 |
+| shadowBound | Number | Shadow area range |
+| shadowSize | Number | Parallel light shadow map size, default 1024 |
+| pointShadowSize | Number | Point light Shadow Map Size Size, default 1024 |
 
 Shadow map size (`shadowSize`, `pointShadowSize`) directly affects the final shadow quality, and the smaller the value, the lower the performance overhead, and the more obvious the shadow jagged feeling.
 
