@@ -98,7 +98,7 @@ function nav() {
                 },
                 {
                   text: 'Example',
-                  link: '/example/Base/AddRemove'
+                  link: '/example/base/AddRemove'
                 }
             ]
         },
