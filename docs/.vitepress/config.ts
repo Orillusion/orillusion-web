@@ -208,11 +208,11 @@ function nav() {
                 {
                     text: 'Orillusion',
                     items: [
-                        { text: 'Core', link: '/api/' },
-                        { text: 'Physics', link: '/physics/' },
-                        { text: 'Media Extention', link: '/media-extention/' },
-                        { text: 'Stats', link: '/stats/' },
-                        { text: 'Particle', link: '/particle/' }
+                        { text: 'Core', link: '/api/', activeMatch: '/api/' },
+                        { text: 'Physics', link: '/physics/', activeMatch: '/physics/' },
+                        { text: 'Media Extention', link: '/media-extention/', activeMatch: '/media-extention/' },
+                        { text: 'Stats', link: '/stats/', activeMatch: '/stats/' },
+                        { text: 'Particle', link: '/particle/', activeMatch: '/particle/' }
                     ]
                 },
                 {
