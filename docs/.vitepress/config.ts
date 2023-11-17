@@ -186,19 +186,24 @@ function nav() {
     return [
         {
             text: '文档',
+            activeMatch: '/guide|example/',
             items: [
                 {
                     text: '教程',
-                    link: '/guide/'
+                    link: '/guide/',
+                    activeMatch: '/guide/'
                 },
                 {
                     text: '示例',
-                    link: '/example/base/AddRemove'
+                    link: '/example/base/AddRemove',
+                    target: '',
+                    activeMatch: '/example/'
                 }
             ]
         },
         {
             text: 'API',
+            activeMatch: '/api|physics|media-extention|stats|particle/',
             items: [
                 {
                     text: 'Orillusion',
