@@ -62,7 +62,6 @@ class DrawCallInstance {
     }
 
     private _list: Object3D[] = []
-    private _rotList: number[] = []
 
     initScene() {
         let shareGeometry = new BoxGeometry()
@@ -86,12 +85,9 @@ class DrawCallInstance {
             obj.transform.scaleX = Math.random() * 2 + 1.2
             obj.transform.scaleY = Math.random() * 2 + 1.2
             obj.transform.scaleZ = Math.random() * 2 + 1.2
-
             obj.transform.rotationX = Math.random() * 360
             obj.transform.rotationY = Math.random() * 360
             obj.transform.rotationZ = Math.random() * 360
-
-            this._rotList.push((Math.random() * 1 - 1 * 0.5) * 2.0 * Math.random() * 100)
             obj.transform.localDetailRot = new Vector3((Math.random() * 1 - 1 * 0.5) * 2.0 * Math.random() * 50 * 0.001, (Math.random() * 1 - 1 * 0.5) * 2.0 * Math.random() * 50 * 0.001, (Math.random() * 1 - 1 * 0.5) * 2.0 * Math.random() * 50 * 0.001)
 
             if (i % 10000 == 0) {
@@ -109,10 +105,8 @@ class DrawCallInstance {
 
     renderLoop() {
         if (this.anim) {
-            let i = 0
-            for (i = 0; i < this._list.length; i++) {
+            for (let i = 0; i < this._list.length; i++) {
                 let element = this._list[i]
-                // element.transform.rotationY += 1;
                 element.transform.localChange = true
             }
         }
