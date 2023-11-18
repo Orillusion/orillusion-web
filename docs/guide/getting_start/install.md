@@ -19,6 +19,8 @@ import { Engine3D, Camera3D } from '@orillusion/core'
 import * as Orillusion from '@orillusion/core'
 ```
 
+> 注意：`Orillusion` 引擎需要支持最新的 `WebGPU` 标准的浏览器运行，例如 `Chrome >= 114`, 因此无需兼容旧版 `JavaScript` 语法，默认基于 `ESNext` 进行构建发布。如果您使用 [Vite](https://vitejs.dev/) 或 [Webpack](https://webpack.js.org/) 等构建工具来部署项目，推荐将构建目标设定为 `ES2021` 及以上版本来确保所有 API 以最佳状态运行。
+
 ## 通过 `CDN` 链接引入
 我们也支持借助 `<script>` 标签直接通过 `CDN` 链接快捷使用 `orillusion` 引擎。下面以 `@orillusion/core` 链接为例，展示三种不同的引入方法。   
 > 用户可以使用第三方 `NPM` 分发服务来加载 `orillusion` 各个版本文件，如 [unpkg](https://unpkg.com/@orillusion/core) 或 [jsdelivr](https://www.jsdelivr.com/package/npm/@orillusion/core) 等。如有本地开发需求，用户可以下载对应版本的 `js` 文件，自主进行部署。
@@ -38,7 +40,7 @@ import * as Orillusion from '@orillusion/core'
 ```
 
 ### 2. ESModule 构建版本
-我们推荐使用 [ESModule](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Modules) 语法进行开发。大多数浏览器已经支持原生 `ES` 模块，用户可以直接引入符合 `ESNext` 的 `orillusion.es.js` 构建版本进行快速开发:
+我们推荐使用 [ESModule](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Modules) 语法进行开发。大多数浏览器已经支持原生 `ES` 模块，用户可以直接引入符合 `ESNext` 标准的 `orillusion.es.js` 构建版本进行快速开发:
 
 ```html
 <script type="module">

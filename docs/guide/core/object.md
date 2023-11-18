@@ -111,15 +111,14 @@ let obj2 = new Object3D();
 let metry = new BoxGeometry()
 let material = new LitMaterial()
 
-//为节点添加渲染组件, 共享几何和材质信息
+// 为节点添加渲染组件, 共享几何体和材质信息
 let mr1 = obj1.addComponent(MeshRenderer)
 let mr2 = obj2.addComponent(MeshRenderer)
 mr1.geometry = mr2.geometry = geometry
 mr2.material = mr2.material = material
 
-// 销毁其中一个
-obj.detroy(true) // 会强制释放 geometry 和 material
-// 引擎报错，渲染无法继续
+// 若强制销毁其中一个，会触发引擎报错，渲染无法继续
+obj1.detroy(true) // 会强制释放 geometry 和 material
 ```
 
 更多详细用法请参看 [Object3D](/api/classes/Object3D) API
