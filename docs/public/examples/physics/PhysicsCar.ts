@@ -70,6 +70,7 @@ class Sample_PhysicsCar {
         f.add({'Reset': () => {
             location.reload()
         }}, 'Reset')
+        f.add({"Use WASD": "control car to hit box"}, 'Use WASD')
         f.open()
     }
 
