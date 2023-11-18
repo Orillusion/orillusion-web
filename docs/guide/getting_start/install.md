@@ -19,6 +19,8 @@ Or you can import the entire module:
 import * as Orillusion from '@orillusion/core'
 ```
 
+> Note: The `Orillusion` engine requires a browser that supports the latest `WebGPU` standard, such as `Chrome >= 114`. Therefore, there is no need to maintain compatibility with older `JavaScript` syntax. The default production release is targetting `ESNext` syntax. If you are using build tools like [Vite](https://vitejs.dev/) or [Webpack](https://webpack.js.org/) to deploy your project, it is recommended to set the build target to `ES2021` or later to ensure all APIs operate in their optimal state.
+
 ## Import Via `CDN` Links
 We support quick access to the `orillusion` engine directly through a `CDN` link with the `<script>` tag. Here is an example of using `@orillusion/core` link.
 > Users can use third-party `NPM` distribution services to load various versions of `orillusion` files, such as [unpkg](https://unpkg.com/@orillusion/core) or [jsdelivr](https://www.jsdelivr.com/package/npm/@orillusion/core). For local development, users can download the corresponding version of `js` file.

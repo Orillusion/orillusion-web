@@ -120,9 +120,8 @@ let mr2 = obj2.addComponent(MeshRenderer)
 mr1.geometry = mr2.geometry = geometry
 mr2.material = mr2.material = material
 
-// destroy one object
-obj.detroy(true) // this could force release geometry and material
-// throw engine errors and stop rendering
+// will throw errors and stop rendering if destroyed the shared geo/mat
+obj1.detroy(true) // this could force release geometry and material
 ```
 
 See [Object3D](/api/classes/Object3D) API for more details.
