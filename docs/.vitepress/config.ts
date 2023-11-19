@@ -84,6 +84,9 @@ export default async () =>
         markdown: {
             lineNumbers: true,
             attrs: { disable: true }
+        },
+        router: {
+            prefetchLinks: false
         }
     })
 
