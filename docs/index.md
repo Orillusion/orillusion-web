@@ -15,6 +15,9 @@ hero:
       text: Get Started
       link: /guide/
     - theme: alt
+      text: Example
+      link: /example/base/AddRemove
+    - theme: alt
       text: GitHub
       link: https://github.com/Orillusion/orillusion
 
