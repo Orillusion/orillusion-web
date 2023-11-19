@@ -15,6 +15,9 @@ hero:
       text: 快速开始
       link: /guide/
     - theme: alt
+      text: 查看示例
+      link: /example/base/AddRemove
+    - theme: alt
       text: GitHub
       link: https://github.com/Orillusion/orillusion
 
