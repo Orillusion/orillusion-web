@@ -60,28 +60,28 @@ class Sample_UIImageGroup {
         let f = GUIHelp.addFolder('Position')
         let pos = { x: quat.x, y: quat.y }
         let action = () => this.imageGroup.setXY(1, pos.x, pos.y)
-        f.add(pos, 'x', -Engine3D.width * 0.5, Engine3D.width * 0.5, 1).onChange(action)
-        f.add(pos, 'y', -Engine3D.height * 0.5, Engine3D.height * 0.5, 1).onChange(action)
+        f.add(pos, 'x', -Engine3D.width, Engine3D.width, 1).onChange(action)
+        f.add(pos, 'y', -Engine3D.height, Engine3D.height, 1).onChange(action)
         f.open()
 
         f = GUIHelp.addFolder('Size')
         let size = { width: quat.width, height: quat.height }
         let action2 = () => this.imageGroup.setSize(1, size.width, size.height)
-        f.add(size, 'width', 0, 256, 1).onChange(action2)
-        f.add(size, 'height', 0, 256, 1).onChange(action2)
+        f.add(size, 'width', 0, 512, 1).onChange(action2)
+        f.add(size, 'height', 0, 512, 1).onChange(action2)
         f.open()
     }
 
     private createSpriteSheets(root: Object3D, texture: Texture): UIImageGroup {
         let sprite = makeAloneSprite('logo', texture)
         let imgGroup = root.addComponent(UIImageGroup, { count: 2 })
-        let size = 128
+        let size = 256
         this.halfSize = size * 0.5
         for (let i = 0; i < 2; i++) {
             imgGroup.setSprite(i, sprite)
             imgGroup.setSize(i, size, size)
             if (i == 1) {
-                imgGroup.setXY(1, -this.halfSize, 128 - this.halfSize)
+                imgGroup.setXY(1, -this.halfSize, this.halfSize)
             } else {
                 imgGroup.setXY(0, -this.halfSize, -this.halfSize)
             }

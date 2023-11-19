@@ -11,7 +11,7 @@ specifiers:
   '@types/node': ^18.18.8
   esbuild: ^0.17.19
   prettier: ^2.8.8
-  vitepress: 1.0.0-rc.27
+  vitepress: 1.0.0-rc.28
   vue: ^3.3.7
 
 dependencies:
@@ -27,7 +27,7 @@ devDependencies:
   '@types/node': 18.18.8
   esbuild: 0.17.19
   prettier: 2.8.8
-  vitepress: 1.0.0-rc.27_@types+node@18.18.8
+  vitepress: 1.0.0-rc.28_@types+node@18.18.8
   vue: 3.3.7
 
 packages:
@@ -1184,6 +1184,11 @@ packages:
     resolution: {integrity: sha512-BECkorDF1TY2rGKt9XHdSeP9TP29yUbrAaCh/C03wpyf1vx3uYcP/+8XlMcpTkgoU0rBVnHMAOaP83Rc9Tm+TQ==}
     dev: true
 
+  /mrmime/1.0.1:
+    resolution: {integrity: sha512-hzzEagAgDyoU1Q6yg5uI+AorQgdvMCur3FcKf7NhMKWsaYg+RnbTyHRa/9IlLF9rf455MOCtcqqrQQ83pPP7Uw==}
+    engines: {node: '>=10'}
+    dev: true
+
   /nanoid/3.3.6:
     resolution: {integrity: sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
@@ -1296,8 +1301,8 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitepress/1.0.0-rc.27_@types+node@18.18.8:
-    resolution: {integrity: sha512-1qs1a5qPQxNOJN451HmNtKewxSIOk52qv1EdWtsO6V6kvrNxF2FFR3Inhj0W56Jcs8AKIdzKDKHNYIJhcyz3AA==}
+  /vitepress/1.0.0-rc.28_@types+node@18.18.8:
+    resolution: {integrity: sha512-cB0DNhX1jgmyZxPSrH5E+YpgpSlLuDL4ec9UjeqTe/Si1+MEvIJRgifB0RjGfojKa+gkSo97nLO6WN+iFgtgXQ==}
     hasBin: true
     peerDependencies:
       markdown-it-mathjax3: ^4.3.2
@@ -1318,6 +1323,7 @@ packages:
       focus-trap: 7.5.4
       mark.js: 8.11.1
       minisearch: 6.2.0
+      mrmime: 1.0.1
       shiki: 0.14.5
       vite: 5.0.0_@types+node@18.18.8
       vue: 3.3.8
