@@ -104,7 +104,7 @@ obj.destroy() // but this won't release the geometry and material object
 geometry.destroy() // call destory geometry manually
 material.destroy() // call destory material manually
 ```
-f you are sure that the node resources are no longer in use, you can use the `destroy(true)` with additional parameter to forcibly destroy all related resources of the node.
+You can use the `destroy(true)` with additional parameter to forcibly destroy all related resources of the node.
 > Note: If the rendering objects are being shared, forcing deletion may trigger engine errors and cause rendering failure.
 ```ts
 let obj1 = new Object3D();
