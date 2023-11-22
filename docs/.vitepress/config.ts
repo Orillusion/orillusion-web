@@ -22,7 +22,7 @@ export default async () =>
         head: [
             ['link', { rel: 'shortcut icon', type: 'image/png', href: '/images/icons/icon-192.png' }],
             ['link', { rel: 'dns-prefetch', href: 'https://cdn.orillusion.com' }],
-            ['link', { rel: 'prefetch', href: 'https://registry.npmmirror.com/@orillusion/core/0.7.1-dev.3/files/dist/orillusion.es.js' }],
+            ['link', { rel: 'prefetch', href: 'https://registry.npmmirror.com/@orillusion/core/0.7.1-dev.4/files/dist/orillusion.es.js' }],
             ['link', { rel: 'prefetch', href: 'https://registry.npmmirror.com/@orillusion/physics/0.2.1/files/dist/physics.es.js' }],
             ['link', { rel: 'prefetch', href: 'https://registry.npmmirror.com/dat.gui/0.7.9/files/build/dat.gui.module.js' }],
             ['script', { async: 'true', src: 'https://www.googletagmanager.com/gtag/js?id=G-0H9189CS0W' }],

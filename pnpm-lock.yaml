@@ -11,7 +11,7 @@ specifiers:
   '@types/node': ^18.18.8
   esbuild: ^0.17.19
   prettier: ^2.8.8
-  vitepress: 1.0.0-rc.28
+  vitepress: 1.0.0-rc.29
   vue: ^3.3.7
 
 dependencies:
@@ -27,7 +27,7 @@ devDependencies:
   '@types/node': 18.18.8
   esbuild: 0.17.19
   prettier: 2.8.8
-  vitepress: 1.0.0-rc.28_@types+node@18.18.8
+  vitepress: 1.0.0-rc.29_@types+node@18.18.8
   vue: 3.3.7
 
 packages:
@@ -1301,8 +1301,8 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitepress/1.0.0-rc.28_@types+node@18.18.8:
-    resolution: {integrity: sha512-cB0DNhX1jgmyZxPSrH5E+YpgpSlLuDL4ec9UjeqTe/Si1+MEvIJRgifB0RjGfojKa+gkSo97nLO6WN+iFgtgXQ==}
+  /vitepress/1.0.0-rc.29_@types+node@18.18.8:
+    resolution: {integrity: sha512-6sKmyEvH16SgMqkHzRwwadt9Uju13AOIqouzOVEg3Rk6X9mds6jLsq2GxnAJvg0s6bl/0Qs/cw+f8SNki82ltw==}
     hasBin: true
     peerDependencies:
       markdown-it-mathjax3: ^4.3.2
