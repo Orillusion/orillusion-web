@@ -3,7 +3,7 @@
 
 | 属性 | 类型 | 描述 |
 | :---: | :---: | :---: |
-| baseMap | Texture | 图片贴图 |
+| baseMap | VideoTexture | 视频贴图 |
 | baseColor | Color | 基础颜色 |
 | rectClip | Vector4 | 上下左右裁剪区域 |
 
