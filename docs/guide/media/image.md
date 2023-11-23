@@ -1,18 +1,12 @@
 # Image Material
-This material inherits from the [UnLit](../graphics/materials.md#unlit-材质) material, which also does not calculate lighting and is a basic material that only renders based on the pixel color of the image. The difference is that it adds the setting of spatial clipping `(clip)` , which can make the display of images more flexible.
+This material inherits from the [UnLit](../graphics/materials.md#unlit-material) material, which also does not calculate lighting and is a basic material that only renders based on the pixel color of the image. The difference is that it features a `rectClip` setting for spatial clipping, allowing for flexible image cropping.
 
 The following properties are supported:
-| Property | Description |
-| :---: | :---: |
-| baseColor | Base color |
-| uv_offsetX | x-axis displacement |
-| uv_offsetY | y-axis displacement |
-| uv_scaleX | x-axis scaling |
-| uv_scaleY | y-axis scaling |
-| clip_left | Left clipping |
-| clip_top | Top clipping |
-| clip_right | Right clipping |
-| clip_bottom | Bottom clipping |
+| Property | Type | Description |
+| :---: | :---: | :---: |
+| baseMap | Texture | Image texture |
+| baseColor | Color | Base color |
+| rectClip | Vector4 | clipping area |
 
 ## Usage
 ```ts
@@ -23,6 +17,10 @@ let mat = new ImageMaterial();
 // Load 2D texture
 let texture = await Engine3D.res.loadTexture('path/to/image');
 mat.baseMap = texture;
+// set base color
+mat.baseColor = new Color(1, 1, 1, 1)
+// set clipping area offset, left/top/right/bottom
+mat.rectClip = new Vector4(0, 0, 0, 0);
 ```
 
 <Demo :height="300" src="/demos/media/image.ts"></Demo>

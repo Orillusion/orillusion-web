@@ -36,12 +36,15 @@ view.camera = mainCamera
 // start render
 Engine3D.startRenderView(view)
 
-console.log(mat)
-let GUIHelp = new dat.GUI()
-GUIHelp.addFolder('ChromaKek')
-GUIHelp.addColor({ color: [0, 255, 0] }, 'color').onChange((v) => {
-    mat.keyColor = new Color(0, 1, 0).copyFromArray(v)
+let gui = new dat.GUI()
+let f = gui.addFolder('ChromaKey')
+f.addColor({ keyColor: [0, 255, 0] }, 'keyColor').onChange((v) => {
+    mat.keyColor = new Color(v[0]/255, v[1]/255, v[2]/255)
 })
-GUIHelp.add(mat, 'colorCutoff', 0, 1, 0.01)
-GUIHelp.add(mat, 'colorFeathering', 0, 1, 0.01)
-GUIHelp.add(mat, 'sharpening', 0, 1, 0.01)
+f.add(mat, 'colorCutoff', 0, 1, 0.01)
+f.add(mat, 'colorFeathering', 0, 1, 0.01)
+f.add(mat, 'maskFeathering', 0, 1, 0.01)
+f.add(mat, 'sharpening', 0, 1, 0.01)
+f.add(mat, 'despoil', 0, 1, 0.01)
+f.add(mat, 'despoilLuminanceAdd', 0, 1, 0.01)
+f.open()

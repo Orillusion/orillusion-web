@@ -12,7 +12,7 @@ npm install @orillusion/media-extention --save
 ```
 ```ts
 import { Engine3D } from "@orillusion/core"
-import { Physics } from "@orillusion/media-extention"
+import { VideoMaterial } from "@orillusion/media-extention"
 ```
 
 ## 2. Import via `CDN` Links

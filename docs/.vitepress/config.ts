@@ -85,6 +85,11 @@ export default async () =>
         },
         router: {
             prefetchLinks: false
+        },
+        vite: {
+            build:{
+                target: 'esnext'
+            }
         }
     })
 

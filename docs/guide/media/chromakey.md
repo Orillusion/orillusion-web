@@ -1,17 +1,11 @@
 # Color Key Material (Filter Background Color)
 The ChromaKey material adds a background color filtering feature on top of the Video [Video](./video.md) material, supporting the following properties of the basic video material UV:
 
-| Property | Description |
-| :---: | :---: |
-| baseColor | Base color |
-| uv_offsetX | x-direction displacement |
-| uv_offsetY | y-direction displacement |
-| uv_scaleX | x-axis scaling |
-| uv_scaleY | y-axis scaling |
-| clip_left | left clipping |
-| clip_top | top clipping |
-| clip_right | right clipping |
-| clip_bottom | bottom clipping |
+| Property | Type | Description |
+| :---: | :---: | :---: |
+| baseMap | VideoTexture | Video texture |
+| baseColor | Color | Base color |
+| rectClip | Vector4 | clipping offset |
 
 In addition, `ChromaKeyMaterial` also provides background color filtering function:
 | Property | Description |
