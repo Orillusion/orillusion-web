@@ -179,21 +179,20 @@ class Sample_UISpriteSheet {
         //color
         let color: Color = Color.random();
         color.a = 1;
-
         color.r = clamp(color.r * 1.5, 0.5, 1);
         color.g = clamp(color.g * 1.5, 0.5, 1);
         color.b = clamp(color.b * 1.5, 0.5, 1);
 
+        let size = 64
         for (let i = 0; i < 5000; i++) {
             let quad = new Object3D();
             root.addChild(quad);
-            //
             let img = quad.addComponent(UIImage);
             img.color = color;
             img.sprite = Engine3D.res.getGUISprite('00065');
-            img.uiTransform.resize(64, 64);
-            img.uiTransform.x = (Math.random() - 0.5) * width * 0.7;
-            img.uiTransform.y = (Math.random() - 0.5) * height * 0.7;
+            img.uiTransform.resize(size, size);
+            img.uiTransform.x = (Math.random() - 0.5) * width;
+            img.uiTransform.y = (Math.random() - 0.5) * height;
             let sheet: SpriteSheet = new SpriteSheet(img, this.keyFrames, bound);
             this.spriteSheets.push(sheet);
         }
