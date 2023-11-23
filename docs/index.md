@@ -33,8 +33,8 @@ features:
 
 <div class="heroDemos">
   <div class="container">
-    <Demo src="/examples/pbr.ts" :code="false" :codepen="false" :height="450"></Demo>
-    <Demo src="/examples/pbr2.ts" :code="false" :codepen="false" :height="450"></Demo>
+    <Demo src="/examples/pbr.ts" :code="false" :codepen="false" :fullscreen="false" :height="450"></Demo>
+    <Demo src="/examples/pbr2.ts" :code="false" :codepen="false" :fullscreen="false" :height="450"></Demo>
   </div>
 </div>
 <Logo :homeHero="true"></Logo>
