@@ -29,24 +29,24 @@
         </script>
         <script type="module">
             if (!/localhost/.test(location.hostname)) {
-                Promise.all([fetch(location.search.slice(1)).then((r) => r.text()), fetch(location.search.slice(1).replace('.ts', '.js')).then((r) => r.text())]).then((res) => createScript(res[1], res[0]))
+                Promise.all([fetch(location.search.slice(1)).then((r) => r.text()), fetch(location.search.slice(1).replace('.ts', '.js')).then((r) => r.text())]).then((res) => createScript(res[1], res[0]));
             } else {
                 Promise.all([
                     fetch(location.search.slice(1)).then((r) => r.text()),
                     new Promise(async (r) => {
                         function check() {
-                            if (window.parent.esbuild) r(window.parent.esbuild)
-                            else setTimeout(check, 50)
+                            if (window.parent.esbuild) r(window.parent.esbuild);
+                            else setTimeout(check, 50);
                         }
-                        check()
+                        check();
                     })
                 ]).then(async (res) => {
-                    const js = await res[1].transform(res[0], { loader: 'ts' })
-                    createScript(js.code, res[0])
-                })
+                    const js = await res[1].transform(res[0], { loader: 'ts' });
+                    createScript(js.code, res[0]);
+                });
             }
             function createScript(js, ts) {
-                const script = document.createElement('script')
+                const script = document.createElement('script');
                 script.innerHTML = js.replace(
                     /Engine3D\.startRenderView\((\S+)\)/,
                     `Engine3D.startRenderView($1);
@@ -57,21 +57,21 @@
                         else if(e.data === 'resume')
                             Engine3D.resume()
                     }`
-                )
-                script.type = 'module'
+                );
+                script.type = 'module';
                 const intersectionObserver = new IntersectionObserver(function (entries) {
                     if (entries[0].isIntersecting) {
                         if (!window.__ready) {
-                            window.__ready = true
-                            document.body.appendChild(script)
+                            window.__ready = true;
+                            document.body.appendChild(script);
                         } else {
-                            window.postMessage('resume')
+                            window.postMessage('resume');
                         }
                     } else {
-                        window.postMessage('pause')
+                        window.postMessage('pause');
                     }
-                })
-                intersectionObserver.observe(document.body)
+                });
+                intersectionObserver.observe(document.body);
                 // open new tab to codepen
                 window.codepen = () =>
                     JSON.stringify({
@@ -81,7 +81,7 @@
                         html: document.querySelector('script[type="importmap"]').outerHTML,
                         js: ts,
                         js_pre_processor: 'typescript'
-                    })
+                    });
             }
         </script>
     </body>

@@ -1,12 +1,11 @@
-import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, webGPUContext, HoverCameraController, View3D, LitMaterial, MeshRenderer, BoxGeometry, DirectLight, KelvinUtil, Object3DUtil, SkeletonAnimationComponent } from "@orillusion/core";
-import { Stats } from '@orillusion/stats'
+import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, webGPUContext, HoverCameraController, View3D, LitMaterial, MeshRenderer, BoxGeometry, DirectLight, KelvinUtil, Object3DUtil, SkeletonAnimationComponent } from '@orillusion/core';
+import { Stats } from '@orillusion/stats';
 
 class Sample_Skeleton2 {
     lightObj3D: Object3D;
     scene: Scene3D;
 
     async run() {
-
         Engine3D.setting.shadow.autoUpdate = true;
         Engine3D.setting.shadow.updateFrameRate = 1;
         Engine3D.setting.shadow.shadowSize = 2048;
@@ -14,7 +13,7 @@ class Sample_Skeleton2 {
         await Engine3D.init();
 
         this.scene = new Scene3D();
-        this.scene.addComponent(Stats)
+        this.scene.addComponent(Stats);
         let sky = this.scene.addComponent(AtmosphericComponent);
         this.scene.exposure = 1;
 
@@ -86,7 +85,7 @@ class Sample_Skeleton2 {
                 if (i < animName.length) {
                     animation.play(animName[i]);
                 } else {
-                    let animIndex = Math.floor(Math.random() * 100 % 3);
+                    let animIndex = Math.floor((Math.random() * 100) % 3);
                     animation.play(animName[animIndex], -5 + Math.random() * 10);
                 }
                 await this.sleep(10);
@@ -96,9 +95,9 @@ class Sample_Skeleton2 {
     }
 
     sleep(time: number) {
-        return new Promise(res => {
-            setTimeout(res, time || 200)
-        })
+        return new Promise((res) => {
+            setTimeout(res, time || 200);
+        });
     }
 }
 

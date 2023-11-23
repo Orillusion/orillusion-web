@@ -1,16 +1,16 @@
-import { defineConfig } from 'vitepress'
-import { readFileSync, readdirSync } from 'fs'
+import { defineConfig } from 'vitepress';
+import { readFileSync, readdirSync } from 'fs';
 
 type SidebarItem = {
-    text: string
-    collapsible?: boolean
-    collapsed?: boolean
+    text: string;
+    collapsible?: boolean;
+    collapsed?: boolean;
     items: {
-        text: string
-        link: string
-        items?: { text: string; link: string }[]
-    }[]
-}[]
+        text: string;
+        link: string;
+        items?: { text: string; link: string }[];
+    }[];
+}[];
 export default async () =>
     defineConfig({
         base: '/en',
@@ -23,7 +23,7 @@ export default async () =>
         head: [
             ['link', { rel: 'shortcut icon', type: 'image/png', href: '/en/images/icons/icon-192.png' }],
             ['link', { rel: 'dns-prefetch', href: 'https://cdn.orillusion.com' }],
-            ['link', { rel: 'prefetch',  href: "https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js" }],
+            ['link', { rel: 'prefetch', href: 'https://unpkg.com/dat.gui@0.7.9/build/dat.gui.module.js' }],
             ['script', { async: 'true', src: 'https://www.googletagmanager.com/gtag/js?id=G-0H9189CS0W' }],
             ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no' }],
             ['meta', { name: 'mobile-web-app-capable', content: 'yes' }],
@@ -60,7 +60,9 @@ export default async () =>
             socialLinks: [
                 { icon: 'github', link: 'https://github.com/Orillusion/orillusion' },
                 {
-                    icon: {svg: '<svg viewBox="0 0 1024 1024"><path d="M490.338 592.738c11.816 11.816 29.539 11.816 41.354 0L976.738 179.2c7.877-15.754 5.908-41.354-25.6-41.354l-880.246 1.97c-23.63 0-43.323 21.66-25.6 41.353l445.046 411.57z m494.277-252.061c0-19.692-23.63-31.508-39.384-17.723L596.677 643.938c-23.63 21.662-53.17 33.477-84.677 33.477s-61.046-11.815-84.677-31.507L80.738 322.954c-15.753-13.785-39.384-3.939-39.384 17.723-1.97-5.908-1.97 447.015-1.97 447.015 0 43.323 35.447 78.77 78.77 78.77h787.692c43.323 0 78.77-35.447 78.77-78.77V340.677z"></path></svg>'},
+                    icon: {
+                        svg: '<svg viewBox="0 0 1024 1024"><path d="M490.338 592.738c11.816 11.816 29.539 11.816 41.354 0L976.738 179.2c7.877-15.754 5.908-41.354-25.6-41.354l-880.246 1.97c-23.63 0-43.323 21.66-25.6 41.353l445.046 411.57z m494.277-252.061c0-19.692-23.63-31.508-39.384-17.723L596.677 643.938c-23.63 21.662-53.17 33.477-84.677 33.477s-61.046-11.815-84.677-31.507L80.738 322.954c-15.753-13.785-39.384-3.939-39.384 17.723-1.97-5.908-1.97 447.015-1.97 447.015 0 43.323 35.447 78.77 78.77 78.77h787.692c43.323 0 78.77-35.447 78.77-78.77V340.677z"></path></svg>'
+                    },
                     link: 'mailto:business@orillusion.com'
                 }
             ],
@@ -87,11 +89,11 @@ export default async () =>
             prefetchLinks: false
         },
         vite: {
-            build:{
+            build: {
                 target: 'esnext'
             }
         }
-    })
+    });
 
 function nav() {
     return [
@@ -105,9 +107,9 @@ function nav() {
                     activeMatch: '/guide/'
                 },
                 {
-                  text: 'Example',
-                  link: '/example/base/AddRemove',
-                  activeMatch: '/example/'
+                    text: 'Example',
+                    link: '/example/base/AddRemove',
+                    activeMatch: '/example/'
                 }
             ]
         },
@@ -118,8 +120,8 @@ function nav() {
                 {
                     text: 'Orillusion',
                     items: [
-                        { text: 'Core', link: '/api/', activeMatch:'/api/'},
-                        { text: 'Physics', link: '/physics/', activeMatch: '/physics/'},
+                        { text: 'Core', link: '/api/', activeMatch: '/api/' },
+                        { text: 'Physics', link: '/physics/', activeMatch: '/physics/' },
                         { text: 'Media Extention', link: '/media-extention/', activeMatch: '/media-extention/' },
                         { text: 'Stats', link: '/stats/', activeMatch: '/stats/' },
                         { text: 'Particle', link: '/particle/', activeMatch: '/particle/' }
@@ -156,7 +158,7 @@ function nav() {
                 }
             ]
         }
-    ]
+    ];
 }
 
 function sidebarGuide(): SidebarItem {
@@ -312,26 +314,26 @@ function sidebarGuide(): SidebarItem {
                 { text: 'Global Illumination', link: '/guide/advanced/gi.md' }
             ]
         }
-    ]
+    ];
 }
 
 function sidebar(root: string = '', packages: string) {
-    const index: { [key: string]: { text: string; link: string }[] } = {}
-    const mds = readFileSync(`${__dirname}/../${packages}/index.md`, 'utf-8').match(/.*.(\n|\r)/g) as string[]
-    let lastTitle = ''
+    const index: { [key: string]: { text: string; link: string }[] } = {};
+    const mds = readFileSync(`${__dirname}/../${packages}/index.md`, 'utf-8').match(/.*.(\n|\r)/g) as string[];
+    let lastTitle = '';
     for (let line of mds) {
-        if (line.match(/# @/)) continue
+        if (line.match(/# @/)) continue;
         else if (line.match(/##\s\w+/)) {
-            lastTitle = line.slice(3, -1).trim()
-            index[lastTitle] = []
+            lastTitle = line.slice(3, -1).trim();
+            index[lastTitle] = [];
         } else {
-            let text = line.match(/\w+/)
-            let md = line.match(/\w+\/\w+\.md/)
+            let text = line.match(/\w+/);
+            let md = line.match(/\w+\/\w+\.md/);
             if (md && text) {
                 index[lastTitle].push({
                     text: text[0],
                     link: `${root}/${packages}/${md[0]}`
-                })
+                });
             }
         }
     }
@@ -361,16 +363,16 @@ function sidebar(root: string = '', packages: string) {
                 }
             ]
         }
-    ]
+    ];
     for (let i in index) {
         sidebar.push({
             text: i,
             collapsible: true,
             collapsed: false,
             items: index[i]
-        })
+        });
     }
-    return sidebar
+    return sidebar;
 }
 function sidebarExample(root: string = '') {
     const index: { [key: string]: string[] } = {
@@ -387,20 +389,20 @@ function sidebarExample(root: string = '') {
         Physics: [],
         Ext: [],
         GI: []
-    }
+    };
 
-    const examples: SidebarItem = []
+    const examples: SidebarItem = [];
     for (let i in index) {
-        const dir = i.toLowerCase()
-        const mds = readdirSync(__dirname + '/../example/' + dir, 'utf-8').filter((v) => /\.md$/.test(v))
+        const dir = i.toLowerCase();
+        const mds = readdirSync(__dirname + '/../example/' + dir, 'utf-8').filter((v) => /\.md$/.test(v));
         examples.push({
             text: i,
             collapsible: true,
             collapsed: false,
             items: mds.map((v: string) => {
-                return { text: v.slice(0, -3), link: `${root}/example/${dir}/${v}` }
+                return { text: v.slice(0, -3), link: `${root}/example/${dir}/${v}` };
             })
-        })
+        });
     }
-    return examples
+    return examples;
 }

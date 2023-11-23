@@ -110,6 +110,7 @@ export default {
             this.$refs.form.submit()
         },
         requestFullscreen(){
+            this.full = false
             this.$refs.iframe?.requestFullscreen()
         }
     }

@@ -1,20 +1,19 @@
-import { AtmosphericComponent, BoundingBox, BoxGeometry, CameraUtil, ComponentBase, Engine3D, HoverCameraController, LitMaterial, MeshRenderer, Object3D, Object3DUtil, PointLight, Quaternion, Scene3D, SphereGeometry, Time, UUID, Vector3, View3D, } from "@orillusion/core";
-import { Stats } from '@orillusion/stats'
+import { AtmosphericComponent, BoundingBox, BoxGeometry, CameraUtil, ComponentBase, Engine3D, HoverCameraController, LitMaterial, MeshRenderer, Object3D, Object3DUtil, PointLight, Quaternion, Scene3D, SphereGeometry, Time, UUID, Vector3, View3D } from '@orillusion/core';
+import { Stats } from '@orillusion/stats';
 import * as dat from 'dat.gui';
 
 class Sample_PointLight {
     scene: Scene3D;
     hoverCameraController: HoverCameraController;
     lightObj: any;
-    private Ori: dat.GUI | undefined
-    constructor() { }
+    private Ori: dat.GUI | undefined;
+    constructor() {}
 
     async run() {
-
         await Engine3D.init({});
 
         this.scene = new Scene3D();
-        this.scene.addComponent(Stats)
+        this.scene.addComponent(Stats);
         let sky = this.scene.addComponent(AtmosphericComponent);
         // init camera3D
         let mainCamera = CameraUtil.createCamera3D(null, this.scene);
@@ -33,7 +32,7 @@ class Sample_PointLight {
     }
 
     initScene(scene: Scene3D) {
-        let lightObj3D = this.lightObj = new Object3D();
+        let lightObj3D = (this.lightObj = new Object3D());
         let render = lightObj3D.addComponent(MeshRenderer);
         render.geometry = new SphereGeometry(5, 30, 30);
         render.material = new LitMaterial();
@@ -81,7 +80,7 @@ export class PointLightsScript extends ComponentBase {
     private _startAnim: boolean = false;
 
     private static geo: SphereGeometry;
-    private static mat: LitMaterial
+    private static mat: LitMaterial;
     private static boundBox: BoundingBox;
 
     private _geo: SphereGeometry;
@@ -102,14 +101,24 @@ export class PointLightsScript extends ComponentBase {
 
         this._startAnim = false;
 
-        let gui = new dat.GUI()
+        let gui = new dat.GUI();
         let f = gui.addFolder('random pointLight');
-        f.add({'append light': () => {
-            this.beginAnim();
-        }}, 'append light');
-        f.add({'remove light': () => {
-            this.stopAnim();
-        }}, 'remove light');
+        f.add(
+            {
+                'append light': () => {
+                    this.beginAnim();
+                }
+            },
+            'append light'
+        );
+        f.add(
+            {
+                'remove light': () => {
+                    this.stopAnim();
+                }
+            },
+            'remove light'
+        );
         f.open();
     }
 
@@ -121,7 +130,6 @@ export class PointLightsScript extends ComponentBase {
         for (let i = 0; i < count; i++) {
             this.createLight();
         }
-
     }
 
     public stopAnim() {
@@ -141,15 +149,14 @@ export class PointLightsScript extends ComponentBase {
         let poi = obj.addComponent(PointLight);
         poi.name = UUID();
         poi.transform.x = this._boundBox.center.x + this._boundBox.extents.x * Math.random();
-        poi.transform.y = 10;//this._boundBox.center.y + this._boundBox.extents.y * Math.random();
+        poi.transform.y = 10; //this._boundBox.center.y + this._boundBox.extents.y * Math.random();
         poi.transform.z = this._boundBox.center.z + this._boundBox.extents.z * Math.random();
-        poi.range = 30
+        poi.range = 30;
         poi.r = Math.random() + 0.1;
         poi.g = Math.random() + 0.1;
         poi.b = Math.random() + 0.1;
         poi.intensity = Math.random() * 1.5 + 10;
         poi.range *= Math.random() * 0.5 + 0.5;
-
 
         this.object3D.addChild(obj);
         this._points.push(poi);
@@ -164,10 +171,8 @@ export class PointLightsScript extends ComponentBase {
     }
 
     onUpdate(): void {
-        if (!this._startAnim)
-            return;
-        if (Time.delta > 30)
-            return;
+        if (!this._startAnim) return;
+        if (Time.delta > 30) return;
         for (let i = 0; i < this._points.length; i++) {
             const po = this._points[i];
             const pd = this._pointLightItems[i];

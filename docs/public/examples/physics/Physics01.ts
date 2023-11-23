@@ -1,13 +1,13 @@
-import { Physics, Rigidbody } from "@orillusion/physics";
-import { Scene3D, DirectLight, View3D, KelvinUtil, CameraUtil, AtmosphericComponent, HoverCameraController, Object3D, LitMaterial, Engine3D, BoxGeometry, MeshRenderer, ColliderComponent, BoxColliderShape, Vector3, PlaneGeometry, Color } from "@orillusion/core";
-import { Stats } from '@orillusion/stats'
-import dat from 'dat.gui'
+import { Physics, Rigidbody } from '@orillusion/physics';
+import { Scene3D, DirectLight, View3D, KelvinUtil, CameraUtil, AtmosphericComponent, HoverCameraController, Object3D, LitMaterial, Engine3D, BoxGeometry, MeshRenderer, ColliderComponent, BoxColliderShape, Vector3, PlaneGeometry, Color } from '@orillusion/core';
+import { Stats } from '@orillusion/stats';
+import dat from 'dat.gui';
 
 class SamplePhysics01 {
     private scene: Scene3D;
     private materials: LitMaterial[];
     private boxGeometry: BoxGeometry;
-    private Ori: dat.GUI | undefined
+    private Ori: dat.GUI | undefined;
 
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
@@ -17,55 +17,55 @@ class SamplePhysics01 {
         await Physics.init();
         await Engine3D.init({ renderLoop: () => this.loop() });
 
-        let scene = new Scene3D()
-        scene.addComponent(Stats)
-    
-        // init sky
-        let atmosphericSky: AtmosphericComponent
-        atmosphericSky = scene.addComponent(AtmosphericComponent)
-    
-        // init Camera3D
-        let camera = CameraUtil.createCamera3DObject(scene)
-        camera.perspective(60, Engine3D.aspect, 1, 5000)
-        camera.enableCSM = true
-        // init Camera Controller
-        let hoverCtrl = camera.object3D.addComponent(HoverCameraController)
-        hoverCtrl.setCamera(-30, -15, 50)
-    
-        // init View3D
-        let view = new View3D()
-        view.scene = scene
-        view.camera = camera
-    
-        // create direction light
-        let lightObj3D = new Object3D()
-        lightObj3D.x = 0
-        lightObj3D.y = 30
-        lightObj3D.z = -40
-        lightObj3D.rotationX = 20
-        lightObj3D.rotationY = 160
-        lightObj3D.rotationZ = 0
-    
-        let light = lightObj3D.addComponent(DirectLight)
-        light.lightColor = KelvinUtil.color_temperature_to_rgb(5355)
-        light.castShadow = true
-        light.intensity = 30
-    
-        scene.addChild(light.object3D)
-    
-        // relative light to sky
-        atmosphericSky.relativeTransform = light.transform
+        let scene = new Scene3D();
+        scene.addComponent(Stats);
 
-        let gui = new dat.GUI()
-        let DirLight = gui.addFolder('Light')
-        DirLight.add(light, 'enable')
-        DirLight.add(light.transform, 'rotationX', 0.0, 360.0, 0.01)
-        DirLight.add(light.transform, 'rotationY', 0.0, 360.0, 0.01)
-        DirLight.add(light.transform, 'rotationZ', 0.0, 360.0, 0.01)
-        DirLight.add(light, 'intensity', 0.0, 160.0, 0.01)
-        DirLight.add(light, 'indirect', 0.0, 10.0, 0.01)
-        DirLight.add(light, 'castShadow')
-        DirLight.open()
+        // init sky
+        let atmosphericSky: AtmosphericComponent;
+        atmosphericSky = scene.addComponent(AtmosphericComponent);
+
+        // init Camera3D
+        let camera = CameraUtil.createCamera3DObject(scene);
+        camera.perspective(60, Engine3D.aspect, 1, 5000);
+        camera.enableCSM = true;
+        // init Camera Controller
+        let hoverCtrl = camera.object3D.addComponent(HoverCameraController);
+        hoverCtrl.setCamera(-30, -15, 50);
+
+        // init View3D
+        let view = new View3D();
+        view.scene = scene;
+        view.camera = camera;
+
+        // create direction light
+        let lightObj3D = new Object3D();
+        lightObj3D.x = 0;
+        lightObj3D.y = 30;
+        lightObj3D.z = -40;
+        lightObj3D.rotationX = 20;
+        lightObj3D.rotationY = 160;
+        lightObj3D.rotationZ = 0;
+
+        let light = lightObj3D.addComponent(DirectLight);
+        light.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
+        light.castShadow = true;
+        light.intensity = 30;
+
+        scene.addChild(light.object3D);
+
+        // relative light to sky
+        atmosphericSky.relativeTransform = light.transform;
+
+        let gui = new dat.GUI();
+        let DirLight = gui.addFolder('Light');
+        DirLight.add(light, 'enable');
+        DirLight.add(light.transform, 'rotationX', 0.0, 360.0, 0.01);
+        DirLight.add(light.transform, 'rotationY', 0.0, 360.0, 0.01);
+        DirLight.add(light.transform, 'rotationZ', 0.0, 360.0, 0.01);
+        DirLight.add(light, 'intensity', 0.0, 160.0, 0.01);
+        DirLight.add(light, 'indirect', 0.0, 10.0, 0.01);
+        DirLight.add(light, 'castShadow');
+        DirLight.open();
 
         this.scene = scene;
         await this.initScene(this.scene);

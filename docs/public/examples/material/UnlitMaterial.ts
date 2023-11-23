@@ -1,4 +1,4 @@
-import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight, KelvinUtil, BitmapTexture2D, Color, PlaneGeometry, MeshRenderer, UnLitMaterial, SphereGeometry, LitMaterial } from "@orillusion/core";
+import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight, KelvinUtil, BitmapTexture2D, Color, PlaneGeometry, MeshRenderer, UnLitMaterial, SphereGeometry, LitMaterial } from '@orillusion/core';
 
 class Sample_UnlitMaterial {
     lightObj3D: Object3D;
@@ -60,7 +60,7 @@ class Sample_UnlitMaterial {
             let sphere = new Object3D();
             let renderer = sphere.addComponent(MeshRenderer);
             renderer.geometry = new SphereGeometry(1, 32, 32);
-            renderer.material = new UnLitMaterial()
+            renderer.material = new UnLitMaterial();
             sphere.scaleX = 5;
             sphere.scaleY = 5;
             sphere.scaleZ = 5;
@@ -73,7 +73,7 @@ class Sample_UnlitMaterial {
             let sphere = new Object3D();
             let renderer = sphere.addComponent(MeshRenderer);
             renderer.geometry = new SphereGeometry(1, 32, 32);
-            renderer.material = new LitMaterial()
+            renderer.material = new LitMaterial();
             sphere.scaleX = 5;
             sphere.scaleY = 5;
             sphere.scaleZ = 5;

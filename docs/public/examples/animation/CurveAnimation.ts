@@ -1,5 +1,5 @@
-import { Object3D, Scene3D, AnimationCurve, Engine3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight, KelvinUtil, Keyframe, Object3DUtil, Time } from "@orillusion/core";
-import { Stats } from "@orillusion/stats";
+import { Object3D, Scene3D, AnimationCurve, Engine3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight, KelvinUtil, Keyframe, Object3DUtil, Time } from '@orillusion/core';
+import { Stats } from '@orillusion/stats';
 
 class Sample_AnimCurve {
     lightObj3D: Object3D;
@@ -17,7 +17,7 @@ class Sample_AnimCurve {
 
         await Engine3D.init({ beforeRender: () => this.renderUpdate() });
         this.scene = new Scene3D();
-        this.scene.addComponent(Stats)
+        this.scene.addComponent(Stats);
         let sky = this.scene.addComponent(AtmosphericComponent);
 
         let camera = CameraUtil.createCamera3DObject(this.scene);
@@ -77,7 +77,6 @@ class Sample_AnimCurve {
             this.curve4.addKeyFrame(new Keyframe(0.6, -2));
             this.curve4.addKeyFrame(new Keyframe(0.9, 2));
             this.curve4.addKeyFrame(new Keyframe(1.0, 1));
-
         }
 
         this.scene.addChild(Object3DUtil.GetSingleCube(300, 5, 300, 1, 1, 1));
@@ -85,14 +84,14 @@ class Sample_AnimCurve {
         // load a gltf model
         this.Duck = (await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/Duck/Duck.gltf')) as Object3D;
         this.Duck.scaleX = this.Duck.scaleY = this.Duck.scaleZ = 0.3;
-        this.Duck.name = "Duck"
+        this.Duck.name = 'Duck';
         this.scene.addChild(this.Duck);
     }
 
     renderUpdate() {
         //modify animation attribute values to the model
         if (this.Duck) {
-            let time = (Time.time * 0.4 % (1000) / 1000);
+            let time = ((Time.time * 0.4) % 1000) / 1000;
             this.Duck.y = this.curve1.getValue(time) * 5;
             this.Duck.x = this.curve3.getValue(time) * 5 - 2.5;
             this.Duck.z = this.curve4.getValue(time) * 5 - 2.5;

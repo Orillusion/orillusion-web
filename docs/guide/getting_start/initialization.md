@@ -6,7 +6,7 @@ import { Engine3D } from '@orillusion/core';
 
 Engine3D.init().then(()=>{
   // for following operations
-})
+})l
 ```
 Note that `Engine3D.init()` is an asynchronous API, it is recommended to be use with `async/await`
 
@@ -17,7 +17,7 @@ async function demo(){
   await Engine3D.init();
   // for following operations
 }
-demo()
+demo();
 ```
 
 ## Create Canvas Manually
@@ -29,18 +29,17 @@ For example, the user can insert a `<canvas>` label into the HTML and specify an
 
 then using `document.getElementById`  in Typescript to get the canvas:
 ```ts
-let canvas = document.getElementById('canvas')
+let canvas = document.getElementById('canvas');
 ```
 
 and using `canvasConfig` to pass paraments of `canvas` into `init()` method for initialization:
 ```ts
 import { Engine3D } from '@orillusion/core';
 
-let canvas = document.getElementById('canvas')
+let canvas = document.getElementById('canvas');
 await Engine3D.init({
   canvasConfig: { canvas }
 });
 ```
 
 Get more information of configuration from [Engine3D](/guide/core/engine)
-

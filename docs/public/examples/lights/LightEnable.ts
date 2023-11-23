@@ -1,12 +1,12 @@
-import { AtmosphericComponent, BoxGeometry, CameraUtil, Color, Engine3D, HoverCameraController, LitMaterial, MeshRenderer, Object3D, Object3DUtil, PointLight, Scene3D, SphereGeometry, View3D, } from "@orillusion/core";
-import { PointLightsScript } from "./PointLightsScript";
-import dat from 'dat.gui'
+import { AtmosphericComponent, BoxGeometry, CameraUtil, Color, Engine3D, HoverCameraController, LitMaterial, MeshRenderer, Object3D, Object3DUtil, PointLight, Scene3D, SphereGeometry, View3D } from '@orillusion/core';
+import { PointLightsScript } from './PointLightsScript';
+import dat from 'dat.gui';
 
 class Sample_LightEnable {
     scene: Scene3D;
     hoverCameraController: HoverCameraController;
     lightObj: any;
-    constructor() { }
+    constructor() {}
 
     async run() {
         await Engine3D.init();
@@ -36,7 +36,6 @@ class Sample_LightEnable {
 
         scene.addChild(lightObj3D);
 
-
         let cube = new BoxGeometry(10, 10, 10);
         let mat = new LitMaterial();
 
@@ -59,11 +58,11 @@ class Sample_LightEnable {
         let floor = Object3DUtil.GetSingleCube(2000, 1, 2000, 0.5, 0.5, 0.5);
         this.scene.addChild(floor);
 
-        let gui = new dat.GUI()
-        let f = gui.addFolder('Orillusion')
+        let gui = new dat.GUI();
+        let f = gui.addFolder('Orillusion');
         for (let i = 0; i < 5; i++) {
             let pointLight = new Object3D();
-            pointLight.name = "Light" + i;
+            pointLight.name = 'Light' + i;
             let light = pointLight.addComponent(PointLight);
             light.lightColor = Color.random();
             light.intensity = 6 * Math.random() + 3;
@@ -74,15 +73,17 @@ class Sample_LightEnable {
             pointLight.z = 0;
             scene.addChild(pointLight);
 
-            f.add(light, 'enable').onChange((e) => {
-                light.enable = e;
-            }).name(pointLight.name + ':enable')
-            f.add(light, 'castShadow').onChange((e) => {
-                light.castShadow = e;
-            }).name(pointLight.name + ':shadow')
+            f.add(light, 'enable')
+                .onChange((e) => {
+                    light.enable = e;
+                })
+                .name(pointLight.name + ':enable');
+            f.add(light, 'castShadow')
+                .onChange((e) => {
+                    light.castShadow = e;
+                })
+                .name(pointLight.name + ':shadow');
         }
-
-
     }
 }
 

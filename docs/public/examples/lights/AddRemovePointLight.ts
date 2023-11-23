@@ -1,15 +1,14 @@
-import { AtmosphericComponent, BoxGeometry, CameraUtil, Color, Engine3D, HoverCameraController, LitMaterial, MeshRenderer, Object3D, Object3DUtil, PointLight, Scene3D, SphereGeometry, View3D, } from "@orillusion/core";
-import dat from 'dat.gui'
+import { AtmosphericComponent, BoxGeometry, CameraUtil, Color, Engine3D, HoverCameraController, LitMaterial, MeshRenderer, Object3D, Object3DUtil, PointLight, Scene3D, SphereGeometry, View3D } from '@orillusion/core';
+import dat from 'dat.gui';
 
 class Sample_AddRemovePointLight {
     scene: Scene3D;
     hoverCameraController: HoverCameraController;
     lightObj: any;
-    
-    constructor() { }
+
+    constructor() {}
 
     async run() {
-
         await Engine3D.init({});
 
         this.scene = new Scene3D();
@@ -37,7 +36,6 @@ class Sample_AddRemovePointLight {
 
         scene.addChild(lightObj3D);
 
-
         let cube = new BoxGeometry(10, 10, 10);
         let mat = new LitMaterial();
 
@@ -61,9 +59,9 @@ class Sample_AddRemovePointLight {
         this.scene.addChild(floor);
 
         let list: Object3D[] = [];
-        
+
         var button_add = {
-            addPointLight:  () => {
+            addPointLight: () => {
                 for (let i = 0; i < 5; i++) {
                     let pointLight = new Object3D();
                     let script = pointLight.addComponent(PointLight);
@@ -78,26 +76,25 @@ class Sample_AddRemovePointLight {
                     list.push(pointLight);
                 }
             }
-        }
+        };
 
         var button_remove = {
-            removePointLight:  () => {
+            removePointLight: () => {
                 for (let i = 0; i < Math.min(1, list.length); i++) {
                     let index = Math.floor(list.length * Math.random());
                     let obj = list[index];
                     if (obj) {
-                        list.splice(index, 1)
-                        scene.removeChild(obj)
+                        list.splice(index, 1);
+                        scene.removeChild(obj);
                         obj.destroy();
                     }
                 }
             }
-        }
+        };
         let gui = new dat.GUI();
-        let f = gui.addFolder('Orillusion')
-        f.add(button_add, 'addPointLight')
-        f.add(button_remove, 'removePointLight')
-
+        let f = gui.addFolder('Orillusion');
+        f.add(button_add, 'addPointLight');
+        f.add(button_remove, 'removePointLight');
     }
 }
 
