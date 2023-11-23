@@ -1,12 +1,11 @@
-import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, webGPUContext, HoverCameraController, View3D, LitMaterial, MeshRenderer, BoxGeometry, DirectLight, KelvinUtil, Object3DUtil } from "@orillusion/core";
-import { Stats } from '@orillusion/stats'
+import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, webGPUContext, HoverCameraController, View3D, LitMaterial, MeshRenderer, BoxGeometry, DirectLight, KelvinUtil, Object3DUtil } from '@orillusion/core';
+import { Stats } from '@orillusion/stats';
 
 class Sample_Skeleton {
     lightObj3D: Object3D;
     scene: Scene3D;
-    private Ori: dat.GUI | undefined
+    private Ori: dat.GUI | undefined;
     async run() {
-
         Engine3D.setting.shadow.autoUpdate = true;
         Engine3D.setting.shadow.updateFrameRate = 1;
         Engine3D.setting.shadow.shadowBound = 100;
@@ -14,7 +13,7 @@ class Sample_Skeleton {
         await Engine3D.init();
 
         this.scene = new Scene3D();
-        this.scene.addComponent(Stats)
+        this.scene.addComponent(Stats);
         let sky = this.scene.addComponent(AtmosphericComponent);
 
         let camera = CameraUtil.createCamera3DObject(this.scene);

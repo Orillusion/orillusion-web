@@ -1,6 +1,6 @@
-import { Scene3D, PropertyAnimation, Engine3D, Object3D, Object3DUtil, PropertyAnimClip, WrapMode, WorldPanel, BillboardType, TextAnchor, UIImage, UIShadow, UITextField, Vector3, Color, Time, HoverCameraController, AtmosphericComponent, CameraUtil, View3D, DirectLight, KelvinUtil, GPUCullMode } from "@orillusion/core";
-import {Stats} from "@orillusion/stats";
-import dat from "dat.gui";
+import { Scene3D, PropertyAnimation, Engine3D, Object3D, Object3DUtil, PropertyAnimClip, WrapMode, WorldPanel, BillboardType, TextAnchor, UIImage, UIShadow, UITextField, Vector3, Color, Time, HoverCameraController, AtmosphericComponent, CameraUtil, View3D, DirectLight, KelvinUtil, GPUCullMode } from '@orillusion/core';
+import { Stats } from '@orillusion/stats';
+import dat from 'dat.gui';
 
 class Sample_POI {
     scene: Scene3D;
@@ -20,54 +20,53 @@ class Sample_POI {
             }
         });
         // init Scene3D
-        this.scene = new Scene3D()
-        this.scene.exposure = 1
-        this.scene.addComponent(Stats)
+        this.scene = new Scene3D();
+        this.scene.exposure = 1;
+        this.scene.addComponent(Stats);
 
         // init sky
-        let atmosphericSky: AtmosphericComponent
-        atmosphericSky = this.scene.addComponent(AtmosphericComponent)
+        let atmosphericSky: AtmosphericComponent;
+        atmosphericSky = this.scene.addComponent(AtmosphericComponent);
 
         // init Camera3D
-        let camera = CameraUtil.createCamera3DObject(this.scene)
-        camera.perspective(60, Engine3D.aspect, 1, 5000)
+        let camera = CameraUtil.createCamera3DObject(this.scene);
+        camera.perspective(60, Engine3D.aspect, 1, 5000);
         camera.enableCSM = true;
 
         // init Camera Controller
-        let hoverCtrl = camera.object3D.addComponent(HoverCameraController)
-        hoverCtrl.setCamera(-30, -15, 16)
+        let hoverCtrl = camera.object3D.addComponent(HoverCameraController);
+        hoverCtrl.setCamera(-30, -15, 16);
 
         // init View3D
-        let view = new View3D()
-        view.scene = this.scene
-        view.camera = camera
+        let view = new View3D();
+        view.scene = this.scene;
+        view.camera = camera;
 
         // create direction light
-        let lightObj3D = new Object3D()
-        lightObj3D.x = 0
-        lightObj3D.y = 30
-        lightObj3D.z = -40
-        lightObj3D.rotationX = 20
-        lightObj3D.rotationY = 160
-        lightObj3D.rotationZ = 0
+        let lightObj3D = new Object3D();
+        lightObj3D.x = 0;
+        lightObj3D.y = 30;
+        lightObj3D.z = -40;
+        lightObj3D.rotationX = 20;
+        lightObj3D.rotationY = 160;
+        lightObj3D.rotationZ = 0;
 
-        let light = lightObj3D.addComponent(DirectLight)
-        light.lightColor = KelvinUtil.color_temperature_to_rgb(5355)
-        light.castShadow = true
-        light.intensity = 30
+        let light = lightObj3D.addComponent(DirectLight);
+        light.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
+        light.castShadow = true;
+        light.intensity = 30;
 
-        this.scene.addChild(light.object3D)
+        this.scene.addChild(light.object3D);
 
         // relative light to sky
-        atmosphericSky.relativeTransform = light.transform
+        atmosphericSky.relativeTransform = light.transform;
 
-        Engine3D.startRenderView(view)
+        Engine3D.startRenderView(view);
 
         await this.initScene();
         this.initDuckPOI();
         this.initScenePOI();
     }
-
 
     async initScene() {
         // floor
@@ -76,7 +75,7 @@ class Sample_POI {
         await Engine3D.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt');
 
         // load external model
-        let model = await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/Duck/Duck.gltf') as Object3D;
+        let model = (await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/Duck/Duck.gltf')) as Object3D;
         model.rotationY = 180;
         this.modelContainer = new Object3D();
         this.modelContainer.addChild(model);
@@ -84,7 +83,7 @@ class Sample_POI {
         model.scaleX = model.scaleY = model.scaleZ = 0.01;
         await this.initPropertyAnim(this.modelContainer);
 
-        let chair = await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/SheenChair/SheenChair.gltf') as Object3D;
+        let chair = (await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/SheenChair/SheenChair.gltf')) as Object3D;
         chair.scaleX = chair.scaleY = chair.scaleZ = 8;
         this.scene.addChild(chair);
     }
@@ -136,7 +135,7 @@ class Sample_POI {
 
         const gui = new dat.GUI();
         // GUIUtil.renderUIPanel(this.panel, true);
-        let uifolder = gui.addFolder("GUI Panel");
+        let uifolder = gui.addFolder('GUI Panel');
         //cull mode
         let cullMode = {};
         cullMode[GPUCullMode.none] = GPUCullMode.none;
@@ -144,7 +143,7 @@ class Sample_POI {
         cullMode[GPUCullMode.back] = GPUCullMode.back;
 
         // change cull mode by click dropdown box
-        uifolder.add({cullMode: GPUCullMode.none}, 'cullMode', cullMode).onChange((v) => {
+        uifolder.add({ cullMode: GPUCullMode.none }, 'cullMode', cullMode).onChange((v) => {
             this.panel.cullMode = v;
         });
 
@@ -155,7 +154,7 @@ class Sample_POI {
         billboard['XYZ'] = BillboardType.BillboardXYZ;
 
         // change billboard by click dropdown box
-        uifolder.add({billboard: this.panel.billboard}, 'billboard', billboard).onChange((v) => {
+        uifolder.add({ billboard: this.panel.billboard }, 'billboard', billboard).onChange((v) => {
             this.panel.billboard = v;
         });
 
@@ -173,7 +172,7 @@ class Sample_POI {
         let canvas = this.scene.view.enableUICanvas();
         //panel
         let panel = new Object3D().addComponent(WorldPanel);
-        panel.cullMode = "none";
+        panel.cullMode = 'none';
         //add to canvas
         canvas.addChild(panel.object3D);
         panel.object3D.localScale = new Vector3(0.1, 0.1, 0.1);
@@ -207,7 +206,7 @@ class Sample_POI {
             this.panel.object3D.localPosition = this.position;
         }
         if (this.sceneText) {
-            let count = 1 + Math.floor(Time.frame * 0.1) % 30;
+            let count = 1 + (Math.floor(Time.frame * 0.1) % 30);
             if (this.charCount != count) {
                 this.charCount = count;
                 let newTitle = this.title.slice(0, this.charCount);

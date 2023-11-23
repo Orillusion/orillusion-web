@@ -1,6 +1,6 @@
-import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, webGPUContext, HoverCameraController, View3D, SkeletonAnimationComponent, LitMaterial, MeshRenderer, BoxGeometry, DirectLight, KelvinUtil, Time, Object3DUtil, BoundingBox, SkinnedMeshRenderer } from "@orillusion/core";
-import dat from 'dat.gui'
-import { Stats } from '@orillusion/stats'
+import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, webGPUContext, HoverCameraController, View3D, SkeletonAnimationComponent, LitMaterial, MeshRenderer, BoxGeometry, DirectLight, KelvinUtil, Time, Object3DUtil, BoundingBox, SkinnedMeshRenderer } from '@orillusion/core';
+import dat from 'dat.gui';
+import { Stats } from '@orillusion/stats';
 
 // Sample to use SkeletonAnimationComponent
 class Sample_Skeleton3 {
@@ -8,18 +8,18 @@ class Sample_Skeleton3 {
     scene: Scene3D;
     character: Object3D;
     view: View3D;
-    private Ori: dat.GUI | undefined
+    private Ori: dat.GUI | undefined;
 
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
         Engine3D.setting.shadow.updateFrameRate = 1;
         Engine3D.setting.shadow.shadowBound = 100;
         await Engine3D.init({
-            renderLoop: () => this.onRenderLoop(),
+            renderLoop: () => this.onRenderLoop()
         });
 
         this.scene = new Scene3D();
-        this.scene.addComponent(Stats)
+        this.scene.addComponent(Stats);
         let sky = this.scene.addComponent(AtmosphericComponent);
 
         let mainCamera = CameraUtil.createCamera3DObject(this.scene);
@@ -48,50 +48,61 @@ class Sample_Skeleton3 {
             this.character.rotationY = 180;
             scene.addChild(this.character);
 
-
             let animation = this.character.getComponentsInChild(SkeletonAnimationComponent)[0];
 
-            const runClip = animation.getAnimationClip("Run");
-            runClip.addEvent("Begin", 0);
-            runClip.addEvent("Mid", runClip.totalTime / 2);
-            runClip.addEvent("End", runClip.totalTime);
+            const runClip = animation.getAnimationClip('Run');
+            runClip.addEvent('Begin', 0);
+            runClip.addEvent('Mid', runClip.totalTime / 2);
+            runClip.addEvent('End', runClip.totalTime);
 
-            animation.eventDispatcher.addEventListener("Begin", (e: any /*AnimationEvent*/) => {
-                console.log("Run-Begin", e.skeletonAnimation.getAnimationClipState('Run').time)
-            }, this);
-            animation.eventDispatcher.addEventListener("Mid", (e: any /*AnimationEvent*/) => {
-                console.log("Run-Mid", e.skeletonAnimation.getAnimationClipState('Run').time)
-            }, this);
-            animation.eventDispatcher.addEventListener("End", (e: any /*AnimationEvent*/) => {
-                console.log("Run-End:", e.skeletonAnimation.getAnimationClipState('Run').time)
-            }, this);
+            animation.eventDispatcher.addEventListener(
+                'Begin',
+                (e: any /*AnimationEvent*/) => {
+                    console.log('Run-Begin', e.skeletonAnimation.getAnimationClipState('Run').time);
+                },
+                this
+            );
+            animation.eventDispatcher.addEventListener(
+                'Mid',
+                (e: any /*AnimationEvent*/) => {
+                    console.log('Run-Mid', e.skeletonAnimation.getAnimationClipState('Run').time);
+                },
+                this
+            );
+            animation.eventDispatcher.addEventListener(
+                'End',
+                (e: any /*AnimationEvent*/) => {
+                    console.log('Run-End:', e.skeletonAnimation.getAnimationClipState('Run').time);
+                },
+                this
+            );
 
             // gui
-            let gui = new dat.GUI()
+            let gui = new dat.GUI();
             // change speed
-            let folder = gui.addFolder("Animation-speed")
+            let folder = gui.addFolder('Animation-speed');
             folder.open();
             folder.add(animation, 'timeScale', -6, 6, 0.01);
 
             // change animation weight
-            folder = gui.addFolder("Animation-weight")
+            folder = gui.addFolder('Animation-weight');
             folder.open();
             animation.getAnimationClipStates().forEach((clipState, _) => {
                 folder.add(clipState, 'weight', 0, 1.0, 0.01).name(clipState.name);
             });
 
             // toggle play/stop
-            folder = gui.addFolder("Animation-play")
+            folder = gui.addFolder('Animation-play');
             folder.open();
             animation.getAnimationClipStates().forEach((clipState, _) => {
-                folder.add({[clipState.name]: () => animation.play(clipState.name)}, clipState.name)
+                folder.add({ [clipState.name]: () => animation.play(clipState.name) }, clipState.name);
             });
 
             // cross fade animation
-            folder = gui.addFolder("Animation-crossFade")
+            folder = gui.addFolder('Animation-crossFade');
             folder.open();
             animation.getAnimationClipStates().forEach((clipState, _) => {
-                folder.add({[clipState.name]:  () => animation.crossFade(clipState.name, 0.3)}, clipState.name)
+                folder.add({ [clipState.name]: () => animation.crossFade(clipState.name, 0.3) }, clipState.name);
             });
         }
 

@@ -1,6 +1,6 @@
-import { Object3D, Scene3D, Engine3D, AtmosphericComponent, webGPUContext, HoverCameraController, View3D, DirectLight, KelvinUtil, Vector3, MorphTargetBlender, Entity, CameraUtil } from "@orillusion/core";
-import { Stats } from "@orillusion/stats";
-import dat from 'dat.gui'
+import { Object3D, Scene3D, Engine3D, AtmosphericComponent, webGPUContext, HoverCameraController, View3D, DirectLight, KelvinUtil, Vector3, MorphTargetBlender, Entity, CameraUtil } from '@orillusion/core';
+import { Stats } from '@orillusion/stats';
+import dat from 'dat.gui';
 
 // Sample of how to control the morphtarget animation
 class Sample_MorphTarget {
@@ -14,7 +14,7 @@ class Sample_MorphTarget {
         await Engine3D.init();
 
         this.scene = new Scene3D();
-        this.scene.addComponent(Stats)
+        this.scene.addComponent(Stats);
         let sky = this.scene.addComponent(AtmosphericComponent);
 
         let camera = CameraUtil.createCamera3DObject(this.scene);
@@ -47,7 +47,7 @@ class Sample_MorphTarget {
     }
 
     private async initMorphModel() {
-        const gui = new dat.GUI()        
+        const gui = new dat.GUI();
 
         // load lion model
         let model = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/glb/lion.glb');
@@ -72,7 +72,7 @@ class Sample_MorphTarget {
             });
         }
 
-        folder.open()
+        folder.open();
     }
 }
 

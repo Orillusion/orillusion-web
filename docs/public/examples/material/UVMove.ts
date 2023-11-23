@@ -1,83 +1,82 @@
-import { Scene3D, Engine3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, Object3D, DirectLight, KelvinUtil, MeshRenderer, PlaneGeometry, LitMaterial, Color, BlendMode, ComponentBase, Material, Time, Vector4 } from '@orillusion/core'
-import dat from 'dat.gui'
+import { Scene3D, Engine3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, Object3D, DirectLight, KelvinUtil, MeshRenderer, PlaneGeometry, LitMaterial, Color, BlendMode, ComponentBase, Material, Time, Vector4 } from '@orillusion/core';
+import dat from 'dat.gui';
 
 class Sample_UVMove {
-    scene: Scene3D
-    lightObj: Object3D
+    scene: Scene3D;
+    lightObj: Object3D;
     async run() {
-        await Engine3D.init()
+        await Engine3D.init();
 
-        this.scene = new Scene3D()
-        let sky = this.scene.addComponent(AtmosphericComponent)
+        this.scene = new Scene3D();
+        let sky = this.scene.addComponent(AtmosphericComponent);
 
-        let camera = CameraUtil.createCamera3DObject(this.scene)
-        camera.perspective(60, Engine3D.aspect, 0.01, 5000.0)
+        let camera = CameraUtil.createCamera3DObject(this.scene);
+        camera.perspective(60, Engine3D.aspect, 0.01, 5000.0);
 
-        camera.object3D.addComponent(HoverCameraController).setCamera(25, -25, 200)
+        camera.object3D.addComponent(HoverCameraController).setCamera(25, -25, 200);
 
-        let view = new View3D()
-        view.scene = this.scene
-        view.camera = camera
+        let view = new View3D();
+        view.scene = this.scene;
+        view.camera = camera;
 
-        Engine3D.startRenderView(view)
+        Engine3D.startRenderView(view);
 
-        await this.initScene()
-        sky.relativeTransform = this.lightObj.transform
+        await this.initScene();
+        sky.relativeTransform = this.lightObj.transform;
     }
 
     async initScene() {
         /******** light *******/
         {
-            let lightObj = (this.lightObj = new Object3D())
-            lightObj.rotationX = 57
-            lightObj.rotationY = 347
-            lightObj.rotationZ = 0
+            let lightObj = (this.lightObj = new Object3D());
+            lightObj.rotationX = 57;
+            lightObj.rotationY = 347;
+            lightObj.rotationZ = 0;
 
-            let directLight = lightObj.addComponent(DirectLight)
-            directLight.lightColor = KelvinUtil.color_temperature_to_rgb(5355)
-            directLight.intensity = 30
-            this.scene.addChild(lightObj)
+            let directLight = lightObj.addComponent(DirectLight);
+            directLight.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
+            directLight.intensity = 30;
+            this.scene.addChild(lightObj);
         }
         {
             // add floor
-            let floor = new Object3D()
-            let material = new LitMaterial()
-            material.doubleSide = true
-            material.baseMap = await Engine3D.res.loadTexture('https://cdn.orillusion.com/textures/diffuse.jpg')
+            let floor = new Object3D();
+            let material = new LitMaterial();
+            material.doubleSide = true;
+            material.baseMap = await Engine3D.res.loadTexture('https://cdn.orillusion.com/textures/diffuse.jpg');
 
-            let renderer = floor.addComponent(MeshRenderer)
-            renderer.material = material
-            renderer.geometry = new PlaneGeometry(200, 200, 1, 1)
+            let renderer = floor.addComponent(MeshRenderer);
+            renderer.material = material;
+            renderer.geometry = new PlaneGeometry(200, 200, 1, 1);
 
-            floor.y = -10
-            this.scene.addChild(floor)
+            floor.y = -10;
+            this.scene.addChild(floor);
         }
         {
             // add plane
-            let plane = new Object3D()
-            let renderer = plane.addComponent(MeshRenderer)
-            let material = new LitMaterial()
-            material.baseMap = await Engine3D.res.loadTexture('https://cdn.orillusion.com/particle/T_Fx_Object_229.png')
-            renderer.material = material
-            material.blendMode = BlendMode.ADD
-            renderer.geometry = new PlaneGeometry(100, 100, 1, 1)
-            this.scene.addChild(plane)
+            let plane = new Object3D();
+            let renderer = plane.addComponent(MeshRenderer);
+            let material = new LitMaterial();
+            material.baseMap = await Engine3D.res.loadTexture('https://cdn.orillusion.com/particle/T_Fx_Object_229.png');
+            renderer.material = material;
+            material.blendMode = BlendMode.ADD;
+            renderer.geometry = new PlaneGeometry(100, 100, 1, 1);
+            this.scene.addChild(plane);
 
-            let uvmove = plane.addComponent(UVMoveComponent)
-            let gui = new dat.GUI()
-            let f = gui.addFolder('UV Move')
+            let uvmove = plane.addComponent(UVMoveComponent);
+            let gui = new dat.GUI();
+            let f = gui.addFolder('UV Move');
             f.add(uvmove.speed, 'x', -1, 1, 0.01);
             f.add(uvmove.speed, 'y', -1, 1, 0.01);
             f.add(uvmove.speed, 'z', 0.1, 10, 0.01);
             f.add(uvmove.speed, 'w', 0.1, 10, 0.01);
             f.add(uvmove, 'enable');
-            f.open()
+            f.open();
         }
     }
 }
 
 class UVMoveComponent extends ComponentBase {
-
     private _material: Material;
     private readonly _speed: Vector4 = new Vector4(0.1, 0.1, 1, 1);
 
@@ -108,4 +107,4 @@ class UVMoveComponent extends ComponentBase {
     }
 }
 
-new Sample_UVMove().run()
+new Sample_UVMove().run();

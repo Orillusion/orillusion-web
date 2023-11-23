@@ -1,15 +1,15 @@
-import { defineConfig } from 'vitepress'
-import { readFileSync, readdirSync } from 'fs'
+import { defineConfig } from 'vitepress';
+import { readFileSync, readdirSync } from 'fs';
 type SidebarItem = {
-    text: string
-    collapsible?: boolean
-    collapsed?: boolean
+    text: string;
+    collapsible?: boolean;
+    collapsed?: boolean;
     items: {
-        text: string
-        link: string
-        items?: { text: string; link: string }[]
-    }[]
-}[]
+        text: string;
+        link: string;
+        items?: { text: string; link: string }[];
+    }[];
+}[];
 export default async () =>
     defineConfig({
         base: '/',
@@ -182,11 +182,11 @@ export default async () =>
             prefetchLinks: false
         },
         vite: {
-            build:{
+            build: {
                 target: 'esnext'
             }
         }
-    })
+    });
 
 function nav() {
     return [
@@ -265,7 +265,7 @@ function nav() {
                 }
             ]
         }
-    ]
+    ];
 }
 
 function sidebarGuide(): SidebarItem {
@@ -472,26 +472,26 @@ function sidebarGuide(): SidebarItem {
                 { text: '全局光照', link: '/guide/advanced/gi.md' }
             ]
         }
-    ]
+    ];
 }
 
 function sidebar(root: string = '', packages: string) {
-    const index: { [key: string]: { text: string; link: string }[] } = {}
-    const mds = readFileSync(`${__dirname}/../${packages}/index.md`, 'utf-8').match(/.*.(\n|\r)/g) as string[]
-    let lastTitle = ''
+    const index: { [key: string]: { text: string; link: string }[] } = {};
+    const mds = readFileSync(`${__dirname}/../${packages}/index.md`, 'utf-8').match(/.*.(\n|\r)/g) as string[];
+    let lastTitle = '';
     for (let line of mds) {
-        if (line.match(/# @/)) continue
+        if (line.match(/# @/)) continue;
         else if (line.match(/##\s\w+/)) {
-            lastTitle = line.slice(3, -1).trim()
-            index[lastTitle] = []
+            lastTitle = line.slice(3, -1).trim();
+            index[lastTitle] = [];
         } else {
-            let text = line.match(/\w+/)
-            let md = line.match(/\w+\/\w+\.md/)
+            let text = line.match(/\w+/);
+            let md = line.match(/\w+\/\w+\.md/);
             if (md && text) {
                 index[lastTitle].push({
                     text: text[0],
                     link: `${root}/${packages}/${md[0]}`
-                })
+                });
             }
         }
     }
@@ -521,16 +521,16 @@ function sidebar(root: string = '', packages: string) {
                 }
             ]
         }
-    ]
+    ];
     for (let i in index) {
         sidebar.push({
             text: i,
             collapsible: true,
             collapsed: false,
             items: index[i]
-        })
+        });
     }
-    return sidebar
+    return sidebar;
 }
 function sidebarExample(root: string = '') {
     const index: { [key: string]: string[] } = {
@@ -547,12 +547,12 @@ function sidebarExample(root: string = '') {
         Physics: [],
         Ext: [],
         GI: []
-    }
+    };
 
-    const examples: SidebarItem = []
+    const examples: SidebarItem = [];
     for (let i in index) {
-        const dir = i.toLowerCase()
-        const mds = readdirSync(__dirname + '/../example/' + dir, 'utf-8').filter((v) => /\.md$/.test(v))
+        const dir = i.toLowerCase();
+        const mds = readdirSync(__dirname + '/../example/' + dir, 'utf-8').filter((v) => /\.md$/.test(v));
         examples.push({
             text: i,
             collapsible: true,
@@ -561,9 +561,9 @@ function sidebarExample(root: string = '') {
                 return {
                     text: v.slice(0, -3),
                     link: `${root}/example/${dir}/${v}`
-                }
+                };
             })
-        })
+        });
     }
-    return examples
+    return examples;
 }

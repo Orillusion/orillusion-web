@@ -1,13 +1,13 @@
 import { BoxGeometry, Camera3D, DirectLight, Engine3D, LitMaterial, KelvinUtil, MeshRenderer, Object3D, Scene3D, Vector3, Color, OrbitController, View3D, AtmosphericComponent } from '@orillusion/core';
-import { StaticAudio, AudioListener } from '@orillusion/media-extention'
+import { StaticAudio, AudioListener } from '@orillusion/media-extention';
 import * as dat from 'dat.gui';
 
 class Static_Audio {
     lightObj: Object3D;
     scene: Scene3D;
-    camera: Object3D
+    camera: Object3D;
     mats: any[];
-    audio: StaticAudio
+    audio: StaticAudio;
     constructor() {}
 
     async run() {
@@ -19,17 +19,17 @@ class Static_Audio {
         await Engine3D.init();
         this.scene = new Scene3D();
         this.scene.addComponent(AtmosphericComponent);
-        
-        this.camera = new Object3D()
-        this.camera.localPosition = new Vector3(0, 20, 50)
-        let mainCamera = this.camera.addComponent(Camera3D)
-        this.scene.addChild(this.camera)
+
+        this.camera = new Object3D();
+        this.camera.localPosition = new Vector3(0, 20, 50);
+        let mainCamera = this.camera.addComponent(Camera3D);
+        this.scene.addChild(this.camera);
 
         mainCamera.perspective(60, Engine3D.aspect, 0.1, 20000.0);
-        let orbit = this.camera.addComponent(OrbitController)
-        orbit.target = new Vector3(0, 4, 0)
-        orbit.minDistance = 10
-        orbit.maxDistance = 200
+        let orbit = this.camera.addComponent(OrbitController);
+        orbit.target = new Vector3(0, 4, 0);
+        orbit.minDistance = 10;
+        orbit.maxDistance = 200;
 
         let view = new View3D();
         view.scene = this.scene;
@@ -41,14 +41,14 @@ class Static_Audio {
 
     async initScene() {
         {
-            let wall = new Object3D()
-            let mr = wall.addComponent(MeshRenderer)
-            mr.geometry = new BoxGeometry(40, 30, 1)
-            let mat = new LitMaterial()
-            mat.baseColor = new Color(1,0,0)
-            mr.material = mat
-            this.scene.addChild(wall)
-            wall.z = -5
+            let wall = new Object3D();
+            let mr = wall.addComponent(MeshRenderer);
+            mr.geometry = new BoxGeometry(40, 30, 1);
+            let mat = new LitMaterial();
+            mat.baseColor = new Color(1, 0, 0);
+            mr.material = mat;
+            this.scene.addChild(wall);
+            wall.z = -5;
         }
         {
             let floor = new Object3D();
@@ -72,37 +72,43 @@ class Static_Audio {
             this.scene.addChild(this.lightObj);
         }
         {
-            let group = new Object3D()
-            let speaker = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/speaker/scene.gltf')
-            speaker.localScale.set(4,4,4)
-            speaker.rotationX = -120
+            let group = new Object3D();
+            let speaker = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/speaker/scene.gltf');
+            speaker.localScale.set(4, 4, 4);
+            speaker.rotationX = -120;
             //speaker.y = 1.5
-            group.addChild(speaker)
-            group.y = 2
-            this.scene.addChild(group)
+            group.addChild(speaker);
+            group.y = 2;
+            this.scene.addChild(group);
 
-            let listener = this.camera.addComponent(AudioListener)
-            let audio = group.addComponent(StaticAudio)
-            audio.setLisenter(listener)
+            let listener = this.camera.addComponent(AudioListener);
+            let audio = group.addComponent(StaticAudio);
+            audio.setLisenter(listener);
 
-            await audio.load('https://cdn.orillusion.com/audio.ogg')
-            
+            await audio.load('https://cdn.orillusion.com/audio.ogg');
+
             let buttons = {
-                play:()=>{audio.play()},
-                pause:()=>{audio.pause()},
-                stop:()=>{audio.stop()},
+                play: () => {
+                    audio.play();
+                },
+                pause: () => {
+                    audio.pause();
+                },
+                stop: () => {
+                    audio.stop();
+                },
                 volume: 1
-            }
-            let gui = new dat.GUI()
-            gui.addFolder('Orillusion')
-            gui.add(buttons, 'play')
-            gui.add(buttons, 'pause')
-            gui.add(buttons, 'stop')
-            gui.add(buttons, 'volume', 0, 1, 0.01).onChange(v=>{
-                audio.setVolume(v)
-            })
+            };
+            let gui = new dat.GUI();
+            gui.addFolder('Orillusion');
+            gui.add(buttons, 'play');
+            gui.add(buttons, 'pause');
+            gui.add(buttons, 'stop');
+            gui.add(buttons, 'volume', 0, 1, 0.01).onChange((v) => {
+                audio.setVolume(v);
+            });
         }
     }
 }
 
-new Static_Audio().run()
+new Static_Audio().run();

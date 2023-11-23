@@ -6,7 +6,7 @@ import { Engine3D } from '@orillusion/core';
 
 Engine3D.init().then(()=>{
   // 进行后续操作
-})
+});
 ```
 注意，`Engine3D.init()` 是一个异步 API，推荐配合 `async/await` 进行调用
 
@@ -17,7 +17,7 @@ async function demo(){
   await Engine3D.init();
   // 进行后续操作
 }
-demo()
+demo();
 ```
 
 ## 手动创建 Canvas
@@ -29,18 +29,17 @@ demo()
 
 接下来，在 ts 代码中通过 `document.getElementById` 获取到该画布：
 ```ts
-let canvas = document.getElementById('canvas')
+let canvas = document.getElementById('canvas');
 ```
 
 并使用 `canvasConfig` 将 `canvas` 参数传入 `init()` 方法中进行初始化：
 ```ts
 import { Engine3D } from '@orillusion/core';
 
-let canvas = document.getElementById('canvas')
+let canvas = document.getElementById('canvas');
 await Engine3D.init({
   canvasConfig: { canvas }
 });
 ```
 
 更多配置请参看 [Engine3D](/guide/core/engine)
-

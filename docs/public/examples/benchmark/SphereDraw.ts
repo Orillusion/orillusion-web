@@ -1,6 +1,6 @@
-import { Stats } from '@orillusion/stats'
+import { Stats } from '@orillusion/stats';
 import { Engine3D, Scene3D, AtmosphericComponent, CameraUtil, HoverCameraController, Object3D, MeshRenderer, BoxGeometry, LitMaterial, DirectLight, KelvinUtil, View3D, Vector3, Vector3Ex, UnLitMaterial, InstanceDrawComponent, LambertMaterial, Time, BoundingBox, Color } from '@orillusion/core';
-import * as dat from "dat.gui";
+import * as dat from 'dat.gui';
 
 // simple base demo
 class Sample_SphereDraw {
@@ -18,7 +18,7 @@ class Sample_SphereDraw {
 
         // add an Atmospheric sky enviroment
         let sky = this.scene.addComponent(AtmosphericComponent);
-        sky.sunY = 0.6
+        sky.sunY = 0.6;
 
         // init camera3D
         let mainCamera = CameraUtil.createCamera3D(null, this.scene);
@@ -48,21 +48,18 @@ class Sample_SphereDraw {
         // start render
         Engine3D.startRenderView(view);
 
-        let gui = new dat.GUI()
-        let f = gui.addFolder('Orillusion')
-        f.add(this, 'anim').onChange(() => this.anim != this.anim)
-        f.open()
+        let gui = new dat.GUI();
+        let f = gui.addFolder('Orillusion');
+        f.add(this, 'anim').onChange(() => this.anim != this.anim);
+        f.open();
 
         this.initScene();
     }
 
-
     private _list: Object3D[] = [];
     initScene() {
         let shareGeometry = new BoxGeometry();
-        let materials = [
-            new LambertMaterial()
-        ];
+        let materials = [new LambertMaterial()];
 
         for (let i = 0; i < materials.length; i++) {
             const element = materials[i];
@@ -104,4 +101,4 @@ class Sample_SphereDraw {
     }
 }
 
-new Sample_SphereDraw().run()
+new Sample_SphereDraw().run();
