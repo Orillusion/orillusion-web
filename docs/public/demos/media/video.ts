@@ -1,6 +1,6 @@
-import { Engine3D, Vector3, Scene3D, Object3D, Camera3D, View3D, MeshRenderer, HoverCameraController, PlaneGeometry } from '@orillusion/core'
-
+import { Engine3D, Vector3, Scene3D, Object3D, Camera3D, View3D, MeshRenderer, HoverCameraController, PlaneGeometry, Color, Vector4 } from '@orillusion/core'
 import { VideoTexture, VideoMaterial } from '@orillusion/media-extention'
+import * as dat from 'dat.gui'
 
 await Engine3D.init()
 let scene = new Scene3D()
@@ -30,3 +30,15 @@ view.scene = scene
 view.camera = mainCamera
 // start render
 Engine3D.startRenderView(view)
+
+let gui = new dat.GUI()
+let f = gui.addFolder('Video')
+f.addColor({ baseColor: [255, 255, 255] }, 'baseColor').onChange((v) => {
+    mat.baseColor = new Color(v[0]/255, v[1]/255, v[2]/255, 1)
+})
+let clip = new Vector4(0,0,0,0)
+f.add(clip, 'x', 0, 1, 0.01).name('left').onChange(() => mat.rectClip = clip)
+f.add(clip, 'y', 0, 1, 0.01).name('top').onChange(() => mat.rectClip = clip)
+f.add(clip, 'z', 0, 1, 0.01).name('right').onChange(() => mat.rectClip = clip)
+f.add(clip, 'w', 0, 1, 0.01).name('bottom').onChange(() => mat.rectClip = clip)
+f.open()

@@ -1,6 +1,6 @@
-import { Engine3D, Vector3, Scene3D, Object3D, Camera3D, MeshRenderer, HoverCameraController, PlaneGeometry, View3D } from '@orillusion/core'
-
+import { Engine3D, Vector3, Scene3D, Object3D, Camera3D, MeshRenderer, HoverCameraController, PlaneGeometry, View3D, Color, Vector4 } from '@orillusion/core'
 import { ImageMaterial } from '@orillusion/media-extention'
+import * as dat from 'dat.gui'
 
 await Engine3D.init()
 let scene = new Scene3D()
@@ -16,6 +16,19 @@ let texture = await Engine3D.res.loadTexture('https://cdn.orillusion.com/gltfs/c
 // create a image material
 let mat = new ImageMaterial()
 mat.baseMap = texture
+
+let gui = new dat.GUI()
+let f = gui.addFolder('Image')
+f.addColor({ baseColor: [255, 255, 255] }, 'baseColor').onChange((v) => {
+    mat.baseColor = new Color(v[0]/255, v[1]/255, v[2]/255, 1)
+})
+let clip = new Vector4(0,0,0,0)
+f.add(clip, 'x', 0, 1, 0.01).name('left').onChange(() => mat.rectClip = clip)
+f.add(clip, 'y', 0, 1, 0.01).name('top').onChange(() => mat.rectClip = clip)
+f.add(clip, 'z', 0, 1, 0.01).name('right').onChange(() => mat.rectClip = clip)
+f.add(clip, 'w', 0, 1, 0.01).name('bottom').onChange(() => mat.rectClip = clip)
+f.open()
+
 
 // create a 2D plane to show the image
 let planeObj = new Object3D()

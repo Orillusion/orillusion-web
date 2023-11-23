@@ -1,17 +1,11 @@
 # 色键材质(过滤背景色)
 色键 `(ChromaKey)` 材质在 [Video](./video.md) 材质之上添加了过滤了背景色的功能，支持基本的视频材质UV以下属性：
 
-| 属性 | 描述 |
-| :---: | :---: |
-| baseColor | 基础颜色 |
-| uv_offsetX | x方向位移 |
-| uv_offsetY | y方向位移 |
-| uv_scaleX | x方向缩放 |
-| uv_scaleY | y方向缩放 |
-| clip_left | 左方裁剪 |
-| clip_top | 上方裁剪 |
-| clip_right | 右方裁剪 |
-| clip_bottom | 下方裁剪 |
+| 属性 | 类型 | 描述 |
+| :---: | :---: | :---: |
+| baseMap | Texture | 图片贴图 |
+| baseColor | Color | 基础颜色 |
+| rectClip | Vector4 | 上下左右裁剪区域 |
 
 另外，`ChromaKeyMaterial` 还提供背景色过滤功能:
 | 属性 | 描述 |
