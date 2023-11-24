@@ -38,8 +38,8 @@ export default async () =>
         },
         themeConfig: {
             logo: {
-                light: '/en/images/logo_black.png',
-                dark: '/en/images/logo_white.png'
+                light: '/images/logo_black.png',
+                dark: '/images/logo_white.png'
             },
             outline: [2, 3],
             nav: nav(),

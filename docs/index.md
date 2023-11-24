@@ -6,8 +6,8 @@ titleTemplate: Next Generation WebGPU Engine
 hero:
   name: Orillusion
   image:
-    light: /images/logo_black.png
-    dark: /images/logo_white.png
+    light: /en/images/logo_black.png
+    dark: /en/images/logo_white.png
   text: Next Generation WebGPU Engine
   tagline: Simple but powerful for Web3D developers
   actions:
@@ -36,8 +36,8 @@ features:
 
 <div class="heroDemos">
   <div class="container">
-    <Demo src="/examples/pbr.ts" :code="false" :codepen="false" :fullscreen="false" :height="450"></Demo>
-    <Demo src="/examples/pbr2.ts" :code="false" :codepen="false" :fullscreen="false" :height="450"></Demo>
+    <Demo src="/examples/pbr.ts" :code="false" :codepen="false" :fullscreen="false" :height="450" style="margin:0"></Demo>
+    <Demo src="/examples/pbr2.ts" :code="false" :codepen="false" :fullscreen="false" :height="450" style="margin:0"></Demo>
   </div>
 </div>
 <Logo :homeHero="true"></Logo>
