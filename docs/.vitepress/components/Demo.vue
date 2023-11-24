@@ -11,7 +11,7 @@
             WebGPU is not supported in your browser<br>
             Please upgrade to latest <a href="https://www.google.com/chrome/" target="_blank">Chrome</a>/<a href="https://www.microsoftedgeinsider.com/download/" target="_blank">Edge</a>
         </p>
-        <span class="toggle" title="Show Code" v-if="code" @click="full = !full">{{ full ? '>': '<'}}</span>
+        <span class="toggle" :title="full ? 'Hide Code':'Show Code'" v-if="code" @click="full = !full">{{ full ? '>': '<'}}</span>
         <span class="toggle" title="Fullscreen" v-if="support && !loading && fullscreen" @click="requestFullscreen" :style="{'margin-bottom': code ? '50px':'0'}">
             <svg viewBox="0 0 1024 1024" width="20" height="20"><path d="m160 96.064 192 .192a32 32 0 0 1 0 64l-192-.192V352a32 32 0 0 1-64 0V96h64v.064zm0 831.872V928H96V672a32 32 0 1 1 64 0v191.936l192-.192a32 32 0 1 1 0 64l-192 .192zM864 96.064V96h64v256a32 32 0 1 1-64 0V160.064l-192 .192a32 32 0 1 1 0-64l192-.192zm0 831.872-192-.192a32 32 0 0 1 0-64l192 .192V672a32 32 0 1 1 64 0v256h-64v-.064z"></path></svg>
         </span>
@@ -203,17 +203,14 @@ export default {
     border: 1px solid var(--vp-code-copy-code-border-color);
     background-color: var(--vp-code-copy-code-bg);
     border-radius: 4px;
-    color: #ddd;
+    color: var(--vp-c-text-2);
     text-decoration: none;
     z-index: 111111;
-}
-.demo > span.toggle:hover{
-    color: var(--vp-c-brand-dark)
 }
 .demo > span.toggle > svg{
     margin: auto;
     height: 37px;
-    fill: #ddd;
+    fill: var(--vp-c-text-2);
 }
 .demo:hover > span.toggle{
     opacity: 1;
