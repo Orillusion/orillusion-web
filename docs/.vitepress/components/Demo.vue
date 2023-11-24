@@ -5,9 +5,8 @@
         ban: !support 
     }" :style="{height: height + 'px'}">
         <iframe v-if="support" ref="iframe" :src="href" allowtransparency="true" frameborder="0" scrolling="no"></iframe>
-        <Logo v-show="support && loading" class="loading-wrap"></Logo>
+        <Logo v-if="loading" class="loading-wrap" :class="support?'':'warn'"></Logo>
         <p v-if="!support">
-            <img src="/images/logo_white.png" width="100" style="margin:0 auto 15px auto" /><br>
             WebGPU is not supported in your browser<br>
             Please upgrade to latest <a href="https://www.google.com/chrome/" target="_blank">Chrome</a>/<a href="https://www.microsoftedgeinsider.com/download/" target="_blank">Edge</a>
         </p>
@@ -101,6 +100,9 @@ export default {
         },
         href(){
             return withBase('/demo.html')+ '?' + withBase(this.src)
+        },
+        logoUrl(){
+            return withBase('/images/logo_white.png')
         }
     },
     methods: {
@@ -235,9 +237,13 @@ export default {
     text-align: center;
     height: 100% !important;
 }
-/* .demo:not(.code) > .loading-wrap{
-    z-index: 0;
-} */
+.loading-wrap.warn{
+    position: relative;
+    height: min-content !important;
+}
+.loading-wrap.warn :deep(path){
+    animation: none;
+}
 .loading-wrap :deep(svg){
     width: 100px;
     margin: 0 auto;
