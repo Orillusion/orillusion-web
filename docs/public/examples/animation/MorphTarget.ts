@@ -2,7 +2,7 @@ import { SkinnedMeshRenderer2, AtmosphericComponent, CameraUtil, DirectLight, En
 import { Stats } from '@orillusion/stats';
 import dat from 'dat.gui';
 // @ts-ignore, import es from url
-import { FaceLandmarker, FilesetResolver } from 'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0';
+import { FaceLandmarker, FilesetResolver } from 'https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@latest';
 
 // Sample of control morph target animation
 class Sample_MorphTarget {
