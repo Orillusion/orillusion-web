@@ -13,7 +13,7 @@
     },
     "devDependencies": {
         "@orillusion/core": "0.7.1",
-        "@orillusion/media-extention": "^0.3.3",
+        "@orillusion/media-extention": "^0.3.4",
         "@orillusion/particle": "^0.1.0",
         "@orillusion/physics": "^0.2.1",
         "@orillusion/stats": "^0.2.1",
@@ -21,7 +21,7 @@
         "@types/node": "^18.18.8",
         "esbuild": "^0.17.19",
         "prettier": "^2.8.8",
-        "vitepress": "1.0.0-rc.29",
+        "vitepress": "1.0.0-rc.31",
         "vue": "^3.3.7"
     },
     "pnpm": {
