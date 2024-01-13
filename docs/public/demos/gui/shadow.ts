@@ -1,7 +1,7 @@
 import { Engine3D, Scene3D, Object3D, Camera3D, View3D, ViewPanel, UIImage, HoverCameraController, Color, AtmosphericComponent, UIShadow, UITextField, TextAnchor, Vector2, Time } from '@orillusion/core'
 import * as dat from 'dat.gui'
 
-export class Sample_button {
+class Sample_button {
     async run() {
         // initializa engine
         await Engine3D.init()

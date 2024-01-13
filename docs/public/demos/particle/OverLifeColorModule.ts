@@ -2,7 +2,7 @@ import { Engine3D, AtmosphericComponent, Vector3, Vector4, View3D, Color, HoverC
 
 import { ParticleSystem, ParticleMaterial, ParticleStandardSimulator, ParticleEmitterModule, ShapeType, EmitLocation, ParticleOverLifeColorModule } from '@orillusion/particle'
 
-export class Sample_OverLifeRotationModule {
+class Sample_OverLifeRotationModule {
     async run() {
         await Engine3D.init()
 

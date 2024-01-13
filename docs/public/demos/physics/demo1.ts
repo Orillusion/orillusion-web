@@ -1,7 +1,7 @@
 import { BoxColliderShape, BoxGeometry, Camera3D, AtmosphericComponent, ColliderComponent, Color, DirectLight, Engine3D, View3D, LitMaterial, HoverCameraController, MeshRenderer, Object3D, PlaneGeometry, Scene3D, Vector2, Vector3 } from '@orillusion/core'
 import { Physics, Rigidbody } from '@orillusion/physics'
 
-export class Sample_box {
+class Sample_box {
     async run() {
         await Physics.init()
         // Init Engine3D
