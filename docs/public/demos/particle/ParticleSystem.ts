@@ -2,7 +2,7 @@ import { Engine3D, AtmosphericComponent, Vector3, View3D, HoverCameraController,
 
 import { ParticleSystem, ParticleMaterial, ParticleStandardSimulator, ParticleEmitterModule, ShapeType, EmitLocation } from '@orillusion/particle';
 
-export class Sample_ParticleSystem {
+class Sample_ParticleSystem {
     async run() {
         await Engine3D.init();
 

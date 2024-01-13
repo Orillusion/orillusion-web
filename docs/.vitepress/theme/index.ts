@@ -30,8 +30,12 @@ export default {
             return;
         }
 
-        if (globalThis.document)
+        if (globalThis.document){
+            router.onBeforeRouteChange = () => {
+                document.body.classList.add('loading')
+            }
             router.onAfterRouteChanged = () => {
+                document.body.classList.remove('loading')
                 if (!globalThis._translation)
                     setTimeout(() => {
                         const host = 'https://www.orillusion.com/en/';
@@ -45,7 +49,7 @@ export default {
                         globalThis._translation = true;
                     });
             };
-
+        }
         // redirect to /en
         if (globalThis.localStorage && globalThis.localStorage?._lang !== 'zh' && !/googlebot/i.test(globalThis.navigator.userAgent) && !/zh/i.test(globalThis.navigator.language)) {
             globalThis.localStorage._lang = 'en';

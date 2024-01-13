@@ -1,6 +1,6 @@
 import { View3D, DirectLight, Engine3D, PostProcessingComponent, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, SphereGeometry, CameraUtil, webGPUContext, BoxGeometry, TAAPost, AtmosphericComponent } from '@orillusion/core';
 
-export class Sample_TAA {
+class Sample_TAA {
     lightObj: Object3D;
     scene: Scene3D;
 

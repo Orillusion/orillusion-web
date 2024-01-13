@@ -1,7 +1,7 @@
 import { DirectLight, Engine3D, AtmosphericComponent, View3D, HoverCameraController, KelvinUtil, Object3D, Scene3D, CameraUtil, webGPUContext, PropertyAnimation, PropertyAnimClip, WrapMode } from '@orillusion/core';
 import * as dat from 'dat.gui';
 
-export class Sample_PropertyAnim {
+class Sample_PropertyAnim {
     lightObj: Object3D;
     scene: Scene3D;
     private animation: PropertyAnimation;

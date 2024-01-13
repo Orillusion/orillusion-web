@@ -1,7 +1,7 @@
 import { Camera3D, CameraUtil, DirectLight, Engine3D, AtmosphericComponent, View3D, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, UnLitMaterial, webGPUContext, Vector4 } from '@orillusion/core';
 import * as dat from 'dat.gui';
 
-export class Sample_UV {
+class Sample_UV {
     lightObj: Object3D;
     cameraObj: Camera3D;
     scene: Scene3D;

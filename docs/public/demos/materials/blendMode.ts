@@ -1,6 +1,6 @@
 import { BlendMode, Camera3D, CameraUtil, Color, BloomPost, DirectLight, Engine3D, GPUCullMode, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, UnLitMaterial, webGPUContext, AtmosphericComponent, View3D, PostProcessingComponent } from '@orillusion/core';
 
-export class Sample_BlendMode {
+class Sample_BlendMode {
     lightObj: Object3D;
     cameraObj: Camera3D;
     scene: Scene3D;

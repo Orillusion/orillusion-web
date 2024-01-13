@@ -1,7 +1,7 @@
 import { BoxColliderShape, BoxGeometry, Camera3D, ColliderComponent, Color, ComponentBase, DirectLight, Engine3D, AtmosphericComponent, View3D, LitMaterial, HoverCameraController, MeshRenderer, Object3D, PlaneGeometry, Scene3D, Vector2, Vector3 } from '@orillusion/core';
 import { Physics, Rigidbody } from '@orillusion/physics';
 
-export class Sample_colliders {
+class Sample_colliders {
     constructor() {}
 
     addPlane(scene: Scene3D, size: Vector2, pos: Vector3, rot: Vector3) {

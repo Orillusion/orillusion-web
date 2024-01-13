@@ -2,7 +2,7 @@ import { LitMaterial } from '@orillusion/core';
 import { MeshRenderer } from '@orillusion/core';
 import { Camera3D, OrbitController, DirectLight, Engine3D, View3D, KelvinUtil, Object3D, Scene3D, BloomPost, GTAOPost, PostProcessingComponent, AtmosphericComponent } from '@orillusion/core';
 
-export class Sample_PBRMaterial {
+class Sample_PBRMaterial {
     lightObj: Object3D;
     scene: Scene3D;
     camera: Object3D;
