@@ -1,7 +1,7 @@
 import { BoxGeometry, Camera3D, Engine3D, AtmosphericComponent, LitMaterial, HoverCameraController, MeshRenderer, Object3D, Scene3D, SphereGeometry, SpotLight, Vector3, webGPUContext, View3D } from '@orillusion/core';
 import * as dat from 'dat.gui';
 
-export class Sample_Light {
+class Sample_Light {
     scene: Scene3D;
     hoverCameraController: HoverCameraController;
     lightObj: any;

@@ -74,7 +74,7 @@ class PointLightItem {
     public mass: number = 10;
 }
 
-export class PointLightsScript extends ComponentBase {
+class PointLightsScript extends ComponentBase {
     private _points: PointLight[];
     private _pointLightItems: PointLightItem[];
     private _startAnim: boolean = false;

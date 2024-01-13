@@ -123,11 +123,35 @@ td > code {
     display: none;
 }
 
-.VPNavBar .VPNavBarTranslations svg.option-icon{
+.VPNavBar .VPNavBarTranslations svg.option-icon {
     margin-right: 2em;
 }
-.VPNavBar .VPNavBarTranslations > .button > .text::after{
+.VPNavBar .VPNavBarTranslations > .button > .text::after {
     content: 'EN';
     position: absolute;
-    left: 3.7em
+    left: 3.7em;
+}
+.VPNavBar .VPLink > svg {
+    pointer-events: none;
+}
+
+body.loading::before{
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-top: 1px solid var(--vp-c-brand-3);
+    z-index: 1000000;
+    animation: loading 2s ease-in-out 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes loading {
+    0% {
+        right: 100%;
+    }
+    100% {
+        right: 0;
+    }
 }

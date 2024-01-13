@@ -1,7 +1,7 @@
 import { WebGPUDescriptorCreator, PostProcessingComponent, BoxGeometry, CameraUtil, ComputeShader, Engine3D, GPUContext, GPUTextureFormat, LitMaterial, HoverCameraController, MeshRenderer, Object3D, PostBase, RendererPassState, Scene3D, UniformGPUBuffer, VirtualTexture, webGPUContext, RTFrame, RTDescriptor, AtmosphericComponent, View3D, DirectLight } from '@orillusion/core';
 import * as dat from 'dat.gui';
 
-export class Demo_GaussianBlur {
+class Demo_GaussianBlur {
     async run() {
         await Engine3D.init({
             canvasConfig: {
@@ -42,7 +42,7 @@ export class Demo_GaussianBlur {
     }
 }
 
-export class GaussianBlurPost extends PostBase {
+class GaussianBlurPost extends PostBase {
     private mGaussianBlurShader: ComputeShader;
     private mGaussianBlurArgs: UniformGPUBuffer;
     private mRendererPassState: RendererPassState;

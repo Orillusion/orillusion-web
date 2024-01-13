@@ -29,9 +29,13 @@ export default {
             });
             return;
         }
-        // nav to zh without new tab
-        if (globalThis.document) {
+
+        if (globalThis.document){
+            router.onBeforeRouteChange = () => {
+                document.body.classList.add('loading')
+            }
             router.onAfterRouteChanged = () => {
+                document.body.classList.remove('loading')
                 if (!globalThis._translation)
                     setTimeout(() => {
                         const host = 'https://www.orillusion.com';

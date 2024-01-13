@@ -1,6 +1,6 @@
 import { Camera3D, OrbitController, DirectLight, Engine3D, View3D, PostProcessingComponent, BloomPost, KelvinUtil, Object3D, Scene3D, GTAOPost, webGPUContext, AtmosphericComponent } from '@orillusion/core';
 
-export class Sample_FlightHelmet {
+class Sample_FlightHelmet {
     lightObj: Object3D;
     cameraObj: Camera3D;
     scene: Scene3D;

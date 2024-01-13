@@ -1,7 +1,7 @@
 import { DirectLight, Engine3D, View3D, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, SphereGeometry, PostProcessingComponent, CameraUtil, webGPUContext, OutlinePost, outlinePostManager, AtmosphericComponent, Color } from '@orillusion/core';
 import * as dat from 'dat.gui';
 
-export class Sample_Outline {
+class Sample_Outline {
     lightObj: Object3D;
     scene: Scene3D;
 

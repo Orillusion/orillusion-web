@@ -2,7 +2,7 @@
 //     Engine3D, PostProcessingComponent, AtmosphericComponent, Vector3, View3D, HoverCameraController, Object3D, PlaneGeometry, Scene3D, CameraUtil, webGPUContext, ParticleSystem, ParticleMaterial, ParticleStandSimulator, ParticleEmitModule, ShapeType, EmitLocation, ParticleGravityModifierModule, ParticleOverLifeColorModule, Vector4, BlendMode,
 // } from '@orillusion/core';
 
-// export class Sample_ParticleAnim {
+// class Sample_ParticleAnim {
 //     async run() {
 //         await Engine3D.init();
 

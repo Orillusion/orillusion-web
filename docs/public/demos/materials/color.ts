@@ -1,7 +1,7 @@
 import { Camera3D, DirectLight, Engine3D, AtmosphericComponent, View3D, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, Scene3D, SphereGeometry, UnLitMaterial, Color } from '@orillusion/core';
 import * as dat from 'dat.gui';
 
-export class Sample_Materials {
+class Sample_Materials {
     scene: Scene3D;
     lightObj: Object3D;
 

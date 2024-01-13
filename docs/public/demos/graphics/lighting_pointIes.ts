@@ -1,6 +1,6 @@
 import { BoxGeometry, Camera3D, Engine3D, View3D, LitMaterial, HoverCameraController, BitmapTexture2D, MeshRenderer, Object3D, Scene3D, SphereGeometry, PointLight, Vector3, webGPUContext, IESProfiles, AtmosphericComponent } from '@orillusion/core';
 
-export class Sample_LightIES {
+class Sample_LightIES {
     scene: Scene3D;
     hoverCameraController: HoverCameraController;
     lightObj: any;

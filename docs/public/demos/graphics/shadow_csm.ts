@@ -2,7 +2,7 @@ import { Scene3D, HoverCameraController, Engine3D, AtmosphericComponent, Object3
 import * as dat from 'dat.gui';
 
 //sample of csm
-export class Sample_CSM {
+class Sample_CSM {
     scene: Scene3D;
     view: View3D;
     light: DirectLight;
