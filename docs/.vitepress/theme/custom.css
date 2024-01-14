@@ -141,12 +141,14 @@ body.loading::before{
     top: 0;
     left: 0;
     right: 0;
-    border-top: 1px solid var(--vp-c-brand-3);
+    border-top: 2px solid var(--vp-c-brand-3);
     z-index: 1000000;
-    animation: loading 2s ease-in-out 1;
-    animation-fill-mode: forwards;
+    animation: loading 2s ease-in-out 1 forwards;
+    transition: right 0.2s ease-in;
 }
-
+body.loading.done::before{
+    animation: none;
+}
 @keyframes loading {
     0% {
         right: 100%;
