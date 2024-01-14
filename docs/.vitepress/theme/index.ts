@@ -35,7 +35,8 @@ export default {
                 document.body.classList.add('loading')
             }
             router.onAfterRouteChanged = () => {
-                document.body.classList.remove('loading')
+                document.body.classList.add('done')
+                setTimeout(()=>document.body.classList.remove('loading', 'done'), 100)
                 if (!globalThis._translation)
                     setTimeout(() => {
                         const host = 'https://www.orillusion.com';
