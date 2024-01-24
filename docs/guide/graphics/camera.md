@@ -118,7 +118,7 @@ camera.lookAt(new Vector3(0,0,10), new Vector3(0,0,0), new Vector3(0,0,1));
 相机组件为相机提供灵活的扩展支持，可以直接使用预定义组件，也可以自定义组件实现更个性化的需求。组件通过自身的 `update` 函数，执行与 `Engine3D` 主循环同步的自我更新逻辑。
 
 ### [自由相机](/api/classes/FlyCameraController)
-该像机控制器 ，实现摄像机自由移动。它的交互功能有：
+该相机控制器 ，实现摄像机自由移动。它的交互功能有：
   - 通过 W A S D 向着朝向方向 前进 后退 左右移动
   - 通过按住鼠标左键控制相机的移动朝向
 
@@ -151,7 +151,7 @@ flyController.moveSpeed = 10;
 
 | 参数 | 类型 | 描述 | 示例 |
 | --- | --- | --- | --- |
-| moveSpeed | number | 移动毒素 | 10 |
+| moveSpeed | number | 移动速度 | 10 |
 
 ### [盘旋相机](/api/classes/HoverCameraController)
 
