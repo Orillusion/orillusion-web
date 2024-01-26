@@ -44,16 +44,7 @@ Web,Native
 
 ### constructor
 
-• **new Plane3D**(`a?`, `b?`, `c?`, `d?`)
-
-**`Language`**
-
-zh_CN
-创建一个平面实例
-
-**`Platform`**
-
-Web,Native
+• **new Plane3D**(`a?`, `b?`, `c?`, `d?`): [`Plane3D`](Plane3D.md)
 
 #### Parameters
 
@@ -63,6 +54,19 @@ Web,Native
 | `b` | `number` | `0` |
 | `c` | `number` | `0` |
 | `d` | `number` | `0` |
+
+#### Returns
+
+[`Plane3D`](Plane3D.md)
+
+**`Language`**
+
+zh_CN
+创建一个平面实例
+
+**`Platform`**
+
+Web,Native
 
 #### Defined in
 
@@ -150,15 +154,6 @@ Web,Native
 
 ▸ **setTo**(`a?`, `b?`, `c?`, `d?`): `void`
 
-**`Language`**
-
-zh_CN
-填充平面的各分量的值
-
-**`Platform`**
-
-Web,Native
-
 #### Parameters
 
 | Name | Type | Default value |
@@ -172,6 +167,15 @@ Web,Native
 
 `void`
 
+**`Language`**
+
+zh_CN
+填充平面的各分量的值
+
+**`Platform`**
+
+Web,Native
+
 #### Defined in
 
 [src/math/Plane3D.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane3D.ts#L109)
@@ -181,15 +185,6 @@ ___
 ### fromPoints
 
 ▸ **fromPoints**(`p0`, `p1`, `p2`): `void`
-
-**`Language`**
-
-zh_CN
-由3个坐标来创建一个3d平面
-
-**`Platform`**
-
-Web,Native
 
 #### Parameters
 
@@ -203,6 +198,15 @@ Web,Native
 
 `void`
 
+**`Language`**
+
+zh_CN
+由3个坐标来创建一个3d平面
+
+**`Platform`**
+
+Web,Native
+
 #### Defined in
 
 [src/math/Plane3D.ts:132](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane3D.ts#L132)
@@ -212,15 +216,6 @@ ___
 ### fromNormalAndPoint
 
 ▸ **fromNormalAndPoint**(`normal`, `point`): `void`
-
-**`Language`**
-
-zh_CN
-由一条normal向量和一个坐标创建一个3d平面
-
-**`Platform`**
-
-Web,Native
 
 #### Parameters
 
@@ -233,6 +228,15 @@ Web,Native
 
 `void`
 
+**`Language`**
+
+zh_CN
+由一条normal向量和一个坐标创建一个3d平面
+
+**`Platform`**
+
+Web,Native
+
 #### Defined in
 
 [src/math/Plane3D.ts:160](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane3D.ts#L160)
@@ -243,6 +247,12 @@ ___
 
 ▸ **normalize**(): `number`
 
+#### Returns
+
+`number`
+
+number 返回平面长度
+
 **`Language`**
 
 zh_CN
@@ -251,12 +261,6 @@ zh_CN
 **`Platform`**
 
 Web,Native
-
-#### Returns
-
-`number`
-
-number 返回平面长度
 
 #### Defined in
 
@@ -267,15 +271,6 @@ ___
 ### distance
 
 ▸ **distance**(`p`): `number`
-
-**`Language`**
-
-zh_CN
-计算3d平面到点p的距离
-
-**`Platform`**
-
-Web,Native
 
 #### Parameters
 
@@ -289,6 +284,15 @@ Web,Native
 
 number 返回计算后的距离
 
+**`Language`**
+
+zh_CN
+计算3d平面到点p的距离
+
+**`Platform`**
+
+Web,Native
+
 #### Defined in
 
 [src/math/Plane3D.ts:204](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane3D.ts#L204)
@@ -298,15 +302,6 @@ ___
 ### classifyPoint
 
 ▸ **classifyPoint**(`p`, `epsilon?`): `number`
-
-**`Language`**
-
-zh_CN
-计算3d平面和点p的空间关系
-
-**`Platform`**
-
-Web,Native
 
 #### Parameters
 
@@ -321,6 +316,15 @@ Web,Native
 
 number int Plane3.FRONT or Plane3D.BACK or Plane3D.INTERSECT
 
+**`Language`**
+
+zh_CN
+计算3d平面和点p的空间关系
+
+**`Platform`**
+
+Web,Native
+
 #### Defined in
 
 [src/math/Plane3D.ts:225](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane3D.ts#L225)
@@ -331,6 +335,12 @@ ___
 
 ▸ **toString**(): `string`
 
+#### Returns
+
+`string`
+
+string
+
 **`Language`**
 
 zh_CN
@@ -339,12 +349,6 @@ zh_CN
 **`Platform`**
 
 Web,Native
-
-#### Returns
-
-`string`
-
-string
 
 #### Defined in
 

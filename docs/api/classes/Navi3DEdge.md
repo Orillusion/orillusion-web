@@ -35,7 +35,7 @@
 
 ### constructor
 
-• **new Navi3DEdge**(`point0`, `point1`)
+• **new Navi3DEdge**(`point0`, `point1`): [`Navi3DEdge`](Navi3DEdge.md)
 
 #### Parameters
 
@@ -43,6 +43,10 @@
 | :------ | :------ |
 | `point0` | [`Navi3DPoint`](Navi3DPoint.md) |
 | `point1` | [`Navi3DPoint`](Navi3DPoint.md) |
+
+#### Returns
+
+[`Navi3DEdge`](Navi3DEdge.md)
 
 #### Defined in
 

@@ -15,11 +15,15 @@
 - [shapeIndex](ShapeInfo.md#shapeindex)
 - [shapeType](ShapeInfo.md#shapetype)
 - [width](ShapeInfo.md#width)
-- [height](ShapeInfo.md#height)
+- [lineCap](ShapeInfo.md#linecap)
 - [pathCount](ShapeInfo.md#pathcount)
+- [uScale](ShapeInfo.md#uscale)
+- [vScale](ShapeInfo.md#vscale)
+- [lineJoin](ShapeInfo.md#linejoin)
+- [startPath](ShapeInfo.md#startpath)
+- [endPath](ShapeInfo.md#endpath)
 - [uSpeed](ShapeInfo.md#uspeed)
 - [vSpeed](ShapeInfo.md#vspeed)
-- [radiu](ShapeInfo.md#radiu)
 - [paths](ShapeInfo.md#paths)
 
 ### Methods
@@ -34,7 +38,11 @@
 
 ### constructor
 
-• **new ShapeInfo**()
+• **new ShapeInfo**(): [`ShapeInfo`](ShapeInfo.md)
+
+#### Returns
+
+[`ShapeInfo`](ShapeInfo.md)
 
 #### Inherited from
 
@@ -48,7 +56,7 @@
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L29)
+[src/gfx/renderJob/passRenderer/graphic/new/ShapeInfo.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/ShapeInfo.ts#L6)
 
 ___
 
@@ -58,7 +66,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L30)
+[src/gfx/renderJob/passRenderer/graphic/new/ShapeInfo.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/ShapeInfo.ts#L7)
 
 ___
 
@@ -68,17 +76,17 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L31)
+[src/gfx/renderJob/passRenderer/graphic/new/ShapeInfo.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/ShapeInfo.ts#L8)
 
 ___
 
-### height
+### lineCap
 
-• **height**: `number` = `0`
+• **lineCap**: `number` = `0`
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L32)
+[src/gfx/renderJob/passRenderer/graphic/new/ShapeInfo.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/ShapeInfo.ts#L9)
 
 ___
 
@@ -88,7 +96,57 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L33)
+[src/gfx/renderJob/passRenderer/graphic/new/ShapeInfo.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/ShapeInfo.ts#L10)
+
+___
+
+### uScale
+
+• **uScale**: `number` = `0`
+
+#### Defined in
+
+[src/gfx/renderJob/passRenderer/graphic/new/ShapeInfo.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/ShapeInfo.ts#L11)
+
+___
+
+### vScale
+
+• **vScale**: `number` = `0`
+
+#### Defined in
+
+[src/gfx/renderJob/passRenderer/graphic/new/ShapeInfo.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/ShapeInfo.ts#L12)
+
+___
+
+### lineJoin
+
+• **lineJoin**: `number` = `0`
+
+#### Defined in
+
+[src/gfx/renderJob/passRenderer/graphic/new/ShapeInfo.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/ShapeInfo.ts#L13)
+
+___
+
+### startPath
+
+• **startPath**: `number` = `0`
+
+#### Defined in
+
+[src/gfx/renderJob/passRenderer/graphic/new/ShapeInfo.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/ShapeInfo.ts#L15)
+
+___
+
+### endPath
+
+• **endPath**: `number` = `0`
+
+#### Defined in
+
+[src/gfx/renderJob/passRenderer/graphic/new/ShapeInfo.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/ShapeInfo.ts#L16)
 
 ___
 
@@ -98,7 +156,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L34)
+[src/gfx/renderJob/passRenderer/graphic/new/ShapeInfo.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/ShapeInfo.ts#L17)
 
 ___
 
@@ -108,33 +166,23 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L35)
-
-___
-
-### radiu
-
-• **radiu**: `number` = `0`
-
-#### Defined in
-
-[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L36)
+[src/gfx/renderJob/passRenderer/graphic/new/ShapeInfo.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/ShapeInfo.ts#L18)
 
 ___
 
 ### paths
 
-• **paths**: `Float32Array`
+• **paths**: `Vector4`[] = `[]`
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L37)
+[src/gfx/renderJob/passRenderer/graphic/new/ShapeInfo.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/ShapeInfo.ts#L21)
 
 ## Methods
 
 ### getValueSize
 
-▸ `Static` **getValueSize**(`value`): `any`
+▸ **getValueSize**(`value`): `any`
 
 get any type value memory size
 
@@ -160,23 +208,23 @@ ___
 
 ### Ref
 
-▸ `Static` **Ref**<`T`\>(`c`): { `name`: `string` ; `type`: `string`  }[]
+▸ **Ref**\<`T`\>(`c`): \{ `name`: `string` ; `type`: `string`  }[]
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`Struct`](Struct.md)<`T`\> |
+| `T` | extends [`Struct`](Struct.md) |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)<`T`\> |
+| `c` | [`Ctor`](../types/Ctor.md)\<`T`\> |
 
 #### Returns
 
-{ `name`: `string` ; `type`: `string`  }[]
+\{ `name`: `string` ; `type`: `string`  }[]
 
 #### Inherited from
 
@@ -190,19 +238,19 @@ ___
 
 ### Get
 
-▸ `Static` **Get**<`T`\>(`c`): [`Struct`](Struct.md)
+▸ **Get**\<`T`\>(`c`): [`Struct`](Struct.md)
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`Struct`](Struct.md)<`T`\> |
+| `T` | extends [`Struct`](Struct.md) |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)<`T`\> |
+| `c` | [`Ctor`](../types/Ctor.md)\<`T`\> |
 
 #### Returns
 
@@ -220,7 +268,7 @@ ___
 
 ### GetSize
 
-▸ `Static` **GetSize**<`T`\>(`c`): `number`
+▸ **GetSize**\<`T`\>(`c`): `number`
 
 get any struct memory size
 
@@ -228,13 +276,13 @@ get any struct memory size
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`Struct`](Struct.md)<`T`\> |
+| `T` | extends [`Struct`](Struct.md) |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)<`T`\> |
+| `c` | [`Ctor`](../types/Ctor.md)\<`T`\> |
 
 #### Returns
 
@@ -252,13 +300,13 @@ ___
 
 ### getValueType
 
-▸ **getValueType**(): { `name`: `string` ; `type`: `string`  }[]
+▸ **getValueType**(): \{ `name`: `string` ; `type`: `string`  }[]
 
 get reflection name
 
 #### Returns
 
-{ `name`: `string` ; `type`: `string`  }[]
+\{ `name`: `string` ; `type`: `string`  }[]
 
 #### Inherited from
 

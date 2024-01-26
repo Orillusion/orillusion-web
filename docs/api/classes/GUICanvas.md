@@ -50,7 +50,11 @@ GUI Root Container
 
 ### constructor
 
-• **new GUICanvas**()
+• **new GUICanvas**(): [`GUICanvas`](GUICanvas.md)
+
+#### Returns
+
+[`GUICanvas`](GUICanvas.md)
 
 #### Inherited from
 
@@ -288,7 +292,7 @@ ___
 
 ### onEnable
 
-▸ `Optional` **onEnable**(`view?`): `any`
+▸ **onEnable**(`view?`): `any`
 
 #### Parameters
 
@@ -312,7 +316,7 @@ ___
 
 ### onDisable
 
-▸ `Optional` **onDisable**(`view?`): `any`
+▸ **onDisable**(`view?`): `any`
 
 #### Parameters
 
@@ -336,7 +340,7 @@ ___
 
 ### onUpdate
 
-▸ `Optional` **onUpdate**(`view?`): `any`
+▸ **onUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -360,7 +364,7 @@ ___
 
 ### onLateUpdate
 
-▸ `Optional` **onLateUpdate**(`view?`): `any`
+▸ **onLateUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -384,7 +388,7 @@ ___
 
 ### onBeforeUpdate
 
-▸ `Optional` **onBeforeUpdate**(`view?`): `any`
+▸ **onBeforeUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -408,7 +412,7 @@ ___
 
 ### onCompute
 
-▸ `Optional` **onCompute**(`view?`, `command?`): `any`
+▸ **onCompute**(`view?`, `command?`): `any`
 
 #### Parameters
 
@@ -433,7 +437,7 @@ ___
 
 ### onGraphic
 
-▸ `Optional` **onGraphic**(`view?`): `any`
+▸ **onGraphic**(`view?`): `any`
 
 #### Parameters
 
@@ -457,7 +461,7 @@ ___
 
 ### onParentChange
 
-▸ `Optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
+▸ **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
 #### Parameters
 
@@ -534,7 +538,7 @@ ___
 
 ### addChild
 
-▸ **addChild**(`child`): [`GUICanvas`](GUICanvas.md)
+▸ **addChild**(`child`): `this`
 
 Add an Object3D
 
@@ -546,7 +550,7 @@ Add an Object3D
 
 #### Returns
 
-[`GUICanvas`](GUICanvas.md)
+`this`
 
 #### Defined in
 
@@ -556,7 +560,7 @@ ___
 
 ### removeChild
 
-▸ **removeChild**(`child`): [`GUICanvas`](GUICanvas.md)
+▸ **removeChild**(`child`): `this`
 
 Remove the child
 
@@ -568,7 +572,7 @@ Remove the child
 
 #### Returns
 
-[`GUICanvas`](GUICanvas.md)
+`this`
 
 #### Defined in
 
@@ -604,17 +608,17 @@ ___
 
 ### copyComponent
 
-▸ **copyComponent**(`from`): [`GUICanvas`](GUICanvas.md)
+▸ **copyComponent**(`from`): `this`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `from` | [`GUICanvas`](GUICanvas.md) |
+| `from` | `this` |
 
 #### Returns
 
-[`GUICanvas`](GUICanvas.md)
+`this`
 
 #### Overrides
 

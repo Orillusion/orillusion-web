@@ -16,7 +16,11 @@
 
 ### constructor
 
-• **new Navi3DFunnel**()
+• **new Navi3DFunnel**(): [`Navi3DFunnel`](Navi3DFunnel.md)
+
+#### Returns
+
+[`Navi3DFunnel`](Navi3DFunnel.md)
 
 #### Defined in
 

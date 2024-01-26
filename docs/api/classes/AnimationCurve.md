@@ -37,7 +37,7 @@ has frame list data
 
 ### constructor
 
-• **new AnimationCurve**(`frames?`, `preWarpMode?`, `postWarpMode?`)
+• **new AnimationCurve**(`frames?`, `preWarpMode?`, `postWarpMode?`): [`AnimationCurve`](AnimationCurve.md)
 
 #### Parameters
 
@@ -46,6 +46,10 @@ has frame list data
 | `frames?` | [`Keyframe`](Keyframe.md)[] | `undefined` |
 | `preWarpMode` | [`WrapTimeMode`](../enums/WrapTimeMode.md) | `WrapTimeMode.Repeat` |
 | `postWarpMode` | [`WrapTimeMode`](../enums/WrapTimeMode.md) | `WrapTimeMode.Repeat` |
+
+#### Returns
+
+[`AnimationCurve`](AnimationCurve.md)
 
 #### Defined in
 
@@ -286,7 +290,7 @@ ___
 
 ### unSerialized
 
-▸ **unSerialized**(`data`): [`AnimationCurve`](AnimationCurve.md)
+▸ **unSerialized**(`data`): `this`
 
 #### Parameters
 
@@ -296,7 +300,7 @@ ___
 
 #### Returns
 
-[`AnimationCurve`](AnimationCurve.md)
+`this`
 
 #### Defined in
 
@@ -306,7 +310,7 @@ ___
 
 ### unSerialized2
 
-▸ **unSerialized2**(`data`): [`AnimationCurve`](AnimationCurve.md)
+▸ **unSerialized2**(`data`): `this`
 
 #### Parameters
 
@@ -316,7 +320,7 @@ ___
 
 #### Returns
 
-[`AnimationCurve`](AnimationCurve.md)
+`this`
 
 #### Defined in
 
@@ -326,7 +330,7 @@ ___
 
 ### scaleCurveValue
 
-▸ `Static` **scaleCurveValue**(`curve`, `scale`): `void`
+▸ **scaleCurveValue**(`curve`, `scale`): `void`
 
 #### Parameters
 

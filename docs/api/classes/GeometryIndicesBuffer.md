@@ -23,7 +23,11 @@
 
 ### constructor
 
-• **new GeometryIndicesBuffer**()
+• **new GeometryIndicesBuffer**(): [`GeometryIndicesBuffer`](GeometryIndicesBuffer.md)
+
+#### Returns
+
+[`GeometryIndicesBuffer`](GeometryIndicesBuffer.md)
 
 #### Defined in
 

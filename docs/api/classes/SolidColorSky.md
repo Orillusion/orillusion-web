@@ -72,7 +72,7 @@ create a cube texture, which filled by solid color.
 
 ### constructor
 
-• **new SolidColorSky**(`color`)
+• **new SolidColorSky**(`color`): [`SolidColorSky`](SolidColorSky.md)
 
 create a cube texture, which filled by solid color.
 
@@ -81,6 +81,10 @@ create a cube texture, which filled by solid color.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `color` | [`Color`](Color.md) | solid color |
+
+#### Returns
+
+[`SolidColorSky`](SolidColorSky.md)
 
 #### Overrides
 
@@ -936,11 +940,11 @@ change solid color
 
 ### init
 
-▸ **init**(): [`SolidColorSky`](SolidColorSky.md)
+▸ **init**(): `this`
 
 #### Returns
 
-[`SolidColorSky`](SolidColorSky.md)
+`this`
 
 #### Inherited from
 
@@ -1097,7 +1101,7 @@ ___
 
 ### delayDestroyTexture
 
-▸ `Static` **delayDestroyTexture**(`tex`): `void`
+▸ **delayDestroyTexture**(`tex`): `void`
 
 #### Parameters
 
@@ -1121,7 +1125,7 @@ ___
 
 ### destroyTexture
 
-▸ `Static` **destroyTexture**(): `void`
+▸ **destroyTexture**(): `void`
 
 #### Returns
 
@@ -1139,7 +1143,7 @@ ___
 
 ### load
 
-▸ **load**(`url`, `loaderFunctions?`): `Promise`<[`LDRTextureCube`](LDRTextureCube.md)\>
+▸ **load**(`url`, `loaderFunctions?`): `Promise`\<[`LDRTextureCube`](LDRTextureCube.md)\>
 
 load texture data from web url, which is a 360 panorama image
 
@@ -1152,7 +1156,7 @@ load texture data from web url, which is a 360 panorama image
 
 #### Returns
 
-`Promise`<[`LDRTextureCube`](LDRTextureCube.md)\>
+`Promise`\<[`LDRTextureCube`](LDRTextureCube.md)\>
 
 #### Inherited from
 
@@ -1166,7 +1170,7 @@ ___
 
 ### createFromTexture
 
-▸ **createFromTexture**(`size`, `texture`): [`SolidColorSky`](SolidColorSky.md)
+▸ **createFromTexture**(`size`, `texture`): `this`
 
 create cube texture by environment image
 
@@ -1179,7 +1183,7 @@ create cube texture by environment image
 
 #### Returns
 
-[`SolidColorSky`](SolidColorSky.md)
+`this`
 
 #### Inherited from
 

@@ -43,7 +43,11 @@ let cfg = {@link Engine3D.setting.render.postProcessing.gtao};
 
 ### constructor
 
-• **new GTAOPost**()
+• **new GTAOPost**(): [`GTAOPost`](GTAOPost.md)
+
+#### Returns
+
+[`GTAOPost`](GTAOPost.md)
 
 #### Overrides
 

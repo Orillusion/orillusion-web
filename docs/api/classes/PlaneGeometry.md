@@ -56,7 +56,7 @@ Plane geometry
 
 ### constructor
 
-• **new PlaneGeometry**(`width`, `height`, `segmentW?`, `segmentH?`, `up?`)
+• **new PlaneGeometry**(`width`, `height`, `segmentW?`, `segmentH?`, `up?`): [`PlaneGeometry`](PlaneGeometry.md)
 
 #### Parameters
 
@@ -67,6 +67,10 @@ Plane geometry
 | `segmentW` | `number` | `1` | Number of width segments of a plane |
 | `segmentH` | `number` | `1` | Number of height segments of a plane |
 | `up` | [`Vector3`](Vector3.md) | `Vector3.Y_AXIS` | Define the normal vector of a plane |
+
+#### Returns
+
+[`PlaneGeometry`](PlaneGeometry.md)
 
 #### Overrides
 
@@ -324,11 +328,11 @@ ___
 
 ### vertexAttributeMap
 
-• `get` **vertexAttributeMap**(): `Map`<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
+• `get` **vertexAttributeMap**(): `Map`\<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
 
 #### Returns
 
-`Map`<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
+`Map`\<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
 
 #### Inherited from
 
@@ -422,10 +426,6 @@ GeometryBase.bounds
 
 add subGeometry from lod level
 
-**`See`**
-
-LODDescriptor
-
 #### Parameters
 
 | Name | Type |
@@ -435,6 +435,10 @@ LODDescriptor
 #### Returns
 
 [`SubGeometry`](SubGeometry.md)
+
+**`See`**
+
+LODDescriptor
 
 #### Inherited from
 
@@ -607,11 +611,11 @@ ___
 
 ### computeNormals
 
-▸ **computeNormals**(): [`PlaneGeometry`](PlaneGeometry.md)
+▸ **computeNormals**(): `this`
 
 #### Returns
 
-[`PlaneGeometry`](PlaneGeometry.md)
+`this`
 
 #### Inherited from
 

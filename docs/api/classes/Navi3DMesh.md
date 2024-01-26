@@ -20,7 +20,7 @@
 
 ### constructor
 
-• **new Navi3DMesh**(`pointList`, `triangleIndexList`)
+• **new Navi3DMesh**(`pointList`, `triangleIndexList`): [`Navi3DMesh`](Navi3DMesh.md)
 
 #### Parameters
 
@@ -28,6 +28,10 @@
 | :------ | :------ |
 | `pointList` | [`Vector3`](Vector3.md)[] |
 | `triangleIndexList` | `number`[][] |
+
+#### Returns
+
+[`Navi3DMesh`](Navi3DMesh.md)
 
 #### Defined in
 

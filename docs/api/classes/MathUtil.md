@@ -25,13 +25,17 @@ Built-in mathematical basic calculation factory function
 
 ### constructor
 
-• **new MathUtil**()
+• **new MathUtil**(): [`MathUtil`](MathUtil.md)
+
+#### Returns
+
+[`MathUtil`](MathUtil.md)
 
 ## Methods
 
 ### clampf
 
-▸ `Static` **clampf**(`value`, `min_inclusive`, `max_inclusive`): `number`
+▸ **clampf**(`value`, `min_inclusive`, `max_inclusive`): `number`
 
 Limit the value to a certain range
 
@@ -57,7 +61,7 @@ ___
 
 ### normalizeAngle
 
-▸ `Static` **normalizeAngle**(`a`): `number`
+▸ **normalizeAngle**(`a`): `number`
 
 Normalize the Angle so that it is limited to the range [-180, 180]
 
@@ -81,7 +85,7 @@ ___
 
 ### fract
 
-▸ `Static` **fract**(`v`): `number`
+▸ **fract**(`v`): `number`
 
 Returns the fractional part of a number
 
@@ -105,7 +109,7 @@ ___
 
 ### getRandDirXZ
 
-▸ `Static` **getRandDirXZ**(`r`): `Object`
+▸ **getRandDirXZ**(`r`): `Object`
 
 Generate a random pair of x and z coordinates that fall within the radius of the circle
 
@@ -134,7 +138,7 @@ ___
 
 ### getRandDirXYZ
 
-▸ `Static` **getRandDirXYZ**(`r`): [`Vector3`](Vector3.md)
+▸ **getRandDirXYZ**(`r`): [`Vector3`](Vector3.md)
 
 Generate a random pair of x, y, and z coordinates that fall within the radius of the sphere
 
@@ -158,7 +162,7 @@ ___
 
 ### getCycleXYZ
 
-▸ `Static` **getCycleXYZ**(`r`): [`Vector3`](Vector3.md)
+▸ **getCycleXYZ**(`r`): [`Vector3`](Vector3.md)
 
 According to the radius, generate a random pair of x, y, z coordinates that fall within the sphere and the y value is between [-r/2, r/2]
 
@@ -182,7 +186,7 @@ ___
 
 ### angle
 
-▸ `Static` **angle**(`p1`, `p2`): `number`
+▸ **angle**(`p1`, `p2`): `number`
 
 Calculate the Angle between two vectors
 
@@ -207,7 +211,7 @@ ___
 
 ### angle\_360
 
-▸ `Static` **angle_360**(`from`, `to`): `number`
+▸ **angle_360**(`from`, `to`): `number`
 
 Calculate the Angle between two vectors
 
@@ -232,13 +236,9 @@ ___
 
 ### fromToRotation
 
-▸ `Static` **fromToRotation**(`fromDirection`, `toDirection`, `target?`): [`Quaternion`](Quaternion.md)
+▸ **fromToRotation**(`fromDirection`, `toDirection`, `target?`): [`Quaternion`](Quaternion.md)
 
 Calculate the quaternion from one direction to the other
-
-**`Version`**
-
-Orillusion3D  0.5.1
 
 #### Parameters
 
@@ -254,6 +254,10 @@ Orillusion3D  0.5.1
 
 Quaternion The calculated quaternion returns a new instance created if target is null
 
+**`Version`**
+
+Orillusion3D  0.5.1
+
 #### Defined in
 
 [src/math/MathUtil.ts:232](https://github.com/Orillusion/orillusion/blob/main/src/math/MathUtil.ts#L232)
@@ -262,7 +266,7 @@ ___
 
 ### getEularDir\_yUp
 
-▸ `Static` **getEularDir_yUp**(`v`): [`Vector3`](Vector3.md)
+▸ **getEularDir_yUp**(`v`): [`Vector3`](Vector3.md)
 
 Get the Eular direction
 
@@ -286,7 +290,7 @@ ___
 
 ### transformVector
 
-▸ `Static` **transformVector**(`matrix`, `vector`, `result?`): [`Vector3`](Vector3.md)
+▸ **transformVector**(`matrix`, `vector`, `result?`): [`Vector3`](Vector3.md)
 
 Compute the vector transformation and assign the results to the input variables
 

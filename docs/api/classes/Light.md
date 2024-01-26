@@ -73,7 +73,11 @@ A common example is to simulate the light emitted by a light bulb, where a point
 
 ### constructor
 
-• **new Light**()
+• **new Light**(): [`Light`](Light.md)
+
+#### Returns
+
+[`Light`](Light.md)
 
 #### Overrides
 
@@ -182,6 +186,8 @@ ___
 ### bindOnChange
 
 • **bindOnChange**: () => `void`
+
+Callback function when binding changes
 
 #### Type declaration
 
@@ -391,13 +397,13 @@ ___
 
 Get the illumination distance of the light source
 
-**`Memberof`**
-
-PointLight
-
 #### Returns
 
 `number`
+
+**`Memberof`**
+
+PointLight
 
 #### Defined in
 
@@ -406,10 +412,6 @@ PointLight
 • `set` **at**(`value`): `void`
 
 Set the illumination distance of the light source
-
-**`Memberof`**
-
-PointLight
 
 #### Parameters
 
@@ -420,6 +422,10 @@ PointLight
 #### Returns
 
 `void`
+
+**`Memberof`**
+
+PointLight
 
 #### Defined in
 
@@ -941,7 +947,7 @@ ___
 
 ### onLateUpdate
 
-▸ `Optional` **onLateUpdate**(`view?`): `any`
+▸ **onLateUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -965,7 +971,7 @@ ___
 
 ### onBeforeUpdate
 
-▸ `Optional` **onBeforeUpdate**(`view?`): `any`
+▸ **onBeforeUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -989,7 +995,7 @@ ___
 
 ### onCompute
 
-▸ `Optional` **onCompute**(`view?`, `command?`): `any`
+▸ **onCompute**(`view?`, `command?`): `any`
 
 #### Parameters
 
@@ -1014,7 +1020,7 @@ ___
 
 ### onParentChange
 
-▸ `Optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
+▸ **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
 #### Parameters
 
@@ -1065,17 +1071,17 @@ ___
 
 ### copyComponent
 
-▸ **copyComponent**(`from`): [`Light`](Light.md)
+▸ **copyComponent**(`from`): `this`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `from` | [`Light`](Light.md) |
+| `from` | `this` |
 
 #### Returns
 
-[`Light`](Light.md)
+`this`
 
 #### Inherited from
 

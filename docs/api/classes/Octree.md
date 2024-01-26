@@ -29,7 +29,7 @@
 
 ### constructor
 
-• **new Octree**(`size`, `index?`, `parent?`, `level?`)
+• **new Octree**(`size`, `index?`, `parent?`, `level?`): [`Octree`](Octree.md)
 
 #### Parameters
 
@@ -40,6 +40,10 @@
 | `parent` | [`Octree`](Octree.md) | `null` |
 | `level` | `number` | `0` |
 
+#### Returns
+
+[`Octree`](Octree.md)
+
 #### Defined in
 
 [src/core/tree/octree/Octree.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L26)
@@ -48,7 +52,7 @@
 
 ### entities
 
-• `Readonly` **entities**: `Map`<`string`, [`OctreeEntity`](OctreeEntity.md)\>
+• `Readonly` **entities**: `Map`\<`string`, [`OctreeEntity`](OctreeEntity.md)\>
 
 #### Defined in
 
@@ -242,11 +246,11 @@ ___
 
 ### clean
 
-▸ **clean**(): [`Octree`](Octree.md)
+▸ **clean**(): `this`
 
 #### Returns
 
-[`Octree`](Octree.md)
+`this`
 
 #### Defined in
 

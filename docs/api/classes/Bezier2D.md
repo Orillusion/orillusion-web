@@ -19,7 +19,7 @@
 
 ### constructor
 
-• **new Bezier2D**(`vec2Ds?`)
+• **new Bezier2D**(`vec2Ds?`): [`Bezier2D`](Bezier2D.md)
 
 instance bezier class
 
@@ -28,6 +28,10 @@ instance bezier class
 | Name | Type | Default value |
 | :------ | :------ | :------ |
 | `vec2Ds` | [`Vector2`](Vector2.md)[] | `[]` |
+
+#### Returns
+
+[`Bezier2D`](Bezier2D.md)
 
 #### Defined in
 
@@ -95,7 +99,7 @@ ___
 
 ### createBezierPoints
 
-▸ `Static` **createBezierPoints**(`anchorpoints`, `pointsAmount`): [`Bezier2D`](Bezier2D.md)
+▸ **createBezierPoints**(`anchorpoints`, `pointsAmount`): [`Bezier2D`](Bezier2D.md)
 
 caclute bezier curve points at line [ 0.0 , 1.0 ]
 

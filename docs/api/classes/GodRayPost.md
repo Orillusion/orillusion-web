@@ -33,7 +33,11 @@
 
 ### constructor
 
-• **new GodRayPost**()
+• **new GodRayPost**(): [`GodRayPost`](GodRayPost.md)
+
+#### Returns
+
+[`GodRayPost`](GodRayPost.md)
 
 #### Overrides
 

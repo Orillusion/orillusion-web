@@ -15,7 +15,11 @@
 
 ### constructor
 
-• **new PassShader**()
+• **new PassShader**(): [`PassShader`](PassShader.md)
+
+#### Returns
+
+[`PassShader`](PassShader.md)
 
 ## Properties
 
@@ -31,7 +35,7 @@ ___
 
 ### shaderState
 
-• **shaderState**: `Map`<`string`, `any`\>
+• **shaderState**: `Map`\<`string`, `any`\>
 
 #### Defined in
 

@@ -18,13 +18,17 @@
 
 ### constructor
 
-• **new RenderShaderCollect**()
+• **new RenderShaderCollect**(): [`RenderShaderCollect`](RenderShaderCollect.md)
+
+#### Returns
+
+[`RenderShaderCollect`](RenderShaderCollect.md)
 
 ## Properties
 
 ### renderShaderUpdateList
 
-• **renderShaderUpdateList**: `Map`<[`View3D`](View3D.md), [`RenderShaderList`](../types/RenderShaderList.md)\>
+• **renderShaderUpdateList**: `Map`\<[`View3D`](View3D.md), [`RenderShaderList`](../types/RenderShaderList.md)\>
 
 #### Defined in
 
@@ -34,7 +38,7 @@ ___
 
 ### renderNodeList
 
-• **renderNodeList**: `Map`<[`View3D`](View3D.md), `Map`<`string`, `RenderNode`\>\>
+• **renderNodeList**: `Map`\<[`View3D`](View3D.md), `Map`\<`string`, `RenderNode`\>\>
 
 #### Defined in
 

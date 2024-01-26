@@ -1,6 +1,6 @@
 # Type alias: RenderShaderList
 
-Ƭ **RenderShaderList**: `Map`<`string`, `Map`<`string`, `RenderNode`\>\>
+Ƭ **RenderShaderList**: `Map`\<`string`, `Map`\<`string`, `RenderNode`\>\>
 
 #### Defined in
 

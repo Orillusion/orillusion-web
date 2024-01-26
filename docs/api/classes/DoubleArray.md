@@ -18,7 +18,11 @@
 
 ### constructor
 
-• **new DoubleArray**()
+• **new DoubleArray**(): [`DoubleArray`](DoubleArray.md)
+
+#### Returns
+
+[`DoubleArray`](DoubleArray.md)
 
 ## Methods
 

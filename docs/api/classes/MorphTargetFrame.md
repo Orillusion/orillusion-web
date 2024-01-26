@@ -13,7 +13,11 @@
 
 ### constructor
 
-• **new MorphTargetFrame**()
+• **new MorphTargetFrame**(): [`MorphTargetFrame`](MorphTargetFrame.md)
+
+#### Returns
+
+[`MorphTargetFrame`](MorphTargetFrame.md)
 
 ## Properties
 

@@ -52,13 +52,17 @@ Plane geometry
 
 ### constructor
 
-• **new StripeGeometry**(`segments`)
+• **new StripeGeometry**(`segments`): [`StripeGeometry`](StripeGeometry.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `segments` | [[`Vector3`](Vector3.md), [`Vector3`](Vector3.md)][] |
+
+#### Returns
+
+[`StripeGeometry`](StripeGeometry.md)
 
 #### Overrides
 
@@ -266,11 +270,11 @@ ___
 
 ### vertexAttributeMap
 
-• `get` **vertexAttributeMap**(): `Map`<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
+• `get` **vertexAttributeMap**(): `Map`\<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
 
 #### Returns
 
-`Map`<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
+`Map`\<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
 
 #### Inherited from
 
@@ -364,10 +368,6 @@ GeometryBase.bounds
 
 add subGeometry from lod level
 
-**`See`**
-
-LODDescriptor
-
 #### Parameters
 
 | Name | Type |
@@ -377,6 +377,10 @@ LODDescriptor
 #### Returns
 
 [`SubGeometry`](SubGeometry.md)
+
+**`See`**
+
+LODDescriptor
 
 #### Inherited from
 
@@ -549,11 +553,11 @@ ___
 
 ### computeNormals
 
-▸ **computeNormals**(): [`StripeGeometry`](StripeGeometry.md)
+▸ **computeNormals**(): `this`
 
 #### Returns
 
-[`StripeGeometry`](StripeGeometry.md)
+`this`
 
 #### Inherited from
 

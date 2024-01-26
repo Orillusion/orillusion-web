@@ -25,7 +25,11 @@
 
 ### constructor
 
-• **new MorphTargetData**()
+• **new MorphTargetData**(): [`MorphTargetData`](MorphTargetData.md)
+
+#### Returns
+
+[`MorphTargetData`](MorphTargetData.md)
 
 #### Defined in
 

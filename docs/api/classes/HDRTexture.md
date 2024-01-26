@@ -70,7 +70,11 @@ HDR Texture
 
 ### constructor
 
-• **new HDRTexture**()
+• **new HDRTexture**(): [`HDRTexture`](HDRTexture.md)
+
+#### Returns
+
+[`HDRTexture`](HDRTexture.md)
 
 #### Overrides
 
@@ -874,11 +878,11 @@ Texture.maxAnisotropy
 
 ### init
 
-▸ **init**(): [`HDRTexture`](HDRTexture.md)
+▸ **init**(): `this`
 
 #### Returns
 
-[`HDRTexture`](HDRTexture.md)
+`this`
 
 #### Inherited from
 
@@ -1035,7 +1039,7 @@ ___
 
 ### delayDestroyTexture
 
-▸ `Static` **delayDestroyTexture**(`tex`): `void`
+▸ **delayDestroyTexture**(`tex`): `void`
 
 #### Parameters
 
@@ -1059,7 +1063,7 @@ ___
 
 ### destroyTexture
 
-▸ `Static` **destroyTexture**(): `void`
+▸ **destroyTexture**(): `void`
 
 #### Returns
 
@@ -1077,7 +1081,7 @@ ___
 
 ### create
 
-▸ **create**(`width?`, `height?`, `data?`, `useMipmap?`): [`HDRTexture`](HDRTexture.md)
+▸ **create**(`width?`, `height?`, `data?`, `useMipmap?`): `this`
 
 fill this texture by array of numbers;the format as [red0, green0, blue0, e0, red1, green1, blue1, e1...]
 
@@ -1092,7 +1096,7 @@ fill this texture by array of numbers;the format as [red0, green0, blue0, e0, re
 
 #### Returns
 
-[`HDRTexture`](HDRTexture.md)
+`this`
 
 #### Defined in
 
@@ -1102,7 +1106,7 @@ ___
 
 ### load
 
-▸ **load**(`url`, `loaderFunctions?`): `Promise`<[`HDRTexture`](HDRTexture.md)\>
+▸ **load**(`url`, `loaderFunctions?`): `Promise`\<[`HDRTexture`](HDRTexture.md)\>
 
 load one hdr image
 
@@ -1115,7 +1119,7 @@ load one hdr image
 
 #### Returns
 
-`Promise`<[`HDRTexture`](HDRTexture.md)\>
+`Promise`\<[`HDRTexture`](HDRTexture.md)\>
 
 #### Defined in
 

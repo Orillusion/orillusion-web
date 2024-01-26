@@ -17,13 +17,17 @@
 
 ### constructor
 
-• **new TextureCubeFaceData**(`texture`)
+• **new TextureCubeFaceData**(`texture`): [`TextureCubeFaceData`](TextureCubeFaceData.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `texture` | [`Texture`](Texture.md) |
+
+#### Returns
+
+[`TextureCubeFaceData`](TextureCubeFaceData.md)
 
 #### Defined in
 
@@ -37,7 +41,7 @@
 
 #### Index signature
 
-▪ [key: `string`]: { `t`: `GPUTexture` ; `v`: `GPUTextureView`  }
+▪ [key: `string`]: \{ `t`: `GPUTexture` ; `v`: `GPUTextureView`  }
 
 #### Defined in
 
@@ -47,7 +51,7 @@
 
 ### uploadTexture
 
-▸ **uploadTexture**(`mip`, `texture`): [`TextureCubeFaceData`](TextureCubeFaceData.md)
+▸ **uploadTexture**(`mip`, `texture`): `this`
 
 fill this texture by a texture2D, which is a 360 panorama image
 assign mipmap level
@@ -61,7 +65,7 @@ assign mipmap level
 
 #### Returns
 
-[`TextureCubeFaceData`](TextureCubeFaceData.md)
+`this`
 
 #### Defined in
 

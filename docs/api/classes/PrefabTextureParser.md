@@ -33,7 +33,11 @@
 
 ### constructor
 
-• **new PrefabTextureParser**()
+• **new PrefabTextureParser**(): [`PrefabTextureParser`](PrefabTextureParser.md)
+
+#### Returns
+
+[`PrefabTextureParser`](PrefabTextureParser.md)
 
 #### Inherited from
 
@@ -127,7 +131,7 @@ ParserBase.data
 
 ### parserTexture
 
-▸ `Static` **parserTexture**(`bytesStream`, `prefabParser`, `loaderFunctions`): `Promise`<`void`\>
+▸ **parserTexture**(`bytesStream`, `prefabParser`, `loaderFunctions`): `Promise`\<`void`\>
 
 #### Parameters
 
@@ -139,7 +143,7 @@ ParserBase.data
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 

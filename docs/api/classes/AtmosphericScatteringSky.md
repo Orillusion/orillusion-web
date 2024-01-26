@@ -73,13 +73,17 @@ Atmospheric Scattering Sky Texture
 
 ### constructor
 
-• **new AtmosphericScatteringSky**(`setting`)
+• **new AtmosphericScatteringSky**(`setting`): [`AtmosphericScatteringSky`](AtmosphericScatteringSky.md)
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `setting` | [`AtmosphericScatteringSkySetting`](AtmosphericScatteringSkySetting.md) | AtmosphericScatteringSkySetting |
+
+#### Returns
+
+[`AtmosphericScatteringSky`](AtmosphericScatteringSky.md)
 
 #### Overrides
 
@@ -927,11 +931,11 @@ LDRTextureCube.ldrImageUrl
 
 ### init
 
-▸ **init**(): [`AtmosphericScatteringSky`](AtmosphericScatteringSky.md)
+▸ **init**(): `this`
 
 #### Returns
 
-[`AtmosphericScatteringSky`](AtmosphericScatteringSky.md)
+`this`
 
 #### Inherited from
 
@@ -1088,7 +1092,7 @@ ___
 
 ### delayDestroyTexture
 
-▸ `Static` **delayDestroyTexture**(`tex`): `void`
+▸ **delayDestroyTexture**(`tex`): `void`
 
 #### Parameters
 
@@ -1112,7 +1116,7 @@ ___
 
 ### destroyTexture
 
-▸ `Static` **destroyTexture**(): `void`
+▸ **destroyTexture**(): `void`
 
 #### Returns
 
@@ -1130,7 +1134,7 @@ ___
 
 ### load
 
-▸ **load**(`url`, `loaderFunctions?`): `Promise`<[`LDRTextureCube`](LDRTextureCube.md)\>
+▸ **load**(`url`, `loaderFunctions?`): `Promise`\<[`LDRTextureCube`](LDRTextureCube.md)\>
 
 load texture data from web url, which is a 360 panorama image
 
@@ -1143,7 +1147,7 @@ load texture data from web url, which is a 360 panorama image
 
 #### Returns
 
-`Promise`<[`LDRTextureCube`](LDRTextureCube.md)\>
+`Promise`\<[`LDRTextureCube`](LDRTextureCube.md)\>
 
 #### Inherited from
 
@@ -1157,7 +1161,7 @@ ___
 
 ### createFromTexture
 
-▸ **createFromTexture**(`size`, `texture`): [`AtmosphericScatteringSky`](AtmosphericScatteringSky.md)
+▸ **createFromTexture**(`size`, `texture`): `this`
 
 create cube texture by environment image
 
@@ -1170,7 +1174,7 @@ create cube texture by environment image
 
 #### Returns
 
-[`AtmosphericScatteringSky`](AtmosphericScatteringSky.md)
+`this`
 
 #### Inherited from
 

@@ -33,13 +33,17 @@ String processing tool class
 
 ### constructor
 
-• **new StringUtil**()
+• **new StringUtil**(): [`StringUtil`](StringUtil.md)
+
+#### Returns
+
+[`StringUtil`](StringUtil.md)
 
 ## Methods
 
 ### hasString
 
-▸ `Static` **hasString**(`fields`, `str`): `number`
+▸ **hasString**(`fields`, `str`): `number`
 
 Does the string exist
 
@@ -64,7 +68,7 @@ ___
 
 ### getEllipsis
 
-▸ `Static` **getEllipsis**(`str`, `len?`): `string`
+▸ **getEllipsis**(`str`, `len?`): `string`
 
 Gets an ellipsis terminated string representation that exceeds the range
 
@@ -89,7 +93,7 @@ ___
 
 ### getURLName
 
-▸ `Static` **getURLName**(`url`): `string`
+▸ **getURLName**(`url`): `string`
 
 get name based on URL
 
@@ -113,7 +117,7 @@ ___
 
 ### getFileFormat
 
-▸ `Static` **getFileFormat**(`url`): `string`
+▸ **getFileFormat**(`url`): `string`
 
 get suffix of file name from url
 
@@ -137,7 +141,7 @@ ___
 
 ### readLineProperty
 
-▸ `Static` **readLineProperty**(`line`, `data`): `void`
+▸ **readLineProperty**(`line`, `data`): `void`
 
 get information stored in a string
 
@@ -160,7 +164,7 @@ ___
 
 ### getPath
 
-▸ `Static` **getPath**(`url`): `string`
+▸ **getPath**(`url`): `string`
 
 #### Parameters
 
@@ -180,7 +184,7 @@ ___
 
 ### normalizePath
 
-▸ `Static` **normalizePath**(`url`): `string`
+▸ **normalizePath**(`url`): `string`
 
 #### Parameters
 
@@ -200,7 +204,7 @@ ___
 
 ### getStringList
 
-▸ `Static` **getStringList**(`str`, `char?`): `string`[]
+▸ **getStringList**(`str`, `char?`): `string`[]
 
 Used to cut specified characters
 
@@ -225,7 +229,7 @@ ___
 
 ### formatTime
 
-▸ `Static` **formatTime**(`time`): `string`[]
+▸ **formatTime**(`time`): `string`[]
 
 Format timestamp data
 
@@ -247,7 +251,7 @@ ___
 
 ### trim
 
-▸ `Static` **trim**(`str`): `any`
+▸ **trim**(`str`): `any`
 
 trim
 
@@ -271,7 +275,7 @@ ___
 
 ### isEmpty
 
-▸ `Static` **isEmpty**(`value`): `boolean`
+▸ **isEmpty**(`value`): `boolean`
 
 Determine if the string is empty, null, '' or 'null'
 
@@ -295,7 +299,7 @@ ___
 
 ### strCut
 
-▸ `Static` **strCut**(`str`, `len`): `string`
+▸ **strCut**(`str`, `len`): `string`
 
 Handle strings that exceed the length range, such as adding strings that exceed the range
 
@@ -320,7 +324,7 @@ ___
 
 ### toQueryPair
 
-▸ `Static` **toQueryPair**(`key`, `value`, `isEncodeURI?`): `string`
+▸ **toQueryPair**(`key`, `value`, `isEncodeURI?`): `string`
 
 According to the splicing request parameters
 
@@ -346,7 +350,7 @@ ___
 
 ### stringFormat
 
-▸ `Static` **stringFormat**(`str`, `...params`): `string`
+▸ **stringFormat**(`str`, `...params`): `string`
 
 format a string
 
@@ -371,7 +375,7 @@ ___
 
 ### parseJson2String
 
-▸ `Static` **parseJson2String**(`json`, `options?`): `string`
+▸ **parseJson2String**(`json`, `options?`): `string`
 
 Convert JSON objects to strings
 
@@ -396,7 +400,7 @@ ___
 
 ### compareVersion
 
-▸ `Static` **compareVersion**(`v1`, `v2`): ``1`` \| ``0`` \| ``-1``
+▸ **compareVersion**(`v1`, `v2`): ``1`` \| ``0`` \| ``-1``
 
 Compatibility mode - version comparison
 
@@ -421,7 +425,7 @@ ___
 
 ### buildRandomCode
 
-▸ `Static` **buildRandomCode**(): `string`
+▸ **buildRandomCode**(): `string`
 
 Generate non repeating random string codes
 
@@ -439,7 +443,7 @@ ___
 
 ### UUID
 
-▸ `Static` **UUID**(): `string`
+▸ **UUID**(): `string`
 
 UUID
 
@@ -457,7 +461,7 @@ ___
 
 ### stringToHash
 
-▸ `Static` **stringToHash**(`str`): `number`
+▸ **stringToHash**(`str`): `number`
 
 make hash code
 
@@ -481,7 +485,7 @@ ___
 
 ### parseUrl
 
-▸ `Static` **parseUrl**(`base`, `url`): `string`
+▸ **parseUrl**(`base`, `url`): `string`
 
 Convert GLTF URL Address
 

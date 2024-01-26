@@ -1,6 +1,6 @@
 # Function: IsEditorInspector
 
-▸ **IsEditorInspector**<`T`\>(`instance`): `Map`<`string`, `any`\>
+▸ **IsEditorInspector**\<`T`\>(`instance`): `Map`\<`string`, `any`\>
 
 #### Type parameters
 
@@ -16,7 +16,7 @@
 
 #### Returns
 
-`Map`<`string`, `any`\>
+`Map`\<`string`, `any`\>
 
 #### Defined in
 

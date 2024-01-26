@@ -27,14 +27,18 @@ The mesh renderer component is a component used to render the mesh
 - [preInit](Graphic3DFaceRenderer.md#preinit)
 - [maxFaceCount](Graphic3DFaceRenderer.md#maxfacecount)
 - [maxGeometryCount](Graphic3DFaceRenderer.md#maxgeometrycount)
-- [maxShapeCount](Graphic3DFaceRenderer.md#maxshapecount)
 - [maxPathPointCount](Graphic3DFaceRenderer.md#maxpathpointcount)
+- [maxShapeCount](Graphic3DFaceRenderer.md#maxshapecount)
 - [texture](Graphic3DFaceRenderer.md#texture)
 - [transformBuffer](Graphic3DFaceRenderer.md#transformbuffer)
 - [geometryInfoBuffer](Graphic3DFaceRenderer.md#geometryinfobuffer)
 - [shapeBuffer](Graphic3DFaceRenderer.md#shapebuffer)
+- [pathBuffer](Graphic3DFaceRenderer.md#pathbuffer)
+- [drawBuffer](Graphic3DFaceRenderer.md#drawbuffer)
 - [object3Ds](Graphic3DFaceRenderer.md#object3ds)
 - [shapes](Graphic3DFaceRenderer.md#shapes)
+- [realDrawShape](Graphic3DFaceRenderer.md#realdrawshape)
+- [needUpdate](Graphic3DFaceRenderer.md#needupdate)
 
 ### Accessors
 
@@ -66,7 +70,6 @@ The mesh renderer component is a component used to render the mesh
 - [copyComponent](Graphic3DFaceRenderer.md#copycomponent)
 - [setMorphInfluence](Graphic3DFaceRenderer.md#setmorphinfluence)
 - [setMorphInfluenceIndex](Graphic3DFaceRenderer.md#setmorphinfluenceindex)
-- [onCompute](Graphic3DFaceRenderer.md#oncompute)
 - [destroy](Graphic3DFaceRenderer.md#destroy)
 - [attachSceneOctree](Graphic3DFaceRenderer.md#attachsceneoctree)
 - [detachSceneOctree](Graphic3DFaceRenderer.md#detachsceneoctree)
@@ -83,18 +86,24 @@ The mesh renderer component is a component used to render the mesh
 - [init](Graphic3DFaceRenderer.md#init)
 - [create](Graphic3DFaceRenderer.md#create)
 - [startShape](Graphic3DFaceRenderer.md#startshape)
+- [setShape](Graphic3DFaceRenderer.md#setshape)
 - [updateShape](Graphic3DFaceRenderer.md#updateshape)
 - [setTextureID](Graphic3DFaceRenderer.md#settextureid)
 - [setBaseColor](Graphic3DFaceRenderer.md#setbasecolor)
 - [setEmissiveColor](Graphic3DFaceRenderer.md#setemissivecolor)
 - [setUVRect](Graphic3DFaceRenderer.md#setuvrect)
 - [onUpdate](Graphic3DFaceRenderer.md#onupdate)
+- [onCompute](Graphic3DFaceRenderer.md#oncompute)
 
 ## Constructors
 
 ### constructor
 
-• **new Graphic3DFaceRenderer**()
+• **new Graphic3DFaceRenderer**(): [`Graphic3DFaceRenderer`](Graphic3DFaceRenderer.md)
+
+#### Returns
+
+[`Graphic3DFaceRenderer`](Graphic3DFaceRenderer.md)
 
 #### Inherited from
 
@@ -102,7 +111,7 @@ The mesh renderer component is a component used to render the mesh
 
 #### Defined in
 
-[src/components/renderer/MeshRenderer.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L25)
+[src/components/renderer/MeshRenderer.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L26)
 
 ## Properties
 
@@ -148,7 +157,7 @@ Enabling this option allows the grid to display any shadows cast on the grid.
 
 #### Defined in
 
-[src/components/renderer/MeshRenderer.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L22)
+[src/components/renderer/MeshRenderer.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L23)
 
 ___
 
@@ -266,11 +275,11 @@ ___
 
 ### maxFaceCount
 
-▪ `Static` **maxFaceCount**: `number` = `50000`
+▪ `Static` **maxFaceCount**: `number` = `1000000`
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L41)
+[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L50)
 
 ___
 
@@ -280,27 +289,27 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L42)
-
-___
-
-### maxShapeCount
-
-▪ `Static` **maxShapeCount**: `number` = `1`
-
-#### Defined in
-
-[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L43)
+[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L51)
 
 ___
 
 ### maxPathPointCount
 
-▪ `Static` **maxPathPointCount**: `number` = `50`
+▪ `Static` **maxPathPointCount**: `number` = `100000`
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L44)
+[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L52)
+
+___
+
+### maxShapeCount
+
+▪ `Static` **maxShapeCount**: `number` = `1024`
+
+#### Defined in
+
+[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L53)
 
 ___
 
@@ -310,7 +319,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L45)
+[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L55)
 
 ___
 
@@ -320,27 +329,47 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L46)
+[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L56)
 
 ___
 
 ### geometryInfoBuffer
 
-• **geometryInfoBuffer**: [`StructStorageGPUBuffer`](StructStorageGPUBuffer.md)<[`GeometryInfo`](GeometryInfo.md)\>
+• **geometryInfoBuffer**: [`StructStorageGPUBuffer`](StructStorageGPUBuffer.md)\<[`GeometryInfo`](GeometryInfo.md)\>
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L51)
+[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L61)
 
 ___
 
 ### shapeBuffer
 
-• **shapeBuffer**: [`StructStorageGPUBuffer`](StructStorageGPUBuffer.md)<[`ShapeInfo`](ShapeInfo.md)\>
+• **shapeBuffer**: [`StructStorageGPUBuffer`](StructStorageGPUBuffer.md)\<[`ShapeInfo`](ShapeInfo.md)\>
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L52)
+[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L62)
+
+___
+
+### pathBuffer
+
+• **pathBuffer**: [`StorageGPUBuffer`](StorageGPUBuffer.md)
+
+#### Defined in
+
+[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L63)
+
+___
+
+### drawBuffer
+
+• **drawBuffer**: [`StorageGPUBuffer`](StorageGPUBuffer.md)
+
+#### Defined in
+
+[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L64)
 
 ___
 
@@ -350,7 +379,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L54)
+[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L66)
 
 ___
 
@@ -360,7 +389,27 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L55)
+[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L67)
+
+___
+
+### realDrawShape
+
+• **realDrawShape**: `number`
+
+#### Defined in
+
+[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L68)
+
+___
+
+### needUpdate
+
+• **needUpdate**: `boolean` = `false`
+
+#### Defined in
+
+[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L69)
 
 ## Accessors
 
@@ -498,7 +547,7 @@ MeshRenderer.geometry
 
 #### Defined in
 
-[src/components/renderer/MeshRenderer.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L51)
+[src/components/renderer/MeshRenderer.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L53)
 
 • `set` **geometry**(`value`): `void`
 
@@ -518,7 +567,7 @@ MeshRenderer.geometry
 
 #### Defined in
 
-[src/components/renderer/MeshRenderer.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L56)
+[src/components/renderer/MeshRenderer.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L58)
 
 ___
 
@@ -538,7 +587,7 @@ MeshRenderer.material
 
 #### Defined in
 
-[src/components/renderer/MeshRenderer.ts:92](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L92)
+[src/components/renderer/MeshRenderer.ts:94](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L94)
 
 • `set` **material**(`value`): `void`
 
@@ -558,7 +607,7 @@ MeshRenderer.material
 
 #### Defined in
 
-[src/components/renderer/MeshRenderer.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L97)
+[src/components/renderer/MeshRenderer.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L99)
 
 ___
 
@@ -690,7 +739,7 @@ MeshRenderer.materials
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:165](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L165)
+[src/components/renderer/RenderNode.ts:166](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L166)
 
 • `set` **materials**(`value`): `void`
 
@@ -728,7 +777,7 @@ MeshRenderer.castShadow
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:337](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L337)
+[src/components/renderer/RenderNode.ts:340](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L340)
 
 • `set` **castShadow**(`value`): `void`
 
@@ -748,7 +797,7 @@ MeshRenderer.castShadow
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:342](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L342)
+[src/components/renderer/RenderNode.ts:345](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L345)
 
 ___
 
@@ -766,7 +815,7 @@ MeshRenderer.castGI
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:347](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L347)
+[src/components/renderer/RenderNode.ts:350](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L350)
 
 • `set` **castGI**(`value`): `void`
 
@@ -786,7 +835,7 @@ MeshRenderer.castGI
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:352](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L352)
+[src/components/renderer/RenderNode.ts:355](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L355)
 
 ___
 
@@ -804,7 +853,7 @@ MeshRenderer.castReflection
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:357](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L357)
+[src/components/renderer/RenderNode.ts:359](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L359)
 
 • `set` **castReflection**(`value`): `void`
 
@@ -824,7 +873,7 @@ MeshRenderer.castReflection
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:361](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L361)
+[src/components/renderer/RenderNode.ts:363](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L363)
 
 ## Methods
 
@@ -866,7 +915,7 @@ ___
 
 ### onLateUpdate
 
-▸ `Optional` **onLateUpdate**(`view?`): `any`
+▸ **onLateUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -890,7 +939,7 @@ ___
 
 ### onBeforeUpdate
 
-▸ `Optional` **onBeforeUpdate**(`view?`): `any`
+▸ **onBeforeUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -914,7 +963,7 @@ ___
 
 ### onGraphic
 
-▸ `Optional` **onGraphic**(`view?`): `any`
+▸ **onGraphic**(`view?`): `any`
 
 #### Parameters
 
@@ -938,7 +987,7 @@ ___
 
 ### onParentChange
 
-▸ `Optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
+▸ **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
 #### Parameters
 
@@ -975,7 +1024,7 @@ ___
 
 #### Defined in
 
-[src/components/renderer/MeshRenderer.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L29)
+[src/components/renderer/MeshRenderer.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L30)
 
 ___
 
@@ -993,7 +1042,7 @@ ___
 
 #### Defined in
 
-[src/components/renderer/MeshRenderer.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L33)
+[src/components/renderer/MeshRenderer.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L34)
 
 ___
 
@@ -1017,23 +1066,23 @@ ___
 
 #### Defined in
 
-[src/components/renderer/MeshRenderer.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L37)
+[src/components/renderer/MeshRenderer.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L38)
 
 ___
 
 ### copyComponent
 
-▸ **copyComponent**(`from`): [`Graphic3DFaceRenderer`](Graphic3DFaceRenderer.md)
+▸ **copyComponent**(`from`): `this`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `from` | [`Graphic3DFaceRenderer`](Graphic3DFaceRenderer.md) |
+| `from` | `this` |
 
 #### Returns
 
-[`Graphic3DFaceRenderer`](Graphic3DFaceRenderer.md)
+`this`
 
 #### Inherited from
 
@@ -1041,7 +1090,7 @@ ___
 
 #### Defined in
 
-[src/components/renderer/MeshRenderer.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L42)
+[src/components/renderer/MeshRenderer.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L43)
 
 ___
 
@@ -1068,7 +1117,7 @@ Set deformation animation parameters
 
 #### Defined in
 
-[src/components/renderer/MeshRenderer.ts:105](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L105)
+[src/components/renderer/MeshRenderer.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L106)
 
 ___
 
@@ -1093,32 +1142,7 @@ ___
 
 #### Defined in
 
-[src/components/renderer/MeshRenderer.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L114)
-
-___
-
-### onCompute
-
-▸ **onCompute**(`view`, `command`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
-| `command` | `GPUCommandEncoder` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[MeshRenderer](MeshRenderer.md).[onCompute](MeshRenderer.md#oncompute)
-
-#### Defined in
-
-[src/components/renderer/MeshRenderer.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L123)
+[src/components/renderer/MeshRenderer.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L115)
 
 ___
 
@@ -1142,7 +1166,7 @@ ___
 
 #### Defined in
 
-[src/components/renderer/MeshRenderer.ts:152](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L152)
+[src/components/renderer/MeshRenderer.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L153)
 
 ___
 
@@ -1310,7 +1334,7 @@ ___
 
 ### selfCloneMaterials
 
-▸ **selfCloneMaterials**(`key`): [`Graphic3DFaceRenderer`](Graphic3DFaceRenderer.md)
+▸ **selfCloneMaterials**(`key`): `this`
 
 #### Parameters
 
@@ -1320,7 +1344,7 @@ ___
 
 #### Returns
 
-[`Graphic3DFaceRenderer`](Graphic3DFaceRenderer.md)
+`this`
 
 #### Inherited from
 
@@ -1328,7 +1352,7 @@ ___
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:243](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L243)
+[src/components/renderer/RenderNode.ts:245](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L245)
 
 ___
 
@@ -1354,7 +1378,7 @@ ___
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:365](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L365)
+[src/components/renderer/RenderNode.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L367)
 
 ___
 
@@ -1385,7 +1409,7 @@ render pass at passType
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:419](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L419)
+[src/components/renderer/RenderNode.ts:421](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L421)
 
 ___
 
@@ -1414,7 +1438,7 @@ ___
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:465](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L465)
+[src/components/renderer/RenderNode.ts:467](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L467)
 
 ___
 
@@ -1438,7 +1462,7 @@ ___
 
 #### Defined in
 
-[src/components/renderer/RenderNode.ts:574](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L574)
+[src/components/renderer/RenderNode.ts:576](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L576)
 
 ___
 
@@ -1456,7 +1480,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L56)
+[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L70)
 
 ___
 
@@ -1477,7 +1501,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:60](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L60)
+[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L74)
 
 ___
 
@@ -1497,13 +1521,13 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:91](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L91)
+[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L111)
 
 ___
 
-### updateShape
+### setShape
 
-▸ **updateShape**(`index`, `shape`): `void`
+▸ **setShape**(`index`, `shape`): `void`
 
 #### Parameters
 
@@ -1518,7 +1542,21 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L121)
+[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:141](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L141)
+
+___
+
+### updateShape
+
+▸ **updateShape**(): `void`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:148](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L148)
 
 ___
 
@@ -1539,7 +1577,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:126](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L126)
+[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:170](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L170)
 
 ___
 
@@ -1560,7 +1598,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:141](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L141)
+[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:185](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L185)
 
 ___
 
@@ -1581,7 +1619,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:146](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L146)
+[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:190](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L190)
 
 ___
 
@@ -1602,7 +1640,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:151](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L151)
+[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:195](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L195)
 
 ___
 
@@ -1626,4 +1664,29 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:156](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L156)
+[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L200)
+
+___
+
+### onCompute
+
+▸ **onCompute**(`view`, `command`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `view` | [`View3D`](View3D.md) |
+| `command` | `GPUCommandEncoder` |
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+[MeshRenderer](MeshRenderer.md).[onCompute](MeshRenderer.md#oncompute)
+
+#### Defined in
+
+[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:207](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L207)

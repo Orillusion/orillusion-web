@@ -76,7 +76,7 @@ Texture
 
 ### constructor
 
-• **new Texture**(`width?`, `height?`, `numberLayer?`)
+• **new Texture**(`width?`, `height?`, `numberLayer?`): [`Texture`](Texture.md)
 
 Create a texture2D
 
@@ -87,6 +87,10 @@ Create a texture2D
 | `width` | `number` | `32` | size of texture width |
 | `height` | `number` | `32` | height of texture width |
 | `numberLayer` | `number` | `1` | number layer of texture |
+
+#### Returns
+
+[`Texture`](Texture.md)
 
 #### Defined in
 
@@ -786,11 +790,11 @@ GPUSamplerDescriptor.maxAnisotropy
 
 ### init
 
-▸ **init**(): [`Texture`](Texture.md)
+▸ **init**(): `this`
 
 #### Returns
 
-[`Texture`](Texture.md)
+`this`
 
 #### Defined in
 
@@ -919,7 +923,7 @@ ___
 
 ### delayDestroyTexture
 
-▸ `Static` **delayDestroyTexture**(`tex`): `void`
+▸ **delayDestroyTexture**(`tex`): `void`
 
 #### Parameters
 
@@ -939,7 +943,7 @@ ___
 
 ### destroyTexture
 
-▸ `Static` **destroyTexture**(): `void`
+▸ **destroyTexture**(): `void`
 
 #### Returns
 

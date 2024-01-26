@@ -17,7 +17,11 @@
 
 ### constructor
 
-• **new TileSet**()
+• **new TileSet**(): [`TileSet`](TileSet.md)
+
+#### Returns
+
+[`TileSet`](TileSet.md)
 
 ## Properties
 

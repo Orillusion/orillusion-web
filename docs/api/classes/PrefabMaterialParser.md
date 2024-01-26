@@ -33,7 +33,11 @@
 
 ### constructor
 
-• **new PrefabMaterialParser**()
+• **new PrefabMaterialParser**(): [`PrefabMaterialParser`](PrefabMaterialParser.md)
+
+#### Returns
+
+[`PrefabMaterialParser`](PrefabMaterialParser.md)
 
 #### Inherited from
 
@@ -127,7 +131,7 @@ ParserBase.data
 
 ### parserMaterial
 
-▸ `Static` **parserMaterial**(`bytesStream`, `prefabParser`): `void`
+▸ **parserMaterial**(`bytesStream`, `prefabParser`): `void`
 
 #### Parameters
 

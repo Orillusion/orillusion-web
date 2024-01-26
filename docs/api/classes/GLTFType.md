@@ -31,7 +31,11 @@
 
 ### constructor
 
-• **new GLTFType**()
+• **new GLTFType**(): [`GLTFType`](GLTFType.md)
+
+#### Returns
+
+[`GLTFType`](GLTFType.md)
 
 ## Properties
 

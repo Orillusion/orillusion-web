@@ -1,6 +1,6 @@
-# Type alias: Parser<T\>
+# Type alias: Parser\<T\>
 
-Ƭ **Parser**<`T`\>: `Object`
+Ƭ **Parser**\<`T`\>: `Object`
 
 #### Type parameters
 

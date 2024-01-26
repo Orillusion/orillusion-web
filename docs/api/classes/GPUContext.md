@@ -39,7 +39,11 @@ WebGPU api use context
 
 ### constructor
 
-• **new GPUContext**()
+• **new GPUContext**(): [`GPUContext`](GPUContext.md)
+
+#### Returns
+
+[`GPUContext`](GPUContext.md)
 
 ## Properties
 
@@ -145,7 +149,7 @@ ___
 
 ### bindPipeline
 
-▸ `Static` **bindPipeline**(`encoder`, `renderShader`): `void`
+▸ **bindPipeline**(`encoder`, `renderShader`): `void`
 
 renderPipeline before render need bind pipeline
 
@@ -168,7 +172,7 @@ ___
 
 ### bindCamera
 
-▸ `Static` **bindCamera**(`encoder`, `camera`): `void`
+▸ **bindCamera**(`encoder`, `camera`): `void`
 
 render before need make sure use camera
 
@@ -191,7 +195,7 @@ ___
 
 ### bindGeometryBuffer
 
-▸ `Static` **bindGeometryBuffer**(`encoder`, `geometry`): `void`
+▸ **bindGeometryBuffer**(`encoder`, `geometry`): `void`
 
 bind geometry vertex buffer to current render pipeline
 
@@ -214,7 +218,7 @@ ___
 
 ### cleanCache
 
-▸ `Static` **cleanCache**(): `void`
+▸ **cleanCache**(): `void`
 
 begin or end clean all use cache
 
@@ -230,7 +234,7 @@ ___
 
 ### createPipeline
 
-▸ `Static` **createPipeline**(`gpuRenderPipeline`): `GPURenderPipeline`
+▸ **createPipeline**(`gpuRenderPipeline`): `GPURenderPipeline`
 
 create a render pipeline
 
@@ -252,7 +256,7 @@ ___
 
 ### beginCommandEncoder
 
-▸ `Static` **beginCommandEncoder**(): `GPUCommandEncoder`
+▸ **beginCommandEncoder**(): `GPUCommandEncoder`
 
 auto get webgpu commandEncoder and start a command encoder
 
@@ -270,7 +274,7 @@ ___
 
 ### endCommandEncoder
 
-▸ `Static` **endCommandEncoder**(`command`): `void`
+▸ **endCommandEncoder**(`command`): `void`
 
 end CommandEncoder record and submit
 
@@ -292,7 +296,7 @@ ___
 
 ### recordBundleEncoder
 
-▸ `Static` **recordBundleEncoder**(`des`): `GPURenderBundleEncoder`
+▸ **recordBundleEncoder**(`des`): `GPURenderBundleEncoder`
 
 create a renderBundle gpu object by GPURenderBundleEncoderDescriptor
 
@@ -316,7 +320,7 @@ ___
 
 ### beginRenderPass
 
-▸ `Static` **beginRenderPass**(`command`, `renderPassState`): `GPURenderPassEncoder`
+▸ **beginRenderPass**(`command`, `renderPassState`): `GPURenderPassEncoder`
 
 render pass start return current use gpu renderPassEncoder
 
@@ -341,7 +345,7 @@ ___
 
 ### drawIndexed
 
-▸ `Static` **drawIndexed**(`encoder`, `indexCount`, `instanceCount?`, `firstIndex?`, `baseVertex?`, `firstInstance?`): `void`
+▸ **drawIndexed**(`encoder`, `indexCount`, `instanceCount?`, `firstIndex?`, `baseVertex?`, `firstInstance?`): `void`
 
 Start the rendering process to draw any pipes
 
@@ -368,7 +372,7 @@ ___
 
 ### draw
 
-▸ `Static` **draw**(`encoder`, `vertexCount`, `instanceCount?`, `firstVertex?`, `firstInstance?`): `void`
+▸ **draw**(`encoder`, `vertexCount`, `instanceCount?`, `firstVertex?`, `firstInstance?`): `void`
 
 #### Parameters
 
@@ -392,7 +396,7 @@ ___
 
 ### endPass
 
-▸ `Static` **endPass**(`encoder`): `void`
+▸ **endPass**(`encoder`): `void`
 
 The GPU must be informed of the end of encoder recording
 
@@ -414,7 +418,7 @@ ___
 
 ### computeCommand
 
-▸ `Static` **computeCommand**(`command`, `computes`): `void`
+▸ **computeCommand**(`command`, `computes`): `void`
 
 Perform the final calculation and submit the Shader to the GPU
 

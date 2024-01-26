@@ -39,7 +39,11 @@
 
 ### constructor
 
-• **new GBufferFrame**()
+• **new GBufferFrame**(): [`GBufferFrame`](GBufferFrame.md)
+
+#### Returns
+
+[`GBufferFrame`](GBufferFrame.md)
 
 #### Overrides
 
@@ -53,7 +57,7 @@
 
 ### gBufferMap
 
-▪ `Static` **gBufferMap**: `Map`<`string`, [`GBufferFrame`](GBufferFrame.md)\>
+▪ `Static` **gBufferMap**: `Map`\<`string`, [`GBufferFrame`](GBufferFrame.md)\>
 
 #### Defined in
 

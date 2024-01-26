@@ -65,7 +65,7 @@ usage GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_DST
 
 ### constructor
 
-• **new MatrixGPUBuffer**(`size`, `usage?`, `data?`)
+• **new MatrixGPUBuffer**(`size`, `usage?`, `data?`): [`MatrixGPUBuffer`](MatrixGPUBuffer.md)
 
 #### Parameters
 
@@ -74,6 +74,10 @@ usage GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_DST
 | `size` | `number` | `undefined` |
 | `usage` | `number` | `0` |
 | `data?` | [`ArrayBufferData`](../types/ArrayBufferData.md) | `undefined` |
+
+#### Returns
+
+[`MatrixGPUBuffer`](MatrixGPUBuffer.md)
 
 #### Overrides
 
@@ -129,7 +133,7 @@ ___
 
 ### memoryNodes
 
-• **memoryNodes**: `Map`<`string` \| `number`, `MemoryInfo`\>
+• **memoryNodes**: `Map`\<`string` \| `number`, `MemoryInfo`\>
 
 #### Inherited from
 
@@ -549,7 +553,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `name` | `string` |
-| `v4Array` | `Vector4`[] \| [`Quaternion`](Quaternion.md)[] |
+| `v4Array` | [`Vector3`](Vector3.md)[] \| `Vector4`[] \| [`Quaternion`](Quaternion.md)[] |
 
 #### Returns
 
@@ -767,13 +771,13 @@ ___
 
 ### setStruct
 
-▸ **setStruct**<`T`\>(`c`, `index`, `data`, `property?`): `void`
+▸ **setStruct**\<`T`\>(`c`, `index`, `data`, `property?`): `void`
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`Struct`](Struct.md)<`T`\> |
+| `T` | extends [`Struct`](Struct.md) |
 
 #### Parameters
 
@@ -800,13 +804,13 @@ ___
 
 ### setStructArray
 
-▸ **setStructArray**<`T`\>(`c`, `dataList`, `property?`): `void`
+▸ **setStructArray**\<`T`\>(`c`, `dataList`, `property?`): `void`
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`Struct`](Struct.md)<`T`\> |
+| `T` | extends [`Struct`](Struct.md) |
 
 #### Parameters
 

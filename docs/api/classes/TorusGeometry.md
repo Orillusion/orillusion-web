@@ -55,7 +55,7 @@ Torus Geometry
 
 ### constructor
 
-• **new TorusGeometry**(`radius?`, `tube?`, `radialSegments?`, `tubularSegments?`)
+• **new TorusGeometry**(`radius?`, `tube?`, `radialSegments?`, `tubularSegments?`): [`TorusGeometry`](TorusGeometry.md)
 
 #### Parameters
 
@@ -65,6 +65,10 @@ Torus Geometry
 | `tube` | `number` | `0.1` | {number} Pipe radius, default value is 0.1. |
 | `radialSegments` | `number` | `32` | {number}Number of torus segments, default value is 32. |
 | `tubularSegments` | `number` | `32` | {number} Number of pipeline segments, defualt value is 32. |
+
+#### Returns
+
+[`TorusGeometry`](TorusGeometry.md)
 
 #### Overrides
 
@@ -310,11 +314,11 @@ ___
 
 ### vertexAttributeMap
 
-• `get` **vertexAttributeMap**(): `Map`<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
+• `get` **vertexAttributeMap**(): `Map`\<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
 
 #### Returns
 
-`Map`<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
+`Map`\<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
 
 #### Inherited from
 
@@ -408,10 +412,6 @@ GeometryBase.bounds
 
 add subGeometry from lod level
 
-**`See`**
-
-LODDescriptor
-
 #### Parameters
 
 | Name | Type |
@@ -421,6 +421,10 @@ LODDescriptor
 #### Returns
 
 [`SubGeometry`](SubGeometry.md)
+
+**`See`**
+
+LODDescriptor
 
 #### Inherited from
 
@@ -593,11 +597,11 @@ ___
 
 ### computeNormals
 
-▸ **computeNormals**(): [`TorusGeometry`](TorusGeometry.md)
+▸ **computeNormals**(): `this`
 
 #### Returns
 
-[`TorusGeometry`](TorusGeometry.md)
+`this`
 
 #### Inherited from
 

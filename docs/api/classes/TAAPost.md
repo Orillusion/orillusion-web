@@ -50,7 +50,11 @@ Temporal AA
 
 ### constructor
 
-• **new TAAPost**()
+• **new TAAPost**(): [`TAAPost`](TAAPost.md)
+
+#### Returns
+
+[`TAAPost`](TAAPost.md)
 
 #### Overrides
 

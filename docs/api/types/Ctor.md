@@ -1,6 +1,8 @@
-# Type alias: Ctor<T\>
+# Type alias: Ctor\<T\>
 
-Ƭ **Ctor**<`T`\>: `Object`
+Ƭ **Ctor**\<`T`\>: `Object`
+
+Constructor
 
 #### Type parameters
 
@@ -10,15 +12,16 @@
 
 #### Call signature
 
-• **new Ctor**(`any?`): `T`
-
-Constructor
+• **new Ctor**(`any?`, `any2?`, `any3?`, `any4?`): `T`
 
 ##### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `any?` | `any` |
+| `any2?` | `any` |
+| `any3?` | `any` |
+| `any4?` | `any` |
 
 ##### Returns
 

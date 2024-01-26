@@ -34,13 +34,17 @@ has frame list data
 
 ### constructor
 
-• **new AnimationCurveT**(`k?`)
+• **new AnimationCurveT**(`k?`): [`AnimationCurveT`](AnimationCurveT.md)
 
 #### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
 | `k` | `number` | `1` |
+
+#### Returns
+
+[`AnimationCurveT`](AnimationCurveT.md)
 
 #### Defined in
 

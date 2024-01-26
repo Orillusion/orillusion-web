@@ -15,13 +15,17 @@
 
 ### constructor
 
-• **new GLTFBinaryExtension**(`data`)
+• **new GLTFBinaryExtension**(`data`): [`GLTFBinaryExtension`](GLTFBinaryExtension.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `data` | `ArrayBuffer` |
+
+#### Returns
+
+[`GLTFBinaryExtension`](GLTFBinaryExtension.md)
 
 #### Defined in
 

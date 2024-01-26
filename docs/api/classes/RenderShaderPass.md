@@ -90,7 +90,7 @@
 
 ### constructor
 
-• **new RenderShaderPass**(`vs`, `fs`)
+• **new RenderShaderPass**(`vs`, `fs`): [`RenderShaderPass`](RenderShaderPass.md)
 
 #### Parameters
 
@@ -98,6 +98,10 @@
 | :------ | :------ |
 | `vs` | `string` |
 | `fs` | `string` |
+
+#### Returns
+
+[`RenderShaderPass`](RenderShaderPass.md)
 
 #### Overrides
 
@@ -543,11 +547,11 @@ ___
 
 get front face mode
 
-**`GPUFront Face`**
-
 #### Returns
 
 `GPUFrontFace`
+
+**`GPUFront Face`**
 
 #### Defined in
 
@@ -556,10 +560,6 @@ get front face mode
 • `set` **frontFace**(`value`): `void`
 
 set front face mode
-
-**`GPUFront Face`**
-
-value
 
 #### Parameters
 
@@ -570,6 +570,10 @@ value
 #### Returns
 
 `void`
+
+**`GPUFront Face`**
+
+value
 
 #### Defined in
 
@@ -996,7 +1000,7 @@ ___
 
 ### destroyShader
 
-▸ `Static` **destroyShader**(`instanceID`): `void`
+▸ **destroyShader**(`instanceID`): `void`
 
 Destroy a RenderShader object
 
@@ -1018,7 +1022,7 @@ ___
 
 ### getShader
 
-▸ `Static` **getShader**(`instanceID`): [`RenderShaderPass`](RenderShaderPass.md)
+▸ **getShader**(`instanceID`): [`RenderShaderPass`](RenderShaderPass.md)
 
 Get the RenderShader object by specifying the RenderShader instance ID
 
@@ -1042,7 +1046,7 @@ ___
 
 ### createShader
 
-▸ `Static` **createShader**(`vs`, `fs`): `string`
+▸ **createShader**(`vs`, `fs`): `string`
 
 Create a RenderShader with vertex shaders and fragment shaders
 
@@ -1134,7 +1138,7 @@ ___
 
 ### setStructStorageBuffer
 
-▸ **setStructStorageBuffer**<`T`\>(`name`, `buffer`): `void`
+▸ **setStructStorageBuffer**\<`T`\>(`name`, `buffer`): `void`
 
 set struct storage gpu buffer
 
@@ -1142,14 +1146,14 @@ set struct storage gpu buffer
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`Struct`](Struct.md)<`T`\> |
+| `T` | extends [`Struct`](Struct.md) |
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `name` | `string` | buffer name |
-| `buffer` | [`StructStorageGPUBuffer`](StructStorageGPUBuffer.md)<`T`\> | struct storage useAge gpu buffer |
+| `buffer` | [`StructStorageGPUBuffer`](StructStorageGPUBuffer.md)\<`T`\> | struct storage useAge gpu buffer |
 
 #### Returns
 

@@ -19,7 +19,11 @@
 
 ### constructor
 
-• **new PrefabAvatarData**()
+• **new PrefabAvatarData**(): [`PrefabAvatarData`](PrefabAvatarData.md)
+
+#### Returns
+
+[`PrefabAvatarData`](PrefabAvatarData.md)
 
 ## Properties
 
@@ -55,7 +59,7 @@ ___
 
 ### boneMap
 
-• **boneMap**: `Map`<`string`, [`PrefabBoneData`](PrefabBoneData.md)\>
+• **boneMap**: `Map`\<`string`, [`PrefabBoneData`](PrefabBoneData.md)\>
 
 #### Defined in
 

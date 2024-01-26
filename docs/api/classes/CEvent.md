@@ -46,7 +46,7 @@ Basic class of Event
 
 ### constructor
 
-• **new CEvent**(`eventType?`, `data?`)
+• **new CEvent**(`eventType?`, `data?`): [`CEvent`](CEvent.md)
 
 Create a new event, with type and data
 
@@ -56,6 +56,10 @@ Create a new event, with type and data
 | :------ | :------ | :------ | :------ |
 | `eventType` | `string` | `null` | {any} eventType |
 | `data` | `any` | `null` | {any} param |
+
+#### Returns
+
+[`CEvent`](CEvent.md)
 
 #### Defined in
 

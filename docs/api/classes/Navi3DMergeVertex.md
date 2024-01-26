@@ -18,7 +18,11 @@
 
 ### constructor
 
-• **new Navi3DMergeVertex**()
+• **new Navi3DMergeVertex**(): [`Navi3DMergeVertex`](Navi3DMergeVertex.md)
+
+#### Returns
+
+[`Navi3DMergeVertex`](Navi3DMergeVertex.md)
 
 ## Properties
 
@@ -44,7 +48,7 @@ ___
 
 ### merge
 
-▸ **merge**(`geometry`, `threshould?`): [`Navi3DMergeVertex`](Navi3DMergeVertex.md)
+▸ **merge**(`geometry`, `threshould?`): `this`
 
 #### Parameters
 
@@ -55,7 +59,7 @@ ___
 
 #### Returns
 
-[`Navi3DMergeVertex`](Navi3DMergeVertex.md)
+`this`
 
 #### Defined in
 
@@ -65,7 +69,7 @@ ___
 
 ### parse
 
-▸ **parse**(`geometry`): [`Navi3DMergeVertex`](Navi3DMergeVertex.md)
+▸ **parse**(`geometry`): `this`
 
 #### Parameters
 
@@ -75,7 +79,7 @@ ___
 
 #### Returns
 
-[`Navi3DMergeVertex`](Navi3DMergeVertex.md)
+`this`
 
 #### Defined in
 

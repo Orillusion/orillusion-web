@@ -50,7 +50,11 @@ The component can receive update events at each frame.
 
 ### constructor
 
-• **new PostProcessingComponent**()
+• **new PostProcessingComponent**(): [`PostProcessingComponent`](PostProcessingComponent.md)
+
+#### Returns
+
+[`PostProcessingComponent`](PostProcessingComponent.md)
 
 #### Inherited from
 
@@ -208,7 +212,7 @@ ComponentBase.enable
 
 ### onUpdate
 
-▸ `Optional` **onUpdate**(`view?`): `any`
+▸ **onUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -232,7 +236,7 @@ ___
 
 ### onLateUpdate
 
-▸ `Optional` **onLateUpdate**(`view?`): `any`
+▸ **onLateUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -256,7 +260,7 @@ ___
 
 ### onBeforeUpdate
 
-▸ `Optional` **onBeforeUpdate**(`view?`): `any`
+▸ **onBeforeUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -280,7 +284,7 @@ ___
 
 ### onCompute
 
-▸ `Optional` **onCompute**(`view?`, `command?`): `any`
+▸ **onCompute**(`view?`, `command?`): `any`
 
 #### Parameters
 
@@ -305,7 +309,7 @@ ___
 
 ### onGraphic
 
-▸ `Optional` **onGraphic**(`view?`): `any`
+▸ **onGraphic**(`view?`): `any`
 
 #### Parameters
 
@@ -329,7 +333,7 @@ ___
 
 ### onParentChange
 
-▸ `Optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
+▸ **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
 #### Parameters
 
@@ -380,17 +384,17 @@ ___
 
 ### copyComponent
 
-▸ **copyComponent**(`from`): [`PostProcessingComponent`](PostProcessingComponent.md)
+▸ **copyComponent**(`from`): `this`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `from` | [`PostProcessingComponent`](PostProcessingComponent.md) |
+| `from` | `this` |
 
 #### Returns
 
-[`PostProcessingComponent`](PostProcessingComponent.md)
+`this`
 
 #### Inherited from
 
@@ -552,19 +556,19 @@ ___
 
 ### addPost
 
-▸ **addPost**<`T`\>(`c`): `T`
+▸ **addPost**\<`T`\>(`c`): `T`
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends `PostBase`<`T`\> |
+| `T` | extends `PostBase` |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)<`T`\> |
+| `c` | [`Ctor`](../types/Ctor.md)\<`T`\> |
 
 #### Returns
 
@@ -578,19 +582,19 @@ ___
 
 ### removePost
 
-▸ **removePost**<`T`\>(`c`): `void`
+▸ **removePost**\<`T`\>(`c`): `void`
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends `PostBase`<`T`\> |
+| `T` | extends `PostBase` |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)<`T`\> |
+| `c` | [`Ctor`](../types/Ctor.md)\<`T`\> |
 
 #### Returns
 
@@ -604,19 +608,19 @@ ___
 
 ### getPost
 
-▸ **getPost**<`T`\>(`c`): `T`
+▸ **getPost**\<`T`\>(`c`): `T`
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends `PostBase`<`T`\> |
+| `T` | extends `PostBase` |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)<`T`\> |
+| `c` | [`Ctor`](../types/Ctor.md)\<`T`\> |
 
 #### Returns
 

@@ -41,7 +41,7 @@
 
 ### constructor
 
-• **new Matrix3**(`a?`, `b?`, `c?`, `d?`, `tx?`, `ty?`)
+• **new Matrix3**(`a?`, `b?`, `c?`, `d?`, `tx?`, `ty?`): [`Matrix3`](Matrix3.md)
 
 Create a Matrix3
 
@@ -55,6 +55,10 @@ Create a Matrix3
 | `d` | `number` | `1` | The height of y |
 | `tx` | `number` | `0` | The position of the x coordinate |
 | `ty` | `number` | `0` | The position of the y coordinate |
+
+#### Returns
+
+[`Matrix3`](Matrix3.md)
 
 #### Defined in
 
@@ -200,13 +204,13 @@ ___
 
 ### identity
 
-▸ **identity**(): [`Matrix3`](Matrix3.md)
+▸ **identity**(): `this`
 
 Reset to the identity matrix
 
 #### Returns
 
-[`Matrix3`](Matrix3.md)
+`this`
 
 #### Defined in
 

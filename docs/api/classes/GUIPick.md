@@ -14,7 +14,11 @@ Pickup logic for GUI interactive components
 
 ### constructor
 
-• **new GUIPick**()
+• **new GUIPick**(): [`GUIPick`](GUIPick.md)
+
+#### Returns
+
+[`GUIPick`](GUIPick.md)
 
 ## Methods
 

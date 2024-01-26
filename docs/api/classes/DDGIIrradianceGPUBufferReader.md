@@ -35,7 +35,11 @@ deregistration, distribution, and unregister.
 
 ### constructor
 
-• **new DDGIIrradianceGPUBufferReader**()
+• **new DDGIIrradianceGPUBufferReader**(): [`DDGIIrradianceGPUBufferReader`](DDGIIrradianceGPUBufferReader.md)
+
+#### Returns
+
+[`DDGIIrradianceGPUBufferReader`](DDGIIrradianceGPUBufferReader.md)
 
 #### Inherited from
 

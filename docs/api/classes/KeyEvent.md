@@ -45,7 +45,7 @@ enum keyboard event[InputSystem](InputSystem.md)
 
 ### constructor
 
-• **new KeyEvent**(`eventType?`, `data?`)
+• **new KeyEvent**(`eventType?`, `data?`): [`KeyEvent`](KeyEvent.md)
 
 Create a new event, with type and data
 
@@ -55,6 +55,10 @@ Create a new event, with type and data
 | :------ | :------ | :------ | :------ |
 | `eventType` | `string` | `null` | {any} eventType |
 | `data` | `any` | `null` | {any} param |
+
+#### Returns
+
+[`KeyEvent`](KeyEvent.md)
 
 #### Inherited from
 

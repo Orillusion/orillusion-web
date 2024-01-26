@@ -60,7 +60,7 @@ composite geometry of gui, holding and updating attribute data
 
 ### constructor
 
-• **new GUIGeometry**(`max`)
+• **new GUIGeometry**(`max`): [`GUIGeometry`](GUIGeometry.md)
 
 constructor
 
@@ -69,6 +69,12 @@ constructor
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `max` | `number` | max quad of a geometry |
+
+#### Returns
+
+[`GUIGeometry`](GUIGeometry.md)
+
+GUIGeometry
 
 #### Overrides
 
@@ -276,11 +282,11 @@ ___
 
 ### vertexAttributeMap
 
-• `get` **vertexAttributeMap**(): `Map`<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
+• `get` **vertexAttributeMap**(): `Map`\<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
 
 #### Returns
 
-`Map`<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
+`Map`\<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
 
 #### Inherited from
 
@@ -406,7 +412,7 @@ ___
 
 ### updateBounds
 
-▸ **updateBounds**(`min?`, `max?`): [`GUIGeometry`](GUIGeometry.md)
+▸ **updateBounds**(`min?`, `max?`): `this`
 
 the bounds will be set to infinity
 
@@ -419,7 +425,7 @@ the bounds will be set to infinity
 
 #### Returns
 
-[`GUIGeometry`](GUIGeometry.md)
+`this`
 
 GUIGeometry
 
@@ -473,11 +479,11 @@ ___
 
 ### create
 
-▸ **create**(): [`GUIGeometry`](GUIGeometry.md)
+▸ **create**(): `this`
 
 #### Returns
 
-[`GUIGeometry`](GUIGeometry.md)
+`this`
 
 #### Defined in
 
@@ -512,10 +518,6 @@ ___
 
 add subGeometry from lod level
 
-**`See`**
-
-LODDescriptor
-
 #### Parameters
 
 | Name | Type |
@@ -525,6 +527,10 @@ LODDescriptor
 #### Returns
 
 [`SubGeometry`](SubGeometry.md)
+
+**`See`**
+
+LODDescriptor
 
 #### Inherited from
 
@@ -697,11 +703,11 @@ ___
 
 ### computeNormals
 
-▸ **computeNormals**(): [`GUIGeometry`](GUIGeometry.md)
+▸ **computeNormals**(): `this`
 
 #### Returns
 
-[`GUIGeometry`](GUIGeometry.md)
+`this`
 
 #### Inherited from
 

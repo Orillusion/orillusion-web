@@ -67,7 +67,11 @@
 
 ### constructor
 
-• **new GeometryBase**()
+• **new GeometryBase**(): [`GeometryBase`](GeometryBase.md)
+
+#### Returns
+
+[`GeometryBase`](GeometryBase.md)
 
 #### Defined in
 
@@ -213,11 +217,11 @@ ___
 
 ### vertexAttributeMap
 
-• `get` **vertexAttributeMap**(): `Map`<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
+• `get` **vertexAttributeMap**(): `Map`\<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
 
 #### Returns
 
-`Map`<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
+`Map`\<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
 
 #### Defined in
 
@@ -291,10 +295,6 @@ ___
 
 add subGeometry from lod level
 
-**`See`**
-
-LODDescriptor
-
 #### Parameters
 
 | Name | Type |
@@ -304,6 +304,10 @@ LODDescriptor
 #### Returns
 
 [`SubGeometry`](SubGeometry.md)
+
+**`See`**
+
+LODDescriptor
 
 #### Defined in
 
@@ -444,11 +448,11 @@ ___
 
 ### computeNormals
 
-▸ **computeNormals**(): [`GeometryBase`](GeometryBase.md)
+▸ **computeNormals**(): `this`
 
 #### Returns
 
-[`GeometryBase`](GeometryBase.md)
+`this`
 
 #### Defined in
 

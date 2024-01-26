@@ -35,7 +35,11 @@ deregistration, distribution, and unregister.
 
 ### constructor
 
-• **new CEventDispatcher**()
+• **new CEventDispatcher**(): [`CEventDispatcher`](CEventDispatcher.md)
+
+#### Returns
+
+[`CEventDispatcher`](CEventDispatcher.md)
 
 ## Methods
 

@@ -33,7 +33,11 @@
 
 ### constructor
 
-• **new FontParser**()
+• **new FontParser**(): [`FontParser`](FontParser.md)
+
+#### Returns
+
+[`FontParser`](FontParser.md)
 
 #### Inherited from
 
@@ -127,7 +131,7 @@ ParserBase.data
 
 ### parseSprite
 
-▸ `Static` **parseSprite**(`guiTexture`, `fontData`): `void`
+▸ **parseSprite**(`guiTexture`, `fontData`): `void`
 
 #### Parameters
 
@@ -168,7 +172,7 @@ ___
 
 ### parseString
 
-▸ **parseString**(`data`): `Promise`<`void`\>
+▸ **parseString**(`data`): `Promise`\<`void`\>
 
 #### Parameters
 
@@ -178,7 +182,7 @@ ___
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Overrides
 

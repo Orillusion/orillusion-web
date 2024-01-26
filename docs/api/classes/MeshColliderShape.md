@@ -32,7 +32,11 @@ Mesh collision body
 
 ### constructor
 
-• **new MeshColliderShape**()
+• **new MeshColliderShape**(): [`MeshColliderShape`](MeshColliderShape.md)
+
+#### Returns
+
+[`MeshColliderShape`](MeshColliderShape.md)
 
 #### Overrides
 
@@ -178,7 +182,7 @@ ColliderShape.halfSize
 
 ### setFromCenterAndSize
 
-▸ **setFromCenterAndSize**(`ct?`, `sz?`): [`MeshColliderShape`](MeshColliderShape.md)
+▸ **setFromCenterAndSize**(`ct?`, `sz?`): `this`
 
 Set the position and size of collision objects
 
@@ -191,7 +195,7 @@ Set the position and size of collision objects
 
 #### Returns
 
-[`MeshColliderShape`](MeshColliderShape.md)
+`this`
 
 #### Inherited from
 

@@ -20,7 +20,11 @@
 
 ### constructor
 
-• **new VertexAttribute**()
+• **new VertexAttribute**(): [`VertexAttribute`](VertexAttribute.md)
+
+#### Returns
+
+[`VertexAttribute`](VertexAttribute.md)
 
 ## Properties
 

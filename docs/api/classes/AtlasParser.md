@@ -32,7 +32,11 @@
 
 ### constructor
 
-• **new AtlasParser**()
+• **new AtlasParser**(): [`AtlasParser`](AtlasParser.md)
+
+#### Returns
+
+[`AtlasParser`](AtlasParser.md)
 
 #### Inherited from
 
@@ -126,7 +130,7 @@ ParserBase.data
 
 ### parseString
 
-▸ **parseString**(`data`): `Promise`<`void`\>
+▸ **parseString**(`data`): `Promise`\<`void`\>
 
 #### Parameters
 
@@ -136,7 +140,7 @@ ParserBase.data
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Overrides
 

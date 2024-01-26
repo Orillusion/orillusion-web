@@ -69,7 +69,11 @@
 
 ### constructor
 
-• **new BitmapTextureCube**()
+• **new BitmapTextureCube**(): [`BitmapTextureCube`](BitmapTextureCube.md)
+
+#### Returns
+
+[`BitmapTextureCube`](BitmapTextureCube.md)
 
 #### Overrides
 
@@ -907,11 +911,11 @@ set images of this texture
 
 ### init
 
-▸ **init**(): [`BitmapTextureCube`](BitmapTextureCube.md)
+▸ **init**(): `this`
 
 #### Returns
 
-[`BitmapTextureCube`](BitmapTextureCube.md)
+`this`
 
 #### Inherited from
 
@@ -1068,7 +1072,7 @@ ___
 
 ### delayDestroyTexture
 
-▸ `Static` **delayDestroyTexture**(`tex`): `void`
+▸ **delayDestroyTexture**(`tex`): `void`
 
 #### Parameters
 
@@ -1092,7 +1096,7 @@ ___
 
 ### destroyTexture
 
-▸ `Static` **destroyTexture**(): `void`
+▸ **destroyTexture**(): `void`
 
 #### Returns
 
@@ -1110,7 +1114,7 @@ ___
 
 ### load
 
-▸ **load**(`urls`): `Promise`<`boolean`\>
+▸ **load**(`urls`): `Promise`\<`boolean`\>
 
 load texture data from array of web url.
 make sure there are six images in a group,
@@ -1124,7 +1128,7 @@ and the order is: nx, px, py, ny, nz, pz
 
 #### Returns
 
-`Promise`<`boolean`\>
+`Promise`\<`boolean`\>
 
 #### Defined in
 
@@ -1134,7 +1138,7 @@ ___
 
 ### loadStd
 
-▸ **loadStd**(`url`): `Promise`<`boolean`\>
+▸ **loadStd**(`url`): `Promise`\<`boolean`\>
 
 load texture data from url.
 the image is assembled from six images into cross shaped image.
@@ -1147,7 +1151,7 @@ the image is assembled from six images into cross shaped image.
 
 #### Returns
 
-`Promise`<`boolean`\>
+`Promise`\<`boolean`\>
 
 #### Defined in
 

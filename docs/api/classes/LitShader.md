@@ -70,7 +70,11 @@
 
 ### constructor
 
-• **new LitShader**()
+• **new LitShader**(): [`LitShader`](LitShader.md)
+
+#### Returns
+
+[`LitShader`](LitShader.md)
 
 #### Overrides
 
@@ -98,7 +102,7 @@ ___
 
 ### passShader
 
-• **passShader**: `Map`<`PassType`, [`RenderShaderPass`](RenderShaderPass.md)[]\>
+• **passShader**: `Map`\<`PassType`, [`RenderShaderPass`](RenderShaderPass.md)[]\>
 
 #### Inherited from
 
@@ -981,20 +985,20 @@ ___
 
 ### setStructStorageBuffer
 
-▸ **setStructStorageBuffer**<`T`\>(`arg0`, `arg1`): `void`
+▸ **setStructStorageBuffer**\<`T`\>(`arg0`, `arg1`): `void`
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`Struct`](Struct.md)<`T`\> |
+| `T` | extends [`Struct`](Struct.md) |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `arg0` | `string` |
-| `arg1` | [`StructStorageGPUBuffer`](StructStorageGPUBuffer.md)<`T`\> |
+| `arg1` | [`StructStorageGPUBuffer`](StructStorageGPUBuffer.md)\<`T`\> |
 
 #### Returns
 

@@ -15,13 +15,17 @@ interpolator class
 
 ### constructor
 
-• **new Interpolator**()
+• **new Interpolator**(): [`Interpolator`](Interpolator.md)
+
+#### Returns
+
+[`Interpolator`](Interpolator.md)
 
 ## Methods
 
 ### to
 
-▸ `Static` **to**(`target`, `property`, `durtion`, `interpolatorEnum?`): [`Interpolator`](Interpolator.md)
+▸ **to**(`target`, `property`, `durtion`, `interpolatorEnum?`): [`Interpolator`](Interpolator.md)
 
 Creates an animation from the current property to the specified target property.
 
@@ -46,7 +50,7 @@ ___
 
 ### removeList
 
-▸ `Static` **removeList**(`interpolators`, `dispose?`): `void`
+▸ **removeList**(`interpolators`, `dispose?`): `void`
 
 #### Parameters
 

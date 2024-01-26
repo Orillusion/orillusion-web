@@ -26,7 +26,11 @@
 
 ### constructor
 
-• **new GeometryVertexBuffer**()
+• **new GeometryVertexBuffer**(): [`GeometryVertexBuffer`](GeometryVertexBuffer.md)
+
+#### Returns
+
+[`GeometryVertexBuffer`](GeometryVertexBuffer.md)
 
 #### Defined in
 
@@ -86,7 +90,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `vertexDataInfos` | `Map`<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\> |
+| `vertexDataInfos` | `Map`\<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\> |
 | `shaderReflection` | `ShaderReflection` |
 
 #### Returns
@@ -128,7 +132,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `vertexDataInfos` | `Map`<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\> |
+| `vertexDataInfos` | `Map`\<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\> |
 
 #### Returns
 

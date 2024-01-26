@@ -14,7 +14,11 @@ This class is responsible for performing the Geometry reconstruction work of the
 
 ### constructor
 
-• **new GUIGeometryRebuild**()
+• **new GUIGeometryRebuild**(): [`GUIGeometryRebuild`](GUIGeometryRebuild.md)
+
+#### Returns
+
+[`GUIGeometryRebuild`](GUIGeometryRebuild.md)
 
 ## Methods
 

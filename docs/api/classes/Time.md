@@ -16,7 +16,11 @@ Tool of time
 
 ### constructor
 
-• **new Time**()
+• **new Time**(): [`Time`](Time.md)
+
+#### Returns
+
+[`Time`](Time.md)
 
 ## Properties
 

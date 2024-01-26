@@ -23,7 +23,11 @@
 
 ### constructor
 
-• **new IESProfiles**()
+• **new IESProfiles**(): [`IESProfiles`](IESProfiles.md)
+
+#### Returns
+
+[`IESProfiles`](IESProfiles.md)
 
 #### Defined in
 
@@ -103,7 +107,7 @@ ___
 
 ### create
 
-▸ `Static` **create**(`width`, `height`): `void`
+▸ **create**(`width`, `height`): `void`
 
 #### Parameters
 

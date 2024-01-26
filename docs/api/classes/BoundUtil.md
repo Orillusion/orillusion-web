@@ -13,13 +13,17 @@
 
 ### constructor
 
-• **new BoundUtil**()
+• **new BoundUtil**(): [`BoundUtil`](BoundUtil.md)
+
+#### Returns
+
+[`BoundUtil`](BoundUtil.md)
 
 ## Methods
 
 ### genMeshBounds
 
-▸ `Static` **genMeshBounds**(`obj`, `bound?`): `BoundingBox`
+▸ **genMeshBounds**(`obj`, `bound?`): `BoundingBox`
 
 Merge the bounding boxes that have been added to the world matrix based on the mesh of the children node
 
@@ -42,7 +46,7 @@ ___
 
 ### transformBound
 
-▸ `Static` **transformBound**(`matrix`, `source`, `bound?`): `BoundingBox`
+▸ **transformBound**(`matrix`, `source`, `bound?`): `BoundingBox`
 
 #### Parameters
 

@@ -26,13 +26,17 @@ Sprites are simple 2D objects with graphical images
 
 ### constructor
 
-• **new GUISprite**(`texture?`)
+• **new GUISprite**(`texture?`): [`GUISprite`](GUISprite.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `texture?` | `GUITexture` |
+
+#### Returns
+
+[`GUISprite`](GUISprite.md)
 
 #### Defined in
 

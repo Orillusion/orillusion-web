@@ -34,7 +34,11 @@ Shape of collider body, Base class of collider shape
 
 ### constructor
 
-• **new ColliderShape**()
+• **new ColliderShape**(): [`ColliderShape`](ColliderShape.md)
+
+#### Returns
+
+[`ColliderShape`](ColliderShape.md)
 
 #### Defined in
 
@@ -140,7 +144,7 @@ Half the size of the collision body.
 
 ### setFromCenterAndSize
 
-▸ **setFromCenterAndSize**(`ct?`, `sz?`): [`ColliderShape`](ColliderShape.md)
+▸ **setFromCenterAndSize**(`ct?`, `sz?`): `this`
 
 Set the position and size of collision objects
 
@@ -153,7 +157,7 @@ Set the position and size of collision objects
 
 #### Returns
 
-[`ColliderShape`](ColliderShape.md)
+`this`
 
 #### Defined in
 
