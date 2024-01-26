@@ -21,7 +21,11 @@
 
 ### constructor
 
-• **new FontChar**()
+• **new FontChar**(): [`FontChar`](FontChar.md)
+
+#### Returns
+
+[`FontChar`](FontChar.md)
 
 ## Properties
 

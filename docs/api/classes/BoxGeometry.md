@@ -54,7 +54,7 @@ Box geometry
 
 ### constructor
 
-• **new BoxGeometry**(`width?`, `height?`, `depth?`)
+• **new BoxGeometry**(`width?`, `height?`, `depth?`): [`BoxGeometry`](BoxGeometry.md)
 
 #### Parameters
 
@@ -63,6 +63,10 @@ Box geometry
 | `width` | `number` | `1` | {number} box width, default value is 1 |
 | `height` | `number` | `1` | {number} box height, default value is 1 |
 | `depth` | `number` | `1` | {number} box depth, default value is 1 |
+
+#### Returns
+
+[`BoxGeometry`](BoxGeometry.md)
 
 #### Overrides
 
@@ -296,11 +300,11 @@ ___
 
 ### vertexAttributeMap
 
-• `get` **vertexAttributeMap**(): `Map`<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
+• `get` **vertexAttributeMap**(): `Map`\<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
 
 #### Returns
 
-`Map`<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
+`Map`\<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
 
 #### Inherited from
 
@@ -394,10 +398,6 @@ GeometryBase.bounds
 
 add subGeometry from lod level
 
-**`See`**
-
-LODDescriptor
-
 #### Parameters
 
 | Name | Type |
@@ -407,6 +407,10 @@ LODDescriptor
 #### Returns
 
 [`SubGeometry`](SubGeometry.md)
+
+**`See`**
+
+LODDescriptor
 
 #### Inherited from
 
@@ -579,11 +583,11 @@ ___
 
 ### computeNormals
 
-▸ **computeNormals**(): [`BoxGeometry`](BoxGeometry.md)
+▸ **computeNormals**(): `this`
 
 #### Returns
 
-[`BoxGeometry`](BoxGeometry.md)
+`this`
 
 #### Inherited from
 

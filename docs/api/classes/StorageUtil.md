@@ -17,7 +17,11 @@
 
 ### constructor
 
-• **new StorageUtil**()
+• **new StorageUtil**(): [`StorageUtil`](StorageUtil.md)
+
+#### Returns
+
+[`StorageUtil`](StorageUtil.md)
 
 ## Properties
 
@@ -33,7 +37,7 @@
 
 ### load
 
-▸ `Static` **load**<`T`\>(`dataTable`): `T`
+▸ **load**\<`T`\>(`dataTable`): `T`
 
 #### Type parameters
 
@@ -59,7 +63,7 @@ ___
 
 ### save
 
-▸ `Static` **save**<`T`\>(`table`, `data`): `void`
+▸ **save**\<`T`\>(`table`, `data`): `void`
 
 #### Type parameters
 

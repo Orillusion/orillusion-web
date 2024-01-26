@@ -33,7 +33,11 @@
 
 ### constructor
 
-• **new PrefabAvatarParser**()
+• **new PrefabAvatarParser**(): [`PrefabAvatarParser`](PrefabAvatarParser.md)
+
+#### Returns
+
+[`PrefabAvatarParser`](PrefabAvatarParser.md)
 
 #### Inherited from
 
@@ -127,7 +131,7 @@ ParserBase.data
 
 ### parser
 
-▸ `Static` **parser**(`bytesStream`, `prefabParser`): `void`
+▸ **parser**(`bytesStream`, `prefabParser`): `void`
 
 #### Parameters
 

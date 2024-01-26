@@ -40,7 +40,11 @@ Orillusion 3D Engine
 
 ### constructor
 
-• **new Engine3D**()
+• **new Engine3D**(): [`Engine3D`](Engine3D.md)
+
+#### Returns
+
+[`Engine3D`](Engine3D.md)
 
 ## Properties
 
@@ -114,7 +118,7 @@ engine setting
 
 ### frameRate
 
-• `Static` `get` **frameRate**(): `number`
+• `get` **frameRate**(): `number`
 
 set engine render frameRate 24/30/60/114/120/144/240/360 fps or other
 
@@ -126,7 +130,7 @@ set engine render frameRate 24/30/60/114/120/144/240/360 fps or other
 
 [src/Engine3D.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/Engine3D.ts#L68)
 
-• `Static` `set` **frameRate**(`value`): `void`
+• `set` **frameRate**(`value`): `void`
 
 get engine render frameRate
 
@@ -148,7 +152,7 @@ ___
 
 ### size
 
-• `Static` `get` **size**(): `number`[]
+• `get` **size**(): `number`[]
 
 get render window size width and height
 
@@ -164,7 +168,7 @@ ___
 
 ### aspect
 
-• `Static` `get` **aspect**(): `number`
+• `get` **aspect**(): `number`
 
 get render window aspect
 
@@ -180,7 +184,7 @@ ___
 
 ### width
 
-• `Static` `get` **width**(): `number`
+• `get` **width**(): `number`
 
 get render window size width
 
@@ -196,7 +200,7 @@ ___
 
 ### height
 
-• `Static` `get` **height**(): `number`
+• `get` **height**(): `number`
 
 get render window size height
 
@@ -212,7 +216,7 @@ get render window size height
 
 ### init
 
-▸ `Static` **init**(`descriptor?`): `Promise`<`void`\>
+▸ **init**(`descriptor?`): `Promise`\<`void`\>
 
 create webgpu 3d engine
 
@@ -229,7 +233,7 @@ create webgpu 3d engine
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
@@ -239,7 +243,7 @@ ___
 
 ### startRenderView
 
-▸ `Static` **startRenderView**(`view`): [`ForwardRenderJob`](ForwardRenderJob.md)
+▸ **startRenderView**(`view`): [`ForwardRenderJob`](ForwardRenderJob.md)
 
 set render view and start renderer
 
@@ -261,7 +265,7 @@ ___
 
 ### startRenderViews
 
-▸ `Static` **startRenderViews**(`views`): `void`
+▸ **startRenderViews**(`views`): `void`
 
 set render views and start renderer
 
@@ -283,7 +287,7 @@ ___
 
 ### getRenderJob
 
-▸ `Static` **getRenderJob**(`view`): `RendererJob`
+▸ **getRenderJob**(`view`): `RendererJob`
 
 get view render job instance
 
@@ -305,7 +309,7 @@ ___
 
 ### pause
 
-▸ `Static` **pause**(): `void`
+▸ **pause**(): `void`
 
 Pause the engine render
 
@@ -321,7 +325,7 @@ ___
 
 ### resume
 
-▸ `Static` **resume**(): `void`
+▸ **resume**(): `void`
 
 Resume the engine render
 

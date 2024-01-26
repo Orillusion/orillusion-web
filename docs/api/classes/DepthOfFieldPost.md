@@ -47,7 +47,11 @@ A common post-processing effect that simulates the focusing characteristics of a
 
 ### constructor
 
-• **new DepthOfFieldPost**()
+• **new DepthOfFieldPost**(): [`DepthOfFieldPost`](DepthOfFieldPost.md)
+
+#### Returns
+
+[`DepthOfFieldPost`](DepthOfFieldPost.md)
 
 #### Overrides
 

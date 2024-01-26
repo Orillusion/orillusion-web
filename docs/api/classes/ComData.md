@@ -17,7 +17,11 @@
 
 ### constructor
 
-• **new ComData**()
+• **new ComData**(): [`ComData`](ComData.md)
+
+#### Returns
+
+[`ComData`](ComData.md)
 
 ## Properties
 
@@ -43,7 +47,7 @@ ___
 
 ### parser
 
-▸ `Static` **parser**(`bytesArray`): [`ComData`](ComData.md)
+▸ **parser**(`bytesArray`): [`ComData`](ComData.md)
 
 #### Parameters
 

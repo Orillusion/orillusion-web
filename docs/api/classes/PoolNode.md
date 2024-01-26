@@ -1,4 +1,4 @@
-# Class: PoolNode<T\>
+# Class: PoolNode\<T\>
 
 ## Type parameters
 
@@ -21,13 +21,17 @@
 
 ### constructor
 
-• **new PoolNode**<`T`\>()
+• **new PoolNode**\<`T`\>(): [`PoolNode`](PoolNode.md)\<`T`\>
 
 #### Type parameters
 
 | Name |
 | :------ |
 | `T` |
+
+#### Returns
+
+[`PoolNode`](PoolNode.md)\<`T`\>
 
 #### Defined in
 

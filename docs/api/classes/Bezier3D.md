@@ -15,13 +15,17 @@
 
 ### constructor
 
-• **new Bezier3D**()
+• **new Bezier3D**(): [`Bezier3D`](Bezier3D.md)
+
+#### Returns
+
+[`Bezier3D`](Bezier3D.md)
 
 ## Methods
 
 ### calculateCubicBezierPoint
 
-▸ `Static` **calculateCubicBezierPoint**(`t`, `p0`, `c1`, `c2`, `p3`): [`Vector3`](Vector3.md)
+▸ **calculateCubicBezierPoint**(`t`, `p0`, `c1`, `c2`, `p3`): [`Vector3`](Vector3.md)
 
 get cubic curve point value from t at bezier data
 
@@ -49,7 +53,7 @@ ___
 
 ### bezierPoint
 
-▸ `Static` **bezierPoint**(`t`, `p0`, `c1`, `p1`): [`Vector3`](Vector3.md)
+▸ **bezierPoint**(`t`, `p0`, `c1`, `p1`): [`Vector3`](Vector3.md)
 
 get curve point from three point bezier curve
 

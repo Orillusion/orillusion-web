@@ -22,7 +22,11 @@
 
 ### constructor
 
-• **new PrefabTextureData**()
+• **new PrefabTextureData**(): [`PrefabTextureData`](PrefabTextureData.md)
+
+#### Returns
+
+[`PrefabTextureData`](PrefabTextureData.md)
 
 ## Properties
 

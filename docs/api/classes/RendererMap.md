@@ -15,7 +15,11 @@
 
 ### constructor
 
-• **new RendererMap**()
+• **new RendererMap**(): [`RendererMap`](RendererMap.md)
+
+#### Returns
+
+[`RendererMap`](RendererMap.md)
 
 #### Defined in
 
@@ -65,11 +69,11 @@ ___
 
 ### getAllRenderer
 
-▸ **getAllRenderer**(): `Map`<`PassType`, `RendererBase`\>
+▸ **getAllRenderer**(): `Map`\<`PassType`, `RendererBase`\>
 
 #### Returns
 
-`Map`<`PassType`, `RendererBase`\>
+`Map`\<`PassType`, `RendererBase`\>
 
 #### Defined in
 

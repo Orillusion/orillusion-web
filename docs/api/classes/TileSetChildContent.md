@@ -14,7 +14,11 @@
 
 ### constructor
 
-• **new TileSetChildContent**()
+• **new TileSetChildContent**(): [`TileSetChildContent`](TileSetChildContent.md)
+
+#### Returns
+
+[`TileSetChildContent`](TileSetChildContent.md)
 
 ## Properties
 

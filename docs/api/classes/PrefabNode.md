@@ -22,7 +22,11 @@
 
 ### constructor
 
-• **new PrefabNode**()
+• **new PrefabNode**(): [`PrefabNode`](PrefabNode.md)
+
+#### Returns
+
+[`PrefabNode`](PrefabNode.md)
 
 ## Properties
 
@@ -98,7 +102,7 @@ ___
 
 ### parser
 
-▸ `Static` **parser**(`bytesArray`): [`PrefabNode`](PrefabNode.md)
+▸ **parser**(`bytesArray`): [`PrefabNode`](PrefabNode.md)
 
 #### Parameters
 

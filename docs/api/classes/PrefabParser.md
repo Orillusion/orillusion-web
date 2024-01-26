@@ -35,7 +35,11 @@
 
 ### constructor
 
-• **new PrefabParser**()
+• **new PrefabParser**(): [`PrefabParser`](PrefabParser.md)
+
+#### Returns
+
+[`PrefabParser`](PrefabParser.md)
 
 #### Inherited from
 
@@ -259,7 +263,7 @@ ___
 
 ### parseBuffer
 
-▸ **parseBuffer**(`buffer`): `Promise`<`void`\>
+▸ **parseBuffer**(`buffer`): `Promise`\<`void`\>
 
 #### Parameters
 
@@ -269,7 +273,7 @@ ___
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Overrides
 

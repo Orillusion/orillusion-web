@@ -14,7 +14,11 @@
 
 ### constructor
 
-• **new OutlinePostSlot**()
+• **new OutlinePostSlot**(): [`OutlinePostSlot`](OutlinePostSlot.md)
+
+#### Returns
+
+[`OutlinePostSlot`](OutlinePostSlot.md)
 
 ## Properties
 

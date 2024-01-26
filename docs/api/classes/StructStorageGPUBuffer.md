@@ -1,4 +1,4 @@
-# Class: StructStorageGPUBuffer<T\>
+# Class: StructStorageGPUBuffer\<T\>
 
 Structure storage class buffer, convenient for initializing gpubuffers of structure types
 written in the computer shader or CPU Coder
@@ -69,13 +69,13 @@ usage GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_DST GPUBufferUsage
 
 ### constructor
 
-• **new StructStorageGPUBuffer**<`T`\>(`struct`, `count`, `usage?`)
+• **new StructStorageGPUBuffer**\<`T`\>(`struct`, `count`, `usage?`): [`StructStorageGPUBuffer`](StructStorageGPUBuffer.md)\<`T`\>
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`Struct`](Struct.md)<`T`\> |
+| `T` | extends [`Struct`](Struct.md) |
 
 #### Parameters
 
@@ -84,6 +84,10 @@ usage GPUBufferUsage.STORAGE | GPUBufferUsage.COPY_DST GPUBufferUsage
 | `struct` | () => `T` | `undefined` |
 | `count` | `number` | `undefined` |
 | `usage` | `number` | `0` |
+
+#### Returns
+
+[`StructStorageGPUBuffer`](StructStorageGPUBuffer.md)\<`T`\>
 
 #### Overrides
 
@@ -139,7 +143,7 @@ ___
 
 ### memoryNodes
 
-• **memoryNodes**: `Map`<`string` \| `number`, `MemoryInfo`\>
+• **memoryNodes**: `Map`\<`string` \| `number`, `MemoryInfo`\>
 
 #### Inherited from
 
@@ -549,7 +553,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `name` | `string` |
-| `v4Array` | `Vector4`[] \| [`Quaternion`](Quaternion.md)[] |
+| `v4Array` | [`Vector3`](Vector3.md)[] \| `Vector4`[] \| [`Quaternion`](Quaternion.md)[] |
 
 #### Returns
 
@@ -767,13 +771,13 @@ ___
 
 ### setStruct
 
-▸ **setStruct**<`T`\>(`c`, `index`, `data`, `property?`): `void`
+▸ **setStruct**\<`T`\>(`c`, `index`, `data`, `property?`): `void`
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`Struct`](Struct.md)<`T`\> |
+| `T` | extends [`Struct`](Struct.md) |
 
 #### Parameters
 
@@ -800,13 +804,13 @@ ___
 
 ### setStructArray
 
-▸ **setStructArray**<`T`\>(`c`, `dataList`, `property?`): `void`
+▸ **setStructArray**\<`T`\>(`c`, `dataList`, `property?`): `void`
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`Struct`](Struct.md)<`T`\> |
+| `T` | extends [`Struct`](Struct.md) |
 
 #### Parameters
 

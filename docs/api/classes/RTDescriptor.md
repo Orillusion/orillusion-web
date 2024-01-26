@@ -14,7 +14,11 @@
 
 ### constructor
 
-• **new RTDescriptor**()
+• **new RTDescriptor**(): [`RTDescriptor`](RTDescriptor.md)
+
+#### Returns
+
+[`RTDescriptor`](RTDescriptor.md)
 
 ## Properties
 

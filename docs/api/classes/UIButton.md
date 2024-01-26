@@ -60,7 +60,11 @@ The basic components used in the GUI to respond to user interaction behavior and
 
 ### constructor
 
-• **new UIButton**()
+• **new UIButton**(): [`UIButton`](UIButton.md)
+
+#### Returns
+
+[`UIButton`](UIButton.md)
 
 #### Inherited from
 
@@ -570,7 +574,7 @@ ___
 
 ### onUpdate
 
-▸ `Optional` **onUpdate**(`view?`): `any`
+▸ **onUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -594,7 +598,7 @@ ___
 
 ### onLateUpdate
 
-▸ `Optional` **onLateUpdate**(`view?`): `any`
+▸ **onLateUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -618,7 +622,7 @@ ___
 
 ### onBeforeUpdate
 
-▸ `Optional` **onBeforeUpdate**(`view?`): `any`
+▸ **onBeforeUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -642,7 +646,7 @@ ___
 
 ### onCompute
 
-▸ `Optional` **onCompute**(`view?`, `command?`): `any`
+▸ **onCompute**(`view?`, `command?`): `any`
 
 #### Parameters
 
@@ -667,7 +671,7 @@ ___
 
 ### onGraphic
 
-▸ `Optional` **onGraphic**(`view?`): `any`
+▸ **onGraphic**(`view?`): `any`
 
 #### Parameters
 
@@ -691,7 +695,7 @@ ___
 
 ### onParentChange
 
-▸ `Optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
+▸ **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
 #### Parameters
 
@@ -802,7 +806,7 @@ ___
 
 ### setStyleColor
 
-▸ **setStyleColor**(`style`, `color`): [`UIButton`](UIButton.md)
+▸ **setStyleColor**(`style`, `color`): `this`
 
 #### Parameters
 
@@ -813,7 +817,7 @@ ___
 
 #### Returns
 
-[`UIButton`](UIButton.md)
+`this`
 
 #### Defined in
 
@@ -869,17 +873,17 @@ ___
 
 ### copyComponent
 
-▸ **copyComponent**(`from`): [`UIButton`](UIButton.md)
+▸ **copyComponent**(`from`): `this`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `from` | [`UIButton`](UIButton.md) |
+| `from` | `this` |
 
 #### Returns
 
-[`UIButton`](UIButton.md)
+`this`
 
 #### Overrides
 

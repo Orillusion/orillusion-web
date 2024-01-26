@@ -31,7 +31,11 @@
 
 ### constructor
 
-• **new FontInfo**()
+• **new FontInfo**(): [`FontInfo`](FontInfo.md)
+
+#### Returns
+
+[`FontInfo`](FontInfo.md)
 
 #### Defined in
 

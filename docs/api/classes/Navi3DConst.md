@@ -17,7 +17,11 @@
 
 ### constructor
 
-• **new Navi3DConst**()
+• **new Navi3DConst**(): [`Navi3DConst`](Navi3DConst.md)
+
+#### Returns
+
+[`Navi3DConst`](Navi3DConst.md)
 
 ## Properties
 
@@ -43,7 +47,7 @@ ___
 
 ### SetConst
 
-▸ `Static` **SetConst**(`epsilon`): `void`
+▸ **SetConst**(`epsilon`): `void`
 
 #### Parameters
 

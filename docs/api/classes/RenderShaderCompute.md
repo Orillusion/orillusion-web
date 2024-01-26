@@ -12,7 +12,7 @@
 
 ### constructor
 
-• **new RenderShaderCompute**(`shaderStr`, `sourceShader`)
+• **new RenderShaderCompute**(`shaderStr`, `sourceShader`): [`RenderShaderCompute`](RenderShaderCompute.md)
 
 #### Parameters
 
@@ -20,6 +20,10 @@
 | :------ | :------ |
 | `shaderStr` | `string` |
 | `sourceShader` | [`Shader`](Shader.md) |
+
+#### Returns
+
+[`RenderShaderCompute`](RenderShaderCompute.md)
 
 #### Defined in
 

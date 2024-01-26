@@ -35,13 +35,17 @@ Management and triggering for picking 3D objects
 
 ### constructor
 
-• **new PickFire**(`view`)
+• **new PickFire**(`view`): [`PickFire`](PickFire.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `view` | [`View3D`](View3D.md) |
+
+#### Returns
+
+[`PickFire`](PickFire.md)
 
 #### Overrides
 
@@ -79,7 +83,7 @@ ___
 
 ### mouseEnableMap
 
-• **mouseEnableMap**: `Map`<`number`, [`ColliderComponent`](ColliderComponent.md)\>
+• **mouseEnableMap**: `Map`\<`number`, [`ColliderComponent`](ColliderComponent.md)\>
 
 a map records the association information between meshID(matrix id) and ColliderComponent
 

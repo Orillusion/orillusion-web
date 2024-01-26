@@ -12,7 +12,11 @@
 
 ### constructor
 
-• **new TextFieldLayout**()
+• **new TextFieldLayout**(): [`TextFieldLayout`](TextFieldLayout.md)
+
+#### Returns
+
+[`TextFieldLayout`](TextFieldLayout.md)
 
 ## Methods
 

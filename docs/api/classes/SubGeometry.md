@@ -14,7 +14,11 @@ geometry split more subGeometry descriptor
 
 ### constructor
 
-• **new SubGeometry**()
+• **new SubGeometry**(): [`SubGeometry`](SubGeometry.md)
+
+#### Returns
+
+[`SubGeometry`](SubGeometry.md)
 
 ## Properties
 

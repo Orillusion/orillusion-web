@@ -23,7 +23,11 @@
 
 ### constructor
 
-• **new B3DMLoader**()
+• **new B3DMLoader**(): [`B3DMLoader`](B3DMLoader.md)
+
+#### Returns
+
+[`B3DMLoader`](B3DMLoader.md)
 
 #### Overrides
 
@@ -47,7 +51,7 @@
 
 ### parse
 
-▸ **parse**(`buffer`): `Promise`<`any`\>
+▸ **parse**(`buffer`): `Promise`\<`any`\>
 
 #### Parameters
 
@@ -57,7 +61,7 @@
 
 #### Returns
 
-`Promise`<`any`\>
+`Promise`\<`any`\>
 
 #### Overrides
 
@@ -71,7 +75,7 @@ ___
 
 ### decodeText
 
-▸ `Static` **decodeText**(`array`): `string`
+▸ **decodeText**(`array`): `string`
 
 #### Parameters
 

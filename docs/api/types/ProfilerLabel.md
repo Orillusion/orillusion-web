@@ -11,7 +11,7 @@
 | `end` | `number` |
 | `total` | `number` |
 | `count` | `number` |
-| `child` | `Map`<`string`, [`ProfilerLabel2`](ProfilerLabel2.md)\> |
+| `child` | `Map`\<`string`, [`ProfilerLabel2`](ProfilerLabel2.md)\> |
 
 #### Defined in
 

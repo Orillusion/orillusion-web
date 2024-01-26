@@ -49,7 +49,11 @@ The component can receive update events at each frame.
 
 ### constructor
 
-• **new BillboardComponent**()
+• **new BillboardComponent**(): [`BillboardComponent`](BillboardComponent.md)
+
+#### Returns
+
+[`BillboardComponent`](BillboardComponent.md)
 
 #### Overrides
 
@@ -335,7 +339,7 @@ ___
 
 ### onEnable
 
-▸ `Optional` **onEnable**(`view?`): `any`
+▸ **onEnable**(`view?`): `any`
 
 #### Parameters
 
@@ -359,7 +363,7 @@ ___
 
 ### onDisable
 
-▸ `Optional` **onDisable**(`view?`): `any`
+▸ **onDisable**(`view?`): `any`
 
 #### Parameters
 
@@ -383,7 +387,7 @@ ___
 
 ### onLateUpdate
 
-▸ `Optional` **onLateUpdate**(`view?`): `any`
+▸ **onLateUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -407,7 +411,7 @@ ___
 
 ### onBeforeUpdate
 
-▸ `Optional` **onBeforeUpdate**(`view?`): `any`
+▸ **onBeforeUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -431,7 +435,7 @@ ___
 
 ### onCompute
 
-▸ `Optional` **onCompute**(`view?`, `command?`): `any`
+▸ **onCompute**(`view?`, `command?`): `any`
 
 #### Parameters
 
@@ -456,7 +460,7 @@ ___
 
 ### onGraphic
 
-▸ `Optional` **onGraphic**(`view?`): `any`
+▸ **onGraphic**(`view?`): `any`
 
 #### Parameters
 
@@ -480,7 +484,7 @@ ___
 
 ### onParentChange
 
-▸ `Optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
+▸ **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
 #### Parameters
 
@@ -505,17 +509,17 @@ ___
 
 ### copyComponent
 
-▸ **copyComponent**(`from`): [`BillboardComponent`](BillboardComponent.md)
+▸ **copyComponent**(`from`): `this`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `from` | [`BillboardComponent`](BillboardComponent.md) |
+| `from` | `this` |
 
 #### Returns
 
-[`BillboardComponent`](BillboardComponent.md)
+`this`
 
 #### Inherited from
 

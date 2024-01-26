@@ -20,13 +20,17 @@ apply any instance , used full destroy
 
 ### constructor
 
-• **new Reference**()
+• **new Reference**(): [`Reference`](Reference.md)
+
+#### Returns
+
+[`Reference`](Reference.md)
 
 ## Methods
 
 ### getInstance
 
-▸ `Static` **getInstance**(): [`Reference`](Reference.md)
+▸ **getInstance**(): [`Reference`](Reference.md)
 
 #### Returns
 
@@ -130,7 +134,7 @@ ___
 
 ### getReference
 
-▸ **getReference**(`ref`): `Map`<`any`, `any`\>
+▸ **getReference**(`ref`): `Map`\<`any`, `any`\>
 
 get current instance reference from where
 
@@ -142,7 +146,7 @@ get current instance reference from where
 
 #### Returns
 
-`Map`<`any`, `any`\>
+`Map`\<`any`, `any`\>
 
 #### Defined in
 

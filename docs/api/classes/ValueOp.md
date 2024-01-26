@@ -1,4 +1,4 @@
-# Class: ValueOp<T\>
+# Class: ValueOp\<T\>
 
 ## Type parameters
 
@@ -18,7 +18,7 @@
 
 ### constructor
 
-• **new ValueOp**<`T`\>()
+• **new ValueOp**\<`T`\>(): [`ValueOp`](ValueOp.md)\<`T`\>
 
 #### Type parameters
 
@@ -26,11 +26,15 @@
 | :------ | :------ |
 | `T` | extends [`CurveValueType`](../types/CurveValueType.md) |
 
+#### Returns
+
+[`ValueOp`](ValueOp.md)\<`T`\>
+
 ## Methods
 
 ### sub
 
-▸ `Static` **sub**<`T`\>(`v1`, `v2`): `number` \| [`Vector2`](Vector2.md) \| `Vector4` \| [`Vector3`](Vector3.md) \| [`Quaternion`](Quaternion.md)
+▸ **sub**\<`T`\>(`v1`, `v2`): `number` \| [`Vector2`](Vector2.md) \| `Vector4` \| [`Vector3`](Vector3.md) \| [`Quaternion`](Quaternion.md)
 
 #### Type parameters
 

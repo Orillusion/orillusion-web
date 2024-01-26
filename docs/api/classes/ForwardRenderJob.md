@@ -41,13 +41,17 @@ If visible, the values in the color buffer will be updated.
 
 ### constructor
 
-• **new ForwardRenderJob**(`view`)
+• **new ForwardRenderJob**(`view`): [`ForwardRenderJob`](ForwardRenderJob.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `view` | [`View3D`](View3D.md) |
+
+#### Returns
+
+[`ForwardRenderJob`](ForwardRenderJob.md)
 
 #### Overrides
 
@@ -131,19 +135,19 @@ ___
 
 ### addRenderer
 
-▸ **addRenderer**<`T`\>(`c`, `param?`): `T`
+▸ **addRenderer**\<`T`\>(`c`, `param?`): `T`
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends `RendererBase`<`T`\> |
+| `T` | extends `RendererBase` |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)<`T`\> |
+| `c` | [`Ctor`](../types/Ctor.md)\<`T`\> |
 | `param?` | `any` |
 
 #### Returns

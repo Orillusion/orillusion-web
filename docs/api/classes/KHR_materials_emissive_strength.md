@@ -12,13 +12,17 @@
 
 ### constructor
 
-• **new KHR_materials_emissive_strength**()
+• **new KHR_materials_emissive_strength**(): [`KHR_materials_emissive_strength`](KHR_materials_emissive_strength.md)
+
+#### Returns
+
+[`KHR_materials_emissive_strength`](KHR_materials_emissive_strength.md)
 
 ## Methods
 
 ### apply
 
-▸ `Static` **apply**(`gltf`, `dmaterial`, `tMaterial`): `void`
+▸ **apply**(`gltf`, `dmaterial`, `tMaterial`): `void`
 
 #### Parameters
 

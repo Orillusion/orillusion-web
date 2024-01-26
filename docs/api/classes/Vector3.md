@@ -107,7 +107,7 @@ Vector 3D
 
 ### constructor
 
-• **new Vector3**(`x?`, `y?`, `z?`, `w?`)
+• **new Vector3**(`x?`, `y?`, `z?`, `w?`): [`Vector3`](Vector3.md)
 
 Creates an instance of a Vector3 object. If you do not specify a.
 parameter for the constructor, a Vector3 object is created with
@@ -121,6 +121,10 @@ the elements (0,0,0,0).
 | `y` | `number` | `0` | The second element, such as the y coordinate. |
 | `z` | `number` | `0` | The third element, such as the z coordinate. |
 | `w` | `number` | `0` | An optional element for additional data such as the angle of rotation. |
+
+#### Returns
+
+[`Vector3`](Vector3.md)
 
 #### Defined in
 
@@ -279,7 +283,7 @@ We can also do w in the quaternion
 
 ### ZERO
 
-• `Static` `get` **ZERO**(): [`Vector3`](Vector3.md)
+• `get` **ZERO**(): [`Vector3`](Vector3.md)
 
 Returns a new vector with zero x, y, and z components
 
@@ -295,7 +299,7 @@ ___
 
 ### ONE
 
-• `Static` `get` **ONE**(): [`Vector3`](Vector3.md)
+• `get` **ONE**(): [`Vector3`](Vector3.md)
 
 Returns a new vector whose x, y, and z components are all 1
 
@@ -311,7 +315,7 @@ ___
 
 ### LEFT
 
-• `Static` `get` **LEFT**(): [`Vector3`](Vector3.md)
+• `get` **LEFT**(): [`Vector3`](Vector3.md)
 
 Returns a new vector pointing to the left, x is -1, y is 0, and z is 0
 
@@ -327,7 +331,7 @@ ___
 
 ### RIGHT
 
-• `Static` `get` **RIGHT**(): [`Vector3`](Vector3.md)
+• `get` **RIGHT**(): [`Vector3`](Vector3.md)
 
 Returns a new vector pointing in the right direction, where x is 1, y is 0, and z is 0
 
@@ -343,7 +347,7 @@ ___
 
 ### UP
 
-• `Static` `get` **UP**(): [`Vector3`](Vector3.md)
+• `get` **UP**(): [`Vector3`](Vector3.md)
 
 Returns a new vector pointing upwards, that is, x equals 0, y equals 1, and z equals 0
 
@@ -359,7 +363,7 @@ ___
 
 ### DOWN
 
-• `Static` `get` **DOWN**(): [`Vector3`](Vector3.md)
+• `get` **DOWN**(): [`Vector3`](Vector3.md)
 
 Returns a new vector pointing down, where x is 0, y is -1, and z is 0
 
@@ -375,7 +379,7 @@ ___
 
 ### BACK
 
-• `Static` `get` **BACK**(): [`Vector3`](Vector3.md)
+• `get` **BACK**(): [`Vector3`](Vector3.md)
 
 Returns a new backward vector, x equals 0, y equals 0, and z equals negative 1
 
@@ -391,7 +395,7 @@ ___
 
 ### FORWARD
 
-• `Static` `get` **FORWARD**(): [`Vector3`](Vector3.md)
+• `get` **FORWARD**(): [`Vector3`](Vector3.md)
 
 Returns a new forward-pointing vector, that is, x is 0, y is 0, and z is 1
 
@@ -599,7 +603,7 @@ Get the current vector
 
 ### getTowPointbyDir
 
-▸ `Static` **getTowPointbyDir**(`dir`, `tp1`, `tp2`, `width`, `aix`): `void`
+▸ **getTowPointbyDir**(`dir`, `tp1`, `tp2`, `width`, `aix`): `void`
 
 Obtain a vertical line segment with width through an orientation
 
@@ -625,7 +629,7 @@ ___
 
 ### pointToLine
 
-▸ `Static` **pointToLine**(`point1`, `point2`, `position`): `number`
+▸ **pointToLine**(`point1`, `point2`, `position`): `number`
 
 Calculate the distance from the point to the line
 
@@ -651,7 +655,7 @@ ___
 
 ### dot
 
-▸ `Static` **dot**(`a`, `b`): `number`
+▸ **dot**(`a`, `b`): `number`
 
 Take the dot product of two vectors.
 
@@ -674,7 +678,7 @@ ___
 
 ### getPoints
 
-▸ `Static` **getPoints**(`total`, `randSeed`): `any`[]
+▸ **getPoints**(`total`, `randSeed`): `any`[]
 
 #### Parameters
 
@@ -695,7 +699,7 @@ ___
 
 ### getPointNumbers
 
-▸ `Static` **getPointNumbers**(`total`, `randSeed`): `any`[]
+▸ **getPointNumbers**(`total`, `randSeed`): `any`[]
 
 #### Parameters
 
@@ -716,7 +720,7 @@ ___
 
 ### getAngle
 
-▸ `Static` **getAngle**(`from`, `to`): `number`
+▸ **getAngle**(`from`, `to`): `number`
 
 Returns the Angle, in degrees, between the source vector and the target vector.
 
@@ -739,7 +743,7 @@ ___
 
 ### sqrMagnitude
 
-▸ `Static` **sqrMagnitude**(`arg0`): `number`
+▸ **sqrMagnitude**(`arg0`): `number`
 
 #### Parameters
 
@@ -759,7 +763,7 @@ ___
 
 ### getZYAngle
 
-▸ `Static` **getZYAngle**(`zd`, `yd`): `number`
+▸ **getZYAngle**(`zd`, `yd`): `number`
 
 #### Parameters
 
@@ -780,7 +784,7 @@ ___
 
 ### sub
 
-▸ `Static` **sub**(`a`, `b`, `target?`): [`Vector3`](Vector3.md)
+▸ **sub**(`a`, `b`, `target?`): [`Vector3`](Vector3.md)
 
 Subtract two vectors
 
@@ -804,7 +808,7 @@ ___
 
 ### add
 
-▸ `Static` **add**(`a`, `b`, `target?`): [`Vector3`](Vector3.md)
+▸ **add**(`a`, `b`, `target?`): [`Vector3`](Vector3.md)
 
 Add two vectors
 
@@ -828,7 +832,7 @@ ___
 
 ### distance
 
-▸ `Static` **distance**(`pt1`, `pt2`): `number`
+▸ **distance**(`pt1`, `pt2`): `number`
 
 Calculate the distance between two vectors
 
@@ -853,7 +857,7 @@ ___
 
 ### squareDistance
 
-▸ `Static` **squareDistance**(`pt1`, `pt2`): `number`
+▸ **squareDistance**(`pt1`, `pt2`): `number`
 
 Calculate the square distance between two vectors
 
@@ -878,7 +882,7 @@ ___
 
 ### distanceXZ
 
-▸ `Static` **distanceXZ**(`pt1`, `pt2`): `number`
+▸ **distanceXZ**(`pt1`, `pt2`): `number`
 
 Calculate the distance between two vectors XZ axes
 
@@ -953,7 +957,7 @@ ___
 
 ### subVectors
 
-▸ **subVectors**(`a`, `b`): [`Vector3`](Vector3.md)
+▸ **subVectors**(`a`, `b`): `this`
 
 #### Parameters
 
@@ -964,7 +968,7 @@ ___
 
 #### Returns
 
-[`Vector3`](Vector3.md)
+`this`
 
 #### Defined in
 
@@ -1329,11 +1333,6 @@ ___
 
 ▸ **setTo**(`xa`, `ya`, `za`, `wa?`): `void`
 
-**`Language`**
-
-en_US
-Sets the members of Vector3 to the specified values
-
 #### Parameters
 
 | Name | Type | Default value | Description |
@@ -1347,6 +1346,11 @@ Sets the members of Vector3 to the specified values
 
 `void`
 
+**`Language`**
+
+en_US
+Sets the members of Vector3 to the specified values
+
 #### Defined in
 
 [src/math/Vector3.ts:777](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L777)
@@ -1355,7 +1359,7 @@ ___
 
 ### copy
 
-▸ **copy**(`src`): [`Vector3`](Vector3.md)
+▸ **copy**(`src`): `this`
 
 Copy the components of the source vector to this vector
 
@@ -1367,7 +1371,7 @@ Copy the components of the source vector to this vector
 
 #### Returns
 
-[`Vector3`](Vector3.md)
+`this`
 
 #### Defined in
 
@@ -1378,15 +1382,6 @@ ___
 ### subtract
 
 ▸ **subtract**(`a`, `target?`): [`Vector3`](Vector3.md)
-
-**`Language`**
-
-en_US
-Subtracts the value of the x, y, and z elements of the current
-Vector3 object from the values of the x, y, and z elements of
-another Vector3 object. The <code>subtract()</code> method does not
-change the current Vector3 object. Instead, this method returns a
-new Vector3 object with the new values.
 
 #### Parameters
 
@@ -1401,6 +1396,15 @@ new Vector3 object with the new values.
 
 A new Vector3 object that is the difference between the
          current Vector3 and the specified Vector3 object.
+
+**`Language`**
+
+en_US
+Subtracts the value of the x, y, and z elements of the current
+Vector3 object from the values of the x, y, and z elements of
+another Vector3 object. The <code>subtract()</code> method does not
+change the current Vector3 object. Instead, this method returns a
+new Vector3 object with the new values.
 
 #### Defined in
 
@@ -1616,7 +1620,7 @@ ___
 
 ### crossVectors
 
-▸ **crossVectors**(`a`, `b`): [`Vector3`](Vector3.md)
+▸ **crossVectors**(`a`, `b`): `this`
 
 #### Parameters
 
@@ -1627,7 +1631,7 @@ ___
 
 #### Returns
 
-[`Vector3`](Vector3.md)
+`this`
 
 #### Defined in
 
@@ -1739,7 +1743,7 @@ ___
 
 ### pointInsideTriangle
 
-▸ `Static` **pointInsideTriangle**(`pt`, `pt0`, `pt1`, `pt2`): `boolean`
+▸ **pointInsideTriangle**(`pt`, `pt0`, `pt1`, `pt2`): `boolean`
 
 #### Parameters
 
@@ -1762,7 +1766,7 @@ ___
 
 ### serialize
 
-▸ `Static` **serialize**(`position`): [`Vector3`](Vector3.md)
+▸ **serialize**(`position`): [`Vector3`](Vector3.md)
 
 #### Parameters
 

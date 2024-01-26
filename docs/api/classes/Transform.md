@@ -87,7 +87,11 @@ Each object (Object 3D) has a Transform component
 
 ### constructor
 
-• **new Transform**()
+• **new Transform**(): [`Transform`](Transform.md)
+
+#### Returns
+
+[`Transform`](Transform.md)
 
 #### Overrides
 
@@ -1169,7 +1173,7 @@ ___
 
 ### onEnable
 
-▸ `Optional` **onEnable**(`view?`): `any`
+▸ **onEnable**(`view?`): `any`
 
 #### Parameters
 
@@ -1193,7 +1197,7 @@ ___
 
 ### onDisable
 
-▸ `Optional` **onDisable**(`view?`): `any`
+▸ **onDisable**(`view?`): `any`
 
 #### Parameters
 
@@ -1217,7 +1221,7 @@ ___
 
 ### onUpdate
 
-▸ `Optional` **onUpdate**(`view?`): `any`
+▸ **onUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -1241,7 +1245,7 @@ ___
 
 ### onLateUpdate
 
-▸ `Optional` **onLateUpdate**(`view?`): `any`
+▸ **onLateUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -1265,7 +1269,7 @@ ___
 
 ### onBeforeUpdate
 
-▸ `Optional` **onBeforeUpdate**(`view?`): `any`
+▸ **onBeforeUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -1289,7 +1293,7 @@ ___
 
 ### onCompute
 
-▸ `Optional` **onCompute**(`view?`, `command?`): `any`
+▸ **onCompute**(`view?`, `command?`): `any`
 
 #### Parameters
 
@@ -1314,7 +1318,7 @@ ___
 
 ### onGraphic
 
-▸ `Optional` **onGraphic**(`view?`): `any`
+▸ **onGraphic**(`view?`): `any`
 
 #### Parameters
 
@@ -1338,7 +1342,7 @@ ___
 
 ### onParentChange
 
-▸ `Optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
+▸ **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
 #### Parameters
 
@@ -1363,17 +1367,17 @@ ___
 
 ### copyComponent
 
-▸ **copyComponent**(`from`): [`Transform`](Transform.md)
+▸ **copyComponent**(`from`): `this`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `from` | [`Transform`](Transform.md) |
+| `from` | `this` |
 
 #### Returns
 
-[`Transform`](Transform.md)
+`this`
 
 #### Inherited from
 
@@ -1518,7 +1522,7 @@ ___
 
 ### decomposeFromMatrix
 
-▸ **decomposeFromMatrix**(`matrix`, `orientationStyle?`): [`Transform`](Transform.md)
+▸ **decomposeFromMatrix**(`matrix`, `orientationStyle?`): `this`
 
 #### Parameters
 
@@ -1529,7 +1533,7 @@ ___
 
 #### Returns
 
-[`Transform`](Transform.md)
+`this`
 
 #### Defined in
 

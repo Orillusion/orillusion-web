@@ -15,7 +15,11 @@ Sort a data with world coordinates based on the camera's camera by z
 
 ### constructor
 
-• **new ZSorterUtil**()
+• **new ZSorterUtil**(): [`ZSorterUtil`](ZSorterUtil.md)
+
+#### Returns
+
+[`ZSorterUtil`](ZSorterUtil.md)
 
 ## Methods
 

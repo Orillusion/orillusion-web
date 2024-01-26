@@ -25,7 +25,11 @@
 
 ### constructor
 
-• **new PrefabBoneData**()
+• **new PrefabBoneData**(): [`PrefabBoneData`](PrefabBoneData.md)
+
+#### Returns
+
+[`PrefabBoneData`](PrefabBoneData.md)
 
 ## Properties
 

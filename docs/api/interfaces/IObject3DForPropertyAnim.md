@@ -17,7 +17,7 @@
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:534](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L534)
+[src/core/entities/Object3D.ts:528](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L528)
 
 ___
 
@@ -27,7 +27,7 @@ ___
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:536](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L536)
+[src/core/entities/Object3D.ts:530](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L530)
 
 ## Methods
 
@@ -48,4 +48,4 @@ ___
 
 #### Defined in
 
-[src/core/entities/Object3D.ts:535](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L535)
+[src/core/entities/Object3D.ts:529](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L529)

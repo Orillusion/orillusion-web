@@ -43,7 +43,7 @@ Skeleton animation event
 
 ### constructor
 
-• **new OAnimationEvent**(`name`, `time`)
+• **new OAnimationEvent**(`name`, `time`): [`OAnimationEvent`](OAnimationEvent.md)
 
 #### Parameters
 
@@ -51,6 +51,10 @@ Skeleton animation event
 | :------ | :------ |
 | `name` | `string` |
 | `time` | `number` |
+
+#### Returns
+
+[`OAnimationEvent`](OAnimationEvent.md)
 
 #### Overrides
 

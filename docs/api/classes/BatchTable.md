@@ -19,7 +19,7 @@
 
 ### constructor
 
-• **new BatchTable**(`buffer`, `batchSize`, `start`, `headerLength`, `binLength`)
+• **new BatchTable**(`buffer`, `batchSize`, `start`, `headerLength`, `binLength`): [`BatchTable`](BatchTable.md)
 
 #### Parameters
 
@@ -30,6 +30,10 @@
 | `start` | `any` |
 | `headerLength` | `any` |
 | `binLength` | `any` |
+
+#### Returns
+
+[`BatchTable`](BatchTable.md)
 
 #### Overrides
 

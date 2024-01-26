@@ -21,7 +21,11 @@
 
 ### constructor
 
-• **new BlendShapeData**()
+• **new BlendShapeData**(): [`BlendShapeData`](BlendShapeData.md)
+
+#### Returns
+
+[`BlendShapeData`](BlendShapeData.md)
 
 ## Properties
 
@@ -77,7 +81,7 @@ ___
 
 ### blendShapeMap
 
-• **blendShapeMap**: `Map`<`string`, [`BlendShapePropertyData`](BlendShapePropertyData.md)\>
+• **blendShapeMap**: `Map`\<`string`, [`BlendShapePropertyData`](BlendShapePropertyData.md)\>
 
 #### Defined in
 

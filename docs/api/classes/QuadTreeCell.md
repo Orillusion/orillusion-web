@@ -21,13 +21,17 @@
 
 ### constructor
 
-• **new QuadTreeCell**(`aabox`)
+• **new QuadTreeCell**(`aabox`): [`QuadTreeCell`](QuadTreeCell.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `aabox` | [`QuadAABB`](QuadAABB.md) |
+
+#### Returns
+
+[`QuadTreeCell`](QuadTreeCell.md)
 
 #### Defined in
 
@@ -89,14 +93,14 @@ ___
 
 ▸ **isLeaf**(): `boolean`
 
+#### Returns
+
+`boolean`
+
 **`Language`**
 
 zh_CN
 Indicates if we contain triangles (if not then we should/might have children)
-
-#### Returns
-
-`boolean`
 
 #### Defined in
 

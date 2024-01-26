@@ -53,7 +53,11 @@ The component can receive update events at each frame.
 
 ### constructor
 
-• **new APatch**()
+• **new APatch**(): [`APatch`](APatch.md)
+
+#### Returns
+
+[`APatch`](APatch.md)
 
 #### Inherited from
 
@@ -331,7 +335,7 @@ ___
 
 ### onEnable
 
-▸ `Optional` **onEnable**(`view?`): `any`
+▸ **onEnable**(`view?`): `any`
 
 #### Parameters
 
@@ -355,7 +359,7 @@ ___
 
 ### onDisable
 
-▸ `Optional` **onDisable**(`view?`): `any`
+▸ **onDisable**(`view?`): `any`
 
 #### Parameters
 
@@ -379,7 +383,7 @@ ___
 
 ### onUpdate
 
-▸ `Optional` **onUpdate**(`view?`): `any`
+▸ **onUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -403,7 +407,7 @@ ___
 
 ### onLateUpdate
 
-▸ `Optional` **onLateUpdate**(`view?`): `any`
+▸ **onLateUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -427,7 +431,7 @@ ___
 
 ### onBeforeUpdate
 
-▸ `Optional` **onBeforeUpdate**(`view?`): `any`
+▸ **onBeforeUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -451,7 +455,7 @@ ___
 
 ### onCompute
 
-▸ `Optional` **onCompute**(`view?`, `command?`): `any`
+▸ **onCompute**(`view?`, `command?`): `any`
 
 #### Parameters
 
@@ -476,7 +480,7 @@ ___
 
 ### onParentChange
 
-▸ `Optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
+▸ **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
 #### Parameters
 
@@ -527,17 +531,17 @@ ___
 
 ### copyComponent
 
-▸ **copyComponent**(`from`): [`APatch`](APatch.md)
+▸ **copyComponent**(`from`): `this`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `from` | [`APatch`](APatch.md) |
+| `from` | `this` |
 
 #### Returns
 
-[`APatch`](APatch.md)
+`this`
 
 #### Inherited from
 

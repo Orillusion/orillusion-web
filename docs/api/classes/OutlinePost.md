@@ -42,7 +42,11 @@ OutlinePostManager,
 
 ### constructor
 
-• **new OutlinePost**()
+• **new OutlinePost**(): [`OutlinePost`](OutlinePost.md)
+
+#### Returns
+
+[`OutlinePost`](OutlinePost.md)
 
 #### Overrides
 

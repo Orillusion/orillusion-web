@@ -13,7 +13,11 @@
 
 ### constructor
 
-• **new MorePassShader**()
+• **new MorePassShader**(): [`MorePassShader`](MorePassShader.md)
+
+#### Returns
+
+[`MorePassShader`](MorePassShader.md)
 
 ## Properties
 
@@ -29,7 +33,7 @@ ___
 
 ### passMap
 
-• **passMap**: `Map`<`string`, [`PassShader`](PassShader.md)[]\>
+• **passMap**: `Map`\<`string`, [`PassShader`](PassShader.md)[]\>
 
 #### Defined in
 

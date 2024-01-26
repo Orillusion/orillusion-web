@@ -16,7 +16,11 @@ manager of outline effect
 
 ### constructor
 
-• **new OutlinePostManager**()
+• **new OutlinePostManager**(): [`OutlinePostManager`](OutlinePostManager.md)
+
+#### Returns
+
+[`OutlinePostManager`](OutlinePostManager.md)
 
 ## Methods
 
@@ -70,13 +74,13 @@ ___
 
 ### clearOutline
 
-▸ **clearOutline**(): [`OutlinePostManager`](OutlinePostManager.md)
+▸ **clearOutline**(): `this`
 
 clear outline effect
 
 #### Returns
 
-[`OutlinePostManager`](OutlinePostManager.md)
+`this`
 
 #### Defined in
 

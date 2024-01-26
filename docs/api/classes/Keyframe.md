@@ -25,7 +25,7 @@
 
 ### constructor
 
-• **new Keyframe**(`time?`, `value?`)
+• **new Keyframe**(`time?`, `value?`): [`Keyframe`](Keyframe.md)
 
 #### Parameters
 
@@ -33,6 +33,10 @@
 | :------ | :------ | :------ |
 | `time` | `number` | `0` |
 | `value` | `number` | `0` |
+
+#### Returns
+
+[`Keyframe`](Keyframe.md)
 
 #### Defined in
 

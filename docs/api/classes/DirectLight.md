@@ -70,7 +70,11 @@ The light of this light source is parallel, for example, sunlight. This light so
 
 ### constructor
 
-• **new DirectLight**()
+• **new DirectLight**(): [`DirectLight`](DirectLight.md)
+
+#### Returns
+
+[`DirectLight`](DirectLight.md)
 
 #### Overrides
 
@@ -189,6 +193,8 @@ ___
 ### bindOnChange
 
 • **bindOnChange**: () => `void`
+
+Callback function when binding changes
 
 #### Type declaration
 
@@ -872,7 +878,7 @@ ___
 
 ### onUpdate
 
-▸ `Optional` **onUpdate**(`view?`): `any`
+▸ **onUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -896,7 +902,7 @@ ___
 
 ### onLateUpdate
 
-▸ `Optional` **onLateUpdate**(`view?`): `any`
+▸ **onLateUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -920,7 +926,7 @@ ___
 
 ### onBeforeUpdate
 
-▸ `Optional` **onBeforeUpdate**(`view?`): `any`
+▸ **onBeforeUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -944,7 +950,7 @@ ___
 
 ### onCompute
 
-▸ `Optional` **onCompute**(`view?`, `command?`): `any`
+▸ **onCompute**(`view?`, `command?`): `any`
 
 #### Parameters
 
@@ -969,7 +975,7 @@ ___
 
 ### onGraphic
 
-▸ `Optional` **onGraphic**(`view?`): `any`
+▸ **onGraphic**(`view?`): `any`
 
 #### Parameters
 
@@ -993,7 +999,7 @@ ___
 
 ### onParentChange
 
-▸ `Optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
+▸ **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
 #### Parameters
 
@@ -1044,17 +1050,17 @@ ___
 
 ### copyComponent
 
-▸ **copyComponent**(`from`): [`DirectLight`](DirectLight.md)
+▸ **copyComponent**(`from`): `this`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `from` | [`DirectLight`](DirectLight.md) |
+| `from` | `this` |
 
 #### Returns
 
-[`DirectLight`](DirectLight.md)
+`this`
 
 #### Inherited from
 

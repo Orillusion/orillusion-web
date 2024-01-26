@@ -12,13 +12,17 @@
 
 ### constructor
 
-• **new GLTFSubParserSkin**(`subParser`)
+• **new GLTFSubParserSkin**(`subParser`): [`GLTFSubParserSkin`](GLTFSubParserSkin.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `subParser` | `GLTFSubParser` |
+
+#### Returns
+
+[`GLTFSubParserSkin`](GLTFSubParserSkin.md)
 
 #### Defined in
 

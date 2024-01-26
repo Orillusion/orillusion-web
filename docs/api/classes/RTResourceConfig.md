@@ -18,7 +18,11 @@
 
 ### constructor
 
-• **new RTResourceConfig**()
+• **new RTResourceConfig**(): [`RTResourceConfig`](RTResourceConfig.md)
+
+#### Returns
+
+[`RTResourceConfig`](RTResourceConfig.md)
 
 ## Properties
 

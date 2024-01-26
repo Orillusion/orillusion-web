@@ -15,7 +15,11 @@
 
 ### constructor
 
-• **new TileSetRoot**()
+• **new TileSetRoot**(): [`TileSetRoot`](TileSetRoot.md)
+
+#### Returns
+
+[`TileSetRoot`](TileSetRoot.md)
 
 ## Properties
 

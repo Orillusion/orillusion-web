@@ -17,13 +17,17 @@ Temperature Color Converter
 
 ### constructor
 
-• **new KelvinUtil**()
+• **new KelvinUtil**(): [`KelvinUtil`](KelvinUtil.md)
+
+#### Returns
+
+[`KelvinUtil`](KelvinUtil.md)
 
 ## Methods
 
 ### color\_temperature\_to\_rgb
 
-▸ `Static` **color_temperature_to_rgb**(`color_temperature_Kelvin`): [`Color`](Color.md)
+▸ **color_temperature_to_rgb**(`color_temperature_Kelvin`): [`Color`](Color.md)
 
 Convert color temperature to color object
 
@@ -45,7 +49,7 @@ ___
 
 ### get\_red
 
-▸ `Static` **get_red**(`temperature`): `number`
+▸ **get_red**(`temperature`): `number`
 
 Return red component [0-255]
 
@@ -67,7 +71,7 @@ ___
 
 ### get\_green
 
-▸ `Static` **get_green**(`temperature`): `number`
+▸ **get_green**(`temperature`): `number`
 
 Return green component [0-255]
 
@@ -89,7 +93,7 @@ ___
 
 ### get\_blue
 
-▸ `Static` **get_blue**(`temperature`): `number`
+▸ **get_blue**(`temperature`): `number`
 
 Return blue component [0-255]
 

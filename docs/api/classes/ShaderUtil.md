@@ -17,13 +17,17 @@
 
 ### constructor
 
-• **new ShaderUtil**()
+• **new ShaderUtil**(): [`ShaderUtil`](ShaderUtil.md)
+
+#### Returns
+
+[`ShaderUtil`](ShaderUtil.md)
 
 ## Properties
 
 ### renderShaderModulePool
 
-▪ `Static` **renderShaderModulePool**: `Map`<`string`, `GPUShaderModule`\>
+▪ `Static` **renderShaderModulePool**: `Map`\<`string`, `GPUShaderModule`\>
 
 #### Defined in
 
@@ -33,7 +37,7 @@ ___
 
 ### renderShader
 
-▪ `Static` **renderShader**: `Map`<`string`, [`RenderShaderPass`](RenderShaderPass.md)\>
+▪ `Static` **renderShader**: `Map`\<`string`, [`RenderShaderPass`](RenderShaderPass.md)\>
 
 #### Defined in
 
@@ -43,7 +47,7 @@ ___
 
 ### init
 
-▸ `Static` **init**(): `void`
+▸ **init**(): `void`
 
 #### Returns
 

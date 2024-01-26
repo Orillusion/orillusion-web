@@ -53,7 +53,11 @@
 
 ### constructor
 
-• **new ExtrudeGeometry**()
+• **new ExtrudeGeometry**(): [`ExtrudeGeometry`](ExtrudeGeometry.md)
+
+#### Returns
+
+[`ExtrudeGeometry`](ExtrudeGeometry.md)
 
 #### Inherited from
 
@@ -281,11 +285,11 @@ ___
 
 ### vertexAttributeMap
 
-• `get` **vertexAttributeMap**(): `Map`<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
+• `get` **vertexAttributeMap**(): `Map`\<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
 
 #### Returns
 
-`Map`<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
+`Map`\<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
 
 #### Inherited from
 
@@ -375,7 +379,7 @@ GeometryBase.bounds
 
 ### build
 
-▸ **build**(`shape`, `isShapeClosed`, `path`, `vScale?`, `uNegate?`): [`ExtrudeGeometry`](ExtrudeGeometry.md)
+▸ **build**(`shape`, `isShapeClosed`, `path`, `vScale?`, `uNegate?`): `this`
 
 for the points of start and end:
 Please ensure that you do not actively clone the starting point to the end of the shape array;
@@ -395,7 +399,7 @@ closed: false.
 
 #### Returns
 
-[`ExtrudeGeometry`](ExtrudeGeometry.md)
+`this`
 
 #### Defined in
 
@@ -409,10 +413,6 @@ ___
 
 add subGeometry from lod level
 
-**`See`**
-
-LODDescriptor
-
 #### Parameters
 
 | Name | Type |
@@ -422,6 +422,10 @@ LODDescriptor
 #### Returns
 
 [`SubGeometry`](SubGeometry.md)
+
+**`See`**
+
+LODDescriptor
 
 #### Inherited from
 
@@ -594,11 +598,11 @@ ___
 
 ### computeNormals
 
-▸ **computeNormals**(): [`ExtrudeGeometry`](ExtrudeGeometry.md)
+▸ **computeNormals**(): `this`
 
 #### Returns
 
-[`ExtrudeGeometry`](ExtrudeGeometry.md)
+`this`
 
 #### Inherited from
 

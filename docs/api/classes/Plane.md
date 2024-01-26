@@ -21,7 +21,7 @@ Plane mathematics class
 
 ### constructor
 
-• **new Plane**(`pos`, `normal`)
+• **new Plane**(`pos`, `normal`): [`Plane`](Plane.md)
 
 Constructs a new plane object
 
@@ -31,6 +31,10 @@ Constructs a new plane object
 | :------ | :------ | :------ |
 | `pos` | [`Vector3`](Vector3.md) | Plane position |
 | `normal` | [`Vector3`](Vector3.md) | Plane normal quantity |
+
+#### Returns
+
+[`Plane`](Plane.md)
 
 #### Defined in
 

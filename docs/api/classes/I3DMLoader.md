@@ -29,7 +29,11 @@
 
 ### constructor
 
-• **new I3DMLoader**()
+• **new I3DMLoader**(): [`I3DMLoader`](I3DMLoader.md)
+
+#### Returns
+
+[`I3DMLoader`](I3DMLoader.md)
 
 #### Overrides
 
@@ -123,7 +127,7 @@ ___
 
 ### parse
 
-▸ **parse**(`buffer`): `Promise`<`any`\>
+▸ **parse**(`buffer`): `Promise`\<`any`\>
 
 #### Parameters
 
@@ -133,7 +137,7 @@ ___
 
 #### Returns
 
-`Promise`<`any`\>
+`Promise`\<`any`\>
 
 #### Overrides
 

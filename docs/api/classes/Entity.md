@@ -55,7 +55,11 @@ Entity class is an abstract class and cannot be instantiated. If you want to ins
 
 ### constructor
 
-• **new Entity**()
+• **new Entity**(): [`Entity`](Entity.md)
+
+#### Returns
+
+[`Entity`](Entity.md)
 
 #### Overrides
 
@@ -117,7 +121,7 @@ ___
 
 ### components
 
-• **components**: `Map`<`any`, [`IComponent`](../interfaces/IComponent.md)\>
+• **components**: `Map`\<`any`, [`IComponent`](../interfaces/IComponent.md)\>
 
 List of components attached to an object
 
@@ -277,13 +281,13 @@ ___
 
 ### removeSelf
 
-▸ **removeSelf**(): [`Entity`](Entity.md)
+▸ **removeSelf**(): `this`
 
 Remove the current node from the parent
 
 #### Returns
 
-[`Entity`](Entity.md)
+`this`
 
 this
 
@@ -341,13 +345,13 @@ ___
 
 ### removeFromParent
 
-▸ **removeFromParent**(): [`Entity`](Entity.md)
+▸ **removeFromParent**(): `this`
 
 Remove the current node from the parent
 
 #### Returns
 
-[`Entity`](Entity.md)
+`this`
 
 this
 

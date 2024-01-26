@@ -51,13 +51,17 @@ Plane geometry
 
 ### constructor
 
-• **new TriGeometry**(`count`)
+• **new TriGeometry**(`count`): [`TriGeometry`](TriGeometry.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `count` | `number` |
+
+#### Returns
+
+[`TriGeometry`](TriGeometry.md)
 
 #### Overrides
 
@@ -255,11 +259,11 @@ ___
 
 ### vertexAttributeMap
 
-• `get` **vertexAttributeMap**(): `Map`<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
+• `get` **vertexAttributeMap**(): `Map`\<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
 
 #### Returns
 
-`Map`<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
+`Map`\<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
 
 #### Inherited from
 
@@ -353,10 +357,6 @@ GeometryBase.bounds
 
 add subGeometry from lod level
 
-**`See`**
-
-LODDescriptor
-
 #### Parameters
 
 | Name | Type |
@@ -366,6 +366,10 @@ LODDescriptor
 #### Returns
 
 [`SubGeometry`](SubGeometry.md)
+
+**`See`**
+
+LODDescriptor
 
 #### Inherited from
 
@@ -538,11 +542,11 @@ ___
 
 ### computeNormals
 
-▸ **computeNormals**(): [`TriGeometry`](TriGeometry.md)
+▸ **computeNormals**(): `this`
 
 #### Returns
 
-[`TriGeometry`](TriGeometry.md)
+`this`
 
 #### Inherited from
 

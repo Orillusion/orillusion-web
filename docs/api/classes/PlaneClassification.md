@@ -16,7 +16,11 @@
 
 ### constructor
 
-• **new PlaneClassification**()
+• **new PlaneClassification**(): [`PlaneClassification`](PlaneClassification.md)
+
+#### Returns
+
+[`PlaneClassification`](PlaneClassification.md)
 
 ## Properties
 

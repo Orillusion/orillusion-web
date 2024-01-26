@@ -36,7 +36,7 @@ Ray
 
 ### constructor
 
-• **new Ray**(`origin?`, `dir?`)
+• **new Ray**(`origin?`, `dir?`): [`Ray`](Ray.md)
 
 Build a new ray object
 
@@ -46,6 +46,10 @@ Build a new ray object
 | :------ | :------ | :------ |
 | `origin?` | [`Vector3`](Vector3.md) | Ray starting point |
 | `dir?` | [`Vector3`](Vector3.md) | Ray direction |
+
+#### Returns
+
+[`Ray`](Ray.md)
 
 #### Defined in
 
@@ -177,7 +181,7 @@ ___
 
 ### copy
 
-▸ **copy**(`src`): [`Ray`](Ray.md)
+▸ **copy**(`src`): `this`
 
 Sets the ray to be a copy of the original ray
 
@@ -189,7 +193,7 @@ Sets the ray to be a copy of the original ray
 
 #### Returns
 
-[`Ray`](Ray.md)
+`this`
 
 New ray object
 

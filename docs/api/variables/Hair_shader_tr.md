@@ -4,4 +4,4 @@
 
 #### Defined in
 
-[src/assets/shader/materials/Hair_shader.ts:126](https://github.com/Orillusion/orillusion/blob/main/src/assets/shader/materials/Hair_shader.ts#L126)
+[src/assets/shader/materials/Hair_shader.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/assets/shader/materials/Hair_shader.ts#L124)

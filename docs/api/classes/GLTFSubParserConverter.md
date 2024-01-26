@@ -12,13 +12,17 @@
 
 ### constructor
 
-• **new GLTFSubParserConverter**(`subParser`)
+• **new GLTFSubParserConverter**(`subParser`): [`GLTFSubParserConverter`](GLTFSubParserConverter.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `subParser` | `GLTFSubParser` |
+
+#### Returns
+
+[`GLTFSubParserConverter`](GLTFSubParserConverter.md)
 
 #### Defined in
 
@@ -28,7 +32,7 @@
 
 ### convertNodeToObject3D
 
-▸ **convertNodeToObject3D**(`nodeInfo`, `parentNode`): `Promise`<[`Object3D`](Object3D.md)\>
+▸ **convertNodeToObject3D**(`nodeInfo`, `parentNode`): `Promise`\<[`Object3D`](Object3D.md)\>
 
 #### Parameters
 
@@ -39,7 +43,7 @@
 
 #### Returns
 
-`Promise`<[`Object3D`](Object3D.md)\>
+`Promise`\<[`Object3D`](Object3D.md)\>
 
 #### Defined in
 

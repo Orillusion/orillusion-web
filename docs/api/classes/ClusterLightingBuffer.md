@@ -19,7 +19,7 @@
 
 ### constructor
 
-• **new ClusterLightingBuffer**(`numClusters`, `maxNumLightsPerCluster`)
+• **new ClusterLightingBuffer**(`numClusters`, `maxNumLightsPerCluster`): [`ClusterLightingBuffer`](ClusterLightingBuffer.md)
 
 #### Parameters
 
@@ -27,6 +27,10 @@
 | :------ | :------ |
 | `numClusters` | `number` |
 | `maxNumLightsPerCluster` | `number` |
+
+#### Returns
+
+[`ClusterLightingBuffer`](ClusterLightingBuffer.md)
 
 #### Defined in
 

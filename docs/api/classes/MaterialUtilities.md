@@ -14,13 +14,17 @@
 
 ### constructor
 
-• **new MaterialUtilities**()
+• **new MaterialUtilities**(): [`MaterialUtilities`](MaterialUtilities.md)
+
+#### Returns
+
+[`MaterialUtilities`](MaterialUtilities.md)
 
 ## Methods
 
 ### GetMaterial
 
-▸ `Static` **GetMaterial**(`shaderName`): [`Material`](Material.md)
+▸ **GetMaterial**(`shaderName`): [`Material`](Material.md)
 
 #### Parameters
 
@@ -40,7 +44,7 @@ ___
 
 ### applyMaterialTexture
 
-▸ `Static` **applyMaterialTexture**(`mat`, `textures`): `void`
+▸ **applyMaterialTexture**(`mat`, `textures`): `void`
 
 #### Parameters
 
@@ -61,7 +65,7 @@ ___
 
 ### applyMaterialProperties
 
-▸ `Static` **applyMaterialProperties**(`mat`, `properties`): `void`
+▸ **applyMaterialProperties**(`mat`, `properties`): `void`
 
 #### Parameters
 

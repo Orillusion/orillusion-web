@@ -21,13 +21,17 @@
 
 ### constructor
 
-• **new Object3DUtil**()
+• **new Object3DUtil**(): [`Object3DUtil`](Object3DUtil.md)
+
+#### Returns
+
+[`Object3DUtil`](Object3DUtil.md)
 
 ## Accessors
 
 ### CubeMesh
 
-• `Static` `get` **CubeMesh**(): [`BoxGeometry`](BoxGeometry.md)
+• `get` **CubeMesh**(): [`BoxGeometry`](BoxGeometry.md)
 
 #### Returns
 
@@ -41,7 +45,7 @@ ___
 
 ### SphereMesh
 
-• `Static` `get` **SphereMesh**(): [`SphereGeometry`](SphereGeometry.md)
+• `get` **SphereMesh**(): [`SphereGeometry`](SphereGeometry.md)
 
 #### Returns
 
@@ -55,7 +59,7 @@ ___
 
 ### Sphere
 
-• `Static` `get` **Sphere**(): [`Object3D`](Object3D.md)
+• `get` **Sphere**(): [`Object3D`](Object3D.md)
 
 #### Returns
 
@@ -69,7 +73,7 @@ ___
 
 ### GetCube
 
-▸ `Static` **GetCube**(): [`Object3D`](Object3D.md)
+▸ **GetCube**(): [`Object3D`](Object3D.md)
 
 #### Returns
 
@@ -83,7 +87,7 @@ ___
 
 ### GetSingleCube
 
-▸ `Static` **GetSingleCube**(`sizeX`, `sizeY`, `sizeZ`, `r`, `g`, `b`): [`Object3D`](Object3D.md)
+▸ **GetSingleCube**(`sizeX`, `sizeY`, `sizeZ`, `r`, `g`, `b`): [`Object3D`](Object3D.md)
 
 #### Parameters
 
@@ -108,7 +112,7 @@ ___
 
 ### GetSingleSphere
 
-▸ `Static` **GetSingleSphere**(`radius`, `r`, `g`, `b`): [`Object3D`](Object3D.md)
+▸ **GetSingleSphere**(`radius`, `r`, `g`, `b`): [`Object3D`](Object3D.md)
 
 #### Parameters
 
@@ -131,7 +135,7 @@ ___
 
 ### GetSingleCube2
 
-▸ `Static` **GetSingleCube2**(`mat`, `size?`): [`Object3D`](Object3D.md)
+▸ **GetSingleCube2**(`mat`, `size?`): [`Object3D`](Object3D.md)
 
 #### Parameters
 

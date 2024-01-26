@@ -21,7 +21,11 @@
 
 ### constructor
 
-• **new OutlinePostData**()
+• **new OutlinePostData**(): [`OutlinePostData`](OutlinePostData.md)
+
+#### Returns
+
+[`OutlinePostData`](OutlinePostData.md)
 
 #### Defined in
 
@@ -75,7 +79,7 @@ ___
 
 ### clearAt
 
-▸ **clearAt**(`slotIndex`): [`OutlinePostData`](OutlinePostData.md)
+▸ **clearAt**(`slotIndex`): `this`
 
 #### Parameters
 
@@ -85,7 +89,7 @@ ___
 
 #### Returns
 
-[`OutlinePostData`](OutlinePostData.md)
+`this`
 
 #### Defined in
 
@@ -95,7 +99,7 @@ ___
 
 ### fillDataAt
 
-▸ **fillDataAt**(`slot`, `indexList`, `color`): [`OutlinePostData`](OutlinePostData.md)
+▸ **fillDataAt**(`slot`, `indexList`, `color`): `this`
 
 #### Parameters
 
@@ -107,7 +111,7 @@ ___
 
 #### Returns
 
-[`OutlinePostData`](OutlinePostData.md)
+`this`
 
 #### Defined in
 
@@ -117,7 +121,7 @@ ___
 
 ### fetchData
 
-▸ **fetchData**(`target`): [`OutlinePostData`](OutlinePostData.md)
+▸ **fetchData**(`target`): `this`
 
 #### Parameters
 
@@ -129,7 +133,7 @@ ___
 
 #### Returns
 
-[`OutlinePostData`](OutlinePostData.md)
+`this`
 
 #### Defined in
 

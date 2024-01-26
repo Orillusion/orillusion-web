@@ -59,7 +59,7 @@ Cylinder geometry
 
 ### constructor
 
-• **new CylinderGeometry**(`radiusTop?`, `radiusBottom?`, `height?`, `radialSegments?`, `heightSegments?`, `openEnded?`, `thetaStart?`, `thetaLength?`)
+• **new CylinderGeometry**(`radiusTop?`, `radiusBottom?`, `height?`, `radialSegments?`, `heightSegments?`, `openEnded?`, `thetaStart?`, `thetaLength?`): [`CylinderGeometry`](CylinderGeometry.md)
 
 #### Parameters
 
@@ -73,6 +73,10 @@ Cylinder geometry
 | `openEnded` | `boolean` | `false` |
 | `thetaStart` | `number` | `0` |
 | `thetaLength` | `number` | `undefined` |
+
+#### Returns
+
+[`CylinderGeometry`](CylinderGeometry.md)
 
 #### Overrides
 
@@ -366,11 +370,11 @@ ___
 
 ### vertexAttributeMap
 
-• `get` **vertexAttributeMap**(): `Map`<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
+• `get` **vertexAttributeMap**(): `Map`\<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
 
 #### Returns
 
-`Map`<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
+`Map`\<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
 
 #### Inherited from
 
@@ -464,10 +468,6 @@ GeometryBase.bounds
 
 add subGeometry from lod level
 
-**`See`**
-
-LODDescriptor
-
 #### Parameters
 
 | Name | Type |
@@ -477,6 +477,10 @@ LODDescriptor
 #### Returns
 
 [`SubGeometry`](SubGeometry.md)
+
+**`See`**
+
+LODDescriptor
 
 #### Inherited from
 
@@ -649,11 +653,11 @@ ___
 
 ### computeNormals
 
-▸ **computeNormals**(): [`CylinderGeometry`](CylinderGeometry.md)
+▸ **computeNormals**(): `this`
 
 #### Returns
 
-[`CylinderGeometry`](CylinderGeometry.md)
+`this`
 
 #### Inherited from
 

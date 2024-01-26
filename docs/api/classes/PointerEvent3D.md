@@ -74,7 +74,7 @@ enum event type of pointer.
 
 ### constructor
 
-• **new PointerEvent3D**(`eventType?`, `data?`)
+• **new PointerEvent3D**(`eventType?`, `data?`): [`PointerEvent3D`](PointerEvent3D.md)
 
 Create a new event, with type and data
 
@@ -84,6 +84,10 @@ Create a new event, with type and data
 | :------ | :------ | :------ | :------ |
 | `eventType` | `string` | `null` | {any} eventType |
 | `data` | `any` | `null` | {any} param |
+
+#### Returns
+
+[`PointerEvent3D`](PointerEvent3D.md)
 
 #### Inherited from
 

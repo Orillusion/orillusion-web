@@ -20,7 +20,11 @@
 
 ### constructor
 
-• **new BlendShapePropertyData**()
+• **new BlendShapePropertyData**(): [`BlendShapePropertyData`](BlendShapePropertyData.md)
+
+#### Returns
+
+[`BlendShapePropertyData`](BlendShapePropertyData.md)
 
 ## Properties
 

@@ -16,8 +16,11 @@
 - [GeometryVertexType](enums/GeometryVertexType.md)
 - [GPUBufferType](enums/GPUBufferType.md)
 - [UniformType](enums/UniformType.md)
+- [LineJoin](enums/LineJoin.md)
+- [LineCap](enums/LineCap.md)
 - [FaceMode](enums/FaceMode.md)
 - [ParserFormat](enums/ParserFormat.md)
+- [GeoType](enums/GeoType.md)
 - [ValueEnumType](enums/ValueEnumType.md)
 - [WrapTimeMode](enums/WrapTimeMode.md)
 
@@ -25,10 +28,7 @@
 
 - [SkeletonAnimation\_shader](classes/SkeletonAnimation_shader.md)
 - [CubeSky\_Shader](classes/CubeSky_Shader.md)
-- [BillboardComponent](classes/BillboardComponent.md)
-- [AnimatorComponent](classes/AnimatorComponent.md)
 - [PropertyAnimTag](classes/PropertyAnimTag.md)
-- [MorphTargetBlender](classes/MorphTargetBlender.md)
 - [MorphTargetData](classes/MorphTargetData.md)
 - [MorphTargetFrame](classes/MorphTargetFrame.md)
 - [MorphTarget\_shader](classes/MorphTarget_shader.md)
@@ -37,13 +37,10 @@
 - [TextFieldLine](classes/TextFieldLine.md)
 - [TextFieldLayout](classes/TextFieldLayout.md)
 - [IESProfiles](classes/IESProfiles.md)
-- [PostProcessingComponent](classes/PostProcessingComponent.md)
 - [InstanceDrawComponent](classes/InstanceDrawComponent.md)
 - [View3D](classes/View3D.md)
 - [CSM](classes/CSM.md)
 - [FrustumCSM](classes/FrustumCSM.md)
-- [InstancedMesh](classes/InstancedMesh.md)
-- [ExtrudeGeometry](classes/ExtrudeGeometry.md)
 - [GeometryIndicesBuffer](classes/GeometryIndicesBuffer.md)
 - [GeometryVertexBuffer](classes/GeometryVertexBuffer.md)
 - [VertexBufferLayout](classes/VertexBufferLayout.md)
@@ -78,17 +75,13 @@
 - [RenderContext](classes/RenderContext.md)
 - [ClusterConfig](classes/ClusterConfig.md)
 - [ClusterLightingBuffer](classes/ClusterLightingBuffer.md)
-- [DDGIIrradianceGPUBufferReader](classes/DDGIIrradianceGPUBufferReader.md)
-- [Graphic3D](classes/Graphic3D.md)
-- [GraphicConfig](classes/GraphicConfig.md)
+- [DynamicDrawStruct](classes/DynamicDrawStruct.md)
 - [Float32ArrayUtil](classes/Float32ArrayUtil.md)
+- [DrawInfo](classes/DrawInfo.md)
 - [GeometryInfo](classes/GeometryInfo.md)
-- [ShapeInfo](classes/ShapeInfo.md)
-- [Graphic3DFaceRenderer](classes/Graphic3DFaceRenderer.md)
 - [Graphic3DMesh](classes/Graphic3DMesh.md)
-- [Graphic3DMeshRenderer](classes/Graphic3DMeshRenderer.md)
 - [RibbonStruct](classes/RibbonStruct.md)
-- [Graphic3DRibbonRenderer](classes/Graphic3DRibbonRenderer.md)
+- [ShapeInfo](classes/ShapeInfo.md)
 - [GodRayPost](classes/GodRayPost.md)
 - [OutlinePostSlot](classes/OutlinePostSlot.md)
 - [OutlinePostData](classes/OutlinePostData.md)
@@ -105,6 +98,8 @@
 - [B3DMLoaderBase](classes/B3DMLoaderBase.md)
 - [FeatureTable](classes/FeatureTable.md)
 - [BatchTable](classes/BatchTable.md)
+- [GeoJsonParser](classes/GeoJsonParser.md)
+- [GeoJsonUtil](classes/GeoJsonUtil.md)
 - [GLTFSubParserConverter](classes/GLTFSubParserConverter.md)
 - [GLTFSubParserSkeleton](classes/GLTFSubParserSkeleton.md)
 - [GLTFSubParserSkin](classes/GLTFSubParserSkin.md)
@@ -127,7 +122,6 @@
 - [StandShader](classes/StandShader.md)
 - [UnLitShader](classes/UnLitShader.md)
 - [UnLitTexArrayShader](classes/UnLitTexArrayShader.md)
-- [APatch](classes/APatch.md)
 - [BlendShapeData](classes/BlendShapeData.md)
 - [BlendShapeFrameData](classes/BlendShapeFrameData.md)
 - [BlendShapePropertyData](classes/BlendShapePropertyData.md)
@@ -162,11 +156,8 @@
 - [Navi3DMaskType](classes/Navi3DMaskType.md)
 - [Navi3DMergeVertex](classes/Navi3DMergeVertex.md)
 - [Navi3DMesh](classes/Navi3DMesh.md)
-- [Navi3DPoint](classes/Navi3DPoint.md)
 - [Navi3DPoint2D](classes/Navi3DPoint2D.md)
-- [Navi3DPointFat](classes/Navi3DPointFat.md)
 - [Navi3DRouter](classes/Navi3DRouter.md)
-- [Navi3DTriangle](classes/Navi3DTriangle.md)
 - [TextureCubeFaceData](classes/TextureCubeFaceData.md)
 - [BoundUtil](classes/BoundUtil.md)
 - [Object3DUtil](classes/Object3DUtil.md)
@@ -186,6 +177,10 @@
 - [IObject3DForPropertyAnim](interfaces/IObject3DForPropertyAnim.md)
 - [IQuadNode](interfaces/IQuadNode.md)
 - [ITexture](interfaces/ITexture.md)
+- [GeoJsonGeometryStruct](interfaces/GeoJsonGeometryStruct.md)
+- [GeoJsonPropertiesStruct](interfaces/GeoJsonPropertiesStruct.md)
+- [GeoJsonNodeStruct](interfaces/GeoJsonNodeStruct.md)
+- [GeoJsonStruct](interfaces/GeoJsonStruct.md)
 
 ## Type Aliases
 
@@ -270,8 +265,7 @@
 - [VertexAttributeIndexShader](variables/VertexAttributeIndexShader.md)
 - [VertexAttributes](variables/VertexAttributes.md)
 - [QuadGlsl\_vs](variables/QuadGlsl_vs.md)
-- [Graphic3DShader\_fs](variables/Graphic3DShader_fs.md)
-- [Graphic3DShader\_vs](variables/Graphic3DShader_vs.md)
+- [Graphic3DShader](variables/Graphic3DShader.md)
 - [BRDF\_frag](variables/BRDF_frag.md)
 - [BsDF\_frag](variables/BsDF_frag.md)
 - [BxDF\_frag](variables/BxDF_frag.md)
@@ -325,9 +319,11 @@
 
 ## Functions
 
+- [graphicDynamicCompute](functions/graphicDynamicCompute.md)
 - [graphicFaceCompute2](functions/graphicFaceCompute2.md)
 - [graphicFaceCompute](functions/graphicFaceCompute.md)
 - [GraphicFaceCompute3](functions/GraphicFaceCompute3.md)
+- [GraphicLineCompute](functions/GraphicLineCompute.md)
 - [graphicTrailCompute](functions/graphicTrailCompute.md)
 - [makeAloneSprite](functions/makeAloneSprite.md)
 - [makeGUISprite](functions/makeGUISprite.md)
@@ -377,9 +373,13 @@
 ## Components
 
 - [AtmosphericComponent](classes/AtmosphericComponent.md)
+- [BillboardComponent](classes/BillboardComponent.md)
 - [ColliderComponent](classes/ColliderComponent.md)
 - [ComponentBase](classes/ComponentBase.md)
 - [Transform](classes/Transform.md)
+- [AnimatorComponent](classes/AnimatorComponent.md)
+- [MorphTargetBlender](classes/MorphTargetBlender.md)
+- [PostProcessingComponent](classes/PostProcessingComponent.md)
 - [GlobalIlluminationComponent](classes/GlobalIlluminationComponent.md)
 - [MeshFilter](classes/MeshFilter.md)
 - [MeshRenderer](classes/MeshRenderer.md)
@@ -387,12 +387,19 @@
 - [SkinnedMeshRenderer2](classes/SkinnedMeshRenderer2.md)
 - [SkyRenderer](classes/SkyRenderer.md)
 - [Camera3D](classes/Camera3D.md)
+- [DynamicFaceRenderer](classes/DynamicFaceRenderer.md)
+- [Graphic3DFaceRenderer](classes/Graphic3DFaceRenderer.md)
+- [Graphic3DMeshRenderer](classes/Graphic3DMeshRenderer.md)
+- [Graphic3DRibbonRenderer](classes/Graphic3DRibbonRenderer.md)
+- [APatch](classes/APatch.md)
 
 ## Entity
 
 - [Scene3D](classes/Scene3D.md)
 - [Entity](classes/Entity.md)
+- [InstancedMesh](classes/InstancedMesh.md)
 - [Object3D](classes/Object3D.md)
+- [Graphic3D](classes/Graphic3D.md)
 
 ## Events
 
@@ -402,6 +409,7 @@
 - [MouseCode](enums/MouseCode.md)
 - [KeyEvent](classes/KeyEvent.md)
 - [PointerEvent3D](classes/PointerEvent3D.md)
+- [DDGIIrradianceGPUBufferReader](classes/DDGIIrradianceGPUBufferReader.md)
 
 ## GFX
 
@@ -442,6 +450,7 @@
 
 ## Geometry
 
+- [ExtrudeGeometry](classes/ExtrudeGeometry.md)
 - [SubGeometry](classes/SubGeometry.md)
 - [GeometryBase](classes/GeometryBase.md)
 - [BoxGeometry](classes/BoxGeometry.md)
@@ -499,6 +508,9 @@
 - [Vector3](classes/Vector3.md)
 - [Keyframe](classes/Keyframe.md)
 - [KeyframeT](classes/KeyframeT.md)
+- [Navi3DPoint](classes/Navi3DPoint.md)
+- [Navi3DPointFat](classes/Navi3DPointFat.md)
+- [Navi3DTriangle](classes/Navi3DTriangle.md)
 
 ## Plugin
 

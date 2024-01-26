@@ -47,7 +47,7 @@ Quaternions are used to represent rotations.
 
 ### constructor
 
-• **new Quaternion**(`x?`, `y?`, `z?`, `w?`)
+• **new Quaternion**(`x?`, `y?`, `z?`, `w?`): [`Quaternion`](Quaternion.md)
 
 Create a new quaternion object
 
@@ -59,6 +59,10 @@ Create a new quaternion object
 | `y` | `number` | `0` | The Y component of a quaternion. |
 | `z` | `number` | `0` | The Z component of a quaternion. |
 | `w` | `number` | `1` | The W component of a quaternion. |
+
+#### Returns
+
+[`Quaternion`](Quaternion.md)
 
 #### Defined in
 
@@ -132,7 +136,7 @@ ___
 
 ### identity
 
-▸ `Static` **identity**(): [`Quaternion`](Quaternion.md)
+▸ **identity**(): [`Quaternion`](Quaternion.md)
 
 Identity quaternion
 
@@ -148,7 +152,7 @@ ___
 
 ### quaternionToMatrix
 
-▸ `Static` **quaternionToMatrix**(`q`, `m`): `void`
+▸ **quaternionToMatrix**(`q`, `m`): `void`
 
 Converts quaternions to matrices
 
@@ -549,7 +553,7 @@ ___
 
 ### copyFrom
 
-▸ **copyFrom**(`q`): [`Quaternion`](Quaternion.md)
+▸ **copyFrom**(`q`): `this`
 
 Copies the data from a quaternion into this instance.
 
@@ -561,7 +565,7 @@ Copies the data from a quaternion into this instance.
 
 #### Returns
 
-[`Quaternion`](Quaternion.md)
+`this`
 
 #### Defined in
 
@@ -596,7 +600,7 @@ ___
 
 ### serialize
 
-▸ `Static` **serialize**(`value`): [`Quaternion`](Quaternion.md)
+▸ **serialize**(`value`): [`Quaternion`](Quaternion.md)
 
 #### Parameters
 

@@ -19,7 +19,11 @@
 
 ### constructor
 
-• **new BlendShapeFrameData**()
+• **new BlendShapeFrameData**(): [`BlendShapeFrameData`](BlendShapeFrameData.md)
+
+#### Returns
+
+[`BlendShapeFrameData`](BlendShapeFrameData.md)
 
 ## Properties
 

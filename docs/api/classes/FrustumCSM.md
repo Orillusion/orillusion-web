@@ -18,13 +18,17 @@
 
 ### constructor
 
-• **new FrustumCSM**(`blockCount`)
+• **new FrustumCSM**(`blockCount`): [`FrustumCSM`](FrustumCSM.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `blockCount` | `number` |
+
+#### Returns
+
+[`FrustumCSM`](FrustumCSM.md)
 
 #### Defined in
 
@@ -64,7 +68,7 @@ ___
 
 ### update
 
-▸ **update**(`p`, `pvInv`, `near`, `far`, `shadowSetting`): [`FrustumCSM`](FrustumCSM.md)
+▸ **update**(`p`, `pvInv`, `near`, `far`, `shadowSetting`): `this`
 
 #### Parameters
 
@@ -78,7 +82,7 @@ ___
 
 #### Returns
 
-[`FrustumCSM`](FrustumCSM.md)
+`this`
 
 #### Defined in
 

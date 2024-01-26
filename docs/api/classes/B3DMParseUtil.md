@@ -12,13 +12,17 @@
 
 ### constructor
 
-• **new B3DMParseUtil**()
+• **new B3DMParseUtil**(): [`B3DMParseUtil`](B3DMParseUtil.md)
+
+#### Returns
+
+[`B3DMParseUtil`](B3DMParseUtil.md)
 
 ## Methods
 
 ### parseBinary
 
-▸ **parseBinary**(`bytes`): `Promise`<[`Object3D`](Object3D.md)\>
+▸ **parseBinary**(`bytes`): `Promise`\<[`Object3D`](Object3D.md)\>
 
 #### Parameters
 
@@ -28,7 +32,7 @@
 
 #### Returns
 
-`Promise`<[`Object3D`](Object3D.md)\>
+`Promise`\<[`Object3D`](Object3D.md)\>
 
 #### Defined in
 

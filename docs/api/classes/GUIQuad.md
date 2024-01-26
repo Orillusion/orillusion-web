@@ -42,7 +42,11 @@ The smallest unit in the GUI, basic information required for rendering a plane
 
 ### constructor
 
-• **new GUIQuad**()
+• **new GUIQuad**(): [`GUIQuad`](GUIQuad.md)
+
+#### Returns
+
+[`GUIQuad`](GUIQuad.md)
 
 ## Properties
 
@@ -118,11 +122,11 @@ ___
 
 ### quadPool
 
-• `Static` `get` **quadPool**(): [`PoolNode`](PoolNode.md)<[`GUIQuad`](GUIQuad.md)\>
+• `get` **quadPool**(): [`PoolNode`](PoolNode.md)\<[`GUIQuad`](GUIQuad.md)\>
 
 #### Returns
 
-[`PoolNode`](PoolNode.md)<[`GUIQuad`](GUIQuad.md)\>
+[`PoolNode`](PoolNode.md)\<[`GUIQuad`](GUIQuad.md)\>
 
 #### Defined in
 
@@ -308,7 +312,7 @@ ___
 
 ### recycleQuad
 
-▸ `Static` **recycleQuad**(`quad`): `void`
+▸ **recycleQuad**(`quad`): `void`
 
 #### Parameters
 
@@ -328,7 +332,7 @@ ___
 
 ### spawnQuad
 
-▸ `Static` **spawnQuad**(): [`GUIQuad`](GUIQuad.md)
+▸ **spawnQuad**(): [`GUIQuad`](GUIQuad.md)
 
 #### Returns
 
@@ -404,7 +408,7 @@ ___
 
 ### applyTransform
 
-▸ **applyTransform**(`transform`): [`GUIQuad`](GUIQuad.md)
+▸ **applyTransform**(`transform`): `this`
 
 #### Parameters
 
@@ -414,7 +418,7 @@ ___
 
 #### Returns
 
-[`GUIQuad`](GUIQuad.md)
+`this`
 
 #### Defined in
 
@@ -424,7 +428,7 @@ ___
 
 ### writeToGeometry
 
-▸ **writeToGeometry**(`guiGeometry`, `transform`): [`GUIQuad`](GUIQuad.md)
+▸ **writeToGeometry**(`guiGeometry`, `transform`): `this`
 
 #### Parameters
 
@@ -435,7 +439,7 @@ ___
 
 #### Returns
 
-[`GUIQuad`](GUIQuad.md)
+`this`
 
 #### Defined in
 

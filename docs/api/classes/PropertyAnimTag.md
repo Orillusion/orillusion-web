@@ -14,7 +14,11 @@
 
 ### constructor
 
-• **new PropertyAnimTag**()
+• **new PropertyAnimTag**(): [`PropertyAnimTag`](PropertyAnimTag.md)
+
+#### Returns
+
+[`PropertyAnimTag`](PropertyAnimTag.md)
 
 ## Properties
 

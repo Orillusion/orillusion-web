@@ -21,13 +21,17 @@
 
 ### constructor
 
-• **new KeyframeT**(`time?`)
+• **new KeyframeT**(`time?`): [`KeyframeT`](KeyframeT.md)
 
 #### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
 | `time` | `number` | `0` |
+
+#### Returns
+
+[`KeyframeT`](KeyframeT.md)
 
 #### Defined in
 

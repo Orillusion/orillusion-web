@@ -47,7 +47,11 @@ Screen space reflection
 
 ### constructor
 
-• **new SSRPost**()
+• **new SSRPost**(): [`SSRPost`](SSRPost.md)
+
+#### Returns
+
+[`SSRPost`](SSRPost.md)
 
 #### Overrides
 

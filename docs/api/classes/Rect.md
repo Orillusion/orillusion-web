@@ -35,7 +35,7 @@ Rectangular region
 
 ### constructor
 
-• **new Rect**(`x?`, `y?`, `width?`, `height?`)
+• **new Rect**(`x?`, `y?`, `width?`, `height?`): [`Rect`](Rect.md)
 
 Creates a new rectangular area object
 
@@ -47,6 +47,10 @@ Creates a new rectangular area object
 | `y` | `number` | `0` | The y coordinate of the rectangle |
 | `width` | `number` | `0` | Width of a rectangle |
 | `height` | `number` | `0` | Height of rectangle |
+
+#### Returns
+
+[`Rect`](Rect.md)
 
 #### Defined in
 
@@ -168,7 +172,7 @@ Height of rectangle
 
 ### pointInRect
 
-▸ `Static` **pointInRect**(`x`, `y`, `lt_x`, `lt_y`, `rb_x`, `rb_y`): `boolean`
+▸ **pointInRect**(`x`, `y`, `lt_x`, `lt_y`, `rb_x`, `rb_y`): `boolean`
 
 Whether the point is within the specified area
 
