@@ -54,7 +54,11 @@
 
 ### constructor
 
-• **new ShaderPassBase**()
+• **new ShaderPassBase**(): [`ShaderPassBase`](ShaderPassBase.md)
+
+#### Returns
+
+[`ShaderPassBase`](ShaderPassBase.md)
 
 #### Defined in
 
@@ -251,7 +255,7 @@ ___
 
 ### setStructStorageBuffer
 
-▸ **setStructStorageBuffer**<`T`\>(`name`, `buffer`): `void`
+▸ **setStructStorageBuffer**\<`T`\>(`name`, `buffer`): `void`
 
 set struct storage gpu buffer
 
@@ -259,14 +263,14 @@ set struct storage gpu buffer
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`Struct`](Struct.md)<`T`\> |
+| `T` | extends [`Struct`](Struct.md) |
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `name` | `string` | buffer name |
-| `buffer` | [`StructStorageGPUBuffer`](StructStorageGPUBuffer.md)<`T`\> | struct storage useAge gpu buffer |
+| `buffer` | [`StructStorageGPUBuffer`](StructStorageGPUBuffer.md)\<`T`\> | struct storage useAge gpu buffer |
 
 #### Returns
 

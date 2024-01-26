@@ -22,7 +22,11 @@
 
 ### constructor
 
-• **new PrefabMeshData**()
+• **new PrefabMeshData**(): [`PrefabMeshData`](PrefabMeshData.md)
+
+#### Returns
+
+[`PrefabMeshData`](PrefabMeshData.md)
 
 ## Properties
 
@@ -98,7 +102,7 @@ ___
 
 ### attributes
 
-• **attributes**: { `attribute`: `string` ; `dim`: `number` ; `pos`: `number`  }[]
+• **attributes**: \{ `attribute`: `string` ; `dim`: `number` ; `pos`: `number`  }[]
 
 #### Defined in
 

@@ -16,13 +16,17 @@
 
 ### constructor
 
-• **new ProfilerUtil**()
+• **new ProfilerUtil**(): [`ProfilerUtil`](ProfilerUtil.md)
+
+#### Returns
+
+[`ProfilerUtil`](ProfilerUtil.md)
 
 ## Methods
 
 ### start
 
-▸ `Static` **start**(`id`): `void`
+▸ **start**(`id`): `void`
 
 #### Parameters
 
@@ -42,7 +46,7 @@ ___
 
 ### end
 
-▸ `Static` **end**(`id`): `void`
+▸ **end**(`id`): `void`
 
 #### Parameters
 
@@ -62,7 +66,7 @@ ___
 
 ### countStart
 
-▸ `Static` **countStart**(`id`, `id2?`): `void`
+▸ **countStart**(`id`, `id2?`): `void`
 
 #### Parameters
 
@@ -83,7 +87,7 @@ ___
 
 ### countEnd
 
-▸ `Static` **countEnd**(`id`, `id2`): `void`
+▸ **countEnd**(`id`, `id2`): `void`
 
 #### Parameters
 
@@ -104,7 +108,7 @@ ___
 
 ### print
 
-▸ `Static` **print**(`id`): `void`
+▸ **print**(`id`): `void`
 
 #### Parameters
 

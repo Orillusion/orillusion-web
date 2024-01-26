@@ -61,7 +61,11 @@ Resource management classes for textures, materials, models, and preset bodies.
 
 ### constructor
 
-• **new Res**()
+• **new Res**(): [`Res`](Res.md)
+
+#### Returns
+
+[`Res`](Res.md)
 
 #### Defined in
 
@@ -354,7 +358,7 @@ ___
 
 ### addMat
 
-▸ **addMat**(`name`, `mat`): `Map`<`string`, [`Material`](Material.md)\>
+▸ **addMat**(`name`, `mat`): `Map`\<`string`, [`Material`](Material.md)\>
 
 add a material with reference of name
 
@@ -367,7 +371,7 @@ add a material with reference of name
 
 #### Returns
 
-`Map`<`string`, [`Material`](Material.md)\>
+`Map`\<`string`, [`Material`](Material.md)\>
 
 #### Defined in
 
@@ -505,25 +509,25 @@ ___
 
 ### load
 
-▸ **load**<`T`\>(`url`, `c`, `loaderFunctions?`): `Promise`<`any`\>
+▸ **load**\<`T`\>(`url`, `c`, `loaderFunctions?`): `Promise`\<`any`\>
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends `ParserBase`<`T`\> |
+| `T` | extends `ParserBase` |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `url` | `string` |
-| `c` | [`Parser`](../types/Parser.md)<`T`\> |
+| `c` | [`Parser`](../types/Parser.md)\<`T`\> |
 | `loaderFunctions?` | [`LoaderFunctions`](../types/LoaderFunctions.md) |
 
 #### Returns
 
-`Promise`<`any`\>
+`Promise`\<`any`\>
 
 #### Defined in
 
@@ -533,7 +537,7 @@ ___
 
 ### loadGltf
 
-▸ **loadGltf**(`url`, `loaderFunctions?`): `Promise`<[`Object3D`](Object3D.md)\>
+▸ **loadGltf**(`url`, `loaderFunctions?`): `Promise`\<[`Object3D`](Object3D.md)\>
 
 load a gltf file
 
@@ -546,7 +550,7 @@ load a gltf file
 
 #### Returns
 
-`Promise`<[`Object3D`](Object3D.md)\>
+`Promise`\<[`Object3D`](Object3D.md)\>
 
 #### Defined in
 
@@ -556,7 +560,7 @@ ___
 
 ### loadObj
 
-▸ **loadObj**(`url`, `loaderFunctions?`): `Promise`<[`Object3D`](Object3D.md)\>
+▸ **loadObj**(`url`, `loaderFunctions?`): `Promise`\<[`Object3D`](Object3D.md)\>
 
 load obj file
 
@@ -569,7 +573,7 @@ load obj file
 
 #### Returns
 
-`Promise`<[`Object3D`](Object3D.md)\>
+`Promise`\<[`Object3D`](Object3D.md)\>
 
 #### Defined in
 
@@ -579,7 +583,7 @@ ___
 
 ### loadB3DM
 
-▸ **loadB3DM**(`url`, `loaderFunctions?`, `userData?`): `Promise`<[`Object3D`](Object3D.md)\>
+▸ **loadB3DM**(`url`, `loaderFunctions?`, `userData?`): `Promise`\<[`Object3D`](Object3D.md)\>
 
 load b3dm file by url
 
@@ -593,7 +597,7 @@ load b3dm file by url
 
 #### Returns
 
-`Promise`<[`Object3D`](Object3D.md)\>
+`Promise`\<[`Object3D`](Object3D.md)\>
 
 #### Defined in
 
@@ -603,7 +607,7 @@ ___
 
 ### loadI3DM
 
-▸ **loadI3DM**(`url`, `loaderFunctions?`, `userData?`): `Promise`<[`Object3D`](Object3D.md)\>
+▸ **loadI3DM**(`url`, `loaderFunctions?`, `userData?`): `Promise`\<[`Object3D`](Object3D.md)\>
 
 load i3dm file by url
 
@@ -617,7 +621,7 @@ load i3dm file by url
 
 #### Returns
 
-`Promise`<[`Object3D`](Object3D.md)\>
+`Promise`\<[`Object3D`](Object3D.md)\>
 
 #### Defined in
 
@@ -627,7 +631,7 @@ ___
 
 ### loadTexture
 
-▸ **loadTexture**(`url`, `loaderFunctions?`, `flipY?`): `Promise`<[`Texture`](Texture.md)\>
+▸ **loadTexture**(`url`, `loaderFunctions?`, `flipY?`): `Promise`\<[`Texture`](Texture.md)\>
 
 load texture by url
 
@@ -641,7 +645,7 @@ load texture by url
 
 #### Returns
 
-`Promise`<[`Texture`](Texture.md)\>
+`Promise`\<[`Texture`](Texture.md)\>
 
 #### Defined in
 
@@ -651,7 +655,7 @@ ___
 
 ### loadBitmapTextures
 
-▸ **loadBitmapTextures**(`urls`, `count?`, `loaderFunctions?`, `flipY?`): `Promise`<[`BitmapTexture2D`](BitmapTexture2D.md)[]\>
+▸ **loadBitmapTextures**(`urls`, `count?`, `loaderFunctions?`, `flipY?`): `Promise`\<[`BitmapTexture2D`](BitmapTexture2D.md)[]\>
 
 #### Parameters
 
@@ -664,7 +668,7 @@ ___
 
 #### Returns
 
-`Promise`<[`BitmapTexture2D`](BitmapTexture2D.md)[]\>
+`Promise`\<[`BitmapTexture2D`](BitmapTexture2D.md)[]\>
 
 #### Defined in
 
@@ -674,7 +678,7 @@ ___
 
 ### loadHDRTexture
 
-▸ **loadHDRTexture**(`url`, `loaderFunctions?`): `Promise`<[`Texture`](Texture.md)\>
+▸ **loadHDRTexture**(`url`, `loaderFunctions?`): `Promise`\<[`Texture`](Texture.md)\>
 
 load a hdr texture
 
@@ -687,7 +691,7 @@ load a hdr texture
 
 #### Returns
 
-`Promise`<[`Texture`](Texture.md)\>
+`Promise`\<[`Texture`](Texture.md)\>
 
 #### Defined in
 
@@ -697,7 +701,7 @@ ___
 
 ### loadHDRTextureCube
 
-▸ **loadHDRTextureCube**(`url`, `loaderFunctions?`): `Promise`<[`Texture`](Texture.md)\>
+▸ **loadHDRTextureCube**(`url`, `loaderFunctions?`): `Promise`\<[`Texture`](Texture.md)\>
 
 load hdr cube texture
 
@@ -710,7 +714,7 @@ load hdr cube texture
 
 #### Returns
 
-`Promise`<[`Texture`](Texture.md)\>
+`Promise`\<[`Texture`](Texture.md)\>
 
 #### Defined in
 
@@ -720,7 +724,7 @@ ___
 
 ### loadLDRTextureCube
 
-▸ **loadLDRTextureCube**(`url`, `loaderFunctions?`): `Promise`<[`Texture`](Texture.md)\>
+▸ **loadLDRTextureCube**(`url`, `loaderFunctions?`): `Promise`\<[`Texture`](Texture.md)\>
 
 load ldr cube texture
 
@@ -733,7 +737,7 @@ load ldr cube texture
 
 #### Returns
 
-`Promise`<[`Texture`](Texture.md)\>
+`Promise`\<[`Texture`](Texture.md)\>
 
 #### Defined in
 
@@ -743,7 +747,7 @@ ___
 
 ### loadTextureCubeMaps
 
-▸ **loadTextureCubeMaps**(`urls`): `Promise`<[`Texture`](Texture.md)\>
+▸ **loadTextureCubeMaps**(`urls`): `Promise`\<[`Texture`](Texture.md)\>
 
 load texture data from array of web url.
 make sure there are six images in a group,
@@ -757,7 +761,7 @@ and the order is: nx, px, py, ny, nz, pz
 
 #### Returns
 
-`Promise`<[`Texture`](Texture.md)\>
+`Promise`\<[`Texture`](Texture.md)\>
 
 #### Defined in
 
@@ -767,7 +771,7 @@ ___
 
 ### loadTextureCubeStd
 
-▸ **loadTextureCubeStd**(`url`, `loaderFunctions?`): `Promise`<[`Texture`](Texture.md)\>
+▸ **loadTextureCubeStd**(`url`, `loaderFunctions?`): `Promise`\<[`Texture`](Texture.md)\>
 
 load texture data from url.
 the image is assembled from six images into cross shaped image.
@@ -781,7 +785,7 @@ the image is assembled from six images into cross shaped image.
 
 #### Returns
 
-`Promise`<[`Texture`](Texture.md)\>
+`Promise`\<[`Texture`](Texture.md)\>
 
 #### Defined in
 
@@ -791,7 +795,7 @@ ___
 
 ### loadJSON
 
-▸ **loadJSON**(`url`, `loaderFunctions?`): `Promise`<`void` \| `object`\>
+▸ **loadJSON**(`url`, `loaderFunctions?`): `Promise`\<`void` \| `object`\>
 
 load json data from url.
 
@@ -804,7 +808,7 @@ load json data from url.
 
 #### Returns
 
-`Promise`<`void` \| `object`\>
+`Promise`\<`void` \| `object`\>
 
 #### Defined in
 
@@ -814,7 +818,7 @@ ___
 
 ### loadFont
 
-▸ **loadFont**(`url`, `loaderFunctions?`, `userData?`): `Promise`<[`FontInfo`](FontInfo.md)\>
+▸ **loadFont**(`url`, `loaderFunctions?`, `userData?`): `Promise`\<[`FontInfo`](FontInfo.md)\>
 
 load font file by url
 
@@ -828,7 +832,7 @@ load font file by url
 
 #### Returns
 
-`Promise`<[`FontInfo`](FontInfo.md)\>
+`Promise`\<[`FontInfo`](FontInfo.md)\>
 
 #### Defined in
 
@@ -838,7 +842,7 @@ ___
 
 ### loadAtlas
 
-▸ **loadAtlas**(`url`, `loaderFunctions?`): `Promise`<[`FontInfo`](FontInfo.md)\>
+▸ **loadAtlas**(`url`, `loaderFunctions?`): `Promise`\<[`FontInfo`](FontInfo.md)\>
 
 load a atlas file by url
 
@@ -851,7 +855,7 @@ load a atlas file by url
 
 #### Returns
 
-`Promise`<[`FontInfo`](FontInfo.md)\>
+`Promise`\<[`FontInfo`](FontInfo.md)\>
 
 #### Defined in
 

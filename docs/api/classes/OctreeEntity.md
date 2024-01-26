@@ -20,13 +20,17 @@
 
 ### constructor
 
-• **new OctreeEntity**(`renderer`)
+• **new OctreeEntity**(`renderer`): [`OctreeEntity`](OctreeEntity.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `renderer` | `RenderNode` |
+
+#### Returns
+
+[`OctreeEntity`](OctreeEntity.md)
 
 #### Defined in
 

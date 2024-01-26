@@ -13,7 +13,7 @@
 
 ### constructor
 
-• **new JointPose**(`index`, `useGlobalMatrix?`)
+• **new JointPose**(`index`, `useGlobalMatrix?`): [`JointPose`](JointPose.md)
 
 #### Parameters
 
@@ -21,6 +21,10 @@
 | :------ | :------ | :------ |
 | `index` | `number` | `undefined` |
 | `useGlobalMatrix` | `boolean` | `false` |
+
+#### Returns
+
+[`JointPose`](JointPose.md)
 
 #### Defined in
 

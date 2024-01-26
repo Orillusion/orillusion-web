@@ -12,13 +12,17 @@
 
 ### constructor
 
-• **new MorePassParser**()
+• **new MorePassParser**(): [`MorePassParser`](MorePassParser.md)
+
+#### Returns
+
+[`MorePassParser`](MorePassParser.md)
 
 ## Methods
 
 ### parser
 
-▸ `Static` **parser**(`code`, `defineValue`): [`MorePassShader`](MorePassShader.md)
+▸ **parser**(`code`, `defineValue`): [`MorePassShader`](MorePassShader.md)
 
 #### Parameters
 

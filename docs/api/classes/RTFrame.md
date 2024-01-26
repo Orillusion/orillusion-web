@@ -34,7 +34,7 @@
 
 ### constructor
 
-• **new RTFrame**(`attachments`, `rtDescriptors`, `depthTexture?`, `zPreTexture?`, `isOutTarget?`)
+• **new RTFrame**(`attachments`, `rtDescriptors`, `depthTexture?`, `zPreTexture?`, `isOutTarget?`): [`RTFrame`](RTFrame.md)
 
 #### Parameters
 
@@ -45,6 +45,10 @@
 | `depthTexture?` | `RenderTexture` | `undefined` |
 | `zPreTexture?` | `RenderTexture` | `undefined` |
 | `isOutTarget` | `boolean` | `true` |
+
+#### Returns
+
+[`RTFrame`](RTFrame.md)
 
 #### Defined in
 

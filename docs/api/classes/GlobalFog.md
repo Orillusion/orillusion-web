@@ -43,7 +43,11 @@ screen space fog
 
 ### constructor
 
-• **new GlobalFog**()
+• **new GlobalFog**(): [`GlobalFog`](GlobalFog.md)
+
+#### Returns
+
+[`GlobalFog`](GlobalFog.md)
 
 #### Overrides
 

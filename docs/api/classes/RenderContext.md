@@ -29,13 +29,17 @@
 
 ### constructor
 
-• **new RenderContext**(`rtFrame`)
+• **new RenderContext**(`rtFrame`): [`RenderContext`](RenderContext.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `rtFrame` | [`RTFrame`](RTFrame.md) |
+
+#### Returns
+
+[`RenderContext`](RenderContext.md)
 
 #### Defined in
 

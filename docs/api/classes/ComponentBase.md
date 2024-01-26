@@ -83,7 +83,11 @@ The component can receive update events at each frame.
 
 ### constructor
 
-• **new ComponentBase**()
+• **new ComponentBase**(): [`ComponentBase`](ComponentBase.md)
+
+#### Returns
+
+[`ComponentBase`](ComponentBase.md)
 
 ## Properties
 
@@ -293,7 +297,7 @@ ___
 
 ### onEnable
 
-▸ `Optional` **onEnable**(`view?`): `any`
+▸ **onEnable**(`view?`): `any`
 
 #### Parameters
 
@@ -317,7 +321,7 @@ ___
 
 ### onDisable
 
-▸ `Optional` **onDisable**(`view?`): `any`
+▸ **onDisable**(`view?`): `any`
 
 #### Parameters
 
@@ -341,7 +345,7 @@ ___
 
 ### onUpdate
 
-▸ `Optional` **onUpdate**(`view?`): `any`
+▸ **onUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -365,7 +369,7 @@ ___
 
 ### onLateUpdate
 
-▸ `Optional` **onLateUpdate**(`view?`): `any`
+▸ **onLateUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -389,7 +393,7 @@ ___
 
 ### onBeforeUpdate
 
-▸ `Optional` **onBeforeUpdate**(`view?`): `any`
+▸ **onBeforeUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -413,7 +417,7 @@ ___
 
 ### onCompute
 
-▸ `Optional` **onCompute**(`view?`, `command?`): `any`
+▸ **onCompute**(`view?`, `command?`): `any`
 
 #### Parameters
 
@@ -438,7 +442,7 @@ ___
 
 ### onGraphic
 
-▸ `Optional` **onGraphic**(`view?`): `any`
+▸ **onGraphic**(`view?`): `any`
 
 #### Parameters
 
@@ -462,7 +466,7 @@ ___
 
 ### onParentChange
 
-▸ `Optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
+▸ **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
 #### Parameters
 
@@ -513,17 +517,17 @@ ___
 
 ### copyComponent
 
-▸ **copyComponent**(`from`): [`ComponentBase`](ComponentBase.md)
+▸ **copyComponent**(`from`): `this`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `from` | [`ComponentBase`](ComponentBase.md) |
+| `from` | `this` |
 
 #### Returns
 
-[`ComponentBase`](ComponentBase.md)
+`this`
 
 #### Defined in
 

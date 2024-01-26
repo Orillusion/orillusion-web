@@ -21,13 +21,17 @@
 
 ### constructor
 
-• **new PrefabStringUtil**()
+• **new PrefabStringUtil**(): [`PrefabStringUtil`](PrefabStringUtil.md)
+
+#### Returns
+
+[`PrefabStringUtil`](PrefabStringUtil.md)
 
 ## Methods
 
 ### getNumber
 
-▸ `Static` **getNumber**(`st`): `number`
+▸ **getNumber**(`st`): `number`
 
 #### Parameters
 
@@ -47,7 +51,7 @@ ___
 
 ### getInt
 
-▸ `Static` **getInt**(`st`): `number`
+▸ **getInt**(`st`): `number`
 
 #### Parameters
 
@@ -67,7 +71,7 @@ ___
 
 ### getBoolean
 
-▸ `Static` **getBoolean**(`st`): `boolean`
+▸ **getBoolean**(`st`): `boolean`
 
 #### Parameters
 
@@ -87,7 +91,7 @@ ___
 
 ### getNumberArray
 
-▸ `Static` **getNumberArray**(`st`): `string`
+▸ **getNumberArray**(`st`): `string`
 
 #### Parameters
 
@@ -107,7 +111,7 @@ ___
 
 ### getStringArray
 
-▸ `Static` **getStringArray**(`st`): `string`[]
+▸ **getStringArray**(`st`): `string`[]
 
 #### Parameters
 
@@ -127,7 +131,7 @@ ___
 
 ### getVector2
 
-▸ `Static` **getVector2**(`st`): `void`
+▸ **getVector2**(`st`): `void`
 
 #### Parameters
 
@@ -147,7 +151,7 @@ ___
 
 ### getVector3
 
-▸ `Static` **getVector3**(`st`): `void`
+▸ **getVector3**(`st`): `void`
 
 #### Parameters
 
@@ -167,7 +171,7 @@ ___
 
 ### getVector4
 
-▸ `Static` **getVector4**(`st`): `void`
+▸ **getVector4**(`st`): `void`
 
 #### Parameters
 
@@ -187,7 +191,7 @@ ___
 
 ### getQuaternion
 
-▸ `Static` **getQuaternion**(`st`): `void`
+▸ **getQuaternion**(`st`): `void`
 
 #### Parameters
 
@@ -207,7 +211,7 @@ ___
 
 ### getColor
 
-▸ `Static` **getColor**(`st`): `void`
+▸ **getColor**(`st`): `void`
 
 #### Parameters
 

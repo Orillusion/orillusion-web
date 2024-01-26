@@ -37,7 +37,11 @@
 
 ### constructor
 
-• **new QuadAABB**()
+• **new QuadAABB**(): [`QuadAABB`](QuadAABB.md)
+
+#### Returns
+
+[`QuadAABB`](QuadAABB.md)
 
 #### Defined in
 

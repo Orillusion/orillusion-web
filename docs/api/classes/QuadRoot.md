@@ -14,7 +14,7 @@
 
 ### constructor
 
-• **new QuadRoot**(`maxNodesPerCell?`, `minCellSize?`)
+• **new QuadRoot**(`maxNodesPerCell?`, `minCellSize?`): [`QuadRoot`](QuadRoot.md)
 
 #### Parameters
 
@@ -22,6 +22,10 @@
 | :------ | :------ | :------ |
 | `maxNodesPerCell` | `number` | `10` |
 | `minCellSize` | `number` | `500` |
+
+#### Returns
+
+[`QuadRoot`](QuadRoot.md)
 
 #### Defined in
 

@@ -21,7 +21,11 @@
 
 ### constructor
 
-• **new VertexBufferLayout**()
+• **new VertexBufferLayout**(): [`VertexBufferLayout`](VertexBufferLayout.md)
+
+#### Returns
+
+[`VertexBufferLayout`](VertexBufferLayout.md)
 
 ## Properties
 
@@ -85,7 +89,7 @@ ___
 
 ### attributes
 
-• **attributes**: `Iterable`<`GPUVertexAttribute`\>
+• **attributes**: `Iterable`\<`GPUVertexAttribute`\>
 
 #### Implementation of
 

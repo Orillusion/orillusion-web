@@ -13,7 +13,11 @@
 
 ### constructor
 
-• **new FontPage**()
+• **new FontPage**(): [`FontPage`](FontPage.md)
+
+#### Returns
+
+[`FontPage`](FontPage.md)
 
 ## Properties
 

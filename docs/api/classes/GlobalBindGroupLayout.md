@@ -12,13 +12,17 @@
 
 ### constructor
 
-• **new GlobalBindGroupLayout**()
+• **new GlobalBindGroupLayout**(): [`GlobalBindGroupLayout`](GlobalBindGroupLayout.md)
+
+#### Returns
+
+[`GlobalBindGroupLayout`](GlobalBindGroupLayout.md)
 
 ## Methods
 
 ### getGlobalDataBindGroupLayout
 
-▸ `Static` **getGlobalDataBindGroupLayout**(): `GPUBindGroupLayout`
+▸ **getGlobalDataBindGroupLayout**(): `GPUBindGroupLayout`
 
 #### Returns
 

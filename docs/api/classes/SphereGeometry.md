@@ -60,7 +60,7 @@ Sphere Geometry
 
 ### constructor
 
-• **new SphereGeometry**(`radius`, `widthSegments`, `heightSegments`, `phiStart?`, `phiLength?`, `thetaStart?`, `thetaLength?`)
+• **new SphereGeometry**(`radius`, `widthSegments`, `heightSegments`, `phiStart?`, `phiLength?`, `thetaStart?`, `thetaLength?`): [`SphereGeometry`](SphereGeometry.md)
 
 #### Parameters
 
@@ -73,6 +73,10 @@ Sphere Geometry
 | `phiLength?` | `any` | The arc length of the equatorial line of a sphere |
 | `thetaStart?` | `any` | The radian of the starting point of the sphere's meridian |
 | `thetaLength?` | `any` | Arc length of sphere meridian |
+
+#### Returns
+
+[`SphereGeometry`](SphereGeometry.md)
 
 #### Overrides
 
@@ -374,11 +378,11 @@ ___
 
 ### vertexAttributeMap
 
-• `get` **vertexAttributeMap**(): `Map`<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
+• `get` **vertexAttributeMap**(): `Map`\<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
 
 #### Returns
 
-`Map`<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
+`Map`\<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
 
 #### Inherited from
 
@@ -472,10 +476,6 @@ GeometryBase.bounds
 
 add subGeometry from lod level
 
-**`See`**
-
-LODDescriptor
-
 #### Parameters
 
 | Name | Type |
@@ -485,6 +485,10 @@ LODDescriptor
 #### Returns
 
 [`SubGeometry`](SubGeometry.md)
+
+**`See`**
+
+LODDescriptor
 
 #### Inherited from
 
@@ -657,11 +661,11 @@ ___
 
 ### computeNormals
 
-▸ **computeNormals**(): [`SphereGeometry`](SphereGeometry.md)
+▸ **computeNormals**(): `this`
 
 #### Returns
 
-[`SphereGeometry`](SphereGeometry.md)
+`this`
 
 #### Inherited from
 

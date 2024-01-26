@@ -12,13 +12,17 @@
 
 ### constructor
 
-• **new SkeletonAnimation_shader**()
+• **new SkeletonAnimation_shader**(): [`SkeletonAnimation_shader`](SkeletonAnimation_shader.md)
+
+#### Returns
+
+[`SkeletonAnimation_shader`](SkeletonAnimation_shader.md)
 
 ## Methods
 
 ### groupBindingAndFunctions
 
-▸ `Static` **groupBindingAndFunctions**(`beginGroup`, `beginBinding`): `string`
+▸ **groupBindingAndFunctions**(`beginGroup`, `beginBinding`): `string`
 
 #### Parameters
 

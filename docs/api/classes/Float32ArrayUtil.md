@@ -12,13 +12,17 @@
 
 ### constructor
 
-• **new Float32ArrayUtil**()
+• **new Float32ArrayUtil**(): [`Float32ArrayUtil`](Float32ArrayUtil.md)
+
+#### Returns
+
+[`Float32ArrayUtil`](Float32ArrayUtil.md)
 
 ## Methods
 
 ### wirteVec4
 
-▸ `Static` **wirteVec4**(`array`, `index`, `value`): `void`
+▸ **wirteVec4**(`array`, `index`, `value`): `void`
 
 #### Parameters
 

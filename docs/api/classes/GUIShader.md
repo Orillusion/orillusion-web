@@ -15,7 +15,11 @@ shader code
 
 ### constructor
 
-• **new GUIShader**()
+• **new GUIShader**(): [`GUIShader`](GUIShader.md)
+
+#### Returns
+
+[`GUIShader`](GUIShader.md)
 
 ## Properties
 
@@ -25,7 +29,7 @@ shader code
 
 #### Defined in
 
-[src/components/gui/core/GUIShader.ts:236](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIShader.ts#L236)
+[src/components/gui/core/GUIShader.ts:234](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIShader.ts#L234)
 
 ___
 
@@ -35,4 +39,4 @@ ___
 
 #### Defined in
 
-[src/components/gui/core/GUIShader.ts:271](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIShader.ts#L271)
+[src/components/gui/core/GUIShader.ts:269](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/core/GUIShader.ts#L269)

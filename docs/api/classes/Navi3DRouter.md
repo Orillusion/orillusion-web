@@ -34,7 +34,11 @@
 
 ### constructor
 
-• **new Navi3DRouter**()
+• **new Navi3DRouter**(): [`Navi3DRouter`](Navi3DRouter.md)
+
+#### Returns
+
+[`Navi3DRouter`](Navi3DRouter.md)
 
 ## Properties
 

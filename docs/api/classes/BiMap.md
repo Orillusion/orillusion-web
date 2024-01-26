@@ -1,4 +1,4 @@
-# Class: BiMap<K, V\>
+# Class: BiMap\<K, V\>
 
 ## Type parameters
 
@@ -9,7 +9,7 @@
 
 ## Hierarchy
 
-- `Map`<`K`, `V`\>
+- `Map`\<`K`, `V`\>
 
   ↳ **`BiMap`**
 
@@ -42,7 +42,7 @@
 
 ### constructor
 
-• **new BiMap**<`K`, `V`\>(`iterable?`)
+• **new BiMap**\<`K`, `V`\>(`iterable?`): [`BiMap`](BiMap.md)\<`K`, `V`\>
 
 #### Type parameters
 
@@ -55,11 +55,15 @@
 
 | Name | Type |
 | :------ | :------ |
-| `iterable?` | `Iterable`<readonly [`K`, `V`]\> |
+| `iterable?` | `Iterable`\<readonly [`K`, `V`]\> |
+
+#### Returns
+
+[`BiMap`](BiMap.md)\<`K`, `V`\>
 
 #### Overrides
 
-Map&lt;K, V\&gt;.constructor
+Map\&lt;K, V\&gt;.constructor
 
 #### Defined in
 
@@ -77,7 +81,7 @@ Map.size
 
 #### Defined in
 
-node_modules/.pnpm/typescript@5.0.4/node_modules/typescript/lib/lib.es2015.collection.d.ts:46
+node_modules/.pnpm/typescript@5.3.3/node_modules/typescript/lib/lib.es2015.collection.d.ts:45
 
 ___
 
@@ -91,7 +95,7 @@ Map.[toStringTag]
 
 #### Defined in
 
-node_modules/.pnpm/typescript@5.0.4/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts:137
+node_modules/.pnpm/typescript@5.3.3/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts:137
 
 ___
 
@@ -105,7 +109,7 @@ Map.[species]
 
 #### Defined in
 
-node_modules/.pnpm/typescript@5.0.4/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts:319
+node_modules/.pnpm/typescript@5.3.3/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts:319
 
 ## Methods
 
@@ -119,7 +123,7 @@ Executes a provided function once per each key/value pair in the Map, in inserti
 
 | Name | Type |
 | :------ | :------ |
-| `callbackfn` | (`value`: `V`, `key`: `K`, `map`: `Map`<`K`, `V`\>) => `void` |
+| `callbackfn` | (`value`: `V`, `key`: `K`, `map`: `Map`\<`K`, `V`\>) => `void` |
 | `thisArg?` | `any` |
 
 #### Returns
@@ -132,7 +136,7 @@ Map.forEach
 
 #### Defined in
 
-node_modules/.pnpm/typescript@5.0.4/node_modules/typescript/lib/lib.es2015.collection.d.ts:29
+node_modules/.pnpm/typescript@5.3.3/node_modules/typescript/lib/lib.es2015.collection.d.ts:28
 
 ___
 
@@ -160,7 +164,7 @@ Map.get
 
 #### Defined in
 
-node_modules/.pnpm/typescript@5.0.4/node_modules/typescript/lib/lib.es2015.collection.d.ts:34
+node_modules/.pnpm/typescript@5.3.3/node_modules/typescript/lib/lib.es2015.collection.d.ts:33
 
 ___
 
@@ -186,19 +190,19 @@ Map.has
 
 #### Defined in
 
-node_modules/.pnpm/typescript@5.0.4/node_modules/typescript/lib/lib.es2015.collection.d.ts:38
+node_modules/.pnpm/typescript@5.3.3/node_modules/typescript/lib/lib.es2015.collection.d.ts:37
 
 ___
 
 ### [iterator]
 
-▸ **[iterator]**(): `IterableIterator`<[`K`, `V`]\>
+▸ **[iterator]**(): `IterableIterator`\<[`K`, `V`]\>
 
 Returns an iterable of entries in the map.
 
 #### Returns
 
-`IterableIterator`<[`K`, `V`]\>
+`IterableIterator`\<[`K`, `V`]\>
 
 #### Inherited from
 
@@ -206,19 +210,19 @@ Map.[iterator]
 
 #### Defined in
 
-node_modules/.pnpm/typescript@5.0.4/node_modules/typescript/lib/lib.es2015.iterable.d.ts:119
+node_modules/.pnpm/typescript@5.3.3/node_modules/typescript/lib/lib.es2015.iterable.d.ts:119
 
 ___
 
 ### entries
 
-▸ **entries**(): `IterableIterator`<[`K`, `V`]\>
+▸ **entries**(): `IterableIterator`\<[`K`, `V`]\>
 
 Returns an iterable of key, value pairs for every entry in the map.
 
 #### Returns
 
-`IterableIterator`<[`K`, `V`]\>
+`IterableIterator`\<[`K`, `V`]\>
 
 #### Inherited from
 
@@ -226,19 +230,19 @@ Map.entries
 
 #### Defined in
 
-node_modules/.pnpm/typescript@5.0.4/node_modules/typescript/lib/lib.es2015.iterable.d.ts:124
+node_modules/.pnpm/typescript@5.3.3/node_modules/typescript/lib/lib.es2015.iterable.d.ts:124
 
 ___
 
 ### keys
 
-▸ **keys**(): `IterableIterator`<`K`\>
+▸ **keys**(): `IterableIterator`\<`K`\>
 
 Returns an iterable of keys in the map
 
 #### Returns
 
-`IterableIterator`<`K`\>
+`IterableIterator`\<`K`\>
 
 #### Inherited from
 
@@ -246,19 +250,19 @@ Map.keys
 
 #### Defined in
 
-node_modules/.pnpm/typescript@5.0.4/node_modules/typescript/lib/lib.es2015.iterable.d.ts:129
+node_modules/.pnpm/typescript@5.3.3/node_modules/typescript/lib/lib.es2015.iterable.d.ts:129
 
 ___
 
 ### values
 
-▸ **values**(): `IterableIterator`<`V`\>
+▸ **values**(): `IterableIterator`\<`V`\>
 
 Returns an iterable of values in the map
 
 #### Returns
 
-`IterableIterator`<`V`\>
+`IterableIterator`\<`V`\>
 
 #### Inherited from
 
@@ -266,7 +270,7 @@ Map.values
 
 #### Defined in
 
-node_modules/.pnpm/typescript@5.0.4/node_modules/typescript/lib/lib.es2015.iterable.d.ts:134
+node_modules/.pnpm/typescript@5.3.3/node_modules/typescript/lib/lib.es2015.iterable.d.ts:134
 
 ___
 
@@ -336,7 +340,7 @@ ___
 
 ### set
 
-▸ **set**(`key`, `value`): [`BiMap`](BiMap.md)<`K`, `V`\>
+▸ **set**(`key`, `value`): `this`
 
 #### Parameters
 
@@ -347,7 +351,7 @@ ___
 
 #### Returns
 
-[`BiMap`](BiMap.md)<`K`, `V`\>
+`this`
 
 #### Overrides
 

@@ -16,7 +16,11 @@
 
 ### constructor
 
-• **new TilesRenderer**()
+• **new TilesRenderer**(): [`TilesRenderer`](TilesRenderer.md)
+
+#### Returns
+
+[`TilesRenderer`](TilesRenderer.md)
 
 #### Defined in
 
@@ -36,7 +40,7 @@
 
 ### loadTileSet
 
-▸ **loadTileSet**(`rootPath`, `file`): `Promise`<`void`\>
+▸ **loadTileSet**(`rootPath`, `file`): `Promise`\<`void`\>
 
 #### Parameters
 
@@ -47,7 +51,7 @@
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 

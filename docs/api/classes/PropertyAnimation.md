@@ -54,7 +54,11 @@ Attribute Animation Component
 
 ### constructor
 
-• **new PropertyAnimation**()
+• **new PropertyAnimation**(): [`PropertyAnimation`](PropertyAnimation.md)
+
+#### Returns
+
+[`PropertyAnimation`](PropertyAnimation.md)
 
 #### Overrides
 
@@ -306,7 +310,7 @@ get time of current animator
 
 ### onEnable
 
-▸ `Optional` **onEnable**(`view?`): `any`
+▸ **onEnable**(`view?`): `any`
 
 #### Parameters
 
@@ -330,7 +334,7 @@ ___
 
 ### onDisable
 
-▸ `Optional` **onDisable**(`view?`): `any`
+▸ **onDisable**(`view?`): `any`
 
 #### Parameters
 
@@ -354,7 +358,7 @@ ___
 
 ### onLateUpdate
 
-▸ `Optional` **onLateUpdate**(`view?`): `any`
+▸ **onLateUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -378,7 +382,7 @@ ___
 
 ### onBeforeUpdate
 
-▸ `Optional` **onBeforeUpdate**(`view?`): `any`
+▸ **onBeforeUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -402,7 +406,7 @@ ___
 
 ### onCompute
 
-▸ `Optional` **onCompute**(`view?`, `command?`): `any`
+▸ **onCompute**(`view?`, `command?`): `any`
 
 #### Parameters
 
@@ -427,7 +431,7 @@ ___
 
 ### onGraphic
 
-▸ `Optional` **onGraphic**(`view?`): `any`
+▸ **onGraphic**(`view?`): `any`
 
 #### Parameters
 
@@ -451,7 +455,7 @@ ___
 
 ### onParentChange
 
-▸ `Optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
+▸ **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
 #### Parameters
 
@@ -675,17 +679,17 @@ ___
 
 ### copyComponent
 
-▸ **copyComponent**(`from`): [`PropertyAnimation`](PropertyAnimation.md)
+▸ **copyComponent**(`from`): `this`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `from` | [`PropertyAnimation`](PropertyAnimation.md) |
+| `from` | `this` |
 
 #### Returns
 
-[`PropertyAnimation`](PropertyAnimation.md)
+`this`
 
 #### Overrides
 

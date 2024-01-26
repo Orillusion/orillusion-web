@@ -75,7 +75,11 @@ LDRTextureCube: create a cube texture, it's low dynamic range texture
 
 ### constructor
 
-• **new LDRTextureCube**()
+• **new LDRTextureCube**(): [`LDRTextureCube`](LDRTextureCube.md)
+
+#### Returns
+
+[`LDRTextureCube`](LDRTextureCube.md)
 
 #### Overrides
 
@@ -895,11 +899,11 @@ constructor: create a cube texture, it's low dynamic range texture
 
 ### init
 
-▸ **init**(): [`LDRTextureCube`](LDRTextureCube.md)
+▸ **init**(): `this`
 
 #### Returns
 
-[`LDRTextureCube`](LDRTextureCube.md)
+`this`
 
 #### Inherited from
 
@@ -1056,7 +1060,7 @@ ___
 
 ### delayDestroyTexture
 
-▸ `Static` **delayDestroyTexture**(`tex`): `void`
+▸ **delayDestroyTexture**(`tex`): `void`
 
 #### Parameters
 
@@ -1080,7 +1084,7 @@ ___
 
 ### destroyTexture
 
-▸ `Static` **destroyTexture**(): `void`
+▸ **destroyTexture**(): `void`
 
 #### Returns
 
@@ -1098,7 +1102,7 @@ ___
 
 ### load
 
-▸ **load**(`url`, `loaderFunctions?`): `Promise`<[`LDRTextureCube`](LDRTextureCube.md)\>
+▸ **load**(`url`, `loaderFunctions?`): `Promise`\<[`LDRTextureCube`](LDRTextureCube.md)\>
 
 load texture data from web url, which is a 360 panorama image
 
@@ -1111,7 +1115,7 @@ load texture data from web url, which is a 360 panorama image
 
 #### Returns
 
-`Promise`<[`LDRTextureCube`](LDRTextureCube.md)\>
+`Promise`\<[`LDRTextureCube`](LDRTextureCube.md)\>
 
 #### Defined in
 
@@ -1121,7 +1125,7 @@ ___
 
 ### createFromTexture
 
-▸ **createFromTexture**(`size`, `texture`): [`LDRTextureCube`](LDRTextureCube.md)
+▸ **createFromTexture**(`size`, `texture`): `this`
 
 create cube texture by environment image
 
@@ -1134,7 +1138,7 @@ create cube texture by environment image
 
 #### Returns
 
-[`LDRTextureCube`](LDRTextureCube.md)
+`this`
 
 #### Defined in
 

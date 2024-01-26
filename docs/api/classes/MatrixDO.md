@@ -8,7 +8,11 @@
 
 ### constructor
 
-• **new MatrixDO**()
+• **new MatrixDO**(): [`MatrixDO`](MatrixDO.md)
+
+#### Returns
+
+[`MatrixDO`](MatrixDO.md)
 
 #### Defined in
 

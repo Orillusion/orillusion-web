@@ -19,13 +19,17 @@ Class for generating the Halton low-discrepancy series for Quasi Monte Carlo int
 
 ### constructor
 
-• **new HaltonSeq**()
+• **new HaltonSeq**(): [`HaltonSeq`](HaltonSeq.md)
+
+#### Returns
+
+[`HaltonSeq`](HaltonSeq.md)
 
 ## Methods
 
 ### get
 
-▸ `Static` **get**(`index`, `radix`): `number`
+▸ **get**(`index`, `radix`): `number`
 
 #### Parameters
 

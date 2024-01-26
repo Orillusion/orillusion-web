@@ -33,7 +33,11 @@
 
 ### constructor
 
-• **new PrefabMeshParser**()
+• **new PrefabMeshParser**(): [`PrefabMeshParser`](PrefabMeshParser.md)
+
+#### Returns
+
+[`PrefabMeshParser`](PrefabMeshParser.md)
 
 #### Inherited from
 
@@ -127,7 +131,7 @@ ParserBase.data
 
 ### parserMeshs
 
-▸ `Static` **parserMeshs**(`bytesStream`, `prefabParser`): `void`
+▸ **parserMeshs**(`bytesStream`, `prefabParser`): `void`
 
 #### Parameters
 
@@ -244,7 +248,7 @@ ___
 
 ### parseBuffer
 
-▸ **parseBuffer**(`buffer`): `Promise`<`void`\>
+▸ **parseBuffer**(`buffer`): `Promise`\<`void`\>
 
 #### Parameters
 
@@ -254,7 +258,7 @@ ___
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Overrides
 

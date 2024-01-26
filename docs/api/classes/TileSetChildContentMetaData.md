@@ -13,7 +13,11 @@
 
 ### constructor
 
-• **new TileSetChildContentMetaData**()
+• **new TileSetChildContentMetaData**(): [`TileSetChildContentMetaData`](TileSetChildContentMetaData.md)
+
+#### Returns
+
+[`TileSetChildContentMetaData`](TileSetChildContentMetaData.md)
 
 ## Properties
 

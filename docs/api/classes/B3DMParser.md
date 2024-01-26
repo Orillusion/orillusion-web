@@ -32,7 +32,11 @@
 
 ### constructor
 
-• **new B3DMParser**()
+• **new B3DMParser**(): [`B3DMParser`](B3DMParser.md)
+
+#### Returns
+
+[`B3DMParser`](B3DMParser.md)
 
 #### Inherited from
 
@@ -126,7 +130,7 @@ ParserBase.data
 
 ### parseBuffer
 
-▸ **parseBuffer**(`buffer`): `Promise`<`void`\>
+▸ **parseBuffer**(`buffer`): `Promise`\<`void`\>
 
 #### Parameters
 
@@ -136,7 +140,7 @@ ParserBase.data
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Overrides
 

@@ -18,13 +18,17 @@
 
 ### constructor
 
-• **new B3DMLoaderBase**()
+• **new B3DMLoaderBase**(): [`B3DMLoaderBase`](B3DMLoaderBase.md)
+
+#### Returns
+
+[`B3DMLoaderBase`](B3DMLoaderBase.md)
 
 ## Methods
 
 ### parse
 
-▸ **parse**(`buffer`): `Promise`<{ `version`: `number` ; `featureTable`: [`FeatureTable`](FeatureTable.md) ; `batchTable`: [`BatchTable`](BatchTable.md) ; `glbBytes`: `Uint8Array`  }\>
+▸ **parse**(`buffer`): `Promise`\<\{ `version`: `number` ; `featureTable`: [`FeatureTable`](FeatureTable.md) ; `batchTable`: [`BatchTable`](BatchTable.md) ; `glbBytes`: `Uint8Array`  }\>
 
 #### Parameters
 
@@ -34,7 +38,7 @@
 
 #### Returns
 
-`Promise`<{ `version`: `number` ; `featureTable`: [`FeatureTable`](FeatureTable.md) ; `batchTable`: [`BatchTable`](BatchTable.md) ; `glbBytes`: `Uint8Array`  }\>
+`Promise`\<\{ `version`: `number` ; `featureTable`: [`FeatureTable`](FeatureTable.md) ; `batchTable`: [`BatchTable`](BatchTable.md) ; `glbBytes`: `Uint8Array`  }\>
 
 #### Defined in
 

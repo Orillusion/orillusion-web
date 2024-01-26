@@ -25,7 +25,11 @@ AtmosphericScattering Sky Setting
 
 ### constructor
 
-• **new AtmosphericScatteringSkySetting**()
+• **new AtmosphericScatteringSkySetting**(): [`AtmosphericScatteringSkySetting`](AtmosphericScatteringSkySetting.md)
+
+#### Returns
+
+[`AtmosphericScatteringSkySetting`](AtmosphericScatteringSkySetting.md)
 
 ## Properties
 

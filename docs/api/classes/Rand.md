@@ -24,7 +24,7 @@ which is a modification of the Linear Congruential Generator (LCG) method.
 
 ### constructor
 
-• **new Rand**(`seed?`)
+• **new Rand**(`seed?`): [`Rand`](Rand.md)
 
 Create a random number generator object with a specified seed.
 
@@ -33,6 +33,10 @@ Create a random number generator object with a specified seed.
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
 | `seed` | `number` | `0` | Random seed |
+
+#### Returns
+
+[`Rand`](Rand.md)
 
 #### Defined in
 
@@ -74,7 +78,7 @@ Random seed
 
 ### getFloatFromInt
 
-▸ `Static` **getFloatFromInt**(`value`): `number`
+▸ **getFloatFromInt**(`value`): `number`
 
 Convert an integer to a floating-point number
 
@@ -96,7 +100,7 @@ ___
 
 ### getByteFromInt
 
-▸ `Static` **getByteFromInt**(`value`): `number`
+▸ **getByteFromInt**(`value`): `number`
 
 Converts an integer to a single-byte integer
 

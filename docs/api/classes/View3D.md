@@ -43,7 +43,7 @@
 
 ### constructor
 
-• **new View3D**(`x?`, `y?`, `width?`, `height?`)
+• **new View3D**(`x?`, `y?`, `width?`, `height?`): [`View3D`](View3D.md)
 
 #### Parameters
 
@@ -53,6 +53,10 @@
 | `y` | `number` | `0` |
 | `width` | `number` | `0` |
 | `height` | `number` | `0` |
+
+#### Returns
+
+[`View3D`](View3D.md)
 
 #### Overrides
 

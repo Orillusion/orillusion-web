@@ -19,7 +19,7 @@
 
 ### constructor
 
-• **new FeatureTable**(`buffer`, `start`, `headerLength`, `binLength`)
+• **new FeatureTable**(`buffer`, `start`, `headerLength`, `binLength`): [`FeatureTable`](FeatureTable.md)
 
 #### Parameters
 
@@ -29,6 +29,10 @@
 | `start` | `any` |
 | `headerLength` | `any` |
 | `binLength` | `any` |
+
+#### Returns
+
+[`FeatureTable`](FeatureTable.md)
 
 #### Defined in
 

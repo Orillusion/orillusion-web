@@ -71,9 +71,13 @@ HDR TextureCube
 
 ### constructor
 
-• **new HDRTextureCube**()
+• **new HDRTextureCube**(): [`HDRTextureCube`](HDRTextureCube.md)
 
 create a cube texture, it's high dynamic range texture
+
+#### Returns
+
+[`HDRTextureCube`](HDRTextureCube.md)
 
 #### Overrides
 
@@ -877,11 +881,11 @@ TextureCube.maxAnisotropy
 
 ### init
 
-▸ **init**(): [`HDRTextureCube`](HDRTextureCube.md)
+▸ **init**(): `this`
 
 #### Returns
 
-[`HDRTextureCube`](HDRTextureCube.md)
+`this`
 
 #### Inherited from
 
@@ -1038,7 +1042,7 @@ ___
 
 ### delayDestroyTexture
 
-▸ `Static` **delayDestroyTexture**(`tex`): `void`
+▸ **delayDestroyTexture**(`tex`): `void`
 
 #### Parameters
 
@@ -1062,7 +1066,7 @@ ___
 
 ### destroyTexture
 
-▸ `Static` **destroyTexture**(): `void`
+▸ **destroyTexture**(): `void`
 
 #### Returns
 
@@ -1080,7 +1084,7 @@ ___
 
 ### createFromHDRData
 
-▸ **createFromHDRData**(`size`, `data`): [`HDRTextureCube`](HDRTextureCube.md)
+▸ **createFromHDRData**(`size`, `data`): `this`
 
 fill this texture by array of numbers;the format as [red0, green0, blue0, alpha0, red1, green1, blue1, alpha1...]
 
@@ -1096,7 +1100,7 @@ fill this texture by array of numbers;the format as [red0, green0, blue0, alpha0
 
 #### Returns
 
-[`HDRTextureCube`](HDRTextureCube.md)
+`this`
 
 #### Defined in
 
@@ -1106,7 +1110,7 @@ ___
 
 ### createFromTexture
 
-▸ **createFromTexture**(`size`, `texture`): [`HDRTextureCube`](HDRTextureCube.md)
+▸ **createFromTexture**(`size`, `texture`): `this`
 
 fill this texture by a texture2D, which is a 360 panorama image
 
@@ -1119,7 +1123,7 @@ fill this texture by a texture2D, which is a 360 panorama image
 
 #### Returns
 
-[`HDRTextureCube`](HDRTextureCube.md)
+`this`
 
 #### Defined in
 
@@ -1129,7 +1133,7 @@ ___
 
 ### load
 
-▸ **load**(`url`, `loaderFunctions?`): `Promise`<[`HDRTextureCube`](HDRTextureCube.md)\>
+▸ **load**(`url`, `loaderFunctions?`): `Promise`\<[`HDRTextureCube`](HDRTextureCube.md)\>
 
 load texture data from web url, which is a 360 panorama image
 
@@ -1142,7 +1146,7 @@ load texture data from web url, which is a 360 panorama image
 
 #### Returns
 
-`Promise`<[`HDRTextureCube`](HDRTextureCube.md)\>
+`Promise`\<[`HDRTextureCube`](HDRTextureCube.md)\>
 
 #### Defined in
 

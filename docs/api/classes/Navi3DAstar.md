@@ -16,7 +16,11 @@
 
 ### constructor
 
-• **new Navi3DAstar**()
+• **new Navi3DAstar**(): [`Navi3DAstar`](Navi3DAstar.md)
+
+#### Returns
+
+[`Navi3DAstar`](Navi3DAstar.md)
 
 #### Defined in
 

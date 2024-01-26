@@ -24,10 +24,10 @@
 | `zPrePass` | `boolean` | - |
 | `useLogDepth` | `boolean` | - |
 | `gi` | `boolean` | - |
-| `postProcessing` | { `enable?`: `boolean` ; `bloom?`: [`BloomSetting`](BloomSetting.md) ; `ssao?`: { `debug`: `any` ; `enable`: `boolean` ; `radius`: `number` ; `bias`: `number` ; `aoPower`: `number`  } ; `ssr?`: [`SSRSetting`](SSRSetting.md) ; `taa?`: [`TAASetting`](TAASetting.md) ; `gtao?`: [`GTAOSetting`](GTAOSetting.md) ; `outline?`: [`OutlineSetting`](OutlineSetting.md) ; `globalFog?`: [`GlobalFogSetting`](GlobalFogSetting.md) ; `godRay?`: [`GodRaySetting`](GodRaySetting.md) ; `fxaa?`: { `enable`: `boolean`  } ; `depthOfView?`: [`DepthOfViewSetting`](DepthOfViewSetting.md)  } | post effect |
+| `postProcessing` | \{ `enable?`: `boolean` ; `bloom?`: [`BloomSetting`](BloomSetting.md) ; `ssao?`: \{ `debug`: `any` ; `enable`: `boolean` ; `radius`: `number` ; `bias`: `number` ; `aoPower`: `number`  } ; `ssr?`: [`SSRSetting`](SSRSetting.md) ; `taa?`: [`TAASetting`](TAASetting.md) ; `gtao?`: [`GTAOSetting`](GTAOSetting.md) ; `outline?`: [`OutlineSetting`](OutlineSetting.md) ; `globalFog?`: [`GlobalFogSetting`](GlobalFogSetting.md) ; `godRay?`: [`GodRaySetting`](GodRaySetting.md) ; `fxaa?`: \{ `enable`: `boolean`  } ; `depthOfView?`: [`DepthOfViewSetting`](DepthOfViewSetting.md)  } | post effect |
 | `postProcessing.enable?` | `boolean` | - |
 | `postProcessing.bloom?` | [`BloomSetting`](BloomSetting.md) | - |
-| `postProcessing.ssao?` | { `debug`: `any` ; `enable`: `boolean` ; `radius`: `number` ; `bias`: `number` ; `aoPower`: `number`  } | - |
+| `postProcessing.ssao?` | \{ `debug`: `any` ; `enable`: `boolean` ; `radius`: `number` ; `bias`: `number` ; `aoPower`: `number`  } | - |
 | `postProcessing.ssao.debug` | `any` | - |
 | `postProcessing.ssao.enable` | `boolean` | - |
 | `postProcessing.ssao.radius` | `number` | - |
@@ -39,7 +39,7 @@
 | `postProcessing.outline?` | [`OutlineSetting`](OutlineSetting.md) | - |
 | `postProcessing.globalFog?` | [`GlobalFogSetting`](GlobalFogSetting.md) | - |
 | `postProcessing.godRay?` | [`GodRaySetting`](GodRaySetting.md) | - |
-| `postProcessing.fxaa?` | { `enable`: `boolean`  } | - |
+| `postProcessing.fxaa?` | \{ `enable`: `boolean`  } | - |
 | `postProcessing.fxaa.enable` | `boolean` | - |
 | `postProcessing.depthOfView?` | [`DepthOfViewSetting`](DepthOfViewSetting.md) | - |
 

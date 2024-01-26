@@ -13,13 +13,17 @@
 
 ### constructor
 
-• **new PipelinePool**()
+• **new PipelinePool**(): [`PipelinePool`](PipelinePool.md)
+
+#### Returns
+
+[`PipelinePool`](PipelinePool.md)
 
 ## Methods
 
 ### getSharePipeline
 
-▸ `Static` **getSharePipeline**(`shaderVariant`): `GPURenderPipeline`
+▸ **getSharePipeline**(`shaderVariant`): `GPURenderPipeline`
 
 #### Parameters
 
@@ -39,7 +43,7 @@ ___
 
 ### setSharePipeline
 
-▸ `Static` **setSharePipeline**(`shaderVariant`, `pipeline`): `void`
+▸ **setSharePipeline**(`shaderVariant`, `pipeline`): `void`
 
 #### Parameters
 

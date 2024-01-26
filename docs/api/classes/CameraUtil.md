@@ -14,13 +14,17 @@ Camera3D tool class
 
 ### constructor
 
-• **new CameraUtil**()
+• **new CameraUtil**(): [`CameraUtil`](CameraUtil.md)
+
+#### Returns
+
+[`CameraUtil`](CameraUtil.md)
 
 ## Methods
 
 ### createCamera3DObject
 
-▸ `Static` **createCamera3DObject**(`parent?`, `name?`): [`Camera3D`](Camera3D.md)
+▸ **createCamera3DObject**(`parent?`, `name?`): [`Camera3D`](Camera3D.md)
 
 create a Camera3D component
 

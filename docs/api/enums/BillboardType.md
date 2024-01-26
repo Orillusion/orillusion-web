@@ -14,7 +14,7 @@
 
 #### Defined in
 
-[src/components/gui/GUIConfig.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIConfig.ts#L27)
+[src/components/gui/GUIConfig.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIConfig.ts#L24)
 
 ___
 
@@ -24,7 +24,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/GUIConfig.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIConfig.ts#L28)
+[src/components/gui/GUIConfig.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIConfig.ts#L25)
 
 ___
 
@@ -34,4 +34,4 @@ ___
 
 #### Defined in
 
-[src/components/gui/GUIConfig.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIConfig.ts#L29)
+[src/components/gui/GUIConfig.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIConfig.ts#L26)

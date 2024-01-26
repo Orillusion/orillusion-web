@@ -26,13 +26,17 @@ extra function of vector3
 
 ### constructor
 
-• **new Vector3Ex**()
+• **new Vector3Ex**(): [`Vector3Ex`](Vector3Ex.md)
+
+#### Returns
+
+[`Vector3Ex`](Vector3Ex.md)
 
 ## Methods
 
 ### add
 
-▸ `Static` **add**(`v1`, `v2`, `target?`): [`Vector3`](Vector3.md)
+▸ **add**(`v1`, `v2`, `target?`): [`Vector3`](Vector3.md)
 
 vector3 add
 
@@ -56,7 +60,7 @@ ___
 
 ### sub
 
-▸ `Static` **sub**(`v1`, `v2`, `target?`): [`Vector3`](Vector3.md)
+▸ **sub**(`v1`, `v2`, `target?`): [`Vector3`](Vector3.md)
 
 vector3 sub
 
@@ -80,7 +84,7 @@ ___
 
 ### mul
 
-▸ `Static` **mul**(`v1`, `v2`, `target?`): [`Vector3`](Vector3.md)
+▸ **mul**(`v1`, `v2`, `target?`): [`Vector3`](Vector3.md)
 
 vector3 mul
 
@@ -104,7 +108,7 @@ ___
 
 ### mulScale
 
-▸ `Static` **mulScale**(`v1`, `v`, `target?`): [`Vector3`](Vector3.md)
+▸ **mulScale**(`v1`, `v`, `target?`): [`Vector3`](Vector3.md)
 
 vector3 mul
 
@@ -128,7 +132,7 @@ ___
 
 ### div
 
-▸ `Static` **div**(`v1`, `v2`, `target?`): [`Vector3`](Vector3.md)
+▸ **div**(`v1`, `v2`, `target?`): [`Vector3`](Vector3.md)
 
 vector3 div
 
@@ -152,7 +156,7 @@ ___
 
 ### normalize
 
-▸ `Static` **normalize**(`v1`): [`Vector3`](Vector3.md)
+▸ **normalize**(`v1`): [`Vector3`](Vector3.md)
 
 normalize
 
@@ -176,7 +180,7 @@ ___
 
 ### dot
 
-▸ `Static` **dot**(`v1`, `v2`): `number`
+▸ **dot**(`v1`, `v2`): `number`
 
 dot
 
@@ -201,7 +205,7 @@ ___
 
 ### calculateVectorAngle\_xz
 
-▸ `Static` **calculateVectorAngle_xz**(`v1`, `v2`): `number`
+▸ **calculateVectorAngle_xz**(`v1`, `v2`): `number`
 
 Calculate the angle between two vectors
 
@@ -226,11 +230,9 @@ ___
 
 ### distance
 
-▸ `Static` **distance**(`v1`, `v2`): `number`
+▸ **distance**(`v1`, `v2`): `number`
 
 Calculate the distance between two points
-
-**`Static`**
 
 #### Parameters
 
@@ -245,6 +247,8 @@ Calculate the distance between two points
 
 distance
 
+**`Static`**
+
 #### Defined in
 
 [src/util/Vector3Ex.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/util/Vector3Ex.ts#L135)
@@ -253,7 +257,7 @@ ___
 
 ### getRandomXYZ
 
-▸ `Static` **getRandomXYZ**(`min?`, `max?`): [`Vector3`](Vector3.md)
+▸ **getRandomXYZ**(`min?`, `max?`): [`Vector3`](Vector3.md)
 
 make a Random 3D Vector
 
@@ -278,7 +282,7 @@ ___
 
 ### getRandomV3
 
-▸ `Static` **getRandomV3**(`min?`, `max?`, `yMin`, `yMax`): [`Vector3`](Vector3.md)
+▸ **getRandomV3**(`min?`, `max?`, `yMin`, `yMax`): [`Vector3`](Vector3.md)
 
 make a Random 3D Vector
 
@@ -305,7 +309,7 @@ ___
 
 ### sphere
 
-▸ `Static` **sphere**(`radius`): [`Vector3`](Vector3.md)
+▸ **sphere**(`radius`): [`Vector3`](Vector3.md)
 
 #### Parameters
 
@@ -325,7 +329,7 @@ ___
 
 ### sphereXYZ
 
-▸ `Static` **sphereXYZ**(`radiusMin`, `radiusMax`, `x?`, `y?`, `z?`): [`Vector3`](Vector3.md)
+▸ **sphereXYZ**(`radiusMin`, `radiusMax`, `x?`, `y?`, `z?`): [`Vector3`](Vector3.md)
 
 #### Parameters
 

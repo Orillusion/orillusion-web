@@ -24,7 +24,7 @@ Atlas data
 
 ### constructor
 
-• **new GUIAtlasTexture**(`size`)
+• **new GUIAtlasTexture**(`size`): [`GUIAtlasTexture`](GUIAtlasTexture.md)
 
 #### Parameters
 
@@ -33,6 +33,10 @@ Atlas data
 | `size` | `Object` |
 | `size.x` | `number` |
 | `size.y` | `number` |
+
+#### Returns
+
+[`GUIAtlasTexture`](GUIAtlasTexture.md)
 
 #### Defined in
 

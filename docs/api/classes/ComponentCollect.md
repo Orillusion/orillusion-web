@@ -25,13 +25,17 @@
 
 ### constructor
 
-• **new ComponentCollect**()
+• **new ComponentCollect**(): [`ComponentCollect`](ComponentCollect.md)
+
+#### Returns
+
+[`ComponentCollect`](ComponentCollect.md)
 
 ## Methods
 
 ### bindUpdate
 
-▸ `Static` **bindUpdate**(`view`, `component`, `call`): `void`
+▸ **bindUpdate**(`view`, `component`, `call`): `void`
 
 #### Parameters
 
@@ -53,7 +57,7 @@ ___
 
 ### unBindUpdate
 
-▸ `Static` **unBindUpdate**(`view`, `component`): `void`
+▸ **unBindUpdate**(`view`, `component`): `void`
 
 #### Parameters
 
@@ -74,7 +78,7 @@ ___
 
 ### bindLateUpdate
 
-▸ `Static` **bindLateUpdate**(`view`, `component`, `call`): `void`
+▸ **bindLateUpdate**(`view`, `component`, `call`): `void`
 
 #### Parameters
 
@@ -96,7 +100,7 @@ ___
 
 ### unBindLateUpdate
 
-▸ `Static` **unBindLateUpdate**(`view`, `component`): `void`
+▸ **unBindLateUpdate**(`view`, `component`): `void`
 
 #### Parameters
 
@@ -117,7 +121,7 @@ ___
 
 ### bindBeforeUpdate
 
-▸ `Static` **bindBeforeUpdate**(`view`, `component`, `call`): `void`
+▸ **bindBeforeUpdate**(`view`, `component`, `call`): `void`
 
 #### Parameters
 
@@ -139,7 +143,7 @@ ___
 
 ### unBindBeforeUpdate
 
-▸ `Static` **unBindBeforeUpdate**(`view`, `component`): `void`
+▸ **unBindBeforeUpdate**(`view`, `component`): `void`
 
 #### Parameters
 
@@ -160,7 +164,7 @@ ___
 
 ### bindCompute
 
-▸ `Static` **bindCompute**(`view`, `component`, `call`): `void`
+▸ **bindCompute**(`view`, `component`, `call`): `void`
 
 #### Parameters
 
@@ -182,7 +186,7 @@ ___
 
 ### unBindCompute
 
-▸ `Static` **unBindCompute**(`view`, `component`): `void`
+▸ **unBindCompute**(`view`, `component`): `void`
 
 #### Parameters
 
@@ -203,7 +207,7 @@ ___
 
 ### bindGraphic
 
-▸ `Static` **bindGraphic**(`view`, `component`, `call`): `void`
+▸ **bindGraphic**(`view`, `component`, `call`): `void`
 
 #### Parameters
 
@@ -225,7 +229,7 @@ ___
 
 ### unBindGraphic
 
-▸ `Static` **unBindGraphic**(`view`, `component`): `void`
+▸ **unBindGraphic**(`view`, `component`): `void`
 
 #### Parameters
 
@@ -246,7 +250,7 @@ ___
 
 ### appendWaitStart
 
-▸ `Static` **appendWaitStart**(`component`): `void`
+▸ **appendWaitStart**(`component`): `void`
 
 #### Parameters
 
@@ -266,7 +270,7 @@ ___
 
 ### removeWaitStart
 
-▸ `Static` **removeWaitStart**(`obj`, `component`): `void`
+▸ **removeWaitStart**(`obj`, `component`): `void`
 
 #### Parameters
 
@@ -287,7 +291,7 @@ ___
 
 ### bindEnablePick
 
-▸ `Static` **bindEnablePick**(`view`, `component`, `call`): `void`
+▸ **bindEnablePick**(`view`, `component`, `call`): `void`
 
 #### Parameters
 
@@ -309,7 +313,7 @@ ___
 
 ### unBindEnablePick
 
-▸ `Static` **unBindEnablePick**(`view`, `component`): `void`
+▸ **unBindEnablePick**(`view`, `component`): `void`
 
 #### Parameters
 

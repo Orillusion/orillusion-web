@@ -16,7 +16,11 @@
 
 ### constructor
 
-• **new QuadTree**()
+• **new QuadTree**(): [`QuadTree`](QuadTree.md)
+
+#### Returns
+
+[`QuadTree`](QuadTree.md)
 
 #### Defined in
 

@@ -18,7 +18,11 @@
 
 ### constructor
 
-• **new KV**()
+• **new KV**(): [`KV`](KV.md)
+
+#### Returns
+
+[`KV`](KV.md)
 
 ## Properties
 
@@ -44,7 +48,7 @@ ___
 
 ### getValue
 
-▸ **getValue**<`T`\>(): `T`
+▸ **getValue**\<`T`\>(): `T`
 
 #### Type parameters
 

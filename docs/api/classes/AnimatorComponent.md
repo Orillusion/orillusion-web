@@ -56,7 +56,11 @@ The component can receive update events at each frame.
 
 ### constructor
 
-• **new AnimatorComponent**()
+• **new AnimatorComponent**(): [`AnimatorComponent`](AnimatorComponent.md)
+
+#### Returns
+
+[`AnimatorComponent`](AnimatorComponent.md)
 
 #### Inherited from
 
@@ -100,7 +104,7 @@ ___
 
 #### Defined in
 
-[src/components/anim/AnimatorComponent.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L9)
+[src/components/anim/AnimatorComponent.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L8)
 
 ___
 
@@ -110,7 +114,7 @@ ___
 
 #### Defined in
 
-[src/components/anim/AnimatorComponent.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L10)
+[src/components/anim/AnimatorComponent.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L9)
 
 ___
 
@@ -120,7 +124,7 @@ ___
 
 #### Defined in
 
-[src/components/anim/AnimatorComponent.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L27)
+[src/components/anim/AnimatorComponent.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L26)
 
 ## Accessors
 
@@ -258,7 +262,7 @@ ___
 
 #### Defined in
 
-[src/components/anim/AnimatorComponent.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L65)
+[src/components/anim/AnimatorComponent.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L64)
 
 ___
 
@@ -272,7 +276,7 @@ ___
 
 #### Defined in
 
-[src/components/anim/AnimatorComponent.ts:130](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L130)
+[src/components/anim/AnimatorComponent.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L129)
 
 • `set` **clips**(`clips`): `void`
 
@@ -288,7 +292,7 @@ ___
 
 #### Defined in
 
-[src/components/anim/AnimatorComponent.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L122)
+[src/components/anim/AnimatorComponent.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L121)
 
 ## Methods
 
@@ -312,7 +316,7 @@ ___
 
 ### onEnable
 
-▸ `Optional` **onEnable**(`view?`): `any`
+▸ **onEnable**(`view?`): `any`
 
 #### Parameters
 
@@ -336,7 +340,7 @@ ___
 
 ### onDisable
 
-▸ `Optional` **onDisable**(`view?`): `any`
+▸ **onDisable**(`view?`): `any`
 
 #### Parameters
 
@@ -360,7 +364,7 @@ ___
 
 ### onLateUpdate
 
-▸ `Optional` **onLateUpdate**(`view?`): `any`
+▸ **onLateUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -384,7 +388,7 @@ ___
 
 ### onBeforeUpdate
 
-▸ `Optional` **onBeforeUpdate**(`view?`): `any`
+▸ **onBeforeUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -408,7 +412,7 @@ ___
 
 ### onCompute
 
-▸ `Optional` **onCompute**(`view?`, `command?`): `any`
+▸ **onCompute**(`view?`, `command?`): `any`
 
 #### Parameters
 
@@ -433,7 +437,7 @@ ___
 
 ### onGraphic
 
-▸ `Optional` **onGraphic**(`view?`): `any`
+▸ **onGraphic**(`view?`): `any`
 
 #### Parameters
 
@@ -457,7 +461,7 @@ ___
 
 ### onParentChange
 
-▸ `Optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
+▸ **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
 #### Parameters
 
@@ -482,17 +486,17 @@ ___
 
 ### copyComponent
 
-▸ **copyComponent**(`from`): [`AnimatorComponent`](AnimatorComponent.md)
+▸ **copyComponent**(`from`): `this`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `from` | [`AnimatorComponent`](AnimatorComponent.md) |
+| `from` | `this` |
 
 #### Returns
 
-[`AnimatorComponent`](AnimatorComponent.md)
+`this`
 
 #### Inherited from
 
@@ -576,7 +580,7 @@ ___
 
 #### Defined in
 
-[src/components/anim/AnimatorComponent.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L30)
+[src/components/anim/AnimatorComponent.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L29)
 
 ___
 
@@ -594,7 +598,7 @@ ___
 
 #### Defined in
 
-[src/components/anim/AnimatorComponent.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L36)
+[src/components/anim/AnimatorComponent.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L35)
 
 ___
 
@@ -616,7 +620,7 @@ ___
 
 #### Defined in
 
-[src/components/anim/AnimatorComponent.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L43)
+[src/components/anim/AnimatorComponent.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L42)
 
 ___
 
@@ -638,7 +642,7 @@ ___
 
 #### Defined in
 
-[src/components/anim/AnimatorComponent.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L54)
+[src/components/anim/AnimatorComponent.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L53)
 
 ___
 
@@ -658,7 +662,7 @@ ___
 
 #### Defined in
 
-[src/components/anim/AnimatorComponent.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L76)
+[src/components/anim/AnimatorComponent.ts:75](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L75)
 
 ___
 
@@ -684,7 +688,7 @@ clone component data to target object3D
 
 #### Defined in
 
-[src/components/anim/AnimatorComponent.ts:134](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L134)
+[src/components/anim/AnimatorComponent.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L133)
 
 ___
 
@@ -708,7 +712,7 @@ ___
 
 #### Defined in
 
-[src/components/anim/AnimatorComponent.ts:160](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L160)
+[src/components/anim/AnimatorComponent.ts:159](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L159)
 
 ___
 
@@ -730,4 +734,4 @@ ___
 
 #### Defined in
 
-[src/components/anim/AnimatorComponent.ts:232](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L232)
+[src/components/anim/AnimatorComponent.ts:231](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L231)

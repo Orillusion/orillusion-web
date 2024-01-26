@@ -70,7 +70,7 @@ create texture by number array, which format is uint8
 
 ### constructor
 
-• **new Uint8ArrayTexture**(`width?`, `height?`, `numberLayer?`)
+• **new Uint8ArrayTexture**(`width?`, `height?`, `numberLayer?`): [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
 
 Create a texture2D
 
@@ -81,6 +81,10 @@ Create a texture2D
 | `width` | `number` | `32` | size of texture width |
 | `height` | `number` | `32` | height of texture width |
 | `numberLayer` | `number` | `1` | number layer of texture |
+
+#### Returns
+
+[`Uint8ArrayTexture`](Uint8ArrayTexture.md)
 
 #### Inherited from
 
@@ -884,11 +888,11 @@ Texture.maxAnisotropy
 
 ### init
 
-▸ **init**(): [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
+▸ **init**(): `this`
 
 #### Returns
 
-[`Uint8ArrayTexture`](Uint8ArrayTexture.md)
+`this`
 
 #### Inherited from
 
@@ -1045,7 +1049,7 @@ ___
 
 ### delayDestroyTexture
 
-▸ `Static` **delayDestroyTexture**(`tex`): `void`
+▸ **delayDestroyTexture**(`tex`): `void`
 
 #### Parameters
 
@@ -1069,7 +1073,7 @@ ___
 
 ### destroyTexture
 
-▸ `Static` **destroyTexture**(): `void`
+▸ **destroyTexture**(): `void`
 
 #### Returns
 
@@ -1087,7 +1091,7 @@ ___
 
 ### create
 
-▸ **create**(`width`, `height`, `data`, `useMipmap?`): [`Uint8ArrayTexture`](Uint8ArrayTexture.md)
+▸ **create**(`width`, `height`, `data`, `useMipmap?`): `this`
 
 create texture by number array, which format is uint8
 
@@ -1102,7 +1106,7 @@ create texture by number array, which format is uint8
 
 #### Returns
 
-[`Uint8ArrayTexture`](Uint8ArrayTexture.md)
+`this`
 
 #### Defined in
 

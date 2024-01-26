@@ -32,13 +32,17 @@ Spherical collision body
 
 ### constructor
 
-• **new SphereColliderShape**(`radius`)
+• **new SphereColliderShape**(`radius`): [`SphereColliderShape`](SphereColliderShape.md)
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `radius` | `number` | radius of this collider |
+
+#### Returns
+
+[`SphereColliderShape`](SphereColliderShape.md)
 
 #### Overrides
 
@@ -184,7 +188,7 @@ ColliderShape.halfSize
 
 ### setFromCenterAndSize
 
-▸ **setFromCenterAndSize**(`ct?`, `sz?`): [`SphereColliderShape`](SphereColliderShape.md)
+▸ **setFromCenterAndSize**(`ct?`, `sz?`): `this`
 
 Set the position and size of collision objects
 
@@ -197,7 +201,7 @@ Set the position and size of collision objects
 
 #### Returns
 
-[`SphereColliderShape`](SphereColliderShape.md)
+`this`
 
 #### Inherited from
 

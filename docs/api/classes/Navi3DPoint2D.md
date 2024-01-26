@@ -25,7 +25,11 @@
 
 ### constructor
 
-• **new Navi3DPoint2D**()
+• **new Navi3DPoint2D**(): [`Navi3DPoint2D`](Navi3DPoint2D.md)
+
+#### Returns
+
+[`Navi3DPoint2D`](Navi3DPoint2D.md)
 
 ## Properties
 

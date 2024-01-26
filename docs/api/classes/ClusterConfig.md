@@ -14,7 +14,11 @@
 
 ### constructor
 
-• **new ClusterConfig**()
+• **new ClusterConfig**(): [`ClusterConfig`](ClusterConfig.md)
+
+#### Returns
+
+[`ClusterConfig`](ClusterConfig.md)
 
 ## Properties
 

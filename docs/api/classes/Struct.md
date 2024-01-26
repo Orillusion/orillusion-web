@@ -4,11 +4,15 @@
 
 - **`Struct`**
 
+  ↳ [`DynamicDrawStruct`](DynamicDrawStruct.md)
+
+  ↳ [`DrawInfo`](DrawInfo.md)
+
   ↳ [`GeometryInfo`](GeometryInfo.md)
 
-  ↳ [`ShapeInfo`](ShapeInfo.md)
-
   ↳ [`RibbonStruct`](RibbonStruct.md)
+
+  ↳ [`ShapeInfo`](ShapeInfo.md)
 
 ### Constructors
 
@@ -26,13 +30,17 @@
 
 ### constructor
 
-• **new Struct**()
+• **new Struct**(): [`Struct`](Struct.md)
+
+#### Returns
+
+[`Struct`](Struct.md)
 
 ## Methods
 
 ### getValueSize
 
-▸ `Static` **getValueSize**(`value`): `any`
+▸ **getValueSize**(`value`): `any`
 
 get any type value memory size
 
@@ -54,23 +62,23 @@ ___
 
 ### Ref
 
-▸ `Static` **Ref**<`T`\>(`c`): { `name`: `string` ; `type`: `string`  }[]
+▸ **Ref**\<`T`\>(`c`): \{ `name`: `string` ; `type`: `string`  }[]
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`Struct`](Struct.md)<`T`\> |
+| `T` | extends [`Struct`](Struct.md) |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)<`T`\> |
+| `c` | [`Ctor`](../types/Ctor.md)\<`T`\> |
 
 #### Returns
 
-{ `name`: `string` ; `type`: `string`  }[]
+\{ `name`: `string` ; `type`: `string`  }[]
 
 #### Defined in
 
@@ -80,19 +88,19 @@ ___
 
 ### Get
 
-▸ `Static` **Get**<`T`\>(`c`): [`Struct`](Struct.md)
+▸ **Get**\<`T`\>(`c`): [`Struct`](Struct.md)
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`Struct`](Struct.md)<`T`\> |
+| `T` | extends [`Struct`](Struct.md) |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)<`T`\> |
+| `c` | [`Ctor`](../types/Ctor.md)\<`T`\> |
 
 #### Returns
 
@@ -106,7 +114,7 @@ ___
 
 ### GetSize
 
-▸ `Static` **GetSize**<`T`\>(`c`): `number`
+▸ **GetSize**\<`T`\>(`c`): `number`
 
 get any struct memory size
 
@@ -114,13 +122,13 @@ get any struct memory size
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`Struct`](Struct.md)<`T`\> |
+| `T` | extends [`Struct`](Struct.md) |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)<`T`\> |
+| `c` | [`Ctor`](../types/Ctor.md)\<`T`\> |
 
 #### Returns
 
@@ -134,13 +142,13 @@ ___
 
 ### getValueType
 
-▸ **getValueType**(): { `name`: `string` ; `type`: `string`  }[]
+▸ **getValueType**(): \{ `name`: `string` ; `type`: `string`  }[]
 
 get reflection name
 
 #### Returns
 
-{ `name`: `string` ; `type`: `string`  }[]
+\{ `name`: `string` ; `type`: `string`  }[]
 
 #### Defined in
 

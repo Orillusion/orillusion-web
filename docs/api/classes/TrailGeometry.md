@@ -52,13 +52,17 @@ Plane geometry
 
 ### constructor
 
-• **new TrailGeometry**(`segment`)
+• **new TrailGeometry**(`segment`): [`TrailGeometry`](TrailGeometry.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `segment` | `number` |
+
+#### Returns
+
+[`TrailGeometry`](TrailGeometry.md)
 
 #### Overrides
 
@@ -268,11 +272,11 @@ ___
 
 ### vertexAttributeMap
 
-• `get` **vertexAttributeMap**(): `Map`<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
+• `get` **vertexAttributeMap**(): `Map`\<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
 
 #### Returns
 
-`Map`<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
+`Map`\<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
 
 #### Inherited from
 
@@ -366,10 +370,6 @@ GeometryBase.bounds
 
 add subGeometry from lod level
 
-**`See`**
-
-LODDescriptor
-
 #### Parameters
 
 | Name | Type |
@@ -379,6 +379,10 @@ LODDescriptor
 #### Returns
 
 [`SubGeometry`](SubGeometry.md)
+
+**`See`**
+
+LODDescriptor
 
 #### Inherited from
 
@@ -551,11 +555,11 @@ ___
 
 ### computeNormals
 
-▸ **computeNormals**(): [`TrailGeometry`](TrailGeometry.md)
+▸ **computeNormals**(): `this`
 
 #### Returns
 
-[`TrailGeometry`](TrailGeometry.md)
+`this`
 
 #### Inherited from
 

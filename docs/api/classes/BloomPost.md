@@ -45,7 +45,11 @@ let cfg = {@link Engine3D.setting.render.postProcessing.bloom};
 
 ### constructor
 
-• **new BloomPost**()
+• **new BloomPost**(): [`BloomPost`](BloomPost.md)
+
+#### Returns
+
+[`BloomPost`](BloomPost.md)
 
 #### Overrides
 

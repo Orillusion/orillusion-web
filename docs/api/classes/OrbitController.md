@@ -53,7 +53,11 @@ Orbit Camera Controller
 
 ### constructor
 
-• **new OrbitController**()
+• **new OrbitController**(): [`OrbitController`](OrbitController.md)
+
+#### Returns
+
+[`OrbitController`](OrbitController.md)
 
 #### Overrides
 
@@ -347,13 +351,15 @@ ___
 
 Get the minimum distance between the camera and the target coordinate
 
-**`Default Value`**
-
-1
-
 #### Returns
 
 `number`
+
+**`Default Value`**
+
+```ts
+1
+```
 
 #### Defined in
 
@@ -387,13 +393,15 @@ ___
 
 Get the max distance between the camera and the target position
 
-**`Default Value`**
-
-100000
-
 #### Returns
 
 `number`
+
+**`Default Value`**
+
+```ts
+100000
+```
 
 #### Defined in
 
@@ -427,13 +435,15 @@ ___
 
 Get the lower elevation limit of the camera from the xz plane
 
-**`Default Value`**
-
--90
-
 #### Returns
 
 `number`
+
+**`Default Value`**
+
+```ts
+-90
+```
 
 #### Defined in
 
@@ -467,13 +477,15 @@ ___
 
 Get the upper elevation limit of the camera from the xz plane
 
-**`Default Value`**
-
-90
-
 #### Returns
 
 `number`
+
+**`Default Value`**
+
+```ts
+90
+```
 
 #### Defined in
 
@@ -545,7 +557,7 @@ ___
 
 ### onLateUpdate
 
-▸ `Optional` **onLateUpdate**(`view?`): `any`
+▸ **onLateUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -569,7 +581,7 @@ ___
 
 ### onBeforeUpdate
 
-▸ `Optional` **onBeforeUpdate**(`view?`): `any`
+▸ **onBeforeUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -593,7 +605,7 @@ ___
 
 ### onCompute
 
-▸ `Optional` **onCompute**(`view?`, `command?`): `any`
+▸ **onCompute**(`view?`, `command?`): `any`
 
 #### Parameters
 
@@ -618,7 +630,7 @@ ___
 
 ### onGraphic
 
-▸ `Optional` **onGraphic**(`view?`): `any`
+▸ **onGraphic**(`view?`): `any`
 
 #### Parameters
 
@@ -642,7 +654,7 @@ ___
 
 ### onParentChange
 
-▸ `Optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
+▸ **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
 #### Parameters
 
@@ -693,17 +705,17 @@ ___
 
 ### copyComponent
 
-▸ **copyComponent**(`from`): [`OrbitController`](OrbitController.md)
+▸ **copyComponent**(`from`): `this`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `from` | [`OrbitController`](OrbitController.md) |
+| `from` | `this` |
 
 #### Returns
 
-[`OrbitController`](OrbitController.md)
+`this`
 
 #### Inherited from
 

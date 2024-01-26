@@ -13,7 +13,7 @@
 
 ### constructor
 
-• **new GLTFSubParserSkeleton**(`subParser`)
+• **new GLTFSubParserSkeleton**(`subParser`): [`GLTFSubParserSkeleton`](GLTFSubParserSkeleton.md)
 
 #### Parameters
 
@@ -21,9 +21,13 @@
 | :------ | :------ |
 | `subParser` | `GLTFSubParser` |
 
+#### Returns
+
+[`GLTFSubParserSkeleton`](GLTFSubParserSkeleton.md)
+
 #### Defined in
 
-[src/loader/parser/gltf/GLTFSubParserSkeleton.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFSubParserSkeleton.ts#L11)
+[src/loader/parser/gltf/GLTFSubParserSkeleton.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFSubParserSkeleton.ts#L12)
 
 ## Methods
 
@@ -43,7 +47,7 @@
 
 #### Defined in
 
-[src/loader/parser/gltf/GLTFSubParserSkeleton.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFSubParserSkeleton.ts#L16)
+[src/loader/parser/gltf/GLTFSubParserSkeleton.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFSubParserSkeleton.ts#L17)
 
 ___
 
@@ -64,4 +68,4 @@ ___
 
 #### Defined in
 
-[src/loader/parser/gltf/GLTFSubParserSkeleton.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFSubParserSkeleton.ts#L22)
+[src/loader/parser/gltf/GLTFSubParserSkeleton.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFSubParserSkeleton.ts#L23)

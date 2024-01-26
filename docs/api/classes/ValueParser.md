@@ -12,13 +12,17 @@
 
 ### constructor
 
-• **new ValueParser**()
+• **new ValueParser**(): [`ValueParser`](ValueParser.md)
+
+#### Returns
+
+[`ValueParser`](ValueParser.md)
 
 ## Methods
 
 ### parser
 
-▸ `Static` **parser**(`bytes`): `Object`
+▸ **parser**(`bytes`): `Object`
 
 #### Parameters
 

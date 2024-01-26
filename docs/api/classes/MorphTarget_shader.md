@@ -11,14 +11,17 @@
 ### Methods
 
 - [getMorphTargetShaderBinding](MorphTarget_shader.md#getmorphtargetshaderbinding)
-- [getMorphTargetAttr](MorphTarget_shader.md#getmorphtargetattr)
 - [getMorphTargetCalcVertex](MorphTarget_shader.md#getmorphtargetcalcvertex)
 
 ## Constructors
 
 ### constructor
 
-• **new MorphTarget_shader**()
+• **new MorphTarget_shader**(): [`MorphTarget_shader`](MorphTarget_shader.md)
+
+#### Returns
+
+[`MorphTarget_shader`](MorphTarget_shader.md)
 
 ## Properties
 
@@ -34,7 +37,7 @@
 
 ### getMorphTargetShaderBinding
 
-▸ `Static` **getMorphTargetShaderBinding**(`group`, `beginBinding`): `string`
+▸ **getMorphTargetShaderBinding**(`group`, `beginBinding`): `string`
 
 #### Parameters
 
@@ -53,29 +56,9 @@
 
 ___
 
-### getMorphTargetAttr
-
-▸ `Static` **getMorphTargetAttr**(`beginLocation`): `string`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `beginLocation` | `number` |
-
-#### Returns
-
-`string`
-
-#### Defined in
-
-[src/components/anim/morphAnim/MorphTarget_shader.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTarget_shader.ts#L40)
-
-___
-
 ### getMorphTargetCalcVertex
 
-▸ `Static` **getMorphTargetCalcVertex**(): `string`
+▸ **getMorphTargetCalcVertex**(): `string`
 
 #### Returns
 

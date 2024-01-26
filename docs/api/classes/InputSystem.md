@@ -45,7 +45,11 @@ If the current event does not occur within the View3D, it will not be dispatched
 
 ### constructor
 
-• **new InputSystem**()
+• **new InputSystem**(): [`InputSystem`](InputSystem.md)
+
+#### Returns
+
+[`InputSystem`](InputSystem.md)
 
 #### Inherited from
 

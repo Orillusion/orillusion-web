@@ -15,7 +15,11 @@
 
 ### constructor
 
-• **new TextFieldLine**()
+• **new TextFieldLine**(): [`TextFieldLine`](TextFieldLine.md)
+
+#### Returns
+
+[`TextFieldLine`](TextFieldLine.md)
 
 ## Properties
 

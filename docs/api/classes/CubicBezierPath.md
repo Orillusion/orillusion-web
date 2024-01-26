@@ -26,7 +26,7 @@
 
 ### constructor
 
-• **new CubicBezierPath**(`controlVertices`, `t?`)
+• **new CubicBezierPath**(`controlVertices`, `t?`): [`CubicBezierPath`](CubicBezierPath.md)
 
 #### Parameters
 
@@ -34,6 +34,10 @@
 | :------ | :------ | :------ |
 | `controlVertices` | [`Vector3`](Vector3.md)[] | `undefined` |
 | `t` | [`CubicBezierType`](../enums/CubicBezierType.md) | `CubicBezierType.Open` |
+
+#### Returns
+
+[`CubicBezierPath`](CubicBezierPath.md)
 
 #### Defined in
 

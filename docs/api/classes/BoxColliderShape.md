@@ -28,7 +28,11 @@ It is a basic box shaped primitive collision body.
 
 ### constructor
 
-• **new BoxColliderShape**()
+• **new BoxColliderShape**(): [`BoxColliderShape`](BoxColliderShape.md)
+
+#### Returns
+
+[`BoxColliderShape`](BoxColliderShape.md)
 
 #### Overrides
 
@@ -162,7 +166,7 @@ ColliderShape.halfSize
 
 ### setFromCenterAndSize
 
-▸ **setFromCenterAndSize**(`ct?`, `sz?`): [`BoxColliderShape`](BoxColliderShape.md)
+▸ **setFromCenterAndSize**(`ct?`, `sz?`): `this`
 
 Set the position and size of collision objects
 
@@ -175,7 +179,7 @@ Set the position and size of collision objects
 
 #### Returns
 
-[`BoxColliderShape`](BoxColliderShape.md)
+`this`
 
 #### Inherited from
 

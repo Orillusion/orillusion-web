@@ -74,7 +74,11 @@ Similar to a desk lamp, chandelier, or flashlight, this light source can produce
 
 ### constructor
 
-• **new SpotLight**()
+• **new SpotLight**(): [`SpotLight`](SpotLight.md)
+
+#### Returns
+
+[`SpotLight`](SpotLight.md)
 
 #### Overrides
 
@@ -183,6 +187,8 @@ ___
 ### bindOnChange
 
 • **bindOnChange**: () => `void`
+
+Callback function when binding changes
 
 #### Type declaration
 
@@ -972,7 +978,7 @@ ___
 
 ### onLateUpdate
 
-▸ `Optional` **onLateUpdate**(`view?`): `any`
+▸ **onLateUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -996,7 +1002,7 @@ ___
 
 ### onBeforeUpdate
 
-▸ `Optional` **onBeforeUpdate**(`view?`): `any`
+▸ **onBeforeUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -1020,7 +1026,7 @@ ___
 
 ### onCompute
 
-▸ `Optional` **onCompute**(`view?`, `command?`): `any`
+▸ **onCompute**(`view?`, `command?`): `any`
 
 #### Parameters
 
@@ -1045,7 +1051,7 @@ ___
 
 ### onParentChange
 
-▸ `Optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
+▸ **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
 #### Parameters
 
@@ -1096,17 +1102,17 @@ ___
 
 ### copyComponent
 
-▸ **copyComponent**(`from`): [`SpotLight`](SpotLight.md)
+▸ **copyComponent**(`from`): `this`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `from` | [`SpotLight`](SpotLight.md) |
+| `from` | `this` |
 
 #### Returns
 
-[`SpotLight`](SpotLight.md)
+`this`
 
 #### Inherited from
 

@@ -28,7 +28,7 @@ and each pose describes the transformation information of all bone
 
 ### constructor
 
-• **new SkeletonPose**(`skeleton`, `useGlobalMatrix?`)
+• **new SkeletonPose**(`skeleton`, `useGlobalMatrix?`): [`SkeletonPose`](SkeletonPose.md)
 
 #### Parameters
 
@@ -36,6 +36,10 @@ and each pose describes the transformation information of all bone
 | :------ | :------ | :------ |
 | `skeleton` | `Skeleton` | `undefined` |
 | `useGlobalMatrix` | `boolean` | `false` |
+
+#### Returns
+
+[`SkeletonPose`](SkeletonPose.md)
 
 #### Defined in
 

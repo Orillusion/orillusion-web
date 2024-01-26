@@ -29,7 +29,11 @@ has frame list data
 
 ### constructor
 
-• **new PropertyAnimationClip**()
+• **new PropertyAnimationClip**(): [`PropertyAnimationClip`](PropertyAnimationClip.md)
+
+#### Returns
+
+[`PropertyAnimationClip`](PropertyAnimationClip.md)
 
 ## Properties
 
@@ -105,7 +109,7 @@ ___
 
 ### positionCurves
 
-• **positionCurves**: `Map`<`string`, [`AnimationCurveT`](AnimationCurveT.md)\>
+• **positionCurves**: `Map`\<`string`, [`AnimationCurveT`](AnimationCurveT.md)\>
 
 #### Defined in
 
@@ -115,7 +119,7 @@ ___
 
 ### rotationCurves
 
-• **rotationCurves**: `Map`<`string`, [`AnimationCurveT`](AnimationCurveT.md)\>
+• **rotationCurves**: `Map`\<`string`, [`AnimationCurveT`](AnimationCurveT.md)\>
 
 #### Defined in
 
@@ -125,7 +129,7 @@ ___
 
 ### scaleCurves
 
-• **scaleCurves**: `Map`<`string`, [`AnimationCurveT`](AnimationCurveT.md)\>
+• **scaleCurves**: `Map`\<`string`, [`AnimationCurveT`](AnimationCurveT.md)\>
 
 #### Defined in
 
@@ -135,7 +139,7 @@ ___
 
 ### floatCurves
 
-• **floatCurves**: `Map`<`string`, [`AnimationCurveT`](AnimationCurveT.md)\>
+• **floatCurves**: `Map`\<`string`, [`AnimationCurveT`](AnimationCurveT.md)\>
 
 #### Defined in
 

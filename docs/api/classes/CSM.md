@@ -12,7 +12,11 @@
 
 ### constructor
 
-• **new CSM**()
+• **new CSM**(): [`CSM`](CSM.md)
+
+#### Returns
+
+[`CSM`](CSM.md)
 
 ## Properties
 

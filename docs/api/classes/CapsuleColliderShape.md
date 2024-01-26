@@ -34,7 +34,11 @@ Composed of two hemispheres connected to a cylinder.
 
 ### constructor
 
-• **new CapsuleColliderShape**()
+• **new CapsuleColliderShape**(): [`CapsuleColliderShape`](CapsuleColliderShape.md)
+
+#### Returns
+
+[`CapsuleColliderShape`](CapsuleColliderShape.md)
 
 #### Overrides
 
@@ -192,7 +196,7 @@ ColliderShape.halfSize
 
 ### setFromCenterAndSize
 
-▸ **setFromCenterAndSize**(`ct?`, `sz?`): [`CapsuleColliderShape`](CapsuleColliderShape.md)
+▸ **setFromCenterAndSize**(`ct?`, `sz?`): `this`
 
 Set the position and size of collision objects
 
@@ -205,7 +209,7 @@ Set the position and size of collision objects
 
 #### Returns
 
-[`CapsuleColliderShape`](CapsuleColliderShape.md)
+`this`
 
 #### Inherited from
 

@@ -33,7 +33,7 @@
 
 ### constructor
 
-• **new ProbeGBufferFrame**(`rtWidth`, `rtHeight`, `autoResize?`)
+• **new ProbeGBufferFrame**(`rtWidth`, `rtHeight`, `autoResize?`): [`ProbeGBufferFrame`](ProbeGBufferFrame.md)
 
 #### Parameters
 
@@ -42,6 +42,10 @@
 | `rtWidth` | `number` | `undefined` |
 | `rtHeight` | `number` | `undefined` |
 | `autoResize` | `boolean` | `true` |
+
+#### Returns
+
+[`ProbeGBufferFrame`](ProbeGBufferFrame.md)
 
 #### Overrides
 

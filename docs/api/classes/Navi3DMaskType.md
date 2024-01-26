@@ -12,7 +12,11 @@
 
 ### constructor
 
-• **new Navi3DMaskType**()
+• **new Navi3DMaskType**(): [`Navi3DMaskType`](Navi3DMaskType.md)
+
+#### Returns
+
+[`Navi3DMaskType`](Navi3DMaskType.md)
 
 ## Properties
 

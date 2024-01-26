@@ -18,13 +18,17 @@ Cubic Bezier Curve
 
 ### constructor
 
-• **new CubicBezierCurve**(`cvs`)
+• **new CubicBezierCurve**(`cvs`): [`CubicBezierCurve`](CubicBezierCurve.md)
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `cvs` | [`Vector3`](Vector3.md)[] | controller points |
+
+#### Returns
+
+[`CubicBezierCurve`](CubicBezierCurve.md)
 
 #### Defined in
 

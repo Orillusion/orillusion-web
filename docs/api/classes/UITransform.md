@@ -70,7 +70,11 @@ The component for gui, holding information such as size, scaling, position, etc
 
 ### constructor
 
-• **new UITransform**()
+• **new UITransform**(): [`UITransform`](UITransform.md)
+
+#### Returns
+
+[`UITransform`](UITransform.md)
 
 #### Overrides
 
@@ -614,7 +618,7 @@ ___
 
 ### onUpdate
 
-▸ `Optional` **onUpdate**(`view?`): `any`
+▸ **onUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -638,7 +642,7 @@ ___
 
 ### onLateUpdate
 
-▸ `Optional` **onLateUpdate**(`view?`): `any`
+▸ **onLateUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -662,7 +666,7 @@ ___
 
 ### onBeforeUpdate
 
-▸ `Optional` **onBeforeUpdate**(`view?`): `any`
+▸ **onBeforeUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -686,7 +690,7 @@ ___
 
 ### onCompute
 
-▸ `Optional` **onCompute**(`view?`, `command?`): `any`
+▸ **onCompute**(`view?`, `command?`): `any`
 
 #### Parameters
 
@@ -711,7 +715,7 @@ ___
 
 ### onGraphic
 
-▸ `Optional` **onGraphic**(`view?`): `any`
+▸ **onGraphic**(`view?`): `any`
 
 #### Parameters
 
@@ -735,17 +739,17 @@ ___
 
 ### copyComponent
 
-▸ **copyComponent**(`from`): [`UITransform`](UITransform.md)
+▸ **copyComponent**(`from`): `this`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `from` | [`UITransform`](UITransform.md) |
+| `from` | `this` |
 
 #### Returns
 
-[`UITransform`](UITransform.md)
+`this`
 
 #### Inherited from
 
@@ -809,7 +813,7 @@ ___
 
 ### addUIInteractive
 
-▸ **addUIInteractive**(`item`): [`UITransform`](UITransform.md)
+▸ **addUIInteractive**(`item`): `this`
 
 #### Parameters
 
@@ -819,7 +823,7 @@ ___
 
 #### Returns
 
-[`UITransform`](UITransform.md)
+`this`
 
 #### Defined in
 

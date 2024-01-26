@@ -13,7 +13,11 @@
 
 ### constructor
 
-• **new CubeSky_Shader**()
+• **new CubeSky_Shader**(): [`CubeSky_Shader`](CubeSky_Shader.md)
+
+#### Returns
+
+[`CubeSky_Shader`](CubeSky_Shader.md)
 
 ## Properties
 

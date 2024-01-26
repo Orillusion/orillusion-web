@@ -29,7 +29,11 @@ rather than pursuing perfect real anti-aliasing effect.
 
 ### constructor
 
-• **new FXAAPost**()
+• **new FXAAPost**(): [`FXAAPost`](FXAAPost.md)
+
+#### Returns
+
+[`FXAAPost`](FXAAPost.md)
 
 #### Overrides
 

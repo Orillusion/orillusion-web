@@ -46,7 +46,11 @@ collider component
 
 ### constructor
 
-• **new ColliderComponent**()
+• **new ColliderComponent**(): [`ColliderComponent`](ColliderComponent.md)
+
+#### Returns
+
+[`ColliderComponent`](ColliderComponent.md)
 
 #### Overrides
 
@@ -358,7 +362,7 @@ ___
 
 ### onUpdate
 
-▸ `Optional` **onUpdate**(`view?`): `any`
+▸ **onUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -382,7 +386,7 @@ ___
 
 ### onLateUpdate
 
-▸ `Optional` **onLateUpdate**(`view?`): `any`
+▸ **onLateUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -406,7 +410,7 @@ ___
 
 ### onBeforeUpdate
 
-▸ `Optional` **onBeforeUpdate**(`view?`): `any`
+▸ **onBeforeUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -430,7 +434,7 @@ ___
 
 ### onCompute
 
-▸ `Optional` **onCompute**(`view?`, `command?`): `any`
+▸ **onCompute**(`view?`, `command?`): `any`
 
 #### Parameters
 
@@ -455,7 +459,7 @@ ___
 
 ### onGraphic
 
-▸ `Optional` **onGraphic**(`view?`): `any`
+▸ **onGraphic**(`view?`): `any`
 
 #### Parameters
 
@@ -479,7 +483,7 @@ ___
 
 ### onParentChange
 
-▸ `Optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
+▸ **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
 #### Parameters
 
@@ -530,17 +534,17 @@ ___
 
 ### copyComponent
 
-▸ **copyComponent**(`from`): [`ColliderComponent`](ColliderComponent.md)
+▸ **copyComponent**(`from`): `this`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `from` | [`ColliderComponent`](ColliderComponent.md) |
+| `from` | `this` |
 
 #### Returns
 
-[`ColliderComponent`](ColliderComponent.md)
+`this`
 
 #### Inherited from
 

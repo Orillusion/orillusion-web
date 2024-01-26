@@ -29,7 +29,11 @@
 
 ### constructor
 
-• **new GeometryInfo**()
+• **new GeometryInfo**(): [`GeometryInfo`](GeometryInfo.md)
+
+#### Returns
+
+[`GeometryInfo`](GeometryInfo.md)
 
 #### Inherited from
 
@@ -43,7 +47,7 @@
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L22)
+[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L41)
 
 ___
 
@@ -53,7 +57,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L23)
+[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L42)
 
 ___
 
@@ -63,7 +67,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L24)
+[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L43)
 
 ___
 
@@ -73,13 +77,13 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L25)
+[src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/new/Graphic3DFaceRenderer.ts#L44)
 
 ## Methods
 
 ### getValueSize
 
-▸ `Static` **getValueSize**(`value`): `any`
+▸ **getValueSize**(`value`): `any`
 
 get any type value memory size
 
@@ -105,23 +109,23 @@ ___
 
 ### Ref
 
-▸ `Static` **Ref**<`T`\>(`c`): { `name`: `string` ; `type`: `string`  }[]
+▸ **Ref**\<`T`\>(`c`): \{ `name`: `string` ; `type`: `string`  }[]
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`Struct`](Struct.md)<`T`\> |
+| `T` | extends [`Struct`](Struct.md) |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)<`T`\> |
+| `c` | [`Ctor`](../types/Ctor.md)\<`T`\> |
 
 #### Returns
 
-{ `name`: `string` ; `type`: `string`  }[]
+\{ `name`: `string` ; `type`: `string`  }[]
 
 #### Inherited from
 
@@ -135,19 +139,19 @@ ___
 
 ### Get
 
-▸ `Static` **Get**<`T`\>(`c`): [`Struct`](Struct.md)
+▸ **Get**\<`T`\>(`c`): [`Struct`](Struct.md)
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`Struct`](Struct.md)<`T`\> |
+| `T` | extends [`Struct`](Struct.md) |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)<`T`\> |
+| `c` | [`Ctor`](../types/Ctor.md)\<`T`\> |
 
 #### Returns
 
@@ -165,7 +169,7 @@ ___
 
 ### GetSize
 
-▸ `Static` **GetSize**<`T`\>(`c`): `number`
+▸ **GetSize**\<`T`\>(`c`): `number`
 
 get any struct memory size
 
@@ -173,13 +177,13 @@ get any struct memory size
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends [`Struct`](Struct.md)<`T`\> |
+| `T` | extends [`Struct`](Struct.md) |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)<`T`\> |
+| `c` | [`Ctor`](../types/Ctor.md)\<`T`\> |
 
 #### Returns
 
@@ -197,13 +201,13 @@ ___
 
 ### getValueType
 
-▸ **getValueType**(): { `name`: `string` ; `type`: `string`  }[]
+▸ **getValueType**(): \{ `name`: `string` ; `type`: `string`  }[]
 
 get reflection name
 
 #### Returns
 
-{ `name`: `string` ; `type`: `string`  }[]
+\{ `name`: `string` ; `type`: `string`  }[]
 
 #### Inherited from
 

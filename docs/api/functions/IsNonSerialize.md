@@ -1,6 +1,6 @@
 # Function: IsNonSerialize
 
-▸ **IsNonSerialize**<`T`\>(`instance`, `key`): `boolean`
+▸ **IsNonSerialize**\<`T`\>(`instance`, `key`): `boolean`
 
 #### Type parameters
 

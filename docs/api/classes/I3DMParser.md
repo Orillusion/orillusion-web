@@ -32,7 +32,11 @@
 
 ### constructor
 
-• **new I3DMParser**()
+• **new I3DMParser**(): [`I3DMParser`](I3DMParser.md)
+
+#### Returns
+
+[`I3DMParser`](I3DMParser.md)
 
 #### Inherited from
 
@@ -126,7 +130,7 @@ ParserBase.data
 
 ### parseBuffer
 
-▸ **parseBuffer**(`buffer`): `Promise`<`void`\>
+▸ **parseBuffer**(`buffer`): `Promise`\<`void`\>
 
 #### Parameters
 
@@ -136,7 +140,7 @@ ParserBase.data
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Overrides
 

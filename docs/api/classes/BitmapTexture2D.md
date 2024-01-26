@@ -72,13 +72,17 @@ bitmap texture
 
 ### constructor
 
-• **new BitmapTexture2D**(`useMipmap?`)
+• **new BitmapTexture2D**(`useMipmap?`): [`BitmapTexture2D`](BitmapTexture2D.md)
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
 | `useMipmap` | `boolean` | `true` | Set whether to use mipmap |
+
+#### Returns
+
+[`BitmapTexture2D`](BitmapTexture2D.md)
 
 #### Overrides
 
@@ -926,11 +930,11 @@ set raw data of this texture
 
 ### init
 
-▸ **init**(): [`BitmapTexture2D`](BitmapTexture2D.md)
+▸ **init**(): `this`
 
 #### Returns
 
-[`BitmapTexture2D`](BitmapTexture2D.md)
+`this`
 
 #### Inherited from
 
@@ -1087,7 +1091,7 @@ ___
 
 ### delayDestroyTexture
 
-▸ `Static` **delayDestroyTexture**(`tex`): `void`
+▸ **delayDestroyTexture**(`tex`): `void`
 
 #### Parameters
 
@@ -1111,7 +1115,7 @@ ___
 
 ### destroyTexture
 
-▸ `Static` **destroyTexture**(): `void`
+▸ **destroyTexture**(): `void`
 
 #### Returns
 
@@ -1129,7 +1133,7 @@ ___
 
 ### load
 
-▸ **load**(`url`, `loaderFunctions?`): `Promise`<`unknown`\>
+▸ **load**(`url`, `loaderFunctions?`): `Promise`\<`unknown`\>
 
 load texture data from web url
 
@@ -1142,7 +1146,7 @@ load texture data from web url
 
 #### Returns
 
-`Promise`<`unknown`\>
+`Promise`\<`unknown`\>
 
 #### Defined in
 
@@ -1152,7 +1156,7 @@ ___
 
 ### loadFromBlob
 
-▸ **loadFromBlob**(`imgData`): `Promise`<`boolean`\>
+▸ **loadFromBlob**(`imgData`): `Promise`\<`boolean`\>
 
 load data from Blob
 
@@ -1164,7 +1168,7 @@ load data from Blob
 
 #### Returns
 
-`Promise`<`boolean`\>
+`Promise`\<`boolean`\>
 
 #### Defined in
 
