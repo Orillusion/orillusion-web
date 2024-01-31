@@ -83,46 +83,18 @@ class Sample_Shape3DPath2D {
         path.lineWidth = 0.5;
         path.lineJoin = LineJoin.bevel;
         path.corner = 6;
-        path.fill = false;
+        path.fill = true;
         path.line = true;
         path.isClosed = false;
-        path.lineUVRect.z = 0.1;
-        path.lineUVRect.w = 0.1;
+        path.lineUVRect.z = 0.5;
+        path.lineUVRect.w = 0.5;
+        path.fillUVRect.z = 0.1;
+        path.fillUVRect.w = 0.1;
 
         path.lineColor = Color.random();
         path.uvSpeed = new Vector4(0, 0, 0, Math.random() - 0.5).multiplyScalar(0.005);
 
-        path.moveTo(0, 0);
-        path.moveTo(5, 2);
-        path.lineTo(5, 10);
-        path.lineTo(10, 15);
-        path.moveTo(20, 0);
-        path.lineTo(20, 20);
-        path.closePath();
-
-        path.quadraticCurveTo(-10, 25, 15, 28, 18);
-
-        path.ellipse(30, 16, 5, 10, 45, 0, 360);
-
-        path.roundRect(30, 40, 20, 10, 6, 4);
-
-        let sphereF = Object3DUtil.GetSingleSphere(0.2, 1, 0, 0);
-        sphereF.x = 10;
-        sphereF.z = 4;
-        this.scene.addChild(sphereF);
-
-        let sphereCtrl = Object3DUtil.GetSingleSphere(0.2, 0, 1, 0);
-        sphereCtrl.x = 2;
-        sphereCtrl.z = 10;
-        this.scene.addChild(sphereCtrl);
-
-        let sphereT = Object3DUtil.GetSingleSphere(0.2, 0, 0, 1);
-        sphereT.x = 15;
-        sphereT.z = 10;
-        this.scene.addChild(sphereT);
-
-        path.moveTo(sphereF.x, sphereF.z);
-        path.arcTo(sphereCtrl.x, sphereCtrl.z, sphereT.x, sphereT.z, 4, 10);
+        path.arc(0, 0, 20, 0, 360, undefined, 40);
 
         // GUIShape3D.renderLine(path, 5, false);
         return path;
