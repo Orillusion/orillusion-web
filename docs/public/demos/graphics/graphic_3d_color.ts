@@ -71,7 +71,7 @@ class Sample_GraphicMesh_Color {
 
         let texts = [];
 
-        texts.push((await Engine3D.res.loadTexture('textures/128/star_0008.png')) as BitmapTexture2D);
+        texts.push((await Engine3D.res.loadTexture('https://cdn.orillusion.com/textures/128/star_0008.png')) as BitmapTexture2D);
 
         let bitmapTexture2DArray = new BitmapTexture2DArray(texts[0].width, texts[0].height, texts.length);
         bitmapTexture2DArray.setTextures(texts);

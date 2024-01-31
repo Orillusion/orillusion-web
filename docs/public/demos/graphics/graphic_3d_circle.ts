@@ -1,4 +1,4 @@
-import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight, KelvinUtil, UnLitTexArrayMaterial, BitmapTexture2DArray, BitmapTexture2D, Graphic3DMesh, Matrix4, Color, Time, sin, MeshRenderer, Vector2, LineJoin, Vector4, Object3DUtil, AxisObject } from '@orillusion/core';
+import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight, KelvinUtil, BitmapTexture2DArray, BitmapTexture2D, Matrix4, Color, LineJoin, Vector4, Object3DUtil, AxisObject } from '@orillusion/core';
 import { Stats } from '@orillusion/stats';
 import { Shape3DMaker, Shape3D } from '@orillusion/graphic';
 
@@ -67,7 +67,7 @@ class Sample_Shape3DPath2D {
     private maker: Shape3DMaker;
     private async addNode() {
         let texts = [];
-        texts.push((await Engine3D.res.loadTexture('textures/grid.jpg')) as BitmapTexture2D);
+        texts.push((await Engine3D.res.loadTexture('https://cdn.orillusion.com/textures/grid.webp')) as BitmapTexture2D);
 
         let bitmapTexture2DArray = new BitmapTexture2DArray(texts[0].width, texts[0].height, texts.length);
         bitmapTexture2DArray.setTextures(texts);

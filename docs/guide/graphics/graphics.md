@@ -1,13 +1,15 @@
 # 图形
+
 `Graphics` 模块主要用于对具有实时变化的点、线、面、体的数据，使用特定的方法创建模型网格，并配置好`Transform`、`Texture`、`Material`等信息，传入到渲染管线中参与渲染。通过这个方法创建出来的动态网格，性能高效、使用方便。
 
 引擎内置封装有多种`Graphics`渲染API，供不同的需求提供实现路径。
 1. `Graphic3DMeshRenderer`渲染器：通过`Graphic3DMesh.draw()`，指定输入`Mesh`网格，在同一个渲染器中批量创建、控制一组克隆体。对每个克隆体的`Transform`、`Texture`，以及渲染器的`Material`进行动态调整，达到组装出目标图形、动画的目的。
 2. `Shape3DRenderer` 渲染器：通过`Shape3DMaker.makeRenderer()`，获得渲染器实例。通过Shape3DMaker提供的API，可以快速创建出想要的`Shape3D`。例如`Ellipse`、`Rect`、`Circle`等等，后续后更详尽的描述。对于创建出的`Path`类型的`Shape3D`，比如`Path2DShape3D`、`Path3DShape3D`，引擎参照`CanvasPath`中的API设计来实现，让开发者能借鉴和沿用自己熟悉的开发方式，使用`Orillusion`引擎做`Graphics`3D绘制工作。
 
-### 认识`Graphic3DMeshRenderer`
+## `Graphic3DMeshRenderer`
 
-初始化概览：
+### 参数概览
+
 | 参数 | 描述 |
 | --- | --- |
 | scene | 创建出的渲染器将会被放入指定的Scene3D目录树中 |
@@ -24,7 +26,8 @@
 2. 修改`Texture`: 调用函数setTextureID，指定修改特定下标（index）单元对应的贴图下标（textureIndex），贴图从`Graphic3DMeshRenderer`初始化参数的texture中获取。
 3. 修改`Material`：在`Graphic3DMeshRenderer`类中开放有一些列命名为类似`setTextureID`这样的API。第一个参数为指定设置的目标单元，第二个接口为设置的相关参数。开发者可以通过这样的API，修改修改图形的内容。例如Color、UV、Emissive等数据。
 
-### `Graphic3DMeshRenderer`使用示例：
+### 使用示例
+
 ```ts
 import { Object3D, Scene3D, Engine3D, BitmapTexture2DArray, BitmapTexture2D, PlaneGeometry, Vector3, Graphic3DMesh, Matrix4, Time, BlendMode, Color, ColorUtil, Graphic3DMeshRenderer } from "@orillusion/core";
 
@@ -65,7 +68,7 @@ for (let i = 0; i < this.width * this.height; i++) {
 <<< @/public/demos/graphics/graphic_3d_color.ts
 
 
-### 认识`Shape3DRenderer`
+## `Shape3DRenderer`
 
 通过帮助类`Shape3DMaker`初始化`Shape3DRenderer`，获得maker并使用它。
 | 参数 | 描述 |
@@ -80,7 +83,8 @@ for (let i = 0; i < this.width * this.height; i++) {
 
  >>渲染器参照`CanvasPath`中的API设计来实现，让开发者能沿用和借鉴自己熟悉的开发方式，使用`Orillusion`引擎做`Graphics`3D绘制工作。渲染器的2D绘制部分指的是在xz平面中绘制点、线、面。同时对每个单元仍然可以通过`Transform`独立控制。如果你想绘制3D空间中的图形，使用`Path3DShape3D`，即可获得拥有y轴高程数据的图形绘制。
 
-#### `Shape3D`是什么？
+### 基础属性
+
 引擎内置了很多基础图形，这些基础图形决定了其在绘制时候有不同的行为。下面的表格列举出了大部分公开的属性。
 | 名称 | 描述 |
 | --- | --- |
@@ -98,7 +102,7 @@ for (let i = 0; i < this.width * this.height; i++) {
 | fillUVRect | UV数据：xy分别对应填充区域贴图的offset、zw对应贴图数据的缩放|
 | uvSpeed | UV数据：xy分别填充区域贴图的uv移动速度；zw对应线条绘制时贴图数据的uv移动速度|
 
-#### `Shape3D`的分类： 
+### 图形分类
 
 | 名称 | 描述 |
 | --- | --- |
@@ -112,7 +116,7 @@ for (let i = 0; i < this.width * this.height; i++) {
 | RoundRectShape3D | 矩形、圆角矩形 |
 
 
-#### 使用`Shape3DMaker`快速创建`Shape3D`：
+### 创建 `Shape3D`
 | 函数名称 | 获得Shape3D |
 | --- | --- |
 | ellipse | EllipseShape3D |
@@ -134,7 +138,7 @@ for (let i = 0; i < this.width * this.height; i++) {
 | removeShape | 删除一个Shape3D实例 |
 | getShapeObject3D | 通过Shape3D的实例的shapeIndex属性，获得对应的Object3D。供后续修改Transform使用 |
 
-### `Shape3DRenderer`使用示例：
+### 使用示例
 
 ```ts
 import { Object3D, Scene3D, Engine3D, BitmapTexture2DArray, BitmapTexture2D, PlaneGeometry, Vector3, Matrix4, Time, BlendMode, Color,ColorUtil } from "@orillusion/core";
