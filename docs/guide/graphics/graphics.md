@@ -60,9 +60,9 @@ for (let i = 0; i < this.width * this.height; i++) {
 
 ```
 
-<Demo src="/demos/graphic/graphic_3d_color.ts"></Demo>
+<Demo src="/demos/graphics/graphic_3d_color.ts"></Demo>
 
-<<< @/public/demos/graphic/graphic_3d_color.ts
+<<< @/public/demos/graphics/graphic_3d_color.ts
 
 
 ### 认识`Shape3DRenderer`
@@ -174,6 +174,6 @@ circle.endAngle = 240;//设置圆弧结束角度
 
 ```
 
-<Demo src="/demos/graphic/graphic_3d_circle.ts"></Demo>
+<Demo src="/demos/graphics/graphic_3d_circle.ts"></Demo>
 
-<<< @/public/demos/graphic/graphic_3d_circle.ts
+<<< @/public/demos/graphics/graphic_3d_circle.ts
