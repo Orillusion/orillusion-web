@@ -181,10 +181,12 @@ circle.endAngle = 240;//设置圆弧结束角度
 
 ```
 
->> 上述代码展示绘制一个独立圆形/圆弧，采用创建CircleShape3D的实例的方法。你也可以通过创建 `Path2DShape3D` 实例，然后调用 `Path2DShape3D` 中的 `arc()` 函数创建。
+>> 上述代码展示绘制一个独立圆形/圆弧，采用创建CircleShape3D的实例的方法。你也可以通过创建 `Path2DShape3D` 实例，然后调用其 `arc()` 函数获得。
 
 >> 两者的区别为：前者为独立的Shape3D，方便通过对应的 `Object3D` 独立控制 `Transform` ，以及控制圆弧的公开属性(lineWidth, startAngle, endAngle...)；后者嵌套在 `Path2DShape3D` 中，不方便后续独立控制，但是绘制出来的线条具有连续性。比如lineTo至a位置，再绘制一段弧形至b位置，然后继续lineTo至c位置；获得的图形为连续线条，UV也是连续的。
 
 <Demo src="/demos/graphics/graphic_3d_circle.ts"></Demo>
+
+>> 官方源码中，有更多关于 `Shape3D` 的示例代码供参考。它们涵盖如下功能：动态添加/删除 `Shape3D` 、动态修改一个 `Shape3D` 的 `shapeOrder`、使用更多绘制Path的API。
 
 <<< @/public/demos/graphics/graphic_3d_circle.ts
