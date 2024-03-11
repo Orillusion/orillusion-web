@@ -21,14 +21,14 @@
         padding-left: var(--vp-sidebar-width) !important;
         padding-right: none !important;
     }
-    .VPNavBar.has-sidebar > .container > .content {
+    .VPNavBar.has-sidebar .container > .content {
         padding-left: var(--vp-sidebar-width) !important;
         padding-right: 32px !important;
     }
     .VPNavBar.has-sidebar .curtain {
         width: calc(100% - var(--vp-sidebar-width) - 32px) !important;
     }
-    .VPNavBar.has-sidebar > .container > .title {
+    .VPNavBar.has-sidebar .container > .title {
         width: var(--vp-sidebar-width) !important;
     }
 }
