@@ -40,7 +40,7 @@ The engine provides the [UnLitMaterial](/api/classes/UnLitMaterial) class for re
 <<< @/public/demos/materials/UnLitMaterial.ts
 
 ## PBR Material
-We recommend using the [PBR](/api/classes/LitMaterial) material for rendering, `PBR` stands for `Physicallly-Based Rendering`, which is a material based on physical rendering. That means to be more in line with the physical lighting model of reality.
+We recommend using the [PBR](/api/classes/LitMaterial) material for rendering, `PBR` stands for `Physically-Based Rendering`, which is a material based on physical rendering. That means to be more in line with the physical lighting model of reality.
 
 |     Attribute     |                                     Description                                     |
 |:-----------------:|:-----------------------------------------------------------------------------------:|
