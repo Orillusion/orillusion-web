@@ -13,7 +13,24 @@
 ## 基本使用
 指定场景中的某个节点 `Object3D`，为其添加组件 `PropertyAnimation`；然后给组件追加影片剪辑后即能使用。
 
-> 目前引擎只支持导入经过专业建模软件制作的 `Clip` 素材，暂不支持代码中自定义属性动画，后续版本会加入
+> 目前引擎只支持通过Unity工具导入经过Curve曲线或者Animation数据导出 `Clip` 素材，暂不支持代码中自定义属性动画，后续版本会加入
+
+```cs
+
+//Unity中导出clip的及脚本
+public class AnimationInfo : InfoBase
+{
+    [SerializeField] public Animation animation;
+    [SerializeField] public List<AnimationClip> clipList;
+
+    public string WriteJson()
+    {
+        string ret = JsonUtility.ToJson(this);
+        return ret;
+    }
+}
+
+```
 
 ```ts
 // load test model
