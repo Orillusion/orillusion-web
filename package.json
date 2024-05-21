@@ -23,7 +23,7 @@
         "@types/node": "^18.18.8",
         "esbuild": "^0.17.19",
         "prettier": "^2.8.8",
-        "vitepress": "1.0.0-rc.45",
+        "vitepress": "1.2.2",
         "vue": "^3.3.7"
     },
     "pnpm": {
