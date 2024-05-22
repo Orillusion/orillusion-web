@@ -12,7 +12,6 @@ First, we need to import the corresponding modules:
 
 ```ts
 import {
-    Color,
     Engine3D,
     Scene3D,
     Object3D,
@@ -29,7 +28,6 @@ import {
 
 | Modules               | Description                                                                                                                                             |
 |-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Color                 | Provide the definition of color                                                                                                                         |
 | Engine3D              | Engine3D class is the main body of the engine, including engine initialization, start rendering and other core methods                                  |
 | Scene3D               | By creating a new Scene3D class, you can create a instance scene, which is usually used as the root node in the program                                 |
 | Object3D              | The Object3D class defines an object for object(things) that contains common object(things) properties such as position, rotation, and other parameters |
