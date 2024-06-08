@@ -24,8 +24,9 @@ demo()
 默认参数下，`Engine3D.init()` 实例会自动生成一个以屏幕大小为宽高的 `canvas` 画布。如果不想使用引擎自动创建的画布，用户也可以手动创建画布。
 比如，用户可以在 HTML 中插入一个 `<canvas>` 标签，并指定一个 id：
 ```html
-<canvas id="canvas" width="800" height="500" />
+<canvas id="canvas" style="width:800px;height:500px" />
 ```
+> 注意: 使用外部画布需要手动设定 `style` 大小，比如具体的像素数值，或设置为 `100%` 来自动占满父级容器
 
 接下来，在 ts 代码中通过 `document.getElementById` 获取到该画布：
 ```ts
