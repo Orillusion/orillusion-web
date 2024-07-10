@@ -8,7 +8,9 @@ Engine3D.init().then(()=>{
   // 进行后续操作
 });
 ```
-注意，`Engine3D.init()` 是一个异步 API，推荐配合 `async/await` 进行调用
+::: tip
+`Engine3D.init()` 是一个异步 API，推荐配合 `async/await` 进行调用
+:::
 
 ```ts
 import { Engine3D } from '@orillusion/core';
@@ -26,7 +28,9 @@ demo();
 ```html
 <canvas id="canvas" style="width:800px;height:500px" />
 ```
-> 注意: 使用外部画布需要手动设定 `style` 大小，比如具体的像素数值，或设置为 `100%` 来自动占满父级容器
+::: tip
+使用外部画布需要手动设定 `style` 大小，比如具体的像素数值，或设置为 `100%` 来自动占满父级容器
+:::
 
 接下来，在 ts 代码中通过 `document.getElementById` 获取到该画布：
 ```ts
