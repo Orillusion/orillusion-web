@@ -14,7 +14,7 @@ let camera = cameraObj.addComponent(Camera3D);
 camera.perspective(60, Engine3D.aspect, 1, 5000.0);
 // set camera controller
 let controller = cameraObj.addComponent(HoverCameraController);
-controller.setCamera(0, 0, 15);
+controller.setCamera(0, -15, 15);
 // add camera node
 scene3D.addChild(cameraObj);
 // create light
@@ -24,7 +24,7 @@ let component: DirectLight = light.addComponent(DirectLight);
 // adjust lighting
 light.rotationX = 45;
 light.rotationY = 30;
-component.intensity = 1;
+component.intensity = 2;
 // add light object
 scene3D.addChild(light);
 // create new object

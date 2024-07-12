@@ -54,7 +54,7 @@ class Sample_Shape3DPath2D {
             let directLight = this.lightObj3D.addComponent(DirectLight);
             directLight.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
             directLight.castShadow = false;
-            directLight.intensity = 10;
+            directLight.intensity = 20;
             this.scene.addChild(this.lightObj3D);
             await this.addNode();
         }
@@ -81,8 +81,8 @@ class Sample_Shape3DPath2D {
     }
 
     private createPath(): Shape3D {
-        let circle = this.maker.arc(5, 0, 360, undefined);
-        circle.lineWidth = 0.5;
+        let circle = this.maker.arc(20, 0, 360, undefined);
+        circle.lineWidth = 2;
         circle.segment = 40;
         circle.fill = true;
         circle.line = true;

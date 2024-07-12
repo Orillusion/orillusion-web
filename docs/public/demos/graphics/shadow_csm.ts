@@ -11,7 +11,10 @@ class Sample_CSM {
     GUIHelp: dat.GUI;
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
-        Engine3D.setting.shadow.shadowSize = 1024;
+        Engine3D.setting.shadow.shadowSize = 2048;
+        Engine3D.setting.shadow.shadowBound = 512;
+        Engine3D.setting.shadow.shadowBias = 0.01;
+
         await Engine3D.init({
             renderLoop: () => {
                 this.loop();
@@ -29,8 +32,8 @@ class Sample_CSM {
         mainCamera.object3D.z = -15;
         mainCamera.object3D.addComponent(HoverCameraController).setCamera(-15, -35, 200);
 
-        sky.relativeTransform = this.initLight('mainLight', 30, 45);
-        this.initLight('subLight', 10, 10);
+        sky.relativeTransform = this.initLight('mainLight', 3, 45);
+        this.initLight('subLight', 2, 10);
         this.initScene();
 
         let view = new View3D();

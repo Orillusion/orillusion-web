@@ -126,10 +126,9 @@ td > code {
 .VPNavBar .VPNavBarTranslations svg.option-icon {
     margin-right: 2.5em;
 }
-.VPNavBar .VPNavBarTranslations > .button > .text::after {
+.VPNavBar .VPNavBarTranslations > .button > .text::before {
     content: '中文';
-    position: absolute;
-    left: 3.5em;
+    margin-right: 0.5em;
 }
 .VPNavBar .VPLink > svg {
     pointer-events: none;

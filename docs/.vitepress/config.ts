@@ -249,7 +249,7 @@ function nav() {
             link: 'https://forum.orillusion.com'
         },
         {
-            text: 'v0.7',
+            text: 'v0.8',
             items: [
                 {
                     text: '更新日志',
