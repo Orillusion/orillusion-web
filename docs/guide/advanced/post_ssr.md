@@ -30,12 +30,12 @@ Engine3D.startRenderView(view);
 
 | 参数 | 类型 | 描述 |
 | --- | --- | --- |
-| fadeEdgeRatio | number | 渐变速率。|
-| rayMarchRatio | number | 光线步进速率。|
-| fadeDistanceMin | number | 消退距离最小值。|
-| fadeDistanceMax | number | 消退距离最大值。|
-| roughnessThreshold | number | 粗糙度阈值。|
-| powDotRN | number | normal和reflection点积的pow参数。|
+| fadeEdgeRatio | number | 渐变速率 |
+| rayMarchRatio | number | 光线步进速率 |
+| fadeDistanceMin | number | 消退距离最小值 |
+| fadeDistanceMax | number | 消退距离最大值 |
+| roughnessThreshold | number | 粗糙度阈值 |
+| powDotRN | number | `normal` 和 `reflection` 点积的 `pow` 参数 |
 
 <Demo src="/demos/advanced/Sample_ssr.ts"></Demo>
 

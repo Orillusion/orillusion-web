@@ -17,12 +17,13 @@ class Position_Audio {
         Engine3D.setting.shadow.autoUpdate = true;
         Engine3D.setting.shadow.updateFrameRate = 1;
         Engine3D.setting.shadow.type = 'HARD';
-        Engine3D.setting.shadow.shadowBound = 100;
+        Engine3D.setting.shadow.shadowSize = 2048;
+        Engine3D.setting.shadow.shadowBound = 250;
+        Engine3D.setting.shadow.shadowBias = 0.002;
 
         await Engine3D.init({
             renderLoop: this.loop.bind(this)
         });
-        console.log(1);
         this.scene = new Scene3D();
         this.scene.addComponent(AtmosphericComponent);
 
@@ -74,7 +75,7 @@ class Position_Audio {
             let directLight = this.lightObj.addComponent(DirectLight);
             directLight.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
             directLight.castShadow = true;
-            directLight.intensity = 30;
+            directLight.intensity = 3;
             this.scene.addChild(this.lightObj);
         }
         {

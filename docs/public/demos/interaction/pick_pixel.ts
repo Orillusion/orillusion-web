@@ -44,12 +44,12 @@ class Sample_MousePick {
         Engine3D.startRenderView(view);
 
         // listen all mouse events
-        view.pickFire.addEventListener(PointerEvent3D.PICK_UP, this.onUp, this);
-        view.pickFire.addEventListener(PointerEvent3D.PICK_DOWN, this.onDow, this);
+        view.pickFire.addEventListener(PointerEvent3D.PICK_UP, this.onPick, this);
+        view.pickFire.addEventListener(PointerEvent3D.PICK_DOWN, this.onPick, this);
         view.pickFire.addEventListener(PointerEvent3D.PICK_CLICK, this.onPick, this);
-        view.pickFire.addEventListener(PointerEvent3D.PICK_OVER, this.onOver, this);
-        view.pickFire.addEventListener(PointerEvent3D.PICK_OUT, this.onOut, this);
-        view.pickFire.addEventListener(PointerEvent3D.PICK_MOVE, this.onMove, this);
+        view.pickFire.addEventListener(PointerEvent3D.PICK_OVER, this.onPick, this);
+        view.pickFire.addEventListener(PointerEvent3D.PICK_OUT, this.onPick, this);
+        view.pickFire.addEventListener(PointerEvent3D.PICK_MOVE, this.onPick, this);
     }
 
     private initPickObject(scene: Scene3D): void {
@@ -62,7 +62,7 @@ class Sample_MousePick {
             let lc = this.lightObj.addComponent(DirectLight);
             lc.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
             lc.castShadow = true;
-            lc.intensity = 20;
+            lc.intensity = 5;
             scene.addChild(this.lightObj);
         }
 
@@ -88,43 +88,13 @@ class Sample_MousePick {
         }
     }
 
-    private onUp(e: PointerEvent3D) {
-        console.log('onUp', e.target.name, e.data.pickInfo);
-        let obj = e.target as Object3D;
-        let mr = obj.getComponent(MeshRenderer);
-        mr.material.baseColor = Color.random();
-    }
-
-    private onDow(e: PointerEvent3D) {
-        console.log('onDown', e.target.name, e.data.pickInfo);
-        let obj = e.target as Object3D;
-        let mr = obj.getComponent(MeshRenderer);
-        mr.material.baseColor = Color.random();
-    }
-
     private onPick(e: PointerEvent3D) {
-        console.log('onPick', e.target.name, e.data.pickInfo);
-        let obj = e.target as Object3D;
-        let mr = obj.getComponent(MeshRenderer);
-        mr.material.baseColor = Color.random();
-    }
-
-    private onOver(e: PointerEvent3D) {
-        console.log('onOver', e.target.name, e.data.pickInfo);
-        let obj = e.target as Object3D;
-        let mr = obj.getComponent(MeshRenderer);
-        mr.material.baseColor = Color.random();
-    }
-
-    private onOut(e: PointerEvent3D) {
-        console.log('onOut', e.target.name, e.data.pickInfo);
-        let obj = e.target as Object3D;
-        let mr = obj.getComponent(MeshRenderer);
-        mr.material.baseColor = Color.random();
-    }
-
-    private onMove(e: PointerEvent3D) {
-        console.log('onMove', e.target.name, e.data.pickInfo);
+        console.log(e.type, e.target.name, e.data.pickInfo);
+        if(e.type !== 'onPickMove'){
+            let obj = e.target as Object3D;
+            let mr = obj.getComponent(MeshRenderer);
+            mr.material.baseColor = Color.random();
+        }
     }
 }
 new Sample_MousePick().run();

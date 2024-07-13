@@ -24,6 +24,8 @@ class Sample_GICornellBox {
         Engine3D.setting.gi.autoRenderProbe = true;
 
         Engine3D.setting.shadow.shadowBound = 50;
+        Engine3D.setting.shadow.shadowSize = 2048;
+        Engine3D.setting.shadow.shadowBias = 0.002;
         Engine3D.setting.shadow.autoUpdate = true;
         Engine3D.setting.shadow.updateFrameRate = 1;
 
@@ -128,7 +130,7 @@ class Sample_GICornellBox {
         let dirLight = lightObj.addComponent(DirectLight);
         dirLight.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
         dirLight.castShadow = true;
-        dirLight.intensity = 30;
+        dirLight.intensity = 2;
     }
 }
 

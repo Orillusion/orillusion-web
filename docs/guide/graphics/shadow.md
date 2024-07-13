@@ -87,7 +87,7 @@ Engine3D.setting.shadow.pointShadowBias = 0.2 // 点光源/聚光灯阴影偏移
 
 配置阴影类型：
 ```ts
-Engine3D.setting.shadow.type = 'HARD'; // 默认 PCF
+Engine3D.setting.shadow.type = 'SOFT'; // 默认 HARD
 ```
 <Demo :height="500" src="/demos/graphics/shadow_type.ts"></Demo>
 

@@ -26,9 +26,9 @@ Engine3D.startRenderView(view);
 
 | 参数 | 类型 | 描述 |
 | --- | --- | --- |
-| near | number | 设定低于该距离的物体将不会被模糊处理。|
-| far | number | 设定高于该距离的物体将会得到最大程度的模糊，[near,far]之间的对象将会使用[0,1]之间线性插值过的系数做模糊处理。|
-| pixelOffset | number | 模糊效果像素扩散距离。|
+| near | number | 设定低于该距离的物体将不会被模糊处理 |
+| far | number | 设定高于该距离的物体将会得到最大程度的模糊，`[near,far]` 之间的对象将会使用 `[0,1]` 之间线性插值过的系数做模糊处理 |
+| pixelOffset | number | 模糊效果像素扩散距离 |
 
 <Demo src="/demos/advanced/Sample_depth.ts"></Demo>
 

@@ -53,7 +53,7 @@ class Sample_colliders {
         light.rotationX = 45;
         light.rotationY = 30;
         component.lightColor = new Color(1.0, 1.0, 1.0, 1.0);
-        component.intensity = 20;
+        component.intensity = 10;
         scene3D.addChild(light);
 
         this.addPlane(scene3D, new Vector2(100, 100), new Vector3(0, 0, 0), new Vector3(0, 0, 0));

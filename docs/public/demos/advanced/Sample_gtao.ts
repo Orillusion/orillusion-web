@@ -8,7 +8,7 @@ class Sample_GTAO {
     async run() {
         Engine3D.setting.shadow.shadowSize = 2048;
         Engine3D.setting.shadow.shadowBound = 500;
-        Engine3D.setting.shadow.shadowBias = 0.0002;
+        Engine3D.setting.shadow.shadowBias = 0.05;
 
         await Engine3D.init();
 
@@ -28,7 +28,8 @@ class Sample_GTAO {
 
         let postProcessing = this.scene.addComponent(PostProcessingComponent);
         let post = postProcessing.addPost(GTAOPost);
-        post.maxDistance = 60;
+        post.maxDistance = 6;
+		post.maxPixel = 15;
         this.gui();
     }
 
@@ -41,7 +42,8 @@ class Sample_GTAO {
             let lc = this.lightObj.addComponent(DirectLight);
             lc.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
             lc.castShadow = true;
-            lc.intensity = 30;
+            lc.intensity = 5;
+            lc.indirect = 0.3;
             this.scene.addChild(this.lightObj);
         }
 
