@@ -76,7 +76,7 @@ class Sample_morph {
             let dl = ligthObj.addComponent(DirectLight);
             dl.lightColor = new Color(1.0, 0.95, 0.84, 1.0);
             scene.addChild(ligthObj);
-            dl.intensity = 15;
+            dl.intensity = 5;
         }
         return true;
     }
