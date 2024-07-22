@@ -70,7 +70,7 @@ class Sample {
         let light = lightObj3D.addComponent(DirectLight);
         light.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
         light.castShadow = true;
-        light.intensity = 30;
+        light.intensity = 3;
 
         scene.addChild(light.object3D);
 

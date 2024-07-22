@@ -8,6 +8,7 @@ class Sample_PBRMaterial {
     async run() {
         //config settings
         Engine3D.setting.shadow.shadowBound = 50;
+        Engine3D.setting.shadow.shadowBias = 0.02;
 
         await Engine3D.init({ canvasConfig: { alpha: true, backgroundImage: 'https://cdn.orillusion.com/logo/bg.webp' } });
 
@@ -41,7 +42,7 @@ class Sample_PBRMaterial {
             let directLight = this.lightObj3D.addComponent(DirectLight);
             directLight.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
             directLight.castShadow = true;
-            directLight.intensity = 72;
+            directLight.intensity = 4.5;
 
             let gui = new dat.GUI();
             let DirLight = gui.addFolder('DirectLight');

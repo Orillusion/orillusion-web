@@ -38,7 +38,7 @@ class DrawCallInstance {
         lightObj.rotationZ = 150;
         let dirLight = lightObj.addComponent(DirectLight);
         dirLight.lightColor = KelvinUtil.color_temperature_to_rgb(5500);
-        dirLight.intensity = 100;
+        dirLight.intensity = 10;
         dirLight.indirect = 1;
         this.scene.addChild(lightObj);
 
@@ -66,7 +66,7 @@ class DrawCallInstance {
     initScene() {
         let shareGeometry = new BoxGeometry();
         let material = new LambertMaterial();
-        material.baseColor = new Color(Math.random(), Math.random(), Math.random());
+        material.baseColor = new Color(Math.random() / 2 + 0.5, Math.random() / 2 + 0.5, Math.random() / 2 + 0.5);
 
         let group = new Object3D();
         let count = 100000;
