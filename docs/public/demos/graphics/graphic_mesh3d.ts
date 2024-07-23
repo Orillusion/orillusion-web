@@ -1,18 +1,15 @@
-import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight, KelvinUtil, UnLitTexArrayMaterial, BitmapTexture2DArray, BitmapTexture2D, PlaneGeometry, Vector3, Graphic3DMesh, Matrix4, Time, BlendMode, Color, PostProcessingComponent, BloomPost, ColorUtil, Graphic3DMeshRenderer } from '@orillusion/core';
+import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, UnLitTexArrayMaterial, BitmapTexture2DArray, BitmapTexture2D, PlaneGeometry, Vector3, Matrix4, Time, BlendMode, Color } from '@orillusion/core';
 import { Stats } from '@orillusion/stats';
+import { Graphic3DMesh, Graphic3DMeshRenderer } from '@orillusion/graphic';
 
-class Sample_GraphicMesh_Color {
+class Sample_GraphicMesh {
     private scene: Scene3D;
     private parts: Object3D[];
     private width: number;
     private height: number;
     private cafe: number = 47;
     private view: View3D;
-    private colors: Color[];
-    private tmpArray: any[] = [];
 
-    private color1: Color;
-    private color2: Color;
     graphicMeshRenderer: Graphic3DMeshRenderer;
 
     constructor() {}
@@ -21,12 +18,10 @@ class Sample_GraphicMesh_Color {
         Matrix4.maxCount = 500000;
         Matrix4.allocCount = 500000;
 
-        await Engine3D.init({ beforeRender: () => this.update() });
+        await Engine3D.init({beforeRender: ()=> this.update()});
 
         Engine3D.setting.render.debug = true;
         Engine3D.setting.shadow.shadowBound = 5;
-
-        this.colors = [];
 
         this.scene = new Scene3D();
         this.scene.addComponent(Stats);
@@ -75,43 +70,17 @@ class Sample_GraphicMesh_Color {
                 element.transform.scaleY = 5.5;
                 element.transform.scaleZ = 5.5;
             }
-
-            this.color1 = new Color(1.5, 0.1, 0.2, 1.0);
-            this.color2 = new Color(0.1, 0.1, 4.5, 1.0);
-            let c2 = new Color(1.0, 1.1, 0.2, 0.65);
-            this.colors.push(c2);
-            this.colors.push(c2);
-            this.colors.push(c2);
-            this.colors.push(c2);
-            this.colors.push(c2);
-            this.colors.push(c2);
         }
-
-        this.updateOnce(1000);
     }
 
-    update() {
-        this.updateOnce(Time.frame);
-    }
-
-    updateOnce(engineFrame: number) {
+    update(){
         if (this.parts) {
-            this.tmpArray.length = 0;
             let len = this.parts.length;
             for (let i = 0; i < len; i++) {
                 const element = this.parts[i];
                 let tmp = this.sphericalFibonacci(i, len);
-                tmp.scaleBy(this.cafe);
+                tmp.scaleBy(Math.sin(i + Time.frame * 0.01) * this.cafe);
                 element.transform.localPosition = tmp;
-                this.tmpArray.push(element);
-
-                let c = Color.lerp(Math.sin(engineFrame * 0.001 + i / len), this.color1, this.color2, Color.COLOR_0);
-                this.graphicMeshRenderer.setBaseColor(i, c);
-            }
-
-            for (let i = 0; i < this.tmpArray.length - 1; i++) {
-                this.view.graphic3D.Clear(i.toString());
-                this.view.graphic3D.drawLines(i.toString(), [Vector3.ZERO, this.tmpArray[i + 1].transform.worldPosition], this.colors);
             }
         }
     }
@@ -130,4 +99,4 @@ class Sample_GraphicMesh_Color {
     }
 }
 
-new Sample_GraphicMesh_Color().run();
+new Sample_GraphicMesh().run();

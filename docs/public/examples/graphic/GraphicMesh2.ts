@@ -1,5 +1,6 @@
-import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, MeshRenderer, UnLitTexArrayMaterial, BitmapTexture2DArray, Vector3, Graphic3DMesh, Matrix4, Time, Color, BlendMode } from "@orillusion/core";
+import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, MeshRenderer, UnLitTexArrayMaterial, BitmapTexture2DArray, Vector3, Matrix4, Time, Color, BlendMode } from "@orillusion/core";
 import { Stats } from "@orillusion/stats";
+import { Graphic3DMesh } from "@orillusion/graphic";
 
 class GraphicMesh2 {
     scene: Scene3D;

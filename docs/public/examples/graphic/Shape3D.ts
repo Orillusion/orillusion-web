@@ -1,6 +1,6 @@
-import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight, KelvinUtil, UnLitTexArrayMaterial, BitmapTexture2DArray, BitmapTexture2D, Graphic3DMesh, Matrix4, Color, Time, sin, MeshRenderer, Vector2, LineJoin, Vector4, Object3DUtil, AxisObject } from "@orillusion/core";
+import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight, KelvinUtil, UnLitTexArrayMaterial, BitmapTexture2DArray, BitmapTexture2D, Matrix4, Color, Time, sin, MeshRenderer, Vector2, Vector4, Object3DUtil, AxisObject } from "@orillusion/core";
 import { Stats } from "@orillusion/stats";
-import { CircleShape3D, EllipseShape3D, Shape3DMaker, Shape3D } from "@orillusion/graphic";
+import { Graphic3DMesh, LineJoin, CircleShape3D, EllipseShape3D, Shape3DMaker, Shape3D } from "@orillusion/graphic";
 
 
 /**
