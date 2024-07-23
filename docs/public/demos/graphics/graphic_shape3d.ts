@@ -67,7 +67,7 @@ class Sample_Shape3DPath2D {
 
     private maker: Shape3DMaker;
     private async addNode() {
-        let textureArray = [];
+        let textureArray:any[] = [];
         textureArray.push((await Engine3D.res.loadTexture('https://cdn.orillusion.com/textures/128/vein_0013.png')) as BitmapTexture2D);
         textureArray.push((await Engine3D.res.loadTexture('https://cdn.orillusion.com/textures/128/vein_0014.png')) as BitmapTexture2D);
 
@@ -133,8 +133,8 @@ class Sample_Shape3DPath2D {
         this.renderVec4(GUIHelp, 'LineUVRect.', shape, 'lineUVRect', 0, 10, 0.01);
         this.renderVec4(GUIHelp, 'UVSpeed.', shape, 'uvSpeed', -0.01, 0.01, 0.0001);
 
-        GUIHelp.add(shape, 'lineTextureID', 0, 9, 1);
-        GUIHelp.add(shape, 'fillTextureID', 0, 9, 1);
+        GUIHelp.add(shape, 'lineTextureID', 0, 1, 1);
+        GUIHelp.add(shape, 'fillTextureID', 0, 1, 1);
     }
 
     renderVec4(GUIHelp: dat.GUI, label: string, target: Object, key: string, min: number, max: number, step: number = 0.01) {

@@ -2,11 +2,11 @@
 
 `Graphics` 模块主要用于对具有实时变化的点、线、面、体的数据，使用特定的方法创建模型网格。在配置好 `Transform`、`Texture`、`Material` 等信息后，传入到渲染管线中参与渲染。通过这个方法创建出来的动态网格，性能高效、使用方便。
 
-引擎内置封装有多种 `Graphics` 渲染API，供不同的需求提供实现路径。
-1. `Graphic3DMeshRenderer` 渲染器：通过 `Graphic3DMesh.draw()` 函数调用，输入 `Mesh` 网格，在同一个渲染器中批量创建、控制一组克隆体。对每个克隆体的`Transform`、`Texture`，以及渲染器的 `Material` 进行动态调整，达到组装出目标图形、动画的目的。
-2. `Shape3DRenderer` 渲染器：通过 `Shape3DMaker.makeRenderer()`，获得渲染器实例。使用Shape3DMaker提供的API可以快速创建出想要的 `Shape3D`。例如 `EllipseShape3D`、`RoundRectShape3D`、`CircleShape3D` 等等，后续有更详尽的描述。对于拥有可持续绘制功能的 `Shape3D` ，比如`Path2DShape3D`、`Path3DShape3D`，参照了 [CanvasPath](https://developer.mozilla.org/en-US/docs/Web/API/Path2D) 中的API设计来实现，让开发者能借鉴和沿用自己熟悉的开发方式，使用 `Orillusion` 引擎做 `Graphics` 3D绘制工作。
+引擎提供了多种 `Graphics` 渲染API：
+1. `Graphic3DMesh` 渲染器：通过引擎内置的 `Graphic3DMesh.draw()` 函数调用，输入 `Mesh` 网格，在同一个渲染器中批量创建出一组克隆体。可以自由定义调整每个克隆体的 `Transform`、`Texture` 以及 `Material`，组合出高自由度的图形和动画。
+2. `Shape3D` 渲染器：通过引入 `@orillusion/graphic` 中的 `Shape3DMaker` 来创建多种自定义 `Shape3D` 对象，例如 `EllipseShape3D`、`RoundRectShape3D`、`CircleShape3D` 等。对于拥有可持续绘制功能的 `Shape3D` ，比如`Path2DShape3D`、`Path3DShape3D`，参照了 [CanvasPath](https://developer.mozilla.org/en-US/docs/Web/API/Path2D) 中的API设计来实现，让开发者能借鉴和沿用自己熟悉的开发方式，使用 `Orillusion` 引擎做 `Graphics` 3D绘制工作。
 
-## `Graphic3DMeshRenderer` 渲染器
+## `Graphic3DMesh` 渲染器
 
 ### 参数概览
 
@@ -67,13 +67,45 @@ for (let i = 0; i < this.width * this.height; i++) {
 
 ```
 
-<Demo src="/demos/graphics/graphic_3d_color.ts"></Demo>
+<Demo src="/demos/graphics/graphic_mesh3d.ts"></Demo>
 
-<<< @/public/demos/graphics/graphic_3d_color.ts
+<<< @/public/demos/graphics/graphic_mesh3d.ts
 
 
-## `Shape3DRenderer` 渲染器
+## `Shape3D` 渲染器
 
+### 安装
+跟引擎方法一致，我们可以通过 `NPM` 和 `CDN` 链接两种方式来引入物理插件:
+
+#### 1. 通过 `NPM` 包安装
+```bash
+npm install @orillusion/core --save
+npm install @orillusion/graphic --save
+```
+```ts
+import { Engine3D } from "@orillusion/core"
+import { Shape3DMaker } from "@orillusion/graphic"
+```
+
+#### 2. 通过 `CDN` 链接引入
+推荐使用 `ESModule` 构建版本
+```html
+<script type="module">
+  import { Engine3D } from "https://unpkg.com/@orillusion/core/dist/orillusion.es.js" 
+  import { Shape3DMaker } from "https://unpkg.com/@orillusion/graphic/dist/graphic.es.js" 
+</script>
+```
+
+或通过 `<script>` 加载构建 `UMD` 版本，在全局 `Orillusion` 变量中获取 `Shape3D` 模块：
+```html
+<script src="https://unpkg.com/@orillusion/core/orillusion.umd.js"></script>
+<script src="https://unpkg.com/@orillusion/stats/dist/graphic.umd.js"></script>
+<script>
+  const {Engine3D, Shape3DMaker} = Orillusion
+</script>
+```
+
+### 使用
 通过帮助类 `Shape3DMaker` 初始化 `Shape3DRenderer` ，获得 `Shape3DMaker` 并使用。
 | 参数 | 描述 |
 | --- | --- |
@@ -181,12 +213,10 @@ circle.endAngle = 240;//设置圆弧结束角度
 
 ```
 
-> 上述代码展示绘制一个独立圆形/圆弧，采用创建CircleShape3D的实例的方法。你也可以通过创建 `Path2DShape3D` 实例，然后调用其 `arc()` 函数获得。
+> 上述代码展示绘制一个独立圆形/圆弧，采用创建 `CircleShape3D` 的实例的方法。你也可以通过创建通用 `Path2DShape3D` 实例，然后调用其 `arc()` 函数获得。
 
-> 两者的区别为：前者为独立的Shape3D，方便通过对应的 `Object3D` 独立控制 `Transform` ，以及控制圆弧的公开属性(lineWidth, startAngle, endAngle...)；后者嵌套在 `Path2DShape3D` 中，不方便后续独立控制，但是绘制出来的线条具有连续性。比如lineTo至a位置，再绘制一段弧形至b位置，然后继续lineTo至c位置；获得的图形为连续线条，UV也是连续的。
+<Demo src="/demos/graphics/graphic_shape3d.ts"></Demo>
 
-<Demo src="/demos/graphics/graphic_3d_circle.ts"></Demo>
-
-<<< @/public/demos/graphics/graphic_3d_circle.ts
+<<< @/public/demos/graphics/graphic_shape3d.ts
 
 > 更多 `Shape3D` API 用法请参考 [Shape3D](/example/graphic/Shape3D.html) 示例代码。

@@ -1,15 +1,12 @@
 import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight, KelvinUtil, UnLitTexArrayMaterial, BitmapTexture2DArray, BitmapTexture2D, PlaneGeometry, Vector3, Graphic3DMesh, Matrix4, Time, BlendMode, Color, PostProcessingComponent, BloomPost, ColorUtil, Graphic3DMeshRenderer } from '@orillusion/core';
 import { Stats } from '@orillusion/stats';
-import * as dat from 'dat.gui';
 
 class Sample_GraphicMesh_Color {
-    private lightObj3D: Object3D;
     private scene: Scene3D;
     private parts: Object3D[];
     private width: number;
     private height: number;
     private cafe: number = 47;
-    private frame: number = 16;
     private view: View3D;
     private colors: Color[];
     private tmpArray: any[] = [];
@@ -45,32 +42,11 @@ class Sample_GraphicMesh_Color {
         this.view.camera = camera;
 
         Engine3D.startRenderView(this.view);
-
-        let post = this.scene.addComponent(PostProcessingComponent);
-        let bloom = post.addPost(BloomPost);
-        bloom.bloomIntensity = 10.0;
-
         await this.initScene();
-
-        sky.relativeTransform = this.lightObj3D.transform;
     }
 
     async initScene() {
-        /******** light *******/
-        {
-            this.lightObj3D = new Object3D();
-            this.lightObj3D.rotationX = 21;
-            this.lightObj3D.rotationY = 108;
-            this.lightObj3D.rotationZ = 10;
-            let directLight = this.lightObj3D.addComponent(DirectLight);
-            directLight.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
-            directLight.castShadow = false;
-            directLight.intensity = 10;
-            this.scene.addChild(this.lightObj3D);
-        }
-
-        let texts = [];
-
+        let texts:any[] = [];
         texts.push((await Engine3D.res.loadTexture('https://cdn.orillusion.com/textures/128/star_0008.png')) as BitmapTexture2D);
 
         let bitmapTexture2DArray = new BitmapTexture2DArray(texts[0].width, texts[0].height, texts.length);
@@ -79,9 +55,7 @@ class Sample_GraphicMesh_Color {
         let mat = new UnLitTexArrayMaterial();
         mat.baseMap = bitmapTexture2DArray;
         mat.name = 'LitMaterial';
-        const GUIHelp = new dat.GUI();
-        GUIHelp.add(this, 'cafe', 0.0, 100.0);
-        GUIHelp.add(this, 'frame', 0.0, 100.0);
+        
         {
             this.width = 15;
             this.height = 15;
