@@ -65,9 +65,9 @@ class Sample_SSR {
             if (mr && mr.material) {
                 if (mr.material.name == 'ToyCar') {
                     let mat = mr.material as LitMaterial;
-                    mat.metallic = 0.5;
-                    mat.roughness = 0;
-                    mat.clearcoatFactor = 0.25;
+                    mat.metallic = 0.9;
+                    mat.roughness = 0.1;
+                    mat.clearcoatFactor = 0.5;
                 }
             }
         })
@@ -79,14 +79,11 @@ class Sample_SSR {
     private sphere: Object3D;
 
     private async createPlane(scene: Scene3D) {
-        let mat = new LitMaterial();
-        mat.roughness = 0.2;
-        mat.metallic = 0.5;
-
+        const GUIHelp = new dat.GUI();
         {
             let floorMaterial = new LitMaterial();
-            floorMaterial.roughness = 0.5;
-            floorMaterial.metallic = 0.5;
+            floorMaterial.roughness = 0.1;
+            floorMaterial.metallic = 1;
 
             let planeGeometry = new PlaneGeometry(200, 200);
             let floor: Object3D = new Object3D();
@@ -95,12 +92,17 @@ class Sample_SSR {
             mr.geometry = planeGeometry;
             scene.addChild(floor);
 
-            const GUIHelp = new dat.GUI();
-            GUIHelp.add(floorMaterial, 'roughness', 0.01, 1, 0.01);
-            GUIHelp.add(floorMaterial, 'metallic', 0.01, 1, 0.01);
+            let f = GUIHelp.addFolder('floor')
+            f.add(floorMaterial, 'roughness', 0.01, 1, 0.01);
+            f.add(floorMaterial, 'metallic', 0.01, 1, 0.01);
+            f.open()
         }
 
         {
+            let mat = new LitMaterial();
+            mat.roughness = 0.1;
+            mat.metallic = 0.9;
+    
             let sphereGeometry = new SphereGeometry(10, 50, 50);
             let obj: Object3D = new Object3D();
             let mr = obj.addComponent(MeshRenderer);
@@ -110,6 +112,11 @@ class Sample_SSR {
             obj.y = 10;
             scene.addChild(obj);
             this.sphere = obj;
+
+            let f = GUIHelp.addFolder('Sphere')
+            f.add(mat, 'roughness', 0.01, 1, 0.01);
+            f.add(mat, 'metallic', 0.01, 1, 0.01);
+            f.open()
         }
 
         {
