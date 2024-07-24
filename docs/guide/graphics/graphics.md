@@ -1,8 +1,8 @@
 # 图形绘制
 
-`Graphics` 模块主要用于对具有实时变化的点、线、面、体的数据，使用特定的方法创建模型网格。在配置好 `Transform`、`Texture`、`Material` 等信息后，传入到渲染管线中参与渲染。通过这个方法创建出来的动态网格，性能高效、使用方便。
+`Orillusion` 提供了 [@orillusion/graphic](/graphic/) 扩展包，主要用于对具有实时变化的点、线、面、体的绘制，使用特定的方法创建出一个动态网格，统一管理并参与到引擎渲染管线中去，性能高效、使用方便。
 
-目前提供三种 `API` 来创建高性能图形数据：
+目前提供三个模块来创建高性能图形数据：
 1. `Graphic3D`: 提供基础的线条制能力，常用于绘制辅助线等。
 1. `Graphic3DMesh` 渲染器：在同一个渲染器中批量创建出一组 `Mesh` 克隆体，可以自由定义调整每个克隆体的 `Transform`、`Texture` 以及 `Material`，组合出高自由度的图形和动画。
 2. `Shape3D` 渲染器： 创建复杂的自定义 `Shape3D` 对象，例如 `EllipseShape3D`、`RoundRectShape3D`、`CircleShape3D` 等。对于拥有可持续绘制功能的 `Shape3D` ，比如`Path2DShape3D`、`Path3DShape3D`，参照了 [CanvasPath](https://developer.mozilla.org/en-US/docs/Web/API/Path2D) 中的API设计来实现，让开发者能借鉴和沿用自己熟悉的开发方式进行图形绘制工作。

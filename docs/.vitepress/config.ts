@@ -315,9 +315,9 @@ function sidebarGuide(): SidebarItem {
                 { text: '光照', link: '/guide/graphics/lighting.md' },
                 { text: '阴影', link: '/guide/graphics/shadow.md' },
                 { text: '网格', link: '/guide/graphics/mesh.md' },
-                { text: '图形绘制', link: '/guide/graphics/graphics.md' },
                 { text: '材质', link: '/guide/graphics/materials.md' },
-                { text: '纹理', link: '/guide/graphics/texture.md' }
+                { text: '纹理', link: '/guide/graphics/texture.md' },
+                { text: '图形绘制', link: '/guide/graphics/graphics.md' }
             ]
         },
         {
