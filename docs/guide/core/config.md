@@ -60,10 +60,17 @@ Engine3D.setting.shadow.shadowBias = 0.01; // 阴影偏移量
 ```
 详见 [阴影](/guide/graphics/shadow)
 
-<!-- ## 全局光照设置
+## 全局光照设置
 通过配置中的 `gi` 属性来设置全局光照。
 ```ts
 Engine3D.setting.gi.enable = true;
+Engine3D.setting.gi.probeYCount = 6;
+Engine3D.setting.gi.probeXCount = 6;
+Engine3D.setting.gi.probeZCount = 6;
+Engine3D.setting.gi.offsetX = 0;
+Engine3D.setting.gi.offsetY = 10;
+Engine3D.setting.gi.offsetZ = 0;
+...
 ```
-详见 [全局光照](/guide/advanced/gi) -->
+详见 [全局光照](/guide/advanced/gi)
 
