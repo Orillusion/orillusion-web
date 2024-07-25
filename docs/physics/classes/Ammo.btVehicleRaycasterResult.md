@@ -19,7 +19,11 @@
 
 ### constructor
 
-• **new btVehicleRaycasterResult**()
+• **new btVehicleRaycasterResult**(): [`btVehicleRaycasterResult`](Ammo.btVehicleRaycasterResult.md)
+
+#### Returns
+
+[`btVehicleRaycasterResult`](Ammo.btVehicleRaycasterResult.md)
 
 ## Methods
 

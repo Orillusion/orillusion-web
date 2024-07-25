@@ -32,7 +32,7 @@
 
 ### constructor
 
-• **new btConeTwistConstraint**(`rbA`, `rbB`, `rbAFrame`, `rbBFrame`)
+• **new btConeTwistConstraint**(`rbA`, `rbB`, `rbAFrame`, `rbBFrame`): [`btConeTwistConstraint`](Ammo.btConeTwistConstraint.md)
 
 #### Parameters
 
@@ -43,6 +43,10 @@
 | `rbAFrame` | [`btTransform`](Ammo.btTransform.md) |
 | `rbBFrame` | [`btTransform`](Ammo.btTransform.md) |
 
+#### Returns
+
+[`btConeTwistConstraint`](Ammo.btConeTwistConstraint.md)
+
 #### Overrides
 
 [btTypedConstraint](Ammo.btTypedConstraint.md).[constructor](Ammo.btTypedConstraint.md#constructor)
@@ -51,7 +55,7 @@
 
 [packages/ammo/ammo.d.ts:572](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L572)
 
-• **new btConeTwistConstraint**(`rbA`, `rbAFrame`)
+• **new btConeTwistConstraint**(`rbA`, `rbAFrame`): [`btConeTwistConstraint`](Ammo.btConeTwistConstraint.md)
 
 #### Parameters
 
@@ -59,6 +63,10 @@
 | :------ | :------ |
 | `rbA` | [`btRigidBody`](Ammo.btRigidBody.md) |
 | `rbAFrame` | [`btTransform`](Ammo.btTransform.md) |
+
+#### Returns
+
+[`btConeTwistConstraint`](Ammo.btConeTwistConstraint.md)
 
 #### Overrides
 

@@ -63,7 +63,11 @@
 
 ### constructor
 
-• **new Config**()
+• **new Config**(): [`Config`](Ammo.Config.md)
+
+#### Returns
+
+[`Config`](Ammo.Config.md)
 
 ## Methods
 

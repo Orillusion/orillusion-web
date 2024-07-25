@@ -14,7 +14,11 @@
 
 ### constructor
 
-• **new ContactResultCallback**()
+• **new ContactResultCallback**(): [`ContactResultCallback`](Ammo.ContactResultCallback.md)
+
+#### Returns
+
+[`ContactResultCallback`](Ammo.ContactResultCallback.md)
 
 ## Methods
 

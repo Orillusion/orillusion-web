@@ -19,7 +19,11 @@
 
 ### constructor
 
-• **new btConstraintSetting**()
+• **new btConstraintSetting**(): [`btConstraintSetting`](Ammo.btConstraintSetting.md)
+
+#### Returns
+
+[`btConstraintSetting`](Ammo.btConstraintSetting.md)
 
 #### Defined in
 

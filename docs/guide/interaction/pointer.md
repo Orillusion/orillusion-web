@@ -33,16 +33,18 @@ export class PickScript extends ComponentBase {
 
 | 参数 | 类型 | 描述 |
 | --- | --- | --- |
-| pointerId | number |  对于某个由指针引起的事件的唯一标识。 |
-| pointerType | string |  表明引发该事件的设备类型（鼠标/笔/触摸等）。 |
-| isPrimary | boolean |  表示该指针是否为该类型指针中的首选指针。 |
-| pressure | number |  规范化后的指针输入的压力值，取值范围为 0 到 1，0 代表硬件可检测到的压力最小值，1 代表最大值。 |
-| mouseX | number |  当前 x 坐标 |
-| mouseY | number |  当前 y 坐标 |
-| movementX | number | 它提供了当前事件和上一个鼠标事件之间鼠标在水平方向上的移动值。 |
-| movementY | number | 它提供了当前事件和上一个鼠标事件之间鼠标在垂直方向上的移动值。 |
-| deltaX | number |  在向左滚动时返回负双值，向右滚动时返回正双值，否则为0。 |
-| deltaY | number |  在向下滚动时返回正值，向上滚动时返回负值，否则为0。 |
+| target | Object3D |  事件触发的目标对象 |
+| data | Object |  事件触发的坐标数据，包含目标对象 Normal 和 Position 信息等 |
+| pointerId | number |  对于某个由指针引起的事件的唯一标识 |
+| pointerType | string |  表明引发该事件的设备类型，例如：鼠标/笔/触摸等 |
+| isPrimary | boolean |  表示该指针是否为该类型指针中的首选指针 |
+| pressure | number |  规范化后的指针输入的压力值，取值范围为 0 到 1，0 代表硬件可检测到的压力最小值，1 代表最大值 |
+| mouseX | number |  当前屏幕 x 坐标 |
+| mouseY | number |  当前屏幕 y 坐标 |
+| movementX | number | 它提供了当前事件和上一个鼠标事件之间鼠标在水平方向上的移动值 |
+| movementY | number | 它提供了当前事件和上一个鼠标事件之间鼠标在垂直方向上的移动值 |
+| deltaX | number |  在向左滚动时返回负双值，向右滚动时返回正双值，否则为0 |
+| deltaY | number |  在向下滚动时返回正值，向上滚动时返回负值，否则为0 |
 
 
 ## 示例

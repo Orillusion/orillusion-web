@@ -12,7 +12,7 @@ The base class of most objects provides a series of properties and methods for m
 
   ↳↳ [`InstancedMesh`](InstancedMesh.md)
 
-  ↳↳ [`Graphic3D`](Graphic3D.md)
+  ↳↳ [`Object3DTransformTools`](Object3DTransformTools.md)
 
 ### Constructors
 
@@ -62,6 +62,7 @@ The base class of most objects provides a series of properties and methods for m
 - [removeFromParent](Object3D.md#removefromparent)
 - [getChildByIndex](Object3D.md#getchildbyindex)
 - [getChildByName](Object3D.md#getchildbyname)
+- [noticeComponents](Object3D.md#noticecomponents)
 - [forChild](Object3D.md#forchild)
 - [addComponent](Object3D.md#addcomponent)
 - [getOrAddComponent](Object3D.md#getoraddcomponent)
@@ -261,7 +262,7 @@ Entity.bound
 
 #### Defined in
 
-[src/core/entities/Entity.ts:275](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L275)
+[src/core/entities/Entity.ts:277](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L277)
 
 • `set` **bound**(`value`): `void`
 
@@ -281,7 +282,7 @@ Entity.bound
 
 #### Defined in
 
-[src/core/entities/Entity.ts:280](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L280)
+[src/core/entities/Entity.ts:282](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L282)
 
 ___
 
@@ -851,7 +852,7 @@ Remove the child objects of the object. You can remove any number of objects.
 
 #### Defined in
 
-[src/core/entities/Entity.ts:151](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L151)
+[src/core/entities/Entity.ts:152](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L152)
 
 ___
 
@@ -871,7 +872,7 @@ Remove all children of the current object
 
 #### Defined in
 
-[src/core/entities/Entity.ts:166](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L166)
+[src/core/entities/Entity.ts:168](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L168)
 
 ___
 
@@ -893,7 +894,7 @@ this
 
 #### Defined in
 
-[src/core/entities/Entity.ts:177](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L177)
+[src/core/entities/Entity.ts:179](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L179)
 
 ___
 
@@ -919,7 +920,7 @@ Search for child nodes of objects and remove child objects with matching indexes
 
 #### Defined in
 
-[src/core/entities/Entity.ts:187](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L187)
+[src/core/entities/Entity.ts:189](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L189)
 
 ___
 
@@ -947,7 +948,7 @@ boolean
 
 #### Defined in
 
-[src/core/entities/Entity.ts:201](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L201)
+[src/core/entities/Entity.ts:203](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L203)
 
 ___
 
@@ -969,7 +970,7 @@ this
 
 #### Defined in
 
-[src/core/entities/Entity.ts:211](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L211)
+[src/core/entities/Entity.ts:213](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L213)
 
 ___
 
@@ -997,7 +998,7 @@ child entity
 
 #### Defined in
 
-[src/core/entities/Entity.ts:225](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L225)
+[src/core/entities/Entity.ts:227](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L227)
 
 ___
 
@@ -1026,7 +1027,32 @@ result
 
 #### Defined in
 
-[src/core/entities/Entity.ts:240](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L240)
+[src/core/entities/Entity.ts:242](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L242)
+
+___
+
+### noticeComponents
+
+▸ **noticeComponents**(`key`, `data`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `key` | keyof [`IComponent`](../interfaces/IComponent.md) |
+| `data` | `any` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Entity](Entity.md).[noticeComponents](Entity.md#noticecomponents)
+
+#### Defined in
+
+[src/core/entities/Entity.ts:328](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L328)
 
 ___
 

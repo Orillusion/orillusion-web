@@ -245,7 +245,7 @@ PostBase.onResize
 
 #### Defined in
 
-[src/gfx/renderJob/post/GodRayPost.ts:138](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L138)
+[src/gfx/renderJob/post/GodRayPost.ts:132](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L132)
 
 ___
 

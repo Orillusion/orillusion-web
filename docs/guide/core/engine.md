@@ -54,7 +54,9 @@ await Engine3D.init({
     }
 });
 ``` 
-> 降低 `devicePixelRatio` 可以有效降低渲染压力，提高渲染性能，但同时渲染分辨率也会降低，可能增加锯齿效果
+::: tip
+降低 `devicePixelRatio` 可以有效降低渲染压力，提高渲染性能，但同时渲染分辨率也会降低，可能增加锯齿效果
+:::
 
 更多详细配置，请参考 [CanvasConfig](/api/types/CanvasConfig)
 

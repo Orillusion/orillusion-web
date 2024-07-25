@@ -1,13 +1,13 @@
 import { AtmosphericComponent, BoxGeometry, CameraUtil, CylinderGeometry, DirectLight, Engine3D, GlobalFog, HoverCameraController, KelvinUtil, LitMaterial, MeshRenderer, Object3D, PostProcessingComponent, Scene3D, View3D, Color } from '@orillusion/core';
-import * as dat from 'dat.gui'
+import * as dat from 'dat.gui';
 
 class Sample_Fog {
-    constructor() { }
+    constructor() {}
     lightObj: Object3D;
     scene: Scene3D;
 
     async run() {
-        Engine3D.setting.shadow.shadowSize = 2048
+        Engine3D.setting.shadow.shadowSize = 2048;
         Engine3D.setting.shadow.shadowBound = 1000;
 
         await Engine3D.init();
@@ -29,13 +29,13 @@ class Sample_Fog {
 
         let postProcessing = this.scene.addComponent(PostProcessingComponent);
         let fog = postProcessing.addPost(GlobalFog);
-        
-        let gui = new dat.GUI()
-        let f = gui.addFolder('GlobalFog')
+
+        let gui = new dat.GUI();
+        let f = gui.addFolder('GlobalFog');
         f.add(fog, 'fogType', {
             Liner: 0,
             Exp: 1,
-            Exp2: 2,
+            Exp2: 2
         });
         f.add(fog, 'start', -0.0, 1000.0, 0.0001);
         f.add(fog, 'end', -0.0, 1000.0, 0.0001);
@@ -46,9 +46,9 @@ class Sample_Fog {
         f.add(fog, 'skyRoughness', 0.0, 1.0, 0.0001);
         f.add(fog, 'overrideSkyFactor', 0.0, 1.0, 0.0001);
         f.addColor({ color: Object.values(fog.fogColor).map((v) => v * 255) }, 'color').onChange((v) => {
-            fog.fogColor = new Color().copyFromArray(v)
-        })
-        f.open()
+            fog.fogColor = new Color().copyFromArray(v);
+        });
+        f.open();
     }
 
     initScene() {
@@ -60,7 +60,7 @@ class Sample_Fog {
             let lc = this.lightObj.addComponent(DirectLight);
             lc.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
             lc.castShadow = true;
-            lc.intensity = 30;
+            lc.intensity = 5;
             this.scene.addChild(this.lightObj);
         }
 

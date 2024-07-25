@@ -1,7 +1,7 @@
-import { Ammo, Physics, Rigidbody } from "@orillusion/physics";
-import { Scene3D, Object3D, Engine3D, ColliderComponent, BoxColliderShape, Vector3, ComponentBase, KeyCode, KeyEvent, Quaternion, BoundUtil, Camera3D, Vector3Ex, MeshRenderer, LitMaterial, Color, BoxGeometry, AtmosphericComponent, CameraUtil, DirectLight, HoverCameraController, KelvinUtil, View3D } from "@orillusion/core";
-import * as dat from "dat.gui";
-import { Stats } from "@orillusion/stats";
+import { Ammo, Physics, Rigidbody } from '@orillusion/physics';
+import { Scene3D, Object3D, Engine3D, ColliderComponent, BoxColliderShape, Vector3, ComponentBase, KeyCode, KeyEvent, Quaternion, BoundUtil, Camera3D, Vector3Ex, MeshRenderer, LitMaterial, Color, BoxGeometry, AtmosphericComponent, CameraUtil, DirectLight, HoverCameraController, KelvinUtil, View3D } from '@orillusion/core';
+import * as dat from 'dat.gui';
+import { Stats } from '@orillusion/stats';
 
 class Sample_PhysicsCar {
     private scene: Scene3D;
@@ -9,78 +9,82 @@ class Sample_PhysicsCar {
     private boxes: Object3D[];
     private road: Object3D;
     private camera: Camera3D;
-    private controller: fixedCameraController
+    private controller: fixedCameraController;
 
-    public score = { Score: 0 }
+    public score = { Score: 0 };
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
         Engine3D.setting.shadow.updateFrameRate = 1;
-        Engine3D.setting.shadow.shadowSize = 2048;
-        Engine3D.setting.shadow.shadowBound = 150;
+        Engine3D.setting.shadow.shadowSize = 4000;
+        Engine3D.setting.shadow.shadowBound = 100;
+        Engine3D.setting.shadow.shadowBias = 0.002;
 
         await Physics.init();
         await Engine3D.init({ renderLoop: () => this.loop() });
 
-        let scene = this.scene = new Scene3D()
-        scene.addComponent(Stats)
-    
+        let scene = (this.scene = new Scene3D());
+        scene.addComponent(Stats);
+
         // init sky
-        let atmosphericSky: AtmosphericComponent
-        atmosphericSky = scene.addComponent(AtmosphericComponent)
-    
+        let atmosphericSky: AtmosphericComponent;
+        atmosphericSky = scene.addComponent(AtmosphericComponent);
+
         // init Camera3D
-        let camera = this.camera = CameraUtil.createCamera3DObject(scene)
-        camera.perspective(60, Engine3D.aspect, 1, 5000)
-        camera.enableCSM = true
+        let camera = (this.camera = CameraUtil.createCamera3DObject(scene));
+        camera.perspective(60, Engine3D.aspect, 1, 5000);
+
         // init Camera Controller
-        let hoverCtrl = camera.object3D.addComponent(HoverCameraController)
-        hoverCtrl.setCamera(-30, -15, 50)
-    
+        let hoverCtrl = camera.object3D.addComponent(HoverCameraController);
+        hoverCtrl.setCamera(-30, -15, 50);
+
         // create direction light
-        let lightObj3D = new Object3D()
-        lightObj3D.x = 0
-        lightObj3D.y = 30
-        lightObj3D.z = -40
-        lightObj3D.rotationX = 20
-        lightObj3D.rotationY = 160
-        lightObj3D.rotationZ = 0
-    
-        let light = lightObj3D.addComponent(DirectLight)
-        light.lightColor = KelvinUtil.color_temperature_to_rgb(5355)
-        light.castShadow = true
-        light.intensity = 30
-    
-        scene.addChild(light.object3D)
-    
+        let lightObj3D = new Object3D();
+        lightObj3D.x = 0;
+        lightObj3D.y = 30;
+        lightObj3D.z = -40;
+        lightObj3D.rotationX = 20;
+        lightObj3D.rotationY = 160;
+        lightObj3D.rotationZ = 0;
+
+        let light = lightObj3D.addComponent(DirectLight);
+        light.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
+        light.castShadow = true;
+        light.intensity = 4;
+
+        scene.addChild(light.object3D);
+
         // relative light to sky
-        atmosphericSky.relativeTransform = light.transform
+        atmosphericSky.relativeTransform = light.transform;
 
         // init View3D
-        let view = new View3D()
-        view.scene = scene
-        view.camera = camera
+        let view = new View3D();
+        view.scene = scene;
+        view.camera = camera;
 
         await this.initScene(scene);
         Engine3D.startRenderView(view);
 
-        let gui = new dat.GUI()
-        let f = gui.addFolder('Orillusion')
+        let gui = new dat.GUI();
+        let f = gui.addFolder('Orillusion');
         f.add(this.controller, 'enable').name('Fix Camera');
         f.add(this.score, 'Score').listen();
-        f.add({'Reset': () => {
-            location.reload()
-        }}, 'Reset')
-        f.add({"Use WASD": "control car to hit box"}, 'Use WASD')
-        f.open()
+        f.add(
+            {
+                Reset: () => {
+                    location.reload();
+                }
+            },
+            'Reset'
+        );
+        f.add({ 'Use WASD': 'control car to hit box' }, 'Use WASD');
+        f.open();
     }
 
     async initScene(scene: Scene3D) {
         // load a car model
         {
-            this.car = await Engine3D.res.loadGltf(
-                "https://cdn.orillusion.com/gltfs/glb/vevhicle.glb"
-            );
-            this.car.y = 2
+            this.car = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/glb/vevhicle.glb');
+            this.car.y = 2;
             let collider = this.car.addComponent(ColliderComponent);
             collider.shape = new BoxColliderShape();
             collider.shape.size = BoundUtil.genMeshBounds(this.car).size.clone();
@@ -88,9 +92,7 @@ class Sample_PhysicsCar {
             // add keyboard controller to the car
             this.car.addComponent(VehicleKeyboardController);
             // fix the camera to the car
-            this.controller = this.camera.object3D.addComponent(
-                fixedCameraController
-            );
+            this.controller = this.camera.object3D.addComponent(fixedCameraController);
             this.controller.target = this.car;
             this.controller.distance = 50;
         }
@@ -102,12 +104,10 @@ class Sample_PhysicsCar {
             let mat = (mr.material = new LitMaterial());
             mat.roughness = 1;
             mat.metallic = 0;
-            mat.baseMap = await Engine3D.res.loadTexture("data:image/webp;base64,UklGRqAAAABXRUJQVlA4TJMAAAAvV8INER8gEEhxXGstIEmxu7qVgCTF7upWAgFCiv8qJwJXoF8wimQrDiiLCnCG0KzXL4DlRKoj+j8BtSxpW5XY2teypI3/+I//+I//+I//+I//+I//+I//+I//+I//+G8vkFO/Yzuj24P/flBy6nds0+Q//uM//uM//uM//uM//uM//uM//uM//uM//gOwL9Z0FwUA");
+            mat.baseMap = await Engine3D.res.loadTexture('data:image/webp;base64,UklGRqAAAABXRUJQVlA4TJMAAAAvV8INER8gEEhxXGstIEmxu7qVgCTF7upWAgFCiv8qJwJXoF8wimQrDiiLCnCG0KzXL4DlRKoj+j8BtSxpW5XY2teypI3/+I//+I//+I//+I//+I//+I//+I//+I//+G8vkFO/Yzuj24P/flBy6nds0+Q//uM//uM//uM//uM//uM//uM//uM//uM//gOwL9Z0FwUA');
             let collider = this.road.addComponent(ColliderComponent);
             collider.shape = new BoxColliderShape();
-            collider.shape.size = BoundUtil.genMeshBounds(
-                this.road
-            ).size.clone();
+            collider.shape.size = BoundUtil.genMeshBounds(this.road).size.clone();
             this.road.rotationY = -90;
             let rigidbody = this.road.addComponent(Rigidbody);
             rigidbody.mass = 0;
@@ -115,13 +115,13 @@ class Sample_PhysicsCar {
         }
         // add boxes
         {
-            let geometry = new BoxGeometry(1,1,1)
+            let geometry = new BoxGeometry(1, 1, 1);
             let mat = new LitMaterial();
-            mat.baseColor = Color.random()
+            mat.baseColor = Color.random();
             this.boxes = [];
             for (let i = 0; i < 20; i++) {
-                this.boxes[i] = new Object3D()
-                let mr = this.boxes[i].addComponent(MeshRenderer)
+                this.boxes[i] = new Object3D();
+                let mr = this.boxes[i].addComponent(MeshRenderer);
                 mr.geometry = geometry;
                 mr.material = mat;
                 this.boxes[i].x = Math.random() * 30 - 15;
@@ -131,9 +131,7 @@ class Sample_PhysicsCar {
                 rigidbody.mass = 1;
                 let collider = this.boxes[i].addComponent(ColliderComponent);
                 collider.shape = new BoxColliderShape();
-                collider.shape.size = BoundUtil.genMeshBounds(
-                    this.boxes[i]
-                ).size.clone();
+                collider.shape.size = BoundUtil.genMeshBounds(this.boxes[i]).size.clone();
                 scene.addChild(this.boxes[i]);
             }
         }
@@ -155,7 +153,7 @@ enum VehicleControlType {
     acceleration,
     braking,
     left,
-    right,
+    right
 }
 /**
  * Keyboard controller for the car
@@ -179,51 +177,29 @@ class VehicleKeyboardController extends ComponentBase {
         steeringClamp: 0.5,
         maxEngineForce: 1500,
         maxBreakingForce: 500
-    }
+    };
     protected mVehicleControlState = [false, false, false, false];
     async start() {
         this.mBody = this.object3D;
-        let w1 = this.object3D.getChildByName("wheel_1");
-        let w2 = this.object3D.getChildByName("wheel_2");
-        let w3 = this.object3D.getChildByName("wheel_3");
-        let w4 = this.object3D.getChildByName("wheel_4");
+        let w1 = this.object3D.getChildByName('wheel_1');
+        let w2 = this.object3D.getChildByName('wheel_2');
+        let w3 = this.object3D.getChildByName('wheel_3');
+        let w4 = this.object3D.getChildByName('wheel_4');
         this.mWheels = [w1, w2, w3, w4];
         this.initController();
     }
     initController() {
         let bound = BoundUtil.genMeshBounds(this.mBody);
         this.mBody.entityChildren[0].transform.y = -bound.size.y / 2 - 0.05;
-        let geometry = new Ammo.btBoxShape(
-            new Ammo.btVector3(
-                bound.size.x / 2,
-                bound.size.y / 2,
-                bound.size.z / 2
-            )
-        );
+        let geometry = new Ammo.btBoxShape(new Ammo.btVector3(bound.size.x / 2, bound.size.y / 2, bound.size.z / 2));
         let transform = new Ammo.btTransform();
         transform.setIdentity();
-        transform.setOrigin(
-            new Ammo.btVector3(
-                this.mBody.transform.worldPosition.z,
-                this.mBody.transform.worldPosition.y,
-                this.mBody.transform.worldPosition.z
-            )
-        );
+        transform.setOrigin(new Ammo.btVector3(this.mBody.transform.worldPosition.z, this.mBody.transform.worldPosition.y, this.mBody.transform.worldPosition.z));
         transform.setRotation(new Ammo.btQuaternion(0, 0, 0, 1));
         let motionState = new Ammo.btDefaultMotionState(transform);
         let localInertia = new Ammo.btVector3(0, 0, 0);
-        geometry.calculateLocalInertia(
-            this.mVehicleArgs.bodyMass,
-            localInertia
-        );
-        let bodyRb = new Ammo.btRigidBody(
-            new Ammo.btRigidBodyConstructionInfo(
-                this.mVehicleArgs.bodyMass,
-                motionState,
-                geometry,
-                localInertia
-            )
-        );
+        geometry.calculateLocalInertia(this.mVehicleArgs.bodyMass, localInertia);
+        let bodyRb = new Ammo.btRigidBody(new Ammo.btRigidBodyConstructionInfo(this.mVehicleArgs.bodyMass, motionState, geometry, localInertia));
         bodyRb.setActivationState(4);
         Physics.world.addRigidBody(bodyRb);
         //raycast Vehicle
@@ -235,17 +211,9 @@ class VehicleKeyboardController extends ComponentBase {
         Physics.world.addAction(vehicle);
         let wheelDirectCS0 = new Ammo.btVector3(0, -1, 0);
         let wheelAxleCS = new Ammo.btVector3(-1, 0, 0);
-        let addWheel = (isFront:boolean, x:number, y:number, z:number, radius:number) => {
+        let addWheel = (isFront: boolean, x: number, y: number, z: number, radius: number) => {
             let pos = new Ammo.btVector3(x, y, z);
-            let wheelInfo = vehicle.addWheel(
-                pos,
-                wheelDirectCS0,
-                wheelAxleCS,
-                this.mVehicleArgs.suspensionRestLength,
-                radius,
-                tuning,
-                isFront
-            );
+            let wheelInfo = vehicle.addWheel(pos, wheelDirectCS0, wheelAxleCS, this.mVehicleArgs.suspensionRestLength, radius, tuning, isFront);
             wheelInfo.set_m_suspensionStiffness(this.mVehicleArgs.suspensionStiffness);
             wheelInfo.set_m_wheelsDampingRelaxation(this.mVehicleArgs.suspensionDamping);
             wheelInfo.set_m_wheelsDampingCompression(this.mVehicleArgs.suspensionCompression);
@@ -254,7 +222,7 @@ class VehicleKeyboardController extends ComponentBase {
         };
 
         const r = BoundUtil.genMeshBounds(this.mWheels[0]).size.y / 2;
-        const x =this.mWheels[0].transform.worldPosition.x - this.mBody.transform.worldPosition.x;
+        const x = this.mWheels[0].transform.worldPosition.x - this.mBody.transform.worldPosition.x;
         const y = BoundUtil.genMeshBounds(this.mWheels[0]).size.y - r + 0.1;
         const z = this.mWheels[0].transform.worldPosition.z - this.mBody.transform.worldPosition.z;
         addWheel(true, -x, -y, z, r);
@@ -277,28 +245,22 @@ class VehicleKeyboardController extends ComponentBase {
         this.mBreakingForce = 0;
         this.mEngineForce = 0;
         if (this.mVehicleControlState[VehicleControlType.acceleration]) {
-            if (speed < -1)
-                this.mBreakingForce = Math.min(this.mVehicleArgs.maxEngineForce / 3, 1000);
+            if (speed < -1) this.mBreakingForce = Math.min(this.mVehicleArgs.maxEngineForce / 3, 1000);
             else this.mEngineForce = this.mVehicleArgs.maxEngineForce;
         }
         if (this.mVehicleControlState[VehicleControlType.braking]) {
-            if (speed > 1)
-                this.mBreakingForce = Math.min(this.mVehicleArgs.maxEngineForce / 3, 1000);
+            if (speed > 1) this.mBreakingForce = Math.min(this.mVehicleArgs.maxEngineForce / 3, 1000);
             else this.mEngineForce = -this.mVehicleArgs.maxEngineForce / 2;
         }
         if (this.mVehicleControlState[VehicleControlType.left]) {
-            if (this.mVehicleSteering < this.mVehicleArgs.steeringClamp)
-                this.mVehicleSteering += this.mVehicleArgs.steeringIncrement;
+            if (this.mVehicleSteering < this.mVehicleArgs.steeringClamp) this.mVehicleSteering += this.mVehicleArgs.steeringIncrement;
         } else if (this.mVehicleControlState[VehicleControlType.right]) {
-            if (this.mVehicleSteering > -this.mVehicleArgs.steeringClamp)
-                this.mVehicleSteering -= this.mVehicleArgs.steeringIncrement;
+            if (this.mVehicleSteering > -this.mVehicleArgs.steeringClamp) this.mVehicleSteering -= this.mVehicleArgs.steeringIncrement;
         } else {
             if (this.mVehicleSteering < -this.mVehicleArgs.steeringIncrement) {
                 this.mVehicleSteering += this.mVehicleArgs.steeringIncrement;
             } else {
-                if (this.mVehicleSteering > this.mVehicleArgs.steeringIncrement)
-                    this.mVehicleSteering -=
-                        this.mVehicleArgs.steeringIncrement;
+                if (this.mVehicleSteering > this.mVehicleArgs.steeringIncrement) this.mVehicleSteering -= this.mVehicleArgs.steeringIncrement;
                 else this.mVehicleSteering = 0;
             }
         }
@@ -319,45 +281,42 @@ class VehicleKeyboardController extends ComponentBase {
         const n = vehicle.getNumWheels();
         const angle = 40;
         for (let i = 0; i < n; i++) {
-            let wheel = this.mWheels[i]
+            let wheel = this.mWheels[i];
             wheel.rotationX += speed;
             if (i < 2) {
                 let offset = wheel.rotationZ;
-                this.mVehicleSteering === 0
-                    ? (wheel.rotationZ-= offset / 5)
-                    : (wheel.rotationZ = offset - this.mVehicleSteering * 10);
-                if (wheel.rotationZ < -angle)
-                    wheel.rotationZ = -angle;
-                else if (wheel.rotationZ > angle)
-                    wheel.rotationZ = angle;
+                this.mVehicleSteering === 0 ? (wheel.rotationZ -= offset / 5) : (wheel.rotationZ = offset - this.mVehicleSteering * 10);
+                if (wheel.rotationZ < -angle) wheel.rotationZ = -angle;
+                else if (wheel.rotationZ > angle) wheel.rotationZ = angle;
             }
         }
         // update body position
-        let tm, p, q, qua = Quaternion.HELP_0;
+        let tm,
+            p,
+            q,
+            qua = Quaternion.HELP_0;
         tm = vehicle.getChassisWorldTransform();
         p = tm.getOrigin();
-        this.mBody.x = p.x()
-        this.mBody.y = p.y()
-        this.mBody.z = p.z()
+        this.mBody.x = p.x();
+        this.mBody.y = p.y();
+        this.mBody.z = p.z();
         q = tm.getRotation();
         qua.set(q.x(), q.y(), q.z(), q.w());
         this.mBody.transform.localRotQuat = qua;
     }
-    onKeyUp(e:KeyEvent) {
+    onKeyUp(e: KeyEvent) {
         this.updateControlState(e.keyCode, false);
     }
-    onKeyDown(e:KeyEvent) {
+    onKeyDown(e: KeyEvent) {
         this.updateControlState(e.keyCode, true);
     }
-    updateControlState(keyCode:number, state:boolean) {
+    updateControlState(keyCode: number, state: boolean) {
         switch (keyCode) {
             case KeyCode.Key_W:
-                this.mVehicleControlState[VehicleControlType.acceleration] =
-                    state;
+                this.mVehicleControlState[VehicleControlType.acceleration] = state;
                 break;
             case KeyCode.Key_Up:
-                this.mVehicleControlState[VehicleControlType.acceleration] =
-                    state;
+                this.mVehicleControlState[VehicleControlType.acceleration] = state;
                 break;
             case KeyCode.Key_S:
                 this.mVehicleControlState[VehicleControlType.braking] = state;
@@ -408,17 +367,10 @@ class fixedCameraController extends ComponentBase {
         const q = Quaternion.HELP_0;
         q.fromEulerAngles(this.pitch, 0, 0.0);
         this._tempDir.applyQuaternion(q);
-        this._tempDir = this._target.transform.worldMatrix.transformVector(
-            this._tempDir,
-            this._tempDir
-        );
+        this._tempDir = this._target.transform.worldMatrix.transformVector(this._tempDir, this._tempDir);
         this._tempDir.normalize();
         let position = this._target.transform.worldPosition;
-        this._tempPos = Vector3Ex.mulScale(
-            this._tempDir,
-            this.distance,
-            this._tempPos
-        );
+        this._tempPos = Vector3Ex.mulScale(this._tempDir, this.distance, this._tempPos);
         this._tempPos = position.add(this._tempPos, this._tempPos);
         this.camera.lookAt(this._tempPos, this._target.transform.worldPosition);
     }

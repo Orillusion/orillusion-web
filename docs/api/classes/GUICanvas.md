@@ -39,6 +39,8 @@ GUI Root Container
 - [onCompute](GUICanvas.md#oncompute)
 - [onGraphic](GUICanvas.md#ongraphic)
 - [onParentChange](GUICanvas.md#onparentchange)
+- [onAddChild](GUICanvas.md#onaddchild)
+- [onRemoveChild](GUICanvas.md#onremovechild)
 - [beforeDestroy](GUICanvas.md#beforedestroy)
 - [destroy](GUICanvas.md#destroy)
 - [addChild](GUICanvas.md#addchild)
@@ -484,6 +486,54 @@ ___
 
 ___
 
+### onAddChild
+
+▸ **onAddChild**(`child`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `child` | [`Object3D`](Object3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onAddChild](ComponentBase.md#onaddchild)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L123)
+
+___
+
+### onRemoveChild
+
+▸ **onRemoveChild**(`child`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `child` | [`Object3D`](Object3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onRemoveChild](ComponentBase.md#onremovechild)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L124)
+
+___
+
 ### beforeDestroy
 
 ▸ **beforeDestroy**(`force?`): `void`
@@ -506,7 +556,7 @@ before release this component, object refrences are not be set null now.
 
 #### Defined in
 
-[src/components/ComponentBase.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L198)
+[src/components/ComponentBase.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L200)
 
 ___
 
@@ -532,7 +582,7 @@ release this component
 
 #### Defined in
 
-[src/components/ComponentBase.ts:205](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L205)
+[src/components/ComponentBase.ts:207](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L207)
 
 ___
 

@@ -1,11 +1,11 @@
-import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight, KelvinUtil, LitMaterial, MeshRenderer, BoxGeometry, SphereGeometry } from "@orillusion/core";
-import dat from 'dat.gui'
+import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight, KelvinUtil, LitMaterial, MeshRenderer, BoxGeometry, SphereGeometry } from '@orillusion/core';
+import dat from 'dat.gui';
 
 class Sample_PBR {
     lightObj3D: Object3D;
     scene: Scene3D;
 
-    constructor() { }
+    constructor() {}
 
     async run() {
         Engine3D.setting.shadow.shadowBound = 50;
@@ -39,18 +39,18 @@ class Sample_PBR {
             let directLight = this.lightObj3D.addComponent(DirectLight);
             directLight.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
             directLight.castShadow = false;
-            directLight.intensity = 10;
+            directLight.intensity = 3;
 
             let gui = new dat.GUI();
-            let DirLight = gui.addFolder('DirectLight')
-            DirLight.add(directLight, 'enable')
-            DirLight.add(directLight.transform, 'rotationX', 0.0, 360.0, 0.01)
-            DirLight.add(directLight.transform, 'rotationY', 0.0, 360.0, 0.01)
-            DirLight.add(directLight.transform, 'rotationZ', 0.0, 360.0, 0.01)
-            DirLight.add(directLight, 'intensity', 0.0, 160.0, 0.01)
-            DirLight.add(directLight, 'indirect', 0.0, 10.0, 0.01)
-            DirLight.add(directLight, 'castShadow')
-            DirLight.open()
+            let DirLight = gui.addFolder('DirectLight');
+            DirLight.add(directLight, 'enable');
+            DirLight.add(directLight.transform, 'rotationX', 0.0, 360.0, 0.01);
+            DirLight.add(directLight.transform, 'rotationY', 0.0, 360.0, 0.01);
+            DirLight.add(directLight.transform, 'rotationZ', 0.0, 360.0, 0.01);
+            DirLight.add(directLight, 'intensity', 0.0, 160.0, 0.01);
+            DirLight.add(directLight, 'indirect', 0.0, 10.0, 0.01);
+            DirLight.add(directLight, 'castShadow');
+            DirLight.open();
             this.scene.addChild(this.lightObj3D);
         }
 

@@ -1,5 +1,5 @@
-﻿import { Engine3D, Object3DUtil, Object3D, UIImage, ImageType, Color, UIPanel, ViewPanel, Scene3D, Vector2, UITextField, UIShadow, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight, KelvinUtil } from "@orillusion/core";
-import {Stats} from "@orillusion/stats";
+﻿import { Engine3D, Object3DUtil, Object3D, UIImage, ImageType, Color, UIPanel, ViewPanel, Scene3D, Vector2, UITextField, UIShadow, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight, KelvinUtil } from '@orillusion/core';
+import { Stats } from '@orillusion/stats';
 
 class Sample_UIMultiCanvas {
     scene: Scene3D;
@@ -11,47 +11,47 @@ class Sample_UIMultiCanvas {
         await Engine3D.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt');
 
         // init Scene3D
-        this.scene = new Scene3D()
-        this.scene.exposure = 1
-        this.scene.addComponent(Stats)
+        this.scene = new Scene3D();
+        this.scene.exposure = 1;
+        this.scene.addComponent(Stats);
 
         // init sky
-        let atmosphericSky: AtmosphericComponent
-        atmosphericSky = this.scene.addComponent(AtmosphericComponent)
+        let atmosphericSky: AtmosphericComponent;
+        atmosphericSky = this.scene.addComponent(AtmosphericComponent);
 
         // init Camera3D
-        let camera = CameraUtil.createCamera3DObject(this.scene)
-        camera.perspective(60, Engine3D.aspect, 1, 5000)
+        let camera = CameraUtil.createCamera3DObject(this.scene);
+        camera.perspective(60, Engine3D.aspect, 1, 5000);
 
         // init Camera Controller
-        let hoverCtrl = camera.object3D.addComponent(HoverCameraController)
-        hoverCtrl.setCamera(-30, -15, 100)
+        let hoverCtrl = camera.object3D.addComponent(HoverCameraController);
+        hoverCtrl.setCamera(-30, -15, 100);
 
         // init View3D
-        let view = new View3D()
-        view.scene = this.scene
-        view.camera = camera
+        let view = new View3D();
+        view.scene = this.scene;
+        view.camera = camera;
 
         // create direction light
-        let lightObj3D = new Object3D()
-        lightObj3D.x = 0
-        lightObj3D.y = 30
-        lightObj3D.z = -40
-        lightObj3D.rotationX = 20
-        lightObj3D.rotationY = 160
-        lightObj3D.rotationZ = 0
+        let lightObj3D = new Object3D();
+        lightObj3D.x = 0;
+        lightObj3D.y = 30;
+        lightObj3D.z = -40;
+        lightObj3D.rotationX = 20;
+        lightObj3D.rotationY = 160;
+        lightObj3D.rotationZ = 0;
 
-        let light = lightObj3D.addComponent(DirectLight)
-        light.lightColor = KelvinUtil.color_temperature_to_rgb(5355)
-        light.castShadow = true
-        light.intensity = 30
+        let light = lightObj3D.addComponent(DirectLight);
+        light.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
+        light.castShadow = true;
+        light.intensity = 3;
 
-        this.scene.addChild(light.object3D)
+        this.scene.addChild(light.object3D);
 
         // relative light to sky
-        atmosphericSky.relativeTransform = light.transform
+        atmosphericSky.relativeTransform = light.transform;
 
-        Engine3D.startRenderView(view)
+        Engine3D.startRenderView(view);
 
         // create floor
         let floor = Object3DUtil.GetSingleCube(100, 2, 50, 0.5, 0.5, 0.5);
@@ -65,7 +65,6 @@ class Sample_UIMultiCanvas {
             size.y = 400 - i * 100;
             this.createPanel(this.scene, i, size);
         }
-
     }
 
     private createPanel(scene: Scene3D, index: number, size: Vector2): UIPanel {
@@ -93,7 +92,6 @@ class Sample_UIMultiCanvas {
         shadow.shadowOffset.multiplyScaler(0.4);
         return panel;
     }
-
 }
 
 new Sample_UIMultiCanvas().run();

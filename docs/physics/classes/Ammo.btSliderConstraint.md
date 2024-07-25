@@ -28,7 +28,7 @@
 
 ### constructor
 
-• **new btSliderConstraint**(`rbA`, `rbB`, `frameInA`, `frameInB`, `useLinearReferenceFrameA`)
+• **new btSliderConstraint**(`rbA`, `rbB`, `frameInA`, `frameInB`, `useLinearReferenceFrameA`): [`btSliderConstraint`](Ammo.btSliderConstraint.md)
 
 #### Parameters
 
@@ -40,6 +40,10 @@
 | `frameInB` | [`btTransform`](Ammo.btTransform.md) |
 | `useLinearReferenceFrameA` | `boolean` |
 
+#### Returns
+
+[`btSliderConstraint`](Ammo.btSliderConstraint.md)
+
 #### Overrides
 
 [btTypedConstraint](Ammo.btTypedConstraint.md).[constructor](Ammo.btTypedConstraint.md#constructor)
@@ -48,7 +52,7 @@
 
 [packages/ammo/ammo.d.ts:595](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L595)
 
-• **new btSliderConstraint**(`rbB`, `frameInB`, `useLinearReferenceFrameA`)
+• **new btSliderConstraint**(`rbB`, `frameInB`, `useLinearReferenceFrameA`): [`btSliderConstraint`](Ammo.btSliderConstraint.md)
 
 #### Parameters
 
@@ -57,6 +61,10 @@
 | `rbB` | [`btRigidBody`](Ammo.btRigidBody.md) |
 | `frameInB` | [`btTransform`](Ammo.btTransform.md) |
 | `useLinearReferenceFrameA` | `boolean` |
+
+#### Returns
+
+[`btSliderConstraint`](Ammo.btSliderConstraint.md)
 
 #### Overrides
 

@@ -42,7 +42,11 @@
 
 ### constructor
 
-• **new btCollisionShape**()
+• **new btCollisionShape**(): [`btCollisionShape`](Ammo.btCollisionShape.md)
+
+#### Returns
+
+[`btCollisionShape`](Ammo.btCollisionShape.md)
 
 ## Methods
 

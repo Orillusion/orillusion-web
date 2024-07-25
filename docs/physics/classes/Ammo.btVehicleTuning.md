@@ -25,7 +25,11 @@
 
 ### constructor
 
-• **new btVehicleTuning**()
+• **new btVehicleTuning**(): [`btVehicleTuning`](Ammo.btVehicleTuning.md)
+
+#### Returns
+
+[`btVehicleTuning`](Ammo.btVehicleTuning.md)
 
 #### Defined in
 

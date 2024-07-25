@@ -1,41 +1,42 @@
 import { BoxGeometry, Camera3D, DirectLight, Engine3D, LitMaterial, KelvinUtil, MeshRenderer, Object3D, Scene3D, Vector3, Color, OrbitController, View3D, AtmosphericComponent } from '@orillusion/core';
-import { PositionAudio, AudioListener } from  '@orillusion/media-extention'
-import * as dat from 'dat.gui'
+import { PositionAudio, AudioListener } from '@orillusion/media-extention';
+import * as dat from 'dat.gui';
 
 class Position_Audio {
     lightObj: Object3D;
     scene: Scene3D;
-    camera: Object3D
+    camera: Object3D;
     mats: any[];
-    audio: PositionAudio
-    private a = 40
-    private b = 80
-    private angle = 0
+    audio: PositionAudio;
+    private a = 40;
+    private b = 80;
+    private angle = 0;
     constructor() {}
 
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
         Engine3D.setting.shadow.updateFrameRate = 1;
         Engine3D.setting.shadow.type = 'HARD';
-        Engine3D.setting.shadow.shadowBound = 100;
+        Engine3D.setting.shadow.shadowSize = 2048;
+        Engine3D.setting.shadow.shadowBound = 250;
+        Engine3D.setting.shadow.shadowBias = 0.002;
 
         await Engine3D.init({
             renderLoop: this.loop.bind(this)
         });
-        console.log(1)
         this.scene = new Scene3D();
         this.scene.addComponent(AtmosphericComponent);
-        
-        this.camera = new Object3D()
-        this.camera.localPosition = new Vector3(0, 20, 50)
-        let mainCamera = this.camera.addComponent(Camera3D)
-        this.scene.addChild(this.camera)
+
+        this.camera = new Object3D();
+        this.camera.localPosition = new Vector3(0, 20, 50);
+        let mainCamera = this.camera.addComponent(Camera3D);
+        this.scene.addChild(this.camera);
 
         mainCamera.perspective(60, Engine3D.aspect, 0.1, 20000.0);
-        let orbit = this.camera.addComponent(OrbitController)
-        orbit.target = new Vector3(0, 4, 0)
-        orbit.minDistance = 10
-        orbit.maxDistance = 200
+        let orbit = this.camera.addComponent(OrbitController);
+        orbit.target = new Vector3(0, 4, 0);
+        orbit.minDistance = 10;
+        orbit.maxDistance = 200;
 
         let view = new View3D();
         view.scene = this.scene;
@@ -47,14 +48,14 @@ class Position_Audio {
 
     async initScene() {
         {
-            let wall = new Object3D()
-            let mr = wall.addComponent(MeshRenderer)
-            mr.geometry = new BoxGeometry(40, 30, 1)
-            let mat = new LitMaterial()
-            mat.baseColor = new Color(1,0,0)
-            mr.material = mat
-            this.scene.addChild(wall)
-            wall.z = -5
+            let wall = new Object3D();
+            let mr = wall.addComponent(MeshRenderer);
+            mr.geometry = new BoxGeometry(40, 30, 1);
+            let mat = new LitMaterial();
+            mat.baseColor = new Color(1, 0, 0);
+            mr.material = mat;
+            this.scene.addChild(wall);
+            wall.z = -5;
         }
         {
             let floor = new Object3D();
@@ -74,70 +75,72 @@ class Position_Audio {
             let directLight = this.lightObj.addComponent(DirectLight);
             directLight.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
             directLight.castShadow = true;
-            directLight.intensity = 30;
+            directLight.intensity = 3;
             this.scene.addChild(this.lightObj);
         }
         {
-            let [speaker, man, music] = await Promise.all([
-                Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/speaker/scene.gltf'),
-                Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/glb/CesiumMan.glb'),
-                fetch('https://cdn.orillusion.com/audio.ogg').then(res=>res.arrayBuffer())
-            ])
-            speaker.localScale.set(4,4,4)
-            speaker.rotationX = -120
-            speaker.y = 0.5
-            let group = new Object3D()
-            group.addChild(speaker)
-            group.y = 2
-            this.scene.addChild(group)
+            let [speaker, man, music] = await Promise.all([Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/speaker/scene.gltf'), Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/glb/CesiumMan.glb'), fetch('https://cdn.orillusion.com/audio.ogg').then((res) => res.arrayBuffer())]);
+            speaker.localScale.set(4, 4, 4);
+            speaker.rotationX = -120;
+            speaker.y = 0.5;
+            let group = new Object3D();
+            group.addChild(speaker);
+            group.y = 2;
+            this.scene.addChild(group);
 
-            man.name = 'man'
+            man.name = 'man';
             man.scaleX = 10;
             man.scaleY = 10;
             man.scaleZ = 10;
             man.rotationX = -90;
-            man.rotationY = -90
-            man.localPosition.set(0, 0.5, 30)
-            this.scene.addChild(man)
+            man.rotationY = -90;
+            man.localPosition.set(0, 0.5, 30);
+            this.scene.addChild(man);
 
-            let listener = man.addComponent(AudioListener)
-            let audio = group.addComponent(PositionAudio)
-            audio.setLisenter(listener)
-            await audio.loadBuffer(music)
+            let listener = man.addComponent(AudioListener);
+            let audio = group.addComponent(PositionAudio);
+            audio.setLisenter(listener);
+            await audio.loadBuffer(music);
             audio.refDistance = 10;
             audio.maxDistance = 100;
-			audio.setDirectionalCone( 180, 230, 0.1 );
-            audio.showHelper()
+            audio.setDirectionalCone(180, 230, 0.1);
+            audio.showHelper();
 
             let buttons = {
-                play:()=>{audio.play()},
-                pause:()=>{audio.pause()},
-                stop:()=>{audio.stop()},
+                play: () => {
+                    audio.play();
+                },
+                pause: () => {
+                    audio.pause();
+                },
+                stop: () => {
+                    audio.stop();
+                },
                 volume: 1,
-                'Toggle Helper': ()=>{
-                    audio.toggleHelper()
+                'Toggle Helper': () => {
+                    audio.toggleHelper();
                 }
-            }
-            let gui = new dat.GUI()
-            gui.addFolder('Orillusion')
-            gui.add(buttons, 'play')
-            gui.add(buttons, 'pause')
-            gui.add(buttons, 'stop')
-            gui.add(buttons, 'volume', 0, 1, 0.01).onChange(v=>{
-                audio.setVolume(v)
-            })
-            gui.add(buttons, 'Toggle Helper')
+            };
+            let gui = new dat.GUI();
+            gui.addFolder('Orillusion');
+            gui.add(buttons, 'play');
+            gui.add(buttons, 'pause');
+            gui.add(buttons, 'stop');
+            gui.add(buttons, 'volume', 0, 1, 0.01).onChange((v) => {
+                audio.setVolume(v);
+            });
+            gui.add(buttons, 'Toggle Helper');
         }
     }
-    loop(){
-        let man = this.scene.getChildByName('man') as Object3D
-        if(man){
-            this.angle += 0.005
-            man.x = this.a * Math.cos(this.angle)
-            man.z = this.b * Math.sin(this.angle) + 30
-            man.rotationY -= 0.005 * 180 / Math.PI
+    loop() {
+        let man = this.scene.getChildByName('man') as Object3D;
+        if (man) {
+            this.angle += 0.005;
+            man.x = this.a * Math.cos(this.angle);
+            man.z = this.b * Math.sin(this.angle) + 30;
+            man.rotationY -= (0.005 * 180) / Math.PI;
         }
     }
 }
 
-new Position_Audio().run()
+new Position_Audio().run();

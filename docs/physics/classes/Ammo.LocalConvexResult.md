@@ -23,7 +23,7 @@
 
 ### constructor
 
-• **new LocalConvexResult**(`hitCollisionObject`, `localShapeInfo`, `hitNormalLocal`, `hitPointLocal`, `hitFraction`)
+• **new LocalConvexResult**(`hitCollisionObject`, `localShapeInfo`, `hitNormalLocal`, `hitPointLocal`, `hitFraction`): [`LocalConvexResult`](Ammo.LocalConvexResult.md)
 
 #### Parameters
 
@@ -34,6 +34,10 @@
 | `hitNormalLocal` | [`btVector3`](Ammo.btVector3.md) |
 | `hitPointLocal` | [`btVector3`](Ammo.btVector3.md) |
 | `hitFraction` | `number` |
+
+#### Returns
+
+[`LocalConvexResult`](Ammo.LocalConvexResult.md)
 
 #### Defined in
 

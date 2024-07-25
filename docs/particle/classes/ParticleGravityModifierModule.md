@@ -27,7 +27,11 @@ Particle module of gravity modifier
 
 ### constructor
 
-• **new ParticleGravityModifierModule**()
+• **new ParticleGravityModifierModule**(): [`ParticleGravityModifierModule`](ParticleGravityModifierModule.md)
+
+#### Returns
+
+[`ParticleGravityModifierModule`](ParticleGravityModifierModule.md)
 
 #### Inherited from
 

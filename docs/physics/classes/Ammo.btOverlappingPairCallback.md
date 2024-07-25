@@ -10,4 +10,8 @@
 
 ### constructor
 
-• **new btOverlappingPairCallback**()
+• **new btOverlappingPairCallback**(): [`btOverlappingPairCallback`](Ammo.btOverlappingPairCallback.md)
+
+#### Returns
+
+[`btOverlappingPairCallback`](Ammo.btOverlappingPairCallback.md)

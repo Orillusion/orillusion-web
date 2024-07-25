@@ -40,7 +40,11 @@
 
 ### constructor
 
-• **new btDynamicsWorld**()
+• **new btDynamicsWorld**(): [`btDynamicsWorld`](Ammo.btDynamicsWorld.md)
+
+#### Returns
+
+[`btDynamicsWorld`](Ammo.btDynamicsWorld.md)
 
 #### Inherited from
 

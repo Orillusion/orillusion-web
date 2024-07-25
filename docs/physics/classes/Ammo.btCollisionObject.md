@@ -51,7 +51,11 @@
 
 ### constructor
 
-• **new btCollisionObject**()
+• **new btCollisionObject**(): [`btCollisionObject`](Ammo.btCollisionObject.md)
+
+#### Returns
+
+[`btCollisionObject`](Ammo.btCollisionObject.md)
 
 ## Methods
 

@@ -1,10 +1,12 @@
-import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight, KelvinUtil, BitmapTexture2D, Color, PlaneGeometry, MeshRenderer, UnLitMaterial, SphereGeometry, LitMaterial } from "@orillusion/core";
+import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight, KelvinUtil, BitmapTexture2D, Color, PlaneGeometry, MeshRenderer, UnLitMaterial, SphereGeometry, LitMaterial } from '@orillusion/core';
 
 class Sample_UnlitMaterial {
     lightObj3D: Object3D;
     scene: Scene3D;
 
     async run() {
+        Engine3D.setting.shadow.shadowBound = 100;
+
         await Engine3D.init();
 
         this.scene = new Scene3D();
@@ -36,7 +38,7 @@ class Sample_UnlitMaterial {
             this.lightObj3D.rotationZ = 0;
             let directLight = this.lightObj3D.addComponent(DirectLight);
             directLight.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
-            directLight.intensity = 20;
+            directLight.intensity = 2;
             directLight.castShadow = true;
             scene.addChild(this.lightObj3D);
         }
@@ -60,7 +62,7 @@ class Sample_UnlitMaterial {
             let sphere = new Object3D();
             let renderer = sphere.addComponent(MeshRenderer);
             renderer.geometry = new SphereGeometry(1, 32, 32);
-            renderer.material = new UnLitMaterial()
+            renderer.material = new UnLitMaterial();            
             sphere.scaleX = 5;
             sphere.scaleY = 5;
             sphere.scaleZ = 5;
@@ -73,7 +75,7 @@ class Sample_UnlitMaterial {
             let sphere = new Object3D();
             let renderer = sphere.addComponent(MeshRenderer);
             renderer.geometry = new SphereGeometry(1, 32, 32);
-            renderer.material = new LitMaterial()
+            renderer.material = new LitMaterial();
             sphere.scaleX = 5;
             sphere.scaleY = 5;
             sphere.scaleZ = 5;

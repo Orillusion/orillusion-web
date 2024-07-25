@@ -48,7 +48,7 @@
 
 ### constructor
 
-• **new btRaycastVehicle**(`tuning`, `chassis`, `raycaster`)
+• **new btRaycastVehicle**(`tuning`, `chassis`, `raycaster`): [`btRaycastVehicle`](Ammo.btRaycastVehicle.md)
 
 #### Parameters
 
@@ -57,6 +57,10 @@
 | `tuning` | [`btVehicleTuning`](Ammo.btVehicleTuning.md) |
 | `chassis` | [`btRigidBody`](Ammo.btRigidBody.md) |
 | `raycaster` | [`btVehicleRaycaster`](Ammo.btVehicleRaycaster.md) |
+
+#### Returns
+
+[`btRaycastVehicle`](Ammo.btRaycastVehicle.md)
 
 #### Overrides
 

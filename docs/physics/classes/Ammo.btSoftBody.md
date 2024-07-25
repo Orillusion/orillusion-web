@@ -77,7 +77,7 @@
 
 ### constructor
 
-• **new btSoftBody**(`worldInfo`, `node_count`, `x`, `m`)
+• **new btSoftBody**(`worldInfo`, `node_count`, `x`, `m`): [`btSoftBody`](Ammo.btSoftBody.md)
 
 #### Parameters
 
@@ -87,6 +87,10 @@
 | `node_count` | `number` |
 | `x` | [`btVector3`](Ammo.btVector3.md) |
 | `m` | readonly `number`[] |
+
+#### Returns
+
+[`btSoftBody`](Ammo.btSoftBody.md)
 
 #### Overrides
 

@@ -19,7 +19,11 @@
 
 ### constructor
 
-• **new btIDebugDraw**()
+• **new btIDebugDraw**(): [`btIDebugDraw`](Ammo.btIDebugDraw.md)
+
+#### Returns
+
+[`btIDebugDraw`](Ammo.btIDebugDraw.md)
 
 ## Methods
 

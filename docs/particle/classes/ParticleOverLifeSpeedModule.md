@@ -30,7 +30,11 @@ Particle module of move speed over life time
 
 ### constructor
 
-• **new ParticleOverLifeSpeedModule**()
+• **new ParticleOverLifeSpeedModule**(): [`ParticleOverLifeSpeedModule`](ParticleOverLifeSpeedModule.md)
+
+#### Returns
+
+[`ParticleOverLifeSpeedModule`](ParticleOverLifeSpeedModule.md)
 
 #### Inherited from
 

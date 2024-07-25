@@ -33,13 +33,17 @@
 
 ### constructor
 
-• **new btVector3**()
+• **new btVector3**(): [`btVector3`](Ammo.btVector3.md)
+
+#### Returns
+
+[`btVector3`](Ammo.btVector3.md)
 
 #### Defined in
 
 [packages/ammo/ammo.d.ts:39](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L39)
 
-• **new btVector3**(`x`, `y`, `z`)
+• **new btVector3**(`x`, `y`, `z`): [`btVector3`](Ammo.btVector3.md)
 
 #### Parameters
 
@@ -48,6 +52,10 @@
 | `x` | `number` |
 | `y` | `number` |
 | `z` | `number` |
+
+#### Returns
+
+[`btVector3`](Ammo.btVector3.md)
 
 #### Defined in
 

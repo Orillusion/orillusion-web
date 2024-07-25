@@ -20,13 +20,17 @@
 
 ### constructor
 
-• **new btDefaultVehicleRaycaster**(`world`)
+• **new btDefaultVehicleRaycaster**(`world`): [`btDefaultVehicleRaycaster`](Ammo.btDefaultVehicleRaycaster.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `world` | [`btDynamicsWorld`](Ammo.btDynamicsWorld.md) |
+
+#### Returns
+
+[`btDefaultVehicleRaycaster`](Ammo.btDefaultVehicleRaycaster.md)
 
 #### Overrides
 

@@ -66,8 +66,8 @@ class Sample_Light {
             GUIHelp.addColor({ color: Object.values(light.lightColor).map((v) => v * 255) }, 'color').onChange((v) => {
                 light.lightColor.copyFromArray(v);
             });
-            GUIHelp.add(light, 'intensity', 0, 100, 1);
-            GUIHelp.add(light, 'range', 100, 500, 1);
+            GUIHelp.add(light, 'intensity', 0, 200, 1);
+            GUIHelp.add(light, 'range', 100, 1000, 1);
             GUIHelp.add(light, 'outerAngle', 0, 180, 1);
             GUIHelp.add(light, 'innerAngle', 0, 100, 1);
         }

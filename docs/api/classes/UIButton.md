@@ -45,6 +45,8 @@ The basic components used in the GUI to respond to user interaction behavior and
 - [onCompute](UIButton.md#oncompute)
 - [onGraphic](UIButton.md#ongraphic)
 - [onParentChange](UIButton.md#onparentchange)
+- [onAddChild](UIButton.md#onaddchild)
+- [onRemoveChild](UIButton.md#onremovechild)
 - [beforeDestroy](UIButton.md#beforedestroy)
 - [init](UIButton.md#init)
 - [onEnable](UIButton.md#onenable)
@@ -718,6 +720,54 @@ ___
 
 ___
 
+### onAddChild
+
+▸ **onAddChild**(`child`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `child` | [`Object3D`](Object3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[UIInteractive](UIInteractive.md).[onAddChild](UIInteractive.md#onaddchild)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L123)
+
+___
+
+### onRemoveChild
+
+▸ **onRemoveChild**(`child`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `child` | [`Object3D`](Object3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[UIInteractive](UIInteractive.md).[onRemoveChild](UIInteractive.md#onremovechild)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L124)
+
+___
+
 ### beforeDestroy
 
 ▸ **beforeDestroy**(`force?`): `void`
@@ -740,7 +790,7 @@ before release this component, object refrences are not be set null now.
 
 #### Defined in
 
-[src/components/ComponentBase.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L198)
+[src/components/ComponentBase.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L200)
 
 ___
 

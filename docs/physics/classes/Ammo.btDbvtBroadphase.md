@@ -20,7 +20,11 @@
 
 ### constructor
 
-• **new btDbvtBroadphase**()
+• **new btDbvtBroadphase**(): [`btDbvtBroadphase`](Ammo.btDbvtBroadphase.md)
+
+#### Returns
+
+[`btDbvtBroadphase`](Ammo.btDbvtBroadphase.md)
 
 #### Overrides
 

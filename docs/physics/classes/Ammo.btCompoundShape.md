@@ -30,13 +30,17 @@
 
 ### constructor
 
-• **new btCompoundShape**(`enableDynamicAabbTree?`)
+• **new btCompoundShape**(`enableDynamicAabbTree?`): [`btCompoundShape`](Ammo.btCompoundShape.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `enableDynamicAabbTree?` | `boolean` |
+
+#### Returns
+
+[`btCompoundShape`](Ammo.btCompoundShape.md)
 
 #### Overrides
 

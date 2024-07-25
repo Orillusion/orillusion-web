@@ -1,14 +1,12 @@
-import dat from "dat.gui";
-import {Stats} from "@orillusion/stats";
-import {AtmosphericComponent, BoxGeometry, CameraUtil, Color, Engine3D, HoverCameraController, LitMaterial, MeshRenderer, Object3D, PlaneGeometry, PointLight, Scene3D, SphereGeometry, Vector3, View3D, webGPUContext, Camera3D, Time, DEGREES_TO_RADIANS} from '@orillusion/core';
-import {ParticleSystem, ParticleMaterial, ParticleStandardSimulator, EmitLocation, ParticleEmitterModule, ParticleGravityModifierModule, ParticleOverLifeColorModule, ShapeType, SimulatorSpace} from '@orillusion/particle';
+import dat from 'dat.gui';
+import { Stats } from '@orillusion/stats';
+import { AtmosphericComponent, BoxGeometry, CameraUtil, Color, Engine3D, HoverCameraController, LitMaterial, MeshRenderer, Object3D, PlaneGeometry, PointLight, Scene3D, SphereGeometry, Vector3, View3D, webGPUContext, Camera3D, Time, DEGREES_TO_RADIANS } from '@orillusion/core';
+import { ParticleSystem, ParticleMaterial, ParticleStandardSimulator, EmitLocation, ParticleEmitterModule, ParticleGravityModifierModule, ParticleOverLifeColorModule, ShapeType, SimulatorSpace } from '@orillusion/particle';
 
 class Sample_CandleFlame {
     lightObj: Object3D;
     async run() {
-        Engine3D.setting.shadow.enable = true;
         Engine3D.setting.shadow.pointShadowBias = 0.001;
-        Engine3D.setting.shadow.autoUpdate = true;
         Engine3D.setting.shadow.updateFrameRate = 1;
         await Engine3D.init();
 
@@ -41,13 +39,12 @@ class Sample_CandleFlame {
         let particleSystem = obj.addComponent(ParticleSystem);
 
         {
-            let lightObj = this.lightObj = new Object3D();
+            let lightObj = (this.lightObj = new Object3D());
             let pl = lightObj.addComponent(PointLight);
             pl.range = 56;
-            pl.radius = 1;
-            pl.intensity = 15;
+            pl.radius = 0.01;
+            pl.intensity = 5;
             pl.castShadow = true;
-            pl.realTimeShadow = true;
             pl.lightColor = new Color(67 / 255, 195 / 255, 232 / 255);
             obj.addChild(lightObj);
         }
@@ -121,7 +118,7 @@ class Sample_CandleFlame {
             let mr2 = back_wall.addComponent(MeshRenderer);
             mr2.geometry = new BoxGeometry(500, 500, 10);
             mr2.material = mat;
-            back_wall.z = - 200;
+            back_wall.z = -200;
             scene.addChild(back_wall);
 
             let front_wall = new Object3D();
@@ -135,7 +132,7 @@ class Sample_CandleFlame {
             let mr4 = left_wall.addComponent(MeshRenderer);
             mr4.geometry = new BoxGeometry(10, 500, 500);
             mr4.material = mat;
-            left_wall.x = - 200;
+            left_wall.x = -200;
             scene.addChild(left_wall);
 
             let right_wall = new Object3D();

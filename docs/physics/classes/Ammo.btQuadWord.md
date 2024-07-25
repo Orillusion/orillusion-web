@@ -27,7 +27,11 @@
 
 ### constructor
 
-• **new btQuadWord**()
+• **new btQuadWord**(): [`btQuadWord`](Ammo.btQuadWord.md)
+
+#### Returns
+
+[`btQuadWord`](Ammo.btQuadWord.md)
 
 ## Methods
 

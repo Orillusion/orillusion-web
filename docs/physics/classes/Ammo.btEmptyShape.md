@@ -24,7 +24,11 @@
 
 ### constructor
 
-• **new btEmptyShape**()
+• **new btEmptyShape**(): [`btEmptyShape`](Ammo.btEmptyShape.md)
+
+#### Returns
+
+[`btEmptyShape`](Ammo.btEmptyShape.md)
 
 #### Overrides
 

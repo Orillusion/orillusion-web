@@ -24,8 +24,8 @@ Engine3D.startRenderView(view);
 
 | 参数 | 类型 | 描述 |
 | --- | --- | --- |
-| outlinePixel | number | 描边硬边的像素宽度。|
-| fadeOutlinePixel | number | 描边淡出像素宽度。|
+| outlinePixel | number | 描边硬边的像素宽度 |
+| fadeOutlinePixel | number | 描边淡出像素宽度 |
 
 
 通过 [outlinePostManager](/api/classes/OutlinePostManager) 指定描边列表。目前 `outline` 最多指定8组列表，每组可以设置不同的轮廓颜色；单组内的物体可以设置多个对象。分组的先后顺序决定了描边轮廓覆盖的优先级。

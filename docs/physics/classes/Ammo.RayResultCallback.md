@@ -30,7 +30,11 @@
 
 ### constructor
 
-• **new RayResultCallback**()
+• **new RayResultCallback**(): [`RayResultCallback`](Ammo.RayResultCallback.md)
+
+#### Returns
+
+[`RayResultCallback`](Ammo.RayResultCallback.md)
 
 ## Methods
 

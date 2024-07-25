@@ -19,7 +19,11 @@
 
 ### constructor
 
-• **new DebugDrawer**()
+• **new DebugDrawer**(): [`DebugDrawer`](Ammo.DebugDrawer.md)
+
+#### Returns
+
+[`DebugDrawer`](Ammo.DebugDrawer.md)
 
 #### Defined in
 

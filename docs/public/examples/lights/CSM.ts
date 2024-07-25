@@ -1,5 +1,6 @@
-import { Scene3D, HoverCameraController, Engine3D, AtmosphericComponent, Object3D, Camera3D, Vector3, View3D, DirectLight, KelvinUtil, LitMaterial, MeshRenderer, BoxGeometry, CameraUtil, SphereGeometry, Color, Object3DUtil, BlendMode } from "@orillusion/core";
-import * as dat from "dat.gui";
+import { Scene3D, HoverCameraController, Engine3D, AtmosphericComponent, Object3D, Camera3D, Vector3, View3D, DirectLight, KelvinUtil, LitMaterial, MeshRenderer, BoxGeometry, CameraUtil, SphereGeometry, Color, Object3DUtil, BlendMode } from '@orillusion/core';
+import { Graphic3D } from '@orillusion/graphic';
+import * as dat from 'dat.gui';
 
 //sample of csm
 class Sample_CSM {
@@ -9,13 +10,20 @@ class Sample_CSM {
     boxRenderer: MeshRenderer;
     viewCamera: Camera3D;
     gui: dat.GUI;
+    graphic3D: Graphic3D;
 
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
-        Engine3D.setting.shadow.shadowSize = 1024;
-        await Engine3D.init({ renderLoop: () => { this.loop(); } });
+        Engine3D.setting.shadow.shadowSize = 2048;
+        Engine3D.setting.shadow.shadowBound = 512;
+        Engine3D.setting.shadow.shadowBias = 0.02;
+        await Engine3D.init({
+            renderLoop: () => {
+                this.loop();
+            }
+        });
         let gui = new dat.GUI();
-        this.gui = gui.addFolder('Orillusion')
+        this.gui = gui.addFolder('Orillusion');
         this.gui.open();
         this.scene = new Scene3D();
         let sky = this.scene.addComponent(AtmosphericComponent);
@@ -27,8 +35,8 @@ class Sample_CSM {
         mainCamera.object3D.z = -15;
         mainCamera.object3D.addComponent(HoverCameraController).setCamera(-15, -35, 200);
 
-        sky.relativeTransform = this.initLight('mainLight', 30, 45);
-        this.initLight('subLight', 10, 10);
+        sky.relativeTransform = this.initLight('mainLight', 3, 45);
+        this.initLight('subLight', 2, 10);
         this.initScene();
 
         let view = new View3D();
@@ -37,10 +45,13 @@ class Sample_CSM {
         this.view = view;
         this.viewCamera = mainCamera;
 
+        this.graphic3D = new Graphic3D();
+        this.scene.addChild(this.graphic3D);
+
         mainCamera.enableCSM = true;
         Engine3D.startRenderView(view);
 
-        let f = gui.addFolder('CSM')
+        let f = gui.addFolder('CSM');
         f.add(mainCamera, 'enableCSM');
         f.add(Engine3D.setting.shadow, 'csmScatteringExp', 0.5, 1.0, 0.01);
         f.add(Engine3D.setting.shadow, 'csmMargin', 0.01, 0.5, 0.01);
@@ -62,7 +73,7 @@ class Sample_CSM {
 
         this.scene.addChild(lightObj3D);
         this.light = sunLight;
-        this.gui.add(sunLight, 'enable').name(name)
+        this.gui.add(sunLight, 'enable').name(name);
         return sunLight.transform;
     }
 
@@ -88,11 +99,11 @@ class Sample_CSM {
 
         for (let i = 0; i < 1000; i++) {
             let item = Object3DUtil.GetSingleSphere(4, 0.6, 0.4, 0.2);
-            let angle = Math.PI * 4 * i / 50;
+            let angle = (Math.PI * 4 * i) / 50;
             item.x = Math.sin(angle) * (50 + i ** 1.4);
             item.z = Math.cos(angle) * (50 + i ** 1.4);
             item.y = 4;
-            let scale = ((i ** 1.4) * 5 + 1000) / 1000;
+            let scale = (i ** 1.4 * 5 + 1000) / 1000;
             item.scaleX = item.scaleZ = scale;
             item.scaleY = scale * 5;
             this.scene.addChild(item);
@@ -104,7 +115,7 @@ class Sample_CSM {
         let geom = new BoxGeometry(1, 1, 1);
         let material = new LitMaterial();
         material.blendMode = BlendMode.NORMAL;
-        material.cullMode = "front";
+        material.cullMode = 'front';
         material.baseColor = new Color(0.2, 0.2, 0, 0.1);
         let renderer = box.addComponent(MeshRenderer);
         renderer.material = material;
@@ -118,9 +129,7 @@ class Sample_CSM {
         let viewCamera = this.viewCamera;
         let light = this.light;
         let view = this.view;
-        if (!this.boxRenderer || !this.viewCamera.csm)
-            return;
-
+        if (!this.boxRenderer || !this.viewCamera.csm) return;
 
         let csmBound = this.viewCamera.csm.children[0].bound;
         //update box
@@ -136,10 +145,8 @@ class Sample_CSM {
         this._shadowPos.copy(light.direction).normalize(viewCamera.far);
         csmBound.center.add(this._shadowPos, this._shadowCameraTarget);
         csmBound.center.subtract(this._shadowPos, this._shadowPos);
-        view.graphic3D.drawLines('shadowLine', [this._shadowPos, this._shadowCameraTarget], new Color(1, 1, 0, 1));
+        this.graphic3D.drawLines('shadowLine', [this._shadowPos, this._shadowCameraTarget], new Color(1, 1, 0, 1));
     }
-
 }
-
 
 new Sample_CSM().run();

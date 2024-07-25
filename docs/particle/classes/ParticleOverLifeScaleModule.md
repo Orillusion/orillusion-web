@@ -30,7 +30,11 @@ Particle module of size scale over life time
 
 ### constructor
 
-• **new ParticleOverLifeScaleModule**()
+• **new ParticleOverLifeScaleModule**(): [`ParticleOverLifeScaleModule`](ParticleOverLifeScaleModule.md)
+
+#### Returns
+
+[`ParticleOverLifeScaleModule`](ParticleOverLifeScaleModule.md)
 
 #### Inherited from
 

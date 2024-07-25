@@ -8,12 +8,13 @@ class Sample_FlightHelmet {
 
     async run() {
         await Engine3D.init({
-            canvasConfig: { alpha: true, zIndex: 0 },
+            canvasConfig: { alpha: true, zIndex: 0, devicePixelRatio:2 },
             renderLoop: this.loop.bind(this)
         });
         Engine3D.setting.shadow.autoUpdate = true;
         Engine3D.setting.shadow.updateFrameRate = 1;
-        Engine3D.setting.shadow.shadowBound = 50;
+        Engine3D.setting.shadow.shadowBound = 20;
+        Engine3D.setting.shadow.shadowBias = 0.001;
         Engine3D.setting.render.postProcessing.bloom!.luminanceThreshole = 0.8;
         Engine3D.setting.render.postProcessing.bloom!.bloomIntensity = 1;
 
@@ -37,7 +38,6 @@ class Sample_FlightHelmet {
         Engine3D.startRenderView(view);
 
         let postProcessing = this.scene.addComponent(PostProcessingComponent);
-        postProcessing.addPost(GTAOPost);
         postProcessing.addPost(BloomPost);
     }
 
@@ -58,7 +58,7 @@ class Sample_FlightHelmet {
             let lc = this.lightObj.addComponent(DirectLight);
             lc.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
             lc.castShadow = true;
-            lc.intensity = 50;
+            lc.intensity = 4.5;
             this.scene.addChild(this.lightObj);
         }
 

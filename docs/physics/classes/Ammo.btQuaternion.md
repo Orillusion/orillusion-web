@@ -46,7 +46,7 @@
 
 ### constructor
 
-• **new btQuaternion**(`x`, `y`, `z`, `w`)
+• **new btQuaternion**(`x`, `y`, `z`, `w`): [`btQuaternion`](Ammo.btQuaternion.md)
 
 #### Parameters
 
@@ -56,6 +56,10 @@
 | `y` | `number` |
 | `z` | `number` |
 | `w` | `number` |
+
+#### Returns
+
+[`btQuaternion`](Ammo.btQuaternion.md)
 
 #### Overrides
 

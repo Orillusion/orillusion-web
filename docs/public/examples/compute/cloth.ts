@@ -4,9 +4,9 @@ class Demo_Cloth {
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
         Engine3D.setting.shadow.updateFrameRate = 1;
-        Engine3D.setting.shadow.shadowBound = 8;
-        Engine3D.setting.shadow.shadowSize = 1024;
-        Engine3D.setting.shadow.shadowBias = 0.00001;
+        Engine3D.setting.shadow.shadowBound = 5;
+        Engine3D.setting.shadow.shadowSize = 2048;
+        Engine3D.setting.shadow.shadowBias = 0.0002;
 
         await Engine3D.init({});
 
@@ -69,7 +69,7 @@ class Demo_Cloth {
             lightObj.rotationY = 0;
             lightObj.rotationZ = 0;
             let lc = lightObj.addComponent(DirectLight);
-            lc.intensity = 20;
+            lc.intensity = 3;
             lc.castShadow = true;
             scene.addChild(lightObj);
         }
@@ -186,8 +186,8 @@ class ClothSimulator extends MeshRenderer {
         var mat = new LitMaterial();
         mat.roughness = 0.8;
         mat.baseMap = Engine3D.res.redTexture;
+        mat.cullMode = 'none';
         this.material = mat;
-        this.material.doubleSide = true;    
     }
 
     public start() {
@@ -300,7 +300,7 @@ class ClothSimulatorBuffer {
             minY = Math.min(minY, clothVertex[3 * i + 1]);
             maxY = Math.max(maxY, clothVertex[3 * i + 1]);
         }
-        console.log(minX, maxX, minY, maxY)
+        // console.log(minX, maxX, minY, maxY)
         var eps = 0.0001;
         for (let i = 0; i < NUMPARTICLES; i++) {
             var x = clothVertex[3 * i];
@@ -436,7 +436,7 @@ class ClothSimulatorBuffer {
 
     protected findTriNeighbors(triIds: Float32Array | Uint16Array | Uint32Array) {
         // create common edges
-        var edges = [];
+        var edges:any = [];
         var numTris = triIds.length / 3;
 
         for (var i = 0; i < numTris; i++) {

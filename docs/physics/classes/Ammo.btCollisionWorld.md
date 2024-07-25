@@ -34,7 +34,11 @@
 
 ### constructor
 
-• **new btCollisionWorld**()
+• **new btCollisionWorld**(): [`btCollisionWorld`](Ammo.btCollisionWorld.md)
+
+#### Returns
+
+[`btCollisionWorld`](Ammo.btCollisionWorld.md)
 
 ## Methods
 

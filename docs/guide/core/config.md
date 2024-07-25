@@ -21,7 +21,7 @@ await Engine3D.init();
 
 ```ts
 Engine3D.setting.pick.enable = true;
-Engine3D.setting.pick.mode = `bound`;
+Engine3D.setting.pick.mode = 'bound';
 await Engine3D.init();
 ```
 
@@ -29,7 +29,7 @@ await Engine3D.init();
 
 ```ts
 Engine3D.setting.pick.enable = true;
-Engine3D.setting.pick.mode = `pixel`;
+Engine3D.setting.pick.mode = 'pixel';
 await Engine3D.init();
 ```
 
@@ -52,9 +52,10 @@ Engine3D.setting.render.postProcessing.bloom.intensity = 0.5;
 
 ```ts
 Engine3D.setting.shadow.enable = true; // 开启阴影
-Engine3D.setting.shadow.type = `SOFT`; // 软阴影类型
+Engine3D.setting.shadow.type = 'SOFT'; // 软阴影类型
 Engine3D.setting.shadow.shadowSize = 2048; // 阴影贴图大小
 Engine3D.setting.shadow.shadowBound = 20; // 阴影区域的世界尺寸
+Engine3D.setting.shadow.shadowBias = 0.01; // 阴影偏移量
 
 ```
 详见 [阴影](/guide/graphics/shadow)

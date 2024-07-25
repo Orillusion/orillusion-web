@@ -13,7 +13,8 @@
 | `gi` | [`GlobalIlluminationSetting`](GlobalIlluminationSetting.md) | global illumination setting |
 | `light` | [`LightSetting`](LightSetting.md) | light setting |
 | `loader` | [`LoaderSetting`](LoaderSetting.md) | loader setting |
+| `reflectionSetting` | [`ReflectionSetting`](ReflectionSetting.md) | reflectionSetting setting |
 
 #### Defined in
 
-[src/setting/EngineSetting.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/setting/EngineSetting.ts#L11)
+[src/setting/EngineSetting.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/setting/EngineSetting.ts#L12)

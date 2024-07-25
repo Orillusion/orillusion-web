@@ -52,7 +52,7 @@
 
 ### constructor
 
-• **new btSoftRigidDynamicsWorld**(`dispatcher`, `pairCache`, `constraintSolver`, `collisionConfiguration`, `softBodySolver`)
+• **new btSoftRigidDynamicsWorld**(`dispatcher`, `pairCache`, `constraintSolver`, `collisionConfiguration`, `softBodySolver`): [`btSoftRigidDynamicsWorld`](Ammo.btSoftRigidDynamicsWorld.md)
 
 #### Parameters
 
@@ -63,6 +63,10 @@
 | `constraintSolver` | [`btConstraintSolver`](Ammo.btConstraintSolver.md) |
 | `collisionConfiguration` | [`btCollisionConfiguration`](Ammo.btCollisionConfiguration.md) |
 | `softBodySolver` | [`btSoftBodySolver`](Ammo.btSoftBodySolver.md) |
+
+#### Returns
+
+[`btSoftRigidDynamicsWorld`](Ammo.btSoftRigidDynamicsWorld.md)
 
 #### Overrides
 

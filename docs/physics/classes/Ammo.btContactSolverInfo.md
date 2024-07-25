@@ -19,7 +19,11 @@
 
 ### constructor
 
-• **new btContactSolverInfo**()
+• **new btContactSolverInfo**(): [`btContactSolverInfo`](Ammo.btContactSolverInfo.md)
+
+#### Returns
+
+[`btContactSolverInfo`](Ammo.btContactSolverInfo.md)
 
 ## Methods
 

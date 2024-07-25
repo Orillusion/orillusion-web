@@ -19,6 +19,7 @@
 - [beginContinueRendererPassState](RenderContext.md#begincontinuerendererpassstate)
 - [beginOpaqueRenderPass](RenderContext.md#beginopaquerenderpass)
 - [beginTransparentRenderPass](RenderContext.md#begintransparentrenderpass)
+- [specialtRenderPass](RenderContext.md#specialtrenderpass)
 - [endRenderPass](RenderContext.md#endrenderpass)
 - [begineNewCommand](RenderContext.md#beginenewcommand)
 - [endCommand](RenderContext.md#endcommand)
@@ -43,7 +44,7 @@
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/RenderContext.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L12)
+[src/gfx/renderJob/passRenderer/RenderContext.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L13)
 
 ## Properties
 
@@ -53,7 +54,7 @@
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/RenderContext.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L7)
+[src/gfx/renderJob/passRenderer/RenderContext.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L8)
 
 ___
 
@@ -63,7 +64,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/RenderContext.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L8)
+[src/gfx/renderJob/passRenderer/RenderContext.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L9)
 
 ## Accessors
 
@@ -77,7 +78,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/RenderContext.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L49)
+[src/gfx/renderJob/passRenderer/RenderContext.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L45)
 
 ## Methods
 
@@ -128,7 +129,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/RenderContext.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L53)
+[src/gfx/renderJob/passRenderer/RenderContext.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L49)
 
 ___
 
@@ -142,7 +143,21 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/RenderContext.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L59)
+[src/gfx/renderJob/passRenderer/RenderContext.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L55)
+
+___
+
+### specialtRenderPass
+
+▸ **specialtRenderPass**(): `void`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/gfx/renderJob/passRenderer/RenderContext.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L61)
 
 ___
 
@@ -156,7 +171,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/RenderContext.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L65)
+[src/gfx/renderJob/passRenderer/RenderContext.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L67)
 
 ___
 
@@ -170,7 +185,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/RenderContext.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L70)
+[src/gfx/renderJob/passRenderer/RenderContext.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L72)
 
 ___
 
@@ -184,7 +199,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/RenderContext.ts:75](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L75)
+[src/gfx/renderJob/passRenderer/RenderContext.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L77)
 
 ___
 
@@ -198,7 +213,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/RenderContext.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L80)
+[src/gfx/renderJob/passRenderer/RenderContext.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L82)
 
 ___
 
@@ -212,4 +227,4 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/RenderContext.ts:85](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L85)
+[src/gfx/renderJob/passRenderer/RenderContext.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L87)

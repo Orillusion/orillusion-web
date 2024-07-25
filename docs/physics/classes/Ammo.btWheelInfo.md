@@ -63,13 +63,17 @@
 
 ### constructor
 
-• **new btWheelInfo**(`ci`)
+• **new btWheelInfo**(`ci`): [`btWheelInfo`](Ammo.btWheelInfo.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `ci` | [`btWheelInfoConstructionInfo`](Ammo.btWheelInfoConstructionInfo.md) |
+
+#### Returns
+
+[`btWheelInfo`](Ammo.btWheelInfo.md)
 
 #### Defined in
 

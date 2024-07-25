@@ -34,7 +34,11 @@
 
 ### constructor
 
-• **new btVector4**()
+• **new btVector4**(): [`btVector4`](Ammo.btVector4.md)
+
+#### Returns
+
+[`btVector4`](Ammo.btVector4.md)
 
 #### Overrides
 
@@ -44,7 +48,7 @@
 
 [packages/ammo/ammo.d.ts:57](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L57)
 
-• **new btVector4**(`x`, `y`, `z`, `w`)
+• **new btVector4**(`x`, `y`, `z`, `w`): [`btVector4`](Ammo.btVector4.md)
 
 #### Parameters
 
@@ -54,6 +58,10 @@
 | `y` | `number` |
 | `z` | `number` |
 | `w` | `number` |
+
+#### Returns
+
+[`btVector4`](Ammo.btVector4.md)
 
 #### Overrides
 

@@ -1,6 +1,6 @@
 # 统计面板
 
-`Orillusion` 提供了 [Stats](/stats/classes/Stats) 组件用来显示引擎当前的运行状态，目前支持包括当前运行时的 `FPS` 和 `运行内存`。
+`Orillusion` 提供了 [@orillusion/stats](/stats/classes/Stats) 组件用来显示引擎当前的运行状态，目前支持包括当前运行时的 `FPS` 和 `运行内存`。
 
 ## 安装
 跟引擎方法一致，我们可以通过 `NPM` 和 `CDN` 链接两种方式来引入物理插件:

@@ -27,7 +27,11 @@
 
 ### constructor
 
-• **new Node**()
+• **new Node**(): [`Node`](Ammo.Node.md)
+
+#### Returns
+
+[`Node`](Ammo.Node.md)
 
 ## Methods
 

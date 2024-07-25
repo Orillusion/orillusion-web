@@ -23,7 +23,7 @@
 
 ### constructor
 
-• **new btDefaultMotionState**(`startTrans?`, `centerOfMassOffset?`)
+• **new btDefaultMotionState**(`startTrans?`, `centerOfMassOffset?`): [`btDefaultMotionState`](Ammo.btDefaultMotionState.md)
 
 #### Parameters
 
@@ -31,6 +31,10 @@
 | :------ | :------ |
 | `startTrans?` | [`btTransform`](Ammo.btTransform.md) |
 | `centerOfMassOffset?` | [`btTransform`](Ammo.btTransform.md) |
+
+#### Returns
+
+[`btDefaultMotionState`](Ammo.btDefaultMotionState.md)
 
 #### Overrides
 

@@ -10,4 +10,8 @@
 
 ### constructor
 
-• **new btConstraintSolver**()
+• **new btConstraintSolver**(): [`btConstraintSolver`](Ammo.btConstraintSolver.md)
+
+#### Returns
+
+[`btConstraintSolver`](Ammo.btConstraintSolver.md)

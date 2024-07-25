@@ -24,7 +24,7 @@
 - [alphaCutoff](StandShader.md#alphacutoff)
 - [emissiveColor](StandShader.md#emissivecolor)
 - [emissiveIntensity](StandShader.md#emissiveintensity)
-- [uvTransform\_1](StandShader.md#uvtransform_1)
+- [transformUV1](StandShader.md#transformuv1)
 - [uvTransform\_2](StandShader.md#uvtransform_2)
 - [depthWriteEnabled](StandShader.md#depthwriteenabled)
 - [materialF0](StandShader.md#materialf0)
@@ -59,6 +59,7 @@
 - [getDefaultShaders](StandShader.md#getdefaultshaders)
 - [getDefaultColorShader](StandShader.md#getdefaultcolorshader)
 - [setDefine](StandShader.md#setdefine)
+- [hasDefine](StandShader.md#hasdefine)
 - [deleteDefine](StandShader.md#deletedefine)
 - [setUniform](StandShader.md#setuniform)
 - [setUniformFloat](StandShader.md#setuniformfloat)
@@ -103,7 +104,7 @@
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L13)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L12)
 
 ## Properties
 
@@ -145,7 +146,7 @@ ___
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L66)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L72)
 
 • `set` **baseMap**(`value`): `void`
 
@@ -161,7 +162,7 @@ ___
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L70)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L76)
 
 ___
 
@@ -175,7 +176,7 @@ ___
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L74)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L80)
 
 • `set` **baseColor**(`value`): `void`
 
@@ -191,7 +192,7 @@ ___
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L78)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L84)
 
 ___
 
@@ -205,7 +206,7 @@ ___
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L82)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:88](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L88)
 
 • `set` **normalMap**(`value`): `void`
 
@@ -221,7 +222,7 @@ ___
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L86)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:92](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L92)
 
 ___
 
@@ -235,7 +236,7 @@ ___
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L90)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L96)
 
 • `set` **doubleSide**(`value`): `void`
 
@@ -251,7 +252,7 @@ ___
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L93)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L99)
 
 ___
 
@@ -265,7 +266,7 @@ ___
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L97)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:103](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L103)
 
 • `set` **alphaCutoff**(`value`): `void`
 
@@ -281,7 +282,7 @@ ___
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:100](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L100)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L106)
 
 ___
 
@@ -295,7 +296,7 @@ ___
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L106)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L112)
 
 • `set` **emissiveColor**(`value`): `void`
 
@@ -311,7 +312,7 @@ ___
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L110)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L116)
 
 ___
 
@@ -325,7 +326,7 @@ ___
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L114)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L120)
 
 • `set` **emissiveIntensity**(`value`): `void`
 
@@ -341,13 +342,13 @@ ___
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L118)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L124)
 
 ___
 
-### uvTransform\_1
+### transformUV1
 
-• `get` **uvTransform_1**(): `Vector4`
+• `get` **transformUV1**(): `Vector4`
 
 get transformUV1
 
@@ -357,9 +358,9 @@ get transformUV1
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L125)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L131)
 
-• `set` **uvTransform_1**(`value`): `void`
+• `set` **transformUV1**(`value`): `void`
 
 set transformUV1
 
@@ -375,7 +376,7 @@ set transformUV1
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:132](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L132)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:138](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L138)
 
 ___
 
@@ -391,7 +392,7 @@ get transformUV2
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:140](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L140)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:146](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L146)
 
 • `set` **uvTransform_2**(`value`): `void`
 
@@ -409,7 +410,7 @@ set transformUV2
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:147](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L147)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L153)
 
 ___
 
@@ -423,7 +424,7 @@ ___
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:152](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L152)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:158](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L158)
 
 • `set` **depthWriteEnabled**(`value`): `void`
 
@@ -439,7 +440,7 @@ ___
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:155](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L155)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:161](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L161)
 
 ___
 
@@ -455,7 +456,7 @@ get reflectivity
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:162](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L162)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:168](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L168)
 
 • `set` **materialF0**(`value`): `void`
 
@@ -473,7 +474,7 @@ set reflectivity
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:169](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L169)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:175](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L175)
 
 ___
 
@@ -489,7 +490,7 @@ get specularColor
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:176](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L176)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:182](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L182)
 
 • `set` **specularColor**(`value`): `void`
 
@@ -508,7 +509,7 @@ set reflectivity
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:183](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L183)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:189](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L189)
 
 ___
 
@@ -524,7 +525,7 @@ get roughness
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:190](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L190)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:196](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L196)
 
 • `set` **roughness**(`value`): `void`
 
@@ -542,7 +543,7 @@ set roughness
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:197](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L197)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:203](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L203)
 
 ___
 
@@ -558,7 +559,7 @@ get metallic
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:204](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L204)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:210](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L210)
 
 • `set` **metallic**(`value`): `void`
 
@@ -576,7 +577,7 @@ set metallic
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:211](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L211)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:217](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L217)
 
 ___
 
@@ -592,7 +593,7 @@ get Ambient Occlussion, dealing with the effect of ambient light on object occlu
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:218](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L218)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:224](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L224)
 
 • `set` **ao**(`value`): `void`
 
@@ -610,7 +611,7 @@ set Ambient Occlussion, dealing with the effect of ambient light on object occlu
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:225](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L225)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:231](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L231)
 
 ___
 
@@ -626,7 +627,7 @@ get min metallic
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:232](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L232)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:238](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L238)
 
 • `set` **metallic_min**(`value`): `void`
 
@@ -644,7 +645,7 @@ set min metallic
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:239](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L239)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:245](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L245)
 
 ___
 
@@ -660,7 +661,7 @@ get max metallic
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:246](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L246)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:252](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L252)
 
 • `set` **metallic_max**(`value`): `void`
 
@@ -678,7 +679,7 @@ set max metallic
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:253](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L253)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:259](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L259)
 
 ___
 
@@ -694,7 +695,7 @@ get min roughness
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:260](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L260)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:266](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L266)
 
 • `set` **roughness_min**(`value`): `void`
 
@@ -712,7 +713,7 @@ set min roughness
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:267](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L267)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:273](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L273)
 
 ___
 
@@ -728,7 +729,7 @@ get max roughness
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:274](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L274)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:280](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L280)
 
 • `set` **roughness_max**(`value`): `void`
 
@@ -746,7 +747,7 @@ set max roughness
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:281](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L281)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:287](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L287)
 
 ___
 
@@ -762,7 +763,7 @@ Get the influence of Normal mapping on materials
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:288](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L288)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:294](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L294)
 
 • `set` **normalScale**(`value`): `void`
 
@@ -780,7 +781,7 @@ Set the influence of Normal mapping on materials
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:295](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L295)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:301](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L301)
 
 ___
 
@@ -800,7 +801,7 @@ A_chanel -> C
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:306](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L306)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:312](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L312)
 
 • `set` **maskMap**(`value`): `void`
 
@@ -822,7 +823,7 @@ A_chanel -> C
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:317](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L317)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:323](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L323)
 
 ___
 
@@ -838,7 +839,7 @@ get Ambient Occlussion Map, dealing with the effect of ambient light on object o
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:340](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L340)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:346](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L346)
 
 • `set` **aoMap**(`value`): `void`
 
@@ -856,7 +857,7 @@ set Ambient Occlussion Map, dealing with the effect of ambient light on object o
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:329](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L329)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:335](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L335)
 
 ___
 
@@ -872,7 +873,7 @@ get clearCoatRoughnessMap
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:358](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L358)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:364](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L364)
 
 • `set` **clearCoatRoughnessMap**(`value`): `void`
 
@@ -890,7 +891,7 @@ set clearCoatRoughnessMap
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:347](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L347)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:353](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L353)
 
 ___
 
@@ -906,7 +907,7 @@ get brdf query map
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:365](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L365)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:371](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L371)
 
 • `set` **brdfLUT**(`value`): `void`
 
@@ -924,7 +925,7 @@ set brdf query map
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:372](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L372)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:378](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L378)
 
 ___
 
@@ -940,7 +941,7 @@ get emissive map
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:380](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L380)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:386](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L386)
 
 • `set` **emissiveMap**(`value`): `void`
 
@@ -958,7 +959,7 @@ set emissive map
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:387](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L387)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:393](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L393)
 
 ___
 
@@ -974,7 +975,7 @@ get intensity of environment light or color of sampled by texture
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:401](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L401)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:407](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L407)
 
 • `set` **envIntensity**(`value`): `void`
 
@@ -992,7 +993,7 @@ set intensity of environment light or color of sampled by texture
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:394](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L394)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:400](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L400)
 
 ___
 
@@ -1008,7 +1009,7 @@ get factor of refractive
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:415](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L415)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:421](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L421)
 
 • `set` **ior**(`value`): `void`
 
@@ -1026,7 +1027,7 @@ set factor of refractive
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:408](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L408)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:414](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L414)
 
 ___
 
@@ -1042,7 +1043,7 @@ get the factor of the clearcoat
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:437](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L437)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:443](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L443)
 
 • `set` **clearcoatFactor**(`value`): `void`
 
@@ -1060,7 +1061,7 @@ Set the factor of the clearcoat
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:429](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L429)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:435](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L435)
 
 ___
 
@@ -1076,7 +1077,7 @@ get the factor of the clearcoat Roughness
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:452](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L452)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:458](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L458)
 
 • `set` **clearcoatRoughnessFactor**(`value`): `void`
 
@@ -1094,7 +1095,7 @@ set the factor of the clearcoat Roughness
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:444](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L444)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:450](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L450)
 
 ___
 
@@ -1110,7 +1111,7 @@ get the weight of the clearcoat
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:467](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L467)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:473](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L473)
 
 • `set` **clearcoatWeight**(`value`): `void`
 
@@ -1128,7 +1129,7 @@ set the weight of the clearcoat
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:459](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L459)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:465](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L465)
 
 ___
 
@@ -1144,7 +1145,7 @@ set the color of the clearcoat
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:482](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L482)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:488](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L488)
 
 • `set` **clearcoatColor**(`value`): `void`
 
@@ -1162,7 +1163,7 @@ get the color of the clearcoat
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:474](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L474)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:480](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L480)
 
 ## Methods
 
@@ -1350,6 +1351,30 @@ ___
 
 ___
 
+### hasDefine
+
+▸ **hasDefine**(`arg0`): `boolean`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `arg0` | `string` |
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+[Shader](Shader.md).[hasDefine](Shader.md#hasdefine)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/shader/Shader.ts:88](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L88)
+
+___
+
 ### deleteDefine
 
 ▸ **deleteDefine**(`arg0`): `void`
@@ -1370,7 +1395,7 @@ ___
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:88](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L88)
+[src/gfx/graphics/webGpu/shader/Shader.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L99)
 
 ___
 
@@ -1395,7 +1420,7 @@ ___
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L96)
+[src/gfx/graphics/webGpu/shader/Shader.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L107)
 
 ___
 
@@ -1420,7 +1445,7 @@ ___
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:104](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L104)
+[src/gfx/graphics/webGpu/shader/Shader.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L115)
 
 ___
 
@@ -1445,7 +1470,7 @@ ___
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L112)
+[src/gfx/graphics/webGpu/shader/Shader.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L123)
 
 ___
 
@@ -1470,7 +1495,7 @@ ___
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L120)
+[src/gfx/graphics/webGpu/shader/Shader.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L131)
 
 ___
 
@@ -1495,7 +1520,7 @@ ___
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:128](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L128)
+[src/gfx/graphics/webGpu/shader/Shader.ts:139](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L139)
 
 ___
 
@@ -1520,7 +1545,7 @@ ___
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:136](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L136)
+[src/gfx/graphics/webGpu/shader/Shader.ts:147](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L147)
 
 ___
 
@@ -1544,7 +1569,7 @@ ___
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:144](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L144)
+[src/gfx/graphics/webGpu/shader/Shader.ts:155](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L155)
 
 ___
 
@@ -1568,7 +1593,7 @@ ___
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:148](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L148)
+[src/gfx/graphics/webGpu/shader/Shader.ts:159](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L159)
 
 ___
 
@@ -1592,7 +1617,7 @@ ___
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:152](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L152)
+[src/gfx/graphics/webGpu/shader/Shader.ts:163](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L163)
 
 ___
 
@@ -1616,7 +1641,7 @@ ___
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:156](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L156)
+[src/gfx/graphics/webGpu/shader/Shader.ts:167](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L167)
 
 ___
 
@@ -1640,7 +1665,7 @@ ___
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:160](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L160)
+[src/gfx/graphics/webGpu/shader/Shader.ts:171](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L171)
 
 ___
 
@@ -1664,7 +1689,7 @@ ___
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:164](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L164)
+[src/gfx/graphics/webGpu/shader/Shader.ts:175](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L175)
 
 ___
 
@@ -1689,7 +1714,7 @@ ___
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:168](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L168)
+[src/gfx/graphics/webGpu/shader/Shader.ts:179](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L179)
 
 ___
 
@@ -1713,7 +1738,7 @@ ___
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:177](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L177)
+[src/gfx/graphics/webGpu/shader/Shader.ts:188](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L188)
 
 ___
 
@@ -1738,7 +1763,7 @@ ___
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:181](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L181)
+[src/gfx/graphics/webGpu/shader/Shader.ts:192](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L192)
 
 ___
 
@@ -1762,7 +1787,7 @@ ___
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:189](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L189)
+[src/gfx/graphics/webGpu/shader/Shader.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L200)
 
 ___
 
@@ -1787,7 +1812,7 @@ ___
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:193](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L193)
+[src/gfx/graphics/webGpu/shader/Shader.ts:204](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L204)
 
 ___
 
@@ -1811,7 +1836,7 @@ ___
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:201](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L201)
+[src/gfx/graphics/webGpu/shader/Shader.ts:212](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L212)
 
 ___
 
@@ -1842,7 +1867,7 @@ ___
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:205](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L205)
+[src/gfx/graphics/webGpu/shader/Shader.ts:216](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L216)
 
 ___
 
@@ -1866,7 +1891,7 @@ ___
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:213](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L213)
+[src/gfx/graphics/webGpu/shader/Shader.ts:224](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L224)
 
 ___
 
@@ -1884,7 +1909,7 @@ ___
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:217](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L217)
+[src/gfx/graphics/webGpu/shader/Shader.ts:228](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L228)
 
 ___
 
@@ -1902,7 +1927,7 @@ ___
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:225](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L225)
+[src/gfx/graphics/webGpu/shader/Shader.ts:236](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L236)
 
 ___
 
@@ -1920,7 +1945,7 @@ ___
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:229](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L229)
+[src/gfx/graphics/webGpu/shader/Shader.ts:240](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L240)
 
 ___
 
@@ -1938,7 +1963,7 @@ ___
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:238](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L238)
+[src/gfx/graphics/webGpu/shader/Shader.ts:249](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L249)
 
 ___
 
@@ -1952,7 +1977,7 @@ ___
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L36)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L35)
 
 ___
 
@@ -1968,4 +1993,4 @@ valid USE_CLEARCOAT define in shader
 
 #### Defined in
 
-[src/loader/parser/prefab/mats/shader/StandShader.ts:422](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L422)
+[src/loader/parser/prefab/mats/shader/StandShader.ts:428](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/StandShader.ts#L428)

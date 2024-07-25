@@ -22,13 +22,17 @@
 
 ### constructor
 
-• **new btTransform**()
+• **new btTransform**(): [`btTransform`](Ammo.btTransform.md)
+
+#### Returns
+
+[`btTransform`](Ammo.btTransform.md)
 
 #### Defined in
 
 [packages/ammo/ammo.d.ts:101](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L101)
 
-• **new btTransform**(`q`, `v`)
+• **new btTransform**(`q`, `v`): [`btTransform`](Ammo.btTransform.md)
 
 #### Parameters
 
@@ -36,6 +40,10 @@
 | :------ | :------ |
 | `q` | [`btQuaternion`](Ammo.btQuaternion.md) |
 | `v` | [`btVector3`](Ammo.btVector3.md) |
+
+#### Returns
+
+[`btTransform`](Ammo.btTransform.md)
 
 #### Defined in
 

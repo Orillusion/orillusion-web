@@ -1,4 +1,4 @@
-import { Engine3D, Scene3D, CameraUtil, HoverCameraController, Object3D, View3D, Color, Camera3D, ViewPanel, UITextField, TextAnchor, ComponentBase, AtmosphericComponent, webGPUContext, CResizeEvent } from "@orillusion/core";
+import { Engine3D, Scene3D, CameraUtil, HoverCameraController, Object3D, View3D, Color, Camera3D, ViewPanel, UITextField, TextAnchor, ComponentBase, AtmosphericComponent, webGPUContext, CResizeEvent } from '@orillusion/core';
 
 class Sample_TextBarrage {
     private scene: Scene3D;
@@ -12,7 +12,7 @@ class Sample_TextBarrage {
         this.scene = scene;
 
         // load base font
-        await Engine3D.res.loadFont("https://cdn.orillusion.com/fnt/0.fnt");
+        await Engine3D.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt');
 
         // add an Atmospheric sky enviroment
         let sky = scene.addComponent(AtmosphericComponent);

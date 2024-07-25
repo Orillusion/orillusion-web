@@ -123,13 +123,13 @@ td > code {
     display: none;
 }
 
-.VPNavBar .VPNavBarTranslations svg.option-icon {
+.VPNavBar .VPNavBarTranslations span.option-icon {
     margin-right: 2.5em;
 }
-.VPNavBar .VPNavBarTranslations > .button > .text::after {
+.VPNavBar .VPNavBarTranslations > .button > .text::before {
     content: '中文';
     position: absolute;
-    left: 3.5em;
+    left: 3.75em;
 }
 .VPNavBar .VPLink > svg {
     pointer-events: none;

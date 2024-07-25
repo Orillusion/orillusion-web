@@ -3,7 +3,7 @@
 引擎通过 [MeshRenderer](/api/classes/MeshRenderer) 组件给物体添加相应的 `材质` 对象，用来模拟其颜色、光照、纹理等属性。目前引擎内置了2种经典材质模型：
 | 名称 | 描述 |
 | :---: | --- |
-| UnLitMaterial | 不计算光照，仅渲染原始颜色与纹理信息 |
+| UnLitMaterial | 不计算光照和阴影，仅渲染原始颜色与纹理信息 |
 | LitMaterial | `PBR` 即基于物理渲染，旨在模拟现实世界光照效果 |
 
 我们推荐使用的 [glTF](/guide/resource/gltf) 格式文件包含了物体材质信息。用户可以通过常用建模软件设计并修改模型文件。引擎解析模型文件后，自动赋予物体相应材质。
@@ -25,14 +25,12 @@ mesh.material = new LitMaterial();
 ```
 
 ## Unlit 材质
-引擎提供了 [UnLitMaterial](/api/classes/CylinderGeometry) 类以进行 `Unlit` 材质的渲染。
+引擎提供了 [UnLitMaterial](/api/classes/CylinderGeometry) 材质，紧渲染物理基础颜色，不计算光照和阴影。
 
 | 属性 | 描述 |
 | :---: | :---: |
 | baseColor | 基础颜色 |
 | baseMap | 基础贴图 |
-| envMap | 环境贴图 |
-| shadowMap | 阴影贴图 |
 
 <Demo src="/demos/materials/UnLitMaterial.ts"></Demo>
 

@@ -16,13 +16,17 @@
 
 ### constructor
 
-• **new btShapeHull**(`shape`)
+• **new btShapeHull**(`shape`): [`btShapeHull`](Ammo.btShapeHull.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `shape` | [`btConvexShape`](Ammo.btConvexShape.md) |
+
+#### Returns
+
+[`btShapeHull`](Ammo.btShapeHull.md)
 
 #### Defined in
 
