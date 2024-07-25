@@ -22,7 +22,11 @@
 
 ### constructor
 
-• **new btActionInterface**()
+• **new btActionInterface**(): [`btActionInterface`](Ammo.btActionInterface.md)
+
+#### Returns
+
+[`btActionInterface`](Ammo.btActionInterface.md)
 
 ## Methods
 

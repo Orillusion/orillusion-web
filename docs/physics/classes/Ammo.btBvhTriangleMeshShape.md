@@ -24,7 +24,7 @@
 
 ### constructor
 
-• **new btBvhTriangleMeshShape**(`meshInterface`, `useQuantizedAabbCompression`, `buildBvh?`)
+• **new btBvhTriangleMeshShape**(`meshInterface`, `useQuantizedAabbCompression`, `buildBvh?`): [`btBvhTriangleMeshShape`](Ammo.btBvhTriangleMeshShape.md)
 
 #### Parameters
 
@@ -33,6 +33,10 @@
 | `meshInterface` | [`btStridingMeshInterface`](Ammo.btStridingMeshInterface.md) |
 | `useQuantizedAabbCompression` | `boolean` |
 | `buildBvh?` | `boolean` |
+
+#### Returns
+
+[`btBvhTriangleMeshShape`](Ammo.btBvhTriangleMeshShape.md)
 
 #### Overrides
 

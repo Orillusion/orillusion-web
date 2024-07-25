@@ -29,7 +29,11 @@
 
 ### constructor
 
-• **new btManifoldPoint**()
+• **new btManifoldPoint**(): [`btManifoldPoint`](Ammo.btManifoldPoint.md)
+
+#### Returns
+
+[`btManifoldPoint`](Ammo.btManifoldPoint.md)
 
 ## Methods
 

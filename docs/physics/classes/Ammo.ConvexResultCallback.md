@@ -26,7 +26,11 @@
 
 ### constructor
 
-• **new ConvexResultCallback**()
+• **new ConvexResultCallback**(): [`ConvexResultCallback`](Ammo.ConvexResultCallback.md)
+
+#### Returns
+
+[`ConvexResultCallback`](Ammo.ConvexResultCallback.md)
 
 ## Methods
 

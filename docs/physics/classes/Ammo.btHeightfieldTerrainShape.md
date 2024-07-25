@@ -24,7 +24,7 @@
 
 ### constructor
 
-• **new btHeightfieldTerrainShape**(`heightStickWidth`, `heightStickLength`, `heightfieldData`, `heightScale`, `minHeight`, `maxHeight`, `upAxis`, `hdt`, `flipQuadEdges`)
+• **new btHeightfieldTerrainShape**(`heightStickWidth`, `heightStickLength`, `heightfieldData`, `heightScale`, `minHeight`, `maxHeight`, `upAxis`, `hdt`, `flipQuadEdges`): [`btHeightfieldTerrainShape`](Ammo.btHeightfieldTerrainShape.md)
 
 #### Parameters
 
@@ -39,6 +39,10 @@
 | `upAxis` | `number` |
 | `hdt` | [`PHY_ScalarType`](../types/Ammo.PHY_ScalarType.md) |
 | `flipQuadEdges` | `boolean` |
+
+#### Returns
+
+[`btHeightfieldTerrainShape`](Ammo.btHeightfieldTerrainShape.md)
 
 #### Overrides
 

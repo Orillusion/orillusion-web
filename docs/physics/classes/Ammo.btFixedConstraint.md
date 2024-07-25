@@ -24,7 +24,7 @@
 
 ### constructor
 
-• **new btFixedConstraint**(`rbA`, `rbB`, `frameInA`, `frameInB`)
+• **new btFixedConstraint**(`rbA`, `rbB`, `frameInA`, `frameInB`): [`btFixedConstraint`](Ammo.btFixedConstraint.md)
 
 #### Parameters
 
@@ -34,6 +34,10 @@
 | `rbB` | [`btRigidBody`](Ammo.btRigidBody.md) |
 | `frameInA` | [`btTransform`](Ammo.btTransform.md) |
 | `frameInB` | [`btTransform`](Ammo.btTransform.md) |
+
+#### Returns
+
+[`btFixedConstraint`](Ammo.btFixedConstraint.md)
 
 #### Overrides
 

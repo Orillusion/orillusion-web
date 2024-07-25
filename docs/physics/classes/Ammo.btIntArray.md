@@ -15,7 +15,11 @@
 
 ### constructor
 
-• **new btIntArray**()
+• **new btIntArray**(): [`btIntArray`](Ammo.btIntArray.md)
+
+#### Returns
+
+[`btIntArray`](Ammo.btIntArray.md)
 
 ## Methods
 

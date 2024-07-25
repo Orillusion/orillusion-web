@@ -21,7 +21,11 @@
 
 ### constructor
 
-• **new btDispatcher**()
+• **new btDispatcher**(): [`btDispatcher`](Ammo.btDispatcher.md)
+
+#### Returns
+
+[`btDispatcher`](Ammo.btDispatcher.md)
 
 ## Methods
 

@@ -32,7 +32,11 @@
 
 ### constructor
 
-• **new btConcaveShape**()
+• **new btConcaveShape**(): [`btConcaveShape`](Ammo.btConcaveShape.md)
+
+#### Returns
+
+[`btConcaveShape`](Ammo.btConcaveShape.md)
 
 #### Inherited from
 

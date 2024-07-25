@@ -22,12 +22,15 @@ Do not compute light, only read pixel color from a Video source
 ### Accessors
 
 - [rectClip](VideoMaterial.md#rectclip)
+- [baseColor](VideoMaterial.md#basecolor)
 - [baseMap](VideoMaterial.md#basemap)
 - [envMap](VideoMaterial.md#envmap)
 - [shadowMap](VideoMaterial.md#shadowmap)
 - [shader](VideoMaterial.md#shader)
 - [doubleSide](VideoMaterial.md#doubleside)
 - [castShadow](VideoMaterial.md#castshadow)
+- [acceptShadow](VideoMaterial.md#acceptshadow)
+- [castReflection](VideoMaterial.md#castreflection)
 - [blendMode](VideoMaterial.md#blendmode)
 - [depthCompare](VideoMaterial.md#depthcompare)
 - [transparent](VideoMaterial.md#transparent)
@@ -65,9 +68,13 @@ Do not compute light, only read pixel color from a Video source
 
 ### constructor
 
-• **new VideoMaterial**()
+• **new VideoMaterial**(): [`VideoMaterial`](VideoMaterial.md)
 
 Create new VideoMaterial
+
+#### Returns
+
+[`VideoMaterial`](VideoMaterial.md)
 
 #### Overrides
 
@@ -75,7 +82,7 @@ Material.constructor
 
 #### Defined in
 
-[packages/media-extention/VideoMaterial.ts:15](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/VideoMaterial.ts#L15)
+[packages/media-extention/VideoMaterial.ts:13](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/VideoMaterial.ts#L13)
 
 ## Properties
 
@@ -137,7 +144,7 @@ Get the clip rect area
 
 #### Defined in
 
-[packages/media-extention/VideoMaterial.ts:54](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/VideoMaterial.ts#L54)
+[packages/media-extention/VideoMaterial.ts:52](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/VideoMaterial.ts#L52)
 
 • `set` **rectClip**(`value`): `void`
 
@@ -155,7 +162,41 @@ Set the clip rect area
 
 #### Defined in
 
-[packages/media-extention/VideoMaterial.ts:47](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/VideoMaterial.ts#L47)
+[packages/media-extention/VideoMaterial.ts:45](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/VideoMaterial.ts#L45)
+
+___
+
+### baseColor
+
+• `get` **baseColor**(): `Color`
+
+get base color (tint color)
+
+#### Returns
+
+`Color`
+
+#### Defined in
+
+[packages/media-extention/VideoMaterial.ts:66](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/VideoMaterial.ts#L66)
+
+• `set` **baseColor**(`color`): `void`
+
+set base color (tint color)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `color` | `Color` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[packages/media-extention/VideoMaterial.ts:59](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/VideoMaterial.ts#L59)
 
 ___
 
@@ -169,7 +210,7 @@ ___
 
 #### Defined in
 
-[packages/media-extention/VideoMaterial.ts:58](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/VideoMaterial.ts#L58)
+[packages/media-extention/VideoMaterial.ts:70](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/VideoMaterial.ts#L70)
 
 • `set` **baseMap**(`value`): `void`
 
@@ -185,7 +226,7 @@ ___
 
 #### Defined in
 
-[packages/media-extention/VideoMaterial.ts:62](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/VideoMaterial.ts#L62)
+[packages/media-extention/VideoMaterial.ts:74](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/VideoMaterial.ts#L74)
 
 ___
 
@@ -207,7 +248,7 @@ Set no envMap
 
 #### Defined in
 
-[packages/media-extention/VideoMaterial.ts:69](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/VideoMaterial.ts#L69)
+[packages/media-extention/VideoMaterial.ts:81](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/VideoMaterial.ts#L81)
 
 ___
 
@@ -229,7 +270,7 @@ Set no shadowMap
 
 #### Defined in
 
-[packages/media-extention/VideoMaterial.ts:76](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/VideoMaterial.ts#L76)
+[packages/media-extention/VideoMaterial.ts:88](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/VideoMaterial.ts#L88)
 
 ___
 
@@ -347,6 +388,82 @@ Material.castShadow
 
 ___
 
+### acceptShadow
+
+• `get` **acceptShadow**(): `boolean`
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+Material.acceptShadow
+
+#### Defined in
+
+[src/materials/Material.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L64)
+
+• `set` **acceptShadow**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+Material.acceptShadow
+
+#### Defined in
+
+[src/materials/Material.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L68)
+
+___
+
+### castReflection
+
+• `get` **castReflection**(): `boolean`
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+Material.castReflection
+
+#### Defined in
+
+[src/materials/Material.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L77)
+
+• `set` **castReflection**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+Material.castReflection
+
+#### Defined in
+
+[src/materials/Material.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L81)
+
+___
+
 ### blendMode
 
 • `get` **blendMode**(): `BlendMode`
@@ -361,7 +478,7 @@ Material.blendMode
 
 #### Defined in
 
-[src/materials/Material.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L61)
+[src/materials/Material.ts:85](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L85)
 
 • `set` **blendMode**(`value`): `void`
 
@@ -381,7 +498,7 @@ Material.blendMode
 
 #### Defined in
 
-[src/materials/Material.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L65)
+[src/materials/Material.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L89)
 
 ___
 
@@ -399,7 +516,7 @@ Material.depthCompare
 
 #### Defined in
 
-[src/materials/Material.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L69)
+[src/materials/Material.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L93)
 
 • `set` **depthCompare**(`value`): `void`
 
@@ -419,7 +536,7 @@ Material.depthCompare
 
 #### Defined in
 
-[src/materials/Material.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L73)
+[src/materials/Material.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L97)
 
 ___
 
@@ -437,7 +554,7 @@ Material.transparent
 
 #### Defined in
 
-[src/materials/Material.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L78)
+[src/materials/Material.ts:102](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L102)
 
 • `set` **transparent**(`value`): `void`
 
@@ -457,7 +574,7 @@ Material.transparent
 
 #### Defined in
 
-[src/materials/Material.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L82)
+[src/materials/Material.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L106)
 
 ___
 
@@ -475,7 +592,7 @@ Material.cullMode
 
 #### Defined in
 
-[src/materials/Material.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L89)
+[src/materials/Material.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L113)
 
 • `set` **cullMode**(`value`): `void`
 
@@ -495,7 +612,7 @@ Material.cullMode
 
 #### Defined in
 
-[src/materials/Material.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L93)
+[src/materials/Material.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L117)
 
 ___
 
@@ -513,7 +630,7 @@ Material.depthWriteEnabled
 
 #### Defined in
 
-[src/materials/Material.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L97)
+[src/materials/Material.ts:128](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L128)
 
 • `set` **depthWriteEnabled**(`value`): `void`
 
@@ -533,7 +650,7 @@ Material.depthWriteEnabled
 
 #### Defined in
 
-[src/materials/Material.ts:101](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L101)
+[src/materials/Material.ts:132](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L132)
 
 ___
 
@@ -557,7 +674,7 @@ Material.useBillboard
 
 #### Defined in
 
-[src/materials/Material.ts:105](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L105)
+[src/materials/Material.ts:136](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L136)
 
 ## Methods
 
@@ -583,7 +700,7 @@ Material.getPass
 
 #### Defined in
 
-[src/materials/Material.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L114)
+[src/materials/Material.ts:145](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L145)
 
 ___
 
@@ -603,7 +720,7 @@ Material.getAllPass
 
 #### Defined in
 
-[src/materials/Material.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L122)
+[src/materials/Material.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L153)
 
 ___
 
@@ -625,7 +742,7 @@ Material.clone
 
 #### Defined in
 
-[src/materials/Material.ts:130](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L130)
+[src/materials/Material.ts:161](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L161)
 
 ___
 
@@ -649,7 +766,7 @@ Material.destroy
 
 #### Defined in
 
-[src/materials/Material.ts:137](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L137)
+[src/materials/Material.ts:168](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L168)
 
 ___
 
@@ -674,7 +791,7 @@ Material.setDefine
 
 #### Defined in
 
-[src/materials/Material.ts:143](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L143)
+[src/materials/Material.ts:174](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L174)
 
 ___
 
@@ -699,7 +816,7 @@ Material.setTexture
 
 #### Defined in
 
-[src/materials/Material.ts:147](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L147)
+[src/materials/Material.ts:178](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L178)
 
 ___
 
@@ -724,7 +841,7 @@ Material.setStorageBuffer
 
 #### Defined in
 
-[src/materials/Material.ts:151](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L151)
+[src/materials/Material.ts:182](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L182)
 
 ___
 
@@ -749,7 +866,7 @@ Material.setUniformBuffer
 
 #### Defined in
 
-[src/materials/Material.ts:155](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L155)
+[src/materials/Material.ts:186](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L186)
 
 ___
 
@@ -774,7 +891,7 @@ Material.setUniformFloat
 
 #### Defined in
 
-[src/materials/Material.ts:160](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L160)
+[src/materials/Material.ts:191](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L191)
 
 ___
 
@@ -799,7 +916,7 @@ Material.setUniformVector2
 
 #### Defined in
 
-[src/materials/Material.ts:164](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L164)
+[src/materials/Material.ts:195](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L195)
 
 ___
 
@@ -824,7 +941,7 @@ Material.setUniformVector3
 
 #### Defined in
 
-[src/materials/Material.ts:168](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L168)
+[src/materials/Material.ts:199](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L199)
 
 ___
 
@@ -849,7 +966,7 @@ Material.setUniformVector4
 
 #### Defined in
 
-[src/materials/Material.ts:172](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L172)
+[src/materials/Material.ts:203](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L203)
 
 ___
 
@@ -874,7 +991,7 @@ Material.setUniformColor
 
 #### Defined in
 
-[src/materials/Material.ts:176](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L176)
+[src/materials/Material.ts:207](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L207)
 
 ___
 
@@ -898,7 +1015,7 @@ Material.getUniformFloat
 
 #### Defined in
 
-[src/materials/Material.ts:180](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L180)
+[src/materials/Material.ts:211](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L211)
 
 ___
 
@@ -922,7 +1039,7 @@ Material.getUniformV2
 
 #### Defined in
 
-[src/materials/Material.ts:184](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L184)
+[src/materials/Material.ts:215](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L215)
 
 ___
 
@@ -946,7 +1063,7 @@ Material.getUniformV3
 
 #### Defined in
 
-[src/materials/Material.ts:188](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L188)
+[src/materials/Material.ts:219](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L219)
 
 ___
 
@@ -970,7 +1087,7 @@ Material.getUniformV4
 
 #### Defined in
 
-[src/materials/Material.ts:192](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L192)
+[src/materials/Material.ts:223](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L223)
 
 ___
 
@@ -994,7 +1111,7 @@ Material.getUniformColor
 
 #### Defined in
 
-[src/materials/Material.ts:196](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L196)
+[src/materials/Material.ts:227](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L227)
 
 ___
 
@@ -1018,7 +1135,7 @@ Material.getTexture
 
 #### Defined in
 
-[src/materials/Material.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L200)
+[src/materials/Material.ts:231](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L231)
 
 ___
 
@@ -1042,7 +1159,7 @@ Material.getStorageBuffer
 
 #### Defined in
 
-[src/materials/Material.ts:204](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L204)
+[src/materials/Material.ts:235](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L235)
 
 ___
 
@@ -1066,7 +1183,7 @@ Material.getStructStorageBuffer
 
 #### Defined in
 
-[src/materials/Material.ts:208](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L208)
+[src/materials/Material.ts:239](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L239)
 
 ___
 
@@ -1090,7 +1207,7 @@ Material.getUniformBuffer
 
 #### Defined in
 
-[src/materials/Material.ts:212](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L212)
+[src/materials/Material.ts:243](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L243)
 
 ___
 
@@ -1108,4 +1225,4 @@ Material.applyUniform
 
 #### Defined in
 
-[src/materials/Material.ts:216](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L216)
+[src/materials/Material.ts:247](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L247)

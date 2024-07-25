@@ -15,7 +15,11 @@
 
 ### constructor
 
-• **new btVector3Array**()
+• **new btVector3Array**(): [`btVector3Array`](Ammo.btVector3Array.md)
+
+#### Returns
+
+[`btVector3Array`](Ammo.btVector3Array.md)
 
 ## Methods
 

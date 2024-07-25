@@ -34,7 +34,7 @@
 
 ### constructor
 
-• **new ClosestConvexResultCallback**(`convexFromWorld`, `convexToWorld`)
+• **new ClosestConvexResultCallback**(`convexFromWorld`, `convexToWorld`): [`ClosestConvexResultCallback`](Ammo.ClosestConvexResultCallback.md)
 
 #### Parameters
 
@@ -42,6 +42,10 @@
 | :------ | :------ |
 | `convexFromWorld` | [`btVector3`](Ammo.btVector3.md) |
 | `convexToWorld` | [`btVector3`](Ammo.btVector3.md) |
+
+#### Returns
+
+[`ClosestConvexResultCallback`](Ammo.ClosestConvexResultCallback.md)
 
 #### Overrides
 

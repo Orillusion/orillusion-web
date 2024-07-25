@@ -40,7 +40,7 @@
 
 ### constructor
 
-• **new AllHitsRayResultCallback**(`from`, `to`)
+• **new AllHitsRayResultCallback**(`from`, `to`): [`AllHitsRayResultCallback`](Ammo.AllHitsRayResultCallback.md)
 
 #### Parameters
 
@@ -48,6 +48,10 @@
 | :------ | :------ |
 | `from` | [`btVector3`](Ammo.btVector3.md) |
 | `to` | [`btVector3`](Ammo.btVector3.md) |
+
+#### Returns
+
+[`AllHitsRayResultCallback`](Ammo.AllHitsRayResultCallback.md)
 
 #### Overrides
 

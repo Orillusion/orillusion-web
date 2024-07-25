@@ -29,7 +29,11 @@
 
 ### constructor
 
-• **new btSoftBodyWorldInfo**()
+• **new btSoftBodyWorldInfo**(): [`btSoftBodyWorldInfo`](Ammo.btSoftBodyWorldInfo.md)
+
+#### Returns
+
+[`btSoftBodyWorldInfo`](Ammo.btSoftBodyWorldInfo.md)
 
 #### Defined in
 

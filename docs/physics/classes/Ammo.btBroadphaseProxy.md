@@ -17,7 +17,11 @@
 
 ### constructor
 
-• **new btBroadphaseProxy**()
+• **new btBroadphaseProxy**(): [`btBroadphaseProxy`](Ammo.btBroadphaseProxy.md)
+
+#### Returns
+
+[`btBroadphaseProxy`](Ammo.btBroadphaseProxy.md)
 
 ## Methods
 

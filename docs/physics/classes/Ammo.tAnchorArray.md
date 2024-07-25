@@ -18,7 +18,11 @@
 
 ### constructor
 
-• **new tAnchorArray**()
+• **new tAnchorArray**(): [`tAnchorArray`](Ammo.tAnchorArray.md)
+
+#### Returns
+
+[`tAnchorArray`](Ammo.tAnchorArray.md)
 
 ## Methods
 

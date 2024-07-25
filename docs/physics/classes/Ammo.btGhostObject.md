@@ -51,7 +51,11 @@
 
 ### constructor
 
-• **new btGhostObject**()
+• **new btGhostObject**(): [`btGhostObject`](Ammo.btGhostObject.md)
+
+#### Returns
+
+[`btGhostObject`](Ammo.btGhostObject.md)
 
 #### Overrides
 

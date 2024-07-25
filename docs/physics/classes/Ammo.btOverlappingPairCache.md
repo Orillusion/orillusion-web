@@ -15,7 +15,11 @@
 
 ### constructor
 
-• **new btOverlappingPairCache**()
+• **new btOverlappingPairCache**(): [`btOverlappingPairCache`](Ammo.btOverlappingPairCache.md)
+
+#### Returns
+
+[`btOverlappingPairCache`](Ammo.btOverlappingPairCache.md)
 
 ## Methods
 

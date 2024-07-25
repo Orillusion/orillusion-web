@@ -29,7 +29,11 @@
 
 ### constructor
 
-• **new RaycastInfo**()
+• **new RaycastInfo**(): [`RaycastInfo`](Ammo.RaycastInfo.md)
+
+#### Returns
+
+[`RaycastInfo`](Ammo.RaycastInfo.md)
 
 ## Methods
 

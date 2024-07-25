@@ -27,7 +27,7 @@
 
 ### constructor
 
-• **new btCapsuleShapeZ**(`radius`, `height`)
+• **new btCapsuleShapeZ**(`radius`, `height`): [`btCapsuleShapeZ`](Ammo.btCapsuleShapeZ.md)
 
 #### Parameters
 
@@ -35,6 +35,10 @@
 | :------ | :------ |
 | `radius` | `number` |
 | `height` | `number` |
+
+#### Returns
+
+[`btCapsuleShapeZ`](Ammo.btCapsuleShapeZ.md)
 
 #### Overrides
 

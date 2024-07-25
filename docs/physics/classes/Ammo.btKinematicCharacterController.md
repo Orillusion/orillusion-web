@@ -39,7 +39,7 @@
 
 ### constructor
 
-• **new btKinematicCharacterController**(`ghostObject`, `convexShape`, `stepHeight`, `upAxis?`)
+• **new btKinematicCharacterController**(`ghostObject`, `convexShape`, `stepHeight`, `upAxis?`): [`btKinematicCharacterController`](Ammo.btKinematicCharacterController.md)
 
 #### Parameters
 
@@ -49,6 +49,10 @@
 | `convexShape` | [`btConvexShape`](Ammo.btConvexShape.md) |
 | `stepHeight` | `number` |
 | `upAxis?` | `number` |
+
+#### Returns
+
+[`btKinematicCharacterController`](Ammo.btKinematicCharacterController.md)
 
 #### Overrides
 

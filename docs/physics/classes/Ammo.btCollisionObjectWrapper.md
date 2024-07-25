@@ -16,7 +16,11 @@
 
 ### constructor
 
-• **new btCollisionObjectWrapper**()
+• **new btCollisionObjectWrapper**(): [`btCollisionObjectWrapper`](Ammo.btCollisionObjectWrapper.md)
+
+#### Returns
+
+[`btCollisionObjectWrapper`](Ammo.btCollisionObjectWrapper.md)
 
 ## Methods
 

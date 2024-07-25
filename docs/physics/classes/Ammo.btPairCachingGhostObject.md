@@ -49,7 +49,11 @@
 
 ### constructor
 
-• **new btPairCachingGhostObject**()
+• **new btPairCachingGhostObject**(): [`btPairCachingGhostObject`](Ammo.btPairCachingGhostObject.md)
+
+#### Returns
+
+[`btPairCachingGhostObject`](Ammo.btPairCachingGhostObject.md)
 
 #### Overrides
 

@@ -10,4 +10,8 @@
 
 ### constructor
 
-• **new btCollisionConfiguration**()
+• **new btCollisionConfiguration**(): [`btCollisionConfiguration`](Ammo.btCollisionConfiguration.md)
+
+#### Returns
+
+[`btCollisionConfiguration`](Ammo.btCollisionConfiguration.md)

@@ -36,7 +36,7 @@
 
 ### constructor
 
-• **new ClosestRayResultCallback**(`from`, `to`)
+• **new ClosestRayResultCallback**(`from`, `to`): [`ClosestRayResultCallback`](Ammo.ClosestRayResultCallback.md)
 
 #### Parameters
 
@@ -44,6 +44,10 @@
 | :------ | :------ |
 | `from` | [`btVector3`](Ammo.btVector3.md) |
 | `to` | [`btVector3`](Ammo.btVector3.md) |
+
+#### Returns
+
+[`ClosestRayResultCallback`](Ammo.ClosestRayResultCallback.md)
 
 #### Overrides
 

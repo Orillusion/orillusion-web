@@ -20,7 +20,11 @@
 
 ### constructor
 
-• **new btBroadphaseInterface**()
+• **new btBroadphaseInterface**(): [`btBroadphaseInterface`](Ammo.btBroadphaseInterface.md)
+
+#### Returns
+
+[`btBroadphaseInterface`](Ammo.btBroadphaseInterface.md)
 
 ## Methods
 

@@ -17,7 +17,11 @@
 
 ### constructor
 
-• **new LocalShapeInfo**()
+• **new LocalShapeInfo**(): [`LocalShapeInfo`](Ammo.LocalShapeInfo.md)
+
+#### Returns
+
+[`LocalShapeInfo`](Ammo.LocalShapeInfo.md)
 
 ## Methods
 

@@ -19,7 +19,11 @@
 
 ### constructor
 
-• **new btSoftBodyHelpers**()
+• **new btSoftBodyHelpers**(): [`btSoftBodyHelpers`](Ammo.btSoftBodyHelpers.md)
+
+#### Returns
+
+[`btSoftBodyHelpers`](Ammo.btSoftBodyHelpers.md)
 
 #### Defined in
 

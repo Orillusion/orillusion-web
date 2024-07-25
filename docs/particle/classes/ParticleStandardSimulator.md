@@ -40,7 +40,11 @@ Standard particle simulator
 
 ### constructor
 
-• **new ParticleStandardSimulator**()
+• **new ParticleStandardSimulator**(): [`ParticleStandardSimulator`](ParticleStandardSimulator.md)
+
+#### Returns
+
+[`ParticleStandardSimulator`](ParticleStandardSimulator.md)
 
 #### Overrides
 
@@ -230,7 +234,7 @@ Get maximum number of active particles(read only)
 
 ### addModule
 
-▸ **addModule**<`T`\>(`c`): `T`
+▸ **addModule**\<`T`\>(`c`): `T`
 
 add a particle module
 
@@ -238,13 +242,13 @@ add a particle module
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends `ParticleModuleBase`<`T`\> |
+| `T` | extends `ParticleModuleBase` |
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `c` | `Ctor`<`T`\> | class of particle module |
+| `c` | `Ctor`\<`T`\> | class of particle module |
 
 #### Returns
 
@@ -262,7 +266,7 @@ ___
 
 ### getModule
 
-▸ **getModule**<`T`\>(`c`): `T`
+▸ **getModule**\<`T`\>(`c`): `T`
 
 Get particle module
 
@@ -270,13 +274,13 @@ Get particle module
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends `ParticleModuleBase`<`T`\> |
+| `T` | extends `ParticleModuleBase` |
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `c` | `Ctor`<`T`\> | class of particle module |
+| `c` | `Ctor`\<`T`\> | class of particle module |
 
 #### Returns
 
@@ -294,7 +298,7 @@ ___
 
 ### removeModule
 
-▸ **removeModule**<`T`\>(`c`): `void`
+▸ **removeModule**\<`T`\>(`c`): `void`
 
 Remove particle module
 
@@ -302,13 +306,13 @@ Remove particle module
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends `ParticleModuleBase`<`T`\> |
+| `T` | extends `ParticleModuleBase` |
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `c` | `Ctor`<`T`\> | class of particle module |
+| `c` | `Ctor`\<`T`\> | class of particle module |
 
 #### Returns
 

@@ -21,13 +21,17 @@
 
 ### constructor
 
-• **new btCollisionDispatcher**(`conf`)
+• **new btCollisionDispatcher**(`conf`): [`btCollisionDispatcher`](Ammo.btCollisionDispatcher.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `conf` | [`btDefaultCollisionConfiguration`](Ammo.btDefaultCollisionConfiguration.md) |
+
+#### Returns
+
+[`btCollisionDispatcher`](Ammo.btCollisionDispatcher.md)
 
 #### Overrides
 

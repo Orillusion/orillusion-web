@@ -24,7 +24,7 @@
 
 ### constructor
 
-• **new btTriangleMesh**(`use32bitIndices?`, `use4componentVertices?`)
+• **new btTriangleMesh**(`use32bitIndices?`, `use4componentVertices?`): [`btTriangleMesh`](Ammo.btTriangleMesh.md)
 
 #### Parameters
 
@@ -32,6 +32,10 @@
 | :------ | :------ |
 | `use32bitIndices?` | `boolean` |
 | `use4componentVertices?` | `boolean` |
+
+#### Returns
+
+[`btTriangleMesh`](Ammo.btTriangleMesh.md)
 
 #### Overrides
 

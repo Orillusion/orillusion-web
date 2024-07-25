@@ -21,7 +21,11 @@
 
 ### constructor
 
-• **new Material**()
+• **new Material**(): [`Material`](Ammo.Material.md)
+
+#### Returns
+
+[`Material`](Ammo.Material.md)
 
 ## Methods
 

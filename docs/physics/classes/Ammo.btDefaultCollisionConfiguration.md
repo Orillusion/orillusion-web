@@ -16,13 +16,17 @@
 
 ### constructor
 
-• **new btDefaultCollisionConfiguration**(`info?`)
+• **new btDefaultCollisionConfiguration**(`info?`): [`btDefaultCollisionConfiguration`](Ammo.btDefaultCollisionConfiguration.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `info?` | [`btDefaultCollisionConstructionInfo`](Ammo.btDefaultCollisionConstructionInfo.md) |
+
+#### Returns
+
+[`btDefaultCollisionConfiguration`](Ammo.btDefaultCollisionConfiguration.md)
 
 #### Defined in
 

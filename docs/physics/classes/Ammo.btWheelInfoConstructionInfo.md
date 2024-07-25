@@ -37,7 +37,11 @@
 
 ### constructor
 
-• **new btWheelInfoConstructionInfo**()
+• **new btWheelInfoConstructionInfo**(): [`btWheelInfoConstructionInfo`](Ammo.btWheelInfoConstructionInfo.md)
+
+#### Returns
+
+[`btWheelInfoConstructionInfo`](Ammo.btWheelInfoConstructionInfo.md)
 
 ## Methods
 

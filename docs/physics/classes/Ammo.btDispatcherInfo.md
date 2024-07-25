@@ -35,7 +35,11 @@
 
 ### constructor
 
-• **new btDispatcherInfo**()
+• **new btDispatcherInfo**(): [`btDispatcherInfo`](Ammo.btDispatcherInfo.md)
+
+#### Returns
+
+[`btDispatcherInfo`](Ammo.btDispatcherInfo.md)
 
 ## Methods
 

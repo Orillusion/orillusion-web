@@ -15,7 +15,11 @@
 
 ### constructor
 
-• **new btScalarArray**()
+• **new btScalarArray**(): [`btScalarArray`](Ammo.btScalarArray.md)
+
+#### Returns
+
+[`btScalarArray`](Ammo.btScalarArray.md)
 
 ## Methods
 

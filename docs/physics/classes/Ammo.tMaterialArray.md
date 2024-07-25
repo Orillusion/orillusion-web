@@ -15,7 +15,11 @@
 
 ### constructor
 
-• **new tMaterialArray**()
+• **new tMaterialArray**(): [`tMaterialArray`](Ammo.tMaterialArray.md)
+
+#### Returns
+
+[`tMaterialArray`](Ammo.tMaterialArray.md)
 
 ## Methods
 

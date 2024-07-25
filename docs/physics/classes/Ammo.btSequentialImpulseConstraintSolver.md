@@ -10,7 +10,11 @@
 
 ### constructor
 
-• **new btSequentialImpulseConstraintSolver**()
+• **new btSequentialImpulseConstraintSolver**(): [`btSequentialImpulseConstraintSolver`](Ammo.btSequentialImpulseConstraintSolver.md)
+
+#### Returns
+
+[`btSequentialImpulseConstraintSolver`](Ammo.btSequentialImpulseConstraintSolver.md)
 
 #### Defined in
 

@@ -33,7 +33,7 @@
 
 ### constructor
 
-• **new btGeneric6DofSpringConstraint**(`rbA`, `rbB`, `frameInA`, `frameInB`, `useLinearFrameReferenceFrameA`)
+• **new btGeneric6DofSpringConstraint**(`rbA`, `rbB`, `frameInA`, `frameInB`, `useLinearFrameReferenceFrameA`): [`btGeneric6DofSpringConstraint`](Ammo.btGeneric6DofSpringConstraint.md)
 
 #### Parameters
 
@@ -45,6 +45,10 @@
 | `frameInB` | [`btTransform`](Ammo.btTransform.md) |
 | `useLinearFrameReferenceFrameA` | `boolean` |
 
+#### Returns
+
+[`btGeneric6DofSpringConstraint`](Ammo.btGeneric6DofSpringConstraint.md)
+
 #### Overrides
 
 [btGeneric6DofConstraint](Ammo.btGeneric6DofConstraint.md).[constructor](Ammo.btGeneric6DofConstraint.md#constructor)
@@ -53,7 +57,7 @@
 
 [packages/ammo/ammo.d.ts:559](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L559)
 
-• **new btGeneric6DofSpringConstraint**(`rbB`, `frameInB`, `useLinearFrameReferenceFrameB`)
+• **new btGeneric6DofSpringConstraint**(`rbB`, `frameInB`, `useLinearFrameReferenceFrameB`): [`btGeneric6DofSpringConstraint`](Ammo.btGeneric6DofSpringConstraint.md)
 
 #### Parameters
 
@@ -62,6 +66,10 @@
 | `rbB` | [`btRigidBody`](Ammo.btRigidBody.md) |
 | `frameInB` | [`btTransform`](Ammo.btTransform.md) |
 | `useLinearFrameReferenceFrameB` | `boolean` |
+
+#### Returns
+
+[`btGeneric6DofSpringConstraint`](Ammo.btGeneric6DofSpringConstraint.md)
 
 #### Overrides
 

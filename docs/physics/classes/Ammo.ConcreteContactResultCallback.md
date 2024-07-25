@@ -14,7 +14,11 @@
 
 ### constructor
 
-• **new ConcreteContactResultCallback**()
+• **new ConcreteContactResultCallback**(): [`ConcreteContactResultCallback`](Ammo.ConcreteContactResultCallback.md)
+
+#### Returns
+
+[`ConcreteContactResultCallback`](Ammo.ConcreteContactResultCallback.md)
 
 #### Defined in
 

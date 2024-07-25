@@ -21,7 +21,11 @@
 
 ### constructor
 
-• **new btMotionState**()
+• **new btMotionState**(): [`btMotionState`](Ammo.btMotionState.md)
+
+#### Returns
+
+[`btMotionState`](Ammo.btMotionState.md)
 
 ## Methods
 
