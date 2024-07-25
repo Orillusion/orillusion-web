@@ -15,7 +15,11 @@
 
 ### constructor
 
-• **new btIndexedMeshArray**()
+• **new btIndexedMeshArray**(): [`btIndexedMeshArray`](Ammo.btIndexedMeshArray.md)
+
+#### Returns
+
+[`btIndexedMeshArray`](Ammo.btIndexedMeshArray.md)
 
 ## Methods
 

@@ -15,7 +15,11 @@
 
 ### constructor
 
-• **new btConstCollisionObjectArray**()
+• **new btConstCollisionObjectArray**(): [`btConstCollisionObjectArray`](Ammo.btConstCollisionObjectArray.md)
+
+#### Returns
+
+[`btConstCollisionObjectArray`](Ammo.btConstCollisionObjectArray.md)
 
 ## Methods
 

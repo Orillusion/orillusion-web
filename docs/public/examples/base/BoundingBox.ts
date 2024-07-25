@@ -1,6 +1,7 @@
 import dat from 'dat.gui';
 import { Stats } from '@orillusion/stats';
 import { AtmosphericComponent, CameraUtil, Color, DirectLight, Engine3D, HoverCameraController, KelvinUtil, Object3D, Object3DUtil, Scene3D, Transform, View3D } from '@orillusion/core';
+import { Graphic3D } from '@orillusion/graphic';
 
 // A sample to show boundingbox
 class Sample_BoundingBox {
@@ -8,7 +9,7 @@ class Sample_BoundingBox {
     view: View3D;
     box: Object3D;
     container: Object3D;
-    private Ori: dat.GUI | undefined;
+    graphic3D: Graphic3D;
 
     async run() {
         // init engine
@@ -39,6 +40,9 @@ class Sample_BoundingBox {
         view.camera = camera;
         this.view = view;
 
+        this.graphic3D = new Graphic3D();
+        this.scene.addChild(this.graphic3D);
+
         // create direction light
         let lightObj3D = new Object3D();
         lightObj3D.x = 0;
@@ -51,7 +55,7 @@ class Sample_BoundingBox {
         let light = lightObj3D.addComponent(DirectLight);
         light.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
         light.castShadow = true;
-        light.intensity = 30;
+        light.intensity = 5;
 
         this.scene.addChild(light.object3D);
 
@@ -118,8 +122,8 @@ class Sample_BoundingBox {
     green = new Color(0, 1, 0, 1);
 
     loop() {
-        this.view.graphic3D.drawBoundingBox(this.box.instanceID, this.box.bound as any, this.green);
-        this.view.graphic3D.drawBoundingBox(this.container.instanceID, this.container.bound as any, this.red);
+        this.graphic3D.drawBoundingBox(this.box.instanceID, this.box.bound as any, this.green);
+        this.graphic3D.drawBoundingBox(this.container.instanceID, this.container.bound as any, this.red);
     }
 }
 

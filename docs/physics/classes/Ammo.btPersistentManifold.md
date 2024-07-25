@@ -17,7 +17,11 @@
 
 ### constructor
 
-• **new btPersistentManifold**()
+• **new btPersistentManifold**(): [`btPersistentManifold`](Ammo.btPersistentManifold.md)
+
+#### Returns
+
+[`btPersistentManifold`](Ammo.btPersistentManifold.md)
 
 #### Defined in
 

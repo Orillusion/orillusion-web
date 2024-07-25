@@ -10,8 +10,9 @@ class Sample_PropertyAnimation {
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
         Engine3D.setting.shadow.updateFrameRate = 1;
-        Engine3D.setting.shadow.shadowBound = 20;
+        Engine3D.setting.shadow.shadowBound = 50;
         Engine3D.setting.shadow.shadowSize = 2048;
+        Engine3D.setting.shadow.shadowBias = 0.01;
 
         await Engine3D.init();
         let scene = (this.scene = new Scene3D());
@@ -24,7 +25,6 @@ class Sample_PropertyAnimation {
         // init Camera3D
         let camera = CameraUtil.createCamera3DObject(scene);
         camera.perspective(60, Engine3D.aspect, 1, 5000);
-        camera.enableCSM = true;
         // init Camera Controller
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController);
         hoverCtrl.setCamera(-30, -15, 20);
@@ -46,7 +46,7 @@ class Sample_PropertyAnimation {
         let light = lightObj3D.addComponent(DirectLight);
         light.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
         light.castShadow = true;
-        light.intensity = 30;
+        light.intensity = 3;
         scene.addChild(light.object3D);
         // relative light to sky
         atmosphericSky.relativeTransform = light.transform;

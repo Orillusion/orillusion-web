@@ -37,7 +37,7 @@
 
 ### constructor
 
-• **new btRigidBodyConstructionInfo**(`mass`, `motionState`, `collisionShape`, `localInertia?`)
+• **new btRigidBodyConstructionInfo**(`mass`, `motionState`, `collisionShape`, `localInertia?`): [`btRigidBodyConstructionInfo`](Ammo.btRigidBodyConstructionInfo.md)
 
 #### Parameters
 
@@ -47,6 +47,10 @@
 | `motionState` | [`btMotionState`](Ammo.btMotionState.md) |
 | `collisionShape` | [`btCollisionShape`](Ammo.btCollisionShape.md) |
 | `localInertia?` | [`btVector3`](Ammo.btVector3.md) |
+
+#### Returns
+
+[`btRigidBodyConstructionInfo`](Ammo.btRigidBodyConstructionInfo.md)
 
 #### Defined in
 

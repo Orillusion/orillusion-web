@@ -24,7 +24,7 @@
 
 ### constructor
 
-• **new btMultiSphereShape**(`positions`, `radii`, `numPoints`)
+• **new btMultiSphereShape**(`positions`, `radii`, `numPoints`): [`btMultiSphereShape`](Ammo.btMultiSphereShape.md)
 
 #### Parameters
 
@@ -33,6 +33,10 @@
 | `positions` | [`btVector3`](Ammo.btVector3.md) |
 | `radii` | readonly `number`[] |
 | `numPoints` | `number` |
+
+#### Returns
+
+[`btMultiSphereShape`](Ammo.btMultiSphereShape.md)
 
 #### Overrides
 

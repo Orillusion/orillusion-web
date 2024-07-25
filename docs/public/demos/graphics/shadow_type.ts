@@ -4,7 +4,7 @@ import * as dat from 'dat.gui';
 
 // shadow setting
 Engine3D.setting.shadow.autoUpdate = true;
-Engine3D.setting.shadow.shadowBound = 100;
+Engine3D.setting.shadow.shadowBound = 20;
 Engine3D.setting.shadow.pointShadowBias = 0.0001;
 Engine3D.setting.shadow.type = sessionStorage._shadow_type || 'HARD';
 
@@ -24,14 +24,13 @@ scene3D.addChild(cameraObj);
     let obj = new Object3D();
     let light = obj.addComponent(PointLight);
     scene3D.addChild(obj);
-    obj.x = -15;
+    obj.x = -30;
     obj.y = 30;
-    obj.z = -20;
+    obj.z = -30;
     obj.rotationX = 0;
     obj.rotationY = 0;
     obj.rotationZ = 0;
-    light.intensity = 30;
-    light.radius = 1;
+    light.intensity = 15;
     light.range = 100;
     light.castShadow = true;
 }

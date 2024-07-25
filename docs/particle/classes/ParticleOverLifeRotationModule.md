@@ -30,7 +30,11 @@ Particle module of rotation over life time
 
 ### constructor
 
-• **new ParticleOverLifeRotationModule**()
+• **new ParticleOverLifeRotationModule**(): [`ParticleOverLifeRotationModule`](ParticleOverLifeRotationModule.md)
+
+#### Returns
+
+[`ParticleOverLifeRotationModule`](ParticleOverLifeRotationModule.md)
 
 #### Inherited from
 

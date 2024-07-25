@@ -1,4 +1,4 @@
-import { Engine3D, Scene3D, Object3D, AtmosphericComponent, View3D, DirectLight, HoverCameraController, Color, CameraUtil, SkeletonAnimationComponent, Vector3 } from '@orillusion/core';
+import { Engine3D, Scene3D, Object3D, AtmosphericComponent, View3D, DirectLight, HoverCameraController, Color, CameraUtil, SkeletonAnimationComponent, Vector3, AnimatorComponent } from '@orillusion/core';
 import * as dat from 'dat.gui';
 
 // Init Engine3D
@@ -22,7 +22,7 @@ hc.setCamera(0, -15, 5, new Vector3(0, 1, 0));
     dl.lightColor = new Color(1.0, 0.95, 0.84, 1.0);
     scene.addChild(ligthObj);
     dl.castShadow = true;
-    dl.intensity = 10;
+    dl.intensity = 5.0;
 }
 
 // load test model
@@ -31,16 +31,16 @@ soldier.rotationY = -90;
 soldier.localScale.set(2, 2, 2);
 scene.addChild(soldier);
 
-// get animation controller
-let soldierAnimation = soldier.getComponentsInChild(SkeletonAnimationComponent)[0];
-soldierAnimation.play('Idle');
+// get animator component
+let soldierAnimation = soldier.getComponentsInChild(AnimatorComponent)[0];
+soldierAnimation.playAnim('Idle');
 
 const GUIHelp = new dat.GUI();
 GUIHelp.addFolder('Animation');
 GUIHelp.add(soldierAnimation, 'timeScale', -6, 6, 0.01);
-GUIHelp.add({ Idle: () => soldierAnimation.play('Idle') }, 'Idle');
-GUIHelp.add({ Walk: () => soldierAnimation.play('Walk') }, 'Walk');
-GUIHelp.add({ Run: () => soldierAnimation.play('Run') }, 'Run');
+GUIHelp.add({ Idle: () => soldierAnimation.playAnim('Idle') }, 'Idle');
+GUIHelp.add({ Walk: () => soldierAnimation.playAnim('Walk') }, 'Walk');
+GUIHelp.add({ Run: () => soldierAnimation.playAnim('Run') }, 'Run');
 
 // set skybox
 scene.addComponent(AtmosphericComponent).sunY = 0.6;

@@ -34,7 +34,11 @@
 
 ### constructor
 
-• **new btTypedConstraint**()
+• **new btTypedConstraint**(): [`btTypedConstraint`](Ammo.btTypedConstraint.md)
+
+#### Returns
+
+[`btTypedConstraint`](Ammo.btTypedConstraint.md)
 
 ## Methods
 

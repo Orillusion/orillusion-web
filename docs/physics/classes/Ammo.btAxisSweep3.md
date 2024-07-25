@@ -10,7 +10,7 @@
 
 ### constructor
 
-• **new btAxisSweep3**(`worldAabbMin`, `worldAabbMax`, `maxHandles?`, `pairCache?`, `disableRaycastAccelerator?`)
+• **new btAxisSweep3**(`worldAabbMin`, `worldAabbMax`, `maxHandles?`, `pairCache?`, `disableRaycastAccelerator?`): [`btAxisSweep3`](Ammo.btAxisSweep3.md)
 
 #### Parameters
 
@@ -21,6 +21,10 @@
 | `maxHandles?` | `number` |
 | `pairCache?` | [`btOverlappingPairCache`](Ammo.btOverlappingPairCache.md) |
 | `disableRaycastAccelerator?` | `boolean` |
+
+#### Returns
+
+[`btAxisSweep3`](Ammo.btAxisSweep3.md)
 
 #### Defined in
 

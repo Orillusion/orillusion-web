@@ -6,9 +6,7 @@ import { ParticleSystem, ParticleMaterial, ParticleStandardSimulator, EmitLocati
 class Sample_CandleFlame {
     lightObj: Object3D;
     async run() {
-        Engine3D.setting.shadow.enable = true;
         Engine3D.setting.shadow.pointShadowBias = 0.001;
-        Engine3D.setting.shadow.autoUpdate = true;
         Engine3D.setting.shadow.updateFrameRate = 1;
         await Engine3D.init();
 
@@ -44,10 +42,9 @@ class Sample_CandleFlame {
             let lightObj = (this.lightObj = new Object3D());
             let pl = lightObj.addComponent(PointLight);
             pl.range = 56;
-            pl.radius = 1;
-            pl.intensity = 15;
+            pl.radius = 0.01;
+            pl.intensity = 5;
             pl.castShadow = true;
-            pl.realTimeShadow = true;
             pl.lightColor = new Color(67 / 255, 195 / 255, 232 / 255);
             obj.addChild(lightObj);
         }

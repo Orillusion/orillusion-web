@@ -39,7 +39,7 @@ export class Sample_drawCallShareGeometry {
         lightObj.rotationZ = 150;
         let dirLight = lightObj.addComponent(DirectLight);
         dirLight.lightColor = KelvinUtil.color_temperature_to_rgb(5500);
-        dirLight.intensity = 100;
+        dirLight.intensity = 10;
         dirLight.indirect = 1;
         this.scene.addChild(lightObj);
 
@@ -70,7 +70,7 @@ export class Sample_drawCallShareGeometry {
         let mats: LambertMaterial[] = [];
         for (let i = 0; i < 1; i++) {
             const mat = new LambertMaterial();
-            mat.baseColor = new Color(Math.random() * 0.85, Math.random() * 0.85, Math.random() * 0.85);
+            mat.baseColor = new Color(Math.random() / 2 + 0.5, Math.random() / 2 + 0.5, Math.random() / 2 + 0.5);
             mats.push(mat);
         }
 

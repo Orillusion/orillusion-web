@@ -33,7 +33,7 @@ class Sample_AddRemove {
         lightObj.rotationZ = 150;
         let dirLight = lightObj.addComponent(DirectLight);
         dirLight.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
-        dirLight.intensity = 40;
+        dirLight.intensity = 5;
         scene.addChild(lightObj);
         sky.relativeTransform = dirLight.transform;
 

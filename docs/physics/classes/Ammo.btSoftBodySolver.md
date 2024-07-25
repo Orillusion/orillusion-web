@@ -16,4 +16,8 @@
 
 ### constructor
 
-• **new btSoftBodySolver**()
+• **new btSoftBodySolver**(): [`btSoftBodySolver`](Ammo.btSoftBodySolver.md)
+
+#### Returns
+
+[`btSoftBodySolver`](Ammo.btSoftBodySolver.md)

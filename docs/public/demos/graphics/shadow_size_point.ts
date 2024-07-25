@@ -79,7 +79,7 @@ view.camera = camera;
 Engine3D.startRenderView(view);
 
 let gui = new dat.GUI();
-gui.add(Engine3D.setting.shadow, 'shadowBound', [30, 50, 100, 500]).onChange((v) => {
+gui.add(Engine3D.setting.shadow, 'shadowBound', [20, 50, 100, 500]).onChange((v) => {
     sessionStorage._shadowBound = v;
     location.reload();
 });

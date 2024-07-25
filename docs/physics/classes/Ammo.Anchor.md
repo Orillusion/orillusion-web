@@ -27,7 +27,11 @@
 
 ### constructor
 
-• **new Anchor**()
+• **new Anchor**(): [`Anchor`](Ammo.Anchor.md)
+
+#### Returns
+
+[`Anchor`](Ammo.Anchor.md)
 
 ## Methods
 

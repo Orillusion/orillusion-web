@@ -19,7 +19,11 @@
 
 ### constructor
 
-• **new Face**()
+• **new Face**(): [`Face`](Ammo.Face.md)
+
+#### Returns
+
+[`Face`](Ammo.Face.md)
 
 ## Methods
 

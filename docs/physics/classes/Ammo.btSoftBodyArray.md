@@ -15,7 +15,11 @@
 
 ### constructor
 
-• **new btSoftBodyArray**()
+• **new btSoftBodyArray**(): [`btSoftBodyArray`](Ammo.btSoftBodyArray.md)
+
+#### Returns
+
+[`btSoftBodyArray`](Ammo.btSoftBodyArray.md)
 
 ## Methods
 

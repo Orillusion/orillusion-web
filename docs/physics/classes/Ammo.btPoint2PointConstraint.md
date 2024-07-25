@@ -30,7 +30,7 @@
 
 ### constructor
 
-• **new btPoint2PointConstraint**(`rbA`, `rbB`, `pivotInA`, `pivotInB`)
+• **new btPoint2PointConstraint**(`rbA`, `rbB`, `pivotInA`, `pivotInB`): [`btPoint2PointConstraint`](Ammo.btPoint2PointConstraint.md)
 
 #### Parameters
 
@@ -41,6 +41,10 @@
 | `pivotInA` | [`btVector3`](Ammo.btVector3.md) |
 | `pivotInB` | [`btVector3`](Ammo.btVector3.md) |
 
+#### Returns
+
+[`btPoint2PointConstraint`](Ammo.btPoint2PointConstraint.md)
+
 #### Overrides
 
 [btTypedConstraint](Ammo.btTypedConstraint.md).[constructor](Ammo.btTypedConstraint.md#constructor)
@@ -49,7 +53,7 @@
 
 [packages/ammo/ammo.d.ts:540](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L540)
 
-• **new btPoint2PointConstraint**(`rbA`, `pivotInA`)
+• **new btPoint2PointConstraint**(`rbA`, `pivotInA`): [`btPoint2PointConstraint`](Ammo.btPoint2PointConstraint.md)
 
 #### Parameters
 
@@ -57,6 +61,10 @@
 | :------ | :------ |
 | `rbA` | [`btRigidBody`](Ammo.btRigidBody.md) |
 | `pivotInA` | [`btVector3`](Ammo.btVector3.md) |
+
+#### Returns
+
+[`btPoint2PointConstraint`](Ammo.btPoint2PointConstraint.md)
 
 #### Overrides
 

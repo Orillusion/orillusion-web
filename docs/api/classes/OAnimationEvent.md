@@ -24,6 +24,7 @@ Skeleton animation event
 - [delay](OAnimationEvent.md#delay)
 - [mouseCode](OAnimationEvent.md#mousecode)
 - [ctrlKey](OAnimationEvent.md#ctrlkey)
+- [metaKey](OAnimationEvent.md#metakey)
 - [altKey](OAnimationEvent.md#altkey)
 - [shiftKey](OAnimationEvent.md#shiftkey)
 - [targetTouches](OAnimationEvent.md#targettouches)
@@ -226,6 +227,22 @@ Is Ctrl key pressed when the event occurs
 
 ___
 
+### metaKey
+
+• **metaKey**: `boolean`
+
+Is Meta key pressed when the event occurs
+
+#### Inherited from
+
+[CEvent](CEvent.md).[metaKey](CEvent.md#metakey)
+
+#### Defined in
+
+[src/event/CEvent.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L62)
+
+___
+
 ### altKey
 
 • **altKey**: `boolean`
@@ -238,7 +255,7 @@ Is Alt key pressed when the event occurs
 
 #### Defined in
 
-[src/event/CEvent.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L62)
+[src/event/CEvent.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L67)
 
 ___
 
@@ -254,7 +271,7 @@ Is Shift key pressed when the event occurs
 
 #### Defined in
 
-[src/event/CEvent.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L67)
+[src/event/CEvent.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L72)
 
 ___
 
@@ -270,7 +287,7 @@ Collection of finger touch points, which registered
 
 #### Defined in
 
-[src/event/CEvent.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L72)
+[src/event/CEvent.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L77)
 
 ___
 
@@ -286,7 +303,7 @@ Collection of finger touch points changed
 
 #### Defined in
 
-[src/event/CEvent.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L77)
+[src/event/CEvent.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L82)
 
 ___
 
@@ -302,7 +319,7 @@ Collection of finger touch points
 
 #### Defined in
 
-[src/event/CEvent.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L82)
+[src/event/CEvent.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L87)
 
 ___
 
@@ -318,7 +335,7 @@ binded view3D object in event.
 
 #### Defined in
 
-[src/event/CEvent.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L89)
+[src/event/CEvent.ts:94](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L94)
 
 ## Accessors
 
@@ -338,7 +355,7 @@ CEvent.isStopImmediatePropagation
 
 #### Defined in
 
-[src/event/CEvent.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L120)
+[src/event/CEvent.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L125)
 
 ## Methods
 
@@ -358,4 +375,4 @@ Prevent bubbling of all event listeners in subsequent nodes of the current node 
 
 #### Defined in
 
-[src/event/CEvent.ts:105](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L105)
+[src/event/CEvent.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L110)

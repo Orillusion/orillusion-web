@@ -20,7 +20,11 @@
 
 ### constructor
 
-• **new btStridingMeshInterface**()
+• **new btStridingMeshInterface**(): [`btStridingMeshInterface`](Ammo.btStridingMeshInterface.md)
+
+#### Returns
+
+[`btStridingMeshInterface`](Ammo.btStridingMeshInterface.md)
 
 ## Methods
 

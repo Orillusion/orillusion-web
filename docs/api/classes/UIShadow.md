@@ -44,6 +44,8 @@ The shadow component for gui
 - [onCompute](UIShadow.md#oncompute)
 - [onGraphic](UIShadow.md#ongraphic)
 - [onParentChange](UIShadow.md#onparentchange)
+- [onAddChild](UIShadow.md#onaddchild)
+- [onRemoveChild](UIShadow.md#onremovechild)
 - [beforeDestroy](UIShadow.md#beforedestroy)
 - [destroy](UIShadow.md#destroy)
 - [start](UIShadow.md#start)
@@ -643,6 +645,54 @@ ___
 
 ___
 
+### onAddChild
+
+▸ **onAddChild**(`child`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `child` | [`Object3D`](Object3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[UIRenderAble](UIRenderAble.md).[onAddChild](UIRenderAble.md#onaddchild)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L123)
+
+___
+
+### onRemoveChild
+
+▸ **onRemoveChild**(`child`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `child` | [`Object3D`](Object3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[UIRenderAble](UIRenderAble.md).[onRemoveChild](UIRenderAble.md#onremovechild)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L124)
+
+___
+
 ### beforeDestroy
 
 ▸ **beforeDestroy**(`force?`): `void`
@@ -665,7 +715,7 @@ before release this component, object refrences are not be set null now.
 
 #### Defined in
 
-[src/components/ComponentBase.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L198)
+[src/components/ComponentBase.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L200)
 
 ___
 

@@ -16,7 +16,11 @@
 
 ### constructor
 
-• **new btDefaultSoftBodySolver**()
+• **new btDefaultSoftBodySolver**(): [`btDefaultSoftBodySolver`](Ammo.btDefaultSoftBodySolver.md)
+
+#### Returns
+
+[`btDefaultSoftBodySolver`](Ammo.btDefaultSoftBodySolver.md)
 
 #### Overrides
 

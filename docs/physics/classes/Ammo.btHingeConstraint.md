@@ -30,7 +30,7 @@
 
 ### constructor
 
-• **new btHingeConstraint**(`rbA`, `rbB`, `pivotInA`, `pivotInB`, `axisInA`, `axisInB`, `useReferenceFrameA?`)
+• **new btHingeConstraint**(`rbA`, `rbB`, `pivotInA`, `pivotInB`, `axisInA`, `axisInB`, `useReferenceFrameA?`): [`btHingeConstraint`](Ammo.btHingeConstraint.md)
 
 #### Parameters
 
@@ -44,6 +44,10 @@
 | `axisInB` | [`btVector3`](Ammo.btVector3.md) |
 | `useReferenceFrameA?` | `boolean` |
 
+#### Returns
+
+[`btHingeConstraint`](Ammo.btHingeConstraint.md)
+
 #### Overrides
 
 [btTypedConstraint](Ammo.btTypedConstraint.md).[constructor](Ammo.btTypedConstraint.md#constructor)
@@ -52,7 +56,7 @@
 
 [packages/ammo/ammo.d.ts:584](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L584)
 
-• **new btHingeConstraint**(`rbA`, `rbB`, `rbAFrame`, `rbBFrame`, `useReferenceFrameA?`)
+• **new btHingeConstraint**(`rbA`, `rbB`, `rbAFrame`, `rbBFrame`, `useReferenceFrameA?`): [`btHingeConstraint`](Ammo.btHingeConstraint.md)
 
 #### Parameters
 
@@ -64,6 +68,10 @@
 | `rbBFrame` | [`btTransform`](Ammo.btTransform.md) |
 | `useReferenceFrameA?` | `boolean` |
 
+#### Returns
+
+[`btHingeConstraint`](Ammo.btHingeConstraint.md)
+
 #### Overrides
 
 btTypedConstraint.constructor
@@ -72,7 +80,7 @@ btTypedConstraint.constructor
 
 [packages/ammo/ammo.d.ts:585](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L585)
 
-• **new btHingeConstraint**(`rbA`, `rbAFrame`, `useReferenceFrameA?`)
+• **new btHingeConstraint**(`rbA`, `rbAFrame`, `useReferenceFrameA?`): [`btHingeConstraint`](Ammo.btHingeConstraint.md)
 
 #### Parameters
 
@@ -81,6 +89,10 @@ btTypedConstraint.constructor
 | `rbA` | [`btRigidBody`](Ammo.btRigidBody.md) |
 | `rbAFrame` | [`btTransform`](Ammo.btTransform.md) |
 | `useReferenceFrameA?` | `boolean` |
+
+#### Returns
+
+[`btHingeConstraint`](Ammo.btHingeConstraint.md)
 
 #### Overrides
 

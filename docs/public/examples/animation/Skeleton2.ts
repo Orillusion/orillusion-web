@@ -1,4 +1,4 @@
-import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, webGPUContext, HoverCameraController, View3D, LitMaterial, MeshRenderer, BoxGeometry, DirectLight, KelvinUtil, Object3DUtil, SkeletonAnimationComponent } from '@orillusion/core';
+import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, webGPUContext, HoverCameraController, View3D, LitMaterial, MeshRenderer, BoxGeometry, DirectLight, KelvinUtil, Object3DUtil, SkeletonAnimationComponent, AnimatorComponent } from '@orillusion/core';
 import { Stats } from '@orillusion/stats';
 
 class Sample_Skeleton2 {
@@ -51,7 +51,7 @@ class Sample_Skeleton2 {
             let directLight = this.lightObj3D.addComponent(DirectLight);
             directLight.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
             directLight.castShadow = true;
-            directLight.intensity = 40;
+            directLight.intensity = 3;
             scene.addChild(this.lightObj3D);
         }
 
@@ -78,15 +78,16 @@ class Sample_Skeleton2 {
 
                 cloneObj.x = (maxCol * -0.5 + col) * 30;
                 cloneObj.z = (maxRow * -0.5 + row) * 30;
+                cloneObj.rotationX = -90;
                 scene.addChild(cloneObj);
 
-                let animation = cloneObj.getComponentsInChild(SkeletonAnimationComponent)[0];
+                let animation = cloneObj.getComponentsInChild(AnimatorComponent)[0];
 
                 if (i < animName.length) {
-                    animation.play(animName[i]);
+                    animation.playAnim(animName[i]);
                 } else {
                     let animIndex = Math.floor((Math.random() * 100) % 3);
-                    animation.play(animName[animIndex], -5 + Math.random() * 10);
+                    animation.playAnim(animName[animIndex], -5 + Math.random() * 10);
                 }
                 await this.sleep(10);
             }

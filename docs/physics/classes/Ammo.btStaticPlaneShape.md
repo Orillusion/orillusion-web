@@ -24,7 +24,7 @@
 
 ### constructor
 
-• **new btStaticPlaneShape**(`planeNormal`, `planeConstant`)
+• **new btStaticPlaneShape**(`planeNormal`, `planeConstant`): [`btStaticPlaneShape`](Ammo.btStaticPlaneShape.md)
 
 #### Parameters
 
@@ -32,6 +32,10 @@
 | :------ | :------ |
 | `planeNormal` | [`btVector3`](Ammo.btVector3.md) |
 | `planeConstant` | `number` |
+
+#### Returns
+
+[`btStaticPlaneShape`](Ammo.btStaticPlaneShape.md)
 
 #### Overrides
 

@@ -11,7 +11,8 @@ class Sample_POI {
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
         Engine3D.setting.shadow.updateFrameRate = 1;
-        Engine3D.setting.shadow.shadowBound = 20;
+        Engine3D.setting.shadow.shadowBound = 30;
+        Engine3D.setting.shadow.shadowBias = 0.002;
         Engine3D.setting.shadow.csmScatteringExp = 1;
 
         await Engine3D.init({
@@ -31,7 +32,6 @@ class Sample_POI {
         // init Camera3D
         let camera = CameraUtil.createCamera3DObject(this.scene);
         camera.perspective(60, Engine3D.aspect, 1, 5000);
-        camera.enableCSM = true;
 
         // init Camera Controller
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController);
@@ -54,7 +54,7 @@ class Sample_POI {
         let light = lightObj3D.addComponent(DirectLight);
         light.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
         light.castShadow = true;
-        light.intensity = 30;
+        light.intensity = 3;
 
         this.scene.addChild(light.object3D);
 

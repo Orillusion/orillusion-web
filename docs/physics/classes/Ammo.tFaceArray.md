@@ -15,7 +15,11 @@
 
 ### constructor
 
-• **new tFaceArray**()
+• **new tFaceArray**(): [`tFaceArray`](Ammo.tFaceArray.md)
+
+#### Returns
+
+[`tFaceArray`](Ammo.tFaceArray.md)
 
 ## Methods
 

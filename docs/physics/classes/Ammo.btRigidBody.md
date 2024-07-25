@@ -80,13 +80,17 @@
 
 ### constructor
 
-• **new btRigidBody**(`constructionInfo`)
+• **new btRigidBody**(`constructionInfo`): [`btRigidBody`](Ammo.btRigidBody.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `constructionInfo` | [`btRigidBodyConstructionInfo`](Ammo.btRigidBodyConstructionInfo.md) |
+
+#### Returns
+
+[`btRigidBody`](Ammo.btRigidBody.md)
 
 #### Overrides
 

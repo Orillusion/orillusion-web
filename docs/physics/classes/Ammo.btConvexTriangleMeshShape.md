@@ -24,7 +24,7 @@
 
 ### constructor
 
-• **new btConvexTriangleMeshShape**(`meshInterface`, `calcAabb?`)
+• **new btConvexTriangleMeshShape**(`meshInterface`, `calcAabb?`): [`btConvexTriangleMeshShape`](Ammo.btConvexTriangleMeshShape.md)
 
 #### Parameters
 
@@ -32,6 +32,10 @@
 | :------ | :------ |
 | `meshInterface` | [`btStridingMeshInterface`](Ammo.btStridingMeshInterface.md) |
 | `calcAabb?` | `boolean` |
+
+#### Returns
+
+[`btConvexTriangleMeshShape`](Ammo.btConvexTriangleMeshShape.md)
 
 #### Overrides
 

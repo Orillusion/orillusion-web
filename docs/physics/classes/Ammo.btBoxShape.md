@@ -24,13 +24,17 @@
 
 ### constructor
 
-• **new btBoxShape**(`boxHalfExtents`)
+• **new btBoxShape**(`boxHalfExtents`): [`btBoxShape`](Ammo.btBoxShape.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `boxHalfExtents` | [`btVector3`](Ammo.btVector3.md) |
+
+#### Returns
+
+[`btBoxShape`](Ammo.btBoxShape.md)
 
 #### Overrides
 

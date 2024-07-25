@@ -15,7 +15,11 @@
 
 ### constructor
 
-• **new btFaceArray**()
+• **new btFaceArray**(): [`btFaceArray`](Ammo.btFaceArray.md)
+
+#### Returns
+
+[`btFaceArray`](Ammo.btFaceArray.md)
 
 ## Methods
 

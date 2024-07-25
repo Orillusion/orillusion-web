@@ -16,7 +16,11 @@
 
 ### constructor
 
-• **new btMatrix3x3**()
+• **new btMatrix3x3**(): [`btMatrix3x3`](Ammo.btMatrix3x3.md)
+
+#### Returns
+
+[`btMatrix3x3`](Ammo.btMatrix3x3.md)
 
 ## Methods
 

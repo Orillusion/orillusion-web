@@ -35,7 +35,7 @@ class Sample_SphereDraw {
         lightObj.rotationZ = 150;
         let dirLight = lightObj.addComponent(DirectLight);
         dirLight.lightColor = KelvinUtil.color_temperature_to_rgb(53355);
-        dirLight.intensity = 60;
+        dirLight.intensity = 10;
         this.scene.addChild(lightObj);
 
         sky.relativeTransform = dirLight.transform;

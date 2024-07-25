@@ -24,13 +24,17 @@
 
 ### constructor
 
-• **new btCylinderShapeX**(`halfExtents`)
+• **new btCylinderShapeX**(`halfExtents`): [`btCylinderShapeX`](Ammo.btCylinderShapeX.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `halfExtents` | [`btVector3`](Ammo.btVector3.md) |
+
+#### Returns
+
+[`btCylinderShapeX`](Ammo.btCylinderShapeX.md)
 
 #### Overrides
 

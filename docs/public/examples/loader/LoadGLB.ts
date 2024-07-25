@@ -6,8 +6,9 @@ class Sample_LoadGLB2 {
     scene: Scene3D;
 
     async run() {
+        Engine3D.setting.shadow.shadowBound = 10;
+        Engine3D.setting.shadow.shadowBias = 0.001;
         Engine3D.setting.shadow.autoUpdate = true;
-        Engine3D.setting.render.useLogDepth = true;
 
         await Engine3D.init();
         let scene = new Scene3D();
@@ -53,7 +54,7 @@ class Sample_LoadGLB2 {
         atmosphericSky.displaySun = false;
         atmosphericSky.sunRadiance = 1;
         hoverCtrl.setCamera(-45, -45, 10);
-        light.intensity = 10;
+        light.intensity = 5;
         Engine3D.startRenderView(view);
         await this.initScene();
     }

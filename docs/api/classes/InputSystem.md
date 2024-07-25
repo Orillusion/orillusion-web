@@ -27,6 +27,7 @@ If the current event does not occur within the View3D, it will not be dispatched
 - [mouseOffsetY](InputSystem.md#mouseoffsety)
 - [mouseLastX](InputSystem.md#mouselastx)
 - [mouseLastY](InputSystem.md#mouselasty)
+- [mouseLock](InputSystem.md#mouselock)
 
 ### Methods
 
@@ -39,6 +40,9 @@ If the current event does not occur within the View3D, it will not be dispatched
 - [containEventListener](InputSystem.md#containeventlistener)
 - [hasEventListener](InputSystem.md#haseventlistener)
 - [initCanvas](InputSystem.md#initcanvas)
+- [useMouseLock](InputSystem.md#usemouselock)
+- [releaseMouseLock](InputSystem.md#releasemouselock)
+- [onMouseLockMove](InputSystem.md#onmouselockmove)
 - [GetSlideDirection](InputSystem.md#getslidedirection)
 
 ## Constructors
@@ -198,6 +202,16 @@ the history value of mouse y
 #### Defined in
 
 [src/io/InputSystem.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L78)
+
+___
+
+### mouseLock
+
+• **mouseLock**: `boolean` = `false`
+
+#### Defined in
+
+[src/io/InputSystem.ts:88](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L88)
 
 ## Methods
 
@@ -436,7 +450,55 @@ init the input system
 
 #### Defined in
 
-[src/io/InputSystem.ts:95](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L95)
+[src/io/InputSystem.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L96)
+
+___
+
+### useMouseLock
+
+▸ **useMouseLock**(): `void`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/io/InputSystem.ts:177](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L177)
+
+___
+
+### releaseMouseLock
+
+▸ **releaseMouseLock**(): `void`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/io/InputSystem.ts:184](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L184)
+
+___
+
+### onMouseLockMove
+
+▸ **onMouseLockMove**(`e`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `e` | `MouseEvent` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/io/InputSystem.ts:190](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L190)
 
 ___
 
@@ -461,4 +523,4 @@ result {number} 1: up, 2: down, 3: left, 4: right, 0: not move
 
 #### Defined in
 
-[src/io/InputSystem.ts:452](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L452)
+[src/io/InputSystem.ts:493](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L493)

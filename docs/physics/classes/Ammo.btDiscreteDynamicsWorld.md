@@ -50,7 +50,7 @@
 
 ### constructor
 
-• **new btDiscreteDynamicsWorld**(`dispatcher`, `pairCache`, `constraintSolver`, `collisionConfiguration`)
+• **new btDiscreteDynamicsWorld**(`dispatcher`, `pairCache`, `constraintSolver`, `collisionConfiguration`): [`btDiscreteDynamicsWorld`](Ammo.btDiscreteDynamicsWorld.md)
 
 #### Parameters
 
@@ -60,6 +60,10 @@
 | `pairCache` | [`btBroadphaseInterface`](Ammo.btBroadphaseInterface.md) |
 | `constraintSolver` | [`btConstraintSolver`](Ammo.btConstraintSolver.md) |
 | `collisionConfiguration` | [`btCollisionConfiguration`](Ammo.btCollisionConfiguration.md) |
+
+#### Returns
+
+[`btDiscreteDynamicsWorld`](Ammo.btDiscreteDynamicsWorld.md)
 
 #### Overrides
 

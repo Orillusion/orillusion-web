@@ -42,7 +42,7 @@ class Sample_UIButton {
 
         let light = lightObj3D.addComponent(DirectLight);
         light.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
-        light.intensity = 30;
+        light.intensity = 3;
 
         this.scene.addChild(light.object3D);
 

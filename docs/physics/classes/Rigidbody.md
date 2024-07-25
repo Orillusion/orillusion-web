@@ -51,6 +51,8 @@ Rigid bodies can endow game objects with physical properties, allowing them to b
 - [onCompute](Rigidbody.md#oncompute)
 - [onGraphic](Rigidbody.md#ongraphic)
 - [onParentChange](Rigidbody.md#onparentchange)
+- [onAddChild](Rigidbody.md#onaddchild)
+- [onRemoveChild](Rigidbody.md#onremovechild)
 - [cloneTo](Rigidbody.md#cloneto)
 - [copyComponent](Rigidbody.md#copycomponent)
 - [beforeDestroy](Rigidbody.md#beforedestroy)
@@ -59,7 +61,11 @@ Rigid bodies can endow game objects with physical properties, allowing them to b
 
 ### constructor
 
-• **new Rigidbody**()
+• **new Rigidbody**(): [`Rigidbody`](Rigidbody.md)
+
+#### Returns
+
+[`Rigidbody`](Rigidbody.md)
 
 #### Inherited from
 
@@ -659,7 +665,7 @@ ___
 
 ### onEnable
 
-▸ `Optional` **onEnable**(`view?`): `any`
+▸ **onEnable**(`view?`): `any`
 
 #### Parameters
 
@@ -683,7 +689,7 @@ ___
 
 ### onDisable
 
-▸ `Optional` **onDisable**(`view?`): `any`
+▸ **onDisable**(`view?`): `any`
 
 #### Parameters
 
@@ -707,7 +713,7 @@ ___
 
 ### onLateUpdate
 
-▸ `Optional` **onLateUpdate**(`view?`): `any`
+▸ **onLateUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -731,7 +737,7 @@ ___
 
 ### onBeforeUpdate
 
-▸ `Optional` **onBeforeUpdate**(`view?`): `any`
+▸ **onBeforeUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -755,7 +761,7 @@ ___
 
 ### onCompute
 
-▸ `Optional` **onCompute**(`view?`, `command?`): `any`
+▸ **onCompute**(`view?`, `command?`): `any`
 
 #### Parameters
 
@@ -780,7 +786,7 @@ ___
 
 ### onGraphic
 
-▸ `Optional` **onGraphic**(`view?`): `any`
+▸ **onGraphic**(`view?`): `any`
 
 #### Parameters
 
@@ -804,7 +810,7 @@ ___
 
 ### onParentChange
 
-▸ `Optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
+▸ **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
 #### Parameters
 
@@ -824,6 +830,54 @@ ComponentBase.onParentChange
 #### Defined in
 
 [src/components/ComponentBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L122)
+
+___
+
+### onAddChild
+
+▸ **onAddChild**(`child`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `child` | `Object3D` |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+ComponentBase.onAddChild
+
+#### Defined in
+
+[src/components/ComponentBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L123)
+
+___
+
+### onRemoveChild
+
+▸ **onRemoveChild**(`child`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `child` | `Object3D` |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+ComponentBase.onRemoveChild
+
+#### Defined in
+
+[src/components/ComponentBase.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L124)
 
 ___
 
@@ -849,23 +903,23 @@ ComponentBase.cloneTo
 
 #### Defined in
 
-[src/components/ComponentBase.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L129)
+[src/components/ComponentBase.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L131)
 
 ___
 
 ### copyComponent
 
-▸ **copyComponent**(`from`): [`Rigidbody`](Rigidbody.md)
+▸ **copyComponent**(`from`): `this`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `from` | [`Rigidbody`](Rigidbody.md) |
+| `from` | `this` |
 
 #### Returns
 
-[`Rigidbody`](Rigidbody.md)
+`this`
 
 #### Inherited from
 
@@ -873,7 +927,7 @@ ComponentBase.copyComponent
 
 #### Defined in
 
-[src/components/ComponentBase.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L131)
+[src/components/ComponentBase.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L133)
 
 ___
 
@@ -899,4 +953,4 @@ ComponentBase.beforeDestroy
 
 #### Defined in
 
-[src/components/ComponentBase.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L198)
+[src/components/ComponentBase.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L200)

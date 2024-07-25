@@ -16,13 +16,17 @@
 
 ### constructor
 
-• **new btSoftBodyRigidBodyCollisionConfiguration**(`info?`)
+• **new btSoftBodyRigidBodyCollisionConfiguration**(`info?`): [`btSoftBodyRigidBodyCollisionConfiguration`](Ammo.btSoftBodyRigidBodyCollisionConfiguration.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `info?` | [`btDefaultCollisionConstructionInfo`](Ammo.btDefaultCollisionConstructionInfo.md) |
+
+#### Returns
+
+[`btSoftBodyRigidBodyCollisionConfiguration`](Ammo.btSoftBodyRigidBodyCollisionConfiguration.md)
 
 #### Overrides
 

@@ -15,7 +15,11 @@
 
 ### constructor
 
-• **new tNodeArray**()
+• **new tNodeArray**(): [`tNodeArray`](Ammo.tNodeArray.md)
+
+#### Returns
+
+[`tNodeArray`](Ammo.tNodeArray.md)
 
 ## Methods
 

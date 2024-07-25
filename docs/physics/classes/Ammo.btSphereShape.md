@@ -24,13 +24,17 @@
 
 ### constructor
 
-• **new btSphereShape**(`radius`)
+• **new btSphereShape**(`radius`): [`btSphereShape`](Ammo.btSphereShape.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `radius` | `number` |
+
+#### Returns
+
+[`btSphereShape`](Ammo.btSphereShape.md)
 
 #### Overrides
 

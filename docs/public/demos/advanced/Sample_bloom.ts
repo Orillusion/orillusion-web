@@ -53,7 +53,7 @@ class Sample_Bloom {
             let lc = this.lightObj.addComponent(DirectLight);
             lc.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
             lc.castShadow = true;
-            lc.intensity = 10;
+            lc.intensity = 3;
             this.scene.addChild(this.lightObj);
         }
 
@@ -97,7 +97,7 @@ class Sample_Bloom {
                     let litMat = new LitMaterial();
                     litMat.emissiveMap = Engine3D.res.whiteTexture;
                     litMat.emissiveColor = new Color(0.0, 0.0, 1.0);
-                    litMat.emissiveIntensity = 5.0;
+                    litMat.emissiveIntensity = 0.6;
                     let sp = new Object3D();
                     let mr = sp.addComponent(MeshRenderer);
                     mr.geometry = new SphereGeometry(15, 30, 30);
@@ -112,7 +112,7 @@ class Sample_Bloom {
                     let litMat = new LitMaterial();
                     litMat.emissiveMap = Engine3D.res.whiteTexture;
                     litMat.emissiveColor = new Color(1.0, 1.0, 0.0);
-                    litMat.emissiveIntensity = 5;
+                    litMat.emissiveIntensity = 0.8;
                     let sp = new Object3D();
                     let mr = sp.addComponent(MeshRenderer);
                     mr.geometry = new SphereGeometry(15, 30, 30);

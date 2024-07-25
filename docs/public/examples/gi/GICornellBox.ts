@@ -30,7 +30,8 @@ class Sample_GICornellBox {
 
         Engine3D.setting.shadow.debug = true;
         Engine3D.setting.shadow.shadowBound = 50;
-        Engine3D.setting.shadow.shadowSize = 1024;
+        Engine3D.setting.shadow.shadowSize = 2048;
+        Engine3D.setting.shadow.shadowBias = 0.1;
         Engine3D.setting.shadow.autoUpdate = true;
         Engine3D.setting.shadow.updateFrameRate = 1;
 
@@ -70,7 +71,7 @@ class Sample_GICornellBox {
         let light = lightObj3D.addComponent(DirectLight);
         light.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
         light.castShadow = true;
-        light.intensity = 30;
+        light.intensity = 4;
 
         this.scene.addChild(light.object3D);
 

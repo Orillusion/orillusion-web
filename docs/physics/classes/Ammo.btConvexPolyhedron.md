@@ -17,7 +17,11 @@
 
 ### constructor
 
-• **new btConvexPolyhedron**()
+• **new btConvexPolyhedron**(): [`btConvexPolyhedron`](Ammo.btConvexPolyhedron.md)
+
+#### Returns
+
+[`btConvexPolyhedron`](Ammo.btConvexPolyhedron.md)
 
 ## Methods
 

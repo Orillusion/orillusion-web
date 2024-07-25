@@ -34,6 +34,7 @@ WebGPU api use context
 - [draw](GPUContext.md#draw)
 - [endPass](GPUContext.md#endpass)
 - [computeCommand](GPUContext.md#computecommand)
+- [copyTexture](GPUContext.md#copytexture)
 
 ## Constructors
 
@@ -53,7 +54,7 @@ WebGPU api use context
 
 #### Defined in
 
-[src/gfx/renderJob/GPUContext.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L14)
+[src/gfx/renderJob/GPUContext.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L15)
 
 ___
 
@@ -63,7 +64,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/GPUContext.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L15)
+[src/gfx/renderJob/GPUContext.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L16)
 
 ___
 
@@ -73,7 +74,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/GPUContext.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L16)
+[src/gfx/renderJob/GPUContext.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L17)
 
 ___
 
@@ -83,7 +84,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/GPUContext.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L17)
+[src/gfx/renderJob/GPUContext.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L18)
 
 ___
 
@@ -93,7 +94,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/GPUContext.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L18)
+[src/gfx/renderJob/GPUContext.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L19)
 
 ___
 
@@ -103,7 +104,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/GPUContext.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L19)
+[src/gfx/renderJob/GPUContext.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L20)
 
 ___
 
@@ -113,7 +114,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/GPUContext.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L20)
+[src/gfx/renderJob/GPUContext.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L21)
 
 ___
 
@@ -123,7 +124,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/GPUContext.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L21)
+[src/gfx/renderJob/GPUContext.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L22)
 
 ___
 
@@ -133,7 +134,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/GPUContext.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L22)
+[src/gfx/renderJob/GPUContext.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L23)
 
 ___
 
@@ -143,13 +144,13 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/GPUContext.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L23)
+[src/gfx/renderJob/GPUContext.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L24)
 
 ## Methods
 
 ### bindPipeline
 
-▸ **bindPipeline**(`encoder`, `renderShader`): `void`
+▸ **bindPipeline**(`encoder`, `renderShader`): `boolean`
 
 renderPipeline before render need bind pipeline
 
@@ -162,11 +163,11 @@ renderPipeline before render need bind pipeline
 
 #### Returns
 
-`void`
+`boolean`
 
 #### Defined in
 
-[src/gfx/renderJob/GPUContext.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L31)
+[src/gfx/renderJob/GPUContext.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L32)
 
 ___
 
@@ -189,7 +190,7 @@ render before need make sure use camera
 
 #### Defined in
 
-[src/gfx/renderJob/GPUContext.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L56)
+[src/gfx/renderJob/GPUContext.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L58)
 
 ___
 
@@ -212,7 +213,7 @@ bind geometry vertex buffer to current render pipeline
 
 #### Defined in
 
-[src/gfx/renderJob/GPUContext.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L68)
+[src/gfx/renderJob/GPUContext.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L70)
 
 ___
 
@@ -228,7 +229,7 @@ begin or end clean all use cache
 
 #### Defined in
 
-[src/gfx/renderJob/GPUContext.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L87)
+[src/gfx/renderJob/GPUContext.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L89)
 
 ___
 
@@ -250,7 +251,7 @@ create a render pipeline
 
 #### Defined in
 
-[src/gfx/renderJob/GPUContext.ts:98](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L98)
+[src/gfx/renderJob/GPUContext.ts:100](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L100)
 
 ___
 
@@ -268,7 +269,7 @@ commandEncoder GPUCommandEncoder
 
 #### Defined in
 
-[src/gfx/renderJob/GPUContext.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L107)
+[src/gfx/renderJob/GPUContext.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L110)
 
 ___
 
@@ -290,7 +291,7 @@ end CommandEncoder record and submit
 
 #### Defined in
 
-[src/gfx/renderJob/GPUContext.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L120)
+[src/gfx/renderJob/GPUContext.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L123)
 
 ___
 
@@ -314,7 +315,7 @@ renderBundleEncoder GPURenderBundleEncoder
 
 #### Defined in
 
-[src/gfx/renderJob/GPUContext.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L133)
+[src/gfx/renderJob/GPUContext.ts:136](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L136)
 
 ___
 
@@ -339,7 +340,7 @@ encoder GPURenderPassEncoder
 
 #### Defined in
 
-[src/gfx/renderJob/GPUContext.ts:144](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L144)
+[src/gfx/renderJob/GPUContext.ts:147](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L147)
 
 ___
 
@@ -366,7 +367,7 @@ Start the rendering process to draw any pipes
 
 #### Defined in
 
-[src/gfx/renderJob/GPUContext.ts:184](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L184)
+[src/gfx/renderJob/GPUContext.ts:190](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L190)
 
 ___
 
@@ -390,7 +391,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/GPUContext.ts:193](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L193)
+[src/gfx/renderJob/GPUContext.ts:199](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L199)
 
 ___
 
@@ -412,7 +413,7 @@ The GPU must be informed of the end of encoder recording
 
 #### Defined in
 
-[src/gfx/renderJob/GPUContext.ts:205](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L205)
+[src/gfx/renderJob/GPUContext.ts:211](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L211)
 
 ___
 
@@ -435,4 +436,26 @@ Perform the final calculation and submit the Shader to the GPU
 
 #### Defined in
 
-[src/gfx/renderJob/GPUContext.ts:215](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L215)
+[src/gfx/renderJob/GPUContext.ts:221](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L221)
+
+___
+
+### copyTexture
+
+▸ **copyTexture**(`command`, `source`, `dest`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `command` | `GPUCommandEncoder` |
+| `source` | [`Texture`](Texture.md) |
+| `dest` | [`Texture`](Texture.md) |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/gfx/renderJob/GPUContext.ts:230](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/GPUContext.ts#L230)

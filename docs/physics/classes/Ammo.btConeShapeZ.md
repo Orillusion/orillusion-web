@@ -24,7 +24,7 @@
 
 ### constructor
 
-• **new btConeShapeZ**(`radius`, `height`)
+• **new btConeShapeZ**(`radius`, `height`): [`btConeShapeZ`](Ammo.btConeShapeZ.md)
 
 #### Parameters
 
@@ -32,6 +32,10 @@
 | :------ | :------ |
 | `radius` | `number` |
 | `height` | `number` |
+
+#### Returns
+
+[`btConeShapeZ`](Ammo.btConeShapeZ.md)
 
 #### Overrides
 

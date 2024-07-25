@@ -31,6 +31,7 @@ The global illumination system can model the way light reflects
 
 ### Methods
 
+- [start](GlobalIlluminationComponent.md#start)
 - [stop](GlobalIlluminationComponent.md#stop)
 - [onEnable](GlobalIlluminationComponent.md#onenable)
 - [onDisable](GlobalIlluminationComponent.md#ondisable)
@@ -39,12 +40,13 @@ The global illumination system can model the way light reflects
 - [onCompute](GlobalIlluminationComponent.md#oncompute)
 - [onGraphic](GlobalIlluminationComponent.md#ongraphic)
 - [onParentChange](GlobalIlluminationComponent.md#onparentchange)
+- [onAddChild](GlobalIlluminationComponent.md#onaddchild)
+- [onRemoveChild](GlobalIlluminationComponent.md#onremovechild)
 - [cloneTo](GlobalIlluminationComponent.md#cloneto)
 - [copyComponent](GlobalIlluminationComponent.md#copycomponent)
 - [beforeDestroy](GlobalIlluminationComponent.md#beforedestroy)
 - [destroy](GlobalIlluminationComponent.md#destroy)
 - [init](GlobalIlluminationComponent.md#init)
-- [start](GlobalIlluminationComponent.md#start)
 - [debug](GlobalIlluminationComponent.md#debug)
 - [onUpdate](GlobalIlluminationComponent.md#onupdate)
 
@@ -211,6 +213,24 @@ ComponentBase.enable
 [src/components/ComponentBase.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L54)
 
 ## Methods
+
+### start
+
+▸ **start**(): `void`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[start](ComponentBase.md#start)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
+
+___
 
 ### stop
 
@@ -400,6 +420,54 @@ ___
 
 ___
 
+### onAddChild
+
+▸ **onAddChild**(`child`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `child` | [`Object3D`](Object3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onAddChild](ComponentBase.md#onaddchild)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L123)
+
+___
+
+### onRemoveChild
+
+▸ **onRemoveChild**(`child`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `child` | [`Object3D`](Object3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onRemoveChild](ComponentBase.md#onremovechild)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L124)
+
+___
+
 ### cloneTo
 
 ▸ **cloneTo**(`obj`): `void`
@@ -422,7 +490,7 @@ clone component data to target object3D
 
 #### Defined in
 
-[src/components/ComponentBase.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L129)
+[src/components/ComponentBase.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L131)
 
 ___
 
@@ -446,7 +514,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L131)
+[src/components/ComponentBase.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L133)
 
 ___
 
@@ -472,7 +540,7 @@ before release this component, object refrences are not be set null now.
 
 #### Defined in
 
-[src/components/ComponentBase.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L198)
+[src/components/ComponentBase.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L200)
 
 ___
 
@@ -498,13 +566,19 @@ release this component
 
 #### Defined in
 
-[src/components/ComponentBase.ts:205](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L205)
+[src/components/ComponentBase.ts:207](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L207)
 
 ___
 
 ### init
 
-▸ **init**(): `void`
+▸ **init**(`scene`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `scene` | [`Scene3D`](Scene3D.md) |
 
 #### Returns
 
@@ -516,25 +590,7 @@ ___
 
 #### Defined in
 
-[src/components/renderer/GlobalIlluminationComponent.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/GlobalIlluminationComponent.ts#L29)
-
-___
-
-### start
-
-▸ **start**(): `void`
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-[ComponentBase](ComponentBase.md).[start](ComponentBase.md#start)
-
-#### Defined in
-
-[src/components/renderer/GlobalIlluminationComponent.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/GlobalIlluminationComponent.ts#L33)
+[src/components/renderer/GlobalIlluminationComponent.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/GlobalIlluminationComponent.ts#L30)
 
 ___
 
@@ -548,7 +604,7 @@ ___
 
 #### Defined in
 
-[src/components/renderer/GlobalIlluminationComponent.ts:91](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/GlobalIlluminationComponent.ts#L91)
+[src/components/renderer/GlobalIlluminationComponent.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/GlobalIlluminationComponent.ts#L90)
 
 ___
 
@@ -566,4 +622,4 @@ ___
 
 #### Defined in
 
-[src/components/renderer/GlobalIlluminationComponent.ts:146](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/GlobalIlluminationComponent.ts#L146)
+[src/components/renderer/GlobalIlluminationComponent.ts:145](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/GlobalIlluminationComponent.ts#L145)

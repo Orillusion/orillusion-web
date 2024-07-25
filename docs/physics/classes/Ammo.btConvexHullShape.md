@@ -29,7 +29,7 @@
 
 ### constructor
 
-• **new btConvexHullShape**(`points?`, `numPoints?`)
+• **new btConvexHullShape**(`points?`, `numPoints?`): [`btConvexHullShape`](Ammo.btConvexHullShape.md)
 
 #### Parameters
 
@@ -37,6 +37,10 @@
 | :------ | :------ |
 | `points?` | readonly `number`[] |
 | `numPoints?` | `number` |
+
+#### Returns
+
+[`btConvexHullShape`](Ammo.btConvexHullShape.md)
 
 #### Overrides
 

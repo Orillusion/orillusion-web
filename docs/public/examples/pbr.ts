@@ -10,13 +10,14 @@ class Sample_PBRMaterial {
 
     async run() {
         await Engine3D.init({
-            canvasConfig: { alpha: true, zIndex: 11 },
+            canvasConfig: { alpha: true, zIndex: 11, devicePixelRatio:2 },
             renderLoop: this.loop.bind(this)
         });
 
         Engine3D.setting.shadow.autoUpdate = true;
         Engine3D.setting.shadow.updateFrameRate = 1;
         Engine3D.setting.shadow.shadowBound = 50;
+        Engine3D.setting.shadow.shadowBias = 0.02;
         Engine3D.setting.render.postProcessing.bloom!.luminanceThreshole = 0.8;
         Engine3D.setting.render.postProcessing.bloom!.bloomIntensity = 0.86;
 
@@ -61,7 +62,7 @@ class Sample_PBRMaterial {
             let lc = this.lightObj.addComponent(DirectLight);
             lc.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
             lc.castShadow = true;
-            lc.intensity = 70;
+            lc.intensity = 4.5;
             this.scene.addChild(this.lightObj);
         }
 

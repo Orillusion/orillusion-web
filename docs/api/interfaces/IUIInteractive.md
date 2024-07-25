@@ -55,7 +55,7 @@ ___
 
 ### object3D
 
-• `Optional` **object3D**: [`CEventDispatcher`](../classes/CEventDispatcher.md)
+• `Optional` **object3D**: [`Object3D`](../classes/Object3D.md)
 
 #### Defined in
 

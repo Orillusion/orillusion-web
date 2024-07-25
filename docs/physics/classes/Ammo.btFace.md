@@ -17,7 +17,11 @@
 
 ### constructor
 
-• **new btFace**()
+• **new btFace**(): [`btFace`](Ammo.btFace.md)
+
+#### Returns
+
+[`btFace`](Ammo.btFace.md)
 
 ## Methods
 

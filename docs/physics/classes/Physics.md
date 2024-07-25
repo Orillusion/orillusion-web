@@ -33,7 +33,11 @@ Physics Engine
 
 ### constructor
 
-• **new _Physics**()
+• **new _Physics**(): [`_Physics`](Physics.md)
+
+#### Returns
+
+[`_Physics`](Physics.md)
 
 #### Defined in
 
@@ -201,13 +205,13 @@ ___
 
 ### init
 
-▸ **init**(): `Promise`<`void`\>
+▸ **init**(): `Promise`\<`void`\>
 
 Init Physics Engine
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 

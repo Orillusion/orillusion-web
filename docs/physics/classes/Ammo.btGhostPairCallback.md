@@ -10,7 +10,11 @@
 
 ### constructor
 
-• **new btGhostPairCallback**()
+• **new btGhostPairCallback**(): [`btGhostPairCallback`](Ammo.btGhostPairCallback.md)
+
+#### Returns
+
+[`btGhostPairCallback`](Ammo.btGhostPairCallback.md)
 
 #### Defined in
 

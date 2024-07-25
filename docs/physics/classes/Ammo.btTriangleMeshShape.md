@@ -26,7 +26,11 @@
 
 ### constructor
 
-• **new btTriangleMeshShape**()
+• **new btTriangleMeshShape**(): [`btTriangleMeshShape`](Ammo.btTriangleMeshShape.md)
+
+#### Returns
+
+[`btTriangleMeshShape`](Ammo.btTriangleMeshShape.md)
 
 #### Inherited from
 

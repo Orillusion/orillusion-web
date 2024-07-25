@@ -10,7 +10,11 @@
 
 ### constructor
 
-• **new btDefaultCollisionConstructionInfo**()
+• **new btDefaultCollisionConstructionInfo**(): [`btDefaultCollisionConstructionInfo`](Ammo.btDefaultCollisionConstructionInfo.md)
+
+#### Returns
+
+[`btDefaultCollisionConstructionInfo`](Ammo.btDefaultCollisionConstructionInfo.md)
 
 #### Defined in
 

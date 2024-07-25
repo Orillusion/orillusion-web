@@ -35,7 +35,7 @@ class Sample_PropertyAnim {
         };
         const GUIHelp = new dat.GUI();
         GUIHelp.add(guiData, 'click').name('Restart');
-        GUIHelp.add(guiData, 'Seek', 0, 1, 0.01).onChange((v) => {
+        GUIHelp.add(guiData, 'Seek', 0, 4, 0.01).onChange((v) => {
             this.animation.stop();
             this.animation.seek(v);
         });
@@ -78,7 +78,7 @@ class Sample_PropertyAnim {
             this.lightObj.rotationZ = 45;
             let lc = this.lightObj.addComponent(DirectLight);
             lc.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
-            lc.intensity = 20;
+            lc.intensity = 2;
             scene.addChild(this.lightObj);
         }
 
