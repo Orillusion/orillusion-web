@@ -95,12 +95,12 @@ scene.envMap = colorSky;
 let textureCube = Engine3D.res.loadTextureCube('path/to/sky.png')
 // 或加载独立的6张立方贴图
 textureCube = Engine3D.res.loadTextureCube([
-    'path/to/sky1.png',
-    'path/to/sky2.png',
-    'path/to/sky3.png',
-    'path/to/sky4.png',
-    'path/to/sky5.png',
-    'path/to/sky6.png'
+    'path/to/px.png',
+    'path/to/nx.png',
+    'path/to/py.png',
+    'path/to/ny.png',
+    'path/to/pz.png',
+    'path/to/nz.png'
 ])
 // 添加 SkyRenderer 组件，设置 map 贴图
 let sky = scene.addComponent(SkyRenderer);
