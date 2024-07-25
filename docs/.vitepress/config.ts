@@ -50,6 +50,7 @@ export default async () =>
                 '/stats/': sidebar('', 'stats'),
                 '/media-extention/': sidebar('', 'media-extention'),
                 '/particle/': sidebar('', 'particle'),
+                '/graphic/': sidebar('', 'graphic'),
                 '/example/': sidebarExample(),
                 '/cdn/': [
                     {
@@ -209,7 +210,7 @@ function nav() {
         },
         {
             text: 'API',
-            activeMatch: '/api|physics|media-extention|stats|particle/',
+            activeMatch: '/api|physics|media-extention|stats|particle|graphic/',
             items: [
                 {
                     text: 'Orillusion',
@@ -218,7 +219,8 @@ function nav() {
                         { text: 'Physics', link: '/physics/', activeMatch: '/physics/' },
                         { text: 'Media Extention', link: '/media-extention/', activeMatch: '/media-extention/' },
                         { text: 'Stats', link: '/stats/', activeMatch: '/stats/' },
-                        { text: 'Particle', link: '/particle/', activeMatch: '/particle/' }
+                        { text: 'Particle', link: '/particle/', activeMatch: '/particle/' },
+                        { text: 'Graphic', link: '/graphic/', activeMatch: '/graphic/' }
                     ]
                 },
                 {
@@ -519,6 +521,10 @@ function sidebar(root: string = '', packages: string) {
                 {
                     text: '@orillusion/particle',
                     link: '/particle/'
+                },
+                {
+                    text: '@orillusion/graphic',
+                    link: '/graphic/'
                 }
             ]
         }
