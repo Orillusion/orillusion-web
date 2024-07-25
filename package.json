@@ -12,9 +12,9 @@
         "format": "prettier --check --write ."
     },
     "devDependencies": {
-        "@orillusion/core": "0.7.2",
-        "@orillusion/effect": "^0.1.2",
-        "@orillusion/graphic": "^0.1.1",
+        "@orillusion/core": "0.8.3-dev.1",
+        "@orillusion/effect": "^0.1.3",
+        "@orillusion/graphic": "^0.2.0",
         "@orillusion/media-extention": "^0.3.4",
         "@orillusion/particle": "^0.1.0",
         "@orillusion/physics": "^0.2.1",
@@ -23,8 +23,8 @@
         "@types/node": "^18.18.8",
         "esbuild": "^0.17.19",
         "prettier": "^2.8.8",
-        "vitepress": "1.0.0-rc.45",
-        "vue": "^3.3.7"
+        "vitepress": "1.3.1",
+        "vue": "^3.4.31"
     },
     "pnpm": {
         "peerDependencyRules": {
