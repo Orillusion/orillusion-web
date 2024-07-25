@@ -1,19 +1,5 @@
 # Class: Struct
 
-## Hierarchy
-
-- **`Struct`**
-
-  ↳ [`DynamicDrawStruct`](DynamicDrawStruct.md)
-
-  ↳ [`DrawInfo`](DrawInfo.md)
-
-  ↳ [`GeometryInfo`](GeometryInfo.md)
-
-  ↳ [`RibbonStruct`](RibbonStruct.md)
-
-  ↳ [`ShapeInfo`](ShapeInfo.md)
-
 ### Constructors
 
 - [constructor](Struct.md#constructor)

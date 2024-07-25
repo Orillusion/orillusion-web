@@ -22,6 +22,7 @@
 - [bindGroupLayouts](RenderShaderPass.md#bindgrouplayouts)
 - [envMap](RenderShaderPass.md#envmap)
 - [prefilterMap](RenderShaderPass.md#prefiltermap)
+- [reflectionMap](RenderShaderPass.md#reflectionmap)
 - [outBufferMask](RenderShaderPass.md#outbuffermask)
 - [instanceID](RenderShaderPass.md#instanceid)
 - [shaderVariant](RenderShaderPass.md#shadervariant)
@@ -109,7 +110,7 @@
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:85](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L85)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L86)
 
 ## Properties
 
@@ -229,13 +230,23 @@ ___
 
 ___
 
+### reflectionMap
+
+• **reflectionMap**: [`Texture`](Texture.md)
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L73)
+
+___
+
 ### outBufferMask
 
 • **outBufferMask**: `Vector4`
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L83)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L84)
 
 ___
 
@@ -423,7 +434,7 @@ Blend mode
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L120)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L121)
 
 • `set` **renderOrder**(`value`): `void`
 
@@ -439,7 +450,7 @@ Blend mode
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L124)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L125)
 
 ___
 
@@ -455,7 +466,7 @@ Cull mode
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:134](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L134)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L135)
 
 • `set` **doubleSide**(`value`): `void`
 
@@ -471,7 +482,7 @@ Cull mode
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:138](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L138)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:139](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L139)
 
 ___
 
@@ -487,7 +498,7 @@ depthWriteEnabled mode
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:149](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L149)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:150](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L150)
 
 • `set` **depthWriteEnabled**(`value`): `void`
 
@@ -503,7 +514,7 @@ depthWriteEnabled mode
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L153)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:154](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L154)
 
 ___
 
@@ -519,7 +530,7 @@ get render face cull mode
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:163](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L163)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:164](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L164)
 
 • `set` **cullMode**(`value`): `void`
 
@@ -537,7 +548,7 @@ set render face cull mode
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:170](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L170)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:171](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L171)
 
 ___
 
@@ -555,7 +566,7 @@ get front face mode
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:181](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L181)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:182](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L182)
 
 • `set` **frontFace**(`value`): `void`
 
@@ -577,7 +588,7 @@ value
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:189](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L189)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:190](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L190)
 
 ___
 
@@ -593,7 +604,7 @@ Depth bias
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:199](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L199)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L200)
 
 • `set` **depthBias**(`value`): `void`
 
@@ -609,7 +620,7 @@ Depth bias
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:203](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L203)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:204](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L204)
 
 ___
 
@@ -625,7 +636,7 @@ Primitive topology
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:213](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L213)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:214](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L214)
 
 • `set` **topology**(`value`): `void`
 
@@ -641,7 +652,7 @@ Primitive topology
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:217](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L217)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:218](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L218)
 
 ___
 
@@ -657,7 +668,7 @@ Blend mode
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:227](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L227)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:228](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L228)
 
 • `set` **blendMode**(`value`): `void`
 
@@ -673,7 +684,7 @@ Blend mode
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:231](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L231)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:232](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L232)
 
 ___
 
@@ -689,7 +700,7 @@ Depth compare function
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:244](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L244)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:245](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L245)
 
 • `set` **depthCompare**(`value`): `void`
 
@@ -705,7 +716,7 @@ Depth compare function
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:248](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L248)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:249](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L249)
 
 ___
 
@@ -719,7 +730,7 @@ ___
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:298](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L298)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:301](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L301)
 
 • `set` **baseColor**(`value`): `void`
 
@@ -735,7 +746,7 @@ ___
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:302](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L302)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:305](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L305)
 
 ## Methods
 
@@ -758,7 +769,7 @@ Sets the entry point names for the RenderShader vertex phase and fragment phase
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:260](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L260)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:261](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L261)
 
 ___
 
@@ -783,7 +794,7 @@ ___
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:270](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L270)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:271](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L271)
 
 ___
 
@@ -806,7 +817,7 @@ Set the texture used in the Render Shader code
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:280](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L280)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:281](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L281)
 
 ___
 
@@ -830,7 +841,7 @@ Texture object
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:311](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L311)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:314](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L314)
 
 ___
 
@@ -853,7 +864,7 @@ Create a rendering pipeline
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:320](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L320)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:323](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L323)
 
 ___
 
@@ -876,7 +887,7 @@ Recompile the shader and create the rendering pipeline
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:330](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L330)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:333](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L333)
 
 ___
 
@@ -900,7 +911,7 @@ Apply render shader state value
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:344](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L344)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:347](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L347)
 
 ___
 
@@ -922,7 +933,7 @@ Precompile the shader code
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:371](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L371)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:374](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L374)
 
 ___
 
@@ -945,7 +956,7 @@ Apply defines syntax values
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:384](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L384)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:387](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L387)
 
 ___
 
@@ -968,7 +979,7 @@ Set GPUBindGroup to the specified index slot
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:407](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L407)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:415](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L415)
 
 ___
 
@@ -994,7 +1005,7 @@ Destroy and release render shader related resources
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:941](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L941)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:949](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L949)
 
 ___
 
@@ -1016,7 +1027,7 @@ Destroy a RenderShader object
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:984](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L984)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:992](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L992)
 
 ___
 
@@ -1040,7 +1051,7 @@ RenderShader object
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:997](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L997)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:1005](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L1005)
 
 ___
 
@@ -1065,7 +1076,7 @@ Returns the instance ID of the RenderShader
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:1007](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L1007)
+[src/gfx/graphics/webGpu/shader/RenderShaderPass.ts:1015](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/RenderShaderPass.ts#L1015)
 
 ___
 

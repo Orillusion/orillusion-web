@@ -312,7 +312,7 @@ Orillusion3D  0.5.1
 
 #### Defined in
 
-[src/math/Matrix4.ts:1885](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1885)
+[src/math/Matrix4.ts:1887](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1887)
 
 ___
 
@@ -334,7 +334,7 @@ Orillusion3D  0.5.1
 
 #### Defined in
 
-[src/math/Matrix4.ts:1916](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1916)
+[src/math/Matrix4.ts:1918](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1918)
 
 • `set` **position**(`value`): `void`
 
@@ -356,7 +356,7 @@ Orillusion3D  0.5.1
 
 #### Defined in
 
-[src/math/Matrix4.ts:1926](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1926)
+[src/math/Matrix4.ts:1928](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1928)
 
 ___
 
@@ -378,7 +378,7 @@ Orillusion3D  0.5.1
 
 #### Defined in
 
-[src/math/Matrix4.ts:1939](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1939)
+[src/math/Matrix4.ts:1941](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1941)
 
 • `set` **scale**(`value`): `void`
 
@@ -396,7 +396,7 @@ Set component of scale
 
 #### Defined in
 
-[src/math/Matrix4.ts:1947](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1947)
+[src/math/Matrix4.ts:1949](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1949)
 
 ## Methods
 
@@ -988,7 +988,7 @@ ___
 
 ### transformDir
 
-▸ **transformDir**(`fromDirection`, `toDirection`): `void`
+▸ **transformDir**(`fromDirection`, `toDirection`): `this`
 
 set matrix from two direction
 
@@ -1001,7 +1001,7 @@ set matrix from two direction
 
 #### Returns
 
-`void`
+`this`
 
 **`Version`**
 
@@ -1035,7 +1035,7 @@ Orillusion3D  0.5.1
 
 #### Defined in
 
-[src/math/Matrix4.ts:865](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L865)
+[src/math/Matrix4.ts:867](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L867)
 
 ___
 
@@ -1063,7 +1063,7 @@ Orillusion3D  0.5.1
 
 #### Defined in
 
-[src/math/Matrix4.ts:911](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L911)
+[src/math/Matrix4.ts:913](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L913)
 
 ___
 
@@ -1091,7 +1091,7 @@ Orillusion3D  0.5.1
 
 #### Defined in
 
-[src/math/Matrix4.ts:974](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L974)
+[src/math/Matrix4.ts:976](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L976)
 
 ___
 
@@ -1119,7 +1119,7 @@ Orillusion3D  0.5.1
 
 #### Defined in
 
-[src/math/Matrix4.ts:1038](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1038)
+[src/math/Matrix4.ts:1040](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1040)
 
 ___
 
@@ -1146,7 +1146,7 @@ Orillusion3D  0.5.1
 
 #### Defined in
 
-[src/math/Matrix4.ts:1085](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1085)
+[src/math/Matrix4.ts:1087](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1087)
 
 ___
 
@@ -1173,7 +1173,7 @@ Orillusion3D  0.5.1
 
 #### Defined in
 
-[src/math/Matrix4.ts:1096](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1096)
+[src/math/Matrix4.ts:1098](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1098)
 
 ___
 
@@ -1201,7 +1201,7 @@ Orillusion3D  0.5.1
 
 #### Defined in
 
-[src/math/Matrix4.ts:1173](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1173)
+[src/math/Matrix4.ts:1175](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1175)
 
 ___
 
@@ -1229,7 +1229,7 @@ Orillusion3D  0.5.1
 
 #### Defined in
 
-[src/math/Matrix4.ts:1185](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1185)
+[src/math/Matrix4.ts:1187](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1187)
 
 ___
 
@@ -1257,7 +1257,7 @@ Orillusion3D  0.5.1
 
 #### Defined in
 
-[src/math/Matrix4.ts:1212](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1212)
+[src/math/Matrix4.ts:1214](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1214)
 
 ___
 
@@ -1279,7 +1279,7 @@ Orillusion3D  0.5.1
 
 #### Defined in
 
-[src/math/Matrix4.ts:1224](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1224)
+[src/math/Matrix4.ts:1226](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1226)
 
 ___
 
@@ -1306,7 +1306,7 @@ Orillusion3D  0.5.1
 
 #### Defined in
 
-[src/math/Matrix4.ts:1236](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1236)
+[src/math/Matrix4.ts:1238](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1238)
 
 ___
 
@@ -1333,7 +1333,7 @@ Orillusion3D  0.5.1
 
 #### Defined in
 
-[src/math/Matrix4.ts:1274](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1274)
+[src/math/Matrix4.ts:1276](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1276)
 
 ___
 
@@ -1361,7 +1361,7 @@ Orillusion3D  0.5.1
 
 #### Defined in
 
-[src/math/Matrix4.ts:1312](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1312)
+[src/math/Matrix4.ts:1314](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1314)
 
 ___
 
@@ -1389,7 +1389,7 @@ Orillusion3D  0.5.1
 
 #### Defined in
 
-[src/math/Matrix4.ts:1340](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1340)
+[src/math/Matrix4.ts:1342](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1342)
 
 ___
 
@@ -1416,7 +1416,7 @@ Orillusion3D  0.5.1
 
 #### Defined in
 
-[src/math/Matrix4.ts:1366](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1366)
+[src/math/Matrix4.ts:1368](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1368)
 
 ___
 
@@ -1443,7 +1443,7 @@ Orillusion3D  0.5.1
 
 #### Defined in
 
-[src/math/Matrix4.ts:1404](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1404)
+[src/math/Matrix4.ts:1406](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1406)
 
 ___
 
@@ -1469,7 +1469,7 @@ Orillusion3D  0.5.1
 
 #### Defined in
 
-[src/math/Matrix4.ts:1441](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1441)
+[src/math/Matrix4.ts:1443](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1443)
 
 ___
 
@@ -1491,7 +1491,7 @@ Calculate rotation matrix
 
 #### Defined in
 
-[src/math/Matrix4.ts:1450](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1450)
+[src/math/Matrix4.ts:1452](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1452)
 
 ___
 
@@ -1526,7 +1526,7 @@ Orillusion3D  0.5.1
 
 #### Defined in
 
-[src/math/Matrix4.ts:1465](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1465)
+[src/math/Matrix4.ts:1467](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1467)
 
 ___
 
@@ -1551,7 +1551,7 @@ Get the Euler vector
 
 #### Defined in
 
-[src/math/Matrix4.ts:1593](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1593)
+[src/math/Matrix4.ts:1595](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1595)
 
 ___
 
@@ -1575,7 +1575,7 @@ Calculate the combined matrix of displacement, rotation and scaling
 
 #### Defined in
 
-[src/math/Matrix4.ts:1606](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1606)
+[src/math/Matrix4.ts:1608](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1608)
 
 ___
 
@@ -1604,7 +1604,7 @@ Orillusion3D  0.5.1
 
 #### Defined in
 
-[src/math/Matrix4.ts:1660](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1660)
+[src/math/Matrix4.ts:1662](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1662)
 
 ___
 
@@ -1624,7 +1624,7 @@ Orillusion3D  0.5.1
 
 #### Defined in
 
-[src/math/Matrix4.ts:1679](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1679)
+[src/math/Matrix4.ts:1681](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1681)
 
 ___
 
@@ -1650,7 +1650,7 @@ Orillusion3D  0.5.1
 
 #### Defined in
 
-[src/math/Matrix4.ts:1706](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1706)
+[src/math/Matrix4.ts:1708](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1708)
 
 ___
 
@@ -1670,7 +1670,7 @@ Orillusion3D  0.5.1
 
 #### Defined in
 
-[src/math/Matrix4.ts:1730](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1730)
+[src/math/Matrix4.ts:1732](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1732)
 
 ___
 
@@ -1692,7 +1692,7 @@ Orillusion3D  0.5.1
 
 #### Defined in
 
-[src/math/Matrix4.ts:1767](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1767)
+[src/math/Matrix4.ts:1769](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1769)
 
 ___
 
@@ -1717,7 +1717,7 @@ world coordinate
 
 #### Defined in
 
-[src/math/Matrix4.ts:1817](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1817)
+[src/math/Matrix4.ts:1819](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1819)
 
 ___
 
@@ -1746,7 +1746,7 @@ Orillusion3D  0.5.1
 
 #### Defined in
 
-[src/math/Matrix4.ts:1839](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1839)
+[src/math/Matrix4.ts:1841](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1841)
 
 ___
 
@@ -1766,7 +1766,7 @@ Orillusion3D  0.5.1
 
 #### Defined in
 
-[src/math/Matrix4.ts:1859](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1859)
+[src/math/Matrix4.ts:1861](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1861)
 
 ___
 
@@ -1790,7 +1790,7 @@ Position of translation
 
 #### Defined in
 
-[src/math/Matrix4.ts:1902](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1902)
+[src/math/Matrix4.ts:1904](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1904)
 
 ___
 
@@ -1812,7 +1812,7 @@ Orillusion3D  0.5.1
 
 #### Defined in
 
-[src/math/Matrix4.ts:1964](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1964)
+[src/math/Matrix4.ts:1966](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1966)
 
 ___
 
@@ -1840,7 +1840,7 @@ Orillusion3D  0.5.1
 
 #### Defined in
 
-[src/math/Matrix4.ts:2010](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2010)
+[src/math/Matrix4.ts:2012](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2012)
 
 ___
 
@@ -1863,7 +1863,7 @@ Read matrix element values
 
 #### Defined in
 
-[src/math/Matrix4.ts:2021](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2021)
+[src/math/Matrix4.ts:2023](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2023)
 
 ___
 
@@ -1887,7 +1887,7 @@ Sets the matrix element values
 
 #### Defined in
 
-[src/math/Matrix4.ts:2031](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2031)
+[src/math/Matrix4.ts:2033](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2033)
 
 ___
 
@@ -1907,7 +1907,7 @@ Orillusion3D  0.5.1 4.0
 
 #### Defined in
 
-[src/math/Matrix4.ts:2039](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2039)
+[src/math/Matrix4.ts:2041](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2041)
 
 ___
 
@@ -1931,7 +1931,7 @@ current matrix
 
 #### Defined in
 
-[src/math/Matrix4.ts:2054](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2054)
+[src/math/Matrix4.ts:2056](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2056)
 
 ___
 
@@ -1954,7 +1954,7 @@ from unity AMath.PI
 
 #### Defined in
 
-[src/math/Matrix4.ts:2071](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2071)
+[src/math/Matrix4.ts:2073](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2073)
 
 ___
 
@@ -1978,7 +1978,7 @@ this matrix
 
 #### Defined in
 
-[src/math/Matrix4.ts:2082](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2082)
+[src/math/Matrix4.ts:2084](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2084)
 
 ___
 
@@ -2002,7 +2002,7 @@ Generate the matrix according to the three axes
 
 #### Defined in
 
-[src/math/Matrix4.ts:2108](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2108)
+[src/math/Matrix4.ts:2110](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2110)
 
 ___
 
@@ -2023,4 +2023,4 @@ ___
 
 #### Defined in
 
-[src/math/Matrix4.ts:2118](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2118)
+[src/math/Matrix4.ts:2120](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2120)

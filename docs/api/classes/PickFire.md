@@ -322,7 +322,7 @@ start this manager
 
 #### Defined in
 
-[src/io/PickFire.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L72)
+[src/io/PickFire.ts:71](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L71)
 
 ___
 

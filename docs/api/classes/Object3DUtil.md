@@ -13,9 +13,12 @@
 ### Methods
 
 - [GetCube](Object3DUtil.md#getcube)
+- [GetMaterial](Object3DUtil.md#getmaterial)
+- [GetPlane](Object3DUtil.md#getplane)
 - [GetSingleCube](Object3DUtil.md#getsinglecube)
 - [GetSingleSphere](Object3DUtil.md#getsinglesphere)
 - [GetSingleCube2](Object3DUtil.md#getsinglecube2)
+- [GetPointLight](Object3DUtil.md#getpointlight)
 
 ## Constructors
 
@@ -39,7 +42,7 @@
 
 #### Defined in
 
-[src/util/Object3DUtil.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L24)
+[src/util/Object3DUtil.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L37)
 
 ___
 
@@ -53,7 +56,7 @@ ___
 
 #### Defined in
 
-[src/util/Object3DUtil.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L29)
+[src/util/Object3DUtil.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L42)
 
 ___
 
@@ -67,7 +70,7 @@ ___
 
 #### Defined in
 
-[src/util/Object3DUtil.ts:75](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L75)
+[src/util/Object3DUtil.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L111)
 
 ## Methods
 
@@ -81,7 +84,47 @@ ___
 
 #### Defined in
 
-[src/util/Object3DUtil.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L34)
+[src/util/Object3DUtil.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L47)
+
+___
+
+### GetMaterial
+
+▸ **GetMaterial**(`tex`): [`Material`](Material.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `tex` | [`Texture`](Texture.md) |
+
+#### Returns
+
+[`Material`](Material.md)
+
+#### Defined in
+
+[src/util/Object3DUtil.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L57)
+
+___
+
+### GetPlane
+
+▸ **GetPlane**(`tex`): [`Object3D`](Object3D.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `tex` | [`Texture`](Texture.md) |
+
+#### Returns
+
+[`Object3D`](Object3D.md)
+
+#### Defined in
+
+[src/util/Object3DUtil.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L67)
 
 ___
 
@@ -106,7 +149,7 @@ ___
 
 #### Defined in
 
-[src/util/Object3DUtil.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L45)
+[src/util/Object3DUtil.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L81)
 
 ___
 
@@ -129,7 +172,7 @@ ___
 
 #### Defined in
 
-[src/util/Object3DUtil.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L61)
+[src/util/Object3DUtil.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L97)
 
 ___
 
@@ -150,4 +193,31 @@ ___
 
 #### Defined in
 
-[src/util/Object3DUtil.ts:85](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L85)
+[src/util/Object3DUtil.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L121)
+
+___
+
+### GetPointLight
+
+▸ **GetPointLight**(`pos`, `rotation`, `radius`, `r`, `g`, `b`, `intensity?`, `castShadow?`): [`PointLight`](PointLight.md)
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `pos` | [`Vector3`](Vector3.md) | `undefined` |
+| `rotation` | [`Vector3`](Vector3.md) | `undefined` |
+| `radius` | `number` | `undefined` |
+| `r` | `number` | `undefined` |
+| `g` | `number` | `undefined` |
+| `b` | `number` | `undefined` |
+| `intensity` | `number` | `1` |
+| `castShadow` | `boolean` | `true` |
+
+#### Returns
+
+[`PointLight`](PointLight.md)
+
+#### Defined in
+
+[src/util/Object3DUtil.ts:132](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L132)

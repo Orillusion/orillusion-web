@@ -15,7 +15,6 @@
 - [pickFire](View3D.md#pickfire)
 - [guiPick](View3D.md#guipick)
 - [canvasList](View3D.md#canvaslist)
-- [graphic3D](View3D.md#graphic3d)
 - [id](View3D.md#id)
 - [current](View3D.md#current)
 - [type](View3D.md#type)
@@ -64,7 +63,7 @@ CEventListener.constructor
 
 #### Defined in
 
-[src/core/View3D.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L27)
+[src/core/View3D.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L21)
 
 ## Properties
 
@@ -74,7 +73,7 @@ CEventListener.constructor
 
 #### Defined in
 
-[src/core/View3D.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L18)
+[src/core/View3D.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L17)
 
 ___
 
@@ -84,7 +83,7 @@ ___
 
 #### Defined in
 
-[src/core/View3D.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L19)
+[src/core/View3D.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L18)
 
 ___
 
@@ -94,19 +93,7 @@ ___
 
 #### Defined in
 
-[src/core/View3D.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L20)
-
-___
-
-### graphic3D
-
-• **graphic3D**: [`Graphic3D`](Graphic3D.md)
-
-Graphics renderers (lines, rectangles, etc.)
-
-#### Defined in
-
-[src/core/View3D.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L25)
+[src/core/View3D.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L19)
 
 ___
 
@@ -232,7 +219,7 @@ CEventListener.priority
 
 #### Defined in
 
-[src/core/View3D.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L34)
+[src/core/View3D.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L27)
 
 • `set` **enable**(`value`): `void`
 
@@ -248,7 +235,7 @@ CEventListener.priority
 
 #### Defined in
 
-[src/core/View3D.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L38)
+[src/core/View3D.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L31)
 
 ___
 
@@ -262,7 +249,7 @@ ___
 
 #### Defined in
 
-[src/core/View3D.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L42)
+[src/core/View3D.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L35)
 
 • `set` **enablePick**(`value`): `void`
 
@@ -278,7 +265,7 @@ ___
 
 #### Defined in
 
-[src/core/View3D.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L46)
+[src/core/View3D.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L39)
 
 ___
 
@@ -292,7 +279,7 @@ ___
 
 #### Defined in
 
-[src/core/View3D.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L54)
+[src/core/View3D.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L47)
 
 • `set` **scene**(`value`): `void`
 
@@ -308,7 +295,7 @@ ___
 
 #### Defined in
 
-[src/core/View3D.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L58)
+[src/core/View3D.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L51)
 
 ___
 
@@ -322,7 +309,7 @@ ___
 
 #### Defined in
 
-[src/core/View3D.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L74)
+[src/core/View3D.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L64)
 
 • `set` **camera**(`value`): `void`
 
@@ -338,7 +325,7 @@ ___
 
 #### Defined in
 
-[src/core/View3D.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L78)
+[src/core/View3D.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L68)
 
 ___
 
@@ -352,7 +339,7 @@ ___
 
 #### Defined in
 
-[src/core/View3D.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L82)
+[src/core/View3D.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L72)
 
 • `set` **viewPort**(`value`): `void`
 
@@ -368,7 +355,7 @@ ___
 
 #### Defined in
 
-[src/core/View3D.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L86)
+[src/core/View3D.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L76)
 
 ## Methods
 
@@ -388,7 +375,7 @@ ___
 
 #### Defined in
 
-[src/core/View3D.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L90)
+[src/core/View3D.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L80)
 
 ___
 
@@ -408,7 +395,7 @@ ___
 
 #### Defined in
 
-[src/core/View3D.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L110)
+[src/core/View3D.ts:100](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L100)
 
 ___
 

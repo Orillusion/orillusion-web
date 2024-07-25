@@ -1,112 +1,106 @@
-# Class: Graphic3D
+# Class: Object3DTransformTools
 
-The base class of most objects provides a series of properties and methods for manipulating objects in three-dimensional space.
+Object3D transform controller
 
 ## Hierarchy
 
 - [`Object3D`](Object3D.md)
 
-  ↳ **`Graphic3D`**
+  ↳ **`Object3DTransformTools`**
 
 ### Constructors
 
-- [constructor](Graphic3D.md#constructor)
+- [constructor](Object3DTransformTools.md#constructor)
 
 ### Properties
 
-- [name](Graphic3D.md#name)
-- [transform](Graphic3D.md#transform)
-- [renderNode](Graphic3D.md#rendernode)
-- [entityChildren](Graphic3D.md#entitychildren)
-- [components](Graphic3D.md#components)
-- [prefabRef](Graphic3D.md#prefabref)
-- [serializeTag](Graphic3D.md#serializetag)
+- [name](Object3DTransformTools.md#name)
+- [transform](Object3DTransformTools.md#transform)
+- [renderNode](Object3DTransformTools.md#rendernode)
+- [entityChildren](Object3DTransformTools.md#entitychildren)
+- [components](Object3DTransformTools.md#components)
+- [prefabRef](Object3DTransformTools.md#prefabref)
+- [serializeTag](Object3DTransformTools.md#serializetag)
+- [mXObj](Object3DTransformTools.md#mxobj)
+- [mYObj](Object3DTransformTools.md#myobj)
+- [mZObj](Object3DTransformTools.md#mzobj)
 
 ### Accessors
 
-- [instanceID](Graphic3D.md#instanceid)
-- [numChildren](Graphic3D.md#numchildren)
-- [bound](Graphic3D.md#bound)
-- [isScene3D](Graphic3D.md#isscene3d)
-- [localPosition](Graphic3D.md#localposition)
-- [localRotation](Graphic3D.md#localrotation)
-- [localScale](Graphic3D.md#localscale)
-- [localQuaternion](Graphic3D.md#localquaternion)
-- [parent](Graphic3D.md#parent)
-- [parentObject](Graphic3D.md#parentobject)
-- [x](Graphic3D.md#x)
-- [y](Graphic3D.md#y)
-- [z](Graphic3D.md#z)
-- [scaleX](Graphic3D.md#scalex)
-- [scaleY](Graphic3D.md#scaley)
-- [scaleZ](Graphic3D.md#scalez)
-- [rotationX](Graphic3D.md#rotationx)
-- [rotationY](Graphic3D.md#rotationy)
-- [rotationZ](Graphic3D.md#rotationz)
+- [instanceID](Object3DTransformTools.md#instanceid)
+- [numChildren](Object3DTransformTools.md#numchildren)
+- [bound](Object3DTransformTools.md#bound)
+- [isScene3D](Object3DTransformTools.md#isscene3d)
+- [localPosition](Object3DTransformTools.md#localposition)
+- [localRotation](Object3DTransformTools.md#localrotation)
+- [localScale](Object3DTransformTools.md#localscale)
+- [localQuaternion](Object3DTransformTools.md#localquaternion)
+- [parent](Object3DTransformTools.md#parent)
+- [parentObject](Object3DTransformTools.md#parentobject)
+- [x](Object3DTransformTools.md#x)
+- [y](Object3DTransformTools.md#y)
+- [z](Object3DTransformTools.md#z)
+- [scaleX](Object3DTransformTools.md#scalex)
+- [scaleY](Object3DTransformTools.md#scaley)
+- [scaleZ](Object3DTransformTools.md#scalez)
+- [rotationX](Object3DTransformTools.md#rotationx)
+- [rotationY](Object3DTransformTools.md#rotationy)
+- [rotationZ](Object3DTransformTools.md#rotationz)
+- [instance](Object3DTransformTools.md#instance)
+- [transformMode](Object3DTransformTools.md#transformmode)
+- [transformSpaceMode](Object3DTransformTools.md#transformspacemode)
+- [target](Object3DTransformTools.md#target)
 
 ### Methods
 
-- [getObjectByName](Graphic3D.md#getobjectbyname)
-- [addChild](Graphic3D.md#addchild)
-- [removeChild](Graphic3D.md#removechild)
-- [removeAllChild](Graphic3D.md#removeallchild)
-- [removeSelf](Graphic3D.md#removeself)
-- [removeChildByIndex](Graphic3D.md#removechildbyindex)
-- [hasChild](Graphic3D.md#haschild)
-- [removeFromParent](Graphic3D.md#removefromparent)
-- [getChildByIndex](Graphic3D.md#getchildbyindex)
-- [getChildByName](Graphic3D.md#getchildbyname)
-- [forChild](Graphic3D.md#forchild)
-- [addComponent](Graphic3D.md#addcomponent)
-- [getOrAddComponent](Graphic3D.md#getoraddcomponent)
-- [removeComponent](Graphic3D.md#removecomponent)
-- [hasComponent](Graphic3D.md#hascomponent)
-- [getComponent](Graphic3D.md#getcomponent)
-- [getComponentFromParent](Graphic3D.md#getcomponentfromparent)
-- [getComponentsInChild](Graphic3D.md#getcomponentsinchild)
-- [getComponents](Graphic3D.md#getcomponents)
-- [getComponentsExt](Graphic3D.md#getcomponentsext)
-- [getComponentsByProperty](Graphic3D.md#getcomponentsbyproperty)
-- [clone](Graphic3D.md#clone)
-- [notifyChange](Graphic3D.md#notifychange)
-- [traverse](Graphic3D.md#traverse)
-- [destroy](Graphic3D.md#destroy)
-- [dispatchEvent](Graphic3D.md#dispatchevent)
-- [addEventListener](Graphic3D.md#addeventlistener)
-- [removeEventListener](Graphic3D.md#removeeventlistener)
-- [removeEventListenerAt](Graphic3D.md#removeeventlistenerat)
-- [removeAllEventListener](Graphic3D.md#removealleventlistener)
-- [containEventListener](Graphic3D.md#containeventlistener)
-- [hasEventListener](Graphic3D.md#haseventlistener)
-- [drawAxis](Graphic3D.md#drawaxis)
-- [drawLines](Graphic3D.md#drawlines)
-- [drawCurve](Graphic3D.md#drawcurve)
-- [drawRect](Graphic3D.md#drawrect)
-- [drawCircle](Graphic3D.md#drawcircle)
-- [drawSector](Graphic3D.md#drawsector)
-- [drawArcLine](Graphic3D.md#drawarcline)
-- [createCustomShape](Graphic3D.md#createcustomshape)
-- [drawBox](Graphic3D.md#drawbox)
-- [drawFillRect](Graphic3D.md#drawfillrect)
-- [drawFillCircle](Graphic3D.md#drawfillcircle)
-- [drawMeshWireframe](Graphic3D.md#drawmeshwireframe)
-- [drawFillSector](Graphic3D.md#drawfillsector)
-- [drawBoundingBox](Graphic3D.md#drawboundingbox)
-- [drawCameraFrustum](Graphic3D.md#drawcamerafrustum)
-- [drawObjectBoundingBox](Graphic3D.md#drawobjectboundingbox)
-- [Clear](Graphic3D.md#clear)
-- [ClearAll](Graphic3D.md#clearall)
-- [ChangeColor](Graphic3D.md#changecolor)
+- [getObjectByName](Object3DTransformTools.md#getobjectbyname)
+- [addChild](Object3DTransformTools.md#addchild)
+- [removeChild](Object3DTransformTools.md#removechild)
+- [removeAllChild](Object3DTransformTools.md#removeallchild)
+- [removeSelf](Object3DTransformTools.md#removeself)
+- [removeChildByIndex](Object3DTransformTools.md#removechildbyindex)
+- [hasChild](Object3DTransformTools.md#haschild)
+- [removeFromParent](Object3DTransformTools.md#removefromparent)
+- [getChildByIndex](Object3DTransformTools.md#getchildbyindex)
+- [getChildByName](Object3DTransformTools.md#getchildbyname)
+- [noticeComponents](Object3DTransformTools.md#noticecomponents)
+- [forChild](Object3DTransformTools.md#forchild)
+- [addComponent](Object3DTransformTools.md#addcomponent)
+- [getOrAddComponent](Object3DTransformTools.md#getoraddcomponent)
+- [removeComponent](Object3DTransformTools.md#removecomponent)
+- [hasComponent](Object3DTransformTools.md#hascomponent)
+- [getComponent](Object3DTransformTools.md#getcomponent)
+- [getComponentFromParent](Object3DTransformTools.md#getcomponentfromparent)
+- [getComponentsInChild](Object3DTransformTools.md#getcomponentsinchild)
+- [getComponents](Object3DTransformTools.md#getcomponents)
+- [getComponentsExt](Object3DTransformTools.md#getcomponentsext)
+- [getComponentsByProperty](Object3DTransformTools.md#getcomponentsbyproperty)
+- [clone](Object3DTransformTools.md#clone)
+- [notifyChange](Object3DTransformTools.md#notifychange)
+- [traverse](Object3DTransformTools.md#traverse)
+- [destroy](Object3DTransformTools.md#destroy)
+- [dispatchEvent](Object3DTransformTools.md#dispatchevent)
+- [addEventListener](Object3DTransformTools.md#addeventlistener)
+- [removeEventListener](Object3DTransformTools.md#removeeventlistener)
+- [removeEventListenerAt](Object3DTransformTools.md#removeeventlistenerat)
+- [removeAllEventListener](Object3DTransformTools.md#removealleventlistener)
+- [containEventListener](Object3DTransformTools.md#containeventlistener)
+- [hasEventListener](Object3DTransformTools.md#haseventlistener)
+- [active](Object3DTransformTools.md#active)
+- [unActive](Object3DTransformTools.md#unactive)
+- [selectObject](Object3DTransformTools.md#selectobject)
+- [selectTransformMode](Object3DTransformTools.md#selecttransformmode)
+- [selectTransformSpaceMode](Object3DTransformTools.md#selecttransformspacemode)
 
 ## Constructors
 
 ### constructor
 
-• **new Graphic3D**(): [`Graphic3D`](Graphic3D.md)
+• **new Object3DTransformTools**(): [`Object3DTransformTools`](Object3DTransformTools.md)
 
 #### Returns
 
-[`Graphic3D`](Graphic3D.md)
+[`Object3DTransformTools`](Object3DTransformTools.md)
 
 #### Overrides
 
@@ -114,7 +108,7 @@ The base class of most objects provides a series of properties and methods for m
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L19)
+[src/util/transformUtil/Object3DTransformTools.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/util/transformUtil/Object3DTransformTools.ts#L40)
 
 ## Properties
 
@@ -224,6 +218,36 @@ ___
 
 [src/core/entities/Object3D.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L20)
 
+___
+
+### mXObj
+
+• **mXObj**: [`Object3D`](Object3D.md)
+
+#### Defined in
+
+[src/util/transformUtil/Object3DTransformTools.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/util/transformUtil/Object3DTransformTools.ts#L37)
+
+___
+
+### mYObj
+
+• **mYObj**: [`Object3D`](Object3D.md)
+
+#### Defined in
+
+[src/util/transformUtil/Object3DTransformTools.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/util/transformUtil/Object3DTransformTools.ts#L38)
+
+___
+
+### mZObj
+
+• **mZObj**: [`Object3D`](Object3D.md)
+
+#### Defined in
+
+[src/util/transformUtil/Object3DTransformTools.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/util/transformUtil/Object3DTransformTools.ts#L39)
+
 ## Accessors
 
 ### instanceID
@@ -280,7 +304,7 @@ Object3D.bound
 
 #### Defined in
 
-[src/core/entities/Entity.ts:275](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L275)
+[src/core/entities/Entity.ts:277](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L277)
 
 • `set` **bound**(`value`): `void`
 
@@ -300,7 +324,7 @@ Object3D.bound
 
 #### Defined in
 
-[src/core/entities/Entity.ts:280](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L280)
+[src/core/entities/Entity.ts:282](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L282)
 
 ___
 
@@ -906,6 +930,62 @@ Object3D.rotationZ
 
 [src/core/entities/Object3D.ts:476](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L476)
 
+___
+
+### instance
+
+• `get` **instance**(): [`Object3DTransformTools`](Object3DTransformTools.md)
+
+#### Returns
+
+[`Object3DTransformTools`](Object3DTransformTools.md)
+
+#### Defined in
+
+[src/util/transformUtil/Object3DTransformTools.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/util/transformUtil/Object3DTransformTools.ts#L26)
+
+___
+
+### transformMode
+
+• `get` **transformMode**(): `TransformMode`
+
+#### Returns
+
+`TransformMode`
+
+#### Defined in
+
+[src/util/transformUtil/Object3DTransformTools.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/util/transformUtil/Object3DTransformTools.ts#L58)
+
+___
+
+### transformSpaceMode
+
+• `get` **transformSpaceMode**(): `TransformSpaceMode`
+
+#### Returns
+
+`TransformSpaceMode`
+
+#### Defined in
+
+[src/util/transformUtil/Object3DTransformTools.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/util/transformUtil/Object3DTransformTools.ts#L62)
+
+___
+
+### target
+
+• `get` **target**(): [`Object3D`](Object3D.md)
+
+#### Returns
+
+[`Object3D`](Object3D.md)
+
+#### Defined in
+
+[src/util/transformUtil/Object3DTransformTools.ts:75](https://github.com/Orillusion/orillusion/blob/main/src/util/transformUtil/Object3DTransformTools.ts#L75)
+
 ## Methods
 
 ### getObjectByName
@@ -986,7 +1066,7 @@ Remove the child objects of the object. You can remove any number of objects.
 
 #### Defined in
 
-[src/core/entities/Entity.ts:151](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L151)
+[src/core/entities/Entity.ts:152](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L152)
 
 ___
 
@@ -1006,7 +1086,7 @@ Remove all children of the current object
 
 #### Defined in
 
-[src/core/entities/Entity.ts:166](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L166)
+[src/core/entities/Entity.ts:168](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L168)
 
 ___
 
@@ -1028,7 +1108,7 @@ this
 
 #### Defined in
 
-[src/core/entities/Entity.ts:177](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L177)
+[src/core/entities/Entity.ts:179](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L179)
 
 ___
 
@@ -1054,7 +1134,7 @@ Search for child nodes of objects and remove child objects with matching indexes
 
 #### Defined in
 
-[src/core/entities/Entity.ts:187](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L187)
+[src/core/entities/Entity.ts:189](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L189)
 
 ___
 
@@ -1082,7 +1162,7 @@ boolean
 
 #### Defined in
 
-[src/core/entities/Entity.ts:201](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L201)
+[src/core/entities/Entity.ts:203](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L203)
 
 ___
 
@@ -1104,7 +1184,7 @@ this
 
 #### Defined in
 
-[src/core/entities/Entity.ts:211](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L211)
+[src/core/entities/Entity.ts:213](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L213)
 
 ___
 
@@ -1132,7 +1212,7 @@ child entity
 
 #### Defined in
 
-[src/core/entities/Entity.ts:225](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L225)
+[src/core/entities/Entity.ts:227](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L227)
 
 ___
 
@@ -1161,7 +1241,32 @@ result
 
 #### Defined in
 
-[src/core/entities/Entity.ts:240](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L240)
+[src/core/entities/Entity.ts:242](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L242)
+
+___
+
+### noticeComponents
+
+▸ **noticeComponents**(`key`, `data`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `key` | keyof [`IComponent`](../interfaces/IComponent.md) |
+| `data` | `any` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Object3D](Object3D.md).[noticeComponents](Object3D.md#noticecomponents)
+
+#### Defined in
+
+[src/core/entities/Entity.ts:328](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L328)
 
 ___
 
@@ -1832,19 +1937,15 @@ Returns a boolean.
 
 ___
 
-### drawAxis
+### active
 
-▸ **drawAxis**(`uuid`, `origin?`, `size?`): `void`
-
-Draw the 3 - dimensional axes
+▸ **active**(`scene`): `void`
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `uuid` | `string` | `undefined` | Graphic identification ID |
-| `origin` | [`Vector3`](Vector3.md) | `undefined` | original point |
-| `size` | `number` | `10` | Length of axis |
+| Name | Type |
+| :------ | :------ |
+| `scene` | [`Scene3D`](Scene3D.md) |
 
 #### Returns
 
@@ -1852,23 +1953,19 @@ Draw the 3 - dimensional axes
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L31)
+[src/util/transformUtil/Object3DTransformTools.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/util/transformUtil/Object3DTransformTools.ts#L66)
 
 ___
 
-### drawLines
+### unActive
 
-▸ **drawLines**(`uuid`, `points`, `colors?`): `void`
-
-Draw a line
+▸ **unActive**(`scene`): `void`
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `uuid` | `string` | `undefined` | Graphic identification ID |
-| `points` | [`Vector3`](Vector3.md)[] | `undefined` | Line path point |
-| `colors` | [`Color`](Color.md) \| [`Color`](Color.md)[] | `Color.COLOR_WHITE` | - |
+| Name | Type |
+| :------ | :------ |
+| `scene` | [`Scene3D`](Scene3D.md) |
 
 #### Returns
 
@@ -1876,25 +1973,21 @@ Draw a line
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L43)
+[src/util/transformUtil/Object3DTransformTools.ts:71](https://github.com/Orillusion/orillusion/blob/main/src/util/transformUtil/Object3DTransformTools.ts#L71)
 
 ___
 
-### drawCurve
+### selectObject
 
-▸ **drawCurve**(`uuid`, `points`, `samples?`, `tension?`, `color?`): `void`
-
-drawing curve
+▸ **selectObject**(`obj`, `transformMode?`, `spaceMode?`): `void`
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `uuid` | `string` | `undefined` | Graphic identification ID |
-| `points` | [`Vector3`](Vector3.md)[] | `undefined` | Curve position point |
-| `samples` | `number` | `10` | Number of Samples |
-| `tension` | `number` | `0.5` | Strength of curve |
-| `color` | [`Color`](Color.md) | `Color.COLOR_WHITE` | Color of curve |
+| Name | Type |
+| :------ | :------ |
+| `obj` | [`Object3D`](Object3D.md) |
+| `transformMode?` | `TransformMode` |
+| `spaceMode?` | `TransformSpaceMode` |
 
 #### Returns
 
@@ -1902,25 +1995,19 @@ drawing curve
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L57)
+[src/util/transformUtil/Object3DTransformTools.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/util/transformUtil/Object3DTransformTools.ts#L79)
 
 ___
 
-### drawRect
+### selectTransformMode
 
-▸ **drawRect**(`uuid`, `origin`, `width`, `height`, `color?`): `void`
-
-Draw a rectangle
+▸ **selectTransformMode**(`transformMode`): `void`
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `uuid` | `string` | `undefined` | Graphic identification ID |
-| `origin` | [`Vector3`](Vector3.md) | `undefined` | original point |
-| `width` | `number` | `undefined` | Width of rectangle |
-| `height` | `number` | `undefined` | Height of rectangle |
-| `color` | [`Color`](Color.md) | `Color.COLOR_WHITE` | The color of the rectangle |
+| Name | Type |
+| :------ | :------ |
+| `transformMode` | `TransformMode` |
 
 #### Returns
 
@@ -1928,26 +2015,19 @@ Draw a rectangle
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:101](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L101)
+[src/util/transformUtil/Object3DTransformTools.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/util/transformUtil/Object3DTransformTools.ts#L99)
 
 ___
 
-### drawCircle
+### selectTransformSpaceMode
 
-▸ **drawCircle**(`uuid`, `center`, `radius`, `segments?`, `up?`, `color?`): `void`
-
-Draw a circle
+▸ **selectTransformSpaceMode**(`spaceMode`): `void`
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `uuid` | `string` | `undefined` | Graphic identification ID |
-| `center` | [`Vector3`](Vector3.md) | `undefined` | centre point |
-| `radius` | `number` | `undefined` | radius |
-| `segments` | `number` | `32` | Number of line segments |
-| `up` | [`Vector3`](Vector3.md) | `Vector3.Y_AXIS` | Direction of plane |
-| `color` | [`Color`](Color.md) | `Color.COLOR_WHITE` | The color of the circle |
+| Name | Type |
+| :------ | :------ |
+| `spaceMode` | `TransformSpaceMode` |
 
 #### Returns
 
@@ -1955,351 +2035,4 @@ Draw a circle
 
 #### Defined in
 
-[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L120)
-
-___
-
-### drawSector
-
-▸ **drawSector**(`uuid`, `center`, `radius`, `startAngle`, `endAngle`, `segments?`, `up?`, `color?`): `void`
-
-Draw a Sector
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `uuid` | `string` | `undefined` | Graphic identification ID |
-| `center` | [`Vector3`](Vector3.md) | `undefined` | centre point |
-| `radius` | `number` | `undefined` | radius |
-| `startAngle` | `number` | `undefined` | Angle of onset |
-| `endAngle` | `number` | `undefined` | Angle of end |
-| `segments` | `number` | `16` | number of segments |
-| `up` | [`Vector3`](Vector3.md) | `Vector3.Y_AXIS` | Direction of plane |
-| `color` | [`Color`](Color.md) | `Color.COLOR_WHITE` | The color of the sector |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:137](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L137)
-
-___
-
-### drawArcLine
-
-▸ **drawArcLine**(`uuid`, `center`, `radius`, `startAngle`, `endAngle`, `segments?`, `up?`, `color?`): `void`
-
-Draw a ArcLine
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `uuid` | `string` | `undefined` | Graphic identification ID |
-| `center` | [`Vector3`](Vector3.md) | `undefined` | centre point |
-| `radius` | `number` | `undefined` | radius |
-| `startAngle` | `number` | `undefined` | Angle of onset |
-| `endAngle` | `number` | `undefined` | Angle of end |
-| `segments` | `number` | `16` | number of segments |
-| `up` | [`Vector3`](Vector3.md) | `Vector3.Y_AXIS` | Direction of plane |
-| `color` | [`Color`](Color.md) | `Color.COLOR_WHITE` | The color of the sector |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:180](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L180)
-
-___
-
-### createCustomShape
-
-▸ **createCustomShape**(`uuid`, `parentTransform?`): `Graphics3DShape`
-
-Creates a custom line segment graph and returns a Shape with the same uuid from the pool if it already exists.
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `uuid` | `string` | Graphic identification ID |
-| `parentTransform` | [`Transform`](Transform.md) | Parent node Transform |
-
-#### Returns
-
-`Graphics3DShape`
-
-Graphics3DShape
-
-#### Defined in
-
-[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:192](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L192)
-
-___
-
-### drawBox
-
-▸ **drawBox**(`uuid`, `minPoint`, `maxPoint`, `color?`): `void`
-
-Draw the box
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `uuid` | `string` | `undefined` | Graphic identification ID |
-| `minPoint` | [`Vector3`](Vector3.md) | `undefined` | Point of minimum |
-| `maxPoint` | [`Vector3`](Vector3.md) | `undefined` | Point of maximum |
-| `color` | [`Color`](Color.md) | `Color.COLOR_WHITE` | The color of the box |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:203](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L203)
-
-___
-
-### drawFillRect
-
-▸ **drawFillRect**(`uuid`, `origin`, `width`, `height`, `color?`): `void`
-
-Draw the fill rectangle
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `uuid` | `string` | `undefined` | Graphic identification ID |
-| `origin` | [`Vector3`](Vector3.md) | `undefined` | - |
-| `width` | `number` | `undefined` | - |
-| `height` | `number` | `undefined` | - |
-| `color` | [`Color`](Color.md) | `Color.COLOR_WHITE` | The color of the fill rectangle |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:245](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L245)
-
-___
-
-### drawFillCircle
-
-▸ **drawFillCircle**(`uuid`, `center`, `radius`, `segments?`, `up?`, `color?`): `void`
-
-Draw the fill circle
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `uuid` | `string` | `undefined` | Graphic identification ID |
-| `center` | [`Vector3`](Vector3.md) | `undefined` | centre point |
-| `radius` | `number` | `undefined` | radius |
-| `segments` | `number` | `32` | number of segments |
-| `up` | [`Vector3`](Vector3.md) | `Vector3.Y_AXIS` | Direction of plane |
-| `color` | [`Color`](Color.md) | `Color.COLOR_WHITE` | The color of the fill circle |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:265](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L265)
-
-___
-
-### drawMeshWireframe
-
-▸ **drawMeshWireframe**(`uuid`, `geometry`, `transform`, `color?`, `forceUpdate?`): `void`
-
-Draw wire frame for geometry
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `uuid` | `string` | `undefined` | Graphic identification ID |
-| `geometry` | [`GeometryBase`](GeometryBase.md) | `undefined` | Geometric object |
-| `transform` | [`Transform`](Transform.md) | `undefined` | The Transform that needs to be bound |
-| `color` | [`Color`](Color.md) | `Color.COLOR_WHITE` | The color of the wire frame |
-| `forceUpdate` | `boolean` | `false` | - |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:301](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L301)
-
-___
-
-### drawFillSector
-
-▸ **drawFillSector**(`uuid`, `center`, `radius`, `startAngle`, `endAngle`, `segments?`, `up?`, `color?`): `void`
-
-Draw the fill sector
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `uuid` | `string` | `undefined` | Graphic identification ID |
-| `center` | [`Vector3`](Vector3.md) | `undefined` | centre point |
-| `radius` | `number` | `undefined` | radius |
-| `startAngle` | `number` | `undefined` | Angle of onset |
-| `endAngle` | `number` | `undefined` | Angle of end |
-| `segments` | `number` | `16` | number of segments |
-| `up` | [`Vector3`](Vector3.md) | `Vector3.Y_AXIS` | Direction of plane |
-| `color` | [`Color`](Color.md) | `Color.COLOR_WHITE` | The color of the fill sector |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:320](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L320)
-
-___
-
-### drawBoundingBox
-
-▸ **drawBoundingBox**(`uuid`, `boundingBox`, `color?`): `void`
-
-Draw bounding box
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `uuid` | `string` | `undefined` | Graphic identification ID |
-| `boundingBox` | `BoundingBox` | `undefined` | Bounding box object, please use world boundingbox |
-| `color` | [`Color`](Color.md) | `Color.COLOR_WHITE` | The color of the bounding box |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:357](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L357)
-
-___
-
-### drawCameraFrustum
-
-▸ **drawCameraFrustum**(`camera`, `color?`): `void`
-
-Draw the camera cone
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `camera` | [`Camera3D`](Camera3D.md) | `undefined` | The camera to display the cone |
-| `color` | [`Color`](Color.md) | `Color.COLOR_WHITE` | The color of the camera cone |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:366](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L366)
-
-___
-
-### drawObjectBoundingBox
-
-▸ **drawObjectBoundingBox**(`obj`, `color?`): `void`
-
-Draws the bounding box of the object
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `obj` | [`Object3D`](Object3D.md) | `undefined` | The object to display the bounding box |
-| `color` | [`Color`](Color.md) | `Color.COLOR_WHITE` | The color of the bounding box |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:427](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L427)
-
-___
-
-### Clear
-
-▸ **Clear**(`uuid`): `void`
-
-Erases the specified graph
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `uuid` | `string` | Graphic identification ID |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:436](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L436)
-
-___
-
-### ClearAll
-
-▸ **ClearAll**(): `void`
-
-Erase all drawn graphics
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:447](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L447)
-
-___
-
-### ChangeColor
-
-▸ **ChangeColor**(`uuid`, `color`): `void`
-
-Changes the specified graphics color
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `uuid` | `string` | Graphic identification ID |
-| `color` | [`Color`](Color.md) | New color value |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts:457](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/graphic/Graphic3DRender.ts#L457)
+[src/util/transformUtil/Object3DTransformTools.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/util/transformUtil/Object3DTransformTools.ts#L111)

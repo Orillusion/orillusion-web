@@ -1,6 +1,6 @@
-# Variable: VertexAttributes
+# Variable: VertexAttributes\_vert
 
-• **VertexAttributes**: `string`
+• **VertexAttributes\_vert**: `string`
 
 #### Defined in
 

@@ -48,6 +48,8 @@ The textField component for gui
 - [onCompute](UITextField.md#oncompute)
 - [onGraphic](UITextField.md#ongraphic)
 - [onParentChange](UITextField.md#onparentchange)
+- [onAddChild](UITextField.md#onaddchild)
+- [onRemoveChild](UITextField.md#onremovechild)
 - [beforeDestroy](UITextField.md#beforedestroy)
 - [init](UITextField.md#init)
 - [destroy](UITextField.md#destroy)
@@ -748,6 +750,54 @@ ___
 
 ___
 
+### onAddChild
+
+▸ **onAddChild**(`child`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `child` | [`Object3D`](Object3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[UIRenderAble](UIRenderAble.md).[onAddChild](UIRenderAble.md#onaddchild)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L123)
+
+___
+
+### onRemoveChild
+
+▸ **onRemoveChild**(`child`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `child` | [`Object3D`](Object3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[UIRenderAble](UIRenderAble.md).[onRemoveChild](UIRenderAble.md#onremovechild)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L124)
+
+___
+
 ### beforeDestroy
 
 ▸ **beforeDestroy**(`force?`): `void`
@@ -770,7 +820,7 @@ before release this component, object refrences are not be set null now.
 
 #### Defined in
 
-[src/components/ComponentBase.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L198)
+[src/components/ComponentBase.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L200)
 
 ___
 

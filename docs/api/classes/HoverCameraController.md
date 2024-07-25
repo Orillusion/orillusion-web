@@ -36,6 +36,8 @@ Hovering camera controller
 - [isStart](HoverCameraController.md#isstart)
 - [transform](HoverCameraController.md#transform)
 - [enable](HoverCameraController.md#enable)
+- [bottomClamp](HoverCameraController.md#bottomclamp)
+- [topClamp](HoverCameraController.md#topclamp)
 - [target](HoverCameraController.md#target)
 
 ### Methods
@@ -49,6 +51,8 @@ Hovering camera controller
 - [onCompute](HoverCameraController.md#oncompute)
 - [onGraphic](HoverCameraController.md#ongraphic)
 - [onParentChange](HoverCameraController.md#onparentchange)
+- [onAddChild](HoverCameraController.md#onaddchild)
+- [onRemoveChild](HoverCameraController.md#onremovechild)
 - [cloneTo](HoverCameraController.md#cloneto)
 - [copyComponent](HoverCameraController.md#copycomponent)
 - [beforeDestroy](HoverCameraController.md#beforedestroy)
@@ -74,7 +78,7 @@ Hovering camera controller
 
 #### Defined in
 
-[src/components/controller/HoverCameraController.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L112)
+[src/components/controller/HoverCameraController.ts:130](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L130)
 
 ## Properties
 
@@ -194,7 +198,7 @@ ___
 
 ### mouseRightFactor
 
-• **mouseRightFactor**: `number` = `0.5`
+• **mouseRightFactor**: `number` = `0.25`
 
 Right mouse movement coefficient
 
@@ -382,6 +386,70 @@ ComponentBase.enable
 
 ___
 
+### bottomClamp
+
+• `get` **bottomClamp**(): `number`
+
+Max angle of pitch
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[src/components/controller/HoverCameraController.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L109)
+
+• `set` **bottomClamp**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/components/controller/HoverCameraController.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L112)
+
+___
+
+### topClamp
+
+• `get` **topClamp**(): `number`
+
+Min angle of pitch
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[src/components/controller/HoverCameraController.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L118)
+
+• `set` **topClamp**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/components/controller/HoverCameraController.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L121)
+
+___
+
 ### target
 
 • `get` **target**(): [`Vector3`](Vector3.md)
@@ -394,7 +462,7 @@ Get target position
 
 #### Defined in
 
-[src/components/controller/HoverCameraController.ts:174](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L174)
+[src/components/controller/HoverCameraController.ts:192](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L192)
 
 • `set` **target**(`target`): `void`
 
@@ -412,7 +480,7 @@ Set target position
 
 #### Defined in
 
-[src/components/controller/HoverCameraController.ts:166](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L166)
+[src/components/controller/HoverCameraController.ts:184](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L184)
 
 ## Methods
 
@@ -628,6 +696,54 @@ ___
 
 ___
 
+### onAddChild
+
+▸ **onAddChild**(`child`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `child` | [`Object3D`](Object3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onAddChild](ComponentBase.md#onaddchild)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L123)
+
+___
+
+### onRemoveChild
+
+▸ **onRemoveChild**(`child`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `child` | [`Object3D`](Object3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onRemoveChild](ComponentBase.md#onremovechild)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L124)
+
+___
+
 ### cloneTo
 
 ▸ **cloneTo**(`obj`): `void`
@@ -650,7 +766,7 @@ clone component data to target object3D
 
 #### Defined in
 
-[src/components/ComponentBase.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L129)
+[src/components/ComponentBase.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L131)
 
 ___
 
@@ -674,7 +790,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L131)
+[src/components/ComponentBase.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L133)
 
 ___
 
@@ -700,7 +816,7 @@ before release this component, object refrences are not be set null now.
 
 #### Defined in
 
-[src/components/ComponentBase.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L198)
+[src/components/ComponentBase.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L200)
 
 ___
 
@@ -721,7 +837,7 @@ ___
 
 #### Defined in
 
-[src/components/controller/HoverCameraController.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L129)
+[src/components/controller/HoverCameraController.ts:147](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L147)
 
 ___
 
@@ -735,7 +851,7 @@ ___
 
 #### Defined in
 
-[src/components/controller/HoverCameraController.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L135)
+[src/components/controller/HoverCameraController.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L153)
 
 ___
 
@@ -760,7 +876,7 @@ Initialize Camera
 
 #### Defined in
 
-[src/components/controller/HoverCameraController.ts:146](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L146)
+[src/components/controller/HoverCameraController.ts:164](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L164)
 
 ___
 
@@ -780,7 +896,7 @@ ___
 
 #### Defined in
 
-[src/components/controller/HoverCameraController.ts:158](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L158)
+[src/components/controller/HoverCameraController.ts:176](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L176)
 
 ___
 
@@ -804,4 +920,4 @@ ___
 
 #### Defined in
 
-[src/components/controller/HoverCameraController.ts:237](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L237)
+[src/components/controller/HoverCameraController.ts:247](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L247)

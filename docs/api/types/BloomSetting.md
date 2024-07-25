@@ -16,6 +16,7 @@ Bloom
 | `upSampleBlurSigma` | `number` |
 | `luminanceThreshole` | `number` |
 | `bloomIntensity` | `number` |
+| `hdr` | `number` |
 
 #### Defined in
 
