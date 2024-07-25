@@ -47,7 +47,7 @@ import * as Orillusion from '@orillusion/core'
   // 或从 unpkg.com 加载最新版本
   import { Engine3D, Camera3D } from "https://unpkg.com/@orillusion/core/dist/orillusion.es.js" 
   // 或加载指定版本 
-  import { Engine3D, Camera3D } from "https://unpkg.com/@orillusion/core@0.7.x/dist/orillusion.es.js" 
+  import { Engine3D, Camera3D } from "https://unpkg.com/@orillusion/core@0.8.x/dist/orillusion.es.js" 
 </script>
 ```
 
