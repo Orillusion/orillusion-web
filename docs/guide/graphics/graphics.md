@@ -201,7 +201,7 @@ All instances from `Shape3DMaker` could create shapes by the following methodsï¼
 | roundRect | RoundRectShape3D |
 
 :::tip
-Path2D will ignore the y-axis elevation data, and will be drawn in the XZ plane.
+All 2D shapes, e.g. `Path2D`, will ignore the y-axis elevation data, and will be drawn in the `XZ` plane.
 :::
 
 Additionally, we could create/delete `Shape3D` from `Shape3DRenderer`ï¼š

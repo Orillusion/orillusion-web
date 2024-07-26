@@ -56,7 +56,7 @@ class GaussianBlurPost extends PostBase {
     private createResource() {
         let presentationSize = webGPUContext.presentationSize;
 
-        this.mBlurResultTexture = new VirtualTexture(presentationSize[0], presentationSize[1], GPUTextureFormat.rgba16float, false, GPUTextureUsage.STORAGE_BINDING | GPUTextureUsage.TEXTURE_BINDING);
+        this.mBlurResultTexture = new VirtualTexture(presentationSize[0], presentationSize[1], GPUTextureFormat.rgba16float, false, GPUTextureUsage.COPY_SRC | GPUTextureUsage.STORAGE_BINDING | GPUTextureUsage.TEXTURE_BINDING);
         this.mBlurResultTexture.name = 'gaussianBlurResultTexture';
 
         let descript = new RTDescriptor();
