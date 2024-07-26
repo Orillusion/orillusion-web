@@ -199,7 +199,8 @@ function sidebarGuide(): SidebarItem {
                 { text: 'Shadow', link: '/guide/graphics/shadow.md' },
                 { text: 'Mesh', link: '/guide/graphics/mesh.md' },
                 { text: 'Material', link: '/guide/graphics/materials.md' },
-                { text: 'Texture', link: '/guide/graphics/texture.md' }
+                { text: 'Texture', link: '/guide/graphics/texture.md' },
+                { text: 'Graphic3D', link: '/guide/graphics/graphics.md' }
             ]
         },
         {

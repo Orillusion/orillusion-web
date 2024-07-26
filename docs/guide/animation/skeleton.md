@@ -1,27 +1,25 @@
 # Skeleton Animation
-[SkeletonAnimation](/api/classes/SkeletonAnimation) is a type of model animation, which drives the model animation by rotating and translating the `Joint` of the skeleton, transforming the position of the `Mesh` vertex.
+Skeleton animation is a type of model animation, which drives the model animation by rotating and translating the `Joint` of the skeleton, transforming the position of the `Mesh` vertex.
 
-> Our Engine only supports the built-in skeleton animation of the model, which needs to be pre-made by 3D modeling software.
+::: tip
+1. Currently, the engine only supports bone animations that are built into the model, requiring users to prepare the corresponding skeletal animation assets in advance using 3D modeling software.
+2. From `v0.8`, both skeletal animations and Morph animations are driven uniformly through the [AnimatorComponent](/api/classes/AnimatorComponent).
+:::
 
 ## Introduction
-Every vertex data on the `Mesh` contains the index number of the skeleton affected by the point, as well as the weight affected by the skeleton. This type of data information is called skinning information. The vertex affected by the skeleton is generally limited to 4 bones, and more bones will only increase the calculation. The quality of the animation has no significant improvement.
+Each vertex data on a `Mesh` contains the index numbers of the bones that affect that vertex, as well as the weights of those influences. This type of data is collectively referred to as skinning information. The number of bones that can influence a vertex is generally limited to `4`; more bones only increase the computational load without significantly improving animation quality.
 
-`Joint` is the skeleton joint, which has the name, rotation, translation, parent skeleton, etc. Multiple `Joint` form a complete `Skeleton`:
-![Skeleton](/images/skeleton.jpg)
+In the `AnimatorComponent`, `PrefabBoneData` includes data related to bone joints, such as names, rotation, translation, and parent bones. Multiple `PrefabBoneData` entries together form a complete skeletal structure called `PrefabAvatarData`.
 
+`PropertyAnimationClip` is a dataset of curves representing a series of transformations for skeletal poses, storing transformation data for scaling, rotation, and translation for each bone node.
 
-`JointPose` is used to store the skeleton joint pose data, which has the matrix data of the current skeleton transformation to this pose. Multiple `JointPose` form a complete `SkeletonPose`:
-![SkeletonPose](/images/skeletonpose.jpg)
+`PropertyAnimationClipState` represents the animation playback state, which is associated with `PropertyAnimationClip` and is used to maintain playback status, interpolation weights, and other related data.
 
-`SkeletonAnimationClip` is a time sequence of a series of skeleton poses (`SkeletonPose`), also called keyframe sequence, which only stores animation pose data through `SkeletonAnimationClipState`:
-
-`SkeletonAnimationClipState` is the animation playback state, which is associated with `SkeletonAnimationClip` to maintain the playback state and calculate the transition pose `SkeletonPose` between frames.
-
-`SkeletonAnimation` is the overall skeleton animation control component, which is associated with multiple `SkeletonAnimationClipState` to switch, blend, and drive the final transformation pose of the entire skeleton animation between animation states.
+The `AnimatorComponent` is the driving component for the entire animation. It is associated with multiple `PropertyAnimationClipState` instances to switch and blend between various animation states, driving the final transformation posture of the entire skeletal animation.
 
 
 ## Load Animation Model
-When loading a model file with skeleton animation data, the engine will automatically add a `SkeletonAnimation` component to the model, and add the animation clip data in the model to it. You can directly get the `SkeletonAnimation` component on the root entity of the model, and play the specified animation.
+When loading a model file with skeleton animation data, the engine will automatically add a `AnimatorComponent` component to the model, and add the animation clip data in the model to it. You can directly get the `AnimatorComponent` component on the root entity of the model, and play the specified animation.
 ```ts
 // Load external model;
 let soldier = await Engine3D.res.loadGltf('gltfs/glb/Soldier.glb');
@@ -30,50 +28,50 @@ soldier.localScale.set(2, 2, 2);
 scene.addChild(soldier);
 
 // Get animation controller;
-let animator = soldier.getComponentsInChild(SkeletonAnimation)[0];
-animator.play('Walk');
+let animator = soldier.getComponentsInChild(AnimatorComponent)[0];
+animator.playAnim('Walk');
 ```
 
 ## Get Animation Name
-This component provides the [getAnimationClips](/api/classes/SkeletonAnimation#getanimationclips) method to get all animation clip data objects, which all have a unique `name` property to distinguish different animation states.
+This component provides the [clips](/api/classes/AnimatorComponent#clips) property to get all animation clip data objects, which all have a unique `clipName` property to distinguish different animation states.
 ```ts
-let clips = animation.getAnimationClips();
+let clips = animation.clips;
 for (var i = 0; i < clips.length; i++) {
-    console.log("Name:", clips[i].name)
+    console.log("Name:", clips[i].clipName)
 }
 ```
 
 ## Play Specified Animation
-`SkeletonAnimation` provides the [play](/api/classes/SkeletonAnimation#play) method to play the specified animation:
+`AnimatorComponent` provides the [playAnim](/api/classes/AnimatorComponent#playAnim) method to play the specified animation:
 ```ts
 //Play animation with name 'Walk'
-animator.play('Walk');
+animator.playAnim('Walk');
 
 // Play the first animation in the list
-let clips = animation.getAnimationClips();
-animator.play(clips[0].name);
+let clips = animation.clips;
+animator.playAnim(clips[0].clipName);
 ```
 
 ## Adjust Playback Speed
-`Play` method plays the specified animation at the default normal speed `(1.0)`, if you need to accelerate the playback, set the parameter `speed`, the larger the number, the faster the playback speed, the smaller the number, the slower the playback speed, when the value is negative, it will be reversed.
+`playAnim` method plays the specified animation at the default normal speed `(1.0)`, if you need to accelerate the playback, set the parameter `speed`, the larger the number, the faster the playback speed, the smaller the number, the slower the playback speed, when the value is negative, it will be reversed.
 ```ts
 // Normal speed
-animator.play('Walk', 1);
+animator.playAnim('Walk', 1);
 
 // 2 times slower
-animator.play('Walk', 0.5);
+animator.playAnim('Walk', 0.5);
 
 // 3 times faster
-animator.play('Walk', 3.0);
+animator.playAnim('Walk', 3.0);
 
 // Reverse playback
-animator.play('Walk', -1.0);
+animator.playAnim('Walk', -1.0);
 
 // 3 times faster reverse playback
-animator.play('Walk', -3.0);
+animator.playAnim('Walk', -3.0);
 ```
 
-You can also set the global timeline scaling through the `timeScale` property on `SkeletonAnimation`, which is the same as `speed`. The larger the number, the faster the playback speed, the smaller the number, the slower the playback speed, and when the value is negative, it will be reversed.
+You can also set the global timeline scaling through the `timeScale` property on `AnimatorComponent`, which is the same as `speed`. The larger the number, the faster the playback speed, the smaller the number, the slower the playback speed, and when the value is negative, it will be reversed.
 ```ts
 // Normal speed
 animator.timeScale = 1.0;
@@ -92,7 +90,7 @@ animator.timeScale = -2.0;
 
 <<< @/public/demos/animation/animationSingle.ts
  
-## Add Animation Clip
+<!-- ## Add Animation Clip
 
 Normally, the animator will make a separate animation clip for each model, and each animation clip has a unique name. But there are also cases where all animation states are in the same animation clip. For example, an animation clip containing `Idle`, `Walk`, `Run` and other states, which are differentiated by different time periods, such as 0~1s for idle, 1~3s for walking, and 3~6s for running. In order to facilitate state switching, you can create multiple substates in the engine by specifying the animation clip, and add them to the controller through the [addAnimationClip](/api/classes/SkeletonAnimation#addanimationclip) method, for example:
 ```ts
@@ -135,13 +133,14 @@ var deathClipState = animation.getAnimationClipState('death');
 deathClipState.loop = false;
 // Play death animation
 animation.play('death');
-```
+``` 
+-->
 
 ## Animation Transition
-You can use the [crossFade](/api/classes/SkeletonAnimation#crossfade) method to transition the current animation to the specified state. The first parameter is the name of the animation state to transition to, and the second parameter is the transition time `(seconds)`.
+You can use the [crossFade](/api/classes/AnimatorComponent#crossfade) method to transition the current animation to the specified state. The first parameter is the name of the animation state to transition to, and the second parameter is the transition time `(seconds)`.
 ```ts
 // Play walk animation
-animation.play('Walk');
+animation.playAnim('Walk');
 // Transition from walk state to run state in 1 second
 animation.crossFade('Run', 1.0);
 ```
@@ -150,7 +149,7 @@ animation.crossFade('Run', 1.0);
 
 <<< @/public/demos/animation/animationSingleMix.ts
  
-## Animation Event
+<!-- ## Animation Event
 You can add an event point to the `clip` through the `addEvent` method on `SkeletonAnimationClip`, which takes two parameters, the first is the event name, and the second is the trigger time (seconds). When the `clip` animation plays to the specified time, the event will be triggered:
 ```ts
 // Get the clip with the specified name
@@ -176,4 +175,4 @@ animation.events.addEventListener("EndRun", (e: AnimationEvent) => {
 <Demo :height="500" src="/demos/animation/animationSingleEvent.ts"></Demo>
 
 <<< @/public/demos/animation/animationSingleEvent.ts
- 
+  -->

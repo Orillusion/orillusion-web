@@ -5,6 +5,7 @@ import * as dat from 'dat.gui';
 Engine3D.setting.shadow.autoUpdate = true;
 Engine3D.setting.shadow.debug = false;
 Engine3D.setting.shadow.shadowBound = 100;
+Engine3D.setting.shadow.shadowBias = 0.01;
 
 await Engine3D.init({
     canvasConfig: { devicePixelRatio: 1 }
@@ -24,7 +25,7 @@ scene3D.addChild(cameraObj);
     obj.rotationX = 200;
     obj.rotationY = 135;
     obj.rotationZ = 170;
-    light.intensity = 50;
+    light.intensity = 10;
     // enable light shadow
     light.castShadow = true;
 }
@@ -55,4 +56,4 @@ view.camera = camera;
 Engine3D.startRenderView(view);
 
 const GUIHelp = new dat.GUI();
-GUIHelp.add(Engine3D.setting.shadow, 'shadowBias', 0, 0.003, 0.0001);
+GUIHelp.add(Engine3D.setting.shadow, 'shadowBias', 0, 0.1, 0.0001);

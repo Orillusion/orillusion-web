@@ -32,8 +32,6 @@ The engine provides the [UnLitMaterial](/api/classes/UnLitMaterial) class for re
 |:---------:|:---------------:|
 | baseColor |   Base color    |
 |  baseMap  |    Base map     |
-|  envMap   | Environment map |
-| shadowMap |   Shadow map    |
 
 <Demo src="/demos/materials/UnLitMaterial.ts"></Demo>
 

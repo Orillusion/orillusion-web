@@ -2,7 +2,9 @@
 
 Using the system's [Time](/api/classes/Time) module to calculate the interpolation coefficient `interpolation` of the model vertex's basic position `basePosition` and target position `morphTargetPosition`, continuously change the object model's point front vertex position `position` to achieve a continuous animation effect.
 
-> Currently, the engine only supports the built-in `Morph` animation state of the model, which needs to be prepared in advance in the modeling tool to create the corresponding model state. The subsequent version will add the code to manually create a custom `Morph` object.
+:::tip
+Currently, the engine only supports Morph animation states built into the model, which need to be prepared in advance using modeling tools. Future versions will include the ability to manually create custom Morph objects in code.
+:::
 
 ## Basic Usage
 

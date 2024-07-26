@@ -65,7 +65,7 @@ In this way, you can see a `box` in the scene, which casts a shadow under the pa
 
 <<< @/public/demos/graphics/shadow_spot.ts
 
-<!-- ## Shadow Bias
+## Shadow Bias
 Shadow bias `shadowBias` is an important parameter that affects shadow rendering. Because the size of the shadow texture and the size of the final rendering texture are not completely the same, it will cause sampling distortion and other situations. Usually, you can manually set a small offset `shadowBias` to solve the sampling distortion.
 
 ```ts
@@ -77,7 +77,7 @@ Engine3D.setting.shadow.pointShadowBias = 0.2 // Shadow bias for point light or 
 
 <Demo :height="500" src="/demos/graphics/shadow_bias.ts"></Demo>
 
-<<< @/public/demos/graphics/shadow_bias.ts -->
+<<< @/public/demos/graphics/shadow_bias.ts
 
 ## Shadow Type
 
