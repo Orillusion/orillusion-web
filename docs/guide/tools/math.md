@@ -15,10 +15,10 @@
 | [Ray](/api/classes/Ray) | 射线 |
 | Rand | 普通随机 |
 | Random | 各种类型的随机分布函数 |
-| Bezier2D |  |
-| Bezier3D |  |
-| CubicBezierCurve |  |
-| CubicBezierPath |  |
+| Bezier2D | 2D 贝塞尔曲线 |
+| Bezier3D | 3D 贝塞尔曲线 |
+| CubicBezierCurve | 三次贝塞尔曲线 |
+| CubicBezierPath | 三次贝塞尔路径 |
 | GradientNew | 颜色渐变 |
 | ParticleMath |  粒子系统用到的数学库 |
 

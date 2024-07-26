@@ -65,7 +65,7 @@ scene.addChild(receiveShadowObj);
 
 <<< @/public/demos/graphics/shadow_spot.ts
 
-<!-- ## 阴影偏移
+## 阴影偏移
 阴影偏移 `shadowBias` 是影响阴影渲染的重要参数，因为一般阴影贴图的尺寸和最终渲染贴图的尺寸不完全相同的，会造成阴影采样失真等情况，通常可以通过手动设置一个微小的偏移量 `shadowBias` 来解决采样失真的情况。
 
 ```ts
@@ -77,7 +77,7 @@ Engine3D.setting.shadow.pointShadowBias = 0.2 // 点光源/聚光灯阴影偏移
 
 <Demo :height="500" src="/demos/graphics/shadow_bias.ts"></Demo>
 
-<<< @/public/demos/graphics/shadow_bias.ts -->
+<<< @/public/demos/graphics/shadow_bias.ts
 
 ## 阴影类型
 通过设置阴影类型，可以控制阴影的表现效果。目前支持的阴影类型有：

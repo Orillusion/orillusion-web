@@ -45,6 +45,10 @@ export class PickScript extends ComponentBase {
 | movementY | number | 它提供了当前事件和上一个鼠标事件之间鼠标在垂直方向上的移动值 |
 | deltaX | number |  在向左滚动时返回负双值，向右滚动时返回正双值，否则为0 |
 | deltaY | number |  在向下滚动时返回正值，向上滚动时返回负值，否则为0 |
+| metaKey | boolean | Meta 键是否按下 |
+| ctrlKey | boolean | Ctrl 键是否按下 |
+| altKey | boolean |  Alt 键是否按下 |
+| shiftKey | boolean |  Shift 键是否按下 |
 
 
 ## 示例

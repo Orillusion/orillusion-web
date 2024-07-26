@@ -31,9 +31,9 @@ this.text.alignment = TextAnchor.MiddleCenter;
 > 制作 `Bitmap Font` 字体依赖外部第三方工具，可以参考 [Hiero](https://libgdx.com/wiki/tools/hiero) 以及 [Distance field fonts
 ](https://libgdx.com/wiki/graphics/2d/fonts/distance-field-fonts) 获取更多帮助
 ```ts
-// e.g. 加载支持微软雅黑的 Bitmap Font 字体文件
+// e.g. 加载 Bitmap Font 字体文件
 await Engine3D.res.loadFont('path/to/font.fnt');
-text.font = '微软雅黑';
+text.font = 'fontName'; // 设定字体
 ```
 
 ## 设置内容

@@ -16,6 +16,11 @@ let glb = await Engine3D.res.loadGltf('path/to/model.glb');
 ```ts
 
 let parser = await Engine3D.res.loadGltf('/sample.gltf',{
+  // 可以自定义 fetch 请求头，例如加入 Authorization
+  headers: {
+    'Authorization': 'Bearer xxxx',
+    // ...
+  },
   onProgress: (receivedLength:number, contentLength:number, url:string) => {
     // 监听下载进度
   },

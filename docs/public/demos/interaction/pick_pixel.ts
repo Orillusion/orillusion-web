@@ -89,7 +89,7 @@ class Sample_MousePick {
     }
 
     private onPick(e: PointerEvent3D) {
-        console.log(e.type, e.target.name, e.data.pickInfo);
+        console.log(e.type, e.target.name, e.data);
         if(e.type !== 'onPickMove'){
             let obj = e.target as Object3D;
             let mr = obj.getComponent(MeshRenderer);

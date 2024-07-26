@@ -8,7 +8,7 @@
 2. `Shape3D` 渲染器： 创建复杂的自定义 `Shape3D` 对象，例如 `EllipseShape3D`、`RoundRectShape3D`、`CircleShape3D` 等。对于拥有可持续绘制功能的 `Shape3D` ，比如`Path2DShape3D`、`Path3DShape3D`，参照了 [CanvasPath](https://developer.mozilla.org/en-US/docs/Web/API/Path2D) 中的API设计来实现，让开发者能借鉴和沿用自己熟悉的开发方式进行图形绘制工作。
 
 ## 安装
-跟引擎方法一致，我们可以通过 `NPM` 和 `CDN` 链接两种方式来引入物理插件:
+跟引擎方法一致，我们可以通过 `NPM` 和 `CDN` 链接两种方式来引入图形插件:
 
 ### 1. 通过 `NPM` 包安装
 ```bash
@@ -137,40 +137,41 @@ for (let i = 0; i < 100; i++) {
 
 ## `Shape3D` 渲染器
 
-通过 `Shape3DMaker` 创建一个 `Shape3DRenderer` 渲染器，它可以持有和维护一个 `Shape3D` 数据集，每个Shape3D是被定义好的各种各样的形状。例如 `EllipseShape3D`、`RoundRectShape3D`、`CircleShape3D` 等等，其中 `Path2DShape3D` 和 `Path3DShape3D` 拥有更加丰富的API，可以帮你组合绘制出复杂的图形。
+通过 `Shape3DMaker` 创建一个 `Shape3DRenderer` 渲染器，它可以持有和维护一个 `Shape3D` 数据集。每个Shape3D是被定义好的各种各样的形状，例如 `EllipseShape3D`、`RoundRectShape3D`、`CircleShape3D` 等等。其中 `Path2DShape3D` 和 `Path3DShape3D` 拥有更加丰富的API，可以帮你组合绘制出复杂的图形。
 
 | 参数 | 描述 |
 | --- | --- |
 | name | 名称，用于标识Shape3DRenderer |
-| scene | 初始化的Shape3DRenderer所属Object3D将会放入到scene的目录树中 |
-| textureList | 贴图列表，使用下标进行索引 |
-| maxNodeCount | 指定一个渲染器支持最多Shape3D的数量 |
-| triangleEachNode | 指定每个Shape3D平均拥有的三角形的数量 |
+| scene | 指定 Shape3DRenderer 放入到哪个 scene 中 |
+| textureList | 贴图列表，使用 index 进行索引 |
+| maxNodeCount | 指定渲染器支持最多 Shape3D 的数量 |
+| triangleEachNode | 指定每个 Shape3D 平均拥有的三角形的数量 |
 
- > 渲染器参照 `CanvasPath` 中的API设计来实现，让开发者能沿用和借鉴自己熟悉的开发方式，使用 `Orillusion` 引擎做 `Graphics` 3D绘制工作。渲染器的2D绘制部分指的是在xz平面中绘制点、线、面。同时对每个单元仍然可以通过 `Transform` 独立控制。而在3D空间中绘制图形，则需使用 `Path3DShape3D` 即可开始具有Y轴高程数据的图形绘制。
+ > 渲染器参照 `CanvasPath` 中的API设计来实现，让开发者能沿用和借鉴自己熟悉的开发方式进行3D绘制工作。渲染器的 2D 绘制部分指的是在 `XZ` 平面中绘制点、线、面。同时对每个单元仍然可以通过 `Transform` 独立控制。而在 3D 空间中绘制图形，则需使用 `Path3DShape3D` 即可开始具有Y轴高程数据的图形绘制。
 
-### 图形基础属性
+### 基础属性
 
-引擎内置了很多基础图形，这些基础图形基类为 `Shape3D` 。以下表格对 `Shape3D` 的属性做了个简要列举和说明。
+引擎内置了很多基础图形，都继承于 `Shape3D` 类，主要包含以下属性：
+
 | 属性名称 | 描述 |
 | --- | --- |
-| lineColor | 绘制线条时加成的颜色|
-| fillColor | 绘制填充区域时加成的颜色|
-| lineTextureID | 设定绘制线条时采用的贴图|
-| fillTextureID | 设定绘制填充区域时采用的贴图|
-| fillRotation | 设置填充区域，使用贴图的旋转角度|
-| shapeOrder | 设置每个Shape的层级（消除zFighting，每个Shape3DRenderer可以设定zFighting最大范围，根据这个范围和Shape3D的数量，得到每个Shape3D拥有的偏移量）|
-| points3D | 预留外部传入关键点的集合|
-| isClosed | 图形首尾首尾封闭|
-| fill | 图形是否填充|
-| lineWidth | 绘制线条的宽度|
-| lineUVRect | UV数据：xy分别对应线条贴图的offset、zw对应贴图数据的缩放|
-| fillUVRect | UV数据：xy分别对应填充区域贴图的offset、zw对应贴图数据的缩放|
-| uvSpeed | UV数据：xy分别填充区域贴图的uv移动速度；zw对应线条绘制时贴图数据的uv移动速度|
+| lineColor | 绘制线条时加成的颜色 |
+| fillColor | 绘制填充区域时加成的颜色 |
+| lineTextureID | 设定绘制线条时采用的贴图 |
+| fillTextureID | 设定绘制填充区域时采用的贴图 |
+| fillRotation | 设置填充区域，使用贴图的旋转角度 |
+| shapeOrder | 设置每个Shape的层级（消除zFighting，每个 Shape3DRenderer 可以设定 zFighting 最大范围，根据这个范围和Shape3D的数量，得到每个Shape3D拥有的偏移量）|
+| points3D | 预留外部传入关键点的集合 |
+| isClosed | 图形首尾首尾封闭 |
+| fill | 图形是否填充 |
+| lineWidth | 绘制线条的宽度 |
+| lineUVRect | UV数据：xy分别对应线条贴图的offset、zw对应贴图数据的缩放 |
+| fillUVRect | UV数据：xy分别对应填充区域贴图的offset、zw对应贴图数据的缩放 |
+| uvSpeed | UV数据：xy分别填充区域贴图的uv移动速度；zw对应线条绘制时贴图数据的uv移动速度 |
 
-### 特定的图形
+### 内置图形
 
-在做图形绘制的时候，往往需要绘制一些特定的图形，这些是我们经常碰到和使用的形状。从CanvasPath的API中，我们作出了如下分类和抽象，他们是 `Shape3D` 的子类/派生类：
+和 `CanvasPath` 的 API 类似，引擎目前提供一下几种 `Shape3D` 的子类/派生类：
 | 图形名称 | 描述 |
 | --- | --- |
 | CircleShape3D | 圆形、圆弧 |
@@ -183,8 +184,9 @@ for (let i = 0; i < 100; i++) {
 | RoundRectShape3D | 矩形、圆角矩形 |
 
 
-### 如何创建特定图形
-创建获得 `Shape3DMaker` 的实例，有以下方法供调用，可获得对应的特定图形：
+### 内置方法
+
+通过 `Shape3DMaker` 的实例，我们可以调用以下几种方法获得对应的特定图形：
 | 函数名称 | 图形类型 |
 | --- | --- |
 | ellipse | EllipseShape3D |
@@ -197,10 +199,13 @@ for (let i = 0; i < 100; i++) {
 | rect | RoundRectShape3D |
 | roundRect | RoundRectShape3D |
 
- > 得到的2D绘制类的图形，它将会被展开在XZ平面。参数里Y相关的数据会被映射至Z轴使用！
+::: tip
+所有 2D 图形，例如 `path2D` 将会忽略 `Y` 轴数据，图形将被展开在 `XZ` 平面
+:::
 
- `Shape3DRenderer` 是持有 `Shape3D` 数据的渲染器。通过它可以做 `Shape3D` 的增删改操作，下面的表格为API介绍：
-| 函数名称 | 获得Shape3D |
+除此之外，我们还可以通过 `Shape3DRenderer` 对 `Shape3D` 进行增删改操作：
+
+| 函数名称 | 描述 |
 | --- | --- |
 | createShape | 指定Shape3D的类型，在渲染器中创建Shape3D实例 |
 | removeShape | 删除一个Shape3D实例 |
@@ -224,18 +229,18 @@ maker.renderer.material.doubleSide = true;
 
 //创建一个基于XZ平面的Circle，其半径为5、圆心为(0, 0)
 let circle:CircleShape3D = maker.arc(5, 0, 0);
-circle.lineWidth = 1;//线条宽度为1
-circle.segment = 16;//该圆弧将会使用16条线段拟合
-circle.fill = true;//设置是否填充
-circle.line = true;//设置是否画线描边
-circle.uvSpeed = new Vector4(0, 0, 0, Math.random() - 0.5).multiplyScalar(0.005);//设置UV滚动速度
-circle.fillColor = Color.randomRGB();//设置填充色加成
-circle.lineColor = Color.randomRGB();//设置线条描边色加成
+circle.lineWidth = 1; //线条宽度为1
+circle.segment = 16; //该圆弧将会使用16条线段拟合
+circle.fill = true; //设置是否填充
+circle.line = true; //设置是否画线描边
+circle.uvSpeed = new Vector4(0, 0, 0, Math.random() - 0.5).multiplyScalar(0.005); //设置UV滚动速度
+circle.fillColor = Color.randomRGB(); //设置填充色加成
+circle.lineColor = Color.randomRGB(); //设置线条描边色加成
 
-circle.startAngle = 30;//设置圆弧起始角度
-circle.endAngle = 240;//设置圆弧结束角度
+circle.startAngle = 30; //设置圆弧起始角度
+circle.endAngle = 240; //设置圆弧结束角度
 
-//将对circle的控制脚本放在引擎的主update函数里，则可驱动动画效果。
+// 将对circle的控制脚本放在引擎的主循环中，则可驱动动画效果
 
 ```
 
