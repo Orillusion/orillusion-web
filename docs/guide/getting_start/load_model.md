@@ -19,4 +19,4 @@ scene.addChild(data);
 
 <Demo src="/demos/getting_start/load_model.ts"></Demo>
 
-<<< @/public/demos/getting_start/load_model.ts{30}
+<<< @/public/demos/getting_start/load_model.ts{33}

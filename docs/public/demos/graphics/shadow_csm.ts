@@ -1,5 +1,6 @@
 import { Scene3D, HoverCameraController, Engine3D, AtmosphericComponent, Object3D, Camera3D, Vector3, View3D, DirectLight, KelvinUtil, LitMaterial, MeshRenderer, BoxGeometry, CameraUtil, SphereGeometry, Color, Object3DUtil, BlendMode } from '@orillusion/core';
 import * as dat from 'dat.gui';
+import { Graphic3D } from '@orillusion/graphic';
 
 //sample of csm
 class Sample_CSM {
@@ -9,6 +10,7 @@ class Sample_CSM {
     boxRenderer: MeshRenderer;
     viewCamera: Camera3D;
     GUIHelp: dat.GUI;
+    graphic3D: Graphic3D;
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
         Engine3D.setting.shadow.shadowSize = 2048;
@@ -41,6 +43,9 @@ class Sample_CSM {
         view.camera = mainCamera;
         this.view = view;
         this.viewCamera = mainCamera;
+
+        this.graphic3D = new Graphic3D();
+        this.scene.addChild(this.graphic3D);
 
         mainCamera.enableCSM = true;
 
@@ -115,15 +120,12 @@ class Sample_CSM {
         let box = new Object3D();
         let geom = new BoxGeometry(1, 1, 1);
         let material = new LitMaterial();
-        // material.transparent = true;
-        // material.shaderState.depthWriteEnabled = false
         material.blendMode = BlendMode.NORMAL;
         material.cullMode = 'front';
         material.baseColor = new Color(0.2, 0.2, 0, 0.1);
         let renderer = box.addComponent(MeshRenderer);
         renderer.material = material;
         renderer.geometry = geom;
-        // this.scene.addChild(box);
         this.boxRenderer = renderer;
     }
 
@@ -149,7 +151,7 @@ class Sample_CSM {
         this._shadowPos.copy(light.direction).normalize(viewCamera.far);
         csmBound.center.add(this._shadowPos, this._shadowCameraTarget);
         csmBound.center.subtract(this._shadowPos, this._shadowPos);
-        view.graphic3D.drawLines('shadowLine', [this._shadowPos, this._shadowCameraTarget], new Color(1, 1, 0, 1));
+        this.graphic3D.drawLines('shadowLine', [this._shadowPos, this._shadowCameraTarget], new Color(1, 1, 0, 1));
     }
 }
 

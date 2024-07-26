@@ -1,7 +1,10 @@
 # UIImage
 
 [UIImage](/api/classes/UIImage) 组件提供图片的显示功能, 你可以通过加载单个图片或通过 `loadAtlas` 加载精灵图集 `GUISprite` 的列表到引擎中，然后指定 `GUISprite` 赋予图片组件供渲染。
-> 制作 `Atlas` 精灵图集依赖外部第三方工具，请自行搜索制作方法。默认 `UIImage` 组件未设置精灵图，将以白色方块形式呈现
+
+:::tip
+制作 `Atlas` 精灵图集依赖外部第三方工具，请自行搜索制作方法。默认 `UIImage` 组件未设置精灵图，将以白色方块形式呈现
+:::
 
 ```ts
 import { Engine3D } from '@orillusion/core';
