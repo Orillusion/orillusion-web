@@ -37,7 +37,7 @@ mesh.material = new LitMaterial();
 <<< @/public/demos/materials/UnLitMaterial.ts
 
 ## PBR 材质
-我们提倡使用 [PBR](/api/classes/LitMaterial) 材质进行渲染，`PBR` 全称是`Physicallly-Based Rendering`，是指基于物理渲染的材质，它更符合真实的物理光照模型。
+我们提倡使用 [LitMaterial](/api/classes/LitMaterial) 即 `PBR` 材质进行渲染。`PBR` 是 `Physicallly-Based Rendering` 的缩写，是指基于物理渲染的材质，它更符合真实的物理光照模型。
 
 | 属性 | 描述 |
 | :---: | :---: |
@@ -101,10 +101,27 @@ mat.cullMode = GPUCullMode.back; // 剔除后面，显示正面
 我们可以通过对模型的 `uv` 坐标进行矩阵变换来自定义纹理的映射关系。比如，设置材质shader 中的 `transformUV1` 变量来对原始 `uv` 进行 `位移（offset）` 和 `缩放（scaling）` 的坐标变换: 
 ```ts
 let mat = new LitMaterial();
-// 获取当前 uv 变换
-let uv = mat.getUniformV4(`transformUV1`)
-// 设置新的 uv 变换 - Vector4(offsetU, offsetV, scalingU, scalingV)
-mat.setUniformVector4(`transformUV1`, new Vector4(0, 0, 1, 1))
+// 获取 uv - Vector4(offsetU, offsetV, scalingU, scalingV)
+let uv: Vector4 = mat.getUniformV4(`transformUV1`);
+// 设置 uv
+uv.set(1, 1, 2, 2);
+// 更新 uv
+mat.setUniformVector4(`transformUV1`, uv);
 ```
 
 <Demo :height="300" :code="false" src="/demos/materials/uv.ts"></Demo>
+
+
+:::tip
+从 `v0.8` 开始，[LitMaterial](/api/classes/LitMaterial) 使用 `xxxMapOffsetSize` 获取和设置各个贴图的 `uv` 变换：
+```ts
+let mat = new LitMaterial();
+let baseUV = mat.getUniformV4('baseMapOffsetSize');
+let normalUV = mat.getUniformV4('normalMapOffsetSize');
+let emissiveUV = mat.getUniformV4('emissiveMapOffsetSize');
+let roughnessUV = mat.getUniformV4('roughnessMapOffsetSize');
+let metallicUV = mat.getUniformV4('metallicMapOffsetSize');
+let aoUV = mat.getUniformV4('aoMapOffsetSize');
+```
+:::
+
