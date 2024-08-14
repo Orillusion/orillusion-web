@@ -2,6 +2,8 @@ import { Engine3D, LitMaterial, MeshRenderer, BoxGeometry, Object3D, Scene3D, Vi
 import { TerrainGeometry } from "@orillusion/geometry";
 import { Graphic3D } from "@orillusion/graphic";
 import { Ammo, CollisionShapeUtil, Physics, Rigidbody } from "@orillusion/physics";
+import { Stats } from "@orillusion/stats";
+import dat from "dat.gui";
 
 class Sample_MultipleShapes {
     scene: Scene3D;
@@ -15,6 +17,8 @@ class Sample_MultipleShapes {
             renderLoop: () => Physics.update()
         });
 
+        this.gui = new dat.GUI();
+
         // shadow settings
         Engine3D.setting.shadow.shadowBias = 0.01;
         Engine3D.setting.shadow.shadowSize = 1024 * 4;
@@ -24,6 +28,14 @@ class Sample_MultipleShapes {
         Engine3D.setting.shadow.updateFrameRate = 1;
 
         this.scene = new Scene3D();
+        this.scene.addComponent(Stats);
+
+        // 在引擎启动后初始化物理调试功能，需要为绘制器传入 graphic3D 对象
+        const graphic3D = new Graphic3D();
+        this.scene.addChild(graphic3D);
+        Physics.initDebugDrawer(graphic3D, {
+            enable: false,
+        })
 
         // Setup camera
         let camera = CameraUtil.createCamera3DObject(this.scene);
@@ -54,6 +66,8 @@ class Sample_MultipleShapes {
         view.scene = this.scene;
 
         Engine3D.startRenderView(view);
+
+        this.setupPhysicsGUI();
 
         // init terrain and create static planes
         await this.initTerrain();
@@ -96,6 +110,9 @@ class Sample_MultipleShapes {
         terrainRb.margin = 0.05;
         terrainRb.isDisableDebugVisible = true;
         terrainRb.friction = 1;
+
+        this.gui.__folders['PhysicsDebugDrawer'].add(terrainRb, 'isDisableDebugVisible').name('disableTerrain').listen();
+        this.setupTerrainGUI(width, height, terrainMaxHeight);
     }
 
     // Create static planes for boundaries
@@ -119,6 +136,66 @@ class Sample_MultipleShapes {
         let topRb = staticFloorTop.addComponent(Rigidbody);
         topRb.shape = CollisionShapeUtil.createStaticPlaneShape(Vector3.DOWN);
         topRb.mass = 0;
+    }
+
+    setupPhysicsGUI() {
+        // Physics debug drawer settings
+        let debugDrawer = Physics.debugDrawer;
+        let f = this.gui.addFolder("PhysicsDebugDrawer");
+        f.add(debugDrawer, 'enable').listen();
+        f.add(debugDrawer, 'debugMode', debugDrawer.debugModeList);
+        f.add(debugDrawer, 'updateFreq', 1, 360, 1);
+        f.add(debugDrawer, 'maxLineCount', 100, 33000, 100);
+        f.open();
+
+        // General physics settings
+        let p = this.gui.addFolder("Physics");
+        p.add(Physics, 'isStop');
+        p.add(Physics.gravity, 'y', -20, 20, 0.1).name('gravity').onChange(() => {
+            Physics.gravity = Physics.gravity;
+            Physics.rigidBodyUtil.activateCollisionBodies();
+        });
+        p.open();
+    }
+
+    setupTerrainGUI(width: number, height: number, terrainMaxHeight: number) {
+        let terrainData = {
+            width, height, terrainMaxHeight
+        };
+
+        let f = this.gui.addFolder("terrain");
+        f.add(terrainData, 'terrainMaxHeight', -100, 100, 1).name('terrainScale').onChange(v => setTerrainSize(v, 'terrainMaxHeight')).onFinishChange(v => updateShape());
+        f.add(terrainData, 'width', 100, 200, 1).onChange(v => setTerrainSize(v, 'width')).onFinishChange(v => updateShape());
+        f.add(terrainData, 'height', 100, 200, 1).onChange(v => setTerrainSize(v, 'height')).onFinishChange(v => updateShape());
+        f.open();
+
+        const dimensionSpecs = {
+            width: { index: 0, value: terrainData.width },
+            height: { index: 2, value: terrainData.height },
+            terrainMaxHeight: { index: 1, value: terrainData.terrainMaxHeight }
+        };
+
+        const terrainGeometry = this.terrain.getComponent(MeshRenderer).geometry;
+        const setTerrainSize = (size: number, specs: 'width' | 'height' | 'terrainMaxHeight') => {
+            size ||= 0.01; // Avoid zero to prevent data loss
+            let posAttrData = terrainGeometry.getAttribute(VertexAttributeName.position);
+            let dimension = dimensionSpecs[specs];
+            for (let i = 0, count = posAttrData.data.length / 3; i < count; i++) {
+                posAttrData.data[i * 3 + dimension.index] *= size / dimension.value;
+            }
+            dimension.value = size;
+
+            if (specs !== 'terrainMaxHeight') terrainGeometry[specs] = size;
+
+            terrainGeometry.vertexBuffer.upload(VertexAttributeName.position, posAttrData);
+            terrainGeometry.computeNormals();
+        };
+
+        const terrainRb = this.terrain.getComponent(Rigidbody);
+        const updateShape = () => {
+            terrainRb.shape = Rigidbody.collisionShape.createHeightfieldTerrainShape(this.terrain);
+            Physics.rigidBodyUtil.activateCollisionBodies();
+        };
     }
 }
 

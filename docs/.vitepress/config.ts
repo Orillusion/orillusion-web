@@ -394,7 +394,6 @@ function sidebarExample(root: string = '') {
         Loader: [],
         Particle: [],
         Physics: [],
-        Ext: [],
         GI: []
     };
 
