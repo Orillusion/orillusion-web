@@ -28,4 +28,4 @@
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:444](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L444)
+[packages/ammo/ammo.d.ts:454](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L454)

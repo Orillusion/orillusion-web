@@ -51,6 +51,7 @@ export default async () =>
                 '/media-extention/': sidebar('', 'media-extention'),
                 '/particle/': sidebar('', 'particle'),
                 '/graphic/': sidebar('', 'graphic'),
+                '/geometry/': sidebar('', 'geometry'),
                 '/example/': sidebarExample()
             },
 
@@ -126,7 +127,8 @@ function nav() {
                         { text: 'Media Extention', link: '/media-extention/', activeMatch: '/media-extention/' },
                         { text: 'Stats', link: '/stats/', activeMatch: '/stats/' },
                         { text: 'Particle', link: '/particle/', activeMatch: '/particle/' },
-                        { text: 'Graphic', link: '/graphic/', activeMatch: '/graphic/' }
+                        { text: 'Graphic', link: '/graphic/', activeMatch: '/graphic/' },
+                        { text: 'Geometry', link: '/geometry/', activeMatch: '/geometry/' }
                     ]
                 },
                 {
@@ -367,6 +369,10 @@ function sidebar(root: string = '', packages: string) {
                 {
                     text: '@orillusion/graphic',
                     link: '/graphic/'
+                },
+                {
+                    text: '@orillusion/geometry',
+                    link: '/geometry/'
                 }
             ]
         }

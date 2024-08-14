@@ -22,7 +22,7 @@
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:224](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L224)
+[packages/ammo/ammo.d.ts:230](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L230)
 
 ## Methods
 
@@ -48,4 +48,4 @@
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:225](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L225)
+[packages/ammo/ammo.d.ts:231](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L231)
