@@ -35,7 +35,7 @@
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:454](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L454)
+[packages/ammo/ammo.d.ts:464](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L464)
 
 ___
 
@@ -55,7 +55,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:455](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L455)
+[packages/ammo/ammo.d.ts:465](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L465)
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:456](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L456)
+[packages/ammo/ammo.d.ts:466](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L466)
 
 ___
 
@@ -89,4 +89,4 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:457](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L457)
+[packages/ammo/ammo.d.ts:467](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L467)
