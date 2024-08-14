@@ -39,7 +39,7 @@
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:921](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L921)
+[packages/ammo/ammo.d.ts:936](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L936)
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:922](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L922)
+[packages/ammo/ammo.d.ts:937](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L937)
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:923](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L923)
+[packages/ammo/ammo.d.ts:938](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L938)
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:924](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L924)
+[packages/ammo/ammo.d.ts:939](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L939)
 
 ___
 
@@ -107,7 +107,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:925](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L925)
+[packages/ammo/ammo.d.ts:940](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L940)
 
 ___
 
@@ -127,7 +127,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:926](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L926)
+[packages/ammo/ammo.d.ts:941](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L941)
 
 ___
 
@@ -141,7 +141,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:927](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L927)
+[packages/ammo/ammo.d.ts:942](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L942)
 
 ___
 
@@ -161,4 +161,4 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:928](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L928)
+[packages/ammo/ammo.d.ts:943](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L943)
