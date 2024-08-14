@@ -129,9 +129,9 @@ class Sample_ShootTheBox {
             let rigidBody = ball.addComponent(Rigidbody);
             rigidBody.mass = 10;
             //set velocity after rigidbody inited
-            rigidBody.addInitedFunction(() => {
-                rigidBody.velocity = ray.direction.multiplyScalar(10000 * this.ballSpeed);
-            }, this);
+            rigidBody.wait().then(() => {
+                rigidBody.linearVelocity = ray.direction.multiplyScalar(20 * this.ballSpeed);
+            });
             ball.transform.localPosition = ray.origin;
             this.view.scene.addChild(ball);
         }

@@ -553,7 +553,6 @@ function sidebarExample(root: string = '') {
         Particle: [],
         Compute: [],
         Physics: [],
-        Ext: [],
         GI: []
     };
 
