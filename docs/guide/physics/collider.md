@@ -73,6 +73,10 @@ collider.shape.size = new Vector3(2, 2, 2);
 
 利用碰撞组件，我们可以模拟出逼真的物理效果，下面我们通过展示一个更复杂的示例，进一步了解物理系统可以实现的效果。
 
+:::tip
+从 `@orillusion/physics@0.3` 开始，我们推荐使用 `Ammo` 原生 `Shape` 管理碰撞体，例如 `btStaticPlaneShape` `btBoxShape` `btSphereShape` `btCapsuleShape` `btCylinderShape` 等，可以进行更复杂的形状控制，
+:::
+
 <Demo src="/demos/physics/demo2.ts"></Demo>
 
 <<< @/public/demos/physics/demo2.ts
