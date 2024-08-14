@@ -1,12 +1,12 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@orillusion/core': 0.8.3-dev.1
-  '@orillusion/effect': ^0.1.3
+  '@orillusion/core': 0.8.3-dev.2
+  '@orillusion/geometry': ^0.2.2
   '@orillusion/graphic': ^0.2.0
   '@orillusion/media-extention': ^0.3.4
   '@orillusion/particle': ^0.1.0
-  '@orillusion/physics': ^0.2.1
+  '@orillusion/physics': ^0.3.0
   '@orillusion/stats': ^0.2.1
   '@types/dat.gui': ^0.7.11
   '@types/node': ^18.18.8
@@ -15,13 +15,15 @@ specifiers:
   vitepress: 1.3.1
   vue: ^3.4.31
 
+dependencies:
+  '@orillusion/geometry': 0.2.2
+
 devDependencies:
-  '@orillusion/core': 0.8.3-dev.1
-  '@orillusion/effect': 0.1.3
+  '@orillusion/core': 0.8.3-dev.2
   '@orillusion/graphic': 0.2.0
   '@orillusion/media-extention': 0.3.4
   '@orillusion/particle': 0.1.0
-  '@orillusion/physics': 0.2.1
+  '@orillusion/physics': 0.3.0
   '@orillusion/stats': 0.2.1
   '@types/dat.gui': 0.7.11
   '@types/node': 18.18.8
@@ -650,32 +652,31 @@ packages:
     resolution: {integrity: sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==}
     dev: true
 
-  /@orillusion/ammo/0.1.1:
-    resolution: {integrity: sha512-5zjxCQq8FKQihxh8ZWI5ASelTaIz/QUino5HISOWWvpwXrYtzwptDA8MuQonASseQwo1WkWu+jmuNMdusdNuww==}
+  /@orillusion/ammo/0.2.1:
+    resolution: {integrity: sha512-E/L+73rlF/eENDahX/iKUXiQMeWwmjeppDLMBwx446uBJNpbjMIew4dl0DlpB0K0VCWXrAU+Kl4tV5urjLLwOA==}
     dev: true
 
   /@orillusion/core/0.7.2:
     resolution: {integrity: sha512-GeH1coIFjNWJRm8RKRd3dFwpJfDoZPbEI3cNxJnqivKKWN49HlzlOiq4RGnDcxZMdvljoB3uGVXOuzEeaLp3qA==}
     dev: true
 
-  /@orillusion/core/0.8.1:
-    resolution: {integrity: sha512-EveUu+ldyGRwzTwuiNk6NSvJQuy4Am3AO1SMiE5HCyQobhbHnSlU31OiBChFtUnDtxN/ASw5J8l7Qn5g/swMZQ==}
+  /@orillusion/core/0.8.2:
+    resolution: {integrity: sha512-3f82X14kyue3QGpc8fGLYBQ4d14h3ZD61+AwUbvDfUSD/fkl8GHCy52jeXSjqhm0iqwQOKJVaWehBHcfC2yTyw==}
+
+  /@orillusion/core/0.8.3-dev.2:
+    resolution: {integrity: sha512-iLAsW4npy4vtGldRsfaphie7hO+NH/Dk5JnMr4It6OYd3c7jFpy10wAvcLB2QWz9EWvqv7fFrw55Fljwy/2wcQ==}
     dev: true
 
-  /@orillusion/core/0.8.3-dev.1:
-    resolution: {integrity: sha512-02WAx/vFwTIiprxamnm1S3D0hMpWMpo5S8MQhPdeAEMg7nrrvaG7tRCr4jIpoIBKoPEjglYQ7tKkDkRczxToPw==}
-    dev: true
-
-  /@orillusion/effect/0.1.3:
-    resolution: {integrity: sha512-amVJn9baOyElqXsAWhl3iqDuQU5OcDiFufixfa97o2Rtc0mp1CuZnwXDofRb7RHOATqiiBwdqMy3ZVcYwCLl6A==}
+  /@orillusion/geometry/0.2.2:
+    resolution: {integrity: sha512-5x4Dvd2i2TLeYUDoX1YYC69tavMlyvZD4Pm1zGvugXcnAZ0fypQ5X6zbdwgpjV7z3RDwRv7exXfDHe05c9rjiw==}
     dependencies:
-      '@orillusion/core': 0.8.1
-    dev: true
+      '@orillusion/core': 0.8.2
+    dev: false
 
   /@orillusion/graphic/0.2.0:
     resolution: {integrity: sha512-a5yKL/CnAdLgQsiUBZyEE3FcIflM6ucc2YukJpEfm8+BlPyHuBW/c+rNjn/PozsnugtUL9HEBdruzI8qrDCG0w==}
     dependencies:
-      '@orillusion/core': 0.8.1
+      '@orillusion/core': 0.8.2
       earcut: 2.2.4
     dev: true
 
@@ -691,11 +692,11 @@ packages:
       '@orillusion/core': 0.7.2
     dev: true
 
-  /@orillusion/physics/0.2.1:
-    resolution: {integrity: sha512-D2VXDQSJR9cR7d3PGvn6nngqTYGg9AKiZGGxoN2iBb1db2KhiNC3o8WOOv/B/NnLSdjOhqUHk8JhufQlHHsHPA==}
+  /@orillusion/physics/0.3.0:
+    resolution: {integrity: sha512-B0hc8GdY3UgUN1BujwQRTVWdRGn1a5tRS7hHcL6IdR1uCfCLrlTLSo3Xt0oUkh+ttitovUUS6JorEKAL/P2KCQ==}
     dependencies:
-      '@orillusion/ammo': 0.1.1
-      '@orillusion/core': 0.7.2
+      '@orillusion/ammo': 0.2.1
+      '@orillusion/core': 0.8.2
     dev: true
 
   /@orillusion/stats/0.2.1:
