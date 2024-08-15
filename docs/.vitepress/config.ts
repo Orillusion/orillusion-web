@@ -348,8 +348,7 @@ function sidebarGuide(): SidebarItem {
             collapsible: true,
             items: [
                 { text: '物理总览', link: '/guide/physics/Readme.md' },
-                { text: '刚体', link: '/guide/physics/rigidbody.md' },
-                { text: '碰撞体', link: '/guide/physics/collider.md' }
+                { text: '内置组件', link: '/guide/physics/rigidbody.md' },
             ]
         },
         {

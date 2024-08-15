@@ -1,5 +1,5 @@
 # 物理总览
-物理系统是对真实世界的模拟，使场景中的模型对象可以像真实环境中的物体一样，拥有质量并正确响应重力及各种碰撞。引擎以扩展的形式 [@orillusion/physics](/physics/) 提供了物理引擎支持（基于[ammo.js](https://github.com/kripken/ammo.js)），并封装了常用的组件，可以帮助用户在项目中模拟物理系统。
+物理系统是对真实世界的模拟，使场景中的模型对象可以像真实环境中的物体一样，拥有质量并正确响应重力及各种碰撞。引擎以扩展的形式 [@orillusion/physics](/physics/) 提供了物理引擎支持（基于 [Ammo.js](https://github.com/kripken/ammo.js)），并封装了常用的组件，可以帮助用户在项目中模拟物理系统。
 
 ## 安装
 跟引擎方法一致，我们可以通过 `NPM` 和 `CDN` 链接两种方式来引入物理插件:
@@ -51,11 +51,7 @@ import { Physics } from '@orillusion/physics'
 
 await Physics.init();
 await Engine3D.init({
-  renderLoop: () => {
-    if (Physics.isInited) {
-      Physics.update();
-    }
-  }
+  renderLoop: () => Physics.update()
 });
 ```
 通过以上方法开启并运行物理系统后，引擎会在每一帧渲染时，根据设定的参数计算并更新物体模型对物理世界的实际响应。
@@ -66,22 +62,33 @@ Physics.isStop = !Physics.isStop;
 ```
 
 ## 重力环境模拟
-目前引擎中默认的重力参数为 `Vector3(0, -9.8, 0)`，模拟的是地球的重力。如果需要自定义重力参数的话，只需更改 `Physics.gravity` 属性即可，不过切记需要在初始化之前更改，否则无法生效。
+引擎默认的重力参数为 `Vector3(0, -9.8, 0)`，模拟的是地球的重力。如果需要自定义重力参数的话，只需更改 `Physics.gravity` 属性即可。
 
-例如，如果需要模拟太空中的无重力环境，则在初始化前更改 `gravity` 参数为：
+例如，如果需要模拟太空中的无重力环境，可以更改 `gravity` 参数为：
 ```ts
 Physics.gravity = new Vector3(0,0,0);
-await Physics.init();
 ```
-即可。请注意，需要在物理系统初始化前更改才能生效。
 
-## 扩展
-此外，用户可以通过以下代码来获取 `ammo.js`原生的物理世界，通过 `ammo.js` 自身提供的api 实现更多自定化需求：
+## 原生扩展
+当前引擎只封装了几个常用的组件，如果需要实现复杂的物理模拟，用户可以直接引用 `Ammo` 来使用原生的物理世界对象，通过 `Ammo.js` 自身提供的原生 `API` 实现更多自定化需求：
 ```ts
-let world:Ammo.btDiscreteDynamicsWorld = Physics.world;
-```
+import { Ammo, Physics } from "@orillusion/physics";
 
-## 物体落地的简单示例
+// init physics
+await Physics.init();
+
+// ...
+
+// native Ammo shape
+let boxShape = new Ammo.btBoxShape(
+  new Ammo.btVector3(1, 1, 1)
+);
+// native Ammo transform
+let transform = new Ammo.btTransform();
+```
+更多用法详见 [Ammo API](/physics/modules/Ammo)
+
+## 简单示例
 这里我们通过模拟一个正方体掉落在地上的过程，看一下物理系统具体可以提供哪下效果。
 
 <Demo src="/demos/physics/demo1.ts"></Demo>
@@ -123,4 +130,4 @@ collider.shape.size = new Vector3(size.x, 0.1, size.y);
 scene.addChild(obj);
 ```
 
-物理系统启动后，引擎立即根据物体质量响应其重力感应，所以我们将看到立方体从空中掉落的画面。由于我们设置了碰撞体组件，当立方体和地面的碰撞体形状产生交集时，即响应碰撞。在示例中我们可以看到真实的物体落地碰撞效果。
+物理系统启动后，引擎立即根据物体质量响应其重力感应，当立方体和地面的碰撞体形状产生交集时，我们可以看到真实的物体落地碰撞效果。更多[物理示例](/example/physics/Dominoes)。
