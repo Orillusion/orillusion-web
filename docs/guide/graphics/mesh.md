@@ -203,3 +203,51 @@ mr.geometry.computeNormals();
 <Demo src="/demos/mesh/custom.ts"></Demo>
 
 <<< @/public/demos/mesh/custom.ts
+
+
+## 几何体扩展
+
+除了上述内置的常见几何体，引擎还提供了 [@orillusion/geometry](/geometry/) 几何体扩展包，目前包含字体几何体 `TextGeometry`, 2D挤压缓冲几何体`ExtrudeGeometry`, 地形几何体 `TerrainGeometry` 等扩展和工具类。
+
+用户可以通过 `NPM` 包快速引入几何体插件:
+
+```bash
+npm install @orillusion/core --save
+npm install @orillusion/geometry --save
+```
+```ts
+import { Engine3D } from "@orillusion/core"
+import { TextGeometry } from "@orillusion/geometry"
+```
+
+### 2D挤压缓冲
+
+和内置的 [ExtrudeGeometry](/api/classes/ExtrudeGeometry.md) 类似但不同，该扩展类简化了数据，支持从 [Shape2D](/geometry/classes/Shape2D.md) 平面图形中生成空间几何体。
+
+<Demo src="/examples/geometry/ExtrudeGeometry.ts"></Demo>
+
+<<< @/public/examples/geometry/ExtrudeGeometry.ts
+
+### 字体几何体
+
+支持从常见的字体文件 `woff`,`otf`,`ttf` 中创建空间文字几何体
+
+<Demo src="/examples/geometry/TextGeometry.ts"></Demo>
+
+<<< @/public/examples/geometry/TextGeometry.ts
+
+### 地形几何体
+
+支持通过 `2D` 高度图或高程图快速创建 `3D` 地形几何体
+
+<Demo src="/examples/geometry/TerrainGeometry.ts"></Demo>
+
+<<< @/public/examples/geometry/TerrainGeometry.ts
+
+### 草地几何体
+
+创建模拟草地地形，配合[草地组件](/geometry/classes/GrassComponent)可以模拟动态随风摆动效果
+
+<Demo src="/examples/geometry/GrassGeometry.ts"></Demo>
+
+<<< @/public/examples/geometry/GrassGeometry.ts

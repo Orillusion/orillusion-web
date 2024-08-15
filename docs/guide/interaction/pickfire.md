@@ -11,8 +11,9 @@
 | PICK_UP | 当触控点在碰撞体范围内松开时触发一次 |
 | PICK_DOWN | 当触控点在碰撞体范围内按下时触发一次 |
 
-## 监听事件
-拾取事件依赖 [ColliderComponent](/guide/physics/collider) 组件，我们可以直接对 `Object3D` 进行 `PointerEvent3D` 事件监听。引擎统一封装了两种拾取类型的用法，可以通过简单配置进行切换
+## 拾取检测
+引擎会统一监听鼠标事件，对场景中的所有可点击的 `Object3D` 进行拾取检测，并触发对应的事件。用户可以给物体添加 [ColliderComponent](/api/classes/ColliderComponent) 组件标明物体可被点击，并监听对应的 [PointerEvent3D](/guide/interaction/pointer#pointerevent3d) 事件即可。  
+引擎统一封装了两种拾取类型的用法，可以通过简单配置进行切换
 
 ```ts
 //引擎启动前需要配置开启拾取和拾取类型
@@ -38,8 +39,9 @@ function onPick(e: PointerEvent3D) {
 ```
 
 ## 包围盒拾取
-射线包围盒是一种常用的 CPU 计算拾取方法，需要计算 [ColliderComponent](/guide/physics/collider) 组件的 `shape` 和鼠标射线的交集，在物体数量不多的场景中性能较好，但是精度较差，因为包围盒往往不能够精准的表达物体的真实形状。   
-> 为了保持 `cpu` 性能，目前包围盒拾取只支持主动 `pick` 点击拾取，暂不支持 `over/hover` 状态拾取。 
+射线包围盒是一种常用的 CPU 计算拾取方法，需要计算 [ColliderComponent](/api/classes/ColliderComponent) 组件的 [ColliderShape](/api/classes/ColliderShape) 和鼠标射线的交集，在物体数量不多的场景中性能较好，但是精度较差，因为包围盒往往不能够精准的表达物体的真实形状。   
+
+目前引擎提供的基本 `ColliderShape` 有 [BoxColliderShape](/api/classes/BoxColliderShape), [SphereColliderShape](/api/classes/SphereColliderShape), [CapsuleColliderShape](/api/classes/CapsuleColliderShape), 也可以通过物体本身 `Mesh` 形状构建 [MeshColliderShape](/api/classes/MeshColliderShape)
 
 ```ts
 import {Object3D, Collider, BoxColliderShape, Vector3} from '@orillusion/core';
