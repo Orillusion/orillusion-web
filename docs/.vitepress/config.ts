@@ -229,8 +229,7 @@ function sidebarGuide(): SidebarItem {
             collapsible: true,
             items: [
                 { text: 'Intro', link: '/guide/physics/Readme.md' },
-                { text: 'Rigid Body', link: '/guide/physics/rigidbody.md' },
-                { text: 'Collider', link: '/guide/physics/collider.md' }
+                { text: 'Components', link: '/guide/physics/rigidbody.md' },
             ]
         },
         {
