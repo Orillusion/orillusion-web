@@ -46,8 +46,6 @@ bt.getWorldTransform();
 从 `@orillusion/physics@0.3` 开始，我们推荐直接使用 `Ammo` 原生 `Shape` 管理碰撞体
 :::
 
-### 常见形状
-
 1. 盒型碰撞体
 
 ![Box Collider](/images/cube.webp)
@@ -136,7 +134,6 @@ let shape = new Ammo.btCapsuleShape(1, 5);
 rigidbody.shape = shape;
 ```
 
-### 更多形状
 除了上面几个常见形状，`Ammo.js` 中还提供 `btStaticPlaneShape` `btCylinderShape` `btConeShape` `btConvexHullShape` `btConcaveShape` `btHeightfieldTerrainShape` 等更多复杂的碰撞体形状。
 
 利用这些碰撞体，我们可以模拟出更复杂的物理场景，下面我们通过一个示例，进一步展示物理系统各类形状的用法。
