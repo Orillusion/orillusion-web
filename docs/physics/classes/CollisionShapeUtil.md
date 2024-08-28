@@ -16,6 +16,8 @@ CollisionShapeUtil
 - [createCylinderShape](CollisionShapeUtil.md#createcylindershape)
 - [createConeShape](CollisionShapeUtil.md#createconeshape)
 - [createCompoundShape](CollisionShapeUtil.md#createcompoundshape)
+- [createCompoundShapeFromObject](CollisionShapeUtil.md#createcompoundshapefromobject)
+- [createShapeFromObject](CollisionShapeUtil.md#createshapefromobject)
 - [createHeightfieldTerrainShape](CollisionShapeUtil.md#createheightfieldterrainshape)
 - [createConvexHullShape](CollisionShapeUtil.md#createconvexhullshape)
 - [createConvexTriangleMeshShape](CollisionShapeUtil.md#createconvextrianglemeshshape)
@@ -214,7 +216,58 @@ Ammo.btCompoundShape - 复合形状实例。
 
 #### Defined in
 
-[packages/physics/utils/CollisionShapeUtil.ts:146](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L146)
+[packages/physics/utils/CollisionShapeUtil.ts:121](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L121)
+
+___
+
+### createCompoundShapeFromObject
+
+▸ **createCompoundShapeFromObject**(`object3D`, `includeParent?`): [`btCompoundShape`](Ammo.btCompoundShape.md)
+
+根据 Object3D 对象及其子对象创建复合碰撞形状。
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `object3D` | `Object3D` | `undefined` | 三维对象，包含多个子对象。 |
+| `includeParent` | `boolean` | `true` | 是否包含父对象的几何体，默认值为 `true`。 |
+
+#### Returns
+
+[`btCompoundShape`](Ammo.btCompoundShape.md)
+
+复合碰撞形状。
+
+#### Defined in
+
+[packages/physics/utils/CollisionShapeUtil.ts:142](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L142)
+
+___
+
+### createShapeFromObject
+
+▸ **createShapeFromObject**(`object3D`): [`btCollisionShape`](Ammo.btCollisionShape.md)
+
+根据 Object3D 对象的几何体类型创建相应的碰撞形状。
+
+仅支持Box、Sphere、Plane、Cylinder类型的几何体。对于不匹配的几何体类型，返回 btConvexHullShape 凸包形状。
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `object3D` | `Object3D` |
+
+#### Returns
+
+[`btCollisionShape`](Ammo.btCollisionShape.md)
+
+Ammo.btCollisionShape
+
+#### Defined in
+
+[packages/physics/utils/CollisionShapeUtil.ts:188](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L188)
 
 ___
 
@@ -242,7 +295,7 @@ Ammo.btHeightfieldTerrainShape - 高度场形状实例。
 
 #### Defined in
 
-[packages/physics/utils/CollisionShapeUtil.ts:170](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L170)
+[packages/physics/utils/CollisionShapeUtil.ts:246](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L246)
 
 ___
 
@@ -268,7 +321,7 @@ Ammo.btConvexHullShape - 凸包形状实例。
 
 #### Defined in
 
-[packages/physics/utils/CollisionShapeUtil.ts:223](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L223)
+[packages/physics/utils/CollisionShapeUtil.ts:299](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L299)
 
 ___
 
@@ -295,7 +348,7 @@ Ammo.btConvexTriangleMeshShape - 凸包网格形状实例。
 
 #### Defined in
 
-[packages/physics/utils/CollisionShapeUtil.ts:246](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L246)
+[packages/physics/utils/CollisionShapeUtil.ts:322](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L322)
 
 ___
 
@@ -322,7 +375,7 @@ Ammo.btBvhTriangleMeshShape - BVH 网格形状实例。
 
 #### Defined in
 
-[packages/physics/utils/CollisionShapeUtil.ts:273](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L273)
+[packages/physics/utils/CollisionShapeUtil.ts:349](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L349)
 
 ___
 
@@ -349,7 +402,7 @@ Ammo.btGImpactMeshShape - GImpact 网格形状实例。
 
 #### Defined in
 
-[packages/physics/utils/CollisionShapeUtil.ts:300](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L300)
+[packages/physics/utils/CollisionShapeUtil.ts:376](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L376)
 
 ___
 
@@ -374,21 +427,22 @@ Ammo.btTriangleMesh - 构建的三角形网格。
 
 #### Defined in
 
-[packages/physics/utils/CollisionShapeUtil.ts:326](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L326)
+[packages/physics/utils/CollisionShapeUtil.ts:402](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L402)
 
 ___
 
 ### getAllMeshVerticesAndIndices
 
-▸ **getAllMeshVerticesAndIndices**(`object3D`): `Object`
+▸ **getAllMeshVerticesAndIndices**(`object3D`, `isTransformChildren?`): `Object`
 
 获取3D对象所有网格的顶点与索引。
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `object3D` | `Object3D` | 三维对象，通常是模型对象。 |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `object3D` | `Object3D` | `undefined` | 三维对象。 |
+| `isTransformChildren` | `boolean` | `true` | 是否将子对象的顶点转换到父对象的局部坐标系。默认值为 `true`。 |
 
 #### Returns
 
@@ -403,4 +457,4 @@ ___
 
 #### Defined in
 
-[packages/physics/utils/CollisionShapeUtil.ts:349](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L349)
+[packages/physics/utils/CollisionShapeUtil.ts:426](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L426)

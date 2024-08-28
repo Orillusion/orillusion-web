@@ -732,7 +732,7 @@ Get the linear velocity value of current object
 
 #### Defined in
 
-[packages/physics/rigidbody/Rigidbody.ts:476](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/Rigidbody.ts#L476)
+[packages/physics/rigidbody/Rigidbody.ts:477](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/Rigidbody.ts#L477)
 
 • `set` **linearVelocity**(`value`): `void`
 
@@ -750,7 +750,7 @@ Set the linear velocity value of current object
 
 #### Defined in
 
-[packages/physics/rigidbody/Rigidbody.ts:485](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/Rigidbody.ts#L485)
+[packages/physics/rigidbody/Rigidbody.ts:486](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/Rigidbody.ts#L486)
 
 ___
 
@@ -766,7 +766,7 @@ Get mass value
 
 #### Defined in
 
-[packages/physics/rigidbody/Rigidbody.ts:491](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/Rigidbody.ts#L491)
+[packages/physics/rigidbody/Rigidbody.ts:493](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/Rigidbody.ts#L493)
 
 • `set` **mass**(`value`): `void`
 
@@ -784,7 +784,7 @@ Set mass value. default `0.01`
 
 #### Defined in
 
-[packages/physics/rigidbody/Rigidbody.ts:497](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/Rigidbody.ts#L497)
+[packages/physics/rigidbody/Rigidbody.ts:499](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/Rigidbody.ts#L499)
 
 ___
 
@@ -801,7 +801,7 @@ ___
 
 #### Defined in
 
-[packages/physics/rigidbody/Rigidbody.ts:524](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/Rigidbody.ts#L524)
+[packages/physics/rigidbody/Rigidbody.ts:526](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/Rigidbody.ts#L526)
 
 • `set` **isSilent**(`value`): `void`
 
@@ -817,7 +817,7 @@ ___
 
 #### Defined in
 
-[packages/physics/rigidbody/Rigidbody.ts:527](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/Rigidbody.ts#L527)
+[packages/physics/rigidbody/Rigidbody.ts:529](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/Rigidbody.ts#L529)
 
 ___
 
@@ -831,7 +831,7 @@ ___
 
 #### Defined in
 
-[packages/physics/rigidbody/Rigidbody.ts:548](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/Rigidbody.ts#L548)
+[packages/physics/rigidbody/Rigidbody.ts:550](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/Rigidbody.ts#L550)
 
 • `set` **ccdSettings**(`params`): `void`
 
@@ -851,7 +851,7 @@ Sets the CCD parameters. The first value is the motion threshold, the second is 
 
 #### Defined in
 
-[packages/physics/rigidbody/Rigidbody.ts:542](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/Rigidbody.ts#L542)
+[packages/physics/rigidbody/Rigidbody.ts:544](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/Rigidbody.ts#L544)
 
 ___
 
@@ -867,7 +867,7 @@ Enable/disable collision callbacks
 
 #### Defined in
 
-[packages/physics/rigidbody/Rigidbody.ts:555](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/Rigidbody.ts#L555)
+[packages/physics/rigidbody/Rigidbody.ts:557](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/Rigidbody.ts#L557)
 
 • `set` **enableCollisionEvent**(`value`): `void`
 
@@ -883,7 +883,7 @@ Enable/disable collision callbacks
 
 #### Defined in
 
-[packages/physics/rigidbody/Rigidbody.ts:558](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/Rigidbody.ts#L558)
+[packages/physics/rigidbody/Rigidbody.ts:560](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/Rigidbody.ts#L560)
 
 ___
 
@@ -913,7 +913,7 @@ Collision callbacks
 
 #### Defined in
 
-[packages/physics/rigidbody/Rigidbody.ts:566](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/Rigidbody.ts#L566)
+[packages/physics/rigidbody/Rigidbody.ts:568](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/Rigidbody.ts#L568)
 
 • `set` **collisionEvent**(`callback`): `void`
 
@@ -929,7 +929,7 @@ Collision callbacks
 
 #### Defined in
 
-[packages/physics/rigidbody/Rigidbody.ts:569](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/Rigidbody.ts#L569)
+[packages/physics/rigidbody/Rigidbody.ts:571](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/Rigidbody.ts#L571)
 
 ___
 
@@ -946,7 +946,7 @@ If enabled, changes to the transform will automatically update the physics body.
 
 #### Defined in
 
-[packages/physics/rigidbody/Rigidbody.ts:577](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/Rigidbody.ts#L577)
+[packages/physics/rigidbody/Rigidbody.ts:579](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/Rigidbody.ts#L579)
 
 • `set` **enablePhysicsTransformSync**(`value`): `void`
 
@@ -962,7 +962,7 @@ If enabled, changes to the transform will automatically update the physics body.
 
 #### Defined in
 
-[packages/physics/rigidbody/Rigidbody.ts:580](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/Rigidbody.ts#L580)
+[packages/physics/rigidbody/Rigidbody.ts:582](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/Rigidbody.ts#L582)
 
 ___
 
@@ -1258,7 +1258,7 @@ ComponentBase.destroy
 
 #### Defined in
 
-[packages/physics/rigidbody/Rigidbody.ts:585](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/Rigidbody.ts#L585)
+[packages/physics/rigidbody/Rigidbody.ts:587](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/Rigidbody.ts#L587)
 
 ___
 

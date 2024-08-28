@@ -21,6 +21,7 @@
 - [SliderConstraint](classes/SliderConstraint.md)
 - [GhostTrigger](classes/GhostTrigger.md)
 - [ClothSoftbody](classes/ClothSoftbody.md)
+- [RopeSoftbody](classes/RopeSoftbody.md)
 - [CollisionShapeUtil](classes/CollisionShapeUtil.md)
 - [ContactProcessedUtil](classes/ContactProcessedUtil.md)
 - [RigidBodyMapping](classes/RigidBodyMapping.md)

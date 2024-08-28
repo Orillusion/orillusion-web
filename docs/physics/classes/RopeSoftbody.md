@@ -1,76 +1,79 @@
-# Class: ClothSoftbody
+# Class: RopeSoftbody
 
 ## Hierarchy
 
 - `SoftbodyBase`
 
-  ↳ **`ClothSoftbody`**
+  ↳ **`RopeSoftbody`**
 
 ### Constructors
 
-- [constructor](ClothSoftbody.md#constructor)
+- [constructor](RopeSoftbody.md#constructor)
 
 ### Properties
 
-- [clothCorners](ClothSoftbody.md#clothcorners)
-- [fixNodeIndices](ClothSoftbody.md#fixnodeindices)
-- [anchorRigidbody](ClothSoftbody.md#anchorrigidbody)
-- [anchorIndices](ClothSoftbody.md#anchorindices)
-- [anchorPosition](ClothSoftbody.md#anchorposition)
-- [anchorRotation](ClothSoftbody.md#anchorrotation)
-- [mass](ClothSoftbody.md#mass)
-- [margin](ClothSoftbody.md#margin)
-- [group](ClothSoftbody.md#group)
-- [mask](ClothSoftbody.md#mask)
-- [influence](ClothSoftbody.md#influence)
-- [disableCollision](ClothSoftbody.md#disablecollision)
-- [object3D](ClothSoftbody.md#object3d)
-- [isDestroyed](ClothSoftbody.md#isdestroyed)
+- [fixeds](RopeSoftbody.md#fixeds)
+- [fixNodeIndices](RopeSoftbody.md#fixnodeindices)
+- [elasticity](RopeSoftbody.md#elasticity)
+- [anchorRigidbodyHead](RopeSoftbody.md#anchorrigidbodyhead)
+- [anchorRigidbodyTail](RopeSoftbody.md#anchorrigidbodytail)
+- [anchorOffsetHead](RopeSoftbody.md#anchoroffsethead)
+- [anchorOffsetTail](RopeSoftbody.md#anchoroffsettail)
+- [mass](RopeSoftbody.md#mass)
+- [margin](RopeSoftbody.md#margin)
+- [group](RopeSoftbody.md#group)
+- [mask](RopeSoftbody.md#mask)
+- [influence](RopeSoftbody.md#influence)
+- [disableCollision](RopeSoftbody.md#disablecollision)
+- [object3D](RopeSoftbody.md#object3d)
+- [isDestroyed](RopeSoftbody.md#isdestroyed)
 
 ### Accessors
 
-- [activationState](ClothSoftbody.md#activationstate)
-- [btBodyInited](ClothSoftbody.md#btbodyinited)
-- [btSoftBody](ClothSoftbody.md#btsoftbody)
-- [eventDispatcher](ClothSoftbody.md#eventdispatcher)
-- [isStart](ClothSoftbody.md#isstart)
-- [transform](ClothSoftbody.md#transform)
-- [enable](ClothSoftbody.md#enable)
+- [activationState](RopeSoftbody.md#activationstate)
+- [btBodyInited](RopeSoftbody.md#btbodyinited)
+- [btSoftBody](RopeSoftbody.md#btsoftbody)
+- [eventDispatcher](RopeSoftbody.md#eventdispatcher)
+- [isStart](RopeSoftbody.md#isstart)
+- [transform](RopeSoftbody.md#transform)
+- [enable](RopeSoftbody.md#enable)
 
 ### Methods
 
-- [start](ClothSoftbody.md#start)
-- [applyFixedNodes](ClothSoftbody.md#applyfixednodes)
-- [clearAnchors](ClothSoftbody.md#clearanchors)
-- [onUpdate](ClothSoftbody.md#onupdate)
-- [destroy](ClothSoftbody.md#destroy)
-- [init](ClothSoftbody.md#init)
-- [wait](ClothSoftbody.md#wait)
-- [appendAnchor](ClothSoftbody.md#appendanchor)
-- [clearFixedNodes](ClothSoftbody.md#clearfixednodes)
-- [stop](ClothSoftbody.md#stop)
-- [onEnable](ClothSoftbody.md#onenable)
-- [onDisable](ClothSoftbody.md#ondisable)
-- [onLateUpdate](ClothSoftbody.md#onlateupdate)
-- [onBeforeUpdate](ClothSoftbody.md#onbeforeupdate)
-- [onCompute](ClothSoftbody.md#oncompute)
-- [onGraphic](ClothSoftbody.md#ongraphic)
-- [onParentChange](ClothSoftbody.md#onparentchange)
-- [onAddChild](ClothSoftbody.md#onaddchild)
-- [onRemoveChild](ClothSoftbody.md#onremovechild)
-- [cloneTo](ClothSoftbody.md#cloneto)
-- [copyComponent](ClothSoftbody.md#copycomponent)
-- [beforeDestroy](ClothSoftbody.md#beforedestroy)
+- [buildRopeGeometry](RopeSoftbody.md#buildropegeometry)
+- [start](RopeSoftbody.md#start)
+- [setElasticity](RopeSoftbody.md#setelasticity)
+- [clearAnchors](RopeSoftbody.md#clearanchors)
+- [onUpdate](RopeSoftbody.md#onupdate)
+- [destroy](RopeSoftbody.md#destroy)
+- [init](RopeSoftbody.md#init)
+- [wait](RopeSoftbody.md#wait)
+- [appendAnchor](RopeSoftbody.md#appendanchor)
+- [applyFixedNodes](RopeSoftbody.md#applyfixednodes)
+- [clearFixedNodes](RopeSoftbody.md#clearfixednodes)
+- [stop](RopeSoftbody.md#stop)
+- [onEnable](RopeSoftbody.md#onenable)
+- [onDisable](RopeSoftbody.md#ondisable)
+- [onLateUpdate](RopeSoftbody.md#onlateupdate)
+- [onBeforeUpdate](RopeSoftbody.md#onbeforeupdate)
+- [onCompute](RopeSoftbody.md#oncompute)
+- [onGraphic](RopeSoftbody.md#ongraphic)
+- [onParentChange](RopeSoftbody.md#onparentchange)
+- [onAddChild](RopeSoftbody.md#onaddchild)
+- [onRemoveChild](RopeSoftbody.md#onremovechild)
+- [cloneTo](RopeSoftbody.md#cloneto)
+- [copyComponent](RopeSoftbody.md#copycomponent)
+- [beforeDestroy](RopeSoftbody.md#beforedestroy)
 
 ## Constructors
 
 ### constructor
 
-• **new ClothSoftbody**(): [`ClothSoftbody`](ClothSoftbody.md)
+• **new RopeSoftbody**(): [`RopeSoftbody`](RopeSoftbody.md)
 
 #### Returns
 
-[`ClothSoftbody`](ClothSoftbody.md)
+[`RopeSoftbody`](RopeSoftbody.md)
 
 #### Inherited from
 
@@ -78,75 +81,89 @@ SoftbodyBase.constructor
 
 ## Properties
 
-### clothCorners
+### fixeds
 
-• **clothCorners**: [`Vector3`, `Vector3`, `Vector3`, `Vector3`]
+• **fixeds**: `number` = `0`
 
-布料的四个角，默认以平面法向量计算各角。
+绳索两端的固定选项，默认值为 `0`
+
+`0`：两端不固定，`1`：起点固定，`2`：终点固定，`3`：两端固定
 
 #### Defined in
 
-[packages/physics/softbody/ClothSoftbody.ts:22](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/ClothSoftbody.ts#L22)
+[packages/physics/softbody/RopeSoftbody.ts:13](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L13)
 
 ___
 
 ### fixNodeIndices
 
-• **fixNodeIndices**: `number`[] \| [`CornerType`](../types/CornerType.md)[] = `[]`
+• **fixNodeIndices**: `number`[] = `[]`
 
-固定节点索引。
+固定节点索引，与 `fixeds` 属性作用相同，但可以更自由的控制任意节点。
 
 #### Defined in
 
-[packages/physics/softbody/ClothSoftbody.ts:27](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/ClothSoftbody.ts#L27)
+[packages/physics/softbody/RopeSoftbody.ts:18](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L18)
 
 ___
 
-### anchorRigidbody
+### elasticity
 
-• **anchorRigidbody**: [`Rigidbody`](Rigidbody.md)
+• **elasticity**: `number` = `0.5`
 
-添加锚点时需要的刚体。
+绳索弹性，值越大弹性越低，通常设置为 0 到 1 之间，默认值为 `0.5`。
 
 #### Defined in
 
-[packages/physics/softbody/ClothSoftbody.ts:32](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/ClothSoftbody.ts#L32)
+[packages/physics/softbody/RopeSoftbody.ts:23](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L23)
 
 ___
 
-### anchorIndices
+### anchorRigidbodyHead
 
-• **anchorIndices**: `number`[] \| [`CornerType`](../types/CornerType.md)[] = `[]`
+• **anchorRigidbodyHead**: [`Rigidbody`](Rigidbody.md)
 
-布料的锚点。
+绳索起点处锚定的刚体，设置此项后绳索的起点将与该刚体的位置相同。
 
 #### Defined in
 
-[packages/physics/softbody/ClothSoftbody.ts:37](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/ClothSoftbody.ts#L37)
+[packages/physics/softbody/RopeSoftbody.ts:28](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L28)
 
 ___
 
-### anchorPosition
+### anchorRigidbodyTail
 
-• **anchorPosition**: `Vector3`
+• **anchorRigidbodyTail**: [`Rigidbody`](Rigidbody.md)
 
-仅在设置 `anchorRigidbody` 后有效，表示布料软体相对刚体的位置。
+绳索终点处锚定的刚体，设置此项后绳索的终点将与该刚体的位置相同。
 
 #### Defined in
 
-[packages/physics/softbody/ClothSoftbody.ts:42](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/ClothSoftbody.ts#L42)
+[packages/physics/softbody/RopeSoftbody.ts:33](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L33)
 
 ___
 
-### anchorRotation
+### anchorOffsetHead
 
-• **anchorRotation**: `Vector3`
+• **anchorOffsetHead**: `Vector3`
 
-仅在设置 `anchorRigidbody` 后有效，表示布料软体相对刚体的旋转。
+锚点的起点偏移量，表示起点与锚定的刚体之间的相对位置。
 
 #### Defined in
 
-[packages/physics/softbody/ClothSoftbody.ts:47](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/ClothSoftbody.ts#L47)
+[packages/physics/softbody/RopeSoftbody.ts:38](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L38)
+
+___
+
+### anchorOffsetTail
+
+• **anchorOffsetTail**: `Vector3`
+
+锚点的终点偏移量，表示终点与锚定的刚体之间的相对位置。
+
+#### Defined in
+
+[packages/physics/softbody/RopeSoftbody.ts:43](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L43)
 
 ___
 
@@ -456,6 +473,32 @@ SoftbodyBase.enable
 
 ## Methods
 
+### buildRopeGeometry
+
+▸ **buildRopeGeometry**(`segmentCount`, `startPos`, `endPos`): `GeometryBase`
+
+构建绳索（线条）几何体，注意添加材质时需要将拓扑结构 `topology` 设置为 `'line-list'`。
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `segmentCount` | `number` | 分段数 |
+| `startPos` | `Vector3` | 起点 |
+| `endPos` | `Vector3` | 终点 |
+
+#### Returns
+
+`GeometryBase`
+
+GeometryBase
+
+#### Defined in
+
+[packages/physics/softbody/RopeSoftbody.ts:163](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L163)
+
+___
+
 ### start
 
 ▸ **start**(): `Promise`\<`void`\>
@@ -470,41 +513,43 @@ SoftbodyBase.start
 
 #### Defined in
 
-[packages/physics/softbody/ClothSoftbody.ts:49](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/ClothSoftbody.ts#L49)
+[packages/physics/softbody/RopeSoftbody.ts:48](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L48)
 
 ___
 
-### applyFixedNodes
+### setElasticity
 
-▸ **applyFixedNodes**(`fixedNodeIndices`): `void`
+▸ **setElasticity**(`value`): `void`
 
-固定软体节点。
+set rope elasticity to 0~1
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `fixedNodeIndices` | `number`[] \| [`CornerType`](../types/CornerType.md)[] | 表示需要固定的节点索引或 CornerType 数组。 |
+| Name | Type |
+| :------ | :------ |
+| `value` | `number` |
 
 #### Returns
 
 `void`
 
-#### Overrides
-
-SoftbodyBase.applyFixedNodes
-
 #### Defined in
 
-[packages/physics/softbody/ClothSoftbody.ts:192](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/ClothSoftbody.ts#L192)
+[packages/physics/softbody/RopeSoftbody.ts:110](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L110)
 
 ___
 
 ### clearAnchors
 
-▸ **clearAnchors**(): `void`
+▸ **clearAnchors**(`isPopBack?`): `void`
 
 清除锚点，软体将会从附加的刚体上脱落
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `isPopBack?` | `boolean` | 是否只删除一个锚点，当存在首尾两个锚点时，删除终点的锚点。 |
 
 #### Returns
 
@@ -512,7 +557,7 @@ ___
 
 #### Defined in
 
-[packages/physics/softbody/ClothSoftbody.ts:202](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/ClothSoftbody.ts#L202)
+[packages/physics/softbody/RopeSoftbody.ts:123](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L123)
 
 ___
 
@@ -530,7 +575,7 @@ SoftbodyBase.onUpdate
 
 #### Defined in
 
-[packages/physics/softbody/ClothSoftbody.ts:209](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/ClothSoftbody.ts#L209)
+[packages/physics/softbody/RopeSoftbody.ts:131](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L131)
 
 ___
 
@@ -554,7 +599,7 @@ SoftbodyBase.destroy
 
 #### Defined in
 
-[packages/physics/softbody/ClothSoftbody.ts:243](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/ClothSoftbody.ts#L243)
+[packages/physics/softbody/RopeSoftbody.ts:150](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L150)
 
 ___
 
@@ -622,6 +667,32 @@ SoftbodyBase.appendAnchor
 #### Defined in
 
 [packages/physics/softbody/SoftbodyBase.ts:107](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/SoftbodyBase.ts#L107)
+
+___
+
+### applyFixedNodes
+
+▸ **applyFixedNodes**(`fixedNodeIndices`): `void`
+
+固定软体节点。
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `fixedNodeIndices` | `number`[] | 需要固定的节点索引。 |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+SoftbodyBase.applyFixedNodes
+
+#### Defined in
+
+[packages/physics/softbody/SoftbodyBase.ts:121](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/SoftbodyBase.ts#L121)
 
 ___
 
