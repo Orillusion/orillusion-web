@@ -1,15 +1,19 @@
+import { Engine3D, Scene3D, AtmosphericComponent, CameraUtil, HoverCameraController, Object3D, BoxGeometry, DirectLight, KelvinUtil, View3D, LambertMaterial, OcclusionSystem, BoundingBox, Color, MeshRenderer, Vector3, Vector3Ex } from '@orillusion/core';
 import { Stats } from '@orillusion/stats';
-import { Engine3D, Scene3D, AtmosphericComponent, CameraUtil, HoverCameraController, Object3D, MeshRenderer, BoxGeometry, LitMaterial, DirectLight, KelvinUtil, View3D, Vector3, Vector3Ex, UnLitMaterial, InstanceDrawComponent, LambertMaterial, Time, BoundingBox, Color } from '@orillusion/core';
-import * as dat from 'dat.gui';
+import dat from 'dat.gui';
 
 // simple base demo
-class Sample_SphereDraw {
+export class Sample_drawCallShareGeometry {
     scene: Scene3D;
     public anim: boolean = false;
+    private Ori: dat.GUI | undefined;
+
     async run() {
-        // init engine
         Engine3D.setting.pick.enable = false;
+        // init engine
         await Engine3D.init({ renderLoop: () => this.renderLoop() });
+
+        OcclusionSystem.enable = false;
         // create new Scene
         this.scene = new Scene3D();
 
@@ -26,7 +30,7 @@ class Sample_SphereDraw {
 
         // add a basic camera controller
         let hoverCameraController = mainCamera.object3D.addComponent(HoverCameraController);
-        hoverCameraController.setCamera(15, -15, 100);
+        hoverCameraController.setCamera(15, -15, 300);
 
         // add a basic direct light
         let lightObj = new Object3D();
@@ -34,8 +38,9 @@ class Sample_SphereDraw {
         lightObj.rotationY = 60;
         lightObj.rotationZ = 150;
         let dirLight = lightObj.addComponent(DirectLight);
-        dirLight.lightColor = KelvinUtil.color_temperature_to_rgb(53355);
+        dirLight.lightColor = KelvinUtil.color_temperature_to_rgb(5500);
         dirLight.intensity = 10;
+        dirLight.indirect = 1;
         this.scene.addChild(lightObj);
 
         sky.relativeTransform = dirLight.transform;
@@ -50,6 +55,7 @@ class Sample_SphereDraw {
 
         let gui = new dat.GUI();
         let f = gui.addFolder('Orillusion');
+        f.add({ count: '50000' }, 'count');
         f.add(this, 'anim').onChange(() => this.anim != this.anim);
         f.open();
 
@@ -57,48 +63,57 @@ class Sample_SphereDraw {
     }
 
     private _list: Object3D[] = [];
+    private _rotList: number[] = [];
     initScene() {
         let shareGeometry = new BoxGeometry();
-        let materials = [new LambertMaterial()];
-
-        for (let i = 0; i < materials.length; i++) {
-            const element = materials[i];
-            element.baseColor = Color.random();
-        }
+        const mat = new LambertMaterial();
+        mat.baseColor = new Color(Math.random() / 2 + 0.5, Math.random() / 2 + 0.5, Math.random() / 2 + 0.5);
 
         let group = new Object3D();
-        this.scene.addChild(group);
-        let count = 10000;
+        let count = 5 * 10000;
+        let ii = 0;
         for (let i = 0; i < count; i++) {
-            let pos = Vector3Ex.sphere(100);
+            let pos = Vector3Ex.sphereXYZ(ii * 60 + 20, ii * 60 + 100, 100, i * 0.001 + 10, 100);
             let obj = new Object3D();
             let mr = obj.addComponent(MeshRenderer);
             mr.geometry = shareGeometry;
-            mr.material = materials[Math.floor(Math.random() * materials.length)];
+            mr.material = mat;
             obj.localPosition = pos;
             group.addChild(obj);
             this._list.push(obj);
 
-            let d = obj.transform.worldPosition.subtract(group.transform.worldPosition);
-            d.normalize();
+            obj.transform.scaleX = Math.random() * 2 + 0.2;
+            obj.transform.scaleY = Math.random() * 2 + 0.2;
+            obj.transform.scaleZ = Math.random() * 2 + 0.2;
 
-            let sc = Math.random() * 0.5 + 0.1;
-            obj.transform.scaleX = sc;
-            obj.transform.scaleY = sc;
-            obj.transform.scaleZ = Math.random() * 5 + 1;
+            obj.transform.rotationX = Math.random() * 360;
+            obj.transform.rotationY = Math.random() * 360;
+            obj.transform.rotationZ = Math.random() * 360;
 
-            obj.transform.forward = d;
+            this._rotList.push((Math.random() * 1 - 1 * 0.5) * 2.0 * Math.random() * 100);
+
+            obj.transform.localDetailRot = new Vector3((Math.random() * 1 - 1 * 0.5) * 2.0 * Math.random() * 50 * 0.001 * 0.5, (Math.random() * 1 - 1 * 0.5) * 2.0 * Math.random() * 50 * 0.001 * 0.5, (Math.random() * 1 - 1 * 0.5) * 2.0 * Math.random() * 50 * 0.001 * 0.5);
+            if (i % 10000 == 0) {
+                ii++;
+            }
         }
-        group.addComponent(InstanceDrawComponent);
+        group.transform.localDetailRot = new Vector3(0, 0.001, 0);
+        this._rotList.push(1.0 * 0.35);
+
         group.bound = new BoundingBox(Vector3.SAFE_MIN, Vector3.SAFE_MAX);
         this._list.push(group);
+        this.scene.addChild(group);
     }
 
     renderLoop() {
         if (this.anim) {
-            this._list[this._list.length - 1].rotationY += Time.delta * 0.01;
+            let i = 0;
+            for (let i = 0; i < this._list.length; i++) {
+                const element = this._list[i];
+                element.transform.localChange = true;
+            }
         }
     }
 }
 
-new Sample_SphereDraw().run();
+new Sample_drawCallShareGeometry().run();
