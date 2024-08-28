@@ -6,4 +6,4 @@
 
 #### Defined in
 
-[packages/physics/softbody/ClothSoftbody.ts:11](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/ClothSoftbody.ts#L11)
+[packages/physics/softbody/ClothSoftbody.ts:10](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/ClothSoftbody.ts#L10)
