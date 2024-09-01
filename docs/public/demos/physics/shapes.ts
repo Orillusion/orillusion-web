@@ -1,6 +1,5 @@
-import { Engine3D, LitMaterial, MeshRenderer, BoxGeometry, Object3D, Scene3D, View3D, Object3DUtil, Vector3, AtmosphericComponent, DirectLight, SphereGeometry, CameraUtil, HoverCameraController, BitmapTexture2D, VertexAttributeName, Color, CylinderGeometry, TorusGeometry, ComponentBase } from "@orillusion/core";
+import { Engine3D, LitMaterial, MeshRenderer, BoxGeometry, Object3D, Scene3D, View3D, Object3DUtil, Vector3, AtmosphericComponent, DirectLight, SphereGeometry, CameraUtil, HoverCameraController, BitmapTexture2D, Color, CylinderGeometry, TorusGeometry, ComponentBase } from "@orillusion/core";
 import { TerrainGeometry } from "@orillusion/geometry";
-import { Graphic3D } from "@orillusion/graphic";
 import { Ammo, CollisionShapeUtil, Physics, Rigidbody } from "@orillusion/physics";
 
 class Sample_MultipleShapes {
@@ -10,7 +9,7 @@ class Sample_MultipleShapes {
 
     async run() {
         // init physics and engine
-        await Physics.init();
+        await Physics.init({ useDrag: true });
         await Engine3D.init({
             renderLoop: () => Physics.update()
         });
