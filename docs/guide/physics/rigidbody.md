@@ -16,45 +16,45 @@
 
 | 属性 | 类型 | 描述 |
 | --- | --- | --- |
-| btRigidbody | `Ammo.btRigidBody` | 获取 `Ammo.js` 的原生刚体对象。 |
-| shape | `Ammo.btCollisionShape` | 刚体的碰撞形状，定义物体的物理边界。 |
-| mass | `number` | 刚体的质量（单位：kg），决定物体的惯性。默认值为 `0.01`。 |
-| restitution | `number` | 弹性恢复系数，决定碰撞后物体的反弹程度。默认值为 `0.5`。 |
-| friction | `number`| 摩擦力，影响刚体与其他物体接触时的滑动行为。默认值为 `0.5`。 |
-| velocity | `Vector3` | 施加在刚体中心位置的力向量。 |
-| damping | `[number, number]` | 阻尼系数，控制刚体的线性和角速度的衰减。 |
-| enablePhysicsTransformSync | `boolean` | 是否启用刚体与模型对象的变换同步，默认值为 `false`。 |
-| isSilent | `boolean` | 是否为静默状态，设置为 `true` 时，不会触发双方的碰撞回调。 |
-| enableCollisionEvent | `boolean` | 是否启用碰撞事件，默认值为 `true`。 |
-| collisionEvent | `Function` | 碰撞事件回调。 |
+| btRigidbody | `Ammo.btRigidBody` | 获取 `Ammo.js` 的原生刚体对象 |
+| shape | `Ammo.btCollisionShape` | 刚体的碰撞形状，定义物体的物理边界 |
+| mass | `number` | 刚体的质量（单位：kg），决定物体的惯性。默认值为 `0.01` |
+| restitution | `number` | 弹性恢复系数，决定碰撞后物体的反弹程度。默认值为 `0.5` |
+| friction | `number`| 摩擦力，影响刚体与其他物体接触时的滑动行为。默认值为 `0.5` |
+| velocity | `Vector3` | 施加在刚体中心位置的力向量 |
+| damping | `[number, number]` | 阻尼系数，控制刚体的线性和角速度的衰减 |
+| enablePhysicsTransformSync | `boolean` | 是否启用刚体与模型对象的变换同步，默认值为 `false` |
+| isSilent | `boolean` | 是否为静默状态，设置为 `true` 时，不会触发双方的碰撞回调 |
+| enableCollisionEvent | `boolean` | 是否启用碰撞事件，默认值为 `true` |
+| collisionEvent | `Function` | 碰撞事件回调 |
 
 | 方法 | 描述 |
 | --- | --- |
-| wait() | 异步获取完成初始化的原生刚体实例。 |
-| updateTransform() | 更新刚体的位置和旋转，并同步对象。 |
-| clearForcesAndVelocities() | 清除刚体的所有力和速度，重置运动状态。 |
+| wait() | 异步获取完成初始化的原生刚体实例 |
+| updateTransform() | 更新刚体的位置和旋转，并同步对象 |
+| clearForcesAndVelocities() | 清除刚体的所有力和速度，重置运动状态 |
 
-::: details 查看更多 `API`
+::: details 更多 `API`
 
 | API | 类型 | 描述 |
 | --- | --- | --- |
-| collisionShape | `CollisionShapeUtil` | 创建碰撞体的工具。 |
-| rollingFriction | `number` | 滚动摩擦力，影响刚体滚动时的滑动行为。 |
-| ccdSettings | `[number, number]` | 连续碰撞检测的设置，用于避免高速运动物体穿透其他物体。 |
-| gravity | `Vector3` | 施加于刚体的重力向量，可以自定义不同于全局重力的向量。 |
-| linearVelocity | `Vector3` | 刚体的线速度。 |
-| angularVelocity | `Vector3` | 刚体的角速度。 |
-| activationState | `ActivationState` | 刚体的激活状态。 |
-| isKinematic | `boolean` | 设置为运动学刚体，将会自动开启 `enablePhysicsTransformSync`。 |
-| isTrigger | `boolean` | 设置为触发器，不参与物理反应，也不会触发碰撞事件。 |
-| isDisableDebugVisible | `boolean` | 设置刚体在调试模式下是否可见。 |
-| userIndex | `number` | 用户索引，可以用作刚体标识符。 |
-| group | `number` | 刚体的碰撞组。 |
-| mask | `number` | 刚体的碰撞掩码。 |
-| margin | `number` | 定义碰撞体的碰撞边距。 |
-| collisionFlags | `number` | 获取碰撞标志。 |
-| addCollisionFlag() | `CollisionFlags`  | 添加单个碰撞标志。用于设置刚体的特定行为，如静态、运动学等。 |
-| removeCollisionFlag() | `CollisionFlags` | 移除单个碰撞标志。 |
+| collisionShape | `CollisionShapeUtil` | 创建碰撞体的工具 |
+| rollingFriction | `number` | 滚动摩擦力，影响刚体滚动时的滑动行为 |
+| ccdSettings | `[number, number]` | 连续碰撞检测的设置，用于避免高速运动物体穿透其他物体 |
+| gravity | `Vector3` | 施加于刚体的重力向量，可以自定义不同于全局重力的向量 |
+| linearVelocity | `Vector3` | 刚体的线速度 |
+| angularVelocity | `Vector3` | 刚体的角速度 |
+| activationState | `ActivationState` | 刚体的激活状态 |
+| isKinematic | `boolean` | 设置为运动学刚体，将会自动开启 `enablePhysicsTransformSync` |
+| isTrigger | `boolean` | 设置为触发器，不参与物理反应，也不会触发碰撞事件 |
+| isDisableDebugVisible | `boolean` | 设置刚体在调试模式下是否可见 |
+| userIndex | `number` | 用户索引，可以用作刚体标识符 |
+| group | `number` | 刚体的碰撞组 |
+| mask | `number` | 刚体的碰撞掩码 |
+| margin | `number` | 定义碰撞体的碰撞边距 |
+| collisionFlags | `number` | 获取碰撞标志 |
+| addCollisionFlag() | `CollisionFlags`  | 添加单个碰撞标志。用于设置刚体的特定行为，如静态、运动学等 |
+| removeCollisionFlag() | `CollisionFlags` | 移除单个碰撞标志 |
 :::
 
 
@@ -87,12 +87,7 @@ rigidbody.mass = 0;
 可以通过以下方式操作原生的 `Ammo.js` 的刚体：
 ```ts
 // 使用 wait 方法确保刚体初始化完成
-rigidbody.wait().then(bt => {
-    bt.getCollisionShape(); // native rigidbody API
-});
-
-// 如果确定刚体已初始化完成，可以直接通过 btRigidbody 访问
-let bt = rigidbody.btRigidbody;
+let bt = await rigidbody.wait();
 bt.getCollisionShape(); // native rigidbody API
 ```
 
@@ -117,7 +112,6 @@ rigidbody.collisionEvent = (contactPoint: Ammo.btManifoldPoint, selfBody: Ammo.b
 
 通过启用 `enablePhysicsTransformSync` 属性，确保模型对象的变换（位置、旋转、缩放）实时同步到物理刚体，从而保持视觉与物理行为的一致性。
 
-
 ```ts
 rigidbody.enablePhysicsTransformSync = true;
 
@@ -135,15 +129,15 @@ object.transform.scaleX = 2;
 
 | 属性 | 类型 | 描述 |
 | --- | --- | --- |
-| ghostObject | `Ammo.btPairCachingGhostObject` | 获取 `Ammo.js` 的原生幽灵对象。 |
-| shape | `Ammo.btCollisionShape` | 幽灵对象的碰撞形状，定义物体的物理边界。 |
-| enableCollisionEvent | `boolean` | 是否启用碰撞事件。 |
-| collisionEvent | `Function` | 碰撞事件回调。 |
+| ghostObject | `Ammo.btPairCachingGhostObject` | 获取 `Ammo.js` 的原生幽灵对象 |
+| shape | `Ammo.btCollisionShape` | 幽灵对象的碰撞形状，定义物体的物理边界 |
+| enableCollisionEvent | `boolean` | 是否启用碰撞事件 |
+| collisionEvent | `Function` | 碰撞事件回调 |
 
 | 方法 | 描述 |
 | --- | --- |
-| wait() | 异步获取完全初始化的原生幽灵对象实例。 |
-| createAndAddGhostObject() | 静态方法，创建幽灵对象并添加到物理世界。 |
+| wait() | 异步获取完全初始化的原生幽灵对象实例 |
+| createAndAddGhostObject() | 静态方法，创建幽灵对象并添加到物理世界 |
 
 ### 基本用法
 与刚体组件的使用方式类似，我们可以直接添加幽灵触发器组件并配置 `shape` 和 `collisionEvent` 即可:
@@ -157,7 +151,9 @@ ghostTrigger.collisionEvent = (contactPoint, selfBody, otherBody) => {
 }
 ```
 
-> 添加组件后，幽灵触发器会自动同步模型对象的变换，确保在模型移动或调整时，幽灵对象的位置和形状也会实时更新。
+::: tip
+添加组件后，幽灵触发器会自动同步模型对象的变换，确保在模型移动或调整时，幽灵对象的位置和形状也会实时更新。
+:::
 
 幽灵对象通常用于区域检测，许多情况下不需要关联具体的模型对象。对此，`GhostTrigger` 组件提供了一个静态方法，开发者可以直接调用 `createAndAddGhostObject()` 创建原生幽灵对象，无需以组件形式添加：
 

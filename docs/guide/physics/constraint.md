@@ -28,25 +28,25 @@ hingeConstraint.targetRigidbody = targetRigidbody;
 
 > 请注意，对象必须在添加约束组件之前添加 [刚体](/guide/physics/Rigidbody.html) 组件。
 
-## 基本功能
+## 基本用法
 
 以下是约束的通用 `API`，各个约束类型还提供了独特的设置选项。
 
 | 属性 | 类型 | 描述 |
 | --- | --- | --- |
-| constraint | `Ammo.btTypedConstraint` | 获取 `Ammo.js` 的原生约束。 |
-| breakingThreshold | `number` | 断裂阈值，值越大，约束越不易断裂。 |
-| disableCollisionsBetweenLinkedBodies | `boolean` | 禁用关联刚体的碰撞，默认值为 `true`。 |
-| targetRigidbody | `Rigidbody` | 目标刚体，约束将限制当前刚体与目标刚体之间的相对运动。 |
-| pivotSelf | `Vector3` | 自身刚体的枢轴点，决定了约束的旋转中心。 |
-| pivotTarget | `Vector3` | 目标刚体的枢轴点。 |
-| rotationSelf | `Quaternion` | 自身刚体的旋转设置。 |
-| rotationTarget | `Quaternion` | 目标刚体的旋转设置。 |
+| constraint | `Ammo.btTypedConstraint` | 获取 `Ammo.js` 的原生约束 |
+| breakingThreshold | `number` | 断裂阈值，值越大，约束越不易断裂 |
+| disableCollisionsBetweenLinkedBodies | `boolean` | 禁用关联刚体的碰撞，默认值为 `true` |
+| targetRigidbody | `Rigidbody` | 目标刚体，约束将限制当前刚体与目标刚体之间的相对运动 |
+| pivotSelf | `Vector3` | 自身刚体的枢轴点，决定了约束的旋转中心 |
+| pivotTarget | `Vector3` | 目标刚体的枢轴点 |
+| rotationSelf | `Quaternion` | 自身刚体的旋转设置 |
+| rotationTarget | `Quaternion` | 目标刚体的旋转设置 |
 
 | 方法 | 描述 |
 | --- | --- |
-| wait() | 异步获取完成初始化的原生约束实例。 |
-| resetConstraint() | 重置约束，销毁当前约束实例后重新创建并返回新的约束实例。 |
+| wait() | 异步获取完成初始化的原生约束实例 |
+| resetConstraint() | 重置约束，销毁当前约束实例后重新创建并返回新的约束实例 |
 
 ## 重载支持
 
@@ -62,15 +62,15 @@ hingeConstraint.targetRigidbody = targetRigidbody;
 
 | 属性 | 类型 | 描述 |
 | --- | --- | --- |
-| axisSelf | `Vector3` | 自身刚体上的铰链轴方向，默认值为 `Vector3.UP`。 |
-| axisTarget | `Vector3` | 目标刚体上的铰链轴方向，默认值为 `Vector3.UP`。 |
-| useReferenceFrameA | `boolean` | 是否使用自身刚体的参考框架，默认值为 `true`。 |
-| useTwoBodiesTransformOverload | `boolean` | 是否使用两个刚体的变换重载方式，默认值为 `false`。 |
+| axisSelf | `Vector3` | 自身刚体上的铰链轴方向，默认值为 `Vector3.UP` |
+| axisTarget | `Vector3` | 目标刚体上的铰链轴方向，默认值为 `Vector3.UP` |
+| useReferenceFrameA | `boolean` | 是否使用自身刚体的参考框架，默认值为 `true` |
+| useTwoBodiesTransformOverload | `boolean` | 是否使用两个刚体的变换重载方式，默认值为 `false` |
 
 | 方法 | 描述 |
 | --- | --- |
-| setLimit() | 设置旋转限制。 |
-| enableAngularMotor() | 启用或禁用角度马达。 |
+| setLimit() | 设置旋转限制 |
+| enableAngularMotor() | 启用或禁用角度马达 |
 
 ```ts
 let hingeConstraint = object.addComponent(HingeConstraint);
@@ -84,13 +84,13 @@ hingeConstraint.enableAngularMotor(true, 1.0, 10.0);
 
 | 属性 | 类型 | 描述 |
 | --- | --- | --- |
-| lowerLinLimit | `number` | 线性运动的下限限制。 |
-| upperLinLimit | `number` | 线性运动的上限限制。 |
-| lowerAngLimit | `number` | 角度运动的下限限制。 |
-| upperAngLimit | `number` | 角度运动的上限限制。 |
-| poweredLinMotor | `boolean` | 是否启用线性马达。 |
-| maxLinMotorForce | `number` | 线性马达的最大推力。 |
-| targetLinMotorVelocity | `number` | 线性马达的目标速度。 |
+| lowerLinLimit | `number` | 线性运动的下限限制 |
+| upperLinLimit | `number` | 线性运动的上限限制 |
+| lowerAngLimit | `number` | 角度运动的下限限制 |
+| upperAngLimit | `number` | 角度运动的上限限制 |
+| poweredLinMotor | `boolean` | 是否启用线性马达 |
+| maxLinMotorForce | `number` | 线性马达的最大推力 |
+| targetLinMotorVelocity | `number` | 线性马达的目标速度 |
 
 ```ts
 let sliderConstraint = object.addComponent(SliderConstraint);
@@ -127,9 +127,9 @@ p2pConstraint.pivotTarget.set(0, 5, 0);
 
 | 属性 | 类型 | 描述 |
 | --- | --- | --- |
-| twistSpan | `number` | 扭转角度限制，绕 X 轴的扭转范围。 |
-| swingSpan1 | `number` | 摆动角度限制1，绕 Y 轴的摆动范围。 |
-| swingSpan2 | `number` | 摆动角度限制2，绕 Z 轴的摆动范围。 |
+| twistSpan | `number` | 扭转角度限制，绕 X 轴的扭转范围 |
+| swingSpan1 | `number` | 摆动角度限制1，绕 Y 轴的摆动范围 |
+| swingSpan2 | `number` | 摆动角度限制2，绕 Z 轴的摆动范围 |
 
 ```ts
 let coneTwistConstraint = object.addComponent(ConeTwistConstraint);
@@ -142,11 +142,11 @@ coneTwistConstraint.twistSpan = Math.PI / 4;  // 限制扭转角度为 45 度
 
 | 属性 | 类型 | 描述 |
 | --- | --- | --- |
-| linearLowerLimit | `Vector3` | 线性运动的下限限制。 |
-| linearUpperLimit | `Vector3` | 线性运动的上限限制。 |
-| angularLowerLimit | `Vector3` | 角度运动的下限限制。 |
-| angularUpperLimit | `Vector3` | 角度运动的上限限制。 |
-| useLinearFrameReferenceFrame | `boolean` | 是否使用线性参考坐标系。 |
+| linearLowerLimit | `Vector3` | 线性运动的下限限制 |
+| linearUpperLimit | `Vector3` | 线性运动的上限限制 |
+| angularLowerLimit | `Vector3` | 角度运动的下限限制 |
+| angularUpperLimit | `Vector3` | 角度运动的上限限制 |
+| useLinearFrameReferenceFrame | `boolean` | 是否使用线性参考坐标系 |
 
 ```ts
 let sixDofConstraint = object.addComponent(Generic6DofConstraint);
@@ -160,10 +160,10 @@ sixDofConstraint.linearUpperLimit = new Vector3(1, 1, 1);     // 设置线性上
 
 | 方法 | 描述 |
 | --- | --- |
-| enableSpring() | 启用或禁用弹簧功能。 |
-| setStiffness() | 设置弹簧的刚度。 |
-| setDamping() | 设置弹簧的阻尼。 |
-| setEquilibriumPoint() | 设置弹簧的平衡点。 |
+| enableSpring() | 启用或禁用弹簧功能 |
+| setStiffness() | 设置弹簧的刚度 |
+| setDamping() | 设置弹簧的阻尼 |
+| setEquilibriumPoint() | 设置弹簧的平衡点 |
 
 ```ts
 let springConstraint = object.addComponent(Generic6DofSpringConstraint);
@@ -180,9 +180,9 @@ for (let j = 3; j < 6; j++) {
 
 <<< @/public/examples/physics/dofSpringConstraint.ts
 
-## 注意事项
-
+::: tip 注意事项
 当两个刚体通过约束连接时，目标刚体的连接点默认会位于自身刚体的中心位置。可以在创建约束时通过调整 `pivotSelf` 或 `pivotTarget` 属性来修改它们的相对位置。然而，如果两个刚体在添加约束前处于重叠状态，这可能会导致约束模拟的不稳定。建议在添加约束前确保两个刚体没有重叠。
+:::
 
 ## 示例
 

@@ -14,27 +14,27 @@
 
 | 函数名称 | 返回类型 | 描述 |
 | --- | --- | --- |
-| createStaticPlaneShape | `Ammo.btStaticPlaneShape` | 创建一个静态平面碰撞形状，适用于无限大且静止的平面，如地面或墙壁。 |
-| createBoxShape | `Ammo.btBoxShape` | 盒型碰撞形状。 |
-| createSphereShape | `Ammo.btSphereShape` | 球型碰撞形状。 |
-| createCapsuleShape | `Ammo.btCapsuleShape` | 胶囊型碰撞形状。 |
-| createCylinderShape | `Ammo.btCylinderShape` | 圆柱型碰撞形状。 |
-| createConeShape | `Ammo.btConeShape` | 圆锥形碰撞形状。 |
-| createCompoundShape | `Ammo.btCompoundShape` | 复合形状，将多个子形状组合成一个复杂的碰撞体。 |
-| createHeightfieldTerrainShape | `Ammo.btHeightfieldTerrainShape` | 高度场形状，适用于地形的碰撞检测。 |
-| createConvexHullShape | `Ammo.btConvexHullShape` | 凸包形状，适用于动态物体的快速碰撞检测。 |
-| createConvexTriangleMeshShape | `Ammo.btConvexTriangleMeshShape` | 凸包网格形状，适用于需要复杂几何表示的动态物体。 |
-| createBvhTriangleMeshShape | `Ammo.btBvhTriangleMeshShape` | 边界体积层次 `BVH` 网格形状，适用于需要复杂几何表示的静态物体。 |
-| createGImpactMeshShape | `Ammo.btGImpactMeshShape` | `GImpact` 网格形状，适用于复杂的三角网格碰撞检测，特别是动态物体。 |
-| createShapeFromObject | `Ammo.btCollisionShape` | 创建一个匹配 `Object3D` 几何体类型的碰撞形状。 |
+| createStaticPlaneShape | `Ammo.btStaticPlaneShape` | 创建一个静态平面碰撞形状，适用于无限大且静止的平面，如地面或墙壁 |
+| createBoxShape | `Ammo.btBoxShape` | 盒型碰撞形状 |
+| createSphereShape | `Ammo.btSphereShape` | 球型碰撞形状 |
+| createCapsuleShape | `Ammo.btCapsuleShape` | 胶囊型碰撞形状 |
+| createCylinderShape | `Ammo.btCylinderShape` | 圆柱型碰撞形状 |
+| createConeShape | `Ammo.btConeShape` | 圆锥形碰撞形状 |
+| createCompoundShape | `Ammo.btCompoundShape` | 复合形状，将多个子形状组合成一个复杂的碰撞体 |
+| createHeightfieldTerrainShape | `Ammo.btHeightfieldTerrainShape` | 高度场形状，适用于地形的碰撞检测 |
+| createConvexHullShape | `Ammo.btConvexHullShape` | 凸包形状，适用于动态物体的快速碰撞检测 |
+| createConvexTriangleMeshShape | `Ammo.btConvexTriangleMeshShape` | 凸包网格形状，适用于需要复杂几何表示的动态物体 |
+| createBvhTriangleMeshShape | `Ammo.btBvhTriangleMeshShape` | 边界体积层次 `BVH` 网格形状，适用于需要复杂几何表示的静态物体 |
+| createGImpactMeshShape | `Ammo.btGImpactMeshShape` | `GImpact` 网格形状，适用于复杂的三角网格碰撞检测，特别是动态物体 |
+| createShapeFromObject | `Ammo.btCollisionShape` | 创建一个匹配 `Object3D` 几何体类型的碰撞形状 |
 
 ### 复杂结构支持
 `CollisionShapeUtil` 提供了两个支持处理嵌套对象的 `API`。这些 `API` 可以自动生成适合的碰撞形状或提取几何数据，适用于由引擎创建的复杂结构，无需手动为每个子对象单独配置。
 
 | 函数名称 | 返回类型 | 描述 |
 | --- | --- | --- |
-| createCompoundShapeFromObject | `Ammo.btCompoundShape` | 根据传入的 `Object3D` 及其子对象的几何体类型，自动创建一个复合碰撞体。 |
-| getAllMeshVerticesAndIndices | `{ vertices:Float32Array; indices: Uint16Array; }` | 返回 `Object3D` 及其子对象的所有顶点和索引数据，经过世界变换矩阵转换后，可用于创建高精度的网格碰撞体。 |
+| createCompoundShapeFromObject | `Ammo.btCompoundShape` | 根据传入的 `Object3D` 及其子对象的几何体类型，自动创建一个复合碰撞体 |
+| getAllMeshVerticesAndIndices | `{ vertices:Float32Array; indices: Uint16Array; }` | 返回 `Object3D` 及其子对象的所有顶点和索引数据，经过世界变换矩阵转换后，可用于创建高精度的网格碰撞体 |
 
 ## 基本使用
 
@@ -66,10 +66,10 @@ const object = await Engine3D.res.loadGltf('model.glb');
 // 创建一个BVH网格形状，使用模型自身的顶点和索引
 let bvhMeshShape = CollisionShapeUtil.createBvhTriangleMeshShape(object);
 
-// 或使用传入的顶点和索引
-const response = await fetch('data.json'); // 加载提前准备好的顶点和索引数据
-const data = await response.json();
-const vertices = new Float32Array(data.vertices);
+// 或手动传入的顶点和索引
+const vertices = [...]
+const indices = [...]
+const vertices = new Float32Array(vertices);
 const indices = new Uint16Array(data.indices);
 let bvhMeshShape = CollisionShapeUtil.createBvhTriangleMeshShape(object, vertices, indices);
 ```
@@ -77,6 +77,8 @@ let bvhMeshShape = CollisionShapeUtil.createBvhTriangleMeshShape(object, vertice
 此外，基于 `TerrainGeometry` 或 `PlaneGeometry`，可以创建适用于模拟地形的高度场碰撞形状：
 
 ```ts
+import { TerrainGeometry } from '@orillusion/geometry';
+
 // Load textures and create terrain geometry
 let heightTexture = await Engine3D.res.loadTexture('height.png');
 let terrainGeometry = new TerrainGeometry(100, 100, 60, 60);
@@ -94,10 +96,12 @@ let terrainShape = CollisionShapeUtil.createHeightfieldTerrainShape(terrain);
 通过上述操作，我们可以创建多种碰撞体以适应不同的物理需求。然而，为了实现全面的物理模拟，单独的碰撞体是不够的。要获得真实的物理效果，还需要与 [刚体](/guide/physics/Rigidbody.html) 结合使用，从而实现完整的物理交互和模拟。
 
 
-## 各类形状示例
+## 示例
 
 不同的碰撞体形状适用于各类物理场景。以下示例展示了如何使用 `CollisionShapeUtil` 为多种几何形状生成对应的碰撞体，并结合 [刚体](/guide/physics/Rigidbody.html) 在物理系统中应用这些形状。
 
 <Demo src="/demos/physics/shapes.ts"></Demo>
 
 <<< @/public/demos/physics/shapes.ts
+
+更多[物理示例](/example/physics/Dominoes)

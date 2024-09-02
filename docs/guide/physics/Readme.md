@@ -32,7 +32,7 @@ import { Physics } from "@orillusion/physics"
 </script>
 ```
 
-## 物理环境的运行
+## 基本用法
 目前 [Physics](/physics/classes/Physics) 支持的参数及方法如下表所示：
 
 | API | 描述 |
@@ -66,8 +66,9 @@ await Engine3D.init({
   renderLoop: () => Physics.update()
 });
 ```
-
->通过以上方法开启并运行物理系统后，引擎会在每一帧渲染时，根据设定的参数计算并更新物体模型对物理世界的实际响应。
+::: tip
+通过以上方法开启并运行物理系统后，引擎会在每一帧渲染时，根据设定的参数计算并更新物体模型对物理世界的实际响应。
+:::
 
 ### 暂停与恢复
 ```ts
@@ -99,14 +100,17 @@ f.add(Physics.debugDrawer, 'enable').listen(); // 开启或关闭调试功能
 f.add(Physics.debugDrawer, 'debugMode', Physics.debugDrawer.debugModeList); // 调试模式
 f.add(Physics.debugDrawer, 'updateFreq', 1, 360, 1); // 线条渲染的频率（每帧）
 f.add(Physics.debugDrawer, 'maxLineCount', 100, 33000, 100); // 设置渲染的最大线条数量
+```
 :::
 
 - **物理对象交互**：如果需要使用鼠标与刚体进行拖拽控制，可以在 `init()` 中将此功能开启：
+
 ```ts
 await Physics.init({ useDrag: true });
 ```
-
-> 开启拖拽器后，可以通过 `Physics.physicsDragger` 对其进行相关设置。
+::: tip
+可以通过 `Physics.physicsDragger` 进行相关设置，详见 [PhysicsDragger](/physics/classes/PhysicsDragger)
+:::
 
 ## 物理工具
 物理系统提供了一些工具，帮助开发者更灵活地进行定制开发。
@@ -146,13 +150,12 @@ let transform = new Ammo.btTransform();
 依照前面章节所介绍的流程，我们首先将场景、相机、环境贴图、光照等基础组件初始化并设定好参数。
 接下来，我们创建一个立方体，并为其添加刚体组件并指定碰撞形状，使之拥有质量并能正确响应重力与碰撞。
 
-::: code-group
-
-```ts [推荐用法]
+```ts {7-9}
 const obj = new Object3D();
 let mr = obj.addComponent(MeshRenderer);
 mr.geometry = new BoxGeometry(5, 5, 5);
 mr.material = new LitMaterial();
+
 // 响应重力并设置碰撞形状
 let rigidbody = obj.addComponent(Rigidbody);
 rigidbody.mass = 10;
@@ -161,33 +164,14 @@ rigidbody.shape = Rigidbody.collisionShape.createShapeFromObject(obj);
 scene3D.addChild(obj);
 ```
 
-```ts [旧版用法]
-const obj = new Object3D();
-let mr = obj.addComponent(MeshRenderer);
-mr.geometry = new BoxGeometry(5, 5, 5);
-mr.material = new LitMaterial();
-// 响应重力
-let rigidbody = obj.addComponent(Rigidbody);
-rigidbody.mass = 10;
-// 设置碰撞盒子
-let collider = obj.addComponent(ColliderComponent);
-collider.shape = new BoxColliderShape();
-collider.shape.size = new Vector3(5, 5, 5);
-
-scene3D.addChild(obj);
-```
-
-:::
-
 之后，我们在正方体下方创建一个平面，作为地面，同样为其添加刚体组件并指定碰撞形状。由于地面是静止的，所以我们设置其质量为 `0`。
 
-::: code-group
-
-```ts [推荐用法]
+```ts {7-9}
 const obj = new Object3D();
 let mr = obj.addComponent(MeshRenderer);
 mr.geometry = new PlaneGeometry(size.x, size.y);
 mr.material = new LitMaterial();
+
 // 静态刚体，不响应重力
 let rigidbody = obj.addComponent(Rigidbody);
 rigidbody.mass = 0;
@@ -196,22 +180,4 @@ rigidbody.shape = Rigidbody.collisionShape.createShapeFromObject(obj);
 scene.addChild(obj);
 ```
 
-```ts [旧版用法]
-const obj = new Object3D();
-let mr = obj.addComponent(MeshRenderer);
-mr.geometry = new PlaneGeometry(size.x, size.y);
-mr.material = new LitMaterial();
-// 静态刚体，不响应重力
-let rigidbody = obj.addComponent(Rigidbody);
-rigidbody.mass = 0;
-// 设置碰撞盒子
-let collider = obj.addComponent(ColliderComponent);
-collider.shape = new BoxColliderShape();
-collider.shape.size = new Vector3(size.x, 0.1, size.y);
-
-scene.addChild(obj);
-```
-
-:::
-
-物理系统启动后，引擎立即根据物体质量响应其重力感应，当立方体和地面的碰撞体形状产生交集时，我们可以看到真实的物体落地碰撞效果。更多[物理示例](/example/physics/Dominoes)。
+物理系统启动后，引擎立即根据物体质量响应其重力感应，当立方体和地面的碰撞体形状产生交集时，我们可以看到真实的物体落地碰撞效果，更多[物理示例](/example/physics/Dominoes)。
