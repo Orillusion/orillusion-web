@@ -37,7 +37,7 @@ mesh.material = new LitMaterial();
 <<< @/public/demos/materials/UnLitMaterial.ts
 
 ## PBR 材质
-我们提倡使用 [LitMaterial](/api/classes/LitMaterial) 即 `PBR` 材质进行渲染。`PBR` 是 `Physicallly-Based Rendering` 的缩写，是指基于物理渲染的材质，它更符合真实的物理光照模型。
+我们提倡使用 [LitMaterial](/api/classes/LitMaterial) 即 `PBR` 材质进行渲染。`PBR` 是 `Physically-Based Rendering` 的缩写，是指基于物理渲染的材质，它更符合真实的物理光照模型。
 
 | 属性 | 描述 |
 | :---: | :---: |
