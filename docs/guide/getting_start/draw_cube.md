@@ -12,33 +12,33 @@ First, we need to import the corresponding modules:
 
 ```ts
 import {
-  Engine3D,
-  Scene3D,
-  Object3D,
-  Camera3D,
-  View3D,
-  LitMaterial,
-  BoxGeometry,
-  MeshRenderer,
-  DirectLight,
-  HoverCameraController,
-  AtmosphericComponent
+    Engine3D,
+    Scene3D,
+    Object3D,
+    Camera3D,
+    View3D,
+    LitMaterial,
+    BoxGeometry,
+    MeshRenderer,
+    DirectLight,
+    HoverCameraController,
+    AtmosphericComponent
 } from '@orillusion/core';
 ```
 
-| Modules | Description |
-| --- | --- |
-| Engine3D | Engine3D class is the main body of the engine, including engine initialization, start rendering and other core methods |
-| Scene3D | By creating a new Scene3D class, you can create a instance scene, which is usually used as the root node in the program |
-| Object3D | The Object3D class defines an object for object(things) that contains common object(things) properties such as position, rotation, and other parameters |
-| Camera3D | By creating a new Camera3D class you can create an instance of the camera 3D component, which can be added to the scene as a camera node |
-| View3D | View3D, specify the target scene and observation camera for engine rendering |
-| LitMaterial | The LitMaterial class allows you to create material instances and set material parameters to achieve different material effects |
-| BoxGeometry | The BoxGeometry class allows you to create a rectangular(box) geometry |
-| MeshRenderer | The MeshRenderer component provides mesh object geometry rendering for objects |
-| DirectLight | DirectLight component allows you to set the color, intensity properties and light angle of light to get the Suitable light effect |
-| HoverCameraController | HoverCamera component allows to control camera movement around the observation point |
-| AtmosphericComponent  | The built-in skybox component |
+| Modules               | Description                                                                                                                                             |
+|-----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Engine3D              | Engine3D class is the main body of the engine, including engine initialization, start rendering and other core methods                                  |
+| Scene3D               | By creating a new Scene3D class, you can create a instance scene, which is usually used as the root node in the program                                 |
+| Object3D              | The Object3D class defines an object for object(things) that contains common object(things) properties such as position, rotation, and other parameters |
+| Camera3D              | By creating a new Camera3D class you can create an instance of the camera 3D component, which can be added to the scene as a camera node                |
+| View3D                | View3D, specify the target scene and observation camera for engine rendering                                                                            |                                                                                                                                               |
+| LitMaterial           | The LitMaterial class allows you to create material instances and set material parameters to achieve different material effects.                        |
+| BoxGeometry           | The BoxGeometry class allows you to create a rectangular(box) geometry                                                                                  |
+| MeshRenderer          | The MeshRenderer component provides mesh object geometry rendering for objects                                                                          |
+| DirectLight           | DirectLight component allows you to set the color, intensity properties and light angle of light to get the Suitable light effect                       |
+| HoverCameraController | HoverCamera component allows to control camera movement around the observation point                                                                    |
+| AtmosphericComponent  | The built-in skybox component                                                                                                                           |
 
 ## Initialize the Engine
 
