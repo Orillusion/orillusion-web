@@ -81,6 +81,9 @@
     display: table;
     table-layout: auto;
 }
+.details > table {
+    display: block;
+}
 thead,
 tbody {
     width: 100%;
