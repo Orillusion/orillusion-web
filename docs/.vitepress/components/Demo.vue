@@ -91,11 +91,14 @@ export default {
             if(!globalThis.navigator?.gpu?.requestAdapter)
                 return false
             else{
-                let version = globalThis.navigator?.userAgent?.match(/chrome\/(\d+)/i)
-                if(version && +version[1] >= 113)
-                    return true
-                else
-                    return false
+                let chrome = globalThis.navigator?.userAgent?.match(/chrome\/(\d+)/i)
+                if(chrome){
+                    if(+chrome[1] >= 113)
+                        return true
+                    else
+                        return false
+                }
+                return true
             }
         },
         href(){

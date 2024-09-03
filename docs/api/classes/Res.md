@@ -751,7 +751,7 @@ ___
 
 load texture data from array of web url.
 make sure there are six images in a group,
-and the order is: nx, px, py, ny, nz, pz
+and the order is: [+X, -X, +Y, -Y, +Z, -Z]
 
 #### Parameters
 

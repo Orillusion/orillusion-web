@@ -123,10 +123,10 @@ td > code {
     display: none;
 }
 
-.VPNavBar .VPNavBarTranslations svg.option-icon {
+.VPNavBar .VPNavBarTranslations span.option-icon {
     margin-right: 2em;
 }
-.VPNavBar .VPNavBarTranslations > .button > .text::after {
+.VPNavBar .VPNavBarTranslations > .button > .text::before {
     content: 'EN';
     position: absolute;
     left: 3.7em;

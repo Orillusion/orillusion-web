@@ -41,6 +41,8 @@ Used in conjunction [PositionAudio](PositionAudio.md) or [StaticAudio](StaticAud
 - [onCompute](AudioListener.md#oncompute)
 - [onGraphic](AudioListener.md#ongraphic)
 - [onParentChange](AudioListener.md#onparentchange)
+- [onAddChild](AudioListener.md#onaddchild)
+- [onRemoveChild](AudioListener.md#onremovechild)
 - [cloneTo](AudioListener.md#cloneto)
 - [copyComponent](AudioListener.md#copycomponent)
 - [beforeDestroy](AudioListener.md#beforedestroy)
@@ -49,7 +51,11 @@ Used in conjunction [PositionAudio](PositionAudio.md) or [StaticAudio](StaticAud
 
 ### constructor
 
-• **new AudioListener**()
+• **new AudioListener**(): [`AudioListener`](AudioListener.md)
+
+#### Returns
+
+[`AudioListener`](AudioListener.md)
 
 #### Overrides
 
@@ -327,7 +333,7 @@ ___
 
 ### onEnable
 
-▸ `Optional` **onEnable**(`view?`): `any`
+▸ **onEnable**(`view?`): `any`
 
 #### Parameters
 
@@ -351,7 +357,7 @@ ___
 
 ### onDisable
 
-▸ `Optional` **onDisable**(`view?`): `any`
+▸ **onDisable**(`view?`): `any`
 
 #### Parameters
 
@@ -375,7 +381,7 @@ ___
 
 ### onLateUpdate
 
-▸ `Optional` **onLateUpdate**(`view?`): `any`
+▸ **onLateUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -399,7 +405,7 @@ ___
 
 ### onBeforeUpdate
 
-▸ `Optional` **onBeforeUpdate**(`view?`): `any`
+▸ **onBeforeUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -423,7 +429,7 @@ ___
 
 ### onCompute
 
-▸ `Optional` **onCompute**(`view?`, `command?`): `any`
+▸ **onCompute**(`view?`, `command?`): `any`
 
 #### Parameters
 
@@ -448,7 +454,7 @@ ___
 
 ### onGraphic
 
-▸ `Optional` **onGraphic**(`view?`): `any`
+▸ **onGraphic**(`view?`): `any`
 
 #### Parameters
 
@@ -472,7 +478,7 @@ ___
 
 ### onParentChange
 
-▸ `Optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
+▸ **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
 #### Parameters
 
@@ -492,6 +498,54 @@ ComponentBase.onParentChange
 #### Defined in
 
 [src/components/ComponentBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L122)
+
+___
+
+### onAddChild
+
+▸ **onAddChild**(`child`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `child` | `Object3D` |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+ComponentBase.onAddChild
+
+#### Defined in
+
+[src/components/ComponentBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L123)
+
+___
+
+### onRemoveChild
+
+▸ **onRemoveChild**(`child`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `child` | `Object3D` |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+ComponentBase.onRemoveChild
+
+#### Defined in
+
+[src/components/ComponentBase.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L124)
 
 ___
 
@@ -517,23 +571,23 @@ ComponentBase.cloneTo
 
 #### Defined in
 
-[src/components/ComponentBase.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L129)
+[src/components/ComponentBase.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L131)
 
 ___
 
 ### copyComponent
 
-▸ **copyComponent**(`from`): [`AudioListener`](AudioListener.md)
+▸ **copyComponent**(`from`): `this`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `from` | [`AudioListener`](AudioListener.md) |
+| `from` | `this` |
 
 #### Returns
 
-[`AudioListener`](AudioListener.md)
+`this`
 
 #### Inherited from
 
@@ -541,7 +595,7 @@ ComponentBase.copyComponent
 
 #### Defined in
 
-[src/components/ComponentBase.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L131)
+[src/components/ComponentBase.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L133)
 
 ___
 
@@ -567,4 +621,4 @@ ComponentBase.beforeDestroy
 
 #### Defined in
 
-[src/components/ComponentBase.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L198)
+[src/components/ComponentBase.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L200)

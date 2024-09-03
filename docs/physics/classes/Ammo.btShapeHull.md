@@ -16,7 +16,7 @@
 
 ### constructor
 
-• **new btShapeHull**(`shape`)
+• **new btShapeHull**(`shape`): [`btShapeHull`](Ammo.btShapeHull.md)
 
 #### Parameters
 
@@ -24,9 +24,13 @@
 | :------ | :------ |
 | `shape` | [`btConvexShape`](Ammo.btConvexShape.md) |
 
+#### Returns
+
+[`btShapeHull`](Ammo.btShapeHull.md)
+
 #### Defined in
 
-[packages/ammo/ammo.d.ts:367](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L367)
+[packages/ammo/ammo.d.ts:373](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L373)
 
 ## Methods
 
@@ -46,7 +50,7 @@
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:368](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L368)
+[packages/ammo/ammo.d.ts:374](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L374)
 
 ___
 
@@ -60,7 +64,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:369](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L369)
+[packages/ammo/ammo.d.ts:375](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L375)
 
 ___
 
@@ -74,4 +78,4 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:370](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L370)
+[packages/ammo/ammo.d.ts:376](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L376)

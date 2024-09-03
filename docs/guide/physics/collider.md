@@ -73,6 +73,10 @@ collider.shape.size = new Vector3(2, 2, 2);
 
 By using collider components, we can simulate realistic physical effects. The following example demonstrates a more complex scenario to further understand the effects that can be achieved through the physical system.
 
+:::tip
+Starting from `@orillusion/physics@0.3`, we recommend using native `Shape` of `Ammo` to manage collision bodies，such as `btStaticPlaneShape` `btBoxShape` `btSphereShape` `btCapsuleShape` `btCylinderShape`, etc., which allow for more complex shape control
+:::
+
 <Demo src="/demos/physics/demo2.ts"></Demo>
 
 <<< @/public/demos/physics/demo2.ts

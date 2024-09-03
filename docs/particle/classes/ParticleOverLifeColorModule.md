@@ -30,7 +30,11 @@ Particle module of color change over life time
 
 ### constructor
 
-• **new ParticleOverLifeColorModule**()
+• **new ParticleOverLifeColorModule**(): [`ParticleOverLifeColorModule`](ParticleOverLifeColorModule.md)
+
+#### Returns
+
+[`ParticleOverLifeColorModule`](ParticleOverLifeColorModule.md)
 
 #### Inherited from
 

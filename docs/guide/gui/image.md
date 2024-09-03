@@ -1,7 +1,10 @@
 # UIImage
 
 [UIImage](/api/classes/UIImage) provides the display function of the image. You can load a single image or load a list of sprite atlas `GUISprite` to the engine through `loadAtlas`, and then specify `GUISprite` to assign to the image component for rendering.
-> Making `Atlas` sprite atlas depends on external third-party tools, please search for the production method by yourself. The default `UIImage` component does not set the sprite map, and it will be presented in the form of a white square
+
+:::tip
+Making `Atlas` sprite atlas depends on external third-party tools, please search for the production method by yourself. The default `UIImage` component does not set the sprite map, and it will be presented in the form of a white square
+:::
 
 ```ts
 import { Engine3D } from '@orillusion/core';

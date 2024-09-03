@@ -24,8 +24,11 @@ demo();
 By default, the `Engine3D.init()` instance automatically generates a `canvas` canvas with the screen size (width and height). If you do not want to use the canvas automatically created by the engine, you can also create the canvas manually.
 For example, the user can insert a `<canvas>` label into the HTML and specify an id:
 ```html
-<canvas id="canvas" width="800" height="500" />
+<canvas id="canvas" style="width:800px;height:500px" />
 ```
+::: tip
+Using an external canvas requires manually setting the `style` size, such as specific pixel values, or setting it to `100%` to automatically fill the parent container.
+:::
 
 then using `document.getElementById`  in Typescript to get the canvas:
 ```ts

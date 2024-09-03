@@ -16,7 +16,7 @@
 
 ### constructor
 
-• **new btSoftBodyRigidBodyCollisionConfiguration**(`info?`)
+• **new btSoftBodyRigidBodyCollisionConfiguration**(`info?`): [`btSoftBodyRigidBodyCollisionConfiguration`](Ammo.btSoftBodyRigidBodyCollisionConfiguration.md)
 
 #### Parameters
 
@@ -24,10 +24,14 @@
 | :------ | :------ |
 | `info?` | [`btDefaultCollisionConstructionInfo`](Ammo.btDefaultCollisionConstructionInfo.md) |
 
+#### Returns
+
+[`btSoftBodyRigidBodyCollisionConfiguration`](Ammo.btSoftBodyRigidBodyCollisionConfiguration.md)
+
 #### Overrides
 
 [btDefaultCollisionConfiguration](Ammo.btDefaultCollisionConfiguration.md).[constructor](Ammo.btDefaultCollisionConfiguration.md#constructor)
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:1044](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L1044)
+[packages/ammo/ammo.d.ts:1059](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L1059)

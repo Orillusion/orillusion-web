@@ -15,8 +15,9 @@ class Sample_PhysicsCar {
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
         Engine3D.setting.shadow.updateFrameRate = 1;
-        Engine3D.setting.shadow.shadowSize = 2048;
-        Engine3D.setting.shadow.shadowBound = 150;
+        Engine3D.setting.shadow.shadowSize = 4000;
+        Engine3D.setting.shadow.shadowBound = 100;
+        Engine3D.setting.shadow.shadowBias = 0.002;
 
         await Physics.init();
         await Engine3D.init({ renderLoop: () => this.loop() });
@@ -31,7 +32,7 @@ class Sample_PhysicsCar {
         // init Camera3D
         let camera = (this.camera = CameraUtil.createCamera3DObject(scene));
         camera.perspective(60, Engine3D.aspect, 1, 5000);
-        camera.enableCSM = true;
+
         // init Camera Controller
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController);
         hoverCtrl.setCamera(-30, -15, 50);
@@ -48,7 +49,7 @@ class Sample_PhysicsCar {
         let light = lightObj3D.addComponent(DirectLight);
         light.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
         light.castShadow = true;
-        light.intensity = 30;
+        light.intensity = 4;
 
         scene.addChild(light.object3D);
 

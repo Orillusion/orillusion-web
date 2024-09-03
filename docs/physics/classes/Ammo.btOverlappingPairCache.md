@@ -15,7 +15,11 @@
 
 ### constructor
 
-• **new btOverlappingPairCache**()
+• **new btOverlappingPairCache**(): [`btOverlappingPairCache`](Ammo.btOverlappingPairCache.md)
+
+#### Returns
+
+[`btOverlappingPairCache`](Ammo.btOverlappingPairCache.md)
 
 ## Methods
 
@@ -35,7 +39,7 @@
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:440](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L440)
+[packages/ammo/ammo.d.ts:450](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L450)
 
 ___
 
@@ -49,4 +53,4 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:441](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L441)
+[packages/ammo/ammo.d.ts:451](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L451)

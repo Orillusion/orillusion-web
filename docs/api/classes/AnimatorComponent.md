@@ -17,6 +17,7 @@ The component can receive update events at each frame.
 
 - [object3D](AnimatorComponent.md#object3d)
 - [isDestroyed](AnimatorComponent.md#isdestroyed)
+- [timeScale](AnimatorComponent.md#timescale)
 - [jointMatrixIndexTableBuffer](AnimatorComponent.md#jointmatrixindextablebuffer)
 - [playBlendShapeLoop](AnimatorComponent.md#playblendshapeloop)
 - [root](AnimatorComponent.md#root)
@@ -28,7 +29,9 @@ The component can receive update events at each frame.
 - [transform](AnimatorComponent.md#transform)
 - [enable](AnimatorComponent.md#enable)
 - [avatar](AnimatorComponent.md#avatar)
+- [numJoint](AnimatorComponent.md#numjoint)
 - [clips](AnimatorComponent.md#clips)
+- [clipsState](AnimatorComponent.md#clipsstate)
 
 ### Methods
 
@@ -40,17 +43,22 @@ The component can receive update events at each frame.
 - [onCompute](AnimatorComponent.md#oncompute)
 - [onGraphic](AnimatorComponent.md#ongraphic)
 - [onParentChange](AnimatorComponent.md#onparentchange)
+- [onAddChild](AnimatorComponent.md#onaddchild)
+- [onRemoveChild](AnimatorComponent.md#onremovechild)
 - [copyComponent](AnimatorComponent.md#copycomponent)
 - [beforeDestroy](AnimatorComponent.md#beforedestroy)
 - [destroy](AnimatorComponent.md#destroy)
 - [init](AnimatorComponent.md#init)
 - [start](AnimatorComponent.md#start)
 - [playAnim](AnimatorComponent.md#playanim)
+- [crossFade](AnimatorComponent.md#crossfade)
 - [playBlendShape](AnimatorComponent.md#playblendshape)
 - [getJointIndexTable](AnimatorComponent.md#getjointindextable)
 - [cloneTo](AnimatorComponent.md#cloneto)
 - [onUpdate](AnimatorComponent.md#onupdate)
 - [updateBlendShape](AnimatorComponent.md#updateblendshape)
+- [getAnimationClipState](AnimatorComponent.md#getanimationclipstate)
+- [cloneMorphRenderers](AnimatorComponent.md#clonemorphrenderers)
 
 ## Constructors
 
@@ -98,13 +106,23 @@ ___
 
 ___
 
+### timeScale
+
+• **timeScale**: `number` = `1.0`
+
+#### Defined in
+
+[src/components/anim/AnimatorComponent.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L8)
+
+___
+
 ### jointMatrixIndexTableBuffer
 
 • **jointMatrixIndexTableBuffer**: [`StorageGPUBuffer`](StorageGPUBuffer.md)
 
 #### Defined in
 
-[src/components/anim/AnimatorComponent.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L8)
+[src/components/anim/AnimatorComponent.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L9)
 
 ___
 
@@ -114,7 +132,7 @@ ___
 
 #### Defined in
 
-[src/components/anim/AnimatorComponent.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L9)
+[src/components/anim/AnimatorComponent.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L10)
 
 ___
 
@@ -124,7 +142,7 @@ ___
 
 #### Defined in
 
-[src/components/anim/AnimatorComponent.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L26)
+[src/components/anim/AnimatorComponent.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L28)
 
 ## Accessors
 
@@ -262,7 +280,21 @@ ___
 
 #### Defined in
 
-[src/components/anim/AnimatorComponent.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L64)
+[src/components/anim/AnimatorComponent.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L125)
+
+___
+
+### numJoint
+
+• `get` **numJoint**(): `number`
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[src/components/anim/AnimatorComponent.ts:136](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L136)
 
 ___
 
@@ -276,7 +308,7 @@ ___
 
 #### Defined in
 
-[src/components/anim/AnimatorComponent.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L129)
+[src/components/anim/AnimatorComponent.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L200)
 
 • `set` **clips**(`clips`): `void`
 
@@ -292,7 +324,21 @@ ___
 
 #### Defined in
 
-[src/components/anim/AnimatorComponent.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L121)
+[src/components/anim/AnimatorComponent.ts:186](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L186)
+
+___
+
+### clipsState
+
+• `get` **clipsState**(): [`PropertyAnimationClipState`](PropertyAnimationClipState.md)[]
+
+#### Returns
+
+[`PropertyAnimationClipState`](PropertyAnimationClipState.md)[]
+
+#### Defined in
+
+[src/components/anim/AnimatorComponent.ts:204](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L204)
 
 ## Methods
 
@@ -484,6 +530,54 @@ ___
 
 ___
 
+### onAddChild
+
+▸ **onAddChild**(`child`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `child` | [`Object3D`](Object3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onAddChild](ComponentBase.md#onaddchild)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L123)
+
+___
+
+### onRemoveChild
+
+▸ **onRemoveChild**(`child`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `child` | [`Object3D`](Object3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ComponentBase](ComponentBase.md).[onRemoveChild](ComponentBase.md#onremovechild)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L124)
+
+___
+
 ### copyComponent
 
 ▸ **copyComponent**(`from`): `this`
@@ -504,7 +598,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L131)
+[src/components/ComponentBase.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L133)
 
 ___
 
@@ -530,7 +624,7 @@ before release this component, object refrences are not be set null now.
 
 #### Defined in
 
-[src/components/ComponentBase.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L198)
+[src/components/ComponentBase.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L200)
 
 ___
 
@@ -556,7 +650,7 @@ release this component
 
 #### Defined in
 
-[src/components/ComponentBase.ts:205](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L205)
+[src/components/ComponentBase.ts:207](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L207)
 
 ___
 
@@ -580,7 +674,7 @@ ___
 
 #### Defined in
 
-[src/components/anim/AnimatorComponent.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L29)
+[src/components/anim/AnimatorComponent.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L36)
 
 ___
 
@@ -598,7 +692,7 @@ ___
 
 #### Defined in
 
-[src/components/anim/AnimatorComponent.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L35)
+[src/components/anim/AnimatorComponent.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L57)
 
 ___
 
@@ -620,7 +714,28 @@ ___
 
 #### Defined in
 
-[src/components/anim/AnimatorComponent.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L42)
+[src/components/anim/AnimatorComponent.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L64)
+
+___
+
+### crossFade
+
+▸ **crossFade**(`anim`, `crossTime`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `anim` | `string` |
+| `crossTime` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/components/anim/AnimatorComponent.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L80)
 
 ___
 
@@ -642,7 +757,7 @@ ___
 
 #### Defined in
 
-[src/components/anim/AnimatorComponent.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L53)
+[src/components/anim/AnimatorComponent.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L114)
 
 ___
 
@@ -662,7 +777,7 @@ ___
 
 #### Defined in
 
-[src/components/anim/AnimatorComponent.ts:75](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L75)
+[src/components/anim/AnimatorComponent.ts:140](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L140)
 
 ___
 
@@ -688,7 +803,7 @@ clone component data to target object3D
 
 #### Defined in
 
-[src/components/anim/AnimatorComponent.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L133)
+[src/components/anim/AnimatorComponent.ts:208](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L208)
 
 ___
 
@@ -712,7 +827,7 @@ ___
 
 #### Defined in
 
-[src/components/anim/AnimatorComponent.ts:159](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L159)
+[src/components/anim/AnimatorComponent.ts:240](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L240)
 
 ___
 
@@ -734,4 +849,42 @@ ___
 
 #### Defined in
 
-[src/components/anim/AnimatorComponent.ts:231](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L231)
+[src/components/anim/AnimatorComponent.ts:305](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L305)
+
+___
+
+### getAnimationClipState
+
+▸ **getAnimationClipState**(`name`): [`PropertyAnimationClipState`](PropertyAnimationClipState.md)
+
+Gets the animation clip data object with the specified name
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `name` | `string` | Name of animation |
+
+#### Returns
+
+[`PropertyAnimationClipState`](PropertyAnimationClipState.md)
+
+Animation clip data object
+
+#### Defined in
+
+[src/components/anim/AnimatorComponent.ts:413](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L413)
+
+___
+
+### cloneMorphRenderers
+
+▸ **cloneMorphRenderers**(): `Object`
+
+#### Returns
+
+`Object`
+
+#### Defined in
+
+[src/components/anim/AnimatorComponent.ts:422](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L422)

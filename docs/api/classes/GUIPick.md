@@ -40,4 +40,4 @@ Initialize the pickup and call it internally during engine initialization
 
 #### Defined in
 
-[src/components/gui/GUIPick.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIPick.ts#L36)
+[src/components/gui/GUIPick.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/GUIPick.ts#L35)

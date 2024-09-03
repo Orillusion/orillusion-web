@@ -15,7 +15,11 @@
 
 ### constructor
 
-• **new tMaterialArray**()
+• **new tMaterialArray**(): [`tMaterialArray`](Ammo.tMaterialArray.md)
+
+#### Returns
+
+[`tMaterialArray`](Ammo.tMaterialArray.md)
 
 ## Methods
 
@@ -29,7 +33,7 @@
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:931](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L931)
+[packages/ammo/ammo.d.ts:946](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L946)
 
 ___
 
@@ -49,4 +53,4 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:932](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L932)
+[packages/ammo/ammo.d.ts:947](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L947)

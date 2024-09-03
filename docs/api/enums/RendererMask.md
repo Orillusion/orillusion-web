@@ -12,6 +12,9 @@ RenderMask
 - [MorphTarget](RendererMask.md#morphtarget)
 - [Terrain](RendererMask.md#terrain)
 - [UI](RendererMask.md#ui)
+- [Reflection](RendererMask.md#reflection)
+- [ReflectionDebug](RendererMask.md#reflectiondebug)
+- [Graphic3D](RendererMask.md#graphic3d)
 
 ## Enumeration Members
 
@@ -92,3 +95,33 @@ ___
 #### Defined in
 
 [src/gfx/renderJob/passRenderer/state/RendererMask.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/state/RendererMask.ts#L13)
+
+___
+
+### Reflection
+
+• **Reflection** = ``256``
+
+#### Defined in
+
+[src/gfx/renderJob/passRenderer/state/RendererMask.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/state/RendererMask.ts#L14)
+
+___
+
+### ReflectionDebug
+
+• **ReflectionDebug** = ``512``
+
+#### Defined in
+
+[src/gfx/renderJob/passRenderer/state/RendererMask.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/state/RendererMask.ts#L15)
+
+___
+
+### Graphic3D
+
+• **Graphic3D** = ``1024``
+
+#### Defined in
+
+[src/gfx/renderJob/passRenderer/state/RendererMask.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/state/RendererMask.ts#L16)

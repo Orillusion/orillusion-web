@@ -58,6 +58,8 @@ Dynamic audio component, with volume varying based on the relative position of t
 - [onCompute](PositionAudio.md#oncompute)
 - [onGraphic](PositionAudio.md#ongraphic)
 - [onParentChange](PositionAudio.md#onparentchange)
+- [onAddChild](PositionAudio.md#onaddchild)
+- [onRemoveChild](PositionAudio.md#onremovechild)
 - [cloneTo](PositionAudio.md#cloneto)
 - [copyComponent](PositionAudio.md#copycomponent)
 - [beforeDestroy](PositionAudio.md#beforedestroy)
@@ -66,7 +68,11 @@ Dynamic audio component, with volume varying based on the relative position of t
 
 ### constructor
 
-• **new PositionAudio**()
+• **new PositionAudio**(): [`PositionAudio`](PositionAudio.md)
+
+#### Returns
+
+[`PositionAudio`](PositionAudio.md)
 
 #### Overrides
 
@@ -414,7 +420,7 @@ StaticAudio.enable
 
 ### setLisenter
 
-▸ **setLisenter**(`listener`): [`PositionAudio`](PositionAudio.md)
+▸ **setLisenter**(`listener`): `this`
 
 #### Parameters
 
@@ -424,7 +430,7 @@ StaticAudio.enable
 
 #### Returns
 
-[`PositionAudio`](PositionAudio.md)
+`this`
 
 #### Overrides
 
@@ -541,11 +547,11 @@ ___
 
 ### stop
 
-▸ **stop**(): [`PositionAudio`](PositionAudio.md)
+▸ **stop**(): `this`
 
 #### Returns
 
-[`PositionAudio`](PositionAudio.md)
+`this`
 
 #### Overrides
 
@@ -601,7 +607,7 @@ ___
 
 ### load
 
-▸ **load**(`url`, `options?`): `Promise`<`void`\>
+▸ **load**(`url`, `options?`): `Promise`\<`void`\>
 
 #### Parameters
 
@@ -612,7 +618,7 @@ ___
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Inherited from
 
@@ -626,7 +632,7 @@ ___
 
 ### loadBuffer
 
-▸ **loadBuffer**(`buffer`, `options?`): `Promise`<`void`\>
+▸ **loadBuffer**(`buffer`, `options?`): `Promise`\<`void`\>
 
 #### Parameters
 
@@ -637,7 +643,7 @@ ___
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Inherited from
 
@@ -651,11 +657,11 @@ ___
 
 ### play
 
-▸ **play**(): [`PositionAudio`](PositionAudio.md)
+▸ **play**(): `this`
 
 #### Returns
 
-[`PositionAudio`](PositionAudio.md)
+`this`
 
 #### Inherited from
 
@@ -669,11 +675,11 @@ ___
 
 ### pause
 
-▸ **pause**(): [`PositionAudio`](PositionAudio.md)
+▸ **pause**(): `this`
 
 #### Returns
 
-[`PositionAudio`](PositionAudio.md)
+`this`
 
 #### Inherited from
 
@@ -687,7 +693,7 @@ ___
 
 ### setVolume
 
-▸ **setVolume**(`value`): [`PositionAudio`](PositionAudio.md)
+▸ **setVolume**(`value`): `this`
 
 #### Parameters
 
@@ -697,7 +703,7 @@ ___
 
 #### Returns
 
-[`PositionAudio`](PositionAudio.md)
+`this`
 
 #### Inherited from
 
@@ -735,7 +741,7 @@ ___
 
 ### onEnable
 
-▸ `Optional` **onEnable**(`view?`): `any`
+▸ **onEnable**(`view?`): `any`
 
 #### Parameters
 
@@ -759,7 +765,7 @@ ___
 
 ### onDisable
 
-▸ `Optional` **onDisable**(`view?`): `any`
+▸ **onDisable**(`view?`): `any`
 
 #### Parameters
 
@@ -783,7 +789,7 @@ ___
 
 ### onLateUpdate
 
-▸ `Optional` **onLateUpdate**(`view?`): `any`
+▸ **onLateUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -807,7 +813,7 @@ ___
 
 ### onBeforeUpdate
 
-▸ `Optional` **onBeforeUpdate**(`view?`): `any`
+▸ **onBeforeUpdate**(`view?`): `any`
 
 #### Parameters
 
@@ -831,7 +837,7 @@ ___
 
 ### onCompute
 
-▸ `Optional` **onCompute**(`view?`, `command?`): `any`
+▸ **onCompute**(`view?`, `command?`): `any`
 
 #### Parameters
 
@@ -856,7 +862,7 @@ ___
 
 ### onGraphic
 
-▸ `Optional` **onGraphic**(`view?`): `any`
+▸ **onGraphic**(`view?`): `any`
 
 #### Parameters
 
@@ -880,7 +886,7 @@ ___
 
 ### onParentChange
 
-▸ `Optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
+▸ **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
 #### Parameters
 
@@ -900,6 +906,54 @@ ___
 #### Defined in
 
 [src/components/ComponentBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L122)
+
+___
+
+### onAddChild
+
+▸ **onAddChild**(`child`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `child` | `Object3D` |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[StaticAudio](StaticAudio.md).[onAddChild](StaticAudio.md#onaddchild)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L123)
+
+___
+
+### onRemoveChild
+
+▸ **onRemoveChild**(`child`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `child` | `Object3D` |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[StaticAudio](StaticAudio.md).[onRemoveChild](StaticAudio.md#onremovechild)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L124)
 
 ___
 
@@ -925,23 +979,23 @@ clone component data to target object3D
 
 #### Defined in
 
-[src/components/ComponentBase.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L129)
+[src/components/ComponentBase.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L131)
 
 ___
 
 ### copyComponent
 
-▸ **copyComponent**(`from`): [`PositionAudio`](PositionAudio.md)
+▸ **copyComponent**(`from`): `this`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `from` | [`PositionAudio`](PositionAudio.md) |
+| `from` | `this` |
 
 #### Returns
 
-[`PositionAudio`](PositionAudio.md)
+`this`
 
 #### Inherited from
 
@@ -949,7 +1003,7 @@ ___
 
 #### Defined in
 
-[src/components/ComponentBase.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L131)
+[src/components/ComponentBase.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L133)
 
 ___
 
@@ -975,4 +1029,4 @@ before release this component, object refrences are not be set null now.
 
 #### Defined in
 
-[src/components/ComponentBase.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L198)
+[src/components/ComponentBase.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L200)

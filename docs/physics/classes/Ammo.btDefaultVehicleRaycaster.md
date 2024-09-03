@@ -20,7 +20,7 @@
 
 ### constructor
 
-• **new btDefaultVehicleRaycaster**(`world`)
+• **new btDefaultVehicleRaycaster**(`world`): [`btDefaultVehicleRaycaster`](Ammo.btDefaultVehicleRaycaster.md)
 
 #### Parameters
 
@@ -28,13 +28,17 @@
 | :------ | :------ |
 | `world` | [`btDynamicsWorld`](Ammo.btDynamicsWorld.md) |
 
+#### Returns
+
+[`btDefaultVehicleRaycaster`](Ammo.btDefaultVehicleRaycaster.md)
+
 #### Overrides
 
 [btVehicleRaycaster](Ammo.btVehicleRaycaster.md).[constructor](Ammo.btVehicleRaycaster.md#constructor)
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:703](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L703)
+[packages/ammo/ammo.d.ts:718](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L718)
 
 ## Methods
 
@@ -60,4 +64,4 @@
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:700](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L700)
+[packages/ammo/ammo.d.ts:715](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L715)

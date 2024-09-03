@@ -20,7 +20,11 @@
 
 ### constructor
 
-• **new btStridingMeshInterface**()
+• **new btStridingMeshInterface**(): [`btStridingMeshInterface`](Ammo.btStridingMeshInterface.md)
+
+#### Returns
+
+[`btStridingMeshInterface`](Ammo.btStridingMeshInterface.md)
 
 ## Methods
 
@@ -40,4 +44,4 @@
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:384](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L384)
+[packages/ammo/ammo.d.ts:390](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L390)

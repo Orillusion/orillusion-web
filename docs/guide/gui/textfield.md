@@ -31,9 +31,9 @@ The text component depends on the `Bitmap Font` atlas. You need to load the `fnt
 > Making `Bitmap Font` font files depends on external third-party tools, users can refer to [Hiero](https://libgdx.com/wiki/tools/hiero) or [Distance field fonts
 ](https://libgdx.com/wiki/graphics/2d/fonts/distance-field-fonts) for more help
 ```ts
-// Load BMFont font file that supports Microsoft Yahei
+// Load a BMFont font file
 await Engine3D.res.loadFont('path/to/font.fnt');
-text.font = '微软雅黑';// 'Microsoft Yahei'
+text.font = 'fontName'; // set by font name
 ```
 
 ## Set Content

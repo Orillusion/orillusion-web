@@ -16,7 +16,7 @@
 
 ### constructor
 
-• **new btDefaultCollisionConfiguration**(`info?`)
+• **new btDefaultCollisionConfiguration**(`info?`): [`btDefaultCollisionConfiguration`](Ammo.btDefaultCollisionConfiguration.md)
 
 #### Parameters
 
@@ -24,6 +24,10 @@
 | :------ | :------ |
 | `info?` | [`btDefaultCollisionConstructionInfo`](Ammo.btDefaultCollisionConstructionInfo.md) |
 
+#### Returns
+
+[`btDefaultCollisionConfiguration`](Ammo.btDefaultCollisionConfiguration.md)
+
 #### Defined in
 
-[packages/ammo/ammo.d.ts:422](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L422)
+[packages/ammo/ammo.d.ts:432](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L432)

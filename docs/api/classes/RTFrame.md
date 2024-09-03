@@ -6,6 +6,8 @@
 
   ↳ [`GBufferFrame`](GBufferFrame.md)
 
+  ↳ [`GBufferFrameA`](GBufferFrameA.md)
+
   ↳ [`ProbeGBufferFrame`](ProbeGBufferFrame.md)
 
 ### Constructors

@@ -27,7 +27,11 @@
 
 ### constructor
 
-• **new btQuadWord**()
+• **new btQuadWord**(): [`btQuadWord`](Ammo.btQuadWord.md)
+
+#### Returns
+
+[`btQuadWord`](Ammo.btQuadWord.md)
 
 ## Methods
 
@@ -41,7 +45,7 @@
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:64](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L64)
+[packages/ammo/ammo.d.ts:69](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L69)
 
 ___
 
@@ -55,7 +59,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:65](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L65)
+[packages/ammo/ammo.d.ts:70](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L70)
 
 ___
 
@@ -69,7 +73,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:66](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L66)
+[packages/ammo/ammo.d.ts:71](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L71)
 
 ___
 
@@ -83,7 +87,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:67](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L67)
+[packages/ammo/ammo.d.ts:72](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L72)
 
 ___
 
@@ -103,7 +107,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:68](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L68)
+[packages/ammo/ammo.d.ts:73](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L73)
 
 ___
 
@@ -123,7 +127,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:69](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L69)
+[packages/ammo/ammo.d.ts:74](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L74)
 
 ___
 
@@ -143,7 +147,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:70](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L70)
+[packages/ammo/ammo.d.ts:75](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L75)
 
 ___
 
@@ -163,4 +167,4 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:71](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L71)
+[packages/ammo/ammo.d.ts:76](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L76)

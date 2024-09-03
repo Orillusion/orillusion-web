@@ -33,7 +33,11 @@ Particle Module of rotate quad
 
 ### constructor
 
-• **new ParticleRotationModule**()
+• **new ParticleRotationModule**(): [`ParticleRotationModule`](ParticleRotationModule.md)
+
+#### Returns
+
+[`ParticleRotationModule`](ParticleRotationModule.md)
 
 #### Inherited from
 

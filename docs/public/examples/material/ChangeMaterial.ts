@@ -9,7 +9,7 @@ class Sample_ChangeMaterial {
         await Engine3D.init();
 
         Engine3D.setting.material.materialChannelDebug = true;
-        Engine3D.setting.shadow.shadowBound = 5;
+        Engine3D.setting.shadow.shadowBound = 200;
 
         this.scene = new Scene3D();
         let sky = this.scene.addComponent(AtmosphericComponent);
@@ -40,7 +40,7 @@ class Sample_ChangeMaterial {
             let directLight = lightObj.addComponent(DirectLight);
             directLight.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
             directLight.castShadow = true;
-            directLight.intensity = 30;
+            directLight.intensity = 3;
             this.scene.addChild(lightObj);
         }
 

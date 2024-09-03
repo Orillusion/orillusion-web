@@ -6,7 +6,9 @@ class Sample_TAA {
 
     async run() {
         Engine3D.setting.shadow.enable = true;
-        Engine3D.setting.shadow.shadowBound = 100;
+        Engine3D.setting.shadow.shadowSize = 2048;
+		Engine3D.setting.shadow.shadowBound = 40;
+		Engine3D.setting.shadow.shadowBias = 0.005;
 
         await Engine3D.init({
             canvasConfig: {
@@ -41,7 +43,7 @@ class Sample_TAA {
             let lc = this.lightObj.addComponent(DirectLight);
             lc.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
             lc.castShadow = true;
-            lc.intensity = 10;
+            lc.intensity = 4;
             this.scene.addChild(this.lightObj);
         }
 

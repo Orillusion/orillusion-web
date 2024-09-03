@@ -19,7 +19,11 @@
 
 ### constructor
 
-• **new Face**()
+• **new Face**(): [`Face`](Ammo.Face.md)
+
+#### Returns
+
+[`Face`](Ammo.Face.md)
 
 ## Methods
 
@@ -33,7 +37,7 @@ readonly [`Node`](Ammo.Node.md)[]
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:889](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L889)
+[packages/ammo/ammo.d.ts:904](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L904)
 
 ___
 
@@ -53,7 +57,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:890](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L890)
+[packages/ammo/ammo.d.ts:905](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L905)
 
 ___
 
@@ -67,7 +71,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:891](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L891)
+[packages/ammo/ammo.d.ts:906](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L906)
 
 ___
 
@@ -87,7 +91,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:892](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L892)
+[packages/ammo/ammo.d.ts:907](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L907)
 
 ___
 
@@ -101,7 +105,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:893](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L893)
+[packages/ammo/ammo.d.ts:908](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L908)
 
 ___
 
@@ -121,4 +125,4 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:894](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L894)
+[packages/ammo/ammo.d.ts:909](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L909)

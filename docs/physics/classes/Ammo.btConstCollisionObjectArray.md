@@ -15,7 +15,11 @@
 
 ### constructor
 
-• **new btConstCollisionObjectArray**()
+• **new btConstCollisionObjectArray**(): [`btConstCollisionObjectArray`](Ammo.btConstCollisionObjectArray.md)
+
+#### Returns
+
+[`btConstCollisionObjectArray`](Ammo.btConstCollisionObjectArray.md)
 
 ## Methods
 
@@ -29,7 +33,7 @@
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:180](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L180)
+[packages/ammo/ammo.d.ts:186](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L186)
 
 ___
 
@@ -49,4 +53,4 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:181](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L181)
+[packages/ammo/ammo.d.ts:187](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L187)

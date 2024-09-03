@@ -19,7 +19,11 @@
 
 ### constructor
 
-• **new btIDebugDraw**()
+• **new btIDebugDraw**(): [`btIDebugDraw`](Ammo.btIDebugDraw.md)
+
+#### Returns
+
+[`btIDebugDraw`](Ammo.btIDebugDraw.md)
 
 ## Methods
 
@@ -41,7 +45,7 @@
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:22](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L22)
+[packages/ammo/ammo.d.ts:27](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L27)
 
 ___
 
@@ -65,7 +69,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:23](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L23)
+[packages/ammo/ammo.d.ts:28](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L28)
 
 ___
 
@@ -85,7 +89,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:24](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L24)
+[packages/ammo/ammo.d.ts:29](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L29)
 
 ___
 
@@ -106,7 +110,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:25](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L25)
+[packages/ammo/ammo.d.ts:30](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L30)
 
 ___
 
@@ -126,7 +130,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:26](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L26)
+[packages/ammo/ammo.d.ts:31](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L31)
 
 ___
 
@@ -140,4 +144,4 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:27](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L27)
+[packages/ammo/ammo.d.ts:32](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L32)

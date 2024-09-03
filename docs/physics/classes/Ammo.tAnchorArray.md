@@ -18,7 +18,11 @@
 
 ### constructor
 
-• **new tAnchorArray**()
+• **new tAnchorArray**(): [`tAnchorArray`](Ammo.tAnchorArray.md)
+
+#### Returns
+
+[`tAnchorArray`](Ammo.tAnchorArray.md)
 
 ## Methods
 
@@ -32,7 +36,7 @@
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:951](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L951)
+[packages/ammo/ammo.d.ts:966](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L966)
 
 ___
 
@@ -52,7 +56,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:952](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L952)
+[packages/ammo/ammo.d.ts:967](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L967)
 
 ___
 
@@ -66,7 +70,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:953](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L953)
+[packages/ammo/ammo.d.ts:968](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L968)
 
 ___
 
@@ -86,7 +90,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:954](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L954)
+[packages/ammo/ammo.d.ts:969](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L969)
 
 ___
 
@@ -100,4 +104,4 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:955](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L955)
+[packages/ammo/ammo.d.ts:970](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L970)

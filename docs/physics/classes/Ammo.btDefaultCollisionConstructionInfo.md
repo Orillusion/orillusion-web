@@ -10,8 +10,12 @@
 
 ### constructor
 
-• **new btDefaultCollisionConstructionInfo**()
+• **new btDefaultCollisionConstructionInfo**(): [`btDefaultCollisionConstructionInfo`](Ammo.btDefaultCollisionConstructionInfo.md)
+
+#### Returns
+
+[`btDefaultCollisionConstructionInfo`](Ammo.btDefaultCollisionConstructionInfo.md)
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:419](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L419)
+[packages/ammo/ammo.d.ts:429](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L429)

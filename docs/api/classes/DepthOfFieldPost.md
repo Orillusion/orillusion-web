@@ -205,7 +205,7 @@ PostBase.onResize
 
 #### Defined in
 
-[src/gfx/renderJob/post/DepthOfFieldPost.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L200)
+[src/gfx/renderJob/post/DepthOfFieldPost.ts:199](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L199)
 
 ___
 

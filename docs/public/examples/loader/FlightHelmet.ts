@@ -13,7 +13,8 @@ class Sample_FlightHelmet {
         });
         Engine3D.setting.shadow.autoUpdate = true;
         Engine3D.setting.shadow.updateFrameRate = 1;
-        Engine3D.setting.shadow.shadowBound = 50;
+        Engine3D.setting.shadow.shadowBound = 20;
+        Engine3D.setting.shadow.shadowBias = 0.001;
         Engine3D.setting.render.postProcessing.bloom!.luminanceThreshole = 0.8;
         Engine3D.setting.render.postProcessing.bloom!.bloomIntensity = 1;
 
@@ -58,7 +59,7 @@ class Sample_FlightHelmet {
             let lc = this.lightObj.addComponent(DirectLight);
             lc.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
             lc.castShadow = true;
-            lc.intensity = 50;
+            lc.intensity = 5;
             this.scene.addChild(this.lightObj);
         }
 

@@ -19,11 +19,11 @@ obj.transform.enable = false; //Hide the node and all child nodes
 
 ## Add and Remove a Node
 
-To add a child node, you can use [addChild](/api/classes/Object3D#addchild) method.
-To delete a child node, you can use [removeChild](/api/classes/Object3D#removeChild) method.
-To remove a child node at a specific position, you can use [removeChildByIndex](/api/classes/Object3D#removeChildByIndex) method.
-To remove this from the parent, you can use [removeFromParent](/api/classes/Object3D#removeFromParent) method.
-To remove all child nodes, you can use [removeAllChild](/api/classes/Object3D#removeAllChild) method.
+To add a child node, use [addChild](/api/classes/Object3D#addchild) method.  
+To delete a child node, use [removeChild](/api/classes/Object3D#removeChild) method.  
+To remove a child node at with specific index, use [removeChildByIndex](/api/classes/Object3D#removeChildByIndex) method.  
+To remove this from the parent, use [removeFromParent](/api/classes/Object3D#removeFromParent) method.  
+To remove all child nodes, use [removeAllChild](/api/classes/Object3D#removeAllChild) method.
 
 ```ts
 let parent = new Object3D();
@@ -105,7 +105,11 @@ geometry.destroy() // call destory geometry manually
 material.destroy() // call destory material manually
 ```
 You can use the `destroy(true)` with additional parameter to forcibly destroy all related resources of the node.
-> Note: If the rendering objects are being shared, forcing deletion may trigger engine errors and cause rendering failure.
+
+::: tip
+If the rendering objects are being shared, forcing deletion may trigger engine errors and cause rendering failure.
+:::
+
 ```ts
 let obj1 = new Object3D();
 let obj2 = new Object3D();

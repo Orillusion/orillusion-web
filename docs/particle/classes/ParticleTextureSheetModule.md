@@ -35,7 +35,11 @@ Particle Module of texture sheet
 
 ### constructor
 
-• **new ParticleTextureSheetModule**()
+• **new ParticleTextureSheetModule**(): [`ParticleTextureSheetModule`](ParticleTextureSheetModule.md)
+
+#### Returns
+
+[`ParticleTextureSheetModule`](ParticleTextureSheetModule.md)
 
 #### Inherited from
 

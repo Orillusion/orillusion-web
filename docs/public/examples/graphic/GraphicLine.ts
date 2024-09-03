@@ -1,10 +1,11 @@
 import { Object3D, Scene3D, Engine3D, Vector3, Color, AnimationCurve, Keyframe, View3D, AtmosphericComponent, CameraUtil, HoverCameraController, DirectLight, KelvinUtil } from '@orillusion/core';
+import { Graphic3D } from '@orillusion/graphic';
 import { Stats } from '@orillusion/stats';
 
 class GraphicLine {
     scene: Scene3D;
     view: View3D;
-    private Ori: dat.GUI | undefined;
+    graphic3D: Graphic3D;
 
     async run() {
         await Engine3D.init();
@@ -25,12 +26,16 @@ class GraphicLine {
 
         // init Camera Controller
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController);
-        hoverCtrl.setCamera(-30, -15, 200);
+        hoverCtrl.setCamera(-30, -15, 100);
 
         // init View3D
         let view = new View3D();
         view.scene = this.scene;
         view.camera = camera;
+
+        // add a Graphic3D
+        this.graphic3D = new Graphic3D();
+        this.scene.addChild(this.graphic3D);
 
         // create direction light
         let lightObj3D = new Object3D();
@@ -55,7 +60,7 @@ class GraphicLine {
     }
 
     async initScene() {
-        this.view.graphic3D.drawLines('line1', [Vector3.ZERO, new Vector3(0, 10, 0)], new Color().hexToRGB(Color.RED));
+        this.graphic3D.drawLines('line1', [Vector3.ZERO, new Vector3(0, 10, 0)], new Color().hexToRGB(Color.RED));
 
         let animCurve = new AnimationCurve();
         animCurve.addKeyFrame(new Keyframe(0, 0.5));
@@ -69,13 +74,13 @@ class GraphicLine {
             let y = animCurve.getValue(i / (100 - 1)) * 10;
             lines.push(new Vector3(i, y, 0));
         }
-        this.view.graphic3D.drawLines('line2', lines, new Color().hexToRGB(Color.RED));
+        this.graphic3D.drawLines('line2', lines, new Color().hexToRGB(Color.RED));
 
-        this.view.graphic3D.drawBox('box1', new Vector3(-5, -5, -5), new Vector3(5, 5, 5), new Color().hexToRGB(Color.GREEN));
+        this.graphic3D.drawBox('box1', new Vector3(-5, -5, -5), new Vector3(5, 5, 5), new Color().hexToRGB(Color.GREEN));
 
-        this.view.graphic3D.drawCircle('Circle1', new Vector3(-15, -5, -5), 5, 15, Vector3.X_AXIS, new Color().hexToRGB(Color.GREEN));
-        this.view.graphic3D.drawCircle('Circle2', new Vector3(-15, -5, -5), 5, 15, Vector3.Y_AXIS, new Color().hexToRGB(Color.GREEN));
-        this.view.graphic3D.drawCircle('Circle3', new Vector3(-15, -5, -5), 5, 15, Vector3.Z_AXIS, new Color().hexToRGB(Color.GREEN));
+        this.graphic3D.drawCircle('Circle1', new Vector3(-15, -5, -5), 5, 15, Vector3.X_AXIS, new Color().hexToRGB(Color.GREEN));
+        this.graphic3D.drawCircle('Circle2', new Vector3(-15, -5, -5), 5, 15, Vector3.Y_AXIS, new Color().hexToRGB(Color.GREEN));
+        this.graphic3D.drawCircle('Circle3', new Vector3(-15, -5, -5), 5, 15, Vector3.Z_AXIS, new Color().hexToRGB(Color.GREEN));
     }
 }
 

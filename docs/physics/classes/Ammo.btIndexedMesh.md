@@ -15,7 +15,11 @@
 
 ### constructor
 
-• **new btIndexedMesh**()
+• **new btIndexedMesh**(): [`btIndexedMesh`](Ammo.btIndexedMesh.md)
+
+#### Returns
+
+[`btIndexedMesh`](Ammo.btIndexedMesh.md)
 
 ## Methods
 
@@ -29,7 +33,7 @@
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:387](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L387)
+[packages/ammo/ammo.d.ts:393](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L393)
 
 ___
 
@@ -49,4 +53,4 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:388](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L388)
+[packages/ammo/ammo.d.ts:394](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L394)

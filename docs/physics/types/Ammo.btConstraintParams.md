@@ -6,4 +6,4 @@
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:538](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L538)
+[packages/ammo/ammo.d.ts:548](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L548)

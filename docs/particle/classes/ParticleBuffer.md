@@ -40,18 +40,30 @@ Basic class of particle memory data
 - [debug](ParticleBuffer.md#debug)
 - [reset](ParticleBuffer.md#reset)
 - [setBoolean](ParticleBuffer.md#setboolean)
+- [readBoole](ParticleBuffer.md#readboole)
 - [setFloat](ParticleBuffer.md#setfloat)
+- [getFloat](ParticleBuffer.md#getfloat)
 - [setInt8](ParticleBuffer.md#setint8)
+- [getInt8](ParticleBuffer.md#getint8)
 - [setInt16](ParticleBuffer.md#setint16)
+- [getInt16](ParticleBuffer.md#getint16)
 - [setInt32](ParticleBuffer.md#setint32)
+- [getInt32](ParticleBuffer.md#getint32)
 - [setUint8](ParticleBuffer.md#setuint8)
+- [getUint8](ParticleBuffer.md#getuint8)
 - [setUint16](ParticleBuffer.md#setuint16)
+- [getUint16](ParticleBuffer.md#getuint16)
 - [setUint32](ParticleBuffer.md#setuint32)
+- [getUint32](ParticleBuffer.md#getuint32)
 - [setVector2](ParticleBuffer.md#setvector2)
+- [getVector2](ParticleBuffer.md#getvector2)
 - [setVector3](ParticleBuffer.md#setvector3)
+- [getVector3](ParticleBuffer.md#getvector3)
 - [setVector4](ParticleBuffer.md#setvector4)
+- [getVector4](ParticleBuffer.md#getvector4)
 - [setVector4Array](ParticleBuffer.md#setvector4array)
 - [setColor](ParticleBuffer.md#setcolor)
+- [getColor](ParticleBuffer.md#getcolor)
 - [setColorArray](ParticleBuffer.md#setcolorarray)
 - [setMatrix](ParticleBuffer.md#setmatrix)
 - [setMatrixArray](ParticleBuffer.md#setmatrixarray)
@@ -72,7 +84,7 @@ Basic class of particle memory data
 
 ### constructor
 
-• **new ParticleBuffer**(`size`, `data?`)
+• **new ParticleBuffer**(`size`, `data?`): [`ParticleBuffer`](ParticleBuffer.md)
 
 #### Parameters
 
@@ -80,6 +92,10 @@ Basic class of particle memory data
 | :------ | :------ |
 | `size` | `number` |
 | `data?` | `Float32Array` |
+
+#### Returns
+
+[`ParticleBuffer`](ParticleBuffer.md)
 
 #### Overrides
 
@@ -135,7 +151,7 @@ ___
 
 ### memoryNodes
 
-• **memoryNodes**: `Map`<`string` \| `number`, `MemoryInfo`\>
+• **memoryNodes**: `Map`\<`string` \| `number`, `MemoryInfo`\>
 
 #### Inherited from
 
@@ -507,6 +523,30 @@ GPUBufferBase.setBoolean
 
 ___
 
+### readBoole
+
+▸ **readBoole**(`name`): `boolean`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `name` | `string` |
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+GPUBufferBase.readBoole
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L62)
+
+___
+
 ### setFloat
 
 ▸ **setFloat**(`name`, `v`): `void`
@@ -528,7 +568,31 @@ GPUBufferBase.setFloat
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L61)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L70)
+
+___
+
+### getFloat
+
+▸ **getFloat**(`name`): `number`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `name` | `string` |
+
+#### Returns
+
+`number`
+
+#### Inherited from
+
+GPUBufferBase.getFloat
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L79)
 
 ___
 
@@ -553,7 +617,31 @@ GPUBufferBase.setInt8
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L70)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L87)
+
+___
+
+### getInt8
+
+▸ **getInt8**(`name`): `number`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `name` | `string` |
+
+#### Returns
+
+`number`
+
+#### Inherited from
+
+GPUBufferBase.getInt8
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L96)
 
 ___
 
@@ -578,7 +666,31 @@ GPUBufferBase.setInt16
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L79)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:104](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L104)
+
+___
+
+### getInt16
+
+▸ **getInt16**(`name`): `number`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `name` | `string` |
+
+#### Returns
+
+`number`
+
+#### Inherited from
+
+GPUBufferBase.getInt16
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L113)
 
 ___
 
@@ -603,7 +715,31 @@ GPUBufferBase.setInt32
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:88](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L88)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L121)
+
+___
+
+### getInt32
+
+▸ **getInt32**(`name`): `number`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `name` | `string` |
+
+#### Returns
+
+`number`
+
+#### Inherited from
+
+GPUBufferBase.getInt32
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:130](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L130)
 
 ___
 
@@ -628,7 +764,31 @@ GPUBufferBase.setUint8
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L97)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:138](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L138)
+
+___
+
+### getUint8
+
+▸ **getUint8**(`name`): `number`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `name` | `string` |
+
+#### Returns
+
+`number`
+
+#### Inherited from
+
+GPUBufferBase.getUint8
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:147](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L147)
 
 ___
 
@@ -653,7 +813,31 @@ GPUBufferBase.setUint16
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L106)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:156](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L156)
+
+___
+
+### getUint16
+
+▸ **getUint16**(`name`): `number`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `name` | `string` |
+
+#### Returns
+
+`number`
+
+#### Inherited from
+
+GPUBufferBase.getUint16
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:165](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L165)
 
 ___
 
@@ -678,7 +862,31 @@ GPUBufferBase.setUint32
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L115)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:173](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L173)
+
+___
+
+### getUint32
+
+▸ **getUint32**(`name`): `number`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `name` | `string` |
+
+#### Returns
+
+`number`
+
+#### Inherited from
+
+GPUBufferBase.getUint32
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:182](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L182)
 
 ___
 
@@ -703,7 +911,31 @@ GPUBufferBase.setVector2
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L124)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:190](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L190)
+
+___
+
+### getVector2
+
+▸ **getVector2**(`name`): `Vector2`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `name` | `string` |
+
+#### Returns
+
+`Vector2`
+
+#### Inherited from
+
+GPUBufferBase.getVector2
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:199](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L199)
 
 ___
 
@@ -728,7 +960,31 @@ GPUBufferBase.setVector3
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L133)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:207](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L207)
+
+___
+
+### getVector3
+
+▸ **getVector3**(`name`): `Vector3`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `name` | `string` |
+
+#### Returns
+
+`Vector3`
+
+#### Inherited from
+
+GPUBufferBase.getVector3
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:216](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L216)
 
 ___
 
@@ -753,7 +1009,31 @@ GPUBufferBase.setVector4
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:142](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L142)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:224](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L224)
+
+___
+
+### getVector4
+
+▸ **getVector4**(`name`): `Vector4`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `name` | `string` |
+
+#### Returns
+
+`Vector4`
+
+#### Inherited from
+
+GPUBufferBase.getVector4
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:233](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L233)
 
 ___
 
@@ -766,7 +1046,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `name` | `string` |
-| `v4Array` | `Vector4`[] \| `Quaternion`[] |
+| `v4Array` | `Vector3`[] \| `Vector4`[] \| `Quaternion`[] |
 
 #### Returns
 
@@ -778,7 +1058,7 @@ GPUBufferBase.setVector4Array
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:151](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L151)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:241](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L241)
 
 ___
 
@@ -803,7 +1083,31 @@ GPUBufferBase.setColor
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:160](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L160)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:250](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L250)
+
+___
+
+### getColor
+
+▸ **getColor**(`name`): `Color`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `name` | `string` |
+
+#### Returns
+
+`Color`
+
+#### Inherited from
+
+GPUBufferBase.getColor
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:259](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L259)
 
 ___
 
@@ -828,7 +1132,7 @@ GPUBufferBase.setColorArray
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:169](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L169)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:267](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L267)
 
 ___
 
@@ -853,7 +1157,7 @@ GPUBufferBase.setMatrix
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:178](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L178)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:276](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L276)
 
 ___
 
@@ -878,7 +1182,7 @@ GPUBufferBase.setMatrixArray
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:187](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L187)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:285](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L285)
 
 ___
 
@@ -903,7 +1207,7 @@ GPUBufferBase.setArray
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:199](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L199)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:297](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L297)
 
 ___
 
@@ -928,7 +1232,7 @@ GPUBufferBase.setFloat32Array
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:208](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L208)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:306](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L306)
 
 ___
 
@@ -953,7 +1257,7 @@ GPUBufferBase.setInt32Array
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:217](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L217)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:315](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L315)
 
 ___
 
@@ -978,19 +1282,19 @@ GPUBufferBase.setUint32Array
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:227](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L227)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:325](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L325)
 
 ___
 
 ### setStruct
 
-▸ **setStruct**<`T`\>(`c`, `index`, `data`, `property?`): `void`
+▸ **setStruct**\<`T`\>(`c`, `index`, `data`, `property?`): `void`
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends `Struct`<`T`\> |
+| `T` | extends `Struct` |
 
 #### Parameters
 
@@ -1011,19 +1315,19 @@ GPUBufferBase.setStruct
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:236](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L236)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:334](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L334)
 
 ___
 
 ### setStructArray
 
-▸ **setStructArray**<`T`\>(`c`, `dataList`, `property?`): `void`
+▸ **setStructArray**\<`T`\>(`c`, `dataList`, `property?`): `void`
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends `Struct`<`T`\> |
+| `T` | extends `Struct` |
 
 #### Parameters
 
@@ -1043,7 +1347,7 @@ GPUBufferBase.setStructArray
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:292](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L292)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:390](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L390)
 
 ___
 
@@ -1061,7 +1365,7 @@ GPUBufferBase.clean
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:305](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L305)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:403](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L403)
 
 ___
 
@@ -1079,7 +1383,7 @@ GPUBufferBase.apply
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:310](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L310)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:408](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L408)
 
 ___
 
@@ -1104,7 +1408,7 @@ GPUBufferBase.mapAsyncWrite
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:315](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L315)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:413](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L413)
 
 ___
 
@@ -1128,7 +1432,7 @@ GPUBufferBase.destroy
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:355](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L355)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:454](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L454)
 
 ___
 
@@ -1153,7 +1457,7 @@ GPUBufferBase.resizeBuffer
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:412](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L412)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:511](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L511)
 
 ___
 
@@ -1171,4 +1475,44 @@ GPUBufferBase.readBuffer
 
 #### Defined in
 
-[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:460](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L460)
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:558](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L558)
+
+▸ **readBuffer**(`promise`): `Float32Array`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `promise` | ``false`` |
+
+#### Returns
+
+`Float32Array`
+
+#### Inherited from
+
+GPUBufferBase.readBuffer
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:559](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L559)
+
+▸ **readBuffer**(`promise`): `Promise`\<`Float32Array`\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `promise` | ``true`` |
+
+#### Returns
+
+`Promise`\<`Float32Array`\>
+
+#### Inherited from
+
+GPUBufferBase.readBuffer
+
+#### Defined in
+
+[src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts:560](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferBase.ts#L560)

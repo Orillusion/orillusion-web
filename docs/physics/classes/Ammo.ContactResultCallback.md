@@ -14,7 +14,11 @@
 
 ### constructor
 
-• **new ContactResultCallback**()
+• **new ContactResultCallback**(): [`ContactResultCallback`](Ammo.ContactResultCallback.md)
+
+#### Returns
+
+[`ContactResultCallback`](Ammo.ContactResultCallback.md)
 
 ## Methods
 
@@ -40,4 +44,4 @@
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:221](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L221)
+[packages/ammo/ammo.d.ts:227](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L227)

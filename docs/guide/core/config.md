@@ -21,7 +21,7 @@ The default configuration is `bound` mode, which picks up the model by calculati
 
 ```ts
 Engine3D.setting.pick.enable = true;
-Engine3D.setting.pick.mode = `bound`;
+Engine3D.setting.pick.mode = 'bound';
 await Engine3D.init();
 ```
 
@@ -29,7 +29,7 @@ Also, the pixel picking mode can also be set through the `pick` property.
 
 ```ts
 Engine3D.setting.pick.enable = true;
-Engine3D.setting.pick.mode = `pixel`;
+Engine3D.setting.pick.mode = 'pixel';
 await Engine3D.init();
 ```
 
@@ -52,16 +52,24 @@ Setting the shadow method and attributes through the `shadow` property of the en
 
 ```ts
 Engine3D.setting.shadow.enable = true; // Enable shadow
-Engine3D.setting.shadow.type = `SOFT`; // The type of shadow, SOFT
+Engine3D.setting.shadow.type = 'SOFT'; // The type of shadow, SOFT
 Engine3D.setting.shadow.shadowSize = 2048; // The size of the shadow map
 Engine3D.setting.shadow.shadowBound = 20; // The bound of shadow
 ```
 See more about [Shadow](/guide/graphics/shadow)
 
-<!-- ## Global Illumination Settings
+## Global Illumination Settings
 Setting the global illumination through the `gi` property of the configuration.
+
 ```ts
 Engine3D.setting.gi.enable = true;
+Engine3D.setting.gi.probeYCount = 6;
+Engine3D.setting.gi.probeXCount = 6;
+Engine3D.setting.gi.probeZCount = 6;
+Engine3D.setting.gi.offsetX = 0;
+Engine3D.setting.gi.offsetY = 10;
+Engine3D.setting.gi.offsetZ = 0;
+...
 ```
-See more about [Global Illumination](/guide/advanced/gi) -->
+See more about [Global Illumination](/guide/advanced/gi)
 

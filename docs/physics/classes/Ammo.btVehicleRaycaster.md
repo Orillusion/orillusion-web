@@ -20,7 +20,11 @@
 
 ### constructor
 
-• **new btVehicleRaycaster**()
+• **new btVehicleRaycaster**(): [`btVehicleRaycaster`](Ammo.btVehicleRaycaster.md)
+
+#### Returns
+
+[`btVehicleRaycaster`](Ammo.btVehicleRaycaster.md)
 
 ## Methods
 
@@ -42,4 +46,4 @@
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:700](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L700)
+[packages/ammo/ammo.d.ts:715](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L715)

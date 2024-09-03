@@ -54,7 +54,9 @@ await Engine3D.init({
     }
 });
 ```
-> Lower `devicePixelRatio` can effectively reduce rendering pressure, improve rendering performance, but at the same time rendering resolution will also decrease, may increase the aliasing effect
+::: tip
+Lower `devicePixelRatio` can effectively reduce rendering pressure, improve rendering performance, but at the same time rendering resolution will also decrease, may increase the aliasing effect
+:::
 
 For more detailed configuration, please refer to [CanvasConfig](/api/types/CanvasConfig)
 

@@ -10,7 +10,7 @@
 
 ### constructor
 
-• **new btAxisSweep3**(`worldAabbMin`, `worldAabbMax`, `maxHandles?`, `pairCache?`, `disableRaycastAccelerator?`)
+• **new btAxisSweep3**(`worldAabbMin`, `worldAabbMax`, `maxHandles?`, `pairCache?`, `disableRaycastAccelerator?`): [`btAxisSweep3`](Ammo.btAxisSweep3.md)
 
 #### Parameters
 
@@ -22,6 +22,10 @@
 | `pairCache?` | [`btOverlappingPairCache`](Ammo.btOverlappingPairCache.md) |
 | `disableRaycastAccelerator?` | `boolean` |
 
+#### Returns
+
+[`btAxisSweep3`](Ammo.btAxisSweep3.md)
+
 #### Defined in
 
-[packages/ammo/ammo.d.ts:444](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L444)
+[packages/ammo/ammo.d.ts:454](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L454)

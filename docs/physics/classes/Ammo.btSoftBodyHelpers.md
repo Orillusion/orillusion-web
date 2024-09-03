@@ -19,11 +19,15 @@
 
 ### constructor
 
-• **new btSoftBodyHelpers**()
+• **new btSoftBodyHelpers**(): [`btSoftBodyHelpers`](Ammo.btSoftBodyHelpers.md)
+
+#### Returns
+
+[`btSoftBodyHelpers`](Ammo.btSoftBodyHelpers.md)
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:1063](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L1063)
+[packages/ammo/ammo.d.ts:1078](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L1078)
 
 ## Methods
 
@@ -47,7 +51,7 @@
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:1064](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L1064)
+[packages/ammo/ammo.d.ts:1079](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L1079)
 
 ___
 
@@ -75,7 +79,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:1065](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L1065)
+[packages/ammo/ammo.d.ts:1080](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L1080)
 
 ___
 
@@ -104,7 +108,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:1066](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L1066)
+[packages/ammo/ammo.d.ts:1081](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L1081)
 
 ___
 
@@ -127,7 +131,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:1067](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L1067)
+[packages/ammo/ammo.d.ts:1082](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L1082)
 
 ___
 
@@ -151,7 +155,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:1068](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L1068)
+[packages/ammo/ammo.d.ts:1083](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L1083)
 
 ___
 
@@ -174,4 +178,4 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:1069](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L1069)
+[packages/ammo/ammo.d.ts:1084](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L1084)

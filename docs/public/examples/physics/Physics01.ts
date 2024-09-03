@@ -12,7 +12,9 @@ class SamplePhysics01 {
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
         Engine3D.setting.shadow.updateFrameRate = 1;
-        Engine3D.setting.shadow.shadowSize = 2048;
+        Engine3D.setting.shadow.shadowSize = 4096;
+        Engine3D.setting.shadow.shadowBound = 50;
+        Engine3D.setting.shadow.shadowBias = 0.002;
 
         await Physics.init();
         await Engine3D.init({ renderLoop: () => this.loop() });
@@ -27,7 +29,7 @@ class SamplePhysics01 {
         // init Camera3D
         let camera = CameraUtil.createCamera3DObject(scene);
         camera.perspective(60, Engine3D.aspect, 1, 5000);
-        camera.enableCSM = true;
+
         // init Camera Controller
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController);
         hoverCtrl.setCamera(-30, -15, 50);
@@ -42,14 +44,14 @@ class SamplePhysics01 {
         lightObj3D.x = 0;
         lightObj3D.y = 30;
         lightObj3D.z = -40;
-        lightObj3D.rotationX = 20;
+        lightObj3D.rotationX = 35;
         lightObj3D.rotationY = 160;
         lightObj3D.rotationZ = 0;
 
         let light = lightObj3D.addComponent(DirectLight);
         light.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
         light.castShadow = true;
-        light.intensity = 30;
+        light.intensity = 4;
 
         scene.addChild(light.object3D);
 
@@ -62,7 +64,7 @@ class SamplePhysics01 {
         DirLight.add(light.transform, 'rotationX', 0.0, 360.0, 0.01);
         DirLight.add(light.transform, 'rotationY', 0.0, 360.0, 0.01);
         DirLight.add(light.transform, 'rotationZ', 0.0, 360.0, 0.01);
-        DirLight.add(light, 'intensity', 0.0, 160.0, 0.01);
+        DirLight.add(light, 'intensity', 0.0, 10.0, 0.01);
         DirLight.add(light, 'indirect', 0.0, 10.0, 0.01);
         DirLight.add(light, 'castShadow');
         DirLight.open();

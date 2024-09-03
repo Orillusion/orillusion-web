@@ -163,7 +163,7 @@ class Sample_UIMultiPanel {
 
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
-        Engine3D.setting.shadow.shadowBias = 0.0001;
+        Engine3D.setting.shadow.shadowBias = 0.01;
         Engine3D.setting.shadow.shadowBound = 200;
 
         await Engine3D.init({
@@ -193,7 +193,7 @@ class Sample_UIMultiPanel {
         light.rotationX = 21;
         light.rotationY = 120;
         component.lightColor = new Color(1.0, 1.0, 1.0, 1.0);
-        component.intensity = 30;
+        component.intensity = 5;
         component.castShadow = true;
         // add light object
         scene3D.addChild(light);
