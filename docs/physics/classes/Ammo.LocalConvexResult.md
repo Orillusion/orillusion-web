@@ -23,7 +23,7 @@
 
 ### constructor
 
-• **new LocalConvexResult**(`hitCollisionObject`, `localShapeInfo`, `hitNormalLocal`, `hitPointLocal`, `hitFraction`)
+• **new LocalConvexResult**(`hitCollisionObject`, `localShapeInfo`, `hitNormalLocal`, `hitPointLocal`, `hitFraction`): [`LocalConvexResult`](Ammo.LocalConvexResult.md)
 
 #### Parameters
 
@@ -35,9 +35,13 @@
 | `hitPointLocal` | [`btVector3`](Ammo.btVector3.md) |
 | `hitFraction` | `number` |
 
+#### Returns
+
+[`LocalConvexResult`](Ammo.LocalConvexResult.md)
+
 #### Defined in
 
-[packages/ammo/ammo.d.ts:234](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L234)
+[packages/ammo/ammo.d.ts:240](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L240)
 
 ## Methods
 
@@ -51,7 +55,7 @@
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:235](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L235)
+[packages/ammo/ammo.d.ts:241](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L241)
 
 ___
 
@@ -71,7 +75,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:236](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L236)
+[packages/ammo/ammo.d.ts:242](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L242)
 
 ___
 
@@ -85,7 +89,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:237](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L237)
+[packages/ammo/ammo.d.ts:243](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L243)
 
 ___
 
@@ -105,7 +109,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:238](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L238)
+[packages/ammo/ammo.d.ts:244](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L244)
 
 ___
 
@@ -119,7 +123,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:239](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L239)
+[packages/ammo/ammo.d.ts:245](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L245)
 
 ___
 
@@ -139,7 +143,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:240](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L240)
+[packages/ammo/ammo.d.ts:246](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L246)
 
 ___
 
@@ -153,7 +157,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:241](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L241)
+[packages/ammo/ammo.d.ts:247](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L247)
 
 ___
 
@@ -173,7 +177,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:242](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L242)
+[packages/ammo/ammo.d.ts:248](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L248)
 
 ___
 
@@ -187,7 +191,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:243](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L243)
+[packages/ammo/ammo.d.ts:249](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L249)
 
 ___
 
@@ -207,4 +211,4 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:244](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L244)
+[packages/ammo/ammo.d.ts:250](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L250)

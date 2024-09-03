@@ -156,7 +156,7 @@ Also, you can modify `moveSpeed` to adjust the speed of movement
 
 This camera controller implements the camera's movement in the `xz` plane and rotation around the current observation point. Its interaction features are:
   - Press the left mouse button and move the mouse to rotate the camera around the current observation target.
-  - Press the right mouse button and move the mouse to move the camera smoothly in the direction and distance of the mouse movement in the current scene visible area.
+  - Press the right mouse button and move the mouse to pan the camera in various directions in both `xz` plane and `y` direction.
   - Scroll the mouse wheel to control the camera's viewing distance
 
 <Demo :height="500" src="/demos/graphics/camera_hover.ts"></Demo>

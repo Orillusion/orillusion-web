@@ -15,6 +15,7 @@
 ### Methods
 
 - [getK](KeyframeT.md#getk)
+- [split](KeyframeT.md#split)
 - [formBytes](KeyframeT.md#formbytes)
 
 ## Constructors
@@ -110,6 +111,28 @@ ___
 #### Defined in
 
 [src/math/enum/T/KeyframeT.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/T/KeyframeT.ts#L31)
+
+___
+
+### split
+
+▸ **split**(`type`, `value`, `property`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `type` | [`ValueEnumType`](../enums/ValueEnumType.md) |
+| `value` | [`CurveValueType`](../types/CurveValueType.md) |
+| `property` | `string` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/math/enum/T/KeyframeT.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/T/KeyframeT.ts#L35)
 
 ___
 

@@ -1,4 +1,4 @@
-import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, webGPUContext, HoverCameraController, View3D, LitMaterial, MeshRenderer, BoxGeometry, DirectLight, KelvinUtil, Object3DUtil } from '@orillusion/core';
+import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, webGPUContext, HoverCameraController, View3D, LitMaterial, MeshRenderer, BoxGeometry, DirectLight, KelvinUtil, Object3DUtil, AnimatorComponent } from '@orillusion/core';
 import { Stats } from '@orillusion/stats';
 
 class Sample_Skeleton {
@@ -40,7 +40,11 @@ class Sample_Skeleton {
             man.scaleX = 30;
             man.scaleY = 30;
             man.scaleZ = 30;
+            man.rotationZ = 90;
             scene.addChild(man);
+
+            let animator = man.getComponentsInChild(AnimatorComponent)[0];
+            animator.playAnim(animator.clips[0].clipName);
         }
 
         /******** floor *******/
@@ -58,7 +62,7 @@ class Sample_Skeleton {
             let directLight = this.lightObj3D.addComponent(DirectLight);
             directLight.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
             directLight.castShadow = true;
-            directLight.intensity = 25;
+            directLight.intensity = 3;
             scene.addChild(this.lightObj3D);
         }
     }

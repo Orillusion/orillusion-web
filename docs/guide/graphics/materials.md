@@ -32,15 +32,13 @@ The engine provides the [UnLitMaterial](/api/classes/UnLitMaterial) class for re
 |:---------:|:---------------:|
 | baseColor |   Base color    |
 |  baseMap  |    Base map     |
-|  envMap   | Environment map |
-| shadowMap |   Shadow map    |
 
 <Demo src="/demos/materials/UnLitMaterial.ts"></Demo>
 
 <<< @/public/demos/materials/UnLitMaterial.ts
 
 ## PBR Material
-We recommend using the [PBR](/api/classes/LitMaterial) material for rendering, `PBR` stands for `Physicallly-Based Rendering`, which is a material based on physical rendering. That means to be more in line with the physical lighting model of reality.
+We recommend using the [LitMaterial](/api/classes/LitMaterial) for rendering, also known as `PBR` material. `PBR` stands for `Physically-Based Rendering`, which is a material based on physical rendering. That means to be more in line with the physical lighting model of reality.
 
 |     Attribute     |                                     Description                                     |
 |:-----------------:|:-----------------------------------------------------------------------------------:|
@@ -104,10 +102,25 @@ The model vertex will store multiple sets of texture mapping coordinates, which 
 We can customize the texture mapping relationship by performing matrix transformations on the `uv` coordinates of the model. For example, set the material `transformUV1` shader value to perform coordinate transformations of the original `uv` for `offset` and `scaling`:
 ```ts
 let mat = new LitMaterial();
-// Get current uv transform
-let uv = mat.getUniformV4(`transformUV1`)
-// Set a new uv transform - Vector4(offsetU, offsetV, scalingU, scalingV)
-mat.setUniformVector4(`transformUV1`, new Vector4(0, 0, 1, 1))
+// Get current uv transform - Vector4(offsetU, offsetV, scalingU, scalingV)
+let uv:Vector4 = mat.getUniformV4(`transformUV1`)
+// set uv trnsform
+uv.set(1, 1, 2, 2);
+// update uv
+mat.setUniformVector4(`transformUV1`, uv);
 ```
 
 <Demo :height="300" :code="false" src="/demos/materials/uv.ts"></Demo>
+
+:::tip
+From `v0.8`, [LitMaterial](/api/classes/LitMaterial) start using `xxxMapOffsetSize` to maintain the `uv` transforms:
+```ts
+let mat = new LitMaterial();
+let baseUV = mat.getUniformV4('baseMapOffsetSize');
+let normalUV = mat.getUniformV4('normalMapOffsetSize');
+let emissiveUV = mat.getUniformV4('emissiveMapOffsetSize');
+let roughnessUV = mat.getUniformV4('roughnessMapOffsetSize');
+let metallicUV = mat.getUniformV4('metallicMapOffsetSize');
+let aoUV = mat.getUniformV4('aoMapOffsetSize');
+```
+:::

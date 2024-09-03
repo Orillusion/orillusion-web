@@ -218,7 +218,7 @@ int
 
 #### Defined in
 
-[src/math/AnimationCurveT.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurveT.ts#L116)
+[src/math/AnimationCurveT.ts:146](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurveT.ts#L146)
 
 ___
 
@@ -242,7 +242,7 @@ Keyframe [Keyframe](Keyframe.md)
 
 #### Defined in
 
-[src/math/AnimationCurveT.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurveT.ts#L125)
+[src/math/AnimationCurveT.ts:155](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurveT.ts#L155)
 
 ___
 
@@ -262,4 +262,4 @@ ___
 
 #### Defined in
 
-[src/math/AnimationCurveT.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurveT.ts#L133)
+[src/math/AnimationCurveT.ts:163](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurveT.ts#L163)

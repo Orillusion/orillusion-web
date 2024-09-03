@@ -93,12 +93,12 @@ You can set skybox by loading [cross texture cube](/guide/graphics/texture#cross
 let textureCube = Engine3D.res.loadTextureCube('path/to/sky.png')
 // Or load 6 separate cube textures
 textureCube = Engine3D.res.loadTextureCube([
-    'path/to/sky1.png',
-    'path/to/sky2.png',
-    'path/to/sky3.png',
-    'path/to/sky4.png',
-    'path/to/sky5.png',
-    'path/to/sky6.png'
+    'path/to/px.png',
+    'path/to/nx.png',
+    'path/to/py.png',
+    'path/to/ny.png',
+    'path/to/pz.png',
+    'path/to/nz.png'
 ])
 // Add SkyRenderer component, then set map texture
 let sky = scene.addComponent(SkyRenderer);

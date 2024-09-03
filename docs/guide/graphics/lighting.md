@@ -4,7 +4,7 @@ Lighting can make the scene more layered, using lighting, you can build a more r
 lighting system of the `Orillusion` engine is mainly composed of the following parts:
 
 |     Light Source     |                              Description                               |
-|:--------------------:|:----------------------------------------------------------------------:|
+|:--------------------:|:---------------------------------------------------------------------  |
 |   Light Component    | Basic light source components: direct light, point light and spotlight |
 |  Ambient Reflection  |               Skybox environment light, global exposure                |
 | Global  Illumination |       Indirect light sources reflected or refracted in the scene       |

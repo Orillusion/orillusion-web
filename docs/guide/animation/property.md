@@ -13,7 +13,9 @@ All attributes above can be provided as the content of the property animation to
 ## Basic Usage
 Specify a node `Object3D` in the scene, add the component `PropertyAnimation` to it; then add the movie clip to the component and you can use it.
 
-> Currently, the engine only supports the import of `Clip` materials made by professional modeling software, and does not support custom property animation in the code. The subsequent version will be added
+::: tip
+Currently, we only supports importing `Clip` assets exported from `Unity` through `Curve` animations or `Animation` data. Custom property animations defined in code are not supported at this time, but this feature will be added in future versions.
+:::
 
 ```ts
 // Load external model

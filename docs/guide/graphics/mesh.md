@@ -206,3 +206,51 @@ We can even change the vertex buffer in the main loop every frame:
 <Demo src="/demos/mesh/custom.ts"></Demo>
 
 <<< @/public/demos/mesh/custom.ts
+
+
+## Extra Plugins
+
+In addition to the commonly built-in geometries mentioned above, the engine also provides the [@orillusion/geometry](/geometry/) extension package.
+
+We can quicklly import the geometries via the `NPM` package:
+
+```bash
+npm install @orillusion/core --save
+npm install @orillusion/geometry --save
+```
+```ts
+import { Engine3D } from "@orillusion/core"
+import { TextGeometry } from "@orillusion/geometry"
+```
+
+### 2D ExtrudeGeometry
+
+Similar to but distinct from the built-in [ExtrudeGeometry](/api/classes/ExtrudeGeometry.md), this geometry class simplifies the data and supports generating spatial geometries from [Shape2D](/geometry/classes/Shape2D.md)
+
+<Demo src="/examples/geometry/ExtrudeGeometry.ts"></Demo>
+
+<<< @/public/examples/geometry/ExtrudeGeometry.ts
+
+### TextGeometry
+
+Creating spatial text geometries from common font files such as  `woff`,`otf`,`ttf`.
+
+<Demo src="/examples/geometry/TextGeometry.ts"></Demo>
+
+<<< @/public/examples/geometry/TextGeometry.ts
+
+### TerrainGeometry
+
+Quickly creating 3D terrain geometries through 2D heightmaps or displacement maps
+
+<Demo src="/examples/geometry/TerrainGeometry.ts"></Demo>
+
+<<< @/public/examples/geometry/TerrainGeometry.ts
+
+### GrassGeometry
+
+Creating a simulated grass terrain, combined with the [GrassComponent](/geometry/classes/GrassComponent), can mimic dynamic wind-swaying effects.
+
+<Demo src="/examples/geometry/GrassGeometry.ts"></Demo>
+
+<<< @/public/examples/geometry/GrassGeometry.ts

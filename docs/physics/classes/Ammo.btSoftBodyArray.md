@@ -15,7 +15,11 @@
 
 ### constructor
 
-• **new btSoftBodyArray**()
+• **new btSoftBodyArray**(): [`btSoftBodyArray`](Ammo.btSoftBodyArray.md)
+
+#### Returns
+
+[`btSoftBodyArray`](Ammo.btSoftBodyArray.md)
 
 ## Methods
 
@@ -29,7 +33,7 @@
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:1051](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L1051)
+[packages/ammo/ammo.d.ts:1066](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L1066)
 
 ___
 
@@ -49,4 +53,4 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:1052](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L1052)
+[packages/ammo/ammo.d.ts:1067](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L1067)

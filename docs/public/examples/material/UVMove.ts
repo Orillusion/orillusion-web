@@ -35,7 +35,7 @@ class Sample_UVMove {
 
             let directLight = lightObj.addComponent(DirectLight);
             directLight.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
-            directLight.intensity = 30;
+            directLight.intensity = 3;
             this.scene.addChild(lightObj);
         }
         {
@@ -59,7 +59,7 @@ class Sample_UVMove {
             let material = new LitMaterial();
             material.baseMap = await Engine3D.res.loadTexture('https://cdn.orillusion.com/particle/T_Fx_Object_229.png');
             renderer.material = material;
-            material.blendMode = BlendMode.ADD;
+            material.blendMode = BlendMode.NORMAL;
             renderer.geometry = new PlaneGeometry(100, 100, 1, 1);
             this.scene.addChild(plane);
 
@@ -97,12 +97,12 @@ class UVMoveComponent extends ComponentBase {
 
     onUpdate(): void {
         if (this._material) {
-            let value = this._material.getUniformV4(`transformUV1`);
+            let value = this._material.getUniformV4(`baseMapOffsetSize`);
             value.x += Time.delta * this._speed.x * 0.001;
             value.y += Time.delta * this._speed.y * 0.001;
             value.z = this._speed.z;
             value.w = this._speed.w;
-            this._material.setUniformVector4(`transformUV1`, value);
+            this._material.setUniformVector4(`baseMapOffsetSize`, value);
         }
     }
 }

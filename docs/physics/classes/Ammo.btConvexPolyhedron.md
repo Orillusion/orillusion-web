@@ -17,7 +17,11 @@
 
 ### constructor
 
-• **new btConvexPolyhedron**()
+• **new btConvexPolyhedron**(): [`btConvexPolyhedron`](Ammo.btConvexPolyhedron.md)
+
+#### Returns
+
+[`btConvexPolyhedron`](Ammo.btConvexPolyhedron.md)
 
 ## Methods
 
@@ -31,7 +35,7 @@
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:351](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L351)
+[packages/ammo/ammo.d.ts:357](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L357)
 
 ___
 
@@ -51,7 +55,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:352](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L352)
+[packages/ammo/ammo.d.ts:358](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L358)
 
 ___
 
@@ -65,7 +69,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:353](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L353)
+[packages/ammo/ammo.d.ts:359](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L359)
 
 ___
 
@@ -85,4 +89,4 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:354](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L354)
+[packages/ammo/ammo.d.ts:360](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L360)

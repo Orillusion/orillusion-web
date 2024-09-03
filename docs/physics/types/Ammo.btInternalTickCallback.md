@@ -21,4 +21,4 @@
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:655](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L655)
+[packages/ammo/ammo.d.ts:670](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L670)

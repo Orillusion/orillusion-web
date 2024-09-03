@@ -58,7 +58,7 @@ class Sample_MorphTarget {
         let directLight = this.lightObj3D.addComponent(DirectLight);
         directLight.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
         directLight.castShadow = true;
-        directLight.intensity = 25;
+        directLight.intensity = 3;
         this.scene.addChild(this.lightObj3D);
     }
 

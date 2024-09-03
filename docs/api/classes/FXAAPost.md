@@ -17,6 +17,8 @@ rather than pursuing perfect real anti-aliasing effect.
 
 ### Properties
 
+- [postQuad](FXAAPost.md#postquad)
+- [renderTexture](FXAAPost.md#rendertexture)
 - [enable](FXAAPost.md#enable)
 - [postRenderer](FXAAPost.md#postrenderer)
 
@@ -41,9 +43,29 @@ PostBase.constructor
 
 #### Defined in
 
-[src/gfx/renderJob/post/FXAAPost.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/FXAAPost.ts#L19)
+[src/gfx/renderJob/post/FXAAPost.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/FXAAPost.ts#L22)
 
 ## Properties
+
+### postQuad
+
+• **postQuad**: `ViewQuad`
+
+#### Defined in
+
+[src/gfx/renderJob/post/FXAAPost.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/FXAAPost.ts#L19)
+
+___
+
+### renderTexture
+
+• **renderTexture**: `RenderTexture`
+
+#### Defined in
+
+[src/gfx/renderJob/post/FXAAPost.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/FXAAPost.ts#L21)
+
+___
 
 ### enable
 
@@ -81,13 +103,13 @@ PostBase.postRenderer
 
 `void`
 
-#### Inherited from
+#### Overrides
 
 PostBase.onResize
 
 #### Defined in
 
-[src/gfx/renderJob/post/PostBase.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L73)
+[src/gfx/renderJob/post/FXAAPost.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/FXAAPost.ts#L33)
 
 ___
 

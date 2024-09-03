@@ -16,6 +16,11 @@ let glb = await Engine3D.res.loadGltf('path/to/model.glb');
 ```ts
 
 let parser = await Engine3D.res.loadGltf('/sample.gltf',{
+  // Customize headers, you can modify/add fetch header
+  headers: {
+    'Authorization': 'Bearer xxxx',
+    // ...
+  },
   onProgress: (receivedLength:number, contentLength:number, url:string) => {
     // Listen to download progress
   },

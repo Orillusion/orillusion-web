@@ -23,12 +23,17 @@
 - [setUpperLinLimit](Ammo.btSliderConstraint.md#setupperlinlimit)
 - [setLowerAngLimit](Ammo.btSliderConstraint.md#setloweranglimit)
 - [setUpperAngLimit](Ammo.btSliderConstraint.md#setupperanglimit)
+- [getLinearPos](Ammo.btSliderConstraint.md#getlinearpos)
+- [getAngularPos](Ammo.btSliderConstraint.md#getangularpos)
+- [setTargetLinMotorVelocity](Ammo.btSliderConstraint.md#settargetlinmotorvelocity)
+- [setPoweredLinMotor](Ammo.btSliderConstraint.md#setpoweredlinmotor)
+- [setMaxLinMotorForce](Ammo.btSliderConstraint.md#setmaxlinmotorforce)
 
 ## Constructors
 
 ### constructor
 
-• **new btSliderConstraint**(`rbA`, `rbB`, `frameInA`, `frameInB`, `useLinearReferenceFrameA`)
+• **new btSliderConstraint**(`rbA`, `rbB`, `frameInA`, `frameInB`, `useLinearReferenceFrameA`): [`btSliderConstraint`](Ammo.btSliderConstraint.md)
 
 #### Parameters
 
@@ -40,15 +45,19 @@
 | `frameInB` | [`btTransform`](Ammo.btTransform.md) |
 | `useLinearReferenceFrameA` | `boolean` |
 
+#### Returns
+
+[`btSliderConstraint`](Ammo.btSliderConstraint.md)
+
 #### Overrides
 
 [btTypedConstraint](Ammo.btTypedConstraint.md).[constructor](Ammo.btTypedConstraint.md#constructor)
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:595](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L595)
+[packages/ammo/ammo.d.ts:605](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L605)
 
-• **new btSliderConstraint**(`rbB`, `frameInB`, `useLinearReferenceFrameA`)
+• **new btSliderConstraint**(`rbB`, `frameInB`, `useLinearReferenceFrameA`): [`btSliderConstraint`](Ammo.btSliderConstraint.md)
 
 #### Parameters
 
@@ -58,13 +67,17 @@
 | `frameInB` | [`btTransform`](Ammo.btTransform.md) |
 | `useLinearReferenceFrameA` | `boolean` |
 
+#### Returns
+
+[`btSliderConstraint`](Ammo.btSliderConstraint.md)
+
 #### Overrides
 
 btTypedConstraint.constructor
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:596](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L596)
+[packages/ammo/ammo.d.ts:606](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L606)
 
 ## Methods
 
@@ -88,7 +101,7 @@ btTypedConstraint.constructor
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:532](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L532)
+[packages/ammo/ammo.d.ts:542](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L542)
 
 ___
 
@@ -106,7 +119,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:533](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L533)
+[packages/ammo/ammo.d.ts:543](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L543)
 
 ___
 
@@ -130,7 +143,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:534](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L534)
+[packages/ammo/ammo.d.ts:544](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L544)
 
 ___
 
@@ -155,7 +168,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:535](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L535)
+[packages/ammo/ammo.d.ts:545](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L545)
 
 ___
 
@@ -181,7 +194,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:536](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L536)
+[packages/ammo/ammo.d.ts:546](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L546)
 
 ___
 
@@ -201,7 +214,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:597](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L597)
+[packages/ammo/ammo.d.ts:607](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L607)
 
 ___
 
@@ -221,7 +234,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:598](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L598)
+[packages/ammo/ammo.d.ts:608](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L608)
 
 ___
 
@@ -241,7 +254,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:599](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L599)
+[packages/ammo/ammo.d.ts:609](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L609)
 
 ___
 
@@ -261,4 +274,92 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:600](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L600)
+[packages/ammo/ammo.d.ts:610](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L610)
+
+___
+
+### getLinearPos
+
+▸ **getLinearPos**(): `number`
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:611](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L611)
+
+___
+
+### getAngularPos
+
+▸ **getAngularPos**(): `number`
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:612](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L612)
+
+___
+
+### setTargetLinMotorVelocity
+
+▸ **setTargetLinMotorVelocity**(`velocity`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `velocity` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:613](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L613)
+
+___
+
+### setPoweredLinMotor
+
+▸ **setPoweredLinMotor**(`onOff`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `onOff` | `boolean` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:614](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L614)
+
+___
+
+### setMaxLinMotorForce
+
+▸ **setMaxLinMotorForce**(`force`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `force` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[packages/ammo/ammo.d.ts:615](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L615)

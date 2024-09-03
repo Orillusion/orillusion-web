@@ -33,16 +33,22 @@ The engine will listen to the current `canvas`by default, unify the event model 
 
 | Parameter	 | Type | Description |
 | --- | --- | --- |
-| pointerId | number |  A unique identifier for an event caused by a pointer. |
-| pointerType | string |  Indicates the type of device that caused the event (mouse/pen/touch, etc.). |
-| isPrimary | boolean |  Indicates whether the pointer is the primary pointer in a set of pointers of the same type. |
-| pressure | number |  The normalized pressure value of the pointer input, with a value range of 0 to 1, where 0 represents the smallest pressure detectable by the hardware, and 1 represents the maximum value. |
-| mouseX | number |  The current x coordinate. |
-| mouseY | number |  The current y coordinate. |
-| movementX | number | It provides the horizontal movement value of the mouse between the current and previous mouse events. |
-| movementY | number | It provides the vertical movement value of the mouse between the current and previous mouse events. |
-| deltaX | number |  Returns a negative double value when scrolling left, a positive double value when scrolling right, and 0 otherwise. |
-| deltaY | number |  Returns a positive value when scrolling down, a negative value when scrolling up, and 0 otherwise. |
+| target | Object3D |  The target object3d for the event |
+| data | Object |  Coordinate data for the event, including information such as the target object’s `normal` and `position` |
+| pointerId | number |  A unique identifier for an event caused by a pointer |
+| pointerType | string |  Indicates the type of device that caused the event (mouse/pen/touch, etc.) |
+| isPrimary | boolean |  Indicates whether the pointer is the primary pointer in a set of pointers of the same type |
+| pressure | number |  The normalized pressure value of the pointer input, with a value range of 0 to 1, where 0 represents the smallest pressure detectable by the hardware, and 1 represents the maximum value |
+| mouseX | number |  The current x coordinate |
+| mouseY | number |  The current y coordinate |
+| movementX | number | It provides the horizontal movement value of the mouse between the current and previous mouse events |
+| movementY | number | It provides the vertical movement value of the mouse between the current and previous mouse events |
+| deltaX | number |  Returns a negative double value when scrolling left, a positive double value when scrolling right, and 0 otherwise |
+| deltaY | number |  Returns a positive value when scrolling down, a negative value when scrolling up, and 0 otherwise |
+| metaKey | boolean |  if the meta key is pressed, otherwise false |
+| ctrlKey | boolean |  if the ctrl key is pressed, otherwise false |
+| altKey | boolean |  if the alt key is pressed, otherwise false |
+| shiftKey | boolean |  if the shift key is pressed, otherwise false |
 
 
 ## Example

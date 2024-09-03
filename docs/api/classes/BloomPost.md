@@ -34,6 +34,7 @@ let cfg = {@link Engine3D.setting.render.postProcessing.bloom};
 - [upSampleBlurSigma](BloomPost.md#upsampleblursigma)
 - [luminanceThreshole](BloomPost.md#luminancethreshole)
 - [bloomIntensity](BloomPost.md#bloomintensity)
+- [hdr](BloomPost.md#hdr)
 
 ### Methods
 
@@ -317,6 +318,36 @@ ___
 
 [src/gfx/renderJob/post/BloomPost.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L119)
 
+___
+
+### hdr
+
+• `get` **hdr**(): `number`
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[src/gfx/renderJob/post/BloomPost.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L123)
+
+• `set` **hdr**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/gfx/renderJob/post/BloomPost.ts:127](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L127)
+
 ## Methods
 
 ### onDetach
@@ -357,7 +388,7 @@ PostBase.onResize
 
 #### Defined in
 
-[src/gfx/renderJob/post/BloomPost.ts:276](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L276)
+[src/gfx/renderJob/post/BloomPost.ts:280](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L280)
 
 ___
 

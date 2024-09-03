@@ -60,6 +60,7 @@ Ammo.js by Bullet2
 - [btStaticPlaneShape](../classes/Ammo.btStaticPlaneShape.md)
 - [btTriangleMeshShape](../classes/Ammo.btTriangleMeshShape.md)
 - [btBvhTriangleMeshShape](../classes/Ammo.btBvhTriangleMeshShape.md)
+- [btGImpactMeshShape](../classes/Ammo.btGImpactMeshShape.md)
 - [btHeightfieldTerrainShape](../classes/Ammo.btHeightfieldTerrainShape.md)
 - [btDefaultCollisionConstructionInfo](../classes/Ammo.btDefaultCollisionConstructionInfo.md)
 - [btDefaultCollisionConfiguration](../classes/Ammo.btDefaultCollisionConfiguration.md)
@@ -141,6 +142,11 @@ Ammo.js by Bullet2
 
 ### Functions
 
+- [wrapPointer](../functions/Ammo.wrapPointer.md)
+- [addFunction](../functions/Ammo.addFunction.md)
+- [getPointer](../functions/Ammo.getPointer.md)
+- [UTF8ToString](../functions/Ammo.UTF8ToString.md)
+- [castObject](../functions/Ammo.castObject.md)
 - [destroy](../functions/Ammo.destroy.md)
 - [\_malloc](../functions/Ammo._malloc.md)
 - [\_free](../functions/Ammo._free.md)

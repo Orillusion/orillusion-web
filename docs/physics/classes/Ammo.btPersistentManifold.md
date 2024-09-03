@@ -17,11 +17,15 @@
 
 ### constructor
 
-• **new btPersistentManifold**()
+• **new btPersistentManifold**(): [`btPersistentManifold`](Ammo.btPersistentManifold.md)
+
+#### Returns
+
+[`btPersistentManifold`](Ammo.btPersistentManifold.md)
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:425](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L425)
+[packages/ammo/ammo.d.ts:435](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L435)
 
 ## Methods
 
@@ -35,7 +39,7 @@
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:426](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L426)
+[packages/ammo/ammo.d.ts:436](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L436)
 
 ___
 
@@ -49,7 +53,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:427](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L427)
+[packages/ammo/ammo.d.ts:437](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L437)
 
 ___
 
@@ -63,7 +67,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:428](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L428)
+[packages/ammo/ammo.d.ts:438](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L438)
 
 ___
 
@@ -83,4 +87,4 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:429](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L429)
+[packages/ammo/ammo.d.ts:439](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L439)

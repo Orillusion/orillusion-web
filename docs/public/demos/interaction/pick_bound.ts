@@ -1,11 +1,11 @@
-import { Engine3D, Scene3D, Vector3, Object3D, AtmosphericComponent, Camera3D, View3D, LitMaterial, MeshRenderer, BoxColliderShape, ColliderComponent, BoxGeometry, ComponentBase, Color, PointerEvent3D, SphereGeometry, DirectLight } from '@orillusion/core';
+import { Engine3D, Scene3D, Vector3, Object3D, AtmosphericComponent, Camera3D, View3D, LitMaterial, MeshRenderer, BoxColliderShape, ColliderComponent, BoxGeometry, ComponentBase, Color, PointerEvent3D, SphereGeometry, DirectLight, BoundingBox } from '@orillusion/core';
+import { Graphic3D } from '@orillusion/graphic';
 
 class TouchDemo {
     scene: Scene3D;
-
     cameraObj: Object3D;
-
     camera: Camera3D;
+    graphic3D: Graphic3D;
 
     constructor() {}
 
@@ -32,6 +32,11 @@ class TouchDemo {
 
         let box = this.createBox(-2, 0, 0);
         let sphere = this.createSphere(2, 0, 0);
+        
+        this.graphic3D = new Graphic3D();
+        this.scene.addChild(this.graphic3D);
+        this.graphic3D.drawBoundingBox(box.instanceID, box.bound as BoundingBox, Color.COLOR_GREEN);
+        this.graphic3D.drawBoundingBox(sphere.instanceID, sphere.bound as BoundingBox, Color.COLOR_GREEN);
 
         let view = new View3D();
         view.scene = this.scene;

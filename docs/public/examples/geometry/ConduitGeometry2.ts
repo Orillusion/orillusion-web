@@ -14,6 +14,7 @@ class Sample_ConduitGeometry2 {
     async run() {
         Engine3D.setting.shadow.shadowBound = 50;
         Engine3D.setting.shadow.shadowSize = 1024;
+        Engine3D.setting.shadow.shadowBias = 0.01;
 
         await Engine3D.init();
         // init Scene3D
@@ -27,7 +28,6 @@ class Sample_ConduitGeometry2 {
         // init Camera3D
         let camera = CameraUtil.createCamera3DObject(this.scene);
         camera.perspective(60, Engine3D.aspect, 1, 5000);
-        camera.enableCSM = true;
 
         // init Camera Controller
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController);
@@ -50,7 +50,7 @@ class Sample_ConduitGeometry2 {
         let light = lightObj3D.addComponent(DirectLight);
         light.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
         light.castShadow = true;
-        light.intensity = 30;
+        light.intensity = 2;
 
         this.scene.addChild(light.object3D);
 
@@ -109,7 +109,7 @@ class Sample_ConduitGeometry2 {
         let texture = new BitmapTexture2D();
         texture.addressModeU = 'repeat';
         texture.addressModeV = 'repeat';
-        await texture.load('https://cdn.orillusion.com/textures/cell.webp');
+        await texture.load('https://cdn.orillusion.com/textures/grid.webp');
         this.material.baseMap = texture;
     }
 
@@ -174,12 +174,12 @@ class UVMoveComponent extends ComponentBase {
 
     onUpdate(): void {
         if (this._material) {
-            let value = this._material.getUniformV4(`transformUV1`);
+            let value = this._material.getUniformV4(`baseMapOffsetSize`);
             value.x += Time.delta * this._speed.x * 0.001;
             value.y += Time.delta * this._speed.y * 0.001;
             value.z = this._speed.z;
             value.w = this._speed.w;
-            this._material.setUniformVector4(`transformUV1`, value);
+            this._material.setUniformVector4(`baseMapOffsetSize`, value);
         }
     }
 }

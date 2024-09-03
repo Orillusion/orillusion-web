@@ -13,7 +13,7 @@ class Sample_AnimCurve {
     async run() {
         Engine3D.setting.shadow.autoUpdate = true;
         Engine3D.setting.shadow.updateFrameRate = 1;
-        Engine3D.setting.shadow.type = `HARD`;
+        Engine3D.setting.shadow.shadowBound = 150;
 
         await Engine3D.init({ beforeRender: () => this.renderUpdate() });
         this.scene = new Scene3D();
@@ -21,9 +21,7 @@ class Sample_AnimCurve {
         let sky = this.scene.addComponent(AtmosphericComponent);
 
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.enableCSM = true;
         camera.perspective(60, Engine3D.aspect, 0.01, 5000.0);
-
         camera.object3D.addComponent(HoverCameraController).setCamera(-30, -45, 200);
 
         let view = new View3D();
@@ -46,7 +44,7 @@ class Sample_AnimCurve {
             let directLight = this.lightObj3D.addComponent(DirectLight);
             directLight.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
             directLight.castShadow = true;
-            directLight.intensity = 30;
+            directLight.intensity = 3;
             this.scene.addChild(this.lightObj3D);
 
             //create animation curve 1

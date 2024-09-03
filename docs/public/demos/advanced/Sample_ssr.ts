@@ -10,6 +10,10 @@ class Sample_SSR {
 
     async run() {
         Engine3D.setting.shadow.enable = true;
+        Engine3D.setting.shadow.shadowSize = 2048
+        Engine3D.setting.shadow.shadowBound = 200;
+        Engine3D.setting.shadow.shadowBias = 0.05;
+
         await Engine3D.init({
             canvasConfig: {
                 devicePixelRatio: 1
@@ -23,7 +27,7 @@ class Sample_SSR {
         let mainCamera = CameraUtil.createCamera3DObject(this.scene, 'camera');
         mainCamera.perspective(60, webGPUContext.aspect, 1, 2000.0);
         let ctrl = mainCamera.object3D.addComponent(HoverCameraController);
-        ctrl.setCamera(180, -5, 60);
+        ctrl.setCamera(-75, -20, 40);
         await this.initScene(this.scene);
 
         let view = new View3D();
@@ -46,14 +50,27 @@ class Sample_SSR {
             let lc = this.lightObj.addComponent(DirectLight);
             lc.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
             lc.castShadow = true;
-            lc.intensity = 27;
+            lc.intensity = 10;
             scene.addChild(this.lightObj);
         }
 
         // load test model
         let minimalObj = await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/ToyCar/ToyCar.gltf');
         minimalObj.scaleX = minimalObj.scaleY = minimalObj.scaleZ = 1000;
+        minimalObj.y = -1.1
         scene.addChild(minimalObj);
+
+        minimalObj.forChild((obj: Object3D) => {
+            let mr = obj.getComponent(MeshRenderer)
+            if (mr && mr.material) {
+                if (mr.material.name == 'ToyCar') {
+                    let mat = mr.material as LitMaterial;
+                    mat.metallic = 0.9;
+                    mat.roughness = 0.1;
+                    mat.clearcoatFactor = 0.5;
+                }
+            }
+        })
 
         await this.createPlane(scene);
         return true;
@@ -62,14 +79,11 @@ class Sample_SSR {
     private sphere: Object3D;
 
     private async createPlane(scene: Scene3D) {
-        let mat = new LitMaterial();
-        mat.roughness = 0.2;
-        mat.metallic = 0.5;
-
+        const GUIHelp = new dat.GUI();
         {
             let floorMaterial = new LitMaterial();
-            floorMaterial.roughness = 0.5;
-            floorMaterial.metallic = 0.5;
+            floorMaterial.roughness = 0.1;
+            floorMaterial.metallic = 1;
 
             let planeGeometry = new PlaneGeometry(200, 200);
             let floor: Object3D = new Object3D();
@@ -78,12 +92,17 @@ class Sample_SSR {
             mr.geometry = planeGeometry;
             scene.addChild(floor);
 
-            const GUIHelp = new dat.GUI();
-            GUIHelp.add(floorMaterial, 'roughness', 0, 1, 0.01);
-            GUIHelp.add(floorMaterial, 'metallic', 0, 1, 0.01);
+            let f = GUIHelp.addFolder('floor')
+            f.add(floorMaterial, 'roughness', 0.01, 1, 0.01);
+            f.add(floorMaterial, 'metallic', 0.01, 1, 0.01);
+            f.open()
         }
 
         {
+            let mat = new LitMaterial();
+            mat.roughness = 0.1;
+            mat.metallic = 0.9;
+    
             let sphereGeometry = new SphereGeometry(10, 50, 50);
             let obj: Object3D = new Object3D();
             let mr = obj.addComponent(MeshRenderer);
@@ -93,6 +112,11 @@ class Sample_SSR {
             obj.y = 10;
             scene.addChild(obj);
             this.sphere = obj;
+
+            let f = GUIHelp.addFolder('Sphere')
+            f.add(mat, 'roughness', 0.01, 1, 0.01);
+            f.add(mat, 'metallic', 0.01, 1, 0.01);
+            f.open()
         }
 
         {

@@ -24,7 +24,7 @@
 
 ### constructor
 
-• **new btTriangleMesh**(`use32bitIndices?`, `use4componentVertices?`)
+• **new btTriangleMesh**(`use32bitIndices?`, `use4componentVertices?`): [`btTriangleMesh`](Ammo.btTriangleMesh.md)
 
 #### Parameters
 
@@ -33,13 +33,17 @@
 | `use32bitIndices?` | `boolean` |
 | `use4componentVertices?` | `boolean` |
 
+#### Returns
+
+[`btTriangleMesh`](Ammo.btTriangleMesh.md)
+
 #### Overrides
 
 [btStridingMeshInterface](Ammo.btStridingMeshInterface.md).[constructor](Ammo.btStridingMeshInterface.md#constructor)
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:395](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L395)
+[packages/ammo/ammo.d.ts:401](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L401)
 
 ## Methods
 
@@ -63,7 +67,7 @@
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:384](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L384)
+[packages/ammo/ammo.d.ts:390](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L390)
 
 ___
 
@@ -86,7 +90,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:396](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L396)
+[packages/ammo/ammo.d.ts:402](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L402)
 
 ___
 
@@ -107,7 +111,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:397](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L397)
+[packages/ammo/ammo.d.ts:403](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L403)
 
 ___
 
@@ -127,7 +131,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:398](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L398)
+[packages/ammo/ammo.d.ts:404](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L404)
 
 ___
 
@@ -141,4 +145,4 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:399](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L399)
+[packages/ammo/ammo.d.ts:405](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L405)

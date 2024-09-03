@@ -45,6 +45,7 @@ Container for UI components
 - [color](UIPanel.md#color)
 - [imageType](UIPanel.md#imagetype)
 - [quadMaxCount](UIPanel.md#quadmaxcount)
+- [renderer](UIPanel.md#renderer)
 - [billboard](UIPanel.md#billboard)
 - [cullMode](UIPanel.md#cullmode)
 - [mainQuads](UIPanel.md#mainquads)
@@ -59,6 +60,8 @@ Container for UI components
 - [onCompute](UIPanel.md#oncompute)
 - [onGraphic](UIPanel.md#ongraphic)
 - [onParentChange](UIPanel.md#onparentchange)
+- [onAddChild](UIPanel.md#onaddchild)
+- [onRemoveChild](UIPanel.md#onremovechild)
 - [beforeDestroy](UIPanel.md#beforedestroy)
 - [cloneTo](UIPanel.md#cloneto)
 - [copyComponent](UIPanel.md#copycomponent)
@@ -553,6 +556,20 @@ Return How many Quads can a single GUIGeometry support at most
 
 ___
 
+### renderer
+
+• `get` **renderer**(): [`GUIRenderer`](GUIRenderer.md)
+
+#### Returns
+
+[`GUIRenderer`](GUIRenderer.md)
+
+#### Defined in
+
+[src/components/gui/uiComponents/UIPanel.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L96)
+
+___
+
 ### billboard
 
 • `get` **billboard**(): [`BillboardType`](../enums/BillboardType.md)
@@ -563,7 +580,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIPanel.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L111)
+[src/components/gui/uiComponents/UIPanel.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L114)
 
 • `set` **billboard**(`type`): `void`
 
@@ -579,7 +596,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIPanel.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L96)
+[src/components/gui/uiComponents/UIPanel.ts:100](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L100)
 
 ___
 
@@ -593,7 +610,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIPanel.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L125)
+[src/components/gui/uiComponents/UIPanel.ts:128](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L128)
 
 • `set` **cullMode**(`value`): `void`
 
@@ -609,7 +626,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIPanel.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L115)
+[src/components/gui/uiComponents/UIPanel.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L118)
 
 ___
 
@@ -819,6 +836,54 @@ ___
 
 ___
 
+### onAddChild
+
+▸ **onAddChild**(`child`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `child` | [`Object3D`](Object3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[UIImage](UIImage.md).[onAddChild](UIImage.md#onaddchild)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L123)
+
+___
+
+### onRemoveChild
+
+▸ **onRemoveChild**(`child`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `child` | [`Object3D`](Object3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[UIImage](UIImage.md).[onRemoveChild](UIImage.md#onremovechild)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L124)
+
+___
+
 ### beforeDestroy
 
 ▸ **beforeDestroy**(`force?`): `void`
@@ -841,7 +906,7 @@ before release this component, object refrences are not be set null now.
 
 #### Defined in
 
-[src/components/ComponentBase.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L198)
+[src/components/ComponentBase.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L200)
 
 ___
 
@@ -961,7 +1026,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIPanel.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L129)
+[src/components/gui/uiComponents/UIPanel.ts:132](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L132)
 
 ___
 

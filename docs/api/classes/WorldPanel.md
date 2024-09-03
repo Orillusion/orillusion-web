@@ -42,6 +42,7 @@ UI component container for world space
 - [color](WorldPanel.md#color)
 - [imageType](WorldPanel.md#imagetype)
 - [quadMaxCount](WorldPanel.md#quadmaxcount)
+- [renderer](WorldPanel.md#renderer)
 - [billboard](WorldPanel.md#billboard)
 - [cullMode](WorldPanel.md#cullmode)
 - [mainQuads](WorldPanel.md#mainquads)
@@ -57,6 +58,8 @@ UI component container for world space
 - [onCompute](WorldPanel.md#oncompute)
 - [onGraphic](WorldPanel.md#ongraphic)
 - [onParentChange](WorldPanel.md#onparentchange)
+- [onAddChild](WorldPanel.md#onaddchild)
+- [onRemoveChild](WorldPanel.md#onremovechild)
 - [beforeDestroy](WorldPanel.md#beforedestroy)
 - [init](WorldPanel.md#init)
 - [updateDrawCallSegment](WorldPanel.md#updatedrawcallsegment)
@@ -605,6 +608,24 @@ UIPanel.quadMaxCount
 
 ___
 
+### renderer
+
+• `get` **renderer**(): [`GUIRenderer`](GUIRenderer.md)
+
+#### Returns
+
+[`GUIRenderer`](GUIRenderer.md)
+
+#### Inherited from
+
+UIPanel.renderer
+
+#### Defined in
+
+[src/components/gui/uiComponents/UIPanel.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L96)
+
+___
+
 ### billboard
 
 • `get` **billboard**(): [`BillboardType`](../enums/BillboardType.md)
@@ -619,7 +640,7 @@ UIPanel.billboard
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIPanel.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L111)
+[src/components/gui/uiComponents/UIPanel.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L114)
 
 • `set` **billboard**(`type`): `void`
 
@@ -639,7 +660,7 @@ UIPanel.billboard
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIPanel.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L96)
+[src/components/gui/uiComponents/UIPanel.ts:100](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L100)
 
 ___
 
@@ -657,7 +678,7 @@ UIPanel.cullMode
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIPanel.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L125)
+[src/components/gui/uiComponents/UIPanel.ts:128](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L128)
 
 • `set` **cullMode**(`value`): `void`
 
@@ -677,7 +698,7 @@ UIPanel.cullMode
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIPanel.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L115)
+[src/components/gui/uiComponents/UIPanel.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L118)
 
 ___
 
@@ -917,6 +938,54 @@ ___
 
 ___
 
+### onAddChild
+
+▸ **onAddChild**(`child`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `child` | [`Object3D`](Object3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[UIPanel](UIPanel.md).[onAddChild](UIPanel.md#onaddchild)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L123)
+
+___
+
+### onRemoveChild
+
+▸ **onRemoveChild**(`child`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `child` | [`Object3D`](Object3D.md) |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[UIPanel](UIPanel.md).[onRemoveChild](UIPanel.md#onremovechild)
+
+#### Defined in
+
+[src/components/ComponentBase.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L124)
+
+___
+
 ### beforeDestroy
 
 ▸ **beforeDestroy**(`force?`): `void`
@@ -939,7 +1008,7 @@ before release this component, object refrences are not be set null now.
 
 #### Defined in
 
-[src/components/ComponentBase.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L198)
+[src/components/ComponentBase.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L200)
 
 ___
 
@@ -1013,7 +1082,7 @@ ___
 
 #### Defined in
 
-[src/components/gui/uiComponents/UIPanel.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L129)
+[src/components/gui/uiComponents/UIPanel.ts:132](https://github.com/Orillusion/orillusion/blob/main/src/components/gui/uiComponents/UIPanel.ts#L132)
 
 ___
 

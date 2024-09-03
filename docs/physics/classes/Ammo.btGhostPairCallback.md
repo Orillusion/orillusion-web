@@ -10,8 +10,12 @@
 
 ### constructor
 
-• **new btGhostPairCallback**()
+• **new btGhostPairCallback**(): [`btGhostPairCallback`](Ammo.btGhostPairCallback.md)
+
+#### Returns
+
+[`btGhostPairCallback`](Ammo.btGhostPairCallback.md)
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:867](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L867)
+[packages/ammo/ammo.d.ts:882](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L882)

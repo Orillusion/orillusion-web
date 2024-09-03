@@ -20,7 +20,11 @@
 
 ### constructor
 
-• **new btBroadphaseInterface**()
+• **new btBroadphaseInterface**(): [`btBroadphaseInterface`](Ammo.btBroadphaseInterface.md)
+
+#### Returns
+
+[`btBroadphaseInterface`](Ammo.btBroadphaseInterface.md)
 
 ## Methods
 
@@ -34,4 +38,4 @@
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:447](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L447)
+[packages/ammo/ammo.d.ts:457](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L457)

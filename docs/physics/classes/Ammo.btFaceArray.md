@@ -15,7 +15,11 @@
 
 ### constructor
 
-• **new btFaceArray**()
+• **new btFaceArray**(): [`btFaceArray`](Ammo.btFaceArray.md)
+
+#### Returns
+
+[`btFaceArray`](Ammo.btFaceArray.md)
 
 ## Methods
 
@@ -29,7 +33,7 @@
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:347](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L347)
+[packages/ammo/ammo.d.ts:353](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L353)
 
 ___
 
@@ -49,4 +53,4 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:348](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L348)
+[packages/ammo/ammo.d.ts:354](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L354)

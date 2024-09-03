@@ -16,7 +16,11 @@
 
 ### constructor
 
-• **new btDefaultSoftBodySolver**()
+• **new btDefaultSoftBodySolver**(): [`btDefaultSoftBodySolver`](Ammo.btDefaultSoftBodySolver.md)
+
+#### Returns
+
+[`btDefaultSoftBodySolver`](Ammo.btDefaultSoftBodySolver.md)
 
 #### Overrides
 
@@ -24,4 +28,4 @@
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:1048](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L1048)
+[packages/ammo/ammo.d.ts:1063](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L1063)

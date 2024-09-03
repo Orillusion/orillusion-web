@@ -6,8 +6,9 @@ class Sample_GodRay {
     scene: Scene3D;
 
     async run() {
-        Engine3D.setting.shadow.shadowSize = 1024;
-        Engine3D.setting.shadow.shadowBound = 400;
+        Engine3D.setting.shadow.shadowSize = 2048;
+        Engine3D.setting.shadow.shadowBound = 500;
+		Engine3D.setting.shadow.shadowBias = 0.1;
 
         await Engine3D.init({
             renderLoop: () => {
@@ -33,19 +34,27 @@ class Sample_GodRay {
         Engine3D.startRenderView(view);
 
         let postProcessing = this.scene.addComponent(PostProcessingComponent);
-        postProcessing.addPost(GodRayPost);
-        postProcessing.addPost(BloomPost);
+        let godray = postProcessing.addPost(GodRayPost);
+
+        let GUIHelp = new dat.GUI();
+        let f = GUIHelp.addFolder('Orillusion')
+        f.add(godray, 'blendColor')
+        f.add(godray, 'scatteringExponent', 1, 10, 0.1)
+        f.add(godray, 'rayMarchCount', 10, 20, 1)
+        f.add(godray, 'intensity', 0.1, 1, 0.01)
+        f.open()
     }
     async initScene() {
         {
             this.lightObj = new Object3D();
             this.lightObj.rotationX = 15;
-            this.lightObj.rotationY = 110;
+            this.lightObj.rotationY = 134;
             this.lightObj.rotationZ = 0;
             let lc = this.lightObj.addComponent(DirectLight);
             lc.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
             lc.castShadow = true;
-            lc.intensity = 20;
+            lc.intensity = 10;
+		    lc.indirect = 0.3;
             this.scene.addChild(this.lightObj);
         }
 

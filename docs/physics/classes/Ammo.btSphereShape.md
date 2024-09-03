@@ -24,7 +24,7 @@
 
 ### constructor
 
-• **new btSphereShape**(`radius`)
+• **new btSphereShape**(`radius`): [`btSphereShape`](Ammo.btSphereShape.md)
 
 #### Parameters
 
@@ -32,13 +32,17 @@
 | :------ | :------ |
 | `radius` | `number` |
 
+#### Returns
+
+[`btSphereShape`](Ammo.btSphereShape.md)
+
 #### Overrides
 
 [btCollisionShape](Ammo.btCollisionShape.md).[constructor](Ammo.btCollisionShape.md#constructor)
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:316](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L316)
+[packages/ammo/ammo.d.ts:322](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L322)
 
 ## Methods
 
@@ -62,7 +66,7 @@
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:267](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L267)
+[packages/ammo/ammo.d.ts:273](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L273)
 
 ___
 
@@ -80,7 +84,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:268](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L268)
+[packages/ammo/ammo.d.ts:274](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L274)
 
 ___
 
@@ -105,7 +109,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:269](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L269)
+[packages/ammo/ammo.d.ts:275](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L275)
 
 ___
 
@@ -129,7 +133,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:317](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L317)
+[packages/ammo/ammo.d.ts:323](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L323)
 
 ___
 
@@ -147,4 +151,4 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:318](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L318)
+[packages/ammo/ammo.d.ts:324](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L324)

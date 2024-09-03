@@ -28,6 +28,8 @@
 - [destroy](IComponent.md#destroy)
 - [beforeDestroy](IComponent.md#beforedestroy)
 - [onParentChange](IComponent.md#onparentchange)
+- [onAddChild](IComponent.md#onaddchild)
+- [onRemoveChild](IComponent.md#onremovechild)
 
 ## Properties
 
@@ -348,3 +350,43 @@ ___
 #### Defined in
 
 [src/components/IComponent.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/components/IComponent.ts#L25)
+
+___
+
+### onAddChild
+
+▸ **onAddChild**(`child`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `child` | [`Object3D`](../classes/Object3D.md) |
+
+#### Returns
+
+`any`
+
+#### Defined in
+
+[src/components/IComponent.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/components/IComponent.ts#L27)
+
+___
+
+### onRemoveChild
+
+▸ **onRemoveChild**(`child`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `child` | [`Object3D`](../classes/Object3D.md) |
+
+#### Returns
+
+`any`
+
+#### Defined in
+
+[src/components/IComponent.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/IComponent.ts#L28)

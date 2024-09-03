@@ -15,10 +15,10 @@ In a rendering scene, we often apply transformations such as translation, rotati
 | [Ray](/api/classes/Ray) | Ray |
 | Rand | Normal random |
 | Random | Various types of random distribution functions |
-| Bezier2D |  |
-| Bezier3D |  |
-| CubicBezierCurve |  |
-| CubicBezierPath |  |
+| Bezier2D | 2D Bezier Curve |
+| Bezier3D | 3D Bezier Curve |
+| CubicBezierCurve | Cubic Bezier Curve |
+| CubicBezierPath | Cubic Bezier Path |
 | GradientNew | Color gradient |
 | ParticleMath |  Mathematical library used in particle systems |
 

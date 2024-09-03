@@ -1,4 +1,4 @@
-import { Engine3D, Scene3D, Object3D, AtmosphericComponent, View3D, DirectLight, HoverCameraController, Color, CameraUtil, SkeletonAnimationComponent, Vector3 } from '@orillusion/core';
+import { Engine3D, Scene3D, Object3D, AtmosphericComponent, View3D, DirectLight, HoverCameraController, Color, CameraUtil, SkeletonAnimationComponent, Vector3, AnimatorComponent } from '@orillusion/core';
 import * as dat from 'dat.gui';
 
 // Init Engine3D
@@ -23,7 +23,7 @@ hc.setCamera(0, -15, 5, new Vector3(0, 1, 0));
     dl.lightColor = new Color(1.0, 0.95, 0.84, 1.0);
     scene.addChild(ligthObj);
     dl.castShadow = true;
-    dl.intensity = 15;
+    dl.intensity = 5.0;
 }
 
 // load test model
@@ -32,26 +32,26 @@ soldier.rotationY = -90;
 soldier.localScale.set(2, 2, 2);
 scene.addChild(soldier);
 
-// get animation controller
-let animation = soldier.getComponentsInChild(SkeletonAnimationComponent)[0];
-animation.play('Idle');
+// get animator component
+let animator = soldier.getComponentsInChild(AnimatorComponent)[0];
+animator.playAnim('Idle');
 
 const GUIHelp = new dat.GUI();
 let f = GUIHelp.addFolder('Animation-weight');
-animation.getAnimationClipStates().forEach((clipState, _) => {
-    f.add(clipState, 'weight', 0, 1.0, 0.01).name(clipState.name);
+animator.clipsState.forEach((clipState, _) => {
+    f.add(clipState, 'weight', 0, 1.0, 0.01).name(clipState.clip.clipName);
 });
 f.open();
 
 f = GUIHelp.addFolder('Animation-play');
-animation.getAnimationClipStates().forEach((clipState, _) => {
-    f.add({ click: () => animation.play(clipState.name) }, 'click').name(clipState.name);
+animator.clipsState.forEach((clipState, _) => {
+    f.add({ click: () => animator.playAnim(clipState.clip.clipName) }, 'click').name(clipState.clip.clipName);
 });
 f.open();
 
 f = GUIHelp.addFolder('Animation-crossFade');
-animation.getAnimationClipStates().forEach((clipState, _) => {
-    f.add({ click: () => animation.crossFade(clipState.name, 0.3) }, 'click').name('crossFade(' + clipState.name + ')');
+animator.clipsState.forEach((clipState, _) => {
+    f.add({ click: () => animator.crossFade(clipState.clip.clipName, 0.3) }, 'click').name('crossFade(' + clipState.clip.clipName + ')');
 });
 f.open();
 // set skybox

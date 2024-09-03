@@ -37,4 +37,4 @@ ___
 
 #### Defined in
 
-[src/assets/shader/sky/CubeSky_Shader.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/assets/shader/sky/CubeSky_Shader.ts#L44)
+[src/assets/shader/sky/CubeSky_Shader.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/assets/shader/sky/CubeSky_Shader.ts#L46)

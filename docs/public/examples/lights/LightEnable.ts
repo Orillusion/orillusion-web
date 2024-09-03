@@ -1,5 +1,4 @@
 import { AtmosphericComponent, BoxGeometry, CameraUtil, Color, Engine3D, HoverCameraController, LitMaterial, MeshRenderer, Object3D, Object3DUtil, PointLight, Scene3D, SphereGeometry, View3D } from '@orillusion/core';
-import { PointLightsScript } from './PointLightsScript';
 import dat from 'dat.gui';
 
 class Sample_LightEnable {

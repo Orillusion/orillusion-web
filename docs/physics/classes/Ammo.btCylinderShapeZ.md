@@ -24,7 +24,7 @@
 
 ### constructor
 
-• **new btCylinderShapeZ**(`halfExtents`)
+• **new btCylinderShapeZ**(`halfExtents`): [`btCylinderShapeZ`](Ammo.btCylinderShapeZ.md)
 
 #### Parameters
 
@@ -32,13 +32,17 @@
 | :------ | :------ |
 | `halfExtents` | [`btVector3`](Ammo.btVector3.md) |
 
+#### Returns
+
+[`btCylinderShapeZ`](Ammo.btCylinderShapeZ.md)
+
 #### Overrides
 
 [btCylinderShape](Ammo.btCylinderShape.md).[constructor](Ammo.btCylinderShape.md#constructor)
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:311](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L311)
+[packages/ammo/ammo.d.ts:317](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L317)
 
 ## Methods
 
@@ -62,7 +66,7 @@
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:267](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L267)
+[packages/ammo/ammo.d.ts:273](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L273)
 
 ___
 
@@ -80,7 +84,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:268](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L268)
+[packages/ammo/ammo.d.ts:274](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L274)
 
 ___
 
@@ -105,7 +109,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:269](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L269)
+[packages/ammo/ammo.d.ts:275](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L275)
 
 ___
 
@@ -129,7 +133,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:312](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L312)
+[packages/ammo/ammo.d.ts:318](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L318)
 
 ___
 
@@ -147,4 +151,4 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:313](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L313)
+[packages/ammo/ammo.d.ts:319](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L319)

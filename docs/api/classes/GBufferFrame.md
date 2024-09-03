@@ -12,8 +12,10 @@
 
 ### Properties
 
+- [colorPass\_GBuffer](GBufferFrame.md#colorpass_gbuffer)
+- [reflections\_GBuffer](GBufferFrame.md#reflections_gbuffer)
+- [gui\_GBuffer](GBufferFrame.md#gui_gbuffer)
 - [gBufferMap](GBufferFrame.md#gbuffermap)
-- [bufferTexture](GBufferFrame.md#buffertexture)
 - [label](GBufferFrame.md#label)
 - [customSize](GBufferFrame.md#customsize)
 - [renderTargets](GBufferFrame.md#rendertargets)
@@ -27,11 +29,12 @@
 
 ### Methods
 
-- [crateGBuffer](GBufferFrame.md#crategbuffer)
-- [getColorMap](GBufferFrame.md#getcolormap)
+- [createGBuffer](GBufferFrame.md#creategbuffer)
 - [getPositionMap](GBufferFrame.md#getpositionmap)
 - [getNormalMap](GBufferFrame.md#getnormalmap)
-- [getMaterialMap](GBufferFrame.md#getmaterialmap)
+- [getColorTexture](GBufferFrame.md#getcolortexture)
+- [getCompressGBufferTexture](GBufferFrame.md#getcompressgbuffertexture)
+- [getGUIBufferFrame](GBufferFrame.md#getguibufferframe)
 - [clone](GBufferFrame.md#clone)
 - [clone2Frame](GBufferFrame.md#clone2frame)
 
@@ -51,13 +54,13 @@
 
 #### Defined in
 
-[src/gfx/renderJob/frame/GBufferFrame.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L13)
+[src/gfx/renderJob/frame/GBufferFrame.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L20)
 
 ## Properties
 
-### gBufferMap
+### colorPass\_GBuffer
 
-▪ `Static` **gBufferMap**: `Map`\<`string`, [`GBufferFrame`](GBufferFrame.md)\>
+▪ `Static` **colorPass\_GBuffer**: `string` = `"ColorPassGBuffer"`
 
 #### Defined in
 
@@ -65,13 +68,33 @@
 
 ___
 
-### bufferTexture
+### reflections\_GBuffer
 
-▪ `Static` **bufferTexture**: `boolean` = `false`
+▪ `Static` **reflections\_GBuffer**: `string` = `"reflections_GBuffer"`
 
 #### Defined in
 
 [src/gfx/renderJob/frame/GBufferFrame.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L12)
+
+___
+
+### gui\_GBuffer
+
+▪ `Static` **gui\_GBuffer**: `string` = `"gui_GBuffer"`
+
+#### Defined in
+
+[src/gfx/renderJob/frame/GBufferFrame.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L13)
+
+___
+
+### gBufferMap
+
+▪ `Static` **gBufferMap**: `Map`\<`string`, [`GBufferFrame`](GBufferFrame.md)\>
+
+#### Defined in
+
+[src/gfx/renderJob/frame/GBufferFrame.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L14)
 
 ___
 
@@ -215,17 +238,20 @@ ___
 
 ## Methods
 
-### crateGBuffer
+### createGBuffer
 
-▸ **crateGBuffer**(`key`, `rtWidth`, `rtHeight`): `void`
+▸ **createGBuffer**(`key`, `rtWidth`, `rtHeight`, `autoResize?`, `outColor?`, `depthTexture?`): `void`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `key` | `string` |
-| `rtWidth` | `number` |
-| `rtHeight` | `number` |
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `key` | `string` | `undefined` |
+| `rtWidth` | `number` | `undefined` |
+| `rtHeight` | `number` | `undefined` |
+| `autoResize` | `boolean` | `true` |
+| `outColor` | `boolean` | `true` |
+| `depthTexture?` | `RenderTexture` | `undefined` |
 
 #### Returns
 
@@ -233,21 +259,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/frame/GBufferFrame.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L17)
-
-___
-
-### getColorMap
-
-▸ **getColorMap**(): `RenderTexture`
-
-#### Returns
-
-`RenderTexture`
-
-#### Defined in
-
-[src/gfx/renderJob/frame/GBufferFrame.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L49)
+[src/gfx/renderJob/frame/GBufferFrame.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L24)
 
 ___
 
@@ -261,7 +273,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/frame/GBufferFrame.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L53)
+[src/gfx/renderJob/frame/GBufferFrame.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L51)
 
 ___
 
@@ -275,13 +287,13 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/frame/GBufferFrame.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L57)
+[src/gfx/renderJob/frame/GBufferFrame.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L55)
 
 ___
 
-### getMaterialMap
+### getColorTexture
 
-▸ **getMaterialMap**(): `RenderTexture`
+▸ **getColorTexture**(): `RenderTexture`
 
 #### Returns
 
@@ -289,7 +301,35 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/frame/GBufferFrame.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L61)
+[src/gfx/renderJob/frame/GBufferFrame.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L59)
+
+___
+
+### getCompressGBufferTexture
+
+▸ **getCompressGBufferTexture**(): `RenderTexture`
+
+#### Returns
+
+`RenderTexture`
+
+#### Defined in
+
+[src/gfx/renderJob/frame/GBufferFrame.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L63)
+
+___
+
+### getGUIBufferFrame
+
+▸ **getGUIBufferFrame**(): [`GBufferFrame`](GBufferFrame.md)
+
+#### Returns
+
+[`GBufferFrame`](GBufferFrame.md)
+
+#### Defined in
+
+[src/gfx/renderJob/frame/GBufferFrame.ts:92](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L92)
 
 ___
 
@@ -307,7 +347,7 @@ ___
 
 #### Defined in
 
-[src/gfx/renderJob/frame/GBufferFrame.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L81)
+[src/gfx/renderJob/frame/GBufferFrame.ts:98](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L98)
 
 ___
 

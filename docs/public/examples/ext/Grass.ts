@@ -32,7 +32,7 @@ class Sample_Grass {
         //bitmap
         let bitmapTexture = await Engine3D.res.loadTexture('https://cdn.orillusion.com/terrain/test01/bitmap.png');
         let heightTexture = await Engine3D.res.loadTexture('https://cdn.orillusion.com/terrain/test01/height.png');
-        let grassTexture = await Engine3D.res.loadTexture('https://cdn.orillusion.com/terrain/grass/GrassThick.png');
+        // let grassTexture = await Engine3D.res.loadTexture('https://cdn.orillusion.com/terrain/grass/GrassThick.png');
         let gustNoiseTexture = await Engine3D.res.loadTexture('https://cdn.orillusion.com/terrain/grass/displ_noise_curl_1.png');
         let sunObj = new Object3D();
         let sunLight = sunObj.addComponent(DirectLight);
@@ -103,28 +103,37 @@ class Sample_Grass {
             scene.addChild(grass);
         }
 
-        // let gui = new dat.GUI()
-        // let dir = gui.addFolder('grass-wind')
-        // dir.addColor(grassCom.grassMaterial, 'grassBaseColor')
-        // dir.addColor(grassCom.grassMaterial, 'grassTopColor')
-        // dir.add(grassCom.grassMaterial.windDirection, 'x', -1.0, 1, 0.0001).onChange((v) => {
-        //     let tv = grassCom.grassMaterial.windDirection
-        //     tv.x = v
-        //     grassCom.grassMaterial.windDirection = tv
-        // })
-        // dir.add(grassCom.grassMaterial.windDirection, 'y', -1.0, 1, 0.0001).onChange((v) => {
-        //     let tv = grassCom.grassMaterial.windDirection
-        //     tv.y = v
-        //     grassCom.grassMaterial.windDirection = tv
-        // })
-        // dir.add(grassCom.grassMaterial, 'windPower', 0.0, 20, 0.0001)
-        // dir.add(grassCom.grassMaterial, 'windSpeed', 0.0, 20, 0.0001)
-        // dir.add(grassCom.grassMaterial, 'curvature', 0.0, 1, 0.0001)
-        // dir.add(grassCom.grassMaterial, 'grassHeight', 0.0, 100, 0.0001)
-        // dir.add(grassCom.grassMaterial, 'roughness', 0.0, 1, 0.0001)
-        // dir.add(grassCom.grassMaterial, 'translucent', 0.0, 1, 0.0001)
-        // dir.add(grassCom.grassMaterial, 'soft', 0.0, 10, 0.0001)
-        // dir.add(grassCom.grassMaterial, 'specular', 0.0, 10, 0.0001)
+        let gui = new dat.GUI()
+        let dir = gui.addFolder('grass-wind')
+        dir.addColor(grassCom.grassMaterial.grassBaseColor, 'rgba').name('grassBaseColor').onChange(val=>{
+            let color = grassCom.grassMaterial.grassBaseColor
+            color['rgba'] = val
+            grassCom.grassMaterial.grassBaseColor = color
+        })
+        dir.addColor(grassCom.grassMaterial.grassTopColor, 'rgba').name('grassTopColor').onChange(val=>{
+            let color = grassCom.grassMaterial.grassBaseColor
+            color['rgba'] = val
+            grassCom.grassMaterial.grassTopColor = color
+        })
+        dir.add(grassCom.grassMaterial.windDirection, 'x', -1.0, 1, 0.0001).onChange((v) => {
+            let tv = grassCom.grassMaterial.windDirection
+            tv.x = v
+            grassCom.grassMaterial.windDirection = tv
+        })
+        dir.add(grassCom.grassMaterial.windDirection, 'y', -1.0, 1, 0.0001).onChange((v) => {
+            let tv = grassCom.grassMaterial.windDirection
+            tv.y = v
+            grassCom.grassMaterial.windDirection = tv
+        })
+        dir.add(grassCom.grassMaterial, 'windPower', 0.0, 20, 0.0001)
+        dir.add(grassCom.grassMaterial, 'windSpeed', 0.0, 20, 0.0001)
+        dir.add(grassCom.grassMaterial, 'curvature', 0.0, 1, 0.0001)
+        dir.add(grassCom.grassMaterial, 'grassHeight', 0.0, 100, 0.0001)
+        dir.add(grassCom.grassMaterial, 'roughness', 0.0, 1, 0.0001)
+        dir.add(grassCom.grassMaterial, 'translucent', 0.0, 1, 0.0001)
+        dir.add(grassCom.grassMaterial, 'soft', 0.0, 10, 0.0001)
+        dir.add(grassCom.grassMaterial, 'specular', 0.0, 10, 0.0001)
+        dir.open()
     }
 }
 

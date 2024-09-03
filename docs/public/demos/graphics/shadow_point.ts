@@ -2,7 +2,7 @@ import { Engine3D, Scene3D, Object3D, Camera3D, Vector3, AtmosphericComponent, V
 
 // shadow setting
 Engine3D.setting.shadow.autoUpdate = true;
-Engine3D.setting.shadow.shadowBound = 100;
+Engine3D.setting.shadow.shadowBound = 50;
 Engine3D.setting.shadow.pointShadowBias = 0.0001;
 Engine3D.setting.shadow.type = 'HARD';
 

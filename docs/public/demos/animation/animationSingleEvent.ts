@@ -1,4 +1,4 @@
-import { Engine3D, Scene3D, Object3D, AtmosphericComponent, View3D, DirectLight, HoverCameraController, Color, CameraUtil, SkeletonAnimationComponent, Vector3, OAnimationEvent } from '@orillusion/core';
+import { Engine3D, Scene3D, Object3D, AtmosphericComponent, View3D, DirectLight, HoverCameraController, Color, CameraUtil, SkeletonAnimationComponent, Vector3, OAnimationEvent, AnimatorComponent } from '@orillusion/core';
 import * as dat from 'dat.gui';
 
 // Init Engine3D
@@ -23,7 +23,7 @@ hc.setCamera(0, -15, 5, new Vector3(0, 1, 0));
     dl.lightColor = new Color(1.0, 0.95, 0.84, 1.0);
     scene.addChild(ligthObj);
     dl.castShadow = true;
-    dl.intensity = 15;
+    dl.intensity = 5.0;
 }
 
 // load test model
@@ -32,41 +32,41 @@ soldier.rotationY = -90;
 soldier.localScale.set(2, 2, 2);
 scene.addChild(soldier);
 
-// get animation controller
-let animation = soldier.getComponentsInChild(SkeletonAnimationComponent)[0];
+// get animator component
+let animator = soldier.getComponentsInChild(AnimatorComponent)[0];
 
-const runClip = animation.getAnimationClip('Run');
-runClip.addEvent('Begin', 0);
-runClip.addEvent('Mid', runClip.totalTime / 2);
-runClip.addEvent('End', runClip.totalTime);
+// const runClip = animator.getAnimationClip('Run');
+// runClip.addEvent('Begin', 0);
+// runClip.addEvent('Mid', runClip.totalTime / 2);
+// runClip.addEvent('End', runClip.totalTime);
 
-animation.eventDispatcher.addEventListener(
-    'Begin',
-    (e: OAnimationEvent) => {
-        console.log('Run-Begin', e.skeletonAnimation.getAnimationClipState('Run').time);
-    },
-    this
-);
-animation.eventDispatcher.addEventListener(
-    'Mid',
-    (e: OAnimationEvent) => {
-        console.log('Run-Mid', e.skeletonAnimation.getAnimationClipState('Run').time);
-    },
-    this
-);
-animation.eventDispatcher.addEventListener(
-    'End',
-    (e: OAnimationEvent) => {
-        console.log('Run-End:', e.skeletonAnimation.getAnimationClipState('Run').time);
-        e.skeletonAnimation.crossFade('Idle', 0.5);
-    },
-    this
-);
+// animator.eventDispatcher.addEventListener(
+//     'Begin',
+//     (e: OAnimationEvent) => {
+//         console.log('Run-Begin', e.skeletonAnimation.getAnimationClipState('Run').time);
+//     },
+//     this
+// );
+// animator.eventDispatcher.addEventListener(
+//     'Mid',
+//     (e: OAnimationEvent) => {
+//         console.log('Run-Mid', e.skeletonAnimation.getAnimationClipState('Run').time);
+//     },
+//     this
+// );
+// animator.eventDispatcher.addEventListener(
+//     'End',
+//     (e: OAnimationEvent) => {
+//         console.log('Run-End:', e.skeletonAnimation.getAnimationClipState('Run').time);
+//         e.skeletonAnimation.crossFade('Idle', 0.5);
+//     },
+//     this
+// );
 
 const GUIHelp = new dat.GUI();
 GUIHelp.addFolder('Animation-play').open();
-animation.getAnimationClipStates().forEach((clipState, _) => {
-    GUIHelp.add({ click: () => animation.play(clipState.name) }, 'click').name(clipState.name);
+animator.clipsState.forEach((clipState, _) => {
+    GUIHelp.add({ click: () => animator.playAnim(clipState.clip.clipName) }, 'click').name(clipState.clip.clipName);
 });
 
 // set skybox

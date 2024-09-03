@@ -64,7 +64,7 @@ class Sample_Outline {
             this.lightObj.rotationZ = 45;
             let lc = this.lightObj.addComponent(DirectLight);
             lc.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
-            lc.intensity = 10;
+            lc.intensity = 3;
             scene.addChild(this.lightObj);
         }
         this.createPlane(scene);

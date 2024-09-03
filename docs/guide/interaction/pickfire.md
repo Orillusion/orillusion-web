@@ -11,8 +11,10 @@ The supported pick events are:
 | PICK_UP | Triggered once when the touch point is released within the collision body range |
 | PICK_DOWN | Triggered once when the touch point is pressed within the collision body range |
 
-## Listening to Events
-Picking events depend on the [ColliderComponent](/guide/physics/collider) component, and we can directly listen for `PointerEvent3D` events on the `Object3D` . The engine has unified two types of picking methods that can be switched through simple configuration.
+## Pick Detection
+The engine will catch all mouse events, performs hit detection on all clickable Object3D objects in the scene, and triggers the corresponding events. Users can add a [ColliderComponent](/api/classes/ColliderComponent) to mark objects as clickable and listen for the corresponding [PointerEvent3D](/guide/interaction/pointer#pointerevent3d) events.
+
+The engine provides a unified encapsulation for two types of hit detection methods, which can be switched through simple configurations.
 
 ```ts
 //Pick and pick type need to be configured before the engine starts
@@ -38,8 +40,9 @@ function onPick(e: PointerEvent3D) {
 ```
 
 ## Ray Box Picking
-Ray box picking is a commonly used CPU-based picking method. It needs to calculate the intersection of the [ColliderComponent](/guide/physics/collider) component's `shape` and the mouse ray. It performs well in scenes with few objects, but has poor accuracy because the bounding box often cannot accurately represent the true shape of the object.   
-> In order to maintain `cpu` performance, currently, ray box picking only supports active `pick` click picking and does not support `over/hover` state picking.
+Ray box picking (`bound` mode) is a commonly used CPU-based picking method. It needs to calculate the intersection of the [ColliderComponent](/api/classes/ColliderComponent)'s [ColliderShape](/api/classes/ColliderShape) and the mouse ray. It performs well in scenes with few objects, but has poor accuracy because the bounding box often cannot accurately represent the true shape of the object.   
+
+Currenly, the basic `ColliderShape` provided by engine includes [BoxColliderShape](/api/classes/BoxColliderShape), [SphereColliderShape](/api/classes/SphereColliderShape) and [CapsuleColliderShape](/api/classes/CapsuleColliderShape). You can also construct a [MeshColliderShape](/api/classes/MeshColliderShape) based on the shape of the object's own `Mesh`.
 
 ```ts
 import {Object3D, Collider, BoxColliderShape, Vector3} from '@orillusion/core';
@@ -56,7 +59,7 @@ collider.shape = new BoxColliderShape().setFromCenterAndSize(new Vector3(0, 0, 0
 ```
 
 - The `box` on the left uses `BoxColliderShape` with the same shape for detection, which has better accuracy.
-- The `sphere` on the right also uses `BoxColliderShape`，, but the clickable area is larger than the actual model, resulting in lower accuracy.
+- The `sphere` on the right also uses `BoxColliderShape`, but the clickable area is larger than the actual model, resulting in lower accuracy.
 
 <Demo :height="400" src="/demos/interaction/pick_bound.ts"></Demo>
 
@@ -64,7 +67,7 @@ collider.shape = new BoxColliderShape().setFromCenterAndSize(new Vector3(0, 0, 0
 
 
 ## Frame Buffer Picking
-Unlike the `pixel` mode and the `bound` mode, `Frame Buffer Picking` utilizes the pixel detection of the `GPU` , which consumes almost no `CPU` performance and can ignore the number and complexity of interactive objects in the scene, supporting all touch events. When the shape of the scene model is complex or there are a large number of objects, we recommend using the `pixel` mode for picking detection.
+Unlike the `bound` mode, `Frame Buffer Picking` (`pixel` mode) utilizes the pixel detection of the `GPU`, which consumes almost no `CPU` performance and can ignore the number and complexity of interactive objects in the scene, supporting all touch events. When the shape of the scene model is complex or there are a large number of objects, we recommend using the `pixel` mode for picking detection.
 
 <Demo :height="400" src="/demos/interaction/pick_pixel.ts"></Demo>
 

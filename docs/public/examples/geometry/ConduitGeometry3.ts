@@ -9,6 +9,7 @@ class Sample_ConduitGeometry3 {
 
     async run() {
         Engine3D.setting.shadow.shadowBound = 50;
+        Engine3D.setting.shadow.shadowBias = 0.003;
         await Engine3D.init();
 
         // init Scene3D
@@ -45,7 +46,7 @@ class Sample_ConduitGeometry3 {
         let light = lightObj3D.addComponent(DirectLight);
         light.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
         light.castShadow = true;
-        light.intensity = 30;
+        light.intensity = 2;
 
         this.scene.addChild(light.object3D);
 
@@ -143,12 +144,12 @@ class UVMoveComponent extends ComponentBase {
 
     onUpdate(): void {
         if (this._material) {
-            let value = this._material.getUniformV4(`transformUV1`);
+            let value = this._material.getUniformV4(`baseMapOffsetSize`);
             value.x += Time.delta * this._speed.x * 0.001;
             value.y += Time.delta * this._speed.y * 0.001;
             value.z = this._speed.z;
             value.w = this._speed.w;
-            this._material.setUniformVector4(`transformUV1`, value);
+            this._material.setUniformVector4(`baseMapOffsetSize`, value);
         }
     }
 }

@@ -24,7 +24,7 @@
 
 ### constructor
 
-• **new btHeightfieldTerrainShape**(`heightStickWidth`, `heightStickLength`, `heightfieldData`, `heightScale`, `minHeight`, `maxHeight`, `upAxis`, `hdt`, `flipQuadEdges`)
+• **new btHeightfieldTerrainShape**(`heightStickWidth`, `heightStickLength`, `heightfieldData`, `heightScale`, `minHeight`, `maxHeight`, `upAxis`, `hdt`, `flipQuadEdges`): [`btHeightfieldTerrainShape`](Ammo.btHeightfieldTerrainShape.md)
 
 #### Parameters
 
@@ -40,13 +40,17 @@
 | `hdt` | [`PHY_ScalarType`](../types/Ammo.PHY_ScalarType.md) |
 | `flipQuadEdges` | `boolean` |
 
+#### Returns
+
+[`btHeightfieldTerrainShape`](Ammo.btHeightfieldTerrainShape.md)
+
 #### Overrides
 
 [btConcaveShape](Ammo.btConcaveShape.md).[constructor](Ammo.btConcaveShape.md#constructor)
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:414](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L414)
+[packages/ammo/ammo.d.ts:424](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L424)
 
 ## Methods
 
@@ -70,7 +74,7 @@
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:267](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L267)
+[packages/ammo/ammo.d.ts:273](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L273)
 
 ___
 
@@ -88,7 +92,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:268](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L268)
+[packages/ammo/ammo.d.ts:274](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L274)
 
 ___
 
@@ -113,7 +117,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:269](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L269)
+[packages/ammo/ammo.d.ts:275](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L275)
 
 ___
 
@@ -137,7 +141,7 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:415](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L415)
+[packages/ammo/ammo.d.ts:425](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L425)
 
 ___
 
@@ -155,4 +159,4 @@ ___
 
 #### Defined in
 
-[packages/ammo/ammo.d.ts:416](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L416)
+[packages/ammo/ammo.d.ts:426](https://github.com/Orillusion/orillusion/blob/main/packages/ammo/ammo.d.ts#L426)

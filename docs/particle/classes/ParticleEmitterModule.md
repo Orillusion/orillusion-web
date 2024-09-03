@@ -49,7 +49,11 @@ Particle module of emit
 
 ### constructor
 
-• **new ParticleEmitterModule**()
+• **new ParticleEmitterModule**(): [`ParticleEmitterModule`](ParticleEmitterModule.md)
+
+#### Returns
+
+[`ParticleEmitterModule`](ParticleEmitterModule.md)
 
 #### Inherited from
 

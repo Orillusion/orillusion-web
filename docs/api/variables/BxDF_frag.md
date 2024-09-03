@@ -4,4 +4,4 @@
 
 #### Defined in
 
-[src/assets/shader/lighting/BxDF_frag.ts:1](https://github.com/Orillusion/orillusion/blob/main/src/assets/shader/lighting/BxDF_frag.ts#L1)
+[src/assets/shader/lighting/BxDF_frag.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/assets/shader/lighting/BxDF_frag.ts#L2)

@@ -23,8 +23,9 @@
 | `drawTrMax` | `number` | - |
 | `zPrePass` | `boolean` | - |
 | `useLogDepth` | `boolean` | - |
+| `useCompressGBuffer` | `boolean` | - |
 | `gi` | `boolean` | - |
-| `postProcessing` | \{ `enable?`: `boolean` ; `bloom?`: [`BloomSetting`](BloomSetting.md) ; `ssao?`: \{ `debug`: `any` ; `enable`: `boolean` ; `radius`: `number` ; `bias`: `number` ; `aoPower`: `number`  } ; `ssr?`: [`SSRSetting`](SSRSetting.md) ; `taa?`: [`TAASetting`](TAASetting.md) ; `gtao?`: [`GTAOSetting`](GTAOSetting.md) ; `outline?`: [`OutlineSetting`](OutlineSetting.md) ; `globalFog?`: [`GlobalFogSetting`](GlobalFogSetting.md) ; `godRay?`: [`GodRaySetting`](GodRaySetting.md) ; `fxaa?`: \{ `enable`: `boolean`  } ; `depthOfView?`: [`DepthOfViewSetting`](DepthOfViewSetting.md)  } | post effect |
+| `postProcessing` | \{ `enable?`: `boolean` ; `bloom?`: [`BloomSetting`](BloomSetting.md) ; `ssao?`: \{ `debug`: `any` ; `enable`: `boolean` ; `radius`: `number` ; `bias`: `number` ; `aoPower`: `number`  } ; `ssr?`: [`SSRSetting`](SSRSetting.md) ; `taa?`: [`TAASetting`](TAASetting.md) ; `gtao?`: [`GTAOSetting`](GTAOSetting.md) ; `ssgi?`: [`GTAOSetting`](GTAOSetting.md) ; `outline?`: [`OutlineSetting`](OutlineSetting.md) ; `globalFog?`: [`GlobalFogSetting`](GlobalFogSetting.md) ; `godRay?`: [`GodRaySetting`](GodRaySetting.md) ; `fxaa?`: \{ `enable`: `boolean`  } ; `depthOfView?`: [`DepthOfViewSetting`](DepthOfViewSetting.md)  } | post effect |
 | `postProcessing.enable?` | `boolean` | - |
 | `postProcessing.bloom?` | [`BloomSetting`](BloomSetting.md) | - |
 | `postProcessing.ssao?` | \{ `debug`: `any` ; `enable`: `boolean` ; `radius`: `number` ; `bias`: `number` ; `aoPower`: `number`  } | - |
@@ -36,6 +37,7 @@
 | `postProcessing.ssr?` | [`SSRSetting`](SSRSetting.md) | - |
 | `postProcessing.taa?` | [`TAASetting`](TAASetting.md) | - |
 | `postProcessing.gtao?` | [`GTAOSetting`](GTAOSetting.md) | - |
+| `postProcessing.ssgi?` | [`GTAOSetting`](GTAOSetting.md) | - |
 | `postProcessing.outline?` | [`OutlineSetting`](OutlineSetting.md) | - |
 | `postProcessing.globalFog?` | [`GlobalFogSetting`](GlobalFogSetting.md) | - |
 | `postProcessing.godRay?` | [`GodRaySetting`](GodRaySetting.md) | - |

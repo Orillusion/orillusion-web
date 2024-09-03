@@ -1,5 +1,5 @@
 # Overview of Physics
-The physics system is a simulation of the real world, allowing the modeled objects in the scene to behave like physical objects with mass, respond correctly to gravity and various collisions, just like in the real environment. The engine provides physics engine support （based on [ammo.js](https://github.com/kripken/ammo.js)）in the form of plugins and encapsulates commonly used components to help users simulate the physical system in their projects.
+The physics system is a simulation of the real world, allowing the modeled objects in the scene to behave like physical objects with mass, respond correctly to gravity and various collisions, just like in the real environment. The engine provides a plugin extension [@orillusion/physics](/physics/)（based on [Ammo.js](https://github.com/kripken/ammo.js), which encapsulates commonly used components to help users simulate the physical system in their projects.
 
 ## Installation
 Similar to installation of engine, we can introduce the physics plugin in two ways through `NPM` and `CDN` links:
@@ -50,11 +50,7 @@ import { Physics } from '@orillusion/physics'
 
 await Physics.init();
 await Engine3D.init({
-    renderLoop: () => {
-        if (Physics.isInited) {
-            Physics.update();
-        }
-    }
+    renderLoop: () => Physics.update()
 });
 ```
 After opening and running the physical system with the above method, the engine will calculate and update the actual response of the object model to the physical world based on the set parameters for rendering each frame.
@@ -65,22 +61,34 @@ Physics.isStop = !Physics.isStop;
 ```
 
 ## Gravity Simulation
-Currently, the default gravity parameter in the engine is `Vector3(0, -9.8, 0)`, simulating the gravity of the earth. If you need to customize the gravity parameter, simply change the `Physics.gravity` property, but remember to change it before initialization, otherwise it will not take effect.
+The default gravity parameter is `Vector3(0, -9.8, 0)`, simulating the gravity of the earth. If you need to customize the gravity parameter, simply change the `Physics.gravity` property.
 
-For example, if you want to simulate zero gravity in space, change the `gravity` parameter before initialization:
+For example, if you want to simulate zero gravity in space, change the `gravity` parameter:
 ```ts
 Physics.gravity = new Vector3(0,0,0);
-await Physics.init();
 ```
-Please note that it needs to be changed before the initialization of the physical system to take effect.
 
 ## Extension
-In addition, users can use the following code to obtain the native physical world of `ammo.js`and implement more customization requirements through the api provided by `ammo.js` itself:
-```ts
-let world: Ammo.btDiscreteDynamicsWorld = Physics.world;
-```
+Currently, this extension only encapsulates a few commonly used components. For complex simulations, users can directly reference `Ammo` to use native physical world objects and implement more customization requirements through the native `API` provided by `Ammo.js`:
 
-## Simple Example of Object Landing
+```ts
+import { Ammo, Physics } from "@orillusion/physics";
+
+// init physics
+await Physics.init();
+
+// ...
+
+// native Ammo shape
+let boxShape = new Ammo.btBoxShape(
+  new Ammo.btVector3(1, 1, 1)
+);
+// native Ammo transform
+let transform = new Ammo.btTransform();
+```
+More docs refer to [Ammo API](/physics/modules/Ammo)
+
+## Simple Example
 Here, we simulate the process of a cube falling on the ground to see what specific effects the physics system can provide.
 
 <Demo src="/demos/physics/demo1.ts"></Demo>
@@ -123,4 +131,4 @@ collider.shape.size = new Vector3(size.x, 0.1, size.y);
 scene.addChild(obj);
 ```
 
-Once the physics system is started, the engine immediately responds to the object's gravity based on its mass. Therefore, we will see the cube falling from the air. Since we have set up collider components, the collision is detected when the cube and ground collider shapes intersect. In the example, we can see the realistic collision effect when the cube hits the ground.
+Once the physics system is started, the engine immediately responds to the object's gravity based on its mass. We will see the cube falling from the air, and the realistic collision effect when the cube hits the ground. More examples refer to [Physics](/example/physics/Dominoes).
