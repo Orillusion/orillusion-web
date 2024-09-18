@@ -1,5 +1,9 @@
 # 安装
 
+::: tip
+`WebGPU` 属于低级访问权限 API，为了防止[中间人攻击](https://en.wikipedia.org/wiki/Man-in-the-middle_attack)，大部分浏览器限制仅能在 [Secure contexts](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts) 中访问使用。当发布基于 `WebGPU` 构建的 Web 应用时，需要用户自行部署基于 `https` 的安全域名，或基于 `localhost` 的域名进行访问，包括 `http://127.0.0.1`，`http://localhost` 或 `http://*.localhost` 等自定义域名。
+:::
+
 ## 通过 NPM 安装
 我们推荐使用基于 `Node.js` 的前端构建工具来开发 `Web3D` 应用，比如配合 [Vite](https://vitejs.dev/) 或 [Webpack](https://webpack.js.org/) 等前端生态框架来构建复杂的前端项目，当然也可以更方便的使用 [TypeScript](https://www.typescriptlang.org/) 进行开发。
 1. 安装依赖
@@ -19,7 +23,9 @@ import { Engine3D, Camera3D } from '@orillusion/core'
 import * as Orillusion from '@orillusion/core'
 ```
 
-> 注意：`Orillusion` 引擎需要支持最新的 `WebGPU` 标准的浏览器运行，例如 `Chrome >= 114`, 因此无需兼容旧版 `JavaScript` 语法，默认基于 `ESNext` 进行构建发布。如果您使用 [Vite](https://vitejs.dev/) 或 [Webpack](https://webpack.js.org/) 等构建工具来部署项目，推荐将构建目标设定为 `ES2021` 及以上版本来确保所有 API 以最佳状态运行。
+::: tip
+`Orillusion` 引擎需要支持最新的 `WebGPU` 标准的浏览器运行，例如 `Chrome >= 114`, 因此无需兼容旧版 `JavaScript` 语法，默认基于 `ESNext` 进行构建发布。如果您使用 [Vite](https://vitejs.dev/) 或 [Webpack](https://webpack.js.org/) 等构建工具来部署项目，推荐将构建目标设定为 `ES2021` 及以上版本来确保所有 API 以最佳状态运行。
+:::
 
 ## 通过 `CDN` 链接引入
 我们也支持借助 `<script>` 标签直接通过 `CDN` 链接快捷使用 `orillusion` 引擎。下面以 `@orillusion/core` 链接为例，展示三种不同的引入方法。   
