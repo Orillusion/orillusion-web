@@ -1,5 +1,9 @@
 # Installation
 
+::: tip
+`WebGPU` is a low-level access API. To prevent [MITM attackers](https://en.wikipedia.org/wiki/Man-in-the-middle_attack), most browsers restrict `WebGPU` usage only in [Secure contexts](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts). When deploying a web application built with `WebGPU` or `Orillusion`, users need to deploy it on an `https` based secure doamin or access it via a `localhost` domain, such as `http://127.0.0.1`, `http://localhost` or `http://*.localhost` for custom domains.
+:::
+
 ## Install by NPM
 We recommend using frontend build tools based on `Node.js` to develop `Web3D` applications. For example, you can use frontend frameworks such as [Vite](https://vitejs.dev/) or [Webpack](https://webpack.js.org/) to build complex frontend projects. You can also use [TypeScript](https://www.typescriptlang.org/) for more convenient development.
 
