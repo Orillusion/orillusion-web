@@ -1,4 +1,4 @@
-import { Engine3D, View3D, Scene3D, CameraUtil, AtmosphericComponent, webGPUContext, HoverCameraController, Object3D, DirectLight, KelvinUtil, LitMaterial, MeshRenderer, Color, GridObject, Vector2, Vector3 } from "@orillusion/core";
+import { Engine3D, View3D, Scene3D, CameraUtil, AtmosphericComponent, webGPUContext, HoverCameraController, Object3D, DirectLight, KelvinUtil, LitMaterial, MeshRenderer, Color, GridObject, Vector2, Vector3, Material } from "@orillusion/core";
 import { Shape2D, ExtrudeGeometry, Path2D } from "@orillusion/geometry";
 
 class Sample_ExtrudeGeometry {
@@ -170,14 +170,15 @@ class Sample_ExtrudeGeometry {
         mr.geometry = new ExtrudeGeometry([shape], {
             depth: 10,
             bevelEnabled: false,
-            steps: 1
+            steps: 1,
+            // anchorPoint: new Vector3(0,0,0)
         });
         if(!this.matrial){
             let mat =  this.matrial = new LitMaterial();
             mat.baseColor = new Color(0.2, 0.5, 1.0);
             mat.castShadow = false;
         }
-        let mats = [];
+        let mats: Material[] = [];
         for (let i = 0; i < mr.geometry.subGeometries.length; i++) {
             mats.push(this.matrial);
         }
