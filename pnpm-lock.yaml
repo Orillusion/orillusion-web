@@ -1,12 +1,12 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@orillusion/core': 0.8.3
-  '@orillusion/geometry': ^0.2.4
+  '@orillusion/core': 0.8.4-dev.1
+  '@orillusion/geometry': ^0.2.6
   '@orillusion/graphic': ^0.2.2
   '@orillusion/media-extention': ^0.3.6
   '@orillusion/particle': ^0.1.6
-  '@orillusion/physics': ^0.3.3
+  '@orillusion/physics': ^0.3.4
   '@orillusion/stats': ^0.2.6
   '@types/dat.gui': ^0.7.13
   '@types/node': ^18.19.47
@@ -16,13 +16,13 @@ specifiers:
   vue: ^3.4.38
 
 devDependencies:
-  '@orillusion/core': 0.8.3
-  '@orillusion/geometry': 0.2.4_@orillusion+core@0.8.3
-  '@orillusion/graphic': 0.2.2_@orillusion+core@0.8.3
-  '@orillusion/media-extention': 0.3.6_@orillusion+core@0.8.3
-  '@orillusion/particle': 0.1.6_@orillusion+core@0.8.3
-  '@orillusion/physics': 0.3.3_@orillusion+core@0.8.3
-  '@orillusion/stats': 0.2.6_@orillusion+core@0.8.3
+  '@orillusion/core': 0.8.4-dev.1
+  '@orillusion/geometry': 0.2.6_mip257c2ktt5buxcb6wfdcrece
+  '@orillusion/graphic': 0.2.2_mip257c2ktt5buxcb6wfdcrece
+  '@orillusion/media-extention': 0.3.6_mip257c2ktt5buxcb6wfdcrece
+  '@orillusion/particle': 0.1.6_mip257c2ktt5buxcb6wfdcrece
+  '@orillusion/physics': 0.3.4_mip257c2ktt5buxcb6wfdcrece
+  '@orillusion/stats': 0.2.6_mip257c2ktt5buxcb6wfdcrece
   '@types/dat.gui': 0.7.13
   '@types/node': 18.19.47
   esbuild: 0.17.19
@@ -670,57 +670,57 @@ packages:
     resolution: {integrity: sha512-E/L+73rlF/eENDahX/iKUXiQMeWwmjeppDLMBwx446uBJNpbjMIew4dl0DlpB0K0VCWXrAU+Kl4tV5urjLLwOA==}
     dev: true
 
-  /@orillusion/core/0.8.3:
-    resolution: {integrity: sha512-Me/shacKlpu8RC2C/08TnFniRJb45MaLIXyI52m6lJhIcuii/xfP4aIa5SQatb4QeJiPo32SdrLl6yS9FJ06iw==}
+  /@orillusion/core/0.8.4-dev.1:
+    resolution: {integrity: sha512-Zzbz5gZ7LfA4hrTmTXqoq5gY9yHg1OJbhP0VVfrq+dNhMvub48oKwx2c7ZaRLVjXx5/sRUIBVmVviRvr8iUjiw==}
     dev: true
 
-  /@orillusion/geometry/0.2.4_@orillusion+core@0.8.3:
-    resolution: {integrity: sha512-juYWpt9T1O1GVwP4EATNC7zQXCiUy0ajuPb+JZIGUqiTtbM10WEI495tJCUnWVLaZpEfZwbbzRU8BOj654X7Fg==}
+  /@orillusion/geometry/0.2.6_mip257c2ktt5buxcb6wfdcrece:
+    resolution: {integrity: sha512-aWq+zMdthsTozpXVcgFhzpxYoexjJ9SkdtSZaLovNSlWQteaN9l3O3KEnZT+EscwXWgVWCJXRJdDtvVt+xyQmg==}
     peerDependencies:
       '@orillusion/core': '>=0.8.0'
     dependencies:
-      '@orillusion/core': 0.8.3
+      '@orillusion/core': 0.8.4-dev.1
     dev: true
 
-  /@orillusion/graphic/0.2.2_@orillusion+core@0.8.3:
+  /@orillusion/graphic/0.2.2_mip257c2ktt5buxcb6wfdcrece:
     resolution: {integrity: sha512-B++GPVDD+C5u1xBdsfZAPctxq8BmH5OqsFq05nGNAJaNY4Ocqgiwijvjwf11VgdUiG6DEC+Ob5Nig8NL9WaETw==}
     peerDependencies:
       '@orillusion/core': '>=0.8.0'
     dependencies:
-      '@orillusion/core': 0.8.3
+      '@orillusion/core': 0.8.4-dev.1
     dev: true
 
-  /@orillusion/media-extention/0.3.6_@orillusion+core@0.8.3:
+  /@orillusion/media-extention/0.3.6_mip257c2ktt5buxcb6wfdcrece:
     resolution: {integrity: sha512-R+K0+GrGR791xHgLJpkRXz4nNazUIZkvVG7EItX2LVMutPU6k85ds2xWMY9M7ONp4D5ws6nLs1QrCcCXjB2xLw==}
     peerDependencies:
       '@orillusion/core': '>=0.8.0'
     dependencies:
-      '@orillusion/core': 0.8.3
+      '@orillusion/core': 0.8.4-dev.1
     dev: true
 
-  /@orillusion/particle/0.1.6_@orillusion+core@0.8.3:
+  /@orillusion/particle/0.1.6_mip257c2ktt5buxcb6wfdcrece:
     resolution: {integrity: sha512-F+NTOdCnUE7w/4IjRkDeak9ISxEf0enykFjiwnPb/DXZW3DJF+dTlio4QRAwG4/+2rVJeqox59smpb9687onVg==}
     peerDependencies:
       '@orillusion/core': '>=0.8.0'
     dependencies:
-      '@orillusion/core': 0.8.3
+      '@orillusion/core': 0.8.4-dev.1
     dev: true
 
-  /@orillusion/physics/0.3.3_@orillusion+core@0.8.3:
-    resolution: {integrity: sha512-hRIVXhJ+lsWugKp+kZfGhFc9cnESDrAhue+a74QwIcHKVq3vJ5UW+sRC7Mb13uAJn/t2CjrCPTN4cz0rmX4WIg==}
+  /@orillusion/physics/0.3.4_mip257c2ktt5buxcb6wfdcrece:
+    resolution: {integrity: sha512-4xX47HF2FoSTya8pgMWnocDecBzDRU63odUxjzb6QeQOFi/j6hulFzYvV+xLVyRXEta8ojocHfHnaFHcE4zzsQ==}
     peerDependencies:
       '@orillusion/core': '>=0.8.0'
     dependencies:
       '@orillusion/ammo': 0.2.1
-      '@orillusion/core': 0.8.3
+      '@orillusion/core': 0.8.4-dev.1
     dev: true
 
-  /@orillusion/stats/0.2.6_@orillusion+core@0.8.3:
+  /@orillusion/stats/0.2.6_mip257c2ktt5buxcb6wfdcrece:
     resolution: {integrity: sha512-IhsvXbiJlzPp06vBIKRyCMrg7bxIsV4ojP/MXwzFkTx4LhxA6vrWA7qmhUc3+5g0eR1GMZdWS+HNFbKwlyC/Fw==}
     peerDependencies:
       '@orillusion/core': '>=0.8.0'
     dependencies:
-      '@orillusion/core': 0.8.3
+      '@orillusion/core': 0.8.4-dev.1
     dev: true
 
   /@rollup/rollup-android-arm-eabi/4.21.1:
