@@ -35,6 +35,9 @@ view.pickFire.addEventListener(PointerEvent3D.PICK_CLICK, onPick, this);
 
 //Get event information in the callback function
 function onPick(e: PointerEvent3D) {
+    e.target // the clicked Object
+    e.data.worldPos // clicked position in world coordinate
+    e.data.worldNormal // clicked normal in world coordinate
     ...
 }
 ```
@@ -59,7 +62,8 @@ collider.shape = new BoxColliderShape().setFromCenterAndSize(new Vector3(0, 0, 0
 ```
 
 - The `box` on the left uses `BoxColliderShape` with the same shape for detection, which has better accuracy.
-- The `sphere` on the right also uses `BoxColliderShape`, but the clickable area is larger than the actual model, resulting in lower accuracy.
+- The `sphere` on the middle also uses `BoxColliderShape`, but the clickable area is larger than the actual model, resulting in lower accuracy.
+- The `sphere` on the right uses `MeshColliderShape`, which cloud perfectly conform to all vertices of the model, offering the highest precision, but it consumes more performance for collision detection, therefore it is not recommended for complex objects.
 
 <Demo :height="400" src="/demos/interaction/pick_bound.ts"></Demo>
 
