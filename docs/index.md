@@ -6,8 +6,8 @@ titleTemplate: Next Generation WebGPU Engine
 hero:
   name: Orillusion
   image:
-    light: /en/images/logo_black.png
-    dark: /en/images/logo_white.png
+    light: /images/logo_black.png
+    dark: /images/logo_white.png
   text: Next Generation WebGPU Engine
   tagline: Simple but powerful for Web3D developers
   actions:
