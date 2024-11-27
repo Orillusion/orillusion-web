@@ -1,4 +1,4 @@
-import { Engine3D, Scene3D, Object3D, Camera3D, ViewPanel, UIButton, HoverCameraController, PointerEvent3D, View3D, AtmosphericComponent, UITextField, Color, TextAnchor, WorldPanel, UIPanel, GPUCullMode } from '@orillusion/core';
+import { Engine3D, Scene3D, Object3D, Camera3D, ViewPanel, UIButton, HoverCameraController, PointerEvent3D, View3D, AtmosphericComponent, UITextField, Color, TextAnchor, WorldPanel, UIPanel, GPUCullMode, PickGUIEvent3D } from '@orillusion/core';
 
 class Sample_button {
     async run() {
@@ -57,10 +57,10 @@ class Sample_button {
         buttonLabel.alignment = TextAnchor.MiddleCenter;
 
         // add listener
-        buttonQuad.addEventListener(PointerEvent3D.PICK_CLICK_GUI, this.onClick, this);
-        buttonQuad.addEventListener(PointerEvent3D.PICK_OUT_GUI, this.onOut, this);
-        buttonQuad.addEventListener(PointerEvent3D.PICK_OVER_GUI, this.onOver, this);
-        buttonQuad.addEventListener(PointerEvent3D.PICK_DOWN_GUI, this.onDown, this);
+        buttonQuad.addEventListener(PickGUIEvent3D.PICK_CLICK_GUI, this.onClick, this);
+        buttonQuad.addEventListener(PickGUIEvent3D.PICK_OUT_GUI, this.onOut, this);
+        buttonQuad.addEventListener(PickGUIEvent3D.PICK_OVER_GUI, this.onOver, this);
+        buttonQuad.addEventListener(PickGUIEvent3D.PICK_DOWN_GUI, this.onDown, this);
     }
 
     private onClick() {}

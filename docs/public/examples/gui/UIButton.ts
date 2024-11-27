@@ -1,4 +1,4 @@
-﻿import { Engine3D, Object3DUtil, Object3D, GUISpace, WorldPanel, ViewPanel, UIButton, UITextField, Color, TextAnchor, PointerEvent3D, UIImage, ImageType, ComponentBase, View3D, UIPanel, UIInteractiveStyle, UIButtonTransition, Scene3D, AtmosphericComponent, CameraUtil, HoverCameraController, DirectLight, KelvinUtil } from '@orillusion/core';
+﻿import { Engine3D, Object3DUtil, Object3D, GUISpace, WorldPanel, ViewPanel, UIButton, UITextField, Color, TextAnchor, PointerEvent3D, UIImage, ImageType, ComponentBase, View3D, UIPanel, UIInteractiveStyle, UIButtonTransition, Scene3D, AtmosphericComponent, CameraUtil, HoverCameraController, DirectLight, KelvinUtil, PickGUIEvent3D } from '@orillusion/core';
 import { Stats } from '@orillusion/stats';
 
 class Sample_UIButton {
@@ -98,10 +98,10 @@ class Sample_UIButton {
             buttonLabel.color = new Color(1, 0.8, 0.4);
             buttonLabel.alignment = TextAnchor.MiddleCenter;
 
-            quad.addEventListener(PointerEvent3D.PICK_CLICK_GUI, this.onUIClick, this);
-            quad.addEventListener(PointerEvent3D.PICK_OUT_GUI, this.onOut, this);
-            quad.addEventListener(PointerEvent3D.PICK_OVER_GUI, this.onOver, this);
-            quad.addEventListener(PointerEvent3D.PICK_DOWN_GUI, this.onDown, this);
+            quad.addEventListener(PickGUIEvent3D.PICK_CLICK_GUI, this.onUIClick, this);
+            quad.addEventListener(PickGUIEvent3D.PICK_OUT_GUI, this.onOut, this);
+            quad.addEventListener(PickGUIEvent3D.PICK_OVER_GUI, this.onOver, this);
+            quad.addEventListener(PickGUIEvent3D.PICK_DOWN_GUI, this.onDown, this);
         }
 
         {

@@ -35,22 +35,26 @@ guiButton.enable = true; //false
 ```
 
 ## Component Interaction
-Same as the normal `Object3D`, we can use the event listener to listen to the `GUI` series events in `PointerEvent3D`, and we can get the user operation response function callback:
+Same as the normal `Object3D`, we can use the event listener to listen to the `GUI` series events in `PickGUIEvent3D`, and we can get the user operation response function callback:
 
-- `PointerEvent3D.PICK_CLICK_GUI`: Mouse click
-- `PointerEvent3D.PICK_OVER_GUI`: Mouse hover
-- `PointerEvent3D.PICK_OUT_GUI`: Mouse out
-- `PointerEvent3D.PICK_UP_GUI`: Mouse up
-- `PointerEvent3D.PICK_DOWN_GUI`: Mouse down
+- `PickGUIEvent3D.PICK_CLICK_GUI`: Mouse click
+- `PickGUIEvent3D.PICK_OVER_GUI`: Mouse hover
+- `PickGUIEvent3D.PICK_OUT_GUI`: Mouse out
+- `PickGUIEvent3D.PICK_UP_GUI`: Mouse up
+- `PickGUIEvent3D.PICK_DOWN_GUI`: Mouse down
+
+:::tip
+Since `v0.8.4`, the GUI component's mouse events have deprecated the original `PointerEvent3D` event in favor of using `PickGUIEvent3D` as the default mouse event handler. Apart from the name change, other parameters remain unchanged
+:::
 
 ```ts
 let button = new Object3D()
 let guiButton: UIButton = button.addComponent(UIButton)
 
-button.addEventListener(PointerEvent3D.PICK_CLICK_GUI, this.onClick, this)
-button.addEventListener(PointerEvent3D.PICK_OUT_GUI, this.onOut, this)
-button.addEventListener(PointerEvent3D.PICK_OVER_GUI, this.onOver, this)
-button.addEventListener(PointerEvent3D.PICK_DOWN_GUI, this.onDown, this)
+button.addEventListener(PickGUIEvent3D.PICK_CLICK_GUI, this.onClick, this)
+button.addEventListener(PickGUIEvent3D.PICK_OUT_GUI, this.onOut, this)
+button.addEventListener(PickGUIEvent3D.PICK_OVER_GUI, this.onOver, this)
+button.addEventListener(PickGUIEvent3D.PICK_DOWN_GUI, this.onDown, this)
 ```
 
 ## Button Text
