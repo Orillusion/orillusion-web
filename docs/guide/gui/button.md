@@ -35,22 +35,26 @@ guiButton.enable = true; //false
 ```
 
 ## 组件交互
-跟普通 `Object3D` 一样，我们可以使用事件监听器来监听`PointerEvent3D` 中关于 `GUI` 系列事件，即可获得用户操作响应函数回调:
+跟普通 `Object3D` 一样，我们可以使用事件监听器来监听 `PickGUIEvent3D` 中关于 `GUI` 系列事件，即可获得用户操作响应函数回调:
 
-- `PointerEvent3D.PICK_CLICK_GUI`：鼠标点击
-- `PointerEvent3D.PICK_OVER_GUI`：鼠标滑入
-- `PointerEvent3D.PICK_OUT_GUI`：鼠标移出
-- `PointerEvent3D.PICK_UP_GUI`：鼠标抬起
-- `PointerEvent3D.PICK_DOWN_GUI`：鼠标按下
+- `PickGUIEvent3D.PICK_CLICK_GUI`：鼠标点击
+- `PickGUIEvent3D.PICK_OVER_GUI`：鼠标滑入
+- `PickGUIEvent3D.PICK_OUT_GUI`：鼠标移出
+- `PickGUIEvent3D.PICK_UP_GUI`：鼠标抬起
+- `PickGUIEvent3D.PICK_DOWN_GUI`：鼠标按下
+
+:::tip
+`v0.8.4` 后GUI 组件的鼠标事件弃用原有的 `PointerEvent3D` 事件，转而使用 `PickGUIEvent3D` 作为默认鼠标事件管理，除了名称变化，其它参数没有变化
+:::
 
 ```ts
 let button = new Object3D()
 let guiButton: UIButton = button.addComponent(UIButton)
 
-button.addEventListener(PointerEvent3D.PICK_CLICK_GUI, this.onClick, this)
-button.addEventListener(PointerEvent3D.PICK_OUT_GUI, this.onOut, this)
-button.addEventListener(PointerEvent3D.PICK_OVER_GUI, this.onOver, this)
-button.addEventListener(PointerEvent3D.PICK_DOWN_GUI, this.onDown, this)
+button.addEventListener(PickGUIEvent3D.PICK_CLICK_GUI, this.onClick, this)
+button.addEventListener(PickGUIEvent3D.PICK_OUT_GUI, this.onOut, this)
+button.addEventListener(PickGUIEvent3D.PICK_OVER_GUI, this.onOver, this)
+button.addEventListener(PickGUIEvent3D.PICK_DOWN_GUI, this.onDown, this)
 ```
 
 ## 按钮文字
