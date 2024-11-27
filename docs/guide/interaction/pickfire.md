@@ -58,7 +58,8 @@ collider.shape = new BoxColliderShape().setFromCenterAndSize(new Vector3(0, 0, 0
 ```
 
 - 左面的 `box` 使用同形状的 `BoxColliderShape` 进行检测，精度较好
-- 右边的 `sphere` 也使用 `BoxColliderShape`，但可点击区域就会比实际模型要大，精度较差
+- 中间的 `sphere` 使用 `BoxColliderShape`，但检测区域就会比实际模型要大，精度较差
+- 右边的 `sphere` 也使用 `MeshColliderShape`，可以完全贴合模型所有顶点，精度最高，但会消耗更多性能做碰撞检测，对于复杂物体来说，不推荐使用
 
 <Demo :height="400" src="/demos/interaction/pick_bound.ts"></Demo>
 

@@ -1,4 +1,4 @@
-import { Engine3D, Scene3D, Vector3, Object3D, AtmosphericComponent, Camera3D, View3D, LitMaterial, MeshRenderer, BoxColliderShape, ColliderComponent, BoxGeometry, Color, PointerEvent3D, SphereGeometry, DirectLight, BoundingBox } from '@orillusion/core';
+import { Engine3D, Scene3D, Vector3, Object3D, AtmosphericComponent, Camera3D, View3D, LitMaterial, MeshRenderer, BoxColliderShape, ColliderComponent, BoxGeometry, Color, PointerEvent3D, SphereGeometry, DirectLight, BoundingBox, MeshColliderShape } from '@orillusion/core';
 import { Graphic3D } from '@orillusion/graphic';
 
 class TouchDemo {
@@ -30,13 +30,15 @@ class TouchDemo {
         lightObj.addComponent(DirectLight);
         this.scene.addChild(lightObj);
 
-        let box = this.createBox(-2, 0, 0);
-        let sphere = this.createSphere(2, 0, 0);
+        let box = this.createBox(-4, 0, 0);
+        let sphere = this.createSphere(0, 0, 0);
+        let sphere2 = this.createSphere2(4, 0, 0);
 
         this.graphic3D = new Graphic3D();
         this.scene.addChild(this.graphic3D);
         this.graphic3D.drawBoundingBox(box.instanceID, box.bound as BoundingBox, Color.COLOR_GREEN);
         this.graphic3D.drawBoundingBox(sphere.instanceID, sphere.bound as BoundingBox, Color.COLOR_GREEN);
+        this.graphic3D.drawMeshWireframe(sphere2.instanceID, new SphereGeometry(1, 4, 4), sphere2.transform, Color.COLOR_GREEN)
         
         let view = new View3D();
         view.scene = this.scene;
@@ -74,7 +76,24 @@ class TouchDemo {
         let collider = sphereObj.addComponent(ColliderComponent);
         collider.shape = shape;
         let mr: MeshRenderer = sphereObj.addComponent(MeshRenderer);
-        mr.geometry = new SphereGeometry(size / 2, 20, 20);
+        mr.geometry = new SphereGeometry(size / 2, 8, 8);
+        mr.material = new LitMaterial();
+        this.scene.addChild(sphereObj);
+        return sphereObj;
+    }
+
+    createSphere2(x: number, y: number, z: number) {
+        let sphereObj = new Object3D();
+        sphereObj.transform.localPosition = new Vector3(x, y, z);
+
+        let size: number = 2;
+        let shape: MeshColliderShape = new MeshColliderShape()
+        
+        // add a box collider
+        let collider = sphereObj.addComponent(ColliderComponent);
+        collider.shape = shape;
+        let mr: MeshRenderer = sphereObj.addComponent(MeshRenderer);
+        mr.geometry = shape.mesh = new SphereGeometry(size / 2, 8, 8);
         mr.material = new LitMaterial();
         this.scene.addChild(sphereObj);
         return sphereObj;
