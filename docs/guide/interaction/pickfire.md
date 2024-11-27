@@ -34,6 +34,9 @@ view.pickFire.addEventListener(PointerEvent3D.PICK_CLICK, onPick, this);
 
 //回调函数中获取到事件信息
 function onPick(e: PointerEvent3D) {
+    e.target // 点击的 Object
+    e.data.worldPos // 世界坐标下点击的 position
+    e.data.worldNormal // 世界坐标点击位置的 normal
     ...
 }
 ```

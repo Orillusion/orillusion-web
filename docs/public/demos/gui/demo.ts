@@ -1,4 +1,4 @@
-import { AtmosphericComponent, BillboardType, CEvent, CEventDispatcher, Camera3D, Color, DirectLight, Engine3D, HoverCameraController, ImageType, Object3D, Object3DUtil, PointerEvent3D, Scene3D, TextAnchor, Time, UIImage, UIInteractive, UITextField, Vector3, View3D, WorldPanel, clamp } from '@orillusion/core';
+import { AtmosphericComponent, BillboardType, CEvent, CEventDispatcher, Camera3D, Color, DirectLight, Engine3D, HoverCameraController, ImageType, Object3D, Object3DUtil, PickGUIEvent3D, PointerEvent3D, Scene3D, TextAnchor, Time, UIImage, UIInteractive, UITextField, Vector3, View3D, WorldPanel, clamp } from '@orillusion/core';
 
 class GUIPanelPOI {
     private readonly alpha = 0.8;
@@ -60,7 +60,7 @@ class GUIPanelPOI {
         this._backImage.uiTransform.y = -60;
 
         uiChild.addEventListener(
-            PointerEvent3D.PICK_CLICK_GUI,
+            PickGUIEvent3D.PICK_CLICK_GUI,
             () => {
                 this._remainTime = 500;
                 sampleUIPanelClick.data = this.objUI;
@@ -70,7 +70,7 @@ class GUIPanelPOI {
         );
 
         uiChild.addEventListener(
-            PointerEvent3D.PICK_OVER_GUI,
+            PickGUIEvent3D.PICK_OVER_GUI,
             () => {
                 this._backImage.color = this._outColor;
             },
@@ -78,7 +78,7 @@ class GUIPanelPOI {
         );
 
         uiChild.addEventListener(
-            PointerEvent3D.PICK_OUT_GUI,
+            PickGUIEvent3D.PICK_OUT_GUI,
             () => {
                 this._backImage.color = this._originColor;
             },
