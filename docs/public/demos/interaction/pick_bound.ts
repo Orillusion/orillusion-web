@@ -38,7 +38,7 @@ class TouchDemo {
         this.scene.addChild(this.graphic3D);
         this.graphic3D.drawBoundingBox(box.instanceID, box.bound as BoundingBox, Color.COLOR_GREEN);
         this.graphic3D.drawBoundingBox(sphere.instanceID, sphere.bound as BoundingBox, Color.COLOR_GREEN);
-        this.graphic3D.drawMeshWireframe(sphere2.instanceID, new SphereGeometry(1, 4, 4), sphere2.transform, Color.COLOR_GREEN)
+        this.graphic3D.drawMeshWireframe(sphere2.instanceID, new SphereGeometry(1.01, 8, 8), sphere2.transform, Color.COLOR_GREEN)
         
         let view = new View3D();
         view.scene = this.scene;

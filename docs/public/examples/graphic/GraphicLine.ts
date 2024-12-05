@@ -1,6 +1,7 @@
-import { Object3D, Scene3D, Engine3D, Vector3, Color, AnimationCurve, Keyframe, View3D, AtmosphericComponent, CameraUtil, HoverCameraController, DirectLight, KelvinUtil } from '@orillusion/core';
-import { Graphic3D } from '@orillusion/graphic';
+import { Object3D, Scene3D, Engine3D, Vector3, Color, AnimationCurve, Keyframe, View3D, AtmosphericComponent, CameraUtil, HoverCameraController, DirectLight, KelvinUtil, MeshRenderer, BoxGeometry, LitMaterial } from '@orillusion/core';
+import { Graphic3D, Graphic3DLineRenderer } from '@orillusion/graphic';
 import { Stats } from '@orillusion/stats';
+import * as dat from 'dat.gui';
 
 class GraphicLine {
     scene: Scene3D;
@@ -81,6 +82,21 @@ class GraphicLine {
         this.graphic3D.drawCircle('Circle1', new Vector3(-15, -5, -5), 5, 15, Vector3.X_AXIS, new Color().hexToRGB(Color.GREEN));
         this.graphic3D.drawCircle('Circle2', new Vector3(-15, -5, -5), 5, 15, Vector3.Y_AXIS, new Color().hexToRGB(Color.GREEN));
         this.graphic3D.drawCircle('Circle3', new Vector3(-15, -5, -5), 5, 15, Vector3.Z_AXIS, new Color().hexToRGB(Color.GREEN));
+
+        {
+            let obj = new Object3D();
+            let mr = obj.addComponent(MeshRenderer);
+            mr.geometry = new BoxGeometry(5, 5, 5);
+            mr.material = new LitMaterial();
+            this.scene.addChild(obj);
+        }
+        let gui = new dat.GUI();
+        let btn = {'depthTest': true}
+        gui.add(btn, 'depthTest').onChange(v=>{
+            this.graphic3D.getComponents(Graphic3DLineRenderer).forEach(mr=>{
+                mr.materials[0].depthCompare = v ? 'less' : 'always'
+            })
+        })
     }
 }
 

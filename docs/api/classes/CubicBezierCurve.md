@@ -99,7 +99,6 @@ get tagent by calc from curve
 [`Vector3`](Vector3.md)
 
 tagent direction
-See: http://bimixual.org/AnimationLibrary/beziertangents.html
 
 #### Defined in
 
