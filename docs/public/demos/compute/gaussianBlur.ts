@@ -45,7 +45,6 @@ class Demo_GaussianBlur {
 class GaussianBlurPost extends PostBase {
     private mGaussianBlurShader: ComputeShader;
     private mGaussianBlurArgs: UniformGPUBuffer;
-    private mRendererPassState: RendererPassState;
     private mBlurResultTexture: VirtualTexture;
     private mRTFrame: RTFrame;
 
@@ -64,8 +63,8 @@ class GaussianBlurPost extends PostBase {
         descript.loadOp = `clear`;
         this.mRTFrame = new RTFrame([this.mBlurResultTexture], [descript]);
 
-        this.mRendererPassState = WebGPUDescriptorCreator.createRendererPassState(this.mRTFrame);
-        this.mRendererPassState.label = 'GaussianBlur';
+        this.rendererPassState = WebGPUDescriptorCreator.createRendererPassState(this.mRTFrame);
+        this.rendererPassState.label = 'GaussianBlur';
     }
 
     private createComputeShader() {
@@ -103,7 +102,7 @@ class GaussianBlurPost extends PostBase {
             }
         `);
         this.mGaussianBlurShader.setUniformBuffer('args', this.mGaussianBlurArgs);
-        this.autoSetColorTexture('colorMap', this.mGaussianBlurShader);
+        this.mGaussianBlurShader.setSamplerTexture('colorMap', this.getLastRenderTexture());
         this.mGaussianBlurShader.setStorageTexture(`resultTex`, this.mBlurResultTexture);
 
         this.mGaussianBlurShader.workerSizeX = Math.ceil(this.mBlurResultTexture.width / 8);
@@ -123,15 +122,25 @@ class GaussianBlurPost extends PostBase {
             });
     }
 
-    render(view: View3D, command: GPUCommandEncoder) {
+    public render(view: View3D, command: GPUCommandEncoder) {
         if (!this.mGaussianBlurShader) {
             this.createResource();
             this.createComputeShader();
         }
 
-        this.autoSetColorTexture('colorMap', this.mGaussianBlurShader);
         GPUContext.computeCommand(command, [this.mGaussianBlurShader]);
-        GPUContext.lastRenderPassState = this.mRendererPassState;
+    }
+
+    public onResize(): void {
+        let presentationSize = webGPUContext.presentationSize;
+        let w = presentationSize[0];
+        let h = presentationSize[1];
+
+        this.mBlurResultTexture.resize(w, h);
+
+        this.mGaussianBlurShader.workerSizeX = Math.ceil(this.mBlurResultTexture.width / 8);
+        this.mGaussianBlurShader.workerSizeY = Math.ceil(this.mBlurResultTexture.height / 8);
+        this.mGaussianBlurShader.workerSizeZ = 1;
     }
 }
 

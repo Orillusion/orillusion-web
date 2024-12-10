@@ -473,7 +473,8 @@ function sidebarGuide(): SidebarItem {
                             link: '/guide/advanced/post_gtao.md'
                         },
                         { text: 'TAAPost', link: '/guide/advanced/post_taa.md' },
-                        { text: 'GodRayPost', link: '/guide/advanced/post_godRay.md' }
+                        { text: 'GodRayPost', link: '/guide/advanced/post_godRay.md' },
+                        { text: '自定义后处理', link: '/guide/advanced/post_custom.md' }
                     ]
                 },
                 { text: '全局光照', link: '/guide/advanced/gi.md' }

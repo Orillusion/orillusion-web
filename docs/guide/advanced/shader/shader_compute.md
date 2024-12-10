@@ -130,9 +130,9 @@ this.mGaussianBlurArgs.apply();
 this.mGaussianBlurShader.setUniformBuffer('args', this.mGaussianBlurArgs);
 ```
 
-`colorMap` 是需要被高斯模糊的原始纹理，这里我们用引擎内部的全屏 `colorMap` 关联到`ComputeShader` 对象
+`colorMap` 是需要被高斯模糊的原始纹理，这里我们用引擎内部的 `getLastRenderTexture()` 获取到上一个输出的屏幕纹理数据，并关联到 `ComputeShader` 对象的 `colorMap` 上
 ```ts
-this.autoSetColorTexture('colorMap', this.mGaussianBlurShader);
+this.mGaussianBlurShader.setSamplerTexture('colorMap', this.getLastRenderTexture());
 ```
 
 `resultTex` 是被模糊过的结果纹理，我们需要新建一张空纹理用于存储：
