@@ -130,9 +130,10 @@ After `args` data is prepared, we also need to associate it with the `ComputeSha
 this.mGaussianBlurShader.setUniformBuffer('args', this.mGaussianBlurArgs);
 ```
 
-`colorMap` is the original texture to be blurred. Here we associate the engine's full-screen `colorMap` with the `ComputeShader` object:
+`colorMap` is the original texture to be blurred. Here we can use the `getLastRenderTexture()` from `postBase` to obtain the texture of the last rendered screen and associate it with the `colorMap` of the `ComputeShader` object.
+
 ```ts
-this.autoSetColorTexture('colorMap', this.mGaussianBlurShader);
+this.mGaussianBlurShader.setSamplerTexture('colorMap', this.getLastRenderTexture());
 ```
 
 `resultTex` is the blurred result texture. We need to create a new empty texture to store it:

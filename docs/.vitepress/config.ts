@@ -312,7 +312,8 @@ function sidebarGuide(): SidebarItem {
                         { text: 'HDRBloomPost', link: '/guide/advanced/post_bloom.md' },
                         { text: 'GTAOPost', link: '/guide/advanced/post_gtao.md' },
                         { text: 'TAAPost', link: '/guide/advanced/post_taa.md' },
-                        { text: 'GodRayPost', link: '/guide/advanced/post_godRay.md' }
+                        { text: 'GodRayPost', link: '/guide/advanced/post_godRay.md' },
+                        { text: 'CustomPost', link: '/guide/advanced/post_custom.md' }
                     ]
                 },
                 { text: 'Global Illumination', link: '/guide/advanced/gi.md' }
