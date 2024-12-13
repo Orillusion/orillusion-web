@@ -1,6 +1,3 @@
----
-aside: false
----
 # 自定义后处理
 虽然引擎已经内置了部分后处理效果，但并不涵盖所有需求，因此可以自定义后处理对象，实现满足项目需要的后处理效果，
 本章节以 `ComputeShader` 中高斯模糊效果的后处理为例，详细介绍如何在项目中实现自定义的后处理效果。
@@ -12,7 +9,7 @@ aside: false
     3、如何将处理后的数据渲染到屏幕上
 
 
-## 创建自定义的后处理对象
+## 1. 创建自定义的后处理对象
 创建自定义的后处理对象需要创建一个继承自 `PostBase` 的类，并实现 `onAttach`、`onDetach`、`render`、`onResize` 等方法，
 例如下列这段代码，创建了一个继承自 `PostBase` 的后处理类 `GaussianBlurPost`:
 ```ts
@@ -40,9 +37,9 @@ export class GaussianBlurPost extends PostBase {
 }
 ```
 
-## 读取帧Buffer中的相关数据
-有了自定义的后处理类后，我们需要为这个后处理创建一个 `ComputeShader` 对象，用于处理帧Buffer中的相关数据，并计算输出到另一张纹理中，
-创建 `ComputeShader` 对象之前，可以先创建一张临时纹理，用于存储处理后的数据，例如：
+## 2. 读取帧 Buffer 数据
+有了自定义的后处理类后，我们需要为这个后处理创建一个 `ComputeShader` 对象，用于处理帧 `Buffer` 中的相关数据，并计算输出到另一张纹理中，创建 `ComputeShader` 对象之前，可以先创建一张临时纹理，用于存储处理后的数据，例如：
+
 ```ts
     let presentationSize = webGPUContext.presentationSize;
     this.mBlurResultTexture = new VirtualTexture(presentationSize[0], presentationSize[1], GPUTextureFormat.rgba16float, false, GPUTextureUsage.COPY_SRC | GPUTextureUsage.STORAGE_BINDING | GPUTextureUsage.TEXTURE_BINDING);
@@ -88,35 +85,45 @@ export class GaussianBlurPost extends PostBase {
     `);
     this.mGaussianBlurShader.setUniformBuffer('args', this.mGaussianBlurArgs);
     this.mGaussianBlurShader.setSamplerTexture('colorMap', this.getLastRenderTexture());
-    this.mGaussianBlurShader.setStorageTexture(`resultTex`, this.mBlurResultTexture);
+    this.mGaussianBlurShader.setStorageTexture('resultTex', this.mBlurResultTexture);
 
     this.mGaussianBlurShader.workerSizeX = Math.ceil(this.mBlurResultTexture.width / 8);
     this.mGaussianBlurShader.workerSizeY = Math.ceil(this.mBlurResultTexture.height / 8);
     this.mGaussianBlurShader.workerSizeZ = 1;
 ```
 
-上述代码中，先通过 `new UniformGPUBuffer` 创建一个用于存储模糊参数的 `UniformGPUBuffer`，然后通过 `new ComputeShader` 创建一个 `ComputeShader` 对象，而在 compute shader 中，有三个 `binding` 组，
-`args` 是一个 `GaussianBlurArgs` 类型的 `uniform`，存储了全局的模糊参数， `colorMap` 是 `texture_2d<f32>` 类型的纹理，用来读取帧Buffer中颜色纹理附件， `resultTex` 是 `texture_storage_2d<rgba16float, write>` 类型的纹理，用来输出最终模糊后的结果。
-创建完 `ComputeShader` 对象，紧接着就需要对其关联相关数据，通过 `this.mGaussianBlurShader.setUniformBuffer('args', this.mGaussianBlurArgs)` 将 `GaussianBlurArgs` 类型的 `UniformGPUBuffer` 关联到 `args` 上，
-通过 `this.mGaussianBlurShader.setSamplerTexture('colorMap', this.getLastRenderTexture())` 将帧Buffer中颜色纹理附件关联到 `colorMap` 上，`this.getLastRenderTexture()` 是基类 `PostBase` 上的方法，用于获取上一个颜色附件的纹理，
-最后通过 `this.mGaussianBlurShader.setStorageTexture(`resultTex`, this.mBlurResultTexture)` 将用于存储处理结果的纹理关联到 `resultTex` 上， 至此 `ComputeShader` 的相关准备工作已经完成。
+上述代码中：
+1. 通过 `new UniformGPUBuffer` 创建一个用于存储模糊参数的 `UniformGPUBuffer`
+2. 通过 `new ComputeShader` 创建一个 `ComputeShader` 对象，并添加三个 `binding` 组：
+    - `args` 是一个 `GaussianBlurArgs` 类型的 `uniform`，存储了全局的模糊参数
+    - `colorMap` 是 `texture_2d<f32>` 类型的纹理，用来读取帧Buffer中颜色纹理附件
+    - `resultTex` 是 `texture_storage_2d<rgba16float, write>` 类型的纹理，用来输出最终模糊后的结果
 
-## 将处理后的数据渲染到屏幕上
+3. 创建完 `ComputeShader` 对象，紧接着就需要对其关联相关数据
+    - 通过 `this.mGaussianBlurShader.setUniformBuffer('args', this.mGaussianBlurArgs)` 将 `GaussianBlurArgs` 类型的 `UniformGPUBuffer` 关联到 `args` 上
+    - 通过 `this.mGaussianBlurShader.setSamplerTexture('colorMap', this.getLastRenderTexture())` 将帧 `Buffer` 中颜色纹理附件关联到 `colorMap` 上，`this.getLastRenderTexture()` 是基类 `PostBase` 上的方法，用于获取上一个颜色附件的纹理，
+    - 最后通过 `this.mGaussianBlurShader.setStorageTexture('resultTex', this.mBlurResultTexture)` 将用于存储处理结果的纹理关联到 `resultTex` 上
+
+至此 `ComputeShader` 的相关准备工作已经完成。
+
+## 3. 渲染处理后的数据
 创建完 `ComputeShader` 对象后，还需要将处理后的数据渲染到屏幕上，也就是最开始创建的 `VirtualTexture` 对象，为了关联处理后的数据渲染到屏幕上，
 需要通过 `WebGPUDescriptorCreator.createRendererPassState` 创建一个 `RendererPassState`:
+
 ```ts
     let descript = new RTDescriptor();
     descript.clearValue = [0, 0, 0, 1];
     descript.loadOp = `clear`;
     this.mRTFrame = new RTFrame([this.mBlurResultTexture], [descript]);
-
+    // 创建一个渲染目标状态，并关联到 post 对象的 rendererPassState 上
     this.rendererPassState = WebGPUDescriptorCreator.createRendererPassState(this.mRTFrame);
     this.rendererPassState.label = 'GaussianBlur';
 ```
-`RTDescriptor` 是一个渲染目标描述符，用于描述当前RT的配置信息，例如加载操作、清除值等。
-`RTFrame` 则是渲染目标帧，用于描述当前帧的配置信息，例如纹理、纹理描述符等。
-`this.rendererPassState` 是基类 `PostBase` 上的属性，通过 `WebGPUDescriptorCreator.createRendererPassState` 创建一个 `RendererPassState` 对象赋给属性 `rendererPassState`，
-基类 `PostBase` 上的属性 `rendererPassState` 关联 `RendererPassState` 对象后，`PostRenderer` 会通过 `rendererPassState` 将处理后的数据渲染到屏幕上。
+
+- `RTDescriptor` 是一个渲染目标描述符，用于描述当前RT的配置信息，例如加载操作、清除值等。
+- `RTFrame` 则是渲染目标帧，用于描述当前帧的配置信息，例如纹理、纹理描述符等。
+
+`rendererPassState` 是基类 `PostBase` 上的公共属性，通过关联创建的 `RendererPassState` 对象后，引擎内置的 `PostRenderer` 会自动将处理后的数据渲染到屏幕上。
 
 完整代码如下：
 ```ts
@@ -181,7 +188,7 @@ class GaussianBlurPost extends PostBase {
         `);
         this.mGaussianBlurShader.setUniformBuffer('args', this.mGaussianBlurArgs);
         this.mGaussianBlurShader.setSamplerTexture('colorMap', this.getLastRenderTexture());
-        this.mGaussianBlurShader.setStorageTexture(`resultTex`, this.mBlurResultTexture);
+        this.mGaussianBlurShader.setStorageTexture('resultTex', this.mBlurResultTexture);
 
         this.mGaussianBlurShader.workerSizeX = Math.ceil(this.mBlurResultTexture.width / 8);
         this.mGaussianBlurShader.workerSizeY = Math.ceil(this.mBlurResultTexture.height / 8);
@@ -198,6 +205,7 @@ class GaussianBlurPost extends PostBase {
     }
 }
 ```
+
 首次进入 render 后，由于 this.mGaussianBlurShader 尚未初始化，将会进入 `createResource`、`createComputeShader` 函数创建相关资源对象，
 在 `createResource` 中创建了一张屏幕尺寸的虚拟纹理，用于存储模糊后的像素数据，在 `createComputeShader` 中创建了 `ComputeShader` 对象并关联了相关参数，
 最后通过 `GPUContext.computeCommand` 执行 `ComputeShader`。
@@ -222,7 +230,7 @@ class GaussianBlurPost extends PostBase {
 ```
 
 ## 总结
-本节以一个高斯模糊示例，介绍了引擎中如何创建一个自定义的后处理，在后处理器中如何读取帧Buffer中的相关数据，如何将处理后的数据关联到屏幕上：
+本节以一个高斯模糊示例，介绍了引擎中如何创建一个自定义的后处理，在后处理器中如何读取帧 `Buffer` 中的相关数据，如何将处理后的数据关联到屏幕上：
 
 <Demo :height="500" src="/demos/compute/gaussianBlur.ts"></Demo>
 
