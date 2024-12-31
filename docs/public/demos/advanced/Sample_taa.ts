@@ -1,4 +1,5 @@
 import { View3D, DirectLight, Engine3D, PostProcessingComponent, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, SphereGeometry, CameraUtil, webGPUContext, BoxGeometry, TAAPost, AtmosphericComponent } from '@orillusion/core';
+import * as dat from 'dat.gui';
 
 class Sample_TAA {
     lightObj: Object3D;
@@ -31,7 +32,16 @@ class Sample_TAA {
         Engine3D.startRenderView(view);
 
         let postProcessing = this.scene.addComponent(PostProcessingComponent);
-        postProcessing.addPost(TAAPost);
+        let taa = postProcessing.addPost(TAAPost);
+
+        const gui = new dat.GUI();
+        let f = gui.addFolder('TAA')
+        f.add(taa, "jitterSeedCount", 2, 16, 1);
+        f.add(taa, "blendFactor", 0.0, 1.0, 0.01);
+        f.add(taa, "sharpFactor", 0.1, 0.9, 0.01);
+        f.add(taa, "sharpPreBlurFactor", 0.1, 0.9, 0.01);
+        f.add(taa, "temporalJitterScale", 0.0, 1.0, 0.01);
+        f.open()
     }
 
     async initScene() {
