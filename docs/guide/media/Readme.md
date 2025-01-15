@@ -29,7 +29,8 @@ import { Physics } from "@orillusion/media-extention"
 <script src="https://unpkg.com/@orillusion/core/orillusion.umd.js"></script>
 <script src="https://unpkg.com/@orillusion/media-extention/dist/media.umd.js"></script>
 <script>
-  const {Engine3D, VideoMaterial} = Orillusion
+  const { Engine3D, Media } = Orillusion
+  const { VideoMaterial, ImageMaterial } = Media
 </script>
 ```
 

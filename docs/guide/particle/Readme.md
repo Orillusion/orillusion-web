@@ -28,7 +28,8 @@ import { ParticleSystem } from "@orillusion/particle"
 <script src="https://unpkg.com/@orillusion/core/dist/orillusion.umd.js"></script>
 <script src="https://unpkg.com/@orillusion/particle/dist/particle.umd.js"></script>
 <script>
-  const {Engine3D, ParticleSystem} = Orillusion
+  const { Engine3D, Particle } = Orillusion
+  const { ParticleSystem } = Particle
 </script>
 ```
 

@@ -29,7 +29,8 @@ import { Stats } from "@orillusion/stats"
 <script src="https://unpkg.com/@orillusion/core/orillusion.umd.js"></script>
 <script src="https://unpkg.com/@orillusion/stats/dist/stats.umd.js"></script>
 <script>
-  const {Engine3D, Stats} = Orillusion
+  const { Engine3D, Stats } = Orillusion
+  const { Stats } = Stats
 </script>
 ```
 

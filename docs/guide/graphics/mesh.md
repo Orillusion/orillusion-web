@@ -215,11 +215,20 @@ mr.geometry.computeNormals();
 npm install @orillusion/core --save
 npm install @orillusion/geometry --save
 ```
+
 ```ts
 import { Engine3D } from "@orillusion/core"
 import { TextGeometry } from "@orillusion/geometry"
 ```
-
+或 `UMD` 版本
+```html
+<script src="https://unpkg.com/@orillusion/core/dist/orillusion.umd.js"></script>
+<script src="https://unpkg.com/@orillusion/geometry/dist/geometry.umd.js"></script>
+<script>
+  const { Engine3D, Geometry } = Orillusion
+  const { ExtrudeGeometry, TextGeometry } = Geometry
+</script>
+```
 ### 2D挤压缓冲
 
 和内置的 [ExtrudeGeometry](/api/classes/ExtrudeGeometry.md) 类似但不同，该扩展类简化了数据，支持从 [Shape2D](/geometry/classes/Shape2D.md) 平面图形中生成空间几何体。

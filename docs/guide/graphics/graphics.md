@@ -32,9 +32,10 @@ import { Graphic3D, Shape3D } from "@orillusion/graphic"
 或通过 `<script>` 加载构建 `UMD` 版本，在全局 `Orillusion` 变量中获取 `Shape3D` 模块：
 ```html
 <script src="https://unpkg.com/@orillusion/core/orillusion.umd.js"></script>
-<script src="https://unpkg.com/@orillusion/stats/dist/graphic.umd.js"></script>
+<script src="https://unpkg.com/@orillusion/graphic/dist/graphic.umd.js"></script>
 <script>
-  const { Engine3D, Graphic3D, Shape3D } = Orillusion
+  const { Engine3D, Graphic } = Orillusion
+  const { Graphic3D, Shape3D } = Graphic
 </script>
 ```
 

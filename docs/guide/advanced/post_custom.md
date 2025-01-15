@@ -41,55 +41,55 @@ export class GaussianBlurPost extends PostBase {
 有了自定义的后处理类后，我们需要为这个后处理创建一个 `ComputeShader` 对象，用于处理帧 `Buffer` 中的相关数据，并计算输出到另一张纹理中，创建 `ComputeShader` 对象之前，可以先创建一张临时纹理，用于存储处理后的数据，例如：
 
 ```ts
-    let presentationSize = webGPUContext.presentationSize;
-    this.mBlurResultTexture = new VirtualTexture(presentationSize[0], presentationSize[1], GPUTextureFormat.rgba16float, false, GPUTextureUsage.COPY_SRC | GPUTextureUsage.STORAGE_BINDING | GPUTextureUsage.TEXTURE_BINDING);
-    this.mBlurResultTexture.name = 'gaussianBlurResultTexture';
+let presentationSize = webGPUContext.presentationSize;
+this.mBlurResultTexture = new VirtualTexture(presentationSize[0], presentationSize[1], GPUTextureFormat.rgba16float, false, GPUTextureUsage.COPY_SRC | GPUTextureUsage.STORAGE_BINDING | GPUTextureUsage.TEXTURE_BINDING);
+this.mBlurResultTexture.name = 'gaussianBlurResultTexture';
 ```
 
 上述代码通过 `webGPUContext.presentationSize` 获取屏幕的尺寸，然后通过 `new VirtualTexture` 创建了一张屏幕尺寸相同大小的纹理，用于存储处理后的数据，纹理格式是 `GPUTextureFormat.rgba16float`，这是引擎内部帧Buffer中颜色纹理附件的格式，
 并且给予了 `GPUTextureUsage.COPY_SRC`、`GPUTextureUsage.STORAGE_BINDING`、`GPUTextureUsage.TEXTURE_BINDING` 等权限。
 有了用于存储处理后的数据纹理后，接下来需要创建一个 `ComputeShader` 对象，来处理具体的模糊算法：
 ```ts
-    this.mGaussianBlurArgs = new UniformGPUBuffer(28);
-    this.mGaussianBlurArgs.setFloat('radius', 2);
-    this.mGaussianBlurArgs.apply();
+this.mGaussianBlurArgs = new UniformGPUBuffer(28);
+this.mGaussianBlurArgs.setFloat('radius', 2);
+this.mGaussianBlurArgs.apply();
 
-    this.mGaussianBlurShader = new ComputeShader(/* wgsl */ `
-        struct GaussianBlurArgs {
-            radius: f32,
-            retain: vec3<f32>,
-        };
+this.mGaussianBlurShader = new ComputeShader(/* wgsl */ `
+    struct GaussianBlurArgs {
+        radius: f32,
+        retain: vec3<f32>,
+    };
 
-        @group(0) @binding(0) var<uniform> args: GaussianBlurArgs;
-        @group(0) @binding(1) var colorMap: texture_2d<f32>;
-        @group(0) @binding(2) var resultTex: texture_storage_2d<rgba16float, write>;
+    @group(0) @binding(0) var<uniform> args: GaussianBlurArgs;
+    @group(0) @binding(1) var colorMap: texture_2d<f32>;
+    @group(0) @binding(2) var resultTex: texture_storage_2d<rgba16float, write>;
 
-        @compute @workgroup_size(8, 8)
-        fn CsMain( @builtin(global_invocation_id) globalInvocation_id: vec3<u32>) {
-            var pixelCoord = vec2<i32>(globalInvocation_id.xy);
+    @compute @workgroup_size(8, 8)
+    fn CsMain( @builtin(global_invocation_id) globalInvocation_id: vec3<u32>) {
+        var pixelCoord = vec2<i32>(globalInvocation_id.xy);
 
-            var value = vec4<f32>(0.0);
-            var count = 0.0;
-            let radius = i32(args.radius);
-            for (var i = -radius; i < radius; i += 1) {
-            for (var j = -radius; j < radius; j += 1) {
-                var offset = vec2<i32>(i, j);
-                value += textureLoad(colorMap, pixelCoord + offset, 0);
-                count += 1.0;
-            }
-            }
-
-            let result = value / count;
-            textureStore(resultTex, pixelCoord, result);
+        var value = vec4<f32>(0.0);
+        var count = 0.0;
+        let radius = i32(args.radius);
+        for (var i = -radius; i < radius; i += 1) {
+        for (var j = -radius; j < radius; j += 1) {
+            var offset = vec2<i32>(i, j);
+            value += textureLoad(colorMap, pixelCoord + offset, 0);
+            count += 1.0;
         }
-    `);
-    this.mGaussianBlurShader.setUniformBuffer('args', this.mGaussianBlurArgs);
-    this.mGaussianBlurShader.setSamplerTexture('colorMap', this.getLastRenderTexture());
-    this.mGaussianBlurShader.setStorageTexture('resultTex', this.mBlurResultTexture);
+        }
 
-    this.mGaussianBlurShader.workerSizeX = Math.ceil(this.mBlurResultTexture.width / 8);
-    this.mGaussianBlurShader.workerSizeY = Math.ceil(this.mBlurResultTexture.height / 8);
-    this.mGaussianBlurShader.workerSizeZ = 1;
+        let result = value / count;
+        textureStore(resultTex, pixelCoord, result);
+    }
+`);
+this.mGaussianBlurShader.setUniformBuffer('args', this.mGaussianBlurArgs);
+this.mGaussianBlurShader.setSamplerTexture('colorMap', this.getLastRenderTexture());
+this.mGaussianBlurShader.setStorageTexture('resultTex', this.mBlurResultTexture);
+
+this.mGaussianBlurShader.workerSizeX = Math.ceil(this.mBlurResultTexture.width / 8);
+this.mGaussianBlurShader.workerSizeY = Math.ceil(this.mBlurResultTexture.height / 8);
+this.mGaussianBlurShader.workerSizeZ = 1;
 ```
 
 上述代码中：
@@ -111,13 +111,13 @@ export class GaussianBlurPost extends PostBase {
 需要通过 `WebGPUDescriptorCreator.createRendererPassState` 创建一个 `RendererPassState`:
 
 ```ts
-    let descript = new RTDescriptor();
-    descript.clearValue = [0, 0, 0, 1];
-    descript.loadOp = `clear`;
-    this.mRTFrame = new RTFrame([this.mBlurResultTexture], [descript]);
-    // 创建一个渲染目标状态，并关联到 post 对象的 rendererPassState 上
-    this.rendererPassState = WebGPUDescriptorCreator.createRendererPassState(this.mRTFrame);
-    this.rendererPassState.label = 'GaussianBlur';
+let descript = new RTDescriptor();
+descript.clearValue = [0, 0, 0, 1];
+descript.loadOp = `clear`;
+this.mRTFrame = new RTFrame([this.mBlurResultTexture], [descript]);
+// 创建一个渲染目标状态，并关联到 post 对象的 rendererPassState 上
+this.rendererPassState = WebGPUDescriptorCreator.createRendererPassState(this.mRTFrame);
+this.rendererPassState.label = 'GaussianBlur';
 ```
 
 - `RTDescriptor` 是一个渲染目标描述符，用于描述当前RT的配置信息，例如加载操作、清除值等。
