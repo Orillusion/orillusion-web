@@ -27,7 +27,8 @@ Or using the `<script>` to load the `UMD` version, and get the `Physics` module 
 <script src="https://unpkg.com/@orillusion/core/dist/orillusion.umd.js"></script>
 <script src="https://unpkg.com/@orillusion/physics/dist/physics.umd.js"></script>
 <script>
-  const {Engine3D, Physics} = Orillusion
+  const { Engine3D, Physics } = Orillusion
+  const { Physics, Rigidbody } = Physics
 </script>
 ```
 

@@ -29,7 +29,8 @@ Or load the `UMD` version through `<script>` tag, and get the `Stats` module fro
 <script src="https://unpkg.com/@orillusion/core/orillusion.umd.js"></script>
 <script src="https://unpkg.com/@orillusion/stats/dist/stats.umd.js"></script>
 <script>
-  const {Engine3D, Stats} = Orillusion
+  const { Engine3D, Stats } = Orillusion
+  const { Stats } = Stats
 </script>
 ```
 

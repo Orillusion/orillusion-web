@@ -34,9 +34,10 @@ It is recommended to use the `ESModule` build version
 Or, load the `UMD` build version using `<script>`, accessing the `Shape3D` module from the global `Orillusion` variable:
 ```html
 <script src="https://unpkg.com/@orillusion/core/orillusion.umd.js"></script>
-<script src="https://unpkg.com/@orillusion/stats/dist/graphic.umd.js"></script>
+<script src="https://unpkg.com/@orillusion/graphic/dist/graphic.umd.js"></script>
 <script>
-  const { Engine3D, Graphic3D, Shape3D } = Orillusion
+  const { Engine3D, Graphic } = Orillusion
+  const { Graphic3D, Shape3D } = Graphic
 </script>
 ```
 

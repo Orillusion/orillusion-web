@@ -29,7 +29,8 @@ Or load the `UMD` version through `<script>` tag, and get the `VideoMaterial` mo
 <script src="https://unpkg.com/@orillusion/core/orillusion.umd.js"></script>
 <script src="https://unpkg.com/@orillusion/media-extention/dist/media.umd.js"></script>
 <script>
-  const {Engine3D, VideoMaterial} = Orillusion
+  const { Engine3D, Media } = Orillusion
+  const { VideoMaterial, ImageMaterial } = Media
 </script>
 ```
 

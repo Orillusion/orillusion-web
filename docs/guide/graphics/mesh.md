@@ -223,6 +223,17 @@ import { Engine3D } from "@orillusion/core"
 import { TextGeometry } from "@orillusion/geometry"
 ```
 
+or `UMD` version
+
+```html
+<script src="https://unpkg.com/@orillusion/core/dist/orillusion.umd.js"></script>
+<script src="https://unpkg.com/@orillusion/geometry/dist/geometry.umd.js"></script>
+<script>
+  const { Engine3D, Geometry } = Orillusion
+  const { ExtrudeGeometry, TextGeometry } = Geometry
+</script>
+```
+
 ### 2D ExtrudeGeometry
 
 Similar to but distinct from the built-in [ExtrudeGeometry](/api/classes/ExtrudeGeometry.md), this geometry class simplifies the data and supports generating spatial geometries from [Shape2D](/geometry/classes/Shape2D.md)
