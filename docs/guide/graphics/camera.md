@@ -84,7 +84,7 @@ In orthographic camera mode, the size of the object does not change regardless o
 
 ![camera_orthoOffCenter](/images/camera_orthoOffCenter.webp)
 
-Use [camera.orthoOffCenter](/api/classes/Camera3D.html#orthooffcenter) API to set the camera to an orthographic camera:
+Use [camera.orthoOffCenter](/api/classes/Camera3D.html#orthooffcenter) API to set an orthographic camera with custom size:
 
 | Parameter | Type   | Description                                                   | Example                 |
 |-----------|--------|---------------------------------------------------------------|-------------------------|
@@ -94,6 +94,13 @@ Use [camera.orthoOffCenter](/api/classes/Camera3D.html#orthooffcenter) API to se
 | top       | number | The maximum value of the y-axis of the viewing frustum        | window.innerHeight / 2  |
 | near      | number | The z value of the near clipping plane of the viewing frustum | 1                       |
 | far       | number | The z value of the far clipping plane of the viewing frustum  | 5000                    |
+
+In general, we can quickly set up an orthographic space centered on the camera target, with `frustumSize` as the height and `frustumSize` as the depth using [camera.ortho](/api/classes/Camera3D.html#ortho). It automatically calculates `left` and `right` based on the screen ratio and automatically computes the frustum `near` and `far` values relative to the camera target.
+
+| Parameter | Type | Description | Example |
+| --- | --- | --- | --- |
+| frustumSize | number | Height of the frustum | 100 | 
+| frustumDepth | number | Depth of the frustum | 100 | 
 
 ### Perspective Projection
 Perspective projection will use perspective division to shorten and shrink objects that are far away from the observer. Objects with the same logical size appear larger in the front position than in the back position in the visible area, which can achieve the observation effect close to the human eye. It is the most commonly used projection mode in 3D scenes.
