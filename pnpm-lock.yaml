@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@orillusion/core': 0.8.4
+  '@orillusion/core': 0.8.5-dev.5
   '@orillusion/geometry': ^0.2.7
   '@orillusion/graphic': ^0.2.4
   '@orillusion/media-extention': ^0.3.6
@@ -16,13 +16,13 @@ specifiers:
   vue: ^3.4.38
 
 devDependencies:
-  '@orillusion/core': 0.8.4
-  '@orillusion/geometry': 0.2.7_@orillusion+core@0.8.4
-  '@orillusion/graphic': 0.2.4_@orillusion+core@0.8.4
-  '@orillusion/media-extention': 0.3.6_@orillusion+core@0.8.4
-  '@orillusion/particle': 0.1.6_@orillusion+core@0.8.4
-  '@orillusion/physics': 0.3.4_@orillusion+core@0.8.4
-  '@orillusion/stats': 0.2.6_@orillusion+core@0.8.4
+  '@orillusion/core': 0.8.5-dev.5
+  '@orillusion/geometry': 0.2.7_5fbd4eygyeeul6wuilcenajqsq
+  '@orillusion/graphic': 0.2.4_5fbd4eygyeeul6wuilcenajqsq
+  '@orillusion/media-extention': 0.3.6_5fbd4eygyeeul6wuilcenajqsq
+  '@orillusion/particle': 0.1.6_5fbd4eygyeeul6wuilcenajqsq
+  '@orillusion/physics': 0.3.4_5fbd4eygyeeul6wuilcenajqsq
+  '@orillusion/stats': 0.2.6_5fbd4eygyeeul6wuilcenajqsq
   '@types/dat.gui': 0.7.13
   '@types/node': 18.19.47
   esbuild: 0.17.19
@@ -690,57 +690,57 @@ packages:
     resolution: {integrity: sha512-E/L+73rlF/eENDahX/iKUXiQMeWwmjeppDLMBwx446uBJNpbjMIew4dl0DlpB0K0VCWXrAU+Kl4tV5urjLLwOA==}
     dev: true
 
-  /@orillusion/core/0.8.4:
-    resolution: {integrity: sha512-Ql0Eh8iX0dgwpeuipAOZOOLEfEDuwVhvUhIJjF3khRpQ8075tehi1vImqvxLYFQsqXA1Vxw1VK5qe+/IzD4AMw==}
+  /@orillusion/core/0.8.5-dev.5:
+    resolution: {integrity: sha512-kSTlm7xKpASwR+FT6cZdlQ48nQtY3fKolxdiokm0pHpLt2ohU0IP1RLZDqIWz4+gzsCePVkG15ojjESNvGYAbQ==}
     dev: true
 
-  /@orillusion/geometry/0.2.7_@orillusion+core@0.8.4:
+  /@orillusion/geometry/0.2.7_5fbd4eygyeeul6wuilcenajqsq:
     resolution: {integrity: sha512-SHckn8hxZiuiJNwMWhfyTNM1OYNFFki8j3xFmfP/LK3WRs/G+vgwdQmmsx74hyWIg01DjURpHuVDBS4GRiDW8A==}
     peerDependencies:
       '@orillusion/core': '>=0.8.0'
     dependencies:
-      '@orillusion/core': 0.8.4
+      '@orillusion/core': 0.8.5-dev.5
     dev: true
 
-  /@orillusion/graphic/0.2.4_@orillusion+core@0.8.4:
+  /@orillusion/graphic/0.2.4_5fbd4eygyeeul6wuilcenajqsq:
     resolution: {integrity: sha512-laPcL1TXOFu9VT8OsUquIWu6uQ4mTP0qUv9K/66QTReXKWv8u/c5sNArGfnmQmBqJPBVfj8KUcBSJL5A0/q9Ag==}
     peerDependencies:
       '@orillusion/core': '>=0.8.0'
     dependencies:
-      '@orillusion/core': 0.8.4
+      '@orillusion/core': 0.8.5-dev.5
     dev: true
 
-  /@orillusion/media-extention/0.3.6_@orillusion+core@0.8.4:
+  /@orillusion/media-extention/0.3.6_5fbd4eygyeeul6wuilcenajqsq:
     resolution: {integrity: sha512-R+K0+GrGR791xHgLJpkRXz4nNazUIZkvVG7EItX2LVMutPU6k85ds2xWMY9M7ONp4D5ws6nLs1QrCcCXjB2xLw==}
     peerDependencies:
       '@orillusion/core': '>=0.8.0'
     dependencies:
-      '@orillusion/core': 0.8.4
+      '@orillusion/core': 0.8.5-dev.5
     dev: true
 
-  /@orillusion/particle/0.1.6_@orillusion+core@0.8.4:
+  /@orillusion/particle/0.1.6_5fbd4eygyeeul6wuilcenajqsq:
     resolution: {integrity: sha512-F+NTOdCnUE7w/4IjRkDeak9ISxEf0enykFjiwnPb/DXZW3DJF+dTlio4QRAwG4/+2rVJeqox59smpb9687onVg==}
     peerDependencies:
       '@orillusion/core': '>=0.8.0'
     dependencies:
-      '@orillusion/core': 0.8.4
+      '@orillusion/core': 0.8.5-dev.5
     dev: true
 
-  /@orillusion/physics/0.3.4_@orillusion+core@0.8.4:
+  /@orillusion/physics/0.3.4_5fbd4eygyeeul6wuilcenajqsq:
     resolution: {integrity: sha512-4xX47HF2FoSTya8pgMWnocDecBzDRU63odUxjzb6QeQOFi/j6hulFzYvV+xLVyRXEta8ojocHfHnaFHcE4zzsQ==}
     peerDependencies:
       '@orillusion/core': '>=0.8.0'
     dependencies:
       '@orillusion/ammo': 0.2.1
-      '@orillusion/core': 0.8.4
+      '@orillusion/core': 0.8.5-dev.5
     dev: true
 
-  /@orillusion/stats/0.2.6_@orillusion+core@0.8.4:
+  /@orillusion/stats/0.2.6_5fbd4eygyeeul6wuilcenajqsq:
     resolution: {integrity: sha512-IhsvXbiJlzPp06vBIKRyCMrg7bxIsV4ojP/MXwzFkTx4LhxA6vrWA7qmhUc3+5g0eR1GMZdWS+HNFbKwlyC/Fw==}
     peerDependencies:
       '@orillusion/core': '>=0.8.0'
     dependencies:
-      '@orillusion/core': 0.8.4
+      '@orillusion/core': 0.8.5-dev.5
     dev: true
 
   /@rollup/rollup-android-arm-eabi/4.21.1:
