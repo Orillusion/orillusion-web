@@ -84,7 +84,7 @@ camera.lookAt(new Vector3(0,0,10), new Vector3(0,0,0), new Vector3(0,0,1));
 
 ![camera_orthoOffCenter](/images/camera_orthoOffCenter.webp)
 
-调用 [camera.orthoOffCenter](/api/classes/Camera3D.html#orthooffcenter) API 可以按照需求设置相机成正交相机：
+调用 [camera.orthoOffCenter](/api/classes/Camera3D.html#orthooffcenter) API 可以自定义一个正交相机空间：
 
 | 参数 | 类型 | 描述 | 示例 |
 | --- | --- | --- | --- |
@@ -95,6 +95,12 @@ camera.lookAt(new Vector3(0,0,10), new Vector3(0,0,0), new Vector3(0,0,1));
 | near | number | 视锥体近截面z值| 1 |
 | far | number | 视锥体远截面z值| 5000 |
 
+一般情况下，我们可以通过 [camera.ortho](/api/classes/Camera3D.html#ortho) 快速设置一个以相机目标为中心，以 `frustumSize` 为高度，以 `frustumSize` 为深度的正交空间。它会保持屏幕比例自动计算 `left` 和 `right`，且自动计算以相机目标为基点的视椎体 `near` 和 `far` 值
+
+| 参数 | 类型 | 描述 | 示例 |
+| --- | --- | --- | --- |
+| frustumSize | number | 视锥体高度 | 100 | 
+| frustumDepth | number | 视锥体深度 | 100 | 
 
 ### 透视投影
 透视投影会利用透视除法对距离观察者很远的对象进行缩短和收缩，逻辑尺寸相同的对象在可视区域靠前位置比靠后位置显得更大，可以实现逼近人眼的观察效果，是3D场景中最常用的投影模式。
