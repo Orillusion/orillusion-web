@@ -22,6 +22,57 @@
 | GradientNew | 颜色渐变 |
 | ParticleMath |  粒子系统用到的数学库 |
 
+## 重要变更（0.9.0）
+
+::: warning 破坏性变更
+从 `@orillusion/core` **0.9.0** 起，数学库统一了方法命名与调用约定。该变更**不向后兼容**，旧代码需要迁移。
+:::
+
+### 实例算术改为"原地修改"语义
+
+这是最需要注意的行为变化。以前 `a.add(b)` 等实例算术方法会**返回一个新对象**、不改动 `a`；现在它们**直接修改 `a` 本身**并返回 `a`（链式 mutator 风格）：
+
+```ts
+// 0.8.x（旧）：a 不变，返回新向量
+const c = a.add(b);   // a 保持不变
+
+// 0.9.0（新）：a 被就地修改，c 与 a 是同一个对象
+const c = a.add(b);   // 此时 a === c，且 a 的值已改变！
+```
+
+涉及 `add` / `sub` / `multiply` / `divide` / `cross` / `multiplyScalar` 等几乎所有实例算术方法。如需保留原对象不变，有两种方式：
+
+```ts
+// 方式一：先克隆再运算
+const c = a.clone().add(b);   // a 不变
+
+// 方式二：使用静态方法（免分配、可指定输出对象，推荐用于热路径）
+const out = new Vector3();
+Vector3.add(a, b, out);       // out = a + b，a、b 均不变
+```
+
+::: tip
+静态形式 `Class.op(a, b, result?)` 是引擎内部首选的"免分配"原语，所有实例方法都委托给它实现。在每帧调用的热点代码里优先用静态形式并复用 `result` 对象，可避免频繁的 GC。
+:::
+
+### 方法改名对照表
+
+| 旧 API（0.8.x） | 新 API（0.9.0+） | 说明 |
+| --- | --- | --- |
+| `xxx.copyFrom(src)` | `xxx.copy(src)` | 所有类（Vector*/Matrix*/Quaternion/Color/Rect…） |
+| `Vector3.subtract(v)` | `Vector3.sub(v)` | 向量相减 |
+| `Vector3.crossProduct(v)` | `Vector3.cross(v)` | 叉乘 |
+| `Vector*.scale(s)` / `scaleBy(s)` / `mul(s)` / `multiplyScaler(s)` | `multiplyScalar(s)` | 乘标量，统一命名 |
+| `Vector3.scale(v: Vector3)` | `Vector3.multiply(v)` | 按分量乘向量 |
+| `Quaternion.inverse()` | `Quaternion.invert()` | 求逆（实例 + 静态） |
+| `Quaternion.fromAxisAngle()` | `Quaternion.setFromAxisAngle()` | 由轴角设置 |
+| `Quaternion.fromEulerAngles()` | `Quaternion.setFromEuler()` | 由欧拉角设置 |
+| `Quaternion.fromMatrix()` | `Quaternion.setFromRotationMatrix()` | 由旋转矩阵设置 |
+
+### 新增的标准方法
+
+0.9.0 还为 `Vector2/3/4`、`Quaternion`、`Matrix4` 补充了大量常用方法（均为链式 mutator，返回 `this`），例如：`addVectors` / `subVectors` / `multiplyVectors`、`dot`、`lengthSq`、`distanceTo`、`lerp` / `lerpVectors`、`applyMatrix4`、`projectOnVector`、`reflect`、`Matrix4.premultiply` 等。
+
 ## 向量
 向量最基本的定义就是一个方向。或者更正式的说，向量有一个方向（Direction）和大小（Magnitude，也叫做强度或长度）。你可以把向量想像成一个藏宝图上的指示：“向左走10步，向北走3步，然后向右走5步”；“左”就是方向，“10步”就是向量的长度。那么这个藏宝图的指示一共有3个向量。向量可以在任意维度（Dimension）上，但是我们通常只使用2至4维。如果一个向量有2个维度，它表示一个平面的方向（想象一下2D的图像），当它有3个维度的时候它可以表达一个3D世界的方向。
 ### 二维向量
@@ -44,17 +95,17 @@ let y = v1.y;
 // 计算两个向量距离
 let result1 = v1.distance(v2);
 
-// 计算两个向量的和
-let result2 = v1.add(v2);
+// 计算两个向量的和（注意：会就地修改 v1）
+v1.add(v2);
 
-// 计算两个向量的差
-let result3 = v1.sum(v2);
+// 计算两个向量的差（就地修改 v1）
+v1.sub(v2);
 
-// 将该向量的两个分量同时乘以一个指定的数值
-let result4 = v1.scale(2.0);
+// 将两个分量同时乘以一个标量（就地修改 v1）
+v1.multiplyScalar(2.0);
 
-// 将该向量的两个分量同时除以一个指定的数值
-let result5 = v1.divide(2.0);
+// 将两个分量同时除以一个标量（就地修改 v1）
+v1.divide(2.0);
 
 // 计算向量的长度
 let result6 = v1.length();
@@ -62,17 +113,14 @@ let result6 = v1.length();
 // 计算当前向量与目标向量之间的角度
 let result7 = v1.getAngle(v2);
 
-// 使用静态函数计算两个向量之间的角度
-let result8 = Vector2.getAngle(v1, v2);
-
 // 计算当前向量与给定向量是否相等
 let result9 = v1.equals(v2);
 
 // 克隆当前向量
 let result10 = v1.clone();
 
-// 使用一个给定的向量给向前向量赋值
-v1.copyFrom(v2);
+// 使用一个给定的向量给当前向量赋值
+v1.copy(v2);
 
 // 将向量转换为单位向量
 v1.normalize();
@@ -100,32 +148,33 @@ let w = v1.w;
 // 计算向量的长度
 let result1 = v1.length();
 
-// 计算两个向量的和
-let result2 = v1.add(v2);
+// 计算两个向量的和（就地修改 v1）
+v1.add(v2);
 
-// 计算两个向量的差
-let result3 = v1.subtract(v2);
+// 计算两个向量的差（就地修改 v1）
+v1.sub(v2);
 
-// 将该向量的两个分量同时乘以一个指定的向量
-let result4 = v1.multiply(v2);
+// 将各分量同时乘以一个向量（按分量相乘，就地修改 v1）
+v1.multiply(v2);
 
-// 将该向量的两个分量同时除以一个指定的向量
-let result5 = v1.divided(v2);
+// 将各分量同时除以一个向量（就地修改 v1）
+v1.divide(v2);
+
+// 不改变入参的静态写法：out = v1 + v2
+let out = new Vector3();
+Vector3.add(v1, v2, out);
 
 // 静态函数计算向量的距离
 let result6 = Vector3.distance(v1, v2);
-
-// 使用静态函数计算两个向量之间的角度
-let result7 = Vector3.getAngle(v1, v2);
 
 // 计算当前向量与给定向量是否相等
 let result9 = v1.equals(v2);
 
 // 克隆当前向量
-let result9 = v1.clone();
+let result10 = v1.clone();
 
-// 使用一个给定的向量给向前向量赋值
-v1.copyFrom(v2);
+// 使用一个给定的向量给当前向量赋值
+v1.copy(v2);
 
 // 将向量转换为单位向量
 v1.normalize();
@@ -158,7 +207,7 @@ r1.height = 100;
 let r3 = r1.clone();
 
 // 使用新值覆盖矩形原有值
-r3.copyFrom(r2);
+r3.copy(r2);
 
 // 将该对象的值复制到给定的矩形对象
 r2.copyTo(r3);
@@ -246,13 +295,13 @@ q1.divide(q2);
 result1.multiply(q1, q2);
 
 // 从由轴和角度所给定的旋转来设置该四元数
-q1.fromAxisAngle(new Vector3(), 15);
+q1.setFromAxisAngle(new Vector3(), 15);
 
 // 把四元数转成角度返回
 let result2 = q1.toAxisAngle(new Vector3());
 
 // 用数值表示给定的欧拉旋转填充四元数对象
-q1.fromEulerAngles(1, 1, 1);
+q1.setFromEuler(1, 1, 1);
 
 // 把四元数转成欧拉角返回
 let result3 = q1.toEulerAngles();
@@ -264,7 +313,7 @@ q1.normalize();
 let result4 = q1.transformVector(new Vector3());
 
 // 将数据从四元数复制到该实例
-q1.copyFrom(q2);
+q1.copy(q2);
 
 
 ```
@@ -289,7 +338,7 @@ let m3 = m1.clone();
 m1.concat(m2);
 
 // 将当前矩阵值由目标矩阵值覆盖
-m1.copyFrom(m2);
+m1.copy(m2);
 
 // 重置为单位矩阵
 m1.identity();

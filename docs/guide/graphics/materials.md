@@ -96,6 +96,67 @@ mat.cullMode = GPUCullMode.back; // 剔除后面，显示正面
 
 <Demo :height="300" :code="false" src="/demos/materials/cullMode.ts"></Demo>
 
+### 深度状态
+材质可以控制自身参与深度缓冲（Depth Buffer）的方式，常用于处理透明物体排序、避免 Z-fighting、实现"始终可见"的叠加层等。
+
+```ts
+let mat = new LitMaterial();
+
+// 是否写入深度缓冲。透明物体通常关闭，避免互相遮挡导致排序错误
+mat.depthWriteEnabled = false;
+
+// 深度比较函数（GPUCompareFunction）。默认 'less-equal'
+// 例如设为 'always' 让物体始终通过深度测试（叠加层 / 描边）
+mat.depthCompare = 'always' as GPUCompareFunction;
+```
+
+| 属性 | 类型 | 说明 |
+| --- | --- | --- |
+| `depthWriteEnabled` | `boolean` | 是否把本材质的片元深度写入深度缓冲 |
+| `depthCompare` | `GPUCompareFunction` | 深度比较函数，如 `'less'`、`'less-equal'`、`'greater'`、`'always'` 等 |
+
+### 模版缓冲（Stencil）
+::: tip 版本说明
+模版缓冲 API 在 `@orillusion/core` **0.9.0** 引入，可用于实现轮廓描边、镜面遮罩、投影贴花等需要"标记区域再二次绘制"的效果。
+:::
+
+模版测试通过一个额外的 8 位缓冲区，对每个片元做"标记—比较—决定是否绘制"的操作。`Material` 暴露了完整的模版状态：
+
+```ts
+let mat = new LitMaterial();
+
+// 参考值与读写掩码
+mat.stencilRef = 1;          // 比较 / 写入时使用的参考值
+mat.stencilReadMask = 0xFF;  // 比较时与缓冲值做与运算的掩码
+mat.stencilWriteMask = 0xFF; // 写入时允许修改的位
+
+// 正面 / 背面的模版操作（GPUStencilFaceState）
+mat.stencilFront = {
+    compare: 'always',     // 比较函数：总是通过
+    failOp: 'keep',        // 模版测试失败时
+    depthFailOp: 'keep',   // 模版通过但深度测试失败时
+    passOp: 'replace',     // 全部通过时：用 stencilRef 替换缓冲值（写入标记）
+};
+mat.stencilBack = {
+    compare: 'always',
+    failOp: 'keep',
+    depthFailOp: 'keep',
+    passOp: 'keep',
+};
+```
+
+| 属性 | 类型 | 说明 |
+| --- | --- | --- |
+| `stencilFront` | `GPUStencilFaceState` | 正面三角形的模版操作（比较函数 + 三种操作） |
+| `stencilBack` | `GPUStencilFaceState` | 背面三角形的模版操作 |
+| `stencilReadMask` | `number` | 比较阶段的读掩码，默认 `0xFF` |
+| `stencilWriteMask` | `number` | 写入阶段的写掩码，默认 `0xFF` |
+| `stencilRef` | `number` | 模版参考值，默认 `0` |
+
+典型的两遍法（先标记、再用标记限制绘制区域）：第一遍材质用 `passOp: 'replace'` 把覆盖区域写成 `stencilRef`；第二遍材质用 `compare: 'equal'` 且 `passOp: 'keep'`，只在被标记的区域绘制。
+
+> 引擎内置的[投影贴花](/api/classes/DecalComponent)等效果即基于模版缓冲实现，一般无需手动配置。
+
 ### UV 变换
 模型顶点会存有多组纹理映射坐标，定义了该顶点在纹理中对应的2D坐标，它通常由一个二维变量 `(u,v)` 表示，所以也被称为 `UV坐标`。   
 我们可以通过对模型的 `uv` 坐标进行矩阵变换来自定义纹理的映射关系。比如，设置材质shader 中的 `transformUV1` 变量来对原始 `uv` 进行 `位移（offset）` 和 `缩放（scaling）` 的坐标变换: 

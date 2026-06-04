@@ -321,6 +321,7 @@ function sidebarGuide(): SidebarItem {
                 { text: '网格', link: '/guide/graphics/mesh.md' },
                 { text: '材质', link: '/guide/graphics/materials.md' },
                 { text: '纹理', link: '/guide/graphics/texture.md' },
+                { text: '渲染层', link: '/guide/graphics/render_layer.md' },
                 { text: '图形绘制', link: '/guide/graphics/graphics.md' }
             ]
         },
@@ -443,6 +444,10 @@ function sidebarGuide(): SidebarItem {
                             link: '/guide/advanced/shader/shader_compute.md'
                         }
                     ]
+                },
+                {
+                    text: 'RenderGraph',
+                    link: '/guide/advanced/rendergraph.md'
                 },
                 {
                     text: '后处理特效',
