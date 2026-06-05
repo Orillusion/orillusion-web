@@ -11,15 +11,20 @@ class Sample_CSM {
     viewCamera: Camera3D;
     gui: dat.GUI;
     graphic3D: Graphic3D;
+    engine: Engine3D;
 
     async run() {
-        Engine3D.setting.shadow.autoUpdate = true;
-        Engine3D.setting.shadow.shadowSize = 2048;
-        Engine3D.setting.shadow.shadowBound = 512;
-        Engine3D.setting.shadow.shadowBias = 0.02;
-        await Engine3D.init({
+        this.engine = await Engine3D.init({
             renderLoop: () => {
                 this.loop();
+            },
+            setting: {
+                shadow: {
+                    autoUpdate: true,
+                    shadowSize: 2048,
+                    shadowBound: 512,
+                    shadowBias: 0.02
+                }
             }
         });
         let gui = new dat.GUI();
@@ -30,7 +35,7 @@ class Sample_CSM {
 
         // init camera3D
         let mainCamera = CameraUtil.createCamera3D(null, this.scene);
-        mainCamera.perspective(60, Engine3D.aspect, 1, 5000.0);
+        mainCamera.perspective(60, this.engine.aspect, 1, 5000.0);
         //set camera data
         mainCamera.object3D.z = -15;
         mainCamera.object3D.addComponent(HoverCameraController).setCamera(-15, -35, 200);
@@ -49,13 +54,13 @@ class Sample_CSM {
         this.scene.addChild(this.graphic3D);
 
         mainCamera.enableCSM = true;
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
 
         let f = gui.addFolder('CSM');
         f.add(mainCamera, 'enableCSM');
-        f.add(Engine3D.setting.shadow, 'csmScatteringExp', 0.5, 1.0, 0.01);
-        f.add(Engine3D.setting.shadow, 'csmMargin', 0.01, 0.5, 0.01);
-        f.add(Engine3D.setting.shadow, 'csmAreaScale', 0.1, 1, 0.01);
+        f.add(this.engine.setting.shadow, 'csmScatteringExp', 0.5, 1.0, 0.01);
+        f.add(this.engine.setting.shadow, 'csmMargin', 0.01, 0.5, 0.01);
+        f.add(this.engine.setting.shadow, 'csmAreaScale', 0.1, 1, 0.01);
         f.open();
     }
 
@@ -89,7 +94,7 @@ class Sample_CSM {
         this.createBox();
         {
             let mat = new LitMaterial();
-            mat.baseMap = Engine3D.res.grayTexture;
+            mat.baseMap = this.engine.res.grayTexture;
             let floor = new Object3D();
             let mr = floor.addComponent(MeshRenderer);
             mr.geometry = new BoxGeometry(10000, 1, 10000);

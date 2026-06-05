@@ -49,8 +49,8 @@
             function createScript(js, ts) {
                 const script = document.createElement('script');
                 script.innerHTML = js.replace(
-                    /Engine3D\.startRenderView\((\S+)\)/,
-                    `Engine3D.startRenderView($1);
+                    /([\w.]+)\.startRenderView\((\S+)\)/,
+                    `$1.startRenderView($2);
                     window.postMessage("rendering");
                     window.onmessage = e=>{
                         if(e.data === 'pause')

@@ -5,10 +5,16 @@ import dat from 'dat.gui';
 export class Sample_UIImageGroup {
     scene: Scene3D;
     imageGroup: UIImageGroup;
+    engine: Engine3D;
 
     async run() {
-        Engine3D.setting.shadow.autoUpdate = true;
-        await Engine3D.init();
+        this.engine = await Engine3D.init({
+            setting: {
+                shadow: {
+                    autoUpdate: true
+                }
+            }
+        });
 
         // init Scene3D
         this.scene = new Scene3D();
@@ -21,7 +27,7 @@ export class Sample_UIImageGroup {
 
         // init Camera3D
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, Engine3D.aspect, 1, 5000);
+        camera.perspective(60, this.engine.aspect, 1, 5000);
 
         // init Camera Controller
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController);
@@ -49,7 +55,7 @@ export class Sample_UIImageGroup {
 
         // relative light to sky
         atmosphericSky.relativeTransform = light.transform;
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
         await this.createImageGroup();
     }
 
@@ -75,8 +81,8 @@ export class Sample_UIImageGroup {
         let xy = this.imageGroup.getXY(1);
         let pos = { x: 0, y: xy.y };
         let action = () => this.imageGroup.setXY(1, pos.x, pos.y);
-        positionfolder.add(pos, 'x', -Engine3D.width * 0.5, Engine3D.width * 0.5, 1).onChange(action);
-        positionfolder.add(pos, 'y', -Engine3D.height * 0.5, Engine3D.height * 0.5, 1).onChange(action);
+        positionfolder.add(pos, 'x', -this.engine.width * 0.5, this.engine.width * 0.5, 1).onChange(action);
+        positionfolder.add(pos, 'y', -this.engine.height * 0.5, this.engine.height * 0.5, 1).onChange(action);
         positionfolder.open();
     }
 

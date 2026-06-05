@@ -10,14 +10,14 @@ class Sample_PointLight {
     constructor() {}
 
     async run() {
-        await Engine3D.init({});
+        let engine = await Engine3D.init({});
 
         this.scene = new Scene3D();
         this.scene.addComponent(Stats);
         let sky = this.scene.addComponent(AtmosphericComponent);
         // init camera3D
         let mainCamera = CameraUtil.createCamera3D(null, this.scene);
-        mainCamera.perspective(60, Engine3D.aspect, 1, 2000.0);
+        mainCamera.perspective(60, engine.aspect, 1, 2000.0);
         //set camera data
         mainCamera.object3D.addComponent(HoverCameraController).setCamera(0, -25, 500);
 
@@ -28,7 +28,7 @@ class Sample_PointLight {
         view.scene = this.scene;
         view.camera = mainCamera;
 
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
     }
 
     initScene(scene: Scene3D) {

@@ -5,9 +5,13 @@ import { Stats } from '@orillusion/stats';
 class Sample_CustomGeometry {
     dirLight: DirectLight;
     async run() {
-        Engine3D.setting.shadow.autoUpdate = true;
-
-        await Engine3D.init();
+        let engine = await Engine3D.init({
+            setting: {
+                shadow: {
+                    autoUpdate: true
+                }
+            }
+        });
         let view = new View3D();
         view.scene = new Scene3D();
         let sky = view.scene.addComponent(AtmosphericComponent);
@@ -17,7 +21,7 @@ class Sample_CustomGeometry {
         view.camera.object3D.z = -15;
         view.camera.object3D.addComponent(HoverCameraController).setCamera(35, -20, 150);
 
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
         await this.createScene(view.scene);
         sky.relativeTransform = this.dirLight.transform;

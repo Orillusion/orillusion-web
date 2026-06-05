@@ -21,7 +21,7 @@ view.scene = scene;
 // 填充相机至3D视图
 view.camera = camera;
 // 开始渲染
-Engine3D.startRenderView(view);
+engine.startRenderView(view);
 ```
 如果场景内有多个相机，可以通过设置 `view.camera` 来切换目标相机:
 ```ts

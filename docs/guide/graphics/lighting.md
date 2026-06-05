@@ -120,7 +120,7 @@ spotLight.outerAngle = 35;
 除了常规的光源类型设置，引擎还支持通过加载预设的 `IES` 贴图来设置复杂的光线分布：
 ```ts
 // 加载 IES 贴图
-let iesTexture = await Engine3D.res.loadTexture("https://cdn.orillusion.com/ies/ies_2.png");
+let iesTexture = await engine.res.loadTexture("https://cdn.orillusion.com/ies/ies_2.png");
 // 创建 IES 对象
 let iesPofiles = new IESProfiles();
 iesPofiles.IESTexture = iesTexture;

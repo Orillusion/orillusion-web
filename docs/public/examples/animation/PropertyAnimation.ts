@@ -3,18 +3,23 @@ import dat from 'dat.gui';
 import { Stats } from '@orillusion/stats';
 
 class Sample_PropertyAnimation {
+    engine: Engine3D;
     scene: Scene3D;
     animation: PropertyAnimation;
     private Ori: dat.GUI | undefined;
 
     async run() {
-        Engine3D.setting.shadow.autoUpdate = true;
-        Engine3D.setting.shadow.updateFrameRate = 1;
-        Engine3D.setting.shadow.shadowBound = 50;
-        Engine3D.setting.shadow.shadowSize = 2048;
-        Engine3D.setting.shadow.shadowBias = 0.01;
-
-        await Engine3D.init();
+        this.engine = await Engine3D.init({
+            setting: {
+                shadow: {
+                    autoUpdate: true,
+                    updateFrameRate: 1,
+                    shadowBound: 50,
+                    shadowSize: 2048,
+                    shadowBias: 0.01
+                }
+            }
+        });
         let scene = (this.scene = new Scene3D());
         scene.addComponent(Stats);
 
@@ -24,7 +29,7 @@ class Sample_PropertyAnimation {
 
         // init Camera3D
         let camera = CameraUtil.createCamera3DObject(scene);
-        camera.perspective(60, Engine3D.aspect, 1, 5000);
+        camera.perspective(60, this.engine.aspect, 1, 5000);
         // init Camera Controller
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController);
         hoverCtrl.setCamera(-30, -15, 20);
@@ -52,7 +57,7 @@ class Sample_PropertyAnimation {
         atmosphericSky.relativeTransform = light.transform;
 
         await this.initScene(this.scene);
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
 
         this.displayGUI();
     }
@@ -63,7 +68,7 @@ class Sample_PropertyAnimation {
         scene.addChild(floor);
 
         // load external model
-        let model = (await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/Duck/Duck.gltf')) as Object3D;
+        let model = (await this.engine.res.loadGltf('https://cdn.orillusion.com/PBR/Duck/Duck.gltf')) as Object3D;
         let container = new Object3D();
         container.addChild(model);
         model.rotationY = 180;
@@ -81,7 +86,7 @@ class Sample_PropertyAnimation {
         let animation = owner.addComponent(PropertyAnimation);
 
         //load a animation clip
-        let json: any = await Engine3D.res.loadJSON('https://cdn.orillusion.com/json/anim_0.json');
+        let json: any = await this.engine.res.loadJSON('https://cdn.orillusion.com/json/anim_0.json');
         let animClip = new PropertyAnimClip();
         animClip.parse(json);
         animClip.wrapMode = WrapMode.Loop;

@@ -7,7 +7,7 @@ class RotateScript extends ComponentBase {
     }
 }
 
-await Engine3D.init();
+let engine = await Engine3D.init();
 let scene3D = new Scene3D();
 // add a default skybox
 scene3D.addComponent(AtmosphericComponent);
@@ -16,7 +16,7 @@ scene3D.addComponent(Stats);
 
 let cameraObj = new Object3D();
 let camera = cameraObj.addComponent(Camera3D);
-camera.perspective(60, Engine3D.aspect, 1, 5000.0);
+camera.perspective(60, engine.aspect, 1, 5000.0);
 cameraObj.addComponent(HoverCameraController);
 scene3D.addChild(cameraObj);
 
@@ -37,4 +37,4 @@ scene3D.addChild(obj);
 let view = new View3D();
 view.scene = scene3D;
 view.camera = camera;
-Engine3D.startRenderView(view);
+engine.startRenderView(view);

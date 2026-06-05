@@ -6,14 +6,17 @@ class Sample_TAA {
     scene: Scene3D;
 
     async run() {
-        Engine3D.setting.shadow.enable = true;
-        Engine3D.setting.shadow.shadowSize = 2048;
-		Engine3D.setting.shadow.shadowBound = 40;
-		Engine3D.setting.shadow.shadowBias = 0.005;
-
-        await Engine3D.init({
+        let engine = await Engine3D.init({
             canvasConfig: {
                 devicePixelRatio: 1
+            },
+            setting: {
+                shadow: {
+                    enable: true,
+                    shadowSize: 2048,
+                    shadowBound: 40,
+                    shadowBias: 0.005
+                }
             }
         });
 
@@ -29,7 +32,7 @@ class Sample_TAA {
         let view = new View3D();
         view.scene = this.scene;
         view.camera = mainCamera;
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
         let postProcessing = this.scene.addComponent(PostProcessingComponent);
         let taa = postProcessing.addPost(TAAPost);

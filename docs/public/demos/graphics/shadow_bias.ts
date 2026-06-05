@@ -1,19 +1,22 @@
 import { Engine3D, Scene3D, Object3D, Camera3D, Vector3, AtmosphericComponent, View3D, LitMaterial, BoxGeometry, MeshRenderer, UnLitMaterial, SphereGeometry, DirectLight, PointLight, SpotLight, HoverCameraController, PlaneGeometry, Color } from '@orillusion/core';
 import * as dat from 'dat.gui';
 
-// shadow setting
-Engine3D.setting.shadow.autoUpdate = true;
-Engine3D.setting.shadow.debug = false;
-Engine3D.setting.shadow.shadowBound = 100;
-Engine3D.setting.shadow.shadowBias = 0.01;
-
-await Engine3D.init({
-    canvasConfig: { devicePixelRatio: 1 }
+let engine = await Engine3D.init({
+    canvasConfig: { devicePixelRatio: 1 },
+    setting: {
+        // shadow setting
+        shadow: {
+            autoUpdate: true,
+            debug: false,
+            shadowBound: 100,
+            shadowBias: 0.01
+        }
+    }
 });
 let scene3D: Scene3D = new Scene3D();
 let cameraObj: Object3D = new Object3D();
 let camera = cameraObj.addComponent(Camera3D);
-camera.perspective(60, Engine3D.aspect, 1, 5000.0);
+camera.perspective(60, engine.aspect, 1, 5000.0);
 let controller = cameraObj.addComponent(HoverCameraController);
 controller.setCamera(0, -45, 100, new Vector3(0, 0, 0));
 scene3D.addChild(cameraObj);
@@ -53,7 +56,7 @@ let view = new View3D();
 view.scene = scene3D;
 view.camera = camera;
 // start render
-Engine3D.startRenderView(view);
+engine.startRenderView(view);
 
 const GUIHelp = new dat.GUI();
-GUIHelp.add(Engine3D.setting.shadow, 'shadowBias', 0, 0.1, 0.0001);
+GUIHelp.add(engine.setting.shadow, 'shadowBias', 0, 0.1, 0.0001);

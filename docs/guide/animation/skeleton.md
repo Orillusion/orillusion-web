@@ -22,7 +22,7 @@
 当加载带有骨骼动画数据的模型文件后，引擎会自动为模型添加一个 `AnimatorComponent` 组件，并将模型中的动画数据加入其中。可以直接在模型的根实体上获取 `AnimatorComponent` 组件，并播放指定动画。
 ```ts
 // load test model
-let soldier = await Engine3D.res.loadGltf('gltfs/glb/Soldier.glb');
+let soldier = await engine.res.loadGltf('gltfs/glb/Soldier.glb');
 soldier.rotationY = -90;
 soldier.localScale.set(2, 2, 2);
 scene.addChild(soldier);

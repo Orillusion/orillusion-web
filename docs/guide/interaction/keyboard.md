@@ -18,7 +18,7 @@ export class keyScript extends ComponentBase {
   protected init() {}
 
   protected start() {
-    Engine3D.inputSystem.addEventListener(KeyEvent.KEY_UP, this.onKeyUp, this);
+    engine.inputSystem.addEventListener(KeyEvent.KEY_UP, this.onKeyUp, this);
   }
   onKeyUp(e: KeyEvent) {
     // 按键回调

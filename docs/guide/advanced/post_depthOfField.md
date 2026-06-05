@@ -5,11 +5,11 @@ aside: false
 引擎实现的景深效果规定了距离相机最近、最远阈值，在相机和最近距离范围内的物体都为清晰的；而一旦超出了最近距离，物体随距离增加会呈现越来越模糊的效果。直到最远达到最大模糊程度。
 ```ts
 //初始化引擎
-await Engine3D.init();
+let engine = await Engine3D.init();
 
-Engine3D.setting.render.postProcessing.depthOfView.near = 150;
-Engine3D.setting.render.postProcessing.depthOfView.far = 300;
-Engine3D.setting.render.postProcessing.depthOfView.pixelOffset = 1;
+engine.setting.render.postProcessing.depthOfView.near = 150;
+engine.setting.render.postProcessing.depthOfView.far = 300;
+engine.setting.render.postProcessing.depthOfView.pixelOffset = 1;
 
 // 添加 DepthOfFieldPost
 let postProcessing = this.scene.addComponent(PostProcessingComponent);
@@ -19,10 +19,10 @@ postProcessing.addPost(DepthOfFieldPost); //景深效果。
 let view = new View3D();
 view.scene = this.scene;
 view.camera = this.camera;
-Engine3D.startRenderView(view);
+engine.startRenderView(view);
 ```
 
-[Engine3D.setting.render.postProcessing.depthOfView](../../api/types/DepthOfViewSetting.md) 配置参数。
+[engine.setting.render.postProcessing.depthOfView](../../api/types/DepthOfViewSetting.md) 配置参数。
 
 | 参数 | 类型 | 描述 |
 | --- | --- | --- |

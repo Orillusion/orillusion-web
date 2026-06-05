@@ -4,14 +4,20 @@ import dat from 'dat.gui';
 class Sample_ClearCoat {
     lightObj3D: Object3D;
     scene: Scene3D;
+    engine: Engine3D;
 
     async run() {
-        Engine3D.setting.shadow.shadowBound = 300;
-        await Engine3D.init();
+        let engine = (this.engine = await Engine3D.init({
+            setting: {
+                shadow: {
+                    shadowBound: 300
+                }
+            }
+        }));
 
         this.scene = new Scene3D();
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, Engine3D.aspect, 1, 5000.0);
+        camera.perspective(60, engine.aspect, 1, 5000.0);
 
         camera.object3D.addComponent(HoverCameraController).setCamera(-25, -5, 300);
 
@@ -19,7 +25,7 @@ class Sample_ClearCoat {
         view.scene = this.scene;
         view.camera = camera;
 
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
         await this.initScene();
     }
 
@@ -27,7 +33,7 @@ class Sample_ClearCoat {
         /******** sky *******/
         {
             let sky = this.scene.getOrAddComponent(SkyRenderer);
-            sky.map = await Engine3D.res.loadHDRTextureCube('https://cdn.orillusion.com//hdri/sunset.hdr');
+            sky.map = await this.engine.res.loadHDRTextureCube('https://cdn.orillusion.com//hdri/sunset.hdr');
             this.scene.envMap = sky.map;
         }
         /******** light *******/
@@ -63,7 +69,7 @@ class Sample_ClearCoat {
         }
 
         {
-            let clearCoatRoughnessTex = await Engine3D.res.loadTexture('https://cdn.orillusion.com/PBR/ClearCoatTest/T_Imperfections_Wipe_Mask.PNG');
+            let clearCoatRoughnessTex = await this.engine.res.loadTexture('https://cdn.orillusion.com/PBR/ClearCoatTest/T_Imperfections_Wipe_Mask.PNG');
             let space = 50;
             let geo = new SphereGeometry(15, 35, 35);
             for (let i = 0; i < 10; i++) {

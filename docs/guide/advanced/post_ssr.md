@@ -6,14 +6,14 @@ aside: false
 
 ```ts
 //初始化引擎
-await Engine3D.init();
+let engine = await Engine3D.init();
 
-Engine3D.setting.render.postProcessing.ssr.fadeEdgeRatio = 0.2;
-Engine3D.setting.render.postProcessing.ssr.rayMarchRatio = 0.5;
-Engine3D.setting.render.postProcessing.ssr.fadeDistanceMin = 600;
-Engine3D.setting.render.postProcessing.ssr.fadeDistanceMax = 2000;
-Engine3D.setting.render.postProcessing.ssr.roughnessThreshold = 0.5;
-Engine3D.setting.render.postProcessing.ssr.powDotRN = 0.2;
+engine.setting.render.postProcessing.ssr.fadeEdgeRatio = 0.2;
+engine.setting.render.postProcessing.ssr.rayMarchRatio = 0.5;
+engine.setting.render.postProcessing.ssr.fadeDistanceMin = 600;
+engine.setting.render.postProcessing.ssr.fadeDistanceMax = 2000;
+engine.setting.render.postProcessing.ssr.roughnessThreshold = 0.5;
+engine.setting.render.postProcessing.ssr.powDotRN = 0.2;
 
 // 添加 SSRPost
 let postProcessing = this.scene.addComponent(PostProcessingComponent);
@@ -23,10 +23,10 @@ postProcessing.addPost(SSRPost);
 let view = new View3D();
 view.scene = this.scene;
 view.camera = this.camera;
-Engine3D.startRenderView(view);
+engine.startRenderView(view);
 ```
 
-[Engine3D.setting.render.postProcessing.ssr](../../api/types/SSRSetting.md) 配置参数。
+[engine.setting.render.postProcessing.ssr](../../api/types/SSRSetting.md) 配置参数。
 
 | 参数 | 类型 | 描述 |
 | --- | --- | --- |

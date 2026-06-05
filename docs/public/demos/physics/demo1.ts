@@ -5,7 +5,7 @@ class Sample_box {
     async run() {
         await Physics.init();
         // Init Engine3D
-        await Engine3D.init({
+        let engine = await Engine3D.init({
             canvasConfig: { devicePixelRatio: 1 },
             renderLoop: () => {
                 if (Physics.isInited) {
@@ -17,7 +17,7 @@ class Sample_box {
         scene3D.addComponent(AtmosphericComponent);
         let cameraObj = new Object3D();
         let mainCamera = cameraObj.addComponent(Camera3D);
-        mainCamera.perspective(60, Engine3D.aspect, 1, 5000.0);
+        mainCamera.perspective(60, engine.aspect, 1, 5000.0);
         let controller = mainCamera.object3D.addComponent(HoverCameraController);
         controller.setCamera(45, -15, 200, new Vector3(0, 50, 0));
         scene3D.addChild(cameraObj);
@@ -51,7 +51,7 @@ class Sample_box {
         view.scene = scene3D;
         view.camera = mainCamera;
         // start render
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
     }
     addPlane(scene: Scene3D, size: Vector2, pos: Vector3, rot: Vector3) {
         const obj = new Object3D();

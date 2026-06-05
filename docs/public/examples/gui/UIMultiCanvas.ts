@@ -5,10 +5,14 @@ class Sample_UIMultiCanvas {
     scene: Scene3D;
 
     async run() {
-        Engine3D.setting.shadow.autoUpdate = true;
-
-        await Engine3D.init();
-        await Engine3D.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt');
+        let engine = await Engine3D.init({
+            setting: {
+                shadow: {
+                    autoUpdate: true
+                }
+            }
+        });
+        await engine.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt');
 
         // init Scene3D
         this.scene = new Scene3D();
@@ -21,7 +25,7 @@ class Sample_UIMultiCanvas {
 
         // init Camera3D
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, Engine3D.aspect, 1, 5000);
+        camera.perspective(60, engine.aspect, 1, 5000);
 
         // init Camera Controller
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController);
@@ -51,7 +55,7 @@ class Sample_UIMultiCanvas {
         // relative light to sky
         atmosphericSky.relativeTransform = light.transform;
 
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
         // create floor
         let floor = Object3DUtil.GetSingleCube(100, 2, 50, 0.5, 0.5, 0.5);

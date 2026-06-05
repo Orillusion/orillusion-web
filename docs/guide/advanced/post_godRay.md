@@ -6,7 +6,7 @@ aside: false
 遮挡物时出现，因为光线会被这些物体散射或折射，产生视觉上的辉光效果，
 ```ts
 //初始化引擎
-await Engine3D.init();
+let engine = await Engine3D.init();
 
 // 添加 后处理组件
 let postProcessing = this.scene.addComponent(PostProcessingComponent);
@@ -18,10 +18,10 @@ postProcessing.addPost(GodRayPost);
 let view = new View3D();
 view.scene = this.scene;
 view.camera = this.camera;
-Engine3D.startRenderView(view);
+engine.startRenderView(view);
 ```
 
-[Engine3D.setting.render.postProcessing.godray](../../api/types/GodraySetting.md) 配置参数。
+[engine.setting.render.postProcessing.godray](../../api/types/GodraySetting.md) 配置参数。
 | 参数 | 类型 | 描述 |
 | --- | --- | --- |
 | scatteringExponent | number | 颜色扩散指数，默认为5 |

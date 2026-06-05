@@ -3,21 +3,25 @@ import { Stats } from '@orillusion/stats';
 import dat from 'dat.gui';
 
 class Sample_POI {
+    engine: Engine3D;
     scene: Scene3D;
     panel: WorldPanel;
     position: Vector3;
     private modelContainer: Object3D;
 
     async run() {
-        Engine3D.setting.shadow.autoUpdate = true;
-        Engine3D.setting.shadow.updateFrameRate = 1;
-        Engine3D.setting.shadow.shadowBound = 30;
-        Engine3D.setting.shadow.shadowBias = 0.002;
-        Engine3D.setting.shadow.csmScatteringExp = 1;
-
-        await Engine3D.init({
+        this.engine = await Engine3D.init({
             renderLoop: () => {
                 this.loop();
+            },
+            setting: {
+                shadow: {
+                    autoUpdate: true,
+                    updateFrameRate: 1,
+                    shadowBound: 30,
+                    shadowBias: 0.002,
+                    csmScatteringExp: 1
+                }
             }
         });
         // init Scene3D
@@ -31,7 +35,7 @@ class Sample_POI {
 
         // init Camera3D
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, Engine3D.aspect, 1, 5000);
+        camera.perspective(60, this.engine.aspect, 1, 5000);
 
         // init Camera Controller
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController);
@@ -61,7 +65,7 @@ class Sample_POI {
         // relative light to sky
         atmosphericSky.relativeTransform = light.transform;
 
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
 
         await this.initScene();
         this.initDuckPOI();
@@ -72,10 +76,10 @@ class Sample_POI {
         // floor
         let floor: Object3D = Object3DUtil.GetSingleCube(16, 0.1, 16, 1, 1, 1);
         this.scene.addChild(floor);
-        await Engine3D.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt');
+        await this.engine.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt');
 
         // load external model
-        let model = (await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/Duck/Duck.gltf')) as Object3D;
+        let model = (await this.engine.res.loadGltf('https://cdn.orillusion.com/PBR/Duck/Duck.gltf')) as Object3D;
         model.rotationY = 180;
         this.modelContainer = new Object3D();
         this.modelContainer.addChild(model);
@@ -83,7 +87,7 @@ class Sample_POI {
         model.scaleX = model.scaleY = model.scaleZ = 0.01;
         await this.initPropertyAnim(this.modelContainer);
 
-        let chair = (await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/SheenChair/SheenChair.gltf')) as Object3D;
+        let chair = (await this.engine.res.loadGltf('https://cdn.orillusion.com/PBR/SheenChair/SheenChair.gltf')) as Object3D;
         chair.scaleX = chair.scaleY = chair.scaleZ = 8;
         this.scene.addChild(chair);
     }
@@ -93,7 +97,7 @@ class Sample_POI {
         let animation = owner.addComponent(PropertyAnimation);
 
         //load a animation clip
-        let json: any = await Engine3D.res.loadJSON('https://cdn.orillusion.com/json/anim_0.json');
+        let json: any = await this.engine.res.loadJSON('https://cdn.orillusion.com/json/anim_0.json');
         let animClip = new PropertyAnimClip();
         animClip.parse(json);
         animClip.wrapMode = WrapMode.Loop;

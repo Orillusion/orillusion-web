@@ -9,7 +9,7 @@ export class PickScript extends ComponentBase {
   protected init() {}
 
   protected start() {
-    Engine3D.inputSystem.addEventListener(PointerEvent3D.POINTER_CLICK, this.onClick, this);
+    engine.inputSystem.addEventListener(PointerEvent3D.POINTER_CLICK, this.onClick, this);
   }
   onClick(e: PointerEvent3D) {
     // 点击回调

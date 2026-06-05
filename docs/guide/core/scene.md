@@ -11,7 +11,7 @@
 
 ## 基础用法
 ```ts
-await Engine3D.init();
+let engine = await Engine3D.init();
 // 创建场景
 let scene = new Scene3D();
 // 添加一个节点
@@ -26,7 +26,7 @@ scene.addChild(cameraObj);
 let view = new View3D();
 view.scene = scene;
 view.camera = camera;
-Engine3D.startRenderView(view);
+engine.startRenderView(view);
 
 // 移除一个节点
 scene.removeChild(obj);
@@ -92,9 +92,9 @@ scene.envMap = colorSky;
 可以通过加载 [十字立方贴图](/guide/graphics/texture#十字立方贴图) 设置天空盒:
 ```ts
 // 可以加载一张完整十字立方贴图
-let textureCube = Engine3D.res.loadTextureCube('path/to/sky.png')
+let textureCube = engine.res.loadTextureCube('path/to/sky.png')
 // 或加载独立的6张立方贴图
-textureCube = Engine3D.res.loadTextureCube([
+textureCube = engine.res.loadTextureCube([
     'path/to/px.png',
     'path/to/nx.png',
     'path/to/py.png',
@@ -115,9 +115,9 @@ scene.envMap = textureCube;
 引擎还支持设置 [全景图（equirectangular）](https://en.wikipedia.org/wiki/Equirectangular_projection) 类型的天空盒。我们可以通过内置的 `res` 快速加载普通 `RGBA` 格式的 `LDR` 图片， 也支持加载 `RGBE` 格式的 `HDR` 图片:
 ```ts
 // 普通全景贴图
-let skyTexture = Engine3D.res.loadLDRTextureCube('path/to/sky.png');
+let skyTexture = engine.res.loadLDRTextureCube('path/to/sky.png');
 // HDR全景贴图
-skyTexture = Engine3D.res.loadHDRTextureCube('path/to/sky.hdr');
+skyTexture = engine.res.loadHDRTextureCube('path/to/sky.hdr');
 
 // 添加 SkyRenderer 组件，设置 map 贴图
 let sky = scene.addComponent(SkyRenderer);
@@ -132,7 +132,7 @@ scene.envMap = skyTexture;
 
 ```ts
 // 初始化引擎
-await Engine3D.init({
+let engine = await Engine3D.init({
     canvasConfig:{
         alpha: true, // 使用透明的 Canvas 配置
         zIndex: 1
@@ -150,7 +150,7 @@ sky.enable = false
 // 设置一个简单白色环境光
 scene.envMap = new SolidColorSky(new Color(0.75, 0.75, 0.75));
 // 或者加载环境贴图
-scene.envMap = await Engine3D.res.loadHDRTextureCube('path/to/sky.hdr');
+scene.envMap = await engine.res.loadHDRTextureCube('path/to/sky.hdr');
 ```
 
 更多详细用法请参考 [Scene3D](/api/classes/Scene3D)

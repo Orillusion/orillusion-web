@@ -10,6 +10,7 @@ import { Shape3DMaker, Shape3D, LineJoin } from "@orillusion/graphic";
  * @class Sample_Shape3DPath
  */
 export class Sample_Shape3DPath {
+    engine: Engine3D;
     lightObj3D: Object3D;
     scene: Scene3D;
     view: View3D;
@@ -18,21 +19,21 @@ export class Sample_Shape3DPath {
 
         Matrix4.maxCount = 10000;
         Matrix4.allocCount = 10000;
-        await Engine3D.init();
+        this.engine = await Engine3D.init();
 
         this.scene = new Scene3D();
         this.scene.addComponent(Stats);
         let sky = this.scene.addComponent(AtmosphericComponent);
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, Engine3D.aspect, 1, 5000.0);
+        camera.perspective(60, this.engine.aspect, 1, 5000.0);
 
         camera.object3D.addComponent(HoverCameraController).setCamera(0, -60, 60);
 
         this.view = new View3D();
         this.view.scene = this.scene;
         this.view.camera = camera;
-        
-        Engine3D.startRenderView(this.view);
+
+        this.engine.startRenderView(this.view);
 
         await this.initScene();
         this.scene.addChild(new AxisObject(10, 0.1))
@@ -63,7 +64,7 @@ export class Sample_Shape3DPath {
     private maker: Shape3DMaker;
     private async addNode() {
         let texts:any[] = [];
-        texts.push(await Engine3D.res.loadTexture("https://cdn.orillusion.com/textures/grid.webp") as BitmapTexture2D);
+        texts.push(await this.engine.res.loadTexture("https://cdn.orillusion.com/textures/grid.webp") as BitmapTexture2D);
 
         let bitmapTexture2DArray = new BitmapTexture2DArray(texts[0].width, texts[0].height, texts.length);
         bitmapTexture2DArray.setTextures(texts);

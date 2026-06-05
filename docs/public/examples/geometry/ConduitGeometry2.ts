@@ -10,13 +10,18 @@ class Sample_ConduitGeometry2 {
     curveY: AttributeAnimCurve;
     curveZ: AttributeAnimCurve;
     totalTime: number;
+    engine: Engine3D;
 
     async run() {
-        Engine3D.setting.shadow.shadowBound = 50;
-        Engine3D.setting.shadow.shadowSize = 1024;
-        Engine3D.setting.shadow.shadowBias = 0.01;
-
-        await Engine3D.init();
+        this.engine = await Engine3D.init({
+            setting: {
+                shadow: {
+                    shadowBound: 50,
+                    shadowSize: 1024,
+                    shadowBias: 0.01
+                }
+            }
+        });
         // init Scene3D
         this.scene = new Scene3D();
         this.scene.addComponent(Stats);
@@ -27,7 +32,7 @@ class Sample_ConduitGeometry2 {
 
         // init Camera3D
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, Engine3D.aspect, 1, 5000);
+        camera.perspective(60, this.engine.aspect, 1, 5000);
 
         // init Camera Controller
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController);
@@ -57,7 +62,7 @@ class Sample_ConduitGeometry2 {
         // relative light to sky
         atmosphericSky.relativeTransform = light.transform;
 
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
 
         await this.createMaterial();
         await this.loadCurveData();
@@ -88,7 +93,7 @@ class Sample_ConduitGeometry2 {
     }
     async loadCurveData() {
         // load external curve data
-        let json: any = await Engine3D.res.loadJSON('https://cdn.orillusion.com/json/anim_0.json');
+        let json: any = await this.engine.res.loadJSON('https://cdn.orillusion.com/json/anim_0.json');
         this.animClip = new PropertyAnimClip();
         this.animClip.parse(json);
         this.animClip.wrapMode = WrapMode.Loop;

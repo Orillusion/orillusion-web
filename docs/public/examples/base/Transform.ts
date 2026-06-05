@@ -6,7 +6,7 @@ import dat from 'dat.gui';
 class Sample_Transform {
     async run() {
         // init engine
-        await Engine3D.init();
+        let engine = await Engine3D.init();
         // create new Scene
         let scene = new Scene3D();
 
@@ -19,7 +19,7 @@ class Sample_Transform {
 
         // init camera3D
         let mainCamera = CameraUtil.createCamera3D(null, scene);
-        mainCamera.perspective(60, Engine3D.aspect, 1, 2000.0);
+        mainCamera.perspective(60, engine.aspect, 1, 2000.0);
 
         // add a basic camera controller
         let hoverCameraController = mainCamera.object3D.addComponent(HoverCameraController);
@@ -51,7 +51,7 @@ class Sample_Transform {
         view.camera = mainCamera;
 
         // start render
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
         let transform = cubeObj.transform;
         // debug GUI

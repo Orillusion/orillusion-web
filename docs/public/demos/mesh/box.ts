@@ -1,9 +1,9 @@
 import { Engine3D, Scene3D, Object3D, Camera3D, LitMaterial, BoxGeometry, MeshRenderer, DirectLight, HoverCameraController, Color, Vector3, AtmosphericComponent, View3D } from '@orillusion/core';
-await Engine3D.init();
+let engine = await Engine3D.init();
 let scene3D: Scene3D = new Scene3D();
 let cameraObj: Object3D = new Object3D();
 let camera = cameraObj.addComponent(Camera3D);
-camera.perspective(60, Engine3D.aspect, 1, 5000.0);
+camera.perspective(60, engine.aspect, 1, 5000.0);
 let controller = camera.object3D.addComponent(HoverCameraController);
 controller.setCamera(0, 0, 15);
 scene3D.addChild(cameraObj);
@@ -36,4 +36,4 @@ let view = new View3D();
 view.scene = scene3D;
 view.camera = camera;
 // start render
-Engine3D.startRenderView(view);
+engine.startRenderView(view);

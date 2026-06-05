@@ -9,6 +9,7 @@ class Sample_GraphicMesh {
     private height: number;
     private cafe: number = 47;
     private view: View3D;
+    private engine: Engine3D;
 
     graphicMeshRenderer: Graphic3DMeshRenderer;
 
@@ -18,17 +19,17 @@ class Sample_GraphicMesh {
         Matrix4.maxCount = 500000;
         Matrix4.allocCount = 500000;
 
-        await Engine3D.init({beforeRender: ()=> this.update()});
+        this.engine = await Engine3D.init({beforeRender: ()=> this.update()});
 
-        Engine3D.setting.render.debug = true;
-        Engine3D.setting.shadow.shadowBound = 5;
+        this.engine.setting.render.debug = true;
+        this.engine.setting.shadow.shadowBound = 5;
 
         this.scene = new Scene3D();
         this.scene.addComponent(Stats);
         let sky = this.scene.addComponent(AtmosphericComponent);
         sky.enable = false;
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, Engine3D.aspect, 1, 5000.0);
+        camera.perspective(60, this.engine.aspect, 1, 5000.0);
 
         camera.object3D.addComponent(HoverCameraController).setCamera(30, 0, 120);
 
@@ -36,13 +37,13 @@ class Sample_GraphicMesh {
         this.view.scene = this.scene;
         this.view.camera = camera;
 
-        Engine3D.startRenderView(this.view);
+        this.engine.startRenderView(this.view);
         await this.initScene();
     }
 
     async initScene() {
         let texts:any[] = [];
-        texts.push((await Engine3D.res.loadTexture('https://cdn.orillusion.com/textures/128/star_0008.png')) as BitmapTexture2D);
+        texts.push((await this.engine.res.loadTexture('https://cdn.orillusion.com/textures/128/star_0008.png')) as BitmapTexture2D);
 
         let bitmapTexture2DArray = new BitmapTexture2DArray(texts[0].width, texts[0].height, texts.length);
         bitmapTexture2DArray.setTextures(texts);

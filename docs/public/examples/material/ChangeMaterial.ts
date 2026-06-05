@@ -4,18 +4,25 @@ import dat from 'dat.gui';
 class Sample_ChangeMaterial {
     scene: Scene3D;
     lightObj: Object3D;
+    engine: Engine3D;
     private Ori: dat.GUI | undefined;
     async run() {
-        await Engine3D.init();
-
-        Engine3D.setting.material.materialChannelDebug = true;
-        Engine3D.setting.shadow.shadowBound = 200;
+        let engine = (this.engine = await Engine3D.init({
+            setting: {
+                material: {
+                    materialChannelDebug: true
+                },
+                shadow: {
+                    shadowBound: 200
+                }
+            }
+        }));
 
         this.scene = new Scene3D();
         let sky = this.scene.addComponent(AtmosphericComponent);
 
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, Engine3D.aspect, 0.01, 5000.0);
+        camera.perspective(60, engine.aspect, 0.01, 5000.0);
 
         camera.object3D.addComponent(HoverCameraController).setCamera(25, -25, 200);
 
@@ -23,7 +30,7 @@ class Sample_ChangeMaterial {
         view.scene = this.scene;
         view.camera = camera;
 
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
         await this.initScene();
         sky.relativeTransform = this.lightObj.transform;
@@ -49,7 +56,7 @@ class Sample_ChangeMaterial {
             let floor = new Object3D();
             let material = new LitMaterial();
             material.doubleSide = true;
-            material.baseMap = await Engine3D.res.loadTexture('https://cdn.orillusion.com/textures/diffuse.jpg');
+            material.baseMap = await this.engine.res.loadTexture('https://cdn.orillusion.com/textures/diffuse.jpg');
 
             let renderer = floor.addComponent(MeshRenderer);
             renderer.material = material;
@@ -61,12 +68,12 @@ class Sample_ChangeMaterial {
 
         {
             let mat1 = new LitMaterial();
-            mat1.baseMap = await Engine3D.res.loadTexture('https://cdn.orillusion.com/textures/cell.webp');
+            mat1.baseMap = await this.engine.res.loadTexture('https://cdn.orillusion.com/textures/cell.webp');
             mat1.baseColor = new Color(0, 1, 0.5, 1.0);
             mat1.blendMode = BlendMode.ADD;
             mat1.transparent = true;
             let mat2 = new LitMaterial();
-            mat2.baseMap = await Engine3D.res.loadTexture('https://cdn.orillusion.com/textures/grid.webp');
+            mat2.baseMap = await this.engine.res.loadTexture('https://cdn.orillusion.com/textures/grid.webp');
 
             let obj = new Object3D();
             let mr = obj.addComponent(MeshRenderer);

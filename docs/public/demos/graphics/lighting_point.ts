@@ -5,10 +5,11 @@ class Sample_Light {
     scene: Scene3D;
     hoverCameraController: HoverCameraController;
     lightObj: any;
+    engine: Engine3D;
     constructor() {}
 
     async run() {
-        await Engine3D.init({
+        this.engine = await Engine3D.init({
             canvasConfig: { devicePixelRatio: 1 }
         });
 
@@ -31,7 +32,7 @@ class Sample_Light {
         view.scene = this.scene;
         view.camera = mainCamera;
         // start render
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
     }
 
     initScene(scene: Scene3D) {
@@ -64,7 +65,7 @@ class Sample_Light {
         }
 
         let mat = new LitMaterial();
-        mat.baseMap = Engine3D.res.grayTexture;
+        mat.baseMap = this.engine.res.grayTexture;
 
         let floor = new Object3D();
         let mr = floor.addComponent(MeshRenderer);

@@ -4,18 +4,23 @@ import dat from 'dat.gui';
 class Sample_PBR {
     lightObj3D: Object3D;
     scene: Scene3D;
+    engine: Engine3D;
 
     constructor() {}
 
     async run() {
-        Engine3D.setting.shadow.shadowBound = 50;
-
-        await Engine3D.init({});
+        let engine = (this.engine = await Engine3D.init({
+            setting: {
+                shadow: {
+                    shadowBound: 50
+                }
+            }
+        }));
 
         this.scene = new Scene3D();
         let sky = this.scene.addComponent(AtmosphericComponent);
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, Engine3D.aspect, 1, 5000.0);
+        camera.perspective(60, engine.aspect, 1, 5000.0);
 
         camera.object3D.addComponent(HoverCameraController).setCamera(30, 0, 120);
 
@@ -23,7 +28,7 @@ class Sample_PBR {
         view.scene = this.scene;
         view.camera = camera;
 
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
         await this.initScene();
         sky.relativeTransform = this.lightObj3D.transform;
@@ -59,7 +64,7 @@ class Sample_PBR {
             for (let j = 0; j < 10; j++) {
                 //Create materials with different roughness and metallic
                 let mat = new LitMaterial();
-                mat.baseMap = Engine3D.res.whiteTexture;
+                mat.baseMap = this.engine.res.whiteTexture;
                 mat.roughness = i / 10;
                 mat.metallic = j / 10;
                 //Create balls

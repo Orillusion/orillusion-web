@@ -5,12 +5,12 @@ class Sample_AreaDetection {
     async run() {
         // Initialize physics and engine
         await Physics.init();
-        await Engine3D.init({ renderLoop: () => Physics.update() });
+        let engine = await Engine3D.init({ renderLoop: () => Physics.update() });
 
         let scene = new Scene3D();
 
         let camera = CameraUtil.createCamera3DObject(scene);
-        camera.perspective(60, Engine3D.aspect, 0.1, 800.0);
+        camera.perspective(60, engine.aspect, 0.1, 800.0);
         camera.object3D.addComponent(HoverCameraController).setCamera(0, -25, 50);
 
         // Create directional light
@@ -26,7 +26,7 @@ class Sample_AreaDetection {
         view.camera = camera;
         view.scene = scene;
 
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
         this.createGround(scene);
         this.createBall(scene);

@@ -14,8 +14,10 @@ class SpriteSheet {
     private keyFrames: string[];
     private moveSpeed: Vector2;
     private bound: BoundingBox;
+    private engine: Engine3D;
 
-    constructor(img: UIImage, keyFrames: string[], bound: BoundingBox) {
+    constructor(engine: Engine3D, img: UIImage, keyFrames: string[], bound: BoundingBox) {
+        this.engine = engine;
         this.img = img;
         this.bound = bound;
         this.keyFrames = keyFrames;
@@ -28,7 +30,7 @@ class SpriteSheet {
             let newIndex = Math.floor(this.frame * 0.1) % this.frameCount;
             if (newIndex != this.lastIndex) {
                 this.lastIndex = newIndex;
-                this.img.sprite = Engine3D.res.getGUISprite(this.keyFrames[newIndex]);
+                this.img.sprite = this.engine.res.getGUISprite(this.keyFrames[newIndex]);
             }
         }
 
@@ -54,14 +56,18 @@ class Sample_UISpriteSheet {
     text: UITextField;
     scene: Scene3D;
     keyFrames: string[];
+    engine: Engine3D;
 
     async run() {
-        Engine3D.setting.shadow.autoUpdate = true;
-
         GUIConfig.quadMaxCountForView = 5001;
-        await Engine3D.init({
+        this.engine = await Engine3D.init({
             renderLoop: () => {
                 this.renderUpdate();
+            },
+            setting: {
+                shadow: {
+                    autoUpdate: true
+                }
             }
         });
 
@@ -84,7 +90,7 @@ class Sample_UISpriteSheet {
 
         // init Camera3D
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, Engine3D.aspect, 1, 5000);
+        camera.perspective(60, this.engine.aspect, 1, 5000);
 
         // init Camera Controller
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController);
@@ -114,10 +120,10 @@ class Sample_UISpriteSheet {
         // relative light to sky
         atmosphericSky.relativeTransform = light.transform;
 
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
 
-        await Engine3D.res.loadAtlas('https://cdn.orillusion.com/atlas/Sheet_atlas.json');
-        await Engine3D.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt');
+        await this.engine.res.loadAtlas('https://cdn.orillusion.com/atlas/Sheet_atlas.json');
+        await this.engine.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt');
 
         this.text = this.createText();
 
@@ -170,8 +176,8 @@ class Sample_UISpriteSheet {
     }
 
     private createSpriteSheets(root: Object3D) {
-        let width = Engine3D.width;
-        let height = Engine3D.height;
+        let width = this.engine.width;
+        let height = this.engine.height;
         let bound = new BoundingBox(new Vector3(0, 0, 0), new Vector3(width, height));
         //color
         let color: Color = Color.random();
@@ -186,11 +192,11 @@ class Sample_UISpriteSheet {
             root.addChild(quad);
             let img = quad.addComponent(UIImage);
             img.color = color;
-            img.sprite = Engine3D.res.getGUISprite('00065');
+            img.sprite = this.engine.res.getGUISprite('00065');
             img.uiTransform.resize(size, size);
             img.uiTransform.x = (Math.random() - 0.5) * width;
             img.uiTransform.y = (Math.random() - 0.5) * height;
-            let sheet: SpriteSheet = new SpriteSheet(img, this.keyFrames, bound);
+            let sheet: SpriteSheet = new SpriteSheet(this.engine, img, this.keyFrames, bound);
             this.spriteSheets.push(sheet);
         }
 

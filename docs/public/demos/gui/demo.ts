@@ -1,5 +1,7 @@
 import { AtmosphericComponent, BillboardType, CEvent, CEventDispatcher, Camera3D, Color, DirectLight, Engine3D, HoverCameraController, ImageType, Object3D, Object3DUtil, PickGUIEvent3D, PointerEvent3D, Scene3D, TextAnchor, Time, UIImage, UIInteractive, UITextField, Vector3, View3D, WorldPanel, clamp } from '@orillusion/core';
 
+let engine: Engine3D;
+
 class GUIPanelPOI {
     private readonly alpha = 0.8;
     private objUI: Object3D;
@@ -43,7 +45,7 @@ class GUIPanelPOI {
         if (newIndex != this.lastIndex) {
             this.lastIndex = newIndex;
             let frameKey = (this.lastIndex + this.frameStart).toString().padStart(5, '0');
-            this._icon.sprite = Engine3D.res.getGUISprite(frameKey);
+            this._icon.sprite = engine.res.getGUISprite(frameKey);
         }
     }
 
@@ -127,7 +129,7 @@ class GUIPanelPOI {
 
     private addImage(obj: Object3D, texture: string, w: number, h: number, r: number, g: number, b: number, a: number = 1): UIImage {
         let image = obj.addComponent(UIImage);
-        image.sprite = Engine3D.res.getGUISprite(texture);
+        image.sprite = engine.res.getGUISprite(texture);
         image.uiTransform.resize(w, h);
         image.imageType = ImageType.Sliced;
         image.color.setTo(r, g, b, a);
@@ -162,13 +164,16 @@ class Sample_UIMultiPanel {
     view: View3D;
 
     async run() {
-        Engine3D.setting.shadow.autoUpdate = true;
-        Engine3D.setting.shadow.shadowBias = 0.01;
-        Engine3D.setting.shadow.shadowBound = 200;
-
-        await Engine3D.init({
+        engine = await Engine3D.init({
             renderLoop: () => {
                 this.renderUpdate();
+            },
+            setting: {
+                shadow: {
+                    autoUpdate: true,
+                    shadowBias: 0.01,
+                    shadowBound: 200
+                }
             }
         });
 
@@ -179,7 +184,7 @@ class Sample_UIMultiPanel {
         let cameraObj: Object3D = new Object3D();
         let camera = cameraObj.addComponent(Camera3D);
         // adjust camera view
-        camera.perspective(60, Engine3D.aspect, 1, 5000.0);
+        camera.perspective(60, engine.aspect, 1, 5000.0);
         // set camera controller
         let controller = cameraObj.addComponent(HoverCameraController);
         controller.setCamera(0, -10, 150, new Vector3(0, 15, 0));
@@ -201,19 +206,19 @@ class Sample_UIMultiPanel {
         let view = new View3D();
         view.scene = scene3D;
         view.camera = camera;
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
         this.scene = scene3D;
         this.camera = view.camera;
         this.view = view;
 
-        let model = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/wukong/wukong.gltf');
+        let model = await engine.res.loadGltf('https://cdn.orillusion.com/gltfs/wukong/wukong.gltf');
         model.localScale = new Vector3(1, 1, 1).multiplyScalar(50);
 
         this.scene.addChild(model);
         this.scene.addChild(Object3DUtil.GetSingleCube(400, 1, 400, 0.2, 0.2, 0.2));
 
-        await Engine3D.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt');
-        await Engine3D.res.loadAtlas('https://cdn.orillusion.com/atlas/Sheet_atlas.json');
+        await engine.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt');
+        await engine.res.loadAtlas('https://cdn.orillusion.com/atlas/Sheet_atlas.json');
 
         this.makeUIPanelList();
     }

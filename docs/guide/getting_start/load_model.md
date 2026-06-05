@@ -8,7 +8,7 @@
 ```ts
 let scene = new Scene3D();
 // 加载 gltf 文件
-let data = await Engine3D.res.loadGltf('sample.gltf');
+let data = await engine.res.loadGltf('sample.gltf');
 // 添加至场景
 scene.addChild(data);
 ```

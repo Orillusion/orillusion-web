@@ -3,7 +3,7 @@ import { Engine3D, Scene3D, Object3D, Camera3D, View3D, ViewPanel, UIImage, Hove
 class Sample_Image {
     async run() {
         // initializa engine
-        await Engine3D.init();
+        let engine = await Engine3D.init();
         // create new scene as root node
         let scene3D: Scene3D = new Scene3D();
         scene3D.addComponent(AtmosphericComponent);
@@ -11,7 +11,7 @@ class Sample_Image {
         let cameraObj: Object3D = new Object3D();
         let camera = cameraObj.addComponent(Camera3D);
         // adjust camera view
-        camera.perspective(60, Engine3D.aspect, 1, 5000.0);
+        camera.perspective(60, engine.aspect, 1, 5000.0);
         // set camera controller
         let controller = cameraObj.addComponent(HoverCameraController);
         controller.setCamera(0, -20, 100);
@@ -21,7 +21,7 @@ class Sample_Image {
         let view = new View3D();
         view.scene = scene3D;
         view.camera = camera;
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
         // create panel root
         let panelRoot: Object3D = new Object3D();

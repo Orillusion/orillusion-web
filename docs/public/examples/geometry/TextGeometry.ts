@@ -4,8 +4,9 @@ import { Graphic3D } from "@orillusion/graphic";
 
 class Sample_TextGeometry {
     lightObj: Object3D;
+    engine: Engine3D;
     async run() {
-        await Engine3D.init();
+        this.engine = await Engine3D.init();
         let view = new View3D();
         view.scene = new Scene3D();
         let sky = view.scene.addComponent(AtmosphericComponent);
@@ -15,7 +16,7 @@ class Sample_TextGeometry {
         view.camera.object3D.z = -15;
         view.camera.object3D.addComponent(HoverCameraController).setCamera(35, -20, 150);
 
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
 
         await this.createScene(view.scene);
         sky.relativeTransform = this.lightObj.transform;
@@ -25,7 +26,7 @@ class Sample_TextGeometry {
         {
             scene.addChild(new Graphic3D());
 
-            let font = await Engine3D.res.load("https://cdn.orillusion.com/fonts/Roboto.ttf", FontParser);
+            let font = await this.engine.res.load("https://cdn.orillusion.com/fonts/Roboto.ttf", FontParser);
 
             let obj = new Object3D();
             let mr = obj.addComponent(MeshRenderer);

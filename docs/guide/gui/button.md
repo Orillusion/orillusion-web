@@ -15,12 +15,12 @@
 let button = new Object3D()
 let guiButton: UIButton = button.addComponent(UIButton)
 // 加载一组精灵贴图
-await Engine3D.res.loadAtlas('https://cdn.orillusion.com/atlas/UI_atlas.json')
+await engine.res.loadAtlas('https://cdn.orillusion.com/atlas/UI_atlas.json')
 // 设置button对应状态贴图
-guiButton.normalSprite = Engine3D.res.getGUISprite('button-up')
-guiButton.downSprite = Engine3D.res.getGUISprite('button-down')
-guiButton.overSprite = Engine3D.res.getGUISprite('button-over')
-guiButton.disableSprite = Engine3D.res.getGUISprite('button-disable')
+guiButton.normalSprite = engine.res.getGUISprite('button-up')
+guiButton.downSprite = engine.res.getGUISprite('button-down')
+guiButton.overSprite = engine.res.getGUISprite('button-over')
+guiButton.disableSprite = engine.res.getGUISprite('button-disable')
 ```
 
 ## 启用/禁用
@@ -65,7 +65,7 @@ let button = new Object3D()
 let guiButton: UIButton = button.addComponent(UIButton)
 ...
 // 加载字体资源
-await Engine3D.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt')
+await engine.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt')
 // 添加 GUI文字
 let buttonLabel = button.addComponent(UITextField);
 buttonLabel.text = 'Click me';

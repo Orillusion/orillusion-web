@@ -5,14 +5,14 @@ aside: false
 `AO` 是用来描绘物体和物体相交或靠近的时候遮挡周围漫反射光线的效果，可以解决或改善漏光、飘和阴影不实等问题，解决或改善场景中缝隙、褶皱与墙角、角线以及细小物体等的表现不清晰问题，综合改善细节尤其是暗部阴影，增强空间的层次感、真实感，同时加强和改善画面明暗对比，增强画面的艺术性。引擎内部通过采样指定屏幕范围内，指定距离范围内的像素点，求积分用于赋值当前像素 `AO` 系数。
 ```ts
 //初始化引擎
-await Engine3D.init();
+let engine = await Engine3D.init();
 
-Engine3D.setting.render.postProcessing.gtao.maxDistance = 5;
-Engine3D.setting.render.postProcessing.gtao.maxPixel = 50;
-Engine3D.setting.render.postProcessing.gtao.darkFactor = 1;
-Engine3D.setting.render.postProcessing.gtao.rayMarchSegment = 6;
-Engine3D.setting.render.postProcessing.gtao.multiBounce = true;
-Engine3D.setting.render.postProcessing.gtao.blendColor = true;
+engine.setting.render.postProcessing.gtao.maxDistance = 5;
+engine.setting.render.postProcessing.gtao.maxPixel = 50;
+engine.setting.render.postProcessing.gtao.darkFactor = 1;
+engine.setting.render.postProcessing.gtao.rayMarchSegment = 6;
+engine.setting.render.postProcessing.gtao.multiBounce = true;
+engine.setting.render.postProcessing.gtao.blendColor = true;
 
 // 添加 GTAOPost
 let postProcessing = this.scene.addComponent(PostProcessingComponent);
@@ -22,10 +22,10 @@ postProcessing.addPost(GTAOPost);
 let view = new View3D();
 view.scene = this.scene;
 view.camera = this.camera;
-Engine3D.startRenderView(view);
+engine.startRenderView(view);
 ```
 
-[Engine3D.setting.render.postProcessing.gtao](../../api/types/GTAOSetting.md) 配置参数。
+[engine.setting.render.postProcessing.gtao](../../api/types/GTAOSetting.md) 配置参数。
 | 参数 | 类型 | 描述 |
 | --- | --- | --- |
 | maxDistance | number | 设定ao采样时搜索3D空间周边的最大距离。|

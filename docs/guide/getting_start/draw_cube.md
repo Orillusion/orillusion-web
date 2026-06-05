@@ -38,7 +38,7 @@ import {
 
 ## 初始化引擎
 ```ts
-await Engine3D.init();
+let engine = await Engine3D.init();
 ```
 
 ## 新建场景根节点
@@ -107,5 +107,5 @@ view.scene = scene3D;
 // 指定使用的相机
 view.camera = camera;
 // 开始渲染
-Engine3D.startRenderView(view);
+engine.startRenderView(view);
 ```

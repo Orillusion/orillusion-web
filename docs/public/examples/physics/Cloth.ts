@@ -4,9 +4,10 @@ import { Physics, Rigidbody, ClothSoftbody } from "@orillusion/physics";
 import dat from "dat.gui";
 
 class Sample_Cloth {
+    engine: Engine3D;
     async run() {
         await Physics.init({ useSoftBody: true, useDrag: true });
-        await Engine3D.init({ renderLoop: () => Physics.update() });
+        this.engine = await Engine3D.init({ renderLoop: () => Physics.update() });
         let view = new View3D();
         view.scene = new Scene3D();
         let sky = view.scene.addComponent(AtmosphericComponent);
@@ -24,7 +25,7 @@ class Sample_Cloth {
         view.scene.addChild(lightObj3D);
         sky.relativeTransform = lightObj3D.transform;
 
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
 
         this.createScene(view.scene);
     }
@@ -67,7 +68,7 @@ class Sample_Cloth {
         let meshRenderer = cloth.addComponent(MeshRenderer);
         meshRenderer.geometry = new PlaneGeometry(8, 8, 20, 20, Vector3.UP);
         let material = new LitMaterial();
-        material.baseMap = Engine3D.res.redTexture;
+        material.baseMap = this.engine.res.redTexture;
         material.cullMode = 'none';
         meshRenderer.material = material;
 

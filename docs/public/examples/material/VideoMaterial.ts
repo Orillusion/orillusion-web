@@ -2,14 +2,14 @@ import { Engine3D, Scene3D, Object3D, Camera3D, View3D, MeshRenderer, HoverCamer
 import { VideoTexture, VideoMaterial } from '@orillusion/media-extention';
 
 async function demo() {
-    await Engine3D.init();
+    let engine = await Engine3D.init();
     let scene = new Scene3D();
     scene.addComponent(AtmosphericComponent);
 
     let camera = new Object3D();
     scene.addChild(camera);
     let mainCamera = camera.addComponent(Camera3D);
-    mainCamera.perspective(60, Engine3D.aspect, 0.1, 10000.0);
+    mainCamera.perspective(60, engine.aspect, 0.1, 10000.0);
     let hc = camera.addComponent(HoverCameraController);
     hc.setCamera(-45, 0, 5);
 
@@ -42,7 +42,7 @@ async function demo() {
     view.scene = scene;
     view.camera = mainCamera;
     // start render
-    Engine3D.startRenderView(view);
+    engine.startRenderView(view);
 }
 
 demo();

@@ -6,7 +6,7 @@ import dat from "dat.gui";
 class Sample_Rope {
     async run() {
         await Physics.init({ useSoftBody: true, useDrag: true });
-        await Engine3D.init({ renderLoop: () => Physics.update() });
+        let engine = await Engine3D.init({ renderLoop: () => Physics.update() });
         let view = new View3D();
         view.scene = new Scene3D();
         let sky = view.scene.addComponent(AtmosphericComponent);
@@ -24,7 +24,7 @@ class Sample_Rope {
         view.scene.addChild(lightObj3D);
         sky.relativeTransform = lightObj3D.transform;
 
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
         this.createScene(view.scene);
     }

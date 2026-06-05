@@ -19,19 +19,23 @@
 和其它组件用法一样，只要在场景中添加 [GlobalIlluminationComponent](/api/classes/GlobalIlluminationComponent) 即可打开全局光照
 
 ```ts
-//配置Global Irrandiance 参数
-Engine3D.setting.gi.probeYCount = 3
-Engine3D.setting.gi.probeXCount = 6
-Engine3D.setting.gi.probeZCount = 6
-Engine3D.setting.gi.probeSpace = 60
-Engine3D.setting.gi.offsetX = 0
-Engine3D.setting.gi.offsetY = 10
-Engine3D.setting.gi.offsetZ = 0
-// 自动更新GI信息，静态场景中可以在渲染完成后手动关闭节省性能
-Engine3D.setting.gi.autoRenderProbe = true
-
 //初始化引擎
-await Engine3D.init();
+let engine = await Engine3D.init({
+    setting: {
+        gi: {
+            //配置Global Irrandiance 参数
+            probeYCount: 3,
+            probeXCount: 6,
+            probeZCount: 6,
+            probeSpace: 60,
+            offsetX: 0,
+            offsetY: 10,
+            offsetZ: 0,
+            // 自动更新GI信息，静态场景中可以在渲染完成后手动关闭节省性能
+            autoRenderProbe: true,
+        }
+    }
+});
 let scene = new Scene3D()
 let camera = new Object3D()
 let mainCamera = camera.addComponent(Camera3D)
@@ -46,7 +50,7 @@ this.scene.addChild(probeObj);
 let view = new View3D()
 view.scene = this.scene
 view.camera = mainCamera
-Engine3D.startRenderView(view)
+engine.startRenderView(view)
 ```
 
 根据场景大小，用户可以动态调整探针区域范围：
@@ -57,7 +61,7 @@ Engine3D.startRenderView(view)
 
 
 ### 配置参数
-[Engine3D.setting.gi](../../api/types/GlobalIlluminationSetting.md) 配置参数。
+[engine.setting.gi](../../api/types/GlobalIlluminationSetting.md) 配置参数。
 
 | 参数 | 类型 | 描述 |
 | --- | --- | --- |

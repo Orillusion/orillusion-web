@@ -8,10 +8,14 @@ class Sample_UIImageColor {
     counter: number = 0;
 
     async run() {
-        Engine3D.setting.shadow.autoUpdate = true;
-        await Engine3D.init({
+        let engine = await Engine3D.init({
             renderLoop: () => {
                 this.renderUpdate();
+            },
+            setting: {
+                shadow: {
+                    autoUpdate: true
+                }
             }
         });
 
@@ -26,7 +30,7 @@ class Sample_UIImageColor {
 
         // init Camera3D
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, Engine3D.aspect, 1, 5000);
+        camera.perspective(60, engine.aspect, 1, 5000);
 
         // init Camera Controller
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController);
@@ -56,7 +60,7 @@ class Sample_UIImageColor {
         // relative light to sky
         atmosphericSky.relativeTransform = light.transform;
 
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
         // create floor
         let floor = Object3DUtil.GetSingleCube(100, 2, 50, 0.5, 0.5, 0.5);
@@ -72,7 +76,7 @@ class Sample_UIImageColor {
 
         this.camera = camera;
 
-        await Engine3D.res.loadAtlas('https://cdn.orillusion.com/atlas/UI_atlas.json');
+        await engine.res.loadAtlas('https://cdn.orillusion.com/atlas/UI_atlas.json');
 
         let panel = panelRoot.addComponent(WorldPanel);
         canvas.addChild(panel.object3D);
@@ -81,7 +85,7 @@ class Sample_UIImageColor {
         let imageQuad = new Object3D();
         panelRoot.addChild(imageQuad);
         this.img = imageQuad.addComponent(UIImage);
-        this.img.sprite = Engine3D.res.getGUISprite('button-over');
+        this.img.sprite = engine.res.getGUISprite('button-over');
         this.img.imageType = ImageType.Sliced;
         this.img.uiTransform.resize(400, 300);
         this.img.color = new Color(1.0, 0.5, 1.0, 0.6);

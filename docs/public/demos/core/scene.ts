@@ -2,7 +2,7 @@ import { Engine3D, Scene3D, Object3D, Camera3D, AtmosphericComponent, View3D } f
 import * as dat from 'dat.gui';
 
 // initializa engine
-await Engine3D.init();
+let engine = await Engine3D.init();
 // create a Scene3D
 let scene3D = new Scene3D();
 
@@ -17,7 +17,7 @@ sky.exposure = 1;
 // create a camera
 let cameraObj: Object3D = new Object3D();
 let camera = cameraObj.addComponent(Camera3D);
-camera.perspective(60, Engine3D.aspect, 1, 5000.0);
+camera.perspective(60, engine.aspect, 1, 5000.0);
 scene3D.addChild(cameraObj);
 
 // create a view with target scene and camera
@@ -26,7 +26,7 @@ view.scene = scene3D;
 view.camera = camera;
 
 // start render
-Engine3D.startRenderView(view);
+engine.startRenderView(view);
 
 // debug GUI
 const GUIHelp = new dat.GUI({ name: 'Orillusion' });

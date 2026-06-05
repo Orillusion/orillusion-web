@@ -2,6 +2,7 @@ import { Object3D, Scene3D, AnimationCurve, Engine3D, AtmosphericComponent, Came
 import { Stats } from '@orillusion/stats';
 
 class Sample_AnimCurve {
+    engine: Engine3D;
     lightObj3D: Object3D;
     scene: Scene3D;
     Duck: Object3D;
@@ -11,24 +12,29 @@ class Sample_AnimCurve {
     curve4: AnimationCurve;
 
     async run() {
-        Engine3D.setting.shadow.autoUpdate = true;
-        Engine3D.setting.shadow.updateFrameRate = 1;
-        Engine3D.setting.shadow.shadowBound = 150;
-
-        await Engine3D.init({ beforeRender: () => this.renderUpdate() });
+        this.engine = await Engine3D.init({
+            beforeRender: () => this.renderUpdate(),
+            setting: {
+                shadow: {
+                    autoUpdate: true,
+                    updateFrameRate: 1,
+                    shadowBound: 150
+                }
+            }
+        });
         this.scene = new Scene3D();
         this.scene.addComponent(Stats);
         let sky = this.scene.addComponent(AtmosphericComponent);
 
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, Engine3D.aspect, 0.01, 5000.0);
+        camera.perspective(60, this.engine.aspect, 0.01, 5000.0);
         camera.object3D.addComponent(HoverCameraController).setCamera(-30, -45, 200);
 
         let view = new View3D();
         view.scene = this.scene;
         view.camera = camera;
 
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
 
         await this.initScene();
         sky.relativeTransform = this.lightObj3D.transform;
@@ -80,7 +86,7 @@ class Sample_AnimCurve {
         this.scene.addChild(Object3DUtil.GetSingleCube(300, 5, 300, 1, 1, 1));
 
         // load a gltf model
-        this.Duck = (await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/Duck/Duck.gltf')) as Object3D;
+        this.Duck = (await this.engine.res.loadGltf('https://cdn.orillusion.com/PBR/Duck/Duck.gltf')) as Object3D;
         this.Duck.scaleX = this.Duck.scaleY = this.Duck.scaleZ = 0.3;
         this.Duck.name = 'Duck';
         this.scene.addChild(this.Duck);

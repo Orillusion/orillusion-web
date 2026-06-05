@@ -7,8 +7,13 @@ class Sample_UITextField {
     scene: Scene3D;
 
     async run() {
-        Engine3D.setting.shadow.autoUpdate = true;
-        await Engine3D.init();
+        let engine = await Engine3D.init({
+            setting: {
+                shadow: {
+                    autoUpdate: true
+                }
+            }
+        });
 
         // init Scene3D
         this.scene = new Scene3D();
@@ -21,7 +26,7 @@ class Sample_UITextField {
 
         // init Camera3D
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, Engine3D.aspect, 1, 5000);
+        camera.perspective(60, engine.aspect, 1, 5000);
 
         // init Camera Controller
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController);
@@ -51,7 +56,7 @@ class Sample_UITextField {
         // relative light to sky
         atmosphericSky.relativeTransform = light.transform;
 
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
         // create floor
         let floor = Object3DUtil.GetSingleCube(100, 20, 50, 0.5, 0.5, 0.5);
@@ -63,7 +68,7 @@ class Sample_UITextField {
         //create UI root
         let panelRoot: Object3D = new Object3D();
 
-        await Engine3D.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt');
+        await engine.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt');
 
         let space: GUISpace = GUISpace.World; // View
         let panel: UIPanel;

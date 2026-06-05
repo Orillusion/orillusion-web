@@ -7,7 +7,7 @@ class Sample_UIButton {
     scaler: ScalerComponent;
 
     async run() {
-        await Engine3D.init();
+        let engine = await Engine3D.init();
 
         // init Scene3D
         this.scene = new Scene3D();
@@ -20,7 +20,7 @@ class Sample_UIButton {
 
         // init Camera3D
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, Engine3D.aspect, 1, 5000);
+        camera.perspective(60, engine.aspect, 1, 5000);
 
         // init Camera Controller
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController);
@@ -49,7 +49,7 @@ class Sample_UIButton {
         // relative light to sky
         atmosphericSky.relativeTransform = light.transform;
 
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
         // create floor
         let floor = Object3DUtil.GetSingleCube(100, 2, 50, 0.5, 0.5, 0.5);
@@ -62,8 +62,8 @@ class Sample_UIButton {
         //create UI root
         let panelRoot: Object3D = new Object3D();
 
-        await Engine3D.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt');
-        await Engine3D.res.loadAtlas('https://cdn.orillusion.com/atlas/UI_atlas.json');
+        await engine.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt');
+        await engine.res.loadAtlas('https://cdn.orillusion.com/atlas/UI_atlas.json');
 
         let space: GUISpace = GUISpace.World; // View
         let panel: UIPanel;
@@ -81,10 +81,10 @@ class Sample_UIButton {
             let quad = new Object3D();
             panelRoot.addChild(quad);
             let button: UIButton = quad.addComponent(UIButton);
-            button.normalSprite = Engine3D.res.getGUISprite('button-up');
-            button.downSprite = Engine3D.res.getGUISprite('button-down');
-            button.overSprite = Engine3D.res.getGUISprite('button-over');
-            button.disableSprite = Engine3D.res.getGUISprite('button-disable');
+            button.normalSprite = engine.res.getGUISprite('button-up');
+            button.downSprite = engine.res.getGUISprite('button-down');
+            button.overSprite = engine.res.getGUISprite('button-over');
+            button.disableSprite = engine.res.getGUISprite('button-disable');
 
             button.uiTransform.resize(200, 60);
             button.uiTransform.y = -100;
@@ -108,7 +108,7 @@ class Sample_UIButton {
             let quad = new Object3D();
             panelRoot.addChild(quad);
             let button: UIButton = quad.addComponent(UIButton);
-            button.normalSprite = Engine3D.res.getGUISprite('button-up');
+            button.normalSprite = engine.res.getGUISprite('button-up');
 
             button.uiTransform.resize(200, 60);
             button.uiTransform.y = 200;
@@ -131,7 +131,7 @@ class Sample_UIButton {
             panelRoot.addChild(imageQuad);
             let img = imageQuad.addComponent(UIImage);
             img.imageType = ImageType.Sliced;
-            img.sprite = Engine3D.res.getGUISprite('button-up');
+            img.sprite = engine.res.getGUISprite('button-up');
             img.uiTransform.resize(400, 60);
             img.uiTransform.y = 32;
             this.scaler = imageQuad.addComponent(ScalerComponent);

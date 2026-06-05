@@ -5,7 +5,7 @@
 ```ts
 import { Engine3D } from '@orillusion/core';
 // 加载 Bitmap Font 字体文件
-await Engine3D.res.loadFont('fnt/0.fnt');
+await engine.res.loadFont('fnt/0.fnt');
 // 激活UICanvas
 let canvas = this.scene.view.enableUICanvas();
 // 创建用于显示UI的面板
@@ -32,7 +32,7 @@ this.text.alignment = TextAnchor.MiddleCenter;
 ](https://libgdx.com/wiki/graphics/2d/fonts/distance-field-fonts) 获取更多帮助
 ```ts
 // e.g. 加载 Bitmap Font 字体文件
-await Engine3D.res.loadFont('path/to/font.fnt');
+await engine.res.loadFont('path/to/font.fnt');
 text.font = 'fontName'; // 设定字体
 ```
 

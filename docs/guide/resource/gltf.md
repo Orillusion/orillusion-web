@@ -4,11 +4,11 @@
 `glTF` 是目前 `Orillusion` 推荐的首选 3D 场景传输格式，`Orillusion` 对 `glTF` 的核心功能和插件都做了很好的支持。
 
 ## 加载 glTF
-使用 [Engine3D.res.loadGltf](/api/classes/Res#loadgltf) 来加载 `gltf` 模型，该方法对 `gltf/glb` 文件做了优化处理，可以直接添加对象:
+使用 [engine.res.loadGltf](/api/classes/Res#loadgltf) 来加载 `gltf` 模型，该方法对 `gltf/glb` 文件做了优化处理，可以直接添加对象:
 ```ts
 let scene = new Scene3D();
 // 加载 gltf 文件
-let data = await Engine3D.res.loadGltf('sample.gltf');
+let data = await engine.res.loadGltf('sample.gltf');
 // 添加至场景
 scene.addChild(data);
 ```

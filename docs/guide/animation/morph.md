@@ -11,7 +11,7 @@
 ```ts
 import { Engine3D } from '@orillusion/core';
 // 加载支持 Morph 状态模型
-let faceObject = await Engine3D.res.loadGltf('gltfs/glb/face.glb');
+let faceObject = await engine.res.loadGltf('gltfs/glb/face.glb');
 scene.addChild(faceObject);
 ```
 引擎会自动为模型的所有节点添加 [MeshRenderer](/api/classes/MeshRenderer) 组件用于渲染显示，同时也会为所有支持 `Morph` 动画的节点添加对应的 [rendererMask](/api/classes/MeshRenderer#renderermask)。我们可以通过遍历所有 `MeshRenderer` 节点，找到所有符合 `MorphTarget` 的节点：

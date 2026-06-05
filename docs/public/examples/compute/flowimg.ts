@@ -5,7 +5,7 @@ let gui
 
 class Demo_FlowImg {
     async run() {
-        await Engine3D.init({});
+        let engine = await Engine3D.init({});
         gui = new dat.GUI()
 
         let scene = new Scene3D();
@@ -22,7 +22,7 @@ class Demo_FlowImg {
         view.scene = scene;
         view.camera = camera;
 
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
     }
 
     async initScene(scene: Scene3D) {
@@ -322,7 +322,7 @@ class FlowImgSimulatorMaterial extends Material {
         shaderState.useLight = false;
 
         // default value
-        this.baseMap = Engine3D.res.whiteTexture;
+        this.baseMap = Engine3D.resFor().whiteTexture;
         this.shader = shader;
 
         // this.transparent = true ;

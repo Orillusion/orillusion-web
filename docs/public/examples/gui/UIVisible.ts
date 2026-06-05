@@ -10,8 +10,12 @@ class Sample_UIVisible {
     Ori: dat.GUI;
 
     async run() {
-        Engine3D.setting.shadow.autoUpdate = true;
-        await Engine3D.init({
+        let engine = await Engine3D.init({
+            setting: {
+                shadow: {
+                    autoUpdate: true
+                }
+            },
             renderLoop: () => {
                 this.renderUpdate();
             }
@@ -28,7 +32,7 @@ class Sample_UIVisible {
 
         // init Camera3D
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, Engine3D.aspect, 1, 5000);
+        camera.perspective(60, engine.aspect, 1, 5000);
 
         // init Camera Controller
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController);
@@ -58,7 +62,7 @@ class Sample_UIVisible {
         // relative light to sky
         atmosphericSky.relativeTransform = light.transform;
 
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
         // create floor
         let floor = Object3DUtil.GetSingleCube(100, 2, 50, 0.5, 0.5, 0.5);
@@ -72,7 +76,7 @@ class Sample_UIVisible {
         let panelRoot: Object3D = new Object3D();
         panelRoot.scaleX = panelRoot.scaleY = panelRoot.scaleZ = 0.2;
 
-        await Engine3D.res.loadAtlas('https://cdn.orillusion.com/atlas/Sheet_atlas.json');
+        await engine.res.loadAtlas('https://cdn.orillusion.com/atlas/Sheet_atlas.json');
 
         let panel = panelRoot.addComponent(WorldPanel);
         canvas.addChild(panel.object3D);
@@ -86,7 +90,7 @@ class Sample_UIVisible {
             panelRoot.addChild(imageQuad);
             let img = imageQuad.addComponent(UIImage);
             let frameKey = (i + frameStart).toString().padStart(5, '0');
-            img.sprite = Engine3D.res.getGUISprite(frameKey);
+            img.sprite = engine.res.getGUISprite(frameKey);
             img.imageType = ImageType.Sliced;
             img.uiTransform.resize(200, 200);
             img.uiTransform.x = (i - (this.spriteCount - 1) * 0.5) * 50;

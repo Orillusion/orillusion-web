@@ -30,7 +30,7 @@ let particleSystem = obj.addComponent(ParticleSystem);
 
 // 创建粒子材质，并加载指定的粒子纹理
 let material = new ParticleMaterial();
-material.baseMap = await Engine3D.res.loadTexture('https://cdn.orillusion.com/particle/fx_a_glow_003.png');
+material.baseMap = await engine.res.loadTexture('https://cdn.orillusion.com/particle/fx_a_glow_003.png');
 
 // 设置单个粒子的形态
 particleSystem.geometry = new PlaneGeometry(5, 5, 1, 1, Vector3.Z_AXIS);

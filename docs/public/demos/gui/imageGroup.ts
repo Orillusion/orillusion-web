@@ -4,11 +4,17 @@ import * as dat from 'dat.gui';
 class Sample_UIImageGroup {
     scene: Scene3D;
     imageGroup: UIImageGroup;
+    engine: Engine3D;
 
     async run() {
-        Engine3D.setting.shadow.autoUpdate = true;
         // initializa engine
-        await Engine3D.init();
+        this.engine = await Engine3D.init({
+            setting: {
+                shadow: {
+                    autoUpdate: true
+                }
+            }
+        });
         // create new scene as root node
         let scene3D: Scene3D = new Scene3D();
         scene3D.addComponent(AtmosphericComponent);
@@ -16,7 +22,7 @@ class Sample_UIImageGroup {
         let cameraObj: Object3D = new Object3D();
         let camera = cameraObj.addComponent(Camera3D);
         // adjust camera view
-        camera.perspective(60, Engine3D.aspect, 1, 5000.0);
+        camera.perspective(60, this.engine.aspect, 1, 5000.0);
         // set camera controller
         let controller = cameraObj.addComponent(HoverCameraController);
         controller.setCamera(0, -20, 30);
@@ -26,7 +32,7 @@ class Sample_UIImageGroup {
         let view = new View3D();
         view.scene = scene3D;
         view.camera = camera;
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
 
         this.scene = scene3D;
 
@@ -60,8 +66,8 @@ class Sample_UIImageGroup {
         let f = GUIHelp.addFolder('Position');
         let pos = { x: quat.x, y: quat.y };
         let action = () => this.imageGroup.setXY(1, pos.x, pos.y);
-        f.add(pos, 'x', -Engine3D.width / 2, Engine3D.width / 2, 1).onChange(action);
-        f.add(pos, 'y', -Engine3D.height / 2, Engine3D.height / 2, 1).onChange(action);
+        f.add(pos, 'x', -this.engine.width / 2, this.engine.width / 2, 1).onChange(action);
+        f.add(pos, 'y', -this.engine.height / 2, this.engine.height / 2, 1).onChange(action);
         f.open();
 
         f = GUIHelp.addFolder('Size');

@@ -11,7 +11,7 @@ class Sample_Dominoes {
     async run() {
         // init physics and engine
         await Physics.init({ useDrag: true });
-        await Engine3D.init({ renderLoop: () => Physics.update() });
+        let engine = await Engine3D.init({ renderLoop: () => Physics.update() });
 
         let scene = new Scene3D();
         scene.addComponent(Stats);
@@ -22,7 +22,7 @@ class Sample_Dominoes {
         Physics.initDebugDrawer(graphic3D, { enable: false });
 
         let camera = CameraUtil.createCamera3DObject(scene);
-        camera.perspective(60, Engine3D.aspect, 0.1, 800.0);
+        camera.perspective(60, engine.aspect, 0.1, 800.0);
         camera.object3D.addComponent(HoverCameraController).setCamera(0, -32, 80);
 
         // Create directional light
@@ -41,7 +41,7 @@ class Sample_Dominoes {
         view.camera = camera;
         view.scene = scene;
 
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
         await this.initScene(scene);
 

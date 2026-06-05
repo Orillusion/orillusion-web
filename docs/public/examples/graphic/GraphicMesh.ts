@@ -3,6 +3,7 @@ import { Stats } from "@orillusion/stats";
 import { Graphic3DMesh } from  "@orillusion/graphic";
 
 class GraphicMeshWave {
+    engine: Engine3D;
     scene: Scene3D;
     parts: Object3D[];
     width: number;
@@ -14,14 +15,14 @@ class GraphicMeshWave {
         Matrix4.maxCount = 500000;
         Matrix4.allocCount = 500000;
 
-        await Engine3D.init({ beforeRender: () => this.update() });
+        this.engine = await Engine3D.init({ beforeRender: () => this.update() });
 
         this.scene = new Scene3D();
         this.scene.addComponent(Stats);
         let sky = this.scene.addComponent(AtmosphericComponent);
         sky.enable = false;
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, Engine3D.aspect, 1, 5000.0);
+        camera.perspective(60, this.engine.aspect, 1, 5000.0);
 
         camera.object3D.addComponent(HoverCameraController).setCamera(30, 0, 120);
 
@@ -29,14 +30,14 @@ class GraphicMeshWave {
         view.scene = this.scene;
         view.camera = camera;
 
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
 
         await this.initScene();
     }
 
     async initScene() {
         let texts:BitmapTexture2D[] = [];
-        texts.push(await Engine3D.res.loadTexture("https://cdn.orillusion.com/textures/128/star_0031.png") as BitmapTexture2D);
+        texts.push(await this.engine.res.loadTexture("https://cdn.orillusion.com/textures/128/star_0031.png") as BitmapTexture2D);
         let bitmapTexture2DArray = new BitmapTexture2DArray(texts[0].width, texts[0].height, texts.length);
         bitmapTexture2DArray.setTextures(texts);
 

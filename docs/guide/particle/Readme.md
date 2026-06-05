@@ -52,7 +52,7 @@ ps.geometry = new PlaneGeometry(1, 1, 1, 1, Vector3.Z_AXIS);
 设置粒子材质，并加载需要使用的纹理贴图:
 ```ts
 let material = new ParticleMaterial();
-material.baseMap = await Engine3D.res.loadTexture('particle/fx_a_glow_003.png');
+material.baseMap = await engine.res.loadTexture('particle/fx_a_glow_003.png');
 ps.material = material;
 ```
 

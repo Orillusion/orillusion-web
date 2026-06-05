@@ -15,7 +15,7 @@ import {ImageMaterial} from '@orillusion/media-extention'
 // 创建图片材质
 let mat = new ImageMaterial();
 // 加载2D纹理
-let texture = await Engine3D.res.loadTexture('path/to/image');
+let texture = await engine.res.loadTexture('path/to/image');
 mat.baseMap = texture;
 // 设置基础颜色
 mat.baseColor = new Color(1, 1, 1, 1)

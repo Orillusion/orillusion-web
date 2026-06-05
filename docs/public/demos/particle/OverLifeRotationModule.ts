@@ -4,7 +4,7 @@ import { ParticleSystem, ParticleMaterial, ParticleStandardSimulator, ParticleEm
 
 class Sample_OverLifeRotationModule {
     async run() {
-        await Engine3D.init();
+        let engine = await Engine3D.init();
 
         let scene = new Scene3D();
         scene.addComponent(AtmosphericComponent).sunY = 0.6;
@@ -20,7 +20,7 @@ class Sample_OverLifeRotationModule {
         let view = new View3D();
         view.scene = scene;
         view.camera = camera;
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
     }
 
     async initScene(scene: Scene3D) {

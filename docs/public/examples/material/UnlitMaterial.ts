@@ -5,16 +5,14 @@ class Sample_UnlitMaterial {
     scene: Scene3D;
 
     async run() {
-        Engine3D.setting.shadow.shadowBound = 100;
-
-        await Engine3D.init();
+        let engine = await Engine3D.init({ setting: { shadow: { shadowBound: 100 } } });
 
         this.scene = new Scene3D();
         let sky = this.scene.addComponent(AtmosphericComponent);
 
         let mainCamera = CameraUtil.createCamera3DObject(this.scene);
 
-        mainCamera.perspective(60, Engine3D.aspect, 1, 2000.0);
+        mainCamera.perspective(60, engine.aspect, 1, 2000.0);
         mainCamera.object3D.addComponent(HoverCameraController).setCamera(45, -45, 50);
 
         await this.initScene(this.scene);
@@ -24,7 +22,7 @@ class Sample_UnlitMaterial {
         view.scene = this.scene;
         view.camera = mainCamera;
 
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
     }
 
     async initScene(scene: Scene3D) {

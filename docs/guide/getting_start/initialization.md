@@ -1,11 +1,12 @@
 # 初始化引擎
 ## 创建 Engine3D 实例
-在使用引擎前，必须通过 `Engine3D.init()` 方法进行初始化，引擎会自动创建一个 `Engine3D` 实例用于后续的操作
+在使用引擎前，需要通过 `Engine3D.init()` 方法进行初始化。`init()` 是一个异步方法，**返回一个 `Engine3D` 实例**，后续的渲染、资源加载、配置等操作都通过这个实例进行。
+
 ```ts
 import { Engine3D } from '@orillusion/core';
 
-Engine3D.init().then(()=>{
-  // 进行后续操作
+Engine3D.init().then((engine) => {
+  // engine 即为创建好的引擎实例
 });
 ```
 ::: tip
@@ -16,14 +17,18 @@ Engine3D.init().then(()=>{
 import { Engine3D } from '@orillusion/core';
 
 async function demo(){
-  await Engine3D.init();
-  // 进行后续操作
+  const engine = await Engine3D.init();
+  // 通过 engine 进行后续操作
 }
 demo();
 ```
 
+::: tip 多实例
+从新版本起，引擎支持**多实例**：可以多次调用 `Engine3D.init()` 创建多个相互独立的 `Engine3D`，每个实例拥有自己的画布、渲染循环、资源管理器（`engine.res`）和配置（`engine.setting`）。早期版本中通过 `Engine3D.xxx` 静态方式访问的接口（如 `Engine3D.startRenderView`、`Engine3D.res`、`Engine3D.aspect`、`Engine3D.setting`）现在都改为在实例上调用（`engine.startRenderView`、`engine.res` …）。
+:::
+
 ## 手动创建 Canvas
-默认参数下，`Engine3D.init()` 实例会自动生成一个以屏幕大小为宽高的 `canvas` 画布。如果不想使用引擎自动创建的画布，用户也可以手动创建画布。
+默认参数下，`Engine3D.init()` 会自动生成一个以屏幕大小为宽高的 `canvas` 画布。如果不想使用引擎自动创建的画布，用户也可以手动创建画布。
 比如，用户可以在 HTML 中插入一个 `<canvas>` 标签，并指定一个 id：
 ```html
 <canvas id="canvas" style="width:800px;height:500px" />
@@ -42,7 +47,7 @@ let canvas = document.getElementById('canvas');
 import { Engine3D } from '@orillusion/core';
 
 let canvas = document.getElementById('canvas');
-await Engine3D.init({
+const engine = await Engine3D.init({
   canvasConfig: { canvas }
 });
 ```

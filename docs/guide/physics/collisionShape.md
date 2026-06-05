@@ -61,7 +61,7 @@ let coneShape3 = CollisionShapeUtil.createConeShape(null, 1, 5);
 同时，针对复杂类型的碰撞形状，构建流程也得到了简化。为了满足自定义需求，开发者可以传入 `vertices` 和 `indices` 以生成自定义的碰撞形状：
 
 ```ts
-const object = await Engine3D.res.loadGltf('model.glb');
+const object = await engine.res.loadGltf('model.glb');
 
 // 创建一个BVH网格形状，使用模型自身的顶点和索引
 let bvhMeshShape = CollisionShapeUtil.createBvhTriangleMeshShape(object);
@@ -80,7 +80,7 @@ let bvhMeshShape = CollisionShapeUtil.createBvhTriangleMeshShape(object, vertice
 import { TerrainGeometry } from '@orillusion/geometry';
 
 // Load textures and create terrain geometry
-let heightTexture = await Engine3D.res.loadTexture('height.png');
+let heightTexture = await engine.res.loadTexture('height.png');
 let terrainGeometry = new TerrainGeometry(100, 100, 60, 60);
 terrainGeometry.setHeight(heightTexture as BitmapTexture2D, 50);
 

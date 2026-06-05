@@ -3,7 +3,7 @@ import * as dat from 'dat.gui';
 
 class Demo_GaussianBlur {
     async run() {
-        await Engine3D.init({
+        let engine = await Engine3D.init({
             canvasConfig: {
                 devicePixelRatio: 1
             }
@@ -13,7 +13,7 @@ class Demo_GaussianBlur {
         await this.initScene(scene);
 
         let mainCamera = CameraUtil.createCamera3DObject(scene);
-        mainCamera.perspective(60, Engine3D.aspect, 0.01, 10000.0);
+        mainCamera.perspective(60, engine.aspect, 0.01, 10000.0);
 
         let ctl = mainCamera.object3D.addComponent(HoverCameraController);
         ctl.setCamera(45, -30, 5);
@@ -27,7 +27,7 @@ class Demo_GaussianBlur {
         let view = new View3D();
         view.scene = scene;
         view.camera = mainCamera;
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
         let postProcessing = scene.addComponent(PostProcessingComponent);
         postProcessing.addPost(GaussianBlurPost);

@@ -34,9 +34,14 @@ class TestComponent2 extends ComponentBase {
 
 class Sample {
     async run() {
-        Engine3D.setting.shadow.type = 'HARD';
-        Engine3D.setting.shadow.shadowBound = 100;
-        await Engine3D.init();
+        let engine = await Engine3D.init({
+            setting: {
+                shadow: {
+                    type: 'HARD',
+                    shadowBound: 100
+                }
+            }
+        });
 
         let scene = new Scene3D();
         scene.addComponent(Stats);
@@ -47,7 +52,7 @@ class Sample {
 
         // init Camera3D
         let camera = CameraUtil.createCamera3DObject(scene);
-        camera.perspective(60, Engine3D.aspect, 1, 5000);
+        camera.perspective(60, engine.aspect, 1, 5000);
 
         // init Camera Controller
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController);
@@ -84,7 +89,7 @@ class Sample {
         const obj = Object3DUtil.GetSingleCube(10, 10, 10, 1, 1, 1);
         obj.addComponent(TestComponent2);
         scene.addChild(obj);
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
     }
 }
 

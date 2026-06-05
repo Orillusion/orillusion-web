@@ -5,25 +5,30 @@ class Sample_MousePick {
     cameraObj: Camera3D;
     scene: Scene3D;
     hover: HoverCameraController;
+    engine: Engine3D;
 
     constructor() {}
 
     async run() {
         // enable pick and use pixel mode
-        Engine3D.setting.pick.enable = true;
-        Engine3D.setting.pick.mode = `pixel`;
-
-        await Engine3D.init({});
+        this.engine = await Engine3D.init({
+            setting: {
+                pick: {
+                    enable: true,
+                    mode: `pixel`,
+                },
+            },
+        });
 
         this.scene = new Scene3D();
         this.scene.addComponent(AtmosphericComponent);
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, Engine3D.aspect, 1, 5000.0);
+        camera.perspective(60, this.engine.aspect, 1, 5000.0);
 
         this.hover = camera.object3D.addComponent(HoverCameraController);
         this.hover.setCamera(-30, -15, 120);
 
-        let wukong = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/wukong/wukong.gltf');
+        let wukong = await this.engine.res.loadGltf('https://cdn.orillusion.com/gltfs/wukong/wukong.gltf');
         wukong.transform.y = 30;
         wukong.transform.scaleX = 20;
         wukong.transform.scaleY = 20;
@@ -41,7 +46,7 @@ class Sample_MousePick {
         view.scene = this.scene;
         view.camera = camera;
         // start render
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
 
         // listen all mouse events
         view.pickFire.addEventListener(PointerEvent3D.PICK_UP, this.onPick, this);
@@ -78,7 +83,7 @@ class Sample_MousePick {
             obj.x = (i - 5) * 10;
 
             let mat = new LitMaterial();
-            mat.emissiveMap = Engine3D.res.grayTexture;
+            mat.emissiveMap = this.engine.res.grayTexture;
             mat.emissiveIntensity = 0.0;
 
             let renderer = obj.addComponent(MeshRenderer);

@@ -9,23 +9,24 @@ class Sample_MultipleShapes {
     scene: Scene3D;
     terrain: Object3D;
     gui: dat.GUI;
+    engine: Engine3D;
 
     async run() {
         // init physics and engine
         await Physics.init();
-        await Engine3D.init({
+        let engine = this.engine = await Engine3D.init({
             renderLoop: () => Physics.update()
         });
 
         this.gui = new dat.GUI();
 
         // shadow settings
-        Engine3D.setting.shadow.shadowBias = 0.01;
-        Engine3D.setting.shadow.shadowSize = 1024 * 4;
-        Engine3D.setting.shadow.csmMargin = 0.1;
-        Engine3D.setting.shadow.csmScatteringExp = 0.8;
-        Engine3D.setting.shadow.csmAreaScale = 0.1;
-        Engine3D.setting.shadow.updateFrameRate = 1;
+        engine.setting.shadow.shadowBias = 0.01;
+        engine.setting.shadow.shadowSize = 1024 * 4;
+        engine.setting.shadow.csmMargin = 0.1;
+        engine.setting.shadow.csmScatteringExp = 0.8;
+        engine.setting.shadow.csmAreaScale = 0.1;
+        engine.setting.shadow.updateFrameRate = 1;
 
         this.scene = new Scene3D();
         this.scene.addComponent(Stats);
@@ -39,7 +40,7 @@ class Sample_MultipleShapes {
 
         // Setup camera
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, Engine3D.aspect, 0.1, 800.0);
+        camera.perspective(60, engine.aspect, 0.1, 800.0);
         camera.enableCSM = true;
 
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController);
@@ -65,7 +66,7 @@ class Sample_MultipleShapes {
         view.camera = camera;
         view.scene = this.scene;
 
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
         this.setupPhysicsGUI();
 
@@ -78,8 +79,8 @@ class Sample_MultipleShapes {
 
     async initTerrain() {
         // Load textures
-        let bitmapTexture = await Engine3D.res.loadTexture('https://cdn.orillusion.com/terrain/test01/bitmap.png');
-        let heightTexture = await Engine3D.res.loadTexture('https://cdn.orillusion.com/terrain/test01/height.png');
+        let bitmapTexture = await this.engine.res.loadTexture('https://cdn.orillusion.com/terrain/test01/bitmap.png');
+        let heightTexture = await this.engine.res.loadTexture('https://cdn.orillusion.com/terrain/test01/height.png');
 
         const width = 100;
         const height = 100;
@@ -118,7 +119,7 @@ class Sample_MultipleShapes {
     // Create static planes for boundaries
     createStaticPlanes() {
         // Create bottom static plane
-        let staticFloorBottom = Object3DUtil.GetPlane(Engine3D.res.whiteTexture);
+        let staticFloorBottom = Object3DUtil.GetPlane(this.engine.res.whiteTexture);
         staticFloorBottom.y = -500;
         staticFloorBottom.transform.enable = false;
         this.scene.addChild(staticFloorBottom);
@@ -128,7 +129,7 @@ class Sample_MultipleShapes {
         bottomRb.mass = 0;
 
         // Create top static plane
-        let staticFloorTop = Object3DUtil.GetPlane(Engine3D.res.whiteTexture);
+        let staticFloorTop = Object3DUtil.GetPlane(this.engine.res.whiteTexture);
         staticFloorTop.y = 100;
         staticFloorTop.transform.enable = false;
         this.scene.addChild(staticFloorTop);

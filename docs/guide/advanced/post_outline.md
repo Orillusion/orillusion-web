@@ -6,9 +6,9 @@ aside: false
 ```ts
 import {Engine3D, View3D, OutlinePost } from '@orillusion/core';
 // 初始化引擎
-await Engine3D.init();
-Engine3D.setting.render.postProcessing.outline.outlinePixel = 2;
-Engine3D.setting.render.postProcessing.outline.fadeOutlinePixel = 4;
+let engine = await Engine3D.init();
+engine.setting.render.postProcessing.outline.outlinePixel = 2;
+engine.setting.render.postProcessing.outline.fadeOutlinePixel = 4;
 
 // 添加 OutlinePost
 let postProcessing = this.scene.addComponent(PostProcessingComponent);
@@ -18,9 +18,9 @@ postProcessing.addPost(OutlinePost);
 let view = new View3D();
 view.scene = this.scene;
 view.camera = this.camera;
-Engine3D.startRenderView(view);
+engine.startRenderView(view);
 ```
-[Engine3D.setting.render.postProcessing.outline](/api/types/OutlineSetting.md) 配置参数。
+[engine.setting.render.postProcessing.outline](/api/types/OutlineSetting.md) 配置参数。
 
 | 参数 | 类型 | 描述 |
 | --- | --- | --- |

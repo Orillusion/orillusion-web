@@ -3,7 +3,7 @@ import { Engine3D, Scene3D, Object3D, Camera3D, ViewPanel, UIButton, HoverCamera
 class Sample_button {
     async run() {
         // initializa engine
-        await Engine3D.init();
+        let engine = await Engine3D.init();
         // create new scene as root node
         let scene3D: Scene3D = new Scene3D();
         scene3D.addComponent(AtmosphericComponent);
@@ -11,7 +11,7 @@ class Sample_button {
         let cameraObj: Object3D = new Object3D();
         let camera = cameraObj.addComponent(Camera3D);
         // adjust camera view
-        camera.perspective(60, Engine3D.aspect, 1, 5000.0);
+        camera.perspective(60, engine.aspect, 1, 5000.0);
         // set camera controller
         let controller = cameraObj.addComponent(HoverCameraController);
         controller.setCamera(0, -20, 30);
@@ -21,7 +21,7 @@ class Sample_button {
         let view = new View3D();
         view.scene = scene3D;
         view.camera = camera;
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
         // create panel root
         let panelRoot: Object3D = new Object3D();
@@ -41,15 +41,15 @@ class Sample_button {
 
         // set button status
         // load sprite resource
-        await Engine3D.res.loadAtlas('https://cdn.orillusion.com/atlas/UI_atlas.json');
-        button.normalSprite = Engine3D.res.getGUISprite('button-up');
-        button.downSprite = Engine3D.res.getGUISprite('button-down');
-        button.overSprite = Engine3D.res.getGUISprite('button-over');
-        button.disableSprite = Engine3D.res.getGUISprite('button-disable');
+        await engine.res.loadAtlas('https://cdn.orillusion.com/atlas/UI_atlas.json');
+        button.normalSprite = engine.res.getGUISprite('button-up');
+        button.downSprite = engine.res.getGUISprite('button-down');
+        button.overSprite = engine.res.getGUISprite('button-over');
+        button.disableSprite = engine.res.getGUISprite('button-disable');
 
         // add button text
         // load font resource
-        await Engine3D.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt');
+        await engine.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt');
         let buttonLabel = buttonQuad.addComponent(UITextField);
         buttonLabel.text = 'Click me';
         buttonLabel.fontSize = 24;

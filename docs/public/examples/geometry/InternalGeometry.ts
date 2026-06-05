@@ -5,10 +5,14 @@ import { Stats } from '@orillusion/stats';
 class Sample_InternalGeometry {
     lightObj: Object3D;
     async run() {
-        Engine3D.setting.shadow.autoUpdate = true;
-        Engine3D.setting.shadow.shadowBound = 200;
-
-        await Engine3D.init();
+        let engine = await Engine3D.init({
+            setting: {
+                shadow: {
+                    autoUpdate: true,
+                    shadowBound: 200
+                }
+            }
+        });
         let view = new View3D();
         view.scene = new Scene3D();
         view.scene.addComponent(Stats);
@@ -20,7 +24,7 @@ class Sample_InternalGeometry {
         view.camera.object3D.z = -15;
         view.camera.object3D.addComponent(HoverCameraController).setCamera(35, -20, 150);
 
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
         await this.createScene(view.scene);
         sky.relativeTransform = this.lightObj.transform;

@@ -8,10 +8,14 @@ class Sample_UIPanelScissor {
     private textField: UITextField;
 
     async run() {
-        Engine3D.setting.shadow.autoUpdate = true;
-        await Engine3D.init({
+        let engine = await Engine3D.init({
             renderLoop: () => {
                 this.loop();
+            },
+            setting: {
+                shadow: {
+                    autoUpdate: true
+                }
             }
         });
 
@@ -26,7 +30,7 @@ class Sample_UIPanelScissor {
 
         // init Camera3D
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, Engine3D.aspect, 1, 5000);
+        camera.perspective(60, engine.aspect, 1, 5000);
 
         // init Camera Controller
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController);
@@ -56,7 +60,7 @@ class Sample_UIPanelScissor {
         // relative light to sky
         atmosphericSky.relativeTransform = light.transform;
 
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
         // create floor
         let floor = Object3DUtil.GetSingleCube(100, 2, 50, 0.5, 0.5, 0.5);
@@ -68,7 +72,7 @@ class Sample_UIPanelScissor {
         //create UI root
         let panelRoot: Object3D = new Object3D();
         panelRoot.scaleX = panelRoot.scaleY = panelRoot.scaleZ = 0.1;
-        await Engine3D.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt');
+        await engine.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt');
 
         this.createPanel(panelRoot, canvas, new Color(1, 1, 1, 1));
     }

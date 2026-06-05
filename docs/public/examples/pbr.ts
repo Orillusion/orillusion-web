@@ -7,19 +7,20 @@ class Sample_PBRMaterial {
     scene: Scene3D;
     camera: Object3D;
     obj: Object3D;
+    engine: Engine3D;
 
     async run() {
-        await Engine3D.init({
+        this.engine = await Engine3D.init({
             canvasConfig: { alpha: true, zIndex: 11, devicePixelRatio:2 },
             renderLoop: this.loop.bind(this)
         });
 
-        Engine3D.setting.shadow.autoUpdate = true;
-        Engine3D.setting.shadow.updateFrameRate = 1;
-        Engine3D.setting.shadow.shadowBound = 50;
-        Engine3D.setting.shadow.shadowBias = 0.02;
-        Engine3D.setting.render.postProcessing.bloom!.luminanceThreshole = 0.8;
-        Engine3D.setting.render.postProcessing.bloom!.bloomIntensity = 0.86;
+        this.engine.setting.shadow.autoUpdate = true;
+        this.engine.setting.shadow.updateFrameRate = 1;
+        this.engine.setting.shadow.shadowBound = 50;
+        this.engine.setting.shadow.shadowBias = 0.02;
+        this.engine.setting.render.postProcessing.bloom!.luminanceThreshole = 0.8;
+        this.engine.setting.render.postProcessing.bloom!.bloomIntensity = 0.86;
 
         this.scene = new Scene3D();
         this.camera = new Object3D();
@@ -27,7 +28,7 @@ class Sample_PBRMaterial {
         this.camera.z = 20;
         this.scene.addChild(this.camera);
         let mainCamera = this.camera.addComponent(Camera3D);
-        mainCamera.perspective(60, Engine3D.aspect, 0.01, 5000.0);
+        mainCamera.perspective(60, this.engine.aspect, 0.01, 5000.0);
 
         let orbit = this.camera.addComponent(OrbitController);
         orbit.minDistance = 10;
@@ -40,7 +41,7 @@ class Sample_PBRMaterial {
         let view = new View3D();
         view.scene = this.scene;
         view.camera = mainCamera;
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
 
         let postProcessing = this.scene.addComponent(PostProcessingComponent);
         // postProcessing.addPost(GTAOPost)
@@ -67,7 +68,7 @@ class Sample_PBRMaterial {
         }
 
         {
-            let obj = (this.obj = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/wukong/wukong.gltf'));
+            let obj = (this.obj = await this.engine.res.loadGltf('https://cdn.orillusion.com/gltfs/wukong/wukong.gltf'));
             obj.transform.scaleX = 10;
             obj.transform.scaleY = 10;
             obj.transform.scaleZ = 10;

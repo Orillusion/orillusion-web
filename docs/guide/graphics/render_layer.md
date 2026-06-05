@@ -58,7 +58,7 @@ mr.visibleLayer = VisibleLayer.Default | MINIMAP_LAYER;
 import { Camera3D, VisibleLayer } from '@orillusion/core';
 
 const camera = cameraObj.addComponent(Camera3D);
-camera.perspective(60, Engine3D.aspect, 0.1, 5000);
+camera.perspective(60, engine.aspect, 0.1, 5000);
 
 // 让主相机看到“除小地图层之外”的所有层
 camera.cullingMask = VisibleLayer.remove(VisibleLayer.All, MINIMAP_LAYER);

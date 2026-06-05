@@ -7,11 +7,12 @@ import { Graphic3D } from "@orillusion/graphic";
 class Sample_dofSpringConstraint {
     scene: Scene3D;
     gui: dat.GUI;
+    engine: Engine3D;
 
     async run() {
         // Initialize physics and engine
         await Physics.init({ useDrag: true });
-        await Engine3D.init({ renderLoop: () => Physics.update() });
+        let engine = this.engine = await Engine3D.init({ renderLoop: () => Physics.update() });
 
         let scene = this.scene = new Scene3D();
         scene.addComponent(Stats);
@@ -31,7 +32,7 @@ class Sample_dofSpringConstraint {
         f.open();
 
         let camera = CameraUtil.createCamera3DObject(scene);
-        camera.perspective(60, Engine3D.aspect, 0.1, 800.0);
+        camera.perspective(60, engine.aspect, 0.1, 800.0);
         camera.object3D.addComponent(HoverCameraController).setCamera(140, -25, 20, new Vector3(8, 4, 0));
 
         // Create directional light
@@ -47,7 +48,7 @@ class Sample_dofSpringConstraint {
         view.camera = camera;
         view.scene = scene;
 
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
         // Create ground, bridge, and ball
         this.createGround();
@@ -57,7 +58,7 @@ class Sample_dofSpringConstraint {
 
     //Create the ground plane.
     private async createGround() {
-        let ground = Object3DUtil.GetPlane(Engine3D.res.whiteTexture);
+        let ground = Object3DUtil.GetPlane(this.engine.res.whiteTexture);
         ground.scaleX = 50;
         ground.scaleZ = 50;
         this.scene.addChild(ground);

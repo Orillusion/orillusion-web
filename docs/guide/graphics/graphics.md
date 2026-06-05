@@ -97,7 +97,7 @@ import { Graphic3D, Graphic3DMesh, Graphic3DMeshRenderer } from '@orillusion/gra
 
 // 加载贴图列表
 let textureArray = [];
-textureArray.push(await Engine3D.res.loadTexture("path/to/texture.png") as BitmapTexture2D);
+textureArray.push(await engine.res.loadTexture("path/to/texture.png") as BitmapTexture2D);
 let bitmapTexture2DArray = new BitmapTexture2DArray(textureArray[0].width, textureArray[0].height, textureArray.length);
 
 bitmapTexture2DArray.setTextures(textureArray);
@@ -220,7 +220,7 @@ import { CircleShape3D, EllipseShape3D, Shape3DMaker, Shape3D } from "@orillusio
 
 // 加载贴图列表
 let textureArray = [];
-textureArray.push(await Engine3D.res.loadTexture("path/to/texture.png") as BitmapTexture2D);
+textureArray.push(await engine.res.loadTexture("path/to/texture.png") as BitmapTexture2D);
 let bitmapTexture2DArray = new BitmapTexture2DArray(textureArray[0].width, textureArray[0].height, textureArray.length);
 bitmapTexture2DArray.setTextures(textureArray);
 

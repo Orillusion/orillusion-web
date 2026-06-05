@@ -6,13 +6,14 @@ class Sample_UV {
     cameraObj: Camera3D;
     scene: Scene3D;
     hover: HoverCameraController;
+    engine: Engine3D;
 
     constructor() {}
 
     async run() {
-        await Engine3D.init({ canvasConfig: { alpha: false, zIndex: 0 } });
-        Engine3D.setting.shadow.debug = false;
-        Engine3D.setting.shadow.shadowBound = 5;
+        this.engine = await Engine3D.init({ canvasConfig: { alpha: false, zIndex: 0 } });
+        this.engine.setting.shadow.debug = false;
+        this.engine.setting.shadow.shadowBound = 5;
 
         this.scene = new Scene3D();
         // add an Atmospheric sky enviroment
@@ -29,7 +30,7 @@ class Sample_UV {
         view.scene = this.scene;
         view.camera = camera;
         // start render
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
 
         await this.initScene();
     }
@@ -54,7 +55,7 @@ class Sample_UV {
         }
 
         {
-            let tex = await Engine3D.res.loadTexture('https://cdn.orillusion.com/images/T_Fx_Object_229.webp');
+            let tex = await this.engine.res.loadTexture('https://cdn.orillusion.com/images/T_Fx_Object_229.webp');
             let mat = new UnLitMaterial();
             mat.baseMap = tex;
 

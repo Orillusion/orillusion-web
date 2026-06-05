@@ -4,15 +4,22 @@ import * as dat from 'dat.gui'
 class Demo_FluidOptimize {
     constructor() { }
 
+    protected engine: Engine3D;
     protected mLastPoint: Vector3 = new Vector3();
     protected mVelocity: Vector3 = new Vector3();
 
     async run() {
-        Engine3D.setting.material.materialChannelDebug = true;
-        Engine3D.setting.pick.enable = true;
-        Engine3D.setting.pick.mode = `pixel`;
-
-        await Engine3D.init({});
+        this.engine = await Engine3D.init({
+            setting: {
+                material: {
+                    materialChannelDebug: true
+                },
+                pick: {
+                    enable: true,
+                    mode: `pixel`
+                }
+            }
+        });
 
 
         let scene = new Scene3D();
@@ -28,7 +35,7 @@ class Demo_FluidOptimize {
         view.scene = scene;
         view.camera = camera;
 
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
         await this.initScene(scene);
 
         let gui = new dat.GUI()
@@ -55,7 +62,7 @@ class Demo_FluidOptimize {
                         point.subtract(this.mLastPoint, this.mVelocity);
                         this.mLastPoint.copy(point);
                         let r = scene.view.camera;
-                        let ray = r.screenPointToRay(Engine3D.inputSystem.mouseX, Engine3D.inputSystem.mouseY);
+                        let ray = r.screenPointToRay(this.engine.inputSystem.mouseX, this.engine.inputSystem.mouseY);
                         emulation.updateInputInfo(scene.view.camera.transform.localPosition, ray.direction, this.mVelocity);
                     }
                     catch (e) {
@@ -254,7 +261,7 @@ class FluidSimulatorMaterial2 extends Material {
         shaderState.useLight = false;
 
         // default value
-        this.baseMap = Engine3D.res.whiteTexture;
+        this.baseMap = Engine3D.resFor().whiteTexture;
         this.shader = shader;
         
         // this.transparent = true ;

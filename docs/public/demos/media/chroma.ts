@@ -2,12 +2,12 @@ import { Engine3D, Vector3, Scene3D, Object3D, Camera3D, View3D, MeshRenderer, H
 import { VideoTexture, ChromaKeyMaterial } from '@orillusion/media-extention';
 import * as dat from 'dat.gui';
 
-await Engine3D.init();
+let engine = await Engine3D.init();
 let scene = new Scene3D();
 let camera = new Object3D();
 scene.addChild(camera);
 let mainCamera = camera.addComponent(Camera3D);
-mainCamera.perspective(60, Engine3D.aspect, 0.1, 10000.0);
+mainCamera.perspective(60, engine.aspect, 0.1, 10000.0);
 let hc = camera.addComponent(HoverCameraController);
 hc.setCamera(0, 0, 2);
 
@@ -34,7 +34,7 @@ let view = new View3D();
 view.scene = scene;
 view.camera = mainCamera;
 // start render
-Engine3D.startRenderView(view);
+engine.startRenderView(view);
 
 let gui = new dat.GUI();
 let f = gui.addFolder('ChromaKey');

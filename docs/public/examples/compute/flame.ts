@@ -6,9 +6,10 @@ class Demo_Flame {
 
     protected mLastPoint: Vector3 = new Vector3();
     protected mVelocity: Vector3 = new Vector3();
+    engine: Engine3D;
 
     async run() {
-        await Engine3D.init({});
+        this.engine = await Engine3D.init({});
 
         let scene = new Scene3D();
         let sky = scene.addComponent(AtmosphericComponent);
@@ -23,11 +24,11 @@ class Demo_Flame {
         let view = new View3D();
         view.scene = scene;
         view.camera = camera;
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
     }
 
     async initScene(scene: Scene3D) {
-        let cesiumMan = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/CesiumMan/CesiumMan.gltf');
+        let cesiumMan = await this.engine.res.loadGltf('https://cdn.orillusion.com/gltfs/CesiumMan/CesiumMan.gltf');
         cesiumMan.rotationX = -90;
         cesiumMan.rotationY = 180;
         cesiumMan.y = -0.8;
@@ -395,7 +396,7 @@ class FlameSimulatorMaterial extends Material {
         shaderState.useLight = false;
 
         // default value
-        this.baseMap = Engine3D.res.whiteTexture;
+        this.baseMap = Engine3D.resFor().whiteTexture;
         this.shader = shader;
         
         // this.transparent = true ;

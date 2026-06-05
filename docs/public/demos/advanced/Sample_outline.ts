@@ -8,10 +8,14 @@ class Sample_Outline {
     constructor() {}
 
     async run() {
-        Engine3D.setting.shadow.enable = false;
-        await Engine3D.init({
+        let engine = await Engine3D.init({
             canvasConfig: {
                 devicePixelRatio: 1
+            },
+            setting: {
+                shadow: {
+                    enable: false
+                }
             }
         });
 
@@ -28,7 +32,7 @@ class Sample_Outline {
         let view = new View3D();
         view.scene = this.scene;
         view.camera = mainCamera;
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
         let postProcessing = this.scene.addComponent(PostProcessingComponent);
         let outlinePost = postProcessing.addPost(OutlinePost);

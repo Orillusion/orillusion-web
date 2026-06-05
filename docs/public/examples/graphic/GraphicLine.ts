@@ -9,7 +9,7 @@ class GraphicLine {
     graphic3D: Graphic3D;
 
     async run() {
-        await Engine3D.init();
+        let engine = await Engine3D.init();
 
         // init Scene3D
         this.scene = new Scene3D();
@@ -23,7 +23,7 @@ class GraphicLine {
 
         // init Camera3D
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, Engine3D.aspect, 1, 5000);
+        camera.perspective(60, engine.aspect, 1, 5000);
 
         // init Camera Controller
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController);
@@ -55,7 +55,7 @@ class GraphicLine {
 
         // relative light to sky
         atmosphericSky.relativeTransform = light.transform;
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
         this.view = view;
         await this.initScene();
     }

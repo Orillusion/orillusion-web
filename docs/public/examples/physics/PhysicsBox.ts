@@ -7,16 +7,22 @@ class Sample_PhysicsBox {
     private scene: Scene3D;
     private materials: LitMaterial[];
     private Ori: dat.GUI | undefined;
+    private engine: Engine3D;
 
     async run() {
-        Engine3D.setting.shadow.autoUpdate = true;
-        Engine3D.setting.shadow.updateFrameRate = 1;
-        Engine3D.setting.shadow.shadowSize = 4096;
-        Engine3D.setting.shadow.shadowBound = 50;
-        Engine3D.setting.shadow.shadowBias = 0.002;
-
         await Physics.init();
-        await Engine3D.init({ renderLoop: () => this.loop() });
+        let engine = this.engine = await Engine3D.init({
+            renderLoop: () => this.loop(),
+            setting: {
+                shadow: {
+                    autoUpdate: true,
+                    updateFrameRate: 1,
+                    shadowSize: 4096,
+                    shadowBound: 50,
+                    shadowBias: 0.002
+                }
+            }
+        });
 
         let scene = new Scene3D();
         scene.exposure = 1;
@@ -28,8 +34,8 @@ class Sample_PhysicsBox {
 
         // init Camera3D
         let camera = CameraUtil.createCamera3DObject(scene);
-        camera.perspective(60, Engine3D.aspect, 1, 5000);
-        
+        camera.perspective(60, engine.aspect, 1, 5000);
+
         // init Camera Controller
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController);
         hoverCtrl.setCamera(-30, -15, 50);
@@ -78,7 +84,7 @@ class Sample_PhysicsBox {
             }
         };
         gui.add(button_add, 'Add Ball');
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
     }
 
     initMaterials() {
@@ -94,7 +100,7 @@ class Sample_PhysicsBox {
 
     async initScene(scene: Scene3D) {
         /******** load hdr sky *******/
-        let envMap = await Engine3D.res.loadHDRTextureCube('https://cdn.orillusion.com/hdri/daytime.hdr');
+        let envMap = await this.engine.res.loadHDRTextureCube('https://cdn.orillusion.com/hdri/daytime.hdr');
         scene.envMap = envMap;
 
         //
@@ -113,7 +119,7 @@ class Sample_PhysicsBox {
         var meshRenderer = sphere.addComponent(MeshRenderer);
         meshRenderer.geometry = sphereGeo;
         var material = new LitMaterial();
-        material.baseMap = Engine3D.res.grayTexture;
+        material.baseMap = this.engine.res.grayTexture;
 
         meshRenderer.castShadow = true;
         meshRenderer.receiveShadow = true;
@@ -133,7 +139,7 @@ class Sample_PhysicsBox {
     // make floor
     createGround() {
         let floorMat = new LitMaterial();
-        floorMat.baseMap = Engine3D.res.grayTexture;
+        floorMat.baseMap = this.engine.res.grayTexture;
         floorMat.roughness = 0.85;
         floorMat.metallic = 0.01;
 

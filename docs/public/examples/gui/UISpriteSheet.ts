@@ -6,10 +6,15 @@ class Sample_UISpriteSheet {
     img: UIImage;
     scene: Scene3D;
     Ori: dat.GUI;
+    engine: Engine3D;
 
     async run() {
-        Engine3D.setting.shadow.autoUpdate = true;
-        await Engine3D.init({
+        this.engine = await Engine3D.init({
+            setting: {
+                shadow: {
+                    autoUpdate: true
+                }
+            },
             renderLoop: () => {
                 this.renderUpdate();
             }
@@ -26,7 +31,7 @@ class Sample_UISpriteSheet {
 
         // init Camera3D
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, Engine3D.aspect, 1, 5000);
+        camera.perspective(60, this.engine.aspect, 1, 5000);
 
         // init Camera Controller
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController);
@@ -55,9 +60,9 @@ class Sample_UISpriteSheet {
 
         // relative light to sky
         atmosphericSky.relativeTransform = light.transform;
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
 
-        await Engine3D.res.loadAtlas('https://cdn.orillusion.com/atlas/Sheet_atlas.json');
+        await this.engine.res.loadAtlas('https://cdn.orillusion.com/atlas/Sheet_atlas.json');
         // enable ui canvas at index 0
         let canvas = view.enableUICanvas();
 
@@ -74,7 +79,7 @@ class Sample_UISpriteSheet {
         panelRoot.addChild(quad);
 
         this.img = quad.addComponent(UIImage);
-        this.img.sprite = Engine3D.res.getGUISprite('00065');
+        this.img.sprite = this.engine.res.getGUISprite('00065');
         this.img.uiTransform.resize(256, 256);
 
         // create floor
@@ -104,7 +109,7 @@ class Sample_UISpriteSheet {
         if (newIndex != this.lastIndex) {
             this.lastIndex = newIndex;
             let frameKey = (this.lastIndex + this.frameStart).toString().padStart(5, '0');
-            this.img.sprite = Engine3D.res.getGUISprite(frameKey);
+            this.img.sprite = this.engine.res.getGUISprite(frameKey);
         }
     }
 }

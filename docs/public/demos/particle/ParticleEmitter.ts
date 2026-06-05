@@ -2,8 +2,9 @@ import { Engine3D, AtmosphericComponent, Vector3, View3D, HoverCameraController,
 import { ParticleSystem, ParticleMaterial, ParticleStandardSimulator, ParticleEmitterModule, ShapeType, EmitLocation } from '@orillusion/particle';
 
 class Sample_ParticleEmitter {
+    engine: Engine3D;
     async run() {
-        await Engine3D.init();
+        this.engine = await Engine3D.init();
 
         let scene = new Scene3D();
         scene.addComponent(AtmosphericComponent).sunY = 0.6;
@@ -19,7 +20,7 @@ class Sample_ParticleEmitter {
         let view = new View3D();
         view.scene = scene;
         view.camera = camera;
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
     }
 
     async initScene(scene: Scene3D) {
@@ -32,7 +33,7 @@ class Sample_ParticleEmitter {
 
         // 设置粒子材质
         let material = new ParticleMaterial();
-        material.baseMap = await Engine3D.res.loadTexture('https://cdn.orillusion.com/particle/fx_a_glow_003.png');
+        material.baseMap = await this.engine.res.loadTexture('https://cdn.orillusion.com/particle/fx_a_glow_003.png');
 
         // 设置粒子形状
         particleSystem.geometry = new PlaneGeometry(1, 1, 1, 1, Vector3.Z_AXIS);

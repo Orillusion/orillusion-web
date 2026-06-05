@@ -12,10 +12,14 @@ class TouchDemo {
     async run() {
         console.log('start demo');
         // enable pick and use bound mode
-        Engine3D.setting.pick.enable = true;
-        Engine3D.setting.pick.mode = `bound`;
-
-        await Engine3D.init();
+        let engine = await Engine3D.init({
+            setting: {
+                pick: {
+                    enable: true,
+                    mode: `bound`
+                }
+            }
+        });
 
         this.scene = new Scene3D();
         this.scene.addComponent(AtmosphericComponent);
@@ -23,7 +27,7 @@ class TouchDemo {
         this.camera = this.cameraObj.addComponent(Camera3D);
         this.scene.addChild(this.cameraObj);
         this.camera.lookAt(new Vector3(0, 0, 10), new Vector3(0, 0, 0));
-        this.camera.perspective(60, Engine3D.aspect, 1, 10000.0);
+        this.camera.perspective(60, engine.aspect, 1, 10000.0);
 
         // add a base light
         let lightObj = new Object3D();
@@ -44,7 +48,7 @@ class TouchDemo {
         view.scene = this.scene;
         view.camera = this.camera;
         // start render
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
         // listen all pick_click events
         view.pickFire.addEventListener(PointerEvent3D.PICK_CLICK, this.onPick, this);

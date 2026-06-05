@@ -4,14 +4,19 @@ import * as dat from 'dat.gui';
 class Sample_DepthOfView {
     lightObj: Object3D;
     scene: Scene3D;
+    engine: Engine3D;
     constructor() {}
 
     async run() {
-        Engine3D.setting.shadow.enable = true;
-        Engine3D.setting.shadow.shadowBound = 100;
-        await Engine3D.init({
+        this.engine = await Engine3D.init({
             canvasConfig: {
                 devicePixelRatio: 1
+            },
+            setting: {
+                shadow: {
+                    enable: true,
+                    shadowBound: 100
+                }
             }
         });
 
@@ -28,7 +33,7 @@ class Sample_DepthOfView {
         let view = new View3D();
         view.scene = this.scene;
         view.camera = camera;
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
 
         let postProcessing = this.scene.addComponent(PostProcessingComponent);
         let DOFPost = postProcessing.addPost(DepthOfFieldPost);
@@ -57,7 +62,7 @@ class Sample_DepthOfView {
         }
 
         // load a test gltf model
-        let minimalObj = await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/ToyCar/ToyCar.gltf');
+        let minimalObj = await this.engine.res.loadGltf('https://cdn.orillusion.com/PBR/ToyCar/ToyCar.gltf');
         minimalObj.scaleX = minimalObj.scaleY = minimalObj.scaleZ = 800;
         scene.addChild(minimalObj);
 

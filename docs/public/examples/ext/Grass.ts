@@ -4,16 +4,21 @@ import { Stats } from '@orillusion/stats';
 import dat from 'dat.gui';
 
 class Sample_Grass {
+    engine: Engine3D;
     view: View3D;
     post: PostProcessingComponent;
 
     async run() {
-        Engine3D.setting.shadow.autoUpdate = true;
-        Engine3D.setting.shadow.updateFrameRate = 1;
-        Engine3D.setting.shadow.shadowBound = 500;
-        Engine3D.setting.shadow.shadowSize = 1024;
-
-        await Engine3D.init();
+        this.engine = await Engine3D.init({
+            setting: {
+                shadow: {
+                    autoUpdate: true,
+                    updateFrameRate: 1,
+                    shadowBound: 500,
+                    shadowSize: 1024
+                }
+            }
+        });
         this.view = new View3D();
         this.view.scene = new Scene3D();
         this.view.scene.addComponent(AtmosphericComponent);
@@ -24,16 +29,16 @@ class Sample_Grass {
         this.view.camera.perspective(60, webGPUContext.aspect, 1, 5000.0);
         this.view.camera.object3D.addComponent(HoverCameraController).setCamera(35, -20, 500);
 
-        Engine3D.startRenderView(this.view);
+        this.engine.startRenderView(this.view);
         this.createScene(this.view.scene);
     }
 
     private async createScene(scene: Scene3D) {
         //bitmap
-        let bitmapTexture = await Engine3D.res.loadTexture('https://cdn.orillusion.com/terrain/test01/bitmap.png');
-        let heightTexture = await Engine3D.res.loadTexture('https://cdn.orillusion.com/terrain/test01/height.png');
-        // let grassTexture = await Engine3D.res.loadTexture('https://cdn.orillusion.com/terrain/grass/GrassThick.png');
-        let gustNoiseTexture = await Engine3D.res.loadTexture('https://cdn.orillusion.com/terrain/grass/displ_noise_curl_1.png');
+        let bitmapTexture = await this.engine.res.loadTexture('https://cdn.orillusion.com/terrain/test01/bitmap.png');
+        let heightTexture = await this.engine.res.loadTexture('https://cdn.orillusion.com/terrain/test01/height.png');
+        // let grassTexture = await this.engine.res.loadTexture('https://cdn.orillusion.com/terrain/grass/GrassThick.png');
+        let gustNoiseTexture = await this.engine.res.loadTexture('https://cdn.orillusion.com/terrain/grass/displ_noise_curl_1.png');
         let sunObj = new Object3D();
         let sunLight = sunObj.addComponent(DirectLight);
         sunLight.lightColor = KelvinUtil.color_temperature_to_rgb(6553);
@@ -66,7 +71,7 @@ class Sample_Grass {
         {
             let grass = new Object3D();
             grassCom = grass.addComponent(GrassComponent);
-            grassCom.setGrassTexture(Engine3D.res.whiteTexture);
+            grassCom.setGrassTexture(this.engine.res.whiteTexture);
             // grassCom.setGrassTexture(grassTexture);
             grassCom.setWindNoiseTexture(gustNoiseTexture);
             grassCom.setGrass(18, 1, 5, 1, grassCount);

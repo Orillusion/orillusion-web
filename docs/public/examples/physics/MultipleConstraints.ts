@@ -10,11 +10,12 @@ import { Graphic3D } from "@orillusion/graphic";
 class Sample_MultipleConstraints {
     scene: Scene3D;
     gui: dat.GUI;
+    engine: Engine3D;
 
     async run() {
         // init physics and engine
         await Physics.init({ useSoftBody: true, useDrag: true });
-        await Engine3D.init({ renderLoop: () => Physics.update() });
+        let engine = this.engine = await Engine3D.init({ renderLoop: () => Physics.update() });
 
         this.gui = new dat.GUI();
 
@@ -30,7 +31,7 @@ class Sample_MultipleConstraints {
         })
 
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, Engine3D.aspect, 0.1, 800.0);
+        camera.perspective(60, engine.aspect, 0.1, 800.0);
         camera.object3D.addComponent(HoverCameraController).setCamera(60, -25, 50);
 
         // create directional light
@@ -50,7 +51,7 @@ class Sample_MultipleConstraints {
 
         this.physicsDebug();
 
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
         // Create ground, turntable, and chains
         this.createGround();
@@ -286,7 +287,7 @@ class Sample_MultipleConstraints {
         let meshRenderer = cloth.addComponent(MeshRenderer);
         meshRenderer.geometry = new PlaneGeometry(3, 3, 10, 10, Vector3.X_AXIS); // Set the plane direction to determine the four corners
         let material = new LitMaterial();
-        material.baseMap = Engine3D.res.redTexture;
+        material.baseMap = this.engine.res.redTexture;
         material.cullMode = GPUCullMode.none;
         meshRenderer.material = material;
         this.scene.addChild(cloth);

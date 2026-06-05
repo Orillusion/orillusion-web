@@ -8,14 +8,19 @@ class Sample_Skeleton3 {
     scene: Scene3D;
     character: Object3D;
     view: View3D;
+    engine: Engine3D;
     private Ori: dat.GUI | undefined;
 
     async run() {
-        Engine3D.setting.shadow.autoUpdate = true;
-        Engine3D.setting.shadow.updateFrameRate = 1;
-        Engine3D.setting.shadow.shadowBound = 100;
-        await Engine3D.init({
-            renderLoop: () => this.onRenderLoop()
+        this.engine = await Engine3D.init({
+            renderLoop: () => this.onRenderLoop(),
+            setting: {
+                shadow: {
+                    autoUpdate: true,
+                    updateFrameRate: 1,
+                    shadowBound: 100
+                }
+            }
         });
 
         this.scene = new Scene3D();
@@ -35,12 +40,12 @@ class Sample_Skeleton3 {
         this.view.scene = this.scene;
         this.view.camera = mainCamera;
 
-        Engine3D.startRenderView(this.view);
+        this.engine.startRenderView(this.view);
     }
 
     async initScene(scene: Scene3D) {
         {
-            let rootNode = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/glb/Soldier_draco.glb');
+            let rootNode = await this.engine.res.loadGltf('https://cdn.orillusion.com/gltfs/glb/Soldier_draco.glb');
             this.character = rootNode.getObjectByName('Character') as Object3D;
             this.character.scaleX = 0.3;
             this.character.scaleY = 0.3;

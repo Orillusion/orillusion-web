@@ -1,21 +1,21 @@
 # 资源加载
-引擎通常需要加载不同的资源文件，为了统一管理所有文件的加载和读取，我们在 `Engine3D` 里封装了统一的 `res` 资源管理器，可以方便用户加载，存储和读取各种文件资源。
+引擎通常需要加载不同的资源文件，为了统一管理所有文件的加载和读取，我们在引擎实例上封装了统一的 `res` 资源管理器，可以方便用户加载，存储和读取各种文件资源。
 
 
 ## 基本用法
 ```ts
 // 加载 2D贴图
-let texture = await Engine3D.res.loadTexture('path/to/image.png');
+let texture = await engine.res.loadTexture('path/to/image.png');
 // 加载 GLTF/GLB 模型
-let gltf = await Engine3D.res.loadGltf('path/to/model.gltf');
-let glb = await Engine3D.res.loadGltf('path/to/model.glb');
+let gltf = await engine.res.loadGltf('path/to/model.gltf');
+let glb = await engine.res.loadGltf('path/to/model.glb');
 ```
 
 ## 下载进度回调
 `res` 支持下载进度回调，我们可以配置 [LoaderFunctions](/api/types/LoaderFunctions) 用来监听文件加载事件回调，常用于 UI 加载进度提示:
 ```ts
 
-let parser = await Engine3D.res.loadGltf('/sample.gltf',{
+let parser = await engine.res.loadGltf('/sample.gltf',{
   // 可以自定义 fetch 请求头，例如加入 Authorization
   headers: {
     'Authorization': 'Bearer xxxx',
@@ -43,18 +43,18 @@ let parser = await Engine3D.res.loadGltf('/sample.gltf',{
 let brdfLUTTexture = new BitmapTexture2D();
 await brdfLUTTexture.load('PBR/BRDFLUT.png');
 // 统一存储
-Engine3D.res.addTexture('BRDFLUT', brdfLUTTexture);
+engine.res.addTexture('BRDFLUT', brdfLUTTexture);
 // 需要时取出
-let brdfLUTTexture = Engine3D.res.getTexture('BRDFLUT');
+let brdfLUTTexture = engine.res.getTexture('BRDFLUT');
 ```
 
 ## 材质球管理器
 同理，统一将各类材质球添加到材质球管理器，方便后续使用
 ```ts
 let floorMat = new LitMaterial();
-Engine3D.res.addMat('floorMat', floorMat );
+engine.res.addMat('floorMat', floorMat );
 // 需要时取出
-let floorMat = Engine3D.res.getMat('floorMat');
+let floorMat = engine.res.getMat('floorMat');
 ```
 
 ## 预设体管理器

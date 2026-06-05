@@ -4,7 +4,7 @@ import { Shape2D, ExtrudeGeometry, Path2D } from "@orillusion/geometry";
 class Sample_ExtrudeGeometry {
     scene: Scene3D
     async run() {
-        await Engine3D.init();
+        let engine = await Engine3D.init();
         let view = new View3D();
         view.scene = this.scene = new Scene3D();
         let sky = view.scene.addComponent(AtmosphericComponent);
@@ -27,7 +27,7 @@ class Sample_ExtrudeGeometry {
 
         view.scene.addChild(new GridObject(1000, 100))
 
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
         this.createShapes();
     }

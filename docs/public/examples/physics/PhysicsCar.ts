@@ -10,17 +10,23 @@ class Sample_PhysicsCar {
     private road: Object3D;
     private camera: Camera3D;
     private controller: fixedCameraController;
+    private engine: Engine3D;
 
     public score = { Score: 0 };
     async run() {
-        Engine3D.setting.shadow.autoUpdate = true;
-        Engine3D.setting.shadow.updateFrameRate = 1;
-        Engine3D.setting.shadow.shadowSize = 4000;
-        Engine3D.setting.shadow.shadowBound = 100;
-        Engine3D.setting.shadow.shadowBias = 0.002;
-
         await Physics.init();
-        await Engine3D.init({ renderLoop: () => this.loop() });
+        let engine = this.engine = await Engine3D.init({
+            renderLoop: () => this.loop(),
+            setting: {
+                shadow: {
+                    autoUpdate: true,
+                    updateFrameRate: 1,
+                    shadowSize: 4000,
+                    shadowBound: 100,
+                    shadowBias: 0.002
+                }
+            }
+        });
 
         let scene = (this.scene = new Scene3D());
         scene.addComponent(Stats);
@@ -31,7 +37,7 @@ class Sample_PhysicsCar {
 
         // init Camera3D
         let camera = (this.camera = CameraUtil.createCamera3DObject(scene));
-        camera.perspective(60, Engine3D.aspect, 1, 5000);
+        camera.perspective(60, engine.aspect, 1, 5000);
 
         // init Camera Controller
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController);
@@ -62,7 +68,7 @@ class Sample_PhysicsCar {
         view.camera = camera;
 
         await this.initScene(scene);
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
         let gui = new dat.GUI();
         let f = gui.addFolder('Orillusion');
@@ -83,14 +89,14 @@ class Sample_PhysicsCar {
     async initScene(scene: Scene3D) {
         // load a car model
         {
-            this.car = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/glb/vevhicle.glb');
+            this.car = await this.engine.res.loadGltf('https://cdn.orillusion.com/gltfs/glb/vevhicle.glb');
             this.car.y = 2;
             let collider = this.car.addComponent(ColliderComponent);
             collider.shape = new BoxColliderShape();
             collider.shape.size = BoundUtil.genMeshBounds(this.car).size.clone();
             scene.addChild(this.car);
             // add keyboard controller to the car
-            this.car.addComponent(VehicleKeyboardController);
+            this.car.addComponent(VehicleKeyboardController).engine = this.engine;
             // fix the camera to the car
             this.controller = this.camera.object3D.addComponent(fixedCameraController);
             this.controller.target = this.car;
@@ -104,7 +110,7 @@ class Sample_PhysicsCar {
             let mat = (mr.material = new LitMaterial());
             mat.roughness = 1;
             mat.metallic = 0;
-            mat.baseMap = await Engine3D.res.loadTexture('data:image/webp;base64,UklGRqAAAABXRUJQVlA4TJMAAAAvV8INER8gEEhxXGstIEmxu7qVgCTF7upWAgFCiv8qJwJXoF8wimQrDiiLCnCG0KzXL4DlRKoj+j8BtSxpW5XY2teypI3/+I//+I//+I//+I//+I//+I//+I//+I//+G8vkFO/Yzuj24P/flBy6nds0+Q//uM//uM//uM//uM//uM//uM//uM//uM//gOwL9Z0FwUA');
+            mat.baseMap = await this.engine.res.loadTexture('data:image/webp;base64,UklGRqAAAABXRUJQVlA4TJMAAAAvV8INER8gEEhxXGstIEmxu7qVgCTF7upWAgFCiv8qJwJXoF8wimQrDiiLCnCG0KzXL4DlRKoj+j8BtSxpW5XY2teypI3/+I//+I//+I//+I//+I//+I//+I//+I//+G8vkFO/Yzuj24P/flBy6nds0+Q//uM//uM//uM//uM//uM//uM//uM//uM//gOwL9Z0FwUA');
             let collider = this.road.addComponent(ColliderComponent);
             collider.shape = new BoxColliderShape();
             collider.shape.size = BoundUtil.genMeshBounds(this.road).size.clone();
@@ -159,6 +165,7 @@ enum VehicleControlType {
  * Keyboard controller for the car
  */
 class VehicleKeyboardController extends ComponentBase {
+    public engine: Engine3D;
     protected mBody: Object3D;
     protected mWheels: Object3D[];
     protected mEngineForce = 0;
@@ -231,12 +238,12 @@ class VehicleKeyboardController extends ComponentBase {
         addWheel(false, x, -y, -z, r);
     }
     onEnable() {
-        Engine3D.inputSystem.addEventListener(KeyEvent.KEY_UP, this.onKeyUp, this);
-        Engine3D.inputSystem.addEventListener(KeyEvent.KEY_DOWN, this.onKeyDown, this);
+        this.engine.inputSystem.addEventListener(KeyEvent.KEY_UP, this.onKeyUp, this);
+        this.engine.inputSystem.addEventListener(KeyEvent.KEY_DOWN, this.onKeyDown, this);
     }
     onDisable() {
-        Engine3D.inputSystem.addEventListener(KeyEvent.KEY_UP, this.onKeyUp, this);
-        Engine3D.inputSystem.addEventListener(KeyEvent.KEY_DOWN, this.onKeyDown, this);
+        this.engine.inputSystem.addEventListener(KeyEvent.KEY_UP, this.onKeyUp, this);
+        this.engine.inputSystem.addEventListener(KeyEvent.KEY_DOWN, this.onKeyDown, this);
     }
     onUpdate() {
         if (!this.mAmmoVehicle) return;

@@ -19,13 +19,13 @@ this.imageGroup = groupObj.addComponent(UIImageGroup, (count: 2));
 
 ## 设置贴图
 
-和单个 `UIImage`一样，我们首先需要通过 `Engine3D.res.loadAtlas` 来加载精灵图集，然后通过 `setSprite` 赋予图片组中指定 `index` 的 `quad` 贴图内容：
+和单个 `UIImage`一样，我们首先需要通过 `engine.res.loadAtlas` 来加载精灵图集，然后通过 `setSprite` 赋予图片组中指定 `index` 的 `quad` 贴图内容：
 
 ```ts
 // 加载 Atlas 图集素材
-await Engine3D.res.loadAtlas('atlas/UI_atlas.json');
+await engine.res.loadAtlas('atlas/UI_atlas.json');
 // 设置 0 位精灵贴图 
-imageGroup.setSprite(0, Engine3D.res.getGUISprite('logo'));
+imageGroup.setSprite(0, engine.res.getGUISprite('logo'));
 ```
 
 ## 修改图片颜色

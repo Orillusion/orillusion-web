@@ -41,15 +41,15 @@ hdrTexture = await hdrTexture.load('path/to/image.hdr');
 ```ts
 import { Engine3D } from '@orillusion/core';
 // 2D纹理
-let texture = Engine3D.res.loadTexture('path/to/image.png');
+let texture = engine.res.loadTexture('path/to/image.png');
 // HDR贴图
-let hdrTexture = Engine3D.res.loadHDRTexture('path/to/image.hdr');
+let hdrTexture = engine.res.loadHDRTexture('path/to/image.hdr');
 // 十字立方纹理
-let texture = Engine3D.res.loadTextureCube('path/to/sky.png');
+let texture = engine.res.loadTextureCube('path/to/sky.png');
 // LDR全景图
-let HDRTextureCube = Engine3D.res.loadLDRTextureCube('path/to/sky.png');
+let HDRTextureCube = engine.res.loadLDRTextureCube('path/to/sky.png');
 // HDR全景图
-let HDRTextureCube = Engine3D.res.loadHDRTextureCube('path/to/sky.hdr');
+let HDRTextureCube = engine.res.loadHDRTextureCube('path/to/sky.hdr');
 ```
 
 ### 3. 手动填写颜色数据
@@ -89,7 +89,7 @@ texture.create(16, 16, textureData, true);
 
 ```ts
 let floorMat = new LitMaterial();
-let texture = await Engine3D.res.loadTexture('path/to/image.png');
+let texture = await engine.res.loadTexture('path/to/image.png');
 floorMat.baseMap = texture;
 ```
 
@@ -107,7 +107,7 @@ floorMat.baseMap = texture;
 
 ```ts
 // 加载一张十字立方贴图
-let textureCube = Engine3D.res.loadTextureCube('path/to/crossSky.png');
+let textureCube = engine.res.loadTextureCube('path/to/crossSky.png');
 // 设置天空盒
 scene.envMap = textureCube;
 ```
@@ -133,9 +133,9 @@ await textureCube.load([
 除了 `十字立方贴图`，我们也可以通过 [Res](#_2-通过资源管理器加载) 加载全景 (equirectangular) 类型的贴图。同时支持 `RGBA` 类型的普通图片和支持 `RGBE` 格式的 `hdr` 图片：
 ```ts
 // 普通格式全景图
-let ldrTextureCube = await Engine3D.res.loadLDRTextureCube('path/to/sky.png');
+let ldrTextureCube = await engine.res.loadLDRTextureCube('path/to/sky.png');
 // 加载hdr全景贴图
-let hdrTextureCube = await Engine3D.res.loadHDRTextureCube('path/to/sky.hdr');
+let hdrTextureCube = await engine.res.loadHDRTextureCube('path/to/sky.hdr');
 ```
 
 <Demo :height="300" src="/demos/texture/hdrBox.ts"></Demo>

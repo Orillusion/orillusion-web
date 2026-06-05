@@ -17,7 +17,9 @@ class SpriteSheet {
     private index: number;
 
     private quad: GUIQuad;
-    constructor(img: UIImageGroup, index: number, keyFrames: string[], bound: BoundingBox) {
+    private engine: Engine3D;
+    constructor(engine: Engine3D, img: UIImageGroup, index: number, keyFrames: string[], bound: BoundingBox) {
+        this.engine = engine;
         this.imgGroup = img;
         this.index = index;
         this.bound = bound;
@@ -32,7 +34,7 @@ class SpriteSheet {
             let newIndex = Math.floor(this.frame * 0.1) % this.frameCount;
             if (newIndex != this.lastIndex) {
                 this.lastIndex = newIndex;
-                this.imgGroup.setSprite(this.index, Engine3D.res.getGUISprite(this.keyFrames[newIndex]));
+                this.imgGroup.setSprite(this.index, this.engine.res.getGUISprite(this.keyFrames[newIndex]));
             }
         }
 
@@ -56,10 +58,9 @@ class Sample_UIPerformance2 {
     text: UITextField;
     scene: Scene3D;
     keyFrames: string[];
+    engine: Engine3D;
 
     async run() {
-        Engine3D.setting.shadow.autoUpdate = true;
-
         GUIConfig.quadMaxCountForView = 5001;
 
         this.spriteSheets = [];
@@ -73,10 +74,15 @@ class Sample_UIPerformance2 {
         await Engine3D.init({
             renderLoop: () => {
                 this.renderUpdate();
+            },
+            setting: {
+                shadow: {
+                    autoUpdate: true
+                }
             }
         });
         // initializa engine
-        await Engine3D.init();
+        this.engine = await Engine3D.init();
         // create new scene as root node
         let scene3D: Scene3D = new Scene3D();
         scene3D.addComponent(AtmosphericComponent);
@@ -84,7 +90,7 @@ class Sample_UIPerformance2 {
         let cameraObj: Object3D = new Object3D();
         let camera = cameraObj.addComponent(Camera3D);
         // adjust camera view
-        camera.perspective(60, Engine3D.aspect, 1, 5000.0);
+        camera.perspective(60, this.engine.aspect, 1, 5000.0);
         // set camera controller
         let controller = cameraObj.addComponent(HoverCameraController);
         controller.setCamera(0, -20, 30);
@@ -95,13 +101,13 @@ class Sample_UIPerformance2 {
         let view = new View3D();
         view.scene = scene3D;
         view.camera = camera;
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
 
         this.scene.addComponent(Stats);
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
 
-        await Engine3D.res.loadAtlas('https://cdn.orillusion.com/atlas/Sheet_atlas.json');
-        await Engine3D.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt');
+        await this.engine.res.loadAtlas('https://cdn.orillusion.com/atlas/Sheet_atlas.json');
+        await this.engine.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt');
 
         this.text = this.createText();
         let GUIHelp = new dat.GUI();
@@ -159,8 +165,8 @@ class Sample_UIPerformance2 {
     spriteSheets: SpriteSheet[];
 
     private createSpriteSheets(root: Object3D) {
-        let width = Engine3D.width;
-        let height = Engine3D.height;
+        let width = this.engine.width;
+        let height = this.engine.height;
         let bound = new BoundingBox(new Vector3(0, 0, 0), new Vector3(width, height));
         //color
         let color: Color = Color.random();
@@ -170,7 +176,7 @@ class Sample_UIPerformance2 {
         color.g = clamp(color.g * 1.5, 0.5, 1);
         color.b = clamp(color.b * 1.5, 0.5, 1);
 
-        let sprite = Engine3D.res.getGUISprite('00065');
+        let sprite = this.engine.res.getGUISprite('00065');
 
         let size = 64;
         let halfSize = size * 0.5;
@@ -180,7 +186,7 @@ class Sample_UIPerformance2 {
             imgGroup.setSprite(i, sprite);
             imgGroup.setSize(i, size, size);
             imgGroup.setXY(i, (Math.random() - 0.5) * width * 0.7 - halfSize, (Math.random() - 0.5) * height * 0.7 - halfSize);
-            let sheet: SpriteSheet = new SpriteSheet(imgGroup, i, this.keyFrames, bound);
+            let sheet: SpriteSheet = new SpriteSheet(this.engine, imgGroup, i, this.keyFrames, bound);
             this.spriteSheets.push(sheet);
         }
 

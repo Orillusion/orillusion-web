@@ -4,17 +4,15 @@ import dat from 'dat.gui';
 class Sample_PBRMaterial {
     lightObj3D: Object3D;
     scene: Scene3D;
+    engine: Engine3D;
 
     async run() {
         //config settings
-        Engine3D.setting.shadow.shadowBound = 50;
-        Engine3D.setting.shadow.shadowBias = 0.02;
-
-        await Engine3D.init({ canvasConfig: { alpha: true, backgroundImage: 'https://cdn.orillusion.com/logo/bg.webp' } });
+        this.engine = await Engine3D.init({ canvasConfig: { alpha: true, backgroundImage: 'https://cdn.orillusion.com/logo/bg.webp' }, setting: { shadow: { shadowBound: 50, shadowBias: 0.02 } } });
 
         this.scene = new Scene3D();
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, Engine3D.aspect, 0.01, 5000.0);
+        camera.perspective(60, this.engine.aspect, 0.01, 5000.0);
 
         camera.object3D.addComponent(HoverCameraController).setCamera(-25, -5, 30);
 
@@ -22,7 +20,7 @@ class Sample_PBRMaterial {
         view.scene = this.scene;
         view.camera = camera;
 
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
         await this.initScene();
     }
 
@@ -60,7 +58,7 @@ class Sample_PBRMaterial {
         }
 
         {
-            let model = (await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/wukong/wukong.gltf', {})) as Object3D;
+            let model = (await this.engine.res.loadGltf('https://cdn.orillusion.com/gltfs/wukong/wukong.gltf', {})) as Object3D;
             let renderList = model.getComponentsInChild(MeshRenderer);
             for (const item of renderList) {
                 let material = item.material;

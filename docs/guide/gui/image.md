@@ -24,19 +24,19 @@ this.image.uiTransform.resize(400, 60);
 this.image.uiTransform.y = 100;
 
 // 加载 Atlas 图集素材
-await Engine3D.res.loadAtlas('atlas/UI_atlas.json');
-this.image.sprite = Engine3D.res.getGUISprite('logo');
+await engine.res.loadAtlas('atlas/UI_atlas.json');
+this.image.sprite = engine.res.getGUISprite('logo');
 ```
 
 ## 加载图集
 
-`Atlas` 封装了一组位图图片对象，我们可以通过 `Engine3D.res.loadAtlas` 加载全部图集，然后通过 `Engine3D.res.getGUISprite` 获取其中某一个元素图片，赋予组件进行渲染。
+`Atlas` 封装了一组位图图片对象，我们可以通过 `engine.res.loadAtlas` 加载全部图集，然后通过 `engine.res.getGUISprite` 获取其中某一个元素图片，赋予组件进行渲染。
 
 ```ts
 // 加载 Atlas 图集素材
-await Engine3D.res.loadAtlas('atlas/UI_atlas.json');
+await engine.res.loadAtlas('atlas/UI_atlas.json');
 // 在 UI_atlas.json 定义了 logo 素材
-image.sprite = Engine3D.res.getGUISprite('logo');
+image.sprite = engine.res.getGUISprite('logo');
 ```
 
 ## 加载单个图片

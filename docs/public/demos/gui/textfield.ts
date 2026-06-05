@@ -1,7 +1,7 @@
 import { Engine3D, Scene3D, Object3D, Camera3D, View3D, ViewPanel, TextAnchor, UITextField, DirectLight, HoverCameraController, Color, AtmosphericComponent, WorldPanel, GPUCullMode, UIPanel } from '@orillusion/core';
 
 // initializa engine
-await Engine3D.init();
+let engine = await Engine3D.init();
 // create new scene as root node
 let scene3D: Scene3D = new Scene3D();
 scene3D.addComponent(AtmosphericComponent);
@@ -9,7 +9,7 @@ scene3D.addComponent(AtmosphericComponent);
 let cameraObj: Object3D = new Object3D();
 let camera = cameraObj.addComponent(Camera3D);
 // adjust camera view
-camera.perspective(60, Engine3D.aspect, 1, 5000.0);
+camera.perspective(60, engine.aspect, 1, 5000.0);
 // set camera controller
 let controller = cameraObj.addComponent(HoverCameraController);
 controller.setCamera(0, -20, 30);
@@ -30,7 +30,7 @@ scene3D.addChild(light);
 let view = new View3D();
 view.scene = scene3D;
 view.camera = camera;
-Engine3D.startRenderView(view);
+engine.startRenderView(view);
 
 // create UIpanel root
 let panelRoot: Object3D = new Object3D();
@@ -41,7 +41,7 @@ let canvas = view.enableUICanvas();
 canvas.addChild(panelRoot);
 
 // load base font
-await Engine3D.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt');
+await engine.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt');
 // create text node
 let textQuad = new Object3D();
 textQuad.localScale.set(0.1, 0.1, 0.1);

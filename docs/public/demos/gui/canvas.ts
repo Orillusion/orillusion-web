@@ -2,12 +2,16 @@ import { Engine3D, Object3D, UIImage, ImageType, Color, UIPanel, ViewPanel, Scen
 
 class Sample_UIMultiCanvas {
     async run() {
-        Engine3D.setting.shadow.autoUpdate = true;
-
         // initializa engine
-        await Engine3D.init();
+        let engine = await Engine3D.init({
+            setting: {
+                shadow: {
+                    autoUpdate: true
+                }
+            }
+        });
         // load fnt
-        await Engine3D.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt');
+        await engine.res.loadFont('https://cdn.orillusion.com/fnt/0.fnt');
         // create new scene as root node
         let scene3D: Scene3D = new Scene3D();
         scene3D.addComponent(AtmosphericComponent);
@@ -15,7 +19,7 @@ class Sample_UIMultiCanvas {
         let cameraObj: Object3D = new Object3D();
         let camera = cameraObj.addComponent(Camera3D);
         // adjust camera view
-        camera.perspective(60, Engine3D.aspect, 1, 5000.0);
+        camera.perspective(60, engine.aspect, 1, 5000.0);
         // set camera controller
         let controller = cameraObj.addComponent(HoverCameraController);
         controller.setCamera(0, -20, 50);
@@ -25,7 +29,7 @@ class Sample_UIMultiCanvas {
         let view = new View3D();
         view.scene = scene3D;
         view.camera = camera;
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
         let total: number = 4;
         for (let i = 0; i < total; i++) {

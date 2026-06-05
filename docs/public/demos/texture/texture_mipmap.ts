@@ -1,13 +1,13 @@
 import { Engine3D, Scene3D, Object3D, Camera3D, AtmosphericComponent, View3D, UnLitMaterial, MeshRenderer, PlaneGeometry, BitmapTexture2D, Vector4, OrbitController, DirectLight, Color } from '@orillusion/core';
 
-await Engine3D.init();
+let engine = await Engine3D.init();
 let scene = new Scene3D();
 let camera = new Object3D();
 camera.y = 10;
 camera.z = 30;
 scene.addChild(camera);
 let mainCamera = camera.addComponent(Camera3D);
-mainCamera.perspective(60, Engine3D.aspect, 0.1, 10000.0);
+mainCamera.perspective(60, engine.aspect, 0.1, 10000.0);
 let oribit = camera.addComponent(OrbitController);
 oribit.autoRotate = true;
 
@@ -26,7 +26,7 @@ let view = new View3D();
 view.scene = scene;
 view.camera = mainCamera;
 // start render
-Engine3D.startRenderView(view);
+engine.startRenderView(view);
 
 const imageCanvas = document.createElement('canvas');
 const context = imageCanvas.getContext('2d') as CanvasRenderingContext2D;
