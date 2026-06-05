@@ -4,8 +4,8 @@
 
 相比过去把渲染步骤硬编码在固定管线里，RenderGraph 让渲染管线变得**可组合、可扩展、可调试**：你可以往默认管线里插入一个自定义 Pass，可以裁剪出一条最小管线，也可以在不重启引擎的情况下热替换某个渲染步骤。
 
-::: tip 版本与开关
-RenderGraph 需要 `@orillusion/core` **0.9.0 及以上**版本，并默认启用（`engine.setting.render.useFrameGraph = true`）。本文示例均改写自引擎官方示例 `Sample_CustomRendererJob` 与 `Sample_PassOrderControl`。
+::: tip 版本说明
+RenderGraph 需要 `@orillusion/core` **0.9.0 及以上**版本，是该版本默认且唯一的渲染管线，无需任何开关即可使用。本文示例均改写自引擎官方示例 `Sample_CustomRendererJob` 与 `Sample_PassOrderControl`。
 :::
 
 ## 什么是 RenderGraph

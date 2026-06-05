@@ -450,6 +450,10 @@ function sidebarGuide(): SidebarItem {
                     link: '/guide/advanced/rendergraph.md'
                 },
                 {
+                    text: '大世界渲染（RTE）',
+                    link: '/guide/advanced/rte.md'
+                },
+                {
                     text: '后处理特效',
                     link: '/guide/advanced/posteffect.md',
                     items: [
