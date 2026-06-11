@@ -385,16 +385,12 @@ function sidebarGuide(): SidebarItem {
             ]
         },
         {
-            text: '用户界面',
+            text: '精灵 (Sprite)',
             collapsible: true,
             items: [
-                { text: '简介', link: '/guide/gui/Readme.md' },
-                { text: '图片', link: '/guide/gui/image.md' },
-                { text: '图片组', link: '/guide/gui/imageGroup.md' },
-                { text: '文本', link: '/guide/gui/textfield.md' },
-                { text: '按钮', link: '/guide/gui/button.md' },
-                { text: '投影', link: '/guide/gui/shadow.md' },
-                { text: '多面板示例', link: '/guide/gui/demo.md' }
+                { text: '简介与基础', link: '/guide/sprite/Readme.md' },
+                { text: '公告板与距离恒定', link: '/guide/sprite/billboard.md' },
+                { text: '图集与批量渲染', link: '/guide/sprite/atlas.md' }
             ]
         },
         {
@@ -562,7 +558,6 @@ function sidebarExample(root: string = '') {
         Base: [],
         Animation: [],
         Graphic: [],
-        GUI: [],
         Geometry: [],
         Material: [],
         Benchmark: [],
