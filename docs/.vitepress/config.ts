@@ -356,6 +356,18 @@ function sidebarGuide(): SidebarItem {
             ]
         },
         {
+            text: '物理 (Rapier)',
+            collapsible: true,
+            items: [
+                { text: '物理总览', link: '/guide/physics-rapier/Readme.md' },
+                { text: '刚体与碰撞形状', link: '/guide/physics-rapier/rigidbody.md' },
+                { text: '关节', link: '/guide/physics-rapier/joint.md' },
+                { text: '触发器与事件', link: '/guide/physics-rapier/events.md' },
+                { text: '物理查询', link: '/guide/physics-rapier/query.md' },
+                { text: '角色与载具', link: '/guide/physics-rapier/character_vehicle.md' }
+            ]
+        },
+        {
             text: '交互',
             collapsible: true,
             items: [
