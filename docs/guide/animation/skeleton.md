@@ -135,6 +135,11 @@ animation.playAnim('death');
 ``` -->
 
 ## 动画过渡
+
+::: warning 旧版写法（用于融合时已弃用）
+通过 `crossFade` / 手动调整 `clipsState[].weight` 来实现多动画融合是**旧版写法**。新项目的动画融合请改用下文的 [动画分层与融合（addLayer）](#动画分层与融合)。`crossFade` 本身仍可用于基础层（base layer）的单轨过渡。
+:::
+
 可以使用 [crossFade](/api/classes/AnimatorComponent#crossFade) 方法来使当前动画过渡到指定状态。第一个参数为要过渡到的动画状态名称，第二个参数为过渡时间`(秒)`。
 ```ts
 // 播放走路动画
@@ -146,6 +151,76 @@ animation.crossFade('Run', 1.0);
 <Demo :height="500" src="/demos/animation/animationSingleMix.ts"></Demo>
 
 <<< @/public/demos/animation/animationSingleMix.ts
+
+## 动画分层与融合
+
+::: tip 版本说明
+动画分层（`AnimationLayer` / `AnimatorComponent.addLayer`）在 `@orillusion/core` **0.9.0** 引入，是多动画融合的推荐方式，取代了旧版手动调整 `clipsState` 权重的做法。
+:::
+
+新版本通过**分层（Layer）**机制融合动画：**基础层（layer 0）**由 `playAnim` / `crossFade` 驱动；在其之上可以叠加任意多个 `AnimationLayer`，每层独立播放一个动画、用 `weight` 控制混入程度，并可用 `BoneMask` 限制只影响部分骨骼（如只动上半身）。
+
+### 创建并添加分层
+
+`new AnimationLayer(name, weight, blendMode, mask)`：
+
+| 参数 | 类型 | 说明 |
+| --- | --- | --- |
+| `name` | `string` | 层名称（唯一） |
+| `weight` | `number` | 混合权重 `0~1` |
+| `blendMode` | `LayerBlendMode` | 混合模式：`Override`（向该层姿势插值）或 `Additive`（在基础姿势上叠加差量） |
+| `mask` | `BoneMask \| null` | 骨骼遮罩，`null` 表示全身 |
+
+```ts
+import { AnimatorComponent, AnimationLayer, LayerBlendMode } from '@orillusion/core';
+
+const animator = model.getComponentsInChild(AnimatorComponent)[0];
+
+// 基础层：正常播放行走
+animator.playAnim('Walk');
+
+// 叠加一个 Additive 层（例如“受击抖动”），权重 0.6，全身
+const layer = new AnimationLayer('hit', 0.6, LayerBlendMode.Additive, null);
+layer.clipName = 'HitReact';   // 该层播放的动画
+animator.addLayer(layer);
+
+// 运行时调整该层权重（淡入/淡出）
+animator.setLayerWeight('hit', 0.3);
+```
+
+### 混合模式
+
+| 模式 | 公式 | 用途 |
+| --- | --- | --- |
+| `LayerBlendMode.Override` | `lerp(base, layer, weight)` | 用该层姿势覆盖基础姿势（按权重插值），如切换上半身动作 |
+| `LayerBlendMode.Additive` | `base + (layer - rest) * weight` | 在基础姿势上叠加差量动作，如呼吸、瞄准偏移、受击 |
+
+### 骨骼遮罩（BoneMask）
+
+用 `BoneMask` 限制分层只作用于部分骨骼，例如让上半身播放“挥手”、下半身继续“行走”：
+
+```ts
+import { BoneMask } from '@orillusion/core';
+
+const upperBody = new BoneMask();
+upperBody.add('Spine').add('Chest').add('LeftArm').add('RightArm');
+// 或按子树批量添加：upperBody.addSubtree(avatar, 'Spine');
+
+const waveLayer = new AnimationLayer('wave', 1.0, LayerBlendMode.Override, upperBody);
+waveLayer.clipName = 'Wave';
+animator.addLayer(waveLayer);
+```
+
+### 分层管理 API
+
+| 方法 | 说明 |
+| --- | --- |
+| `addLayer(layer)` | 添加一个分层，返回该层 |
+| `getLayer(name)` | 按名称获取分层 |
+| `removeLayer(name)` | 移除分层 |
+| `setLayerWeight(name, weight)` | 设置某层权重 |
+| `setLayerClip(name, clipName, time?, timeScale?)` | 设置某层播放的动画 |
+| `layers` | 只读，当前所有分层 |
 <!--  
 ## 动画事件
 可以通过 `SkeletonAnimationClip` 上的 `addEvent` 方法为 `clip` 添加事件点，该方法接受两个参数，第一个为事件名称，第二个为触发时刻(秒)，当 `clip` 动画播放到指定时刻时，将触发事件：
