@@ -16,7 +16,7 @@
 在实时着色的阶段，除了计算直接光源的颜色和强度，还会根据着色单元所处的世界坐标，找到对应的探针组，使用三线性插值获得该区域周围的间接光源信息。
 
 ## 使用方法
-和其它组件用法一样，只要在场景中添加 [GlobalIlluminationComponent](/api/classes/GlobalIlluminationComponent) 即可打开全局光照
+只要添加 [GlobalIlluminationComponent](/api/classes/GlobalIlluminationComponent) 即可打开全局光照。注意：添加该组件时需将其所在的 `scene` 作为 `addComponent` 的第二个参数显式传入。
 
 ```ts
 //初始化引擎
@@ -41,14 +41,14 @@ let camera = new Object3D()
 let mainCamera = camera.addComponent(Camera3D)
 scene.addChild(camera)
 
-// 初始化全局光照组件
+// 初始化全局光照组件（需显式传入所在的 scene）
 let probeObj = new Object3D();
-probeObj.addComponent(GlobalIlluminationComponent);
-this.scene.addChild(probeObj);
+probeObj.addComponent(GlobalIlluminationComponent, scene);
+scene.addChild(probeObj);
 
 // 渲染场景
 let view = new View3D()
-view.scene = this.scene
+view.scene = scene
 view.camera = mainCamera
 engine.startRenderView(view)
 ```
