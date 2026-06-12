@@ -1,5 +1,5 @@
 
-import { AnimatorComponent, AtmosphericComponent, CameraUtil, ClusterLightingBuffer, Color, ComputeGPUBuffer, ComputeShader, DirectLight, Engine3D, GlobalBindGroup, GPUContext, HoverCameraController, Material, MeshRenderer, Object3D, PassType, PlaneGeometry, RendererMask, RendererPassState, RenderShaderPass, Scene3D, Shader, ShaderLib, SkinnedMeshRenderer2, Texture, Time, Vector3, Vector4, VertexAttributeData, VertexAttributeName, View3D, webGPUContext } from "@orillusion/core";
+import { AnimatorComponent, AtmosphericComponent, CameraUtil, ClusterLightingBuffer, Color, ComputeGPUBuffer, ComputeShader, DirectLight, Engine3D, GlobalBindGroup, GPUContext, HoverCameraController, Material, MeshRenderer, Object3D, PassType, PlaneGeometry, RendererMask, RendererPassState, RenderShaderPass, Scene3D, Shader, ShaderLib, SkinnedMeshRenderer2, Texture, Time, Vector3, Vector4, VertexAttributeData, VertexAttributeName, View3D } from "@orillusion/core";
 
 class Demo_Flame {
     constructor() { }
@@ -17,7 +17,7 @@ class Demo_Flame {
 
         let camera = CameraUtil.createCamera3DObject(scene);
 
-        camera.perspective(60, webGPUContext.aspect, 0.01, 10000.0);
+        camera.perspective(60, this.engine.aspect, 0.01, 10000.0);
         let ctl = camera.object3D.addComponent(HoverCameraController);
         ctl.setCamera(0, 0, 5);
 
@@ -86,7 +86,7 @@ class FlameSimulatorBuffer {
     }
 
     protected initGPUBuffer(config: FlameSimulatorConfig) {
-        let device = webGPUContext.device;
+        let device = this.engine.device;
 
         const { NUM, SPAWN_RADIUS, BASE_LIFETIME, MAX_ADDITIONAL_LIFETIME, NUMBER_OF_BONES } = config;
 

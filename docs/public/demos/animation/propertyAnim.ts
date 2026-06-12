@@ -1,4 +1,4 @@
-import { DirectLight, Engine3D, AtmosphericComponent, View3D, HoverCameraController, KelvinUtil, Object3D, Scene3D, CameraUtil, webGPUContext, PropertyAnimation, PropertyAnimClip, WrapMode } from '@orillusion/core';
+import { DirectLight, Engine3D, AtmosphericComponent, View3D, HoverCameraController, KelvinUtil, Object3D, Scene3D, CameraUtil, PropertyAnimation, PropertyAnimClip, WrapMode } from '@orillusion/core';
 import * as dat from 'dat.gui';
 
 class Sample_PropertyAnim {
@@ -14,7 +14,7 @@ class Sample_PropertyAnim {
 
         this.scene = new Scene3D();
         let camera = CameraUtil.createCamera3DObject(this.scene, 'camera');
-        camera.perspective(60, webGPUContext.aspect, 1, 2000.0);
+        camera.perspective(60, this.engine.aspect, 1, 2000.0);
         let ctrl = camera.object3D.addComponent(HoverCameraController);
         ctrl.setCamera(180, -20, 15);
 

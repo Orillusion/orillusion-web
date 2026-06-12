@@ -1,4 +1,4 @@
-import { Engine3D, View3D, Scene3D, CameraUtil, AtmosphericComponent, webGPUContext, HoverCameraController, Object3D, DirectLight, KelvinUtil, LitMaterial, MeshRenderer, Vector3, PostProcessingComponent, BitmapTexture2D, GlobalFog, Color } from '@orillusion/core';
+import { Engine3D, View3D, Scene3D, CameraUtil, AtmosphericComponent, HoverCameraController, Object3D, DirectLight, KelvinUtil, LitMaterial, MeshRenderer, Vector3, PostProcessingComponent, BitmapTexture2D, GlobalFog, Color } from '@orillusion/core';
 import { GrassComponent, TerrainGeometry } from '@orillusion/effect';
 import { Stats } from '@orillusion/stats';
 import dat from 'dat.gui';
@@ -26,7 +26,7 @@ class Sample_Grass {
 
         this.view.camera = CameraUtil.createCamera3DObject(this.view.scene);
         this.view.camera.enableCSM = true;
-        this.view.camera.perspective(60, webGPUContext.aspect, 1, 5000.0);
+        this.view.camera.perspective(60, this.engine.aspect, 1, 5000.0);
         this.view.camera.object3D.addComponent(HoverCameraController).setCamera(35, -20, 500);
 
         this.engine.startRenderView(this.view);

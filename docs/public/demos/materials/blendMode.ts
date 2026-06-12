@@ -1,4 +1,4 @@
-import { BlendMode, Camera3D, CameraUtil, Color, BloomPost, DirectLight, Engine3D, GPUCullMode, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, UnLitMaterial, webGPUContext, AtmosphericComponent, View3D, PostProcessingComponent } from '@orillusion/core';
+import { BlendMode, Camera3D, CameraUtil, Color, BloomPost, DirectLight, Engine3D, GPUCullMode, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, UnLitMaterial, AtmosphericComponent, View3D, PostProcessingComponent } from '@orillusion/core';
 
 class Sample_BlendMode {
     lightObj: Object3D;
@@ -19,7 +19,7 @@ class Sample_BlendMode {
         this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
 
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, webGPUContext.aspect, 0.01, 5000.0);
+        camera.perspective(60, this.engine.aspect, 0.01, 5000.0);
 
         this.hover = camera.object3D.addComponent(HoverCameraController);
         this.hover.setCamera(0, 0, 100);

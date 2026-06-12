@@ -38,7 +38,9 @@ class Sample_dofSpringConstraint {
         // Create directional light
         let lightObj3D = new Object3D();
         lightObj3D.localRotation = new Vector3(36, -130, 60);
-        lightObj3D.addComponent(DirectLight).castShadow = true;
+        let light = lightObj3D.addComponent(DirectLight);
+        light.castShadow = true;
+        light.enableCSM = true;
         scene.addChild(lightObj3D);
 
         // Initialize sky
@@ -58,7 +60,7 @@ class Sample_dofSpringConstraint {
 
     //Create the ground plane.
     private async createGround() {
-        let ground = Object3DUtil.GetPlane(this.engine.res.whiteTexture);
+        let ground = Object3DUtil.GetPlane(this.engine.context3D, this.engine.res.whiteTexture);
         ground.scaleX = 50;
         ground.scaleZ = 50;
         this.scene.addChild(ground);

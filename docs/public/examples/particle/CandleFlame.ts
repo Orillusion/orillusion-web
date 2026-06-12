@@ -1,6 +1,6 @@
 import dat from 'dat.gui';
 import { Stats } from '@orillusion/stats';
-import { AtmosphericComponent, BoxGeometry, CameraUtil, Color, Engine3D, HoverCameraController, LitMaterial, MeshRenderer, Object3D, PlaneGeometry, PointLight, Scene3D, SphereGeometry, Vector3, View3D, webGPUContext, Camera3D, Time, DEGREES_TO_RADIANS } from '@orillusion/core';
+import { AtmosphericComponent, BoxGeometry, CameraUtil, Color, Engine3D, HoverCameraController, LitMaterial, MeshRenderer, Object3D, PlaneGeometry, PointLight, Scene3D, SphereGeometry, Vector3, View3D, Camera3D, Time, DEGREES_TO_RADIANS } from '@orillusion/core';
 import { ParticleSystem, ParticleMaterial, ParticleStandardSimulator, EmitLocation, ParticleEmitterModule, ParticleGravityModifierModule, ParticleOverLifeColorModule, ShapeType, SimulatorSpace } from '@orillusion/particle';
 
 class Sample_CandleFlame {
@@ -13,7 +13,7 @@ class Sample_CandleFlame {
         let sky = scene.addComponent(AtmosphericComponent);
         let camera = CameraUtil.createCamera3DObject(scene);
         scene.addComponent(Stats);
-        camera.perspective(60, webGPUContext.aspect, 0.1, 5000.0);
+        camera.perspective(60, this.engine.aspect, 0.1, 5000.0);
 
         let ctrl = camera.object3D.addComponent(HoverCameraController);
         ctrl.setCamera(45, -20, 65, new Vector3(0, 15, 51));

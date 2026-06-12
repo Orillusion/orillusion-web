@@ -1,4 +1,4 @@
-import { SkinnedMeshRenderer2, AtmosphericComponent, CameraUtil, DirectLight, Engine3D, HoverCameraController, KelvinUtil, Matrix4, MeshRenderer, MorphTargetBlender, Object3D, PlaneGeometry, Quaternion, Scene3D, Vector3, View3D, webGPUContext } from '@orillusion/core';
+import { SkinnedMeshRenderer2, AtmosphericComponent, CameraUtil, DirectLight, Engine3D, HoverCameraController, KelvinUtil, Matrix4, MeshRenderer, MorphTargetBlender, Object3D, PlaneGeometry, Quaternion, Scene3D, Vector3, View3D } from '@orillusion/core';
 import { Stats } from '@orillusion/stats';
 import dat from 'dat.gui';
 // @ts-ignore, import es from url
@@ -38,7 +38,7 @@ class Sample_MorphTarget {
         let sky = this.scene.addComponent(AtmosphericComponent);
 
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, webGPUContext.aspect, 1, 5000.0);
+        camera.perspective(60, this.engine.aspect, 1, 5000.0);
         camera.object3D.addComponent(HoverCameraController).setCamera(0, 0, 150);
 
         this.initDirectLight();

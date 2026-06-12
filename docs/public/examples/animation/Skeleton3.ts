@@ -1,4 +1,4 @@
-import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, webGPUContext, HoverCameraController, View3D, SkeletonAnimationComponent, LitMaterial, MeshRenderer, BoxGeometry, DirectLight, KelvinUtil, Time, Object3DUtil, BoundingBox, SkinnedMeshRenderer, AnimatorComponent } from '@orillusion/core';
+import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, SkeletonAnimationComponent, LitMaterial, MeshRenderer, BoxGeometry, DirectLight, KelvinUtil, Time, Object3DUtil, BoundingBox, SkinnedMeshRenderer, AnimatorComponent } from '@orillusion/core';
 import dat from 'dat.gui';
 import { Stats } from '@orillusion/stats';
 
@@ -28,7 +28,7 @@ class Sample_Skeleton3 {
         let sky = this.scene.addComponent(AtmosphericComponent);
 
         let mainCamera = CameraUtil.createCamera3DObject(this.scene);
-        mainCamera.perspective(60, webGPUContext.aspect, 1, 3000.0);
+        mainCamera.perspective(60, this.engine.aspect, 1, 3000.0);
 
         let ctrl = mainCamera.object3D.addComponent(HoverCameraController);
         ctrl.setCamera(45, -30, 150);

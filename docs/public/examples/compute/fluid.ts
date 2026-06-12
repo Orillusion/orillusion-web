@@ -1,4 +1,4 @@
-import { CameraUtil, clamp, ClusterLightingBuffer, ColliderComponent, Color, ComputeGPUBuffer, ComputeShader, Engine3D, HoverCameraController, Material, MeshRenderer, Object3D, PassType, PlaneGeometry, PointerEvent3D, RendererMask, RendererPassState, RenderShaderPass, Scene3D, Shader, ShaderLib, Texture, Time, Vector3, Vector4, View3D, webGPUContext } from '@orillusion/core';
+import { CameraUtil, clamp, ClusterLightingBuffer, ColliderComponent, Color, ComputeGPUBuffer, ComputeShader, Engine3D, HoverCameraController, Material, MeshRenderer, Object3D, PassType, PlaneGeometry, PointerEvent3D, RendererMask, RendererPassState, RenderShaderPass, Scene3D, Shader, ShaderLib, Texture, Time, Vector3, Vector4, View3D } from '@orillusion/core';
 import * as dat from 'dat.gui'
 
 class Demo_FluidOptimize {
@@ -27,7 +27,7 @@ class Demo_FluidOptimize {
 
         let camera = CameraUtil.createCamera3DObject(scene);
 
-        camera.perspective(60, webGPUContext.aspect, 0.01, 10000.0);
+        camera.perspective(60, this.engine.aspect, 0.01, 10000.0);
         let ctl = camera.object3D.addComponent(HoverCameraController);
         ctl.setCamera(-45, -30, 50, new Vector3(15, 0, 10));
 
@@ -164,7 +164,7 @@ class FluidEmulation extends MeshRenderer {
         this.mConfig.maxDensity = this.mConfig.NUM / (this.mConfig.XMAX - this.mConfig.XMIN) / (this.mConfig.YMAX - this.mConfig.YMIN) / (this.mConfig.ZMAX - this.mConfig.ZMIN);
 
         this.mFluidComputePipeline = new FluidSimulatorPipeline(this.mConfig);
-        let device = webGPUContext.device;
+        let device = this.engine.device;
         const { NUM } = this.mConfig;
 
         const modelView = new Float32Array(16 * NUM);

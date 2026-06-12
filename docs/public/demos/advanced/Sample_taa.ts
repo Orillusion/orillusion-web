@@ -1,4 +1,4 @@
-import { View3D, DirectLight, Engine3D, PostProcessingComponent, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, SphereGeometry, CameraUtil, webGPUContext, BoxGeometry, TAAPost, AtmosphericComponent } from '@orillusion/core';
+import { View3D, DirectLight, Engine3D, PostProcessingComponent, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, SphereGeometry, CameraUtil, BoxGeometry, TAAPost, AtmosphericComponent } from '@orillusion/core';
 import * as dat from 'dat.gui';
 
 class Sample_TAA {
@@ -24,7 +24,7 @@ class Sample_TAA {
         this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
 
         let mainCamera = CameraUtil.createCamera3DObject(this.scene, 'camera');
-        mainCamera.perspective(60, webGPUContext.aspect, 1, 5000.0);
+        mainCamera.perspective(60, engine.aspect, 1, 5000.0);
         let ctrl = mainCamera.object3D.addComponent(HoverCameraController);
         ctrl.setCamera(0, -15, 30);
         await this.initScene();

@@ -1,4 +1,4 @@
-import { Engine3D, View3D, Scene3D, CameraUtil, AtmosphericComponent, webGPUContext, HoverCameraController, Object3D, DirectLight, KelvinUtil, LitMaterial, MeshRenderer, PostProcessingComponent, BitmapTexture2D, GlobalFog, Color } from '@orillusion/core';
+import { Engine3D, View3D, Scene3D, CameraUtil, AtmosphericComponent, HoverCameraController, Object3D, DirectLight, KelvinUtil, LitMaterial, MeshRenderer, PostProcessingComponent, BitmapTexture2D, GlobalFog, Color } from '@orillusion/core';
 import { TerrainGeometry } from '@orillusion/effect';
 import { Stats } from '@orillusion/stats';
 
@@ -25,7 +25,7 @@ class Sample_Terrain {
         this.view.scene.addComponent(Stats);
 
         this.view.camera = CameraUtil.createCamera3DObject(this.view.scene);
-        this.view.camera.perspective(60, webGPUContext.aspect, 1, 50000.0);
+        this.view.camera.perspective(60, this.engine.aspect, 1, 50000.0);
         this.view.camera.object3D.z = -15;
         this.view.camera.object3D.addComponent(HoverCameraController).setCamera(35, -20, 10000);
 

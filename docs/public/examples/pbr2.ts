@@ -1,4 +1,4 @@
-import { Camera3D, OrbitController, DirectLight, Engine3D, View3D, PostProcessingComponent, BloomPost, KelvinUtil, Object3D, Scene3D, GTAOPost, webGPUContext, AtmosphericComponent } from '@orillusion/core';
+import { Camera3D, OrbitController, DirectLight, Engine3D, View3D, PostProcessingComponent, BloomPost, KelvinUtil, Object3D, Scene3D, GTAOPost, AtmosphericComponent } from '@orillusion/core';
 
 class Sample_FlightHelmet {
     lightObj: Object3D;
@@ -25,7 +25,7 @@ class Sample_FlightHelmet {
         camera.z = 20;
         this.scene.addChild(camera);
         let mainCamera = camera.addComponent(Camera3D);
-        mainCamera.perspective(60, webGPUContext.aspect, 0.01, 5000.0);
+        mainCamera.perspective(60, this.engine.aspect, 0.01, 5000.0);
         let orbit = camera.addComponent(OrbitController);
         orbit.minDistance = 10;
         orbit.maxDistance = 30;

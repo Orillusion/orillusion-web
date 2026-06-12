@@ -19,7 +19,7 @@ urls.push('https://cdn.orillusion.com/textures/cubemap/skybox_py.png');
 urls.push('https://cdn.orillusion.com/textures/cubemap/skybox_ny.png');
 urls.push('https://cdn.orillusion.com/textures/cubemap/skybox_nz.png');
 urls.push('https://cdn.orillusion.com/textures/cubemap/skybox_pz.png');
-await evnMap.load(urls);
+await evnMap.load(urls, engine.context3D);
 
 let sky = scene.addComponent(SkyRenderer);
 sky.map = evnMap;

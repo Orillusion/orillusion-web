@@ -80,7 +80,7 @@ class Sample_GraphicMesh {
             for (let i = 0; i < len; i++) {
                 const element = this.parts[i];
                 let tmp = this.sphericalFibonacci(i, len);
-                tmp.scaleBy(Math.sin(i + Time.frame * 0.01) * this.cafe);
+                tmp.multiplyScalar(Math.sin(i + Time.frame * 0.01) * this.cafe);
                 element.transform.localPosition = tmp;
             }
         }

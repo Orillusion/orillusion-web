@@ -102,7 +102,7 @@ class Sample_GICornellBox {
         this.Ori = gui.addFolder('Orillusion');
         this.Ori.open();
 
-        this.giComponent = probeObj.addComponent(GlobalIlluminationComponent);
+        this.giComponent = probeObj.addComponent(GlobalIlluminationComponent, this.scene);
         this.scene.addChild(probeObj);
         this.renderGUI(this.giComponent);
     }

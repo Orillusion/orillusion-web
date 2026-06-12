@@ -119,7 +119,7 @@ class Sample_MultipleShapes {
     // Create static planes for boundaries
     createStaticPlanes() {
         // Create bottom static plane
-        let staticFloorBottom = Object3DUtil.GetPlane(this.engine.res.whiteTexture);
+        let staticFloorBottom = Object3DUtil.GetPlane(this.engine.context3D, this.engine.res.whiteTexture);
         staticFloorBottom.y = -500;
         staticFloorBottom.transform.enable = false;
         this.scene.addChild(staticFloorBottom);
@@ -129,7 +129,7 @@ class Sample_MultipleShapes {
         bottomRb.mass = 0;
 
         // Create top static plane
-        let staticFloorTop = Object3DUtil.GetPlane(this.engine.res.whiteTexture);
+        let staticFloorTop = Object3DUtil.GetPlane(this.engine.context3D, this.engine.res.whiteTexture);
         staticFloorTop.y = 100;
         staticFloorTop.transform.enable = false;
         this.scene.addChild(staticFloorTop);

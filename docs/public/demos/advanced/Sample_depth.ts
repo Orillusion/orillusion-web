@@ -1,4 +1,4 @@
-import { DepthOfFieldPost, DirectLight, Engine3D, PostProcessingComponent, View3D, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, SphereGeometry, SSR_IS_Kernel, CameraUtil, webGPUContext, AtmosphericComponent } from '@orillusion/core';
+import { DepthOfFieldPost, DirectLight, Engine3D, PostProcessingComponent, View3D, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, SphereGeometry, SSR_IS_Kernel, CameraUtil, AtmosphericComponent } from '@orillusion/core';
 import * as dat from 'dat.gui';
 
 class Sample_DepthOfView {
@@ -24,7 +24,7 @@ class Sample_DepthOfView {
         this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
 
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, webGPUContext.aspect, 1, 5000.0);
+        camera.perspective(60, this.engine.aspect, 1, 5000.0);
         let ctrl = camera.object3D.addComponent(HoverCameraController);
         ctrl.setCamera(100, -15, 150);
 

@@ -90,14 +90,14 @@ class Sample_MultipleConstraints {
         const shelfSize = 0.5;
         const shelfHeight = 5;
 
-        let shelfLeft = Object3DUtil.GetCube();
+        let shelfLeft = Object3DUtil.GetCube(this.engine.context3D);
         shelfLeft.localScale = new Vector3(shelfSize, shelfHeight, shelfSize);
         shelfLeft.localPosition = new Vector3(-30, shelfHeight / 2, 0);
 
         let shelfRight = shelfLeft.clone();
         shelfRight.localPosition = new Vector3(30, shelfHeight / 2, 0);
 
-        let shelfTop = Object3DUtil.GetCube();
+        let shelfTop = Object3DUtil.GetCube(this.engine.context3D);
         shelfTop.localScale = new Vector3(60 - shelfSize, shelfSize, shelfSize);
         shelfTop.localPosition = new Vector3(0, shelfHeight - shelfSize / 2, 0);
 
@@ -118,7 +118,7 @@ class Sample_MultipleConstraints {
         let sliderRb = this.addBoxShapeRigidBody(slider, 500, true, [0.2, 0]);
 
         // Create Impactor
-        let impactor = Object3DUtil.GetCube();
+        let impactor = Object3DUtil.GetCube(this.engine.context3D);
         impactor.localScale = new Vector3(1, 1, 5);
         impactor.localPosition = new Vector3(0, shelfHeight - shelfSize / 2, 3);
         this.scene.addChild(impactor);
@@ -186,7 +186,7 @@ class Sample_MultipleConstraints {
         const columnHeight = 4.75 - columnWidth / 2;
         const columnDepth = 0.5;
 
-        let column = Object3DUtil.GetCube();
+        let column = Object3DUtil.GetCube(this.engine.context3D);
         column.localScale = new Vector3(columnWidth, columnHeight, columnDepth);
         column.localPosition = new Vector3(0, columnHeight / 2, 8);
         this.scene.addChild(column);
@@ -197,7 +197,7 @@ class Sample_MultipleConstraints {
         let armParent = new Object3D();
         armParent.localPosition = new Vector3(0, columnHeight + columnWidth / 2, 8);
 
-        let armChild1 = Object3DUtil.GetCube();
+        let armChild1 = Object3DUtil.GetCube(this.engine.context3D);
         armChild1.rotationY = 45;
         armChild1.localScale = new Vector3(10, 0.5, 0.5);
 
@@ -223,7 +223,7 @@ class Sample_MultipleConstraints {
     private createChains() {
         const chainHeight = 1;
 
-        let chainLink = Object3DUtil.GetCube();
+        let chainLink = Object3DUtil.GetCube(this.engine.context3D);
         chainLink.localScale = new Vector3(0.25, chainHeight, 0.25);
         chainLink.localPosition = new Vector3(5, 16, 5);
         this.scene.addChild(chainLink);

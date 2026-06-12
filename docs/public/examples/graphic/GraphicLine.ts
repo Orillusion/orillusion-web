@@ -1,6 +1,6 @@
 import { Object3D, Scene3D, Engine3D, Vector3, Color, AnimationCurve, Keyframe, View3D, AtmosphericComponent, CameraUtil, HoverCameraController, DirectLight, KelvinUtil, MeshRenderer, BoxGeometry, LitMaterial } from '@orillusion/core';
 import { Graphic3D, Graphic3DLineRenderer } from '@orillusion/graphic';
-import { Stats } from '@orillusion/stats';
+// import { Stats } from '@orillusion/stats';
 import * as dat from 'dat.gui';
 
 class GraphicLine {
@@ -14,7 +14,7 @@ class GraphicLine {
         // init Scene3D
         this.scene = new Scene3D();
         this.scene.exposure = 1;
-        this.scene.addComponent(Stats);
+        // this.scene.addComponent(Stats);
 
         // init sky
         let atmosphericSky: AtmosphericComponent;

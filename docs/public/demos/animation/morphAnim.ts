@@ -1,4 +1,4 @@
-import { Camera3D, Engine3D, DirectLight, AtmosphericComponent, View3D, HoverCameraController, MeshRenderer, Object3D, RendererMask, Scene3D, webGPUContext, Color, MorphTargetBlender } from '@orillusion/core';
+import { Camera3D, Engine3D, DirectLight, AtmosphericComponent, View3D, HoverCameraController, MeshRenderer, Object3D, RendererMask, Scene3D, Color, MorphTargetBlender } from '@orillusion/core';
 import * as dat from 'dat.gui';
 
 class Sample_morph {
@@ -15,7 +15,7 @@ class Sample_morph {
         let mainCamera = cameraObj.addComponent(Camera3D);
         this.scene.addChild(cameraObj);
 
-        mainCamera.perspective(60, webGPUContext.aspect, 1, 5000.0);
+        mainCamera.perspective(60, this.engine.aspect, 1, 5000.0);
         this.hoverCameraController = mainCamera.object3D.addComponent(HoverCameraController);
         this.hoverCameraController.setCamera(0, 0, 110);
 

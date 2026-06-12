@@ -1,4 +1,4 @@
-import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, webGPUContext, HoverCameraController, View3D, LitMaterial, MeshRenderer, BoxGeometry, DirectLight, KelvinUtil, Object3DUtil, SkeletonAnimationComponent, AnimatorComponent } from '@orillusion/core';
+import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, LitMaterial, MeshRenderer, BoxGeometry, DirectLight, KelvinUtil, Object3DUtil, SkeletonAnimationComponent, AnimatorComponent } from '@orillusion/core';
 import { Stats } from '@orillusion/stats';
 
 class Sample_Skeleton2 {
@@ -24,7 +24,7 @@ class Sample_Skeleton2 {
 
         let mainCamera = CameraUtil.createCamera3DObject(this.scene);
         mainCamera.enableCSM = true;
-        mainCamera.perspective(60, webGPUContext.aspect, 1, 3000.0);
+        mainCamera.perspective(60, this.engine.aspect, 1, 3000.0);
 
         let hoverCameraController = mainCamera.object3D.addComponent(HoverCameraController);
         hoverCameraController.setCamera(45, -30, 300);

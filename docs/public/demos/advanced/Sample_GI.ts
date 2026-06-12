@@ -1,4 +1,4 @@
-import { Object3D, Scene3D, Engine3D, GlobalIlluminationComponent, Vector3, GTAOPost, PostProcessingComponent, BloomPost, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, webGPUContext, DirectLight, KelvinUtil } from '@orillusion/core';
+import { Object3D, Scene3D, Engine3D, GlobalIlluminationComponent, Vector3, GTAOPost, PostProcessingComponent, BloomPost, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight, KelvinUtil } from '@orillusion/core';
 import * as dat from 'dat.gui';
 
 class Sample_GICornellBox {
@@ -43,7 +43,7 @@ class Sample_GICornellBox {
         this.scene.addComponent(AtmosphericComponent);
 
         let mainCamera = CameraUtil.createCamera3DObject(this.scene);
-        mainCamera.perspective(60, webGPUContext.aspect, 1, 5000.0);
+        mainCamera.perspective(60, this.engine.aspect, 1, 5000.0);
         let hoverCameraController = mainCamera.object3D.addComponent(HoverCameraController);
         hoverCameraController.setCamera(0, 0, 40, new Vector3(0, 10, 0));
 
@@ -62,7 +62,7 @@ class Sample_GICornellBox {
 
     private addGIProbes() {
         let probeObj = new Object3D();
-        let GI = probeObj.addComponent(GlobalIlluminationComponent);
+        let GI = probeObj.addComponent(GlobalIlluminationComponent, this.scene);
         this.scene.addChild(probeObj);
         // add a delay to render GUIHelp menu
         setTimeout(() => {

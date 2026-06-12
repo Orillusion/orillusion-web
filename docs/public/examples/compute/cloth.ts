@@ -1,4 +1,4 @@
-import { AtmosphericComponent, BoxGeometry, CameraUtil, ComputeGPUBuffer, ComputeShader, DirectLight, Engine3D, HoverCameraController, KeyCode, KeyEvent, LitMaterial, MeshRenderer, Object3D, PlaneGeometry, Scene3D, SphereGeometry, Time, Vector3, VertexAttributeName, View3D, webGPUContext } from '@orillusion/core';
+import { AtmosphericComponent, BoxGeometry, CameraUtil, ComputeGPUBuffer, ComputeShader, DirectLight, Engine3D, HoverCameraController, KeyCode, KeyEvent, LitMaterial, MeshRenderer, Object3D, PlaneGeometry, Scene3D, SphereGeometry, Time, Vector3, VertexAttributeName, View3D } from '@orillusion/core';
 
 class Demo_Cloth {
     engine: Engine3D;
@@ -21,7 +21,7 @@ class Demo_Cloth {
 
         let camera = CameraUtil.createCamera3DObject(scene);
         
-        camera.perspective(60, webGPUContext.aspect, 0.01, 10000.0);
+        camera.perspective(60, this.engine.aspect, 0.01, 10000.0);
         let ctl = camera.object3D.addComponent(HoverCameraController);
         ctl.setCamera(30, -28, 2);
 
