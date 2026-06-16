@@ -202,6 +202,7 @@ function sidebarGuide(): SidebarItem {
                 { text: 'Mesh', link: '/guide/graphics/mesh.md' },
                 { text: 'Material', link: '/guide/graphics/materials.md' },
                 { text: 'Texture', link: '/guide/graphics/texture.md' },
+                { text: 'Render Layer', link: '/guide/graphics/render_layer.md' },
                 { text: 'Graphic3D', link: '/guide/graphics/graphics.md' }
             ]
         },
@@ -229,7 +230,22 @@ function sidebarGuide(): SidebarItem {
             collapsible: true,
             items: [
                 { text: 'Intro', link: '/guide/physics/Readme.md' },
-                { text: 'Components', link: '/guide/physics/rigidbody.md' },
+                { text: 'Collision Shape', link: '/guide/physics/collisionShape.md' },
+                { text: 'Rigidbody', link: '/guide/physics/rigidbody.md' },
+                { text: 'Softbody', link: '/guide/physics/softbody.md' },
+                { text: 'Constraint', link: '/guide/physics/constraint.md' }
+            ]
+        },
+        {
+            text: 'Physics (Rapier)',
+            collapsible: true,
+            items: [
+                { text: 'Intro', link: '/guide/physics-rapier/Readme.md' },
+                { text: 'Rigidbody & Collision Shapes', link: '/guide/physics-rapier/rigidbody.md' },
+                { text: 'Joint', link: '/guide/physics-rapier/joint.md' },
+                { text: 'Trigger & Events', link: '/guide/physics-rapier/events.md' },
+                { text: 'Physics Query', link: '/guide/physics-rapier/query.md' },
+                { text: 'Character & Vehicle', link: '/guide/physics-rapier/character_vehicle.md' }
             ]
         },
         {
@@ -262,16 +278,12 @@ function sidebarGuide(): SidebarItem {
             ]
         },
         {
-            text: 'GUI',
+            text: 'Sprite',
             collapsible: true,
             items: [
-                { text: 'Intro', link: '/guide/gui/Readme.md' },
-                { text: 'Image', link: '/guide/gui/image.md' },
-                { text: 'Image Group', link: '/guide/gui/imageGroup.md' },
-                { text: 'Text', link: '/guide/gui/textfield.md' },
-                { text: 'Button', link: '/guide/gui/button.md' },
-                { text: 'Shadow', link: '/guide/gui/shadow.md' },
-                { text: 'Multi UIPanel', link: '/guide/gui/demo.md' }
+                { text: 'Intro & Basics', link: '/guide/sprite/Readme.md' },
+                { text: 'Billboard & Constant Size', link: '/guide/sprite/billboard.md' },
+                { text: 'Atlas & Batch Rendering', link: '/guide/sprite/atlas.md' }
             ]
         },
         {
@@ -300,6 +312,14 @@ function sidebarGuide(): SidebarItem {
                         { text: 'Custom Material', link: '/guide/advanced/shader/shader_unlit.md' },
                         { text: 'ComputeShader', link: '/guide/advanced/shader/shader_compute.md' }
                     ]
+                },
+                {
+                    text: 'RenderGraph',
+                    link: '/guide/advanced/rendergraph.md'
+                },
+                {
+                    text: 'Large World Rendering (RTE)',
+                    link: '/guide/advanced/rte.md'
                 },
                 {
                     text: 'Post Effects',

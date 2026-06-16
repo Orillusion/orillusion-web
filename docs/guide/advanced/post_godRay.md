@@ -1,33 +1,33 @@
 ---
 aside: false
 ---
-# GodRay
-`GodRay` is a visual effect of light passing through an object or cloud as one or more bright beams of light, usually in natural scenes where light passes through clouds, leaves, or otherwise
-Because light is scattered or refracted by these objects, creating a visual glow effect,
+# God Ray - GodRay
+`GodRay` is a visual effect produced when light passes through an object or cloud layer, appearing as one or more bright beams of light. This effect usually occurs in natural scenes when light passes through clouds, leaves, or other
+occluders, because the light is scattered or refracted by these objects, producing a visual glow effect.
 ```ts
-// Init Engine
-await Engine3D.init();
+//Initialize the engine
+let engine = await Engine3D.init();
 
-// Add a post-processing component
+// Add the post-processing component
 let postProcessing = this.scene.addComponent(PostProcessingComponent);
 
 // Add GodRay
 postProcessing.addPost(GodRayPost);
 
-// Start render
+//Start rendering
 let view = new View3D();
 view.scene = this.scene;
 view.camera = this.camera;
-Engine3D.startRenderView(view);
+engine.startRenderView(view);
 ```
 
-[Engine3D.setting.render.postProcessing.godray](../../api/types/GodraySetting.md) config parameters。
-| Attribute       | Type    | Description |
+Configuration parameters for [engine.setting.render.postProcessing.godray](../../api/types/GodraySetting.md).
+| Parameter | Type | Description |
 | --- | --- | --- |
-| scatteringExponent | number | Color diffusion index, default is 5 |
-| rayMarchCount | number | Track the number of samples. The default is 16 |
-| blendColor | boolean | true: will be mixed with the mainColor of GBuffer |
-| intensity | number | The intensity of the color is added. The default is 0.5 |
+| scatteringExponent | number | Color diffusion exponent, default is 5 |
+| rayMarchCount | number | Number of ray marching samples, default is 16 |
+| blendColor | boolean | true: will be blended with the mainColor of the GBuffer |
+| intensity | number | Intensity of the added color, default is 0.5 |
 
 <Demo src="/demos/advanced/Sample_godRay.ts"></Demo>
 

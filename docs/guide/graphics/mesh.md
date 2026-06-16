@@ -1,18 +1,17 @@
 # Mesh
-`Mesh` describes the geometric information `(geometry)` and material information `(material)` of the model. If you want to use an `Object3D` object to display a 3D model, then it must add the [MeshRenderer](/api/classes/MeshRenderer) component, which mainly contains two properties:
-1. `Geometry` object, which determines the specific geometry of the object, including `vertex position`, `topology`, `UV`, etc.;
-2. `Material` object, which determines the material ball style of the object, including `texture`, `color`, `transparency`, etc.
+`mesh` describes the model's geometric information `(geometry)` and material information `(material)`. If you want to use an `Object3D` object to display a 3D model, then it must add the [MeshRenderer](/api/classes/MeshRenderer) component, which mainly contains two properties:
+1. The `geometry` object, which determines the specific geometric shape of the object, including `vertex position`, `topology`, `UV`, etc.;
+2. The `material` object, which determines the material style presented by the object, including `texture`, `color`, `transparency`, and other properties.
 
-`Orillusion` has several built-in geometry types, which can be used to create different types of `mesh`:
-## Rectangular Cuboid
-[BoxGeometry](/api/classes/BoxGeometry) class provides the function of creating a rectangular box.
-Parameters overview:
-
-| Parameter | Description                                       |
-|-----------|---------------------------------------------------|
-| width     | The width on the X axis. The default value is 1.  |
-| height    | The height on the Y axis. The default value is 1. |
-| depth     | The depth on the Z axis. The default value is 1.  |
+`Orillusion` has several common built-in geometries, making it easy to create different `mesh` types:
+## Box
+The [BoxGeometry](/api/classes/BoxGeometry) class provides box creation functionality.
+Parameter overview:
+| Parameter | Description |
+| --- | --- |
+| width | The width along the X axis, default value is 1. |
+| height | The height along the Y axis, default value is 1. |
+| depth | The depth along the Z axis, default value is 1. |
 
 Example:
 ```ts
@@ -31,26 +30,25 @@ mr.geometry = new BoxGeometry(5,2,3);
 
 
 ## Sphere
-[SphereGeometry](/api/classes/SphereGeometry) class provides the function of creating a sphere.
-Parameters overview:
-
-| Parameter      | Description                                                                     |
-|----------------|---------------------------------------------------------------------------------|
-| widthSegments  | The number of segments that make up the sphere along the width (longitude).     |
-| heightSegments | The number of segments that make up the sphere along the height (latitude).     |
-| phiStart       | (Optional) The starting angle, in radians, of the horizontal (longitude) lines. |
-| phiLength      | (Optional) The central angle, in radians, of the horizontal (longitude) lines.  |
-| thetaStart     | (Optional) The starting angle, in radians, of the vertical (latitude) lines.    |
-| thetaLength    | (Optional) The central angle, in radians, of the vertical (latitude) lines.     |
+The [SphereGeometry](/api/classes/SphereGeometry) class provides sphere creation functionality.
+Parameter overview:
+| Parameter | Description |
+| --- | --- |
+| widthSegments | Number of horizontal segments of the sphere (segmented along meridians) |
+| heightSegments | Number of vertical segments of the sphere (segmented along parallels) |
+| phiStart | (Optional) Specifies the horizontal (meridian) start angle |
+| phiLength | (Optional) Specifies the size of the horizontal (meridian) sweep angle, the arc length of the sphere's equator |
+| thetaStart | (Optional) Specifies the vertical (parallel) start angle |
+| thetaLength | (Optional) Specifies the size of the vertical (parallel) sweep angle |
 
 Example:
 ```ts
 import {Object3D, MeshRenderer, SphereGeometry} from '@orillusion/core';
 
 let obj = new Object3D();
-// Add MeshRenderer
+// Add MeshRenderer component
 let mr = obj.addComponent(MeshRenderer);
-// Set the component geometry   
+// Set the component geometry
 mr.geometry = new SphereGeometry(2, 50, 50);
 ```
 
@@ -60,19 +58,19 @@ mr.geometry = new SphereGeometry(2, 50, 50);
 
 
 ## Cylinder
-[CylinderGeometry](/api/classes/CylinderGeometry) class provides the function of creating a cylinder.
-Parameters overview:
+The [CylinderGeometry](/api/classes/CylinderGeometry) class provides cylinder creation functionality.
 
-| Parameter      | Description                                                                                |
-|----------------|--------------------------------------------------------------------------------------------|
-| radiusTop      | Top radius. The default value is 1.                                                        |
-| radiusBottom   | Bottom radius. The default value is 1.                                                     |
-| height         | The height of the cylinder. The default value is 1.                                        |
-| radialSegments | The number of subdivisions around the circumference of the circle. The default value is 8. |
-| heightSegments | The number of subdivisions along the height of the cylinder. The default value is 8.       |
-| openEnded      | Whether the cylinder is open (with top and bottom). The default value is false.            |
-| thetaStart     | The starting angle of the first segment, in radians. The default value is 0.               |
-| thetaLength    | The central angle of the circular sector, in radians. The default value is Math.PI * 2.    |
+Parameter overview:
+| Parameter | Description |
+| --- | --- |
+| radiusTop | Top radius, default value is 1 |
+| radiusBottom | Bottom radius, default value is 1 |
+| height | Barrel height, default value is 1 |
+| radialSegments | Number of subdivisions of the circular face, default value is 8 |
+| heightSegments | Number of subdivisions of the barrel wall, default value is 8 |
+| openEnded | Whether it is an open barrel (with top and bottom faces), default value is false |
+| thetaStart | The start angle of the first segment, default value is 0 |
+| thetaLength | The central angle of the circular sector, default value is Math.PI * 2 |
 
 Example:
 ```ts
@@ -89,16 +87,15 @@ mr.geometry = new CylinderGeometry(2, 2, 10);
 <<< @/public/demos/mesh/cylinder.ts
 
 ## Torus
-[TorusGeometry](/api/classes/TorusGeometry) class provides the function of creating a Torus.
+The [TorusGeometry](/api/classes/TorusGeometry) class provides torus creation functionality.
 
-Parameters overview:
-
+Parameter overview:
 | Parameter | Description |
 | --- | --- |
-| radius | The radius of the Torus，default value 0.4 |
-| tube | The pipe radius，default value 0.1 |
-| radialSegments | Number of torus segments, default value 32 |
-| tubularSegments | Number of pipeline segments，default value 32 |
+| radius | Torus radius, default value 0.4 |
+| tube | Tube radius, default value 0.1 |
+| radialSegments | Number of subdivisions of the torus, default value 32 |
+| tubularSegments | Number of subdivisions of the tube, default value 32 |
 
 Example:
 ```ts
@@ -107,7 +104,7 @@ import {Object3D, MeshRenderer, TorusGeometry} from '@orillusion/core';
 let obj = new Object3D();
 // Add MeshRenderer component
 let mr = obj.addComponent(MeshRenderer);
-// set a torus geometry
+// Set the component geometry
 mr.geometry = new TorusGeometry(3, 1, 32, 32);
 ```
 <Demo src="/demos/mesh/torus.ts"></Demo>
@@ -115,16 +112,16 @@ mr.geometry = new TorusGeometry(3, 1, 32, 32);
 <<< @/public/demos/mesh/torus.ts
 
 ## Plane
-[PlaneGeometry](/api/classes/PlaneGeometry) class provides the function of creating a plane.
-Parameters overview:
+The [PlaneGeometry](/api/classes/PlaneGeometry) class provides plane creation functionality.
 
-| Parameter | Description                                                                   |
-|-----------|-------------------------------------------------------------------------------|
-| width     | The width of the plane along the X axis. The default value is 1.              |
-| height    | The height of the plane along the Y axis. The default value is 1.             |
-| segmentW  | The number of segments along the width of the plane. The default value is 1.  |
-| segmentH  | The number of segments along the height of the plane. The default value is 1. |
-| up        | The direction of the plane. The default value is Vector3.Y_AXIS.              |
+Parameter overview:
+| Parameter | Description |
+| --- | --- |
+| width | The width of the plane along the X axis. Default value is 1. |
+| height | The height of the plane along the Y axis. Default value is 1. |
+| segmentW | The number of width segments of the plane, default value is 1. |
+| segmentH | The number of height segments of the plane, default value is 1. |
+| up | The orientation of the plane, default value is Vector3.Y_AXIS. |
 
 Example:
 ```ts
@@ -140,8 +137,8 @@ mr.geometry = new PlaneGeometry(100, 100, 1, 1);
 
 <<< @/public/demos/mesh/plane.ts
 
-## Extruded Geometry
-[ExtrudeGeometry](/api/classes/ExtrudeGeometry.md) Creates extruded geometry from a path shape
+## Extrude Geometry
+The [ExtrudeGeometry](/api/classes/ExtrudeGeometry.md) class provides the functionality to extrude a geometry from a shape path.
 
 Example:
 ```ts
@@ -157,7 +154,7 @@ for (let i = 0; i < vertexCount; i++) {
     let point = new Vector3(Math.sin(angle), 0, Math.cos(angle)).multiplyScalar(shapeRadius);
     shape.push(point);
 }
-// Create a custom curve path
+// Create a custom path
 let curve: Vector3[] = [], sectionCount = 60, modelRadius = 4
 for (let i = 0; i < sectionCount; i++) {
     let angle = Math.PI * 2 * i / 20;
@@ -166,7 +163,7 @@ for (let i = 0; i < sectionCount; i++) {
     let point = new Vector3(Math.sin(angle), offsetY * 6, Math.cos(angle)).multiplyScalar(modelRadius);
     curve.push(point);
 }
-// Build extruded geometry
+// Create Extrude Geometry
 mr.geometry = new ExtrudeGeometry().build(shape, true, curve, 0.2);
 ```
 
@@ -175,56 +172,55 @@ mr.geometry = new ExtrudeGeometry().build(shape, true, curve, 0.2);
 <<< @/public/demos/mesh/extrude.ts
 
 ## Custom Geometry
-We can customize the shape of the geometry by updating the vertices of the existing geometry’s [vertexBuffer](/api/classes/GeometryVertexBuffer).
+We can customize the shape of a geometry by updating the vertices [vertexBuffer](/api/classes/GeometryVertexBuffer) of an existing geometry
 
-Example：
+Example:
 ```ts
 import {Object3D, MeshRenderer, PlaneGeometry, LitMaterial, VertexAttributeName} from '@orillusion/core';
 
 let obj = new Object3D();
 // Add MeshRenderer component
 let mr = obj.addComponent(MeshRenderer);
-// Set a base plane geometry, easy to set size and segments
+// Set a plane as the base, defining the size and number of segments
 mr.geometry = new PlaneGeometry(100, 100, 100, 100);
 mr.material = new LitMaterial()
 
-// get current vertex position buffer
+// Get the existing vertex information
 let posAttrData = mr.geometry.getAttribute(VertexAttributeName.position);
-// you can reset all vertex position
+// Rewrite all vertex xyz coordinates
 for (let i = 0, count = posAttrData.data.length / 3; i < count; i++) {
     posAttrData.data[i * 3 + 0] = Math.random(); // position x
     posAttrData.data[i * 3 + 1] = Math.random(); // position y
     posAttrData.data[i * 3 + 2] = Math.random(); // poisiton z
 }
-// reuplaod the vertex buffer
+// Update the vertex information
 mr.geometry.vertexBuffer.upload(VertexAttributeName.position, posAttrData);
-// recompute normal buffer
+// Recompute the normals
 mr.geometry.computeNormals();
 ```
-We can even change the vertex buffer in the main loop every frame:
+We can even change the vertex information every frame in the main loop
 
 <Demo src="/demos/mesh/custom.ts"></Demo>
 
 <<< @/public/demos/mesh/custom.ts
 
 
-## Extra Plugins
+## Geometry Extensions
 
-In addition to the commonly built-in geometries mentioned above, the engine also provides the [@orillusion/geometry](/geometry/) extension package.
+In addition to the common built-in geometries above, the engine also provides the [@orillusion/geometry](/geometry/) geometry extension package, which currently contains extensions and utility classes such as the font geometry `TextGeometry`, the 2D extrude geometry `ExtrudeGeometry`, the terrain geometry `TerrainGeometry`, etc.
 
-We can quicklly import the geometries via the `NPM` package:
+Users can quickly introduce the geometry plugin via the `NPM` package:
 
 ```bash
 npm install @orillusion/core --save
 npm install @orillusion/geometry --save
 ```
+
 ```ts
 import { Engine3D } from "@orillusion/core"
 import { TextGeometry } from "@orillusion/geometry"
 ```
-
-or `UMD` version
-
+Or the `UMD` version
 ```html
 <script src="https://unpkg.com/@orillusion/core/dist/orillusion.umd.js"></script>
 <script src="https://unpkg.com/@orillusion/geometry/dist/geometry.umd.js"></script>
@@ -233,34 +229,32 @@ or `UMD` version
   const { ExtrudeGeometry, TextGeometry } = Geometry
 </script>
 ```
-
-### 2D ExtrudeGeometry
-
-Similar to but distinct from the built-in [ExtrudeGeometry](/api/classes/ExtrudeGeometry.md), this geometry class simplifies the data and supports generating spatial geometries from [Shape2D](/geometry/classes/Shape2D.md)
+### 2D Extrude
+Similar to but different from the built-in [ExtrudeGeometry](/api/classes/ExtrudeGeometry.md), this extension class simplifies the data and supports generating spatial geometries from [Shape2D](/geometry/classes/Shape2D.md) planar shapes.
 
 <Demo src="/examples/geometry/ExtrudeGeometry.ts"></Demo>
 
 <<< @/public/examples/geometry/ExtrudeGeometry.ts
 
-### TextGeometry
+### Font Geometry
 
-Creating spatial text geometries from common font files such as  `woff`,`otf`,`ttf`.
+Supports creating spatial text geometries from common font files `woff`, `otf`, `ttf`
 
 <Demo src="/examples/geometry/TextGeometry.ts"></Demo>
 
 <<< @/public/examples/geometry/TextGeometry.ts
 
-### TerrainGeometry
+### Terrain Geometry
 
-Quickly creating 3D terrain geometries through 2D heightmaps or displacement maps
+Supports quickly creating `3D` terrain geometries from a `2D` height map or elevation map
 
 <Demo src="/examples/geometry/TerrainGeometry.ts"></Demo>
 
 <<< @/public/examples/geometry/TerrainGeometry.ts
 
-### GrassGeometry
+### Grass Geometry
 
-Creating a simulated grass terrain, combined with the [GrassComponent](/geometry/classes/GrassComponent), can mimic dynamic wind-swaying effects.
+Creates simulated grassland terrain, and combined with the [grass component](/geometry/classes/GrassComponent) can simulate a dynamic effect of swaying in the wind
 
 <Demo src="/examples/geometry/GrassGeometry.ts"></Demo>
 

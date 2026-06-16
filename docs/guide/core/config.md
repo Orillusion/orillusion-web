@@ -1,75 +1,104 @@
 # EngineSetting
-You can set some common configurations of the engine through [EngineSetting](/api/types/EngineSetting), `EngineSetting` is mainly composed of several configurations, including pick mode, render pipeline, shadow settings, post-processing settings, skybox settings, etc.
+Through [EngineSetting](/api/types/EngineSetting) you can set some common configurations of the engine. `EngineSetting` is mainly composed of several different configurations, including pick mode, render pipeline, shadow settings, post-processing settings, skybox settings, and so on.
 
 ## Basic Usage
-Before initializing the engine, you need to set the engine configuration first, which can be set through the `setting` property of `Engine3D`.
+The engine configuration is passed in **at initialization** through `Engine3D.init({ setting })`. `setting` is an optional deep partial object; you only need to write the fields you want to override, the rest use the default values.
 
-For example, set the maximum number of lights supported in the scene:
+For example, to set the maximum number of lights supported in the scene and enable log depth:
 ```ts
-// Maximum number of lights
-Engine3D.setting.light.maxLight = 1024;
-// Enbale use log depth
-Engine3D.setting.render.useLogDepth = true;
-// Configure first, then initialize
-await Engine3D.init();
+const engine = await Engine3D.init({
+  setting: {
+    light: { maxLight: 1024 },   // Maximum number of lights
+    render: { useLogDepth: true } // Enable log depth
+  }
+});
 ```
+
+After initialization is complete, configurations that are mutable at runtime can also continue to be read and written through the instance's `engine.setting`:
+```ts
+engine.setting.render.postProcessing.bloom.intensity = 0.5;
+```
+
+::: tip Migrating from Older Versions
+Earlier versions assigned values before initialization through the global static `Engine3D.setting.xxx = ...`. Now the configuration travels with the instance. Please switch to passing it in through `Engine3D.init({ setting })`, or set it through `engine.setting.xxx` after obtaining the instance.
+:::
 
 ## Pick Mode
-Engine supports two pick modes, one is `pixel` and the other is `bound`.
+The engine supports two pick modes, one is `pixel picking (pixel)`, and the other is `bounding box picking (bound)`.
 
-The default configuration is `bound` mode, which picks up the model by calculating the AABB bounding box of the model. The accuracy is not as good as `pixel` mode, but the calculation is faster and the performance is better. The bounding box picking mode can be set through the `pick` property of the engine configuration.
-
-```ts
-Engine3D.setting.pick.enable = true;
-Engine3D.setting.pick.mode = 'bound';
-await Engine3D.init();
-```
-
-Also, the pixel picking mode can also be set through the `pick` property.
+The default engine configuration is `bound` mode. Bounding box picking picks up the model by calculating the model's AABB bounding box. Its accuracy is not as good as `pixel` mode, but the calculation is faster and the performance is better. The bounding box picking mode can be set through the `pick` property of the engine configuration.
 
 ```ts
-Engine3D.setting.pick.enable = true;
-Engine3D.setting.pick.mode = 'pixel';
-await Engine3D.init();
+const engine = await Engine3D.init({
+  setting: {
+    pick: { enable: true, mode: 'bound' }
+  }
+});
 ```
 
-See more about [Pick Event](/guide/interaction/pickfire)
+The pixel picking mode can also be set through the `pick` property.
 
-## Post Processing Settings
-Engine supports multiple post-processing effects, including various anti-aliasing, bloom, ambient occlusion, etc., which can be set through the `postProcessing` property of the `render` configuration.
-
-For example, set the `bloom` post-processing effect:
 ```ts
-// Enable bloom 
-Engine3D.setting.render.postProcessing.bloom.enable = true;
-// Set the intensity of bloom
-Engine3D.setting.render.postProcessing.bloom.intensity = 0.5;
+const engine = await Engine3D.init({
+  setting: {
+    pick: { enable: true, mode: 'pixel' }
+  }
+});
 ```
-See more about [Post Processing](/guide/advanced/posteffect)
+
+For detailed usage, please refer to [Pick Event](/guide/interaction/pickfire)
+
+## Post-Processing Settings
+The engine supports multiple post-processing effects, including various anti-aliasing, bloom, ambient occlusion, and so on, which can be set through the `postProcessing` property of the `render` configuration.
+
+For example, to set the `bloom` post-processing effect:
+```ts
+const engine = await Engine3D.init({
+  setting: {
+    render: {
+      postProcessing: {
+        bloom: { enable: true, intensity: 0.5 }
+      }
+    }
+  }
+});
+```
+For more post-processing related settings, see [Post Processing](/guide/advanced/posteffect)
 
 ## Shadow Settings
-Setting the shadow method and attributes through the `shadow` property of the engine configuration.
+The methods and properties for setting shadows can be set through the `shadow` property of the engine configuration.
 
 ```ts
-Engine3D.setting.shadow.enable = true; // Enable shadow
-Engine3D.setting.shadow.type = 'SOFT'; // The type of shadow, SOFT
-Engine3D.setting.shadow.shadowSize = 2048; // The size of the shadow map
-Engine3D.setting.shadow.shadowBound = 20; // The bound of shadow
+const engine = await Engine3D.init({
+  setting: {
+    shadow: {
+      enable: true,      // Enable shadows
+      type: 'SOFT',      // Soft shadow type
+      shadowSize: 2048,  // Shadow map size
+      shadowBound: 20,   // World size of the shadow area
+      shadowBias: 0.01   // Shadow bias
+    }
+  }
+});
 ```
-See more about [Shadow](/guide/graphics/shadow)
+See [Shadow](/guide/graphics/shadow) for details
 
 ## Global Illumination Settings
-Setting the global illumination through the `gi` property of the configuration.
-
+Set the global illumination through the `gi` property in the configuration.
 ```ts
-Engine3D.setting.gi.enable = true;
-Engine3D.setting.gi.probeYCount = 6;
-Engine3D.setting.gi.probeXCount = 6;
-Engine3D.setting.gi.probeZCount = 6;
-Engine3D.setting.gi.offsetX = 0;
-Engine3D.setting.gi.offsetY = 10;
-Engine3D.setting.gi.offsetZ = 0;
-...
+const engine = await Engine3D.init({
+  setting: {
+    gi: {
+      enable: true,
+      probeYCount: 6,
+      probeXCount: 6,
+      probeZCount: 6,
+      offsetX: 0,
+      offsetY: 10,
+      offsetZ: 0
+      // ...
+    }
+  }
+});
 ```
-See more about [Global Illumination](/guide/advanced/gi)
-
+See [Global Illumination](/guide/advanced/gi) for details

@@ -116,7 +116,7 @@ fn CsMain( @builtin(global_invocation_id) globalInvocation_id: vec3<u32>) {
 ```
 We will not go into too much detail about the basic syntax of WGSL here. For more information, please refer to [WebGPU Shader Language](https://www.orillusion.com/zh/wgsl.html).
 
-After the `ComputeShader` object is created, we need to associate it with the relevant data it uses, which are various `GPU Buffer` and `Texture` used in the code above(`args`，`colorMap`，`resultTex`)。
+After the `ComputeShader` object is created, we need to associate it with the relevant data it uses, which are the various `GPU Buffer` and `Texture` used in the code above (in this example, `args`, `colorMap`, `resultTex`).
 
 `args` is of the `uniform` data type and is used to store configuration information, so we create a `UniformGPUBuffer` object to manage the data:
 ```ts
@@ -130,8 +130,7 @@ After `args` data is prepared, we also need to associate it with the `ComputeSha
 this.mGaussianBlurShader.setUniformBuffer('args', this.mGaussianBlurArgs);
 ```
 
-`colorMap` is the original texture to be blurred. Here we can use the `getLastRenderTexture()` from `postBase` to obtain the texture of the last rendered screen and associate it with the `colorMap` of the `ComputeShader` object.
-
+`colorMap` is the original texture to be blurred. Here we use the engine's internal `getLastRenderTexture()` to obtain the previously output screen texture data, and associate it with the `colorMap` of the `ComputeShader` object.
 ```ts
 this.mGaussianBlurShader.setSamplerTexture('colorMap', this.getLastRenderTexture());
 ```

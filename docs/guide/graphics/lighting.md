@@ -1,36 +1,33 @@
 # Lighting
 
-Lighting can make the scene more layered, using lighting, you can build a more realistic three-dimensional scene. The
-lighting system of the `Orillusion` engine is mainly composed of the following parts:
+Lighting makes the scene more layered. Using lighting, you can build a more realistic three-dimensional scene. The lighting system of the `Orillusion` engine is mainly composed of the following parts:
 
-|     Light Source     |                              Description                               |
-|:--------------------:|:---------------------------------------------------------------------  |
-|   Light Component    | Basic light source components: direct light, point light and spotlight |
-|  Ambient Reflection  |               Skybox environment light, global exposure                |
-| Global  Illumination |       Indirect light sources reflected or refracted in the scene       |
+| Light Source | Description |
+| :---: | :---: |
+| Light Component | Basic light source components: directional light, point light and spotlight |
+| Ambient Reflection | Skybox environment light, global exposure |
+| Global Illumination | Indirect light sources reflected or refracted in the scene |
 
 ## Light Component
+The engine currently has three classic types of light sources built in:
 
-There are currently three types of classic light sources built into the engine:
+### Directional Light
 
-### Direct Light
+[Directional Light](/api/classes/DirectLight) represents light that is emitted uniformly from a certain direction, with the light rays parallel to each other. The light from the sun shining on the earth's surface can be considered as directional light, because the distance between the sun and the earth is far greater than the radius of the earth, so the sunlight shining on the earth can be regarded as light coming from the same direction, that is, directional light. `Directional light` has `4` main features:
 
-[Direct Light](/api/classes/DirectLight) represents the light that is emitted uniformly from a certain direction and lights between them are parallel. The lights from the sun to the earth can be considered as the parallel light, because the distance between the sun and the earth is far greater than the radius of the earth, so the lights from the sun to the earth can be seen as lights from the same direction, that is, the parallel light. The `direct light` has `4` main features:
+| Property | Type | Description |
+| --- | --- | --- |
+| lightColor | Color | The color of the light, the default is white `rgb(1.0,1.0,1.0)` |
+| intensity | Number | The intensity of the light, the default value is `1` |
+| direction | Vector3 | Read-only property, gets the direction vector of the directional light |
+| castShadow | Boolean | Whether to enable shadow casting, the default `false` is disabled |
 
-| Attribute  | Type    | Description                                                        |
-|------------|---------|--------------------------------------------------------------------|
-| lightColor | Color   | The color of the light, the default is white `rgb(1.0,1.0,1.0)`    |
-| intensity  | Number  | The intensity of the light, the default value is `1`               |
-| direction  | Vector3 | Read-only property, get the direction vector of the parallel light |
-| castShadow | Boolean | Whether to enable projection, the default `false` is disabled      |
-
-Normally, the `rotation` of the `Object3D`, where the `direct light` is located, is used to control the direction of the light.
-
+Generally, the `rotation` of the `Object3D` where the directional light is located is used to control the direction of the light.
 ```ts
 let lightObj = new Object3D();
 scene.addChild(lightObj);
 
-// Add direct light
+// Add directional light
 let dl = lightObj.addComponent(DirectLight);
 // Set color
 dl.lightColor = new Color(1.0, 0.95, 0.84, 1.0);
@@ -45,21 +42,19 @@ let target = dl.direction
 ```
 
 <Demo :height="500" src="/demos/graphics/lighting_dir.ts"></Demo>
-
+ 
 <<< @/public/demos/graphics/lighting_dir.ts
 
 ### Point Light
 
-[Point Light](/api/classes/PointLight) is a point that exists in space, and light is emitted from that point in all
-directions. The light beyond the effective distance cannot receive the light from the point light, and the intensity of
-the light will gradually decrease as the light source moves away. It is usually used to simulate the common bulbs in
-life. The point light has the following main attributes:
+[Point Light](/api/classes/PointLight) is a point that exists in space, emitting light from that point in all directions. Places beyond the effective distance cannot receive the light from the point light, and the lighting intensity gradually decreases the farther it is from the light source. It is usually used to simulate common bulbs in life. The point light has the following main properties:
 
-| Attribute  | Type   | Description                                                     |
-|------------|--------|-----------------------------------------------------------------|
-| lightColor | Color  | The color of the light, the default is white `rgb(1.0,1.0,1.0)` |
-| intensity  | Number | The intensity of the light, the default value is `1`            |
-| range      | Number | The farthest distance of the light   |
+| Property | Type | Description |
+| --- | --- | --- |
+| lightColor | Color | The color of the light, the default is white `rgb(1.0,1.0,1.0)` |
+| intensity | Number | The intensity of the light, the default value is `1` |
+| range | Number | The farthest distance of the light |
+
 
 ```ts
 let pointLightObj = new Object3D();
@@ -77,32 +72,30 @@ pointLight.lightColor = new Color(1.0, 0.95, 0.84, 1.0);
 ```
 
 <Demo :height="500" src="/demos/graphics/lighting_point.ts"></Demo>
-
+ 
 <<< @/public/demos/graphics/lighting_point.ts
+    
+### Spotlight
+    
+[Spotlight](/api/classes/SpotLight) is similar to the `point light`, but its light is not emitted in all directions, but toward a certain direction range, just like the light emitted by a flashlight in real life. The spotlight has several main features:
 
-### Spot Light
-
-[Spot Light](/api/classes/SpotLight) is similar to the `point light`, but its light is not emitted in all directions,
-but in a certain direction range, just like the light emitted by the flashlight in real life. The spotlight has several
-main features:
-
-| Attribute  | Type    | Description                                                                                                                   |
-|------------|---------|-------------------------------------------------------------------------------------------------------------------------------|
-| lightColor | Color   | The color of the light, the default is white `rgb(1.0,1.0,1.0)`                                                               |
-| intensity  | Number  | The intensity of the light, the default value is `1`                                                                          |
-| direction  | Vector3 | Read-only property, get the direction vector of the spotlight                                                                 |
-| range      | Number  | The farthest distance of the light                                                                 |
-| innerAngle | Number  | The inner angle of the spotlight, the light has light in the range of less than this angle                                    |
-| outerAngle | Number  | The outer angle of the spotlight, the light will gradually decrease to 0 in the range from the inner angle to the outer angle |
-
+| Property | Type | Description |
+| --- | --- | --- |
+| lightColor | Color | The color of the light, the default is white `rgb(1.0,1.0,1.0)` |
+| intensity | Number | The intensity of the light, the default value is `1` |
+| direction | Vector3 | Read-only property, gets the direction vector of the spotlight |
+| range | Number | The farthest distance of the light |
+| innerAngle | Number | The inner angle of the light cone, within which the spotlight has light |
+| outerAngle | Number | The outer angle of the light cone, the light gradually attenuates to 0 in the range from the inner angle to the outer angle |
+    
 ```ts
 let spotLightObj = new Object3D();
 // Set the position of the light source Object3D
 spotLightObj.y = 100;
-spotLightObj.rotationX = 90;
+spotLightObj.rotationX= 90;
 scene.addChild(spotLightObj);
 
-// Set the attributes of the spotlight component
+// Set the properties of the spotlight component
 let spotLight = spotLightObj.addComponent(SpotLight);
 spotLight.lightColor = new Color(1.0, 0.95, 0.84, 1.0);
 spotLight.intensity = 20;
@@ -112,32 +105,28 @@ spotLight.outerAngle = 35;
 ```
 
 <Demo :height="500" src="/demos/graphics/lighting_spot.ts"></Demo>
-
+ 
 <<< @/public/demos/graphics/lighting_spot.ts
 
 ## IES Light Information
+The Illuminating Engineering Society (IES) defines a file format that can describe the light intensity distribution of real lights in the real world. IES files describe the light intensity, attenuation curves of various types of luminaires, and simulate light variation behaviors such as the transmission and refraction of the lamp beads, ultimately decoding into a specified 2D data map for lighting mapping in 3D space.
 
-The Illuminating Engineering Society(IES) defines a file format that can describe the light intensity distribution of real light in the real world. The IES file describes the light intensity of various types of lamps, attenuation curves, simulating the transmission and refraction of the lamp beads, and finally decoding into a specified 2D data map for 3D space lighting mapping.
-
-### IES Light Example
-
+### IES Light Examples
 ![ies_0](/images/ies/image2017-6-29_11-38-7584f.webp)
 ![ies_1](/images/ies/image2017-6-29_11-41-2a59d.webp)
 ![ies_2](/images/ies/image2017-6-30_19-21-325aef.webp)
 
 ### Load IES Texture
-
-Besides the common light source type settings, the engine also supports setting complex light distribution by loading preset `IES` textures:
-
+In addition to the regular light source type settings, the engine also supports setting complex light distribution by loading preset `IES` textures:
 ```ts
 // Load IES texture
-let iesTexture = await Engine3D.res.loadTexture("https://cdn.orillusion.com/ies/ies_2.png");
+let iesTexture = await engine.res.loadTexture("https://cdn.orillusion.com/ies/ies_2.png");
 // Create IES object
 let iesPofiles = new IESProfiles();
 iesPofiles.IESTexture = iesTexture;
 let light = new Object3d()
 let pointLight = light.addComponent(PointLight);
-// Set light IES distribution
+// Set the light IES distribution
 pointLight.iesPofile = iesPofiles;
 ```
 
@@ -145,21 +134,18 @@ pointLight.iesPofile = iesPofiles;
 
 <<< @/public/demos/graphics/lighting_pointIes.ts
 
-### Get IES Texture
-
-The community has a lot of high-quality `IES` resources, some lighting equipment manufacturers will also share professional `IES` files, they are generally free, such as:
+### Get IES Textures
+There are many high-quality `IES` resource sharing communities, and some lighting equipment manufacturers also share professional `IES` files, which are generally free, such as:
 
 - [ieslibrary](https://ieslibrary.com/en/home)
 - [leomoon](https://leomoon.com/store/shaders/ies-lights-pack/)
 - [Lithonia Lighting](https://lithonia.acuitybrands.com/resources/technical-downloads/photometricdownloads)
 - [Philips](https://www.usa.lighting.philips.com/support/support/literature/photometric-data)
 
-The community also has a lot of professional `IES` preview/conversion software, such as [IESviewer](http://photometricviewer.com/), you can also use professional 3D modeling software to convert the `IES` file to a normal `png` texture file, and then load it into the engine.
+The community also has many professional `IES` preview/conversion software, such as [IESviewer](http://photometricviewer.com/). You can also use professional 3D modeling software to convert `IES` files into ordinary `png` texture files, and finally load them into the engine.
 
-## Environment Light
-
-Besides the direct light source, the engine can also render basic environment lighting by setting the `Scene3D.evnMap` skybox texture, see [Skybox](/guide/core/scene.html) for related settings.
+##  Environment Light
+In addition to direct light sources, the engine performs basic environment lighting rendering by setting the `Scene3D.evnMap` skybox texture. For details, refer to the related [Skybox](/guide/core/scene.html) introduction.
 
 ## Global Illumination
-
-Normal lighting system only considers the effect of light source directly irradiating the surface of the object, and does not calculate the light reflected or refracted by the light source through the surface of the object, that is, indirect lighting. Global illumination system can model indirect lighting to achieve more realistic lighting effects. See [Advanced GI](/guide/advanced/gi) for details.
+A general lighting system only considers the effect produced by the light source directly shining on the surface of the object, and does not calculate the light reflected or refracted by the surface of the object, that is, indirect lighting. The global illumination system can model indirect lighting to achieve more realistic light effects. For details, refer to [Advanced GI](/guide/advanced/gi)

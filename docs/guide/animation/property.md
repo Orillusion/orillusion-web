@@ -1,30 +1,46 @@
-# Property Animation
+# Property Animation (PropertyAnimation)
 
-[PropertyAnimation](/api/classes/PropertyAnimation) change the value of the object's property continuously to change the state of the target, and achieve the animation effect.
+The property animation component [PropertyAnimation](/api/classes/PropertyAnimation) changes the value of an object's properties continuously to change the state of the target, achieving the animation effect.
 ![Animation](/images/animation.svg)
 
 ## Examples
-1. Attributes of`Object3D` :`position`, `scale`, `rotation`
+1. Properties of `Object3D`: `position`, `scale`, `rotation`
 2. Texture of `Material`: `uv`, `offset`, `tiling`
 3. `Post-processing effect` parameters: `color`, `strength`
 
-All attributes above can be provided as the content of the property animation to be changed.
+All properties above can be provided as the content that property animation changes.
 
 ## Basic Usage
-Specify a node `Object3D` in the scene, add the component `PropertyAnimation` to it; then add the movie clip to the component and you can use it.
+Specify a node `Object3D` in the scene, add the component `PropertyAnimation` to it; then append a movie clip to the component and you can use it.
 
 ::: tip
-Currently, we only supports importing `Clip` assets exported from `Unity` through `Curve` animations or `Animation` data. Custom property animations defined in code are not supported at this time, but this feature will be added in future versions.
+Currently the engine only supports importing `Clip` assets exported from `Unity` through `Curve` curves or `Animation` data. Custom property animations defined in code are not supported at this time, but this feature will be added in future versions.
 :::
 
+```cs
+// Script for exporting clips in Unity
+public class AnimationInfo : InfoBase
+{
+    [SerializeField] public Animation animation;
+    [SerializeField] public List<AnimationClip> clipList;
+
+    public string WriteJson()
+    {
+        string ret = JsonUtility.ToJson(this);
+        return ret;
+    }
+}
+
+```
+
 ```ts
-// Load external model
+// load test model
 let node = new Object3D();
 scene.addChild(node);
-// Add animation component
+// Add component
 let animation = node.addComponent(PropertyAnimation);
 
-// Load clip material
+// Load clip asset
 let res = await fetch('path/to/clip.json')
 let json = await res.json()
 // Initialize clip
@@ -41,15 +57,15 @@ animation.appendClip(animClip);
 
 ## Play Animation
 
-You can use the [play](/api/classes/PropertyAnimation#play) method to play the `PropertyAnimClip` corresponding to the name `(name)`.
+You can use the [play](/api/classes/PropertyAnimation#play) method to play the `PropertyAnimClip` with the corresponding name `(name)`.
 
 ```ts
-animation.play('anim_0', true); // Play from start if true(by default)
+animation.play('anim_0', true); // Play from start, true by default
 ```
 
 ## Pause Animation
 
-You can use the [stop](/api/classes/PropertyAnimation#stop) method to pause the `PropertyAnimClip` corresponding to the name `(name)`.
+You can use the [stop](/api/classes/PropertyAnimation#stop) method to play the specified `PropertyAnimClip`.
 
 ```ts
 animation.stop();
@@ -57,7 +73,7 @@ animation.stop();
 
 ## Toggle Animation
 
-You can use the [toggle](/api/classes/PropertyAnimation#toggle) method to play the paused animation, or pause the animation that is playing.
+You can use the [toggle](/api/classes/PropertyAnimation#toggle) method to play a paused animation, or pause the animation that is playing.
 
 ```ts
 animation.toggle();
@@ -72,7 +88,7 @@ animation.seek(1.2);// Specify to 1.2s
 
 ## Get Movie Clip
 
-You can use the [getClip](/api/classes/PropertyAnimation#getclip) method to get the movie clip `PropertyAnimClip` that has been bound to the component, and the parameter is the `name` of `PropertyAnimClip`.
+You can use the [getClip](/api/classes/PropertyAnimation#getclip) method to get the movie clip `PropertyAnimClip` that has been bound to the component. The parameter is the `name` of the `PropertyAnimClip`.
 
 ```ts
 let clip: PropertyAnimClip = animation.getClip('anim_0');

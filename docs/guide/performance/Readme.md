@@ -1,11 +1,11 @@
 # Stats Panel
 
-`Orillusion` provides the [Stats](/stats/classes/Stats) component to display the current performance statistics of the engine, including `FPS` and `memory usage`.
+`Orillusion` provides the [@orillusion/stats](/stats/classes/Stats) component to display the current running status of the engine. It currently supports the runtime `FPS` and `memory usage`.
 
 ## Installation
-Same as the engine installation, we can import physic plugins through two methods: `NPM` and `CDN` linking:
+Same as the engine method, we can import the plugin in two ways: via `NPM` and via `CDN` links:
 
-## 1. Install by NPM
+### 1. Install via the `NPM` package
 ```bash
 npm install @orillusion/core --save
 npm install @orillusion/stats --save
@@ -15,8 +15,8 @@ import { Engine3D } from "@orillusion/core"
 import { Stats } from "@orillusion/stats"
 ```
 
-## 2. Import via `CDN` links
-We recommend using the `ESModule` build version:
+### 2. Import via `CDN` links
+We recommend using the `ESModule` build version
 ```html
 <script type="module">
   import { Engine3D } from "https://unpkg.com/@orillusion/core/dist/orillusion.es.js" 
@@ -24,7 +24,7 @@ We recommend using the `ESModule` build version:
 </script>
 ```
 
-Or load the `UMD` version through `<script>` tag, and get the `Stats` module from the global `Orillusion` variable:
+Or load the `UMD` build version via `<script>`, and get the `Stats` module from the global `Orillusion` variable:
 ```html
 <script src="https://unpkg.com/@orillusion/core/orillusion.umd.js"></script>
 <script src="https://unpkg.com/@orillusion/stats/dist/stats.umd.js"></script>
@@ -36,7 +36,7 @@ Or load the `UMD` version through `<script>` tag, and get the `Stats` module fro
 
 ## Example
 
-Normally, the `Stats` component is added to the `Scene3D` object:
+Generally, just add the `Stats` component to the `Scene3D` object:
 ```ts
 import { Scene } from "@orillusion/core"
 import { Stats } from "@orillusion/stats"
@@ -48,10 +48,10 @@ scene.addComponent(Stats);
 
 <<< @/public/demos/performance/stats.ts{11}
 
-By default, a rectangular floating panel will appear in the upper left corner of the window. If you need to change the position, you can set the `style` attribute of `stats.container` , or add `css` to modify the `.stats` class.
+By default, a rectangular floating panel will appear in the upper left corner of the window. If you need to change the position, you can set the `style` attribute of `stats.container`, or add `css` to modify the `.stats` class.
 
 ```ts
-  let stats = scene.addComponent(Stats);
-  stats.container.style.left = '10px';
-  stats.container.style.top = '10px';
+let stats = scene.addComponent(Stats);
+stats.container.style.left = '10px';
+stats.container.style.top = '10px';
 ```

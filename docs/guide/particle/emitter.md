@@ -1,41 +1,41 @@
 ---
 aside: false
 ---
-# Particle Emitter Module
-The particle emitter module is an essential component of a particle system that defines and controls the emission behavior of particles. It determines the initial position, velocity, direction, and other properties of particles, thus influencing the overall effect of the particle system.
+# Emitter Module
+The emitter module is an important part of the particle system, used to define and control the emission behavior of particles. It determines the initial position, speed, direction, and other properties of particles in space, thereby affecting the effect of the entire particle system.
 
 ## Usage
-The emitter module is a required module for the particle simulator. The following code demonstrates how to add an emitter module to a particle simulator:
+The emitter module is a required module of the particle simulator. The following code shows how to add an emitter module to the particle simulator:
 ```ts
 let emitter = simulator.addModule(ParticleEmitterModule);
 // Set the maximum number of particles
 emitter.maxParticle = 10000;
-// Set the duration of emission
+// Set the continuous emission duration
 emitter.duration = 10;
-// Set the emission rate (number of particles per second)
+// Set the emission rate (x particles/second)
 emitter.emissionRate = 1000;
-// Set the particle's lifecycle size
+// Set the particle lifecycle
 emitter.startLifecycle.setScalar(1);
-// Set the shape type of the emitter
+// Set the emission shape of the emitter
 emitter.shapeType = ShapeType.Box;
-// Set the size of the emitter's shape
+// Set the size of the emitter's emission shape
 emitter.boxSize = new Vector3(10, 10, 10);
-// Set the emission location on the shape
+// Set from which position of the emission shape the emitter emits
 emitter.emitLocation = EmitLocation.Edge;
 ```
 
-The particle emitter module, `ParticleEmitterModule`  includes several important emission parameters. Each parameter has the following significance:
+The particle emitter module `ParticleEmitterModule` contains some important emission parameters. The function of each parameter is as follows:
 | Name | Description |
 | :---: | --- |
 | maxParticle | Maximum number of particles |
-| duration | Duration of particle emission (in seconds) |
-| emissionRate | Emission rate (number of particles per second) |
-| startLifecycle | Particle lifecycle (in seconds) |
-| shapeType | Emitter shape (e.g., circle, rectangle, sphere, cone) |
+| duration | Particle emission duration (unit: seconds) |
+| emissionRate | Emission rate (how many particles are emitted per second) |
+| startLifecycle | Particle lifecycle (unit: seconds) |
+| shapeType | Emitter shape (circle, rectangle, sphere, cone) |
 | emitLocation | Emission location (based on entity, surface, edge) |
-| angle | Angle (applicable when the emitter shape is a cone) |
-| radius | Radius (applicable when the emitter shape is a circle, sphere, or cone) |
-| boxSize | Size of the rectangle/box shape |
+| angle | Angle (valid when the emitter shape is a cone) |
+| radius | Radius (valid when the emitter shape is a circle, sphere, or cone) |
+| boxSize | Rectangle/box size |
 
 <Demo :height="500" src="/demos/particle/ParticleEmitter.ts"></Demo>
 

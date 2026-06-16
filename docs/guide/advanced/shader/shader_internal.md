@@ -3,7 +3,7 @@ In `Orillusion` engine, in order to write complex shader scripts (such as PBR ma
 This article will introduce some commonly used built-in shader scripts, such as variable, struct definition, function implementation, etc.
 
 ## Common Variables
-The initial data comes from the vertex stream `VertexAttributes`in the pipeline, the `Uniform` data defined in the constant register - `globalUniform`，, and some mathematical constants defined in the script header, such as `PI=3.14` , etc.
+The initial data comes from the vertex stream `VertexAttributes` in the pipeline, the `Uniform` data defined in the constant register - `globalUniform`, and some mathematical constants defined in the script header, such as `PI=3.14`, etc.
 After parsing these data, we can get the following built-in variables:
 
 ### globalUniform
@@ -164,7 +164,7 @@ struct FragmentOutput {
 The `materialUniform`is defined in the material and is associated with the specific material. The variable carries the variables required to draw the material. The data structure definitions of `materialUniform` for different materials should be different.
 Taking `LitMaterial` as an example, we will briefly introduce some variables in `materialUniform`.
 
-> The `LitMaterial` used the `materialUniform` structure, which is currently encapsulated into `PhysicMaterialUniform_frag`。
+> The `materialUniform` structure used in `LitMaterial` is currently encapsulated into `PhysicMaterialUniform_frag`.
  ```wgsl
 struct MaterialUniform{
     #if USE_BRDF

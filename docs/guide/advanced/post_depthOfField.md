@@ -1,18 +1,17 @@
 ---
 aside: false
 ---
-# DepthOfField
-The engine implements a depth of field effect that defines the nearest and farthest thresholds from the camera, within which objects are in focus. Once beyond the nearest threshold, objects become increasingly blurred with distance until the farthest threshold is reached and the maximum blur amount is applied.
+# Depth of Field - DepthOfField
+The depth of field effect implemented by the engine defines the nearest and farthest distance thresholds from the camera. Objects within the range between the camera and the nearest distance are rendered sharply; once an object exceeds the nearest distance, it becomes increasingly blurred as the distance increases, until it reaches the maximum blur level at the farthest distance.
 ```ts
-//Initialize the engine.
-await Engine3D.init();
+//Initialize the engine
+let engine = await Engine3D.init();
 
-//Set the near and far thresholds, and pixel offset of the depth of field effect.
-Engine3D.setting.render.postProcessing.depthOfView.near = 150;
-Engine3D.setting.render.postProcessing.depthOfView.far = 300;
-Engine3D.setting.render.postProcessing.depthOfView.pixelOffset = 1;
+engine.setting.render.postProcessing.depthOfView.near = 150;
+engine.setting.render.postProcessing.depthOfView.far = 300;
+engine.setting.render.postProcessing.depthOfView.pixelOffset = 1;
 
-// Add DepthOfFieldPost
+// Add a DepthOfFieldPost
 let postProcessing = this.scene.addComponent(PostProcessingComponent);
 postProcessing.addPost(DepthOfFieldPost); //Depth of field effect.
 
@@ -20,16 +19,16 @@ postProcessing.addPost(DepthOfFieldPost); //Depth of field effect.
 let view = new View3D();
 view.scene = this.scene;
 view.camera = this.camera;
-Engine3D.startRenderView(view);
+engine.startRenderView(view);
 ```
 
-[Engine3D.setting.render.postProcessing.depthOfView](../../api/types/DepthOfViewSetting.md) configuration parameters:
+Configuration parameters for [engine.setting.render.postProcessing.depthOfView](../../api/types/DepthOfViewSetting.md).
 
 | Parameter | Type | Description |
 | --- | --- | --- |
-| near | number | Objects closer to the camera than this distance are not blurred.|
-| far | number | Objects farther from the camera than this distance are blurred at maximum amount. Objects within the range[near,far]are blurred with a linear interpolation factor between 0 and 1.|
-| pixelOffset | number | Pixel offset of the blur effect.|
+| near | number | Objects closer than this distance will not be blurred |
+| far | number | Objects farther than this distance will receive the maximum amount of blur. Objects between `[near,far]` are blurred using a factor linearly interpolated between `[0,1]` |
+| pixelOffset | number | Pixel diffusion distance of the blur effect |
 
 <Demo src="/demos/advanced/Sample_depth.ts"></Demo>
 

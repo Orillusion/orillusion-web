@@ -1,48 +1,55 @@
-# Initialization
-## Create Instances of Engine3D 
-Before using the engine, it must be initialized by the `Engine3D.init()` method, and the engine will automatically create an `Engine3D` instance for following operations
+# Initialize the Engine
+## Create an Engine3D Instance
+Before using the engine, you need to initialize it via the `Engine3D.init()` method. `init()` is an asynchronous method that **returns an `Engine3D` instance**. All subsequent operations such as rendering, resource loading, and configuration are performed through this instance.
+
 ```ts
 import { Engine3D } from '@orillusion/core';
 
-Engine3D.init().then(()=>{
-  // for following operations
-})l
+Engine3D.init().then((engine) => {
+  // engine is the created engine instance
+});
 ```
-Note that `Engine3D.init()` is an asynchronous API, it is recommended to be use with `async/await`
+::: tip
+`Engine3D.init()` is an asynchronous API. It is recommended to call it together with `async/await`.
+:::
 
 ```ts
 import { Engine3D } from '@orillusion/core';
 
 async function demo(){
-  await Engine3D.init();
-  // for following operations
+  const engine = await Engine3D.init();
+  // Perform subsequent operations through engine
 }
 demo();
 ```
 
-## Create Canvas Manually
-By default, the `Engine3D.init()` instance automatically generates a `canvas` canvas with the screen size (width and height). If you do not want to use the canvas automatically created by the engine, you can also create the canvas manually.
-For example, the user can insert a `<canvas>` label into the HTML and specify an id:
+::: tip Multiple Instances
+Starting from the new version, the engine supports **multiple instances**: you can call `Engine3D.init()` multiple times to create multiple mutually independent `Engine3D` instances, each with its own canvas, render loop, resource manager (`engine.res`), and configuration (`engine.setting`). Interfaces that were accessed statically via `Engine3D.xxx` in earlier versions (such as `Engine3D.startRenderView`, `Engine3D.res`, `Engine3D.aspect`, `Engine3D.setting`) are now all called on the instance (`engine.startRenderView`, `engine.res`, etc.).
+:::
+
+## Create a Canvas Manually
+With the default parameters, `Engine3D.init()` automatically generates a `canvas` whose width and height match the screen size. If you do not want to use the canvas created automatically by the engine, you can also create the canvas manually.
+For example, you can insert a `<canvas>` tag in HTML and specify an id:
 ```html
 <canvas id="canvas" style="width:800px;height:500px" />
 ```
 ::: tip
-Using an external canvas requires manually setting the `style` size, such as specific pixel values, or setting it to `100%` to automatically fill the parent container.
+When using an external canvas, you need to set the `style` size manually, for example to a specific pixel value, or set it to `100%` to automatically fill the parent container.
 :::
 
-then using `document.getElementById`  in Typescript to get the canvas:
+Next, in the ts code, get the canvas via `document.getElementById`:
 ```ts
 let canvas = document.getElementById('canvas');
 ```
 
-and using `canvasConfig` to pass paraments of `canvas` into `init()` method for initialization:
+And pass the `canvas` parameter into the `init()` method using `canvasConfig` to initialize:
 ```ts
 import { Engine3D } from '@orillusion/core';
 
 let canvas = document.getElementById('canvas');
-await Engine3D.init({
+const engine = await Engine3D.init({
   canvasConfig: { canvas }
 });
 ```
 
-Get more information of configuration from [Engine3D](/guide/core/engine)
+For more configuration, see [Engine3D](/guide/core/engine)

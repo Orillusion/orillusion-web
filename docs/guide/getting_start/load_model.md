@@ -1,20 +1,21 @@
-# Load 3D Model
+# Load a 3D Model
 We recommend using `glTF` (Graphics Language Transmission Format) as the model loading format.
 
-The `glTF` (Graphics Language Transmission Format) format, published by `khronos`, enables efficient transfer and loading of 3D scenes and models. The `glTF` (Graphics Language Transmission Format) compresses the size of 3D resources to reduce application file sizes and processing difficulties. For more information about `glTF`, please refer to [glTF official website](https://www.khronos.org/gltf/).
+The `glTF` (Graphics Language Transmission Format) specification, published by `khronos`, enables efficient transfer and loading of 3D scenes and models. `glTF` (Graphics Language Transmission Format) compresses the size of 3D resources to reduce the application file size and processing difficulty. For more information about `glTF`, see the [glTF official website](https://www.khronos.org/gltf/).
+
 ## Basic Usage
-A simple [resource management](/guide/resource/Readme) module has been included in the engine, we can use [loadGltf](/api/classes/Res#loadgltf) API easily to load`gltf` or `glb` files:
+A simple [resource management](/guide/resource/Readme) module is built into the engine. We can use the [loadGltf](/api/classes/Res#loadgltf) API to conveniently load `gltf` or `glb` files:
 ```ts
 let scene = new Scene3D();
-// load gltf file
-let data = await Engine3D.res.loadGltf('sample.gltf');
-// add to scene
+// Load the gltf file
+let data = await engine.res.loadGltf('sample.gltf');
+// Add to the scene
 scene.addChild(data);
 ```
-You can refer [GLTF Introduction](/guide/resource/gltf) for more detailed information.
+For more detailed usage, refer to the [GLTF](/guide/resource/gltf) introduction.
 
 ## Example
-Here is a simple example of loading a model:
+Here we look at a simple example of loading a model:
 
 <Demo src="/demos/getting_start/load_model.ts"></Demo>
 

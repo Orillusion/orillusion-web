@@ -1,41 +1,41 @@
 ---
 aside: false
 ---
-# SSR
-SSR is a screen-space reflection effect that simulates the visual effect of smooth surfaces reflecting the surrounding objects' images in real-time. The reflection effect has the advantages of real-time rendering. When an object moves, the reflected objects in the image also move. And it can reflect precisely from each pixel. The disadvantage is that it cannot reflect the backside of an object, and objects outside the screen cannot reflect onto other objects.
+# Screen Space Reflection - SSR
+A reflection effect implementation based on screen space, which simulates the visual effect where a smooth object surface can reflect the images of surrounding objects in real time. The advantage of this reflection effect is real-time rendering: when an object moves, the object in the reflected image also moves; it can reflect accurately from each pixel. The disadvantage is that it cannot reflect the back of an object, and objects outside the screen range cannot be reflected onto other objects either.
 
 ```ts
-//Engine initialization
-await Engine3D.init();
+//Initialize the engine
+let engine = await Engine3D.init();
 
-// Setting SSR parameters
-Engine3D.setting.render.postProcessing.ssr.fadeEdgeRatio = 0.2;
-Engine3D.setting.render.postProcessing.ssr.rayMarchRatio = 0.5;
-Engine3D.setting.render.postProcessing.ssr.fadeDistanceMin = 600;
-Engine3D.setting.render.postProcessing.ssr.fadeDistanceMax = 2000;
-Engine3D.setting.render.postProcessing.ssr.roughnessThreshold = 0.5;
-Engine3D.setting.render.postProcessing.ssr.powDotRN = 0.2;
+engine.setting.render.postProcessing.ssr.fadeEdgeRatio = 0.2;
+engine.setting.render.postProcessing.ssr.rayMarchRatio = 0.5;
+engine.setting.render.postProcessing.ssr.fadeDistanceMin = 600;
+engine.setting.render.postProcessing.ssr.fadeDistanceMax = 2000;
+engine.setting.render.postProcessing.ssr.roughnessThreshold = 0.5;
+engine.setting.render.postProcessing.ssr.powDotRN = 0.2;
 
 // Add SSRPost
 let postProcessing = this.scene.addComponent(PostProcessingComponent);
 postProcessing.addPost(SSRPost);
+
 //Start rendering
 let view = new View3D();
 view.scene = this.scene;
 view.camera = this.camera;
-Engine3D.startRenderView(view);
+engine.startRenderView(view);
 ```
 
-[Engine3D.setting.render.postProcessing.ssr](../../api/types/SSRSetting.md) Configuration parameters:
+[engine.setting.render.postProcessing.ssr](../../api/types/SSRSetting.md) configuration parameters.
 
-| Parameter | Type	 | Description |
+| Parameter | Type | Description |
 | --- | --- | --- |
-| fadeEdgeRatio | number | Gradient speed.|
-| rayMarchRatio | number | 	Light step speed.|
-| fadeDistanceMin | number | Minimum fading distance.|
-| fadeDistanceMax | number | 	Maximum fading distance.|
-| roughnessThreshold | number | Roughness threshold.|
-| powDotRN | number | pow parameter of normal and reflection dot product.|
+| fadeEdgeRatio | number | Gradient rate |
+| rayMarchRatio | number | Ray marching rate |
+| fadeDistanceMin | number | Minimum fade distance |
+| fadeDistanceMax | number | Maximum fade distance |
+| roughnessThreshold | number | Roughness threshold |
+| powDotRN | number | The `pow` parameter of the dot product of `normal` and `reflection` |
 
 <Demo src="/demos/advanced/Sample_ssr.ts"></Demo>
 

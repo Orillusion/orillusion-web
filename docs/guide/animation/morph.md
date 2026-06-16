@@ -1,20 +1,20 @@
 # Morph Animation
 
-Using the system's [Time](/api/classes/Time) module to calculate the interpolation coefficient `interpolation` of the model vertex's basic position `basePosition` and target position `morphTargetPosition`, continuously change the object model's point front vertex position `position` to achieve a continuous animation effect.
+Using the system [Time](/api/classes/Time) module, the engine computes the interpolation coefficient `interpolation` between the model vertex's base position `basePosition` and target position `morphTargetPosition`, continuously changing the object model's current vertex position `position` to achieve a continuous animation effect.
 
-:::tip
-Currently, the engine only supports Morph animation states built into the model, which need to be prepared in advance using modeling tools. Future versions will include the ability to manually create custom Morph objects in code.
+::: tip
+Currently the engine only supports the model's built-in `Morph` animation states. You need to prepare the corresponding model states in advance in your modeling tool. A future version will add the ability to manually create custom `Morph` objects in code.
 :::
 
 ## Basic Usage
 
 ```ts
 import { Engine3D } from '@orillusion/core';
-// Load model with Morph state
-let faceObject = await Engine3D.res.loadGltf('gltfs/glb/face.glb');
+// Load a model that supports Morph states
+let faceObject = await engine.res.loadGltf('gltfs/glb/face.glb');
 scene.addChild(faceObject);
 ```
-The engine will automatically add the [MeshRenderer](/api/classes/MeshRenderer) component to all nodes of the model for rendering display, and will also add the corresponding [rendererMask](/api/classes/MeshRenderer#renderermask) for all nodes that support `Morph` animation. We can find all nodes that meet the `MorphTarget` by traversing all `MeshRenderer` nodes:
+The engine automatically adds the [MeshRenderer](/api/classes/MeshRenderer) component to all nodes of the model for rendering display, and also adds the corresponding [rendererMask](/api/classes/MeshRenderer#renderermask) for all nodes that support `Morph` animation. We can find all nodes that match `MorphTarget` by traversing all `MeshRenderer` nodes:
 ```ts
 function findMorphRenderers(obj: Object3D): MeshRenderer[] {
     let rendererList: MeshRenderer[] = [];
@@ -31,23 +31,23 @@ function findMorphRenderers(obj: Object3D): MeshRenderer[] {
 let MorphRenders = findMorphRenderers(faceObject)
 ```
 
-## Control Interpolation
-We can find the `morph` state corresponding to the node through the [morphTargetDictionary](/api/classes/GeometryBase#morphtargetdictionary) property of the node `geometry`, and then adjust the corresponding interpolation coefficient through [setMorphInfluence](/api/classes/MeshRenderer#setmorphinfluence) to change the model state:
+## Controlling Interpolation
+We can find the `morph` states corresponding to a node through the [morphTargetDictionary](/api/classes/GeometryBase#morphtargetdictionary) property of the node's `geometry`, and then adjust the corresponding interpolation coefficient through [setMorphInfluence](/api/classes/MeshRenderer#setmorphinfluence) to change the model state:
 ```ts
 console.log(renderer.geometry.morphTargetDictionary)
-// {mouth:0} - Completely closed mouth state
-renderer.setMorphInfluence('mouth', 1); // Set to 1, completely open the mouth
+// {mouth:0} - completely closed mouth state
+renderer.setMorphInfluence('mouth', 1); // Set to the completely open mouth state
 ```
 
-## Instructions
-`Morph` animation, for example, the face expression, assuming that the parts of the face animation are `eyes` and `lips`. You need to make the corresponding model in advance, including `eye` and `lip` two parts of the `morph` animation state:
+## Usage Notes
+For `morph` animation, take facial expressions as an example, assuming that the parts involved in the facial animation are the `eyes` and `lips`. You need to prepare the corresponding model in advance, containing the `morph` animation states for the two parts `eye` and `lip`:
 
-1. Define the basic state of the model: `open eyes` and `close mouth`;
-2. Define the completely closed eye state: `anim_close_eye`;
-3. Define the completely open mouth state: `anim_open_lip`;
-4. Corresponding to the interpolation coefficient `eye_interpolation` of the `open / close` state of the eye - `0` corresponds to the completely open eye, `1` corresponds to the completely closed eye;
-Similarly, the difference coefficient `lip_interpolation` of the `open / close` state of the mouth - `0` corresponds to the completely closed, `1` corresponds to the completely open;
-5. By adjusting the two `interpolation` coefficient values in the code, you can mix the corresponding `closed eye` and `open mouth` dynamic effects.
+1. Define the model's base state: `eyes open` and `mouth closed`;
+2. Define the completely closed-eye state: `anim_close_eye`;
+3. Define the completely open-mouth state: `anim_open_lip`;
+4. Map the eye `open/closed` state to the interpolation coefficient `eye_interpolation` - `0` corresponds to completely open eyes, `1` corresponds to completely closed eyes;   
+similarly, map the lip `open/closed` state to the interpolation coefficient `lip_interpolation` - `0` corresponds to completely closed, `1` corresponds to completely open;
+5. By adjusting the `interpolation` coefficient values of the two in code, you can blend the corresponding `eyes closed` and `mouth open` dynamic effects.
 
 <Demo :height="500" src="/demos/animation/morphAnim.ts"></Demo>
 

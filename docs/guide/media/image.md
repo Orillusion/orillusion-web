@@ -1,25 +1,25 @@
 # Image Material
-This material inherits from the [UnLit](../graphics/materials.md#unlit-material) material, which also does not calculate lighting and is a basic material that only renders based on the pixel color of the image. The difference is that it features a `rectClip` setting for spatial clipping, allowing for flexible image cropping.
+This material inherits from the [UnLit](../graphics/materials.md#unlit-material) material. It likewise does not calculate lighting and is a basic material that only renders through the pixel colors of the image. The difference is that this material adds a `rectClip` spatial clipping setting, allowing free cropping of the image.
 
 The following properties are supported:
 | Property | Type | Description |
 | :---: | :---: | :---: |
 | baseMap | Texture | Image texture |
 | baseColor | Color | Base color |
-| rectClip | Vector4 | clipping area |
+| rectClip | Vector4 | Top, bottom, left, and right clipping area |
 
 ## Usage
 ```ts
 import {ImageMaterial} from '@orillusion/media-extention'
 
-// Create image material
+// Create an image material
 let mat = new ImageMaterial();
-// Load 2D texture
-let texture = await Engine3D.res.loadTexture('path/to/image');
+// Load a 2D texture
+let texture = await engine.res.loadTexture('path/to/image');
 mat.baseMap = texture;
-// set base color
+// Set the base color
 mat.baseColor = new Color(1, 1, 1, 1)
-// set clipping area offset, left/top/right/bottom
+// Set the clipping area, left/top/right/bottom
 mat.rectClip = new Vector4(0, 0, 0, 0);
 ```
 

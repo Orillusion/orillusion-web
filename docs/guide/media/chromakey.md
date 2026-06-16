@@ -1,34 +1,34 @@
 # Color Key Material (Filter Background Color)
-The ChromaKey material adds a background color filtering feature on top of the Video [Video](./video.md) material, supporting the following properties of the basic video material UV:
+The Color Key `(ChromaKey)` material adds a background color filtering feature on top of the [Video](./video.md) material, and supports the following properties of the basic video material UV:
 
 | Property | Type | Description |
 | :---: | :---: | :---: |
 | baseMap | VideoTexture | Video texture |
 | baseColor | Color | Base color |
-| rectClip | Vector4 | clipping offset |
+| rectClip | Vector4 | Top, bottom, left, and right clipping area |
 
-In addition, `ChromaKeyMaterial` also provides background color filtering function:
+In addition, `ChromaKeyMaterial` also provides a background color filtering feature:
 | Property | Description |
 | :---: | :---: |
-| keyColor | background key color |
-| colorCutoff | hollowing intensity |
-| colorFeathering | color feathering coefficient |
-| maskFeathering | edge feathering coefficient |
-| sharpening | edge sharpening coefficient |
-| despoil | environmental light attenuation coefficient |
-| despoilLuminanceAdd | fill light intensity after weakening |
+| keyColor | Background key color |
+| colorCutoff | Hollowing intensity |
+| colorFeathering | Color feathering coefficient |
+| maskFeathering | Edge feathering coefficient |
+| sharpening | Edge sharpening coefficient |
+| despoil | Ambient light attenuation coefficient |
+| despoilLuminanceAdd | Fill light intensity after attenuation |
 
 ## Usage
 ```ts
 import {ChromaKeyMaterial, VideoTexture} from '@orillusion/media-extention'
 
-// create video texture
+// Create a video texture
 let videoTexture = new VideoTexture();
 await videoTexture.load('path/to/video')
-// create video material
+// Create a video material
 let mat = new ChromaKeyMaterial();
 mat.baseMap = videoTexture;
-// set green filtering
+// Set green as the filter color
 mat.keyColor = new Color(0.0, 1.0, 0.0, 0.0)
 mat.colorCutoff = 0.2
 ```

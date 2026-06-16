@@ -1,13 +1,12 @@
 # Video Material
-Video Material
-This material inherits from the [UnLit](../graphics/materials.md#unlit-material) material, which does not calculate lighting and only renders based on the color of the video pixels. The difference is that it can automatically synchronize the frame content of the video being played, and it also features a `rectClip` setting for spatial clipping, allowing for flexible image cropping.
+This material inherits from the [UnLit](../graphics/materials.md#unlit-material) material. It likewise does not calculate lighting and is a basic material that only renders through the pixel colors of the video. The difference is that it can automatically synchronize the frame content of the video being played. In addition, it adds a `rectClip` spatial clipping setting, allowing more flexible cropping.
 
 The video material supports the following properties:
 | Property | Type | Description |
 | :---: | :---: | :---: |
 | baseMap | VideoTexture | Video texture |
 | baseColor | Color | Base color |
-| rectClip | Vector4 | clipping area |
+| rectClip | Vector4 | Top, bottom, left, and right clipping area |
 
 ## Usage
 ```ts
@@ -19,9 +18,9 @@ await videoTexture.load('https://cdn.orillusion.com/videos/bunny.mp4')
 // Create a video material
 let mat = new VideoMaterial();
 mat.baseMap = videoTexture;
-// set base color
+// Set the base color
 mat.baseColor = new Color(1, 1, 1, 1)
-// set clipping area offset, left/top/right/bottom
+// Set the clipping area, left/top/right/bottom
 mat.rectClip = new Vector4(0, 0, 0, 0);
 ```
 
