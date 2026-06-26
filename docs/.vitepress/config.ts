@@ -47,6 +47,7 @@ export default async () =>
                 '/guide/': sidebarGuide(),
                 '/api/': sidebar('', 'api'),
                 '/physics/': sidebar('', 'physics'),
+                '/physics-rapier/': sidebar('', 'physics-rapier'),
                 '/stats/': sidebar('', 'stats'),
                 '/media-extention/': sidebar('', 'media-extention'),
                 '/particle/': sidebar('', 'particle'),
@@ -211,13 +212,14 @@ function nav() {
         },
         {
             text: 'API',
-            activeMatch: '/api|physics|media-extention|stats|particle|graphic/',
+            activeMatch: '/api|physics|physics-rapier|media-extention|stats|particle|graphic/',
             items: [
                 {
                     text: 'Orillusion',
                     items: [
                         { text: 'Core', link: '/api/', activeMatch: '/api/' },
                         { text: 'Physics', link: '/physics/', activeMatch: '/physics/' },
+                        { text: 'Physics Rapier', link: '/physics-rapier/', activeMatch: '/physics-rapier/' },
                         { text: 'Media Extention', link: '/media-extention/', activeMatch: '/media-extention/' },
                         { text: 'Stats', link: '/stats/', activeMatch: '/stats/' },
                         { text: 'Particle', link: '/particle/', activeMatch: '/particle/' },
@@ -511,11 +513,11 @@ function sidebar(root: string = '', packages: string) {
             index[lastTitle] = [];
         } else {
             let text = line.match(/\w+/);
-            let md = line.match(/\w+\/\w+\.md/);
+            let md = line.match(/\(([^)]+)\)/);
             if (md && text) {
                 index[lastTitle].push({
                     text: text[0],
-                    link: `${root}/${packages}/${md[0]}`
+                    link: `${root}/${packages}/${md[1]}`
                 });
             }
         }
@@ -531,6 +533,10 @@ function sidebar(root: string = '', packages: string) {
                 {
                     text: '@orillusion/physics',
                     link: '/physics/'
+                },
+                {
+                    text: '@orillusion/physics-rapier',
+                    link: '/physics-rapier/'
                 },
                 {
                     text: '@orillusion/stats',

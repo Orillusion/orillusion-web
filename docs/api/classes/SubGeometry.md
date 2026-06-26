@@ -1,31 +1,29 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: SubGeometry
+
+Defined in: [src/core/geometry/GeometryBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L29)
 
 geometry split more subGeometry descriptor
 
-### Constructors
-
-- [constructor](SubGeometry.md#constructor)
-
-### Properties
-
-- [lodLevels](SubGeometry.md#lodlevels)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new SubGeometry**(): [`SubGeometry`](SubGeometry.md)
+> **new SubGeometry**(): `SubGeometry`
 
 #### Returns
 
-[`SubGeometry`](SubGeometry.md)
+`SubGeometry`
 
 ## Properties
 
 ### lodLevels
 
-• **lodLevels**: [`LODDescriptor`](../types/LODDescriptor.md)[]
+> **lodLevels**: [`LODDescriptor`](../type-aliases/LODDescriptor.md)[]
 
-#### Defined in
+Defined in: [src/core/geometry/GeometryBase.ts:31](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L31)
 
-[src/core/geometry/GeometryBase.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L30)
+The LOD levels making up this sub-geometry.

@@ -1,174 +1,134 @@
+[**@orillusion/graphic**](../README.md)
+
+***
+
 # Class: RibbonStruct
 
-## Hierarchy
+Defined in: [packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts:10](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts#L10)
+
+## Extends
 
 - `Struct`
 
-  ↳ **`RibbonStruct`**
-
-### Constructors
-
-- [constructor](RibbonStruct.md#constructor)
-
-### Properties
-
-- [index](RibbonStruct.md#index)
-- [segment](RibbonStruct.md#segment)
-- [visible](RibbonStruct.md#visible)
-- [width](RibbonStruct.md#width)
-- [uv](RibbonStruct.md#uv)
-- [uvSpeed](RibbonStruct.md#uvspeed)
-- [smooth](RibbonStruct.md#smooth)
-- [faceMode](RibbonStruct.md#facemode)
-- [up](RibbonStruct.md#up)
-- [ids](RibbonStruct.md#ids)
-- [ribbonPoint](RibbonStruct.md#ribbonpoint)
-
-### Methods
-
-- [getValueSize](RibbonStruct.md#getvaluesize)
-- [Ref](RibbonStruct.md#ref)
-- [Get](RibbonStruct.md#get)
-- [GetSize](RibbonStruct.md#getsize)
-- [getValueType](RibbonStruct.md#getvaluetype)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new RibbonStruct**(): [`RibbonStruct`](RibbonStruct.md)
+> **new RibbonStruct**(): `RibbonStruct`
 
 #### Returns
 
-[`RibbonStruct`](RibbonStruct.md)
+`RibbonStruct`
 
 #### Inherited from
 
-Struct.constructor
+`Struct.constructor`
 
 ## Properties
 
 ### index
 
-• **index**: `number` = `1`
+> **index**: `number` = `1`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts:11](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts#L11)
 
-[packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts:11](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts#L11)
-
-___
+***
 
 ### segment
 
-• **segment**: `number` = `5`
+> **segment**: `number` = `5`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts:12](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts#L12)
 
-[packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts:12](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts#L12)
-
-___
+***
 
 ### visible
 
-• **visible**: `number` = `1`
+> **visible**: `number` = `1`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts:13](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts#L13)
 
-[packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts:13](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts#L13)
-
-___
+***
 
 ### width
 
-• **width**: `number` = `0.25`
+> **width**: `number` = `0.25`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts:14](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts#L14)
 
-[packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts:14](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts#L14)
-
-___
+***
 
 ### uv
 
-• **uv**: `Vector4`
+> **uv**: `Vector4`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts:15](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts#L15)
 
-[packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts:15](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts#L15)
-
-___
+***
 
 ### uvSpeed
 
-• **uvSpeed**: `Vector2`
+> **uvSpeed**: `Vector2`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts:16](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts#L16)
 
-[packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts:16](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts#L16)
-
-___
+***
 
 ### smooth
 
-• **smooth**: `number` = `0`
+> **smooth**: `number` = `0`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts:17](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts#L17)
 
-[packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts:17](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts#L17)
-
-___
+***
 
 ### faceMode
 
-• **faceMode**: `number` = `FaceMode.FaceToCamera`
+> **faceMode**: `number` = `FaceMode.FaceToCamera`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts:18](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts#L18)
 
-[packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts:18](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts#L18)
-
-___
+***
 
 ### up
 
-• **up**: `Vector4`
+> **up**: `Vector4`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts:19](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts#L19)
 
-[packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts:19](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts#L19)
-
-___
+***
 
 ### ids
 
-• **ids**: `Float32Array`
+> **ids**: `Float32Array`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts:20](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts#L20)
 
-[packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts:20](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts#L20)
-
-___
+***
 
 ### ribbonPoint
 
-• **ribbonPoint**: `Object3D`[] = `[]`
+> **ribbonPoint**: `Object3D`[] = `[]`
 
-#### Defined in
-
-[packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts:21](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts#L21)
+Defined in: [packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts:21](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/Graphic3DRibbonRenderer.ts#L21)
 
 ## Methods
 
-### getValueSize
+### getValueSize()
 
-▸ **getValueSize**(`value`): `any`
+> `static` **getValueSize**(`value`): `any`
+
+Defined in: [src/util/struct/Struct.ts:48](https://github.com/orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L48)
 
 get any type value memory size
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `value` | `any` | any type value |
+##### value
+
+`any`
+
+any type value
 
 #### Returns
 
@@ -176,59 +136,55 @@ get any type value memory size
 
 #### Inherited from
 
-Struct.getValueSize
+`Struct.getValueSize`
 
-#### Defined in
+***
 
-[src/util/struct/Struct.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L48)
+### Ref()
 
-___
+> `static` **Ref**\<`T`\>(`c`): `object`[]
 
-### Ref
+Defined in: [src/util/struct/Struct.ts:93](https://github.com/orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L93)
 
-▸ **Ref**\<`T`\>(`c`): \{ `name`: `string` ; `type`: `string`  }[]
+#### Type Parameters
 
-#### Type parameters
+##### T
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `Struct` |
+`T` *extends* `Struct`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `c` | `Ctor`\<`T`\> |
+##### c
+
+`Ctor`\<`T`\>
 
 #### Returns
 
-\{ `name`: `string` ; `type`: `string`  }[]
+`object`[]
 
 #### Inherited from
 
-Struct.Ref
+`Struct.Ref`
 
-#### Defined in
+***
 
-[src/util/struct/Struct.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L93)
+### Get()
 
-___
+> `static` **Get**\<`T`\>(`c`): `Struct`
 
-### Get
+Defined in: [src/util/struct/Struct.ts:99](https://github.com/orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L99)
 
-▸ **Get**\<`T`\>(`c`): `Struct`
+#### Type Parameters
 
-#### Type parameters
+##### T
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `Struct` |
+`T` *extends* `Struct`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `c` | `Ctor`\<`T`\> |
+##### c
+
+`Ctor`\<`T`\>
 
 #### Returns
 
@@ -236,31 +192,29 @@ ___
 
 #### Inherited from
 
-Struct.Get
+`Struct.Get`
 
-#### Defined in
+***
 
-[src/util/struct/Struct.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L99)
+### GetSize()
 
-___
+> `static` **GetSize**\<`T`\>(`c`): `number`
 
-### GetSize
-
-▸ **GetSize**\<`T`\>(`c`): `number`
+Defined in: [src/util/struct/Struct.ts:112](https://github.com/orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L112)
 
 get any struct memory size
 
-#### Type parameters
+#### Type Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `Struct` |
+##### T
+
+`T` *extends* `Struct`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `c` | `Ctor`\<`T`\> |
+##### c
+
+`Ctor`\<`T`\>
 
 #### Returns
 
@@ -268,28 +222,22 @@ get any struct memory size
 
 #### Inherited from
 
-Struct.GetSize
+`Struct.GetSize`
 
-#### Defined in
+***
 
-[src/util/struct/Struct.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L112)
+### getValueType()
 
-___
+> **getValueType**(): `object`[]
 
-### getValueType
-
-▸ **getValueType**(): \{ `name`: `string` ; `type`: `string`  }[]
+Defined in: [src/util/struct/Struct.ts:25](https://github.com/orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L25)
 
 get reflection name
 
 #### Returns
 
-\{ `name`: `string` ; `type`: `string`  }[]
+`object`[]
 
 #### Inherited from
 
-Struct.getValueType
-
-#### Defined in
-
-[src/util/struct/Struct.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L25)
+`Struct.getValueType`

@@ -1,98 +1,81 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: TileSet
 
-### Constructors
-
-- [constructor](TileSet.md#constructor)
-
-### Properties
-
-- [asset](TileSet.md#asset)
-- [extras](TileSet.md#extras)
-- [geometricError](TileSet.md#geometricerror)
-- [properties](TileSet.md#properties)
-- [refine](TileSet.md#refine)
-- [root](TileSet.md#root)
+Defined in: [src/loader/parser/tileRenderer/TileSet.ts:1](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L1)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new TileSet**(): [`TileSet`](TileSet.md)
+> **new TileSet**(): `TileSet`
 
 #### Returns
 
-[`TileSet`](TileSet.md)
+`TileSet`
 
 ## Properties
 
 ### asset
 
-• **asset**: `Object`
+> **asset**: `object`
 
-#### Type declaration
+Defined in: [src/loader/parser/tileRenderer/TileSet.ts:2](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L2)
 
-| Name | Type |
-| :------ | :------ |
-| `generatetool` | `string` |
-| `version` | `string` |
-| `gltfUpAxis?` | `any` |
+#### generatetool
 
-#### Defined in
+> **generatetool**: `string`
 
-[src/loader/parser/tileRenderer/TileSet.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L2)
+#### version
 
-___
+> **version**: `string`
+
+#### gltfUpAxis?
+
+> `optional` **gltfUpAxis?**: `any`
+
+***
 
 ### extras
 
-• **extras**: `Object`
+> **extras**: `object`
 
-#### Type declaration
+Defined in: [src/loader/parser/tileRenderer/TileSet.ts:3](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L3)
 
-| Name | Type |
-| :------ | :------ |
-| `scenetree` | `string` |
+#### scenetree
 
-#### Defined in
+> **scenetree**: `string`
 
-[src/loader/parser/tileRenderer/TileSet.ts:3](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L3)
-
-___
+***
 
 ### geometricError
 
-• **geometricError**: `number`
+> **geometricError**: `number`
 
-#### Defined in
+Defined in: [src/loader/parser/tileRenderer/TileSet.ts:4](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L4)
 
-[src/loader/parser/tileRenderer/TileSet.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L4)
-
-___
+***
 
 ### properties
 
-• **properties**: `any`
+> **properties**: `any`
 
-#### Defined in
+Defined in: [src/loader/parser/tileRenderer/TileSet.ts:5](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L5)
 
-[src/loader/parser/tileRenderer/TileSet.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L5)
-
-___
+***
 
 ### refine
 
-• **refine**: `any`
+> **refine**: `any`
 
-#### Defined in
+Defined in: [src/loader/parser/tileRenderer/TileSet.ts:6](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L6)
 
-[src/loader/parser/tileRenderer/TileSet.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L6)
-
-___
+***
 
 ### root
 
-• **root**: [`TileSetRoot`](TileSetRoot.md)
+> **root**: [`TileSetRoot`](TileSetRoot.md)
 
-#### Defined in
-
-[src/loader/parser/tileRenderer/TileSet.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L7)
+Defined in: [src/loader/parser/tileRenderer/TileSet.ts:7](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L7)

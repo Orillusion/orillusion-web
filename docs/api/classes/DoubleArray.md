@@ -1,148 +1,129 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: DoubleArray
 
-### Constructors
-
-- [constructor](DoubleArray.md#constructor)
-
-### Methods
-
-- [getIndexByKey](DoubleArray.md#getindexbykey)
-- [getValueByKey](DoubleArray.md#getvaluebykey)
-- [put](DoubleArray.md#put)
-- [remove](DoubleArray.md#remove)
-- [getValues](DoubleArray.md#getvalues)
-- [getKeys](DoubleArray.md#getkeys)
-- [clear](DoubleArray.md#clear)
+Defined in: [src/math/navigation/DoubleArray.ts:1](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/DoubleArray.ts#L1)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new DoubleArray**(): [`DoubleArray`](DoubleArray.md)
+> **new DoubleArray**(): `DoubleArray`
 
 #### Returns
 
-[`DoubleArray`](DoubleArray.md)
+`DoubleArray`
 
 ## Methods
 
-### getIndexByKey
+### getIndexByKey()
 
-▸ **getIndexByKey**(`key`): `number`
+> **getIndexByKey**(`key`): `number`
+
+Defined in: [src/math/navigation/DoubleArray.ts:7](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/DoubleArray.ts#L7)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `key` | `any` |
+##### key
+
+`any`
 
 #### Returns
 
 `number`
 
-#### Defined in
+***
 
-[src/math/navigation/DoubleArray.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/DoubleArray.ts#L7)
+### getValueByKey()
 
-___
+> **getValueByKey**(`key`): `any`
 
-### getValueByKey
-
-▸ **getValueByKey**(`key`): `any`
+Defined in: [src/math/navigation/DoubleArray.ts:11](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/DoubleArray.ts#L11)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `key` | `any` |
+##### key
+
+`any`
 
 #### Returns
 
 `any`
 
-#### Defined in
+***
 
-[src/math/navigation/DoubleArray.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/DoubleArray.ts#L11)
+### put()
 
-___
+> **put**(`key`, `value`): `any`
 
-### put
-
-▸ **put**(`key`, `value`): `any`
+Defined in: [src/math/navigation/DoubleArray.ts:19](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/DoubleArray.ts#L19)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `key` | `any` |
-| `value` | `any` |
+##### key
+
+`any`
+
+##### value
+
+`any`
 
 #### Returns
 
 `any`
 
-#### Defined in
+***
 
-[src/math/navigation/DoubleArray.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/DoubleArray.ts#L19)
+### remove()
 
-___
+> **remove**(`key`): `any`
 
-### remove
-
-▸ **remove**(`key`): `any`
+Defined in: [src/math/navigation/DoubleArray.ts:28](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/DoubleArray.ts#L28)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `key` | `any` |
+##### key
+
+`any`
 
 #### Returns
 
 `any`
 
-#### Defined in
+***
 
-[src/math/navigation/DoubleArray.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/DoubleArray.ts#L28)
+### getValues()
 
-___
+> **getValues**(): `any`[]
 
-### getValues
-
-▸ **getValues**(): `any`[]
+Defined in: [src/math/navigation/DoubleArray.ts:39](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/DoubleArray.ts#L39)
 
 #### Returns
 
 `any`[]
 
-#### Defined in
+***
 
-[src/math/navigation/DoubleArray.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/DoubleArray.ts#L39)
+### getKeys()
 
-___
+> **getKeys**(): `any`[]
 
-### getKeys
-
-▸ **getKeys**(): `any`[]
+Defined in: [src/math/navigation/DoubleArray.ts:43](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/DoubleArray.ts#L43)
 
 #### Returns
 
 `any`[]
 
-#### Defined in
+***
 
-[src/math/navigation/DoubleArray.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/DoubleArray.ts#L43)
+### clear()
 
-___
+> **clear**(): `void`
 
-### clear
-
-▸ **clear**(): `void`
+Defined in: [src/math/navigation/DoubleArray.ts:47](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/DoubleArray.ts#L47)
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[src/math/navigation/DoubleArray.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/DoubleArray.ts#L47)

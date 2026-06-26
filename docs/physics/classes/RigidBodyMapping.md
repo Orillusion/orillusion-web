@@ -1,130 +1,128 @@
+[**@orillusion/physics**](../README.md)
+
+***
+
 # Class: RigidBodyMapping
+
+Defined in: [packages/physics/utils/RigidBodyMapping.ts:7](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyMapping.ts#L7)
 
 A bidirectional mapping between RigidBody objects and 3D objects.
 
-### Constructors
-
-- [constructor](RigidBodyMapping.md#constructor)
-
-### Accessors
-
-- [getAllPhysicsObjectMap](RigidBodyMapping.md#getallphysicsobjectmap)
-- [getAllGraphicObjectMap](RigidBodyMapping.md#getallgraphicobjectmap)
-
-### Methods
-
-- [addMapping](RigidBodyMapping.md#addmapping)
-- [getPhysicsObject](RigidBodyMapping.md#getphysicsobject)
-- [getGraphicObject](RigidBodyMapping.md#getgraphicobject)
-- [removeMappingByGraphic](RigidBodyMapping.md#removemappingbygraphic)
-- [removeMappingByPhysics](RigidBodyMapping.md#removemappingbyphysics)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new RigidBodyMapping**(): [`RigidBodyMapping`](RigidBodyMapping.md)
+> **new RigidBodyMapping**(): `RigidBodyMapping`
 
 #### Returns
 
-[`RigidBodyMapping`](RigidBodyMapping.md)
+`RigidBodyMapping`
 
 ## Accessors
 
 ### getAllPhysicsObjectMap
 
-• `get` **getAllPhysicsObjectMap**(): `Map`\<[`btRigidBody`](Ammo.btRigidBody.md), `Object3D`\>
+#### Get Signature
+
+> **get** `static` **getAllPhysicsObjectMap**(): `Map`\<[`btRigidBody`](../@orillusion/namespaces/Ammo/classes/btRigidBody.md), `Object3D`\>
+
+Defined in: [packages/physics/utils/RigidBodyMapping.ts:14](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyMapping.ts#L14)
 
 Retrieves the entire mapping of all RigidBody objects.
 
-#### Returns
+##### Returns
 
-`Map`\<[`btRigidBody`](Ammo.btRigidBody.md), `Object3D`\>
+`Map`\<[`btRigidBody`](../@orillusion/namespaces/Ammo/classes/btRigidBody.md), `Object3D`\>
 
 A map of RigidBody objects to 3D objects.
 
-#### Defined in
-
-[packages/physics/utils/RigidBodyMapping.ts:14](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyMapping.ts#L14)
-
-___
+***
 
 ### getAllGraphicObjectMap
 
-• `get` **getAllGraphicObjectMap**(): `Map`\<`Object3D`, [`btRigidBody`](Ammo.btRigidBody.md)\>
+#### Get Signature
+
+> **get** `static` **getAllGraphicObjectMap**(): `Map`\<`Object3D`, [`btRigidBody`](../@orillusion/namespaces/Ammo/classes/btRigidBody.md)\>
+
+Defined in: [packages/physics/utils/RigidBodyMapping.ts:22](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyMapping.ts#L22)
 
 Retrieves the entire mapping of all 3D objects.
 
-#### Returns
+##### Returns
 
-`Map`\<`Object3D`, [`btRigidBody`](Ammo.btRigidBody.md)\>
+`Map`\<`Object3D`, [`btRigidBody`](../@orillusion/namespaces/Ammo/classes/btRigidBody.md)\>
 
 A map of 3D objects to RigidBody objects.
 
-#### Defined in
-
-[packages/physics/utils/RigidBodyMapping.ts:22](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyMapping.ts#L22)
-
 ## Methods
 
-### addMapping
+### addMapping()
 
-▸ **addMapping**(`object3D`, `physics`): `void`
+> `static` **addMapping**(`object3D`, `physics`): `void`
+
+Defined in: [packages/physics/utils/RigidBodyMapping.ts:31](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyMapping.ts#L31)
 
 Adds a mapping between a 3D object and a RigidBody object.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `object3D` | `Object3D` | The 3D object. |
-| `physics` | [`btRigidBody`](Ammo.btRigidBody.md) | The RigidBody object. |
+##### object3D
+
+`Object3D`
+
+The 3D object.
+
+##### physics
+
+[`btRigidBody`](../@orillusion/namespaces/Ammo/classes/btRigidBody.md)
+
+The RigidBody object.
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[packages/physics/utils/RigidBodyMapping.ts:31](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyMapping.ts#L31)
+### getPhysicsObject()
 
-___
+> `static` **getPhysicsObject**(`object3D`): [`btRigidBody`](../@orillusion/namespaces/Ammo/classes/btRigidBody.md)
 
-### getPhysicsObject
-
-▸ **getPhysicsObject**(`object3D`): [`btRigidBody`](Ammo.btRigidBody.md)
+Defined in: [packages/physics/utils/RigidBodyMapping.ts:40](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyMapping.ts#L40)
 
 Retrieves the RigidBody object associated with a given 3D object.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `object3D` | `Object3D` | The 3D object. |
+##### object3D
+
+`Object3D`
+
+The 3D object.
 
 #### Returns
 
-[`btRigidBody`](Ammo.btRigidBody.md)
+[`btRigidBody`](../@orillusion/namespaces/Ammo/classes/btRigidBody.md)
 
 The associated RigidBody object, or undefined if not found.
 
-#### Defined in
+***
 
-[packages/physics/utils/RigidBodyMapping.ts:40](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyMapping.ts#L40)
+### getGraphicObject()
 
-___
+> `static` **getGraphicObject**(`physics`): `Object3D`
 
-### getGraphicObject
-
-▸ **getGraphicObject**(`physics`): `Object3D`
+Defined in: [packages/physics/utils/RigidBodyMapping.ts:49](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyMapping.ts#L49)
 
 Retrieves the 3D object associated with a given RigidBody object.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `physics` | [`btRigidBody`](Ammo.btRigidBody.md) | The RigidBody object. |
+##### physics
+
+[`btRigidBody`](../@orillusion/namespaces/Ammo/classes/btRigidBody.md)
+
+The RigidBody object.
 
 #### Returns
 
@@ -132,50 +130,46 @@ Retrieves the 3D object associated with a given RigidBody object.
 
 The associated 3D object, or undefined if not found.
 
-#### Defined in
+***
 
-[packages/physics/utils/RigidBodyMapping.ts:49](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyMapping.ts#L49)
+### removeMappingByGraphic()
 
-___
+> `static` **removeMappingByGraphic**(`object3D`): `void`
 
-### removeMappingByGraphic
-
-▸ **removeMappingByGraphic**(`object3D`): `void`
+Defined in: [packages/physics/utils/RigidBodyMapping.ts:57](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyMapping.ts#L57)
 
 Removes the mapping associated with a given 3D object.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `object3D` | `Object3D` | The 3D object. |
+##### object3D
+
+`Object3D`
+
+The 3D object.
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[packages/physics/utils/RigidBodyMapping.ts:57](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyMapping.ts#L57)
+### removeMappingByPhysics()
 
-___
+> `static` **removeMappingByPhysics**(`physics`): `void`
 
-### removeMappingByPhysics
-
-▸ **removeMappingByPhysics**(`physics`): `void`
+Defined in: [packages/physics/utils/RigidBodyMapping.ts:65](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyMapping.ts#L65)
 
 Removes the mapping associated with a given RigidBody object.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `physics` | [`btRigidBody`](Ammo.btRigidBody.md) | The RigidBody object. |
+##### physics
+
+[`btRigidBody`](../@orillusion/namespaces/Ammo/classes/btRigidBody.md)
+
+The RigidBody object.
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[packages/physics/utils/RigidBodyMapping.ts:65](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyMapping.ts#L65)

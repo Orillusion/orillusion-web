@@ -1,96 +1,102 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: QuadRoot
 
-### Constructors
+Defined in: [src/core/tree/quad/QuadRoot.ts:11](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadRoot.ts#L11)
 
-- [constructor](QuadRoot.md#constructor)
-
-### Methods
-
-- [createQuadTree](QuadRoot.md#createquadtree)
-- [getNodesByAABB](QuadRoot.md#getnodesbyaabb)
-- [getTriangleAtPoint](QuadRoot.md#gettriangleatpoint)
+Root container of a quad-tree that owns the cells and manages node
+insertion against a maximum-nodes-per-cell budget.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new QuadRoot**(`maxNodesPerCell?`, `minCellSize?`): [`QuadRoot`](QuadRoot.md)
+> **new QuadRoot**(`maxNodesPerCell?`, `minCellSize?`): `QuadRoot`
+
+Defined in: [src/core/tree/quad/QuadRoot.ts:25](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadRoot.ts#L25)
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `maxNodesPerCell` | `number` | `10` |
-| `minCellSize` | `number` | `500` |
+##### maxNodesPerCell?
+
+`number` = `10`
+
+##### minCellSize?
+
+`number` = `500`
 
 #### Returns
 
-[`QuadRoot`](QuadRoot.md)
-
-#### Defined in
-
-[src/core/tree/quad/QuadRoot.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadRoot.ts#L20)
+`QuadRoot`
 
 ## Methods
 
-### createQuadTree
+### createQuadTree()
 
-▸ **createQuadTree**(`nodes`): `void`
+> **createQuadTree**(`nodes`): `void`
+
+Defined in: [src/core/tree/quad/QuadRoot.ts:33](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadRoot.ts#L33)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nodes` | [`IQuadNode`](../interfaces/IQuadNode.md)[] |
+##### nodes
+
+[`IQuadNode`](../interfaces/IQuadNode.md)[]
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/core/tree/quad/QuadRoot.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadRoot.ts#L28)
+### getNodesByAABB()
 
-___
+> **getNodesByAABB**(`minX`, `minY`, `maxX`, `maxY`): [`IQuadNode`](../interfaces/IQuadNode.md)[]
 
-### getNodesByAABB
-
-▸ **getNodesByAABB**(`minX`, `minY`, `maxX`, `maxY`): [`IQuadNode`](../interfaces/IQuadNode.md)[]
+Defined in: [src/core/tree/quad/QuadRoot.ts:40](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadRoot.ts#L40)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `minX` | `number` |
-| `minY` | `number` |
-| `maxX` | `number` |
-| `maxY` | `number` |
+##### minX
+
+`number`
+
+##### minY
+
+`number`
+
+##### maxX
+
+`number`
+
+##### maxY
+
+`number`
 
 #### Returns
 
 [`IQuadNode`](../interfaces/IQuadNode.md)[]
 
-#### Defined in
+***
 
-[src/core/tree/quad/QuadRoot.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadRoot.ts#L35)
+### getTriangleAtPoint()
 
-___
+> **getTriangleAtPoint**(`point`, `threshold?`): [`IQuadNode`](../interfaces/IQuadNode.md)
 
-### getTriangleAtPoint
-
-▸ **getTriangleAtPoint**(`point`, `threshold?`): [`IQuadNode`](../interfaces/IQuadNode.md)
+Defined in: [src/core/tree/quad/QuadRoot.ts:61](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadRoot.ts#L61)
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `point` | [`Vector3`](Vector3.md) | `undefined` |
-| `threshold` | `number` | `5` |
+##### point
+
+[`Vector3`](Vector3.md)
+
+##### threshold?
+
+`number` = `5`
 
 #### Returns
 
 [`IQuadNode`](../interfaces/IQuadNode.md)
-
-#### Defined in
-
-[src/core/tree/quad/QuadRoot.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadRoot.ts#L56)

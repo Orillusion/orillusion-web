@@ -1,17 +1,19 @@
-# Function: setFrameDelay
+[**@orillusion/core**](../README.md)
 
-▸ **setFrameDelay**(`frame`): `Promise`\<`unknown`\>
+***
 
-#### Parameters
+# Function: setFrameDelay()
 
-| Name | Type |
-| :------ | :------ |
-| `frame` | `number` |
+> **setFrameDelay**(`frame`): `Promise`\<`unknown`\>
 
-#### Returns
+Defined in: [src/util/DelayUtil.ts:12](https://github.com/orillusion/orillusion/blob/main/src/util/DelayUtil.ts#L12)
+
+## Parameters
+
+### frame
+
+`number`
+
+## Returns
 
 `Promise`\<`unknown`\>
-
-#### Defined in
-
-[src/util/DelayUtil.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/util/DelayUtil.ts#L12)

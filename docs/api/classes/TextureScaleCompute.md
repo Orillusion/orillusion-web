@@ -1,55 +1,63 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: TextureScaleCompute
 
-### Constructors
+Defined in: [src/gfx/generate/convert/TextureScaleCompute.ts:8](https://github.com/orillusion/orillusion/blob/main/src/gfx/generate/convert/TextureScaleCompute.ts#L8)
 
-- [constructor](TextureScaleCompute.md#constructor)
-
-### Properties
-
-- [computeShader](TextureScaleCompute.md#computeshader)
-
-### Methods
-
-- [setInputes](TextureScaleCompute.md#setinputes)
+Builds a compute shader that scales/compresses a set of input textures into output textures.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new TextureScaleCompute**(): [`TextureScaleCompute`](TextureScaleCompute.md)
+> **new TextureScaleCompute**(): `TextureScaleCompute`
 
 #### Returns
 
-[`TextureScaleCompute`](TextureScaleCompute.md)
+`TextureScaleCompute`
 
 ## Properties
 
 ### computeShader
 
-• **computeShader**: `ComputeShader`
+> **computeShader**: `ComputeShader`
 
-#### Defined in
+Defined in: [src/gfx/generate/convert/TextureScaleCompute.ts:13](https://github.com/orillusion/orillusion/blob/main/src/gfx/generate/convert/TextureScaleCompute.ts#L13)
 
-[src/gfx/generate/convert/TextureScaleCompute.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/gfx/generate/convert/TextureScaleCompute.ts#L6)
+The underlying compute shader created from the input/output textures.
 
 ## Methods
 
-### setInputes
+### setInputes()
 
-▸ **setInputes**(`colorMap`, `inputs`, `outputs`): `void`
+> **setInputes**(`colorMap`, `inputs`, `outputs`): `void`
+
+Defined in: [src/gfx/generate/convert/TextureScaleCompute.ts:21](https://github.com/orillusion/orillusion/blob/main/src/gfx/generate/convert/TextureScaleCompute.ts#L21)
+
+Configure the compute shader inputs and outputs.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `colorMap` | [`Texture`](Texture.md) |
-| `inputs` | [`Texture`](Texture.md)[] |
-| `outputs` | [`Texture`](Texture.md)[] |
+##### colorMap
+
+[`Texture`](Texture.md)
+
+optional color map sampled by the shader
+
+##### inputs
+
+[`Texture`](Texture.md)[]
+
+source textures bound as sampled textures
+
+##### outputs
+
+[`Texture`](Texture.md)[]
+
+destination textures bound as storage textures
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[src/gfx/generate/convert/TextureScaleCompute.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/gfx/generate/convert/TextureScaleCompute.ts#L8)

@@ -1,211 +1,186 @@
+[**@orillusion/particle**](../README.md)
+
+***
+
 # Class: ParticleRotationModule
+
+Defined in: [packages/particle/module/stand/ParticleRotationModule.ts:12](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleRotationModule.ts#L12)
 
 Particle Module of rotate quad
 
-## Hierarchy
-
-- `ParticleModuleBase`
-
-  ↳ **`ParticleRotationModule`**
-
-### Constructors
-
-- [constructor](ParticleRotationModule.md#constructor)
-
-### Properties
-
-- [angularVelocityXYZ](ParticleRotationModule.md#angularvelocityxyz)
-
-### Accessors
-
-- [needReset](ParticleRotationModule.md#needreset)
-- [angularVelocityX](ParticleRotationModule.md#angularvelocityx)
-- [angularVelocityY](ParticleRotationModule.md#angularvelocityy)
-- [angularVelocityZ](ParticleRotationModule.md#angularvelocityz)
-
-### Methods
-
-- [setSimulator](ParticleRotationModule.md#setsimulator)
-- [calculateParticle](ParticleRotationModule.md#calculateparticle)
-- [generateParticleModuleData](ParticleRotationModule.md#generateparticlemoduledata)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new ParticleRotationModule**(): [`ParticleRotationModule`](ParticleRotationModule.md)
+> **new ParticleRotationModule**(): `ParticleRotationModule`
 
 #### Returns
 
-[`ParticleRotationModule`](ParticleRotationModule.md)
+`ParticleRotationModule`
 
 #### Inherited from
 
-ParticleModuleBase.constructor
+`ParticleModuleBase.constructor`
 
 ## Properties
 
 ### angularVelocityXYZ
 
-• **angularVelocityXYZ**: `MinMaxCurve`[]
+> **angularVelocityXYZ**: `MinMaxCurve`[]
+
+Defined in: [packages/particle/module/stand/ParticleRotationModule.ts:59](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleRotationModule.ts#L59)
 
 angular velocity of each quad
-
-#### Defined in
-
-[packages/particle/module/stand/ParticleRotationModule.ts:59](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleRotationModule.ts#L59)
 
 ## Accessors
 
 ### needReset
 
-• `get` **needReset**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **needReset**(): `boolean`
+
+Defined in: [packages/particle/module/stand/ParticleModuleBase.ts:21](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleModuleBase.ts#L21)
+
+##### Returns
 
 `boolean`
 
-#### Inherited from
+#### Set Signature
 
-ParticleModuleBase.needReset
+> **set** **needReset**(`v`): `void`
 
-#### Defined in
+Defined in: [packages/particle/module/stand/ParticleModuleBase.ts:17](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleModuleBase.ts#L17)
 
-[packages/particle/module/stand/ParticleModuleBase.ts:21](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleModuleBase.ts#L21)
+##### Parameters
 
-• `set` **needReset**(`v`): `void`
+###### v
 
-#### Parameters
+`boolean`
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `boolean` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-ParticleModuleBase.needReset
+`ParticleModuleBase.needReset`
 
-#### Defined in
-
-[packages/particle/module/stand/ParticleModuleBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleModuleBase.ts#L17)
-
-___
+***
 
 ### angularVelocityX
 
-• `get` **angularVelocityX**(): `MinMaxCurve`
+#### Get Signature
+
+> **get** **angularVelocityX**(): `MinMaxCurve`
+
+Defined in: [packages/particle/module/stand/ParticleRotationModule.ts:17](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleRotationModule.ts#L17)
 
 Returns angular velocity X-axis component of each quad
 
-#### Returns
+##### Returns
 
 `MinMaxCurve`
 
-#### Defined in
+#### Set Signature
 
-[packages/particle/module/stand/ParticleRotationModule.ts:17](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleRotationModule.ts#L17)
+> **set** **angularVelocityX**(`value`): `void`
 
-• `set` **angularVelocityX**(`value`): `void`
+Defined in: [packages/particle/module/stand/ParticleRotationModule.ts:24](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleRotationModule.ts#L24)
 
 Set angular velocity X-axis component of each quad
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `MinMaxCurve` |
+###### value
 
-#### Returns
+`MinMaxCurve`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[packages/particle/module/stand/ParticleRotationModule.ts:24](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleRotationModule.ts#L24)
-
-___
+***
 
 ### angularVelocityY
 
-• `get` **angularVelocityY**(): `MinMaxCurve`
+#### Get Signature
+
+> **get** **angularVelocityY**(): `MinMaxCurve`
+
+Defined in: [packages/particle/module/stand/ParticleRotationModule.ts:31](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleRotationModule.ts#L31)
 
 Returns angular velocity Y-axis component of each quad
 
-#### Returns
+##### Returns
 
 `MinMaxCurve`
 
-#### Defined in
+#### Set Signature
 
-[packages/particle/module/stand/ParticleRotationModule.ts:31](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleRotationModule.ts#L31)
+> **set** **angularVelocityY**(`value`): `void`
 
-• `set` **angularVelocityY**(`value`): `void`
+Defined in: [packages/particle/module/stand/ParticleRotationModule.ts:38](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleRotationModule.ts#L38)
 
 Set angular velocity Y-axis component of each quad
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `MinMaxCurve` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/particle/module/stand/ParticleRotationModule.ts:38](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleRotationModule.ts#L38)
-
-___
-
-### angularVelocityZ
-
-• `get` **angularVelocityZ**(): `MinMaxCurve`
-
-Returns angular velocity Z-axis component of each quad
-
-#### Returns
+###### value
 
 `MinMaxCurve`
 
-#### Defined in
+##### Returns
 
-[packages/particle/module/stand/ParticleRotationModule.ts:45](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleRotationModule.ts#L45)
+`void`
 
-• `set` **angularVelocityZ**(`value`): `void`
+***
+
+### angularVelocityZ
+
+#### Get Signature
+
+> **get** **angularVelocityZ**(): `MinMaxCurve`
+
+Defined in: [packages/particle/module/stand/ParticleRotationModule.ts:45](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleRotationModule.ts#L45)
+
+Returns angular velocity Z-axis component of each quad
+
+##### Returns
+
+`MinMaxCurve`
+
+#### Set Signature
+
+> **set** **angularVelocityZ**(`value`): `void`
+
+Defined in: [packages/particle/module/stand/ParticleRotationModule.ts:52](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleRotationModule.ts#L52)
 
 Get angular velocity Z-axis component of each quad
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `MinMaxCurve` |
+###### value
 
-#### Returns
+`MinMaxCurve`
+
+##### Returns
 
 `void`
-
-#### Defined in
-
-[packages/particle/module/stand/ParticleRotationModule.ts:52](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleRotationModule.ts#L52)
 
 ## Methods
 
-### setSimulator
+### setSimulator()
 
-▸ **setSimulator**(`simulator`): `void`
+> **setSimulator**(`simulator`): `void`
+
+Defined in: [packages/particle/module/stand/ParticleModuleBase.ts:25](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleModuleBase.ts#L25)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `simulator` | `ParticleSimulator` |
+##### simulator
+
+`ParticleSimulator`
 
 #### Returns
 
@@ -213,24 +188,25 @@ Get angular velocity Z-axis component of each quad
 
 #### Inherited from
 
-ParticleModuleBase.setSimulator
+`ParticleModuleBase.setSimulator`
 
-#### Defined in
+***
 
-[packages/particle/module/stand/ParticleModuleBase.ts:25](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleModuleBase.ts#L25)
+### calculateParticle()
 
-___
+> **calculateParticle**(`globalMemory`, `localMemory`): `void`
 
-### calculateParticle
-
-▸ **calculateParticle**(`globalMemory`, `localMemory`): `void`
+Defined in: [packages/particle/module/stand/ParticleModuleBase.ts:29](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleModuleBase.ts#L29)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `globalMemory` | `ParticleGlobalMemory` |
-| `localMemory` | `ParticleLocalMemory` |
+##### globalMemory
+
+`ParticleGlobalMemory`
+
+##### localMemory
+
+`ParticleLocalMemory`
 
 #### Returns
 
@@ -238,26 +214,27 @@ ___
 
 #### Inherited from
 
-ParticleModuleBase.calculateParticle
+`ParticleModuleBase.calculateParticle`
 
-#### Defined in
+***
 
-[packages/particle/module/stand/ParticleModuleBase.ts:29](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleModuleBase.ts#L29)
+### generateParticleModuleData()
 
-___
+> **generateParticleModuleData**(`globalMemory`, `localMemory`): `void`
 
-### generateParticleModuleData
-
-▸ **generateParticleModuleData**(`globalMemory`, `localMemory`): `void`
+Defined in: [packages/particle/module/stand/ParticleRotationModule.ts:67](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleRotationModule.ts#L67)
 
 Genarate particle rotate module, init angular velocity of each quad
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `globalMemory` | `ParticleGlobalMemory` |
-| `localMemory` | `ParticleLocalMemory` |
+##### globalMemory
+
+`ParticleGlobalMemory`
+
+##### localMemory
+
+`ParticleLocalMemory`
 
 #### Returns
 
@@ -265,8 +242,4 @@ Genarate particle rotate module, init angular velocity of each quad
 
 #### Overrides
 
-ParticleModuleBase.generateParticleModuleData
-
-#### Defined in
-
-[packages/particle/module/stand/ParticleRotationModule.ts:67](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleRotationModule.ts#L67)
+`ParticleModuleBase.generateParticleModuleData`

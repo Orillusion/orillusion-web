@@ -1,65 +1,69 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: BoundUtil
 
-### Constructors
+Defined in: [src/util/BoundUtil.ts:11](https://github.com/orillusion/orillusion/blob/main/src/util/BoundUtil.ts#L11)
 
-- [constructor](BoundUtil.md#constructor)
-
-### Methods
-
-- [genMeshBounds](BoundUtil.md#genmeshbounds)
-- [transformBound](BoundUtil.md#transformbound)
+Utils for calculating bounding boxes
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new BoundUtil**(): [`BoundUtil`](BoundUtil.md)
+> **new BoundUtil**(): `BoundUtil`
 
 #### Returns
 
-[`BoundUtil`](BoundUtil.md)
+`BoundUtil`
 
 ## Methods
 
-### genMeshBounds
+### genMeshBounds()
 
-▸ **genMeshBounds**(`obj`, `bound?`): `BoundingBox`
+> `static` **genMeshBounds**(`obj`, `bound?`): `BoundingBox`
+
+Defined in: [src/util/BoundUtil.ts:21](https://github.com/orillusion/orillusion/blob/main/src/util/BoundUtil.ts#L21)
 
 Merge the bounding boxes that have been added to the world matrix based on the mesh of the children node
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `obj` | [`Object3D`](Object3D.md) |
-| `bound?` | `BoundingBox` |
+##### obj
+
+[`Object3D`](Object3D.md)
+
+##### bound?
+
+`BoundingBox`
 
 #### Returns
 
 `BoundingBox`
 
-#### Defined in
+***
 
-[src/util/BoundUtil.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/util/BoundUtil.ts#L17)
+### transformBound()
 
-___
+> `static` **transformBound**(`matrix`, `source`, `bound?`): `BoundingBox`
 
-### transformBound
-
-▸ **transformBound**(`matrix`, `source`, `bound?`): `BoundingBox`
+Defined in: [src/util/BoundUtil.ts:61](https://github.com/orillusion/orillusion/blob/main/src/util/BoundUtil.ts#L61)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `matrix` | [`Matrix4`](Matrix4.md) |
-| `source` | `BoundingBox` |
-| `bound?` | `BoundingBox` |
+##### matrix
+
+[`Matrix4`](Matrix4.md)
+
+##### source
+
+`BoundingBox`
+
+##### bound?
+
+`BoundingBox`
 
 #### Returns
 
 `BoundingBox`
-
-#### Defined in
-
-[src/util/BoundUtil.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/util/BoundUtil.ts#L57)

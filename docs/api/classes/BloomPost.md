@@ -1,364 +1,362 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: BloomPost
+
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:22](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L22)
 
 Bloom Effects
 ```
 bloom setting
-let cfg = {@link Engine3D.setting.render.postProcessing.bloom};
+let cfg = {@link this.setting.render.postProcessing.bloom};
 ```
-
-## Hierarchy
-
-- `PostBase`
-
-  ↳ **`BloomPost`**
-
-### Constructors
-
-- [constructor](BloomPost.md#constructor)
-
-### Properties
-
-- [RT\_BloomDown](BloomPost.md#rt_bloomdown)
-- [RT\_threshold](BloomPost.md#rt_threshold)
-- [downSampleComputes](BloomPost.md#downsamplecomputes)
-- [upSampleComputes](BloomPost.md#upsamplecomputes)
-- [postCompute](BloomPost.md#postcompute)
-- [enable](BloomPost.md#enable)
-- [postRenderer](BloomPost.md#postrenderer)
-
-### Accessors
-
-- [downSampleBlurSize](BloomPost.md#downsampleblursize)
-- [downSampleBlurSigma](BloomPost.md#downsampleblursigma)
-- [upSampleBlurSize](BloomPost.md#upsampleblursize)
-- [upSampleBlurSigma](BloomPost.md#upsampleblursigma)
-- [luminanceThreshole](BloomPost.md#luminancethreshole)
-- [bloomIntensity](BloomPost.md#bloomintensity)
-- [hdr](BloomPost.md#hdr)
-
-### Methods
-
-- [onDetach](BloomPost.md#ondetach)
-- [onResize](BloomPost.md#onresize)
-- [destroy](BloomPost.md#destroy)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new BloomPost**(): [`BloomPost`](BloomPost.md)
+> **new BloomPost**(): `BloomPost`
+
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:55](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L55)
 
 #### Returns
 
-[`BloomPost`](BloomPost.md)
+`BloomPost`
 
 #### Overrides
 
-PostBase.constructor
-
-#### Defined in
-
-[src/gfx/renderJob/post/BloomPost.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L51)
+`PostBase.constructor`
 
 ## Properties
 
 ### RT\_BloomDown
 
-• **RT\_BloomDown**: `VirtualTexture`[]
+> **RT\_BloomDown**: `VirtualTexture`[]
 
-#### Defined in
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:27](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L27)
 
-[src/gfx/renderJob/post/BloomPost.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L29)
-
-___
+***
 
 ### RT\_threshold
 
-• **RT\_threshold**: `VirtualTexture`
+> **RT\_threshold**: `VirtualTexture`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:28](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L28)
 
-[src/gfx/renderJob/post/BloomPost.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L30)
+***
 
-___
+### RT\_final
+
+> **RT\_final**: `VirtualTexture`
+
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:38](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L38)
+
+***
 
 ### downSampleComputes
 
-• **downSampleComputes**: `ComputeShader`[]
+> **downSampleComputes**: `ComputeShader`[]
 
-#### Defined in
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:43](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L43)
 
-[src/gfx/renderJob/post/BloomPost.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L39)
-
-___
+***
 
 ### upSampleComputes
 
-• **upSampleComputes**: `ComputeShader`[]
+> **upSampleComputes**: `ComputeShader`[]
 
-#### Defined in
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:44](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L44)
 
-[src/gfx/renderJob/post/BloomPost.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L40)
-
-___
+***
 
 ### postCompute
 
-• **postCompute**: `ComputeShader`
+> **postCompute**: `ComputeShader`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:45](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L45)
 
-[src/gfx/renderJob/post/BloomPost.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L41)
-
-___
+***
 
 ### enable
 
-• **enable**: `boolean` = `true`
+> **enable**: `boolean` = `true`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L23)
 
 #### Inherited from
 
-PostBase.enable
+`PostBase.enable`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/post/PostBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L20)
+### isFinalPass
 
-___
+> **isFinalPass**: `boolean` = `false`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:27](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L27)
+
+When true, PostPass iterates this post AFTER every regular
+ post regardless of attach order — used by TonemapPost so the
+ ACES curve always lands on the fully-composited HDR signal.
+
+#### Inherited from
+
+`PostBase.isFinalPass`
+
+***
 
 ### postRenderer
 
-• **postRenderer**: `PostRenderer`
+> **postRenderer**: [`PostPass`](PostPass.md)
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L28)
 
 #### Inherited from
 
-PostBase.postRenderer
+`PostBase.postRenderer`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/post/PostBase.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L21)
+### rendererPassState
+
+> **rendererPassState**: `RendererPassState`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L29)
+
+#### Inherited from
+
+`PostBase.rendererPassState`
+
+***
+
+### \_boundCtx
+
+> **\_boundCtx**: [`Context3D`](Context3D.md) = `null`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L30)
+
+#### Inherited from
+
+`PostBase._boundCtx`
 
 ## Accessors
 
 ### downSampleBlurSize
 
-• `get` **downSampleBlurSize**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **downSampleBlurSize**(): `number`
+
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:80](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L80)
+
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/gfx/renderJob/post/BloomPost.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L76)
+> **set** **downSampleBlurSize**(`value`): `void`
 
-• `set` **downSampleBlurSize**(`value`): `void`
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:83](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L83)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/gfx/renderJob/post/BloomPost.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L79)
-
-___
+***
 
 ### downSampleBlurSigma
 
-• `get` **downSampleBlurSigma**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **downSampleBlurSigma**(): `number`
+
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:87](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L87)
+
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/gfx/renderJob/post/BloomPost.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L83)
+> **set** **downSampleBlurSigma**(`value`): `void`
 
-• `set` **downSampleBlurSigma**(`value`): `void`
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:91](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L91)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/gfx/renderJob/post/BloomPost.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L87)
-
-___
+***
 
 ### upSampleBlurSize
 
-• `get` **upSampleBlurSize**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **upSampleBlurSize**(): `number`
+
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:95](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L95)
+
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/gfx/renderJob/post/BloomPost.ts:91](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L91)
+> **set** **upSampleBlurSize**(`value`): `void`
 
-• `set` **upSampleBlurSize**(`value`): `void`
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:99](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L99)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/gfx/renderJob/post/BloomPost.ts:95](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L95)
-
-___
+***
 
 ### upSampleBlurSigma
 
-• `get` **upSampleBlurSigma**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **upSampleBlurSigma**(): `number`
+
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:103](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L103)
+
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/gfx/renderJob/post/BloomPost.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L99)
+> **set** **upSampleBlurSigma**(`value`): `void`
 
-• `set` **upSampleBlurSigma**(`value`): `void`
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:107](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L107)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/gfx/renderJob/post/BloomPost.ts:103](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L103)
-
-___
+***
 
 ### luminanceThreshole
 
-• `get` **luminanceThreshole**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **luminanceThreshole**(): `number`
+
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:111](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L111)
+
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/gfx/renderJob/post/BloomPost.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L107)
+> **set** **luminanceThreshole**(`value`): `void`
 
-• `set` **luminanceThreshole**(`value`): `void`
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:115](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L115)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/gfx/renderJob/post/BloomPost.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L111)
-
-___
+***
 
 ### bloomIntensity
 
-• `get` **bloomIntensity**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **bloomIntensity**(): `number`
+
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:119](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L119)
+
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/gfx/renderJob/post/BloomPost.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L115)
+> **set** **bloomIntensity**(`value`): `void`
 
-• `set` **bloomIntensity**(`value`): `void`
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:123](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L123)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/gfx/renderJob/post/BloomPost.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L119)
-
-___
+***
 
 ### hdr
 
-• `get` **hdr**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **hdr**(): `number`
+
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:127](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L127)
+
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/gfx/renderJob/post/BloomPost.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L123)
+> **set** **hdr**(`value`): `void`
 
-• `set` **hdr**(`value`): `void`
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:131](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L131)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
-
-#### Defined in
-
-[src/gfx/renderJob/post/BloomPost.ts:127](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L127)
 
 ## Methods
 
-### onDetach
+### onResize()
 
-▸ **onDetach**(`view`): `void`
+> **onResize**(): `void`
 
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:294](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L294)
 
 #### Returns
 
@@ -366,41 +364,21 @@ ___
 
 #### Overrides
 
-PostBase.onDetach
+`PostBase.onResize`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/post/BloomPost.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L65)
+### compute()
 
-___
+> **compute**(`view`): `void`
 
-### onResize
-
-▸ **onResize**(): `void`
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-PostBase.onResize
-
-#### Defined in
-
-[src/gfx/renderJob/post/BloomPost.ts:280](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L280)
-
-___
-
-### destroy
-
-▸ **destroy**(`force?`): `void`
+Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L133)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
+##### view
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -408,8 +386,26 @@ ___
 
 #### Inherited from
 
-PostBase.destroy
+`PostBase.compute`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/post/PostBase.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L87)
+### destroy()
+
+> **destroy**(`force?`): `void`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L143)
+
+#### Parameters
+
+##### force?
+
+`boolean`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`PostBase.destroy`

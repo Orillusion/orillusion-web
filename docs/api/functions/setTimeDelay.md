@@ -1,17 +1,19 @@
-# Function: setTimeDelay
+[**@orillusion/core**](../README.md)
 
-▸ **setTimeDelay**(`ms`): `Promise`\<`unknown`\>
+***
 
-#### Parameters
+# Function: setTimeDelay()
 
-| Name | Type |
-| :------ | :------ |
-| `ms` | `number` |
+> **setTimeDelay**(`ms`): `Promise`\<`unknown`\>
 
-#### Returns
+Defined in: [src/util/DelayUtil.ts:1](https://github.com/orillusion/orillusion/blob/main/src/util/DelayUtil.ts#L1)
+
+## Parameters
+
+### ms
+
+`number`
+
+## Returns
 
 `Promise`\<`unknown`\>
-
-#### Defined in
-
-[src/util/DelayUtil.ts:1](https://github.com/Orillusion/orillusion/blob/main/src/util/DelayUtil.ts#L1)

@@ -1,306 +1,301 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: CubicBezierPath
 
-### Constructors
-
-- [constructor](CubicBezierPath.md#constructor)
-
-### Methods
-
-- [getPathType](CubicBezierPath.md#getpathtype)
-- [isClosed](CubicBezierPath.md#isclosed)
-- [isValid](CubicBezierPath.md#isvalid)
-- [clear](CubicBezierPath.md#clear)
-- [computeApproxLength](CubicBezierPath.md#computeapproxlength)
-- [computeApproxParamPerUnitLength](CubicBezierPath.md#computeapproxparamperunitlength)
-- [computeApproxNormParamPerUnitLength](CubicBezierPath.md#computeapproxnormparamperunitlength)
-- [interpolatePoints](CubicBezierPath.md#interpolatepoints)
-- [setControlVertices](CubicBezierPath.md#setcontrolvertices)
-- [getPoint](CubicBezierPath.md#getpoint)
-- [getPointNorm](CubicBezierPath.md#getpointnorm)
-- [getTangent](CubicBezierPath.md#gettangent)
-- [getTangentNorm](CubicBezierPath.md#gettangentnorm)
-- [computeClosestParam](CubicBezierPath.md#computeclosestparam)
-- [computeClosestNormParam](CubicBezierPath.md#computeclosestnormparam)
+Defined in: [src/math/CubicBezierPath.ts:17](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L17)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new CubicBezierPath**(`controlVertices`, `t?`): [`CubicBezierPath`](CubicBezierPath.md)
+> **new CubicBezierPath**(`controlVertices`, `t?`): `CubicBezierPath`
+
+Defined in: [src/math/CubicBezierPath.ts:26](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L26)
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `controlVertices` | [`Vector3`](Vector3.md)[] | `undefined` |
-| `t` | [`CubicBezierType`](../enums/CubicBezierType.md) | `CubicBezierType.Open` |
+##### controlVertices
+
+[`Vector3`](Vector3.md)[]
+
+##### t?
+
+[`CubicBezierType`](../enumerations/CubicBezierType.md) = `CubicBezierType.Open`
 
 #### Returns
 
-[`CubicBezierPath`](CubicBezierPath.md)
-
-#### Defined in
-
-[src/math/CubicBezierPath.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L26)
+`CubicBezierPath`
 
 ## Methods
 
-### getPathType
+### getPathType()
 
-▸ **getPathType**(): [`CubicBezierType`](../enums/CubicBezierType.md)
+> **getPathType**(): [`CubicBezierType`](../enumerations/CubicBezierType.md)
 
-#### Returns
+Defined in: [src/math/CubicBezierPath.ts:31](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L31)
 
-[`CubicBezierType`](../enums/CubicBezierType.md)
-
-#### Defined in
-
-[src/math/CubicBezierPath.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L30)
-
-___
-
-### isClosed
-
-▸ **isClosed**(): `boolean`
+Return the path type (open or closed).
 
 #### Returns
 
-`boolean`
+[`CubicBezierType`](../enumerations/CubicBezierType.md)
 
-#### Defined in
+***
 
-[src/math/CubicBezierPath.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L34)
+### isClosed()
 
-___
+> **isClosed**(): `boolean`
 
-### isValid
+Defined in: [src/math/CubicBezierPath.ts:36](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L36)
 
-▸ **isValid**(): `boolean`
+Return true if the path is closed.
 
 #### Returns
 
 `boolean`
 
-#### Defined in
+***
 
-[src/math/CubicBezierPath.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L41)
+### isValid()
 
-___
+> **isValid**(): `boolean`
 
-### clear
+Defined in: [src/math/CubicBezierPath.ts:43](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L43)
 
-▸ **clear**(): `void`
+#### Returns
+
+`boolean`
+
+***
+
+### clear()
+
+> **clear**(): `void`
+
+Defined in: [src/math/CubicBezierPath.ts:48](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L48)
+
+Reset the path to empty, open state with no control vertices or segments.
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/math/CubicBezierPath.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L45)
+### computeApproxLength()
 
-___
+> **computeApproxLength**(): `number`
 
-### computeApproxLength
+Defined in: [src/math/CubicBezierPath.ts:56](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L56)
 
-▸ **computeApproxLength**(): `number`
-
-#### Returns
-
-`number`
-
-#### Defined in
-
-[src/math/CubicBezierPath.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L52)
-
-___
-
-### computeApproxParamPerUnitLength
-
-▸ **computeApproxParamPerUnitLength**(): `number`
+Compute an approximate path length by summing squared distances between interpolated points.
 
 #### Returns
 
 `number`
 
-#### Defined in
+***
 
-[src/math/CubicBezierPath.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L73)
+### computeApproxParamPerUnitLength()
 
-___
+> **computeApproxParamPerUnitLength**(): `number`
 
-### computeApproxNormParamPerUnitLength
+Defined in: [src/math/CubicBezierPath.ts:78](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L78)
 
-▸ **computeApproxNormParamPerUnitLength**(): `number`
+Return the approximate change in the raw parameter t per unit of path length.
 
 #### Returns
 
 `number`
 
-#### Defined in
+***
 
-[src/math/CubicBezierPath.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L78)
+### computeApproxNormParamPerUnitLength()
 
-___
+> **computeApproxNormParamPerUnitLength**(): `number`
 
-### interpolatePoints
+Defined in: [src/math/CubicBezierPath.ts:84](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L84)
 
-▸ **interpolatePoints**(`knots`, `t`): `void`
+Return the approximate change in the normalized parameter t per unit of path length.
+
+#### Returns
+
+`number`
+
+***
+
+### interpolatePoints()
+
+> **interpolatePoints**(`knots`, `t`): `void`
+
+Defined in: [src/math/CubicBezierPath.ts:90](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L90)
+
+Build the path from interpolated knots, generating interior control vertices automatically (knots.length must be >= 2).
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `knots` | [`Vector3`](Vector3.md)[] |
-| `t` | [`CubicBezierType`](../enums/CubicBezierType.md) |
+##### knots
+
+[`Vector3`](Vector3.md)[]
+
+##### t
+
+[`CubicBezierType`](../enumerations/CubicBezierType.md)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/math/CubicBezierPath.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L83)
+### setControlVertices()
 
-___
+> **setControlVertices**(`cvs`, `t`): `void`
 
-### setControlVertices
+Defined in: [src/math/CubicBezierPath.ts:187](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L187)
 
-▸ **setControlVertices**(`cvs`, `t`): `void`
+Set the path directly from explicit control vertices; for a closed path the last CV must match the first.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `cvs` | [`Vector3`](Vector3.md)[] |
-| `t` | [`CubicBezierType`](../enums/CubicBezierType.md) |
+##### cvs
+
+[`Vector3`](Vector3.md)[]
+
+##### t
+
+[`CubicBezierType`](../enumerations/CubicBezierType.md)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/math/CubicBezierPath.ts:179](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L179)
+### getPoint()
 
-___
+> **getPoint**(`t`): [`Vector3`](Vector3.md)
 
-### getPoint
+Defined in: [src/math/CubicBezierPath.ts:203](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L203)
 
-▸ **getPoint**(`t`): [`Vector3`](Vector3.md)
+Return the point on the path at parameter t in [0, numSegments]; closed paths wrap out-of-range t.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `t` | `number` |
+##### t
+
+`number`
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-#### Defined in
+***
 
-[src/math/CubicBezierPath.ts:194](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L194)
+### getPointNorm()
 
-___
+> **getPointNorm**(`t`): [`Vector3`](Vector3.md)
 
-### getPointNorm
+Defined in: [src/math/CubicBezierPath.ts:234](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L234)
 
-▸ **getPointNorm**(`t`): [`Vector3`](Vector3.md)
+Return the point on the path at normalized parameter t in [0, 1] over all segments.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `t` | `number` |
+##### t
+
+`number`
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-#### Defined in
+***
 
-[src/math/CubicBezierPath.ts:224](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L224)
+### getTangent()
 
-___
+> **getTangent**(`t`): [`Vector3`](Vector3.md)
 
-### getTangent
+Defined in: [src/math/CubicBezierPath.ts:241](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L241)
 
-▸ **getTangent**(`t`): [`Vector3`](Vector3.md)
+Return the (un-normalized) tangent on the path at parameter t in [0, numSegments].
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `t` | `number` |
+##### t
+
+`number`
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-#### Defined in
+***
 
-[src/math/CubicBezierPath.ts:230](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L230)
+### getTangentNorm()
 
-___
+> **getTangentNorm**(`t`): [`Vector3`](Vector3.md)
 
-### getTangentNorm
+Defined in: [src/math/CubicBezierPath.ts:270](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L270)
 
-▸ **getTangentNorm**(`t`): [`Vector3`](Vector3.md)
+Return the (un-normalized) tangent at normalized parameter t in [0, 1] over all segments.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `t` | `number` |
+##### t
+
+`number`
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-#### Defined in
+***
 
-[src/math/CubicBezierPath.ts:258](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L258)
+### computeClosestParam()
 
-___
+> **computeClosestParam**(`pos`, `paramThreshold`): `number`
 
-### computeClosestParam
+Defined in: [src/math/CubicBezierPath.ts:278](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L278)
 
-▸ **computeClosestParam**(`pos`, `paramThreshold`): `number`
+Find the parameter t of the closest point on the path to pos, searching with the given param threshold.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `pos` | [`Vector3`](Vector3.md) |
-| `paramThreshold` | `number` |
+##### pos
+
+[`Vector3`](Vector3.md)
+
+##### paramThreshold
+
+`number`
 
 #### Returns
 
 `number`
 
-#### Defined in
+***
 
-[src/math/CubicBezierPath.ts:265](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L265)
+### computeClosestNormParam()
 
-___
+> **computeClosestNormParam**(`pos`, `paramThreshold`): `number`
 
-### computeClosestNormParam
+Defined in: [src/math/CubicBezierPath.ts:304](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L304)
 
-▸ **computeClosestNormParam**(`pos`, `paramThreshold`): `number`
+Like computeClosestParam but returns the closest point as a normalized parameter t in [0, 1].
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `pos` | [`Vector3`](Vector3.md) |
-| `paramThreshold` | `number` |
+##### pos
+
+[`Vector3`](Vector3.md)
+
+##### paramThreshold
+
+`number`
 
 #### Returns
 
 `number`
-
-#### Defined in
-
-[src/math/CubicBezierPath.ts:290](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L290)

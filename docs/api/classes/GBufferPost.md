@@ -1,256 +1,255 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: GBufferPost
+
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:34](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L34)
 
 Ground base Ambient Occlusion
 Let the intersection of the object and the object imitate the effect of the light being cross-occluded
 ```
 gtao setting
-let cfg = {@link Engine3D.setting.render.postProcessing.gtao};
+let cfg = {@link this.setting.render.postProcessing.gtao};
 ```
-
-## Hierarchy
-
-- `PostBase`
-
-  ↳ **`GBufferPost`**
-
-### Constructors
-
-- [constructor](GBufferPost.md#constructor)
-
-### Properties
-
-- [rtFrame](GBufferPost.md#rtframe)
-- [view](GBufferPost.md#view)
-- [gBufferTexture](GBufferPost.md#gbuffertexture)
-- [testCompute](GBufferPost.md#testcompute)
-- [uniformBuffer](GBufferPost.md#uniformbuffer)
-- [currentRenderTexture](GBufferPost.md#currentrendertexture)
-- [enable](GBufferPost.md#enable)
-- [postRenderer](GBufferPost.md#postrenderer)
-
-### Accessors
-
-- [state](GBufferPost.md#state)
-- [size1](GBufferPost.md#size1)
-- [size2](GBufferPost.md#size2)
-
-### Methods
-
-- [onDetach](GBufferPost.md#ondetach)
-- [render](GBufferPost.md#render)
-- [compute](GBufferPost.md#compute)
-- [onResize](GBufferPost.md#onresize)
-- [destroy](GBufferPost.md#destroy)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new GBufferPost**(): [`GBufferPost`](GBufferPost.md)
+> **new GBufferPost**(): `GBufferPost`
+
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:49](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L49)
 
 #### Returns
 
-[`GBufferPost`](GBufferPost.md)
+`GBufferPost`
 
 #### Overrides
 
-PostBase.constructor
-
-#### Defined in
-
-[src/gfx/renderJob/post/GBufferPost.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L55)
+`PostBase.constructor`
 
 ## Properties
 
 ### rtFrame
 
-• **rtFrame**: [`RTFrame`](RTFrame.md)
+> **rtFrame**: [`RTFrame`](RTFrame.md)
 
-#### Defined in
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:40](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L40)
 
-[src/gfx/renderJob/post/GBufferPost.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L46)
-
-___
+***
 
 ### view
 
-• **view**: [`View3D`](View3D.md)
+> **view**: [`View3D`](View3D.md)
 
-#### Defined in
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:41](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L41)
 
-[src/gfx/renderJob/post/GBufferPost.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L47)
-
-___
+***
 
 ### gBufferTexture
 
-• **gBufferTexture**: `RenderTexture`
+> **gBufferTexture**: `RenderTexture`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:42](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L42)
 
-[src/gfx/renderJob/post/GBufferPost.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L48)
-
-___
+***
 
 ### testCompute
 
-• **testCompute**: `ComputeShader`
+> **testCompute**: `ComputeShader`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:43](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L43)
 
-[src/gfx/renderJob/post/GBufferPost.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L49)
-
-___
+***
 
 ### uniformBuffer
 
-• **uniformBuffer**: [`UniformGPUBuffer`](UniformGPUBuffer.md)
+> **uniformBuffer**: [`UniformGPUBuffer`](UniformGPUBuffer.md)
 
-#### Defined in
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:47](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L47)
 
-[src/gfx/renderJob/post/GBufferPost.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L53)
-
-___
+***
 
 ### currentRenderTexture
 
-• **currentRenderTexture**: `RenderTexture`
+> **currentRenderTexture**: `RenderTexture`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:48](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L48)
 
-[src/gfx/renderJob/post/GBufferPost.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L54)
-
-___
+***
 
 ### enable
 
-• **enable**: `boolean` = `true`
+> **enable**: `boolean` = `true`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L23)
 
 #### Inherited from
 
-PostBase.enable
+`PostBase.enable`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/post/PostBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L20)
+### isFinalPass
 
-___
+> **isFinalPass**: `boolean` = `false`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:27](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L27)
+
+When true, PostPass iterates this post AFTER every regular
+ post regardless of attach order — used by TonemapPost so the
+ ACES curve always lands on the fully-composited HDR signal.
+
+#### Inherited from
+
+`PostBase.isFinalPass`
+
+***
 
 ### postRenderer
 
-• **postRenderer**: `PostRenderer`
+> **postRenderer**: [`PostPass`](PostPass.md)
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L28)
 
 #### Inherited from
 
-PostBase.postRenderer
+`PostBase.postRenderer`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/post/PostBase.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L21)
+### rendererPassState
+
+> **rendererPassState**: `RendererPassState`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L29)
+
+#### Inherited from
+
+`PostBase.rendererPassState`
+
+***
+
+### \_boundCtx
+
+> **\_boundCtx**: [`Context3D`](Context3D.md) = `null`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L30)
+
+#### Inherited from
+
+`PostBase._boundCtx`
 
 ## Accessors
 
 ### state
 
-• `get` **state**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **state**(): `number`
+
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:76](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L76)
+
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/gfx/renderJob/post/GBufferPost.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L82)
+> **set** **state**(`v`): `void`
 
-• `set` **state**(`v`): `void`
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:70](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L70)
 
 check state
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `number` |
+###### v
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/gfx/renderJob/post/GBufferPost.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L76)
-
-___
+***
 
 ### size1
 
-• `get` **size1**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **size1**(): `number`
+
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:86](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L86)
+
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/gfx/renderJob/post/GBufferPost.ts:92](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L92)
+> **set** **size1**(`v`): `void`
 
-• `set` **size1**(`v`): `void`
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:80](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L80)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `number` |
+###### v
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/gfx/renderJob/post/GBufferPost.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L86)
-
-___
+***
 
 ### size2
 
-• `get` **size2**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **size2**(): `number`
+
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:96](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L96)
+
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/gfx/renderJob/post/GBufferPost.ts:102](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L102)
+> **set** **size2**(`v`): `void`
 
-• `set` **size2**(`v`): `void`
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:90](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L90)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `number` |
+###### v
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
-
-#### Defined in
-
-[src/gfx/renderJob/post/GBufferPost.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L96)
 
 ## Methods
 
-### onDetach
+### render()
 
-▸ **onDetach**(`view`): `void`
+> **render**(`view`, `command`): `void`
+
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:147](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L147)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
+##### view
+
+[`View3D`](View3D.md)
+
+##### command
+
+`GPUCommandEncoder`
 
 #### Returns
 
@@ -258,24 +257,21 @@ ___
 
 #### Overrides
 
-PostBase.onDetach
+`PostBase.render`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/post/GBufferPost.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L69)
+### compute()
 
-___
+> **compute**(`view`): `void`
 
-### render
-
-▸ **render**(`view`, `command`): `void`
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:151](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L151)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
-| `command` | `GPUCommandEncoder` |
+##### view
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -283,23 +279,15 @@ ___
 
 #### Overrides
 
-PostBase.render
+`PostBase.compute`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/post/GBufferPost.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L153)
+### onResize()
 
-___
+> **onResize**(): `void`
 
-### compute
-
-▸ **compute**(`view`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:167](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L167)
 
 #### Returns
 
@@ -307,41 +295,21 @@ ___
 
 #### Overrides
 
-PostBase.compute
+`PostBase.onResize`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/post/GBufferPost.ts:157](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L157)
+### destroy()
 
-___
+> **destroy**(`force?`): `void`
 
-### onResize
-
-▸ **onResize**(): `void`
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-PostBase.onResize
-
-#### Defined in
-
-[src/gfx/renderJob/post/GBufferPost.ts:173](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L173)
-
-___
-
-### destroy
-
-▸ **destroy**(`force?`): `void`
+Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L143)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
+##### force?
+
+`boolean`
 
 #### Returns
 
@@ -349,8 +317,4 @@ ___
 
 #### Inherited from
 
-PostBase.destroy
-
-#### Defined in
-
-[src/gfx/renderJob/post/PostBase.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L87)
+`PostBase.destroy`

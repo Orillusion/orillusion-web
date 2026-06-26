@@ -1,304 +1,305 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: AnimationCurve
 
-Animation Cureve 
+Defined in: [src/math/AnimationCurve.ts:11](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L11)
+
+Animation Curve 
 has frame list data
-
-### Constructors
-
-- [constructor](AnimationCurve.md#constructor)
-
-### Properties
-
-- [curve](AnimationCurve.md#curve)
-- [serializedVersion](AnimationCurve.md#serializedversion)
-- [preWarpMode](AnimationCurve.md#prewarpmode)
-- [postWarpMode](AnimationCurve.md#postwarpmode)
-- [rotationOrder](AnimationCurve.md#rotationorder)
-
-### Accessors
-
-- [cacheOut](AnimationCurve.md#cacheout)
-- [totalTime](AnimationCurve.md#totaltime)
-- [first](AnimationCurve.md#first)
-- [last](AnimationCurve.md#last)
-
-### Methods
-
-- [addKeyFrame](AnimationCurve.md#addkeyframe)
-- [removeKeyFrame](AnimationCurve.md#removekeyframe)
-- [calculateCacheData](AnimationCurve.md#calculatecachedata)
-- [getValue](AnimationCurve.md#getvalue)
-- [getCurveFramesExtent](AnimationCurve.md#getcurveframesextent)
-- [getKeyCount](AnimationCurve.md#getkeycount)
-- [getKey](AnimationCurve.md#getkey)
-- [unSerialized](AnimationCurve.md#unserialized)
-- [unSerialized2](AnimationCurve.md#unserialized2)
-- [wrapTime](AnimationCurve.md#wraptime)
-- [scaleCurveValue](AnimationCurve.md#scalecurvevalue)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new AnimationCurve**(`frames?`, `preWarpMode?`, `postWarpMode?`): [`AnimationCurve`](AnimationCurve.md)
+> **new AnimationCurve**(`frames?`, `preWarpMode?`, `postWarpMode?`): `AnimationCurve`
+
+Defined in: [src/math/AnimationCurve.ts:45](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L45)
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `frames?` | [`Keyframe`](Keyframe.md)[] | `undefined` |
-| `preWarpMode` | [`WrapTimeMode`](../enums/WrapTimeMode.md) | `WrapTimeMode.Repeat` |
-| `postWarpMode` | [`WrapTimeMode`](../enums/WrapTimeMode.md) | `WrapTimeMode.Repeat` |
+##### frames?
+
+[`Keyframe`](Keyframe.md)[]
+
+##### preWarpMode?
+
+[`WrapTimeMode`](../enumerations/WrapTimeMode.md) = `WrapTimeMode.Repeat`
+
+##### postWarpMode?
+
+[`WrapTimeMode`](../enumerations/WrapTimeMode.md) = `WrapTimeMode.Repeat`
 
 #### Returns
 
-[`AnimationCurve`](AnimationCurve.md)
-
-#### Defined in
-
-[src/math/AnimationCurve.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L37)
+`AnimationCurve`
 
 ## Properties
 
 ### curve
 
-• **curve**: [`Keyframe`](Keyframe.md)[] = `[]`
+> **curve**: [`Keyframe`](Keyframe.md)[] = `[]`
 
-#### Defined in
+Defined in: [src/math/AnimationCurve.ts:24](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L24)
 
-[src/math/AnimationCurve.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L23)
+Ordered list of keyframes defining this curve.
 
-___
+***
 
 ### serializedVersion
 
-• **serializedVersion**: `number`
+> **serializedVersion**: `number`
 
-#### Defined in
+Defined in: [src/math/AnimationCurve.ts:27](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L27)
 
-[src/math/AnimationCurve.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L25)
+Serialized format version of this curve.
 
-___
+***
 
 ### preWarpMode
 
-• **preWarpMode**: `number`
+> **preWarpMode**: `number`
 
-#### Defined in
+Defined in: [src/math/AnimationCurve.ts:30](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L30)
 
-[src/math/AnimationCurve.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L27)
+Wrap mode applied for times before the first keyframe.
 
-___
+***
 
 ### postWarpMode
 
-• **postWarpMode**: `number`
+> **postWarpMode**: `number`
 
-#### Defined in
+Defined in: [src/math/AnimationCurve.ts:33](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L33)
 
-[src/math/AnimationCurve.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L29)
+Wrap mode applied for times after the last keyframe.
 
-___
+***
 
 ### rotationOrder
 
-• **rotationOrder**: `number`
+> **rotationOrder**: `number`
 
-#### Defined in
+Defined in: [src/math/AnimationCurve.ts:36](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L36)
 
-[src/math/AnimationCurve.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L31)
+Euler rotation order associated with this curve.
 
 ## Accessors
 
 ### cacheOut
 
-• `get` **cacheOut**(): `Object`
+#### Get Signature
 
-#### Returns
+> **get** **cacheOut**(): `object`
 
-`Object`
+Defined in: [src/math/AnimationCurve.ts:41](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L41)
 
-| Name | Type |
-| :------ | :------ |
-| `lhsIndex` | `number` |
-| `rhsIndex` | `number` |
+Last computed left/right keyframe indices from the most recent lookup.
 
-#### Defined in
+##### Returns
 
-[src/math/AnimationCurve.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L33)
+`object`
 
-___
+###### lhsIndex
+
+> **lhsIndex**: `number`
+
+###### rhsIndex
+
+> **rhsIndex**: `number`
+
+***
 
 ### totalTime
 
-• `get` **totalTime**(): `number`
+#### Get Signature
+
+> **get** **totalTime**(): `number`
+
+Defined in: [src/math/AnimationCurve.ts:57](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L57)
 
 return this curve use total time
 
-#### Returns
+##### Returns
 
 `number`
 
-#### Defined in
-
-[src/math/AnimationCurve.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L49)
-
-___
+***
 
 ### first
 
-• `get` **first**(): [`Keyframe`](Keyframe.md)
+#### Get Signature
+
+> **get** **first**(): [`Keyframe`](Keyframe.md)
+
+Defined in: [src/math/AnimationCurve.ts:64](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L64)
 
 get curve first keframe time
 
-#### Returns
+##### Returns
 
 [`Keyframe`](Keyframe.md)
 
-#### Defined in
-
-[src/math/AnimationCurve.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L56)
-
-___
+***
 
 ### last
 
-• `get` **last**(): [`Keyframe`](Keyframe.md)
+#### Get Signature
+
+> **get** **last**(): [`Keyframe`](Keyframe.md)
+
+Defined in: [src/math/AnimationCurve.ts:71](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L71)
 
 get curve last keyframe time
 
-#### Returns
+##### Returns
 
 [`Keyframe`](Keyframe.md)
 
-#### Defined in
-
-[src/math/AnimationCurve.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L63)
-
 ## Methods
 
-### addKeyFrame
+### addKeyFrame()
 
-▸ **addKeyFrame**(`keyFrame`): `void`
+> **addKeyFrame**(`keyFrame`): `void`
+
+Defined in: [src/math/AnimationCurve.ts:79](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L79)
 
 add keyFrame to curve keyframe last and calcTotalTime
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `keyFrame` | [`Keyframe`](Keyframe.md) | [Keyframe](Keyframe.md) sea: one key frame data |
+##### keyFrame
+
+[`Keyframe`](Keyframe.md)
+
+[Keyframe](Keyframe.md)  sea: one key frame data
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/math/AnimationCurve.ts:71](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L71)
+### removeKeyFrame()
 
-___
+> **removeKeyFrame**(`keyFrame`): `void`
 
-### removeKeyFrame
-
-▸ **removeKeyFrame**(`keyFrame`): `void`
+Defined in: [src/math/AnimationCurve.ts:90](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L90)
 
 remove keyframe from this curve
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `keyFrame` | [`Keyframe`](Keyframe.md) | [Keyframe](Keyframe.md) |
+##### keyFrame
+
+[`Keyframe`](Keyframe.md)
+
+[Keyframe](Keyframe.md)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/math/AnimationCurve.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L82)
+### calculateCacheData()
 
-___
+> **calculateCacheData**(`cache`, `lhsIndex`, `rhsIndex`, `timeOffset?`): `void`
 
-### calculateCacheData
-
-▸ **calculateCacheData**(`cache`, `lhsIndex`, `rhsIndex`, `timeOffset?`): `void`
+Defined in: [src/math/AnimationCurve.ts:106](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L106)
 
 calculate keyframe list in to timeline
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `cache` | `FrameCache` | `undefined` | FrameCache |
-| `lhsIndex` | `number` | `undefined` | left frame index |
-| `rhsIndex` | `number` | `undefined` | right frame index |
-| `timeOffset` | `number` | `0` | offset time default 0.0 |
+##### cache
+
+`FrameCache`
+
+FrameCache
+
+##### lhsIndex
+
+`number`
+
+left frame index
+
+##### rhsIndex
+
+`number`
+
+right frame index
+
+##### timeOffset?
+
+`number` = `0`
+
+offset time default 0.0
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/math/AnimationCurve.ts:98](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L98)
+### getValue()
 
-___
+> **getValue**(`time`): `number`
 
-### getValue
-
-▸ **getValue**(`time`): `number`
+Defined in: [src/math/AnimationCurve.ts:142](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L142)
 
 get caculate frames value
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `time` | `number` |
+##### time
+
+`number`
 
 #### Returns
 
 `number`
 
-#### Defined in
+***
 
-[src/math/AnimationCurve.ts:134](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L134)
+### getCurveFramesExtent()
 
-___
+> **getCurveFramesExtent**(`time`): `object`
 
-### getCurveFramesExtent
-
-▸ **getCurveFramesExtent**(`time`): `Object`
+Defined in: [src/math/AnimationCurve.ts:157](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L157)
 
 get caculate frames extent
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `time` | `number` |
+##### time
+
+`number`
 
 #### Returns
 
-`Object`
+`object`
 
-| Name | Type |
-| :------ | :------ |
-| `lhsIndex` | `number` |
-| `rhsIndex` | `number` |
-| `time` | `number` |
+##### lhsIndex
 
-#### Defined in
+> **lhsIndex**: `number`
 
-[src/math/AnimationCurve.ts:149](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L149)
+##### rhsIndex
 
-___
+> **rhsIndex**: `number`
 
-### getKeyCount
+##### time
 
-▸ **getKeyCount**(): `number`
+> **time**: `number`
+
+***
+
+### getKeyCount()
+
+> **getKeyCount**(): `number`
+
+Defined in: [src/math/AnimationCurve.ts:169](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L169)
 
 get has Keyframe list count
 
@@ -308,23 +309,23 @@ get has Keyframe list count
 
 int
 
-#### Defined in
+***
 
-[src/math/AnimationCurve.ts:161](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L161)
+### getKey()
 
-___
+> **getKey**(`index`): [`Keyframe`](Keyframe.md)
 
-### getKey
-
-▸ **getKey**(`index`): [`Keyframe`](Keyframe.md)
+Defined in: [src/math/AnimationCurve.ts:178](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L178)
 
 Get a Keyframe Data by Index
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `index` | `number` | must int |
+##### index
+
+`number`
+
+must int
 
 #### Returns
 
@@ -332,87 +333,102 @@ Get a Keyframe Data by Index
 
 Keyframe [Keyframe](Keyframe.md)
 
-#### Defined in
+***
 
-[src/math/AnimationCurve.ts:170](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L170)
+### unSerialized()
 
-___
+> **unSerialized**(`data`): `this`
 
-### unSerialized
+Defined in: [src/math/AnimationCurve.ts:187](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L187)
 
-▸ **unSerialized**(`data`): `this`
+Deserialize this curve from raw asset data (Unity-style field names).
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `data` | `any` |
+##### data
+
+`any`
+
+source object containing wrap modes and keyframes
 
 #### Returns
 
 `this`
 
-#### Defined in
+this curve
 
-[src/math/AnimationCurve.ts:174](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L174)
+***
 
-___
+### unSerialized2()
 
-### unSerialized2
+> **unSerialized2**(`data`): `this`
 
-▸ **unSerialized2**(`data`): `this`
+Defined in: [src/math/AnimationCurve.ts:206](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L206)
+
+Deserialize this curve from an alternate data layout (preWrapMode/keys fields).
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `data` | `Object` |
+##### data
+
+`Object`
+
+source object containing wrap modes and keyframes
 
 #### Returns
 
 `this`
 
-#### Defined in
+this curve
 
-[src/math/AnimationCurve.ts:188](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L188)
+***
 
-___
+### wrapTime()
 
-### wrapTime
+> **wrapTime**(`curveT`): `number`
 
-▸ **wrapTime**(`curveT`): `number`
+Defined in: [src/math/AnimationCurve.ts:225](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L225)
+
+Wrap a time value into the curve range according to the pre/post wrap modes.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `curveT` | `number` |
+##### curveT
+
+`number`
+
+input time
 
 #### Returns
 
 `number`
 
-#### Defined in
+wrapped time within the curve bounds
 
-[src/math/AnimationCurve.ts:202](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L202)
+***
 
-___
+### scaleCurveValue()
 
-### scaleCurveValue
+> `static` **scaleCurveValue**(`curve`, `scale`): `void`
 
-▸ **scaleCurveValue**(`curve`, `scale`): `void`
+Defined in: [src/math/AnimationCurve.ts:319](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L319)
+
+Scale the value and tangents of every keyframe in the curve, then invalidate its cache.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `curve` | [`AnimationCurve`](AnimationCurve.md) |
-| `scale` | `number` |
+##### curve
+
+`AnimationCurve`
+
+curve to scale
+
+##### scale
+
+`number`
+
+multiplier applied to each keyframe value and slope
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[src/math/AnimationCurve.ts:262](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurve.ts#L262)

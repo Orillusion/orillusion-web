@@ -1,762 +1,548 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: PointerEvent3D
+
+Defined in: [src/event/eventConst/PointerEvent3D.ts:18](https://github.com/orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L18)
 
 enum event type of pointer.
 [InputSystem](InputSystem.md)
 
-## Hierarchy
+## Extends
 
 - [`CEvent`](CEvent.md)
 
-  ↳ **`PointerEvent3D`**
-
-### Constructors
-
-- [constructor](PointerEvent3D.md#constructor)
-
-### Properties
-
-- [target](PointerEvent3D.md#target)
-- [currentTarget](PointerEvent3D.md#currenttarget)
-- [type](PointerEvent3D.md#type)
-- [data](PointerEvent3D.md#data)
-- [param](PointerEvent3D.md#param)
-- [time](PointerEvent3D.md#time)
-- [delay](PointerEvent3D.md#delay)
-- [mouseCode](PointerEvent3D.md#mousecode)
-- [ctrlKey](PointerEvent3D.md#ctrlkey)
-- [metaKey](PointerEvent3D.md#metakey)
-- [altKey](PointerEvent3D.md#altkey)
-- [shiftKey](PointerEvent3D.md#shiftkey)
-- [targetTouches](PointerEvent3D.md#targettouches)
-- [changedTouches](PointerEvent3D.md#changedtouches)
-- [touches](PointerEvent3D.md#touches)
-- [view](PointerEvent3D.md#view)
-- [PICK\_OVER](PointerEvent3D.md#pick_over)
-- [PICK\_OVER\_GUI](PointerEvent3D.md#pick_over_gui)
-- [PICK\_CLICK](PointerEvent3D.md#pick_click)
-- [PICK\_CLICK\_GUI](PointerEvent3D.md#pick_click_gui)
-- [PICK\_OUT](PointerEvent3D.md#pick_out)
-- [PICK\_OUT\_GUI](PointerEvent3D.md#pick_out_gui)
-- [PICK\_MOVE](PointerEvent3D.md#pick_move)
-- [PICK\_UP](PointerEvent3D.md#pick_up)
-- [PICK\_UP\_GUI](PointerEvent3D.md#pick_up_gui)
-- [PICK\_DOWN](PointerEvent3D.md#pick_down)
-- [PICK\_DOWN\_GUI](PointerEvent3D.md#pick_down_gui)
-- [POINTER\_RIGHT\_CLICK](PointerEvent3D.md#pointer_right_click)
-- [POINTER\_MID\_UP](PointerEvent3D.md#pointer_mid_up)
-- [POINTER\_MID\_DOWN](PointerEvent3D.md#pointer_mid_down)
-- [POINTER\_CLICK](PointerEvent3D.md#pointer_click)
-- [POINTER\_MOVE](PointerEvent3D.md#pointer_move)
-- [POINTER\_DOWN](PointerEvent3D.md#pointer_down)
-- [POINTER\_UP](PointerEvent3D.md#pointer_up)
-- [POINTER\_OUT](PointerEvent3D.md#pointer_out)
-- [POINTER\_OVER](PointerEvent3D.md#pointer_over)
-- [POINTER\_WHEEL](PointerEvent3D.md#pointer_wheel)
-- [pointerId](PointerEvent3D.md#pointerid)
-- [pointerType](PointerEvent3D.md#pointertype)
-- [isPrimary](PointerEvent3D.md#isprimary)
-- [pressure](PointerEvent3D.md#pressure)
-- [mouseX](PointerEvent3D.md#mousex)
-- [mouseY](PointerEvent3D.md#mousey)
-- [movementX](PointerEvent3D.md#movementx)
-- [movementY](PointerEvent3D.md#movementy)
-- [deltaX](PointerEvent3D.md#deltax)
-- [deltaY](PointerEvent3D.md#deltay)
-
-### Accessors
-
-- [isStopImmediatePropagation](PointerEvent3D.md#isstopimmediatepropagation)
-
-### Methods
-
-- [stopImmediatePropagation](PointerEvent3D.md#stopimmediatepropagation)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new PointerEvent3D**(`eventType?`, `data?`): [`PointerEvent3D`](PointerEvent3D.md)
+> **new PointerEvent3D**(`eventType?`, `data?`): `PointerEvent3D`
+
+Defined in: [src/event/CEvent.ts:102](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L102)
 
 Create a new event, with type and data
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `eventType` | `string` | `null` | {any} eventType |
-| `data` | `any` | `null` | {any} param |
+##### eventType?
+
+`string` = `null`
+
+{any} eventType
+
+##### data?
+
+`any` = `null`
+
+{any} param
 
 #### Returns
 
-[`PointerEvent3D`](PointerEvent3D.md)
+`PointerEvent3D`
 
 #### Inherited from
 
-[CEvent](CEvent.md).[constructor](CEvent.md#constructor)
-
-#### Defined in
-
-[src/event/CEvent.ts:102](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L102)
+[`CEvent`](CEvent.md).[`constructor`](CEvent.md#constructor)
 
 ## Properties
 
 ### target
 
-• **target**: [`Object3D`](Object3D.md)
+> **target**: [`Object3D`](Object3D.md)
+
+Defined in: [src/event/CEvent.ts:13](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L13)
 
 Event target, it's usually event dispatcher
 
 #### Inherited from
 
-[CEvent](CEvent.md).[target](CEvent.md#target)
+[`CEvent`](CEvent.md).[`target`](CEvent.md#target)
 
-#### Defined in
-
-[src/event/CEvent.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L13)
-
-___
+***
 
 ### currentTarget
 
-• **currentTarget**: `CEventListener`
+> **currentTarget**: `CEventListener`
+
+Defined in: [src/event/CEvent.ts:18](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L18)
 
 Current event target, it's current bubble object
 
 #### Inherited from
 
-[CEvent](CEvent.md).[currentTarget](CEvent.md#currenttarget)
+[`CEvent`](CEvent.md).[`currentTarget`](CEvent.md#currenttarget)
 
-#### Defined in
-
-[src/event/CEvent.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L18)
-
-___
+***
 
 ### type
 
-• **type**: `string`
+> **type**: `string`
+
+Defined in: [src/event/CEvent.ts:23](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L23)
 
 event type, it's registered string of key
 
 #### Inherited from
 
-[CEvent](CEvent.md).[type](CEvent.md#type)
+[`CEvent`](CEvent.md).[`type`](CEvent.md#type)
 
-#### Defined in
-
-[src/event/CEvent.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L23)
-
-___
-
-### data
-
-• **data**: `any`
-
-extra data.Used for the transmission process of events, carrying data
-
-#### Inherited from
-
-[CEvent](CEvent.md).[data](CEvent.md#data)
-
-#### Defined in
-
-[src/event/CEvent.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L28)
-
-___
+***
 
 ### param
 
-• **param**: `any`
+> **param**: `any`
+
+Defined in: [src/event/CEvent.ts:34](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L34)
 
 The param data when event is registered
 
 #### Inherited from
 
-[CEvent](CEvent.md).[param](CEvent.md#param)
+[`CEvent`](CEvent.md).[`param`](CEvent.md#param)
 
-#### Defined in
-
-[src/event/CEvent.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L34)
-
-___
+***
 
 ### time
 
-• **time**: `number` = `0`
+> **time**: `number` = `0`
+
+Defined in: [src/event/CEvent.ts:40](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L40)
 
 the time when event is
 
 #### Inherited from
 
-[CEvent](CEvent.md).[time](CEvent.md#time)
+[`CEvent`](CEvent.md).[`time`](CEvent.md#time)
 
-#### Defined in
-
-[src/event/CEvent.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L40)
-
-___
+***
 
 ### delay
 
-• **delay**: `number` = `0`
+> **delay**: `number` = `0`
+
+Defined in: [src/event/CEvent.ts:46](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L46)
 
 the delay time when event is dispatched.
 
 #### Inherited from
 
-[CEvent](CEvent.md).[delay](CEvent.md#delay)
+[`CEvent`](CEvent.md).[`delay`](CEvent.md#delay)
 
-#### Defined in
-
-[src/event/CEvent.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L46)
-
-___
+***
 
 ### mouseCode
 
-• **mouseCode**: `number` = `0`
+> **mouseCode**: `number` = `0`
+
+Defined in: [src/event/CEvent.ts:52](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L52)
 
 mouse code, see
 
-**`Mouse Code`**
+#### Mouse Code
 
-[MouseCode](../enums/MouseCode.md)
+[MouseCode](../enumerations/MouseCode.md)
 
 #### Inherited from
 
-[CEvent](CEvent.md).[mouseCode](CEvent.md#mousecode)
+[`CEvent`](CEvent.md).[`mouseCode`](CEvent.md#mousecode)
 
-#### Defined in
-
-[src/event/CEvent.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L52)
-
-___
+***
 
 ### ctrlKey
 
-• **ctrlKey**: `boolean`
+> **ctrlKey**: `boolean`
+
+Defined in: [src/event/CEvent.ts:57](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L57)
 
 Is Ctrl key pressed when the event occurs
 
 #### Inherited from
 
-[CEvent](CEvent.md).[ctrlKey](CEvent.md#ctrlkey)
+[`CEvent`](CEvent.md).[`ctrlKey`](CEvent.md#ctrlkey)
 
-#### Defined in
-
-[src/event/CEvent.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L57)
-
-___
+***
 
 ### metaKey
 
-• **metaKey**: `boolean`
+> **metaKey**: `boolean`
+
+Defined in: [src/event/CEvent.ts:62](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L62)
 
 Is Meta key pressed when the event occurs
 
 #### Inherited from
 
-[CEvent](CEvent.md).[metaKey](CEvent.md#metakey)
+[`CEvent`](CEvent.md).[`metaKey`](CEvent.md#metakey)
 
-#### Defined in
-
-[src/event/CEvent.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L62)
-
-___
+***
 
 ### altKey
 
-• **altKey**: `boolean`
+> **altKey**: `boolean`
+
+Defined in: [src/event/CEvent.ts:67](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L67)
 
 Is Alt key pressed when the event occurs
 
 #### Inherited from
 
-[CEvent](CEvent.md).[altKey](CEvent.md#altkey)
+[`CEvent`](CEvent.md).[`altKey`](CEvent.md#altkey)
 
-#### Defined in
-
-[src/event/CEvent.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L67)
-
-___
+***
 
 ### shiftKey
 
-• **shiftKey**: `boolean`
+> **shiftKey**: `boolean`
+
+Defined in: [src/event/CEvent.ts:72](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L72)
 
 Is Shift key pressed when the event occurs
 
 #### Inherited from
 
-[CEvent](CEvent.md).[shiftKey](CEvent.md#shiftkey)
+[`CEvent`](CEvent.md).[`shiftKey`](CEvent.md#shiftkey)
 
-#### Defined in
-
-[src/event/CEvent.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L72)
-
-___
+***
 
 ### targetTouches
 
-• **targetTouches**: `TouchData`[]
+> **targetTouches**: `TouchData`[]
+
+Defined in: [src/event/CEvent.ts:77](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L77)
 
 Collection of finger touch points, which registered
 
 #### Inherited from
 
-[CEvent](CEvent.md).[targetTouches](CEvent.md#targettouches)
+[`CEvent`](CEvent.md).[`targetTouches`](CEvent.md#targettouches)
 
-#### Defined in
-
-[src/event/CEvent.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L77)
-
-___
+***
 
 ### changedTouches
 
-• **changedTouches**: `TouchData`[]
+> **changedTouches**: `TouchData`[]
+
+Defined in: [src/event/CEvent.ts:82](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L82)
 
 Collection of finger touch points changed
 
 #### Inherited from
 
-[CEvent](CEvent.md).[changedTouches](CEvent.md#changedtouches)
+[`CEvent`](CEvent.md).[`changedTouches`](CEvent.md#changedtouches)
 
-#### Defined in
-
-[src/event/CEvent.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L82)
-
-___
+***
 
 ### touches
 
-• **touches**: `TouchData`[]
+> **touches**: `TouchData`[]
+
+Defined in: [src/event/CEvent.ts:87](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L87)
 
 Collection of finger touch points
 
 #### Inherited from
 
-[CEvent](CEvent.md).[touches](CEvent.md#touches)
+[`CEvent`](CEvent.md).[`touches`](CEvent.md#touches)
 
-#### Defined in
-
-[src/event/CEvent.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L87)
-
-___
+***
 
 ### view
 
-• **view**: [`View3D`](View3D.md)
+> **view**: [`View3D`](View3D.md)
+
+Defined in: [src/event/CEvent.ts:94](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L94)
 
 binded view3D object in event.
 
 #### Inherited from
 
-[CEvent](CEvent.md).[view](CEvent.md#view)
+[`CEvent`](CEvent.md).[`view`](CEvent.md#view)
 
-#### Defined in
-
-[src/event/CEvent.ts:94](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L94)
-
-___
+***
 
 ### PICK\_OVER
 
-▪ `Static` **PICK\_OVER**: `string` = `'onPickOver'`
+> `static` **PICK\_OVER**: `string` = `'onPickOver'`
+
+Defined in: [src/event/eventConst/PointerEvent3D.ts:22](https://github.com/orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L22)
 
 Triggered when the touch point enters the collision
 
-#### Defined in
-
-[src/event/eventConst/PointerEvent3D.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L13)
-
-___
-
-### PICK\_OVER\_GUI
-
-▪ `Static` **PICK\_OVER\_GUI**: `string` = `'onPickOverGUI'`
-
-Triggered when the touch point enters the interactive GUI
-
-#### Defined in
-
-[src/event/eventConst/PointerEvent3D.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L18)
-
-___
+***
 
 ### PICK\_CLICK
 
-▪ `Static` **PICK\_CLICK**: `string` = `'onPickClick'`
+> `static` **PICK\_CLICK**: `string` = `'onPickClick'`
+
+Defined in: [src/event/eventConst/PointerEvent3D.ts:27](https://github.com/orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L27)
 
 Triggered when the touch point clicked the collision
 
-#### Defined in
-
-[src/event/eventConst/PointerEvent3D.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L23)
-
-___
-
-### PICK\_CLICK\_GUI
-
-▪ `Static` **PICK\_CLICK\_GUI**: `string` = `'onPickClickGUI'`
-
-Triggered when the touch point clicked the interactive GUI
-
-#### Defined in
-
-[src/event/eventConst/PointerEvent3D.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L28)
-
-___
+***
 
 ### PICK\_OUT
 
-▪ `Static` **PICK\_OUT**: `string` = `'onPickOut'`
+> `static` **PICK\_OUT**: `string` = `'onPickOut'`
+
+Defined in: [src/event/eventConst/PointerEvent3D.ts:32](https://github.com/orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L32)
 
 Triggered when the touch point leave the collision
 
-#### Defined in
-
-[src/event/eventConst/PointerEvent3D.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L33)
-
-___
-
-### PICK\_OUT\_GUI
-
-▪ `Static` **PICK\_OUT\_GUI**: `string` = `'onPickOutGUI'`
-
-Triggered when the touch point leave the interactive GUI
-
-#### Defined in
-
-[src/event/eventConst/PointerEvent3D.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L38)
-
-___
+***
 
 ### PICK\_MOVE
 
-▪ `Static` **PICK\_MOVE**: `string` = `'onPickMove'`
+> `static` **PICK\_MOVE**: `string` = `'onPickMove'`
+
+Defined in: [src/event/eventConst/PointerEvent3D.ts:37](https://github.com/orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L37)
 
 Triggered when the touch point move on the collision
 
-#### Defined in
-
-[src/event/eventConst/PointerEvent3D.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L43)
-
-___
+***
 
 ### PICK\_UP
 
-▪ `Static` **PICK\_UP**: `string` = `'onPickUp'`
+> `static` **PICK\_UP**: `string` = `'onPickUp'`
+
+Defined in: [src/event/eventConst/PointerEvent3D.ts:42](https://github.com/orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L42)
 
 Triggered when the touch point release from the collision
 
-#### Defined in
-
-[src/event/eventConst/PointerEvent3D.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L48)
-
-___
-
-### PICK\_UP\_GUI
-
-▪ `Static` **PICK\_UP\_GUI**: `string` = `'onPickUpGUI'`
-
-Triggered when the touch point release from the interactive GUI
-
-#### Defined in
-
-[src/event/eventConst/PointerEvent3D.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L53)
-
-___
+***
 
 ### PICK\_DOWN
 
-▪ `Static` **PICK\_DOWN**: `string` = `'onPickDown'`
+> `static` **PICK\_DOWN**: `string` = `'onPickDown'`
+
+Defined in: [src/event/eventConst/PointerEvent3D.ts:47](https://github.com/orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L47)
 
 Triggered when the touch point pressed the collision
 
-#### Defined in
-
-[src/event/eventConst/PointerEvent3D.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L58)
-
-___
-
-### PICK\_DOWN\_GUI
-
-▪ `Static` **PICK\_DOWN\_GUI**: `string` = `'onPickDownGUI'`
-
-Triggered when the touch point pressed the interactive GUI
-
-#### Defined in
-
-[src/event/eventConst/PointerEvent3D.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L63)
-
-___
+***
 
 ### POINTER\_RIGHT\_CLICK
 
-▪ `Static` **POINTER\_RIGHT\_CLICK**: `string` = `'onPointerRightClick'`
+> `static` **POINTER\_RIGHT\_CLICK**: `string` = `'onPointerRightClick'`
+
+Defined in: [src/event/eventConst/PointerEvent3D.ts:53](https://github.com/orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L53)
 
 Triggered when the right pointer clicked
 
-#### Defined in
-
-[src/event/eventConst/PointerEvent3D.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L69)
-
-___
-
-### POINTER\_MID\_UP
-
-▪ `Static` **POINTER\_MID\_UP**: `string` = `'onPointerMidUp'`
-
-Triggered when the middle pointer released
-
-#### Defined in
-
-[src/event/eventConst/PointerEvent3D.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L74)
-
-___
-
-### POINTER\_MID\_DOWN
-
-▪ `Static` **POINTER\_MID\_DOWN**: `string` = `'onPointerMidDown'`
-
-Triggered when the middle pointer pressed
-
-#### Defined in
-
-[src/event/eventConst/PointerEvent3D.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L79)
-
-___
+***
 
 ### POINTER\_CLICK
 
-▪ `Static` **POINTER\_CLICK**: `string` = `'onPointerClick'`
+> `static` **POINTER\_CLICK**: `string` = `'onPointerClick'`
+
+Defined in: [src/event/eventConst/PointerEvent3D.ts:58](https://github.com/orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L58)
 
 Triggered when the pointer clicked
 
-#### Defined in
-
-[src/event/eventConst/PointerEvent3D.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L84)
-
-___
+***
 
 ### POINTER\_MOVE
 
-▪ `Static` **POINTER\_MOVE**: `string` = `'onPointerMove'`
+> `static` **POINTER\_MOVE**: `string` = `'onPointerMove'`
+
+Defined in: [src/event/eventConst/PointerEvent3D.ts:64](https://github.com/orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L64)
 
 Triggered when the pointer moved
 
-#### Defined in
-
-[src/event/eventConst/PointerEvent3D.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L90)
-
-___
+***
 
 ### POINTER\_DOWN
 
-▪ `Static` **POINTER\_DOWN**: `string` = `'onPointerDown'`
+> `static` **POINTER\_DOWN**: `string` = `'onPointerDown'`
+
+Defined in: [src/event/eventConst/PointerEvent3D.ts:70](https://github.com/orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L70)
 
 Triggered when the pointer pressed
 
-#### Defined in
-
-[src/event/eventConst/PointerEvent3D.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L96)
-
-___
+***
 
 ### POINTER\_UP
 
-▪ `Static` **POINTER\_UP**: `string` = `'onPointerUp'`
+> `static` **POINTER\_UP**: `string` = `'onPointerUp'`
+
+Defined in: [src/event/eventConst/PointerEvent3D.ts:76](https://github.com/orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L76)
 
 Triggered when the pointer released
 
-#### Defined in
-
-[src/event/eventConst/PointerEvent3D.ts:102](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L102)
-
-___
+***
 
 ### POINTER\_OUT
 
-▪ `Static` **POINTER\_OUT**: `string` = `'onPointerOut'`
+> `static` **POINTER\_OUT**: `string` = `'onPointerOut'`
+
+Defined in: [src/event/eventConst/PointerEvent3D.ts:82](https://github.com/orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L82)
 
 Triggered when the pointer move out
 
-#### Defined in
-
-[src/event/eventConst/PointerEvent3D.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L108)
-
-___
+***
 
 ### POINTER\_OVER
 
-▪ `Static` **POINTER\_OVER**: `string` = `'onPointerOver'`
+> `static` **POINTER\_OVER**: `string` = `'onPointerOver'`
+
+Defined in: [src/event/eventConst/PointerEvent3D.ts:88](https://github.com/orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L88)
 
 Triggered when the pointer move over
 
-#### Defined in
-
-[src/event/eventConst/PointerEvent3D.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L114)
-
-___
+***
 
 ### POINTER\_WHEEL
 
-▪ `Static` **POINTER\_WHEEL**: `string` = `'onPointerWheel'`
+> `static` **POINTER\_WHEEL**: `string` = `'onPointerWheel'`
+
+Defined in: [src/event/eventConst/PointerEvent3D.ts:94](https://github.com/orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L94)
 
 Triggered when the wheel pointer is used
 
-#### Defined in
-
-[src/event/eventConst/PointerEvent3D.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L120)
-
-___
+***
 
 ### pointerId
 
-• **pointerId**: `number`
+> **pointerId**: `number`
+
+Defined in: [src/event/eventConst/PointerEvent3D.ts:99](https://github.com/orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L99)
 
 A unique identifier for an event caused by a pointer.
 
-#### Defined in
-
-[src/event/eventConst/PointerEvent3D.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L125)
-
-___
+***
 
 ### pointerType
 
-• **pointerType**: `string`
+> **pointerType**: `string` = `'onPointer'`
+
+Defined in: [src/event/eventConst/PointerEvent3D.ts:104](https://github.com/orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L104)
 
 event type
 
-#### Defined in
-
-[src/event/eventConst/PointerEvent3D.ts:130](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L130)
-
-___
+***
 
 ### isPrimary
 
-• **isPrimary**: `boolean`
+> **isPrimary**: `boolean`
+
+Defined in: [src/event/eventConst/PointerEvent3D.ts:109](https://github.com/orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L109)
 
 whether it's the preferred pointer in this type of pointer.
 
-#### Defined in
-
-[src/event/eventConst/PointerEvent3D.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L135)
-
-___
+***
 
 ### pressure
 
-• **pressure**: `number`
+> **pressure**: `number`
+
+Defined in: [src/event/eventConst/PointerEvent3D.ts:114](https://github.com/orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L114)
 
 Normalize values
 
-#### Defined in
-
-[src/event/eventConst/PointerEvent3D.ts:140](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L140)
-
-___
+***
 
 ### mouseX
 
-• **mouseX**: `number`
+> **mouseX**: `number`
+
+Defined in: [src/event/eventConst/PointerEvent3D.ts:119](https://github.com/orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L119)
 
 coord x of mouse
 
-#### Defined in
-
-[src/event/eventConst/PointerEvent3D.ts:145](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L145)
-
-___
+***
 
 ### mouseY
 
-• **mouseY**: `number`
+> **mouseY**: `number`
+
+Defined in: [src/event/eventConst/PointerEvent3D.ts:124](https://github.com/orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L124)
 
 coord y of mouse
 
-#### Defined in
-
-[src/event/eventConst/PointerEvent3D.ts:150](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L150)
-
-___
+***
 
 ### movementX
 
-• **movementX**: `number`
+> **movementX**: `number`
+
+Defined in: [src/event/eventConst/PointerEvent3D.ts:129](https://github.com/orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L129)
 
 delta of coord x of mouse
 
-#### Defined in
-
-[src/event/eventConst/PointerEvent3D.ts:155](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L155)
-
-___
+***
 
 ### movementY
 
-• **movementY**: `number`
+> **movementY**: `number`
+
+Defined in: [src/event/eventConst/PointerEvent3D.ts:134](https://github.com/orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L134)
 
 delta of coord y of mouse
 
-#### Defined in
-
-[src/event/eventConst/PointerEvent3D.ts:160](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L160)
-
-___
+***
 
 ### deltaX
 
-• **deltaX**: `number`
+> **deltaX**: `number`
+
+Defined in: [src/event/eventConst/PointerEvent3D.ts:140](https://github.com/orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L140)
 
 Returns a negative value when scrolling left, 
 a positive value when scrolling right, otherwise 0.
 
-#### Defined in
-
-[src/event/eventConst/PointerEvent3D.ts:166](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L166)
-
-___
+***
 
 ### deltaY
 
-• **deltaY**: `number`
+> **deltaY**: `number`
+
+Defined in: [src/event/eventConst/PointerEvent3D.ts:146](https://github.com/orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L146)
 
 Returns a positive value when scrolling down,
- a negative value when scrolling up, otherwise 0.
+a negative value when scrolling up, otherwise 0.
 
-#### Defined in
+***
 
-[src/event/eventConst/PointerEvent3D.ts:172](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L172)
+### data
+
+> **data**: `pickResult`
+
+Defined in: [src/event/eventConst/PointerEvent3D.ts:152](https://github.com/orillusion/orillusion/blob/main/src/event/eventConst/PointerEvent3D.ts#L152)
+
+Pick result carried by PICK_* events: hit mesh id, world position/normal,
+and optional screen UV and distance.
+
+#### Overrides
+
+[`CEvent`](CEvent.md).[`data`](CEvent.md#data)
 
 ## Accessors
 
 ### isStopImmediatePropagation
 
-• `get` **isStopImmediatePropagation**(): `boolean`
+#### Get Signature
+
+> **get** **isStopImmediatePropagation**(): `boolean`
+
+Defined in: [src/event/CEvent.ts:125](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L125)
 
 Returns stopImmediatePropagation value
 
-#### Returns
+##### Returns
 
 `boolean`
 
 #### Inherited from
 
-CEvent.isStopImmediatePropagation
-
-#### Defined in
-
-[src/event/CEvent.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L125)
+[`CEvent`](CEvent.md).[`isStopImmediatePropagation`](CEvent.md#isstopimmediatepropagation)
 
 ## Methods
 
-### stopImmediatePropagation
+### stopImmediatePropagation()
 
-▸ **stopImmediatePropagation**(): `void`
+> **stopImmediatePropagation**(): `void`
+
+Defined in: [src/event/CEvent.ts:110](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L110)
 
 Prevent bubbling of all event listeners in subsequent nodes of the current node in the event flow.
 
@@ -766,8 +552,4 @@ Prevent bubbling of all event listeners in subsequent nodes of the current node 
 
 #### Inherited from
 
-[CEvent](CEvent.md).[stopImmediatePropagation](CEvent.md#stopimmediatepropagation)
-
-#### Defined in
-
-[src/event/CEvent.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L110)
+[`CEvent`](CEvent.md).[`stopImmediatePropagation`](CEvent.md#stopimmediatepropagation)

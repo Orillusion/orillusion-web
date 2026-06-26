@@ -1,347 +1,299 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: Navi3DEdge
 
-### Constructors
-
-- [constructor](Navi3DEdge.md#constructor)
-
-### Properties
-
-- [crossPoint](Navi3DEdge.md#crosspoint)
-- [fatPointA](Navi3DEdge.md#fatpointa)
-- [fatPointB](Navi3DEdge.md#fatpointb)
-
-### Accessors
-
-- [size](Navi3DEdge.md#size)
-- [triangleOwners](Navi3DEdge.md#triangleowners)
-- [centerPoint](Navi3DEdge.md#centerpoint)
-- [pointA](Navi3DEdge.md#pointa)
-- [pointB](Navi3DEdge.md#pointb)
-- [walkAble](Navi3DEdge.md#walkable)
-
-### Methods
-
-- [initFatPoints](Navi3DEdge.md#initfatpoints)
-- [getFatPoint](Navi3DEdge.md#getfatpoint)
-- [getAnotherFatPoint](Navi3DEdge.md#getanotherfatpoint)
-- [getAnotherPoint](Navi3DEdge.md#getanotherpoint)
-- [containsPoint](Navi3DEdge.md#containspoint)
-- [addTriangleOwners](Navi3DEdge.md#addtriangleowners)
-- [getPublicPoint](Navi3DEdge.md#getpublicpoint)
-- [getEqualPoint](Navi3DEdge.md#getequalpoint)
-- [testMask](Navi3DEdge.md#testmask)
+Defined in: [src/math/navigation/Navi3DEdge.ts:7](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L7)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new Navi3DEdge**(`point0`, `point1`): [`Navi3DEdge`](Navi3DEdge.md)
+> **new Navi3DEdge**(`point0`, `point1`): `Navi3DEdge`
+
+Defined in: [src/math/navigation/Navi3DEdge.ts:26](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L26)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `point0` | [`Navi3DPoint`](Navi3DPoint.md) |
-| `point1` | [`Navi3DPoint`](Navi3DPoint.md) |
+##### point0
+
+[`Navi3DPoint`](Navi3DPoint.md)
+
+##### point1
+
+[`Navi3DPoint`](Navi3DPoint.md)
 
 #### Returns
 
-[`Navi3DEdge`](Navi3DEdge.md)
-
-#### Defined in
-
-[src/math/navigation/Navi3DEdge.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L26)
+`Navi3DEdge`
 
 ## Properties
 
 ### crossPoint
 
-• **crossPoint**: [`Vector3`](Vector3.md)
+> **crossPoint**: [`Vector3`](Vector3.md)
 
-#### Defined in
+Defined in: [src/math/navigation/Navi3DEdge.ts:18](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L18)
 
-[src/math/navigation/Navi3DEdge.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L18)
-
-___
+***
 
 ### fatPointA
 
-• **fatPointA**: [`Navi3DPointFat`](Navi3DPointFat.md)
+> **fatPointA**: [`Navi3DPointFat`](Navi3DPointFat.md)
 
-#### Defined in
+Defined in: [src/math/navigation/Navi3DEdge.ts:20](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L20)
 
-[src/math/navigation/Navi3DEdge.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L20)
-
-___
+***
 
 ### fatPointB
 
-• **fatPointB**: [`Navi3DPointFat`](Navi3DPointFat.md)
+> **fatPointB**: [`Navi3DPointFat`](Navi3DPointFat.md)
 
-#### Defined in
-
-[src/math/navigation/Navi3DEdge.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L22)
+Defined in: [src/math/navigation/Navi3DEdge.ts:22](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L22)
 
 ## Accessors
 
 ### size
 
-• `get` **size**(): `Number`
+#### Get Signature
 
-#### Returns
+> **get** **size**(): `Number`
+
+Defined in: [src/math/navigation/Navi3DEdge.ts:41](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L41)
+
+##### Returns
 
 `Number`
 
-#### Defined in
-
-[src/math/navigation/Navi3DEdge.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L41)
-
-___
+***
 
 ### triangleOwners
 
-• `get` **triangleOwners**(): [`Navi3DTriangle`](Navi3DTriangle.md)[]
+#### Get Signature
 
-#### Returns
+> **get** **triangleOwners**(): [`Navi3DTriangle`](Navi3DTriangle.md)[]
+
+Defined in: [src/math/navigation/Navi3DEdge.ts:45](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L45)
+
+##### Returns
 
 [`Navi3DTriangle`](Navi3DTriangle.md)[]
 
-#### Defined in
-
-[src/math/navigation/Navi3DEdge.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L45)
-
-___
+***
 
 ### centerPoint
 
-• `get` **centerPoint**(): [`Vector3`](Vector3.md)
+#### Get Signature
 
-#### Returns
+> **get** **centerPoint**(): [`Vector3`](Vector3.md)
+
+Defined in: [src/math/navigation/Navi3DEdge.ts:49](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L49)
+
+##### Returns
 
 [`Vector3`](Vector3.md)
 
-#### Defined in
-
-[src/math/navigation/Navi3DEdge.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L49)
-
-___
+***
 
 ### pointA
 
-• `get` **pointA**(): [`Navi3DPoint`](Navi3DPoint.md)
+#### Get Signature
 
-#### Returns
+> **get** **pointA**(): [`Navi3DPoint`](Navi3DPoint.md)
+
+Defined in: [src/math/navigation/Navi3DEdge.ts:131](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L131)
+
+##### Returns
 
 [`Navi3DPoint`](Navi3DPoint.md)
 
-#### Defined in
-
-[src/math/navigation/Navi3DEdge.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L131)
-
-___
+***
 
 ### pointB
 
-• `get` **pointB**(): [`Navi3DPoint`](Navi3DPoint.md)
+#### Get Signature
 
-#### Returns
+> **get** **pointB**(): [`Navi3DPoint`](Navi3DPoint.md)
+
+Defined in: [src/math/navigation/Navi3DEdge.ts:135](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L135)
+
+##### Returns
 
 [`Navi3DPoint`](Navi3DPoint.md)
 
-#### Defined in
-
-[src/math/navigation/Navi3DEdge.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L135)
-
-___
+***
 
 ### walkAble
 
-• `get` **walkAble**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **walkAble**(): `boolean`
+
+Defined in: [src/math/navigation/Navi3DEdge.ts:139](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L139)
+
+##### Returns
 
 `boolean`
-
-#### Defined in
-
-[src/math/navigation/Navi3DEdge.ts:139](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L139)
 
 ## Methods
 
-### initFatPoints
+### initFatPoints()
 
-▸ **initFatPoints**(`radius`): `void`
+> **initFatPoints**(`radius`): `void`
+
+Defined in: [src/math/navigation/Navi3DEdge.ts:53](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L53)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `radius` | `number` |
+##### radius
+
+`number`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/math/navigation/Navi3DEdge.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L53)
+### getFatPoint()
 
-___
+> **getFatPoint**(`pt`): [`Navi3DPointFat`](Navi3DPointFat.md)
 
-### getFatPoint
-
-▸ **getFatPoint**(`pt`): [`Navi3DPointFat`](Navi3DPointFat.md)
+Defined in: [src/math/navigation/Navi3DEdge.ts:78](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L78)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `pt` | [`Navi3DPoint`](Navi3DPoint.md) |
+##### pt
+
+[`Navi3DPoint`](Navi3DPoint.md)
 
 #### Returns
 
 [`Navi3DPointFat`](Navi3DPointFat.md)
 
-#### Defined in
+***
 
-[src/math/navigation/Navi3DEdge.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L78)
+### getAnotherFatPoint()
 
-___
+> **getAnotherFatPoint**(`pt`): [`Navi3DPointFat`](Navi3DPointFat.md)
 
-### getAnotherFatPoint
-
-▸ **getAnotherFatPoint**(`pt`): [`Navi3DPointFat`](Navi3DPointFat.md)
+Defined in: [src/math/navigation/Navi3DEdge.ts:84](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L84)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `pt` | [`Navi3DPoint`](Navi3DPoint.md) |
+##### pt
+
+[`Navi3DPoint`](Navi3DPoint.md)
 
 #### Returns
 
 [`Navi3DPointFat`](Navi3DPointFat.md)
 
-#### Defined in
+***
 
-[src/math/navigation/Navi3DEdge.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L84)
+### getAnotherPoint()
 
-___
+> **getAnotherPoint**(`pt`): [`Navi3DPoint`](Navi3DPoint.md)
 
-### getAnotherPoint
-
-▸ **getAnotherPoint**(`pt`): [`Navi3DPoint`](Navi3DPoint.md)
+Defined in: [src/math/navigation/Navi3DEdge.ts:90](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L90)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `pt` | [`Navi3DPoint`](Navi3DPoint.md) |
+##### pt
+
+[`Navi3DPoint`](Navi3DPoint.md)
 
 #### Returns
 
 [`Navi3DPoint`](Navi3DPoint.md)
 
-#### Defined in
+***
 
-[src/math/navigation/Navi3DEdge.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L90)
+### containsPoint()
 
-___
+> **containsPoint**(`pt`): [`Navi3DPoint`](Navi3DPoint.md)
 
-### containsPoint
-
-▸ **containsPoint**(`pt`): [`Navi3DPoint`](Navi3DPoint.md)
+Defined in: [src/math/navigation/Navi3DEdge.ts:96](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L96)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `pt` | [`Vector3`](Vector3.md) |
+##### pt
+
+[`Vector3`](Vector3.md)
 
 #### Returns
 
 [`Navi3DPoint`](Navi3DPoint.md)
 
-#### Defined in
+***
 
-[src/math/navigation/Navi3DEdge.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L96)
+### addTriangleOwners()
 
-___
+> **addTriangleOwners**(`triangle`): `void`
 
-### addTriangleOwners
-
-▸ **addTriangleOwners**(`triangle`): `void`
+Defined in: [src/math/navigation/Navi3DEdge.ts:104](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L104)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `triangle` | [`Navi3DTriangle`](Navi3DTriangle.md) |
+##### triangle
+
+[`Navi3DTriangle`](Navi3DTriangle.md)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/math/navigation/Navi3DEdge.ts:104](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L104)
+### getPublicPoint()
 
-___
+> **getPublicPoint**(`edge`): [`Navi3DPoint`](Navi3DPoint.md)
 
-### getPublicPoint
-
-▸ **getPublicPoint**(`edge`): [`Navi3DPoint`](Navi3DPoint.md)
+Defined in: [src/math/navigation/Navi3DEdge.ts:113](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L113)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `edge` | [`Navi3DEdge`](Navi3DEdge.md) |
+##### edge
+
+`Navi3DEdge`
 
 #### Returns
 
 [`Navi3DPoint`](Navi3DPoint.md)
 
-#### Defined in
+***
 
-[src/math/navigation/Navi3DEdge.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L113)
+### getEqualPoint()
 
-___
+> **getEqualPoint**(`p`): [`Navi3DPoint`](Navi3DPoint.md)
 
-### getEqualPoint
-
-▸ **getEqualPoint**(`p`): [`Navi3DPoint`](Navi3DPoint.md)
+Defined in: [src/math/navigation/Navi3DEdge.ts:123](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L123)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `p` | [`Vector3`](Vector3.md) |
+##### p
+
+[`Vector3`](Vector3.md)
 
 #### Returns
 
 [`Navi3DPoint`](Navi3DPoint.md)
 
-#### Defined in
+***
 
-[src/math/navigation/Navi3DEdge.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L123)
+### testMask()
 
-___
+> **testMask**(`value`): `boolean`
 
-### testMask
-
-▸ **testMask**(`value`): `boolean`
+Defined in: [src/math/navigation/Navi3DEdge.ts:143](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L143)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+##### value
+
+`number`
 
 #### Returns
 
 `boolean`
-
-#### Defined in
-
-[src/math/navigation/Navi3DEdge.ts:143](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DEdge.ts#L143)

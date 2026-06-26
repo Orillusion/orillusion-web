@@ -1,58 +1,61 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: ValueOp\<T\>
 
-## Type parameters
+Defined in: [src/math/enum/T/ValueOp.ts:7](https://github.com/orillusion/orillusion/blob/main/src/math/enum/T/ValueOp.ts#L7)
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`CurveValueType`](../types/CurveValueType.md) |
+Generic arithmetic helpers for curve value types (number, Vector2/3/4, Quaternion).
 
-### Constructors
+## Type Parameters
 
-- [constructor](ValueOp.md#constructor)
+### T
 
-### Methods
-
-- [sub](ValueOp.md#sub)
+`T` *extends* [`CurveValueType`](../type-aliases/CurveValueType.md)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new ValueOp**\<`T`\>(): [`ValueOp`](ValueOp.md)\<`T`\>
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`CurveValueType`](../types/CurveValueType.md) |
+> **new ValueOp**\<`T`\>(): `ValueOp`\<`T`\>
 
 #### Returns
 
-[`ValueOp`](ValueOp.md)\<`T`\>
+`ValueOp`\<`T`\>
 
 ## Methods
 
-### sub
+### sub()
 
-▸ **sub**\<`T`\>(`v1`, `v2`): `number` \| [`Vector2`](Vector2.md) \| `Vector4` \| [`Vector3`](Vector3.md) \| [`Quaternion`](Quaternion.md)
+> `static` **sub**\<`T`\>(`v1`, `v2`): `number` \| [`Vector3`](Vector3.md) \| [`Quaternion`](Quaternion.md) \| [`Vector2`](Vector2.md) \| `Vector4`
 
-#### Type parameters
+Defined in: [src/math/enum/T/ValueOp.ts:14](https://github.com/orillusion/orillusion/blob/main/src/math/enum/T/ValueOp.ts#L14)
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`CurveValueType`](../types/CurveValueType.md) |
+Subtract one curve value from another, dispatching on the runtime value type.
+
+#### Type Parameters
+
+##### T
+
+`T` *extends* [`CurveValueType`](../type-aliases/CurveValueType.md)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v1` | `T` |
-| `v2` | `T` |
+##### v1
+
+`T`
+
+minuend
+
+##### v2
+
+`T`
+
+subtrahend
 
 #### Returns
 
-`number` \| [`Vector2`](Vector2.md) \| `Vector4` \| [`Vector3`](Vector3.md) \| [`Quaternion`](Quaternion.md)
+`number` \| [`Vector3`](Vector3.md) \| [`Quaternion`](Quaternion.md) \| [`Vector2`](Vector2.md) \| `Vector4`
 
-#### Defined in
-
-[src/math/enum/T/ValueOp.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/T/ValueOp.ts#L4)
+the component-wise difference of the same type

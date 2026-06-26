@@ -1,161 +1,148 @@
+[**@orillusion/graphic**](../README.md)
+
+***
+
 # Class: Point3D
+
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:52](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L52)
 
 Used to describe the key points for drawing a path, where xy refers to the data in the xz direction. H is the data in the y direction
 If you want to give this Shape transform attribute, you can control the transformation of the binded Object3D to achieve the goal
 
-**`Export`**
+## Export
 
-### Constructors
-
-- [constructor](Point3D.md#constructor)
-
-### Properties
-
-- [HELP\_0](Point3D.md#help_0)
-- [HELP\_1](Point3D.md#help_1)
-- [HELP\_2](Point3D.md#help_2)
-- [x](Point3D.md#x)
-- [y](Point3D.md#y)
-- [h](Point3D.md#h)
-- [invalid](Point3D.md#invalid)
-
-### Methods
-
-- [set](Point3D.md#set)
-- [copyFrom](Point3D.md#copyfrom)
+Point3D
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new Point3D**(`x?`, `y?`, `h?`, `invalid?`): [`Point3D`](Point3D.md)
+> **new Point3D**(`x?`, `y?`, `h?`, `invalid?`): `Point3D`
+
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:58](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L58)
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `x` | `number` | `0` |
-| `y` | `number` | `0` |
-| `h` | `number` | `0` |
-| `invalid?` | `boolean` | `undefined` |
+##### x?
+
+`number` = `0`
+
+##### y?
+
+`number` = `0`
+
+##### h?
+
+`number` = `0`
+
+##### invalid?
+
+`boolean`
 
 #### Returns
 
-[`Point3D`](Point3D.md)
-
-#### Defined in
-
-[packages/graphic/renderer/shape3d/Shape3D.ts:58](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L58)
+`Point3D`
 
 ## Properties
 
 ### HELP\_0
 
-▪ `Static` **HELP\_0**: [`Point3D`](Point3D.md)
+> `static` **HELP\_0**: `Point3D`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:54](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L54)
 
-[packages/graphic/renderer/shape3d/Shape3D.ts:54](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L54)
-
-___
+***
 
 ### HELP\_1
 
-▪ `Static` **HELP\_1**: [`Point3D`](Point3D.md)
+> `static` **HELP\_1**: `Point3D`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:55](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L55)
 
-[packages/graphic/renderer/shape3d/Shape3D.ts:55](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L55)
-
-___
+***
 
 ### HELP\_2
 
-▪ `Static` **HELP\_2**: [`Point3D`](Point3D.md)
+> `static` **HELP\_2**: `Point3D`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:56](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L56)
 
-[packages/graphic/renderer/shape3d/Shape3D.ts:56](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L56)
-
-___
+***
 
 ### x
 
-• **x**: `number`
+> **x**: `number`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:77](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L77)
 
-[packages/graphic/renderer/shape3d/Shape3D.ts:77](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L77)
-
-___
+***
 
 ### y
 
-• **y**: `number`
+> **y**: `number`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:78](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L78)
 
-[packages/graphic/renderer/shape3d/Shape3D.ts:78](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L78)
-
-___
+***
 
 ### h
 
-• **h**: `number`
+> **h**: `number`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:79](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L79)
 
-[packages/graphic/renderer/shape3d/Shape3D.ts:79](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L79)
-
-___
+***
 
 ### invalid
 
-• **invalid**: `boolean`
+> **invalid**: `boolean`
 
-#### Defined in
-
-[packages/graphic/renderer/shape3d/Shape3D.ts:80](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L80)
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:80](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L80)
 
 ## Methods
 
-### set
+### set()
 
-▸ **set**(`x`, `y`, `h?`, `invalid?`): `void`
+> **set**(`x`, `y`, `h?`, `invalid?`): `void`
+
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:62](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L62)
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `x` | `number` | `undefined` |
-| `y` | `number` | `undefined` |
-| `h` | `number` | `0` |
-| `invalid?` | `boolean` | `undefined` |
+##### x
+
+`number`
+
+##### y
+
+`number`
+
+##### h?
+
+`number` = `0`
+
+##### invalid?
+
+`boolean`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[packages/graphic/renderer/shape3d/Shape3D.ts:62](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L62)
+### copy()
 
-___
+> **copy**(`src`): `this`
 
-### copyFrom
-
-▸ **copyFrom**(`src`): `this`
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:69](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L69)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `src` | [`Point3D`](Point3D.md) |
+##### src
+
+`Point3D`
 
 #### Returns
 
 `this`
-
-#### Defined in
-
-[packages/graphic/renderer/shape3d/Shape3D.ts:69](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L69)

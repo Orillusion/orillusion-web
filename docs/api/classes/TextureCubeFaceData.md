@@ -1,101 +1,103 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: TextureCubeFaceData
 
-### Constructors
+Defined in: [src/textures/TextureCubeFaceData.ts:10](https://github.com/orillusion/orillusion/blob/main/src/textures/TextureCubeFaceData.ts#L10)
 
-- [constructor](TextureCubeFaceData.md#constructor)
-
-### Properties
-
-- [faceTextureRef](TextureCubeFaceData.md#facetextureref)
-
-### Methods
-
-- [uploadTexture](TextureCubeFaceData.md#uploadtexture)
-- [getGpuSource](TextureCubeFaceData.md#getgpusource)
+Manages the per-mip GPU texture and array-view references for the six
+faces of a cube texture, and builds the cube map from panorama sources.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new TextureCubeFaceData**(`texture`): [`TextureCubeFaceData`](TextureCubeFaceData.md)
+> **new TextureCubeFaceData**(`texture`): `TextureCubeFaceData`
+
+Defined in: [src/textures/TextureCubeFaceData.ts:17](https://github.com/orillusion/orillusion/blob/main/src/textures/TextureCubeFaceData.ts#L17)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `texture` | [`Texture`](Texture.md) |
+##### texture
+
+[`Texture`](Texture.md)
 
 #### Returns
 
-[`TextureCubeFaceData`](TextureCubeFaceData.md)
-
-#### Defined in
-
-[src/textures/TextureCubeFaceData.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/textures/TextureCubeFaceData.ts#L9)
+`TextureCubeFaceData`
 
 ## Properties
 
 ### faceTextureRef
 
-• **faceTextureRef**: `Object`
+> **faceTextureRef**: `object`
 
-#### Index signature
+Defined in: [src/textures/TextureCubeFaceData.ts:14](https://github.com/orillusion/orillusion/blob/main/src/textures/TextureCubeFaceData.ts#L14)
 
-▪ [key: `string`]: \{ `t`: `GPUTexture` ; `v`: `GPUTextureView`  }
+Cache of per-mip-level GPU texture and array texture-view references.
 
-#### Defined in
+#### Index Signature
 
-[src/textures/TextureCubeFaceData.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/textures/TextureCubeFaceData.ts#L6)
+\[`key`: `string`\]: `object`
 
 ## Methods
 
-### uploadTexture
+### uploadTexture()
 
-▸ **uploadTexture**(`mip`, `texture`): `this`
+> **uploadTexture**(`mip`, `texture`): `this`
+
+Defined in: [src/textures/TextureCubeFaceData.ts:30](https://github.com/orillusion/orillusion/blob/main/src/textures/TextureCubeFaceData.ts#L30)
 
 fill this texture by a texture2D, which is a 360 panorama image
 assign mipmap level
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `mip` | `number` | mipmap level |
-| `texture` | [`Texture`](Texture.md) | a panorama image |
+##### mip
+
+`number`
+
+mipmap level
+
+##### texture
+
+[`Texture`](Texture.md)
+
+a panorama image
 
 #### Returns
 
 `this`
 
-#### Defined in
+***
 
-[src/textures/TextureCubeFaceData.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/textures/TextureCubeFaceData.ts#L22)
+### getGpuSource()
 
-___
+> **getGpuSource**(`mip`): `object`
 
-### getGpuSource
-
-▸ **getGpuSource**(`mip`): `Object`
+Defined in: [src/textures/TextureCubeFaceData.ts:54](https://github.com/orillusion/orillusion/blob/main/src/textures/TextureCubeFaceData.ts#L54)
 
 get GPU texture raw data
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `mip` | `number` | mipmap level |
+##### mip
+
+`number`
+
+mipmap level
 
 #### Returns
 
-`Object`
+`object`
 
 GPU texture raw data, including t: GPUTexture and v: GPUTextureView
 
-| Name | Type |
-| :------ | :------ |
-| `t` | `GPUTexture` |
-| `v` | `GPUTextureView` |
+##### t
 
-#### Defined in
+> **t**: `GPUTexture`
 
-[src/textures/TextureCubeFaceData.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/textures/TextureCubeFaceData.ts#L46)
+##### v
+
+> **v**: `GPUTextureView`

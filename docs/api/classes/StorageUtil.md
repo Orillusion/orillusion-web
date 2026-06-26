@@ -1,87 +1,93 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: StorageUtil
 
-### Constructors
+Defined in: [src/util/StorageUtil.ts:5](https://github.com/orillusion/orillusion/blob/main/src/util/StorageUtil.ts#L5)
 
-- [constructor](StorageUtil.md#constructor)
-
-### Properties
-
-- [localData](StorageUtil.md#localdata)
-
-### Methods
-
-- [load](StorageUtil.md#load)
-- [save](StorageUtil.md#save)
+Thin wrapper over `localStorage` for persisting and retrieving JSON data tables.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new StorageUtil**(): [`StorageUtil`](StorageUtil.md)
+> **new StorageUtil**(): `StorageUtil`
 
 #### Returns
 
-[`StorageUtil`](StorageUtil.md)
+`StorageUtil`
 
 ## Properties
 
 ### localData
 
-▪ `Static` **localData**: `any`
+> `static` **localData**: `any`
 
-#### Defined in
+Defined in: [src/util/StorageUtil.ts:8](https://github.com/orillusion/orillusion/blob/main/src/util/StorageUtil.ts#L8)
 
-[src/util/StorageUtil.ts:3](https://github.com/Orillusion/orillusion/blob/main/src/util/StorageUtil.ts#L3)
+The most recently loaded data table.
 
 ## Methods
 
-### load
+### load()
 
-▸ **load**\<`T`\>(`dataTable`): `T`
+> `static` **load**\<`T`\>(`dataTable`): `T`
 
-#### Type parameters
+Defined in: [src/util/StorageUtil.ts:14](https://github.com/orillusion/orillusion/blob/main/src/util/StorageUtil.ts#L14)
 
-| Name |
-| :------ |
-| `T` |
+Load a JSON data table from local storage, creating an empty one if absent.
+
+#### Type Parameters
+
+##### T
+
+`T`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `dataTable` | `string` |
+##### dataTable
+
+`string`
+
+storage key
 
 #### Returns
 
 `T`
 
-#### Defined in
+the parsed data, typed as T
 
-[src/util/StorageUtil.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/util/StorageUtil.ts#L4)
+***
 
-___
+### save()
 
-### save
+> `static` **save**\<`T`\>(`table`, `data`): `void`
 
-▸ **save**\<`T`\>(`table`, `data`): `void`
+Defined in: [src/util/StorageUtil.ts:30](https://github.com/orillusion/orillusion/blob/main/src/util/StorageUtil.ts#L30)
 
-#### Type parameters
+Serialize and persist a data table to local storage.
 
-| Name |
-| :------ |
-| `T` |
+#### Type Parameters
+
+##### T
+
+`T`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `table` | `string` |
-| `data` | `T` |
+##### table
+
+`string`
+
+storage key
+
+##### data
+
+`T`
+
+value to persist
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[src/util/StorageUtil.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/util/StorageUtil.ts#L15)

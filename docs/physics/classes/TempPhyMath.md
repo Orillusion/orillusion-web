@@ -1,327 +1,311 @@
+[**@orillusion/physics**](../README.md)
+
+***
+
 # Class: TempPhyMath
+
+Defined in: [packages/physics/utils/TempPhyMath.ts:9](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/TempPhyMath.ts#L9)
 
 Temporary Physics Math Utility
 
-提供临时的 Ammo btVector3 和 btQuaternion 实例，并支持与引擎数据相互转换
-
-### Constructors
-
-- [constructor](TempPhyMath.md#constructor)
-
-### Properties
-
-- [tmpVecA](TempPhyMath.md#tmpveca)
-- [tmpVecB](TempPhyMath.md#tmpvecb)
-- [tmpVecC](TempPhyMath.md#tmpvecc)
-- [tmpVecD](TempPhyMath.md#tmpvecd)
-- [tmpQuaA](TempPhyMath.md#tmpquaa)
-- [tmpQuaB](TempPhyMath.md#tmpquab)
-
-### Methods
-
-- [init](TempPhyMath.md#init)
-- [toBtQua](TempPhyMath.md#tobtqua)
-- [toBtVec](TempPhyMath.md#tobtvec)
-- [setBtVec](TempPhyMath.md#setbtvec)
-- [setBtQua](TempPhyMath.md#setbtqua)
-- [fromBtVec](TempPhyMath.md#frombtvec)
-- [fromBtQua](TempPhyMath.md#frombtqua)
-- [eulerToBtQua](TempPhyMath.md#eulertobtqua)
-- [zeroBtVec](TempPhyMath.md#zerobtvec)
-- [resetBtQua](TempPhyMath.md#resetbtqua)
+Provides reusable Ammo btVector3 and btQuaternion instances and helpers to convert to/from engine data.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new TempPhyMath**(): [`TempPhyMath`](TempPhyMath.md)
+> **new TempPhyMath**(): `TempPhyMath`
 
 #### Returns
 
-[`TempPhyMath`](TempPhyMath.md)
+`TempPhyMath`
 
 ## Properties
 
 ### tmpVecA
 
-▪ `Static` `Readonly` **tmpVecA**: [`btVector3`](Ammo.btVector3.md)
+> `readonly` `static` **tmpVecA**: [`btVector3`](../@orillusion/namespaces/Ammo/classes/btVector3.md)
 
-#### Defined in
+Defined in: [packages/physics/utils/TempPhyMath.ts:10](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/TempPhyMath.ts#L10)
 
-[packages/physics/utils/TempPhyMath.ts:10](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/TempPhyMath.ts#L10)
-
-___
+***
 
 ### tmpVecB
 
-▪ `Static` `Readonly` **tmpVecB**: [`btVector3`](Ammo.btVector3.md)
+> `readonly` `static` **tmpVecB**: [`btVector3`](../@orillusion/namespaces/Ammo/classes/btVector3.md)
 
-#### Defined in
+Defined in: [packages/physics/utils/TempPhyMath.ts:11](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/TempPhyMath.ts#L11)
 
-[packages/physics/utils/TempPhyMath.ts:11](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/TempPhyMath.ts#L11)
-
-___
+***
 
 ### tmpVecC
 
-▪ `Static` `Readonly` **tmpVecC**: [`btVector3`](Ammo.btVector3.md)
+> `readonly` `static` **tmpVecC**: [`btVector3`](../@orillusion/namespaces/Ammo/classes/btVector3.md)
 
-#### Defined in
+Defined in: [packages/physics/utils/TempPhyMath.ts:12](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/TempPhyMath.ts#L12)
 
-[packages/physics/utils/TempPhyMath.ts:12](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/TempPhyMath.ts#L12)
-
-___
+***
 
 ### tmpVecD
 
-▪ `Static` `Readonly` **tmpVecD**: [`btVector3`](Ammo.btVector3.md)
+> `readonly` `static` **tmpVecD**: [`btVector3`](../@orillusion/namespaces/Ammo/classes/btVector3.md)
 
-#### Defined in
+Defined in: [packages/physics/utils/TempPhyMath.ts:13](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/TempPhyMath.ts#L13)
 
-[packages/physics/utils/TempPhyMath.ts:13](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/TempPhyMath.ts#L13)
-
-___
+***
 
 ### tmpQuaA
 
-▪ `Static` `Readonly` **tmpQuaA**: [`btQuaternion`](Ammo.btQuaternion.md)
+> `readonly` `static` **tmpQuaA**: [`btQuaternion`](../@orillusion/namespaces/Ammo/classes/btQuaternion.md)
 
-#### Defined in
+Defined in: [packages/physics/utils/TempPhyMath.ts:14](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/TempPhyMath.ts#L14)
 
-[packages/physics/utils/TempPhyMath.ts:14](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/TempPhyMath.ts#L14)
-
-___
+***
 
 ### tmpQuaB
 
-▪ `Static` `Readonly` **tmpQuaB**: [`btQuaternion`](Ammo.btQuaternion.md)
+> `readonly` `static` **tmpQuaB**: [`btQuaternion`](../@orillusion/namespaces/Ammo/classes/btQuaternion.md)
 
-#### Defined in
-
-[packages/physics/utils/TempPhyMath.ts:15](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/TempPhyMath.ts#L15)
+Defined in: [packages/physics/utils/TempPhyMath.ts:15](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/TempPhyMath.ts#L15)
 
 ## Methods
 
-### init
+### init()
 
-▸ **init**(): `void`
+> `static` **init**(): `void`
 
-初始化 Ammo 后创建预定义的 btVector3 和 btQuaternion 实例，以便复用
+Defined in: [packages/physics/utils/TempPhyMath.ts:20](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/TempPhyMath.ts#L20)
+
+Create predefined btVector3 and btQuaternion instances after Ammo is initialized so they can be reused.
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[packages/physics/utils/TempPhyMath.ts:20](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/TempPhyMath.ts#L20)
+### toBtQua()
 
-___
+> `static` **toBtQua**(`qua`, `btQua?`): [`btQuaternion`](../@orillusion/namespaces/Ammo/classes/btQuaternion.md)
 
-### toBtQua
-
-▸ **toBtQua**(`qua`, `btQua?`): [`btQuaternion`](Ammo.btQuaternion.md)
+Defined in: [packages/physics/utils/TempPhyMath.ts:32](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/TempPhyMath.ts#L32)
 
 Quaternion to Ammo.btQuaternion
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `qua` | `Quaternion` |
-| `btQua?` | [`btQuaternion`](Ammo.btQuaternion.md) |
+##### qua
+
+`Quaternion`
+
+##### btQua?
+
+[`btQuaternion`](../@orillusion/namespaces/Ammo/classes/btQuaternion.md)
 
 #### Returns
 
-[`btQuaternion`](Ammo.btQuaternion.md)
+[`btQuaternion`](../@orillusion/namespaces/Ammo/classes/btQuaternion.md)
 
-#### Defined in
+***
 
-[packages/physics/utils/TempPhyMath.ts:32](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/TempPhyMath.ts#L32)
+### toBtVec()
 
-___
+> `static` **toBtVec**(`vec`, `btVec?`): [`btVector3`](../@orillusion/namespaces/Ammo/classes/btVector3.md)
 
-### toBtVec
-
-▸ **toBtVec**(`vec`, `btVec?`): [`btVector3`](Ammo.btVector3.md)
+Defined in: [packages/physics/utils/TempPhyMath.ts:41](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/TempPhyMath.ts#L41)
 
 Vector3 to Ammo.btVector3
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `vec` | `Vector3` |
-| `btVec?` | [`btVector3`](Ammo.btVector3.md) |
+##### vec
+
+`Vector3`
+
+##### btVec?
+
+[`btVector3`](../@orillusion/namespaces/Ammo/classes/btVector3.md)
 
 #### Returns
 
-[`btVector3`](Ammo.btVector3.md)
+[`btVector3`](../@orillusion/namespaces/Ammo/classes/btVector3.md)
 
-#### Defined in
+***
 
-[packages/physics/utils/TempPhyMath.ts:41](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/TempPhyMath.ts#L41)
+### setBtVec()
 
-___
+> `static` **setBtVec**(`x`, `y`, `z`, `btVec?`): [`btVector3`](../@orillusion/namespaces/Ammo/classes/btVector3.md)
 
-### setBtVec
-
-▸ **setBtVec**(`x`, `y`, `z`, `btVec?`): [`btVector3`](Ammo.btVector3.md)
+Defined in: [packages/physics/utils/TempPhyMath.ts:50](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/TempPhyMath.ts#L50)
 
 Set Ammo.btVector3 using x, y, z
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `x` | `number` |
-| `y` | `number` |
-| `z` | `number` |
-| `btVec?` | [`btVector3`](Ammo.btVector3.md) |
+##### x
+
+`number`
+
+##### y
+
+`number`
+
+##### z
+
+`number`
+
+##### btVec?
+
+[`btVector3`](../@orillusion/namespaces/Ammo/classes/btVector3.md)
 
 #### Returns
 
-[`btVector3`](Ammo.btVector3.md)
+[`btVector3`](../@orillusion/namespaces/Ammo/classes/btVector3.md)
 
-#### Defined in
+***
 
-[packages/physics/utils/TempPhyMath.ts:50](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/TempPhyMath.ts#L50)
+### setBtQua()
 
-___
+> `static` **setBtQua**(`x`, `y`, `z`, `w`, `btQua?`): [`btQuaternion`](../@orillusion/namespaces/Ammo/classes/btQuaternion.md)
 
-### setBtQua
-
-▸ **setBtQua**(`x`, `y`, `z`, `w`, `btQua?`): [`btQuaternion`](Ammo.btQuaternion.md)
+Defined in: [packages/physics/utils/TempPhyMath.ts:59](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/TempPhyMath.ts#L59)
 
 Set Ammo.btQuaternion using x, y, z, w
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `x` | `number` |
-| `y` | `number` |
-| `z` | `number` |
-| `w` | `number` |
-| `btQua?` | [`btQuaternion`](Ammo.btQuaternion.md) |
+##### x
+
+`number`
+
+##### y
+
+`number`
+
+##### z
+
+`number`
+
+##### w
+
+`number`
+
+##### btQua?
+
+[`btQuaternion`](../@orillusion/namespaces/Ammo/classes/btQuaternion.md)
 
 #### Returns
 
-[`btQuaternion`](Ammo.btQuaternion.md)
+[`btQuaternion`](../@orillusion/namespaces/Ammo/classes/btQuaternion.md)
 
-#### Defined in
+***
 
-[packages/physics/utils/TempPhyMath.ts:59](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/TempPhyMath.ts#L59)
+### fromBtVec()
 
-___
+> `static` **fromBtVec**(`btVec`, `vec?`): `Vector3`
 
-### fromBtVec
-
-▸ **fromBtVec**(`btVec`, `vec?`): `Vector3`
+Defined in: [packages/physics/utils/TempPhyMath.ts:68](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/TempPhyMath.ts#L68)
 
 Ammo.btVector3 to Vector3
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `btVec` | [`btVector3`](Ammo.btVector3.md) |
-| `vec?` | `Vector3` |
+##### btVec
+
+[`btVector3`](../@orillusion/namespaces/Ammo/classes/btVector3.md)
+
+##### vec?
+
+`Vector3`
 
 #### Returns
 
 `Vector3`
 
-#### Defined in
+***
 
-[packages/physics/utils/TempPhyMath.ts:68](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/TempPhyMath.ts#L68)
+### fromBtQua()
 
-___
+> `static` **fromBtQua**(`btQua`, `qua?`): `Quaternion`
 
-### fromBtQua
-
-▸ **fromBtQua**(`btQua`, `qua?`): `Quaternion`
+Defined in: [packages/physics/utils/TempPhyMath.ts:77](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/TempPhyMath.ts#L77)
 
 Ammo.btQuaternion to Quaternion
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `btQua` | [`btQuaternion`](Ammo.btQuaternion.md) |
-| `qua?` | `Quaternion` |
+##### btQua
+
+[`btQuaternion`](../@orillusion/namespaces/Ammo/classes/btQuaternion.md)
+
+##### qua?
+
+`Quaternion`
 
 #### Returns
 
 `Quaternion`
 
-#### Defined in
+***
 
-[packages/physics/utils/TempPhyMath.ts:77](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/TempPhyMath.ts#L77)
+### eulerToBtQua()
 
-___
+> `static` **eulerToBtQua**(`vec`, `qua?`): [`btQuaternion`](../@orillusion/namespaces/Ammo/classes/btQuaternion.md)
 
-### eulerToBtQua
-
-▸ **eulerToBtQua**(`vec`, `qua?`): [`btQuaternion`](Ammo.btQuaternion.md)
+Defined in: [packages/physics/utils/TempPhyMath.ts:86](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/TempPhyMath.ts#L86)
 
 Euler Vector3 to Ammo.Quaternion
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `vec` | `Vector3` |
-| `qua?` | [`btQuaternion`](Ammo.btQuaternion.md) |
+##### vec
+
+`Vector3`
+
+##### qua?
+
+[`btQuaternion`](../@orillusion/namespaces/Ammo/classes/btQuaternion.md)
 
 #### Returns
 
-[`btQuaternion`](Ammo.btQuaternion.md)
+[`btQuaternion`](../@orillusion/namespaces/Ammo/classes/btQuaternion.md)
 
-#### Defined in
+***
 
-[packages/physics/utils/TempPhyMath.ts:86](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/TempPhyMath.ts#L86)
+### zeroBtVec()
 
-___
+> `static` **zeroBtVec**(`btVec?`): [`btVector3`](../@orillusion/namespaces/Ammo/classes/btVector3.md)
 
-### zeroBtVec
-
-▸ **zeroBtVec**(`btVec?`): [`btVector3`](Ammo.btVector3.md)
+Defined in: [packages/physics/utils/TempPhyMath.ts:95](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/TempPhyMath.ts#L95)
 
 Sets the given Ammo.btVector3 to (0, 0, 0)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `btVec?` | [`btVector3`](Ammo.btVector3.md) |
+##### btVec?
+
+[`btVector3`](../@orillusion/namespaces/Ammo/classes/btVector3.md)
 
 #### Returns
 
-[`btVector3`](Ammo.btVector3.md)
+[`btVector3`](../@orillusion/namespaces/Ammo/classes/btVector3.md)
 
-#### Defined in
+***
 
-[packages/physics/utils/TempPhyMath.ts:95](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/TempPhyMath.ts#L95)
+### resetBtQua()
 
-___
+> `static` **resetBtQua**(`btQua?`): [`btQuaternion`](../@orillusion/namespaces/Ammo/classes/btQuaternion.md)
 
-### resetBtQua
-
-▸ **resetBtQua**(`btQua?`): [`btQuaternion`](Ammo.btQuaternion.md)
+Defined in: [packages/physics/utils/TempPhyMath.ts:102](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/TempPhyMath.ts#L102)
 
 Sets the given Ammo.btQuaternion to (0, 0, 0, 1)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `btQua?` | [`btQuaternion`](Ammo.btQuaternion.md) |
+##### btQua?
+
+[`btQuaternion`](../@orillusion/namespaces/Ammo/classes/btQuaternion.md)
 
 #### Returns
 
-[`btQuaternion`](Ammo.btQuaternion.md)
-
-#### Defined in
-
-[packages/physics/utils/TempPhyMath.ts:102](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/TempPhyMath.ts#L102)
+[`btQuaternion`](../@orillusion/namespaces/Ammo/classes/btQuaternion.md)

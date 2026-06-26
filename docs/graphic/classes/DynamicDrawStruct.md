@@ -1,54 +1,51 @@
+[**@orillusion/graphic**](../README.md)
+
+***
+
 # Class: DynamicDrawStruct
 
-## Hierarchy
+Defined in: [packages/graphic/renderer/graphic3d/DynamicDrawStruct.ts:3](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/DynamicDrawStruct.ts#L3)
+
+## Extends
 
 - `Struct`
 
-  ↳ **`DynamicDrawStruct`**
+## Extended by
 
-  ↳↳ [`GrassNodeStruct`](GrassNodeStruct.md)
-
-  ↳↳ [`Shape3DStruct`](Shape3DStruct.md)
-
-### Constructors
-
-- [constructor](DynamicDrawStruct.md#constructor)
-
-### Methods
-
-- [getValueSize](DynamicDrawStruct.md#getvaluesize)
-- [Ref](DynamicDrawStruct.md#ref)
-- [Get](DynamicDrawStruct.md#get)
-- [GetSize](DynamicDrawStruct.md#getsize)
-- [getValueType](DynamicDrawStruct.md#getvaluetype)
+- [`GrassNodeStruct`](GrassNodeStruct.md)
+- [`Shape3DStruct`](Shape3DStruct.md)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new DynamicDrawStruct**(): [`DynamicDrawStruct`](DynamicDrawStruct.md)
+> **new DynamicDrawStruct**(): `DynamicDrawStruct`
 
 #### Returns
 
-[`DynamicDrawStruct`](DynamicDrawStruct.md)
+`DynamicDrawStruct`
 
 #### Inherited from
 
-Struct.constructor
+`Struct.constructor`
 
 ## Methods
 
-### getValueSize
+### getValueSize()
 
-▸ **getValueSize**(`value`): `any`
+> `static` **getValueSize**(`value`): `any`
+
+Defined in: [src/util/struct/Struct.ts:48](https://github.com/orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L48)
 
 get any type value memory size
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `value` | `any` | any type value |
+##### value
+
+`any`
+
+any type value
 
 #### Returns
 
@@ -56,59 +53,55 @@ get any type value memory size
 
 #### Inherited from
 
-Struct.getValueSize
+`Struct.getValueSize`
 
-#### Defined in
+***
 
-[src/util/struct/Struct.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L48)
+### Ref()
 
-___
+> `static` **Ref**\<`T`\>(`c`): `object`[]
 
-### Ref
+Defined in: [src/util/struct/Struct.ts:93](https://github.com/orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L93)
 
-▸ **Ref**\<`T`\>(`c`): \{ `name`: `string` ; `type`: `string`  }[]
+#### Type Parameters
 
-#### Type parameters
+##### T
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `Struct` |
+`T` *extends* `Struct`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `c` | `Ctor`\<`T`\> |
+##### c
+
+`Ctor`\<`T`\>
 
 #### Returns
 
-\{ `name`: `string` ; `type`: `string`  }[]
+`object`[]
 
 #### Inherited from
 
-Struct.Ref
+`Struct.Ref`
 
-#### Defined in
+***
 
-[src/util/struct/Struct.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L93)
+### Get()
 
-___
+> `static` **Get**\<`T`\>(`c`): `Struct`
 
-### Get
+Defined in: [src/util/struct/Struct.ts:99](https://github.com/orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L99)
 
-▸ **Get**\<`T`\>(`c`): `Struct`
+#### Type Parameters
 
-#### Type parameters
+##### T
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `Struct` |
+`T` *extends* `Struct`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `c` | `Ctor`\<`T`\> |
+##### c
+
+`Ctor`\<`T`\>
 
 #### Returns
 
@@ -116,31 +109,29 @@ ___
 
 #### Inherited from
 
-Struct.Get
+`Struct.Get`
 
-#### Defined in
+***
 
-[src/util/struct/Struct.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L99)
+### GetSize()
 
-___
+> `static` **GetSize**\<`T`\>(`c`): `number`
 
-### GetSize
-
-▸ **GetSize**\<`T`\>(`c`): `number`
+Defined in: [src/util/struct/Struct.ts:112](https://github.com/orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L112)
 
 get any struct memory size
 
-#### Type parameters
+#### Type Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `Struct` |
+##### T
+
+`T` *extends* `Struct`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `c` | `Ctor`\<`T`\> |
+##### c
+
+`Ctor`\<`T`\>
 
 #### Returns
 
@@ -148,28 +139,22 @@ get any struct memory size
 
 #### Inherited from
 
-Struct.GetSize
+`Struct.GetSize`
 
-#### Defined in
+***
 
-[src/util/struct/Struct.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L112)
+### getValueType()
 
-___
+> **getValueType**(): `object`[]
 
-### getValueType
-
-▸ **getValueType**(): \{ `name`: `string` ; `type`: `string`  }[]
+Defined in: [src/util/struct/Struct.ts:25](https://github.com/orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L25)
 
 get reflection name
 
 #### Returns
 
-\{ `name`: `string` ; `type`: `string`  }[]
+`object`[]
 
 #### Inherited from
 
-Struct.getValueType
-
-#### Defined in
-
-[src/util/struct/Struct.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L25)
+`Struct.getValueType`

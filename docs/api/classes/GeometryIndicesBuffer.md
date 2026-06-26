@@ -1,152 +1,121 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: GeometryIndicesBuffer
 
-### Constructors
+Defined in: [src/core/geometry/GeometryIndicesBuffer.ts:10](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L10)
 
-- [constructor](GeometryIndicesBuffer.md#constructor)
-
-### Properties
-
-- [uuid](GeometryIndicesBuffer.md#uuid)
-- [name](GeometryIndicesBuffer.md#name)
-- [indicesGPUBuffer](GeometryIndicesBuffer.md#indicesgpubuffer)
-- [indicesFormat](GeometryIndicesBuffer.md#indicesformat)
-- [indicesCount](GeometryIndicesBuffer.md#indicescount)
-
-### Methods
-
-- [createIndicesBuffer](GeometryIndicesBuffer.md#createindicesbuffer)
-- [upload](GeometryIndicesBuffer.md#upload)
-- [compute](GeometryIndicesBuffer.md#compute)
-- [destroy](GeometryIndicesBuffer.md#destroy)
+Holds the index data of a geometry and manages its backing GPU index buffer.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new GeometryIndicesBuffer**(): [`GeometryIndicesBuffer`](GeometryIndicesBuffer.md)
+> **new GeometryIndicesBuffer**(): `GeometryIndicesBuffer`
+
+Defined in: [src/core/geometry/GeometryIndicesBuffer.ts:17](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L17)
 
 #### Returns
 
-[`GeometryIndicesBuffer`](GeometryIndicesBuffer.md)
-
-#### Defined in
-
-[src/core/geometry/GeometryIndicesBuffer.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L13)
+`GeometryIndicesBuffer`
 
 ## Properties
 
 ### uuid
 
-• **uuid**: `string` = `''`
+> **uuid**: `string` = `''`
 
-#### Defined in
+Defined in: [src/core/geometry/GeometryIndicesBuffer.ts:12](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L12)
 
-[src/core/geometry/GeometryIndicesBuffer.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L8)
-
-___
+***
 
 ### name
 
-• **name**: `string`
+> **name**: `string`
 
-#### Defined in
+Defined in: [src/core/geometry/GeometryIndicesBuffer.ts:13](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L13)
 
-[src/core/geometry/GeometryIndicesBuffer.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L9)
-
-___
+***
 
 ### indicesGPUBuffer
 
-• **indicesGPUBuffer**: [`IndicesGPUBuffer`](IndicesGPUBuffer.md)
+> **indicesGPUBuffer**: [`IndicesGPUBuffer`](IndicesGPUBuffer.md)
 
-#### Defined in
+Defined in: [src/core/geometry/GeometryIndicesBuffer.ts:14](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L14)
 
-[src/core/geometry/GeometryIndicesBuffer.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L10)
-
-___
+***
 
 ### indicesFormat
 
-• **indicesFormat**: `GPUIndexFormat`
+> **indicesFormat**: `GPUIndexFormat`
 
-#### Defined in
+Defined in: [src/core/geometry/GeometryIndicesBuffer.ts:15](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L15)
 
-[src/core/geometry/GeometryIndicesBuffer.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L11)
-
-___
+***
 
 ### indicesCount
 
-• **indicesCount**: `number` = `0`
+> **indicesCount**: `number` = `0`
 
-#### Defined in
-
-[src/core/geometry/GeometryIndicesBuffer.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L12)
+Defined in: [src/core/geometry/GeometryIndicesBuffer.ts:16](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L16)
 
 ## Methods
 
-### createIndicesBuffer
+### createIndicesBuffer()
 
-▸ **createIndicesBuffer**(`indicesData`): `void`
+> **createIndicesBuffer**(`indicesData`): `void`
 
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `indicesData` | [`VertexAttributeData`](../types/VertexAttributeData.md) |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/core/geometry/GeometryIndicesBuffer.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L16)
-
-___
-
-### upload
-
-▸ **upload**(`data`): `void`
+Defined in: [src/core/geometry/GeometryIndicesBuffer.ts:20](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L20)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `data` | [`ArrayBufferData`](../types/ArrayBufferData.md) |
+##### indicesData
+
+[`VertexAttributeData`](../type-aliases/VertexAttributeData.md)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/core/geometry/GeometryIndicesBuffer.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L26)
+### upload()
 
-___
+> **upload**(`data`): `void`
 
-### compute
+Defined in: [src/core/geometry/GeometryIndicesBuffer.ts:30](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L30)
 
-▸ **compute**(): `void`
+#### Parameters
 
-#### Returns
+##### data
 
-`void`
-
-#### Defined in
-
-[src/core/geometry/GeometryIndicesBuffer.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L31)
-
-___
-
-### destroy
-
-▸ **destroy**(): `void`
+[`ArrayBufferData`](../type-aliases/ArrayBufferData.md)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/core/geometry/GeometryIndicesBuffer.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L35)
+### compute()
+
+> **compute**(): `void`
+
+Defined in: [src/core/geometry/GeometryIndicesBuffer.ts:35](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L35)
+
+#### Returns
+
+`void`
+
+***
+
+### destroy()
+
+> **destroy**(): `void`
+
+Defined in: [src/core/geometry/GeometryIndicesBuffer.ts:39](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryIndicesBuffer.ts#L39)
+
+#### Returns
+
+`void`

@@ -1,1512 +1,1766 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: Matrix4
+
+Defined in: [src/math/Matrix4.ts:12](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L12)
 
 math 4*4 matrix
 
-### Constructors
-
-- [constructor](Matrix4.md#constructor)
-
-### Properties
-
-- [blockBytes](Matrix4.md#blockbytes)
-- [allocCount](Matrix4.md#alloccount)
-- [allocOnceCount](Matrix4.md#alloconcecount)
-- [maxCount](Matrix4.md#maxcount)
-- [useCount](Matrix4.md#usecount)
-- [dynamicMatrixBytes](Matrix4.md#dynamicmatrixbytes)
-- [dynamicGlobalMatrixRef](Matrix4.md#dynamicglobalmatrixref)
-- [help\_matrix\_0](Matrix4.md#help_matrix_0)
-- [help\_matrix\_1](Matrix4.md#help_matrix_1)
-- [help\_matrix\_2](Matrix4.md#help_matrix_2)
-- [helpMatrix](Matrix4.md#helpmatrix)
-- [helpMatrix2](Matrix4.md#helpmatrix2)
-- [index](Matrix4.md#index)
-- [rawData](Matrix4.md#rawdata)
-
-### Accessors
-
-- [determinant](Matrix4.md#determinant)
-- [position](Matrix4.md#position)
-- [scale](Matrix4.md#scale)
-
-### Methods
-
-- [allocMatrix](Matrix4.md#allocmatrix)
-- [fromToRotation](Matrix4.md#fromtorotation)
-- [getAxisRotation](Matrix4.md#getaxisrotation)
-- [sanitizeEuler](Matrix4.md#sanitizeeuler)
-- [makePositive](Matrix4.md#makepositive)
-- [matrixToEuler](Matrix4.md#matrixtoeuler)
-- [matrixMultiply](Matrix4.md#matrixmultiply)
-- [matrixAppend](Matrix4.md#matrixappend)
-- [matrixRotateY](Matrix4.md#matrixrotatey)
-- [matrixRotate](Matrix4.md#matrixrotate)
-- [lookAt](Matrix4.md#lookat)
-- [multiply](Matrix4.md#multiply)
-- [multiplyMatrices](Matrix4.md#multiplymatrices)
-- [multiplyPoint3](Matrix4.md#multiplypoint3)
-- [multiplyVector4](Matrix4.md#multiplyvector4)
-- [transformVector4](Matrix4.md#transformvector4)
-- [perspectiveMultiplyPoint3](Matrix4.md#perspectivemultiplypoint3)
-- [perspective](Matrix4.md#perspective)
-- [perspective3](Matrix4.md#perspective3)
-- [frustum](Matrix4.md#frustum)
-- [ortho](Matrix4.md#ortho)
-- [orthoZO](Matrix4.md#orthozo)
-- [orthoOffCenter](Matrix4.md#orthooffcenter)
-- [transformDir](Matrix4.md#transformdir)
-- [append](Matrix4.md#append)
-- [add](Matrix4.md#add)
-- [sub](Matrix4.md#sub)
-- [mult](Matrix4.md#mult)
-- [appendRotation](Matrix4.md#appendrotation)
-- [createByRotation](Matrix4.md#createbyrotation)
-- [appendScale](Matrix4.md#appendscale)
-- [createByScale](Matrix4.md#createbyscale)
-- [appendTranslation](Matrix4.md#appendtranslation)
-- [clone](Matrix4.md#clone)
-- [copyRowFrom](Matrix4.md#copyrowfrom)
-- [copyRowTo](Matrix4.md#copyrowto)
-- [copyFrom](Matrix4.md#copyfrom)
-- [copyRawDataTo](Matrix4.md#copyrawdatato)
-- [copyColFrom](Matrix4.md#copycolfrom)
-- [copyColTo](Matrix4.md#copycolto)
-- [copyToMatrix3D](Matrix4.md#copytomatrix3d)
-- [makeRotationFromQuaternion](Matrix4.md#makerotationfromquaternion)
-- [decompose](Matrix4.md#decompose)
-- [getEuler](Matrix4.md#geteuler)
-- [compose](Matrix4.md#compose)
-- [deltaTransformVector](Matrix4.md#deltatransformvector)
-- [identity](Matrix4.md#identity)
-- [fill](Matrix4.md#fill)
-- [invers33](Matrix4.md#invers33)
-- [invert](Matrix4.md#invert)
-- [transformPoint](Matrix4.md#transformpoint)
-- [transformVector](Matrix4.md#transformvector)
-- [transpose](Matrix4.md#transpose)
-- [getPosition](Matrix4.md#getposition)
-- [toString](Matrix4.md#tostring)
-- [lerp](Matrix4.md#lerp)
-- [get](Matrix4.md#get)
-- [set](Matrix4.md#set)
-- [getMaxScaleOnAxis](Matrix4.md#getmaxscaleonaxis)
-- [translate](Matrix4.md#translate)
-- [setTRInverse](Matrix4.md#settrinverse)
-- [setScale](Matrix4.md#setscale)
-- [makeBasis](Matrix4.md#makebasis)
-- [makeRotationAxis](Matrix4.md#makerotationaxis)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new Matrix4**(`doMatrix?`): [`Matrix4`](Matrix4.md)
+> **new Matrix4**(`doMatrix?`): `Matrix4`
+
+Defined in: [src/math/Matrix4.ts:342](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L342)
+
+Create a Matrix4.
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `doMatrix` | `boolean` | `false` |
+##### doMatrix?
+
+`boolean` = `false`
+
+reserved flag; when set, requests an explicit matrix allocation
 
 #### Returns
 
-[`Matrix4`](Matrix4.md)
-
-#### Defined in
-
-[src/math/Matrix4.ts:321](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L321)
+`Matrix4`
 
 ## Properties
 
 ### blockBytes
 
-▪ `Static` **blockBytes**: `number`
+> `static` **blockBytes**: `number`
+
+Defined in: [src/math/Matrix4.ts:17](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L17)
 
 matrix44 bytes block size
 
-#### Defined in
-
-[src/math/Matrix4.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L17)
-
-___
+***
 
 ### allocCount
 
-▪ `Static` **allocCount**: `number` = `1000`
+> `static` **allocCount**: `number` = `1000`
+
+Defined in: [src/math/Matrix4.ts:27](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L27)
 
 matrix do total count
 
-#### Defined in
-
-[src/math/Matrix4.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L27)
-
-___
+***
 
 ### allocOnceCount
 
-▪ `Static` **allocOnceCount**: `number` = `1000`
+> `static` **allocOnceCount**: `number` = `1000`
+
+Defined in: [src/math/Matrix4.ts:32](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L32)
 
 quantity allocated for each capacity expansion
 
-#### Defined in
-
-[src/math/Matrix4.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L32)
-
-___
+***
 
 ### maxCount
 
-▪ `Static` **maxCount**: `number`
+> `static` **maxCount**: `number`
+
+Defined in: [src/math/Matrix4.ts:37](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L37)
 
 matrix has max limit count
 
-#### Defined in
-
-[src/math/Matrix4.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L37)
-
-___
+***
 
 ### useCount
 
-▪ `Static` **useCount**: `number` = `0`
+> `static` **useCount**: `number` = `0`
+
+Defined in: [src/math/Matrix4.ts:42](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L42)
 
 current matrix use count
 
-#### Defined in
-
-[src/math/Matrix4.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L42)
-
-___
+***
 
 ### dynamicMatrixBytes
 
-▪ `Static` **dynamicMatrixBytes**: `Float32Array`
+> `static` **dynamicMatrixBytes**: [`FloatArray`](../type-aliases/FloatArray.md)
+
+Defined in: [src/math/Matrix4.ts:58](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L58)
 
 matrix do use share bytesArray
 
-#### Defined in
+***
 
-[src/math/Matrix4.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L58)
+### dynamicMatrixBytes\_32bit
 
-___
+> `static` **dynamicMatrixBytes\_32bit**: `Float32Array`
+
+Defined in: [src/math/Matrix4.ts:60](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L60)
+
+32-bit float view of the shared matrix byte array.
+
+***
+
+### matrixWorldPositionHLDatas
+
+> `static` **matrixWorldPositionHLDatas**: `Float32Array`
+
+Defined in: [src/math/Matrix4.ts:63](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L63)
+
+Shared buffer holding high-precision (split-float) world position data.
+
+***
 
 ### dynamicGlobalMatrixRef
 
-▪ `Static` **dynamicGlobalMatrixRef**: [`Matrix4`](Matrix4.md)[]
+> `static` **dynamicGlobalMatrixRef**: `Matrix4`[]
+
+Defined in: [src/math/Matrix4.ts:68](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L68)
 
 cache all use do matrix
 
-#### Defined in
-
-[src/math/Matrix4.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L63)
-
-___
+***
 
 ### help\_matrix\_0
 
-▪ `Static` **help\_matrix\_0**: [`Matrix4`](Matrix4.md)
+> `static` **help\_matrix\_0**: `Matrix4`
+
+Defined in: [src/math/Matrix4.ts:78](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L78)
 
 help fix global matrix 0
 
-#### Defined in
-
-[src/math/Matrix4.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L73)
-
-___
+***
 
 ### help\_matrix\_1
 
-▪ `Static` **help\_matrix\_1**: [`Matrix4`](Matrix4.md)
+> `static` **help\_matrix\_1**: `Matrix4`
+
+Defined in: [src/math/Matrix4.ts:83](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L83)
 
 help fix global matrix 1
 
-#### Defined in
-
-[src/math/Matrix4.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L78)
-
-___
+***
 
 ### help\_matrix\_2
 
-▪ `Static` **help\_matrix\_2**: [`Matrix4`](Matrix4.md)
+> `static` **help\_matrix\_2**: `Matrix4`
+
+Defined in: [src/math/Matrix4.ts:88](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L88)
 
 help fix global matrix 2
 
-#### Defined in
-
-[src/math/Matrix4.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L83)
-
-___
+***
 
 ### helpMatrix
 
-▪ `Static` **helpMatrix**: [`Matrix4`](Matrix4.md)
+> `static` **helpMatrix**: `Matrix4`
+
+Defined in: [src/math/Matrix4.ts:93](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L93)
 
 help fix global matrix 3
 
-#### Defined in
-
-[src/math/Matrix4.ts:88](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L88)
-
-___
+***
 
 ### helpMatrix2
 
-▪ `Static` **helpMatrix2**: [`Matrix4`](Matrix4.md)
+> `static` **helpMatrix2**: `Matrix4`
+
+Defined in: [src/math/Matrix4.ts:98](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L98)
 
 help fix global matrix 4
 
-#### Defined in
-
-[src/math/Matrix4.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L93)
-
-___
+***
 
 ### index
 
-• **index**: `number` = `0`
+> **index**: `number` = `0`
+
+Defined in: [src/math/Matrix4.ts:110](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L110)
 
 matrix index at global matrix list
 
-#### Defined in
-
-[src/math/Matrix4.ts:104](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L104)
-
-___
+***
 
 ### rawData
 
-• **rawData**: `Float32Array`
+> **rawData**: [`FloatArray`](../type-aliases/FloatArray.md)
 
-matrix raw data format Float32Array
+Defined in: [src/math/Matrix4.ts:121](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L121)
 
-**`See`**
+matrix raw data format FloatArray
 
-Float32Array
+#### See
 
-**`Version`**
-
-Orillusion3D  0.5.1
-
-#### Defined in
-
-[src/math/Matrix4.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L116)
+[FloatArray](../type-aliases/FloatArray.md)
 
 ## Accessors
 
 ### determinant
 
-• `get` **determinant**(): `number`
+#### Get Signature
+
+> **get** **determinant**(): `number`
+
+Defined in: [src/math/Matrix4.ts:1927](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1927)
 
 Returns the matrix determinant
 
-#### Returns
+##### Returns
 
 `number`
 
 number determinant
 
-**`Version`**
-
-Orillusion3D  0.5.1
-
-#### Defined in
-
-[src/math/Matrix4.ts:1887](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1887)
-
-___
+***
 
 ### position
 
-• `get` **position**(): [`Vector3`](Vector3.md)
+#### Get Signature
+
+> **get** **position**(): [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Matrix4.ts:1957](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1957)
 
 Return translation
 
-#### Returns
+##### Returns
 
 [`Vector3`](Vector3.md)
 
 Vector3 Position of translation
 
-**`Version`**
+#### Set Signature
 
-Orillusion3D  0.5.1
+> **set** **position**(`value`): `void`
 
-#### Defined in
-
-[src/math/Matrix4.ts:1918](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1918)
-
-• `set` **position**(`value`): `void`
+Defined in: [src/math/Matrix4.ts:1966](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1966)
 
 Set Position of translation
 
-#### Parameters
+##### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `value` | [`Vector3`](Vector3.md) | Position of translation |
+###### value
 
-#### Returns
+[`Vector3`](Vector3.md)
+
+Position of translation
+
+##### Returns
 
 `void`
 
-**`Version`**
-
-Orillusion3D  0.5.1
-
-#### Defined in
-
-[src/math/Matrix4.ts:1928](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1928)
-
-___
+***
 
 ### scale
 
-• `get` **scale**(): [`Vector3`](Vector3.md)
+#### Get Signature
+
+> **get** **scale**(): [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Matrix4.ts:1978](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1978)
 
 get Component of scale
 
-#### Returns
+##### Returns
 
 [`Vector3`](Vector3.md)
 
 Vector3 scale
 
-**`Version`**
+#### Set Signature
 
-Orillusion3D  0.5.1
+> **set** **scale**(`value`): `void`
 
-#### Defined in
-
-[src/math/Matrix4.ts:1941](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1941)
-
-• `set` **scale**(`value`): `void`
+Defined in: [src/math/Matrix4.ts:1986](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1986)
 
 Set component of scale
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`Vector3`](Vector3.md) |
+###### value
 
-#### Returns
+[`Vector3`](Vector3.md)
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/math/Matrix4.ts:1949](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1949)
-
 ## Methods
 
-### allocMatrix
+### allocMatrix()
 
-▸ **allocMatrix**(`allocCount`): `void`
+> `static` **allocMatrix**(`allocCount`): `void`
+
+Defined in: [src/math/Matrix4.ts:130](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L130)
 
 alloc web runtime cpu memory totalCount * 4(float) * 4
 init matrix memory by totalCount * 4(float) * 4
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `allocCount` | `number` |
+##### allocCount
+
+`number`
 
 #### Returns
 
 `void`
 
-**`Version`**
+***
 
-Orillusion3D  0.5.1
+### fromToRotation()
 
-#### Defined in
+> `static` **fromToRotation**(`fromDirection`, `toDirection`, `target?`, `epsilon?`): `Matrix4`
 
-[src/math/Matrix4.ts:126](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L126)
-
-___
-
-### fromToRotation
-
-▸ **fromToRotation**(`fromDirection`, `toDirection`, `target?`): [`Matrix4`](Matrix4.md)
+Defined in: [src/math/Matrix4.ts:162](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L162)
 
 create matrix from two direction
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `fromDirection` | [`Vector3`](Vector3.md) | first direction |
-| `toDirection` | [`Vector3`](Vector3.md) | second direction |
-| `target?` | [`Matrix4`](Matrix4.md) | ref matrix |
+##### fromDirection
+
+[`Vector3`](Vector3.md)
+
+first direction
+
+##### toDirection
+
+[`Vector3`](Vector3.md)
+
+second direction
+
+##### target?
+
+`Matrix4`
+
+ref matrix
+
+##### epsilon?
+
+`number`
+
+tiny number
 
 #### Returns
 
-[`Matrix4`](Matrix4.md)
+`Matrix4`
 
 return new one matrix
 
-**`Version`**
+***
 
-Orillusion3D  0.5.1
+### getAxisRotation()
 
-#### Defined in
+> `static` **getAxisRotation**(`x`, `y`, `z`, `degrees`): `Matrix4`
 
-[src/math/Matrix4.ts:156](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L156)
-
-___
-
-### getAxisRotation
-
-▸ **getAxisRotation**(`x`, `y`, `z`, `degrees`): [`Matrix4`](Matrix4.md)
+Defined in: [src/math/Matrix4.ts:176](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L176)
 
 Generate a matrix (rotate degrees with x,y,z as the center axis)
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `x` | `number` | x on the central axis |
-| `y` | `number` | y on the central axis |
-| `z` | `number` | z on the central axis |
-| `degrees` | `number` | rotation angle |
+##### x
+
+`number`
+
+x on the central axis
+
+##### y
+
+`number`
+
+y on the central axis
+
+##### z
+
+`number`
+
+z on the central axis
+
+##### degrees
+
+`number`
+
+rotation angle
 
 #### Returns
 
-[`Matrix4`](Matrix4.md)
+`Matrix4`
 
 Matrix4 result
 
-**`Version`**
+***
 
-Orillusion3D  0.5.1
+### sanitizeEuler()
 
-#### Defined in
+> `static` **sanitizeEuler**(`euler`): `void`
 
-[src/math/Matrix4.ts:171](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L171)
-
-___
-
-### sanitizeEuler
-
-▸ **sanitizeEuler**(`euler`): `void`
+Defined in: [src/math/Matrix4.ts:210](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L210)
 
 Arrange the Euler values
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `euler` | [`Vector3`](Vector3.md) | Euler values |
+##### euler
+
+[`Vector3`](Vector3.md)
+
+Euler values
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/math/Matrix4.ts:205](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L205)
+### makePositive()
 
-___
+> `static` **makePositive**(`euler`): `void`
 
-### makePositive
-
-▸ **makePositive**(`euler`): `void`
+Defined in: [src/math/Matrix4.ts:218](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L218)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `euler` | [`Vector3`](Vector3.md) |
+##### euler
+
+[`Vector3`](Vector3.md)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/math/Matrix4.ts:213](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L213)
+### matrixToEuler()
 
-___
+> `static` **matrixToEuler**(`matrix`, `v`): `boolean`
 
-### matrixToEuler
-
-▸ **matrixToEuler**(`matrix`, `v`): `boolean`
+Defined in: [src/math/Matrix4.ts:250](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L250)
 
 Convert the matrix to Euler angles
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `matrix` | [`Matrix4`](Matrix4.md) | Matrix to be transformed |
-| `v` | [`Vector3`](Vector3.md) | euler angle |
+##### matrix
+
+`Matrix4`
+
+Matrix to be transformed
+
+##### v
+
+[`Vector3`](Vector3.md)
+
+euler angle
 
 #### Returns
 
 `boolean`
 
-#### Defined in
+***
 
-[src/math/Matrix4.ts:245](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L245)
+### matrixMultiply()
 
-___
+> `static` **matrixMultiply**(`aMat`, `bMat`, `target_Mat`): `void`
 
-### matrixMultiply
-
-▸ **matrixMultiply**(`aMat`, `bMat`, `target_Mat`): `void`
+Defined in: [src/math/Matrix4.ts:287](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L287)
 
 Multiply the world matrix, specifying parameters and results according to the index
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `aMat` | [`Matrix4`](Matrix4.md) | Matrix to be multiplied (please specify index) |
-| `bMat` | [`Matrix4`](Matrix4.md) | Matrix to be multiplied (please specify index) |
-| `target_Mat` | [`Matrix4`](Matrix4.md) | Result matrix (get results based on index) |
+##### aMat
+
+`Matrix4`
+
+Matrix to be multiplied (please specify index)
+
+##### bMat
+
+`Matrix4`
+
+Matrix to be multiplied (please specify index)
+
+##### target\_Mat
+
+`Matrix4`
+
+Result matrix (get results based on index)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/math/Matrix4.ts:282](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L282)
+### matrixAppend()
 
-___
+> `static` **matrixAppend**(`aMat`, `bMat`, `target_Mat`): `void`
 
-### matrixAppend
-
-▸ **matrixAppend**(`aMat`, `bMat`, `target_Mat`): `void`
+Defined in: [src/math/Matrix4.ts:297](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L297)
 
 World matrix extension, according to the index to specify parameters and results
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `aMat` | [`Matrix4`](Matrix4.md) | Matrix to be multiplied (please specify index) |
-| `bMat` | [`Matrix4`](Matrix4.md) | Matrix to be multiplied (please specify index) |
-| `target_Mat` | [`Matrix4`](Matrix4.md) | Result matrix (get results based on index) |
+##### aMat
+
+`Matrix4`
+
+Matrix to be multiplied (please specify index)
+
+##### bMat
+
+`Matrix4`
+
+Matrix to be multiplied (please specify index)
+
+##### target\_Mat
+
+`Matrix4`
+
+Result matrix (get results based on index)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/math/Matrix4.ts:292](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L292)
+### matrixRotateY()
 
-___
+> `static` **matrixRotateY**(`rad`, `target_Mat`): `void`
 
-### matrixRotateY
+Defined in: [src/math/Matrix4.ts:306](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L306)
 
-▸ **matrixRotateY**(`rad`, `target_Mat`): `void`
-
-The Y-axis is rotated between the world matrix, and the parameters and results are specified according to the index
+Rotate a matrix around the Y axis by the given angle, writing the result into the target matrix.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `rad` | `number` | - |
-| `target_Mat` | [`Matrix4`](Matrix4.md) | Result matrix (get results based on index) |
+##### rad
+
+`number`
+
+rotation angle, in radians
+
+##### target\_Mat
+
+`Matrix4`
+
+result matrix (referenced by index)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/math/Matrix4.ts:302](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L302)
+### matrixRotate()
 
-___
+> `static` **matrixRotate**(`rad`, `axis`, `target_Mat`): `void`
 
-### matrixRotate
+Defined in: [src/math/Matrix4.ts:316](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L316)
 
-▸ **matrixRotate**(`rad`, `axis`, `target_Mat`): `void`
-
-Rotate the world matrix, specifying parameters and results according to the index
+Rotate a matrix around an arbitrary axis by the given angle, writing the result into the target matrix.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `rad` | `number` | - |
-| `axis` | [`Vector3`](Vector3.md) | - |
-| `target_Mat` | [`Matrix4`](Matrix4.md) | Result matrix (get results based on index) |
+##### rad
+
+`number`
+
+rotation angle, in radians
+
+##### axis
+
+[`Vector3`](Vector3.md)
+
+rotation axis
+
+##### target\_Mat
+
+`Matrix4`
+
+result matrix (referenced by index)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/math/Matrix4.ts:312](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L312)
+### allocIndex()
 
-___
+> `static` **allocIndex**(): `number`
 
-### lookAt
+Defined in: [src/math/Matrix4.ts:325](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L325)
 
-▸ **lookAt**(`eye`, `at`, `up?`): `void`
+Allocate a matrix index, reusing a freed index when available.
+
+#### Returns
+
+`number`
+
+***
+
+### freeIndex()
+
+> `static` **freeIndex**(`matrix`): `void`
+
+Defined in: [src/math/Matrix4.ts:329](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L329)
+
+Return a matrix's index to the free list for later reuse.
+
+#### Parameters
+
+##### matrix
+
+`Matrix4`
+
+#### Returns
+
+`void`
+
+***
+
+### lookAt()
+
+> **lookAt**(`eye`, `at`, `up?`): `void`
+
+Defined in: [src/math/Matrix4.ts:373](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L373)
 
 current matrix move position and rotation to target
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `eye` | [`Vector3`](Vector3.md) | `undefined` | eye position |
-| `at` | [`Vector3`](Vector3.md) | `undefined` | target position |
-| `up` | [`Vector3`](Vector3.md) | `Vector3.Y_AXIS` | normalize axis way |
+##### eye
+
+[`Vector3`](Vector3.md)
+
+eye position
+
+##### at
+
+[`Vector3`](Vector3.md)
+
+target position
+
+##### up?
+
+[`Vector3`](Vector3.md) = `Vector3.Y_AXIS`
+
+normalize axis way
 
 #### Returns
 
 `void`
 
-**`Version`**
+***
 
-Orillusion3D  0.5.1
+### multiply()
 
-#### Defined in
+> **multiply**(`mat4`): `this`
 
-[src/math/Matrix4.ts:352](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L352)
-
-___
-
-### multiply
-
-▸ **multiply**(`mat4`): `void`
+Defined in: [src/math/Matrix4.ts:421](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L421)
 
 matrix multiply
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `mat4` | [`Matrix4`](Matrix4.md) | multiply target |
+##### mat4
+
+`Matrix4`
+
+multiply target
 
 #### Returns
 
-`void`
+`this`
 
-**`Version`**
+***
 
-Orillusion3D  0.5.1
+### premultiply()
 
-#### Defined in
+> **premultiply**(`m`): `this`
 
-[src/math/Matrix4.ts:403](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L403)
+Defined in: [src/math/Matrix4.ts:466](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L466)
 
-___
-
-### multiplyMatrices
-
-▸ **multiplyMatrices**(`a`, `b`): [`Matrix4`](Matrix4.md)
+Set this = m * this.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `a` | [`Matrix4`](Matrix4.md) |
-| `b` | [`Matrix4`](Matrix4.md) |
+##### m
+
+`Matrix4`
 
 #### Returns
 
-[`Matrix4`](Matrix4.md)
+`this`
 
-#### Defined in
+***
 
-[src/math/Matrix4.ts:452](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L452)
+### multiply()
 
-___
+> `static` **multiply**(`a`, `b`, `result?`): `Matrix4`
 
-### multiplyPoint3
+Defined in: [src/math/Matrix4.ts:471](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L471)
 
-▸ **multiplyPoint3**(`v`, `output?`): [`Vector3`](Vector3.md)
-
-convert a vector3 to this matrix space
-if output not set , return a new one
+Multiply two matrices: result = a * b. Allocates a new Matrix4 if result is omitted.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `v` | [`Vector3`](Vector3.md) | target vector3 |
-| `output?` | [`Vector3`](Vector3.md) | save target |
+##### a
+
+`Matrix4`
+
+##### b
+
+`Matrix4`
+
+##### result?
+
+`Matrix4`
+
+#### Returns
+
+`Matrix4`
+
+***
+
+### invert()
+
+> `static` **invert**(`src`, `result?`): `Matrix4`
+
+Defined in: [src/math/Matrix4.ts:482](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L482)
+
+Invert a matrix into result. Returns null when src is singular.
+
+#### Parameters
+
+##### src
+
+`Matrix4`
+
+source matrix
+
+##### result?
+
+`Matrix4`
+
+optional output matrix
+
+#### Returns
+
+`Matrix4`
+
+***
+
+### multiplyMatrices()
+
+> **multiplyMatrices**(`a`, `b`): `Matrix4`
+
+Defined in: [src/math/Matrix4.ts:498](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L498)
+
+#### Parameters
+
+##### a
+
+`Matrix4`
+
+##### b
+
+`Matrix4`
+
+#### Returns
+
+`Matrix4`
+
+***
+
+### multiplyPoint3()
+
+> **multiplyPoint3**(`v`): [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Matrix4.ts:542](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L542)
+
+Convert a point (w=1) to this matrix space. Mutates and returns `v`.
+
+#### Parameters
+
+##### v
+
+[`Vector3`](Vector3.md)
+
+target point — mutated in place
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-save target
+***
 
-#### Defined in
+### multiplyPoint3()
 
-[src/math/Matrix4.ts:499](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L499)
+> `static` **multiplyPoint3**(`m`, `v`, `result?`): [`Vector3`](Vector3.md)
 
-___
+Defined in: [src/math/Matrix4.ts:547](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L547)
 
-### multiplyVector4
-
-▸ **multiplyVector4**(`a`, `out?`): [`Vector3`](Vector3.md)
+Transform point v (w=1) by matrix m into result. Allocates a new Vector3 if result is omitted.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `a` | [`Vector3`](Vector3.md) |
-| `out?` | [`Vector3`](Vector3.md) |
+##### m
+
+`Matrix4`
+
+##### v
+
+[`Vector3`](Vector3.md)
+
+##### result?
+
+[`Vector3`](Vector3.md)
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-#### Defined in
+***
 
-[src/math/Matrix4.ts:508](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L508)
+### multiplyVector4()
 
-___
+> **multiplyVector4**(`a`): [`Vector3`](Vector3.md)
 
-### transformVector4
+Defined in: [src/math/Matrix4.ts:561](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L561)
 
-▸ **transformVector4**(`v`, `target?`): [`Vector3`](Vector3.md)
-
-convert a vector3 to this matrix space
-if output not set , return a new one
+Transform a homogeneous vector (w computed from matrix) and divide by w.
+Mutates and returns `a`.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `v` | [`Vector3`](Vector3.md) | convert target |
-| `target?` | [`Vector3`](Vector3.md) | ref one vector3 |
+##### a
+
+[`Vector3`](Vector3.md)
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-Vector3
+***
 
-**`Version`**
+### multiplyVector4()
 
-Orillusion3D  0.5.1
+> `static` **multiplyVector4**(`m`, `a`, `result?`): [`Vector3`](Vector3.md)
 
-#### Defined in
+Defined in: [src/math/Matrix4.ts:566](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L566)
 
-[src/math/Matrix4.ts:531](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L531)
+Transform homogeneous vector a by matrix m (w computed and divided out) into result.
 
-___
+#### Parameters
 
-### perspectiveMultiplyPoint3
+##### m
 
-▸ **perspectiveMultiplyPoint3**(`v`, `output`): `boolean`
+`Matrix4`
+
+##### a
+
+[`Vector3`](Vector3.md)
+
+##### result?
+
+[`Vector3`](Vector3.md)
+
+#### Returns
+
+[`Vector3`](Vector3.md)
+
+***
+
+### transformVector4()
+
+> **transformVector4**(`v`): [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Matrix4.ts:582](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L582)
+
+Transform a 4D vector (v.w used directly) by this matrix. Mutates and returns `v`.
+
+#### Parameters
+
+##### v
+
+[`Vector3`](Vector3.md)
+
+#### Returns
+
+[`Vector3`](Vector3.md)
+
+***
+
+### transformVector4()
+
+> `static` **transformVector4**(`m`, `v`, `result?`): [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Matrix4.ts:587](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L587)
+
+Transform 4D vector v (v.w used directly) by matrix m into result.
+
+#### Parameters
+
+##### m
+
+`Matrix4`
+
+##### v
+
+[`Vector3`](Vector3.md)
+
+##### result?
+
+[`Vector3`](Vector3.md)
+
+#### Returns
+
+[`Vector3`](Vector3.md)
+
+***
+
+### perspectiveMultiplyPoint3()
+
+> **perspectiveMultiplyPoint3**(`v`, `output`): `boolean`
+
+Defined in: [src/math/Matrix4.ts:604](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L604)
 
 Convert projection coordinates to 3D coordinates
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `v` | [`Vector3`](Vector3.md) | vector3 target |
-| `output` | [`Vector3`](Vector3.md) | ref vector3d |
+##### v
+
+[`Vector3`](Vector3.md)
+
+vector3 target
+
+##### output
+
+[`Vector3`](Vector3.md)
+
+ref vector3d
 
 #### Returns
 
 `boolean`
 
-#### Defined in
+***
 
-[src/math/Matrix4.ts:555](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L555)
+### perspective()
 
-___
+> **perspective**(`fov`, `aspect`, `zn`, `zf`): `void`
 
-### perspective
-
-▸ **perspective**(`fov`, `aspect`, `zn`, `zf`): `void`
+Defined in: [src/math/Matrix4.ts:633](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L633)
 
 set matrix perspective
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `fov` | `number` | perspective angle 0 ~ 90 |
-| `aspect` | `number` | aspect ratio |
-| `zn` | `number` | near plane |
-| `zf` | `number` | far plane |
+##### fov
+
+`number`
+
+perspective angle 0 ~ 90
+
+##### aspect
+
+`number`
+
+aspect ratio
+
+##### zn
+
+`number`
+
+near plane
+
+##### zf
+
+`number`
+
+far plane
 
 #### Returns
 
 `void`
 
-**`Version`**
+***
 
-Orillusion3D  0.5.1
+### perspective3()
 
-#### Defined in
+> **perspective3**(`fov`, `aspect`, `near`, `far`): `void`
 
-[src/math/Matrix4.ts:585](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L585)
+Defined in: [src/math/Matrix4.ts:667](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L667)
 
-___
-
-### perspective3
-
-▸ **perspective3**(`fov`, `aspect`, `near`, `far`): `void`
+Set this matrix to a perspective projection defined by field of view.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `fov` | `number` |
-| `aspect` | `number` |
-| `near` | `number` |
-| `far` | `number` |
+##### fov
+
+`number`
+
+vertical field of view, in degrees
+
+##### aspect
+
+`number`
+
+aspect ratio (width / height)
+
+##### near
+
+`number`
+
+near plane distance
+
+##### far
+
+`number`
+
+far plane distance
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/math/Matrix4.ts:612](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L612)
+### frustum()
 
-___
+> **frustum**(`l`, `r`, `b`, `t`, `n`, `f`): `void`
 
-### frustum
+Defined in: [src/math/Matrix4.ts:682](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L682)
 
-▸ **frustum**(`l`, `r`, `b`, `t`, `n`, `f`): `void`
+Set this matrix to a perspective projection defined by frustum bounds.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `l` | `number` |
-| `r` | `number` |
-| `b` | `number` |
-| `t` | `number` |
-| `n` | `number` |
-| `f` | `number` |
+##### l
+
+`number`
+
+left plane
+
+##### r
+
+`number`
+
+right plane
+
+##### b
+
+`number`
+
+bottom plane
+
+##### t
+
+`number`
+
+top plane
+
+##### n
+
+`number`
+
+near plane
+
+##### f
+
+`number`
+
+far plane
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/math/Matrix4.ts:618](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L618)
+### ortho()
 
-___
+> **ortho**(`w`, `h`, `zn`, `zf`): `Matrix4`
 
-### ortho
+Defined in: [src/math/Matrix4.ts:714](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L714)
 
-▸ **ortho**(`w`, `h`, `zn`, `zf`): [`Matrix4`](Matrix4.md)
+set matrix orthogonal projection
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `w` | `number` | screen width |
-| `h` | `number` | screen height |
-| `zn` | `number` | camera near plane |
-| `zf` | `number` | camera far plane |
+##### w
+
+`number`
+
+screen width
+
+##### h
+
+`number`
+
+screen height
+
+##### zn
+
+`number`
+
+camera near plane
+
+##### zf
+
+`number`
+
+camera far plane
 
 #### Returns
 
-[`Matrix4`](Matrix4.md)
+`Matrix4`
 
 this matrix
 
-**`Version`**
+***
 
-Orillusion3D  0.5.1
-set matrix orthogonal projection
+### orthoZO()
 
-#### Defined in
+> **orthoZO**(`left`, `right`, `bottom`, `top`, `near`, `far`): `Matrix4`
 
-[src/math/Matrix4.ts:651](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L651)
-
-___
-
-### orthoZO
-
-▸ **orthoZO**(`left`, `right`, `bottom`, `top`, `near`, `far`): [`Matrix4`](Matrix4.md)
+Defined in: [src/math/Matrix4.ts:750](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L750)
 
 set matrix orthogonal projection by view side
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `left` | `number` | orthogonal view left |
-| `right` | `number` | orthogonal view right |
-| `bottom` | `number` | orthogonal view bottom |
-| `top` | `number` | orthogonal view top |
-| `near` | `number` | camera near plane |
-| `far` | `number` | camera far plane |
+##### left
+
+`number`
+
+orthogonal view left
+
+##### right
+
+`number`
+
+orthogonal view right
+
+##### bottom
+
+`number`
+
+orthogonal view bottom
+
+##### top
+
+`number`
+
+orthogonal view top
+
+##### near
+
+`number`
+
+camera near plane
+
+##### far
+
+`number`
+
+camera far plane
 
 #### Returns
 
-[`Matrix4`](Matrix4.md)
+`Matrix4`
 
 this matrix
 
-#### Defined in
+***
 
-[src/math/Matrix4.ts:687](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L687)
+### orthoOffCenter()
 
-___
+> **orthoOffCenter**(`l`, `r`, `b`, `t`, `zn`, `zf`): `void`
 
-### orthoOffCenter
-
-▸ **orthoOffCenter**(`l`, `r`, `b`, `t`, `zn`, `zf`): `void`
+Defined in: [src/math/Matrix4.ts:777](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L777)
 
 set matrix orthogonal projection by view center
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `l` | `number` |
-| `r` | `number` |
-| `b` | `number` |
-| `t` | `number` |
-| `zn` | `number` |
-| `zf` | `number` |
+##### l
+
+`number`
+
+##### r
+
+`number`
+
+##### b
+
+`number`
+
+##### t
+
+`number`
+
+##### zn
+
+`number`
+
+##### zf
+
+`number`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/math/Matrix4.ts:714](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L714)
+### transformDir()
 
-___
+> **transformDir**(`fromDirection`, `toDirection`, `epsilon?`): `this`
 
-### transformDir
-
-▸ **transformDir**(`fromDirection`, `toDirection`): `this`
+Defined in: [src/math/Matrix4.ts:808](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L808)
 
 set matrix from two direction
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `fromDirection` | [`Vector3`](Vector3.md) | first direction |
-| `toDirection` | [`Vector3`](Vector3.md) | second direction |
+##### fromDirection
+
+[`Vector3`](Vector3.md)
+
+first direction
+
+##### toDirection
+
+[`Vector3`](Vector3.md)
+
+second direction
+
+##### epsilon?
+
+`number`
+
+tiny number
 
 #### Returns
 
 `this`
 
-**`Version`**
+***
 
-Orillusion3D  0.5.1
+### append()
 
-#### Defined in
+> **append**(`lhs`): `this`
 
-[src/math/Matrix4.ts:744](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L744)
-
-___
-
-### append
-
-▸ **append**(`lhs`): `void`
+Defined in: [src/math/Matrix4.ts:930](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L930)
 
 multiply matrix a b
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `lhs` | [`Matrix4`](Matrix4.md) | target matrix |
+##### lhs
 
-#### Returns
+`Matrix4`
 
-`void`
-
-**`Version`**
-
-Orillusion3D  0.5.1
-
-#### Defined in
-
-[src/math/Matrix4.ts:867](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L867)
-
-___
-
-### add
-
-▸ **add**(`lhs`): [`Matrix4`](Matrix4.md)
-
-matrix a add matrix b
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `lhs` | [`Matrix4`](Matrix4.md) | target matrix. |
-
-#### Returns
-
-[`Matrix4`](Matrix4.md)
-
-Matrix4 result.
-
-**`Version`**
-
-Orillusion3D  0.5.1
-
-#### Defined in
-
-[src/math/Matrix4.ts:913](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L913)
-
-___
-
-### sub
-
-▸ **sub**(`lhs`): [`Matrix4`](Matrix4.md)
-
-matrix a sub matrix b
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `lhs` | [`Matrix4`](Matrix4.md) | target matrix b. |
-
-#### Returns
-
-[`Matrix4`](Matrix4.md)
-
-Matrix4 .
-
-**`Version`**
-
-Orillusion3D  0.5.1
-
-#### Defined in
-
-[src/math/Matrix4.ts:976](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L976)
-
-___
-
-### mult
-
-▸ **mult**(`v`): [`Matrix4`](Matrix4.md)
-
-Matrix times components.
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `v` | `number` | This matrix is going to be multiplied by this value |
-
-#### Returns
-
-[`Matrix4`](Matrix4.md)
-
-Matrix4 Returns a multiplicative result matrix.
-
-**`Version`**
-
-Orillusion3D  0.5.1
-
-#### Defined in
-
-[src/math/Matrix4.ts:1040](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1040)
-
-___
-
-### appendRotation
-
-▸ **appendRotation**(`degrees`, `axis`): `void`
-
-Add a direction Angle rotation to the current matrix (the matrix created by rotating degrees according to axis)
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `degrees` | `number` | Angle of rotation. |
-| `axis` | [`Vector3`](Vector3.md) | Angle of rotation around axis axis |
-
-#### Returns
-
-`void`
-
-**`Version`**
-
-Orillusion3D  0.5.1
-
-#### Defined in
-
-[src/math/Matrix4.ts:1087](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1087)
-
-___
-
-### createByRotation
-
-▸ **createByRotation**(`degrees`, `axis`): `this`
-
-Create a matrix based on the axis and rotation Angle (the matrix created by rotating the degrees according to the axis)
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `degrees` | `number` | Angle of rotation. |
-| `axis` | [`Vector3`](Vector3.md) | Rotation Angle around axis axis. Axis needs to be specified as the orientation of an axis between x/y/z |
+target matrix
 
 #### Returns
 
 `this`
 
-**`Version`**
+***
+
+### add()
+
+> **add**(`lhs`): `Matrix4`
+
+Defined in: [src/math/Matrix4.ts:976](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L976)
+
+matrix a add matrix b
+
+#### Parameters
+
+##### lhs
+
+`Matrix4`
+
+target matrix.
+
+#### Returns
+
+`Matrix4`
+
+Matrix4 result.
+
+***
+
+### sub()
+
+> **sub**(`lhs`): `Matrix4`
+
+Defined in: [src/math/Matrix4.ts:1038](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1038)
+
+matrix a sub matrix b
+
+#### Parameters
+
+##### lhs
+
+`Matrix4`
+
+target matrix b.
+
+#### Returns
+
+`Matrix4`
+
+Matrix4 .
+
+***
+
+### mult()
+
+> **mult**(`v`): `Matrix4`
+
+Defined in: [src/math/Matrix4.ts:1101](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1101)
+
+Matrix times components.
+
+#### Parameters
+
+##### v
+
+`number`
+
+This matrix is going to be multiplied by this value
+
+#### Returns
+
+`Matrix4`
+
+Matrix4 Returns a multiplicative result matrix.
+
+***
+
+### appendRotation()
+
+> **appendRotation**(`degrees`, `axis`): `void`
+
+Defined in: [src/math/Matrix4.ts:1147](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1147)
+
+Add a direction Angle rotation to the current matrix (the matrix created by rotating degrees according to axis)
+
+#### Parameters
+
+##### degrees
+
+`number`
+
+Angle of rotation.
+
+##### axis
+
+[`Vector3`](Vector3.md)
+
+Angle of rotation around axis axis
+
+#### Returns
+
+`void`
+
+#### Version
 
 Orillusion3D  0.5.1
 
-#### Defined in
+***
 
-[src/math/Matrix4.ts:1098](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1098)
+### createByRotation()
 
-___
+> **createByRotation**(`degrees`, `axis`): `this`
 
-### appendScale
+Defined in: [src/math/Matrix4.ts:1157](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1157)
 
-▸ **appendScale**(`xScale`, `yScale`, `zScale`): `void`
+Create a matrix based on the axis and rotation Angle (the matrix created by rotating the degrees according to the axis)
+
+#### Parameters
+
+##### degrees
+
+`number`
+
+Angle of rotation.
+
+##### axis
+
+[`Vector3`](Vector3.md)
+
+Rotation Angle around axis axis. Axis needs to be specified as the orientation of an axis between x/y/z
+
+#### Returns
+
+`this`
+
+***
+
+### appendScale()
+
+> **appendScale**(`xScale`, `yScale`, `zScale`): `void`
+
+Defined in: [src/math/Matrix4.ts:1233](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1233)
 
 Append the triaxial scaling value
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `xScale` | `number` | x axis scaling |
-| `yScale` | `number` | y axis scaling |
-| `zScale` | `number` | z axis scaling |
+##### xScale
+
+`number`
+
+x axis scaling
+
+##### yScale
+
+`number`
+
+y axis scaling
+
+##### zScale
+
+`number`
+
+z axis scaling
 
 #### Returns
 
 `void`
 
-**`Version`**
+***
 
-Orillusion3D  0.5.1
+### createByScale()
 
-#### Defined in
+> **createByScale**(`xScale`, `yScale`, `zScale`): `void`
 
-[src/math/Matrix4.ts:1175](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1175)
-
-___
-
-### createByScale
-
-▸ **createByScale**(`xScale`, `yScale`, `zScale`): `void`
+Defined in: [src/math/Matrix4.ts:1244](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1244)
 
 A scaling matrix is generated and other properties are reset
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `xScale` | `number` | x axis scaling |
-| `yScale` | `number` | y axis scaling |
-| `zScale` | `number` | z axis scaling |
+##### xScale
+
+`number`
+
+x axis scaling
+
+##### yScale
+
+`number`
+
+y axis scaling
+
+##### zScale
+
+`number`
+
+z axis scaling
 
 #### Returns
 
 `void`
 
-**`Version`**
+***
 
-Orillusion3D  0.5.1
+### appendTranslation()
 
-#### Defined in
+> **appendTranslation**(`x`, `y`, `z`): `void`
 
-[src/math/Matrix4.ts:1187](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1187)
-
-___
-
-### appendTranslation
-
-▸ **appendTranslation**(`x`, `y`, `z`): `void`
+Defined in: [src/math/Matrix4.ts:1270](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1270)
 
 Plus a translation matrix
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `x` | `number` | x axis scaling |
-| `y` | `number` | y axis scaling |
-| `z` | `number` | z axis scaling |
+##### x
+
+`number`
+
+x axis scaling
+
+##### y
+
+`number`
+
+y axis scaling
+
+##### z
+
+`number`
+
+z axis scaling
 
 #### Returns
 
 `void`
 
-**`Version`**
+***
 
-Orillusion3D  0.5.1
+### clone()
 
-#### Defined in
+> **clone**(): `Matrix4`
 
-[src/math/Matrix4.ts:1214](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1214)
-
-___
-
-### clone
-
-▸ **clone**(): [`Matrix4`](Matrix4.md)
+Defined in: [src/math/Matrix4.ts:1281](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1281)
 
 Returns a clone of the current matrix
 
 #### Returns
 
-[`Matrix4`](Matrix4.md)
+`Matrix4`
 
 Matrix4 The cloned matrix
 
-**`Version`**
+***
 
-Orillusion3D  0.5.1
+### copyRowFrom()
 
-#### Defined in
+> **copyRowFrom**(`row`, `Vector3`): `void`
 
-[src/math/Matrix4.ts:1226](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1226)
-
-___
-
-### copyRowFrom
-
-▸ **copyRowFrom**(`row`, `Vector3`): `void`
+Defined in: [src/math/Matrix4.ts:1292](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1292)
 
 Assigns a value to one row of the current matrix
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `row` | `number` | Row of copy |
-| `Vector3` | [`Vector3`](Vector3.md) | Value of copy |
+##### row
+
+`number`
+
+Row of copy
+
+##### Vector3
+
+[`Vector3`](Vector3.md)
+
+Value of copy
 
 #### Returns
 
 `void`
 
-**`Version`**
+***
 
-Orillusion3D  0.5.1
+### copyRowTo()
 
-#### Defined in
+> **copyRowTo**(`row`, `Vector3`): `void`
 
-[src/math/Matrix4.ts:1238](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1238)
-
-___
-
-### copyRowTo
-
-▸ **copyRowTo**(`row`, `Vector3`): `void`
+Defined in: [src/math/Matrix4.ts:1329](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1329)
 
 One of the rows in the copy matrix stores the values in Vector3.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `row` | `number` | Row of copy |
-| `Vector3` | [`Vector3`](Vector3.md) | Copy the storage target |
+##### row
+
+`number`
+
+Row of copy
+
+##### Vector3
+
+[`Vector3`](Vector3.md)
+
+Copy the storage target
 
 #### Returns
 
 `void`
 
-**`Version`**
+***
 
-Orillusion3D  0.5.1
+### copy()
 
-#### Defined in
+> **copy**(`sourceMatrix3D`): `Matrix4`
 
-[src/math/Matrix4.ts:1276](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1276)
-
-___
-
-### copyFrom
-
-▸ **copyFrom**(`sourceMatrix3D`): [`Matrix4`](Matrix4.md)
+Defined in: [src/math/Matrix4.ts:1366](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1366)
 
 Assigns the value of a matrix to the current matrix.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `sourceMatrix3D` | [`Matrix4`](Matrix4.md) | source Matrix |
+##### sourceMatrix3D
+
+`Matrix4`
+
+source Matrix
 
 #### Returns
 
-[`Matrix4`](Matrix4.md)
+`Matrix4`
 
 Returns the current matrix
 
-**`Version`**
+***
 
-Orillusion3D  0.5.1
+### copyRawDataTo()
 
-#### Defined in
+> **copyRawDataTo**(`vector`, `index?`, `transpose?`): `void`
 
-[src/math/Matrix4.ts:1314](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1314)
-
-___
-
-### copyRawDataTo
-
-▸ **copyRawDataTo**(`vector`, `index?`, `transpose?`): `void`
+Defined in: [src/math/Matrix4.ts:1393](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1393)
 
 CoMath.PIes the value of the current matrix to a float array.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `vector` | `Float32Array` | `undefined` | The target array. |
-| `index` | `number` | `0` | copy from the index of the array. |
-| `transpose` | `boolean` | `false` | Whether to transpose the current matrix. |
+##### vector
+
+[`FloatArray`](../type-aliases/FloatArray.md)
+
+The target array.
+
+##### index?
+
+`number` = `0`
+
+copy from the index of the array.
+
+##### transpose?
+
+`boolean` = `false`
+
+Whether to transpose the current matrix.
 
 #### Returns
 
 `void`
 
-**`Version`**
+***
 
-Orillusion3D  0.5.1
+### copyColFrom()
 
-#### Defined in
+> **copyColFrom**(`col`, `Vector3`): `void`
 
-[src/math/Matrix4.ts:1342](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1342)
-
-___
-
-### copyColFrom
-
-▸ **copyColFrom**(`col`, `Vector3`): `void`
+Defined in: [src/math/Matrix4.ts:1418](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1418)
 
 Assigns a value to a column of the current matrix
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `col` | `number` | column |
-| `Vector3` | [`Vector3`](Vector3.md) | Source of value |
+##### col
+
+`number`
+
+column
+
+##### Vector3
+
+[`Vector3`](Vector3.md)
+
+Source of value
 
 #### Returns
 
 `void`
 
-**`Version`**
+***
 
-Orillusion3D  0.5.1
+### copyColTo()
 
-#### Defined in
+> **copyColTo**(`col`, `Vector3`): `void`
 
-[src/math/Matrix4.ts:1368](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1368)
+Defined in: [src/math/Matrix4.ts:1460](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1460)
 
-___
-
-### copyColTo
-
-▸ **copyColTo**(`col`, `Vector3`): `void`
-
-Copy a column of the current matrix
+Copy a column of the current matrix into a Vector3.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `col` | `number` | column |
-| `Vector3` | [`Vector3`](Vector3.md) | Target of copy |
+##### col
+
+`number`
+
+column index (0-3)
+
+##### Vector3
+
+[`Vector3`](Vector3.md)
+
+target of copy
 
 #### Returns
 
 `void`
 
-**`Version`**
+***
 
-Orillusion3D  0.5.1
+### copyToMatrix3D()
 
-#### Defined in
+> **copyToMatrix3D**(`dest`): `void`
 
-[src/math/Matrix4.ts:1406](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1406)
-
-___
-
-### copyToMatrix3D
-
-▸ **copyToMatrix3D**(`dest`): `void`
+Defined in: [src/math/Matrix4.ts:1496](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1496)
 
 Copy the current matrix
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `dest` | [`Matrix4`](Matrix4.md) | Target of copy |
+##### dest
+
+`Matrix4`
+
+Target of copy
 
 #### Returns
 
 `void`
 
-**`Version`**
+***
 
-Orillusion3D  0.5.1
+### makeRotationFromQuaternion()
 
-#### Defined in
+> **makeRotationFromQuaternion**(`quaternion`): `Matrix4`
 
-[src/math/Matrix4.ts:1443](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1443)
-
-___
-
-### makeRotationFromQuaternion
-
-▸ **makeRotationFromQuaternion**(`quaternion`): [`Matrix4`](Matrix4.md)
+Defined in: [src/math/Matrix4.ts:1505](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1505)
 
 Calculate rotation matrix
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `quaternion` | [`Quaternion`](Quaternion.md) | Rotate the quaternion |
+##### quaternion
+
+[`Quaternion`](Quaternion.md)
+
+Rotate the quaternion
 
 #### Returns
 
-[`Matrix4`](Matrix4.md)
+`Matrix4`
 
-#### Defined in
+***
 
-[src/math/Matrix4.ts:1452](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1452)
+### decompose()
 
-___
+> **decompose**(`orientationStyle?`, `target?`): [`Vector3`](Vector3.md)[]
 
-### decompose
-
-▸ **decompose**(`orientationStyle?`, `target?`): [`Vector3`](Vector3.md)[]
+Defined in: [src/math/Matrix4.ts:1519](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1519)
 
 Decompose the current matrix
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `orientationStyle` | `string` | `'eulerAngles'` | The default decomposition type is Orientation3D.EULER_ANGLES |
-| `target?` | [`Vector3`](Vector3.md)[] | `undefined` | - |
+##### orientationStyle?
+
+`string` = `'eulerAngles'`
+
+The default decomposition type is Orientation3D.EULER_ANGLES
+
+##### target?
+
+[`Vector3`](Vector3.md)[]
 
 #### Returns
 
@@ -1514,83 +1768,109 @@ Decompose the current matrix
 
 Vector3[3] pos rot scale
 
-**`See`**
+#### See
 
  - Orientation3D.AXIS_ANGLE
  - Orientation3D.EULER_ANGLES
  - Orientation3D.QUATERNION
 
-**`Version`**
+***
 
-Orillusion3D  0.5.1
+### getEuler()
 
-#### Defined in
+> `static` **getEuler**(`target`, `quaternion`, `isDegree?`, `order?`): [`Vector3`](Vector3.md)
 
-[src/math/Matrix4.ts:1467](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1467)
-
-___
-
-### getEuler
-
-▸ **getEuler**(`target`, `quaternion`, `isDegree?`, `order?`): [`Vector3`](Vector3.md)
+Defined in: [src/math/Matrix4.ts:1647](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1647)
 
 Get the Euler vector
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `target` | [`Vector3`](Vector3.md) | `undefined` | Vector of results |
-| `quaternion` | [`Quaternion`](Quaternion.md) | `undefined` | Rotate the quaternion |
-| `isDegree` | `boolean` | `true` | Whether to convert to Angle |
-| `order?` | `string` | `undefined` | convert order |
+##### target
+
+[`Vector3`](Vector3.md)
+
+Vector of results
+
+##### quaternion
+
+[`Quaternion`](Quaternion.md)
+
+Rotate the quaternion
+
+##### isDegree?
+
+`boolean` = `true`
+
+Whether to convert to Angle
+
+##### order?
+
+`string`
+
+convert order
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-#### Defined in
+***
 
-[src/math/Matrix4.ts:1595](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1595)
+### compose()
 
-___
+> **compose**(`position`, `quaternion`, `scale`): `Matrix4`
 
-### compose
-
-▸ **compose**(`position`, `quaternion`, `scale`): [`Matrix4`](Matrix4.md)
+Defined in: [src/math/Matrix4.ts:1660](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1660)
 
 Calculate the combined matrix of displacement, rotation and scaling
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `position` | [`Vector3`](Vector3.md) | translation |
-| `quaternion` | [`Quaternion`](Quaternion.md) | rotation |
-| `scale` | [`Vector3`](Vector3.md) | scale |
+##### position
+
+[`Vector3`](Vector3.md)
+
+translation
+
+##### quaternion
+
+[`Quaternion`](Quaternion.md)
+
+rotation
+
+##### scale
+
+[`Vector3`](Vector3.md)
+
+scale
 
 #### Returns
 
-[`Matrix4`](Matrix4.md)
+`Matrix4`
 
-#### Defined in
+***
 
-[src/math/Matrix4.ts:1608](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1608)
+### deltaTransformVector()
 
-___
+> **deltaTransformVector**(`v`, `target?`): [`Vector3`](Vector3.md)
 
-### deltaTransformVector
-
-▸ **deltaTransformVector**(`v`, `target?`): [`Vector3`](Vector3.md)
+Defined in: [src/math/Matrix4.ts:1713](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1713)
 
 The current matrix transforms a vector
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `v` | [`Vector3`](Vector3.md) | Vector to transform |
-| `target?` | [`Vector3`](Vector3.md) | The default is null and if the current argument is null then a new Vector3 will be returned |
+##### v
+
+[`Vector3`](Vector3.md)
+
+Vector to transform
+
+##### target?
+
+[`Vector3`](Vector3.md)
+
+The default is null and if the current argument is null then a new Vector3 will be returned
 
 #### Returns
 
@@ -1598,65 +1878,49 @@ The current matrix transforms a vector
 
 Vector3 The transformed vector
 
-**`Version`**
+***
 
-Orillusion3D  0.5.1
+### identity()
 
-#### Defined in
+> **identity**(): `Matrix4`
 
-[src/math/Matrix4.ts:1662](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1662)
-
-___
-
-### identity
-
-▸ **identity**(): [`Matrix4`](Matrix4.md)
+Defined in: [src/math/Matrix4.ts:1731](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1731)
 
 Unifies the current matrix
 
 #### Returns
 
-[`Matrix4`](Matrix4.md)
+`Matrix4`
 
-**`Version`**
+***
 
-Orillusion3D  0.5.1
+### fill()
 
-#### Defined in
+> **fill**(`value`): `void`
 
-[src/math/Matrix4.ts:1681](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1681)
-
-___
-
-### fill
-
-▸ **fill**(`value`): `void`
+Defined in: [src/math/Matrix4.ts:1757](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1757)
 
 Fill the current matrix
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `value` | `number` | The filled value |
+##### value
+
+`number`
+
+The filled value
 
 #### Returns
 
 `void`
 
-**`Version`**
+***
 
-Orillusion3D  0.5.1
+### invers33()
 
-#### Defined in
+> **invers33**(): `void`
 
-[src/math/Matrix4.ts:1708](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1708)
-
-___
-
-### invers33
-
-▸ **invers33**(): `void`
+Defined in: [src/math/Matrix4.ts:1780](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1780)
 
 Invert the current matrix
 
@@ -1664,95 +1928,127 @@ Invert the current matrix
 
 `void`
 
-**`Version`**
+***
 
-Orillusion3D  0.5.1
+### invert()
 
-#### Defined in
+> **invert**(): `this`
 
-[src/math/Matrix4.ts:1732](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1732)
+Defined in: [src/math/Matrix4.ts:1817](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1817)
 
-___
-
-### invert
-
-▸ **invert**(): `boolean`
-
-Invert the current matrix
+Invert the current matrix in place. No-ops silently when the matrix is
+singular (matches Matrix3.invert). Use `Matrix4.invert(src, result?)`
+for the safe variant that returns `null` on singular input.
 
 #### Returns
 
-`boolean`
+`this`
 
-boolean Whether can invert it
+***
 
-**`Version`**
+### transformPoint()
 
-Orillusion3D  0.5.1
+> **transformPoint**(`v`): [`Vector3`](Vector3.md)
 
-#### Defined in
+Defined in: [src/math/Matrix4.ts:1865](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1865)
 
-[src/math/Matrix4.ts:1769](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1769)
-
-___
-
-### transformPoint
-
-▸ **transformPoint**(`v`, `target?`): [`Vector3`](Vector3.md)
-
-Converts the current coordinates to the world coordinates
+Convert the given point from the current matrix coordinate system to world
+coordinates. Mutates and returns `v`.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `v` | [`Vector3`](Vector3.md) | Current coordinates |
-| `target?` | [`Vector3`](Vector3.md) | world coordinate |
+##### v
+
+[`Vector3`](Vector3.md)
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-world coordinate
+***
 
-#### Defined in
+### transformPoint()
 
-[src/math/Matrix4.ts:1819](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1819)
+> `static` **transformPoint**(`m`, `v`, `result?`): [`Vector3`](Vector3.md)
 
-___
+Defined in: [src/math/Matrix4.ts:1870](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1870)
 
-### transformVector
-
-▸ **transformVector**(`v`, `target?`): [`Vector3`](Vector3.md)
-
-Transforming a 3D vector with the current matrix does not deal with displacement
+Transform point v (with translation) by matrix m into result. Allocates a new Vector3 if result is omitted.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `v` | [`Vector3`](Vector3.md) | Vector of transformation |
-| `target?` | [`Vector3`](Vector3.md) | If the current argument is null then a new Vector3 will be returned |
+##### m
+
+`Matrix4`
+
+##### v
+
+[`Vector3`](Vector3.md)
+
+##### result?
+
+[`Vector3`](Vector3.md)
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-Vector3 The transformed vector
+***
 
-**`Version`**
+### transformVector()
 
-Orillusion3D  0.5.1
+> **transformVector**(`v`): [`Vector3`](Vector3.md)
 
-#### Defined in
+Defined in: [src/math/Matrix4.ts:1884](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1884)
 
-[src/math/Matrix4.ts:1841](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1841)
+Transform a 3D direction vector (no translation) by this matrix.
+Mutates and returns `v`.
 
-___
+#### Parameters
 
-### transpose
+##### v
 
-▸ **transpose**(): `void`
+[`Vector3`](Vector3.md)
+
+#### Returns
+
+[`Vector3`](Vector3.md)
+
+***
+
+### transformVector()
+
+> `static` **transformVector**(`m`, `v`, `result?`): [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Matrix4.ts:1889](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1889)
+
+Transform direction v (no translation) by matrix m into result. Allocates a new Vector3 if result is omitted.
+
+#### Parameters
+
+##### m
+
+`Matrix4`
+
+##### v
+
+[`Vector3`](Vector3.md)
+
+##### result?
+
+[`Vector3`](Vector3.md)
+
+#### Returns
+
+[`Vector3`](Vector3.md)
+
+***
+
+### transpose()
+
+> **transpose**(): `void`
+
+Defined in: [src/math/Matrix4.ts:1902](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1902)
 
 The current matrix transpose
 
@@ -1760,27 +2056,23 @@ The current matrix transpose
 
 `void`
 
-**`Version`**
+***
 
-Orillusion3D  0.5.1
+### getPosition()
 
-#### Defined in
+> **getPosition**(`out?`): [`Vector3`](Vector3.md)
 
-[src/math/Matrix4.ts:1861](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1861)
-
-___
-
-### getPosition
-
-▸ **getPosition**(`out?`): [`Vector3`](Vector3.md)
+Defined in: [src/math/Matrix4.ts:1944](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1944)
 
 Return matrix displacement
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `out?` | [`Vector3`](Vector3.md) | Position of translation |
+##### out?
+
+[`Vector3`](Vector3.md)
+
+Position of translation
 
 #### Returns
 
@@ -1788,15 +2080,13 @@ Return matrix displacement
 
 Position of translation
 
-#### Defined in
+***
 
-[src/math/Matrix4.ts:1904](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1904)
+### toString()
 
-___
+> **toString**(): `string`
 
-### toString
-
-▸ **toString**(): `string`
+Defined in: [src/math/Matrix4.ts:2002](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2002)
 
 Returns the value of the matrix as a string
 
@@ -1806,94 +2096,109 @@ Returns the value of the matrix as a string
 
 string
 
-**`Version`**
+***
 
-Orillusion3D  0.5.1
+### lerp()
 
-#### Defined in
+> **lerp**(`m0`, `m1`, `t`): `void`
 
-[src/math/Matrix4.ts:1966](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L1966)
-
-___
-
-### lerp
-
-▸ **lerp**(`m0`, `m1`, `t`): `void`
+Defined in: [src/math/Matrix4.ts:2047](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2047)
 
 Interpolate between two matrices
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `m0` | [`Matrix4`](Matrix4.md) | Matrix 0 |
-| `m1` | [`Matrix4`](Matrix4.md) | Matrix 1 |
-| `t` | `number` | Factor of interpolation 0.0 - 1.0 |
+##### m0
+
+`Matrix4`
+
+Matrix 0
+
+##### m1
+
+`Matrix4`
+
+Matrix 1
+
+##### t
+
+`number`
+
+Factor of interpolation 0.0 - 1.0
 
 #### Returns
 
 `void`
 
-**`Version`**
+***
 
-Orillusion3D  0.5.1
+### get()
 
-#### Defined in
+> **get**(`row`, `column`): `number`
 
-[src/math/Matrix4.ts:2012](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2012)
-
-___
-
-### get
-
-▸ **get**(`row`, `column`): `number`
+Defined in: [src/math/Matrix4.ts:2058](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2058)
 
 Read matrix element values
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `row` | `number` | row |
-| `column` | `number` | column |
+##### row
+
+`number`
+
+row
+
+##### column
+
+`number`
+
+column
 
 #### Returns
 
 `number`
 
-#### Defined in
+***
 
-[src/math/Matrix4.ts:2023](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2023)
+### set()
 
-___
+> **set**(`row`, `column`, `v`): `void`
 
-### set
-
-▸ **set**(`row`, `column`, `v`): `void`
+Defined in: [src/math/Matrix4.ts:2068](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2068)
 
 Sets the matrix element values
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `row` | `number` | row |
-| `column` | `number` | column |
-| `v` | `number` | value |
+##### row
+
+`number`
+
+row
+
+##### column
+
+`number`
+
+column
+
+##### v
+
+`number`
+
+value
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/math/Matrix4.ts:2033](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2033)
+### getMaxScaleOnAxis()
 
-___
+> **getMaxScaleOnAxis**(): `number`
 
-### getMaxScaleOnAxis
-
-▸ **getMaxScaleOnAxis**(): `number`
+Defined in: [src/math/Matrix4.ts:2075](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2075)
 
 Get the maximum value of the matrix scaled on each axis
 
@@ -1901,126 +2206,134 @@ Get the maximum value of the matrix scaled on each axis
 
 `number`
 
-**`Version`**
+***
 
-Orillusion3D  0.5.1 4.0
+### translate()
 
-#### Defined in
+> **translate**(`inTrans`): `Matrix4`
 
-[src/math/Matrix4.ts:2041](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2041)
-
-___
-
-### translate
-
-▸ **translate**(`inTrans`): [`Matrix4`](Matrix4.md)
+Defined in: [src/math/Matrix4.ts:2090](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2090)
 
 Calculate the displacement from the vector
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `inTrans` | [`Vector3`](Vector3.md) | Vector |
+##### inTrans
+
+[`Vector3`](Vector3.md)
+
+Vector
 
 #### Returns
 
-[`Matrix4`](Matrix4.md)
+`Matrix4`
 
 current matrix
 
-#### Defined in
+***
 
-[src/math/Matrix4.ts:2056](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2056)
+### setTRInverse()
 
-___
+> **setTRInverse**(`pos`, `q`): `void`
 
-### setTRInverse
+Defined in: [src/math/Matrix4.ts:2109](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2109)
 
-▸ **setTRInverse**(`pos`, `q`): `void`
-
-from unity AMath.PI
+Set this matrix to the inverse of the translation-rotation transform built from pos and q.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `pos` | [`Vector3`](Vector3.md) |
-| `q` | [`Quaternion`](Quaternion.md) |
+##### pos
+
+[`Vector3`](Vector3.md)
+
+translation
+
+##### q
+
+[`Quaternion`](Quaternion.md)
+
+rotation quaternion
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/math/Matrix4.ts:2073](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2073)
+### setScale()
 
-___
+> **setScale**(`inScale`): `Matrix4`
 
-### setScale
-
-▸ **setScale**(`inScale`): [`Matrix4`](Matrix4.md)
+Defined in: [src/math/Matrix4.ts:2120](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2120)
 
 Set scale value
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `inScale` | [`Vector3`](Vector3.md) | scale value |
+##### inScale
+
+[`Vector3`](Vector3.md)
+
+scale value
 
 #### Returns
 
-[`Matrix4`](Matrix4.md)
+`Matrix4`
 
 this matrix
 
-#### Defined in
+***
 
-[src/math/Matrix4.ts:2084](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2084)
+### makeBasis()
 
-___
+> **makeBasis**(`xAxis`, `yAxis`, `zAxis`): `Matrix4`
 
-### makeBasis
-
-▸ **makeBasis**(`xAxis`, `yAxis`, `zAxis`): [`Matrix4`](Matrix4.md)
+Defined in: [src/math/Matrix4.ts:2146](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2146)
 
 Generate the matrix according to the three axes
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `xAxis` | [`Vector3`](Vector3.md) |
-| `yAxis` | [`Vector3`](Vector3.md) |
-| `zAxis` | [`Vector3`](Vector3.md) |
+##### xAxis
+
+[`Vector3`](Vector3.md)
+
+##### yAxis
+
+[`Vector3`](Vector3.md)
+
+##### zAxis
+
+[`Vector3`](Vector3.md)
 
 #### Returns
 
-[`Matrix4`](Matrix4.md)
+`Matrix4`
 
-#### Defined in
+***
 
-[src/math/Matrix4.ts:2110](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2110)
+### makeRotationAxis()
 
-___
+> **makeRotationAxis**(`axis`, `angle`): `Matrix4`
 
-### makeRotationAxis
+Defined in: [src/math/Matrix4.ts:2161](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2161)
 
-▸ **makeRotationAxis**(`axis`, `angle`): [`Matrix4`](Matrix4.md)
+Set this matrix to a rotation about the given axis by the given angle (in radians).
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `axis` | [`Vector3`](Vector3.md) |
-| `angle` | `number` |
+##### axis
+
+[`Vector3`](Vector3.md)
+
+rotation axis (should be unit length)
+
+##### angle
+
+`number`
+
+rotation angle, in radians
 
 #### Returns
 
-[`Matrix4`](Matrix4.md)
-
-#### Defined in
-
-[src/math/Matrix4.ts:2120](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix4.ts#L2120)
+`Matrix4`

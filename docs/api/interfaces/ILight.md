@@ -1,81 +1,71 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Interface: ILight
 
-### Properties
-
-- [name](ILight.md#name)
-- [transform](ILight.md#transform)
-- [lightData](ILight.md#lightdata)
-- [needUpdateShadow](ILight.md#needupdateshadow)
-- [realTimeShadow](ILight.md#realtimeshadow)
-- [shadowIndex](ILight.md#shadowindex)
-- [shadowCamera](ILight.md#shadowcamera)
+Defined in: [src/components/lights/ILight.ts:6](https://github.com/orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L6)
 
 ## Properties
 
 ### name
 
-• **name**: `string`
+> **name**: `string`
 
-#### Defined in
+Defined in: [src/components/lights/ILight.ts:7](https://github.com/orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L7)
 
-[src/components/lights/ILight.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L6)
-
-___
+***
 
 ### transform
 
-• **transform**: [`Transform`](../classes/Transform.md)
+> **transform**: [`Transform`](../classes/Transform.md)
 
-#### Defined in
+Defined in: [src/components/lights/ILight.ts:8](https://github.com/orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L8)
 
-[src/components/lights/ILight.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L7)
-
-___
+***
 
 ### lightData
 
-• **lightData**: `LightData`
+> **lightData**: `LightData`
 
-#### Defined in
+Defined in: [src/components/lights/ILight.ts:9](https://github.com/orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L9)
 
-[src/components/lights/ILight.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L8)
-
-___
+***
 
 ### needUpdateShadow
 
-• **needUpdateShadow**: `boolean`
+> **needUpdateShadow**: `boolean`
 
-#### Defined in
+Defined in: [src/components/lights/ILight.ts:10](https://github.com/orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L10)
 
-[src/components/lights/ILight.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L9)
-
-___
+***
 
 ### realTimeShadow
 
-• **realTimeShadow**: `boolean`
+> **realTimeShadow**: `boolean`
 
-#### Defined in
+Defined in: [src/components/lights/ILight.ts:11](https://github.com/orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L11)
 
-[src/components/lights/ILight.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L10)
-
-___
+***
 
 ### shadowIndex
 
-• **shadowIndex**: `number`
+> **shadowIndex**: `number`
 
-#### Defined in
+Defined in: [src/components/lights/ILight.ts:13](https://github.com/orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L13)
 
-[src/components/lights/ILight.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L12)
+***
 
-___
+### shadowCamera?
 
-### shadowCamera
+> `optional` **shadowCamera?**: [`Camera3D`](../classes/Camera3D.md)
 
-• `Optional` **shadowCamera**: [`Camera3D`](../classes/Camera3D.md)
+Defined in: [src/components/lights/ILight.ts:15](https://github.com/orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L15)
 
-#### Defined in
+***
 
-[src/components/lights/ILight.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L14)
+### iesProfile?
+
+> `readonly` `optional` **iesProfile?**: [`IESProfiles`](../classes/IESProfiles.md)
+
+Defined in: [src/components/lights/ILight.ts:17](https://github.com/orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L17)

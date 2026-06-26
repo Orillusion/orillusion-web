@@ -1,230 +1,234 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: RenderContext
 
-### Constructors
+Defined in: [src/gfx/renderJob/passRenderer/RenderContext.ts:16](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L16)
 
-- [constructor](RenderContext.md#constructor)
-
-### Properties
-
-- [command](RenderContext.md#command)
-- [encoder](RenderContext.md#encoder)
-
-### Accessors
-
-- [rendererPassState](RenderContext.md#rendererpassstate)
-
-### Methods
-
-- [clean](RenderContext.md#clean)
-- [beginContinueRendererPassState](RenderContext.md#begincontinuerendererpassstate)
-- [beginOpaqueRenderPass](RenderContext.md#beginopaquerenderpass)
-- [beginTransparentRenderPass](RenderContext.md#begintransparentrenderpass)
-- [specialtRenderPass](RenderContext.md#specialtrenderpass)
-- [endRenderPass](RenderContext.md#endrenderpass)
-- [begineNewCommand](RenderContext.md#beginenewcommand)
-- [endCommand](RenderContext.md#endcommand)
-- [beginNewEncoder](RenderContext.md#beginnewencoder)
-- [endEncoder](RenderContext.md#endencoder)
+Drives one [RTFrame](RTFrame.md)'s render through the GPU: opens command
+encoders and render-pass encoders, and builds the
+RendererPassState sequence (opaque / transparent / continuation
+passes) for the frame. Wraps [GPUContextInstance](GPUContextInstance.md) so passes work
+against a single frame's attachments without touching the device API.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new RenderContext**(`rtFrame`): [`RenderContext`](RenderContext.md)
+> **new RenderContext**(`ctx`, `rtFrame`): `RenderContext`
+
+Defined in: [src/gfx/renderJob/passRenderer/RenderContext.ts:27](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L27)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `rtFrame` | [`RTFrame`](RTFrame.md) |
+##### ctx
+
+[`Context3D`](Context3D.md)
+
+##### rtFrame
+
+[`RTFrame`](RTFrame.md)
 
 #### Returns
 
-[`RenderContext`](RenderContext.md)
-
-#### Defined in
-
-[src/gfx/renderJob/passRenderer/RenderContext.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L13)
+`RenderContext`
 
 ## Properties
 
 ### command
 
-• **command**: `GPUCommandEncoder`
+> **command**: `GPUCommandEncoder`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/passRenderer/RenderContext.ts:18](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L18)
 
-[src/gfx/renderJob/passRenderer/RenderContext.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L8)
+The command encoder currently open for this frame.
 
-___
+***
 
 ### encoder
 
-• **encoder**: `GPURenderPassEncoder`
+> **encoder**: `GPURenderPassEncoder`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/passRenderer/RenderContext.ts:20](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L20)
 
-[src/gfx/renderJob/passRenderer/RenderContext.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L9)
+The render-pass encoder currently open for this frame.
+
+***
+
+### gpu
+
+> **gpu**: [`GPUContextInstance`](GPUContextInstance.md)
+
+Defined in: [src/gfx/renderJob/passRenderer/RenderContext.ts:22](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L22)
+
+The per-context GPU helper this render context issues through.
 
 ## Accessors
 
 ### rendererPassState
 
-• `get` **rendererPassState**(): `RendererPassState`
+#### Get Signature
 
-#### Returns
+> **get** **rendererPassState**(): `RendererPassState`
+
+Defined in: [src/gfx/renderJob/passRenderer/RenderContext.ts:67](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L67)
+
+The most recently pushed renderer pass state (the active one).
+
+##### Returns
 
 `RendererPassState`
-
-#### Defined in
-
-[src/gfx/renderJob/passRenderer/RenderContext.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L45)
 
 ## Methods
 
-### clean
+### clean()
 
-▸ **clean**(): `void`
+> **clean**(): `void`
+
+Defined in: [src/gfx/renderJob/passRenderer/RenderContext.ts:34](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L34)
+
+Reset the accumulated pass states and the GPU bind cache for a new frame.
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/passRenderer/RenderContext.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L18)
+### beginContinueRendererPassState()
 
-___
+> **beginContinueRendererPassState**(`color_loadOp?`, `depth_loadOp?`): `RendererPassState`
 
-### beginContinueRendererPassState
+Defined in: [src/gfx/renderJob/passRenderer/RenderContext.ts:45](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L45)
 
-▸ **beginContinueRendererPassState**(`color_loadOp?`, `depth_loadOp?`): `RendererPassState`
-
-continue renderer pass state
+Push a renderer pass state for the current frame and return it.
+When earlier states already exist this is a continuation pass that
+loads (rather than clears) prior attachment contents; otherwise it
+applies the given color/depth load ops to the frame's first pass.
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `color_loadOp` | `GPULoadOp` | `'load'` |
-| `depth_loadOp` | `GPULoadOp` | `'load'` |
+##### color\_loadOp?
+
+`GPULoadOp` = `'load'`
+
+##### depth\_loadOp?
+
+`GPULoadOp` = `'load'`
 
 #### Returns
 
 `RendererPassState`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/passRenderer/RenderContext.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L27)
+### beginOpaqueRenderPass()
 
-___
+> **beginOpaqueRenderPass**(): `void`
 
-### beginOpaqueRenderPass
+Defined in: [src/gfx/renderJob/passRenderer/RenderContext.ts:72](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L72)
 
-▸ **beginOpaqueRenderPass**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/gfx/renderJob/passRenderer/RenderContext.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L49)
-
-___
-
-### beginTransparentRenderPass
-
-▸ **beginTransparentRenderPass**(): `void`
+Begin the opaque pass: clear color + depth, then open a fresh command and encoder.
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/passRenderer/RenderContext.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L55)
+### beginTransparentRenderPass()
 
-___
+> **beginTransparentRenderPass**(): `void`
 
-### specialtRenderPass
+Defined in: [src/gfx/renderJob/passRenderer/RenderContext.ts:79](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L79)
 
-▸ **specialtRenderPass**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/gfx/renderJob/passRenderer/RenderContext.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L61)
-
-___
-
-### endRenderPass
-
-▸ **endRenderPass**(): `void`
+Begin a transparent pass: load color + depth (continuation), then open a fresh command and encoder.
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/passRenderer/RenderContext.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L67)
+### specialtRenderPass()
 
-___
+> **specialtRenderPass**(): `void`
 
-### begineNewCommand
+Defined in: [src/gfx/renderJob/passRenderer/RenderContext.ts:86](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L86)
 
-▸ **begineNewCommand**(): `GPUCommandEncoder`
+Begin a special-purpose continuation pass: load color + depth, then open a fresh command and encoder.
+
+#### Returns
+
+`void`
+
+***
+
+### endRenderPass()
+
+> **endRenderPass**(): `void`
+
+Defined in: [src/gfx/renderJob/passRenderer/RenderContext.ts:93](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L93)
+
+End the current render pass: close the encoder then submit the command.
+
+#### Returns
+
+`void`
+
+***
+
+### begineNewCommand()
+
+> **begineNewCommand**(): `GPUCommandEncoder`
+
+Defined in: [src/gfx/renderJob/passRenderer/RenderContext.ts:99](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L99)
+
+Open a new command encoder for this frame.
 
 #### Returns
 
 `GPUCommandEncoder`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/passRenderer/RenderContext.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L72)
+### endCommand()
 
-___
+> **endCommand**(): `void`
 
-### endCommand
+Defined in: [src/gfx/renderJob/passRenderer/RenderContext.ts:105](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L105)
 
-▸ **endCommand**(): `void`
+Submit and clear the current command encoder.
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/passRenderer/RenderContext.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L77)
+### beginNewEncoder()
 
-___
+> **beginNewEncoder**(): `GPURenderPassEncoder`
 
-### beginNewEncoder
+Defined in: [src/gfx/renderJob/passRenderer/RenderContext.ts:111](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L111)
 
-▸ **beginNewEncoder**(): `GPURenderPassEncoder`
+Begin a render-pass encoder for the active pass state on the open command.
 
 #### Returns
 
 `GPURenderPassEncoder`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/passRenderer/RenderContext.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L82)
+### endEncoder()
 
-___
+> **endEncoder**(): `void`
 
-### endEncoder
+Defined in: [src/gfx/renderJob/passRenderer/RenderContext.ts:117](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L117)
 
-▸ **endEncoder**(): `void`
+End and clear the current render-pass encoder.
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[src/gfx/renderJob/passRenderer/RenderContext.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/RenderContext.ts#L87)

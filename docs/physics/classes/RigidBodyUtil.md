@@ -1,235 +1,258 @@
+[**@orillusion/physics**](../README.md)
+
+***
+
 # Class: RigidBodyUtil
 
-提供一系列AMMO刚体相关的方法
+Defined in: [packages/physics/utils/RigidBodyUtil.ts:8](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyUtil.ts#L8)
 
-### Constructors
-
-- [constructor](RigidBodyUtil.md#constructor)
-
-### Methods
-
-- [createRigidBody](RigidBodyUtil.md#createrigidbody)
-- [updateTransform](RigidBodyUtil.md#updatetransform)
-- [updatePosition](RigidBodyUtil.md#updateposition)
-- [updateRotation](RigidBodyUtil.md#updaterotation)
-- [updateScale](RigidBodyUtil.md#updatescale)
-- [clearForcesAndVelocities](RigidBodyUtil.md#clearforcesandvelocities)
-- [activateCollisionBodies](RigidBodyUtil.md#activatecollisionbodies)
-- [destroyRigidBody](RigidBodyUtil.md#destroyrigidbody)
-- [destroyConstraint](RigidBodyUtil.md#destroyconstraint)
+Provides a set of methods related to AMMO rigid bodies
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new RigidBodyUtil**(): [`RigidBodyUtil`](RigidBodyUtil.md)
+> **new RigidBodyUtil**(): `RigidBodyUtil`
 
 #### Returns
 
-[`RigidBodyUtil`](RigidBodyUtil.md)
+`RigidBodyUtil`
 
 ## Methods
 
-### createRigidBody
+### createRigidBody()
 
-▸ **createRigidBody**(`object3D`, `shape`, `mass`, `position?`, `rotation?`): [`btRigidBody`](Ammo.btRigidBody.md)
+> `static` **createRigidBody**(`object3D`, `shape`, `mass`, `position?`, `rotation?`): [`btRigidBody`](../@orillusion/namespaces/Ammo/classes/btRigidBody.md)
 
-创建 Ammo 刚体。
+Defined in: [packages/physics/utils/RigidBodyUtil.ts:18](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyUtil.ts#L18)
+
+Creates an Ammo rigid body.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `object3D` | `Object3D` | 三维对象。 |
-| `shape` | [`btCollisionShape`](Ammo.btCollisionShape.md) | 碰撞形状。 |
-| `mass` | `number` | 碰撞体的质量。 |
-| `position?` | `Vector3` | 可选参数，刚体的位置，默认使用三维对象的 `localPosition` |
-| `rotation?` | `Vector3` \| `Quaternion` | 可选参数，刚体的旋转，默认使用三维对象的 `localRotation` |
+##### object3D
+
+`Object3D`
+
+The 3D object.
+
+##### shape
+
+[`btCollisionShape`](../@orillusion/namespaces/Ammo/classes/btCollisionShape.md)
+
+The collision shape.
+
+##### mass
+
+`number`
+
+The mass of the collision body.
+
+##### position?
+
+`Vector3`
+
+Optional parameter, the position of the rigid body; defaults to the 3D object's `localPosition`.
+
+##### rotation?
+
+`Vector3` \| `Quaternion`
+
+Optional parameter, the rotation of the rigid body; defaults to the 3D object's `localRotation`.
 
 #### Returns
 
-[`btRigidBody`](Ammo.btRigidBody.md)
+[`btRigidBody`](../@orillusion/namespaces/Ammo/classes/btRigidBody.md)
 
-新创建的 Ammo.btRigidBody 对象。
+The newly created Ammo.btRigidBody object.
 
-#### Defined in
+***
 
-[packages/physics/utils/RigidBodyUtil.ts:18](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyUtil.ts#L18)
+### updateTransform()
 
-___
+> `static` **updateTransform**(`bodyRb`, `position`, `rotation`, `clearFV?`): `void`
 
-### updateTransform
+Defined in: [packages/physics/utils/RigidBodyUtil.ts:46](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyUtil.ts#L46)
 
-▸ **updateTransform**(`bodyRb`, `position`, `rotation`, `clearFV?`): `void`
-
-更新刚体的位置和旋转。  
-此函数将新的位置和旋转应用到刚体上。
+Updates the position and rotation of the rigid body.
+This function applies the new position and rotation to the rigid body.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `bodyRb` | [`btRigidBody`](Ammo.btRigidBody.md) | 刚体对象。 |
-| `position` | `Vector3` | 刚体的新位置，以 Vector3 形式表示。 |
-| `rotation` | `Vector3` \| `Quaternion` | 刚体的新旋转，可选，可以是 Vector3 形式表示的欧拉角（将自动转换为四元数），默认为四元数零值。 |
-| `clearFV?` | `boolean` | 清除力和速度，可选，默认为 false 。 |
+##### bodyRb
+
+[`btRigidBody`](../@orillusion/namespaces/Ammo/classes/btRigidBody.md)
+
+The rigid body object.
+
+##### position
+
+`Vector3`
+
+The new position of the rigid body, expressed as a Vector3.
+
+##### rotation
+
+`Vector3` \| `Quaternion`
+
+The new rotation of the rigid body, optional; can be a Vector3 representing Euler angles (automatically converted to a quaternion); defaults to a zero quaternion.
+
+##### clearFV?
+
+`boolean`
+
+Whether to clear forces and velocities, optional; defaults to false.
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[packages/physics/utils/RigidBodyUtil.ts:46](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyUtil.ts#L46)
+### updatePosition()
 
-___
+> `static` **updatePosition**(`bodyRb`, `value`): `void`
 
-### updatePosition
+Defined in: [packages/physics/utils/RigidBodyUtil.ts:68](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyUtil.ts#L68)
 
-▸ **updatePosition**(`bodyRb`, `value`): `void`
-
-更新刚体位置
+Updates the position of the rigid body
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `bodyRb` | [`btRigidBody`](Ammo.btRigidBody.md) |
-| `value` | `Vector3` |
+##### bodyRb
+
+[`btRigidBody`](../@orillusion/namespaces/Ammo/classes/btRigidBody.md)
+
+##### value
+
+`Vector3`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[packages/physics/utils/RigidBodyUtil.ts:68](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyUtil.ts#L68)
+### updateRotation()
 
-___
+> `static` **updateRotation**(`bodyRb`, `value`): `void`
 
-### updateRotation
+Defined in: [packages/physics/utils/RigidBodyUtil.ts:84](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyUtil.ts#L84)
 
-▸ **updateRotation**(`bodyRb`, `value`): `void`
-
-更新刚体旋转
+Updates the rotation of the rigid body
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `bodyRb` | [`btRigidBody`](Ammo.btRigidBody.md) |
-| `value` | `Vector3` |
+##### bodyRb
+
+[`btRigidBody`](../@orillusion/namespaces/Ammo/classes/btRigidBody.md)
+
+##### value
+
+`Vector3`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[packages/physics/utils/RigidBodyUtil.ts:84](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyUtil.ts#L84)
+### updateScale()
 
-___
+> `static` **updateScale**(`bodyRb`, `value`, `mass`): `void`
 
-### updateScale
+Defined in: [packages/physics/utils/RigidBodyUtil.ts:101](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyUtil.ts#L101)
 
-▸ **updateScale**(`bodyRb`, `value`, `mass`): `void`
-
-更新刚体缩放
+Updates the scale of the rigid body
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `bodyRb` | [`btRigidBody`](Ammo.btRigidBody.md) |
-| `value` | `Vector3` |
-| `mass` | `number` |
+##### bodyRb
+
+[`btRigidBody`](../@orillusion/namespaces/Ammo/classes/btRigidBody.md)
+
+##### value
+
+`Vector3`
+
+##### mass
+
+`number`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[packages/physics/utils/RigidBodyUtil.ts:101](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyUtil.ts#L101)
+### clearForcesAndVelocities()
 
-___
+> `static` **clearForcesAndVelocities**(`bodyRb`): `void`
 
-### clearForcesAndVelocities
+Defined in: [packages/physics/utils/RigidBodyUtil.ts:116](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyUtil.ts#L116)
 
-▸ **clearForcesAndVelocities**(`bodyRb`): `void`
-
-清除力和速度
+Clears forces and velocities
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `bodyRb` | [`btRigidBody`](Ammo.btRigidBody.md) |
+##### bodyRb
+
+[`btRigidBody`](../@orillusion/namespaces/Ammo/classes/btRigidBody.md)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[packages/physics/utils/RigidBodyUtil.ts:116](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyUtil.ts#L116)
+### activateCollisionBodies()
 
-___
+> `static` **activateCollisionBodies**(): `void`
 
-### activateCollisionBodies
+Defined in: [packages/physics/utils/RigidBodyUtil.ts:125](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyUtil.ts#L125)
 
-▸ **activateCollisionBodies**(): `void`
-
-激活物理世界中的全部碰撞对
+Activates all collision pairs in the physics world
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[packages/physics/utils/RigidBodyUtil.ts:125](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyUtil.ts#L125)
+### destroyRigidBody()
 
-___
+> `static` **destroyRigidBody**(`bodyRb`): `void`
 
-### destroyRigidBody
+Defined in: [packages/physics/utils/RigidBodyUtil.ts:149](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyUtil.ts#L149)
 
-▸ **destroyRigidBody**(`bodyRb`): `void`
-
-销毁刚体及其状态和形状
+Destroys the rigid body along with its motion state and collision shape
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `bodyRb` | [`btRigidBody`](Ammo.btRigidBody.md) |
+##### bodyRb
+
+[`btRigidBody`](../@orillusion/namespaces/Ammo/classes/btRigidBody.md)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[packages/physics/utils/RigidBodyUtil.ts:149](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyUtil.ts#L149)
+### destroyConstraint()
 
-___
+> `static` **destroyConstraint**(`constraint`): `void`
 
-### destroyConstraint
+Defined in: [packages/physics/utils/RigidBodyUtil.ts:162](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyUtil.ts#L162)
 
-▸ **destroyConstraint**(`constraint`): `void`
-
-销毁约束
+Destroys a constraint
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `constraint` | [`btTypedConstraint`](Ammo.btTypedConstraint.md) |
+##### constraint
+
+[`btTypedConstraint`](../@orillusion/namespaces/Ammo/classes/btTypedConstraint.md)
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[packages/physics/utils/RigidBodyUtil.ts:162](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/RigidBodyUtil.ts#L162)

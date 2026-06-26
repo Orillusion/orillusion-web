@@ -1,93 +1,87 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: GLTFSubParserSkeleton
 
-### Constructors
-
-- [constructor](GLTFSubParserSkeleton.md#constructor)
-
-### Methods
-
-- [parse](GLTFSubParserSkeleton.md#parse)
-- [parseSkeletonAnimation](GLTFSubParserSkeleton.md#parseskeletonanimation)
-- [parseSkeletonAnimationOld](GLTFSubParserSkeleton.md#parseskeletonanimationold)
+Defined in: [src/loader/parser/gltf/GLTFSubParserSkeleton.ts:8](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFSubParserSkeleton.ts#L8)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new GLTFSubParserSkeleton**(`subParser`): [`GLTFSubParserSkeleton`](GLTFSubParserSkeleton.md)
+> **new GLTFSubParserSkeleton**(`subParser`): `GLTFSubParserSkeleton`
+
+Defined in: [src/loader/parser/gltf/GLTFSubParserSkeleton.ts:12](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFSubParserSkeleton.ts#L12)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `subParser` | `GLTFSubParser` |
+##### subParser
+
+`GLTFSubParser`
 
 #### Returns
 
-[`GLTFSubParserSkeleton`](GLTFSubParserSkeleton.md)
-
-#### Defined in
-
-[src/loader/parser/gltf/GLTFSubParserSkeleton.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFSubParserSkeleton.ts#L12)
+`GLTFSubParserSkeleton`
 
 ## Methods
 
-### parse
+### parse()
 
-▸ **parse**(`skeletonID`): [`PrefabAvatarData`](PrefabAvatarData.md)
+> **parse**(`skeletonID`): [`PrefabAvatarData`](PrefabAvatarData.md)
+
+Defined in: [src/loader/parser/gltf/GLTFSubParserSkeleton.ts:17](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFSubParserSkeleton.ts#L17)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `skeletonID` | `number` |
+##### skeletonID
+
+`number`
 
 #### Returns
 
 [`PrefabAvatarData`](PrefabAvatarData.md)
 
-#### Defined in
+***
 
-[src/loader/parser/gltf/GLTFSubParserSkeleton.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFSubParserSkeleton.ts#L17)
+### parseSkeletonAnimation()
 
-___
+> **parseSkeletonAnimation**(`avatarData`, `animation`): [`PropertyAnimationClip`](PropertyAnimationClip.md)
 
-### parseSkeletonAnimation
-
-▸ **parseSkeletonAnimation**(`avatarData`, `animation`): [`PropertyAnimationClip`](PropertyAnimationClip.md)
+Defined in: [src/loader/parser/gltf/GLTFSubParserSkeleton.ts:27](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFSubParserSkeleton.ts#L27)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `avatarData` | [`PrefabAvatarData`](PrefabAvatarData.md) |
-| `animation` | `any` |
+##### avatarData
+
+[`PrefabAvatarData`](PrefabAvatarData.md)
+
+##### animation
+
+`any`
 
 #### Returns
 
 [`PropertyAnimationClip`](PropertyAnimationClip.md)
 
-#### Defined in
+***
 
-[src/loader/parser/gltf/GLTFSubParserSkeleton.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFSubParserSkeleton.ts#L27)
+### parseSkeletonAnimationOld()
 
-___
+> **parseSkeletonAnimationOld**(`skeleton`, `animation`): `SkeletonAnimationClip`
 
-### parseSkeletonAnimationOld
-
-▸ **parseSkeletonAnimationOld**(`skeleton`, `animation`): `SkeletonAnimationClip`
+Defined in: [src/loader/parser/gltf/GLTFSubParserSkeleton.ts:168](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFSubParserSkeleton.ts#L168)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `skeleton` | `Skeleton` |
-| `animation` | `any` |
+##### skeleton
+
+`Skeleton`
+
+##### animation
+
+`any`
 
 #### Returns
 
 `SkeletonAnimationClip`
-
-#### Defined in
-
-[src/loader/parser/gltf/GLTFSubParserSkeleton.ts:168](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFSubParserSkeleton.ts#L168)

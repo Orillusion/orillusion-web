@@ -1,86 +1,83 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: Navi3DMergeVertex
 
-### Constructors
+Defined in: [src/math/navigation/Navi3DMergeVertex.ts:9](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DMergeVertex.ts#L9)
 
-- [constructor](Navi3DMergeVertex.md#constructor)
-
-### Properties
-
-- [vertex](Navi3DMergeVertex.md#vertex)
-- [indices](Navi3DMergeVertex.md#indices)
-
-### Methods
-
-- [merge](Navi3DMergeVertex.md#merge)
-- [parse](Navi3DMergeVertex.md#parse)
+Utility that merges coincident vertices when building a navigation mesh from geometry.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new Navi3DMergeVertex**(): [`Navi3DMergeVertex`](Navi3DMergeVertex.md)
+> **new Navi3DMergeVertex**(): `Navi3DMergeVertex`
 
 #### Returns
 
-[`Navi3DMergeVertex`](Navi3DMergeVertex.md)
+`Navi3DMergeVertex`
 
 ## Properties
 
 ### vertex
 
-• **vertex**: [`Vector3`](Vector3.md)[]
+> **vertex**: [`Vector3`](Vector3.md)[]
 
-#### Defined in
+Defined in: [src/math/navigation/Navi3DMergeVertex.ts:11](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DMergeVertex.ts#L11)
 
-[src/math/navigation/Navi3DMergeVertex.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DMergeVertex.ts#L6)
+The vertex positions extracted from the source geometry.
 
-___
+***
 
 ### indices
 
-• **indices**: `number`[]
+> **indices**: `number`[]
 
-#### Defined in
+Defined in: [src/math/navigation/Navi3DMergeVertex.ts:13](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DMergeVertex.ts#L13)
 
-[src/math/navigation/Navi3DMergeVertex.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DMergeVertex.ts#L7)
+The (possibly remapped) triangle indices into [vertex](#vertex).
 
 ## Methods
 
-### merge
+### merge()
 
-▸ **merge**(`geometry`, `threshould?`): `this`
+> **merge**(`geometry`, `threshould?`): `this`
+
+Defined in: [src/math/navigation/Navi3DMergeVertex.ts:16](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DMergeVertex.ts#L16)
+
+Extracts vertices and indices from the geometry, merging vertices closer than the given threshold.
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `geometry` | [`GeometryBase`](GeometryBase.md) | `undefined` |
-| `threshould` | `number` | `0.1` |
+##### geometry
+
+[`GeometryBase`](GeometryBase.md)
+
+##### threshould?
+
+`number` = `0.1`
 
 #### Returns
 
 `this`
 
-#### Defined in
+***
 
-[src/math/navigation/Navi3DMergeVertex.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DMergeVertex.ts#L9)
+### parse()
 
-___
+> **parse**(`geometry`): `this`
 
-### parse
+Defined in: [src/math/navigation/Navi3DMergeVertex.ts:49](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DMergeVertex.ts#L49)
 
-▸ **parse**(`geometry`): `this`
+Extracts vertices and indices from the geometry without merging any vertices.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `geometry` | [`GeometryBase`](GeometryBase.md) |
+##### geometry
+
+[`GeometryBase`](GeometryBase.md)
 
 #### Returns
 
 `this`
-
-#### Defined in
-
-[src/math/navigation/Navi3DMergeVertex.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DMergeVertex.ts#L45)

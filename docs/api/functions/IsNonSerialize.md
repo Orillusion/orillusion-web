@@ -1,24 +1,29 @@
-# Function: IsNonSerialize
+[**@orillusion/core**](../README.md)
 
-▸ **IsNonSerialize**\<`T`\>(`instance`, `key`): `boolean`
+***
 
-#### Type parameters
+# Function: IsNonSerialize()
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `object` |
+> **IsNonSerialize**\<`T`\>(`instance`, `key`): `boolean`
 
-#### Parameters
+Defined in: [src/util/SerializeDecoration.ts:14](https://github.com/orillusion/orillusion/blob/main/src/util/SerializeDecoration.ts#L14)
 
-| Name | Type |
-| :------ | :------ |
-| `instance` | `T` |
-| `key` | `string` |
+## Type Parameters
 
-#### Returns
+### T
+
+`T` *extends* `object`
+
+## Parameters
+
+### instance
+
+`T`
+
+### key
+
+`string`
+
+## Returns
 
 `boolean`
-
-#### Defined in
-
-[src/util/SerializeDecoration.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/util/SerializeDecoration.ts#L14)

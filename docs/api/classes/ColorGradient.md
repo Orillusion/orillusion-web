@@ -1,49 +1,49 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: ColorGradient
 
-### Constructors
+Defined in: [src/math/ColorGradient.ts:7](https://github.com/orillusion/orillusion/blob/main/src/math/ColorGradient.ts#L7)
 
-- [constructor](ColorGradient.md#constructor)
-
-### Methods
-
-- [getColor](ColorGradient.md#getcolor)
+A color gradient that interpolates between an ordered array of colors.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new ColorGradient**(`array`): [`ColorGradient`](ColorGradient.md)
+> **new ColorGradient**(`array`): `ColorGradient`
+
+Defined in: [src/math/ColorGradient.ts:11](https://github.com/orillusion/orillusion/blob/main/src/math/ColorGradient.ts#L11)
+
+Creates a gradient from an ordered array of colors.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `array` | [`Color`](Color.md)[] |
+##### array
+
+[`Color`](Color.md)[]
 
 #### Returns
 
-[`ColorGradient`](ColorGradient.md)
-
-#### Defined in
-
-[src/math/ColorGradient.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/math/ColorGradient.ts#L6)
+`ColorGradient`
 
 ## Methods
 
-### getColor
+### getColor()
 
-▸ **getColor**(`p`): [`Color`](Color.md)
+> **getColor**(`p`): [`Color`](Color.md)
+
+Defined in: [src/math/ColorGradient.ts:16](https://github.com/orillusion/orillusion/blob/main/src/math/ColorGradient.ts#L16)
+
+Returns the interpolated color at the normalized position `p` (0 to 1).
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `p` | `number` |
+##### p
+
+`number`
 
 #### Returns
 
 [`Color`](Color.md)
-
-#### Defined in
-
-[src/math/ColorGradient.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/math/ColorGradient.ts#L10)

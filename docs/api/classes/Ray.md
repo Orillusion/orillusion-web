@@ -1,171 +1,162 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: Ray
+
+Defined in: [src/math/Ray.ts:11](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L11)
 
 Ray
 
-### Constructors
-
-- [constructor](Ray.md#constructor)
-
-### Properties
-
-- [origin](Ray.md#origin)
-- [length](Ray.md#length)
-
-### Accessors
-
-- [direction](Ray.md#direction)
-
-### Methods
-
-- [clone](Ray.md#clone)
-- [intersectBox](Ray.md#intersectbox)
-- [pointAt](Ray.md#pointat)
-- [copy](Ray.md#copy)
-- [setApproxDirection](Ray.md#setapproxdirection)
-- [setOrigin](Ray.md#setorigin)
-- [getOrigin](Ray.md#getorigin)
-- [getPoint](Ray.md#getpoint)
-- [sqrDistToPoint](Ray.md#sqrdisttopoint)
-- [applyMatrix](Ray.md#applymatrix)
-- [pointInTriangle](Ray.md#pointintriangle)
-- [intersectTriangle](Ray.md#intersecttriangle)
-- [intersectSphere](Ray.md#intersectsphere)
-- [intersectionSegment](Ray.md#intersectionsegment)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new Ray**(`origin?`, `dir?`): [`Ray`](Ray.md)
+> **new Ray**(`origin?`, `dir?`): `Ray`
+
+Defined in: [src/math/Ray.ts:34](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L34)
 
 Build a new ray object
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `origin?` | [`Vector3`](Vector3.md) | Ray starting point |
-| `dir?` | [`Vector3`](Vector3.md) | Ray direction |
+##### origin?
 
-#### Returns
-
-[`Ray`](Ray.md)
-
-#### Defined in
-
-[src/math/Ray.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L34)
-
-## Properties
-
-### origin
-
-• **origin**: [`Vector3`](Vector3.md)
+[`Vector3`](Vector3.md)
 
 Ray starting point
 
-#### Defined in
+##### dir?
 
-[src/math/Ray.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L16)
-
-___
-
-### length
-
-• **length**: `number` = `Number.MAX_VALUE`
-
-length
-
-#### Defined in
-
-[src/math/Ray.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L21)
-
-## Accessors
-
-### direction
-
-• `get` **direction**(): [`Vector3`](Vector3.md)
+[`Vector3`](Vector3.md)
 
 Ray direction
 
 #### Returns
 
+`Ray`
+
+## Properties
+
+### origin
+
+> **origin**: [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Ray.ts:16](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L16)
+
+Ray starting point
+
+***
+
+### length
+
+> **length**: `number` = `Number.MAX_VALUE`
+
+Defined in: [src/math/Ray.ts:21](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L21)
+
+length
+
+## Accessors
+
+### direction
+
+#### Get Signature
+
+> **get** **direction**(): [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Ray.ts:43](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L43)
+
+Ray direction
+
+##### Returns
+
 [`Vector3`](Vector3.md)
 
-#### Defined in
+#### Set Signature
 
-[src/math/Ray.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L43)
+> **set** **direction**(`dir`): `void`
 
-• `set` **direction**(`dir`): `void`
+Defined in: [src/math/Ray.ts:50](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L50)
 
-#### Parameters
+Set the ray direction (normalized internally)
 
-| Name | Type |
-| :------ | :------ |
-| `dir` | [`Vector3`](Vector3.md) |
+##### Parameters
 
-#### Returns
+###### dir
+
+[`Vector3`](Vector3.md)
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/math/Ray.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L47)
-
 ## Methods
 
-### clone
+### clone()
 
-▸ **clone**(): [`Ray`](Ray.md)
+> **clone**(): `Ray`
+
+Defined in: [src/math/Ray.ts:59](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L59)
 
 Clone a new Ray object
 
 #### Returns
 
-[`Ray`](Ray.md)
+`Ray`
 
-#### Defined in
+***
 
-[src/math/Ray.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L56)
+### intersectBox()
 
-___
+> **intersectBox**(`box`, `target?`): [`Vector3`](Vector3.md)
 
-### intersectBox
+Defined in: [src/math/Ray.ts:78](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L78)
 
-▸ **intersectBox**(`box`, `target?`): [`Vector3`](Vector3.md)
-
-Determine whether it intersects a bounding box
+Compute the intersection point of this ray with a bounding box
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `box` | `IBound` | bounding box |
-| `target?` | [`Vector3`](Vector3.md) | - |
+##### box
+
+`IBound`
+
+bounding box
+
+##### target?
+
+[`Vector3`](Vector3.md)
+
+optional output point
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-whether intersect
+the intersection point, or null if there is none
 
-#### Defined in
+***
 
-[src/math/Ray.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L69)
+### pointAt()
 
-___
+> **pointAt**(`t`, `target?`): [`Vector3`](Vector3.md)
 
-### pointAt
-
-▸ **pointAt**(`t`, `target?`): [`Vector3`](Vector3.md)
+Defined in: [src/math/Ray.ts:129](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L129)
 
 Calculate a point on the ray
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `t` | `number` | Length scalar |
-| `target?` | [`Vector3`](Vector3.md) | output target |
+##### t
+
+`number`
+
+Length scalar
+
+##### target?
+
+[`Vector3`](Vector3.md)
+
+output target
 
 #### Returns
 
@@ -173,23 +164,23 @@ Calculate a point on the ray
 
 result
 
-#### Defined in
+***
 
-[src/math/Ray.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L120)
+### copy()
 
-___
+> **copy**(`src`): `this`
 
-### copy
-
-▸ **copy**(`src`): `this`
+Defined in: [src/math/Ray.ts:142](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L142)
 
 Sets the ray to be a copy of the original ray
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `src` | [`Ray`](Ray.md) | Ray object source |
+##### src
+
+`Ray`
+
+Ray object source
 
 #### Returns
 
@@ -197,59 +188,57 @@ Sets the ray to be a copy of the original ray
 
 New ray object
 
-#### Defined in
+***
 
-[src/math/Ray.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L133)
+### setApproxDirection()
 
-___
+> **setApproxDirection**(`dir`): `void`
 
-### setApproxDirection
-
-▸ **setApproxDirection**(`dir`): `void`
+Defined in: [src/math/Ray.ts:154](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L154)
 
 Fast to the approximate ray direction
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `dir` | [`Vector3`](Vector3.md) | direction |
+##### dir
+
+[`Vector3`](Vector3.md)
+
+direction
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/math/Ray.ts:145](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L145)
+### setOrigin()
 
-___
+> **setOrigin**(`origin`): `void`
 
-### setOrigin
-
-▸ **setOrigin**(`origin`): `void`
+Defined in: [src/math/Ray.ts:162](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L162)
 
 Set ray origin
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `origin` | [`Vector3`](Vector3.md) | ray origin |
+##### origin
+
+[`Vector3`](Vector3.md)
+
+ray origin
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/math/Ray.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L153)
+### getOrigin()
 
-___
+> **getOrigin**(): [`Vector3`](Vector3.md)
 
-### getOrigin
-
-▸ **getOrigin**(): [`Vector3`](Vector3.md)
+Defined in: [src/math/Ray.ts:169](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L169)
 
 Get ray origin
 
@@ -257,23 +246,23 @@ Get ray origin
 
 [`Vector3`](Vector3.md)
 
-#### Defined in
+***
 
-[src/math/Ray.ts:160](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L160)
+### getPoint()
 
-___
+> **getPoint**(`t`): [`Vector3`](Vector3.md)
 
-### getPoint
-
-▸ **getPoint**(`t`): [`Vector3`](Vector3.md)
+Defined in: [src/math/Ray.ts:178](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L178)
 
 Gets the point at the specified position on the ray
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `t` | `number` | Length position |
+##### t
+
+`number`
+
+Length position
 
 #### Returns
 
@@ -281,23 +270,23 @@ Gets the point at the specified position on the ray
 
 Returns a point at the specified location
 
-#### Defined in
+***
 
-[src/math/Ray.ts:169](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L169)
+### sqrDistToPoint()
 
-___
+> **sqrDistToPoint**(`P`): `number`
 
-### sqrDistToPoint
-
-▸ **sqrDistToPoint**(`P`): `number`
+Defined in: [src/math/Ray.ts:188](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L188)
 
 Calculate the distance from a point
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `P` | [`Vector3`](Vector3.md) | Specify Point |
+##### P
+
+[`Vector3`](Vector3.md)
+
+Specify Point
 
 #### Returns
 
@@ -305,48 +294,63 @@ Calculate the distance from a point
 
 result
 
-#### Defined in
+***
 
-[src/math/Ray.ts:179](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L179)
+### applyMatrix()
 
-___
+> **applyMatrix**(`mat4`): `void`
 
-### applyMatrix
-
-▸ **applyMatrix**(`mat4`): `void`
+Defined in: [src/math/Ray.ts:204](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L204)
 
 Applied matrix transformation
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `mat4` | [`Matrix4`](Matrix4.md) | matrix |
+##### mat4
+
+[`Matrix4`](Matrix4.md)
+
+matrix
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/math/Ray.ts:195](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L195)
+### pointInTriangle()
 
-___
+> **pointInTriangle**(`P`, `A`, `B`, `C`): `boolean`
 
-### pointInTriangle
-
-▸ **pointInTriangle**(`P`, `A`, `B`, `C`): `boolean`
+Defined in: [src/math/Ray.ts:221](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L221)
 
 Calculates whether a specified point is inside a triangle
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `P` | [`Vector3`](Vector3.md) | point |
-| `A` | [`Vector3`](Vector3.md) | Triangle vertex 1 |
-| `B` | [`Vector3`](Vector3.md) | Triangle vertex 2 |
-| `C` | [`Vector3`](Vector3.md) | Triangle vertex 3 |
+##### P
+
+[`Vector3`](Vector3.md)
+
+point
+
+##### A
+
+[`Vector3`](Vector3.md)
+
+Triangle vertex 1
+
+##### B
+
+[`Vector3`](Vector3.md)
+
+Triangle vertex 2
+
+##### C
+
+[`Vector3`](Vector3.md)
+
+Triangle vertex 3
 
 #### Returns
 
@@ -354,25 +358,35 @@ Calculates whether a specified point is inside a triangle
 
 whether it is inside a triangle
 
-#### Defined in
+***
 
-[src/math/Ray.ts:212](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L212)
+### intersectTriangle()
 
-___
+> **intersectTriangle**(`orig`, `dir`, `face`): [`Vector3`](Vector3.md)
 
-### intersectTriangle
-
-▸ **intersectTriangle**(`orig`, `dir`, `face`): [`Vector3`](Vector3.md)
+Defined in: [src/math/Ray.ts:266](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L266)
 
 Determine whether a ray intersects a triangle
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `orig` | [`Vector3`](Vector3.md) | Ray starting point |
-| `dir` | [`Vector3`](Vector3.md) | Ray direction |
-| `face` | `Triangle` | triangle |
+##### orig
+
+[`Vector3`](Vector3.md)
+
+Ray starting point
+
+##### dir
+
+[`Vector3`](Vector3.md)
+
+Ray direction
+
+##### face
+
+`Triangle`
+
+triangle
 
 #### Returns
 
@@ -380,26 +394,41 @@ Determine whether a ray intersects a triangle
 
 point of intersection
 
-#### Defined in
+***
 
-[src/math/Ray.ts:257](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L257)
+### intersectSphere()
 
-___
+> **intersectSphere**(`o`, `dir`, `center`, `radius`): [`Vector3`](Vector3.md)
 
-### intersectSphere
-
-▸ **intersectSphere**(`o`, `dir`, `center`, `radius`): [`Vector3`](Vector3.md)
+Defined in: [src/math/Ray.ts:329](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L329)
 
 Determine whether a ray intersects the sphere
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `o` | [`Vector3`](Vector3.md) | Ray starting point |
-| `dir` | [`Vector3`](Vector3.md) | Ray direction |
-| `center` | [`Vector3`](Vector3.md) | Sphere center |
-| `radius` | `number` | radius of sphericity |
+##### o
+
+[`Vector3`](Vector3.md)
+
+Ray starting point
+
+##### dir
+
+[`Vector3`](Vector3.md)
+
+Ray direction
+
+##### center
+
+[`Vector3`](Vector3.md)
+
+Sphere center
+
+##### radius
+
+`number`
+
+radius of sphericity
 
 #### Returns
 
@@ -407,38 +436,47 @@ Determine whether a ray intersects the sphere
 
 point of intersection
 
-#### Defined in
+***
 
-[src/math/Ray.ts:320](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L320)
+### intersectionSegment()
 
-___
+> **intersectionSegment**(`sega`, `segb`, `threshold`): `object`
 
-### intersectionSegment
-
-▸ **intersectionSegment**(`sega`, `segb`, `threshold`): `Object`
+Defined in: [src/math/Ray.ts:361](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L361)
 
 A test of the intersection between a ray and 
 a given line segment within a given tolerance (threshold)
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `sega` | [`Vector3`](Vector3.md) | The first point of a line segment used to test the intersection |
-| `segb` | [`Vector3`](Vector3.md) | The second point of a line segment used to test the intersection |
-| `threshold` | `number` | Margin, if the ray does not intersect the line segment but is close to the given threshold, the intersection is successful |
+##### sega
+
+[`Vector3`](Vector3.md)
+
+The first point of a line segment used to test the intersection
+
+##### segb
+
+[`Vector3`](Vector3.md)
+
+The second point of a line segment used to test the intersection
+
+##### threshold
+
+`number`
+
+Margin, if the ray does not intersect the line segment but is close to the given threshold, the intersection is successful
 
 #### Returns
 
-`Object`
+`object`
 
 If there is an intersection, then the distance from the ray origin to the intersection, if there is no intersection, is -1
 
-| Name | Type |
-| :------ | :------ |
-| `out` | [`Vector3`](Vector3.md) |
-| `length` | `number` |
+##### out
 
-#### Defined in
+> **out**: [`Vector3`](Vector3.md)
 
-[src/math/Ray.ts:352](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L352)
+##### length
+
+> **length**: `number`

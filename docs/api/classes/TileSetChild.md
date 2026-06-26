@@ -1,85 +1,65 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: TileSetChild
 
-### Constructors
-
-- [constructor](TileSetChild.md#constructor)
-
-### Properties
-
-- [boundingVolume](TileSetChild.md#boundingvolume)
-- [geometricError](TileSetChild.md#geometricerror)
-- [refine](TileSetChild.md#refine)
-- [content](TileSetChild.md#content)
-- [contents](TileSetChild.md#contents)
+Defined in: [src/loader/parser/tileRenderer/TileSet.ts:17](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L17)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new TileSetChild**(): [`TileSetChild`](TileSetChild.md)
+> **new TileSetChild**(): `TileSetChild`
 
 #### Returns
 
-[`TileSetChild`](TileSetChild.md)
+`TileSetChild`
 
 ## Properties
 
 ### boundingVolume
 
-• **boundingVolume**: `Object`
+> **boundingVolume**: `object`
 
-#### Type declaration
+Defined in: [src/loader/parser/tileRenderer/TileSet.ts:18](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L18)
 
-| Name | Type |
-| :------ | :------ |
-| `box` | `number`[] |
+#### box
 
-#### Defined in
+> **box**: `number`[]
 
-[src/loader/parser/tileRenderer/TileSet.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L18)
-
-___
+***
 
 ### geometricError
 
-• **geometricError**: `number`
+> **geometricError**: `number`
 
-#### Defined in
+Defined in: [src/loader/parser/tileRenderer/TileSet.ts:19](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L19)
 
-[src/loader/parser/tileRenderer/TileSet.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L19)
-
-___
+***
 
 ### refine
 
-• **refine**: `string`
+> **refine**: `string`
 
-#### Defined in
+Defined in: [src/loader/parser/tileRenderer/TileSet.ts:20](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L20)
 
-[src/loader/parser/tileRenderer/TileSet.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L20)
-
-___
+***
 
 ### content
 
-• **content**: `Object`
+> **content**: `object`
 
-#### Type declaration
+Defined in: [src/loader/parser/tileRenderer/TileSet.ts:21](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L21)
 
-| Name | Type |
-| :------ | :------ |
-| `uri` | `string` |
+#### uri
 
-#### Defined in
+> **uri**: `string`
 
-[src/loader/parser/tileRenderer/TileSet.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L21)
-
-___
+***
 
 ### contents
 
-• **contents**: [`TileSetChildContent`](TileSetChildContent.md)[]
+> **contents**: [`TileSetChildContent`](TileSetChildContent.md)[]
 
-#### Defined in
-
-[src/loader/parser/tileRenderer/TileSet.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L22)
+Defined in: [src/loader/parser/tileRenderer/TileSet.ts:22](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L22)

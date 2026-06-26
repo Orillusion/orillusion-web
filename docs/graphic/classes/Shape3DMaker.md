@@ -1,114 +1,136 @@
+[**@orillusion/graphic**](../README.md)
+
+***
+
 # Class: Shape3DMaker
+
+Defined in: [packages/graphic/renderer/Shape3DMaker.ts:21](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Shape3DMaker.ts#L21)
 
 A help class for quickly creating Shape3D related objects
 
-**`Export`**
+## Export
 
-### Constructors
-
-- [constructor](Shape3DMaker.md#constructor)
-
-### Accessors
-
-- [renderer](Shape3DMaker.md#renderer)
-
-### Methods
-
-- [makeRenderer](Shape3DMaker.md#makerenderer)
-- [ellipse](Shape3DMaker.md#ellipse)
-- [arc](Shape3DMaker.md#arc)
-- [line](Shape3DMaker.md#line)
-- [quadraticCurve](Shape3DMaker.md#quadraticcurve)
-- [curve](Shape3DMaker.md#curve)
-- [path2D](Shape3DMaker.md#path2d)
-- [path3D](Shape3DMaker.md#path3d)
-- [rect](Shape3DMaker.md#rect)
-- [roundRect](Shape3DMaker.md#roundrect)
+Shape3DMaker
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new Shape3DMaker**(`renderer`): [`Shape3DMaker`](Shape3DMaker.md)
+> **new Shape3DMaker**(`renderer`): `Shape3DMaker`
+
+Defined in: [packages/graphic/renderer/Shape3DMaker.ts:25](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Shape3DMaker.ts#L25)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `renderer` | [`Shape3DRenderer`](Shape3DRenderer.md) |
+##### renderer
+
+[`Shape3DRenderer`](Shape3DRenderer.md)
 
 #### Returns
 
-[`Shape3DMaker`](Shape3DMaker.md)
-
-#### Defined in
-
-[packages/graphic/renderer/Shape3DMaker.ts:25](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/Shape3DMaker.ts#L25)
+`Shape3DMaker`
 
 ## Accessors
 
 ### renderer
 
-• `get` **renderer**(): [`Shape3DRenderer`](Shape3DRenderer.md)
+#### Get Signature
 
-#### Returns
+> **get** **renderer**(): [`Shape3DRenderer`](Shape3DRenderer.md)
+
+Defined in: [packages/graphic/renderer/Shape3DMaker.ts:49](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Shape3DMaker.ts#L49)
+
+##### Returns
 
 [`Shape3DRenderer`](Shape3DRenderer.md)
 
-#### Defined in
-
-[packages/graphic/renderer/Shape3DMaker.ts:49](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/Shape3DMaker.ts#L49)
-
 ## Methods
 
-### makeRenderer
+### makeRenderer()
 
-▸ **makeRenderer**(`name`, `textureList`, `scene`, `maxNodeCount?`, `triangleEachNode?`): [`Shape3DMaker`](Shape3DMaker.md)
+> `static` **makeRenderer**(`name`, `textureList`, `scene`, `maxNodeCount?`, `triangleEachNode?`): `Shape3DMaker`
+
+Defined in: [packages/graphic/renderer/Shape3DMaker.ts:40](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Shape3DMaker.ts#L40)
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `name` | `string` | `undefined` | key of Shape3DRenderer. |
-| `textureList` | `BitmapTexture2DArray` | `undefined` | textures used by node. |
-| `scene` | `Scene3D` | `undefined` | Scene3D |
-| `maxNodeCount?` | `number` | `1000` | Can accommodate the maximum number of nodes |
-| `triangleEachNode?` | `number` | `24` | The maximum number of triangles included is triangleEachNode * maxNodeCount |
+##### name
+
+`string`
+
+key of Shape3DRenderer.
+
+##### textureList
+
+`BitmapTexture2DArray`
+
+textures used by node.
+
+##### scene
+
+`Scene3D`
+
+Scene3D
+
+##### maxNodeCount?
+
+`number` = `1000`
+
+Can accommodate the maximum number of nodes
+
+##### triangleEachNode?
+
+`number` = `24`
+
+The maximum number of triangles included is triangleEachNode * maxNodeCount
 
 #### Returns
 
-[`Shape3DMaker`](Shape3DMaker.md)
+`Shape3DMaker`
 
 {Shape3DMaker}
 
-**`Static`**
+#### Static
 
-**`Memberof`**
+#### Memberof
 
 Shape3DMaker
 
-#### Defined in
+***
 
-[packages/graphic/renderer/Shape3DMaker.ts:40](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/Shape3DMaker.ts#L40)
+### ellipse()
 
-___
+> **ellipse**(`radiusX`, `radiusY`, `rotation`, `startAngle`, `endAngle`, `counterclockwise?`): [`EllipseShape3D`](EllipseShape3D.md)
 
-### ellipse
-
-▸ **ellipse**(`radiusX`, `radiusY`, `rotation`, `startAngle`, `endAngle`, `counterclockwise?`): [`EllipseShape3D`](EllipseShape3D.md)
+Defined in: [packages/graphic/renderer/Shape3DMaker.ts:66](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Shape3DMaker.ts#L66)
 
 Create an ellipse in Shape3DRenderer
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `radiusX` | `number` |
-| `radiusY` | `number` |
-| `rotation` | `number` |
-| `startAngle` | `number` |
-| `endAngle` | `number` |
-| `counterclockwise?` | `boolean` |
+##### radiusX
+
+`number`
+
+##### radiusY
+
+`number`
+
+##### rotation
+
+`number`
+
+##### startAngle
+
+`number`
+
+##### endAngle
+
+`number`
+
+##### counterclockwise?
+
+`boolean`
 
 #### Returns
 
@@ -116,30 +138,37 @@ Create an ellipse in Shape3DRenderer
 
 {EllipseShape3D}
 
-**`Memberof`**
+#### Memberof
 
 Shape3DMaker
 
-#### Defined in
+***
 
-[packages/graphic/renderer/Shape3DMaker.ts:66](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/Shape3DMaker.ts#L66)
+### arc()
 
-___
+> **arc**(`radius`, `startAngle`, `endAngle`, `counterclockwise?`): [`CircleShape3D`](CircleShape3D.md)
 
-### arc
-
-▸ **arc**(`radius`, `startAngle`, `endAngle`, `counterclockwise?`): [`CircleShape3D`](CircleShape3D.md)
+Defined in: [packages/graphic/renderer/Shape3DMaker.ts:87](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Shape3DMaker.ts#L87)
 
 Create an arc in Shape3DRenderer
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `radius` | `number` |
-| `startAngle` | `number` |
-| `endAngle` | `number` |
-| `counterclockwise?` | `boolean` |
+##### radius
+
+`number`
+
+##### startAngle
+
+`number`
+
+##### endAngle
+
+`number`
+
+##### counterclockwise?
+
+`boolean`
 
 #### Returns
 
@@ -147,58 +176,69 @@ Create an arc in Shape3DRenderer
 
 {CircleShape3D}
 
-**`Memberof`**
+#### Memberof
 
 Shape3DMaker
 
-#### Defined in
+***
 
-[packages/graphic/renderer/Shape3DMaker.ts:87](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/Shape3DMaker.ts#L87)
+### line()
 
-___
+> **line**(`points`): [`LineShape3D`](LineShape3D.md)
 
-### line
-
-▸ **line**(`points`): [`LineShape3D`](LineShape3D.md)
+Defined in: [packages/graphic/renderer/Shape3DMaker.ts:103](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Shape3DMaker.ts#L103)
 
 Create line segments in Shape3DRenderer
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `points` | `Vector2`[] |
+##### points
+
+`Vector2`[]
 
 #### Returns
 
 [`LineShape3D`](LineShape3D.md)
 
-**`Memberof`**
+#### Memberof
 
 Shape3DMaker
 
-#### Defined in
+***
 
-[packages/graphic/renderer/Shape3DMaker.ts:103](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/Shape3DMaker.ts#L103)
+### quadraticCurve()
 
-___
+> **quadraticCurve**(`fx`, `fy`, `cpx`, `cpy`, `tx`, `ty`): [`QuadraticCurveShape3D`](QuadraticCurveShape3D.md)
 
-### quadraticCurve
-
-▸ **quadraticCurve**(`fx`, `fy`, `cpx`, `cpy`, `tx`, `ty`): [`QuadraticCurveShape3D`](QuadraticCurveShape3D.md)
+Defined in: [packages/graphic/renderer/Shape3DMaker.ts:127](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Shape3DMaker.ts#L127)
 
 Create a quadratic curve in Shape3DRenderer
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `fx` | `number` |
-| `fy` | `number` |
-| `cpx` | `number` |
-| `cpy` | `number` |
-| `tx` | `number` |
-| `ty` | `number` |
+##### fx
+
+`number`
+
+##### fy
+
+`number`
+
+##### cpx
+
+`number`
+
+##### cpy
+
+`number`
+
+##### tx
+
+`number`
+
+##### ty
+
+`number`
 
 #### Returns
 
@@ -206,34 +246,53 @@ Create a quadratic curve in Shape3DRenderer
 
 {QuadraticCurveShape3D}
 
-**`Memberof`**
+#### Memberof
 
 Shape3DMaker
 
-#### Defined in
+***
 
-[packages/graphic/renderer/Shape3DMaker.ts:127](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/Shape3DMaker.ts#L127)
+### curve()
 
-___
+> **curve**(`fx`, `fy`, `cp1x`, `cp1y`, `cp2x`, `cp2y`, `tx`, `ty`): [`CurveShape3D`](CurveShape3D.md)
 
-### curve
-
-▸ **curve**(`fx`, `fy`, `cp1x`, `cp1y`, `cp2x`, `cp2y`, `tx`, `ty`): [`CurveShape3D`](CurveShape3D.md)
+Defined in: [packages/graphic/renderer/Shape3DMaker.ts:149](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Shape3DMaker.ts#L149)
 
 Create a curve in Shape3DRenderer
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `fx` | `number` |
-| `fy` | `number` |
-| `cp1x` | `number` |
-| `cp1y` | `number` |
-| `cp2x` | `number` |
-| `cp2y` | `number` |
-| `tx` | `number` |
-| `ty` | `number` |
+##### fx
+
+`number`
+
+##### fy
+
+`number`
+
+##### cp1x
+
+`number`
+
+##### cp1y
+
+`number`
+
+##### cp2x
+
+`number`
+
+##### cp2y
+
+`number`
+
+##### tx
+
+`number`
+
+##### ty
+
+`number`
 
 #### Returns
 
@@ -241,19 +300,17 @@ Create a curve in Shape3DRenderer
 
 {CurveShape3D}
 
-**`Memberof`**
+#### Memberof
 
 Shape3DMaker
 
-#### Defined in
+***
 
-[packages/graphic/renderer/Shape3DMaker.ts:149](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/Shape3DMaker.ts#L149)
+### path2D()
 
-___
+> **path2D**(): [`Path2DShape3D`](Path2DShape3D.md)
 
-### path2D
-
-▸ **path2D**(): [`Path2DShape3D`](Path2DShape3D.md)
+Defined in: [packages/graphic/renderer/Shape3DMaker.ts:165](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Shape3DMaker.ts#L165)
 
 Create a path2D in Shape3DRenderer. Through the Path2DShape3D, you can use the CanvasPath API for path drawing on xz plane.
 
@@ -263,19 +320,17 @@ Create a path2D in Shape3DRenderer. Through the Path2DShape3D, you can use the C
 
 {Path2DShape3D}
 
-**`Memberof`**
+#### Memberof
 
 Shape3DMaker
 
-#### Defined in
+***
 
-[packages/graphic/renderer/Shape3DMaker.ts:165](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/Shape3DMaker.ts#L165)
+### path3D()
 
-___
+> **path3D**(): [`Path3DShape3D`](Path3DShape3D.md)
 
-### path3D
-
-▸ **path3D**(): [`Path3DShape3D`](Path3DShape3D.md)
+Defined in: [packages/graphic/renderer/Shape3DMaker.ts:175](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Shape3DMaker.ts#L175)
 
 Create a path3D in Shape3DRenderer. Through the Path3DShape3D, you can use the similar CanvasPath API for path drawing in 3D space.
 
@@ -285,28 +340,29 @@ Create a path3D in Shape3DRenderer. Through the Path3DShape3D, you can use the s
 
 {Path3DShape3D}
 
-**`Memberof`**
+#### Memberof
 
 Shape3DMaker
 
-#### Defined in
+***
 
-[packages/graphic/renderer/Shape3DMaker.ts:175](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/Shape3DMaker.ts#L175)
+### rect()
 
-___
+> **rect**(`w`, `h`): [`RoundRectShape3D`](RoundRectShape3D.md)
 
-### rect
-
-▸ **rect**(`w`, `h`): [`RoundRectShape3D`](RoundRectShape3D.md)
+Defined in: [packages/graphic/renderer/Shape3DMaker.ts:187](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Shape3DMaker.ts#L187)
 
 Create a rect in Shape3DRenderer
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `w` | `number` |
-| `h` | `number` |
+##### w
+
+`number`
+
+##### h
+
+`number`
 
 #### Returns
 
@@ -314,38 +370,38 @@ Create a rect in Shape3DRenderer
 
 {RoundRectShape3D}
 
-**`Memberof`**
+#### Memberof
 
 Shape3DMaker
 
-#### Defined in
+***
 
-[packages/graphic/renderer/Shape3DMaker.ts:187](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/Shape3DMaker.ts#L187)
+### roundRect()
 
-___
+> **roundRect**(`w`, `h`, `radii?`): [`RoundRectShape3D`](RoundRectShape3D.md)
 
-### roundRect
-
-▸ **roundRect**(`w`, `h`, `radii?`): [`RoundRectShape3D`](RoundRectShape3D.md)
+Defined in: [packages/graphic/renderer/Shape3DMaker.ts:206](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Shape3DMaker.ts#L206)
 
 Create a RoundRect in Shape3DRenderer
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `w` | `number` |
-| `h` | `number` |
-| `radii?` | `number` |
+##### w
+
+`number`
+
+##### h
+
+`number`
+
+##### radii?
+
+`number`
 
 #### Returns
 
 [`RoundRectShape3D`](RoundRectShape3D.md)
 
-**`Memberof`**
+#### Memberof
 
 Shape3DMaker
-
-#### Defined in
-
-[packages/graphic/renderer/Shape3DMaker.ts:206](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/Shape3DMaker.ts#L206)

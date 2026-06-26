@@ -1,230 +1,210 @@
+[**@orillusion/particle**](../README.md)
+
+***
+
 # Class: ParticleOverLifeColorModule
+
+Defined in: [packages/particle/module/stand/ParticleOverLifeColorModule.ts:11](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleOverLifeColorModule.ts#L11)
 
 Particle module of color change over life time
 
-## Hierarchy
-
-- `ParticleModuleBase`
-
-  ↳ **`ParticleOverLifeColorModule`**
-
-### Constructors
-
-- [constructor](ParticleOverLifeColorModule.md#constructor)
-
-### Accessors
-
-- [needReset](ParticleOverLifeColorModule.md#needreset)
-- [startColor](ParticleOverLifeColorModule.md#startcolor)
-- [startAlpha](ParticleOverLifeColorModule.md#startalpha)
-- [endColor](ParticleOverLifeColorModule.md#endcolor)
-- [endAlpha](ParticleOverLifeColorModule.md#endalpha)
-
-### Methods
-
-- [setSimulator](ParticleOverLifeColorModule.md#setsimulator)
-- [calculateParticle](ParticleOverLifeColorModule.md#calculateparticle)
-- [generateParticleModuleData](ParticleOverLifeColorModule.md#generateparticlemoduledata)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new ParticleOverLifeColorModule**(): [`ParticleOverLifeColorModule`](ParticleOverLifeColorModule.md)
+> **new ParticleOverLifeColorModule**(): `ParticleOverLifeColorModule`
 
 #### Returns
 
-[`ParticleOverLifeColorModule`](ParticleOverLifeColorModule.md)
+`ParticleOverLifeColorModule`
 
 #### Inherited from
 
-ParticleModuleBase.constructor
+`ParticleModuleBase.constructor`
 
 ## Accessors
 
 ### needReset
 
-• `get` **needReset**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **needReset**(): `boolean`
+
+Defined in: [packages/particle/module/stand/ParticleModuleBase.ts:21](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleModuleBase.ts#L21)
+
+##### Returns
 
 `boolean`
 
-#### Inherited from
+#### Set Signature
 
-ParticleModuleBase.needReset
+> **set** **needReset**(`v`): `void`
 
-#### Defined in
+Defined in: [packages/particle/module/stand/ParticleModuleBase.ts:17](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleModuleBase.ts#L17)
 
-[packages/particle/module/stand/ParticleModuleBase.ts:21](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleModuleBase.ts#L21)
+##### Parameters
 
-• `set` **needReset**(`v`): `void`
+###### v
 
-#### Parameters
+`boolean`
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `boolean` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-ParticleModuleBase.needReset
+`ParticleModuleBase.needReset`
 
-#### Defined in
-
-[packages/particle/module/stand/ParticleModuleBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleModuleBase.ts#L17)
-
-___
+***
 
 ### startColor
 
-• `get` **startColor**(): `Color`
+#### Get Signature
+
+> **get** **startColor**(): `Color`
+
+Defined in: [packages/particle/module/stand/ParticleOverLifeColorModule.ts:24](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleOverLifeColorModule.ts#L24)
 
 Get start color
 
-#### Returns
+##### Returns
 
 `Color`
 
-#### Defined in
+#### Set Signature
 
-[packages/particle/module/stand/ParticleOverLifeColorModule.ts:24](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleOverLifeColorModule.ts#L24)
+> **set** **startColor**(`v`): `void`
 
-• `set` **startColor**(`v`): `void`
+Defined in: [packages/particle/module/stand/ParticleOverLifeColorModule.ts:16](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleOverLifeColorModule.ts#L16)
 
 Set start color
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `Color` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/particle/module/stand/ParticleOverLifeColorModule.ts:16](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleOverLifeColorModule.ts#L16)
-
-___
-
-### startAlpha
-
-• `get` **startAlpha**(): `number`
-
-Get start alpha
-
-#### Returns
-
-`number`
-
-#### Defined in
-
-[packages/particle/module/stand/ParticleOverLifeColorModule.ts:39](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleOverLifeColorModule.ts#L39)
-
-• `set` **startAlpha**(`v`): `void`
-
-Set start alpha
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `v` | `number` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/particle/module/stand/ParticleOverLifeColorModule.ts:31](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleOverLifeColorModule.ts#L31)
-
-___
-
-### endColor
-
-• `get` **endColor**(): `Color`
-
-Get end color
-
-#### Returns
+###### v
 
 `Color`
 
-#### Defined in
-
-[packages/particle/module/stand/ParticleOverLifeColorModule.ts:54](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleOverLifeColorModule.ts#L54)
-
-• `set` **endColor**(`v`): `void`
-
-Set end color
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `v` | `Color` |
-
-#### Returns
+##### Returns
 
 `void`
 
-#### Defined in
+***
 
-[packages/particle/module/stand/ParticleOverLifeColorModule.ts:46](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleOverLifeColorModule.ts#L46)
+### startAlpha
 
-___
+#### Get Signature
 
-### endAlpha
+> **get** **startAlpha**(): `number`
 
-• `get` **endAlpha**(): `number`
+Defined in: [packages/particle/module/stand/ParticleOverLifeColorModule.ts:39](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleOverLifeColorModule.ts#L39)
 
-Get end alpha
+Get start alpha
 
-#### Returns
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[packages/particle/module/stand/ParticleOverLifeColorModule.ts:69](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleOverLifeColorModule.ts#L69)
+> **set** **startAlpha**(`v`): `void`
 
-• `set` **endAlpha**(`v`): `void`
+Defined in: [packages/particle/module/stand/ParticleOverLifeColorModule.ts:31](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleOverLifeColorModule.ts#L31)
+
+Set start alpha
+
+##### Parameters
+
+###### v
+
+`number`
+
+##### Returns
+
+`void`
+
+***
+
+### endColor
+
+#### Get Signature
+
+> **get** **endColor**(): `Color`
+
+Defined in: [packages/particle/module/stand/ParticleOverLifeColorModule.ts:54](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleOverLifeColorModule.ts#L54)
+
+Get end color
+
+##### Returns
+
+`Color`
+
+#### Set Signature
+
+> **set** **endColor**(`v`): `void`
+
+Defined in: [packages/particle/module/stand/ParticleOverLifeColorModule.ts:46](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleOverLifeColorModule.ts#L46)
+
+Set end color
+
+##### Parameters
+
+###### v
+
+`Color`
+
+##### Returns
+
+`void`
+
+***
+
+### endAlpha
+
+#### Get Signature
+
+> **get** **endAlpha**(): `number`
+
+Defined in: [packages/particle/module/stand/ParticleOverLifeColorModule.ts:69](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleOverLifeColorModule.ts#L69)
+
+Get end alpha
+
+##### Returns
+
+`number`
+
+#### Set Signature
+
+> **set** **endAlpha**(`v`): `void`
+
+Defined in: [packages/particle/module/stand/ParticleOverLifeColorModule.ts:61](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleOverLifeColorModule.ts#L61)
 
 Set end alpha
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `number` |
+###### v
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
-
-#### Defined in
-
-[packages/particle/module/stand/ParticleOverLifeColorModule.ts:61](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleOverLifeColorModule.ts#L61)
 
 ## Methods
 
-### setSimulator
+### setSimulator()
 
-▸ **setSimulator**(`simulator`): `void`
+> **setSimulator**(`simulator`): `void`
+
+Defined in: [packages/particle/module/stand/ParticleModuleBase.ts:25](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleModuleBase.ts#L25)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `simulator` | `ParticleSimulator` |
+##### simulator
+
+`ParticleSimulator`
 
 #### Returns
 
@@ -232,24 +212,25 @@ Set end alpha
 
 #### Inherited from
 
-ParticleModuleBase.setSimulator
+`ParticleModuleBase.setSimulator`
 
-#### Defined in
+***
 
-[packages/particle/module/stand/ParticleModuleBase.ts:25](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleModuleBase.ts#L25)
+### calculateParticle()
 
-___
+> **calculateParticle**(`globalMemory`, `localMemory`): `void`
 
-### calculateParticle
-
-▸ **calculateParticle**(`globalMemory`, `localMemory`): `void`
+Defined in: [packages/particle/module/stand/ParticleModuleBase.ts:29](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleModuleBase.ts#L29)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `globalMemory` | `ParticleGlobalMemory` |
-| `localMemory` | `ParticleLocalMemory` |
+##### globalMemory
+
+`ParticleGlobalMemory`
+
+##### localMemory
+
+`ParticleLocalMemory`
 
 #### Returns
 
@@ -257,26 +238,27 @@ ___
 
 #### Inherited from
 
-ParticleModuleBase.calculateParticle
+`ParticleModuleBase.calculateParticle`
 
-#### Defined in
+***
 
-[packages/particle/module/stand/ParticleModuleBase.ts:29](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleModuleBase.ts#L29)
+### generateParticleModuleData()
 
-___
+> **generateParticleModuleData**(`globalMemory`, `localMemory`): `void`
 
-### generateParticleModuleData
-
-▸ **generateParticleModuleData**(`globalMemory`, `localMemory`): `void`
+Defined in: [packages/particle/module/stand/ParticleOverLifeColorModule.ts:80](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleOverLifeColorModule.ts#L80)
 
 Genarate particle color module with type over life time
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `globalMemory` | `ParticleGlobalMemory` |
-| `localMemory` | `ParticleLocalMemory` |
+##### globalMemory
+
+`ParticleGlobalMemory`
+
+##### localMemory
+
+`ParticleLocalMemory`
 
 #### Returns
 
@@ -284,8 +266,4 @@ Genarate particle color module with type over life time
 
 #### Overrides
 
-ParticleModuleBase.generateParticleModuleData
-
-#### Defined in
-
-[packages/particle/module/stand/ParticleOverLifeColorModule.ts:80](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleOverLifeColorModule.ts#L80)
+`ParticleModuleBase.generateParticleModuleData`

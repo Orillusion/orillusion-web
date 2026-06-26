@@ -1,533 +1,433 @@
+[**@orillusion/physics**](../README.md)
+
+***
+
 # Class: GhostTrigger
+
+Defined in: [packages/physics/rigidbody/GhostTrigger.ts:11](https://github.com/orillusion/orillusion/blob/main/packages/physics/rigidbody/GhostTrigger.ts#L11)
 
 The GhostTrigger Component represents a non-physical trigger in the physics world.
 It uses a ghost object to detect overlapping collisions without producing physical responses.
 
-## Hierarchy
+## Extends
 
 - `ComponentBase`
 
-  ↳ **`GhostTrigger`**
-
-### Constructors
-
-- [constructor](GhostTrigger.md#constructor)
-
-### Properties
-
-- [object3D](GhostTrigger.md#object3d)
-- [isDestroyed](GhostTrigger.md#isdestroyed)
-
-### Accessors
-
-- [shape](GhostTrigger.md#shape)
-- [userIndex](GhostTrigger.md#userindex)
-- [collisionFlags](GhostTrigger.md#collisionflags)
-- [ghostObject](GhostTrigger.md#ghostobject)
-- [enableCollisionEvent](GhostTrigger.md#enablecollisionevent)
-- [collisionEvent](GhostTrigger.md#collisionevent)
-- [eventDispatcher](GhostTrigger.md#eventdispatcher)
-- [isStart](GhostTrigger.md#isstart)
-- [transform](GhostTrigger.md#transform)
-- [enable](GhostTrigger.md#enable)
-
-### Methods
-
-- [createAndAddGhostObject](GhostTrigger.md#createandaddghostobject)
-- [addCollisionFlag](GhostTrigger.md#addcollisionflag)
-- [removeCollisionFlag](GhostTrigger.md#removecollisionflag)
-- [start](GhostTrigger.md#start)
-- [wait](GhostTrigger.md#wait)
-- [destroy](GhostTrigger.md#destroy)
-- [init](GhostTrigger.md#init)
-- [stop](GhostTrigger.md#stop)
-- [onEnable](GhostTrigger.md#onenable)
-- [onDisable](GhostTrigger.md#ondisable)
-- [onUpdate](GhostTrigger.md#onupdate)
-- [onLateUpdate](GhostTrigger.md#onlateupdate)
-- [onBeforeUpdate](GhostTrigger.md#onbeforeupdate)
-- [onCompute](GhostTrigger.md#oncompute)
-- [onGraphic](GhostTrigger.md#ongraphic)
-- [onParentChange](GhostTrigger.md#onparentchange)
-- [onAddChild](GhostTrigger.md#onaddchild)
-- [onRemoveChild](GhostTrigger.md#onremovechild)
-- [cloneTo](GhostTrigger.md#cloneto)
-- [copyComponent](GhostTrigger.md#copycomponent)
-- [beforeDestroy](GhostTrigger.md#beforedestroy)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new GhostTrigger**(): [`GhostTrigger`](GhostTrigger.md)
+> **new GhostTrigger**(): `GhostTrigger`
 
 #### Returns
 
-[`GhostTrigger`](GhostTrigger.md)
+`GhostTrigger`
 
 #### Inherited from
 
-ComponentBase.constructor
+`ComponentBase.constructor`
 
 ## Properties
 
 ### object3D
 
-• **object3D**: `Object3D` = `null`
+> **object3D**: `Object3D` = `null`
+
+Defined in: [src/components/ComponentBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L29)
 
 owner object3D
 
 #### Inherited from
 
-ComponentBase.object3D
+`ComponentBase.object3D`
 
-#### Defined in
-
-[src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
-
-___
+***
 
 ### isDestroyed
 
-• `Optional` **isDestroyed**: `boolean`
+> **isDestroyed**: `boolean` = `false`
+
+Defined in: [src/components/ComponentBase.ts:77](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L77)
 
 #### Inherited from
 
-ComponentBase.isDestroyed
-
-#### Defined in
-
-[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
+`ComponentBase.isDestroyed`
 
 ## Accessors
 
-### shape
+### visibleLayer
 
-• `get` **shape**(): [`btCollisionShape`](Ammo.btCollisionShape.md)
+#### Get Signature
 
-#### Returns
+> **get** **visibleLayer**(): `number`
 
-[`btCollisionShape`](Ammo.btCollisionShape.md)
+Defined in: [src/components/ComponentBase.ts:46](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L46)
 
-#### Defined in
+Composition-layer membership bitmask. The pass / camera /
+collector filters via
 
-[packages/physics/rigidbody/GhostTrigger.ts:19](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/GhostTrigger.ts#L19)
+    (component.visibleLayer & pass.layerMask & camera.cullingMask) !== 0
 
-• `set` **shape**(`value`): `void`
+Defaults to VisibleLayer.Default (bit 0) so a fresh
+subclass is visible to passes whose `layerMask` is
+VisibleLayer.All (which includes bit 0). Application code
+can assign project-specific bits (1..31) to organise the scene
+into composition layers.
 
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | [`btCollisionShape`](Ammo.btCollisionShape.md) |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/physics/rigidbody/GhostTrigger.ts:22](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/GhostTrigger.ts#L22)
-
-___
-
-### userIndex
-
-• `get` **userIndex**(): `number`
-
-#### Returns
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[packages/physics/rigidbody/GhostTrigger.ts:31](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/GhostTrigger.ts#L31)
+> **set** **visibleLayer**(`value`): `void`
 
-• `set` **userIndex**(`value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/physics/rigidbody/GhostTrigger.ts:35](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/GhostTrigger.ts#L35)
-
-___
-
-### collisionFlags
-
-• `get` **collisionFlags**(): `number`
-
-获取碰撞标志
-
-#### Returns
-
-`number`
-
-#### Defined in
-
-[packages/physics/rigidbody/GhostTrigger.ts:45](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/GhostTrigger.ts#L45)
-
-___
-
-### ghostObject
-
-• `get` **ghostObject**(): [`btPairCachingGhostObject`](Ammo.btPairCachingGhostObject.md)
-
-获取幽灵对象
-
-#### Returns
-
-[`btPairCachingGhostObject`](Ammo.btPairCachingGhostObject.md)
-
-#### Defined in
-
-[packages/physics/rigidbody/GhostTrigger.ts:129](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/GhostTrigger.ts#L129)
-
-___
-
-### enableCollisionEvent
-
-• `get` **enableCollisionEvent**(): `boolean`
-
-启用/禁用碰撞回调
-
-#### Returns
-
-`boolean`
-
-#### Defined in
-
-[packages/physics/rigidbody/GhostTrigger.ts:144](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/GhostTrigger.ts#L144)
-
-• `set` **enableCollisionEvent**(`value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/physics/rigidbody/GhostTrigger.ts:147](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/GhostTrigger.ts#L147)
-
-___
-
-### collisionEvent
-
-• `get` **collisionEvent**(): (`contactPoint`: [`btManifoldPoint`](Ammo.btManifoldPoint.md), `selfBody`: [`btRigidBody`](Ammo.btRigidBody.md), `otherBody`: [`btRigidBody`](Ammo.btRigidBody.md)) => `void`
-
-碰撞事件回调
-
-#### Returns
-
-`fn`
-
-▸ (`contactPoint`, `selfBody`, `otherBody`): `void`
+Defined in: [src/components/ComponentBase.ts:50](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L50)
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `contactPoint` | [`btManifoldPoint`](Ammo.btManifoldPoint.md) |
-| `selfBody` | [`btRigidBody`](Ammo.btRigidBody.md) |
-| `otherBody` | [`btRigidBody`](Ammo.btRigidBody.md) |
+###### value
+
+`number`
 
 ##### Returns
 
 `void`
 
-#### Defined in
+#### Inherited from
 
-[packages/physics/rigidbody/GhostTrigger.ts:155](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/GhostTrigger.ts#L155)
+`ComponentBase.visibleLayer`
 
-• `set` **collisionEvent**(`callback`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `callback` | (`contactPoint`: [`btManifoldPoint`](Ammo.btManifoldPoint.md), `selfBody`: [`btRigidBody`](Ammo.btRigidBody.md), `otherBody`: [`btRigidBody`](Ammo.btRigidBody.md)) => `void` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/physics/rigidbody/GhostTrigger.ts:158](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/GhostTrigger.ts#L158)
-
-___
+***
 
 ### eventDispatcher
 
-• `get` **eventDispatcher**(): `CEventDispatcher`
+#### Get Signature
 
-#### Returns
+> **get** **eventDispatcher**(): `CEventDispatcher`
+
+Defined in: [src/components/ComponentBase.ts:63](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L63)
+
+##### Returns
 
 `CEventDispatcher`
 
-#### Inherited from
+#### Set Signature
 
-ComponentBase.eventDispatcher
+> **set** **eventDispatcher**(`value`): `void`
 
-#### Defined in
+Defined in: [src/components/ComponentBase.ts:68](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
 
-[src/components/ComponentBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L23)
+##### Parameters
 
-• `set` **eventDispatcher**(`value`): `void`
+###### value
 
-#### Parameters
+`CEventDispatcher`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `CEventDispatcher` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-ComponentBase.eventDispatcher
+`ComponentBase.eventDispatcher`
 
-#### Defined in
-
-[src/components/ComponentBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L28)
-
-___
+***
 
 ### isStart
 
-• `get` **isStart**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **isStart**(): `boolean`
+
+Defined in: [src/components/ComponentBase.ts:79](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L79)
+
+##### Returns
 
 `boolean`
 
 #### Inherited from
 
-ComponentBase.isStart
+`ComponentBase.isStart`
 
-#### Defined in
-
-[src/components/ComponentBase.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L40)
-
-___
+***
 
 ### transform
 
-• `get` **transform**(): `Transform`
+#### Get Signature
+
+> **get** **transform**(): `Transform`
+
+Defined in: [src/components/ComponentBase.ts:89](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L89)
 
 Return the Transform component attached to the Object3D.
+Null before the component is attached — `addComponent` assigns
+`object3D` only after construction — so constructor-time callers
+can probe safely via `this.transform?.`.
 
-#### Returns
+##### Returns
 
 `Transform`
 
 #### Inherited from
 
-ComponentBase.transform
+`ComponentBase.transform`
 
-#### Defined in
-
-[src/components/ComponentBase.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L47)
-
-___
+***
 
 ### enable
 
-• `get` **enable**(): `boolean`
+#### Get Signature
+
+> **get** **enable**(): `boolean`
+
+Defined in: [src/components/ComponentBase.ts:113](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
-#### Returns
+##### Returns
 
 `boolean`
 
-#### Inherited from
+#### Set Signature
 
-ComponentBase.enable
+> **set** **enable**(`value`): `void`
 
-#### Defined in
-
-[src/components/ComponentBase.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
-
-• `set` **enable**(`value`): `void`
+Defined in: [src/components/ComponentBase.ts:96](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L96)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
+###### value
 
-#### Returns
+`boolean`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-ComponentBase.enable
+`ComponentBase.enable`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L54)
+### shape
+
+#### Get Signature
+
+> **get** **shape**(): [`btCollisionShape`](../@orillusion/namespaces/Ammo/classes/btCollisionShape.md)
+
+Defined in: [packages/physics/rigidbody/GhostTrigger.ts:19](https://github.com/orillusion/orillusion/blob/main/packages/physics/rigidbody/GhostTrigger.ts#L19)
+
+##### Returns
+
+[`btCollisionShape`](../@orillusion/namespaces/Ammo/classes/btCollisionShape.md)
+
+#### Set Signature
+
+> **set** **shape**(`value`): `void`
+
+Defined in: [packages/physics/rigidbody/GhostTrigger.ts:22](https://github.com/orillusion/orillusion/blob/main/packages/physics/rigidbody/GhostTrigger.ts#L22)
+
+##### Parameters
+
+###### value
+
+[`btCollisionShape`](../@orillusion/namespaces/Ammo/classes/btCollisionShape.md)
+
+##### Returns
+
+`void`
+
+***
+
+### userIndex
+
+#### Get Signature
+
+> **get** **userIndex**(): `number`
+
+Defined in: [packages/physics/rigidbody/GhostTrigger.ts:31](https://github.com/orillusion/orillusion/blob/main/packages/physics/rigidbody/GhostTrigger.ts#L31)
+
+##### Returns
+
+`number`
+
+#### Set Signature
+
+> **set** **userIndex**(`value`): `void`
+
+Defined in: [packages/physics/rigidbody/GhostTrigger.ts:35](https://github.com/orillusion/orillusion/blob/main/packages/physics/rigidbody/GhostTrigger.ts#L35)
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
+
+`void`
+
+***
+
+### collisionFlags
+
+#### Get Signature
+
+> **get** **collisionFlags**(): `number`
+
+Defined in: [packages/physics/rigidbody/GhostTrigger.ts:45](https://github.com/orillusion/orillusion/blob/main/packages/physics/rigidbody/GhostTrigger.ts#L45)
+
+Gets the collision flags
+
+##### Returns
+
+`number`
+
+***
+
+### ghostObject
+
+#### Get Signature
+
+> **get** **ghostObject**(): [`btPairCachingGhostObject`](../@orillusion/namespaces/Ammo/classes/btPairCachingGhostObject.md)
+
+Defined in: [packages/physics/rigidbody/GhostTrigger.ts:129](https://github.com/orillusion/orillusion/blob/main/packages/physics/rigidbody/GhostTrigger.ts#L129)
+
+Gets the ghost object
+
+##### Returns
+
+[`btPairCachingGhostObject`](../@orillusion/namespaces/Ammo/classes/btPairCachingGhostObject.md)
+
+***
+
+### enableCollisionEvent
+
+#### Get Signature
+
+> **get** **enableCollisionEvent**(): `boolean`
+
+Defined in: [packages/physics/rigidbody/GhostTrigger.ts:144](https://github.com/orillusion/orillusion/blob/main/packages/physics/rigidbody/GhostTrigger.ts#L144)
+
+Enable/disable collision callbacks
+
+##### Returns
+
+`boolean`
+
+#### Set Signature
+
+> **set** **enableCollisionEvent**(`value`): `void`
+
+Defined in: [packages/physics/rigidbody/GhostTrigger.ts:147](https://github.com/orillusion/orillusion/blob/main/packages/physics/rigidbody/GhostTrigger.ts#L147)
+
+##### Parameters
+
+###### value
+
+`boolean`
+
+##### Returns
+
+`void`
+
+***
+
+### collisionEvent
+
+#### Get Signature
+
+> **get** **collisionEvent**(): (`contactPoint`, `selfBody`, `otherBody`) => `void`
+
+Defined in: [packages/physics/rigidbody/GhostTrigger.ts:155](https://github.com/orillusion/orillusion/blob/main/packages/physics/rigidbody/GhostTrigger.ts#L155)
+
+Collision event callback
+
+##### Returns
+
+(`contactPoint`, `selfBody`, `otherBody`) => `void`
+
+#### Set Signature
+
+> **set** **collisionEvent**(`callback`): `void`
+
+Defined in: [packages/physics/rigidbody/GhostTrigger.ts:158](https://github.com/orillusion/orillusion/blob/main/packages/physics/rigidbody/GhostTrigger.ts#L158)
+
+##### Parameters
+
+###### callback
+
+(`contactPoint`, `selfBody`, `otherBody`) => `void`
+
+##### Returns
+
+`void`
 
 ## Methods
 
-### createAndAddGhostObject
+### createAndAddGhostObject()
 
-▸ **createAndAddGhostObject**(`shape`, `position`, `rotation`, `collisionFlags?`, `userIndex?`): [`btPairCachingGhostObject`](Ammo.btPairCachingGhostObject.md)
+> `static` **createAndAddGhostObject**(`shape`, `position`, `rotation`, `collisionFlags?`, `userIndex?`): [`btPairCachingGhostObject`](../@orillusion/namespaces/Ammo/classes/btPairCachingGhostObject.md)
 
-创建幽灵对象并添加到物理世界。
+Defined in: [packages/physics/rigidbody/GhostTrigger.ts:103](https://github.com/orillusion/orillusion/blob/main/packages/physics/rigidbody/GhostTrigger.ts#L103)
 
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `shape` | [`btCollisionShape`](Ammo.btCollisionShape.md) | 碰撞形状。 |
-| `position` | `Vector3` | 幽灵对象的位置。 |
-| `rotation` | `Vector3` | 幽灵对象的旋转。 |
-| `collisionFlags?` | `number` | 可选参数，碰撞标志，默认值为 4 `NO_CONTACT_RESPONSE` 表示对象不参与碰撞响应，但仍会触发碰撞事件。 |
-| `userIndex?` | `number` | 可选参数，用户索引，可作为物理对象标识。 |
-
-#### Returns
-
-[`btPairCachingGhostObject`](Ammo.btPairCachingGhostObject.md)
-
-新创建的 Ammo.btPairCachingGhostObject 对象。
-
-#### Defined in
-
-[packages/physics/rigidbody/GhostTrigger.ts:103](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/GhostTrigger.ts#L103)
-
-___
-
-### addCollisionFlag
-
-▸ **addCollisionFlag**(`value`): `void`
-
-添加单个碰撞标志
+Creates a ghost object and adds it to the physics world.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`CollisionFlags`](../enums/CollisionFlags.md) |
+##### shape
+
+[`btCollisionShape`](../@orillusion/namespaces/Ammo/classes/btCollisionShape.md)
+
+The collision shape.
+
+##### position
+
+`Vector3`
+
+The position of the ghost object.
+
+##### rotation
+
+`Vector3`
+
+The rotation of the ghost object.
+
+##### collisionFlags?
+
+`number`
+
+Optional parameter, collision flags; defaults to 4 `NO_CONTACT_RESPONSE`, meaning the object does not participate in collision response but still triggers collision events.
+
+##### userIndex?
+
+`number`
+
+Optional parameter, user index that can serve as an identifier for the physics object.
 
 #### Returns
 
-`void`
+[`btPairCachingGhostObject`](../@orillusion/namespaces/Ammo/classes/btPairCachingGhostObject.md)
 
-#### Defined in
+The newly created Ammo.btPairCachingGhostObject.
 
-[packages/physics/rigidbody/GhostTrigger.ts:52](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/GhostTrigger.ts#L52)
+***
 
-___
+### init()
 
-### removeCollisionFlag
+> **init**(`param?`): `void`
 
-▸ **removeCollisionFlag**(`value`): `void`
-
-删除单个碰撞标志
+Defined in: [src/components/ComponentBase.ts:161](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L161)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`CollisionFlags`](../enums/CollisionFlags.md) |
+##### param?
 
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/physics/rigidbody/GhostTrigger.ts:59](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/GhostTrigger.ts#L59)
-
-___
-
-### start
-
-▸ **start**(): `Promise`\<`void`\>
-
-#### Returns
-
-`Promise`\<`void`\>
-
-#### Overrides
-
-ComponentBase.start
-
-#### Defined in
-
-[packages/physics/rigidbody/GhostTrigger.ts:64](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/GhostTrigger.ts#L64)
-
-___
-
-### wait
-
-▸ **wait**(): `Promise`\<[`btPairCachingGhostObject`](Ammo.btPairCachingGhostObject.md)\>
-
-异步获取完成初始化的幽灵对象
-
-#### Returns
-
-`Promise`\<[`btPairCachingGhostObject`](Ammo.btPairCachingGhostObject.md)\>
-
-#### Defined in
-
-[packages/physics/rigidbody/GhostTrigger.ts:136](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/GhostTrigger.ts#L136)
-
-___
-
-### destroy
-
-▸ **destroy**(`force?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-ComponentBase.destroy
-
-#### Defined in
-
-[packages/physics/rigidbody/GhostTrigger.ts:162](https://github.com/Orillusion/orillusion/blob/main/packages/physics/rigidbody/GhostTrigger.ts#L162)
-
-___
-
-### init
-
-▸ **init**(`param?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `param?` | `any` |
+`any`
 
 #### Returns
 
@@ -535,17 +435,15 @@ ___
 
 #### Inherited from
 
-ComponentBase.init
+`ComponentBase.init`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L112)
+### stop()
 
-___
+> **stop**(): `void`
 
-### stop
-
-▸ **stop**(): `void`
+Defined in: [src/components/ComponentBase.ts:163](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L163)
 
 #### Returns
 
@@ -553,23 +451,21 @@ ___
 
 #### Inherited from
 
-ComponentBase.stop
+`ComponentBase.stop`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
+### onEnable()?
 
-___
+> `optional` **onEnable**(`view?`): `any`
 
-### onEnable
-
-▸ **onEnable**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:164](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L164)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
+##### view?
+
+`View3D`
 
 #### Returns
 
@@ -577,23 +473,21 @@ ___
 
 #### Inherited from
 
-ComponentBase.onEnable
+`ComponentBase.onEnable`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L115)
+### onDisable()?
 
-___
+> `optional` **onDisable**(`view?`): `any`
 
-### onDisable
-
-▸ **onDisable**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:165](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L165)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
+##### view?
+
+`View3D`
 
 #### Returns
 
@@ -601,23 +495,21 @@ ___
 
 #### Inherited from
 
-ComponentBase.onDisable
+`ComponentBase.onDisable`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L116)
+### onUpdate()?
 
-___
+> `optional` **onUpdate**(`view?`): `any`
 
-### onUpdate
-
-▸ **onUpdate**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:166](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L166)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
+##### view?
+
+`View3D`
 
 #### Returns
 
@@ -625,23 +517,21 @@ ___
 
 #### Inherited from
 
-ComponentBase.onUpdate
+`ComponentBase.onUpdate`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L117)
+### onLateUpdate()?
 
-___
+> `optional` **onLateUpdate**(`view?`): `any`
 
-### onLateUpdate
-
-▸ **onLateUpdate**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:167](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L167)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
+##### view?
+
+`View3D`
 
 #### Returns
 
@@ -649,23 +539,21 @@ ___
 
 #### Inherited from
 
-ComponentBase.onLateUpdate
+`ComponentBase.onLateUpdate`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L118)
+### onBeforeUpdate()?
 
-___
+> `optional` **onBeforeUpdate**(`view?`): `any`
 
-### onBeforeUpdate
-
-▸ **onBeforeUpdate**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:168](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L168)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
+##### view?
+
+`View3D`
 
 #### Returns
 
@@ -673,24 +561,25 @@ ___
 
 #### Inherited from
 
-ComponentBase.onBeforeUpdate
+`ComponentBase.onBeforeUpdate`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L119)
+### onCompute()?
 
-___
+> `optional` **onCompute**(`view?`, `command?`): `any`
 
-### onCompute
-
-▸ **onCompute**(`view?`, `command?`): `any`
+Defined in: [src/components/ComponentBase.ts:169](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L169)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
-| `command?` | `GPUCommandEncoder` |
+##### view?
+
+`View3D`
+
+##### command?
+
+`GPUCommandEncoder`
 
 #### Returns
 
@@ -698,23 +587,21 @@ ___
 
 #### Inherited from
 
-ComponentBase.onCompute
+`ComponentBase.onCompute`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L120)
+### onGraphic()?
 
-___
+> `optional` **onGraphic**(`view?`): `any`
 
-### onGraphic
-
-▸ **onGraphic**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:170](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L170)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
+##### view?
+
+`View3D`
 
 #### Returns
 
@@ -722,24 +609,25 @@ ___
 
 #### Inherited from
 
-ComponentBase.onGraphic
+`ComponentBase.onGraphic`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L121)
+### onParentChange()?
 
-___
+> `optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
-### onParentChange
-
-▸ **onParentChange**(`lastParent?`, `currentParent?`): `any`
+Defined in: [src/components/ComponentBase.ts:171](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L171)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `lastParent?` | `Object3D` |
-| `currentParent?` | `Object3D` |
+##### lastParent?
+
+`Object3D`
+
+##### currentParent?
+
+`Object3D`
 
 #### Returns
 
@@ -747,23 +635,21 @@ ___
 
 #### Inherited from
 
-ComponentBase.onParentChange
+`ComponentBase.onParentChange`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L122)
+### onAddChild()?
 
-___
+> `optional` **onAddChild**(`child`): `any`
 
-### onAddChild
-
-▸ **onAddChild**(`child`): `any`
+Defined in: [src/components/ComponentBase.ts:172](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L172)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `child` | `Object3D` |
+##### child
+
+`Object3D`
 
 #### Returns
 
@@ -771,23 +657,21 @@ ___
 
 #### Inherited from
 
-ComponentBase.onAddChild
+`ComponentBase.onAddChild`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L123)
+### onRemoveChild()?
 
-___
+> `optional` **onRemoveChild**(`child`): `any`
 
-### onRemoveChild
-
-▸ **onRemoveChild**(`child`): `any`
+Defined in: [src/components/ComponentBase.ts:173](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L173)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `child` | `Object3D` |
+##### child
+
+`Object3D`
 
 #### Returns
 
@@ -795,25 +679,25 @@ ___
 
 #### Inherited from
 
-ComponentBase.onRemoveChild
+`ComponentBase.onRemoveChild`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L124)
+### cloneTo()
 
-___
+> **cloneTo**(`obj`): `void`
 
-### cloneTo
-
-▸ **cloneTo**(`obj`): `void`
+Defined in: [src/components/ComponentBase.ts:180](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L180)
 
 clone component data to target object3D
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `obj` | `Object3D` | target object3D |
+##### obj
+
+`Object3D`
+
+target object3D
 
 #### Returns
 
@@ -821,23 +705,21 @@ clone component data to target object3D
 
 #### Inherited from
 
-ComponentBase.cloneTo
+`ComponentBase.cloneTo`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L131)
+### copyComponent()
 
-___
+> **copyComponent**(`from`): `this`
 
-### copyComponent
-
-▸ **copyComponent**(`from`): `this`
+Defined in: [src/components/ComponentBase.ts:182](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L182)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `from` | `this` |
+##### from
+
+`this`
 
 #### Returns
 
@@ -845,25 +727,23 @@ ___
 
 #### Inherited from
 
-ComponentBase.copyComponent
+`ComponentBase.copyComponent`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L133)
+### beforeDestroy()
 
-___
+> **beforeDestroy**(`force?`): `void`
 
-### beforeDestroy
-
-▸ **beforeDestroy**(`force?`): `void`
+Defined in: [src/components/ComponentBase.ts:249](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L249)
 
 before release this component, object refrences are not be set null now.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
+##### force?
+
+`boolean`
 
 #### Returns
 
@@ -871,8 +751,98 @@ before release this component, object refrences are not be set null now.
 
 #### Inherited from
 
-ComponentBase.beforeDestroy
+`ComponentBase.beforeDestroy`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L200)
+### addCollisionFlag()
+
+> **addCollisionFlag**(`value`): `void`
+
+Defined in: [packages/physics/rigidbody/GhostTrigger.ts:52](https://github.com/orillusion/orillusion/blob/main/packages/physics/rigidbody/GhostTrigger.ts#L52)
+
+Adds a single collision flag
+
+#### Parameters
+
+##### value
+
+[`CollisionFlags`](../enumerations/CollisionFlags.md)
+
+#### Returns
+
+`void`
+
+***
+
+### removeCollisionFlag()
+
+> **removeCollisionFlag**(`value`): `void`
+
+Defined in: [packages/physics/rigidbody/GhostTrigger.ts:59](https://github.com/orillusion/orillusion/blob/main/packages/physics/rigidbody/GhostTrigger.ts#L59)
+
+Removes a single collision flag
+
+#### Parameters
+
+##### value
+
+[`CollisionFlags`](../enumerations/CollisionFlags.md)
+
+#### Returns
+
+`void`
+
+***
+
+### start()
+
+> **start**(): `Promise`\<`void`\>
+
+Defined in: [packages/physics/rigidbody/GhostTrigger.ts:64](https://github.com/orillusion/orillusion/blob/main/packages/physics/rigidbody/GhostTrigger.ts#L64)
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Overrides
+
+`ComponentBase.start`
+
+***
+
+### wait()
+
+> **wait**(): `Promise`\<[`btPairCachingGhostObject`](../@orillusion/namespaces/Ammo/classes/btPairCachingGhostObject.md)\>
+
+Defined in: [packages/physics/rigidbody/GhostTrigger.ts:136](https://github.com/orillusion/orillusion/blob/main/packages/physics/rigidbody/GhostTrigger.ts#L136)
+
+Asynchronously retrieves the fully initialized ghost object
+
+#### Returns
+
+`Promise`\<[`btPairCachingGhostObject`](../@orillusion/namespaces/Ammo/classes/btPairCachingGhostObject.md)\>
+
+***
+
+### destroy()
+
+> **destroy**(`force?`): `void`
+
+Defined in: [packages/physics/rigidbody/GhostTrigger.ts:162](https://github.com/orillusion/orillusion/blob/main/packages/physics/rigidbody/GhostTrigger.ts#L162)
+
+release this component
+
+#### Parameters
+
+##### force?
+
+`boolean`
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+`ComponentBase.destroy`

@@ -1,102 +1,106 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: Plane
+
+Defined in: [src/math/Plane.ts:8](https://github.com/orillusion/orillusion/blob/main/src/math/Plane.ts#L8)
 
 Plane mathematics class
 
-### Constructors
-
-- [constructor](Plane.md#constructor)
-
-### Properties
-
-- [point](Plane.md#point)
-- [normal](Plane.md#normal)
-
-### Methods
-
-- [clone](Plane.md#clone)
-- [intersectsLine](Plane.md#intersectsline)
-- [intersectsRay](Plane.md#intersectsray)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new Plane**(`pos`, `normal`): [`Plane`](Plane.md)
+> **new Plane**(`pos`, `normal`): `Plane`
+
+Defined in: [src/math/Plane.ts:29](https://github.com/orillusion/orillusion/blob/main/src/math/Plane.ts#L29)
 
 Constructs a new plane object
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `pos` | [`Vector3`](Vector3.md) | Plane position |
-| `normal` | [`Vector3`](Vector3.md) | Plane normal quantity |
+##### pos
+
+[`Vector3`](Vector3.md)
+
+Plane position
+
+##### normal
+
+[`Vector3`](Vector3.md)
+
+Plane normal quantity
 
 #### Returns
 
-[`Plane`](Plane.md)
-
-#### Defined in
-
-[src/math/Plane.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane.ts#L29)
+`Plane`
 
 ## Properties
 
 ### point
 
-• **point**: [`Vector3`](Vector3.md)
+> **point**: [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Plane.ts:12](https://github.com/orillusion/orillusion/blob/main/src/math/Plane.ts#L12)
 
 Center position of plane
 
-#### Defined in
-
-[src/math/Plane.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane.ts#L12)
-
-___
+***
 
 ### normal
 
-• **normal**: [`Vector3`](Vector3.md) = `Vector3.UP`
+> **normal**: [`Vector3`](Vector3.md) = `Vector3.UP`
+
+Defined in: [src/math/Plane.ts:17](https://github.com/orillusion/orillusion/blob/main/src/math/Plane.ts#L17)
 
 Plane normal vector
 
-#### Defined in
-
-[src/math/Plane.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane.ts#L17)
-
 ## Methods
 
-### clone
+### clone()
 
-▸ **clone**(): [`Plane`](Plane.md)
+> **clone**(): `Plane`
+
+Defined in: [src/math/Plane.ts:38](https://github.com/orillusion/orillusion/blob/main/src/math/Plane.ts#L38)
 
 Clones the current plane object
 
 #### Returns
 
-[`Plane`](Plane.md)
+`Plane`
 
 New plane object
 
-#### Defined in
+***
 
-[src/math/Plane.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane.ts#L38)
+### intersectsLine()
 
-___
+> **intersectsLine**(`start`, `end`, `point`): `boolean`
 
-### intersectsLine
-
-▸ **intersectsLine**(`start`, `end`, `point`): `boolean`
+Defined in: [src/math/Plane.ts:50](https://github.com/orillusion/orillusion/blob/main/src/math/Plane.ts#L50)
 
 Determine whether the plane intersects a line segment and calculate the intersection point
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `start` | [`Vector3`](Vector3.md) | Starting point of line segment |
-| `end` | [`Vector3`](Vector3.md) | End point of line segment |
-| `point` | [`Vector3`](Vector3.md) | Point of output intersection |
+##### start
+
+[`Vector3`](Vector3.md)
+
+Starting point of line segment
+
+##### end
+
+[`Vector3`](Vector3.md)
+
+End point of line segment
+
+##### point
+
+[`Vector3`](Vector3.md)
+
+Point of output intersection
 
 #### Returns
 
@@ -104,31 +108,30 @@ Determine whether the plane intersects a line segment and calculate the intersec
 
 Returns whether it intersects
 
-#### Defined in
+***
 
-[src/math/Plane.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane.ts#L50)
+### intersectsRay()
 
-___
+> **intersectsRay**(`ray`, `targetPoint?`): `boolean`
 
-### intersectsRay
-
-▸ **intersectsRay**(`ray`, `targetPoint?`): `boolean`
+Defined in: [src/math/Plane.ts:70](https://github.com/orillusion/orillusion/blob/main/src/math/Plane.ts#L70)
 
 Determine whether the plane intersects a ray and calculate the intersection point
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `ray` | [`Ray`](Ray.md) | Ray of input |
-| `targetPoint?` | [`Vector3`](Vector3.md) | - |
+##### ray
+
+[`Ray`](Ray.md)
+
+Ray of input
+
+##### targetPoint?
+
+[`Vector3`](Vector3.md)
 
 #### Returns
 
 `boolean`
 
 Returns whether it intersects
-
-#### Defined in
-
-[src/math/Plane.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane.ts#L70)

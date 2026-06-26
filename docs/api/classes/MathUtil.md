@@ -1,51 +1,52 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: MathUtil
+
+Defined in: [src/math/MathUtil.ts:44](https://github.com/orillusion/orillusion/blob/main/src/math/MathUtil.ts#L44)
 
 Built-in mathematical basic calculation factory function
 
-### Constructors
-
-- [constructor](MathUtil.md#constructor)
-
-### Methods
-
-- [clampf](MathUtil.md#clampf)
-- [normalizeAngle](MathUtil.md#normalizeangle)
-- [fract](MathUtil.md#fract)
-- [getRandDirXZ](MathUtil.md#getranddirxz)
-- [getRandDirXYZ](MathUtil.md#getranddirxyz)
-- [getCycleXYZ](MathUtil.md#getcyclexyz)
-- [angle](MathUtil.md#angle)
-- [angle\_360](MathUtil.md#angle_360)
-- [fromToRotation](MathUtil.md#fromtorotation)
-- [getEularDir\_yUp](MathUtil.md#geteulardir_yup)
-- [transformVector](MathUtil.md#transformvector)
-- [getRotationY](MathUtil.md#getrotationy)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new MathUtil**(): [`MathUtil`](MathUtil.md)
+> **new MathUtil**(): `MathUtil`
 
 #### Returns
 
-[`MathUtil`](MathUtil.md)
+`MathUtil`
 
 ## Methods
 
-### clampf
+### clampf()
 
-▸ **clampf**(`value`, `min_inclusive`, `max_inclusive`): `number`
+> `static` **clampf**(`value`, `min_inclusive`, `max_inclusive`): `number`
+
+Defined in: [src/math/MathUtil.ts:107](https://github.com/orillusion/orillusion/blob/main/src/math/MathUtil.ts#L107)
 
 Limit the value to a certain range
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `value` | `number` | Original value |
-| `min_inclusive` | `number` | minimum value |
-| `max_inclusive` | `number` | maximum value |
+##### value
+
+`number`
+
+Original value
+
+##### min\_inclusive
+
+`number`
+
+minimum value
+
+##### max\_inclusive
+
+`number`
+
+maximum value
 
 #### Returns
 
@@ -53,23 +54,23 @@ Limit the value to a certain range
 
 Return the calculation result
 
-#### Defined in
+***
 
-[src/math/MathUtil.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/math/MathUtil.ts#L107)
+### normalizeAngle()
 
-___
+> `static` **normalizeAngle**(`a`): `number`
 
-### normalizeAngle
-
-▸ **normalizeAngle**(`a`): `number`
+Defined in: [src/math/MathUtil.ts:121](https://github.com/orillusion/orillusion/blob/main/src/math/MathUtil.ts#L121)
 
 Normalize the Angle so that it is limited to the range [-180, 180]
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `a` | `number` | Angle of input |
+##### a
+
+`number`
+
+Angle of input
 
 #### Returns
 
@@ -77,23 +78,23 @@ Normalize the Angle so that it is limited to the range [-180, 180]
 
 Return the processing result
 
-#### Defined in
+***
 
-[src/math/MathUtil.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/math/MathUtil.ts#L121)
+### fract()
 
-___
+> `static` **fract**(`v`): `number`
 
-### fract
-
-▸ **fract**(`v`): `number`
+Defined in: [src/math/MathUtil.ts:136](https://github.com/orillusion/orillusion/blob/main/src/math/MathUtil.ts#L136)
 
 Returns the fractional part of a number
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `v` | `number` | input value |
+##### v
+
+`number`
+
+input value
 
 #### Returns
 
@@ -101,52 +102,55 @@ Returns the fractional part of a number
 
 Return the result
 
-#### Defined in
+***
 
-[src/math/MathUtil.ts:136](https://github.com/Orillusion/orillusion/blob/main/src/math/MathUtil.ts#L136)
+### getRandDirXZ()
 
-___
+> `static` **getRandDirXZ**(`r`): `object`
 
-### getRandDirXZ
-
-▸ **getRandDirXZ**(`r`): `Object`
+Defined in: [src/math/MathUtil.ts:145](https://github.com/orillusion/orillusion/blob/main/src/math/MathUtil.ts#L145)
 
 Generate a random pair of x and z coordinates that fall within the radius of the circle
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `r` | `number` | radius |
+##### r
+
+`number`
+
+radius
 
 #### Returns
 
-`Object`
+`object`
 
 The generated x, z results
 
-| Name | Type |
-| :------ | :------ |
-| `x` | `number` |
-| `z` | `number` |
+##### x
 
-#### Defined in
+> **x**: `number`
 
-[src/math/MathUtil.ts:145](https://github.com/Orillusion/orillusion/blob/main/src/math/MathUtil.ts#L145)
+##### z
 
-___
+> **z**: `number`
 
-### getRandDirXYZ
+***
 
-▸ **getRandDirXYZ**(`r`): [`Vector3`](Vector3.md)
+### getRandDirXYZ()
+
+> `static` **getRandDirXYZ**(`r`): [`Vector3`](Vector3.md)
+
+Defined in: [src/math/MathUtil.ts:158](https://github.com/orillusion/orillusion/blob/main/src/math/MathUtil.ts#L158)
 
 Generate a random pair of x, y, and z coordinates that fall within the radius of the sphere
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `r` | `number` | radius |
+##### r
+
+`number`
+
+radius
 
 #### Returns
 
@@ -154,23 +158,23 @@ Generate a random pair of x, y, and z coordinates that fall within the radius of
 
 The Vector3 vector formed by the generated x, y, and z coordinate values
 
-#### Defined in
+***
 
-[src/math/MathUtil.ts:158](https://github.com/Orillusion/orillusion/blob/main/src/math/MathUtil.ts#L158)
+### getCycleXYZ()
 
-___
+> `static` **getCycleXYZ**(`r`): [`Vector3`](Vector3.md)
 
-### getCycleXYZ
-
-▸ **getCycleXYZ**(`r`): [`Vector3`](Vector3.md)
+Defined in: [src/math/MathUtil.ts:172](https://github.com/orillusion/orillusion/blob/main/src/math/MathUtil.ts#L172)
 
 According to the radius, generate a random pair of x, y, z coordinates that fall within the sphere and the y value is between [-r/2, r/2]
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `r` | `number` | radius |
+##### r
+
+`number`
+
+radius
 
 #### Returns
 
@@ -178,24 +182,29 @@ According to the radius, generate a random pair of x, y, z coordinates that fall
 
 The Vector3 vector formed by the generated x, y, and z coordinate values
 
-#### Defined in
+***
 
-[src/math/MathUtil.ts:172](https://github.com/Orillusion/orillusion/blob/main/src/math/MathUtil.ts#L172)
+### angle()
 
-___
+> `static` **angle**(`p1`, `p2`): `number`
 
-### angle
-
-▸ **angle**(`p1`, `p2`): `number`
+Defined in: [src/math/MathUtil.ts:187](https://github.com/orillusion/orillusion/blob/main/src/math/MathUtil.ts#L187)
 
 Calculate the Angle between two vectors
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `p1` | [`Vector3`](Vector3.md) | Vector 1 |
-| `p2` | [`Vector3`](Vector3.md) | Vector 2 |
+##### p1
+
+[`Vector3`](Vector3.md)
+
+Vector 1
+
+##### p2
+
+[`Vector3`](Vector3.md)
+
+Vector 2
 
 #### Returns
 
@@ -203,24 +212,29 @@ Calculate the Angle between two vectors
 
 Return the calculation result
 
-#### Defined in
+***
 
-[src/math/MathUtil.ts:187](https://github.com/Orillusion/orillusion/blob/main/src/math/MathUtil.ts#L187)
+### angle\_360()
 
-___
+> `static` **angle\_360**(`from`, `to`): `number`
 
-### angle\_360
-
-▸ **angle_360**(`from`, `to`): `number`
+Defined in: [src/math/MathUtil.ts:203](https://github.com/orillusion/orillusion/blob/main/src/math/MathUtil.ts#L203)
 
 Calculate the Angle between two vectors
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `from` | [`Vector3`](Vector3.md) | Vector 1 |
-| `to` | [`Vector3`](Vector3.md) | Vector 2 |
+##### from
+
+[`Vector3`](Vector3.md)
+
+Vector 1
+
+##### to
+
+[`Vector3`](Vector3.md)
+
+Vector 2
 
 #### Returns
 
@@ -228,25 +242,35 @@ Calculate the Angle between two vectors
 
 The Angle between two vectors
 
-#### Defined in
+***
 
-[src/math/MathUtil.ts:203](https://github.com/Orillusion/orillusion/blob/main/src/math/MathUtil.ts#L203)
+### fromToRotation()
 
-___
+> `static` **fromToRotation**(`fromDirection`, `toDirection`, `target?`): [`Quaternion`](Quaternion.md)
 
-### fromToRotation
-
-▸ **fromToRotation**(`fromDirection`, `toDirection`, `target?`): [`Quaternion`](Quaternion.md)
+Defined in: [src/math/MathUtil.ts:231](https://github.com/orillusion/orillusion/blob/main/src/math/MathUtil.ts#L231)
 
 Calculate the quaternion from one direction to the other
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `fromDirection` | [`Vector3`](Vector3.md) | `undefined` | Initial direction |
-| `toDirection` | [`Vector3`](Vector3.md) | `undefined` | The transformed direction |
-| `target` | [`Quaternion`](Quaternion.md) | `null` | The calculated quaternion is null by default and the result is returned |
+##### fromDirection
+
+[`Vector3`](Vector3.md)
+
+Initial direction
+
+##### toDirection
+
+[`Vector3`](Vector3.md)
+
+The transformed direction
+
+##### target?
+
+[`Quaternion`](Quaternion.md) = `null`
+
+The calculated quaternion is null by default and the result is returned
 
 #### Returns
 
@@ -254,27 +278,23 @@ Calculate the quaternion from one direction to the other
 
 Quaternion The calculated quaternion returns a new instance created if target is null
 
-**`Version`**
+***
 
-Orillusion3D  0.5.1
+### getEularDir\_yUp()
 
-#### Defined in
+> `static` **getEularDir\_yUp**(`v`): [`Vector3`](Vector3.md)
 
-[src/math/MathUtil.ts:232](https://github.com/Orillusion/orillusion/blob/main/src/math/MathUtil.ts#L232)
-
-___
-
-### getEularDir\_yUp
-
-▸ **getEularDir_yUp**(`v`): [`Vector3`](Vector3.md)
+Defined in: [src/math/MathUtil.ts:244](https://github.com/orillusion/orillusion/blob/main/src/math/MathUtil.ts#L244)
 
 Get the Eular direction
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `v` | `number` | input value |
+##### v
+
+`number`
+
+input value
 
 #### Returns
 
@@ -282,25 +302,35 @@ Get the Eular direction
 
 Return the calculation result
 
-#### Defined in
+***
 
-[src/math/MathUtil.ts:245](https://github.com/Orillusion/orillusion/blob/main/src/math/MathUtil.ts#L245)
+### transformVector()
 
-___
+> `static` **transformVector**(`matrix`, `vector`, `result?`): [`Vector3`](Vector3.md)
 
-### transformVector
-
-▸ **transformVector**(`matrix`, `vector`, `result?`): [`Vector3`](Vector3.md)
+Defined in: [src/math/MathUtil.ts:258](https://github.com/orillusion/orillusion/blob/main/src/math/MathUtil.ts#L258)
 
 Compute the vector transformation and assign the results to the input variables
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `matrix` | [`Matrix4`](Matrix4.md) | `undefined` | transformation matrix |
-| `vector` | [`Vector3`](Vector3.md) | `undefined` | Original vector |
-| `result` | [`Vector3`](Vector3.md) | `null` | output vector |
+##### matrix
+
+[`Matrix4`](Matrix4.md)
+
+transformation matrix
+
+##### vector
+
+[`Vector3`](Vector3.md)
+
+Original vector
+
+##### result?
+
+[`Vector3`](Vector3.md) = `null`
+
+output vector
 
 #### Returns
 
@@ -308,30 +338,26 @@ Compute the vector transformation and assign the results to the input variables
 
 Returns the output vector
 
-#### Defined in
+***
 
-[src/math/MathUtil.ts:259](https://github.com/Orillusion/orillusion/blob/main/src/math/MathUtil.ts#L259)
+### getRotationY()
 
-___
+> **getRotationY**(`v`): `number`
 
-### getRotationY
-
-▸ **getRotationY**(`v`): `number`
+Defined in: [src/math/MathUtil.ts:219](https://github.com/orillusion/orillusion/blob/main/src/math/MathUtil.ts#L219)
 
 The rotation Angle around the Y-axis is obtained from the input vector
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `v` | [`Vector3`](Vector3.md) | input vector |
+##### v
+
+[`Vector3`](Vector3.md)
+
+input vector
 
 #### Returns
 
 `number`
 
 Return the calculation result
-
-#### Defined in
-
-[src/math/MathUtil.ts:219](https://github.com/Orillusion/orillusion/blob/main/src/math/MathUtil.ts#L219)

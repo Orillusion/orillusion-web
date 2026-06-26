@@ -1,177 +1,238 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: GeometryVertexBuffer
 
-### Constructors
+Defined in: [src/core/geometry/GeometryVertexBuffer.ts:15](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L15)
 
-- [constructor](GeometryVertexBuffer.md#constructor)
-
-### Properties
-
-- [vertexCount](GeometryVertexBuffer.md#vertexcount)
-- [vertexGPUBuffer](GeometryVertexBuffer.md#vertexgpubuffer)
-- [geometryType](GeometryVertexBuffer.md#geometrytype)
-
-### Accessors
-
-- [vertexBufferLayouts](GeometryVertexBuffer.md#vertexbufferlayouts)
-
-### Methods
-
-- [createVertexBuffer](GeometryVertexBuffer.md#createvertexbuffer)
-- [upload](GeometryVertexBuffer.md#upload)
-- [updateAttributes](GeometryVertexBuffer.md#updateattributes)
-- [compute](GeometryVertexBuffer.md#compute)
-- [destroy](GeometryVertexBuffer.md#destroy)
+Holds the vertex attribute data of a geometry and manages its backing
+GPU vertex buffer and attribute layout.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new GeometryVertexBuffer**(): [`GeometryVertexBuffer`](GeometryVertexBuffer.md)
+> **new GeometryVertexBuffer**(): `GeometryVertexBuffer`
+
+Defined in: [src/core/geometry/GeometryVertexBuffer.ts:76](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L76)
 
 #### Returns
 
-[`GeometryVertexBuffer`](GeometryVertexBuffer.md)
-
-#### Defined in
-
-[src/core/geometry/GeometryVertexBuffer.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L19)
+`GeometryVertexBuffer`
 
 ## Properties
 
 ### vertexCount
 
-• **vertexCount**: `number` = `0`
+> **vertexCount**: `number` = `0`
 
-#### Defined in
+Defined in: [src/core/geometry/GeometryVertexBuffer.ts:17](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L17)
 
-[src/core/geometry/GeometryVertexBuffer.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L12)
-
-___
+***
 
 ### vertexGPUBuffer
 
-• **vertexGPUBuffer**: [`VertexGPUBuffer`](VertexGPUBuffer.md)
+> **vertexGPUBuffer**: [`VertexGPUBuffer`](VertexGPUBuffer.md)
 
-#### Defined in
+Defined in: [src/core/geometry/GeometryVertexBuffer.ts:18](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L18)
 
-[src/core/geometry/GeometryVertexBuffer.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L13)
-
-___
+***
 
 ### geometryType
 
-• **geometryType**: [`GeometryVertexType`](../enums/GeometryVertexType.md) = `GeometryVertexType.compose`
+> **geometryType**: [`GeometryVertexType`](../enumerations/GeometryVertexType.md) = `GeometryVertexType.split`
 
-#### Defined in
+Defined in: [src/core/geometry/GeometryVertexBuffer.ts:19](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L19)
 
-[src/core/geometry/GeometryVertexBuffer.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L14)
+***
+
+### bufferChanged
+
+> **bufferChanged**: `boolean` = `false`
+
+Defined in: [src/core/geometry/GeometryVertexBuffer.ts:28](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L28)
+
+Set to `true` whenever `vertexGPUBuffer` is replaced by a fresh
+allocation (first build or a packing-size change). Consumers that
+captured the GPU buffer handle — e.g. compute pipelines writing
+deformed/generated vertices — must observe this flag and rebind,
+otherwise they keep writing into an orphaned buffer while the
+renderer draws the new one. The owner resets it after handling.
 
 ## Accessors
 
 ### vertexBufferLayouts
 
-• `get` **vertexBufferLayouts**(): [`VertexBufferLayout`](VertexBufferLayout.md)[]
+#### Get Signature
+
+> **get** **vertexBufferLayouts**(): [`VertexBufferLayout`](VertexBufferLayout.md)[]
+
+Defined in: [src/core/geometry/GeometryVertexBuffer.ts:82](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L82)
+
+##### Returns
+
+[`VertexBufferLayout`](VertexBufferLayout.md)[]
+
+## Methods
+
+### setComposeBinLayout()
+
+> **setComposeBinLayout**(`layout`): `void`
+
+Defined in: [src/core/geometry/GeometryVertexBuffer.ts:69](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L69)
+
+Record the real interleave layout of a `compose_bin` geometry's packed
+vertex buffer (attribute name → byte offset within the stride), so each
+pass's VertexState can be derived independently of how many attributes
+that pass's shader declares.
+
+#### Parameters
+
+##### layout
+
+[`VertexAttribute`](VertexAttribute.md)[]
+
+#### Returns
+
+`void`
+
+***
+
+### getPipelineLayout()
+
+> **getPipelineLayout**(`shaderReflection`): [`VertexBufferLayout`](VertexBufferLayout.md)[]
+
+Defined in: [src/core/geometry/GeometryVertexBuffer.ts:97](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L97)
+
+Vertex buffer layout for a specific pass's pipeline VertexState. For
+`compose` geometry this is derived per-pass from the pass's shader
+reflection: each attribute the pass declares is mapped to its own
+`shaderLocation` but the canonical (by-name) byte offset and the
+shared canonical `arrayStride`, so a pass simply strides over the
+attributes it does not read. For `split` / `compose_bin` it falls
+back to the shared layout (their per-pass decoupling is not done
+yet). Consumed by RenderShaderPass.createPipeline; draw-time binding
+still uses [vertexBufferLayouts](#vertexbufferlayouts).
+
+#### Parameters
+
+##### shaderReflection
+
+`ShaderReflection`
 
 #### Returns
 
 [`VertexBufferLayout`](VertexBufferLayout.md)[]
 
-#### Defined in
+***
 
-[src/core/geometry/GeometryVertexBuffer.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L25)
+### needsRebuild()
 
-## Methods
+> **needsRebuild**(`shaderReflection`): `boolean`
 
-### createVertexBuffer
+Defined in: [src/core/geometry/GeometryVertexBuffer.ts:163](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L163)
 
-▸ **createVertexBuffer**(`vertexDataInfos`, `shaderReflection`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `vertexDataInfos` | `Map`\<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\> |
-| `shaderReflection` | `ShaderReflection` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/core/geometry/GeometryVertexBuffer.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L29)
-
-___
-
-### upload
-
-▸ **upload**(`attribute`, `vertexDataInfo`): `void`
+Whether `createVertexBuffer` must run for this pass's reflection (on
+top of the geometry's own `_onChange`). For `compose` this is true
+only when the reflection introduces an attribute not yet in the
+canonical packing — after the union converges, repeated passes
+short-circuit so a compute-written buffer is not re-uploaded with
+rest-pose data. For `split` / `compose_bin` it preserves the legacy
+"a declared shader slot is missing from the layout" check.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `attribute` | `string` |
-| `vertexDataInfo` | [`VertexAttributeData`](../types/VertexAttributeData.md) |
+##### shaderReflection
+
+`ShaderReflection`
 
 #### Returns
 
-`void`
+`boolean`
 
-#### Defined in
+***
 
-[src/core/geometry/GeometryVertexBuffer.ts:193](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L193)
+### createVertexBuffer()
 
-___
+> **createVertexBuffer**(`vertexDataInfos`, `shaderReflection`): `void`
 
-### updateAttributes
-
-▸ **updateAttributes**(`vertexDataInfos`): `void`
+Defined in: [src/core/geometry/GeometryVertexBuffer.ts:185](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L185)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `vertexDataInfos` | `Map`\<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\> |
+##### vertexDataInfos
+
+`Map`\<`string`, [`VertexAttributeData`](../type-aliases/VertexAttributeData.md)\>
+
+##### shaderReflection
+
+`ShaderReflection`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/core/geometry/GeometryVertexBuffer.ts:222](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L222)
+### upload()
 
-___
+> **upload**(`attribute`, `vertexDataInfo`): `void`
 
-### compute
-
-▸ **compute**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/core/geometry/GeometryVertexBuffer.ts:261](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L261)
-
-___
-
-### destroy
-
-▸ **destroy**(`force?`): `void`
+Defined in: [src/core/geometry/GeometryVertexBuffer.ts:391](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L391)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
+##### attribute
+
+`string`
+
+##### vertexDataInfo
+
+[`VertexAttributeData`](../type-aliases/VertexAttributeData.md)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/core/geometry/GeometryVertexBuffer.ts:265](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L265)
+### updateAttributes()
+
+> **updateAttributes**(`vertexDataInfos`): `void`
+
+Defined in: [src/core/geometry/GeometryVertexBuffer.ts:420](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L420)
+
+#### Parameters
+
+##### vertexDataInfos
+
+`Map`\<`string`, [`VertexAttributeData`](../type-aliases/VertexAttributeData.md)\>
+
+#### Returns
+
+`void`
+
+***
+
+### compute()
+
+> **compute**(): `void`
+
+Defined in: [src/core/geometry/GeometryVertexBuffer.ts:459](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L459)
+
+#### Returns
+
+`void`
+
+***
+
+### destroy()
+
+> **destroy**(): `void`
+
+Defined in: [src/core/geometry/GeometryVertexBuffer.ts:463](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L463)
+
+#### Returns
+
+`void`

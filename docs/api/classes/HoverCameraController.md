@@ -1,498 +1,458 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: HoverCameraController
+
+Defined in: [src/components/controller/HoverCameraController.ts:18](https://github.com/orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L18)
 
 Hovering camera controller
 
-## Hierarchy
+## Extends
 
 - [`ComponentBase`](ComponentBase.md)
 
-  ↳ **`HoverCameraController`**
-
-### Constructors
-
-- [constructor](HoverCameraController.md#constructor)
-
-### Properties
-
-- [object3D](HoverCameraController.md#object3d)
-- [isDestroyed](HoverCameraController.md#isdestroyed)
-- [camera](HoverCameraController.md#camera)
-- [minDistance](HoverCameraController.md#mindistance)
-- [maxDistance](HoverCameraController.md#maxdistance)
-- [rollSmooth](HoverCameraController.md#rollsmooth)
-- [dragSmooth](HoverCameraController.md#dragsmooth)
-- [wheelSmooth](HoverCameraController.md#wheelsmooth)
-- [wheelStep](HoverCameraController.md#wheelstep)
-- [mouseRightFactor](HoverCameraController.md#mouserightfactor)
-- [mouseLeftFactor](HoverCameraController.md#mouseleftfactor)
-- [smooth](HoverCameraController.md#smooth)
-- [distance](HoverCameraController.md#distance)
-- [roll](HoverCameraController.md#roll)
-- [pitch](HoverCameraController.md#pitch)
-
-### Accessors
-
-- [eventDispatcher](HoverCameraController.md#eventdispatcher)
-- [isStart](HoverCameraController.md#isstart)
-- [transform](HoverCameraController.md#transform)
-- [enable](HoverCameraController.md#enable)
-- [bottomClamp](HoverCameraController.md#bottomclamp)
-- [topClamp](HoverCameraController.md#topclamp)
-- [target](HoverCameraController.md#target)
-
-### Methods
-
-- [init](HoverCameraController.md#init)
-- [stop](HoverCameraController.md#stop)
-- [onEnable](HoverCameraController.md#onenable)
-- [onDisable](HoverCameraController.md#ondisable)
-- [onUpdate](HoverCameraController.md#onupdate)
-- [onLateUpdate](HoverCameraController.md#onlateupdate)
-- [onCompute](HoverCameraController.md#oncompute)
-- [onGraphic](HoverCameraController.md#ongraphic)
-- [onParentChange](HoverCameraController.md#onparentchange)
-- [onAddChild](HoverCameraController.md#onaddchild)
-- [onRemoveChild](HoverCameraController.md#onremovechild)
-- [cloneTo](HoverCameraController.md#cloneto)
-- [copyComponent](HoverCameraController.md#copycomponent)
-- [beforeDestroy](HoverCameraController.md#beforedestroy)
-- [flowTarget](HoverCameraController.md#flowtarget)
-- [getFlowTarget](HoverCameraController.md#getflowtarget)
-- [setCamera](HoverCameraController.md#setcamera)
-- [focusByBounds](HoverCameraController.md#focusbybounds)
-- [onBeforeUpdate](HoverCameraController.md#onbeforeupdate)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new HoverCameraController**(): [`HoverCameraController`](HoverCameraController.md)
+> **new HoverCameraController**(): `HoverCameraController`
+
+Defined in: [src/components/controller/HoverCameraController.ts:130](https://github.com/orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L130)
 
 #### Returns
 
-[`HoverCameraController`](HoverCameraController.md)
+`HoverCameraController`
 
 #### Overrides
 
-[ComponentBase](ComponentBase.md).[constructor](ComponentBase.md#constructor)
-
-#### Defined in
-
-[src/components/controller/HoverCameraController.ts:130](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L130)
+[`ComponentBase`](ComponentBase.md).[`constructor`](ComponentBase.md#constructor)
 
 ## Properties
 
 ### object3D
 
-• **object3D**: [`Object3D`](Object3D.md) = `null`
+> **object3D**: [`Object3D`](Object3D.md) = `null`
+
+Defined in: [src/components/ComponentBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L29)
 
 owner object3D
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[object3D](ComponentBase.md#object3d)
+[`ComponentBase`](ComponentBase.md).[`object3D`](ComponentBase.md#object3d)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
-
-___
+***
 
 ### isDestroyed
 
-• `Optional` **isDestroyed**: `boolean`
+> **isDestroyed**: `boolean` = `false`
+
+Defined in: [src/components/ComponentBase.ts:77](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L77)
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[isDestroyed](ComponentBase.md#isdestroyed)
+[`ComponentBase`](ComponentBase.md).[`isDestroyed`](ComponentBase.md#isdestroyed)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
-
-___
+***
 
 ### camera
 
-• **camera**: [`Camera3D`](Camera3D.md)
+> **camera**: [`Camera3D`](Camera3D.md)
+
+Defined in: [src/components/controller/HoverCameraController.ts:22](https://github.com/orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L22)
 
 camera controlling
 
-#### Defined in
-
-[src/components/controller/HoverCameraController.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L22)
-
-___
+***
 
 ### minDistance
 
-• **minDistance**: `number` = `0.1`
+> **minDistance**: `number` = `0.1`
+
+Defined in: [src/components/controller/HoverCameraController.ts:27](https://github.com/orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L27)
 
 The closest distance that the mouse wheel can operate
 
-#### Defined in
-
-[src/components/controller/HoverCameraController.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L27)
-
-___
+***
 
 ### maxDistance
 
-• **maxDistance**: `number` = `500`
+> **maxDistance**: `number` = `500`
+
+Defined in: [src/components/controller/HoverCameraController.ts:32](https://github.com/orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L32)
 
 The farthest distance that the mouse wheel can operate
 
-#### Defined in
-
-[src/components/controller/HoverCameraController.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L32)
-
-___
+***
 
 ### rollSmooth
 
-• **rollSmooth**: `number` = `15.0`
+> **rollSmooth**: `number` = `15.0`
+
+Defined in: [src/components/controller/HoverCameraController.ts:37](https://github.com/orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L37)
 
 Smoothing coefficient of rolling angle
 
-#### Defined in
-
-[src/components/controller/HoverCameraController.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L37)
-
-___
+***
 
 ### dragSmooth
 
-• **dragSmooth**: `number` = `20`
+> **dragSmooth**: `number` = `20`
+
+Defined in: [src/components/controller/HoverCameraController.ts:42](https://github.com/orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L42)
 
 Smoothing coefficient of dragging
 
-#### Defined in
-
-[src/components/controller/HoverCameraController.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L42)
-
-___
+***
 
 ### wheelSmooth
 
-• **wheelSmooth**: `number` = `10`
+> **wheelSmooth**: `number` = `10`
+
+Defined in: [src/components/controller/HoverCameraController.ts:47](https://github.com/orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L47)
 
 Smoothing coefficient of rolling
 
-#### Defined in
-
-[src/components/controller/HoverCameraController.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L47)
-
-___
+***
 
 ### wheelStep
 
-• **wheelStep**: `number` = `0.002`
+> **wheelStep**: `number` = `0.002`
+
+Defined in: [src/components/controller/HoverCameraController.ts:52](https://github.com/orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L52)
 
 Mouse scrolling step coefficient
 
-#### Defined in
-
-[src/components/controller/HoverCameraController.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L52)
-
-___
+***
 
 ### mouseRightFactor
 
-• **mouseRightFactor**: `number` = `0.25`
+> **mouseRightFactor**: `number` = `0.25`
+
+Defined in: [src/components/controller/HoverCameraController.ts:57](https://github.com/orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L57)
 
 Right mouse movement coefficient
 
-#### Defined in
-
-[src/components/controller/HoverCameraController.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L57)
-
-___
+***
 
 ### mouseLeftFactor
 
-• **mouseLeftFactor**: `number` = `20`
+> **mouseLeftFactor**: `number` = `20`
+
+Defined in: [src/components/controller/HoverCameraController.ts:62](https://github.com/orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L62)
 
 Left mouse movement coefficient
 
-#### Defined in
-
-[src/components/controller/HoverCameraController.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L62)
-
-___
+***
 
 ### smooth
 
-• **smooth**: `boolean` = `true`
+> **smooth**: `boolean` = `true`
+
+Defined in: [src/components/controller/HoverCameraController.ts:67](https://github.com/orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L67)
 
 Whether to enable smooth mode
 
-#### Defined in
-
-[src/components/controller/HoverCameraController.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L67)
-
-___
+***
 
 ### distance
 
-• **distance**: `number` = `10`
+> **distance**: `number` = `10`
+
+Defined in: [src/components/controller/HoverCameraController.ts:79](https://github.com/orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L79)
 
 Distance between camera and target
 
-#### Defined in
-
-[src/components/controller/HoverCameraController.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L79)
-
-___
+***
 
 ### roll
 
-• **roll**: `number` = `0`
+> **roll**: `number` = `0`
+
+Defined in: [src/components/controller/HoverCameraController.ts:85](https://github.com/orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L85)
 
 Roll angle around y-axis
 
-#### Defined in
-
-[src/components/controller/HoverCameraController.ts:85](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L85)
-
-___
+***
 
 ### pitch
 
-• **pitch**: `number` = `0`
+> **pitch**: `number` = `0`
+
+Defined in: [src/components/controller/HoverCameraController.ts:91](https://github.com/orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L91)
 
 Pitch angle around x-axis
 
-#### Defined in
-
-[src/components/controller/HoverCameraController.ts:91](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L91)
-
 ## Accessors
 
-### eventDispatcher
+### visibleLayer
 
-• `get` **eventDispatcher**(): [`CEventDispatcher`](CEventDispatcher.md)
+#### Get Signature
 
-#### Returns
+> **get** **visibleLayer**(): `number`
 
-[`CEventDispatcher`](CEventDispatcher.md)
+Defined in: [src/components/ComponentBase.ts:46](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L46)
 
-#### Inherited from
+Composition-layer membership bitmask. The pass / camera /
+collector filters via
 
-ComponentBase.eventDispatcher
+    (component.visibleLayer & pass.layerMask & camera.cullingMask) !== 0
 
-#### Defined in
+Defaults to [VisibleLayer.Default](../@orillusion/namespaces/VisibleLayer/variables/Default.md) (bit 0) so a fresh
+subclass is visible to passes whose `layerMask` is
+[VisibleLayer.All](../@orillusion/namespaces/VisibleLayer/variables/All.md) (which includes bit 0). Application code
+can assign project-specific bits (1..31) to organise the scene
+into composition layers.
 
-[src/components/ComponentBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L23)
+##### Returns
 
-• `set` **eventDispatcher**(`value`): `void`
+`number`
 
-#### Parameters
+#### Set Signature
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`CEventDispatcher`](CEventDispatcher.md) |
+> **set** **visibleLayer**(`value`): `void`
 
-#### Returns
+Defined in: [src/components/ComponentBase.ts:50](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L50)
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-ComponentBase.eventDispatcher
+[`ComponentBase`](ComponentBase.md).[`visibleLayer`](ComponentBase.md#visiblelayer)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L28)
+### eventDispatcher
 
-___
+#### Get Signature
+
+> **get** **eventDispatcher**(): [`CEventDispatcher`](CEventDispatcher.md)
+
+Defined in: [src/components/ComponentBase.ts:63](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L63)
+
+##### Returns
+
+[`CEventDispatcher`](CEventDispatcher.md)
+
+#### Set Signature
+
+> **set** **eventDispatcher**(`value`): `void`
+
+Defined in: [src/components/ComponentBase.ts:68](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
+
+##### Parameters
+
+###### value
+
+[`CEventDispatcher`](CEventDispatcher.md)
+
+##### Returns
+
+`void`
+
+#### Inherited from
+
+[`ComponentBase`](ComponentBase.md).[`eventDispatcher`](ComponentBase.md#eventdispatcher)
+
+***
 
 ### isStart
 
-• `get` **isStart**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **isStart**(): `boolean`
+
+Defined in: [src/components/ComponentBase.ts:79](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L79)
+
+##### Returns
 
 `boolean`
 
 #### Inherited from
 
-ComponentBase.isStart
+[`ComponentBase`](ComponentBase.md).[`isStart`](ComponentBase.md#isstart)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L40)
-
-___
+***
 
 ### transform
 
-• `get` **transform**(): [`Transform`](Transform.md)
+#### Get Signature
+
+> **get** **transform**(): [`Transform`](Transform.md)
+
+Defined in: [src/components/ComponentBase.ts:89](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L89)
 
 Return the Transform component attached to the Object3D.
+Null before the component is attached — `addComponent` assigns
+`object3D` only after construction — so constructor-time callers
+can probe safely via `this.transform?.`.
 
-#### Returns
+##### Returns
 
 [`Transform`](Transform.md)
 
 #### Inherited from
 
-ComponentBase.transform
+[`ComponentBase`](ComponentBase.md).[`transform`](ComponentBase.md#transform)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L47)
-
-___
+***
 
 ### enable
 
-• `get` **enable**(): `boolean`
+#### Get Signature
+
+> **get** **enable**(): `boolean`
+
+Defined in: [src/components/ComponentBase.ts:113](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
-#### Returns
+##### Returns
 
 `boolean`
 
-#### Inherited from
+#### Set Signature
 
-ComponentBase.enable
+> **set** **enable**(`value`): `void`
 
-#### Defined in
-
-[src/components/ComponentBase.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
-
-• `set` **enable**(`value`): `void`
+Defined in: [src/components/ComponentBase.ts:96](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L96)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
+###### value
 
-#### Returns
+`boolean`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-ComponentBase.enable
+[`ComponentBase`](ComponentBase.md).[`enable`](ComponentBase.md#enable)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L54)
-
-___
+***
 
 ### bottomClamp
 
-• `get` **bottomClamp**(): `number`
+#### Get Signature
+
+> **get** **bottomClamp**(): `number`
+
+Defined in: [src/components/controller/HoverCameraController.ts:109](https://github.com/orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L109)
 
 Max angle of pitch
 
-#### Returns
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/components/controller/HoverCameraController.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L109)
+> **set** **bottomClamp**(`value`): `void`
 
-• `set` **bottomClamp**(`value`): `void`
+Defined in: [src/components/controller/HoverCameraController.ts:112](https://github.com/orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L112)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/components/controller/HoverCameraController.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L112)
-
-___
+***
 
 ### topClamp
 
-• `get` **topClamp**(): `number`
+#### Get Signature
+
+> **get** **topClamp**(): `number`
+
+Defined in: [src/components/controller/HoverCameraController.ts:118](https://github.com/orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L118)
 
 Min angle of pitch
 
-#### Returns
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/components/controller/HoverCameraController.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L118)
+> **set** **topClamp**(`value`): `void`
 
-• `set` **topClamp**(`value`): `void`
+Defined in: [src/components/controller/HoverCameraController.ts:121](https://github.com/orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L121)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/components/controller/HoverCameraController.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L121)
-
-___
+***
 
 ### target
 
-• `get` **target**(): [`Vector3`](Vector3.md)
+#### Get Signature
+
+> **get** **target**(): [`Vector3`](Vector3.md)
+
+Defined in: [src/components/controller/HoverCameraController.ts:203](https://github.com/orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L203)
 
 Get target position
 
-#### Returns
+##### Returns
 
 [`Vector3`](Vector3.md)
 
-#### Defined in
+#### Set Signature
 
-[src/components/controller/HoverCameraController.ts:192](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L192)
+> **set** **target**(`target`): `void`
 
-• `set` **target**(`target`): `void`
+Defined in: [src/components/controller/HoverCameraController.ts:195](https://github.com/orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L195)
 
 Set target position
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `target` | [`Vector3`](Vector3.md) |
+###### target
 
-#### Returns
+[`Vector3`](Vector3.md)
+
+##### Returns
 
 `void`
-
-#### Defined in
-
-[src/components/controller/HoverCameraController.ts:184](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L184)
 
 ## Methods
 
-### init
+### init()
 
-▸ **init**(`param?`): `void`
+> **init**(`param?`): `void`
+
+Defined in: [src/components/ComponentBase.ts:161](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L161)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `param?` | `any` |
+##### param?
+
+`any`
 
 #### Returns
 
@@ -500,17 +460,15 @@ Set target position
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[init](ComponentBase.md#init)
+[`ComponentBase`](ComponentBase.md).[`init`](ComponentBase.md#init)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L112)
+### stop()
 
-___
+> **stop**(): `void`
 
-### stop
-
-▸ **stop**(): `void`
+Defined in: [src/components/ComponentBase.ts:163](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L163)
 
 #### Returns
 
@@ -518,23 +476,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[stop](ComponentBase.md#stop)
+[`ComponentBase`](ComponentBase.md).[`stop`](ComponentBase.md#stop)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
+### onEnable()?
 
-___
+> `optional` **onEnable**(`view?`): `any`
 
-### onEnable
-
-▸ **onEnable**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:164](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L164)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -542,23 +498,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onEnable](ComponentBase.md#onenable)
+[`ComponentBase`](ComponentBase.md).[`onEnable`](ComponentBase.md#onenable)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L115)
+### onDisable()?
 
-___
+> `optional` **onDisable**(`view?`): `any`
 
-### onDisable
-
-▸ **onDisable**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:165](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L165)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -566,23 +520,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onDisable](ComponentBase.md#ondisable)
+[`ComponentBase`](ComponentBase.md).[`onDisable`](ComponentBase.md#ondisable)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L116)
+### onUpdate()?
 
-___
+> `optional` **onUpdate**(`view?`): `any`
 
-### onUpdate
-
-▸ **onUpdate**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:166](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L166)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -590,23 +542,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onUpdate](ComponentBase.md#onupdate)
+[`ComponentBase`](ComponentBase.md).[`onUpdate`](ComponentBase.md#onupdate)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L117)
+### onLateUpdate()?
 
-___
+> `optional` **onLateUpdate**(`view?`): `any`
 
-### onLateUpdate
-
-▸ **onLateUpdate**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:167](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L167)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -614,24 +564,25 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onLateUpdate](ComponentBase.md#onlateupdate)
+[`ComponentBase`](ComponentBase.md).[`onLateUpdate`](ComponentBase.md#onlateupdate)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L118)
+### onCompute()?
 
-___
+> `optional` **onCompute**(`view?`, `command?`): `any`
 
-### onCompute
-
-▸ **onCompute**(`view?`, `command?`): `any`
+Defined in: [src/components/ComponentBase.ts:169](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L169)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
-| `command?` | `GPUCommandEncoder` |
+##### view?
+
+[`View3D`](View3D.md)
+
+##### command?
+
+`GPUCommandEncoder`
 
 #### Returns
 
@@ -639,23 +590,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onCompute](ComponentBase.md#oncompute)
+[`ComponentBase`](ComponentBase.md).[`onCompute`](ComponentBase.md#oncompute)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L120)
+### onGraphic()?
 
-___
+> `optional` **onGraphic**(`view?`): `any`
 
-### onGraphic
-
-▸ **onGraphic**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:170](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L170)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -663,24 +612,25 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onGraphic](ComponentBase.md#ongraphic)
+[`ComponentBase`](ComponentBase.md).[`onGraphic`](ComponentBase.md#ongraphic)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L121)
+### onParentChange()?
 
-___
+> `optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
-### onParentChange
-
-▸ **onParentChange**(`lastParent?`, `currentParent?`): `any`
+Defined in: [src/components/ComponentBase.ts:171](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L171)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `lastParent?` | [`Object3D`](Object3D.md) |
-| `currentParent?` | [`Object3D`](Object3D.md) |
+##### lastParent?
+
+[`Object3D`](Object3D.md)
+
+##### currentParent?
+
+[`Object3D`](Object3D.md)
 
 #### Returns
 
@@ -688,23 +638,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onParentChange](ComponentBase.md#onparentchange)
+[`ComponentBase`](ComponentBase.md).[`onParentChange`](ComponentBase.md#onparentchange)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L122)
+### onAddChild()?
 
-___
+> `optional` **onAddChild**(`child`): `any`
 
-### onAddChild
-
-▸ **onAddChild**(`child`): `any`
+Defined in: [src/components/ComponentBase.ts:172](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L172)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `child` | [`Object3D`](Object3D.md) |
+##### child
+
+[`Object3D`](Object3D.md)
 
 #### Returns
 
@@ -712,23 +660,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onAddChild](ComponentBase.md#onaddchild)
+[`ComponentBase`](ComponentBase.md).[`onAddChild`](ComponentBase.md#onaddchild)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L123)
+### onRemoveChild()?
 
-___
+> `optional` **onRemoveChild**(`child`): `any`
 
-### onRemoveChild
-
-▸ **onRemoveChild**(`child`): `any`
+Defined in: [src/components/ComponentBase.ts:173](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L173)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `child` | [`Object3D`](Object3D.md) |
+##### child
+
+[`Object3D`](Object3D.md)
 
 #### Returns
 
@@ -736,25 +682,25 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onRemoveChild](ComponentBase.md#onremovechild)
+[`ComponentBase`](ComponentBase.md).[`onRemoveChild`](ComponentBase.md#onremovechild)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L124)
+### cloneTo()
 
-___
+> **cloneTo**(`obj`): `void`
 
-### cloneTo
-
-▸ **cloneTo**(`obj`): `void`
+Defined in: [src/components/ComponentBase.ts:180](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L180)
 
 clone component data to target object3D
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `obj` | [`Object3D`](Object3D.md) | target object3D |
+##### obj
+
+[`Object3D`](Object3D.md)
+
+target object3D
 
 #### Returns
 
@@ -762,23 +708,21 @@ clone component data to target object3D
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[cloneTo](ComponentBase.md#cloneto)
+[`ComponentBase`](ComponentBase.md).[`cloneTo`](ComponentBase.md#cloneto)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L131)
+### copyComponent()
 
-___
+> **copyComponent**(`from`): `this`
 
-### copyComponent
-
-▸ **copyComponent**(`from`): `this`
+Defined in: [src/components/ComponentBase.ts:182](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L182)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `from` | `this` |
+##### from
+
+`this`
 
 #### Returns
 
@@ -786,25 +730,23 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[copyComponent](ComponentBase.md#copycomponent)
+[`ComponentBase`](ComponentBase.md).[`copyComponent`](ComponentBase.md#copycomponent)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L133)
+### beforeDestroy()
 
-___
+> **beforeDestroy**(`force?`): `void`
 
-### beforeDestroy
-
-▸ **beforeDestroy**(`force?`): `void`
+Defined in: [src/components/ComponentBase.ts:249](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L249)
 
 before release this component, object refrences are not be set null now.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
+##### force?
+
+`boolean`
 
 #### Returns
 
@@ -812,103 +754,113 @@ before release this component, object refrences are not be set null now.
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[beforeDestroy](ComponentBase.md#beforedestroy)
+[`ComponentBase`](ComponentBase.md).[`beforeDestroy`](ComponentBase.md#beforedestroy)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L200)
+### flowTarget()
 
-___
+> **flowTarget**(`target`, `offset?`): `void`
 
-### flowTarget
-
-▸ **flowTarget**(`target`, `offset?`): `void`
+Defined in: [src/components/controller/HoverCameraController.ts:158](https://github.com/orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L158)
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `target` | [`Object3D`](Object3D.md) | `undefined` |
-| `offset` | [`Vector3`](Vector3.md) | `Vector3.ZERO` |
+##### target
+
+[`Object3D`](Object3D.md)
+
+##### offset?
+
+[`Vector3`](Vector3.md) = `Vector3.ZERO`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/components/controller/HoverCameraController.ts:147](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L147)
+### getFlowTarget()
 
-___
+> **getFlowTarget**(): [`Object3D`](Object3D.md)
 
-### getFlowTarget
-
-▸ **getFlowTarget**(): [`Object3D`](Object3D.md)
+Defined in: [src/components/controller/HoverCameraController.ts:164](https://github.com/orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L164)
 
 #### Returns
 
 [`Object3D`](Object3D.md)
 
-#### Defined in
+***
 
-[src/components/controller/HoverCameraController.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L153)
+### setCamera()
 
-___
+> **setCamera**(`roll`, `pitch`, `distance`, `target?`): `void`
 
-### setCamera
-
-▸ **setCamera**(`roll`, `pitch`, `distance`, `target?`): `void`
+Defined in: [src/components/controller/HoverCameraController.ts:175](https://github.com/orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L175)
 
 Initialize Camera
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `roll` | `number` | Roll angle around y-axis |
-| `pitch` | `number` | Pitch angle around x-axis |
-| `distance` | `number` | max distance to target |
-| `target?` | [`Vector3`](Vector3.md) | coordinates of the target |
+##### roll
+
+`number`
+
+Roll angle around y-axis
+
+##### pitch
+
+`number`
+
+Pitch angle around x-axis
+
+##### distance
+
+`number`
+
+max distance to target
+
+##### target?
+
+[`Vector3`](Vector3.md)
+
+coordinates of the target
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/components/controller/HoverCameraController.ts:164](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L164)
+### focusByBounds()
 
-___
+> **focusByBounds**(`obj`): `void`
 
-### focusByBounds
-
-▸ **focusByBounds**(`obj`): `void`
+Defined in: [src/components/controller/HoverCameraController.ts:187](https://github.com/orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L187)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `obj` | [`Object3D`](Object3D.md) |
+##### obj
+
+[`Object3D`](Object3D.md)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/components/controller/HoverCameraController.ts:176](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L176)
+### onBeforeUpdate()
 
-___
+> **onBeforeUpdate**(`view?`): `void`
 
-### onBeforeUpdate
-
-▸ **onBeforeUpdate**(`view?`): `void`
+Defined in: [src/components/controller/HoverCameraController.ts:258](https://github.com/orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L258)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -916,8 +868,4 @@ ___
 
 #### Overrides
 
-[ComponentBase](ComponentBase.md).[onBeforeUpdate](ComponentBase.md#onbeforeupdate)
-
-#### Defined in
-
-[src/components/controller/HoverCameraController.ts:247](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/HoverCameraController.ts#L247)
+[`ComponentBase`](ComponentBase.md).[`onBeforeUpdate`](ComponentBase.md#onbeforeupdate)

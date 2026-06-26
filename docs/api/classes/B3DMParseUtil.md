@@ -1,39 +1,35 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: B3DMParseUtil
 
-### Constructors
-
-- [constructor](B3DMParseUtil.md#constructor)
-
-### Methods
-
-- [parseBinary](B3DMParseUtil.md#parsebinary)
+Defined in: [src/loader/parser/B3DMParser.ts:105](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L105)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new B3DMParseUtil**(): [`B3DMParseUtil`](B3DMParseUtil.md)
+> **new B3DMParseUtil**(): `B3DMParseUtil`
 
 #### Returns
 
-[`B3DMParseUtil`](B3DMParseUtil.md)
+`B3DMParseUtil`
 
 ## Methods
 
-### parseBinary
+### parseBinary()
 
-▸ **parseBinary**(`bytes`): `Promise`\<[`Object3D`](Object3D.md)\>
+> **parseBinary**(`bytes`): `Promise`\<[`Object3D`](Object3D.md)\>
+
+Defined in: [src/loader/parser/B3DMParser.ts:108](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L108)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `bytes` | `ArrayBuffer` |
+##### bytes
+
+`ArrayBuffer`
 
 #### Returns
 
 `Promise`\<[`Object3D`](Object3D.md)\>
-
-#### Defined in
-
-[src/loader/parser/B3DMParser.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L108)

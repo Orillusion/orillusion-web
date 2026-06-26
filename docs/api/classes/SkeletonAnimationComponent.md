@@ -1,350 +1,332 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: SkeletonAnimationComponent
+
+Defined in: [src/components/SkeletonAnimationComponent.ts:16](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L16)
 
 skeleton animation
 
-## Hierarchy
+## Extends
 
 - [`ComponentBase`](ComponentBase.md)
 
-  ↳ **`SkeletonAnimationComponent`**
-
-### Constructors
-
-- [constructor](SkeletonAnimationComponent.md#constructor)
-
-### Properties
-
-- [object3D](SkeletonAnimationComponent.md#object3d)
-- [isDestroyed](SkeletonAnimationComponent.md#isdestroyed)
-- [isPlaying](SkeletonAnimationComponent.md#isplaying)
-- [timeScale](SkeletonAnimationComponent.md#timescale)
-
-### Accessors
-
-- [eventDispatcher](SkeletonAnimationComponent.md#eventdispatcher)
-- [isStart](SkeletonAnimationComponent.md#isstart)
-- [transform](SkeletonAnimationComponent.md#transform)
-- [enable](SkeletonAnimationComponent.md#enable)
-- [currName](SkeletonAnimationComponent.md#currname)
-- [skeleton](SkeletonAnimationComponent.md#skeleton)
-- [finalSkeletonPose](SkeletonAnimationComponent.md#finalskeletonpose)
-- [jointMatrixIndexTableBuffer](SkeletonAnimationComponent.md#jointmatrixindextablebuffer)
-
-### Methods
-
-- [init](SkeletonAnimationComponent.md#init)
-- [stop](SkeletonAnimationComponent.md#stop)
-- [onEnable](SkeletonAnimationComponent.md#onenable)
-- [onDisable](SkeletonAnimationComponent.md#ondisable)
-- [onLateUpdate](SkeletonAnimationComponent.md#onlateupdate)
-- [onBeforeUpdate](SkeletonAnimationComponent.md#onbeforeupdate)
-- [onCompute](SkeletonAnimationComponent.md#oncompute)
-- [onGraphic](SkeletonAnimationComponent.md#ongraphic)
-- [onParentChange](SkeletonAnimationComponent.md#onparentchange)
-- [onAddChild](SkeletonAnimationComponent.md#onaddchild)
-- [onRemoveChild](SkeletonAnimationComponent.md#onremovechild)
-- [copyComponent](SkeletonAnimationComponent.md#copycomponent)
-- [beforeDestroy](SkeletonAnimationComponent.md#beforedestroy)
-- [destroy](SkeletonAnimationComponent.md#destroy)
-- [start](SkeletonAnimationComponent.md#start)
-- [getJointIndexTable](SkeletonAnimationComponent.md#getjointindextable)
-- [addAnimationClip](SkeletonAnimationComponent.md#addanimationclip)
-- [getAnimationClip](SkeletonAnimationComponent.md#getanimationclip)
-- [getAnimationClips](SkeletonAnimationComponent.md#getanimationclips)
-- [getAnimationClipState](SkeletonAnimationComponent.md#getanimationclipstate)
-- [getAnimationClipStates](SkeletonAnimationComponent.md#getanimationclipstates)
-- [pause](SkeletonAnimationComponent.md#pause)
-- [resume](SkeletonAnimationComponent.md#resume)
-- [play](SkeletonAnimationComponent.md#play)
-- [crossFade](SkeletonAnimationComponent.md#crossfade)
-- [setAnimIsLoop](SkeletonAnimationComponent.md#setanimisloop)
-- [addJointBind](SkeletonAnimationComponent.md#addjointbind)
-- [removeJointBind](SkeletonAnimationComponent.md#removejointbind)
-- [cloneTo](SkeletonAnimationComponent.md#cloneto)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new SkeletonAnimationComponent**(): [`SkeletonAnimationComponent`](SkeletonAnimationComponent.md)
+> **new SkeletonAnimationComponent**(): `SkeletonAnimationComponent`
+
+Defined in: [src/components/SkeletonAnimationComponent.ts:37](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L37)
 
 #### Returns
 
-[`SkeletonAnimationComponent`](SkeletonAnimationComponent.md)
+`SkeletonAnimationComponent`
 
 #### Overrides
 
-[ComponentBase](ComponentBase.md).[constructor](ComponentBase.md#constructor)
-
-#### Defined in
-
-[src/components/SkeletonAnimationComponent.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L37)
+[`ComponentBase`](ComponentBase.md).[`constructor`](ComponentBase.md#constructor)
 
 ## Properties
 
 ### object3D
 
-• **object3D**: [`Object3D`](Object3D.md) = `null`
+> **object3D**: [`Object3D`](Object3D.md) = `null`
+
+Defined in: [src/components/ComponentBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L29)
 
 owner object3D
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[object3D](ComponentBase.md#object3d)
+[`ComponentBase`](ComponentBase.md).[`object3D`](ComponentBase.md#object3d)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
-
-___
+***
 
 ### isDestroyed
 
-• `Optional` **isDestroyed**: `boolean`
+> **isDestroyed**: `boolean` = `false`
+
+Defined in: [src/components/ComponentBase.ts:77](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L77)
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[isDestroyed](ComponentBase.md#isdestroyed)
+[`ComponentBase`](ComponentBase.md).[`isDestroyed`](ComponentBase.md#isdestroyed)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
-
-___
+***
 
 ### isPlaying
 
-• **isPlaying**: `boolean` = `true`
+> **isPlaying**: `boolean` = `true`
+
+Defined in: [src/components/SkeletonAnimationComponent.ts:20](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L20)
 
 Whether it is playing
 
-#### Defined in
-
-[src/components/SkeletonAnimationComponent.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L20)
-
-___
+***
 
 ### timeScale
 
-• **timeScale**: `number` = `1.0`
+> **timeScale**: `number` = `1.0`
+
+Defined in: [src/components/SkeletonAnimationComponent.ts:25](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L25)
 
 Global animation time scaling
 
-#### Defined in
-
-[src/components/SkeletonAnimationComponent.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L25)
-
 ## Accessors
 
-### eventDispatcher
+### visibleLayer
 
-• `get` **eventDispatcher**(): [`CEventDispatcher`](CEventDispatcher.md)
+#### Get Signature
 
-#### Returns
+> **get** **visibleLayer**(): `number`
 
-[`CEventDispatcher`](CEventDispatcher.md)
+Defined in: [src/components/ComponentBase.ts:46](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L46)
 
-#### Inherited from
+Composition-layer membership bitmask. The pass / camera /
+collector filters via
 
-ComponentBase.eventDispatcher
+    (component.visibleLayer & pass.layerMask & camera.cullingMask) !== 0
 
-#### Defined in
+Defaults to [VisibleLayer.Default](../@orillusion/namespaces/VisibleLayer/variables/Default.md) (bit 0) so a fresh
+subclass is visible to passes whose `layerMask` is
+[VisibleLayer.All](../@orillusion/namespaces/VisibleLayer/variables/All.md) (which includes bit 0). Application code
+can assign project-specific bits (1..31) to organise the scene
+into composition layers.
 
-[src/components/ComponentBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L23)
+##### Returns
 
-• `set` **eventDispatcher**(`value`): `void`
+`number`
 
-#### Parameters
+#### Set Signature
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`CEventDispatcher`](CEventDispatcher.md) |
+> **set** **visibleLayer**(`value`): `void`
 
-#### Returns
+Defined in: [src/components/ComponentBase.ts:50](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L50)
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-ComponentBase.eventDispatcher
+[`ComponentBase`](ComponentBase.md).[`visibleLayer`](ComponentBase.md#visiblelayer)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L28)
+### eventDispatcher
 
-___
+#### Get Signature
+
+> **get** **eventDispatcher**(): [`CEventDispatcher`](CEventDispatcher.md)
+
+Defined in: [src/components/ComponentBase.ts:63](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L63)
+
+##### Returns
+
+[`CEventDispatcher`](CEventDispatcher.md)
+
+#### Set Signature
+
+> **set** **eventDispatcher**(`value`): `void`
+
+Defined in: [src/components/ComponentBase.ts:68](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
+
+##### Parameters
+
+###### value
+
+[`CEventDispatcher`](CEventDispatcher.md)
+
+##### Returns
+
+`void`
+
+#### Inherited from
+
+[`ComponentBase`](ComponentBase.md).[`eventDispatcher`](ComponentBase.md#eventdispatcher)
+
+***
 
 ### isStart
 
-• `get` **isStart**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **isStart**(): `boolean`
+
+Defined in: [src/components/ComponentBase.ts:79](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L79)
+
+##### Returns
 
 `boolean`
 
 #### Inherited from
 
-ComponentBase.isStart
+[`ComponentBase`](ComponentBase.md).[`isStart`](ComponentBase.md#isstart)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L40)
-
-___
+***
 
 ### transform
 
-• `get` **transform**(): [`Transform`](Transform.md)
+#### Get Signature
+
+> **get** **transform**(): [`Transform`](Transform.md)
+
+Defined in: [src/components/ComponentBase.ts:89](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L89)
 
 Return the Transform component attached to the Object3D.
+Null before the component is attached — `addComponent` assigns
+`object3D` only after construction — so constructor-time callers
+can probe safely via `this.transform?.`.
 
-#### Returns
+##### Returns
 
 [`Transform`](Transform.md)
 
 #### Inherited from
 
-ComponentBase.transform
+[`ComponentBase`](ComponentBase.md).[`transform`](ComponentBase.md#transform)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L47)
-
-___
+***
 
 ### enable
 
-• `get` **enable**(): `boolean`
+#### Get Signature
+
+> **get** **enable**(): `boolean`
+
+Defined in: [src/components/ComponentBase.ts:113](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
-#### Returns
+##### Returns
 
 `boolean`
 
-#### Inherited from
+#### Set Signature
 
-ComponentBase.enable
+> **set** **enable**(`value`): `void`
 
-#### Defined in
-
-[src/components/ComponentBase.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
-
-• `set` **enable**(`value`): `void`
+Defined in: [src/components/ComponentBase.ts:96](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L96)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
+###### value
 
-#### Returns
+`boolean`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-ComponentBase.enable
+[`ComponentBase`](ComponentBase.md).[`enable`](ComponentBase.md#enable)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L54)
-
-___
+***
 
 ### currName
 
-• `get` **currName**(): `string`
+#### Get Signature
+
+> **get** **currName**(): `string`
+
+Defined in: [src/components/SkeletonAnimationComponent.ts:48](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L48)
 
 The name of the currently playing animation
 
-#### Returns
+##### Returns
 
 `string`
 
-#### Defined in
-
-[src/components/SkeletonAnimationComponent.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L48)
-
-___
+***
 
 ### skeleton
 
-• `get` **skeleton**(): `Skeleton`
+#### Get Signature
+
+> **get** **skeleton**(): `Skeleton`
+
+Defined in: [src/components/SkeletonAnimationComponent.ts:70](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L70)
 
 Skeleton data
 
-#### Returns
+##### Returns
 
 `Skeleton`
 
-#### Defined in
+#### Set Signature
 
-[src/components/SkeletonAnimationComponent.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L70)
+> **set** **skeleton**(`value`): `void`
 
-• `set` **skeleton**(`value`): `void`
+Defined in: [src/components/SkeletonAnimationComponent.ts:58](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L58)
 
 Skeleton data
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `Skeleton` |
+###### value
 
-#### Returns
+`Skeleton`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/components/SkeletonAnimationComponent.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L58)
-
-___
+***
 
 ### finalSkeletonPose
 
-• `get` **finalSkeletonPose**(): [`SkeletonPose`](SkeletonPose.md)
+#### Get Signature
+
+> **get** **finalSkeletonPose**(): [`SkeletonPose`](SkeletonPose.md)
+
+Defined in: [src/components/SkeletonAnimationComponent.ts:77](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L77)
 
 Current final skeleton posture data
 
-#### Returns
+##### Returns
 
 [`SkeletonPose`](SkeletonPose.md)
 
-#### Defined in
-
-[src/components/SkeletonAnimationComponent.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L77)
-
-___
+***
 
 ### jointMatrixIndexTableBuffer
 
-• `get` **jointMatrixIndexTableBuffer**(): [`StorageGPUBuffer`](StorageGPUBuffer.md)
+#### Get Signature
+
+> **get** **jointMatrixIndexTableBuffer**(): [`StorageGPUBuffer`](StorageGPUBuffer.md)
+
+Defined in: [src/components/SkeletonAnimationComponent.ts:84](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L84)
 
 Bone matrix index table data
 
-#### Returns
+##### Returns
 
 [`StorageGPUBuffer`](StorageGPUBuffer.md)
 
-#### Defined in
-
-[src/components/SkeletonAnimationComponent.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L84)
-
 ## Methods
 
-### init
+### init()
 
-▸ **init**(`param?`): `void`
+> **init**(`param?`): `void`
+
+Defined in: [src/components/ComponentBase.ts:161](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L161)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `param?` | `any` |
+##### param?
+
+`any`
 
 #### Returns
 
@@ -352,17 +334,15 @@ Bone matrix index table data
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[init](ComponentBase.md#init)
+[`ComponentBase`](ComponentBase.md).[`init`](ComponentBase.md#init)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L112)
+### stop()
 
-___
+> **stop**(): `void`
 
-### stop
-
-▸ **stop**(): `void`
+Defined in: [src/components/ComponentBase.ts:163](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L163)
 
 #### Returns
 
@@ -370,23 +350,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[stop](ComponentBase.md#stop)
+[`ComponentBase`](ComponentBase.md).[`stop`](ComponentBase.md#stop)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
+### onEnable()?
 
-___
+> `optional` **onEnable**(`view?`): `any`
 
-### onEnable
-
-▸ **onEnable**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:164](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L164)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -394,23 +372,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onEnable](ComponentBase.md#onenable)
+[`ComponentBase`](ComponentBase.md).[`onEnable`](ComponentBase.md#onenable)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L115)
+### onDisable()?
 
-___
+> `optional` **onDisable**(`view?`): `any`
 
-### onDisable
-
-▸ **onDisable**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:165](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L165)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -418,23 +394,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onDisable](ComponentBase.md#ondisable)
+[`ComponentBase`](ComponentBase.md).[`onDisable`](ComponentBase.md#ondisable)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L116)
+### onLateUpdate()?
 
-___
+> `optional` **onLateUpdate**(`view?`): `any`
 
-### onLateUpdate
-
-▸ **onLateUpdate**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:167](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L167)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -442,23 +416,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onLateUpdate](ComponentBase.md#onlateupdate)
+[`ComponentBase`](ComponentBase.md).[`onLateUpdate`](ComponentBase.md#onlateupdate)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L118)
+### onBeforeUpdate()?
 
-___
+> `optional` **onBeforeUpdate**(`view?`): `any`
 
-### onBeforeUpdate
-
-▸ **onBeforeUpdate**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:168](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L168)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -466,24 +438,25 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onBeforeUpdate](ComponentBase.md#onbeforeupdate)
+[`ComponentBase`](ComponentBase.md).[`onBeforeUpdate`](ComponentBase.md#onbeforeupdate)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L119)
+### onCompute()?
 
-___
+> `optional` **onCompute**(`view?`, `command?`): `any`
 
-### onCompute
-
-▸ **onCompute**(`view?`, `command?`): `any`
+Defined in: [src/components/ComponentBase.ts:169](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L169)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
-| `command?` | `GPUCommandEncoder` |
+##### view?
+
+[`View3D`](View3D.md)
+
+##### command?
+
+`GPUCommandEncoder`
 
 #### Returns
 
@@ -491,23 +464,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onCompute](ComponentBase.md#oncompute)
+[`ComponentBase`](ComponentBase.md).[`onCompute`](ComponentBase.md#oncompute)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L120)
+### onGraphic()?
 
-___
+> `optional` **onGraphic**(`view?`): `any`
 
-### onGraphic
-
-▸ **onGraphic**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:170](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L170)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -515,24 +486,25 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onGraphic](ComponentBase.md#ongraphic)
+[`ComponentBase`](ComponentBase.md).[`onGraphic`](ComponentBase.md#ongraphic)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L121)
+### onParentChange()?
 
-___
+> `optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
-### onParentChange
-
-▸ **onParentChange**(`lastParent?`, `currentParent?`): `any`
+Defined in: [src/components/ComponentBase.ts:171](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L171)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `lastParent?` | [`Object3D`](Object3D.md) |
-| `currentParent?` | [`Object3D`](Object3D.md) |
+##### lastParent?
+
+[`Object3D`](Object3D.md)
+
+##### currentParent?
+
+[`Object3D`](Object3D.md)
 
 #### Returns
 
@@ -540,23 +512,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onParentChange](ComponentBase.md#onparentchange)
+[`ComponentBase`](ComponentBase.md).[`onParentChange`](ComponentBase.md#onparentchange)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L122)
+### onAddChild()?
 
-___
+> `optional` **onAddChild**(`child`): `any`
 
-### onAddChild
-
-▸ **onAddChild**(`child`): `any`
+Defined in: [src/components/ComponentBase.ts:172](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L172)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `child` | [`Object3D`](Object3D.md) |
+##### child
+
+[`Object3D`](Object3D.md)
 
 #### Returns
 
@@ -564,23 +534,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onAddChild](ComponentBase.md#onaddchild)
+[`ComponentBase`](ComponentBase.md).[`onAddChild`](ComponentBase.md#onaddchild)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L123)
+### onRemoveChild()?
 
-___
+> `optional` **onRemoveChild**(`child`): `any`
 
-### onRemoveChild
-
-▸ **onRemoveChild**(`child`): `any`
+Defined in: [src/components/ComponentBase.ts:173](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L173)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `child` | [`Object3D`](Object3D.md) |
+##### child
+
+[`Object3D`](Object3D.md)
 
 #### Returns
 
@@ -588,23 +556,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onRemoveChild](ComponentBase.md#onremovechild)
+[`ComponentBase`](ComponentBase.md).[`onRemoveChild`](ComponentBase.md#onremovechild)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L124)
+### copyComponent()
 
-___
+> **copyComponent**(`from`): `this`
 
-### copyComponent
-
-▸ **copyComponent**(`from`): `this`
+Defined in: [src/components/ComponentBase.ts:182](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L182)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `from` | `this` |
+##### from
+
+`this`
 
 #### Returns
 
@@ -612,25 +578,23 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[copyComponent](ComponentBase.md#copycomponent)
+[`ComponentBase`](ComponentBase.md).[`copyComponent`](ComponentBase.md#copycomponent)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L133)
+### beforeDestroy()
 
-___
+> **beforeDestroy**(`force?`): `void`
 
-### beforeDestroy
-
-▸ **beforeDestroy**(`force?`): `void`
+Defined in: [src/components/ComponentBase.ts:249](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L249)
 
 before release this component, object refrences are not be set null now.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
+##### force?
+
+`boolean`
 
 #### Returns
 
@@ -638,25 +602,23 @@ before release this component, object refrences are not be set null now.
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[beforeDestroy](ComponentBase.md#beforedestroy)
+[`ComponentBase`](ComponentBase.md).[`beforeDestroy`](ComponentBase.md#beforedestroy)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L200)
+### destroy()
 
-___
+> **destroy**(`force?`): `void`
 
-### destroy
-
-▸ **destroy**(`force?`): `void`
+Defined in: [src/components/ComponentBase.ts:256](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L256)
 
 release this component
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
+##### force?
+
+`boolean`
 
 #### Returns
 
@@ -664,17 +626,15 @@ release this component
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[destroy](ComponentBase.md#destroy)
+[`ComponentBase`](ComponentBase.md).[`destroy`](ComponentBase.md#destroy)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:207](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L207)
+### start()
 
-___
+> **start**(): `void`
 
-### start
-
-▸ **start**(): `void`
+Defined in: [src/components/SkeletonAnimationComponent.ts:41](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L41)
 
 #### Returns
 
@@ -682,25 +642,25 @@ ___
 
 #### Overrides
 
-[ComponentBase](ComponentBase.md).[start](ComponentBase.md#start)
+[`ComponentBase`](ComponentBase.md).[`start`](ComponentBase.md#start)
 
-#### Defined in
+***
 
-[src/components/SkeletonAnimationComponent.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L41)
+### getJointIndexTable()
 
-___
+> **getJointIndexTable**(`skinJointsName`): `number`[]
 
-### getJointIndexTable
-
-▸ **getJointIndexTable**(`skinJointsName`): `number`[]
+Defined in: [src/components/SkeletonAnimationComponent.ts:93](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L93)
 
 Get the bone index information by the bone name
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `skinJointsName` | `string`[] | bone name |
+##### skinJointsName
+
+`string`[]
+
+bone name
 
 #### Returns
 
@@ -708,45 +668,45 @@ Get the bone index information by the bone name
 
 bone index
 
-#### Defined in
+***
 
-[src/components/SkeletonAnimationComponent.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L93)
+### addAnimationClip()
 
-___
+> **addAnimationClip**(`clip`): `void`
 
-### addAnimationClip
-
-▸ **addAnimationClip**(`clip`): `void`
+Defined in: [src/components/SkeletonAnimationComponent.ts:107](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L107)
 
 Add a skeleton animation clip
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `clip` | `SkeletonAnimationClip` | Skeletal animation clip |
+##### clip
+
+`SkeletonAnimationClip`
+
+Skeletal animation clip
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/components/SkeletonAnimationComponent.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L107)
+### getAnimationClip()
 
-___
+> **getAnimationClip**(`name`): `SkeletonAnimationClip`
 
-### getAnimationClip
-
-▸ **getAnimationClip**(`name`): `SkeletonAnimationClip`
+Defined in: [src/components/SkeletonAnimationComponent.ts:124](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L124)
 
 Gets the animation clip data object with the specified name
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `name` | `string` | Name of animation |
+##### name
+
+`string`
+
+Name of animation
 
 #### Returns
 
@@ -754,15 +714,13 @@ Gets the animation clip data object with the specified name
 
 Animation clip data object
 
-#### Defined in
+***
 
-[src/components/SkeletonAnimationComponent.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L124)
+### getAnimationClips()
 
-___
+> **getAnimationClips**(): `SkeletonAnimationClip`[]
 
-### getAnimationClips
-
-▸ **getAnimationClips**(): `SkeletonAnimationClip`[]
+Defined in: [src/components/SkeletonAnimationComponent.ts:136](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L136)
 
 Gets all animation clip data objects
 
@@ -772,23 +730,23 @@ Gets all animation clip data objects
 
 Animation clip data object
 
-#### Defined in
+***
 
-[src/components/SkeletonAnimationComponent.ts:136](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L136)
+### getAnimationClipState()
 
-___
+> **getAnimationClipState**(`name`): `SkeletonAnimationClipState`
 
-### getAnimationClipState
-
-▸ **getAnimationClipState**(`name`): `SkeletonAnimationClipState`
+Defined in: [src/components/SkeletonAnimationComponent.ts:145](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L145)
 
 Gets the animation clip state object with the specified name
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `name` | `string` | Name of animation |
+##### name
+
+`string`
+
+Name of animation
 
 #### Returns
 
@@ -796,15 +754,13 @@ Gets the animation clip state object with the specified name
 
 Animation clip state object
 
-#### Defined in
+***
 
-[src/components/SkeletonAnimationComponent.ts:145](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L145)
+### getAnimationClipStates()
 
-___
+> **getAnimationClipStates**(): `Map`\<`string`, `SkeletonAnimationClipState`\>
 
-### getAnimationClipStates
-
-▸ **getAnimationClipStates**(): `Map`\<`string`, `SkeletonAnimationClipState`\>
+Defined in: [src/components/SkeletonAnimationComponent.ts:156](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L156)
 
 Gets all animation clip state objects
 
@@ -814,15 +770,13 @@ Gets all animation clip state objects
 
 Animation clip state object
 
-#### Defined in
+***
 
-[src/components/SkeletonAnimationComponent.ts:156](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L156)
+### pause()
 
-___
+> **pause**(): `void`
 
-### pause
-
-▸ **pause**(): `void`
+Defined in: [src/components/SkeletonAnimationComponent.ts:163](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L163)
 
 stop playing
 
@@ -830,15 +784,13 @@ stop playing
 
 `void`
 
-#### Defined in
+***
 
-[src/components/SkeletonAnimationComponent.ts:163](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L163)
+### resume()
 
-___
+> **resume**(): `void`
 
-### resume
-
-▸ **resume**(): `void`
+Defined in: [src/components/SkeletonAnimationComponent.ts:170](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L170)
 
 Resume playback
 
@@ -846,138 +798,163 @@ Resume playback
 
 `void`
 
-#### Defined in
+***
 
-[src/components/SkeletonAnimationComponent.ts:170](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L170)
+### play()
 
-___
+> **play**(`animName`, `speed?`, `reset?`): `boolean`
 
-### play
-
-▸ **play**(`animName`, `speed?`, `reset?`): `boolean`
+Defined in: [src/components/SkeletonAnimationComponent.ts:181](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L181)
 
 Play the specified animation
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `animName` | `string` | `undefined` | The data set name for the animation |
-| `speed` | `number` | `1` | Animation playback speed, default value is 1.0 |
-| `reset` | `boolean` | `false` | When true, each play starts with the first frame |
+##### animName
+
+`string`
+
+The data set name for the animation
+
+##### speed?
+
+`number` = `1`
+
+Animation playback speed, default value is 1.0
+
+##### reset?
+
+`boolean` = `false`
+
+When true, each play starts with the first frame
 
 #### Returns
 
 `boolean`
 
-#### Defined in
+***
 
-[src/components/SkeletonAnimationComponent.ts:181](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L181)
+### crossFade()
 
-___
+> **crossFade**(`animName`, `crossTime`): `void`
 
-### crossFade
-
-▸ **crossFade**(`animName`, `crossTime`): `void`
+Defined in: [src/components/SkeletonAnimationComponent.ts:211](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L211)
 
 Fades the current animation and fades into another animation state for a specified time.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `animName` | `string` | The name of the animation to fade in. |
-| `crossTime` | `number` | The time of transition, in seconds. |
+##### animName
+
+`string`
+
+The name of the animation to fade in.
+
+##### crossTime
+
+`number`
+
+The time of transition, in seconds.
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/components/SkeletonAnimationComponent.ts:211](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L211)
+### setAnimIsLoop()
 
-___
+> **setAnimIsLoop**(`animName`, `isLoop`): `void`
 
-### setAnimIsLoop
-
-▸ **setAnimIsLoop**(`animName`, `isLoop`): `void`
+Defined in: [src/components/SkeletonAnimationComponent.ts:251](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L251)
 
 Set the animation loop
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `animName` | `string` | The data set name for the animation |
-| `isLoop` | `boolean` | If true, loop the animation |
+##### animName
+
+`string`
+
+The data set name for the animation
+
+##### isLoop
+
+`boolean`
+
+If true, loop the animation
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/components/SkeletonAnimationComponent.ts:251](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L251)
+### addJointBind()
 
-___
+> **addJointBind**(`jointName`, `obj`): `void`
 
-### addJointBind
-
-▸ **addJointBind**(`jointName`, `obj`): `void`
+Defined in: [src/components/SkeletonAnimationComponent.ts:262](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L262)
 
 Add joint bindings to the object
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `jointName` | `string` | Name of joint |
-| `obj` | [`Object3D`](Object3D.md) | Object of binding |
+##### jointName
+
+`string`
+
+Name of joint
+
+##### obj
+
+[`Object3D`](Object3D.md)
+
+Object of binding
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/components/SkeletonAnimationComponent.ts:262](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L262)
+### removeJointBind()
 
-___
+> **removeJointBind**(`obj`): `void`
 
-### removeJointBind
-
-▸ **removeJointBind**(`obj`): `void`
+Defined in: [src/components/SkeletonAnimationComponent.ts:274](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L274)
 
 Removes the joint binding of the specified object
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `obj` | [`Object3D`](Object3D.md) | Object of binding |
+##### obj
+
+[`Object3D`](Object3D.md)
+
+Object of binding
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/components/SkeletonAnimationComponent.ts:274](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L274)
+### cloneTo()
 
-___
+> **cloneTo**(`obj`): `void`
 
-### cloneTo
-
-▸ **cloneTo**(`obj`): `void`
+Defined in: [src/components/SkeletonAnimationComponent.ts:322](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L322)
 
 Clones the current component to the specified object
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `obj` | [`Object3D`](Object3D.md) | target object |
+##### obj
+
+[`Object3D`](Object3D.md)
+
+target object
 
 #### Returns
 
@@ -985,8 +962,4 @@ Clones the current component to the specified object
 
 #### Overrides
 
-[ComponentBase](ComponentBase.md).[cloneTo](ComponentBase.md#cloneto)
-
-#### Defined in
-
-[src/components/SkeletonAnimationComponent.ts:322](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L322)
+[`ComponentBase`](ComponentBase.md).[`cloneTo`](ComponentBase.md#cloneto)

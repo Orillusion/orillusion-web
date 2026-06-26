@@ -1,41 +1,47 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: KHR\_materials\_emissive\_strength
 
-### Constructors
-
-- [constructor](KHR_materials_emissive_strength.md#constructor)
-
-### Methods
-
-- [apply](KHR_materials_emissive_strength.md#apply)
+Defined in: [src/loader/parser/gltf/extends/KHR\_materials\_emissive\_strength.ts:6](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gltf/extends/KHR_materials_emissive_strength.ts#L6)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new KHR_materials_emissive_strength**(): [`KHR_materials_emissive_strength`](KHR_materials_emissive_strength.md)
+> **new KHR\_materials\_emissive\_strength**(): `KHR_materials_emissive_strength`
 
 #### Returns
 
-[`KHR_materials_emissive_strength`](KHR_materials_emissive_strength.md)
+`KHR_materials_emissive_strength`
 
 ## Methods
 
-### apply
+### apply()
 
-▸ **apply**(`gltf`, `dmaterial`, `tMaterial`): `void`
+> `static` **apply**(`gltf`, `dmaterial`, `tMaterial`, `ctx?`): `void`
+
+Defined in: [src/loader/parser/gltf/extends/KHR\_materials\_emissive\_strength.ts:7](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gltf/extends/KHR_materials_emissive_strength.ts#L7)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `gltf` | `any` |
-| `dmaterial` | `any` |
-| `tMaterial` | `any` |
+##### gltf
+
+`any`
+
+##### dmaterial
+
+`any`
+
+##### tMaterial
+
+`any`
+
+##### ctx?
+
+[`Context3D`](Context3D.md)
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[src/loader/parser/gltf/extends/KHR_materials_emissive_strength.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/extends/KHR_materials_emissive_strength.ts#L6)

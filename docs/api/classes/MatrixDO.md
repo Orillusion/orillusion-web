@@ -1,19 +1,21 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: MatrixDO
 
-### Constructors
+Defined in: [src/core/pool/memory/MatrixDO.ts:5](https://github.com/orillusion/orillusion/blob/main/src/core/pool/memory/MatrixDO.ts#L5)
 
-- [constructor](MatrixDO.md#constructor)
+Data object placeholder for pooled matrix storage.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new MatrixDO**(): [`MatrixDO`](MatrixDO.md)
+> **new MatrixDO**(): `MatrixDO`
+
+Defined in: [src/core/pool/memory/MatrixDO.ts:6](https://github.com/orillusion/orillusion/blob/main/src/core/pool/memory/MatrixDO.ts#L6)
 
 #### Returns
 
-[`MatrixDO`](MatrixDO.md)
-
-#### Defined in
-
-[src/core/pool/memory/MatrixDO.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/core/pool/memory/MatrixDO.ts#L2)
+`MatrixDO`

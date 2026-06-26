@@ -1,73 +1,61 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: CEventDispatcher
+
+Defined in: [src/event/CEventDispatcher.ts:10](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L10)
 
 Basic class of event diapatcher.
 It includes the implementation of functions such as event registration, 
 deregistration, distribution, and unregister.
 
-## Hierarchy
+## Extended by
 
-- **`CEventDispatcher`**
-
-  ↳ [`Entity`](Entity.md)
-
-  ↳ [`DDGIIrradianceGPUBufferReader`](DDGIIrradianceGPUBufferReader.md)
-
-  ↳ [`InputSystem`](InputSystem.md)
-
-  ↳ [`PickFire`](PickFire.md)
-
-### Constructors
-
-- [constructor](CEventDispatcher.md#constructor)
-
-### Methods
-
-- [dispatchEvent](CEventDispatcher.md#dispatchevent)
-- [destroy](CEventDispatcher.md#destroy)
-- [addEventListener](CEventDispatcher.md#addeventlistener)
-- [removeEventListener](CEventDispatcher.md#removeeventlistener)
-- [removeEventListenerAt](CEventDispatcher.md#removeeventlistenerat)
-- [removeAllEventListener](CEventDispatcher.md#removealleventlistener)
-- [containEventListener](CEventDispatcher.md#containeventlistener)
-- [hasEventListener](CEventDispatcher.md#haseventlistener)
+- [`Entity`](Entity.md)
+- [`Context3D`](Context3D.md)
+- [`RenderGraphPass`](RenderGraphPass.md)
+- [`DDGIIrradianceGPUBufferReader`](DDGIIrradianceGPUBufferReader.md)
+- [`InputSystem`](InputSystem.md)
+- [`PickFire`](PickFire.md)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new CEventDispatcher**(): [`CEventDispatcher`](CEventDispatcher.md)
+> **new CEventDispatcher**(): `CEventDispatcher`
 
 #### Returns
 
-[`CEventDispatcher`](CEventDispatcher.md)
+`CEventDispatcher`
 
 ## Methods
 
-### dispatchEvent
+### dispatchEvent()
 
-▸ **dispatchEvent**(`event`): `void`
+> **dispatchEvent**(`event`): `void`
+
+Defined in: [src/event/CEventDispatcher.ts:24](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L24)
 
 Dispatch an event to all registered objects with a specific type of listener.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | [`CEvent`](CEvent.md) |
+##### event
+
+[`CEvent`](CEvent.md)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L24)
+### destroy()
 
-___
+> **destroy**(): `void`
 
-### destroy
-
-▸ **destroy**(): `void`
+Defined in: [src/event/CEventDispatcher.ts:54](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L54)
 
 release all registered event.
 
@@ -75,27 +63,49 @@ release all registered event.
 
 `void`
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L55)
+### addEventListener()
 
-___
+> **addEventListener**(`type`, `callback`, `thisObject`, `param?`, `priority?`): `number`
 
-### addEventListener
-
-▸ **addEventListener**(`type`, `callback`, `thisObject`, `param?`, `priority?`): `number`
+Defined in: [src/event/CEventDispatcher.ts:78](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L78)
 
 register an event listener to event distancher.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `type` | `string` \| `number` | `undefined` | {string} event type. |
-| `callback` | `Function` | `undefined` | {Function} The callback function that handles events. This function must accept an Event3D object as its unique parameter and cannot return any result. for example: function(evt:Event3D):void. |
-| `thisObject` | `any` | `undefined` | {any} Current registration object, it'll call callback function. |
-| `param` | `any` | `null` | {any} the data binded to registered event, the default value is null. |
-| `priority` | `number` | `0` | {number} The priority of callback function execution, with a larger set value having priority to call |
+##### type
+
+`string` \| `number`
+
+{string} event type.
+
+##### callback
+
+`Function`
+
+{Function} The callback function that handles events. 
+This function must accept an Event3D object as its unique parameter and cannot return any result.
+for example: function(evt:Event3D):void.
+
+##### thisObject
+
+`any`
+
+{any} Current registration object, it'll call callback function.
+
+##### param?
+
+`any` = `null`
+
+{any} the data binded to registered event, the default value is null.
+
+##### priority?
+
+`number` = `0`
+
+{number} The priority of callback function execution, with a larger set value having priority to call
 
 #### Returns
 
@@ -103,92 +113,98 @@ register an event listener to event distancher.
 
 Returns register event id
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L79)
+### removeEventListener()
 
-___
+> **removeEventListener**(`type`, `callback`, `thisObject`): `void`
 
-### removeEventListener
-
-▸ **removeEventListener**(`type`, `callback`, `thisObject`): `void`
+Defined in: [src/event/CEventDispatcher.ts:112](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L112)
 
 Remove Event Listening
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `type` | `string` \| `number` | {string} event type |
-| `callback` | `Function` | {Function} callback function of event register |
-| `thisObject` | `any` | {any} The current registered object. |
+##### type
+
+`string` \| `number`
+
+{string} event type
+
+##### callback
+
+`Function`
+
+{Function} callback function of event register
+
+##### thisObject
+
+`any`
+
+{any} The current registered object.
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L113)
+### removeEventListenerAt()
 
-___
+> **removeEventListenerAt**(`id`): `boolean`
 
-### removeEventListenerAt
-
-▸ **removeEventListenerAt**(`id`): `boolean`
+Defined in: [src/event/CEventDispatcher.ts:132](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L132)
 
 Remove an event Listening with id
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `id` | `number` |
+##### id
+
+`number`
 
 #### Returns
 
 `boolean`
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L133)
+### removeAllEventListener()
 
-___
+> **removeAllEventListener**(`eventType?`): `void`
 
-### removeAllEventListener
-
-▸ **removeAllEventListener**(`eventType?`): `void`
+Defined in: [src/event/CEventDispatcher.ts:152](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L152)
 
 Specify a event type to remove all related event listeners
 eventType event type, set null to remove all event listeners
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `eventType` | `string` \| `number` | `null` |
+##### eventType?
+
+`string` \| `number`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L153)
+### containEventListener()
 
-___
+> **containEventListener**(`type`): `boolean`
 
-### containEventListener
-
-▸ **containEventListener**(`type`): `boolean`
+Defined in: [src/event/CEventDispatcher.ts:184](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L184)
 
 whether the target presence of a listener with event type.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `type` | `string` | {string} event type. |
+##### type
+
+`string`
+
+{string} event type.
 
 #### Returns
 
@@ -196,32 +212,38 @@ whether the target presence of a listener with event type.
 
 Returns a boolean.
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:185](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L185)
+### hasEventListener()
 
-___
+> **hasEventListener**(`type`, `callback?`, `thisObject?`): `boolean`
 
-### hasEventListener
-
-▸ **hasEventListener**(`type`, `callback?`, `thisObject?`): `boolean`
+Defined in: [src/event/CEventDispatcher.ts:197](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L197)
 
 whether the target presence of a listener with event type. it associate more registration parameters.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `type` | `string` \| `number` | `undefined` | {string} event name. |
-| `callback` | `Function` | `null` | {Function} callback function of event register. |
-| `thisObject` | `any` | `null` | {any} The registered object. |
+##### type
+
+`string` \| `number`
+
+{string} event name.
+
+##### callback?
+
+`Function` = `null`
+
+{Function} callback function of event register.
+
+##### thisObject?
+
+`any` = `null`
+
+{any} The registered object.
 
 #### Returns
 
 `boolean`
 
 Returns a boolean.
-
-#### Defined in
-
-[src/event/CEventDispatcher.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L198)

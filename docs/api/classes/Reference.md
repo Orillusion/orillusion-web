@@ -1,153 +1,156 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: Reference
+
+Defined in: [src/util/Reference.ts:12](https://github.com/orillusion/orillusion/blob/main/src/util/Reference.ts#L12)
 
 instance reference statistics module
 apply any instance , used full destroy
 
-### Constructors
-
-- [constructor](Reference.md#constructor)
-
-### Methods
-
-- [getInstance](Reference.md#getinstance)
-- [attached](Reference.md#attached)
-- [detached](Reference.md#detached)
-- [hasReference](Reference.md#hasreference)
-- [getReferenceCount](Reference.md#getreferencecount)
-- [getReference](Reference.md#getreference)
+Outer map is a WeakMap so a resource (ref) doesn't stay alive merely
+because Reference knows about it — its `_boundCtx` back-ref would
+otherwise pin the owning Context3D forever across engine reinits.
+Inner map retains parents strongly (that's the whole point of the
+tracker), but it evaporates with the ref once nothing else holds it.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new Reference**(): [`Reference`](Reference.md)
+> **new Reference**(): `Reference`
 
 #### Returns
 
-[`Reference`](Reference.md)
+`Reference`
 
 ## Methods
 
-### getInstance
+### getInstance()
 
-▸ **getInstance**(): [`Reference`](Reference.md)
+> `static` **getInstance**(): `Reference`
+
+Defined in: [src/util/Reference.ts:18](https://github.com/orillusion/orillusion/blob/main/src/util/Reference.ts#L18)
+
+Get the shared Reference singleton, creating it on first use.
 
 #### Returns
 
-[`Reference`](Reference.md)
+`Reference`
 
-#### Defined in
+***
 
-[src/util/Reference.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/util/Reference.ts#L10)
+### attached()
 
-___
+> **attached**(`ref`, `target`): `void`
 
-### attached
-
-▸ **attached**(`ref`, `target`): `void`
+Defined in: [src/util/Reference.ts:28](https://github.com/orillusion/orillusion/blob/main/src/util/Reference.ts#L28)
 
 current instance attached from parent instance
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `ref` | `any` | reference current |
-| `target` | `any` | reference parent |
+##### ref
+
+`any`
+
+reference current
+
+##### target
+
+`any`
+
+reference parent
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/util/Reference.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/util/Reference.ts#L20)
+### detached()
 
-___
+> **detached**(`ref`, `target`): `void`
 
-### detached
-
-▸ **detached**(`ref`, `target`): `void`
+Defined in: [src/util/Reference.ts:43](https://github.com/orillusion/orillusion/blob/main/src/util/Reference.ts#L43)
 
 current instance detached from parent instance
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `ref` | `any` | reference current |
-| `target` | `any` | reference parent |
+##### ref
+
+`any`
+
+reference current
+
+##### target
+
+`any`
+
+reference parent
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/util/Reference.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/util/Reference.ts#L35)
+### hasReference()
 
-___
+> **hasReference**(`ref`): `boolean`
 
-### hasReference
-
-▸ **hasReference**(`ref`): `boolean`
+Defined in: [src/util/Reference.ts:59](https://github.com/orillusion/orillusion/blob/main/src/util/Reference.ts#L59)
 
 current instance has reference
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `ref` | `any` |
+##### ref
+
+`any`
 
 #### Returns
 
 `boolean`
 
-#### Defined in
+***
 
-[src/util/Reference.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/util/Reference.ts#L45)
+### getReferenceCount()
 
-___
+> **getReferenceCount**(`ref`): `number`
 
-### getReferenceCount
-
-▸ **getReferenceCount**(`ref`): `number`
+Defined in: [src/util/Reference.ts:72](https://github.com/orillusion/orillusion/blob/main/src/util/Reference.ts#L72)
 
 get current instance reference count
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `ref` | `any` |
+##### ref
+
+`any`
 
 #### Returns
 
 `number`
 
-#### Defined in
+***
 
-[src/util/Reference.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/util/Reference.ts#L58)
+### getReference()
 
-___
+> **getReference**(`ref`): `Map`\<`any`, `any`\>
 
-### getReference
-
-▸ **getReference**(`ref`): `Map`\<`any`, `any`\>
+Defined in: [src/util/Reference.ts:85](https://github.com/orillusion/orillusion/blob/main/src/util/Reference.ts#L85)
 
 get current instance reference from where
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `ref` | `any` |
+##### ref
+
+`any`
 
 #### Returns
 
 `Map`\<`any`, `any`\>
-
-#### Defined in
-
-[src/util/Reference.ts:71](https://github.com/Orillusion/orillusion/blob/main/src/util/Reference.ts#L71)

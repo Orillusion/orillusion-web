@@ -1,295 +1,237 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: CEvent
+
+Defined in: [src/event/CEvent.ts:9](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L9)
 
 Basic class of Event
 
-## Hierarchy
+## Extended by
 
-- **`CEvent`**
-
-  ↳ [`OAnimationEvent`](OAnimationEvent.md)
-
-  ↳ [`KeyEvent`](KeyEvent.md)
-
-  ↳ [`PointerEvent3D`](PointerEvent3D.md)
-
-### Constructors
-
-- [constructor](CEvent.md#constructor)
-
-### Properties
-
-- [target](CEvent.md#target)
-- [currentTarget](CEvent.md#currenttarget)
-- [type](CEvent.md#type)
-- [data](CEvent.md#data)
-- [param](CEvent.md#param)
-- [time](CEvent.md#time)
-- [delay](CEvent.md#delay)
-- [mouseCode](CEvent.md#mousecode)
-- [ctrlKey](CEvent.md#ctrlkey)
-- [metaKey](CEvent.md#metakey)
-- [altKey](CEvent.md#altkey)
-- [shiftKey](CEvent.md#shiftkey)
-- [targetTouches](CEvent.md#targettouches)
-- [changedTouches](CEvent.md#changedtouches)
-- [touches](CEvent.md#touches)
-- [view](CEvent.md#view)
-
-### Accessors
-
-- [isStopImmediatePropagation](CEvent.md#isstopimmediatepropagation)
-
-### Methods
-
-- [stopImmediatePropagation](CEvent.md#stopimmediatepropagation)
+- [`OAnimationEvent`](OAnimationEvent.md)
+- [`KeyEvent`](KeyEvent.md)
+- [`PointerEvent3D`](PointerEvent3D.md)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new CEvent**(`eventType?`, `data?`): [`CEvent`](CEvent.md)
+> **new CEvent**(`eventType?`, `data?`): `CEvent`
+
+Defined in: [src/event/CEvent.ts:102](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L102)
 
 Create a new event, with type and data
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `eventType` | `string` | `null` | {any} eventType |
-| `data` | `any` | `null` | {any} param |
+##### eventType?
+
+`string` = `null`
+
+{any} eventType
+
+##### data?
+
+`any` = `null`
+
+{any} param
 
 #### Returns
 
-[`CEvent`](CEvent.md)
-
-#### Defined in
-
-[src/event/CEvent.ts:102](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L102)
+`CEvent`
 
 ## Properties
 
 ### target
 
-• **target**: [`Object3D`](Object3D.md)
+> **target**: [`Object3D`](Object3D.md)
+
+Defined in: [src/event/CEvent.ts:13](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L13)
 
 Event target, it's usually event dispatcher
 
-#### Defined in
-
-[src/event/CEvent.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L13)
-
-___
+***
 
 ### currentTarget
 
-• **currentTarget**: `CEventListener`
+> **currentTarget**: `CEventListener`
+
+Defined in: [src/event/CEvent.ts:18](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L18)
 
 Current event target, it's current bubble object
 
-#### Defined in
-
-[src/event/CEvent.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L18)
-
-___
+***
 
 ### type
 
-• **type**: `string`
+> **type**: `string`
+
+Defined in: [src/event/CEvent.ts:23](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L23)
 
 event type, it's registered string of key
 
-#### Defined in
+***
 
-[src/event/CEvent.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L23)
+### data?
 
-___
+> `optional` **data?**: `any`
 
-### data
-
-• **data**: `any`
+Defined in: [src/event/CEvent.ts:28](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L28)
 
 extra data.Used for the transmission process of events, carrying data
 
-#### Defined in
-
-[src/event/CEvent.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L28)
-
-___
+***
 
 ### param
 
-• **param**: `any`
+> **param**: `any`
+
+Defined in: [src/event/CEvent.ts:34](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L34)
 
 The param data when event is registered
 
-#### Defined in
-
-[src/event/CEvent.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L34)
-
-___
+***
 
 ### time
 
-• **time**: `number` = `0`
+> **time**: `number` = `0`
+
+Defined in: [src/event/CEvent.ts:40](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L40)
 
 the time when event is
 
-#### Defined in
-
-[src/event/CEvent.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L40)
-
-___
+***
 
 ### delay
 
-• **delay**: `number` = `0`
+> **delay**: `number` = `0`
+
+Defined in: [src/event/CEvent.ts:46](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L46)
 
 the delay time when event is dispatched.
 
-#### Defined in
-
-[src/event/CEvent.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L46)
-
-___
+***
 
 ### mouseCode
 
-• **mouseCode**: `number` = `0`
+> **mouseCode**: `number` = `0`
+
+Defined in: [src/event/CEvent.ts:52](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L52)
 
 mouse code, see
 
-**`Mouse Code`**
+#### Mouse Code
 
-[MouseCode](../enums/MouseCode.md)
+[MouseCode](../enumerations/MouseCode.md)
 
-#### Defined in
-
-[src/event/CEvent.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L52)
-
-___
+***
 
 ### ctrlKey
 
-• **ctrlKey**: `boolean`
+> **ctrlKey**: `boolean`
+
+Defined in: [src/event/CEvent.ts:57](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L57)
 
 Is Ctrl key pressed when the event occurs
 
-#### Defined in
-
-[src/event/CEvent.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L57)
-
-___
+***
 
 ### metaKey
 
-• **metaKey**: `boolean`
+> **metaKey**: `boolean`
+
+Defined in: [src/event/CEvent.ts:62](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L62)
 
 Is Meta key pressed when the event occurs
 
-#### Defined in
-
-[src/event/CEvent.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L62)
-
-___
+***
 
 ### altKey
 
-• **altKey**: `boolean`
+> **altKey**: `boolean`
+
+Defined in: [src/event/CEvent.ts:67](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L67)
 
 Is Alt key pressed when the event occurs
 
-#### Defined in
-
-[src/event/CEvent.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L67)
-
-___
+***
 
 ### shiftKey
 
-• **shiftKey**: `boolean`
+> **shiftKey**: `boolean`
+
+Defined in: [src/event/CEvent.ts:72](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L72)
 
 Is Shift key pressed when the event occurs
 
-#### Defined in
-
-[src/event/CEvent.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L72)
-
-___
+***
 
 ### targetTouches
 
-• **targetTouches**: `TouchData`[]
+> **targetTouches**: `TouchData`[]
+
+Defined in: [src/event/CEvent.ts:77](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L77)
 
 Collection of finger touch points, which registered
 
-#### Defined in
-
-[src/event/CEvent.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L77)
-
-___
+***
 
 ### changedTouches
 
-• **changedTouches**: `TouchData`[]
+> **changedTouches**: `TouchData`[]
+
+Defined in: [src/event/CEvent.ts:82](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L82)
 
 Collection of finger touch points changed
 
-#### Defined in
-
-[src/event/CEvent.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L82)
-
-___
+***
 
 ### touches
 
-• **touches**: `TouchData`[]
+> **touches**: `TouchData`[]
+
+Defined in: [src/event/CEvent.ts:87](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L87)
 
 Collection of finger touch points
 
-#### Defined in
-
-[src/event/CEvent.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L87)
-
-___
+***
 
 ### view
 
-• **view**: [`View3D`](View3D.md)
+> **view**: [`View3D`](View3D.md)
+
+Defined in: [src/event/CEvent.ts:94](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L94)
 
 binded view3D object in event.
-
-#### Defined in
-
-[src/event/CEvent.ts:94](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L94)
 
 ## Accessors
 
 ### isStopImmediatePropagation
 
-• `get` **isStopImmediatePropagation**(): `boolean`
+#### Get Signature
+
+> **get** **isStopImmediatePropagation**(): `boolean`
+
+Defined in: [src/event/CEvent.ts:125](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L125)
 
 Returns stopImmediatePropagation value
 
-#### Returns
+##### Returns
 
 `boolean`
 
-#### Defined in
-
-[src/event/CEvent.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L125)
-
 ## Methods
 
-### stopImmediatePropagation
+### stopImmediatePropagation()
 
-▸ **stopImmediatePropagation**(): `void`
+> **stopImmediatePropagation**(): `void`
+
+Defined in: [src/event/CEvent.ts:110](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L110)
 
 Prevent bubbling of all event listeners in subsequent nodes of the current node in the event flow.
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[src/event/CEvent.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L110)

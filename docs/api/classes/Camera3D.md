@@ -1,717 +1,640 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: Camera3D
+
+Defined in: [src/core/Camera3D.ts:21](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L21)
 
 Camera components
 
-## Hierarchy
+## Extends
 
 - [`ComponentBase`](ComponentBase.md)
 
-  ↳ **`Camera3D`**
-
-## Table of contents
-
-### Constructors
-
-- [constructor](Camera3D.md#constructor)
-
-### Properties
-
-- [object3D](Camera3D.md#object3d)
-- [isDestroyed](Camera3D.md#isdestroyed)
-- [fov](Camera3D.md#fov)
-- [name](Camera3D.md#name)
-- [aspect](Camera3D.md#aspect)
-- [near](Camera3D.md#near)
-- [far](Camera3D.md#far)
-- [left](Camera3D.md#left)
-- [right](Camera3D.md#right)
-- [top](Camera3D.md#top)
-- [bottom](Camera3D.md#bottom)
-- [frustumSize](Camera3D.md#frustumsize)
-- [frustumDepth](Camera3D.md#frustumdepth)
-- [viewPort](Camera3D.md#viewport)
-- [frustum](Camera3D.md#frustum)
-- [sh](Camera3D.md#sh)
-- [isShadowCamera](Camera3D.md#isshadowcamera)
-- [mainCamera](Camera3D.md#maincamera)
-- [lookTarget](Camera3D.md#looktarget)
-- [type](Camera3D.md#type)
-- [csm](Camera3D.md#csm)
-
-### Accessors
-
-- [eventDispatcher](Camera3D.md#eventdispatcher)
-- [isStart](Camera3D.md#isstart)
-- [transform](Camera3D.md#transform)
-- [enable](Camera3D.md#enable)
-- [enableCSM](Camera3D.md#enablecsm)
-- [viewMatrix](Camera3D.md#viewmatrix)
-- [shadowViewMatrix](Camera3D.md#shadowviewmatrix)
-- [pvMatrix](Camera3D.md#pvmatrix)
-- [pvMatrix2](Camera3D.md#pvmatrix2)
-- [pvMatrixInv](Camera3D.md#pvmatrixinv)
-- [vMatrixInv](Camera3D.md#vmatrixinv)
-- [cameraToWorld](Camera3D.md#cameratoworld)
-- [ndcToView](Camera3D.md#ndctoview)
-- [projectionMatrixInv](Camera3D.md#projectionmatrixinv)
-- [jitterFrameIndex](Camera3D.md#jitterframeindex)
-- [jitterX](Camera3D.md#jitterx)
-- [jitterY](Camera3D.md#jittery)
-
-### Methods
-
-- [start](Camera3D.md#start)
-- [stop](Camera3D.md#stop)
-- [onEnable](Camera3D.md#onenable)
-- [onDisable](Camera3D.md#ondisable)
-- [onLateUpdate](Camera3D.md#onlateupdate)
-- [onBeforeUpdate](Camera3D.md#onbeforeupdate)
-- [onCompute](Camera3D.md#oncompute)
-- [onGraphic](Camera3D.md#ongraphic)
-- [onParentChange](Camera3D.md#onparentchange)
-- [onAddChild](Camera3D.md#onaddchild)
-- [onRemoveChild](Camera3D.md#onremovechild)
-- [cloneTo](Camera3D.md#cloneto)
-- [copyComponent](Camera3D.md#copycomponent)
-- [beforeDestroy](Camera3D.md#beforedestroy)
-- [destroy](Camera3D.md#destroy)
-- [init](Camera3D.md#init)
-- [updateProjection](Camera3D.md#updateprojection)
-- [getShadowBias](Camera3D.md#getshadowbias)
-- [getShadowWorldExtents](Camera3D.md#getshadowworldextents)
-- [getCSMShadowBiasScale](Camera3D.md#getcsmshadowbiasscale)
-- [getCSMShadowWorldExtents](Camera3D.md#getcsmshadowworldextents)
-- [perspective](Camera3D.md#perspective)
-- [ortho](Camera3D.md#ortho)
-- [ortho2](Camera3D.md#ortho2)
-- [orthoOffCenter](Camera3D.md#orthooffcenter)
-- [object3DToScreenRay](Camera3D.md#object3dtoscreenray)
-- [screenRayToObject3D](Camera3D.md#screenraytoobject3d)
-- [unProject](Camera3D.md#unproject)
-- [screenPointToRay](Camera3D.md#screenpointtoray)
-- [screenPointToWorld](Camera3D.md#screenpointtoworld)
-- [worldToScreenPoint](Camera3D.md#worldtoscreenpoint)
-- [lookAt](Camera3D.md#lookat)
-- [enableJitterProjection](Camera3D.md#enablejitterprojection)
-- [getWorldDirection](Camera3D.md#getworlddirection)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new Camera3D**(): [`Camera3D`](Camera3D.md)
+> **new Camera3D**(): `Camera3D`
+
+Defined in: [src/core/Camera3D.ts:176](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L176)
 
 #### Returns
 
-[`Camera3D`](Camera3D.md)
+`Camera3D`
 
 #### Overrides
 
-[ComponentBase](ComponentBase.md).[constructor](ComponentBase.md#constructor)
-
-#### Defined in
-
-[src/core/Camera3D.ts:155](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L155)
+[`ComponentBase`](ComponentBase.md).[`constructor`](ComponentBase.md#constructor)
 
 ## Properties
 
 ### object3D
 
-• **object3D**: [`Object3D`](Object3D.md) = `null`
+> **object3D**: [`Object3D`](Object3D.md) = `null`
+
+Defined in: [src/components/ComponentBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L29)
 
 owner object3D
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[object3D](ComponentBase.md#object3d)
+[`ComponentBase`](ComponentBase.md).[`object3D`](ComponentBase.md#object3d)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
-
-___
+***
 
 ### isDestroyed
 
-• **isDestroyed**: `boolean` = `false`
+> **isDestroyed**: `boolean` = `false`
+
+Defined in: [src/components/ComponentBase.ts:77](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L77)
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[isDestroyed](ComponentBase.md#isdestroyed)
+[`ComponentBase`](ComponentBase.md).[`isDestroyed`](ComponentBase.md#isdestroyed)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L37)
-
-___
-
-### fov
-
-• **fov**: `number` = `60`
-
-camera Perspective
-
-#### Defined in
-
-[src/core/Camera3D.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L28)
-
-___
-
-### name
-
-• **name**: `string`
-
-camera use name
-
-#### Defined in
-
-[src/core/Camera3D.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L33)
-
-___
-
-### aspect
-
-• **aspect**: `number` = `1`
-
-Viewport width and height Scale
-
-#### Defined in
-
-[src/core/Camera3D.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L38)
-
-___
-
-### near
-
-• **near**: `number` = `1`
-
-camera near plane
-
-#### Defined in
-
-[src/core/Camera3D.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L43)
-
-___
-
-### far
-
-• **far**: `number` = `5000`
-
-camera far plane
-
-#### Defined in
-
-[src/core/Camera3D.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L48)
-
-___
-
-### left
-
-• **left**: `number` = `-100`
-
-orth camera right plane
-
-#### Defined in
-
-[src/core/Camera3D.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L53)
-
-___
-
-### right
-
-• **right**: `number` = `100`
-
-orth camera left plane
-
-#### Defined in
-
-[src/core/Camera3D.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L58)
-
-___
-
-### top
-
-• **top**: `number` = `100`
-
-orth camera top plane
-
-#### Defined in
-
-[src/core/Camera3D.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L63)
-
-___
-
-### bottom
-
-• **bottom**: `number` = `-100`
-
-orth camera bottom plane
-
-#### Defined in
-
-[src/core/Camera3D.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L68)
-
-___
-
-### frustumSize
-
-• **frustumSize**: `number` = `0`
-
-orth view size
-
-#### Defined in
-
-[src/core/Camera3D.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L73)
-
-___
-
-### frustumDepth
-
-• **frustumDepth**: `number` = `0`
-
-#### Defined in
-
-[src/core/Camera3D.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L74)
-
-___
-
-### viewPort
-
-• **viewPort**: [`Rect`](Rect.md)
-
-camera view port size
-
-#### Defined in
-
-[src/core/Camera3D.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L79)
-
-___
-
-### frustum
-
-• **frustum**: `Frustum`
-
-camera frustum
-
-#### Defined in
-
-[src/core/Camera3D.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L84)
-
-___
-
-### sh
-
-• **sh**: `Float32Array`
-
-#### Defined in
-
-[src/core/Camera3D.ts:98](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L98)
-
-___
-
-### isShadowCamera
-
-• **isShadowCamera**: `boolean` = `false`
-
-this camera is shadow camera
-
-#### Defined in
-
-[src/core/Camera3D.ts:103](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L103)
-
-___
+***
 
 ### mainCamera
 
-• **mainCamera**: [`Camera3D`](Camera3D.md)
+> `static` **mainCamera**: `Camera3D`
 
-#### Defined in
+Defined in: [src/core/Camera3D.ts:26](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L26)
 
-[src/core/Camera3D.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L119)
+The primary camera used for rendering the main view.
 
-___
+***
+
+### \_boundCtx
+
+> **\_boundCtx**: [`Context3D`](Context3D.md) = `null`
+
+Defined in: [src/core/Camera3D.ts:32](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L32)
+
+The graphics context this camera is bound to. Used for multi-engine
+setups; `null` until the camera is bound to a [Context3D](Context3D.md).
+
+***
+
+### fov
+
+> **fov**: `number` = `60`
+
+Defined in: [src/core/Camera3D.ts:37](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L37)
+
+camera Perspective
+
+***
+
+### name
+
+> **name**: `string`
+
+Defined in: [src/core/Camera3D.ts:42](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L42)
+
+camera use name
+
+***
+
+### aspect
+
+> **aspect**: `number` = `1`
+
+Defined in: [src/core/Camera3D.ts:47](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L47)
+
+Viewport width and height Scale
+
+***
+
+### near
+
+> **near**: `number` = `1`
+
+Defined in: [src/core/Camera3D.ts:52](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L52)
+
+camera near plane
+
+***
+
+### far
+
+> **far**: `number` = `5000`
+
+Defined in: [src/core/Camera3D.ts:57](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L57)
+
+camera far plane
+
+***
+
+### left
+
+> **left**: `number` = `-100`
+
+Defined in: [src/core/Camera3D.ts:62](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L62)
+
+orth camera right plane
+
+***
+
+### right
+
+> **right**: `number` = `100`
+
+Defined in: [src/core/Camera3D.ts:67](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L67)
+
+orth camera left plane
+
+***
+
+### top
+
+> **top**: `number` = `100`
+
+Defined in: [src/core/Camera3D.ts:72](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L72)
+
+orth camera top plane
+
+***
+
+### bottom
+
+> **bottom**: `number` = `-100`
+
+Defined in: [src/core/Camera3D.ts:77](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L77)
+
+orth camera bottom plane
+
+***
+
+### frustumSize
+
+> **frustumSize**: `number` = `0`
+
+Defined in: [src/core/Camera3D.ts:82](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L82)
+
+orth view size
+
+***
+
+### frustumDepth
+
+> **frustumDepth**: `number` = `0`
+
+Defined in: [src/core/Camera3D.ts:87](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L87)
+
+orth view depth range
+
+***
+
+### viewPort
+
+> **viewPort**: [`Rect`](Rect.md)
+
+Defined in: [src/core/Camera3D.ts:92](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L92)
+
+camera view port size
+
+***
+
+### frustum
+
+> **frustum**: `Frustum`
+
+Defined in: [src/core/Camera3D.ts:97](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L97)
+
+camera frustum
+
+***
+
+### sh
+
+> **sh**: `Float32Array`
+
+Defined in: [src/core/Camera3D.ts:114](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L114)
+
+Spherical-harmonics coefficients of the ambient/diffuse environment lighting.
+
+***
+
+### isShadowCamera
+
+> **isShadowCamera**: `boolean` = `false`
+
+Defined in: [src/core/Camera3D.ts:119](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L119)
+
+this camera is shadow camera
+
+***
+
+### shadowLight?
+
+> `optional` **shadowLight?**: [`ILight`](../interfaces/ILight.md)
+
+Defined in: [src/core/Camera3D.ts:124](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L124)
+
+The light this camera renders the shadow map for, when it is a shadow camera.
+
+***
+
+### cullingMask
+
+> **cullingMask**: `number` = `VisibleLayer.All`
+
+Defined in: [src/core/Camera3D.ts:142](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L142)
+
+Layer-mask of layers this camera should see. Combined at pass
+execute time with `node.visibleLayer` and the active pass's
+`layerMask` via bitwise AND:
+
+    (node.visibleLayer & pass.layerMask & camera.cullingMask) !== 0
+
+Defaults to [VisibleLayer.All](../@orillusion/namespaces/VisibleLayer/variables/All.md) so untouched cameras keep
+the historical "see everything" behaviour. Sub-cameras
+(minimaps, reflection probes, picking-only views) can clear
+specific bits to suppress unwanted layers.
+
+Camera-side filtering is layered on top of pass-side filtering:
+a layer must clear both masks AND the node's own membership to
+be drawn.
+
+***
 
 ### lookTarget
 
-• **lookTarget**: [`Vector3`](Vector3.md)
+> **lookTarget**: [`Vector3`](Vector3.md)
+
+Defined in: [src/core/Camera3D.ts:169](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L169)
 
 camera look at from where point
 
-#### Defined in
-
-[src/core/Camera3D.ts:132](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L132)
-
-___
+***
 
 ### type
 
-• **type**: [`CameraType`](../enums/CameraType.md) = `CameraType.perspective`
+> **type**: [`CameraType`](../enumerations/CameraType.md) = `CameraType.perspective`
+
+Defined in: [src/core/Camera3D.ts:174](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L174)
 
 camera type
 
-#### Defined in
-
-[src/core/Camera3D.ts:137](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L137)
-
-___
-
-### csm
-
-• **csm**: [`FrustumCSM`](FrustumCSM.md)
-
-#### Defined in
-
-[src/core/Camera3D.ts:139](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L139)
-
 ## Accessors
 
-### eventDispatcher
+### visibleLayer
 
-• `get` **eventDispatcher**(): [`CEventDispatcher`](CEventDispatcher.md)
+#### Get Signature
 
-#### Returns
+> **get** **visibleLayer**(): `number`
 
-[`CEventDispatcher`](CEventDispatcher.md)
+Defined in: [src/components/ComponentBase.ts:46](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L46)
 
-#### Inherited from
+Composition-layer membership bitmask. The pass / camera /
+collector filters via
 
-ComponentBase.eventDispatcher
+    (component.visibleLayer & pass.layerMask & camera.cullingMask) !== 0
 
-#### Defined in
+Defaults to [VisibleLayer.Default](../@orillusion/namespaces/VisibleLayer/variables/Default.md) (bit 0) so a fresh
+subclass is visible to passes whose `layerMask` is
+[VisibleLayer.All](../@orillusion/namespaces/VisibleLayer/variables/All.md) (which includes bit 0). Application code
+can assign project-specific bits (1..31) to organise the scene
+into composition layers.
 
-[src/components/ComponentBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L23)
+##### Returns
 
-• `set` **eventDispatcher**(`value`): `void`
+`number`
 
-#### Parameters
+#### Set Signature
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`CEventDispatcher`](CEventDispatcher.md) |
+> **set** **visibleLayer**(`value`): `void`
 
-#### Returns
+Defined in: [src/components/ComponentBase.ts:50](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L50)
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-ComponentBase.eventDispatcher
+[`ComponentBase`](ComponentBase.md).[`visibleLayer`](ComponentBase.md#visiblelayer)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L28)
+### eventDispatcher
 
-___
+#### Get Signature
+
+> **get** **eventDispatcher**(): [`CEventDispatcher`](CEventDispatcher.md)
+
+Defined in: [src/components/ComponentBase.ts:63](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L63)
+
+##### Returns
+
+[`CEventDispatcher`](CEventDispatcher.md)
+
+#### Set Signature
+
+> **set** **eventDispatcher**(`value`): `void`
+
+Defined in: [src/components/ComponentBase.ts:68](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
+
+##### Parameters
+
+###### value
+
+[`CEventDispatcher`](CEventDispatcher.md)
+
+##### Returns
+
+`void`
+
+#### Inherited from
+
+[`ComponentBase`](ComponentBase.md).[`eventDispatcher`](ComponentBase.md#eventdispatcher)
+
+***
 
 ### isStart
 
-• `get` **isStart**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **isStart**(): `boolean`
+
+Defined in: [src/components/ComponentBase.ts:79](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L79)
+
+##### Returns
 
 `boolean`
 
 #### Inherited from
 
-ComponentBase.isStart
+[`ComponentBase`](ComponentBase.md).[`isStart`](ComponentBase.md#isstart)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L39)
-
-___
+***
 
 ### transform
 
-• `get` **transform**(): [`Transform`](Transform.md)
+#### Get Signature
+
+> **get** **transform**(): [`Transform`](Transform.md)
+
+Defined in: [src/components/ComponentBase.ts:89](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L89)
 
 Return the Transform component attached to the Object3D.
+Null before the component is attached — `addComponent` assigns
+`object3D` only after construction — so constructor-time callers
+can probe safely via `this.transform?.`.
 
-#### Returns
+##### Returns
 
 [`Transform`](Transform.md)
 
 #### Inherited from
 
-ComponentBase.transform
+[`ComponentBase`](ComponentBase.md).[`transform`](ComponentBase.md#transform)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L46)
-
-___
+***
 
 ### enable
 
-• `get` **enable**(): `boolean`
+#### Get Signature
+
+> **get** **enable**(): `boolean`
+
+Defined in: [src/components/ComponentBase.ts:113](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
-#### Returns
+##### Returns
 
 `boolean`
 
-#### Inherited from
+#### Set Signature
 
-ComponentBase.enable
+> **set** **enable**(`value`): `void`
 
-#### Defined in
-
-[src/components/ComponentBase.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L67)
-
-• `set` **enable**(`value`): `void`
+Defined in: [src/components/ComponentBase.ts:96](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L96)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
+###### value
 
-#### Returns
+`boolean`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-ComponentBase.enable
+[`ComponentBase`](ComponentBase.md).[`enable`](ComponentBase.md#enable)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L53)
-
-___
-
-### enableCSM
-
-• `get` **enableCSM**(): `boolean`
-
-#### Returns
-
-`boolean`
-
-#### Defined in
-
-[src/core/Camera3D.ts:146](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L146)
-
-• `set` **enableCSM**(`value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/core/Camera3D.ts:149](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L149)
-
-___
+***
 
 ### viewMatrix
 
-• `get` **viewMatrix**(): [`Matrix4`](Matrix4.md)
+#### Get Signature
+
+> **get** **viewMatrix**(): [`Matrix4`](Matrix4.md)
+
+Defined in: [src/core/Camera3D.ts:335](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L335)
 
 view invert matrix
 
-#### Returns
+##### Returns
 
 [`Matrix4`](Matrix4.md)
 
-#### Defined in
-
-[src/core/Camera3D.ts:317](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L317)
-
-___
+***
 
 ### shadowViewMatrix
 
-• `get` **shadowViewMatrix**(): [`Matrix4`](Matrix4.md)
+#### Get Signature
+
+> **get** **shadowViewMatrix**(): [`Matrix4`](Matrix4.md)
+
+Defined in: [src/core/Camera3D.ts:345](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L345)
 
 shadow camera view invert matrix
 
-#### Returns
+##### Returns
 
 [`Matrix4`](Matrix4.md)
 
-#### Defined in
-
-[src/core/Camera3D.ts:327](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L327)
-
-___
+***
 
 ### pvMatrix
 
-• `get` **pvMatrix**(): [`Matrix4`](Matrix4.md)
+#### Get Signature
+
+> **get** **pvMatrix**(): [`Matrix4`](Matrix4.md)
+
+Defined in: [src/core/Camera3D.ts:396](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L396)
 
 get project * view matrix
 
-#### Returns
+##### Returns
 
 [`Matrix4`](Matrix4.md)
 
-#### Defined in
-
-[src/core/Camera3D.ts:378](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L378)
-
-___
+***
 
 ### pvMatrix2
 
-• `get` **pvMatrix2**(): [`Matrix4`](Matrix4.md)
+#### Get Signature
 
-#### Returns
+> **get** **pvMatrix2**(): [`Matrix4`](Matrix4.md)
+
+Defined in: [src/core/Camera3D.ts:404](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L404)
+
+get the inverse of (projection * world) matrix
+
+##### Returns
 
 [`Matrix4`](Matrix4.md)
 
-#### Defined in
-
-[src/core/Camera3D.ts:383](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L383)
-
-___
+***
 
 ### pvMatrixInv
 
-• `get` **pvMatrixInv**(): [`Matrix4`](Matrix4.md)
+#### Get Signature
+
+> **get** **pvMatrixInv**(): [`Matrix4`](Matrix4.md)
+
+Defined in: [src/core/Camera3D.ts:414](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L414)
 
 get (project * view) invert matrix
 
-#### Returns
+##### Returns
 
 [`Matrix4`](Matrix4.md)
 
-#### Defined in
-
-[src/core/Camera3D.ts:393](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L393)
-
-___
+***
 
 ### vMatrixInv
 
-• `get` **vMatrixInv**(): [`Matrix4`](Matrix4.md)
+#### Get Signature
 
-#### Returns
+> **get** **vMatrixInv**(): [`Matrix4`](Matrix4.md)
+
+Defined in: [src/core/Camera3D.ts:423](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L423)
+
+get the inverse of the view matrix
+
+##### Returns
 
 [`Matrix4`](Matrix4.md)
 
-#### Defined in
-
-[src/core/Camera3D.ts:399](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L399)
-
-___
+***
 
 ### cameraToWorld
 
-• `get` **cameraToWorld**(): [`Matrix4`](Matrix4.md)
+#### Get Signature
 
-#### Returns
+> **get** **cameraToWorld**(): [`Matrix4`](Matrix4.md)
+
+Defined in: [src/core/Camera3D.ts:432](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L432)
+
+get the matrix transforming camera/clip space back to world space
+
+##### Returns
 
 [`Matrix4`](Matrix4.md)
 
-#### Defined in
-
-[src/core/Camera3D.ts:405](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L405)
-
-___
+***
 
 ### ndcToView
 
-• `get` **ndcToView**(): [`Matrix4`](Matrix4.md)
+#### Get Signature
 
-#### Returns
+> **get** **ndcToView**(): [`Matrix4`](Matrix4.md)
+
+Defined in: [src/core/Camera3D.ts:443](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L443)
+
+get the matrix transforming NDC space to view space (inverse projection)
+
+##### Returns
 
 [`Matrix4`](Matrix4.md)
 
-#### Defined in
-
-[src/core/Camera3D.ts:413](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L413)
-
-___
+***
 
 ### projectionMatrixInv
 
-• `get` **projectionMatrixInv**(): [`Matrix4`](Matrix4.md)
+#### Get Signature
+
+> **get** **projectionMatrixInv**(): [`Matrix4`](Matrix4.md)
+
+Defined in: [src/core/Camera3D.ts:453](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L453)
 
 get project invert matrix
 
-#### Returns
+##### Returns
 
 [`Matrix4`](Matrix4.md)
 
-#### Defined in
-
-[src/core/Camera3D.ts:423](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L423)
-
-___
+***
 
 ### jitterFrameIndex
 
-• `get` **jitterFrameIndex**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **jitterFrameIndex**(): `number`
+
+Defined in: [src/core/Camera3D.ts:581](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L581)
+
+get the current TAA jitter frame index
+
+##### Returns
 
 `number`
 
-#### Defined in
-
-[src/core/Camera3D.ts:549](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L549)
-
-___
+***
 
 ### jitterX
 
-• `get` **jitterX**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **jitterX**(): `number`
+
+Defined in: [src/core/Camera3D.ts:588](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L588)
+
+get the current frame's TAA jitter offset on the X axis (in NDC)
+
+##### Returns
 
 `number`
 
-#### Defined in
-
-[src/core/Camera3D.ts:553](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L553)
-
-___
+***
 
 ### jitterY
 
-• `get` **jitterY**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **jitterY**(): `number`
+
+Defined in: [src/core/Camera3D.ts:595](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L595)
+
+get the current frame's TAA jitter offset on the Y axis (in NDC)
+
+##### Returns
 
 `number`
 
-#### Defined in
-
-[src/core/Camera3D.ts:557](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L557)
-
 ## Methods
 
-### start
+### start()
 
-▸ **start**(): `void`
+> **start**(): `void`
 
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[ComponentBase](ComponentBase.md).[start](ComponentBase.md#start)
-
-#### Defined in
-
-[src/components/ComponentBase.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L112)
-
-___
-
-### stop
-
-▸ **stop**(): `void`
+Defined in: [src/components/ComponentBase.ts:162](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L162)
 
 #### Returns
 
@@ -719,23 +642,37 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[stop](ComponentBase.md#stop)
+[`ComponentBase`](ComponentBase.md).[`start`](ComponentBase.md#start)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
+### stop()
 
-___
+> **stop**(): `void`
 
-### onEnable
+Defined in: [src/components/ComponentBase.ts:163](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L163)
 
-▸ **onEnable**(`view?`): `any`
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[`ComponentBase`](ComponentBase.md).[`stop`](ComponentBase.md#stop)
+
+***
+
+### onEnable()?
+
+> `optional` **onEnable**(`view?`): `any`
+
+Defined in: [src/components/ComponentBase.ts:164](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L164)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -743,23 +680,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onEnable](ComponentBase.md#onenable)
+[`ComponentBase`](ComponentBase.md).[`onEnable`](ComponentBase.md#onenable)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
+### onDisable()?
 
-___
+> `optional` **onDisable**(`view?`): `any`
 
-### onDisable
-
-▸ **onDisable**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:165](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L165)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -767,23 +702,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onDisable](ComponentBase.md#ondisable)
+[`ComponentBase`](ComponentBase.md).[`onDisable`](ComponentBase.md#ondisable)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L115)
+### onLateUpdate()?
 
-___
+> `optional` **onLateUpdate**(`view?`): `any`
 
-### onLateUpdate
-
-▸ **onLateUpdate**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:167](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L167)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -791,23 +724,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onLateUpdate](ComponentBase.md#onlateupdate)
+[`ComponentBase`](ComponentBase.md).[`onLateUpdate`](ComponentBase.md#onlateupdate)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L117)
+### onBeforeUpdate()?
 
-___
+> `optional` **onBeforeUpdate**(`view?`): `any`
 
-### onBeforeUpdate
-
-▸ **onBeforeUpdate**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:168](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L168)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -815,24 +746,25 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onBeforeUpdate](ComponentBase.md#onbeforeupdate)
+[`ComponentBase`](ComponentBase.md).[`onBeforeUpdate`](ComponentBase.md#onbeforeupdate)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L118)
+### onCompute()?
 
-___
+> `optional` **onCompute**(`view?`, `command?`): `any`
 
-### onCompute
-
-▸ **onCompute**(`view?`, `command?`): `any`
+Defined in: [src/components/ComponentBase.ts:169](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L169)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
-| `command?` | `GPUCommandEncoder` |
+##### view?
+
+[`View3D`](View3D.md)
+
+##### command?
+
+`GPUCommandEncoder`
 
 #### Returns
 
@@ -840,23 +772,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onCompute](ComponentBase.md#oncompute)
+[`ComponentBase`](ComponentBase.md).[`onCompute`](ComponentBase.md#oncompute)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L119)
+### onGraphic()?
 
-___
+> `optional` **onGraphic**(`view?`): `any`
 
-### onGraphic
-
-▸ **onGraphic**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:170](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L170)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -864,24 +794,25 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onGraphic](ComponentBase.md#ongraphic)
+[`ComponentBase`](ComponentBase.md).[`onGraphic`](ComponentBase.md#ongraphic)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L120)
+### onParentChange()?
 
-___
+> `optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
-### onParentChange
-
-▸ **onParentChange**(`lastParent?`, `currentParent?`): `any`
+Defined in: [src/components/ComponentBase.ts:171](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L171)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `lastParent?` | [`Object3D`](Object3D.md) |
-| `currentParent?` | [`Object3D`](Object3D.md) |
+##### lastParent?
+
+[`Object3D`](Object3D.md)
+
+##### currentParent?
+
+[`Object3D`](Object3D.md)
 
 #### Returns
 
@@ -889,23 +820,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onParentChange](ComponentBase.md#onparentchange)
+[`ComponentBase`](ComponentBase.md).[`onParentChange`](ComponentBase.md#onparentchange)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L121)
+### onAddChild()?
 
-___
+> `optional` **onAddChild**(`child`): `any`
 
-### onAddChild
-
-▸ **onAddChild**(`child`): `any`
+Defined in: [src/components/ComponentBase.ts:172](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L172)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `child` | [`Object3D`](Object3D.md) |
+##### child
+
+[`Object3D`](Object3D.md)
 
 #### Returns
 
@@ -913,23 +842,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onAddChild](ComponentBase.md#onaddchild)
+[`ComponentBase`](ComponentBase.md).[`onAddChild`](ComponentBase.md#onaddchild)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L122)
+### onRemoveChild()?
 
-___
+> `optional` **onRemoveChild**(`child`): `any`
 
-### onRemoveChild
-
-▸ **onRemoveChild**(`child`): `any`
+Defined in: [src/components/ComponentBase.ts:173](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L173)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `child` | [`Object3D`](Object3D.md) |
+##### child
+
+[`Object3D`](Object3D.md)
 
 #### Returns
 
@@ -937,25 +864,25 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onRemoveChild](ComponentBase.md#onremovechild)
+[`ComponentBase`](ComponentBase.md).[`onRemoveChild`](ComponentBase.md#onremovechild)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L123)
+### cloneTo()
 
-___
+> **cloneTo**(`obj`): `void`
 
-### cloneTo
-
-▸ **cloneTo**(`obj`): `void`
+Defined in: [src/components/ComponentBase.ts:180](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L180)
 
 clone component data to target object3D
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `obj` | [`Object3D`](Object3D.md) | target object3D |
+##### obj
+
+[`Object3D`](Object3D.md)
+
+target object3D
 
 #### Returns
 
@@ -963,23 +890,21 @@ clone component data to target object3D
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[cloneTo](ComponentBase.md#cloneto)
+[`ComponentBase`](ComponentBase.md).[`cloneTo`](ComponentBase.md#cloneto)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:130](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L130)
+### copyComponent()
 
-___
+> **copyComponent**(`from`): `this`
 
-### copyComponent
-
-▸ **copyComponent**(`from`): `this`
+Defined in: [src/components/ComponentBase.ts:182](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L182)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `from` | `this` |
+##### from
+
+`this`
 
 #### Returns
 
@@ -987,25 +912,23 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[copyComponent](ComponentBase.md#copycomponent)
+[`ComponentBase`](ComponentBase.md).[`copyComponent`](ComponentBase.md#copycomponent)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:132](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L132)
+### beforeDestroy()
 
-___
+> **beforeDestroy**(`force?`): `void`
 
-### beforeDestroy
-
-▸ **beforeDestroy**(`force?`): `void`
+Defined in: [src/components/ComponentBase.ts:249](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L249)
 
 before release this component, object refrences are not be set null now.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
+##### force?
+
+`boolean`
 
 #### Returns
 
@@ -1013,43 +936,15 @@ before release this component, object refrences are not be set null now.
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[beforeDestroy](ComponentBase.md#beforedestroy)
+[`ComponentBase`](ComponentBase.md).[`beforeDestroy`](ComponentBase.md#beforedestroy)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:199](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L199)
+### init()
 
-___
+> **init**(): `void`
 
-### destroy
-
-▸ **destroy**(`force?`): `void`
-
-release this component
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[ComponentBase](ComponentBase.md).[destroy](ComponentBase.md#destroy)
-
-#### Defined in
-
-[src/components/ComponentBase.ts:206](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L206)
-
-___
-
-### init
-
-▸ **init**(): `void`
+Defined in: [src/core/Camera3D.ts:180](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L180)
 
 #### Returns
 
@@ -1057,261 +952,298 @@ ___
 
 #### Overrides
 
-[ComponentBase](ComponentBase.md).[init](ComponentBase.md#init)
+[`ComponentBase`](ComponentBase.md).[`init`](ComponentBase.md#init)
 
-#### Defined in
+***
 
-[src/core/Camera3D.ts:159](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L159)
+### updateProjection()
 
-___
+> **updateProjection**(): `void`
 
-### updateProjection
-
-▸ **updateProjection**(): `void`
+Defined in: [src/core/Camera3D.ts:210](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L210)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/core/Camera3D.ts:175](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L175)
+### getShadowBias()
 
-___
+> **getShadowBias**(`depthTexSize`): `number`
 
-### getShadowBias
+Defined in: [src/core/Camera3D.ts:236](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L236)
 
-▸ **getShadowBias**(`depthTexSize`): `number`
+Compute a legacy auto shadow-bias baseline for the given depth texture size.
 
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `depthTexSize` | `number` |
-
-#### Returns
-
-`number`
-
-#### Defined in
-
-[src/core/Camera3D.ts:189](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L189)
-
-___
-
-### getShadowWorldExtents
-
-▸ **getShadowWorldExtents**(): `number`
-
-#### Returns
-
-`number`
-
-#### Defined in
-
-[src/core/Camera3D.ts:195](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L195)
-
-___
-
-### getCSMShadowBiasScale
-
-▸ **getCSMShadowBiasScale**(`shadowCamera`): `number`
+Legacy auto baseline used by DDGI / GodRay compute paths.
+Real-time shadow now derives bias per-light via ShadowBiasCalculator.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `shadowCamera` | [`Camera3D`](Camera3D.md) |
+##### depthTexSize
+
+`number`
+
+the side length of the shadow depth texture
 
 #### Returns
 
 `number`
 
-#### Defined in
+the computed shadow bias
 
-[src/core/Camera3D.ts:211](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L211)
+***
 
-___
+### getShadowWorldExtents()
 
-### getCSMShadowWorldExtents
+> **getShadowWorldExtents**(): `number`
 
-▸ **getCSMShadowWorldExtents**(`index`): `number`
+Defined in: [src/core/Camera3D.ts:246](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L246)
 
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `index` | `number` |
+Get the rounded world-space extent of the camera frustum, used to scale shadow bias.
 
 #### Returns
 
 `number`
 
-#### Defined in
+the world-space extent value
 
-[src/core/Camera3D.ts:221](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L221)
+***
 
-___
+### perspective()
 
-### perspective
+> **perspective**(`fov`, `aspect`, `near`, `far`): `void`
 
-▸ **perspective**(`fov`, `aspect`, `near`, `far`): `void`
+Defined in: [src/core/Camera3D.ts:258](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L258)
 
 Create a perspective camera
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `fov` | `number` |
-| `aspect` | `number` |
-| `near` | `number` |
-| `far` | `number` |
+##### fov
+
+`number`
+
+##### aspect
+
+`number`
+
+##### near
+
+`number`
+
+##### far
+
+`number`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/core/Camera3D.ts:232](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L232)
+### ortho()
 
-___
+> **ortho**(`frustumSize`, `frustumDepth`): `void`
 
-### ortho
-
-▸ **ortho**(`frustumSize`, `frustumDepth`): `void`
+Defined in: [src/core/Camera3D.ts:274](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L274)
 
 set an orthographic camera with a frustumSize(viewHeight) and frustumSizeDepth
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `frustumSize` | `number` | the frustum view height |
-| `frustumDepth` | `number` | - |
+##### frustumSize
+
+`number`
+
+the frustum view height
+
+##### frustumDepth
+
+`number`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/core/Camera3D.ts:252](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L252)
+### ortho2()
 
-___
+> **ortho2**(`frustumSize`, `near`, `far`): `void`
 
-### ortho2
-
-▸ **ortho2**(`frustumSize`, `near`, `far`): `void`
+Defined in: [src/core/Camera3D.ts:297](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L297)
 
 set an orthographic camera with a frustumSize(viewHeight) and specific near & far
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `frustumSize` | `number` | the frustum view height |
-| `near` | `number` | camera near plane |
-| `far` | `number` | camera far plane |
+##### frustumSize
+
+`number`
+
+the frustum view height
+
+##### near
+
+`number`
+
+camera near plane
+
+##### far
+
+`number`
+
+camera far plane
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/core/Camera3D.ts:275](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L275)
+### orthoOffCenter()
 
-___
+> **orthoOffCenter**(`left`, `right`, `bottom`, `top`, `near`, `far`): `void`
 
-### orthoOffCenter
-
-▸ **orthoOffCenter**(`left`, `right`, `bottom`, `top`, `near`, `far`): `void`
+Defined in: [src/core/Camera3D.ts:318](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L318)
 
 set an orthographic camera with specified frustum space
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `left` | `number` | camera left plane |
-| `right` | `number` | camera right plane |
-| `bottom` | `number` | camera bottom plane |
-| `top` | `number` | camera top plane |
-| `near` | `number` | camera near plane |
-| `far` | `number` | camera far plane |
+##### left
+
+`number`
+
+camera left plane
+
+##### right
+
+`number`
+
+camera right plane
+
+##### bottom
+
+`number`
+
+camera bottom plane
+
+##### top
+
+`number`
+
+camera top plane
+
+##### near
+
+`number`
+
+camera near plane
+
+##### far
+
+`number`
+
+camera far plane
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/core/Camera3D.ts:296](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L296)
+### object3DToScreenRay()
 
-___
+> **object3DToScreenRay**(`n`, `target?`): [`Vector3`](Vector3.md)
 
-### object3DToScreenRay
-
-▸ **object3DToScreenRay**(`n`, `target?`): [`Vector3`](Vector3.md)
+Defined in: [src/core/Camera3D.ts:357](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L357)
 
 world space object to screen
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `n` | [`Vector3`](Vector3.md) | `undefined` | world space |
-| `target` | [`Vector3`](Vector3.md) | `null` | Creating an orthogonal camera with 2D screen coordinates that default to null will return a new object |
+##### n
+
+[`Vector3`](Vector3.md)
+
+world space
+
+##### target?
+
+[`Vector3`](Vector3.md) = `null`
+
+Creating an orthogonal camera with 2D screen coordinates that default to null will return a new object
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-#### Defined in
+***
 
-[src/core/Camera3D.ts:339](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L339)
+### screenRayToObject3D()
 
-___
+> **screenRayToObject3D**(`n`, `target?`): [`Vector3`](Vector3.md)
 
-### screenRayToObject3D
-
-▸ **screenRayToObject3D**(`n`, `target?`): [`Vector3`](Vector3.md)
+Defined in: [src/core/Camera3D.ts:377](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L377)
 
 Convert 2D screen coordinates to 3D coordinates as world space
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `n` | [`Vector3`](Vector3.md) | `undefined` | 2D screen coordinates |
-| `target` | [`Vector3`](Vector3.md) | `null` | 3D coordinates as world space |
+##### n
+
+[`Vector3`](Vector3.md)
+
+2D screen coordinates
+
+##### target?
+
+[`Vector3`](Vector3.md) = `null`
+
+3D coordinates as world space
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-#### Defined in
+***
 
-[src/core/Camera3D.ts:359](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L359)
+### unProject()
 
-___
+> **unProject**(`nX`, `nY`, `sZ`, `target?`): [`Vector3`](Vector3.md)
 
-### unProject
-
-▸ **unProject**(`nX`, `nY`, `sZ`, `target?`): [`Vector3`](Vector3.md)
+Defined in: [src/core/Camera3D.ts:467](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L467)
 
 Enter a 3D coordinate point to obtain the projected coordinate point
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `nX` | `number` | 3D x |
-| `nY` | `number` | 3D y |
-| `sZ` | `number` | 3D z |
-| `target?` | [`Vector3`](Vector3.md) | The projected coordinate point can be empty |
+##### nX
+
+`number`
+
+3D x
+
+##### nY
+
+`number`
+
+3D y
+
+##### sZ
+
+`number`
+
+3D z
+
+##### target?
+
+[`Vector3`](Vector3.md)
+
+The projected coordinate point can be empty
 
 #### Returns
 
@@ -1319,24 +1251,29 @@ Enter a 3D coordinate point to obtain the projected coordinate point
 
 Coordinates after projection
 
-#### Defined in
+***
 
-[src/core/Camera3D.ts:437](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L437)
+### screenPointToRay()
 
-___
+> **screenPointToRay**(`viewPortPosX`, `viewPortPosY`): [`Ray`](Ray.md)
 
-### screenPointToRay
-
-▸ **screenPointToRay**(`viewPortPosX`, `viewPortPosY`): [`Ray`](Ray.md)
+Defined in: [src/core/Camera3D.ts:506](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L506)
 
 Enter the 2D coordinates of the screen to obtain a ray that starts from the camera position and passes through the corresponding 3D position of the screen.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `viewPortPosX` | `number` | Screen x coordinate |
-| `viewPortPosY` | `number` | Screen y coordinate |
+##### viewPortPosX
+
+`number`
+
+Screen x coordinate
+
+##### viewPortPosY
+
+`number`
+
+Screen y coordinate
 
 #### Returns
 
@@ -1344,25 +1281,35 @@ Enter the 2D coordinates of the screen to obtain a ray that starts from the came
 
 ray
 
-#### Defined in
+***
 
-[src/core/Camera3D.ts:476](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L476)
+### screenPointToWorld()
 
-___
+> **screenPointToWorld**(`viewPortPosX`, `viewPortPosY`, `z`): [`Vector3`](Vector3.md)
 
-### screenPointToWorld
-
-▸ **screenPointToWorld**(`viewPortPosX`, `viewPortPosY`, `z`): [`Vector3`](Vector3.md)
+Defined in: [src/core/Camera3D.ts:527](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L527)
 
 Convert screen coordinates to world coordinates
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `viewPortPosX` | `number` | Screen x coordinate |
-| `viewPortPosY` | `number` | Screen y coordinate |
-| `z` | `number` | Screen z coordinate |
+##### viewPortPosX
+
+`number`
+
+Screen x coordinate
+
+##### viewPortPosY
+
+`number`
+
+Screen y coordinate
+
+##### z
+
+`number`
+
+Screen z coordinate
 
 #### Returns
 
@@ -1370,24 +1317,25 @@ Convert screen coordinates to world coordinates
 
 World coordinates
 
-#### Defined in
+***
 
-[src/core/Camera3D.ts:497](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L497)
+### worldToScreenPoint()
 
-___
+> **worldToScreenPoint**(`point`, `target?`): [`Vector3`](Vector3.md)
 
-### worldToScreenPoint
-
-▸ **worldToScreenPoint**(`point`, `target?`): [`Vector3`](Vector3.md)
+Defined in: [src/core/Camera3D.ts:539](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L539)
 
 Convert world coordinates to screen coordinates
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `point` | [`Vector3`](Vector3.md) |
-| `target?` | [`Vector3`](Vector3.md) |
+##### point
+
+[`Vector3`](Vector3.md)
+
+##### target?
+
+[`Vector3`](Vector3.md)
 
 #### Returns
 
@@ -1395,70 +1343,108 @@ Convert world coordinates to screen coordinates
 
 World coordinates
 
-#### Defined in
+***
 
-[src/core/Camera3D.ts:509](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L509)
+### lookAt()
 
-___
+> **lookAt**(`pos`, `target`, `up?`): `void`
 
-### lookAt
-
-▸ **lookAt**(`pos`, `target`, `up?`): `void`
+Defined in: [src/core/Camera3D.ts:550](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L550)
 
 Current object's gaze position (global) (modified by its own global transformation)
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `pos` | [`Vector3`](Vector3.md) | `undefined` | Own position (global) |
-| `target` | [`Vector3`](Vector3.md) | `undefined` | Location of the target (global) |
-| `up` | [`Vector3`](Vector3.md) | `Vector3.Y_AXIS` | Upward direction |
+##### pos
+
+[`Vector3`](Vector3.md)
+
+Own position (global)
+
+##### target
+
+[`Vector3`](Vector3.md)
+
+Location of the target (global)
+
+##### up?
+
+[`Vector3`](Vector3.md) = `Vector3.Y_AXIS`
+
+Upward direction
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/core/Camera3D.ts:520](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L520)
+### enableJitterProjection()
 
-___
+> **enableJitterProjection**(`value`): `void`
 
-### enableJitterProjection
+Defined in: [src/core/Camera3D.ts:603](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L603)
 
-▸ **enableJitterProjection**(`value`): `void`
+Enable or disable TAA jitter on the projection matrix.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
+##### value
+
+`boolean`
+
+whether jitter projection should be applied each frame
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/core/Camera3D.ts:561](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L561)
+### getWorldDirection()
 
-___
+> **getWorldDirection**(`target?`): [`Vector3`](Vector3.md)
 
-### getWorldDirection
+Defined in: [src/core/Camera3D.ts:683](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L683)
 
-▸ **getWorldDirection**(`target?`): [`Vector3`](Vector3.md)
+Get the camera's forward direction in world space.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `target?` | [`Vector3`](Vector3.md) |
+##### target?
+
+[`Vector3`](Vector3.md)
+
+optional vector to store the result
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-#### Defined in
+the normalized world-space forward direction
 
-[src/core/Camera3D.ts:668](https://github.com/Orillusion/orillusion/blob/main/src/core/Camera3D.ts#L668)
+***
+
+### destroy()
+
+> **destroy**(`force?`): `void`
+
+Defined in: [src/core/Camera3D.ts:694](https://github.com/orillusion/orillusion/blob/main/src/core/Camera3D.ts#L694)
+
+Release the matrix slots held by this camera and destroy the component.
+
+#### Parameters
+
+##### force?
+
+`boolean`
+
+whether to force-destroy
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+[`ComponentBase`](ComponentBase.md).[`destroy`](ComponentBase.md#destroy)

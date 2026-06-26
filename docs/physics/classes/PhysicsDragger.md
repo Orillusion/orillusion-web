@@ -1,120 +1,114 @@
+[**@orillusion/physics**](../README.md)
+
+***
+
 # Class: PhysicsDragger
 
-PhysicsDragger 类用于通过鼠标操作拖拽3D物体。
-利用物理引擎中的射线检测与刚体交互，实现物体的实时拖拽效果。
+Defined in: [packages/physics/utils/PhysicsDragger.ts:10](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/PhysicsDragger.ts#L10)
 
-### Constructors
-
-- [constructor](PhysicsDragger.md#constructor)
-
-### Properties
-
-- [filterStatic](PhysicsDragger.md#filterstatic)
-
-### Accessors
-
-- [enable](PhysicsDragger.md#enable)
-- [collisionFilterGroup](PhysicsDragger.md#collisionfiltergroup)
-- [collisionFilterMask](PhysicsDragger.md#collisionfiltermask)
+The PhysicsDragger class is used to drag 3D objects with the mouse.
+It uses ray casting in the physics engine to interact with rigid bodies, enabling real-time dragging of objects.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new PhysicsDragger**(): [`PhysicsDragger`](PhysicsDragger.md)
+> **new PhysicsDragger**(`view`): `PhysicsDragger`
+
+Defined in: [packages/physics/utils/PhysicsDragger.ts:54](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/PhysicsDragger.ts#L54)
+
+#### Parameters
+
+##### view
+
+`View3D`
 
 #### Returns
 
-[`PhysicsDragger`](PhysicsDragger.md)
-
-#### Defined in
-
-[packages/physics/utils/PhysicsDragger.ts:54](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/PhysicsDragger.ts#L54)
+`PhysicsDragger`
 
 ## Properties
 
 ### filterStatic
 
-• **filterStatic**: `boolean` = `true`
+> **filterStatic**: `boolean` = `true`
 
-是否过滤静态刚体对象，默认值为 `true`
+Defined in: [packages/physics/utils/PhysicsDragger.ts:38](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/PhysicsDragger.ts#L38)
 
-#### Defined in
-
-[packages/physics/utils/PhysicsDragger.ts:38](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/PhysicsDragger.ts#L38)
+Whether to filter out static rigid body objects. Default value is `true`
 
 ## Accessors
 
 ### enable
 
-• `get` **enable**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **enable**(): `boolean`
+
+Defined in: [packages/physics/utils/PhysicsDragger.ts:22](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/PhysicsDragger.ts#L22)
+
+##### Returns
 
 `boolean`
 
-#### Defined in
+#### Set Signature
 
-[packages/physics/utils/PhysicsDragger.ts:22](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/PhysicsDragger.ts#L22)
+> **set** **enable**(`value`): `void`
 
-• `set` **enable**(`value`): `void`
+Defined in: [packages/physics/utils/PhysicsDragger.ts:29](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/PhysicsDragger.ts#L29)
 
-是否启用拖拽功能
+Whether to enable the dragging feature
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
+###### value
 
-#### Returns
+`boolean`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[packages/physics/utils/PhysicsDragger.ts:29](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/PhysicsDragger.ts#L29)
-
-___
+***
 
 ### collisionFilterGroup
 
-• `set` **collisionFilterGroup**(`value`): `void`
+#### Set Signature
 
-设置射线过滤组
+> **set** **collisionFilterGroup**(`value`): `void`
 
-#### Parameters
+Defined in: [packages/physics/utils/PhysicsDragger.ts:43](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/PhysicsDragger.ts#L43)
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+Set the ray collision filter group
 
-#### Returns
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[packages/physics/utils/PhysicsDragger.ts:43](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/PhysicsDragger.ts#L43)
-
-___
+***
 
 ### collisionFilterMask
 
-• `set` **collisionFilterMask**(`value`): `void`
+#### Set Signature
 
-设置射线过滤掩码
+> **set** **collisionFilterMask**(`value`): `void`
 
-#### Parameters
+Defined in: [packages/physics/utils/PhysicsDragger.ts:50](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/PhysicsDragger.ts#L50)
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+Set the ray collision filter mask
 
-#### Returns
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
 
 `void`
-
-#### Defined in
-
-[packages/physics/utils/PhysicsDragger.ts:50](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/PhysicsDragger.ts#L50)

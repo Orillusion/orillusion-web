@@ -1,63 +1,59 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: Navi3DAstar
 
-### Constructors
-
-- [constructor](Navi3DAstar.md#constructor)
-
-### Accessors
-
-- [channel](Navi3DAstar.md#channel)
-
-### Methods
-
-- [findPath](Navi3DAstar.md#findpath)
+Defined in: [src/math/navigation/Navi3DAstar.ts:6](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DAstar.ts#L6)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new Navi3DAstar**(): [`Navi3DAstar`](Navi3DAstar.md)
+> **new Navi3DAstar**(): `Navi3DAstar`
+
+Defined in: [src/math/navigation/Navi3DAstar.ts:16](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DAstar.ts#L16)
 
 #### Returns
 
-[`Navi3DAstar`](Navi3DAstar.md)
-
-#### Defined in
-
-[src/math/navigation/Navi3DAstar.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DAstar.ts#L16)
+`Navi3DAstar`
 
 ## Accessors
 
 ### channel
 
-• `get` **channel**(): [`Navi3DTriangle`](Navi3DTriangle.md)[]
+#### Get Signature
 
-#### Returns
+> **get** **channel**(): [`Navi3DTriangle`](Navi3DTriangle.md)[]
+
+Defined in: [src/math/navigation/Navi3DAstar.ts:97](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DAstar.ts#L97)
+
+##### Returns
 
 [`Navi3DTriangle`](Navi3DTriangle.md)[]
 
-#### Defined in
-
-[src/math/navigation/Navi3DAstar.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DAstar.ts#L97)
-
 ## Methods
 
-### findPath
+### findPath()
 
-▸ **findPath**(`navMesh`, `startTriangle`, `endTriangle`): `boolean`
+> **findPath**(`navMesh`, `startTriangle`, `endTriangle`): `boolean`
+
+Defined in: [src/math/navigation/Navi3DAstar.ts:21](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DAstar.ts#L21)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `navMesh` | [`Navi3DMesh`](Navi3DMesh.md) |
-| `startTriangle` | [`Navi3DTriangle`](Navi3DTriangle.md) |
-| `endTriangle` | [`Navi3DTriangle`](Navi3DTriangle.md) |
+##### navMesh
+
+[`Navi3DMesh`](Navi3DMesh.md)
+
+##### startTriangle
+
+[`Navi3DTriangle`](Navi3DTriangle.md)
+
+##### endTriangle
+
+[`Navi3DTriangle`](Navi3DTriangle.md)
 
 #### Returns
 
 `boolean`
-
-#### Defined in
-
-[src/math/navigation/Navi3DAstar.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DAstar.ts#L21)

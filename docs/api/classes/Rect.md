@@ -1,396 +1,443 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: Rect
+
+Defined in: [src/math/Rect.ts:6](https://github.com/orillusion/orillusion/blob/main/src/math/Rect.ts#L6)
 
 Rectangular region
 
-### Constructors
-
-- [constructor](Rect.md#constructor)
-
-### Properties
-
-- [x](Rect.md#x)
-- [y](Rect.md#y)
-- [w](Rect.md#w)
-- [h](Rect.md#h)
-
-### Accessors
-
-- [width](Rect.md#width)
-- [height](Rect.md#height)
-
-### Methods
-
-- [pointInRect](Rect.md#pointinrect)
-- [clone](Rect.md#clone)
-- [copyFrom](Rect.md#copyfrom)
-- [copyTo](Rect.md#copyto)
-- [inner](Rect.md#inner)
-- [equal](Rect.md#equal)
-- [equalArea](Rect.md#equalarea)
-- [equalInnerArea](Rect.md#equalinnerarea)
-- [innerArea](Rect.md#innerarea)
-- [setTo](Rect.md#setto)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new Rect**(`x?`, `y?`, `width?`, `height?`): [`Rect`](Rect.md)
+> **new Rect**(`x?`, `y?`, `width?`, `height?`): `Rect`
+
+Defined in: [src/math/Rect.ts:34](https://github.com/orillusion/orillusion/blob/main/src/math/Rect.ts#L34)
 
 Creates a new rectangular area object
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `x` | `number` | `0` | The x-coordinate of the rectangle |
-| `y` | `number` | `0` | The y coordinate of the rectangle |
-| `width` | `number` | `0` | Width of a rectangle |
-| `height` | `number` | `0` | Height of rectangle |
+##### x?
+
+`number` = `0`
+
+The x-coordinate of the rectangle
+
+##### y?
+
+`number` = `0`
+
+The y coordinate of the rectangle
+
+##### width?
+
+`number` = `0`
+
+Width of a rectangle
+
+##### height?
+
+`number` = `0`
+
+Height of rectangle
 
 #### Returns
 
-[`Rect`](Rect.md)
-
-#### Defined in
-
-[src/math/Rect.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L34)
+`Rect`
 
 ## Properties
 
 ### x
 
-• **x**: `number`
+> **x**: `number`
+
+Defined in: [src/math/Rect.ts:10](https://github.com/orillusion/orillusion/blob/main/src/math/Rect.ts#L10)
 
 The x-coordinate of the rectangle
 
-#### Defined in
-
-[src/math/Rect.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L10)
-
-___
+***
 
 ### y
 
-• **y**: `number`
+> **y**: `number`
+
+Defined in: [src/math/Rect.ts:15](https://github.com/orillusion/orillusion/blob/main/src/math/Rect.ts#L15)
 
 The y-coordinate of the rectangle
 
-#### Defined in
-
-[src/math/Rect.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L15)
-
-___
+***
 
 ### w
 
-• **w**: `number`
+> **w**: `number`
+
+Defined in: [src/math/Rect.ts:20](https://github.com/orillusion/orillusion/blob/main/src/math/Rect.ts#L20)
 
 Width of a rectangle
 
-#### Defined in
-
-[src/math/Rect.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L20)
-
-___
+***
 
 ### h
 
-• **h**: `number`
+> **h**: `number`
+
+Defined in: [src/math/Rect.ts:25](https://github.com/orillusion/orillusion/blob/main/src/math/Rect.ts#L25)
 
 Height of rectangle
-
-#### Defined in
-
-[src/math/Rect.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L25)
 
 ## Accessors
 
 ### width
 
-• `get` **width**(): `number`
+#### Get Signature
+
+> **get** **width**(): `number`
+
+Defined in: [src/math/Rect.ts:44](https://github.com/orillusion/orillusion/blob/main/src/math/Rect.ts#L44)
 
 Width of a rectangle
 
-#### Returns
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/math/Rect.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L44)
+> **set** **width**(`v`): `void`
 
-• `set` **width**(`v`): `void`
+Defined in: [src/math/Rect.ts:51](https://github.com/orillusion/orillusion/blob/main/src/math/Rect.ts#L51)
 
-#### Parameters
+Set the width of the rectangle
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `number` |
+##### Parameters
 
-#### Returns
+###### v
+
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/math/Rect.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L48)
-
-___
+***
 
 ### height
 
-• `get` **height**(): `number`
+#### Get Signature
+
+> **get** **height**(): `number`
+
+Defined in: [src/math/Rect.ts:58](https://github.com/orillusion/orillusion/blob/main/src/math/Rect.ts#L58)
 
 Height of rectangle
 
-#### Returns
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/math/Rect.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L55)
+> **set** **height**(`v`): `void`
 
-• `set` **height**(`v`): `void`
+Defined in: [src/math/Rect.ts:65](https://github.com/orillusion/orillusion/blob/main/src/math/Rect.ts#L65)
 
-#### Parameters
+Set the height of the rectangle
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `number` |
+##### Parameters
 
-#### Returns
+###### v
+
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/math/Rect.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L59)
-
 ## Methods
 
-### pointInRect
+### pointInRect()
 
-▸ **pointInRect**(`x`, `y`, `lt_x`, `lt_y`, `rb_x`, `rb_y`): `boolean`
+> `static` **pointInRect**(`x`, `y`, `lt_x`, `lt_y`, `rb_x`, `rb_y`): `boolean`
+
+Defined in: [src/math/Rect.ts:79](https://github.com/orillusion/orillusion/blob/main/src/math/Rect.ts#L79)
 
 Whether the point is within the specified area
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `x` | `number` | x value of point |
-| `y` | `number` | y value of point |
-| `lt_x` | `number` | The x value in the upper left corner |
-| `lt_y` | `number` | The y value in the upper left corner |
-| `rb_x` | `number` | The x value in the lower right corner |
-| `rb_y` | `number` | The y value in the lower right corner |
+##### x
+
+`number`
+
+x value of point
+
+##### y
+
+`number`
+
+y value of point
+
+##### lt\_x
+
+`number`
+
+The x value in the upper left corner
+
+##### lt\_y
+
+`number`
+
+The y value in the upper left corner
+
+##### rb\_x
+
+`number`
+
+The x value in the lower right corner
+
+##### rb\_y
+
+`number`
+
+The y value in the lower right corner
 
 #### Returns
 
 `boolean`
 
-#### Defined in
+***
 
-[src/math/Rect.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L73)
+### clone()
 
-___
+> **clone**(): `Rect`
 
-### clone
-
-▸ **clone**(): [`Rect`](Rect.md)
+Defined in: [src/math/Rect.ts:91](https://github.com/orillusion/orillusion/blob/main/src/math/Rect.ts#L91)
 
 Returns a new rectangular area object with the same properties as the current rectangular area
 
 #### Returns
 
-[`Rect`](Rect.md)
+`Rect`
 
-#### Defined in
+***
 
-[src/math/Rect.ts:85](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L85)
+### copy()
 
-___
+> **copy**(`rect`): `void`
 
-### copyFrom
-
-▸ **copyFrom**(`rect`): `void`
+Defined in: [src/math/Rect.ts:100](https://github.com/orillusion/orillusion/blob/main/src/math/Rect.ts#L100)
 
 Copy the properties of the source object to this object
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `rect` | [`Rect`](Rect.md) |
+##### rect
+
+`Rect`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/math/Rect.ts:94](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L94)
+### copyTo()
 
-___
+> **copyTo**(`rect`): `void`
 
-### copyTo
-
-▸ **copyTo**(`rect`): `void`
+Defined in: [src/math/Rect.ts:112](https://github.com/orillusion/orillusion/blob/main/src/math/Rect.ts#L112)
 
 Copy the properties of this object to the target object
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `rect` | [`Rect`](Rect.md) |
+##### rect
+
+`Rect`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/math/Rect.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L106)
+### inner()
 
-___
+> **inner**(`x`, `y`): `boolean`
 
-### inner
-
-▸ **inner**(`x`, `y`): `boolean`
+Defined in: [src/math/Rect.ts:122](https://github.com/orillusion/orillusion/blob/main/src/math/Rect.ts#L122)
 
 Whether the point is in this area
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `x` | `number` | x value of point |
-| `y` | `number` | y value of point |
+##### x
+
+`number`
+
+x value of point
+
+##### y
+
+`number`
+
+y value of point
 
 #### Returns
 
 `boolean`
 
-#### Defined in
+***
 
-[src/math/Rect.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L116)
+### equal()
 
-___
+> **equal**(`rectangle`): `boolean`
 
-### equal
-
-▸ **equal**(`rectangle`): `boolean`
+Defined in: [src/math/Rect.ts:134](https://github.com/orillusion/orillusion/blob/main/src/math/Rect.ts#L134)
 
 Whether the current rectangle is equal to the target rectangle
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `rectangle` | [`Rect`](Rect.md) | Target rectangle |
+##### rectangle
+
+`Rect`
+
+Target rectangle
 
 #### Returns
 
 `boolean`
 
-#### Defined in
+***
 
-[src/math/Rect.ts:128](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L128)
+### equalArea()
 
-___
+> **equalArea**(`x`, `y`, `width`, `height`): `boolean`
 
-### equalArea
-
-▸ **equalArea**(`x`, `y`, `width`, `height`): `boolean`
+Defined in: [src/math/Rect.ts:146](https://github.com/orillusion/orillusion/blob/main/src/math/Rect.ts#L146)
 
 Whether the current rectangle is equal to the target rectangle
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `x` | `number` | The x value of the rectangle |
-| `y` | `number` | The y value of the rectangle |
-| `width` | `number` | Rectangle width |
-| `height` | `number` | Rectangular height |
+##### x
+
+`number`
+
+The x value of the rectangle
+
+##### y
+
+`number`
+
+The y value of the rectangle
+
+##### width
+
+`number`
+
+Rectangle width
+
+##### height
+
+`number`
+
+Rectangular height
 
 #### Returns
 
 `boolean`
 
-#### Defined in
+***
 
-[src/math/Rect.ts:140](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L140)
+### equalInnerArea()
 
-___
+> **equalInnerArea**(`source`): `boolean`
 
-### equalInnerArea
-
-▸ **equalInnerArea**(`source`): `boolean`
+Defined in: [src/math/Rect.ts:155](https://github.com/orillusion/orillusion/blob/main/src/math/Rect.ts#L155)
 
 Whether this rectangle overlaps with the target object
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `source` | [`Rect`](Rect.md) | Source object |
+##### source
+
+`Rect`
+
+Source object
 
 #### Returns
 
 `boolean`
 
-#### Defined in
+***
 
-[src/math/Rect.ts:149](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L149)
+### innerArea()
 
-___
+> **innerArea**(`source`, `target`): `Rect`
 
-### innerArea
-
-▸ **innerArea**(`source`, `target`): [`Rect`](Rect.md)
+Defined in: [src/math/Rect.ts:180](https://github.com/orillusion/orillusion/blob/main/src/math/Rect.ts#L180)
 
 Returns the overlap of two rectangles
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `source` | [`Rect`](Rect.md) | source object |
-| `target` | [`Rect`](Rect.md) | target object |
+##### source
+
+`Rect`
+
+source object
+
+##### target
+
+`Rect`
+
+target object
 
 #### Returns
 
-[`Rect`](Rect.md)
+`Rect`
 
-#### Defined in
+***
 
-[src/math/Rect.ts:174](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L174)
+### setTo()
 
-___
+> **setTo**(`x`, `y`, `width`, `height`): `void`
 
-### setTo
-
-▸ **setTo**(`x`, `y`, `width`, `height`): `void`
+Defined in: [src/math/Rect.ts:219](https://github.com/orillusion/orillusion/blob/main/src/math/Rect.ts#L219)
 
 Sets the properties of the rectangle
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `x` | `number` | x value |
-| `y` | `number` | y value |
-| `width` | `number` | Rectangle width |
-| `height` | `number` | Rectangular height |
+##### x
+
+`number`
+
+x value
+
+##### y
+
+`number`
+
+y value
+
+##### width
+
+`number`
+
+Rectangle width
+
+##### height
+
+`number`
+
+Rectangular height
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[src/math/Rect.ts:213](https://github.com/Orillusion/orillusion/blob/main/src/math/Rect.ts#L213)

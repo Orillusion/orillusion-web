@@ -1,156 +1,133 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: Navi3DPoint2D
 
-### Constructors
-
-- [constructor](Navi3DPoint2D.md#constructor)
-
-### Properties
-
-- [x](Navi3DPoint2D.md#x)
-- [y](Navi3DPoint2D.md#y)
-
-### Accessors
-
-- [length](Navi3DPoint2D.md#length)
-
-### Methods
-
-- [setTo](Navi3DPoint2D.md#setto)
-- [equals](Navi3DPoint2D.md#equals)
-- [equalPoint](Navi3DPoint2D.md#equalpoint)
-- [clone](Navi3DPoint2D.md#clone)
-- [normalize](Navi3DPoint2D.md#normalize)
+Defined in: [src/math/navigation/Navi3DPoint2D.ts:1](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DPoint2D.ts#L1)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new Navi3DPoint2D**(): [`Navi3DPoint2D`](Navi3DPoint2D.md)
+> **new Navi3DPoint2D**(): `Navi3DPoint2D`
 
 #### Returns
 
-[`Navi3DPoint2D`](Navi3DPoint2D.md)
+`Navi3DPoint2D`
 
 ## Properties
 
 ### x
 
-• **x**: `number`
+> **x**: `number`
 
-#### Defined in
+Defined in: [src/math/navigation/Navi3DPoint2D.ts:2](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DPoint2D.ts#L2)
 
-[src/math/navigation/Navi3DPoint2D.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DPoint2D.ts#L2)
-
-___
+***
 
 ### y
 
-• **y**: `number`
+> **y**: `number`
 
-#### Defined in
-
-[src/math/navigation/Navi3DPoint2D.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DPoint2D.ts#L4)
+Defined in: [src/math/navigation/Navi3DPoint2D.ts:4](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DPoint2D.ts#L4)
 
 ## Accessors
 
 ### length
 
-• `get` **length**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **length**(): `number`
+
+Defined in: [src/math/navigation/Navi3DPoint2D.ts:19](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DPoint2D.ts#L19)
+
+##### Returns
 
 `number`
 
-#### Defined in
-
-[src/math/navigation/Navi3DPoint2D.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DPoint2D.ts#L19)
-
 ## Methods
 
-### setTo
+### setTo()
 
-▸ **setTo**(`X`, `Y`): `void`
+> **setTo**(`X`, `Y`): `void`
+
+Defined in: [src/math/navigation/Navi3DPoint2D.ts:6](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DPoint2D.ts#L6)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `X` | `number` |
-| `Y` | `number` |
+##### X
+
+`number`
+
+##### Y
+
+`number`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/math/navigation/Navi3DPoint2D.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DPoint2D.ts#L6)
+### equals()
 
-___
+> **equals**(`X`, `Y`): `boolean`
 
-### equals
-
-▸ **equals**(`X`, `Y`): `boolean`
+Defined in: [src/math/navigation/Navi3DPoint2D.ts:11](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DPoint2D.ts#L11)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `X` | `number` |
-| `Y` | `number` |
+##### X
+
+`number`
+
+##### Y
+
+`number`
 
 #### Returns
 
 `boolean`
 
-#### Defined in
+***
 
-[src/math/navigation/Navi3DPoint2D.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DPoint2D.ts#L11)
+### equalPoint()
 
-___
+> **equalPoint**(`pt`): `boolean`
 
-### equalPoint
-
-▸ **equalPoint**(`pt`): `boolean`
+Defined in: [src/math/navigation/Navi3DPoint2D.ts:15](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DPoint2D.ts#L15)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `pt` | [`Navi3DPoint2D`](Navi3DPoint2D.md) |
+##### pt
+
+`Navi3DPoint2D`
 
 #### Returns
 
 `boolean`
 
-#### Defined in
+***
 
-[src/math/navigation/Navi3DPoint2D.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DPoint2D.ts#L15)
+### clone()
 
-___
+> **clone**(): `Navi3DPoint2D`
 
-### clone
-
-▸ **clone**(): [`Navi3DPoint2D`](Navi3DPoint2D.md)
+Defined in: [src/math/navigation/Navi3DPoint2D.ts:23](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DPoint2D.ts#L23)
 
 #### Returns
 
-[`Navi3DPoint2D`](Navi3DPoint2D.md)
+`Navi3DPoint2D`
 
-#### Defined in
+***
 
-[src/math/navigation/Navi3DPoint2D.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DPoint2D.ts#L23)
+### normalize()
 
-___
+> **normalize**(): `void`
 
-### normalize
-
-▸ **normalize**(): `void`
+Defined in: [src/math/navigation/Navi3DPoint2D.ts:29](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DPoint2D.ts#L29)
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[src/math/navigation/Navi3DPoint2D.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DPoint2D.ts#L29)

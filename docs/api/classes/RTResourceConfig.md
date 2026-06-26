@@ -1,106 +1,102 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: RTResourceConfig
 
-### Constructors
+Defined in: [src/gfx/renderJob/config/RTResourceConfig.ts:9](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/config/RTResourceConfig.ts#L9)
 
-- [constructor](RTResourceConfig.md#constructor)
-
-### Properties
-
-- [compressGBufferTex\_NAME](RTResourceConfig.md#compressgbuffertex_name)
-- [colorBufferTex\_NAME](RTResourceConfig.md#colorbuffertex_name)
-- [positionBufferTex\_NAME](RTResourceConfig.md#positionbuffertex_name)
-- [normalBufferTex\_NAME](RTResourceConfig.md#normalbuffertex_name)
-- [materialBufferTex\_NAME](RTResourceConfig.md#materialbuffertex_name)
-- [zBufferTexture\_NAME](RTResourceConfig.md#zbuffertexture_name)
-- [zPreDepthTexture\_NAME](RTResourceConfig.md#zpredepthtexture_name)
-- [outTex\_NAME](RTResourceConfig.md#outtex_name)
+Canonical string keys for the engine's well-known render-target
+textures (G-buffer attachments, z-buffers, the post output target).
+Used as lookup names in RTResourceMap so passes and materials
+refer to the same RT by a stable identifier.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new RTResourceConfig**(): [`RTResourceConfig`](RTResourceConfig.md)
+> **new RTResourceConfig**(): `RTResourceConfig`
 
 #### Returns
 
-[`RTResourceConfig`](RTResourceConfig.md)
+`RTResourceConfig`
 
 ## Properties
 
 ### compressGBufferTex\_NAME
 
-▪ `Static` **compressGBufferTex\_NAME**: `string` = `'compressGBufferTex_NAME'`
+> `static` **compressGBufferTex\_NAME**: `string` = `'compressGBufferTex_NAME'`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/config/RTResourceConfig.ts:11](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/config/RTResourceConfig.ts#L11)
 
-[src/gfx/renderJob/config/RTResourceConfig.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/config/RTResourceConfig.ts#L2)
+Key for the packed/compressed G-buffer texture.
 
-___
+***
 
 ### colorBufferTex\_NAME
 
-▪ `Static` **colorBufferTex\_NAME**: `string` = `'colorBufferTex'`
+> `static` **colorBufferTex\_NAME**: `string` = `'colorBufferTex'`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/config/RTResourceConfig.ts:13](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/config/RTResourceConfig.ts#L13)
 
-[src/gfx/renderJob/config/RTResourceConfig.ts:3](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/config/RTResourceConfig.ts#L3)
+Key for the scene color attachment.
 
-___
+***
 
 ### positionBufferTex\_NAME
 
-▪ `Static` **positionBufferTex\_NAME**: `string` = `'positionBufferTex'`
+> `static` **positionBufferTex\_NAME**: `string` = `'positionBufferTex'`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/config/RTResourceConfig.ts:15](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/config/RTResourceConfig.ts#L15)
 
-[src/gfx/renderJob/config/RTResourceConfig.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/config/RTResourceConfig.ts#L4)
+Key for the world-position G-buffer attachment.
 
-___
+***
 
 ### normalBufferTex\_NAME
 
-▪ `Static` **normalBufferTex\_NAME**: `string` = `'normalBufferTex'`
+> `static` **normalBufferTex\_NAME**: `string` = `'normalBufferTex'`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/config/RTResourceConfig.ts:17](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/config/RTResourceConfig.ts#L17)
 
-[src/gfx/renderJob/config/RTResourceConfig.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/config/RTResourceConfig.ts#L5)
+Key for the world-normal G-buffer attachment.
 
-___
+***
 
 ### materialBufferTex\_NAME
 
-▪ `Static` **materialBufferTex\_NAME**: `string` = `'materialBufferTex'`
+> `static` **materialBufferTex\_NAME**: `string` = `'materialBufferTex'`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/config/RTResourceConfig.ts:19](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/config/RTResourceConfig.ts#L19)
 
-[src/gfx/renderJob/config/RTResourceConfig.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/config/RTResourceConfig.ts#L6)
+Key for the material-parameter G-buffer attachment.
 
-___
+***
 
 ### zBufferTexture\_NAME
 
-▪ `Static` **zBufferTexture\_NAME**: `string` = `'zBufferTexture'`
+> `static` **zBufferTexture\_NAME**: `string` = `'zBufferTexture'`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/config/RTResourceConfig.ts:21](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/config/RTResourceConfig.ts#L21)
 
-[src/gfx/renderJob/config/RTResourceConfig.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/config/RTResourceConfig.ts#L7)
+Key for the main depth (z) buffer texture.
 
-___
+***
 
 ### zPreDepthTexture\_NAME
 
-▪ `Static` **zPreDepthTexture\_NAME**: `string` = `'zPreDepthTexture'`
+> `static` **zPreDepthTexture\_NAME**: `string` = `'zPreDepthTexture'`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/config/RTResourceConfig.ts:23](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/config/RTResourceConfig.ts#L23)
 
-[src/gfx/renderJob/config/RTResourceConfig.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/config/RTResourceConfig.ts#L8)
+Key for the z-prepass depth texture.
 
-___
+***
 
 ### outTex\_NAME
 
-▪ `Static` **outTex\_NAME**: `string` = `'outTex'`
+> `static` **outTex\_NAME**: `string` = `'outTex'`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/config/RTResourceConfig.ts:25](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/config/RTResourceConfig.ts#L25)
 
-[src/gfx/renderJob/config/RTResourceConfig.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/config/RTResourceConfig.ts#L9)
+Key for the post-processing output texture.

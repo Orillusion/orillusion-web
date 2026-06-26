@@ -1,47 +1,41 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: TileSetChildContentMetaData
 
-### Constructors
-
-- [constructor](TileSetChildContentMetaData.md#constructor)
-
-### Properties
-
-- [class](TileSetChildContentMetaData.md#class)
-- [properties](TileSetChildContentMetaData.md#properties)
+Defined in: [src/loader/parser/tileRenderer/TileSet.ts:31](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L31)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new TileSetChildContentMetaData**(): [`TileSetChildContentMetaData`](TileSetChildContentMetaData.md)
+> **new TileSetChildContentMetaData**(): `TileSetChildContentMetaData`
 
 #### Returns
 
-[`TileSetChildContentMetaData`](TileSetChildContentMetaData.md)
+`TileSetChildContentMetaData`
 
 ## Properties
 
 ### class
 
-• **class**: `string`
+> **class**: `string`
 
-#### Defined in
+Defined in: [src/loader/parser/tileRenderer/TileSet.ts:32](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L32)
 
-[src/loader/parser/tileRenderer/TileSet.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L32)
-
-___
+***
 
 ### properties
 
-• **properties**: `Object`
+> **properties**: `object`
 
-#### Type declaration
+Defined in: [src/loader/parser/tileRenderer/TileSet.ts:33](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L33)
 
-| Name | Type |
-| :------ | :------ |
-| `vertices` | `number` |
-| `materials` | `number` |
+#### vertices
 
-#### Defined in
+> **vertices**: `number`
 
-[src/loader/parser/tileRenderer/TileSet.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L33)
+#### materials
+
+> **materials**: `number`

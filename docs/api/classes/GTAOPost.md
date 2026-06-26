@@ -1,321 +1,323 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: GTAOPost
+
+Defined in: [src/gfx/renderJob/post/GTAOPost.ts:28](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L28)
 
 Ground base Ambient Occlusion
 Let the intersection of the object and the object imitate the effect of the light being cross-occluded
 ```
 gtao setting
-let cfg = {@link Engine3D.setting.render.postProcessing.gtao};
+let cfg = {@link this.setting.render.postProcessing.gtao};
 ```
-
-## Hierarchy
-
-- `PostBase`
-
-  ↳ **`GTAOPost`**
-
-### Constructors
-
-- [constructor](GTAOPost.md#constructor)
-
-### Properties
-
-- [rtFrame](GTAOPost.md#rtframe)
-- [enable](GTAOPost.md#enable)
-- [postRenderer](GTAOPost.md#postrenderer)
-
-### Accessors
-
-- [maxDistance](GTAOPost.md#maxdistance)
-- [maxPixel](GTAOPost.md#maxpixel)
-- [darkFactor](GTAOPost.md#darkfactor)
-- [rayMarchSegment](GTAOPost.md#raymarchsegment)
-- [multiBounce](GTAOPost.md#multibounce)
-- [blendColor](GTAOPost.md#blendcolor)
-- [usePosFloat32](GTAOPost.md#useposfloat32)
-
-### Methods
-
-- [onDetach](GTAOPost.md#ondetach)
-- [onResize](GTAOPost.md#onresize)
-- [destroy](GTAOPost.md#destroy)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new GTAOPost**(): [`GTAOPost`](GTAOPost.md)
+> **new GTAOPost**(): `GTAOPost`
+
+Defined in: [src/gfx/renderJob/post/GTAOPost.ts:56](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L56)
 
 #### Returns
 
-[`GTAOPost`](GTAOPost.md)
+`GTAOPost`
 
 #### Overrides
 
-PostBase.constructor
-
-#### Defined in
-
-[src/gfx/renderJob/post/GTAOPost.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L62)
+`PostBase.constructor`
 
 ## Properties
 
 ### rtFrame
 
-• **rtFrame**: [`RTFrame`](RTFrame.md)
+> **rtFrame**: [`RTFrame`](RTFrame.md)
 
-#### Defined in
+Defined in: [src/gfx/renderJob/post/GTAOPost.ts:54](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L54)
 
-[src/gfx/renderJob/post/GTAOPost.ts:60](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L60)
-
-___
+***
 
 ### enable
 
-• **enable**: `boolean` = `true`
+> **enable**: `boolean` = `true`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L23)
 
 #### Inherited from
 
-PostBase.enable
+`PostBase.enable`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/post/PostBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L20)
+### isFinalPass
 
-___
+> **isFinalPass**: `boolean` = `false`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:27](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L27)
+
+When true, PostPass iterates this post AFTER every regular
+ post regardless of attach order — used by TonemapPost so the
+ ACES curve always lands on the fully-composited HDR signal.
+
+#### Inherited from
+
+`PostBase.isFinalPass`
+
+***
 
 ### postRenderer
 
-• **postRenderer**: `PostRenderer`
+> **postRenderer**: [`PostPass`](PostPass.md)
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L28)
 
 #### Inherited from
 
-PostBase.postRenderer
+`PostBase.postRenderer`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/post/PostBase.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L21)
+### rendererPassState
+
+> **rendererPassState**: `RendererPassState`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L29)
+
+#### Inherited from
+
+`PostBase.rendererPassState`
+
+***
+
+### \_boundCtx
+
+> **\_boundCtx**: [`Context3D`](Context3D.md) = `null`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L30)
+
+#### Inherited from
+
+`PostBase._boundCtx`
 
 ## Accessors
 
 ### maxDistance
 
-• `get` **maxDistance**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **maxDistance**(): `number`
+
+Defined in: [src/gfx/renderJob/post/GTAOPost.ts:73](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L73)
+
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/gfx/renderJob/post/GTAOPost.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L79)
+> **set** **maxDistance**(`value`): `void`
 
-• `set` **maxDistance**(`value`): `void`
+Defined in: [src/gfx/renderJob/post/GTAOPost.ts:78](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L78)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/gfx/renderJob/post/GTAOPost.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L84)
-
-___
+***
 
 ### maxPixel
 
-• `get` **maxPixel**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **maxPixel**(): `number`
+
+Defined in: [src/gfx/renderJob/post/GTAOPost.ts:84](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L84)
+
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/gfx/renderJob/post/GTAOPost.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L90)
+> **set** **maxPixel**(`value`): `void`
 
-• `set` **maxPixel**(`value`): `void`
+Defined in: [src/gfx/renderJob/post/GTAOPost.ts:89](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L89)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/gfx/renderJob/post/GTAOPost.ts:95](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L95)
-
-___
+***
 
 ### darkFactor
 
-• `get` **darkFactor**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **darkFactor**(): `number`
+
+Defined in: [src/gfx/renderJob/post/GTAOPost.ts:95](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L95)
+
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/gfx/renderJob/post/GTAOPost.ts:101](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L101)
+> **set** **darkFactor**(`value`): `void`
 
-• `set` **darkFactor**(`value`): `void`
+Defined in: [src/gfx/renderJob/post/GTAOPost.ts:100](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L100)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/gfx/renderJob/post/GTAOPost.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L106)
-
-___
+***
 
 ### rayMarchSegment
 
-• `get` **rayMarchSegment**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **rayMarchSegment**(): `number`
+
+Defined in: [src/gfx/renderJob/post/GTAOPost.ts:107](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L107)
+
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/gfx/renderJob/post/GTAOPost.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L113)
+> **set** **rayMarchSegment**(`value`): `void`
 
-• `set` **rayMarchSegment**(`value`): `void`
+Defined in: [src/gfx/renderJob/post/GTAOPost.ts:112](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L112)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/gfx/renderJob/post/GTAOPost.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L118)
-
-___
+***
 
 ### multiBounce
 
-• `get` **multiBounce**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **multiBounce**(): `boolean`
+
+Defined in: [src/gfx/renderJob/post/GTAOPost.ts:118](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L118)
+
+##### Returns
 
 `boolean`
 
-#### Defined in
+#### Set Signature
 
-[src/gfx/renderJob/post/GTAOPost.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L124)
+> **set** **multiBounce**(`value`): `void`
 
-• `set` **multiBounce**(`value`): `void`
+Defined in: [src/gfx/renderJob/post/GTAOPost.ts:123](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L123)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
+###### value
 
-#### Returns
+`boolean`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/gfx/renderJob/post/GTAOPost.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L129)
-
-___
+***
 
 ### blendColor
 
-• `get` **blendColor**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **blendColor**(): `boolean`
+
+Defined in: [src/gfx/renderJob/post/GTAOPost.ts:128](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L128)
+
+##### Returns
 
 `boolean`
 
-#### Defined in
+#### Set Signature
 
-[src/gfx/renderJob/post/GTAOPost.ts:134](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L134)
+> **set** **blendColor**(`value`): `void`
 
-• `set` **blendColor**(`value`): `void`
+Defined in: [src/gfx/renderJob/post/GTAOPost.ts:133](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L133)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
+###### value
 
-#### Returns
+`boolean`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/gfx/renderJob/post/GTAOPost.ts:139](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L139)
-
-___
+***
 
 ### usePosFloat32
 
-• `get` **usePosFloat32**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **usePosFloat32**(): `boolean`
+
+Defined in: [src/gfx/renderJob/post/GTAOPost.ts:138](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L138)
+
+##### Returns
 
 `boolean`
 
-#### Defined in
+#### Set Signature
 
-[src/gfx/renderJob/post/GTAOPost.ts:144](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L144)
+> **set** **usePosFloat32**(`value`): `void`
 
-• `set` **usePosFloat32**(`value`): `void`
+Defined in: [src/gfx/renderJob/post/GTAOPost.ts:143](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L143)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
+###### value
 
-#### Returns
+`boolean`
+
+##### Returns
 
 `void`
-
-#### Defined in
-
-[src/gfx/renderJob/post/GTAOPost.ts:149](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L149)
 
 ## Methods
 
-### onDetach
+### onResize()
 
-▸ **onDetach**(`view`): `void`
+> **onResize**(): `void`
 
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
+Defined in: [src/gfx/renderJob/post/GTAOPost.ts:234](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L234)
 
 #### Returns
 
@@ -323,41 +325,21 @@ ___
 
 #### Overrides
 
-PostBase.onDetach
+`PostBase.onResize`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/post/GTAOPost.ts:75](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L75)
+### compute()
 
-___
+> **compute**(`view`): `void`
 
-### onResize
-
-▸ **onResize**(): `void`
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-PostBase.onResize
-
-#### Defined in
-
-[src/gfx/renderJob/post/GTAOPost.ts:239](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GTAOPost.ts#L239)
-
-___
-
-### destroy
-
-▸ **destroy**(`force?`): `void`
+Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L133)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
+##### view
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -365,8 +347,26 @@ ___
 
 #### Inherited from
 
-PostBase.destroy
+`PostBase.compute`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/post/PostBase.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L87)
+### destroy()
+
+> **destroy**(`force?`): `void`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L143)
+
+#### Parameters
+
+##### force?
+
+`boolean`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`PostBase.destroy`

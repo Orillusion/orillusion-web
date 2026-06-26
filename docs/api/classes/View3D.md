@@ -1,418 +1,371 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: View3D
 
-## Hierarchy
+Defined in: [src/core/View3D.ts:15](https://github.com/orillusion/orillusion/blob/main/src/core/View3D.ts#L15)
 
-- `CEventListener`
-
-  ↳ **`View3D`**
-
-### Constructors
-
-- [constructor](View3D.md#constructor)
-
-### Properties
-
-- [pickFire](View3D.md#pickfire)
-- [guiPick](View3D.md#guipick)
-- [canvasList](View3D.md#canvaslist)
-- [id](View3D.md#id)
-- [current](View3D.md#current)
-- [type](View3D.md#type)
-- [thisObject](View3D.md#thisobject)
-- [handler](View3D.md#handler)
-- [param](View3D.md#param)
-- [priority](View3D.md#priority)
-
-### Accessors
-
-- [enable](View3D.md#enable)
-- [enablePick](View3D.md#enablepick)
-- [scene](View3D.md#scene)
-- [camera](View3D.md#camera)
-- [viewPort](View3D.md#viewport)
-
-### Methods
-
-- [enableUICanvas](View3D.md#enableuicanvas)
-- [disableUICanvas](View3D.md#disableuicanvas)
-- [equalCurrentListener](View3D.md#equalcurrentlistener)
-- [dispose](View3D.md#dispose)
+A render view that pairs a [Camera3D](Camera3D.md) with a [Scene3D](Scene3D.md) and a
+viewport, and drives the rendering of that scene through the camera.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new View3D**(`x?`, `y?`, `width?`, `height?`): [`View3D`](View3D.md)
+> **new View3D**(`x?`, `y?`, `width?`, `height?`): `View3D`
+
+Defined in: [src/core/View3D.ts:30](https://github.com/orillusion/orillusion/blob/main/src/core/View3D.ts#L30)
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `x` | `number` | `0` |
-| `y` | `number` | `0` |
-| `width` | `number` | `0` |
-| `height` | `number` | `0` |
+##### x?
+
+`number` = `0`
+
+##### y?
+
+`number` = `0`
+
+##### width?
+
+`number` = `0`
+
+##### height?
+
+`number` = `0`
 
 #### Returns
 
-[`View3D`](View3D.md)
+`View3D`
 
 #### Overrides
 
-CEventListener.constructor
-
-#### Defined in
-
-[src/core/View3D.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L21)
+`CEventListener.constructor`
 
 ## Properties
 
 ### pickFire
 
-• **pickFire**: [`PickFire`](PickFire.md)
+> **pickFire**: [`PickFire`](PickFire.md)
 
-#### Defined in
+Defined in: [src/core/View3D.ts:21](https://github.com/orillusion/orillusion/blob/main/src/core/View3D.ts#L21)
 
-[src/core/View3D.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L17)
+***
 
-___
+### engine3D
 
-### guiPick
+> **engine3D**: [`Engine3D`](Engine3D.md)
 
-• **guiPick**: [`GUIPick`](GUIPick.md)
+Defined in: [src/core/View3D.ts:28](https://github.com/orillusion/orillusion/blob/main/src/core/View3D.ts#L28)
 
-#### Defined in
+Reference to the Engine3D instance that owns this view. Set by
+`engine.startRenderView(view)`. Components that need per-instance state
+(input system, context, etc.) read it via this back-pointer so
+they work under multi-instance setups.
 
-[src/core/View3D.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L18)
-
-___
-
-### canvasList
-
-• `Readonly` **canvasList**: [`GUICanvas`](GUICanvas.md)[]
-
-#### Defined in
-
-[src/core/View3D.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L19)
-
-___
+***
 
 ### id
 
-• **id**: `number` = `0`
+> **id**: `number` = `0`
+
+Defined in: [src/event/CEventListener.ts:15](https://github.com/orillusion/orillusion/blob/main/src/event/CEventListener.ts#L15)
 
 Record a id. When registering a listening event, the value will increase automatically
 
 #### Inherited from
 
-CEventListener.id
+`CEventListener.id`
 
-#### Defined in
-
-[src/event/CEventListener.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventListener.ts#L16)
-
-___
+***
 
 ### current
 
-• **current**: `any`
+> **current**: `any`
+
+Defined in: [src/event/CEventListener.ts:21](https://github.com/orillusion/orillusion/blob/main/src/event/CEventListener.ts#L21)
 
 Returns current event dispatcher
 
 #### Inherited from
 
-CEventListener.current
+`CEventListener.current`
 
-#### Defined in
-
-[src/event/CEventListener.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventListener.ts#L22)
-
-___
+***
 
 ### type
 
-• **type**: `string` \| `number` = `null`
+> **type**: `string` \| `number` = `null`
+
+Defined in: [src/event/CEventListener.ts:31](https://github.com/orillusion/orillusion/blob/main/src/event/CEventListener.ts#L31)
 
 {string} event type
 
 #### Inherited from
 
-CEventListener.type
+`CEventListener.type`
 
-#### Defined in
-
-[src/event/CEventListener.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventListener.ts#L32)
-
-___
+***
 
 ### thisObject
 
-• **thisObject**: `any` = `null`
+> **thisObject**: `any` = `null`
+
+Defined in: [src/event/CEventListener.ts:31](https://github.com/orillusion/orillusion/blob/main/src/event/CEventListener.ts#L31)
 
 {any} the object is registerd
 
 #### Inherited from
 
-CEventListener.thisObject
+`CEventListener.thisObject`
 
-#### Defined in
-
-[src/event/CEventListener.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventListener.ts#L32)
-
-___
+***
 
 ### handler
 
-• **handler**: `Function` = `null`
+> **handler**: `Function` = `null`
+
+Defined in: [src/event/CEventListener.ts:31](https://github.com/orillusion/orillusion/blob/main/src/event/CEventListener.ts#L31)
 
 {Function} The callback function that handles events.
 
 #### Inherited from
 
-CEventListener.handler
+`CEventListener.handler`
 
-#### Defined in
-
-[src/event/CEventListener.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventListener.ts#L32)
-
-___
+***
 
 ### param
 
-• **param**: `any` = `null`
+> **param**: `any` = `null`
+
+Defined in: [src/event/CEventListener.ts:31](https://github.com/orillusion/orillusion/blob/main/src/event/CEventListener.ts#L31)
 
 {any} Parameters bound when registering events
 
 #### Inherited from
 
-CEventListener.param
+`CEventListener.param`
 
-#### Defined in
-
-[src/event/CEventListener.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventListener.ts#L32)
-
-___
+***
 
 ### priority
 
-• **priority**: `number` = `0`
+> **priority**: `number` = `0`
+
+Defined in: [src/event/CEventListener.ts:31](https://github.com/orillusion/orillusion/blob/main/src/event/CEventListener.ts#L31)
 
 {number} The priority of callback function execution, with a larger set value having priority to call
 
 #### Inherited from
 
-CEventListener.priority
-
-#### Defined in
-
-[src/event/CEventListener.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventListener.ts#L32)
+`CEventListener.priority`
 
 ## Accessors
 
 ### enable
 
-• `get` **enable**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **enable**(): `boolean`
+
+Defined in: [src/core/View3D.ts:35](https://github.com/orillusion/orillusion/blob/main/src/core/View3D.ts#L35)
+
+##### Returns
 
 `boolean`
 
-#### Defined in
+#### Set Signature
 
-[src/core/View3D.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L27)
+> **set** **enable**(`value`): `void`
 
-• `set` **enable**(`value`): `void`
+Defined in: [src/core/View3D.ts:39](https://github.com/orillusion/orillusion/blob/main/src/core/View3D.ts#L39)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
+###### value
 
-#### Returns
+`boolean`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/core/View3D.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L31)
-
-___
+***
 
 ### enablePick
 
-• `get` **enablePick**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **enablePick**(): `boolean`
+
+Defined in: [src/core/View3D.ts:43](https://github.com/orillusion/orillusion/blob/main/src/core/View3D.ts#L43)
+
+##### Returns
 
 `boolean`
 
-#### Defined in
+#### Set Signature
 
-[src/core/View3D.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L35)
+> **set** **enablePick**(`value`): `void`
 
-• `set` **enablePick**(`value`): `void`
+Defined in: [src/core/View3D.ts:47](https://github.com/orillusion/orillusion/blob/main/src/core/View3D.ts#L47)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
+###### value
 
-#### Returns
+`boolean`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/core/View3D.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L39)
-
-___
+***
 
 ### scene
 
-• `get` **scene**(): [`Scene3D`](Scene3D.md)
+#### Get Signature
 
-#### Returns
+> **get** **scene**(): [`Scene3D`](Scene3D.md)
+
+Defined in: [src/core/View3D.ts:55](https://github.com/orillusion/orillusion/blob/main/src/core/View3D.ts#L55)
+
+##### Returns
 
 [`Scene3D`](Scene3D.md)
 
-#### Defined in
+#### Set Signature
 
-[src/core/View3D.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L47)
+> **set** **scene**(`value`): `void`
 
-• `set` **scene**(`value`): `void`
+Defined in: [src/core/View3D.ts:59](https://github.com/orillusion/orillusion/blob/main/src/core/View3D.ts#L59)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`Scene3D`](Scene3D.md) |
+###### value
 
-#### Returns
+[`Scene3D`](Scene3D.md)
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/core/View3D.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L51)
-
-___
+***
 
 ### camera
 
-• `get` **camera**(): [`Camera3D`](Camera3D.md)
+#### Get Signature
 
-#### Returns
+> **get** **camera**(): [`Camera3D`](Camera3D.md)
+
+Defined in: [src/core/View3D.ts:66](https://github.com/orillusion/orillusion/blob/main/src/core/View3D.ts#L66)
+
+##### Returns
 
 [`Camera3D`](Camera3D.md)
 
-#### Defined in
+#### Set Signature
 
-[src/core/View3D.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L64)
+> **set** **camera**(`value`): `void`
 
-• `set` **camera**(`value`): `void`
+Defined in: [src/core/View3D.ts:70](https://github.com/orillusion/orillusion/blob/main/src/core/View3D.ts#L70)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`Camera3D`](Camera3D.md) |
+###### value
 
-#### Returns
+[`Camera3D`](Camera3D.md)
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/core/View3D.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L68)
-
-___
+***
 
 ### viewPort
 
-• `get` **viewPort**(): `Vector4`
+#### Get Signature
 
-#### Returns
+> **get** **viewPort**(): `Vector4`
+
+Defined in: [src/core/View3D.ts:74](https://github.com/orillusion/orillusion/blob/main/src/core/View3D.ts#L74)
+
+##### Returns
 
 `Vector4`
 
-#### Defined in
+#### Set Signature
 
-[src/core/View3D.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L72)
+> **set** **viewPort**(`value`): `void`
 
-• `set` **viewPort**(`value`): `void`
+Defined in: [src/core/View3D.ts:78](https://github.com/orillusion/orillusion/blob/main/src/core/View3D.ts#L78)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `Vector4` |
+###### value
 
-#### Returns
+`Vector4`
+
+##### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/core/View3D.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L76)
+### renderGraph
+
+#### Get Signature
+
+> **get** **renderGraph**(): [`RenderGraph`](RenderGraph.md)
+
+Defined in: [src/core/View3D.ts:86](https://github.com/orillusion/orillusion/blob/main/src/core/View3D.ts#L86)
+
+Frame Graph bound to this view's engine. The view's render
+ job owns it (constructed during `engine.startRenderView`).
+ Returns null only when the engine has not yet started a
+ render job for this view.
+
+##### Returns
+
+[`RenderGraph`](RenderGraph.md)
 
 ## Methods
 
-### enableUICanvas
+### equalCurrentListener()
 
-▸ **enableUICanvas**(`index?`): [`GUICanvas`](GUICanvas.md)
+> **equalCurrentListener**(`type`, `handler`, `thisObject`, `param`): `boolean`
 
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `index` | `number` | `0` |
-
-#### Returns
-
-[`GUICanvas`](GUICanvas.md)
-
-#### Defined in
-
-[src/core/View3D.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L80)
-
-___
-
-### disableUICanvas
-
-▸ **disableUICanvas**(`index?`): `void`
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `index` | `number` | `0` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/core/View3D.ts:100](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L100)
-
-___
-
-### equalCurrentListener
-
-▸ **equalCurrentListener**(`type`, `handler`, `thisObject`, `param`): `boolean`
+Defined in: [src/event/CEventListener.ts:42](https://github.com/orillusion/orillusion/blob/main/src/event/CEventListener.ts#L42)
 
 Compare whether two events are the same
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `type` | `string` \| `number` | {string} event type |
-| `handler` | `Function` | {Function} The callback function that handles events. |
-| `thisObject` | `any` | {any} the object is registerd |
-| `param` | `any` | {any} Parameters bound when registering events |
+##### type
+
+`string` \| `number`
+
+{string} event type
+
+##### handler
+
+`Function`
+
+{Function} The callback function that handles events.
+
+##### thisObject
+
+`any`
+
+{any} the object is registerd
+
+##### param
+
+`any`
+
+{any} Parameters bound when registering events
 
 #### Returns
 
@@ -422,17 +375,15 @@ Returns a boolean
 
 #### Inherited from
 
-CEventListener.equalCurrentListener
+`CEventListener.equalCurrentListener`
 
-#### Defined in
+***
 
-[src/event/CEventListener.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventListener.ts#L43)
+### dispose()
 
-___
+> **dispose**(): `void`
 
-### dispose
-
-▸ **dispose**(): `void`
+Defined in: [src/event/CEventListener.ts:54](https://github.com/orillusion/orillusion/blob/main/src/event/CEventListener.ts#L54)
 
 release all registered event.
 
@@ -442,8 +393,4 @@ release all registered event.
 
 #### Inherited from
 
-CEventListener.dispose
-
-#### Defined in
-
-[src/event/CEventListener.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventListener.ts#L55)
+`CEventListener.dispose`

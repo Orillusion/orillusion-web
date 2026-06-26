@@ -1,61 +1,73 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: PipelinePool
 
-### Constructors
+Defined in: [src/gfx/graphics/webGpu/PipelinePool.ts:7](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/PipelinePool.ts#L7)
 
-- [constructor](PipelinePool.md#constructor)
-
-### Methods
-
-- [getSharePipeline](PipelinePool.md#getsharepipeline)
-- [setSharePipeline](PipelinePool.md#setsharepipeline)
+Per-context cache of shared render pipelines, keyed by shader variant.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new PipelinePool**(): [`PipelinePool`](PipelinePool.md)
+> **new PipelinePool**(): `PipelinePool`
 
 #### Returns
 
-[`PipelinePool`](PipelinePool.md)
+`PipelinePool`
 
 ## Methods
 
-### getSharePipeline
+### getSharePipeline()
 
-▸ **getSharePipeline**(`shaderVariant`): `GPURenderPipeline`
+> `static` **getSharePipeline**(`ctx`, `shaderVariant`): `GPURenderPipeline`
+
+Defined in: [src/gfx/graphics/webGpu/PipelinePool.ts:17](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/PipelinePool.ts#L17)
+
+Get a shared render pipeline for the given shader variant, or null if not cached.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `shaderVariant` | `string` |
+##### ctx
+
+[`Context3D`](Context3D.md)
+
+the rendering context
+
+##### shaderVariant
+
+`string`
+
+the shader variant key
 
 #### Returns
 
 `GPURenderPipeline`
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/PipelinePool.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/PipelinePool.ts#L6)
+### setSharePipeline()
 
-___
+> `static` **setSharePipeline**(`ctx`, `shaderVariant`, `pipeline`): `void`
 
-### setSharePipeline
-
-▸ **setSharePipeline**(`shaderVariant`, `pipeline`): `void`
+Defined in: [src/gfx/graphics/webGpu/PipelinePool.ts:26](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/PipelinePool.ts#L26)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `shaderVariant` | `string` |
-| `pipeline` | `GPURenderPipeline` |
+##### ctx
+
+[`Context3D`](Context3D.md)
+
+##### shaderVariant
+
+`string`
+
+##### pipeline
+
+`GPURenderPipeline`
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/PipelinePool.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/PipelinePool.ts#L15)

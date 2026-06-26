@@ -1,228 +1,240 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: PrefabStringUtil
 
-### Constructors
+Defined in: [src/loader/parser/prefab/PrefabStringUtil.ts:8](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabStringUtil.ts#L8)
 
-- [constructor](PrefabStringUtil.md#constructor)
-
-### Methods
-
-- [getNumber](PrefabStringUtil.md#getnumber)
-- [getInt](PrefabStringUtil.md#getint)
-- [getBoolean](PrefabStringUtil.md#getboolean)
-- [getNumberArray](PrefabStringUtil.md#getnumberarray)
-- [getStringArray](PrefabStringUtil.md#getstringarray)
-- [getVector2](PrefabStringUtil.md#getvector2)
-- [getVector3](PrefabStringUtil.md#getvector3)
-- [getVector4](PrefabStringUtil.md#getvector4)
-- [getQuaternion](PrefabStringUtil.md#getquaternion)
-- [getColor](PrefabStringUtil.md#getcolor)
+String parsing helpers for the prefab text format. Converts raw string
+fields into numbers, booleans and numeric/string arrays.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new PrefabStringUtil**(): [`PrefabStringUtil`](PrefabStringUtil.md)
+> **new PrefabStringUtil**(): `PrefabStringUtil`
 
 #### Returns
 
-[`PrefabStringUtil`](PrefabStringUtil.md)
+`PrefabStringUtil`
 
 ## Methods
 
-### getNumber
+### getNumber()
 
-▸ **getNumber**(`st`): `number`
+> `static` **getNumber**(`st`): `number`
+
+Defined in: [src/loader/parser/prefab/PrefabStringUtil.ts:14](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabStringUtil.ts#L14)
+
+Parse a string as a floating-point number.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `st` | `string` |
+##### st
+
+`string`
+
+the source string.
 
 #### Returns
 
 `number`
 
-#### Defined in
+***
 
-[src/loader/parser/prefab/PrefabStringUtil.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabStringUtil.ts#L5)
+### getInt()
 
-___
+> `static` **getInt**(`st`): `number`
 
-### getInt
+Defined in: [src/loader/parser/prefab/PrefabStringUtil.ts:23](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabStringUtil.ts#L23)
 
-▸ **getInt**(`st`): `number`
+Parse a string as an integer.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `st` | `string` |
+##### st
+
+`string`
+
+the source string.
 
 #### Returns
 
 `number`
 
-#### Defined in
+***
 
-[src/loader/parser/prefab/PrefabStringUtil.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabStringUtil.ts#L10)
+### getBoolean()
 
-___
+> `static` **getBoolean**(`st`): `boolean`
 
-### getBoolean
+Defined in: [src/loader/parser/prefab/PrefabStringUtil.ts:32](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabStringUtil.ts#L32)
 
-▸ **getBoolean**(`st`): `boolean`
+Parse a string as a boolean (`"true"` maps to true, anything else false).
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `st` | `string` |
+##### st
+
+`string`
+
+the source string.
 
 #### Returns
 
 `boolean`
 
-#### Defined in
+***
 
-[src/loader/parser/prefab/PrefabStringUtil.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabStringUtil.ts#L15)
+### getNumberArray()
 
-___
+> `static` **getNumberArray**(`st`): `string`
 
-### getNumberArray
+Defined in: [src/loader/parser/prefab/PrefabStringUtil.ts:41](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabStringUtil.ts#L41)
 
-▸ **getNumberArray**(`st`): `string`
+Parse a bracketed, comma-separated string into a list of numbers.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `st` | `string` |
+##### st
+
+`string`
+
+the source string, e.g. `"[1,2,3]"`.
 
 #### Returns
 
 `string`
 
-#### Defined in
+***
 
-[src/loader/parser/prefab/PrefabStringUtil.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabStringUtil.ts#L20)
+### getStringArray()
 
-___
+> `static` **getStringArray**(`st`): `string`[]
 
-### getStringArray
+Defined in: [src/loader/parser/prefab/PrefabStringUtil.ts:57](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabStringUtil.ts#L57)
 
-▸ **getStringArray**(`st`): `string`[]
+Parse a bracketed, comma-separated string into a list of strings.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `st` | `string` |
+##### st
+
+`string`
+
+the source string, e.g. `"[a,b,c]"`.
 
 #### Returns
 
 `string`[]
 
-#### Defined in
+***
 
-[src/loader/parser/prefab/PrefabStringUtil.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabStringUtil.ts#L32)
+### getVector2()
 
-___
+> `static` **getVector2**(`st`): `void`
 
-### getVector2
+Defined in: [src/loader/parser/prefab/PrefabStringUtil.ts:73](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabStringUtil.ts#L73)
 
-▸ **getVector2**(`st`): `void`
+Parse a string into a [Vector2](Vector2.md). (Reserved; not yet implemented.)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `st` | `string` |
+##### st
+
+`string`
+
+the source string.
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/loader/parser/prefab/PrefabStringUtil.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabStringUtil.ts#L44)
+### getVector3()
 
-___
+> `static` **getVector3**(`st`): `void`
 
-### getVector3
+Defined in: [src/loader/parser/prefab/PrefabStringUtil.ts:81](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabStringUtil.ts#L81)
 
-▸ **getVector3**(`st`): `void`
+Parse a string into a [Vector3](Vector3.md). (Reserved; not yet implemented.)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `st` | `string` |
+##### st
+
+`string`
+
+the source string.
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/loader/parser/prefab/PrefabStringUtil.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabStringUtil.ts#L48)
+### getVector4()
 
-___
+> `static` **getVector4**(`st`): `void`
 
-### getVector4
+Defined in: [src/loader/parser/prefab/PrefabStringUtil.ts:89](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabStringUtil.ts#L89)
 
-▸ **getVector4**(`st`): `void`
+Parse a string into a Vector4. (Reserved; not yet implemented.)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `st` | `string` |
+##### st
+
+`string`
+
+the source string.
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/loader/parser/prefab/PrefabStringUtil.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabStringUtil.ts#L52)
+### getQuaternion()
 
-___
+> `static` **getQuaternion**(`st`): `void`
 
-### getQuaternion
+Defined in: [src/loader/parser/prefab/PrefabStringUtil.ts:97](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabStringUtil.ts#L97)
 
-▸ **getQuaternion**(`st`): `void`
+Parse a string into a [Quaternion](Quaternion.md). (Reserved; not yet implemented.)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `st` | `string` |
+##### st
+
+`string`
+
+the source string.
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/loader/parser/prefab/PrefabStringUtil.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabStringUtil.ts#L56)
+### getColor()
 
-___
+> `static` **getColor**(`st`): `void`
 
-### getColor
+Defined in: [src/loader/parser/prefab/PrefabStringUtil.ts:105](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabStringUtil.ts#L105)
 
-▸ **getColor**(`st`): `void`
+Parse a string into a [Color](Color.md). (Reserved; not yet implemented.)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `st` | `string` |
+##### st
+
+`string`
+
+the source string.
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[src/loader/parser/prefab/PrefabStringUtil.ts:60](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabStringUtil.ts#L60)

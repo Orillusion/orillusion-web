@@ -1,51 +1,49 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: RTDescriptor
 
-### Constructors
+Defined in: [src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts:5](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts#L5)
 
-- [constructor](RTDescriptor.md#constructor)
-
-### Properties
-
-- [storeOp](RTDescriptor.md#storeop)
-- [loadOp](RTDescriptor.md#loadop)
-- [clearValue](RTDescriptor.md#clearvalue)
+Describes the load/store operations and clear value for a render target attachment.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new RTDescriptor**(): [`RTDescriptor`](RTDescriptor.md)
+> **new RTDescriptor**(): `RTDescriptor`
 
 #### Returns
 
-[`RTDescriptor`](RTDescriptor.md)
+`RTDescriptor`
 
 ## Properties
 
 ### storeOp
 
-• **storeOp**: `string` = `'store'`
+> **storeOp**: `string` = `'store'`
 
-#### Defined in
+Defined in: [src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts:7](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts#L7)
 
-[src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts#L2)
+Store operation applied at the end of the render pass.
 
-___
+***
 
 ### loadOp
 
-• **loadOp**: `GPULoadOp`
+> **loadOp**: `GPULoadOp`
 
-#### Defined in
+Defined in: [src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts:9](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts#L9)
 
-[src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts:3](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts#L3)
+Load operation applied at the start of the render pass.
 
-___
+***
 
 ### clearValue
 
-• **clearValue**: `GPUColor`
+> **clearValue**: `GPUColor`
 
-#### Defined in
+Defined in: [src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts:11](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts#L11)
 
-[src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts#L4)
+Clear color used when the load operation is `clear`.

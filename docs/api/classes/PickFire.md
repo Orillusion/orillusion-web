@@ -1,109 +1,84 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: PickFire
+
+Defined in: [src/io/PickFire.ts:17](https://github.com/orillusion/orillusion/blob/main/src/io/PickFire.ts#L17)
 
 Management and triggering for picking 3D objects
 
-## Hierarchy
+## Extends
 
 - [`CEventDispatcher`](CEventDispatcher.md)
 
-  ↳ **`PickFire`**
-
-### Constructors
-
-- [constructor](PickFire.md#constructor)
-
-### Properties
-
-- [ray](PickFire.md#ray)
-- [isTouching](PickFire.md#istouching)
-- [mouseEnableMap](PickFire.md#mouseenablemap)
-
-### Methods
-
-- [dispatchEvent](PickFire.md#dispatchevent)
-- [destroy](PickFire.md#destroy)
-- [addEventListener](PickFire.md#addeventlistener)
-- [removeEventListener](PickFire.md#removeeventlistener)
-- [removeEventListenerAt](PickFire.md#removeeventlistenerat)
-- [removeAllEventListener](PickFire.md#removealleventlistener)
-- [containEventListener](PickFire.md#containeventlistener)
-- [hasEventListener](PickFire.md#haseventlistener)
-- [start](PickFire.md#start)
-- [stop](PickFire.md#stop)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new PickFire**(`view`): [`PickFire`](PickFire.md)
+> **new PickFire**(`view`): `PickFire`
+
+Defined in: [src/io/PickFire.ts:46](https://github.com/orillusion/orillusion/blob/main/src/io/PickFire.ts#L46)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
+##### view
+
+[`View3D`](View3D.md)
 
 #### Returns
 
-[`PickFire`](PickFire.md)
+`PickFire`
 
 #### Overrides
 
-[CEventDispatcher](CEventDispatcher.md).[constructor](CEventDispatcher.md#constructor)
-
-#### Defined in
-
-[src/io/PickFire.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L47)
+[`CEventDispatcher`](CEventDispatcher.md).[`constructor`](CEventDispatcher.md#constructor)
 
 ## Properties
 
 ### ray
 
-• **ray**: [`Ray`](Ray.md)
+> **ray**: [`Ray`](Ray.md)
+
+Defined in: [src/io/PickFire.ts:21](https://github.com/orillusion/orillusion/blob/main/src/io/PickFire.ts#L21)
 
 The ray used to pick 3D objects
 
-#### Defined in
-
-[src/io/PickFire.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L22)
-
-___
+***
 
 ### isTouching
 
-• **isTouching**: `boolean` = `false`
+> **isTouching**: `boolean` = `false`
+
+Defined in: [src/io/PickFire.ts:26](https://github.com/orillusion/orillusion/blob/main/src/io/PickFire.ts#L26)
 
 whether it's touching
 
-#### Defined in
-
-[src/io/PickFire.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L27)
-
-___
+***
 
 ### mouseEnableMap
 
-• **mouseEnableMap**: `Map`\<`number`, [`ColliderComponent`](ColliderComponent.md)\>
+> **mouseEnableMap**: `Map`\<`number`, [`ColliderComponent`](ColliderComponent.md)\>
+
+Defined in: [src/io/PickFire.ts:43](https://github.com/orillusion/orillusion/blob/main/src/io/PickFire.ts#L43)
 
 a map records the association information between meshID(matrix id) and ColliderComponent
 
-#### Defined in
-
-[src/io/PickFire.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L44)
-
 ## Methods
 
-### dispatchEvent
+### dispatchEvent()
 
-▸ **dispatchEvent**(`event`): `void`
+> **dispatchEvent**(`event`): `void`
+
+Defined in: [src/event/CEventDispatcher.ts:24](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L24)
 
 Dispatch an event to all registered objects with a specific type of listener.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | [`CEvent`](CEvent.md) |
+##### event
+
+[`CEvent`](CEvent.md)
 
 #### Returns
 
@@ -111,17 +86,15 @@ Dispatch an event to all registered objects with a specific type of listener.
 
 #### Inherited from
 
-[CEventDispatcher](CEventDispatcher.md).[dispatchEvent](CEventDispatcher.md#dispatchevent)
+[`CEventDispatcher`](CEventDispatcher.md).[`dispatchEvent`](CEventDispatcher.md#dispatchevent)
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L24)
+### destroy()
 
-___
+> **destroy**(): `void`
 
-### destroy
-
-▸ **destroy**(): `void`
+Defined in: [src/event/CEventDispatcher.ts:54](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L54)
 
 release all registered event.
 
@@ -131,29 +104,51 @@ release all registered event.
 
 #### Inherited from
 
-[CEventDispatcher](CEventDispatcher.md).[destroy](CEventDispatcher.md#destroy)
+[`CEventDispatcher`](CEventDispatcher.md).[`destroy`](CEventDispatcher.md#destroy)
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L55)
+### addEventListener()
 
-___
+> **addEventListener**(`type`, `callback`, `thisObject`, `param?`, `priority?`): `number`
 
-### addEventListener
-
-▸ **addEventListener**(`type`, `callback`, `thisObject`, `param?`, `priority?`): `number`
+Defined in: [src/event/CEventDispatcher.ts:78](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L78)
 
 register an event listener to event distancher.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `type` | `string` \| `number` | `undefined` | {string} event type. |
-| `callback` | `Function` | `undefined` | {Function} The callback function that handles events. This function must accept an Event3D object as its unique parameter and cannot return any result. for example: function(evt:Event3D):void. |
-| `thisObject` | `any` | `undefined` | {any} Current registration object, it'll call callback function. |
-| `param` | `any` | `null` | {any} the data binded to registered event, the default value is null. |
-| `priority` | `number` | `0` | {number} The priority of callback function execution, with a larger set value having priority to call |
+##### type
+
+`string` \| `number`
+
+{string} event type.
+
+##### callback
+
+`Function`
+
+{Function} The callback function that handles events. 
+This function must accept an Event3D object as its unique parameter and cannot return any result.
+for example: function(evt:Event3D):void.
+
+##### thisObject
+
+`any`
+
+{any} Current registration object, it'll call callback function.
+
+##### param?
+
+`any` = `null`
+
+{any} the data binded to registered event, the default value is null.
+
+##### priority?
+
+`number` = `0`
+
+{number} The priority of callback function execution, with a larger set value having priority to call
 
 #### Returns
 
@@ -163,27 +158,37 @@ Returns register event id
 
 #### Inherited from
 
-[CEventDispatcher](CEventDispatcher.md).[addEventListener](CEventDispatcher.md#addeventlistener)
+[`CEventDispatcher`](CEventDispatcher.md).[`addEventListener`](CEventDispatcher.md#addeventlistener)
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L79)
+### removeEventListener()
 
-___
+> **removeEventListener**(`type`, `callback`, `thisObject`): `void`
 
-### removeEventListener
-
-▸ **removeEventListener**(`type`, `callback`, `thisObject`): `void`
+Defined in: [src/event/CEventDispatcher.ts:112](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L112)
 
 Remove Event Listening
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `type` | `string` \| `number` | {string} event type |
-| `callback` | `Function` | {Function} callback function of event register |
-| `thisObject` | `any` | {any} The current registered object. |
+##### type
+
+`string` \| `number`
+
+{string} event type
+
+##### callback
+
+`Function`
+
+{Function} callback function of event register
+
+##### thisObject
+
+`any`
+
+{any} The current registered object.
 
 #### Returns
 
@@ -191,25 +196,23 @@ Remove Event Listening
 
 #### Inherited from
 
-[CEventDispatcher](CEventDispatcher.md).[removeEventListener](CEventDispatcher.md#removeeventlistener)
+[`CEventDispatcher`](CEventDispatcher.md).[`removeEventListener`](CEventDispatcher.md#removeeventlistener)
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L113)
+### removeEventListenerAt()
 
-___
+> **removeEventListenerAt**(`id`): `boolean`
 
-### removeEventListenerAt
-
-▸ **removeEventListenerAt**(`id`): `boolean`
+Defined in: [src/event/CEventDispatcher.ts:132](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L132)
 
 Remove an event Listening with id
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `id` | `number` |
+##### id
+
+`number`
 
 #### Returns
 
@@ -217,26 +220,24 @@ Remove an event Listening with id
 
 #### Inherited from
 
-[CEventDispatcher](CEventDispatcher.md).[removeEventListenerAt](CEventDispatcher.md#removeeventlistenerat)
+[`CEventDispatcher`](CEventDispatcher.md).[`removeEventListenerAt`](CEventDispatcher.md#removeeventlistenerat)
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L133)
+### removeAllEventListener()
 
-___
+> **removeAllEventListener**(`eventType?`): `void`
 
-### removeAllEventListener
-
-▸ **removeAllEventListener**(`eventType?`): `void`
+Defined in: [src/event/CEventDispatcher.ts:152](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L152)
 
 Specify a event type to remove all related event listeners
 eventType event type, set null to remove all event listeners
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `eventType` | `string` \| `number` | `null` |
+##### eventType?
+
+`string` \| `number`
 
 #### Returns
 
@@ -244,25 +245,25 @@ eventType event type, set null to remove all event listeners
 
 #### Inherited from
 
-[CEventDispatcher](CEventDispatcher.md).[removeAllEventListener](CEventDispatcher.md#removealleventlistener)
+[`CEventDispatcher`](CEventDispatcher.md).[`removeAllEventListener`](CEventDispatcher.md#removealleventlistener)
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L153)
+### containEventListener()
 
-___
+> **containEventListener**(`type`): `boolean`
 
-### containEventListener
-
-▸ **containEventListener**(`type`): `boolean`
+Defined in: [src/event/CEventDispatcher.ts:184](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L184)
 
 whether the target presence of a listener with event type.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `type` | `string` | {string} event type. |
+##### type
+
+`string`
+
+{string} event type.
 
 #### Returns
 
@@ -272,27 +273,37 @@ Returns a boolean.
 
 #### Inherited from
 
-[CEventDispatcher](CEventDispatcher.md).[containEventListener](CEventDispatcher.md#containeventlistener)
+[`CEventDispatcher`](CEventDispatcher.md).[`containEventListener`](CEventDispatcher.md#containeventlistener)
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:185](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L185)
+### hasEventListener()
 
-___
+> **hasEventListener**(`type`, `callback?`, `thisObject?`): `boolean`
 
-### hasEventListener
-
-▸ **hasEventListener**(`type`, `callback?`, `thisObject?`): `boolean`
+Defined in: [src/event/CEventDispatcher.ts:197](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L197)
 
 whether the target presence of a listener with event type. it associate more registration parameters.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `type` | `string` \| `number` | `undefined` | {string} event name. |
-| `callback` | `Function` | `null` | {Function} callback function of event register. |
-| `thisObject` | `any` | `null` | {any} The registered object. |
+##### type
+
+`string` \| `number`
+
+{string} event name.
+
+##### callback?
+
+`Function` = `null`
+
+{Function} callback function of event register.
+
+##### thisObject?
+
+`any` = `null`
+
+{any} The registered object.
 
 #### Returns
 
@@ -302,17 +313,15 @@ Returns a boolean.
 
 #### Inherited from
 
-[CEventDispatcher](CEventDispatcher.md).[hasEventListener](CEventDispatcher.md#haseventlistener)
+[`CEventDispatcher`](CEventDispatcher.md).[`hasEventListener`](CEventDispatcher.md#haseventlistener)
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L198)
+### start()
 
-___
+> **start**(): `void`
 
-### start
-
-▸ **start**(): `void`
+Defined in: [src/io/PickFire.ts:78](https://github.com/orillusion/orillusion/blob/main/src/io/PickFire.ts#L78)
 
 start this manager
 
@@ -320,22 +329,16 @@ start this manager
 
 `void`
 
-#### Defined in
+***
 
-[src/io/PickFire.ts:71](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L71)
+### stop()
 
-___
+> **stop**(): `void`
 
-### stop
-
-▸ **stop**(): `void`
+Defined in: [src/io/PickFire.ts:100](https://github.com/orillusion/orillusion/blob/main/src/io/PickFire.ts#L100)
 
 stop this manager
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[src/io/PickFire.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L90)

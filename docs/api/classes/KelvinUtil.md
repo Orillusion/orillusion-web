@@ -1,112 +1,101 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: KelvinUtil
+
+Defined in: [src/util/KelvinUtil.ts:7](https://github.com/orillusion/orillusion/blob/main/src/util/KelvinUtil.ts#L7)
 
 Temperature Color Converter
 
-### Constructors
-
-- [constructor](KelvinUtil.md#constructor)
-
-### Methods
-
-- [color\_temperature\_to\_rgb](KelvinUtil.md#color_temperature_to_rgb)
-- [get\_red](KelvinUtil.md#get_red)
-- [get\_green](KelvinUtil.md#get_green)
-- [get\_blue](KelvinUtil.md#get_blue)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new KelvinUtil**(): [`KelvinUtil`](KelvinUtil.md)
+> **new KelvinUtil**(): `KelvinUtil`
 
 #### Returns
 
-[`KelvinUtil`](KelvinUtil.md)
+`KelvinUtil`
 
 ## Methods
 
-### color\_temperature\_to\_rgb
+### color\_temperature\_to\_rgb()
 
-▸ **color_temperature_to_rgb**(`color_temperature_Kelvin`): [`Color`](Color.md)
+> `static` **color\_temperature\_to\_rgb**(`color_temperature_Kelvin`): [`Color`](Color.md)
+
+Defined in: [src/util/KelvinUtil.ts:13](https://github.com/orillusion/orillusion/blob/main/src/util/KelvinUtil.ts#L13)
 
 Convert color temperature to color object
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `color_temperature_Kelvin` | `number` | Color temperature value |
+##### color\_temperature\_Kelvin
+
+`number`
+
+Color temperature value
 
 #### Returns
 
 [`Color`](Color.md)
 
-#### Defined in
+***
 
-[src/util/KelvinUtil.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/util/KelvinUtil.ts#L13)
+### get\_red()
 
-___
+> `static` **get\_red**(`temperature`): `number`
 
-### get\_red
-
-▸ **get_red**(`temperature`): `number`
+Defined in: [src/util/KelvinUtil.ts:32](https://github.com/orillusion/orillusion/blob/main/src/util/KelvinUtil.ts#L32)
 
 Return red component [0-255]
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `temperature` | `number` |
+##### temperature
+
+`number`
 
 #### Returns
 
 `number`
 
-#### Defined in
+***
 
-[src/util/KelvinUtil.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/util/KelvinUtil.ts#L32)
+### get\_green()
 
-___
+> `static` **get\_green**(`temperature`): `number`
 
-### get\_green
-
-▸ **get_green**(`temperature`): `number`
+Defined in: [src/util/KelvinUtil.ts:42](https://github.com/orillusion/orillusion/blob/main/src/util/KelvinUtil.ts#L42)
 
 Return green component [0-255]
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `temperature` | `number` |
+##### temperature
+
+`number`
 
 #### Returns
 
 `number`
 
-#### Defined in
+***
 
-[src/util/KelvinUtil.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/util/KelvinUtil.ts#L42)
+### get\_blue()
 
-___
+> `static` **get\_blue**(`temperature`): `number`
 
-### get\_blue
-
-▸ **get_blue**(`temperature`): `number`
+Defined in: [src/util/KelvinUtil.ts:56](https://github.com/orillusion/orillusion/blob/main/src/util/KelvinUtil.ts#L56)
 
 Return blue component [0-255]
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `temperature` | `number` |
+##### temperature
+
+`number`
 
 #### Returns
 
 `number`
-
-#### Defined in
-
-[src/util/KelvinUtil.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/util/KelvinUtil.ts#L56)

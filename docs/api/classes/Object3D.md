@@ -1,791 +1,727 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: Object3D
+
+Defined in: [src/core/entities/Object3D.ts:17](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L17)
 
 The base class of most objects provides a series of properties and methods for manipulating objects in three-dimensional space.
 
-## Hierarchy
+## Extends
 
 - [`Entity`](Entity.md)
 
-  ↳ **`Object3D`**
+## Extended by
 
-  ↳↳ [`Scene3D`](Scene3D.md)
-
-  ↳↳ [`InstancedMesh`](InstancedMesh.md)
-
-  ↳↳ [`Object3DTransformTools`](Object3DTransformTools.md)
-
-### Constructors
-
-- [constructor](Object3D.md#constructor)
-
-### Properties
-
-- [name](Object3D.md#name)
-- [transform](Object3D.md#transform)
-- [renderNode](Object3D.md#rendernode)
-- [entityChildren](Object3D.md#entitychildren)
-- [components](Object3D.md#components)
-- [prefabRef](Object3D.md#prefabref)
-- [serializeTag](Object3D.md#serializetag)
-
-### Accessors
-
-- [instanceID](Object3D.md#instanceid)
-- [numChildren](Object3D.md#numchildren)
-- [bound](Object3D.md#bound)
-- [isScene3D](Object3D.md#isscene3d)
-- [localPosition](Object3D.md#localposition)
-- [localRotation](Object3D.md#localrotation)
-- [localScale](Object3D.md#localscale)
-- [localQuaternion](Object3D.md#localquaternion)
-- [parent](Object3D.md#parent)
-- [parentObject](Object3D.md#parentobject)
-- [x](Object3D.md#x)
-- [y](Object3D.md#y)
-- [z](Object3D.md#z)
-- [scaleX](Object3D.md#scalex)
-- [scaleY](Object3D.md#scaley)
-- [scaleZ](Object3D.md#scalez)
-- [rotationX](Object3D.md#rotationx)
-- [rotationY](Object3D.md#rotationy)
-- [rotationZ](Object3D.md#rotationz)
-
-### Methods
-
-- [getObjectByName](Object3D.md#getobjectbyname)
-- [addChild](Object3D.md#addchild)
-- [removeChild](Object3D.md#removechild)
-- [removeAllChild](Object3D.md#removeallchild)
-- [removeSelf](Object3D.md#removeself)
-- [removeChildByIndex](Object3D.md#removechildbyindex)
-- [hasChild](Object3D.md#haschild)
-- [removeFromParent](Object3D.md#removefromparent)
-- [getChildByIndex](Object3D.md#getchildbyindex)
-- [getChildByName](Object3D.md#getchildbyname)
-- [noticeComponents](Object3D.md#noticecomponents)
-- [forChild](Object3D.md#forchild)
-- [addComponent](Object3D.md#addcomponent)
-- [getOrAddComponent](Object3D.md#getoraddcomponent)
-- [removeComponent](Object3D.md#removecomponent)
-- [hasComponent](Object3D.md#hascomponent)
-- [getComponent](Object3D.md#getcomponent)
-- [getComponentFromParent](Object3D.md#getcomponentfromparent)
-- [getComponentsInChild](Object3D.md#getcomponentsinchild)
-- [getComponents](Object3D.md#getcomponents)
-- [getComponentsExt](Object3D.md#getcomponentsext)
-- [getComponentsByProperty](Object3D.md#getcomponentsbyproperty)
-- [clone](Object3D.md#clone)
-- [notifyChange](Object3D.md#notifychange)
-- [traverse](Object3D.md#traverse)
-- [destroy](Object3D.md#destroy)
-- [dispatchEvent](Object3D.md#dispatchevent)
-- [addEventListener](Object3D.md#addeventlistener)
-- [removeEventListener](Object3D.md#removeeventlistener)
-- [removeEventListenerAt](Object3D.md#removeeventlistenerat)
-- [removeAllEventListener](Object3D.md#removealleventlistener)
-- [containEventListener](Object3D.md#containeventlistener)
-- [hasEventListener](Object3D.md#haseventlistener)
+- [`Scene3D`](Scene3D.md)
+- [`InstancedMesh`](InstancedMesh.md)
+- [`AxisObject`](AxisObject.md)
+- [`GridObject`](GridObject.md)
+- [`Object3DTransformTools`](Object3DTransformTools.md)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new Object3D**(): [`Object3D`](Object3D.md)
+> **new Object3D**(): `Object3D`
+
+Defined in: [src/core/entities/Object3D.ts:24](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L24)
 
 Instantiate a 3D object
 
 #### Returns
 
-[`Object3D`](Object3D.md)
+`Object3D`
 
 #### Overrides
 
-[Entity](Entity.md).[constructor](Entity.md#constructor)
-
-#### Defined in
-
-[src/core/entities/Object3D.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L24)
+[`Entity`](Entity.md).[`constructor`](Entity.md#constructor)
 
 ## Properties
 
 ### name
 
-• **name**: `string` = `''`
+> **name**: `string` = `''`
+
+Defined in: [src/core/entities/Entity.ts:23](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L23)
 
 The name of the object. The default value is an empty string.
 
 #### Inherited from
 
-[Entity](Entity.md).[name](Entity.md#name)
+[`Entity`](Entity.md).[`name`](Entity.md#name)
 
-#### Defined in
-
-[src/core/entities/Entity.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L24)
-
-___
+***
 
 ### transform
 
-• **transform**: [`Transform`](Transform.md)
+> **transform**: [`Transform`](Transform.md)
+
+Defined in: [src/core/entities/Entity.ts:38](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L38)
 
 The Transform attached to this object.
 
 #### Inherited from
 
-[Entity](Entity.md).[transform](Entity.md#transform)
+[`Entity`](Entity.md).[`transform`](Entity.md#transform)
 
-#### Defined in
-
-[src/core/entities/Entity.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L42)
-
-___
+***
 
 ### renderNode
 
-• **renderNode**: `RenderNode`
+> **renderNode**: `RenderNode`
+
+Defined in: [src/core/entities/Entity.ts:43](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L43)
 
 Renderer components
 
 #### Inherited from
 
-[Entity](Entity.md).[renderNode](Entity.md#rendernode)
+[`Entity`](Entity.md).[`renderNode`](Entity.md#rendernode)
 
-#### Defined in
-
-[src/core/entities/Entity.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L47)
-
-___
+***
 
 ### entityChildren
 
-• **entityChildren**: [`Entity`](Entity.md)[]
+> **entityChildren**: [`Entity`](Entity.md)[]
+
+Defined in: [src/core/entities/Entity.ts:48](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L48)
 
 An array containing sub objects of an object
 
 #### Inherited from
 
-[Entity](Entity.md).[entityChildren](Entity.md#entitychildren)
+[`Entity`](Entity.md).[`entityChildren`](Entity.md#entitychildren)
 
-#### Defined in
-
-[src/core/entities/Entity.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L52)
-
-___
+***
 
 ### components
 
-• **components**: `Map`\<`any`, [`IComponent`](../interfaces/IComponent.md)\>
+> **components**: `Map`\<`any`, [`IComponent`](../interfaces/IComponent.md)\>
+
+Defined in: [src/core/entities/Entity.ts:53](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L53)
 
 List of components attached to an object
 
 #### Inherited from
 
-[Entity](Entity.md).[components](Entity.md#components)
+[`Entity`](Entity.md).[`components`](Entity.md#components)
 
-#### Defined in
+***
 
-[src/core/entities/Entity.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L57)
+### prefabRef?
 
-___
+> `optional` **prefabRef?**: `string`
 
-### prefabRef
+Defined in: [src/core/entities/Object3D.ts:19](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L19)
 
-• `Optional` **prefabRef**: `string`
+***
 
-#### Defined in
+### serializeTag?
 
-[src/core/entities/Object3D.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L19)
+> `optional` **serializeTag?**: [`SerializeTag`](../type-aliases/SerializeTag.md)
 
-___
-
-### serializeTag
-
-• `Optional` **serializeTag**: [`SerializeTag`](../types/SerializeTag.md)
-
-#### Defined in
-
-[src/core/entities/Object3D.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L20)
+Defined in: [src/core/entities/Object3D.ts:20](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L20)
 
 ## Accessors
 
 ### instanceID
 
-• `get` **instanceID**(): `string`
+#### Get Signature
+
+> **get** **instanceID**(): `string`
+
+Defined in: [src/core/entities/Entity.ts:31](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L31)
 
 The unique identifier of the object.
 
-#### Returns
+##### Returns
 
 `string`
 
 #### Inherited from
 
-Entity.instanceID
+[`Entity`](Entity.md).[`instanceID`](Entity.md#instanceid)
 
-#### Defined in
+***
 
-[src/core/entities/Entity.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L32)
+### dispose
 
-___
+#### Get Signature
 
-### numChildren
+> **get** **dispose**(): `boolean`
 
-• `get` **numChildren**(): `number`
+Defined in: [src/core/entities/Entity.ts:67](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L67)
 
-Returns the number of child objects of an object
-
-#### Returns
-
-`number`
-
-#### Inherited from
-
-Entity.numChildren
-
-#### Defined in
-
-[src/core/entities/Entity.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L116)
-
-___
-
-### bound
-
-• `get` **bound**(): `IBound`
-
-#### Returns
-
-`IBound`
-
-#### Inherited from
-
-Entity.bound
-
-#### Defined in
-
-[src/core/entities/Entity.ts:277](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L277)
-
-• `set` **bound**(`value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `IBound` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-Entity.bound
-
-#### Defined in
-
-[src/core/entities/Entity.ts:282](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L282)
-
-___
-
-### isScene3D
-
-• `get` **isScene3D**(): `boolean`
-
-#### Returns
+##### Returns
 
 `boolean`
 
-#### Defined in
+#### Inherited from
 
-[src/core/entities/Object3D.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L30)
+[`Entity`](Entity.md).[`dispose`](Entity.md#dispose)
 
-___
+***
+
+### numChildren
+
+#### Get Signature
+
+> **get** **numChildren**(): `number`
+
+Defined in: [src/core/entities/Entity.ts:113](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L113)
+
+Returns the number of child objects of an object
+
+##### Returns
+
+`number`
+
+#### Inherited from
+
+[`Entity`](Entity.md).[`numChildren`](Entity.md#numchildren)
+
+***
+
+### bound
+
+#### Get Signature
+
+> **get** **bound**(): `IBound`
+
+Defined in: [src/core/entities/Entity.ts:274](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L274)
+
+##### Returns
+
+`IBound`
+
+#### Set Signature
+
+> **set** **bound**(`value`): `void`
+
+Defined in: [src/core/entities/Entity.ts:279](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L279)
+
+##### Parameters
+
+###### value
+
+`IBound`
+
+##### Returns
+
+`void`
+
+#### Inherited from
+
+[`Entity`](Entity.md).[`bound`](Entity.md#bound)
+
+***
+
+### isScene3D
+
+#### Get Signature
+
+> **get** **isScene3D**(): `boolean`
+
+Defined in: [src/core/entities/Object3D.ts:30](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L30)
+
+##### Returns
+
+`boolean`
+
+***
 
 ### localPosition
 
-• `get` **localPosition**(): [`Vector3`](Vector3.md)
+#### Get Signature
+
+> **get** **localPosition**(): [`Vector3`](Vector3.md)
+
+Defined in: [src/core/entities/Object3D.ts:272](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L272)
 
 Get the position of an object relative to its parent
 
-#### Returns
+##### Returns
 
 [`Vector3`](Vector3.md)
 
-#### Defined in
+#### Set Signature
 
-[src/core/entities/Object3D.ts:272](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L272)
+> **set** **localPosition**(`value`): `void`
 
-• `set` **localPosition**(`value`): `void`
+Defined in: [src/core/entities/Object3D.ts:279](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L279)
 
 Set the position of an object relative to its parent
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`Vector3`](Vector3.md) |
+###### value
 
-#### Returns
+[`Vector3`](Vector3.md)
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:279](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L279)
-
-___
+***
 
 ### localRotation
 
-• `get` **localRotation**(): [`Vector3`](Vector3.md)
+#### Get Signature
+
+> **get** **localRotation**(): [`Vector3`](Vector3.md)
+
+Defined in: [src/core/entities/Object3D.ts:286](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L286)
 
 Get the rotation attribute of an object relative to its parent
 
-#### Returns
+##### Returns
 
 [`Vector3`](Vector3.md)
 
-#### Defined in
+#### Set Signature
 
-[src/core/entities/Object3D.ts:286](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L286)
+> **set** **localRotation**(`value`): `void`
 
-• `set` **localRotation**(`value`): `void`
+Defined in: [src/core/entities/Object3D.ts:293](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L293)
 
 Set the rotation attribute of an object relative to its parent
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`Vector3`](Vector3.md) |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/core/entities/Object3D.ts:293](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L293)
-
-___
-
-### localScale
-
-• `get` **localScale**(): [`Vector3`](Vector3.md)
-
-Get the scaling attribute of an object relative to its parent
-
-#### Returns
+###### value
 
 [`Vector3`](Vector3.md)
 
-#### Defined in
+##### Returns
 
-[src/core/entities/Object3D.ts:300](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L300)
+`void`
 
-• `set` **localScale**(`value`): `void`
+***
+
+### localScale
+
+#### Get Signature
+
+> **get** **localScale**(): [`Vector3`](Vector3.md)
+
+Defined in: [src/core/entities/Object3D.ts:300](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L300)
+
+Get the scaling attribute of an object relative to its parent
+
+##### Returns
+
+[`Vector3`](Vector3.md)
+
+#### Set Signature
+
+> **set** **localScale**(`value`): `void`
+
+Defined in: [src/core/entities/Object3D.ts:307](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L307)
 
 Set the scaling attribute of an object relative to its parent
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`Vector3`](Vector3.md) |
+###### value
 
-#### Returns
+[`Vector3`](Vector3.md)
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:307](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L307)
-
-___
+***
 
 ### localQuaternion
 
-• `get` **localQuaternion**(): [`Quaternion`](Quaternion.md)
+#### Get Signature
+
+> **get** **localQuaternion**(): [`Quaternion`](Quaternion.md)
+
+Defined in: [src/core/entities/Object3D.ts:314](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L314)
 
 Get the rotation attribute of an object relative to its parent, which is a quaternion
 
-#### Returns
+##### Returns
 
 [`Quaternion`](Quaternion.md)
 
-#### Defined in
+#### Set Signature
 
-[src/core/entities/Object3D.ts:314](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L314)
+> **set** **localQuaternion**(`value`): `void`
 
-• `set` **localQuaternion**(`value`): `void`
+Defined in: [src/core/entities/Object3D.ts:321](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L321)
 
 Set the rotation attribute of an object relative to its parent, which is a quaternion
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`Quaternion`](Quaternion.md) |
+###### value
 
-#### Returns
+[`Quaternion`](Quaternion.md)
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:321](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L321)
-
-___
+***
 
 ### parent
 
-• `get` **parent**(): [`Transform`](Transform.md)
+#### Get Signature
+
+> **get** **parent**(): [`Transform`](Transform.md)
+
+Defined in: [src/core/entities/Object3D.ts:336](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L336)
 
 Transform component of object parent
 
-#### Returns
+##### Returns
 
 [`Transform`](Transform.md)
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:336](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L336)
-
-___
+***
 
 ### parentObject
 
-• `get` **parentObject**(): [`Object3D`](Object3D.md)
+#### Get Signature
+
+> **get** **parentObject**(): `Object3D`
+
+Defined in: [src/core/entities/Object3D.ts:344](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L344)
 
 parent object3D
 
-#### Returns
+##### Returns
 
-[`Object3D`](Object3D.md)
+`Object3D`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:344](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L344)
-
-___
+***
 
 ### x
 
-• `get` **x**(): `number`
+#### Get Signature
+
+> **get** **x**(): `number`
+
+Defined in: [src/core/entities/Object3D.ts:360](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L360)
 
 Get the x coordinate relative to the local coordinates of the parent container.
 
-#### Returns
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/core/entities/Object3D.ts:360](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L360)
+> **set** **x**(`value`): `void`
 
-• `set` **x**(`value`): `void`
+Defined in: [src/core/entities/Object3D.ts:352](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L352)
 
 Set the x coordinate relative to the local coordinates of the parent container.
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:352](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L352)
-
-___
+***
 
 ### y
 
-• `get` **y**(): `number`
+#### Get Signature
+
+> **get** **y**(): `number`
+
+Defined in: [src/core/entities/Object3D.ts:375](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L375)
 
 Get the y coordinate relative to the local coordinates of the parent container.
 
-#### Returns
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/core/entities/Object3D.ts:375](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L375)
+> **set** **y**(`value`): `void`
 
-• `set` **y**(`value`): `void`
+Defined in: [src/core/entities/Object3D.ts:367](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L367)
 
 Set the y coordinate relative to the local coordinates of the parent container.
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L367)
-
-___
+***
 
 ### z
 
-• `get` **z**(): `number`
+#### Get Signature
+
+> **get** **z**(): `number`
+
+Defined in: [src/core/entities/Object3D.ts:389](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L389)
 
 Get the z coordinate relative to the local coordinates of the parent container.
 
-#### Returns
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/core/entities/Object3D.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L389)
+> **set** **z**(`value`): `void`
 
-• `set` **z**(`value`): `void`
+Defined in: [src/core/entities/Object3D.ts:382](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L382)
 
 Set the z coordinate relative to the local coordinates of the parent container.
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:382](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L382)
-
-___
+***
 
 ### scaleX
 
-• `get` **scaleX**(): `number`
+#### Get Signature
+
+> **get** **scaleX**(): `number`
+
+Defined in: [src/core/entities/Object3D.ts:404](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L404)
 
 Get the x scale relative to the local coordinates of the parent container.
 
-#### Returns
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/core/entities/Object3D.ts:404](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L404)
+> **set** **scaleX**(`value`): `void`
 
-• `set` **scaleX**(`value`): `void`
+Defined in: [src/core/entities/Object3D.ts:396](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L396)
 
 Set the x scale relative to the local coordinates of the parent container.
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:396](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L396)
-
-___
+***
 
 ### scaleY
 
-• `get` **scaleY**(): `number`
+#### Get Signature
+
+> **get** **scaleY**(): `number`
+
+Defined in: [src/core/entities/Object3D.ts:420](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L420)
 
 Get the y scale relative to the local coordinates of the parent container.
 
-#### Returns
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/core/entities/Object3D.ts:420](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L420)
+> **set** **scaleY**(`value`): `void`
 
-• `set` **scaleY**(`value`): `void`
+Defined in: [src/core/entities/Object3D.ts:412](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L412)
 
 Set the y scale relative to the local coordinates of the parent container.
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:412](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L412)
-
-___
+***
 
 ### scaleZ
 
-• `get` **scaleZ**(): `number`
+#### Get Signature
+
+> **get** **scaleZ**(): `number`
+
+Defined in: [src/core/entities/Object3D.ts:436](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L436)
 
 Get the z scale relative to the local coordinates of the parent container.
 
-#### Returns
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/core/entities/Object3D.ts:436](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L436)
+> **set** **scaleZ**(`value`): `void`
 
-• `set` **scaleZ**(`value`): `void`
+Defined in: [src/core/entities/Object3D.ts:428](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L428)
 
 Set the z scale relative to the local coordinates of the parent container.
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:428](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L428)
-
-___
+***
 
 ### rotationX
 
-• `get` **rotationX**(): `number`
+#### Get Signature
+
+> **get** **rotationX**(): `number`
+
+Defined in: [src/core/entities/Object3D.ts:452](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L452)
 
 Get the x rotation relative to the local coordinates of the parent container.
 
-#### Returns
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/core/entities/Object3D.ts:452](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L452)
+> **set** **rotationX**(`value`): `void`
 
-• `set` **rotationX**(`value`): `void`
+Defined in: [src/core/entities/Object3D.ts:444](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L444)
 
 Set the x rotation relative to the local coordinates of the parent container.
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:444](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L444)
-
-___
+***
 
 ### rotationY
 
-• `get` **rotationY**(): `number`
+#### Get Signature
+
+> **get** **rotationY**(): `number`
+
+Defined in: [src/core/entities/Object3D.ts:468](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L468)
 
 Get the y rotation relative to the local coordinates of the parent container.
 
-#### Returns
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/core/entities/Object3D.ts:468](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L468)
+> **set** **rotationY**(`value`): `void`
 
-• `set` **rotationY**(`value`): `void`
+Defined in: [src/core/entities/Object3D.ts:460](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L460)
 
 Set the y rotation relative to the local coordinates of the parent container.
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/core/entities/Object3D.ts:460](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L460)
-
-___
-
-### rotationZ
-
-• `get` **rotationZ**(): `number`
-
-Set the z rotation relative to the local coordinates of the parent container.
-
-#### Returns
+###### value
 
 `number`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:484](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L484)
-
-• `set` **rotationZ**(`value`): `void`
-
-Set the z rotation relative to the local coordinates of the parent container.
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
+##### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:476](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L476)
+### rotationZ
+
+#### Get Signature
+
+> **get** **rotationZ**(): `number`
+
+Defined in: [src/core/entities/Object3D.ts:484](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L484)
+
+Set the z rotation relative to the local coordinates of the parent container.
+
+##### Returns
+
+`number`
+
+#### Set Signature
+
+> **set** **rotationZ**(`value`): `void`
+
+Defined in: [src/core/entities/Object3D.ts:476](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L476)
+
+Set the z rotation relative to the local coordinates of the parent container.
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
+
+`void`
 
 ## Methods
 
-### getObjectByName
+### getObjectByName()
 
-▸ **getObjectByName**(`name`): [`Entity`](Entity.md)
+> **getObjectByName**(`name`): [`Entity`](Entity.md)
+
+Defined in: [src/core/entities/Entity.ts:78](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L78)
 
 Starting from the object itself, search for the object and its children, and return the first child object with a matching name.
 For most objects, the name is an empty string by default. You must manually set it to use this method.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `name` | `string` | input name |
+##### name
+
+`string`
+
+input name
 
 #### Returns
 
@@ -795,26 +731,26 @@ result Entity
 
 #### Inherited from
 
-[Entity](Entity.md).[getObjectByName](Entity.md#getobjectbyname)
+[`Entity`](Entity.md).[`getObjectByName`](Entity.md#getobjectbyname)
 
-#### Defined in
+***
 
-[src/core/entities/Entity.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L81)
+### addChild()
 
-___
+> **addChild**(`child`): [`Entity`](Entity.md)
 
-### addChild
-
-▸ **addChild**(`child`): [`Entity`](Entity.md)
+Defined in: [src/core/entities/Entity.ts:124](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L124)
 
 Add an object as a child of this object. You can add any number of objects.
 Any current parent object on the object passed here will be deleted, as an object can only have at most one parent object.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `child` | [`Entity`](Entity.md) | target child entity |
+##### child
+
+[`Entity`](Entity.md)
+
+target child entity
 
 #### Returns
 
@@ -822,25 +758,25 @@ Any current parent object on the object passed here will be deleted, as an objec
 
 #### Inherited from
 
-[Entity](Entity.md).[addChild](Entity.md#addchild)
+[`Entity`](Entity.md).[`addChild`](Entity.md#addchild)
 
-#### Defined in
+***
 
-[src/core/entities/Entity.ts:127](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L127)
+### removeChild()
 
-___
+> **removeChild**(`child`): `void`
 
-### removeChild
-
-▸ **removeChild**(`child`): `void`
+Defined in: [src/core/entities/Entity.ts:149](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L149)
 
 Remove the child objects of the object. You can remove any number of objects.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `child` | [`Entity`](Entity.md) | Removed objects |
+##### child
+
+[`Entity`](Entity.md)
+
+Removed objects
 
 #### Returns
 
@@ -848,17 +784,15 @@ Remove the child objects of the object. You can remove any number of objects.
 
 #### Inherited from
 
-[Entity](Entity.md).[removeChild](Entity.md#removechild)
+[`Entity`](Entity.md).[`removeChild`](Entity.md#removechild)
 
-#### Defined in
+***
 
-[src/core/entities/Entity.ts:152](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L152)
+### removeAllChild()
 
-___
+> **removeAllChild**(): `void`
 
-### removeAllChild
-
-▸ **removeAllChild**(): `void`
+Defined in: [src/core/entities/Entity.ts:165](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L165)
 
 Remove all children of the current object
 
@@ -868,17 +802,15 @@ Remove all children of the current object
 
 #### Inherited from
 
-[Entity](Entity.md).[removeAllChild](Entity.md#removeallchild)
+[`Entity`](Entity.md).[`removeAllChild`](Entity.md#removeallchild)
 
-#### Defined in
+***
 
-[src/core/entities/Entity.ts:168](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L168)
+### removeSelf()
 
-___
+> **removeSelf**(): `this`
 
-### removeSelf
-
-▸ **removeSelf**(): `this`
+Defined in: [src/core/entities/Entity.ts:176](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L176)
 
 Remove the current node from the parent
 
@@ -890,25 +822,25 @@ this
 
 #### Inherited from
 
-[Entity](Entity.md).[removeSelf](Entity.md#removeself)
+[`Entity`](Entity.md).[`removeSelf`](Entity.md#removeself)
 
-#### Defined in
+***
 
-[src/core/entities/Entity.ts:179](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L179)
+### removeChildByIndex()
 
-___
+> **removeChildByIndex**(`index`): `void`
 
-### removeChildByIndex
-
-▸ **removeChildByIndex**(`index`): `void`
+Defined in: [src/core/entities/Entity.ts:186](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L186)
 
 Search for child nodes of objects and remove child objects with matching indexes.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `index` | `number` | assign index |
+##### index
+
+`number`
+
+assign index
 
 #### Returns
 
@@ -916,25 +848,25 @@ Search for child nodes of objects and remove child objects with matching indexes
 
 #### Inherited from
 
-[Entity](Entity.md).[removeChildByIndex](Entity.md#removechildbyindex)
+[`Entity`](Entity.md).[`removeChildByIndex`](Entity.md#removechildbyindex)
 
-#### Defined in
+***
 
-[src/core/entities/Entity.ts:189](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L189)
+### hasChild()
 
-___
+> **hasChild**(`child`): `boolean`
 
-### hasChild
-
-▸ **hasChild**(`child`): `boolean`
+Defined in: [src/core/entities/Entity.ts:200](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L200)
 
 Does the current object contain a certain object
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `child` | [`Entity`](Entity.md) | certain object |
+##### child
+
+[`Entity`](Entity.md)
+
+certain object
 
 #### Returns
 
@@ -944,17 +876,15 @@ boolean
 
 #### Inherited from
 
-[Entity](Entity.md).[hasChild](Entity.md#haschild)
+[`Entity`](Entity.md).[`hasChild`](Entity.md#haschild)
 
-#### Defined in
+***
 
-[src/core/entities/Entity.ts:203](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L203)
+### removeFromParent()
 
-___
+> **removeFromParent**(): `this`
 
-### removeFromParent
-
-▸ **removeFromParent**(): `this`
+Defined in: [src/core/entities/Entity.ts:210](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L210)
 
 Remove the current node from the parent
 
@@ -966,25 +896,25 @@ this
 
 #### Inherited from
 
-[Entity](Entity.md).[removeFromParent](Entity.md#removefromparent)
+[`Entity`](Entity.md).[`removeFromParent`](Entity.md#removefromparent)
 
-#### Defined in
+***
 
-[src/core/entities/Entity.ts:213](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L213)
+### getChildByIndex()
 
-___
+> **getChildByIndex**(`index`): [`Entity`](Entity.md)
 
-### getChildByIndex
-
-▸ **getChildByIndex**(`index`): [`Entity`](Entity.md)
+Defined in: [src/core/entities/Entity.ts:224](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L224)
 
 Search for object children and return the first child object with a matching index.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `index` | `number` | matching index |
+##### index
+
+`number`
+
+matching index
 
 #### Returns
 
@@ -994,26 +924,31 @@ child entity
 
 #### Inherited from
 
-[Entity](Entity.md).[getChildByIndex](Entity.md#getchildbyindex)
+[`Entity`](Entity.md).[`getChildByIndex`](Entity.md#getchildbyindex)
 
-#### Defined in
+***
 
-[src/core/entities/Entity.ts:227](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L227)
+### getChildByName()
 
-___
+> **getChildByName**(`name`, `loopChild?`): `any`
 
-### getChildByName
-
-▸ **getChildByName**(`name`, `loopChild?`): `any`
+Defined in: [src/core/entities/Entity.ts:239](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L239)
 
 Search for object children and return a child object with a matching name.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `name` | `string` | `undefined` | matching name |
-| `loopChild` | `boolean` | `true` | Whether to traverse the children of the child object. The default value is true |
+##### name
+
+`string`
+
+matching name
+
+##### loopChild?
+
+`boolean` = `true`
+
+Whether to traverse the children of the child object. The default value is true
 
 #### Returns
 
@@ -1023,24 +958,25 @@ result
 
 #### Inherited from
 
-[Entity](Entity.md).[getChildByName](Entity.md#getchildbyname)
+[`Entity`](Entity.md).[`getChildByName`](Entity.md#getchildbyname)
 
-#### Defined in
+***
 
-[src/core/entities/Entity.ts:242](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L242)
+### noticeComponents()
 
-___
+> **noticeComponents**(`key`, `data`): `void`
 
-### noticeComponents
-
-▸ **noticeComponents**(`key`, `data`): `void`
+Defined in: [src/core/entities/Entity.ts:325](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L325)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `key` | keyof [`IComponent`](../interfaces/IComponent.md) |
-| `data` | `any` |
+##### key
+
+keyof [`IComponent`](../interfaces/IComponent.md)
+
+##### data
+
+`any`
 
 #### Returns
 
@@ -1048,56 +984,57 @@ ___
 
 #### Inherited from
 
-[Entity](Entity.md).[noticeComponents](Entity.md#noticecomponents)
+[`Entity`](Entity.md).[`noticeComponents`](Entity.md#noticecomponents)
 
-#### Defined in
+***
 
-[src/core/entities/Entity.ts:328](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L328)
+### forChild()
 
-___
+> **forChild**(`call`): `void`
 
-### forChild
-
-▸ **forChild**(`call`): `void`
+Defined in: [src/core/entities/Object3D.ts:41](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L41)
 
 Traverse all sub objects starting from the object itself.
  If there are still sub objects in the sub object, recursively traverse.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `call` | `Function` |
+##### call
+
+`Function`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L41)
+### addComponent()
 
-___
+> **addComponent**\<`T`\>(`c`, `param?`): `T`
 
-### addComponent
-
-▸ **addComponent**\<`T`\>(`c`, `param?`): `T`
+Defined in: [src/core/entities/Object3D.ts:55](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L55)
 
 Create a new component and add it to the object, and return an instance of the component.
  If a component of this type already exists, it will not be added and will return null.
 
-#### Type parameters
+#### Type Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`IComponent`](../interfaces/IComponent.md) |
+##### T
+
+`T` *extends* [`IComponent`](../interfaces/IComponent.md)
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)\<`T`\> | class of component |
-| `param?` | `any` | - |
+##### c
+
+[`Ctor`](../type-aliases/Ctor.md)\<`T`\>
+
+class of component
+
+##### param?
+
+`any`
 
 #### Returns
 
@@ -1105,30 +1042,30 @@ Create a new component and add it to the object, and return an instance of the c
 
 result component
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L55)
+### getOrAddComponent()
 
-___
+> **getOrAddComponent**\<`T`\>(`c`): `T`
 
-### getOrAddComponent
-
-▸ **getOrAddComponent**\<`T`\>(`c`): `T`
+Defined in: [src/core/entities/Object3D.ts:76](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L76)
 
 Returns an instance of a component object of the specified type.
  If there are no components of that type, a new component is created and added to the object.
 
-#### Type parameters
+#### Type Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`IComponent`](../interfaces/IComponent.md) |
+##### T
+
+`T` *extends* [`IComponent`](../interfaces/IComponent.md)
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)\<`T`\> | class of component |
+##### c
+
+[`Ctor`](../type-aliases/Ctor.md)\<`T`\>
+
+class of component
 
 #### Returns
 
@@ -1136,57 +1073,57 @@ Returns an instance of a component object of the specified type.
 
 result component
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L76)
+### removeComponent()
 
-___
+> **removeComponent**\<`T`\>(`c`): `void`
 
-### removeComponent
-
-▸ **removeComponent**\<`T`\>(`c`): `void`
+Defined in: [src/core/entities/Object3D.ts:89](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L89)
 
 Remove components of the specified type
 
-#### Type parameters
+#### Type Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`IComponent`](../interfaces/IComponent.md) |
+##### T
+
+`T` *extends* [`IComponent`](../interfaces/IComponent.md)
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)\<`T`\> | class of component |
+##### c
+
+[`Ctor`](../type-aliases/Ctor.md)\<`T`\>
+
+class of component
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L89)
+### hasComponent()
 
-___
+> **hasComponent**\<`T`\>(`c`): `boolean`
 
-### hasComponent
-
-▸ **hasComponent**\<`T`\>(`c`): `boolean`
+Defined in: [src/core/entities/Object3D.ts:106](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L106)
 
 Is there a component of the specified type
 
-#### Type parameters
+#### Type Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`IComponent`](../interfaces/IComponent.md) |
+##### T
+
+`T` *extends* [`IComponent`](../interfaces/IComponent.md)
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)\<`T`\> | type of component |
+##### c
+
+[`Ctor`](../type-aliases/Ctor.md)\<`T`\>
+
+type of component
 
 #### Returns
 
@@ -1194,29 +1131,29 @@ Is there a component of the specified type
 
 boolean
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L106)
+### getComponent()
 
-___
+> **getComponent**\<`T`\>(`c`): `T`
 
-### getComponent
-
-▸ **getComponent**\<`T`\>(`c`): `T`
+Defined in: [src/core/entities/Object3D.ts:116](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L116)
 
 Returns a component of the specified type.
 
-#### Type parameters
+#### Type Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`IComponent`](../interfaces/IComponent.md) |
+##### T
+
+`T` *extends* [`IComponent`](../interfaces/IComponent.md)
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)\<`T`\> | class of component |
+##### c
+
+[`Ctor`](../type-aliases/Ctor.md)\<`T`\>
+
+class of component
 
 #### Returns
 
@@ -1224,31 +1161,31 @@ Returns a component of the specified type.
 
 result component
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L116)
+### getComponentFromParent()
 
-___
+> **getComponentFromParent**\<`T`\>(`c`): `T`
 
-### getComponentFromParent
-
-▸ **getComponentFromParent**\<`T`\>(`c`): `T`
+Defined in: [src/core/entities/Object3D.ts:128](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L128)
 
 Returns a component object of the specified type from the parent node.
  If there are no components of that type,
  calls the parent object lookup of the parent object
 
-#### Type parameters
+#### Type Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`IComponent`](../interfaces/IComponent.md) |
+##### T
+
+`T` *extends* [`IComponent`](../interfaces/IComponent.md)
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)\<`T`\> | class of component |
+##### c
+
+[`Ctor`](../type-aliases/Ctor.md)\<`T`\>
+
+class of component
 
 #### Returns
 
@@ -1256,30 +1193,30 @@ Returns a component object of the specified type from the parent node.
 
 reulst component
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:128](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L128)
+### getComponentsInChild()
 
-___
+> **getComponentsInChild**\<`T`\>(`c`): `T`[]
 
-### getComponentsInChild
-
-▸ **getComponentsInChild**\<`T`\>(`c`): `T`[]
+Defined in: [src/core/entities/Object3D.ts:148](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L148)
 
 Returns an array of component objects of the specified type.
  If there are no components of that type, search in the list of self body class objects
 
-#### Type parameters
+#### Type Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`IComponent`](../interfaces/IComponent.md) |
+##### T
+
+`T` *extends* [`IComponent`](../interfaces/IComponent.md)
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)\<`T`\> | class of component |
+##### c
+
+[`Ctor`](../type-aliases/Ctor.md)\<`T`\>
+
+class of component
 
 #### Returns
 
@@ -1287,62 +1224,82 @@ Returns an array of component objects of the specified type.
 
 result components
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:148](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L148)
+### getComponents()
 
-___
+> **getComponents**\<`T`\>(`c`, `outList?`, `includeInactive?`): `T`[]
 
-### getComponents
-
-▸ **getComponents**\<`T`\>(`c`, `outList?`, `includeInactive?`): `T`[]
+Defined in: [src/core/entities/Object3D.ts:171](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L171)
 
 Returns all components of the specified type contained in the current object and its children.
  If there are children in the child object, recursively search.
 
-#### Type parameters
+#### Type Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`IComponent`](../interfaces/IComponent.md) |
+##### T
+
+`T` *extends* [`IComponent`](../interfaces/IComponent.md)
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)\<`T`\> | class of component |
-| `outList?` | `T`[] | result component list |
-| `includeInactive?` | `boolean` | Whether to include invisible objects, default to false |
+##### c
+
+[`Ctor`](../type-aliases/Ctor.md)\<`T`\>
+
+class of component
+
+##### outList?
+
+`T`[]
+
+result component list
+
+##### includeInactive?
+
+`boolean`
+
+Whether to include invisible objects, default to false
 
 #### Returns
 
 `T`[]
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:171](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L171)
+### getComponentsExt()
 
-___
+> **getComponentsExt**\<`T`\>(`c`, `ret?`, `includeInactive?`): `T`[]
 
-### getComponentsExt
-
-▸ **getComponentsExt**\<`T`\>(`c`, `ret?`, `includeInactive?`): `T`[]
+Defined in: [src/core/entities/Object3D.ts:196](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L196)
 
 Quickly obtain components and no longer access child nodes after obtaining them at a certain node
 
-#### Type parameters
+#### Type Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`IComponent`](../interfaces/IComponent.md) |
+##### T
+
+`T` *extends* [`IComponent`](../interfaces/IComponent.md)
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)\<`T`\> | class of component |
-| `ret?` | `T`[] | List of incoming T |
-| `includeInactive?` | `boolean` | Whether to include invisible objects, default to false |
+##### c
+
+[`Ctor`](../type-aliases/Ctor.md)\<`T`\>
+
+class of component
+
+##### ret?
+
+`T`[]
+
+List of incoming T
+
+##### includeInactive?
+
+`boolean`
+
+Whether to include invisible objects, default to false
 
 #### Returns
 
@@ -1350,65 +1307,71 @@ Quickly obtain components and no longer access child nodes after obtaining them 
 
 {T}
 
-**`Memberof`**
+#### Memberof
 
 Object3D
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:196](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L196)
+### getComponentsByProperty()
 
-___
+> **getComponentsByProperty**\<`T`\>(`key`, `value`, `findedAndBreak?`, `ret?`, `includeInactive?`): `T`[]
 
-### getComponentsByProperty
+Defined in: [src/core/entities/Object3D.ts:211](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L211)
 
-▸ **getComponentsByProperty**\<`T`\>(`key`, `value`, `findedAndBreak?`, `ret?`, `includeInactive?`): `T`[]
+#### Type Parameters
 
-#### Type parameters
+##### T
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`IComponent`](../interfaces/IComponent.md) |
+`T` *extends* [`IComponent`](../interfaces/IComponent.md)
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `key` | `string` | `undefined` |
-| `value` | `any` | `undefined` |
-| `findedAndBreak` | `boolean` | `true` |
-| `ret?` | `T`[] | `undefined` |
-| `includeInactive?` | `boolean` | `undefined` |
+##### key
+
+`string`
+
+##### value
+
+`any`
+
+##### findedAndBreak?
+
+`boolean` = `true`
+
+##### ret?
+
+`T`[]
+
+##### includeInactive?
+
+`boolean`
 
 #### Returns
 
 `T`[]
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:211](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L211)
+### clone()
 
-___
+> **clone**(): `Object3D`
 
-### clone
-
-▸ **clone**(): [`Object3D`](Object3D.md)
+Defined in: [src/core/entities/Object3D.ts:238](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L238)
 
 clone a Object3D
 
 #### Returns
 
-[`Object3D`](Object3D.md)
+`Object3D`
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:238](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L238)
+### notifyChange()
 
-___
+> **notifyChange**(): `void`
 
-### notifyChange
-
-▸ **notifyChange**(): `void`
+Defined in: [src/core/entities/Object3D.ts:328](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L328)
 
 Notify transformation attribute updates
 
@@ -1416,45 +1379,43 @@ Notify transformation attribute updates
 
 `void`
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:328](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L328)
+### traverse()
 
-___
+> **traverse**(`callback`): `void`
 
-### traverse
-
-▸ **traverse**(`callback`): `void`
+Defined in: [src/core/entities/Object3D.ts:505](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L505)
 
 Recursive child nodes and execute specified function
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `callback` | (`child`: `any`) => `void` | specified function |
+##### callback
+
+(`child`) => `void`
+
+specified function
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:505](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L505)
+### destroy()
 
-___
+> **destroy**(`force?`): `void`
 
-### destroy
-
-▸ **destroy**(`force?`): `void`
+Defined in: [src/core/entities/Object3D.ts:520](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L520)
 
 Release self
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
+##### force?
+
+`boolean`
 
 #### Returns
 
@@ -1462,25 +1423,23 @@ Release self
 
 #### Overrides
 
-[Entity](Entity.md).[destroy](Entity.md#destroy)
+[`Entity`](Entity.md).[`destroy`](Entity.md#destroy)
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:520](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L520)
+### dispatchEvent()
 
-___
+> **dispatchEvent**(`event`): `void`
 
-### dispatchEvent
-
-▸ **dispatchEvent**(`event`): `void`
+Defined in: [src/event/CEventDispatcher.ts:24](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L24)
 
 Dispatch an event to all registered objects with a specific type of listener.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | [`CEvent`](CEvent.md) |
+##### event
+
+[`CEvent`](CEvent.md)
 
 #### Returns
 
@@ -1488,29 +1447,51 @@ Dispatch an event to all registered objects with a specific type of listener.
 
 #### Inherited from
 
-[Entity](Entity.md).[dispatchEvent](Entity.md#dispatchevent)
+[`Entity`](Entity.md).[`dispatchEvent`](Entity.md#dispatchevent)
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L24)
+### addEventListener()
 
-___
+> **addEventListener**(`type`, `callback`, `thisObject`, `param?`, `priority?`): `number`
 
-### addEventListener
-
-▸ **addEventListener**(`type`, `callback`, `thisObject`, `param?`, `priority?`): `number`
+Defined in: [src/event/CEventDispatcher.ts:78](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L78)
 
 register an event listener to event distancher.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `type` | `string` \| `number` | `undefined` | {string} event type. |
-| `callback` | `Function` | `undefined` | {Function} The callback function that handles events. This function must accept an Event3D object as its unique parameter and cannot return any result. for example: function(evt:Event3D):void. |
-| `thisObject` | `any` | `undefined` | {any} Current registration object, it'll call callback function. |
-| `param` | `any` | `null` | {any} the data binded to registered event, the default value is null. |
-| `priority` | `number` | `0` | {number} The priority of callback function execution, with a larger set value having priority to call |
+##### type
+
+`string` \| `number`
+
+{string} event type.
+
+##### callback
+
+`Function`
+
+{Function} The callback function that handles events. 
+This function must accept an Event3D object as its unique parameter and cannot return any result.
+for example: function(evt:Event3D):void.
+
+##### thisObject
+
+`any`
+
+{any} Current registration object, it'll call callback function.
+
+##### param?
+
+`any` = `null`
+
+{any} the data binded to registered event, the default value is null.
+
+##### priority?
+
+`number` = `0`
+
+{number} The priority of callback function execution, with a larger set value having priority to call
 
 #### Returns
 
@@ -1520,27 +1501,37 @@ Returns register event id
 
 #### Inherited from
 
-[Entity](Entity.md).[addEventListener](Entity.md#addeventlistener)
+[`Entity`](Entity.md).[`addEventListener`](Entity.md#addeventlistener)
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L79)
+### removeEventListener()
 
-___
+> **removeEventListener**(`type`, `callback`, `thisObject`): `void`
 
-### removeEventListener
-
-▸ **removeEventListener**(`type`, `callback`, `thisObject`): `void`
+Defined in: [src/event/CEventDispatcher.ts:112](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L112)
 
 Remove Event Listening
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `type` | `string` \| `number` | {string} event type |
-| `callback` | `Function` | {Function} callback function of event register |
-| `thisObject` | `any` | {any} The current registered object. |
+##### type
+
+`string` \| `number`
+
+{string} event type
+
+##### callback
+
+`Function`
+
+{Function} callback function of event register
+
+##### thisObject
+
+`any`
+
+{any} The current registered object.
 
 #### Returns
 
@@ -1548,25 +1539,23 @@ Remove Event Listening
 
 #### Inherited from
 
-[Entity](Entity.md).[removeEventListener](Entity.md#removeeventlistener)
+[`Entity`](Entity.md).[`removeEventListener`](Entity.md#removeeventlistener)
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L113)
+### removeEventListenerAt()
 
-___
+> **removeEventListenerAt**(`id`): `boolean`
 
-### removeEventListenerAt
-
-▸ **removeEventListenerAt**(`id`): `boolean`
+Defined in: [src/event/CEventDispatcher.ts:132](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L132)
 
 Remove an event Listening with id
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `id` | `number` |
+##### id
+
+`number`
 
 #### Returns
 
@@ -1574,26 +1563,24 @@ Remove an event Listening with id
 
 #### Inherited from
 
-[Entity](Entity.md).[removeEventListenerAt](Entity.md#removeeventlistenerat)
+[`Entity`](Entity.md).[`removeEventListenerAt`](Entity.md#removeeventlistenerat)
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L133)
+### removeAllEventListener()
 
-___
+> **removeAllEventListener**(`eventType?`): `void`
 
-### removeAllEventListener
-
-▸ **removeAllEventListener**(`eventType?`): `void`
+Defined in: [src/event/CEventDispatcher.ts:152](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L152)
 
 Specify a event type to remove all related event listeners
 eventType event type, set null to remove all event listeners
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `eventType` | `string` \| `number` | `null` |
+##### eventType?
+
+`string` \| `number`
 
 #### Returns
 
@@ -1601,25 +1588,25 @@ eventType event type, set null to remove all event listeners
 
 #### Inherited from
 
-[Entity](Entity.md).[removeAllEventListener](Entity.md#removealleventlistener)
+[`Entity`](Entity.md).[`removeAllEventListener`](Entity.md#removealleventlistener)
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L153)
+### containEventListener()
 
-___
+> **containEventListener**(`type`): `boolean`
 
-### containEventListener
-
-▸ **containEventListener**(`type`): `boolean`
+Defined in: [src/event/CEventDispatcher.ts:184](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L184)
 
 whether the target presence of a listener with event type.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `type` | `string` | {string} event type. |
+##### type
+
+`string`
+
+{string} event type.
 
 #### Returns
 
@@ -1629,27 +1616,37 @@ Returns a boolean.
 
 #### Inherited from
 
-[Entity](Entity.md).[containEventListener](Entity.md#containeventlistener)
+[`Entity`](Entity.md).[`containEventListener`](Entity.md#containeventlistener)
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:185](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L185)
+### hasEventListener()
 
-___
+> **hasEventListener**(`type`, `callback?`, `thisObject?`): `boolean`
 
-### hasEventListener
-
-▸ **hasEventListener**(`type`, `callback?`, `thisObject?`): `boolean`
+Defined in: [src/event/CEventDispatcher.ts:197](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L197)
 
 whether the target presence of a listener with event type. it associate more registration parameters.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `type` | `string` \| `number` | `undefined` | {string} event name. |
-| `callback` | `Function` | `null` | {Function} callback function of event register. |
-| `thisObject` | `any` | `null` | {any} The registered object. |
+##### type
+
+`string` \| `number`
+
+{string} event name.
+
+##### callback?
+
+`Function` = `null`
+
+{Function} callback function of event register.
+
+##### thisObject?
+
+`any` = `null`
+
+{any} The registered object.
 
 #### Returns
 
@@ -1659,8 +1656,4 @@ Returns a boolean.
 
 #### Inherited from
 
-[Entity](Entity.md).[hasEventListener](Entity.md#haseventlistener)
-
-#### Defined in
-
-[src/event/CEventDispatcher.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L198)
+[`Entity`](Entity.md).[`hasEventListener`](Entity.md#haseventlistener)

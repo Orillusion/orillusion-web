@@ -1,10 +1,16 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: DepthOfFieldPost
+
+Defined in: [src/gfx/renderJob/post/DepthOfFieldPost.ts:36](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L36)
 
 depth of field effect.
 A common post-processing effect that simulates the focusing characteristics of a camera lens.
 ```
       //Configure parameters related to depth of field
-      let cfg = {@link Engine3D.setting.render.postProcessing.depthOfView};
+      let cfg = {@link this.setting.render.postProcessing.depthOfView};
       cfg.near = 150;
       cfg.far = 300;
       cfg.pixelOffset = 1.0;
@@ -16,184 +22,191 @@ A common post-processing effect that simulates the focusing characteristics of a
       Engine3D.startRender(renderJob);
 ```
 
-## Hierarchy
-
-- `PostBase`
-
-  ↳ **`DepthOfFieldPost`**
-
-### Constructors
-
-- [constructor](DepthOfFieldPost.md#constructor)
-
-### Properties
-
-- [rtFrame](DepthOfFieldPost.md#rtframe)
-- [enable](DepthOfFieldPost.md#enable)
-- [postRenderer](DepthOfFieldPost.md#postrenderer)
-
-### Accessors
-
-- [pixelOffset](DepthOfFieldPost.md#pixeloffset)
-- [near](DepthOfFieldPost.md#near)
-- [far](DepthOfFieldPost.md#far)
-
-### Methods
-
-- [onResize](DepthOfFieldPost.md#onresize)
-- [destroy](DepthOfFieldPost.md#destroy)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new DepthOfFieldPost**(): [`DepthOfFieldPost`](DepthOfFieldPost.md)
+> **new DepthOfFieldPost**(): `DepthOfFieldPost`
+
+Defined in: [src/gfx/renderJob/post/DepthOfFieldPost.ts:59](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L59)
 
 #### Returns
 
-[`DepthOfFieldPost`](DepthOfFieldPost.md)
+`DepthOfFieldPost`
 
 #### Overrides
 
-PostBase.constructor
-
-#### Defined in
-
-[src/gfx/renderJob/post/DepthOfFieldPost.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L65)
+`PostBase.constructor`
 
 ## Properties
 
 ### rtFrame
 
-• **rtFrame**: [`RTFrame`](RTFrame.md)
+> **rtFrame**: [`RTFrame`](RTFrame.md)
 
-#### Defined in
+Defined in: [src/gfx/renderJob/post/DepthOfFieldPost.ts:57](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L57)
 
-[src/gfx/renderJob/post/DepthOfFieldPost.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L63)
-
-___
+***
 
 ### enable
 
-• **enable**: `boolean` = `true`
+> **enable**: `boolean` = `true`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L23)
 
 #### Inherited from
 
-PostBase.enable
+`PostBase.enable`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/post/PostBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L20)
+### isFinalPass
 
-___
+> **isFinalPass**: `boolean` = `false`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:27](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L27)
+
+When true, PostPass iterates this post AFTER every regular
+ post regardless of attach order — used by TonemapPost so the
+ ACES curve always lands on the fully-composited HDR signal.
+
+#### Inherited from
+
+`PostBase.isFinalPass`
+
+***
 
 ### postRenderer
 
-• **postRenderer**: `PostRenderer`
+> **postRenderer**: [`PostPass`](PostPass.md)
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L28)
 
 #### Inherited from
 
-PostBase.postRenderer
+`PostBase.postRenderer`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/post/PostBase.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L21)
+### rendererPassState
+
+> **rendererPassState**: `RendererPassState`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L29)
+
+#### Inherited from
+
+`PostBase.rendererPassState`
+
+***
+
+### \_boundCtx
+
+> **\_boundCtx**: [`Context3D`](Context3D.md) = `null`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L30)
+
+#### Inherited from
+
+`PostBase._boundCtx`
 
 ## Accessors
 
 ### pixelOffset
 
-• `get` **pixelOffset**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **pixelOffset**(): `number`
+
+Defined in: [src/gfx/renderJob/post/DepthOfFieldPost.ts:75](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L75)
+
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/gfx/renderJob/post/DepthOfFieldPost.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L81)
+> **set** **pixelOffset**(`value`): `void`
 
-• `set` **pixelOffset**(`value`): `void`
+Defined in: [src/gfx/renderJob/post/DepthOfFieldPost.ts:80](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L80)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/gfx/renderJob/post/DepthOfFieldPost.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L86)
-
-___
+***
 
 ### near
 
-• `get` **near**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **near**(): `number`
+
+Defined in: [src/gfx/renderJob/post/DepthOfFieldPost.ts:86](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L86)
+
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/gfx/renderJob/post/DepthOfFieldPost.ts:92](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L92)
+> **set** **near**(`value`): `void`
 
-• `set` **near**(`value`): `void`
+Defined in: [src/gfx/renderJob/post/DepthOfFieldPost.ts:91](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L91)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/gfx/renderJob/post/DepthOfFieldPost.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L97)
-
-___
+***
 
 ### far
 
-• `get` **far**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **far**(): `number`
+
+Defined in: [src/gfx/renderJob/post/DepthOfFieldPost.ts:97](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L97)
+
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/gfx/renderJob/post/DepthOfFieldPost.ts:103](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L103)
+> **set** **far**(`value`): `void`
 
-• `set` **far**(`value`): `void`
+Defined in: [src/gfx/renderJob/post/DepthOfFieldPost.ts:102](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L102)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/gfx/renderJob/post/DepthOfFieldPost.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L108)
-
 ## Methods
 
-### onResize
+### onResize()
 
-▸ **onResize**(): `void`
+> **onResize**(): `void`
+
+Defined in: [src/gfx/renderJob/post/DepthOfFieldPost.ts:197](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L197)
 
 #### Returns
 
@@ -201,23 +214,21 @@ ___
 
 #### Overrides
 
-PostBase.onResize
+`PostBase.onResize`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/post/DepthOfFieldPost.ts:199](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/DepthOfFieldPost.ts#L199)
+### compute()
 
-___
+> **compute**(`view`): `void`
 
-### destroy
-
-▸ **destroy**(`force?`): `void`
+Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L133)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
+##### view
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -225,8 +236,26 @@ ___
 
 #### Inherited from
 
-PostBase.destroy
+`PostBase.compute`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/post/PostBase.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L87)
+### destroy()
+
+> **destroy**(`force?`): `void`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L143)
+
+#### Parameters
+
+##### force?
+
+`boolean`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`PostBase.destroy`

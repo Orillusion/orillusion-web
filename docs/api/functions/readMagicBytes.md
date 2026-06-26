@@ -1,17 +1,19 @@
-# Function: readMagicBytes
+[**@orillusion/core**](../README.md)
 
-▸ **readMagicBytes**(`bufferOrDataView`): `string`
+***
 
-#### Parameters
+# Function: readMagicBytes()
 
-| Name | Type |
-| :------ | :------ |
-| `bufferOrDataView` | `any` |
+> **readMagicBytes**(`bufferOrDataView`): `string`
 
-#### Returns
+Defined in: [src/loader/parser/b3dm/readMagicBytes.ts:1](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/b3dm/readMagicBytes.ts#L1)
+
+## Parameters
+
+### bufferOrDataView
+
+`any`
+
+## Returns
 
 `string`
-
-#### Defined in
-
-[src/loader/parser/b3dm/readMagicBytes.ts:1](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/b3dm/readMagicBytes.ts#L1)

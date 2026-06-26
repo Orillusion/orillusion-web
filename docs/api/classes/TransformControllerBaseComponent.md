@@ -1,306 +1,313 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: TransformControllerBaseComponent
 
-Components are used to attach functionality to object3D, it has an owner object3D.
-The component can receive update events at each frame.
+Defined in: [src/util/transformUtil/TransformControllerBaseComponent.ts:27](https://github.com/orillusion/orillusion/blob/main/src/util/transformUtil/TransformControllerBaseComponent.ts#L27)
 
-## Hierarchy
+Base component for the transform gizmo controllers (translation, rotation,
+scale). Manages the per-axis handle objects, materials and colliders, and
+drives the shared pick/drag interaction loop, delegating the actual
+transform math to subclass overrides.
+
+## Extends
 
 - [`ComponentBase`](ComponentBase.md)
 
-  ↳ **`TransformControllerBaseComponent`**
+## Extended by
 
-  ↳↳ [`RotationControlComponents`](RotationControlComponents.md)
-
-  ↳↳ [`ScaleControlComponents`](ScaleControlComponents.md)
-
-  ↳↳ [`TranslationControlComponents`](TranslationControlComponents.md)
-
-### Constructors
-
-- [constructor](TransformControllerBaseComponent.md#constructor)
-
-### Properties
-
-- [object3D](TransformControllerBaseComponent.md#object3d)
-- [isDestroyed](TransformControllerBaseComponent.md#isdestroyed)
-
-### Accessors
-
-- [eventDispatcher](TransformControllerBaseComponent.md#eventdispatcher)
-- [isStart](TransformControllerBaseComponent.md#isstart)
-- [transform](TransformControllerBaseComponent.md#transform)
-- [enable](TransformControllerBaseComponent.md#enable)
-- [target](TransformControllerBaseComponent.md#target)
-- [mX](TransformControllerBaseComponent.md#mx)
-- [mY](TransformControllerBaseComponent.md#my)
-- [mZ](TransformControllerBaseComponent.md#mz)
-- [transformSpaceMode](TransformControllerBaseComponent.md#transformspacemode)
-
-### Methods
-
-- [stop](TransformControllerBaseComponent.md#stop)
-- [onLateUpdate](TransformControllerBaseComponent.md#onlateupdate)
-- [onBeforeUpdate](TransformControllerBaseComponent.md#onbeforeupdate)
-- [onCompute](TransformControllerBaseComponent.md#oncompute)
-- [onGraphic](TransformControllerBaseComponent.md#ongraphic)
-- [onParentChange](TransformControllerBaseComponent.md#onparentchange)
-- [onAddChild](TransformControllerBaseComponent.md#onaddchild)
-- [onRemoveChild](TransformControllerBaseComponent.md#onremovechild)
-- [cloneTo](TransformControllerBaseComponent.md#cloneto)
-- [copyComponent](TransformControllerBaseComponent.md#copycomponent)
-- [beforeDestroy](TransformControllerBaseComponent.md#beforedestroy)
-- [destroy](TransformControllerBaseComponent.md#destroy)
-- [init](TransformControllerBaseComponent.md#init)
-- [start](TransformControllerBaseComponent.md#start)
-- [onEnable](TransformControllerBaseComponent.md#onenable)
-- [onDisable](TransformControllerBaseComponent.md#ondisable)
-- [reset](TransformControllerBaseComponent.md#reset)
-- [onMouseDown](TransformControllerBaseComponent.md#onmousedown)
-- [onMouseMove](TransformControllerBaseComponent.md#onmousemove)
-- [onMouseUp](TransformControllerBaseComponent.md#onmouseup)
-- [onUpdate](TransformControllerBaseComponent.md#onupdate)
+- [`RotationControlComponents`](RotationControlComponents.md)
+- [`ScaleControlComponents`](ScaleControlComponents.md)
+- [`TranslationControlComponents`](TranslationControlComponents.md)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new TransformControllerBaseComponent**(): [`TransformControllerBaseComponent`](TransformControllerBaseComponent.md)
+> **new TransformControllerBaseComponent**(): `TransformControllerBaseComponent`
+
+Defined in: [src/util/transformUtil/TransformControllerBaseComponent.ts:35](https://github.com/orillusion/orillusion/blob/main/src/util/transformUtil/TransformControllerBaseComponent.ts#L35)
 
 #### Returns
 
-[`TransformControllerBaseComponent`](TransformControllerBaseComponent.md)
+`TransformControllerBaseComponent`
 
 #### Overrides
 
-[ComponentBase](ComponentBase.md).[constructor](ComponentBase.md#constructor)
-
-#### Defined in
-
-[src/util/transformUtil/TransformControllerBaseComponent.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/util/transformUtil/TransformControllerBaseComponent.ts#L29)
+[`ComponentBase`](ComponentBase.md).[`constructor`](ComponentBase.md#constructor)
 
 ## Properties
 
 ### object3D
 
-• **object3D**: [`Object3D`](Object3D.md) = `null`
+> **object3D**: [`Object3D`](Object3D.md) = `null`
+
+Defined in: [src/components/ComponentBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L29)
 
 owner object3D
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[object3D](ComponentBase.md#object3d)
+[`ComponentBase`](ComponentBase.md).[`object3D`](ComponentBase.md#object3d)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
-
-___
+***
 
 ### isDestroyed
 
-• `Optional` **isDestroyed**: `boolean`
+> **isDestroyed**: `boolean` = `false`
+
+Defined in: [src/components/ComponentBase.ts:77](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L77)
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[isDestroyed](ComponentBase.md#isdestroyed)
-
-#### Defined in
-
-[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
+[`ComponentBase`](ComponentBase.md).[`isDestroyed`](ComponentBase.md#isdestroyed)
 
 ## Accessors
 
-### eventDispatcher
+### visibleLayer
 
-• `get` **eventDispatcher**(): [`CEventDispatcher`](CEventDispatcher.md)
+#### Get Signature
 
-#### Returns
+> **get** **visibleLayer**(): `number`
 
-[`CEventDispatcher`](CEventDispatcher.md)
+Defined in: [src/components/ComponentBase.ts:46](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L46)
 
-#### Inherited from
+Composition-layer membership bitmask. The pass / camera /
+collector filters via
 
-ComponentBase.eventDispatcher
+    (component.visibleLayer & pass.layerMask & camera.cullingMask) !== 0
 
-#### Defined in
+Defaults to [VisibleLayer.Default](../@orillusion/namespaces/VisibleLayer/variables/Default.md) (bit 0) so a fresh
+subclass is visible to passes whose `layerMask` is
+[VisibleLayer.All](../@orillusion/namespaces/VisibleLayer/variables/All.md) (which includes bit 0). Application code
+can assign project-specific bits (1..31) to organise the scene
+into composition layers.
 
-[src/components/ComponentBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L23)
+##### Returns
 
-• `set` **eventDispatcher**(`value`): `void`
+`number`
 
-#### Parameters
+#### Set Signature
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`CEventDispatcher`](CEventDispatcher.md) |
+> **set** **visibleLayer**(`value`): `void`
 
-#### Returns
+Defined in: [src/components/ComponentBase.ts:50](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L50)
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-ComponentBase.eventDispatcher
+[`ComponentBase`](ComponentBase.md).[`visibleLayer`](ComponentBase.md#visiblelayer)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L28)
+### eventDispatcher
 
-___
+#### Get Signature
+
+> **get** **eventDispatcher**(): [`CEventDispatcher`](CEventDispatcher.md)
+
+Defined in: [src/components/ComponentBase.ts:63](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L63)
+
+##### Returns
+
+[`CEventDispatcher`](CEventDispatcher.md)
+
+#### Set Signature
+
+> **set** **eventDispatcher**(`value`): `void`
+
+Defined in: [src/components/ComponentBase.ts:68](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
+
+##### Parameters
+
+###### value
+
+[`CEventDispatcher`](CEventDispatcher.md)
+
+##### Returns
+
+`void`
+
+#### Inherited from
+
+[`ComponentBase`](ComponentBase.md).[`eventDispatcher`](ComponentBase.md#eventdispatcher)
+
+***
 
 ### isStart
 
-• `get` **isStart**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **isStart**(): `boolean`
+
+Defined in: [src/components/ComponentBase.ts:79](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L79)
+
+##### Returns
 
 `boolean`
 
 #### Inherited from
 
-ComponentBase.isStart
+[`ComponentBase`](ComponentBase.md).[`isStart`](ComponentBase.md#isstart)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L40)
-
-___
+***
 
 ### transform
 
-• `get` **transform**(): [`Transform`](Transform.md)
+#### Get Signature
+
+> **get** **transform**(): [`Transform`](Transform.md)
+
+Defined in: [src/components/ComponentBase.ts:89](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L89)
 
 Return the Transform component attached to the Object3D.
+Null before the component is attached — `addComponent` assigns
+`object3D` only after construction — so constructor-time callers
+can probe safely via `this.transform?.`.
 
-#### Returns
+##### Returns
 
 [`Transform`](Transform.md)
 
 #### Inherited from
 
-ComponentBase.transform
+[`ComponentBase`](ComponentBase.md).[`transform`](ComponentBase.md#transform)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L47)
-
-___
+***
 
 ### enable
 
-• `get` **enable**(): `boolean`
+#### Get Signature
+
+> **get** **enable**(): `boolean`
+
+Defined in: [src/components/ComponentBase.ts:113](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
-#### Returns
+##### Returns
 
 `boolean`
 
-#### Inherited from
+#### Set Signature
 
-ComponentBase.enable
+> **set** **enable**(`value`): `void`
 
-#### Defined in
-
-[src/components/ComponentBase.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
-
-• `set` **enable**(`value`): `void`
+Defined in: [src/components/ComponentBase.ts:96](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L96)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
+###### value
 
-#### Returns
+`boolean`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-ComponentBase.enable
+[`ComponentBase`](ComponentBase.md).[`enable`](ComponentBase.md#enable)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L54)
-
-___
+***
 
 ### target
 
-• `get` **target**(): [`Object3D`](Object3D.md)
+#### Get Signature
 
-#### Returns
+> **get** **target**(): [`Object3D`](Object3D.md)
+
+Defined in: [src/util/transformUtil/TransformControllerBaseComponent.ts:47](https://github.com/orillusion/orillusion/blob/main/src/util/transformUtil/TransformControllerBaseComponent.ts#L47)
+
+The object currently controlled by the owning gizmo.
+
+##### Returns
 
 [`Object3D`](Object3D.md)
 
-#### Defined in
-
-[src/util/transformUtil/TransformControllerBaseComponent.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/util/transformUtil/TransformControllerBaseComponent.ts#L40)
-
-___
+***
 
 ### mX
 
-• `get` **mX**(): [`Object3D`](Object3D.md)
+#### Get Signature
 
-#### Returns
+> **get** **mX**(): [`Object3D`](Object3D.md)
+
+Defined in: [src/util/transformUtil/TransformControllerBaseComponent.ts:52](https://github.com/orillusion/orillusion/blob/main/src/util/transformUtil/TransformControllerBaseComponent.ts#L52)
+
+The gizmo's X-axis root object.
+
+##### Returns
 
 [`Object3D`](Object3D.md)
 
-#### Defined in
-
-[src/util/transformUtil/TransformControllerBaseComponent.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/util/transformUtil/TransformControllerBaseComponent.ts#L44)
-
-___
+***
 
 ### mY
 
-• `get` **mY**(): [`Object3D`](Object3D.md)
+#### Get Signature
 
-#### Returns
+> **get** **mY**(): [`Object3D`](Object3D.md)
+
+Defined in: [src/util/transformUtil/TransformControllerBaseComponent.ts:57](https://github.com/orillusion/orillusion/blob/main/src/util/transformUtil/TransformControllerBaseComponent.ts#L57)
+
+The gizmo's Y-axis object.
+
+##### Returns
 
 [`Object3D`](Object3D.md)
 
-#### Defined in
-
-[src/util/transformUtil/TransformControllerBaseComponent.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/util/transformUtil/TransformControllerBaseComponent.ts#L48)
-
-___
+***
 
 ### mZ
 
-• `get` **mZ**(): [`Object3D`](Object3D.md)
+#### Get Signature
 
-#### Returns
+> **get** **mZ**(): [`Object3D`](Object3D.md)
+
+Defined in: [src/util/transformUtil/TransformControllerBaseComponent.ts:62](https://github.com/orillusion/orillusion/blob/main/src/util/transformUtil/TransformControllerBaseComponent.ts#L62)
+
+The gizmo's Z-axis object.
+
+##### Returns
 
 [`Object3D`](Object3D.md)
 
-#### Defined in
-
-[src/util/transformUtil/TransformControllerBaseComponent.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/util/transformUtil/TransformControllerBaseComponent.ts#L52)
-
-___
+***
 
 ### transformSpaceMode
 
-• `get` **transformSpaceMode**(): `TransformSpaceMode`
+#### Get Signature
 
-#### Returns
+> **get** **transformSpaceMode**(): `TransformSpaceMode`
+
+Defined in: [src/util/transformUtil/TransformControllerBaseComponent.ts:67](https://github.com/orillusion/orillusion/blob/main/src/util/transformUtil/TransformControllerBaseComponent.ts#L67)
+
+The active transform space (local or global) from the owning gizmo.
+
+##### Returns
 
 `TransformSpaceMode`
 
-#### Defined in
-
-[src/util/transformUtil/TransformControllerBaseComponent.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/util/transformUtil/TransformControllerBaseComponent.ts#L56)
-
 ## Methods
 
-### stop
+### stop()
 
-▸ **stop**(): `void`
+> **stop**(): `void`
+
+Defined in: [src/components/ComponentBase.ts:163](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L163)
 
 #### Returns
 
@@ -308,23 +315,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[stop](ComponentBase.md#stop)
+[`ComponentBase`](ComponentBase.md).[`stop`](ComponentBase.md#stop)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
+### onLateUpdate()?
 
-___
+> `optional` **onLateUpdate**(`view?`): `any`
 
-### onLateUpdate
-
-▸ **onLateUpdate**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:167](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L167)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -332,23 +337,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onLateUpdate](ComponentBase.md#onlateupdate)
+[`ComponentBase`](ComponentBase.md).[`onLateUpdate`](ComponentBase.md#onlateupdate)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L118)
+### onBeforeUpdate()?
 
-___
+> `optional` **onBeforeUpdate**(`view?`): `any`
 
-### onBeforeUpdate
-
-▸ **onBeforeUpdate**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:168](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L168)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -356,24 +359,25 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onBeforeUpdate](ComponentBase.md#onbeforeupdate)
+[`ComponentBase`](ComponentBase.md).[`onBeforeUpdate`](ComponentBase.md#onbeforeupdate)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L119)
+### onCompute()?
 
-___
+> `optional` **onCompute**(`view?`, `command?`): `any`
 
-### onCompute
-
-▸ **onCompute**(`view?`, `command?`): `any`
+Defined in: [src/components/ComponentBase.ts:169](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L169)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
-| `command?` | `GPUCommandEncoder` |
+##### view?
+
+[`View3D`](View3D.md)
+
+##### command?
+
+`GPUCommandEncoder`
 
 #### Returns
 
@@ -381,23 +385,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onCompute](ComponentBase.md#oncompute)
+[`ComponentBase`](ComponentBase.md).[`onCompute`](ComponentBase.md#oncompute)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L120)
+### onGraphic()?
 
-___
+> `optional` **onGraphic**(`view?`): `any`
 
-### onGraphic
-
-▸ **onGraphic**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:170](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L170)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -405,24 +407,25 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onGraphic](ComponentBase.md#ongraphic)
+[`ComponentBase`](ComponentBase.md).[`onGraphic`](ComponentBase.md#ongraphic)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L121)
+### onParentChange()?
 
-___
+> `optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
-### onParentChange
-
-▸ **onParentChange**(`lastParent?`, `currentParent?`): `any`
+Defined in: [src/components/ComponentBase.ts:171](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L171)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `lastParent?` | [`Object3D`](Object3D.md) |
-| `currentParent?` | [`Object3D`](Object3D.md) |
+##### lastParent?
+
+[`Object3D`](Object3D.md)
+
+##### currentParent?
+
+[`Object3D`](Object3D.md)
 
 #### Returns
 
@@ -430,23 +433,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onParentChange](ComponentBase.md#onparentchange)
+[`ComponentBase`](ComponentBase.md).[`onParentChange`](ComponentBase.md#onparentchange)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L122)
+### onAddChild()?
 
-___
+> `optional` **onAddChild**(`child`): `any`
 
-### onAddChild
-
-▸ **onAddChild**(`child`): `any`
+Defined in: [src/components/ComponentBase.ts:172](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L172)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `child` | [`Object3D`](Object3D.md) |
+##### child
+
+[`Object3D`](Object3D.md)
 
 #### Returns
 
@@ -454,23 +455,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onAddChild](ComponentBase.md#onaddchild)
+[`ComponentBase`](ComponentBase.md).[`onAddChild`](ComponentBase.md#onaddchild)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L123)
+### onRemoveChild()?
 
-___
+> `optional` **onRemoveChild**(`child`): `any`
 
-### onRemoveChild
-
-▸ **onRemoveChild**(`child`): `any`
+Defined in: [src/components/ComponentBase.ts:173](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L173)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `child` | [`Object3D`](Object3D.md) |
+##### child
+
+[`Object3D`](Object3D.md)
 
 #### Returns
 
@@ -478,25 +477,25 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onRemoveChild](ComponentBase.md#onremovechild)
+[`ComponentBase`](ComponentBase.md).[`onRemoveChild`](ComponentBase.md#onremovechild)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L124)
+### cloneTo()
 
-___
+> **cloneTo**(`obj`): `void`
 
-### cloneTo
-
-▸ **cloneTo**(`obj`): `void`
+Defined in: [src/components/ComponentBase.ts:180](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L180)
 
 clone component data to target object3D
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `obj` | [`Object3D`](Object3D.md) | target object3D |
+##### obj
+
+[`Object3D`](Object3D.md)
+
+target object3D
 
 #### Returns
 
@@ -504,23 +503,21 @@ clone component data to target object3D
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[cloneTo](ComponentBase.md#cloneto)
+[`ComponentBase`](ComponentBase.md).[`cloneTo`](ComponentBase.md#cloneto)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L131)
+### copyComponent()
 
-___
+> **copyComponent**(`from`): `this`
 
-### copyComponent
-
-▸ **copyComponent**(`from`): `this`
+Defined in: [src/components/ComponentBase.ts:182](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L182)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `from` | `this` |
+##### from
+
+`this`
 
 #### Returns
 
@@ -528,25 +525,23 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[copyComponent](ComponentBase.md#copycomponent)
+[`ComponentBase`](ComponentBase.md).[`copyComponent`](ComponentBase.md#copycomponent)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L133)
+### beforeDestroy()
 
-___
+> **beforeDestroy**(`force?`): `void`
 
-### beforeDestroy
-
-▸ **beforeDestroy**(`force?`): `void`
+Defined in: [src/components/ComponentBase.ts:249](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L249)
 
 before release this component, object refrences are not be set null now.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
+##### force?
+
+`boolean`
 
 #### Returns
 
@@ -554,25 +549,23 @@ before release this component, object refrences are not be set null now.
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[beforeDestroy](ComponentBase.md#beforedestroy)
+[`ComponentBase`](ComponentBase.md).[`beforeDestroy`](ComponentBase.md#beforedestroy)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L200)
+### destroy()
 
-___
+> **destroy**(`force?`): `void`
 
-### destroy
-
-▸ **destroy**(`force?`): `void`
+Defined in: [src/components/ComponentBase.ts:256](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L256)
 
 release this component
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
+##### force?
+
+`boolean`
 
 #### Returns
 
@@ -580,23 +573,23 @@ release this component
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[destroy](ComponentBase.md#destroy)
+[`ComponentBase`](ComponentBase.md).[`destroy`](ComponentBase.md#destroy)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:207](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L207)
+### init()
 
-___
+> **init**(`param?`): `void`
 
-### init
+Defined in: [src/util/transformUtil/TransformControllerBaseComponent.ts:72](https://github.com/orillusion/orillusion/blob/main/src/util/transformUtil/TransformControllerBaseComponent.ts#L72)
 
-▸ **init**(`param?`): `void`
+Build the per-axis handle objects, materials and colliders.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `param?` | `any` |
+##### param?
+
+`any`
 
 #### Returns
 
@@ -604,41 +597,17 @@ ___
 
 #### Overrides
 
-[ComponentBase](ComponentBase.md).[init](ComponentBase.md#init)
+[`ComponentBase`](ComponentBase.md).[`init`](ComponentBase.md#init)
 
-#### Defined in
+***
 
-[src/util/transformUtil/TransformControllerBaseComponent.ts:60](https://github.com/Orillusion/orillusion/blob/main/src/util/transformUtil/TransformControllerBaseComponent.ts#L60)
+### start()
 
-___
+> **start**(): `void`
 
-### start
+Defined in: [src/util/transformUtil/TransformControllerBaseComponent.ts:107](https://github.com/orillusion/orillusion/blob/main/src/util/transformUtil/TransformControllerBaseComponent.ts#L107)
 
-▸ **start**(): `void`
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-[ComponentBase](ComponentBase.md).[start](ComponentBase.md#start)
-
-#### Defined in
-
-[src/util/transformUtil/TransformControllerBaseComponent.ts:94](https://github.com/Orillusion/orillusion/blob/main/src/util/transformUtil/TransformControllerBaseComponent.ts#L94)
-
-___
-
-### onEnable
-
-▸ **onEnable**(`view?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+Component lifecycle start hook.
 
 #### Returns
 
@@ -646,23 +615,23 @@ ___
 
 #### Overrides
 
-[ComponentBase](ComponentBase.md).[onEnable](ComponentBase.md#onenable)
+[`ComponentBase`](ComponentBase.md).[`start`](ComponentBase.md#start)
 
-#### Defined in
+***
 
-[src/util/transformUtil/TransformControllerBaseComponent.ts:98](https://github.com/Orillusion/orillusion/blob/main/src/util/transformUtil/TransformControllerBaseComponent.ts#L98)
+### onEnable()
 
-___
+> **onEnable**(`view?`): `void`
 
-### onDisable
+Defined in: [src/util/transformUtil/TransformControllerBaseComponent.ts:112](https://github.com/orillusion/orillusion/blob/main/src/util/transformUtil/TransformControllerBaseComponent.ts#L112)
 
-▸ **onDisable**(`view?`): `void`
+Attach the handle container and align the gizmo when enabled.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -670,97 +639,23 @@ ___
 
 #### Overrides
 
-[ComponentBase](ComponentBase.md).[onDisable](ComponentBase.md#ondisable)
+[`ComponentBase`](ComponentBase.md).[`onEnable`](ComponentBase.md#onenable)
 
-#### Defined in
+***
 
-[src/util/transformUtil/TransformControllerBaseComponent.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/util/transformUtil/TransformControllerBaseComponent.ts#L107)
+### onDisable()
 
-___
+> **onDisable**(`view?`): `void`
 
-### reset
+Defined in: [src/util/transformUtil/TransformControllerBaseComponent.ts:118](https://github.com/orillusion/orillusion/blob/main/src/util/transformUtil/TransformControllerBaseComponent.ts#L118)
 
-▸ **reset**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/util/transformUtil/TransformControllerBaseComponent.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/util/transformUtil/TransformControllerBaseComponent.ts#L115)
-
-___
-
-### onMouseDown
-
-▸ **onMouseDown**(`e`): `void`
+Detach the handle container when disabled.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `e` | [`PointerEvent3D`](PointerEvent3D.md) |
+##### view?
 
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/util/transformUtil/TransformControllerBaseComponent.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/util/transformUtil/TransformControllerBaseComponent.ts#L198)
-
-___
-
-### onMouseMove
-
-▸ **onMouseMove**(`e`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `e` | [`PointerEvent3D`](PointerEvent3D.md) |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/util/transformUtil/TransformControllerBaseComponent.ts:220](https://github.com/Orillusion/orillusion/blob/main/src/util/transformUtil/TransformControllerBaseComponent.ts#L220)
-
-___
-
-### onMouseUp
-
-▸ **onMouseUp**(`e`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `e` | [`PointerEvent3D`](PointerEvent3D.md) |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/util/transformUtil/TransformControllerBaseComponent.ts:274](https://github.com/Orillusion/orillusion/blob/main/src/util/transformUtil/TransformControllerBaseComponent.ts#L274)
-
-___
-
-### onUpdate
-
-▸ **onUpdate**(`view?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -768,8 +663,102 @@ ___
 
 #### Overrides
 
-[ComponentBase](ComponentBase.md).[onUpdate](ComponentBase.md#onupdate)
+[`ComponentBase`](ComponentBase.md).[`onDisable`](ComponentBase.md#ondisable)
 
-#### Defined in
+***
 
-[src/util/transformUtil/TransformControllerBaseComponent.ts:282](https://github.com/Orillusion/orillusion/blob/main/src/util/transformUtil/TransformControllerBaseComponent.ts#L282)
+### reset()
+
+> **reset**(): `void`
+
+Defined in: [src/util/transformUtil/TransformControllerBaseComponent.ts:123](https://github.com/orillusion/orillusion/blob/main/src/util/transformUtil/TransformControllerBaseComponent.ts#L123)
+
+Re-align the gizmo to the target according to the current transform space.
+
+#### Returns
+
+`void`
+
+***
+
+### onMouseDown()
+
+> **onMouseDown**(`e`): `void`
+
+Defined in: [src/util/transformUtil/TransformControllerBaseComponent.ts:215](https://github.com/orillusion/orillusion/blob/main/src/util/transformUtil/TransformControllerBaseComponent.ts#L215)
+
+Begin a drag: pick an axis and record the start point.
+
+#### Parameters
+
+##### e
+
+[`PointerEvent3D`](PointerEvent3D.md)
+
+#### Returns
+
+`void`
+
+***
+
+### onMouseMove()
+
+> **onMouseMove**(`e`): `void`
+
+Defined in: [src/util/transformUtil/TransformControllerBaseComponent.ts:239](https://github.com/orillusion/orillusion/blob/main/src/util/transformUtil/TransformControllerBaseComponent.ts#L239)
+
+Highlight handles on hover, or apply the transform while dragging.
+
+#### Parameters
+
+##### e
+
+[`PointerEvent3D`](PointerEvent3D.md)
+
+#### Returns
+
+`void`
+
+***
+
+### onMouseUp()
+
+> **onMouseUp**(`e`): `void`
+
+Defined in: [src/util/transformUtil/TransformControllerBaseComponent.ts:295](https://github.com/orillusion/orillusion/blob/main/src/util/transformUtil/TransformControllerBaseComponent.ts#L295)
+
+End a drag and clear the active axis.
+
+#### Parameters
+
+##### e
+
+[`PointerEvent3D`](PointerEvent3D.md)
+
+#### Returns
+
+`void`
+
+***
+
+### onUpdate()
+
+> **onUpdate**(`view?`): `void`
+
+Defined in: [src/util/transformUtil/TransformControllerBaseComponent.ts:304](https://github.com/orillusion/orillusion/blob/main/src/util/transformUtil/TransformControllerBaseComponent.ts#L304)
+
+Keep the gizmo at a constant screen size and pinned to the target each frame.
+
+#### Parameters
+
+##### view?
+
+[`View3D`](View3D.md)
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+[`ComponentBase`](ComponentBase.md).[`onUpdate`](ComponentBase.md#onupdate)

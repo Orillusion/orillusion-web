@@ -1,142 +1,133 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: I3DMParser
 
-## Hierarchy
+Defined in: [src/loader/parser/I3DMParser.ts:10](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/I3DMParser.ts#L10)
 
-- `ParserBase`
-
-  ↳ **`I3DMParser`**
-
-### Constructors
-
-- [constructor](I3DMParser.md#constructor)
-
-### Properties
-
-- [format](I3DMParser.md#format)
-- [baseUrl](I3DMParser.md#baseurl)
-- [initUrl](I3DMParser.md#initurl)
-- [loaderFunctions](I3DMParser.md#loaderfunctions)
-- [userData](I3DMParser.md#userdata)
-- [data](I3DMParser.md#data)
-
-### Methods
-
-- [parseBuffer](I3DMParser.md#parsebuffer)
-- [verification](I3DMParser.md#verification)
-- [parseString](I3DMParser.md#parsestring)
-- [parseJson](I3DMParser.md#parsejson)
-- [parseTexture](I3DMParser.md#parsetexture)
-- [parse](I3DMParser.md#parse)
+Parser for the Instanced 3D Model (i3dm) tile format used by 3D Tiles.
+Decodes an i3dm buffer into an Object3D scene graph via the I3DMLoader.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new I3DMParser**(): [`I3DMParser`](I3DMParser.md)
+> **new I3DMParser**(): `I3DMParser`
 
 #### Returns
 
-[`I3DMParser`](I3DMParser.md)
+`I3DMParser`
 
 #### Inherited from
 
-ParserBase.constructor
+`ParserBase.constructor`
 
 ## Properties
 
 ### format
 
-▪ `Static` **format**: [`ParserFormat`](../enums/ParserFormat.md) = `ParserFormat.BIN`
+> `static` **format**: [`ParserFormat`](../enumerations/ParserFormat.md) = `ParserFormat.BIN`
+
+Defined in: [src/loader/parser/I3DMParser.ts:11](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/I3DMParser.ts#L11)
 
 #### Overrides
 
-ParserBase.format
+`ParserBase.format`
 
-#### Defined in
-
-[src/loader/parser/I3DMParser.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/I3DMParser.ts#L6)
-
-___
+***
 
 ### baseUrl
 
-• **baseUrl**: `string`
+> **baseUrl**: `string`
+
+Defined in: [src/loader/parser/ParserBase.ts:12](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L12)
 
 #### Inherited from
 
-ParserBase.baseUrl
+`ParserBase.baseUrl`
 
-#### Defined in
-
-[src/loader/parser/ParserBase.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L11)
-
-___
+***
 
 ### initUrl
 
-• **initUrl**: `string`
+> **initUrl**: `string`
+
+Defined in: [src/loader/parser/ParserBase.ts:13](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L13)
 
 #### Inherited from
 
-ParserBase.initUrl
+`ParserBase.initUrl`
 
-#### Defined in
+***
 
-[src/loader/parser/ParserBase.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L12)
+### loaderFunctions?
 
-___
+> `optional` **loaderFunctions?**: [`LoaderFunctions`](../type-aliases/LoaderFunctions.md)
 
-### loaderFunctions
-
-• `Optional` **loaderFunctions**: [`LoaderFunctions`](../types/LoaderFunctions.md)
+Defined in: [src/loader/parser/ParserBase.ts:14](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L14)
 
 #### Inherited from
 
-ParserBase.loaderFunctions
+`ParserBase.loaderFunctions`
 
-#### Defined in
+***
 
-[src/loader/parser/ParserBase.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L13)
+### userData?
 
-___
+> `optional` **userData?**: `any`
 
-### userData
-
-• `Optional` **userData**: `any`
+Defined in: [src/loader/parser/ParserBase.ts:15](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L15)
 
 #### Inherited from
 
-ParserBase.userData
+`ParserBase.userData`
 
-#### Defined in
-
-[src/loader/parser/ParserBase.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L14)
-
-___
+***
 
 ### data
 
-• **data**: `any`
+> **data**: `any`
+
+Defined in: [src/loader/parser/ParserBase.ts:16](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L16)
 
 #### Inherited from
 
-ParserBase.data
+`ParserBase.data`
 
-#### Defined in
+***
 
-[src/loader/parser/ParserBase.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L15)
+### ctx?
+
+> `optional` **ctx?**: [`Context3D`](Context3D.md)
+
+Defined in: [src/loader/parser/ParserBase.ts:20](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L20)
+
+Context3D this parser is operating under. Populated by FileLoader
+ so default-texture lookups (`Engine3D.resFor(this.ctx)`) resolve
+ against the owning engine's device rather than the global shim.
+
+#### Inherited from
+
+`ParserBase.ctx`
 
 ## Methods
 
-### parseBuffer
+### parseBuffer()
 
-▸ **parseBuffer**(`buffer`): `Promise`\<`void`\>
+> **parseBuffer**(`buffer`): `Promise`\<`void`\>
+
+Defined in: [src/loader/parser/I3DMParser.ts:17](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/I3DMParser.ts#L17)
+
+Parse an i3dm binary buffer and store the resulting model in `this.data`.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `buffer` | `ArrayBuffer` |
+##### buffer
+
+`ArrayBuffer`
+
+The raw i3dm file contents.
 
 #### Returns
 
@@ -144,43 +135,41 @@ ParserBase.data
 
 #### Overrides
 
-ParserBase.parseBuffer
+`ParserBase.parseBuffer`
 
-#### Defined in
+***
 
-[src/loader/parser/I3DMParser.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/I3DMParser.ts#L7)
+### verification()
 
-___
+> **verification**(): `boolean`
 
-### verification
+Defined in: [src/loader/parser/I3DMParser.ts:27](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/I3DMParser.ts#L27)
 
-▸ **verification**(): `boolean`
-
-Verify parsing validity
+Verify that parsing produced valid data.
 
 #### Returns
 
 `boolean`
 
+true when data is present; throws otherwise.
+
 #### Overrides
 
-ParserBase.verification
+`ParserBase.verification`
 
-#### Defined in
+***
 
-[src/loader/parser/I3DMParser.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/I3DMParser.ts#L18)
+### parseString()
 
-___
+> **parseString**(`str`): `void`
 
-### parseString
-
-▸ **parseString**(`str`): `void`
+Defined in: [src/loader/parser/ParserBase.ts:22](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L22)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `str` | `string` |
+##### str
+
+`string`
 
 #### Returns
 
@@ -188,23 +177,21 @@ ___
 
 #### Inherited from
 
-ParserBase.parseString
+`ParserBase.parseString`
 
-#### Defined in
+***
 
-[src/loader/parser/ParserBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L17)
+### parseJson()
 
-___
+> **parseJson**(`obj`): `void`
 
-### parseJson
-
-▸ **parseJson**(`obj`): `void`
+Defined in: [src/loader/parser/ParserBase.ts:24](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L24)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `obj` | `object` |
+##### obj
+
+`object`
 
 #### Returns
 
@@ -212,23 +199,21 @@ ___
 
 #### Inherited from
 
-ParserBase.parseJson
+`ParserBase.parseJson`
 
-#### Defined in
+***
 
-[src/loader/parser/ParserBase.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L19)
+### parseTexture()
 
-___
+> **parseTexture**(`buffer`): [`Texture`](Texture.md)
 
-### parseTexture
-
-▸ **parseTexture**(`buffer`): [`Texture`](Texture.md)
+Defined in: [src/loader/parser/ParserBase.ts:28](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L28)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `buffer` | `ArrayBuffer` |
+##### buffer
+
+`ArrayBuffer`
 
 #### Returns
 
@@ -236,23 +221,21 @@ ___
 
 #### Inherited from
 
-ParserBase.parseTexture
+`ParserBase.parseTexture`
 
-#### Defined in
+***
 
-[src/loader/parser/ParserBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L23)
+### parse()
 
-___
+> **parse**(`data`): `void`
 
-### parse
-
-▸ **parse**(`data`): `void`
+Defined in: [src/loader/parser/ParserBase.ts:32](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L32)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `data` | `any` |
+##### data
+
+`any`
 
 #### Returns
 
@@ -260,8 +243,4 @@ ___
 
 #### Inherited from
 
-ParserBase.parse
-
-#### Defined in
-
-[src/loader/parser/ParserBase.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L27)
+`ParserBase.parse`

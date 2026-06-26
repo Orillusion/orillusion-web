@@ -1,139 +1,117 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: PrefabMeshData
 
-### Constructors
-
-- [constructor](PrefabMeshData.md#constructor)
-
-### Properties
-
-- [name](PrefabMeshData.md#name)
-- [meshName](PrefabMeshData.md#meshname)
-- [meshID](PrefabMeshData.md#meshid)
-- [vertexCount](PrefabMeshData.md#vertexcount)
-- [vertexStrip](PrefabMeshData.md#vertexstrip)
-- [vertexBuffer](PrefabMeshData.md#vertexbuffer)
-- [indices](PrefabMeshData.md#indices)
-- [attributes](PrefabMeshData.md#attributes)
-- [bones](PrefabMeshData.md#bones)
-- [bindPose](PrefabMeshData.md#bindpose)
-- [blendShapeData](PrefabMeshData.md#blendshapedata)
+Defined in: [src/loader/parser/prefab/prefabData/PrefabMeshData.ts:4](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabMeshData.ts#L4)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new PrefabMeshData**(): [`PrefabMeshData`](PrefabMeshData.md)
+> **new PrefabMeshData**(): `PrefabMeshData`
 
 #### Returns
 
-[`PrefabMeshData`](PrefabMeshData.md)
+`PrefabMeshData`
 
 ## Properties
 
 ### name
 
-• **name**: `string`
+> **name**: `string`
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/PrefabMeshData.ts:5](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabMeshData.ts#L5)
 
-[src/loader/parser/prefab/prefabData/PrefabMeshData.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabMeshData.ts#L5)
-
-___
+***
 
 ### meshName
 
-• **meshName**: `string`
+> **meshName**: `string`
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/PrefabMeshData.ts:6](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabMeshData.ts#L6)
 
-[src/loader/parser/prefab/prefabData/PrefabMeshData.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabMeshData.ts#L6)
-
-___
+***
 
 ### meshID
 
-• **meshID**: `string`
+> **meshID**: `string`
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/PrefabMeshData.ts:7](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabMeshData.ts#L7)
 
-[src/loader/parser/prefab/prefabData/PrefabMeshData.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabMeshData.ts#L7)
-
-___
+***
 
 ### vertexCount
 
-• **vertexCount**: `number`
+> **vertexCount**: `number`
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/PrefabMeshData.ts:8](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabMeshData.ts#L8)
 
-[src/loader/parser/prefab/prefabData/PrefabMeshData.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabMeshData.ts#L8)
-
-___
+***
 
 ### vertexStrip
 
-• **vertexStrip**: `number`
+> **vertexStrip**: `number`
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/PrefabMeshData.ts:9](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabMeshData.ts#L9)
 
-[src/loader/parser/prefab/prefabData/PrefabMeshData.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabMeshData.ts#L9)
-
-___
+***
 
 ### vertexBuffer
 
-• **vertexBuffer**: `Float32Array`
+> **vertexBuffer**: `Float32Array`
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/PrefabMeshData.ts:10](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabMeshData.ts#L10)
 
-[src/loader/parser/prefab/prefabData/PrefabMeshData.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabMeshData.ts#L10)
-
-___
+***
 
 ### indices
 
-• **indices**: `Uint16Array` \| `Uint32Array`
+> **indices**: `Uint16Array`\<`ArrayBufferLike`\> \| `Uint32Array`\<`ArrayBufferLike`\>
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/PrefabMeshData.ts:11](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabMeshData.ts#L11)
 
-[src/loader/parser/prefab/prefabData/PrefabMeshData.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabMeshData.ts#L11)
-
-___
+***
 
 ### attributes
 
-• **attributes**: \{ `attribute`: `string` ; `dim`: `number` ; `pos`: `number`  }[]
+> **attributes**: `object`[]
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/PrefabMeshData.ts:13](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabMeshData.ts#L13)
 
-[src/loader/parser/prefab/prefabData/PrefabMeshData.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabMeshData.ts#L13)
+#### attribute
 
-___
+> **attribute**: `string`
+
+#### dim
+
+> **dim**: `number`
+
+#### pos
+
+> **pos**: `number`
+
+***
 
 ### bones
 
-• **bones**: `string`[]
+> **bones**: `string`[]
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/PrefabMeshData.ts:15](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabMeshData.ts#L15)
 
-[src/loader/parser/prefab/prefabData/PrefabMeshData.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabMeshData.ts#L15)
-
-___
+***
 
 ### bindPose
 
-• **bindPose**: [`Matrix4`](Matrix4.md)[]
+> **bindPose**: [`Matrix4`](Matrix4.md)[]
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/PrefabMeshData.ts:16](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabMeshData.ts#L16)
 
-[src/loader/parser/prefab/prefabData/PrefabMeshData.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabMeshData.ts#L16)
-
-___
+***
 
 ### blendShapeData
 
-• **blendShapeData**: [`BlendShapeData`](BlendShapeData.md)
+> **blendShapeData**: [`BlendShapeData`](BlendShapeData.md)
 
-#### Defined in
-
-[src/loader/parser/prefab/prefabData/PrefabMeshData.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabMeshData.ts#L17)
+Defined in: [src/loader/parser/prefab/prefabData/PrefabMeshData.ts:17](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabMeshData.ts#L17)

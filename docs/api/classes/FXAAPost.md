@@ -1,103 +1,119 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: FXAAPost
+
+Defined in: [src/gfx/renderJob/post/FXAAPost.ts:17](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/FXAAPost.ts#L17)
 
 FXAA(fast approximate antialiasing)
 A deformation anti-aliasing method that pays more attention to performance. 
 It only needs one pass to get the result. FXAA focuses on fast visual anti-aliasing effect, 
 rather than pursuing perfect real anti-aliasing effect.
 
-## Hierarchy
-
-- `PostBase`
-
-  ↳ **`FXAAPost`**
-
-### Constructors
-
-- [constructor](FXAAPost.md#constructor)
-
-### Properties
-
-- [postQuad](FXAAPost.md#postquad)
-- [renderTexture](FXAAPost.md#rendertexture)
-- [enable](FXAAPost.md#enable)
-- [postRenderer](FXAAPost.md#postrenderer)
-
-### Methods
-
-- [onResize](FXAAPost.md#onresize)
-- [destroy](FXAAPost.md#destroy)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new FXAAPost**(): [`FXAAPost`](FXAAPost.md)
+> **new FXAAPost**(): `FXAAPost`
+
+Defined in: [src/gfx/renderJob/post/FXAAPost.ts:21](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/FXAAPost.ts#L21)
 
 #### Returns
 
-[`FXAAPost`](FXAAPost.md)
+`FXAAPost`
 
 #### Overrides
 
-PostBase.constructor
-
-#### Defined in
-
-[src/gfx/renderJob/post/FXAAPost.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/FXAAPost.ts#L22)
+`PostBase.constructor`
 
 ## Properties
 
 ### postQuad
 
-• **postQuad**: `ViewQuad`
+> **postQuad**: `ViewQuad`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/post/FXAAPost.ts:18](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/FXAAPost.ts#L18)
 
-[src/gfx/renderJob/post/FXAAPost.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/FXAAPost.ts#L19)
-
-___
+***
 
 ### renderTexture
 
-• **renderTexture**: `RenderTexture`
+> **renderTexture**: `RenderTexture`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/post/FXAAPost.ts:20](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/FXAAPost.ts#L20)
 
-[src/gfx/renderJob/post/FXAAPost.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/FXAAPost.ts#L21)
-
-___
+***
 
 ### enable
 
-• **enable**: `boolean` = `true`
+> **enable**: `boolean` = `true`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L23)
 
 #### Inherited from
 
-PostBase.enable
+`PostBase.enable`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/post/PostBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L20)
+### isFinalPass
 
-___
+> **isFinalPass**: `boolean` = `false`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:27](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L27)
+
+When true, PostPass iterates this post AFTER every regular
+ post regardless of attach order — used by TonemapPost so the
+ ACES curve always lands on the fully-composited HDR signal.
+
+#### Inherited from
+
+`PostBase.isFinalPass`
+
+***
 
 ### postRenderer
 
-• **postRenderer**: `PostRenderer`
+> **postRenderer**: [`PostPass`](PostPass.md)
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L28)
 
 #### Inherited from
 
-PostBase.postRenderer
+`PostBase.postRenderer`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/post/PostBase.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L21)
+### rendererPassState
+
+> **rendererPassState**: `RendererPassState`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L29)
+
+#### Inherited from
+
+`PostBase.rendererPassState`
+
+***
+
+### \_boundCtx
+
+> **\_boundCtx**: [`Context3D`](Context3D.md) = `null`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L30)
+
+#### Inherited from
+
+[`VolumetricFogPost`](VolumetricFogPost.md).[`_boundCtx`](VolumetricFogPost.md#_boundctx)
 
 ## Methods
 
-### onResize
+### onResize()
 
-▸ **onResize**(): `void`
+> **onResize**(): `void`
+
+Defined in: [src/gfx/renderJob/post/FXAAPost.ts:34](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/FXAAPost.ts#L34)
 
 #### Returns
 
@@ -105,23 +121,47 @@ PostBase.postRenderer
 
 #### Overrides
 
-PostBase.onResize
+`PostBase.onResize`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/post/FXAAPost.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/FXAAPost.ts#L33)
+### render()
 
-___
+> **render**(`view`, `command`): `void`
 
-### destroy
-
-▸ **destroy**(`force?`): `void`
+Defined in: [src/gfx/renderJob/post/FXAAPost.ts:53](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/FXAAPost.ts#L53)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
+##### view
+
+[`View3D`](View3D.md)
+
+##### command
+
+`GPUCommandEncoder`
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+`PostBase.render`
+
+***
+
+### compute()
+
+> **compute**(`view`): `void`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L133)
+
+#### Parameters
+
+##### view
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -129,8 +169,26 @@ ___
 
 #### Inherited from
 
-PostBase.destroy
+`PostBase.compute`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/post/PostBase.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L87)
+### destroy()
+
+> **destroy**(`force?`): `void`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L143)
+
+#### Parameters
+
+##### force?
+
+`boolean`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`PostBase.destroy`

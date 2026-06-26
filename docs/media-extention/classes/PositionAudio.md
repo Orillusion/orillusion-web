@@ -1,729 +1,406 @@
+[**@orillusion/media-extention**](../README.md)
+
+***
+
 # Class: PositionAudio
+
+Defined in: [packages/media-extention/PositionAudio.ts:8](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L8)
 
 Dynamic audio component, with volume varying based on the relative position of the monitor
 
-## Hierarchy
+## Extends
 
 - [`StaticAudio`](StaticAudio.md)
 
-  ↳ **`PositionAudio`**
-
-### Constructors
-
-- [constructor](PositionAudio.md#constructor)
-
-### Properties
-
-- [panner](PositionAudio.md#panner)
-- [context](PositionAudio.md#context)
-- [gainNode](PositionAudio.md#gainnode)
-- [source](PositionAudio.md#source)
-- [playing](PositionAudio.md#playing)
-- [object3D](PositionAudio.md#object3d)
-- [isDestroyed](PositionAudio.md#isdestroyed)
-
-### Accessors
-
-- [refDistance](PositionAudio.md#refdistance)
-- [rolloffFactor](PositionAudio.md#rollofffactor)
-- [distanceModel](PositionAudio.md#distancemodel)
-- [maxDistance](PositionAudio.md#maxdistance)
-- [eventDispatcher](PositionAudio.md#eventdispatcher)
-- [isStart](PositionAudio.md#isstart)
-- [transform](PositionAudio.md#transform)
-- [enable](PositionAudio.md#enable)
-
-### Methods
-
-- [setLisenter](PositionAudio.md#setlisenter)
-- [showHelper](PositionAudio.md#showhelper)
-- [hideHelper](PositionAudio.md#hidehelper)
-- [toggleHelper](PositionAudio.md#togglehelper)
-- [updateHeler](PositionAudio.md#updateheler)
-- [setDirectionalCone](PositionAudio.md#setdirectionalcone)
-- [start](PositionAudio.md#start)
-- [stop](PositionAudio.md#stop)
-- [onUpdate](PositionAudio.md#onupdate)
-- [destroy](PositionAudio.md#destroy)
-- [load](PositionAudio.md#load)
-- [loadBuffer](PositionAudio.md#loadbuffer)
-- [play](PositionAudio.md#play)
-- [pause](PositionAudio.md#pause)
-- [setVolume](PositionAudio.md#setvolume)
-- [init](PositionAudio.md#init)
-- [onEnable](PositionAudio.md#onenable)
-- [onDisable](PositionAudio.md#ondisable)
-- [onLateUpdate](PositionAudio.md#onlateupdate)
-- [onBeforeUpdate](PositionAudio.md#onbeforeupdate)
-- [onCompute](PositionAudio.md#oncompute)
-- [onGraphic](PositionAudio.md#ongraphic)
-- [onParentChange](PositionAudio.md#onparentchange)
-- [onAddChild](PositionAudio.md#onaddchild)
-- [onRemoveChild](PositionAudio.md#onremovechild)
-- [cloneTo](PositionAudio.md#cloneto)
-- [copyComponent](PositionAudio.md#copycomponent)
-- [beforeDestroy](PositionAudio.md#beforedestroy)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new PositionAudio**(): [`PositionAudio`](PositionAudio.md)
+> **new PositionAudio**(): `PositionAudio`
+
+Defined in: [packages/media-extention/PositionAudio.ts:14](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L14)
 
 #### Returns
 
-[`PositionAudio`](PositionAudio.md)
+`PositionAudio`
 
 #### Overrides
 
-[StaticAudio](StaticAudio.md).[constructor](StaticAudio.md#constructor)
-
-#### Defined in
-
-[packages/media-extention/PositionAudio.ts:14](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L14)
+[`StaticAudio`](StaticAudio.md).[`constructor`](StaticAudio.md#constructor)
 
 ## Properties
 
-### panner
-
-• **panner**: `PannerNode`
-
-#### Defined in
-
-[packages/media-extention/PositionAudio.ts:9](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L9)
-
-___
-
-### context
-
-• **context**: `AudioContext` = `null`
-
-#### Inherited from
-
-[StaticAudio](StaticAudio.md).[context](StaticAudio.md#context)
-
-#### Defined in
-
-[packages/media-extention/StaticAudio.ts:9](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/StaticAudio.ts#L9)
-
-___
-
-### gainNode
-
-• **gainNode**: `GainNode` = `null`
-
-#### Inherited from
-
-[StaticAudio](StaticAudio.md).[gainNode](StaticAudio.md#gainnode)
-
-#### Defined in
-
-[packages/media-extention/StaticAudio.ts:10](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/StaticAudio.ts#L10)
-
-___
-
-### source
-
-• **source**: `AudioBufferSourceNode` = `null`
-
-#### Inherited from
-
-[StaticAudio](StaticAudio.md).[source](StaticAudio.md#source)
-
-#### Defined in
-
-[packages/media-extention/StaticAudio.ts:11](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/StaticAudio.ts#L11)
-
-___
-
-### playing
-
-• **playing**: `boolean` = `false`
-
-#### Inherited from
-
-[StaticAudio](StaticAudio.md).[playing](StaticAudio.md#playing)
-
-#### Defined in
-
-[packages/media-extention/StaticAudio.ts:16](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/StaticAudio.ts#L16)
-
-___
-
 ### object3D
 
-• **object3D**: `Object3D` = `null`
+> **object3D**: `Object3D` = `null`
+
+Defined in: [src/components/ComponentBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L29)
 
 owner object3D
 
 #### Inherited from
 
-[StaticAudio](StaticAudio.md).[object3D](StaticAudio.md#object3d)
+[`StaticAudio`](StaticAudio.md).[`object3D`](StaticAudio.md#object3d)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
-
-___
+***
 
 ### isDestroyed
 
-• `Optional` **isDestroyed**: `boolean`
+> **isDestroyed**: `boolean` = `false`
+
+Defined in: [src/components/ComponentBase.ts:77](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L77)
 
 #### Inherited from
 
-[StaticAudio](StaticAudio.md).[isDestroyed](StaticAudio.md#isdestroyed)
+[`StaticAudio`](StaticAudio.md).[`isDestroyed`](StaticAudio.md#isdestroyed)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
+### panner
+
+> **panner**: `PannerNode`
+
+Defined in: [packages/media-extention/PositionAudio.ts:9](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L9)
+
+***
+
+### context
+
+> **context**: `AudioContext` = `null`
+
+Defined in: [packages/media-extention/StaticAudio.ts:9](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/StaticAudio.ts#L9)
+
+#### Inherited from
+
+[`StaticAudio`](StaticAudio.md).[`context`](StaticAudio.md#context)
+
+***
+
+### gainNode
+
+> **gainNode**: `GainNode` = `null`
+
+Defined in: [packages/media-extention/StaticAudio.ts:10](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/StaticAudio.ts#L10)
+
+#### Inherited from
+
+[`StaticAudio`](StaticAudio.md).[`gainNode`](StaticAudio.md#gainnode)
+
+***
+
+### source
+
+> **source**: `AudioBufferSourceNode` = `null`
+
+Defined in: [packages/media-extention/StaticAudio.ts:11](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/StaticAudio.ts#L11)
+
+#### Inherited from
+
+[`StaticAudio`](StaticAudio.md).[`source`](StaticAudio.md#source)
+
+***
+
+### playing
+
+> **playing**: `boolean` = `false`
+
+Defined in: [packages/media-extention/StaticAudio.ts:16](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/StaticAudio.ts#L16)
+
+#### Inherited from
+
+[`StaticAudio`](StaticAudio.md).[`playing`](StaticAudio.md#playing)
 
 ## Accessors
 
-### refDistance
+### visibleLayer
 
-• `get` **refDistance**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **visibleLayer**(): `number`
 
-`number`
+Defined in: [src/components/ComponentBase.ts:46](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L46)
 
-#### Defined in
+Composition-layer membership bitmask. The pass / camera /
+collector filters via
 
-[packages/media-extention/PositionAudio.ts:99](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L99)
+    (component.visibleLayer & pass.layerMask & camera.cullingMask) !== 0
 
-• `set` **refDistance**(`value`): `void`
+Defaults to VisibleLayer.Default (bit 0) so a fresh
+subclass is visible to passes whose `layerMask` is
+VisibleLayer.All (which includes bit 0). Application code
+can assign project-specific bits (1..31) to organise the scene
+into composition layers.
 
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/media-extention/PositionAudio.ts:102](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L102)
-
-___
-
-### rolloffFactor
-
-• `get` **rolloffFactor**(): `number`
-
-#### Returns
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[packages/media-extention/PositionAudio.ts:108](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L108)
+> **set** **visibleLayer**(`value`): `void`
 
-• `set` **rolloffFactor**(`value`): `void`
+Defined in: [src/components/ComponentBase.ts:50](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L50)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/media-extention/PositionAudio.ts:111](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L111)
-
-___
-
-### distanceModel
-
-• `get` **distanceModel**(): `DistanceModelType`
-
-#### Returns
-
-`DistanceModelType`
-
-#### Defined in
-
-[packages/media-extention/PositionAudio.ts:114](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L114)
-
-• `set` **distanceModel**(`value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `DistanceModelType` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/media-extention/PositionAudio.ts:117](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L117)
-
-___
-
-### maxDistance
-
-• `get` **maxDistance**(): `number`
-
-#### Returns
+###### value
 
 `number`
 
-#### Defined in
-
-[packages/media-extention/PositionAudio.ts:120](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L120)
-
-• `set` **maxDistance**(`value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
+##### Returns
 
 `void`
 
-#### Defined in
+#### Inherited from
 
-[packages/media-extention/PositionAudio.ts:123](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L123)
+[`StaticAudio`](StaticAudio.md).[`visibleLayer`](StaticAudio.md#visiblelayer)
 
-___
+***
 
 ### eventDispatcher
 
-• `get` **eventDispatcher**(): `CEventDispatcher`
+#### Get Signature
 
-#### Returns
+> **get** **eventDispatcher**(): `CEventDispatcher`
+
+Defined in: [src/components/ComponentBase.ts:63](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L63)
+
+##### Returns
 
 `CEventDispatcher`
 
-#### Inherited from
+#### Set Signature
 
-StaticAudio.eventDispatcher
+> **set** **eventDispatcher**(`value`): `void`
 
-#### Defined in
+Defined in: [src/components/ComponentBase.ts:68](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
 
-[src/components/ComponentBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L23)
+##### Parameters
 
-• `set` **eventDispatcher**(`value`): `void`
+###### value
 
-#### Parameters
+`CEventDispatcher`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `CEventDispatcher` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-StaticAudio.eventDispatcher
+[`StaticAudio`](StaticAudio.md).[`eventDispatcher`](StaticAudio.md#eventdispatcher)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L28)
-
-___
+***
 
 ### isStart
 
-• `get` **isStart**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **isStart**(): `boolean`
+
+Defined in: [src/components/ComponentBase.ts:79](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L79)
+
+##### Returns
 
 `boolean`
 
 #### Inherited from
 
-StaticAudio.isStart
+[`StaticAudio`](StaticAudio.md).[`isStart`](StaticAudio.md#isstart)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L40)
-
-___
+***
 
 ### transform
 
-• `get` **transform**(): `Transform`
+#### Get Signature
+
+> **get** **transform**(): `Transform`
+
+Defined in: [src/components/ComponentBase.ts:89](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L89)
 
 Return the Transform component attached to the Object3D.
+Null before the component is attached — `addComponent` assigns
+`object3D` only after construction — so constructor-time callers
+can probe safely via `this.transform?.`.
 
-#### Returns
+##### Returns
 
 `Transform`
 
 #### Inherited from
 
-StaticAudio.transform
+[`StaticAudio`](StaticAudio.md).[`transform`](StaticAudio.md#transform)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L47)
-
-___
+***
 
 ### enable
 
-• `get` **enable**(): `boolean`
+#### Get Signature
+
+> **get** **enable**(): `boolean`
+
+Defined in: [src/components/ComponentBase.ts:113](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
-#### Returns
+##### Returns
 
 `boolean`
 
-#### Inherited from
+#### Set Signature
 
-StaticAudio.enable
+> **set** **enable**(`value`): `void`
 
-#### Defined in
-
-[src/components/ComponentBase.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
-
-• `set` **enable**(`value`): `void`
+Defined in: [src/components/ComponentBase.ts:96](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L96)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
+###### value
 
-#### Returns
+`boolean`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-StaticAudio.enable
+[`StaticAudio`](StaticAudio.md).[`enable`](StaticAudio.md#enable)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L54)
+### refDistance
+
+#### Get Signature
+
+> **get** **refDistance**(): `number`
+
+Defined in: [packages/media-extention/PositionAudio.ts:99](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L99)
+
+##### Returns
+
+`number`
+
+#### Set Signature
+
+> **set** **refDistance**(`value`): `void`
+
+Defined in: [packages/media-extention/PositionAudio.ts:102](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L102)
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
+
+`void`
+
+***
+
+### rolloffFactor
+
+#### Get Signature
+
+> **get** **rolloffFactor**(): `number`
+
+Defined in: [packages/media-extention/PositionAudio.ts:108](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L108)
+
+##### Returns
+
+`number`
+
+#### Set Signature
+
+> **set** **rolloffFactor**(`value`): `void`
+
+Defined in: [packages/media-extention/PositionAudio.ts:111](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L111)
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
+
+`void`
+
+***
+
+### distanceModel
+
+#### Get Signature
+
+> **get** **distanceModel**(): `DistanceModelType`
+
+Defined in: [packages/media-extention/PositionAudio.ts:114](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L114)
+
+##### Returns
+
+`DistanceModelType`
+
+#### Set Signature
+
+> **set** **distanceModel**(`value`): `void`
+
+Defined in: [packages/media-extention/PositionAudio.ts:117](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L117)
+
+##### Parameters
+
+###### value
+
+`DistanceModelType`
+
+##### Returns
+
+`void`
+
+***
+
+### maxDistance
+
+#### Get Signature
+
+> **get** **maxDistance**(): `number`
+
+Defined in: [packages/media-extention/PositionAudio.ts:120](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L120)
+
+##### Returns
+
+`number`
+
+#### Set Signature
+
+> **set** **maxDistance**(`value`): `void`
+
+Defined in: [packages/media-extention/PositionAudio.ts:123](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L123)
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
+
+`void`
 
 ## Methods
 
-### setLisenter
+### init()
 
-▸ **setLisenter**(`listener`): `this`
+> **init**(`param?`): `void`
 
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `listener` | [`AudioListener`](AudioListener.md) |
-
-#### Returns
-
-`this`
-
-#### Overrides
-
-[StaticAudio](StaticAudio.md).[setLisenter](StaticAudio.md#setlisenter)
-
-#### Defined in
-
-[packages/media-extention/PositionAudio.ts:17](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L17)
-
-___
-
-### showHelper
-
-▸ **showHelper**(`thickness?`, `step?`): `void`
+Defined in: [src/components/ComponentBase.ts:161](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L161)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `thickness?` | `number` |
-| `step?` | `number` |
+##### param?
 
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/media-extention/PositionAudio.ts:24](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L24)
-
-___
-
-### hideHelper
-
-▸ **hideHelper**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/media-extention/PositionAudio.ts:78](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L78)
-
-___
-
-### toggleHelper
-
-▸ **toggleHelper**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/media-extention/PositionAudio.ts:87](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L87)
-
-___
-
-### updateHeler
-
-▸ **updateHeler**(): `void`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/media-extention/PositionAudio.ts:95](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L95)
-
-___
-
-### setDirectionalCone
-
-▸ **setDirectionalCone**(`coneInnerAngle`, `coneOuterAngle`, `coneOuterGain`): [`PositionAudio`](PositionAudio.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `coneInnerAngle` | `number` |
-| `coneOuterAngle` | `number` |
-| `coneOuterGain` | `number` |
-
-#### Returns
-
-[`PositionAudio`](PositionAudio.md)
-
-#### Defined in
-
-[packages/media-extention/PositionAudio.ts:130](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L130)
-
-___
-
-### start
-
-▸ **start**(): `void`
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-[StaticAudio](StaticAudio.md).[start](StaticAudio.md#start)
-
-#### Defined in
-
-[packages/media-extention/PositionAudio.ts:142](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L142)
-
-___
-
-### stop
-
-▸ **stop**(): `this`
-
-#### Returns
-
-`this`
-
-#### Overrides
-
-[StaticAudio](StaticAudio.md).[stop](StaticAudio.md#stop)
-
-#### Defined in
-
-[packages/media-extention/PositionAudio.ts:144](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L144)
-
-___
-
-### onUpdate
-
-▸ **onUpdate**(): `void`
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-[StaticAudio](StaticAudio.md).[onUpdate](StaticAudio.md#onupdate)
-
-#### Defined in
-
-[packages/media-extention/PositionAudio.ts:147](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L147)
-
-___
-
-### destroy
-
-▸ **destroy**(`force?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-[StaticAudio](StaticAudio.md).[destroy](StaticAudio.md#destroy)
-
-#### Defined in
-
-[packages/media-extention/PositionAudio.ts:170](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L170)
-
-___
-
-### load
-
-▸ **load**(`url`, `options?`): `Promise`\<`void`\>
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `url` | `string` |
-| `options` | `Object` |
-
-#### Returns
-
-`Promise`\<`void`\>
-
-#### Inherited from
-
-[StaticAudio](StaticAudio.md).[load](StaticAudio.md#load)
-
-#### Defined in
-
-[packages/media-extention/StaticAudio.ts:40](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/StaticAudio.ts#L40)
-
-___
-
-### loadBuffer
-
-▸ **loadBuffer**(`buffer`, `options?`): `Promise`\<`void`\>
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `buffer` | `ArrayBuffer` |
-| `options` | `Object` |
-
-#### Returns
-
-`Promise`\<`void`\>
-
-#### Inherited from
-
-[StaticAudio](StaticAudio.md).[loadBuffer](StaticAudio.md#loadbuffer)
-
-#### Defined in
-
-[packages/media-extention/StaticAudio.ts:46](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/StaticAudio.ts#L46)
-
-___
-
-### play
-
-▸ **play**(): `this`
-
-#### Returns
-
-`this`
-
-#### Inherited from
-
-[StaticAudio](StaticAudio.md).[play](StaticAudio.md#play)
-
-#### Defined in
-
-[packages/media-extention/StaticAudio.ts:55](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/StaticAudio.ts#L55)
-
-___
-
-### pause
-
-▸ **pause**(): `this`
-
-#### Returns
-
-`this`
-
-#### Inherited from
-
-[StaticAudio](StaticAudio.md).[pause](StaticAudio.md#pause)
-
-#### Defined in
-
-[packages/media-extention/StaticAudio.ts:78](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/StaticAudio.ts#L78)
-
-___
-
-### setVolume
-
-▸ **setVolume**(`value`): `this`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
-
-`this`
-
-#### Inherited from
-
-[StaticAudio](StaticAudio.md).[setVolume](StaticAudio.md#setvolume)
-
-#### Defined in
-
-[packages/media-extention/StaticAudio.ts:94](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/StaticAudio.ts#L94)
-
-___
-
-### init
-
-▸ **init**(`param?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `param?` | `any` |
+`any`
 
 #### Returns
 
@@ -731,23 +408,21 @@ ___
 
 #### Inherited from
 
-[StaticAudio](StaticAudio.md).[init](StaticAudio.md#init)
+[`StaticAudio`](StaticAudio.md).[`init`](StaticAudio.md#init)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L112)
+### onEnable()?
 
-___
+> `optional` **onEnable**(`view?`): `any`
 
-### onEnable
-
-▸ **onEnable**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:164](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L164)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
+##### view?
+
+`View3D`
 
 #### Returns
 
@@ -755,23 +430,21 @@ ___
 
 #### Inherited from
 
-[StaticAudio](StaticAudio.md).[onEnable](StaticAudio.md#onenable)
+[`StaticAudio`](StaticAudio.md).[`onEnable`](StaticAudio.md#onenable)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L115)
+### onDisable()?
 
-___
+> `optional` **onDisable**(`view?`): `any`
 
-### onDisable
-
-▸ **onDisable**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:165](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L165)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
+##### view?
+
+`View3D`
 
 #### Returns
 
@@ -779,23 +452,21 @@ ___
 
 #### Inherited from
 
-[StaticAudio](StaticAudio.md).[onDisable](StaticAudio.md#ondisable)
+[`StaticAudio`](StaticAudio.md).[`onDisable`](StaticAudio.md#ondisable)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L116)
+### onLateUpdate()?
 
-___
+> `optional` **onLateUpdate**(`view?`): `any`
 
-### onLateUpdate
-
-▸ **onLateUpdate**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:167](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L167)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
+##### view?
+
+`View3D`
 
 #### Returns
 
@@ -803,23 +474,21 @@ ___
 
 #### Inherited from
 
-[StaticAudio](StaticAudio.md).[onLateUpdate](StaticAudio.md#onlateupdate)
+[`StaticAudio`](StaticAudio.md).[`onLateUpdate`](StaticAudio.md#onlateupdate)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L118)
+### onBeforeUpdate()?
 
-___
+> `optional` **onBeforeUpdate**(`view?`): `any`
 
-### onBeforeUpdate
-
-▸ **onBeforeUpdate**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:168](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L168)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
+##### view?
+
+`View3D`
 
 #### Returns
 
@@ -827,24 +496,25 @@ ___
 
 #### Inherited from
 
-[StaticAudio](StaticAudio.md).[onBeforeUpdate](StaticAudio.md#onbeforeupdate)
+[`StaticAudio`](StaticAudio.md).[`onBeforeUpdate`](StaticAudio.md#onbeforeupdate)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L119)
+### onCompute()?
 
-___
+> `optional` **onCompute**(`view?`, `command?`): `any`
 
-### onCompute
-
-▸ **onCompute**(`view?`, `command?`): `any`
+Defined in: [src/components/ComponentBase.ts:169](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L169)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
-| `command?` | `GPUCommandEncoder` |
+##### view?
+
+`View3D`
+
+##### command?
+
+`GPUCommandEncoder`
 
 #### Returns
 
@@ -852,23 +522,21 @@ ___
 
 #### Inherited from
 
-[StaticAudio](StaticAudio.md).[onCompute](StaticAudio.md#oncompute)
+[`StaticAudio`](StaticAudio.md).[`onCompute`](StaticAudio.md#oncompute)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L120)
+### onGraphic()?
 
-___
+> `optional` **onGraphic**(`view?`): `any`
 
-### onGraphic
-
-▸ **onGraphic**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:170](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L170)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
+##### view?
+
+`View3D`
 
 #### Returns
 
@@ -876,24 +544,25 @@ ___
 
 #### Inherited from
 
-[StaticAudio](StaticAudio.md).[onGraphic](StaticAudio.md#ongraphic)
+[`StaticAudio`](StaticAudio.md).[`onGraphic`](StaticAudio.md#ongraphic)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L121)
+### onParentChange()?
 
-___
+> `optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
-### onParentChange
-
-▸ **onParentChange**(`lastParent?`, `currentParent?`): `any`
+Defined in: [src/components/ComponentBase.ts:171](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L171)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `lastParent?` | `Object3D` |
-| `currentParent?` | `Object3D` |
+##### lastParent?
+
+`Object3D`
+
+##### currentParent?
+
+`Object3D`
 
 #### Returns
 
@@ -901,23 +570,21 @@ ___
 
 #### Inherited from
 
-[StaticAudio](StaticAudio.md).[onParentChange](StaticAudio.md#onparentchange)
+[`StaticAudio`](StaticAudio.md).[`onParentChange`](StaticAudio.md#onparentchange)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L122)
+### onAddChild()?
 
-___
+> `optional` **onAddChild**(`child`): `any`
 
-### onAddChild
-
-▸ **onAddChild**(`child`): `any`
+Defined in: [src/components/ComponentBase.ts:172](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L172)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `child` | `Object3D` |
+##### child
+
+`Object3D`
 
 #### Returns
 
@@ -925,23 +592,21 @@ ___
 
 #### Inherited from
 
-[StaticAudio](StaticAudio.md).[onAddChild](StaticAudio.md#onaddchild)
+[`StaticAudio`](StaticAudio.md).[`onAddChild`](StaticAudio.md#onaddchild)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L123)
+### onRemoveChild()?
 
-___
+> `optional` **onRemoveChild**(`child`): `any`
 
-### onRemoveChild
-
-▸ **onRemoveChild**(`child`): `any`
+Defined in: [src/components/ComponentBase.ts:173](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L173)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `child` | `Object3D` |
+##### child
+
+`Object3D`
 
 #### Returns
 
@@ -949,25 +614,25 @@ ___
 
 #### Inherited from
 
-[StaticAudio](StaticAudio.md).[onRemoveChild](StaticAudio.md#onremovechild)
+[`StaticAudio`](StaticAudio.md).[`onRemoveChild`](StaticAudio.md#onremovechild)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L124)
+### cloneTo()
 
-___
+> **cloneTo**(`obj`): `void`
 
-### cloneTo
-
-▸ **cloneTo**(`obj`): `void`
+Defined in: [src/components/ComponentBase.ts:180](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L180)
 
 clone component data to target object3D
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `obj` | `Object3D` | target object3D |
+##### obj
+
+`Object3D`
+
+target object3D
 
 #### Returns
 
@@ -975,23 +640,21 @@ clone component data to target object3D
 
 #### Inherited from
 
-[StaticAudio](StaticAudio.md).[cloneTo](StaticAudio.md#cloneto)
+[`StaticAudio`](StaticAudio.md).[`cloneTo`](StaticAudio.md#cloneto)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L131)
+### copyComponent()
 
-___
+> **copyComponent**(`from`): `this`
 
-### copyComponent
-
-▸ **copyComponent**(`from`): `this`
+Defined in: [src/components/ComponentBase.ts:182](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L182)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `from` | `this` |
+##### from
+
+`this`
 
 #### Returns
 
@@ -999,25 +662,23 @@ ___
 
 #### Inherited from
 
-[StaticAudio](StaticAudio.md).[copyComponent](StaticAudio.md#copycomponent)
+[`StaticAudio`](StaticAudio.md).[`copyComponent`](StaticAudio.md#copycomponent)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L133)
+### beforeDestroy()
 
-___
+> **beforeDestroy**(`force?`): `void`
 
-### beforeDestroy
-
-▸ **beforeDestroy**(`force?`): `void`
+Defined in: [src/components/ComponentBase.ts:249](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L249)
 
 before release this component, object refrences are not be set null now.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
+##### force?
+
+`boolean`
 
 #### Returns
 
@@ -1025,8 +686,284 @@ before release this component, object refrences are not be set null now.
 
 #### Inherited from
 
-[StaticAudio](StaticAudio.md).[beforeDestroy](StaticAudio.md#beforedestroy)
+[`StaticAudio`](StaticAudio.md).[`beforeDestroy`](StaticAudio.md#beforedestroy)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L200)
+### setLisenter()
+
+> **setLisenter**(`listener`): `this`
+
+Defined in: [packages/media-extention/PositionAudio.ts:17](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L17)
+
+#### Parameters
+
+##### listener
+
+[`AudioListener`](AudioListener.md)
+
+#### Returns
+
+`this`
+
+#### Overrides
+
+[`StaticAudio`](StaticAudio.md).[`setLisenter`](StaticAudio.md#setlisenter)
+
+***
+
+### showHelper()
+
+> **showHelper**(`thickness?`, `step?`): `void`
+
+Defined in: [packages/media-extention/PositionAudio.ts:24](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L24)
+
+#### Parameters
+
+##### thickness?
+
+`number`
+
+##### step?
+
+`number`
+
+#### Returns
+
+`void`
+
+***
+
+### hideHelper()
+
+> **hideHelper**(): `void`
+
+Defined in: [packages/media-extention/PositionAudio.ts:78](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L78)
+
+#### Returns
+
+`void`
+
+***
+
+### toggleHelper()
+
+> **toggleHelper**(): `void`
+
+Defined in: [packages/media-extention/PositionAudio.ts:87](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L87)
+
+#### Returns
+
+`void`
+
+***
+
+### updateHeler()
+
+> **updateHeler**(): `void`
+
+Defined in: [packages/media-extention/PositionAudio.ts:95](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L95)
+
+#### Returns
+
+`void`
+
+***
+
+### setDirectionalCone()
+
+> **setDirectionalCone**(`coneInnerAngle`, `coneOuterAngle`, `coneOuterGain`): `PositionAudio`
+
+Defined in: [packages/media-extention/PositionAudio.ts:130](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L130)
+
+#### Parameters
+
+##### coneInnerAngle
+
+`number`
+
+##### coneOuterAngle
+
+`number`
+
+##### coneOuterGain
+
+`number`
+
+#### Returns
+
+`PositionAudio`
+
+***
+
+### start()
+
+> **start**(): `void`
+
+Defined in: [packages/media-extention/PositionAudio.ts:142](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L142)
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+[`StaticAudio`](StaticAudio.md).[`start`](StaticAudio.md#start)
+
+***
+
+### stop()
+
+> **stop**(): `this`
+
+Defined in: [packages/media-extention/PositionAudio.ts:144](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L144)
+
+#### Returns
+
+`this`
+
+#### Overrides
+
+[`StaticAudio`](StaticAudio.md).[`stop`](StaticAudio.md#stop)
+
+***
+
+### onUpdate()
+
+> **onUpdate**(): `void`
+
+Defined in: [packages/media-extention/PositionAudio.ts:147](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L147)
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+[`StaticAudio`](StaticAudio.md).[`onUpdate`](StaticAudio.md#onupdate)
+
+***
+
+### destroy()
+
+> **destroy**(`force?`): `void`
+
+Defined in: [packages/media-extention/PositionAudio.ts:170](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/PositionAudio.ts#L170)
+
+release this component
+
+#### Parameters
+
+##### force?
+
+`boolean`
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+[`StaticAudio`](StaticAudio.md).[`destroy`](StaticAudio.md#destroy)
+
+***
+
+### load()
+
+> **load**(`url`, `options?`): `Promise`\<`void`\>
+
+Defined in: [packages/media-extention/StaticAudio.ts:40](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/StaticAudio.ts#L40)
+
+#### Parameters
+
+##### url
+
+`string`
+
+##### options?
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Inherited from
+
+[`StaticAudio`](StaticAudio.md).[`load`](StaticAudio.md#load)
+
+***
+
+### loadBuffer()
+
+> **loadBuffer**(`buffer`, `options?`): `Promise`\<`void`\>
+
+Defined in: [packages/media-extention/StaticAudio.ts:46](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/StaticAudio.ts#L46)
+
+#### Parameters
+
+##### buffer
+
+`ArrayBuffer`
+
+##### options?
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Inherited from
+
+[`StaticAudio`](StaticAudio.md).[`loadBuffer`](StaticAudio.md#loadbuffer)
+
+***
+
+### play()
+
+> **play**(): `this`
+
+Defined in: [packages/media-extention/StaticAudio.ts:55](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/StaticAudio.ts#L55)
+
+#### Returns
+
+`this`
+
+#### Inherited from
+
+[`StaticAudio`](StaticAudio.md).[`play`](StaticAudio.md#play)
+
+***
+
+### pause()
+
+> **pause**(): `this`
+
+Defined in: [packages/media-extention/StaticAudio.ts:78](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/StaticAudio.ts#L78)
+
+#### Returns
+
+`this`
+
+#### Inherited from
+
+[`StaticAudio`](StaticAudio.md).[`pause`](StaticAudio.md#pause)
+
+***
+
+### setVolume()
+
+> **setVolume**(`value`): `this`
+
+Defined in: [packages/media-extention/StaticAudio.ts:94](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/StaticAudio.ts#L94)
+
+#### Parameters
+
+##### value
+
+`number`
+
+#### Returns
+
+`this`
+
+#### Inherited from
+
+[`StaticAudio`](StaticAudio.md).[`setVolume`](StaticAudio.md#setvolume)

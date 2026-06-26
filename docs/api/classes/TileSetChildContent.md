@@ -1,51 +1,41 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: TileSetChildContent
 
-### Constructors
-
-- [constructor](TileSetChildContent.md#constructor)
-
-### Properties
-
-- [uri](TileSetChildContent.md#uri)
-- [group](TileSetChildContent.md#group)
-- [metadata](TileSetChildContent.md#metadata)
+Defined in: [src/loader/parser/tileRenderer/TileSet.ts:25](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L25)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new TileSetChildContent**(): [`TileSetChildContent`](TileSetChildContent.md)
+> **new TileSetChildContent**(): `TileSetChildContent`
 
 #### Returns
 
-[`TileSetChildContent`](TileSetChildContent.md)
+`TileSetChildContent`
 
 ## Properties
 
 ### uri
 
-• **uri**: `string`
+> **uri**: `string`
 
-#### Defined in
+Defined in: [src/loader/parser/tileRenderer/TileSet.ts:26](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L26)
 
-[src/loader/parser/tileRenderer/TileSet.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L26)
-
-___
+***
 
 ### group
 
-• **group**: `number`
+> **group**: `number`
 
-#### Defined in
+Defined in: [src/loader/parser/tileRenderer/TileSet.ts:27](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L27)
 
-[src/loader/parser/tileRenderer/TileSet.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L27)
-
-___
+***
 
 ### metadata
 
-• **metadata**: [`TileSetChildContentMetaData`](TileSetChildContentMetaData.md)
+> **metadata**: [`TileSetChildContentMetaData`](TileSetChildContentMetaData.md)
 
-#### Defined in
-
-[src/loader/parser/tileRenderer/TileSet.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L28)
+Defined in: [src/loader/parser/tileRenderer/TileSet.ts:28](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L28)

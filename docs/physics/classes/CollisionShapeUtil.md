@@ -1,460 +1,559 @@
+[**@orillusion/physics**](../README.md)
+
+***
+
 # Class: CollisionShapeUtil
 
+Defined in: [packages/physics/utils/CollisionShapeUtil.ts:15](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L15)
+
 CollisionShapeUtil
-提供多种碰撞体构建功能
-
-### Constructors
-
-- [constructor](CollisionShapeUtil.md#constructor)
-
-### Methods
-
-- [createStaticPlaneShape](CollisionShapeUtil.md#createstaticplaneshape)
-- [createBoxShape](CollisionShapeUtil.md#createboxshape)
-- [createSphereShape](CollisionShapeUtil.md#createsphereshape)
-- [createCapsuleShape](CollisionShapeUtil.md#createcapsuleshape)
-- [createCylinderShape](CollisionShapeUtil.md#createcylindershape)
-- [createConeShape](CollisionShapeUtil.md#createconeshape)
-- [createCompoundShape](CollisionShapeUtil.md#createcompoundshape)
-- [createCompoundShapeFromObject](CollisionShapeUtil.md#createcompoundshapefromobject)
-- [createShapeFromObject](CollisionShapeUtil.md#createshapefromobject)
-- [createHeightfieldTerrainShape](CollisionShapeUtil.md#createheightfieldterrainshape)
-- [createConvexHullShape](CollisionShapeUtil.md#createconvexhullshape)
-- [createConvexTriangleMeshShape](CollisionShapeUtil.md#createconvextrianglemeshshape)
-- [createBvhTriangleMeshShape](CollisionShapeUtil.md#createbvhtrianglemeshshape)
-- [createGImpactMeshShape](CollisionShapeUtil.md#creategimpactmeshshape)
-- [buildTriangleMesh](CollisionShapeUtil.md#buildtrianglemesh)
-- [getAllMeshVerticesAndIndices](CollisionShapeUtil.md#getallmeshverticesandindices)
+Provides utilities for building various collision shapes.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new CollisionShapeUtil**(): [`CollisionShapeUtil`](CollisionShapeUtil.md)
+> **new CollisionShapeUtil**(): `CollisionShapeUtil`
 
 #### Returns
 
-[`CollisionShapeUtil`](CollisionShapeUtil.md)
+`CollisionShapeUtil`
 
 ## Methods
 
-### createStaticPlaneShape
+### createStaticPlaneShape()
 
-▸ **createStaticPlaneShape**(`planeNormal?`, `planeConstant?`): [`btStaticPlaneShape`](Ammo.btStaticPlaneShape.md)
+> `static` **createStaticPlaneShape**(`planeNormal?`, `planeConstant?`): [`btStaticPlaneShape`](../@orillusion/namespaces/Ammo/classes/btStaticPlaneShape.md)
 
-创建静态平面碰撞形状，适用于静态无限平面的碰撞，如地面或墙壁。
+Defined in: [packages/physics/utils/CollisionShapeUtil.ts:22](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L22)
 
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `planeNormal` | `Vector3` | `Vector3.UP` | 平面法向量，默认值为 Vector3.UP。 |
-| `planeConstant` | `number` | `0` | 平面常数，表示平面距离原点的距离，默认值为 0。 |
-
-#### Returns
-
-[`btStaticPlaneShape`](Ammo.btStaticPlaneShape.md)
-
-Ammo.btStaticPlaneShape - 静态平面碰撞形状实例。
-
-#### Defined in
-
-[packages/physics/utils/CollisionShapeUtil.ts:22](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L22)
-
-___
-
-### createBoxShape
-
-▸ **createBoxShape**(`object3D`, `size?`): [`btBoxShape`](Ammo.btBoxShape.md)
-
-创建盒型碰撞形状，适用于具有明确尺寸的盒形物体。
-如果未指定尺寸，则使用三维对象的包围盒大小。
+Creates a static plane collision shape, suitable for static infinite planes such as the ground or walls.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `object3D` | `Object3D` | 用于创建碰撞体的三维对象。 |
-| `size?` | `Vector3` | 可选参数，盒型碰撞体的尺寸。 |
+##### planeNormal?
+
+`Vector3` = `Vector3.UP`
+
+The plane normal vector. Defaults to Vector3.UP.
+
+##### planeConstant?
+
+`number` = `0`
+
+The plane constant, representing the distance from the plane to the origin. Defaults to 0.
 
 #### Returns
 
-[`btBoxShape`](Ammo.btBoxShape.md)
+[`btStaticPlaneShape`](../@orillusion/namespaces/Ammo/classes/btStaticPlaneShape.md)
 
-Ammo.btBoxShape - 盒型碰撞形状实例。
+Ammo.btStaticPlaneShape - The static plane collision shape instance.
 
-#### Defined in
+***
 
-[packages/physics/utils/CollisionShapeUtil.ts:36](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L36)
+### createBoxShape()
 
-___
+> `static` **createBoxShape**(`object3D`, `size?`): [`btBoxShape`](../@orillusion/namespaces/Ammo/classes/btBoxShape.md)
 
-### createSphereShape
+Defined in: [packages/physics/utils/CollisionShapeUtil.ts:36](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L36)
 
-▸ **createSphereShape**(`object3D`, `radius?`): [`btSphereShape`](Ammo.btSphereShape.md)
-
-创建球型碰撞形状，适用于球形物体。
-如果未指定半径，则使用三维对象的包围盒半径 `X`。
+Creates a box collision shape, suitable for box-shaped objects with well-defined dimensions.
+If no size is specified, the bounding box size of the 3D object is used.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `object3D` | `Object3D` | 用于创建碰撞体的三维对象。 |
-| `radius?` | `number` | 可选参数，球型碰撞体的半径。 |
+##### object3D
+
+`Object3D`
+
+The 3D object used to create the collision shape.
+
+##### size?
+
+`Vector3`
+
+Optional. The dimensions of the box collision shape.
 
 #### Returns
 
-[`btSphereShape`](Ammo.btSphereShape.md)
+[`btBoxShape`](../@orillusion/namespaces/Ammo/classes/btBoxShape.md)
 
-Ammo.btSphereShape - 球型碰撞形状实例。
+Ammo.btBoxShape - The box collision shape instance.
 
-#### Defined in
+***
 
-[packages/physics/utils/CollisionShapeUtil.ts:51](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L51)
+### createSphereShape()
 
-___
+> `static` **createSphereShape**(`object3D`, `radius?`): [`btSphereShape`](../@orillusion/namespaces/Ammo/classes/btSphereShape.md)
 
-### createCapsuleShape
+Defined in: [packages/physics/utils/CollisionShapeUtil.ts:51](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L51)
 
-▸ **createCapsuleShape**(`object3D`, `radius?`, `height?`): [`btCapsuleShape`](Ammo.btCapsuleShape.md)
-
-创建胶囊型碰撞形状，适用于胶囊形物体。
-如果未指定尺寸，则使用三维对象的包围盒半径 `X` 和高度 `Y`。
+Creates a sphere collision shape, suitable for spherical objects.
+If no radius is specified, the bounding box radius `X` of the 3D object is used.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `object3D` | `Object3D` | 用于创建碰撞体的三维对象。 |
-| `radius?` | `number` | 可选参数，胶囊的半径。 |
-| `height?` | `number` | 可选参数，胶囊中间的圆柱部分的高度。 |
+##### object3D
+
+`Object3D`
+
+The 3D object used to create the collision shape.
+
+##### radius?
+
+`number`
+
+Optional. The radius of the sphere collision shape.
 
 #### Returns
 
-[`btCapsuleShape`](Ammo.btCapsuleShape.md)
+[`btSphereShape`](../@orillusion/namespaces/Ammo/classes/btSphereShape.md)
 
-Ammo.btCapsuleShape - 胶囊型碰撞形状实例。
+Ammo.btSphereShape - The sphere collision shape instance.
 
-#### Defined in
+***
 
-[packages/physics/utils/CollisionShapeUtil.ts:66](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L66)
+### createCapsuleShape()
 
-___
+> `static` **createCapsuleShape**(`object3D`, `radius?`, `height?`): [`btCapsuleShape`](../@orillusion/namespaces/Ammo/classes/btCapsuleShape.md)
 
-### createCylinderShape
+Defined in: [packages/physics/utils/CollisionShapeUtil.ts:66](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L66)
 
-▸ **createCylinderShape**(`object3D`, `radius?`, `height?`): [`btCylinderShape`](Ammo.btCylinderShape.md)
-
-创建圆柱型碰撞形状，适用于圆柱形物体。
-如果未指定尺寸，则使用三维对象的包围盒半径 `X` 和高度 `Y`。
+Creates a capsule collision shape, suitable for capsule-shaped objects.
+If no dimensions are specified, the bounding box radius `X` and height `Y` of the 3D object are used.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `object3D` | `Object3D` | 用于创建碰撞体的三维对象。 |
-| `radius?` | `number` | 可选参数，圆柱的半径。 |
-| `height?` | `number` | 可选参数，圆柱的完整高度。 |
+##### object3D
+
+`Object3D`
+
+The 3D object used to create the collision shape.
+
+##### radius?
+
+`number`
+
+Optional. The radius of the capsule.
+
+##### height?
+
+`number`
+
+Optional. The height of the cylindrical middle section of the capsule.
 
 #### Returns
 
-[`btCylinderShape`](Ammo.btCylinderShape.md)
+[`btCapsuleShape`](../@orillusion/namespaces/Ammo/classes/btCapsuleShape.md)
 
-Ammo.btCylinderShape - 圆柱型碰撞形状实例。
+Ammo.btCapsuleShape - The capsule collision shape instance.
 
-#### Defined in
+***
 
-[packages/physics/utils/CollisionShapeUtil.ts:85](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L85)
+### createCylinderShape()
 
-___
+> `static` **createCylinderShape**(`object3D`, `radius?`, `height?`): [`btCylinderShape`](../@orillusion/namespaces/Ammo/classes/btCylinderShape.md)
 
-### createConeShape
+Defined in: [packages/physics/utils/CollisionShapeUtil.ts:85](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L85)
 
-▸ **createConeShape**(`object3D`, `radius?`, `height?`): [`btConeShape`](Ammo.btConeShape.md)
-
-创建圆锥形碰撞形状，适用于圆锥形物体。
-如果未指定尺寸，则使用三维对象的包围盒半径 `X` 和高度 `Y`。
+Creates a cylinder collision shape, suitable for cylindrical objects.
+If no dimensions are specified, the bounding box radius `X` and height `Y` of the 3D object are used.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `object3D` | `Object3D` | 用于创建碰撞体的三维对象。 |
-| `radius?` | `number` | 可选参数，圆锥的半径。 |
-| `height?` | `number` | 可选参数，圆锥的高度。 |
+##### object3D
+
+`Object3D`
+
+The 3D object used to create the collision shape.
+
+##### radius?
+
+`number`
+
+Optional. The radius of the cylinder.
+
+##### height?
+
+`number`
+
+Optional. The full height of the cylinder.
 
 #### Returns
 
-[`btConeShape`](Ammo.btConeShape.md)
+[`btCylinderShape`](../@orillusion/namespaces/Ammo/classes/btCylinderShape.md)
 
-Ammo.btConeShape - 圆锥形碰撞形状实例。
+Ammo.btCylinderShape - The cylinder collision shape instance.
 
-#### Defined in
+***
 
-[packages/physics/utils/CollisionShapeUtil.ts:105](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L105)
+### createConeShape()
 
-___
+> `static` **createConeShape**(`object3D`, `radius?`, `height?`): [`btConeShape`](../@orillusion/namespaces/Ammo/classes/btConeShape.md)
 
-### createCompoundShape
+Defined in: [packages/physics/utils/CollisionShapeUtil.ts:105](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L105)
 
-▸ **createCompoundShape**(`childShapes`): [`btCompoundShape`](Ammo.btCompoundShape.md)
-
-创建复合形状，将多个子形状组合成一个形状。
+Creates a cone collision shape, suitable for cone-shaped objects.
+If no dimensions are specified, the bounding box radius `X` and height `Y` of the 3D object are used.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `childShapes` | [`ChildShape`](../interfaces/ChildShape.md)[] | 包含子形状实例与位置、旋转属性的数组。 |
+##### object3D
+
+`Object3D`
+
+The 3D object used to create the collision shape.
+
+##### radius?
+
+`number`
+
+Optional. The radius of the cone.
+
+##### height?
+
+`number`
+
+Optional. The height of the cone.
 
 #### Returns
 
-[`btCompoundShape`](Ammo.btCompoundShape.md)
+[`btConeShape`](../@orillusion/namespaces/Ammo/classes/btConeShape.md)
 
-Ammo.btCompoundShape - 复合形状实例。
+Ammo.btConeShape - The cone collision shape instance.
 
-#### Defined in
+***
 
-[packages/physics/utils/CollisionShapeUtil.ts:121](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L121)
+### createCompoundShape()
 
-___
+> `static` **createCompoundShape**(`childShapes`): [`btCompoundShape`](../@orillusion/namespaces/Ammo/classes/btCompoundShape.md)
 
-### createCompoundShapeFromObject
+Defined in: [packages/physics/utils/CollisionShapeUtil.ts:121](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L121)
 
-▸ **createCompoundShapeFromObject**(`object3D`, `includeParent?`): [`btCompoundShape`](Ammo.btCompoundShape.md)
-
-根据 Object3D 对象及其子对象创建复合碰撞形状。
+Creates a compound shape that combines multiple child shapes into a single shape.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `object3D` | `Object3D` | `undefined` | 三维对象，包含多个子对象。 |
-| `includeParent` | `boolean` | `true` | 是否包含父对象的几何体，默认值为 `true`。 |
+##### childShapes
+
+[`ChildShape`](../interfaces/ChildShape.md)[]
+
+An array containing child shape instances along with their position and rotation properties.
 
 #### Returns
 
-[`btCompoundShape`](Ammo.btCompoundShape.md)
+[`btCompoundShape`](../@orillusion/namespaces/Ammo/classes/btCompoundShape.md)
 
-复合碰撞形状。
+Ammo.btCompoundShape - The compound shape instance.
 
-#### Defined in
+***
 
-[packages/physics/utils/CollisionShapeUtil.ts:142](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L142)
+### createCompoundShapeFromObject()
 
-___
+> `static` **createCompoundShapeFromObject**(`object3D`, `includeParent?`): [`btCompoundShape`](../@orillusion/namespaces/Ammo/classes/btCompoundShape.md)
 
-### createShapeFromObject
+Defined in: [packages/physics/utils/CollisionShapeUtil.ts:142](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L142)
 
-▸ **createShapeFromObject**(`object3D`): [`btCollisionShape`](Ammo.btCollisionShape.md)
-
-根据 Object3D 对象的几何体类型创建相应的碰撞形状。
-
-仅支持Box、Sphere、Plane、Cylinder类型的几何体。对于不匹配的几何体类型，返回 btConvexHullShape 凸包形状。
+Creates a compound collision shape from an Object3D and its child objects.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `object3D` | `Object3D` |
+##### object3D
+
+`Object3D`
+
+The 3D object containing multiple child objects.
+
+##### includeParent?
+
+`boolean` = `true`
+
+Whether to include the parent object's geometry. Defaults to `true`.
 
 #### Returns
 
-[`btCollisionShape`](Ammo.btCollisionShape.md)
+[`btCompoundShape`](../@orillusion/namespaces/Ammo/classes/btCompoundShape.md)
+
+The compound collision shape.
+
+***
+
+### createShapeFromObject()
+
+> `static` **createShapeFromObject**(`object3D`): [`btCollisionShape`](../@orillusion/namespaces/Ammo/classes/btCollisionShape.md)
+
+Defined in: [packages/physics/utils/CollisionShapeUtil.ts:188](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L188)
+
+Creates a collision shape that matches the geometry type of the Object3D.
+
+Only Box, Sphere, Plane, and Cylinder geometries are supported. For any other geometry type, a btConvexHullShape (convex hull) is returned.
+
+#### Parameters
+
+##### object3D
+
+`Object3D`
+
+#### Returns
+
+[`btCollisionShape`](../@orillusion/namespaces/Ammo/classes/btCollisionShape.md)
 
 Ammo.btCollisionShape
 
-#### Defined in
+***
 
-[packages/physics/utils/CollisionShapeUtil.ts:188](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L188)
+### createHeightfieldTerrainShape()
 
-___
+> `static` **createHeightfieldTerrainShape**(`object3D`, `heightScale?`, `upAxis?`, `hdt?`, `flipQuadEdges?`): [`btHeightfieldTerrainShape`](../@orillusion/namespaces/Ammo/classes/btHeightfieldTerrainShape.md)
 
-### createHeightfieldTerrainShape
+Defined in: [packages/physics/utils/CollisionShapeUtil.ts:246](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L246)
 
-▸ **createHeightfieldTerrainShape**(`object3D`, `heightScale?`, `upAxis?`, `hdt?`, `flipQuadEdges?`): [`btHeightfieldTerrainShape`](Ammo.btHeightfieldTerrainShape.md)
-
-创建高度场形状，基于平面顶点数据模拟地形。
+Creates a heightfield shape that simulates terrain based on plane vertex data.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `object3D` | `Object3D` | `undefined` | 用于创建碰撞体的三维对象。 |
-| `heightScale` | `number` | `1` | 高度缩放比例，默认值为 `1`。 |
-| `upAxis` | `number` | `1` | 高度场的上轴，默认值为 `1`。 |
-| `hdt` | [`PHY_ScalarType`](../types/Ammo.PHY_ScalarType.md) | `'PHY_FLOAT'` | 高度场的数据类型，默认值为 `Ammo.PHY_FLOAT`。 |
-| `flipQuadEdges` | `boolean` | `false` | 是否翻转四边形的边，默认值为 `false`。 |
+##### object3D
+
+`Object3D`
+
+The 3D object used to create the collision shape.
+
+##### heightScale?
+
+`number` = `1`
+
+The height scaling factor. Defaults to `1`.
+
+##### upAxis?
+
+`number` = `1`
+
+The up axis of the heightfield. Defaults to `1`.
+
+##### hdt?
+
+[`PHY_ScalarType`](../@orillusion/namespaces/Ammo/type-aliases/PHY_ScalarType.md) = `'PHY_FLOAT'`
+
+The data type of the heightfield. Defaults to `Ammo.PHY_FLOAT`.
+
+##### flipQuadEdges?
+
+`boolean` = `false`
+
+Whether to flip the quad edges. Defaults to `false`.
 
 #### Returns
 
-[`btHeightfieldTerrainShape`](Ammo.btHeightfieldTerrainShape.md)
+[`btHeightfieldTerrainShape`](../@orillusion/namespaces/Ammo/classes/btHeightfieldTerrainShape.md)
 
-Ammo.btHeightfieldTerrainShape - 高度场形状实例。
+Ammo.btHeightfieldTerrainShape - The heightfield terrain shape instance.
 
-#### Defined in
+***
 
-[packages/physics/utils/CollisionShapeUtil.ts:246](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L246)
+### createConvexHullShape()
 
-___
+> `static` **createConvexHullShape**(`object3D`, `modelVertices?`): [`btConvexHullShape`](../@orillusion/namespaces/Ammo/classes/btConvexHullShape.md)
 
-### createConvexHullShape
+Defined in: [packages/physics/utils/CollisionShapeUtil.ts:299](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L299)
 
-▸ **createConvexHullShape**(`object3D`, `modelVertices?`): [`btConvexHullShape`](Ammo.btConvexHullShape.md)
-
-创建凸包形状，适用于具有凹陷填充的模型。
-此形状适用于动态物体并提供快速的碰撞检测。
+Creates a convex hull shape, suitable for models with filled-in concavities.
+This shape is appropriate for dynamic objects and provides fast collision detection.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `object3D` | `Object3D` | 用于创建碰撞体的三维对象。 |
-| `modelVertices?` | `Float32Array` | 可选参数，提供碰撞体所需的顶点数据，默认为三维对象的顶点数据。 |
+##### object3D
+
+`Object3D`
+
+The 3D object used to create the collision shape.
+
+##### modelVertices?
+
+`Float32Array`
+
+Optional. Vertex data for the collision shape. Defaults to the 3D object's vertex data.
 
 #### Returns
 
-[`btConvexHullShape`](Ammo.btConvexHullShape.md)
+[`btConvexHullShape`](../@orillusion/namespaces/Ammo/classes/btConvexHullShape.md)
 
-Ammo.btConvexHullShape - 凸包形状实例。
+Ammo.btConvexHullShape - The convex hull shape instance.
 
-#### Defined in
+***
 
-[packages/physics/utils/CollisionShapeUtil.ts:299](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L299)
+### createConvexTriangleMeshShape()
 
-___
+> `static` **createConvexTriangleMeshShape**(`object3D`, `modelVertices?`, `modelIndices?`): [`btBvhTriangleMeshShape`](../@orillusion/namespaces/Ammo/classes/btBvhTriangleMeshShape.md)
 
-### createConvexTriangleMeshShape
+Defined in: [packages/physics/utils/CollisionShapeUtil.ts:322](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L322)
 
-▸ **createConvexTriangleMeshShape**(`object3D`, `modelVertices?`, `modelIndices?`): [`btBvhTriangleMeshShape`](Ammo.btBvhTriangleMeshShape.md)
-
-创建凸包网格形状，适用于需要复杂几何表示的动态物体。
-此形状不要求额外的凸包生成步骤，适用于凸的三角形网格。
+Creates a convex triangle mesh shape, suitable for dynamic objects that require complex geometric representation.
+This shape does not require a separate convex hull generation step and is suitable for convex triangle meshes.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `object3D` | `Object3D` | 用于创建碰撞体的三维对象。 |
-| `modelVertices?` | `Float32Array` | 可选参数，提供碰撞体所需的顶点数据。 |
-| `modelIndices?` | `Uint16Array` | 可选参数，提供碰撞体所需的索引数据。 |
+##### object3D
+
+`Object3D`
+
+The 3D object used to create the collision shape.
+
+##### modelVertices?
+
+`Float32Array`
+
+Optional. Vertex data for the collision shape.
+
+##### modelIndices?
+
+`Uint16Array`
+
+Optional. Index data for the collision shape.
 
 #### Returns
 
-[`btBvhTriangleMeshShape`](Ammo.btBvhTriangleMeshShape.md)
+[`btBvhTriangleMeshShape`](../@orillusion/namespaces/Ammo/classes/btBvhTriangleMeshShape.md)
 
-Ammo.btConvexTriangleMeshShape - 凸包网格形状实例。
+Ammo.btConvexTriangleMeshShape - The convex triangle mesh shape instance.
 
-#### Defined in
+***
 
-[packages/physics/utils/CollisionShapeUtil.ts:322](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L322)
+### createBvhTriangleMeshShape()
 
-___
+> `static` **createBvhTriangleMeshShape**(`object3D`, `modelVertices?`, `modelIndices?`): [`btBvhTriangleMeshShape`](../@orillusion/namespaces/Ammo/classes/btBvhTriangleMeshShape.md)
 
-### createBvhTriangleMeshShape
+Defined in: [packages/physics/utils/CollisionShapeUtil.ts:349](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L349)
 
-▸ **createBvhTriangleMeshShape**(`object3D`, `modelVertices?`, `modelIndices?`): [`btBvhTriangleMeshShape`](Ammo.btBvhTriangleMeshShape.md)
-
-创建边界体积层次（BVH）网格形状，适用于需要复杂几何表示的静态物体。
-此形状适合大规模静态网格，但对动态对象不适用。
+Creates a bounding volume hierarchy (BVH) triangle mesh shape, suitable for static objects that require complex geometric representation.
+This shape is well-suited for large-scale static meshes but is not appropriate for dynamic objects.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `object3D` | `Object3D` | 用于创建碰撞体的三维对象。 |
-| `modelVertices?` | `Float32Array` | 可选参数，提供碰撞体所需的顶点数据。 |
-| `modelIndices?` | `Uint16Array` | 可选参数，提供碰撞体所需的索引数据。 |
+##### object3D
+
+`Object3D`
+
+The 3D object used to create the collision shape.
+
+##### modelVertices?
+
+`Float32Array`
+
+Optional. Vertex data for the collision shape.
+
+##### modelIndices?
+
+`Uint16Array`
+
+Optional. Index data for the collision shape.
 
 #### Returns
 
-[`btBvhTriangleMeshShape`](Ammo.btBvhTriangleMeshShape.md)
+[`btBvhTriangleMeshShape`](../@orillusion/namespaces/Ammo/classes/btBvhTriangleMeshShape.md)
 
-Ammo.btBvhTriangleMeshShape - BVH 网格形状实例。
+Ammo.btBvhTriangleMeshShape - The BVH triangle mesh shape instance.
 
-#### Defined in
+***
 
-[packages/physics/utils/CollisionShapeUtil.ts:349](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L349)
+### createGImpactMeshShape()
 
-___
+> `static` **createGImpactMeshShape**(`object3D`, `modelVertices?`, `modelIndices?`): [`btGImpactMeshShape`](../@orillusion/namespaces/Ammo/classes/btGImpactMeshShape.md)
 
-### createGImpactMeshShape
+Defined in: [packages/physics/utils/CollisionShapeUtil.ts:376](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L376)
 
-▸ **createGImpactMeshShape**(`object3D`, `modelVertices?`, `modelIndices?`): [`btGImpactMeshShape`](Ammo.btGImpactMeshShape.md)
-
-创建 GImpact 网格形状，适用于需要复杂几何表示的动态物体。
-基于 GIMPACT 算法，可以用于复杂的三角网格碰撞检测，包括动态物体的交互，此形状性能消耗较高，但提供更精确的碰撞检测。
+Creates a GImpact mesh shape, suitable for dynamic objects that require complex geometric representation.
+Based on the GIMPACT algorithm, it can be used for complex triangle mesh collision detection, including interactions between dynamic objects. This shape has a higher performance cost but provides more precise collision detection.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `object3D` | `Object3D` | 用于创建碰撞体的三维对象。 |
-| `modelVertices?` | `Float32Array` | 可选参数，提供碰撞体所需的顶点数据。 |
-| `modelIndices?` | `Uint16Array` | 可选参数，提供碰撞体所需的索引数据。 |
+##### object3D
+
+`Object3D`
+
+The 3D object used to create the collision shape.
+
+##### modelVertices?
+
+`Float32Array`
+
+Optional. Vertex data for the collision shape.
+
+##### modelIndices?
+
+`Uint16Array`
+
+Optional. Index data for the collision shape.
 
 #### Returns
 
-[`btGImpactMeshShape`](Ammo.btGImpactMeshShape.md)
+[`btGImpactMeshShape`](../@orillusion/namespaces/Ammo/classes/btGImpactMeshShape.md)
 
-Ammo.btGImpactMeshShape - GImpact 网格形状实例。
+Ammo.btGImpactMeshShape - The GImpact mesh shape instance.
 
-#### Defined in
+***
 
-[packages/physics/utils/CollisionShapeUtil.ts:376](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L376)
+### buildTriangleMesh()
 
-___
+> `static` **buildTriangleMesh**(`vertices`, `indices`): [`btTriangleMesh`](../@orillusion/namespaces/Ammo/classes/btTriangleMesh.md)
 
-### buildTriangleMesh
+Defined in: [packages/physics/utils/CollisionShapeUtil.ts:402](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L402)
 
-▸ **buildTriangleMesh**(`vertices`, `indices`): [`btTriangleMesh`](Ammo.btTriangleMesh.md)
-
-构建 btTriangleMesh 对象，用于创建网格形状。
+Builds a btTriangleMesh object used to create mesh shapes.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `vertices` | `Float32Array` | 顶点数据，按 xyz 顺序排列。 |
-| `indices` | `Uint16Array` | 索引数据，定义三角形的顶点索引。 |
+##### vertices
+
+`Float32Array`
+
+Vertex data laid out in xyz order.
+
+##### indices
+
+`Uint16Array`
+
+Index data defining the vertex indices of each triangle.
 
 #### Returns
 
-[`btTriangleMesh`](Ammo.btTriangleMesh.md)
+[`btTriangleMesh`](../@orillusion/namespaces/Ammo/classes/btTriangleMesh.md)
 
-Ammo.btTriangleMesh - 构建的三角形网格。
+Ammo.btTriangleMesh - The constructed triangle mesh.
 
-#### Defined in
+***
 
-[packages/physics/utils/CollisionShapeUtil.ts:402](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L402)
+### getAllMeshVerticesAndIndices()
 
-___
+> `static` **getAllMeshVerticesAndIndices**(`object3D`, `isTransformChildren?`): `object`
 
-### getAllMeshVerticesAndIndices
+Defined in: [packages/physics/utils/CollisionShapeUtil.ts:426](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L426)
 
-▸ **getAllMeshVerticesAndIndices**(`object3D`, `isTransformChildren?`): `Object`
-
-获取3D对象所有网格的顶点与索引。
+Gets the vertices and indices of all meshes belonging to a 3D object.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `object3D` | `Object3D` | `undefined` | 三维对象。 |
-| `isTransformChildren` | `boolean` | `true` | 是否将子对象的顶点转换到父对象的局部坐标系。默认值为 `true`。 |
+##### object3D
+
+`Object3D`
+
+The 3D object.
+
+##### isTransformChildren?
+
+`boolean` = `true`
+
+Whether to transform child object vertices into the parent object's local coordinate space. Defaults to `true`.
 
 #### Returns
 
-`Object`
+`object`
 
-顶点数据和索引数据。
+The combined vertex data and index data.
 
-| Name | Type |
-| :------ | :------ |
-| `vertices` | `Float32Array` |
-| `indices` | `Uint16Array` |
+##### vertices
 
-#### Defined in
+> **vertices**: `Float32Array`\<`ArrayBufferLike`\>
 
-[packages/physics/utils/CollisionShapeUtil.ts:426](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L426)
+##### indices
+
+> **indices**: `Uint16Array`\<`ArrayBufferLike`\>

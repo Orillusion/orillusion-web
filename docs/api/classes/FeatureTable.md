@@ -1,76 +1,83 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: FeatureTable
 
-## Hierarchy
+Defined in: [src/loader/parser/b3dm/FeatureTable.ts:3](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/b3dm/FeatureTable.ts#L3)
 
-- **`FeatureTable`**
+## Extended by
 
-  ↳ [`BatchTable`](BatchTable.md)
-
-### Constructors
-
-- [constructor](FeatureTable.md#constructor)
-
-### Methods
-
-- [getKeys](FeatureTable.md#getkeys)
-- [getData](FeatureTable.md#getdata)
+- [`BatchTable`](BatchTable.md)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new FeatureTable**(`buffer`, `start`, `headerLength`, `binLength`): [`FeatureTable`](FeatureTable.md)
+> **new FeatureTable**(`buffer`, `start`, `headerLength`, `binLength`): `FeatureTable`
+
+Defined in: [src/loader/parser/b3dm/FeatureTable.ts:9](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/b3dm/FeatureTable.ts#L9)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `buffer` | `any` |
-| `start` | `any` |
-| `headerLength` | `any` |
-| `binLength` | `any` |
+##### buffer
+
+`any`
+
+##### start
+
+`any`
+
+##### headerLength
+
+`any`
+
+##### binLength
+
+`any`
 
 #### Returns
 
-[`FeatureTable`](FeatureTable.md)
-
-#### Defined in
-
-[src/loader/parser/b3dm/FeatureTable.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/b3dm/FeatureTable.ts#L9)
+`FeatureTable`
 
 ## Methods
 
-### getKeys
+### getKeys()
 
-▸ **getKeys**(): `string`[]
+> **getKeys**(): `string`[]
+
+Defined in: [src/loader/parser/b3dm/FeatureTable.ts:30](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/b3dm/FeatureTable.ts#L30)
 
 #### Returns
 
 `string`[]
 
-#### Defined in
+***
 
-[src/loader/parser/b3dm/FeatureTable.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/b3dm/FeatureTable.ts#L30)
+### getData()
 
-___
+> **getData**(`key`, `count?`, `defaultComponentType?`, `defaultType?`): `any`
 
-### getData
-
-▸ **getData**(`key`, `count?`, `defaultComponentType?`, `defaultType?`): `any`
+Defined in: [src/loader/parser/b3dm/FeatureTable.ts:36](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/b3dm/FeatureTable.ts#L36)
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `key` | `any` | `undefined` |
-| `count?` | `any` | `undefined` |
-| `defaultComponentType` | `any` | `null` |
-| `defaultType` | `any` | `null` |
+##### key
+
+`any`
+
+##### count?
+
+`any`
+
+##### defaultComponentType?
+
+`any` = `null`
+
+##### defaultType?
+
+`any` = `null`
 
 #### Returns
 
 `any`
-
-#### Defined in
-
-[src/loader/parser/b3dm/FeatureTable.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/b3dm/FeatureTable.ts#L36)

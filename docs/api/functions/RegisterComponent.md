@@ -1,21 +1,35 @@
-# Function: RegisterComponent
+[**@orillusion/core**](../README.md)
 
-▸ **RegisterComponent**(`cls`, `key`, `p1?`, `p2?`, `p3?`): `any`
+***
 
-#### Parameters
+# Function: RegisterComponent()
 
-| Name | Type |
-| :------ | :------ |
-| `cls` | `any` |
-| `key` | `any` |
-| `p1?` | `any` |
-| `p2?` | `any` |
-| `p3?` | `any` |
+> **RegisterComponent**(`cls`, `key?`, `p1?`, `p2?`, `p3?`): `any`
 
-#### Returns
+Defined in: [src/util/SerializeDecoration.ts:82](https://github.com/orillusion/orillusion/blob/main/src/util/SerializeDecoration.ts#L82)
+
+## Parameters
+
+### cls
+
+`Function`
+
+### key?
+
+`string`
+
+### p1?
 
 `any`
 
-#### Defined in
+### p2?
 
-[src/util/SerializeDecoration.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/util/SerializeDecoration.ts#L82)
+`any`
+
+### p3?
+
+`any`
+
+## Returns
+
+`any`

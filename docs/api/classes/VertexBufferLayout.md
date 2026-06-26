@@ -1,100 +1,90 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: VertexBufferLayout
+
+Defined in: [src/core/geometry/VertexAttribute.ts:7](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/VertexAttribute.ts#L7)
+
+Describes the memory layout of a single vertex buffer, including its
+stride, step mode and the attributes it contains.
 
 ## Implements
 
 - `GPUVertexBufferLayout`
 
-### Constructors
-
-- [constructor](VertexBufferLayout.md#constructor)
-
-### Properties
-
-- [name](VertexBufferLayout.md#name)
-- [offset](VertexBufferLayout.md#offset)
-- [size](VertexBufferLayout.md#size)
-- [arrayStride](VertexBufferLayout.md#arraystride)
-- [stepMode](VertexBufferLayout.md#stepmode)
-- [attributes](VertexBufferLayout.md#attributes)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new VertexBufferLayout**(): [`VertexBufferLayout`](VertexBufferLayout.md)
+> **new VertexBufferLayout**(): `VertexBufferLayout`
 
 #### Returns
 
-[`VertexBufferLayout`](VertexBufferLayout.md)
+`VertexBufferLayout`
 
 ## Properties
 
 ### name
 
-• **name**: `string`
+> **name**: `string`
 
-#### Defined in
+Defined in: [src/core/geometry/VertexAttribute.ts:8](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/VertexAttribute.ts#L8)
 
-[src/core/geometry/VertexAttribute.ts:3](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/VertexAttribute.ts#L3)
-
-___
+***
 
 ### offset
 
-• **offset**: `number`
+> **offset**: `number`
 
-#### Defined in
+Defined in: [src/core/geometry/VertexAttribute.ts:9](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/VertexAttribute.ts#L9)
 
-[src/core/geometry/VertexAttribute.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/VertexAttribute.ts#L4)
-
-___
+***
 
 ### size
 
-• **size**: `number`
+> **size**: `number`
 
-#### Defined in
+Defined in: [src/core/geometry/VertexAttribute.ts:10](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/VertexAttribute.ts#L10)
 
-[src/core/geometry/VertexAttribute.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/VertexAttribute.ts#L5)
-
-___
+***
 
 ### arrayStride
 
-• **arrayStride**: `number`
+> **arrayStride**: `number`
+
+Defined in: [src/core/geometry/VertexAttribute.ts:11](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/VertexAttribute.ts#L11)
+
+The stride, in bytes, between elements of this array.
 
 #### Implementation of
 
-GPUVertexBufferLayout.arrayStride
+`GPUVertexBufferLayout.arrayStride`
 
-#### Defined in
+***
 
-[src/core/geometry/VertexAttribute.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/VertexAttribute.ts#L6)
+### stepMode?
 
-___
+> `optional` **stepMode?**: `GPUVertexStepMode`
 
-### stepMode
+Defined in: [src/core/geometry/VertexAttribute.ts:12](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/VertexAttribute.ts#L12)
 
-• `Optional` **stepMode**: `GPUVertexStepMode`
+Whether each element of this array represents per-vertex data or per-instance data
 
 #### Implementation of
 
-GPUVertexBufferLayout.stepMode
+`GPUVertexBufferLayout.stepMode`
 
-#### Defined in
-
-[src/core/geometry/VertexAttribute.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/VertexAttribute.ts#L7)
-
-___
+***
 
 ### attributes
 
-• **attributes**: `Iterable`\<`GPUVertexAttribute`\>
+> **attributes**: `GPUVertexAttribute`[]
+
+Defined in: [src/core/geometry/VertexAttribute.ts:13](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/VertexAttribute.ts#L13)
+
+An array defining the layout of the vertex attributes within each element.
 
 #### Implementation of
 
-GPUVertexBufferLayout.attributes
-
-#### Defined in
-
-[src/core/geometry/VertexAttribute.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/VertexAttribute.ts#L8)
+`GPUVertexBufferLayout.attributes`

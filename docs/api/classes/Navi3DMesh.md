@@ -1,137 +1,149 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: Navi3DMesh
 
-### Constructors
+Defined in: [src/math/navigation/Navi3DMesh.ts:15](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DMesh.ts#L15)
 
-- [constructor](Navi3DMesh.md#constructor)
-
-### Accessors
-
-- [edges](Navi3DMesh.md#edges)
-- [points](Navi3DMesh.md#points)
-- [path](Navi3DMesh.md#path)
-- [triangles](Navi3DMesh.md#triangles)
-
-### Methods
-
-- [getTriangleAtPoint](Navi3DMesh.md#gettriangleatpoint)
-- [findPath](Navi3DMesh.md#findpath)
+Navigation mesh built from geometry, used for 3D path-finding queries.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new Navi3DMesh**(`pointList`, `triangleIndexList`): [`Navi3DMesh`](Navi3DMesh.md)
+> **new Navi3DMesh**(`pointList`, `triangleIndexList`): `Navi3DMesh`
+
+Defined in: [src/math/navigation/Navi3DMesh.ts:52](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DMesh.ts#L52)
+
+Creates a navigation mesh from a list of points and triangle index lists.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `pointList` | [`Vector3`](Vector3.md)[] |
-| `triangleIndexList` | `number`[][] |
+##### pointList
+
+[`Vector3`](Vector3.md)[]
+
+##### triangleIndexList
+
+`number`[][]
 
 #### Returns
 
-[`Navi3DMesh`](Navi3DMesh.md)
-
-#### Defined in
-
-[src/math/navigation/Navi3DMesh.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DMesh.ts#L43)
+`Navi3DMesh`
 
 ## Accessors
 
 ### edges
 
-• `get` **edges**(): [`Navi3DEdge`](Navi3DEdge.md)[]
+#### Get Signature
 
-#### Returns
+> **get** **edges**(): `Navi3DEdge`[]
 
-[`Navi3DEdge`](Navi3DEdge.md)[]
+Defined in: [src/math/navigation/Navi3DMesh.ts:32](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DMesh.ts#L32)
 
-#### Defined in
+The edges that make up this navigation mesh.
 
-[src/math/navigation/Navi3DMesh.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DMesh.ts#L27)
+##### Returns
 
-___
+`Navi3DEdge`[]
+
+***
 
 ### points
 
-• `get` **points**(): [`Navi3DPoint`](Navi3DPoint.md)[]
+#### Get Signature
 
-#### Returns
+> **get** **points**(): `Navi3DPoint`[]
 
-[`Navi3DPoint`](Navi3DPoint.md)[]
+Defined in: [src/math/navigation/Navi3DMesh.ts:37](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DMesh.ts#L37)
 
-#### Defined in
+The points (vertices) that make up this navigation mesh.
 
-[src/math/navigation/Navi3DMesh.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DMesh.ts#L31)
+##### Returns
 
-___
+`Navi3DPoint`[]
+
+***
 
 ### path
 
-• `get` **path**(): [`Vector3`](Vector3.md)[]
+#### Get Signature
 
-#### Returns
+> **get** **path**(): [`Vector3`](Vector3.md)[]
+
+Defined in: [src/math/navigation/Navi3DMesh.ts:42](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DMesh.ts#L42)
+
+The path computed by the most recent [findPath](#findpath) call.
+
+##### Returns
 
 [`Vector3`](Vector3.md)[]
 
-#### Defined in
-
-[src/math/navigation/Navi3DMesh.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DMesh.ts#L35)
-
-___
+***
 
 ### triangles
 
-• `get` **triangles**(): [`Navi3DTriangle`](Navi3DTriangle.md)[]
+#### Get Signature
 
-#### Returns
+> **get** **triangles**(): `Navi3DTriangle`[]
 
-[`Navi3DTriangle`](Navi3DTriangle.md)[]
+Defined in: [src/math/navigation/Navi3DMesh.ts:47](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DMesh.ts#L47)
 
-#### Defined in
+The triangles that make up this navigation mesh.
 
-[src/math/navigation/Navi3DMesh.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DMesh.ts#L39)
+##### Returns
+
+`Navi3DTriangle`[]
 
 ## Methods
 
-### getTriangleAtPoint
+### getTriangleAtPoint()
 
-▸ **getTriangleAtPoint**(`point`, `threshold?`): [`IQuadNode`](../interfaces/IQuadNode.md)
+> **getTriangleAtPoint**(`point`, `threshold?`): [`IQuadNode`](../interfaces/IQuadNode.md)
+
+Defined in: [src/math/navigation/Navi3DMesh.ts:73](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DMesh.ts#L73)
+
+Returns the triangle located at the given point within the given threshold.
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `point` | [`Vector3`](Vector3.md) | `undefined` |
-| `threshold` | `number` | `5` |
+##### point
+
+[`Vector3`](Vector3.md)
+
+##### threshold?
+
+`number` = `5`
 
 #### Returns
 
 [`IQuadNode`](../interfaces/IQuadNode.md)
 
-#### Defined in
+***
 
-[src/math/navigation/Navi3DMesh.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DMesh.ts#L63)
+### findPath()
 
-___
+> **findPath**(`startPt`, `endPt`, `aiRadius?`): `boolean`
 
-### findPath
+Defined in: [src/math/navigation/Navi3DMesh.ts:78](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DMesh.ts#L78)
 
-▸ **findPath**(`startPt`, `endPt`, `aiRadius?`): `boolean`
+Finds a path between two points for an agent of the given radius; returns whether a path was found.
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `startPt` | [`Vector3`](Vector3.md) | `undefined` |
-| `endPt` | [`Vector3`](Vector3.md) | `undefined` |
-| `aiRadius` | `number` | `5` |
+##### startPt
+
+[`Vector3`](Vector3.md)
+
+##### endPt
+
+[`Vector3`](Vector3.md)
+
+##### aiRadius?
+
+`number` = `5`
 
 #### Returns
 
 `boolean`
-
-#### Defined in
-
-[src/math/navigation/Navi3DMesh.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DMesh.ts#L67)

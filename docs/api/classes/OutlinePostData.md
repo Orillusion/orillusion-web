@@ -1,140 +1,146 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: OutlinePostData
 
-### Constructors
+Defined in: [src/io/OutlinePostData.ts:22](https://github.com/orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L22)
 
-- [constructor](OutlinePostData.md#constructor)
-
-### Properties
-
-- [SlotCount](OutlinePostData.md#slotcount)
-- [MaxEntities](OutlinePostData.md#maxentities)
-- [defaultColor](OutlinePostData.md#defaultcolor)
-
-### Methods
-
-- [clear](OutlinePostData.md#clear)
-- [clearAt](OutlinePostData.md#clearat)
-- [fillDataAt](OutlinePostData.md#filldataat)
-- [fetchData](OutlinePostData.md#fetchdata)
+Holds the per-slot outline data consumed by the outline post-process,
+grouping highlighted entities into a fixed set of colored slots.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new OutlinePostData**(): [`OutlinePostData`](OutlinePostData.md)
+> **new OutlinePostData**(`groupCount?`): `OutlinePostData`
+
+Defined in: [src/io/OutlinePostData.ts:34](https://github.com/orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L34)
+
+#### Parameters
+
+##### groupCount?
+
+`number` = `8`
 
 #### Returns
 
-[`OutlinePostData`](OutlinePostData.md)
-
-#### Defined in
-
-[src/io/OutlinePostData.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L19)
+`OutlinePostData`
 
 ## Properties
 
 ### SlotCount
 
-• `Readonly` **SlotCount**: `number` = `8`
+> `readonly` **SlotCount**: `number` = `8`
 
-#### Defined in
+Defined in: [src/io/OutlinePostData.ts:25](https://github.com/orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L25)
 
-[src/io/OutlinePostData.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L12)
+Number of color slots (capped at 8).
 
-___
+***
 
 ### MaxEntities
 
-• `Readonly` **MaxEntities**: `number` = `16`
+> `readonly` **MaxEntities**: `number` = `16`
 
-#### Defined in
+Defined in: [src/io/OutlinePostData.ts:27](https://github.com/orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L27)
 
-[src/io/OutlinePostData.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L13)
+Maximum entities per slot.
 
-___
+***
 
 ### defaultColor
 
-• `Readonly` **defaultColor**: [`Color`](Color.md)
+> `readonly` **defaultColor**: [`Color`](Color.md)
 
-#### Defined in
+Defined in: [src/io/OutlinePostData.ts:29](https://github.com/orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L29)
 
-[src/io/OutlinePostData.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L14)
+Default outline color used when a slot is cleared.
 
 ## Methods
 
-### clear
+### clear()
 
-▸ **clear**(): `void`
+> **clear**(): `void`
+
+Defined in: [src/io/OutlinePostData.ts:45](https://github.com/orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L45)
+
+Reset every slot to the default color and empty its entity list.
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/io/OutlinePostData.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L30)
+### clearAt()
 
-___
+> **clearAt**(`slotIndex`): `this`
 
-### clearAt
+Defined in: [src/io/OutlinePostData.ts:52](https://github.com/orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L52)
 
-▸ **clearAt**(`slotIndex`): `this`
+Reset a single slot to the default color and empty its entity list.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `slotIndex` | `number` |
+##### slotIndex
+
+`number`
 
 #### Returns
 
 `this`
 
-#### Defined in
+***
 
-[src/io/OutlinePostData.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L36)
+### fillDataAt()
 
-___
+> **fillDataAt**(`slot`, `indexList`, `color`): `this`
 
-### fillDataAt
+Defined in: [src/io/OutlinePostData.ts:62](https://github.com/orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L62)
 
-▸ **fillDataAt**(`slot`, `indexList`, `color`): `this`
+Populate a slot with the given entity indices and outline color.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `slot` | `number` |
-| `indexList` | `number`[] |
-| `color` | [`Color`](Color.md) |
+##### slot
+
+`number`
+
+##### indexList
+
+`number`[]
+
+##### color
+
+[`Color`](Color.md)
 
 #### Returns
 
 `this`
 
-#### Defined in
+***
 
-[src/io/OutlinePostData.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L45)
+### fetchData()
 
-___
+> **fetchData**(`target`): `this`
 
-### fetchData
+Defined in: [src/io/OutlinePostData.ts:77](https://github.com/orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L77)
 
-▸ **fetchData**(`target`): `this`
+Copy the dirty flag and slots into the target, then clear the dirty flag.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `target` | `Object` |
-| `target.dirty` | `boolean` |
-| `target.slots` | [`OutlinePostSlot`](OutlinePostSlot.md)[] |
+##### target
+
+###### dirty
+
+`boolean`
+
+###### slots
+
+[`OutlinePostSlot`](OutlinePostSlot.md)[]
 
 #### Returns
 
 `this`
-
-#### Defined in
-
-[src/io/OutlinePostData.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L59)

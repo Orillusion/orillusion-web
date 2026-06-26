@@ -1,63 +1,56 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: B3DMLoader
 
-## Hierarchy
+Defined in: [src/loader/parser/b3dm/B3DMLoader.ts:10](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/b3dm/B3DMLoader.ts#L10)
+
+## Extends
 
 - [`B3DMLoaderBase`](B3DMLoaderBase.md)
 
-  ↳ **`B3DMLoader`**
-
-### Constructors
-
-- [constructor](B3DMLoader.md#constructor)
-
-### Properties
-
-- [adjustmentTransform](B3DMLoader.md#adjustmenttransform)
-
-### Methods
-
-- [parse](B3DMLoader.md#parse)
-- [decodeText](B3DMLoader.md#decodetext)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new B3DMLoader**(): [`B3DMLoader`](B3DMLoader.md)
+> **new B3DMLoader**(): `B3DMLoader`
+
+Defined in: [src/loader/parser/b3dm/B3DMLoader.ts:15](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/b3dm/B3DMLoader.ts#L15)
 
 #### Returns
 
-[`B3DMLoader`](B3DMLoader.md)
+`B3DMLoader`
 
 #### Overrides
 
-[B3DMLoaderBase](B3DMLoaderBase.md).[constructor](B3DMLoaderBase.md#constructor)
-
-#### Defined in
-
-[src/loader/parser/b3dm/B3DMLoader.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/b3dm/B3DMLoader.ts#L14)
+[`B3DMLoaderBase`](B3DMLoaderBase.md).[`constructor`](B3DMLoaderBase.md#constructor)
 
 ## Properties
 
 ### adjustmentTransform
 
-• **adjustmentTransform**: [`Matrix4`](Matrix4.md)
+> **adjustmentTransform**: [`Matrix4`](Matrix4.md)
 
-#### Defined in
-
-[src/loader/parser/b3dm/B3DMLoader.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/b3dm/B3DMLoader.ts#L10)
+Defined in: [src/loader/parser/b3dm/B3DMLoader.ts:11](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/b3dm/B3DMLoader.ts#L11)
 
 ## Methods
 
-### parse
+### parse()
 
-▸ **parse**(`buffer`): `Promise`\<`any`\>
+> **parse**(`buffer`, `customLoader?`): `Promise`\<`any`\>
+
+Defined in: [src/loader/parser/b3dm/B3DMLoader.ts:22](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/b3dm/B3DMLoader.ts#L22)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `buffer` | `ArrayBuffer` |
+##### buffer
+
+`ArrayBuffer`
+
+##### customLoader?
+
+(`array`) => `Promise`\<[`Object3D`](Object3D.md)\>
 
 #### Returns
 
@@ -65,28 +58,22 @@
 
 #### Overrides
 
-[B3DMLoaderBase](B3DMLoaderBase.md).[parse](B3DMLoaderBase.md#parse)
+[`B3DMLoaderBase`](B3DMLoaderBase.md).[`parse`](B3DMLoaderBase.md#parse)
 
-#### Defined in
+***
 
-[src/loader/parser/b3dm/B3DMLoader.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/b3dm/B3DMLoader.ts#L20)
+### decodeText()
 
-___
+> `static` **decodeText**(`array`): `string`
 
-### decodeText
-
-▸ **decodeText**(`array`): `string`
+Defined in: [src/loader/parser/b3dm/B3DMLoader.ts:73](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/b3dm/B3DMLoader.ts#L73)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `array` | `any` |
+##### array
+
+`any`
 
 #### Returns
 
 `string`
-
-#### Defined in
-
-[src/loader/parser/b3dm/B3DMLoader.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/b3dm/B3DMLoader.ts#L64)

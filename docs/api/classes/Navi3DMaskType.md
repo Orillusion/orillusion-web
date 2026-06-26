@@ -1,29 +1,25 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: Navi3DMaskType
 
-### Constructors
-
-- [constructor](Navi3DMaskType.md#constructor)
-
-### Properties
-
-- [WalkAble](Navi3DMaskType.md#walkable)
+Defined in: [src/math/navigation/Navi3DMaskType.ts:1](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DMaskType.ts#L1)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new Navi3DMaskType**(): [`Navi3DMaskType`](Navi3DMaskType.md)
+> **new Navi3DMaskType**(): `Navi3DMaskType`
 
 #### Returns
 
-[`Navi3DMaskType`](Navi3DMaskType.md)
+`Navi3DMaskType`
 
 ## Properties
 
 ### WalkAble
 
-▪ `Static` **WalkAble**: `number` = `1`
+> `static` **WalkAble**: `number` = `1`
 
-#### Defined in
-
-[src/math/navigation/Navi3DMaskType.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DMaskType.ts#L2)
+Defined in: [src/math/navigation/Navi3DMaskType.ts:2](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DMaskType.ts#L2)

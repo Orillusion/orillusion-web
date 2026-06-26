@@ -1,7 +1,13 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Variable: GIRenderStartEvent
 
-• **GIRenderStartEvent**: [`CEvent`](../classes/CEvent.md)
+> `const` **GIRenderStartEvent**: [`CEvent`](../classes/CEvent.md)
 
-#### Defined in
+Defined in: [src/gfx/renderJob/graph/passes/GIPass.ts:47](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/GIPass.ts#L47)
 
-[src/gfx/renderJob/passRenderer/ddgi/DDGIProbeRenderer.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/ddgi/DDGIProbeRenderer.ts#L24)
+Event fired (on the GIPass instance, via CEventDispatcher) when the
+full probe array has finished rendering. Consumed by the optional
+GPU buffer reader for cloud-GI pipelines.

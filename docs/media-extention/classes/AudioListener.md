@@ -1,285 +1,247 @@
+[**@orillusion/media-extention**](../README.md)
+
+***
+
 # Class: AudioListener
+
+Defined in: [packages/media-extention/AudioListener.ts:8](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/AudioListener.ts#L8)
 
 Audio Listener
 Used in conjunction [PositionAudio](PositionAudio.md) or [StaticAudio](StaticAudio.md)
 
-## Hierarchy
+## Extends
 
 - `ComponentBase`
 
-  ↳ **`AudioListener`**
-
-### Constructors
-
-- [constructor](AudioListener.md#constructor)
-
-### Properties
-
-- [context](AudioListener.md#context)
-- [gain](AudioListener.md#gain)
-- [object3D](AudioListener.md#object3d)
-- [isDestroyed](AudioListener.md#isdestroyed)
-
-### Accessors
-
-- [eventDispatcher](AudioListener.md#eventdispatcher)
-- [isStart](AudioListener.md#isstart)
-- [transform](AudioListener.md#transform)
-- [enable](AudioListener.md#enable)
-
-### Methods
-
-- [onUpdate](AudioListener.md#onupdate)
-- [destroy](AudioListener.md#destroy)
-- [init](AudioListener.md#init)
-- [start](AudioListener.md#start)
-- [stop](AudioListener.md#stop)
-- [onEnable](AudioListener.md#onenable)
-- [onDisable](AudioListener.md#ondisable)
-- [onLateUpdate](AudioListener.md#onlateupdate)
-- [onBeforeUpdate](AudioListener.md#onbeforeupdate)
-- [onCompute](AudioListener.md#oncompute)
-- [onGraphic](AudioListener.md#ongraphic)
-- [onParentChange](AudioListener.md#onparentchange)
-- [onAddChild](AudioListener.md#onaddchild)
-- [onRemoveChild](AudioListener.md#onremovechild)
-- [cloneTo](AudioListener.md#cloneto)
-- [copyComponent](AudioListener.md#copycomponent)
-- [beforeDestroy](AudioListener.md#beforedestroy)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new AudioListener**(): [`AudioListener`](AudioListener.md)
+> **new AudioListener**(): `AudioListener`
+
+Defined in: [packages/media-extention/AudioListener.ts:11](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/AudioListener.ts#L11)
 
 #### Returns
 
-[`AudioListener`](AudioListener.md)
+`AudioListener`
 
 #### Overrides
 
-ComponentBase.constructor
-
-#### Defined in
-
-[packages/media-extention/AudioListener.ts:11](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/AudioListener.ts#L11)
+`ComponentBase.constructor`
 
 ## Properties
 
-### context
-
-• `Readonly` **context**: `AudioContext`
-
-#### Defined in
-
-[packages/media-extention/AudioListener.ts:9](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/AudioListener.ts#L9)
-
-___
-
-### gain
-
-• `Readonly` **gain**: `GainNode`
-
-#### Defined in
-
-[packages/media-extention/AudioListener.ts:10](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/AudioListener.ts#L10)
-
-___
-
 ### object3D
 
-• **object3D**: `Object3D` = `null`
+> **object3D**: `Object3D` = `null`
+
+Defined in: [src/components/ComponentBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L29)
 
 owner object3D
 
 #### Inherited from
 
-ComponentBase.object3D
+`ComponentBase.object3D`
 
-#### Defined in
-
-[src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
-
-___
+***
 
 ### isDestroyed
 
-• `Optional` **isDestroyed**: `boolean`
+> **isDestroyed**: `boolean` = `false`
+
+Defined in: [src/components/ComponentBase.ts:77](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L77)
 
 #### Inherited from
 
-ComponentBase.isDestroyed
+`ComponentBase.isDestroyed`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
+### context
+
+> `readonly` **context**: `AudioContext`
+
+Defined in: [packages/media-extention/AudioListener.ts:9](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/AudioListener.ts#L9)
+
+***
+
+### gain
+
+> `readonly` **gain**: `GainNode`
+
+Defined in: [packages/media-extention/AudioListener.ts:10](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/AudioListener.ts#L10)
 
 ## Accessors
 
-### eventDispatcher
+### visibleLayer
 
-• `get` **eventDispatcher**(): `CEventDispatcher`
+#### Get Signature
 
-#### Returns
+> **get** **visibleLayer**(): `number`
 
-`CEventDispatcher`
+Defined in: [src/components/ComponentBase.ts:46](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L46)
 
-#### Inherited from
+Composition-layer membership bitmask. The pass / camera /
+collector filters via
 
-ComponentBase.eventDispatcher
+    (component.visibleLayer & pass.layerMask & camera.cullingMask) !== 0
 
-#### Defined in
+Defaults to VisibleLayer.Default (bit 0) so a fresh
+subclass is visible to passes whose `layerMask` is
+VisibleLayer.All (which includes bit 0). Application code
+can assign project-specific bits (1..31) to organise the scene
+into composition layers.
 
-[src/components/ComponentBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L23)
+##### Returns
 
-• `set` **eventDispatcher**(`value`): `void`
+`number`
 
-#### Parameters
+#### Set Signature
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `CEventDispatcher` |
+> **set** **visibleLayer**(`value`): `void`
 
-#### Returns
+Defined in: [src/components/ComponentBase.ts:50](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L50)
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-ComponentBase.eventDispatcher
+`ComponentBase.visibleLayer`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L28)
+### eventDispatcher
 
-___
+#### Get Signature
+
+> **get** **eventDispatcher**(): `CEventDispatcher`
+
+Defined in: [src/components/ComponentBase.ts:63](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L63)
+
+##### Returns
+
+`CEventDispatcher`
+
+#### Set Signature
+
+> **set** **eventDispatcher**(`value`): `void`
+
+Defined in: [src/components/ComponentBase.ts:68](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
+
+##### Parameters
+
+###### value
+
+`CEventDispatcher`
+
+##### Returns
+
+`void`
+
+#### Inherited from
+
+`ComponentBase.eventDispatcher`
+
+***
 
 ### isStart
 
-• `get` **isStart**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **isStart**(): `boolean`
+
+Defined in: [src/components/ComponentBase.ts:79](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L79)
+
+##### Returns
 
 `boolean`
 
 #### Inherited from
 
-ComponentBase.isStart
+`ComponentBase.isStart`
 
-#### Defined in
-
-[src/components/ComponentBase.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L40)
-
-___
+***
 
 ### transform
 
-• `get` **transform**(): `Transform`
+#### Get Signature
+
+> **get** **transform**(): `Transform`
+
+Defined in: [src/components/ComponentBase.ts:89](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L89)
 
 Return the Transform component attached to the Object3D.
+Null before the component is attached — `addComponent` assigns
+`object3D` only after construction — so constructor-time callers
+can probe safely via `this.transform?.`.
 
-#### Returns
+##### Returns
 
 `Transform`
 
 #### Inherited from
 
-ComponentBase.transform
+`ComponentBase.transform`
 
-#### Defined in
-
-[src/components/ComponentBase.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L47)
-
-___
+***
 
 ### enable
 
-• `get` **enable**(): `boolean`
+#### Get Signature
+
+> **get** **enable**(): `boolean`
+
+Defined in: [src/components/ComponentBase.ts:113](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
-#### Returns
+##### Returns
 
 `boolean`
 
-#### Inherited from
+#### Set Signature
 
-ComponentBase.enable
+> **set** **enable**(`value`): `void`
 
-#### Defined in
-
-[src/components/ComponentBase.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
-
-• `set` **enable**(`value`): `void`
+Defined in: [src/components/ComponentBase.ts:96](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L96)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
+###### value
 
-#### Returns
+`boolean`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-ComponentBase.enable
-
-#### Defined in
-
-[src/components/ComponentBase.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L54)
+`ComponentBase.enable`
 
 ## Methods
 
-### onUpdate
+### init()
 
-▸ **onUpdate**(): `void`
+> **init**(`param?`): `void`
 
-#### Returns
-
-`void`
-
-#### Overrides
-
-ComponentBase.onUpdate
-
-#### Defined in
-
-[packages/media-extention/AudioListener.ts:17](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/AudioListener.ts#L17)
-
-___
-
-### destroy
-
-▸ **destroy**(): `void`
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-ComponentBase.destroy
-
-#### Defined in
-
-[packages/media-extention/AudioListener.ts:44](https://github.com/Orillusion/orillusion/blob/main/packages/media-extention/AudioListener.ts#L44)
-
-___
-
-### init
-
-▸ **init**(`param?`): `void`
+Defined in: [src/components/ComponentBase.ts:161](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L161)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `param?` | `any` |
+##### param?
+
+`any`
 
 #### Returns
 
@@ -287,17 +249,15 @@ ___
 
 #### Inherited from
 
-ComponentBase.init
+`ComponentBase.init`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L112)
+### start()
 
-___
+> **start**(): `void`
 
-### start
-
-▸ **start**(): `void`
+Defined in: [src/components/ComponentBase.ts:162](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L162)
 
 #### Returns
 
@@ -305,17 +265,15 @@ ___
 
 #### Inherited from
 
-ComponentBase.start
+`ComponentBase.start`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
+### stop()
 
-___
+> **stop**(): `void`
 
-### stop
-
-▸ **stop**(): `void`
+Defined in: [src/components/ComponentBase.ts:163](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L163)
 
 #### Returns
 
@@ -323,23 +281,21 @@ ___
 
 #### Inherited from
 
-ComponentBase.stop
+`ComponentBase.stop`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
+### onEnable()?
 
-___
+> `optional` **onEnable**(`view?`): `any`
 
-### onEnable
-
-▸ **onEnable**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:164](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L164)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
+##### view?
+
+`View3D`
 
 #### Returns
 
@@ -347,23 +303,21 @@ ___
 
 #### Inherited from
 
-ComponentBase.onEnable
+`ComponentBase.onEnable`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L115)
+### onDisable()?
 
-___
+> `optional` **onDisable**(`view?`): `any`
 
-### onDisable
-
-▸ **onDisable**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:165](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L165)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
+##### view?
+
+`View3D`
 
 #### Returns
 
@@ -371,23 +325,21 @@ ___
 
 #### Inherited from
 
-ComponentBase.onDisable
+`ComponentBase.onDisable`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L116)
+### onLateUpdate()?
 
-___
+> `optional` **onLateUpdate**(`view?`): `any`
 
-### onLateUpdate
-
-▸ **onLateUpdate**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:167](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L167)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
+##### view?
+
+`View3D`
 
 #### Returns
 
@@ -395,23 +347,21 @@ ___
 
 #### Inherited from
 
-ComponentBase.onLateUpdate
+`ComponentBase.onLateUpdate`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L118)
+### onBeforeUpdate()?
 
-___
+> `optional` **onBeforeUpdate**(`view?`): `any`
 
-### onBeforeUpdate
-
-▸ **onBeforeUpdate**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:168](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L168)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
+##### view?
+
+`View3D`
 
 #### Returns
 
@@ -419,24 +369,25 @@ ___
 
 #### Inherited from
 
-ComponentBase.onBeforeUpdate
+`ComponentBase.onBeforeUpdate`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L119)
+### onCompute()?
 
-___
+> `optional` **onCompute**(`view?`, `command?`): `any`
 
-### onCompute
-
-▸ **onCompute**(`view?`, `command?`): `any`
+Defined in: [src/components/ComponentBase.ts:169](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L169)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
-| `command?` | `GPUCommandEncoder` |
+##### view?
+
+`View3D`
+
+##### command?
+
+`GPUCommandEncoder`
 
 #### Returns
 
@@ -444,23 +395,21 @@ ___
 
 #### Inherited from
 
-ComponentBase.onCompute
+`ComponentBase.onCompute`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L120)
+### onGraphic()?
 
-___
+> `optional` **onGraphic**(`view?`): `any`
 
-### onGraphic
-
-▸ **onGraphic**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:170](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L170)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
+##### view?
+
+`View3D`
 
 #### Returns
 
@@ -468,24 +417,25 @@ ___
 
 #### Inherited from
 
-ComponentBase.onGraphic
+`ComponentBase.onGraphic`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L121)
+### onParentChange()?
 
-___
+> `optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
-### onParentChange
-
-▸ **onParentChange**(`lastParent?`, `currentParent?`): `any`
+Defined in: [src/components/ComponentBase.ts:171](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L171)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `lastParent?` | `Object3D` |
-| `currentParent?` | `Object3D` |
+##### lastParent?
+
+`Object3D`
+
+##### currentParent?
+
+`Object3D`
 
 #### Returns
 
@@ -493,23 +443,21 @@ ___
 
 #### Inherited from
 
-ComponentBase.onParentChange
+`ComponentBase.onParentChange`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L122)
+### onAddChild()?
 
-___
+> `optional` **onAddChild**(`child`): `any`
 
-### onAddChild
-
-▸ **onAddChild**(`child`): `any`
+Defined in: [src/components/ComponentBase.ts:172](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L172)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `child` | `Object3D` |
+##### child
+
+`Object3D`
 
 #### Returns
 
@@ -517,23 +465,21 @@ ___
 
 #### Inherited from
 
-ComponentBase.onAddChild
+`ComponentBase.onAddChild`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L123)
+### onRemoveChild()?
 
-___
+> `optional` **onRemoveChild**(`child`): `any`
 
-### onRemoveChild
-
-▸ **onRemoveChild**(`child`): `any`
+Defined in: [src/components/ComponentBase.ts:173](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L173)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `child` | `Object3D` |
+##### child
+
+`Object3D`
 
 #### Returns
 
@@ -541,25 +487,25 @@ ___
 
 #### Inherited from
 
-ComponentBase.onRemoveChild
+`ComponentBase.onRemoveChild`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L124)
+### cloneTo()
 
-___
+> **cloneTo**(`obj`): `void`
 
-### cloneTo
-
-▸ **cloneTo**(`obj`): `void`
+Defined in: [src/components/ComponentBase.ts:180](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L180)
 
 clone component data to target object3D
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `obj` | `Object3D` | target object3D |
+##### obj
+
+`Object3D`
+
+target object3D
 
 #### Returns
 
@@ -567,23 +513,21 @@ clone component data to target object3D
 
 #### Inherited from
 
-ComponentBase.cloneTo
+`ComponentBase.cloneTo`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L131)
+### copyComponent()
 
-___
+> **copyComponent**(`from`): `this`
 
-### copyComponent
-
-▸ **copyComponent**(`from`): `this`
+Defined in: [src/components/ComponentBase.ts:182](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L182)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `from` | `this` |
+##### from
+
+`this`
 
 #### Returns
 
@@ -591,25 +535,23 @@ ___
 
 #### Inherited from
 
-ComponentBase.copyComponent
+`ComponentBase.copyComponent`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L133)
+### beforeDestroy()
 
-___
+> **beforeDestroy**(`force?`): `void`
 
-### beforeDestroy
-
-▸ **beforeDestroy**(`force?`): `void`
+Defined in: [src/components/ComponentBase.ts:249](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L249)
 
 before release this component, object refrences are not be set null now.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
+##### force?
+
+`boolean`
 
 #### Returns
 
@@ -617,8 +559,38 @@ before release this component, object refrences are not be set null now.
 
 #### Inherited from
 
-ComponentBase.beforeDestroy
+`ComponentBase.beforeDestroy`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L200)
+### onUpdate()
+
+> **onUpdate**(): `void`
+
+Defined in: [packages/media-extention/AudioListener.ts:17](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/AudioListener.ts#L17)
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+`ComponentBase.onUpdate`
+
+***
+
+### destroy()
+
+> **destroy**(): `void`
+
+Defined in: [packages/media-extention/AudioListener.ts:44](https://github.com/orillusion/orillusion/blob/main/packages/media-extention/AudioListener.ts#L44)
+
+release this component
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+`ComponentBase.destroy`

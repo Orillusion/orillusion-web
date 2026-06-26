@@ -1,21 +1,35 @@
-# Function: EditorInspector
+[**@orillusion/core**](../README.md)
 
-▸ **EditorInspector**(`cls`, `key`, `p1?`, `p2?`, `p3?`): `any`
+***
 
-#### Parameters
+# Function: EditorInspector()
 
-| Name | Type |
-| :------ | :------ |
-| `cls` | `any` |
-| `key` | `any` |
-| `p1?` | `any` |
-| `p2?` | `any` |
-| `p3?` | `any` |
+> **EditorInspector**(`cls`, `key`, `p1?`, `p2?`, `p3?`): `any`
 
-#### Returns
+Defined in: [src/util/SerializeDecoration.ts:25](https://github.com/orillusion/orillusion/blob/main/src/util/SerializeDecoration.ts#L25)
+
+## Parameters
+
+### cls
 
 `any`
 
-#### Defined in
+### key
 
-[src/util/SerializeDecoration.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/util/SerializeDecoration.ts#L25)
+`any`
+
+### p1?
+
+`any`
+
+### p2?
+
+`any`
+
+### p3?
+
+`any`
+
+## Returns
+
+`any`

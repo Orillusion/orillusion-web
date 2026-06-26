@@ -1,453 +1,449 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: BoxGeometry
+
+Defined in: [src/shape/BoxGeometry.ts:10](https://github.com/orillusion/orillusion/blob/main/src/shape/BoxGeometry.ts#L10)
 
 Box geometry
 
-## Hierarchy
+## Extends
 
 - [`GeometryBase`](GeometryBase.md)
 
-  ↳ **`BoxGeometry`**
-
-### Constructors
-
-- [constructor](BoxGeometry.md#constructor)
-
-### Properties
-
-- [instanceID](BoxGeometry.md#instanceid)
-- [name](BoxGeometry.md#name)
-- [subGeometries](BoxGeometry.md#subgeometries)
-- [morphTargetsRelative](BoxGeometry.md#morphtargetsrelative)
-- [morphTargetDictionary](BoxGeometry.md#morphtargetdictionary)
-- [skinNames](BoxGeometry.md#skinnames)
-- [bindPose](BoxGeometry.md#bindpose)
-- [blendShapeData](BoxGeometry.md#blendshapedata)
-- [vertexDim](BoxGeometry.md#vertexdim)
-- [vertexCount](BoxGeometry.md#vertexcount)
-- [width](BoxGeometry.md#width)
-- [height](BoxGeometry.md#height)
-- [depth](BoxGeometry.md#depth)
-
-### Accessors
-
-- [indicesBuffer](BoxGeometry.md#indicesbuffer)
-- [vertexBuffer](BoxGeometry.md#vertexbuffer)
-- [vertexAttributes](BoxGeometry.md#vertexattributes)
-- [vertexAttributeMap](BoxGeometry.md#vertexattributemap)
-- [geometryType](BoxGeometry.md#geometrytype)
-- [bounds](BoxGeometry.md#bounds)
-
-### Methods
-
-- [addSubGeometry](BoxGeometry.md#addsubgeometry)
-- [generate](BoxGeometry.md#generate)
-- [setIndices](BoxGeometry.md#setindices)
-- [setAttribute](BoxGeometry.md#setattribute)
-- [getAttribute](BoxGeometry.md#getattribute)
-- [hasAttribute](BoxGeometry.md#hasattribute)
-- [genWireframe](BoxGeometry.md#genwireframe)
-- [compute](BoxGeometry.md#compute)
-- [computeNormals](BoxGeometry.md#computenormals)
-- [isPrimitive](BoxGeometry.md#isprimitive)
-- [destroy](BoxGeometry.md#destroy)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new BoxGeometry**(`width?`, `height?`, `depth?`): [`BoxGeometry`](BoxGeometry.md)
+> **new BoxGeometry**(`width?`, `height?`, `depth?`): `BoxGeometry`
+
+Defined in: [src/shape/BoxGeometry.ts:30](https://github.com/orillusion/orillusion/blob/main/src/shape/BoxGeometry.ts#L30)
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `width` | `number` | `1` | {number} box width, default value is 1 |
-| `height` | `number` | `1` | {number} box height, default value is 1 |
-| `depth` | `number` | `1` | {number} box depth, default value is 1 |
+##### width?
+
+`number` = `1`
+
+{number} box width, default value is 1
+
+##### height?
+
+`number` = `1`
+
+{number} box height, default value is 1
+
+##### depth?
+
+`number` = `1`
+
+{number} box depth, default value is 1
 
 #### Returns
 
-[`BoxGeometry`](BoxGeometry.md)
+`BoxGeometry`
 
 #### Overrides
 
-[GeometryBase](GeometryBase.md).[constructor](GeometryBase.md#constructor)
-
-#### Defined in
-
-[src/shape/BoxGeometry.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/shape/BoxGeometry.ts#L30)
+[`GeometryBase`](GeometryBase.md).[`constructor`](GeometryBase.md#constructor)
 
 ## Properties
 
 ### instanceID
 
-• **instanceID**: `string`
+> **instanceID**: `string`
+
+Defined in: [src/core/geometry/GeometryBase.ts:43](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L43)
+
+Unique identifier of this geometry instance.
 
 #### Inherited from
 
-[GeometryBase](GeometryBase.md).[instanceID](GeometryBase.md#instanceid)
+[`GeometryBase`](GeometryBase.md).[`instanceID`](GeometryBase.md#instanceid)
 
-#### Defined in
-
-[src/core/geometry/GeometryBase.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L39)
-
-___
+***
 
 ### name
 
-• **name**: `string`
+> **name**: `string`
+
+Defined in: [src/core/geometry/GeometryBase.ts:45](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L45)
+
+Human-readable name of this geometry.
 
 #### Inherited from
 
-[GeometryBase](GeometryBase.md).[name](GeometryBase.md#name)
+[`GeometryBase`](GeometryBase.md).[`name`](GeometryBase.md#name)
 
-#### Defined in
-
-[src/core/geometry/GeometryBase.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L40)
-
-___
+***
 
 ### subGeometries
 
-• **subGeometries**: [`SubGeometry`](SubGeometry.md)[] = `[]`
+> **subGeometries**: [`SubGeometry`](SubGeometry.md)[] = `[]`
+
+Defined in: [src/core/geometry/GeometryBase.ts:47](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L47)
+
+Sub-geometries with their per-LOD draw descriptors.
 
 #### Inherited from
 
-[GeometryBase](GeometryBase.md).[subGeometries](GeometryBase.md#subgeometries)
+[`GeometryBase`](GeometryBase.md).[`subGeometries`](GeometryBase.md#subgeometries)
 
-#### Defined in
-
-[src/core/geometry/GeometryBase.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L41)
-
-___
+***
 
 ### morphTargetsRelative
 
-• **morphTargetsRelative**: `boolean`
+> **morphTargetsRelative**: `boolean`
+
+Defined in: [src/core/geometry/GeometryBase.ts:49](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L49)
+
+Whether morph targets are stored as relative offsets.
 
 #### Inherited from
 
-[GeometryBase](GeometryBase.md).[morphTargetsRelative](GeometryBase.md#morphtargetsrelative)
+[`GeometryBase`](GeometryBase.md).[`morphTargetsRelative`](GeometryBase.md#morphtargetsrelative)
 
-#### Defined in
-
-[src/core/geometry/GeometryBase.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L42)
-
-___
+***
 
 ### morphTargetDictionary
 
-• **morphTargetDictionary**: `Object`
+> **morphTargetDictionary**: `object`
 
-#### Index signature
+Defined in: [src/core/geometry/GeometryBase.ts:51](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L51)
 
-▪ [blenderName: `string`]: `number`
+Maps morph-target names to their attribute indices.
+
+#### Index Signature
+
+\[`blenderName`: `string`\]: `number`
 
 #### Inherited from
 
-[GeometryBase](GeometryBase.md).[morphTargetDictionary](GeometryBase.md#morphtargetdictionary)
+[`GeometryBase`](GeometryBase.md).[`morphTargetDictionary`](GeometryBase.md#morphtargetdictionary)
 
-#### Defined in
-
-[src/core/geometry/GeometryBase.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L43)
-
-___
+***
 
 ### skinNames
 
-• **skinNames**: `string`[]
+> **skinNames**: `string`[]
+
+Defined in: [src/core/geometry/GeometryBase.ts:53](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L53)
+
+Names of the skin joints used by this geometry.
 
 #### Inherited from
 
-[GeometryBase](GeometryBase.md).[skinNames](GeometryBase.md#skinnames)
+[`GeometryBase`](GeometryBase.md).[`skinNames`](GeometryBase.md#skinnames)
 
-#### Defined in
-
-[src/core/geometry/GeometryBase.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L44)
-
-___
+***
 
 ### bindPose
 
-• **bindPose**: [`Matrix4`](Matrix4.md)[]
+> **bindPose**: [`Matrix4`](Matrix4.md)[]
+
+Defined in: [src/core/geometry/GeometryBase.ts:55](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L55)
+
+Inverse bind-pose matrices for skinning.
 
 #### Inherited from
 
-[GeometryBase](GeometryBase.md).[bindPose](GeometryBase.md#bindpose)
+[`GeometryBase`](GeometryBase.md).[`bindPose`](GeometryBase.md#bindpose)
 
-#### Defined in
-
-[src/core/geometry/GeometryBase.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L45)
-
-___
+***
 
 ### blendShapeData
 
-• **blendShapeData**: [`BlendShapeData`](BlendShapeData.md)
+> **blendShapeData**: `BlendShapeData`
+
+Defined in: [src/core/geometry/GeometryBase.ts:57](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L57)
+
+Blend-shape (morph target) data for this geometry.
 
 #### Inherited from
 
-[GeometryBase](GeometryBase.md).[blendShapeData](GeometryBase.md#blendshapedata)
+[`GeometryBase`](GeometryBase.md).[`blendShapeData`](GeometryBase.md#blendshapedata)
 
-#### Defined in
-
-[src/core/geometry/GeometryBase.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L46)
-
-___
+***
 
 ### vertexDim
 
-• **vertexDim**: `number`
+> **vertexDim**: `number`
+
+Defined in: [src/core/geometry/GeometryBase.ts:59](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L59)
+
+Number of floats per vertex for interleaved buffers.
 
 #### Inherited from
 
-[GeometryBase](GeometryBase.md).[vertexDim](GeometryBase.md#vertexdim)
+[`GeometryBase`](GeometryBase.md).[`vertexDim`](GeometryBase.md#vertexdim)
 
-#### Defined in
-
-[src/core/geometry/GeometryBase.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L47)
-
-___
+***
 
 ### vertexCount
 
-• **vertexCount**: `number` = `0`
+> **vertexCount**: `number` = `0`
+
+Defined in: [src/core/geometry/GeometryBase.ts:61](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L61)
+
+Number of vertices in this geometry.
 
 #### Inherited from
 
-[GeometryBase](GeometryBase.md).[vertexCount](GeometryBase.md#vertexcount)
+[`GeometryBase`](GeometryBase.md).[`vertexCount`](GeometryBase.md#vertexcount)
 
-#### Defined in
-
-[src/core/geometry/GeometryBase.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L48)
-
-___
+***
 
 ### width
 
-• **width**: `number`
+> **width**: `number`
+
+Defined in: [src/shape/BoxGeometry.ts:14](https://github.com/orillusion/orillusion/blob/main/src/shape/BoxGeometry.ts#L14)
 
 box width
 
-#### Defined in
-
-[src/shape/BoxGeometry.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/shape/BoxGeometry.ts#L14)
-
-___
+***
 
 ### height
 
-• **height**: `number`
+> **height**: `number`
+
+Defined in: [src/shape/BoxGeometry.ts:18](https://github.com/orillusion/orillusion/blob/main/src/shape/BoxGeometry.ts#L18)
 
 box height
 
-#### Defined in
-
-[src/shape/BoxGeometry.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/shape/BoxGeometry.ts#L18)
-
-___
+***
 
 ### depth
 
-• **depth**: `number`
+> **depth**: `number`
+
+Defined in: [src/shape/BoxGeometry.ts:22](https://github.com/orillusion/orillusion/blob/main/src/shape/BoxGeometry.ts#L22)
 
 box depth
-
-#### Defined in
-
-[src/shape/BoxGeometry.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/shape/BoxGeometry.ts#L22)
 
 ## Accessors
 
 ### indicesBuffer
 
-• `get` **indicesBuffer**(): [`GeometryIndicesBuffer`](GeometryIndicesBuffer.md)
+#### Get Signature
 
-#### Returns
+> **get** **indicesBuffer**(): [`GeometryIndicesBuffer`](GeometryIndicesBuffer.md)
+
+Defined in: [src/core/geometry/GeometryBase.ts:79](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L79)
+
+Get the GPU index buffer of this geometry.
+
+##### Returns
 
 [`GeometryIndicesBuffer`](GeometryIndicesBuffer.md)
 
 #### Inherited from
 
-GeometryBase.indicesBuffer
+[`GeometryBase`](GeometryBase.md).[`indicesBuffer`](GeometryBase.md#indicesbuffer)
 
-#### Defined in
-
-[src/core/geometry/GeometryBase.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L69)
-
-___
+***
 
 ### vertexBuffer
 
-• `get` **vertexBuffer**(): [`GeometryVertexBuffer`](GeometryVertexBuffer.md)
+#### Get Signature
 
-#### Returns
+> **get** **vertexBuffer**(): [`GeometryVertexBuffer`](GeometryVertexBuffer.md)
+
+Defined in: [src/core/geometry/GeometryBase.ts:84](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L84)
+
+Get the GPU vertex buffer of this geometry.
+
+##### Returns
 
 [`GeometryVertexBuffer`](GeometryVertexBuffer.md)
 
 #### Inherited from
 
-GeometryBase.vertexBuffer
+[`GeometryBase`](GeometryBase.md).[`vertexBuffer`](GeometryBase.md#vertexbuffer)
 
-#### Defined in
-
-[src/core/geometry/GeometryBase.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L73)
-
-___
+***
 
 ### vertexAttributes
 
-• `get` **vertexAttributes**(): `string`[]
+#### Get Signature
 
-#### Returns
+> **get** **vertexAttributes**(): `string`[]
+
+Defined in: [src/core/geometry/GeometryBase.ts:89](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L89)
+
+Get the list of vertex attribute names present on this geometry.
+
+##### Returns
 
 `string`[]
 
 #### Inherited from
 
-GeometryBase.vertexAttributes
+[`GeometryBase`](GeometryBase.md).[`vertexAttributes`](GeometryBase.md#vertexattributes)
 
-#### Defined in
-
-[src/core/geometry/GeometryBase.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L77)
-
-___
+***
 
 ### vertexAttributeMap
 
-• `get` **vertexAttributeMap**(): `Map`\<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
+#### Get Signature
 
-#### Returns
+> **get** **vertexAttributeMap**(): `Map`\<`string`, [`VertexAttributeData`](../type-aliases/VertexAttributeData.md)\>
 
-`Map`\<`string`, [`VertexAttributeData`](../types/VertexAttributeData.md)\>
+Defined in: [src/core/geometry/GeometryBase.ts:94](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L94)
+
+Get the map from attribute name to its vertex attribute data.
+
+##### Returns
+
+`Map`\<`string`, [`VertexAttributeData`](../type-aliases/VertexAttributeData.md)\>
 
 #### Inherited from
 
-GeometryBase.vertexAttributeMap
+[`GeometryBase`](GeometryBase.md).[`vertexAttributeMap`](GeometryBase.md#vertexattributemap)
 
-#### Defined in
-
-[src/core/geometry/GeometryBase.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L81)
-
-___
+***
 
 ### geometryType
 
-• `get` **geometryType**(): [`GeometryVertexType`](../enums/GeometryVertexType.md)
+#### Get Signature
 
-#### Returns
+> **get** **geometryType**(): [`GeometryVertexType`](../enumerations/GeometryVertexType.md)
 
-[`GeometryVertexType`](../enums/GeometryVertexType.md)
+Defined in: [src/core/geometry/GeometryBase.ts:99](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L99)
 
-#### Inherited from
+Get the vertex layout type of this geometry.
 
-GeometryBase.geometryType
+##### Returns
 
-#### Defined in
+[`GeometryVertexType`](../enumerations/GeometryVertexType.md)
 
-[src/core/geometry/GeometryBase.ts:85](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L85)
+#### Set Signature
 
-• `set` **geometryType**(`value`): `void`
+> **set** **geometryType**(`value`): `void`
 
-#### Parameters
+Defined in: [src/core/geometry/GeometryBase.ts:103](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L103)
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`GeometryVertexType`](../enums/GeometryVertexType.md) |
+Set the vertex layout type of this geometry.
 
-#### Returns
+##### Parameters
+
+###### value
+
+[`GeometryVertexType`](../enumerations/GeometryVertexType.md)
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-GeometryBase.geometryType
+[`GeometryBase`](GeometryBase.md).[`geometryType`](GeometryBase.md#geometrytype)
 
-#### Defined in
-
-[src/core/geometry/GeometryBase.ts:88](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L88)
-
-___
+***
 
 ### bounds
 
-• `get` **bounds**(): `BoundingBox`
+#### Get Signature
 
-#### Returns
+> **get** **bounds**(): `BoundingBox`
+
+Defined in: [src/core/geometry/GeometryBase.ts:108](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L108)
+
+Get the bounding box of this geometry, computing it from positions on first access.
+
+##### Returns
 
 `BoundingBox`
 
-#### Inherited from
+#### Set Signature
 
-GeometryBase.bounds
+> **set** **bounds**(`value`): `void`
 
-#### Defined in
+Defined in: [src/core/geometry/GeometryBase.ts:152](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L152)
 
-[src/core/geometry/GeometryBase.ts:92](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L92)
+Set the bounding box of this geometry.
 
-• `set` **bounds**(`value`): `void`
+##### Parameters
 
-#### Parameters
+###### value
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `BoundingBox` |
+`BoundingBox`
 
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-GeometryBase.bounds
-
-#### Defined in
-
-[src/core/geometry/GeometryBase.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L135)
+[`GeometryBase`](GeometryBase.md).[`bounds`](GeometryBase.md#bounds)
 
 ## Methods
 
-### addSubGeometry
+### addSubGeometry()
 
-▸ **addSubGeometry**(`...lodLevels`): [`SubGeometry`](SubGeometry.md)
+> **addSubGeometry**(...`lodLevels`): [`SubGeometry`](SubGeometry.md)
+
+Defined in: [src/core/geometry/GeometryBase.ts:161](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L161)
 
 add subGeometry from lod level
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `...lodLevels` | [`LODDescriptor`](../types/LODDescriptor.md)[] |
+##### lodLevels
+
+...[`LODDescriptor`](../type-aliases/LODDescriptor.md)[]
 
 #### Returns
 
 [`SubGeometry`](SubGeometry.md)
 
-**`See`**
+#### See
 
 LODDescriptor
 
 #### Inherited from
 
-[GeometryBase](GeometryBase.md).[addSubGeometry](GeometryBase.md#addsubgeometry)
+[`GeometryBase`](GeometryBase.md).[`addSubGeometry`](GeometryBase.md#addsubgeometry)
 
-#### Defined in
+***
 
-[src/core/geometry/GeometryBase.ts:144](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L144)
+### generate()
 
-___
+> **generate**(`shaderReflection`): `void`
 
-### generate
+Defined in: [src/core/geometry/GeometryBase.ts:194](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L194)
 
-▸ **generate**(`shaderReflection`): `void`
+Build the GPU vertex buffer + buffer-layout array from this
+geometry's attribute data, driven by the consuming pass's
+`ShaderReflection`. The layout array is indexed by shader slot
+(`attribute.location`), so the LAYOUT contents depend on which
+attributes the shader actually declares.
 
-create geometry by shaderReflection
+Originally this was gated purely on `_onChange` — i.e. ran once
+after the geometry's attribute data was set. That broke
+multi-pass materials: when a single geometry is consumed by a
+color pass that declares N attributes (say position / normal /
+uv) AND a depth pass that declares N+1 (adding TEXCOORD_1 at
+slot 3 via VertexAttributes #include), the color pass ran
+first, populated slots 0..N-1, and cleared `_onChange`. The
+depth pass's `generate` call was then a no-op, so the pipeline
+built with `vertexBufferLayouts` was missing slot N — WebGPU
+rejects it with "Vertex attribute slot X used in shader is not
+present in VertexState".
+
+The fix: rebuild also when the incoming reflection requires a
+slot the current layout array doesn't yet have. The data is
+already in `_attributeMap`; `createVertexBuffer` will pick up
+the missing slot. We keep the `_onChange` short-circuit for the
+normal "shader requirements unchanged" case so dynamic geometry
+updates don't pay a per-frame `createVertexBuffer` cost.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `shaderReflection` | `ShaderReflection` | ShaderReflection |
+##### shaderReflection
+
+`ShaderReflection`
 
 #### Returns
 
@@ -455,23 +451,25 @@ create geometry by shaderReflection
 
 #### Inherited from
 
-[GeometryBase](GeometryBase.md).[generate](GeometryBase.md#generate)
+[`GeometryBase`](GeometryBase.md).[`generate`](GeometryBase.md#generate)
 
-#### Defined in
+***
 
-[src/core/geometry/GeometryBase.ts:155](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L155)
+### setIndices()
 
-___
+> **setIndices**(`data`): `void`
 
-### setIndices
+Defined in: [src/core/geometry/GeometryBase.ts:214](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L214)
 
-▸ **setIndices**(`data`): `void`
+Set the index data of this geometry, creating its index buffer.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `data` | [`ArrayBufferData`](../types/ArrayBufferData.md) |
+##### data
+
+[`ArrayBufferData`](../type-aliases/ArrayBufferData.md)
+
+the index buffer data
 
 #### Returns
 
@@ -479,24 +477,25 @@ ___
 
 #### Inherited from
 
-[GeometryBase](GeometryBase.md).[setIndices](GeometryBase.md#setindices)
+[`GeometryBase`](GeometryBase.md).[`setIndices`](GeometryBase.md#setindices)
 
-#### Defined in
+***
 
-[src/core/geometry/GeometryBase.ts:165](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L165)
+### setVertexs()
 
-___
+> **setVertexs**(`data`): `void`
 
-### setAttribute
+Defined in: [src/core/geometry/GeometryBase.ts:230](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L230)
 
-▸ **setAttribute**(`attribute`, `data`): `void`
+Set the position (vertex) data of this geometry.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `attribute` | `string` |
-| `data` | [`ArrayBufferData`](../types/ArrayBufferData.md) |
+##### data
+
+[`ArrayBufferData`](../type-aliases/ArrayBufferData.md)
+
+the position buffer data
 
 #### Returns
 
@@ -504,47 +503,83 @@ ___
 
 #### Inherited from
 
-[GeometryBase](GeometryBase.md).[setAttribute](GeometryBase.md#setattribute)
+[`GeometryBase`](GeometryBase.md).[`setVertexs`](GeometryBase.md#setvertexs)
 
-#### Defined in
+***
 
-[src/core/geometry/GeometryBase.ts:177](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L177)
+### setAttribute()
 
-___
+> **setAttribute**(`attribute`, `data`): `void`
 
-### getAttribute
+Defined in: [src/core/geometry/GeometryBase.ts:244](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L244)
 
-▸ **getAttribute**(`attribute`): [`VertexAttributeData`](../types/VertexAttributeData.md)
+Set the data of a named vertex attribute (or indices/position).
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `attribute` | `string` |
+##### attribute
+
+`string`
+
+the attribute name
+
+##### data
+
+[`ArrayBufferData`](../type-aliases/ArrayBufferData.md)
+
+the attribute buffer data
 
 #### Returns
 
-[`VertexAttributeData`](../types/VertexAttributeData.md)
+`void`
 
 #### Inherited from
 
-[GeometryBase](GeometryBase.md).[getAttribute](GeometryBase.md#getattribute)
+[`GeometryBase`](GeometryBase.md).[`setAttribute`](GeometryBase.md#setattribute)
 
-#### Defined in
+***
 
-[src/core/geometry/GeometryBase.ts:190](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L190)
+### getAttribute()
 
-___
+> **getAttribute**(`attribute`): [`VertexAttributeData`](../type-aliases/VertexAttributeData.md)
 
-### hasAttribute
+Defined in: [src/core/geometry/GeometryBase.ts:263](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L263)
 
-▸ **hasAttribute**(`attribute`): `boolean`
+Get the data of a named vertex attribute.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `attribute` | `string` |
+##### attribute
+
+`string`
+
+the attribute name
+
+#### Returns
+
+[`VertexAttributeData`](../type-aliases/VertexAttributeData.md)
+
+#### Inherited from
+
+[`GeometryBase`](GeometryBase.md).[`getAttribute`](GeometryBase.md#getattribute)
+
+***
+
+### hasAttribute()
+
+> **hasAttribute**(`attribute`): `boolean`
+
+Defined in: [src/core/geometry/GeometryBase.ts:271](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L271)
+
+Whether this geometry has the given named attribute.
+
+#### Parameters
+
+##### attribute
+
+`string`
+
+the attribute name
 
 #### Returns
 
@@ -552,35 +587,37 @@ ___
 
 #### Inherited from
 
-[GeometryBase](GeometryBase.md).[hasAttribute](GeometryBase.md#hasattribute)
+[`GeometryBase`](GeometryBase.md).[`hasAttribute`](GeometryBase.md#hasattribute)
 
-#### Defined in
+***
 
-[src/core/geometry/GeometryBase.ts:194](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L194)
+### genWireframe()
 
-___
+> **genWireframe**(): [`Vector3`](Vector3.md)[]
 
-### genWireframe
+Defined in: [src/core/geometry/GeometryBase.ts:279](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L279)
 
-▸ **genWireframe**(): [`Vector3`](Vector3.md)[]
+Generate (and cache) the line list describing this geometry's wireframe.
 
 #### Returns
 
 [`Vector3`](Vector3.md)[]
 
+the wireframe line vertices, or null if not available
+
 #### Inherited from
 
-[GeometryBase](GeometryBase.md).[genWireframe](GeometryBase.md#genwireframe)
+[`GeometryBase`](GeometryBase.md).[`genWireframe`](GeometryBase.md#genwireframe)
 
-#### Defined in
+***
 
-[src/core/geometry/GeometryBase.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L198)
+### compute()
 
-___
+> **compute**(): `void`
 
-### compute
+Defined in: [src/core/geometry/GeometryBase.ts:335](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L335)
 
-▸ **compute**(): `void`
+Run the compute step on this geometry's index and vertex buffers.
 
 #### Returns
 
@@ -588,35 +625,37 @@ ___
 
 #### Inherited from
 
-[GeometryBase](GeometryBase.md).[compute](GeometryBase.md#compute)
+[`GeometryBase`](GeometryBase.md).[`compute`](GeometryBase.md#compute)
 
-#### Defined in
+***
 
-[src/core/geometry/GeometryBase.ts:251](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L251)
+### computeNormals()
 
-___
+> **computeNormals**(): `this`
 
-### computeNormals
+Defined in: [src/core/geometry/GeometryBase.ts:357](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L357)
 
-▸ **computeNormals**(): `this`
+Compute per-vertex normals from the position and index data and upload them.
 
 #### Returns
 
 `this`
 
+this geometry for chaining
+
 #### Inherited from
 
-[GeometryBase](GeometryBase.md).[computeNormals](GeometryBase.md#computenormals)
+[`GeometryBase`](GeometryBase.md).[`computeNormals`](GeometryBase.md#computenormals)
 
-#### Defined in
+***
 
-[src/core/geometry/GeometryBase.ts:270](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L270)
+### isPrimitive()
 
-___
+> **isPrimitive**(): `boolean`
 
-### isPrimitive
+Defined in: [src/core/geometry/GeometryBase.ts:403](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L403)
 
-▸ **isPrimitive**(): `boolean`
+Whether this geometry is a built-in primitive.
 
 #### Returns
 
@@ -624,23 +663,25 @@ ___
 
 #### Inherited from
 
-[GeometryBase](GeometryBase.md).[isPrimitive](GeometryBase.md#isprimitive)
+[`GeometryBase`](GeometryBase.md).[`isPrimitive`](GeometryBase.md#isprimitive)
 
-#### Defined in
+***
 
-[src/core/geometry/GeometryBase.ts:312](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L312)
+### destroy()
 
-___
+> **destroy**(`force?`): `void`
 
-### destroy
+Defined in: [src/core/geometry/GeometryBase.ts:411](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L411)
 
-▸ **destroy**(`force?`): `void`
+Release the buffers and data held by this geometry.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
+##### force?
+
+`boolean`
+
+whether to force-destroy
 
 #### Returns
 
@@ -648,8 +689,4 @@ ___
 
 #### Inherited from
 
-[GeometryBase](GeometryBase.md).[destroy](GeometryBase.md#destroy)
-
-#### Defined in
-
-[src/core/geometry/GeometryBase.ts:316](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L316)
+[`GeometryBase`](GeometryBase.md).[`destroy`](GeometryBase.md#destroy)

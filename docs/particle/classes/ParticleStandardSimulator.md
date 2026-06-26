@@ -1,254 +1,210 @@
+[**@orillusion/particle**](../README.md)
+
+***
+
 # Class: ParticleStandardSimulator
+
+Defined in: [packages/particle/simulator/ParticleStandardSimulator.ts:10](https://github.com/orillusion/orillusion/blob/main/packages/particle/simulator/ParticleStandardSimulator.ts#L10)
 
 Standard particle simulator
 
-## Hierarchy
-
-- `ParticleSimulator`
-
-  ↳ **`ParticleStandardSimulator`**
-
-### Constructors
-
-- [constructor](ParticleStandardSimulator.md#constructor)
-
-### Properties
-
-- [maxParticle](ParticleStandardSimulator.md#maxparticle)
-- [needReset](ParticleStandardSimulator.md#needreset)
-- [preheatTime](ParticleStandardSimulator.md#preheattime)
-- [particleLocalMemory](ParticleStandardSimulator.md#particlelocalmemory)
-- [particleGlobalMemory](ParticleStandardSimulator.md#particleglobalmemory)
-
-### Accessors
-
-- [simulatorSpace](ParticleStandardSimulator.md#simulatorspace)
-- [looping](ParticleStandardSimulator.md#looping)
-- [maxActiveParticle](ParticleStandardSimulator.md#maxactiveparticle)
-
-### Methods
-
-- [addModule](ParticleStandardSimulator.md#addmodule)
-- [getModule](ParticleStandardSimulator.md#getmodule)
-- [removeModule](ParticleStandardSimulator.md#removemodule)
-- [build](ParticleStandardSimulator.md#build)
-- [compute](ParticleStandardSimulator.md#compute)
-- [updateBuffer](ParticleStandardSimulator.md#updatebuffer)
-- [debug](ParticleStandardSimulator.md#debug)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new ParticleStandardSimulator**(): [`ParticleStandardSimulator`](ParticleStandardSimulator.md)
+> **new ParticleStandardSimulator**(): `ParticleStandardSimulator`
+
+Defined in: [packages/particle/simulator/ParticleStandardSimulator.ts:14](https://github.com/orillusion/orillusion/blob/main/packages/particle/simulator/ParticleStandardSimulator.ts#L14)
 
 #### Returns
 
-[`ParticleStandardSimulator`](ParticleStandardSimulator.md)
+`ParticleStandardSimulator`
 
 #### Overrides
 
-ParticleSimulator.constructor
-
-#### Defined in
-
-[packages/particle/simulator/ParticleStandardSimulator.ts:14](https://github.com/Orillusion/orillusion/blob/main/packages/particle/simulator/ParticleStandardSimulator.ts#L14)
+`ParticleSimulator.constructor`
 
 ## Properties
 
 ### maxParticle
 
-• **maxParticle**: `number` = `1000`
+> **maxParticle**: `number` = `1000`
+
+Defined in: [packages/particle/simulator/ParticleSimulator.ts:20](https://github.com/orillusion/orillusion/blob/main/packages/particle/simulator/ParticleSimulator.ts#L20)
 
 #### Inherited from
 
-ParticleSimulator.maxParticle
+`ParticleSimulator.maxParticle`
 
-#### Defined in
-
-[packages/particle/simulator/ParticleSimulator.ts:20](https://github.com/Orillusion/orillusion/blob/main/packages/particle/simulator/ParticleSimulator.ts#L20)
-
-___
+***
 
 ### needReset
 
-• **needReset**: `boolean` = `true`
+> **needReset**: `boolean` = `true`
+
+Defined in: [packages/particle/simulator/ParticleSimulator.ts:21](https://github.com/orillusion/orillusion/blob/main/packages/particle/simulator/ParticleSimulator.ts#L21)
 
 #### Inherited from
 
-ParticleSimulator.needReset
+`ParticleSimulator.needReset`
 
-#### Defined in
-
-[packages/particle/simulator/ParticleSimulator.ts:21](https://github.com/Orillusion/orillusion/blob/main/packages/particle/simulator/ParticleSimulator.ts#L21)
-
-___
+***
 
 ### preheatTime
 
-• **preheatTime**: `number` = `0.0`
+> **preheatTime**: `number` = `0.0`
+
+Defined in: [packages/particle/simulator/ParticleSimulator.ts:26](https://github.com/orillusion/orillusion/blob/main/packages/particle/simulator/ParticleSimulator.ts#L26)
 
 preheat time
 
 #### Inherited from
 
-ParticleSimulator.preheatTime
+`ParticleSimulator.preheatTime`
 
-#### Defined in
-
-[packages/particle/simulator/ParticleSimulator.ts:26](https://github.com/Orillusion/orillusion/blob/main/packages/particle/simulator/ParticleSimulator.ts#L26)
-
-___
+***
 
 ### particleLocalMemory
 
-• **particleLocalMemory**: `ParticleLocalMemory`
+> **particleLocalMemory**: `ParticleLocalMemory`
+
+Defined in: [packages/particle/simulator/ParticleSimulator.ts:48](https://github.com/orillusion/orillusion/blob/main/packages/particle/simulator/ParticleSimulator.ts#L48)
 
 particle data for each quad
 
 #### Inherited from
 
-ParticleSimulator.particleLocalMemory
+`ParticleSimulator.particleLocalMemory`
 
-#### Defined in
-
-[packages/particle/simulator/ParticleSimulator.ts:48](https://github.com/Orillusion/orillusion/blob/main/packages/particle/simulator/ParticleSimulator.ts#L48)
-
-___
+***
 
 ### particleGlobalMemory
 
-• **particleGlobalMemory**: `ParticleGlobalMemory`
+> **particleGlobalMemory**: `ParticleGlobalMemory`
+
+Defined in: [packages/particle/simulator/ParticleSimulator.ts:53](https://github.com/orillusion/orillusion/blob/main/packages/particle/simulator/ParticleSimulator.ts#L53)
 
 global particle data for all quad
 
 #### Inherited from
 
-ParticleSimulator.particleGlobalMemory
-
-#### Defined in
-
-[packages/particle/simulator/ParticleSimulator.ts:53](https://github.com/Orillusion/orillusion/blob/main/packages/particle/simulator/ParticleSimulator.ts#L53)
+`ParticleSimulator.particleGlobalMemory`
 
 ## Accessors
 
 ### simulatorSpace
 
-• `get` **simulatorSpace**(): [`SimulatorSpace`](../enums/SimulatorSpace.md)
+#### Get Signature
+
+> **get** **simulatorSpace**(): [`SimulatorSpace`](../enumerations/SimulatorSpace.md)
+
+Defined in: [packages/particle/simulator/ParticleSimulator.ts:41](https://github.com/orillusion/orillusion/blob/main/packages/particle/simulator/ParticleSimulator.ts#L41)
 
 Get particle simulator space.
 
-#### Returns
+##### Returns
 
-[`SimulatorSpace`](../enums/SimulatorSpace.md)
+[`SimulatorSpace`](../enumerations/SimulatorSpace.md)
 
-#### Inherited from
+#### Set Signature
 
-ParticleSimulator.simulatorSpace
+> **set** **simulatorSpace**(`v`): `void`
 
-#### Defined in
+Defined in: [packages/particle/simulator/ParticleSimulator.ts:33](https://github.com/orillusion/orillusion/blob/main/packages/particle/simulator/ParticleSimulator.ts#L33)
 
-[packages/particle/simulator/ParticleSimulator.ts:41](https://github.com/Orillusion/orillusion/blob/main/packages/particle/simulator/ParticleSimulator.ts#L41)
+Set particle simulator space. see [SimulatorSpace](../enumerations/SimulatorSpace.md)
 
-• `set` **simulatorSpace**(`v`): `void`
+##### Parameters
 
-Set particle simulator space. see [SimulatorSpace](../enums/SimulatorSpace.md)
+###### v
 
-#### Parameters
+[`SimulatorSpace`](../enumerations/SimulatorSpace.md)
 
-| Name | Type |
-| :------ | :------ |
-| `v` | [`SimulatorSpace`](../enums/SimulatorSpace.md) |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-ParticleSimulator.simulatorSpace
+`ParticleSimulator.simulatorSpace`
 
-#### Defined in
-
-[packages/particle/simulator/ParticleSimulator.ts:33](https://github.com/Orillusion/orillusion/blob/main/packages/particle/simulator/ParticleSimulator.ts#L33)
-
-___
+***
 
 ### looping
 
-• `get` **looping**(): `boolean`
+#### Get Signature
+
+> **get** **looping**(): `boolean`
+
+Defined in: [packages/particle/simulator/ParticleSimulator.ts:76](https://github.com/orillusion/orillusion/blob/main/packages/particle/simulator/ParticleSimulator.ts#L76)
 
 Get need to loop animation
 
-#### Returns
+##### Returns
 
 `boolean`
 
-#### Inherited from
+#### Set Signature
 
-ParticleSimulator.looping
+> **set** **looping**(`value`): `void`
 
-#### Defined in
-
-[packages/particle/simulator/ParticleSimulator.ts:76](https://github.com/Orillusion/orillusion/blob/main/packages/particle/simulator/ParticleSimulator.ts#L76)
-
-• `set` **looping**(`value`): `void`
+Defined in: [packages/particle/simulator/ParticleSimulator.ts:68](https://github.com/orillusion/orillusion/blob/main/packages/particle/simulator/ParticleSimulator.ts#L68)
 
 Set need to loop animation
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
+###### value
 
-#### Returns
+`boolean`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-ParticleSimulator.looping
+`ParticleSimulator.looping`
 
-#### Defined in
-
-[packages/particle/simulator/ParticleSimulator.ts:68](https://github.com/Orillusion/orillusion/blob/main/packages/particle/simulator/ParticleSimulator.ts#L68)
-
-___
+***
 
 ### maxActiveParticle
 
-• `get` **maxActiveParticle**(): `number`
+#### Get Signature
+
+> **get** **maxActiveParticle**(): `number`
+
+Defined in: [packages/particle/simulator/ParticleStandardSimulator.ts:22](https://github.com/orillusion/orillusion/blob/main/packages/particle/simulator/ParticleStandardSimulator.ts#L22)
 
 Get maximum number of active particles(read only)
 
-#### Returns
+##### Returns
 
 `number`
 
-#### Defined in
-
-[packages/particle/simulator/ParticleStandardSimulator.ts:22](https://github.com/Orillusion/orillusion/blob/main/packages/particle/simulator/ParticleStandardSimulator.ts#L22)
-
 ## Methods
 
-### addModule
+### addModule()
 
-▸ **addModule**\<`T`\>(`c`): `T`
+> **addModule**\<`T`\>(`c`): `T`
+
+Defined in: [packages/particle/simulator/ParticleSimulator.ts:84](https://github.com/orillusion/orillusion/blob/main/packages/particle/simulator/ParticleSimulator.ts#L84)
 
 add a particle module
 
-#### Type parameters
+#### Type Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `ParticleModuleBase` |
+##### T
+
+`T` *extends* `ParticleModuleBase`
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `c` | `Ctor`\<`T`\> | class of particle module |
+##### c
+
+`Ctor`\<`T`\>
+
+class of particle module
 
 #### Returns
 
@@ -256,31 +212,31 @@ add a particle module
 
 #### Inherited from
 
-ParticleSimulator.addModule
+`ParticleSimulator.addModule`
 
-#### Defined in
+***
 
-[packages/particle/simulator/ParticleSimulator.ts:84](https://github.com/Orillusion/orillusion/blob/main/packages/particle/simulator/ParticleSimulator.ts#L84)
+### getModule()
 
-___
+> **getModule**\<`T`\>(`c`): `T`
 
-### getModule
-
-▸ **getModule**\<`T`\>(`c`): `T`
+Defined in: [packages/particle/simulator/ParticleSimulator.ts:99](https://github.com/orillusion/orillusion/blob/main/packages/particle/simulator/ParticleSimulator.ts#L99)
 
 Get particle module
 
-#### Type parameters
+#### Type Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `ParticleModuleBase` |
+##### T
+
+`T` *extends* `ParticleModuleBase`
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `c` | `Ctor`\<`T`\> | class of particle module |
+##### c
+
+`Ctor`\<`T`\>
+
+class of particle module
 
 #### Returns
 
@@ -288,73 +244,31 @@ Get particle module
 
 #### Inherited from
 
-ParticleSimulator.getModule
+`ParticleSimulator.getModule`
 
-#### Defined in
+***
 
-[packages/particle/simulator/ParticleSimulator.ts:99](https://github.com/Orillusion/orillusion/blob/main/packages/particle/simulator/ParticleSimulator.ts#L99)
+### removeModule()
 
-___
+> **removeModule**\<`T`\>(`c`): `void`
 
-### removeModule
-
-▸ **removeModule**\<`T`\>(`c`): `void`
+Defined in: [packages/particle/simulator/ParticleSimulator.ts:107](https://github.com/orillusion/orillusion/blob/main/packages/particle/simulator/ParticleSimulator.ts#L107)
 
 Remove particle module
 
-#### Type parameters
+#### Type Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `ParticleModuleBase` |
+##### T
 
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `c` | `Ctor`\<`T`\> | class of particle module |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-ParticleSimulator.removeModule
-
-#### Defined in
-
-[packages/particle/simulator/ParticleSimulator.ts:107](https://github.com/Orillusion/orillusion/blob/main/packages/particle/simulator/ParticleSimulator.ts#L107)
-
-___
-
-### build
-
-▸ **build**(): `void`
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-ParticleSimulator.build
-
-#### Defined in
-
-[packages/particle/simulator/ParticleSimulator.ts:121](https://github.com/Orillusion/orillusion/blob/main/packages/particle/simulator/ParticleSimulator.ts#L121)
-
-___
-
-### compute
-
-▸ **compute**(`command`): `void`
+`T` *extends* `ParticleModuleBase`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `command` | `GPUCommandEncoder` |
+##### c
+
+`Ctor`\<`T`\>
+
+class of particle module
 
 #### Returns
 
@@ -362,23 +276,41 @@ ___
 
 #### Inherited from
 
-ParticleSimulator.compute
+`ParticleSimulator.removeModule`
 
-#### Defined in
+***
 
-[packages/particle/simulator/ParticleSimulator.ts:140](https://github.com/Orillusion/orillusion/blob/main/packages/particle/simulator/ParticleSimulator.ts#L140)
+### build()
 
-___
+> **build**(): `void`
 
-### updateBuffer
+Defined in: [packages/particle/simulator/ParticleSimulator.ts:121](https://github.com/orillusion/orillusion/blob/main/packages/particle/simulator/ParticleSimulator.ts#L121)
 
-▸ **updateBuffer**(`delta`): `void`
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`ParticleSimulator.build`
+
+***
+
+### compute()
+
+> **compute**(`view`, `command`): `void`
+
+Defined in: [packages/particle/simulator/ParticleSimulator.ts:140](https://github.com/orillusion/orillusion/blob/main/packages/particle/simulator/ParticleSimulator.ts#L140)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `delta` | `number` |
+##### view
+
+`View3D`
+
+##### command
+
+`GPUCommandEncoder`
 
 #### Returns
 
@@ -386,17 +318,21 @@ ___
 
 #### Inherited from
 
-ParticleSimulator.updateBuffer
+`ParticleSimulator.compute`
 
-#### Defined in
+***
 
-[packages/particle/simulator/ParticleSimulator.ts:146](https://github.com/Orillusion/orillusion/blob/main/packages/particle/simulator/ParticleSimulator.ts#L146)
+### updateBuffer()
 
-___
+> **updateBuffer**(`delta`): `void`
 
-### debug
+Defined in: [packages/particle/simulator/ParticleSimulator.ts:146](https://github.com/orillusion/orillusion/blob/main/packages/particle/simulator/ParticleSimulator.ts#L146)
 
-▸ **debug**(): `void`
+#### Parameters
+
+##### delta
+
+`number`
 
 #### Returns
 
@@ -404,8 +340,20 @@ ___
 
 #### Inherited from
 
-ParticleSimulator.debug
+`ParticleSimulator.updateBuffer`
 
-#### Defined in
+***
 
-[packages/particle/simulator/ParticleSimulator.ts:173](https://github.com/Orillusion/orillusion/blob/main/packages/particle/simulator/ParticleSimulator.ts#L173)
+### debug()
+
+> **debug**(): `void`
+
+Defined in: [packages/particle/simulator/ParticleSimulator.ts:173](https://github.com/orillusion/orillusion/blob/main/packages/particle/simulator/ParticleSimulator.ts#L173)
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`ParticleSimulator.debug`

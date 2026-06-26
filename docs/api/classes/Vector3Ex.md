@@ -1,170 +1,180 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: Vector3Ex
+
+Defined in: [src/util/Vector3Ex.ts:7](https://github.com/orillusion/orillusion/blob/main/src/util/Vector3Ex.ts#L7)
 
 extra function of vector3
 
-### Constructors
-
-- [constructor](Vector3Ex.md#constructor)
-
-### Methods
-
-- [add](Vector3Ex.md#add)
-- [sub](Vector3Ex.md#sub)
-- [mul](Vector3Ex.md#mul)
-- [mulScale](Vector3Ex.md#mulscale)
-- [div](Vector3Ex.md#div)
-- [normalize](Vector3Ex.md#normalize)
-- [dot](Vector3Ex.md#dot)
-- [calculateVectorAngle\_xz](Vector3Ex.md#calculatevectorangle_xz)
-- [distance](Vector3Ex.md#distance)
-- [getRandomXYZ](Vector3Ex.md#getrandomxyz)
-- [getRandomV3](Vector3Ex.md#getrandomv3)
-- [sphere](Vector3Ex.md#sphere)
-- [sphereXYZ](Vector3Ex.md#spherexyz)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new Vector3Ex**(): [`Vector3Ex`](Vector3Ex.md)
+> **new Vector3Ex**(): `Vector3Ex`
 
 #### Returns
 
-[`Vector3Ex`](Vector3Ex.md)
+`Vector3Ex`
 
 ## Methods
 
-### add
+### add()
 
-▸ **add**(`v1`, `v2`, `target?`): [`Vector3`](Vector3.md)
+> `static` **add**(`v1`, `v2`, `target?`): [`Vector3`](Vector3.md)
+
+Defined in: [src/util/Vector3Ex.ts:15](https://github.com/orillusion/orillusion/blob/main/src/util/Vector3Ex.ts#L15)
 
 vector3 add
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v1` | [`Vector3`](Vector3.md) |
-| `v2` | [`Vector3`](Vector3.md) |
-| `target?` | [`Vector3`](Vector3.md) |
+##### v1
+
+[`Vector3`](Vector3.md)
+
+##### v2
+
+[`Vector3`](Vector3.md)
+
+##### target?
+
+[`Vector3`](Vector3.md)
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-#### Defined in
+***
 
-[src/util/Vector3Ex.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/util/Vector3Ex.ts#L15)
+### sub()
 
-___
+> `static` **sub**(`v1`, `v2`, `target?`): [`Vector3`](Vector3.md)
 
-### sub
-
-▸ **sub**(`v1`, `v2`, `target?`): [`Vector3`](Vector3.md)
+Defined in: [src/util/Vector3Ex.ts:32](https://github.com/orillusion/orillusion/blob/main/src/util/Vector3Ex.ts#L32)
 
 vector3 sub
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v1` | [`Vector3`](Vector3.md) |
-| `v2` | [`Vector3`](Vector3.md) |
-| `target?` | [`Vector3`](Vector3.md) |
+##### v1
+
+[`Vector3`](Vector3.md)
+
+##### v2
+
+[`Vector3`](Vector3.md)
+
+##### target?
+
+[`Vector3`](Vector3.md)
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-#### Defined in
+***
 
-[src/util/Vector3Ex.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/util/Vector3Ex.ts#L32)
+### mul()
 
-___
+> `static` **mul**(`v1`, `v2`, `target?`): [`Vector3`](Vector3.md)
 
-### mul
-
-▸ **mul**(`v1`, `v2`, `target?`): [`Vector3`](Vector3.md)
+Defined in: [src/util/Vector3Ex.ts:49](https://github.com/orillusion/orillusion/blob/main/src/util/Vector3Ex.ts#L49)
 
 vector3 mul
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v1` | [`Vector3`](Vector3.md) |
-| `v2` | [`Vector3`](Vector3.md) |
-| `target?` | [`Vector3`](Vector3.md) |
+##### v1
+
+[`Vector3`](Vector3.md)
+
+##### v2
+
+[`Vector3`](Vector3.md)
+
+##### target?
+
+[`Vector3`](Vector3.md)
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-#### Defined in
+***
 
-[src/util/Vector3Ex.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/util/Vector3Ex.ts#L49)
+### mulScale()
 
-___
+> `static` **mulScale**(`v1`, `v`, `target?`): [`Vector3`](Vector3.md)
 
-### mulScale
-
-▸ **mulScale**(`v1`, `v`, `target?`): [`Vector3`](Vector3.md)
+Defined in: [src/util/Vector3Ex.ts:66](https://github.com/orillusion/orillusion/blob/main/src/util/Vector3Ex.ts#L66)
 
 vector3 mul
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v1` | [`Vector3`](Vector3.md) |
-| `v` | `number` |
-| `target?` | [`Vector3`](Vector3.md) |
+##### v1
+
+[`Vector3`](Vector3.md)
+
+##### v
+
+`number`
+
+##### target?
+
+[`Vector3`](Vector3.md)
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-#### Defined in
+***
 
-[src/util/Vector3Ex.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/util/Vector3Ex.ts#L66)
+### div()
 
-___
+> `static` **div**(`v1`, `v2`, `target?`): [`Vector3`](Vector3.md)
 
-### div
-
-▸ **div**(`v1`, `v2`, `target?`): [`Vector3`](Vector3.md)
+Defined in: [src/util/Vector3Ex.ts:83](https://github.com/orillusion/orillusion/blob/main/src/util/Vector3Ex.ts#L83)
 
 vector3 div
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v1` | [`Vector3`](Vector3.md) |
-| `v2` | [`Vector3`](Vector3.md) |
-| `target?` | [`Vector3`](Vector3.md) |
+##### v1
+
+[`Vector3`](Vector3.md)
+
+##### v2
+
+[`Vector3`](Vector3.md)
+
+##### target?
+
+[`Vector3`](Vector3.md)
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-#### Defined in
+***
 
-[src/util/Vector3Ex.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/util/Vector3Ex.ts#L83)
+### normalize()
 
-___
+> `static` **normalize**(`v1`): [`Vector3`](Vector3.md)
 
-### normalize
-
-▸ **normalize**(`v1`): [`Vector3`](Vector3.md)
+Defined in: [src/util/Vector3Ex.ts:98](https://github.com/orillusion/orillusion/blob/main/src/util/Vector3Ex.ts#L98)
 
 normalize
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `v1` | [`Vector3`](Vector3.md) | source vector |
+##### v1
+
+[`Vector3`](Vector3.md)
+
+source vector
 
 #### Returns
 
@@ -172,24 +182,29 @@ normalize
 
 result vector
 
-#### Defined in
+***
 
-[src/util/Vector3Ex.ts:98](https://github.com/Orillusion/orillusion/blob/main/src/util/Vector3Ex.ts#L98)
+### dot()
 
-___
+> `static` **dot**(`v1`, `v2`): `number`
 
-### dot
-
-▸ **dot**(`v1`, `v2`): `number`
+Defined in: [src/util/Vector3Ex.ts:109](https://github.com/orillusion/orillusion/blob/main/src/util/Vector3Ex.ts#L109)
 
 dot
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `v1` | [`Vector3`](Vector3.md) | first vector |
-| `v2` | [`Vector3`](Vector3.md) | second vector |
+##### v1
+
+[`Vector3`](Vector3.md)
+
+first vector
+
+##### v2
+
+[`Vector3`](Vector3.md)
+
+second vector
 
 #### Returns
 
@@ -197,24 +212,29 @@ dot
 
 result
 
-#### Defined in
+***
 
-[src/util/Vector3Ex.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/util/Vector3Ex.ts#L109)
+### calculateVectorAngle\_xz()
 
-___
+> `static` **calculateVectorAngle\_xz**(`v1`, `v2`): `number`
 
-### calculateVectorAngle\_xz
-
-▸ **calculateVectorAngle_xz**(`v1`, `v2`): `number`
+Defined in: [src/util/Vector3Ex.ts:121](https://github.com/orillusion/orillusion/blob/main/src/util/Vector3Ex.ts#L121)
 
 Calculate the angle between two vectors
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `v1` | [`Vector3`](Vector3.md) | first vector |
-| `v2` | [`Vector3`](Vector3.md) | second vector |
+##### v1
+
+[`Vector3`](Vector3.md)
+
+first vector
+
+##### v2
+
+[`Vector3`](Vector3.md)
+
+second vector
 
 #### Returns
 
@@ -222,24 +242,29 @@ Calculate the angle between two vectors
 
 Angle result in radians
 
-#### Defined in
+***
 
-[src/util/Vector3Ex.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/util/Vector3Ex.ts#L121)
+### distance()
 
-___
+> `static` **distance**(`v1`, `v2`): `number`
 
-### distance
-
-▸ **distance**(`v1`, `v2`): `number`
+Defined in: [src/util/Vector3Ex.ts:135](https://github.com/orillusion/orillusion/blob/main/src/util/Vector3Ex.ts#L135)
 
 Calculate the distance between two points
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `v1` | [`Vector3`](Vector3.md) | first vector |
-| `v2` | [`Vector3`](Vector3.md) | second vector |
+##### v1
+
+[`Vector3`](Vector3.md)
+
+first vector
+
+##### v2
+
+[`Vector3`](Vector3.md)
+
+second vector
 
 #### Returns
 
@@ -247,26 +272,31 @@ Calculate the distance between two points
 
 distance
 
-**`Static`**
+#### Static
 
-#### Defined in
+***
 
-[src/util/Vector3Ex.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/util/Vector3Ex.ts#L135)
+### getRandomXYZ()
 
-___
+> `static` **getRandomXYZ**(`min?`, `max?`): [`Vector3`](Vector3.md)
 
-### getRandomXYZ
-
-▸ **getRandomXYZ**(`min?`, `max?`): [`Vector3`](Vector3.md)
+Defined in: [src/util/Vector3Ex.ts:145](https://github.com/orillusion/orillusion/blob/main/src/util/Vector3Ex.ts#L145)
 
 make a Random 3D Vector
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `min` | `number` | `-100` | The min random value of vector components |
-| `max` | `number` | `100` | The max random value of vector components |
+##### min?
+
+`number` = `-100`
+
+The min random value of vector components
+
+##### max?
+
+`number` = `100`
+
+The max random value of vector components
 
 #### Returns
 
@@ -274,26 +304,41 @@ make a Random 3D Vector
 
 random vector
 
-#### Defined in
+***
 
-[src/util/Vector3Ex.ts:145](https://github.com/Orillusion/orillusion/blob/main/src/util/Vector3Ex.ts#L145)
+### getRandomV3()
 
-___
+> `static` **getRandomV3**(`min?`, `max?`, `yMin`, `yMax`): [`Vector3`](Vector3.md)
 
-### getRandomV3
-
-▸ **getRandomV3**(`min?`, `max?`, `yMin`, `yMax`): [`Vector3`](Vector3.md)
+Defined in: [src/util/Vector3Ex.ts:157](https://github.com/orillusion/orillusion/blob/main/src/util/Vector3Ex.ts#L157)
 
 make a Random 3D Vector
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `min` | `number` | `-100` | The min random value of vector component-x |
-| `max` | `number` | `100` | The max random value of vector component-x |
-| `yMin` | `number` | `undefined` | The min random value of vector component-y |
-| `yMax` | `number` | `undefined` | The max random value of vector component-y |
+##### min?
+
+`number` = `-100`
+
+The min random value of vector component-x
+
+##### max?
+
+`number` = `100`
+
+The max random value of vector component-x
+
+##### yMin
+
+`number`
+
+The min random value of vector component-y
+
+##### yMax
+
+`number`
+
+The max random value of vector component-y
 
 #### Returns
 
@@ -301,50 +346,54 @@ make a Random 3D Vector
 
 random vector
 
-#### Defined in
+***
 
-[src/util/Vector3Ex.ts:157](https://github.com/Orillusion/orillusion/blob/main/src/util/Vector3Ex.ts#L157)
+### sphere()
 
-___
+> `static` **sphere**(`radius`): [`Vector3`](Vector3.md)
 
-### sphere
-
-▸ **sphere**(`radius`): [`Vector3`](Vector3.md)
+Defined in: [src/util/Vector3Ex.ts:161](https://github.com/orillusion/orillusion/blob/main/src/util/Vector3Ex.ts#L161)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `radius` | `number` |
+##### radius
+
+`number`
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-#### Defined in
+***
 
-[src/util/Vector3Ex.ts:161](https://github.com/Orillusion/orillusion/blob/main/src/util/Vector3Ex.ts#L161)
+### sphereXYZ()
 
-___
+> `static` **sphereXYZ**(`radiusMin`, `radiusMax`, `x?`, `y?`, `z?`): [`Vector3`](Vector3.md)
 
-### sphereXYZ
-
-▸ **sphereXYZ**(`radiusMin`, `radiusMax`, `x?`, `y?`, `z?`): [`Vector3`](Vector3.md)
+Defined in: [src/util/Vector3Ex.ts:169](https://github.com/orillusion/orillusion/blob/main/src/util/Vector3Ex.ts#L169)
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `radiusMin` | `number` | `undefined` |
-| `radiusMax` | `number` | `undefined` |
-| `x` | `number` | `1` |
-| `y` | `number` | `1` |
-| `z` | `number` | `1` |
+##### radiusMin
+
+`number`
+
+##### radiusMax
+
+`number`
+
+##### x?
+
+`number` = `1`
+
+##### y?
+
+`number` = `1`
+
+##### z?
+
+`number` = `1`
 
 #### Returns
 
 [`Vector3`](Vector3.md)
-
-#### Defined in
-
-[src/util/Vector3Ex.ts:169](https://github.com/Orillusion/orillusion/blob/main/src/util/Vector3Ex.ts#L169)

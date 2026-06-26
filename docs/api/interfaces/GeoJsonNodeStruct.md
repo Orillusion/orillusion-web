@@ -1,37 +1,31 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Interface: GeoJsonNodeStruct
 
-### Properties
-
-- [type](GeoJsonNodeStruct.md#type)
-- [geometry](GeoJsonNodeStruct.md#geometry)
-- [properties](GeoJsonNodeStruct.md#properties)
+Defined in: [src/loader/parser/gis/GeoJsonParser.ts:21](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonParser.ts#L21)
 
 ## Properties
 
 ### type
 
-• **type**: `string`
+> **type**: `string`
 
-#### Defined in
+Defined in: [src/loader/parser/gis/GeoJsonParser.ts:22](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonParser.ts#L22)
 
-[src/loader/parser/gis/GeoJsonParser.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonParser.ts#L22)
-
-___
+***
 
 ### geometry
 
-• **geometry**: [`GeoJsonGeometryStruct`](GeoJsonGeometryStruct.md)
+> **geometry**: [`GeoJsonGeometryStruct`](GeoJsonGeometryStruct.md)
 
-#### Defined in
+Defined in: [src/loader/parser/gis/GeoJsonParser.ts:23](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonParser.ts#L23)
 
-[src/loader/parser/gis/GeoJsonParser.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonParser.ts#L23)
-
-___
+***
 
 ### properties
 
-• **properties**: [`GeoJsonPropertiesStruct`](GeoJsonPropertiesStruct.md)
+> **properties**: [`GeoJsonPropertiesStruct`](GeoJsonPropertiesStruct.md)
 
-#### Defined in
-
-[src/loader/parser/gis/GeoJsonParser.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonParser.ts#L24)
+Defined in: [src/loader/parser/gis/GeoJsonParser.ts:24](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonParser.ts#L24)

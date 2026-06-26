@@ -1,350 +1,367 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: AnimatorComponent
 
-Components are used to attach functionality to object3D, it has an owner object3D.
-The component can receive update events at each frame.
+Defined in: [src/components/anim/AnimatorComponent.ts:16](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L16)
 
-## Hierarchy
+Skeletal + blend-shape animation driver. Samples property-animation
+clips to pose an avatar's joints, supports clip cross-fading, stacked
+override/additive layers, a pluggable state machine, IK solvers and
+cross-rig retargeting, and dispatches blend-shape (morph) influences.
+
+## Extends
 
 - [`ComponentBase`](ComponentBase.md)
 
-  ↳ **`AnimatorComponent`**
-
-### Constructors
-
-- [constructor](AnimatorComponent.md#constructor)
-
-### Properties
-
-- [object3D](AnimatorComponent.md#object3d)
-- [isDestroyed](AnimatorComponent.md#isdestroyed)
-- [timeScale](AnimatorComponent.md#timescale)
-- [jointMatrixIndexTableBuffer](AnimatorComponent.md#jointmatrixindextablebuffer)
-- [playBlendShapeLoop](AnimatorComponent.md#playblendshapeloop)
-- [root](AnimatorComponent.md#root)
-
-### Accessors
-
-- [eventDispatcher](AnimatorComponent.md#eventdispatcher)
-- [isStart](AnimatorComponent.md#isstart)
-- [transform](AnimatorComponent.md#transform)
-- [enable](AnimatorComponent.md#enable)
-- [avatar](AnimatorComponent.md#avatar)
-- [numJoint](AnimatorComponent.md#numjoint)
-- [clips](AnimatorComponent.md#clips)
-- [clipsState](AnimatorComponent.md#clipsstate)
-
-### Methods
-
-- [stop](AnimatorComponent.md#stop)
-- [onEnable](AnimatorComponent.md#onenable)
-- [onDisable](AnimatorComponent.md#ondisable)
-- [onLateUpdate](AnimatorComponent.md#onlateupdate)
-- [onBeforeUpdate](AnimatorComponent.md#onbeforeupdate)
-- [onCompute](AnimatorComponent.md#oncompute)
-- [onGraphic](AnimatorComponent.md#ongraphic)
-- [onParentChange](AnimatorComponent.md#onparentchange)
-- [onAddChild](AnimatorComponent.md#onaddchild)
-- [onRemoveChild](AnimatorComponent.md#onremovechild)
-- [copyComponent](AnimatorComponent.md#copycomponent)
-- [beforeDestroy](AnimatorComponent.md#beforedestroy)
-- [destroy](AnimatorComponent.md#destroy)
-- [init](AnimatorComponent.md#init)
-- [start](AnimatorComponent.md#start)
-- [playAnim](AnimatorComponent.md#playanim)
-- [crossFade](AnimatorComponent.md#crossfade)
-- [playBlendShape](AnimatorComponent.md#playblendshape)
-- [getJointIndexTable](AnimatorComponent.md#getjointindextable)
-- [cloneTo](AnimatorComponent.md#cloneto)
-- [onUpdate](AnimatorComponent.md#onupdate)
-- [updateBlendShape](AnimatorComponent.md#updateblendshape)
-- [getAnimationClipState](AnimatorComponent.md#getanimationclipstate)
-- [cloneMorphRenderers](AnimatorComponent.md#clonemorphrenderers)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new AnimatorComponent**(): [`AnimatorComponent`](AnimatorComponent.md)
+> **new AnimatorComponent**(): `AnimatorComponent`
 
 #### Returns
 
-[`AnimatorComponent`](AnimatorComponent.md)
+`AnimatorComponent`
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[constructor](ComponentBase.md#constructor)
+[`ComponentBase`](ComponentBase.md).[`constructor`](ComponentBase.md#constructor)
 
 ## Properties
 
 ### object3D
 
-• **object3D**: [`Object3D`](Object3D.md) = `null`
+> **object3D**: [`Object3D`](Object3D.md) = `null`
+
+Defined in: [src/components/ComponentBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L29)
 
 owner object3D
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[object3D](ComponentBase.md#object3d)
+[`ComponentBase`](ComponentBase.md).[`object3D`](ComponentBase.md#object3d)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
-
-___
+***
 
 ### isDestroyed
 
-• `Optional` **isDestroyed**: `boolean`
+> **isDestroyed**: `boolean` = `false`
+
+Defined in: [src/components/ComponentBase.ts:77](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L77)
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[isDestroyed](ComponentBase.md#isdestroyed)
+[`ComponentBase`](ComponentBase.md).[`isDestroyed`](ComponentBase.md#isdestroyed)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
-
-___
+***
 
 ### timeScale
 
-• **timeScale**: `number` = `1.0`
+> **timeScale**: `number` = `1.0`
 
-#### Defined in
+Defined in: [src/components/anim/AnimatorComponent.ts:18](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L18)
 
-[src/components/anim/AnimatorComponent.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L8)
+Global playback speed multiplier applied to all clips and layers.
 
-___
+***
 
 ### jointMatrixIndexTableBuffer
 
-• **jointMatrixIndexTableBuffer**: [`StorageGPUBuffer`](StorageGPUBuffer.md)
+> **jointMatrixIndexTableBuffer**: [`StorageGPUBuffer`](StorageGPUBuffer.md)
 
-#### Defined in
+Defined in: [src/components/anim/AnimatorComponent.ts:20](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L20)
 
-[src/components/anim/AnimatorComponent.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L9)
+GPU buffer mapping joints to their world-matrix indices.
 
-___
+***
 
 ### playBlendShapeLoop
 
-• **playBlendShapeLoop**: `boolean` = `false`
+> **playBlendShapeLoop**: `boolean` = `false`
 
-#### Defined in
+Defined in: [src/components/anim/AnimatorComponent.ts:22](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L22)
 
-[src/components/anim/AnimatorComponent.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L10)
+Whether the blend-shape (morph) animation loops.
 
-___
+***
 
 ### root
 
-• **root**: [`Object3D`](Object3D.md)
+> **root**: [`Object3D`](Object3D.md)
 
-#### Defined in
-
-[src/components/anim/AnimatorComponent.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L28)
+Defined in: [src/components/anim/AnimatorComponent.ts:44](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L44)
 
 ## Accessors
 
-### eventDispatcher
+### visibleLayer
 
-• `get` **eventDispatcher**(): [`CEventDispatcher`](CEventDispatcher.md)
+#### Get Signature
 
-#### Returns
+> **get** **visibleLayer**(): `number`
 
-[`CEventDispatcher`](CEventDispatcher.md)
+Defined in: [src/components/ComponentBase.ts:46](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L46)
 
-#### Inherited from
+Composition-layer membership bitmask. The pass / camera /
+collector filters via
 
-ComponentBase.eventDispatcher
+    (component.visibleLayer & pass.layerMask & camera.cullingMask) !== 0
 
-#### Defined in
+Defaults to [VisibleLayer.Default](../@orillusion/namespaces/VisibleLayer/variables/Default.md) (bit 0) so a fresh
+subclass is visible to passes whose `layerMask` is
+[VisibleLayer.All](../@orillusion/namespaces/VisibleLayer/variables/All.md) (which includes bit 0). Application code
+can assign project-specific bits (1..31) to organise the scene
+into composition layers.
 
-[src/components/ComponentBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L23)
+##### Returns
 
-• `set` **eventDispatcher**(`value`): `void`
+`number`
 
-#### Parameters
+#### Set Signature
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`CEventDispatcher`](CEventDispatcher.md) |
+> **set** **visibleLayer**(`value`): `void`
 
-#### Returns
+Defined in: [src/components/ComponentBase.ts:50](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L50)
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-ComponentBase.eventDispatcher
+[`ComponentBase`](ComponentBase.md).[`visibleLayer`](ComponentBase.md#visiblelayer)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L28)
+### eventDispatcher
 
-___
+#### Get Signature
+
+> **get** **eventDispatcher**(): [`CEventDispatcher`](CEventDispatcher.md)
+
+Defined in: [src/components/ComponentBase.ts:63](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L63)
+
+##### Returns
+
+[`CEventDispatcher`](CEventDispatcher.md)
+
+#### Set Signature
+
+> **set** **eventDispatcher**(`value`): `void`
+
+Defined in: [src/components/ComponentBase.ts:68](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
+
+##### Parameters
+
+###### value
+
+[`CEventDispatcher`](CEventDispatcher.md)
+
+##### Returns
+
+`void`
+
+#### Inherited from
+
+[`ComponentBase`](ComponentBase.md).[`eventDispatcher`](ComponentBase.md#eventdispatcher)
+
+***
 
 ### isStart
 
-• `get` **isStart**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **isStart**(): `boolean`
+
+Defined in: [src/components/ComponentBase.ts:79](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L79)
+
+##### Returns
 
 `boolean`
 
 #### Inherited from
 
-ComponentBase.isStart
+[`ComponentBase`](ComponentBase.md).[`isStart`](ComponentBase.md#isstart)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L40)
-
-___
+***
 
 ### transform
 
-• `get` **transform**(): [`Transform`](Transform.md)
+#### Get Signature
+
+> **get** **transform**(): [`Transform`](Transform.md)
+
+Defined in: [src/components/ComponentBase.ts:89](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L89)
 
 Return the Transform component attached to the Object3D.
+Null before the component is attached — `addComponent` assigns
+`object3D` only after construction — so constructor-time callers
+can probe safely via `this.transform?.`.
 
-#### Returns
+##### Returns
 
 [`Transform`](Transform.md)
 
 #### Inherited from
 
-ComponentBase.transform
+[`ComponentBase`](ComponentBase.md).[`transform`](ComponentBase.md#transform)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L47)
-
-___
+***
 
 ### enable
 
-• `get` **enable**(): `boolean`
+#### Get Signature
+
+> **get** **enable**(): `boolean`
+
+Defined in: [src/components/ComponentBase.ts:113](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
-#### Returns
+##### Returns
 
 `boolean`
 
-#### Inherited from
+#### Set Signature
 
-ComponentBase.enable
+> **set** **enable**(`value`): `void`
 
-#### Defined in
-
-[src/components/ComponentBase.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
-
-• `set` **enable**(`value`): `void`
+Defined in: [src/components/ComponentBase.ts:96](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L96)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
+###### value
 
-#### Returns
+`boolean`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-ComponentBase.enable
+[`ComponentBase`](ComponentBase.md).[`enable`](ComponentBase.md#enable)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L54)
-
-___
+***
 
 ### avatar
 
-• `set` **avatar**(`name`): `void`
+#### Set Signature
 
-#### Parameters
+> **set** **avatar**(`name`): `void`
 
-| Name | Type |
-| :------ | :------ |
-| `name` | `string` |
+Defined in: [src/components/anim/AnimatorComponent.ts:219](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L219)
 
-#### Returns
+Assign the avatar (skeleton) by registered resource name and build its pose.
+
+##### Parameters
+
+###### name
+
+`string`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/components/anim/AnimatorComponent.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L125)
-
-___
+***
 
 ### numJoint
 
-• `get` **numJoint**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **numJoint**(): `number`
+
+Defined in: [src/components/anim/AnimatorComponent.ts:232](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L232)
+
+Number of joints in the current avatar.
+
+##### Returns
 
 `number`
 
-#### Defined in
-
-[src/components/anim/AnimatorComponent.ts:136](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L136)
-
-___
+***
 
 ### clips
 
-• `get` **clips**(): [`PropertyAnimationClip`](PropertyAnimationClip.md)[]
+#### Get Signature
 
-#### Returns
+> **get** **clips**(): [`PropertyAnimationClip`](PropertyAnimationClip.md)[]
+
+Defined in: [src/components/anim/AnimatorComponent.ts:377](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L377)
+
+The animation clips assigned to this animator.
+
+##### Returns
 
 [`PropertyAnimationClip`](PropertyAnimationClip.md)[]
 
-#### Defined in
+#### Set Signature
 
-[src/components/anim/AnimatorComponent.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L200)
+> **set** **clips**(`clips`): `void`
 
-• `set` **clips**(`clips`): `void`
+Defined in: [src/components/anim/AnimatorComponent.ts:358](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L358)
 
-#### Parameters
+Assign the animation clips, building per-clip state and auto-playing the first.
 
-| Name | Type |
-| :------ | :------ |
-| `clips` | [`PropertyAnimationClip`](PropertyAnimationClip.md)[] |
+##### Parameters
 
-#### Returns
+###### clips
+
+[`PropertyAnimationClip`](PropertyAnimationClip.md)[]
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/components/anim/AnimatorComponent.ts:186](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L186)
-
-___
+***
 
 ### clipsState
 
-• `get` **clipsState**(): [`PropertyAnimationClipState`](PropertyAnimationClipState.md)[]
+#### Get Signature
 
-#### Returns
+> **get** **clipsState**(): [`PropertyAnimationClipState`](PropertyAnimationClipState.md)[]
+
+Defined in: [src/components/anim/AnimatorComponent.ts:382](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L382)
+
+Per-clip playback state (weights, etc.).
+
+##### Returns
 
 [`PropertyAnimationClipState`](PropertyAnimationClipState.md)[]
 
-#### Defined in
+***
 
-[src/components/anim/AnimatorComponent.ts:204](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L204)
+### layers
+
+#### Get Signature
+
+> **get** **layers**(): readonly [`AnimationLayer`](AnimationLayer.md)[]
+
+Defined in: [src/components/anim/AnimatorComponent.ts:677](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L677)
+
+All stacked layers (excluding the implicit base layer).
+
+##### Returns
+
+readonly [`AnimationLayer`](AnimationLayer.md)[]
 
 ## Methods
 
-### stop
+### stop()
 
-▸ **stop**(): `void`
+> **stop**(): `void`
+
+Defined in: [src/components/ComponentBase.ts:163](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L163)
 
 #### Returns
 
@@ -352,23 +369,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[stop](ComponentBase.md#stop)
+[`ComponentBase`](ComponentBase.md).[`stop`](ComponentBase.md#stop)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
+### onEnable()?
 
-___
+> `optional` **onEnable**(`view?`): `any`
 
-### onEnable
-
-▸ **onEnable**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:164](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L164)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -376,23 +391,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onEnable](ComponentBase.md#onenable)
+[`ComponentBase`](ComponentBase.md).[`onEnable`](ComponentBase.md#onenable)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L115)
+### onDisable()?
 
-___
+> `optional` **onDisable**(`view?`): `any`
 
-### onDisable
-
-▸ **onDisable**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:165](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L165)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -400,23 +413,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onDisable](ComponentBase.md#ondisable)
+[`ComponentBase`](ComponentBase.md).[`onDisable`](ComponentBase.md#ondisable)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L116)
+### onLateUpdate()?
 
-___
+> `optional` **onLateUpdate**(`view?`): `any`
 
-### onLateUpdate
-
-▸ **onLateUpdate**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:167](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L167)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -424,23 +435,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onLateUpdate](ComponentBase.md#onlateupdate)
+[`ComponentBase`](ComponentBase.md).[`onLateUpdate`](ComponentBase.md#onlateupdate)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L118)
+### onBeforeUpdate()?
 
-___
+> `optional` **onBeforeUpdate**(`view?`): `any`
 
-### onBeforeUpdate
-
-▸ **onBeforeUpdate**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:168](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L168)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -448,24 +457,25 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onBeforeUpdate](ComponentBase.md#onbeforeupdate)
+[`ComponentBase`](ComponentBase.md).[`onBeforeUpdate`](ComponentBase.md#onbeforeupdate)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L119)
+### onCompute()?
 
-___
+> `optional` **onCompute**(`view?`, `command?`): `any`
 
-### onCompute
-
-▸ **onCompute**(`view?`, `command?`): `any`
+Defined in: [src/components/ComponentBase.ts:169](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L169)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
-| `command?` | `GPUCommandEncoder` |
+##### view?
+
+[`View3D`](View3D.md)
+
+##### command?
+
+`GPUCommandEncoder`
 
 #### Returns
 
@@ -473,23 +483,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onCompute](ComponentBase.md#oncompute)
+[`ComponentBase`](ComponentBase.md).[`onCompute`](ComponentBase.md#oncompute)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L120)
+### onGraphic()?
 
-___
+> `optional` **onGraphic**(`view?`): `any`
 
-### onGraphic
-
-▸ **onGraphic**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:170](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L170)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -497,24 +505,25 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onGraphic](ComponentBase.md#ongraphic)
+[`ComponentBase`](ComponentBase.md).[`onGraphic`](ComponentBase.md#ongraphic)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L121)
+### onParentChange()?
 
-___
+> `optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
-### onParentChange
-
-▸ **onParentChange**(`lastParent?`, `currentParent?`): `any`
+Defined in: [src/components/ComponentBase.ts:171](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L171)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `lastParent?` | [`Object3D`](Object3D.md) |
-| `currentParent?` | [`Object3D`](Object3D.md) |
+##### lastParent?
+
+[`Object3D`](Object3D.md)
+
+##### currentParent?
+
+[`Object3D`](Object3D.md)
 
 #### Returns
 
@@ -522,23 +531,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onParentChange](ComponentBase.md#onparentchange)
+[`ComponentBase`](ComponentBase.md).[`onParentChange`](ComponentBase.md#onparentchange)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L122)
+### onAddChild()?
 
-___
+> `optional` **onAddChild**(`child`): `any`
 
-### onAddChild
-
-▸ **onAddChild**(`child`): `any`
+Defined in: [src/components/ComponentBase.ts:172](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L172)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `child` | [`Object3D`](Object3D.md) |
+##### child
+
+[`Object3D`](Object3D.md)
 
 #### Returns
 
@@ -546,23 +553,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onAddChild](ComponentBase.md#onaddchild)
+[`ComponentBase`](ComponentBase.md).[`onAddChild`](ComponentBase.md#onaddchild)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L123)
+### onRemoveChild()?
 
-___
+> `optional` **onRemoveChild**(`child`): `any`
 
-### onRemoveChild
-
-▸ **onRemoveChild**(`child`): `any`
+Defined in: [src/components/ComponentBase.ts:173](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L173)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `child` | [`Object3D`](Object3D.md) |
+##### child
+
+[`Object3D`](Object3D.md)
 
 #### Returns
 
@@ -570,23 +575,21 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[onRemoveChild](ComponentBase.md#onremovechild)
+[`ComponentBase`](ComponentBase.md).[`onRemoveChild`](ComponentBase.md#onremovechild)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L124)
+### copyComponent()
 
-___
+> **copyComponent**(`from`): `this`
 
-### copyComponent
-
-▸ **copyComponent**(`from`): `this`
+Defined in: [src/components/ComponentBase.ts:182](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L182)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `from` | `this` |
+##### from
+
+`this`
 
 #### Returns
 
@@ -594,25 +597,23 @@ ___
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[copyComponent](ComponentBase.md#copycomponent)
+[`ComponentBase`](ComponentBase.md).[`copyComponent`](ComponentBase.md#copycomponent)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L133)
+### beforeDestroy()
 
-___
+> **beforeDestroy**(`force?`): `void`
 
-### beforeDestroy
-
-▸ **beforeDestroy**(`force?`): `void`
+Defined in: [src/components/ComponentBase.ts:249](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L249)
 
 before release this component, object refrences are not be set null now.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
+##### force?
+
+`boolean`
 
 #### Returns
 
@@ -620,25 +621,23 @@ before release this component, object refrences are not be set null now.
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[beforeDestroy](ComponentBase.md#beforedestroy)
+[`ComponentBase`](ComponentBase.md).[`beforeDestroy`](ComponentBase.md#beforedestroy)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L200)
+### destroy()
 
-___
+> **destroy**(`force?`): `void`
 
-### destroy
-
-▸ **destroy**(`force?`): `void`
+Defined in: [src/components/ComponentBase.ts:256](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L256)
 
 release this component
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
+##### force?
+
+`boolean`
 
 #### Returns
 
@@ -646,23 +645,23 @@ release this component
 
 #### Inherited from
 
-[ComponentBase](ComponentBase.md).[destroy](ComponentBase.md#destroy)
+[`ComponentBase`](ComponentBase.md).[`destroy`](ComponentBase.md#destroy)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:207](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L207)
+### init()
 
-___
+> **init**(`param?`): `void`
 
-### init
+Defined in: [src/components/anim/AnimatorComponent.ts:64](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L64)
 
-▸ **init**(`param?`): `void`
+Collect skinned/morph renderers in the hierarchy and prepare caches.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `param?` | `any` |
+##### param?
+
+`any`
 
 #### Returns
 
@@ -670,17 +669,17 @@ ___
 
 #### Overrides
 
-[ComponentBase](ComponentBase.md).[init](ComponentBase.md#init)
+[`ComponentBase`](ComponentBase.md).[`init`](ComponentBase.md#init)
 
-#### Defined in
+***
 
-[src/components/anim/AnimatorComponent.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L36)
+### start()
 
-___
+> **start**(): `void`
 
-### start
+Defined in: [src/components/anim/AnimatorComponent.ts:86](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L86)
 
-▸ **start**(): `void`
+Re-parent the skeleton root once the (possibly cloned) hierarchy is wired.
 
 #### Returns
 
@@ -688,110 +687,170 @@ ___
 
 #### Overrides
 
-[ComponentBase](ComponentBase.md).[start](ComponentBase.md#start)
+[`ComponentBase`](ComponentBase.md).[`start`](ComponentBase.md#start)
 
-#### Defined in
+***
 
-[src/components/anim/AnimatorComponent.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L57)
+### playAnim()
 
-___
+> **playAnim**(`anim`, `time?`, `speed?`): `void`
 
-### playAnim
+Defined in: [src/components/anim/AnimatorComponent.ts:121](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L121)
 
-▸ **playAnim**(`anim`, `time?`, `speed?`): `void`
+Play a skeleton animation clip immediately.
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `anim` | `string` | `undefined` |
-| `time` | `number` | `0` |
-| `speed` | `number` | `1` |
+##### anim
+
+`string`
+
+clip name
+
+##### time?
+
+`number` = `0`
+
+start time in seconds
+
+##### speed?
+
+`number` = `1`
+
+playback speed multiplier
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/components/anim/AnimatorComponent.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L64)
+### crossFade()
 
-___
+> **crossFade**(`anim`, `crossTime`): `void`
 
-### crossFade
+Defined in: [src/components/anim/AnimatorComponent.ts:142](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L142)
 
-▸ **crossFade**(`anim`, `crossTime`): `void`
+Cross-fade from the current clip to another over `crossTime` seconds.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `anim` | `string` |
-| `crossTime` | `number` |
+##### anim
+
+`string`
+
+destination clip name
+
+##### crossTime
+
+`number`
+
+fade duration in seconds
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/components/anim/AnimatorComponent.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L80)
+### playBlendShape()
 
-___
+> **playBlendShape**(`shapeName`, `time?`, `speed?`): `void`
 
-### playBlendShape
+Defined in: [src/components/anim/AnimatorComponent.ts:182](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L182)
 
-▸ **playBlendShape**(`shapeName`, `time?`, `speed?`): `void`
+Play a blend-shape (morph) animation clip.
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `shapeName` | `string` | `undefined` |
-| `time` | `number` | `0` |
-| `speed` | `number` | `1` |
+##### shapeName
+
+`string`
+
+blend-shape clip name
+
+##### time?
+
+`number` = `0`
+
+start time in seconds
+
+##### speed?
+
+`number` = `1`
+
+playback speed multiplier
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/components/anim/AnimatorComponent.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L114)
+### retargetTo()
 
-___
+> **retargetTo**(`target`, `cfg?`): `void`
 
-### getJointIndexTable
+Defined in: [src/components/anim/AnimatorComponent.ts:199](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L199)
 
-▸ **getJointIndexTable**(`skinJointsName`): `number`[]
+Drive another animator's skeleton from this one via retargeting.
+Pass `null` to stop retargeting.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `skinJointsName` | `string`[] |
+##### target
+
+`AnimatorComponent`
+
+the animator to drive, or null to clear
+
+##### cfg?
+
+[`RetargeterConfig`](../interfaces/RetargeterConfig.md)
+
+optional retargeting configuration
+
+#### Returns
+
+`void`
+
+***
+
+### getJointIndexTable()
+
+> **getJointIndexTable**(`skinJointsName`): `number`[]
+
+Defined in: [src/components/anim/AnimatorComponent.ts:240](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L240)
+
+Map a list of skin joint names to their avatar bone IDs (-1 if absent).
+
+#### Parameters
+
+##### skinJointsName
+
+`string`[]
+
+joint names in skin order
 
 #### Returns
 
 `number`[]
 
-#### Defined in
+***
 
-[src/components/anim/AnimatorComponent.ts:140](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L140)
+### cloneTo()
 
-___
+> **cloneTo**(`obj`): `void`
 
-### cloneTo
+Defined in: [src/components/anim/AnimatorComponent.ts:387](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L387)
 
-▸ **cloneTo**(`obj`): `void`
-
-clone component data to target object3D
+Clone this animator (avatar + clips) onto another object.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `obj` | [`Object3D`](Object3D.md) | target object3D |
+##### obj
+
+[`Object3D`](Object3D.md)
 
 #### Returns
 
@@ -799,23 +858,23 @@ clone component data to target object3D
 
 #### Overrides
 
-[ComponentBase](ComponentBase.md).[cloneTo](ComponentBase.md#cloneto)
+[`ComponentBase`](ComponentBase.md).[`cloneTo`](ComponentBase.md#cloneto)
 
-#### Defined in
+***
 
-[src/components/anim/AnimatorComponent.ts:208](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L208)
+### onUpdate()
 
-___
+> **onUpdate**(`view?`): `void`
 
-### onUpdate
+Defined in: [src/components/anim/AnimatorComponent.ts:420](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L420)
 
-▸ **onUpdate**(`view?`): `void`
+Per-frame update: advance time, sample clips, apply layers, IK and morphs.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -823,47 +882,60 @@ ___
 
 #### Overrides
 
-[ComponentBase](ComponentBase.md).[onUpdate](ComponentBase.md#onupdate)
+[`ComponentBase`](ComponentBase.md).[`onUpdate`](ComponentBase.md#onupdate)
 
-#### Defined in
+***
 
-[src/components/anim/AnimatorComponent.ts:240](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L240)
+### updateBlendShape()
 
-___
+> **updateBlendShape**(`attributes`, `key`, `value`): `void`
 
-### updateBlendShape
+Defined in: [src/components/anim/AnimatorComponent.ts:526](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L526)
 
-▸ **updateBlendShape**(`attributes`, `key`, `value`): `void`
+Apply a blend-shape influence to all renderers, caching the resolved
+setter per renderer to avoid per-frame property reflection.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `attributes` | `string`[] |
-| `key` | `string` |
-| `value` | `number` |
+##### attributes
+
+`string`[]
+
+property path to the setter
+
+##### key
+
+`string`
+
+morph target name (cache key)
+
+##### value
+
+`number`
+
+influence value in [0,1]
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/components/anim/AnimatorComponent.ts:305](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L305)
+### getAnimationClipState()
 
-___
+> **getAnimationClipState**(`name`): [`PropertyAnimationClipState`](PropertyAnimationClipState.md)
 
-### getAnimationClipState
-
-▸ **getAnimationClipState**(`name`): [`PropertyAnimationClipState`](PropertyAnimationClipState.md)
+Defined in: [src/components/anim/AnimatorComponent.ts:646](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L646)
 
 Gets the animation clip data object with the specified name
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `name` | `string` | Name of animation |
+##### name
+
+`string`
+
+Name of animation
 
 #### Returns
 
@@ -871,20 +943,286 @@ Gets the animation clip data object with the specified name
 
 Animation clip data object
 
-#### Defined in
+***
 
-[src/components/anim/AnimatorComponent.ts:413](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L413)
+### cloneMorphRenderers()
 
-___
+> **cloneMorphRenderers**(): `object`
 
-### cloneMorphRenderers
+Defined in: [src/components/anim/AnimatorComponent.ts:656](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L656)
 
-▸ **cloneMorphRenderers**(): `Object`
+Group the morph renderers by morph-target key.
 
 #### Returns
 
-`Object`
+`object`
 
-#### Defined in
+***
 
-[src/components/anim/AnimatorComponent.ts:422](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L422)
+### getLayer()
+
+> **getLayer**(`name`): [`AnimationLayer`](AnimationLayer.md)
+
+Defined in: [src/components/anim/AnimatorComponent.ts:673](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L673)
+
+Get a stacked animation layer by name, or null if absent.
+
+#### Parameters
+
+##### name
+
+`string`
+
+#### Returns
+
+[`AnimationLayer`](AnimationLayer.md)
+
+***
+
+### addLayer()
+
+> **addLayer**(`layer`): [`AnimationLayer`](AnimationLayer.md)
+
+Defined in: [src/components/anim/AnimatorComponent.ts:680](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L680)
+
+Add a stacked animation layer (ignored if a layer with that name exists).
+
+#### Parameters
+
+##### layer
+
+[`AnimationLayer`](AnimationLayer.md)
+
+#### Returns
+
+[`AnimationLayer`](AnimationLayer.md)
+
+***
+
+### removeLayer()
+
+> **removeLayer**(`name`): `void`
+
+Defined in: [src/components/anim/AnimatorComponent.ts:690](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L690)
+
+Remove a stacked animation layer by name.
+
+#### Parameters
+
+##### name
+
+`string`
+
+#### Returns
+
+`void`
+
+***
+
+### setLayerWeight()
+
+> **setLayerWeight**(`name`, `weight`): `void`
+
+Defined in: [src/components/anim/AnimatorComponent.ts:696](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L696)
+
+Set the blend weight of a named layer.
+
+#### Parameters
+
+##### name
+
+`string`
+
+##### weight
+
+`number`
+
+#### Returns
+
+`void`
+
+***
+
+### setLayerClip()
+
+> **setLayerClip**(`name`, `clipName`, `time?`, `timeScale?`): `void`
+
+Defined in: [src/components/anim/AnimatorComponent.ts:708](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L708)
+
+Set (and start) the clip playing on a named layer.
+
+#### Parameters
+
+##### name
+
+`string`
+
+layer name
+
+##### clipName
+
+`string`
+
+clip to play on the layer
+
+##### time?
+
+`number` = `0`
+
+start time in seconds
+
+##### timeScale?
+
+`number` = `1.0`
+
+layer-local time scale
+
+#### Returns
+
+`void`
+
+***
+
+### setStateMachine()
+
+> **setStateMachine**(`fsm`): `void`
+
+Defined in: [src/components/anim/AnimatorComponent.ts:896](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L896)
+
+Attach (or clear) a state machine evaluated each frame before sampling.
+
+#### Parameters
+
+##### fsm
+
+###### evaluate
+
+#### Returns
+
+`void`
+
+***
+
+### getStateMachine()
+
+> **getStateMachine**(): `object`
+
+Defined in: [src/components/anim/AnimatorComponent.ts:900](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L900)
+
+The currently attached state machine, or null.
+
+#### Returns
+
+`object`
+
+##### evaluate()
+
+> **evaluate**(`animator`, `dt`): `void`
+
+###### Parameters
+
+###### animator
+
+`AnimatorComponent`
+
+###### dt
+
+`number`
+
+###### Returns
+
+`void`
+
+***
+
+### addIK()
+
+> **addIK**(`solver`): `void`
+
+Defined in: [src/components/anim/AnimatorComponent.ts:909](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L909)
+
+Register an IK solver, run after layer mixing each frame.
+
+#### Parameters
+
+##### solver
+
+###### solve
+
+#### Returns
+
+`void`
+
+***
+
+### removeIK()
+
+> **removeIK**(`solver`): `void`
+
+Defined in: [src/components/anim/AnimatorComponent.ts:913](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L913)
+
+Unregister a previously added IK solver.
+
+#### Parameters
+
+##### solver
+
+###### solve
+
+#### Returns
+
+`void`
+
+***
+
+### getJointObject()
+
+> **getJointObject**(`boneName`): [`Object3D`](Object3D.md)
+
+Defined in: [src/components/anim/AnimatorComponent.ts:919](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L919)
+
+Live joint Object3D by bone name. Used by IK solvers + retargeting.
+
+#### Parameters
+
+##### boneName
+
+`string`
+
+#### Returns
+
+[`Object3D`](Object3D.md)
+
+***
+
+### getRestJointObject()
+
+> **getRestJointObject**(`bonePath`): [`Object3D`](Object3D.md)
+
+Defined in: [src/components/anim/AnimatorComponent.ts:923](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L923)
+
+Rest-pose (T-pose) joint Object3D by bone path.
+
+#### Parameters
+
+##### bonePath
+
+`string`
+
+#### Returns
+
+[`Object3D`](Object3D.md)
+
+***
+
+### getAvatar()
+
+> **getAvatar**(): `PrefabAvatarData`
+
+Defined in: [src/components/anim/AnimatorComponent.ts:927](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L927)
+
+The current avatar (skeleton) data, or null.
+
+#### Returns
+
+`PrefabAvatarData`
