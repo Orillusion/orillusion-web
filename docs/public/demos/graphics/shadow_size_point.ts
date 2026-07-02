@@ -9,8 +9,7 @@ let engine = await Engine3D.init({
             autoUpdate: true,
             shadowBound: sessionStorage._shadowBound || 100,
             type: 'HARD',
-            pointShadowSize: sessionStorage._pointShadowSize || 512,
-            pointShadowBias: 0.0001
+            pointShadowSize: sessionStorage._pointShadowSize || 512
         }
     }
 });
@@ -34,7 +33,7 @@ scene3D.addChild(cameraObj);
     scene3D.addChild(obj);
     // enable light shadow
     light.castShadow = true;
-    light.intensity = 30;
+    light.intensity = 10;
     scene3D.addChild(obj);
 }
 

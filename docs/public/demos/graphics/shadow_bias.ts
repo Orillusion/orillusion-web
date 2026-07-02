@@ -8,8 +8,7 @@ let engine = await Engine3D.init({
         shadow: {
             autoUpdate: true,
             debug: false,
-            shadowBound: 100,
-            shadowBias: 0.01
+            shadowBound: 100
         }
     }
 });
@@ -23,6 +22,7 @@ scene3D.addChild(cameraObj);
 
 {
     let obj = new Object3D();
+    obj.y = 50;
     let light = obj.addComponent(DirectLight);
     scene3D.addChild(obj);
     obj.rotationX = 200;
@@ -31,6 +31,9 @@ scene3D.addChild(cameraObj);
     light.intensity = 10;
     // enable light shadow
     light.castShadow = true;
+    light.shadowBias = 0.01;
+    const GUIHelp = new dat.GUI();
+    GUIHelp.add(light, 'shadowBias', 0, 0.1, 0.0001);
 }
 // create a box as shadow source
 {
@@ -57,6 +60,3 @@ view.scene = scene3D;
 view.camera = camera;
 // start render
 engine.startRenderView(view);
-
-const GUIHelp = new dat.GUI();
-GUIHelp.add(engine.setting.shadow, 'shadowBias', 0, 0.1, 0.0001);

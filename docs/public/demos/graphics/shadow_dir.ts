@@ -6,8 +6,7 @@ let engine = await Engine3D.init({
     setting: {
         shadow: {
             autoUpdate: true,
-            shadowBound: 50,
-            shadowBias: 0.01,
+            shadowBound: 100,
             type: 'HARD'
         }
     }
@@ -23,6 +22,7 @@ scene3D.addChild(cameraObj);
 //DirectLight
 {
     let obj = new Object3D();
+    obj.y = 50;
     obj.rotationX = 45;
     obj.rotationY = 0;
     obj.rotationZ = 0;
@@ -31,6 +31,7 @@ scene3D.addChild(cameraObj);
     // enable light shadow
     light.castShadow = true;
     light.intensity = 30;
+    light.shadowBias = 0.01;
     scene3D.addChild(obj);
 }
 
