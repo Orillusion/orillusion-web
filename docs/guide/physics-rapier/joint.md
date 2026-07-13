@@ -56,3 +56,9 @@ sp.anchorTarget = new Vector3(0, -1, 0);
 ```
 
 > `GenericJoint`、`RopeJoint`、`SpringJoint` 用法类似：加组件、设 `connectedBody` 与锚点，再按各自特性配置（如 `RopeJoint` 的最大距离、`SpringJoint` 的刚度/阻尼）。完整示例见引擎仓库 `samples/physics-rapier/Sample_RapierJoints.ts`。
+
+## 示例
+
+<Demo src="/demos/physics-rapier/Sample_rapierJoints.ts"></Demo>
+
+<<< @/public/demos/physics-rapier/Sample_rapierJoints.ts

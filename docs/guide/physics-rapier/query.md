@@ -46,3 +46,9 @@ const overlapping = PhysicsQuery.overlap(
 | `closestPoint(point, options?)` | 最近点查询 |
 
 > 常用选项：`maxDistance`（最大距离）、`excludeSensors`（是否排除触发器）等。
+
+## 示例
+
+<Demo src="/demos/physics-rapier/Sample_rapierRaycast.ts"></Demo>
+
+<<< @/public/demos/physics-rapier/Sample_rapierRaycast.ts

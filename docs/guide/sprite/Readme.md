@@ -73,6 +73,12 @@ cardB.renderOrder = 3001; // 叠在 A 之上
 cardC.renderOrder = 3002; // 最上层
 ```
 
+## 示例
+
+<Demo src="/demos/sprite/Sample_basic.ts"></Demo>
+
+<<< @/public/demos/sprite/Sample_basic.ts
+
 ## 下一步
 
 - [公告板与距离恒定](/guide/sprite/billboard.md) —— 让精灵始终朝向相机、保持屏幕尺寸

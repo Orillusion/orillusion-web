@@ -1,11 +1,11 @@
 import { Camera3D, OrbitController, DirectLight, Engine3D, View3D, PostProcessingComponent, BloomPost, KelvinUtil, Object3D, Scene3D, GTAOPost, AtmosphericComponent } from '@orillusion/core';
 
 class Sample_FlightHelmet {
-    lightObj: Object3D;
-    cameraObj: Camera3D;
-    scene: Scene3D;
-    obj: Object3D;
-    engine: Engine3D;
+    lightObj!: Object3D;
+    cameraObj!: Camera3D;
+    scene!: Scene3D;
+    obj!: Object3D;
+    engine!: Engine3D;
 
     async run() {
         this.engine = await Engine3D.init({
@@ -15,7 +15,6 @@ class Sample_FlightHelmet {
         this.engine.setting.shadow.autoUpdate = true;
         this.engine.setting.shadow.updateFrameRate = 1;
         this.engine.setting.shadow.shadowBound = 20;
-        this.engine.setting.shadow.shadowBias = 0.001;
         this.engine.setting.render.postProcessing.bloom!.luminanceThreshole = 0.8;
         this.engine.setting.render.postProcessing.bloom!.bloomIntensity = 1;
 
@@ -47,7 +46,6 @@ class Sample_FlightHelmet {
         {
             let sky = this.scene.addComponent(AtmosphericComponent);
             sky.sunY = 0.73;
-            sky.sunRadiance = 47;
             sky.enable = false;
         }
         /******** light *******/

@@ -99,9 +99,13 @@ scene.addChild(obj);
 
 这样，"大数值"只存在于节点的 `localPosition`，由 RTE 在渲染阶段统一变换到相机空间消化掉；而进入顶点缓冲的始终是精度友好的小偏移。
 
-## 完整示例
+## 示例
 
-引擎官方示例 `Sample_RTE` 演示了一个完整的地球尺度场景：把经纬度坐标换算成地球椭球坐标、按瓦片（tile）加载卫星影像、用浮动原点构建每块瓦片几何，并提供开关实时对比 `useRTE` / `doublePrecision` 开启前后的画面稳定性。可在引擎仓库 `samples/render/Sample_RTE.ts` 查阅。
+这个示例演示了一个完整的地球尺度场景：把经纬度坐标换算成地球椭球坐标、按瓦片（tile）加载卫星影像、用浮动原点构建每块瓦片几何，并提供开关实时对比 `useRTE` / `doublePrecision` 开启前后的画面稳定性。
+
+<Demo src="/demos/advanced/Sample_rte.ts"></Demo>
+
+<<< @/public/demos/advanced/Sample_rte.ts
 
 ## 小结
 

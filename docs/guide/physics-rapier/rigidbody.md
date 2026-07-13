@@ -75,3 +75,9 @@ rb.lockTranslations(false, true, false);
 ```
 
 > 形状创建依赖物体当前的几何/缩放，建议在设置好 `MeshRenderer` 与 `Transform` 后再创建 `shape`。
+
+## 示例
+
+<Demo src="/demos/physics-rapier/Sample_rigidbody.ts"></Demo>
+
+<<< @/public/demos/physics-rapier/Sample_rigidbody.ts

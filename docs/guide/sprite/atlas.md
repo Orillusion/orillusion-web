@@ -43,6 +43,12 @@ spriteRenderer.sprite = sprite2;
 | `pivot` | `Vector2` | 锚点（0~1） |
 | `Sprite.fromTexture(tex, name?)` | 静态 | 用整张贴图快速创建一个 `Sprite` |
 
+## 示例
+
+<Demo src="/demos/sprite/Sample_atlas.ts"></Demo>
+
+<<< @/public/demos/sprite/Sample_atlas.ts
+
 ## 批量渲染（SpriteBatch）
 
 当需要绘制大量共享同一张贴图的精灵（如粒子贴片、海量图标、弹幕）时，逐个 `SpriteRenderer` 会产生大量 draw call。`SpriteBatch` 把它们合并到一次绘制中，显著提升性能。
@@ -82,3 +88,9 @@ batch.update(entry, { position: new Vector3(x, newY, z) });
 ```
 
 > `SpriteBatch` 适合"同贴图、海量、需整体管理"的场景；若每个精灵需要独立的组件行为（如各自的[公告板](/guide/sprite/billboard.md)），仍应使用独立的 `SpriteRenderer`。
+
+## 示例
+
+<Demo src="/demos/sprite/Sample_batch.ts"></Demo>
+
+<<< @/public/demos/sprite/Sample_batch.ts

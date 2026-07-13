@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@orillusion/physics-rapier':
+        specifier: ^0.1.0
+        version: 0.1.0(@orillusion/core@0.9.0)
     devDependencies:
       '@orillusion/core':
         specifier: 0.9.0
@@ -142,6 +146,9 @@ packages:
   '@babel/types@7.29.7':
     resolution: {integrity: sha512-4zBIxpPzowiZpusoFkyGVwakdRJUyuH5PxQ/PrqghfdFWWasvnCdPfQXHrenDai+gyLARulZjZowCOj6fjT4pA==}
     engines: {node: '>=6.9.0'}
+
+  '@dimforge/rapier3d-compat@0.14.0':
+    resolution: {integrity: sha512-/uHrUzS+CRQ+NQrrJCEDUkhwHlNsAAexbNXgbN9sHY+GwR+SFFAFrxRr8Llf5/AJZzqiLANdQIfJ63Cw4gJVqw==}
 
   '@docsearch/css@3.9.0':
     resolution: {integrity: sha512-cQbnVbq0rrBwNAKegIac/t6a8nWoUAn8frnkLFW6YARaRmAQr5/Eoe6Ln2fqkUCZ40KpdrKbpSAmgrkviOxuWA==}
@@ -468,6 +475,11 @@ packages:
 
   '@orillusion/particle@0.2.0':
     resolution: {integrity: sha512-GePRlwWNKnMzkCxKJlmvHajcozpE35tu55YOXLS62mPz7HF1MHoZ6fCH2zUCyXpvIvhMeujB1yIeRNDOciEW0A==}
+    peerDependencies:
+      '@orillusion/core': '>=0.9.0'
+
+  '@orillusion/physics-rapier@0.1.0':
+    resolution: {integrity: sha512-/V90/Z/pKST24TIioJ779LR4U8xwOUEy13GRjNF5g8fnH/Mi+va5bkDYrFaIuQNo48G3DBEnrR7dT6iTP4ZQiQ==}
     peerDependencies:
       '@orillusion/core': '>=0.9.0'
 
@@ -1157,6 +1169,8 @@ snapshots:
       '@babel/helper-string-parser': 7.29.7
       '@babel/helper-validator-identifier': 7.29.7
 
+  '@dimforge/rapier3d-compat@0.14.0': {}
+
   '@docsearch/css@3.9.0': {}
 
   '@docsearch/js@3.9.0(@algolia/client-search@5.55.1)(search-insights@2.17.3)':
@@ -1342,6 +1356,11 @@ snapshots:
 
   '@orillusion/particle@0.2.0(@orillusion/core@0.9.0)':
     dependencies:
+      '@orillusion/core': 0.9.0
+
+  '@orillusion/physics-rapier@0.1.0(@orillusion/core@0.9.0)':
+    dependencies:
+      '@dimforge/rapier3d-compat': 0.14.0
       '@orillusion/core': 0.9.0
 
   '@orillusion/physics@0.4.0(@orillusion/core@0.9.0)':

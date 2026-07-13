@@ -52,3 +52,9 @@ rb.onContactEnd   = (other) => { /* 结束接触（一次性） */ };
 | `onContactEnd(other)` | 接触结束 |
 
 > 回调参数 `other` 为对方的 `Rigidbody`，可通过 `other.object3D` 访问其所属节点。
+
+## 示例
+
+<Demo src="/demos/physics-rapier/Sample_rapierTriggers.ts"></Demo>
+
+<<< @/public/demos/physics-rapier/Sample_rapierTriggers.ts

@@ -28,6 +28,12 @@ cc.move(new Vector3(vx * speed * dt, vy * dt, vz * speed * dt));
 
 > 重力与跳跃需自行在位移的 Y 分量中累加（积累竖直速度 `vy`，落地后清零）。
 
+## 示例
+
+<Demo src="/demos/physics-rapier/Sample_rapierCharacter.ts"></Demo>
+
+<<< @/public/demos/physics-rapier/Sample_rapierCharacter.ts
+
 ## 载具控制器（VehicleController）
 
 载具控制器基于射线车轮模型：给底盘刚体添加 `VehicleController`，再逐个 `addWheel` 添加车轮，运行时通过 `setEngineForce` / `setBrake` / `setSteering` 控制。
@@ -80,6 +86,14 @@ for (let i = 0; i < vc.numWheels(); i++) vc.setBrake(brakeForce, i);
 | `setBrake(force, wheelIndex)` | 设置某轮的刹车力 |
 | `setSteering(angle, wheelIndex)` | 设置某轮的转向角 |
 | `numWheels()` | 车轮数量 |
+
+
+## 示例
+
+<Demo src="/demos/physics-rapier/Sample_rapierVehicle.ts"></Demo>
+
+<<< @/public/demos/physics-rapier/Sample_rapierVehicle.ts
+
 
 ## 调试与拖拽
 

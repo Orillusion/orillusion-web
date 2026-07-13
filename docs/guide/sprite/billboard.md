@@ -57,3 +57,9 @@ sprite.color = new Color(1, 0.85, 0.4, 1);
 
 poi.addComponent(BillboardComponent).type = BillboardType.BillboardY; // 始终朝向相机
 ```
+
+## 示例
+
+<Demo src="/demos/sprite/Sample_poi.ts"></Demo>
+
+<<< @/public/demos/sprite/Sample_poi.ts
