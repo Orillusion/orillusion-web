@@ -2,211 +2,214 @@
 editLink: false
 ---
 
-# 场景 API
-本节主要包含配置信息的读取与更新
+# Scene API
+This section mainly covers reading and updating configuration information.
 
-##  获取配置
-获取一个模型文件的配置信息
+##  Get configuration
+Get the configuration information of a model file.
 
-**请求地址：**
+**Request URL:**
 
 /api/scene/:model_id
 
 **params:**
-| 参数名 | 描述 |
+| Parameter | Description |
 | :----: | :----: |
-| model_id | 模型的_id |
+| model_id | The model's _id |
 
-**请求方法：**  
+**Method:**  
 
 GET
 
-**请求头：**
+**Request headers:**
 
-请参照[公共请求头](/cdn/index.html#公共请求头)。
+See [Common request headers](/cdn/index.html#common-request-headers).
 
-**请求参数：**
+**Request parameters:**
 
-无
+None
 
-**响应参数：**
-| 参数名 | 类型 | 描述 |
+**Response parameters:**
+| Parameter | Type | Description |
 | :----: | :----: |:----: |
-| scene | object | 配置信息 |
+| scene | object | Configuration information |
 
-#### **scene结构：**
-| 参数名 | 类型 | 描述 |
+#### **scene structure:**
+| Parameter | Type | Description |
 | :----: | :----: |:----: |
-| scene | object | 场景信息 |
-| camera | object | 相机信息 |
-| model | object | 变换信息  |
-| lights | object[] | 光源信息 |
-| shadow | object | 阴影信息 |
-| globalFog | object | 雾信息 |
-| bloomPost | object | 辉光特效信息 |
-| gi | object | 全局光照信息 |
+| scene | object | Scene information |
+| camera | object | Camera information |
+| model | object | Transform information |
+| lights | object[] | Light source information |
+| shadow | object | Shadow information |
+| globalFog | object | Fog information |
+| bloomPost | object | Bloom effect information |
+| gi | object | Global illumination information |
 
 #### **scene**
-| 参数名 | 类型 | 描述 |
+| Parameter | Type | Description |
 | :----: | :----: |:----: |
-| exposure | number | 曝光 |
-| roughness | number | 背景模糊 |
-| floor | boolean | 是否显示地板 |
-| bgColor | string | 场景背景纯色 |
-| bgSkyUrl | string | 天空盒背景合景图 |
+| exposure | number | Exposure |
+| roughness | number | Background blur |
+| floor | boolean | Whether to show the floor |
+| bgColor | string | Solid background color of the scene |
+| bgSkyUrl | string | Skybox background panorama |
 
 #### **camera**
-| 参数名 | 类型 | 描述 |
+| Parameter | Type | Description |
 | :----: | :----: |:----: |
 | fov | number | FoV |
-| x | number | 相机x坐标 |
-| y | number | 相机y坐标 |
-| z | number | 相机z坐标 |
-| targetX | number | 相机控制器目标对象x坐标 |
-| targetY | number | 相机控制器目标对象y坐标 |
-| targetZ | number | 相机控制器目标对象z坐标 |
+| x | number | Camera x coordinate |
+| y | number | Camera y coordinate |
+| z | number | Camera z coordinate |
+| targetX | number | x coordinate of the camera controller target |
+| targetY | number | y coordinate of the camera controller target |
+| targetZ | number | z coordinate of the camera controller target |
 
 #### **model**
-| 参数名 | 类型 | 描述 |
+| Parameter | Type | Description |
 | :----: | :----: |:----: |
-| x | number | 模型x坐标 |
-| y | number | 模型y坐标 |
-| z | number | 模型z坐标 |
-| rotationX | number | 模型在x方向上的旋转 |
-| rotationY | number | 模型在y方向上的旋转 |
-| rotationZ | number | 模型在z方向上的旋转 |
-| scaleX | number | 模型在x方向上的缩放 |
-| scaleY | number | 模型在y方向上的缩放 |
-| scaleZ | number | 模型在z方向上的缩放 |
+| x | number | Model x coordinate |
+| y | number | Model y coordinate |
+| z | number | Model z coordinate |
+| rotationX | number | Model rotation on the x axis |
+| rotationY | number | Model rotation on the y axis |
+| rotationZ | number | Model rotation on the z axis |
+| scaleX | number | Model scale on the x axis |
+| scaleY | number | Model scale on the y axis |
+| scaleZ | number | Model scale on the z axis |
 
 #### **light**
-| 参数名 | 类型 | 描述 |
+| Parameter | Type | Description |
 | :----: | :----: |:----: |
-| enable | boolean | 是否启用该光照组件 |
-| type | number | 光源类型，0：未知，1：点光源，2：平行光，3：聚光灯 |
-| x | number | 光源的x坐标 |
-| y | number | 光源的x坐标 |
-| z | number | 光源的x坐标 |
-| rotationX | number | 光源在x方向上的旋转 |
-| rotationY | number | 光源在y方向上的旋转 |
-| rotationZ | number | 光源在z方向上的旋转 |
-| castShadow | boolean | 是否产生阴影，目前仅平行光有效 |
-| intensity | number | 光源强度 |
-| color | string | 光源颜色，rgb格式 |
-| at | number | 光照指数衰减系数 |
-| radius | number | 光照半径 |
-| range | number | 光照最远距离 |
-| innerAngle | number | 光锥内切角，聚光在小于这个角度的范围内有光线 |
-| outerAngle | number | 光锥外切角，光线会在内切角到外切角的范围内逐步衰减到0 |
+| enable | boolean | Whether to enable this lighting component |
+| type | number | Light source type. 0: unknown; 1: point light; 2: directional light; 3: spotlight |
+| x | number | Light source x coordinate |
+| y | number | Light source y coordinate |
+| z | number | Light source z coordinate |
+| rotationX | number | Light source rotation on the x axis |
+| rotationY | number | Light source rotation on the y axis |
+| rotationZ | number | Light source rotation on the z axis |
+| castShadow | boolean | Whether to cast shadows; currently only effective for directional lights |
+| intensity | number | Light source intensity |
+| color | string | Light source color, in rgb format |
+| at | number | Lighting exponential attenuation coefficient |
+| radius | number | Lighting radius |
+| range | number | Maximum lighting distance |
+| innerAngle | number | Inner cone angle; the spotlight emits light within this angle |
+| outerAngle | number | Outer cone angle; light gradually attenuates to 0 between the inner and outer angles |
 
 #### **shadow**
-| 参数名 | 类型 | 描述 |
+| Parameter | Type | Description |
 | :----: | :----: |:----: |
-| enable | boolean | 是否启用阴影 |
-| shadowBias | number | 阴影偏移值，一般设置一个小数值的偏移量可以避免阴影失真，减少条纹或波纹图案 |
-| shadowBound | number | 阴影区域范围 |
-| shadowNear | number | 阴影近截面 |
-| shadowFar | number | 阴影远截面 |
+| enable | boolean | Whether to enable shadows |
+| shadowBias | number | Shadow bias; setting a small offset value helps avoid shadow artifacts and reduces striping or moiré patterns |
+| shadowBound | number | Shadow area range |
+| shadowNear | number | Shadow near plane |
+| shadowFar | number | Shadow far plane |
 
 #### **globalFog**
-| 参数名 | 类型 | 描述 |
+| Parameter | Type | Description |
 | :----: | :----: |:----: |
-| enable | boolean | 是否启用 |
-| fogType | number | 雾的类型：线性:Liner 0 ,指数:Exp 1,指数平方: Exp2: 2 |
-| start | number | 设定物体距离相机为distance，则在start和end区间内，雾的浓度被线性插值 |
-| end | number | 设定物体距离相机为distance，则在start和end区间内，雾的浓度被线性插值 |
-| height | number | 设置高度对雾的影响 |
-| density | number | 指数/指数平方雾类型下，雾浓度系数加成 |
-| ins | number | 设置高度对于雾的影响（与height共同作用） |
-| fogColorHex | number | 雾的颜色 |
+| enable | boolean | Whether to enable |
+| fogType | number | Fog type. Linear: Liner 0; exponential: Exp 1; exponential squared: Exp2 2 |
+| start | number | Given an object's distance from the camera, the fog density is linearly interpolated between start and end |
+| end | number | Given an object's distance from the camera, the fog density is linearly interpolated between start and end |
+| height | number | Sets the effect of height on the fog |
+| density | number | Additional fog density coefficient under the exponential / exponential squared fog types |
+| ins | number | Sets the effect of height on the fog (works together with height) |
+| fogColorHex | number | Fog color |
 
 #### **bloomPost**
-| 参数名 | 类型 | 描述 |
+| Parameter | Type | Description |
 | :----: | :----: |:----: |
-| enable | boolean | 是否启用 |
-| blurX | number | 屏幕横向模糊半径 |
-| blurY | number | 屏幕纵向模糊半径 |
-| bloomStrength | number | 强度设置 |
-| bloomRadius | number | 亮度设置 |
+| enable | boolean | Whether to enable |
+| `downSampleStep` | `number` | Number of downsampling passes |
+| `downSampleBlurSize` | `number` | Downsampling blur range |
+| `downSampleBlurSigma` | `number` | Downsampling blur exponent |
+| `upSampleBlurSize` | `number` | Number of upsampling passes |
+| `upSampleBlurSigma` | `number` | Upsampling blur range |
+| `luminanceThreshole` | `number` | Bloom highlight area threshold |
+| `bloomIntensity` | `boolean` | Bloom final brightness gain coefficient |
 
 #### **gi**
-| 参数名 | 类型 | 描述 |
+| Parameter | Type | Description |
 | :----: | :----: |:----: |
-| enable | boolean | 是否启用 |
-| indirectIntensity | number | 间接光的光照强度 |
-| bounceIntensity | number | 反射光的光照强度 |
+| enable | boolean | Whether to enable |
+| indirectIntensity | number | Lighting intensity of indirect light |
+| bounceIntensity | number | Lighting intensity of bounced light |
 
 
-**失败返回：**
-| 参数名 | 类型 | 描述 |
+**Failure response:**
+| Parameter | Type | Description |
 | :----: | :----: |:----: |
-| 无 | string | 错误描述 |
+| none | string | Error description |
 
-**示例:**
+**Example:**
 ```
 curl-H 'Content-Type: application/json' -H 'x-orillusion-id:accessId' -H 'x-orillusion-token:token' -X GET 'https://3dhub.orillusion.com/api/scene/model_id' 
 ```
 
-**错误提示：**
+**Error messages:**
 
-状态码
+Status code
 * 403
 
-错误内容
-* no model：没有模型
-* no auth：没有权限
+Error content
+* no model: no model
+* no auth: no permission
 
-## 更新配置
-更新一个模型文件对应的配置信息
+## Update configuration
+Update the configuration information corresponding to a model file.
 
-**请求地址：**
+**Request URL:**
 
 /api/scene/:model_id
 
 **params:**
-| 参数名 | 描述 |
+| Parameter | Description |
 | :----: | :----: |
-| model_id | 模型的_id |
+| model_id | The model's _id |
 
-**请求方法：**  
+**Method:**  
 
 PUT
 
-**请求头：**
+**Request headers:**
 
-请参照[公共请求头](/cdn/index.html#公共请求头)。
+See [Common request headers](/cdn/index.html#common-request-headers).
 
-**请求参数：**
-| 参数名 | 类型 | 描述 | 必填 |
+**Request parameters:**
+| Parameter | Type | Description | Required |
 | :----: | :----: |:----: |:----: |
-| scene | object | 场景信息，请参考 [scene结构](#scene) | 选填 |
-| camera | object | 相机信息，请参考 [camera结构](#camera) | 选填 |
-| model | object | 模型信息，请参考 [model结构](#model)  | 选填 |
-| lights | object[] | 光源信息，请参考 [lights结构](#lights) | 选填 |
-| shadow | object | 阴影信息，请参考 [shadow结构](#shadow) | 选填 |
-| render | object | 渲染信息，请参考 [render结构](#render) | 选填 |
-| globalFog | object | 雾信息，请参考 [globalFog结构](#globalfog) | 选填 |
-| bloomPost | object | 辉光特效信息，请参考 [bloomPost结构](#bloompost) | 选填 |
-| gi | object | 全局光照信息，请参考 [gi结构](#gi) | 选填 |
+| scene | object | Scene information; see [scene structure](#scene) | Optional |
+| camera | object | Camera information; see [camera structure](#camera) | Optional |
+| model | object | Model information; see [model structure](#model) | Optional |
+| lights | object[] | Light source information; see [lights structure](#lights) | Optional |
+| shadow | object | Shadow information; see [shadow structure](#shadow) | Optional |
+| render | object | Render information; see [render structure](#render) | Optional |
+| globalFog | object | Fog information; see [globalFog structure](#globalfog) | Optional |
+| bloomPost | object | Bloom effect information; see [bloomPost structure](#bloompost) | Optional |
+| gi | object | Global illumination information; see [gi structure](#gi) | Optional |
 
-**响应参数：**
+**Response parameters:**
 
-请参照配置信息结构
+See the configuration information structure
 
 
-**失败返回：**
-无
+**Failure response:**
+None
 
-**示例:**
+**Example:**
 ```
 curl-H 'Content-Type: application/json' -H 'x-orillusion-id:accessId' -H 'x-orillusion-token:token'  --data-binary '{"model":"{x:10,y:10,z:10}"}'  -X PUT  'https://3dhub.orillusion.com/api/scene/model_id' 
 ```
 
-**错误提示：**
+**Error messages:**
 
-状态码
+Status code
 * 403
 
-错误内容
-* no model：模型不存在
-* no auth：没有权限
+Error content
+* no model: model does not exist
+* no auth: no permission

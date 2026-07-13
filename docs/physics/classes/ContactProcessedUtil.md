@@ -1,223 +1,243 @@
+[**@orillusion/physics**](../README.md)
+
+***
+
 # Class: ContactProcessedUtil
 
-碰撞处理工具
+Defined in: [packages/physics/utils/ContactProcessedUtil.ts:8](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/ContactProcessedUtil.ts#L8)
 
-### Constructors
-
-- [constructor](ContactProcessedUtil.md#constructor)
-
-### Methods
-
-- [registerCollisionCallback](ContactProcessedUtil.md#registercollisioncallback)
-- [unregisterCollisionCallback](ContactProcessedUtil.md#unregistercollisioncallback)
-- [addIgnoredPointer](ContactProcessedUtil.md#addignoredpointer)
-- [removeIgnoredPointer](ContactProcessedUtil.md#removeignoredpointer)
-- [isIgnored](ContactProcessedUtil.md#isignored)
-- [isCollision](ContactProcessedUtil.md#iscollision)
-- [performCollisionTest](ContactProcessedUtil.md#performcollisiontest)
-- [checkCollision](ContactProcessedUtil.md#checkcollision)
+Collision processing utility
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new ContactProcessedUtil**(): [`ContactProcessedUtil`](ContactProcessedUtil.md)
+> **new ContactProcessedUtil**(): `ContactProcessedUtil`
 
 #### Returns
 
-[`ContactProcessedUtil`](ContactProcessedUtil.md)
+`ContactProcessedUtil`
 
 ## Methods
 
-### registerCollisionCallback
+### registerCollisionCallback()
 
-▸ **registerCollisionCallback**(`pointer`, `callback`): `void`
+> `static` **registerCollisionCallback**(`pointer`, `callback`): `void`
 
-注册碰撞事件
+Defined in: [packages/physics/utils/ContactProcessedUtil.ts:18](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/ContactProcessedUtil.ts#L18)
+
+Register a collision event.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `pointer` | `number` | 物理对象指针 |
-| `callback` | `Callback` | 事件回调 |
+##### pointer
+
+`number`
+
+Pointer to the physics object
+
+##### callback
+
+`Callback`
+
+Event callback
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[packages/physics/utils/ContactProcessedUtil.ts:18](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/ContactProcessedUtil.ts#L18)
+### unregisterCollisionCallback()
 
-___
+> `static` **unregisterCollisionCallback**(`pointer`): `void`
 
-### unregisterCollisionCallback
+Defined in: [packages/physics/utils/ContactProcessedUtil.ts:32](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/ContactProcessedUtil.ts#L32)
 
-▸ **unregisterCollisionCallback**(`pointer`): `void`
-
-注销碰撞事件
+Unregister a collision event.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `pointer` | `number` | 物理对象指针 |
+##### pointer
+
+`number`
+
+Pointer to the physics object
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[packages/physics/utils/ContactProcessedUtil.ts:32](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/ContactProcessedUtil.ts#L32)
+### addIgnoredPointer()
 
-___
+> `static` **addIgnoredPointer**(`pointer`): `void`
 
-### addIgnoredPointer
+Defined in: [packages/physics/utils/ContactProcessedUtil.ts:64](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/ContactProcessedUtil.ts#L64)
 
-▸ **addIgnoredPointer**(`pointer`): `void`
-
-将指针添加到忽略集合中，添加后，任何物体与该指针对象碰撞时都无法触发碰撞事件
+Add a pointer to the ignored set. Once added, no collision event will be triggered when any object collides with the object referenced by this pointer.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `pointer` | `number` | 物理对象指针 |
+##### pointer
+
+`number`
+
+Pointer to the physics object
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[packages/physics/utils/ContactProcessedUtil.ts:64](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/ContactProcessedUtil.ts#L64)
+### removeIgnoredPointer()
 
-___
+> `static` **removeIgnoredPointer**(`pointer`): `void`
 
-### removeIgnoredPointer
+Defined in: [packages/physics/utils/ContactProcessedUtil.ts:74](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/ContactProcessedUtil.ts#L74)
 
-▸ **removeIgnoredPointer**(`pointer`): `void`
-
-从忽略集合中移除指针
+Remove a pointer from the ignored set.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `pointer` | `number` | 物理对象指针 |
+##### pointer
+
+`number`
+
+Pointer to the physics object
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[packages/physics/utils/ContactProcessedUtil.ts:74](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/ContactProcessedUtil.ts#L74)
+### isIgnored()
 
-___
+> `static` **isIgnored**(`pointer`): `boolean`
 
-### isIgnored
+Defined in: [packages/physics/utils/ContactProcessedUtil.ts:82](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/ContactProcessedUtil.ts#L82)
 
-▸ **isIgnored**(`pointer`): `boolean`
-
-检查指针是否在忽略集合中
+Check whether the pointer is in the ignored set.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `pointer` | `number` | 物理对象指针 |
+##### pointer
+
+`number`
+
+Pointer to the physics object
 
 #### Returns
 
 `boolean`
 
-#### Defined in
+***
 
-[packages/physics/utils/ContactProcessedUtil.ts:82](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/ContactProcessedUtil.ts#L82)
+### isCollision()
 
-___
+> `static` **isCollision**(`pointer`): `boolean`
 
-### isCollision
+Defined in: [packages/physics/utils/ContactProcessedUtil.ts:90](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/ContactProcessedUtil.ts#L90)
 
-▸ **isCollision**(`pointer`): `boolean`
-
-检查指针是否注册了碰撞事件
+Check whether the pointer has a registered collision event.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `pointer` | `number` | 物理对象指针 |
+##### pointer
+
+`number`
+
+Pointer to the physics object
 
 #### Returns
 
 `boolean`
 
-#### Defined in
+***
 
-[packages/physics/utils/ContactProcessedUtil.ts:90](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/ContactProcessedUtil.ts#L90)
+### performCollisionTest()
 
-___
+> `static` **performCollisionTest**(`bodyA`, `bodyB?`): `object`
 
-### performCollisionTest
+Defined in: [packages/physics/utils/ContactProcessedUtil.ts:129](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/ContactProcessedUtil.ts#L129)
 
-▸ **performCollisionTest**(`bodyA`, `bodyB?`): `Object`
-
-执行一次性的碰撞测试。
-如果提供了 bodyB，则检测 bodyA 与 bodyB 是否碰撞。
-否则，检测 bodyA 是否与其他所有刚体碰撞。
+Perform a one-shot collision test.
+If bodyB is provided, tests whether bodyA collides with bodyB.
+Otherwise, tests whether bodyA collides with any other rigid body.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `bodyA` | [`btRigidBody`](Ammo.btRigidBody.md) | 第一个刚体。 |
-| `bodyB?` | [`btRigidBody`](Ammo.btRigidBody.md) | （可选）第二个刚体。 |
+##### bodyA
+
+[`btRigidBody`](../@orillusion/namespaces/Ammo/classes/btRigidBody.md)
+
+The first rigid body.
+
+##### bodyB?
+
+[`btRigidBody`](../@orillusion/namespaces/Ammo/classes/btRigidBody.md)
+
+(Optional) The second rigid body.
 
 #### Returns
 
-`Object`
+`object`
 
-如果发生碰撞，返回包含碰撞信息的对象；否则返回 null。
+An object with collision information if a collision occurred; otherwise null.
 
-| Name | Type |
-| :------ | :------ |
-| `cpPtr` | `number` |
-| `colObj0Wrap` | [`btCollisionObjectWrapper`](Ammo.btCollisionObjectWrapper.md) |
-| `colObj1Wrap` | [`btCollisionObjectWrapper`](Ammo.btCollisionObjectWrapper.md) |
-| `partId0` | `number` |
-| `index0` | `number` |
-| `partId1` | `number` |
-| `index1` | `number` |
+##### cpPtr
 
-#### Defined in
+> **cpPtr**: `number`
 
-[packages/physics/utils/ContactProcessedUtil.ts:129](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/ContactProcessedUtil.ts#L129)
+##### colObj0Wrap
 
-___
+> **colObj0Wrap**: [`btCollisionObjectWrapper`](../@orillusion/namespaces/Ammo/classes/btCollisionObjectWrapper.md)
 
-### checkCollision
+##### colObj1Wrap
 
-▸ **checkCollision**(`bodyA`, `bodyB`): `boolean`
+> **colObj1Wrap**: [`btCollisionObjectWrapper`](../@orillusion/namespaces/Ammo/classes/btCollisionObjectWrapper.md)
 
-碰撞检测，判断两个刚体是否正在发生碰撞
+##### partId0
+
+> **partId0**: `number`
+
+##### index0
+
+> **index0**: `number`
+
+##### partId1
+
+> **partId1**: `number`
+
+##### index1
+
+> **index1**: `number`
+
+***
+
+### checkCollision()
+
+> `static` **checkCollision**(`bodyA`, `bodyB`): `boolean`
+
+Defined in: [packages/physics/utils/ContactProcessedUtil.ts:174](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/ContactProcessedUtil.ts#L174)
+
+Collision check: determines whether two rigid bodies are currently colliding.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `bodyA` | [`btRigidBody`](Ammo.btRigidBody.md) |
-| `bodyB` | [`btRigidBody`](Ammo.btRigidBody.md) |
+##### bodyA
+
+[`btRigidBody`](../@orillusion/namespaces/Ammo/classes/btRigidBody.md)
+
+##### bodyB
+
+[`btRigidBody`](../@orillusion/namespaces/Ammo/classes/btRigidBody.md)
 
 #### Returns
 
 `boolean`
 
 boolean
-
-#### Defined in
-
-[packages/physics/utils/ContactProcessedUtil.ts:174](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/ContactProcessedUtil.ts#L174)

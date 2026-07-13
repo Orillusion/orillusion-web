@@ -1,618 +1,531 @@
+[**@orillusion/physics**](../README.md)
+
+***
+
 # Class: Generic6DofConstraint
 
-通用六自由度约束
+Defined in: [packages/physics/constraint/Generic6DofConstraint.ts:9](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/Generic6DofConstraint.ts#L9)
 
-## Hierarchy
+Generic six-degree-of-freedom constraint
 
-- `ConstraintBase`\<[`btGeneric6DofConstraint`](Ammo.btGeneric6DofConstraint.md)\>
+## Extends
 
-  ↳ **`Generic6DofConstraint`**
-
-### Constructors
-
-- [constructor](Generic6DofConstraint.md#constructor)
-
-### Properties
-
-- [pivotSelf](Generic6DofConstraint.md#pivotself)
-- [pivotTarget](Generic6DofConstraint.md#pivottarget)
-- [rotationSelf](Generic6DofConstraint.md#rotationself)
-- [rotationTarget](Generic6DofConstraint.md#rotationtarget)
-- [disableCollisionsBetweenLinkedBodies](Generic6DofConstraint.md#disablecollisionsbetweenlinkedbodies)
-- [useLinearFrameReferenceFrame](Generic6DofConstraint.md#uselinearframereferenceframe)
-- [object3D](Generic6DofConstraint.md#object3d)
-- [isDestroyed](Generic6DofConstraint.md#isdestroyed)
-
-### Accessors
-
-- [breakingThreshold](Generic6DofConstraint.md#breakingthreshold)
-- [constraint](Generic6DofConstraint.md#constraint)
-- [targetRigidbody](Generic6DofConstraint.md#targetrigidbody)
-- [linearLowerLimit](Generic6DofConstraint.md#linearlowerlimit)
-- [linearUpperLimit](Generic6DofConstraint.md#linearupperlimit)
-- [angularLowerLimit](Generic6DofConstraint.md#angularlowerlimit)
-- [angularUpperLimit](Generic6DofConstraint.md#angularupperlimit)
-- [eventDispatcher](Generic6DofConstraint.md#eventdispatcher)
-- [isStart](Generic6DofConstraint.md#isstart)
-- [transform](Generic6DofConstraint.md#transform)
-- [enable](Generic6DofConstraint.md#enable)
-
-### Methods
-
-- [start](Generic6DofConstraint.md#start)
-- [wait](Generic6DofConstraint.md#wait)
-- [resetConstraint](Generic6DofConstraint.md#resetconstraint)
-- [destroy](Generic6DofConstraint.md#destroy)
-- [init](Generic6DofConstraint.md#init)
-- [stop](Generic6DofConstraint.md#stop)
-- [onEnable](Generic6DofConstraint.md#onenable)
-- [onDisable](Generic6DofConstraint.md#ondisable)
-- [onUpdate](Generic6DofConstraint.md#onupdate)
-- [onLateUpdate](Generic6DofConstraint.md#onlateupdate)
-- [onBeforeUpdate](Generic6DofConstraint.md#onbeforeupdate)
-- [onCompute](Generic6DofConstraint.md#oncompute)
-- [onGraphic](Generic6DofConstraint.md#ongraphic)
-- [onParentChange](Generic6DofConstraint.md#onparentchange)
-- [onAddChild](Generic6DofConstraint.md#onaddchild)
-- [onRemoveChild](Generic6DofConstraint.md#onremovechild)
-- [cloneTo](Generic6DofConstraint.md#cloneto)
-- [copyComponent](Generic6DofConstraint.md#copycomponent)
-- [beforeDestroy](Generic6DofConstraint.md#beforedestroy)
+- `ConstraintBase`\<[`btGeneric6DofConstraint`](../@orillusion/namespaces/Ammo/classes/btGeneric6DofConstraint.md)\>
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new Generic6DofConstraint**(): [`Generic6DofConstraint`](Generic6DofConstraint.md)
+> **new Generic6DofConstraint**(): `Generic6DofConstraint`
 
 #### Returns
 
-[`Generic6DofConstraint`](Generic6DofConstraint.md)
+`Generic6DofConstraint`
 
 #### Inherited from
 
-ConstraintBase\<Ammo.btGeneric6DofConstraint\>.constructor
+`ConstraintBase<Ammo.btGeneric6DofConstraint>.constructor`
 
 ## Properties
 
+### object3D
+
+> **object3D**: `Object3D` = `null`
+
+Defined in: [src/components/ComponentBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L29)
+
+owner object3D
+
+#### Inherited from
+
+`ConstraintBase.object3D`
+
+***
+
+### isDestroyed
+
+> **isDestroyed**: `boolean` = `false`
+
+Defined in: [src/components/ComponentBase.ts:77](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L77)
+
+#### Inherited from
+
+`ConstraintBase.isDestroyed`
+
+***
+
 ### pivotSelf
 
-• **pivotSelf**: `Vector3`
+> **pivotSelf**: `Vector3`
+
+Defined in: [packages/physics/constraint/ConstraintBase.ts:19](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L19)
 
 The pivot point for the self body
 `FrameInA Origin`
 
 #### Inherited from
 
-ConstraintBase.pivotSelf
+`ConstraintBase.pivotSelf`
 
-#### Defined in
-
-[packages/physics/constraint/ConstraintBase.ts:19](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L19)
-
-___
+***
 
 ### pivotTarget
 
-• **pivotTarget**: `Vector3`
+> **pivotTarget**: `Vector3`
+
+Defined in: [packages/physics/constraint/ConstraintBase.ts:24](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L24)
 
 The pivot point for the target body
 `FrameInB Origin`
 
 #### Inherited from
 
-ConstraintBase.pivotTarget
+`ConstraintBase.pivotTarget`
 
-#### Defined in
-
-[packages/physics/constraint/ConstraintBase.ts:24](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L24)
-
-___
+***
 
 ### rotationSelf
 
-• **rotationSelf**: `Quaternion`
+> **rotationSelf**: `Quaternion`
+
+Defined in: [packages/physics/constraint/ConstraintBase.ts:29](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L29)
 
 The rotation for the self body
 `FrameInA Rotation`
 
 #### Inherited from
 
-ConstraintBase.rotationSelf
+`ConstraintBase.rotationSelf`
 
-#### Defined in
-
-[packages/physics/constraint/ConstraintBase.ts:29](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L29)
-
-___
+***
 
 ### rotationTarget
 
-• **rotationTarget**: `Quaternion`
+> **rotationTarget**: `Quaternion`
+
+Defined in: [packages/physics/constraint/ConstraintBase.ts:34](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L34)
 
 The rotation for the target body
 `FrameInB Rotation`
 
 #### Inherited from
 
-ConstraintBase.rotationTarget
+`ConstraintBase.rotationTarget`
 
-#### Defined in
-
-[packages/physics/constraint/ConstraintBase.ts:34](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L34)
-
-___
+***
 
 ### disableCollisionsBetweenLinkedBodies
 
-• **disableCollisionsBetweenLinkedBodies**: `boolean` = `true`
+> **disableCollisionsBetweenLinkedBodies**: `boolean` = `true`
+
+Defined in: [packages/physics/constraint/ConstraintBase.ts:36](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L36)
 
 #### Inherited from
 
-ConstraintBase.disableCollisionsBetweenLinkedBodies
+`ConstraintBase.disableCollisionsBetweenLinkedBodies`
 
-#### Defined in
-
-[packages/physics/constraint/ConstraintBase.ts:36](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L36)
-
-___
+***
 
 ### useLinearFrameReferenceFrame
 
-• **useLinearFrameReferenceFrame**: `boolean` = `true`
+> **useLinearFrameReferenceFrame**: `boolean` = `true`
 
-是否使用线性参考坐标系。
-默认值: `true`
+Defined in: [packages/physics/constraint/Generic6DofConstraint.ts:63](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/Generic6DofConstraint.ts#L63)
 
-#### Defined in
-
-[packages/physics/constraint/Generic6DofConstraint.ts:63](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/Generic6DofConstraint.ts#L63)
-
-___
-
-### object3D
-
-• **object3D**: `Object3D` = `null`
-
-owner object3D
-
-#### Inherited from
-
-ConstraintBase.object3D
-
-#### Defined in
-
-[src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
-
-___
-
-### isDestroyed
-
-• `Optional` **isDestroyed**: `boolean`
-
-#### Inherited from
-
-ConstraintBase.isDestroyed
-
-#### Defined in
-
-[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
+Whether to use the linear reference frame.
+Default: `true`
 
 ## Accessors
 
-### breakingThreshold
+### visibleLayer
 
-• `get` **breakingThreshold**(): `number`
+#### Get Signature
 
-断裂脉冲阈值，值越大，约束越不易断裂。
+> **get** **visibleLayer**(): `number`
 
-#### Returns
+Defined in: [src/components/ComponentBase.ts:46](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L46)
+
+Composition-layer membership bitmask. The pass / camera /
+collector filters via
+
+    (component.visibleLayer & pass.layerMask & camera.cullingMask) !== 0
+
+Defaults to VisibleLayer.Default (bit 0) so a fresh
+subclass is visible to passes whose `layerMask` is
+VisibleLayer.All (which includes bit 0). Application code
+can assign project-specific bits (1..31) to organise the scene
+into composition layers.
+
+##### Returns
 
 `number`
 
-#### Inherited from
+#### Set Signature
 
-ConstraintBase.breakingThreshold
+> **set** **visibleLayer**(`value`): `void`
 
-#### Defined in
+Defined in: [src/components/ComponentBase.ts:50](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L50)
 
-[packages/physics/constraint/ConstraintBase.ts:41](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L41)
+##### Parameters
 
-• `set` **breakingThreshold**(`value`): `void`
+###### value
 
-#### Parameters
+`number`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-ConstraintBase.breakingThreshold
+`ConstraintBase.visibleLayer`
 
-#### Defined in
-
-[packages/physics/constraint/ConstraintBase.ts:45](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L45)
-
-___
-
-### constraint
-
-• `get` **constraint**(): `T`
-
-获取约束实例
-
-#### Returns
-
-`T`
-
-#### Inherited from
-
-ConstraintBase.constraint
-
-#### Defined in
-
-[packages/physics/constraint/ConstraintBase.ts:87](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L87)
-
-___
-
-### targetRigidbody
-
-• `get` **targetRigidbody**(): [`Rigidbody`](Rigidbody.md)
-
-目标刚体组件
-
-#### Returns
-
-[`Rigidbody`](Rigidbody.md)
-
-#### Inherited from
-
-ConstraintBase.targetRigidbody
-
-#### Defined in
-
-[packages/physics/constraint/ConstraintBase.ts:119](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L119)
-
-• `set` **targetRigidbody**(`value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | [`Rigidbody`](Rigidbody.md) |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-ConstraintBase.targetRigidbody
-
-#### Defined in
-
-[packages/physics/constraint/ConstraintBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L123)
-
-___
-
-### linearLowerLimit
-
-• `get` **linearLowerLimit**(): `Vector3`
-
-default: `-1e30, -1e30, -1e30`
-
-#### Returns
-
-`Vector3`
-
-#### Defined in
-
-[packages/physics/constraint/Generic6DofConstraint.ts:18](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/Generic6DofConstraint.ts#L18)
-
-• `set` **linearLowerLimit**(`value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `Vector3` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/physics/constraint/Generic6DofConstraint.ts:21](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/Generic6DofConstraint.ts#L21)
-
-___
-
-### linearUpperLimit
-
-• `get` **linearUpperLimit**(): `Vector3`
-
-default: `1e30, 1e30, 1e30`
-
-#### Returns
-
-`Vector3`
-
-#### Defined in
-
-[packages/physics/constraint/Generic6DofConstraint.ts:29](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/Generic6DofConstraint.ts#L29)
-
-• `set` **linearUpperLimit**(`value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `Vector3` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/physics/constraint/Generic6DofConstraint.ts:32](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/Generic6DofConstraint.ts#L32)
-
-___
-
-### angularLowerLimit
-
-• `get` **angularLowerLimit**(): `Vector3`
-
-default: `-Math.PI, -Math.PI, -Math.PI`
-
-#### Returns
-
-`Vector3`
-
-#### Defined in
-
-[packages/physics/constraint/Generic6DofConstraint.ts:40](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/Generic6DofConstraint.ts#L40)
-
-• `set` **angularLowerLimit**(`value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `Vector3` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/physics/constraint/Generic6DofConstraint.ts:43](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/Generic6DofConstraint.ts#L43)
-
-___
-
-### angularUpperLimit
-
-• `get` **angularUpperLimit**(): `Vector3`
-
-default: `Math.PI, Math.PI, Math.PI`
-
-#### Returns
-
-`Vector3`
-
-#### Defined in
-
-[packages/physics/constraint/Generic6DofConstraint.ts:51](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/Generic6DofConstraint.ts#L51)
-
-• `set` **angularUpperLimit**(`value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `Vector3` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/physics/constraint/Generic6DofConstraint.ts:54](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/Generic6DofConstraint.ts#L54)
-
-___
+***
 
 ### eventDispatcher
 
-• `get` **eventDispatcher**(): `CEventDispatcher`
+#### Get Signature
 
-#### Returns
+> **get** **eventDispatcher**(): `CEventDispatcher`
+
+Defined in: [src/components/ComponentBase.ts:63](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L63)
+
+##### Returns
 
 `CEventDispatcher`
 
-#### Inherited from
+#### Set Signature
 
-ConstraintBase.eventDispatcher
+> **set** **eventDispatcher**(`value`): `void`
 
-#### Defined in
+Defined in: [src/components/ComponentBase.ts:68](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
 
-[src/components/ComponentBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L23)
+##### Parameters
 
-• `set` **eventDispatcher**(`value`): `void`
+###### value
 
-#### Parameters
+`CEventDispatcher`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `CEventDispatcher` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-ConstraintBase.eventDispatcher
+`ConstraintBase.eventDispatcher`
 
-#### Defined in
-
-[src/components/ComponentBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L28)
-
-___
+***
 
 ### isStart
 
-• `get` **isStart**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **isStart**(): `boolean`
+
+Defined in: [src/components/ComponentBase.ts:79](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L79)
+
+##### Returns
 
 `boolean`
 
 #### Inherited from
 
-ConstraintBase.isStart
+`ConstraintBase.isStart`
 
-#### Defined in
-
-[src/components/ComponentBase.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L40)
-
-___
+***
 
 ### transform
 
-• `get` **transform**(): `Transform`
+#### Get Signature
+
+> **get** **transform**(): `Transform`
+
+Defined in: [src/components/ComponentBase.ts:89](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L89)
 
 Return the Transform component attached to the Object3D.
+Null before the component is attached — `addComponent` assigns
+`object3D` only after construction — so constructor-time callers
+can probe safely via `this.transform?.`.
 
-#### Returns
+##### Returns
 
 `Transform`
 
 #### Inherited from
 
-ConstraintBase.transform
+`ConstraintBase.transform`
 
-#### Defined in
-
-[src/components/ComponentBase.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L47)
-
-___
+***
 
 ### enable
 
-• `get` **enable**(): `boolean`
+#### Get Signature
+
+> **get** **enable**(): `boolean`
+
+Defined in: [src/components/ComponentBase.ts:113](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
-#### Returns
+##### Returns
 
 `boolean`
 
-#### Inherited from
+#### Set Signature
 
-ConstraintBase.enable
+> **set** **enable**(`value`): `void`
 
-#### Defined in
-
-[src/components/ComponentBase.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
-
-• `set` **enable**(`value`): `void`
+Defined in: [src/components/ComponentBase.ts:96](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L96)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
+###### value
 
-#### Returns
+`boolean`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-ConstraintBase.enable
+`ConstraintBase.enable`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L54)
+### breakingThreshold
+
+#### Get Signature
+
+> **get** **breakingThreshold**(): `number`
+
+Defined in: [packages/physics/constraint/ConstraintBase.ts:41](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L41)
+
+Breaking impulse threshold. The larger the value, the harder the constraint is to break.
+
+##### Returns
+
+`number`
+
+#### Set Signature
+
+> **set** **breakingThreshold**(`value`): `void`
+
+Defined in: [packages/physics/constraint/ConstraintBase.ts:45](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L45)
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
+
+`void`
+
+#### Inherited from
+
+`ConstraintBase.breakingThreshold`
+
+***
+
+### constraint
+
+#### Get Signature
+
+> **get** **constraint**(): `T`
+
+Defined in: [packages/physics/constraint/ConstraintBase.ts:87](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L87)
+
+Get the constraint instance
+
+##### Returns
+
+`T`
+
+#### Inherited from
+
+`ConstraintBase.constraint`
+
+***
+
+### targetRigidbody
+
+#### Get Signature
+
+> **get** **targetRigidbody**(): [`Rigidbody`](Rigidbody.md)
+
+Defined in: [packages/physics/constraint/ConstraintBase.ts:119](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L119)
+
+Target rigid body component
+
+##### Returns
+
+[`Rigidbody`](Rigidbody.md)
+
+#### Set Signature
+
+> **set** **targetRigidbody**(`value`): `void`
+
+Defined in: [packages/physics/constraint/ConstraintBase.ts:123](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L123)
+
+##### Parameters
+
+###### value
+
+[`Rigidbody`](Rigidbody.md)
+
+##### Returns
+
+`void`
+
+#### Inherited from
+
+`ConstraintBase.targetRigidbody`
+
+***
+
+### linearLowerLimit
+
+#### Get Signature
+
+> **get** **linearLowerLimit**(): `Vector3`
+
+Defined in: [packages/physics/constraint/Generic6DofConstraint.ts:18](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/Generic6DofConstraint.ts#L18)
+
+default: `-1e30, -1e30, -1e30`
+
+##### Returns
+
+`Vector3`
+
+#### Set Signature
+
+> **set** **linearLowerLimit**(`value`): `void`
+
+Defined in: [packages/physics/constraint/Generic6DofConstraint.ts:21](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/Generic6DofConstraint.ts#L21)
+
+##### Parameters
+
+###### value
+
+`Vector3`
+
+##### Returns
+
+`void`
+
+***
+
+### linearUpperLimit
+
+#### Get Signature
+
+> **get** **linearUpperLimit**(): `Vector3`
+
+Defined in: [packages/physics/constraint/Generic6DofConstraint.ts:29](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/Generic6DofConstraint.ts#L29)
+
+default: `1e30, 1e30, 1e30`
+
+##### Returns
+
+`Vector3`
+
+#### Set Signature
+
+> **set** **linearUpperLimit**(`value`): `void`
+
+Defined in: [packages/physics/constraint/Generic6DofConstraint.ts:32](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/Generic6DofConstraint.ts#L32)
+
+##### Parameters
+
+###### value
+
+`Vector3`
+
+##### Returns
+
+`void`
+
+***
+
+### angularLowerLimit
+
+#### Get Signature
+
+> **get** **angularLowerLimit**(): `Vector3`
+
+Defined in: [packages/physics/constraint/Generic6DofConstraint.ts:40](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/Generic6DofConstraint.ts#L40)
+
+default: `-Math.PI, -Math.PI, -Math.PI`
+
+##### Returns
+
+`Vector3`
+
+#### Set Signature
+
+> **set** **angularLowerLimit**(`value`): `void`
+
+Defined in: [packages/physics/constraint/Generic6DofConstraint.ts:43](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/Generic6DofConstraint.ts#L43)
+
+##### Parameters
+
+###### value
+
+`Vector3`
+
+##### Returns
+
+`void`
+
+***
+
+### angularUpperLimit
+
+#### Get Signature
+
+> **get** **angularUpperLimit**(): `Vector3`
+
+Defined in: [packages/physics/constraint/Generic6DofConstraint.ts:51](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/Generic6DofConstraint.ts#L51)
+
+default: `Math.PI, Math.PI, Math.PI`
+
+##### Returns
+
+`Vector3`
+
+#### Set Signature
+
+> **set** **angularUpperLimit**(`value`): `void`
+
+Defined in: [packages/physics/constraint/Generic6DofConstraint.ts:54](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/Generic6DofConstraint.ts#L54)
+
+##### Parameters
+
+###### value
+
+`Vector3`
+
+##### Returns
+
+`void`
 
 ## Methods
 
-### start
+### init()
 
-▸ **start**(): `Promise`\<`void`\>
+> **init**(`param?`): `void`
 
-#### Returns
-
-`Promise`\<`void`\>
-
-#### Inherited from
-
-ConstraintBase.start
-
-#### Defined in
-
-[packages/physics/constraint/ConstraintBase.ts:50](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L50)
-
-___
-
-### wait
-
-▸ **wait**(): `Promise`\<[`btGeneric6DofConstraint`](Ammo.btGeneric6DofConstraint.md)\>
-
-异步获取完成初始化的约束实例
-
-#### Returns
-
-`Promise`\<[`btGeneric6DofConstraint`](Ammo.btGeneric6DofConstraint.md)\>
-
-#### Inherited from
-
-ConstraintBase.wait
-
-#### Defined in
-
-[packages/physics/constraint/ConstraintBase.ts:97](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L97)
-
-___
-
-### resetConstraint
-
-▸ **resetConstraint**(): `Promise`\<[`btGeneric6DofConstraint`](Ammo.btGeneric6DofConstraint.md)\>
-
-重置约束，销毁当前约束实例后重新创建并返回新的约束实例
-
-#### Returns
-
-`Promise`\<[`btGeneric6DofConstraint`](Ammo.btGeneric6DofConstraint.md)\>
-
-#### Inherited from
-
-ConstraintBase.resetConstraint
-
-#### Defined in
-
-[packages/physics/constraint/ConstraintBase.ts:105](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L105)
-
-___
-
-### destroy
-
-▸ **destroy**(`force?`): `void`
+Defined in: [src/components/ComponentBase.ts:161](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L161)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
+##### param?
+
+`any`
 
 #### Returns
 
@@ -620,23 +533,15 @@ ___
 
 #### Inherited from
 
-ConstraintBase.destroy
+`ConstraintBase.init`
 
-#### Defined in
+***
 
-[packages/physics/constraint/ConstraintBase.ts:127](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L127)
+### stop()
 
-___
+> **stop**(): `void`
 
-### init
-
-▸ **init**(`param?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `param?` | `any` |
+Defined in: [src/components/ComponentBase.ts:163](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L163)
 
 #### Returns
 
@@ -644,41 +549,21 @@ ___
 
 #### Inherited from
 
-ConstraintBase.init
+`ConstraintBase.stop`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L112)
+### onEnable()?
 
-___
+> `optional` **onEnable**(`view?`): `any`
 
-### stop
-
-▸ **stop**(): `void`
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-ConstraintBase.stop
-
-#### Defined in
-
-[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
-
-___
-
-### onEnable
-
-▸ **onEnable**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:164](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L164)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
+##### view?
+
+`View3D`
 
 #### Returns
 
@@ -686,23 +571,21 @@ ___
 
 #### Inherited from
 
-ConstraintBase.onEnable
+`ConstraintBase.onEnable`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L115)
+### onDisable()?
 
-___
+> `optional` **onDisable**(`view?`): `any`
 
-### onDisable
-
-▸ **onDisable**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:165](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L165)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
+##### view?
+
+`View3D`
 
 #### Returns
 
@@ -710,23 +593,21 @@ ___
 
 #### Inherited from
 
-ConstraintBase.onDisable
+`ConstraintBase.onDisable`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L116)
+### onUpdate()?
 
-___
+> `optional` **onUpdate**(`view?`): `any`
 
-### onUpdate
-
-▸ **onUpdate**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:166](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L166)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
+##### view?
+
+`View3D`
 
 #### Returns
 
@@ -734,23 +615,21 @@ ___
 
 #### Inherited from
 
-ConstraintBase.onUpdate
+`ConstraintBase.onUpdate`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L117)
+### onLateUpdate()?
 
-___
+> `optional` **onLateUpdate**(`view?`): `any`
 
-### onLateUpdate
-
-▸ **onLateUpdate**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:167](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L167)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
+##### view?
+
+`View3D`
 
 #### Returns
 
@@ -758,23 +637,21 @@ ___
 
 #### Inherited from
 
-ConstraintBase.onLateUpdate
+`ConstraintBase.onLateUpdate`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L118)
+### onBeforeUpdate()?
 
-___
+> `optional` **onBeforeUpdate**(`view?`): `any`
 
-### onBeforeUpdate
-
-▸ **onBeforeUpdate**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:168](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L168)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
+##### view?
+
+`View3D`
 
 #### Returns
 
@@ -782,24 +659,25 @@ ___
 
 #### Inherited from
 
-ConstraintBase.onBeforeUpdate
+`ConstraintBase.onBeforeUpdate`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L119)
+### onCompute()?
 
-___
+> `optional` **onCompute**(`view?`, `command?`): `any`
 
-### onCompute
-
-▸ **onCompute**(`view?`, `command?`): `any`
+Defined in: [src/components/ComponentBase.ts:169](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L169)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
-| `command?` | `GPUCommandEncoder` |
+##### view?
+
+`View3D`
+
+##### command?
+
+`GPUCommandEncoder`
 
 #### Returns
 
@@ -807,23 +685,21 @@ ___
 
 #### Inherited from
 
-ConstraintBase.onCompute
+`ConstraintBase.onCompute`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L120)
+### onGraphic()?
 
-___
+> `optional` **onGraphic**(`view?`): `any`
 
-### onGraphic
-
-▸ **onGraphic**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:170](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L170)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
+##### view?
+
+`View3D`
 
 #### Returns
 
@@ -831,24 +707,25 @@ ___
 
 #### Inherited from
 
-ConstraintBase.onGraphic
+`ConstraintBase.onGraphic`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L121)
+### onParentChange()?
 
-___
+> `optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
-### onParentChange
-
-▸ **onParentChange**(`lastParent?`, `currentParent?`): `any`
+Defined in: [src/components/ComponentBase.ts:171](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L171)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `lastParent?` | `Object3D` |
-| `currentParent?` | `Object3D` |
+##### lastParent?
+
+`Object3D`
+
+##### currentParent?
+
+`Object3D`
 
 #### Returns
 
@@ -856,23 +733,21 @@ ___
 
 #### Inherited from
 
-ConstraintBase.onParentChange
+`ConstraintBase.onParentChange`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L122)
+### onAddChild()?
 
-___
+> `optional` **onAddChild**(`child`): `any`
 
-### onAddChild
-
-▸ **onAddChild**(`child`): `any`
+Defined in: [src/components/ComponentBase.ts:172](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L172)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `child` | `Object3D` |
+##### child
+
+`Object3D`
 
 #### Returns
 
@@ -880,23 +755,21 @@ ___
 
 #### Inherited from
 
-ConstraintBase.onAddChild
+`ConstraintBase.onAddChild`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L123)
+### onRemoveChild()?
 
-___
+> `optional` **onRemoveChild**(`child`): `any`
 
-### onRemoveChild
-
-▸ **onRemoveChild**(`child`): `any`
+Defined in: [src/components/ComponentBase.ts:173](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L173)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `child` | `Object3D` |
+##### child
+
+`Object3D`
 
 #### Returns
 
@@ -904,25 +777,25 @@ ___
 
 #### Inherited from
 
-ConstraintBase.onRemoveChild
+`ConstraintBase.onRemoveChild`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L124)
+### cloneTo()
 
-___
+> **cloneTo**(`obj`): `void`
 
-### cloneTo
-
-▸ **cloneTo**(`obj`): `void`
+Defined in: [src/components/ComponentBase.ts:180](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L180)
 
 clone component data to target object3D
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `obj` | `Object3D` | target object3D |
+##### obj
+
+`Object3D`
+
+target object3D
 
 #### Returns
 
@@ -930,23 +803,21 @@ clone component data to target object3D
 
 #### Inherited from
 
-ConstraintBase.cloneTo
+`ConstraintBase.cloneTo`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L131)
+### copyComponent()
 
-___
+> **copyComponent**(`from`): `this`
 
-### copyComponent
-
-▸ **copyComponent**(`from`): `this`
+Defined in: [src/components/ComponentBase.ts:182](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L182)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `from` | `this` |
+##### from
+
+`this`
 
 #### Returns
 
@@ -954,25 +825,23 @@ ___
 
 #### Inherited from
 
-ConstraintBase.copyComponent
+`ConstraintBase.copyComponent`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L133)
+### beforeDestroy()
 
-___
+> **beforeDestroy**(`force?`): `void`
 
-### beforeDestroy
-
-▸ **beforeDestroy**(`force?`): `void`
+Defined in: [src/components/ComponentBase.ts:249](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L249)
 
 before release this component, object refrences are not be set null now.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
+##### force?
+
+`boolean`
 
 #### Returns
 
@@ -980,8 +849,80 @@ before release this component, object refrences are not be set null now.
 
 #### Inherited from
 
-ConstraintBase.beforeDestroy
+`ConstraintBase.beforeDestroy`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L200)
+### start()
+
+> **start**(): `Promise`\<`void`\>
+
+Defined in: [packages/physics/constraint/ConstraintBase.ts:50](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L50)
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Inherited from
+
+`ConstraintBase.start`
+
+***
+
+### wait()
+
+> **wait**(): `Promise`\<[`btGeneric6DofConstraint`](../@orillusion/namespaces/Ammo/classes/btGeneric6DofConstraint.md)\>
+
+Defined in: [packages/physics/constraint/ConstraintBase.ts:97](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L97)
+
+Asynchronously retrieve the fully initialized constraint instance
+
+#### Returns
+
+`Promise`\<[`btGeneric6DofConstraint`](../@orillusion/namespaces/Ammo/classes/btGeneric6DofConstraint.md)\>
+
+#### Inherited from
+
+`ConstraintBase.wait`
+
+***
+
+### resetConstraint()
+
+> **resetConstraint**(): `Promise`\<[`btGeneric6DofConstraint`](../@orillusion/namespaces/Ammo/classes/btGeneric6DofConstraint.md)\>
+
+Defined in: [packages/physics/constraint/ConstraintBase.ts:105](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L105)
+
+Reset the constraint: destroy the current constraint instance, recreate it, and return the new constraint instance
+
+#### Returns
+
+`Promise`\<[`btGeneric6DofConstraint`](../@orillusion/namespaces/Ammo/classes/btGeneric6DofConstraint.md)\>
+
+#### Inherited from
+
+`ConstraintBase.resetConstraint`
+
+***
+
+### destroy()
+
+> **destroy**(`force?`): `void`
+
+Defined in: [packages/physics/constraint/ConstraintBase.ts:127](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L127)
+
+release this component
+
+#### Parameters
+
+##### force?
+
+`boolean`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`ConstraintBase.destroy`

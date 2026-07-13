@@ -2,127 +2,127 @@
 editLink: false
 ---
 
-# 模型 API
+# Model API
 
-## 获取模型列表
-获取当前用户的模型列表
+## Get model list
+Get the model list of the current user.
 
-**请求地址：**
+**Request URL:**
 
 /api/models
 
-**请求方法：**
+**Method:**
 
 GET  
 
-**请求头：**
+**Request headers:**
 
-请参照[公共请求头](/cdn/index.html#公共请求头)。
+See [Common request headers](/cdn/index.html#common-request-headers).
 
-**请求参数：**
-| 参数名 | 类型 | 描述 | 必填 |
+**Request parameters:**
+| Parameter | Type | Description | Required |
 | :----: | :----: | ---- |:----: |
-| sort | string | 排序规则，viewer：浏览数，_createTime：创建时间， 默认值：_createTime | 选填 |
-| limit | number | 指定返回model最大数，取值范围:100至1000，默认值：100 | 选填 |
-| skip | number | 指定从skip之后返回model，可以和limit配合实现分页效果，默认值：0 | 选填 |
-| search | string | 限定返回名称中包含search的model | 选填 |
+| sort | string | Sort rule. viewer: view count; _createTime: creation time. Default: _createTime | Optional |
+| limit | number | Maximum number of models to return, range: 100 to 1000. Default: 100 | Optional |
+| skip | number | Return models after the skip offset; combine with limit to paginate. Default: 0 | Optional |
+| search | string | Only return models whose name contains search | Optional |
 
-**响应参数：**
+**Response parameters:**
 
-| 参数名 | 类型 | 描述 |
+| Parameter | Type | Description |
 | :----: | :----: | ---- |
-| models | array<`model`> | 包含模型对象的数组，model对象结构请参照以下`model结构`部分 |
-| limit | number | 上传limit参数的回传 |
-| skip | number | 上传skip参数的回传 |
-| total | number | 查询到符合条件的所有models的数目，配合limit，skip可实现页面跳转效果 |
+| models | array<`model`> | Array of model objects. For the model object structure, see the `Model structure` section below |
+| limit | number | Echo of the submitted limit parameter |
+| skip | number | Echo of the submitted skip parameter |
+| total | number | Total number of models matching the query; combine with limit and skip to implement page navigation |
 
-#### **model结构：**
-| 参数名 | 类型 | 描述 |
+#### **Model structure:**
+| Parameter | Type | Description |
 | :----: | :----: |:----: |
-| _id | string | 模型唯一编号 |
-| name | string | 模型名称 |
-| des | string | 模型描述 |
-| tags | array<`string`> | 模型标签 |
-| zip | string | 原始压缩包文件名 |
-| screenshot | string | 封面url |
-| size | object | 模型尺寸信息，请查看下文size结构 |
-| stats | string | 状态，wait：上传中，public：可访问，error：有错误，draft：未公开 |
-| viewer | number | 访问次数 |
-| _createTime | Date | 创建时间 |
+| _id | string | Unique model id |
+| name | string | Model name |
+| des | string | Model description |
+| tags | array<`string`> | Model tags |
+| zip | string | Original archive file name |
+| screenshot | string | Cover url |
+| size | object | Model size information; see the size structure below |
+| stats | string | Status. wait: uploading; public: accessible; error: has errors; draft: not published |
+| viewer | number | View count |
+| _createTime | Date | Creation time |
 
-**size结构：**
-| 参数名 | 类型 | 描述 |
+**size structure:**
+| Parameter | Type | Description |
 | :----: | :----: |:----: |
-| size | number | 模型处理完毕后所有文件的总大小 |
-| length | number | 模型包含的文件数 |
+| size | number | Total size of all files after the model has been processed |
+| length | number | Number of files the model contains |
 
-**失败返回：**
+**Failure response:**
 
-无
+None
 
-**示例:**
+**Example:**
 ```
 curl -H 'Content-Type: application/json' -H 'x-orillusion-id:accessId' -H 'x-orillusion-token:token' 'https://3dhub.orillusion.com/api/models' 
 ```
 
-**错误提示：**
+**Error messages:**
 
-状态码
-* 无
+Status code
+* none
 
-错误内容
-* 无
+Error content
+* none
 
 ---
 
-## 创建模型
-创建一个模型文件，获得上传接口地址
+## Create model
+Create a model file and obtain the upload endpoint URL.
 
-**请求地址：**
+**Request URL:**
 
 /api/model
 
-**请求方法：**  
+**Method:**  
 
 POST
  
-**请求头：**
+**Request headers:**
 
-请参照[公共请求头](/cdn/index.html#公共请求头)。
+See [Common request headers](/cdn/index.html#common-request-headers).
 
-**请求参数：**
-| 参数名 | 类型 | 描述 | 必填 |
+**Request parameters:**
+| Parameter | Type | Description | Required |
 | :----: | :----: |:----: |:----: |
-| entry | string | 入口文件名 | 必填 |
-| zip | string | 原始压缩包文件名 | 必填 |
+| entry | string | Entry file name | Required |
+| zip | string | Original archive file name | Required |
 
 
-**响应参数：**
-| 参数名 | 类型 | 描述 |
+**Response parameters:**
+| Parameter | Type | Description |
 | :----: | :----: |:----: |
-| uploadUrl | string | 用于上传文件的url |
-| model | object | 模型信息，请参考 [model结构](/cdn/models.html#model结构：) 说明 |
+| uploadUrl | string | URL used to upload the file |
+| model | object | Model information; see the [Model structure](/cdn/models.html#model-structure) notes |
 
-**失败返回：**
-| 参数名 | 类型 | 描述 |
+**Failure response:**
+| Parameter | Type | Description |
 | :----: | :----: |:----: |
-| 无 | string | 错误描述 |
+| none | string | Error description |
 
-**示例:**
+**Example:**
 ```
 curl -H 'Content-Type: application/json' -H 'x-orillusion-id:accessId' -H 'x-orillusion-token:token' -X POST --data-binary '{"zip":"sample.zip","entry":"sample.gltf"}'  'https://3dhub.orillusion.com/api/model' 
 ```
 
-**使用说明**
-* 仅支持.zip文件上传，请将 gltf/glb/fbx 格式文件按相对路径压缩成zip文件；
-* 调用该接口后返回的uploadUrl用于上传文件，请参照以下完整示例：
+**Notes**
+* Only .zip file uploads are supported. Compress gltf/glb/fbx format files into a zip file by relative path.
+* The uploadUrl returned by this endpoint is used to upload the file. See the complete example below:
 ```ts
-// 1. 申请创建 model 对象
+// 1. Request creation of a model object
 let req = await fetch('https://3dhub.orillusion.com/api/model', {
     method: 'POST',
     body: JSON.stringify({
-        entry: 'xxx.gltf', // 模型入口文件名
-        zip: 'xxx.zip' // 压缩包文件名
+        entry: 'xxx.gltf', // model entry file name
+        zip: 'xxx.zip' // archive file name
     }),
     headers: {
         'x-orillusion-id': accessId,
@@ -132,87 +132,87 @@ let req = await fetch('https://3dhub.orillusion.com/api/model', {
     credentials: 'include',
     mode: 'cors'
 })
-// 返回模型对象和上传地址
+// returns the model object and the upload URL
 let {model, uploadUrl} = await req.json()
 
-// 2. 客户端使用 uploadUrl 地址上传 zip 原生 File 对象
+// 2. The client uses the uploadUrl to upload the native zip File object
 let req = await fetch(uploadUrl, {
     method: 'PUT',
     body: zip,
     headers: {
-        'Content-Type': 'application/octet-stream' // 必填项
+        'Content-Type': 'application/octet-stream' // required
     }
 })
-await req.json() // 等待上传完成
+await req.json() // wait for the upload to complete
 ```
 
-**错误提示：**
+**Error messages:**
 
-状态码
+Status code
 * 403
 
-错误内容
-* 无
+Error content
+* none
 
-## 获取模型地址
-获取模型的访问地址
+## Get model URL
+Get the access URL of a model.
 
-**请求地址：**
+**Request URL:**
 
 /api/signature/:model_id
 
 **params:**
-| 参数名 | 描述 |
+| Parameter | Description |
 | :----: | :----: |
-| model_id | 模型的_id |
+| model_id | The model's _id |
 
-**请求方法：**  
+**Method:**  
 
 GET
 
-**请求头：**
+**Request headers:**
 
-请参照[公共请求头](/cdn/index.html#公共请求头)。
+See [Common request headers](/cdn/index.html#common-request-headers).
 
-**请求参数：**
-| 参数名 | 类型 | 描述 | 必填 |
+**Request parameters:**
+| Parameter | Type | Description | Required |
 | :----: | :----: |:----: |:----: |
-| expire | number | 有效时长，单位秒 | 选填 |
+| expire | number | Valid duration in seconds | Optional |
 
-**响应参数：**
-| 参数名 | 类型 | 描述 |
+**Response parameters:**
+| Parameter | Type | Description |
 | :----: | :----: |:----: |
-| entry | string | 模型访问地址 |
-| size | object | 模型大小信息 |
-| signature | string | 模型访问签名，具体用法请参考下文使用说明 |
-| time | Date | 发起时间戳 |
-| expire | number | 有效时长 | |
+| entry | string | Model access URL |
+| size | object | Model size information |
+| signature | string | Model access signature; see the notes below for usage |
+| time | Date | Request timestamp |
+| expire | number | Valid duration | |
 
 
-**失败返回：**
+**Failure response:**
 
-无
+None
 
-**示例:**
+**Example:**
 ```
 curl -H 'Content-Type: application/json' -H 'x-orillusion-id:accessId' -H 'x-orillusion-token:token'  -X GET 'https://3dhub.orillusion.com/api/signature/model_id?expire=100' 
 ```
 
-**使用说明**
-* 响应参数 `entry` 是模型的入口文件链接，例如：`https://object.orillusion.com/model/{model_id}/scene.gltf`
+**Notes**
+* The response parameter `entry` is the link to the model's entry file, for example: `https://object.orillusion.com/model/{model_id}/scene.gltf`
 
-* CDN 上模型文件及其资源是无法直接访问的，需要添加 `signature` 信息进行鉴权后才有权限加载模型。目前有三种添加 `signature` 的方法，适用于不同的需求：
-1. 可以对链接 url 添加 `cdn_sign` 的 `query` 参数，例如：`https://object.orillusion.com/model/{model_id}/scene.gltf?cdn_sign={signature}`。但请注意，因为签名是临时生成的，每次请求的链接地址都会不相同，所以无法在浏览器中进行长期缓存，相当于每次访问都需要重新通过网络加载所有模型资源;
+* Model files and their resources on the CDN cannot be accessed directly; you must add `signature` information for authentication before you have permission to load the model. There are currently three ways to add the `signature`, suited to different needs:
+1. You can add a `cdn_sign` `query` parameter to the link url, for example: `https://object.orillusion.com/model/{model_id}/scene.gltf?cdn_sign={signature}`. Note, however, that because the signature is generated temporarily, the link URL differs on every request, so it cannot be cached long-term in the browser — effectively every visit requires reloading all model resources over the network;
 ```ts
     let res = await fetch('https://object.orillusion.com/model/{model_id}/scene.gltf?cdn_sign={signature}')
     let gltf = await res.json()
 ```
-2. 可以修改链接 url 的 `path` 部分进行修改，例如：`https://object.orillusion.com/model/{model_id}/{signature}/scene.gltf`。这种形式可以保持目录的统一，方便加载模型同目录下的其他依赖文件；同样，因为签名是临时生成的，每次请求的链接地址都会不相同，所以无法长期在浏览器中进行缓存;
+2. You can modify the `path` portion of the link url, for example: `https://object.orillusion.com/model/{model_id}/{signature}/scene.gltf`. This form keeps the directory consistent, making it convenient to load other dependency files in the same directory as the model; likewise, because the signature is generated temporarily, the link URL differs on every request, so it cannot be cached long-term in the browser;
 ```ts
     let res = await fetch('https://object.orillusion.com/model/{model_id}/{signature}/scene.gltf')
     let gltf = await res.json()
 ```
-3. 可以对访问请求添加自定义 header: `x-cdn-sign` 进行鉴权访问模型。由于 url 链接不会改变，所以浏览器可以长期保持本地缓存，大幅降低二次加载的时间和流量，例如：
+3. You can add a custom header `x-cdn-sign` to the access request to authenticate model access. Since the url link does not change, the browser can maintain a local cache long-term, greatly reducing the time and bandwidth of subsequent loads, for example:
 ```ts
     let res = await fetch('https://object.orillusion.com/model/{model_id}/scene.gltf', {
         headers:{
@@ -222,307 +222,307 @@ curl -H 'Content-Type: application/json' -H 'x-orillusion-id:accessId' -H 'x-ori
     let gltf = await res.json()
 ```
 
-* `gltf` 文件只是模型的入口文件，通常还需要加载相关的贴图等文件资源，需要对每一个请求都添加 `signature` 鉴权信息后才可以加载完整的模型。我们以 `Engine3D.res.loadGltf` 为例，用户可以设置 `onUrl` 回调或 `headers` 参数来动态加载 `gltf` 同目录的后续资源
+* The `gltf` file is only the model's entry file; you usually also need to load related resources such as textures. You must add `signature` authentication to every request to load the complete model. Taking `Engine3D.res.loadGltf` as an example, users can set the `onUrl` callback or the `headers` parameter to dynamically load subsequent resources in the same directory as the `gltf`:
 ```ts
-// 以 url query 形式进行鉴权
+// authenticate via url query
 let model = await Engine3D.res.loadGltf('https://object.orillusion.com/model/{model_id}/scene.gltf', {
     onUrl: url => url + '?cdn_sign={signature}'
 })
-// 以 header 形式进行鉴权
+// authenticate via header
 let model = await Engine3D.res.loadGltf('https://object.orillusion.com/model/{model_id}/scene.gltf', {
     headers: {
         cdn_sign: "{signature}" 
     }
 })
-// 直接以 url path 形式进行鉴权
+// authenticate directly via url path
 let model = await Engine3D.res.loadGltf('https://object.orillusion.com/model/{model_id}/{signature}/scene.gltf')
 ```
 
-**错误提示：**
+**Error messages:**
 
-状态码
+Status code
 * 403
 
-错误内容
-* no model：模型不存在
-* model is not upload yet：模型文件未上传
-* no auth：没有权限
+Error content
+* no model: model does not exist
+* model is not upload yet: model file not uploaded yet
+* no auth: no permission
 
-## 获取模型信息
-获取一个模型对象的详细信息
+## Get model info
+Get the detailed information of a model object.
 
-**请求地址：**
+**Request URL:**
 
 /api/model/:model_id
 
 **params:**
-| 参数名 | 描述 |
+| Parameter | Description |
 | :----: | :----: |
-| model_id | 模型的_id |
+| model_id | The model's _id |
 
-**请求方法：**  
+**Method:**  
 
 GET
 
-**请求头：**
+**Request headers:**
 
-请参照[公共请求头](/cdn/index.html#公共请求头)。
+See [Common request headers](/cdn/index.html#common-request-headers).
 
-**请求参数：**
+**Request parameters:**
 
-无
+None
 
-**响应参数：**
-请参考 [model结构](/cdn/models.html#model结构：) 说明
+**Response parameters:**
+See the [Model structure](/cdn/models.html#model-structure) notes
 
 
-**失败返回：**
+**Failure response:**
 
-无
+None
 
-**示例:**
+**Example:**
 ```
 curl -H 'Content-Type: application/json' -H 'x-orillusion-id:accessId' -H 'x-orillusion-token:token'  -X GET 'https://3dhub.orillusion.com/api/model/model_id' 
 ```
 
-**错误提示：**
+**Error messages:**
 
-状态码
+Status code
 * 403
 
-错误内容
-* no model：模型不存在
-* no auth：没有权限
+Error content
+* no model: model does not exist
+* no auth: no permission
 
-## 更新模型
-更新一个模型的信息
+## Update model
+Update the information of a model.
 
-**请求地址：**
+**Request URL:**
 
 /api/model/:model_id
 
 **params:**
-| 参数名 | 描述 |
+| Parameter | Description |
 | :----: | :----: |
-| model_id | 模型的_id |
+| model_id | The model's _id |
 
-**请求方法：**  
+**Method:**  
 
 PUT
 
-**请求头：**
+**Request headers:**
 
-请参照[公共请求头](/cdn/index.html#公共请求头)。
+See [Common request headers](/cdn/index.html#common-request-headers).
 
-**请求参数：**
-| 参数名 | 类型 | 描述 | 必填 |
+**Request parameters:**
+| Parameter | Type | Description | Required |
 | :----: | :----: |:----: |:----: |
-| name | string | 模型名称 | 选填 |
-| des | string | 模型描述 | 选填 |
-| tags | array | 标签列表 | 选填 |
-| screenshot | string | 封面地址 | 选填 |
+| name | string | Model name | Optional |
+| des | string | Model description | Optional |
+| tags | array | Tag list | Optional |
+| screenshot | string | Cover URL | Optional |
 
-**响应参数：**
+**Response parameters:**
 
-请参考[model结构](/cdn/models.html#model结构：)说明
+See the [Model structure](/cdn/models.html#model-structure) notes
 
-**失败返回：**
+**Failure response:**
 
-无
+None
 
-**示例:**
+**Example:**
 ```
-curl -H 'Content-Type: application/json' -H 'x-orillusion-id:accessId' -H 'x-orillusion-token:token'  --data-binary '{“name”:"新的名称","des":"新的简介"}'  -X PUT  'https://3dhub.orillusion.com/api/model/model_id' 
+curl -H 'Content-Type: application/json' -H 'x-orillusion-id:accessId' -H 'x-orillusion-token:token'  --data-binary '{“name”:"new name","des":"new description"}'  -X PUT  'https://3dhub.orillusion.com/api/model/model_id' 
 ```
 
-**错误提示：**
+**Error messages:**
 
-状态码
+Status code
 * 403
 
-错误内容
-* no model：模型不存在
-* no auth：没有权限
+Error content
+* no model: model does not exist
+* no auth: no permission
 
-## 获取模型下载地址
-获取一个模型下载地址
+## Get model download URL
+Get the download URL of a model.
 
-**请求地址：**
+**Request URL:**
 
 /api/download/:model_id
 
 **params:**
-| 参数名 | 描述 |
+| Parameter | Description |
 | :----: | :----: |
-| model_id | 模型的_id |
+| model_id | The model's _id |
 
-**请求方法：**  
+**Method:**  
 
 GET
 
-**请求头：**
+**Request headers:**
 
-请参照[公共请求头](/cdn/index.html#公共请求头)。
+See [Common request headers](/cdn/index.html#common-request-headers).
 
-**请求参数：**
-| 参数名 | 类型 | 描述 | 必填 |
+**Request parameters:**
+| Parameter | Type | Description | Required |
 | :----: | :----: |:----: |:----: |
-| expires | number | 下载网址过期时间，单位：秒，范围200秒至1小时，默认200秒 | 选填 |
+| expires | number | Expiration time of the download URL in seconds, range 200 seconds to 1 hour. Default 200 seconds | Optional |
 
-**响应参数：**
-| 参数名 | 类型 | 描述 |
+**Response parameters:**
+| Parameter | Type | Description |
 | :----: | :----: |:----: |
-| url | string | 用于下载的网址 |
+| url | string | URL used for download |
 
-**失败返回：**
+**Failure response:**
 
-无
+None
 
-**示例:**
+**Example:**
 ```
 curl -H 'Content-Type: application/json' -H 'x-orillusion-id:accessId' -H 'x-orillusion-token:token' -X GET  'https://3dhub.orillusion.com/api/model/download/model_id' 
 ```
 
-**错误提示：**
+**Error messages:**
 
-状态码
+Status code
 * 403
 
-错误内容
-* no model：模型不存在
-* no auth：没有权限
+Error content
+* no model: model does not exist
+* no auth: no permission
 
-### 删除模型
-删除一个模型
+### Delete model
+Delete a model.
 
-**请求地址：**
+**Request URL:**
 
 /api/model/:model_id
 
 **params:**
-| 参数名 | 描述 |
+| Parameter | Description |
 | :----: | :----: |
-| model_id | 模型的_id |
+| model_id | The model's _id |
 
-**请求方法：**  
+**Method:**  
 
 DELETE
 
-**请求头：**
+**Request headers:**
 
-请参照[公共请求头](/cdn/index.html#公共请求头)。
+See [Common request headers](/cdn/index.html#common-request-headers).
 
-**请求参数：**
+**Request parameters:**
 
-无
+None
 
-**响应参数：**
-| 参数名 | 类型 | 描述 |
+**Response parameters:**
+| Parameter | Type | Description |
 | :----: | :----: |:----: |
-| msg | string | 成功返回:done |
+| msg | string | Returns "done" on success |
 
 
-**失败返回：**
+**Failure response:**
 
-无
+None
 
-**示例:**
+**Example:**
 ```
 curl -H 'Content-Type: application/json' -H 'x-orillusion-id:accessId' -H 'x-orillusion-token:token' -X DELETE  'https://3dhub.orillusion.com/api/model/model_id' 
 ```
 
-**错误提示：**
+**Error messages:**
 
-状态码
+Status code
 * 403
 
-错误内容
-* no model：模型不存在
-* no auth：没有权限
+Error content
+* no model: model does not exist
+* no auth: no permission
 
-## 查询模型状态
-查询模型文件在云存储中的处理情况
+## Query model status
+Query the processing status of a model file in cloud storage.
 
-**请求地址：**
+**Request URL:**
 
 /api/check/:model_id
 
 **params:**
-| 参数名 | 描述 |
+| Parameter | Description |
 | :----: | :----: |
-| model_id | 模型的_id |
+| model_id | The model's _id |
 
-**请求方法：**  
+**Method:**  
 
 GET
 
-**请求头：**
+**Request headers:**
 
-请参照[公共请求头](/cdn/index.html#公共请求头)。
+See [Common request headers](/cdn/index.html#common-request-headers).
 
-**请求参数：**
+**Request parameters:**
 
-无
+None
 
 
-**响应参数：**
+**Response parameters:**
 
-请参考 [model结构](/cdn/models.html#model结构：) 说明
+See the [Model structure](/cdn/models.html#model-structure) notes
 
-**失败返回：**
+**Failure response:**
 
-无
+None
 
-**示例:**
+**Example:**
 ```
 curl -H 'Content-Type: application/json' -H 'x-orillusion-id:accessId' -H 'x-orillusion-token:token' -X GET 'https://3dhub.orillusion.com/api/check/model_id' 
 ```
 
-**错误提示：**
+**Error messages:**
 
-状态码
+Status code
 * 403
 
-错误内容
-* no model：模型不存在
-* no auth：没有权限
-* on progressing：处理中
+Error content
+* no model: model does not exist
+* no auth: no permission
+* on progressing: processing
 
-## 生成模型封面地址
-生成用于上传模型封面的地址
+## Generate model cover URL
+Generate a URL for uploading a model cover.
 
-**请求地址：**
+**Request URL:**
 
 /api/screenshot/:model_id
 
 **params:**
-| 参数名 | 描述 |
+| Parameter | Description |
 | :----: | :----: |
-| model_id | 模型的_id |
+| model_id | The model's _id |
 
-**请求方法：**  
+**Method:**  
 
 POST
 
-**请求头：**
+**Request headers:**
 
-请参照[公共请求头](/cdn/index.html#公共请求头)。
+See [Common request headers](/cdn/index.html#common-request-headers).
 
-**请求参数：**
+**Request parameters:**
 
-无
+None
 
-**响应参数：**
-| 参数名 | 类型 | 描述 |
+**Response parameters:**
+| Parameter | Type | Description |
 | :----: | :----: |:----: |
-| uploadUrl | string | 用于上传文件的url |
-| url | string | 可访问地址 |
+| uploadUrl | string | URL used to upload the file |
+| url | string | Accessible URL |
 
-**使用说明：**
-* 每个模型只可以设置一个封面图片，新的上传会覆盖之前的封面图片；
-* 调用该接口获得的 uploadUrl 用于上传文件地址，上传方法：
+**Notes:**
+* Each model can have only one cover image; a new upload overwrites the previous cover image.
+* The uploadUrl obtained from this endpoint is used as the file upload URL. Upload method:
 ```ts
-// 1. 申请创建新的截图
+// 1. Request creation of a new screenshot
 let req = await fetch('https://3dhub.orillusion.com/api/screenshot/xxxx', {
     method: 'POST',
     headers: {
@@ -533,33 +533,33 @@ let req = await fetch('https://3dhub.orillusion.com/api/screenshot/xxxx', {
     credentials: 'include',
     mode: 'cors'
 })
-// 返回截图地址和上传地址
+// returns the screenshot URL and the upload URL
 let {uploadUrl, url} = await req.json()
 
-// 2. 客户端使用 uploadUrl 地址上传截图文件
+// 2. The client uses the uploadUrl to upload the screenshot file
 let req = await fetch(uploadUrl, {
     method: 'PUT',
-    body: screenshot, // Blob 或 File
+    body: screenshot, // Blob or File
     headers: {
-        'Cache-Control': 'public, max-age=31536000' // 必填
+        'Cache-Control': 'public, max-age=31536000' // required
     }
 })
-await req.json() // 等待上传完成
+await req.json() // wait for the upload to complete
 ```
-**失败返回：**
+**Failure response:**
 
-无
+None
 
-**示例:**
+**Example:**
 ```
 curl -H 'Content-Type: application/json' -H 'x-orillusion-id:accessId' -H 'x-orillusion-token:token' -X POST  'https://3dhub.orillusion.com/api/screenshot/model_id' 
 ```
 
-**错误提示：**
+**Error messages:**
 
-状态码
+Status code
 * 403
 
-错误内容
-* no model：模型不存在
-* no auth：没有权限
+Error content
+* no model: model does not exist
+* no auth: no permission

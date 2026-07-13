@@ -119,7 +119,7 @@ class GUIPanelPOI {
             text.uiTransform.x = 110;
             text.uiTransform.y = -100;
             text.alignment = TextAnchor.UpperLeft;
-            text.text = '次时代WebGPU 3D Engine';
+            text.text = 'Next-Gen WebGPU 3D Engine';
             text.fontSize = 18;
             text.color = new Color(0.8, 0.8, 0.8, 1.0);
         }

@@ -2,7 +2,7 @@
 
 Ƭ **CornerType**: ``"leftTop"`` \| ``"rightTop"`` \| ``"leftBottom"`` \| ``"rightBottom"`` \| ``"left"`` \| ``"right"`` \| ``"top"`` \| ``"bottom"`` \| ``"center"``
 
-软体布料平面的各个角
+The corners of a soft body cloth plane
 
 #### Defined in
 

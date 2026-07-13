@@ -2,168 +2,168 @@
 editLink: false
 ---
 # Orillusion 3DHub CDN APIs
-3DHub CDN 是一个 REST 服务，除了通过网页客户端进行管理，您还可以使用 REST API 向 3DHub 发起请求。
+3DHub CDN is a REST service. In addition to managing it through the web client, you can also send requests to 3DHub using the REST API.
 
-## 鉴权
-系统会给所有用户分配一套 `AccessKey` 鉴权秘钥，包含 `accessId` 和 `accessSecret`。为了保证数据安全，所有 API 接口调用需要验证发送者秘钥。鉴权成功后，才可以操作相应的 CDN 资源。
+## Authentication
+The system assigns every user a set of `AccessKey` credentials, consisting of an `accessId` and an `accessSecret`. To keep data secure, all API calls must verify the sender's credentials. Only after successful authentication can you operate on the corresponding CDN resources.
 
-### 鉴权方式
-您可以直接发起 REST API 请求，通过以下两种认证方式进行鉴权：
-- 直接使用 AccessKey 发起请求
-在 header 中直接提供用户 `accessId` + `accessSecret` 进行鉴权。建议在安全的服务器环境中使用，不要泄露给客户端。请注意保护 `accessSecret`，可能造成数据泄露，如果泄露请及时注销 AccessKey
+### Authentication methods
+You can send REST API requests directly, authenticating in either of the following two ways:
+- Send requests directly with the AccessKey.
+Provide the user's `accessId` + `accessSecret` directly in the header for authentication. This is recommended for use in a secure server environment and should not be exposed to the client. Please protect the `accessSecret`, as leaking it may lead to a data breach; if it is leaked, revoke the AccessKey promptly.
 
-- 使用 `token` 临时凭证发起请求。
-用户可以先通过 `accessId` + `accessSecret` 向 CDN 服务器请求一个临时的 token 凭证。然后使用该临时 token 在规定时间内访问 CDN 资源。 临时凭证无需泄露用户长期密钥，更加安全可靠。适用于在客户端/前端程序中请求 CDN 资源。使用流程大致如下：
-1. 应用服务器先使用 `accessSecret` 在服务器端向 CDN 服务器请求一个临时 `token` 并返回给客户端。
-2. 客户端可以缓存该 `token`, 并在规定的时间内，在 header 使用 `accessId` + `token` 的形式进行鉴权访问 CDN 资源。
-3. 当临时凭证失效后，客户端再次向 App 服务器申请临时访问凭证，应用服务器可以再次通过 `accessSecret` 向 CDN 服务器请求新的临时 `token` 并返回给客户端使用。
+- Send requests using a temporary `token` credential.
+A user can first request a temporary token credential from the CDN server using `accessId` + `accessSecret`, then use that temporary token to access CDN resources within a set time window. A temporary credential avoids exposing the user's long-term secret, making it more secure and reliable. It is suitable for requesting CDN resources from client/front-end programs. The general workflow is as follows:
+1. The application server first uses the `accessSecret` on the server side to request a temporary `token` from the CDN server and returns it to the client.
+2. The client can cache the `token` and, within the allotted time, authenticate access to CDN resources using `accessId` + `token` in the header.
+3. When the temporary credential expires, the client requests a new temporary access credential from the app server again; the application server can once again use the `accessSecret` to request a new temporary `token` from the CDN server and return it to the client.
 
-### 公共请求头
-未做特殊说明每个api默认必须包含以下 header 数据，`accessSecret` 优先级高于 `token`。
+### Common request headers
+Unless otherwise specified, every API must include the following header data by default. The `accessSecret` takes precedence over the `token`.
 
-| 参数名 | 类型 | 描述 | 必填 |
+| Parameter | Type | Description | Required |
 | :----: | :----: | :----: | :----: |
-| Content-Type | string | application/json | 必填 |
-| x-orillusion-id | string | accessId | 必填 |
-| x-orillusion-key | string | accessSecret | 若 `token` 为空则必填 |
-| x-orillusion-token | string | 临时 token 凭证 | 若 `accessSecret` 为空则必填 |
+| Content-Type | string | application/json | Required |
+| x-orillusion-id | string | accessId | Required |
+| x-orillusion-key | string | accessSecret | Required if `token` is empty |
+| x-orillusion-token | string | Temporary token credential | Required if `accessSecret` is empty |
 
-## 获得令牌
-获得或更新 临时令牌。
+## Obtain token
+Obtain or refresh a temporary token.
 
-**请求地址：**
+**Request URL:**
 
 /api/refreshToken
 
-**请求方法：**  
+**Method:**  
 
 GET
 
-**请求头：**
+**Request headers:**
 
-请参照[公共请求头](/cdn/index.html#公共请求头)。注意：该请求必须使用 `accessSecret` 进行鉴权，无法使用 `token` 请求。
+See [Common request headers](/cdn/index.html#common-request-headers). Note: this request must be authenticated with the `accessSecret`; it cannot be made using a `token`.
 
 
-**请求参数：**
-| 参数名 | 类型 | 描述 | 必填 |
+**Request parameters:**
+| Parameter | Type | Description | Required |
 | :----: | :----: |:----: | :----: |
-| expire | number | 超时时长，单位毫秒，最长24小时，默认值：15分钟 | 选填 |
+| expire | number | Expiration duration in milliseconds, up to 24 hours. Default: 15 minutes | Optional |
 
-**响应参数：**
-| 参数名 | 类型 | 描述 |
+**Response parameters:**
+| Parameter | Type | Description |
 | :----: | :----: |:----: |
-| expire | number | 返回超时时长，单位毫秒 |
-| token | string | 令牌 |
+| expire | number | The returned expiration duration in milliseconds |
+| token | string | Token |
 
-**失败返回：**
-| 参数名 | 类型 | 描述 |
+**Failure response:**
+| Parameter | Type | Description |
 | :----: | :----: |:----: |
-| 无 | string | 错误描述 |
+| none | string | Error description |
 
-**示例:**
+**Example:**
 ```
-# 只能以accessId + accessSecret 方式认证
+# Can only be authenticated with accessId + accessSecret
 curl -H 'Content-Type: application/json' -H 'x-orillusion-id:accessId' -H 'x-orillusion-key:accessSecret' 'https://3dhub.orillusion.com/refreshToken?expire=900000'
 ```
 
-**使用说明:**
-* 获得token后请自行保存，后续访问其它 API 中可使用 `accessId` + `token` 方式认证。
+**Notes:**
+* After obtaining the token, save it yourself. Subsequent calls to other APIs can then be authenticated using `accessId` + `token`.
 
-**错误提示：**
+**Error messages:**
 
-状态码
+Status code
 * 403
 
-错误内容
-* no accessSecret：没有使用 accessSecret 进行认证
+Error content
+* no accessSecret: did not authenticate with accessSecret
 
 
-## 获取秘钥
-获得当前登陆用户的accessSecret。
+## Get secret
+Get the accessSecret of the currently logged-in user.
 
-**请求地址：**
+**Request URL:**
 
 /api/accesskey
 
-**请求方法：**  
+**Method:**  
 
 GET
 
-**请求头：**
+**Request headers:**
 
-请参照[公共请求头](/cdn/index.html#公共请求头)。注意：该请求必须使用 `accessSecret` 进行鉴权，无法使用 `token` 请求。
+See [Common request headers](/cdn/index.html#common-request-headers). Note: this request must be authenticated with the `accessSecret`; it cannot be made using a `token`.
 
-**请求参数：**
+**Request parameters:**
 
-无
+None
 
-**响应参数：**
-| 参数名 | 类型 | 描述 |
+**Response parameters:**
+| Parameter | Type | Description |
 | :----: | :----: | :----: |
 | secret | string | AccessSecret |
 
-**失败返回：**
-| 参数名 | 类型 | 描述 |
+**Failure response:**
+| Parameter | Type | Description |
 | :----: | :----: |:----: |
-| 无 | string | 错误描述 |
+| none | string | Error description |
 
-**示例:**
+**Example:**
 ```
-# 只能以accessId + accessSecret 方式认证
+# Can only be authenticated with accessId + accessSecret
 curl -H 'Content-Type: application/json' -H 'x-orillusion-id:accessId' -H 'x-orillusion-key:accessSecret' 'https://3dhub.orillusion.com/api/accesskey' 
 ```
 
-**错误提示：**
+**Error messages:**
 
-状态码
+Status code
 * 403
 
-错误内容
-* no auth：未登陆
-* require verified：邮箱未验证
-* no accessSecret：没有使用 accessSecret 进行认证
+Error content
+* no auth: not logged in
+* require verified: email not verified
+* no accessSecret: did not authenticate with accessSecret
 
-## 更换秘钥
-删除并生成新的accessSecret
+## Rotate secret
+Delete and generate a new accessSecret.
 
-**请求地址：**
+**Request URL:**
 
 /api/accesskey
 
-**请求方法：**  
+**Method:**  
 
 DELETE
 
-**请求头：**
+**Request headers:**
 
-请参照[公共请求头](/cdn/index.html#公共请求头)。
+See [Common request headers](/cdn/index.html#common-request-headers).
 
-**请求参数：**
+**Request parameters:**
 
-无
+None
 
-**响应参数：**
-| 参数名 | 类型 | 描述 |
+**Response parameters:**
+| Parameter | Type | Description |
 | :----: | :----: |:----: |
-| result | string | 操作成功返回:ok |
+| result | string | Returns "ok" on success |
 
-**失败返回：**
-| 参数名 | 类型 | 描述 |
+**Failure response:**
+| Parameter | Type | Description |
 | :----: | :----: | :----: |
-| 无 | string | 错误描述 |
+| none | string | Error description |
 
-**示例:**
+**Example:**
 ```
-# 只能以accessId + accessSecret 方式认证
+# Can only be authenticated with accessId + accessSecret
 curl -H 'Content-Type: application/json' -H 'x-orillusion-id:accessId' -H 'x-orillusion-key:accessSecret' -X DELETE  'https://3dhub.orillusion.com/api/accesskey' 
 ```
 
-**错误提示：**
+**Error messages:**
 
-状态码
+Status code
 * 403
 
-错误内容
-* no auth：未登陆
-* require verified：邮箱未验证
-* no accessSecret：没有使用 accessSecret 进行认证
+Error content
+* no auth: not logged in
+* require verified: email not verified
+* no accessSecret: did not authenticate with accessSecret

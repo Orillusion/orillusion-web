@@ -7,16 +7,17 @@ import { Graphic3D } from "@orillusion/graphic";
 class Sample_dofSpringConstraint {
     scene: Scene3D;
     gui: dat.GUI;
+    engine: Engine3D;
 
     async run() {
         // Initialize physics and engine
         await Physics.init({ useDrag: true });
-        await Engine3D.init({ renderLoop: () => Physics.update() });
+        let engine = this.engine = await Engine3D.init({ renderLoop: () => Physics.update() });
 
         let scene = this.scene = new Scene3D();
         scene.addComponent(Stats);
 
-        // 在引擎启动后初始化物理调试功能，需要为绘制器传入 graphic3D 对象
+        // Initialize the physics debug feature after the engine starts; a graphic3D object must be passed to the drawer
         const graphic3D = new Graphic3D();
         scene.addChild(graphic3D);
         Physics.initDebugDrawer(graphic3D, {
@@ -31,13 +32,15 @@ class Sample_dofSpringConstraint {
         f.open();
 
         let camera = CameraUtil.createCamera3DObject(scene);
-        camera.perspective(60, Engine3D.aspect, 0.1, 800.0);
+        camera.perspective(60, engine.aspect, 0.1, 800.0);
         camera.object3D.addComponent(HoverCameraController).setCamera(140, -25, 20, new Vector3(8, 4, 0));
 
         // Create directional light
         let lightObj3D = new Object3D();
         lightObj3D.localRotation = new Vector3(36, -130, 60);
-        lightObj3D.addComponent(DirectLight).castShadow = true;
+        let light = lightObj3D.addComponent(DirectLight);
+        light.castShadow = true;
+        light.enableCSM = true;
         scene.addChild(lightObj3D);
 
         // Initialize sky
@@ -47,7 +50,7 @@ class Sample_dofSpringConstraint {
         view.camera = camera;
         view.scene = scene;
 
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
         // Create ground, bridge, and ball
         this.createGround();
@@ -57,7 +60,7 @@ class Sample_dofSpringConstraint {
 
     //Create the ground plane.
     private async createGround() {
-        let ground = Object3DUtil.GetPlane(Engine3D.res.whiteTexture);
+        let ground = Object3DUtil.GetPlane(this.engine.context3D, this.engine.res.whiteTexture);
         ground.scaleX = 50;
         ground.scaleZ = 50;
         this.scene.addChild(ground);

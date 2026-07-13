@@ -1,724 +1,634 @@
+[**@orillusion/physics**](../README.md)
+
+***
+
 # Class: SliderConstraint
 
-滑动关节约束
+Defined in: [packages/physics/constraint/SliderConstraint.ts:8](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/SliderConstraint.ts#L8)
 
-## Hierarchy
+Slider joint constraint
 
-- `ConstraintBase`\<[`btSliderConstraint`](Ammo.btSliderConstraint.md)\>
+## Extends
 
-  ↳ **`SliderConstraint`**
-
-### Constructors
-
-- [constructor](SliderConstraint.md#constructor)
-
-### Properties
-
-- [pivotSelf](SliderConstraint.md#pivotself)
-- [pivotTarget](SliderConstraint.md#pivottarget)
-- [rotationSelf](SliderConstraint.md#rotationself)
-- [rotationTarget](SliderConstraint.md#rotationtarget)
-- [disableCollisionsBetweenLinkedBodies](SliderConstraint.md#disablecollisionsbetweenlinkedbodies)
-- [useLinearReferenceFrame](SliderConstraint.md#uselinearreferenceframe)
-- [object3D](SliderConstraint.md#object3d)
-- [isDestroyed](SliderConstraint.md#isdestroyed)
-
-### Accessors
-
-- [breakingThreshold](SliderConstraint.md#breakingthreshold)
-- [constraint](SliderConstraint.md#constraint)
-- [targetRigidbody](SliderConstraint.md#targetrigidbody)
-- [lowerLinLimit](SliderConstraint.md#lowerlinlimit)
-- [upperLinLimit](SliderConstraint.md#upperlinlimit)
-- [lowerAngLimit](SliderConstraint.md#loweranglimit)
-- [upperAngLimit](SliderConstraint.md#upperanglimit)
-- [poweredLinMotor](SliderConstraint.md#poweredlinmotor)
-- [maxLinMotorForce](SliderConstraint.md#maxlinmotorforce)
-- [targetLinMotorVelocity](SliderConstraint.md#targetlinmotorvelocity)
-- [eventDispatcher](SliderConstraint.md#eventdispatcher)
-- [isStart](SliderConstraint.md#isstart)
-- [transform](SliderConstraint.md#transform)
-- [enable](SliderConstraint.md#enable)
-
-### Methods
-
-- [start](SliderConstraint.md#start)
-- [wait](SliderConstraint.md#wait)
-- [resetConstraint](SliderConstraint.md#resetconstraint)
-- [destroy](SliderConstraint.md#destroy)
-- [init](SliderConstraint.md#init)
-- [stop](SliderConstraint.md#stop)
-- [onEnable](SliderConstraint.md#onenable)
-- [onDisable](SliderConstraint.md#ondisable)
-- [onUpdate](SliderConstraint.md#onupdate)
-- [onLateUpdate](SliderConstraint.md#onlateupdate)
-- [onBeforeUpdate](SliderConstraint.md#onbeforeupdate)
-- [onCompute](SliderConstraint.md#oncompute)
-- [onGraphic](SliderConstraint.md#ongraphic)
-- [onParentChange](SliderConstraint.md#onparentchange)
-- [onAddChild](SliderConstraint.md#onaddchild)
-- [onRemoveChild](SliderConstraint.md#onremovechild)
-- [cloneTo](SliderConstraint.md#cloneto)
-- [copyComponent](SliderConstraint.md#copycomponent)
-- [beforeDestroy](SliderConstraint.md#beforedestroy)
+- `ConstraintBase`\<[`btSliderConstraint`](../@orillusion/namespaces/Ammo/classes/btSliderConstraint.md)\>
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new SliderConstraint**(): [`SliderConstraint`](SliderConstraint.md)
+> **new SliderConstraint**(): `SliderConstraint`
 
 #### Returns
 
-[`SliderConstraint`](SliderConstraint.md)
+`SliderConstraint`
 
 #### Inherited from
 
-ConstraintBase\<Ammo.btSliderConstraint\>.constructor
+`ConstraintBase<Ammo.btSliderConstraint>.constructor`
 
 ## Properties
 
+### object3D
+
+> **object3D**: `Object3D` = `null`
+
+Defined in: [src/components/ComponentBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L29)
+
+owner object3D
+
+#### Inherited from
+
+`ConstraintBase.object3D`
+
+***
+
+### isDestroyed
+
+> **isDestroyed**: `boolean` = `false`
+
+Defined in: [src/components/ComponentBase.ts:77](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L77)
+
+#### Inherited from
+
+`ConstraintBase.isDestroyed`
+
+***
+
 ### pivotSelf
 
-• **pivotSelf**: `Vector3`
+> **pivotSelf**: `Vector3`
+
+Defined in: [packages/physics/constraint/ConstraintBase.ts:19](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L19)
 
 The pivot point for the self body
 `FrameInA Origin`
 
 #### Inherited from
 
-ConstraintBase.pivotSelf
+`ConstraintBase.pivotSelf`
 
-#### Defined in
-
-[packages/physics/constraint/ConstraintBase.ts:19](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L19)
-
-___
+***
 
 ### pivotTarget
 
-• **pivotTarget**: `Vector3`
+> **pivotTarget**: `Vector3`
+
+Defined in: [packages/physics/constraint/ConstraintBase.ts:24](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L24)
 
 The pivot point for the target body
 `FrameInB Origin`
 
 #### Inherited from
 
-ConstraintBase.pivotTarget
+`ConstraintBase.pivotTarget`
 
-#### Defined in
-
-[packages/physics/constraint/ConstraintBase.ts:24](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L24)
-
-___
+***
 
 ### rotationSelf
 
-• **rotationSelf**: `Quaternion`
+> **rotationSelf**: `Quaternion`
+
+Defined in: [packages/physics/constraint/ConstraintBase.ts:29](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L29)
 
 The rotation for the self body
 `FrameInA Rotation`
 
 #### Inherited from
 
-ConstraintBase.rotationSelf
+`ConstraintBase.rotationSelf`
 
-#### Defined in
-
-[packages/physics/constraint/ConstraintBase.ts:29](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L29)
-
-___
+***
 
 ### rotationTarget
 
-• **rotationTarget**: `Quaternion`
+> **rotationTarget**: `Quaternion`
+
+Defined in: [packages/physics/constraint/ConstraintBase.ts:34](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L34)
 
 The rotation for the target body
 `FrameInB Rotation`
 
 #### Inherited from
 
-ConstraintBase.rotationTarget
+`ConstraintBase.rotationTarget`
 
-#### Defined in
-
-[packages/physics/constraint/ConstraintBase.ts:34](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L34)
-
-___
+***
 
 ### disableCollisionsBetweenLinkedBodies
 
-• **disableCollisionsBetweenLinkedBodies**: `boolean` = `true`
+> **disableCollisionsBetweenLinkedBodies**: `boolean` = `true`
+
+Defined in: [packages/physics/constraint/ConstraintBase.ts:36](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L36)
 
 #### Inherited from
 
-ConstraintBase.disableCollisionsBetweenLinkedBodies
+`ConstraintBase.disableCollisionsBetweenLinkedBodies`
 
-#### Defined in
-
-[packages/physics/constraint/ConstraintBase.ts:36](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L36)
-
-___
+***
 
 ### useLinearReferenceFrame
 
-• **useLinearReferenceFrame**: `boolean` = `true`
+> **useLinearReferenceFrame**: `boolean` = `true`
 
-是否使用线性参考框架。
-默认值 `true`
+Defined in: [packages/physics/constraint/SliderConstraint.ts:21](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/SliderConstraint.ts#L21)
 
-#### Defined in
-
-[packages/physics/constraint/SliderConstraint.ts:21](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/SliderConstraint.ts#L21)
-
-___
-
-### object3D
-
-• **object3D**: `Object3D` = `null`
-
-owner object3D
-
-#### Inherited from
-
-ConstraintBase.object3D
-
-#### Defined in
-
-[src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
-
-___
-
-### isDestroyed
-
-• `Optional` **isDestroyed**: `boolean`
-
-#### Inherited from
-
-ConstraintBase.isDestroyed
-
-#### Defined in
-
-[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
+Whether to use the linear reference frame.
+Default value `true`
 
 ## Accessors
 
-### breakingThreshold
+### visibleLayer
 
-• `get` **breakingThreshold**(): `number`
+#### Get Signature
 
-断裂脉冲阈值，值越大，约束越不易断裂。
+> **get** **visibleLayer**(): `number`
 
-#### Returns
+Defined in: [src/components/ComponentBase.ts:46](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L46)
+
+Composition-layer membership bitmask. The pass / camera /
+collector filters via
+
+    (component.visibleLayer & pass.layerMask & camera.cullingMask) !== 0
+
+Defaults to VisibleLayer.Default (bit 0) so a fresh
+subclass is visible to passes whose `layerMask` is
+VisibleLayer.All (which includes bit 0). Application code
+can assign project-specific bits (1..31) to organise the scene
+into composition layers.
+
+##### Returns
 
 `number`
 
-#### Inherited from
+#### Set Signature
 
-ConstraintBase.breakingThreshold
+> **set** **visibleLayer**(`value`): `void`
 
-#### Defined in
+Defined in: [src/components/ComponentBase.ts:50](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L50)
 
-[packages/physics/constraint/ConstraintBase.ts:41](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L41)
+##### Parameters
 
-• `set` **breakingThreshold**(`value`): `void`
+###### value
 
-#### Parameters
+`number`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-ConstraintBase.breakingThreshold
-
-#### Defined in
-
-[packages/physics/constraint/ConstraintBase.ts:45](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L45)
-
-___
-
-### constraint
-
-• `get` **constraint**(): `T`
-
-获取约束实例
-
-#### Returns
-
-`T`
-
-#### Inherited from
-
-ConstraintBase.constraint
-
-#### Defined in
-
-[packages/physics/constraint/ConstraintBase.ts:87](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L87)
-
-___
-
-### targetRigidbody
-
-• `get` **targetRigidbody**(): [`Rigidbody`](Rigidbody.md)
-
-目标刚体组件
-
-#### Returns
-
-[`Rigidbody`](Rigidbody.md)
-
-#### Inherited from
-
-ConstraintBase.targetRigidbody
-
-#### Defined in
-
-[packages/physics/constraint/ConstraintBase.ts:119](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L119)
-
-• `set` **targetRigidbody**(`value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | [`Rigidbody`](Rigidbody.md) |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-ConstraintBase.targetRigidbody
+`ConstraintBase.visibleLayer`
 
-#### Defined in
-
-[packages/physics/constraint/ConstraintBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L123)
-
-___
-
-### lowerLinLimit
-
-• `get` **lowerLinLimit**(): `number`
-
-线性运动的下限限制。
-默认值 `-1e30` 表示无限制
-
-#### Returns
-
-`number`
-
-#### Defined in
-
-[packages/physics/constraint/SliderConstraint.ts:59](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/SliderConstraint.ts#L59)
-
-• `set` **lowerLinLimit**(`value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/physics/constraint/SliderConstraint.ts:62](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/SliderConstraint.ts#L62)
-
-___
-
-### upperLinLimit
-
-• `get` **upperLinLimit**(): `number`
-
-线性运动的上限限制。
-默认值 `1e30` 表示无限制
-
-#### Returns
-
-`number`
-
-#### Defined in
-
-[packages/physics/constraint/SliderConstraint.ts:71](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/SliderConstraint.ts#L71)
-
-• `set` **upperLinLimit**(`value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/physics/constraint/SliderConstraint.ts:74](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/SliderConstraint.ts#L74)
-
-___
-
-### lowerAngLimit
-
-• `get` **lowerAngLimit**(): `number`
-
-角度运动的下限限制。
-默认值 `-Math.PI`
-
-#### Returns
-
-`number`
-
-#### Defined in
-
-[packages/physics/constraint/SliderConstraint.ts:83](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/SliderConstraint.ts#L83)
-
-• `set` **lowerAngLimit**(`value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/physics/constraint/SliderConstraint.ts:86](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/SliderConstraint.ts#L86)
-
-___
-
-### upperAngLimit
-
-• `get` **upperAngLimit**(): `number`
-
-角度运动的上限限制。
-默认值 `Math.PI`
-
-#### Returns
-
-`number`
-
-#### Defined in
-
-[packages/physics/constraint/SliderConstraint.ts:95](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/SliderConstraint.ts#L95)
-
-• `set` **upperAngLimit**(`value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/physics/constraint/SliderConstraint.ts:98](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/SliderConstraint.ts#L98)
-
-___
-
-### poweredLinMotor
-
-• `get` **poweredLinMotor**(): `boolean`
-
-是否启用线性马达。
-默认值 `false`
-
-#### Returns
-
-`boolean`
-
-#### Defined in
-
-[packages/physics/constraint/SliderConstraint.ts:107](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/SliderConstraint.ts#L107)
-
-• `set` **poweredLinMotor**(`value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/physics/constraint/SliderConstraint.ts:110](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/SliderConstraint.ts#L110)
-
-___
-
-### maxLinMotorForce
-
-• `get` **maxLinMotorForce**(): `number`
-
-线性马达的最大推力。
-默认值 `0`
-
-#### Returns
-
-`number`
-
-#### Defined in
-
-[packages/physics/constraint/SliderConstraint.ts:119](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/SliderConstraint.ts#L119)
-
-• `set` **maxLinMotorForce**(`value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/physics/constraint/SliderConstraint.ts:122](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/SliderConstraint.ts#L122)
-
-___
-
-### targetLinMotorVelocity
-
-• `get` **targetLinMotorVelocity**(): `number`
-
-线性马达的目标速度。
-默认值 `0`
-
-#### Returns
-
-`number`
-
-#### Defined in
-
-[packages/physics/constraint/SliderConstraint.ts:131](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/SliderConstraint.ts#L131)
-
-• `set` **targetLinMotorVelocity**(`value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/physics/constraint/SliderConstraint.ts:134](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/SliderConstraint.ts#L134)
-
-___
+***
 
 ### eventDispatcher
 
-• `get` **eventDispatcher**(): `CEventDispatcher`
+#### Get Signature
 
-#### Returns
+> **get** **eventDispatcher**(): `CEventDispatcher`
+
+Defined in: [src/components/ComponentBase.ts:63](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L63)
+
+##### Returns
 
 `CEventDispatcher`
 
-#### Inherited from
+#### Set Signature
 
-ConstraintBase.eventDispatcher
+> **set** **eventDispatcher**(`value`): `void`
 
-#### Defined in
+Defined in: [src/components/ComponentBase.ts:68](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
 
-[src/components/ComponentBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L23)
+##### Parameters
 
-• `set` **eventDispatcher**(`value`): `void`
+###### value
 
-#### Parameters
+`CEventDispatcher`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `CEventDispatcher` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-ConstraintBase.eventDispatcher
+`ConstraintBase.eventDispatcher`
 
-#### Defined in
-
-[src/components/ComponentBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L28)
-
-___
+***
 
 ### isStart
 
-• `get` **isStart**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **isStart**(): `boolean`
+
+Defined in: [src/components/ComponentBase.ts:79](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L79)
+
+##### Returns
 
 `boolean`
 
 #### Inherited from
 
-ConstraintBase.isStart
+`ConstraintBase.isStart`
 
-#### Defined in
-
-[src/components/ComponentBase.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L40)
-
-___
+***
 
 ### transform
 
-• `get` **transform**(): `Transform`
+#### Get Signature
+
+> **get** **transform**(): `Transform`
+
+Defined in: [src/components/ComponentBase.ts:89](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L89)
 
 Return the Transform component attached to the Object3D.
+Null before the component is attached — `addComponent` assigns
+`object3D` only after construction — so constructor-time callers
+can probe safely via `this.transform?.`.
 
-#### Returns
+##### Returns
 
 `Transform`
 
 #### Inherited from
 
-ConstraintBase.transform
+`ConstraintBase.transform`
 
-#### Defined in
-
-[src/components/ComponentBase.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L47)
-
-___
+***
 
 ### enable
 
-• `get` **enable**(): `boolean`
+#### Get Signature
+
+> **get** **enable**(): `boolean`
+
+Defined in: [src/components/ComponentBase.ts:113](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
-#### Returns
+##### Returns
 
 `boolean`
 
-#### Inherited from
+#### Set Signature
 
-ConstraintBase.enable
+> **set** **enable**(`value`): `void`
 
-#### Defined in
-
-[src/components/ComponentBase.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
-
-• `set` **enable**(`value`): `void`
+Defined in: [src/components/ComponentBase.ts:96](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L96)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
+###### value
 
-#### Returns
+`boolean`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-ConstraintBase.enable
+`ConstraintBase.enable`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L54)
+### breakingThreshold
+
+#### Get Signature
+
+> **get** **breakingThreshold**(): `number`
+
+Defined in: [packages/physics/constraint/ConstraintBase.ts:41](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L41)
+
+Breaking impulse threshold. The larger the value, the harder the constraint is to break.
+
+##### Returns
+
+`number`
+
+#### Set Signature
+
+> **set** **breakingThreshold**(`value`): `void`
+
+Defined in: [packages/physics/constraint/ConstraintBase.ts:45](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L45)
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
+
+`void`
+
+#### Inherited from
+
+`ConstraintBase.breakingThreshold`
+
+***
+
+### constraint
+
+#### Get Signature
+
+> **get** **constraint**(): `T`
+
+Defined in: [packages/physics/constraint/ConstraintBase.ts:87](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L87)
+
+Get the constraint instance
+
+##### Returns
+
+`T`
+
+#### Inherited from
+
+`ConstraintBase.constraint`
+
+***
+
+### targetRigidbody
+
+#### Get Signature
+
+> **get** **targetRigidbody**(): [`Rigidbody`](Rigidbody.md)
+
+Defined in: [packages/physics/constraint/ConstraintBase.ts:119](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L119)
+
+Target rigid body component
+
+##### Returns
+
+[`Rigidbody`](Rigidbody.md)
+
+#### Set Signature
+
+> **set** **targetRigidbody**(`value`): `void`
+
+Defined in: [packages/physics/constraint/ConstraintBase.ts:123](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L123)
+
+##### Parameters
+
+###### value
+
+[`Rigidbody`](Rigidbody.md)
+
+##### Returns
+
+`void`
+
+#### Inherited from
+
+`ConstraintBase.targetRigidbody`
+
+***
+
+### lowerLinLimit
+
+#### Get Signature
+
+> **get** **lowerLinLimit**(): `number`
+
+Defined in: [packages/physics/constraint/SliderConstraint.ts:59](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/SliderConstraint.ts#L59)
+
+Lower limit of linear motion.
+Default value `-1e30` means no limit
+
+##### Returns
+
+`number`
+
+#### Set Signature
+
+> **set** **lowerLinLimit**(`value`): `void`
+
+Defined in: [packages/physics/constraint/SliderConstraint.ts:62](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/SliderConstraint.ts#L62)
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
+
+`void`
+
+***
+
+### upperLinLimit
+
+#### Get Signature
+
+> **get** **upperLinLimit**(): `number`
+
+Defined in: [packages/physics/constraint/SliderConstraint.ts:71](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/SliderConstraint.ts#L71)
+
+Upper limit of linear motion.
+Default value `1e30` means no limit
+
+##### Returns
+
+`number`
+
+#### Set Signature
+
+> **set** **upperLinLimit**(`value`): `void`
+
+Defined in: [packages/physics/constraint/SliderConstraint.ts:74](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/SliderConstraint.ts#L74)
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
+
+`void`
+
+***
+
+### lowerAngLimit
+
+#### Get Signature
+
+> **get** **lowerAngLimit**(): `number`
+
+Defined in: [packages/physics/constraint/SliderConstraint.ts:83](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/SliderConstraint.ts#L83)
+
+Lower limit of angular motion.
+Default value `-Math.PI`
+
+##### Returns
+
+`number`
+
+#### Set Signature
+
+> **set** **lowerAngLimit**(`value`): `void`
+
+Defined in: [packages/physics/constraint/SliderConstraint.ts:86](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/SliderConstraint.ts#L86)
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
+
+`void`
+
+***
+
+### upperAngLimit
+
+#### Get Signature
+
+> **get** **upperAngLimit**(): `number`
+
+Defined in: [packages/physics/constraint/SliderConstraint.ts:95](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/SliderConstraint.ts#L95)
+
+Upper limit of angular motion.
+Default value `Math.PI`
+
+##### Returns
+
+`number`
+
+#### Set Signature
+
+> **set** **upperAngLimit**(`value`): `void`
+
+Defined in: [packages/physics/constraint/SliderConstraint.ts:98](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/SliderConstraint.ts#L98)
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
+
+`void`
+
+***
+
+### poweredLinMotor
+
+#### Get Signature
+
+> **get** **poweredLinMotor**(): `boolean`
+
+Defined in: [packages/physics/constraint/SliderConstraint.ts:107](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/SliderConstraint.ts#L107)
+
+Whether to enable the linear motor.
+Default value `false`
+
+##### Returns
+
+`boolean`
+
+#### Set Signature
+
+> **set** **poweredLinMotor**(`value`): `void`
+
+Defined in: [packages/physics/constraint/SliderConstraint.ts:110](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/SliderConstraint.ts#L110)
+
+##### Parameters
+
+###### value
+
+`boolean`
+
+##### Returns
+
+`void`
+
+***
+
+### maxLinMotorForce
+
+#### Get Signature
+
+> **get** **maxLinMotorForce**(): `number`
+
+Defined in: [packages/physics/constraint/SliderConstraint.ts:119](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/SliderConstraint.ts#L119)
+
+Maximum force of the linear motor.
+Default value `0`
+
+##### Returns
+
+`number`
+
+#### Set Signature
+
+> **set** **maxLinMotorForce**(`value`): `void`
+
+Defined in: [packages/physics/constraint/SliderConstraint.ts:122](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/SliderConstraint.ts#L122)
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
+
+`void`
+
+***
+
+### targetLinMotorVelocity
+
+#### Get Signature
+
+> **get** **targetLinMotorVelocity**(): `number`
+
+Defined in: [packages/physics/constraint/SliderConstraint.ts:131](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/SliderConstraint.ts#L131)
+
+Target velocity of the linear motor.
+Default value `0`
+
+##### Returns
+
+`number`
+
+#### Set Signature
+
+> **set** **targetLinMotorVelocity**(`value`): `void`
+
+Defined in: [packages/physics/constraint/SliderConstraint.ts:134](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/SliderConstraint.ts#L134)
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
+
+`void`
 
 ## Methods
 
-### start
+### init()
 
-▸ **start**(): `Promise`\<`void`\>
+> **init**(`param?`): `void`
 
-#### Returns
-
-`Promise`\<`void`\>
-
-#### Inherited from
-
-ConstraintBase.start
-
-#### Defined in
-
-[packages/physics/constraint/ConstraintBase.ts:50](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L50)
-
-___
-
-### wait
-
-▸ **wait**(): `Promise`\<[`btSliderConstraint`](Ammo.btSliderConstraint.md)\>
-
-异步获取完成初始化的约束实例
-
-#### Returns
-
-`Promise`\<[`btSliderConstraint`](Ammo.btSliderConstraint.md)\>
-
-#### Inherited from
-
-ConstraintBase.wait
-
-#### Defined in
-
-[packages/physics/constraint/ConstraintBase.ts:97](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L97)
-
-___
-
-### resetConstraint
-
-▸ **resetConstraint**(): `Promise`\<[`btSliderConstraint`](Ammo.btSliderConstraint.md)\>
-
-重置约束，销毁当前约束实例后重新创建并返回新的约束实例
-
-#### Returns
-
-`Promise`\<[`btSliderConstraint`](Ammo.btSliderConstraint.md)\>
-
-#### Inherited from
-
-ConstraintBase.resetConstraint
-
-#### Defined in
-
-[packages/physics/constraint/ConstraintBase.ts:105](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L105)
-
-___
-
-### destroy
-
-▸ **destroy**(`force?`): `void`
+Defined in: [src/components/ComponentBase.ts:161](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L161)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
+##### param?
+
+`any`
 
 #### Returns
 
@@ -726,23 +636,15 @@ ___
 
 #### Inherited from
 
-ConstraintBase.destroy
+`ConstraintBase.init`
 
-#### Defined in
+***
 
-[packages/physics/constraint/ConstraintBase.ts:127](https://github.com/Orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L127)
+### stop()
 
-___
+> **stop**(): `void`
 
-### init
-
-▸ **init**(`param?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `param?` | `any` |
+Defined in: [src/components/ComponentBase.ts:163](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L163)
 
 #### Returns
 
@@ -750,41 +652,21 @@ ___
 
 #### Inherited from
 
-ConstraintBase.init
+`ConstraintBase.stop`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L112)
+### onEnable()?
 
-___
+> `optional` **onEnable**(`view?`): `any`
 
-### stop
-
-▸ **stop**(): `void`
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-ConstraintBase.stop
-
-#### Defined in
-
-[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
-
-___
-
-### onEnable
-
-▸ **onEnable**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:164](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L164)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
+##### view?
+
+`View3D`
 
 #### Returns
 
@@ -792,23 +674,21 @@ ___
 
 #### Inherited from
 
-ConstraintBase.onEnable
+`ConstraintBase.onEnable`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L115)
+### onDisable()?
 
-___
+> `optional` **onDisable**(`view?`): `any`
 
-### onDisable
-
-▸ **onDisable**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:165](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L165)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
+##### view?
+
+`View3D`
 
 #### Returns
 
@@ -816,23 +696,21 @@ ___
 
 #### Inherited from
 
-ConstraintBase.onDisable
+`ConstraintBase.onDisable`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L116)
+### onUpdate()?
 
-___
+> `optional` **onUpdate**(`view?`): `any`
 
-### onUpdate
-
-▸ **onUpdate**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:166](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L166)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
+##### view?
+
+`View3D`
 
 #### Returns
 
@@ -840,23 +718,21 @@ ___
 
 #### Inherited from
 
-ConstraintBase.onUpdate
+`ConstraintBase.onUpdate`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L117)
+### onLateUpdate()?
 
-___
+> `optional` **onLateUpdate**(`view?`): `any`
 
-### onLateUpdate
-
-▸ **onLateUpdate**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:167](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L167)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
+##### view?
+
+`View3D`
 
 #### Returns
 
@@ -864,23 +740,21 @@ ___
 
 #### Inherited from
 
-ConstraintBase.onLateUpdate
+`ConstraintBase.onLateUpdate`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L118)
+### onBeforeUpdate()?
 
-___
+> `optional` **onBeforeUpdate**(`view?`): `any`
 
-### onBeforeUpdate
-
-▸ **onBeforeUpdate**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:168](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L168)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
+##### view?
+
+`View3D`
 
 #### Returns
 
@@ -888,24 +762,25 @@ ___
 
 #### Inherited from
 
-ConstraintBase.onBeforeUpdate
+`ConstraintBase.onBeforeUpdate`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L119)
+### onCompute()?
 
-___
+> `optional` **onCompute**(`view?`, `command?`): `any`
 
-### onCompute
-
-▸ **onCompute**(`view?`, `command?`): `any`
+Defined in: [src/components/ComponentBase.ts:169](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L169)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
-| `command?` | `GPUCommandEncoder` |
+##### view?
+
+`View3D`
+
+##### command?
+
+`GPUCommandEncoder`
 
 #### Returns
 
@@ -913,23 +788,21 @@ ___
 
 #### Inherited from
 
-ConstraintBase.onCompute
+`ConstraintBase.onCompute`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L120)
+### onGraphic()?
 
-___
+> `optional` **onGraphic**(`view?`): `any`
 
-### onGraphic
-
-▸ **onGraphic**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:170](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L170)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
+##### view?
+
+`View3D`
 
 #### Returns
 
@@ -937,24 +810,25 @@ ___
 
 #### Inherited from
 
-ConstraintBase.onGraphic
+`ConstraintBase.onGraphic`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L121)
+### onParentChange()?
 
-___
+> `optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
-### onParentChange
-
-▸ **onParentChange**(`lastParent?`, `currentParent?`): `any`
+Defined in: [src/components/ComponentBase.ts:171](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L171)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `lastParent?` | `Object3D` |
-| `currentParent?` | `Object3D` |
+##### lastParent?
+
+`Object3D`
+
+##### currentParent?
+
+`Object3D`
 
 #### Returns
 
@@ -962,23 +836,21 @@ ___
 
 #### Inherited from
 
-ConstraintBase.onParentChange
+`ConstraintBase.onParentChange`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L122)
+### onAddChild()?
 
-___
+> `optional` **onAddChild**(`child`): `any`
 
-### onAddChild
-
-▸ **onAddChild**(`child`): `any`
+Defined in: [src/components/ComponentBase.ts:172](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L172)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `child` | `Object3D` |
+##### child
+
+`Object3D`
 
 #### Returns
 
@@ -986,23 +858,21 @@ ___
 
 #### Inherited from
 
-ConstraintBase.onAddChild
+`ConstraintBase.onAddChild`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L123)
+### onRemoveChild()?
 
-___
+> `optional` **onRemoveChild**(`child`): `any`
 
-### onRemoveChild
-
-▸ **onRemoveChild**(`child`): `any`
+Defined in: [src/components/ComponentBase.ts:173](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L173)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `child` | `Object3D` |
+##### child
+
+`Object3D`
 
 #### Returns
 
@@ -1010,25 +880,25 @@ ___
 
 #### Inherited from
 
-ConstraintBase.onRemoveChild
+`ConstraintBase.onRemoveChild`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L124)
+### cloneTo()
 
-___
+> **cloneTo**(`obj`): `void`
 
-### cloneTo
-
-▸ **cloneTo**(`obj`): `void`
+Defined in: [src/components/ComponentBase.ts:180](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L180)
 
 clone component data to target object3D
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `obj` | `Object3D` | target object3D |
+##### obj
+
+`Object3D`
+
+target object3D
 
 #### Returns
 
@@ -1036,23 +906,21 @@ clone component data to target object3D
 
 #### Inherited from
 
-ConstraintBase.cloneTo
+`ConstraintBase.cloneTo`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L131)
+### copyComponent()
 
-___
+> **copyComponent**(`from`): `this`
 
-### copyComponent
-
-▸ **copyComponent**(`from`): `this`
+Defined in: [src/components/ComponentBase.ts:182](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L182)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `from` | `this` |
+##### from
+
+`this`
 
 #### Returns
 
@@ -1060,25 +928,23 @@ ___
 
 #### Inherited from
 
-ConstraintBase.copyComponent
+`ConstraintBase.copyComponent`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L133)
+### beforeDestroy()
 
-___
+> **beforeDestroy**(`force?`): `void`
 
-### beforeDestroy
-
-▸ **beforeDestroy**(`force?`): `void`
+Defined in: [src/components/ComponentBase.ts:249](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L249)
 
 before release this component, object refrences are not be set null now.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
+##### force?
+
+`boolean`
 
 #### Returns
 
@@ -1086,8 +952,80 @@ before release this component, object refrences are not be set null now.
 
 #### Inherited from
 
-ConstraintBase.beforeDestroy
+`ConstraintBase.beforeDestroy`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L200)
+### start()
+
+> **start**(): `Promise`\<`void`\>
+
+Defined in: [packages/physics/constraint/ConstraintBase.ts:50](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L50)
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Inherited from
+
+`ConstraintBase.start`
+
+***
+
+### wait()
+
+> **wait**(): `Promise`\<[`btSliderConstraint`](../@orillusion/namespaces/Ammo/classes/btSliderConstraint.md)\>
+
+Defined in: [packages/physics/constraint/ConstraintBase.ts:97](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L97)
+
+Asynchronously retrieve the fully initialized constraint instance
+
+#### Returns
+
+`Promise`\<[`btSliderConstraint`](../@orillusion/namespaces/Ammo/classes/btSliderConstraint.md)\>
+
+#### Inherited from
+
+`ConstraintBase.wait`
+
+***
+
+### resetConstraint()
+
+> **resetConstraint**(): `Promise`\<[`btSliderConstraint`](../@orillusion/namespaces/Ammo/classes/btSliderConstraint.md)\>
+
+Defined in: [packages/physics/constraint/ConstraintBase.ts:105](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L105)
+
+Reset the constraint: destroy the current constraint instance, recreate it, and return the new constraint instance
+
+#### Returns
+
+`Promise`\<[`btSliderConstraint`](../@orillusion/namespaces/Ammo/classes/btSliderConstraint.md)\>
+
+#### Inherited from
+
+`ConstraintBase.resetConstraint`
+
+***
+
+### destroy()
+
+> **destroy**(`force?`): `void`
+
+Defined in: [packages/physics/constraint/ConstraintBase.ts:127](https://github.com/orillusion/orillusion/blob/main/packages/physics/constraint/ConstraintBase.ts#L127)
+
+release this component
+
+#### Parameters
+
+##### force?
+
+`boolean`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`ConstraintBase.destroy`

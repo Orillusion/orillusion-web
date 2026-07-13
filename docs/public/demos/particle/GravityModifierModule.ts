@@ -1,16 +1,17 @@
-import { Engine3D, AtmosphericComponent, Vector3, View3D, HoverCameraController, Object3D, PlaneGeometry, Scene3D, CameraUtil, webGPUContext, BoxGeometry, DEGREES_TO_RADIANS } from '@orillusion/core';
+import { Engine3D, AtmosphericComponent, Vector3, View3D, HoverCameraController, Object3D, PlaneGeometry, Scene3D, CameraUtil, BoxGeometry, DEGREES_TO_RADIANS } from '@orillusion/core';
 
 import { ParticleSystem, ParticleMaterial, ParticleStandardSimulator, ParticleEmitterModule, ShapeType, EmitLocation, ParticleGravityModifierModule } from '@orillusion/particle';
 
 class Sample_OverLifeRotationModule {
+    engine: Engine3D;
     async run() {
-        await Engine3D.init();
+        this.engine = await Engine3D.init();
 
         let scene = new Scene3D();
         scene.addComponent(AtmosphericComponent).sunY = 0.6;
 
         let camera = CameraUtil.createCamera3DObject(scene);
-        camera.perspective(60, webGPUContext.aspect, 0.1, 5000.0);
+        camera.perspective(60, this.engine.aspect, 0.1, 5000.0);
 
         let ctrl = camera.object3D.addComponent(HoverCameraController);
         ctrl.setCamera(45, -30, 80);
@@ -20,30 +21,30 @@ class Sample_OverLifeRotationModule {
         let view = new View3D();
         view.scene = scene;
         view.camera = camera;
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
     }
 
     async initScene(scene: Scene3D) {
-        // 创建实体对象
+        // Create entity object
         let obj = new Object3D();
         obj.y = 10;
         scene.addChild(obj);
 
-        // 添加粒子系统组件
+        // Add particle system component
         let particleSystem = obj.addComponent(ParticleSystem);
 
-        // 设置粒子材质
+        // Set particle material
         let material = new ParticleMaterial();
-        material.baseMap = await Engine3D.res.loadTexture('https://cdn.orillusion.com/particle/fx_a_fragment_003.png');
+        material.baseMap = await this.engine.res.loadTexture('https://cdn.orillusion.com/particle/fx_a_fragment_003.png');
 
-        // 设置粒子形状
+        // Set particle shape
         particleSystem.geometry = new PlaneGeometry(1, 8, 1, 1, Vector3.Z_AXIS);
         particleSystem.material = material;
 
-        // 使用指定仿真器
+        // Use the specified simulator
         let simulator = particleSystem.useSimulator(ParticleStandardSimulator);
 
-        // 添加发射器模块
+        // Add emitter module
         let emitter = simulator.addModule(ParticleEmitterModule);
         emitter.maxParticle = 10000;
         emitter.duration = 10;
@@ -53,11 +54,11 @@ class Sample_OverLifeRotationModule {
         emitter.radius = 60;
         emitter.emitLocation = EmitLocation.Shell;
 
-        // 添加重力修改模块
+        // Add gravity modifier module
         let gravityModifier = simulator.addModule(ParticleGravityModifierModule);
         gravityModifier.gravity = new Vector3(0, -9.8, 0);
 
-        // 开始播放
+        // Start playing
         particleSystem.play();
     }
 }

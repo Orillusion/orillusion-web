@@ -10,18 +10,19 @@ import { Graphic3D } from "@orillusion/graphic";
 class Sample_MultipleConstraints {
     scene: Scene3D;
     gui: dat.GUI;
+    engine: Engine3D;
 
     async run() {
         // init physics and engine
         await Physics.init({ useSoftBody: true, useDrag: true });
-        await Engine3D.init({ renderLoop: () => Physics.update() });
+        let engine = this.engine = await Engine3D.init({ renderLoop: () => Physics.update() });
 
         this.gui = new dat.GUI();
 
         this.scene = new Scene3D();
         this.scene.addComponent(Stats);
 
-        // 在引擎启动后初始化物理调试功能，需要为调试器传入 graphic3D 对象
+        // Initialize the physics debug feature after the engine starts; a graphic3D object must be passed to the debugger
         const graphic3D = new Graphic3D();
         this.scene.addChild(graphic3D);
         Physics.initDebugDrawer(graphic3D, {
@@ -30,7 +31,7 @@ class Sample_MultipleConstraints {
         })
 
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, Engine3D.aspect, 0.1, 800.0);
+        camera.perspective(60, engine.aspect, 0.1, 800.0);
         camera.object3D.addComponent(HoverCameraController).setCamera(60, -25, 50);
 
         // create directional light
@@ -50,7 +51,7 @@ class Sample_MultipleConstraints {
 
         this.physicsDebug();
 
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
         // Create ground, turntable, and chains
         this.createGround();
@@ -89,14 +90,14 @@ class Sample_MultipleConstraints {
         const shelfSize = 0.5;
         const shelfHeight = 5;
 
-        let shelfLeft = Object3DUtil.GetCube();
+        let shelfLeft = Object3DUtil.GetCube(this.engine.context3D);
         shelfLeft.localScale = new Vector3(shelfSize, shelfHeight, shelfSize);
         shelfLeft.localPosition = new Vector3(-30, shelfHeight / 2, 0);
 
         let shelfRight = shelfLeft.clone();
         shelfRight.localPosition = new Vector3(30, shelfHeight / 2, 0);
 
-        let shelfTop = Object3DUtil.GetCube();
+        let shelfTop = Object3DUtil.GetCube(this.engine.context3D);
         shelfTop.localScale = new Vector3(60 - shelfSize, shelfSize, shelfSize);
         shelfTop.localPosition = new Vector3(0, shelfHeight - shelfSize / 2, 0);
 
@@ -117,7 +118,7 @@ class Sample_MultipleConstraints {
         let sliderRb = this.addBoxShapeRigidBody(slider, 500, true, [0.2, 0]);
 
         // Create Impactor
-        let impactor = Object3DUtil.GetCube();
+        let impactor = Object3DUtil.GetCube(this.engine.context3D);
         impactor.localScale = new Vector3(1, 1, 5);
         impactor.localPosition = new Vector3(0, shelfHeight - shelfSize / 2, 3);
         this.scene.addChild(impactor);
@@ -185,7 +186,7 @@ class Sample_MultipleConstraints {
         const columnHeight = 4.75 - columnWidth / 2;
         const columnDepth = 0.5;
 
-        let column = Object3DUtil.GetCube();
+        let column = Object3DUtil.GetCube(this.engine.context3D);
         column.localScale = new Vector3(columnWidth, columnHeight, columnDepth);
         column.localPosition = new Vector3(0, columnHeight / 2, 8);
         this.scene.addChild(column);
@@ -196,7 +197,7 @@ class Sample_MultipleConstraints {
         let armParent = new Object3D();
         armParent.localPosition = new Vector3(0, columnHeight + columnWidth / 2, 8);
 
-        let armChild1 = Object3DUtil.GetCube();
+        let armChild1 = Object3DUtil.GetCube(this.engine.context3D);
         armChild1.rotationY = 45;
         armChild1.localScale = new Vector3(10, 0.5, 0.5);
 
@@ -222,7 +223,7 @@ class Sample_MultipleConstraints {
     private createChains() {
         const chainHeight = 1;
 
-        let chainLink = Object3DUtil.GetCube();
+        let chainLink = Object3DUtil.GetCube(this.engine.context3D);
         chainLink.localScale = new Vector3(0.25, chainHeight, 0.25);
         chainLink.localPosition = new Vector3(5, 16, 5);
         this.scene.addChild(chainLink);
@@ -286,7 +287,7 @@ class Sample_MultipleConstraints {
         let meshRenderer = cloth.addComponent(MeshRenderer);
         meshRenderer.geometry = new PlaneGeometry(3, 3, 10, 10, Vector3.X_AXIS); // Set the plane direction to determine the four corners
         let material = new LitMaterial();
-        material.baseMap = Engine3D.res.redTexture;
+        material.baseMap = this.engine.res.redTexture;
         material.cullMode = GPUCullMode.none;
         meshRenderer.material = material;
         this.scene.addChild(cloth);

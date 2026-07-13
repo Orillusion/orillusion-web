@@ -1,118 +1,104 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: PlaneClassification
 
-### Constructors
+Defined in: [src/math/PlaneClassification.ts:5](https://github.com/orillusion/orillusion/blob/main/src/math/PlaneClassification.ts#L5)
 
-- [constructor](PlaneClassification.md#constructor)
-
-### Properties
-
-- [BACK](PlaneClassification.md#back)
-- [FRONT](PlaneClassification.md#front)
-- [IN](PlaneClassification.md#in)
-- [OUT](PlaneClassification.md#out)
-- [INTERSECT](PlaneClassification.md#intersect)
+Constants describing how a point or geometry is classified relative to a plane.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new PlaneClassification**(): [`PlaneClassification`](PlaneClassification.md)
+> **new PlaneClassification**(): `PlaneClassification`
 
 #### Returns
 
-[`PlaneClassification`](PlaneClassification.md)
+`PlaneClassification`
 
 ## Properties
 
 ### BACK
 
-▪ `Static` **BACK**: `number` = `0`
+> `static` **BACK**: `number` = `0`
 
-**`Language`**
+Defined in: [src/math/PlaneClassification.ts:11](https://github.com/orillusion/orillusion/blob/main/src/math/PlaneClassification.ts#L11)
 
-zh_CN
-背面
+#### Language
 
-**`Platform`**
+en_US
+Back side
+
+#### Platform
 
 Web,Native
 
-#### Defined in
-
-[src/math/PlaneClassification.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/math/PlaneClassification.ts#L7)
-
-___
+***
 
 ### FRONT
 
-▪ `Static` **FRONT**: `number` = `1`
+> `static` **FRONT**: `number` = `1`
 
-**`Language`**
+Defined in: [src/math/PlaneClassification.ts:18](https://github.com/orillusion/orillusion/blob/main/src/math/PlaneClassification.ts#L18)
 
-zh_CN
-正面
+#### Language
 
-**`Platform`**
+en_US
+Front side
+
+#### Platform
 
 Web,Native
 
-#### Defined in
-
-[src/math/PlaneClassification.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/math/PlaneClassification.ts#L14)
-
-___
+***
 
 ### IN
 
-▪ `Static` **IN**: `number` = `0`
+> `static` **IN**: `number` = `0`
 
-**`Language`**
+Defined in: [src/math/PlaneClassification.ts:25](https://github.com/orillusion/orillusion/blob/main/src/math/PlaneClassification.ts#L25)
 
-zh_CN
-在法线朝上的一面
+#### Language
 
-**`Platform`**
+en_US
+The side that the normal points toward
+
+#### Platform
 
 Web,Native
 
-#### Defined in
-
-[src/math/PlaneClassification.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/math/PlaneClassification.ts#L21)
-
-___
+***
 
 ### OUT
 
-▪ `Static` **OUT**: `number` = `1`
+> `static` **OUT**: `number` = `1`
 
-**`Language`**
+Defined in: [src/math/PlaneClassification.ts:32](https://github.com/orillusion/orillusion/blob/main/src/math/PlaneClassification.ts#L32)
 
-zh_CN
-在法线朝下的一面
+#### Language
 
-**`Platform`**
+en_US
+The side opposite the normal direction
+
+#### Platform
 
 Web,Native
 
-#### Defined in
-
-[src/math/PlaneClassification.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/math/PlaneClassification.ts#L28)
-
-___
+***
 
 ### INTERSECT
 
-▪ `Static` **INTERSECT**: `number` = `2`
+> `static` **INTERSECT**: `number` = `2`
 
-**`Language`**
+Defined in: [src/math/PlaneClassification.ts:39](https://github.com/orillusion/orillusion/blob/main/src/math/PlaneClassification.ts#L39)
 
-zh_CN
-相交
+#### Language
 
-**`Platform`**
+en_US
+Intersecting
+
+#### Platform
 
 Web,Native
-
-#### Defined in
-
-[src/math/PlaneClassification.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/math/PlaneClassification.ts#L35)

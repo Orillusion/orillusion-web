@@ -26,7 +26,7 @@
 
 • **NoDebug** = ``0``
 
-不显示调试信息
+Do not display debug information
 
 #### Defined in
 
@@ -38,7 +38,7 @@ ___
 
 • **DrawWireframe** = ``1``
 
-绘制物理对象的线框
+Draw the wireframe of physics objects
 
 #### Defined in
 
@@ -50,7 +50,7 @@ ___
 
 • **DrawAabb** = ``2``
 
-绘制物理对象的包围盒（AABB）
+Draw the bounding box (AABB) of physics objects
 
 #### Defined in
 
@@ -62,7 +62,7 @@ ___
 
 • **DrawFeaturesText** = ``4``
 
-绘制特征点文本
+Draw feature point text
 
 #### Defined in
 
@@ -74,7 +74,7 @@ ___
 
 • **DrawContactPoints** = ``8``
 
-绘制接触点
+Draw contact points
 
 #### Defined in
 
@@ -86,7 +86,7 @@ ___
 
 • **NoDeactivation** = ``16``
 
-禁用去激活
+Disable deactivation
 
 #### Defined in
 
@@ -98,7 +98,7 @@ ___
 
 • **NoHelpText** = ``32``
 
-不显示帮助文本
+Do not display help text
 
 #### Defined in
 
@@ -110,7 +110,7 @@ ___
 
 • **DrawText** = ``64``
 
-绘制文本信息
+Draw text information
 
 #### Defined in
 
@@ -122,7 +122,7 @@ ___
 
 • **ProfileTimings** = ``128``
 
-显示性能计时信息
+Display performance timing information
 
 #### Defined in
 
@@ -134,7 +134,7 @@ ___
 
 • **EnableSatComparison** = ``256``
 
-启用 SAT 比较
+Enable SAT comparison
 
 #### Defined in
 
@@ -146,7 +146,7 @@ ___
 
 • **DisableBulletLCP** = ``512``
 
-禁用 Bullet 的 LCP 算法
+Disable Bullet's LCP algorithm
 
 #### Defined in
 
@@ -158,7 +158,7 @@ ___
 
 • **EnableCCD** = ``1024``
 
-启用连续碰撞检测
+Enable continuous collision detection
 
 #### Defined in
 
@@ -170,7 +170,7 @@ ___
 
 • **DrawConstraints** = ``2048``
 
-绘制约束
+Draw constraints
 
 #### Defined in
 
@@ -182,7 +182,7 @@ ___
 
 • **DrawConstraintLimits** = ``4096``
 
-绘制约束限制
+Draw constraint limits
 
 #### Defined in
 
@@ -194,7 +194,7 @@ ___
 
 • **FastWireframe** = ``8192``
 
-绘制快速剔除代理的 AABB
+Draw the AABB of fast-culling proxies
 
 #### Defined in
 
@@ -206,7 +206,7 @@ ___
 
 • **DrawAabbDynamic** = ``16384``
 
-绘制动态 AABB 树
+Draw the dynamic AABB tree
 
 #### Defined in
 
@@ -218,7 +218,7 @@ ___
 
 • **DrawSoftBodies** = ``32768``
 
-绘制软体物理
+Draw soft body physics
 
 #### Defined in
 

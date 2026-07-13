@@ -1,491 +1,460 @@
+[**@orillusion/physics**](../README.md)
+
+***
+
 # Class: RopeSoftbody
 
-## Hierarchy
+Defined in: [packages/physics/softbody/RopeSoftbody.ts:7](https://github.com/orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L7)
+
+## Extends
 
 - `SoftbodyBase`
 
-  ↳ **`RopeSoftbody`**
-
-### Constructors
-
-- [constructor](RopeSoftbody.md#constructor)
-
-### Properties
-
-- [fixeds](RopeSoftbody.md#fixeds)
-- [fixNodeIndices](RopeSoftbody.md#fixnodeindices)
-- [elasticity](RopeSoftbody.md#elasticity)
-- [anchorRigidbodyHead](RopeSoftbody.md#anchorrigidbodyhead)
-- [anchorRigidbodyTail](RopeSoftbody.md#anchorrigidbodytail)
-- [anchorOffsetHead](RopeSoftbody.md#anchoroffsethead)
-- [anchorOffsetTail](RopeSoftbody.md#anchoroffsettail)
-- [mass](RopeSoftbody.md#mass)
-- [margin](RopeSoftbody.md#margin)
-- [group](RopeSoftbody.md#group)
-- [mask](RopeSoftbody.md#mask)
-- [influence](RopeSoftbody.md#influence)
-- [disableCollision](RopeSoftbody.md#disablecollision)
-- [object3D](RopeSoftbody.md#object3d)
-- [isDestroyed](RopeSoftbody.md#isdestroyed)
-
-### Accessors
-
-- [activationState](RopeSoftbody.md#activationstate)
-- [btBodyInited](RopeSoftbody.md#btbodyinited)
-- [btSoftBody](RopeSoftbody.md#btsoftbody)
-- [eventDispatcher](RopeSoftbody.md#eventdispatcher)
-- [isStart](RopeSoftbody.md#isstart)
-- [transform](RopeSoftbody.md#transform)
-- [enable](RopeSoftbody.md#enable)
-
-### Methods
-
-- [buildRopeGeometry](RopeSoftbody.md#buildropegeometry)
-- [start](RopeSoftbody.md#start)
-- [setElasticity](RopeSoftbody.md#setelasticity)
-- [clearAnchors](RopeSoftbody.md#clearanchors)
-- [onUpdate](RopeSoftbody.md#onupdate)
-- [destroy](RopeSoftbody.md#destroy)
-- [init](RopeSoftbody.md#init)
-- [wait](RopeSoftbody.md#wait)
-- [appendAnchor](RopeSoftbody.md#appendanchor)
-- [applyFixedNodes](RopeSoftbody.md#applyfixednodes)
-- [clearFixedNodes](RopeSoftbody.md#clearfixednodes)
-- [stop](RopeSoftbody.md#stop)
-- [onEnable](RopeSoftbody.md#onenable)
-- [onDisable](RopeSoftbody.md#ondisable)
-- [onLateUpdate](RopeSoftbody.md#onlateupdate)
-- [onBeforeUpdate](RopeSoftbody.md#onbeforeupdate)
-- [onCompute](RopeSoftbody.md#oncompute)
-- [onGraphic](RopeSoftbody.md#ongraphic)
-- [onParentChange](RopeSoftbody.md#onparentchange)
-- [onAddChild](RopeSoftbody.md#onaddchild)
-- [onRemoveChild](RopeSoftbody.md#onremovechild)
-- [cloneTo](RopeSoftbody.md#cloneto)
-- [copyComponent](RopeSoftbody.md#copycomponent)
-- [beforeDestroy](RopeSoftbody.md#beforedestroy)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new RopeSoftbody**(): [`RopeSoftbody`](RopeSoftbody.md)
+> **new RopeSoftbody**(): `RopeSoftbody`
 
 #### Returns
 
-[`RopeSoftbody`](RopeSoftbody.md)
+`RopeSoftbody`
 
 #### Inherited from
 
-SoftbodyBase.constructor
+`SoftbodyBase.constructor`
 
 ## Properties
 
-### fixeds
-
-• **fixeds**: `number` = `0`
-
-绳索两端的固定选项，默认值为 `0`
-
-`0`：两端不固定，`1`：起点固定，`2`：终点固定，`3`：两端固定
-
-#### Defined in
-
-[packages/physics/softbody/RopeSoftbody.ts:13](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L13)
-
-___
-
-### fixNodeIndices
-
-• **fixNodeIndices**: `number`[] = `[]`
-
-固定节点索引，与 `fixeds` 属性作用相同，但可以更自由的控制任意节点。
-
-#### Defined in
-
-[packages/physics/softbody/RopeSoftbody.ts:18](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L18)
-
-___
-
-### elasticity
-
-• **elasticity**: `number` = `0.5`
-
-绳索弹性，值越大弹性越低，通常设置为 0 到 1 之间，默认值为 `0.5`。
-
-#### Defined in
-
-[packages/physics/softbody/RopeSoftbody.ts:23](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L23)
-
-___
-
-### anchorRigidbodyHead
-
-• **anchorRigidbodyHead**: [`Rigidbody`](Rigidbody.md)
-
-绳索起点处锚定的刚体，设置此项后绳索的起点将与该刚体的位置相同。
-
-#### Defined in
-
-[packages/physics/softbody/RopeSoftbody.ts:28](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L28)
-
-___
-
-### anchorRigidbodyTail
-
-• **anchorRigidbodyTail**: [`Rigidbody`](Rigidbody.md)
-
-绳索终点处锚定的刚体，设置此项后绳索的终点将与该刚体的位置相同。
-
-#### Defined in
-
-[packages/physics/softbody/RopeSoftbody.ts:33](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L33)
-
-___
-
-### anchorOffsetHead
-
-• **anchorOffsetHead**: `Vector3`
-
-锚点的起点偏移量，表示起点与锚定的刚体之间的相对位置。
-
-#### Defined in
-
-[packages/physics/softbody/RopeSoftbody.ts:38](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L38)
-
-___
-
-### anchorOffsetTail
-
-• **anchorOffsetTail**: `Vector3`
-
-锚点的终点偏移量，表示终点与锚定的刚体之间的相对位置。
-
-#### Defined in
-
-[packages/physics/softbody/RopeSoftbody.ts:43](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L43)
-
-___
-
-### mass
-
-• **mass**: `number` = `1`
-
-软体的总质量，默认值为 `1`
-
-#### Inherited from
-
-SoftbodyBase.mass
-
-#### Defined in
-
-[packages/physics/softbody/SoftbodyBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/SoftbodyBase.ts#L17)
-
-___
-
-### margin
-
-• **margin**: `number` = `0.15`
-
-碰撞边距，默认值为 `0.15`
-
-#### Inherited from
-
-SoftbodyBase.margin
-
-#### Defined in
-
-[packages/physics/softbody/SoftbodyBase.ts:22](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/SoftbodyBase.ts#L22)
-
-___
-
-### group
-
-• **group**: `number` = `1`
-
-碰撞组，默认值为 `1`
-
-#### Inherited from
-
-SoftbodyBase.group
-
-#### Defined in
-
-[packages/physics/softbody/SoftbodyBase.ts:27](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/SoftbodyBase.ts#L27)
-
-___
-
-### mask
-
-• **mask**: `number` = `-1`
-
-碰撞掩码，默认值为 `-1`
-
-#### Inherited from
-
-SoftbodyBase.mask
-
-#### Defined in
-
-[packages/physics/softbody/SoftbodyBase.ts:32](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/SoftbodyBase.ts#L32)
-
-___
-
-### influence
-
-• **influence**: `number` = `1`
-
-锚点的影响力。影响力值越大，软体节点越紧密地跟随刚体的运动。通常，这个值在0到1之间。默认值为 `1`。
-
-#### Inherited from
-
-SoftbodyBase.influence
-
-#### Defined in
-
-[packages/physics/softbody/SoftbodyBase.ts:37](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/SoftbodyBase.ts#L37)
-
-___
-
-### disableCollision
-
-• **disableCollision**: `boolean` = `false`
-
-是否禁用与锚定刚体之间的碰撞，默认值为 `false`。
-
-#### Inherited from
-
-SoftbodyBase.disableCollision
-
-#### Defined in
-
-[packages/physics/softbody/SoftbodyBase.ts:42](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/SoftbodyBase.ts#L42)
-
-___
-
 ### object3D
 
-• **object3D**: `Object3D` = `null`
+> **object3D**: `Object3D` = `null`
+
+Defined in: [src/components/ComponentBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L29)
 
 owner object3D
 
 #### Inherited from
 
-SoftbodyBase.object3D
+`SoftbodyBase.object3D`
 
-#### Defined in
-
-[src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
-
-___
+***
 
 ### isDestroyed
 
-• `Optional` **isDestroyed**: `boolean`
+> **isDestroyed**: `boolean` = `false`
+
+Defined in: [src/components/ComponentBase.ts:77](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L77)
 
 #### Inherited from
 
-SoftbodyBase.isDestroyed
+`SoftbodyBase.isDestroyed`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
+### fixeds
+
+> **fixeds**: `number` = `0`
+
+Defined in: [packages/physics/softbody/RopeSoftbody.ts:13](https://github.com/orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L13)
+
+Fix options for the two ends of the rope. Default is `0`.
+
+`0`: neither end fixed, `1`: head fixed, `2`: tail fixed, `3`: both ends fixed.
+
+***
+
+### fixNodeIndices
+
+> **fixNodeIndices**: `number`[] = `[]`
+
+Defined in: [packages/physics/softbody/RopeSoftbody.ts:18](https://github.com/orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L18)
+
+Indices of fixed nodes. Serves the same purpose as `fixeds`, but allows arbitrary nodes to be pinned individually.
+
+***
+
+### elasticity
+
+> **elasticity**: `number` = `0.5`
+
+Defined in: [packages/physics/softbody/RopeSoftbody.ts:23](https://github.com/orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L23)
+
+Rope elasticity. Larger values mean less elasticity. Typically in the range 0 to 1. Default is `0.5`.
+
+***
+
+### anchorRigidbodyHead
+
+> **anchorRigidbodyHead**: [`Rigidbody`](Rigidbody.md)
+
+Defined in: [packages/physics/softbody/RopeSoftbody.ts:28](https://github.com/orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L28)
+
+Rigid body anchored at the head of the rope. When set, the head of the rope is placed at the rigid body's position.
+
+***
+
+### anchorRigidbodyTail
+
+> **anchorRigidbodyTail**: [`Rigidbody`](Rigidbody.md)
+
+Defined in: [packages/physics/softbody/RopeSoftbody.ts:33](https://github.com/orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L33)
+
+Rigid body anchored at the tail of the rope. When set, the tail of the rope is placed at the rigid body's position.
+
+***
+
+### anchorOffsetHead
+
+> **anchorOffsetHead**: `Vector3`
+
+Defined in: [packages/physics/softbody/RopeSoftbody.ts:38](https://github.com/orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L38)
+
+Anchor offset for the head, representing the relative position between the head and its anchored rigid body.
+
+***
+
+### anchorOffsetTail
+
+> **anchorOffsetTail**: `Vector3`
+
+Defined in: [packages/physics/softbody/RopeSoftbody.ts:43](https://github.com/orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L43)
+
+Anchor offset for the tail, representing the relative position between the tail and its anchored rigid body.
+
+***
+
+### mass
+
+> **mass**: `number` = `1`
+
+Defined in: [packages/physics/softbody/SoftbodyBase.ts:17](https://github.com/orillusion/orillusion/blob/main/packages/physics/softbody/SoftbodyBase.ts#L17)
+
+Total mass of the soft body. Default value is `1`
+
+#### Inherited from
+
+`SoftbodyBase.mass`
+
+***
+
+### margin
+
+> **margin**: `number` = `0.15`
+
+Defined in: [packages/physics/softbody/SoftbodyBase.ts:22](https://github.com/orillusion/orillusion/blob/main/packages/physics/softbody/SoftbodyBase.ts#L22)
+
+Collision margin. Default value is `0.15`
+
+#### Inherited from
+
+`SoftbodyBase.margin`
+
+***
+
+### group
+
+> **group**: `number` = `1`
+
+Defined in: [packages/physics/softbody/SoftbodyBase.ts:27](https://github.com/orillusion/orillusion/blob/main/packages/physics/softbody/SoftbodyBase.ts#L27)
+
+Collision group. Default value is `1`
+
+#### Inherited from
+
+`SoftbodyBase.group`
+
+***
+
+### mask
+
+> **mask**: `number` = `-1`
+
+Defined in: [packages/physics/softbody/SoftbodyBase.ts:32](https://github.com/orillusion/orillusion/blob/main/packages/physics/softbody/SoftbodyBase.ts#L32)
+
+Collision mask. Default value is `-1`
+
+#### Inherited from
+
+`SoftbodyBase.mask`
+
+***
+
+### influence
+
+> **influence**: `number` = `1`
+
+Defined in: [packages/physics/softbody/SoftbodyBase.ts:37](https://github.com/orillusion/orillusion/blob/main/packages/physics/softbody/SoftbodyBase.ts#L37)
+
+Anchor influence. The higher the influence, the more closely the soft body node follows the rigid body's motion. Typically this value is between 0 and 1. Default value is `1`.
+
+#### Inherited from
+
+`SoftbodyBase.influence`
+
+***
+
+### disableCollision
+
+> **disableCollision**: `boolean` = `false`
+
+Defined in: [packages/physics/softbody/SoftbodyBase.ts:42](https://github.com/orillusion/orillusion/blob/main/packages/physics/softbody/SoftbodyBase.ts#L42)
+
+Whether to disable collisions with the anchored rigid body. Default value is `false`.
+
+#### Inherited from
+
+`SoftbodyBase.disableCollision`
 
 ## Accessors
 
-### activationState
+### visibleLayer
 
-• `set` **activationState**(`value`): `void`
+#### Get Signature
 
-设置软体激活状态。
+> **get** **visibleLayer**(): `number`
 
-#### Parameters
+Defined in: [src/components/ComponentBase.ts:46](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L46)
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`ActivationState`](../enums/ActivationState.md) |
+Composition-layer membership bitmask. The pass / camera /
+collector filters via
 
-#### Returns
+    (component.visibleLayer & pass.layerMask & camera.cullingMask) !== 0
+
+Defaults to VisibleLayer.Default (bit 0) so a fresh
+subclass is visible to passes whose `layerMask` is
+VisibleLayer.All (which includes bit 0). Application code
+can assign project-specific bits (1..31) to organise the scene
+into composition layers.
+
+##### Returns
+
+`number`
+
+#### Set Signature
+
+> **set** **visibleLayer**(`value`): `void`
+
+Defined in: [src/components/ComponentBase.ts:50](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L50)
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-SoftbodyBase.activationState
+`SoftbodyBase.visibleLayer`
 
-#### Defined in
-
-[packages/physics/softbody/SoftbodyBase.ts:47](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/SoftbodyBase.ts#L47)
-
-___
-
-### btBodyInited
-
-• `get` **btBodyInited**(): `boolean`
-
-#### Returns
-
-`boolean`
-
-#### Inherited from
-
-SoftbodyBase.btBodyInited
-
-#### Defined in
-
-[packages/physics/softbody/SoftbodyBase.ts:51](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/SoftbodyBase.ts#L51)
-
-___
-
-### btSoftBody
-
-• `get` **btSoftBody**(): [`btSoftBody`](Ammo.btSoftBody.md)
-
-#### Returns
-
-[`btSoftBody`](Ammo.btSoftBody.md)
-
-#### Inherited from
-
-SoftbodyBase.btSoftBody
-
-#### Defined in
-
-[packages/physics/softbody/SoftbodyBase.ts:55](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/SoftbodyBase.ts#L55)
-
-___
+***
 
 ### eventDispatcher
 
-• `get` **eventDispatcher**(): `CEventDispatcher`
+#### Get Signature
 
-#### Returns
+> **get** **eventDispatcher**(): `CEventDispatcher`
+
+Defined in: [src/components/ComponentBase.ts:63](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L63)
+
+##### Returns
 
 `CEventDispatcher`
 
-#### Inherited from
+#### Set Signature
 
-SoftbodyBase.eventDispatcher
+> **set** **eventDispatcher**(`value`): `void`
 
-#### Defined in
+Defined in: [src/components/ComponentBase.ts:68](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
 
-[src/components/ComponentBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L23)
+##### Parameters
 
-• `set` **eventDispatcher**(`value`): `void`
+###### value
 
-#### Parameters
+`CEventDispatcher`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `CEventDispatcher` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-SoftbodyBase.eventDispatcher
+`SoftbodyBase.eventDispatcher`
 
-#### Defined in
-
-[src/components/ComponentBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L28)
-
-___
+***
 
 ### isStart
 
-• `get` **isStart**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **isStart**(): `boolean`
+
+Defined in: [src/components/ComponentBase.ts:79](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L79)
+
+##### Returns
 
 `boolean`
 
 #### Inherited from
 
-SoftbodyBase.isStart
+`SoftbodyBase.isStart`
 
-#### Defined in
-
-[src/components/ComponentBase.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L40)
-
-___
+***
 
 ### transform
 
-• `get` **transform**(): `Transform`
+#### Get Signature
+
+> **get** **transform**(): `Transform`
+
+Defined in: [src/components/ComponentBase.ts:89](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L89)
 
 Return the Transform component attached to the Object3D.
+Null before the component is attached — `addComponent` assigns
+`object3D` only after construction — so constructor-time callers
+can probe safely via `this.transform?.`.
 
-#### Returns
+##### Returns
 
 `Transform`
 
 #### Inherited from
 
-SoftbodyBase.transform
+`SoftbodyBase.transform`
 
-#### Defined in
-
-[src/components/ComponentBase.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L47)
-
-___
+***
 
 ### enable
 
-• `get` **enable**(): `boolean`
+#### Get Signature
+
+> **get** **enable**(): `boolean`
+
+Defined in: [src/components/ComponentBase.ts:113](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
-#### Returns
+##### Returns
 
 `boolean`
 
-#### Inherited from
+#### Set Signature
 
-SoftbodyBase.enable
+> **set** **enable**(`value`): `void`
 
-#### Defined in
-
-[src/components/ComponentBase.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
-
-• `set` **enable**(`value`): `void`
+Defined in: [src/components/ComponentBase.ts:96](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L96)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
+###### value
 
-#### Returns
+`boolean`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-SoftbodyBase.enable
+`SoftbodyBase.enable`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L54)
+### activationState
+
+#### Set Signature
+
+> **set** **activationState**(`value`): `void`
+
+Defined in: [packages/physics/softbody/SoftbodyBase.ts:47](https://github.com/orillusion/orillusion/blob/main/packages/physics/softbody/SoftbodyBase.ts#L47)
+
+Set the soft body activation state.
+
+##### Parameters
+
+###### value
+
+[`ActivationState`](../enumerations/ActivationState.md)
+
+##### Returns
+
+`void`
+
+#### Inherited from
+
+`SoftbodyBase.activationState`
+
+***
+
+### btBodyInited
+
+#### Get Signature
+
+> **get** **btBodyInited**(): `boolean`
+
+Defined in: [packages/physics/softbody/SoftbodyBase.ts:51](https://github.com/orillusion/orillusion/blob/main/packages/physics/softbody/SoftbodyBase.ts#L51)
+
+##### Returns
+
+`boolean`
+
+#### Inherited from
+
+`SoftbodyBase.btBodyInited`
+
+***
+
+### btSoftBody
+
+#### Get Signature
+
+> **get** **btSoftBody**(): [`btSoftBody`](../@orillusion/namespaces/Ammo/classes/btSoftBody.md)
+
+Defined in: [packages/physics/softbody/SoftbodyBase.ts:55](https://github.com/orillusion/orillusion/blob/main/packages/physics/softbody/SoftbodyBase.ts#L55)
+
+##### Returns
+
+[`btSoftBody`](../@orillusion/namespaces/Ammo/classes/btSoftBody.md)
+
+#### Inherited from
+
+`SoftbodyBase.btSoftBody`
 
 ## Methods
 
-### buildRopeGeometry
+### buildRopeGeometry()
 
-▸ **buildRopeGeometry**(`segmentCount`, `startPos`, `endPos`): `GeometryBase`
+> `static` **buildRopeGeometry**(`segmentCount`, `startPos`, `endPos`): `GeometryBase`
 
-构建绳索（线条）几何体，注意添加材质时需要将拓扑结构 `topology` 设置为 `'line-list'`。
+Defined in: [packages/physics/softbody/RopeSoftbody.ts:163](https://github.com/orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L163)
+
+Build a rope (line) geometry. Note: when attaching a material, the `topology` must be set to `'line-list'`.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `segmentCount` | `number` | 分段数 |
-| `startPos` | `Vector3` | 起点 |
-| `endPos` | `Vector3` | 终点 |
+##### segmentCount
+
+`number`
+
+Number of segments
+
+##### startPos
+
+`Vector3`
+
+Start position
+
+##### endPos
+
+`Vector3`
+
+End position
 
 #### Returns
 
@@ -493,119 +462,13 @@ SoftbodyBase.enable
 
 GeometryBase
 
-#### Defined in
+***
 
-[packages/physics/softbody/RopeSoftbody.ts:163](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L163)
+### stop()
 
-___
+> **stop**(): `void`
 
-### start
-
-▸ **start**(): `Promise`\<`void`\>
-
-#### Returns
-
-`Promise`\<`void`\>
-
-#### Overrides
-
-SoftbodyBase.start
-
-#### Defined in
-
-[packages/physics/softbody/RopeSoftbody.ts:48](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L48)
-
-___
-
-### setElasticity
-
-▸ **setElasticity**(`value`): `void`
-
-set rope elasticity to 0~1
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/physics/softbody/RopeSoftbody.ts:110](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L110)
-
-___
-
-### clearAnchors
-
-▸ **clearAnchors**(`isPopBack?`): `void`
-
-清除锚点，软体将会从附加的刚体上脱落
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `isPopBack?` | `boolean` | 是否只删除一个锚点，当存在首尾两个锚点时，删除终点的锚点。 |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/physics/softbody/RopeSoftbody.ts:123](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L123)
-
-___
-
-### onUpdate
-
-▸ **onUpdate**(): `void`
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-SoftbodyBase.onUpdate
-
-#### Defined in
-
-[packages/physics/softbody/RopeSoftbody.ts:131](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L131)
-
-___
-
-### destroy
-
-▸ **destroy**(`force?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-SoftbodyBase.destroy
-
-#### Defined in
-
-[packages/physics/softbody/RopeSoftbody.ts:150](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L150)
-
-___
-
-### init
-
-▸ **init**(): `void`
+Defined in: [src/components/ComponentBase.ts:163](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L163)
 
 #### Returns
 
@@ -613,142 +476,21 @@ ___
 
 #### Inherited from
 
-SoftbodyBase.init
+`SoftbodyBase.stop`
 
-#### Defined in
+***
 
-[packages/physics/softbody/SoftbodyBase.ts:59](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/SoftbodyBase.ts#L59)
+### onEnable()?
 
-___
+> `optional` **onEnable**(`view?`): `any`
 
-### wait
-
-▸ **wait**(): `Promise`\<[`btSoftBody`](Ammo.btSoftBody.md)\>
-
-Asynchronously retrieves the fully initialized soft body instance.
-
-#### Returns
-
-`Promise`\<[`btSoftBody`](Ammo.btSoftBody.md)\>
-
-#### Inherited from
-
-SoftbodyBase.wait
-
-#### Defined in
-
-[packages/physics/softbody/SoftbodyBase.ts:95](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/SoftbodyBase.ts#L95)
-
-___
-
-### appendAnchor
-
-▸ **appendAnchor**(`nodeIndex`, `targetRigidbody`, `disCollision?`, `influence?`): `void`
-
-Wraps the native soft body's `appendAnchor` method to anchor a node to a rigid body.
+Defined in: [src/components/ComponentBase.ts:164](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L164)
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `nodeIndex` | `number` | Index of the node to anchor. |
-| `targetRigidbody` | [`Rigidbody`](Rigidbody.md) | The rigid body to anchor to. |
-| `disCollision?` | `boolean` | Optional. Disable collisions if true. |
-| `influence?` | `number` | Optional. Anchor's influence. |
+##### view?
 
-#### Returns
-
-`void`
-
-#### Inherited from
-
-SoftbodyBase.appendAnchor
-
-#### Defined in
-
-[packages/physics/softbody/SoftbodyBase.ts:107](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/SoftbodyBase.ts#L107)
-
-___
-
-### applyFixedNodes
-
-▸ **applyFixedNodes**(`fixedNodeIndices`): `void`
-
-固定软体节点。
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `fixedNodeIndices` | `number`[] | 需要固定的节点索引。 |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-SoftbodyBase.applyFixedNodes
-
-#### Defined in
-
-[packages/physics/softbody/SoftbodyBase.ts:121](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/SoftbodyBase.ts#L121)
-
-___
-
-### clearFixedNodes
-
-▸ **clearFixedNodes**(`index?`): `void`
-
-清除固定节点
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `index?` | `number` | 需要清除的节点索引，如果未提供，则清除所有节点。 |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-SoftbodyBase.clearFixedNodes
-
-#### Defined in
-
-[packages/physics/softbody/SoftbodyBase.ts:140](https://github.com/Orillusion/orillusion/blob/main/packages/physics/softbody/SoftbodyBase.ts#L140)
-
-___
-
-### stop
-
-▸ **stop**(): `void`
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-SoftbodyBase.stop
-
-#### Defined in
-
-[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
-
-___
-
-### onEnable
-
-▸ **onEnable**(`view?`): `any`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
+`View3D`
 
 #### Returns
 
@@ -756,23 +498,21 @@ ___
 
 #### Inherited from
 
-SoftbodyBase.onEnable
+`SoftbodyBase.onEnable`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L115)
+### onDisable()?
 
-___
+> `optional` **onDisable**(`view?`): `any`
 
-### onDisable
-
-▸ **onDisable**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:165](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L165)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
+##### view?
+
+`View3D`
 
 #### Returns
 
@@ -780,23 +520,21 @@ ___
 
 #### Inherited from
 
-SoftbodyBase.onDisable
+`SoftbodyBase.onDisable`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L116)
+### onLateUpdate()?
 
-___
+> `optional` **onLateUpdate**(`view?`): `any`
 
-### onLateUpdate
-
-▸ **onLateUpdate**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:167](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L167)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
+##### view?
+
+`View3D`
 
 #### Returns
 
@@ -804,23 +542,21 @@ ___
 
 #### Inherited from
 
-SoftbodyBase.onLateUpdate
+`SoftbodyBase.onLateUpdate`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L118)
+### onBeforeUpdate()?
 
-___
+> `optional` **onBeforeUpdate**(`view?`): `any`
 
-### onBeforeUpdate
-
-▸ **onBeforeUpdate**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:168](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L168)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
+##### view?
+
+`View3D`
 
 #### Returns
 
@@ -828,24 +564,25 @@ ___
 
 #### Inherited from
 
-SoftbodyBase.onBeforeUpdate
+`SoftbodyBase.onBeforeUpdate`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L119)
+### onCompute()?
 
-___
+> `optional` **onCompute**(`view?`, `command?`): `any`
 
-### onCompute
-
-▸ **onCompute**(`view?`, `command?`): `any`
+Defined in: [src/components/ComponentBase.ts:169](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L169)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
-| `command?` | `GPUCommandEncoder` |
+##### view?
+
+`View3D`
+
+##### command?
+
+`GPUCommandEncoder`
 
 #### Returns
 
@@ -853,23 +590,21 @@ ___
 
 #### Inherited from
 
-SoftbodyBase.onCompute
+`SoftbodyBase.onCompute`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L120)
+### onGraphic()?
 
-___
+> `optional` **onGraphic**(`view?`): `any`
 
-### onGraphic
-
-▸ **onGraphic**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:170](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L170)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `View3D` |
+##### view?
+
+`View3D`
 
 #### Returns
 
@@ -877,24 +612,25 @@ ___
 
 #### Inherited from
 
-SoftbodyBase.onGraphic
+`SoftbodyBase.onGraphic`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L121)
+### onParentChange()?
 
-___
+> `optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
-### onParentChange
-
-▸ **onParentChange**(`lastParent?`, `currentParent?`): `any`
+Defined in: [src/components/ComponentBase.ts:171](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L171)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `lastParent?` | `Object3D` |
-| `currentParent?` | `Object3D` |
+##### lastParent?
+
+`Object3D`
+
+##### currentParent?
+
+`Object3D`
 
 #### Returns
 
@@ -902,23 +638,21 @@ ___
 
 #### Inherited from
 
-SoftbodyBase.onParentChange
+`SoftbodyBase.onParentChange`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L122)
+### onAddChild()?
 
-___
+> `optional` **onAddChild**(`child`): `any`
 
-### onAddChild
-
-▸ **onAddChild**(`child`): `any`
+Defined in: [src/components/ComponentBase.ts:172](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L172)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `child` | `Object3D` |
+##### child
+
+`Object3D`
 
 #### Returns
 
@@ -926,23 +660,21 @@ ___
 
 #### Inherited from
 
-SoftbodyBase.onAddChild
+`SoftbodyBase.onAddChild`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L123)
+### onRemoveChild()?
 
-___
+> `optional` **onRemoveChild**(`child`): `any`
 
-### onRemoveChild
-
-▸ **onRemoveChild**(`child`): `any`
+Defined in: [src/components/ComponentBase.ts:173](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L173)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `child` | `Object3D` |
+##### child
+
+`Object3D`
 
 #### Returns
 
@@ -950,25 +682,25 @@ ___
 
 #### Inherited from
 
-SoftbodyBase.onRemoveChild
+`SoftbodyBase.onRemoveChild`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L124)
+### cloneTo()
 
-___
+> **cloneTo**(`obj`): `void`
 
-### cloneTo
-
-▸ **cloneTo**(`obj`): `void`
+Defined in: [src/components/ComponentBase.ts:180](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L180)
 
 clone component data to target object3D
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `obj` | `Object3D` | target object3D |
+##### obj
+
+`Object3D`
+
+target object3D
 
 #### Returns
 
@@ -976,23 +708,21 @@ clone component data to target object3D
 
 #### Inherited from
 
-SoftbodyBase.cloneTo
+`SoftbodyBase.cloneTo`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L131)
+### copyComponent()
 
-___
+> **copyComponent**(`from`): `this`
 
-### copyComponent
-
-▸ **copyComponent**(`from`): `this`
+Defined in: [src/components/ComponentBase.ts:182](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L182)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `from` | `this` |
+##### from
+
+`this`
 
 #### Returns
 
@@ -1000,25 +730,23 @@ ___
 
 #### Inherited from
 
-SoftbodyBase.copyComponent
+`SoftbodyBase.copyComponent`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L133)
+### beforeDestroy()
 
-___
+> **beforeDestroy**(`force?`): `void`
 
-### beforeDestroy
-
-▸ **beforeDestroy**(`force?`): `void`
+Defined in: [src/components/ComponentBase.ts:249](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L249)
 
 before release this component, object refrences are not be set null now.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
+##### force?
+
+`boolean`
 
 #### Returns
 
@@ -1026,8 +754,230 @@ before release this component, object refrences are not be set null now.
 
 #### Inherited from
 
-SoftbodyBase.beforeDestroy
+`SoftbodyBase.beforeDestroy`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L200)
+### start()
+
+> **start**(): `Promise`\<`void`\>
+
+Defined in: [packages/physics/softbody/RopeSoftbody.ts:48](https://github.com/orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L48)
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Overrides
+
+`SoftbodyBase.start`
+
+***
+
+### setElasticity()
+
+> **setElasticity**(`value`): `void`
+
+Defined in: [packages/physics/softbody/RopeSoftbody.ts:110](https://github.com/orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L110)
+
+set rope elasticity to 0~1
+
+#### Parameters
+
+##### value
+
+`number`
+
+#### Returns
+
+`void`
+
+***
+
+### clearAnchors()
+
+> **clearAnchors**(`isPopBack?`): `void`
+
+Defined in: [packages/physics/softbody/RopeSoftbody.ts:123](https://github.com/orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L123)
+
+Clear anchors. The soft body will detach from the rigid bodies it was attached to.
+
+#### Parameters
+
+##### isPopBack?
+
+`boolean`
+
+If true, removes only one anchor. When both head and tail anchors exist, the tail anchor is removed.
+
+#### Returns
+
+`void`
+
+***
+
+### onUpdate()
+
+> **onUpdate**(): `void`
+
+Defined in: [packages/physics/softbody/RopeSoftbody.ts:131](https://github.com/orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L131)
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+`SoftbodyBase.onUpdate`
+
+***
+
+### destroy()
+
+> **destroy**(`force?`): `void`
+
+Defined in: [packages/physics/softbody/RopeSoftbody.ts:150](https://github.com/orillusion/orillusion/blob/main/packages/physics/softbody/RopeSoftbody.ts#L150)
+
+#### Parameters
+
+##### force?
+
+`boolean`
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+`SoftbodyBase.destroy`
+
+***
+
+### init()
+
+> **init**(): `void`
+
+Defined in: [packages/physics/softbody/SoftbodyBase.ts:59](https://github.com/orillusion/orillusion/blob/main/packages/physics/softbody/SoftbodyBase.ts#L59)
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`SoftbodyBase.init`
+
+***
+
+### wait()
+
+> **wait**(): `Promise`\<[`btSoftBody`](../@orillusion/namespaces/Ammo/classes/btSoftBody.md)\>
+
+Defined in: [packages/physics/softbody/SoftbodyBase.ts:95](https://github.com/orillusion/orillusion/blob/main/packages/physics/softbody/SoftbodyBase.ts#L95)
+
+Asynchronously retrieves the fully initialized soft body instance.
+
+#### Returns
+
+`Promise`\<[`btSoftBody`](../@orillusion/namespaces/Ammo/classes/btSoftBody.md)\>
+
+#### Inherited from
+
+`SoftbodyBase.wait`
+
+***
+
+### appendAnchor()
+
+> **appendAnchor**(`nodeIndex`, `targetRigidbody`, `disCollision?`, `influence?`): `void`
+
+Defined in: [packages/physics/softbody/SoftbodyBase.ts:107](https://github.com/orillusion/orillusion/blob/main/packages/physics/softbody/SoftbodyBase.ts#L107)
+
+Wraps the native soft body's `appendAnchor` method to anchor a node to a rigid body.
+
+#### Parameters
+
+##### nodeIndex
+
+`number`
+
+Index of the node to anchor.
+
+##### targetRigidbody
+
+[`Rigidbody`](Rigidbody.md)
+
+The rigid body to anchor to.
+
+##### disCollision?
+
+`boolean`
+
+Optional. Disable collisions if true.
+
+##### influence?
+
+`number`
+
+Optional. Anchor's influence.
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`SoftbodyBase.appendAnchor`
+
+***
+
+### applyFixedNodes()
+
+> **applyFixedNodes**(`fixedNodeIndices`): `void`
+
+Defined in: [packages/physics/softbody/SoftbodyBase.ts:121](https://github.com/orillusion/orillusion/blob/main/packages/physics/softbody/SoftbodyBase.ts#L121)
+
+Fix soft body nodes.
+
+#### Parameters
+
+##### fixedNodeIndices
+
+`number`[]
+
+Indices of the nodes to fix.
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`SoftbodyBase.applyFixedNodes`
+
+***
+
+### clearFixedNodes()
+
+> **clearFixedNodes**(`index?`): `void`
+
+Defined in: [packages/physics/softbody/SoftbodyBase.ts:140](https://github.com/orillusion/orillusion/blob/main/packages/physics/softbody/SoftbodyBase.ts#L140)
+
+Clear fixed nodes
+
+#### Parameters
+
+##### index?
+
+`number`
+
+Index of the node to clear. If not provided, clears all nodes.
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`SoftbodyBase.clearFixedNodes`
