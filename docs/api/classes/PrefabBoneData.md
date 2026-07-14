@@ -1,152 +1,115 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: PrefabBoneData
 
-### Constructors
-
-- [constructor](PrefabBoneData.md#constructor)
-
-### Properties
-
-- [boneName](PrefabBoneData.md#bonename)
-- [bonePath](PrefabBoneData.md#bonepath)
-- [parentBoneName](PrefabBoneData.md#parentbonename)
-- [boneID](PrefabBoneData.md#boneid)
-- [parentBoneID](PrefabBoneData.md#parentboneid)
-- [instanceID](PrefabBoneData.md#instanceid)
-- [parentInstanceID](PrefabBoneData.md#parentinstanceid)
-- [t](PrefabBoneData.md#t)
-- [q](PrefabBoneData.md#q)
-- [s](PrefabBoneData.md#s)
-
-### Methods
-
-- [formBytes](PrefabBoneData.md#formbytes)
+Defined in: [src/loader/parser/prefab/prefabData/PrefabBoneData.ts:5](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabBoneData.ts#L5)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new PrefabBoneData**(): [`PrefabBoneData`](PrefabBoneData.md)
+> **new PrefabBoneData**(): `PrefabBoneData`
 
 #### Returns
 
-[`PrefabBoneData`](PrefabBoneData.md)
+`PrefabBoneData`
 
 ## Properties
 
 ### boneName
 
-• **boneName**: `string`
+> **boneName**: `string`
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/PrefabBoneData.ts:6](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabBoneData.ts#L6)
 
-[src/loader/parser/prefab/prefabData/PrefabBoneData.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabBoneData.ts#L6)
-
-___
+***
 
 ### bonePath
 
-• **bonePath**: `string`
+> **bonePath**: `string`
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/PrefabBoneData.ts:7](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabBoneData.ts#L7)
 
-[src/loader/parser/prefab/prefabData/PrefabBoneData.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabBoneData.ts#L7)
-
-___
+***
 
 ### parentBoneName
 
-• **parentBoneName**: `string`
+> **parentBoneName**: `string`
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/PrefabBoneData.ts:8](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabBoneData.ts#L8)
 
-[src/loader/parser/prefab/prefabData/PrefabBoneData.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabBoneData.ts#L8)
-
-___
+***
 
 ### boneID
 
-• **boneID**: `number`
+> **boneID**: `number`
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/PrefabBoneData.ts:9](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabBoneData.ts#L9)
 
-[src/loader/parser/prefab/prefabData/PrefabBoneData.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabBoneData.ts#L9)
-
-___
+***
 
 ### parentBoneID
 
-• **parentBoneID**: `number`
+> **parentBoneID**: `number`
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/PrefabBoneData.ts:10](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabBoneData.ts#L10)
 
-[src/loader/parser/prefab/prefabData/PrefabBoneData.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabBoneData.ts#L10)
-
-___
+***
 
 ### instanceID
 
-• **instanceID**: `string`
+> **instanceID**: `string`
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/PrefabBoneData.ts:11](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabBoneData.ts#L11)
 
-[src/loader/parser/prefab/prefabData/PrefabBoneData.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabBoneData.ts#L11)
-
-___
+***
 
 ### parentInstanceID
 
-• **parentInstanceID**: `string`
+> **parentInstanceID**: `string`
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/PrefabBoneData.ts:12](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabBoneData.ts#L12)
 
-[src/loader/parser/prefab/prefabData/PrefabBoneData.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabBoneData.ts#L12)
-
-___
+***
 
 ### t
 
-• **t**: [`Vector3`](Vector3.md)
+> **t**: [`Vector3`](Vector3.md)
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/PrefabBoneData.ts:13](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabBoneData.ts#L13)
 
-[src/loader/parser/prefab/prefabData/PrefabBoneData.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabBoneData.ts#L13)
-
-___
+***
 
 ### q
 
-• **q**: [`Quaternion`](Quaternion.md)
+> **q**: [`Quaternion`](Quaternion.md)
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/PrefabBoneData.ts:14](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabBoneData.ts#L14)
 
-[src/loader/parser/prefab/prefabData/PrefabBoneData.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabBoneData.ts#L14)
-
-___
+***
 
 ### s
 
-• **s**: [`Vector3`](Vector3.md)
+> **s**: [`Vector3`](Vector3.md)
 
-#### Defined in
-
-[src/loader/parser/prefab/prefabData/PrefabBoneData.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabBoneData.ts#L15)
+Defined in: [src/loader/parser/prefab/prefabData/PrefabBoneData.ts:15](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabBoneData.ts#L15)
 
 ## Methods
 
-### formBytes
+### formBytes()
 
-▸ **formBytes**(`bytes`): `void`
+> **formBytes**(`bytes`): `void`
+
+Defined in: [src/loader/parser/prefab/prefabData/PrefabBoneData.ts:17](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabBoneData.ts#L17)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `bytes` | `BytesArray` |
+##### bytes
+
+`BytesArray`
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[src/loader/parser/prefab/prefabData/PrefabBoneData.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabBoneData.ts#L17)

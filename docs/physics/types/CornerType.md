@@ -2,7 +2,7 @@
 
 Ƭ **CornerType**: ``"leftTop"`` \| ``"rightTop"`` \| ``"leftBottom"`` \| ``"rightBottom"`` \| ``"left"`` \| ``"right"`` \| ``"top"`` \| ``"bottom"`` \| ``"center"``
 
-The corners of a soft body cloth plane
+The corners of the soft-body cloth plane
 
 #### Defined in
 

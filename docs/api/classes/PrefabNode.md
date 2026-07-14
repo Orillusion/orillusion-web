@@ -1,119 +1,91 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: PrefabNode
 
-### Constructors
-
-- [constructor](PrefabNode.md#constructor)
-
-### Properties
-
-- [name](PrefabNode.md#name)
-- [parentName](PrefabNode.md#parentname)
-- [position](PrefabNode.md#position)
-- [rotation](PrefabNode.md#rotation)
-- [scale](PrefabNode.md#scale)
-- [comDatas](PrefabNode.md#comdatas)
-- [child](PrefabNode.md#child)
-
-### Methods
-
-- [parser](PrefabNode.md#parser)
+Defined in: [src/loader/parser/prefab/prefabData/PrefabNode.ts:27](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabNode.ts#L27)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new PrefabNode**(): [`PrefabNode`](PrefabNode.md)
+> **new PrefabNode**(): `PrefabNode`
 
 #### Returns
 
-[`PrefabNode`](PrefabNode.md)
+`PrefabNode`
 
 ## Properties
 
 ### name
 
-• **name**: `string`
+> **name**: `string`
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/PrefabNode.ts:28](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabNode.ts#L28)
 
-[src/loader/parser/prefab/prefabData/PrefabNode.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabNode.ts#L28)
-
-___
+***
 
 ### parentName
 
-• **parentName**: `string`
+> **parentName**: `string`
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/PrefabNode.ts:30](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabNode.ts#L30)
 
-[src/loader/parser/prefab/prefabData/PrefabNode.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabNode.ts#L30)
-
-___
+***
 
 ### position
 
-• **position**: [`Vector3`](Vector3.md)
+> **position**: [`Vector3`](Vector3.md)
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/PrefabNode.ts:32](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabNode.ts#L32)
 
-[src/loader/parser/prefab/prefabData/PrefabNode.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabNode.ts#L32)
-
-___
+***
 
 ### rotation
 
-• **rotation**: [`Quaternion`](Quaternion.md)
+> **rotation**: [`Quaternion`](Quaternion.md)
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/PrefabNode.ts:34](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabNode.ts#L34)
 
-[src/loader/parser/prefab/prefabData/PrefabNode.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabNode.ts#L34)
-
-___
+***
 
 ### scale
 
-• **scale**: [`Vector3`](Vector3.md)
+> **scale**: [`Vector3`](Vector3.md)
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/PrefabNode.ts:36](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabNode.ts#L36)
 
-[src/loader/parser/prefab/prefabData/PrefabNode.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabNode.ts#L36)
-
-___
+***
 
 ### comDatas
 
-• **comDatas**: [`ComData`](ComData.md)[]
+> **comDatas**: [`ComData`](ComData.md)[]
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/PrefabNode.ts:38](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabNode.ts#L38)
 
-[src/loader/parser/prefab/prefabData/PrefabNode.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabNode.ts#L38)
-
-___
+***
 
 ### child
 
-• **child**: [`PrefabNode`](PrefabNode.md)[]
+> **child**: `PrefabNode`[]
 
-#### Defined in
-
-[src/loader/parser/prefab/prefabData/PrefabNode.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabNode.ts#L40)
+Defined in: [src/loader/parser/prefab/prefabData/PrefabNode.ts:40](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabNode.ts#L40)
 
 ## Methods
 
-### parser
+### parser()
 
-▸ **parser**(`bytesArray`): [`PrefabNode`](PrefabNode.md)
+> `static` **parser**(`bytesArray`): `PrefabNode`
+
+Defined in: [src/loader/parser/prefab/prefabData/PrefabNode.ts:42](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabNode.ts#L42)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `bytesArray` | `BytesArray` |
+##### bytesArray
+
+`BytesArray`
 
 #### Returns
 
-[`PrefabNode`](PrefabNode.md)
-
-#### Defined in
-
-[src/loader/parser/prefab/prefabData/PrefabNode.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabNode.ts#L42)
+`PrefabNode`

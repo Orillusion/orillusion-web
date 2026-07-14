@@ -1,333 +1,207 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: Navi3DPointFat
+
+Defined in: [src/math/navigation/Navi3DPointFat.ts:4](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DPointFat.ts#L4)
 
 Vector 3D
 
-## Hierarchy
+## Extends
 
 - [`Navi3DPoint`](Navi3DPoint.md)
 
-  ↳ **`Navi3DPointFat`**
-
-### Constructors
-
-- [constructor](Navi3DPointFat.md#constructor)
-
-### Properties
-
-- [MAX](Navi3DPointFat.md#max)
-- [MIN](Navi3DPointFat.md#min)
-- [SAFE\_MAX](Navi3DPointFat.md#safe_max)
-- [SAFE\_MIN](Navi3DPointFat.md#safe_min)
-- [X\_AXIS](Navi3DPointFat.md#x_axis)
-- [neg\_X\_AXIS](Navi3DPointFat.md#neg_x_axis)
-- [Y\_AXIS](Navi3DPointFat.md#y_axis)
-- [Z\_AXIS](Navi3DPointFat.md#z_axis)
-- [x](Navi3DPointFat.md#x)
-- [y](Navi3DPointFat.md#y)
-- [z](Navi3DPointFat.md#z)
-- [w](Navi3DPointFat.md#w)
-- [CALC\_VECTOR3D1](Navi3DPointFat.md#calc_vector3d1)
-- [CALC\_VECTOR3D2](Navi3DPointFat.md#calc_vector3d2)
-- [CALC\_VECTOR3D3](Navi3DPointFat.md#calc_vector3d3)
-- [CALC\_VECTOR3D4](Navi3DPointFat.md#calc_vector3d4)
-- [CALC\_VECTOR3D5](Navi3DPointFat.md#calc_vector3d5)
-- [radius](Navi3DPointFat.md#radius)
-
-### Accessors
-
-- [ZERO](Navi3DPointFat.md#zero)
-- [ONE](Navi3DPointFat.md#one)
-- [LEFT](Navi3DPointFat.md#left)
-- [RIGHT](Navi3DPointFat.md#right)
-- [UP](Navi3DPointFat.md#up)
-- [DOWN](Navi3DPointFat.md#down)
-- [BACK](Navi3DPointFat.md#back)
-- [FORWARD](Navi3DPointFat.md#forward)
-- [a](Navi3DPointFat.md#a)
-- [r](Navi3DPointFat.md#r)
-- [g](Navi3DPointFat.md#g)
-- [b](Navi3DPointFat.md#b)
-- [length](Navi3DPointFat.md#length)
-- [lengthSquared](Navi3DPointFat.md#lengthsquared)
-- [position](Navi3DPointFat.md#position)
-- [id](Navi3DPointFat.md#id)
-- [ownerPoint](Navi3DPointFat.md#ownerpoint)
-- [ownerEdge](Navi3DPointFat.md#owneredge)
-
-### Methods
-
-- [getTowPointbyDir](Navi3DPointFat.md#gettowpointbydir)
-- [pointToLine](Navi3DPointFat.md#pointtoline)
-- [dot](Navi3DPointFat.md#dot)
-- [getPoints](Navi3DPointFat.md#getpoints)
-- [getPointNumbers](Navi3DPointFat.md#getpointnumbers)
-- [getAngle](Navi3DPointFat.md#getangle)
-- [sqrMagnitude](Navi3DPointFat.md#sqrmagnitude)
-- [getZYAngle](Navi3DPointFat.md#getzyangle)
-- [sub](Navi3DPointFat.md#sub)
-- [add](Navi3DPointFat.md#add)
-- [distance](Navi3DPointFat.md#distance)
-- [squareDistance](Navi3DPointFat.md#squaredistance)
-- [distanceXZ](Navi3DPointFat.md#distancexz)
-- [set](Navi3DPointFat.md#set)
-- [add](Navi3DPointFat.md#add-1)
-- [subVectors](Navi3DPointFat.md#subvectors)
-- [addScalar](Navi3DPointFat.md#addscalar)
-- [subScalar](Navi3DPointFat.md#subscalar)
-- [min](Navi3DPointFat.md#min-1)
-- [max](Navi3DPointFat.md#max-1)
-- [distanceToSquared](Navi3DPointFat.md#distancetosquared)
-- [addXYZW](Navi3DPointFat.md#addxyzw)
-- [clone](Navi3DPointFat.md#clone)
-- [copyFrom](Navi3DPointFat.md#copyfrom)
-- [decrementBy](Navi3DPointFat.md#decrementby)
-- [dotProduct](Navi3DPointFat.md#dotproduct)
-- [equals](Navi3DPointFat.md#equals)
-- [incrementBy](Navi3DPointFat.md#incrementby)
-- [divide](Navi3DPointFat.md#divide)
-- [negate](Navi3DPointFat.md#negate)
-- [normalize](Navi3DPointFat.md#normalize)
-- [applyQuaternion](Navi3DPointFat.md#applyquaternion)
-- [applyMatrix4](Navi3DPointFat.md#applymatrix4)
-- [scaleBy](Navi3DPointFat.md#scaleby)
-- [mul](Navi3DPointFat.md#mul)
-- [scale](Navi3DPointFat.md#scale)
-- [scaleToRef](Navi3DPointFat.md#scaletoref)
-- [setTo](Navi3DPointFat.md#setto)
-- [copy](Navi3DPointFat.md#copy)
-- [subtract](Navi3DPointFat.md#subtract)
-- [multiply](Navi3DPointFat.md#multiply)
-- [divided](Navi3DPointFat.md#divided)
-- [div](Navi3DPointFat.md#div)
-- [lerp](Navi3DPointFat.md#lerp)
-- [clamp](Navi3DPointFat.md#clamp)
-- [toString](Navi3DPointFat.md#tostring)
-- [normalizeToWay2D\_XY](Navi3DPointFat.md#normalizetoway2d_xy)
-- [toArray](Navi3DPointFat.md#toarray)
-- [copyToBytes](Navi3DPointFat.md#copytobytes)
-- [crossProduct](Navi3DPointFat.md#crossproduct)
-- [crossVectors](Navi3DPointFat.md#crossvectors)
-- [multiplyScalar](Navi3DPointFat.md#multiplyscalar)
-- [setFromArray](Navi3DPointFat.md#setfromarray)
-- [divideScalar](Navi3DPointFat.md#dividescalar)
-- [clampLength](Navi3DPointFat.md#clamplength)
-- [setScalar](Navi3DPointFat.md#setscalar)
-- [addScaledVector](Navi3DPointFat.md#addscaledvector)
-- [pointInsideTriangle](Navi3DPointFat.md#pointinsidetriangle)
-- [serialize](Navi3DPointFat.md#serialize)
-- [equalPoint](Navi3DPointFat.md#equalpoint)
-- [calcDistance](Navi3DPointFat.md#calcdistance)
-- [scalePoint](Navi3DPointFat.md#scalepoint)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new Navi3DPointFat**(`_point`, `_edge`): [`Navi3DPointFat`](Navi3DPointFat.md)
+> **new Navi3DPointFat**(`_point`, `_edge`): `Navi3DPointFat`
+
+Defined in: [src/math/navigation/Navi3DPointFat.ts:11](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DPointFat.ts#L11)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `_point` | [`Navi3DPoint`](Navi3DPoint.md) |
-| `_edge` | [`Navi3DEdge`](Navi3DEdge.md) |
+##### \_point
+
+[`Navi3DPoint`](Navi3DPoint.md)
+
+##### \_edge
+
+[`Navi3DEdge`](Navi3DEdge.md)
 
 #### Returns
 
-[`Navi3DPointFat`](Navi3DPointFat.md)
+`Navi3DPointFat`
 
 #### Overrides
 
-[Navi3DPoint](Navi3DPoint.md).[constructor](Navi3DPoint.md#constructor)
-
-#### Defined in
-
-[src/math/navigation/Navi3DPointFat.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DPointFat.ts#L11)
+[`Navi3DPoint`](Navi3DPoint.md).[`constructor`](Navi3DPoint.md#constructor)
 
 ## Properties
 
 ### MAX
 
-▪ `Static` `Readonly` **MAX**: [`Vector3`](Vector3.md)
+> `readonly` `static` **MAX**: [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Vector3.ts:11](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L11)
 
 Vector maximum
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[MAX](Navi3DPoint.md#max)
+[`Navi3DPoint`](Navi3DPoint.md).[`MAX`](Navi3DPoint.md#max)
 
-#### Defined in
-
-[src/math/Vector3.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L11)
-
-___
+***
 
 ### MIN
 
-▪ `Static` `Readonly` **MIN**: [`Vector3`](Vector3.md)
+> `readonly` `static` **MIN**: [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Vector3.ts:16](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L16)
 
 Vector minimum
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[MIN](Navi3DPoint.md#min)
+[`Navi3DPoint`](Navi3DPoint.md).[`MIN`](Navi3DPoint.md#min)
 
-#### Defined in
-
-[src/math/Vector3.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L16)
-
-___
+***
 
 ### SAFE\_MAX
 
-▪ `Static` `Readonly` **SAFE\_MAX**: [`Vector3`](Vector3.md)
+> `readonly` `static` **SAFE\_MAX**: [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Vector3.ts:21](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L21)
 
 Vector maximum integer value
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[SAFE_MAX](Navi3DPoint.md#safe_max)
+[`Navi3DPoint`](Navi3DPoint.md).[`SAFE_MAX`](Navi3DPoint.md#safe_max)
 
-#### Defined in
-
-[src/math/Vector3.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L21)
-
-___
+***
 
 ### SAFE\_MIN
 
-▪ `Static` `Readonly` **SAFE\_MIN**: [`Vector3`](Vector3.md)
+> `readonly` `static` **SAFE\_MIN**: [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Vector3.ts:26](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L26)
 
 Vector minimum integer value
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[SAFE_MIN](Navi3DPoint.md#safe_min)
+[`Navi3DPoint`](Navi3DPoint.md).[`SAFE_MIN`](Navi3DPoint.md#safe_min)
 
-#### Defined in
-
-[src/math/Vector3.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L26)
-
-___
+***
 
 ### X\_AXIS
 
-▪ `Static` `Readonly` **X\_AXIS**: [`Vector3`](Vector3.md)
+> `readonly` `static` **X\_AXIS**: [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Vector3.ts:31](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L31)
 
 X axis positive axis coordinate (1, 0, 0).
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[X_AXIS](Navi3DPoint.md#x_axis)
+[`Navi3DPoint`](Navi3DPoint.md).[`X_AXIS`](Navi3DPoint.md#x_axis)
 
-#### Defined in
-
-[src/math/Vector3.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L31)
-
-___
+***
 
 ### neg\_X\_AXIS
 
-▪ `Static` `Readonly` **neg\_X\_AXIS**: [`Vector3`](Vector3.md)
+> `readonly` `static` **neg\_X\_AXIS**: [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Vector3.ts:36](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L36)
 
 The X-axis is negative (-1, 0, 0).
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[neg_X_AXIS](Navi3DPoint.md#neg_x_axis)
+[`Navi3DPoint`](Navi3DPoint.md).[`neg_X_AXIS`](Navi3DPoint.md#neg_x_axis)
 
-#### Defined in
-
-[src/math/Vector3.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L36)
-
-___
+***
 
 ### Y\_AXIS
 
-▪ `Static` `Readonly` **Y\_AXIS**: [`Vector3`](Vector3.md)
+> `readonly` `static` **Y\_AXIS**: [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Vector3.ts:41](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L41)
 
 The y axis defined as a Vector3 object with coordinates (0,1,0).
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[Y_AXIS](Navi3DPoint.md#y_axis)
+[`Navi3DPoint`](Navi3DPoint.md).[`Y_AXIS`](Navi3DPoint.md#y_axis)
 
-#### Defined in
-
-[src/math/Vector3.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L41)
-
-___
+***
 
 ### Z\_AXIS
 
-▪ `Static` `Readonly` **Z\_AXIS**: [`Vector3`](Vector3.md)
+> `readonly` `static` **Z\_AXIS**: [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Vector3.ts:46](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L46)
 
 The z axis defined as a Vector3 object with coordinates (0,0,1).
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[Z_AXIS](Navi3DPoint.md#z_axis)
+[`Navi3DPoint`](Navi3DPoint.md).[`Z_AXIS`](Navi3DPoint.md#z_axis)
 
-#### Defined in
-
-[src/math/Vector3.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L46)
-
-___
+***
 
 ### x
 
-• **x**: `number` = `0`
+> **x**: `number` = `0`
+
+Defined in: [src/math/Vector3.ts:148](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L148)
 
 The first element of a Vector3 object, such as the x coordinate of
 a point in the three-dimensional space. The default value is 0.
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[x](Navi3DPoint.md#x)
+[`Navi3DPoint`](Navi3DPoint.md).[`x`](Navi3DPoint.md#x)
 
-#### Defined in
-
-[src/math/Vector3.ts:148](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L148)
-
-___
+***
 
 ### y
 
-• **y**: `number` = `0`
+> **y**: `number` = `0`
+
+Defined in: [src/math/Vector3.ts:154](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L154)
 
 The second element of a Vector3 object, such as the y coordinate of
 a point in the three-dimensional space. The default value is 0.
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[y](Navi3DPoint.md#y)
+[`Navi3DPoint`](Navi3DPoint.md).[`y`](Navi3DPoint.md#y)
 
-#### Defined in
-
-[src/math/Vector3.ts:154](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L154)
-
-___
+***
 
 ### z
 
-• **z**: `number` = `0`
+> **z**: `number` = `0`
+
+Defined in: [src/math/Vector3.ts:160](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L160)
 
 The third element of a Vector3 object, such as the y coordinate of
 a point in the three-dimensional space. The default value is 0.
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[z](Navi3DPoint.md#z)
+[`Navi3DPoint`](Navi3DPoint.md).[`z`](Navi3DPoint.md#z)
 
-#### Defined in
-
-[src/math/Vector3.ts:160](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L160)
-
-___
+***
 
 ### w
 
-• **w**: `number` = `1`
+> **w**: `number` = `1`
+
+Defined in: [src/math/Vector3.ts:167](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L167)
 
 The z component of the vector,
 A three-dimensional position or projection that can be used as a perspective projection
@@ -335,551 +209,533 @@ We can also do w in the quaternion
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[w](Navi3DPoint.md#w)
+[`Navi3DPoint`](Navi3DPoint.md).[`w`](Navi3DPoint.md#w)
 
-#### Defined in
-
-[src/math/Vector3.ts:167](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L167)
-
-___
+***
 
 ### CALC\_VECTOR3D1
 
-▪ `Static` **CALC\_VECTOR3D1**: [`Vector3`](Vector3.md)
+> `static` **CALC\_VECTOR3D1**: [`Vector3`](Vector3.md)
+
+Defined in: [src/math/navigation/Navi3DPoint.ts:6](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DPoint.ts#L6)
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[CALC_VECTOR3D1](Navi3DPoint.md#calc_vector3d1)
+[`Navi3DPoint`](Navi3DPoint.md).[`CALC_VECTOR3D1`](Navi3DPoint.md#calc_vector3d1)
 
-#### Defined in
-
-[src/math/navigation/Navi3DPoint.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DPoint.ts#L6)
-
-___
+***
 
 ### CALC\_VECTOR3D2
 
-▪ `Static` **CALC\_VECTOR3D2**: [`Vector3`](Vector3.md)
+> `static` **CALC\_VECTOR3D2**: [`Vector3`](Vector3.md)
+
+Defined in: [src/math/navigation/Navi3DPoint.ts:8](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DPoint.ts#L8)
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[CALC_VECTOR3D2](Navi3DPoint.md#calc_vector3d2)
+[`Navi3DPoint`](Navi3DPoint.md).[`CALC_VECTOR3D2`](Navi3DPoint.md#calc_vector3d2)
 
-#### Defined in
-
-[src/math/navigation/Navi3DPoint.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DPoint.ts#L8)
-
-___
+***
 
 ### CALC\_VECTOR3D3
 
-▪ `Static` **CALC\_VECTOR3D3**: [`Vector3`](Vector3.md)
+> `static` **CALC\_VECTOR3D3**: [`Vector3`](Vector3.md)
+
+Defined in: [src/math/navigation/Navi3DPoint.ts:10](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DPoint.ts#L10)
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[CALC_VECTOR3D3](Navi3DPoint.md#calc_vector3d3)
+[`Navi3DPoint`](Navi3DPoint.md).[`CALC_VECTOR3D3`](Navi3DPoint.md#calc_vector3d3)
 
-#### Defined in
-
-[src/math/navigation/Navi3DPoint.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DPoint.ts#L10)
-
-___
+***
 
 ### CALC\_VECTOR3D4
 
-▪ `Static` **CALC\_VECTOR3D4**: [`Vector3`](Vector3.md)
+> `static` **CALC\_VECTOR3D4**: [`Vector3`](Vector3.md)
+
+Defined in: [src/math/navigation/Navi3DPoint.ts:12](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DPoint.ts#L12)
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[CALC_VECTOR3D4](Navi3DPoint.md#calc_vector3d4)
+[`Navi3DPoint`](Navi3DPoint.md).[`CALC_VECTOR3D4`](Navi3DPoint.md#calc_vector3d4)
 
-#### Defined in
-
-[src/math/navigation/Navi3DPoint.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DPoint.ts#L12)
-
-___
+***
 
 ### CALC\_VECTOR3D5
 
-▪ `Static` **CALC\_VECTOR3D5**: [`Vector3`](Vector3.md)
+> `static` **CALC\_VECTOR3D5**: [`Vector3`](Vector3.md)
+
+Defined in: [src/math/navigation/Navi3DPoint.ts:14](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DPoint.ts#L14)
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[CALC_VECTOR3D5](Navi3DPoint.md#calc_vector3d5)
+[`Navi3DPoint`](Navi3DPoint.md).[`CALC_VECTOR3D5`](Navi3DPoint.md#calc_vector3d5)
 
-#### Defined in
-
-[src/math/navigation/Navi3DPoint.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DPoint.ts#L14)
-
-___
+***
 
 ### radius
 
-• **radius**: `number` = `0`
+> **radius**: `number` = `0`
 
-#### Defined in
-
-[src/math/navigation/Navi3DPointFat.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DPointFat.ts#L9)
+Defined in: [src/math/navigation/Navi3DPointFat.ts:9](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DPointFat.ts#L9)
 
 ## Accessors
 
 ### ZERO
 
-• `get` **ZERO**(): [`Vector3`](Vector3.md)
+#### Get Signature
+
+> **get** `static` **ZERO**(): [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Vector3.ts:91](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L91)
 
 Returns a new vector with zero x, y, and z components
 
-#### Returns
+##### Returns
 
 [`Vector3`](Vector3.md)
 
 #### Inherited from
 
-Navi3DPoint.ZERO
+[`Navi3DPoint`](Navi3DPoint.md).[`ZERO`](Navi3DPoint.md#zero)
 
-#### Defined in
-
-[src/math/Vector3.ts:91](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L91)
-
-___
+***
 
 ### ONE
 
-• `get` **ONE**(): [`Vector3`](Vector3.md)
+#### Get Signature
+
+> **get** `static` **ONE**(): [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Vector3.ts:98](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L98)
 
 Returns a new vector whose x, y, and z components are all 1
 
-#### Returns
+##### Returns
 
 [`Vector3`](Vector3.md)
 
 #### Inherited from
 
-Navi3DPoint.ONE
+[`Navi3DPoint`](Navi3DPoint.md).[`ONE`](Navi3DPoint.md#one)
 
-#### Defined in
-
-[src/math/Vector3.ts:98](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L98)
-
-___
+***
 
 ### LEFT
 
-• `get` **LEFT**(): [`Vector3`](Vector3.md)
+#### Get Signature
+
+> **get** `static` **LEFT**(): [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Vector3.ts:105](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L105)
 
 Returns a new vector pointing to the left, x is -1, y is 0, and z is 0
 
-#### Returns
+##### Returns
 
 [`Vector3`](Vector3.md)
 
 #### Inherited from
 
-Navi3DPoint.LEFT
+[`Navi3DPoint`](Navi3DPoint.md).[`LEFT`](Navi3DPoint.md#left)
 
-#### Defined in
-
-[src/math/Vector3.ts:105](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L105)
-
-___
+***
 
 ### RIGHT
 
-• `get` **RIGHT**(): [`Vector3`](Vector3.md)
+#### Get Signature
+
+> **get** `static` **RIGHT**(): [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Vector3.ts:112](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L112)
 
 Returns a new vector pointing in the right direction, where x is 1, y is 0, and z is 0
 
-#### Returns
+##### Returns
 
 [`Vector3`](Vector3.md)
 
 #### Inherited from
 
-Navi3DPoint.RIGHT
+[`Navi3DPoint`](Navi3DPoint.md).[`RIGHT`](Navi3DPoint.md#right)
 
-#### Defined in
-
-[src/math/Vector3.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L112)
-
-___
+***
 
 ### UP
 
-• `get` **UP**(): [`Vector3`](Vector3.md)
+#### Get Signature
+
+> **get** `static` **UP**(): [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Vector3.ts:119](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L119)
 
 Returns a new vector pointing upwards, that is, x equals 0, y equals 1, and z equals 0
 
-#### Returns
+##### Returns
 
 [`Vector3`](Vector3.md)
 
 #### Inherited from
 
-Navi3DPoint.UP
+[`Navi3DPoint`](Navi3DPoint.md).[`UP`](Navi3DPoint.md#up)
 
-#### Defined in
-
-[src/math/Vector3.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L119)
-
-___
+***
 
 ### DOWN
 
-• `get` **DOWN**(): [`Vector3`](Vector3.md)
+#### Get Signature
+
+> **get** `static` **DOWN**(): [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Vector3.ts:126](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L126)
 
 Returns a new vector pointing down, where x is 0, y is -1, and z is 0
 
-#### Returns
+##### Returns
 
 [`Vector3`](Vector3.md)
 
 #### Inherited from
 
-Navi3DPoint.DOWN
+[`Navi3DPoint`](Navi3DPoint.md).[`DOWN`](Navi3DPoint.md#down)
 
-#### Defined in
-
-[src/math/Vector3.ts:126](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L126)
-
-___
+***
 
 ### BACK
 
-• `get` **BACK**(): [`Vector3`](Vector3.md)
+#### Get Signature
+
+> **get** `static` **BACK**(): [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Vector3.ts:133](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L133)
 
 Returns a new backward vector, x equals 0, y equals 0, and z equals negative 1
 
-#### Returns
+##### Returns
 
 [`Vector3`](Vector3.md)
 
 #### Inherited from
 
-Navi3DPoint.BACK
+[`Navi3DPoint`](Navi3DPoint.md).[`BACK`](Navi3DPoint.md#back)
 
-#### Defined in
-
-[src/math/Vector3.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L133)
-
-___
+***
 
 ### FORWARD
 
-• `get` **FORWARD**(): [`Vector3`](Vector3.md)
+#### Get Signature
+
+> **get** `static` **FORWARD**(): [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Vector3.ts:140](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L140)
 
 Returns a new forward-pointing vector, that is, x is 0, y is 0, and z is 1
 
-#### Returns
+##### Returns
 
 [`Vector3`](Vector3.md)
 
 #### Inherited from
 
-Navi3DPoint.FORWARD
+[`Navi3DPoint`](Navi3DPoint.md).[`FORWARD`](Navi3DPoint.md#forward)
 
-#### Defined in
-
-[src/math/Vector3.ts:140](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L140)
-
-___
+***
 
 ### a
 
-• `get` **a**(): `number`
+#### Get Signature
+
+> **get** **a**(): `number`
+
+Defined in: [src/math/Vector3.ts:233](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L233)
 
 get the w component
 
-#### Returns
+##### Returns
 
 `number`
 
 value of w
 
-#### Inherited from
+#### Set Signature
 
-Navi3DPoint.a
+> **set** **a**(`value`): `void`
 
-#### Defined in
-
-[src/math/Vector3.ts:233](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L233)
-
-• `set` **a**(`value`): `void`
+Defined in: [src/math/Vector3.ts:201](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L201)
 
 Set w component
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-Navi3DPoint.a
+[`Navi3DPoint`](Navi3DPoint.md).[`a`](Navi3DPoint.md#a)
 
-#### Defined in
-
-[src/math/Vector3.ts:201](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L201)
-
-___
+***
 
 ### r
 
-• `get` **r**(): `number`
+#### Get Signature
+
+> **get** **r**(): `number`
+
+Defined in: [src/math/Vector3.ts:241](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L241)
 
 get the x component
 
-#### Returns
+##### Returns
 
 `number`
 
 value of x
 
-#### Inherited from
+#### Set Signature
 
-Navi3DPoint.r
+> **set** **r**(`value`): `void`
 
-#### Defined in
-
-[src/math/Vector3.ts:241](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L241)
-
-• `set` **r**(`value`): `void`
+Defined in: [src/math/Vector3.ts:209](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L209)
 
 Set x component
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-Navi3DPoint.r
+[`Navi3DPoint`](Navi3DPoint.md).[`r`](Navi3DPoint.md#r)
 
-#### Defined in
-
-[src/math/Vector3.ts:209](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L209)
-
-___
+***
 
 ### g
 
-• `get` **g**(): `number`
+#### Get Signature
+
+> **get** **g**(): `number`
+
+Defined in: [src/math/Vector3.ts:249](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L249)
 
 get the y component
 
-#### Returns
+##### Returns
 
 `number`
 
 value of y
 
-#### Inherited from
+#### Set Signature
 
-Navi3DPoint.g
+> **set** **g**(`value`): `void`
 
-#### Defined in
-
-[src/math/Vector3.ts:249](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L249)
-
-• `set` **g**(`value`): `void`
+Defined in: [src/math/Vector3.ts:217](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L217)
 
 Set the y component
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-Navi3DPoint.g
+[`Navi3DPoint`](Navi3DPoint.md).[`g`](Navi3DPoint.md#g)
 
-#### Defined in
-
-[src/math/Vector3.ts:217](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L217)
-
-___
+***
 
 ### b
 
-• `get` **b**(): `number`
+#### Get Signature
+
+> **get** **b**(): `number`
+
+Defined in: [src/math/Vector3.ts:257](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L257)
 
 get the z component
 
-#### Returns
+##### Returns
 
 `number`
 
 value of z
 
-#### Inherited from
+#### Set Signature
 
-Navi3DPoint.b
+> **set** **b**(`value`): `void`
 
-#### Defined in
-
-[src/math/Vector3.ts:257](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L257)
-
-• `set` **b**(`value`): `void`
+Defined in: [src/math/Vector3.ts:225](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L225)
 
 Set z component
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-Navi3DPoint.b
+[`Navi3DPoint`](Navi3DPoint.md).[`b`](Navi3DPoint.md#b)
 
-#### Defined in
-
-[src/math/Vector3.ts:225](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L225)
-
-___
+***
 
 ### length
 
-• `get` **length**(): `number`
+#### Get Signature
+
+> **get** **length**(): `number`
+
+Defined in: [src/math/Vector3.ts:264](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L264)
 
 The length of the vector, the distance from the origin (0, 0, 0) to (x, y, z)
 
-#### Returns
+##### Returns
 
 `number`
 
 #### Inherited from
 
-Navi3DPoint.length
+[`Navi3DPoint`](Navi3DPoint.md).[`length`](Navi3DPoint.md#length)
 
-#### Defined in
-
-[src/math/Vector3.ts:264](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L264)
-
-___
+***
 
 ### lengthSquared
 
-• `get` **lengthSquared**(): `number`
+#### Get Signature
+
+> **get** **lengthSquared**(): `number`
+
+Defined in: [src/math/Vector3.ts:272](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L272)
 
 You get the square of the length of the vector
 
-#### Returns
+##### Returns
 
 `number`
 
 #### Inherited from
 
-Navi3DPoint.lengthSquared
+[`Navi3DPoint`](Navi3DPoint.md).[`lengthSquared`](Navi3DPoint.md#lengthsquared)
 
-#### Defined in
-
-[src/math/Vector3.ts:272](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L272)
-
-___
+***
 
 ### position
 
-• `get` **position**(): `this`
+#### Get Signature
+
+> **get** **position**(): `this`
+
+Defined in: [src/math/Vector3.ts:279](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L279)
 
 Get the current vector
 
-#### Returns
+##### Returns
 
 `this`
 
 #### Inherited from
 
-Navi3DPoint.position
+[`Navi3DPoint`](Navi3DPoint.md).[`position`](Navi3DPoint.md#position)
 
-#### Defined in
-
-[src/math/Vector3.ts:279](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L279)
-
-___
+***
 
 ### id
 
-• `get` **id**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **id**(): `number`
+
+Defined in: [src/math/navigation/Navi3DPoint.ts:23](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DPoint.ts#L23)
+
+##### Returns
 
 `number`
 
 #### Inherited from
 
-Navi3DPoint.id
+[`Navi3DPoint`](Navi3DPoint.md).[`id`](Navi3DPoint.md#id)
 
-#### Defined in
-
-[src/math/navigation/Navi3DPoint.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DPoint.ts#L23)
-
-___
+***
 
 ### ownerPoint
 
-• `get` **ownerPoint**(): [`Navi3DPoint`](Navi3DPoint.md)
+#### Get Signature
 
-#### Returns
+> **get** **ownerPoint**(): [`Navi3DPoint`](Navi3DPoint.md)
+
+Defined in: [src/math/navigation/Navi3DPointFat.ts:17](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DPointFat.ts#L17)
+
+##### Returns
 
 [`Navi3DPoint`](Navi3DPoint.md)
 
-#### Defined in
-
-[src/math/navigation/Navi3DPointFat.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DPointFat.ts#L17)
-
-___
+***
 
 ### ownerEdge
 
-• `get` **ownerEdge**(): [`Navi3DEdge`](Navi3DEdge.md)
+#### Get Signature
 
-#### Returns
+> **get** **ownerEdge**(): [`Navi3DEdge`](Navi3DEdge.md)
+
+Defined in: [src/math/navigation/Navi3DPointFat.ts:21](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DPointFat.ts#L21)
+
+##### Returns
 
 [`Navi3DEdge`](Navi3DEdge.md)
 
-#### Defined in
-
-[src/math/navigation/Navi3DPointFat.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DPointFat.ts#L21)
-
 ## Methods
 
-### getTowPointbyDir
+### getTowPointbyDir()
 
-▸ **getTowPointbyDir**(`dir`, `tp1`, `tp2`, `width`, `aix`): `void`
+> `static` **getTowPointbyDir**(`dir`, `tp1`, `tp2`, `width`, `aix`): `void`
+
+Defined in: [src/math/Vector3.ts:290](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L290)
 
 Obtain a vertical line segment with width through an orientation
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `dir` | [`Vector3`](Vector3.md) |
-| `tp1` | [`Vector3`](Vector3.md) |
-| `tp2` | [`Vector3`](Vector3.md) |
-| `width` | `number` |
-| `aix` | [`Vector3`](Vector3.md) |
+##### dir
+
+[`Vector3`](Vector3.md)
+
+##### tp1
+
+[`Vector3`](Vector3.md)
+
+##### tp2
+
+[`Vector3`](Vector3.md)
+
+##### width
+
+`number`
+
+##### aix
+
+[`Vector3`](Vector3.md)
 
 #### Returns
 
@@ -887,27 +743,37 @@ Obtain a vertical line segment with width through an orientation
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[getTowPointbyDir](Navi3DPoint.md#gettowpointbydir)
+[`Navi3DPoint`](Navi3DPoint.md).[`getTowPointbyDir`](Navi3DPoint.md#gettowpointbydir)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:290](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L290)
+### pointToLine()
 
-___
+> `static` **pointToLine**(`point1`, `point2`, `position`): `number`
 
-### pointToLine
-
-▸ **pointToLine**(`point1`, `point2`, `position`): `number`
+Defined in: [src/math/Vector3.ts:319](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L319)
 
 Calculate the distance from the point to the line
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `point1` | [`Vector3`](Vector3.md) | Starting point of line segment |
-| `point2` | [`Vector3`](Vector3.md) | End point of line segment |
-| `position` | [`Vector3`](Vector3.md) | Point position |
+##### point1
+
+[`Vector3`](Vector3.md)
+
+Starting point of line segment
+
+##### point2
+
+[`Vector3`](Vector3.md)
+
+End point of line segment
+
+##### position
+
+[`Vector3`](Vector3.md)
+
+Point position
 
 #### Returns
 
@@ -917,26 +783,31 @@ Distance from a point to a line segment
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[pointToLine](Navi3DPoint.md#pointtoline)
+[`Navi3DPoint`](Navi3DPoint.md).[`pointToLine`](Navi3DPoint.md#pointtoline)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:319](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L319)
+### dot()
 
-___
+> `static` **dot**(`a`, `b`): `number`
 
-### dot
-
-▸ **dot**(`a`, `b`): `number`
+Defined in: [src/math/Vector3.ts:353](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L353)
 
 Take the dot product of two vectors.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `a` | [`Vector3`](Vector3.md) | Vector a |
-| `b` | [`Vector3`](Vector3.md) | Vector b |
+##### a
+
+[`Vector3`](Vector3.md)
+
+Vector a
+
+##### b
+
+[`Vector3`](Vector3.md)
+
+Vector b
 
 #### Returns
 
@@ -944,24 +815,25 @@ Take the dot product of two vectors.
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[dot](Navi3DPoint.md#dot)
+[`Navi3DPoint`](Navi3DPoint.md).[`dot`](Navi3DPoint.md#dot)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:353](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L353)
+### getPoints()
 
-___
+> `static` **getPoints**(`total`, `randSeed`): `any`[]
 
-### getPoints
-
-▸ **getPoints**(`total`, `randSeed`): `any`[]
+Defined in: [src/math/Vector3.ts:357](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L357)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `total` | `number` |
-| `randSeed` | `number` |
+##### total
+
+`number`
+
+##### randSeed
+
+`number`
 
 #### Returns
 
@@ -969,24 +841,25 @@ ___
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[getPoints](Navi3DPoint.md#getpoints)
+[`Navi3DPoint`](Navi3DPoint.md).[`getPoints`](Navi3DPoint.md#getpoints)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:357](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L357)
+### getPointNumbers()
 
-___
+> `static` **getPointNumbers**(`total`, `randSeed`): `any`[]
 
-### getPointNumbers
-
-▸ **getPointNumbers**(`total`, `randSeed`): `any`[]
+Defined in: [src/math/Vector3.ts:366](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L366)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `total` | `number` |
-| `randSeed` | `number` |
+##### total
+
+`number`
+
+##### randSeed
+
+`number`
 
 #### Returns
 
@@ -994,26 +867,31 @@ ___
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[getPointNumbers](Navi3DPoint.md#getpointnumbers)
+[`Navi3DPoint`](Navi3DPoint.md).[`getPointNumbers`](Navi3DPoint.md#getpointnumbers)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:366](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L366)
+### getAngle()
 
-___
+> `static` **getAngle**(`from`, `to`): `number`
 
-### getAngle
-
-▸ **getAngle**(`from`, `to`): `number`
+Defined in: [src/math/Vector3.ts:380](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L380)
 
 Returns the Angle, in degrees, between the source vector and the target vector.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `from` | [`Vector3`](Vector3.md) | source vector. |
-| `to` | [`Vector3`](Vector3.md) | target vector. |
+##### from
+
+[`Vector3`](Vector3.md)
+
+source vector.
+
+##### to
+
+[`Vector3`](Vector3.md)
+
+target vector.
 
 #### Returns
 
@@ -1021,23 +899,21 @@ Returns the Angle, in degrees, between the source vector and the target vector.
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[getAngle](Navi3DPoint.md#getangle)
+[`Navi3DPoint`](Navi3DPoint.md).[`getAngle`](Navi3DPoint.md#getangle)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:380](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L380)
+### sqrMagnitude()
 
-___
+> `static` **sqrMagnitude**(`arg0`): `number`
 
-### sqrMagnitude
-
-▸ **sqrMagnitude**(`arg0`): `number`
+Defined in: [src/math/Vector3.ts:385](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L385)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `arg0` | [`Vector3`](Vector3.md) |
+##### arg0
+
+[`Vector3`](Vector3.md)
 
 #### Returns
 
@@ -1045,24 +921,25 @@ ___
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[sqrMagnitude](Navi3DPoint.md#sqrmagnitude)
+[`Navi3DPoint`](Navi3DPoint.md).[`sqrMagnitude`](Navi3DPoint.md#sqrmagnitude)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:385](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L385)
+### getZYAngle()
 
-___
+> `static` **getZYAngle**(`zd`, `yd`): `number`
 
-### getZYAngle
-
-▸ **getZYAngle**(`zd`, `yd`): `number`
+Defined in: [src/math/Vector3.ts:389](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L389)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `zd` | [`Vector3`](Vector3.md) |
-| `yd` | [`Vector3`](Vector3.md) |
+##### zd
+
+[`Vector3`](Vector3.md)
+
+##### yd
+
+[`Vector3`](Vector3.md)
 
 #### Returns
 
@@ -1070,27 +947,37 @@ ___
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[getZYAngle](Navi3DPoint.md#getzyangle)
+[`Navi3DPoint`](Navi3DPoint.md).[`getZYAngle`](Navi3DPoint.md#getzyangle)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L389)
+### sub()
 
-___
+> `static` **sub**(`a`, `b`, `target?`): [`Vector3`](Vector3.md)
 
-### sub
-
-▸ **sub**(`a`, `b`, `target?`): [`Vector3`](Vector3.md)
+Defined in: [src/math/Vector3.ts:399](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L399)
 
 Subtract two vectors
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `a` | [`Vector3`](Vector3.md) | `undefined` | Vector a |
-| `b` | [`Vector3`](Vector3.md) | `undefined` | Vector b |
-| `target` | [`Vector3`](Vector3.md) | `null` | output vector |
+##### a
+
+[`Vector3`](Vector3.md)
+
+Vector a
+
+##### b
+
+[`Vector3`](Vector3.md)
+
+Vector b
+
+##### target?
+
+[`Vector3`](Vector3.md) = `null`
+
+output vector
 
 #### Returns
 
@@ -1098,27 +985,37 @@ Subtract two vectors
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[sub](Navi3DPoint.md#sub)
+[`Navi3DPoint`](Navi3DPoint.md).[`sub`](Navi3DPoint.md#sub)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:399](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L399)
+### add()
 
-___
+> `static` **add**(`a`, `b`, `target?`): [`Vector3`](Vector3.md)
 
-### add
-
-▸ **add**(`a`, `b`, `target?`): [`Vector3`](Vector3.md)
+Defined in: [src/math/Vector3.ts:415](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L415)
 
 Add two vectors
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `a` | [`Vector3`](Vector3.md) | `undefined` | Vector a |
-| `b` | [`Vector3`](Vector3.md) | `undefined` | Vector b |
-| `target` | [`Vector3`](Vector3.md) | `null` | output vector |
+##### a
+
+[`Vector3`](Vector3.md)
+
+Vector a
+
+##### b
+
+[`Vector3`](Vector3.md)
+
+Vector b
+
+##### target?
+
+[`Vector3`](Vector3.md) = `null`
+
+output vector
 
 #### Returns
 
@@ -1126,26 +1023,287 @@ Add two vectors
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[add](Navi3DPoint.md#add)
+[`Navi3DPoint`](Navi3DPoint.md).[`add`](Navi3DPoint.md#add)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:415](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L415)
+### multiply()
 
-___
+> `static` **multiply**(`a`, `b`, `result?`): [`Vector3`](Vector3.md)
 
-### distance
+Defined in: [src/math/Vector3.ts:426](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L426)
 
-▸ **distance**(`pt1`, `pt2`): `number`
+Component-wise multiply two vectors
+
+#### Parameters
+
+##### a
+
+[`Vector3`](Vector3.md)
+
+##### b
+
+[`Vector3`](Vector3.md)
+
+##### result?
+
+[`Vector3`](Vector3.md)
+
+#### Returns
+
+[`Vector3`](Vector3.md)
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`multiply`](Navi3DPoint.md#multiply)
+
+***
+
+### divide()
+
+> `static` **divide**(`a`, `b`, `result?`): [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Vector3.ts:437](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L437)
+
+Component-wise divide two vectors
+
+#### Parameters
+
+##### a
+
+[`Vector3`](Vector3.md)
+
+##### b
+
+[`Vector3`](Vector3.md)
+
+##### result?
+
+[`Vector3`](Vector3.md)
+
+#### Returns
+
+[`Vector3`](Vector3.md)
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`divide`](Navi3DPoint.md#divide)
+
+***
+
+### multiplyScalar()
+
+> `static` **multiplyScalar**(`a`, `s`, `result?`): [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Vector3.ts:448](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L448)
+
+Multiply a vector by a scalar
+
+#### Parameters
+
+##### a
+
+[`Vector3`](Vector3.md)
+
+##### s
+
+`number`
+
+##### result?
+
+[`Vector3`](Vector3.md)
+
+#### Returns
+
+[`Vector3`](Vector3.md)
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`multiplyScalar`](Navi3DPoint.md#multiplyscalar)
+
+***
+
+### addScaledVector()
+
+> `static` **addScaledVector**(`a`, `b`, `s`, `result?`): [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Vector3.ts:459](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L459)
+
+result = a + b * s
+
+#### Parameters
+
+##### a
+
+[`Vector3`](Vector3.md)
+
+##### b
+
+[`Vector3`](Vector3.md)
+
+##### s
+
+`number`
+
+##### result?
+
+[`Vector3`](Vector3.md)
+
+#### Returns
+
+[`Vector3`](Vector3.md)
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`addScaledVector`](Navi3DPoint.md#addscaledvector)
+
+***
+
+### cross()
+
+> `static` **cross**(`a`, `b`, `result?`): [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Vector3.ts:470](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L470)
+
+Cross product of two vectors
+
+#### Parameters
+
+##### a
+
+[`Vector3`](Vector3.md)
+
+##### b
+
+[`Vector3`](Vector3.md)
+
+##### result?
+
+[`Vector3`](Vector3.md)
+
+#### Returns
+
+[`Vector3`](Vector3.md)
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`cross`](Navi3DPoint.md#cross)
+
+***
+
+### negate()
+
+> `static` **negate**(`a`, `result?`): [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Vector3.ts:484](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L484)
+
+Negate a vector
+
+#### Parameters
+
+##### a
+
+[`Vector3`](Vector3.md)
+
+##### result?
+
+[`Vector3`](Vector3.md)
+
+#### Returns
+
+[`Vector3`](Vector3.md)
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`negate`](Navi3DPoint.md#negate)
+
+***
+
+### min()
+
+> `static` **min**(`a`, `b`, `result?`): [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Vector3.ts:495](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L495)
+
+Component-wise minimum of two vectors
+
+#### Parameters
+
+##### a
+
+[`Vector3`](Vector3.md)
+
+##### b
+
+[`Vector3`](Vector3.md)
+
+##### result?
+
+[`Vector3`](Vector3.md)
+
+#### Returns
+
+[`Vector3`](Vector3.md)
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`min`](Navi3DPoint.md#min-1)
+
+***
+
+### max()
+
+> `static` **max**(`a`, `b`, `result?`): [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Vector3.ts:506](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L506)
+
+Component-wise maximum of two vectors
+
+#### Parameters
+
+##### a
+
+[`Vector3`](Vector3.md)
+
+##### b
+
+[`Vector3`](Vector3.md)
+
+##### result?
+
+[`Vector3`](Vector3.md)
+
+#### Returns
+
+[`Vector3`](Vector3.md)
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`max`](Navi3DPoint.md#max-1)
+
+***
+
+### distance()
+
+> `static` **distance**(`pt1`, `pt2`): `number`
+
+Defined in: [src/math/Vector3.ts:549](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L549)
 
 Calculate the distance between two vectors
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `pt1` | [`Vector3`](Vector3.md) | Vector 1 |
-| `pt2` | [`Vector3`](Vector3.md) | Vector 2 |
+##### pt1
+
+[`Vector3`](Vector3.md)
+
+Vector 1
+
+##### pt2
+
+[`Vector3`](Vector3.md)
+
+Vector 2
 
 #### Returns
 
@@ -1155,26 +1313,31 @@ number The distance between two vectors
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[distance](Navi3DPoint.md#distance)
+[`Navi3DPoint`](Navi3DPoint.md).[`distance`](Navi3DPoint.md#distance)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:458](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L458)
+### squareDistance()
 
-___
+> `static` **squareDistance**(`pt1`, `pt2`): `number`
 
-### squareDistance
-
-▸ **squareDistance**(`pt1`, `pt2`): `number`
+Defined in: [src/math/Vector3.ts:562](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L562)
 
 Calculate the square distance between two vectors
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `pt1` | [`Vector3`](Vector3.md) | Vector 1 |
-| `pt2` | [`Vector3`](Vector3.md) | Vector 2 |
+##### pt1
+
+[`Vector3`](Vector3.md)
+
+Vector 1
+
+##### pt2
+
+[`Vector3`](Vector3.md)
+
+Vector 2
 
 #### Returns
 
@@ -1184,26 +1347,31 @@ number The square distance between two vectors
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[squareDistance](Navi3DPoint.md#squaredistance)
+[`Navi3DPoint`](Navi3DPoint.md).[`squareDistance`](Navi3DPoint.md#squaredistance)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:471](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L471)
+### distanceXZ()
 
-___
+> `static` **distanceXZ**(`pt1`, `pt2`): `number`
 
-### distanceXZ
-
-▸ **distanceXZ**(`pt1`, `pt2`): `number`
+Defined in: [src/math/Vector3.ts:574](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L574)
 
 Calculate the distance between two vectors XZ axes
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `pt1` | [`Vector3`](Vector3.md) | Vector 1 |
-| `pt2` | [`Vector3`](Vector3.md) | Vector 2 |
+##### pt1
+
+[`Vector3`](Vector3.md)
+
+Vector 1
+
+##### pt2
+
+[`Vector3`](Vector3.md)
+
+Vector 2
 
 #### Returns
 
@@ -1213,82 +1381,59 @@ number The distance between two vectors
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[distanceXZ](Navi3DPoint.md#distancexz)
+[`Navi3DPoint`](Navi3DPoint.md).[`distanceXZ`](Navi3DPoint.md#distancexz)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:483](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L483)
+### set()
 
-___
+> **set**(`x`, `y`, `z`, `w?`): `Navi3DPointFat`
 
-### set
-
-▸ **set**(`x`, `y`, `z`, `w?`): [`Navi3DPointFat`](Navi3DPointFat.md)
+Defined in: [src/math/Vector3.ts:589](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L589)
 
 Sets the current vector x, y, z, and w components
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `x` | `number` | `undefined` |
-| `y` | `number` | `undefined` |
-| `z` | `number` | `undefined` |
-| `w` | `number` | `1` |
+##### x
+
+`number`
+
+##### y
+
+`number`
+
+##### z
+
+`number`
+
+##### w?
+
+`number` = `1`
 
 #### Returns
 
-[`Navi3DPointFat`](Navi3DPointFat.md)
+`Navi3DPointFat`
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[set](Navi3DPoint.md#set)
+[`Navi3DPoint`](Navi3DPoint.md).[`set`](Navi3DPoint.md#set)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:498](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L498)
+### add()
 
-___
+> **add**(`a`): `this`
 
-### add
+Defined in: [src/math/Vector3.ts:600](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L600)
 
-▸ **add**(`a`, `target?`): [`Vector3`](Vector3.md)
-
-The vector is added to the vector
+Adds vector `a` to this vector (component-wise on xyz). Mutates and returns this.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `a` | [`Vector3`](Vector3.md) | `undefined` | Additive vector |
-| `target` | [`Vector3`](Vector3.md) | `null` | Return vector |
-
-#### Returns
+##### a
 
 [`Vector3`](Vector3.md)
-
-result
-
-#### Inherited from
-
-[Navi3DPoint](Navi3DPoint.md).[add](Navi3DPoint.md#add-1)
-
-#### Defined in
-
-[src/math/Vector3.ts:512](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L512)
-
-___
-
-### subVectors
-
-▸ **subVectors**(`a`, `b`): `this`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `a` | [`Vector3`](Vector3.md) |
-| `b` | [`Vector3`](Vector3.md) |
 
 #### Returns
 
@@ -1296,23 +1441,103 @@ ___
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[subVectors](Navi3DPoint.md#subvectors)
+[`Navi3DPoint`](Navi3DPoint.md).[`add`](Navi3DPoint.md#add-1)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:527](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L527)
+### addVectors()
 
-___
+> **addVectors**(`a`, `b`): `this`
 
-### addScalar
+Defined in: [src/math/Vector3.ts:605](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L605)
 
-▸ **addScalar**(`scalar`): [`Vector3`](Vector3.md)
+Set this = a + b. Ternary mutator form.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `scalar` | `number` |
+##### a
+
+[`Vector3`](Vector3.md)
+
+##### b
+
+[`Vector3`](Vector3.md)
+
+#### Returns
+
+`this`
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`addVectors`](Navi3DPoint.md#addvectors)
+
+***
+
+### subVectors()
+
+> **subVectors**(`a`, `b`): `this`
+
+Defined in: [src/math/Vector3.ts:609](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L609)
+
+#### Parameters
+
+##### a
+
+[`Vector3`](Vector3.md)
+
+##### b
+
+[`Vector3`](Vector3.md)
+
+#### Returns
+
+`this`
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`subVectors`](Navi3DPoint.md#subvectors)
+
+***
+
+### multiplyVectors()
+
+> **multiplyVectors**(`a`, `b`): `this`
+
+Defined in: [src/math/Vector3.ts:614](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L614)
+
+Set this = a * b component-wise.
+
+#### Parameters
+
+##### a
+
+[`Vector3`](Vector3.md)
+
+##### b
+
+[`Vector3`](Vector3.md)
+
+#### Returns
+
+`this`
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`multiplyVectors`](Navi3DPoint.md#multiplyvectors)
+
+***
+
+### addScalar()
+
+> **addScalar**(`scalar`): [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Vector3.ts:618](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L618)
+
+#### Parameters
+
+##### scalar
+
+`number`
 
 #### Returns
 
@@ -1320,23 +1545,21 @@ ___
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[addScalar](Navi3DPoint.md#addscalar)
+[`Navi3DPoint`](Navi3DPoint.md).[`addScalar`](Navi3DPoint.md#addscalar)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:534](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L534)
+### subScalar()
 
-___
+> **subScalar**(`scalar`): [`Vector3`](Vector3.md)
 
-### subScalar
-
-▸ **subScalar**(`scalar`): [`Vector3`](Vector3.md)
+Defined in: [src/math/Vector3.ts:625](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L625)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `scalar` | `number` |
+##### scalar
+
+`number`
 
 #### Returns
 
@@ -1344,73 +1567,69 @@ ___
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[subScalar](Navi3DPoint.md#subscalar)
+[`Navi3DPoint`](Navi3DPoint.md).[`subScalar`](Navi3DPoint.md#subscalar)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:541](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L541)
+### min()
 
-___
+> **min**(`v`): `this`
 
-### min
+Defined in: [src/math/Vector3.ts:635](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L635)
 
-▸ **min**(`v`, `target?`): [`Vector3`](Vector3.md)
+Component-wise minimum with `v`. Mutates and returns this.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | [`Vector3`](Vector3.md) |
-| `target` | [`Vector3`](Vector3.md) |
-
-#### Returns
+##### v
 
 [`Vector3`](Vector3.md)
 
+#### Returns
+
+`this`
+
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[min](Navi3DPoint.md#min-1)
+[`Navi3DPoint`](Navi3DPoint.md).[`min`](Navi3DPoint.md#min-2)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:548](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L548)
+### max()
 
-___
+> **max**(`v`): `this`
 
-### max
+Defined in: [src/math/Vector3.ts:642](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L642)
 
-▸ **max**(`v`, `target?`): [`Vector3`](Vector3.md)
+Component-wise maximum with `v`. Mutates and returns this.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | [`Vector3`](Vector3.md) |
-| `target` | [`Vector3`](Vector3.md) |
-
-#### Returns
+##### v
 
 [`Vector3`](Vector3.md)
 
+#### Returns
+
+`this`
+
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[max](Navi3DPoint.md#max-1)
+[`Navi3DPoint`](Navi3DPoint.md).[`max`](Navi3DPoint.md#max-2)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:555](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L555)
+### distanceToSquared()
 
-___
+> **distanceToSquared**(`v`): `number`
 
-### distanceToSquared
-
-▸ **distanceToSquared**(`v`): `number`
+Defined in: [src/math/Vector3.ts:646](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L646)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | [`Vector3`](Vector3.md) |
+##### v
+
+[`Vector3`](Vector3.md)
 
 #### Returns
 
@@ -1418,45 +1637,51 @@ ___
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[distanceToSquared](Navi3DPoint.md#distancetosquared)
+[`Navi3DPoint`](Navi3DPoint.md).[`distanceToSquared`](Navi3DPoint.md#distancetosquared)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:562](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L562)
+### addXYZW()
 
-___
+> **addXYZW**(`x`, `y`, `z`, `w`): `this`
 
-### addXYZW
+Defined in: [src/math/Vector3.ts:656](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L656)
 
-▸ **addXYZW**(`x`, `y`, `z`, `w`, `target?`): [`Vector3`](Vector3.md)
+Adds (x, y, z, w) to each component. Mutates and returns this.
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `x` | `number` | `undefined` |
-| `y` | `number` | `undefined` |
-| `z` | `number` | `undefined` |
-| `w` | `number` | `undefined` |
-| `target` | [`Vector3`](Vector3.md) | `null` |
+##### x
+
+`number`
+
+##### y
+
+`number`
+
+##### z
+
+`number`
+
+##### w
+
+`number`
 
 #### Returns
 
-[`Vector3`](Vector3.md)
+`this`
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[addXYZW](Navi3DPoint.md#addxyzw)
+[`Navi3DPoint`](Navi3DPoint.md).[`addXYZW`](Navi3DPoint.md#addxyzw)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:569](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L569)
+### clone()
 
-___
+> **clone**(): [`Vector3`](Vector3.md)
 
-### clone
-
-▸ **clone**(): [`Vector3`](Vector3.md)
+Defined in: [src/math/Vector3.ts:667](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L667)
 
 Clone a vector with the same components as the current vector
 
@@ -1466,77 +1691,51 @@ Clone a vector with the same components as the current vector
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[clone](Navi3DPoint.md#clone)
+[`Navi3DPoint`](Navi3DPoint.md).[`clone`](Navi3DPoint.md#clone)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:587](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L587)
+### decrementBy()
 
-___
+> **decrementBy**(`a`): `this`
 
-### copyFrom
-
-▸ **copyFrom**(`src`): [`Vector3`](Vector3.md)
-
-The components of the source vector are set to the current vector
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `src` | [`Vector3`](Vector3.md) | Original vector |
-
-#### Returns
-
-[`Vector3`](Vector3.md)
-
-#### Inherited from
-
-[Navi3DPoint](Navi3DPoint.md).[copyFrom](Navi3DPoint.md#copyfrom)
-
-#### Defined in
-
-[src/math/Vector3.ts:596](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L596)
-
-___
-
-### decrementBy
-
-▸ **decrementBy**(`a`): `void`
+Defined in: [src/math/Vector3.ts:681](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L681)
 
 Subtract two vectors and assign the result to yourself
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `a` | [`Vector3`](Vector3.md) | Minus vector |
+##### a
+
+[`Vector3`](Vector3.md)
+
+Minus vector
 
 #### Returns
 
-`void`
+`this`
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[decrementBy](Navi3DPoint.md#decrementby)
+[`Navi3DPoint`](Navi3DPoint.md).[`decrementBy`](Navi3DPoint.md#decrementby)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:609](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L609)
+### dotProduct()
 
-___
+> **dotProduct**(`a`): `number`
 
-### dotProduct
-
-▸ **dotProduct**(`a`): `number`
+Defined in: [src/math/Vector3.ts:694](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L694)
 
 Calculate the dot product of two vectors and return the Angle relationship between the two vectors
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `a` | [`Vector3`](Vector3.md) | The vector that you need to compute |
+##### a
+
+[`Vector3`](Vector3.md)
+
+The vector that you need to compute
 
 #### Returns
 
@@ -1546,26 +1745,31 @@ number Returns the Angle relationship between two vectors
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[dotProduct](Navi3DPoint.md#dotproduct)
+[`Navi3DPoint`](Navi3DPoint.md).[`dotProduct`](Navi3DPoint.md#dotproduct)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:621](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L621)
+### equals()
 
-___
+> **equals**(`toCompare`, `allFour?`): `boolean`
 
-### equals
-
-▸ **equals**(`toCompare`, `allFour?`): `boolean`
+Defined in: [src/math/Vector3.ts:716](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L716)
 
 Find whether the values of two vectors are identical
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `toCompare` | [`Vector3`](Vector3.md) | `undefined` | The vector to compare |
-| `allFour` | `boolean` | `false` | The default parameter is 1, whether to compare the w component |
+##### toCompare
+
+[`Vector3`](Vector3.md)
+
+The vector to compare
+
+##### allFour?
+
+`boolean` = `false`
+
+The default parameter is 1, whether to compare the w component
 
 #### Returns
 
@@ -1575,71 +1779,65 @@ A value of true if the specified Vector3 object is equal to the current Vector3 
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[equals](Navi3DPoint.md#equals)
+[`Navi3DPoint`](Navi3DPoint.md).[`equals`](Navi3DPoint.md#equals)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:643](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L643)
+### incrementBy()
 
-___
+> **incrementBy**(`a`): `this`
 
-### incrementBy
-
-▸ **incrementBy**(`a`): `void`
+Defined in: [src/math/Vector3.ts:736](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L736)
 
 The current vector plus is equal to the vector, plus just the x, y, and z components
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `a` | [`Vector3`](Vector3.md) | vector |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[Navi3DPoint](Navi3DPoint.md).[incrementBy](Navi3DPoint.md#incrementby)
-
-#### Defined in
-
-[src/math/Vector3.ts:663](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L663)
-
-___
-
-### divide
-
-▸ **divide**(`v`): [`Vector3`](Vector3.md)
-
-The current vector divided by the vector or component
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `v` | `any` | The vector or component that you want to divide |
-
-#### Returns
+##### a
 
 [`Vector3`](Vector3.md)
 
-Vector3 Returns the result of the calculation
+vector
+
+#### Returns
+
+`this`
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[divide](Navi3DPoint.md#divide)
+[`Navi3DPoint`](Navi3DPoint.md).[`incrementBy`](Navi3DPoint.md#incrementby)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:675](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L675)
+### divide()
 
-___
+> **divide**(`v`): `this`
 
-### negate
+Defined in: [src/math/Vector3.ts:747](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L747)
 
-▸ **negate**(): [`Navi3DPointFat`](Navi3DPointFat.md)
+Component-wise divides this vector by `v`. Mutates and returns this.
+
+#### Parameters
+
+##### v
+
+[`Vector3`](Vector3.md)
+
+#### Returns
+
+`this`
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`divide`](Navi3DPoint.md#divide-1)
+
+***
+
+### negate()
+
+> **negate**(): `Navi3DPointFat`
+
+Defined in: [src/math/Vector3.ts:758](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L758)
 
 Sets the current Vector3 object to its inverse. The inverse object
 is also considered the opposite of the original object. The value of
@@ -1648,30 +1846,32 @@ to -x, -y, and -z.
 
 #### Returns
 
-[`Navi3DPointFat`](Navi3DPointFat.md)
+`Navi3DPointFat`
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[negate](Navi3DPoint.md#negate)
+[`Navi3DPoint`](Navi3DPoint.md).[`negate`](Navi3DPoint.md#negate-1)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:692](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L692)
+### normalize()
 
-___
+> **normalize**(`thickness?`): [`Vector3`](Vector3.md)
 
-### normalize
-
-▸ **normalize**(`thickness?`): [`Vector3`](Vector3.md)
+Defined in: [src/math/Vector3.ts:773](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L773)
 
 Scales the line segment between(0,0) and the current point to a set
 length.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `thickness` | `number` | `1` | The scaling value. For example, if the current Vector3 object is (0,3,4), and you normalize it to 1, the point returned is at(0,0.6,0.8). |
+##### thickness?
+
+`number` = `1`
+
+The scaling value. For example, if the current
+Vector3 object is (0,3,4), and you normalize it to
+1, the point returned is at(0,0.6,0.8).
 
 #### Returns
 
@@ -1679,213 +1879,47 @@ length.
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[normalize](Navi3DPoint.md#normalize)
+[`Navi3DPoint`](Navi3DPoint.md).[`normalize`](Navi3DPoint.md#normalize)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:707](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L707)
+### applyQuaternion()
 
-___
+> **applyQuaternion**(`q`): `Navi3DPointFat`
 
-### applyQuaternion
-
-▸ **applyQuaternion**(`q`): [`Navi3DPointFat`](Navi3DPointFat.md)
+Defined in: [src/math/Vector3.ts:790](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L790)
 
 Apply the rotation quaternion
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `q` | `any` | quaternion |
+##### q
+
+`any`
+
+quaternion
 
 #### Returns
 
-[`Navi3DPointFat`](Navi3DPointFat.md)
+`Navi3DPointFat`
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[applyQuaternion](Navi3DPoint.md#applyquaternion)
+[`Navi3DPoint`](Navi3DPoint.md).[`applyQuaternion`](Navi3DPoint.md#applyquaternion)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:724](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L724)
+### applyMatrix4()
 
-___
+> **applyMatrix4**(`m`): `this`
 
-### applyMatrix4
-
-▸ **applyMatrix4**(`m`): [`Vector3`](Vector3.md)
+Defined in: [src/math/Vector3.ts:815](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L815)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `m` | `any` |
+##### m
 
-#### Returns
-
-[`Vector3`](Vector3.md)
-
-#### Inherited from
-
-[Navi3DPoint](Navi3DPoint.md).[applyMatrix4](Navi3DPoint.md#applymatrix4)
-
-#### Defined in
-
-[src/math/Vector3.ts:749](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L749)
-
-___
-
-### scaleBy
-
-▸ **scaleBy**(`s`): [`Vector3`](Vector3.md)
-
-Scales the current Vector3 object by a scalar, a magnitude. The
-Vector3 object's x, y, and z elements are multiplied by the scalar
-number specified in the parameter. For example, if the vector is
-scaled by ten, the result is a vector that is ten times longer. The
-scalar can also change the direction of the vector. Multiplying the
-vector by a negative number reverses its direction.
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `s` | `number` | A multiplier (scalar) used to scale a Vector3 object. |
-
-#### Returns
-
-[`Vector3`](Vector3.md)
-
-#### Inherited from
-
-[Navi3DPoint](Navi3DPoint.md).[scaleBy](Navi3DPoint.md#scaleby)
-
-#### Defined in
-
-[src/math/Vector3.ts:763](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L763)
-
-___
-
-### mul
-
-▸ **mul**(`s`): [`Vector3`](Vector3.md)
-
-The current vector times the scalar s
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `s` | `number` | scalar s |
-
-#### Returns
-
-[`Vector3`](Vector3.md)
-
-#### Inherited from
-
-[Navi3DPoint](Navi3DPoint.md).[mul](Navi3DPoint.md#mul)
-
-#### Defined in
-
-[src/math/Vector3.ts:775](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L775)
-
-___
-
-### scale
-
-▸ **scale**(`s`): [`Vector3`](Vector3.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `s` | [`Vector3`](Vector3.md) |
-
-#### Returns
-
-[`Vector3`](Vector3.md)
-
-#### Inherited from
-
-[Navi3DPoint](Navi3DPoint.md).[scale](Navi3DPoint.md#scale)
-
-#### Defined in
-
-[src/math/Vector3.ts:783](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L783)
-
-___
-
-### scaleToRef
-
-▸ **scaleToRef**(`s`, `ref`): [`Vector3`](Vector3.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `s` | `number` |
-| `ref` | [`Vector3`](Vector3.md) |
-
-#### Returns
-
-[`Vector3`](Vector3.md)
-
-#### Inherited from
-
-[Navi3DPoint](Navi3DPoint.md).[scaleToRef](Navi3DPoint.md#scaletoref)
-
-#### Defined in
-
-[src/math/Vector3.ts:790](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L790)
-
-___
-
-### setTo
-
-▸ **setTo**(`xa`, `ya`, `za`, `wa?`): `void`
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `xa` | `number` | `undefined` | The first element, such as the x coordinate. |
-| `ya` | `number` | `undefined` | The second element, such as the y coordinate. |
-| `za` | `number` | `undefined` | The third element, such as the z coordinate. |
-| `wa` | `number` | `1` | - |
-
-#### Returns
-
-`void`
-
-**`Language`**
-
-en_US
-Sets the members of Vector3 to the specified values
-
-#### Inherited from
-
-[Navi3DPoint](Navi3DPoint.md).[setTo](Navi3DPoint.md#setto)
-
-#### Defined in
-
-[src/math/Vector3.ts:809](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L809)
-
-___
-
-### copy
-
-▸ **copy**(`src`): `this`
-
-Copy the components of the source vector to this vector
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `src` | [`Vector3`](Vector3.md) | Source vector |
+`any`
 
 #### Returns
 
@@ -1893,145 +1927,167 @@ Copy the components of the source vector to this vector
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[copy](Navi3DPoint.md#copy)
+[`Navi3DPoint`](Navi3DPoint.md).[`applyMatrix4`](Navi3DPoint.md#applymatrix4)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:821](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L821)
+### setTo()
 
-___
+> **setTo**(`xa`, `ya`, `za`, `wa?`): `void`
 
-### subtract
-
-▸ **subtract**(`a`, `target?`): [`Vector3`](Vector3.md)
+Defined in: [src/math/Vector3.ts:827](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L827)
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `a` | [`Vector3`](Vector3.md) | `undefined` | The Vector3 object to be subtracted from the current Vector3 object. |
-| `target` | [`Vector3`](Vector3.md) | `null` | - |
+##### xa
+
+`number`
+
+The first element, such as the x coordinate.
+
+##### ya
+
+`number`
+
+The second element, such as the y coordinate.
+
+##### za
+
+`number`
+
+The third element, such as the z coordinate.
+
+##### wa?
+
+`number` = `1`
 
 #### Returns
 
+`void`
+
+#### Language
+
+en_US
+Sets the members of Vector3 to the specified values
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`setTo`](Navi3DPoint.md#setto)
+
+***
+
+### copy()
+
+> **copy**(`src`): `this`
+
+Defined in: [src/math/Vector3.ts:839](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L839)
+
+Copy the components of the source vector to this vector
+
+#### Parameters
+
+##### src
+
 [`Vector3`](Vector3.md)
+
+Source vector
+
+#### Returns
+
+`this`
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`copy`](Navi3DPoint.md#copy)
+
+***
+
+### sub()
+
+> **sub**(`a`): `this`
+
+Defined in: [src/math/Vector3.ts:858](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L858)
+
+#### Parameters
+
+##### a
+
+[`Vector3`](Vector3.md)
+
+The Vector3 object to be subtracted from the current
+         Vector3 object.
+
+#### Returns
+
+`this`
 
 A new Vector3 object that is the difference between the
          current Vector3 and the specified Vector3 object.
 
-**`Language`**
+#### Language
 
 en_US
 Subtracts the value of the x, y, and z elements of the current
 Vector3 object from the values of the x, y, and z elements of
-another Vector3 object. The <code>subtract()</code> method does not
-change the current Vector3 object. Instead, this method returns a
-new Vector3 object with the new values.
+another Vector3 object. Returns a new Vector3.
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[subtract](Navi3DPoint.md#subtract)
+[`Navi3DPoint`](Navi3DPoint.md).[`sub`](Navi3DPoint.md#sub-1)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:842](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L842)
+### multiply()
 
-___
+> **multiply**(`other`): `this`
 
-### multiply
+Defined in: [src/math/Vector3.ts:865](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L865)
 
-▸ **multiply**(`other`, `target?`): [`Vector3`](Vector3.md)
-
-Let's multiply that vector times that vector.
+Component-wise multiplies this vector by `other`. Mutates and returns this.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `other` | [`Vector3`](Vector3.md) | `undefined` | Multiplied vectors |
-| `target` | [`Vector3`](Vector3.md) | `null` | Returned vector |
-
-#### Returns
+##### other
 
 [`Vector3`](Vector3.md)
 
-#### Inherited from
-
-[Navi3DPoint](Navi3DPoint.md).[multiply](Navi3DPoint.md#multiply)
-
-#### Defined in
-
-[src/math/Vector3.ts:856](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L856)
-
-___
-
-### divided
-
-▸ **divided**(`other`, `target?`): [`Vector3`](Vector3.md)
-
-Let's divide this vector by this vector.
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `other` | [`Vector3`](Vector3.md) | `undefined` | The vector that divides |
-| `target` | [`Vector3`](Vector3.md) | `null` | Returned vector |
-
 #### Returns
 
-[`Vector3`](Vector3.md)
+`this`
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[divided](Navi3DPoint.md#divided)
+[`Navi3DPoint`](Navi3DPoint.md).[`multiply`](Navi3DPoint.md#multiply-1)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:879](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L879)
+### lerp()
 
-___
+> **lerp**(`v0`, `v1`, `t`): `void`
 
-### div
-
-▸ **div**(`v`, `target?`): [`Vector3`](Vector3.md)
-
-Divide that vector by the scalar
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `v` | `number` | The scalar that divides |
-| `target?` | [`Vector3`](Vector3.md) | Output a Vector3 vector |
-
-#### Returns
-
-[`Vector3`](Vector3.md)
-
-#### Inherited from
-
-[Navi3DPoint](Navi3DPoint.md).[div](Navi3DPoint.md#div)
-
-#### Defined in
-
-[src/math/Vector3.ts:902](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L902)
-
-___
-
-### lerp
-
-▸ **lerp**(`v0`, `v1`, `t`): `void`
+Defined in: [src/math/Vector3.ts:875](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L875)
 
 Computes the linear interpolation between two Vector3, and the result is the current object
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `v0` | [`Vector3`](Vector3.md) | Vector 1 |
-| `v1` | [`Vector3`](Vector3.md) | Vector 2 |
-| `t` | `number` | Interpolation factor |
+##### v0
+
+[`Vector3`](Vector3.md)
+
+Vector 1
+
+##### v1
+
+[`Vector3`](Vector3.md)
+
+Vector 2
+
+##### t
+
+`number`
+
+Interpolation factor
 
 #### Returns
 
@@ -2039,26 +2095,31 @@ Computes the linear interpolation between two Vector3, and the result is the cur
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[lerp](Navi3DPoint.md#lerp)
+[`Navi3DPoint`](Navi3DPoint.md).[`lerp`](Navi3DPoint.md#lerp)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:922](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L922)
+### clamp()
 
-___
+> **clamp**(`min`, `max`): [`Vector3`](Vector3.md)
 
-### clamp
-
-▸ **clamp**(`min`, `max`): [`Vector3`](Vector3.md)
+Defined in: [src/math/Vector3.ts:897](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L897)
 
 The x, y, and z components of this vector are rounded upward to the nearest integers.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `min` | [`Vector3`](Vector3.md) | minimum value |
-| `max` | [`Vector3`](Vector3.md) | maximum value |
+##### min
+
+[`Vector3`](Vector3.md)
+
+minimum value
+
+##### max
+
+[`Vector3`](Vector3.md)
+
+maximum value
 
 #### Returns
 
@@ -2066,17 +2127,15 @@ The x, y, and z components of this vector are rounded upward to the nearest inte
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[clamp](Navi3DPoint.md#clamp)
+[`Navi3DPoint`](Navi3DPoint.md).[`clamp`](Navi3DPoint.md#clamp)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:944](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L944)
+### toString()
 
-___
+> **toString**(): `string`
 
-### toString
-
-▸ **toString**(): `string`
+Defined in: [src/math/Vector3.ts:963](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L963)
 
 Returns the string form of the current vector
 
@@ -2086,17 +2145,15 @@ Returns the string form of the current vector
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[toString](Navi3DPoint.md#tostring)
+[`Navi3DPoint`](Navi3DPoint.md).[`toString`](Navi3DPoint.md#tostring)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:1010](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1010)
+### normalizeToWay2D\_XY()
 
-___
+> **normalizeToWay2D\_XY**(): `void`
 
-### normalizeToWay2D\_XY
-
-▸ **normalizeToWay2D_XY**(): `void`
+Defined in: [src/math/Vector3.ts:979](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L979)
 
 #### Returns
 
@@ -2104,17 +2161,15 @@ ___
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[normalizeToWay2D_XY](Navi3DPoint.md#normalizetoway2d_xy)
+[`Navi3DPoint`](Navi3DPoint.md).[`normalizeToWay2D_XY`](Navi3DPoint.md#normalizetoway2d_xy)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:1026](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1026)
+### toArray()
 
-___
+> **toArray**(): `number`[]
 
-### toArray
-
-▸ **toArray**(): `number`[]
+Defined in: [src/math/Vector3.ts:997](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L997)
 
 #### Returns
 
@@ -2122,23 +2177,21 @@ ___
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[toArray](Navi3DPoint.md#toarray)
+[`Navi3DPoint`](Navi3DPoint.md).[`toArray`](Navi3DPoint.md#toarray)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:1044](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1044)
+### copyToBytes()
 
-___
+> **copyToBytes**(`byte`): `void`
 
-### copyToBytes
-
-▸ **copyToBytes**(`byte`): `void`
+Defined in: [src/math/Vector3.ts:1001](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L1001)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `byte` | `DataView` |
+##### byte
+
+`DataView`
 
 #### Returns
 
@@ -2146,54 +2199,23 @@ ___
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[copyToBytes](Navi3DPoint.md#copytobytes)
+[`Navi3DPoint`](Navi3DPoint.md).[`copyToBytes`](Navi3DPoint.md#copytobytes)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:1048](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1048)
+### cross()
 
-___
+> **cross**(`a`): `this`
 
-### crossProduct
+Defined in: [src/math/Vector3.ts:1016](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L1016)
 
-▸ **crossProduct**(`a`, `target?`): [`Vector3`](Vector3.md)
-
-You take the cross product of two vectors,
-The cross product is going to be the perpendicular vector between these two vectors
+Cross product with another vector. Returns a new Vector3.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `a` | [`Vector3`](Vector3.md) | `undefined` | Take the cross product of another vector |
-| `target` | [`Vector3`](Vector3.md) | `null` | - |
-
-#### Returns
+##### a
 
 [`Vector3`](Vector3.md)
-
-Vector3 returns the cross product vector
-
-#### Inherited from
-
-[Navi3DPoint](Navi3DPoint.md).[crossProduct](Navi3DPoint.md#crossproduct)
-
-#### Defined in
-
-[src/math/Vector3.ts:1060](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1060)
-
-___
-
-### crossVectors
-
-▸ **crossVectors**(`a`, `b`): `this`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `a` | [`Vector3`](Vector3.md) |
-| `b` | [`Vector3`](Vector3.md) |
 
 #### Returns
 
@@ -2201,48 +2223,73 @@ ___
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[crossVectors](Navi3DPoint.md#crossvectors)
+[`Navi3DPoint`](Navi3DPoint.md).[`cross`](Navi3DPoint.md#cross-1)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:1069](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1069)
+### crossVectors()
 
-___
+> **crossVectors**(`a`, `b`): `this`
 
-### multiplyScalar
-
-▸ **multiplyScalar**(`scalar`): [`Navi3DPointFat`](Navi3DPointFat.md)
+Defined in: [src/math/Vector3.ts:1020](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L1020)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `scalar` | `number` |
+##### a
+
+[`Vector3`](Vector3.md)
+
+##### b
+
+[`Vector3`](Vector3.md)
 
 #### Returns
 
-[`Navi3DPointFat`](Navi3DPointFat.md)
+`this`
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[multiplyScalar](Navi3DPoint.md#multiplyscalar)
+[`Navi3DPoint`](Navi3DPoint.md).[`crossVectors`](Navi3DPoint.md#crossvectors)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:1074](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1074)
+### multiplyScalar()
 
-___
+> **multiplyScalar**(`scalar`): `Navi3DPointFat`
 
-### setFromArray
-
-▸ **setFromArray**(`array`, `firstElementPos?`): `void`
+Defined in: [src/math/Vector3.ts:1025](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L1025)
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `array` | `number`[] | `undefined` |
-| `firstElementPos` | `number` | `0` |
+##### scalar
+
+`number`
+
+#### Returns
+
+`Navi3DPointFat`
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`multiplyScalar`](Navi3DPoint.md#multiplyscalar-1)
+
+***
+
+### setFromArray()
+
+> **setFromArray**(`array`, `firstElementPos?`): `void`
+
+Defined in: [src/math/Vector3.ts:1033](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L1033)
+
+#### Parameters
+
+##### array
+
+`number`[]
+
+##### firstElementPos?
+
+`number` = `0`
 
 #### Returns
 
@@ -2250,97 +2297,99 @@ ___
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[setFromArray](Navi3DPoint.md#setfromarray)
+[`Navi3DPoint`](Navi3DPoint.md).[`setFromArray`](Navi3DPoint.md#setfromarray)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:1082](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1082)
+### divideScalar()
 
-___
+> **divideScalar**(`scalar`): `this`
 
-### divideScalar
+Defined in: [src/math/Vector3.ts:1042](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L1042)
 
-▸ **divideScalar**(`scalar`): [`Navi3DPointFat`](Navi3DPointFat.md)
+Divides this vector by scalar. Mutates and returns this.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `scalar` | `any` |
+##### scalar
+
+`number`
 
 #### Returns
 
-[`Navi3DPointFat`](Navi3DPointFat.md)
+`this`
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[divideScalar](Navi3DPoint.md#dividescalar)
+[`Navi3DPoint`](Navi3DPoint.md).[`divideScalar`](Navi3DPoint.md#dividescalar)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:1088](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1088)
+### clampLength()
 
-___
+> **clampLength**(`min`, `max`): `this`
 
-### clampLength
+Defined in: [src/math/Vector3.ts:1049](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L1049)
 
-▸ **clampLength**(`min`, `max`): [`Navi3DPointFat`](Navi3DPointFat.md)
+Clamps the length of this vector into [min, max]. Mutates and returns this.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `min` | `number` |
-| `max` | `number` |
+##### min
+
+`number`
+
+##### max
+
+`number`
 
 #### Returns
 
-[`Navi3DPointFat`](Navi3DPointFat.md)
+`this`
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[clampLength](Navi3DPoint.md#clamplength)
+[`Navi3DPoint`](Navi3DPoint.md).[`clampLength`](Navi3DPoint.md#clamplength)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:1092](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1092)
+### setScalar()
 
-___
+> **setScalar**(`value`): `Navi3DPointFat`
 
-### setScalar
-
-▸ **setScalar**(`value`): [`Navi3DPointFat`](Navi3DPointFat.md)
+Defined in: [src/math/Vector3.ts:1054](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L1054)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+##### value
+
+`number`
 
 #### Returns
 
-[`Navi3DPointFat`](Navi3DPointFat.md)
+`Navi3DPointFat`
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[setScalar](Navi3DPoint.md#setscalar)
+[`Navi3DPoint`](Navi3DPoint.md).[`setScalar`](Navi3DPoint.md#setscalar)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:1097](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1097)
+### addScaledVector()
 
-___
+> **addScaledVector**(`v`, `scale`): [`Vector3`](Vector3.md)
 
-### addScaledVector
-
-▸ **addScaledVector**(`v`, `scale`): [`Vector3`](Vector3.md)
+Defined in: [src/math/Vector3.ts:1061](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L1061)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | [`Vector3`](Vector3.md) |
-| `scale` | `number` |
+##### v
+
+[`Vector3`](Vector3.md)
+
+##### scale
+
+`number`
 
 #### Returns
 
@@ -2348,100 +2397,23 @@ ___
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[addScaledVector](Navi3DPoint.md#addscaledvector)
+[`Navi3DPoint`](Navi3DPoint.md).[`addScaledVector`](Navi3DPoint.md#addscaledvector-1)
 
-#### Defined in
+***
 
-[src/math/Vector3.ts:1104](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1104)
+### dot()
 
-___
+> **dot**(`v`): `number`
 
-### pointInsideTriangle
+Defined in: [src/math/Vector3.ts:1071](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L1071)
 
-▸ **pointInsideTriangle**(`pt`, `pt0`, `pt1`, `pt2`): `boolean`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `pt` | [`Vector3`](Vector3.md) |
-| `pt0` | [`Vector3`](Vector3.md) |
-| `pt1` | [`Vector3`](Vector3.md) |
-| `pt2` | [`Vector3`](Vector3.md) |
-
-#### Returns
-
-`boolean`
-
-#### Inherited from
-
-[Navi3DPoint](Navi3DPoint.md).[pointInsideTriangle](Navi3DPoint.md#pointinsidetriangle)
-
-#### Defined in
-
-[src/math/Vector3.ts:1133](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1133)
-
-___
-
-### serialize
-
-▸ **serialize**(`position`): [`Vector3`](Vector3.md)
+Dot product. Canonical alias of [dotProduct](Vector3.md#dotproduct).
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `position` | [`Vector3`](Vector3.md) |
-
-#### Returns
+##### v
 
 [`Vector3`](Vector3.md)
-
-#### Inherited from
-
-[Navi3DPoint](Navi3DPoint.md).[serialize](Navi3DPoint.md#serialize)
-
-#### Defined in
-
-[src/math/Vector3.ts:1162](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector3.ts#L1162)
-
-___
-
-### equalPoint
-
-▸ **equalPoint**(`p1`, `p2`): `boolean`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `p1` | [`Vector3`](Vector3.md) |
-| `p2` | [`Vector3`](Vector3.md) |
-
-#### Returns
-
-`boolean`
-
-#### Inherited from
-
-[Navi3DPoint](Navi3DPoint.md).[equalPoint](Navi3DPoint.md#equalpoint)
-
-#### Defined in
-
-[src/math/navigation/Navi3DPoint.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DPoint.ts#L27)
-
-___
-
-### calcDistance
-
-▸ **calcDistance**(`pt1`, `pt2`): `number`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `pt1` | [`Vector3`](Vector3.md) |
-| `pt2` | [`Vector3`](Vector3.md) |
 
 #### Returns
 
@@ -2449,28 +2421,570 @@ ___
 
 #### Inherited from
 
-[Navi3DPoint](Navi3DPoint.md).[calcDistance](Navi3DPoint.md#calcdistance)
+[`Navi3DPoint`](Navi3DPoint.md).[`dot`](Navi3DPoint.md#dot-1)
 
-#### Defined in
+***
 
-[src/math/navigation/Navi3DPoint.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DPoint.ts#L31)
+### lengthSq()
 
-___
+> **lengthSq**(): `number`
 
-### scalePoint
+Defined in: [src/math/Vector3.ts:1076](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L1076)
 
-▸ **scalePoint**(`value?`): [`Navi3DPointFat`](Navi3DPointFat.md)
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `value` | `number` | `0.7` |
+Squared length of this vector.
 
 #### Returns
 
-[`Navi3DPointFat`](Navi3DPointFat.md)
+`number`
 
-#### Defined in
+#### Inherited from
 
-[src/math/navigation/Navi3DPointFat.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DPointFat.ts#L25)
+[`Navi3DPoint`](Navi3DPoint.md).[`lengthSq`](Navi3DPoint.md#lengthsq)
+
+***
+
+### distanceTo()
+
+> **distanceTo**(`v`): `number`
+
+Defined in: [src/math/Vector3.ts:1081](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L1081)
+
+Euclidean distance to v.
+
+#### Parameters
+
+##### v
+
+[`Vector3`](Vector3.md)
+
+#### Returns
+
+`number`
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`distanceTo`](Navi3DPoint.md#distanceto)
+
+***
+
+### angleTo()
+
+> **angleTo**(`v`): `number`
+
+Defined in: [src/math/Vector3.ts:1086](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L1086)
+
+Angle between this and v, in radians (range [0, π]).
+
+#### Parameters
+
+##### v
+
+[`Vector3`](Vector3.md)
+
+#### Returns
+
+`number`
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`angleTo`](Navi3DPoint.md#angleto)
+
+***
+
+### lerpVectors()
+
+> **lerpVectors**(`v1`, `v2`, `alpha`): `this`
+
+Defined in: [src/math/Vector3.ts:1094](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L1094)
+
+Set this to v1 + (v2 - v1) * alpha. Canonical alias of [lerp](Vector3.md#lerp).
+
+#### Parameters
+
+##### v1
+
+[`Vector3`](Vector3.md)
+
+##### v2
+
+[`Vector3`](Vector3.md)
+
+##### alpha
+
+`number`
+
+#### Returns
+
+`this`
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`lerpVectors`](Navi3DPoint.md#lerpvectors)
+
+***
+
+### setFromMatrixPosition()
+
+> **setFromMatrixPosition**(`m`): `this`
+
+Defined in: [src/math/Vector3.ts:1100](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L1100)
+
+Set this = position column of Matrix4 m.
+
+#### Parameters
+
+##### m
+
+###### rawData
+
+`ArrayLike`\<`number`\>
+
+#### Returns
+
+`this`
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`setFromMatrixPosition`](Navi3DPoint.md#setfrommatrixposition)
+
+***
+
+### setFromMatrixScale()
+
+> **setFromMatrixScale**(`m`): `this`
+
+Defined in: [src/math/Vector3.ts:1109](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L1109)
+
+Set this = scale extracted from Matrix4 m (length of each column basis).
+
+#### Parameters
+
+##### m
+
+###### rawData
+
+`ArrayLike`\<`number`\>
+
+#### Returns
+
+`this`
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`setFromMatrixScale`](Navi3DPoint.md#setfrommatrixscale)
+
+***
+
+### setFromMatrixColumn()
+
+> **setFromMatrixColumn**(`m`, `index`): `this`
+
+Defined in: [src/math/Vector3.ts:1121](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L1121)
+
+Set this = column index of Matrix4 m (0, 1, 2, or 3).
+
+#### Parameters
+
+##### m
+
+###### rawData
+
+`ArrayLike`\<`number`\>
+
+##### index
+
+`number`
+
+#### Returns
+
+`this`
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`setFromMatrixColumn`](Navi3DPoint.md#setfrommatrixcolumn)
+
+***
+
+### projectOnVector()
+
+> **projectOnVector**(`v`): `this`
+
+Defined in: [src/math/Vector3.ts:1131](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L1131)
+
+Project this onto v. Mutates and returns this.
+
+#### Parameters
+
+##### v
+
+[`Vector3`](Vector3.md)
+
+#### Returns
+
+`this`
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`projectOnVector`](Navi3DPoint.md#projectonvector)
+
+***
+
+### projectOnPlane()
+
+> **projectOnPlane**(`planeNormal`): `this`
+
+Defined in: [src/math/Vector3.ts:1139](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L1139)
+
+Project this onto a plane defined by its normal (unit vector).
+
+#### Parameters
+
+##### planeNormal
+
+[`Vector3`](Vector3.md)
+
+#### Returns
+
+`this`
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`projectOnPlane`](Navi3DPoint.md#projectonplane)
+
+***
+
+### reflect()
+
+> **reflect**(`normal`): `this`
+
+Defined in: [src/math/Vector3.ts:1145](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L1145)
+
+Reflect this off a surface with the given unit normal.
+
+#### Parameters
+
+##### normal
+
+[`Vector3`](Vector3.md)
+
+#### Returns
+
+`this`
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`reflect`](Navi3DPoint.md#reflect)
+
+***
+
+### applyMatrix3()
+
+> **applyMatrix3**(`m`): `this`
+
+Defined in: [src/math/Vector3.ts:1150](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L1150)
+
+Apply a 3x3 matrix to this vector.
+
+#### Parameters
+
+##### m
+
+\{ `rawData`: `ArrayLike`\<`number`\>; \} \| \{ `a`: `number`; `b`: `number`; `c`: `number`; `d`: `number`; `tx`: `number`; `ty`: `number`; \}
+
+#### Returns
+
+`this`
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`applyMatrix3`](Navi3DPoint.md#applymatrix3)
+
+***
+
+### applyAxisAngle()
+
+> **applyAxisAngle**(`axis`, `angle`): `this`
+
+Defined in: [src/math/Vector3.ts:1168](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L1168)
+
+Apply axis-angle rotation (axis must be unit, angle in radians).
+
+#### Parameters
+
+##### axis
+
+[`Vector3`](Vector3.md)
+
+##### angle
+
+`number`
+
+#### Returns
+
+`this`
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`applyAxisAngle`](Navi3DPoint.md#applyaxisangle)
+
+***
+
+### transformDirection()
+
+> **transformDirection**(`m`): `this`
+
+Defined in: [src/math/Vector3.ts:1178](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L1178)
+
+Transform this as a direction (no translation) by Matrix4 m, then normalize.
+
+#### Parameters
+
+##### m
+
+###### rawData
+
+`ArrayLike`\<`number`\>
+
+#### Returns
+
+`this`
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`transformDirection`](Navi3DPoint.md#transformdirection)
+
+***
+
+### fromArray()
+
+> **fromArray**(`array`, `offset?`): `this`
+
+Defined in: [src/math/Vector3.ts:1188](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L1188)
+
+Canonical alias of [setFromArray](Vector3.md#setfromarray).
+
+#### Parameters
+
+##### array
+
+`ArrayLike`\<`number`\>
+
+##### offset?
+
+`number` = `0`
+
+#### Returns
+
+`this`
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`fromArray`](Navi3DPoint.md#fromarray)
+
+***
+
+### floor()
+
+> **floor**(): `this`
+
+Defined in: [src/math/Vector3.ts:1195](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L1195)
+
+#### Returns
+
+`this`
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`floor`](Navi3DPoint.md#floor)
+
+***
+
+### ceil()
+
+> **ceil**(): `this`
+
+Defined in: [src/math/Vector3.ts:1202](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L1202)
+
+#### Returns
+
+`this`
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`ceil`](Navi3DPoint.md#ceil)
+
+***
+
+### round()
+
+> **round**(): `this`
+
+Defined in: [src/math/Vector3.ts:1209](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L1209)
+
+#### Returns
+
+`this`
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`round`](Navi3DPoint.md#round)
+
+***
+
+### roundToZero()
+
+> **roundToZero**(): `this`
+
+Defined in: [src/math/Vector3.ts:1216](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L1216)
+
+#### Returns
+
+`this`
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`roundToZero`](Navi3DPoint.md#roundtozero)
+
+***
+
+### random()
+
+> **random**(): `this`
+
+Defined in: [src/math/Vector3.ts:1224](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L1224)
+
+Fill this with components in [0, 1).
+
+#### Returns
+
+`this`
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`random`](Navi3DPoint.md#random)
+
+***
+
+### pointInsideTriangle()
+
+> `static` **pointInsideTriangle**(`pt`, `pt0`, `pt1`, `pt2`): `boolean`
+
+Defined in: [src/math/Vector3.ts:1255](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L1255)
+
+#### Parameters
+
+##### pt
+
+[`Vector3`](Vector3.md)
+
+##### pt0
+
+[`Vector3`](Vector3.md)
+
+##### pt1
+
+[`Vector3`](Vector3.md)
+
+##### pt2
+
+[`Vector3`](Vector3.md)
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`pointInsideTriangle`](Navi3DPoint.md#pointinsidetriangle)
+
+***
+
+### serialize()
+
+> `static` **serialize**(`position`): [`Vector3`](Vector3.md)
+
+Defined in: [src/math/Vector3.ts:1284](https://github.com/orillusion/orillusion/blob/main/src/math/Vector3.ts#L1284)
+
+#### Parameters
+
+##### position
+
+[`Vector3`](Vector3.md)
+
+#### Returns
+
+[`Vector3`](Vector3.md)
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`serialize`](Navi3DPoint.md#serialize)
+
+***
+
+### equalPoint()
+
+> `static` **equalPoint**(`p1`, `p2`): `boolean`
+
+Defined in: [src/math/navigation/Navi3DPoint.ts:27](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DPoint.ts#L27)
+
+#### Parameters
+
+##### p1
+
+[`Vector3`](Vector3.md)
+
+##### p2
+
+[`Vector3`](Vector3.md)
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`equalPoint`](Navi3DPoint.md#equalpoint)
+
+***
+
+### calcDistance()
+
+> `static` **calcDistance**(`pt1`, `pt2`): `number`
+
+Defined in: [src/math/navigation/Navi3DPoint.ts:31](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DPoint.ts#L31)
+
+#### Parameters
+
+##### pt1
+
+[`Vector3`](Vector3.md)
+
+##### pt2
+
+[`Vector3`](Vector3.md)
+
+#### Returns
+
+`number`
+
+#### Inherited from
+
+[`Navi3DPoint`](Navi3DPoint.md).[`calcDistance`](Navi3DPoint.md#calcdistance)
+
+***
+
+### scalePoint()
+
+> **scalePoint**(`value?`): `Navi3DPointFat`
+
+Defined in: [src/math/navigation/Navi3DPointFat.ts:25](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DPointFat.ts#L25)
+
+#### Parameters
+
+##### value?
+
+`number` = `0.7`
+
+#### Returns
+
+`Navi3DPointFat`

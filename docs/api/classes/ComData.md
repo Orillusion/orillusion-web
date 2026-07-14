@@ -1,64 +1,51 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: ComData
 
-### Constructors
-
-- [constructor](ComData.md#constructor)
-
-### Properties
-
-- [comName](ComData.md#comname)
-- [data](ComData.md#data)
-
-### Methods
-
-- [parser](ComData.md#parser)
+Defined in: [src/loader/parser/prefab/prefabData/PrefabNode.ts:6](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabNode.ts#L6)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new ComData**(): [`ComData`](ComData.md)
+> **new ComData**(): `ComData`
 
 #### Returns
 
-[`ComData`](ComData.md)
+`ComData`
 
 ## Properties
 
 ### comName
 
-• **comName**: `string`
+> **comName**: `string`
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/PrefabNode.ts:7](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabNode.ts#L7)
 
-[src/loader/parser/prefab/prefabData/PrefabNode.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabNode.ts#L7)
-
-___
+***
 
 ### data
 
-• **data**: [`KV`](KV.md)[]
+> **data**: [`KV`](KV.md)[]
 
-#### Defined in
-
-[src/loader/parser/prefab/prefabData/PrefabNode.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabNode.ts#L8)
+Defined in: [src/loader/parser/prefab/prefabData/PrefabNode.ts:8](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabNode.ts#L8)
 
 ## Methods
 
-### parser
+### parser()
 
-▸ **parser**(`bytesArray`): [`ComData`](ComData.md)
+> `static` **parser**(`bytesArray`): `ComData`
+
+Defined in: [src/loader/parser/prefab/prefabData/PrefabNode.ts:10](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabNode.ts#L10)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `bytesArray` | `BytesArray` |
+##### bytesArray
+
+`BytesArray`
 
 #### Returns
 
-[`ComData`](ComData.md)
-
-#### Defined in
-
-[src/loader/parser/prefab/prefabData/PrefabNode.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabNode.ts#L10)
+`ComData`

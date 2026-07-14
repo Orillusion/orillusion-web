@@ -1,152 +1,139 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: AtmosphericScatteringSkySetting
+
+Defined in: [src/textures/AtmosphericScatteringSky.ts:14](https://github.com/orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L14)
 
 AtmosphericScattering Sky Setting
 
-### Constructors
-
-- [constructor](AtmosphericScatteringSkySetting.md#constructor)
-
-### Properties
-
-- [sunRadius](AtmosphericScatteringSkySetting.md#sunradius)
-- [sunRadiance](AtmosphericScatteringSkySetting.md#sunradiance)
-- [mieG](AtmosphericScatteringSkySetting.md#mieg)
-- [mieHeight](AtmosphericScatteringSkySetting.md#mieheight)
-- [eyePos](AtmosphericScatteringSkySetting.md#eyepos)
-- [sunX](AtmosphericScatteringSkySetting.md#sunx)
-- [sunY](AtmosphericScatteringSkySetting.md#suny)
-- [sunBrightness](AtmosphericScatteringSkySetting.md#sunbrightness)
-- [displaySun](AtmosphericScatteringSkySetting.md#displaysun)
-- [defaultTextureCubeSize](AtmosphericScatteringSkySetting.md#defaulttexturecubesize)
-- [defaultTexture2DSize](AtmosphericScatteringSkySetting.md#defaulttexture2dsize)
-- [skyColor](AtmosphericScatteringSkySetting.md#skycolor)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new AtmosphericScatteringSkySetting**(): [`AtmosphericScatteringSkySetting`](AtmosphericScatteringSkySetting.md)
+> **new AtmosphericScatteringSkySetting**(): `AtmosphericScatteringSkySetting`
 
 #### Returns
 
-[`AtmosphericScatteringSkySetting`](AtmosphericScatteringSkySetting.md)
+`AtmosphericScatteringSkySetting`
 
 ## Properties
 
 ### sunRadius
 
-• **sunRadius**: `number` = `500.0`
+> **sunRadius**: `number` = `500.0`
 
-#### Defined in
+Defined in: [src/textures/AtmosphericScatteringSky.ts:16](https://github.com/orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L16)
 
-[src/textures/AtmosphericScatteringSky.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L15)
+Angular size of the sun disc.
 
-___
+***
 
 ### sunRadiance
 
-• **sunRadiance**: `number` = `11.0`
+> **sunRadiance**: `number` = `11.0`
 
-#### Defined in
+Defined in: [src/textures/AtmosphericScatteringSky.ts:18](https://github.com/orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L18)
 
-[src/textures/AtmosphericScatteringSky.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L16)
+Radiance (brightness) of the sun.
 
-___
+***
 
 ### mieG
 
-• **mieG**: `number` = `0.76`
+> **mieG**: `number` = `0.76`
 
-#### Defined in
+Defined in: [src/textures/AtmosphericScatteringSky.ts:20](https://github.com/orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L20)
 
-[src/textures/AtmosphericScatteringSky.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L17)
+Mie scattering anisotropy factor (forward-scattering bias).
 
-___
+***
 
 ### mieHeight
 
-• **mieHeight**: `number` = `1200`
+> **mieHeight**: `number` = `1200`
 
-#### Defined in
+Defined in: [src/textures/AtmosphericScatteringSky.ts:22](https://github.com/orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L22)
 
-[src/textures/AtmosphericScatteringSky.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L18)
+Scale height of the Mie (aerosol) layer.
 
-___
+***
 
 ### eyePos
 
-• **eyePos**: `number` = `1500`
+> **eyePos**: `number` = `1500`
 
-#### Defined in
+Defined in: [src/textures/AtmosphericScatteringSky.ts:24](https://github.com/orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L24)
 
-[src/textures/AtmosphericScatteringSky.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L19)
+Height of the viewer's eye above the planet surface.
 
-___
+***
 
 ### sunX
 
-• **sunX**: `number` = `0.71`
+> **sunX**: `number` = `0.71`
 
-#### Defined in
+Defined in: [src/textures/AtmosphericScatteringSky.ts:26](https://github.com/orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L26)
 
-[src/textures/AtmosphericScatteringSky.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L20)
+Sun direction's horizontal (azimuth) parameter, in [0, 1].
 
-___
+***
 
 ### sunY
 
-• **sunY**: `number` = `0.56`
+> **sunY**: `number` = `0.56`
 
-#### Defined in
+Defined in: [src/textures/AtmosphericScatteringSky.ts:28](https://github.com/orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L28)
 
-[src/textures/AtmosphericScatteringSky.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L21)
+Sun direction's vertical (elevation) parameter, in [0, 1].
 
-___
+***
 
 ### sunBrightness
 
-• **sunBrightness**: `number` = `1.0`
+> **sunBrightness**: `number` = `1.0`
 
-#### Defined in
+Defined in: [src/textures/AtmosphericScatteringSky.ts:30](https://github.com/orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L30)
 
-[src/textures/AtmosphericScatteringSky.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L22)
+Overall brightness multiplier applied to the sun.
 
-___
+***
 
 ### displaySun
 
-• **displaySun**: `boolean` = `true`
+> **displaySun**: `boolean` = `true`
 
-#### Defined in
+Defined in: [src/textures/AtmosphericScatteringSky.ts:32](https://github.com/orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L32)
 
-[src/textures/AtmosphericScatteringSky.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L23)
+Whether the sun disc is drawn in the sky.
 
-___
+***
 
 ### defaultTextureCubeSize
 
-• **defaultTextureCubeSize**: `number` = `512`
+> **defaultTextureCubeSize**: `number` = `512`
 
-#### Defined in
+Defined in: [src/textures/AtmosphericScatteringSky.ts:34](https://github.com/orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L34)
 
-[src/textures/AtmosphericScatteringSky.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L24)
+Default edge size of the generated sky cube texture.
 
-___
+***
 
 ### defaultTexture2DSize
 
-• **defaultTexture2DSize**: `number` = `1024`
+> **defaultTexture2DSize**: `number` = `1024`
 
-#### Defined in
+Defined in: [src/textures/AtmosphericScatteringSky.ts:36](https://github.com/orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L36)
 
-[src/textures/AtmosphericScatteringSky.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L25)
+Default width of the generated panorama 2D texture.
 
-___
+***
 
 ### skyColor
 
-• **skyColor**: [`Color`](Color.md)
+> **skyColor**: [`Color`](Color.md)
 
-#### Defined in
+Defined in: [src/textures/AtmosphericScatteringSky.ts:38](https://github.com/orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L38)
 
-[src/textures/AtmosphericScatteringSky.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/textures/AtmosphericScatteringSky.ts#L26)
+Tint color applied to the sky.

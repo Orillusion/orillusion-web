@@ -1,17 +1,19 @@
-# Function: GetShader
+[**@orillusion/core**](../README.md)
 
-▸ **GetShader**(`name`): `any`
+***
 
-#### Parameters
+# Function: GetShader()
 
-| Name | Type |
-| :------ | :------ |
-| `name` | `string` |
+> **GetShader**(`name`): `any`
 
-#### Returns
+Defined in: [src/util/SerializeDecoration.ts:106](https://github.com/orillusion/orillusion/blob/main/src/util/SerializeDecoration.ts#L106)
+
+## Parameters
+
+### name
+
+`string`
+
+## Returns
 
 `any`
-
-#### Defined in
-
-[src/util/SerializeDecoration.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/util/SerializeDecoration.ts#L106)

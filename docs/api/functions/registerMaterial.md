@@ -1,18 +1,23 @@
-# Function: registerMaterial
+[**@orillusion/core**](../README.md)
 
-▸ **registerMaterial**(`name`, `cls`): `void`
+***
 
-#### Parameters
+# Function: registerMaterial()
 
-| Name | Type |
-| :------ | :------ |
-| `name` | `MaterialClassName` |
-| `cls` | [`Ctor`](../types/Ctor.md)\<[`Material`](../classes/Material.md)\> |
+> **registerMaterial**(`name`, `cls`): `void`
 
-#### Returns
+Defined in: [src/materials/MaterialRegister.ts:35](https://github.com/orillusion/orillusion/blob/main/src/materials/MaterialRegister.ts#L35)
+
+## Parameters
+
+### name
+
+`MaterialClassName`
+
+### cls
+
+[`Ctor`](../type-aliases/Ctor.md)\<[`Material`](../classes/Material.md)\>
+
+## Returns
 
 `void`
-
-#### Defined in
-
-[src/materials/MaterialRegister.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialRegister.ts#L37)

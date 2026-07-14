@@ -38,7 +38,7 @@ ___
 
 • **DrawWireframe** = ``1``
 
-Draw the wireframe of physics objects
+Draw the wireframe of the physics object
 
 #### Defined in
 
@@ -50,7 +50,7 @@ ___
 
 • **DrawAabb** = ``2``
 
-Draw the bounding box (AABB) of physics objects
+Draw the bounding box (AABB) of the physics object
 
 #### Defined in
 
@@ -62,7 +62,7 @@ ___
 
 • **DrawFeaturesText** = ``4``
 
-Draw feature point text
+Draw feature-point text
 
 #### Defined in
 
@@ -158,7 +158,7 @@ ___
 
 • **EnableCCD** = ``1024``
 
-Enable continuous collision detection
+Enable continuous collision detection (CCD)
 
 #### Defined in
 
@@ -194,7 +194,7 @@ ___
 
 • **FastWireframe** = ``8192``
 
-Draw the AABB of fast-culling proxies
+Draw the AABB of the fast-culling proxy
 
 #### Defined in
 
@@ -218,7 +218,7 @@ ___
 
 • **DrawSoftBodies** = ``32768``
 
-Draw soft body physics
+Draw soft-body physics
 
 #### Defined in
 

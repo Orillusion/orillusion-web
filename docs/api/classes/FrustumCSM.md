@@ -1,89 +1,180 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: FrustumCSM
 
-### Constructors
+Defined in: [src/core/csm/FrustumCSM.ts:98](https://github.com/orillusion/orillusion/blob/main/src/core/csm/FrustumCSM.ts#L98)
 
-- [constructor](FrustumCSM.md#constructor)
-
-### Properties
-
-- [sections](FrustumCSM.md#sections)
-- [children](FrustumCSM.md#children)
-- [name](FrustumCSM.md#name)
-
-### Methods
-
-- [update](FrustumCSM.md#update)
+Splits a camera frustum into cascaded sub-frustums for Cascaded Shadow Maps,
+each with its own bounding volume and shadow camera.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new FrustumCSM**(`blockCount`): [`FrustumCSM`](FrustumCSM.md)
+> **new FrustumCSM**(`blockCount`): `FrustumCSM`
+
+Defined in: [src/core/csm/FrustumCSM.ts:103](https://github.com/orillusion/orillusion/blob/main/src/core/csm/FrustumCSM.ts#L103)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `blockCount` | `number` |
+##### blockCount
+
+`number`
 
 #### Returns
 
-[`FrustumCSM`](FrustumCSM.md)
-
-#### Defined in
-
-[src/core/csm/FrustumCSM.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/core/csm/FrustumCSM.ts#L79)
+`FrustumCSM`
 
 ## Properties
 
 ### sections
 
-• **sections**: `FrustumSection`[]
+> **sections**: `FrustumSection`[]
 
-#### Defined in
+Defined in: [src/core/csm/FrustumCSM.ts:99](https://github.com/orillusion/orillusion/blob/main/src/core/csm/FrustumCSM.ts#L99)
 
-[src/core/csm/FrustumCSM.ts:75](https://github.com/Orillusion/orillusion/blob/main/src/core/csm/FrustumCSM.ts#L75)
-
-___
+***
 
 ### children
 
-• **children**: `FrustumChild`[]
+> **children**: `FrustumChild`[]
 
-#### Defined in
+Defined in: [src/core/csm/FrustumCSM.ts:100](https://github.com/orillusion/orillusion/blob/main/src/core/csm/FrustumCSM.ts#L100)
 
-[src/core/csm/FrustumCSM.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/core/csm/FrustumCSM.ts#L76)
-
-___
+***
 
 ### name
 
-• **name**: `string`
+> **name**: `string`
 
-#### Defined in
-
-[src/core/csm/FrustumCSM.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/core/csm/FrustumCSM.ts#L77)
+Defined in: [src/core/csm/FrustumCSM.ts:101](https://github.com/orillusion/orillusion/blob/main/src/core/csm/FrustumCSM.ts#L101)
 
 ## Methods
 
-### update
+### update()
 
-▸ **update**(`p`, `pvInv`, `near`, `far`, `shadowSetting`): `this`
+> **update**(`p`, `pvInv`, `near`, `far`, `shadowSetting`, `splitFunction?`): `this`
+
+Defined in: [src/core/csm/FrustumCSM.ts:116](https://github.com/orillusion/orillusion/blob/main/src/core/csm/FrustumCSM.ts#L116)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `p` | [`Matrix4`](Matrix4.md) |
-| `pvInv` | [`Matrix4`](Matrix4.md) |
-| `near` | `number` |
-| `far` | `number` |
-| `shadowSetting` | [`ShadowSetting`](../types/ShadowSetting.md) |
+##### p
+
+[`Matrix4`](Matrix4.md)
+
+##### pvInv
+
+[`Matrix4`](Matrix4.md)
+
+##### near
+
+`number`
+
+##### far
+
+`number`
+
+##### shadowSetting
+
+[`ShadowSetting`](../type-aliases/ShadowSetting.md)
+
+##### splitFunction?
+
+(`near`, `far`, `index`, `max`) => `number`
 
 #### Returns
 
 `this`
 
-#### Defined in
+***
 
-[src/core/csm/FrustumCSM.ts:92](https://github.com/Orillusion/orillusion/blob/main/src/core/csm/FrustumCSM.ts#L92)
+### squareSplit()
+
+> `static` **squareSplit**(`near`, `far`, `index`, `max`): `number`
+
+Defined in: [src/core/csm/FrustumCSM.ts:154](https://github.com/orillusion/orillusion/blob/main/src/core/csm/FrustumCSM.ts#L154)
+
+#### Parameters
+
+##### near
+
+`number`
+
+##### far
+
+`number`
+
+##### index
+
+`number`
+
+##### max
+
+`number`
+
+#### Returns
+
+`number`
+
+***
+
+### uniformSplit()
+
+> `static` **uniformSplit**(`near`, `far`, `index`, `max`): `number`
+
+Defined in: [src/core/csm/FrustumCSM.ts:159](https://github.com/orillusion/orillusion/blob/main/src/core/csm/FrustumCSM.ts#L159)
+
+#### Parameters
+
+##### near
+
+`number`
+
+##### far
+
+`number`
+
+##### index
+
+`number`
+
+##### max
+
+`number`
+
+#### Returns
+
+`number`
+
+***
+
+### logSplit()
+
+> `static` **logSplit**(`near`, `far`, `index`, `max`): `number`
+
+Defined in: [src/core/csm/FrustumCSM.ts:164](https://github.com/orillusion/orillusion/blob/main/src/core/csm/FrustumCSM.ts#L164)
+
+#### Parameters
+
+##### near
+
+`number`
+
+##### far
+
+`number`
+
+##### index
+
+`number`
+
+##### max
+
+`number`
+
+#### Returns
+
+`number`

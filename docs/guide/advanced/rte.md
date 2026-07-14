@@ -99,9 +99,13 @@ scene.addChild(obj);
 
 This way, the "large values" only exist in the node's `localPosition`, and are uniformly transformed into camera space and absorbed by RTE during the rendering stage; what enters the vertex buffer is always the precision-friendly small offset.
 
-## Complete Example
+## Example
 
-The engine's official sample `Sample_RTE` demonstrates a complete Earth-scale scene: it converts latitude/longitude coordinates into Earth ellipsoid coordinates, loads satellite imagery by tile, builds each tile's geometry with a floating origin, and provides toggles to compare in real time the image stability before and after enabling `useRTE` / `doublePrecision`. It can be found at `samples/render/Sample_RTE.ts` in the engine repository.
+This example demonstrates a complete Earth-scale scene: it converts latitude/longitude coordinates into Earth ellipsoid coordinates, loads satellite imagery by tile, builds each tile's geometry with a floating origin, and provides toggles to compare in real time the image stability before and after enabling `useRTE` / `doublePrecision`.
+
+<Demo src="/demos/advanced/Sample_rte.ts"></Demo>
+
+<<< @/public/demos/advanced/Sample_rte.ts
 
 ## Summary
 

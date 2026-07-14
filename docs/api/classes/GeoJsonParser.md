@@ -1,153 +1,139 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: GeoJsonParser
 
-## Hierarchy
+Defined in: [src/loader/parser/gis/GeoJsonParser.ts:37](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonParser.ts#L37)
 
-- `ParserBase`
-
-  ↳ **`GeoJsonParser`**
-
-### Constructors
-
-- [constructor](GeoJsonParser.md#constructor)
-
-### Properties
-
-- [format](GeoJsonParser.md#format)
-- [baseUrl](GeoJsonParser.md#baseurl)
-- [initUrl](GeoJsonParser.md#initurl)
-- [loaderFunctions](GeoJsonParser.md#loaderfunctions)
-- [userData](GeoJsonParser.md#userdata)
-- [data](GeoJsonParser.md#data)
-- [json](GeoJsonParser.md#json)
-
-### Methods
-
-- [parseJson](GeoJsonParser.md#parsejson)
-- [parseBuffer](GeoJsonParser.md#parsebuffer)
-- [parseTexture](GeoJsonParser.md#parsetexture)
-- [parse](GeoJsonParser.md#parse)
-- [verification](GeoJsonParser.md#verification)
-- [parseString](GeoJsonParser.md#parsestring)
+Parser for GeoJSON feature collections. Parses the raw JSON text into
+a typed [GeoJsonStruct](../interfaces/GeoJsonStruct.md) that downstream GIS utilities can consume.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new GeoJsonParser**(): [`GeoJsonParser`](GeoJsonParser.md)
+> **new GeoJsonParser**(): `GeoJsonParser`
 
 #### Returns
 
-[`GeoJsonParser`](GeoJsonParser.md)
+`GeoJsonParser`
 
 #### Inherited from
 
-ParserBase.constructor
+`ParserBase.constructor`
 
 ## Properties
 
 ### format
 
-▪ `Static` **format**: [`ParserFormat`](../enums/ParserFormat.md) = `ParserFormat.JSON`
+> `static` **format**: [`ParserFormat`](../enumerations/ParserFormat.md) = `ParserFormat.JSON`
+
+Defined in: [src/loader/parser/gis/GeoJsonParser.ts:38](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonParser.ts#L38)
 
 #### Overrides
 
-ParserBase.format
+`ParserBase.format`
 
-#### Defined in
-
-[src/loader/parser/gis/GeoJsonParser.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonParser.ts#L33)
-
-___
+***
 
 ### baseUrl
 
-• **baseUrl**: `string`
+> **baseUrl**: `string`
+
+Defined in: [src/loader/parser/ParserBase.ts:12](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L12)
 
 #### Inherited from
 
-ParserBase.baseUrl
+`ParserBase.baseUrl`
 
-#### Defined in
-
-[src/loader/parser/ParserBase.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L11)
-
-___
+***
 
 ### initUrl
 
-• **initUrl**: `string`
+> **initUrl**: `string`
+
+Defined in: [src/loader/parser/ParserBase.ts:13](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L13)
 
 #### Inherited from
 
-ParserBase.initUrl
+`ParserBase.initUrl`
 
-#### Defined in
+***
 
-[src/loader/parser/ParserBase.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L12)
+### loaderFunctions?
 
-___
+> `optional` **loaderFunctions?**: [`LoaderFunctions`](../type-aliases/LoaderFunctions.md)
 
-### loaderFunctions
-
-• `Optional` **loaderFunctions**: [`LoaderFunctions`](../types/LoaderFunctions.md)
+Defined in: [src/loader/parser/ParserBase.ts:14](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L14)
 
 #### Inherited from
 
-ParserBase.loaderFunctions
+`ParserBase.loaderFunctions`
 
-#### Defined in
+***
 
-[src/loader/parser/ParserBase.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L13)
+### userData?
 
-___
+> `optional` **userData?**: `any`
 
-### userData
-
-• `Optional` **userData**: `any`
+Defined in: [src/loader/parser/ParserBase.ts:15](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L15)
 
 #### Inherited from
 
-ParserBase.userData
+`ParserBase.userData`
 
-#### Defined in
-
-[src/loader/parser/ParserBase.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L14)
-
-___
+***
 
 ### data
 
-• **data**: `any`
+> **data**: `any`
+
+Defined in: [src/loader/parser/ParserBase.ts:16](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L16)
 
 #### Inherited from
 
-ParserBase.data
+`ParserBase.data`
 
-#### Defined in
+***
 
-[src/loader/parser/ParserBase.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L15)
+### ctx?
 
-___
+> `optional` **ctx?**: [`Context3D`](Context3D.md)
+
+Defined in: [src/loader/parser/ParserBase.ts:20](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L20)
+
+Context3D this parser is operating under. Populated by FileLoader
+ so default-texture lookups (`Engine3D.resFor(this.ctx)`) resolve
+ against the owning engine's device rather than the global shim.
+
+#### Inherited from
+
+`ParserBase.ctx`
+
+***
 
 ### json
 
-• **json**: `string`
+> **json**: `string`
 
-#### Defined in
+Defined in: [src/loader/parser/gis/GeoJsonParser.ts:40](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonParser.ts#L40)
 
-[src/loader/parser/gis/GeoJsonParser.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonParser.ts#L34)
+Raw GeoJSON source text passed to the parser.
 
 ## Methods
 
-### parseJson
+### parseJson()
 
-▸ **parseJson**(`obj`): `void`
+> **parseJson**(`obj`): `void`
+
+Defined in: [src/loader/parser/ParserBase.ts:24](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L24)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `obj` | `object` |
+##### obj
+
+`object`
 
 #### Returns
 
@@ -155,23 +141,21 @@ ___
 
 #### Inherited from
 
-ParserBase.parseJson
+`ParserBase.parseJson`
 
-#### Defined in
+***
 
-[src/loader/parser/ParserBase.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L19)
+### parseBuffer()
 
-___
+> **parseBuffer**(`buffer`): `void`
 
-### parseBuffer
-
-▸ **parseBuffer**(`buffer`): `void`
+Defined in: [src/loader/parser/ParserBase.ts:26](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L26)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `buffer` | `ArrayBuffer` |
+##### buffer
+
+`ArrayBuffer`
 
 #### Returns
 
@@ -179,23 +163,21 @@ ___
 
 #### Inherited from
 
-ParserBase.parseBuffer
+`ParserBase.parseBuffer`
 
-#### Defined in
+***
 
-[src/loader/parser/ParserBase.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L21)
+### parseTexture()
 
-___
+> **parseTexture**(`buffer`): [`Texture`](Texture.md)
 
-### parseTexture
-
-▸ **parseTexture**(`buffer`): [`Texture`](Texture.md)
+Defined in: [src/loader/parser/ParserBase.ts:28](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L28)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `buffer` | `ArrayBuffer` |
+##### buffer
+
+`ArrayBuffer`
 
 #### Returns
 
@@ -203,23 +185,21 @@ ___
 
 #### Inherited from
 
-ParserBase.parseTexture
+`ParserBase.parseTexture`
 
-#### Defined in
+***
 
-[src/loader/parser/ParserBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L23)
+### parse()
 
-___
+> **parse**(`data`): `void`
 
-### parse
-
-▸ **parse**(`data`): `void`
+Defined in: [src/loader/parser/ParserBase.ts:32](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L32)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `data` | `any` |
+##### data
+
+`any`
 
 #### Returns
 
@@ -227,23 +207,21 @@ ___
 
 #### Inherited from
 
-ParserBase.parse
+`ParserBase.parse`
 
-#### Defined in
+***
 
-[src/loader/parser/ParserBase.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L27)
+### verification()
 
-___
+> **verification**(`ret`): `boolean`
 
-### verification
-
-▸ **verification**(`ret`): `boolean`
+Defined in: [src/loader/parser/ParserBase.ts:34](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L34)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `ret` | `void` |
+##### ret
+
+`void`
 
 #### Returns
 
@@ -251,23 +229,25 @@ ___
 
 #### Inherited from
 
-ParserBase.verification
+`ParserBase.verification`
 
-#### Defined in
+***
 
-[src/loader/parser/ParserBase.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L29)
+### parseString()
 
-___
+> **parseString**(`data`): `Promise`\<`void`\>
 
-### parseString
+Defined in: [src/loader/parser/gis/GeoJsonParser.ts:45](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonParser.ts#L45)
 
-▸ **parseString**(`data`): `Promise`\<`void`\>
+Parse GeoJSON text into a [GeoJsonStruct](../interfaces/GeoJsonStruct.md).
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `data` | `any` |
+##### data
+
+`any`
+
+Raw GeoJSON string.
 
 #### Returns
 
@@ -275,8 +255,4 @@ ___
 
 #### Overrides
 
-ParserBase.parseString
-
-#### Defined in
-
-[src/loader/parser/gis/GeoJsonParser.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonParser.ts#L35)
+`ParserBase.parseString`

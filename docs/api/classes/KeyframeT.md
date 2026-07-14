@@ -1,155 +1,159 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: KeyframeT
 
-### Constructors
-
-- [constructor](KeyframeT.md#constructor)
-
-### Properties
-
-- [serializedVersion](KeyframeT.md#serializedversion)
-- [time](KeyframeT.md#time)
-- [tangentMode](KeyframeT.md#tangentmode)
-- [weightedMode](KeyframeT.md#weightedmode)
-- [propertyKeyFrame](KeyframeT.md#propertykeyframe)
-
-### Methods
-
-- [getK](KeyframeT.md#getk)
-- [split](KeyframeT.md#split)
-- [formBytes](KeyframeT.md#formbytes)
+Defined in: [src/math/enum/T/KeyframeT.ts:13](https://github.com/orillusion/orillusion/blob/main/src/math/enum/T/KeyframeT.ts#L13)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new KeyframeT**(`time?`): [`KeyframeT`](KeyframeT.md)
+> **new KeyframeT**(`time?`): `KeyframeT`
+
+Defined in: [src/math/enum/T/KeyframeT.ts:31](https://github.com/orillusion/orillusion/blob/main/src/math/enum/T/KeyframeT.ts#L31)
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `time` | `number` | `0` |
+##### time?
+
+`number` = `0`
 
 #### Returns
 
-[`KeyframeT`](KeyframeT.md)
-
-#### Defined in
-
-[src/math/enum/T/KeyframeT.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/T/KeyframeT.ts#L26)
+`KeyframeT`
 
 ## Properties
 
 ### serializedVersion
 
-• **serializedVersion**: `string` = `'2'`
+> **serializedVersion**: `string` = `'2'`
 
-#### Defined in
+Defined in: [src/math/enum/T/KeyframeT.ts:15](https://github.com/orillusion/orillusion/blob/main/src/math/enum/T/KeyframeT.ts#L15)
 
-[src/math/enum/T/KeyframeT.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/T/KeyframeT.ts#L14)
+Serialized format version of this keyframe.
 
-___
+***
 
 ### time
 
-• **time**: `number`
+> **time**: `number`
 
-#### Defined in
+Defined in: [src/math/enum/T/KeyframeT.ts:17](https://github.com/orillusion/orillusion/blob/main/src/math/enum/T/KeyframeT.ts#L17)
 
-[src/math/enum/T/KeyframeT.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/T/KeyframeT.ts#L15)
+Time of this keyframe.
 
-___
+***
 
 ### tangentMode
 
-• **tangentMode**: `number` = `0`
+> **tangentMode**: `number` = `0`
 
-#### Defined in
+Defined in: [src/math/enum/T/KeyframeT.ts:19](https://github.com/orillusion/orillusion/blob/main/src/math/enum/T/KeyframeT.ts#L19)
 
-[src/math/enum/T/KeyframeT.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/T/KeyframeT.ts#L16)
+Tangent mode flags for this keyframe.
 
-___
+***
 
 ### weightedMode
 
-• **weightedMode**: `number` = `0`
+> **weightedMode**: `number` = `0`
 
-#### Defined in
+Defined in: [src/math/enum/T/KeyframeT.ts:21](https://github.com/orillusion/orillusion/blob/main/src/math/enum/T/KeyframeT.ts#L21)
 
-[src/math/enum/T/KeyframeT.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/T/KeyframeT.ts#L17)
+Weighted mode flags for this keyframe.
 
-___
+***
 
 ### propertyKeyFrame
 
-• **propertyKeyFrame**: `Object`
+> **propertyKeyFrame**: `object`
 
-#### Index signature
+Defined in: [src/math/enum/T/KeyframeT.ts:29](https://github.com/orillusion/orillusion/blob/main/src/math/enum/T/KeyframeT.ts#L29)
 
-▪ [k: `number`]: [`Keyframe`](Keyframe.md)
+Map of channel index to its per-channel keyframe.
 
-#### Defined in
+#### Index Signature
 
-[src/math/enum/T/KeyframeT.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/T/KeyframeT.ts#L24)
+\[`k`: `number`\]: [`Keyframe`](Keyframe.md)
 
 ## Methods
 
-### getK
+### getK()
 
-▸ **getK**(`k`): [`Keyframe`](Keyframe.md)
+> **getK**(`k`): [`Keyframe`](Keyframe.md)
+
+Defined in: [src/math/enum/T/KeyframeT.ts:41](https://github.com/orillusion/orillusion/blob/main/src/math/enum/T/KeyframeT.ts#L41)
+
+Get the per-channel keyframe stored at the given channel index.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `k` | `number` |
+##### k
+
+`number`
+
+channel index
 
 #### Returns
 
 [`Keyframe`](Keyframe.md)
 
-#### Defined in
+the keyframe for that channel
 
-[src/math/enum/T/KeyframeT.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/T/KeyframeT.ts#L31)
+***
 
-___
+### split()
 
-### split
+> **split**(`type`, `value`, `property`): `void`
 
-▸ **split**(`type`, `value`, `property`): `void`
+Defined in: [src/math/enum/T/KeyframeT.ts:51](https://github.com/orillusion/orillusion/blob/main/src/math/enum/T/KeyframeT.ts#L51)
+
+Split a multi-component value into per-channel keyframes, writing it to the given property.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `type` | [`ValueEnumType`](../enums/ValueEnumType.md) |
-| `value` | [`CurveValueType`](../types/CurveValueType.md) |
-| `property` | `string` |
+##### type
+
+[`ValueEnumType`](../enumerations/ValueEnumType.md)
+
+value type describing the component layout
+
+##### value
+
+[`CurveValueType`](../type-aliases/CurveValueType.md)
+
+the value to distribute across channels
+
+##### property
+
+`string`
+
+the keyframe property name to assign (e.g. value, inSlope, outSlope)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/math/enum/T/KeyframeT.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/T/KeyframeT.ts#L35)
+### formBytes()
 
-___
+> **formBytes**(`bytes`): `void`
 
-### formBytes
+Defined in: [src/math/enum/T/KeyframeT.ts:131](https://github.com/orillusion/orillusion/blob/main/src/math/enum/T/KeyframeT.ts#L131)
 
-▸ **formBytes**(`bytes`): `void`
+Read this keyframe and its per-channel data from a binary byte stream.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `bytes` | `BytesArray` |
+##### bytes
+
+`BytesArray`
+
+source byte array
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[src/math/enum/T/KeyframeT.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/T/KeyframeT.ts#L111)

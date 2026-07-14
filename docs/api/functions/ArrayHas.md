@@ -1,18 +1,23 @@
-# Function: ArrayHas
+[**@orillusion/core**](../README.md)
 
-▸ **ArrayHas**(`array`, `item`): `boolean`
+***
 
-#### Parameters
+# Function: ArrayHas()
 
-| Name | Type |
-| :------ | :------ |
-| `array` | `any`[] |
-| `item` | `any` |
+> **ArrayHas**(`array`, `item`): `boolean`
 
-#### Returns
+Defined in: [src/util/Global.ts:47](https://github.com/orillusion/orillusion/blob/main/src/util/Global.ts#L47)
+
+## Parameters
+
+### array
+
+`any`[]
+
+### item
+
+`any`
+
+## Returns
 
 `boolean`
-
-#### Defined in
-
-[src/util/Global.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/util/Global.ts#L47)

@@ -1,161 +1,158 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: MorphTargetData
 
-### Constructors
+Defined in: [src/components/anim/morphAnim/MorphTargetData.ts:54](https://github.com/orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L54)
 
-- [constructor](MorphTargetData.md#constructor)
-
-### Properties
-
-- [enable](MorphTargetData.md#enable)
-- [morphTargetsRelative](MorphTargetData.md#morphtargetsrelative)
-- [MaxMorphTargetCount](MorphTargetData.md#maxmorphtargetcount)
-
-### Accessors
-
-- [blendShape](MorphTargetData.md#blendshape)
-
-### Methods
-
-- [initMorphTarget](MorphTargetData.md#initmorphtarget)
-- [applyRenderShader](MorphTargetData.md#applyrendershader)
-- [computeMorphTarget](MorphTargetData.md#computemorphtarget)
-- [updateInfluence](MorphTargetData.md#updateinfluence)
+GPU-side morph-target (blend-shape) state for a single geometry. Merges
+per-target position/normal deltas into storage buffers and runs a compute
+shader each frame to accumulate weighted deltas, then feeds the result
+into the render shader.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new MorphTargetData**(): [`MorphTargetData`](MorphTargetData.md)
+> **new MorphTargetData**(): `MorphTargetData`
+
+Defined in: [src/components/anim/morphAnim/MorphTargetData.ts:83](https://github.com/orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L83)
 
 #### Returns
 
-[`MorphTargetData`](MorphTargetData.md)
-
-#### Defined in
-
-[src/components/anim/morphAnim/MorphTargetData.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L73)
+`MorphTargetData`
 
 ## Properties
 
 ### enable
 
-• **enable**: `boolean`
+> **enable**: `boolean`
 
-#### Defined in
+Defined in: [src/components/anim/morphAnim/MorphTargetData.ts:56](https://github.com/orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L56)
 
-[src/components/anim/morphAnim/MorphTargetData.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L48)
+Whether morph-target processing is active.
 
-___
+***
 
 ### morphTargetsRelative
 
-• **morphTargetsRelative**: `boolean`
+> **morphTargetsRelative**: `boolean`
 
-#### Defined in
+Defined in: [src/components/anim/morphAnim/MorphTargetData.ts:58](https://github.com/orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L58)
 
-[src/components/anim/morphAnim/MorphTargetData.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L49)
+When true, target deltas are applied relatively (added on top of the base).
 
-___
+***
 
 ### MaxMorphTargetCount
 
-• `Readonly` **MaxMorphTargetCount**: `number` = `64`
+> `readonly` **MaxMorphTargetCount**: `number` = `64`
 
-#### Defined in
+Defined in: [src/components/anim/morphAnim/MorphTargetData.ts:60](https://github.com/orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L60)
 
-[src/components/anim/morphAnim/MorphTargetData.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L50)
+Maximum number of morph targets supported per geometry.
 
 ## Accessors
 
 ### blendShape
 
-• `get` **blendShape**(): `Object`
+#### Get Signature
 
-#### Returns
+> **get** **blendShape**(): `object`
 
-`Object`
+Defined in: [src/components/anim/morphAnim/MorphTargetData.ts:154](https://github.com/orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L154)
 
-#### Defined in
+Map of blend-shape name to its influence-setter function.
 
-[src/components/anim/morphAnim/MorphTargetData.ts:141](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L141)
+##### Returns
+
+`object`
 
 ## Methods
 
-### initMorphTarget
+### initMorphTarget()
 
-▸ **initMorphTarget**(`geometry`): `void`
+> **initMorphTarget**(`geometry`): `void`
+
+Defined in: [src/components/anim/morphAnim/MorphTargetData.ts:91](https://github.com/orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L91)
+
+Collect a geometry's morph targets and build the compute shader + buffers.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `geometry` | [`GeometryBase`](GeometryBase.md) |
+##### geometry
+
+[`GeometryBase`](GeometryBase.md)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/components/anim/morphAnim/MorphTargetData.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L80)
+### applyRenderShader()
 
-___
+> **applyRenderShader**(`renderShader`): `void`
 
-### applyRenderShader
+Defined in: [src/components/anim/morphAnim/MorphTargetData.ts:115](https://github.com/orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L115)
 
-▸ **applyRenderShader**(`renderShader`): `void`
+Bind the morph-target config and output buffers onto a render shader pass.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `renderShader` | [`RenderShaderPass`](RenderShaderPass.md) |
+##### renderShader
+
+[`RenderShaderPass`](RenderShaderPass.md)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/components/anim/morphAnim/MorphTargetData.ts:103](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L103)
+### computeMorphTarget()
 
-___
+> **computeMorphTarget**(`view`, `command`): `void`
 
-### computeMorphTarget
+Defined in: [src/components/anim/morphAnim/MorphTargetData.ts:128](https://github.com/orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L128)
 
-▸ **computeMorphTarget**(`command`): `void`
+Dispatch the compute shader that accumulates weighted morph deltas.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `command` | `GPUCommandEncoder` |
+##### view
+
+[`View3D`](View3D.md)
+
+##### command
+
+`GPUCommandEncoder`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/components/anim/morphAnim/MorphTargetData.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L115)
+### updateInfluence()
 
-___
+> **updateInfluence**(`index`, `value`): `void`
 
-### updateInfluence
+Defined in: [src/components/anim/morphAnim/MorphTargetData.ts:148](https://github.com/orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L148)
 
-▸ **updateInfluence**(`index`, `value`): `void`
+Set the influence weight of the morph target at `index`.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `index` | `number` |
-| `value` | `number` |
+##### index
+
+`number`
+
+##### value
+
+`number`
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[src/components/anim/morphAnim/MorphTargetData.ts:136](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetData.ts#L136)

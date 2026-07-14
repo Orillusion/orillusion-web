@@ -1,365 +1,366 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: GBufferFrame
 
-## Hierarchy
+Defined in: [src/gfx/renderJob/frame/GBufferFrame.ts:19](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L19)
+
+A G-buffer [RTFrame](RTFrame.md): a color attachment plus a packed/compressed
+G-buffer attachment and a matching depth (or depth+stencil) texture.
+Instances are cached per Context3D and per string key via
+getGBufferFrame, so passes that name the same key share one
+G-buffer within an engine without leaking across engines.
+
+## Extends
 
 - [`RTFrame`](RTFrame.md)
 
-  ↳ **`GBufferFrame`**
-
-### Constructors
-
-- [constructor](GBufferFrame.md#constructor)
-
-### Properties
-
-- [colorPass\_GBuffer](GBufferFrame.md#colorpass_gbuffer)
-- [reflections\_GBuffer](GBufferFrame.md#reflections_gbuffer)
-- [gui\_GBuffer](GBufferFrame.md#gui_gbuffer)
-- [gBufferMap](GBufferFrame.md#gbuffermap)
-- [label](GBufferFrame.md#label)
-- [customSize](GBufferFrame.md#customsize)
-- [renderTargets](GBufferFrame.md#rendertargets)
-- [rtDescriptors](GBufferFrame.md#rtdescriptors)
-- [zPreTexture](GBufferFrame.md#zpretexture)
-- [depthTexture](GBufferFrame.md#depthtexture)
-- [depthViewIndex](GBufferFrame.md#depthviewindex)
-- [depthCleanValue](GBufferFrame.md#depthcleanvalue)
-- [depthLoadOp](GBufferFrame.md#depthloadop)
-- [isOutTarget](GBufferFrame.md#isouttarget)
-
-### Methods
-
-- [createGBuffer](GBufferFrame.md#creategbuffer)
-- [getPositionMap](GBufferFrame.md#getpositionmap)
-- [getNormalMap](GBufferFrame.md#getnormalmap)
-- [getColorTexture](GBufferFrame.md#getcolortexture)
-- [getCompressGBufferTexture](GBufferFrame.md#getcompressgbuffertexture)
-- [getGUIBufferFrame](GBufferFrame.md#getguibufferframe)
-- [clone](GBufferFrame.md#clone)
-- [clone2Frame](GBufferFrame.md#clone2frame)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new GBufferFrame**(): [`GBufferFrame`](GBufferFrame.md)
+> **new GBufferFrame**(): `GBufferFrame`
+
+Defined in: [src/gfx/renderJob/frame/GBufferFrame.ts:41](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L41)
 
 #### Returns
 
-[`GBufferFrame`](GBufferFrame.md)
+`GBufferFrame`
 
 #### Overrides
 
-[RTFrame](RTFrame.md).[constructor](RTFrame.md#constructor)
-
-#### Defined in
-
-[src/gfx/renderJob/frame/GBufferFrame.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L20)
+[`RTFrame`](RTFrame.md).[`constructor`](RTFrame.md#constructor)
 
 ## Properties
 
 ### colorPass\_GBuffer
 
-▪ `Static` **colorPass\_GBuffer**: `string` = `"ColorPassGBuffer"`
+> `static` **colorPass\_GBuffer**: `string` = `"ColorPassGBuffer"`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/frame/GBufferFrame.ts:21](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L21)
 
-[src/gfx/renderJob/frame/GBufferFrame.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L11)
+Shared key for the main color-pass G-buffer.
 
-___
+***
 
 ### reflections\_GBuffer
 
-▪ `Static` **reflections\_GBuffer**: `string` = `"reflections_GBuffer"`
+> `static` **reflections\_GBuffer**: `string` = `"reflections_GBuffer"`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/frame/GBufferFrame.ts:23](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L23)
 
-[src/gfx/renderJob/frame/GBufferFrame.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L12)
+Shared key for the reflection-probe G-buffer.
 
-___
-
-### gui\_GBuffer
-
-▪ `Static` **gui\_GBuffer**: `string` = `"gui_GBuffer"`
-
-#### Defined in
-
-[src/gfx/renderJob/frame/GBufferFrame.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L13)
-
-___
+***
 
 ### gBufferMap
 
-▪ `Static` **gBufferMap**: `Map`\<`string`, [`GBufferFrame`](GBufferFrame.md)\>
+> `static` **gBufferMap**: `Map`\<`string`, `GBufferFrame`\>
 
-#### Defined in
+Defined in: [src/gfx/renderJob/frame/GBufferFrame.ts:25](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L25)
 
-[src/gfx/renderJob/frame/GBufferFrame.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L14)
+Cache of G-buffers for the most recently queried context (see getGBufferFrame).
 
-___
+***
 
 ### label
 
-• **label**: `string`
+> **label**: `string`
+
+Defined in: [src/gfx/renderJob/frame/RTFrame.ts:15](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L15)
+
+Optional debug label for this frame.
 
 #### Inherited from
 
-[RTFrame](RTFrame.md).[label](RTFrame.md#label)
+[`RTFrame`](RTFrame.md).[`label`](RTFrame.md#label)
 
-#### Defined in
-
-[src/gfx/renderJob/frame/RTFrame.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L5)
-
-___
+***
 
 ### customSize
 
-• **customSize**: `boolean` = `false`
+> **customSize**: `boolean` = `false`
+
+Defined in: [src/gfx/renderJob/frame/RTFrame.ts:17](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L17)
+
+When true the attachments are a fixed custom size rather than tracking the canvas.
 
 #### Inherited from
 
-[RTFrame](RTFrame.md).[customSize](RTFrame.md#customsize)
+[`RTFrame`](RTFrame.md).[`customSize`](RTFrame.md#customsize)
 
-#### Defined in
-
-[src/gfx/renderJob/frame/RTFrame.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L6)
-
-___
+***
 
 ### renderTargets
 
-• **renderTargets**: `RenderTexture`[]
+> **renderTargets**: `RenderTexture`[]
+
+Defined in: [src/gfx/renderJob/frame/RTFrame.ts:19](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L19)
+
+The color attachments rendered into by this frame.
 
 #### Inherited from
 
-[RTFrame](RTFrame.md).[renderTargets](RTFrame.md#rendertargets)
+[`RTFrame`](RTFrame.md).[`renderTargets`](RTFrame.md#rendertargets)
 
-#### Defined in
-
-[src/gfx/renderJob/frame/RTFrame.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L7)
-
-___
+***
 
 ### rtDescriptors
 
-• **rtDescriptors**: [`RTDescriptor`](RTDescriptor.md)[]
+> **rtDescriptors**: [`RTDescriptor`](RTDescriptor.md)[]
+
+Defined in: [src/gfx/renderJob/frame/RTFrame.ts:21](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L21)
+
+Per-attachment load/store/clear descriptors, parallel to [renderTargets](RTFrame.md#rendertargets).
 
 #### Inherited from
 
-[RTFrame](RTFrame.md).[rtDescriptors](RTFrame.md#rtdescriptors)
+[`RTFrame`](RTFrame.md).[`rtDescriptors`](RTFrame.md#rtdescriptors)
 
-#### Defined in
-
-[src/gfx/renderJob/frame/RTFrame.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L8)
-
-___
+***
 
 ### zPreTexture
 
-• **zPreTexture**: `RenderTexture`
+> **zPreTexture**: `RenderTexture`
+
+Defined in: [src/gfx/renderJob/frame/RTFrame.ts:24](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L24)
+
+Optional z-prepass depth texture sampled by this frame.
 
 #### Inherited from
 
-[RTFrame](RTFrame.md).[zPreTexture](RTFrame.md#zpretexture)
+[`RTFrame`](RTFrame.md).[`zPreTexture`](RTFrame.md#zpretexture)
 
-#### Defined in
-
-[src/gfx/renderJob/frame/RTFrame.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L10)
-
-___
+***
 
 ### depthTexture
 
-• **depthTexture**: `RenderTexture`
+> **depthTexture**: `RenderTexture`
+
+Defined in: [src/gfx/renderJob/frame/RTFrame.ts:26](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L26)
+
+The depth (or depth+stencil) attachment for this frame.
 
 #### Inherited from
 
-[RTFrame](RTFrame.md).[depthTexture](RTFrame.md#depthtexture)
+[`RTFrame`](RTFrame.md).[`depthTexture`](RTFrame.md#depthtexture)
 
-#### Defined in
-
-[src/gfx/renderJob/frame/RTFrame.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L11)
-
-___
+***
 
 ### depthViewIndex
 
-• **depthViewIndex**: `number` = `0`
+> **depthViewIndex**: `number` = `0`
+
+Defined in: [src/gfx/renderJob/frame/RTFrame.ts:29](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L29)
+
+Array-layer / face index of the depth view to attach.
 
 #### Inherited from
 
-[RTFrame](RTFrame.md).[depthViewIndex](RTFrame.md#depthviewindex)
+[`RTFrame`](RTFrame.md).[`depthViewIndex`](RTFrame.md#depthviewindex)
 
-#### Defined in
-
-[src/gfx/renderJob/frame/RTFrame.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L13)
-
-___
+***
 
 ### depthCleanValue
 
-• **depthCleanValue**: `number` = `1`
+> **depthCleanValue**: `number` = `1`
+
+Defined in: [src/gfx/renderJob/frame/RTFrame.ts:31](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L31)
+
+Clear value used when the depth load op is `clear`.
 
 #### Inherited from
 
-[RTFrame](RTFrame.md).[depthCleanValue](RTFrame.md#depthcleanvalue)
+[`RTFrame`](RTFrame.md).[`depthCleanValue`](RTFrame.md#depthcleanvalue)
 
-#### Defined in
-
-[src/gfx/renderJob/frame/RTFrame.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L14)
-
-___
+***
 
 ### depthLoadOp
 
-• **depthLoadOp**: `GPULoadOp`
+> **depthLoadOp**: `GPULoadOp`
+
+Defined in: [src/gfx/renderJob/frame/RTFrame.ts:33](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L33)
+
+Load op for the depth attachment (`clear` by default).
 
 #### Inherited from
 
-[RTFrame](RTFrame.md).[depthLoadOp](RTFrame.md#depthloadop)
+[`RTFrame`](RTFrame.md).[`depthLoadOp`](RTFrame.md#depthloadop)
 
-#### Defined in
-
-[src/gfx/renderJob/frame/RTFrame.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L15)
-
-___
+***
 
 ### isOutTarget
 
-• **isOutTarget**: `boolean` = `true`
+> **isOutTarget**: `boolean` = `true`
+
+Defined in: [src/gfx/renderJob/frame/RTFrame.ts:35](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L35)
+
+Whether this frame writes the final output target (vs. an intermediate).
 
 #### Inherited from
 
-[RTFrame](RTFrame.md).[isOutTarget](RTFrame.md#isouttarget)
+[`RTFrame`](RTFrame.md).[`isOutTarget`](RTFrame.md#isouttarget)
 
-#### Defined in
+***
 
-[src/gfx/renderJob/frame/RTFrame.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L16)
+### sampleCount
+
+> **sampleCount**: `number` = `0`
+
+Defined in: [src/gfx/renderJob/frame/RTFrame.ts:40](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L40)
+
+MSAA sample count — 0 disables MSAA (default). When non-zero,
+ WebGPUDescriptorCreator allocates side-band multisample
+ textures and flags the pass state so pipelines compile with the
+ matching sample count.
+
+#### Inherited from
+
+[`RTFrame`](RTFrame.md).[`sampleCount`](RTFrame.md#samplecount)
 
 ## Methods
 
-### createGBuffer
+### createGBuffer()
 
-▸ **createGBuffer**(`key`, `rtWidth`, `rtHeight`, `autoResize?`, `outColor?`, `depthTexture?`): `void`
+> **createGBuffer**(`ctx`, `key`, `rtWidth`, `rtHeight`, `_autoResize?`, `outColor?`, `depthTexture?`, `sampleCount?`): `void`
+
+Defined in: [src/gfx/renderJob/frame/GBufferFrame.ts:53](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L53)
+
+Allocate this G-buffer's attachments and depth texture. Optionally
+creates the color attachment (`outColor`), always creates the
+compressed G-buffer attachment, and creates a depth (or
+depth+stencil) texture unless `depthTexture` is supplied. `sampleCount`
+is captured on the frame so the render pass state can pick up the MSAA
+sample count without re-reading the engine setting.
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `key` | `string` | `undefined` |
-| `rtWidth` | `number` | `undefined` |
-| `rtHeight` | `number` | `undefined` |
-| `autoResize` | `boolean` | `true` |
-| `outColor` | `boolean` | `true` |
-| `depthTexture?` | `RenderTexture` | `undefined` |
+##### ctx
+
+[`Context3D`](Context3D.md)
+
+##### key
+
+`string`
+
+##### rtWidth
+
+`number`
+
+##### rtHeight
+
+`number`
+
+##### \_autoResize?
+
+`boolean` = `true`
+
+##### outColor?
+
+`boolean` = `true`
+
+##### depthTexture?
+
+`RenderTexture`
+
+##### sampleCount?
+
+`number` = `0`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/frame/GBufferFrame.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L24)
+### getPositionMap()
 
-___
+> **getPositionMap**(): `RenderTexture`
 
-### getPositionMap
+Defined in: [src/gfx/renderJob/frame/GBufferFrame.ts:95](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L95)
 
-▸ **getPositionMap**(): `RenderTexture`
-
-#### Returns
-
-`RenderTexture`
-
-#### Defined in
-
-[src/gfx/renderJob/frame/GBufferFrame.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L51)
-
-___
-
-### getNormalMap
-
-▸ **getNormalMap**(): `RenderTexture`
+The world-position attachment (render target index 1).
 
 #### Returns
 
 `RenderTexture`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/frame/GBufferFrame.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L55)
+### getNormalMap()
 
-___
+> **getNormalMap**(): `RenderTexture`
 
-### getColorTexture
+Defined in: [src/gfx/renderJob/frame/GBufferFrame.ts:100](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L100)
 
-▸ **getColorTexture**(): `RenderTexture`
-
-#### Returns
-
-`RenderTexture`
-
-#### Defined in
-
-[src/gfx/renderJob/frame/GBufferFrame.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L59)
-
-___
-
-### getCompressGBufferTexture
-
-▸ **getCompressGBufferTexture**(): `RenderTexture`
+The world-normal attachment (render target index 2).
 
 #### Returns
 
 `RenderTexture`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/frame/GBufferFrame.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L63)
+### getColorTexture()
 
-___
+> **getColorTexture**(): `RenderTexture`
 
-### getGUIBufferFrame
+Defined in: [src/gfx/renderJob/frame/GBufferFrame.ts:105](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L105)
 
-▸ **getGUIBufferFrame**(): [`GBufferFrame`](GBufferFrame.md)
-
-#### Returns
-
-[`GBufferFrame`](GBufferFrame.md)
-
-#### Defined in
-
-[src/gfx/renderJob/frame/GBufferFrame.ts:92](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L92)
-
-___
-
-### clone
-
-▸ **clone**(): [`GBufferFrame`](GBufferFrame.md)
+The scene color attachment, or undefined when created with `outColor=false`.
 
 #### Returns
 
-[`GBufferFrame`](GBufferFrame.md)
+`RenderTexture`
+
+***
+
+### getCompressGBufferTexture()
+
+> **getCompressGBufferTexture**(): `RenderTexture`
+
+Defined in: [src/gfx/renderJob/frame/GBufferFrame.ts:110](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L110)
+
+The packed/compressed G-buffer attachment.
+
+#### Returns
+
+`RenderTexture`
+
+***
+
+### clone()
+
+> **clone**(): `GBufferFrame`
+
+Defined in: [src/gfx/renderJob/frame/GBufferFrame.ts:143](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L143)
+
+Create a new GBufferFrame sharing this frame's attachment/descriptor setup.
+
+#### Returns
+
+`GBufferFrame`
 
 #### Overrides
 
-[RTFrame](RTFrame.md).[clone](RTFrame.md#clone)
+[`RTFrame`](RTFrame.md).[`clone`](RTFrame.md#clone)
 
-#### Defined in
+***
 
-[src/gfx/renderJob/frame/GBufferFrame.ts:98](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/GBufferFrame.ts#L98)
+### clone2Frame()
 
-___
+> **clone2Frame**(`rtFrame`): `void`
 
-### clone2Frame
+Defined in: [src/gfx/renderJob/frame/RTFrame.ts:51](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L51)
 
-▸ **clone2Frame**(`rtFrame`): `void`
+Copy this frame's attachments, descriptors and depth/z textures into `rtFrame`.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `rtFrame` | [`RTFrame`](RTFrame.md) |
+##### rtFrame
+
+[`RTFrame`](RTFrame.md)
 
 #### Returns
 
@@ -367,8 +368,4 @@ ___
 
 #### Inherited from
 
-[RTFrame](RTFrame.md).[clone2Frame](RTFrame.md#clone2frame)
-
-#### Defined in
-
-[src/gfx/renderJob/frame/RTFrame.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/frame/RTFrame.ts#L26)
+[`RTFrame`](RTFrame.md).[`clone2Frame`](RTFrame.md#clone2frame)

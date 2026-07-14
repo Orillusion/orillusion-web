@@ -1,64 +1,51 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: Navi3DConst
 
-### Constructors
-
-- [constructor](Navi3DConst.md#constructor)
-
-### Properties
-
-- [EPSILON](Navi3DConst.md#epsilon)
-- [POWER\_EPSILON](Navi3DConst.md#power_epsilon)
-
-### Methods
-
-- [SetConst](Navi3DConst.md#setconst)
+Defined in: [src/math/navigation/Navi3DConst.ts:1](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DConst.ts#L1)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new Navi3DConst**(): [`Navi3DConst`](Navi3DConst.md)
+> **new Navi3DConst**(): `Navi3DConst`
 
 #### Returns
 
-[`Navi3DConst`](Navi3DConst.md)
+`Navi3DConst`
 
 ## Properties
 
 ### EPSILON
 
-▪ `Static` **EPSILON**: `number` = `0.1`
+> `static` **EPSILON**: `number` = `0.1`
 
-#### Defined in
+Defined in: [src/math/navigation/Navi3DConst.ts:7](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DConst.ts#L7)
 
-[src/math/navigation/Navi3DConst.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DConst.ts#L7)
-
-___
+***
 
 ### POWER\_EPSILON
 
-▪ `Static` **POWER\_EPSILON**: `number`
+> `static` **POWER\_EPSILON**: `number`
 
-#### Defined in
-
-[src/math/navigation/Navi3DConst.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DConst.ts#L9)
+Defined in: [src/math/navigation/Navi3DConst.ts:9](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DConst.ts#L9)
 
 ## Methods
 
-### SetConst
+### SetConst()
 
-▸ **SetConst**(`epsilon`): `void`
+> `static` **SetConst**(`epsilon`): `void`
+
+Defined in: [src/math/navigation/Navi3DConst.ts:2](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DConst.ts#L2)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `epsilon` | `number` |
+##### epsilon
+
+`number`
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[src/math/navigation/Navi3DConst.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DConst.ts#L2)

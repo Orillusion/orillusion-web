@@ -1,29 +1,19 @@
-# Function: mergeFunctions
+[**@orillusion/core**](../README.md)
 
-▸ **mergeFunctions**(`...funcs`): (...`args`: `any`[]) => `void`
+***
 
-#### Parameters
+# Function: mergeFunctions()
 
-| Name | Type |
-| :------ | :------ |
-| `...funcs` | `any`[] |
+> **mergeFunctions**(...`funcs`): (...`args`) => `void`
 
-#### Returns
+Defined in: [src/util/Global.ts:71](https://github.com/orillusion/orillusion/blob/main/src/util/Global.ts#L71)
 
-`fn`
+## Parameters
 
-▸ (`...args`): `void`
+### funcs
 
-##### Parameters
+...`any`[]
 
-| Name | Type |
-| :------ | :------ |
-| `...args` | `any`[] |
+## Returns
 
-##### Returns
-
-`void`
-
-#### Defined in
-
-[src/util/Global.ts:71](https://github.com/Orillusion/orillusion/blob/main/src/util/Global.ts#L71)
+(...`args`) => `void`

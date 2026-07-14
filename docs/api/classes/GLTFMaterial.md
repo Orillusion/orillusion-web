@@ -1,249 +1,232 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: GLTFMaterial
 
-### Constructors
+Defined in: [src/loader/parser/gltf/GLTFMaterial.ts:11](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L11)
 
-- [constructor](GLTFMaterial.md#constructor)
-
-### Properties
-
-- [name](GLTFMaterial.md#name)
-- [defines](GLTFMaterial.md#defines)
-- [doubleSided](GLTFMaterial.md#doublesided)
-- [baseColorFactor](GLTFMaterial.md#basecolorfactor)
-- [emissiveFactor](GLTFMaterial.md#emissivefactor)
-- [metallicFactor](GLTFMaterial.md#metallicfactor)
-- [roughnessFactor](GLTFMaterial.md#roughnessfactor)
-- [alphaCutoff](GLTFMaterial.md#alphacutoff)
-- [enableBlend](GLTFMaterial.md#enableblend)
-- [baseColorTexture](GLTFMaterial.md#basecolortexture)
-- [metallicRoughnessTexture](GLTFMaterial.md#metallicroughnesstexture)
-- [normalTexture](GLTFMaterial.md#normaltexture)
-- [occlusionTexture](GLTFMaterial.md#occlusiontexture)
-- [emissiveTexture](GLTFMaterial.md#emissivetexture)
-- [extensions](GLTFMaterial.md#extensions)
-- [baseMapOffsetSize](GLTFMaterial.md#basemapoffsetsize)
-- [normalMapOffsetSize](GLTFMaterial.md#normalmapoffsetsize)
-- [emissiveMapOffsetSize](GLTFMaterial.md#emissivemapoffsetsize)
-- [roughnessMapOffsetSize](GLTFMaterial.md#roughnessmapoffsetsize)
-- [metallicMapOffsetSize](GLTFMaterial.md#metallicmapoffsetsize)
-- [aoMapOffsetSize](GLTFMaterial.md#aomapoffsetsize)
+Intermediate material description produced while parsing a glTF asset.
+It holds the metallic-roughness PBR factors, the resolved texture
+references and the per-channel UV offset/size transforms read from a
+glTF material, before they are converted into an engine `LitMaterial`.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new GLTFMaterial**(): [`GLTFMaterial`](GLTFMaterial.md)
+> **new GLTFMaterial**(): `GLTFMaterial`
 
 #### Returns
 
-[`GLTFMaterial`](GLTFMaterial.md)
+`GLTFMaterial`
 
 ## Properties
 
 ### name
 
-• **name**: `string`
+> **name**: `string`
 
-#### Defined in
+Defined in: [src/loader/parser/gltf/GLTFMaterial.ts:13](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L13)
 
-[src/loader/parser/gltf/GLTFMaterial.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L4)
+Material name as declared in the glTF file.
 
-___
+***
 
 ### defines
 
-• **defines**: `string`[]
+> **defines**: `string`[]
 
-#### Defined in
+Defined in: [src/loader/parser/gltf/GLTFMaterial.ts:15](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L15)
 
-[src/loader/parser/gltf/GLTFMaterial.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L5)
+Shader define flags collected for this material (e.g. blend mode hints).
 
-___
+***
 
 ### doubleSided
 
-• **doubleSided**: `boolean`
+> **doubleSided**: `boolean`
 
-#### Defined in
+Defined in: [src/loader/parser/gltf/GLTFMaterial.ts:17](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L17)
 
-[src/loader/parser/gltf/GLTFMaterial.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L6)
+Whether the material is rendered double-sided.
 
-___
+***
 
 ### baseColorFactor
 
-• **baseColorFactor**: [``1``, ``1``, ``1``, ``1``]
+> **baseColorFactor**: \[`1`, `1`, `1`, `1`\]
 
-#### Defined in
+Defined in: [src/loader/parser/gltf/GLTFMaterial.ts:19](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L19)
 
-[src/loader/parser/gltf/GLTFMaterial.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L7)
+Base color (albedo) factor as an RGBA tuple.
 
-___
+***
 
 ### emissiveFactor
 
-• **emissiveFactor**: `number`
+> **emissiveFactor**: `number`
 
-#### Defined in
+Defined in: [src/loader/parser/gltf/GLTFMaterial.ts:21](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L21)
 
-[src/loader/parser/gltf/GLTFMaterial.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L8)
+Emissive color factor.
 
-___
+***
 
 ### metallicFactor
 
-• **metallicFactor**: `number`
+> **metallicFactor**: `number`
 
-#### Defined in
+Defined in: [src/loader/parser/gltf/GLTFMaterial.ts:23](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L23)
 
-[src/loader/parser/gltf/GLTFMaterial.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L9)
+Metallic scalar factor in the [0, 1] range.
 
-___
+***
 
 ### roughnessFactor
 
-• **roughnessFactor**: `number`
+> **roughnessFactor**: `number`
 
-#### Defined in
+Defined in: [src/loader/parser/gltf/GLTFMaterial.ts:25](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L25)
 
-[src/loader/parser/gltf/GLTFMaterial.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L10)
+Roughness scalar factor in the [0, 1] range.
 
-___
+***
 
 ### alphaCutoff
 
-• **alphaCutoff**: `number`
+> **alphaCutoff**: `number`
 
-#### Defined in
+Defined in: [src/loader/parser/gltf/GLTFMaterial.ts:27](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L27)
 
-[src/loader/parser/gltf/GLTFMaterial.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L11)
+Alpha cutoff threshold used in alpha-mask mode.
 
-___
+***
 
 ### enableBlend
 
-• **enableBlend**: `boolean`
+> **enableBlend**: `boolean`
 
-#### Defined in
+Defined in: [src/loader/parser/gltf/GLTFMaterial.ts:29](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L29)
 
-[src/loader/parser/gltf/GLTFMaterial.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L12)
+Whether alpha blending is enabled for this material.
 
-___
+***
 
 ### baseColorTexture
 
-• **baseColorTexture**: [`Texture`](Texture.md)
+> **baseColorTexture**: [`Texture`](Texture.md)
 
-#### Defined in
+Defined in: [src/loader/parser/gltf/GLTFMaterial.ts:31](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L31)
 
-[src/loader/parser/gltf/GLTFMaterial.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L13)
+Base color (albedo) texture.
 
-___
+***
 
 ### metallicRoughnessTexture
 
-• **metallicRoughnessTexture**: [`Texture`](Texture.md)
+> **metallicRoughnessTexture**: [`Texture`](Texture.md)
 
-#### Defined in
+Defined in: [src/loader/parser/gltf/GLTFMaterial.ts:33](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L33)
 
-[src/loader/parser/gltf/GLTFMaterial.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L14)
+Combined metallic-roughness texture.
 
-___
+***
 
 ### normalTexture
 
-• **normalTexture**: [`Texture`](Texture.md)
+> **normalTexture**: [`Texture`](Texture.md)
 
-#### Defined in
+Defined in: [src/loader/parser/gltf/GLTFMaterial.ts:35](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L35)
 
-[src/loader/parser/gltf/GLTFMaterial.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L15)
+Tangent-space normal map.
 
-___
+***
 
 ### occlusionTexture
 
-• **occlusionTexture**: [`Texture`](Texture.md)
+> **occlusionTexture**: [`Texture`](Texture.md)
 
-#### Defined in
+Defined in: [src/loader/parser/gltf/GLTFMaterial.ts:37](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L37)
 
-[src/loader/parser/gltf/GLTFMaterial.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L16)
+Ambient occlusion texture.
 
-___
+***
 
 ### emissiveTexture
 
-• **emissiveTexture**: [`Texture`](Texture.md)
+> **emissiveTexture**: [`Texture`](Texture.md)
 
-#### Defined in
+Defined in: [src/loader/parser/gltf/GLTFMaterial.ts:39](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L39)
 
-[src/loader/parser/gltf/GLTFMaterial.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L17)
+Emissive texture.
 
-___
+***
 
 ### extensions
 
-• **extensions**: `any`
+> **extensions**: `any`
 
-#### Defined in
+Defined in: [src/loader/parser/gltf/GLTFMaterial.ts:41](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L41)
 
-[src/loader/parser/gltf/GLTFMaterial.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L18)
+Raw glTF material extensions dictionary.
 
-___
+***
 
 ### baseMapOffsetSize
 
-• **baseMapOffsetSize**: `Vector4`
+> **baseMapOffsetSize**: `Vector4`
 
-#### Defined in
+Defined in: [src/loader/parser/gltf/GLTFMaterial.ts:43](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L43)
 
-[src/loader/parser/gltf/GLTFMaterial.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L19)
+UV offset/size transform for the base color texture.
 
-___
+***
 
 ### normalMapOffsetSize
 
-• **normalMapOffsetSize**: `Vector4`
+> **normalMapOffsetSize**: `Vector4`
 
-#### Defined in
+Defined in: [src/loader/parser/gltf/GLTFMaterial.ts:45](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L45)
 
-[src/loader/parser/gltf/GLTFMaterial.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L20)
+UV offset/size transform for the normal texture.
 
-___
+***
 
 ### emissiveMapOffsetSize
 
-• **emissiveMapOffsetSize**: `Vector4`
+> **emissiveMapOffsetSize**: `Vector4`
 
-#### Defined in
+Defined in: [src/loader/parser/gltf/GLTFMaterial.ts:47](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L47)
 
-[src/loader/parser/gltf/GLTFMaterial.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L21)
+UV offset/size transform for the emissive texture.
 
-___
+***
 
 ### roughnessMapOffsetSize
 
-• **roughnessMapOffsetSize**: `Vector4`
+> **roughnessMapOffsetSize**: `Vector4`
 
-#### Defined in
+Defined in: [src/loader/parser/gltf/GLTFMaterial.ts:49](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L49)
 
-[src/loader/parser/gltf/GLTFMaterial.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L22)
+UV offset/size transform for the roughness texture.
 
-___
+***
 
 ### metallicMapOffsetSize
 
-• **metallicMapOffsetSize**: `Vector4`
+> **metallicMapOffsetSize**: `Vector4`
 
-#### Defined in
+Defined in: [src/loader/parser/gltf/GLTFMaterial.ts:51](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L51)
 
-[src/loader/parser/gltf/GLTFMaterial.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L23)
+UV offset/size transform for the metallic texture.
 
-___
+***
 
 ### aoMapOffsetSize
 
-• **aoMapOffsetSize**: `Vector4`
+> **aoMapOffsetSize**: `Vector4`
 
-#### Defined in
+Defined in: [src/loader/parser/gltf/GLTFMaterial.ts:53](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L53)
 
-[src/loader/parser/gltf/GLTFMaterial.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFMaterial.ts#L24)
+UV offset/size transform for the ambient occlusion texture.

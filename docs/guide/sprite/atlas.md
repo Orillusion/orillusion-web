@@ -43,6 +43,12 @@ spriteRenderer.sprite = sprite2;
 | `pivot` | `Vector2` | The pivot (0~1) |
 | `Sprite.fromTexture(tex, name?)` | Static | Quickly creates a `Sprite` from an entire texture |
 
+## Example
+
+<Demo src="/demos/sprite/Sample_atlas.ts"></Demo>
+
+<<< @/public/demos/sprite/Sample_atlas.ts
+
 ## Batch Rendering (SpriteBatch)
 
 When you need to draw a large number of sprites that share the same texture (such as particle patches, massive numbers of icons, or bullet-hell projectiles), using a `SpriteRenderer` for each one would produce a large number of draw calls. `SpriteBatch` merges them into a single draw call, significantly improving performance.
@@ -80,5 +86,11 @@ Update entries at runtime (for example, making each sprite float):
 ```ts
 batch.update(entry, { position: new Vector3(x, newY, z) });
 ```
+
+## Example
+
+<Demo src="/demos/sprite/Sample_batch.ts"></Demo>
+
+<<< @/public/demos/sprite/Sample_batch.ts
 
 > `SpriteBatch` is suitable for scenarios with "the same texture, massive numbers, and the need for unified management"; if each sprite requires independent component behavior (such as its own [billboard](/guide/sprite/billboard.md)), you should still use independent `SpriteRenderer`s.

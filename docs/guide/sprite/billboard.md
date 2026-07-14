@@ -57,3 +57,9 @@ sprite.color = new Color(1, 0.85, 0.4, 1);
 
 poi.addComponent(BillboardComponent).type = BillboardType.BillboardY; // Always face the camera
 ```
+
+## Example
+
+<Demo src="/demos/sprite/Sample_poi.ts"></Demo>
+
+<<< @/public/demos/sprite/Sample_poi.ts

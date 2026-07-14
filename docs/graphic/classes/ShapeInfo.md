@@ -1,196 +1,150 @@
+[**@orillusion/graphic**](../README.md)
+
+***
+
 # Class: ShapeInfo
 
-## Hierarchy
+Defined in: [packages/graphic/renderer/graphic3d/ShapeInfo.ts:3](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/ShapeInfo.ts#L3)
+
+## Extends
 
 - `Struct`
 
-  ↳ **`ShapeInfo`**
-
-### Constructors
-
-- [constructor](ShapeInfo.md#constructor)
-
-### Properties
-
-- [shapeIndex](ShapeInfo.md#shapeindex)
-- [shapeType](ShapeInfo.md#shapetype)
-- [width](ShapeInfo.md#width)
-- [lineCap](ShapeInfo.md#linecap)
-- [pathCount](ShapeInfo.md#pathcount)
-- [uScale](ShapeInfo.md#uscale)
-- [vScale](ShapeInfo.md#vscale)
-- [lineJoin](ShapeInfo.md#linejoin)
-- [startPath](ShapeInfo.md#startpath)
-- [endPath](ShapeInfo.md#endpath)
-- [uSpeed](ShapeInfo.md#uspeed)
-- [vSpeed](ShapeInfo.md#vspeed)
-- [paths](ShapeInfo.md#paths)
-
-### Methods
-
-- [getValueSize](ShapeInfo.md#getvaluesize)
-- [Ref](ShapeInfo.md#ref)
-- [Get](ShapeInfo.md#get)
-- [GetSize](ShapeInfo.md#getsize)
-- [getValueType](ShapeInfo.md#getvaluetype)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new ShapeInfo**(): [`ShapeInfo`](ShapeInfo.md)
+> **new ShapeInfo**(): `ShapeInfo`
 
 #### Returns
 
-[`ShapeInfo`](ShapeInfo.md)
+`ShapeInfo`
 
 #### Inherited from
 
-Struct.constructor
+`Struct.constructor`
 
 ## Properties
 
 ### shapeIndex
 
-• **shapeIndex**: `number` = `0`
+> **shapeIndex**: `number` = `0`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/graphic3d/ShapeInfo.ts:4](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/ShapeInfo.ts#L4)
 
-[packages/graphic/renderer/graphic3d/ShapeInfo.ts:4](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/ShapeInfo.ts#L4)
-
-___
+***
 
 ### shapeType
 
-• **shapeType**: `number` = `0`
+> **shapeType**: `number` = `0`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/graphic3d/ShapeInfo.ts:5](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/ShapeInfo.ts#L5)
 
-[packages/graphic/renderer/graphic3d/ShapeInfo.ts:5](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/ShapeInfo.ts#L5)
-
-___
+***
 
 ### width
 
-• **width**: `number` = `0`
+> **width**: `number` = `0`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/graphic3d/ShapeInfo.ts:6](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/ShapeInfo.ts#L6)
 
-[packages/graphic/renderer/graphic3d/ShapeInfo.ts:6](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/ShapeInfo.ts#L6)
-
-___
+***
 
 ### lineCap
 
-• **lineCap**: `number` = `0`
+> **lineCap**: `number` = `0`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/graphic3d/ShapeInfo.ts:7](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/ShapeInfo.ts#L7)
 
-[packages/graphic/renderer/graphic3d/ShapeInfo.ts:7](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/ShapeInfo.ts#L7)
-
-___
+***
 
 ### pathCount
 
-• **pathCount**: `number` = `0`
+> **pathCount**: `number` = `0`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/graphic3d/ShapeInfo.ts:8](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/ShapeInfo.ts#L8)
 
-[packages/graphic/renderer/graphic3d/ShapeInfo.ts:8](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/ShapeInfo.ts#L8)
-
-___
+***
 
 ### uScale
 
-• **uScale**: `number` = `0`
+> **uScale**: `number` = `0`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/graphic3d/ShapeInfo.ts:9](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/ShapeInfo.ts#L9)
 
-[packages/graphic/renderer/graphic3d/ShapeInfo.ts:9](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/ShapeInfo.ts#L9)
-
-___
+***
 
 ### vScale
 
-• **vScale**: `number` = `0`
+> **vScale**: `number` = `0`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/graphic3d/ShapeInfo.ts:10](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/ShapeInfo.ts#L10)
 
-[packages/graphic/renderer/graphic3d/ShapeInfo.ts:10](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/ShapeInfo.ts#L10)
-
-___
+***
 
 ### lineJoin
 
-• **lineJoin**: `number` = `0`
+> **lineJoin**: `number` = `0`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/graphic3d/ShapeInfo.ts:11](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/ShapeInfo.ts#L11)
 
-[packages/graphic/renderer/graphic3d/ShapeInfo.ts:11](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/ShapeInfo.ts#L11)
-
-___
+***
 
 ### startPath
 
-• **startPath**: `number` = `0`
+> **startPath**: `number` = `0`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/graphic3d/ShapeInfo.ts:13](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/ShapeInfo.ts#L13)
 
-[packages/graphic/renderer/graphic3d/ShapeInfo.ts:13](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/ShapeInfo.ts#L13)
-
-___
+***
 
 ### endPath
 
-• **endPath**: `number` = `0`
+> **endPath**: `number` = `0`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/graphic3d/ShapeInfo.ts:14](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/ShapeInfo.ts#L14)
 
-[packages/graphic/renderer/graphic3d/ShapeInfo.ts:14](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/ShapeInfo.ts#L14)
-
-___
+***
 
 ### uSpeed
 
-• **uSpeed**: `number` = `0`
+> **uSpeed**: `number` = `0`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/graphic3d/ShapeInfo.ts:15](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/ShapeInfo.ts#L15)
 
-[packages/graphic/renderer/graphic3d/ShapeInfo.ts:15](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/ShapeInfo.ts#L15)
-
-___
+***
 
 ### vSpeed
 
-• **vSpeed**: `number` = `0`
+> **vSpeed**: `number` = `0`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/graphic3d/ShapeInfo.ts:16](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/ShapeInfo.ts#L16)
 
-[packages/graphic/renderer/graphic3d/ShapeInfo.ts:16](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/ShapeInfo.ts#L16)
-
-___
+***
 
 ### paths
 
-• **paths**: `Vector4`[] = `[]`
+> **paths**: `Vector4`[] = `[]`
 
-#### Defined in
-
-[packages/graphic/renderer/graphic3d/ShapeInfo.ts:17](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/ShapeInfo.ts#L17)
+Defined in: [packages/graphic/renderer/graphic3d/ShapeInfo.ts:17](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/ShapeInfo.ts#L17)
 
 ## Methods
 
-### getValueSize
+### getValueSize()
 
-▸ **getValueSize**(`value`): `any`
+> `static` **getValueSize**(`value`): `any`
+
+Defined in: [src/util/struct/Struct.ts:48](https://github.com/orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L48)
 
 get any type value memory size
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `value` | `any` | any type value |
+##### value
+
+`any`
+
+any type value
 
 #### Returns
 
@@ -198,59 +152,55 @@ get any type value memory size
 
 #### Inherited from
 
-Struct.getValueSize
+`Struct.getValueSize`
 
-#### Defined in
+***
 
-[src/util/struct/Struct.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L48)
+### Ref()
 
-___
+> `static` **Ref**\<`T`\>(`c`): `object`[]
 
-### Ref
+Defined in: [src/util/struct/Struct.ts:93](https://github.com/orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L93)
 
-▸ **Ref**\<`T`\>(`c`): \{ `name`: `string` ; `type`: `string`  }[]
+#### Type Parameters
 
-#### Type parameters
+##### T
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `Struct` |
+`T` *extends* `Struct`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `c` | `Ctor`\<`T`\> |
+##### c
+
+`Ctor`\<`T`\>
 
 #### Returns
 
-\{ `name`: `string` ; `type`: `string`  }[]
+`object`[]
 
 #### Inherited from
 
-Struct.Ref
+`Struct.Ref`
 
-#### Defined in
+***
 
-[src/util/struct/Struct.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L93)
+### Get()
 
-___
+> `static` **Get**\<`T`\>(`c`): `Struct`
 
-### Get
+Defined in: [src/util/struct/Struct.ts:99](https://github.com/orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L99)
 
-▸ **Get**\<`T`\>(`c`): `Struct`
+#### Type Parameters
 
-#### Type parameters
+##### T
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `Struct` |
+`T` *extends* `Struct`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `c` | `Ctor`\<`T`\> |
+##### c
+
+`Ctor`\<`T`\>
 
 #### Returns
 
@@ -258,31 +208,29 @@ ___
 
 #### Inherited from
 
-Struct.Get
+`Struct.Get`
 
-#### Defined in
+***
 
-[src/util/struct/Struct.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L99)
+### GetSize()
 
-___
+> `static` **GetSize**\<`T`\>(`c`): `number`
 
-### GetSize
-
-▸ **GetSize**\<`T`\>(`c`): `number`
+Defined in: [src/util/struct/Struct.ts:112](https://github.com/orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L112)
 
 get any struct memory size
 
-#### Type parameters
+#### Type Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `Struct` |
+##### T
+
+`T` *extends* `Struct`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `c` | `Ctor`\<`T`\> |
+##### c
+
+`Ctor`\<`T`\>
 
 #### Returns
 
@@ -290,28 +238,22 @@ get any struct memory size
 
 #### Inherited from
 
-Struct.GetSize
+`Struct.GetSize`
 
-#### Defined in
+***
 
-[src/util/struct/Struct.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L112)
+### getValueType()
 
-___
+> **getValueType**(): `object`[]
 
-### getValueType
-
-▸ **getValueType**(): \{ `name`: `string` ; `type`: `string`  }[]
+Defined in: [src/util/struct/Struct.ts:25](https://github.com/orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L25)
 
 get reflection name
 
 #### Returns
 
-\{ `name`: `string` ; `type`: `string`  }[]
+`object`[]
 
 #### Inherited from
 
-Struct.getValueType
-
-#### Defined in
-
-[src/util/struct/Struct.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L25)
+`Struct.getValueType`

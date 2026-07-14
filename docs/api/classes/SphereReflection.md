@@ -1,740 +1,663 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: SphereReflection
 
-Sky Box Renderer Component
+Defined in: [src/components/renderer/SphereReflection.ts:24](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/SphereReflection.ts#L24)
 
-## Hierarchy
+Spherical reflection probe — a [Reflection](Reflection.md) variant that uses a
+bounding sphere for its influence volume, suited to localized reflective
+objects.
+
+## Extends
 
 - [`Reflection`](Reflection.md)
 
-  ↳ **`SphereReflection`**
-
-### Constructors
-
-- [constructor](SphereReflection.md#constructor)
-
-### Properties
-
-- [object3D](SphereReflection.md#object3d)
-- [isDestroyed](SphereReflection.md#isdestroyed)
-- [gid](SphereReflection.md#gid)
-- [needUpdate](SphereReflection.md#needupdate)
-- [autoUpdate](SphereReflection.md#autoupdate)
-- [radius](SphereReflection.md#radius)
-- [instanceCount](SphereReflection.md#instancecount)
-- [lodLevel](SphereReflection.md#lodlevel)
-- [alwaysRender](SphereReflection.md#alwaysrender)
-- [instanceID](SphereReflection.md#instanceid)
-- [drawType](SphereReflection.md#drawtype)
-- [isRenderOrderChange](SphereReflection.md#isrenderorderchange)
-- [needSortOnCameraZ](SphereReflection.md#needsortoncameraz)
-- [isRecievePostEffectUI](SphereReflection.md#isrecieveposteffectui)
-
-### Accessors
-
-- [eventDispatcher](SphereReflection.md#eventdispatcher)
-- [isStart](SphereReflection.md#isstart)
-- [transform](SphereReflection.md#transform)
-- [enable](SphereReflection.md#enable)
-- [renderLayer](SphereReflection.md#renderlayer)
-- [geometry](SphereReflection.md#geometry)
-- [rendererMask](SphereReflection.md#renderermask)
-- [renderOrder](SphereReflection.md#renderorder)
-- [materials](SphereReflection.md#materials)
-- [castShadow](SphereReflection.md#castshadow)
-- [castGI](SphereReflection.md#castgi)
-- [castReflection](SphereReflection.md#castreflection)
-
-### Methods
-
-- [start](SphereReflection.md#start)
-- [stop](SphereReflection.md#stop)
-- [onUpdate](SphereReflection.md#onupdate)
-- [onLateUpdate](SphereReflection.md#onlateupdate)
-- [onBeforeUpdate](SphereReflection.md#onbeforeupdate)
-- [onCompute](SphereReflection.md#oncompute)
-- [onGraphic](SphereReflection.md#ongraphic)
-- [onParentChange](SphereReflection.md#onparentchange)
-- [onAddChild](SphereReflection.md#onaddchild)
-- [onRemoveChild](SphereReflection.md#onremovechild)
-- [cloneTo](SphereReflection.md#cloneto)
-- [attachSceneOctree](SphereReflection.md#attachsceneoctree)
-- [detachSceneOctree](SphereReflection.md#detachsceneoctree)
-- [copyComponent](SphereReflection.md#copycomponent)
-- [addMask](SphereReflection.md#addmask)
-- [removeMask](SphereReflection.md#removemask)
-- [hasMask](SphereReflection.md#hasmask)
-- [addRendererMask](SphereReflection.md#addrenderermask)
-- [removeRendererMask](SphereReflection.md#removerenderermask)
-- [selfCloneMaterials](SphereReflection.md#selfclonematerials)
-- [renderPass](SphereReflection.md#renderpass)
-- [recordRenderPass2](SphereReflection.md#recordrenderpass2)
-- [preInit](SphereReflection.md#preinit)
-- [nodeUpdate](SphereReflection.md#nodeupdate)
-- [beforeDestroy](SphereReflection.md#beforedestroy)
-- [destroy](SphereReflection.md#destroy)
-- [init](SphereReflection.md#init)
-- [debug](SphereReflection.md#debug)
-- [onEnable](SphereReflection.md#onenable)
-- [onDisable](SphereReflection.md#ondisable)
-- [renderPass2](SphereReflection.md#renderpass2)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new SphereReflection**(): [`SphereReflection`](SphereReflection.md)
+> **new SphereReflection**(): `SphereReflection`
 
 #### Returns
 
-[`SphereReflection`](SphereReflection.md)
+`SphereReflection`
 
 #### Inherited from
 
-[Reflection](Reflection.md).[constructor](Reflection.md#constructor)
+[`Reflection`](Reflection.md).[`constructor`](Reflection.md#constructor)
 
 ## Properties
 
 ### object3D
 
-• **object3D**: [`Object3D`](Object3D.md) = `null`
+> **object3D**: [`Object3D`](Object3D.md) = `null`
+
+Defined in: [src/components/ComponentBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L29)
 
 owner object3D
 
 #### Inherited from
 
-[Reflection](Reflection.md).[object3D](Reflection.md#object3d)
+[`Reflection`](Reflection.md).[`object3D`](Reflection.md#object3d)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
-
-___
+***
 
 ### isDestroyed
 
-• `Optional` **isDestroyed**: `boolean`
+> **isDestroyed**: `boolean` = `false`
+
+Defined in: [src/components/ComponentBase.ts:77](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L77)
 
 #### Inherited from
 
-[Reflection](Reflection.md).[isDestroyed](Reflection.md#isdestroyed)
+[`Reflection`](Reflection.md).[`isDestroyed`](Reflection.md#isdestroyed)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
-
-___
+***
 
 ### gid
 
-• **gid**: `number` = `0`
+> **gid**: `number` = `0`
+
+Defined in: [src/components/renderer/Reflection.ts:21](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/Reflection.ts#L21)
+
+Global reflection probe id assigned by the reflection system.
 
 #### Inherited from
 
-[Reflection](Reflection.md).[gid](Reflection.md#gid)
+[`Reflection`](Reflection.md).[`gid`](Reflection.md#gid)
 
-#### Defined in
-
-[src/components/renderer/Reflection.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/Reflection.ts#L19)
-
-___
+***
 
 ### needUpdate
 
-• **needUpdate**: `boolean` = `true`
+> **needUpdate**: `boolean` = `true`
+
+Defined in: [src/components/renderer/Reflection.ts:23](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/Reflection.ts#L23)
+
+Whether this probe needs to be re-captured on the next frame.
 
 #### Inherited from
 
-[Reflection](Reflection.md).[needUpdate](Reflection.md#needupdate)
+[`Reflection`](Reflection.md).[`needUpdate`](Reflection.md#needupdate)
 
-#### Defined in
-
-[src/components/renderer/Reflection.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/Reflection.ts#L20)
-
-___
+***
 
 ### autoUpdate
 
-• **autoUpdate**: `boolean` = `false`
+> **autoUpdate**: `boolean` = `false`
+
+Defined in: [src/components/renderer/Reflection.ts:25](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/Reflection.ts#L25)
+
+When true, the probe re-captures automatically every frame.
 
 #### Inherited from
 
-[Reflection](Reflection.md).[autoUpdate](Reflection.md#autoupdate)
+[`Reflection`](Reflection.md).[`autoUpdate`](Reflection.md#autoupdate)
 
-#### Defined in
-
-[src/components/renderer/Reflection.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/Reflection.ts#L21)
-
-___
+***
 
 ### radius
 
-• **radius**: `number` = `500`
+> **radius**: `number` = `500`
+
+Defined in: [src/components/renderer/Reflection.ts:27](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/Reflection.ts#L27)
+
+Radius of the probe's influence volume.
 
 #### Inherited from
 
-[Reflection](Reflection.md).[radius](Reflection.md#radius)
+[`Reflection`](Reflection.md).[`radius`](Reflection.md#radius)
 
-#### Defined in
-
-[src/components/renderer/Reflection.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/Reflection.ts#L22)
-
-___
+***
 
 ### instanceCount
 
-• **instanceCount**: `number` = `0`
+> **instanceCount**: `number` = `0`
+
+Defined in: [src/components/renderer/RenderNode.ts:35](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L35)
 
 #### Inherited from
 
-[Reflection](Reflection.md).[instanceCount](Reflection.md#instancecount)
+[`Reflection`](Reflection.md).[`instanceCount`](Reflection.md#instancecount)
 
-#### Defined in
-
-[src/components/renderer/RenderNode.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L35)
-
-___
+***
 
 ### lodLevel
 
-• **lodLevel**: `number` = `0`
+> **lodLevel**: `number` = `0`
+
+Defined in: [src/components/renderer/RenderNode.ts:36](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L36)
 
 #### Inherited from
 
-[Reflection](Reflection.md).[lodLevel](Reflection.md#lodlevel)
+[`Reflection`](Reflection.md).[`lodLevel`](Reflection.md#lodlevel)
 
-#### Defined in
-
-[src/components/renderer/RenderNode.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L36)
-
-___
+***
 
 ### alwaysRender
 
-• **alwaysRender**: `boolean` = `false`
+> **alwaysRender**: `boolean` = `false`
+
+Defined in: [src/components/renderer/RenderNode.ts:37](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L37)
 
 #### Inherited from
 
-[Reflection](Reflection.md).[alwaysRender](Reflection.md#alwaysrender)
+[`Reflection`](Reflection.md).[`alwaysRender`](Reflection.md#alwaysrender)
 
-#### Defined in
-
-[src/components/renderer/RenderNode.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L37)
-
-___
+***
 
 ### instanceID
 
-• **instanceID**: `string`
+> **instanceID**: `string`
+
+Defined in: [src/components/renderer/RenderNode.ts:38](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L38)
 
 #### Inherited from
 
-[Reflection](Reflection.md).[instanceID](Reflection.md#instanceid)
+[`Reflection`](Reflection.md).[`instanceID`](Reflection.md#instanceid)
 
-#### Defined in
-
-[src/components/renderer/RenderNode.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L38)
-
-___
+***
 
 ### drawType
 
-• **drawType**: `number` = `0`
+> **drawType**: `number` = `0`
+
+Defined in: [src/components/renderer/RenderNode.ts:39](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L39)
 
 #### Inherited from
 
-[Reflection](Reflection.md).[drawType](Reflection.md#drawtype)
+[`Reflection`](Reflection.md).[`drawType`](Reflection.md#drawtype)
 
-#### Defined in
+***
 
-[src/components/renderer/RenderNode.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L39)
+### isRenderOrderChange?
 
-___
+> `optional` **isRenderOrderChange?**: `boolean`
 
-### isRenderOrderChange
-
-• `Optional` **isRenderOrderChange**: `boolean`
+Defined in: [src/components/renderer/RenderNode.ts:55](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L55)
 
 #### Inherited from
 
-[Reflection](Reflection.md).[isRenderOrderChange](Reflection.md#isrenderorderchange)
+[`Reflection`](Reflection.md).[`isRenderOrderChange`](Reflection.md#isrenderorderchange)
 
-#### Defined in
+***
 
-[src/components/renderer/RenderNode.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L55)
+### needSortOnCameraZ?
 
-___
+> `optional` **needSortOnCameraZ?**: `boolean`
 
-### needSortOnCameraZ
-
-• `Optional` **needSortOnCameraZ**: `boolean`
+Defined in: [src/components/renderer/RenderNode.ts:56](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L56)
 
 #### Inherited from
 
-[Reflection](Reflection.md).[needSortOnCameraZ](Reflection.md#needsortoncameraz)
+[`Reflection`](Reflection.md).[`needSortOnCameraZ`](Reflection.md#needsortoncameraz)
 
-#### Defined in
+***
 
-[src/components/renderer/RenderNode.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L56)
+### shadowCacheMode
 
-___
+> **shadowCacheMode**: `"auto"` \| `"static"` \| `"dynamic"` = `'auto'`
 
-### isRecievePostEffectUI
+Defined in: [src/components/renderer/RenderNode.ts:437](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L437)
 
-• `Optional` **isRecievePostEffectUI**: `boolean`
+Shadow cache classification.
+
+- `'auto'` (default): renderer is drawn to the shadow map every frame
+  as part of the single-pass render — matches historical behaviour.
+- `'static'`: renderer is drawn only to the cached static depth layer,
+  rebuilt lazily when the light moves or the scene explicitly marks
+  the static cache dirty. Use for buildings, terrain, prop meshes that
+  don't move.
+- `'dynamic'`: renderer is drawn every frame on top of the copied-in
+  static layer. Use for characters, physics objects, anything that
+  moves.
+
+Only consulted when `engine.setting.shadow.enableStaticCache === true`;
+otherwise all renderers behave as `'auto'`.
 
 #### Inherited from
 
-[Reflection](Reflection.md).[isRecievePostEffectUI](Reflection.md#isrecieveposteffectui)
-
-#### Defined in
-
-[src/components/renderer/RenderNode.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L57)
+[`Reflection`](Reflection.md).[`shadowCacheMode`](Reflection.md#shadowcachemode)
 
 ## Accessors
 
-### eventDispatcher
+### visibleLayer
 
-• `get` **eventDispatcher**(): [`CEventDispatcher`](CEventDispatcher.md)
+#### Get Signature
 
-#### Returns
+> **get** **visibleLayer**(): `number`
 
-[`CEventDispatcher`](CEventDispatcher.md)
+Defined in: [src/components/ComponentBase.ts:46](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L46)
 
-#### Inherited from
+Composition-layer membership bitmask. The pass / camera /
+collector filters via
 
-Reflection.eventDispatcher
+    (component.visibleLayer & pass.layerMask & camera.cullingMask) !== 0
 
-#### Defined in
+Defaults to [VisibleLayer.Default](../@orillusion/namespaces/VisibleLayer/variables/Default.md) (bit 0) so a fresh
+subclass is visible to passes whose `layerMask` is
+[VisibleLayer.All](../@orillusion/namespaces/VisibleLayer/variables/All.md) (which includes bit 0). Application code
+can assign project-specific bits (1..31) to organise the scene
+into composition layers.
 
-[src/components/ComponentBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L23)
+##### Returns
 
-• `set` **eventDispatcher**(`value`): `void`
+`number`
 
-#### Parameters
+#### Set Signature
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`CEventDispatcher`](CEventDispatcher.md) |
+> **set** **visibleLayer**(`value`): `void`
 
-#### Returns
+Defined in: [src/components/ComponentBase.ts:50](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L50)
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-Reflection.eventDispatcher
+[`Reflection`](Reflection.md).[`visibleLayer`](Reflection.md#visiblelayer)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L28)
+### eventDispatcher
 
-___
+#### Get Signature
+
+> **get** **eventDispatcher**(): [`CEventDispatcher`](CEventDispatcher.md)
+
+Defined in: [src/components/ComponentBase.ts:63](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L63)
+
+##### Returns
+
+[`CEventDispatcher`](CEventDispatcher.md)
+
+#### Set Signature
+
+> **set** **eventDispatcher**(`value`): `void`
+
+Defined in: [src/components/ComponentBase.ts:68](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
+
+##### Parameters
+
+###### value
+
+[`CEventDispatcher`](CEventDispatcher.md)
+
+##### Returns
+
+`void`
+
+#### Inherited from
+
+[`Reflection`](Reflection.md).[`eventDispatcher`](Reflection.md#eventdispatcher)
+
+***
 
 ### isStart
 
-• `get` **isStart**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **isStart**(): `boolean`
+
+Defined in: [src/components/ComponentBase.ts:79](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L79)
+
+##### Returns
 
 `boolean`
 
 #### Inherited from
 
-Reflection.isStart
+[`Reflection`](Reflection.md).[`isStart`](Reflection.md#isstart)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L40)
-
-___
+***
 
 ### transform
 
-• `get` **transform**(): [`Transform`](Transform.md)
+#### Get Signature
+
+> **get** **transform**(): [`Transform`](Transform.md)
+
+Defined in: [src/components/ComponentBase.ts:89](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L89)
 
 Return the Transform component attached to the Object3D.
+Null before the component is attached — `addComponent` assigns
+`object3D` only after construction — so constructor-time callers
+can probe safely via `this.transform?.`.
 
-#### Returns
+##### Returns
 
 [`Transform`](Transform.md)
 
 #### Inherited from
 
-Reflection.transform
+[`Reflection`](Reflection.md).[`transform`](Reflection.md#transform)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L47)
-
-___
+***
 
 ### enable
 
-• `get` **enable**(): `boolean`
+#### Get Signature
+
+> **get** **enable**(): `boolean`
+
+Defined in: [src/components/ComponentBase.ts:113](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
-#### Returns
+##### Returns
 
 `boolean`
 
-#### Inherited from
+#### Set Signature
 
-Reflection.enable
+> **set** **enable**(`value`): `void`
 
-#### Defined in
-
-[src/components/ComponentBase.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
-
-• `set` **enable**(`value`): `void`
+Defined in: [src/components/ComponentBase.ts:96](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L96)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
+###### value
 
-#### Returns
+`boolean`
 
-`void`
-
-#### Inherited from
-
-Reflection.enable
-
-#### Defined in
-
-[src/components/ComponentBase.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L54)
-
-___
-
-### renderLayer
-
-• `get` **renderLayer**(): `RenderLayer`
-
-#### Returns
-
-`RenderLayer`
-
-#### Inherited from
-
-Reflection.renderLayer
-
-#### Defined in
-
-[src/components/renderer/RenderNode.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L110)
-
-• `set` **renderLayer**(`value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `RenderLayer` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-Reflection.renderLayer
+[`Reflection`](Reflection.md).[`enable`](Reflection.md#enable)
 
-#### Defined in
+***
 
-[src/components/renderer/RenderNode.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L114)
+### batchMode
 
-___
+#### Get Signature
+
+> **get** **batchMode**(): [`BatchMode`](../enumerations/BatchMode.md)
+
+Defined in: [src/components/renderer/RenderNode.ts:118](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L118)
+
+##### Returns
+
+[`BatchMode`](../enumerations/BatchMode.md)
+
+#### Set Signature
+
+> **set** **batchMode**(`value`): `void`
+
+Defined in: [src/components/renderer/RenderNode.ts:122](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L122)
+
+##### Parameters
+
+###### value
+
+[`BatchMode`](../enumerations/BatchMode.md)
+
+##### Returns
+
+`void`
+
+#### Inherited from
+
+[`Reflection`](Reflection.md).[`batchMode`](Reflection.md#batchmode)
+
+***
 
 ### geometry
 
-• `get` **geometry**(): [`GeometryBase`](GeometryBase.md)
+#### Get Signature
 
-#### Returns
+> **get** **geometry**(): [`GeometryBase`](GeometryBase.md)
+
+Defined in: [src/components/renderer/RenderNode.ts:126](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L126)
+
+##### Returns
 
 [`GeometryBase`](GeometryBase.md)
 
-#### Inherited from
+#### Set Signature
 
-Reflection.geometry
+> **set** **geometry**(`value`): `void`
 
-#### Defined in
+Defined in: [src/components/renderer/RenderNode.ts:130](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L130)
 
-[src/components/renderer/RenderNode.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L122)
+##### Parameters
 
-• `set` **geometry**(`value`): `void`
+###### value
 
-#### Parameters
+[`GeometryBase`](GeometryBase.md)
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`GeometryBase`](GeometryBase.md) |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-Reflection.geometry
+[`Reflection`](Reflection.md).[`geometry`](Reflection.md#geometry)
 
-#### Defined in
-
-[src/components/renderer/RenderNode.ts:126](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L126)
-
-___
+***
 
 ### rendererMask
 
-• `get` **rendererMask**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **rendererMask**(): `number`
+
+Defined in: [src/components/renderer/RenderNode.ts:156](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L156)
+
+##### Returns
 
 `number`
 
-#### Inherited from
+#### Set Signature
 
-Reflection.rendererMask
+> **set** **rendererMask**(`value`): `void`
 
-#### Defined in
+Defined in: [src/components/renderer/RenderNode.ts:160](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L160)
 
-[src/components/renderer/RenderNode.ts:152](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L152)
+##### Parameters
 
-• `set` **rendererMask**(`value`): `void`
+###### value
 
-#### Parameters
+`number`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-Reflection.rendererMask
+[`Reflection`](Reflection.md).[`rendererMask`](Reflection.md#renderermask)
 
-#### Defined in
-
-[src/components/renderer/RenderNode.ts:156](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L156)
-
-___
+***
 
 ### renderOrder
 
-• `get` **renderOrder**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **renderOrder**(): `number`
+
+Defined in: [src/components/renderer/RenderNode.ts:164](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L164)
+
+##### Returns
 
 `number`
 
-#### Inherited from
+#### Set Signature
 
-Reflection.renderOrder
+> **set** **renderOrder**(`value`): `void`
 
-#### Defined in
+Defined in: [src/components/renderer/RenderNode.ts:168](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L168)
 
-[src/components/renderer/RenderNode.ts:160](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L160)
+##### Parameters
 
-• `set` **renderOrder**(`value`): `void`
+###### value
 
-#### Parameters
+`number`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-Reflection.renderOrder
+[`Reflection`](Reflection.md).[`renderOrder`](Reflection.md#renderorder)
 
-#### Defined in
-
-[src/components/renderer/RenderNode.ts:164](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L164)
-
-___
+***
 
 ### materials
 
-• `get` **materials**(): [`Material`](Material.md)[]
+#### Get Signature
 
-#### Returns
+> **get** **materials**(): [`Material`](Material.md)[]
+
+Defined in: [src/components/renderer/RenderNode.ts:177](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L177)
+
+##### Returns
 
 [`Material`](Material.md)[]
 
-#### Inherited from
+#### Set Signature
 
-Reflection.materials
+> **set** **materials**(`value`): `void`
 
-#### Defined in
+Defined in: [src/components/renderer/RenderNode.ts:181](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L181)
 
-[src/components/renderer/RenderNode.ts:173](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L173)
+##### Parameters
 
-• `set` **materials**(`value`): `void`
+###### value
 
-#### Parameters
+[`Material`](Material.md)[]
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`Material`](Material.md)[] |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-Reflection.materials
+[`Reflection`](Reflection.md).[`materials`](Reflection.md#materials)
 
-#### Defined in
-
-[src/components/renderer/RenderNode.ts:177](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L177)
-
-___
+***
 
 ### castShadow
 
-• `get` **castShadow**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **castShadow**(): `boolean`
+
+Defined in: [src/components/renderer/RenderNode.ts:413](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L413)
+
+##### Returns
 
 `boolean`
 
-#### Inherited from
+#### Set Signature
 
-Reflection.castShadow
+> **set** **castShadow**(`value`): `void`
 
-#### Defined in
+Defined in: [src/components/renderer/RenderNode.ts:417](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L417)
 
-[src/components/renderer/RenderNode.ts:345](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L345)
+##### Parameters
 
-• `set` **castShadow**(`value`): `void`
+###### value
 
-#### Parameters
+`boolean`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-Reflection.castShadow
+[`Reflection`](Reflection.md).[`castShadow`](Reflection.md#castshadow)
 
-#### Defined in
-
-[src/components/renderer/RenderNode.ts:349](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L349)
-
-___
+***
 
 ### castGI
 
-• `get` **castGI**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **castGI**(): `boolean`
+
+Defined in: [src/components/renderer/RenderNode.ts:440](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L440)
+
+##### Returns
 
 `boolean`
 
-#### Inherited from
+#### Set Signature
 
-Reflection.castGI
+> **set** **castGI**(`value`): `void`
 
-#### Defined in
+Defined in: [src/components/renderer/RenderNode.ts:444](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L444)
 
-[src/components/renderer/RenderNode.ts:354](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L354)
+##### Parameters
 
-• `set` **castGI**(`value`): `void`
+###### value
 
-#### Parameters
+`boolean`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-Reflection.castGI
+[`Reflection`](Reflection.md).[`castGI`](Reflection.md#castgi)
 
-#### Defined in
-
-[src/components/renderer/RenderNode.ts:358](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L358)
-
-___
+***
 
 ### castReflection
 
-• `get` **castReflection**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **castReflection**(): `boolean`
+
+Defined in: [src/components/renderer/RenderNode.ts:448](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L448)
+
+##### Returns
 
 `boolean`
 
-#### Inherited from
+#### Set Signature
 
-Reflection.castReflection
+> **set** **castReflection**(`value`): `void`
 
-#### Defined in
+Defined in: [src/components/renderer/RenderNode.ts:452](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L452)
 
-[src/components/renderer/RenderNode.ts:362](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L362)
+##### Parameters
 
-• `set` **castReflection**(`value`): `void`
+###### value
 
-#### Parameters
+`boolean`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-Reflection.castReflection
-
-#### Defined in
-
-[src/components/renderer/RenderNode.ts:366](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L366)
+[`Reflection`](Reflection.md).[`castReflection`](Reflection.md#castreflection)
 
 ## Methods
 
-### start
+### start()
 
-▸ **start**(): `void`
+> **start**(): `void`
 
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[Reflection](Reflection.md).[start](Reflection.md#start)
-
-#### Defined in
-
-[src/components/ComponentBase.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
-
-___
-
-### stop
-
-▸ **stop**(): `void`
+Defined in: [src/components/ComponentBase.ts:162](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L162)
 
 #### Returns
 
@@ -742,23 +665,37 @@ ___
 
 #### Inherited from
 
-[Reflection](Reflection.md).[stop](Reflection.md#stop)
+[`Reflection`](Reflection.md).[`start`](Reflection.md#start)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
+### stop()
 
-___
+> **stop**(): `void`
 
-### onUpdate
+Defined in: [src/components/ComponentBase.ts:163](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L163)
 
-▸ **onUpdate**(`view?`): `any`
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[`Reflection`](Reflection.md).[`stop`](Reflection.md#stop)
+
+***
+
+### onUpdate()?
+
+> `optional` **onUpdate**(`view?`): `any`
+
+Defined in: [src/components/ComponentBase.ts:166](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L166)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -766,23 +703,21 @@ ___
 
 #### Inherited from
 
-[Reflection](Reflection.md).[onUpdate](Reflection.md#onupdate)
+[`Reflection`](Reflection.md).[`onUpdate`](Reflection.md#onupdate)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L117)
+### onLateUpdate()?
 
-___
+> `optional` **onLateUpdate**(`view?`): `any`
 
-### onLateUpdate
-
-▸ **onLateUpdate**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:167](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L167)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -790,23 +725,21 @@ ___
 
 #### Inherited from
 
-[Reflection](Reflection.md).[onLateUpdate](Reflection.md#onlateupdate)
+[`Reflection`](Reflection.md).[`onLateUpdate`](Reflection.md#onlateupdate)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L118)
+### onBeforeUpdate()?
 
-___
+> `optional` **onBeforeUpdate**(`view?`): `any`
 
-### onBeforeUpdate
-
-▸ **onBeforeUpdate**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:168](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L168)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -814,24 +747,25 @@ ___
 
 #### Inherited from
 
-[Reflection](Reflection.md).[onBeforeUpdate](Reflection.md#onbeforeupdate)
+[`Reflection`](Reflection.md).[`onBeforeUpdate`](Reflection.md#onbeforeupdate)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L119)
+### onCompute()?
 
-___
+> `optional` **onCompute**(`view?`, `command?`): `any`
 
-### onCompute
-
-▸ **onCompute**(`view?`, `command?`): `any`
+Defined in: [src/components/ComponentBase.ts:169](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L169)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
-| `command?` | `GPUCommandEncoder` |
+##### view?
+
+[`View3D`](View3D.md)
+
+##### command?
+
+`GPUCommandEncoder`
 
 #### Returns
 
@@ -839,23 +773,21 @@ ___
 
 #### Inherited from
 
-[Reflection](Reflection.md).[onCompute](Reflection.md#oncompute)
+[`Reflection`](Reflection.md).[`onCompute`](Reflection.md#oncompute)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L120)
+### onGraphic()?
 
-___
+> `optional` **onGraphic**(`view?`): `any`
 
-### onGraphic
-
-▸ **onGraphic**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:170](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L170)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -863,24 +795,25 @@ ___
 
 #### Inherited from
 
-[Reflection](Reflection.md).[onGraphic](Reflection.md#ongraphic)
+[`Reflection`](Reflection.md).[`onGraphic`](Reflection.md#ongraphic)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L121)
+### onParentChange()?
 
-___
+> `optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
-### onParentChange
-
-▸ **onParentChange**(`lastParent?`, `currentParent?`): `any`
+Defined in: [src/components/ComponentBase.ts:171](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L171)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `lastParent?` | [`Object3D`](Object3D.md) |
-| `currentParent?` | [`Object3D`](Object3D.md) |
+##### lastParent?
+
+[`Object3D`](Object3D.md)
+
+##### currentParent?
+
+[`Object3D`](Object3D.md)
 
 #### Returns
 
@@ -888,23 +821,21 @@ ___
 
 #### Inherited from
 
-[Reflection](Reflection.md).[onParentChange](Reflection.md#onparentchange)
+[`Reflection`](Reflection.md).[`onParentChange`](Reflection.md#onparentchange)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L122)
+### onAddChild()?
 
-___
+> `optional` **onAddChild**(`child`): `any`
 
-### onAddChild
-
-▸ **onAddChild**(`child`): `any`
+Defined in: [src/components/ComponentBase.ts:172](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L172)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `child` | [`Object3D`](Object3D.md) |
+##### child
+
+[`Object3D`](Object3D.md)
 
 #### Returns
 
@@ -912,23 +843,21 @@ ___
 
 #### Inherited from
 
-[Reflection](Reflection.md).[onAddChild](Reflection.md#onaddchild)
+[`Reflection`](Reflection.md).[`onAddChild`](Reflection.md#onaddchild)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L123)
+### onRemoveChild()?
 
-___
+> `optional` **onRemoveChild**(`child`): `any`
 
-### onRemoveChild
-
-▸ **onRemoveChild**(`child`): `any`
+Defined in: [src/components/ComponentBase.ts:173](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L173)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `child` | [`Object3D`](Object3D.md) |
+##### child
+
+[`Object3D`](Object3D.md)
 
 #### Returns
 
@@ -936,25 +865,25 @@ ___
 
 #### Inherited from
 
-[Reflection](Reflection.md).[onRemoveChild](Reflection.md#onremovechild)
+[`Reflection`](Reflection.md).[`onRemoveChild`](Reflection.md#onremovechild)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L124)
+### cloneTo()
 
-___
+> **cloneTo**(`obj`): `void`
 
-### cloneTo
-
-▸ **cloneTo**(`obj`): `void`
+Defined in: [src/components/ComponentBase.ts:180](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L180)
 
 clone component data to target object3D
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `obj` | [`Object3D`](Object3D.md) | target object3D |
+##### obj
+
+[`Object3D`](Object3D.md)
+
+target object3D
 
 #### Returns
 
@@ -962,23 +891,21 @@ clone component data to target object3D
 
 #### Inherited from
 
-[Reflection](Reflection.md).[cloneTo](Reflection.md#cloneto)
+[`Reflection`](Reflection.md).[`cloneTo`](Reflection.md#cloneto)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L131)
+### attachSceneOctree()
 
-___
+> **attachSceneOctree**(`octree`): `void`
 
-### attachSceneOctree
-
-▸ **attachSceneOctree**(`octree`): `void`
+Defined in: [src/components/renderer/RenderNode.ts:87](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L87)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `octree` | [`Octree`](Octree.md) |
+##### octree
+
+[`Octree`](Octree.md)
 
 #### Returns
 
@@ -986,17 +913,15 @@ ___
 
 #### Inherited from
 
-[Reflection](Reflection.md).[attachSceneOctree](Reflection.md#attachsceneoctree)
+[`Reflection`](Reflection.md).[`attachSceneOctree`](Reflection.md#attachsceneoctree)
 
-#### Defined in
+***
 
-[src/components/renderer/RenderNode.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L78)
+### detachSceneOctree()
 
-___
+> **detachSceneOctree**(): `void`
 
-### detachSceneOctree
-
-▸ **detachSceneOctree**(): `void`
+Defined in: [src/components/renderer/RenderNode.ts:92](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L92)
 
 #### Returns
 
@@ -1004,23 +929,21 @@ ___
 
 #### Inherited from
 
-[Reflection](Reflection.md).[detachSceneOctree](Reflection.md#detachsceneoctree)
+[`Reflection`](Reflection.md).[`detachSceneOctree`](Reflection.md#detachsceneoctree)
 
-#### Defined in
+***
 
-[src/components/renderer/RenderNode.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L83)
+### copyComponent()
 
-___
+> **copyComponent**(`from`): `this`
 
-### copyComponent
-
-▸ **copyComponent**(`from`): `this`
+Defined in: [src/components/renderer/RenderNode.ts:104](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L104)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `from` | `this` |
+##### from
+
+`this`
 
 #### Returns
 
@@ -1028,23 +951,21 @@ ___
 
 #### Inherited from
 
-[Reflection](Reflection.md).[copyComponent](Reflection.md#copycomponent)
+[`Reflection`](Reflection.md).[`copyComponent`](Reflection.md#copycomponent)
 
-#### Defined in
+***
 
-[src/components/renderer/RenderNode.ts:95](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L95)
+### addMask()
 
-___
+> **addMask**(`mask`): `void`
 
-### addMask
-
-▸ **addMask**(`mask`): `void`
+Defined in: [src/components/renderer/RenderNode.ts:144](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L144)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `mask` | [`RendererMask`](../enums/RendererMask.md) |
+##### mask
+
+[`RendererMask`](../enumerations/RendererMask.md)
 
 #### Returns
 
@@ -1052,23 +973,21 @@ ___
 
 #### Inherited from
 
-[Reflection](Reflection.md).[addMask](Reflection.md#addmask)
+[`Reflection`](Reflection.md).[`addMask`](Reflection.md#addmask)
 
-#### Defined in
+***
 
-[src/components/renderer/RenderNode.ts:140](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L140)
+### removeMask()
 
-___
+> **removeMask**(`mask`): `void`
 
-### removeMask
-
-▸ **removeMask**(`mask`): `void`
+Defined in: [src/components/renderer/RenderNode.ts:148](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L148)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `mask` | [`RendererMask`](../enums/RendererMask.md) |
+##### mask
+
+[`RendererMask`](../enumerations/RendererMask.md)
 
 #### Returns
 
@@ -1076,23 +995,21 @@ ___
 
 #### Inherited from
 
-[Reflection](Reflection.md).[removeMask](Reflection.md#removemask)
+[`Reflection`](Reflection.md).[`removeMask`](Reflection.md#removemask)
 
-#### Defined in
+***
 
-[src/components/renderer/RenderNode.ts:144](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L144)
+### hasMask()
 
-___
+> **hasMask**(`mask`): `boolean`
 
-### hasMask
-
-▸ **hasMask**(`mask`): `boolean`
+Defined in: [src/components/renderer/RenderNode.ts:152](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L152)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `mask` | [`RendererMask`](../enums/RendererMask.md) |
+##### mask
+
+[`RendererMask`](../enumerations/RendererMask.md)
 
 #### Returns
 
@@ -1100,23 +1017,21 @@ ___
 
 #### Inherited from
 
-[Reflection](Reflection.md).[hasMask](Reflection.md#hasmask)
+[`Reflection`](Reflection.md).[`hasMask`](Reflection.md#hasmask)
 
-#### Defined in
+***
 
-[src/components/renderer/RenderNode.ts:148](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L148)
+### addRendererMask()
 
-___
+> **addRendererMask**(`tag`): `void`
 
-### addRendererMask
-
-▸ **addRendererMask**(`tag`): `void`
+Defined in: [src/components/renderer/RenderNode.ts:232](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L232)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `tag` | [`RendererMask`](../enums/RendererMask.md) |
+##### tag
+
+[`RendererMask`](../enumerations/RendererMask.md)
 
 #### Returns
 
@@ -1124,23 +1039,21 @@ ___
 
 #### Inherited from
 
-[Reflection](Reflection.md).[addRendererMask](Reflection.md#addrenderermask)
+[`Reflection`](Reflection.md).[`addRendererMask`](Reflection.md#addrenderermask)
 
-#### Defined in
+***
 
-[src/components/renderer/RenderNode.ts:228](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L228)
+### removeRendererMask()
 
-___
+> **removeRendererMask**(`tag`): `void`
 
-### removeRendererMask
-
-▸ **removeRendererMask**(`tag`): `void`
+Defined in: [src/components/renderer/RenderNode.ts:236](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L236)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `tag` | [`RendererMask`](../enums/RendererMask.md) |
+##### tag
+
+[`RendererMask`](../enumerations/RendererMask.md)
 
 #### Returns
 
@@ -1148,23 +1061,50 @@ ___
 
 #### Inherited from
 
-[Reflection](Reflection.md).[removeRendererMask](Reflection.md#removerenderermask)
+[`Reflection`](Reflection.md).[`removeRendererMask`](Reflection.md#removerenderermask)
 
-#### Defined in
+***
 
-[src/components/renderer/RenderNode.ts:232](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L232)
+### refreshRenderClassification()
 
-___
+> **refreshRenderClassification**(): `void`
 
-### selfCloneMaterials
+Defined in: [src/components/renderer/RenderNode.ts:270](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L270)
 
-▸ **selfCloneMaterials**(`key`): `this`
+Recompute renderOrder from current pass states and re-bucket
+this renderer in EntityCollect (opaque vs transparent map).
+
+Called when a material's alphaMode flips at runtime — the
+pass.renderOrder changes (3000 ↔ 0), but EntityCollect classifies
+once at addRenderNode time. Without this nudge the renderer
+stays in its old list and gets drawn through the wrong pipeline
+(e.g. WBOIT continues drawing a HASH-toggled material).
+
+Materials hop into this via Reference.getReference(material)
+to find every renderer holding them; sample code can also call
+it directly after manual state changes.
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[`Reflection`](Reflection.md).[`refreshRenderClassification`](Reflection.md#refreshrenderclassification)
+
+***
+
+### selfCloneMaterials()
+
+> **selfCloneMaterials**(`key`): `this`
+
+Defined in: [src/components/renderer/RenderNode.ts:295](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L295)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `key` | `string` |
+##### key
+
+`string`
 
 #### Returns
 
@@ -1172,25 +1112,29 @@ ___
 
 #### Inherited from
 
-[Reflection](Reflection.md).[selfCloneMaterials](Reflection.md#selfclonematerials)
+[`Reflection`](Reflection.md).[`selfCloneMaterials`](Reflection.md#selfclonematerials)
 
-#### Defined in
+***
 
-[src/components/renderer/RenderNode.ts:252](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L252)
+### renderPass()
 
-___
+> **renderPass**(`view`, `passType`, `renderContext`): `void`
 
-### renderPass
-
-▸ **renderPass**(`view`, `passType`, `renderContext`): `void`
+Defined in: [src/components/renderer/RenderNode.ts:456](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L456)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
-| `passType` | `PassType` |
-| `renderContext` | [`RenderContext`](RenderContext.md) |
+##### view
+
+[`View3D`](View3D.md)
+
+##### passType
+
+`PassType`
+
+##### renderContext
+
+[`RenderContext`](RenderContext.md)
 
 #### Returns
 
@@ -1198,28 +1142,41 @@ ___
 
 #### Inherited from
 
-[Reflection](Reflection.md).[renderPass](Reflection.md#renderpass)
+[`Reflection`](Reflection.md).[`renderPass`](Reflection.md#renderpass)
 
-#### Defined in
+***
 
-[src/components/renderer/RenderNode.ts:370](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L370)
+### recordRenderPass2()
 
-___
+> **recordRenderPass2**(`view`, `passType`, `rendererPassState`, `clusterLightingBuffer`, `encoder`, `useBundle?`): `void`
 
-### recordRenderPass2
-
-▸ **recordRenderPass2**(`view`, `passType`, `rendererPassState`, `clusterLightingBuffer`, `encoder`, `useBundle?`): `void`
+Defined in: [src/components/renderer/RenderNode.ts:586](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L586)
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `view` | [`View3D`](View3D.md) | `undefined` |
-| `passType` | `PassType` | `undefined` |
-| `rendererPassState` | `RendererPassState` | `undefined` |
-| `clusterLightingBuffer` | [`ClusterLightingBuffer`](ClusterLightingBuffer.md) | `undefined` |
-| `encoder` | `GPURenderPassEncoder` | `undefined` |
-| `useBundle` | `boolean` | `false` |
+##### view
+
+[`View3D`](View3D.md)
+
+##### passType
+
+`PassType`
+
+##### rendererPassState
+
+`RendererPassState`
+
+##### clusterLightingBuffer
+
+[`ClusterLightingBuffer`](ClusterLightingBuffer.md)
+
+##### encoder
+
+`GPURenderPassEncoder`
+
+##### useBundle?
+
+`boolean` = `false`
 
 #### Returns
 
@@ -1227,23 +1184,21 @@ ___
 
 #### Inherited from
 
-[Reflection](Reflection.md).[recordRenderPass2](Reflection.md#recordrenderpass2)
+[`Reflection`](Reflection.md).[`recordRenderPass2`](Reflection.md#recordrenderpass2)
 
-#### Defined in
+***
 
-[src/components/renderer/RenderNode.ts:486](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L486)
+### preInit()
 
-___
+> **preInit**(`_rendererType`): `boolean`
 
-### preInit
-
-▸ **preInit**(`_rendererType`): `boolean`
+Defined in: [src/components/renderer/RenderNode.ts:624](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L624)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `_rendererType` | `PassType` |
+##### \_rendererType
+
+`PassType`
 
 #### Returns
 
@@ -1251,26 +1206,33 @@ ___
 
 #### Inherited from
 
-[Reflection](Reflection.md).[preInit](Reflection.md#preinit)
+[`Reflection`](Reflection.md).[`preInit`](Reflection.md#preinit)
 
-#### Defined in
+***
 
-[src/components/renderer/RenderNode.ts:519](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L519)
+### nodeUpdate()
 
-___
+> **nodeUpdate**(`view`, `passType`, `renderPassState`, `clusterLightingBuffer?`): `void`
 
-### nodeUpdate
-
-▸ **nodeUpdate**(`view`, `passType`, `renderPassState`, `clusterLightingBuffer?`): `void`
+Defined in: [src/components/renderer/RenderNode.ts:628](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L628)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
-| `passType` | `PassType` |
-| `renderPassState` | `RendererPassState` |
-| `clusterLightingBuffer?` | [`ClusterLightingBuffer`](ClusterLightingBuffer.md) |
+##### view
+
+[`View3D`](View3D.md)
+
+##### passType
+
+`PassType`
+
+##### renderPassState
+
+`RendererPassState`
+
+##### clusterLightingBuffer?
+
+[`ClusterLightingBuffer`](ClusterLightingBuffer.md)
 
 #### Returns
 
@@ -1278,23 +1240,23 @@ ___
 
 #### Inherited from
 
-[Reflection](Reflection.md).[nodeUpdate](Reflection.md#nodeupdate)
+[`Reflection`](Reflection.md).[`nodeUpdate`](Reflection.md#nodeupdate)
 
-#### Defined in
+***
 
-[src/components/renderer/RenderNode.ts:523](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L523)
+### beforeDestroy()
 
-___
+> **beforeDestroy**(`force?`): `void`
 
-### beforeDestroy
+Defined in: [src/components/renderer/RenderNode.ts:741](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L741)
 
-▸ **beforeDestroy**(`force?`): `void`
+before release this component, object refrences are not be set null now.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
+##### force?
+
+`boolean`
 
 #### Returns
 
@@ -1302,23 +1264,23 @@ ___
 
 #### Inherited from
 
-[Reflection](Reflection.md).[beforeDestroy](Reflection.md#beforedestroy)
+[`Reflection`](Reflection.md).[`beforeDestroy`](Reflection.md#beforedestroy)
 
-#### Defined in
+***
 
-[src/components/renderer/RenderNode.ts:609](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L609)
+### destroy()
 
-___
+> **destroy**(`force?`): `void`
 
-### destroy
+Defined in: [src/components/renderer/RenderNode.ts:762](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L762)
 
-▸ **destroy**(`force?`): `void`
+release this component
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
+##### force?
+
+`boolean`
 
 #### Returns
 
@@ -1326,17 +1288,17 @@ ___
 
 #### Inherited from
 
-[Reflection](Reflection.md).[destroy](Reflection.md#destroy)
+[`Reflection`](Reflection.md).[`destroy`](Reflection.md#destroy)
 
-#### Defined in
+***
 
-[src/components/renderer/RenderNode.ts:625](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L625)
+### init()
 
-___
+> **init**(): `void`
 
-### init
+Defined in: [src/components/renderer/SphereReflection.ts:26](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/SphereReflection.ts#L26)
 
-▸ **init**(): `void`
+Initialize the probe with a spherical bound and reflection mask.
 
 #### Returns
 
@@ -1344,56 +1306,52 @@ ___
 
 #### Overrides
 
-[Reflection](Reflection.md).[init](Reflection.md#init)
+[`Reflection`](Reflection.md).[`init`](Reflection.md#init)
 
-#### Defined in
+***
 
-[src/components/renderer/SphereReflection.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/SphereReflection.ts#L25)
+### debug()
 
-___
+> **debug**(`index`, `view`, `scale?`): `void`
 
-### debug
+Defined in: [src/components/renderer/SphereReflection.ts:43](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/SphereReflection.ts#L43)
 
-▸ **debug**(`index`, `scale?`): `void`
+Spawn a debug sphere mesh that visualizes the captured reflection
+at the given probe index.
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `index` | `number` | `undefined` |
-| `scale` | `number` | `1` |
+##### index
+
+`number`
+
+reflection probe index to visualize
+
+##### view
+
+[`View3D`](View3D.md)
+
+the view providing reflection settings and resources
+
+##### scale?
+
+`number` = `1`
+
+uniform scale applied to the debug sphere
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/components/renderer/SphereReflection.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/SphereReflection.ts#L35)
+### onEnable()
 
-___
+> **onEnable**(): `void`
 
-### onEnable
+Defined in: [src/components/renderer/SphereReflection.ts:64](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/SphereReflection.ts#L64)
 
-▸ **onEnable**(): `void`
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-[Reflection](Reflection.md).[onEnable](Reflection.md#onenable)
-
-#### Defined in
-
-[src/components/renderer/SphereReflection.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/SphereReflection.ts#L55)
-
-___
-
-### onDisable
-
-▸ **onDisable**(): `void`
+Register this probe as a render node when enabled.
 
 #### Returns
 
@@ -1401,28 +1359,61 @@ ___
 
 #### Overrides
 
-[Reflection](Reflection.md).[onDisable](Reflection.md#ondisable)
+[`Reflection`](Reflection.md).[`onEnable`](Reflection.md#onenable)
 
-#### Defined in
+***
 
-[src/components/renderer/SphereReflection.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/SphereReflection.ts#L59)
+### onDisable()
 
-___
+> **onDisable**(): `void`
 
-### renderPass2
+Defined in: [src/components/renderer/SphereReflection.ts:69](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/SphereReflection.ts#L69)
 
-▸ **renderPass2**(`view`, `passType`, `rendererPassState`, `clusterLightingBuffer`, `encoder`, `useBundle?`): `void`
+Unregister this probe from the render node list when disabled.
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+[`Reflection`](Reflection.md).[`onDisable`](Reflection.md#ondisable)
+
+***
+
+### renderPass2()
+
+> **renderPass2**(`view`, `passType`, `rendererPassState`, `clusterLightingBuffer`, `encoder`, `useBundle?`): `void`
+
+Defined in: [src/components/renderer/SphereReflection.ts:73](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/SphereReflection.ts#L73)
+
+render pass at passType
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `view` | [`View3D`](View3D.md) | `undefined` |
-| `passType` | `PassType` | `undefined` |
-| `rendererPassState` | `RendererPassState` | `undefined` |
-| `clusterLightingBuffer` | [`ClusterLightingBuffer`](ClusterLightingBuffer.md) | `undefined` |
-| `encoder` | `GPURenderPassEncoder` | `undefined` |
-| `useBundle` | `boolean` | `false` |
+##### view
+
+[`View3D`](View3D.md)
+
+##### passType
+
+`PassType`
+
+##### rendererPassState
+
+`RendererPassState`
+
+##### clusterLightingBuffer
+
+[`ClusterLightingBuffer`](ClusterLightingBuffer.md)
+
+##### encoder
+
+`GPURenderPassEncoder`
+
+##### useBundle?
+
+`boolean` = `false`
 
 #### Returns
 
@@ -1430,8 +1421,4 @@ ___
 
 #### Overrides
 
-[Reflection](Reflection.md).[renderPass2](Reflection.md#renderpass2)
-
-#### Defined in
-
-[src/components/renderer/SphereReflection.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/SphereReflection.ts#L63)
+[`Reflection`](Reflection.md).[`renderPass2`](Reflection.md#renderpass2)

@@ -1,2001 +1,1848 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: Color
+
+Defined in: [src/math/Color.ts:5](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L5)
 
 RGBA Color Object
 
-### Constructors
-
-- [constructor](Color.md#constructor)
-
-### Properties
-
-- [COLOR\_RED](Color.md#color_red)
-- [COLOR\_GREEN](Color.md#color_green)
-- [COLOR\_BLUE](Color.md#color_blue)
-- [COLOR\_WHITE](Color.md#color_white)
-- [r](Color.md#r)
-- [g](Color.md#g)
-- [b](Color.md#b)
-- [a](Color.md#a)
-- [PRIMARY](Color.md#primary)
-- [PRIMARYDARK](Color.md#primarydark)
-- [ACCENT](Color.md#accent)
-- [WHITE](Color.md#white)
-- [IVORY](Color.md#ivory)
-- [LIGHTYELLOW](Color.md#lightyellow)
-- [YELLOW](Color.md#yellow)
-- [SNOW](Color.md#snow)
-- [FLORALWHITE](Color.md#floralwhite)
-- [LEMONCHIFFON](Color.md#lemonchiffon)
-- [CORNSILK](Color.md#cornsilk)
-- [SEASHELL](Color.md#seashell)
-- [LAVENDERBLUSH](Color.md#lavenderblush)
-- [PAPAYAWHIP](Color.md#papayawhip)
-- [BLANCHEDALMOND](Color.md#blanchedalmond)
-- [MISTYROSE](Color.md#mistyrose)
-- [BISQUE](Color.md#bisque)
-- [MOCCASIN](Color.md#moccasin)
-- [NAVAJOWHITE](Color.md#navajowhite)
-- [PEACHPUFF](Color.md#peachpuff)
-- [GOLD](Color.md#gold)
-- [PINK](Color.md#pink)
-- [LIGHTPINK](Color.md#lightpink)
-- [ORANGE](Color.md#orange)
-- [LIGHTSALMON](Color.md#lightsalmon)
-- [DARKORANGE](Color.md#darkorange)
-- [CORAL](Color.md#coral)
-- [HOTPINK](Color.md#hotpink)
-- [TOMATO](Color.md#tomato)
-- [ORANGERED](Color.md#orangered)
-- [DEEPPINK](Color.md#deeppink)
-- [FUCHSIA](Color.md#fuchsia)
-- [MAGENTA](Color.md#magenta)
-- [RED](Color.md#red)
-- [OLDLACE](Color.md#oldlace)
-- [LIGHTGOLDENRODYELLOW](Color.md#lightgoldenrodyellow)
-- [LINEN](Color.md#linen)
-- [ANTIQUEWHITE](Color.md#antiquewhite)
-- [SALMON](Color.md#salmon)
-- [GHOSTWHITE](Color.md#ghostwhite)
-- [MINTCREAM](Color.md#mintcream)
-- [WHITESMOKE](Color.md#whitesmoke)
-- [BEIGE](Color.md#beige)
-- [WHEAT](Color.md#wheat)
-- [SANDYBROWN](Color.md#sandybrown)
-- [AZURE](Color.md#azure)
-- [HONEYDEW](Color.md#honeydew)
-- [ALICEBLUE](Color.md#aliceblue)
-- [KHAKI](Color.md#khaki)
-- [LIGHTCORAL](Color.md#lightcoral)
-- [PALEGOLDENROD](Color.md#palegoldenrod)
-- [VIOLET](Color.md#violet)
-- [DARKSALMON](Color.md#darksalmon)
-- [LAVENDER](Color.md#lavender)
-- [LIGHTCYAN](Color.md#lightcyan)
-- [BURLYWOOD](Color.md#burlywood)
-- [PLUM](Color.md#plum)
-- [GAINSBORO](Color.md#gainsboro)
-- [CRIMSON](Color.md#crimson)
-- [PALEVIOLETRED](Color.md#palevioletred)
-- [GOLDENROD](Color.md#goldenrod)
-- [ORCHID](Color.md#orchid)
-- [THISTLE](Color.md#thistle)
-- [LIGHTGREY](Color.md#lightgrey)
-- [TAN](Color.md#tan)
-- [CHOCOLATE](Color.md#chocolate)
-- [PERU](Color.md#peru)
-- [INDIANRED](Color.md#indianred)
-- [MEDIUMVIOLETRED](Color.md#mediumvioletred)
-- [SILVER](Color.md#silver)
-- [DARKKHAKI](Color.md#darkkhaki)
-- [ROSYBROWN](Color.md#rosybrown)
-- [MEDIUMORCHID](Color.md#mediumorchid)
-- [DARKGOLDENROD](Color.md#darkgoldenrod)
-- [FIREBRICK](Color.md#firebrick)
-- [POWDERBLUE](Color.md#powderblue)
-- [LIGHTSTEELBLUE](Color.md#lightsteelblue)
-- [PALETURQUOISE](Color.md#paleturquoise)
-- [GREENYELLOW](Color.md#greenyellow)
-- [LIGHTBLUE](Color.md#lightblue)
-- [DARKGRAY](Color.md#darkgray)
-- [BROWN](Color.md#brown)
-- [SIENNA](Color.md#sienna)
-- [DARKORCHID](Color.md#darkorchid)
-- [PALEGREEN](Color.md#palegreen)
-- [DARKVIOLET](Color.md#darkviolet)
-- [MEDIUMPURPLE](Color.md#mediumpurple)
-- [LIGHTGREEN](Color.md#lightgreen)
-- [DARKSEAGREEN](Color.md#darkseagreen)
-- [SADDLEBROWN](Color.md#saddlebrown)
-- [DARKMAGENTA](Color.md#darkmagenta)
-- [DARKRED](Color.md#darkred)
-- [BLUEVIOLET](Color.md#blueviolet)
-- [LIGHTSKYBLUE](Color.md#lightskyblue)
-- [SKYBLUE](Color.md#skyblue)
-- [GRAY](Color.md#gray)
-- [OLIVE](Color.md#olive)
-- [PURPLE](Color.md#purple)
-- [MAROON](Color.md#maroon)
-- [AQUAMARINE](Color.md#aquamarine)
-- [CHARTREUSE](Color.md#chartreuse)
-- [LAWNGREEN](Color.md#lawngreen)
-- [MEDIUMSLATEBLUE](Color.md#mediumslateblue)
-- [LIGHTSLATEGRAY](Color.md#lightslategray)
-- [SLATEGRAY](Color.md#slategray)
-- [OLIVEDRAB](Color.md#olivedrab)
-- [SLATEBLUE](Color.md#slateblue)
-- [DIMGRAY](Color.md#dimgray)
-- [MEDIUMAQUAMARINE](Color.md#mediumaquamarine)
-- [CORNFLOWERBLUE](Color.md#cornflowerblue)
-- [CADETBLUE](Color.md#cadetblue)
-- [DARKOLIVEGREEN](Color.md#darkolivegreen)
-- [INDIGO](Color.md#indigo)
-- [MEDIUMTURQUOISE](Color.md#mediumturquoise)
-- [DARKSLATEBLUE](Color.md#darkslateblue)
-- [STEELBLUE](Color.md#steelblue)
-- [ROYALBLUE](Color.md#royalblue)
-- [TURQUOISE](Color.md#turquoise)
-- [MEDIUMSEAGREEN](Color.md#mediumseagreen)
-- [LIMEGREEN](Color.md#limegreen)
-- [DARKSLATEGRAY](Color.md#darkslategray)
-- [SEAGREEN](Color.md#seagreen)
-- [FORESTGREEN](Color.md#forestgreen)
-- [LIGHTSEAGREEN](Color.md#lightseagreen)
-- [DODGERBLUE](Color.md#dodgerblue)
-- [MIDNIGHTBLUE](Color.md#midnightblue)
-- [AQUA](Color.md#aqua)
-- [CYAN](Color.md#cyan)
-- [SPRINGGREEN](Color.md#springgreen)
-- [LIME](Color.md#lime)
-- [MEDIUMSPRINGGREEN](Color.md#mediumspringgreen)
-- [DARKTURQUOISE](Color.md#darkturquoise)
-- [DEEPSKYBLUE](Color.md#deepskyblue)
-- [DARKCYAN](Color.md#darkcyan)
-- [TEAL](Color.md#teal)
-- [GREEN](Color.md#green)
-- [DARKGREEN](Color.md#darkgreen)
-- [BLUE](Color.md#blue)
-- [MEDIUMBLUE](Color.md#mediumblue)
-- [DARKBLUE](Color.md#darkblue)
-- [NAVY](Color.md#navy)
-- [BLACK](Color.md#black)
-
-### Accessors
-
-- [rgb](Color.md#rgb)
-- [rgba](Color.md#rgba)
-
-### Methods
-
-- [convertToHDRRGB](Color.md#converttohdrrgb)
-- [unSerialized](Color.md#unserialized)
-- [hexToRGB](Color.md#hextorgb)
-- [hexToRGBA](Color.md#hextorgba)
-- [random](Color.md#random)
-- [randomRGB](Color.md#randomrgb)
-- [randomGray](Color.md#randomgray)
-- [setTo](Color.md#setto)
-- [setHex](Color.md#sethex)
-- [getHex](Color.md#gethex)
-- [clone](Color.md#clone)
-- [copyFrom](Color.md#copyfrom)
-- [copyFromArray](Color.md#copyfromarray)
-- [copyFromVector](Color.md#copyfromvector)
-- [hexRGBColor](Color.md#hexrgbcolor)
-- [lerp](Color.md#lerp)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new Color**(`r?`, `g?`, `b?`, `a?`): [`Color`](Color.md)
+> **new Color**(`r?`, `g?`, `b?`, `a?`): `Color`
+
+Defined in: [src/math/Color.ts:92](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L92)
 
 create new color instance
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `r` | `number` | `1.0` | red channel |
-| `g` | `number` | `1.0` | green channel |
-| `b` | `number` | `1.0` | blue channel |
-| `a` | `number` | `1.0` | alpha channel |
+##### r?
+
+`number` = `1.0`
+
+red channel
+
+##### g?
+
+`number` = `1.0`
+
+green channel
+
+##### b?
+
+`number` = `1.0`
+
+blue channel
+
+##### a?
+
+`number` = `1.0`
+
+alpha channel
 
 #### Returns
 
-[`Color`](Color.md)
-
-#### Defined in
-
-[src/math/Color.ts:92](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L92)
+`Color`
 
 ## Properties
 
 ### COLOR\_RED
 
-▪ `Static` **COLOR\_RED**: [`Color`](Color.md)
+> `static` **COLOR\_RED**: `Color`
+
+Defined in: [src/math/Color.ts:10](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L10)
 
 red color
 
-#### Defined in
-
-[src/math/Color.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L10)
-
-___
+***
 
 ### COLOR\_GREEN
 
-▪ `Static` **COLOR\_GREEN**: [`Color`](Color.md)
+> `static` **COLOR\_GREEN**: `Color`
+
+Defined in: [src/math/Color.ts:15](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L15)
 
 green color
 
-#### Defined in
-
-[src/math/Color.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L15)
-
-___
+***
 
 ### COLOR\_BLUE
 
-▪ `Static` **COLOR\_BLUE**: [`Color`](Color.md)
+> `static` **COLOR\_BLUE**: `Color`
+
+Defined in: [src/math/Color.ts:20](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L20)
 
 blue color
 
-#### Defined in
-
-[src/math/Color.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L20)
-
-___
+***
 
 ### COLOR\_WHITE
 
-▪ `Static` **COLOR\_WHITE**: [`Color`](Color.md)
+> `static` **COLOR\_WHITE**: `Color`
+
+Defined in: [src/math/Color.ts:25](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L25)
 
 white color
 
-#### Defined in
-
-[src/math/Color.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L25)
-
-___
+***
 
 ### r
 
-• **r**: `number` = `0`
+> **r**: `number` = `0`
+
+Defined in: [src/math/Color.ts:68](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L68)
 
 red channel
 
-#### Defined in
-
-[src/math/Color.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L68)
-
-___
+***
 
 ### g
 
-• **g**: `number` = `0`
+> **g**: `number` = `0`
+
+Defined in: [src/math/Color.ts:73](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L73)
 
 green channel
 
-#### Defined in
-
-[src/math/Color.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L73)
-
-___
+***
 
 ### b
 
-• **b**: `number` = `0`
+> **b**: `number` = `0`
+
+Defined in: [src/math/Color.ts:78](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L78)
 
 blue channel
 
-#### Defined in
-
-[src/math/Color.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L78)
-
-___
+***
 
 ### a
 
-• **a**: `number` = `0`
+> **a**: `number` = `0`
+
+Defined in: [src/math/Color.ts:83](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L83)
 
 alpha channel
 
-#### Defined in
-
-[src/math/Color.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L83)
-
-___
+***
 
 ### PRIMARY
 
-▪ `Static` **PRIMARY**: `number` = `0x3f51b5`
+> `static` **PRIMARY**: `number` = `0x3f51b5`
 
-#### Defined in
+Defined in: [src/math/Color.ts:359](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L359)
 
-[src/math/Color.ts:352](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L352)
+Preset color: primary.
 
-___
+***
 
 ### PRIMARYDARK
 
-▪ `Static` **PRIMARYDARK**: `number` = `0x303f9f`
+> `static` **PRIMARYDARK**: `number` = `0x303f9f`
 
-#### Defined in
+Defined in: [src/math/Color.ts:361](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L361)
 
-[src/math/Color.ts:353](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L353)
+Preset color: primary dark.
 
-___
+***
 
 ### ACCENT
 
-▪ `Static` **ACCENT**: `number` = `0xff4081`
+> `static` **ACCENT**: `number` = `0xff4081`
 
-#### Defined in
+Defined in: [src/math/Color.ts:363](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L363)
 
-[src/math/Color.ts:354](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L354)
+Preset color: accent.
 
-___
+***
 
 ### WHITE
 
-▪ `Static` **WHITE**: `number` = `0xffffff`
+> `static` **WHITE**: `number` = `0xffffff`
 
-#### Defined in
+Defined in: [src/math/Color.ts:366](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L366)
 
-[src/math/Color.ts:356](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L356)
+Preset color: white.
 
-___
+***
 
 ### IVORY
 
-▪ `Static` **IVORY**: `number` = `0xfffff0`
+> `static` **IVORY**: `number` = `0xfffff0`
 
-#### Defined in
+Defined in: [src/math/Color.ts:368](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L368)
 
-[src/math/Color.ts:357](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L357)
+Preset color: ivory.
 
-___
+***
 
 ### LIGHTYELLOW
 
-▪ `Static` **LIGHTYELLOW**: `number` = `0xffffe0`
+> `static` **LIGHTYELLOW**: `number` = `0xffffe0`
 
-#### Defined in
+Defined in: [src/math/Color.ts:370](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L370)
 
-[src/math/Color.ts:358](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L358)
+Preset color: light yellow.
 
-___
+***
 
 ### YELLOW
 
-▪ `Static` **YELLOW**: `number` = `0xffff00`
+> `static` **YELLOW**: `number` = `0xffff00`
 
-#### Defined in
+Defined in: [src/math/Color.ts:372](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L372)
 
-[src/math/Color.ts:359](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L359)
+Preset color: yellow.
 
-___
+***
 
 ### SNOW
 
-▪ `Static` **SNOW**: `number` = `0xfffafa`
+> `static` **SNOW**: `number` = `0xfffafa`
 
-#### Defined in
+Defined in: [src/math/Color.ts:374](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L374)
 
-[src/math/Color.ts:360](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L360)
+Preset color: snow.
 
-___
+***
 
 ### FLORALWHITE
 
-▪ `Static` **FLORALWHITE**: `number` = `0xfffaf0`
+> `static` **FLORALWHITE**: `number` = `0xfffaf0`
 
-#### Defined in
+Defined in: [src/math/Color.ts:376](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L376)
 
-[src/math/Color.ts:361](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L361)
+Preset color: floral white.
 
-___
+***
 
 ### LEMONCHIFFON
 
-▪ `Static` **LEMONCHIFFON**: `number` = `0xfffacd`
+> `static` **LEMONCHIFFON**: `number` = `0xfffacd`
 
-#### Defined in
+Defined in: [src/math/Color.ts:378](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L378)
 
-[src/math/Color.ts:362](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L362)
+Preset color: lemon chiffon.
 
-___
+***
 
 ### CORNSILK
 
-▪ `Static` **CORNSILK**: `number` = `0xfff8dc`
+> `static` **CORNSILK**: `number` = `0xfff8dc`
 
-#### Defined in
+Defined in: [src/math/Color.ts:380](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L380)
 
-[src/math/Color.ts:363](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L363)
+Preset color: cornsilk.
 
-___
+***
 
 ### SEASHELL
 
-▪ `Static` **SEASHELL**: `number` = `0xfff5ee`
+> `static` **SEASHELL**: `number` = `0xfff5ee`
 
-#### Defined in
+Defined in: [src/math/Color.ts:382](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L382)
 
-[src/math/Color.ts:364](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L364)
+Preset color: seashell.
 
-___
+***
 
 ### LAVENDERBLUSH
 
-▪ `Static` **LAVENDERBLUSH**: `number` = `0xfff0f5`
+> `static` **LAVENDERBLUSH**: `number` = `0xfff0f5`
 
-#### Defined in
+Defined in: [src/math/Color.ts:384](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L384)
 
-[src/math/Color.ts:365](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L365)
+Preset color: lavender blush.
 
-___
+***
 
 ### PAPAYAWHIP
 
-▪ `Static` **PAPAYAWHIP**: `number` = `0xffefd5`
+> `static` **PAPAYAWHIP**: `number` = `0xffefd5`
 
-#### Defined in
+Defined in: [src/math/Color.ts:386](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L386)
 
-[src/math/Color.ts:366](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L366)
+Preset color: papaya whip.
 
-___
+***
 
 ### BLANCHEDALMOND
 
-▪ `Static` **BLANCHEDALMOND**: `number` = `0xffebcd`
+> `static` **BLANCHEDALMOND**: `number` = `0xffebcd`
 
-#### Defined in
+Defined in: [src/math/Color.ts:388](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L388)
 
-[src/math/Color.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L367)
+Preset color: blanched almond.
 
-___
+***
 
 ### MISTYROSE
 
-▪ `Static` **MISTYROSE**: `number` = `0xffe4e1`
+> `static` **MISTYROSE**: `number` = `0xffe4e1`
 
-#### Defined in
+Defined in: [src/math/Color.ts:390](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L390)
 
-[src/math/Color.ts:368](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L368)
+Preset color: misty rose.
 
-___
+***
 
 ### BISQUE
 
-▪ `Static` **BISQUE**: `number` = `0xffe4c4`
+> `static` **BISQUE**: `number` = `0xffe4c4`
 
-#### Defined in
+Defined in: [src/math/Color.ts:392](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L392)
 
-[src/math/Color.ts:369](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L369)
+Preset color: bisque.
 
-___
+***
 
 ### MOCCASIN
 
-▪ `Static` **MOCCASIN**: `number` = `0xffe4b5`
+> `static` **MOCCASIN**: `number` = `0xffe4b5`
 
-#### Defined in
+Defined in: [src/math/Color.ts:394](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L394)
 
-[src/math/Color.ts:370](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L370)
+Preset color: moccasin.
 
-___
+***
 
 ### NAVAJOWHITE
 
-▪ `Static` **NAVAJOWHITE**: `number` = `0xffdead`
+> `static` **NAVAJOWHITE**: `number` = `0xffdead`
 
-#### Defined in
+Defined in: [src/math/Color.ts:396](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L396)
 
-[src/math/Color.ts:371](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L371)
+Preset color: navajo white.
 
-___
+***
 
 ### PEACHPUFF
 
-▪ `Static` **PEACHPUFF**: `number` = `0xffdab9`
+> `static` **PEACHPUFF**: `number` = `0xffdab9`
 
-#### Defined in
+Defined in: [src/math/Color.ts:398](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L398)
 
-[src/math/Color.ts:372](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L372)
+Preset color: peach puff.
 
-___
+***
 
 ### GOLD
 
-▪ `Static` **GOLD**: `number` = `0xffd700`
+> `static` **GOLD**: `number` = `0xffd700`
 
-#### Defined in
+Defined in: [src/math/Color.ts:400](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L400)
 
-[src/math/Color.ts:373](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L373)
+Preset color: gold.
 
-___
+***
 
 ### PINK
 
-▪ `Static` **PINK**: `number` = `0xffc0cb`
+> `static` **PINK**: `number` = `0xffc0cb`
 
-#### Defined in
+Defined in: [src/math/Color.ts:402](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L402)
 
-[src/math/Color.ts:374](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L374)
+Preset color: pink.
 
-___
+***
 
 ### LIGHTPINK
 
-▪ `Static` **LIGHTPINK**: `number` = `0xffb6c1`
+> `static` **LIGHTPINK**: `number` = `0xffb6c1`
 
-#### Defined in
+Defined in: [src/math/Color.ts:404](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L404)
 
-[src/math/Color.ts:375](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L375)
+Preset color: light pink.
 
-___
+***
 
 ### ORANGE
 
-▪ `Static` **ORANGE**: `number` = `0xffa500`
+> `static` **ORANGE**: `number` = `0xffa500`
 
-#### Defined in
+Defined in: [src/math/Color.ts:406](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L406)
 
-[src/math/Color.ts:376](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L376)
+Preset color: orange.
 
-___
+***
 
 ### LIGHTSALMON
 
-▪ `Static` **LIGHTSALMON**: `number` = `0xffa07a`
+> `static` **LIGHTSALMON**: `number` = `0xffa07a`
 
-#### Defined in
+Defined in: [src/math/Color.ts:408](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L408)
 
-[src/math/Color.ts:377](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L377)
+Preset color: light salmon.
 
-___
+***
 
 ### DARKORANGE
 
-▪ `Static` **DARKORANGE**: `number` = `0xff8c00`
+> `static` **DARKORANGE**: `number` = `0xff8c00`
 
-#### Defined in
+Defined in: [src/math/Color.ts:410](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L410)
 
-[src/math/Color.ts:378](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L378)
+Preset color: dark orange.
 
-___
+***
 
 ### CORAL
 
-▪ `Static` **CORAL**: `number` = `0xff7f50`
+> `static` **CORAL**: `number` = `0xff7f50`
 
-#### Defined in
+Defined in: [src/math/Color.ts:412](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L412)
 
-[src/math/Color.ts:379](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L379)
+Preset color: coral.
 
-___
+***
 
 ### HOTPINK
 
-▪ `Static` **HOTPINK**: `number` = `0xff69b4`
+> `static` **HOTPINK**: `number` = `0xff69b4`
 
-#### Defined in
+Defined in: [src/math/Color.ts:414](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L414)
 
-[src/math/Color.ts:380](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L380)
+Preset color: hot pink.
 
-___
+***
 
 ### TOMATO
 
-▪ `Static` **TOMATO**: `number` = `0xff6347`
+> `static` **TOMATO**: `number` = `0xff6347`
 
-#### Defined in
+Defined in: [src/math/Color.ts:416](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L416)
 
-[src/math/Color.ts:381](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L381)
+Preset color: tomato.
 
-___
+***
 
 ### ORANGERED
 
-▪ `Static` **ORANGERED**: `number` = `0xff4500`
+> `static` **ORANGERED**: `number` = `0xff4500`
 
-#### Defined in
+Defined in: [src/math/Color.ts:418](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L418)
 
-[src/math/Color.ts:382](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L382)
+Preset color: orange red.
 
-___
+***
 
 ### DEEPPINK
 
-▪ `Static` **DEEPPINK**: `number` = `0xff1493`
+> `static` **DEEPPINK**: `number` = `0xff1493`
 
-#### Defined in
+Defined in: [src/math/Color.ts:420](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L420)
 
-[src/math/Color.ts:383](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L383)
+Preset color: deep pink.
 
-___
+***
 
 ### FUCHSIA
 
-▪ `Static` **FUCHSIA**: `number` = `0xff00ff`
+> `static` **FUCHSIA**: `number` = `0xff00ff`
 
-#### Defined in
+Defined in: [src/math/Color.ts:422](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L422)
 
-[src/math/Color.ts:384](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L384)
+Preset color: fuchsia.
 
-___
+***
 
 ### MAGENTA
 
-▪ `Static` **MAGENTA**: `number` = `0xff00ff`
+> `static` **MAGENTA**: `number` = `0xff00ff`
 
-#### Defined in
+Defined in: [src/math/Color.ts:424](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L424)
 
-[src/math/Color.ts:385](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L385)
+Preset color: magenta.
 
-___
+***
 
 ### RED
 
-▪ `Static` **RED**: `number` = `0xff0000`
+> `static` **RED**: `number` = `0xff0000`
 
-#### Defined in
+Defined in: [src/math/Color.ts:426](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L426)
 
-[src/math/Color.ts:386](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L386)
+Preset color: red.
 
-___
+***
 
 ### OLDLACE
 
-▪ `Static` **OLDLACE**: `number` = `0xfdf5e6`
+> `static` **OLDLACE**: `number` = `0xfdf5e6`
 
-#### Defined in
+Defined in: [src/math/Color.ts:428](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L428)
 
-[src/math/Color.ts:387](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L387)
+Preset color: old lace.
 
-___
+***
 
 ### LIGHTGOLDENRODYELLOW
 
-▪ `Static` **LIGHTGOLDENRODYELLOW**: `number` = `0xfafad2`
+> `static` **LIGHTGOLDENRODYELLOW**: `number` = `0xfafad2`
 
-#### Defined in
+Defined in: [src/math/Color.ts:430](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L430)
 
-[src/math/Color.ts:388](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L388)
+Preset color: light goldenrod yellow.
 
-___
+***
 
 ### LINEN
 
-▪ `Static` **LINEN**: `number` = `0xfaf0e6`
+> `static` **LINEN**: `number` = `0xfaf0e6`
 
-#### Defined in
+Defined in: [src/math/Color.ts:432](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L432)
 
-[src/math/Color.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L389)
+Preset color: linen.
 
-___
+***
 
 ### ANTIQUEWHITE
 
-▪ `Static` **ANTIQUEWHITE**: `number` = `0xfaebd7`
+> `static` **ANTIQUEWHITE**: `number` = `0xfaebd7`
 
-#### Defined in
+Defined in: [src/math/Color.ts:434](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L434)
 
-[src/math/Color.ts:390](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L390)
+Preset color: antique white.
 
-___
+***
 
 ### SALMON
 
-▪ `Static` **SALMON**: `number` = `0xfa8072`
+> `static` **SALMON**: `number` = `0xfa8072`
 
-#### Defined in
+Defined in: [src/math/Color.ts:436](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L436)
 
-[src/math/Color.ts:391](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L391)
+Preset color: salmon.
 
-___
+***
 
 ### GHOSTWHITE
 
-▪ `Static` **GHOSTWHITE**: `number` = `0xf8f8ff`
+> `static` **GHOSTWHITE**: `number` = `0xf8f8ff`
 
-#### Defined in
+Defined in: [src/math/Color.ts:438](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L438)
 
-[src/math/Color.ts:392](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L392)
+Preset color: ghost white.
 
-___
+***
 
 ### MINTCREAM
 
-▪ `Static` **MINTCREAM**: `number` = `0xf5fffa`
+> `static` **MINTCREAM**: `number` = `0xf5fffa`
 
-#### Defined in
+Defined in: [src/math/Color.ts:440](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L440)
 
-[src/math/Color.ts:393](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L393)
+Preset color: mint cream.
 
-___
+***
 
 ### WHITESMOKE
 
-▪ `Static` **WHITESMOKE**: `number` = `0xf5f5f5`
+> `static` **WHITESMOKE**: `number` = `0xf5f5f5`
 
-#### Defined in
+Defined in: [src/math/Color.ts:442](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L442)
 
-[src/math/Color.ts:394](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L394)
+Preset color: white smoke.
 
-___
+***
 
 ### BEIGE
 
-▪ `Static` **BEIGE**: `number` = `0xf5f5dc`
+> `static` **BEIGE**: `number` = `0xf5f5dc`
 
-#### Defined in
+Defined in: [src/math/Color.ts:444](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L444)
 
-[src/math/Color.ts:395](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L395)
+Preset color: beige.
 
-___
+***
 
 ### WHEAT
 
-▪ `Static` **WHEAT**: `number` = `0xf5deb3`
+> `static` **WHEAT**: `number` = `0xf5deb3`
 
-#### Defined in
+Defined in: [src/math/Color.ts:446](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L446)
 
-[src/math/Color.ts:396](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L396)
+Preset color: wheat.
 
-___
+***
 
 ### SANDYBROWN
 
-▪ `Static` **SANDYBROWN**: `number` = `0xf4a460`
+> `static` **SANDYBROWN**: `number` = `0xf4a460`
 
-#### Defined in
+Defined in: [src/math/Color.ts:448](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L448)
 
-[src/math/Color.ts:397](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L397)
+Preset color: sandy brown.
 
-___
+***
 
 ### AZURE
 
-▪ `Static` **AZURE**: `number` = `0xf0ffff`
+> `static` **AZURE**: `number` = `0xf0ffff`
 
-#### Defined in
+Defined in: [src/math/Color.ts:450](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L450)
 
-[src/math/Color.ts:398](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L398)
+Preset color: azure.
 
-___
+***
 
 ### HONEYDEW
 
-▪ `Static` **HONEYDEW**: `number` = `0xf0fff0`
+> `static` **HONEYDEW**: `number` = `0xf0fff0`
 
-#### Defined in
+Defined in: [src/math/Color.ts:452](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L452)
 
-[src/math/Color.ts:399](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L399)
+Preset color: honeydew.
 
-___
+***
 
 ### ALICEBLUE
 
-▪ `Static` **ALICEBLUE**: `number` = `0xf0f8ff`
+> `static` **ALICEBLUE**: `number` = `0xf0f8ff`
 
-#### Defined in
+Defined in: [src/math/Color.ts:454](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L454)
 
-[src/math/Color.ts:400](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L400)
+Preset color: alice blue.
 
-___
+***
 
 ### KHAKI
 
-▪ `Static` **KHAKI**: `number` = `0xf0e68c`
+> `static` **KHAKI**: `number` = `0xf0e68c`
 
-#### Defined in
+Defined in: [src/math/Color.ts:456](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L456)
 
-[src/math/Color.ts:401](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L401)
+Preset color: khaki.
 
-___
+***
 
 ### LIGHTCORAL
 
-▪ `Static` **LIGHTCORAL**: `number` = `0xf08080`
+> `static` **LIGHTCORAL**: `number` = `0xf08080`
 
-#### Defined in
+Defined in: [src/math/Color.ts:458](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L458)
 
-[src/math/Color.ts:402](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L402)
+Preset color: light coral.
 
-___
+***
 
 ### PALEGOLDENROD
 
-▪ `Static` **PALEGOLDENROD**: `number` = `0xeee8aa`
+> `static` **PALEGOLDENROD**: `number` = `0xeee8aa`
 
-#### Defined in
+Defined in: [src/math/Color.ts:460](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L460)
 
-[src/math/Color.ts:403](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L403)
+Preset color: pale goldenrod.
 
-___
+***
 
 ### VIOLET
 
-▪ `Static` **VIOLET**: `number` = `0xee82ee`
+> `static` **VIOLET**: `number` = `0xee82ee`
 
-#### Defined in
+Defined in: [src/math/Color.ts:462](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L462)
 
-[src/math/Color.ts:404](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L404)
+Preset color: violet.
 
-___
+***
 
 ### DARKSALMON
 
-▪ `Static` **DARKSALMON**: `number` = `0xe9967a`
+> `static` **DARKSALMON**: `number` = `0xe9967a`
 
-#### Defined in
+Defined in: [src/math/Color.ts:464](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L464)
 
-[src/math/Color.ts:405](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L405)
+Preset color: dark salmon.
 
-___
+***
 
 ### LAVENDER
 
-▪ `Static` **LAVENDER**: `number` = `0xe6e6fa`
+> `static` **LAVENDER**: `number` = `0xe6e6fa`
 
-#### Defined in
+Defined in: [src/math/Color.ts:466](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L466)
 
-[src/math/Color.ts:406](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L406)
+Preset color: lavender.
 
-___
+***
 
 ### LIGHTCYAN
 
-▪ `Static` **LIGHTCYAN**: `number` = `0xe0ffff`
+> `static` **LIGHTCYAN**: `number` = `0xe0ffff`
 
-#### Defined in
+Defined in: [src/math/Color.ts:468](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L468)
 
-[src/math/Color.ts:407](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L407)
+Preset color: light cyan.
 
-___
+***
 
 ### BURLYWOOD
 
-▪ `Static` **BURLYWOOD**: `number` = `0xdeb887`
+> `static` **BURLYWOOD**: `number` = `0xdeb887`
 
-#### Defined in
+Defined in: [src/math/Color.ts:470](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L470)
 
-[src/math/Color.ts:408](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L408)
+Preset color: burlywood.
 
-___
+***
 
 ### PLUM
 
-▪ `Static` **PLUM**: `number` = `0xdda0dd`
+> `static` **PLUM**: `number` = `0xdda0dd`
 
-#### Defined in
+Defined in: [src/math/Color.ts:472](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L472)
 
-[src/math/Color.ts:409](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L409)
+Preset color: plum.
 
-___
+***
 
 ### GAINSBORO
 
-▪ `Static` **GAINSBORO**: `number` = `0xdcdcdc`
+> `static` **GAINSBORO**: `number` = `0xdcdcdc`
 
-#### Defined in
+Defined in: [src/math/Color.ts:474](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L474)
 
-[src/math/Color.ts:410](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L410)
+Preset color: gainsboro.
 
-___
+***
 
 ### CRIMSON
 
-▪ `Static` **CRIMSON**: `number` = `0xdc143c`
+> `static` **CRIMSON**: `number` = `0xdc143c`
 
-#### Defined in
+Defined in: [src/math/Color.ts:476](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L476)
 
-[src/math/Color.ts:411](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L411)
+Preset color: crimson.
 
-___
+***
 
 ### PALEVIOLETRED
 
-▪ `Static` **PALEVIOLETRED**: `number` = `0xdb7093`
+> `static` **PALEVIOLETRED**: `number` = `0xdb7093`
 
-#### Defined in
+Defined in: [src/math/Color.ts:478](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L478)
 
-[src/math/Color.ts:412](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L412)
+Preset color: pale violet red.
 
-___
+***
 
 ### GOLDENROD
 
-▪ `Static` **GOLDENROD**: `number` = `0xdaa520`
+> `static` **GOLDENROD**: `number` = `0xdaa520`
 
-#### Defined in
+Defined in: [src/math/Color.ts:481](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L481)
 
-[src/math/Color.ts:414](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L414)
+Preset color: goldenrod.
 
-___
+***
 
 ### ORCHID
 
-▪ `Static` **ORCHID**: `number` = `0xda70d6`
+> `static` **ORCHID**: `number` = `0xda70d6`
 
-#### Defined in
+Defined in: [src/math/Color.ts:483](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L483)
 
-[src/math/Color.ts:415](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L415)
+Preset color: orchid.
 
-___
+***
 
 ### THISTLE
 
-▪ `Static` **THISTLE**: `number` = `0xd8bfd8`
+> `static` **THISTLE**: `number` = `0xd8bfd8`
 
-#### Defined in
+Defined in: [src/math/Color.ts:485](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L485)
 
-[src/math/Color.ts:416](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L416)
+Preset color: thistle.
 
-___
+***
 
 ### LIGHTGREY
 
-▪ `Static` **LIGHTGREY**: `number` = `0xd3d3d3`
+> `static` **LIGHTGREY**: `number` = `0xd3d3d3`
 
-#### Defined in
+Defined in: [src/math/Color.ts:487](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L487)
 
-[src/math/Color.ts:417](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L417)
+Preset color: light grey.
 
-___
+***
 
 ### TAN
 
-▪ `Static` **TAN**: `number` = `0xd2b48c`
+> `static` **TAN**: `number` = `0xd2b48c`
 
-#### Defined in
+Defined in: [src/math/Color.ts:489](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L489)
 
-[src/math/Color.ts:418](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L418)
+Preset color: tan.
 
-___
+***
 
 ### CHOCOLATE
 
-▪ `Static` **CHOCOLATE**: `number` = `0xd2691e`
+> `static` **CHOCOLATE**: `number` = `0xd2691e`
 
-#### Defined in
+Defined in: [src/math/Color.ts:491](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L491)
 
-[src/math/Color.ts:419](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L419)
+Preset color: chocolate.
 
-___
+***
 
 ### PERU
 
-▪ `Static` **PERU**: `number` = `0xcd853f`
+> `static` **PERU**: `number` = `0xcd853f`
 
-#### Defined in
+Defined in: [src/math/Color.ts:493](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L493)
 
-[src/math/Color.ts:420](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L420)
+Preset color: peru.
 
-___
+***
 
 ### INDIANRED
 
-▪ `Static` **INDIANRED**: `number` = `0xcd5c5c`
+> `static` **INDIANRED**: `number` = `0xcd5c5c`
 
-#### Defined in
+Defined in: [src/math/Color.ts:495](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L495)
 
-[src/math/Color.ts:421](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L421)
+Preset color: indian red.
 
-___
+***
 
 ### MEDIUMVIOLETRED
 
-▪ `Static` **MEDIUMVIOLETRED**: `number` = `0xc71585`
+> `static` **MEDIUMVIOLETRED**: `number` = `0xc71585`
 
-#### Defined in
+Defined in: [src/math/Color.ts:497](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L497)
 
-[src/math/Color.ts:422](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L422)
+Preset color: medium violet red.
 
-___
+***
 
 ### SILVER
 
-▪ `Static` **SILVER**: `number` = `0xc0c0c0`
+> `static` **SILVER**: `number` = `0xc0c0c0`
 
-#### Defined in
+Defined in: [src/math/Color.ts:499](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L499)
 
-[src/math/Color.ts:423](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L423)
+Preset color: silver.
 
-___
+***
 
 ### DARKKHAKI
 
-▪ `Static` **DARKKHAKI**: `number` = `0xbdb76b`
+> `static` **DARKKHAKI**: `number` = `0xbdb76b`
 
-#### Defined in
+Defined in: [src/math/Color.ts:501](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L501)
 
-[src/math/Color.ts:424](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L424)
+Preset color: dark khaki.
 
-___
+***
 
 ### ROSYBROWN
 
-▪ `Static` **ROSYBROWN**: `number` = `0xbc8f8f`
+> `static` **ROSYBROWN**: `number` = `0xbc8f8f`
 
-#### Defined in
+Defined in: [src/math/Color.ts:503](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L503)
 
-[src/math/Color.ts:425](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L425)
+Preset color: rosy brown.
 
-___
+***
 
 ### MEDIUMORCHID
 
-▪ `Static` **MEDIUMORCHID**: `number` = `0xba55d3`
+> `static` **MEDIUMORCHID**: `number` = `0xba55d3`
 
-#### Defined in
+Defined in: [src/math/Color.ts:505](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L505)
 
-[src/math/Color.ts:426](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L426)
+Preset color: medium orchid.
 
-___
+***
 
 ### DARKGOLDENROD
 
-▪ `Static` **DARKGOLDENROD**: `number` = `0xb8860b`
+> `static` **DARKGOLDENROD**: `number` = `0xb8860b`
 
-#### Defined in
+Defined in: [src/math/Color.ts:507](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L507)
 
-[src/math/Color.ts:427](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L427)
+Preset color: dark goldenrod.
 
-___
+***
 
 ### FIREBRICK
 
-▪ `Static` **FIREBRICK**: `number` = `0xb22222`
+> `static` **FIREBRICK**: `number` = `0xb22222`
 
-#### Defined in
+Defined in: [src/math/Color.ts:509](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L509)
 
-[src/math/Color.ts:428](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L428)
+Preset color: firebrick.
 
-___
+***
 
 ### POWDERBLUE
 
-▪ `Static` **POWDERBLUE**: `number` = `0xb0e0e6`
+> `static` **POWDERBLUE**: `number` = `0xb0e0e6`
 
-#### Defined in
+Defined in: [src/math/Color.ts:511](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L511)
 
-[src/math/Color.ts:429](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L429)
+Preset color: powder blue.
 
-___
+***
 
 ### LIGHTSTEELBLUE
 
-▪ `Static` **LIGHTSTEELBLUE**: `number` = `0xb0c4de`
+> `static` **LIGHTSTEELBLUE**: `number` = `0xb0c4de`
 
-#### Defined in
+Defined in: [src/math/Color.ts:513](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L513)
 
-[src/math/Color.ts:430](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L430)
+Preset color: light steel blue.
 
-___
+***
 
 ### PALETURQUOISE
 
-▪ `Static` **PALETURQUOISE**: `number` = `0xafeeee`
+> `static` **PALETURQUOISE**: `number` = `0xafeeee`
 
-#### Defined in
+Defined in: [src/math/Color.ts:515](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L515)
 
-[src/math/Color.ts:431](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L431)
+Preset color: pale turquoise.
 
-___
+***
 
 ### GREENYELLOW
 
-▪ `Static` **GREENYELLOW**: `number` = `0xadff2f`
+> `static` **GREENYELLOW**: `number` = `0xadff2f`
 
-#### Defined in
+Defined in: [src/math/Color.ts:517](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L517)
 
-[src/math/Color.ts:432](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L432)
+Preset color: green yellow.
 
-___
+***
 
 ### LIGHTBLUE
 
-▪ `Static` **LIGHTBLUE**: `number` = `0xadd8e6`
+> `static` **LIGHTBLUE**: `number` = `0xadd8e6`
 
-#### Defined in
+Defined in: [src/math/Color.ts:519](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L519)
 
-[src/math/Color.ts:433](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L433)
+Preset color: light blue.
 
-___
+***
 
 ### DARKGRAY
 
-▪ `Static` **DARKGRAY**: `number` = `0xa9a9a9`
+> `static` **DARKGRAY**: `number` = `0xa9a9a9`
 
-#### Defined in
+Defined in: [src/math/Color.ts:521](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L521)
 
-[src/math/Color.ts:434](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L434)
+Preset color: dark gray.
 
-___
+***
 
 ### BROWN
 
-▪ `Static` **BROWN**: `number` = `0xa52a2a`
+> `static` **BROWN**: `number` = `0xa52a2a`
 
-#### Defined in
+Defined in: [src/math/Color.ts:523](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L523)
 
-[src/math/Color.ts:435](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L435)
+Preset color: brown.
 
-___
+***
 
 ### SIENNA
 
-▪ `Static` **SIENNA**: `number` = `0xa0522d`
+> `static` **SIENNA**: `number` = `0xa0522d`
 
-#### Defined in
+Defined in: [src/math/Color.ts:525](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L525)
 
-[src/math/Color.ts:436](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L436)
+Preset color: sienna.
 
-___
+***
 
 ### DARKORCHID
 
-▪ `Static` **DARKORCHID**: `number` = `0x9932cc`
+> `static` **DARKORCHID**: `number` = `0x9932cc`
 
-#### Defined in
+Defined in: [src/math/Color.ts:527](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L527)
 
-[src/math/Color.ts:437](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L437)
+Preset color: dark orchid.
 
-___
+***
 
 ### PALEGREEN
 
-▪ `Static` **PALEGREEN**: `number` = `0x98fb98`
+> `static` **PALEGREEN**: `number` = `0x98fb98`
 
-#### Defined in
+Defined in: [src/math/Color.ts:529](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L529)
 
-[src/math/Color.ts:438](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L438)
+Preset color: pale green.
 
-___
+***
 
 ### DARKVIOLET
 
-▪ `Static` **DARKVIOLET**: `number` = `0x9400d3`
+> `static` **DARKVIOLET**: `number` = `0x9400d3`
 
-#### Defined in
+Defined in: [src/math/Color.ts:531](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L531)
 
-[src/math/Color.ts:439](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L439)
+Preset color: dark violet.
 
-___
+***
 
 ### MEDIUMPURPLE
 
-▪ `Static` **MEDIUMPURPLE**: `number` = `0x9370db`
+> `static` **MEDIUMPURPLE**: `number` = `0x9370db`
 
-#### Defined in
+Defined in: [src/math/Color.ts:533](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L533)
 
-[src/math/Color.ts:440](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L440)
+Preset color: medium purple.
 
-___
+***
 
 ### LIGHTGREEN
 
-▪ `Static` **LIGHTGREEN**: `number` = `0x90ee90`
+> `static` **LIGHTGREEN**: `number` = `0x90ee90`
 
-#### Defined in
+Defined in: [src/math/Color.ts:535](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L535)
 
-[src/math/Color.ts:441](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L441)
+Preset color: light green.
 
-___
+***
 
 ### DARKSEAGREEN
 
-▪ `Static` **DARKSEAGREEN**: `number` = `0x8fbc8f`
+> `static` **DARKSEAGREEN**: `number` = `0x8fbc8f`
 
-#### Defined in
+Defined in: [src/math/Color.ts:537](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L537)
 
-[src/math/Color.ts:442](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L442)
+Preset color: dark sea green.
 
-___
+***
 
 ### SADDLEBROWN
 
-▪ `Static` **SADDLEBROWN**: `number` = `0x8b4513`
+> `static` **SADDLEBROWN**: `number` = `0x8b4513`
 
-#### Defined in
+Defined in: [src/math/Color.ts:539](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L539)
 
-[src/math/Color.ts:443](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L443)
+Preset color: saddle brown.
 
-___
+***
 
 ### DARKMAGENTA
 
-▪ `Static` **DARKMAGENTA**: `number` = `0x8b008b`
+> `static` **DARKMAGENTA**: `number` = `0x8b008b`
 
-#### Defined in
+Defined in: [src/math/Color.ts:541](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L541)
 
-[src/math/Color.ts:444](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L444)
+Preset color: dark magenta.
 
-___
+***
 
 ### DARKRED
 
-▪ `Static` **DARKRED**: `number` = `0x8b0000`
+> `static` **DARKRED**: `number` = `0x8b0000`
 
-#### Defined in
+Defined in: [src/math/Color.ts:543](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L543)
 
-[src/math/Color.ts:445](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L445)
+Preset color: dark red.
 
-___
+***
 
 ### BLUEVIOLET
 
-▪ `Static` **BLUEVIOLET**: `number` = `0x8a2be2`
+> `static` **BLUEVIOLET**: `number` = `0x8a2be2`
 
-#### Defined in
+Defined in: [src/math/Color.ts:545](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L545)
 
-[src/math/Color.ts:446](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L446)
+Preset color: blue violet.
 
-___
+***
 
 ### LIGHTSKYBLUE
 
-▪ `Static` **LIGHTSKYBLUE**: `number` = `0x87cefa`
+> `static` **LIGHTSKYBLUE**: `number` = `0x87cefa`
 
-#### Defined in
+Defined in: [src/math/Color.ts:547](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L547)
 
-[src/math/Color.ts:447](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L447)
+Preset color: light sky blue.
 
-___
+***
 
 ### SKYBLUE
 
-▪ `Static` **SKYBLUE**: `number` = `0x87ceeb`
+> `static` **SKYBLUE**: `number` = `0x87ceeb`
 
-#### Defined in
+Defined in: [src/math/Color.ts:549](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L549)
 
-[src/math/Color.ts:448](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L448)
+Preset color: sky blue.
 
-___
+***
 
 ### GRAY
 
-▪ `Static` **GRAY**: `number` = `0x808080`
+> `static` **GRAY**: `number` = `0x808080`
 
-#### Defined in
+Defined in: [src/math/Color.ts:551](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L551)
 
-[src/math/Color.ts:449](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L449)
+Preset color: gray.
 
-___
+***
 
 ### OLIVE
 
-▪ `Static` **OLIVE**: `number` = `0x808000`
+> `static` **OLIVE**: `number` = `0x808000`
 
-#### Defined in
+Defined in: [src/math/Color.ts:553](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L553)
 
-[src/math/Color.ts:450](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L450)
+Preset color: olive.
 
-___
+***
 
 ### PURPLE
 
-▪ `Static` **PURPLE**: `number` = `0x800080`
+> `static` **PURPLE**: `number` = `0x800080`
 
-#### Defined in
+Defined in: [src/math/Color.ts:555](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L555)
 
-[src/math/Color.ts:451](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L451)
+Preset color: purple.
 
-___
+***
 
 ### MAROON
 
-▪ `Static` **MAROON**: `number` = `0x800000`
+> `static` **MAROON**: `number` = `0x800000`
 
-#### Defined in
+Defined in: [src/math/Color.ts:557](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L557)
 
-[src/math/Color.ts:452](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L452)
+Preset color: maroon.
 
-___
+***
 
 ### AQUAMARINE
 
-▪ `Static` **AQUAMARINE**: `number` = `0x7fffd4`
+> `static` **AQUAMARINE**: `number` = `0x7fffd4`
 
-#### Defined in
+Defined in: [src/math/Color.ts:559](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L559)
 
-[src/math/Color.ts:453](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L453)
+Preset color: aquamarine.
 
-___
+***
 
 ### CHARTREUSE
 
-▪ `Static` **CHARTREUSE**: `number` = `0x7fff00`
+> `static` **CHARTREUSE**: `number` = `0x7fff00`
 
-#### Defined in
+Defined in: [src/math/Color.ts:561](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L561)
 
-[src/math/Color.ts:454](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L454)
+Preset color: chartreuse.
 
-___
+***
 
 ### LAWNGREEN
 
-▪ `Static` **LAWNGREEN**: `number` = `0x7cfc00`
+> `static` **LAWNGREEN**: `number` = `0x7cfc00`
 
-#### Defined in
+Defined in: [src/math/Color.ts:563](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L563)
 
-[src/math/Color.ts:455](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L455)
+Preset color: lawn green.
 
-___
+***
 
 ### MEDIUMSLATEBLUE
 
-▪ `Static` **MEDIUMSLATEBLUE**: `number` = `0x7b68ee`
+> `static` **MEDIUMSLATEBLUE**: `number` = `0x7b68ee`
 
-#### Defined in
+Defined in: [src/math/Color.ts:565](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L565)
 
-[src/math/Color.ts:456](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L456)
+Preset color: medium slate blue.
 
-___
+***
 
 ### LIGHTSLATEGRAY
 
-▪ `Static` **LIGHTSLATEGRAY**: `number` = `0x778899`
+> `static` **LIGHTSLATEGRAY**: `number` = `0x778899`
 
-#### Defined in
+Defined in: [src/math/Color.ts:567](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L567)
 
-[src/math/Color.ts:457](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L457)
+Preset color: light slate gray.
 
-___
+***
 
 ### SLATEGRAY
 
-▪ `Static` **SLATEGRAY**: `number` = `0x708090`
+> `static` **SLATEGRAY**: `number` = `0x708090`
 
-#### Defined in
+Defined in: [src/math/Color.ts:569](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L569)
 
-[src/math/Color.ts:458](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L458)
+Preset color: slate gray.
 
-___
+***
 
 ### OLIVEDRAB
 
-▪ `Static` **OLIVEDRAB**: `number` = `0x6b8e23`
+> `static` **OLIVEDRAB**: `number` = `0x6b8e23`
 
-#### Defined in
+Defined in: [src/math/Color.ts:571](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L571)
 
-[src/math/Color.ts:459](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L459)
+Preset color: olive drab.
 
-___
+***
 
 ### SLATEBLUE
 
-▪ `Static` **SLATEBLUE**: `number` = `0x6a5acd`
+> `static` **SLATEBLUE**: `number` = `0x6a5acd`
 
-#### Defined in
+Defined in: [src/math/Color.ts:573](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L573)
 
-[src/math/Color.ts:460](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L460)
+Preset color: slate blue.
 
-___
+***
 
 ### DIMGRAY
 
-▪ `Static` **DIMGRAY**: `number` = `0x696969`
+> `static` **DIMGRAY**: `number` = `0x696969`
 
-#### Defined in
+Defined in: [src/math/Color.ts:575](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L575)
 
-[src/math/Color.ts:461](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L461)
+Preset color: dim gray.
 
-___
+***
 
 ### MEDIUMAQUAMARINE
 
-▪ `Static` **MEDIUMAQUAMARINE**: `number` = `0x66cdaa`
+> `static` **MEDIUMAQUAMARINE**: `number` = `0x66cdaa`
 
-#### Defined in
+Defined in: [src/math/Color.ts:577](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L577)
 
-[src/math/Color.ts:462](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L462)
+Preset color: medium aquamarine.
 
-___
+***
 
 ### CORNFLOWERBLUE
 
-▪ `Static` **CORNFLOWERBLUE**: `number` = `0x6495ed`
+> `static` **CORNFLOWERBLUE**: `number` = `0x6495ed`
 
-#### Defined in
+Defined in: [src/math/Color.ts:579](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L579)
 
-[src/math/Color.ts:463](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L463)
+Preset color: cornflower blue.
 
-___
+***
 
 ### CADETBLUE
 
-▪ `Static` **CADETBLUE**: `number` = `0x5f9ea0`
+> `static` **CADETBLUE**: `number` = `0x5f9ea0`
 
-#### Defined in
+Defined in: [src/math/Color.ts:581](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L581)
 
-[src/math/Color.ts:464](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L464)
+Preset color: cadet blue.
 
-___
+***
 
 ### DARKOLIVEGREEN
 
-▪ `Static` **DARKOLIVEGREEN**: `number` = `0x556b2f`
+> `static` **DARKOLIVEGREEN**: `number` = `0x556b2f`
 
-#### Defined in
+Defined in: [src/math/Color.ts:583](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L583)
 
-[src/math/Color.ts:465](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L465)
+Preset color: dark olive green.
 
-___
+***
 
 ### INDIGO
 
-▪ `Static` **INDIGO**: `number` = `0x4b0082`
+> `static` **INDIGO**: `number` = `0x4b0082`
 
-#### Defined in
+Defined in: [src/math/Color.ts:585](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L585)
 
-[src/math/Color.ts:466](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L466)
+Preset color: indigo.
 
-___
+***
 
 ### MEDIUMTURQUOISE
 
-▪ `Static` **MEDIUMTURQUOISE**: `number` = `0x48d1cc`
+> `static` **MEDIUMTURQUOISE**: `number` = `0x48d1cc`
 
-#### Defined in
+Defined in: [src/math/Color.ts:587](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L587)
 
-[src/math/Color.ts:467](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L467)
+Preset color: medium turquoise.
 
-___
+***
 
 ### DARKSLATEBLUE
 
-▪ `Static` **DARKSLATEBLUE**: `number` = `0x483d8b`
+> `static` **DARKSLATEBLUE**: `number` = `0x483d8b`
 
-#### Defined in
+Defined in: [src/math/Color.ts:589](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L589)
 
-[src/math/Color.ts:468](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L468)
+Preset color: dark slate blue.
 
-___
+***
 
 ### STEELBLUE
 
-▪ `Static` **STEELBLUE**: `number` = `0x4682b4`
+> `static` **STEELBLUE**: `number` = `0x4682b4`
 
-#### Defined in
+Defined in: [src/math/Color.ts:591](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L591)
 
-[src/math/Color.ts:469](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L469)
+Preset color: steel blue.
 
-___
+***
 
 ### ROYALBLUE
 
-▪ `Static` **ROYALBLUE**: `number` = `0x4169e1`
+> `static` **ROYALBLUE**: `number` = `0x4169e1`
 
-#### Defined in
+Defined in: [src/math/Color.ts:593](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L593)
 
-[src/math/Color.ts:470](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L470)
+Preset color: royal blue.
 
-___
+***
 
 ### TURQUOISE
 
-▪ `Static` **TURQUOISE**: `number` = `0x40e0d0`
+> `static` **TURQUOISE**: `number` = `0x40e0d0`
 
-#### Defined in
+Defined in: [src/math/Color.ts:595](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L595)
 
-[src/math/Color.ts:471](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L471)
+Preset color: turquoise.
 
-___
+***
 
 ### MEDIUMSEAGREEN
 
-▪ `Static` **MEDIUMSEAGREEN**: `number` = `0x3cb371`
+> `static` **MEDIUMSEAGREEN**: `number` = `0x3cb371`
 
-#### Defined in
+Defined in: [src/math/Color.ts:597](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L597)
 
-[src/math/Color.ts:472](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L472)
+Preset color: medium sea green.
 
-___
+***
 
 ### LIMEGREEN
 
-▪ `Static` **LIMEGREEN**: `number` = `0x32cd32`
+> `static` **LIMEGREEN**: `number` = `0x32cd32`
 
-#### Defined in
+Defined in: [src/math/Color.ts:599](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L599)
 
-[src/math/Color.ts:473](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L473)
+Preset color: lime green.
 
-___
+***
 
 ### DARKSLATEGRAY
 
-▪ `Static` **DARKSLATEGRAY**: `number` = `0x2f4f4f`
+> `static` **DARKSLATEGRAY**: `number` = `0x2f4f4f`
 
-#### Defined in
+Defined in: [src/math/Color.ts:601](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L601)
 
-[src/math/Color.ts:474](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L474)
+Preset color: dark slate gray.
 
-___
+***
 
 ### SEAGREEN
 
-▪ `Static` **SEAGREEN**: `number` = `0x2e8b57`
+> `static` **SEAGREEN**: `number` = `0x2e8b57`
 
-#### Defined in
+Defined in: [src/math/Color.ts:603](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L603)
 
-[src/math/Color.ts:475](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L475)
+Preset color: sea green.
 
-___
+***
 
 ### FORESTGREEN
 
-▪ `Static` **FORESTGREEN**: `number` = `0x228b22`
+> `static` **FORESTGREEN**: `number` = `0x228b22`
 
-#### Defined in
+Defined in: [src/math/Color.ts:605](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L605)
 
-[src/math/Color.ts:476](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L476)
+Preset color: forest green.
 
-___
+***
 
 ### LIGHTSEAGREEN
 
-▪ `Static` **LIGHTSEAGREEN**: `number` = `0x20b2aa`
+> `static` **LIGHTSEAGREEN**: `number` = `0x20b2aa`
 
-#### Defined in
+Defined in: [src/math/Color.ts:607](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L607)
 
-[src/math/Color.ts:477](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L477)
+Preset color: light sea green.
 
-___
+***
 
 ### DODGERBLUE
 
-▪ `Static` **DODGERBLUE**: `number` = `0x1e90ff`
+> `static` **DODGERBLUE**: `number` = `0x1e90ff`
 
-#### Defined in
+Defined in: [src/math/Color.ts:609](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L609)
 
-[src/math/Color.ts:478](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L478)
+Preset color: dodger blue.
 
-___
+***
 
 ### MIDNIGHTBLUE
 
-▪ `Static` **MIDNIGHTBLUE**: `number` = `0x191970`
+> `static` **MIDNIGHTBLUE**: `number` = `0x191970`
 
-#### Defined in
+Defined in: [src/math/Color.ts:611](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L611)
 
-[src/math/Color.ts:479](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L479)
+Preset color: midnight blue.
 
-___
+***
 
 ### AQUA
 
-▪ `Static` **AQUA**: `number` = `0x00ffff`
+> `static` **AQUA**: `number` = `0x00ffff`
 
-#### Defined in
+Defined in: [src/math/Color.ts:613](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L613)
 
-[src/math/Color.ts:480](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L480)
+Preset color: aqua.
 
-___
+***
 
 ### CYAN
 
-▪ `Static` **CYAN**: `number` = `0x00ffff`
+> `static` **CYAN**: `number` = `0x00ffff`
 
-#### Defined in
+Defined in: [src/math/Color.ts:615](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L615)
 
-[src/math/Color.ts:481](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L481)
+Preset color: cyan.
 
-___
+***
 
 ### SPRINGGREEN
 
-▪ `Static` **SPRINGGREEN**: `number` = `0x00ff7f`
+> `static` **SPRINGGREEN**: `number` = `0x00ff7f`
 
-#### Defined in
+Defined in: [src/math/Color.ts:617](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L617)
 
-[src/math/Color.ts:482](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L482)
+Preset color: spring green.
 
-___
+***
 
 ### LIME
 
-▪ `Static` **LIME**: `number` = `0x00ff00`
+> `static` **LIME**: `number` = `0x00ff00`
 
-#### Defined in
+Defined in: [src/math/Color.ts:619](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L619)
 
-[src/math/Color.ts:483](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L483)
+Preset color: lime.
 
-___
+***
 
 ### MEDIUMSPRINGGREEN
 
-▪ `Static` **MEDIUMSPRINGGREEN**: `number` = `0x00fa9a`
+> `static` **MEDIUMSPRINGGREEN**: `number` = `0x00fa9a`
 
-#### Defined in
+Defined in: [src/math/Color.ts:621](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L621)
 
-[src/math/Color.ts:484](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L484)
+Preset color: medium spring green.
 
-___
+***
 
 ### DARKTURQUOISE
 
-▪ `Static` **DARKTURQUOISE**: `number` = `0x00ced1`
+> `static` **DARKTURQUOISE**: `number` = `0x00ced1`
 
-#### Defined in
+Defined in: [src/math/Color.ts:623](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L623)
 
-[src/math/Color.ts:485](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L485)
+Preset color: dark turquoise.
 
-___
+***
 
 ### DEEPSKYBLUE
 
-▪ `Static` **DEEPSKYBLUE**: `number` = `0x00bfff`
+> `static` **DEEPSKYBLUE**: `number` = `0x00bfff`
 
-#### Defined in
+Defined in: [src/math/Color.ts:625](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L625)
 
-[src/math/Color.ts:486](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L486)
+Preset color: deep sky blue.
 
-___
+***
 
 ### DARKCYAN
 
-▪ `Static` **DARKCYAN**: `number` = `0x008b8b`
+> `static` **DARKCYAN**: `number` = `0x008b8b`
 
-#### Defined in
+Defined in: [src/math/Color.ts:627](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L627)
 
-[src/math/Color.ts:487](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L487)
+Preset color: dark cyan.
 
-___
+***
 
 ### TEAL
 
-▪ `Static` **TEAL**: `number` = `0x008080`
+> `static` **TEAL**: `number` = `0x008080`
 
-#### Defined in
+Defined in: [src/math/Color.ts:629](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L629)
 
-[src/math/Color.ts:488](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L488)
+Preset color: teal.
 
-___
+***
 
 ### GREEN
 
-▪ `Static` **GREEN**: `number` = `0x008000`
+> `static` **GREEN**: `number` = `0x008000`
 
-#### Defined in
+Defined in: [src/math/Color.ts:631](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L631)
 
-[src/math/Color.ts:489](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L489)
+Preset color: green.
 
-___
+***
 
 ### DARKGREEN
 
-▪ `Static` **DARKGREEN**: `number` = `0x006400`
+> `static` **DARKGREEN**: `number` = `0x006400`
 
-#### Defined in
+Defined in: [src/math/Color.ts:633](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L633)
 
-[src/math/Color.ts:490](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L490)
+Preset color: dark green.
 
-___
+***
 
 ### BLUE
 
-▪ `Static` **BLUE**: `number` = `0x0000ff`
+> `static` **BLUE**: `number` = `0x0000ff`
 
-#### Defined in
+Defined in: [src/math/Color.ts:635](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L635)
 
-[src/math/Color.ts:491](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L491)
+Preset color: blue.
 
-___
+***
 
 ### MEDIUMBLUE
 
-▪ `Static` **MEDIUMBLUE**: `number` = `0x0000cd`
+> `static` **MEDIUMBLUE**: `number` = `0x0000cd`
 
-#### Defined in
+Defined in: [src/math/Color.ts:637](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L637)
 
-[src/math/Color.ts:492](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L492)
+Preset color: medium blue.
 
-___
+***
 
 ### DARKBLUE
 
-▪ `Static` **DARKBLUE**: `number` = `0x00008b`
+> `static` **DARKBLUE**: `number` = `0x00008b`
 
-#### Defined in
+Defined in: [src/math/Color.ts:639](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L639)
 
-[src/math/Color.ts:493](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L493)
+Preset color: dark blue.
 
-___
+***
 
 ### NAVY
 
-▪ `Static` **NAVY**: `number` = `0x000080`
+> `static` **NAVY**: `number` = `0x000080`
 
-#### Defined in
+Defined in: [src/math/Color.ts:641](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L641)
 
-[src/math/Color.ts:494](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L494)
+Preset color: navy.
 
-___
+***
 
 ### BLACK
 
-▪ `Static` **BLACK**: `number` = `0x000000`
+> `static` **BLACK**: `number` = `0x000000`
 
-#### Defined in
+Defined in: [src/math/Color.ts:643](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L643)
 
-[src/math/Color.ts:495](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L495)
+Preset color: black.
 
 ## Accessors
 
 ### rgb
 
-• `get` **rgb**(): `number`[]
+#### Get Signature
+
+> **get** **rgb**(): `number`[]
+
+Defined in: [src/math/Color.ts:256](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L256)
 
 get rgb to array
 
-#### Returns
+##### Returns
 
 `number`[]
 
-#### Defined in
+#### Set Signature
 
-[src/math/Color.ts:250](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L250)
+> **set** **rgb**(`c`): `void`
 
-• `set` **rgb**(`c`): `void`
+Defined in: [src/math/Color.ts:263](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L263)
 
 set rgb by array
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `c` | `number`[] |
+###### c
 
-#### Returns
+`number`[]
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/math/Color.ts:257](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L257)
-
-___
+***
 
 ### rgba
 
-• `get` **rgba**(): `number`[]
+#### Get Signature
+
+> **get** **rgba**(): `number`[]
+
+Defined in: [src/math/Color.ts:270](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L270)
 
 get rgba to array
 
-#### Returns
+##### Returns
 
 `number`[]
 
-#### Defined in
+#### Set Signature
 
-[src/math/Color.ts:264](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L264)
+> **set** **rgba**(`c`): `void`
 
-• `set` **rgba**(`c`): `void`
+Defined in: [src/math/Color.ts:277](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L277)
 
 set rgb by array
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `c` | `number`[] |
+###### c
 
-#### Returns
+`number`[]
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/math/Color.ts:271](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L271)
-
 ## Methods
 
-### convertToHDRRGB
+### convertToHDRRGB()
 
-▸ **convertToHDRRGB**(): [`Color`](Color.md)
+> **convertToHDRRGB**(): `Color`
+
+Defined in: [src/math/Color.ts:99](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L99)
 
 convert to hdr color , channel a is intensity
 
 #### Returns
 
-[`Color`](Color.md)
+`Color`
 
-#### Defined in
+***
 
-[src/math/Color.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L99)
+### unSerialized()
 
-___
+> **unSerialized**(`data`): `this`
 
-### unSerialized
-
-▸ **unSerialized**(`data`): `this`
+Defined in: [src/math/Color.ts:111](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L111)
 
 unSerialized color by data
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `data` | `any` |
+##### data
+
+`any`
 
 #### Returns
 
 `this`
 
-#### Defined in
+***
 
-[src/math/Color.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L111)
+### hexToRGB()
 
-___
+> **hexToRGB**(`value`): `Color`
 
-### hexToRGB
-
-▸ **hexToRGB**(`value`): [`Color`](Color.md)
+Defined in: [src/math/Color.ts:123](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L123)
 
 update this color rgb from hexadecimal no alpha
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+##### value
+
+`number`
 
 #### Returns
 
-[`Color`](Color.md)
+`Color`
 
-#### Defined in
+***
 
-[src/math/Color.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L123)
+### hexToRGBA()
 
-___
+> **hexToRGBA**(`value`): `Color`
 
-### hexToRGBA
-
-▸ **hexToRGBA**(`value`): [`Color`](Color.md)
+Defined in: [src/math/Color.ts:135](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L135)
 
 update this color rgb from hexadecimal has alpha
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+##### value
+
+`number`
 
 #### Returns
 
-[`Color`](Color.md)
+`Color`
 
-#### Defined in
+***
 
-[src/math/Color.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L135)
+### random()
 
-___
+> `static` **random**(`base?`): `Color`
 
-### random
-
-▸ **random**(`base?`): [`Color`](Color.md)
+Defined in: [src/math/Color.ts:147](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L147)
 
 random on color
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `base` | `number` | `1.0` |
+##### base?
+
+`number` = `1.0`
 
 #### Returns
 
-[`Color`](Color.md)
+`Color`
 
-#### Defined in
+***
 
-[src/math/Color.ts:147](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L147)
+### randomRGB()
 
-___
+> `static` **randomRGB**(`seedR?`, `seedG?`, `seedB?`, `baseR?`, `baseG?`, `baseB?`): `Color`
 
-### randomRGB
+Defined in: [src/math/Color.ts:160](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L160)
 
-▸ **randomRGB**(`seedR?`, `seedG?`, `seedB?`, `baseR?`, `baseG?`, `baseB?`): [`Color`](Color.md)
+generate a random color from per-channel seeds and base values
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `seedR` | `number` | `0.5` |
-| `seedG` | `number` | `0.5` |
-| `seedB` | `number` | `0.5` |
-| `baseR` | `number` | `0.5` |
-| `baseG` | `number` | `0.5` |
-| `baseB` | `number` | `0.5` |
+##### seedR?
+
+`number` = `0.5`
+
+##### seedG?
+
+`number` = `0.5`
+
+##### seedB?
+
+`number` = `0.5`
+
+##### baseR?
+
+`number` = `0.5`
+
+##### baseG?
+
+`number` = `0.5`
+
+##### baseB?
+
+`number` = `0.5`
 
 #### Returns
 
-[`Color`](Color.md)
+`Color`
 
-#### Defined in
+***
 
-[src/math/Color.ts:156](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L156)
+### randomGray()
 
-___
+> `static` **randomGray**(`base?`, `random?`): `Color`
 
-### randomGray
-
-▸ **randomGray**(`base?`, `random?`): [`Color`](Color.md)
+Defined in: [src/math/Color.ts:174](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L174)
 
 random on color
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `base` | `number` | `0.5` |
-| `random` | `number` | `0.5` |
+##### base?
+
+`number` = `0.5`
+
+##### random?
+
+`number` = `0.5`
 
 #### Returns
 
-[`Color`](Color.md)
+`Color`
 
-#### Defined in
+***
 
-[src/math/Color.ts:170](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L170)
+### setTo()
 
-___
+> **setTo**(`r`, `g`, `b`, `a`): `this`
 
-### setTo
-
-▸ **setTo**(`r`, `g`, `b`, `a`): `void`
+Defined in: [src/math/Color.ts:191](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L191)
 
 set rgba to this color
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `r` | `number` | red channel |
-| `g` | `number` | green channel |
-| `b` | `number` | blue channel |
-| `a` | `number` | alpha channel |
+##### r
+
+`number`
+
+red channel
+
+##### g
+
+`number`
+
+green channel
+
+##### b
+
+`number`
+
+blue channel
+
+##### a
+
+`number`
+
+alpha channel
 
 #### Returns
 
-`void`
+`this`
 
-#### Defined in
+***
 
-[src/math/Color.ts:187](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L187)
+### setHex()
 
-___
+> **setHex**(`hex`): `this`
 
-### setHex
-
-▸ **setHex**(`hex`): `void`
+Defined in: [src/math/Color.ts:203](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L203)
 
 update this color rgba from hexadecimal
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `hex` | `string` | hex string. |
+##### hex
+
+`string`
+
+hex string.
 
 #### Returns
 
-`void`
+`this`
 
-#### Defined in
+***
 
-[src/math/Color.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L198)
+### getHex()
 
-___
+> **getHex**(): `string`
 
-### getHex
-
-▸ **getHex**(): `string`
+Defined in: [src/math/Color.ts:240](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L240)
 
 convert this color to hex string code
 
@@ -2003,141 +1850,158 @@ convert this color to hex string code
 
 `string`
 
-#### Defined in
+***
 
-[src/math/Color.ts:234](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L234)
+### clone()
 
-___
+> **clone**(): `Color`
 
-### clone
-
-▸ **clone**(): [`Color`](Color.md)
+Defined in: [src/math/Color.ts:285](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L285)
 
 clone this color
 
 #### Returns
 
-[`Color`](Color.md)
+`Color`
 
-#### Defined in
+***
 
-[src/math/Color.ts:279](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L279)
+### copy()
 
-___
+> **copy**(`src`): `this`
 
-### copyFrom
-
-▸ **copyFrom**(`src`): `this`
+Defined in: [src/math/Color.ts:293](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L293)
 
 copy color from source color
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `src` | [`Color`](Color.md) |
+##### src
+
+`Color`
 
 #### Returns
 
 `this`
 
-#### Defined in
+***
 
-[src/math/Color.ts:287](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L287)
+### copyFromArray()
 
-___
+> **copyFromArray**(`arr`, `scalar?`): `this`
 
-### copyFromArray
-
-▸ **copyFromArray**(`arr`, `scalar?`): [`Color`](Color.md)
+Defined in: [src/math/Color.ts:307](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L307)
 
 copy color from array
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `arr` | `number`[] | `undefined` | [ 255 , 255 , 255 , 255 ] |
-| `scalar` | `number` | `255` |  |
+##### arr
 
-#### Returns
+`number`[]
 
-[`Color`](Color.md)
+[ 255 , 255 , 255 , 255 ]
 
-#### Defined in
+##### scalar?
 
-[src/math/Color.ts:301](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L301)
-
-___
-
-### copyFromVector
-
-▸ **copyFromVector**(`value`): `this`
-
-copy color from vector3 or vector4
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `value` | `Object` | { x: number, y: number, z: number, w?: number } |
-| `value.x` | `number` | - |
-| `value.y` | `number` | - |
-| `value.z` | `number` | - |
-| `value.w?` | `number` | - |
+`number` = `255`
 
 #### Returns
 
 `this`
 
-#### Defined in
+***
 
-[src/math/Color.ts:315](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L315)
+### copyFromVector()
 
-___
+> **copyFromVector**(`value`): `this`
 
-### hexRGBColor
+Defined in: [src/math/Color.ts:321](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L321)
 
-▸ **hexRGBColor**(`hexColor`, `dst?`): [`Color`](Color.md)
+copy color from vector3 or vector4
+
+#### Parameters
+
+##### value
+
+{ x: number, y: number, z: number, w?: number }
+
+###### x
+
+`number`
+
+###### y
+
+`number`
+
+###### z
+
+`number`
+
+###### w?
+
+`number`
+
+#### Returns
+
+`this`
+
+***
+
+### hexRGBColor()
+
+> `static` **hexRGBColor**(`hexColor`, `dst?`): `Color`
+
+Defined in: [src/math/Color.ts:334](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L334)
 
 update this color rgb from hexadecimal no alpha
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `hexColor` | `number` | `undefined` | rgb color |
-| `dst` | [`Color`](Color.md) | `null` | ref out color |
+##### hexColor
+
+`number`
+
+rgb color
+
+##### dst?
+
+`Color` = `null`
+
+ref out color
 
 #### Returns
 
-[`Color`](Color.md)
+`Color`
 
-#### Defined in
+***
 
-[src/math/Color.ts:328](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L328)
+### lerp()
 
-___
+> `static` **lerp**(`v`, `c1`, `c2`, `target?`): `Color`
 
-### lerp
-
-▸ **lerp**(`v`, `c1`, `c2`, `target?`): [`Color`](Color.md)
+Defined in: [src/math/Color.ts:348](https://github.com/orillusion/orillusion/blob/main/src/math/Color.ts#L348)
 
 lerp two color
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `number` |
-| `c1` | [`Color`](Color.md) |
-| `c2` | [`Color`](Color.md) |
-| `target?` | [`Color`](Color.md) |
+##### v
+
+`number`
+
+##### c1
+
+`Color`
+
+##### c2
+
+`Color`
+
+##### target?
+
+`Color`
 
 #### Returns
 
-[`Color`](Color.md)
-
-#### Defined in
-
-[src/math/Color.ts:342](https://github.com/Orillusion/orillusion/blob/main/src/math/Color.ts#L342)
+`Color`

@@ -1,125 +1,68 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: IESProfiles
 
-### Constructors
+Defined in: [src/components/lights/IESProfiles.ts:15](https://github.com/orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L15)
 
-- [constructor](IESProfiles.md#constructor)
-
-### Properties
-
-- [use](IESProfiles.md#use)
-- [iesTexture](IESProfiles.md#iestexture)
-- [ies\_list](IESProfiles.md#ies_list)
-- [index](IESProfiles.md#index)
-
-### Accessors
-
-- [IESTexture](IESProfiles.md#iestexture-1)
-
-### Methods
-
-- [create](IESProfiles.md#create)
+One IES photometric profile, assignable to a light via
+`LightBase.iesProfiles`. Holds only CPU-side state; the profile is
+registered into the owning engine's IESProfilesPool when that
+engine's light data is first uploaded (LightEntries.update), which
+assigns `index` — the layer in the pool's texture array.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new IESProfiles**(): [`IESProfiles`](IESProfiles.md)
+> **new IESProfiles**(): `IESProfiles`
 
 #### Returns
 
-[`IESProfiles`](IESProfiles.md)
-
-#### Defined in
-
-[src/components/lights/IESProfiles.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L13)
+`IESProfiles`
 
 ## Properties
 
-### use
-
-▪ `Static` **use**: `boolean` = `false`
-
-#### Defined in
-
-[src/components/lights/IESProfiles.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L8)
-
-___
-
-### iesTexture
-
-▪ `Static` **iesTexture**: `BitmapTexture2DArray`
-
-#### Defined in
-
-[src/components/lights/IESProfiles.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L9)
-
-___
-
-### ies\_list
-
-▪ `Static` **ies\_list**: [`IESProfiles`](IESProfiles.md)[] = `[]`
-
-#### Defined in
-
-[src/components/lights/IESProfiles.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L10)
-
-___
-
 ### index
 
-• **index**: `number` = `0`
+> **index**: `number` = `-1`
 
-#### Defined in
+Defined in: [src/components/lights/IESProfiles.ts:19](https://github.com/orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L19)
 
-[src/components/lights/IESProfiles.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L12)
+Layer index inside the owning pool's texture array. -1 until registered.
 
 ## Accessors
 
 ### IESTexture
 
-• `get` **IESTexture**(): [`Texture`](Texture.md)
+#### Get Signature
 
-#### Returns
+> **get** **IESTexture**(): [`Texture`](Texture.md)
+
+Defined in: [src/components/lights/IESProfiles.ts:38](https://github.com/orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L38)
+
+The assigned IES photometric texture, or undefined if none.
+
+##### Returns
 
 [`Texture`](Texture.md)
 
-#### Defined in
+#### Set Signature
 
-[src/components/lights/IESProfiles.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L38)
+> **set** **IESTexture**(`texture`): `void`
 
-• `set` **IESTexture**(`texture`): `void`
+Defined in: [src/components/lights/IESProfiles.ts:25](https://github.com/orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L25)
 
-#### Parameters
+Set the IES photometric texture. Can only be assigned before the
+profile is registered into a pool; later assignments are ignored.
 
-| Name | Type |
-| :------ | :------ |
-| `texture` | [`Texture`](Texture.md) |
+##### Parameters
 
-#### Returns
+###### texture
 
-`void`
+[`Texture`](Texture.md)
 
-#### Defined in
-
-[src/components/lights/IESProfiles.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L23)
-
-## Methods
-
-### create
-
-▸ **create**(`width`, `height`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `width` | `number` |
-| `height` | `number` |
-
-#### Returns
+##### Returns
 
 `void`
-
-#### Defined in
-
-[src/components/lights/IESProfiles.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L42)

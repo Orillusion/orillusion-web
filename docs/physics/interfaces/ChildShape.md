@@ -1,37 +1,31 @@
+[**@orillusion/physics**](../README.md)
+
+***
+
 # Interface: ChildShape
 
-### Properties
-
-- [shape](ChildShape.md#shape)
-- [position](ChildShape.md#position)
-- [rotation](ChildShape.md#rotation)
+Defined in: [packages/physics/utils/CollisionShapeUtil.ts:5](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L5)
 
 ## Properties
 
 ### shape
 
-• **shape**: [`btCollisionShape`](../classes/Ammo.btCollisionShape.md)
+> **shape**: [`btCollisionShape`](../@orillusion/namespaces/Ammo/classes/btCollisionShape.md)
 
-#### Defined in
+Defined in: [packages/physics/utils/CollisionShapeUtil.ts:6](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L6)
 
-[packages/physics/utils/CollisionShapeUtil.ts:6](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L6)
-
-___
+***
 
 ### position
 
-• **position**: `Vector3`
+> **position**: `Vector3`
 
-#### Defined in
+Defined in: [packages/physics/utils/CollisionShapeUtil.ts:7](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L7)
 
-[packages/physics/utils/CollisionShapeUtil.ts:7](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L7)
-
-___
+***
 
 ### rotation
 
-• **rotation**: `Quaternion`
+> **rotation**: `Quaternion`
 
-#### Defined in
-
-[packages/physics/utils/CollisionShapeUtil.ts:8](https://github.com/Orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L8)
+Defined in: [packages/physics/utils/CollisionShapeUtil.ts:8](https://github.com/orillusion/orillusion/blob/main/packages/physics/utils/CollisionShapeUtil.ts#L8)

@@ -1,822 +1,783 @@
+[**@orillusion/particle**](../README.md)
+
+***
+
 # Class: ParticleEmitterModule
+
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:69](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L69)
 
 Particle module of emit
 
-## Hierarchy
-
-- `ParticleModuleBase`
-
-  ↳ **`ParticleEmitterModule`**
-
-### Constructors
-
-- [constructor](ParticleEmitterModule.md#constructor)
-
-### Accessors
-
-- [shapeType](ParticleEmitterModule.md#shapetype)
-- [emitLocation](ParticleEmitterModule.md#emitlocation)
-- [angle](ParticleEmitterModule.md#angle)
-- [radius](ParticleEmitterModule.md#radius)
-- [boxSize](ParticleEmitterModule.md#boxsize)
-- [randSeed](ParticleEmitterModule.md#randseed)
-- [maxParticle](ParticleEmitterModule.md#maxparticle)
-- [emissionRate](ParticleEmitterModule.md#emissionrate)
-- [duration](ParticleEmitterModule.md#duration)
-- [startLifecycle](ParticleEmitterModule.md#startlifecycle)
-- [startVelocityX](ParticleEmitterModule.md#startvelocityx)
-- [startVelocityY](ParticleEmitterModule.md#startvelocityy)
-- [startVelocityZ](ParticleEmitterModule.md#startvelocityz)
-- [startScale](ParticleEmitterModule.md#startscale)
-- [startScaleX](ParticleEmitterModule.md#startscalex)
-- [startScaleY](ParticleEmitterModule.md#startscaley)
-- [startScaleZ](ParticleEmitterModule.md#startscalez)
-- [startRotation](ParticleEmitterModule.md#startrotation)
-- [startRotationX](ParticleEmitterModule.md#startrotationx)
-- [startRotationY](ParticleEmitterModule.md#startrotationy)
-- [startRotationZ](ParticleEmitterModule.md#startrotationz)
-- [needReset](ParticleEmitterModule.md#needreset)
-
-### Methods
-
-- [isUseStartScaleXYZ](ParticleEmitterModule.md#isusestartscalexyz)
-- [isUseStartRotationXYZ](ParticleEmitterModule.md#isusestartrotationxyz)
-- [generateParticleModuleData](ParticleEmitterModule.md#generateparticlemoduledata)
-- [setSimulator](ParticleEmitterModule.md#setsimulator)
-- [calculateParticle](ParticleEmitterModule.md#calculateparticle)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new ParticleEmitterModule**(): [`ParticleEmitterModule`](ParticleEmitterModule.md)
+> **new ParticleEmitterModule**(): `ParticleEmitterModule`
 
 #### Returns
 
-[`ParticleEmitterModule`](ParticleEmitterModule.md)
+`ParticleEmitterModule`
 
 #### Inherited from
 
-ParticleModuleBase.constructor
+`ParticleModuleBase.constructor`
 
 ## Accessors
 
 ### shapeType
 
-• `get` **shapeType**(): [`ShapeType`](../enums/ShapeType.md)
+#### Get Signature
+
+> **get** **shapeType**(): [`ShapeType`](../enumerations/ShapeType.md)
+
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:82](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L82)
 
 Get shape type of emitter
 
-#### Returns
+##### Returns
 
-[`ShapeType`](../enums/ShapeType.md)
+[`ShapeType`](../enumerations/ShapeType.md)
 
-#### Defined in
+#### Set Signature
 
-[packages/particle/module/stand/ParticleEmitterModule.ts:82](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L82)
+> **set** **shapeType**(`v`): `void`
 
-• `set` **shapeType**(`v`): `void`
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:74](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L74)
 
 Set shape type of emitter
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | [`ShapeType`](../enums/ShapeType.md) |
+###### v
 
-#### Returns
+[`ShapeType`](../enumerations/ShapeType.md)
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[packages/particle/module/stand/ParticleEmitterModule.ts:74](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L74)
-
-___
+***
 
 ### emitLocation
 
-• `get` **emitLocation**(): [`EmitLocation`](../enums/EmitLocation.md)
+#### Get Signature
+
+> **get** **emitLocation**(): [`EmitLocation`](../enumerations/EmitLocation.md)
+
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:99](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L99)
 
 Get emit location of emitter
 
-#### Returns
+##### Returns
 
-[`EmitLocation`](../enums/EmitLocation.md)
+[`EmitLocation`](../enumerations/EmitLocation.md)
 
-#### Defined in
+#### Set Signature
 
-[packages/particle/module/stand/ParticleEmitterModule.ts:99](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L99)
+> **set** **emitLocation**(`v`): `void`
 
-• `set` **emitLocation**(`v`): `void`
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:91](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L91)
 
 Set emit location of emitter
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | [`EmitLocation`](../enums/EmitLocation.md) |
+###### v
 
-#### Returns
+[`EmitLocation`](../enumerations/EmitLocation.md)
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[packages/particle/module/stand/ParticleEmitterModule.ts:91](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L91)
-
-___
+***
 
 ### angle
 
-• `get` **angle**(): `number`
+#### Get Signature
+
+> **get** **angle**(): `number`
+
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:116](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L116)
 
 Get particle emitter angle
 
-#### Returns
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[packages/particle/module/stand/ParticleEmitterModule.ts:116](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L116)
+> **set** **angle**(`v`): `void`
 
-• `set` **angle**(`v`): `void`
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:109](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L109)
 
 Set particle emitter angle
 When shapeType is cone, this value is the size of the cylindrical opening
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `number` |
+###### v
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[packages/particle/module/stand/ParticleEmitterModule.ts:109](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L109)
-
-___
+***
 
 ### radius
 
-• `get` **radius**(): `number`
+#### Get Signature
+
+> **get** **radius**(): `number`
+
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:133](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L133)
 
 Get particle emitter radus
 
-#### Returns
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[packages/particle/module/stand/ParticleEmitterModule.ts:133](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L133)
+> **set** **radius**(`v`): `void`
 
-• `set` **radius**(`v`): `void`
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:125](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L125)
 
 Set particle emitter radus
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `number` |
+###### v
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[packages/particle/module/stand/ParticleEmitterModule.ts:125](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L125)
-
-___
+***
 
 ### boxSize
 
-• `get` **boxSize**(): `Vector3`
+#### Get Signature
+
+> **get** **boxSize**(): `Vector3`
+
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:150](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L150)
 
 Get box size
 
-#### Returns
+##### Returns
 
 `Vector3`
 
-#### Defined in
+#### Set Signature
 
-[packages/particle/module/stand/ParticleEmitterModule.ts:150](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L150)
+> **set** **boxSize**(`v`): `void`
 
-• `set` **boxSize**(`v`): `void`
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:142](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L142)
 
 Set box size, only when the shape is box
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `Vector3` |
+###### v
 
-#### Returns
+`Vector3`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[packages/particle/module/stand/ParticleEmitterModule.ts:142](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L142)
-
-___
+***
 
 ### randSeed
 
-• `get` **randSeed**(): `number`
+#### Get Signature
+
+> **get** **randSeed**(): `number`
+
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:167](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L167)
 
 Get random seed
 
-#### Returns
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[packages/particle/module/stand/ParticleEmitterModule.ts:167](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L167)
+> **set** **randSeed**(`v`): `void`
 
-• `set` **randSeed**(`v`): `void`
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:159](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L159)
 
 Set random seed
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `number` |
+###### v
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[packages/particle/module/stand/ParticleEmitterModule.ts:159](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L159)
-
-___
+***
 
 ### maxParticle
 
-• `get` **maxParticle**(): `number`
+#### Get Signature
+
+> **get** **maxParticle**(): `number`
+
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:187](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L187)
 
 Get max number of quad in this particle
 
-#### Returns
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[packages/particle/module/stand/ParticleEmitterModule.ts:187](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L187)
+> **set** **maxParticle**(`value`): `void`
 
-• `set` **maxParticle**(`value`): `void`
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:176](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L176)
 
 Set max number of quad in this particle
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[packages/particle/module/stand/ParticleEmitterModule.ts:176](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L176)
-
-___
+***
 
 ### emissionRate
 
-• `get` **emissionRate**(): `number`
+#### Get Signature
+
+> **get** **emissionRate**(): `number`
+
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:204](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L204)
 
 Get emit rate.
 
-#### Returns
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[packages/particle/module/stand/ParticleEmitterModule.ts:204](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L204)
+> **set** **emissionRate**(`v`): `void`
 
-• `set` **emissionRate**(`v`): `void`
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:196](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L196)
 
 Set emit rate. How many quad are allowed to be emitted per second
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `number` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/particle/module/stand/ParticleEmitterModule.ts:196](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L196)
-
-___
-
-### duration
-
-• `get` **duration**(): `number`
-
-Get duration of emitted particles
-
-#### Returns
+###### v
 
 `number`
 
-#### Defined in
+##### Returns
 
-[packages/particle/module/stand/ParticleEmitterModule.ts:221](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L221)
+`void`
 
-• `set` **duration**(`v`): `void`
+***
+
+### duration
+
+#### Get Signature
+
+> **get** **duration**(): `number`
+
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:221](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L221)
+
+Get duration of emitted particles
+
+##### Returns
+
+`number`
+
+#### Set Signature
+
+> **set** **duration**(`v`): `void`
+
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:213](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L213)
 
 Set duration of emitted particles
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `number` |
+###### v
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[packages/particle/module/stand/ParticleEmitterModule.ts:213](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L213)
-
-___
+***
 
 ### startLifecycle
 
-• `get` **startLifecycle**(): `MinMaxCurve`
+#### Get Signature
+
+> **get** **startLifecycle**(): `MinMaxCurve`
+
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:238](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L238)
 
 Get life cycle of each quad
 
-#### Returns
+##### Returns
 
 `MinMaxCurve`
 
-#### Defined in
+#### Set Signature
 
-[packages/particle/module/stand/ParticleEmitterModule.ts:238](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L238)
+> **set** **startLifecycle**(`v`): `void`
 
-• `set` **startLifecycle**(`v`): `void`
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:230](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L230)
 
 Set life cycle of each quad
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `MinMaxCurve` |
+###### v
 
-#### Returns
+`MinMaxCurve`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[packages/particle/module/stand/ParticleEmitterModule.ts:230](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L230)
-
-___
+***
 
 ### startVelocityX
 
-• `get` **startVelocityX**(): `MinMaxCurve`
+#### Get Signature
+
+> **get** **startVelocityX**(): `MinMaxCurve`
+
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:255](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L255)
 
 Get velocity speed of X-axis component
 
-#### Returns
+##### Returns
 
 `MinMaxCurve`
 
-#### Defined in
+#### Set Signature
 
-[packages/particle/module/stand/ParticleEmitterModule.ts:255](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L255)
+> **set** **startVelocityX**(`value`): `void`
 
-• `set` **startVelocityX**(`value`): `void`
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:247](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L247)
 
 Set velocity speed of X-axis component
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `MinMaxCurve` |
+###### value
 
-#### Returns
+`MinMaxCurve`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[packages/particle/module/stand/ParticleEmitterModule.ts:247](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L247)
-
-___
+***
 
 ### startVelocityY
 
-• `get` **startVelocityY**(): `MinMaxCurve`
+#### Get Signature
+
+> **get** **startVelocityY**(): `MinMaxCurve`
+
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:270](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L270)
 
 Get velocity speed of Y-axis component
 
-#### Returns
+##### Returns
 
 `MinMaxCurve`
 
-#### Defined in
+#### Set Signature
 
-[packages/particle/module/stand/ParticleEmitterModule.ts:270](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L270)
+> **set** **startVelocityY**(`value`): `void`
 
-• `set` **startVelocityY**(`value`): `void`
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:262](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L262)
 
 Set velocity speed of Y-axis component
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `MinMaxCurve` |
+###### value
 
-#### Returns
+`MinMaxCurve`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[packages/particle/module/stand/ParticleEmitterModule.ts:262](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L262)
-
-___
+***
 
 ### startVelocityZ
 
-• `get` **startVelocityZ**(): `MinMaxCurve`
+#### Get Signature
+
+> **get** **startVelocityZ**(): `MinMaxCurve`
+
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:285](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L285)
 
 Get velocity speed of Z-axis component
 
-#### Returns
+##### Returns
 
 `MinMaxCurve`
 
-#### Defined in
+#### Set Signature
 
-[packages/particle/module/stand/ParticleEmitterModule.ts:285](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L285)
+> **set** **startVelocityZ**(`value`): `void`
 
-• `set` **startVelocityZ**(`value`): `void`
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:277](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L277)
 
 Set velocity speed of Z-axis component
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `MinMaxCurve` |
+###### value
 
-#### Returns
+`MinMaxCurve`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[packages/particle/module/stand/ParticleEmitterModule.ts:277](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L277)
-
-___
+***
 
 ### startScale
 
-• `get` **startScale**(): `MinMaxCurve`
+#### Get Signature
+
+> **get** **startScale**(): `MinMaxCurve`
+
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:302](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L302)
 
 Get init scale of each quad
 
-#### Returns
+##### Returns
 
 `MinMaxCurve`
 
-#### Defined in
+#### Set Signature
 
-[packages/particle/module/stand/ParticleEmitterModule.ts:302](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L302)
+> **set** **startScale**(`v`): `void`
 
-• `set` **startScale**(`v`): `void`
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:294](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L294)
 
 Set init scale of each quad
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `MinMaxCurve` |
+###### v
 
-#### Returns
+`MinMaxCurve`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[packages/particle/module/stand/ParticleEmitterModule.ts:294](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L294)
-
-___
+***
 
 ### startScaleX
 
-• `get` **startScaleX**(): `MinMaxCurve`
+#### Get Signature
+
+> **get** **startScaleX**(): `MinMaxCurve`
+
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:317](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L317)
 
 Get the scaling value of each quad on the x-axis
 
-#### Returns
+##### Returns
 
 `MinMaxCurve`
 
-#### Defined in
+#### Set Signature
 
-[packages/particle/module/stand/ParticleEmitterModule.ts:317](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L317)
+> **set** **startScaleX**(`v`): `void`
 
-• `set` **startScaleX**(`v`): `void`
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:309](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L309)
 
 Set the scaling value of each quad on the x-axis
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `MinMaxCurve` |
+###### v
 
-#### Returns
+`MinMaxCurve`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[packages/particle/module/stand/ParticleEmitterModule.ts:309](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L309)
-
-___
+***
 
 ### startScaleY
 
-• `get` **startScaleY**(): `MinMaxCurve`
+#### Get Signature
+
+> **get** **startScaleY**(): `MinMaxCurve`
+
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:332](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L332)
 
 Get the scaling value of each quad on the y-axis
 
-#### Returns
+##### Returns
 
 `MinMaxCurve`
 
-#### Defined in
+#### Set Signature
 
-[packages/particle/module/stand/ParticleEmitterModule.ts:332](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L332)
+> **set** **startScaleY**(`v`): `void`
 
-• `set` **startScaleY**(`v`): `void`
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:324](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L324)
 
 Set the scaling value of each quad on the y-axis
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `MinMaxCurve` |
+###### v
 
-#### Returns
+`MinMaxCurve`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[packages/particle/module/stand/ParticleEmitterModule.ts:324](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L324)
-
-___
+***
 
 ### startScaleZ
 
-• `get` **startScaleZ**(): `MinMaxCurve`
+#### Get Signature
+
+> **get** **startScaleZ**(): `MinMaxCurve`
+
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:347](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L347)
 
 Get the scaling value of each quad on the z-axis
 
-#### Returns
+##### Returns
 
 `MinMaxCurve`
 
-#### Defined in
+#### Set Signature
 
-[packages/particle/module/stand/ParticleEmitterModule.ts:347](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L347)
+> **set** **startScaleZ**(`v`): `void`
 
-• `set` **startScaleZ**(`v`): `void`
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:339](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L339)
 
 Set the scaling value of each quad on the z-axis
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `MinMaxCurve` |
+###### v
 
-#### Returns
+`MinMaxCurve`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[packages/particle/module/stand/ParticleEmitterModule.ts:339](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L339)
-
-___
+***
 
 ### startRotation
 
-• `get` **startRotation**(): `MinMaxCurve`
+#### Get Signature
+
+> **get** **startRotation**(): `MinMaxCurve`
+
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:372](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L372)
 
 Get init rotation of each quad
 
-#### Returns
+##### Returns
 
 `MinMaxCurve`
 
-#### Defined in
+#### Set Signature
 
-[packages/particle/module/stand/ParticleEmitterModule.ts:372](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L372)
+> **set** **startRotation**(`v`): `void`
 
-• `set` **startRotation**(`v`): `void`
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:364](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L364)
 
 Set init rotation of each quad
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `MinMaxCurve` |
+###### v
 
-#### Returns
+`MinMaxCurve`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[packages/particle/module/stand/ParticleEmitterModule.ts:364](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L364)
-
-___
+***
 
 ### startRotationX
 
-• `get` **startRotationX**(): `MinMaxCurve`
+#### Get Signature
+
+> **get** **startRotationX**(): `MinMaxCurve`
+
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:387](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L387)
 
 Get the rotation of each quad on the x-axis
 
-#### Returns
+##### Returns
 
 `MinMaxCurve`
 
-#### Defined in
+#### Set Signature
 
-[packages/particle/module/stand/ParticleEmitterModule.ts:387](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L387)
+> **set** **startRotationX**(`v`): `void`
 
-• `set` **startRotationX**(`v`): `void`
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:379](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L379)
 
 Set the rotation of each quad on the x-axis
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `MinMaxCurve` |
+###### v
 
-#### Returns
+`MinMaxCurve`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[packages/particle/module/stand/ParticleEmitterModule.ts:379](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L379)
-
-___
+***
 
 ### startRotationY
 
-• `get` **startRotationY**(): `MinMaxCurve`
+#### Get Signature
+
+> **get** **startRotationY**(): `MinMaxCurve`
+
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:402](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L402)
 
 Get the rotation of each quad on the y-axis
 
-#### Returns
+##### Returns
 
 `MinMaxCurve`
 
-#### Defined in
+#### Set Signature
 
-[packages/particle/module/stand/ParticleEmitterModule.ts:402](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L402)
+> **set** **startRotationY**(`v`): `void`
 
-• `set` **startRotationY**(`v`): `void`
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:394](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L394)
 
 Set the rotation of each quad on the y-axis
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `MinMaxCurve` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/particle/module/stand/ParticleEmitterModule.ts:394](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L394)
-
-___
-
-### startRotationZ
-
-• `get` **startRotationZ**(): `MinMaxCurve`
-
-Get the rotation of each quad on the z-axis
-
-#### Returns
+###### v
 
 `MinMaxCurve`
 
-#### Defined in
+##### Returns
 
-[packages/particle/module/stand/ParticleEmitterModule.ts:417](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L417)
+`void`
 
-• `set` **startRotationZ**(`v`): `void`
+***
+
+### startRotationZ
+
+#### Get Signature
+
+> **get** **startRotationZ**(): `MinMaxCurve`
+
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:417](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L417)
+
+Get the rotation of each quad on the z-axis
+
+##### Returns
+
+`MinMaxCurve`
+
+#### Set Signature
+
+> **set** **startRotationZ**(`v`): `void`
+
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:409](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L409)
 
 Set the rotation of each quad on the z-axis
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `MinMaxCurve` |
+###### v
 
-#### Returns
+`MinMaxCurve`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[packages/particle/module/stand/ParticleEmitterModule.ts:409](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L409)
-
-___
+***
 
 ### needReset
 
-• `get` **needReset**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **needReset**(): `boolean`
+
+Defined in: [packages/particle/module/stand/ParticleModuleBase.ts:21](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleModuleBase.ts#L21)
+
+##### Returns
 
 `boolean`
 
-#### Inherited from
+#### Set Signature
 
-ParticleModuleBase.needReset
+> **set** **needReset**(`v`): `void`
 
-#### Defined in
+Defined in: [packages/particle/module/stand/ParticleModuleBase.ts:17](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleModuleBase.ts#L17)
 
-[packages/particle/module/stand/ParticleModuleBase.ts:21](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleModuleBase.ts#L21)
+##### Parameters
 
-• `set` **needReset**(`v`): `void`
+###### v
 
-#### Parameters
+`boolean`
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `boolean` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-ParticleModuleBase.needReset
-
-#### Defined in
-
-[packages/particle/module/stand/ParticleModuleBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleModuleBase.ts#L17)
+[`ParticleTextureSheetModule`](ParticleTextureSheetModule.md).[`needReset`](ParticleTextureSheetModule.md#needreset)
 
 ## Methods
 
-### isUseStartScaleXYZ
+### isUseStartScaleXYZ()
 
-▸ **isUseStartScaleXYZ**(): `boolean`
+> **isUseStartScaleXYZ**(): `boolean`
+
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:357](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L357)
 
 Is the scaling of quads different on each axis
 
@@ -824,15 +785,13 @@ Is the scaling of quads different on each axis
 
 `boolean`
 
-#### Defined in
+***
 
-[packages/particle/module/stand/ParticleEmitterModule.ts:357](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L357)
+### isUseStartRotationXYZ()
 
-___
+> **isUseStartRotationXYZ**(): `boolean`
 
-### isUseStartRotationXYZ
-
-▸ **isUseStartRotationXYZ**(): `boolean`
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:426](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L426)
 
 Is the rotation of quads different on each axis
 
@@ -840,24 +799,25 @@ Is the rotation of quads different on each axis
 
 `boolean`
 
-#### Defined in
+***
 
-[packages/particle/module/stand/ParticleEmitterModule.ts:426](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L426)
+### generateParticleModuleData()
 
-___
+> **generateParticleModuleData**(`globalMemory`, `localMemory`): `void`
 
-### generateParticleModuleData
-
-▸ **generateParticleModuleData**(`globalMemory`, `localMemory`): `void`
+Defined in: [packages/particle/module/stand/ParticleEmitterModule.ts:443](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L443)
 
 Genarate particle emit module
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `globalMemory` | `ParticleGlobalMemory` |
-| `localMemory` | `ParticleLocalMemory` |
+##### globalMemory
+
+`ParticleGlobalMemory`
+
+##### localMemory
+
+`ParticleLocalMemory`
 
 #### Returns
 
@@ -865,23 +825,21 @@ Genarate particle emit module
 
 #### Overrides
 
-ParticleModuleBase.generateParticleModuleData
+`ParticleModuleBase.generateParticleModuleData`
 
-#### Defined in
+***
 
-[packages/particle/module/stand/ParticleEmitterModule.ts:443](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleEmitterModule.ts#L443)
+### setSimulator()
 
-___
+> **setSimulator**(`simulator`): `void`
 
-### setSimulator
-
-▸ **setSimulator**(`simulator`): `void`
+Defined in: [packages/particle/module/stand/ParticleModuleBase.ts:25](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleModuleBase.ts#L25)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `simulator` | `ParticleSimulator` |
+##### simulator
+
+`ParticleSimulator`
 
 #### Returns
 
@@ -889,24 +847,25 @@ ___
 
 #### Inherited from
 
-ParticleModuleBase.setSimulator
+`ParticleModuleBase.setSimulator`
 
-#### Defined in
+***
 
-[packages/particle/module/stand/ParticleModuleBase.ts:25](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleModuleBase.ts#L25)
+### calculateParticle()
 
-___
+> **calculateParticle**(`globalMemory`, `localMemory`): `void`
 
-### calculateParticle
-
-▸ **calculateParticle**(`globalMemory`, `localMemory`): `void`
+Defined in: [packages/particle/module/stand/ParticleModuleBase.ts:29](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleModuleBase.ts#L29)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `globalMemory` | `ParticleGlobalMemory` |
-| `localMemory` | `ParticleLocalMemory` |
+##### globalMemory
+
+`ParticleGlobalMemory`
+
+##### localMemory
+
+`ParticleLocalMemory`
 
 #### Returns
 
@@ -914,8 +873,4 @@ ___
 
 #### Inherited from
 
-ParticleModuleBase.calculateParticle
-
-#### Defined in
-
-[packages/particle/module/stand/ParticleModuleBase.ts:29](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleModuleBase.ts#L29)
+`ParticleModuleBase.calculateParticle`

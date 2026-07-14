@@ -1,982 +1,872 @@
+[**@orillusion/graphic**](../README.md)
+
+***
+
 # Class: Path2DShape3D
+
+Defined in: [packages/graphic/renderer/shape3d/Path2DShape3D.ts:14](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Path2DShape3D.ts#L14)
 
 Define class for drawing path on the xz plane
 He implemented the interface CanvasPath
 
-**`Export`**
+## Export
 
-**`Implements`**
+Path2DShape3D
 
-## Hierarchy
+## Implements
+
+## Extends
 
 - [`LineShape3D`](LineShape3D.md)
-
-  ↳ **`Path2DShape3D`**
 
 ## Implements
 
 - `CanvasPath`
 
-### Constructors
-
-- [constructor](Path2DShape3D.md#constructor)
-
-### Properties
-
-- [shapeType](Path2DShape3D.md#shapetype)
-- [shapeIndex](Path2DShape3D.md#shapeindex)
-- [computeEveryFrame](Path2DShape3D.md#computeeveryframe)
-
-### Accessors
-
-- [corner](Path2DShape3D.md#corner)
-- [lineJoin](Path2DShape3D.md#linejoin)
-- [isClosed](Path2DShape3D.md#isclosed)
-- [isChange](Path2DShape3D.md#ischange)
-- [lineColor](Path2DShape3D.md#linecolor)
-- [fillColor](Path2DShape3D.md#fillcolor)
-- [lineTextureID](Path2DShape3D.md#linetextureid)
-- [fillTextureID](Path2DShape3D.md#filltextureid)
-- [fillRotation](Path2DShape3D.md#fillrotation)
-- [shapeOrder](Path2DShape3D.md#shapeorder)
-- [srcPointStart](Path2DShape3D.md#srcpointstart)
-- [srcPointCount](Path2DShape3D.md#srcpointcount)
-- [srcIndexStart](Path2DShape3D.md#srcindexstart)
-- [srcIndexCount](Path2DShape3D.md#srcindexcount)
-- [destPointStart](Path2DShape3D.md#destpointstart)
-- [destPointCount](Path2DShape3D.md#destpointcount)
-- [points3D](Path2DShape3D.md#points3d)
-- [fill](Path2DShape3D.md#fill)
-- [line](Path2DShape3D.md#line)
-- [lineWidth](Path2DShape3D.md#linewidth)
-- [lineUVRect](Path2DShape3D.md#lineuvrect)
-- [fillUVRect](Path2DShape3D.md#filluvrect)
-- [uvSpeed](Path2DShape3D.md#uvspeed)
-
-### Methods
-
-- [sampleQuadraticCurve](Path2DShape3D.md#samplequadraticcurve)
-- [sampleCurve](Path2DShape3D.md#samplecurve)
-- [reset](Path2DShape3D.md#reset)
-- [calcRequireSource](Path2DShape3D.md#calcrequiresource)
-- [arc](Path2DShape3D.md#arc)
-- [arcTo](Path2DShape3D.md#arcto)
-- [bezierCurveTo](Path2DShape3D.md#beziercurveto)
-- [closePath](Path2DShape3D.md#closepath)
-- [ellipse](Path2DShape3D.md#ellipse)
-- [moveTo](Path2DShape3D.md#moveto)
-- [quadraticCurveTo](Path2DShape3D.md#quadraticcurveto)
-- [rect](Path2DShape3D.md#rect)
-- [roundRect](Path2DShape3D.md#roundrect)
-- [lineTo](Path2DShape3D.md#lineto)
-- [writeData](Path2DShape3D.md#writedata)
-- [clean](Path2DShape3D.md#clean)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new Path2DShape3D**(`structs`, `sharedPoints`, `sharedIndecies`, `matrixIndex`): [`Path2DShape3D`](Path2DShape3D.md)
+> **new Path2DShape3D**(`structs`, `sharedPoints`, `sharedIndecies`, `matrixIndex`): `Path2DShape3D`
+
+Defined in: [packages/graphic/renderer/shape3d/Path2DShape3D.ts:17](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Path2DShape3D.ts#L17)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `structs` | [`Shape3DStruct`](Shape3DStruct.md) |
-| `sharedPoints` | `Float32Array` |
-| `sharedIndecies` | `Uint32Array` |
-| `matrixIndex` | `number` |
+##### structs
+
+[`Shape3DStruct`](Shape3DStruct.md)
+
+##### sharedPoints
+
+`Float32Array`
+
+##### sharedIndecies
+
+`Uint32Array`
+
+##### matrixIndex
+
+`number`
 
 #### Returns
 
-[`Path2DShape3D`](Path2DShape3D.md)
+`Path2DShape3D`
 
 #### Overrides
 
-[LineShape3D](LineShape3D.md).[constructor](LineShape3D.md#constructor)
-
-#### Defined in
-
-[packages/graphic/renderer/shape3d/Path2DShape3D.ts:17](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Path2DShape3D.ts#L17)
+[`LineShape3D`](LineShape3D.md).[`constructor`](LineShape3D.md#constructor)
 
 ## Properties
 
 ### shapeType
 
-• `Readonly` **shapeType**: `number`
+> `readonly` **shapeType**: `number`
+
+Defined in: [packages/graphic/renderer/shape3d/LineShape3D.ts:18](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/LineShape3D.ts#L18)
 
 #### Inherited from
 
-[LineShape3D](LineShape3D.md).[shapeType](LineShape3D.md#shapetype)
+[`LineShape3D`](LineShape3D.md).[`shapeType`](LineShape3D.md#shapetype)
 
-#### Defined in
-
-[packages/graphic/renderer/shape3d/LineShape3D.ts:18](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/LineShape3D.ts#L18)
-
-___
+***
 
 ### shapeIndex
 
-• `Readonly` **shapeIndex**: `number` = `0`
+> `readonly` **shapeIndex**: `number` = `0`
+
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:109](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L109)
 
 #### Inherited from
 
-[LineShape3D](LineShape3D.md).[shapeIndex](LineShape3D.md#shapeindex)
+[`LineShape3D`](LineShape3D.md).[`shapeIndex`](LineShape3D.md#shapeindex)
 
-#### Defined in
+***
 
-[packages/graphic/renderer/shape3d/Shape3D.ts:109](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L109)
+### computeEveryFrame?
 
-___
+> `readonly` `optional` **computeEveryFrame?**: `boolean`
 
-### computeEveryFrame
-
-• `Optional` `Readonly` **computeEveryFrame**: `boolean`
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:111](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L111)
 
 #### Inherited from
 
-[LineShape3D](LineShape3D.md).[computeEveryFrame](LineShape3D.md#computeeveryframe)
-
-#### Defined in
-
-[packages/graphic/renderer/shape3d/Shape3D.ts:111](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L111)
+[`LineShape3D`](LineShape3D.md).[`computeEveryFrame`](LineShape3D.md#computeeveryframe)
 
 ## Accessors
 
 ### corner
 
-• `get` **corner**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **corner**(): `number`
+
+Defined in: [packages/graphic/renderer/shape3d/LineShape3D.ts:20](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/LineShape3D.ts#L20)
+
+##### Returns
 
 `number`
 
-#### Inherited from
+#### Set Signature
 
-LineShape3D.corner
+> **set** **corner**(`value`): `void`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/shape3d/LineShape3D.ts:23](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/LineShape3D.ts#L23)
 
-[packages/graphic/renderer/shape3d/LineShape3D.ts:20](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/LineShape3D.ts#L20)
+##### Parameters
 
-• `set` **corner**(`value`): `void`
+###### value
 
-#### Parameters
+`number`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-LineShape3D.corner
+[`LineShape3D`](LineShape3D.md).[`corner`](LineShape3D.md#corner)
 
-#### Defined in
-
-[packages/graphic/renderer/shape3d/LineShape3D.ts:23](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/LineShape3D.ts#L23)
-
-___
+***
 
 ### lineJoin
 
-• `get` **lineJoin**(): [`LineJoin`](../enums/LineJoin.md)
+#### Get Signature
 
-#### Returns
+> **get** **lineJoin**(): [`LineJoin`](../enumerations/LineJoin.md)
 
-[`LineJoin`](../enums/LineJoin.md)
+Defined in: [packages/graphic/renderer/shape3d/LineShape3D.ts:30](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/LineShape3D.ts#L30)
 
-#### Inherited from
+##### Returns
 
-LineShape3D.lineJoin
+[`LineJoin`](../enumerations/LineJoin.md)
 
-#### Defined in
+#### Set Signature
 
-[packages/graphic/renderer/shape3d/LineShape3D.ts:30](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/LineShape3D.ts#L30)
+> **set** **lineJoin**(`value`): `void`
 
-• `set` **lineJoin**(`value`): `void`
+Defined in: [packages/graphic/renderer/shape3d/LineShape3D.ts:33](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/LineShape3D.ts#L33)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`LineJoin`](../enums/LineJoin.md) |
+###### value
 
-#### Returns
+[`LineJoin`](../enumerations/LineJoin.md)
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-LineShape3D.lineJoin
+[`LineShape3D`](LineShape3D.md).[`lineJoin`](LineShape3D.md#linejoin)
 
-#### Defined in
-
-[packages/graphic/renderer/shape3d/LineShape3D.ts:33](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/LineShape3D.ts#L33)
-
-___
+***
 
 ### isClosed
 
-• `get` **isClosed**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **isClosed**(): `boolean`
+
+Defined in: [packages/graphic/renderer/shape3d/Path2DShape3D.ts:24](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Path2DShape3D.ts#L24)
+
+##### Returns
 
 `boolean`
 
-#### Overrides
+#### Set Signature
 
-LineShape3D.isClosed
+> **set** **isClosed**(`value`): `void`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/shape3d/Path2DShape3D.ts:27](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Path2DShape3D.ts#L27)
 
-[packages/graphic/renderer/shape3d/Path2DShape3D.ts:24](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Path2DShape3D.ts#L24)
+##### Parameters
 
-• `set` **isClosed**(`value`): `void`
+###### value
 
-#### Parameters
+`boolean`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Overrides
 
-LineShape3D.isClosed
+[`LineShape3D`](LineShape3D.md).[`isClosed`](LineShape3D.md#isclosed)
 
-#### Defined in
-
-[packages/graphic/renderer/shape3d/Path2DShape3D.ts:27](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Path2DShape3D.ts#L27)
-
-___
+***
 
 ### isChange
 
-• `get` **isChange**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **isChange**(): `boolean`
+
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:120](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L120)
+
+##### Returns
 
 `boolean`
 
 #### Inherited from
 
-LineShape3D.isChange
+[`LineShape3D`](LineShape3D.md).[`isChange`](LineShape3D.md#ischange)
 
-#### Defined in
-
-[packages/graphic/renderer/shape3d/Shape3D.ts:120](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L120)
-
-___
+***
 
 ### lineColor
 
-• `get` **lineColor**(): `Color`
+#### Get Signature
 
-#### Returns
+> **get** **lineColor**(): `Color`
+
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:135](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L135)
+
+##### Returns
 
 `Color`
 
-#### Inherited from
+#### Set Signature
 
-LineShape3D.lineColor
+> **set** **lineColor**(`value`): `void`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:130](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L130)
 
-[packages/graphic/renderer/shape3d/Shape3D.ts:135](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L135)
+##### Parameters
 
-• `set` **lineColor**(`value`): `void`
+###### value
 
-#### Parameters
+`Color`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `Color` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-LineShape3D.lineColor
+[`LineShape3D`](LineShape3D.md).[`lineColor`](LineShape3D.md#linecolor)
 
-#### Defined in
-
-[packages/graphic/renderer/shape3d/Shape3D.ts:130](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L130)
-
-___
+***
 
 ### fillColor
 
-• `get` **fillColor**(): `Color`
+#### Get Signature
 
-#### Returns
+> **get** **fillColor**(): `Color`
+
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:144](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L144)
+
+##### Returns
 
 `Color`
 
-#### Inherited from
+#### Set Signature
 
-LineShape3D.fillColor
+> **set** **fillColor**(`value`): `void`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:139](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L139)
 
-[packages/graphic/renderer/shape3d/Shape3D.ts:144](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L144)
+##### Parameters
 
-• `set` **fillColor**(`value`): `void`
+###### value
 
-#### Parameters
+`Color`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `Color` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-LineShape3D.fillColor
+[`LineShape3D`](LineShape3D.md).[`fillColor`](LineShape3D.md#fillcolor)
 
-#### Defined in
-
-[packages/graphic/renderer/shape3d/Shape3D.ts:139](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L139)
-
-___
+***
 
 ### lineTextureID
 
-• `get` **lineTextureID**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **lineTextureID**(): `number`
+
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:148](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L148)
+
+##### Returns
 
 `number`
 
-#### Inherited from
+#### Set Signature
 
-LineShape3D.lineTextureID
+> **set** **lineTextureID**(`value`): `void`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:151](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L151)
 
-[packages/graphic/renderer/shape3d/Shape3D.ts:148](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L148)
+##### Parameters
 
-• `set` **lineTextureID**(`value`): `void`
+###### value
 
-#### Parameters
+`number`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-LineShape3D.lineTextureID
+[`LineShape3D`](LineShape3D.md).[`lineTextureID`](LineShape3D.md#linetextureid)
 
-#### Defined in
-
-[packages/graphic/renderer/shape3d/Shape3D.ts:151](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L151)
-
-___
+***
 
 ### fillTextureID
 
-• `get` **fillTextureID**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **fillTextureID**(): `number`
+
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:157](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L157)
+
+##### Returns
 
 `number`
 
-#### Inherited from
+#### Set Signature
 
-LineShape3D.fillTextureID
+> **set** **fillTextureID**(`value`): `void`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:160](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L160)
 
-[packages/graphic/renderer/shape3d/Shape3D.ts:157](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L157)
+##### Parameters
 
-• `set` **fillTextureID**(`value`): `void`
+###### value
 
-#### Parameters
+`number`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-LineShape3D.fillTextureID
+[`LineShape3D`](LineShape3D.md).[`fillTextureID`](LineShape3D.md#filltextureid)
 
-#### Defined in
-
-[packages/graphic/renderer/shape3d/Shape3D.ts:160](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L160)
-
-___
+***
 
 ### fillRotation
 
-• `get` **fillRotation**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **fillRotation**(): `number`
+
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:167](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L167)
+
+##### Returns
 
 `number`
 
-#### Inherited from
+#### Set Signature
 
-LineShape3D.fillRotation
+> **set** **fillRotation**(`value`): `void`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:170](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L170)
 
-[packages/graphic/renderer/shape3d/Shape3D.ts:167](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L167)
+##### Parameters
 
-• `set` **fillRotation**(`value`): `void`
+###### value
 
-#### Parameters
+`number`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-LineShape3D.fillRotation
+[`LineShape3D`](LineShape3D.md).[`fillRotation`](LineShape3D.md#fillrotation)
 
-#### Defined in
-
-[packages/graphic/renderer/shape3d/Shape3D.ts:170](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L170)
-
-___
+***
 
 ### shapeOrder
 
-• `get` **shapeOrder**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **shapeOrder**(): `number`
+
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:177](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L177)
+
+##### Returns
 
 `number`
 
-#### Inherited from
+#### Set Signature
 
-LineShape3D.shapeOrder
+> **set** **shapeOrder**(`value`): `void`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:180](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L180)
 
-[packages/graphic/renderer/shape3d/Shape3D.ts:177](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L177)
+##### Parameters
 
-• `set` **shapeOrder**(`value`): `void`
+###### value
 
-#### Parameters
+`number`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-LineShape3D.shapeOrder
+[`LineShape3D`](LineShape3D.md).[`shapeOrder`](LineShape3D.md#shapeorder)
 
-#### Defined in
-
-[packages/graphic/renderer/shape3d/Shape3D.ts:180](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L180)
-
-___
+***
 
 ### srcPointStart
 
-• `get` **srcPointStart**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **srcPointStart**(): `number`
+
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:188](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L188)
+
+##### Returns
 
 `number`
 
-#### Inherited from
+#### Set Signature
 
-LineShape3D.srcPointStart
+> **set** **srcPointStart**(`value`): `void`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:191](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L191)
 
-[packages/graphic/renderer/shape3d/Shape3D.ts:188](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L188)
+##### Parameters
 
-• `set` **srcPointStart**(`value`): `void`
+###### value
 
-#### Parameters
+`number`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-LineShape3D.srcPointStart
+[`LineShape3D`](LineShape3D.md).[`srcPointStart`](LineShape3D.md#srcpointstart)
 
-#### Defined in
-
-[packages/graphic/renderer/shape3d/Shape3D.ts:191](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L191)
-
-___
+***
 
 ### srcPointCount
 
-• `get` **srcPointCount**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **srcPointCount**(): `number`
+
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:198](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L198)
+
+##### Returns
 
 `number`
 
 #### Inherited from
 
-LineShape3D.srcPointCount
+[`LineShape3D`](LineShape3D.md).[`srcPointCount`](LineShape3D.md#srcpointcount)
 
-#### Defined in
-
-[packages/graphic/renderer/shape3d/Shape3D.ts:198](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L198)
-
-___
+***
 
 ### srcIndexStart
 
-• `get` **srcIndexStart**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **srcIndexStart**(): `number`
+
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:202](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L202)
+
+##### Returns
 
 `number`
 
-#### Inherited from
+#### Set Signature
 
-LineShape3D.srcIndexStart
+> **set** **srcIndexStart**(`value`): `void`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:205](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L205)
 
-[packages/graphic/renderer/shape3d/Shape3D.ts:202](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L202)
+##### Parameters
 
-• `set` **srcIndexStart**(`value`): `void`
+###### value
 
-#### Parameters
+`number`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-LineShape3D.srcIndexStart
+[`LineShape3D`](LineShape3D.md).[`srcIndexStart`](LineShape3D.md#srcindexstart)
 
-#### Defined in
-
-[packages/graphic/renderer/shape3d/Shape3D.ts:205](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L205)
-
-___
+***
 
 ### srcIndexCount
 
-• `get` **srcIndexCount**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **srcIndexCount**(): `number`
+
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:212](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L212)
+
+##### Returns
 
 `number`
 
 #### Inherited from
 
-LineShape3D.srcIndexCount
+[`LineShape3D`](LineShape3D.md).[`srcIndexCount`](LineShape3D.md#srcindexcount)
 
-#### Defined in
-
-[packages/graphic/renderer/shape3d/Shape3D.ts:212](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L212)
-
-___
+***
 
 ### destPointStart
 
-• `get` **destPointStart**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **destPointStart**(): `number`
+
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:216](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L216)
+
+##### Returns
 
 `number`
 
-#### Inherited from
+#### Set Signature
 
-LineShape3D.destPointStart
+> **set** **destPointStart**(`value`): `void`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:219](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L219)
 
-[packages/graphic/renderer/shape3d/Shape3D.ts:216](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L216)
+##### Parameters
 
-• `set` **destPointStart**(`value`): `void`
+###### value
 
-#### Parameters
+`number`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-LineShape3D.destPointStart
+[`LineShape3D`](LineShape3D.md).[`destPointStart`](LineShape3D.md#destpointstart)
 
-#### Defined in
-
-[packages/graphic/renderer/shape3d/Shape3D.ts:219](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L219)
-
-___
+***
 
 ### destPointCount
 
-• `get` **destPointCount**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **destPointCount**(): `number`
+
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:225](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L225)
+
+##### Returns
 
 `number`
 
 #### Inherited from
 
-LineShape3D.destPointCount
+[`LineShape3D`](LineShape3D.md).[`destPointCount`](LineShape3D.md#destpointcount)
 
-#### Defined in
-
-[packages/graphic/renderer/shape3d/Shape3D.ts:225](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L225)
-
-___
+***
 
 ### points3D
 
-• `get` **points3D**(): [`Point3D`](Point3D.md)[]
+#### Get Signature
 
-#### Returns
+> **get** **points3D**(): [`Point3D`](Point3D.md)[]
+
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:229](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L229)
+
+##### Returns
 
 [`Point3D`](Point3D.md)[]
 
-#### Inherited from
+#### Set Signature
 
-LineShape3D.points3D
+> **set** **points3D**(`value`): `void`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:232](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L232)
 
-[packages/graphic/renderer/shape3d/Shape3D.ts:229](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L229)
+##### Parameters
 
-• `set` **points3D**(`value`): `void`
+###### value
 
-#### Parameters
+[`Point3D`](Point3D.md)[]
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`Point3D`](Point3D.md)[] |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-LineShape3D.points3D
+[`LineShape3D`](LineShape3D.md).[`points3D`](LineShape3D.md#points3d)
 
-#### Defined in
-
-[packages/graphic/renderer/shape3d/Shape3D.ts:232](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L232)
-
-___
+***
 
 ### fill
 
-• `get` **fill**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **fill**(): `boolean`
+
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:248](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L248)
+
+##### Returns
 
 `boolean`
 
-#### Inherited from
+#### Set Signature
 
-LineShape3D.fill
+> **set** **fill**(`value`): `void`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:251](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L251)
 
-[packages/graphic/renderer/shape3d/Shape3D.ts:248](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L248)
+##### Parameters
 
-• `set` **fill**(`value`): `void`
+###### value
 
-#### Parameters
+`boolean`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-LineShape3D.fill
+[`LineShape3D`](LineShape3D.md).[`fill`](LineShape3D.md#fill)
 
-#### Defined in
-
-[packages/graphic/renderer/shape3d/Shape3D.ts:251](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L251)
-
-___
+***
 
 ### line
 
-• `get` **line**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **line**(): `boolean`
+
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:257](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L257)
+
+##### Returns
 
 `boolean`
 
-#### Inherited from
+#### Set Signature
 
-LineShape3D.line
+> **set** **line**(`value`): `void`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:260](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L260)
 
-[packages/graphic/renderer/shape3d/Shape3D.ts:257](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L257)
+##### Parameters
 
-• `set` **line**(`value`): `void`
+###### value
 
-#### Parameters
+`boolean`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-LineShape3D.line
+[`LineShape3D`](LineShape3D.md).[`line`](LineShape3D.md#line)
 
-#### Defined in
-
-[packages/graphic/renderer/shape3d/Shape3D.ts:260](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L260)
-
-___
+***
 
 ### lineWidth
 
-• `get` **lineWidth**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **lineWidth**(): `number`
+
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:267](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L267)
+
+##### Returns
 
 `number`
 
-#### Inherited from
+#### Set Signature
 
-LineShape3D.lineWidth
+> **set** **lineWidth**(`value`): `void`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:271](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L271)
 
-[packages/graphic/renderer/shape3d/Shape3D.ts:267](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L267)
+##### Parameters
 
-• `set` **lineWidth**(`value`): `void`
+###### value
 
-#### Parameters
+`number`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-LineShape3D.lineWidth
+[`LineShape3D`](LineShape3D.md).[`lineWidth`](LineShape3D.md#linewidth)
 
-#### Defined in
-
-[packages/graphic/renderer/shape3d/Shape3D.ts:271](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L271)
-
-___
+***
 
 ### lineUVRect
 
-• `get` **lineUVRect**(): `Vector4`
+#### Get Signature
+
+> **get** **lineUVRect**(): `Vector4`
+
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:288](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L288)
 
 x: u offset of line.
 y: v offset of line.
 z: u scale of line.
 w: v scale of line.
 
-#### Returns
-
-`Vector4`
-
-**`Memberof`**
+##### Memberof
 
 Shape3D
 
-#### Inherited from
+##### Returns
 
-LineShape3D.lineUVRect
+`Vector4`
 
-#### Defined in
+#### Set Signature
 
-[packages/graphic/renderer/shape3d/Shape3D.ts:288](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L288)
+> **set** **lineUVRect**(`value`): `void`
 
-• `set` **lineUVRect**(`value`): `void`
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:291](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L291)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `Vector4` |
+###### value
 
-#### Returns
+`Vector4`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-LineShape3D.lineUVRect
+[`LineShape3D`](LineShape3D.md).[`lineUVRect`](LineShape3D.md#lineuvrect)
 
-#### Defined in
-
-[packages/graphic/renderer/shape3d/Shape3D.ts:291](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L291)
-
-___
+***
 
 ### fillUVRect
 
-• `get` **fillUVRect**(): `Vector4`
+#### Get Signature
+
+> **get** **fillUVRect**(): `Vector4`
+
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:305](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L305)
 
 x: u offset of filled area.
 y: v offset of filled area.
 z: u scale of filled area.
 w: v scale of filled area.
 
-#### Returns
-
-`Vector4`
-
-**`Memberof`**
+##### Memberof
 
 Shape3D
 
-#### Inherited from
+##### Returns
 
-LineShape3D.fillUVRect
+`Vector4`
 
-#### Defined in
+#### Set Signature
 
-[packages/graphic/renderer/shape3d/Shape3D.ts:305](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L305)
+> **set** **fillUVRect**(`value`): `void`
 
-• `set` **fillUVRect**(`value`): `void`
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:308](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L308)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `Vector4` |
+###### value
 
-#### Returns
+`Vector4`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-LineShape3D.fillUVRect
+[`LineShape3D`](LineShape3D.md).[`fillUVRect`](LineShape3D.md#filluvrect)
 
-#### Defined in
-
-[packages/graphic/renderer/shape3d/Shape3D.ts:308](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L308)
-
-___
+***
 
 ### uvSpeed
 
-• `get` **uvSpeed**(): `Vector4`
+#### Get Signature
+
+> **get** **uvSpeed**(): `Vector4`
+
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:322](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L322)
 
 x: u speed of filled area.
 y: v speed of filled area.
 z: u speed of line.
 w: v speed of line.
 
-#### Returns
-
-`Vector4`
-
-**`Memberof`**
+##### Memberof
 
 Shape3D
 
-#### Inherited from
+##### Returns
 
-LineShape3D.uvSpeed
+`Vector4`
 
-#### Defined in
+#### Set Signature
 
-[packages/graphic/renderer/shape3d/Shape3D.ts:322](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L322)
+> **set** **uvSpeed**(`value`): `void`
 
-• `set` **uvSpeed**(`value`): `void`
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:325](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L325)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `Vector4` |
+###### value
 
-#### Returns
+`Vector4`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-LineShape3D.uvSpeed
-
-#### Defined in
-
-[packages/graphic/renderer/shape3d/Shape3D.ts:325](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L325)
+[`LineShape3D`](LineShape3D.md).[`uvSpeed`](LineShape3D.md#uvspeed)
 
 ## Methods
 
-### sampleQuadraticCurve
+### sampleQuadraticCurve()
 
-▸ **sampleQuadraticCurve**(`start`, `cp`, `end`, `t`, `ret?`): `vec3`
+> **sampleQuadraticCurve**(`start`, `cp`, `end`, `t`, `ret?`): `vec3`
+
+Defined in: [packages/graphic/renderer/shape3d/LineShape3D.ts:56](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/LineShape3D.ts#L56)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `start` | `vec3` |
-| `cp` | `vec3` |
-| `end` | `vec3` |
-| `t` | `number` |
-| `ret?` | `vec3` |
+##### start
+
+`vec3`
+
+##### cp
+
+`vec3`
+
+##### end
+
+`vec3`
+
+##### t
+
+`number`
+
+##### ret?
+
+`vec3`
 
 #### Returns
 
@@ -984,28 +874,41 @@ LineShape3D.uvSpeed
 
 #### Inherited from
 
-[LineShape3D](LineShape3D.md).[sampleQuadraticCurve](LineShape3D.md#samplequadraticcurve)
+[`LineShape3D`](LineShape3D.md).[`sampleQuadraticCurve`](LineShape3D.md#samplequadraticcurve)
 
-#### Defined in
+***
 
-[packages/graphic/renderer/shape3d/LineShape3D.ts:56](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/LineShape3D.ts#L56)
+### sampleCurve()
 
-___
+> **sampleCurve**(`start`, `cp1`, `cp2`, `end`, `t`, `ret?`): `vec3`
 
-### sampleCurve
-
-▸ **sampleCurve**(`start`, `cp1`, `cp2`, `end`, `t`, `ret?`): `vec3`
+Defined in: [packages/graphic/renderer/shape3d/LineShape3D.ts:66](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/LineShape3D.ts#L66)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `start` | `vec3` |
-| `cp1` | `vec3` |
-| `cp2` | `vec3` |
-| `end` | `vec3` |
-| `t` | `number` |
-| `ret?` | `vec3` |
+##### start
+
+`vec3`
+
+##### cp1
+
+`vec3`
+
+##### cp2
+
+`vec3`
+
+##### end
+
+`vec3`
+
+##### t
+
+`number`
+
+##### ret?
+
+`vec3`
 
 #### Returns
 
@@ -1013,31 +916,27 @@ ___
 
 #### Inherited from
 
-[LineShape3D](LineShape3D.md).[sampleCurve](LineShape3D.md#samplecurve)
+[`LineShape3D`](LineShape3D.md).[`sampleCurve`](LineShape3D.md#samplecurve)
 
-#### Defined in
+***
 
-[packages/graphic/renderer/shape3d/LineShape3D.ts:66](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/LineShape3D.ts#L66)
+### reset()
 
-___
+> **reset**(): `void`
 
-### reset
-
-▸ **reset**(): `void`
+Defined in: [packages/graphic/renderer/shape3d/Path2DShape3D.ts:32](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Path2DShape3D.ts#L32)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[packages/graphic/renderer/shape3d/Path2DShape3D.ts:32](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Path2DShape3D.ts#L32)
+### calcRequireSource()
 
-___
+> **calcRequireSource**(): `void`
 
-### calcRequireSource
-
-▸ **calcRequireSource**(): `void`
+Defined in: [packages/graphic/renderer/shape3d/Path2DShape3D.ts:38](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Path2DShape3D.ts#L38)
 
 #### Returns
 
@@ -1045,58 +944,47 @@ ___
 
 #### Overrides
 
-[LineShape3D](LineShape3D.md).[calcRequireSource](LineShape3D.md#calcrequiresource)
+[`LineShape3D`](LineShape3D.md).[`calcRequireSource`](LineShape3D.md#calcrequiresource)
 
-#### Defined in
+***
 
-[packages/graphic/renderer/shape3d/Path2DShape3D.ts:38](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Path2DShape3D.ts#L38)
+### arc()
 
-___
+> **arc**(`x`, `y`, `radius`, `startAngle`, `endAngle`, `counterclockwise?`, `segment?`): `void`
 
-### arc
+Defined in: [packages/graphic/renderer/shape3d/Path2DShape3D.ts:43](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Path2DShape3D.ts#L43)
 
-▸ **arc**(`x`, `y`, `radius`, `startAngle`, `endAngle`, `counterclockwise?`, `segment?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `x` | `number` |
-| `y` | `number` |
-| `radius` | `number` |
-| `startAngle` | `number` |
-| `endAngle` | `number` |
-| `counterclockwise?` | `boolean` |
-| `segment?` | `number` |
-
-#### Returns
-
-`void`
-
-#### Implementation of
-
-CanvasPath.arc
-
-#### Defined in
-
-[packages/graphic/renderer/shape3d/Path2DShape3D.ts:43](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Path2DShape3D.ts#L43)
-
-___
-
-### arcTo
-
-▸ **arcTo**(`ctrlX`, `ctrlY`, `toX`, `toY`, `radius`, `segment?`): `void`
+[MDN Reference](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/arc)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `ctrlX` | `number` |
-| `ctrlY` | `number` |
-| `toX` | `number` |
-| `toY` | `number` |
-| `radius` | `number` |
-| `segment?` | `number` |
+##### x
+
+`number`
+
+##### y
+
+`number`
+
+##### radius
+
+`number`
+
+##### startAngle
+
+`number`
+
+##### endAngle
+
+`number`
+
+##### counterclockwise?
+
+`boolean`
+
+##### segment?
+
+`number`
 
 #### Returns
 
@@ -1104,29 +992,43 @@ ___
 
 #### Implementation of
 
-CanvasPath.arcTo
+`CanvasPath.arc`
 
-#### Defined in
+***
 
-[packages/graphic/renderer/shape3d/Path2DShape3D.ts:67](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Path2DShape3D.ts#L67)
+### arcTo()
 
-___
+> **arcTo**(`ctrlX`, `ctrlY`, `toX`, `toY`, `radius`, `segment?`): `void`
 
-### bezierCurveTo
+Defined in: [packages/graphic/renderer/shape3d/Path2DShape3D.ts:67](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Path2DShape3D.ts#L67)
 
-▸ **bezierCurveTo**(`cp1x`, `cp1y`, `cp2x`, `cp2y`, `x`, `y`, `segment?`): `void`
+[MDN Reference](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/arcTo)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `cp1x` | `number` |
-| `cp1y` | `number` |
-| `cp2x` | `number` |
-| `cp2y` | `number` |
-| `x` | `number` |
-| `y` | `number` |
-| `segment?` | `number` |
+##### ctrlX
+
+`number`
+
+##### ctrlY
+
+`number`
+
+##### toX
+
+`number`
+
+##### toY
+
+`number`
+
+##### radius
+
+`number`
+
+##### segment?
+
+`number`
 
 #### Returns
 
@@ -1134,49 +1036,47 @@ ___
 
 #### Implementation of
 
-CanvasPath.bezierCurveTo
+`CanvasPath.arcTo`
 
-#### Defined in
+***
 
-[packages/graphic/renderer/shape3d/Path2DShape3D.ts:101](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Path2DShape3D.ts#L101)
+### bezierCurveTo()
 
-___
+> **bezierCurveTo**(`cp1x`, `cp1y`, `cp2x`, `cp2y`, `x`, `y`, `segment?`): `void`
 
-### closePath
+Defined in: [packages/graphic/renderer/shape3d/Path2DShape3D.ts:101](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Path2DShape3D.ts#L101)
 
-▸ **closePath**(): `void`
-
-#### Returns
-
-`void`
-
-#### Implementation of
-
-CanvasPath.closePath
-
-#### Defined in
-
-[packages/graphic/renderer/shape3d/Path2DShape3D.ts:123](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Path2DShape3D.ts#L123)
-
-___
-
-### ellipse
-
-▸ **ellipse**(`x`, `y`, `radiusX`, `radiusY`, `rotation`, `startAngle`, `endAngle`, `counterclockwise?`, `segment?`): `void`
+[MDN Reference](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/bezierCurveTo)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `x` | `number` |
-| `y` | `number` |
-| `radiusX` | `number` |
-| `radiusY` | `number` |
-| `rotation` | `number` |
-| `startAngle` | `number` |
-| `endAngle` | `number` |
-| `counterclockwise?` | `boolean` |
-| `segment?` | `number` |
+##### cp1x
+
+`number`
+
+##### cp1y
+
+`number`
+
+##### cp2x
+
+`number`
+
+##### cp2y
+
+`number`
+
+##### x
+
+`number`
+
+##### y
+
+`number`
+
+##### segment?
+
+`number`
 
 #### Returns
 
@@ -1184,25 +1084,73 @@ ___
 
 #### Implementation of
 
-CanvasPath.ellipse
+`CanvasPath.bezierCurveTo`
 
-#### Defined in
+***
 
-[packages/graphic/renderer/shape3d/Path2DShape3D.ts:132](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Path2DShape3D.ts#L132)
+### closePath()
 
-___
+> **closePath**(): `void`
 
-### moveTo
+Defined in: [packages/graphic/renderer/shape3d/Path2DShape3D.ts:123](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Path2DShape3D.ts#L123)
 
-▸ **moveTo**(`x`, `y`, `h?`): `void`
+[MDN Reference](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/closePath)
+
+#### Returns
+
+`void`
+
+#### Implementation of
+
+`CanvasPath.closePath`
+
+***
+
+### ellipse()
+
+> **ellipse**(`x`, `y`, `radiusX`, `radiusY`, `rotation`, `startAngle`, `endAngle`, `counterclockwise?`, `segment?`): `void`
+
+Defined in: [packages/graphic/renderer/shape3d/Path2DShape3D.ts:132](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Path2DShape3D.ts#L132)
+
+[MDN Reference](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/ellipse)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `x` | `number` |
-| `y` | `number` |
-| `h?` | `number` |
+##### x
+
+`number`
+
+##### y
+
+`number`
+
+##### radiusX
+
+`number`
+
+##### radiusY
+
+`number`
+
+##### rotation
+
+`number`
+
+##### startAngle
+
+`number`
+
+##### endAngle
+
+`number`
+
+##### counterclockwise?
+
+`boolean`
+
+##### segment?
+
+`number`
 
 #### Returns
 
@@ -1210,27 +1158,31 @@ ___
 
 #### Implementation of
 
-CanvasPath.moveTo
+`CanvasPath.ellipse`
 
-#### Defined in
+***
 
-[packages/graphic/renderer/shape3d/Path2DShape3D.ts:168](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Path2DShape3D.ts#L168)
+### moveTo()
 
-___
+> **moveTo**(`x`, `y`, `h?`): `void`
 
-### quadraticCurveTo
+Defined in: [packages/graphic/renderer/shape3d/Path2DShape3D.ts:168](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Path2DShape3D.ts#L168)
 
-▸ **quadraticCurveTo**(`cpx`, `cpy`, `x`, `y`, `segment?`): `void`
+[MDN Reference](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/moveTo)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `cpx` | `number` |
-| `cpy` | `number` |
-| `x` | `number` |
-| `y` | `number` |
-| `segment?` | `number` |
+##### x
+
+`number`
+
+##### y
+
+`number`
+
+##### h?
+
+`number`
 
 #### Returns
 
@@ -1238,26 +1190,39 @@ ___
 
 #### Implementation of
 
-CanvasPath.quadraticCurveTo
+`CanvasPath.moveTo`
 
-#### Defined in
+***
 
-[packages/graphic/renderer/shape3d/Path2DShape3D.ts:174](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Path2DShape3D.ts#L174)
+### quadraticCurveTo()
 
-___
+> **quadraticCurveTo**(`cpx`, `cpy`, `x`, `y`, `segment?`): `void`
 
-### rect
+Defined in: [packages/graphic/renderer/shape3d/Path2DShape3D.ts:174](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Path2DShape3D.ts#L174)
 
-▸ **rect**(`x`, `y`, `w`, `h`): `void`
+[MDN Reference](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/quadraticCurveTo)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `x` | `number` |
-| `y` | `number` |
-| `w` | `number` |
-| `h` | `number` |
+##### cpx
+
+`number`
+
+##### cpy
+
+`number`
+
+##### x
+
+`number`
+
+##### y
+
+`number`
+
+##### segment?
+
+`number`
 
 #### Returns
 
@@ -1265,28 +1230,35 @@ ___
 
 #### Implementation of
 
-CanvasPath.rect
+`CanvasPath.quadraticCurveTo`
 
-#### Defined in
+***
 
-[packages/graphic/renderer/shape3d/Path2DShape3D.ts:196](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Path2DShape3D.ts#L196)
+### rect()
 
-___
+> **rect**(`x`, `y`, `w`, `h`): `void`
 
-### roundRect
+Defined in: [packages/graphic/renderer/shape3d/Path2DShape3D.ts:196](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Path2DShape3D.ts#L196)
 
-▸ **roundRect**(`x`, `y`, `w`, `h`, `radii?`, `segment?`): `void`
+[MDN Reference](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/rect)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `x` | `number` |
-| `y` | `number` |
-| `w` | `number` |
-| `h` | `number` |
-| `radii?` | `number` |
-| `segment?` | `number` |
+##### x
+
+`number`
+
+##### y
+
+`number`
+
+##### w
+
+`number`
+
+##### h
+
+`number`
 
 #### Returns
 
@@ -1294,24 +1266,43 @@ ___
 
 #### Implementation of
 
-CanvasPath.roundRect
+`CanvasPath.rect`
 
-#### Defined in
+***
 
-[packages/graphic/renderer/shape3d/Path2DShape3D.ts:205](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Path2DShape3D.ts#L205)
+### roundRect()
 
-___
+> **roundRect**(`x`, `y`, `w`, `h`, `radii?`, `segment?`): `void`
 
-### lineTo
+Defined in: [packages/graphic/renderer/shape3d/Path2DShape3D.ts:205](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Path2DShape3D.ts#L205)
 
-▸ **lineTo**(`x`, `y`): `void`
+[MDN Reference](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/roundRect)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `x` | `number` |
-| `y` | `number` |
+##### x
+
+`number`
+
+##### y
+
+`number`
+
+##### w
+
+`number`
+
+##### h
+
+`number`
+
+##### radii?
+
+`number`
+
+##### segment?
+
+`number`
 
 #### Returns
 
@@ -1319,17 +1310,43 @@ ___
 
 #### Implementation of
 
-CanvasPath.lineTo
+`CanvasPath.roundRect`
 
-#### Defined in
+***
 
-[packages/graphic/renderer/shape3d/Path2DShape3D.ts:249](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Path2DShape3D.ts#L249)
+### lineTo()
 
-___
+> **lineTo**(`x`, `y`): `void`
 
-### writeData
+Defined in: [packages/graphic/renderer/shape3d/Path2DShape3D.ts:249](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Path2DShape3D.ts#L249)
 
-▸ **writeData**(): `void`
+[MDN Reference](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/lineTo)
+
+#### Parameters
+
+##### x
+
+`number`
+
+##### y
+
+`number`
+
+#### Returns
+
+`void`
+
+#### Implementation of
+
+`CanvasPath.lineTo`
+
+***
+
+### writeData()
+
+> **writeData**(): `void`
+
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:124](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L124)
 
 #### Returns
 
@@ -1337,17 +1354,15 @@ ___
 
 #### Inherited from
 
-[LineShape3D](LineShape3D.md).[writeData](LineShape3D.md#writedata)
+[`LineShape3D`](LineShape3D.md).[`writeData`](LineShape3D.md#writedata)
 
-#### Defined in
+***
 
-[packages/graphic/renderer/shape3d/Shape3D.ts:124](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L124)
+### clean()
 
-___
+> **clean**(): `void`
 
-### clean
-
-▸ **clean**(): `void`
+Defined in: [packages/graphic/renderer/shape3d/Shape3D.ts:330](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L330)
 
 #### Returns
 
@@ -1355,8 +1370,4 @@ ___
 
 #### Inherited from
 
-[LineShape3D](LineShape3D.md).[clean](LineShape3D.md#clean)
-
-#### Defined in
-
-[packages/graphic/renderer/shape3d/Shape3D.ts:330](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/shape3d/Shape3D.ts#L330)
+[`LineShape3D`](LineShape3D.md).[`clean`](LineShape3D.md#clean)

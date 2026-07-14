@@ -1,41 +1,43 @@
+[**@orillusion/graphic**](../README.md)
+
+***
+
 # Class: Float32ArrayUtil
 
-### Constructors
-
-- [constructor](Float32ArrayUtil.md#constructor)
-
-### Methods
-
-- [wirteVec4](Float32ArrayUtil.md#wirtevec4)
+Defined in: [packages/graphic/renderer/graphic3d/Float32ArrayUtil.ts:3](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/Float32ArrayUtil.ts#L3)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new Float32ArrayUtil**(): [`Float32ArrayUtil`](Float32ArrayUtil.md)
+> **new Float32ArrayUtil**(): `Float32ArrayUtil`
 
 #### Returns
 
-[`Float32ArrayUtil`](Float32ArrayUtil.md)
+`Float32ArrayUtil`
 
 ## Methods
 
-### wirteVec4
+### wirteVec4()
 
-▸ **wirteVec4**(`array`, `index`, `value`): `void`
+> `static` **wirteVec4**(`array`, `index`, `value`): `void`
+
+Defined in: [packages/graphic/renderer/graphic3d/Float32ArrayUtil.ts:5](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/Float32ArrayUtil.ts#L5)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `array` | `Float32Array` |
-| `index` | `number` |
-| `value` | `Vector4` |
+##### array
+
+`Float32Array`
+
+##### index
+
+`number`
+
+##### value
+
+`Vector4`
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[packages/graphic/renderer/graphic3d/Float32ArrayUtil.ts:5](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/graphic3d/Float32ArrayUtil.ts#L5)

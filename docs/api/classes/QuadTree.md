@@ -1,123 +1,114 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: QuadTree
 
-### Constructors
+Defined in: [src/core/tree/quad/QuadTree.ts:11](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadTree.ts#L11)
 
-- [constructor](QuadTree.md#constructor)
-
-### Methods
-
-- [getQuadNode](QuadTree.md#getquadnode)
-- [clear](QuadTree.md#clear)
-- [initNodes](QuadTree.md#initnodes)
-- [buildQuadTree](QuadTree.md#buildquadtree)
-- [getNodesIntersectingtAABox](QuadTree.md#getnodesintersectingtaabox)
+2D spatial partitioning structure that recursively subdivides a region
+into four quadrant cells for fast spatial queries.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new QuadTree**(): [`QuadTree`](QuadTree.md)
+> **new QuadTree**(): `QuadTree`
+
+Defined in: [src/core/tree/quad/QuadTree.ts:25](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadTree.ts#L25)
 
 #### Returns
 
-[`QuadTree`](QuadTree.md)
-
-#### Defined in
-
-[src/core/tree/quad/QuadTree.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadTree.ts#L20)
+`QuadTree`
 
 ## Methods
 
-### getQuadNode
+### getQuadNode()
 
-▸ **getQuadNode**(`idx`): [`IQuadNode`](../interfaces/IQuadNode.md)
+> **getQuadNode**(`idx`): [`IQuadNode`](../interfaces/IQuadNode.md)
+
+Defined in: [src/core/tree/quad/QuadTree.ts:33](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadTree.ts#L33)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `idx` | `number` |
+##### idx
+
+`number`
 
 #### Returns
 
 [`IQuadNode`](../interfaces/IQuadNode.md)
 
-#### Defined in
+***
 
-[src/core/tree/quad/QuadTree.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadTree.ts#L28)
+### clear()
 
-___
+> **clear**(): `void`
 
-### clear
-
-▸ **clear**(): `void`
+Defined in: [src/core/tree/quad/QuadTree.ts:37](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadTree.ts#L37)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/core/tree/quad/QuadTree.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadTree.ts#L32)
+### initNodes()
 
-___
+> **initNodes**(`nodes`): `void`
 
-### initNodes
-
-▸ **initNodes**(`nodes`): `void`
+Defined in: [src/core/tree/quad/QuadTree.ts:42](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadTree.ts#L42)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `nodes` | [`IQuadNode`](../interfaces/IQuadNode.md)[] |
+##### nodes
+
+[`IQuadNode`](../interfaces/IQuadNode.md)[]
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/core/tree/quad/QuadTree.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadTree.ts#L37)
+### buildQuadTree()
 
-___
+> **buildQuadTree**(`maxNodesPerCell`, `minCellSize`): `void`
 
-### buildQuadTree
-
-▸ **buildQuadTree**(`maxNodesPerCell`, `minCellSize`): `void`
+Defined in: [src/core/tree/quad/QuadTree.ts:54](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadTree.ts#L54)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `maxNodesPerCell` | `number` |
-| `minCellSize` | `number` |
+##### maxNodesPerCell
+
+`number`
+
+##### minCellSize
+
+`number`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/core/tree/quad/QuadTree.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadTree.ts#L49)
+### getNodesIntersectingtAABox()
 
-___
+> **getNodesIntersectingtAABox**(`result`, `aabb`): `number`
 
-### getNodesIntersectingtAABox
-
-▸ **getNodesIntersectingtAABox**(`result`, `aabb`): `number`
+Defined in: [src/core/tree/quad/QuadTree.ts:181](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadTree.ts#L181)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `result` | `number`[] |
-| `aabb` | [`QuadAABB`](QuadAABB.md) |
+##### result
+
+`number`[]
+
+##### aabb
+
+[`QuadAABB`](QuadAABB.md)
 
 #### Returns
 
 `number`
-
-#### Defined in
-
-[src/core/tree/quad/QuadTree.ts:176](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadTree.ts#L176)

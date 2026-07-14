@@ -1,223 +1,273 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: Object3DUtil
 
-### Constructors
+Defined in: [src/util/Object3DUtil.ts:29](https://github.com/orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L29)
 
-- [constructor](Object3DUtil.md#constructor)
-
-### Accessors
-
-- [CubeMesh](Object3DUtil.md#cubemesh)
-- [SphereMesh](Object3DUtil.md#spheremesh)
-- [Sphere](Object3DUtil.md#sphere)
-
-### Methods
-
-- [GetCube](Object3DUtil.md#getcube)
-- [GetMaterial](Object3DUtil.md#getmaterial)
-- [GetPlane](Object3DUtil.md#getplane)
-- [GetSingleCube](Object3DUtil.md#getsinglecube)
-- [GetSingleSphere](Object3DUtil.md#getsinglesphere)
-- [GetSingleCube2](Object3DUtil.md#getsinglecube2)
-- [GetPointLight](Object3DUtil.md#getpointlight)
+Helper factory for quickly creating common debug/sample Object3D
+primitives (cubes, spheres, planes, point lights), backed by a
+per-Context3D cache of shared geometries and materials.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new Object3DUtil**(): [`Object3DUtil`](Object3DUtil.md)
+> **new Object3DUtil**(): `Object3DUtil`
 
 #### Returns
 
-[`Object3DUtil`](Object3DUtil.md)
+`Object3DUtil`
 
-## Accessors
+## Methods
 
-### CubeMesh
+### CubeMesh()
 
-• `get` **CubeMesh**(): [`BoxGeometry`](BoxGeometry.md)
+> `static` **CubeMesh**(`ctx`): [`BoxGeometry`](BoxGeometry.md)
+
+Defined in: [src/util/Object3DUtil.ts:49](https://github.com/orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L49)
+
+Shared unit box geometry for the given context.
+
+#### Parameters
+
+##### ctx
+
+[`Context3D`](Context3D.md)
 
 #### Returns
 
 [`BoxGeometry`](BoxGeometry.md)
 
-#### Defined in
+***
 
-[src/util/Object3DUtil.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L37)
+### SphereMesh()
 
-___
+> `static` **SphereMesh**(`ctx`): [`SphereGeometry`](SphereGeometry.md)
 
-### SphereMesh
+Defined in: [src/util/Object3DUtil.ts:54](https://github.com/orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L54)
 
-• `get` **SphereMesh**(): [`SphereGeometry`](SphereGeometry.md)
+Shared unit sphere geometry for the given context.
+
+#### Parameters
+
+##### ctx
+
+[`Context3D`](Context3D.md)
 
 #### Returns
 
 [`SphereGeometry`](SphereGeometry.md)
 
-#### Defined in
+***
 
-[src/util/Object3DUtil.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L42)
+### GetCube()
 
-___
+> `static` **GetCube**(`ctx`): [`Object3D`](Object3D.md)
 
-### Sphere
+Defined in: [src/util/Object3DUtil.ts:59](https://github.com/orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L59)
 
-• `get` **Sphere**(): [`Object3D`](Object3D.md)
-
-#### Returns
-
-[`Object3D`](Object3D.md)
-
-#### Defined in
-
-[src/util/Object3DUtil.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L111)
-
-## Methods
-
-### GetCube
-
-▸ **GetCube**(): [`Object3D`](Object3D.md)
-
-#### Returns
-
-[`Object3D`](Object3D.md)
-
-#### Defined in
-
-[src/util/Object3DUtil.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L47)
-
-___
-
-### GetMaterial
-
-▸ **GetMaterial**(`tex`): [`Material`](Material.md)
+Create a cube Object3D using the shared box geometry and a cloned default material.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `tex` | [`Texture`](Texture.md) |
+##### ctx
+
+[`Context3D`](Context3D.md)
+
+#### Returns
+
+[`Object3D`](Object3D.md)
+
+***
+
+### GetMaterial()
+
+> `static` **GetMaterial**(`ctx`, `tex`): [`Material`](Material.md)
+
+Defined in: [src/util/Object3DUtil.ts:70](https://github.com/orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L70)
+
+Get (and cache per texture) a clone of a LitMaterial whose base map is the given texture.
+
+#### Parameters
+
+##### ctx
+
+[`Context3D`](Context3D.md)
+
+##### tex
+
+[`Texture`](Texture.md)
 
 #### Returns
 
 [`Material`](Material.md)
 
-#### Defined in
+***
 
-[src/util/Object3DUtil.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L57)
+### GetPlane()
 
-___
+> `static` **GetPlane**(`ctx`, `tex`): [`Object3D`](Object3D.md)
 
-### GetPlane
+Defined in: [src/util/Object3DUtil.ts:82](https://github.com/orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L82)
 
-▸ **GetPlane**(`tex`): [`Object3D`](Object3D.md)
+Create a textured, additively-blended plane Object3D (no shadow/GI/reflection).
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `tex` | [`Texture`](Texture.md) |
+##### ctx
+
+[`Context3D`](Context3D.md)
+
+##### tex
+
+[`Texture`](Texture.md)
 
 #### Returns
 
 [`Object3D`](Object3D.md)
 
-#### Defined in
+***
 
-[src/util/Object3DUtil.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L67)
+### GetSingleCube()
 
-___
+> `static` **GetSingleCube**(`sizeX`, `sizeY`, `sizeZ`, `r`, `g`, `b`): [`Object3D`](Object3D.md)
 
-### GetSingleCube
+Defined in: [src/util/Object3DUtil.ts:97](https://github.com/orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L97)
 
-▸ **GetSingleCube**(`sizeX`, `sizeY`, `sizeZ`, `r`, `g`, `b`): [`Object3D`](Object3D.md)
+Create a standalone cube with its own box geometry and a colored LitMaterial.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `sizeX` | `number` |
-| `sizeY` | `number` |
-| `sizeZ` | `number` |
-| `r` | `number` |
-| `g` | `number` |
-| `b` | `number` |
+##### sizeX
+
+`number`
+
+##### sizeY
+
+`number`
+
+##### sizeZ
+
+`number`
+
+##### r
+
+`number`
+
+##### g
+
+`number`
+
+##### b
+
+`number`
 
 #### Returns
 
 [`Object3D`](Object3D.md)
 
-#### Defined in
+***
 
-[src/util/Object3DUtil.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L81)
+### GetSingleSphere()
 
-___
+> `static` **GetSingleSphere**(`radius`, `r`, `g`, `b`): [`Object3D`](Object3D.md)
 
-### GetSingleSphere
+Defined in: [src/util/Object3DUtil.ts:112](https://github.com/orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L112)
 
-▸ **GetSingleSphere**(`radius`, `r`, `g`, `b`): [`Object3D`](Object3D.md)
+Create a standalone sphere with its own geometry and a colored LitMaterial.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `radius` | `number` |
-| `r` | `number` |
-| `g` | `number` |
-| `b` | `number` |
+##### radius
+
+`number`
+
+##### r
+
+`number`
+
+##### g
+
+`number`
+
+##### b
+
+`number`
 
 #### Returns
 
 [`Object3D`](Object3D.md)
 
-#### Defined in
+***
 
-[src/util/Object3DUtil.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L97)
+### GetSingleCube2()
 
-___
+> `static` **GetSingleCube2**(`mat`, `size?`): [`Object3D`](Object3D.md)
 
-### GetSingleCube2
+Defined in: [src/util/Object3DUtil.ts:125](https://github.com/orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L125)
 
-▸ **GetSingleCube2**(`mat`, `size?`): [`Object3D`](Object3D.md)
+Create a standalone cube with the given material and uniform size (no shadow).
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `mat` | [`Material`](Material.md) | `undefined` |
-| `size` | `number` | `10` |
+##### mat
+
+[`Material`](Material.md)
+
+##### size?
+
+`number` = `10`
 
 #### Returns
 
 [`Object3D`](Object3D.md)
 
-#### Defined in
+***
 
-[src/util/Object3DUtil.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L121)
+### GetPointLight()
 
-___
+> `static` **GetPointLight**(`pos`, `rotation`, `radius`, `r`, `g`, `b`, `intensity?`, `castShadow?`): [`PointLight`](PointLight.md)
 
-### GetPointLight
+Defined in: [src/util/Object3DUtil.ts:135](https://github.com/orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L135)
 
-▸ **GetPointLight**(`pos`, `rotation`, `radius`, `r`, `g`, `b`, `intensity?`, `castShadow?`): [`PointLight`](PointLight.md)
+Create a point light Object3D with a small visualizer sphere child.
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `pos` | [`Vector3`](Vector3.md) | `undefined` |
-| `rotation` | [`Vector3`](Vector3.md) | `undefined` |
-| `radius` | `number` | `undefined` |
-| `r` | `number` | `undefined` |
-| `g` | `number` | `undefined` |
-| `b` | `number` | `undefined` |
-| `intensity` | `number` | `1` |
-| `castShadow` | `boolean` | `true` |
+##### pos
+
+[`Vector3`](Vector3.md)
+
+##### rotation
+
+[`Vector3`](Vector3.md)
+
+##### radius
+
+`number`
+
+##### r
+
+`number`
+
+##### g
+
+`number`
+
+##### b
+
+`number`
+
+##### intensity?
+
+`number` = `1`
+
+##### castShadow?
+
+`boolean` = `true`
 
 #### Returns
 
 [`PointLight`](PointLight.md)
-
-#### Defined in
-
-[src/util/Object3DUtil.ts:132](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L132)

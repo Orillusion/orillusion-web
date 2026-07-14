@@ -1,321 +1,305 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: Navi3DRouter
 
-### Constructors
-
-- [constructor](Navi3DRouter.md#constructor)
-
-### Properties
-
-- [RAY\_1](Navi3DRouter.md#ray_1)
-- [RAY\_2](Navi3DRouter.md#ray_2)
-- [TEST\_RAY](Navi3DRouter.md#test_ray)
-- [TEST\_RAY\_1](Navi3DRouter.md#test_ray_1)
-- [TEST\_RAY\_2](Navi3DRouter.md#test_ray_2)
-- [endPoint](Navi3DRouter.md#endpoint)
-- [curPoint](Navi3DRouter.md#curpoint)
-- [rayA](Navi3DRouter.md#raya)
-- [rayB](Navi3DRouter.md#rayb)
-- [rayAPoint](Navi3DRouter.md#rayapoint)
-- [rayBPoint](Navi3DRouter.md#raybpoint)
-- [cornerPoint](Navi3DRouter.md#cornerpoint)
-- [cornerEdge](Navi3DRouter.md#corneredge)
-
-### Methods
-
-- [continuePass](Navi3DRouter.md#continuepass)
-- [passEdge](Navi3DRouter.md#passedge)
-- [calcCrossEdge](Navi3DRouter.md#calccrossedge)
-- [calcCrossPoint](Navi3DRouter.md#calccrosspoint)
-- [calcCrossPointOut](Navi3DRouter.md#calccrosspointout)
-- [hasCrossPoint](Navi3DRouter.md#hascrosspoint)
-- [resetData](Navi3DRouter.md#resetdata)
+Defined in: [src/math/navigation/Navi3DRouter.ts:5](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L5)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new Navi3DRouter**(): [`Navi3DRouter`](Navi3DRouter.md)
+> **new Navi3DRouter**(): `Navi3DRouter`
 
 #### Returns
 
-[`Navi3DRouter`](Navi3DRouter.md)
+`Navi3DRouter`
 
 ## Properties
 
 ### RAY\_1
 
-▪ `Static` **RAY\_1**: [`Vector3`](Vector3.md)
+> `static` **RAY\_1**: [`Vector3`](Vector3.md)
 
-#### Defined in
+Defined in: [src/math/navigation/Navi3DRouter.ts:19](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L19)
 
-[src/math/navigation/Navi3DRouter.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L19)
-
-___
+***
 
 ### RAY\_2
 
-▪ `Static` **RAY\_2**: [`Vector3`](Vector3.md)
+> `static` **RAY\_2**: [`Vector3`](Vector3.md)
 
-#### Defined in
+Defined in: [src/math/navigation/Navi3DRouter.ts:21](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L21)
 
-[src/math/navigation/Navi3DRouter.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L21)
-
-___
+***
 
 ### TEST\_RAY
 
-▪ `Static` **TEST\_RAY**: [`Vector3`](Vector3.md)
+> `static` **TEST\_RAY**: [`Vector3`](Vector3.md)
 
-#### Defined in
+Defined in: [src/math/navigation/Navi3DRouter.ts:23](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L23)
 
-[src/math/navigation/Navi3DRouter.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L23)
-
-___
+***
 
 ### TEST\_RAY\_1
 
-▪ `Static` **TEST\_RAY\_1**: [`Vector3`](Vector3.md)
+> `static` **TEST\_RAY\_1**: [`Vector3`](Vector3.md)
 
-#### Defined in
+Defined in: [src/math/navigation/Navi3DRouter.ts:25](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L25)
 
-[src/math/navigation/Navi3DRouter.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L25)
-
-___
+***
 
 ### TEST\_RAY\_2
 
-▪ `Static` **TEST\_RAY\_2**: [`Vector3`](Vector3.md)
+> `static` **TEST\_RAY\_2**: [`Vector3`](Vector3.md)
 
-#### Defined in
+Defined in: [src/math/navigation/Navi3DRouter.ts:27](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L27)
 
-[src/math/navigation/Navi3DRouter.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L27)
-
-___
+***
 
 ### endPoint
 
-• **endPoint**: [`Vector3`](Vector3.md)
+> **endPoint**: [`Vector3`](Vector3.md)
 
-#### Defined in
+Defined in: [src/math/navigation/Navi3DRouter.ts:7](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L7)
 
-[src/math/navigation/Navi3DRouter.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L7)
-
-___
+***
 
 ### curPoint
 
-• **curPoint**: [`Vector3`](Vector3.md)
+> **curPoint**: [`Vector3`](Vector3.md)
 
-#### Defined in
+Defined in: [src/math/navigation/Navi3DRouter.ts:9](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L9)
 
-[src/math/navigation/Navi3DRouter.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L9)
-
-___
+***
 
 ### rayA
 
-• **rayA**: [`Vector3`](Vector3.md)
+> **rayA**: [`Vector3`](Vector3.md)
 
-#### Defined in
+Defined in: [src/math/navigation/Navi3DRouter.ts:11](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L11)
 
-[src/math/navigation/Navi3DRouter.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L11)
-
-___
+***
 
 ### rayB
 
-• **rayB**: [`Vector3`](Vector3.md)
+> **rayB**: [`Vector3`](Vector3.md)
 
-#### Defined in
+Defined in: [src/math/navigation/Navi3DRouter.ts:13](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L13)
 
-[src/math/navigation/Navi3DRouter.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L13)
-
-___
+***
 
 ### rayAPoint
 
-• **rayAPoint**: [`Navi3DPoint`](Navi3DPoint.md)
+> **rayAPoint**: [`Navi3DPoint`](Navi3DPoint.md)
 
-#### Defined in
+Defined in: [src/math/navigation/Navi3DRouter.ts:15](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L15)
 
-[src/math/navigation/Navi3DRouter.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L15)
-
-___
+***
 
 ### rayBPoint
 
-• **rayBPoint**: [`Navi3DPoint`](Navi3DPoint.md)
+> **rayBPoint**: [`Navi3DPoint`](Navi3DPoint.md)
 
-#### Defined in
+Defined in: [src/math/navigation/Navi3DRouter.ts:17](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L17)
 
-[src/math/navigation/Navi3DRouter.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L17)
-
-___
+***
 
 ### cornerPoint
 
-• **cornerPoint**: [`Navi3DPoint`](Navi3DPoint.md)
+> **cornerPoint**: [`Navi3DPoint`](Navi3DPoint.md)
 
-#### Defined in
+Defined in: [src/math/navigation/Navi3DRouter.ts:33](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L33)
 
-[src/math/navigation/Navi3DRouter.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L33)
-
-___
+***
 
 ### cornerEdge
 
-• **cornerEdge**: [`Navi3DEdge`](Navi3DEdge.md)
+> **cornerEdge**: [`Navi3DEdge`](Navi3DEdge.md)
 
-#### Defined in
-
-[src/math/navigation/Navi3DRouter.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L35)
+Defined in: [src/math/navigation/Navi3DRouter.ts:35](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L35)
 
 ## Methods
 
-### continuePass
+### continuePass()
 
-▸ **continuePass**(`fromPt`, `endPt`, `fromEdge`): `void`
+> **continuePass**(`fromPt`, `endPt`, `fromEdge`): `void`
+
+Defined in: [src/math/navigation/Navi3DRouter.ts:37](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L37)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `fromPt` | [`Vector3`](Vector3.md) |
-| `endPt` | [`Vector3`](Vector3.md) |
-| `fromEdge` | [`Navi3DEdge`](Navi3DEdge.md) |
+##### fromPt
+
+[`Vector3`](Vector3.md)
+
+##### endPt
+
+[`Vector3`](Vector3.md)
+
+##### fromEdge
+
+[`Navi3DEdge`](Navi3DEdge.md)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/math/navigation/Navi3DRouter.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L37)
+### passEdge()
 
-___
+> **passEdge**(`commonEdge`, `nextCommonEdge`, `targetPoint`, `lastEdge`): `boolean`
 
-### passEdge
-
-▸ **passEdge**(`commonEdge`, `nextCommonEdge`, `targetPoint`, `lastEdge`): `boolean`
+Defined in: [src/math/navigation/Navi3DRouter.ts:44](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L44)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `commonEdge` | [`Navi3DEdge`](Navi3DEdge.md) |
-| `nextCommonEdge` | [`Navi3DEdge`](Navi3DEdge.md) |
-| `targetPoint` | [`Vector3`](Vector3.md) |
-| `lastEdge` | `boolean` |
+##### commonEdge
+
+[`Navi3DEdge`](Navi3DEdge.md)
+
+##### nextCommonEdge
+
+[`Navi3DEdge`](Navi3DEdge.md)
+
+##### targetPoint
+
+[`Vector3`](Vector3.md)
+
+##### lastEdge
+
+`boolean`
 
 #### Returns
 
 `boolean`
 
-#### Defined in
+***
 
-[src/math/navigation/Navi3DRouter.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L44)
+### calcCrossEdge()
 
-___
+> **calcCrossEdge**(`_edge`, `linePoint`, `lineDirection`): [`Vector3`](Vector3.md)
 
-### calcCrossEdge
-
-▸ **calcCrossEdge**(`_edge`, `linePoint`, `lineDirection`): [`Vector3`](Vector3.md)
+Defined in: [src/math/navigation/Navi3DRouter.ts:138](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L138)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `_edge` | [`Navi3DEdge`](Navi3DEdge.md) |
-| `linePoint` | [`Vector3`](Vector3.md) |
-| `lineDirection` | [`Vector3`](Vector3.md) |
+##### \_edge
+
+[`Navi3DEdge`](Navi3DEdge.md)
+
+##### linePoint
+
+[`Vector3`](Vector3.md)
+
+##### lineDirection
+
+[`Vector3`](Vector3.md)
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-#### Defined in
+***
 
-[src/math/navigation/Navi3DRouter.ts:138](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L138)
+### calcCrossPoint()
 
-___
+> **calcCrossPoint**(`segmentPt1`, `segmentPt2`, `linePoint`, `lineDirection`): [`Vector3`](Vector3.md)
 
-### calcCrossPoint
-
-▸ **calcCrossPoint**(`segmentPt1`, `segmentPt2`, `linePoint`, `lineDirection`): [`Vector3`](Vector3.md)
+Defined in: [src/math/navigation/Navi3DRouter.ts:142](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L142)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `segmentPt1` | [`Vector3`](Vector3.md) |
-| `segmentPt2` | [`Vector3`](Vector3.md) |
-| `linePoint` | [`Vector3`](Vector3.md) |
-| `lineDirection` | [`Vector3`](Vector3.md) |
+##### segmentPt1
+
+[`Vector3`](Vector3.md)
+
+##### segmentPt2
+
+[`Vector3`](Vector3.md)
+
+##### linePoint
+
+[`Vector3`](Vector3.md)
+
+##### lineDirection
+
+[`Vector3`](Vector3.md)
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-#### Defined in
+***
 
-[src/math/navigation/Navi3DRouter.ts:142](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L142)
+### calcCrossPointOut()
 
-___
+> **calcCrossPointOut**(`segmentPt1`, `segmentPt2`, `linePoint`, `lineDirection`): [`Vector3`](Vector3.md)
 
-### calcCrossPointOut
-
-▸ **calcCrossPointOut**(`segmentPt1`, `segmentPt2`, `linePoint`, `lineDirection`): [`Vector3`](Vector3.md)
+Defined in: [src/math/navigation/Navi3DRouter.ts:163](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L163)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `segmentPt1` | [`Vector3`](Vector3.md) |
-| `segmentPt2` | [`Vector3`](Vector3.md) |
-| `linePoint` | [`Vector3`](Vector3.md) |
-| `lineDirection` | [`Vector3`](Vector3.md) |
+##### segmentPt1
+
+[`Vector3`](Vector3.md)
+
+##### segmentPt2
+
+[`Vector3`](Vector3.md)
+
+##### linePoint
+
+[`Vector3`](Vector3.md)
+
+##### lineDirection
+
+[`Vector3`](Vector3.md)
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-#### Defined in
+***
 
-[src/math/navigation/Navi3DRouter.ts:163](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L163)
+### hasCrossPoint()
 
-___
+> **hasCrossPoint**(`segmentPt1`, `segmentPt2`, `linePoint`, `lineDirection`): `boolean`
 
-### hasCrossPoint
-
-▸ **hasCrossPoint**(`segmentPt1`, `segmentPt2`, `linePoint`, `lineDirection`): `boolean`
+Defined in: [src/math/navigation/Navi3DRouter.ts:178](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L178)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `segmentPt1` | [`Vector3`](Vector3.md) |
-| `segmentPt2` | [`Vector3`](Vector3.md) |
-| `linePoint` | [`Vector3`](Vector3.md) |
-| `lineDirection` | [`Vector3`](Vector3.md) |
+##### segmentPt1
+
+[`Vector3`](Vector3.md)
+
+##### segmentPt2
+
+[`Vector3`](Vector3.md)
+
+##### linePoint
+
+[`Vector3`](Vector3.md)
+
+##### lineDirection
+
+[`Vector3`](Vector3.md)
 
 #### Returns
 
 `boolean`
 
-#### Defined in
+***
 
-[src/math/navigation/Navi3DRouter.ts:178](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L178)
+### resetData()
 
-___
+> **resetData**(): `void`
 
-### resetData
-
-▸ **resetData**(): `void`
+Defined in: [src/math/navigation/Navi3DRouter.ts:205](https://github.com/orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L205)
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[src/math/navigation/Navi3DRouter.ts:205](https://github.com/Orillusion/orillusion/blob/main/src/math/navigation/Navi3DRouter.ts#L205)

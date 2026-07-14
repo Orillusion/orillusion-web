@@ -1,438 +1,397 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: SSGIPost
+
+Defined in: [src/gfx/renderJob/post/SSGIPost.ts:34](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L34)
 
 Ground base Ambient Occlusion
 Let the intersection of the object and the object imitate the effect of the light being cross-occluded
 ```
 gtao setting
-let cfg = {@link Engine3D.setting.render.postProcessing.gtao};
+let cfg = engine.setting.render.postProcessing.gtao;
 ```
-
-## Hierarchy
-
-- `PostBase`
-
-  ↳ **`SSGIPost`**
-
-### Constructors
-
-- [constructor](SSGIPost.md#constructor)
-
-### Properties
-
-- [enable](SSGIPost.md#enable)
-- [postRenderer](SSGIPost.md#postrenderer)
-- [newTexture](SSGIPost.md#newtexture)
-- [oldTexture](SSGIPost.md#oldtexture)
-- [combineTexture](SSGIPost.md#combinetexture)
-- [delayCompute](SSGIPost.md#delaycompute)
-- [combineCompute](SSGIPost.md#combinecompute)
-- [rtFrame](SSGIPost.md#rtframe)
-- [textureScaleSmallCompute](SSGIPost.md#texturescalesmallcompute)
-- [textureScaleBigCompute](SSGIPost.md#texturescalebigcompute)
-- [view](SSGIPost.md#view)
-- [colorTexture](SSGIPost.md#colortexture)
-- [posTexture](SSGIPost.md#postexture)
-- [normalTexture](SSGIPost.md#normaltexture)
-- [gBufferTexture](SSGIPost.md#gbuffertexture)
-- [lastPosTexture](SSGIPost.md#lastpostexture)
-- [downSampleCofe](SSGIPost.md#downsamplecofe)
-- [debugChanal](SSGIPost.md#debugchanal)
-- [updateBuffer](SSGIPost.md#updatebuffer)
-
-### Accessors
-
-- [ins](SSGIPost.md#ins)
-- [delay](SSGIPost.md#delay)
-- [colorIns](SSGIPost.md#colorins)
-- [frameCount](SSGIPost.md#framecount)
-- [d1](SSGIPost.md#d1)
-
-### Methods
-
-- [destroy](SSGIPost.md#destroy)
-- [onCameraChange](SSGIPost.md#oncamerachange)
-- [onDetach](SSGIPost.md#ondetach)
-- [render](SSGIPost.md#render)
-- [compute](SSGIPost.md#compute)
-- [onResize](SSGIPost.md#onresize)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new SSGIPost**(): [`SSGIPost`](SSGIPost.md)
+> **new SSGIPost**(): `SSGIPost`
+
+Defined in: [src/gfx/renderJob/post/SSGIPost.ts:64](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L64)
 
 #### Returns
 
-[`SSGIPost`](SSGIPost.md)
+`SSGIPost`
 
 #### Overrides
 
-PostBase.constructor
-
-#### Defined in
-
-[src/gfx/renderJob/post/SSGIPost.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L70)
+`PostBase.constructor`
 
 ## Properties
 
 ### enable
 
-• **enable**: `boolean` = `true`
+> **enable**: `boolean` = `true`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L23)
 
 #### Inherited from
 
-PostBase.enable
+`PostBase.enable`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/post/PostBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L20)
+### isFinalPass
 
-___
+> **isFinalPass**: `boolean` = `false`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:27](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L27)
+
+When true, PostPass iterates this post AFTER every regular
+ post regardless of attach order — used by TonemapPost so the
+ ACES curve always lands on the fully-composited HDR signal.
+
+#### Inherited from
+
+`PostBase.isFinalPass`
+
+***
 
 ### postRenderer
 
-• **postRenderer**: `PostRenderer`
+> **postRenderer**: [`PostPass`](PostPass.md)
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L28)
 
 #### Inherited from
 
-PostBase.postRenderer
+`PostBase.postRenderer`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/post/PostBase.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L21)
+### rendererPassState
 
-___
+> **rendererPassState**: `RendererPassState`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L29)
+
+#### Inherited from
+
+`PostBase.rendererPassState`
+
+***
+
+### \_boundCtx
+
+> **\_boundCtx**: [`Context3D`](Context3D.md) = `null`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L30)
+
+#### Inherited from
+
+`PostBase._boundCtx`
+
+***
 
 ### newTexture
 
-• **newTexture**: `VirtualTexture`
+> **newTexture**: `VirtualTexture`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/post/SSGIPost.ts:39](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L39)
 
-[src/gfx/renderJob/post/SSGIPost.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L41)
-
-___
+***
 
 ### oldTexture
 
-• **oldTexture**: `VirtualTexture`
+> **oldTexture**: `VirtualTexture`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/post/SSGIPost.ts:40](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L40)
 
-[src/gfx/renderJob/post/SSGIPost.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L42)
-
-___
+***
 
 ### combineTexture
 
-• **combineTexture**: `VirtualTexture`
+> **combineTexture**: `VirtualTexture`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/post/SSGIPost.ts:41](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L41)
 
-[src/gfx/renderJob/post/SSGIPost.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L43)
-
-___
+***
 
 ### delayCompute
 
-• **delayCompute**: `ComputeShader`
+> **delayCompute**: `ComputeShader`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/post/SSGIPost.ts:47](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L47)
 
-[src/gfx/renderJob/post/SSGIPost.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L53)
-
-___
+***
 
 ### combineCompute
 
-• **combineCompute**: `ComputeShader`
+> **combineCompute**: `ComputeShader`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/post/SSGIPost.ts:48](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L48)
 
-[src/gfx/renderJob/post/SSGIPost.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L54)
-
-___
+***
 
 ### rtFrame
 
-• **rtFrame**: [`RTFrame`](RTFrame.md)
+> **rtFrame**: [`RTFrame`](RTFrame.md)
 
-#### Defined in
+Defined in: [src/gfx/renderJob/post/SSGIPost.ts:50](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L50)
 
-[src/gfx/renderJob/post/SSGIPost.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L56)
-
-___
+***
 
 ### textureScaleSmallCompute
 
-• **textureScaleSmallCompute**: [`TextureScaleCompute`](TextureScaleCompute.md)
+> **textureScaleSmallCompute**: [`TextureScaleCompute`](TextureScaleCompute.md)
 
-#### Defined in
+Defined in: [src/gfx/renderJob/post/SSGIPost.ts:51](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L51)
 
-[src/gfx/renderJob/post/SSGIPost.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L57)
-
-___
+***
 
 ### textureScaleBigCompute
 
-• **textureScaleBigCompute**: [`TextureScaleCompute`](TextureScaleCompute.md)
+> **textureScaleBigCompute**: [`TextureScaleCompute`](TextureScaleCompute.md)
 
-#### Defined in
+Defined in: [src/gfx/renderJob/post/SSGIPost.ts:52](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L52)
 
-[src/gfx/renderJob/post/SSGIPost.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L58)
-
-___
+***
 
 ### view
 
-• **view**: [`View3D`](View3D.md)
+> **view**: [`View3D`](View3D.md)
 
-#### Defined in
+Defined in: [src/gfx/renderJob/post/SSGIPost.ts:53](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L53)
 
-[src/gfx/renderJob/post/SSGIPost.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L59)
-
-___
+***
 
 ### colorTexture
 
-• **colorTexture**: `RenderTexture`
+> **colorTexture**: `RenderTexture`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/post/SSGIPost.ts:54](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L54)
 
-[src/gfx/renderJob/post/SSGIPost.ts:60](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L60)
-
-___
+***
 
 ### posTexture
 
-• **posTexture**: `RenderTexture`
+> **posTexture**: `RenderTexture`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/post/SSGIPost.ts:55](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L55)
 
-[src/gfx/renderJob/post/SSGIPost.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L61)
-
-___
+***
 
 ### normalTexture
 
-• **normalTexture**: `RenderTexture`
+> **normalTexture**: `RenderTexture`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/post/SSGIPost.ts:56](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L56)
 
-[src/gfx/renderJob/post/SSGIPost.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L62)
-
-___
+***
 
 ### gBufferTexture
 
-• **gBufferTexture**: `RenderTexture`
+> **gBufferTexture**: `RenderTexture`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/post/SSGIPost.ts:57](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L57)
 
-[src/gfx/renderJob/post/SSGIPost.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L63)
-
-___
+***
 
 ### lastPosTexture
 
-• **lastPosTexture**: `RenderTexture`
+> **lastPosTexture**: `RenderTexture`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/post/SSGIPost.ts:58](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L58)
 
-[src/gfx/renderJob/post/SSGIPost.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L64)
-
-___
+***
 
 ### downSampleCofe
 
-• **downSampleCofe**: `number` = `1.0`
+> **downSampleCofe**: `number` = `1.0`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/post/SSGIPost.ts:59](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L59)
 
-[src/gfx/renderJob/post/SSGIPost.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L65)
-
-___
+***
 
 ### debugChanal
 
-• **debugChanal**: `string` = `"0"`
+> **debugChanal**: `string` = `"0"`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/post/SSGIPost.ts:61](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L61)
 
-[src/gfx/renderJob/post/SSGIPost.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L67)
-
-___
+***
 
 ### updateBuffer
 
-• **updateBuffer**: [`StorageGPUBuffer`](StorageGPUBuffer.md)
+> **updateBuffer**: [`StorageGPUBuffer`](StorageGPUBuffer.md)
 
-#### Defined in
-
-[src/gfx/renderJob/post/SSGIPost.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L69)
+Defined in: [src/gfx/renderJob/post/SSGIPost.ts:63](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L63)
 
 ## Accessors
 
 ### ins
 
-• `get` **ins**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **ins**(): `number`
+
+Defined in: [src/gfx/renderJob/post/SSGIPost.ts:102](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L102)
+
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/gfx/renderJob/post/SSGIPost.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L112)
+> **set** **ins**(`v`): `void`
 
-• `set` **ins**(`v`): `void`
+Defined in: [src/gfx/renderJob/post/SSGIPost.ts:97](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L97)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `number` |
+###### v
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/gfx/renderJob/post/SSGIPost.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L107)
-
-___
+***
 
 ### delay
 
-• `get` **delay**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **delay**(): `number`
+
+Defined in: [src/gfx/renderJob/post/SSGIPost.ts:111](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L111)
+
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/gfx/renderJob/post/SSGIPost.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L121)
+> **set** **delay**(`v`): `void`
 
-• `set` **delay**(`v`): `void`
+Defined in: [src/gfx/renderJob/post/SSGIPost.ts:106](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L106)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `number` |
+###### v
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/gfx/renderJob/post/SSGIPost.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L116)
-
-___
+***
 
 ### colorIns
 
-• `get` **colorIns**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **colorIns**(): `number`
+
+Defined in: [src/gfx/renderJob/post/SSGIPost.ts:121](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L121)
+
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/gfx/renderJob/post/SSGIPost.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L131)
+> **set** **colorIns**(`v`): `void`
 
-• `set` **colorIns**(`v`): `void`
+Defined in: [src/gfx/renderJob/post/SSGIPost.ts:116](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L116)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `number` |
+###### v
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/gfx/renderJob/post/SSGIPost.ts:126](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L126)
-
-___
+***
 
 ### frameCount
 
-• `get` **frameCount**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **frameCount**(): `number`
+
+Defined in: [src/gfx/renderJob/post/SSGIPost.ts:130](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L130)
+
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/gfx/renderJob/post/SSGIPost.ts:140](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L140)
+> **set** **frameCount**(`v`): `void`
 
-• `set` **frameCount**(`v`): `void`
+Defined in: [src/gfx/renderJob/post/SSGIPost.ts:125](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L125)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `number` |
+###### v
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/gfx/renderJob/post/SSGIPost.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L135)
-
-___
+***
 
 ### d1
 
-• `get` **d1**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **d1**(): `number`
+
+Defined in: [src/gfx/renderJob/post/SSGIPost.ts:139](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L139)
+
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/gfx/renderJob/post/SSGIPost.ts:149](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L149)
+> **set** **d1**(`v`): `void`
 
-• `set` **d1**(`v`): `void`
+Defined in: [src/gfx/renderJob/post/SSGIPost.ts:134](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L134)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `number` |
+###### v
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/gfx/renderJob/post/SSGIPost.ts:144](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L144)
-
 ## Methods
 
-### destroy
+### destroy()
 
-▸ **destroy**(`force?`): `void`
+> **destroy**(`force?`): `void`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L143)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
+##### force?
+
+`boolean`
 
 #### Returns
 
@@ -440,44 +399,47 @@ ___
 
 #### Inherited from
 
-PostBase.destroy
+`PostBase.destroy`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/post/PostBase.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L87)
+### onCameraChange()
 
-___
+> **onCameraChange**(`oldPos`, `newPos`): `void`
 
-### onCameraChange
-
-▸ **onCameraChange**(`oldPos`, `newPos`): `void`
+Defined in: [src/gfx/renderJob/post/SSGIPost.ts:86](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L86)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `oldPos` | [`Vector3`](Vector3.md) |
-| `newPos` | [`Vector3`](Vector3.md) |
+##### oldPos
+
+[`Vector3`](Vector3.md)
+
+##### newPos
+
+[`Vector3`](Vector3.md)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/post/SSGIPost.ts:94](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L94)
+### render()
 
-___
+> **render**(`view`, `command`): `void`
 
-### onDetach
-
-▸ **onDetach**(`view`): `void`
+Defined in: [src/gfx/renderJob/post/SSGIPost.ts:223](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L223)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
+##### view
+
+[`View3D`](View3D.md)
+
+##### command
+
+`GPUCommandEncoder`
 
 #### Returns
 
@@ -485,24 +447,21 @@ ___
 
 #### Overrides
 
-PostBase.onDetach
+`PostBase.render`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/post/SSGIPost.ts:103](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L103)
+### compute()
 
-___
+> **compute**(`view`): `void`
 
-### render
-
-▸ **render**(`view`, `command`): `void`
+Defined in: [src/gfx/renderJob/post/SSGIPost.ts:229](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L229)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
-| `command` | `GPUCommandEncoder` |
+##### view
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -510,23 +469,15 @@ ___
 
 #### Overrides
 
-PostBase.render
+`PostBase.compute`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/post/SSGIPost.ts:233](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L233)
+### onResize()
 
-___
+> **onResize**(): `void`
 
-### compute
-
-▸ **compute**(`view`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
+Defined in: [src/gfx/renderJob/post/SSGIPost.ts:280](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L280)
 
 #### Returns
 
@@ -534,26 +485,4 @@ ___
 
 #### Overrides
 
-PostBase.compute
-
-#### Defined in
-
-[src/gfx/renderJob/post/SSGIPost.ts:239](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L239)
-
-___
-
-### onResize
-
-▸ **onResize**(): `void`
-
-#### Returns
-
-`void`
-
-#### Overrides
-
-PostBase.onResize
-
-#### Defined in
-
-[src/gfx/renderJob/post/SSGIPost.ts:287](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost.ts#L287)
+`PostBase.onResize`

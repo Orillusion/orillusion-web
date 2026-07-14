@@ -168,6 +168,8 @@ This camera controller implements the camera's movement in the `xz` plane / rota
 
 <Demo :height="500" src="/demos/graphics/camera_hover.ts"></Demo>
 
+<<< @/public/demos/graphics/camera_hover.ts
+
 
 Basic usage:
 ```ts

@@ -1,51 +1,41 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: PropertyAnimTag
 
-### Constructors
-
-- [constructor](PropertyAnimTag.md#constructor)
-
-### Properties
-
-- [transform](PropertyAnimTag.md#transform)
-- [quaternion](PropertyAnimTag.md#quaternion)
-- [materialColor](PropertyAnimTag.md#materialcolor)
+Defined in: [src/components/anim/curveAnim/PropertyHelp.ts:1](https://github.com/orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyHelp.ts#L1)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new PropertyAnimTag**(): [`PropertyAnimTag`](PropertyAnimTag.md)
+> **new PropertyAnimTag**(): `PropertyAnimTag`
 
 #### Returns
 
-[`PropertyAnimTag`](PropertyAnimTag.md)
+`PropertyAnimTag`
 
 ## Properties
 
-### transform
+### transform?
 
-• `Optional` **transform**: `boolean`
+> `optional` **transform?**: `boolean`
 
-#### Defined in
+Defined in: [src/components/anim/curveAnim/PropertyHelp.ts:2](https://github.com/orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyHelp.ts#L2)
 
-[src/components/anim/curveAnim/PropertyHelp.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyHelp.ts#L2)
+***
 
-___
+### quaternion?
 
-### quaternion
+> `optional` **quaternion?**: `boolean`
 
-• `Optional` **quaternion**: `boolean`
+Defined in: [src/components/anim/curveAnim/PropertyHelp.ts:3](https://github.com/orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyHelp.ts#L3)
 
-#### Defined in
+***
 
-[src/components/anim/curveAnim/PropertyHelp.ts:3](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyHelp.ts#L3)
+### materialColor?
 
-___
+> `optional` **materialColor?**: `boolean`
 
-### materialColor
-
-• `Optional` **materialColor**: `boolean`
-
-#### Defined in
-
-[src/components/anim/curveAnim/PropertyHelp.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyHelp.ts#L4)
+Defined in: [src/components/anim/curveAnim/PropertyHelp.ts:4](https://github.com/orillusion/orillusion/blob/main/src/components/anim/curveAnim/PropertyHelp.ts#L4)

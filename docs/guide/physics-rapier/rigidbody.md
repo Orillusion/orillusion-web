@@ -75,3 +75,9 @@ rb.lockTranslations(false, true, false);
 ```
 
 > Shape creation depends on the object's current geometry/scale, so it is recommended to create the `shape` after setting up the `MeshRenderer` and `Transform`.
+
+## Example
+
+<Demo src="/demos/physics-rapier/Sample_rigidbody.ts"></Demo>
+
+<<< @/public/demos/physics-rapier/Sample_rigidbody.ts

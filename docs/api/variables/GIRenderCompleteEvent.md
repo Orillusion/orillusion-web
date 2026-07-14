@@ -1,7 +1,9 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Variable: GIRenderCompleteEvent
 
-• **GIRenderCompleteEvent**: [`CEvent`](../classes/CEvent.md)
+> `const` **GIRenderCompleteEvent**: [`CEvent`](../classes/CEvent.md)
 
-#### Defined in
-
-[src/gfx/renderJob/passRenderer/ddgi/DDGIProbeRenderer.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/ddgi/DDGIProbeRenderer.ts#L25)
+Defined in: [src/gfx/renderJob/graph/passes/GIPass.ts:48](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/GIPass.ts#L48)

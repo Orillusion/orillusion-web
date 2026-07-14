@@ -1,456 +1,392 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: LitSSSShader
 
-## Hierarchy
+Defined in: [src/loader/parser/prefab/mats/shader/LitSSSShader.ts:15](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L15)
+
+## Extends
 
 - [`Shader`](Shader.md)
 
-  ↳ **`LitSSSShader`**
-
-### Constructors
-
-- [constructor](LitSSSShader.md#constructor)
-
-### Properties
-
-- [computes](LitSSSShader.md#computes)
-- [passShader](LitSSSShader.md#passshader)
-
-### Accessors
-
-- [\_MainTex](LitSSSShader.md#_maintex)
-- [\_BumpMap](LitSSSShader.md#_bumpmap)
-- [\_SSSMap](LitSSSShader.md#_sssmap)
-- [\_MaskTex](LitSSSShader.md#_masktex)
-- [\_UVTransform](LitSSSShader.md#_uvtransform)
-- [\_Metallic](LitSSSShader.md#_metallic)
-- [\_Roughness](LitSSSShader.md#_roughness)
-- [\_MainColor](LitSSSShader.md#_maincolor)
-- [\_AlphaCutoff](LitSSSShader.md#_alphacutoff)
-- [\_DoubleSidedEnable](LitSSSShader.md#_doublesidedenable)
-- [\_SkinColor](LitSSSShader.md#_skincolor)
-- [\_SkinPower](LitSSSShader.md#_skinpower)
-- [\_SkinColorIns](LitSSSShader.md#_skincolorins)
-- [curveFactor](LitSSSShader.md#curvefactor)
-- [\_SurfaceType](LitSSSShader.md#_surfacetype)
-- [\_AlphaCutoffEnable](LitSSSShader.md#_alphacutoffenable)
-
-### Methods
-
-- [addRenderPass](LitSSSShader.md#addrenderpass)
-- [removeShader](LitSSSShader.md#removeshader)
-- [removeShaderByIndex](LitSSSShader.md#removeshaderbyindex)
-- [getSubShaders](LitSSSShader.md#getsubshaders)
-- [hasSubShaders](LitSSSShader.md#hassubshaders)
-- [getDefaultShaders](LitSSSShader.md#getdefaultshaders)
-- [getDefaultColorShader](LitSSSShader.md#getdefaultcolorshader)
-- [setDefine](LitSSSShader.md#setdefine)
-- [hasDefine](LitSSSShader.md#hasdefine)
-- [deleteDefine](LitSSSShader.md#deletedefine)
-- [setUniform](LitSSSShader.md#setuniform)
-- [setUniformFloat](LitSSSShader.md#setuniformfloat)
-- [setUniformVector2](LitSSSShader.md#setuniformvector2)
-- [setUniformVector3](LitSSSShader.md#setuniformvector3)
-- [setUniformVector4](LitSSSShader.md#setuniformvector4)
-- [setUniformColor](LitSSSShader.md#setuniformcolor)
-- [getUniform](LitSSSShader.md#getuniform)
-- [getUniformFloat](LitSSSShader.md#getuniformfloat)
-- [getUniformVector2](LitSSSShader.md#getuniformvector2)
-- [getUniformVector3](LitSSSShader.md#getuniformvector3)
-- [getUniformVector4](LitSSSShader.md#getuniformvector4)
-- [getUniformColor](LitSSSShader.md#getuniformcolor)
-- [setTexture](LitSSSShader.md#settexture)
-- [getTexture](LitSSSShader.md#gettexture)
-- [setUniformBuffer](LitSSSShader.md#setuniformbuffer)
-- [getUniformBuffer](LitSSSShader.md#getuniformbuffer)
-- [setStorageBuffer](LitSSSShader.md#setstoragebuffer)
-- [getStorageBuffer](LitSSSShader.md#getstoragebuffer)
-- [setStructStorageBuffer](LitSSSShader.md#setstructstoragebuffer)
-- [getStructStorageBuffer](LitSSSShader.md#getstructstoragebuffer)
-- [noticeValueChange](LitSSSShader.md#noticevaluechange)
-- [destroy](LitSSSShader.md#destroy)
-- [clone](LitSSSShader.md#clone)
-- [applyUniform](LitSSSShader.md#applyuniform)
-- [debug](LitSSSShader.md#debug)
-- [setDefault](LitSSSShader.md#setdefault)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new LitSSSShader**(): [`LitSSSShader`](LitSSSShader.md)
+> **new LitSSSShader**(): `LitSSSShader`
+
+Defined in: [src/loader/parser/prefab/mats/shader/LitSSSShader.ts:17](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L17)
 
 #### Returns
 
-[`LitSSSShader`](LitSSSShader.md)
+`LitSSSShader`
 
 #### Overrides
 
-[Shader](Shader.md).[constructor](Shader.md#constructor)
-
-#### Defined in
-
-[src/loader/parser/prefab/mats/shader/LitSSSShader.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L18)
+[`Shader`](Shader.md).[`constructor`](Shader.md#constructor)
 
 ## Properties
 
 ### computes
 
-• **computes**: [`RenderShaderCompute`](RenderShaderCompute.md)[]
+> **computes**: [`RenderShaderCompute`](RenderShaderCompute.md)[]
+
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:19](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L19)
 
 #### Inherited from
 
-[Shader](Shader.md).[computes](Shader.md#computes)
+[`Shader`](Shader.md).[`computes`](Shader.md#computes)
 
-#### Defined in
-
-[src/gfx/graphics/webGpu/shader/Shader.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L19)
-
-___
+***
 
 ### passShader
 
-• **passShader**: `Map`\<`PassType`, [`RenderShaderPass`](RenderShaderPass.md)[]\>
+> **passShader**: `Map`\<`PassType`, [`RenderShaderPass`](RenderShaderPass.md)[]\>
+
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:21](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L21)
 
 #### Inherited from
 
-[Shader](Shader.md).[passShader](Shader.md#passshader)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/shader/Shader.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L21)
+[`Shader`](Shader.md).[`passShader`](Shader.md#passshader)
 
 ## Accessors
 
 ### \_MainTex
 
-• `set` **_MainTex**(`value`): `void`
+#### Set Signature
 
-#### Parameters
+> **set** **\_MainTex**(`value`): `void`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`Texture`](Texture.md) |
+Defined in: [src/loader/parser/prefab/mats/shader/LitSSSShader.ts:102](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L102)
 
-#### Returns
+##### Parameters
+
+###### value
+
+[`Texture`](Texture.md)
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/loader/parser/prefab/mats/shader/LitSSSShader.ts:103](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L103)
-
-___
+***
 
 ### \_BumpMap
 
-• `set` **_BumpMap**(`value`): `void`
+#### Set Signature
 
-#### Parameters
+> **set** **\_BumpMap**(`value`): `void`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`Texture`](Texture.md) |
+Defined in: [src/loader/parser/prefab/mats/shader/LitSSSShader.ts:106](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L106)
 
-#### Returns
+##### Parameters
+
+###### value
+
+[`Texture`](Texture.md)
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/loader/parser/prefab/mats/shader/LitSSSShader.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L107)
-
-___
+***
 
 ### \_SSSMap
 
-• `set` **_SSSMap**(`value`): `void`
+#### Set Signature
 
-#### Parameters
+> **set** **\_SSSMap**(`value`): `void`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`Texture`](Texture.md) |
+Defined in: [src/loader/parser/prefab/mats/shader/LitSSSShader.ts:110](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L110)
 
-#### Returns
+##### Parameters
+
+###### value
+
+[`Texture`](Texture.md)
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/loader/parser/prefab/mats/shader/LitSSSShader.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L111)
-
-___
+***
 
 ### \_MaskTex
 
-• `set` **_MaskTex**(`value`): `void`
+#### Set Signature
 
-#### Parameters
+> **set** **\_MaskTex**(`value`): `void`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`Texture`](Texture.md) |
+Defined in: [src/loader/parser/prefab/mats/shader/LitSSSShader.ts:114](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L114)
 
-#### Returns
+##### Parameters
+
+###### value
+
+[`Texture`](Texture.md)
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/loader/parser/prefab/mats/shader/LitSSSShader.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L115)
-
-___
+***
 
 ### \_UVTransform
 
-• `set` **_UVTransform**(`value`): `void`
+#### Set Signature
 
-#### Parameters
+> **set** **\_UVTransform**(`value`): `void`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `Vector4` |
+Defined in: [src/loader/parser/prefab/mats/shader/LitSSSShader.ts:118](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L118)
 
-#### Returns
+##### Parameters
+
+###### value
+
+`Vector4`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/loader/parser/prefab/mats/shader/LitSSSShader.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L119)
-
-___
+***
 
 ### \_Metallic
 
-• `set` **_Metallic**(`value`): `void`
+#### Set Signature
 
-#### Parameters
+> **set** **\_Metallic**(`value`): `void`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+Defined in: [src/loader/parser/prefab/mats/shader/LitSSSShader.ts:122](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L122)
 
-#### Returns
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/loader/parser/prefab/mats/shader/LitSSSShader.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L123)
-
-___
+***
 
 ### \_Roughness
 
-• `set` **_Roughness**(`value`): `void`
+#### Set Signature
 
-#### Parameters
+> **set** **\_Roughness**(`value`): `void`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+Defined in: [src/loader/parser/prefab/mats/shader/LitSSSShader.ts:126](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L126)
 
-#### Returns
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/loader/parser/prefab/mats/shader/LitSSSShader.ts:127](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L127)
-
-___
+***
 
 ### \_MainColor
 
-• `set` **_MainColor**(`value`): `void`
+#### Set Signature
 
-#### Parameters
+> **set** **\_MainColor**(`value`): `void`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`Color`](Color.md) |
+Defined in: [src/loader/parser/prefab/mats/shader/LitSSSShader.ts:131](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L131)
 
-#### Returns
+##### Parameters
+
+###### value
+
+[`Color`](Color.md)
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/loader/parser/prefab/mats/shader/LitSSSShader.ts:132](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L132)
-
-___
+***
 
 ### \_AlphaCutoff
 
-• `set` **_AlphaCutoff**(`value`): `void`
+#### Set Signature
 
-#### Parameters
+> **set** **\_AlphaCutoff**(`value`): `void`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+Defined in: [src/loader/parser/prefab/mats/shader/LitSSSShader.ts:135](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L135)
 
-#### Returns
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/loader/parser/prefab/mats/shader/LitSSSShader.ts:136](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L136)
-
-___
+***
 
 ### \_DoubleSidedEnable
 
-• `set` **_DoubleSidedEnable**(`value`): `void`
+#### Set Signature
 
-#### Parameters
+> **set** **\_DoubleSidedEnable**(`value`): `void`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+Defined in: [src/loader/parser/prefab/mats/shader/LitSSSShader.ts:139](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L139)
 
-#### Returns
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/loader/parser/prefab/mats/shader/LitSSSShader.ts:140](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L140)
-
-___
+***
 
 ### \_SkinColor
 
-• `set` **_SkinColor**(`value`): `void`
+#### Set Signature
 
-#### Parameters
+> **set** **\_SkinColor**(`value`): `void`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`Color`](Color.md) |
+Defined in: [src/loader/parser/prefab/mats/shader/LitSSSShader.ts:144](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L144)
 
-#### Returns
+##### Parameters
+
+###### value
+
+[`Color`](Color.md)
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/loader/parser/prefab/mats/shader/LitSSSShader.ts:145](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L145)
-
-___
+***
 
 ### \_SkinPower
 
-• `set` **_SkinPower**(`value`): `void`
+#### Set Signature
 
-#### Parameters
+> **set** **\_SkinPower**(`value`): `void`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+Defined in: [src/loader/parser/prefab/mats/shader/LitSSSShader.ts:148](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L148)
 
-#### Returns
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/loader/parser/prefab/mats/shader/LitSSSShader.ts:149](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L149)
-
-___
+***
 
 ### \_SkinColorIns
 
-• `set` **_SkinColorIns**(`value`): `void`
+#### Set Signature
 
-#### Parameters
+> **set** **\_SkinColorIns**(`value`): `void`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+Defined in: [src/loader/parser/prefab/mats/shader/LitSSSShader.ts:152](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L152)
 
-#### Returns
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/loader/parser/prefab/mats/shader/LitSSSShader.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L153)
-
-___
+***
 
 ### curveFactor
 
-• `set` **curveFactor**(`value`): `void`
+#### Set Signature
 
-#### Parameters
+> **set** **curveFactor**(`value`): `void`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+Defined in: [src/loader/parser/prefab/mats/shader/LitSSSShader.ts:156](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L156)
 
-#### Returns
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/loader/parser/prefab/mats/shader/LitSSSShader.ts:157](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L157)
-
-___
+***
 
 ### \_SurfaceType
 
-• `set` **_SurfaceType**(`value`): `void`
+#### Set Signature
 
-#### Parameters
+> **set** **\_SurfaceType**(`value`): `void`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+Defined in: [src/loader/parser/prefab/mats/shader/LitSSSShader.ts:160](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L160)
 
-#### Returns
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/loader/parser/prefab/mats/shader/LitSSSShader.ts:161](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L161)
-
-___
+***
 
 ### \_AlphaCutoffEnable
 
-• `set` **_AlphaCutoffEnable**(`value`): `void`
+#### Set Signature
 
-#### Parameters
+> **set** **\_AlphaCutoffEnable**(`value`): `void`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+Defined in: [src/loader/parser/prefab/mats/shader/LitSSSShader.ts:169](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L169)
 
-#### Returns
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
 
 `void`
-
-#### Defined in
-
-[src/loader/parser/prefab/mats/shader/LitSSSShader.ts:170](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L170)
 
 ## Methods
 
-### addRenderPass
+### addRenderPass()
 
-▸ **addRenderPass**(`renderShader`, `index?`): `void`
+> **addRenderPass**(`renderShader`, `index?`): `void`
+
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:28](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L28)
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `renderShader` | [`RenderShaderPass`](RenderShaderPass.md) | `undefined` |
-| `index` | `number` | `-1` |
+##### renderShader
+
+[`RenderShaderPass`](RenderShaderPass.md)
+
+##### index?
+
+`number` = `-1`
 
 #### Returns
 
@@ -458,24 +394,25 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[addRenderPass](Shader.md#addrenderpass)
+[`Shader`](Shader.md).[`addRenderPass`](Shader.md#addrenderpass)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L28)
+### removeShader()
 
-___
+> **removeShader**(`renderShader`, `index?`): `void`
 
-### removeShader
-
-▸ **removeShader**(`renderShader`, `index?`): `void`
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:38](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L38)
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `renderShader` | [`RenderShaderPass`](RenderShaderPass.md) | `undefined` |
-| `index` | `number` | `-1` |
+##### renderShader
+
+[`RenderShaderPass`](RenderShaderPass.md)
+
+##### index?
+
+`number` = `-1`
 
 #### Returns
 
@@ -483,24 +420,25 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[removeShader](Shader.md#removeshader)
+[`Shader`](Shader.md).[`removeShader`](Shader.md#removeshader)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L38)
+### removeShaderByIndex()
 
-___
+> **removeShaderByIndex**(`passType`, `index?`): `void`
 
-### removeShaderByIndex
-
-▸ **removeShaderByIndex**(`passType`, `index?`): `void`
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:52](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L52)
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `passType` | `PassType` | `undefined` |
-| `index` | `number` | `-1` |
+##### passType
+
+`PassType`
+
+##### index?
+
+`number` = `-1`
 
 #### Returns
 
@@ -508,23 +446,21 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[removeShaderByIndex](Shader.md#removeshaderbyindex)
+[`Shader`](Shader.md).[`removeShaderByIndex`](Shader.md#removeshaderbyindex)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L52)
+### getSubShaders()
 
-___
+> **getSubShaders**(`passType`): [`RenderShaderPass`](RenderShaderPass.md)[]
 
-### getSubShaders
-
-▸ **getSubShaders**(`passType`): [`RenderShaderPass`](RenderShaderPass.md)[]
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:63](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L63)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `passType` | `PassType` |
+##### passType
+
+`PassType`
 
 #### Returns
 
@@ -532,23 +468,21 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[getSubShaders](Shader.md#getsubshaders)
+[`Shader`](Shader.md).[`getSubShaders`](Shader.md#getsubshaders)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L63)
+### hasSubShaders()
 
-___
+> **hasSubShaders**(`passType`): `boolean`
 
-### hasSubShaders
-
-▸ **hasSubShaders**(`passType`): `boolean`
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:67](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L67)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `passType` | `PassType` |
+##### passType
+
+`PassType`
 
 #### Returns
 
@@ -556,17 +490,15 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[hasSubShaders](Shader.md#hassubshaders)
+[`Shader`](Shader.md).[`hasSubShaders`](Shader.md#hassubshaders)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L67)
+### getDefaultShaders()
 
-___
+> **getDefaultShaders**(): [`RenderShaderPass`](RenderShaderPass.md)[]
 
-### getDefaultShaders
-
-▸ **getDefaultShaders**(): [`RenderShaderPass`](RenderShaderPass.md)[]
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:72](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L72)
 
 #### Returns
 
@@ -574,17 +506,15 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[getDefaultShaders](Shader.md#getdefaultshaders)
+[`Shader`](Shader.md).[`getDefaultShaders`](Shader.md#getdefaultshaders)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L72)
+### getDefaultColorShader()
 
-___
+> **getDefaultColorShader**(): [`RenderShaderPass`](RenderShaderPass.md)
 
-### getDefaultColorShader
-
-▸ **getDefaultColorShader**(): [`RenderShaderPass`](RenderShaderPass.md)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:76](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L76)
 
 #### Returns
 
@@ -592,24 +522,25 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[getDefaultColorShader](Shader.md#getdefaultcolorshader)
+[`Shader`](Shader.md).[`getDefaultColorShader`](Shader.md#getdefaultcolorshader)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L76)
+### setDefine()
 
-___
+> **setDefine**(`arg0`, `arg1`): `void`
 
-### setDefine
-
-▸ **setDefine**(`arg0`, `arg1`): `void`
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:80](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L80)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `arg0` | `string` |
-| `arg1` | `boolean` |
+##### arg0
+
+`string`
+
+##### arg1
+
+`boolean`
 
 #### Returns
 
@@ -617,23 +548,21 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[setDefine](Shader.md#setdefine)
+[`Shader`](Shader.md).[`setDefine`](Shader.md#setdefine)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L80)
+### getDefine()
 
-___
+> **getDefine**(`arg0`): `boolean`
 
-### hasDefine
-
-▸ **hasDefine**(`arg0`): `boolean`
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:88](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L88)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `arg0` | `string` |
+##### arg0
+
+`string`
 
 #### Returns
 
@@ -641,23 +570,43 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[hasDefine](Shader.md#hasdefine)
+[`Shader`](Shader.md).[`getDefine`](Shader.md#getdefine)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:88](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L88)
+### hasDefine()
 
-___
+> **hasDefine**(`arg0`): `boolean`
 
-### deleteDefine
-
-▸ **deleteDefine**(`arg0`): `void`
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:98](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L98)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `arg0` | `string` |
+##### arg0
+
+`string`
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+[`Shader`](Shader.md).[`hasDefine`](Shader.md#hasdefine)
+
+***
+
+### deleteDefine()
+
+> **deleteDefine**(`arg0`): `void`
+
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:109](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L109)
+
+#### Parameters
+
+##### arg0
+
+`string`
 
 #### Returns
 
@@ -665,24 +614,25 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[deleteDefine](Shader.md#deletedefine)
+[`Shader`](Shader.md).[`deleteDefine`](Shader.md#deletedefine)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L99)
+### setUniform()
 
-___
+> **setUniform**(`arg0`, `arg1`): `void`
 
-### setUniform
-
-▸ **setUniform**(`arg0`, `arg1`): `void`
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:117](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L117)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `arg0` | `string` |
-| `arg1` | `any` |
+##### arg0
+
+`string`
+
+##### arg1
+
+`any`
 
 #### Returns
 
@@ -690,24 +640,25 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[setUniform](Shader.md#setuniform)
+[`Shader`](Shader.md).[`setUniform`](Shader.md#setuniform)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L107)
+### setUniformFloat()
 
-___
+> **setUniformFloat**(`arg0`, `arg1`): `void`
 
-### setUniformFloat
-
-▸ **setUniformFloat**(`arg0`, `arg1`): `void`
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:125](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L125)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `arg0` | `string` |
-| `arg1` | `number` |
+##### arg0
+
+`string`
+
+##### arg1
+
+`number`
 
 #### Returns
 
@@ -715,24 +666,25 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[setUniformFloat](Shader.md#setuniformfloat)
+[`Shader`](Shader.md).[`setUniformFloat`](Shader.md#setuniformfloat)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L115)
+### setUniformInt32()
 
-___
+> **setUniformInt32**(`arg0`, `arg1`): `void`
 
-### setUniformVector2
-
-▸ **setUniformVector2**(`arg0`, `arg1`): `void`
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:133](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L133)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `arg0` | `string` |
-| `arg1` | [`Vector2`](Vector2.md) |
+##### arg0
+
+`string`
+
+##### arg1
+
+`number`
 
 #### Returns
 
@@ -740,24 +692,25 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[setUniformVector2](Shader.md#setuniformvector2)
+[`Shader`](Shader.md).[`setUniformInt32`](Shader.md#setuniformint32)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L123)
+### setUniformVector2()
 
-___
+> **setUniformVector2**(`arg0`, `arg1`): `void`
 
-### setUniformVector3
-
-▸ **setUniformVector3**(`arg0`, `arg1`): `void`
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:141](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L141)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `arg0` | `string` |
-| `arg1` | [`Vector3`](Vector3.md) |
+##### arg0
+
+`string`
+
+##### arg1
+
+[`Vector2`](Vector2.md)
 
 #### Returns
 
@@ -765,24 +718,25 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[setUniformVector3](Shader.md#setuniformvector3)
+[`Shader`](Shader.md).[`setUniformVector2`](Shader.md#setuniformvector2)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L131)
+### setUniformVector3()
 
-___
+> **setUniformVector3**(`arg0`, `arg1`): `void`
 
-### setUniformVector4
-
-▸ **setUniformVector4**(`arg0`, `arg1`): `void`
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:149](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L149)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `arg0` | `string` |
-| `arg1` | `Vector4` |
+##### arg0
+
+`string`
+
+##### arg1
+
+[`Vector3`](Vector3.md)
 
 #### Returns
 
@@ -790,24 +744,25 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[setUniformVector4](Shader.md#setuniformvector4)
+[`Shader`](Shader.md).[`setUniformVector3`](Shader.md#setuniformvector3)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:139](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L139)
+### setUniformVector4()
 
-___
+> **setUniformVector4**(`arg0`, `arg1`): `void`
 
-### setUniformColor
-
-▸ **setUniformColor**(`arg0`, `arg1`): `void`
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:157](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L157)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `arg0` | `string` |
-| `arg1` | [`Color`](Color.md) |
+##### arg0
+
+`string`
+
+##### arg1
+
+`Vector4`
 
 #### Returns
 
@@ -815,23 +770,47 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[setUniformColor](Shader.md#setuniformcolor)
+[`Shader`](Shader.md).[`setUniformVector4`](Shader.md#setuniformvector4)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:147](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L147)
+### setUniformColor()
 
-___
+> **setUniformColor**(`arg0`, `arg1`): `void`
 
-### getUniform
-
-▸ **getUniform**(`arg0`): `any`
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:165](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L165)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `arg0` | `string` |
+##### arg0
+
+`string`
+
+##### arg1
+
+[`Color`](Color.md)
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[`Shader`](Shader.md).[`setUniformColor`](Shader.md#setuniformcolor)
+
+***
+
+### getUniform()
+
+> **getUniform**(`arg0`): `any`
+
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:173](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L173)
+
+#### Parameters
+
+##### arg0
+
+`string`
 
 #### Returns
 
@@ -839,23 +818,21 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[getUniform](Shader.md#getuniform)
+[`Shader`](Shader.md).[`getUniform`](Shader.md#getuniform)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:155](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L155)
+### getUniformFloat()
 
-___
+> **getUniformFloat**(`arg0`): `number`
 
-### getUniformFloat
-
-▸ **getUniformFloat**(`arg0`): `number`
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:177](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L177)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `arg0` | `string` |
+##### arg0
+
+`string`
 
 #### Returns
 
@@ -863,23 +840,21 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[getUniformFloat](Shader.md#getuniformfloat)
+[`Shader`](Shader.md).[`getUniformFloat`](Shader.md#getuniformfloat)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:159](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L159)
+### getUniformVector2()
 
-___
+> **getUniformVector2**(`arg0`): [`Vector2`](Vector2.md)
 
-### getUniformVector2
-
-▸ **getUniformVector2**(`arg0`): [`Vector2`](Vector2.md)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:181](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L181)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `arg0` | `string` |
+##### arg0
+
+`string`
 
 #### Returns
 
@@ -887,23 +862,21 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[getUniformVector2](Shader.md#getuniformvector2)
+[`Shader`](Shader.md).[`getUniformVector2`](Shader.md#getuniformvector2)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:163](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L163)
+### getUniformVector3()
 
-___
+> **getUniformVector3**(`arg0`): [`Vector3`](Vector3.md)
 
-### getUniformVector3
-
-▸ **getUniformVector3**(`arg0`): [`Vector3`](Vector3.md)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:185](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L185)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `arg0` | `string` |
+##### arg0
+
+`string`
 
 #### Returns
 
@@ -911,23 +884,21 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[getUniformVector3](Shader.md#getuniformvector3)
+[`Shader`](Shader.md).[`getUniformVector3`](Shader.md#getuniformvector3)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:167](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L167)
+### getUniformVector4()
 
-___
+> **getUniformVector4**(`arg0`): `Vector4`
 
-### getUniformVector4
-
-▸ **getUniformVector4**(`arg0`): `Vector4`
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:189](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L189)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `arg0` | `string` |
+##### arg0
+
+`string`
 
 #### Returns
 
@@ -935,23 +906,21 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[getUniformVector4](Shader.md#getuniformvector4)
+[`Shader`](Shader.md).[`getUniformVector4`](Shader.md#getuniformvector4)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:171](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L171)
+### getUniformColor()
 
-___
+> **getUniformColor**(`arg0`): [`Color`](Color.md)
 
-### getUniformColor
-
-▸ **getUniformColor**(`arg0`): [`Color`](Color.md)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:193](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L193)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `arg0` | `string` |
+##### arg0
+
+`string`
 
 #### Returns
 
@@ -959,24 +928,25 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[getUniformColor](Shader.md#getuniformcolor)
+[`Shader`](Shader.md).[`getUniformColor`](Shader.md#getuniformcolor)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:175](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L175)
+### setTexture()
 
-___
+> **setTexture**(`arg0`, `arg1`): `void`
 
-### setTexture
-
-▸ **setTexture**(`arg0`, `arg1`): `void`
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:197](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L197)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `arg0` | `string` |
-| `arg1` | [`Texture`](Texture.md) |
+##### arg0
+
+`string`
+
+##### arg1
+
+[`Texture`](Texture.md)
 
 #### Returns
 
@@ -984,23 +954,21 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[setTexture](Shader.md#settexture)
+[`Shader`](Shader.md).[`setTexture`](Shader.md#settexture)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:179](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L179)
+### getTexture()
 
-___
+> **getTexture**(`arg0`): [`Texture`](Texture.md)
 
-### getTexture
-
-▸ **getTexture**(`arg0`): [`Texture`](Texture.md)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:206](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L206)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `arg0` | `string` |
+##### arg0
+
+`string`
 
 #### Returns
 
@@ -1008,24 +976,25 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[getTexture](Shader.md#gettexture)
+[`Shader`](Shader.md).[`getTexture`](Shader.md#gettexture)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:188](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L188)
+### setUniformBuffer()
 
-___
+> **setUniformBuffer**(`arg0`, `arg1`): `void`
 
-### setUniformBuffer
-
-▸ **setUniformBuffer**(`arg0`, `arg1`): `void`
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:210](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L210)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `arg0` | `string` |
-| `arg1` | [`UniformGPUBuffer`](UniformGPUBuffer.md) |
+##### arg0
+
+`string`
+
+##### arg1
+
+[`UniformGPUBuffer`](UniformGPUBuffer.md)
 
 #### Returns
 
@@ -1033,23 +1002,21 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[setUniformBuffer](Shader.md#setuniformbuffer)
+[`Shader`](Shader.md).[`setUniformBuffer`](Shader.md#setuniformbuffer)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:192](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L192)
+### getUniformBuffer()
 
-___
+> **getUniformBuffer**(`arg0`): `GPUBufferBase`
 
-### getUniformBuffer
-
-▸ **getUniformBuffer**(`arg0`): `GPUBufferBase`
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:218](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L218)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `arg0` | `string` |
+##### arg0
+
+`string`
 
 #### Returns
 
@@ -1057,24 +1024,25 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[getUniformBuffer](Shader.md#getuniformbuffer)
+[`Shader`](Shader.md).[`getUniformBuffer`](Shader.md#getuniformbuffer)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L200)
+### setStorageBuffer()
 
-___
+> **setStorageBuffer**(`arg0`, `arg1`): `void`
 
-### setStorageBuffer
-
-▸ **setStorageBuffer**(`arg0`, `arg1`): `void`
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:222](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L222)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `arg0` | `string` |
-| `arg1` | [`StorageGPUBuffer`](StorageGPUBuffer.md) |
+##### arg0
+
+`string`
+
+##### arg1
+
+[`StorageGPUBuffer`](StorageGPUBuffer.md)
 
 #### Returns
 
@@ -1082,23 +1050,21 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[setStorageBuffer](Shader.md#setstoragebuffer)
+[`Shader`](Shader.md).[`setStorageBuffer`](Shader.md#setstoragebuffer)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:204](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L204)
+### getStorageBuffer()
 
-___
+> **getStorageBuffer**(`arg0`): [`StorageGPUBuffer`](StorageGPUBuffer.md)
 
-### getStorageBuffer
-
-▸ **getStorageBuffer**(`arg0`): [`StorageGPUBuffer`](StorageGPUBuffer.md)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:230](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L230)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `arg0` | `string` |
+##### arg0
+
+`string`
 
 #### Returns
 
@@ -1106,30 +1072,31 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[getStorageBuffer](Shader.md#getstoragebuffer)
+[`Shader`](Shader.md).[`getStorageBuffer`](Shader.md#getstoragebuffer)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:212](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L212)
+### setStructStorageBuffer()
 
-___
+> **setStructStorageBuffer**\<`T`\>(`arg0`, `arg1`): `void`
 
-### setStructStorageBuffer
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:234](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L234)
 
-▸ **setStructStorageBuffer**\<`T`\>(`arg0`, `arg1`): `void`
+#### Type Parameters
 
-#### Type parameters
+##### T
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`Struct`](Struct.md) |
+`T` *extends* [`Struct`](Struct.md)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `arg0` | `string` |
-| `arg1` | [`StructStorageGPUBuffer`](StructStorageGPUBuffer.md)\<`T`\> |
+##### arg0
+
+`string`
+
+##### arg1
+
+[`StructStorageGPUBuffer`](StructStorageGPUBuffer.md)\<`T`\>
 
 #### Returns
 
@@ -1137,23 +1104,21 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[setStructStorageBuffer](Shader.md#setstructstoragebuffer)
+[`Shader`](Shader.md).[`setStructStorageBuffer`](Shader.md#setstructstoragebuffer)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:216](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L216)
+### getStructStorageBuffer()
 
-___
+> **getStructStorageBuffer**(`arg0`): `GPUBufferBase`
 
-### getStructStorageBuffer
-
-▸ **getStructStorageBuffer**(`arg0`): `GPUBufferBase`
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:242](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L242)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `arg0` | `string` |
+##### arg0
+
+`string`
 
 #### Returns
 
@@ -1161,17 +1126,15 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[getStructStorageBuffer](Shader.md#getstructstoragebuffer)
+[`Shader`](Shader.md).[`getStructStorageBuffer`](Shader.md#getstructstoragebuffer)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:224](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L224)
+### noticeValueChange()
 
-___
+> **noticeValueChange**(): `void`
 
-### noticeValueChange
-
-▸ **noticeValueChange**(): `void`
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:246](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L246)
 
 #### Returns
 
@@ -1179,17 +1142,21 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[noticeValueChange](Shader.md#noticevaluechange)
+[`Shader`](Shader.md).[`noticeValueChange`](Shader.md#noticevaluechange)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:228](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L228)
+### destroy()
 
-___
+> **destroy**(`force?`): `void`
 
-### destroy
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:254](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L254)
 
-▸ **destroy**(): `void`
+#### Parameters
+
+##### force?
+
+`boolean`
 
 #### Returns
 
@@ -1197,17 +1164,15 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[destroy](Shader.md#destroy)
+[`Shader`](Shader.md).[`destroy`](Shader.md#destroy)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:236](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L236)
+### clone()
 
-___
+> **clone**(): [`Shader`](Shader.md)
 
-### clone
-
-▸ **clone**(): [`Shader`](Shader.md)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:271](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L271)
 
 #### Returns
 
@@ -1215,17 +1180,15 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[clone](Shader.md#clone)
+[`Shader`](Shader.md).[`clone`](Shader.md#clone)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:240](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L240)
+### applyUniform()
 
-___
+> **applyUniform**(): `void`
 
-### applyUniform
-
-▸ **applyUniform**(): `void`
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:289](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L289)
 
 #### Returns
 
@@ -1233,36 +1196,28 @@ ___
 
 #### Inherited from
 
-[Shader](Shader.md).[applyUniform](Shader.md#applyuniform)
+[`Shader`](Shader.md).[`applyUniform`](Shader.md#applyuniform)
 
-#### Defined in
+***
 
-[src/gfx/graphics/webGpu/shader/Shader.ts:249](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L249)
+### debug()
 
-___
+> **debug**(): `void`
 
-### debug
-
-▸ **debug**(): `void`
+Defined in: [src/loader/parser/prefab/mats/shader/LitSSSShader.ts:45](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L45)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/loader/parser/prefab/mats/shader/LitSSSShader.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L46)
+### setDefault()
 
-___
+> **setDefault**(): `void`
 
-### setDefault
-
-▸ **setDefault**(): `void`
+Defined in: [src/loader/parser/prefab/mats/shader/LitSSSShader.ts:71](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L71)
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[src/loader/parser/prefab/mats/shader/LitSSSShader.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/mats/shader/LitSSSShader.ts#L72)

@@ -1,214 +1,229 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: OutlinePost
+
+Defined in: [src/gfx/renderJob/post/OutlinePost.ts:36](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L36)
 
 post effect out line 
 OutlinePostManager,
 ```
  setting
- let cfg = {@link Engine3D.setting.render.postProcessing.outline};
+ let cfg = {@link this.setting.render.postProcessing.outline};
  let view = new View3D();
  view.scene = this.scene;
  view.camera = mainCamera;
  Engine3D.startRender(renderJob);
 ```
 
-## Hierarchy
-
-- `PostBase`
-
-  ↳ **`OutlinePost`**
-
-### Constructors
-
-- [constructor](OutlinePost.md#constructor)
-
-### Properties
-
-- [enable](OutlinePost.md#enable)
-- [postRenderer](OutlinePost.md#postrenderer)
-
-### Accessors
-
-- [outlinePixel](OutlinePost.md#outlinepixel)
-- [fadeOutlinePixel](OutlinePost.md#fadeoutlinepixel)
-- [strength](OutlinePost.md#strength)
-- [useAddMode](OutlinePost.md#useaddmode)
-
-### Methods
-
-- [onResize](OutlinePost.md#onresize)
-- [destroy](OutlinePost.md#destroy)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new OutlinePost**(): [`OutlinePost`](OutlinePost.md)
+> **new OutlinePost**(): `OutlinePost`
+
+Defined in: [src/gfx/renderJob/post/OutlinePost.ts:95](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L95)
 
 #### Returns
 
-[`OutlinePost`](OutlinePost.md)
+`OutlinePost`
 
 #### Overrides
 
-PostBase.constructor
-
-#### Defined in
-
-[src/gfx/renderJob/post/OutlinePost.ts:101](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L101)
+`PostBase.constructor`
 
 ## Properties
 
 ### enable
 
-• **enable**: `boolean` = `true`
+> **enable**: `boolean` = `true`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L23)
 
 #### Inherited from
 
-PostBase.enable
+`PostBase.enable`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/post/PostBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L20)
+### isFinalPass
 
-___
+> **isFinalPass**: `boolean` = `false`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:27](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L27)
+
+When true, PostPass iterates this post AFTER every regular
+ post regardless of attach order — used by TonemapPost so the
+ ACES curve always lands on the fully-composited HDR signal.
+
+#### Inherited from
+
+`PostBase.isFinalPass`
+
+***
 
 ### postRenderer
 
-• **postRenderer**: `PostRenderer`
+> **postRenderer**: [`PostPass`](PostPass.md)
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L28)
 
 #### Inherited from
 
-PostBase.postRenderer
+`PostBase.postRenderer`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/post/PostBase.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L21)
+### rendererPassState
+
+> **rendererPassState**: `RendererPassState`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L29)
+
+#### Inherited from
+
+`PostBase.rendererPassState`
+
+***
+
+### \_boundCtx
+
+> **\_boundCtx**: [`Context3D`](Context3D.md) = `null`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L30)
+
+#### Inherited from
+
+`PostBase._boundCtx`
 
 ## Accessors
 
 ### outlinePixel
 
-• `get` **outlinePixel**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **outlinePixel**(): `number`
+
+Defined in: [src/gfx/renderJob/post/OutlinePost.ts:122](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L122)
+
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/gfx/renderJob/post/OutlinePost.ts:128](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L128)
+> **set** **outlinePixel**(`value`): `void`
 
-• `set` **outlinePixel**(`value`): `void`
+Defined in: [src/gfx/renderJob/post/OutlinePost.ts:114](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L114)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/gfx/renderJob/post/OutlinePost.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L120)
-
-___
+***
 
 ### fadeOutlinePixel
 
-• `get` **fadeOutlinePixel**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **fadeOutlinePixel**(): `number`
+
+Defined in: [src/gfx/renderJob/post/OutlinePost.ts:134](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L134)
+
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/gfx/renderJob/post/OutlinePost.ts:140](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L140)
+> **set** **fadeOutlinePixel**(`value`): `void`
 
-• `set` **fadeOutlinePixel**(`value`): `void`
+Defined in: [src/gfx/renderJob/post/OutlinePost.ts:126](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L126)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/gfx/renderJob/post/OutlinePost.ts:132](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L132)
-
-___
+***
 
 ### strength
 
-• `get` **strength**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **strength**(): `number`
+
+Defined in: [src/gfx/renderJob/post/OutlinePost.ts:146](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L146)
+
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/gfx/renderJob/post/OutlinePost.ts:152](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L152)
+> **set** **strength**(`value`): `void`
 
-• `set` **strength**(`value`): `void`
+Defined in: [src/gfx/renderJob/post/OutlinePost.ts:138](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L138)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/gfx/renderJob/post/OutlinePost.ts:144](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L144)
-
-___
+***
 
 ### useAddMode
 
-• `get` **useAddMode**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **useAddMode**(): `boolean`
+
+Defined in: [src/gfx/renderJob/post/OutlinePost.ts:154](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L154)
+
+##### Returns
 
 `boolean`
 
-#### Defined in
+#### Set Signature
 
-[src/gfx/renderJob/post/OutlinePost.ts:160](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L160)
+> **set** **useAddMode**(`value`): `void`
 
-• `set` **useAddMode**(`value`): `void`
+Defined in: [src/gfx/renderJob/post/OutlinePost.ts:150](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L150)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
+###### value
 
-#### Returns
+`boolean`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/gfx/renderJob/post/OutlinePost.ts:156](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L156)
-
 ## Methods
 
-### onResize
+### onResize()
 
-▸ **onResize**(): `void`
+> **onResize**(): `void`
+
+Defined in: [src/gfx/renderJob/post/OutlinePost.ts:294](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L294)
 
 #### Returns
 
@@ -216,23 +231,21 @@ ___
 
 #### Overrides
 
-PostBase.onResize
+`PostBase.onResize`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/post/OutlinePost.ts:299](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L299)
+### compute()
 
-___
+> **compute**(`view`): `void`
 
-### destroy
-
-▸ **destroy**(`force?`): `void`
+Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L133)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
+##### view
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -240,8 +253,26 @@ ___
 
 #### Inherited from
 
-PostBase.destroy
+`PostBase.compute`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/post/PostBase.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L87)
+### destroy()
+
+> **destroy**(`force?`): `void`
+
+Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L143)
+
+#### Parameters
+
+##### force?
+
+`boolean`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`PostBase.destroy`

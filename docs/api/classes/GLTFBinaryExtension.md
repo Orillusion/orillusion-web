@@ -1,80 +1,69 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: GLTFBinaryExtension
 
-### Constructors
-
-- [constructor](GLTFBinaryExtension.md#constructor)
-
-### Properties
-
-- [name](GLTFBinaryExtension.md#name)
-- [content](GLTFBinaryExtension.md#content)
-- [body](GLTFBinaryExtension.md#body)
-- [header](GLTFBinaryExtension.md#header)
+Defined in: [src/loader/parser/B3DMParser.ts:52](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L52)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new GLTFBinaryExtension**(`data`): [`GLTFBinaryExtension`](GLTFBinaryExtension.md)
+> **new GLTFBinaryExtension**(`data`): `GLTFBinaryExtension`
+
+Defined in: [src/loader/parser/B3DMParser.ts:58](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L58)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `data` | `ArrayBuffer` |
+##### data
+
+`ArrayBuffer`
 
 #### Returns
 
-[`GLTFBinaryExtension`](GLTFBinaryExtension.md)
-
-#### Defined in
-
-[src/loader/parser/B3DMParser.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L58)
+`GLTFBinaryExtension`
 
 ## Properties
 
 ### name
 
-• **name**: `string`
+> **name**: `string`
 
-#### Defined in
+Defined in: [src/loader/parser/B3DMParser.ts:53](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L53)
 
-[src/loader/parser/B3DMParser.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L53)
-
-___
+***
 
 ### content
 
-• **content**: `string`
+> **content**: `string`
 
-#### Defined in
+Defined in: [src/loader/parser/B3DMParser.ts:54](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L54)
 
-[src/loader/parser/B3DMParser.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L54)
-
-___
+***
 
 ### body
 
-• **body**: `ArrayBuffer`
+> **body**: `ArrayBuffer`
 
-#### Defined in
+Defined in: [src/loader/parser/B3DMParser.ts:55](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L55)
 
-[src/loader/parser/B3DMParser.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L55)
-
-___
+***
 
 ### header
 
-• **header**: `Object`
+> **header**: `object`
 
-#### Type declaration
+Defined in: [src/loader/parser/B3DMParser.ts:56](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L56)
 
-| Name | Type |
-| :------ | :------ |
-| `magic` | `string` |
-| `length` | `number` |
-| `version` | `number` |
+#### magic
 
-#### Defined in
+> **magic**: `string`
 
-[src/loader/parser/B3DMParser.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L56)
+#### length
+
+> **length**: `number`
+
+#### version
+
+> **version**: `number`

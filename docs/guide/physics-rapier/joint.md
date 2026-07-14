@@ -56,3 +56,9 @@ sp.anchorTarget = new Vector3(0, -1, 0);
 ```
 
 > `GenericJoint`, `RopeJoint`, and `SpringJoint` are used similarly: add the component, set `connectedBody` and the anchors, then configure according to their respective characteristics (such as the maximum distance for `RopeJoint`, or the stiffness/damping for `SpringJoint`). For a complete example, see `samples/physics-rapier/Sample_RapierJoints.ts` in the engine repository.
+
+## Example
+
+<Demo src="/demos/physics-rapier/Sample_rapierJoints.ts"></Demo>
+
+<<< @/public/demos/physics-rapier/Sample_rapierJoints.ts

@@ -1,17 +1,19 @@
-# Function: GetComponentClass
+[**@orillusion/core**](../README.md)
 
-▸ **GetComponentClass**(`name`): `any`
+***
 
-#### Parameters
+# Function: GetComponentClass()
 
-| Name | Type |
-| :------ | :------ |
-| `name` | `string` |
+> **GetComponentClass**(`name`): `any`
 
-#### Returns
+Defined in: [src/util/SerializeDecoration.ts:90](https://github.com/orillusion/orillusion/blob/main/src/util/SerializeDecoration.ts#L90)
+
+## Parameters
+
+### name
+
+`string`
+
+## Returns
 
 `any`
-
-#### Defined in
-
-[src/util/SerializeDecoration.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/util/SerializeDecoration.ts#L90)

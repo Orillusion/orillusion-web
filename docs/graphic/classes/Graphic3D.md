@@ -1,1398 +1,803 @@
+[**@orillusion/graphic**](../README.md)
+
+***
+
 # Class: Graphic3D
 
-## Hierarchy
+Defined in: [packages/graphic/renderer/Graphic3DRender.ts:6](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L6)
+
+## Extends
 
 - `Object3D`
 
-  ↳ **`Graphic3D`**
-
-### Constructors
-
-- [constructor](Graphic3D.md#constructor)
-
-### Properties
-
-- [name](Graphic3D.md#name)
-- [transform](Graphic3D.md#transform)
-- [renderNode](Graphic3D.md#rendernode)
-- [entityChildren](Graphic3D.md#entitychildren)
-- [components](Graphic3D.md#components)
-- [prefabRef](Graphic3D.md#prefabref)
-- [serializeTag](Graphic3D.md#serializetag)
-
-### Accessors
-
-- [instanceID](Graphic3D.md#instanceid)
-- [numChildren](Graphic3D.md#numchildren)
-- [bound](Graphic3D.md#bound)
-- [isScene3D](Graphic3D.md#isscene3d)
-- [localPosition](Graphic3D.md#localposition)
-- [localRotation](Graphic3D.md#localrotation)
-- [localScale](Graphic3D.md#localscale)
-- [localQuaternion](Graphic3D.md#localquaternion)
-- [parent](Graphic3D.md#parent)
-- [parentObject](Graphic3D.md#parentobject)
-- [x](Graphic3D.md#x)
-- [y](Graphic3D.md#y)
-- [z](Graphic3D.md#z)
-- [scaleX](Graphic3D.md#scalex)
-- [scaleY](Graphic3D.md#scaley)
-- [scaleZ](Graphic3D.md#scalez)
-- [rotationX](Graphic3D.md#rotationx)
-- [rotationY](Graphic3D.md#rotationy)
-- [rotationZ](Graphic3D.md#rotationz)
-
-### Methods
-
-- [drawAxis](Graphic3D.md#drawaxis)
-- [drawLines](Graphic3D.md#drawlines)
-- [drawCurve](Graphic3D.md#drawcurve)
-- [drawRect](Graphic3D.md#drawrect)
-- [drawCircle](Graphic3D.md#drawcircle)
-- [drawSector](Graphic3D.md#drawsector)
-- [drawArcLine](Graphic3D.md#drawarcline)
-- [createCustomShape](Graphic3D.md#createcustomshape)
-- [drawBox](Graphic3D.md#drawbox)
-- [drawFillRect](Graphic3D.md#drawfillrect)
-- [drawFillCircle](Graphic3D.md#drawfillcircle)
-- [drawMeshWireframe](Graphic3D.md#drawmeshwireframe)
-- [drawFillSector](Graphic3D.md#drawfillsector)
-- [drawBoundingBox](Graphic3D.md#drawboundingbox)
-- [drawCameraFrustum](Graphic3D.md#drawcamerafrustum)
-- [drawObjectBoundingBox](Graphic3D.md#drawobjectboundingbox)
-- [Clear](Graphic3D.md#clear)
-- [ClearAll](Graphic3D.md#clearall)
-- [ChangeColor](Graphic3D.md#changecolor)
-- [getObjectByName](Graphic3D.md#getobjectbyname)
-- [addChild](Graphic3D.md#addchild)
-- [removeChild](Graphic3D.md#removechild)
-- [removeAllChild](Graphic3D.md#removeallchild)
-- [removeSelf](Graphic3D.md#removeself)
-- [removeChildByIndex](Graphic3D.md#removechildbyindex)
-- [hasChild](Graphic3D.md#haschild)
-- [removeFromParent](Graphic3D.md#removefromparent)
-- [getChildByIndex](Graphic3D.md#getchildbyindex)
-- [getChildByName](Graphic3D.md#getchildbyname)
-- [noticeComponents](Graphic3D.md#noticecomponents)
-- [forChild](Graphic3D.md#forchild)
-- [addComponent](Graphic3D.md#addcomponent)
-- [getOrAddComponent](Graphic3D.md#getoraddcomponent)
-- [removeComponent](Graphic3D.md#removecomponent)
-- [hasComponent](Graphic3D.md#hascomponent)
-- [getComponent](Graphic3D.md#getcomponent)
-- [getComponentFromParent](Graphic3D.md#getcomponentfromparent)
-- [getComponentsInChild](Graphic3D.md#getcomponentsinchild)
-- [getComponents](Graphic3D.md#getcomponents)
-- [getComponentsExt](Graphic3D.md#getcomponentsext)
-- [getComponentsByProperty](Graphic3D.md#getcomponentsbyproperty)
-- [clone](Graphic3D.md#clone)
-- [notifyChange](Graphic3D.md#notifychange)
-- [traverse](Graphic3D.md#traverse)
-- [destroy](Graphic3D.md#destroy)
-- [dispatchEvent](Graphic3D.md#dispatchevent)
-- [addEventListener](Graphic3D.md#addeventlistener)
-- [removeEventListener](Graphic3D.md#removeeventlistener)
-- [removeEventListenerAt](Graphic3D.md#removeeventlistenerat)
-- [removeAllEventListener](Graphic3D.md#removealleventlistener)
-- [containEventListener](Graphic3D.md#containeventlistener)
-- [hasEventListener](Graphic3D.md#haseventlistener)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new Graphic3D**(): [`Graphic3D`](Graphic3D.md)
+> **new Graphic3D**(): `Graphic3D`
+
+Defined in: [packages/graphic/renderer/Graphic3DRender.ts:10](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L10)
 
 #### Returns
 
-[`Graphic3D`](Graphic3D.md)
+`Graphic3D`
 
 #### Overrides
 
-Object3D.constructor
-
-#### Defined in
-
-[packages/graphic/renderer/Graphic3DRender.ts:10](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L10)
+`Object3D.constructor`
 
 ## Properties
 
 ### name
 
-• **name**: `string` = `''`
+> **name**: `string` = `''`
+
+Defined in: [src/core/entities/Entity.ts:23](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L23)
 
 The name of the object. The default value is an empty string.
 
 #### Inherited from
 
-Object3D.name
+`Object3D.name`
 
-#### Defined in
-
-[src/core/entities/Entity.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L24)
-
-___
+***
 
 ### transform
 
-• **transform**: `Transform`
+> **transform**: `Transform`
+
+Defined in: [src/core/entities/Entity.ts:38](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L38)
 
 The Transform attached to this object.
 
 #### Inherited from
 
-Object3D.transform
+`Object3D.transform`
 
-#### Defined in
-
-[src/core/entities/Entity.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L42)
-
-___
+***
 
 ### renderNode
 
-• **renderNode**: `RenderNode`
+> **renderNode**: `RenderNode`
+
+Defined in: [src/core/entities/Entity.ts:43](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L43)
 
 Renderer components
 
 #### Inherited from
 
-Object3D.renderNode
+`Object3D.renderNode`
 
-#### Defined in
-
-[src/core/entities/Entity.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L47)
-
-___
+***
 
 ### entityChildren
 
-• **entityChildren**: `Entity`[]
+> **entityChildren**: `Entity`[]
+
+Defined in: [src/core/entities/Entity.ts:48](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L48)
 
 An array containing sub objects of an object
 
 #### Inherited from
 
-Object3D.entityChildren
+`Object3D.entityChildren`
 
-#### Defined in
-
-[src/core/entities/Entity.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L52)
-
-___
+***
 
 ### components
 
-• **components**: `Map`\<`any`, `IComponent`\>
+> **components**: `Map`\<`any`, `IComponent`\>
+
+Defined in: [src/core/entities/Entity.ts:53](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L53)
 
 List of components attached to an object
 
 #### Inherited from
 
-Object3D.components
+`Object3D.components`
 
-#### Defined in
+***
 
-[src/core/entities/Entity.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L57)
+### prefabRef?
 
-___
+> `optional` **prefabRef?**: `string`
 
-### prefabRef
-
-• `Optional` **prefabRef**: `string`
+Defined in: [src/core/entities/Object3D.ts:19](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L19)
 
 #### Inherited from
 
-Object3D.prefabRef
+`Object3D.prefabRef`
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L19)
+### serializeTag?
 
-___
+> `optional` **serializeTag?**: `SerializeTag`
 
-### serializeTag
-
-• `Optional` **serializeTag**: `SerializeTag`
+Defined in: [src/core/entities/Object3D.ts:20](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L20)
 
 #### Inherited from
 
-Object3D.serializeTag
+`Object3D.serializeTag`
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L20)
+### mLineRender
+
+> **mLineRender**: `Graphic3DLineRenderer`
+
+Defined in: [packages/graphic/renderer/Graphic3DRender.ts:7](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L7)
+
+***
+
+### mFillRender
+
+> **mFillRender**: `Graphic3DFillRenderer`
+
+Defined in: [packages/graphic/renderer/Graphic3DRender.ts:8](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L8)
 
 ## Accessors
 
 ### instanceID
 
-• `get` **instanceID**(): `string`
+#### Get Signature
+
+> **get** **instanceID**(): `string`
+
+Defined in: [src/core/entities/Entity.ts:31](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L31)
 
 The unique identifier of the object.
 
-#### Returns
+##### Returns
 
 `string`
 
 #### Inherited from
 
-Object3D.instanceID
+`Object3D.instanceID`
 
-#### Defined in
+***
 
-[src/core/entities/Entity.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L32)
+### dispose
 
-___
+#### Get Signature
 
-### numChildren
+> **get** **dispose**(): `boolean`
 
-• `get` **numChildren**(): `number`
+Defined in: [src/core/entities/Entity.ts:67](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L67)
 
-Returns the number of child objects of an object
-
-#### Returns
-
-`number`
-
-#### Inherited from
-
-Object3D.numChildren
-
-#### Defined in
-
-[src/core/entities/Entity.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L116)
-
-___
-
-### bound
-
-• `get` **bound**(): `IBound`
-
-#### Returns
-
-`IBound`
-
-#### Inherited from
-
-Object3D.bound
-
-#### Defined in
-
-[src/core/entities/Entity.ts:277](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L277)
-
-• `set` **bound**(`value`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `value` | `IBound` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-Object3D.bound
-
-#### Defined in
-
-[src/core/entities/Entity.ts:282](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L282)
-
-___
-
-### isScene3D
-
-• `get` **isScene3D**(): `boolean`
-
-#### Returns
+##### Returns
 
 `boolean`
 
 #### Inherited from
 
-Object3D.isScene3D
+`Object3D.dispose`
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L30)
+### numChildren
 
-___
+#### Get Signature
+
+> **get** **numChildren**(): `number`
+
+Defined in: [src/core/entities/Entity.ts:113](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L113)
+
+Returns the number of child objects of an object
+
+##### Returns
+
+`number`
+
+#### Inherited from
+
+`Object3D.numChildren`
+
+***
+
+### bound
+
+#### Get Signature
+
+> **get** **bound**(): `IBound`
+
+Defined in: [src/core/entities/Entity.ts:274](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L274)
+
+##### Returns
+
+`IBound`
+
+#### Set Signature
+
+> **set** **bound**(`value`): `void`
+
+Defined in: [src/core/entities/Entity.ts:279](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L279)
+
+##### Parameters
+
+###### value
+
+`IBound`
+
+##### Returns
+
+`void`
+
+#### Inherited from
+
+`Object3D.bound`
+
+***
+
+### isScene3D
+
+#### Get Signature
+
+> **get** **isScene3D**(): `boolean`
+
+Defined in: [src/core/entities/Object3D.ts:30](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L30)
+
+##### Returns
+
+`boolean`
+
+#### Inherited from
+
+`Object3D.isScene3D`
+
+***
 
 ### localPosition
 
-• `get` **localPosition**(): `Vector3`
+#### Get Signature
+
+> **get** **localPosition**(): `Vector3`
+
+Defined in: [src/core/entities/Object3D.ts:272](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L272)
 
 Get the position of an object relative to its parent
 
-#### Returns
+##### Returns
 
 `Vector3`
 
-#### Inherited from
+#### Set Signature
 
-Object3D.localPosition
+> **set** **localPosition**(`value`): `void`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:272](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L272)
-
-• `set` **localPosition**(`value`): `void`
+Defined in: [src/core/entities/Object3D.ts:279](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L279)
 
 Set the position of an object relative to its parent
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `Vector3` |
+###### value
 
-#### Returns
+`Vector3`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-Object3D.localPosition
+`Object3D.localPosition`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:279](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L279)
-
-___
+***
 
 ### localRotation
 
-• `get` **localRotation**(): `Vector3`
+#### Get Signature
+
+> **get** **localRotation**(): `Vector3`
+
+Defined in: [src/core/entities/Object3D.ts:286](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L286)
 
 Get the rotation attribute of an object relative to its parent
 
-#### Returns
+##### Returns
 
 `Vector3`
 
-#### Inherited from
+#### Set Signature
 
-Object3D.localRotation
+> **set** **localRotation**(`value`): `void`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:286](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L286)
-
-• `set` **localRotation**(`value`): `void`
+Defined in: [src/core/entities/Object3D.ts:293](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L293)
 
 Set the rotation attribute of an object relative to its parent
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `Vector3` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-Object3D.localRotation
-
-#### Defined in
-
-[src/core/entities/Object3D.ts:293](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L293)
-
-___
-
-### localScale
-
-• `get` **localScale**(): `Vector3`
-
-Get the scaling attribute of an object relative to its parent
-
-#### Returns
+###### value
 
 `Vector3`
 
+##### Returns
+
+`void`
+
 #### Inherited from
 
-Object3D.localScale
+`Object3D.localRotation`
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:300](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L300)
+### localScale
 
-• `set` **localScale**(`value`): `void`
+#### Get Signature
+
+> **get** **localScale**(): `Vector3`
+
+Defined in: [src/core/entities/Object3D.ts:300](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L300)
+
+Get the scaling attribute of an object relative to its parent
+
+##### Returns
+
+`Vector3`
+
+#### Set Signature
+
+> **set** **localScale**(`value`): `void`
+
+Defined in: [src/core/entities/Object3D.ts:307](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L307)
 
 Set the scaling attribute of an object relative to its parent
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `Vector3` |
+###### value
 
-#### Returns
+`Vector3`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-Object3D.localScale
+`Object3D.localScale`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:307](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L307)
-
-___
+***
 
 ### localQuaternion
 
-• `get` **localQuaternion**(): `Quaternion`
+#### Get Signature
+
+> **get** **localQuaternion**(): `Quaternion`
+
+Defined in: [src/core/entities/Object3D.ts:314](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L314)
 
 Get the rotation attribute of an object relative to its parent, which is a quaternion
 
-#### Returns
+##### Returns
 
 `Quaternion`
 
-#### Inherited from
+#### Set Signature
 
-Object3D.localQuaternion
+> **set** **localQuaternion**(`value`): `void`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:314](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L314)
-
-• `set` **localQuaternion**(`value`): `void`
+Defined in: [src/core/entities/Object3D.ts:321](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L321)
 
 Set the rotation attribute of an object relative to its parent, which is a quaternion
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `Quaternion` |
+###### value
 
-#### Returns
+`Quaternion`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-Object3D.localQuaternion
+`Object3D.localQuaternion`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:321](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L321)
-
-___
+***
 
 ### parent
 
-• `get` **parent**(): `Transform`
+#### Get Signature
+
+> **get** **parent**(): `Transform`
+
+Defined in: [src/core/entities/Object3D.ts:336](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L336)
 
 Transform component of object parent
 
-#### Returns
+##### Returns
 
 `Transform`
 
 #### Inherited from
 
-Object3D.parent
+`Object3D.parent`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:336](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L336)
-
-___
+***
 
 ### parentObject
 
-• `get` **parentObject**(): `Object3D`
+#### Get Signature
+
+> **get** **parentObject**(): `Object3D`
+
+Defined in: [src/core/entities/Object3D.ts:344](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L344)
 
 parent object3D
 
-#### Returns
+##### Returns
 
 `Object3D`
 
 #### Inherited from
 
-Object3D.parentObject
+`Object3D.parentObject`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:344](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L344)
-
-___
+***
 
 ### x
 
-• `get` **x**(): `number`
+#### Get Signature
+
+> **get** **x**(): `number`
+
+Defined in: [src/core/entities/Object3D.ts:360](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L360)
 
 Get the x coordinate relative to the local coordinates of the parent container.
 
-#### Returns
+##### Returns
 
 `number`
 
-#### Inherited from
+#### Set Signature
 
-Object3D.x
+> **set** **x**(`value`): `void`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:360](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L360)
-
-• `set` **x**(`value`): `void`
+Defined in: [src/core/entities/Object3D.ts:352](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L352)
 
 Set the x coordinate relative to the local coordinates of the parent container.
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-Object3D.x
+`Object3D.x`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:352](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L352)
-
-___
+***
 
 ### y
 
-• `get` **y**(): `number`
+#### Get Signature
+
+> **get** **y**(): `number`
+
+Defined in: [src/core/entities/Object3D.ts:375](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L375)
 
 Get the y coordinate relative to the local coordinates of the parent container.
 
-#### Returns
+##### Returns
 
 `number`
 
-#### Inherited from
+#### Set Signature
 
-Object3D.y
+> **set** **y**(`value`): `void`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:375](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L375)
-
-• `set` **y**(`value`): `void`
+Defined in: [src/core/entities/Object3D.ts:367](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L367)
 
 Set the y coordinate relative to the local coordinates of the parent container.
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-Object3D.y
+`Object3D.y`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:367](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L367)
-
-___
+***
 
 ### z
 
-• `get` **z**(): `number`
+#### Get Signature
+
+> **get** **z**(): `number`
+
+Defined in: [src/core/entities/Object3D.ts:389](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L389)
 
 Get the z coordinate relative to the local coordinates of the parent container.
 
-#### Returns
+##### Returns
 
 `number`
 
-#### Inherited from
+#### Set Signature
 
-Object3D.z
+> **set** **z**(`value`): `void`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L389)
-
-• `set` **z**(`value`): `void`
+Defined in: [src/core/entities/Object3D.ts:382](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L382)
 
 Set the z coordinate relative to the local coordinates of the parent container.
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-Object3D.z
+`Object3D.z`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:382](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L382)
-
-___
+***
 
 ### scaleX
 
-• `get` **scaleX**(): `number`
+#### Get Signature
+
+> **get** **scaleX**(): `number`
+
+Defined in: [src/core/entities/Object3D.ts:404](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L404)
 
 Get the x scale relative to the local coordinates of the parent container.
 
-#### Returns
+##### Returns
 
 `number`
 
-#### Inherited from
+#### Set Signature
 
-Object3D.scaleX
+> **set** **scaleX**(`value`): `void`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:404](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L404)
-
-• `set` **scaleX**(`value`): `void`
+Defined in: [src/core/entities/Object3D.ts:396](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L396)
 
 Set the x scale relative to the local coordinates of the parent container.
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-Object3D.scaleX
+`Object3D.scaleX`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:396](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L396)
-
-___
+***
 
 ### scaleY
 
-• `get` **scaleY**(): `number`
+#### Get Signature
+
+> **get** **scaleY**(): `number`
+
+Defined in: [src/core/entities/Object3D.ts:420](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L420)
 
 Get the y scale relative to the local coordinates of the parent container.
 
-#### Returns
+##### Returns
 
 `number`
 
-#### Inherited from
+#### Set Signature
 
-Object3D.scaleY
+> **set** **scaleY**(`value`): `void`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:420](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L420)
-
-• `set` **scaleY**(`value`): `void`
+Defined in: [src/core/entities/Object3D.ts:412](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L412)
 
 Set the y scale relative to the local coordinates of the parent container.
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-Object3D.scaleY
+`Object3D.scaleY`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:412](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L412)
-
-___
+***
 
 ### scaleZ
 
-• `get` **scaleZ**(): `number`
+#### Get Signature
+
+> **get** **scaleZ**(): `number`
+
+Defined in: [src/core/entities/Object3D.ts:436](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L436)
 
 Get the z scale relative to the local coordinates of the parent container.
 
-#### Returns
+##### Returns
 
 `number`
 
-#### Inherited from
+#### Set Signature
 
-Object3D.scaleZ
+> **set** **scaleZ**(`value`): `void`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:436](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L436)
-
-• `set` **scaleZ**(`value`): `void`
+Defined in: [src/core/entities/Object3D.ts:428](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L428)
 
 Set the z scale relative to the local coordinates of the parent container.
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-Object3D.scaleZ
+`Object3D.scaleZ`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:428](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L428)
-
-___
+***
 
 ### rotationX
 
-• `get` **rotationX**(): `number`
+#### Get Signature
+
+> **get** **rotationX**(): `number`
+
+Defined in: [src/core/entities/Object3D.ts:452](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L452)
 
 Get the x rotation relative to the local coordinates of the parent container.
 
-#### Returns
+##### Returns
 
 `number`
 
-#### Inherited from
+#### Set Signature
 
-Object3D.rotationX
+> **set** **rotationX**(`value`): `void`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:452](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L452)
-
-• `set` **rotationX**(`value`): `void`
+Defined in: [src/core/entities/Object3D.ts:444](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L444)
 
 Set the x rotation relative to the local coordinates of the parent container.
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-Object3D.rotationX
+`Object3D.rotationX`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:444](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L444)
-
-___
+***
 
 ### rotationY
 
-• `get` **rotationY**(): `number`
+#### Get Signature
+
+> **get** **rotationY**(): `number`
+
+Defined in: [src/core/entities/Object3D.ts:468](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L468)
 
 Get the y rotation relative to the local coordinates of the parent container.
 
-#### Returns
+##### Returns
 
 `number`
 
-#### Inherited from
+#### Set Signature
 
-Object3D.rotationY
+> **set** **rotationY**(`value`): `void`
 
-#### Defined in
-
-[src/core/entities/Object3D.ts:468](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L468)
-
-• `set` **rotationY**(`value`): `void`
+Defined in: [src/core/entities/Object3D.ts:460](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L460)
 
 Set the y rotation relative to the local coordinates of the parent container.
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-Object3D.rotationY
-
-#### Defined in
-
-[src/core/entities/Object3D.ts:460](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L460)
-
-___
-
-### rotationZ
-
-• `get` **rotationZ**(): `number`
-
-Set the z rotation relative to the local coordinates of the parent container.
-
-#### Returns
+###### value
 
 `number`
 
+##### Returns
+
+`void`
+
 #### Inherited from
 
-Object3D.rotationZ
+`Object3D.rotationY`
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:484](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L484)
+### rotationZ
 
-• `set` **rotationZ**(`value`): `void`
+#### Get Signature
+
+> **get** **rotationZ**(): `number`
+
+Defined in: [src/core/entities/Object3D.ts:484](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L484)
 
 Set the z rotation relative to the local coordinates of the parent container.
 
-#### Parameters
+##### Returns
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+`number`
 
-#### Returns
+#### Set Signature
+
+> **set** **rotationZ**(`value`): `void`
+
+Defined in: [src/core/entities/Object3D.ts:476](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L476)
+
+Set the z rotation relative to the local coordinates of the parent container.
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-Object3D.rotationZ
-
-#### Defined in
-
-[src/core/entities/Object3D.ts:476](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L476)
+`Object3D.rotationZ`
 
 ## Methods
 
-### drawAxis
+### getObjectByName()
 
-▸ **drawAxis**(`uuid`, `origin?`, `size?`): `void`
+> **getObjectByName**(`name`): `Entity`
 
-Draw the 3 - dimensional axes
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `uuid` | `string` | `undefined` | Graphic identification ID |
-| `origin` | `Vector3` | `undefined` | original point |
-| `size` | `number` | `10` | Length of axis |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/graphic/renderer/Graphic3DRender.ts:23](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L23)
-
-___
-
-### drawLines
-
-▸ **drawLines**(`uuid`, `points`, `colors?`): `void`
-
-Draw a line
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `uuid` | `string` | `undefined` | Graphic identification ID |
-| `points` | `Vector3`[] | `undefined` | Line path point |
-| `colors` | `Color` \| `Color`[] | `Color.COLOR_WHITE` | - |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/graphic/renderer/Graphic3DRender.ts:35](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L35)
-
-___
-
-### drawCurve
-
-▸ **drawCurve**(`uuid`, `points`, `samples?`, `tension?`, `color?`): `void`
-
-drawing curve
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `uuid` | `string` | `undefined` | Graphic identification ID |
-| `points` | `Vector3`[] | `undefined` | Curve position point |
-| `samples` | `number` | `10` | Number of Samples |
-| `tension` | `number` | `0.5` | Strength of curve |
-| `color` | `Color` | `Color.COLOR_WHITE` | Color of curve |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/graphic/renderer/Graphic3DRender.ts:49](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L49)
-
-___
-
-### drawRect
-
-▸ **drawRect**(`uuid`, `origin`, `width`, `height`, `color?`): `void`
-
-Draw a rectangle
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `uuid` | `string` | `undefined` | Graphic identification ID |
-| `origin` | `Vector3` | `undefined` | original point |
-| `width` | `number` | `undefined` | Width of rectangle |
-| `height` | `number` | `undefined` | Height of rectangle |
-| `color` | `Color` | `Color.COLOR_WHITE` | The color of the rectangle |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/graphic/renderer/Graphic3DRender.ts:93](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L93)
-
-___
-
-### drawCircle
-
-▸ **drawCircle**(`uuid`, `center`, `radius`, `segments?`, `up?`, `color?`): `void`
-
-Draw a circle
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `uuid` | `string` | `undefined` | Graphic identification ID |
-| `center` | `Vector3` | `undefined` | centre point |
-| `radius` | `number` | `undefined` | radius |
-| `segments` | `number` | `32` | Number of line segments |
-| `up` | `Vector3` | `Vector3.Y_AXIS` | Direction of plane |
-| `color` | `Color` | `Color.COLOR_WHITE` | The color of the circle |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/graphic/renderer/Graphic3DRender.ts:112](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L112)
-
-___
-
-### drawSector
-
-▸ **drawSector**(`uuid`, `center`, `radius`, `startAngle`, `endAngle`, `segments?`, `up?`, `color?`): `void`
-
-Draw a Sector
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `uuid` | `string` | `undefined` | Graphic identification ID |
-| `center` | `Vector3` | `undefined` | centre point |
-| `radius` | `number` | `undefined` | radius |
-| `startAngle` | `number` | `undefined` | Angle of onset |
-| `endAngle` | `number` | `undefined` | Angle of end |
-| `segments` | `number` | `16` | number of segments |
-| `up` | `Vector3` | `Vector3.Y_AXIS` | Direction of plane |
-| `color` | `Color` | `Color.COLOR_WHITE` | The color of the sector |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/graphic/renderer/Graphic3DRender.ts:129](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L129)
-
-___
-
-### drawArcLine
-
-▸ **drawArcLine**(`uuid`, `center`, `radius`, `startAngle`, `endAngle`, `segments?`, `up?`, `color?`): `void`
-
-Draw a ArcLine
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `uuid` | `string` | `undefined` | Graphic identification ID |
-| `center` | `Vector3` | `undefined` | centre point |
-| `radius` | `number` | `undefined` | radius |
-| `startAngle` | `number` | `undefined` | Angle of onset |
-| `endAngle` | `number` | `undefined` | Angle of end |
-| `segments` | `number` | `16` | number of segments |
-| `up` | `Vector3` | `Vector3.Y_AXIS` | Direction of plane |
-| `color` | `Color` | `Color.COLOR_WHITE` | The color of the sector |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/graphic/renderer/Graphic3DRender.ts:172](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L172)
-
-___
-
-### createCustomShape
-
-▸ **createCustomShape**(`uuid`, `parentTransform?`): `Graphics3DShape`
-
-Creates a custom line segment graph and returns a Shape with the same uuid from the pool if it already exists.
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `uuid` | `string` | Graphic identification ID |
-| `parentTransform` | `Transform` | Parent node Transform |
-
-#### Returns
-
-`Graphics3DShape`
-
-Graphics3DShape
-
-#### Defined in
-
-[packages/graphic/renderer/Graphic3DRender.ts:184](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L184)
-
-___
-
-### drawBox
-
-▸ **drawBox**(`uuid`, `minPoint`, `maxPoint`, `color?`): `void`
-
-Draw the box
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `uuid` | `string` | `undefined` | Graphic identification ID |
-| `minPoint` | `Vector3` | `undefined` | Point of minimum |
-| `maxPoint` | `Vector3` | `undefined` | Point of maximum |
-| `color` | `Color` | `Color.COLOR_WHITE` | The color of the box |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/graphic/renderer/Graphic3DRender.ts:195](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L195)
-
-___
-
-### drawFillRect
-
-▸ **drawFillRect**(`uuid`, `origin`, `width`, `height`, `color?`): `void`
-
-Draw the fill rectangle
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `uuid` | `string` | `undefined` | Graphic identification ID |
-| `origin` | `Vector3` | `undefined` | - |
-| `width` | `number` | `undefined` | - |
-| `height` | `number` | `undefined` | - |
-| `color` | `Color` | `Color.COLOR_WHITE` | The color of the fill rectangle |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/graphic/renderer/Graphic3DRender.ts:237](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L237)
-
-___
-
-### drawFillCircle
-
-▸ **drawFillCircle**(`uuid`, `center`, `radius`, `segments?`, `up?`, `color?`): `void`
-
-Draw the fill circle
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `uuid` | `string` | `undefined` | Graphic identification ID |
-| `center` | `Vector3` | `undefined` | centre point |
-| `radius` | `number` | `undefined` | radius |
-| `segments` | `number` | `32` | number of segments |
-| `up` | `Vector3` | `Vector3.Y_AXIS` | Direction of plane |
-| `color` | `Color` | `Color.COLOR_WHITE` | The color of the fill circle |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/graphic/renderer/Graphic3DRender.ts:257](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L257)
-
-___
-
-### drawMeshWireframe
-
-▸ **drawMeshWireframe**(`uuid`, `geometry`, `transform`, `color?`, `forceUpdate?`): `void`
-
-Draw wire frame for geometry
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `uuid` | `string` | `undefined` | Graphic identification ID |
-| `geometry` | `GeometryBase` | `undefined` | Geometric object |
-| `transform` | `Transform` | `undefined` | The Transform that needs to be bound |
-| `color` | `Color` | `Color.COLOR_WHITE` | The color of the wire frame |
-| `forceUpdate` | `boolean` | `false` | - |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/graphic/renderer/Graphic3DRender.ts:293](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L293)
-
-___
-
-### drawFillSector
-
-▸ **drawFillSector**(`uuid`, `center`, `radius`, `startAngle`, `endAngle`, `segments?`, `up?`, `color?`): `void`
-
-Draw the fill sector
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `uuid` | `string` | `undefined` | Graphic identification ID |
-| `center` | `Vector3` | `undefined` | centre point |
-| `radius` | `number` | `undefined` | radius |
-| `startAngle` | `number` | `undefined` | Angle of onset |
-| `endAngle` | `number` | `undefined` | Angle of end |
-| `segments` | `number` | `16` | number of segments |
-| `up` | `Vector3` | `Vector3.Y_AXIS` | Direction of plane |
-| `color` | `Color` | `Color.COLOR_WHITE` | The color of the fill sector |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/graphic/renderer/Graphic3DRender.ts:312](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L312)
-
-___
-
-### drawBoundingBox
-
-▸ **drawBoundingBox**(`uuid`, `boundingBox`, `color?`): `void`
-
-Draw bounding box
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `uuid` | `string` | `undefined` | Graphic identification ID |
-| `boundingBox` | `BoundingBox` | `undefined` | Bounding box object, please use world boundingbox |
-| `color` | `Color` | `Color.COLOR_WHITE` | The color of the bounding box |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/graphic/renderer/Graphic3DRender.ts:349](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L349)
-
-___
-
-### drawCameraFrustum
-
-▸ **drawCameraFrustum**(`camera`, `color?`): `void`
-
-Draw the camera cone
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `camera` | `Camera3D` | `undefined` | The camera to display the cone |
-| `color` | `Color` | `Color.COLOR_WHITE` | The color of the camera cone |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/graphic/renderer/Graphic3DRender.ts:358](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L358)
-
-___
-
-### drawObjectBoundingBox
-
-▸ **drawObjectBoundingBox**(`obj`, `color?`): `void`
-
-Draws the bounding box of the object
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `obj` | `Object3D` | `undefined` | The object to display the bounding box |
-| `color` | `Color` | `Color.COLOR_WHITE` | The color of the bounding box |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/graphic/renderer/Graphic3DRender.ts:419](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L419)
-
-___
-
-### Clear
-
-▸ **Clear**(`uuid`): `void`
-
-Erases the specified graph
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `uuid` | `string` | Graphic identification ID |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/graphic/renderer/Graphic3DRender.ts:428](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L428)
-
-___
-
-### ClearAll
-
-▸ **ClearAll**(): `void`
-
-Erase all drawn graphics
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/graphic/renderer/Graphic3DRender.ts:439](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L439)
-
-___
-
-### ChangeColor
-
-▸ **ChangeColor**(`uuid`, `color`): `void`
-
-Changes the specified graphics color
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `uuid` | `string` | Graphic identification ID |
-| `color` | `Color` | New color value |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[packages/graphic/renderer/Graphic3DRender.ts:449](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L449)
-
-___
-
-### getObjectByName
-
-▸ **getObjectByName**(`name`): `Entity`
+Defined in: [src/core/entities/Entity.ts:78](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L78)
 
 Starting from the object itself, search for the object and its children, and return the first child object with a matching name.
 For most objects, the name is an empty string by default. You must manually set it to use this method.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `name` | `string` | input name |
+##### name
+
+`string`
+
+input name
 
 #### Returns
 
@@ -1402,26 +807,26 @@ result Entity
 
 #### Inherited from
 
-Object3D.getObjectByName
+`Object3D.getObjectByName`
 
-#### Defined in
+***
 
-[src/core/entities/Entity.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L81)
+### addChild()
 
-___
+> **addChild**(`child`): `Entity`
 
-### addChild
-
-▸ **addChild**(`child`): `Entity`
+Defined in: [src/core/entities/Entity.ts:124](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L124)
 
 Add an object as a child of this object. You can add any number of objects.
 Any current parent object on the object passed here will be deleted, as an object can only have at most one parent object.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `child` | `Entity` | target child entity |
+##### child
+
+`Entity`
+
+target child entity
 
 #### Returns
 
@@ -1429,25 +834,25 @@ Any current parent object on the object passed here will be deleted, as an objec
 
 #### Inherited from
 
-Object3D.addChild
+`Object3D.addChild`
 
-#### Defined in
+***
 
-[src/core/entities/Entity.ts:127](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L127)
+### removeChild()
 
-___
+> **removeChild**(`child`): `void`
 
-### removeChild
-
-▸ **removeChild**(`child`): `void`
+Defined in: [src/core/entities/Entity.ts:149](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L149)
 
 Remove the child objects of the object. You can remove any number of objects.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `child` | `Entity` | Removed objects |
+##### child
+
+`Entity`
+
+Removed objects
 
 #### Returns
 
@@ -1455,17 +860,15 @@ Remove the child objects of the object. You can remove any number of objects.
 
 #### Inherited from
 
-Object3D.removeChild
+`Object3D.removeChild`
 
-#### Defined in
+***
 
-[src/core/entities/Entity.ts:152](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L152)
+### removeAllChild()
 
-___
+> **removeAllChild**(): `void`
 
-### removeAllChild
-
-▸ **removeAllChild**(): `void`
+Defined in: [src/core/entities/Entity.ts:165](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L165)
 
 Remove all children of the current object
 
@@ -1475,17 +878,15 @@ Remove all children of the current object
 
 #### Inherited from
 
-Object3D.removeAllChild
+`Object3D.removeAllChild`
 
-#### Defined in
+***
 
-[src/core/entities/Entity.ts:168](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L168)
+### removeSelf()
 
-___
+> **removeSelf**(): `this`
 
-### removeSelf
-
-▸ **removeSelf**(): `this`
+Defined in: [src/core/entities/Entity.ts:176](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L176)
 
 Remove the current node from the parent
 
@@ -1497,25 +898,25 @@ this
 
 #### Inherited from
 
-Object3D.removeSelf
+`Object3D.removeSelf`
 
-#### Defined in
+***
 
-[src/core/entities/Entity.ts:179](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L179)
+### removeChildByIndex()
 
-___
+> **removeChildByIndex**(`index`): `void`
 
-### removeChildByIndex
-
-▸ **removeChildByIndex**(`index`): `void`
+Defined in: [src/core/entities/Entity.ts:186](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L186)
 
 Search for child nodes of objects and remove child objects with matching indexes.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `index` | `number` | assign index |
+##### index
+
+`number`
+
+assign index
 
 #### Returns
 
@@ -1523,25 +924,25 @@ Search for child nodes of objects and remove child objects with matching indexes
 
 #### Inherited from
 
-Object3D.removeChildByIndex
+`Object3D.removeChildByIndex`
 
-#### Defined in
+***
 
-[src/core/entities/Entity.ts:189](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L189)
+### hasChild()
 
-___
+> **hasChild**(`child`): `boolean`
 
-### hasChild
-
-▸ **hasChild**(`child`): `boolean`
+Defined in: [src/core/entities/Entity.ts:200](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L200)
 
 Does the current object contain a certain object
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `child` | `Entity` | certain object |
+##### child
+
+`Entity`
+
+certain object
 
 #### Returns
 
@@ -1551,17 +952,15 @@ boolean
 
 #### Inherited from
 
-Object3D.hasChild
+`Object3D.hasChild`
 
-#### Defined in
+***
 
-[src/core/entities/Entity.ts:203](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L203)
+### removeFromParent()
 
-___
+> **removeFromParent**(): `this`
 
-### removeFromParent
-
-▸ **removeFromParent**(): `this`
+Defined in: [src/core/entities/Entity.ts:210](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L210)
 
 Remove the current node from the parent
 
@@ -1573,25 +972,25 @@ this
 
 #### Inherited from
 
-Object3D.removeFromParent
+`Object3D.removeFromParent`
 
-#### Defined in
+***
 
-[src/core/entities/Entity.ts:213](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L213)
+### getChildByIndex()
 
-___
+> **getChildByIndex**(`index`): `Entity`
 
-### getChildByIndex
-
-▸ **getChildByIndex**(`index`): `Entity`
+Defined in: [src/core/entities/Entity.ts:224](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L224)
 
 Search for object children and return the first child object with a matching index.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `index` | `number` | matching index |
+##### index
+
+`number`
+
+matching index
 
 #### Returns
 
@@ -1601,26 +1000,31 @@ child entity
 
 #### Inherited from
 
-Object3D.getChildByIndex
+`Object3D.getChildByIndex`
 
-#### Defined in
+***
 
-[src/core/entities/Entity.ts:227](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L227)
+### getChildByName()
 
-___
+> **getChildByName**(`name`, `loopChild?`): `any`
 
-### getChildByName
-
-▸ **getChildByName**(`name`, `loopChild?`): `any`
+Defined in: [src/core/entities/Entity.ts:239](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L239)
 
 Search for object children and return a child object with a matching name.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `name` | `string` | `undefined` | matching name |
-| `loopChild` | `boolean` | `true` | Whether to traverse the children of the child object. The default value is true |
+##### name
+
+`string`
+
+matching name
+
+##### loopChild?
+
+`boolean` = `true`
+
+Whether to traverse the children of the child object. The default value is true
 
 #### Returns
 
@@ -1630,24 +1034,25 @@ result
 
 #### Inherited from
 
-Object3D.getChildByName
+`Object3D.getChildByName`
 
-#### Defined in
+***
 
-[src/core/entities/Entity.ts:242](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L242)
+### noticeComponents()
 
-___
+> **noticeComponents**(`key`, `data`): `void`
 
-### noticeComponents
-
-▸ **noticeComponents**(`key`, `data`): `void`
+Defined in: [src/core/entities/Entity.ts:325](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L325)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `key` | keyof `IComponent` |
-| `data` | `any` |
+##### key
+
+keyof `IComponent`
+
+##### data
+
+`any`
 
 #### Returns
 
@@ -1655,26 +1060,24 @@ ___
 
 #### Inherited from
 
-Object3D.noticeComponents
+`Object3D.noticeComponents`
 
-#### Defined in
+***
 
-[src/core/entities/Entity.ts:328](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L328)
+### forChild()
 
-___
+> **forChild**(`call`): `void`
 
-### forChild
-
-▸ **forChild**(`call`): `void`
+Defined in: [src/core/entities/Object3D.ts:41](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L41)
 
 Traverse all sub objects starting from the object itself.
  If there are still sub objects in the sub object, recursively traverse.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `call` | `Function` |
+##### call
+
+`Function`
 
 #### Returns
 
@@ -1682,33 +1085,36 @@ Traverse all sub objects starting from the object itself.
 
 #### Inherited from
 
-Object3D.forChild
+`Object3D.forChild`
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L41)
+### addComponent()
 
-___
+> **addComponent**\<`T`\>(`c`, `param?`): `T`
 
-### addComponent
-
-▸ **addComponent**\<`T`\>(`c`, `param?`): `T`
+Defined in: [src/core/entities/Object3D.ts:55](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L55)
 
 Create a new component and add it to the object, and return an instance of the component.
  If a component of this type already exists, it will not be added and will return null.
 
-#### Type parameters
+#### Type Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `IComponent` |
+##### T
+
+`T` *extends* `IComponent`
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `c` | `Ctor`\<`T`\> | class of component |
-| `param?` | `any` | - |
+##### c
+
+`Ctor`\<`T`\>
+
+class of component
+
+##### param?
+
+`any`
 
 #### Returns
 
@@ -1718,32 +1124,32 @@ result component
 
 #### Inherited from
 
-Object3D.addComponent
+`Object3D.addComponent`
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L55)
+### getOrAddComponent()
 
-___
+> **getOrAddComponent**\<`T`\>(`c`): `T`
 
-### getOrAddComponent
-
-▸ **getOrAddComponent**\<`T`\>(`c`): `T`
+Defined in: [src/core/entities/Object3D.ts:76](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L76)
 
 Returns an instance of a component object of the specified type.
  If there are no components of that type, a new component is created and added to the object.
 
-#### Type parameters
+#### Type Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `IComponent` |
+##### T
+
+`T` *extends* `IComponent`
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `c` | `Ctor`\<`T`\> | class of component |
+##### c
+
+`Ctor`\<`T`\>
+
+class of component
 
 #### Returns
 
@@ -1753,31 +1159,31 @@ result component
 
 #### Inherited from
 
-Object3D.getOrAddComponent
+`Object3D.getOrAddComponent`
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L76)
+### removeComponent()
 
-___
+> **removeComponent**\<`T`\>(`c`): `void`
 
-### removeComponent
-
-▸ **removeComponent**\<`T`\>(`c`): `void`
+Defined in: [src/core/entities/Object3D.ts:89](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L89)
 
 Remove components of the specified type
 
-#### Type parameters
+#### Type Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `IComponent` |
+##### T
+
+`T` *extends* `IComponent`
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `c` | `Ctor`\<`T`\> | class of component |
+##### c
+
+`Ctor`\<`T`\>
+
+class of component
 
 #### Returns
 
@@ -1785,31 +1191,31 @@ Remove components of the specified type
 
 #### Inherited from
 
-Object3D.removeComponent
+`Object3D.removeComponent`
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L89)
+### hasComponent()
 
-___
+> **hasComponent**\<`T`\>(`c`): `boolean`
 
-### hasComponent
-
-▸ **hasComponent**\<`T`\>(`c`): `boolean`
+Defined in: [src/core/entities/Object3D.ts:106](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L106)
 
 Is there a component of the specified type
 
-#### Type parameters
+#### Type Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `IComponent` |
+##### T
+
+`T` *extends* `IComponent`
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `c` | `Ctor`\<`T`\> | type of component |
+##### c
+
+`Ctor`\<`T`\>
+
+type of component
 
 #### Returns
 
@@ -1819,31 +1225,31 @@ boolean
 
 #### Inherited from
 
-Object3D.hasComponent
+`Object3D.hasComponent`
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L106)
+### getComponent()
 
-___
+> **getComponent**\<`T`\>(`c`): `T`
 
-### getComponent
-
-▸ **getComponent**\<`T`\>(`c`): `T`
+Defined in: [src/core/entities/Object3D.ts:116](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L116)
 
 Returns a component of the specified type.
 
-#### Type parameters
+#### Type Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `IComponent` |
+##### T
+
+`T` *extends* `IComponent`
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `c` | `Ctor`\<`T`\> | class of component |
+##### c
+
+`Ctor`\<`T`\>
+
+class of component
 
 #### Returns
 
@@ -1853,33 +1259,33 @@ result component
 
 #### Inherited from
 
-Object3D.getComponent
+`Object3D.getComponent`
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L116)
+### getComponentFromParent()
 
-___
+> **getComponentFromParent**\<`T`\>(`c`): `T`
 
-### getComponentFromParent
-
-▸ **getComponentFromParent**\<`T`\>(`c`): `T`
+Defined in: [src/core/entities/Object3D.ts:128](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L128)
 
 Returns a component object of the specified type from the parent node.
  If there are no components of that type,
  calls the parent object lookup of the parent object
 
-#### Type parameters
+#### Type Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `IComponent` |
+##### T
+
+`T` *extends* `IComponent`
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `c` | `Ctor`\<`T`\> | class of component |
+##### c
+
+`Ctor`\<`T`\>
+
+class of component
 
 #### Returns
 
@@ -1889,32 +1295,32 @@ reulst component
 
 #### Inherited from
 
-Object3D.getComponentFromParent
+`Object3D.getComponentFromParent`
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:128](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L128)
+### getComponentsInChild()
 
-___
+> **getComponentsInChild**\<`T`\>(`c`): `T`[]
 
-### getComponentsInChild
-
-▸ **getComponentsInChild**\<`T`\>(`c`): `T`[]
+Defined in: [src/core/entities/Object3D.ts:148](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L148)
 
 Returns an array of component objects of the specified type.
  If there are no components of that type, search in the list of self body class objects
 
-#### Type parameters
+#### Type Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `IComponent` |
+##### T
+
+`T` *extends* `IComponent`
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `c` | `Ctor`\<`T`\> | class of component |
+##### c
+
+`Ctor`\<`T`\>
+
+class of component
 
 #### Returns
 
@@ -1924,34 +1330,44 @@ result components
 
 #### Inherited from
 
-Object3D.getComponentsInChild
+`Object3D.getComponentsInChild`
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:148](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L148)
+### getComponents()
 
-___
+> **getComponents**\<`T`\>(`c`, `outList?`, `includeInactive?`): `T`[]
 
-### getComponents
-
-▸ **getComponents**\<`T`\>(`c`, `outList?`, `includeInactive?`): `T`[]
+Defined in: [src/core/entities/Object3D.ts:171](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L171)
 
 Returns all components of the specified type contained in the current object and its children.
  If there are children in the child object, recursively search.
 
-#### Type parameters
+#### Type Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `IComponent` |
+##### T
+
+`T` *extends* `IComponent`
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `c` | `Ctor`\<`T`\> | class of component |
-| `outList?` | `T`[] | result component list |
-| `includeInactive?` | `boolean` | Whether to include invisible objects, default to false |
+##### c
+
+`Ctor`\<`T`\>
+
+class of component
+
+##### outList?
+
+`T`[]
+
+result component list
+
+##### includeInactive?
+
+`boolean`
+
+Whether to include invisible objects, default to false
 
 #### Returns
 
@@ -1959,33 +1375,43 @@ Returns all components of the specified type contained in the current object and
 
 #### Inherited from
 
-Object3D.getComponents
+`Object3D.getComponents`
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:171](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L171)
+### getComponentsExt()
 
-___
+> **getComponentsExt**\<`T`\>(`c`, `ret?`, `includeInactive?`): `T`[]
 
-### getComponentsExt
-
-▸ **getComponentsExt**\<`T`\>(`c`, `ret?`, `includeInactive?`): `T`[]
+Defined in: [src/core/entities/Object3D.ts:196](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L196)
 
 Quickly obtain components and no longer access child nodes after obtaining them at a certain node
 
-#### Type parameters
+#### Type Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `IComponent` |
+##### T
+
+`T` *extends* `IComponent`
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `c` | `Ctor`\<`T`\> | class of component |
-| `ret?` | `T`[] | List of incoming T |
-| `includeInactive?` | `boolean` | Whether to include invisible objects, default to false |
+##### c
+
+`Ctor`\<`T`\>
+
+class of component
+
+##### ret?
+
+`T`[]
+
+List of incoming T
+
+##### includeInactive?
+
+`boolean`
+
+Whether to include invisible objects, default to false
 
 #### Returns
 
@@ -1993,39 +1419,49 @@ Quickly obtain components and no longer access child nodes after obtaining them 
 
 {T}
 
-**`Memberof`**
+#### Memberof
 
 Object3D
 
 #### Inherited from
 
-Object3D.getComponentsExt
+`Object3D.getComponentsExt`
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:196](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L196)
+### getComponentsByProperty()
 
-___
+> **getComponentsByProperty**\<`T`\>(`key`, `value`, `findedAndBreak?`, `ret?`, `includeInactive?`): `T`[]
 
-### getComponentsByProperty
+Defined in: [src/core/entities/Object3D.ts:211](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L211)
 
-▸ **getComponentsByProperty**\<`T`\>(`key`, `value`, `findedAndBreak?`, `ret?`, `includeInactive?`): `T`[]
+#### Type Parameters
 
-#### Type parameters
+##### T
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `IComponent` |
+`T` *extends* `IComponent`
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `key` | `string` | `undefined` |
-| `value` | `any` | `undefined` |
-| `findedAndBreak` | `boolean` | `true` |
-| `ret?` | `T`[] | `undefined` |
-| `includeInactive?` | `boolean` | `undefined` |
+##### key
+
+`string`
+
+##### value
+
+`any`
+
+##### findedAndBreak?
+
+`boolean` = `true`
+
+##### ret?
+
+`T`[]
+
+##### includeInactive?
+
+`boolean`
 
 #### Returns
 
@@ -2033,17 +1469,15 @@ ___
 
 #### Inherited from
 
-Object3D.getComponentsByProperty
+`Object3D.getComponentsByProperty`
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:211](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L211)
+### clone()
 
-___
+> **clone**(): `Object3D`
 
-### clone
-
-▸ **clone**(): `Object3D`
+Defined in: [src/core/entities/Object3D.ts:238](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L238)
 
 clone a Object3D
 
@@ -2053,17 +1487,15 @@ clone a Object3D
 
 #### Inherited from
 
-Object3D.clone
+`Object3D.clone`
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:238](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L238)
+### notifyChange()
 
-___
+> **notifyChange**(): `void`
 
-### notifyChange
-
-▸ **notifyChange**(): `void`
+Defined in: [src/core/entities/Object3D.ts:328](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L328)
 
 Notify transformation attribute updates
 
@@ -2073,25 +1505,25 @@ Notify transformation attribute updates
 
 #### Inherited from
 
-Object3D.notifyChange
+`Object3D.notifyChange`
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:328](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L328)
+### traverse()
 
-___
+> **traverse**(`callback`): `void`
 
-### traverse
-
-▸ **traverse**(`callback`): `void`
+Defined in: [src/core/entities/Object3D.ts:505](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L505)
 
 Recursive child nodes and execute specified function
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `callback` | (`child`: `any`) => `void` | specified function |
+##### callback
+
+(`child`) => `void`
+
+specified function
 
 #### Returns
 
@@ -2099,25 +1531,23 @@ Recursive child nodes and execute specified function
 
 #### Inherited from
 
-Object3D.traverse
+`Object3D.traverse`
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:505](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L505)
+### destroy()
 
-___
+> **destroy**(`force?`): `void`
 
-### destroy
-
-▸ **destroy**(`force?`): `void`
+Defined in: [src/core/entities/Object3D.ts:520](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L520)
 
 Release self
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
+##### force?
+
+`boolean`
 
 #### Returns
 
@@ -2125,25 +1555,23 @@ Release self
 
 #### Inherited from
 
-Object3D.destroy
+`Object3D.destroy`
 
-#### Defined in
+***
 
-[src/core/entities/Object3D.ts:520](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L520)
+### dispatchEvent()
 
-___
+> **dispatchEvent**(`event`): `void`
 
-### dispatchEvent
-
-▸ **dispatchEvent**(`event`): `void`
+Defined in: [src/event/CEventDispatcher.ts:24](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L24)
 
 Dispatch an event to all registered objects with a specific type of listener.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | `CEvent` |
+##### event
+
+`CEvent`
 
 #### Returns
 
@@ -2151,29 +1579,51 @@ Dispatch an event to all registered objects with a specific type of listener.
 
 #### Inherited from
 
-Object3D.dispatchEvent
+`Object3D.dispatchEvent`
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L24)
+### addEventListener()
 
-___
+> **addEventListener**(`type`, `callback`, `thisObject`, `param?`, `priority?`): `number`
 
-### addEventListener
-
-▸ **addEventListener**(`type`, `callback`, `thisObject`, `param?`, `priority?`): `number`
+Defined in: [src/event/CEventDispatcher.ts:78](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L78)
 
 register an event listener to event distancher.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `type` | `string` \| `number` | `undefined` | {string} event type. |
-| `callback` | `Function` | `undefined` | {Function} The callback function that handles events. This function must accept an Event3D object as its unique parameter and cannot return any result. for example: function(evt:Event3D):void. |
-| `thisObject` | `any` | `undefined` | {any} Current registration object, it'll call callback function. |
-| `param` | `any` | `null` | {any} the data binded to registered event, the default value is null. |
-| `priority` | `number` | `0` | {number} The priority of callback function execution, with a larger set value having priority to call |
+##### type
+
+`string` \| `number`
+
+{string} event type.
+
+##### callback
+
+`Function`
+
+{Function} The callback function that handles events. 
+This function must accept an Event3D object as its unique parameter and cannot return any result.
+for example: function(evt:Event3D):void.
+
+##### thisObject
+
+`any`
+
+{any} Current registration object, it'll call callback function.
+
+##### param?
+
+`any` = `null`
+
+{any} the data binded to registered event, the default value is null.
+
+##### priority?
+
+`number` = `0`
+
+{number} The priority of callback function execution, with a larger set value having priority to call
 
 #### Returns
 
@@ -2183,27 +1633,37 @@ Returns register event id
 
 #### Inherited from
 
-Object3D.addEventListener
+`Object3D.addEventListener`
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L79)
+### removeEventListener()
 
-___
+> **removeEventListener**(`type`, `callback`, `thisObject`): `void`
 
-### removeEventListener
-
-▸ **removeEventListener**(`type`, `callback`, `thisObject`): `void`
+Defined in: [src/event/CEventDispatcher.ts:112](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L112)
 
 Remove Event Listening
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `type` | `string` \| `number` | {string} event type |
-| `callback` | `Function` | {Function} callback function of event register |
-| `thisObject` | `any` | {any} The current registered object. |
+##### type
+
+`string` \| `number`
+
+{string} event type
+
+##### callback
+
+`Function`
+
+{Function} callback function of event register
+
+##### thisObject
+
+`any`
+
+{any} The current registered object.
 
 #### Returns
 
@@ -2211,25 +1671,23 @@ Remove Event Listening
 
 #### Inherited from
 
-Object3D.removeEventListener
+`Object3D.removeEventListener`
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L113)
+### removeEventListenerAt()
 
-___
+> **removeEventListenerAt**(`id`): `boolean`
 
-### removeEventListenerAt
-
-▸ **removeEventListenerAt**(`id`): `boolean`
+Defined in: [src/event/CEventDispatcher.ts:132](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L132)
 
 Remove an event Listening with id
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `id` | `number` |
+##### id
+
+`number`
 
 #### Returns
 
@@ -2237,26 +1695,24 @@ Remove an event Listening with id
 
 #### Inherited from
 
-Object3D.removeEventListenerAt
+`Object3D.removeEventListenerAt`
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L133)
+### removeAllEventListener()
 
-___
+> **removeAllEventListener**(`eventType?`): `void`
 
-### removeAllEventListener
-
-▸ **removeAllEventListener**(`eventType?`): `void`
+Defined in: [src/event/CEventDispatcher.ts:152](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L152)
 
 Specify a event type to remove all related event listeners
 eventType event type, set null to remove all event listeners
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `eventType` | `string` \| `number` | `null` |
+##### eventType?
+
+`string` \| `number`
 
 #### Returns
 
@@ -2264,25 +1720,25 @@ eventType event type, set null to remove all event listeners
 
 #### Inherited from
 
-Object3D.removeAllEventListener
+`Object3D.removeAllEventListener`
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L153)
+### containEventListener()
 
-___
+> **containEventListener**(`type`): `boolean`
 
-### containEventListener
-
-▸ **containEventListener**(`type`): `boolean`
+Defined in: [src/event/CEventDispatcher.ts:184](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L184)
 
 whether the target presence of a listener with event type.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `type` | `string` | {string} event type. |
+##### type
+
+`string`
+
+{string} event type.
 
 #### Returns
 
@@ -2292,27 +1748,37 @@ Returns a boolean.
 
 #### Inherited from
 
-Object3D.containEventListener
+`Object3D.containEventListener`
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:185](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L185)
+### hasEventListener()
 
-___
+> **hasEventListener**(`type`, `callback?`, `thisObject?`): `boolean`
 
-### hasEventListener
-
-▸ **hasEventListener**(`type`, `callback?`, `thisObject?`): `boolean`
+Defined in: [src/event/CEventDispatcher.ts:197](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L197)
 
 whether the target presence of a listener with event type. it associate more registration parameters.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `type` | `string` \| `number` | `undefined` | {string} event name. |
-| `callback` | `Function` | `null` | {Function} callback function of event register. |
-| `thisObject` | `any` | `null` | {any} The registered object. |
+##### type
+
+`string` \| `number`
+
+{string} event name.
+
+##### callback?
+
+`Function` = `null`
+
+{Function} callback function of event register.
+
+##### thisObject?
+
+`any` = `null`
+
+{any} The registered object.
 
 #### Returns
 
@@ -2322,8 +1788,766 @@ Returns a boolean.
 
 #### Inherited from
 
-Object3D.hasEventListener
+`Object3D.hasEventListener`
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L198)
+### drawAxis()
+
+> **drawAxis**(`uuid`, `origin?`, `size?`): `void`
+
+Defined in: [packages/graphic/renderer/Graphic3DRender.ts:23](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L23)
+
+Draw the 3 - dimensional axes
+
+#### Parameters
+
+##### uuid
+
+`string`
+
+Graphic identification ID
+
+##### origin?
+
+`Vector3` = `...`
+
+original point
+
+##### size?
+
+`number` = `10`
+
+Length of axis
+
+#### Returns
+
+`void`
+
+***
+
+### drawLines()
+
+> **drawLines**(`uuid`, `points`, `colors?`): `void`
+
+Defined in: [packages/graphic/renderer/Graphic3DRender.ts:35](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L35)
+
+Draw a line
+
+#### Parameters
+
+##### uuid
+
+`string`
+
+Graphic identification ID
+
+##### points
+
+`Vector3`[]
+
+Line path point
+
+##### colors?
+
+`Color` \| `Color`[]
+
+#### Returns
+
+`void`
+
+***
+
+### drawCurve()
+
+> **drawCurve**(`uuid`, `points`, `samples?`, `tension?`, `color?`): `void`
+
+Defined in: [packages/graphic/renderer/Graphic3DRender.ts:49](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L49)
+
+drawing curve
+
+#### Parameters
+
+##### uuid
+
+`string`
+
+Graphic identification ID
+
+##### points
+
+`Vector3`[]
+
+Curve position point
+
+##### samples?
+
+`number` = `10`
+
+Number of Samples
+
+##### tension?
+
+`number` = `0.5`
+
+Strength of curve
+
+##### color?
+
+`Color` = `Color.COLOR_WHITE`
+
+Color of curve
+
+#### Returns
+
+`void`
+
+***
+
+### drawRect()
+
+> **drawRect**(`uuid`, `origin`, `width`, `height`, `color?`): `void`
+
+Defined in: [packages/graphic/renderer/Graphic3DRender.ts:97](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L97)
+
+Draw a rectangle
+
+#### Parameters
+
+##### uuid
+
+`string`
+
+Graphic identification ID
+
+##### origin
+
+`Vector3`
+
+original point
+
+##### width
+
+`number`
+
+Width of rectangle
+
+##### height
+
+`number`
+
+Height of rectangle
+
+##### color?
+
+`Color` = `Color.COLOR_WHITE`
+
+The color of the rectangle
+
+#### Returns
+
+`void`
+
+***
+
+### drawCircle()
+
+> **drawCircle**(`uuid`, `center`, `radius`, `segments?`, `up?`, `color?`): `void`
+
+Defined in: [packages/graphic/renderer/Graphic3DRender.ts:116](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L116)
+
+Draw a circle
+
+#### Parameters
+
+##### uuid
+
+`string`
+
+Graphic identification ID
+
+##### center
+
+`Vector3`
+
+centre point
+
+##### radius
+
+`number`
+
+radius
+
+##### segments?
+
+`number` = `32`
+
+Number of line segments
+
+##### up?
+
+`Vector3` = `Vector3.Y_AXIS`
+
+Direction of plane
+
+##### color?
+
+`Color` = `Color.COLOR_WHITE`
+
+The color of the circle
+
+#### Returns
+
+`void`
+
+***
+
+### drawSector()
+
+> **drawSector**(`uuid`, `center`, `radius`, `startAngle`, `endAngle`, `segments?`, `up?`, `color?`): `void`
+
+Defined in: [packages/graphic/renderer/Graphic3DRender.ts:133](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L133)
+
+Draw a Sector
+
+#### Parameters
+
+##### uuid
+
+`string`
+
+Graphic identification ID
+
+##### center
+
+`Vector3`
+
+centre point
+
+##### radius
+
+`number`
+
+radius
+
+##### startAngle
+
+`number`
+
+Angle of onset
+
+##### endAngle
+
+`number`
+
+Angle of end
+
+##### segments?
+
+`number` = `16`
+
+number of segments
+
+##### up?
+
+`Vector3` = `Vector3.Y_AXIS`
+
+Direction of plane
+
+##### color?
+
+`Color` = `Color.COLOR_WHITE`
+
+The color of the sector
+
+#### Returns
+
+`void`
+
+***
+
+### drawArcLine()
+
+> **drawArcLine**(`uuid`, `center`, `radius`, `startAngle`, `endAngle`, `segments?`, `up?`, `color?`): `void`
+
+Defined in: [packages/graphic/renderer/Graphic3DRender.ts:176](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L176)
+
+Draw a ArcLine
+
+#### Parameters
+
+##### uuid
+
+`string`
+
+Graphic identification ID
+
+##### center
+
+`Vector3`
+
+centre point
+
+##### radius
+
+`number`
+
+radius
+
+##### startAngle
+
+`number`
+
+Angle of onset
+
+##### endAngle
+
+`number`
+
+Angle of end
+
+##### segments?
+
+`number` = `16`
+
+number of segments
+
+##### up?
+
+`Vector3` = `Vector3.Y_AXIS`
+
+Direction of plane
+
+##### color?
+
+`Color` = `Color.COLOR_WHITE`
+
+The color of the sector
+
+#### Returns
+
+`void`
+
+***
+
+### createCustomShape()
+
+> **createCustomShape**(`uuid`, `parentTransform?`): `Graphics3DShape`
+
+Defined in: [packages/graphic/renderer/Graphic3DRender.ts:188](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L188)
+
+Creates a custom line segment graph and returns a Shape with the same uuid from the pool if it already exists.
+
+#### Parameters
+
+##### uuid
+
+`string`
+
+Graphic identification ID
+
+##### parentTransform?
+
+`Transform` = `...`
+
+Parent node Transform
+
+#### Returns
+
+`Graphics3DShape`
+
+Graphics3DShape
+
+***
+
+### drawBox()
+
+> **drawBox**(`uuid`, `minPoint`, `maxPoint`, `color?`): `void`
+
+Defined in: [packages/graphic/renderer/Graphic3DRender.ts:199](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L199)
+
+Draw the box
+
+#### Parameters
+
+##### uuid
+
+`string`
+
+Graphic identification ID
+
+##### minPoint
+
+`Vector3`
+
+Point of minimum
+
+##### maxPoint
+
+`Vector3`
+
+Point of maximum
+
+##### color?
+
+`Color` = `Color.COLOR_WHITE`
+
+The color of the box
+
+#### Returns
+
+`void`
+
+***
+
+### drawFillRect()
+
+> **drawFillRect**(`uuid`, `origin`, `width`, `height`, `color?`): `void`
+
+Defined in: [packages/graphic/renderer/Graphic3DRender.ts:241](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L241)
+
+Draw the fill rectangle
+
+#### Parameters
+
+##### uuid
+
+`string`
+
+Graphic identification ID
+
+##### origin
+
+`Vector3`
+
+##### width
+
+`number`
+
+##### height
+
+`number`
+
+##### color?
+
+`Color` = `Color.COLOR_WHITE`
+
+The color of the fill rectangle
+
+#### Returns
+
+`void`
+
+***
+
+### drawFillCircle()
+
+> **drawFillCircle**(`uuid`, `center`, `radius`, `segments?`, `up?`, `color?`): `void`
+
+Defined in: [packages/graphic/renderer/Graphic3DRender.ts:261](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L261)
+
+Draw the fill circle
+
+#### Parameters
+
+##### uuid
+
+`string`
+
+Graphic identification ID
+
+##### center
+
+`Vector3`
+
+centre point
+
+##### radius
+
+`number`
+
+radius
+
+##### segments?
+
+`number` = `32`
+
+number of segments
+
+##### up?
+
+`Vector3` = `Vector3.Y_AXIS`
+
+Direction of plane
+
+##### color?
+
+`Color` = `Color.COLOR_WHITE`
+
+The color of the fill circle
+
+#### Returns
+
+`void`
+
+***
+
+### drawMeshWireframe()
+
+> **drawMeshWireframe**(`uuid`, `geometry`, `transform`, `color?`, `forceUpdate?`): `void`
+
+Defined in: [packages/graphic/renderer/Graphic3DRender.ts:297](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L297)
+
+Draw wire frame for geometry
+
+#### Parameters
+
+##### uuid
+
+`string`
+
+Graphic identification ID
+
+##### geometry
+
+`GeometryBase`
+
+Geometric object
+
+##### transform
+
+`Transform`
+
+The Transform that needs to be bound
+
+##### color?
+
+`Color` = `Color.COLOR_WHITE`
+
+The color of the wire frame
+
+##### forceUpdate?
+
+`boolean` = `false`
+
+#### Returns
+
+`void`
+
+***
+
+### drawFillSector()
+
+> **drawFillSector**(`uuid`, `center`, `radius`, `startAngle`, `endAngle`, `segments?`, `up?`, `color?`): `void`
+
+Defined in: [packages/graphic/renderer/Graphic3DRender.ts:316](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L316)
+
+Draw the fill sector
+
+#### Parameters
+
+##### uuid
+
+`string`
+
+Graphic identification ID
+
+##### center
+
+`Vector3`
+
+centre point
+
+##### radius
+
+`number`
+
+radius
+
+##### startAngle
+
+`number`
+
+Angle of onset
+
+##### endAngle
+
+`number`
+
+Angle of end
+
+##### segments?
+
+`number` = `16`
+
+number of segments
+
+##### up?
+
+`Vector3` = `Vector3.Y_AXIS`
+
+Direction of plane
+
+##### color?
+
+`Color` = `Color.COLOR_WHITE`
+
+The color of the fill sector
+
+#### Returns
+
+`void`
+
+***
+
+### drawBoundingBox()
+
+> **drawBoundingBox**(`uuid`, `boundingBox`, `color?`): `void`
+
+Defined in: [packages/graphic/renderer/Graphic3DRender.ts:353](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L353)
+
+Draw bounding box
+
+#### Parameters
+
+##### uuid
+
+`string`
+
+Graphic identification ID
+
+##### boundingBox
+
+`BoundingBox`
+
+Bounding box object, please use world boundingbox
+
+##### color?
+
+`Color` = `Color.COLOR_WHITE`
+
+The color of the bounding box
+
+#### Returns
+
+`void`
+
+***
+
+### drawCameraFrustum()
+
+> **drawCameraFrustum**(`camera`, `color?`): `void`
+
+Defined in: [packages/graphic/renderer/Graphic3DRender.ts:362](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L362)
+
+Draw the camera cone
+
+#### Parameters
+
+##### camera
+
+`Camera3D`
+
+The camera to display the cone
+
+##### color?
+
+`Color` = `Color.COLOR_WHITE`
+
+The color of the camera cone
+
+#### Returns
+
+`void`
+
+***
+
+### drawObjectBoundingBox()
+
+> **drawObjectBoundingBox**(`obj`, `color?`): `void`
+
+Defined in: [packages/graphic/renderer/Graphic3DRender.ts:428](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L428)
+
+Draws the bounding box of the object
+
+#### Parameters
+
+##### obj
+
+`Object3D`
+
+The object to display the bounding box
+
+##### color?
+
+`Color` = `Color.COLOR_WHITE`
+
+The color of the bounding box
+
+#### Returns
+
+`void`
+
+***
+
+### Clear()
+
+> **Clear**(`uuid`): `void`
+
+Defined in: [packages/graphic/renderer/Graphic3DRender.ts:437](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L437)
+
+Erases the specified graph
+
+#### Parameters
+
+##### uuid
+
+`string`
+
+Graphic identification ID
+
+#### Returns
+
+`void`
+
+***
+
+### ClearAll()
+
+> **ClearAll**(): `void`
+
+Defined in: [packages/graphic/renderer/Graphic3DRender.ts:448](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L448)
+
+Erase all drawn graphics
+
+#### Returns
+
+`void`
+
+***
+
+### ChangeColor()
+
+> **ChangeColor**(`uuid`, `color`): `void`
+
+Defined in: [packages/graphic/renderer/Graphic3DRender.ts:458](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/Graphic3DRender.ts#L458)
+
+Changes the specified graphics color
+
+#### Parameters
+
+##### uuid
+
+`string`
+
+Graphic identification ID
+
+##### color
+
+`Color`
+
+New color value
+
+#### Returns
+
+`void`

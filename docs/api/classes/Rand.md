@@ -1,145 +1,136 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: Rand
+
+Defined in: [src/math/Rand.ts:8](https://github.com/orillusion/orillusion/blob/main/src/math/Rand.ts#L8)
 
 'Rand' is a random number generator based on an improved xorshift algorithm, 
 which is a modification of the Linear Congruential Generator (LCG) method.
 
-### Constructors
-
-- [constructor](Rand.md#constructor)
-
-### Accessors
-
-- [seed](Rand.md#seed)
-
-### Methods
-
-- [getFloatFromInt](Rand.md#getfloatfromint)
-- [getByteFromInt](Rand.md#getbytefromint)
-- [clone](Rand.md#clone)
-- [get](Rand.md#get)
-- [getFloat](Rand.md#getfloat)
-- [getSignedFloat](Rand.md#getsignedfloat)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new Rand**(`seed?`): [`Rand`](Rand.md)
+> **new Rand**(`seed?`): `Rand`
+
+Defined in: [src/math/Rand.ts:18](https://github.com/orillusion/orillusion/blob/main/src/math/Rand.ts#L18)
 
 Create a random number generator object with a specified seed.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `seed` | `number` | `0` | Random seed |
+##### seed?
 
-#### Returns
-
-[`Rand`](Rand.md)
-
-#### Defined in
-
-[src/math/Rand.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/math/Rand.ts#L18)
-
-## Accessors
-
-### seed
-
-• `get` **seed**(): `number`
+`number` = `0`
 
 Random seed
 
 #### Returns
 
+`Rand`
+
+## Accessors
+
+### seed
+
+#### Get Signature
+
+> **get** **seed**(): `number`
+
+Defined in: [src/math/Rand.ts:25](https://github.com/orillusion/orillusion/blob/main/src/math/Rand.ts#L25)
+
+Random seed
+
+##### Returns
+
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/math/Rand.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/math/Rand.ts#L25)
+> **set** **seed**(`value`): `void`
 
-• `set` **seed**(`value`): `void`
+Defined in: [src/math/Rand.ts:32](https://github.com/orillusion/orillusion/blob/main/src/math/Rand.ts#L32)
 
-#### Parameters
+Set the random seed and reinitialize the generator state
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+##### Parameters
 
-#### Returns
+###### value
+
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/math/Rand.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/math/Rand.ts#L29)
-
 ## Methods
 
-### getFloatFromInt
+### getFloatFromInt()
 
-▸ **getFloatFromInt**(`value`): `number`
+> `static` **getFloatFromInt**(`value`): `number`
+
+Defined in: [src/math/Rand.ts:44](https://github.com/orillusion/orillusion/blob/main/src/math/Rand.ts#L44)
 
 Convert an integer to a floating-point number
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `value` | `any` | integer |
+##### value
+
+`any`
+
+integer
 
 #### Returns
 
 `number`
 
-#### Defined in
+***
 
-[src/math/Rand.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/math/Rand.ts#L41)
+### getByteFromInt()
 
-___
+> `static` **getByteFromInt**(`value`): `number`
 
-### getByteFromInt
-
-▸ **getByteFromInt**(`value`): `number`
+Defined in: [src/math/Rand.ts:54](https://github.com/orillusion/orillusion/blob/main/src/math/Rand.ts#L54)
 
 Converts an integer to a single-byte integer
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `value` | `any` | integer |
+##### value
+
+`any`
+
+integer
 
 #### Returns
 
 `number`
 
-#### Defined in
+***
 
-[src/math/Rand.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/math/Rand.ts#L51)
+### clone()
 
-___
+> **clone**(): `Rand`
 
-### clone
-
-▸ **clone**(): [`Rand`](Rand.md)
+Defined in: [src/math/Rand.ts:64](https://github.com/orillusion/orillusion/blob/main/src/math/Rand.ts#L64)
 
 Returns a new random number generator object with the same seed state as 
 the current random number generator object
 
 #### Returns
 
-[`Rand`](Rand.md)
+`Rand`
 
-#### Defined in
+***
 
-[src/math/Rand.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/math/Rand.ts#L61)
+### get()
 
-___
+> **get**(): `number`
 
-### get
-
-▸ **get**(): `number`
+Defined in: [src/math/Rand.ts:77](https://github.com/orillusion/orillusion/blob/main/src/math/Rand.ts#L77)
 
 Generate a random number
 
@@ -147,15 +138,13 @@ Generate a random number
 
 `number`
 
-#### Defined in
+***
 
-[src/math/Rand.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/math/Rand.ts#L74)
+### getFloat()
 
-___
+> **getFloat**(): `number`
 
-### getFloat
-
-▸ **getFloat**(): `number`
+Defined in: [src/math/Rand.ts:89](https://github.com/orillusion/orillusion/blob/main/src/math/Rand.ts#L89)
 
 Randomly generate a floating-point number 0.0 to 1.0
 
@@ -163,22 +152,16 @@ Randomly generate a floating-point number 0.0 to 1.0
 
 `number`
 
-#### Defined in
+***
 
-[src/math/Rand.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/math/Rand.ts#L86)
+### getSignedFloat()
 
-___
+> **getSignedFloat**(): `number`
 
-### getSignedFloat
-
-▸ **getSignedFloat**(): `number`
+Defined in: [src/math/Rand.ts:97](https://github.com/orillusion/orillusion/blob/main/src/math/Rand.ts#L97)
 
 Randomly generates signed floating-point numbers -1.0 to 1.0
 
 #### Returns
 
 `number`
-
-#### Defined in
-
-[src/math/Rand.ts:94](https://github.com/Orillusion/orillusion/blob/main/src/math/Rand.ts#L94)

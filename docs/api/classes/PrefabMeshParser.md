@@ -1,188 +1,159 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: PrefabMeshParser
 
-## Hierarchy
+Defined in: [src/loader/parser/prefab/PrefabMeshParser.ts:20](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabMeshParser.ts#L20)
 
-- `ParserBase`
-
-  ↳ **`PrefabMeshParser`**
-
-### Constructors
-
-- [constructor](PrefabMeshParser.md#constructor)
-
-### Properties
-
-- [format](PrefabMeshParser.md#format)
-- [baseUrl](PrefabMeshParser.md#baseurl)
-- [initUrl](PrefabMeshParser.md#initurl)
-- [loaderFunctions](PrefabMeshParser.md#loaderfunctions)
-- [userData](PrefabMeshParser.md#userdata)
-- [data](PrefabMeshParser.md#data)
-
-### Methods
-
-- [parserMeshs](PrefabMeshParser.md#parsermeshs)
-- [parseString](PrefabMeshParser.md#parsestring)
-- [parseJson](PrefabMeshParser.md#parsejson)
-- [parseTexture](PrefabMeshParser.md#parsetexture)
-- [parse](PrefabMeshParser.md#parse)
-- [parseBuffer](PrefabMeshParser.md#parsebuffer)
-- [verification](PrefabMeshParser.md#verification)
+Parses mesh blocks from an Orillusion prefab binary stream. It decodes the
+vertex layout, index buffer, optional skeleton bindings and blend shapes,
+builds a [GeometryBase](GeometryBase.md), and registers it with the engine resource host.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new PrefabMeshParser**(): [`PrefabMeshParser`](PrefabMeshParser.md)
+> **new PrefabMeshParser**(): `PrefabMeshParser`
 
 #### Returns
 
-[`PrefabMeshParser`](PrefabMeshParser.md)
+`PrefabMeshParser`
 
 #### Inherited from
 
-ParserBase.constructor
+`ParserBase.constructor`
 
 ## Properties
 
 ### format
 
-▪ `Static` **format**: [`ParserFormat`](../enums/ParserFormat.md) = `ParserFormat.BIN`
+> `static` **format**: [`ParserFormat`](../enumerations/ParserFormat.md) = `ParserFormat.BIN`
+
+Defined in: [src/loader/parser/prefab/PrefabMeshParser.ts:21](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabMeshParser.ts#L21)
 
 #### Overrides
 
-ParserBase.format
+`ParserBase.format`
 
-#### Defined in
-
-[src/loader/parser/prefab/PrefabMeshParser.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabMeshParser.ts#L14)
-
-___
+***
 
 ### baseUrl
 
-• **baseUrl**: `string`
+> **baseUrl**: `string`
+
+Defined in: [src/loader/parser/ParserBase.ts:12](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L12)
 
 #### Inherited from
 
-ParserBase.baseUrl
+`ParserBase.baseUrl`
 
-#### Defined in
-
-[src/loader/parser/ParserBase.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L11)
-
-___
+***
 
 ### initUrl
 
-• **initUrl**: `string`
+> **initUrl**: `string`
+
+Defined in: [src/loader/parser/ParserBase.ts:13](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L13)
 
 #### Inherited from
 
-ParserBase.initUrl
+`ParserBase.initUrl`
 
-#### Defined in
+***
 
-[src/loader/parser/ParserBase.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L12)
+### loaderFunctions?
 
-___
+> `optional` **loaderFunctions?**: [`LoaderFunctions`](../type-aliases/LoaderFunctions.md)
 
-### loaderFunctions
-
-• `Optional` **loaderFunctions**: [`LoaderFunctions`](../types/LoaderFunctions.md)
+Defined in: [src/loader/parser/ParserBase.ts:14](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L14)
 
 #### Inherited from
 
-ParserBase.loaderFunctions
+`ParserBase.loaderFunctions`
 
-#### Defined in
+***
 
-[src/loader/parser/ParserBase.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L13)
+### userData?
 
-___
+> `optional` **userData?**: `any`
 
-### userData
-
-• `Optional` **userData**: `any`
+Defined in: [src/loader/parser/ParserBase.ts:15](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L15)
 
 #### Inherited from
 
-ParserBase.userData
+`ParserBase.userData`
 
-#### Defined in
-
-[src/loader/parser/ParserBase.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L14)
-
-___
+***
 
 ### data
 
-• **data**: `any`
+> **data**: `any`
+
+Defined in: [src/loader/parser/ParserBase.ts:16](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L16)
 
 #### Inherited from
 
-ParserBase.data
+`ParserBase.data`
 
-#### Defined in
+***
 
-[src/loader/parser/ParserBase.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L15)
+### ctx?
+
+> `optional` **ctx?**: [`Context3D`](Context3D.md)
+
+Defined in: [src/loader/parser/ParserBase.ts:20](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L20)
+
+Context3D this parser is operating under. Populated by FileLoader
+ so default-texture lookups (`Engine3D.resFor(this.ctx)`) resolve
+ against the owning engine's device rather than the global shim.
+
+#### Inherited from
+
+`ParserBase.ctx`
 
 ## Methods
 
-### parserMeshs
+### parserMeshs()
 
-▸ **parserMeshs**(`bytesStream`, `prefabParser`): `void`
+> `static` **parserMeshs**(`bytesStream`, `prefabParser`): `void`
+
+Defined in: [src/loader/parser/prefab/PrefabMeshParser.ts:37](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabMeshParser.ts#L37)
+
+Read every mesh block from the stream, build the corresponding
+geometries, and register them on the resource host keyed by mesh id.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `bytesStream` | `BytesArray` |
-| `prefabParser` | [`PrefabParser`](PrefabParser.md) |
+##### bytesStream
+
+`BytesArray`
+
+the prefab binary stream positioned at the mesh section.
+
+##### prefabParser
+
+[`PrefabParser`](PrefabParser.md)
+
+the owning prefab parser, used for context lookup.
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/loader/parser/prefab/PrefabMeshParser.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabMeshParser.ts#L19)
+### parseString()
 
-___
+> **parseString**(`str`): `void`
 
-### parseString
-
-▸ **parseString**(`str`): `void`
+Defined in: [src/loader/parser/ParserBase.ts:22](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L22)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `str` | `string` |
+##### str
 
-#### Returns
-
-`void`
-
-#### Inherited from
-
-ParserBase.parseString
-
-#### Defined in
-
-[src/loader/parser/ParserBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L17)
-
-___
-
-### parseJson
-
-▸ **parseJson**(`obj`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `obj` | `object` |
+`string`
 
 #### Returns
 
@@ -190,23 +161,43 @@ ___
 
 #### Inherited from
 
-ParserBase.parseJson
+`ParserBase.parseString`
 
-#### Defined in
+***
 
-[src/loader/parser/ParserBase.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L19)
+### parseJson()
 
-___
+> **parseJson**(`obj`): `void`
 
-### parseTexture
-
-▸ **parseTexture**(`buffer`): [`Texture`](Texture.md)
+Defined in: [src/loader/parser/ParserBase.ts:24](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L24)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `buffer` | `ArrayBuffer` |
+##### obj
+
+`object`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+`ParserBase.parseJson`
+
+***
+
+### parseTexture()
+
+> **parseTexture**(`buffer`): [`Texture`](Texture.md)
+
+Defined in: [src/loader/parser/ParserBase.ts:28](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L28)
+
+#### Parameters
+
+##### buffer
+
+`ArrayBuffer`
 
 #### Returns
 
@@ -214,23 +205,21 @@ ___
 
 #### Inherited from
 
-ParserBase.parseTexture
+`ParserBase.parseTexture`
 
-#### Defined in
+***
 
-[src/loader/parser/ParserBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L23)
+### parse()
 
-___
+> **parse**(`data`): `void`
 
-### parse
-
-▸ **parse**(`data`): `void`
+Defined in: [src/loader/parser/ParserBase.ts:32](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L32)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `data` | `any` |
+##### data
+
+`any`
 
 #### Returns
 
@@ -238,23 +227,26 @@ ___
 
 #### Inherited from
 
-ParserBase.parse
+`ParserBase.parse`
 
-#### Defined in
+***
 
-[src/loader/parser/ParserBase.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L27)
+### parseBuffer()
 
-___
+> **parseBuffer**(`buffer`): `Promise`\<`void`\>
 
-### parseBuffer
+Defined in: [src/loader/parser/prefab/PrefabMeshParser.ts:28](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabMeshParser.ts#L28)
 
-▸ **parseBuffer**(`buffer`): `Promise`\<`void`\>
+Parse a raw mesh buffer. Reserved entry point; not used by the prefab
+pipeline, which decodes meshes through [PrefabMeshParser.parserMeshs](#parsermeshs).
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `buffer` | `ArrayBuffer` |
+##### buffer
+
+`ArrayBuffer`
+
+the raw mesh buffer.
 
 #### Returns
 
@@ -262,28 +254,24 @@ ___
 
 #### Overrides
 
-ParserBase.parseBuffer
+`ParserBase.parseBuffer`
 
-#### Defined in
+***
 
-[src/loader/parser/prefab/PrefabMeshParser.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabMeshParser.ts#L16)
+### verification()
 
-___
+> **verification**(): `boolean`
 
-### verification
+Defined in: [src/loader/parser/prefab/PrefabMeshParser.ts:191](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabMeshParser.ts#L191)
 
-▸ **verification**(): `boolean`
-
-Verify parsing validity
+Verify that parsing produced valid data.
 
 #### Returns
 
 `boolean`
 
+true when data is present; throws otherwise.
+
 #### Overrides
 
-ParserBase.verification
-
-#### Defined in
-
-[src/loader/parser/prefab/PrefabMeshParser.ts:154](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabMeshParser.ts#L154)
+`ParserBase.verification`

@@ -1,21 +1,35 @@
-# Function: RegisterShader
+[**@orillusion/core**](../README.md)
 
-▸ **RegisterShader**(`cls`, `key`, `p1?`, `p2?`, `p3?`): `any`
+***
 
-#### Parameters
+# Function: RegisterShader()
 
-| Name | Type |
-| :------ | :------ |
-| `cls` | `any` |
-| `key` | `any` |
-| `p1?` | `any` |
-| `p2?` | `any` |
-| `p3?` | `any` |
+> **RegisterShader**(`cls`, `key?`, `p1?`, `p2?`, `p3?`): `any`
 
-#### Returns
+Defined in: [src/util/SerializeDecoration.ts:98](https://github.com/orillusion/orillusion/blob/main/src/util/SerializeDecoration.ts#L98)
+
+## Parameters
+
+### cls
+
+`Function`
+
+### key?
+
+`string`
+
+### p1?
 
 `any`
 
-#### Defined in
+### p2?
 
-[src/util/SerializeDecoration.ts:98](https://github.com/Orillusion/orillusion/blob/main/src/util/SerializeDecoration.ts#L98)
+`any`
+
+### p3?
+
+`any`
+
+## Returns
+
+`any`

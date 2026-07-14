@@ -1,22 +1,39 @@
-# Function: textureCompress
+[**@orillusion/core**](../README.md)
 
-▸ **textureCompress**(`colorMap`, `sourceTexture`, `destTexture`, `workX`, `workY`, `workZ?`): `string`
+***
 
-#### Parameters
+# Function: textureCompress()
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `colorMap` | [`Texture`](../classes/Texture.md) | `undefined` |
-| `sourceTexture` | [`Texture`](../classes/Texture.md)[] | `undefined` |
-| `destTexture` | [`Texture`](../classes/Texture.md)[] | `undefined` |
-| `workX` | `number` | `undefined` |
-| `workY` | `number` | `undefined` |
-| `workZ` | `number` | `1` |
+> **textureCompress**(`colorMap`, `sourceTexture`, `destTexture`, `workX`, `workY`, `workZ?`): `string`
 
-#### Returns
+Defined in: [src/assets/shader/compute/utils/TextureCompress.ts:3](https://github.com/orillusion/orillusion/blob/main/src/assets/shader/compute/utils/TextureCompress.ts#L3)
+
+## Parameters
+
+### colorMap
+
+[`Texture`](../classes/Texture.md)
+
+### sourceTexture
+
+[`Texture`](../classes/Texture.md)[]
+
+### destTexture
+
+[`Texture`](../classes/Texture.md)[]
+
+### workX
+
+`number`
+
+### workY
+
+`number`
+
+### workZ?
+
+`number` = `1`
+
+## Returns
 
 `string`
-
-#### Defined in
-
-[src/assets/shader/compute/utils/TextureCompress.ts:3](https://github.com/Orillusion/orillusion/blob/main/src/assets/shader/compute/utils/TextureCompress.ts#L3)

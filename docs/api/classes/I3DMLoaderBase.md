@@ -1,45 +1,39 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: I3DMLoaderBase
 
-## Hierarchy
+Defined in: [src/loader/parser/i3dm/I3DMLoaderBase.ts:4](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/i3dm/I3DMLoaderBase.ts#L4)
 
-- **`I3DMLoaderBase`**
+## Extended by
 
-  ↳ [`I3DMLoader`](I3DMLoader.md)
-
-### Constructors
-
-- [constructor](I3DMLoaderBase.md#constructor)
-
-### Methods
-
-- [parse](I3DMLoaderBase.md#parse)
+- [`I3DMLoader`](I3DMLoader.md)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new I3DMLoaderBase**(): [`I3DMLoaderBase`](I3DMLoaderBase.md)
+> **new I3DMLoaderBase**(): `I3DMLoaderBase`
 
 #### Returns
 
-[`I3DMLoaderBase`](I3DMLoaderBase.md)
+`I3DMLoaderBase`
 
 ## Methods
 
-### parse
+### parse()
 
-▸ **parse**(`buffer`): `Promise`\<\{ `version`: `number` ; `featureTable`: [`FeatureTable`](FeatureTable.md) ; `batchTable`: [`BatchTable`](BatchTable.md) ; `glbBytes`: `Uint8Array`  }\>
+> **parse**(`buffer`): `Promise`\<\{ `version`: `number`; `featureTable`: [`FeatureTable`](FeatureTable.md); `batchTable`: [`BatchTable`](BatchTable.md); `glbBytes`: `Uint8Array`\<`ArrayBuffer`\>; \}\>
+
+Defined in: [src/loader/parser/i3dm/I3DMLoaderBase.ts:6](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/i3dm/I3DMLoaderBase.ts#L6)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `buffer` | `ArrayBuffer` |
+##### buffer
+
+`ArrayBuffer`
 
 #### Returns
 
-`Promise`\<\{ `version`: `number` ; `featureTable`: [`FeatureTable`](FeatureTable.md) ; `batchTable`: [`BatchTable`](BatchTable.md) ; `glbBytes`: `Uint8Array`  }\>
-
-#### Defined in
-
-[src/loader/parser/i3dm/I3DMLoaderBase.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/i3dm/I3DMLoaderBase.ts#L6)
+`Promise`\<\{ `version`: `number`; `featureTable`: [`FeatureTable`](FeatureTable.md); `batchTable`: [`BatchTable`](BatchTable.md); `glbBytes`: `Uint8Array`\<`ArrayBuffer`\>; \}\>

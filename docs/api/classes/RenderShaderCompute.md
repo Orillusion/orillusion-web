@@ -1,44 +1,49 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: RenderShaderCompute
 
-### Constructors
+Defined in: [src/gfx/graphics/webGpu/compute/RenderShaderCompute.ts:9](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/compute/RenderShaderCompute.ts#L9)
 
-- [constructor](RenderShaderCompute.md#constructor)
-
-### Methods
-
-- [onUpdate](RenderShaderCompute.md#onupdate)
+Drives a compute shader derived from a source render shader, running once and/or per frame.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new RenderShaderCompute**(`shaderStr`, `sourceShader`): [`RenderShaderCompute`](RenderShaderCompute.md)
+> **new RenderShaderCompute**(`shaderStr`, `sourceShader`): `RenderShaderCompute`
+
+Defined in: [src/gfx/graphics/webGpu/compute/RenderShaderCompute.ts:16](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/compute/RenderShaderCompute.ts#L16)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `shaderStr` | `string` |
-| `sourceShader` | [`Shader`](Shader.md) |
+##### shaderStr
+
+`string`
+
+##### sourceShader
+
+[`Shader`](Shader.md)
 
 #### Returns
 
-[`RenderShaderCompute`](RenderShaderCompute.md)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/compute/RenderShaderCompute.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/compute/RenderShaderCompute.ts#L11)
+`RenderShaderCompute`
 
 ## Methods
 
-### onUpdate
+### onUpdate()
 
-▸ **onUpdate**(): `void`
+> **onUpdate**(`view`): `void`
+
+Defined in: [src/gfx/graphics/webGpu/compute/RenderShaderCompute.ts:30](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/compute/RenderShaderCompute.ts#L30)
+
+#### Parameters
+
+##### view
+
+[`View3D`](View3D.md)
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/compute/RenderShaderCompute.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/compute/RenderShaderCompute.ts#L25)

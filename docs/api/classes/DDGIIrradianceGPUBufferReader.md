@@ -1,83 +1,80 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: DDGIIrradianceGPUBufferReader
 
-Basic class of event diapatcher.
-It includes the implementation of functions such as event registration, 
-deregistration, distribution, and unregister.
+Defined in: [src/gfx/renderJob/passRenderer/ddgi/DDGIIrradianceGPUBufferReader.ts:17](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/ddgi/DDGIIrradianceGPUBufferReader.ts#L17)
 
-## Hierarchy
+Reads the DDGI probe irradiance/depth octahedral maps back from the GPU
+into CPU Float32Arrays. Listens for the [GIPass](GIPass.md) render-complete
+event, copies the color and depth textures into mappable buffers, and
+dispatches [IrradianceDataReaderCompleteEvent](../variables/IrradianceDataReaderCompleteEvent.md) once both arrays
+are populated.
+
+## Extends
 
 - [`CEventDispatcher`](CEventDispatcher.md)
 
-  ↳ **`DDGIIrradianceGPUBufferReader`**
-
-### Constructors
-
-- [constructor](DDGIIrradianceGPUBufferReader.md#constructor)
-
-### Properties
-
-- [opDepthArray](DDGIIrradianceGPUBufferReader.md#opdeptharray)
-- [opColorArray](DDGIIrradianceGPUBufferReader.md#opcolorarray)
-
-### Methods
-
-- [dispatchEvent](DDGIIrradianceGPUBufferReader.md#dispatchevent)
-- [destroy](DDGIIrradianceGPUBufferReader.md#destroy)
-- [addEventListener](DDGIIrradianceGPUBufferReader.md#addeventlistener)
-- [removeEventListener](DDGIIrradianceGPUBufferReader.md#removeeventlistener)
-- [removeEventListenerAt](DDGIIrradianceGPUBufferReader.md#removeeventlistenerat)
-- [removeAllEventListener](DDGIIrradianceGPUBufferReader.md#removealleventlistener)
-- [containEventListener](DDGIIrradianceGPUBufferReader.md#containeventlistener)
-- [hasEventListener](DDGIIrradianceGPUBufferReader.md#haseventlistener)
-- [initReader](DDGIIrradianceGPUBufferReader.md#initreader)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new DDGIIrradianceGPUBufferReader**(): [`DDGIIrradianceGPUBufferReader`](DDGIIrradianceGPUBufferReader.md)
+> **new DDGIIrradianceGPUBufferReader**(): `DDGIIrradianceGPUBufferReader`
 
 #### Returns
 
-[`DDGIIrradianceGPUBufferReader`](DDGIIrradianceGPUBufferReader.md)
+`DDGIIrradianceGPUBufferReader`
 
 #### Inherited from
 
-[CEventDispatcher](CEventDispatcher.md).[constructor](CEventDispatcher.md#constructor)
+[`CEventDispatcher`](CEventDispatcher.md).[`constructor`](CEventDispatcher.md#constructor)
 
 ## Properties
 
 ### opDepthArray
 
-• **opDepthArray**: `Float32Array`
+> **opDepthArray**: `Float32Array`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/passRenderer/ddgi/DDGIIrradianceGPUBufferReader.ts:26](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/ddgi/DDGIIrradianceGPUBufferReader.ts#L26)
 
-[src/gfx/renderJob/passRenderer/ddgi/DDGIIrradianceGPUBufferReader.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/ddgi/DDGIIrradianceGPUBufferReader.ts#L18)
+CPU copy of the probe depth octahedral map.
 
-___
+***
 
 ### opColorArray
 
-• **opColorArray**: `Float32Array`
+> **opColorArray**: `Float32Array`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/passRenderer/ddgi/DDGIIrradianceGPUBufferReader.ts:28](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/ddgi/DDGIIrradianceGPUBufferReader.ts#L28)
 
-[src/gfx/renderJob/passRenderer/ddgi/DDGIIrradianceGPUBufferReader.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/ddgi/DDGIIrradianceGPUBufferReader.ts#L19)
+CPU copy of the probe irradiance (color) octahedral map.
+
+***
+
+### \_boundCtx
+
+> **\_boundCtx**: [`Context3D`](Context3D.md) = `null`
+
+Defined in: [src/gfx/renderJob/passRenderer/ddgi/DDGIIrradianceGPUBufferReader.ts:30](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/ddgi/DDGIIrradianceGPUBufferReader.ts#L30)
+
+Context3D this reader's GPU buffers are bound to.
 
 ## Methods
 
-### dispatchEvent
+### dispatchEvent()
 
-▸ **dispatchEvent**(`event`): `void`
+> **dispatchEvent**(`event`): `void`
+
+Defined in: [src/event/CEventDispatcher.ts:24](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L24)
 
 Dispatch an event to all registered objects with a specific type of listener.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `event` | [`CEvent`](CEvent.md) |
+##### event
+
+[`CEvent`](CEvent.md)
 
 #### Returns
 
@@ -85,17 +82,15 @@ Dispatch an event to all registered objects with a specific type of listener.
 
 #### Inherited from
 
-[CEventDispatcher](CEventDispatcher.md).[dispatchEvent](CEventDispatcher.md#dispatchevent)
+[`CEventDispatcher`](CEventDispatcher.md).[`dispatchEvent`](CEventDispatcher.md#dispatchevent)
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L24)
+### destroy()
 
-___
+> **destroy**(): `void`
 
-### destroy
-
-▸ **destroy**(): `void`
+Defined in: [src/event/CEventDispatcher.ts:54](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L54)
 
 release all registered event.
 
@@ -105,29 +100,51 @@ release all registered event.
 
 #### Inherited from
 
-[CEventDispatcher](CEventDispatcher.md).[destroy](CEventDispatcher.md#destroy)
+[`CEventDispatcher`](CEventDispatcher.md).[`destroy`](CEventDispatcher.md#destroy)
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L55)
+### addEventListener()
 
-___
+> **addEventListener**(`type`, `callback`, `thisObject`, `param?`, `priority?`): `number`
 
-### addEventListener
-
-▸ **addEventListener**(`type`, `callback`, `thisObject`, `param?`, `priority?`): `number`
+Defined in: [src/event/CEventDispatcher.ts:78](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L78)
 
 register an event listener to event distancher.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `type` | `string` \| `number` | `undefined` | {string} event type. |
-| `callback` | `Function` | `undefined` | {Function} The callback function that handles events. This function must accept an Event3D object as its unique parameter and cannot return any result. for example: function(evt:Event3D):void. |
-| `thisObject` | `any` | `undefined` | {any} Current registration object, it'll call callback function. |
-| `param` | `any` | `null` | {any} the data binded to registered event, the default value is null. |
-| `priority` | `number` | `0` | {number} The priority of callback function execution, with a larger set value having priority to call |
+##### type
+
+`string` \| `number`
+
+{string} event type.
+
+##### callback
+
+`Function`
+
+{Function} The callback function that handles events. 
+This function must accept an Event3D object as its unique parameter and cannot return any result.
+for example: function(evt:Event3D):void.
+
+##### thisObject
+
+`any`
+
+{any} Current registration object, it'll call callback function.
+
+##### param?
+
+`any` = `null`
+
+{any} the data binded to registered event, the default value is null.
+
+##### priority?
+
+`number` = `0`
+
+{number} The priority of callback function execution, with a larger set value having priority to call
 
 #### Returns
 
@@ -137,27 +154,37 @@ Returns register event id
 
 #### Inherited from
 
-[CEventDispatcher](CEventDispatcher.md).[addEventListener](CEventDispatcher.md#addeventlistener)
+[`CEventDispatcher`](CEventDispatcher.md).[`addEventListener`](CEventDispatcher.md#addeventlistener)
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L79)
+### removeEventListener()
 
-___
+> **removeEventListener**(`type`, `callback`, `thisObject`): `void`
 
-### removeEventListener
-
-▸ **removeEventListener**(`type`, `callback`, `thisObject`): `void`
+Defined in: [src/event/CEventDispatcher.ts:112](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L112)
 
 Remove Event Listening
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `type` | `string` \| `number` | {string} event type |
-| `callback` | `Function` | {Function} callback function of event register |
-| `thisObject` | `any` | {any} The current registered object. |
+##### type
+
+`string` \| `number`
+
+{string} event type
+
+##### callback
+
+`Function`
+
+{Function} callback function of event register
+
+##### thisObject
+
+`any`
+
+{any} The current registered object.
 
 #### Returns
 
@@ -165,25 +192,23 @@ Remove Event Listening
 
 #### Inherited from
 
-[CEventDispatcher](CEventDispatcher.md).[removeEventListener](CEventDispatcher.md#removeeventlistener)
+[`CEventDispatcher`](CEventDispatcher.md).[`removeEventListener`](CEventDispatcher.md#removeeventlistener)
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L113)
+### removeEventListenerAt()
 
-___
+> **removeEventListenerAt**(`id`): `boolean`
 
-### removeEventListenerAt
-
-▸ **removeEventListenerAt**(`id`): `boolean`
+Defined in: [src/event/CEventDispatcher.ts:132](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L132)
 
 Remove an event Listening with id
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `id` | `number` |
+##### id
+
+`number`
 
 #### Returns
 
@@ -191,26 +216,24 @@ Remove an event Listening with id
 
 #### Inherited from
 
-[CEventDispatcher](CEventDispatcher.md).[removeEventListenerAt](CEventDispatcher.md#removeeventlistenerat)
+[`CEventDispatcher`](CEventDispatcher.md).[`removeEventListenerAt`](CEventDispatcher.md#removeeventlistenerat)
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L133)
+### removeAllEventListener()
 
-___
+> **removeAllEventListener**(`eventType?`): `void`
 
-### removeAllEventListener
-
-▸ **removeAllEventListener**(`eventType?`): `void`
+Defined in: [src/event/CEventDispatcher.ts:152](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L152)
 
 Specify a event type to remove all related event listeners
 eventType event type, set null to remove all event listeners
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `eventType` | `string` \| `number` | `null` |
+##### eventType?
+
+`string` \| `number`
 
 #### Returns
 
@@ -218,25 +241,25 @@ eventType event type, set null to remove all event listeners
 
 #### Inherited from
 
-[CEventDispatcher](CEventDispatcher.md).[removeAllEventListener](CEventDispatcher.md#removealleventlistener)
+[`CEventDispatcher`](CEventDispatcher.md).[`removeAllEventListener`](CEventDispatcher.md#removealleventlistener)
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L153)
+### containEventListener()
 
-___
+> **containEventListener**(`type`): `boolean`
 
-### containEventListener
-
-▸ **containEventListener**(`type`): `boolean`
+Defined in: [src/event/CEventDispatcher.ts:184](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L184)
 
 whether the target presence of a listener with event type.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `type` | `string` | {string} event type. |
+##### type
+
+`string`
+
+{string} event type.
 
 #### Returns
 
@@ -246,27 +269,37 @@ Returns a boolean.
 
 #### Inherited from
 
-[CEventDispatcher](CEventDispatcher.md).[containEventListener](CEventDispatcher.md#containeventlistener)
+[`CEventDispatcher`](CEventDispatcher.md).[`containEventListener`](CEventDispatcher.md#containeventlistener)
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:185](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L185)
+### hasEventListener()
 
-___
+> **hasEventListener**(`type`, `callback?`, `thisObject?`): `boolean`
 
-### hasEventListener
-
-▸ **hasEventListener**(`type`, `callback?`, `thisObject?`): `boolean`
+Defined in: [src/event/CEventDispatcher.ts:197](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L197)
 
 whether the target presence of a listener with event type. it associate more registration parameters.
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `type` | `string` \| `number` | `undefined` | {string} event name. |
-| `callback` | `Function` | `null` | {Function} callback function of event register. |
-| `thisObject` | `any` | `null` | {any} The registered object. |
+##### type
+
+`string` \| `number`
+
+{string} event name.
+
+##### callback?
+
+`Function` = `null`
+
+{Function} callback function of event register.
+
+##### thisObject?
+
+`any` = `null`
+
+{any} The registered object.
 
 #### Returns
 
@@ -276,30 +309,36 @@ Returns a boolean.
 
 #### Inherited from
 
-[CEventDispatcher](CEventDispatcher.md).[hasEventListener](CEventDispatcher.md#haseventlistener)
+[`CEventDispatcher`](CEventDispatcher.md).[`hasEventListener`](CEventDispatcher.md#haseventlistener)
 
-#### Defined in
+***
 
-[src/event/CEventDispatcher.ts:198](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L198)
+### initReader()
 
-___
+> **initReader**(`ctx`, `probeRender`, `colorMap`, `depthMap`): `void`
 
-### initReader
+Defined in: [src/gfx/renderJob/passRenderer/ddgi/DDGIIrradianceGPUBufferReader.ts:33](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/ddgi/DDGIIrradianceGPUBufferReader.ts#L33)
 
-▸ **initReader**(`probeRender`, `colorMap`, `depthMap`): `void`
+Allocate the readback buffers and subscribe to the GI pass's render-complete event.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `probeRender` | `DDGIProbeRenderer` |
-| `colorMap` | `RenderTexture` |
-| `depthMap` | `RenderTexture` |
+##### ctx
+
+[`Context3D`](Context3D.md)
+
+##### probeRender
+
+[`GIPass`](GIPass.md)
+
+##### colorMap
+
+`RenderTexture`
+
+##### depthMap
+
+`RenderTexture`
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[src/gfx/renderJob/passRenderer/ddgi/DDGIIrradianceGPUBufferReader.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/ddgi/DDGIIrradianceGPUBufferReader.ts#L21)

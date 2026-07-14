@@ -28,6 +28,12 @@ cc.move(new Vector3(vx * speed * dt, vy * dt, vz * speed * dt));
 
 > Gravity and jumping must be accumulated into the Y component of the displacement yourself (accumulate vertical velocity `vy`, reset to zero after landing).
 
+## Example
+
+<Demo src="/demos/physics-rapier/Sample_rapierCharacter.ts"></Demo>
+
+<<< @/public/demos/physics-rapier/Sample_rapierCharacter.ts
+
 ## Vehicle Controller (VehicleController)
 
 The vehicle controller is based on a raycast wheel model: add a `VehicleController` to the chassis rigidbody, then add wheels one by one via `addWheel`, and control them at runtime with `setEngineForce` / `setBrake` / `setSteering`.
@@ -80,6 +86,12 @@ for (let i = 0; i < vc.numWheels(); i++) vc.setBrake(brakeForce, i);
 | `setBrake(force, wheelIndex)` | Sets the brake force for a wheel |
 | `setSteering(angle, wheelIndex)` | Sets the steering angle for a wheel |
 | `numWheels()` | Number of wheels |
+
+## Example
+
+<Demo src="/demos/physics-rapier/Sample_rapierVehicle.ts"></Demo>
+
+<<< @/public/demos/physics-rapier/Sample_rapierVehicle.ts
 
 ## Debugging and Dragging
 

@@ -1,68 +1,53 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: TileSetRoot
 
-### Constructors
-
-- [constructor](TileSetRoot.md#constructor)
-
-### Properties
-
-- [boundingVolume](TileSetRoot.md#boundingvolume)
-- [children](TileSetRoot.md#children)
-- [geometricError](TileSetRoot.md#geometricerror)
-- [transform](TileSetRoot.md#transform)
+Defined in: [src/loader/parser/tileRenderer/TileSet.ts:10](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L10)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new TileSetRoot**(): [`TileSetRoot`](TileSetRoot.md)
+> **new TileSetRoot**(): `TileSetRoot`
 
 #### Returns
 
-[`TileSetRoot`](TileSetRoot.md)
+`TileSetRoot`
 
 ## Properties
 
 ### boundingVolume
 
-• **boundingVolume**: `Object`
+> **boundingVolume**: `object`
 
-#### Type declaration
+Defined in: [src/loader/parser/tileRenderer/TileSet.ts:11](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L11)
 
-| Name | Type |
-| :------ | :------ |
-| `box` | `number`[] |
+#### box
 
-#### Defined in
+> **box**: `number`[]
 
-[src/loader/parser/tileRenderer/TileSet.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L11)
-
-___
+***
 
 ### children
 
-• **children**: [`TileSetChild`](TileSetChild.md)[]
+> **children**: [`TileSetChild`](TileSetChild.md)[]
 
-#### Defined in
+Defined in: [src/loader/parser/tileRenderer/TileSet.ts:12](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L12)
 
-[src/loader/parser/tileRenderer/TileSet.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L12)
-
-___
+***
 
 ### geometricError
 
-• **geometricError**: `number`
+> **geometricError**: `number`
 
-#### Defined in
+Defined in: [src/loader/parser/tileRenderer/TileSet.ts:13](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L13)
 
-[src/loader/parser/tileRenderer/TileSet.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L13)
-
-___
+***
 
 ### transform
 
-• **transform**: `number`[]
+> **transform**: `number`[]
 
-#### Defined in
-
-[src/loader/parser/tileRenderer/TileSet.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L14)
+Defined in: [src/loader/parser/tileRenderer/TileSet.ts:14](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TileSet.ts#L14)

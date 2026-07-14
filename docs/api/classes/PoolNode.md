@@ -1,107 +1,89 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: PoolNode\<T\>
 
-## Type parameters
+Defined in: [src/core/pool/ObjectPool.ts:2](https://github.com/orillusion/orillusion/blob/main/src/core/pool/ObjectPool.ts#L2)
 
-| Name |
-| :------ |
-| `T` |
+## Type Parameters
 
-### Constructors
+### T
 
-- [constructor](PoolNode.md#constructor)
-
-### Methods
-
-- [pushBack](PoolNode.md#pushback)
-- [getUseList](PoolNode.md#getuselist)
-- [getOne](PoolNode.md#getone)
-- [hasFree](PoolNode.md#hasfree)
+`T`
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new PoolNode**\<`T`\>(): [`PoolNode`](PoolNode.md)\<`T`\>
+> **new PoolNode**\<`T`\>(): `PoolNode`\<`T`\>
 
-#### Type parameters
-
-| Name |
-| :------ |
-| `T` |
+Defined in: [src/core/pool/ObjectPool.ts:6](https://github.com/orillusion/orillusion/blob/main/src/core/pool/ObjectPool.ts#L6)
 
 #### Returns
 
-[`PoolNode`](PoolNode.md)\<`T`\>
-
-#### Defined in
-
-[src/core/pool/ObjectPool.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/core/pool/ObjectPool.ts#L6)
+`PoolNode`\<`T`\>
 
 ## Methods
 
-### pushBack
+### pushBack()
 
-▸ **pushBack**(`node`): `void`
+> **pushBack**(`node`): `void`
+
+Defined in: [src/core/pool/ObjectPool.ts:11](https://github.com/orillusion/orillusion/blob/main/src/core/pool/ObjectPool.ts#L11)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `node` | `T` |
+##### node
+
+`T`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/core/pool/ObjectPool.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/core/pool/ObjectPool.ts#L11)
+### getUseList()
 
-___
+> **getUseList**(): `T`[]
 
-### getUseList
-
-▸ **getUseList**(): `T`[]
+Defined in: [src/core/pool/ObjectPool.ts:19](https://github.com/orillusion/orillusion/blob/main/src/core/pool/ObjectPool.ts#L19)
 
 #### Returns
 
 `T`[]
 
-#### Defined in
+***
 
-[src/core/pool/ObjectPool.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/core/pool/ObjectPool.ts#L19)
+### getOne()
 
-___
+> **getOne**(`instance`, `param?`): `T`
 
-### getOne
-
-▸ **getOne**(`instance`, `param?`): `T`
+Defined in: [src/core/pool/ObjectPool.ts:23](https://github.com/orillusion/orillusion/blob/main/src/core/pool/ObjectPool.ts#L23)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `instance` | (`arg?`: `any`) => `T` |
-| `param?` | `any` |
+##### instance
+
+(`arg?`) => `T`
+
+##### param?
+
+`any`
 
 #### Returns
 
 `T`
 
-#### Defined in
+***
 
-[src/core/pool/ObjectPool.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/core/pool/ObjectPool.ts#L23)
+### hasFree()
 
-___
+> **hasFree**(): `boolean`
 
-### hasFree
-
-▸ **hasFree**(): `boolean`
+Defined in: [src/core/pool/ObjectPool.ts:38](https://github.com/orillusion/orillusion/blob/main/src/core/pool/ObjectPool.ts#L38)
 
 #### Returns
 
 `boolean`
-
-#### Defined in
-
-[src/core/pool/ObjectPool.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/core/pool/ObjectPool.ts#L38)

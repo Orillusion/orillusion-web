@@ -1,141 +1,128 @@
+[**@orillusion/graphic**](../README.md)
+
+***
+
 # Class: GrassNodeStruct
 
-## Hierarchy
+Defined in: [packages/graphic/renderer/GrassRenderer.ts:8](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/GrassRenderer.ts#L8)
+
+## Extends
 
 - [`DynamicDrawStruct`](DynamicDrawStruct.md)
 
-  ↳ **`GrassNodeStruct`**
-
-### Constructors
-
-- [constructor](GrassNodeStruct.md#constructor)
-
-### Properties
-
-- [grassCount](GrassNodeStruct.md#grasscount)
-- [grassHSegment](GrassNodeStruct.md#grasshsegment)
-- [grassWight](GrassNodeStruct.md#grasswight)
-- [grassHeigh](GrassNodeStruct.md#grassheigh)
-- [grassX](GrassNodeStruct.md#grassx)
-- [grassY](GrassNodeStruct.md#grassy)
-- [grassZ](GrassNodeStruct.md#grassz)
-- [grassRotation](GrassNodeStruct.md#grassrotation)
-
-### Methods
-
-- [getValueSize](GrassNodeStruct.md#getvaluesize)
-- [Ref](GrassNodeStruct.md#ref)
-- [Get](GrassNodeStruct.md#get)
-- [GetSize](GrassNodeStruct.md#getsize)
-- [getValueType](GrassNodeStruct.md#getvaluetype)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new GrassNodeStruct**(): [`GrassNodeStruct`](GrassNodeStruct.md)
+> **new GrassNodeStruct**(): `GrassNodeStruct`
 
 #### Returns
 
-[`GrassNodeStruct`](GrassNodeStruct.md)
+`GrassNodeStruct`
 
 #### Inherited from
 
-[DynamicDrawStruct](DynamicDrawStruct.md).[constructor](DynamicDrawStruct.md#constructor)
+[`DynamicDrawStruct`](DynamicDrawStruct.md).[`constructor`](DynamicDrawStruct.md#constructor)
 
 ## Properties
 
 ### grassCount
 
-• **grassCount**: `number` = `1`
+> **grassCount**: `number` = `1`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/GrassRenderer.ts:9](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/GrassRenderer.ts#L9)
 
-[packages/graphic/renderer/GrassRenderer.ts:9](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/GrassRenderer.ts#L9)
-
-___
+***
 
 ### grassHSegment
 
-• **grassHSegment**: `number` = `1`
+> **grassHSegment**: `number` = `1`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/GrassRenderer.ts:10](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/GrassRenderer.ts#L10)
 
-[packages/graphic/renderer/GrassRenderer.ts:10](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/GrassRenderer.ts#L10)
-
-___
+***
 
 ### grassWight
 
-• **grassWight**: `number` = `2`
+> **grassWight**: `number` = `2`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/GrassRenderer.ts:11](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/GrassRenderer.ts#L11)
 
-[packages/graphic/renderer/GrassRenderer.ts:11](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/GrassRenderer.ts#L11)
-
-___
+***
 
 ### grassHeigh
 
-• **grassHeigh**: `number` = `4`
+> **grassHeigh**: `number` = `4`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/GrassRenderer.ts:12](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/GrassRenderer.ts#L12)
 
-[packages/graphic/renderer/GrassRenderer.ts:12](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/GrassRenderer.ts#L12)
-
-___
+***
 
 ### grassX
 
-• **grassX**: `number` = `0`
+> **grassX**: `number` = `0`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/GrassRenderer.ts:13](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/GrassRenderer.ts#L13)
 
-[packages/graphic/renderer/GrassRenderer.ts:13](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/GrassRenderer.ts#L13)
-
-___
+***
 
 ### grassY
 
-• **grassY**: `number` = `0`
+> **grassY**: `number` = `0`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/GrassRenderer.ts:14](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/GrassRenderer.ts#L14)
 
-[packages/graphic/renderer/GrassRenderer.ts:14](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/GrassRenderer.ts#L14)
-
-___
+***
 
 ### grassZ
 
-• **grassZ**: `number` = `0`
+> **grassZ**: `number` = `0`
 
-#### Defined in
+Defined in: [packages/graphic/renderer/GrassRenderer.ts:15](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/GrassRenderer.ts#L15)
 
-[packages/graphic/renderer/GrassRenderer.ts:15](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/GrassRenderer.ts#L15)
-
-___
+***
 
 ### grassRotation
 
-• **grassRotation**: `number` = `0`
+> **grassRotation**: `number` = `0`
 
-#### Defined in
-
-[packages/graphic/renderer/GrassRenderer.ts:16](https://github.com/Orillusion/orillusion/blob/main/packages/graphic/renderer/GrassRenderer.ts#L16)
+Defined in: [packages/graphic/renderer/GrassRenderer.ts:16](https://github.com/orillusion/orillusion/blob/main/packages/graphic/renderer/GrassRenderer.ts#L16)
 
 ## Methods
 
-### getValueSize
+### getValueType()
 
-▸ **getValueSize**(`value`): `any`
+> **getValueType**(): `object`[]
+
+Defined in: [src/util/struct/Struct.ts:25](https://github.com/orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L25)
+
+get reflection name
+
+#### Returns
+
+`object`[]
+
+#### Inherited from
+
+[`DynamicDrawStruct`](DynamicDrawStruct.md).[`getValueType`](DynamicDrawStruct.md#getvaluetype)
+
+***
+
+### getValueSize()
+
+> `static` **getValueSize**(`value`): `any`
+
+Defined in: [src/util/struct/Struct.ts:48](https://github.com/orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L48)
 
 get any type value memory size
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `value` | `any` | any type value |
+##### value
+
+`any`
+
+any type value
 
 #### Returns
 
@@ -143,59 +130,55 @@ get any type value memory size
 
 #### Inherited from
 
-[DynamicDrawStruct](DynamicDrawStruct.md).[getValueSize](DynamicDrawStruct.md#getvaluesize)
+[`DynamicDrawStruct`](DynamicDrawStruct.md).[`getValueSize`](DynamicDrawStruct.md#getvaluesize)
 
-#### Defined in
+***
 
-[src/util/struct/Struct.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L48)
+### Ref()
 
-___
+> `static` **Ref**\<`T`\>(`c`): `object`[]
 
-### Ref
+Defined in: [src/util/struct/Struct.ts:93](https://github.com/orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L93)
 
-▸ **Ref**\<`T`\>(`c`): \{ `name`: `string` ; `type`: `string`  }[]
+#### Type Parameters
 
-#### Type parameters
+##### T
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `Struct` |
+`T` *extends* `Struct`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `c` | `Ctor`\<`T`\> |
+##### c
+
+`Ctor`\<`T`\>
 
 #### Returns
 
-\{ `name`: `string` ; `type`: `string`  }[]
+`object`[]
 
 #### Inherited from
 
-[DynamicDrawStruct](DynamicDrawStruct.md).[Ref](DynamicDrawStruct.md#ref)
+[`DynamicDrawStruct`](DynamicDrawStruct.md).[`Ref`](DynamicDrawStruct.md#ref)
 
-#### Defined in
+***
 
-[src/util/struct/Struct.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L93)
+### Get()
 
-___
+> `static` **Get**\<`T`\>(`c`): `Struct`
 
-### Get
+Defined in: [src/util/struct/Struct.ts:99](https://github.com/orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L99)
 
-▸ **Get**\<`T`\>(`c`): `Struct`
+#### Type Parameters
 
-#### Type parameters
+##### T
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `Struct` |
+`T` *extends* `Struct`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `c` | `Ctor`\<`T`\> |
+##### c
+
+`Ctor`\<`T`\>
 
 #### Returns
 
@@ -203,31 +186,29 @@ ___
 
 #### Inherited from
 
-[DynamicDrawStruct](DynamicDrawStruct.md).[Get](DynamicDrawStruct.md#get)
+[`DynamicDrawStruct`](DynamicDrawStruct.md).[`Get`](DynamicDrawStruct.md#get)
 
-#### Defined in
+***
 
-[src/util/struct/Struct.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L99)
+### GetSize()
 
-___
+> `static` **GetSize**\<`T`\>(`c`): `number`
 
-### GetSize
-
-▸ **GetSize**\<`T`\>(`c`): `number`
+Defined in: [src/util/struct/Struct.ts:112](https://github.com/orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L112)
 
 get any struct memory size
 
-#### Type parameters
+#### Type Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `Struct` |
+##### T
+
+`T` *extends* `Struct`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `c` | `Ctor`\<`T`\> |
+##### c
+
+`Ctor`\<`T`\>
 
 #### Returns
 
@@ -235,28 +216,4 @@ get any struct memory size
 
 #### Inherited from
 
-[DynamicDrawStruct](DynamicDrawStruct.md).[GetSize](DynamicDrawStruct.md#getsize)
-
-#### Defined in
-
-[src/util/struct/Struct.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L112)
-
-___
-
-### getValueType
-
-▸ **getValueType**(): \{ `name`: `string` ; `type`: `string`  }[]
-
-get reflection name
-
-#### Returns
-
-\{ `name`: `string` ; `type`: `string`  }[]
-
-#### Inherited from
-
-[DynamicDrawStruct](DynamicDrawStruct.md).[getValueType](DynamicDrawStruct.md#getvaluetype)
-
-#### Defined in
-
-[src/util/struct/Struct.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L25)
+[`DynamicDrawStruct`](DynamicDrawStruct.md).[`GetSize`](DynamicDrawStruct.md#getsize)

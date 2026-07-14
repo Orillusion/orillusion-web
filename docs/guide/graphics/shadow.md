@@ -69,9 +69,12 @@ In this way, you can see in the scene a `box` that, under the illumination of th
 The shadow bias `shadowBias` is an important parameter that affects shadow rendering. Because the size of the shadow map and the size of the final rendering map are generally not exactly the same, it can cause situations such as shadow sampling distortion. Usually, you can solve the sampling distortion by manually setting a tiny bias `shadowBias`.
 
 ```ts
-engine.setting.shadow.shadowBias = 0.0002 // Direct light shadow bias
-engine.setting.shadow.pointShadowBias = 0.2 // Point light / spot light shadow bias
+light.shadowBias = 0.0002 // shadow bias
 ```
+
+::: tip Version Note
+Since `0.9.0`, `shadowBias` is controlled on each type of light (previously on `engine.setting.shadow`). Its default value is `auto`, meaning the bias is calculated automatically; it can also be specified manually to override the `auto` value.
+:::
 
 > Generally, if `shadowBias` is set too small, large areas of moire or completely covered shadows will appear; conversely, if it is set too large, the shadow will separate from the object (light leakage):
 
@@ -162,7 +165,7 @@ In `0.8.x`, CSM was enabled on the camera (`camera.enableCSM = true`); the camer
 | shadowBound | Number | Shadow area range |
 | shadowSize | Number | Direct light shadow map size, default 1024; the smaller the value, the lower the performance overhead, but the more obvious the shadow aliasing |
 | pointShadowSize | Number | Point light shadow map size, default 1024 |
-| pointShadowBias | Number | Shadow bias value for point lights and spot lights |
+| shadowBias | Number | Shadow bias value of the light source |
 | autoUpdate | Boolean | Whether to automatically update shadows, default false |
 | csmMargin | Number | Sets the transition range between different levels of shadows, adjusted in the 0-1 range |
 | csmScatteringExp | Number | Fine-tunes the range of each level of shadow to meet different scene needs |

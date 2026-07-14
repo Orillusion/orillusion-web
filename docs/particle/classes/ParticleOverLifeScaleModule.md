@@ -1,106 +1,84 @@
+[**@orillusion/particle**](../README.md)
+
+***
+
 # Class: ParticleOverLifeScaleModule
+
+Defined in: [packages/particle/module/stand/ParticleOverLifeScaleModule.ts:10](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleOverLifeScaleModule.ts#L10)
 
 Particle module of size scale over life time
 
-## Hierarchy
-
-- `ParticleModuleBase`
-
-  ↳ **`ParticleOverLifeScaleModule`**
-
-### Constructors
-
-- [constructor](ParticleOverLifeScaleModule.md#constructor)
-
-### Properties
-
-- [scaleSegments](ParticleOverLifeScaleModule.md#scalesegments)
-
-### Accessors
-
-- [needReset](ParticleOverLifeScaleModule.md#needreset)
-
-### Methods
-
-- [setSimulator](ParticleOverLifeScaleModule.md#setsimulator)
-- [calculateParticle](ParticleOverLifeScaleModule.md#calculateparticle)
-- [generateParticleModuleData](ParticleOverLifeScaleModule.md#generateparticlemoduledata)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new ParticleOverLifeScaleModule**(): [`ParticleOverLifeScaleModule`](ParticleOverLifeScaleModule.md)
+> **new ParticleOverLifeScaleModule**(): `ParticleOverLifeScaleModule`
 
 #### Returns
 
-[`ParticleOverLifeScaleModule`](ParticleOverLifeScaleModule.md)
+`ParticleOverLifeScaleModule`
 
 #### Inherited from
 
-ParticleModuleBase.constructor
+`ParticleModuleBase.constructor`
 
 ## Properties
 
 ### scaleSegments
 
-• **scaleSegments**: `Vector4`[]
+> **scaleSegments**: `Vector4`[]
+
+Defined in: [packages/particle/module/stand/ParticleOverLifeScaleModule.ts:14](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleOverLifeScaleModule.ts#L14)
 
 Describe the size scale change of particles from birth to end
-
-#### Defined in
-
-[packages/particle/module/stand/ParticleOverLifeScaleModule.ts:14](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleOverLifeScaleModule.ts#L14)
 
 ## Accessors
 
 ### needReset
 
-• `get` **needReset**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **needReset**(): `boolean`
+
+Defined in: [packages/particle/module/stand/ParticleModuleBase.ts:21](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleModuleBase.ts#L21)
+
+##### Returns
 
 `boolean`
 
-#### Inherited from
+#### Set Signature
 
-ParticleModuleBase.needReset
+> **set** **needReset**(`v`): `void`
 
-#### Defined in
+Defined in: [packages/particle/module/stand/ParticleModuleBase.ts:17](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleModuleBase.ts#L17)
 
-[packages/particle/module/stand/ParticleModuleBase.ts:21](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleModuleBase.ts#L21)
+##### Parameters
 
-• `set` **needReset**(`v`): `void`
+###### v
 
-#### Parameters
+`boolean`
 
-| Name | Type |
-| :------ | :------ |
-| `v` | `boolean` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-ParticleModuleBase.needReset
-
-#### Defined in
-
-[packages/particle/module/stand/ParticleModuleBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleModuleBase.ts#L17)
+`ParticleModuleBase.needReset`
 
 ## Methods
 
-### setSimulator
+### setSimulator()
 
-▸ **setSimulator**(`simulator`): `void`
+> **setSimulator**(`simulator`): `void`
+
+Defined in: [packages/particle/module/stand/ParticleModuleBase.ts:25](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleModuleBase.ts#L25)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `simulator` | `ParticleSimulator` |
+##### simulator
+
+`ParticleSimulator`
 
 #### Returns
 
@@ -108,24 +86,25 @@ ParticleModuleBase.needReset
 
 #### Inherited from
 
-ParticleModuleBase.setSimulator
+`ParticleModuleBase.setSimulator`
 
-#### Defined in
+***
 
-[packages/particle/module/stand/ParticleModuleBase.ts:25](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleModuleBase.ts#L25)
+### calculateParticle()
 
-___
+> **calculateParticle**(`globalMemory`, `localMemory`): `void`
 
-### calculateParticle
-
-▸ **calculateParticle**(`globalMemory`, `localMemory`): `void`
+Defined in: [packages/particle/module/stand/ParticleModuleBase.ts:29](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleModuleBase.ts#L29)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `globalMemory` | `ParticleGlobalMemory` |
-| `localMemory` | `ParticleLocalMemory` |
+##### globalMemory
+
+`ParticleGlobalMemory`
+
+##### localMemory
+
+`ParticleLocalMemory`
 
 #### Returns
 
@@ -133,26 +112,27 @@ ___
 
 #### Inherited from
 
-ParticleModuleBase.calculateParticle
+`ParticleModuleBase.calculateParticle`
 
-#### Defined in
+***
 
-[packages/particle/module/stand/ParticleModuleBase.ts:29](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleModuleBase.ts#L29)
+### generateParticleModuleData()
 
-___
+> **generateParticleModuleData**(`globalMemory`, `localMemory`): `void`
 
-### generateParticleModuleData
-
-▸ **generateParticleModuleData**(`globalMemory`, `localMemory`): `void`
+Defined in: [packages/particle/module/stand/ParticleOverLifeScaleModule.ts:21](https://github.com/orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleOverLifeScaleModule.ts#L21)
 
 Genarate particle size scale module with type over life time
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `globalMemory` | `ParticleGlobalMemory` |
-| `localMemory` | `ParticleLocalMemory` |
+##### globalMemory
+
+`ParticleGlobalMemory`
+
+##### localMemory
+
+`ParticleLocalMemory`
 
 #### Returns
 
@@ -160,8 +140,4 @@ Genarate particle size scale module with type over life time
 
 #### Overrides
 
-ParticleModuleBase.generateParticleModuleData
-
-#### Defined in
-
-[packages/particle/module/stand/ParticleOverLifeScaleModule.ts:21](https://github.com/Orillusion/orillusion/blob/main/packages/particle/module/stand/ParticleOverLifeScaleModule.ts#L21)
+`ParticleModuleBase.generateParticleModuleData`

@@ -1,49 +1,43 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: GLTFSubParserSkin
 
-### Constructors
-
-- [constructor](GLTFSubParserSkin.md#constructor)
-
-### Methods
-
-- [parse](GLTFSubParserSkin.md#parse)
+Defined in: [src/loader/parser/gltf/GLTFSubParserSkin.ts:6](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFSubParserSkin.ts#L6)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new GLTFSubParserSkin**(`subParser`): [`GLTFSubParserSkin`](GLTFSubParserSkin.md)
+> **new GLTFSubParserSkin**(`subParser`): `GLTFSubParserSkin`
+
+Defined in: [src/loader/parser/gltf/GLTFSubParserSkin.ts:10](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFSubParserSkin.ts#L10)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `subParser` | `GLTFSubParser` |
+##### subParser
+
+`GLTFSubParser`
 
 #### Returns
 
-[`GLTFSubParserSkin`](GLTFSubParserSkin.md)
-
-#### Defined in
-
-[src/loader/parser/gltf/GLTFSubParserSkin.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFSubParserSkin.ts#L10)
+`GLTFSubParserSkin`
 
 ## Methods
 
-### parse
+### parse()
 
-▸ **parse**(`skinId`): `any`
+> **parse**(`skinId`): `any`
+
+Defined in: [src/loader/parser/gltf/GLTFSubParserSkin.ts:15](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFSubParserSkin.ts#L15)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `skinId` | `any` |
+##### skinId
+
+`any`
 
 #### Returns
 
 `any`
-
-#### Defined in
-
-[src/loader/parser/gltf/GLTFSubParserSkin.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gltf/GLTFSubParserSkin.ts#L15)

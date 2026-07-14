@@ -1,58 +1,85 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: ShaderUtil
 
-### Constructors
+Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:32](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L32)
 
-- [constructor](ShaderUtil.md#constructor)
-
-### Properties
-
-- [renderShaderModulePool](ShaderUtil.md#rendershadermodulepool)
-- [renderShader](ShaderUtil.md#rendershader)
-
-### Methods
-
-- [init](ShaderUtil.md#init)
+Holds the per-context caches of compiled GPU shader modules and render shader passes.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new ShaderUtil**(): [`ShaderUtil`](ShaderUtil.md)
+> **new ShaderUtil**(): `ShaderUtil`
 
 #### Returns
 
-[`ShaderUtil`](ShaderUtil.md)
-
-## Properties
-
-### renderShaderModulePool
-
-▪ `Static` **renderShaderModulePool**: `Map`\<`string`, `GPUShaderModule`\>
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L23)
-
-___
-
-### renderShader
-
-▪ `Static` **renderShader**: `Map`\<`string`, [`RenderShaderPass`](RenderShaderPass.md)\>
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L24)
+`ShaderUtil`
 
 ## Methods
 
-### init
+### renderShaderModulePool()
 
-▸ **init**(): `void`
+> `static` **renderShaderModulePool**(`ctx`): `Map`\<`string`, `GPUShaderModule`\>
+
+Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:38](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L38)
+
+Per-Context3D shader state accessors. Device-bound GPU shader modules
+are keyed per-device; the RenderShaderPass cache is also per-device
+(since the passes internally hold device-bound pipelines).
+
+#### Parameters
+
+##### ctx
+
+[`Context3D`](Context3D.md)
+
+#### Returns
+
+`Map`\<`string`, `GPUShaderModule`\>
+
+***
+
+### renderShader()
+
+> `static` **renderShader**(`ctx`): `Map`\<`string`, [`RenderShaderPass`](RenderShaderPass.md)\>
+
+Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:45](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L45)
+
+Get the per-context cache of render shader passes.
+
+#### Parameters
+
+##### ctx
+
+[`Context3D`](Context3D.md)
+
+the rendering context
+
+#### Returns
+
+`Map`\<`string`, [`RenderShaderPass`](RenderShaderPass.md)\>
+
+***
+
+### init()
+
+> `static` **init**(`ctx`): `void`
+
+Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:60](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L60)
+
+Initialize the per-context shader state caches.
+
+#### Parameters
+
+##### ctx
+
+[`Context3D`](Context3D.md)
+
+the rendering context
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L26)

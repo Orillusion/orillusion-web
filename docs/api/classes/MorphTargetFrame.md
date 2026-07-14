@@ -1,40 +1,40 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: MorphTargetFrame
 
-### Constructors
+Defined in: [src/components/anim/morphAnim/MorphTargetFrame.ts:66](https://github.com/orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetFrame.ts#L66)
 
-- [constructor](MorphTargetFrame.md#constructor)
-
-### Properties
-
-- [texture](MorphTargetFrame.md#texture)
-- [transform](MorphTargetFrame.md#transform)
+A single frame of blend-shape capture data (e.g. from ARKit): the
+per-target influence weights (`texture`) plus the head/eye transforms.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new MorphTargetFrame**(): [`MorphTargetFrame`](MorphTargetFrame.md)
+> **new MorphTargetFrame**(): `MorphTargetFrame`
 
 #### Returns
 
-[`MorphTargetFrame`](MorphTargetFrame.md)
+`MorphTargetFrame`
 
 ## Properties
 
 ### texture
 
-• **texture**: `texture`
+> **texture**: `texture`
 
-#### Defined in
+Defined in: [src/components/anim/morphAnim/MorphTargetFrame.ts:68](https://github.com/orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetFrame.ts#L68)
 
-[src/components/anim/morphAnim/MorphTargetFrame.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetFrame.ts#L62)
+Per-blend-shape influence weights keyed by ARKit blend-shape name.
 
-___
+***
 
 ### transform
 
-• **transform**: `transform`
+> **transform**: `transform`
 
-#### Defined in
+Defined in: [src/components/anim/morphAnim/MorphTargetFrame.ts:70](https://github.com/orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetFrame.ts#L70)
 
-[src/components/anim/morphAnim/MorphTargetFrame.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetFrame.ts#L63)
+Head and eye transforms captured for this frame.

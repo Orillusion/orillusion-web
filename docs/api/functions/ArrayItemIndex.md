@@ -1,18 +1,23 @@
-# Function: ArrayItemIndex
+[**@orillusion/core**](../README.md)
 
-▸ **ArrayItemIndex**(`array`, `item`): `number`
+***
 
-#### Parameters
+# Function: ArrayItemIndex()
 
-| Name | Type |
-| :------ | :------ |
-| `array` | `any`[] |
-| `item` | `any` |
+> **ArrayItemIndex**(`array`, `item`): `number`
 
-#### Returns
+Defined in: [src/util/Global.ts:59](https://github.com/orillusion/orillusion/blob/main/src/util/Global.ts#L59)
+
+## Parameters
+
+### array
+
+`any`[]
+
+### item
+
+`any`
+
+## Returns
 
 `number`
-
-#### Defined in
-
-[src/util/Global.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/util/Global.ts#L59)

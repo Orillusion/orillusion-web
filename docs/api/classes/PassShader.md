@@ -1,62 +1,59 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: PassShader
 
-### Constructors
+Defined in: [src/gfx/graphics/webGpu/shader/util/MorePassParser.ts:18](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/MorePassParser.ts#L18)
 
-- [constructor](PassShader.md#constructor)
-
-### Properties
-
-- [passType](PassShader.md#passtype)
-- [shaderState](PassShader.md#shaderstate)
-- [vertexShader](PassShader.md#vertexshader)
-- [fragmentShader](PassShader.md#fragmentshader)
+A single parsed shader pass, holding its pass type, render state and shader sources.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new PassShader**(): [`PassShader`](PassShader.md)
+> **new PassShader**(): `PassShader`
 
 #### Returns
 
-[`PassShader`](PassShader.md)
+`PassShader`
 
 ## Properties
 
 ### passType
 
-• **passType**: `string` = `''`
+> **passType**: `string` = `''`
 
-#### Defined in
+Defined in: [src/gfx/graphics/webGpu/shader/util/MorePassParser.ts:20](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/MorePassParser.ts#L20)
 
-[src/gfx/graphics/webGpu/shader/util/MorePassParser.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/MorePassParser.ts#L9)
+Pass type identifier (e.g. COLOR, SHADOW).
 
-___
+***
 
 ### shaderState
 
-• **shaderState**: `Map`\<`string`, `any`\>
+> **shaderState**: `Map`\<`string`, `any`\>
 
-#### Defined in
+Defined in: [src/gfx/graphics/webGpu/shader/util/MorePassParser.ts:22](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/MorePassParser.ts#L22)
 
-[src/gfx/graphics/webGpu/shader/util/MorePassParser.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/MorePassParser.ts#L10)
+Render state key/value pairs declared for this pass.
 
-___
+***
 
 ### vertexShader
 
-• **vertexShader**: `string` = `''`
+> **vertexShader**: `string` = `''`
 
-#### Defined in
+Defined in: [src/gfx/graphics/webGpu/shader/util/MorePassParser.ts:24](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/MorePassParser.ts#L24)
 
-[src/gfx/graphics/webGpu/shader/util/MorePassParser.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/MorePassParser.ts#L11)
+Vertex shader source code.
 
-___
+***
 
 ### fragmentShader
 
-• **fragmentShader**: `string` = `''`
+> **fragmentShader**: `string` = `''`
 
-#### Defined in
+Defined in: [src/gfx/graphics/webGpu/shader/util/MorePassParser.ts:26](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/MorePassParser.ts#L26)
 
-[src/gfx/graphics/webGpu/shader/util/MorePassParser.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/MorePassParser.ts#L12)
+Fragment shader source code.

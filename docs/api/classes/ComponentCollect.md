@@ -1,331 +1,515 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: ComponentCollect
 
-### Constructors
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:17](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L17)
 
-- [constructor](ComponentCollect.md#constructor)
-
-### Methods
-
-- [bindUpdate](ComponentCollect.md#bindupdate)
-- [unBindUpdate](ComponentCollect.md#unbindupdate)
-- [bindLateUpdate](ComponentCollect.md#bindlateupdate)
-- [unBindLateUpdate](ComponentCollect.md#unbindlateupdate)
-- [bindBeforeUpdate](ComponentCollect.md#bindbeforeupdate)
-- [unBindBeforeUpdate](ComponentCollect.md#unbindbeforeupdate)
-- [bindCompute](ComponentCollect.md#bindcompute)
-- [unBindCompute](ComponentCollect.md#unbindcompute)
-- [bindGraphic](ComponentCollect.md#bindgraphic)
-- [unBindGraphic](ComponentCollect.md#unbindgraphic)
-- [appendWaitStart](ComponentCollect.md#appendwaitstart)
-- [removeWaitStart](ComponentCollect.md#removewaitstart)
-- [bindEnablePick](ComponentCollect.md#bindenablepick)
-- [unBindEnablePick](ComponentCollect.md#unbindenablepick)
+Static registry of live components, keyed by [View3D](View3D.md). Holds the
+per-view lifecycle callback lists (update / lateUpdate / beforeUpdate /
+compute / pick / graphic) that the engine drives each frame, plus a
+type-keyed index used by render passes and other systems to enumerate
+every instance of a component class in a view. View entries are evicted
+on engine dispose to avoid leaking scene trees and callbacks.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new ComponentCollect**(): [`ComponentCollect`](ComponentCollect.md)
+> **new ComponentCollect**(): `ComponentCollect`
 
 #### Returns
 
-[`ComponentCollect`](ComponentCollect.md)
+`ComponentCollect`
 
 ## Methods
 
-### bindUpdate
+### bindUpdate()
 
-▸ **bindUpdate**(`view`, `component`, `call`): `void`
+> `static` **bindUpdate**(`view`, `component`, `call`): `void`
+
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:91](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L91)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
-| `component` | [`IComponent`](../interfaces/IComponent.md) |
-| `call` | `Function` |
+##### view
+
+[`View3D`](View3D.md)
+
+##### component
+
+[`IComponent`](../interfaces/IComponent.md)
+
+##### call
+
+`Function`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/collect/ComponentCollect.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L62)
+### unBindUpdate()
 
-___
+> `static` **unBindUpdate**(`view`, `component`): `void`
 
-### unBindUpdate
-
-▸ **unBindUpdate**(`view`, `component`): `void`
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:101](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L101)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
-| `component` | [`IComponent`](../interfaces/IComponent.md) |
+##### view
+
+[`View3D`](View3D.md)
+
+##### component
+
+[`IComponent`](../interfaces/IComponent.md)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/collect/ComponentCollect.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L72)
+### bindLateUpdate()
 
-___
+> `static` **bindLateUpdate**(`view`, `component`, `call`): `void`
 
-### bindLateUpdate
-
-▸ **bindLateUpdate**(`view`, `component`, `call`): `void`
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:109](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L109)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
-| `component` | [`IComponent`](../interfaces/IComponent.md) |
-| `call` | `Function` |
+##### view
+
+[`View3D`](View3D.md)
+
+##### component
+
+[`IComponent`](../interfaces/IComponent.md)
+
+##### call
+
+`Function`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/collect/ComponentCollect.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L80)
+### unBindLateUpdate()
 
-___
+> `static` **unBindLateUpdate**(`view`, `component`): `void`
 
-### unBindLateUpdate
-
-▸ **unBindLateUpdate**(`view`, `component`): `void`
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:119](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L119)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
-| `component` | [`IComponent`](../interfaces/IComponent.md) |
+##### view
+
+[`View3D`](View3D.md)
+
+##### component
+
+[`IComponent`](../interfaces/IComponent.md)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/collect/ComponentCollect.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L90)
+### bindBeforeUpdate()
 
-___
+> `static` **bindBeforeUpdate**(`view`, `component`, `call`): `void`
 
-### bindBeforeUpdate
-
-▸ **bindBeforeUpdate**(`view`, `component`, `call`): `void`
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:127](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L127)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
-| `component` | [`IComponent`](../interfaces/IComponent.md) |
-| `call` | `Function` |
+##### view
+
+[`View3D`](View3D.md)
+
+##### component
+
+[`IComponent`](../interfaces/IComponent.md)
+
+##### call
+
+`Function`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/collect/ComponentCollect.ts:98](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L98)
+### unBindBeforeUpdate()
 
-___
+> `static` **unBindBeforeUpdate**(`view`, `component`): `void`
 
-### unBindBeforeUpdate
-
-▸ **unBindBeforeUpdate**(`view`, `component`): `void`
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:137](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L137)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
-| `component` | [`IComponent`](../interfaces/IComponent.md) |
+##### view
+
+[`View3D`](View3D.md)
+
+##### component
+
+[`IComponent`](../interfaces/IComponent.md)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/collect/ComponentCollect.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L108)
+### bindCompute()
 
-___
+> `static` **bindCompute**(`view`, `component`, `call`): `void`
 
-### bindCompute
-
-▸ **bindCompute**(`view`, `component`, `call`): `void`
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:145](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L145)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
-| `component` | [`IComponent`](../interfaces/IComponent.md) |
-| `call` | `Function` |
+##### view
+
+[`View3D`](View3D.md)
+
+##### component
+
+[`IComponent`](../interfaces/IComponent.md)
+
+##### call
+
+`Function`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/collect/ComponentCollect.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L116)
+### unBindCompute()
 
-___
+> `static` **unBindCompute**(`view`, `component`): `void`
 
-### unBindCompute
-
-▸ **unBindCompute**(`view`, `component`): `void`
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:155](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L155)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
-| `component` | [`IComponent`](../interfaces/IComponent.md) |
+##### view
+
+[`View3D`](View3D.md)
+
+##### component
+
+[`IComponent`](../interfaces/IComponent.md)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/collect/ComponentCollect.ts:126](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L126)
+### bindGraphic()
 
-___
+> `static` **bindGraphic**(`view`, `component`, `call`): `void`
 
-### bindGraphic
-
-▸ **bindGraphic**(`view`, `component`, `call`): `void`
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:163](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L163)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
-| `component` | [`IComponent`](../interfaces/IComponent.md) |
-| `call` | `Function` |
+##### view
+
+[`View3D`](View3D.md)
+
+##### component
+
+[`IComponent`](../interfaces/IComponent.md)
+
+##### call
+
+`Function`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/collect/ComponentCollect.ts:134](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L134)
+### unBindGraphic()
 
-___
+> `static` **unBindGraphic**(`view`, `component`): `void`
 
-### unBindGraphic
-
-▸ **unBindGraphic**(`view`, `component`): `void`
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:173](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L173)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
-| `component` | [`IComponent`](../interfaces/IComponent.md) |
+##### view
+
+[`View3D`](View3D.md)
+
+##### component
+
+[`IComponent`](../interfaces/IComponent.md)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/collect/ComponentCollect.ts:144](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L144)
+### appendWaitStart()
 
-___
+> `static` **appendWaitStart**(`component`): `void`
 
-### appendWaitStart
-
-▸ **appendWaitStart**(`component`): `void`
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:181](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L181)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `component` | [`IComponent`](../interfaces/IComponent.md) |
+##### component
+
+[`IComponent`](../interfaces/IComponent.md)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/collect/ComponentCollect.ts:152](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L152)
+### removeWaitStart()
 
-___
+> `static` **removeWaitStart**(`obj`, `component`): `void`
 
-### removeWaitStart
-
-▸ **removeWaitStart**(`obj`, `component`): `void`
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:194](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L194)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `obj` | [`Object3D`](Object3D.md) |
-| `component` | [`IComponent`](../interfaces/IComponent.md) |
+##### obj
+
+[`Object3D`](Object3D.md)
+
+##### component
+
+[`IComponent`](../interfaces/IComponent.md)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/collect/ComponentCollect.ts:165](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L165)
+### bindEnablePick()
 
-___
+> `static` **bindEnablePick**(`view`, `component`, `call`): `void`
 
-### bindEnablePick
-
-▸ **bindEnablePick**(`view`, `component`, `call`): `void`
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:205](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L205)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
-| `component` | [`ColliderComponent`](ColliderComponent.md) |
-| `call` | `Function` |
+##### view
+
+[`View3D`](View3D.md)
+
+##### component
+
+[`ColliderComponent`](ColliderComponent.md)
+
+##### call
+
+`Function`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/collect/ComponentCollect.ts:176](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L176)
+### unBindEnablePick()
 
-___
+> `static` **unBindEnablePick**(`view`, `component`): `void`
 
-### unBindEnablePick
-
-▸ **unBindEnablePick**(`view`, `component`): `void`
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:215](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L215)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
-| `component` | [`ColliderComponent`](ColliderComponent.md) |
+##### view
+
+[`View3D`](View3D.md)
+
+##### component
+
+[`ColliderComponent`](ColliderComponent.md)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/collect/ComponentCollect.ts:186](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L186)
+### register()
+
+> `static` **register**(`view`, `ctor`, `component`): `void`
+
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:233](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L233)
+
+Add `comp` to the type-keyed registry under `(view, ctor)`. Used
+by [ComponentBase.onEnable](ComponentBase.md#onenable) to make the instance
+discoverable via [collectByTypeLayered](#collectbytypelayered).
+
+`ctor` should be the component's concrete class
+(`(this as any).constructor` from the instance). Subclasses are
+registered under their own class — a query for the parent class
+will not enumerate subclass instances. Idempotent.
+
+#### Parameters
+
+##### view
+
+[`View3D`](View3D.md)
+
+##### ctor
+
+`Function`
+
+##### component
+
+[`IComponent`](../interfaces/IComponent.md)
+
+#### Returns
+
+`void`
+
+***
+
+### unregister()
+
+> `static` **unregister**(`view`, `ctor`, `component`): `void`
+
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:253](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L253)
+
+Remove `comp` from the type-keyed registry. Empty inner sets are
+left in place so the next register call can reuse them without
+a fresh allocation. Idempotent.
+
+#### Parameters
+
+##### view
+
+[`View3D`](View3D.md)
+
+##### ctor
+
+`Function`
+
+##### component
+
+[`IComponent`](../interfaces/IComponent.md)
+
+#### Returns
+
+`void`
+
+***
+
+### collectByTypeLayered()
+
+> `static` **collectByTypeLayered**\<`T`\>(`view`, `ctor`, `layerMask`, `out`): `T`[]
+
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:286](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L286)
+
+Collect all live components of `ctor` registered against `view`
+whose `visibleLayer` intersects `layerMask`. Pass
+[VisibleLayer.All](../@orillusion/namespaces/VisibleLayer/variables/All.md) (`0xFFFFFFFF`) to skip layer filtering —
+the bitwise AND then matches every bit.
+
+The caller owns `out`: it is cleared (`length = 0`) on entry and
+populated in place, so a pass can hold a scratch array as a
+member field and reuse it across frames without GC pressure
+(mirrors EntityCollect.getLayerLists's buffer-reuse
+pattern). The returned reference is the same `out` for chaining.
+
+Callers that want to honour a camera's `cullingMask` should
+pre-AND it into `layerMask` themselves; the predicate inside
+does not re-read camera state.
+
+#### Type Parameters
+
+##### T
+
+`T` *extends* [`IComponent`](../interfaces/IComponent.md) & `object`
+
+#### Parameters
+
+##### view
+
+[`View3D`](View3D.md)
+
+The View3D this pass executes against. A
+                  `null` view returns immediately.
+
+##### ctor
+
+`Function`
+
+Concrete component class to enumerate. Must
+                  match what [register](#register) stored — i.e. the
+                  subclass, not a base.
+
+##### layerMask
+
+`number`
+
+Already-combined pass × camera mask.
+
+##### out
+
+`T`[]
+
+Scratch array, owned by the caller; mutated.
+
+#### Returns
+
+`T`[]
+
+***
+
+### removeView()
+
+> `static` **removeView**(`view`): `void`
+
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:313](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L313)
+
+#### Parameters
+
+##### view
+
+[`View3D`](View3D.md)
+
+#### Returns
+
+`void`
+
+***
+
+### removeNullViewEntriesForCtx()
+
+> `static` **removeNullViewEntriesForCtx**(`ctx`): `void`
+
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:329](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L329)
+
+#### Parameters
+
+##### ctx
+
+`unknown`
+
+#### Returns
+
+`void`

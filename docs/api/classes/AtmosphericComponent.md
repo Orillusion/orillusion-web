@@ -1,1153 +1,1049 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: AtmosphericComponent
+
+Defined in: [src/components/AtmosphericComponent.ts:44](https://github.com/orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L44)
 
 Atmospheric Sky Box Component
 
-## Hierarchy
+## Extends
 
 - [`SkyRenderer`](SkyRenderer.md)
 
-  ↳ **`AtmosphericComponent`**
-
-### Constructors
-
-- [constructor](AtmosphericComponent.md#constructor)
-
-### Properties
-
-- [object3D](AtmosphericComponent.md#object3d)
-- [isDestroyed](AtmosphericComponent.md#isdestroyed)
-- [receiveShadow](AtmosphericComponent.md#receiveshadow)
-- [morphData](AtmosphericComponent.md#morphdata)
-- [instanceCount](AtmosphericComponent.md#instancecount)
-- [lodLevel](AtmosphericComponent.md#lodlevel)
-- [alwaysRender](AtmosphericComponent.md#alwaysrender)
-- [instanceID](AtmosphericComponent.md#instanceid)
-- [drawType](AtmosphericComponent.md#drawtype)
-- [isRenderOrderChange](AtmosphericComponent.md#isrenderorderchange)
-- [needSortOnCameraZ](AtmosphericComponent.md#needsortoncameraz)
-- [isRecievePostEffectUI](AtmosphericComponent.md#isrecieveposteffectui)
-- [skyMaterial](AtmosphericComponent.md#skymaterial)
-
-### Accessors
-
-- [sunX](AtmosphericComponent.md#sunx)
-- [sunY](AtmosphericComponent.md#suny)
-- [eyePos](AtmosphericComponent.md#eyepos)
-- [sunRadius](AtmosphericComponent.md#sunradius)
-- [sunRadiance](AtmosphericComponent.md#sunradiance)
-- [sunBrightness](AtmosphericComponent.md#sunbrightness)
-- [displaySun](AtmosphericComponent.md#displaysun)
-- [relativeTransform](AtmosphericComponent.md#relativetransform)
-- [eventDispatcher](AtmosphericComponent.md#eventdispatcher)
-- [isStart](AtmosphericComponent.md#isstart)
-- [transform](AtmosphericComponent.md#transform)
-- [enable](AtmosphericComponent.md#enable)
-- [geometry](AtmosphericComponent.md#geometry)
-- [material](AtmosphericComponent.md#material)
-- [renderLayer](AtmosphericComponent.md#renderlayer)
-- [rendererMask](AtmosphericComponent.md#renderermask)
-- [renderOrder](AtmosphericComponent.md#renderorder)
-- [materials](AtmosphericComponent.md#materials)
-- [castShadow](AtmosphericComponent.md#castshadow)
-- [castGI](AtmosphericComponent.md#castgi)
-- [castReflection](AtmosphericComponent.md#castreflection)
-- [map](AtmosphericComponent.md#map)
-- [exposure](AtmosphericComponent.md#exposure)
-- [roughness](AtmosphericComponent.md#roughness)
-
-### Methods
-
-- [init](AtmosphericComponent.md#init)
-- [start](AtmosphericComponent.md#start)
-- [onUpdate](AtmosphericComponent.md#onupdate)
-- [destroy](AtmosphericComponent.md#destroy)
-- [stop](AtmosphericComponent.md#stop)
-- [onLateUpdate](AtmosphericComponent.md#onlateupdate)
-- [onBeforeUpdate](AtmosphericComponent.md#onbeforeupdate)
-- [onGraphic](AtmosphericComponent.md#ongraphic)
-- [onParentChange](AtmosphericComponent.md#onparentchange)
-- [onAddChild](AtmosphericComponent.md#onaddchild)
-- [onRemoveChild](AtmosphericComponent.md#onremovechild)
-- [cloneTo](AtmosphericComponent.md#cloneto)
-- [copyComponent](AtmosphericComponent.md#copycomponent)
-- [setMorphInfluence](AtmosphericComponent.md#setmorphinfluence)
-- [setMorphInfluenceIndex](AtmosphericComponent.md#setmorphinfluenceindex)
-- [onCompute](AtmosphericComponent.md#oncompute)
-- [attachSceneOctree](AtmosphericComponent.md#attachsceneoctree)
-- [detachSceneOctree](AtmosphericComponent.md#detachsceneoctree)
-- [addMask](AtmosphericComponent.md#addmask)
-- [removeMask](AtmosphericComponent.md#removemask)
-- [hasMask](AtmosphericComponent.md#hasmask)
-- [addRendererMask](AtmosphericComponent.md#addrenderermask)
-- [removeRendererMask](AtmosphericComponent.md#removerenderermask)
-- [selfCloneMaterials](AtmosphericComponent.md#selfclonematerials)
-- [renderPass](AtmosphericComponent.md#renderpass)
-- [recordRenderPass2](AtmosphericComponent.md#recordrenderpass2)
-- [preInit](AtmosphericComponent.md#preinit)
-- [beforeDestroy](AtmosphericComponent.md#beforedestroy)
-- [onEnable](AtmosphericComponent.md#onenable)
-- [onDisable](AtmosphericComponent.md#ondisable)
-- [nodeUpdate](AtmosphericComponent.md#nodeupdate)
-- [renderPass2](AtmosphericComponent.md#renderpass2)
-- [useSkyReflection](AtmosphericComponent.md#useskyreflection)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new AtmosphericComponent**(): [`AtmosphericComponent`](AtmosphericComponent.md)
+> **new AtmosphericComponent**(): `AtmosphericComponent`
+
+Defined in: [src/components/renderer/MeshRenderer.ts:26](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L26)
 
 #### Returns
 
-[`AtmosphericComponent`](AtmosphericComponent.md)
+`AtmosphericComponent`
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[constructor](SkyRenderer.md#constructor)
-
-#### Defined in
-
-[src/components/renderer/MeshRenderer.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L26)
+[`SkyRenderer`](SkyRenderer.md).[`constructor`](SkyRenderer.md#constructor)
 
 ## Properties
 
 ### object3D
 
-• **object3D**: [`Object3D`](Object3D.md) = `null`
+> **object3D**: [`Object3D`](Object3D.md) = `null`
+
+Defined in: [src/components/ComponentBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L29)
 
 owner object3D
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[object3D](SkyRenderer.md#object3d)
+[`SkyRenderer`](SkyRenderer.md).[`object3D`](SkyRenderer.md#object3d)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
-
-___
+***
 
 ### isDestroyed
 
-• `Optional` **isDestroyed**: `boolean`
+> **isDestroyed**: `boolean` = `false`
+
+Defined in: [src/components/ComponentBase.ts:77](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L77)
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[isDestroyed](SkyRenderer.md#isdestroyed)
+[`SkyRenderer`](SkyRenderer.md).[`isDestroyed`](SkyRenderer.md#isdestroyed)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
-
-___
+***
 
 ### receiveShadow
 
-• **receiveShadow**: `boolean`
+> **receiveShadow**: `boolean`
+
+Defined in: [src/components/renderer/MeshRenderer.ts:23](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L23)
 
 Enabling this option allows the grid to display any shadows cast on the grid.
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[receiveShadow](SkyRenderer.md#receiveshadow)
+[`SkyRenderer`](SkyRenderer.md).[`receiveShadow`](SkyRenderer.md#receiveshadow)
 
-#### Defined in
-
-[src/components/renderer/MeshRenderer.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L23)
-
-___
+***
 
 ### morphData
 
-• **morphData**: [`MorphTargetData`](MorphTargetData.md)
+> **morphData**: [`MorphTargetData`](MorphTargetData.md)
+
+Defined in: [src/components/renderer/MeshRenderer.ts:24](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L24)
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[morphData](SkyRenderer.md#morphdata)
+[`SkyRenderer`](SkyRenderer.md).[`morphData`](SkyRenderer.md#morphdata)
 
-#### Defined in
-
-[src/components/renderer/MeshRenderer.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L24)
-
-___
+***
 
 ### instanceCount
 
-• **instanceCount**: `number` = `0`
+> **instanceCount**: `number` = `0`
+
+Defined in: [src/components/renderer/RenderNode.ts:35](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L35)
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[instanceCount](SkyRenderer.md#instancecount)
+[`SkyRenderer`](SkyRenderer.md).[`instanceCount`](SkyRenderer.md#instancecount)
 
-#### Defined in
-
-[src/components/renderer/RenderNode.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L35)
-
-___
+***
 
 ### lodLevel
 
-• **lodLevel**: `number` = `0`
+> **lodLevel**: `number` = `0`
+
+Defined in: [src/components/renderer/RenderNode.ts:36](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L36)
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[lodLevel](SkyRenderer.md#lodlevel)
+[`SkyRenderer`](SkyRenderer.md).[`lodLevel`](SkyRenderer.md#lodlevel)
 
-#### Defined in
-
-[src/components/renderer/RenderNode.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L36)
-
-___
+***
 
 ### alwaysRender
 
-• **alwaysRender**: `boolean` = `false`
+> **alwaysRender**: `boolean` = `false`
+
+Defined in: [src/components/renderer/RenderNode.ts:37](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L37)
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[alwaysRender](SkyRenderer.md#alwaysrender)
+[`SkyRenderer`](SkyRenderer.md).[`alwaysRender`](SkyRenderer.md#alwaysrender)
 
-#### Defined in
-
-[src/components/renderer/RenderNode.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L37)
-
-___
+***
 
 ### instanceID
 
-• **instanceID**: `string`
+> **instanceID**: `string`
+
+Defined in: [src/components/renderer/RenderNode.ts:38](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L38)
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[instanceID](SkyRenderer.md#instanceid)
+[`SkyRenderer`](SkyRenderer.md).[`instanceID`](SkyRenderer.md#instanceid)
 
-#### Defined in
-
-[src/components/renderer/RenderNode.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L38)
-
-___
+***
 
 ### drawType
 
-• **drawType**: `number` = `0`
+> **drawType**: `number` = `0`
+
+Defined in: [src/components/renderer/RenderNode.ts:39](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L39)
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[drawType](SkyRenderer.md#drawtype)
+[`SkyRenderer`](SkyRenderer.md).[`drawType`](SkyRenderer.md#drawtype)
 
-#### Defined in
+***
 
-[src/components/renderer/RenderNode.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L39)
+### isRenderOrderChange?
 
-___
+> `optional` **isRenderOrderChange?**: `boolean`
 
-### isRenderOrderChange
-
-• `Optional` **isRenderOrderChange**: `boolean`
+Defined in: [src/components/renderer/RenderNode.ts:55](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L55)
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[isRenderOrderChange](SkyRenderer.md#isrenderorderchange)
+[`SkyRenderer`](SkyRenderer.md).[`isRenderOrderChange`](SkyRenderer.md#isrenderorderchange)
 
-#### Defined in
+***
 
-[src/components/renderer/RenderNode.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L55)
+### needSortOnCameraZ?
 
-___
+> `optional` **needSortOnCameraZ?**: `boolean`
 
-### needSortOnCameraZ
-
-• `Optional` **needSortOnCameraZ**: `boolean`
+Defined in: [src/components/renderer/RenderNode.ts:56](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L56)
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[needSortOnCameraZ](SkyRenderer.md#needsortoncameraz)
+[`SkyRenderer`](SkyRenderer.md).[`needSortOnCameraZ`](SkyRenderer.md#needsortoncameraz)
 
-#### Defined in
+***
 
-[src/components/renderer/RenderNode.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L56)
+### shadowCacheMode
 
-___
+> **shadowCacheMode**: `"auto"` \| `"static"` \| `"dynamic"` = `'auto'`
 
-### isRecievePostEffectUI
+Defined in: [src/components/renderer/RenderNode.ts:437](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L437)
 
-• `Optional` **isRecievePostEffectUI**: `boolean`
+Shadow cache classification.
+
+- `'auto'` (default): renderer is drawn to the shadow map every frame
+  as part of the single-pass render — matches historical behaviour.
+- `'static'`: renderer is drawn only to the cached static depth layer,
+  rebuilt lazily when the light moves or the scene explicitly marks
+  the static cache dirty. Use for buildings, terrain, prop meshes that
+  don't move.
+- `'dynamic'`: renderer is drawn every frame on top of the copied-in
+  static layer. Use for characters, physics objects, anything that
+  moves.
+
+Only consulted when `engine.setting.shadow.enableStaticCache === true`;
+otherwise all renderers behave as `'auto'`.
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[isRecievePostEffectUI](SkyRenderer.md#isrecieveposteffectui)
+[`SkyRenderer`](SkyRenderer.md).[`shadowCacheMode`](SkyRenderer.md#shadowcachemode)
 
-#### Defined in
-
-[src/components/renderer/RenderNode.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L57)
-
-___
+***
 
 ### skyMaterial
 
-• **skyMaterial**: `SkyMaterial`
+> **skyMaterial**: `SkyMaterial`
+
+Defined in: [src/components/renderer/SkyRenderer.ts:27](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/SkyRenderer.ts#L27)
 
 The material used in the Sky Box.
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[skyMaterial](SkyRenderer.md#skymaterial)
-
-#### Defined in
-
-[src/components/renderer/SkyRenderer.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/SkyRenderer.ts#L27)
+[`SkyRenderer`](SkyRenderer.md).[`skyMaterial`](SkyRenderer.md#skymaterial)
 
 ## Accessors
 
 ### sunX
 
-• `get` **sunX**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **sunX**(): `number`
+
+Defined in: [src/components/AtmosphericComponent.ts:59](https://github.com/orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L59)
+
+Horizontal sun position in normalized [0,1] sky coordinates.
+
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/components/AtmosphericComponent.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L50)
+> **set** **sunX**(`value`): `void`
 
-• `set` **sunX**(`value`): `void`
+Defined in: [src/components/AtmosphericComponent.ts:60](https://github.com/orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L60)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/components/AtmosphericComponent.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L54)
-
-___
+***
 
 ### sunY
 
-• `get` **sunY**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **sunY**(): `number`
+
+Defined in: [src/components/AtmosphericComponent.ts:65](https://github.com/orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L65)
+
+Vertical sun position in normalized [0,1] sky coordinates.
+
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/components/AtmosphericComponent.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L61)
+> **set** **sunY**(`value`): `void`
 
-• `set` **sunY**(`value`): `void`
+Defined in: [src/components/AtmosphericComponent.ts:66](https://github.com/orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L66)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/components/AtmosphericComponent.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L65)
-
-___
+***
 
 ### eyePos
 
-• `get` **eyePos**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **eyePos**(): `number`
+
+Defined in: [src/components/AtmosphericComponent.ts:71](https://github.com/orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L71)
+
+Eye (viewer) altitude used by the atmospheric scattering model.
+
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/components/AtmosphericComponent.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L72)
+> **set** **eyePos**(`value`): `void`
 
-• `set` **eyePos**(`value`): `void`
+Defined in: [src/components/AtmosphericComponent.ts:72](https://github.com/orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L72)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/components/AtmosphericComponent.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L76)
-
-___
+***
 
 ### sunRadius
 
-• `get` **sunRadius**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **sunRadius**(): `number`
+
+Defined in: [src/components/AtmosphericComponent.ts:77](https://github.com/orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L77)
+
+Angular radius of the sun disc.
+
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/components/AtmosphericComponent.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L83)
+> **set** **sunRadius**(`value`): `void`
 
-• `set` **sunRadius**(`value`): `void`
+Defined in: [src/components/AtmosphericComponent.ts:78](https://github.com/orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L78)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/components/AtmosphericComponent.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L87)
-
-___
+***
 
 ### sunRadiance
 
-• `get` **sunRadiance**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **sunRadiance**(): `number`
+
+Defined in: [src/components/AtmosphericComponent.ts:83](https://github.com/orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L83)
+
+Radiance (intensity) of the sun.
+
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/components/AtmosphericComponent.ts:94](https://github.com/Orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L94)
+> **set** **sunRadiance**(`value`): `void`
 
-• `set` **sunRadiance**(`value`): `void`
+Defined in: [src/components/AtmosphericComponent.ts:84](https://github.com/orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L84)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/components/AtmosphericComponent.ts:98](https://github.com/Orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L98)
-
-___
+***
 
 ### sunBrightness
 
-• `get` **sunBrightness**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **sunBrightness**(): `number`
+
+Defined in: [src/components/AtmosphericComponent.ts:89](https://github.com/orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L89)
+
+Overall brightness of the sun.
+
+##### Returns
 
 `number`
 
-#### Defined in
+#### Set Signature
 
-[src/components/AtmosphericComponent.ts:105](https://github.com/Orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L105)
+> **set** **sunBrightness**(`value`): `void`
 
-• `set` **sunBrightness**(`value`): `void`
+Defined in: [src/components/AtmosphericComponent.ts:90](https://github.com/orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L90)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
+###### value
 
-#### Returns
+`number`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/components/AtmosphericComponent.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L109)
-
-___
+***
 
 ### displaySun
 
-• `get` **displaySun**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **displaySun**(): `boolean`
+
+Defined in: [src/components/AtmosphericComponent.ts:95](https://github.com/orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L95)
+
+Whether the sun disc is drawn in the sky.
+
+##### Returns
 
 `boolean`
 
-#### Defined in
+#### Set Signature
 
-[src/components/AtmosphericComponent.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L116)
+> **set** **displaySun**(`value`): `void`
 
-• `set` **displaySun**(`value`): `void`
+Defined in: [src/components/AtmosphericComponent.ts:96](https://github.com/orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L96)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
+###### value
 
-#### Returns
+`boolean`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/components/AtmosphericComponent.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L120)
-
-___
+***
 
 ### relativeTransform
 
-• `get` **relativeTransform**(): [`Transform`](Transform.md)
+#### Get Signature
 
-#### Returns
+> **get** **relativeTransform**(): [`Transform`](Transform.md)
+
+Defined in: [src/components/AtmosphericComponent.ts:124](https://github.com/orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L124)
+
+Transform whose rotation is kept in sync with the sun direction.
+
+##### Returns
 
 [`Transform`](Transform.md)
 
-#### Defined in
+#### Set Signature
 
-[src/components/AtmosphericComponent.ts:147](https://github.com/Orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L147)
+> **set** **relativeTransform**(`value`): `void`
 
-• `set` **relativeTransform**(`value`): `void`
+Defined in: [src/components/AtmosphericComponent.ts:128](https://github.com/orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L128)
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`Transform`](Transform.md) |
+###### value
 
-#### Returns
+[`Transform`](Transform.md)
+
+##### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/components/AtmosphericComponent.ts:151](https://github.com/Orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L151)
+### visibleLayer
 
-___
+#### Get Signature
+
+> **get** **visibleLayer**(): `number`
+
+Defined in: [src/components/ComponentBase.ts:46](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L46)
+
+Composition-layer membership bitmask. The pass / camera /
+collector filters via
+
+    (component.visibleLayer & pass.layerMask & camera.cullingMask) !== 0
+
+Defaults to [VisibleLayer.Default](../@orillusion/namespaces/VisibleLayer/variables/Default.md) (bit 0) so a fresh
+subclass is visible to passes whose `layerMask` is
+[VisibleLayer.All](../@orillusion/namespaces/VisibleLayer/variables/All.md) (which includes bit 0). Application code
+can assign project-specific bits (1..31) to organise the scene
+into composition layers.
+
+##### Returns
+
+`number`
+
+#### Set Signature
+
+> **set** **visibleLayer**(`value`): `void`
+
+Defined in: [src/components/ComponentBase.ts:50](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L50)
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
+
+`void`
+
+#### Inherited from
+
+[`SkyRenderer`](SkyRenderer.md).[`visibleLayer`](SkyRenderer.md#visiblelayer)
+
+***
 
 ### eventDispatcher
 
-• `get` **eventDispatcher**(): [`CEventDispatcher`](CEventDispatcher.md)
+#### Get Signature
 
-#### Returns
+> **get** **eventDispatcher**(): [`CEventDispatcher`](CEventDispatcher.md)
+
+Defined in: [src/components/ComponentBase.ts:63](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L63)
+
+##### Returns
 
 [`CEventDispatcher`](CEventDispatcher.md)
 
-#### Inherited from
+#### Set Signature
 
-SkyRenderer.eventDispatcher
+> **set** **eventDispatcher**(`value`): `void`
 
-#### Defined in
+Defined in: [src/components/ComponentBase.ts:68](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
 
-[src/components/ComponentBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L23)
+##### Parameters
 
-• `set` **eventDispatcher**(`value`): `void`
+###### value
 
-#### Parameters
+[`CEventDispatcher`](CEventDispatcher.md)
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`CEventDispatcher`](CEventDispatcher.md) |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-SkyRenderer.eventDispatcher
+[`SkyRenderer`](SkyRenderer.md).[`eventDispatcher`](SkyRenderer.md#eventdispatcher)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L28)
-
-___
+***
 
 ### isStart
 
-• `get` **isStart**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **isStart**(): `boolean`
+
+Defined in: [src/components/ComponentBase.ts:79](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L79)
+
+##### Returns
 
 `boolean`
 
 #### Inherited from
 
-SkyRenderer.isStart
+[`SkyRenderer`](SkyRenderer.md).[`isStart`](SkyRenderer.md#isstart)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L40)
-
-___
+***
 
 ### transform
 
-• `get` **transform**(): [`Transform`](Transform.md)
+#### Get Signature
+
+> **get** **transform**(): [`Transform`](Transform.md)
+
+Defined in: [src/components/ComponentBase.ts:89](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L89)
 
 Return the Transform component attached to the Object3D.
+Null before the component is attached — `addComponent` assigns
+`object3D` only after construction — so constructor-time callers
+can probe safely via `this.transform?.`.
 
-#### Returns
+##### Returns
 
 [`Transform`](Transform.md)
 
 #### Inherited from
 
-SkyRenderer.transform
+[`SkyRenderer`](SkyRenderer.md).[`transform`](SkyRenderer.md#transform)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L47)
-
-___
+***
 
 ### enable
 
-• `get` **enable**(): `boolean`
+#### Get Signature
+
+> **get** **enable**(): `boolean`
+
+Defined in: [src/components/ComponentBase.ts:113](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
-#### Returns
+##### Returns
 
 `boolean`
 
-#### Inherited from
+#### Set Signature
 
-SkyRenderer.enable
+> **set** **enable**(`value`): `void`
 
-#### Defined in
-
-[src/components/ComponentBase.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
-
-• `set` **enable**(`value`): `void`
+Defined in: [src/components/ComponentBase.ts:96](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L96)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
+###### value
 
-#### Returns
+`boolean`
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-SkyRenderer.enable
+[`SkyRenderer`](SkyRenderer.md).[`enable`](SkyRenderer.md#enable)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L54)
-
-___
+***
 
 ### geometry
 
-• `get` **geometry**(): [`GeometryBase`](GeometryBase.md)
+#### Get Signature
+
+> **get** **geometry**(): [`GeometryBase`](GeometryBase.md)
+
+Defined in: [src/components/renderer/MeshRenderer.ts:53](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L53)
 
 The geometry of the mesh determines its shape
 
-#### Returns
+##### Returns
 
 [`GeometryBase`](GeometryBase.md)
 
-#### Inherited from
+#### Set Signature
 
-SkyRenderer.geometry
+> **set** **geometry**(`value`): `void`
 
-#### Defined in
+Defined in: [src/components/renderer/MeshRenderer.ts:57](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L57)
 
-[src/components/renderer/MeshRenderer.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L53)
+##### Parameters
 
-• `set` **geometry**(`value`): `void`
+###### value
 
-#### Parameters
+[`GeometryBase`](GeometryBase.md)
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`GeometryBase`](GeometryBase.md) |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-SkyRenderer.geometry
+[`SkyRenderer`](SkyRenderer.md).[`geometry`](SkyRenderer.md#geometry)
 
-#### Defined in
-
-[src/components/renderer/MeshRenderer.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L57)
-
-___
+***
 
 ### material
 
-• `get` **material**(): [`Material`](Material.md)
+#### Get Signature
+
+> **get** **material**(): [`Material`](Material.md)
+
+Defined in: [src/components/renderer/MeshRenderer.ts:99](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L99)
 
 material
 
-#### Returns
+##### Returns
 
 [`Material`](Material.md)
 
-#### Inherited from
+#### Set Signature
 
-SkyRenderer.material
+> **set** **material**(`value`): `void`
 
-#### Defined in
+Defined in: [src/components/renderer/MeshRenderer.ts:103](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L103)
 
-[src/components/renderer/MeshRenderer.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L99)
+##### Parameters
 
-• `set` **material**(`value`): `void`
+###### value
 
-#### Parameters
+[`Material`](Material.md)
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`Material`](Material.md) |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-SkyRenderer.material
+[`SkyRenderer`](SkyRenderer.md).[`material`](SkyRenderer.md#material)
 
-#### Defined in
+***
 
-[src/components/renderer/MeshRenderer.ts:103](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L103)
+### batchMode
 
-___
+#### Get Signature
 
-### renderLayer
+> **get** **batchMode**(): [`BatchMode`](../enumerations/BatchMode.md)
 
-• `get` **renderLayer**(): `RenderLayer`
+Defined in: [src/components/renderer/RenderNode.ts:118](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L118)
 
-#### Returns
+##### Returns
 
-`RenderLayer`
+[`BatchMode`](../enumerations/BatchMode.md)
 
-#### Inherited from
+#### Set Signature
 
-SkyRenderer.renderLayer
+> **set** **batchMode**(`value`): `void`
 
-#### Defined in
+Defined in: [src/components/renderer/RenderNode.ts:122](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L122)
 
-[src/components/renderer/RenderNode.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L110)
+##### Parameters
 
-• `set` **renderLayer**(`value`): `void`
+###### value
 
-#### Parameters
+[`BatchMode`](../enumerations/BatchMode.md)
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `RenderLayer` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-SkyRenderer.renderLayer
+[`SkyRenderer`](SkyRenderer.md).[`batchMode`](SkyRenderer.md#batchmode)
 
-#### Defined in
-
-[src/components/renderer/RenderNode.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L114)
-
-___
+***
 
 ### rendererMask
 
-• `get` **rendererMask**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **rendererMask**(): `number`
+
+Defined in: [src/components/renderer/RenderNode.ts:156](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L156)
+
+##### Returns
 
 `number`
 
-#### Inherited from
+#### Set Signature
 
-SkyRenderer.rendererMask
+> **set** **rendererMask**(`value`): `void`
 
-#### Defined in
+Defined in: [src/components/renderer/RenderNode.ts:160](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L160)
 
-[src/components/renderer/RenderNode.ts:152](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L152)
+##### Parameters
 
-• `set` **rendererMask**(`value`): `void`
+###### value
 
-#### Parameters
+`number`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-SkyRenderer.rendererMask
+[`SkyRenderer`](SkyRenderer.md).[`rendererMask`](SkyRenderer.md#renderermask)
 
-#### Defined in
-
-[src/components/renderer/RenderNode.ts:156](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L156)
-
-___
+***
 
 ### renderOrder
 
-• `get` **renderOrder**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **renderOrder**(): `number`
+
+Defined in: [src/components/renderer/RenderNode.ts:164](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L164)
+
+##### Returns
 
 `number`
 
-#### Inherited from
+#### Set Signature
 
-SkyRenderer.renderOrder
+> **set** **renderOrder**(`value`): `void`
 
-#### Defined in
+Defined in: [src/components/renderer/RenderNode.ts:168](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L168)
 
-[src/components/renderer/RenderNode.ts:160](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L160)
+##### Parameters
 
-• `set` **renderOrder**(`value`): `void`
+###### value
 
-#### Parameters
+`number`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-SkyRenderer.renderOrder
+[`SkyRenderer`](SkyRenderer.md).[`renderOrder`](SkyRenderer.md#renderorder)
 
-#### Defined in
-
-[src/components/renderer/RenderNode.ts:164](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L164)
-
-___
+***
 
 ### materials
 
-• `get` **materials**(): [`Material`](Material.md)[]
+#### Get Signature
 
-#### Returns
+> **get** **materials**(): [`Material`](Material.md)[]
+
+Defined in: [src/components/renderer/RenderNode.ts:177](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L177)
+
+##### Returns
 
 [`Material`](Material.md)[]
 
-#### Inherited from
+#### Set Signature
 
-SkyRenderer.materials
+> **set** **materials**(`value`): `void`
 
-#### Defined in
+Defined in: [src/components/renderer/RenderNode.ts:181](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L181)
 
-[src/components/renderer/RenderNode.ts:173](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L173)
+##### Parameters
 
-• `set` **materials**(`value`): `void`
+###### value
 
-#### Parameters
+[`Material`](Material.md)[]
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`Material`](Material.md)[] |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-SkyRenderer.materials
+[`SkyRenderer`](SkyRenderer.md).[`materials`](SkyRenderer.md#materials)
 
-#### Defined in
-
-[src/components/renderer/RenderNode.ts:177](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L177)
-
-___
+***
 
 ### castShadow
 
-• `get` **castShadow**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **castShadow**(): `boolean`
+
+Defined in: [src/components/renderer/RenderNode.ts:413](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L413)
+
+##### Returns
 
 `boolean`
 
-#### Inherited from
+#### Set Signature
 
-SkyRenderer.castShadow
+> **set** **castShadow**(`value`): `void`
 
-#### Defined in
+Defined in: [src/components/renderer/RenderNode.ts:417](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L417)
 
-[src/components/renderer/RenderNode.ts:345](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L345)
+##### Parameters
 
-• `set` **castShadow**(`value`): `void`
+###### value
 
-#### Parameters
+`boolean`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-SkyRenderer.castShadow
+[`SkyRenderer`](SkyRenderer.md).[`castShadow`](SkyRenderer.md#castshadow)
 
-#### Defined in
-
-[src/components/renderer/RenderNode.ts:349](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L349)
-
-___
+***
 
 ### castGI
 
-• `get` **castGI**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **castGI**(): `boolean`
+
+Defined in: [src/components/renderer/RenderNode.ts:440](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L440)
+
+##### Returns
 
 `boolean`
 
-#### Inherited from
+#### Set Signature
 
-SkyRenderer.castGI
+> **set** **castGI**(`value`): `void`
 
-#### Defined in
+Defined in: [src/components/renderer/RenderNode.ts:444](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L444)
 
-[src/components/renderer/RenderNode.ts:354](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L354)
+##### Parameters
 
-• `set` **castGI**(`value`): `void`
+###### value
 
-#### Parameters
+`boolean`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-SkyRenderer.castGI
+[`SkyRenderer`](SkyRenderer.md).[`castGI`](SkyRenderer.md#castgi)
 
-#### Defined in
-
-[src/components/renderer/RenderNode.ts:358](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L358)
-
-___
+***
 
 ### castReflection
 
-• `get` **castReflection**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **castReflection**(): `boolean`
+
+Defined in: [src/components/renderer/RenderNode.ts:448](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L448)
+
+##### Returns
 
 `boolean`
 
-#### Inherited from
+#### Set Signature
 
-SkyRenderer.castReflection
+> **set** **castReflection**(`value`): `void`
 
-#### Defined in
+Defined in: [src/components/renderer/RenderNode.ts:452](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L452)
 
-[src/components/renderer/RenderNode.ts:362](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L362)
+##### Parameters
 
-• `set` **castReflection**(`value`): `void`
+###### value
 
-#### Parameters
+`boolean`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-SkyRenderer.castReflection
+[`SkyRenderer`](SkyRenderer.md).[`castReflection`](SkyRenderer.md#castreflection)
 
-#### Defined in
-
-[src/components/renderer/RenderNode.ts:366](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L366)
-
-___
+***
 
 ### map
 
-• `get` **map**(): [`Texture`](Texture.md)
+#### Get Signature
+
+> **get** **map**(): [`Texture`](Texture.md)
+
+Defined in: [src/components/renderer/SkyRenderer.ts:92](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/SkyRenderer.ts#L92)
 
 get environment texture
 
-#### Returns
+##### Returns
 
 [`Texture`](Texture.md)
 
-#### Inherited from
+#### Set Signature
 
-SkyRenderer.map
+> **set** **map**(`texture`): `void`
 
-#### Defined in
-
-[src/components/renderer/SkyRenderer.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/SkyRenderer.ts#L87)
-
-• `set` **map**(`texture`): `void`
+Defined in: [src/components/renderer/SkyRenderer.ts:80](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/SkyRenderer.ts#L80)
 
 set environment texture
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `texture` | [`Texture`](Texture.md) |
+###### texture
 
-#### Returns
+[`Texture`](Texture.md)
+
+##### Returns
 
 `void`
 
 #### Inherited from
 
-SkyRenderer.map
+[`SkyRenderer`](SkyRenderer.md).[`map`](SkyRenderer.md#map)
 
-#### Defined in
-
-[src/components/renderer/SkyRenderer.ts:75](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/SkyRenderer.ts#L75)
-
-___
+***
 
 ### exposure
 
-• `get` **exposure**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **exposure**(): `number`
+
+Defined in: [src/components/renderer/SkyRenderer.ts:96](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/SkyRenderer.ts#L96)
+
+##### Returns
 
 `number`
 
-#### Inherited from
+#### Set Signature
 
-SkyRenderer.exposure
+> **set** **exposure**(`value`): `void`
 
-#### Defined in
+Defined in: [src/components/renderer/SkyRenderer.ts:100](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/SkyRenderer.ts#L100)
 
-[src/components/renderer/SkyRenderer.ts:91](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/SkyRenderer.ts#L91)
+##### Parameters
 
-• `set` **exposure**(`value`): `void`
+###### value
 
-#### Parameters
+`number`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-SkyRenderer.exposure
+[`SkyRenderer`](SkyRenderer.md).[`exposure`](SkyRenderer.md#exposure)
 
-#### Defined in
-
-[src/components/renderer/SkyRenderer.ts:95](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/SkyRenderer.ts#L95)
-
-___
+***
 
 ### roughness
 
-• `get` **roughness**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **roughness**(): `number`
+
+Defined in: [src/components/renderer/SkyRenderer.ts:105](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/SkyRenderer.ts#L105)
+
+##### Returns
 
 `number`
 
-#### Inherited from
+#### Set Signature
 
-SkyRenderer.roughness
+> **set** **roughness**(`value`): `void`
 
-#### Defined in
+Defined in: [src/components/renderer/SkyRenderer.ts:109](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/SkyRenderer.ts#L109)
 
-[src/components/renderer/SkyRenderer.ts:100](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/SkyRenderer.ts#L100)
+##### Parameters
 
-• `set` **roughness**(`value`): `void`
+###### value
 
-#### Parameters
+`number`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `number` |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Inherited from
 
-SkyRenderer.roughness
-
-#### Defined in
-
-[src/components/renderer/SkyRenderer.ts:104](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/SkyRenderer.ts#L104)
+[`SkyRenderer`](SkyRenderer.md).[`roughness`](SkyRenderer.md#roughness)
 
 ## Methods
 
-### init
+### init()
 
-▸ **init**(): `void`
+> **init**(): `void`
 
-#### Returns
+Defined in: [src/components/AtmosphericComponent.ts:102](https://github.com/orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L102)
 
-`void`
-
-#### Overrides
-
-[SkyRenderer](SkyRenderer.md).[init](SkyRenderer.md#init)
-
-#### Defined in
-
-[src/components/AtmosphericComponent.ts:128](https://github.com/Orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L128)
-
-___
-
-### start
-
-▸ **start**(`view?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `view?` | `any` |
+Initialize history tracking and the pending sky setting.
 
 #### Returns
 
@@ -1155,23 +1051,23 @@ ___
 
 #### Overrides
 
-[SkyRenderer](SkyRenderer.md).[start](SkyRenderer.md#start)
+[`SkyRenderer`](SkyRenderer.md).[`init`](SkyRenderer.md#init)
 
-#### Defined in
+***
 
-[src/components/AtmosphericComponent.ts:140](https://github.com/Orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L140)
+### start()
 
-___
+> **start**(`view?`): `void`
 
-### onUpdate
+Defined in: [src/components/AtmosphericComponent.ts:117](https://github.com/orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L117)
 
-▸ **onUpdate**(`view?`): `void`
+Ensure the GPU sky exists, then run base startup.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | `any` |
+##### view?
+
+`any`
 
 #### Returns
 
@@ -1179,23 +1075,23 @@ ___
 
 #### Overrides
 
-[SkyRenderer](SkyRenderer.md).[onUpdate](SkyRenderer.md#onupdate)
+[`SkyRenderer`](SkyRenderer.md).[`start`](SkyRenderer.md#start)
 
-#### Defined in
+***
 
-[src/components/AtmosphericComponent.ts:156](https://github.com/Orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L156)
+### onUpdate()
 
-___
+> **onUpdate**(`view?`): `void`
 
-### destroy
+Defined in: [src/components/AtmosphericComponent.ts:134](https://github.com/orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L134)
 
-▸ **destroy**(`force?`): `void`
+Per-frame update: sync sun/transform rotation and re-bake the sky on change.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
+##### view?
+
+`any`
 
 #### Returns
 
@@ -1203,17 +1099,39 @@ ___
 
 #### Overrides
 
-[SkyRenderer](SkyRenderer.md).[destroy](SkyRenderer.md#destroy)
+[`SkyRenderer`](SkyRenderer.md).[`onUpdate`](SkyRenderer.md#onupdate)
 
-#### Defined in
+***
 
-[src/components/AtmosphericComponent.ts:176](https://github.com/Orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L176)
+### destroy()
 
-___
+> **destroy**(`force?`): `void`
 
-### stop
+Defined in: [src/components/AtmosphericComponent.ts:158](https://github.com/orillusion/orillusion/blob/main/src/components/AtmosphericComponent.ts#L158)
 
-▸ **stop**(): `void`
+Destroy the component and release the GPU sky resources.
+
+#### Parameters
+
+##### force?
+
+`boolean`
+
+#### Returns
+
+`void`
+
+#### Overrides
+
+[`SkyRenderer`](SkyRenderer.md).[`destroy`](SkyRenderer.md#destroy)
+
+***
+
+### stop()
+
+> **stop**(): `void`
+
+Defined in: [src/components/ComponentBase.ts:163](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L163)
 
 #### Returns
 
@@ -1221,23 +1139,21 @@ ___
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[stop](SkyRenderer.md#stop)
+[`SkyRenderer`](SkyRenderer.md).[`stop`](SkyRenderer.md#stop)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
+### onLateUpdate()?
 
-___
+> `optional` **onLateUpdate**(`view?`): `any`
 
-### onLateUpdate
-
-▸ **onLateUpdate**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:167](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L167)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -1245,23 +1161,21 @@ ___
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[onLateUpdate](SkyRenderer.md#onlateupdate)
+[`SkyRenderer`](SkyRenderer.md).[`onLateUpdate`](SkyRenderer.md#onlateupdate)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L118)
+### onBeforeUpdate()?
 
-___
+> `optional` **onBeforeUpdate**(`view?`): `any`
 
-### onBeforeUpdate
-
-▸ **onBeforeUpdate**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:168](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L168)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -1269,23 +1183,21 @@ ___
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[onBeforeUpdate](SkyRenderer.md#onbeforeupdate)
+[`SkyRenderer`](SkyRenderer.md).[`onBeforeUpdate`](SkyRenderer.md#onbeforeupdate)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L119)
+### onGraphic()?
 
-___
+> `optional` **onGraphic**(`view?`): `any`
 
-### onGraphic
-
-▸ **onGraphic**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:170](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L170)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -1293,24 +1205,25 @@ ___
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[onGraphic](SkyRenderer.md#ongraphic)
+[`SkyRenderer`](SkyRenderer.md).[`onGraphic`](SkyRenderer.md#ongraphic)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L121)
+### onParentChange()?
 
-___
+> `optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
-### onParentChange
-
-▸ **onParentChange**(`lastParent?`, `currentParent?`): `any`
+Defined in: [src/components/ComponentBase.ts:171](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L171)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `lastParent?` | [`Object3D`](Object3D.md) |
-| `currentParent?` | [`Object3D`](Object3D.md) |
+##### lastParent?
+
+[`Object3D`](Object3D.md)
+
+##### currentParent?
+
+[`Object3D`](Object3D.md)
 
 #### Returns
 
@@ -1318,23 +1231,21 @@ ___
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[onParentChange](SkyRenderer.md#onparentchange)
+[`SkyRenderer`](SkyRenderer.md).[`onParentChange`](SkyRenderer.md#onparentchange)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L122)
+### onAddChild()?
 
-___
+> `optional` **onAddChild**(`child`): `any`
 
-### onAddChild
-
-▸ **onAddChild**(`child`): `any`
+Defined in: [src/components/ComponentBase.ts:172](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L172)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `child` | [`Object3D`](Object3D.md) |
+##### child
+
+[`Object3D`](Object3D.md)
 
 #### Returns
 
@@ -1342,23 +1253,21 @@ ___
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[onAddChild](SkyRenderer.md#onaddchild)
+[`SkyRenderer`](SkyRenderer.md).[`onAddChild`](SkyRenderer.md#onaddchild)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L123)
+### onRemoveChild()?
 
-___
+> `optional` **onRemoveChild**(`child`): `any`
 
-### onRemoveChild
-
-▸ **onRemoveChild**(`child`): `any`
+Defined in: [src/components/ComponentBase.ts:173](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L173)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `child` | [`Object3D`](Object3D.md) |
+##### child
+
+[`Object3D`](Object3D.md)
 
 #### Returns
 
@@ -1366,23 +1275,25 @@ ___
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[onRemoveChild](SkyRenderer.md#onremovechild)
+[`SkyRenderer`](SkyRenderer.md).[`onRemoveChild`](SkyRenderer.md#onremovechild)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L124)
+### cloneTo()
 
-___
+> **cloneTo**(`obj`): `void`
 
-### cloneTo
+Defined in: [src/components/renderer/MeshRenderer.ts:38](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L38)
 
-▸ **cloneTo**(`obj`): `void`
+clone component data to target object3D
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `obj` | [`Object3D`](Object3D.md) |
+##### obj
+
+[`Object3D`](Object3D.md)
+
+target object3D
 
 #### Returns
 
@@ -1390,23 +1301,21 @@ ___
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[cloneTo](SkyRenderer.md#cloneto)
+[`SkyRenderer`](SkyRenderer.md).[`cloneTo`](SkyRenderer.md#cloneto)
 
-#### Defined in
+***
 
-[src/components/renderer/MeshRenderer.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L38)
+### copyComponent()
 
-___
+> **copyComponent**(`from`): `this`
 
-### copyComponent
-
-▸ **copyComponent**(`from`): `this`
+Defined in: [src/components/renderer/MeshRenderer.ts:43](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L43)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `from` | `this` |
+##### from
+
+`this`
 
 #### Returns
 
@@ -1414,26 +1323,27 @@ ___
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[copyComponent](SkyRenderer.md#copycomponent)
+[`SkyRenderer`](SkyRenderer.md).[`copyComponent`](SkyRenderer.md#copycomponent)
 
-#### Defined in
+***
 
-[src/components/renderer/MeshRenderer.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L43)
+### setMorphInfluence()
 
-___
+> **setMorphInfluence**(`key`, `value`): `void`
 
-### setMorphInfluence
-
-▸ **setMorphInfluence**(`key`, `value`): `void`
+Defined in: [src/components/renderer/MeshRenderer.ts:110](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L110)
 
 Set deformation animation parameters
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `key` | `string` |
-| `value` | `number` |
+##### key
+
+`string`
+
+##### value
+
+`number`
 
 #### Returns
 
@@ -1441,24 +1351,25 @@ Set deformation animation parameters
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[setMorphInfluence](SkyRenderer.md#setmorphinfluence)
+[`SkyRenderer`](SkyRenderer.md).[`setMorphInfluence`](SkyRenderer.md#setmorphinfluence)
 
-#### Defined in
+***
 
-[src/components/renderer/MeshRenderer.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L110)
+### setMorphInfluenceIndex()
 
-___
+> **setMorphInfluenceIndex**(`index`, `value`): `void`
 
-### setMorphInfluenceIndex
-
-▸ **setMorphInfluenceIndex**(`index`, `value`): `void`
+Defined in: [src/components/renderer/MeshRenderer.ts:119](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L119)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `index` | `number` |
-| `value` | `number` |
+##### index
+
+`number`
+
+##### value
+
+`number`
 
 #### Returns
 
@@ -1466,24 +1377,25 @@ ___
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[setMorphInfluenceIndex](SkyRenderer.md#setmorphinfluenceindex)
+[`SkyRenderer`](SkyRenderer.md).[`setMorphInfluenceIndex`](SkyRenderer.md#setmorphinfluenceindex)
 
-#### Defined in
+***
 
-[src/components/renderer/MeshRenderer.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L119)
+### onCompute()
 
-___
+> **onCompute**(`view`, `command`): `void`
 
-### onCompute
-
-▸ **onCompute**(`view`, `command`): `void`
+Defined in: [src/components/renderer/MeshRenderer.ts:128](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L128)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
-| `command` | `GPUCommandEncoder` |
+##### view
+
+[`View3D`](View3D.md)
+
+##### command
+
+`GPUCommandEncoder`
 
 #### Returns
 
@@ -1491,23 +1403,21 @@ ___
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[onCompute](SkyRenderer.md#oncompute)
+[`SkyRenderer`](SkyRenderer.md).[`onCompute`](SkyRenderer.md#oncompute)
 
-#### Defined in
+***
 
-[src/components/renderer/MeshRenderer.ts:128](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L128)
+### attachSceneOctree()
 
-___
+> **attachSceneOctree**(`octree`): `void`
 
-### attachSceneOctree
-
-▸ **attachSceneOctree**(`octree`): `void`
+Defined in: [src/components/renderer/RenderNode.ts:87](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L87)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `octree` | [`Octree`](Octree.md) |
+##### octree
+
+[`Octree`](Octree.md)
 
 #### Returns
 
@@ -1515,17 +1425,15 @@ ___
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[attachSceneOctree](SkyRenderer.md#attachsceneoctree)
+[`SkyRenderer`](SkyRenderer.md).[`attachSceneOctree`](SkyRenderer.md#attachsceneoctree)
 
-#### Defined in
+***
 
-[src/components/renderer/RenderNode.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L78)
+### detachSceneOctree()
 
-___
+> **detachSceneOctree**(): `void`
 
-### detachSceneOctree
-
-▸ **detachSceneOctree**(): `void`
+Defined in: [src/components/renderer/RenderNode.ts:92](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L92)
 
 #### Returns
 
@@ -1533,23 +1441,21 @@ ___
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[detachSceneOctree](SkyRenderer.md#detachsceneoctree)
+[`SkyRenderer`](SkyRenderer.md).[`detachSceneOctree`](SkyRenderer.md#detachsceneoctree)
 
-#### Defined in
+***
 
-[src/components/renderer/RenderNode.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L83)
+### addMask()
 
-___
+> **addMask**(`mask`): `void`
 
-### addMask
-
-▸ **addMask**(`mask`): `void`
+Defined in: [src/components/renderer/RenderNode.ts:144](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L144)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `mask` | [`RendererMask`](../enums/RendererMask.md) |
+##### mask
+
+[`RendererMask`](../enumerations/RendererMask.md)
 
 #### Returns
 
@@ -1557,23 +1463,21 @@ ___
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[addMask](SkyRenderer.md#addmask)
+[`SkyRenderer`](SkyRenderer.md).[`addMask`](SkyRenderer.md#addmask)
 
-#### Defined in
+***
 
-[src/components/renderer/RenderNode.ts:140](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L140)
+### removeMask()
 
-___
+> **removeMask**(`mask`): `void`
 
-### removeMask
-
-▸ **removeMask**(`mask`): `void`
+Defined in: [src/components/renderer/RenderNode.ts:148](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L148)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `mask` | [`RendererMask`](../enums/RendererMask.md) |
+##### mask
+
+[`RendererMask`](../enumerations/RendererMask.md)
 
 #### Returns
 
@@ -1581,23 +1485,21 @@ ___
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[removeMask](SkyRenderer.md#removemask)
+[`SkyRenderer`](SkyRenderer.md).[`removeMask`](SkyRenderer.md#removemask)
 
-#### Defined in
+***
 
-[src/components/renderer/RenderNode.ts:144](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L144)
+### hasMask()
 
-___
+> **hasMask**(`mask`): `boolean`
 
-### hasMask
-
-▸ **hasMask**(`mask`): `boolean`
+Defined in: [src/components/renderer/RenderNode.ts:152](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L152)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `mask` | [`RendererMask`](../enums/RendererMask.md) |
+##### mask
+
+[`RendererMask`](../enumerations/RendererMask.md)
 
 #### Returns
 
@@ -1605,23 +1507,21 @@ ___
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[hasMask](SkyRenderer.md#hasmask)
+[`SkyRenderer`](SkyRenderer.md).[`hasMask`](SkyRenderer.md#hasmask)
 
-#### Defined in
+***
 
-[src/components/renderer/RenderNode.ts:148](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L148)
+### addRendererMask()
 
-___
+> **addRendererMask**(`tag`): `void`
 
-### addRendererMask
-
-▸ **addRendererMask**(`tag`): `void`
+Defined in: [src/components/renderer/RenderNode.ts:232](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L232)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `tag` | [`RendererMask`](../enums/RendererMask.md) |
+##### tag
+
+[`RendererMask`](../enumerations/RendererMask.md)
 
 #### Returns
 
@@ -1629,23 +1529,21 @@ ___
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[addRendererMask](SkyRenderer.md#addrenderermask)
+[`SkyRenderer`](SkyRenderer.md).[`addRendererMask`](SkyRenderer.md#addrenderermask)
 
-#### Defined in
+***
 
-[src/components/renderer/RenderNode.ts:228](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L228)
+### removeRendererMask()
 
-___
+> **removeRendererMask**(`tag`): `void`
 
-### removeRendererMask
-
-▸ **removeRendererMask**(`tag`): `void`
+Defined in: [src/components/renderer/RenderNode.ts:236](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L236)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `tag` | [`RendererMask`](../enums/RendererMask.md) |
+##### tag
+
+[`RendererMask`](../enumerations/RendererMask.md)
 
 #### Returns
 
@@ -1653,23 +1551,50 @@ ___
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[removeRendererMask](SkyRenderer.md#removerenderermask)
+[`SkyRenderer`](SkyRenderer.md).[`removeRendererMask`](SkyRenderer.md#removerenderermask)
 
-#### Defined in
+***
 
-[src/components/renderer/RenderNode.ts:232](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L232)
+### refreshRenderClassification()
 
-___
+> **refreshRenderClassification**(): `void`
 
-### selfCloneMaterials
+Defined in: [src/components/renderer/RenderNode.ts:270](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L270)
 
-▸ **selfCloneMaterials**(`key`): `this`
+Recompute renderOrder from current pass states and re-bucket
+this renderer in EntityCollect (opaque vs transparent map).
+
+Called when a material's alphaMode flips at runtime — the
+pass.renderOrder changes (3000 ↔ 0), but EntityCollect classifies
+once at addRenderNode time. Without this nudge the renderer
+stays in its old list and gets drawn through the wrong pipeline
+(e.g. WBOIT continues drawing a HASH-toggled material).
+
+Materials hop into this via Reference.getReference(material)
+to find every renderer holding them; sample code can also call
+it directly after manual state changes.
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[`SkyRenderer`](SkyRenderer.md).[`refreshRenderClassification`](SkyRenderer.md#refreshrenderclassification)
+
+***
+
+### selfCloneMaterials()
+
+> **selfCloneMaterials**(`key`): `this`
+
+Defined in: [src/components/renderer/RenderNode.ts:295](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L295)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `key` | `string` |
+##### key
+
+`string`
 
 #### Returns
 
@@ -1677,25 +1602,29 @@ ___
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[selfCloneMaterials](SkyRenderer.md#selfclonematerials)
+[`SkyRenderer`](SkyRenderer.md).[`selfCloneMaterials`](SkyRenderer.md#selfclonematerials)
 
-#### Defined in
+***
 
-[src/components/renderer/RenderNode.ts:252](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L252)
+### renderPass()
 
-___
+> **renderPass**(`view`, `passType`, `renderContext`): `void`
 
-### renderPass
-
-▸ **renderPass**(`view`, `passType`, `renderContext`): `void`
+Defined in: [src/components/renderer/RenderNode.ts:456](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L456)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
-| `passType` | `PassType` |
-| `renderContext` | [`RenderContext`](RenderContext.md) |
+##### view
+
+[`View3D`](View3D.md)
+
+##### passType
+
+`PassType`
+
+##### renderContext
+
+[`RenderContext`](RenderContext.md)
 
 #### Returns
 
@@ -1703,28 +1632,41 @@ ___
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[renderPass](SkyRenderer.md#renderpass)
+[`SkyRenderer`](SkyRenderer.md).[`renderPass`](SkyRenderer.md#renderpass)
 
-#### Defined in
+***
 
-[src/components/renderer/RenderNode.ts:370](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L370)
+### recordRenderPass2()
 
-___
+> **recordRenderPass2**(`view`, `passType`, `rendererPassState`, `clusterLightingBuffer`, `encoder`, `useBundle?`): `void`
 
-### recordRenderPass2
-
-▸ **recordRenderPass2**(`view`, `passType`, `rendererPassState`, `clusterLightingBuffer`, `encoder`, `useBundle?`): `void`
+Defined in: [src/components/renderer/RenderNode.ts:586](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L586)
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `view` | [`View3D`](View3D.md) | `undefined` |
-| `passType` | `PassType` | `undefined` |
-| `rendererPassState` | `RendererPassState` | `undefined` |
-| `clusterLightingBuffer` | [`ClusterLightingBuffer`](ClusterLightingBuffer.md) | `undefined` |
-| `encoder` | `GPURenderPassEncoder` | `undefined` |
-| `useBundle` | `boolean` | `false` |
+##### view
+
+[`View3D`](View3D.md)
+
+##### passType
+
+`PassType`
+
+##### rendererPassState
+
+`RendererPassState`
+
+##### clusterLightingBuffer
+
+[`ClusterLightingBuffer`](ClusterLightingBuffer.md)
+
+##### encoder
+
+`GPURenderPassEncoder`
+
+##### useBundle?
+
+`boolean` = `false`
 
 #### Returns
 
@@ -1732,23 +1674,21 @@ ___
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[recordRenderPass2](SkyRenderer.md#recordrenderpass2)
+[`SkyRenderer`](SkyRenderer.md).[`recordRenderPass2`](SkyRenderer.md#recordrenderpass2)
 
-#### Defined in
+***
 
-[src/components/renderer/RenderNode.ts:486](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L486)
+### preInit()
 
-___
+> **preInit**(`_rendererType`): `boolean`
 
-### preInit
-
-▸ **preInit**(`_rendererType`): `boolean`
+Defined in: [src/components/renderer/RenderNode.ts:624](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L624)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `_rendererType` | `PassType` |
+##### \_rendererType
+
+`PassType`
 
 #### Returns
 
@@ -1756,86 +1696,23 @@ ___
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[preInit](SkyRenderer.md#preinit)
+[`SkyRenderer`](SkyRenderer.md).[`preInit`](SkyRenderer.md#preinit)
 
-#### Defined in
+***
 
-[src/components/renderer/RenderNode.ts:519](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L519)
+### beforeDestroy()
 
-___
+> **beforeDestroy**(`force?`): `void`
 
-### beforeDestroy
+Defined in: [src/components/renderer/RenderNode.ts:741](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L741)
 
-▸ **beforeDestroy**(`force?`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[SkyRenderer](SkyRenderer.md).[beforeDestroy](SkyRenderer.md#beforedestroy)
-
-#### Defined in
-
-[src/components/renderer/RenderNode.ts:609](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L609)
-
-___
-
-### onEnable
-
-▸ **onEnable**(): `void`
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[SkyRenderer](SkyRenderer.md).[onEnable](SkyRenderer.md#onenable)
-
-#### Defined in
-
-[src/components/renderer/SkyRenderer.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/SkyRenderer.ts#L41)
-
-___
-
-### onDisable
-
-▸ **onDisable**(): `void`
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[SkyRenderer](SkyRenderer.md).[onDisable](SkyRenderer.md#ondisable)
-
-#### Defined in
-
-[src/components/renderer/SkyRenderer.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/SkyRenderer.ts#L54)
-
-___
-
-### nodeUpdate
-
-▸ **nodeUpdate**(`view`, `passType`, `renderPassState`, `clusterLightingBuffer?`): `void`
+before release this component, object refrences are not be set null now.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
-| `passType` | `PassType` |
-| `renderPassState` | `RendererPassState` |
-| `clusterLightingBuffer?` | [`ClusterLightingBuffer`](ClusterLightingBuffer.md) |
+##### force?
+
+`boolean`
 
 #### Returns
 
@@ -1843,30 +1720,75 @@ ___
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[nodeUpdate](SkyRenderer.md#nodeupdate)
+[`SkyRenderer`](SkyRenderer.md).[`beforeDestroy`](SkyRenderer.md#beforedestroy)
 
-#### Defined in
+***
 
-[src/components/renderer/SkyRenderer.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/SkyRenderer.ts#L62)
+### onEnable()
 
-___
+> **onEnable**(): `void`
 
-### renderPass2
+Defined in: [src/components/renderer/SkyRenderer.ts:40](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/SkyRenderer.ts#L40)
 
-▸ **renderPass2**(`view`, `passType`, `rendererPassState`, `clusterLightingBuffer`, `encoder`, `useBundle?`): `void`
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[`SkyRenderer`](SkyRenderer.md).[`onEnable`](SkyRenderer.md#onenable)
+
+***
+
+### onDisable()
+
+> **onDisable**(): `void`
+
+Defined in: [src/components/renderer/SkyRenderer.ts:57](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/SkyRenderer.ts#L57)
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[`SkyRenderer`](SkyRenderer.md).[`onDisable`](SkyRenderer.md#ondisable)
+
+***
+
+### renderPass2()
+
+> **renderPass2**(`view`, `passType`, `rendererPassState`, `clusterLightingBuffer`, `encoder`, `useBundle?`): `void`
+
+Defined in: [src/components/renderer/SkyRenderer.ts:71](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/SkyRenderer.ts#L71)
 
 render pass at passType
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `view` | [`View3D`](View3D.md) | `undefined` |
-| `passType` | `PassType` | `undefined` |
-| `rendererPassState` | `RendererPassState` | `undefined` |
-| `clusterLightingBuffer` | [`ClusterLightingBuffer`](ClusterLightingBuffer.md) | `undefined` |
-| `encoder` | `GPURenderPassEncoder` | `undefined` |
-| `useBundle` | `boolean` | `false` |
+##### view
+
+[`View3D`](View3D.md)
+
+##### passType
+
+`PassType`
+
+##### rendererPassState
+
+`RendererPassState`
+
+##### clusterLightingBuffer
+
+[`ClusterLightingBuffer`](ClusterLightingBuffer.md)
+
+##### encoder
+
+`GPURenderPassEncoder`
+
+##### useBundle?
+
+`boolean` = `false`
 
 #### Returns
 
@@ -1874,17 +1796,15 @@ render pass at passType
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[renderPass2](SkyRenderer.md#renderpass2)
+[`SkyRenderer`](SkyRenderer.md).[`renderPass2`](SkyRenderer.md#renderpass2)
 
-#### Defined in
+***
 
-[src/components/renderer/SkyRenderer.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/SkyRenderer.ts#L66)
+### useSkyReflection()
 
-___
+> **useSkyReflection**(): `void`
 
-### useSkyReflection
-
-▸ **useSkyReflection**(): `void`
+Defined in: [src/components/renderer/SkyRenderer.ts:114](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/SkyRenderer.ts#L114)
 
 #### Returns
 
@@ -1892,8 +1812,4 @@ ___
 
 #### Inherited from
 
-[SkyRenderer](SkyRenderer.md).[useSkyReflection](SkyRenderer.md#useskyreflection)
-
-#### Defined in
-
-[src/components/renderer/SkyRenderer.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/SkyRenderer.ts#L109)
+[`SkyRenderer`](SkyRenderer.md).[`useSkyReflection`](SkyRenderer.md#useskyreflection)

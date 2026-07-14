@@ -52,3 +52,9 @@ rb.onContactEnd   = (other) => { /* Contact ends (one-time) */ };
 | `onContactEnd(other)` | Contact ended |
 
 > The callback parameter `other` is the other party's `Rigidbody`; you can access its owning node via `other.object3D`.
+
+## Example
+
+<Demo src="/demos/physics-rapier/Sample_rapierTriggers.ts"></Demo>
+
+<<< @/public/demos/physics-rapier/Sample_rapierTriggers.ts

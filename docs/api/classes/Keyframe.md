@@ -1,173 +1,159 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: Keyframe
 
-### Constructors
-
-- [constructor](Keyframe.md#constructor)
-
-### Properties
-
-- [serializedVersion](Keyframe.md#serializedversion)
-- [time](Keyframe.md#time)
-- [value](Keyframe.md#value)
-- [inSlope](Keyframe.md#inslope)
-- [outSlope](Keyframe.md#outslope)
-- [tangentMode](Keyframe.md#tangentmode)
-- [weightedMode](Keyframe.md#weightedmode)
-- [inWeight](Keyframe.md#inweight)
-- [outWeight](Keyframe.md#outweight)
-
-### Methods
-
-- [unSerialized](Keyframe.md#unserialized)
-- [unSerialized2](Keyframe.md#unserialized2)
+Defined in: [src/math/enum/Keyframe.ts:6](https://github.com/orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L6)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new Keyframe**(`time?`, `value?`): [`Keyframe`](Keyframe.md)
+> **new Keyframe**(`time?`, `value?`): `Keyframe`
+
+Defined in: [src/math/enum/Keyframe.ts:27](https://github.com/orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L27)
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `time` | `number` | `0` |
-| `value` | `number` | `0` |
+##### time?
+
+`number` = `0`
+
+##### value?
+
+`number` = `0`
 
 #### Returns
 
-[`Keyframe`](Keyframe.md)
-
-#### Defined in
-
-[src/math/enum/Keyframe.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L18)
+`Keyframe`
 
 ## Properties
 
 ### serializedVersion
 
-• **serializedVersion**: `string` = `'2'`
+> **serializedVersion**: `string` = `'2'`
 
-#### Defined in
+Defined in: [src/math/enum/Keyframe.ts:8](https://github.com/orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L8)
 
-[src/math/enum/Keyframe.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L7)
+Serialization format version of this keyframe.
 
-___
+***
 
 ### time
 
-• **time**: `number`
+> **time**: `number`
 
-#### Defined in
+Defined in: [src/math/enum/Keyframe.ts:10](https://github.com/orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L10)
 
-[src/math/enum/Keyframe.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L8)
+Time of the keyframe in seconds.
 
-___
+***
 
 ### value
 
-• **value**: `number`
+> **value**: `number`
 
-#### Defined in
+Defined in: [src/math/enum/Keyframe.ts:12](https://github.com/orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L12)
 
-[src/math/enum/Keyframe.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L9)
+Value of the keyframe at its time.
 
-___
+***
 
 ### inSlope
 
-• **inSlope**: `number` = `0`
+> **inSlope**: `number` = `0`
 
-#### Defined in
+Defined in: [src/math/enum/Keyframe.ts:14](https://github.com/orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L14)
 
-[src/math/enum/Keyframe.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L10)
+Incoming tangent slope.
 
-___
+***
 
 ### outSlope
 
-• **outSlope**: `number` = `0`
+> **outSlope**: `number` = `0`
 
-#### Defined in
+Defined in: [src/math/enum/Keyframe.ts:16](https://github.com/orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L16)
 
-[src/math/enum/Keyframe.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L11)
+Outgoing tangent slope.
 
-___
+***
 
 ### tangentMode
 
-• **tangentMode**: `number` = `0`
+> **tangentMode**: `number` = `0`
 
-#### Defined in
+Defined in: [src/math/enum/Keyframe.ts:18](https://github.com/orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L18)
 
-[src/math/enum/Keyframe.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L12)
+Tangent mode flags controlling how slopes are computed.
 
-___
+***
 
 ### weightedMode
 
-• **weightedMode**: `number` = `0`
+> **weightedMode**: `number` = `0`
 
-#### Defined in
+Defined in: [src/math/enum/Keyframe.ts:21](https://github.com/orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L21)
 
-[src/math/enum/Keyframe.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L14)
+Weighted mode flags controlling whether in/out weights are used.
 
-___
+***
 
 ### inWeight
 
-• **inWeight**: `number`
+> **inWeight**: `number`
 
-#### Defined in
+Defined in: [src/math/enum/Keyframe.ts:23](https://github.com/orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L23)
 
-[src/math/enum/Keyframe.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L15)
+Incoming tangent weight.
 
-___
+***
 
 ### outWeight
 
-• **outWeight**: `number`
+> **outWeight**: `number`
 
-#### Defined in
+Defined in: [src/math/enum/Keyframe.ts:25](https://github.com/orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L25)
 
-[src/math/enum/Keyframe.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L16)
+Outgoing tangent weight.
 
 ## Methods
 
-### unSerialized
+### unSerialized()
 
-▸ **unSerialized**(`data`): `void`
+> **unSerialized**(`data`): `void`
+
+Defined in: [src/math/enum/Keyframe.ts:33](https://github.com/orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L33)
+
+Populate this keyframe from a serialized object using inSlope/outSlope fields.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `data` | `any` |
+##### data
+
+`any`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/math/enum/Keyframe.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L23)
+### unSerialized2()
 
-___
+> **unSerialized2**(`data`): `void`
 
-### unSerialized2
+Defined in: [src/math/enum/Keyframe.ts:43](https://github.com/orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L43)
 
-▸ **unSerialized2**(`data`): `void`
+Populate this keyframe from a serialized object using inTangent/outTangent fields.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `data` | `any` |
+##### data
+
+`any`
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[src/math/enum/Keyframe.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L32)

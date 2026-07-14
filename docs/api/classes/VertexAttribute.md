@@ -1,89 +1,84 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: VertexAttribute
+
+Defined in: [src/core/geometry/VertexAttribute.ts:21](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/VertexAttribute.ts#L21)
+
+Describes a single vertex attribute, including its format, offset and
+shader binding location within a vertex buffer.
 
 ## Implements
 
 - `GPUVertexAttribute`
 
-### Constructors
-
-- [constructor](VertexAttribute.md#constructor)
-
-### Properties
-
-- [name](VertexAttribute.md#name)
-- [format](VertexAttribute.md#format)
-- [offset](VertexAttribute.md#offset)
-- [shaderLocation](VertexAttribute.md#shaderlocation)
-- [stride](VertexAttribute.md#stride)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new VertexAttribute**(): [`VertexAttribute`](VertexAttribute.md)
+> **new VertexAttribute**(): `VertexAttribute`
 
 #### Returns
 
-[`VertexAttribute`](VertexAttribute.md)
+`VertexAttribute`
 
 ## Properties
 
 ### name
 
-• **name**: `string`
+> **name**: `string`
 
-#### Defined in
+Defined in: [src/core/geometry/VertexAttribute.ts:22](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/VertexAttribute.ts#L22)
 
-[src/core/geometry/VertexAttribute.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/VertexAttribute.ts#L12)
-
-___
+***
 
 ### format
 
-• **format**: `GPUVertexFormat`
+> **format**: `GPUVertexFormat`
+
+Defined in: [src/core/geometry/VertexAttribute.ts:23](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/VertexAttribute.ts#L23)
+
+The GPUVertexFormat of the attribute.
 
 #### Implementation of
 
-GPUVertexAttribute.format
+`GPUVertexAttribute.format`
 
-#### Defined in
-
-[src/core/geometry/VertexAttribute.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/VertexAttribute.ts#L13)
-
-___
+***
 
 ### offset
 
-• **offset**: `number`
+> **offset**: `number`
+
+Defined in: [src/core/geometry/VertexAttribute.ts:24](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/VertexAttribute.ts#L24)
+
+The offset, in bytes, from the beginning of the element to the data for the attribute.
 
 #### Implementation of
 
-GPUVertexAttribute.offset
+`GPUVertexAttribute.offset`
 
-#### Defined in
-
-[src/core/geometry/VertexAttribute.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/VertexAttribute.ts#L14)
-
-___
+***
 
 ### shaderLocation
 
-• **shaderLocation**: `number`
+> **shaderLocation**: `number`
+
+Defined in: [src/core/geometry/VertexAttribute.ts:25](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/VertexAttribute.ts#L25)
+
+The numeric location associated with this attribute, which will correspond with a
+<a href="https://gpuweb.github.io/gpuweb/wgsl/#input-output-locations">"@location" attribute</a>
+declared in the GPURenderPipelineDescriptor#vertex.GPUProgrammableStage#module \| module.
 
 #### Implementation of
 
-GPUVertexAttribute.shaderLocation
+`GPUVertexAttribute.shaderLocation`
 
-#### Defined in
-
-[src/core/geometry/VertexAttribute.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/VertexAttribute.ts#L15)
-
-___
+***
 
 ### stride
 
-• **stride**: `number`
+> **stride**: `number`
 
-#### Defined in
-
-[src/core/geometry/VertexAttribute.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/VertexAttribute.ts#L16)
+Defined in: [src/core/geometry/VertexAttribute.ts:26](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/VertexAttribute.ts#L26)

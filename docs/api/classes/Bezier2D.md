@@ -1,89 +1,84 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: Bezier2D
+
+Defined in: [src/math/Bezier2D.ts:7](https://github.com/orillusion/orillusion/blob/main/src/math/Bezier2D.ts#L7)
 
 2D Bezier Curve
 
-### Constructors
-
-- [constructor](Bezier2D.md#constructor)
-
-### Accessors
-
-- [points](Bezier2D.md#points)
-
-### Methods
-
-- [getValue](Bezier2D.md#getvalue)
-- [createBezierPoints](Bezier2D.md#createbezierpoints)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new Bezier2D**(`vec2Ds?`): [`Bezier2D`](Bezier2D.md)
+> **new Bezier2D**(`vec2Ds?`): `Bezier2D`
+
+Defined in: [src/math/Bezier2D.ts:16](https://github.com/orillusion/orillusion/blob/main/src/math/Bezier2D.ts#L16)
 
 instance bezier class
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `vec2Ds` | [`Vector2`](Vector2.md)[] | `[]` |
+##### vec2Ds?
+
+[`Vector2`](Vector2.md)[] = `[]`
 
 #### Returns
 
-[`Bezier2D`](Bezier2D.md)
-
-#### Defined in
-
-[src/math/Bezier2D.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/math/Bezier2D.ts#L16)
+`Bezier2D`
 
 ## Accessors
 
 ### points
 
-• `get` **points**(): [`Vector2`](Vector2.md)[]
+#### Get Signature
+
+> **get** **points**(): [`Vector2`](Vector2.md)[]
+
+Defined in: [src/math/Bezier2D.ts:24](https://github.com/orillusion/orillusion/blob/main/src/math/Bezier2D.ts#L24)
 
 get all bezier 2d points
 
-#### Returns
+##### Returns
 
 [`Vector2`](Vector2.md)[]
 
-#### Defined in
+#### Set Signature
 
-[src/math/Bezier2D.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/math/Bezier2D.ts#L24)
+> **set** **points**(`value`): `void`
 
-• `set` **points**(`value`): `void`
+Defined in: [src/math/Bezier2D.ts:31](https://github.com/orillusion/orillusion/blob/main/src/math/Bezier2D.ts#L31)
 
 set bezier 2d point[x,y] list must great 4
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`Vector2`](Vector2.md)[] |
+###### value
 
-#### Returns
+[`Vector2`](Vector2.md)[]
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/math/Bezier2D.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/math/Bezier2D.ts#L31)
-
 ## Methods
 
-### getValue
+### getValue()
 
-▸ **getValue**(`v`): [`Vector2`](Vector2.md)
+> **getValue**(`v`): [`Vector2`](Vector2.md)
+
+Defined in: [src/math/Bezier2D.ts:40](https://github.com/orillusion/orillusion/blob/main/src/math/Bezier2D.ts#L40)
 
 get point2d at curve
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `v` | `number` | 0.0 ~ 1.0 |
+##### v
+
+`number`
+
+0.0 ~ 1.0
 
 #### Returns
 
@@ -91,31 +86,32 @@ get point2d at curve
 
 return point2D at curve
 
-#### Defined in
+***
 
-[src/math/Bezier2D.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/math/Bezier2D.ts#L40)
+### createBezierPoints()
 
-___
+> `static` **createBezierPoints**(`anchorpoints`, `pointsAmount`): `Bezier2D`
 
-### createBezierPoints
-
-▸ **createBezierPoints**(`anchorpoints`, `pointsAmount`): [`Bezier2D`](Bezier2D.md)
+Defined in: [src/math/Bezier2D.ts:64](https://github.com/orillusion/orillusion/blob/main/src/math/Bezier2D.ts#L64)
 
 caclute bezier curve points at line [ 0.0 , 1.0 ]
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `anchorpoints` | [`Vector2`](Vector2.md)[] | bezier anchor |
-| `pointsAmount` | `number` | point count |
+##### anchorpoints
+
+[`Vector2`](Vector2.md)[]
+
+bezier anchor
+
+##### pointsAmount
+
+`number`
+
+point count
 
 #### Returns
 
-[`Bezier2D`](Bezier2D.md)
+`Bezier2D`
 
 get a bezier curve [Bezier2D]
-
-#### Defined in
-
-[src/math/Bezier2D.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/math/Bezier2D.ts#L64)

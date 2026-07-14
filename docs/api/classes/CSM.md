@@ -1,29 +1,29 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: CSM
 
-### Constructors
+Defined in: [src/core/csm/CSM.ts:5](https://github.com/orillusion/orillusion/blob/main/src/core/csm/CSM.ts#L5)
 
-- [constructor](CSM.md#constructor)
-
-### Properties
-
-- [Cascades](CSM.md#cascades)
+Cascaded Shadow Maps configuration constants.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new CSM**(): [`CSM`](CSM.md)
+> **new CSM**(): `CSM`
 
 #### Returns
 
-[`CSM`](CSM.md)
+`CSM`
 
 ## Properties
 
 ### Cascades
 
-▪ `Static` `Readonly` **Cascades**: ``4``
+> `readonly` `static` **Cascades**: `4` = `4`
 
-#### Defined in
+Defined in: [src/core/csm/CSM.ts:9](https://github.com/orillusion/orillusion/blob/main/src/core/csm/CSM.ts#L9)
 
-[src/core/csm/CSM.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/core/csm/CSM.ts#L2)
+Number of shadow cascades used by the CSM technique.

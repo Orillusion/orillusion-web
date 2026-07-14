@@ -1,20 +1,25 @@
-# Function: UUID
+[**@orillusion/core**](../README.md)
 
-▸ **UUID**(`len?`, `radix?`): `string`
+***
+
+# Function: UUID()
+
+> **UUID**(`len?`, `radix?`): `string`
+
+Defined in: [src/util/Global.ts:10](https://github.com/orillusion/orillusion/blob/main/src/util/Global.ts#L10)
 
 UUID
 
-#### Parameters
+## Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `len` | `number` | `16` |
-| `radix` | `number` | `16` |
+### len?
 
-#### Returns
+`number` = `16`
+
+### radix?
+
+`number` = `16`
+
+## Returns
 
 `string`
-
-#### Defined in
-
-[src/util/Global.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/util/Global.ts#L10)

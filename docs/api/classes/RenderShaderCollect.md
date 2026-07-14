@@ -1,85 +1,102 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: RenderShaderCollect
 
-### Constructors
+Defined in: [src/gfx/renderJob/collect/RenderShaderCollect.ts:15](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/RenderShaderCollect.ts#L15)
 
-- [constructor](RenderShaderCollect.md#constructor)
-
-### Properties
-
-- [renderShaderUpdateList](RenderShaderCollect.md#rendershaderupdatelist)
-- [renderNodeList](RenderShaderCollect.md#rendernodelist)
-
-### Methods
-
-- [collect\_add](RenderShaderCollect.md#collect_add)
-- [collect\_remove](RenderShaderCollect.md#collect_remove)
+Per-view registry of renderable nodes indexed by their shader passes.
+Groups RenderNodes by geometry+pass key so the renderer can
+batch draws that share the same pipeline, and keeps a flat per-view
+node lookup by instance id.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new RenderShaderCollect**(): [`RenderShaderCollect`](RenderShaderCollect.md)
+> **new RenderShaderCollect**(): `RenderShaderCollect`
 
 #### Returns
 
-[`RenderShaderCollect`](RenderShaderCollect.md)
+`RenderShaderCollect`
 
 ## Properties
 
 ### renderShaderUpdateList
 
-• **renderShaderUpdateList**: `Map`\<[`View3D`](View3D.md), [`RenderShaderList`](../types/RenderShaderList.md)\>
+> **renderShaderUpdateList**: `Map`\<[`View3D`](View3D.md), [`RenderShaderList`](../type-aliases/RenderShaderList.md)\>
 
-#### Defined in
+Defined in: [src/gfx/renderJob/collect/RenderShaderCollect.ts:17](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/RenderShaderCollect.ts#L17)
 
-[src/gfx/renderJob/collect/RenderShaderCollect.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/RenderShaderCollect.ts#L8)
+Per-view map of `geometry+pass` key to the nodes drawn with that pass.
 
-___
+***
 
 ### renderNodeList
 
-• **renderNodeList**: `Map`\<[`View3D`](View3D.md), `Map`\<`string`, `RenderNode`\>\>
+> **renderNodeList**: `Map`\<[`View3D`](View3D.md), `Map`\<`string`, `RenderNode`\>\>
 
-#### Defined in
+Defined in: [src/gfx/renderJob/collect/RenderShaderCollect.ts:19](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/RenderShaderCollect.ts#L19)
 
-[src/gfx/renderJob/collect/RenderShaderCollect.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/RenderShaderCollect.ts#L9)
+Per-view flat lookup of every render node by its instance id.
 
 ## Methods
 
-### collect\_add
+### collect\_add()
 
-▸ **collect_add**(`node`): `void`
+> **collect\_add**(`node`): `void`
+
+Defined in: [src/gfx/renderJob/collect/RenderShaderCollect.ts:22](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/RenderShaderCollect.ts#L22)
+
+Register `node` (and all its material passes) into this view's render lists.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `node` | `RenderNode` |
+##### node
+
+`RenderNode`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/collect/RenderShaderCollect.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/RenderShaderCollect.ts#L11)
+### collect\_remove()
 
-___
+> **collect\_remove**(`node`): `void`
 
-### collect\_remove
+Defined in: [src/gfx/renderJob/collect/RenderShaderCollect.ts:55](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/RenderShaderCollect.ts#L55)
 
-▸ **collect_remove**(`node`): `void`
+Remove `node`'s per-pass entries from this view's render lists.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `node` | `RenderNode` |
+##### node
+
+`RenderNode`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/gfx/renderJob/collect/RenderShaderCollect.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/RenderShaderCollect.ts#L43)
+### removeView()
+
+> **removeView**(`view`): `void`
+
+Defined in: [src/gfx/renderJob/collect/RenderShaderCollect.ts:73](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/RenderShaderCollect.ts#L73)
+
+Drop all entries for `view` (called on view/engine teardown).
+
+#### Parameters
+
+##### view
+
+[`View3D`](View3D.md)
+
+#### Returns
+
+`void`

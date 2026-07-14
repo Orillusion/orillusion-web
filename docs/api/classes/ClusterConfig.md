@@ -1,51 +1,52 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: ClusterConfig
 
-### Constructors
+Defined in: [src/gfx/renderJob/passRenderer/cluster/ClusterConfig.ts:9](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterConfig.ts#L9)
 
-- [constructor](ClusterConfig.md#constructor)
-
-### Properties
-
-- [clusterTileX](ClusterConfig.md#clustertilex)
-- [clusterTileY](ClusterConfig.md#clustertiley)
-- [clusterTileZ](ClusterConfig.md#clustertilez)
+Cluster grid dimensions for the Forward+ clustered lighting pass. The
+view frustum is divided into clusterTileX × clusterTileY screen-space
+tiles across clusterTileZ depth slices; each cluster holds the list of
+lights affecting it.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new ClusterConfig**(): [`ClusterConfig`](ClusterConfig.md)
+> **new ClusterConfig**(): `ClusterConfig`
 
 #### Returns
 
-[`ClusterConfig`](ClusterConfig.md)
+`ClusterConfig`
 
 ## Properties
 
 ### clusterTileX
 
-▪ `Static` **clusterTileX**: `number` = `16`
+> `static` **clusterTileX**: `number` = `16`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/passRenderer/cluster/ClusterConfig.ts:11](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterConfig.ts#L11)
 
-[src/gfx/renderJob/passRenderer/cluster/ClusterConfig.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterConfig.ts#L2)
+Number of cluster tiles across the screen width.
 
-___
+***
 
 ### clusterTileY
 
-▪ `Static` **clusterTileY**: `number` = `16`
+> `static` **clusterTileY**: `number` = `16`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/passRenderer/cluster/ClusterConfig.ts:13](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterConfig.ts#L13)
 
-[src/gfx/renderJob/passRenderer/cluster/ClusterConfig.ts:3](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterConfig.ts#L3)
+Number of cluster tiles across the screen height.
 
-___
+***
 
 ### clusterTileZ
 
-▪ `Static` **clusterTileZ**: `number` = `32`
+> `static` **clusterTileZ**: `number` = `32`
 
-#### Defined in
+Defined in: [src/gfx/renderJob/passRenderer/cluster/ClusterConfig.ts:15](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterConfig.ts#L15)
 
-[src/gfx/renderJob/passRenderer/cluster/ClusterConfig.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterConfig.ts#L4)
+Number of depth slices along the view direction.

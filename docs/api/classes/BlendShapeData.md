@@ -1,108 +1,83 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: BlendShapeData
 
-### Constructors
-
-- [constructor](BlendShapeData.md#constructor)
-
-### Properties
-
-- [vertexCount](BlendShapeData.md#vertexcount)
-- [shapeNames](BlendShapeData.md#shapenames)
-- [shapeIndexs](BlendShapeData.md#shapeindexs)
-- [blendCount](BlendShapeData.md#blendcount)
-- [blendShapePropertyDatas](BlendShapeData.md#blendshapepropertydatas)
-- [blendShapeMap](BlendShapeData.md#blendshapemap)
-
-### Methods
-
-- [formBytes](BlendShapeData.md#formbytes)
+Defined in: [src/loader/parser/prefab/prefabData/BlendShapeData.ts:4](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/BlendShapeData.ts#L4)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new BlendShapeData**(): [`BlendShapeData`](BlendShapeData.md)
+> **new BlendShapeData**(): `BlendShapeData`
 
 #### Returns
 
-[`BlendShapeData`](BlendShapeData.md)
+`BlendShapeData`
 
 ## Properties
 
 ### vertexCount
 
-• **vertexCount**: `number`
+> **vertexCount**: `number`
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/BlendShapeData.ts:5](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/BlendShapeData.ts#L5)
 
-[src/loader/parser/prefab/prefabData/BlendShapeData.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/BlendShapeData.ts#L5)
-
-___
+***
 
 ### shapeNames
 
-• **shapeNames**: `string`[]
+> **shapeNames**: `string`[]
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/BlendShapeData.ts:6](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/BlendShapeData.ts#L6)
 
-[src/loader/parser/prefab/prefabData/BlendShapeData.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/BlendShapeData.ts#L6)
-
-___
+***
 
 ### shapeIndexs
 
-• **shapeIndexs**: `number`[]
+> **shapeIndexs**: `number`[]
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/BlendShapeData.ts:7](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/BlendShapeData.ts#L7)
 
-[src/loader/parser/prefab/prefabData/BlendShapeData.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/BlendShapeData.ts#L7)
-
-___
+***
 
 ### blendCount
 
-• **blendCount**: `number`
+> **blendCount**: `number`
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/BlendShapeData.ts:9](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/BlendShapeData.ts#L9)
 
-[src/loader/parser/prefab/prefabData/BlendShapeData.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/BlendShapeData.ts#L9)
-
-___
+***
 
 ### blendShapePropertyDatas
 
-• **blendShapePropertyDatas**: [`BlendShapePropertyData`](BlendShapePropertyData.md)[]
+> **blendShapePropertyDatas**: [`BlendShapePropertyData`](BlendShapePropertyData.md)[]
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/BlendShapeData.ts:14](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/BlendShapeData.ts#L14)
 
-[src/loader/parser/prefab/prefabData/BlendShapeData.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/BlendShapeData.ts#L14)
-
-___
+***
 
 ### blendShapeMap
 
-• **blendShapeMap**: `Map`\<`string`, [`BlendShapePropertyData`](BlendShapePropertyData.md)\>
+> **blendShapeMap**: `Map`\<`string`, [`BlendShapePropertyData`](BlendShapePropertyData.md)\>
 
-#### Defined in
-
-[src/loader/parser/prefab/prefabData/BlendShapeData.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/BlendShapeData.ts#L15)
+Defined in: [src/loader/parser/prefab/prefabData/BlendShapeData.ts:15](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/BlendShapeData.ts#L15)
 
 ## Methods
 
-### formBytes
+### formBytes()
 
-▸ **formBytes**(`byteArray`): `BytesArray`
+> **formBytes**(`byteArray`): `BytesArray`
+
+Defined in: [src/loader/parser/prefab/prefabData/BlendShapeData.ts:17](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/BlendShapeData.ts#L17)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `byteArray` | `BytesArray` |
+##### byteArray
+
+`BytesArray`
 
 #### Returns
 
 `BytesArray`
-
-#### Defined in
-
-[src/loader/parser/prefab/prefabData/BlendShapeData.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/BlendShapeData.ts#L17)

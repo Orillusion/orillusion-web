@@ -1,85 +1,69 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: KV
 
-### Constructors
-
-- [constructor](KV.md#constructor)
-
-### Properties
-
-- [key](KV.md#key)
-- [type](KV.md#type)
-
-### Methods
-
-- [getValue](KV.md#getvalue)
-- [formBytes](KV.md#formbytes)
+Defined in: [src/loader/parser/prefab/prefabData/KVData.ts:7](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/KVData.ts#L7)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new KV**(): [`KV`](KV.md)
+> **new KV**(): `KV`
 
 #### Returns
 
-[`KV`](KV.md)
+`KV`
 
 ## Properties
 
 ### key
 
-• **key**: `string`
+> **key**: `string`
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/KVData.ts:9](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/KVData.ts#L9)
 
-[src/loader/parser/prefab/prefabData/KVData.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/KVData.ts#L9)
-
-___
+***
 
 ### type
 
-• **type**: [`ValueEnumType`](../enums/ValueEnumType.md)
+> **type**: [`ValueEnumType`](../enumerations/ValueEnumType.md)
 
-#### Defined in
-
-[src/loader/parser/prefab/prefabData/KVData.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/KVData.ts#L10)
+Defined in: [src/loader/parser/prefab/prefabData/KVData.ts:10](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/KVData.ts#L10)
 
 ## Methods
 
-### getValue
+### getValue()
 
-▸ **getValue**\<`T`\>(): `T`
+> **getValue**\<`T`\>(): `T`
 
-#### Type parameters
+Defined in: [src/loader/parser/prefab/prefabData/KVData.ts:13](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/KVData.ts#L13)
 
-| Name |
-| :------ |
-| `T` |
+#### Type Parameters
+
+##### T
+
+`T`
 
 #### Returns
 
 `T`
 
-#### Defined in
+***
 
-[src/loader/parser/prefab/prefabData/KVData.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/KVData.ts#L13)
+### formBytes()
 
-___
+> **formBytes**(`matBytes`): `void`
 
-### formBytes
-
-▸ **formBytes**(`matBytes`): `void`
+Defined in: [src/loader/parser/prefab/prefabData/KVData.ts:17](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/KVData.ts#L17)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `matBytes` | `BytesArray` |
+##### matBytes
+
+`BytesArray`
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[src/loader/parser/prefab/prefabData/KVData.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/KVData.ts#L17)

@@ -1,121 +1,97 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: OctreeEntity
 
-### Constructors
-
-- [constructor](OctreeEntity.md#constructor)
-
-### Properties
-
-- [renderer](OctreeEntity.md#renderer)
-- [owner](OctreeEntity.md#owner)
-- [uuid](OctreeEntity.md#uuid)
-
-### Methods
-
-- [leaveNode](OctreeEntity.md#leavenode)
-- [enterNode](OctreeEntity.md#enternode)
-- [update](OctreeEntity.md#update)
+Defined in: [src/core/tree/octree/OctreeEntity.ts:4](https://github.com/orillusion/orillusion/blob/main/src/core/tree/octree/OctreeEntity.ts#L4)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new OctreeEntity**(`renderer`): [`OctreeEntity`](OctreeEntity.md)
+> **new OctreeEntity**(`renderer`): `OctreeEntity`
+
+Defined in: [src/core/tree/octree/OctreeEntity.ts:8](https://github.com/orillusion/orillusion/blob/main/src/core/tree/octree/OctreeEntity.ts#L8)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `renderer` | `RenderNode` |
+##### renderer
+
+`RenderNode`
 
 #### Returns
 
-[`OctreeEntity`](OctreeEntity.md)
-
-#### Defined in
-
-[src/core/tree/octree/OctreeEntity.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/OctreeEntity.ts#L8)
+`OctreeEntity`
 
 ## Properties
 
 ### renderer
 
-• `Readonly` **renderer**: `RenderNode`
+> `readonly` **renderer**: `RenderNode`
 
-#### Defined in
+Defined in: [src/core/tree/octree/OctreeEntity.ts:5](https://github.com/orillusion/orillusion/blob/main/src/core/tree/octree/OctreeEntity.ts#L5)
 
-[src/core/tree/octree/OctreeEntity.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/OctreeEntity.ts#L5)
-
-___
+***
 
 ### owner
 
-• **owner**: [`Octree`](Octree.md)
+> **owner**: [`Octree`](Octree.md)
 
-#### Defined in
+Defined in: [src/core/tree/octree/OctreeEntity.ts:6](https://github.com/orillusion/orillusion/blob/main/src/core/tree/octree/OctreeEntity.ts#L6)
 
-[src/core/tree/octree/OctreeEntity.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/OctreeEntity.ts#L6)
-
-___
+***
 
 ### uuid
 
-• `Readonly` **uuid**: `string`
+> `readonly` **uuid**: `string`
 
-#### Defined in
-
-[src/core/tree/octree/OctreeEntity.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/OctreeEntity.ts#L7)
+Defined in: [src/core/tree/octree/OctreeEntity.ts:7](https://github.com/orillusion/orillusion/blob/main/src/core/tree/octree/OctreeEntity.ts#L7)
 
 ## Methods
 
-### leaveNode
+### leaveNode()
 
-▸ **leaveNode**(): `void`
+> **leaveNode**(): `void`
 
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/core/tree/octree/OctreeEntity.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/OctreeEntity.ts#L13)
-
-___
-
-### enterNode
-
-▸ **enterNode**(`node`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `node` | [`Octree`](Octree.md) |
+Defined in: [src/core/tree/octree/OctreeEntity.ts:13](https://github.com/orillusion/orillusion/blob/main/src/core/tree/octree/OctreeEntity.ts#L13)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/core/tree/octree/OctreeEntity.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/OctreeEntity.ts#L20)
+### enterNode()
 
-___
+> **enterNode**(`node`): `void`
 
-### update
-
-▸ **update**(`root`): [`Octree`](Octree.md)
+Defined in: [src/core/tree/octree/OctreeEntity.ts:20](https://github.com/orillusion/orillusion/blob/main/src/core/tree/octree/OctreeEntity.ts#L20)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `root` | [`Octree`](Octree.md) |
+##### node
+
+[`Octree`](Octree.md)
+
+#### Returns
+
+`void`
+
+***
+
+### update()
+
+> **update**(`root`): [`Octree`](Octree.md)
+
+Defined in: [src/core/tree/octree/OctreeEntity.ts:26](https://github.com/orillusion/orillusion/blob/main/src/core/tree/octree/OctreeEntity.ts#L26)
+
+#### Parameters
+
+##### root
+
+[`Octree`](Octree.md)
 
 #### Returns
 
 [`Octree`](Octree.md)
-
-#### Defined in
-
-[src/core/tree/octree/OctreeEntity.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/OctreeEntity.ts#L26)

@@ -1,40 +1,45 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: MorePassParser
 
-### Constructors
+Defined in: [src/gfx/graphics/webGpu/shader/util/MorePassParser.ts:33](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/MorePassParser.ts#L33)
 
-- [constructor](MorePassParser.md#constructor)
-
-### Methods
-
-- [parser](MorePassParser.md#parser)
+Parser that splits a multi-pass shader source into a [MorePassShader](MorePassShader.md).
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new MorePassParser**(): [`MorePassParser`](MorePassParser.md)
+> **new MorePassParser**(): `MorePassParser`
 
 #### Returns
 
-[`MorePassParser`](MorePassParser.md)
+`MorePassParser`
 
 ## Methods
 
-### parser
+### parser()
 
-▸ **parser**(`code`, `defineValue`): [`MorePassShader`](MorePassShader.md)
+> `static` **parser**(`code`, `defineValue`): [`MorePassShader`](MorePassShader.md)
+
+Defined in: [src/gfx/graphics/webGpu/shader/util/MorePassParser.ts:45](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/MorePassParser.ts#L45)
+
+Parse a multi-pass shader source into a [MorePassShader](MorePassShader.md).
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `code` | `string` |
-| `defineValue` | `Object` |
+##### code
+
+`string`
+
+the raw shader source code
+
+##### defineValue
+
+preprocessor define values applied to each pass
 
 #### Returns
 
 [`MorePassShader`](MorePassShader.md)
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/shader/util/MorePassParser.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/MorePassParser.ts#L22)

@@ -46,3 +46,9 @@ const overlapping = PhysicsQuery.overlap(
 | `closestPoint(point, options?)` | Closest-point query |
 
 > Common options: `maxDistance` (maximum distance), `excludeSensors` (whether to exclude triggers), etc.
+
+## Example
+
+<Demo src="/demos/physics-rapier/Sample_rapierRaycast.ts"></Demo>
+
+<<< @/public/demos/physics-rapier/Sample_rapierRaycast.ts

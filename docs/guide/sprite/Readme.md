@@ -73,6 +73,12 @@ cardB.renderOrder = 3001; // Stacked on top of A
 cardC.renderOrder = 3002; // Topmost layer
 ```
 
+## Example
+
+<Demo src="/demos/sprite/Sample_basic.ts"></Demo>
+
+<<< @/public/demos/sprite/Sample_basic.ts
+
 ## Next Steps
 
 - [Billboard and Distance Invariance](/guide/sprite/billboard.md) —— Make sprites always face the camera and keep a constant screen size

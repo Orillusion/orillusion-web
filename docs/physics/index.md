@@ -24,6 +24,7 @@
 - [RopeSoftbody](classes/RopeSoftbody.md)
 - [CollisionShapeUtil](classes/CollisionShapeUtil.md)
 - [ContactProcessedUtil](classes/ContactProcessedUtil.md)
+- [PhysicsDragger](classes/PhysicsDragger.md)
 - [RigidBodyMapping](classes/RigidBodyMapping.md)
 - [RigidBodyUtil](classes/RigidBodyUtil.md)
 - [TempPhyMath](classes/TempPhyMath.md)

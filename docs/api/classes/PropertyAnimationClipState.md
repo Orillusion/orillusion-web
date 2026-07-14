@@ -1,68 +1,64 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: PropertyAnimationClipState
 
-### Constructors
+Defined in: [src/components/anim/AnimatorComponent.ts:935](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L935)
 
-- [constructor](PropertyAnimationClipState.md#constructor)
-
-### Properties
-
-- [clip](PropertyAnimationClipState.md#clip)
-- [weight](PropertyAnimationClipState.md#weight)
-
-### Accessors
-
-- [totalTime](PropertyAnimationClipState.md#totaltime)
+Per-clip playback state tracked by [AnimatorComponent](AnimatorComponent.md): holds the
+clip plus its current blend weight in the mix.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new PropertyAnimationClipState**(`clip`): [`PropertyAnimationClipState`](PropertyAnimationClipState.md)
+> **new PropertyAnimationClipState**(`clip`): `PropertyAnimationClipState`
+
+Defined in: [src/components/anim/AnimatorComponent.ts:946](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L946)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `clip` | [`PropertyAnimationClip`](PropertyAnimationClip.md) |
+##### clip
+
+[`PropertyAnimationClip`](PropertyAnimationClip.md)
 
 #### Returns
 
-[`PropertyAnimationClipState`](PropertyAnimationClipState.md)
-
-#### Defined in
-
-[src/components/anim/AnimatorComponent.ts:443](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L443)
+`PropertyAnimationClipState`
 
 ## Properties
 
 ### clip
 
-• **clip**: [`PropertyAnimationClip`](PropertyAnimationClip.md)
+> **clip**: [`PropertyAnimationClip`](PropertyAnimationClip.md)
 
-#### Defined in
+Defined in: [src/components/anim/AnimatorComponent.ts:937](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L937)
 
-[src/components/anim/AnimatorComponent.ts:436](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L436)
+The animation clip this state wraps.
 
-___
+***
 
 ### weight
 
-• **weight**: `number` = `0.0`
+> **weight**: `number` = `0.0`
 
-#### Defined in
+Defined in: [src/components/anim/AnimatorComponent.ts:939](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L939)
 
-[src/components/anim/AnimatorComponent.ts:437](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L437)
+Current blend weight of the clip in the mix.
 
 ## Accessors
 
 ### totalTime
 
-• `get` **totalTime**(): `number`
+#### Get Signature
 
-#### Returns
+> **get** **totalTime**(): `number`
+
+Defined in: [src/components/anim/AnimatorComponent.ts:942](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L942)
+
+Total duration of the clip in seconds.
+
+##### Returns
 
 `number`
-
-#### Defined in
-
-[src/components/anim/AnimatorComponent.ts:439](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L439)

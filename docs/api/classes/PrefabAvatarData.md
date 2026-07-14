@@ -1,86 +1,67 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: PrefabAvatarData
 
-### Constructors
-
-- [constructor](PrefabAvatarData.md#constructor)
-
-### Properties
-
-- [name](PrefabAvatarData.md#name)
-- [count](PrefabAvatarData.md#count)
-- [boneData](PrefabAvatarData.md#bonedata)
-- [boneMap](PrefabAvatarData.md#bonemap)
-
-### Methods
-
-- [formBytes](PrefabAvatarData.md#formbytes)
+Defined in: [src/loader/parser/prefab/prefabData/PrefabAvatarData.ts:4](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabAvatarData.ts#L4)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new PrefabAvatarData**(): [`PrefabAvatarData`](PrefabAvatarData.md)
+> **new PrefabAvatarData**(): `PrefabAvatarData`
 
 #### Returns
 
-[`PrefabAvatarData`](PrefabAvatarData.md)
+`PrefabAvatarData`
 
 ## Properties
 
 ### name
 
-• **name**: `string`
+> **name**: `string`
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/PrefabAvatarData.ts:5](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabAvatarData.ts#L5)
 
-[src/loader/parser/prefab/prefabData/PrefabAvatarData.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabAvatarData.ts#L5)
-
-___
+***
 
 ### count
 
-• **count**: `number`
+> **count**: `number`
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/PrefabAvatarData.ts:6](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabAvatarData.ts#L6)
 
-[src/loader/parser/prefab/prefabData/PrefabAvatarData.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabAvatarData.ts#L6)
-
-___
+***
 
 ### boneData
 
-• **boneData**: [`PrefabBoneData`](PrefabBoneData.md)[]
+> **boneData**: [`PrefabBoneData`](PrefabBoneData.md)[]
 
-#### Defined in
+Defined in: [src/loader/parser/prefab/prefabData/PrefabAvatarData.ts:7](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabAvatarData.ts#L7)
 
-[src/loader/parser/prefab/prefabData/PrefabAvatarData.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabAvatarData.ts#L7)
-
-___
+***
 
 ### boneMap
 
-• **boneMap**: `Map`\<`string`, [`PrefabBoneData`](PrefabBoneData.md)\>
+> **boneMap**: `Map`\<`string`, [`PrefabBoneData`](PrefabBoneData.md)\>
 
-#### Defined in
-
-[src/loader/parser/prefab/prefabData/PrefabAvatarData.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabAvatarData.ts#L8)
+Defined in: [src/loader/parser/prefab/prefabData/PrefabAvatarData.ts:8](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabAvatarData.ts#L8)
 
 ## Methods
 
-### formBytes
+### formBytes()
 
-▸ **formBytes**(`bytes`): `void`
+> **formBytes**(`bytes`): `void`
+
+Defined in: [src/loader/parser/prefab/prefabData/PrefabAvatarData.ts:9](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabAvatarData.ts#L9)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `bytes` | `BytesArray` |
+##### bytes
+
+`BytesArray`
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[src/loader/parser/prefab/prefabData/PrefabAvatarData.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/prefabData/PrefabAvatarData.ts#L9)

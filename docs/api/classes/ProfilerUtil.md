@@ -1,337 +1,384 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: ProfilerUtil
 
-### Constructors
+Defined in: [src/util/ProfilerUtil.ts:38](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L38)
 
-- [constructor](ProfilerUtil.md#constructor)
-
-### Properties
-
-- [viewMap](ProfilerUtil.md#viewmap)
-- [testObj](ProfilerUtil.md#testobj)
-
-### Methods
-
-- [startView](ProfilerUtil.md#startview)
-- [viewCount](ProfilerUtil.md#viewcount)
-- [viewCount\_vertex](ProfilerUtil.md#viewcount_vertex)
-- [viewCount\_indices](ProfilerUtil.md#viewcount_indices)
-- [viewCount\_tri](ProfilerUtil.md#viewcount_tri)
-- [viewCount\_instance](ProfilerUtil.md#viewcount_instance)
-- [viewCount\_draw](ProfilerUtil.md#viewcount_draw)
-- [viewCount\_pipeline](ProfilerUtil.md#viewcount_pipeline)
-- [start](ProfilerUtil.md#start)
-- [end](ProfilerUtil.md#end)
-- [countStart](ProfilerUtil.md#countstart)
-- [countEnd](ProfilerUtil.md#countend)
-- [print](ProfilerUtil.md#print)
+Lightweight profiling helper: accumulates per-pass draw statistics for
+each View3D and tracks named timing labels for performance measurement.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new ProfilerUtil**(): [`ProfilerUtil`](ProfilerUtil.md)
+> **new ProfilerUtil**(): `ProfilerUtil`
 
 #### Returns
 
-[`ProfilerUtil`](ProfilerUtil.md)
+`ProfilerUtil`
 
 ## Properties
 
 ### viewMap
 
-▪ `Static` **viewMap**: `Map`\<[`View3D`](View3D.md), [`ProfilerDraw`](../types/ProfilerDraw.md)\>
+> `static` **viewMap**: `Map`\<[`View3D`](View3D.md), [`ProfilerDraw`](../type-aliases/ProfilerDraw.md)\>
 
-#### Defined in
+Defined in: [src/util/ProfilerUtil.ts:43](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L43)
 
-[src/util/ProfilerUtil.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L37)
+Per-view draw-statistic records keyed by the owning View3D.
 
-___
+***
 
 ### testObj
 
-▪ `Static` **testObj**: `Object`
+> `static` **testObj**: `object`
 
-#### Type declaration
+Defined in: [src/util/ProfilerUtil.ts:46](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L46)
 
-| Name | Type |
-| :------ | :------ |
-| `testValue1` | `number` |
-| `testValue2` | `number` |
-| `testValue3` | `number` |
-| `testValue4` | `number` |
+Scratch counters available for ad-hoc debugging.
 
-#### Defined in
+#### testValue1
 
-[src/util/ProfilerUtil.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L39)
+> **testValue1**: `number` = `0`
+
+#### testValue2
+
+> **testValue2**: `number` = `0`
+
+#### testValue3
+
+> **testValue3**: `number` = `0`
+
+#### testValue4
+
+> **testValue4**: `number` = `0`
 
 ## Methods
 
-### startView
+### startView()
 
-▸ **startView**(`view`): `void`
+> `static` **startView**(`view`): `void`
+
+Defined in: [src/util/ProfilerUtil.ts:54](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L54)
+
+Ensure a draw-stat record exists for the view and reset all pass counters to zero.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
+##### view
+
+[`View3D`](View3D.md)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/util/ProfilerUtil.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L46)
+### viewCount()
 
-___
+> `static` **viewCount**(`view`): [`ProfilerDraw`](../type-aliases/ProfilerDraw.md)
 
-### viewCount
+Defined in: [src/util/ProfilerUtil.ts:90](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L90)
 
-▸ **viewCount**(`view`): [`ProfilerDraw`](../types/ProfilerDraw.md)
+Reset and return the draw-stat record for the view.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
+##### view
+
+[`View3D`](View3D.md)
 
 #### Returns
 
-[`ProfilerDraw`](../types/ProfilerDraw.md)
+[`ProfilerDraw`](../type-aliases/ProfilerDraw.md)
 
-#### Defined in
+***
 
-[src/util/ProfilerUtil.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L81)
+### viewCount\_vertex()
 
-___
+> `static` **viewCount\_vertex**(`view`, `pass`, `v`): `void`
 
-### viewCount\_vertex
+Defined in: [src/util/ProfilerUtil.ts:96](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L96)
 
-▸ **viewCount_vertex**(`view`, `pass`, `v`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
-| `pass` | `string` |
-| `v` | `number` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/util/ProfilerUtil.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L86)
-
-___
-
-### viewCount\_indices
-
-▸ **viewCount_indices**(`view`, `pass`, `v`): `void`
+Accumulate vertex count for a pass of the view.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
-| `pass` | `string` |
-| `v` | `number` |
+##### view
+
+[`View3D`](View3D.md)
+
+##### pass
+
+`string`
+
+##### v
+
+`number`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/util/ProfilerUtil.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L90)
+### viewCount\_indices()
 
-___
+> `static` **viewCount\_indices**(`view`, `pass`, `v`): `void`
 
-### viewCount\_tri
+Defined in: [src/util/ProfilerUtil.ts:101](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L101)
 
-▸ **viewCount_tri**(`view`, `pass`, `v`): `void`
+Accumulate index count for a pass of the view.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
-| `pass` | `string` |
-| `v` | `number` |
+##### view
+
+[`View3D`](View3D.md)
+
+##### pass
+
+`string`
+
+##### v
+
+`number`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/util/ProfilerUtil.ts:94](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L94)
+### viewCount\_tri()
 
-___
+> `static` **viewCount\_tri**(`view`, `pass`, `v`): `void`
 
-### viewCount\_instance
+Defined in: [src/util/ProfilerUtil.ts:106](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L106)
 
-▸ **viewCount_instance**(`view`, `pass`, `v`): `void`
+Accumulate triangle count for a pass of the view.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
-| `pass` | `string` |
-| `v` | `number` |
+##### view
+
+[`View3D`](View3D.md)
+
+##### pass
+
+`string`
+
+##### v
+
+`number`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/util/ProfilerUtil.ts:98](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L98)
+### viewCount\_instance()
 
-___
+> `static` **viewCount\_instance**(`view`, `pass`, `v`): `void`
 
-### viewCount\_draw
+Defined in: [src/util/ProfilerUtil.ts:111](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L111)
 
-▸ **viewCount_draw**(`view`, `pass`): `void`
+Accumulate instance count for a pass of the view.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
-| `pass` | `string` |
+##### view
+
+[`View3D`](View3D.md)
+
+##### pass
+
+`string`
+
+##### v
+
+`number`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/util/ProfilerUtil.ts:102](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L102)
+### viewCount\_draw()
 
-___
+> `static` **viewCount\_draw**(`view`, `pass`): `void`
 
-### viewCount\_pipeline
+Defined in: [src/util/ProfilerUtil.ts:116](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L116)
 
-▸ **viewCount_pipeline**(`view`, `pass`): `void`
+Increment the draw-call count for a pass of the view.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view` | [`View3D`](View3D.md) |
-| `pass` | `string` |
+##### view
+
+[`View3D`](View3D.md)
+
+##### pass
+
+`string`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/util/ProfilerUtil.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L106)
+### viewCount\_pipeline()
 
-___
+> `static` **viewCount\_pipeline**(`view`, `pass`): `void`
 
-### start
+Defined in: [src/util/ProfilerUtil.ts:121](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L121)
 
-▸ **start**(`id`): `void`
+Increment the pipeline-switch count for a pass of the view.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+##### view
+
+[`View3D`](View3D.md)
+
+##### pass
+
+`string`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/util/ProfilerUtil.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L110)
+### removeView()
 
-___
+> `static` **removeView**(`view`): `void`
 
-### end
+Defined in: [src/util/ProfilerUtil.ts:128](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L128)
 
-▸ **end**(`id`): `void`
+Drop the view's draw-stat record.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+##### view
+
+[`View3D`](View3D.md)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/util/ProfilerUtil.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L129)
+### start()
 
-___
+> `static` **start**(`id`): `void`
 
-### countStart
+Defined in: [src/util/ProfilerUtil.ts:133](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L133)
 
-▸ **countStart**(`id`, `id2?`): `void`
+Begin (or restart) timing the named label.
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `id` | `string` | `undefined` |
-| `id2` | `string` | `""` |
+##### id
+
+`string`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/util/ProfilerUtil.ts:137](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L137)
+### end()
 
-___
+> `static` **end**(`id`): `void`
 
-### countEnd
+Defined in: [src/util/ProfilerUtil.ts:153](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L153)
 
-▸ **countEnd**(`id`, `id2`): `void`
+Stop timing the named label and record its total elapsed time.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
-| `id2` | `string` |
+##### id
+
+`string`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/util/ProfilerUtil.ts:160](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L160)
+### countStart()
 
-___
+> `static` **countStart**(`id`, `id2?`): `void`
 
-### print
+Defined in: [src/util/ProfilerUtil.ts:162](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L162)
 
-▸ **print**(`id`): `void`
+Increment a label's call count and optionally begin timing a child label.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `id` | `string` |
+##### id
+
+`string`
+
+##### id2?
+
+`string` = `""`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/util/ProfilerUtil.ts:181](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L181)
+### countEnd()
+
+> `static` **countEnd**(`id`, `id2`): `void`
+
+Defined in: [src/util/ProfilerUtil.ts:186](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L186)
+
+Stop timing a child label and record its elapsed time and count.
+
+#### Parameters
+
+##### id
+
+`string`
+
+##### id2
+
+`string`
+
+#### Returns
+
+`void`
+
+***
+
+### print()
+
+> `static` **print**(`id`): `void`
+
+Defined in: [src/util/ProfilerUtil.ts:208](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L208)
+
+Log the named label's total elapsed time to the console.
+
+#### Parameters
+
+##### id
+
+`string`
+
+#### Returns
+
+`void`

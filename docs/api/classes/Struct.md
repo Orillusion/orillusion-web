@@ -1,141 +1,127 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: Struct
 
-### Constructors
-
-- [constructor](Struct.md#constructor)
-
-### Methods
-
-- [getValueSize](Struct.md#getvaluesize)
-- [Ref](Struct.md#ref)
-- [Get](Struct.md#get)
-- [GetSize](Struct.md#getsize)
-- [getValueType](Struct.md#getvaluetype)
+Defined in: [src/util/struct/Struct.ts:11](https://github.com/orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L11)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new Struct**(): [`Struct`](Struct.md)
+> **new Struct**(): `Struct`
 
 #### Returns
 
-[`Struct`](Struct.md)
+`Struct`
 
 ## Methods
 
-### getValueSize
+### getValueSize()
 
-▸ **getValueSize**(`value`): `any`
+> `static` **getValueSize**(`value`): `any`
+
+Defined in: [src/util/struct/Struct.ts:48](https://github.com/orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L48)
 
 get any type value memory size
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `value` | `any` | any type value |
+##### value
+
+`any`
+
+any type value
 
 #### Returns
 
 `any`
 
-#### Defined in
+***
 
-[src/util/struct/Struct.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L48)
+### Ref()
 
-___
+> `static` **Ref**\<`T`\>(`c`): `object`[]
 
-### Ref
+Defined in: [src/util/struct/Struct.ts:93](https://github.com/orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L93)
 
-▸ **Ref**\<`T`\>(`c`): \{ `name`: `string` ; `type`: `string`  }[]
+#### Type Parameters
 
-#### Type parameters
+##### T
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`Struct`](Struct.md) |
+`T` *extends* `Struct`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)\<`T`\> |
+##### c
+
+[`Ctor`](../type-aliases/Ctor.md)\<`T`\>
 
 #### Returns
 
-\{ `name`: `string` ; `type`: `string`  }[]
+`object`[]
 
-#### Defined in
+***
 
-[src/util/struct/Struct.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L93)
+### Get()
 
-___
+> `static` **Get**\<`T`\>(`c`): `Struct`
 
-### Get
+Defined in: [src/util/struct/Struct.ts:99](https://github.com/orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L99)
 
-▸ **Get**\<`T`\>(`c`): [`Struct`](Struct.md)
+#### Type Parameters
 
-#### Type parameters
+##### T
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`Struct`](Struct.md) |
+`T` *extends* `Struct`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)\<`T`\> |
+##### c
+
+[`Ctor`](../type-aliases/Ctor.md)\<`T`\>
 
 #### Returns
 
-[`Struct`](Struct.md)
+`Struct`
 
-#### Defined in
+***
 
-[src/util/struct/Struct.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L99)
+### GetSize()
 
-___
+> `static` **GetSize**\<`T`\>(`c`): `number`
 
-### GetSize
-
-▸ **GetSize**\<`T`\>(`c`): `number`
+Defined in: [src/util/struct/Struct.ts:112](https://github.com/orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L112)
 
 get any struct memory size
 
-#### Type parameters
+#### Type Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends [`Struct`](Struct.md) |
+##### T
+
+`T` *extends* `Struct`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `c` | [`Ctor`](../types/Ctor.md)\<`T`\> |
+##### c
+
+[`Ctor`](../type-aliases/Ctor.md)\<`T`\>
 
 #### Returns
 
 `number`
 
-#### Defined in
+***
 
-[src/util/struct/Struct.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L112)
+### getValueType()
 
-___
+> **getValueType**(): `object`[]
 
-### getValueType
-
-▸ **getValueType**(): \{ `name`: `string` ; `type`: `string`  }[]
+Defined in: [src/util/struct/Struct.ts:25](https://github.com/orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L25)
 
 get reflection name
 
 #### Returns
 
-\{ `name`: `string` ; `type`: `string`  }[]
-
-#### Defined in
-
-[src/util/struct/Struct.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L25)
+`object`[]

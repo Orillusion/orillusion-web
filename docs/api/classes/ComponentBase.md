@@ -1,253 +1,246 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: ComponentBase
+
+Defined in: [src/components/ComponentBase.ts:25](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L25)
 
 Components are used to attach functionality to object3D, it has an owner object3D.
 The component can receive update events at each frame.
 
-## Hierarchy
+Every component is automatically discoverable by type from any
+RenderGraphPass — or any other system that calls
+[ComponentCollect.collectByTypeLayered](ComponentCollect.md#collectbytypelayered) — without having to
+route through RenderNode. Registration into the per-View
+type-keyed registry is driven directly from the enable/disable
+call sites (`set enable`, `__start`, `__stop`), so subclasses can
+freely override `onEnable` / `onDisable` without needing a `super`
+call to keep the registry in sync.
 
-- **`ComponentBase`**
+## Extended by
 
-  ↳ [`BillboardComponent`](BillboardComponent.md)
-
-  ↳ [`ColliderComponent`](ColliderComponent.md)
-
-  ↳ [`SkeletonAnimationComponent`](SkeletonAnimationComponent.md)
-
-  ↳ [`Transform`](Transform.md)
-
-  ↳ [`AnimatorComponent`](AnimatorComponent.md)
-
-  ↳ [`PropertyAnimation`](PropertyAnimation.md)
-
-  ↳ [`MorphTargetBlender`](MorphTargetBlender.md)
-
-  ↳ [`FlyCameraController`](FlyCameraController.md)
-
-  ↳ [`HoverCameraController`](HoverCameraController.md)
-
-  ↳ [`OrbitController`](OrbitController.md)
-
-  ↳ [`GUICanvas`](GUICanvas.md)
-
-  ↳ [`UIComponentBase`](UIComponentBase.md)
-
-  ↳ [`UITransform`](UITransform.md)
-
-  ↳ [`PostProcessingComponent`](PostProcessingComponent.md)
-
-  ↳ [`GlobalIlluminationComponent`](GlobalIlluminationComponent.md)
-
-  ↳ [`Camera3D`](Camera3D.md)
-
-  ↳ [`APatch`](APatch.md)
-
-  ↳ [`TransformControllerBaseComponent`](TransformControllerBaseComponent.md)
+- [`BillboardComponent`](BillboardComponent.md)
+- [`ColliderComponent`](ColliderComponent.md)
+- [`DecalComponent`](DecalComponent.md)
+- [`MirrorComponent`](MirrorComponent.md)
+- [`SceneCaptureCameraComponent`](SceneCaptureCameraComponent.md)
+- [`SkeletonAnimationComponent`](SkeletonAnimationComponent.md)
+- [`Transform`](Transform.md)
+- [`AnimatorComponent`](AnimatorComponent.md)
+- [`PropertyAnimation`](PropertyAnimation.md)
+- [`MorphTargetBlender`](MorphTargetBlender.md)
+- [`FlyCameraController`](FlyCameraController.md)
+- [`HoverCameraController`](HoverCameraController.md)
+- [`OrbitController`](OrbitController.md)
+- [`PostProcessingComponent`](PostProcessingComponent.md)
+- [`GlobalIlluminationComponent`](GlobalIlluminationComponent.md)
+- [`Camera3D`](Camera3D.md)
+- [`TransformControllerBaseComponent`](TransformControllerBaseComponent.md)
 
 ## Implements
 
 - [`IComponent`](../interfaces/IComponent.md)
 
-### Constructors
-
-- [constructor](ComponentBase.md#constructor)
-
-### Properties
-
-- [object3D](ComponentBase.md#object3d)
-- [isDestroyed](ComponentBase.md#isdestroyed)
-
-### Accessors
-
-- [eventDispatcher](ComponentBase.md#eventdispatcher)
-- [isStart](ComponentBase.md#isstart)
-- [transform](ComponentBase.md#transform)
-- [enable](ComponentBase.md#enable)
-
-### Methods
-
-- [init](ComponentBase.md#init)
-- [start](ComponentBase.md#start)
-- [stop](ComponentBase.md#stop)
-- [onEnable](ComponentBase.md#onenable)
-- [onDisable](ComponentBase.md#ondisable)
-- [onUpdate](ComponentBase.md#onupdate)
-- [onLateUpdate](ComponentBase.md#onlateupdate)
-- [onBeforeUpdate](ComponentBase.md#onbeforeupdate)
-- [onCompute](ComponentBase.md#oncompute)
-- [onGraphic](ComponentBase.md#ongraphic)
-- [onParentChange](ComponentBase.md#onparentchange)
-- [onAddChild](ComponentBase.md#onaddchild)
-- [onRemoveChild](ComponentBase.md#onremovechild)
-- [cloneTo](ComponentBase.md#cloneto)
-- [copyComponent](ComponentBase.md#copycomponent)
-- [beforeDestroy](ComponentBase.md#beforedestroy)
-- [destroy](ComponentBase.md#destroy)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new ComponentBase**(): [`ComponentBase`](ComponentBase.md)
+> **new ComponentBase**(): `ComponentBase`
 
 #### Returns
 
-[`ComponentBase`](ComponentBase.md)
+`ComponentBase`
 
 ## Properties
 
 ### object3D
 
-• **object3D**: [`Object3D`](Object3D.md) = `null`
+> **object3D**: [`Object3D`](Object3D.md) = `null`
+
+Defined in: [src/components/ComponentBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L29)
 
 owner object3D
 
 #### Implementation of
 
-[IComponent](../interfaces/IComponent.md).[object3D](../interfaces/IComponent.md#object3d)
+[`IComponent`](../interfaces/IComponent.md).[`object3D`](../interfaces/IComponent.md#object3d)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L17)
-
-___
+***
 
 ### isDestroyed
 
-• `Optional` **isDestroyed**: `boolean`
+> **isDestroyed**: `boolean` = `false`
+
+Defined in: [src/components/ComponentBase.ts:77](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L77)
 
 #### Implementation of
 
-[IComponent](../interfaces/IComponent.md).[isDestroyed](../interfaces/IComponent.md#isdestroyed)
-
-#### Defined in
-
-[src/components/ComponentBase.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L38)
+[`IComponent`](../interfaces/IComponent.md).[`isDestroyed`](../interfaces/IComponent.md#isdestroyed)
 
 ## Accessors
 
+### visibleLayer
+
+#### Get Signature
+
+> **get** **visibleLayer**(): `number`
+
+Defined in: [src/components/ComponentBase.ts:46](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L46)
+
+Composition-layer membership bitmask. The pass / camera /
+collector filters via
+
+    (component.visibleLayer & pass.layerMask & camera.cullingMask) !== 0
+
+Defaults to [VisibleLayer.Default](../@orillusion/namespaces/VisibleLayer/variables/Default.md) (bit 0) so a fresh
+subclass is visible to passes whose `layerMask` is
+[VisibleLayer.All](../@orillusion/namespaces/VisibleLayer/variables/All.md) (which includes bit 0). Application code
+can assign project-specific bits (1..31) to organise the scene
+into composition layers.
+
+##### Returns
+
+`number`
+
+#### Set Signature
+
+> **set** **visibleLayer**(`value`): `void`
+
+Defined in: [src/components/ComponentBase.ts:50](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L50)
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
+
+`void`
+
+***
+
 ### eventDispatcher
 
-• `get` **eventDispatcher**(): [`CEventDispatcher`](CEventDispatcher.md)
+#### Get Signature
 
-#### Returns
+> **get** **eventDispatcher**(): [`CEventDispatcher`](CEventDispatcher.md)
+
+Defined in: [src/components/ComponentBase.ts:63](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L63)
+
+##### Returns
 
 [`CEventDispatcher`](CEventDispatcher.md)
 
-#### Implementation of
+#### Set Signature
 
-[IComponent](../interfaces/IComponent.md).[eventDispatcher](../interfaces/IComponent.md#eventdispatcher)
+> **set** **eventDispatcher**(`value`): `void`
 
-#### Defined in
+Defined in: [src/components/ComponentBase.ts:68](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
 
-[src/components/ComponentBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L23)
+##### Parameters
 
-• `set` **eventDispatcher**(`value`): `void`
+###### value
 
-#### Parameters
+[`CEventDispatcher`](CEventDispatcher.md)
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`CEventDispatcher`](CEventDispatcher.md) |
-
-#### Returns
+##### Returns
 
 `void`
 
 #### Implementation of
 
-[IComponent](../interfaces/IComponent.md).[eventDispatcher](../interfaces/IComponent.md#eventdispatcher)
+[`IComponent`](../interfaces/IComponent.md).[`eventDispatcher`](../interfaces/IComponent.md#eventdispatcher)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L28)
-
-___
+***
 
 ### isStart
 
-• `get` **isStart**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **isStart**(): `boolean`
+
+Defined in: [src/components/ComponentBase.ts:79](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L79)
+
+##### Returns
 
 `boolean`
 
-#### Defined in
-
-[src/components/ComponentBase.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L40)
-
-___
+***
 
 ### transform
 
-• `get` **transform**(): [`Transform`](Transform.md)
+#### Get Signature
+
+> **get** **transform**(): [`Transform`](Transform.md)
+
+Defined in: [src/components/ComponentBase.ts:89](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L89)
 
 Return the Transform component attached to the Object3D.
+Null before the component is attached — `addComponent` assigns
+`object3D` only after construction — so constructor-time callers
+can probe safely via `this.transform?.`.
 
-#### Returns
+##### Returns
 
 [`Transform`](Transform.md)
 
 #### Implementation of
 
-[IComponent](../interfaces/IComponent.md).[transform](../interfaces/IComponent.md#transform)
+[`IComponent`](../interfaces/IComponent.md).[`transform`](../interfaces/IComponent.md#transform)
 
-#### Defined in
-
-[src/components/ComponentBase.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L47)
-
-___
+***
 
 ### enable
 
-• `get` **enable**(): `boolean`
+#### Get Signature
+
+> **get** **enable**(): `boolean`
+
+Defined in: [src/components/ComponentBase.ts:113](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
-#### Returns
+##### Returns
 
 `boolean`
 
-#### Implementation of
+#### Set Signature
 
-[IComponent](../interfaces/IComponent.md).[enable](../interfaces/IComponent.md#enable)
+> **set** **enable**(`value`): `void`
 
-#### Defined in
-
-[src/components/ComponentBase.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
-
-• `set` **enable**(`value`): `void`
+Defined in: [src/components/ComponentBase.ts:96](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L96)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
-#### Parameters
+##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
+###### value
 
-#### Returns
+`boolean`
+
+##### Returns
 
 `void`
 
 #### Implementation of
 
-[IComponent](../interfaces/IComponent.md).[enable](../interfaces/IComponent.md#enable)
-
-#### Defined in
-
-[src/components/ComponentBase.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L54)
+[`IComponent`](../interfaces/IComponent.md).[`enable`](../interfaces/IComponent.md#enable)
 
 ## Methods
 
-### init
+### init()
 
-▸ **init**(`param?`): `void`
+> **init**(`param?`): `void`
+
+Defined in: [src/components/ComponentBase.ts:161](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L161)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `param?` | `any` |
+##### param?
+
+`any`
 
 #### Returns
 
@@ -255,17 +248,15 @@ Enable/disable components. The enabled components can be updated, while the disa
 
 #### Implementation of
 
-[IComponent](../interfaces/IComponent.md).[init](../interfaces/IComponent.md#init)
+[`IComponent`](../interfaces/IComponent.md).[`init`](../interfaces/IComponent.md#init)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L112)
+### start()
 
-___
+> **start**(): `void`
 
-### start
-
-▸ **start**(): `void`
+Defined in: [src/components/ComponentBase.ts:162](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L162)
 
 #### Returns
 
@@ -273,17 +264,15 @@ ___
 
 #### Implementation of
 
-[IComponent](../interfaces/IComponent.md).[start](../interfaces/IComponent.md#start)
+[`IComponent`](../interfaces/IComponent.md).[`start`](../interfaces/IComponent.md#start)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
+### stop()
 
-___
+> **stop**(): `void`
 
-### stop
-
-▸ **stop**(): `void`
+Defined in: [src/components/ComponentBase.ts:163](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L163)
 
 #### Returns
 
@@ -291,23 +280,21 @@ ___
 
 #### Implementation of
 
-[IComponent](../interfaces/IComponent.md).[stop](../interfaces/IComponent.md#stop)
+[`IComponent`](../interfaces/IComponent.md).[`stop`](../interfaces/IComponent.md#stop)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L114)
+### onEnable()?
 
-___
+> `optional` **onEnable**(`view?`): `any`
 
-### onEnable
-
-▸ **onEnable**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:164](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L164)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -315,23 +302,21 @@ ___
 
 #### Implementation of
 
-[IComponent](../interfaces/IComponent.md).[onEnable](../interfaces/IComponent.md#onenable)
+[`IComponent`](../interfaces/IComponent.md).[`onEnable`](../interfaces/IComponent.md#onenable)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L115)
+### onDisable()?
 
-___
+> `optional` **onDisable**(`view?`): `any`
 
-### onDisable
-
-▸ **onDisable**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:165](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L165)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -339,23 +324,21 @@ ___
 
 #### Implementation of
 
-[IComponent](../interfaces/IComponent.md).[onDisable](../interfaces/IComponent.md#ondisable)
+[`IComponent`](../interfaces/IComponent.md).[`onDisable`](../interfaces/IComponent.md#ondisable)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L116)
+### onUpdate()?
 
-___
+> `optional` **onUpdate**(`view?`): `any`
 
-### onUpdate
-
-▸ **onUpdate**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:166](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L166)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -363,23 +346,21 @@ ___
 
 #### Implementation of
 
-[IComponent](../interfaces/IComponent.md).[onUpdate](../interfaces/IComponent.md#onupdate)
+[`IComponent`](../interfaces/IComponent.md).[`onUpdate`](../interfaces/IComponent.md#onupdate)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L117)
+### onLateUpdate()?
 
-___
+> `optional` **onLateUpdate**(`view?`): `any`
 
-### onLateUpdate
-
-▸ **onLateUpdate**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:167](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L167)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -387,23 +368,21 @@ ___
 
 #### Implementation of
 
-[IComponent](../interfaces/IComponent.md).[onLateUpdate](../interfaces/IComponent.md#onlateupdate)
+[`IComponent`](../interfaces/IComponent.md).[`onLateUpdate`](../interfaces/IComponent.md#onlateupdate)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L118)
+### onBeforeUpdate()?
 
-___
+> `optional` **onBeforeUpdate**(`view?`): `any`
 
-### onBeforeUpdate
-
-▸ **onBeforeUpdate**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:168](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L168)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -411,24 +390,25 @@ ___
 
 #### Implementation of
 
-[IComponent](../interfaces/IComponent.md).[onBeforeUpdate](../interfaces/IComponent.md#onbeforeupdate)
+[`IComponent`](../interfaces/IComponent.md).[`onBeforeUpdate`](../interfaces/IComponent.md#onbeforeupdate)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L119)
+### onCompute()?
 
-___
+> `optional` **onCompute**(`view?`, `command?`): `any`
 
-### onCompute
-
-▸ **onCompute**(`view?`, `command?`): `any`
+Defined in: [src/components/ComponentBase.ts:169](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L169)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
-| `command?` | `GPUCommandEncoder` |
+##### view?
+
+[`View3D`](View3D.md)
+
+##### command?
+
+`GPUCommandEncoder`
 
 #### Returns
 
@@ -436,23 +416,21 @@ ___
 
 #### Implementation of
 
-[IComponent](../interfaces/IComponent.md).[onCompute](../interfaces/IComponent.md#oncompute)
+[`IComponent`](../interfaces/IComponent.md).[`onCompute`](../interfaces/IComponent.md#oncompute)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L120)
+### onGraphic()?
 
-___
+> `optional` **onGraphic**(`view?`): `any`
 
-### onGraphic
-
-▸ **onGraphic**(`view?`): `any`
+Defined in: [src/components/ComponentBase.ts:170](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L170)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `view?` | [`View3D`](View3D.md) |
+##### view?
+
+[`View3D`](View3D.md)
 
 #### Returns
 
@@ -460,24 +438,25 @@ ___
 
 #### Implementation of
 
-[IComponent](../interfaces/IComponent.md).[onGraphic](../interfaces/IComponent.md#ongraphic)
+[`IComponent`](../interfaces/IComponent.md).[`onGraphic`](../interfaces/IComponent.md#ongraphic)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L121)
+### onParentChange()?
 
-___
+> `optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
-### onParentChange
-
-▸ **onParentChange**(`lastParent?`, `currentParent?`): `any`
+Defined in: [src/components/ComponentBase.ts:171](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L171)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `lastParent?` | [`Object3D`](Object3D.md) |
-| `currentParent?` | [`Object3D`](Object3D.md) |
+##### lastParent?
+
+[`Object3D`](Object3D.md)
+
+##### currentParent?
+
+[`Object3D`](Object3D.md)
 
 #### Returns
 
@@ -485,23 +464,21 @@ ___
 
 #### Implementation of
 
-[IComponent](../interfaces/IComponent.md).[onParentChange](../interfaces/IComponent.md#onparentchange)
+[`IComponent`](../interfaces/IComponent.md).[`onParentChange`](../interfaces/IComponent.md#onparentchange)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L122)
+### onAddChild()?
 
-___
+> `optional` **onAddChild**(`child`): `any`
 
-### onAddChild
-
-▸ **onAddChild**(`child`): `any`
+Defined in: [src/components/ComponentBase.ts:172](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L172)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `child` | [`Object3D`](Object3D.md) |
+##### child
+
+[`Object3D`](Object3D.md)
 
 #### Returns
 
@@ -509,23 +486,21 @@ ___
 
 #### Implementation of
 
-[IComponent](../interfaces/IComponent.md).[onAddChild](../interfaces/IComponent.md#onaddchild)
+[`IComponent`](../interfaces/IComponent.md).[`onAddChild`](../interfaces/IComponent.md#onaddchild)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L123)
+### onRemoveChild()?
 
-___
+> `optional` **onRemoveChild**(`child`): `any`
 
-### onRemoveChild
-
-▸ **onRemoveChild**(`child`): `any`
+Defined in: [src/components/ComponentBase.ts:173](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L173)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `child` | [`Object3D`](Object3D.md) |
+##### child
+
+[`Object3D`](Object3D.md)
 
 #### Returns
 
@@ -533,25 +508,25 @@ ___
 
 #### Implementation of
 
-[IComponent](../interfaces/IComponent.md).[onRemoveChild](../interfaces/IComponent.md#onremovechild)
+[`IComponent`](../interfaces/IComponent.md).[`onRemoveChild`](../interfaces/IComponent.md#onremovechild)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L124)
+### cloneTo()
 
-___
+> **cloneTo**(`obj`): `void`
 
-### cloneTo
-
-▸ **cloneTo**(`obj`): `void`
+Defined in: [src/components/ComponentBase.ts:180](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L180)
 
 clone component data to target object3D
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `obj` | [`Object3D`](Object3D.md) | target object3D |
+##### obj
+
+[`Object3D`](Object3D.md)
+
+target object3D
 
 #### Returns
 
@@ -559,45 +534,41 @@ clone component data to target object3D
 
 #### Implementation of
 
-[IComponent](../interfaces/IComponent.md).[cloneTo](../interfaces/IComponent.md#cloneto)
+[`IComponent`](../interfaces/IComponent.md).[`cloneTo`](../interfaces/IComponent.md#cloneto)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L131)
+### copyComponent()
 
-___
+> **copyComponent**(`from`): `this`
 
-### copyComponent
-
-▸ **copyComponent**(`from`): `this`
+Defined in: [src/components/ComponentBase.ts:182](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L182)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `from` | `this` |
+##### from
+
+`this`
 
 #### Returns
 
 `this`
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L133)
+### beforeDestroy()
 
-___
+> **beforeDestroy**(`force?`): `void`
 
-### beforeDestroy
-
-▸ **beforeDestroy**(`force?`): `void`
+Defined in: [src/components/ComponentBase.ts:249](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L249)
 
 before release this component, object refrences are not be set null now.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
+##### force?
+
+`boolean`
 
 #### Returns
 
@@ -605,25 +576,23 @@ before release this component, object refrences are not be set null now.
 
 #### Implementation of
 
-[IComponent](../interfaces/IComponent.md).[beforeDestroy](../interfaces/IComponent.md#beforedestroy)
+[`IComponent`](../interfaces/IComponent.md).[`beforeDestroy`](../interfaces/IComponent.md#beforedestroy)
 
-#### Defined in
+***
 
-[src/components/ComponentBase.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L200)
+### destroy()
 
-___
+> **destroy**(`force?`): `void`
 
-### destroy
-
-▸ **destroy**(`force?`): `void`
+Defined in: [src/components/ComponentBase.ts:256](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L256)
 
 release this component
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `force?` | `boolean` |
+##### force?
+
+`boolean`
 
 #### Returns
 
@@ -631,8 +600,4 @@ release this component
 
 #### Implementation of
 
-[IComponent](../interfaces/IComponent.md).[destroy](../interfaces/IComponent.md#destroy)
-
-#### Defined in
-
-[src/components/ComponentBase.ts:207](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L207)
+[`IComponent`](../interfaces/IComponent.md).[`destroy`](../interfaces/IComponent.md#destroy)

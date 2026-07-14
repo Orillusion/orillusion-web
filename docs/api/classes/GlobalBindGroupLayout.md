@@ -1,33 +1,41 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: GlobalBindGroupLayout
 
-### Constructors
+Defined in: [src/gfx/graphics/webGpu/core/bindGroups/GlobalBindGroupLayout.ts:7](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/bindGroups/GlobalBindGroupLayout.ts#L7)
 
-- [constructor](GlobalBindGroupLayout.md#constructor)
-
-### Methods
-
-- [getGlobalDataBindGroupLayout](GlobalBindGroupLayout.md#getglobaldatabindgrouplayout)
+Provides the shared bind group layout for global render data, cached per context.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new GlobalBindGroupLayout**(): [`GlobalBindGroupLayout`](GlobalBindGroupLayout.md)
+> **new GlobalBindGroupLayout**(): `GlobalBindGroupLayout`
 
 #### Returns
 
-[`GlobalBindGroupLayout`](GlobalBindGroupLayout.md)
+`GlobalBindGroupLayout`
 
 ## Methods
 
-### getGlobalDataBindGroupLayout
+### getGlobalDataBindGroupLayout()
 
-▸ **getGlobalDataBindGroupLayout**(): `GPUBindGroupLayout`
+> `static` **getGlobalDataBindGroupLayout**(`ctx`): `GPUBindGroupLayout`
+
+Defined in: [src/gfx/graphics/webGpu/core/bindGroups/GlobalBindGroupLayout.ts:12](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/bindGroups/GlobalBindGroupLayout.ts#L12)
+
+Get the cached global data bind group layout for the given context.
+
+#### Parameters
+
+##### ctx
+
+[`Context3D`](Context3D.md)
+
+the rendering context
 
 #### Returns
 
 `GPUBindGroupLayout`
-
-#### Defined in
-
-[src/gfx/graphics/webGpu/core/bindGroups/GlobalBindGroupLayout.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/bindGroups/GlobalBindGroupLayout.ts#L6)

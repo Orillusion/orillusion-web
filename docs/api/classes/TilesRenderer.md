@@ -1,58 +1,65 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: TilesRenderer
 
-### Constructors
+Defined in: [src/loader/parser/tileRenderer/TilesRenderer.ts:16](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TilesRenderer.ts#L16)
 
-- [constructor](TilesRenderer.md#constructor)
-
-### Properties
-
-- [group](TilesRenderer.md#group)
-
-### Methods
-
-- [loadTileSet](TilesRenderer.md#loadtileset)
+Loads and assembles a 3D Tiles tileset into a scene graph.
+Reads a tileset.json, applies the root/up-axis transforms, and recursively
+loads each referenced tile (glb, b3dm, i3dm, or nested tileset) into `group`.
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new TilesRenderer**(): [`TilesRenderer`](TilesRenderer.md)
+> **new TilesRenderer**(`ctx?`): `TilesRenderer`
+
+Defined in: [src/loader/parser/tileRenderer/TilesRenderer.ts:23](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TilesRenderer.ts#L23)
+
+#### Parameters
+
+##### ctx?
+
+[`Context3D`](Context3D.md)
 
 #### Returns
 
-[`TilesRenderer`](TilesRenderer.md)
-
-#### Defined in
-
-[src/loader/parser/tileRenderer/TilesRenderer.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TilesRenderer.ts#L15)
+`TilesRenderer`
 
 ## Properties
 
 ### group
 
-• `Readonly` **group**: [`Object3D`](Object3D.md)
+> `readonly` **group**: [`Object3D`](Object3D.md)
 
-#### Defined in
-
-[src/loader/parser/tileRenderer/TilesRenderer.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TilesRenderer.ts#L10)
+Defined in: [src/loader/parser/tileRenderer/TilesRenderer.ts:17](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TilesRenderer.ts#L17)
 
 ## Methods
 
-### loadTileSet
+### loadTileSet()
 
-▸ **loadTileSet**(`rootPath`, `file`): `Promise`\<`void`\>
+> **loadTileSet**(`rootPath`, `file`): `Promise`\<`void`\>
+
+Defined in: [src/loader/parser/tileRenderer/TilesRenderer.ts:33](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TilesRenderer.ts#L33)
+
+Load a tileset and add all of its tiles as children of `group`.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `rootPath` | `string` |
-| `file` | `string` |
+##### rootPath
+
+`string`
+
+Base directory used to resolve tile content URIs.
+
+##### file
+
+`string`
+
+Tileset descriptor file name (e.g. `tileset.json`).
 
 #### Returns
 
 `Promise`\<`void`\>
-
-#### Defined in
-
-[src/loader/parser/tileRenderer/TilesRenderer.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TilesRenderer.ts#L19)

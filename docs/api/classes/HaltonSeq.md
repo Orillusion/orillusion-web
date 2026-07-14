@@ -1,96 +1,97 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: HaltonSeq
+
+Defined in: [src/math/HaltonSeq.ts:7](https://github.com/orillusion/orillusion/blob/main/src/math/HaltonSeq.ts#L7)
 
 https://en.wikipedia.org/wiki/Halton_sequence
 https://baike.baidu.com/item/Halton%20sequence/16697800
 Class for generating the Halton low-discrepancy series for Quasi Monte Carlo integration.
 
-### Constructors
-
-- [constructor](HaltonSeq.md#constructor)
-
-### Methods
-
-- [get](HaltonSeq.md#get)
-- [getBase](HaltonSeq.md#getbase)
-- [next](HaltonSeq.md#next)
-- [get](HaltonSeq.md#get-1)
-
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new HaltonSeq**(): [`HaltonSeq`](HaltonSeq.md)
+> **new HaltonSeq**(): `HaltonSeq`
 
 #### Returns
 
-[`HaltonSeq`](HaltonSeq.md)
+`HaltonSeq`
 
 ## Methods
 
-### get
+### get()
 
-▸ **get**(`index`, `radix`): `number`
+> `static` **get**(`index`, `radix`): `number`
+
+Defined in: [src/math/HaltonSeq.ts:12](https://github.com/orillusion/orillusion/blob/main/src/math/HaltonSeq.ts#L12)
+
+Computes the Halton sequence value at the given index for the given radix (base).
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `index` | `number` |
-| `radix` | `number` |
+##### index
+
+`number`
+
+##### radix
+
+`number`
 
 #### Returns
 
 `number`
 
-#### Defined in
+***
 
-[src/math/HaltonSeq.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/math/HaltonSeq.ts#L10)
+### getBase()
 
-___
+> **getBase**(`index`, `base`): `void`
 
-### getBase
+Defined in: [src/math/HaltonSeq.ts:27](https://github.com/orillusion/orillusion/blob/main/src/math/HaltonSeq.ts#L27)
 
-▸ **getBase**(`index`, `base`): `void`
+Computes the Halton value at the given index for the given base and stores it as the current value.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `index` | `number` |
-| `base` | `number` |
+##### index
+
+`number`
+
+##### base
+
+`number`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/math/HaltonSeq.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/math/HaltonSeq.ts#L24)
+### next()
 
-___
+> **next**(): `void`
 
-### next
+Defined in: [src/math/HaltonSeq.ts:38](https://github.com/orillusion/orillusion/blob/main/src/math/HaltonSeq.ts#L38)
 
-▸ **next**(): `void`
+Advances the sequence to the next value incrementally.
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/math/HaltonSeq.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/math/HaltonSeq.ts#L34)
+### get()
 
-___
+> **get**(): `number`
 
-### get
+Defined in: [src/math/HaltonSeq.ts:53](https://github.com/orillusion/orillusion/blob/main/src/math/HaltonSeq.ts#L53)
 
-▸ **get**(): `number`
+Returns the current value of the sequence.
 
 #### Returns
 
 `number`
-
-#### Defined in
-
-[src/math/HaltonSeq.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/math/HaltonSeq.ts#L48)

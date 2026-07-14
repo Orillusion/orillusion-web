@@ -1,472 +1,762 @@
+[**@orillusion/core**](../README.md)
+
+***
+
 # Class: Material
 
-## Hierarchy
+Defined in: [src/materials/Material.ts:20](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L20)
 
-- **`Material`**
+Base class for all materials. A material owns a set of render shader passes
+and exposes shared rendering state such as blend mode, cull mode and texture bindings.
 
-  ↳ [`GUIMaterial`](GUIMaterial.md)
+## Extended by
 
-  ↳ [`ColorLitMaterial`](ColorLitMaterial.md)
-
-  ↳ [`GIProbeMaterial`](GIProbeMaterial.md)
-
-  ↳ [`GlassMaterial`](GlassMaterial.md)
-
-  ↳ [`LambertMaterial`](LambertMaterial.md)
-
-  ↳ [`LitMaterial`](LitMaterial.md)
-
-  ↳ [`ReflectionMaterial`](ReflectionMaterial.md)
-
-  ↳ [`UnLitMaterial`](UnLitMaterial.md)
-
-  ↳ [`UnLitTexArrayMaterial`](UnLitTexArrayMaterial.md)
-
-### Constructors
-
-- [constructor](Material.md#constructor)
-
-### Properties
-
-- [instanceID](Material.md#instanceid)
-- [name](Material.md#name)
-- [enable](Material.md#enable)
-
-### Accessors
-
-- [shader](Material.md#shader)
-- [doubleSide](Material.md#doubleside)
-- [castShadow](Material.md#castshadow)
-- [acceptShadow](Material.md#acceptshadow)
-- [castReflection](Material.md#castreflection)
-- [blendMode](Material.md#blendmode)
-- [depthCompare](Material.md#depthcompare)
-- [transparent](Material.md#transparent)
-- [cullMode](Material.md#cullmode)
-- [depthWriteEnabled](Material.md#depthwriteenabled)
-- [useBillboard](Material.md#usebillboard)
-
-### Methods
-
-- [getPass](Material.md#getpass)
-- [getAllPass](Material.md#getallpass)
-- [clone](Material.md#clone)
-- [destroy](Material.md#destroy)
-- [setDefine](Material.md#setdefine)
-- [setTexture](Material.md#settexture)
-- [setStorageBuffer](Material.md#setstoragebuffer)
-- [setUniformBuffer](Material.md#setuniformbuffer)
-- [setUniformFloat](Material.md#setuniformfloat)
-- [setUniformVector2](Material.md#setuniformvector2)
-- [setUniformVector3](Material.md#setuniformvector3)
-- [setUniformVector4](Material.md#setuniformvector4)
-- [setUniformColor](Material.md#setuniformcolor)
-- [getUniformFloat](Material.md#getuniformfloat)
-- [getUniformV2](Material.md#getuniformv2)
-- [getUniformV3](Material.md#getuniformv3)
-- [getUniformV4](Material.md#getuniformv4)
-- [getUniformColor](Material.md#getuniformcolor)
-- [getTexture](Material.md#gettexture)
-- [getStorageBuffer](Material.md#getstoragebuffer)
-- [getStructStorageBuffer](Material.md#getstructstoragebuffer)
-- [getUniformBuffer](Material.md#getuniformbuffer)
-- [applyUniform](Material.md#applyuniform)
+- [`ColorLitMaterial`](ColorLitMaterial.md)
+- [`EarthAtmMaterial`](EarthAtmMaterial.md)
+- [`EarthSkyMaterial`](EarthSkyMaterial.md)
+- [`GIProbeMaterial`](GIProbeMaterial.md)
+- [`GlassMaterial`](GlassMaterial.md)
+- [`HairMaterial`](HairMaterial.md)
+- [`LambertMaterial`](LambertMaterial.md)
+- [`LitMaterial`](LitMaterial.md)
+- [`MirrorMaterial`](MirrorMaterial.md)
+- [`ReflectionMaterial`](ReflectionMaterial.md)
+- [`SpriteMaterial`](SpriteMaterial.md)
+- [`UnLitMaterial`](UnLitMaterial.md)
+- [`UnLitTexArrayMaterial`](UnLitTexArrayMaterial.md)
 
 ## Constructors
 
-### constructor
+### Constructor
 
-• **new Material**(): [`Material`](Material.md)
+> **new Material**(): `Material`
+
+Defined in: [src/materials/Material.ts:85](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L85)
 
 #### Returns
 
-[`Material`](Material.md)
-
-#### Defined in
-
-[src/materials/Material.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L33)
+`Material`
 
 ## Properties
 
 ### instanceID
 
-• **instanceID**: `string`
+> **instanceID**: `string`
+
+Defined in: [src/materials/Material.ts:26](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L26)
 
 Material Unique Identifier
 
-#### Defined in
-
-[src/materials/Material.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L19)
-
-___
+***
 
 ### name
 
-• **name**: `string`
+> **name**: `string`
+
+Defined in: [src/materials/Material.ts:32](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L32)
 
 name of this material
 
-#### Defined in
-
-[src/materials/Material.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L25)
-
-___
+***
 
 ### enable
 
-• **enable**: `boolean` = `true`
+> **enable**: `boolean` = `true`
 
-#### Defined in
+Defined in: [src/materials/Material.ts:35](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L35)
 
-[src/materials/Material.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L27)
+Whether this material is enabled for rendering.
 
 ## Accessors
 
+### oitMode
+
+#### Get Signature
+
+> **get** **oitMode**(): `"sorted"` \| `"weighted"` \| `"depth-peel"`
+
+Defined in: [src/materials/Material.ts:69](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L69)
+
+Order-independent transparency mode opt-in.
+
+ - `'sorted'` (default): back-to-front sorted alpha-blend. Cheap,
+   correct between meshes, but in-mesh triangle order is geometry-
+   based not depth-based so self-overlapping meshes (spheres,
+   torus) show banding.
+ - `'weighted'`: McGuire-Bavoil 2013 Weighted-Blended OIT. Single-
+   pass, order-independent, no in-mesh banding. Approximate —
+   accum.rgb/accum.a degenerates to a depth-weighted average so
+   α=1 looks averaged-milky at small scene scales (the front-vs-
+   back depth-weight ratio saturates the paper's z/200 norm).
+   Use for unbounded transparent layer counts: particles, smoke,
+   foliage, hair cards.
+ - `'depth-peel'`: Dual depth peeling. Multi-pass
+   (passCount × 2 layers), order-correct over operator. α=1 is
+   cleanly opaque — front fragment dominates because subsequent
+   layers get multiplied by (1 - frontColor.a) = 0. Hard layer
+   count limit (default 10). Use for hero glass, scientific
+   visualization, layered architectural geometry.
+
+ All three only take effect when `engine.setting.render.useOIT`
+ is true (otherwise everything falls through the sorted path).
+
+ Setter notifies attached renderers so the corresponding derived
+ pass(es) get lazily generated when flipping mode at runtime.
+ Without this, callers had to follow up with an alphaMode setter
+ call to provoke `refreshRenderClassification` → `castNeedPass`.
+
+ Documented at Material-level (not LitMaterial) so any future
+ material subclass (particle, decal) can opt in.
+
+##### Returns
+
+`"sorted"` \| `"weighted"` \| `"depth-peel"`
+
+#### Set Signature
+
+> **set** **oitMode**(`value`): `void`
+
+Defined in: [src/materials/Material.ts:74](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L74)
+
+Set the order-independent transparency mode, notifying renderers to re-classify the affected passes.
+
+##### Parameters
+
+###### value
+
+`"sorted"` \| `"weighted"` \| `"depth-peel"`
+
+##### Returns
+
+`void`
+
+***
+
 ### shader
 
-• `get` **shader**(): [`Shader`](Shader.md)
+#### Get Signature
 
-#### Returns
+> **get** **shader**(): [`Shader`](Shader.md)
+
+Defined in: [src/materials/Material.ts:96](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L96)
+
+Get the shader bound to this material.
+
+##### Returns
 
 [`Shader`](Shader.md)
 
-#### Defined in
+#### Set Signature
 
-[src/materials/Material.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L41)
+> **set** **shader**(`shader`): `void`
 
-• `set` **shader**(`shader`): `void`
+Defined in: [src/materials/Material.ts:90](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L90)
 
-#### Parameters
+Set the shader for this material and cache its default sub-shader.
 
-| Name | Type |
-| :------ | :------ |
-| `shader` | [`Shader`](Shader.md) |
+##### Parameters
 
-#### Returns
+###### shader
+
+[`Shader`](Shader.md)
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/materials/Material.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L36)
-
-___
+***
 
 ### doubleSide
 
-• `get` **doubleSide**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **doubleSide**(): `boolean`
+
+Defined in: [src/materials/Material.ts:101](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L101)
+
+Whether the default sub-shader renders both faces (no back-face culling).
+
+##### Returns
 
 `boolean`
 
-#### Defined in
+#### Set Signature
 
-[src/materials/Material.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L45)
+> **set** **doubleSide**(`value`): `void`
 
-• `set` **doubleSide**(`value`): `void`
+Defined in: [src/materials/Material.ts:106](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L106)
 
-#### Parameters
+Enable or disable double-sided rendering on the default sub-shader.
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
+##### Parameters
 
-#### Returns
+###### value
+
+`boolean`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/materials/Material.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L49)
-
-___
+***
 
 ### castShadow
 
-• `get` **castShadow**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **castShadow**(): `boolean`
+
+Defined in: [src/materials/Material.ts:111](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L111)
+
+Whether this material casts shadows.
+
+##### Returns
 
 `boolean`
 
-#### Defined in
+#### Set Signature
 
-[src/materials/Material.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L53)
+> **set** **castShadow**(`value`): `void`
 
-• `set` **castShadow**(`value`): `void`
+Defined in: [src/materials/Material.ts:116](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L116)
 
-#### Parameters
+Enable or disable shadow casting for this material.
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
+##### Parameters
 
-#### Returns
+###### value
+
+`boolean`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/materials/Material.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L57)
-
-___
+***
 
 ### acceptShadow
 
-• `get` **acceptShadow**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **acceptShadow**(): `boolean`
+
+Defined in: [src/materials/Material.ts:124](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L124)
+
+Whether this material receives shadows from other casters.
+
+##### Returns
 
 `boolean`
 
-#### Defined in
+#### Set Signature
 
-[src/materials/Material.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L64)
+> **set** **acceptShadow**(`value`): `void`
 
-• `set` **acceptShadow**(`value`): `void`
+Defined in: [src/materials/Material.ts:129](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L129)
 
-#### Parameters
+Enable or disable shadow receiving for this material.
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
+##### Parameters
 
-#### Returns
+###### value
+
+`boolean`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/materials/Material.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L68)
-
-___
+***
 
 ### castReflection
 
-• `get` **castReflection**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **castReflection**(): `boolean`
+
+Defined in: [src/materials/Material.ts:139](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L139)
+
+Whether this material contributes to reflection probes.
+
+##### Returns
 
 `boolean`
 
-#### Defined in
+#### Set Signature
 
-[src/materials/Material.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L77)
+> **set** **castReflection**(`value`): `void`
 
-• `set` **castReflection**(`value`): `void`
+Defined in: [src/materials/Material.ts:144](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L144)
 
-#### Parameters
+Enable or disable reflection casting for this material.
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
+##### Parameters
 
-#### Returns
+###### value
+
+`boolean`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/materials/Material.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L81)
-
-___
+***
 
 ### blendMode
 
-• `get` **blendMode**(): [`BlendMode`](../enums/BlendMode.md)
+#### Get Signature
 
-#### Returns
+> **get** **blendMode**(): [`BlendMode`](../enumerations/BlendMode.md)
 
-[`BlendMode`](../enums/BlendMode.md)
+Defined in: [src/materials/Material.ts:149](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L149)
 
-#### Defined in
+The blend mode of the default sub-shader.
 
-[src/materials/Material.ts:85](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L85)
+##### Returns
 
-• `set` **blendMode**(`value`): `void`
+[`BlendMode`](../enumerations/BlendMode.md)
 
-#### Parameters
+#### Set Signature
 
-| Name | Type |
-| :------ | :------ |
-| `value` | [`BlendMode`](../enums/BlendMode.md) |
+> **set** **blendMode**(`value`): `void`
 
-#### Returns
+Defined in: [src/materials/Material.ts:154](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L154)
+
+Set the blend mode of the default sub-shader.
+
+##### Parameters
+
+###### value
+
+[`BlendMode`](../enumerations/BlendMode.md)
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/materials/Material.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L89)
-
-___
+***
 
 ### depthCompare
 
-• `get` **depthCompare**(): `GPUCompareFunction`
+#### Get Signature
 
-#### Returns
+> **get** **depthCompare**(): `GPUCompareFunction`
+
+Defined in: [src/materials/Material.ts:159](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L159)
+
+The depth comparison function of the default sub-shader.
+
+##### Returns
 
 `GPUCompareFunction`
 
-#### Defined in
+#### Set Signature
 
-[src/materials/Material.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L93)
+> **set** **depthCompare**(`value`): `void`
 
-• `set` **depthCompare**(`value`): `void`
+Defined in: [src/materials/Material.ts:164](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L164)
 
-#### Parameters
+Set the depth comparison function across all passes of this material.
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `GPUCompareFunction` |
+##### Parameters
 
-#### Returns
+###### value
+
+`GPUCompareFunction`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/materials/Material.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L97)
-
-___
+***
 
 ### transparent
 
-• `get` **transparent**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **transparent**(): `boolean`
+
+Defined in: [src/materials/Material.ts:175](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L175)
+
+Whether this material is rendered as transparent.
+
+##### Returns
 
 `boolean`
 
-#### Defined in
+#### Set Signature
 
-[src/materials/Material.ts:102](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L102)
+> **set** **transparent**(`value`): `void`
 
-• `set` **transparent**(`value`): `void`
+Defined in: [src/materials/Material.ts:180](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L180)
 
-#### Parameters
+Enable or disable transparency, moving the pass to the transparent queue when enabled.
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
+##### Parameters
 
-#### Returns
+###### value
+
+`boolean`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/materials/Material.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L106)
-
-___
+***
 
 ### cullMode
 
-• `get` **cullMode**(): `GPUCullMode`
+#### Get Signature
 
-#### Returns
+> **get** **cullMode**(): `GPUCullMode`
+
+Defined in: [src/materials/Material.ts:188](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L188)
+
+The face culling mode of the default sub-shader.
+
+##### Returns
 
 `GPUCullMode`
 
-#### Defined in
+#### Set Signature
 
-[src/materials/Material.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L113)
+> **set** **cullMode**(`value`): `void`
 
-• `set` **cullMode**(`value`): `void`
+Defined in: [src/materials/Material.ts:193](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L193)
 
-#### Parameters
+Set the face culling mode across all passes of this material.
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `GPUCullMode` |
+##### Parameters
 
-#### Returns
+###### value
+
+`GPUCullMode`
+
+##### Returns
 
 `void`
 
-#### Defined in
-
-[src/materials/Material.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L117)
-
-___
+***
 
 ### depthWriteEnabled
 
-• `get` **depthWriteEnabled**(): `boolean`
+#### Get Signature
 
-#### Returns
+> **get** **depthWriteEnabled**(): `boolean`
+
+Defined in: [src/materials/Material.ts:205](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L205)
+
+Whether depth writing is enabled for the default sub-shader.
+
+##### Returns
 
 `boolean`
 
-#### Defined in
+#### Set Signature
 
-[src/materials/Material.ts:128](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L128)
+> **set** **depthWriteEnabled**(`value`): `void`
 
-• `set` **depthWriteEnabled**(`value`): `void`
+Defined in: [src/materials/Material.ts:210](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L210)
 
-#### Parameters
+Enable or disable depth writing for the default sub-shader.
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
+##### Parameters
 
-#### Returns
+###### value
+
+`boolean`
+
+##### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/materials/Material.ts:132](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L132)
+### stencilFront
 
-___
+#### Get Signature
+
+> **get** **stencilFront**(): `GPUStencilFaceState`
+
+Defined in: [src/materials/Material.ts:217](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L217)
+
+Stencil front face state
+
+##### Returns
+
+`GPUStencilFaceState`
+
+#### Set Signature
+
+> **set** **stencilFront**(`value`): `void`
+
+Defined in: [src/materials/Material.ts:222](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L222)
+
+Set the stencil front face state.
+
+##### Parameters
+
+###### value
+
+`GPUStencilFaceState`
+
+##### Returns
+
+`void`
+
+***
+
+### stencilBack
+
+#### Get Signature
+
+> **get** **stencilBack**(): `GPUStencilFaceState`
+
+Defined in: [src/materials/Material.ts:229](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L229)
+
+Stencil back face state
+
+##### Returns
+
+`GPUStencilFaceState`
+
+#### Set Signature
+
+> **set** **stencilBack**(`value`): `void`
+
+Defined in: [src/materials/Material.ts:234](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L234)
+
+Set the stencil back face state.
+
+##### Parameters
+
+###### value
+
+`GPUStencilFaceState`
+
+##### Returns
+
+`void`
+
+***
+
+### stencilReadMask
+
+#### Get Signature
+
+> **get** **stencilReadMask**(): `number`
+
+Defined in: [src/materials/Material.ts:241](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L241)
+
+Stencil read mask
+
+##### Returns
+
+`number`
+
+#### Set Signature
+
+> **set** **stencilReadMask**(`value`): `void`
+
+Defined in: [src/materials/Material.ts:246](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L246)
+
+Set the stencil read mask.
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
+
+`void`
+
+***
+
+### stencilWriteMask
+
+#### Get Signature
+
+> **get** **stencilWriteMask**(): `number`
+
+Defined in: [src/materials/Material.ts:253](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L253)
+
+Stencil write mask
+
+##### Returns
+
+`number`
+
+#### Set Signature
+
+> **set** **stencilWriteMask**(`value`): `void`
+
+Defined in: [src/materials/Material.ts:258](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L258)
+
+Set the stencil write mask.
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
+
+`void`
+
+***
+
+### stencilRef
+
+#### Get Signature
+
+> **get** **stencilRef**(): `number`
+
+Defined in: [src/materials/Material.ts:265](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L265)
+
+Stencil reference value
+
+##### Returns
+
+`number`
+
+#### Set Signature
+
+> **set** **stencilRef**(`value`): `void`
+
+Defined in: [src/materials/Material.ts:270](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L270)
+
+Set the stencil reference value.
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
+
+`void`
+
+***
 
 ### useBillboard
 
-• `set` **useBillboard**(`value`): `void`
+#### Set Signature
 
-#### Parameters
+> **set** **useBillboard**(`value`): `void`
 
-| Name | Type |
-| :------ | :------ |
-| `value` | `boolean` |
+Defined in: [src/materials/Material.ts:275](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L275)
 
-#### Returns
+Enable or disable billboard orientation via the USE_BILLBOARD shader define.
+
+##### Parameters
+
+###### value
+
+`boolean`
+
+##### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/materials/Material.ts:136](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L136)
+### topology
+
+#### Get Signature
+
+> **get** **topology**(): `GPUPrimitiveTopology`
+
+Defined in: [src/materials/Material.ts:280](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L280)
+
+The primitive topology of the default sub-shader.
+
+##### Returns
+
+`GPUPrimitiveTopology`
+
+#### Set Signature
+
+> **set** **topology**(`value`): `void`
+
+Defined in: [src/materials/Material.ts:285](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L285)
+
+Set the primitive topology of the default sub-shader.
+
+##### Parameters
+
+###### value
+
+`GPUPrimitiveTopology`
+
+##### Returns
+
+`void`
+
+***
+
+### baseColor
+
+#### Get Signature
+
+> **get** **baseColor**(): [`Color`](Color.md)
+
+Defined in: [src/materials/Material.ts:295](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L295)
+
+Get the base color uniform.
+
+##### Returns
+
+[`Color`](Color.md)
+
+#### Set Signature
+
+> **set** **baseColor**(`color`): `void`
+
+Defined in: [src/materials/Material.ts:290](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L290)
+
+Set the base color uniform.
+
+##### Parameters
+
+###### color
+
+[`Color`](Color.md)
+
+##### Returns
+
+`void`
 
 ## Methods
 
-### getPass
+### getPass()
 
-▸ **getPass**(`passType`): [`RenderShaderPass`](RenderShaderPass.md)[]
+> **getPass**(`passType`): [`RenderShaderPass`](RenderShaderPass.md)[]
+
+Defined in: [src/materials/Material.ts:304](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L304)
 
 get render pass by renderType
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `passType` | `PassType` |
+##### passType
+
+`PassType`
 
 #### Returns
 
 [`RenderShaderPass`](RenderShaderPass.md)[]
 
-#### Defined in
+***
 
-[src/materials/Material.ts:145](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L145)
+### getAllPass()
 
-___
+> **getAllPass**(): [`RenderShaderPass`](RenderShaderPass.md)[]
 
-### getAllPass
-
-▸ **getAllPass**(): [`RenderShaderPass`](RenderShaderPass.md)[]
+Defined in: [src/materials/Material.ts:312](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L312)
 
 get all color render pass
 
@@ -474,427 +764,512 @@ get all color render pass
 
 [`RenderShaderPass`](RenderShaderPass.md)[]
 
-#### Defined in
+***
 
-[src/materials/Material.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L153)
+### clone()
 
-___
+> **clone**(): `Material`
 
-### clone
-
-▸ **clone**(): [`Material`](Material.md)
+Defined in: [src/materials/Material.ts:320](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L320)
 
 clone one material
 
 #### Returns
 
-[`Material`](Material.md)
+`Material`
 
 Material
 
-#### Defined in
+***
 
-[src/materials/Material.ts:161](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L161)
+### destroy()
 
-___
+> **destroy**(`force`): `void`
 
-### destroy
+Defined in: [src/materials/Material.ts:328](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L328)
 
-▸ **destroy**(`force`): `void`
+Release this material's shader and clear its identifying fields.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `force` | `boolean` |
+##### force
+
+`boolean`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/materials/Material.ts:168](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L168)
+### setDefine()
 
-___
+> **setDefine**(`define`, `value`): `void`
 
-### setDefine
+Defined in: [src/materials/Material.ts:337](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L337)
 
-▸ **setDefine**(`define`, `value`): `void`
+Set a shader define flag on this material's shader.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `define` | `string` |
-| `value` | `boolean` |
+##### define
+
+`string`
+
+##### value
+
+`boolean`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/materials/Material.ts:174](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L174)
+### getDefine()
 
-___
+> **getDefine**(`define`): `boolean`
 
-### setTexture
+Defined in: [src/materials/Material.ts:342](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L342)
 
-▸ **setTexture**(`propertyName`, `texture`): `void`
+Get the value of a shader define flag.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `propertyName` | `string` |
-| `texture` | [`Texture`](Texture.md) |
+##### define
+
+`string`
+
+#### Returns
+
+`boolean`
+
+***
+
+### setTexture()
+
+> **setTexture**(`propertyName`, `texture`): `void`
+
+Defined in: [src/materials/Material.ts:347](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L347)
+
+Bind a texture to the named shader property.
+
+#### Parameters
+
+##### propertyName
+
+`string`
+
+##### texture
+
+[`Texture`](Texture.md)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/materials/Material.ts:178](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L178)
+### setStorageBuffer()
 
-___
+> **setStorageBuffer**(`propertyName`, `buffer`): `void`
 
-### setStorageBuffer
+Defined in: [src/materials/Material.ts:352](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L352)
 
-▸ **setStorageBuffer**(`propertyName`, `buffer`): `void`
+Bind a storage GPU buffer to the named shader property.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `propertyName` | `string` |
-| `buffer` | [`StorageGPUBuffer`](StorageGPUBuffer.md) |
+##### propertyName
+
+`string`
+
+##### buffer
+
+[`StorageGPUBuffer`](StorageGPUBuffer.md)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/materials/Material.ts:182](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L182)
+### setUniformBuffer()
 
-___
+> **setUniformBuffer**(`propertyName`, `buffer`): `void`
 
-### setUniformBuffer
+Defined in: [src/materials/Material.ts:357](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L357)
 
-▸ **setUniformBuffer**(`propertyName`, `buffer`): `void`
+Bind a uniform GPU buffer to the named shader property.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `propertyName` | `string` |
-| `buffer` | [`UniformGPUBuffer`](UniformGPUBuffer.md) |
+##### propertyName
+
+`string`
+
+##### buffer
+
+[`UniformGPUBuffer`](UniformGPUBuffer.md)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/materials/Material.ts:186](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L186)
+### setUniformFloat()
 
-___
+> **setUniformFloat**(`propertyName`, `value`): `void`
 
-### setUniformFloat
+Defined in: [src/materials/Material.ts:363](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L363)
 
-▸ **setUniformFloat**(`propertyName`, `value`): `void`
+Set a float uniform on the named shader property.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `propertyName` | `string` |
-| `value` | `number` |
+##### propertyName
+
+`string`
+
+##### value
+
+`number`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/materials/Material.ts:191](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L191)
+### setUniformInt32()
 
-___
+> **setUniformInt32**(`propertyName`, `value`): `void`
 
-### setUniformVector2
+Defined in: [src/materials/Material.ts:368](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L368)
 
-▸ **setUniformVector2**(`propertyName`, `value`): `void`
+Set a 32-bit integer uniform on the named shader property.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `propertyName` | `string` |
-| `value` | [`Vector2`](Vector2.md) |
+##### propertyName
+
+`string`
+
+##### value
+
+`number`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/materials/Material.ts:195](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L195)
+### setUniformVector2()
 
-___
+> **setUniformVector2**(`propertyName`, `value`): `void`
 
-### setUniformVector3
+Defined in: [src/materials/Material.ts:373](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L373)
 
-▸ **setUniformVector3**(`propertyName`, `value`): `void`
+Set a Vector2 uniform on the named shader property.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `propertyName` | `string` |
-| `value` | [`Vector3`](Vector3.md) |
+##### propertyName
+
+`string`
+
+##### value
+
+[`Vector2`](Vector2.md)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/materials/Material.ts:199](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L199)
+### setUniformVector3()
 
-___
+> **setUniformVector3**(`propertyName`, `value`): `void`
 
-### setUniformVector4
+Defined in: [src/materials/Material.ts:378](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L378)
 
-▸ **setUniformVector4**(`propertyName`, `value`): `void`
+Set a Vector3 uniform on the named shader property.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `propertyName` | `string` |
-| `value` | `Vector4` |
+##### propertyName
+
+`string`
+
+##### value
+
+[`Vector3`](Vector3.md)
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/materials/Material.ts:203](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L203)
+### setUniformVector4()
 
-___
+> **setUniformVector4**(`propertyName`, `value`): `void`
 
-### setUniformColor
+Defined in: [src/materials/Material.ts:383](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L383)
 
-▸ **setUniformColor**(`propertyName`, `value`): `void`
+Set a Vector4 uniform on the named shader property.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `propertyName` | `string` |
-| `value` | [`Color`](Color.md) |
+##### propertyName
+
+`string`
+
+##### value
+
+`Vector4`
 
 #### Returns
 
 `void`
 
-#### Defined in
+***
 
-[src/materials/Material.ts:207](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L207)
+### setUniformColor()
 
-___
+> **setUniformColor**(`propertyName`, `value`): `void`
 
-### getUniformFloat
+Defined in: [src/materials/Material.ts:388](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L388)
 
-▸ **getUniformFloat**(`str`): `any`
+Set a color uniform on the named shader property.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `str` | `string` |
+##### propertyName
+
+`string`
+
+##### value
+
+[`Color`](Color.md)
+
+#### Returns
+
+`void`
+
+***
+
+### getUniformFloat()
+
+> **getUniformFloat**(`str`): `any`
+
+Defined in: [src/materials/Material.ts:393](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L393)
+
+Get the float value of the named uniform.
+
+#### Parameters
+
+##### str
+
+`string`
 
 #### Returns
 
 `any`
 
-#### Defined in
+***
 
-[src/materials/Material.ts:211](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L211)
+### getUniformInt32()
 
-___
+> **getUniformInt32**(`str`): `any`
 
-### getUniformV2
+Defined in: [src/materials/Material.ts:398](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L398)
 
-▸ **getUniformV2**(`str`): [`Vector2`](Vector2.md)
+Get the 32-bit integer value of the named uniform.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `str` | `string` |
+##### str
+
+`string`
+
+#### Returns
+
+`any`
+
+***
+
+### getUniformV2()
+
+> **getUniformV2**(`str`): [`Vector2`](Vector2.md)
+
+Defined in: [src/materials/Material.ts:403](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L403)
+
+Get the Vector2 value of the named uniform.
+
+#### Parameters
+
+##### str
+
+`string`
 
 #### Returns
 
 [`Vector2`](Vector2.md)
 
-#### Defined in
+***
 
-[src/materials/Material.ts:215](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L215)
+### getUniformV3()
 
-___
+> **getUniformV3**(`str`): [`Vector3`](Vector3.md)
 
-### getUniformV3
+Defined in: [src/materials/Material.ts:408](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L408)
 
-▸ **getUniformV3**(`str`): [`Vector3`](Vector3.md)
+Get the Vector3 value of the named uniform.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `str` | `string` |
+##### str
+
+`string`
 
 #### Returns
 
 [`Vector3`](Vector3.md)
 
-#### Defined in
+***
 
-[src/materials/Material.ts:219](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L219)
+### getUniformV4()
 
-___
+> **getUniformV4**(`str`): `Vector4`
 
-### getUniformV4
+Defined in: [src/materials/Material.ts:413](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L413)
 
-▸ **getUniformV4**(`str`): `Vector4`
+Get the Vector4 value of the named uniform.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `str` | `string` |
+##### str
+
+`string`
 
 #### Returns
 
 `Vector4`
 
-#### Defined in
+***
 
-[src/materials/Material.ts:223](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L223)
+### getUniformColor()
 
-___
+> **getUniformColor**(`str`): [`Color`](Color.md)
 
-### getUniformColor
+Defined in: [src/materials/Material.ts:418](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L418)
 
-▸ **getUniformColor**(`str`): [`Color`](Color.md)
+Get the color value of the named uniform.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `str` | `string` |
+##### str
+
+`string`
 
 #### Returns
 
 [`Color`](Color.md)
 
-#### Defined in
+***
 
-[src/materials/Material.ts:227](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L227)
+### getTexture()
 
-___
+> **getTexture**(`str`): [`Texture`](Texture.md)
 
-### getTexture
+Defined in: [src/materials/Material.ts:423](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L423)
 
-▸ **getTexture**(`str`): [`Texture`](Texture.md)
+Get the texture bound to the named shader property.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `str` | `string` |
+##### str
+
+`string`
 
 #### Returns
 
 [`Texture`](Texture.md)
 
-#### Defined in
+***
 
-[src/materials/Material.ts:231](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L231)
+### getStorageBuffer()
 
-___
+> **getStorageBuffer**(`str`): [`StorageGPUBuffer`](StorageGPUBuffer.md)
 
-### getStorageBuffer
+Defined in: [src/materials/Material.ts:428](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L428)
 
-▸ **getStorageBuffer**(`str`): [`StorageGPUBuffer`](StorageGPUBuffer.md)
+Get the storage buffer bound to the named shader property.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `str` | `string` |
+##### str
+
+`string`
 
 #### Returns
 
 [`StorageGPUBuffer`](StorageGPUBuffer.md)
 
-#### Defined in
+***
 
-[src/materials/Material.ts:235](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L235)
+### getStructStorageBuffer()
 
-___
+> **getStructStorageBuffer**(`str`): `GPUBufferBase`
 
-### getStructStorageBuffer
+Defined in: [src/materials/Material.ts:433](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L433)
 
-▸ **getStructStorageBuffer**(`str`): `GPUBufferBase`
+Get the struct storage buffer bound to the named shader property.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `str` | `string` |
+##### str
+
+`string`
 
 #### Returns
 
 `GPUBufferBase`
 
-#### Defined in
+***
 
-[src/materials/Material.ts:239](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L239)
+### getUniformBuffer()
 
-___
+> **getUniformBuffer**(`str`): `GPUBufferBase`
 
-### getUniformBuffer
+Defined in: [src/materials/Material.ts:438](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L438)
 
-▸ **getUniformBuffer**(`str`): `GPUBufferBase`
+Get the uniform buffer bound to the named shader property.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `str` | `string` |
+##### str
+
+`string`
 
 #### Returns
 
 `GPUBufferBase`
 
-#### Defined in
+***
 
-[src/materials/Material.ts:243](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L243)
+### applyUniform()
 
-___
+> **applyUniform**(): `void`
 
-### applyUniform
+Defined in: [src/materials/Material.ts:443](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L443)
 
-▸ **applyUniform**(): `void`
+Upload pending uniform changes to the GPU.
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-[src/materials/Material.ts:247](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L247)

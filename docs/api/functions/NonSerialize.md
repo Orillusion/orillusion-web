@@ -1,18 +1,23 @@
-# Function: NonSerialize
+[**@orillusion/core**](../README.md)
 
-▸ **NonSerialize**(`cls`, `key`): `any`
+***
 
-#### Parameters
+# Function: NonSerialize()
 
-| Name | Type |
-| :------ | :------ |
-| `cls` | `any` |
-| `key` | `any` |
+> **NonSerialize**(`cls`, `key`): `any`
 
-#### Returns
+Defined in: [src/util/SerializeDecoration.ts:4](https://github.com/orillusion/orillusion/blob/main/src/util/SerializeDecoration.ts#L4)
+
+## Parameters
+
+### cls
 
 `any`
 
-#### Defined in
+### key
 
-[src/util/SerializeDecoration.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/util/SerializeDecoration.ts#L4)
+`any`
+
+## Returns
+
+`any`
