@@ -80,9 +80,9 @@ view.camera = this.camera;
 engine.startRenderView(view);
 
 // 暂停渲染循环
-Engine3D.pause();
+engine.pause();
 // 恢复渲染循环
-Engine3D.resume();
+engine.resume();
 ```
 ---
 详细用法请参考 [Engine3D](/api/classes/Engine3D) API
