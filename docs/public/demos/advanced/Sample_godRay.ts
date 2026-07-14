@@ -1,4 +1,4 @@
-import { View3D, DirectLight, Engine3D, PostProcessingComponent, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, SphereGeometry, CameraUtil, webGPUContext, BoxGeometry, TAAPost, AtmosphericComponent, GTAOPost, GodRayPost, Time, BloomPost } from '@orillusion/core';
+import { View3D, DirectLight, Engine3D, PostProcessingComponent, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, SphereGeometry, CameraUtil, BoxGeometry, TAAPost, AtmosphericComponent, GTAOPost, GodRayPost, Time, BloomPost } from '@orillusion/core';
 import * as dat from 'dat.gui';
 
 class Sample_GodRay {
@@ -6,13 +6,16 @@ class Sample_GodRay {
     scene: Scene3D;
 
     async run() {
-        Engine3D.setting.shadow.shadowSize = 2048;
-        Engine3D.setting.shadow.shadowBound = 500;
-		Engine3D.setting.shadow.shadowBias = 0.1;
-
-        await Engine3D.init({
+        let engine = await Engine3D.init({
             renderLoop: () => {
                 this.loop();
+            },
+            setting: {
+                shadow: {
+                    shadowSize: 2048,
+                    shadowBound: 500,
+                    shadowBias: 0.1
+                }
             }
         });
 
@@ -20,7 +23,7 @@ class Sample_GodRay {
         let sky = this.scene.addComponent(AtmosphericComponent);
 
         let mainCamera = CameraUtil.createCamera3DObject(this.scene, 'camera');
-        mainCamera.perspective(60, webGPUContext.aspect, 1, 5000.0);
+        mainCamera.perspective(60, engine.aspect, 1, 5000.0);
         let ctrl = mainCamera.object3D.addComponent(HoverCameraController);
         ctrl.setCamera(110, -10, 300);
         await this.initScene();
@@ -30,8 +33,7 @@ class Sample_GodRay {
         let view = new View3D();
         view.scene = this.scene;
         view.camera = mainCamera;
-        mainCamera.enableCSM = true;
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
         let postProcessing = this.scene.addComponent(PostProcessingComponent);
         let godray = postProcessing.addPost(GodRayPost);
@@ -53,6 +55,7 @@ class Sample_GodRay {
             let lc = this.lightObj.addComponent(DirectLight);
             lc.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
             lc.castShadow = true;
+            lc.enableCSM = true;
             lc.intensity = 10;
 		    lc.indirect = 0.3;
             this.scene.addChild(this.lightObj);

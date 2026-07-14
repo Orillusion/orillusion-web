@@ -46,11 +46,11 @@ class UserLogic {
     }
 
     async run() {
-        await Engine3D.init();
+        let engine = await Engine3D.init();
         this.init(new Scene3D());
         let cameraObj = new Object3D();
         let camera = cameraObj.addComponent(Camera3D);
-        camera.perspective(60, Engine3D.aspect, 1, 5000.0);
+        camera.perspective(60, engine.aspect, 1, 5000.0);
         let controller = camera.object3D.addComponent(HoverCameraController);
         controller.setCamera(45, 0, 15);
         this.scene.addChild(cameraObj);
@@ -61,7 +61,7 @@ class UserLogic {
         view.scene = this.scene;
         view.camera = camera;
         // start render
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
     }
 }
 new UserLogic().run();

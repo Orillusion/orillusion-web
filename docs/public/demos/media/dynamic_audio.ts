@@ -8,21 +8,25 @@ class Position_Audio {
     camera: Object3D;
     mats: any[];
     audio: PositionAudio;
+    engine: Engine3D;
     private a = 40;
     private b = 80;
     private angle = 0;
     constructor() {}
 
     async run() {
-        Engine3D.setting.shadow.autoUpdate = true;
-        Engine3D.setting.shadow.updateFrameRate = 1;
-        Engine3D.setting.shadow.type = 'HARD';
-        Engine3D.setting.shadow.shadowSize = 2048;
-        Engine3D.setting.shadow.shadowBound = 250;
-        Engine3D.setting.shadow.shadowBias = 0.002;
-
-        await Engine3D.init({
-            renderLoop: this.loop.bind(this)
+        this.engine = await Engine3D.init({
+            renderLoop: this.loop.bind(this),
+            setting: {
+                shadow: {
+                    autoUpdate: true,
+                    updateFrameRate: 1,
+                    type: 'HARD',
+                    shadowSize: 2048,
+                    shadowBound: 250,
+                    shadowBias: 0.002
+                }
+            }
         });
         this.scene = new Scene3D();
         this.scene.addComponent(AtmosphericComponent);
@@ -32,7 +36,7 @@ class Position_Audio {
         let mainCamera = this.camera.addComponent(Camera3D);
         this.scene.addChild(this.camera);
 
-        mainCamera.perspective(60, Engine3D.aspect, 0.1, 20000.0);
+        mainCamera.perspective(60, this.engine.aspect, 0.1, 20000.0);
         let orbit = this.camera.addComponent(OrbitController);
         orbit.target = new Vector3(0, 4, 0);
         orbit.minDistance = 10;
@@ -42,7 +46,7 @@ class Position_Audio {
         view.scene = this.scene;
         view.camera = mainCamera;
 
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
         await this.initScene();
     }
 
@@ -79,7 +83,7 @@ class Position_Audio {
             this.scene.addChild(this.lightObj);
         }
         {
-            let [speaker, man, music] = await Promise.all([Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/speaker/scene.gltf'), Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/glb/CesiumMan.glb'), fetch('https://cdn.orillusion.com/audio.ogg').then((res) => res.arrayBuffer())]);
+            let [speaker, man, music] = await Promise.all([this.engine.res.loadGltf('https://cdn.orillusion.com/gltfs/speaker/scene.gltf'), this.engine.res.loadGltf('https://cdn.orillusion.com/gltfs/glb/CesiumMan.glb'), fetch('https://cdn.orillusion.com/audio.ogg').then((res) => res.arrayBuffer())]);
             speaker.localScale.set(4, 4, 4);
             speaker.rotationX = -120;
             speaker.y = 0.5;

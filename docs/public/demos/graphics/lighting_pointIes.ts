@@ -1,23 +1,27 @@
-import { BoxGeometry, Camera3D, Engine3D, View3D, LitMaterial, HoverCameraController, BitmapTexture2D, MeshRenderer, Object3D, Scene3D, SphereGeometry, PointLight, Vector3, webGPUContext, IESProfiles, AtmosphericComponent } from '@orillusion/core';
+import { BoxGeometry, Camera3D, Engine3D, View3D, LitMaterial, HoverCameraController, BitmapTexture2D, MeshRenderer, Object3D, Scene3D, SphereGeometry, PointLight, Vector3, IESProfiles, AtmosphericComponent } from '@orillusion/core';
 
 class Sample_LightIES {
     scene: Scene3D;
     hoverCameraController: HoverCameraController;
     lightObj: any;
+    engine: Engine3D;
     constructor() {}
 
     async run() {
-        Engine3D.setting.shadow.pointShadowBias = 0.0001;
-        Engine3D.setting.shadow.type = `HARD`;
-
-        await Engine3D.init({
-            canvasConfig: { devicePixelRatio: 1 }
+        this.engine = await Engine3D.init({
+            canvasConfig: { devicePixelRatio: 1 },
+            setting: {
+                shadow: {
+                    pointShadowBias: 0.0001,
+                    type: `HARD`
+                }
+            }
         });
 
         this.scene = new Scene3D();
         let cameraObj = new Object3D();
         let mainCamera = cameraObj.addComponent(Camera3D);
-        mainCamera.perspective(37, webGPUContext.aspect, 1, 5000.0);
+        mainCamera.perspective(37, this.engine.aspect, 1, 5000.0);
 
         this.hoverCameraController = mainCamera.object3D.addComponent(HoverCameraController);
         this.scene.addChild(cameraObj);
@@ -33,12 +37,12 @@ class Sample_LightIES {
         view.scene = this.scene;
         view.camera = mainCamera;
         // start render
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
     }
 
     async initScene(scene: Scene3D) {
         // load ies texture
-        let iesTexture = await Engine3D.res.loadTexture('https://cdn.orillusion.com/ies/ies_2.png');
+        let iesTexture = await this.engine.res.loadTexture('https://cdn.orillusion.com/ies/ies_2.png');
         var iesPofiles = new IESProfiles();
         iesPofiles.IESTexture = iesTexture;
 

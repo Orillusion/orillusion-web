@@ -1,34 +1,36 @@
-import { Engine3D, LitMaterial, MeshRenderer, BoxGeometry, Object3D, Scene3D, View3D, Object3DUtil, Vector3, AtmosphericComponent, DirectLight, SphereGeometry, CameraUtil, HoverCameraController, BitmapTexture2D, VertexAttributeName, Color, CylinderGeometry, TorusGeometry, ComponentBase } from "@orillusion/core";
+import { Engine3D, LitMaterial, MeshRenderer, BoxGeometry, Object3D, Scene3D, View3D, Object3DUtil, Vector3, AtmosphericComponent, DirectLight, SphereGeometry, CameraUtil, HoverCameraController, BitmapTexture2D, Color, CylinderGeometry, TorusGeometry, ComponentBase } from "@orillusion/core";
 import { TerrainGeometry } from "@orillusion/geometry";
-import { Graphic3D } from "@orillusion/graphic";
 import { Ammo, CollisionShapeUtil, Physics, Rigidbody } from "@orillusion/physics";
 
 class Sample_MultipleShapes {
     scene: Scene3D;
     terrain: Object3D;
     gui: dat.GUI;
+    engine: Engine3D;
 
     async run() {
         // init physics and engine
-        await Physics.init();
-        await Engine3D.init({
-            renderLoop: () => Physics.update()
+        await Physics.init({ useDrag: true });
+        this.engine = await Engine3D.init({
+            renderLoop: () => Physics.update(),
+            // shadow settings
+            setting: {
+                shadow: {
+                    shadowBias: 0.01,
+                    shadowSize: 1024 * 4,
+                    csmMargin: 0.1,
+                    csmScatteringExp: 0.8,
+                    csmAreaScale: 0.1,
+                    updateFrameRate: 1
+                }
+            }
         });
-
-        // shadow settings
-        Engine3D.setting.shadow.shadowBias = 0.01;
-        Engine3D.setting.shadow.shadowSize = 1024 * 4;
-        Engine3D.setting.shadow.csmMargin = 0.1;
-        Engine3D.setting.shadow.csmScatteringExp = 0.8;
-        Engine3D.setting.shadow.csmAreaScale = 0.1;
-        Engine3D.setting.shadow.updateFrameRate = 1;
 
         this.scene = new Scene3D();
 
         // Setup camera
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, Engine3D.aspect, 0.1, 800.0);
-        camera.enableCSM = true;
+        camera.perspective(60, this.engine.aspect, 0.1, 800.0);
 
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController);
         hoverCtrl.setCamera(0, -25, 100);
@@ -41,6 +43,7 @@ class Sample_MultipleShapes {
         let light = lightObj3D.addComponent(DirectLight);
         light.lightColor = Color.COLOR_WHITE;
         light.castShadow = true;
+        light.enableCSM = true;
         light.intensity = 2.2;
         this.scene.addChild(light.object3D);
 
@@ -53,7 +56,7 @@ class Sample_MultipleShapes {
         view.camera = camera;
         view.scene = this.scene;
 
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
 
         // init terrain and create static planes
         await this.initTerrain();
@@ -64,8 +67,8 @@ class Sample_MultipleShapes {
 
     async initTerrain() {
         // Load textures
-        let bitmapTexture = await Engine3D.res.loadTexture('https://cdn.orillusion.com/terrain/test01/bitmap.png');
-        let heightTexture = await Engine3D.res.loadTexture('https://cdn.orillusion.com/terrain/test01/height.png');
+        let bitmapTexture = await this.engine.res.loadTexture('https://cdn.orillusion.com/terrain/test01/bitmap.png');
+        let heightTexture = await this.engine.res.loadTexture('https://cdn.orillusion.com/terrain/test01/height.png');
 
         const width = 100;
         const height = 100;
@@ -101,7 +104,7 @@ class Sample_MultipleShapes {
     // Create static planes for boundaries
     createStaticPlanes() {
         // Create bottom static plane
-        let staticFloorBottom = Object3DUtil.GetPlane(Engine3D.res.whiteTexture);
+        let staticFloorBottom = Object3DUtil.GetPlane(this.engine.context3D, this.engine.res.whiteTexture);
         staticFloorBottom.y = -500;
         staticFloorBottom.transform.enable = false;
         this.scene.addChild(staticFloorBottom);
@@ -111,7 +114,7 @@ class Sample_MultipleShapes {
         bottomRb.mass = 0;
 
         // Create top static plane
-        let staticFloorTop = Object3DUtil.GetPlane(Engine3D.res.whiteTexture);
+        let staticFloorTop = Object3DUtil.GetPlane(this.engine.context3D, this.engine.res.whiteTexture);
         staticFloorTop.y = 100;
         staticFloorTop.transform.enable = false;
         this.scene.addChild(staticFloorTop);

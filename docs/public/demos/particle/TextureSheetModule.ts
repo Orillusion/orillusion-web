@@ -25,25 +25,25 @@ class Sample_OverLifeRotationModule {
     }
 
     async initScene(scene: Scene3D) {
-        // Create entity object
+        // create entity object
         let obj = new Object3D();
         scene.addChild(obj);
 
-        // Add particle system component
+        // add particle system component
         let particleSystem = obj.addComponent(ParticleSystem);
 
-        // Set particle material
+        // set particle material
         let material = new ParticleMaterial();
         material.baseMap = await this.engine.res.loadTexture('https://cdn.orillusion.com/particle/crystal_debug.png');
 
-        // Set particle shape
+        // set particle geometry
         particleSystem.geometry = new PlaneGeometry(1, 1, 1, 1, Vector3.Z_AXIS);
         particleSystem.material = material;
 
-        // Use the specified simulator
+        // use the specified simulator
         let simulator = particleSystem.useSimulator(ParticleStandardSimulator);
 
-        // Add emitter module
+        // add the emitter module
         let emitter = simulator.addModule(ParticleEmitterModule);
         emitter.maxParticle = 1000;
         emitter.duration = 10;
@@ -53,20 +53,20 @@ class Sample_OverLifeRotationModule {
         emitter.radius = 2.0;
         emitter.emitLocation = EmitLocation.Shell;
 
-        // Add texture sheet module
+        // add the texture sheet module
         let sheetModule = simulator.addModule(ParticleTextureSheetModule);
-        // Set how many sub-clips per column
+        // set how many sub-tiles each column contains
         sheetModule.clipCol = 4;
-        // Set the total number of sub-clips in the whole texture
+        // set the total number of sub-tiles in the whole texture
         sheetModule.totalClip = 4 * 4;
-        // Set the width of the whole texture
+        // set the width of the whole texture
         sheetModule.textureWidth = material.baseMap.width;
-        // Set the height of the whole texture
+        // set the height of the whole texture
         sheetModule.textureHeight = material.baseMap.height;
-        // Set the texture animation playback rate
+        // set the texture animation play rate
         sheetModule.playRate = 10.0;
 
-        // Start playing
+        // start playing
         particleSystem.play();
     }
 }

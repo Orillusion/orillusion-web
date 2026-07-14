@@ -1,44 +1,49 @@
-import { Object3D, Scene3D, Engine3D, GlobalIlluminationComponent, Vector3, GTAOPost, PostProcessingComponent, BloomPost, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, webGPUContext, DirectLight, KelvinUtil } from '@orillusion/core';
+import { Object3D, Scene3D, Engine3D, GlobalIlluminationComponent, Vector3, GTAOPost, PostProcessingComponent, BloomPost, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, DirectLight, KelvinUtil } from '@orillusion/core';
 import * as dat from 'dat.gui';
 
 class Sample_GICornellBox {
     scene: Scene3D;
+    engine: Engine3D;
     async run() {
-        Engine3D.setting.gi.enable = true;
-        Engine3D.setting.gi.probeYCount = 6;
-        Engine3D.setting.gi.probeXCount = 6;
-        Engine3D.setting.gi.probeZCount = 6;
-        Engine3D.setting.gi.offsetX = 0;
-        Engine3D.setting.gi.offsetY = 10;
-        Engine3D.setting.gi.offsetZ = 0;
-        Engine3D.setting.gi.indirectIntensity = 1;
-        Engine3D.setting.gi.lerpHysteresis = 0.004; //default value is 0.01
-        Engine3D.setting.gi.maxDistance = 16;
-        Engine3D.setting.gi.probeSpace = 5.8;
-        Engine3D.setting.gi.normalBias = 0;
-        Engine3D.setting.gi.probeSize = 32;
-        Engine3D.setting.gi.octRTSideSize = 16;
-        Engine3D.setting.gi.octRTMaxSize = 2048;
-        Engine3D.setting.gi.ddgiGamma = 2.2;
-        Engine3D.setting.gi.depthSharpness = 1;
-        Engine3D.setting.gi.autoRenderProbe = true;
-
-        Engine3D.setting.shadow.shadowBound = 50;
-        Engine3D.setting.shadow.shadowSize = 2048;
-        Engine3D.setting.shadow.shadowBias = 0.002;
-        Engine3D.setting.shadow.autoUpdate = true;
-        Engine3D.setting.shadow.updateFrameRate = 1;
-
-        await Engine3D.init({
+        this.engine = await Engine3D.init({
             canvasConfig: {
                 devicePixelRatio: 1
+            },
+            setting: {
+                gi: {
+                    enable: true,
+                    probeYCount: 6,
+                    probeXCount: 6,
+                    probeZCount: 6,
+                    offsetX: 0,
+                    offsetY: 10,
+                    offsetZ: 0,
+                    indirectIntensity: 1,
+                    lerpHysteresis: 0.004, //default value is 0.01
+                    maxDistance: 16,
+                    probeSpace: 5.8,
+                    normalBias: 0,
+                    probeSize: 32,
+                    octRTSideSize: 16,
+                    octRTMaxSize: 2048,
+                    ddgiGamma: 2.2,
+                    depthSharpness: 1,
+                    autoRenderProbe: true
+                },
+                shadow: {
+                    shadowBound: 50,
+                    shadowSize: 2048,
+                    shadowBias: 0.002,
+                    autoUpdate: true,
+                    updateFrameRate: 1
+                }
             }
         });
         this.scene = new Scene3D();
         this.scene.addComponent(AtmosphericComponent);
 
         let mainCamera = CameraUtil.createCamera3DObject(this.scene);
-        mainCamera.perspective(60, webGPUContext.aspect, 1, 5000.0);
+        mainCamera.perspective(60, this.engine.aspect, 1, 5000.0);
         let hoverCameraController = mainCamera.object3D.addComponent(HoverCameraController);
         hoverCameraController.setCamera(0, 0, 40, new Vector3(0, 10, 0));
 
@@ -47,7 +52,7 @@ class Sample_GICornellBox {
         let view = new View3D();
         view.scene = this.scene;
         view.camera = mainCamera;
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
 
         let postProcessing = this.scene.addComponent(PostProcessingComponent);
         postProcessing.addPost(BloomPost);
@@ -57,7 +62,7 @@ class Sample_GICornellBox {
 
     private addGIProbes() {
         let probeObj = new Object3D();
-        let GI = probeObj.addComponent(GlobalIlluminationComponent);
+        let GI = probeObj.addComponent(GlobalIlluminationComponent, this.scene);
         this.scene.addChild(probeObj);
         // add a delay to render GUIHelp menu
         setTimeout(() => {
@@ -114,7 +119,7 @@ class Sample_GICornellBox {
     }
 
     async initScene() {
-        let box = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/cornellBox/cornellBox.gltf');
+        let box = await this.engine.res.loadGltf('https://cdn.orillusion.com/gltfs/cornellBox/cornellBox.gltf');
         box.localScale = new Vector3(10, 10, 10);
         this.scene.addChild(box);
 

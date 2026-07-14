@@ -25,25 +25,25 @@ class Sample_OverLifeScaleModule {
     }
 
     async initScene(scene: Scene3D) {
-        // Create entity object
+        // create entity object
         let obj = new Object3D();
         scene.addChild(obj);
 
-        // Add particle system component
+        // add particle system component
         let particleSystem = obj.addComponent(ParticleSystem);
 
-        // Set particle material
+        // set particle material
         let material = new ParticleMaterial();
         material.baseMap = await this.engine.res.loadTexture('https://cdn.orillusion.com/particle/fx_a_glow_003.png');
 
-        // Set particle shape
+        // set particle geometry
         particleSystem.geometry = new PlaneGeometry(1, 1, 1, 1, Vector3.Z_AXIS);
         particleSystem.material = material;
 
-        // Use the specified simulator
+        // use the specified simulator
         let simulator = particleSystem.useSimulator(ParticleStandardSimulator);
 
-        // Add emitter module
+        // add the emitter module
         let emitter = simulator.addModule(ParticleEmitterModule);
         emitter.maxParticle = 1000;
         emitter.duration = 10;
@@ -53,11 +53,11 @@ class Sample_OverLifeScaleModule {
         emitter.radius = 10;
         emitter.emitLocation = EmitLocation.Shell;
 
-        // Add over-life scale module
+        // add the over-life scale module
         let overLifeScaleModule = simulator.addModule(ParticleOverLifeScaleModule);
         overLifeScaleModule.scaleSegments = [new Vector4(1, 1, 1), new Vector4(3, 3, 3)];
 
-        // Start playing
+        // start playing
         particleSystem.play();
     }
 }

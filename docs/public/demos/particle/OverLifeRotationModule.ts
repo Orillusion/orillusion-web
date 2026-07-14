@@ -24,24 +24,24 @@ class Sample_OverLifeRotationModule {
     }
 
     async initScene(scene: Scene3D) {
-        // Create entity object
+        // create entity object
         let obj = new Object3D();
         scene.addChild(obj);
 
-        // Add particle system component
+        // add particle system component
         let particleSystem = obj.addComponent(ParticleSystem);
 
-        // Set particle material
+        // set particle material
         let material = new ParticleMaterial();
 
-        // Set particle shape
+        // set particle geometry
         particleSystem.geometry = new PlaneGeometry(1, 1, 1, 1, Vector3.Z_AXIS);
         particleSystem.material = material;
 
-        // Use the specified simulator
+        // use the specified simulator
         let simulator = particleSystem.useSimulator(ParticleStandardSimulator);
 
-        // Add emitter module
+        // add the emitter module
         let emitter = simulator.addModule(ParticleEmitterModule);
         emitter.maxParticle = 1000;
         emitter.duration = 10;
@@ -51,11 +51,11 @@ class Sample_OverLifeRotationModule {
         emitter.radius = 10;
         emitter.emitLocation = EmitLocation.Shell;
 
-        // Add over-life rotation module
+        // add the over-life rotation module
         let overLifeRotationModule = simulator.addModule(ParticleOverLifeRotationModule);
         overLifeRotationModule.rotationSegments = [new Vector4(0, 0, 0), new Vector4(0, 0, 360 * DEGREES_TO_RADIANS)];
 
-        // Start playing
+        // start playing
         particleSystem.play();
     }
 }

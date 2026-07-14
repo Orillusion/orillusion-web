@@ -2,7 +2,7 @@ import { Engine3D, Scene3D, Object3D, Camera3D, AtmosphericComponent, LitMateria
 import * as dat from 'dat.gui';
 
 // init Engine3D
-await Engine3D.init();
+let engine = await Engine3D.init();
 
 // create a root Scene3D
 let scene3D: Scene3D = new Scene3D();
@@ -14,7 +14,7 @@ let cameraObj: Object3D = new Object3D();
 // add Camera3D
 let camera = cameraObj.addComponent(Camera3D);
 // use a perspective view
-camera.perspective(60, Engine3D.aspect, 1, 5000.0);
+camera.perspective(60, engine.aspect, 1, 5000.0);
 // set camera controller
 let controller = camera.object3D.addComponent(HoverCameraController);
 controller.setCamera(0, 0, 15);
@@ -50,7 +50,7 @@ let view = new View3D();
 view.scene = scene3D;
 view.camera = camera;
 // start render
-Engine3D.startRenderView(view);
+engine.startRenderView(view);
 
 const GUIHelp = new dat.GUI();
 let f = GUIHelp.addFolder('Box Transform');

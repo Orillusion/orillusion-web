@@ -1,19 +1,20 @@
-import { DirectLight, Engine3D, AtmosphericComponent, View3D, HoverCameraController, KelvinUtil, Object3D, Scene3D, CameraUtil, webGPUContext, PropertyAnimation, PropertyAnimClip, WrapMode } from '@orillusion/core';
+import { DirectLight, Engine3D, AtmosphericComponent, View3D, HoverCameraController, KelvinUtil, Object3D, Scene3D, CameraUtil, PropertyAnimation, PropertyAnimClip, WrapMode } from '@orillusion/core';
 import * as dat from 'dat.gui';
 
 class Sample_PropertyAnim {
     lightObj: Object3D;
     scene: Scene3D;
+    engine: Engine3D;
     private animation: PropertyAnimation;
 
     constructor() {}
 
     async run() {
-        await Engine3D.init();
+        this.engine = await Engine3D.init();
 
         this.scene = new Scene3D();
         let camera = CameraUtil.createCamera3DObject(this.scene, 'camera');
-        camera.perspective(60, webGPUContext.aspect, 1, 2000.0);
+        camera.perspective(60, this.engine.aspect, 1, 2000.0);
         let ctrl = camera.object3D.addComponent(HoverCameraController);
         ctrl.setCamera(180, -20, 15);
 
@@ -26,7 +27,7 @@ class Sample_PropertyAnim {
         view.scene = this.scene;
         view.camera = camera;
         // start render
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
 
         let guiData = {
             click: () => this.animation.play('anim_0', true),
@@ -82,7 +83,7 @@ class Sample_PropertyAnim {
             scene.addChild(this.lightObj);
         }
 
-        let duck = await Engine3D.res.loadGltf('https://cdn.orillusion.com/PBR/Duck/Duck.gltf');
+        let duck = await this.engine.res.loadGltf('https://cdn.orillusion.com/PBR/Duck/Duck.gltf');
         this.scene.addChild(duck);
         duck.scaleX = duck.scaleY = duck.scaleZ = 0.02;
 

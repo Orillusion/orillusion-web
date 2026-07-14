@@ -1,12 +1,13 @@
-import { Camera3D, Engine3D, DirectLight, AtmosphericComponent, View3D, HoverCameraController, MeshRenderer, Object3D, RendererMask, Scene3D, webGPUContext, Color, MorphTargetBlender } from '@orillusion/core';
+import { Camera3D, Engine3D, DirectLight, AtmosphericComponent, View3D, HoverCameraController, MeshRenderer, Object3D, RendererMask, Scene3D, Color, MorphTargetBlender } from '@orillusion/core';
 import * as dat from 'dat.gui';
 
 class Sample_morph {
     scene: Scene3D;
     hoverCameraController: HoverCameraController;
+    engine: Engine3D;
 
     async run() {
-        await Engine3D.init();
+        this.engine = await Engine3D.init();
 
         this.scene = new Scene3D();
         let cameraObj = new Object3D();
@@ -14,7 +15,7 @@ class Sample_morph {
         let mainCamera = cameraObj.addComponent(Camera3D);
         this.scene.addChild(cameraObj);
 
-        mainCamera.perspective(60, webGPUContext.aspect, 1, 5000.0);
+        mainCamera.perspective(60, this.engine.aspect, 1, 5000.0);
         this.hoverCameraController = mainCamera.object3D.addComponent(HoverCameraController);
         this.hoverCameraController.setCamera(0, 0, 110);
 
@@ -27,7 +28,7 @@ class Sample_morph {
         view.scene = this.scene;
         view.camera = mainCamera;
         // start render
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
     }
 
     private influenceData: { [key: string]: number } = {};
@@ -35,7 +36,7 @@ class Sample_morph {
 
     async initScene(scene: Scene3D) {
         {
-            let data = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/glb/lion.glb');
+            let data = await this.engine.res.loadGltf('https://cdn.orillusion.com/gltfs/glb/lion.glb');
             data.addComponent(MorphTargetBlender);
             data.y = -80.0;
             data.x = -30.0;

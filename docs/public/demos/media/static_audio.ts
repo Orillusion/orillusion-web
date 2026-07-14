@@ -8,17 +8,22 @@ class Static_Audio {
     camera: Object3D;
     mats: any[];
     audio: StaticAudio;
+    engine: Engine3D;
     constructor() {}
 
     async run() {
-        Engine3D.setting.shadow.autoUpdate = true;
-        Engine3D.setting.shadow.updateFrameRate = 1;
-        Engine3D.setting.shadow.type = 'HARD';
-        Engine3D.setting.shadow.shadowSize = 2048;
-        Engine3D.setting.shadow.shadowBound = 200;
-        Engine3D.setting.shadow.shadowBias = 0.002;
-
-        await Engine3D.init();
+        this.engine = await Engine3D.init({
+            setting: {
+                shadow: {
+                    autoUpdate: true,
+                    updateFrameRate: 1,
+                    type: 'HARD',
+                    shadowSize: 2048,
+                    shadowBound: 200,
+                    shadowBias: 0.002
+                }
+            }
+        });
         this.scene = new Scene3D();
         this.scene.addComponent(AtmosphericComponent);
 
@@ -27,7 +32,7 @@ class Static_Audio {
         let mainCamera = this.camera.addComponent(Camera3D);
         this.scene.addChild(this.camera);
 
-        mainCamera.perspective(60, Engine3D.aspect, 0.1, 20000.0);
+        mainCamera.perspective(60, this.engine.aspect, 0.1, 20000.0);
         let orbit = this.camera.addComponent(OrbitController);
         orbit.target = new Vector3(0, 4, 0);
         orbit.minDistance = 10;
@@ -37,7 +42,7 @@ class Static_Audio {
         view.scene = this.scene;
         view.camera = mainCamera;
 
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
         await this.initScene();
     }
 
@@ -75,7 +80,7 @@ class Static_Audio {
         }
         {
             let group = new Object3D();
-            let speaker = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/speaker/scene.gltf');
+            let speaker = await this.engine.res.loadGltf('https://cdn.orillusion.com/gltfs/speaker/scene.gltf');
             speaker.localScale.set(4, 4, 4);
             speaker.rotationX = -120;
             //speaker.y = 1.5

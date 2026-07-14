@@ -21,8 +21,8 @@ class UserEventScriptLeft extends ComponentBase {
     }
 
     public start() {
-        Engine3D.inputSystem.addEventListener('RunEvent', this.OnRunEvent, this);
-        Engine3D.inputSystem.addEventListener('StopEvent', this.OnStopEvent, this);
+        engine.inputSystem.addEventListener('RunEvent', this.OnRunEvent, this);
+        engine.inputSystem.addEventListener('StopEvent', this.OnStopEvent, this);
     }
 
     public onUpdate() {
@@ -35,12 +35,12 @@ let cameraObj: Object3D;
 let camera: Camera3D;
 let boxObj: Object3D;
 
-await Engine3D.init();
+let engine = await Engine3D.init();
 scene = new Scene3D();
 scene.addComponent(AtmosphericComponent);
 cameraObj = new Object3D();
 camera = cameraObj.addComponent(Camera3D);
-camera.perspective(60, Engine3D.aspect, 1, 5000.0);
+camera.perspective(60, engine.aspect, 1, 5000.0);
 camera.lookAt(new Vector3(0, 5, 15), new Vector3(0, 0, 0));
 scene.addChild(cameraObj);
 
@@ -61,7 +61,7 @@ let view = new View3D();
 view.scene = scene;
 view.camera = camera;
 // start render
-Engine3D.startRenderView(view);
+engine.startRenderView(view);
 
 const gui = new dat.GUI();
 // Debug
@@ -69,16 +69,16 @@ const debugInfo = {
     leftEvent: () => {
         let params = { direction: 'left' };
         let e = new CEvent('RunEvent', params);
-        Engine3D.inputSystem.dispatchEvent(e);
+        engine.inputSystem.dispatchEvent(e);
     },
     rightEvent: () => {
         let params = { direction: 'right' };
         let e = new CEvent('RunEvent', params);
-        Engine3D.inputSystem.dispatchEvent(e);
+        engine.inputSystem.dispatchEvent(e);
     },
     stopEvent: () => {
         let e = new CEvent('StopEvent');
-        Engine3D.inputSystem.dispatchEvent(e);
+        engine.inputSystem.dispatchEvent(e);
     }
 };
 gui.add(debugInfo, 'leftEvent');

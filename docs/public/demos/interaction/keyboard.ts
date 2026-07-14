@@ -9,8 +9,8 @@ class KeyboardScript extends ComponentBase {
     private e: boolean = false;
 
     public start() {
-        Engine3D.inputSystem.addEventListener(KeyEvent.KEY_UP, this.keyUp, this);
-        Engine3D.inputSystem.addEventListener(KeyEvent.KEY_DOWN, this.keyDown, this);
+        engine.inputSystem.addEventListener(KeyEvent.KEY_UP, this.keyUp, this);
+        engine.inputSystem.addEventListener(KeyEvent.KEY_DOWN, this.keyDown, this);
     }
     private keyDown(e: KeyEvent) {
         // console.log('keyDown:', e.keyCode);
@@ -71,14 +71,14 @@ let cameraObj: Object3D;
 let camera: Camera3D;
 let boxObj: Object3D;
 
-await Engine3D.init();
+let engine = await Engine3D.init();
 
 scene = new Scene3D();
 scene.addComponent(AtmosphericComponent);
 
 cameraObj = new Object3D();
 camera = cameraObj.addComponent(Camera3D);
-camera.perspective(60, Engine3D.aspect, 1, 5000.0);
+camera.perspective(60, engine.aspect, 1, 5000.0);
 camera.lookAt(new Vector3(0, 5, 15), new Vector3(0, 0, 0));
 scene.addChild(cameraObj);
 
@@ -99,4 +99,4 @@ let view = new View3D();
 view.scene = scene;
 view.camera = camera;
 // start render
-Engine3D.startRenderView(view);
+engine.startRenderView(view);

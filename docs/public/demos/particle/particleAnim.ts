@@ -26,28 +26,28 @@
 //     }
 
 //     async initScene(scene: Scene3D) {
-//         // Create entity object
+//         // create entity object
 //         let obj = new Object3D();
 //         obj.x = 0;
 //         obj.y = 15;
 //         obj.z = 51;
 //         scene.addChild(obj);
 
-//         // Add particle system component
+//         // add particle system component
 //         let particleSystem = obj.addComponent(ParticleSystem);
 
-//         // Set particle material
+//         // set particle material
 //         let material = new ParticleMaterial();
 //         material.baseMap = await Engine3D.res.loadTexture('https://cdn.orillusion.com/particle/fx_a_glow_003.png');
 
-//         // Set particle shape
+//         // set particle geometry
 //         particleSystem.geometry = new PlaneGeometry(5, 5, 1, 1, Vector3.Z_AXIS);
 //         particleSystem.material = material;
 
-//         // Use the specified simulator
+//         // use the specified simulator
 //         let simulator = particleSystem.useSimulator(ParticleStandSimulator);
 
-//         // Add emitter module
+//         // add the emitter module
 //         let emitter = simulator.addModule(ParticleEmitModule);
 //         emitter.maxParticle = 1 * 10000;
 //         emitter.duration = 10;
@@ -58,15 +58,15 @@
 //         emitter.emitLocation = EmitLocation.Shell;
 //         emitter.boxSize = new Vector3(1, 0, 1);
 
-//         // Add gravity modifier module
+//         // add the gravity modifier module
 //         simulator.addModule(ParticleGravityModifierModule).gravity = new Vector3(0, 0.2, 0);
 
-//         // Add over-life color module
+//         // add the over-life color module
 //         simulator.addModule(ParticleOverLifeColorModule).colorSegments = [
 //             new Vector4(1, 0.3, 0, 1),         new Vector4(0, 0.6, 1, 0)
 //         ];
 
-//         // Start playing
+//         // start playing
 //         particleSystem.play();
 //     }
 // }

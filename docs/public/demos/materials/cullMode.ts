@@ -1,12 +1,12 @@
 import { Engine3D, Vector3, Scene3D, Object3D, Camera3D, AtmosphericComponent, View3D, UnLitMaterial, MeshRenderer, OrbitController, PlaneGeometry, BitmapTexture2D, DirectLight, Color, GPUCullMode } from '@orillusion/core';
 
-await Engine3D.init();
+let engine = await Engine3D.init();
 let scene = new Scene3D();
 let camera = new Object3D();
 camera.z = 3;
 scene.addChild(camera);
 let mainCamera = camera.addComponent(Camera3D);
-mainCamera.perspective(60, Engine3D.aspect, 0.1, 10000.0);
+mainCamera.perspective(60, engine.aspect, 0.1, 10000.0);
 let oribit = camera.addComponent(OrbitController);
 oribit.autoRotate = true;
 oribit.autoRotateSpeed = 1;
@@ -26,7 +26,7 @@ let view = new View3D();
 view.scene = scene;
 view.camera = mainCamera;
 // start render
-Engine3D.startRenderView(view);
+engine.startRenderView(view);
 
 let texture = new BitmapTexture2D();
 await texture.load('https://cdn.orillusion.com/gltfs/cube/material_02.png');

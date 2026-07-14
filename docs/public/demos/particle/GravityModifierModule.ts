@@ -25,26 +25,26 @@ class Sample_OverLifeRotationModule {
     }
 
     async initScene(scene: Scene3D) {
-        // Create entity object
+        // create entity object
         let obj = new Object3D();
         obj.y = 10;
         scene.addChild(obj);
 
-        // Add particle system component
+        // add particle system component
         let particleSystem = obj.addComponent(ParticleSystem);
 
-        // Set particle material
+        // set particle material
         let material = new ParticleMaterial();
         material.baseMap = await this.engine.res.loadTexture('https://cdn.orillusion.com/particle/fx_a_fragment_003.png');
 
-        // Set particle shape
+        // set particle geometry
         particleSystem.geometry = new PlaneGeometry(1, 8, 1, 1, Vector3.Z_AXIS);
         particleSystem.material = material;
 
-        // Use the specified simulator
+        // use the specified simulator
         let simulator = particleSystem.useSimulator(ParticleStandardSimulator);
 
-        // Add emitter module
+        // add the emitter module
         let emitter = simulator.addModule(ParticleEmitterModule);
         emitter.maxParticle = 10000;
         emitter.duration = 10;
@@ -54,11 +54,11 @@ class Sample_OverLifeRotationModule {
         emitter.radius = 60;
         emitter.emitLocation = EmitLocation.Shell;
 
-        // Add gravity modifier module
+        // add the gravity modifier module
         let gravityModifier = simulator.addModule(ParticleGravityModifierModule);
         gravityModifier.gravity = new Vector3(0, -9.8, 0);
 
-        // Start playing
+        // start playing
         particleSystem.play();
     }
 }

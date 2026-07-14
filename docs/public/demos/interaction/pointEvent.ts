@@ -4,14 +4,14 @@ let scene: Scene3D;
 let cameraObj: Object3D;
 let camera: Camera3D;
 let boxObj: Object3D;
-await Engine3D.init();
+let engine = await Engine3D.init();
 
 scene = new Scene3D();
 scene.addComponent(AtmosphericComponent);
 
 cameraObj = new Object3D();
 camera = cameraObj.addComponent(Camera3D);
-camera.perspective(60, Engine3D.aspect, 1, 5000.0);
+camera.perspective(60, engine.aspect, 1, 5000.0);
 camera.lookAt(new Vector3(0, 5, 15), new Vector3(0, 0, 0));
 scene.addChild(cameraObj);
 
@@ -31,9 +31,9 @@ let view = new View3D();
 view.scene = scene;
 view.camera = camera;
 // start render
-Engine3D.startRenderView(view);
+engine.startRenderView(view);
 
-Engine3D.inputSystem.addEventListener(
+engine.inputSystem.addEventListener(
     PointerEvent3D.POINTER_DOWN,
     (e: PointerEvent3D) => {
         if (e.mouseCode == MouseCode.MOUSE_LEFT) {
@@ -45,10 +45,10 @@ Engine3D.inputSystem.addEventListener(
     this
 );
 
-Engine3D.inputSystem.addEventListener(
+engine.inputSystem.addEventListener(
     PointerEvent3D.POINTER_WHEEL,
     (e: PointerEvent3D) => {
-        boxObj.z += Engine3D.inputSystem.wheelDelta / 120;
+        boxObj.z += engine.inputSystem.wheelDelta / 120;
     },
     this
 );

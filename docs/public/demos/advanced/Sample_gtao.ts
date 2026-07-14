@@ -1,4 +1,4 @@
-import { View3D, DirectLight, Engine3D, PostProcessingComponent, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, SphereGeometry, CameraUtil, webGPUContext, BoxGeometry, TAAPost, AtmosphericComponent, GTAOPost } from '@orillusion/core';
+import { View3D, DirectLight, Engine3D, PostProcessingComponent, LitMaterial, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, SphereGeometry, CameraUtil, BoxGeometry, TAAPost, AtmosphericComponent, GTAOPost } from '@orillusion/core';
 import * as dat from 'dat.gui';
 
 class Sample_GTAO {
@@ -6,17 +6,21 @@ class Sample_GTAO {
     scene: Scene3D;
 
     async run() {
-        Engine3D.setting.shadow.shadowSize = 2048;
-        Engine3D.setting.shadow.shadowBound = 500;
-        Engine3D.setting.shadow.shadowBias = 0.05;
-
-        await Engine3D.init();
+        let engine = await Engine3D.init({
+            setting: {
+                shadow: {
+                    shadowSize: 2048,
+                    shadowBound: 500,
+                    shadowBias: 0.05
+                }
+            }
+        });
 
         this.scene = new Scene3D();
         this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
 
         let mainCamera = CameraUtil.createCamera3DObject(this.scene, 'camera');
-        mainCamera.perspective(60, webGPUContext.aspect, 1, 5000.0);
+        mainCamera.perspective(60, engine.aspect, 1, 5000.0);
         let ctrl = mainCamera.object3D.addComponent(HoverCameraController);
         ctrl.setCamera(0, -15, 500);
         await this.initScene();
@@ -24,7 +28,7 @@ class Sample_GTAO {
         let view = new View3D();
         view.scene = this.scene;
         view.camera = mainCamera;
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
         let postProcessing = this.scene.addComponent(PostProcessingComponent);
         let post = postProcessing.addPost(GTAOPost);

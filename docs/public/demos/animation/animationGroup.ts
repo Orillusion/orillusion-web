@@ -1,14 +1,14 @@
 import { Engine3D, Scene3D, CameraUtil, HoverCameraController, Object3D, DirectLight, Color, SkeletonAnimationComponent, AtmosphericComponent, View3D } from '@orillusion/core';
 
 // Init Engine3D
-await Engine3D.init();
+let engine = await Engine3D.init();
 
 // Create Scene3D
 let scene = new Scene3D();
 
 // add a camera object with Camera3D
 let mainCamera = CameraUtil.createCamera3DObject(scene);
-mainCamera.perspective(60, Engine3D.aspect, 0.1, 10000.0);
+mainCamera.perspective(60, engine.aspect, 0.1, 10000.0);
 mainCamera.object3D.addComponent(HoverCameraController);
 
 // add a dir light
@@ -22,7 +22,7 @@ dl.castShadow = true;
 dl.intensity = 15;
 
 // load test model
-let cesiumMan = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/glb/CesiumMan.glb');
+let cesiumMan = await engine.res.loadGltf('https://cdn.orillusion.com/gltfs/glb/CesiumMan.glb');
 let cesiumMan_skeleton = cesiumMan.getChildByName('Cesium_Man0') as Object3D;
 cesiumMan_skeleton.localScale.set(20, 20, 20);
 cesiumMan_skeleton.localPosition.x = 30;
@@ -47,4 +47,4 @@ let view = new View3D();
 view.scene = scene;
 view.camera = mainCamera;
 // start render
-Engine3D.startRenderView(view);
+engine.startRenderView(view);

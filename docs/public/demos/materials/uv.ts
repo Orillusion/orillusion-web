@@ -1,4 +1,4 @@
-import { Camera3D, CameraUtil, DirectLight, Engine3D, AtmosphericComponent, View3D, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, UnLitMaterial, webGPUContext, Vector4 } from '@orillusion/core';
+import { Camera3D, CameraUtil, DirectLight, Engine3D, AtmosphericComponent, View3D, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, UnLitMaterial, Vector4 } from '@orillusion/core';
 import * as dat from 'dat.gui';
 
 class Sample_UV {
@@ -6,20 +6,21 @@ class Sample_UV {
     cameraObj: Camera3D;
     scene: Scene3D;
     hover: HoverCameraController;
+    engine: Engine3D;
 
     constructor() {}
 
     async run() {
-        await Engine3D.init({ canvasConfig: { alpha: false, zIndex: 0 } });
-        Engine3D.setting.shadow.debug = false;
-        Engine3D.setting.shadow.shadowBound = 5;
+        this.engine = await Engine3D.init({ canvasConfig: { alpha: false, zIndex: 0 } });
+        this.engine.setting.shadow.debug = false;
+        this.engine.setting.shadow.shadowBound = 5;
 
         this.scene = new Scene3D();
         // add an Atmospheric sky enviroment
         this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
 
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, webGPUContext.aspect, 0.01, 5000.0);
+        camera.perspective(60, this.engine.aspect, 0.01, 5000.0);
 
         this.hover = camera.object3D.addComponent(HoverCameraController);
         this.hover.setCamera(0, 0, 100);
@@ -29,7 +30,7 @@ class Sample_UV {
         view.scene = this.scene;
         view.camera = camera;
         // start render
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
 
         await this.initScene();
     }
@@ -54,7 +55,7 @@ class Sample_UV {
         }
 
         {
-            let tex = await Engine3D.res.loadTexture('https://cdn.orillusion.com/images/T_Fx_Object_229.webp');
+            let tex = await this.engine.res.loadTexture('https://cdn.orillusion.com/images/T_Fx_Object_229.webp');
             let mat = new UnLitMaterial();
             mat.baseMap = tex;
 

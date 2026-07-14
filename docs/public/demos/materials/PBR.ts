@@ -7,12 +7,12 @@ class Sample_Materials {
     constructor() {}
 
     async run() {
-        await Engine3D.init();
+        let engine = await Engine3D.init();
         this.scene = new Scene3D();
         let cameraObj = new Object3D();
         let mainCamera = cameraObj.addComponent(Camera3D);
         this.scene.addChild(cameraObj);
-        mainCamera.perspective(60, Engine3D.aspect, 1, 5000.0);
+        mainCamera.perspective(60, engine.aspect, 1, 5000.0);
         mainCamera.object3D.addComponent(HoverCameraController);
 
         await this.initScene();
@@ -24,7 +24,7 @@ class Sample_Materials {
         view.scene = this.scene;
         view.camera = mainCamera;
         // start render
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
     }
 
     async initScene() {

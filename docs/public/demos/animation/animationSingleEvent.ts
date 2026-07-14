@@ -2,7 +2,7 @@ import { Engine3D, Scene3D, Object3D, AtmosphericComponent, View3D, DirectLight,
 import * as dat from 'dat.gui';
 
 // Init Engine3D
-await Engine3D.init();
+let engine = await Engine3D.init();
 
 // Create Scene3D
 let scene = new Scene3D();
@@ -10,7 +10,7 @@ scene.exposure = 0.3;
 
 // add a camera object with Camera3D
 let mainCamera = CameraUtil.createCamera3DObject(scene);
-mainCamera.perspective(60, Engine3D.aspect, 0.1, 10000.0);
+mainCamera.perspective(60, engine.aspect, 0.1, 10000.0);
 let hc = mainCamera.object3D.addComponent(HoverCameraController);
 hc.setCamera(0, -15, 5, new Vector3(0, 1, 0));
 
@@ -27,7 +27,7 @@ hc.setCamera(0, -15, 5, new Vector3(0, 1, 0));
 }
 
 // load test model
-let soldier = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/glb/Soldier.glb');
+let soldier = await engine.res.loadGltf('https://cdn.orillusion.com/gltfs/glb/Soldier.glb');
 soldier.rotationY = -90;
 soldier.localScale.set(2, 2, 2);
 scene.addChild(soldier);
@@ -76,4 +76,4 @@ let view = new View3D();
 view.scene = scene;
 view.camera = mainCamera;
 // start render
-Engine3D.startRenderView(view);
+engine.startRenderView(view);

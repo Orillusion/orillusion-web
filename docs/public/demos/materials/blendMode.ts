@@ -1,24 +1,25 @@
-import { BlendMode, Camera3D, CameraUtil, Color, BloomPost, DirectLight, Engine3D, GPUCullMode, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, UnLitMaterial, webGPUContext, AtmosphericComponent, View3D, PostProcessingComponent } from '@orillusion/core';
+import { BlendMode, Camera3D, CameraUtil, Color, BloomPost, DirectLight, Engine3D, GPUCullMode, HoverCameraController, KelvinUtil, MeshRenderer, Object3D, PlaneGeometry, Scene3D, UnLitMaterial, AtmosphericComponent, View3D, PostProcessingComponent } from '@orillusion/core';
 
 class Sample_BlendMode {
     lightObj: Object3D;
     cameraObj: Camera3D;
     scene: Scene3D;
     hover: HoverCameraController;
+    engine: Engine3D;
 
     constructor() {}
 
     async run() {
-        await Engine3D.init({ canvasConfig: { alpha: false, zIndex: 0 } });
+        this.engine = await Engine3D.init({ canvasConfig: { alpha: false, zIndex: 0 } });
 
-        Engine3D.setting.shadow.shadowBound = 5;
+        this.engine.setting.shadow.shadowBound = 5;
 
         this.scene = new Scene3D();
         // add an Atmospheric sky enviroment
         this.scene.addComponent(AtmosphericComponent).sunY = 0.6;
 
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, webGPUContext.aspect, 0.01, 5000.0);
+        camera.perspective(60, this.engine.aspect, 0.01, 5000.0);
 
         this.hover = camera.object3D.addComponent(HoverCameraController);
         this.hover.setCamera(0, 0, 100);
@@ -28,7 +29,7 @@ class Sample_BlendMode {
         view.scene = this.scene;
         view.camera = camera;
         // start render
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
 
         let postProcessing = this.scene.addComponent(PostProcessingComponent);
         let bloom = postProcessing.addPost(BloomPost);
@@ -56,7 +57,7 @@ class Sample_BlendMode {
         }
 
         {
-            let tex = await Engine3D.res.loadTexture('https://cdn.orillusion.com/images/T_Fx_Object_229.webp');
+            let tex = await this.engine.res.loadTexture('https://cdn.orillusion.com/images/T_Fx_Object_229.webp');
             let mat = new UnLitMaterial();
             mat.baseMap = tex;
             mat.cullMode = GPUCullMode.none;
