@@ -13,7 +13,7 @@ class Sample_BoundingBox {
 
     async run() {
         // init engine
-        await Engine3D.init({
+        let engine = await Engine3D.init({
             renderLoop: () => {
                 this.loop();
             }
@@ -28,7 +28,7 @@ class Sample_BoundingBox {
 
         // init Camera3D
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, Engine3D.aspect, 0.01, 1000);
+        camera.perspective(60, engine.aspect, 0.01, 1000);
 
         // init Camera Controller
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController);
@@ -62,8 +62,8 @@ class Sample_BoundingBox {
         // relative light to sky
         atmosphericSky.relativeTransform = light.transform;
 
-        // Engine3D.startRenderViews([this.view])
-        Engine3D.startRenderView(this.view);
+        // engine.startRenderViews([this.view])
+        engine.startRenderView(this.view);
 
         Engine3D.getRenderJob(this.view);
 

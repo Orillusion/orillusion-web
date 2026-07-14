@@ -23,7 +23,7 @@ class Sample_MeshLines {
 
     async run() {
         // init engine
-        await Engine3D.init();
+        let engine = await Engine3D.init();
         // create new Scene
         let scene = new Scene3D();
         scene.addComponent(Stats);
@@ -31,7 +31,7 @@ class Sample_MeshLines {
 
         // init camera3D
         let mainCamera = CameraUtil.createCamera3D(null, scene);
-        mainCamera.perspective(60, Engine3D.aspect, 1, 2000.0);
+        mainCamera.perspective(60, engine.aspect, 1, 2000.0);
 
         // add a basic camera controller
         this.hoverCameraController = mainCamera.object3D.addComponent(HoverCameraController);
@@ -62,11 +62,11 @@ class Sample_MeshLines {
         view.camera = mainCamera;
 
         // start render
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
-        Engine3D.inputSystem.addEventListener(PointerEvent3D.POINTER_DOWN, this.onMouseDown, this, null, 999);
-        Engine3D.inputSystem.addEventListener(PointerEvent3D.POINTER_MOVE, this.onMouseMove, this);
-        Engine3D.inputSystem.addEventListener(PointerEvent3D.POINTER_UP, this.onMouseUp, this);
+        engine.inputSystem.addEventListener(PointerEvent3D.POINTER_DOWN, this.onMouseDown, this, null, 999);
+        engine.inputSystem.addEventListener(PointerEvent3D.POINTER_MOVE, this.onMouseMove, this);
+        engine.inputSystem.addEventListener(PointerEvent3D.POINTER_UP, this.onMouseUp, this);
 
         // debug GUI
         let gui = new dat.GUI();

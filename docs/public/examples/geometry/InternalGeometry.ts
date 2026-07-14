@@ -1,14 +1,18 @@
-import { Engine3D, View3D, Scene3D, CameraUtil, AtmosphericComponent, webGPUContext, HoverCameraController, Object3D, DirectLight, KelvinUtil, PlaneGeometry, LitMaterial, MeshRenderer, BoxGeometry, SphereGeometry, CylinderGeometry, TorusGeometry, Color } from '@orillusion/core';
+import { Engine3D, View3D, Scene3D, CameraUtil, AtmosphericComponent, HoverCameraController, Object3D, DirectLight, KelvinUtil, PlaneGeometry, LitMaterial, MeshRenderer, BoxGeometry, SphereGeometry, CylinderGeometry, TorusGeometry, Color } from '@orillusion/core';
 import { Stats } from '@orillusion/stats';
 
 // An sample of display internal geometry
 class Sample_InternalGeometry {
     lightObj: Object3D;
     async run() {
-        Engine3D.setting.shadow.autoUpdate = true;
-        Engine3D.setting.shadow.shadowBound = 200;
-
-        await Engine3D.init();
+        let engine = await Engine3D.init({
+            setting: {
+                shadow: {
+                    autoUpdate: true,
+                    shadowBound: 200
+                }
+            }
+        });
         let view = new View3D();
         view.scene = new Scene3D();
         view.scene.addComponent(Stats);
@@ -16,11 +20,11 @@ class Sample_InternalGeometry {
         let sky = view.scene.addComponent(AtmosphericComponent);
 
         view.camera = CameraUtil.createCamera3DObject(view.scene);
-        view.camera.perspective(60, webGPUContext.aspect, 1, 5000.0);
+        view.camera.perspective(60, engine.aspect, 1, 5000.0);
         view.camera.object3D.z = -15;
         view.camera.object3D.addComponent(HoverCameraController).setCamera(35, -20, 150);
 
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
         await this.createScene(view.scene);
         sky.relativeTransform = this.lightObj.transform;

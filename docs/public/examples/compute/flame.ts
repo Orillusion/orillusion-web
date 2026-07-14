@@ -1,14 +1,15 @@
 
-import { AnimatorComponent, AtmosphericComponent, CameraUtil, ClusterLightingBuffer, Color, ComputeGPUBuffer, ComputeShader, DirectLight, Engine3D, GlobalBindGroup, GPUContext, HoverCameraController, Material, MeshRenderer, Object3D, PassType, PlaneGeometry, RendererMask, RendererPassState, RenderShaderPass, Scene3D, Shader, ShaderLib, SkinnedMeshRenderer2, Texture, Time, Vector3, Vector4, VertexAttributeData, VertexAttributeName, View3D, webGPUContext } from "@orillusion/core";
+import { AnimatorComponent, AtmosphericComponent, CameraUtil, ClusterLightingBuffer, Color, ComputeGPUBuffer, ComputeShader, DirectLight, Engine3D, GlobalBindGroup, GPUContext, HoverCameraController, Material, MeshRenderer, Object3D, PassType, PlaneGeometry, RendererMask, RendererPassState, RenderShaderPass, Scene3D, Shader, ShaderLib, SkinnedMeshRenderer2, Texture, Time, Vector3, Vector4, VertexAttributeData, VertexAttributeName, View3D } from "@orillusion/core";
 
 class Demo_Flame {
     constructor() { }
 
     protected mLastPoint: Vector3 = new Vector3();
     protected mVelocity: Vector3 = new Vector3();
+    engine: Engine3D;
 
     async run() {
-        await Engine3D.init({});
+        this.engine = await Engine3D.init({});
 
         let scene = new Scene3D();
         let sky = scene.addComponent(AtmosphericComponent);
@@ -16,18 +17,18 @@ class Demo_Flame {
 
         let camera = CameraUtil.createCamera3DObject(scene);
 
-        camera.perspective(60, webGPUContext.aspect, 0.01, 10000.0);
+        camera.perspective(60, this.engine.aspect, 0.01, 10000.0);
         let ctl = camera.object3D.addComponent(HoverCameraController);
         ctl.setCamera(0, 0, 5);
 
         let view = new View3D();
         view.scene = scene;
         view.camera = camera;
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
     }
 
     async initScene(scene: Scene3D) {
-        let cesiumMan = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/CesiumMan/CesiumMan.gltf');
+        let cesiumMan = await this.engine.res.loadGltf('https://cdn.orillusion.com/gltfs/CesiumMan/CesiumMan.gltf');
         cesiumMan.rotationX = -90;
         cesiumMan.rotationY = 180;
         cesiumMan.y = -0.8;
@@ -85,7 +86,7 @@ class FlameSimulatorBuffer {
     }
 
     protected initGPUBuffer(config: FlameSimulatorConfig) {
-        let device = webGPUContext.device;
+        let device = this.engine.device;
 
         const { NUM, SPAWN_RADIUS, BASE_LIFETIME, MAX_ADDITIONAL_LIFETIME, NUMBER_OF_BONES } = config;
 
@@ -395,7 +396,7 @@ class FlameSimulatorMaterial extends Material {
         shaderState.useLight = false;
 
         // default value
-        this.baseMap = Engine3D.res.whiteTexture;
+        this.baseMap = Engine3D.resFor().whiteTexture;
         this.shader = shader;
         
         // this.transparent = true ;

@@ -14,18 +14,19 @@ class Sample_EatTheBox {
     tempObj: Object3D;
     score: number = 0;
     moveScript: MoveScript;
+    engine: Engine3D;
     async run() {
         //init physics and engine
         await Physics.init();
-        await Engine3D.init({
+        this.engine = await Engine3D.init({
             renderLoop: () => this.loop()
         });
 
         //set shadow
-        Engine3D.setting.shadow.updateFrameRate = 1;
-        Engine3D.setting.shadow.shadowSize = 2048;
-        Engine3D.setting.shadow.shadowBound = 100;
-        Engine3D.setting.shadow.shadowBias = 0.01;
+        this.engine.setting.shadow.updateFrameRate = 1;
+        this.engine.setting.shadow.shadowSize = 2048;
+        this.engine.setting.shadow.shadowBound = 100;
+        this.engine.setting.shadow.shadowBias = 0.01;
         //get original ammo world for processing more custom function
         this.ammoWorld = Physics.world;
 
@@ -38,7 +39,7 @@ class Sample_EatTheBox {
         let cameraObj = new Object3D();
         let camera = cameraObj.addComponent(Camera3D);
         // camera.enableCSM = true;
-        camera.perspective(60, Engine3D.aspect, 1, 5000);
+        camera.perspective(60, this.engine.aspect, 1, 5000);
         camera.lookAt(new Vector3(0, 40, 35), new Vector3());
         scene.addChild(cameraObj);
 
@@ -65,7 +66,7 @@ class Sample_EatTheBox {
         //create player(ball)
         this.createBall();
         //start render
-        Engine3D.startRenderView(this.view);
+        this.engine.startRenderView(this.view);
 
         //add debug UI
         const gui = new dat.GUI();
@@ -167,7 +168,7 @@ class Sample_EatTheBox {
         mat.baseColor = KelvinUtil.color_temperature_to_rgb(1325);
         sphereObj.y = 5;
         //add movescript
-        this.moveScript = sphereObj.addComponent(MoveScript);
+        this.moveScript = sphereObj.addComponent(MoveScript, { engine: this.engine });
         this.moveScript.rigidbody = sphereObj.addComponent(Rigidbody);
         this.moveScript.rigidbody.wait().then(() => {
             this.moveScript.rigidbody.btRigidbody.setUserIndex(-1);
@@ -212,12 +213,14 @@ class MoveScript extends ComponentBase {
     right: boolean = false;
     moveSpeed: number = 30;
     rigidbody: Rigidbody;
+    engine: Engine3D;
     x: number = 0;
     y: number = 0;
     direction: Vector3 = new Vector3();
-    init(): void {
-        Engine3D.inputSystem.addEventListener(KeyEvent.KEY_DOWN, this.keyDown, this);
-        Engine3D.inputSystem.addEventListener(KeyEvent.KEY_UP, this.keyUp, this);
+    init(param?: { engine: Engine3D }): void {
+        this.engine = param.engine;
+        this.engine.inputSystem.addEventListener(KeyEvent.KEY_DOWN, this.keyDown, this);
+        this.engine.inputSystem.addEventListener(KeyEvent.KEY_UP, this.keyUp, this);
     }
     private keyDown(e: KeyEvent) {
         if (e.keyCode == KeyCode.Key_A) {

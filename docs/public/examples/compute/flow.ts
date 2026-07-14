@@ -1,8 +1,8 @@
-import { AtmosphericComponent, CameraUtil, ClusterLightingBuffer, Color, ComputeGPUBuffer, ComputeShader, Engine3D, HoverCameraController, Material, MeshRenderer, Object3D, PassType, PlaneGeometry, RendererPassState, RenderShaderPass, Scene3D, Shader, ShaderLib, Texture, Time, Vector3, Vector4, View3D, webGPUContext } from '@orillusion/core';
+import { AtmosphericComponent, CameraUtil, ClusterLightingBuffer, Color, ComputeGPUBuffer, ComputeShader, Engine3D, HoverCameraController, Material, MeshRenderer, Object3D, PassType, PlaneGeometry, RendererPassState, RenderShaderPass, Scene3D, Shader, ShaderLib, Texture, Time, Vector3, Vector4, View3D } from '@orillusion/core';
 
 class Demo_Flow {
     async run() {
-        await Engine3D.init({});
+        let engine = await Engine3D.init({});
 
         let scene = new Scene3D();
         let sky = scene.addComponent(AtmosphericComponent);
@@ -10,7 +10,7 @@ class Demo_Flow {
 
         let camera = CameraUtil.createCamera3DObject(scene);
 
-        camera.perspective(60, webGPUContext.aspect, 0.01, 10000.0);
+        camera.perspective(60, this.engine.aspect, 0.01, 10000.0);
         let ctl = camera.object3D.addComponent(HoverCameraController);
         ctl.setCamera(0, 0, 4, new Vector3(0, 1, 0));
         ctl.maxDistance = 1000;
@@ -19,7 +19,7 @@ class Demo_Flow {
         view.scene = scene;
         view.camera = camera;
 
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
     }
 
     async initScene(scene: Scene3D) {
@@ -72,7 +72,6 @@ class FlowSimulator extends MeshRenderer {
         this.alwaysRender = true;
         this.geometry = new PlaneGeometry(0.01, 0.01, 1.0, 1.0, Vector3.Z_AXIS);
         this.material = new FlowSimulatorMaterial();
-        let device = webGPUContext.device;
 
         var globalArgsData = new Float32Array(4);
         this.mGlobalArgs = new ComputeGPUBuffer(globalArgsData.byteLength);
@@ -195,7 +194,7 @@ class FlowSimulatorMaterial extends Material {
         shaderState.useLight = false;
 
         // default value
-        this.baseMap = Engine3D.res.whiteTexture;
+        this.baseMap = Engine3D.resFor().whiteTexture;
         this.shader = shader;
 
         // this.transparent = true ;

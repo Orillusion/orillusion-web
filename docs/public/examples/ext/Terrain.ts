@@ -1,4 +1,4 @@
-import { Engine3D, View3D, Scene3D, CameraUtil, AtmosphericComponent, webGPUContext, HoverCameraController, Object3D, DirectLight, KelvinUtil, LitMaterial, MeshRenderer, PostProcessingComponent, BitmapTexture2D, GlobalFog, Color } from '@orillusion/core';
+import { Engine3D, View3D, Scene3D, CameraUtil, AtmosphericComponent, HoverCameraController, Object3D, DirectLight, KelvinUtil, LitMaterial, MeshRenderer, PostProcessingComponent, BitmapTexture2D, GlobalFog, Color } from '@orillusion/core';
 import { TerrainGeometry } from '@orillusion/effect';
 import { Stats } from '@orillusion/stats';
 
@@ -6,25 +6,30 @@ import { Stats } from '@orillusion/stats';
 class Sample_Terrain {
     view: View3D;
     post: PostProcessingComponent;
+    engine: Engine3D;
 
     async run() {
-        Engine3D.setting.shadow.autoUpdate = true;
-        Engine3D.setting.shadow.updateFrameRate = 1;
-        Engine3D.setting.shadow.shadowBound = 500;
-        Engine3D.setting.shadow.shadowSize = 2048;
-
-        await Engine3D.init();
+        this.engine = await Engine3D.init({
+            setting: {
+                shadow: {
+                    autoUpdate: true,
+                    updateFrameRate: 1,
+                    shadowBound: 500,
+                    shadowSize: 2048
+                }
+            }
+        });
         this.view = new View3D();
         this.view.scene = new Scene3D();
         this.view.scene.addComponent(AtmosphericComponent);
         this.view.scene.addComponent(Stats);
 
         this.view.camera = CameraUtil.createCamera3DObject(this.view.scene);
-        this.view.camera.perspective(60, webGPUContext.aspect, 1, 50000.0);
+        this.view.camera.perspective(60, this.engine.aspect, 1, 50000.0);
         this.view.camera.object3D.z = -15;
         this.view.camera.object3D.addComponent(HoverCameraController).setCamera(35, -20, 10000);
 
-        Engine3D.startRenderView(this.view);
+        this.engine.startRenderView(this.view);
 
         this.post = this.view.scene.addComponent(PostProcessingComponent);
         let fog = this.post.addPost(GlobalFog);
@@ -58,8 +63,8 @@ class Sample_Terrain {
         }
 
         //bitmap
-        let bitmapTexture = await Engine3D.res.loadTexture('https://cdn.orillusion.com/terrain/test01/bitmap.png');
-        let heightTexture = await Engine3D.res.loadTexture('https://cdn.orillusion.com/terrain/test01/height.png');
+        let bitmapTexture = await this.engine.res.loadTexture('https://cdn.orillusion.com/terrain/test01/bitmap.png');
+        let heightTexture = await this.engine.res.loadTexture('https://cdn.orillusion.com/terrain/test01/height.png');
         let terrainSizeW = 20488;
         let terrainSizeH = 20488;
         let terrainGeometry: TerrainGeometry;

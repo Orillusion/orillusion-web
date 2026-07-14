@@ -2,8 +2,9 @@ import { AtmosphericComponent, BoundingBox, BoxGeometry, CameraUtil, ComputeGPUB
 import * as dat from 'dat.gui'
 
 class Demo_Softbody {
+    engine: Engine3D;
     async run() {
-        await Engine3D.init({});
+        this.engine = await Engine3D.init({});
 
         let scene = new Scene3D();
         let sky = scene.addComponent(AtmosphericComponent);
@@ -19,7 +20,7 @@ class Demo_Softbody {
         view.scene = scene;
         view.camera = camera;
 
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
 
         let gui = new dat.GUI()
         gui.add({'tips': 'WASD to move the box'}, 'tips')
@@ -27,7 +28,7 @@ class Demo_Softbody {
 
     async initScene(scene: Scene3D) {
         let mat = new LitMaterial();
-        mat.baseMap = Engine3D.res.grayTexture;
+        mat.baseMap = this.engine.res.grayTexture;
         mat.roughness = 0.8;
         mat.metallic = 0.1;
 
@@ -871,14 +872,16 @@ class BunnySimulator extends MeshRenderer {
         this.geometry = this.mBunnyGeometry;
         var mat = new LitMaterial();
         mat.roughness = 0.8;
-        mat.baseMap = Engine3D.res.redTexture;
+        mat.baseMap = Engine3D.resFor().redTexture;
         this.material = mat;
         this.material.doubleSide = true;    
     }
 
     public start() {
-        Engine3D.inputSystem.addEventListener(KeyEvent.KEY_DOWN, (e: KeyEvent) => this.updateKeyState(e.keyCode, true), this);
-        Engine3D.inputSystem.addEventListener(KeyEvent.KEY_UP, (e: KeyEvent) => this.updateKeyState(e.keyCode, false), this);
+        const engine = (this.transform as any)?.view3D?.engine3D;
+        const input = engine?.inputSystem;
+        input.addEventListener(KeyEvent.KEY_DOWN, (e: KeyEvent) => this.updateKeyState(e.keyCode, true), this);
+        input.addEventListener(KeyEvent.KEY_UP, (e: KeyEvent) => this.updateKeyState(e.keyCode, false), this);
     }
 
     public SetInteractionBox(box: Object3D) {

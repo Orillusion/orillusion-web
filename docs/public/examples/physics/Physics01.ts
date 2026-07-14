@@ -8,16 +8,22 @@ class SamplePhysics01 {
     private materials: LitMaterial[];
     private boxGeometry: BoxGeometry;
     private Ori: dat.GUI | undefined;
+    private engine: Engine3D;
 
     async run() {
-        Engine3D.setting.shadow.autoUpdate = true;
-        Engine3D.setting.shadow.updateFrameRate = 1;
-        Engine3D.setting.shadow.shadowSize = 4096;
-        Engine3D.setting.shadow.shadowBound = 50;
-        Engine3D.setting.shadow.shadowBias = 0.002;
-
         await Physics.init();
-        await Engine3D.init({ renderLoop: () => this.loop() });
+        let engine = this.engine = await Engine3D.init({
+            renderLoop: () => this.loop(),
+            setting: {
+                shadow: {
+                    autoUpdate: true,
+                    updateFrameRate: 1,
+                    shadowSize: 4096,
+                    shadowBound: 50,
+                    shadowBias: 0.002
+                }
+            }
+        });
 
         let scene = new Scene3D();
         scene.addComponent(Stats);
@@ -28,7 +34,7 @@ class SamplePhysics01 {
 
         // init Camera3D
         let camera = CameraUtil.createCamera3DObject(scene);
-        camera.perspective(60, Engine3D.aspect, 1, 5000);
+        camera.perspective(60, engine.aspect, 1, 5000);
 
         // init Camera Controller
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController);
@@ -72,7 +78,7 @@ class SamplePhysics01 {
         this.scene = scene;
         await this.initScene(this.scene);
 
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
     }
 
     async initScene(scene: Scene3D) {
@@ -127,7 +133,7 @@ class SamplePhysics01 {
 
     private createGround() {
         let floorMat = new LitMaterial();
-        floorMat.baseMap = Engine3D.res.grayTexture;
+        floorMat.baseMap = this.engine.res.grayTexture;
         floorMat.roughness = 0.85;
         floorMat.metallic = 0.01;
 

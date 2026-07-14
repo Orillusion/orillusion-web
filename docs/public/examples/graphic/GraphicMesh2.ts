@@ -3,6 +3,7 @@ import { Stats } from "@orillusion/stats";
 import { Graphic3DMesh } from "@orillusion/graphic";
 
 class GraphicMesh2 {
+    engine: Engine3D;
     scene: Scene3D;
     parts: Object3D[];
     width: number;
@@ -15,14 +16,14 @@ class GraphicMesh2 {
         Matrix4.maxCount = 500000;
         Matrix4.allocCount = 500000;
 
-        await Engine3D.init({ beforeRender: () => this.update() });
+        this.engine = await Engine3D.init({ beforeRender: () => this.update() });
 
         this.scene = new Scene3D();
         this.scene.addComponent(Stats);
         let sky = this.scene.addComponent(AtmosphericComponent);
         sky.enable = false;
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, Engine3D.aspect, 1, 5000.0);
+        camera.perspective(60, this.engine.aspect, 1, 5000.0);
 
         camera.object3D.addComponent(HoverCameraController).setCamera(30, 0, 250);
 
@@ -30,16 +31,16 @@ class GraphicMesh2 {
         view.scene = this.scene;
         view.camera = camera;
 
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
         await this.initScene();
     }
 
     async initScene() {
         let texts:any[] = [];
-        let node = await Engine3D.res.loadGltf("https://cdn.orillusion.com/PBR/Duck/Duck.gltf") as Object3D;
+        let node = await this.engine.res.loadGltf("https://cdn.orillusion.com/PBR/Duck/Duck.gltf") as Object3D;
         let geo = node.getComponents(MeshRenderer)[0].geometry;
 
-        texts.push(Engine3D.res.yellowTexture);
+        texts.push(this.engine.res.yellowTexture);
         let bitmapTexture2DArray = new BitmapTexture2DArray(texts[0].width, texts[0].height, texts.length);
         bitmapTexture2DArray.setTextures(texts);
 

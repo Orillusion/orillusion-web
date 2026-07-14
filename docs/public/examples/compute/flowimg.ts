@@ -1,11 +1,11 @@
-import { CameraUtil, Engine3D, HoverCameraController, Object3D, Scene3D, webGPUContext, AtmosphericComponent, View3D, ClusterLightingBuffer, Color, ComputeGPUBuffer, ComputeShader, Material, MeshRenderer, PassType, PlaneGeometry, RendererMask, RendererPassState, RenderShaderPass, Shader, ShaderLib, Texture, Time, Vector3, Vector4 } from '@orillusion/core';
+import { CameraUtil, Engine3D, HoverCameraController, Object3D, Scene3D, AtmosphericComponent, View3D, ClusterLightingBuffer, Color, ComputeGPUBuffer, ComputeShader, Material, MeshRenderer, PassType, PlaneGeometry, RendererMask, RendererPassState, RenderShaderPass, Shader, ShaderLib, Texture, Time, Vector3, Vector4 } from '@orillusion/core';
 import * as dat from 'dat.gui'
 
 let gui
 
 class Demo_FlowImg {
     async run() {
-        await Engine3D.init({});
+        let engine = await Engine3D.init({});
         gui = new dat.GUI()
 
         let scene = new Scene3D();
@@ -14,7 +14,7 @@ class Demo_FlowImg {
 
         let camera = CameraUtil.createCamera3DObject(scene);
         
-        camera.perspective(60, webGPUContext.aspect, 0.01, 10000.0);
+        camera.perspective(60, this.engine.aspect, 0.01, 10000.0);
         let ctl = camera.object3D.addComponent(HoverCameraController);
         ctl.distance = 3;
 
@@ -22,7 +22,7 @@ class Demo_FlowImg {
         view.scene = scene;
         view.camera = camera;
 
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
     }
 
     async initScene(scene: Scene3D) {
@@ -147,7 +147,6 @@ class FlowImgSimulator extends MeshRenderer {
         this.alwaysRender = true;
         this.geometry = new PlaneGeometry(PARTICAL_RADIUS * 2.0, PARTICAL_RADIUS * 2.0, 1.0, 1.0, Vector3.Z_AXIS);
         this.material = new FlowImgSimulatorMaterial();
-        let device = webGPUContext.device;
 
         var globalArgsData = new Float32Array(4);
         this.mGlobalArgs = new ComputeGPUBuffer(globalArgsData.byteLength);
@@ -322,7 +321,7 @@ class FlowImgSimulatorMaterial extends Material {
         shaderState.useLight = false;
 
         // default value
-        this.baseMap = Engine3D.res.whiteTexture;
+        this.baseMap = Engine3D.resFor().whiteTexture;
         this.shader = shader;
 
         // this.transparent = true ;

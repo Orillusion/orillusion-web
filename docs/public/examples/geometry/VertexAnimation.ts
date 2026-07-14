@@ -8,7 +8,7 @@ class Smaple_VertexAnimation {
     scene: Scene3D;
     lightObj: Object3D;
     async run() {
-        await Engine3D.init({ beforeRender: () => this.update() });
+        let engine = await Engine3D.init({ beforeRender: () => this.update() });
 
         let view = new View3D();
 
@@ -19,10 +19,10 @@ class Smaple_VertexAnimation {
         this.scene = view.scene;
 
         view.camera = CameraUtil.createCamera3DObject(view.scene, 'camera');
-        view.camera.perspective(60, Engine3D.aspect, 1, 2000);
+        view.camera.perspective(60, engine.aspect, 1, 2000);
         view.camera.object3D.addComponent(HoverCameraController).setCamera(35, -20, 150);
 
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
         this.createScene();
         sky.relativeTransform = this.lightObj.transform;

@@ -1,23 +1,28 @@
-import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, webGPUContext, HoverCameraController, View3D, LitMaterial, MeshRenderer, BoxGeometry, DirectLight, KelvinUtil, Object3DUtil, AnimatorComponent } from '@orillusion/core';
+import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, LitMaterial, MeshRenderer, BoxGeometry, DirectLight, KelvinUtil, Object3DUtil, AnimatorComponent } from '@orillusion/core';
 import { Stats } from '@orillusion/stats';
 
 class Sample_Skeleton {
+    engine: Engine3D;
     lightObj3D: Object3D;
     scene: Scene3D;
     private Ori: dat.GUI | undefined;
     async run() {
-        Engine3D.setting.shadow.autoUpdate = true;
-        Engine3D.setting.shadow.updateFrameRate = 1;
-        Engine3D.setting.shadow.shadowBound = 100;
-
-        await Engine3D.init();
+        this.engine = await Engine3D.init({
+            setting: {
+                shadow: {
+                    autoUpdate: true,
+                    updateFrameRate: 1,
+                    shadowBound: 100
+                }
+            }
+        });
 
         this.scene = new Scene3D();
         this.scene.addComponent(Stats);
         let sky = this.scene.addComponent(AtmosphericComponent);
 
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, Engine3D.aspect, 0.01, 5000.0);
+        camera.perspective(60, this.engine.aspect, 0.01, 5000.0);
 
         let ctrl = camera.object3D.addComponent(HoverCameraController);
         ctrl.setCamera(-30, -45, 100);
@@ -27,7 +32,7 @@ class Sample_Skeleton {
         view.scene = this.scene;
         view.camera = camera;
 
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
 
         await this.initScene(this.scene);
         sky.relativeTransform = this.lightObj3D.transform;
@@ -36,7 +41,7 @@ class Sample_Skeleton {
     async initScene(scene: Scene3D) {
         {
             // load model with skeleton animation
-            let man = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/CesiumMan/CesiumMan_compress.gltf');
+            let man = await this.engine.res.loadGltf('https://cdn.orillusion.com/gltfs/CesiumMan/CesiumMan_compress.gltf');
             man.scaleX = 30;
             man.scaleY = 30;
             man.scaleZ = 30;

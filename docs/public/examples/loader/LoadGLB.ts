@@ -4,13 +4,18 @@ import { Stats } from '@orillusion/stats';
 // Sample to load glb file
 class Sample_LoadGLB2 {
     scene: Scene3D;
+    engine: Engine3D;
 
     async run() {
-        Engine3D.setting.shadow.shadowBound = 10;
-        Engine3D.setting.shadow.shadowBias = 0.001;
-        Engine3D.setting.shadow.autoUpdate = true;
-
-        await Engine3D.init();
+        let engine = (this.engine = await Engine3D.init({
+            setting: {
+                shadow: {
+                    shadowBound: 10,
+                    shadowBias: 0.001,
+                    autoUpdate: true
+                }
+            }
+        }));
         let scene = new Scene3D();
         scene.exposure = 1;
         scene.addComponent(Stats);
@@ -21,7 +26,7 @@ class Sample_LoadGLB2 {
 
         // init Camera3D
         let camera = CameraUtil.createCamera3DObject(scene);
-        camera.perspective(60, Engine3D.aspect, 0.1, 5000);
+        camera.perspective(60, engine.aspect, 0.1, 5000);
 
         // init Camera Controller
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController);
@@ -55,13 +60,13 @@ class Sample_LoadGLB2 {
         atmosphericSky.sunRadiance = 1;
         hoverCtrl.setCamera(-45, -45, 10);
         light.intensity = 5;
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
         await this.initScene();
     }
 
     async initScene() {
         /******** load compressed glb by draco *******/
-        let model = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/glb/BuildingWithCharacters/scene.glb', {
+        let model = await this.engine.res.loadGltf('https://cdn.orillusion.com/gltfs/glb/BuildingWithCharacters/scene.glb', {
             onProgress: (e) => this.onLoadProgress(e),
             onComplete: (e) => this.onComplete(e)
         });

@@ -8,9 +8,14 @@ class Sample_ConduitGeometry3 {
     totalTime: number;
 
     async run() {
-        Engine3D.setting.shadow.shadowBound = 50;
-        Engine3D.setting.shadow.shadowBias = 0.003;
-        await Engine3D.init();
+        let engine = await Engine3D.init({
+            setting: {
+                shadow: {
+                    shadowBound: 50,
+                    shadowBias: 0.003
+                }
+            }
+        });
 
         // init Scene3D
         this.scene = new Scene3D();
@@ -23,7 +28,7 @@ class Sample_ConduitGeometry3 {
 
         // init Camera3D
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, Engine3D.aspect, 1, 5000);
+        camera.perspective(60, engine.aspect, 1, 5000);
 
         // init Camera Controller
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController);
@@ -53,7 +58,7 @@ class Sample_ConduitGeometry3 {
         // relative light to sky
         atmosphericSky.relativeTransform = light.transform;
 
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
         await this.createMaterial();
 
         this.createConduit();

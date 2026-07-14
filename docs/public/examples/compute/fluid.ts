@@ -1,18 +1,25 @@
-import { CameraUtil, clamp, ClusterLightingBuffer, ColliderComponent, Color, ComputeGPUBuffer, ComputeShader, Engine3D, HoverCameraController, Material, MeshRenderer, Object3D, PassType, PlaneGeometry, PointerEvent3D, RendererMask, RendererPassState, RenderShaderPass, Scene3D, Shader, ShaderLib, Texture, Time, Vector3, Vector4, View3D, webGPUContext } from '@orillusion/core';
+import { CameraUtil, clamp, ClusterLightingBuffer, ColliderComponent, Color, ComputeGPUBuffer, ComputeShader, Engine3D, HoverCameraController, Material, MeshRenderer, Object3D, PassType, PlaneGeometry, PointerEvent3D, RendererMask, RendererPassState, RenderShaderPass, Scene3D, Shader, ShaderLib, Texture, Time, Vector3, Vector4, View3D } from '@orillusion/core';
 import * as dat from 'dat.gui'
 
 class Demo_FluidOptimize {
     constructor() { }
 
+    protected engine: Engine3D;
     protected mLastPoint: Vector3 = new Vector3();
     protected mVelocity: Vector3 = new Vector3();
 
     async run() {
-        Engine3D.setting.material.materialChannelDebug = true;
-        Engine3D.setting.pick.enable = true;
-        Engine3D.setting.pick.mode = `pixel`;
-
-        await Engine3D.init({});
+        this.engine = await Engine3D.init({
+            setting: {
+                material: {
+                    materialChannelDebug: true
+                },
+                pick: {
+                    enable: true,
+                    mode: `pixel`
+                }
+            }
+        });
 
 
         let scene = new Scene3D();
@@ -20,7 +27,7 @@ class Demo_FluidOptimize {
 
         let camera = CameraUtil.createCamera3DObject(scene);
 
-        camera.perspective(60, webGPUContext.aspect, 0.01, 10000.0);
+        camera.perspective(60, this.engine.aspect, 0.01, 10000.0);
         let ctl = camera.object3D.addComponent(HoverCameraController);
         ctl.setCamera(-45, -30, 50, new Vector3(15, 0, 10));
 
@@ -28,7 +35,7 @@ class Demo_FluidOptimize {
         view.scene = scene;
         view.camera = camera;
 
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
         await this.initScene(scene);
 
         let gui = new dat.GUI()
@@ -55,7 +62,7 @@ class Demo_FluidOptimize {
                         point.subtract(this.mLastPoint, this.mVelocity);
                         this.mLastPoint.copy(point);
                         let r = scene.view.camera;
-                        let ray = r.screenPointToRay(Engine3D.inputSystem.mouseX, Engine3D.inputSystem.mouseY);
+                        let ray = r.screenPointToRay(this.engine.inputSystem.mouseX, this.engine.inputSystem.mouseY);
                         emulation.updateInputInfo(scene.view.camera.transform.localPosition, ray.direction, this.mVelocity);
                     }
                     catch (e) {
@@ -157,7 +164,7 @@ class FluidEmulation extends MeshRenderer {
         this.mConfig.maxDensity = this.mConfig.NUM / (this.mConfig.XMAX - this.mConfig.XMIN) / (this.mConfig.YMAX - this.mConfig.YMIN) / (this.mConfig.ZMAX - this.mConfig.ZMIN);
 
         this.mFluidComputePipeline = new FluidSimulatorPipeline(this.mConfig);
-        let device = webGPUContext.device;
+        let device = this.engine.device;
         const { NUM } = this.mConfig;
 
         const modelView = new Float32Array(16 * NUM);
@@ -254,7 +261,7 @@ class FluidSimulatorMaterial2 extends Material {
         shaderState.useLight = false;
 
         // default value
-        this.baseMap = Engine3D.res.whiteTexture;
+        this.baseMap = Engine3D.resFor().whiteTexture;
         this.shader = shader;
         
         // this.transparent = true ;

@@ -1,16 +1,16 @@
-import { Engine3D, View3D, Scene3D, CameraUtil, AtmosphericComponent, webGPUContext, HoverCameraController, Object3D, DirectLight, KelvinUtil, LitMaterial, MeshRenderer, Color, GridObject, Vector2, Vector3, Material } from "@orillusion/core";
+import { Engine3D, View3D, Scene3D, CameraUtil, AtmosphericComponent, HoverCameraController, Object3D, DirectLight, KelvinUtil, LitMaterial, MeshRenderer, Color, GridObject, Vector2, Vector3, Material } from "@orillusion/core";
 import { Shape2D, ExtrudeGeometry, Path2D } from "@orillusion/geometry";
 
 class Sample_ExtrudeGeometry {
     scene: Scene3D
     async run() {
-        await Engine3D.init();
+        let engine = await Engine3D.init();
         let view = new View3D();
         view.scene = this.scene = new Scene3D();
         let sky = view.scene.addComponent(AtmosphericComponent);
 
         view.camera = CameraUtil.createCamera3DObject(view.scene);
-        view.camera.perspective(60, webGPUContext.aspect, 1, 5000.0);
+        view.camera.perspective(60, engine.aspect, 1, 5000.0);
         view.camera.object3D.z = -15;
         view.camera.object3D.addComponent(HoverCameraController).setCamera(0, -20, 500);
 
@@ -27,7 +27,7 @@ class Sample_ExtrudeGeometry {
 
         view.scene.addChild(new GridObject(1000, 100))
 
-        Engine3D.startRenderView(view);
+        engine.startRenderView(view);
 
         this.createShapes();
     }
@@ -60,7 +60,7 @@ class Sample_ExtrudeGeometry {
             points.push( new Vector2( 600, 370 ) );
             points.push( new Vector2( 610, 320 ) );
 
-            let shape = new Shape2D(points.map(p=>p.multiplyScaler(0.25)))
+            let shape = new Shape2D(points.map(p=>p.multiplyScalar(0.25)))
             this.addShape(shape, -300, -60, 0)
         }
 

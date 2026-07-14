@@ -1,16 +1,21 @@
-import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, webGPUContext, HoverCameraController, View3D, LitMaterial, MeshRenderer, BoxGeometry, DirectLight, KelvinUtil, Object3DUtil, SkeletonAnimationComponent, AnimatorComponent } from '@orillusion/core';
+import { Object3D, Scene3D, Engine3D, AtmosphericComponent, CameraUtil, HoverCameraController, View3D, LitMaterial, MeshRenderer, BoxGeometry, DirectLight, KelvinUtil, Object3DUtil, SkeletonAnimationComponent, AnimatorComponent } from '@orillusion/core';
 import { Stats } from '@orillusion/stats';
 
 class Sample_Skeleton2 {
+    engine: Engine3D;
     lightObj3D: Object3D;
     scene: Scene3D;
 
     async run() {
-        Engine3D.setting.shadow.autoUpdate = true;
-        Engine3D.setting.shadow.updateFrameRate = 1;
-        Engine3D.setting.shadow.shadowSize = 2048;
-
-        await Engine3D.init();
+        this.engine = await Engine3D.init({
+            setting: {
+                shadow: {
+                    autoUpdate: true,
+                    updateFrameRate: 1,
+                    shadowSize: 2048
+                }
+            }
+        });
 
         this.scene = new Scene3D();
         this.scene.addComponent(Stats);
@@ -19,7 +24,7 @@ class Sample_Skeleton2 {
 
         let mainCamera = CameraUtil.createCamera3DObject(this.scene);
         mainCamera.enableCSM = true;
-        mainCamera.perspective(60, webGPUContext.aspect, 1, 3000.0);
+        mainCamera.perspective(60, this.engine.aspect, 1, 3000.0);
 
         let hoverCameraController = mainCamera.object3D.addComponent(HoverCameraController);
         hoverCameraController.setCamera(45, -30, 300);
@@ -29,7 +34,7 @@ class Sample_Skeleton2 {
         view.scene = this.scene;
         view.camera = mainCamera;
 
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
 
         await this.initScene(this.scene);
         sky.relativeTransform = this.lightObj3D.transform;
@@ -57,7 +62,7 @@ class Sample_Skeleton2 {
 
         {
             // load model with skeletion animation
-            let rootNode = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/glb/Soldier.glb');
+            let rootNode = await this.engine.res.loadGltf('https://cdn.orillusion.com/gltfs/glb/Soldier.glb');
             let character = rootNode.getObjectByName('Character') as Object3D;
             character.scaleX = 0.3;
             character.scaleY = 0.3;

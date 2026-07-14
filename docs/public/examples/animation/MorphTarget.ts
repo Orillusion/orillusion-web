@@ -1,4 +1,4 @@
-import { SkinnedMeshRenderer2, AtmosphericComponent, CameraUtil, DirectLight, Engine3D, HoverCameraController, KelvinUtil, Matrix4, MeshRenderer, MorphTargetBlender, Object3D, PlaneGeometry, Quaternion, Scene3D, Vector3, View3D, webGPUContext } from '@orillusion/core';
+import { SkinnedMeshRenderer2, AtmosphericComponent, CameraUtil, DirectLight, Engine3D, HoverCameraController, KelvinUtil, Matrix4, MeshRenderer, MorphTargetBlender, Object3D, PlaneGeometry, Quaternion, Scene3D, Vector3, View3D } from '@orillusion/core';
 import { Stats } from '@orillusion/stats';
 import dat from 'dat.gui';
 // @ts-ignore, import es from url
@@ -6,6 +6,7 @@ import { FaceLandmarker, FilesetResolver } from 'https://cdn.jsdelivr.net/npm/@m
 
 // Sample of control morph target animation
 class Sample_MorphTarget {
+    engine: Engine3D;
     lightObj3D: Object3D;
     scene: Scene3D;
     influenceData: { [key: string]: number } = {};
@@ -21,12 +22,15 @@ class Sample_MorphTarget {
     _quat: Quaternion;
     _quat2: Quaternion;
     async run() {
-        Engine3D.setting.shadow.shadowBound = 100;
-        Engine3D.setting.shadow.autoUpdate = true;
-        Engine3D.setting.shadow.updateFrameRate = 1;
-
-        await Engine3D.init({
-            renderLoop: () => this.detectFace()
+        this.engine = await Engine3D.init({
+            renderLoop: () => this.detectFace(),
+            setting: {
+                shadow: {
+                    shadowBound: 100,
+                    autoUpdate: true,
+                    updateFrameRate: 1
+                }
+            }
         });
 
         this.scene = new Scene3D();
@@ -34,7 +38,7 @@ class Sample_MorphTarget {
         let sky = this.scene.addComponent(AtmosphericComponent);
 
         let camera = CameraUtil.createCamera3DObject(this.scene);
-        camera.perspective(60, webGPUContext.aspect, 1, 5000.0);
+        camera.perspective(60, this.engine.aspect, 1, 5000.0);
         camera.object3D.addComponent(HoverCameraController).setCamera(0, 0, 150);
 
         this.initDirectLight();
@@ -45,7 +49,7 @@ class Sample_MorphTarget {
         view.camera = camera;
 
         await this.initMorphModel();
-        Engine3D.startRenderView(view);
+        this.engine.startRenderView(view);
     }
 
     /******** light *******/
@@ -66,7 +70,7 @@ class Sample_MorphTarget {
         const gui = new dat.GUI();
 
         // load lion model
-        let model = (this.model = await Engine3D.res.loadGltf('https://cdn.orillusion.com/gltfs/glb/lion.glb'));
+        let model = (this.model = await this.engine.res.loadGltf('https://cdn.orillusion.com/gltfs/glb/lion.glb'));
         model.y = -80.0;
         model.x = -30.0;
         this.scene.addChild(model);
