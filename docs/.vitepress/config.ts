@@ -186,7 +186,17 @@ export default async () =>
         },
         vite: {
             build: {
-                target: 'esnext'
+                target: 'esnext',
+                chunkSizeWarningLimit: 1000,
+                rollupOptions: {
+                    output: {
+                        manualChunks(id: string) {
+                            if (id.includes('node_modules')) {
+                                return 'vendor';
+                            }
+                        }
+                    }
+                }
             }
         }
     });
