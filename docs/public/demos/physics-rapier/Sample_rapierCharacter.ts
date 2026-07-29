@@ -26,7 +26,6 @@ class CharacterDriver extends ComponentBase {
         const len = Math.hypot(vx, vz);
         if (len > 0) { vx /= len; vz /= len; }
 
-        // Apply gravity
         if (this.controller.isGrounded()) {
             this.vy = 0;
             if (this.keys[KeyCode.Key_Space]) this.vy = this.jumpVel;
@@ -44,7 +43,6 @@ class Sample_RapierCharacter {
         const engine = await Engine3D.init({ renderLoop: () => Physics.update() });
         let scene = new Scene3D();
 
-        // Setup camera
         let camera = CameraUtil.createCamera3DObject(scene);
         camera.perspective(60, engine.aspect, 0.1, 800.0);
 
@@ -52,7 +50,6 @@ class Sample_RapierCharacter {
         hoverCtrl.setCamera(0, -25, 15);
         hoverCtrl.dragSmooth = 4;
 
-        // Create directional light
         let lightObj3D = new Object3D();
         lightObj3D.localRotation = new Vector3(-35, -143, 92);
 
@@ -63,11 +60,9 @@ class Sample_RapierCharacter {
         light.intensity = 2.2;
         scene.addChild(light.object3D);
 
-        // init sky
         let atmosphericSky = scene.addComponent(AtmosphericComponent);
         atmosphericSky.sunY = 0.6;
 
-        // Floor
         const floor = new Object3D();
         const fr = floor.addComponent(MeshRenderer);
         fr.geometry = new PlaneGeometry(60, 60);
@@ -76,7 +71,6 @@ class Sample_RapierCharacter {
         fb.bodyType = BodyType.Static; fb.shape = CollisionShapeUtil.createPlaneShape(30, 0.05);
         scene.addChild(floor);
 
-        // Stairs
         for (let i = 0; i < 6; i++) {
             const step = new Object3D(); step.x = 8; step.y = 0.25 + i * 0.5; step.z = -i * 1.2;
             const mr = step.addComponent(MeshRenderer);
@@ -87,7 +81,6 @@ class Sample_RapierCharacter {
             scene.addChild(step);
         }
 
-        // Character: blue capsule (rendered as box)
         const player = new Object3D(); player.y = 2;
         const pmr = player.addComponent(MeshRenderer);
         pmr.geometry = new BoxGeometry(0.6, 1.6, 0.6);

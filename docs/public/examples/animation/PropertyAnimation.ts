@@ -14,9 +14,6 @@ class Sample_PropertyAnimation {
                 shadow: {
                     autoUpdate: true,
                     updateFrameRate: 1,
-                    shadowBound: 50,
-                    shadowSize: 2048,
-                    shadowBias: 0.01
                 }
             }
         });
@@ -42,8 +39,8 @@ class Sample_PropertyAnimation {
         // create direction light
         let lightObj3D = new Object3D();
         lightObj3D.x = 0;
-        lightObj3D.y = 30;
-        lightObj3D.z = -40;
+        lightObj3D.y = 25;
+        lightObj3D.z = 0;
         lightObj3D.rotationX = 20;
         lightObj3D.rotationY = 160;
         lightObj3D.rotationZ = 0;
@@ -51,6 +48,7 @@ class Sample_PropertyAnimation {
         let light = lightObj3D.addComponent(DirectLight);
         light.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
         light.castShadow = true;
+        light.enableCSM = true;
         light.intensity = 3;
         scene.addChild(light.object3D);
         // relative light to sky

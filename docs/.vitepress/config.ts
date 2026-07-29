@@ -594,6 +594,8 @@ function sidebarExample(root: string = '') {
         Particle: [],
         Compute: [],
         Physics: [],
+        PhysicsRapier: [],
+        Sprite: [],
         GI: []
     };
 

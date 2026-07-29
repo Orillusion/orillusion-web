@@ -1,30 +1,30 @@
 
-import { AnimatorComponent, AtmosphericComponent, CameraUtil, ClusterLightingBuffer, Color, ComputeGPUBuffer, ComputeShader, DirectLight, Engine3D, GlobalBindGroup, GPUContext, HoverCameraController, Material, MeshRenderer, Object3D, PassType, PlaneGeometry, RendererMask, RendererPassState, RenderShaderPass, Scene3D, Shader, ShaderLib, SkinnedMeshRenderer2, Texture, Time, Vector3, Vector4, VertexAttributeData, VertexAttributeName, View3D } from "@orillusion/core";
+import { AnimatorComponent, AtmosphericComponent, CameraUtil, ClusterLightingBuffer, Color, ComputeGPUBuffer, ComputeShader, Context3D, DirectLight, Engine3D, GlobalBindGroup, HoverCameraController, Material, Matrix4, MeshRenderer, Object3D, PassType, PlaneGeometry, RendererMask, RendererPassState, RenderShaderPass, Scene3D, Shader, ShaderLib, SkinnedMeshRenderer2, Texture, Time, Vector3, Vector4, VertexAttributeData, VertexAttributeName, View3D } from "@orillusion/core";
 
 class Demo_Flame {
+    engine: Engine3D;
     constructor() { }
 
     protected mLastPoint: Vector3 = new Vector3();
     protected mVelocity: Vector3 = new Vector3();
-    engine: Engine3D;
 
     async run() {
-        this.engine = await Engine3D.init({});
+        const engine = this.engine = await Engine3D.init({});
 
         let scene = new Scene3D();
-        let sky = scene.addComponent(AtmosphericComponent);
+        scene.addComponent(AtmosphericComponent);
         await this.initScene(scene);
 
         let camera = CameraUtil.createCamera3DObject(scene);
 
-        camera.perspective(60, this.engine.aspect, 0.01, 10000.0);
+        camera.perspective(60, engine.context3D.aspect, 0.01, 10000.0);
         let ctl = camera.object3D.addComponent(HoverCameraController);
         ctl.setCamera(0, 0, 5);
 
         let view = new View3D();
         view.scene = scene;
         view.camera = camera;
-        this.engine.startRenderView(view);
+        engine.startRenderView(view);
     }
 
     async initScene(scene: Scene3D) {
@@ -41,7 +41,6 @@ class Demo_Flame {
             let light = obj.addComponent(DirectLight);
             light.intensity = 5;
             light.castShadow = true;
-            light.debug();
             scene.addChild(obj);
         }
 
@@ -51,6 +50,8 @@ class Demo_Flame {
         emulation.material = new FlameSimulatorMaterial();
 
     }
+
+    async initComputeBuffer() { }
 }
 
 type FlameSimulatorConfig = {
@@ -78,16 +79,14 @@ class FlameSimulatorBuffer {
     protected mBoneWeightsBuffer: ComputeGPUBuffer;
     protected mBoneMatrixBuffer: ComputeGPUBuffer;
     protected mBoneMatricesBuffer: ComputeGPUBuffer;
+    protected mModelInverseMatrixBuffer: ComputeGPUBuffer;
     protected mInputBuffer: ComputeGPUBuffer;
-    // protected mInputData: Float32Array;
 
     constructor(config: FlameSimulatorConfig) {
         this.initGPUBuffer(config);
     }
 
     protected initGPUBuffer(config: FlameSimulatorConfig) {
-        let device = this.engine.device;
-
         const { NUM, SPAWN_RADIUS, BASE_LIFETIME, MAX_ADDITIONAL_LIFETIME, NUMBER_OF_BONES } = config;
 
         const position = new Float32Array(4 * NUM);
@@ -96,7 +95,6 @@ class FlameSimulatorBuffer {
             position[i * 4 + 1] = SPAWN_RADIUS * Math.pow(Math.random(), 1 / 3) * Math.sqrt(1.0 - Math.pow(Math.random() * 2.0 - 1.0, 2)) * Math.sin(Math.random() * 2.0 * Math.PI); // y
             position[i * 4 + 2] = SPAWN_RADIUS * Math.pow(Math.random(), 1 / 3) * (Math.random() * 2.0 - 1.0); // z
             position[i * 4 + 3] = BASE_LIFETIME * Math.random(); // w
-            // console.log(position[i * 4 + 0], position[i * 4 + 1], position[i * 4 + 2]);
         }
         this.mPositionBuffer = new ComputeGPUBuffer(position.length);
         this.mPositionBuffer.setFloat32Array("", position);
@@ -115,6 +113,12 @@ class FlameSimulatorBuffer {
         
         const initboneMatrices = new Float32Array(4 * NUMBER_OF_BONES * 3);
         this.mBoneMatricesBuffer = new ComputeGPUBuffer(initboneMatrices.length);
+
+        const identity = new Float32Array(16);
+        identity[0] = identity[5] = identity[10] = identity[15] = 1;
+        this.mModelInverseMatrixBuffer = new ComputeGPUBuffer(16);
+        this.mModelInverseMatrixBuffer.setFloat32Array("", identity);
+        this.mModelInverseMatrixBuffer.apply();
 
         const { PRESIMULATION_DELTA_TIME, INITIAL_TURBULENCE, NOISE_OCTAVES, SCALE } = config;
         this.mInputBuffer = new ComputeGPUBuffer(8);
@@ -145,15 +149,21 @@ class FlameSimulatorPipeline extends FlameSimulatorBuffer {
     protected mFirstFrame: boolean = false;
     protected mAnimatorComponent: AnimatorComponent;
     protected mSkinnedMeshRenderer: SkinnedMeshRenderer2;
-    constructor(config: FlameSimulatorConfig, skeletonAnimation: AnimatorComponent, skinnedMeshRenderer: SkinnedMeshRenderer2) {
+    protected mCtx: Context3D;
+    constructor(config: FlameSimulatorConfig, skeletonAnimation: AnimatorComponent, skinnedMeshRenderer: SkinnedMeshRenderer2, ctx: Context3D) {
         super(config);
         this.mConfig = config;
         this.mAnimatorComponent = skeletonAnimation;
         this.mSkinnedMeshRenderer = skinnedMeshRenderer;
+        this.mCtx = ctx;
     }
 
     public get positionBuffer(): ComputeGPUBuffer {
         return this.mPositionBuffer;
+    }
+
+    public get modelInverseMatrixBuffer(): ComputeGPUBuffer {
+        return this.mModelInverseMatrixBuffer;
     }
 
     public initParticle(attributeArrays: Map<string, VertexAttributeData>) {
@@ -249,18 +259,18 @@ class FlameSimulatorPipeline extends FlameSimulatorBuffer {
         this.initPipeline();
     }
 
-    public compute(command: GPUCommandEncoder) {
+    public compute(view: View3D, command: GPUCommandEncoder) {
         const { BASE_LIFETIME, PRESIMULATION_DELTA_TIME, NUM, GROUP_SIZE } = this.mConfig;
 
-        let compute_command = GPUContext.beginCommandEncoder();
-        GPUContext.computeCommand(compute_command, [this.mCopyBoneMatrixComputeShader]);
+        const gpu = view.engine3D.context3D.gpuContext;
+        let compute_command = gpu.beginCommandEncoder();
+        gpu.computeCommand(compute_command, [this.mCopyBoneMatrixComputeShader]);
 
         for (var i = 0; i < (this.mFirstFrame ? BASE_LIFETIME / PRESIMULATION_DELTA_TIME : 1); ++i) {
-            GPUContext.computeCommand(compute_command, [this.mSimulationComputeShader, this.mCopyComputeShader]);
-            // GPUContext.computeCommand(compute_command, [this.mSimulationComputeShader]);
+            gpu.computeCommand(compute_command, [this.mSimulationComputeShader, this.mCopyComputeShader]);
         }
 
-        GPUContext.endCommandEncoder(command);
+        gpu.endCommandEncoder(command);
 
         this.mFirstFrame = false;
     }
@@ -270,9 +280,10 @@ class FlameSimulatorPipeline extends FlameSimulatorBuffer {
         this.mBoneMatrixBuffer = new ComputeGPUBuffer(16 * this.mAnimatorComponent.numJoint);
 
         this.mCopyBoneMatrixComputeShader = new ComputeShader(CopyBoneMatrix.cs);
-        this.mCopyBoneMatrixComputeShader.setStorageBuffer(`matrixs`, GlobalBindGroup.modelMatrixBindGroup.matrixBufferDst);
+        this.mCopyBoneMatrixComputeShader.setStorageBuffer(`matrixs`, GlobalBindGroup.getModelMatrixBindGroup(this.mCtx).matrixBufferDst);
         this.mCopyBoneMatrixComputeShader.setStorageBuffer(`jointsMatrixIndexTable`, this.mAnimatorComponent.jointMatrixIndexTableBuffer);
         this.mCopyBoneMatrixComputeShader.setStorageBuffer(`bonesTransformMatrix`, this.mBoneMatrixBuffer);
+        this.mCopyBoneMatrixComputeShader.setStorageBuffer(`modelInverseMatrix`, this.mModelInverseMatrixBuffer);
         this.mCopyBoneMatrixComputeShader.workerSizeX = Math.ceil(this.mAnimatorComponent.numJoint / 16);
 
         const { NUM, GROUP_SIZE } = this.mConfig;
@@ -306,6 +317,7 @@ class FlameSimulator extends MeshRenderer {
     protected mConfig: FlameSimulatorConfig;
     protected mFlameComputePipeline: FlameSimulatorPipeline;
     protected mGlobalArgs: ComputeGPUBuffer;
+    protected mInvModelMatrix: Matrix4 = new Matrix4();
     constructor() {
         super();
         this.addRendererMask(RendererMask.Particle)
@@ -344,9 +356,15 @@ class FlameSimulator extends MeshRenderer {
 
     public onCompute(view: View3D, command?: GPUCommandEncoder) {
         if (this.mFlameComputePipeline) {
+            this.mInvModelMatrix.copy(this.transform.worldMatrix);
+            this.mInvModelMatrix.invert();
+            const invBuf = this.mFlameComputePipeline.modelInverseMatrixBuffer;
+            invBuf.setMatrix("", this.mInvModelMatrix);
+            invBuf.apply();
+
             this.mFlameComputePipeline.updateInput(Time.time / 1000.0, Time.delta / 1000.0);
             this.mFlameComputePipeline.updateInputData();
-            this.mFlameComputePipeline.compute(command);
+            this.mFlameComputePipeline.compute(view, command);
         }
     }
 
@@ -355,14 +373,14 @@ class FlameSimulator extends MeshRenderer {
             let animatorComponent = this.object3D.getComponentsInChild(AnimatorComponent)[0];
             let skinnedMeshRenderer = this.object3D.getComponentsInChild(SkinnedMeshRenderer2)[0];
             let attributeArrays = skinnedMeshRenderer.geometry.vertexAttributeMap;
-            this.mFlameComputePipeline = new FlameSimulatorPipeline(this.mConfig, animatorComponent, skinnedMeshRenderer);
+            this.mFlameComputePipeline = new FlameSimulatorPipeline(this.mConfig, animatorComponent, skinnedMeshRenderer, view.engine3D.context3D);
             this.mFlameComputePipeline.initParticle(attributeArrays);
 
             let material = this.materials[0];
-            let passes = material.getPass(passType)
-            if (passes) {
-                for (let i = 0; i < passes.length; i++) {
-                    var subs = passes[i];
+            let colorPasses = material.getPass(PassType.COLOR);
+            if (colorPasses) {
+                for (let i = 0; i < colorPasses.length; i++) {
+                    const subs = colorPasses[i];
                     subs.setStorageBuffer(`particlePosition`, this.mFlameComputePipeline.positionBuffer);
                     subs.setStorageBuffer(`particleGlobalData`, this.mGlobalArgs);
                 }
@@ -395,8 +413,6 @@ class FlameSimulatorMaterial extends Material {
         shaderState.acceptGI = false;
         shaderState.useLight = false;
 
-        // default value
-        this.baseMap = Engine3D.resFor().whiteTexture;
         this.shader = shader;
         
         // this.transparent = true ;
@@ -534,7 +550,6 @@ class Copy {
             if(index >= u32(input.count)){
                 return;
             }
-
             position[index] = newposition[index];
         }
     `;
@@ -545,6 +560,7 @@ class CopyBoneMatrix {
         @group(0) @binding(0) var<storage, read> matrixs: array<mat4x4<f32>>;
         @group(0) @binding(1) var<storage, read> jointsMatrixIndexTable: array<f32>;
         @group(0) @binding(2) var<storage, read_write> bonesTransformMatrix: array<mat4x4<f32>>;
+        @group(0) @binding(3) var<storage, read> modelInverseMatrix: mat4x4<f32>;
 
         @compute @workgroup_size(16)
         fn CsMain(
@@ -552,7 +568,7 @@ class CopyBoneMatrix {
             @builtin(num_workgroups) GroupSize: vec3<u32>
         ) {
             var index = GlobalInvocationID.x;
-            bonesTransformMatrix[index] = matrixs[u32(jointsMatrixIndexTable[index])];
+            bonesTransformMatrix[index] = modelInverseMatrix * matrixs[u32(jointsMatrixIndexTable[index])];
         }
     `;
 }

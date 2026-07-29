@@ -23,7 +23,6 @@ class Sample_Skeleton2 {
         this.scene.exposure = 1;
 
         let mainCamera = CameraUtil.createCamera3DObject(this.scene);
-        mainCamera.enableCSM = true;
         mainCamera.perspective(60, this.engine.aspect, 1, 3000.0);
 
         let hoverCameraController = mainCamera.object3D.addComponent(HoverCameraController);
@@ -48,8 +47,8 @@ class Sample_Skeleton2 {
         {
             this.lightObj3D = new Object3D();
             this.lightObj3D.x = 0;
-            this.lightObj3D.y = 30;
-            this.lightObj3D.z = -40;
+            this.lightObj3D.y = 150;
+            this.lightObj3D.z = 100;
             this.lightObj3D.rotationX = 144;
             this.lightObj3D.rotationY = 0;
             this.lightObj3D.rotationZ = 0;
@@ -57,33 +56,31 @@ class Sample_Skeleton2 {
             directLight.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
             directLight.castShadow = true;
             directLight.intensity = 3;
+            directLight.enableCSM = true;
             scene.addChild(this.lightObj3D);
         }
 
         {
             // load model with skeletion animation
-            let rootNode = await this.engine.res.loadGltf('https://cdn.orillusion.com/gltfs/glb/Soldier.glb');
-            let character = rootNode.getObjectByName('Character') as Object3D;
-            character.scaleX = 0.3;
-            character.scaleY = 0.3;
-            character.scaleZ = 0.3;
-            character.rotationY = 180;
+            let soldier = await this.engine.res.loadGltf('https://cdn.orillusion.com/gltfs/glb/Soldier.glb');
+            soldier.scaleX = soldier.scaleY = soldier.scaleZ = 20;
+            soldier.rotationY = 180;
 
             // enum animation names
-            var animName = ['Idel', 'Walk', 'Run', 'TPose'];
+            var animName = ['Idle', 'Walk', 'Run', 'TPose'];
             let maxCount = 100;
             let maxCol = 10;
             let maxRow = Math.floor(maxCount / maxCol);
             // Clone 100 players to play different animations
             for (var i = 0; i < maxCount; i++) {
-                let cloneObj = character.clone();
+                let cloneObj = soldier.clone();
 
                 let row = Math.floor(i / maxCol);
                 let col = Math.floor(i % maxCol);
 
                 cloneObj.x = (maxCol * -0.5 + col) * 30;
                 cloneObj.z = (maxRow * -0.5 + row) * 30;
-                cloneObj.rotationX = -90;
+                // cloneObj.rotationX = -90;
                 scene.addChild(cloneObj);
 
                 let animation = cloneObj.getComponentsInChild(AnimatorComponent)[0];
@@ -91,8 +88,8 @@ class Sample_Skeleton2 {
                 if (i < animName.length) {
                     animation.playAnim(animName[i]);
                 } else {
-                    let animIndex = Math.floor((Math.random() * 100) % 3);
-                    animation.playAnim(animName[animIndex], -5 + Math.random() * 10);
+                    let animIndex = Math.floor(Math.random() * 100) % animName.length;
+                    animation.playAnim(animName[animIndex]);
                 }
                 await this.sleep(10);
             }

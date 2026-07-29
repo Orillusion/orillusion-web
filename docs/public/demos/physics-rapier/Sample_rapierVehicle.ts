@@ -22,11 +22,9 @@ class VehicleDriver extends ComponentBase {
         const brake = this.keys[KeyCode.Key_Space] ? this.brakeForce : 0;
         const steer = this.keys[KeyCode.Key_A] ? this.maxSteer : (this.keys[KeyCode.Key_D] ? -this.maxSteer : 0);
 
-        // Rear-wheel drive: wheels 2,3
         this.vehicle.setEngineForce(fwd, 2);
         this.vehicle.setEngineForce(fwd, 3);
         for (let i = 0; i < 4; i++) this.vehicle.setBrake(brake, i);
-        // Front wheels steer
         this.vehicle.setSteering(steer, 0);
         this.vehicle.setSteering(steer, 1);
     }
@@ -62,7 +60,6 @@ class Sample_RapierVehicle {
         const engine = await Engine3D.init({ renderLoop: () => Physics.update() });
         let scene = new Scene3D();
 
-        // Setup camera
         let camera = CameraUtil.createCamera3DObject(scene);
         camera.perspective(60, engine.aspect, 0.1, 800.0);
 
@@ -70,7 +67,6 @@ class Sample_RapierVehicle {
         hoverCtrl.setCamera(0, -25, 15);
         hoverCtrl.dragSmooth = 4;
 
-        // Create directional light
         let lightObj3D = new Object3D();
         lightObj3D.localRotation = new Vector3(-35, -143, 92);
 
@@ -81,11 +77,9 @@ class Sample_RapierVehicle {
         light.intensity = 2.2;
         scene.addChild(light.object3D);
 
-        // init sky
         let atmosphericSky = scene.addComponent(AtmosphericComponent);
         atmosphericSky.sunY = 0.6;
 
-        // Ground
         const floor = new Object3D();
         const fr = floor.addComponent(MeshRenderer);
         fr.geometry = new BoxGeometry(200, 0.2, 60);
@@ -96,7 +90,6 @@ class Sample_RapierVehicle {
         fb.friction = 1.0;
         scene.addChild(floor);
 
-        // Chassis
         const chassis = new Object3D(); chassis.y = 2;
         const cmr = chassis.addComponent(MeshRenderer);
         cmr.geometry = new BoxGeometry(2, 0.6, 4);
@@ -108,7 +101,6 @@ class Sample_RapierVehicle {
         crb.angularDamping = 0.5;
         scene.addChild(chassis);
 
-        // Vehicle
         const vc = chassis.addComponent(VehicleController);
         const wheelOpts = {
             suspensionRestLength: 0.3,
@@ -118,7 +110,6 @@ class Sample_RapierVehicle {
             dampingRelaxation: 2.3,
             frictionSlip: 1000,
         };
-        // 4 wheels: front-left, front-right, rear-left, rear-right
         vc.addWheel({ ...wheelOpts, chassisConnection: new Vector3(-1, -0.3, -1.5) }); // 0 FL
         vc.addWheel({ ...wheelOpts, chassisConnection: new Vector3(1, -0.3, -1.5) });  // 1 FR
         vc.addWheel({ ...wheelOpts, chassisConnection: new Vector3(-1, -0.3, 1.5) });  // 2 RL
@@ -127,7 +118,6 @@ class Sample_RapierVehicle {
         const drv = chassis.addComponent(VehicleDriver);
         drv.vehicle = vc;
 
-        // Wheel visuals: steerPivot -> spinPivot -> cylinder (rotated to lie along axle)
         const wheelMat = new LitMaterial();
         wheelMat.baseColor = new Color(0.08, 0.08, 0.08);
         const wheelGeo = new CylinderGeometry(wheelOpts.radius, wheelOpts.radius, 0.3, 24);
@@ -140,7 +130,6 @@ class Sample_RapierVehicle {
             const mr = mesh.addComponent(MeshRenderer);
             mr.geometry = wheelGeo;
             mr.material = wheelMat;
-            // Cylinder is along Y; rotate Z=90 so it lies along the X axle.
             mesh.rotationZ = 90;
             spin.addChild(mesh);
             steer.addChild(spin);

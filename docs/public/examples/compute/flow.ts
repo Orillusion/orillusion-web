@@ -1,16 +1,19 @@
 import { AtmosphericComponent, CameraUtil, ClusterLightingBuffer, Color, ComputeGPUBuffer, ComputeShader, Engine3D, HoverCameraController, Material, MeshRenderer, Object3D, PassType, PlaneGeometry, RendererPassState, RenderShaderPass, Scene3D, Shader, ShaderLib, Texture, Time, Vector3, Vector4, View3D } from '@orillusion/core';
 
 class Demo_Flow {
+    constructor() {
+    }
+
     async run() {
-        let engine = await Engine3D.init({});
+        const engine = await Engine3D.init({});
 
         let scene = new Scene3D();
         let sky = scene.addComponent(AtmosphericComponent);
         await this.initScene(scene);
 
         let camera = CameraUtil.createCamera3DObject(scene);
-
-        camera.perspective(60, this.engine.aspect, 0.01, 10000.0);
+        
+        camera.perspective(60, engine.context3D.aspect, 0.01, 10000.0);
         let ctl = camera.object3D.addComponent(HoverCameraController);
         ctl.setCamera(0, 0, 4, new Vector3(0, 1, 0));
         ctl.maxDistance = 1000;
@@ -48,9 +51,9 @@ class FlowSimulator extends MeshRenderer {
     protected mConfig: FlowSimulatorConfig;
     protected mGlobalArgs: ComputeGPUBuffer;
     protected mFlowComputePipeline: FlowSimulatorPipeline;
-
+    
     constructor() {
-        super();
+        super()
         this.mConfig = {
             GROUP_SIZE: 128,
             NUM: 60000,
@@ -62,9 +65,9 @@ class FlowSimulator extends MeshRenderer {
             INITIAL_TURBULENCE: 0.3,
             NOISE_OCTAVES: 3,
             directionX: 0.0, //X -1~1
-            directionY: 0.2, //Y -1~1
-            directionZ: 0.0 //Z -1~1
-        };
+            directionY: 0.2000000, //Y -1~1
+            directionZ: 0.0, //Z -1~1
+        }
     }
 
     public init() {
@@ -76,15 +79,15 @@ class FlowSimulator extends MeshRenderer {
         var globalArgsData = new Float32Array(4);
         this.mGlobalArgs = new ComputeGPUBuffer(globalArgsData.byteLength);
         globalArgsData[0] = this.transform.worldMatrix.index;
-        this.mGlobalArgs.setFloat32Array('', globalArgsData);
+        this.mGlobalArgs.setFloat32Array("", globalArgsData);
         this.mGlobalArgs.apply();
 
         this.mFlowComputePipeline = new FlowSimulatorPipeline(this.mConfig);
-
+        
         this.instanceCount = this.mConfig.NUM;
     }
 
-    public stop() {}
+    public stop() { }
 
     public onCompute(view: View3D, command?: GPUCommandEncoder) {
         this.mFlowComputePipeline.compute(command);
@@ -98,18 +101,18 @@ class FlowSimulator extends MeshRenderer {
                 var subs = passes[i];
                 subs.setStorageBuffer(`particlePosition`, this.mFlowComputePipeline.positionBuffer);
                 subs.setStorageBuffer(`particleGlobalData`, this.mGlobalArgs);
+                }
             }
-        }
         super.nodeUpdate(view, passType, renderPassState, clusterLightingBuffer);
     }
 }
 
 class FlowSimulatorBuffer {
-    protected mPositionBuffer: ComputeGPUBuffer;
-    protected mNewPositionBuffer: ComputeGPUBuffer;
-    protected mSpawnBuffer: ComputeGPUBuffer;
+    protected mPositionBuffer: ComputeGPUBuffer
+    protected mNewPositionBuffer: ComputeGPUBuffer
+    protected mSpawnBuffer: ComputeGPUBuffer
     protected mInputData: Float32Array;
-    protected mInputBuffer: ComputeGPUBuffer;
+    protected mInputBuffer: ComputeGPUBuffer
     protected mConfig: FlowSimulatorConfig;
 
     constructor(config: FlowSimulatorConfig) {
@@ -120,53 +123,53 @@ class FlowSimulatorBuffer {
     public updateInputData() {
         const { INITIAL_TURBULENCE, NOISE_OCTAVES, directionX, directionY, directionZ } = this.mConfig;
 
-        this.mInputBuffer.setFloat('persistence', INITIAL_TURBULENCE);
-        this.mInputBuffer.setFloat('OCTAVES', NOISE_OCTAVES);
-        this.mInputBuffer.setFloat('directionX', directionX);
-        this.mInputBuffer.setFloat('directionY', directionY);
-        this.mInputBuffer.setFloat('directionZ', directionZ);
+        this.mInputBuffer.setFloat("persistence", INITIAL_TURBULENCE);
+        this.mInputBuffer.setFloat("OCTAVES", NOISE_OCTAVES);
+        this.mInputBuffer.setFloat("directionX", directionX);
+        this.mInputBuffer.setFloat("directionY", directionY);
+        this.mInputBuffer.setFloat("directionZ", directionZ);
         this.mInputBuffer.apply();
     }
 
     public initGPUBuffer(config: FlowSimulatorConfig) {
-        const { NUM, SPAWN_RADIUS, BASE_LIFETIME, MAX_ADDITIONAL_LIFETIME } = config;
+        const { NUM, SPAWN_RADIUS, BASE_LIFETIME, MAX_ADDITIONAL_LIFETIME } = config
 
-        const position = new Float32Array(4 * NUM);
+        const position = new Float32Array(4 * NUM)
         for (let i = 0; i < NUM; ++i) {
-            position[i * 4 + 0] = SPAWN_RADIUS * Math.pow(Math.random(), 1 / 3) * Math.sqrt(1.0 - Math.pow(Math.random() * 2.0 - 1.0, 2)) * Math.cos(Math.random() * 2.0 * Math.PI); // x
-            position[i * 4 + 1] = SPAWN_RADIUS * Math.pow(Math.random(), 1 / 3) * Math.sqrt(1.0 - Math.pow(Math.random() * 2.0 - 1.0, 2)) * Math.sin(Math.random() * 2.0 * Math.PI); // y
-            position[i * 4 + 2] = SPAWN_RADIUS * Math.pow(Math.random(), 1 / 3) * (Math.random() * 2.0 - 1.0); // z
-            position[i * 4 + 3] = BASE_LIFETIME * Math.random(); // w
+            position[i * 4 + 0] = SPAWN_RADIUS * Math.pow(Math.random(), 1 / 3) * Math.sqrt(1.0 - Math.pow(Math.random() * 2.0 - 1.0, 2)) * Math.cos(Math.random() * 2.0 * Math.PI) // x
+            position[i * 4 + 1] = SPAWN_RADIUS * Math.pow(Math.random(), 1 / 3) * Math.sqrt(1.0 - Math.pow(Math.random() * 2.0 - 1.0, 2)) * Math.sin(Math.random() * 2.0 * Math.PI) // y
+            position[i * 4 + 2] = SPAWN_RADIUS * Math.pow(Math.random(), 1 / 3) * (Math.random() * 2.0 - 1.0) // z
+            position[i * 4 + 3] = BASE_LIFETIME * Math.random() // w
         }
         this.mPositionBuffer = new ComputeGPUBuffer(position.length);
-        this.mPositionBuffer.setFloat32Array('', position);
+        this.mPositionBuffer.setFloat32Array("", position);
         this.mPositionBuffer.apply();
 
         this.mNewPositionBuffer = new ComputeGPUBuffer(position.length);
-        this.mNewPositionBuffer.setFloat32Array('', position);
+        this.mNewPositionBuffer.setFloat32Array("", position);
         this.mNewPositionBuffer.apply();
 
-        const spawn = new Float32Array(4 * NUM);
+        const spawn = new Float32Array(4 * NUM)
         for (let i = 0; i < NUM; ++i) {
-            spawn[i * 4 + 0] = SPAWN_RADIUS * Math.pow(Math.random(), 1 / 3) * Math.sqrt(1.0 - Math.pow(Math.random() * 2.0 - 1.0, 2)) * Math.cos(Math.random() * 2.0 * Math.PI); // x
-            spawn[i * 4 + 1] = SPAWN_RADIUS * Math.pow(Math.random(), 1 / 3) * Math.sqrt(1.0 - Math.pow(Math.random() * 2.0 - 1.0, 2)) * Math.sin(Math.random() * 2.0 * Math.PI); // y
-            spawn[i * 4 + 2] = SPAWN_RADIUS * Math.pow(Math.random(), 1 / 3) * (Math.random() * 2.0 - 1.0); // z
-            spawn[i * 4 + 3] = BASE_LIFETIME + Math.random() * MAX_ADDITIONAL_LIFETIME;
+            spawn[i * 4 + 0] = SPAWN_RADIUS * Math.pow(Math.random(), 1 / 3) * Math.sqrt(1.0 - Math.pow(Math.random() * 2.0 - 1.0, 2)) * Math.cos(Math.random() * 2.0 * Math.PI) // x
+            spawn[i * 4 + 1] = SPAWN_RADIUS * Math.pow(Math.random(), 1 / 3) * Math.sqrt(1.0 - Math.pow(Math.random() * 2.0 - 1.0, 2)) * Math.sin(Math.random() * 2.0 * Math.PI) // y
+            spawn[i * 4 + 2] = SPAWN_RADIUS * Math.pow(Math.random(), 1 / 3) * (Math.random() * 2.0 - 1.0) // z
+            spawn[i * 4 + 3] = BASE_LIFETIME + Math.random() * MAX_ADDITIONAL_LIFETIME
         }
         this.mSpawnBuffer = new ComputeGPUBuffer(spawn.length);
-        this.mSpawnBuffer.setFloat32Array('', spawn);
+        this.mSpawnBuffer.setFloat32Array("", spawn);
         this.mSpawnBuffer.apply();
 
         const { PRESIMULATION_DELTA_TIME, INITIAL_TURBULENCE, NOISE_OCTAVES, directionX, directionY, directionZ } = config;
         this.mInputBuffer = new ComputeGPUBuffer(8);
-        this.mInputBuffer.setFloat('count', NUM);
-        this.mInputBuffer.setFloat('time', PRESIMULATION_DELTA_TIME);
-        this.mInputBuffer.setFloat('deltatime', PRESIMULATION_DELTA_TIME);
-        this.mInputBuffer.setFloat('persistence', INITIAL_TURBULENCE);
-        this.mInputBuffer.setFloat('OCTAVES', NOISE_OCTAVES);
-        this.mInputBuffer.setFloat('directionX', directionX);
-        this.mInputBuffer.setFloat('directionY', directionY);
-        this.mInputBuffer.setFloat('directionZ', directionZ);
+        this.mInputBuffer.setFloat("count", NUM);
+        this.mInputBuffer.setFloat("time", PRESIMULATION_DELTA_TIME);
+        this.mInputBuffer.setFloat("deltatime", PRESIMULATION_DELTA_TIME);
+        this.mInputBuffer.setFloat("persistence", INITIAL_TURBULENCE);
+        this.mInputBuffer.setFloat("OCTAVES", NOISE_OCTAVES);
+        this.mInputBuffer.setFloat("directionX", directionX);
+        this.mInputBuffer.setFloat("directionY", directionY);
+        this.mInputBuffer.setFloat("directionZ", directionZ);
         this.mInputBuffer.apply();
     }
 }
@@ -175,10 +178,10 @@ class FlowSimulatorMaterial extends Material {
     doubleSided: any;
     constructor() {
         super();
-        ShaderLib.register('FlowRenderShader', FlowRenderShader);
+        ShaderLib.register("FlowRenderShader", FlowRenderShader);
         let shader = new Shader();
         let pass = new RenderShaderPass('FlowRenderShader', 'FlowRenderShader');
-        pass.setShaderEntry(`VertMain`, `FragMain`);
+        pass.setShaderEntry(`VertMain`, `FragMain`)
 
         shader.addRenderPass(pass);
         shader.setUniformVector4(`transformUV1`, new Vector4(0, 0, 1, 1));
@@ -187,14 +190,12 @@ class FlowSimulatorMaterial extends Material {
         shader.setUniformFloat(`alphaCutoff`, 0.5);
         shader.setUniformFloat(`shadowBias`, 0.00035);
 
-        let shaderState = pass.shaderState;
+        let shaderState = pass.shaderState ;
         shaderState.acceptShadow = false;
         shaderState.receiveEnv = false;
         shaderState.acceptGI = false;
         shaderState.useLight = false;
 
-        // default value
-        this.baseMap = Engine3D.resFor().whiteTexture;
         this.shader = shader;
 
         // this.transparent = true ;
@@ -221,7 +222,7 @@ class FlowSimulatorPipeline extends FlowSimulatorBuffer {
     protected mFirstFrame: boolean = false;
 
     constructor(config: FlowSimulatorConfig) {
-        super(config);
+        super(config)
         this.mConfig = config;
         this.initPipeline();
     }
@@ -231,14 +232,15 @@ class FlowSimulatorPipeline extends FlowSimulatorBuffer {
     }
 
     public compute(command: GPUCommandEncoder) {
-        const { BASE_LIFETIME, PRESIMULATION_DELTA_TIME, INITIAL_SPEED } = this.mConfig;
+
+        const { BASE_LIFETIME, PRESIMULATION_DELTA_TIME, INITIAL_SPEED } = this.mConfig
 
         if (this.mFirstFrame) {
-            this.mInputBuffer.setFloat('time', PRESIMULATION_DELTA_TIME);
-            this.mInputBuffer.setFloat('deltatime', PRESIMULATION_DELTA_TIME);
+            this.mInputBuffer.setFloat("time", PRESIMULATION_DELTA_TIME);
+            this.mInputBuffer.setFloat("deltatime", PRESIMULATION_DELTA_TIME);
         } else {
-            this.mInputBuffer.setFloat('time', Time.time / 1000.0);
-            this.mInputBuffer.setFloat('deltatime', INITIAL_SPEED * (Time.delta / 1000.0));
+            this.mInputBuffer.setFloat("time", Time.time / 1000.0);
+            this.mInputBuffer.setFloat("deltatime", INITIAL_SPEED * (Time.delta / 1000.0));
         }
         this.updateInputData();
 
@@ -360,40 +362,39 @@ let FlowRenderShader = /* wgsl */ `
 
 class copy {
     public static cs: string = /* wgsl */ `
-            struct InputArgs {
-                count: f32,
-                time: f32,
-                deltatime: f32,
-                persistence: f32,
-                OCTAVES: f32,
-                directionX: f32,
-                directionY: f32,
-                directionZ: f32,
-            };
-    
-            @group(0) @binding(0) var<storage, read> input: InputArgs;
-            @group(0) @binding(1) var<storage, read_write> position: array<vec4<f32>>;
-            @group(0) @binding(2) var<storage, read_write> newposition: array<vec4<f32>>;
-            
-            const size = u32(128);
-            @compute @workgroup_size(size)
-            fn CsMain(
-                @builtin(global_invocation_id) GlobalInvocationID : vec3<u32>,
-                @builtin(num_workgroups) GroupSize: vec3<u32>
-            ) {
-                var index = GlobalInvocationID.x;
-                if(index >= u32(input.count)){
-                    return;
-                }
+        struct InputArgs {
+            count: f32,
+            time: f32,
+            deltatime: f32,
+            persistence: f32,
+            OCTAVES: f32,
+            directionX: f32,
+            directionY: f32,
+            directionZ: f32,
+        };
 
-                position[index] = newposition[index];
+        @group(0) @binding(0) var<storage, read> input: InputArgs;
+        @group(0) @binding(1) var<storage, read_write> position: array<vec4<f32>>;
+        @group(0) @binding(2) var<storage, read_write> newposition: array<vec4<f32>>;
+        
+        const size = u32(128);
+        @compute @workgroup_size(size)
+        fn CsMain(
+            @builtin(global_invocation_id) GlobalInvocationID : vec3<u32>,
+            @builtin(num_workgroups) GroupSize: vec3<u32>
+        ) {
+            var index = GlobalInvocationID.x;
+            if(index >= u32(input.count)){
+                return;
             }
+        
+            position[index] = newposition[index];
+        }
         `;
 }
 
 class simulation {
     public static cs: string = /* wgsl */ `
-
         struct InputArgs {
             count: f32,
             time: f32,

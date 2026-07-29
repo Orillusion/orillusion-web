@@ -40,6 +40,7 @@ class Sample_MultipleConstraints {
         let dl = light.addComponent(DirectLight);
         dl.castShadow = true;
         dl.intensity = 3;
+        dl.enableCSM = true;
         this.scene.addChild(light);
 
         // init sky

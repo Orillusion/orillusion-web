@@ -1,4 +1,4 @@
-import { AtmosphericComponent, BoxGeometry, CameraUtil, ComputeGPUBuffer, ComputeShader, DirectLight, Engine3D, HoverCameraController, KeyCode, KeyEvent, LitMaterial, MeshRenderer, Object3D, PlaneGeometry, Scene3D, SphereGeometry, Time, Vector3, VertexAttributeName, View3D } from '@orillusion/core';
+import { AtmosphericComponent, BoxGeometry, CameraUtil, ComputeGPUBuffer, ComputeShader, DirectLight, Engine3D, GeometryVertexType, HoverCameraController, KeyCode, KeyEvent, LitMaterial, MeshRenderer, Object3D, PlaneGeometry, Scene3D, SphereGeometry, Time, Vector3, VertexAttributeName, View3D } from '@orillusion/core';
 
 class Demo_Cloth {
     engine: Engine3D;
@@ -8,9 +8,7 @@ class Demo_Cloth {
                 shadow: {
                     autoUpdate: true,
                     updateFrameRate: 1,
-                    shadowBound: 5,
                     shadowSize: 2048,
-                    shadowBias: 0.0002,
                 }
             }
         });
@@ -76,6 +74,7 @@ class Demo_Cloth {
             let lc = lightObj.addComponent(DirectLight);
             lc.intensity = 3;
             lc.castShadow = true;
+            lc.enableCSM = true;
             scene.addChild(lightObj);
         }
 
@@ -161,6 +160,7 @@ class ClothSimulator extends MeshRenderer {
             clothVertexBuffer: null,
         };
         this.mClothGeometry = new PlaneGeometry(1, 1, 20, 20, Vector3.Z_AXIS);
+        this.mClothGeometry.geometryType = GeometryVertexType.compose;
         this.mConfig.clothVertex = this.mClothGeometry.getAttribute(VertexAttributeName.position).data as Float32Array;
         this.mConfig.clothFaceTriIds = this.mClothGeometry.getAttribute(VertexAttributeName.indices).data as Uint16Array;
         this.mConfig.NUMPARTICLES = this.mConfig.clothVertex.length / 3;
@@ -190,13 +190,13 @@ class ClothSimulator extends MeshRenderer {
         this.geometry = this.mClothGeometry;
         var mat = new LitMaterial();
         mat.roughness = 0.8;
-        mat.baseMap = Engine3D.resFor().redTexture;
-        mat.cullMode = 'none';
+        mat.doubleSide = true;
         this.material = mat;
     }
 
     public start() {
         const engine = (this.transform as any)?.view3D?.engine3D;
+        (this.material as LitMaterial).baseMap = engine.res.redTexture;
         const input = engine?.inputSystem;
         input.addEventListener(KeyEvent.KEY_DOWN, (e: KeyEvent) => this.updateKeyState(e.keyCode, true), this);
         input.addEventListener(KeyEvent.KEY_UP, (e: KeyEvent) => this.updateKeyState(e.keyCode, false), this);
@@ -209,9 +209,16 @@ class ClothSimulator extends MeshRenderer {
     private _tickTime = 0;
 
     public onCompute(view: View3D, command?: GPUCommandEncoder) {
+        const vertexBuffer = this.mClothGeometry.vertexBuffer.vertexGPUBuffer;
+        if (!vertexBuffer)
+            return; // geometry GPU buffer not built yet
+
         if (!this.mClothComputePipeline) {
-            this.mConfig.clothVertexBuffer = this.mClothGeometry.vertexBuffer.vertexGPUBuffer;
+            this.mConfig.clothVertexBuffer = vertexBuffer;
             this.mClothComputePipeline = new ClothSimulatorPipeline(this.mConfig);
+        } else if (this.mConfig.clothVertexBuffer !== vertexBuffer) {
+            this.mConfig.clothVertexBuffer = vertexBuffer;
+            this.mClothComputePipeline.rebindVertexBuffer(vertexBuffer);
         }
 
         this._tickTime += Time.delta / 1000.0;
@@ -234,7 +241,7 @@ class ClothSimulator extends MeshRenderer {
                 } else if (this.mKeyState[3]) {
                     transform.x += speed
                 }
-                pos.copyFrom(this.mInteractionSphere.transform.worldPosition);
+                pos.copy(this.mInteractionSphere.transform.worldPosition);
             }
 
             this.mClothComputePipeline.compute(command, pos);

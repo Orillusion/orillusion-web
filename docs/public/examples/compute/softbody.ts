@@ -1,10 +1,17 @@
-import { AtmosphericComponent, BoundingBox, BoxGeometry, CameraUtil, ComputeGPUBuffer, ComputeShader, DirectLight, Engine3D, ForwardRenderJob, GeometryBase, HoverCameraController, KeyCode, KeyEvent, LitMaterial, MeshRenderer, Object3D, Scene3D, Time, Vector3, VertexAttributeName, View3D, webGPUContext } from '@orillusion/core';
+import { AtmosphericComponent, BoundingBox, BoxGeometry, CameraUtil, ComputeGPUBuffer, ComputeShader, DirectLight, Engine3D, GeometryBase, GeometryVertexType, HoverCameraController, KeyCode, KeyEvent, LitMaterial, MeshRenderer, Object3D, Scene3D, Time, Vector3, VertexAttributeName, View3D } from '@orillusion/core';
 import * as dat from 'dat.gui'
 
 class Demo_Softbody {
     engine: Engine3D;
     async run() {
-        this.engine = await Engine3D.init({});
+        this.engine = await Engine3D.init({
+            setting: {
+                shadow: {
+                    autoUpdate: true,
+                    updateFrameRate: 1,
+                },
+            },
+        });
 
         let scene = new Scene3D();
         let sky = scene.addComponent(AtmosphericComponent);
@@ -12,7 +19,7 @@ class Demo_Softbody {
 
         let camera = CameraUtil.createCamera3DObject(scene);
 
-        camera.perspective(60, webGPUContext.aspect, 1, 5000.0);
+        camera.perspective(60, this.engine.aspect, 1, 5000.0);
         let ctl = camera.object3D.addComponent(HoverCameraController);
         ctl.setCamera(30, -28, 10);
 
@@ -47,21 +54,22 @@ class Demo_Softbody {
 
         let bunny = new Object3D();
         let simulator = bunny.addComponent(BunnySimulator);
-        simulator.castShadow = false;
+        simulator.castShadow = true;
         simulator.SetInteractionBox(box);
         scene.addChild(bunny);
 
         {
             var lightObj = new Object3D();
             lightObj.x = 0;
-            lightObj.y = 0;
+            lightObj.y = 100;
             lightObj.z = 0;
             lightObj.rotationX = 45;
-            lightObj.rotationY = 0;
+            lightObj.rotationY = 217;
             lightObj.rotationZ = 0;
             let lc = lightObj.addComponent(DirectLight);
-            lc.castShadow = false;
             lc.intensity = 3;
+            lc.castShadow = true;
+            lc.enableCSM = true;
             scene.addChild(lightObj);
         }
 
@@ -662,6 +670,7 @@ class BunnyGeometry extends GeometryBase {
         this.depth = depth;
         this.vertexCount = vertexCount;
         this.name = 'BunnyGeometry';
+        this.geometryType = GeometryVertexType.compose;
         this.initVertex();
     }
 
@@ -872,13 +881,13 @@ class BunnySimulator extends MeshRenderer {
         this.geometry = this.mBunnyGeometry;
         var mat = new LitMaterial();
         mat.roughness = 0.8;
-        mat.baseMap = Engine3D.resFor().redTexture;
         this.material = mat;
         this.material.doubleSide = true;    
     }
 
     public start() {
         const engine = (this.transform as any)?.view3D?.engine3D;
+        (this.material as LitMaterial).baseMap = engine.res.redTexture;
         const input = engine?.inputSystem;
         input.addEventListener(KeyEvent.KEY_DOWN, (e: KeyEvent) => this.updateKeyState(e.keyCode, true), this);
         input.addEventListener(KeyEvent.KEY_UP, (e: KeyEvent) => this.updateKeyState(e.keyCode, false), this);
@@ -891,9 +900,16 @@ class BunnySimulator extends MeshRenderer {
     private _tickTime = 0;
 
     public onCompute(view: View3D, command?: GPUCommandEncoder) {
+        const vertexBuffer = this.mBunnyGeometry.vertexBuffer.vertexGPUBuffer;
+        if (!vertexBuffer)
+            return; // geometry GPU buffer not built yet
+
         if (!this.mBunnyComputePipeline) {
-            this.mConfig.bunnyVertexBuffer = this.mBunnyGeometry.vertexBuffer.vertexGPUBuffer;
-            this.mBunnyComputePipeline = new BunnySimulatorPipeline(this.mConfig);
+            this.mConfig.bunnyVertexBuffer = vertexBuffer;
+            this.mBunnyComputePipeline = new BunnySimulatorPipeline(this.mConfig, view.engine3D.context3D.device);
+        } else if (this.mConfig.bunnyVertexBuffer !== vertexBuffer) {
+            this.mConfig.bunnyVertexBuffer = vertexBuffer;
+            this.mBunnyComputePipeline.rebindVertexBuffer(vertexBuffer);
         }
 
         var pos = new Vector3();
@@ -913,7 +929,7 @@ class BunnySimulator extends MeshRenderer {
             } else if (this.mKeyState[3]) {
                 transform.x += speed
             }
-            pos.copyFrom(this.mInteractionBox.transform.worldPosition);
+            pos.copy(this.mInteractionBox.transform.worldPosition);
         }
 
         this._tickTime += Time.delta / 1000.0;
@@ -948,6 +964,7 @@ type BunnySimulatorConfig = {
 };
 
 class BunnySimulatorBuffer {
+    protected mDevice: GPUDevice;
     protected mPositionBuffer: ComputeGPUBuffer;
     protected mNormalBuffer: ComputeGPUBuffer;
     protected mVertexPositionData: Float32Array;
@@ -964,7 +981,8 @@ class BunnySimulatorBuffer {
     protected mInputBuffer: ComputeGPUBuffer;
     protected mOutput0Buffer: ComputeGPUBuffer;
 
-    constructor(config: BunnySimulatorConfig) {
+    constructor(config: BunnySimulatorConfig, device: GPUDevice) {
+        this.mDevice = device;
         this.initGPUBuffer(config);
     }
 
@@ -1011,9 +1029,8 @@ class BunnySimulatorBuffer {
             tetIds[4 * i + 3] = bunnyTetIds[4 * i + 3];
         }
         this.mTetIdsBuffer = new ComputeGPUBuffer(tetIds.length);
-        webGPUContext.device.queue.writeBuffer(this.mTetIdsBuffer.buffer, 0, tetIds);
-        // this.mTetIdsBuffer.setInt32Array("", tetIds);
-        // this.mTetIdsBuffer.apply();
+        this.mTetIdsBuffer.setInt32Array("", tetIds);
+        this.mTetIdsBuffer.apply();
 
         this.mRestVolBuffer = new ComputeGPUBuffer(restVol.length);
         this.mRestVolBuffer.setFloat32Array("", restVol);
@@ -1128,10 +1145,20 @@ class BunnySimulatorPipeline extends BunnySimulatorBuffer {
     protected mNormalUpdateComputeShader: ComputeShader;
     protected mUpdateVertexBufferComputeShader: ComputeShader;
 
-    constructor(config: BunnySimulatorConfig) {
-        super(config);
+    constructor(config: BunnySimulatorConfig, device: GPUDevice) {
+        super(config, device);
         this.mConfig = config;
         this.initPipeline(this.mConfig);
+    }
+
+    public rebindVertexBuffer(vertexBuffer: any) {
+        const { NUMTSURFACES } = this.mConfig;
+        this.mUpdateVertexBufferComputeShader = new ComputeShader(updatevertexbuffer.cs);
+        this.mUpdateVertexBufferComputeShader.setStorageBuffer(`input`, this.mInputBuffer);
+        this.mUpdateVertexBufferComputeShader.setStorageBuffer(`position`, this.mVertexPositionBuffer);
+        this.mUpdateVertexBufferComputeShader.setStorageBuffer(`normal`, this.mNormalBuffer);
+        this.mUpdateVertexBufferComputeShader.setStorageBuffer(`vertexBuffer`, vertexBuffer);
+        this.mUpdateVertexBufferComputeShader.workerSizeX = Math.ceil(NUMTSURFACES / 128);
     }
 
     public compute(command: GPUCommandEncoder, pos: Vector3) {

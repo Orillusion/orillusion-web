@@ -12,7 +12,6 @@ class Sample_Skeleton {
                 shadow: {
                     autoUpdate: true,
                     updateFrameRate: 1,
-                    shadowBound: 100
                 }
             }
         });
@@ -45,7 +44,6 @@ class Sample_Skeleton {
             man.scaleX = 30;
             man.scaleY = 30;
             man.scaleZ = 30;
-            man.rotationZ = 90;
             scene.addChild(man);
 
             let animator = man.getComponentsInChild(AnimatorComponent)[0];
@@ -68,6 +66,7 @@ class Sample_Skeleton {
             directLight.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
             directLight.castShadow = true;
             directLight.intensity = 3;
+            directLight.enableCSM = true;
             scene.addChild(this.lightObj3D);
         }
     }

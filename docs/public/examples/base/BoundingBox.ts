@@ -65,8 +65,6 @@ class Sample_BoundingBox {
         // engine.startRenderViews([this.view])
         engine.startRenderView(this.view);
 
-        Engine3D.getRenderJob(this.view);
-
         this.box = Object3DUtil.GetSingleCube(5, 3, 8, 1, 1, 1);
         this.box.transform.eventDispatcher.addEventListener(Transform.LOCAL_ONCHANGE, this.logChange, this);
 

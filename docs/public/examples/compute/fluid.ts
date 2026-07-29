@@ -59,10 +59,10 @@ class Demo_FluidOptimize {
                 let point = e.data.worldPos;
                 if (point.y >= 0 && (this.mLastPoint.x != point.x && this.mLastPoint.y != point.y && this.mLastPoint.z != point.z)) {
                     try {
-                        point.subtract(this.mLastPoint, this.mVelocity);
+                        Vector3.sub(point, this.mLastPoint, this.mVelocity);
                         this.mLastPoint.copy(point);
                         let r = scene.view.camera;
-                        let ray = r.screenPointToRay(this.engine.inputSystem.mouseX, this.engine.inputSystem.mouseY);
+                        let ray = r.screenPointToRay(scene.view.engine3D.inputSystem.mouseX, scene.view.engine3D.inputSystem.mouseY);
                         emulation.updateInputInfo(scene.view.camera.transform.localPosition, ray.direction, this.mVelocity);
                     }
                     catch (e) {
@@ -164,7 +164,7 @@ class FluidEmulation extends MeshRenderer {
         this.mConfig.maxDensity = this.mConfig.NUM / (this.mConfig.XMAX - this.mConfig.XMIN) / (this.mConfig.YMAX - this.mConfig.YMIN) / (this.mConfig.ZMAX - this.mConfig.ZMIN);
 
         this.mFluidComputePipeline = new FluidSimulatorPipeline(this.mConfig);
-        let device = this.engine.device;
+        let device = (this.transform as any)?.view3D?.engine3D?.context3D.device as GPUDevice;
         const { NUM } = this.mConfig;
 
         const modelView = new Float32Array(16 * NUM);

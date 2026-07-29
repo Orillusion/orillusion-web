@@ -23,7 +23,6 @@ class Sample_Rigidbody {
 
         this.scene = new Scene3D();
 
-        // Setup camera
         let camera = CameraUtil.createCamera3DObject(this.scene);
         camera.perspective(60, this.engine.aspect, 0.1, 800.0);
 
@@ -31,7 +30,6 @@ class Sample_Rigidbody {
         hoverCtrl.setCamera(0, -25, 100);
         hoverCtrl.dragSmooth = 4;
 
-        // Create directional light
         let lightObj3D = new Object3D();
         lightObj3D.localRotation = new Vector3(-35, -143, 92);
 
@@ -42,7 +40,6 @@ class Sample_Rigidbody {
         light.intensity = 2.2;
         this.scene.addChild(light.object3D);
 
-        // init sky
         let atmosphericSky = this.scene.addComponent(AtmosphericComponent);
         atmosphericSky.sunY = 0.6;
 

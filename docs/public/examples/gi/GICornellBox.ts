@@ -36,7 +36,6 @@ class Sample_GICornellBox {
                     debug: true,
                     shadowBound: 50,
                     shadowSize: 2048,
-                    shadowBias: 0.1,
                     autoUpdate: true,
                     updateFrameRate: 1
                 }
@@ -78,6 +77,7 @@ class Sample_GICornellBox {
         light.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
         light.castShadow = true;
         light.intensity = 4;
+        light.enableCSM = true;
 
         this.scene.addChild(light.object3D);
 
@@ -113,7 +113,6 @@ class Sample_GICornellBox {
         let volume = giComponent['_volume'];
         let giSetting = volume.setting;
         let view: View3D = this.engine.views[0];
-        let renderJob = Engine3D.getRenderJob(view);
 
         function onProbesChange(): void {
             giComponent['changeProbesPosition']();

@@ -69,8 +69,8 @@ class Sample_CandleFlame {
         simulator.addModule(ParticleGravityModifierModule).gravity = new Vector3(0, 0.3, 0);
 
         let overLifeColorModule = simulator.addModule(ParticleOverLifeColorModule);
-        overLifeColorModule.startColor = new Color(1, 0.3, 0);
-        overLifeColorModule.endColor = new Color(0, 0.6, 1);
+        overLifeColorModule.startColor = new Color(0, 0.6, 1);
+        overLifeColorModule.endColor = new Color(1, 0.3, 0);
         overLifeColorModule.startAlpha = 1.0;
         overLifeColorModule.endAlpha = 0.0;
 

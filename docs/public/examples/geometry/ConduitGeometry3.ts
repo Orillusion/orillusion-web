@@ -8,14 +8,7 @@ class Sample_ConduitGeometry3 {
     totalTime: number;
 
     async run() {
-        let engine = await Engine3D.init({
-            setting: {
-                shadow: {
-                    shadowBound: 50,
-                    shadowBias: 0.003
-                }
-            }
-        });
+        let engine = await Engine3D.init();
 
         // init Scene3D
         this.scene = new Scene3D();
@@ -52,6 +45,7 @@ class Sample_ConduitGeometry3 {
         light.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
         light.castShadow = true;
         light.intensity = 2;
+        light.enableCSM = true;
 
         this.scene.addChild(light.object3D);
 

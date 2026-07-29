@@ -26,7 +26,6 @@ class Sample_EatTheBox {
         this.engine.setting.shadow.updateFrameRate = 1;
         this.engine.setting.shadow.shadowSize = 2048;
         this.engine.setting.shadow.shadowBound = 100;
-        this.engine.setting.shadow.shadowBias = 0.01;
         //get original ammo world for processing more custom function
         this.ammoWorld = Physics.world;
 
@@ -48,6 +47,7 @@ class Sample_EatTheBox {
         let light = lightObj.addComponent(DirectLight);
         light.intensity = 4;
         light.castShadow = true;
+        light.enableCSM = true;
         lightObj.rotationX = 60;
         lightObj.rotationY = 80;
         sky.relativeTransform = light.transform;
