@@ -21,8 +21,6 @@ class Sample_ShootTheBox {
         //set shadow
         engine.setting.shadow.updateFrameRate = 1;
         engine.setting.shadow.shadowSize = 2048;
-        engine.setting.shadow.shadowBound = 50;
-        engine.setting.shadow.shadowBias = 0.005;
 
         //add mouse event listener
         engine.inputSystem.addEventListener(PointerEvent3D.POINTER_DOWN, this.MouseDown, this);
@@ -46,6 +44,7 @@ class Sample_ShootTheBox {
         let light = lightObj.addComponent(DirectLight);
         light.intensity = 4;
         light.castShadow = true;
+        light.enableCSM = true;
         lightObj.rotationX = 60;
         lightObj.rotationY = 140;
         sky.relativeTransform = light.transform;

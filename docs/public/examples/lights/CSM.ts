@@ -22,14 +22,16 @@ class Sample_CSM {
                 shadow: {
                     autoUpdate: true,
                     shadowSize: 2048,
-                    shadowBound: 512,
-                    shadowBias: 0.02
                 }
             }
         });
         let gui = new dat.GUI();
-        this.gui = gui.addFolder('Orillusion');
-        this.gui.open();
+        let f = this.gui = gui.addFolder('Orillusion');
+        f.add(this.engine.setting.shadow, 'csmScatteringExp', 0.5, 1.0, 0.01);
+        f.add(this.engine.setting.shadow, 'csmMargin', 0.01, 0.5, 0.01);
+        f.add(this.engine.setting.shadow, 'csmAreaScale', 0.1, 1, 0.01);
+        f.open();
+
         this.scene = new Scene3D();
         let sky = this.scene.addComponent(AtmosphericComponent);
 
@@ -53,15 +55,7 @@ class Sample_CSM {
         this.graphic3D = new Graphic3D();
         this.scene.addChild(this.graphic3D);
 
-        mainCamera.enableCSM = true;
         this.engine.startRenderView(view);
-
-        let f = gui.addFolder('CSM');
-        f.add(mainCamera, 'enableCSM');
-        f.add(this.engine.setting.shadow, 'csmScatteringExp', 0.5, 1.0, 0.01);
-        f.add(this.engine.setting.shadow, 'csmMargin', 0.01, 0.5, 0.01);
-        f.add(this.engine.setting.shadow, 'csmAreaScale', 0.1, 1, 0.01);
-        f.open();
     }
 
     // create direction light
@@ -75,10 +69,16 @@ class Sample_CSM {
         sunLight.intensity = intensity;
         sunLight.lightColor = KelvinUtil.color_temperature_to_rgb(6553);
         sunLight.castShadow = true;
+        sunLight.enableCSM = true;
 
         this.scene.addChild(lightObj3D);
         this.light = sunLight;
-        this.gui.add(sunLight, 'enable').name(name);
+        
+        let f = this.gui.addFolder(name);
+        f.add(sunLight, 'enable').name(name);
+        f.add(sunLight, 'enableCSM');
+        f.open();
+
         return sunLight.transform;
     }
 

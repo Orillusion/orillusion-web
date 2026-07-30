@@ -8,7 +8,6 @@ class Sample_RapierTriggers {
 
         let scene = new Scene3D();
 
-        // Setup camera
         let camera = CameraUtil.createCamera3DObject(scene);
         camera.perspective(60, engine.aspect, 0.1, 800.0);
 
@@ -16,7 +15,6 @@ class Sample_RapierTriggers {
         hoverCtrl.setCamera(0, -25, 100);
         hoverCtrl.dragSmooth = 4;
 
-        // Create directional light
         let lightObj3D = new Object3D();
         lightObj3D.localRotation = new Vector3(-35, -143, 92);
 
@@ -27,11 +25,9 @@ class Sample_RapierTriggers {
         light.intensity = 2.2;
         scene.addChild(light.object3D);
 
-        // init sky
         let atmosphericSky = scene.addComponent(AtmosphericComponent);
         atmosphericSky.sunY = 0.6;
 
-        // Floor
         const floor = new Object3D();
         const fr = floor.addComponent(MeshRenderer);
         fr.geometry = new PlaneGeometry(40, 40);
@@ -40,7 +36,6 @@ class Sample_RapierTriggers {
         fb.bodyType = BodyType.Static; fb.shape = CollisionShapeUtil.createPlaneShape(20, 0.05);
         scene.addChild(floor);
 
-        // Trigger zone (transparent box)
         const zone = new Object3D(); zone.y = 2;
         const zmr = zone.addComponent(MeshRenderer);
         zmr.geometry = new BoxGeometry(6, 4, 6);
@@ -68,7 +63,6 @@ class Sample_RapierTriggers {
         };
         scene.addChild(zone);
 
-        // Drop balls through the trigger
         let id = 0;
         const dropInterval = setInterval(() => {
             const o = new Object3D();

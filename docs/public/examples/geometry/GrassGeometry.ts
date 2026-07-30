@@ -35,7 +35,7 @@ class Sample_Grass {
 
     private async createScene(scene: Scene3D) {
         //bitmap
-        let bitmapTexture = await this.engine.res.loadTexture('https://cdn.orillusion.com/terrain/test01/bitmap.png');
+        let bitmapTexture = await this.engine.res.loadTexture('https://cdn.orillusion.com/terrain/test01/bitmap.png', undefined, undefined, 'srgb');
         let heightTexture = await this.engine.res.loadTexture('https://cdn.orillusion.com/terrain/test01/height.png');
         // let grassTexture = await this.engine.res.loadTexture('https://cdn.orillusion.com/terrain/grass/GrassThick.png');
         let gustNoiseTexture = await this.engine.res.loadTexture('https://cdn.orillusion.com/terrain/grass/displ_noise_curl_1.png');
@@ -43,7 +43,7 @@ class Sample_Grass {
         let sunLight = sunObj.addComponent(DirectLight);
         sunLight.lightColor = KelvinUtil.color_temperature_to_rgb(6553);
         sunLight.castShadow = true;
-        sunLight.intensity = 49;
+        sunLight.intensity = 10;
         sunObj.transform.rotationX = 50;
         sunObj.transform.rotationY = 50;
         scene.addChild(sunObj);

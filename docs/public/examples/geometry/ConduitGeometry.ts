@@ -8,13 +8,14 @@ class Sample_ConduitGeometry {
     material: LitMaterial;
     object3Ds: Object3D[] = [];
     isClosedConduit: boolean = true;
+    engine: Engine3D;
     shapeRadius = 1;
     modelRadius = 4;
     private geo: GeometryBase;
     private mats: LitMaterial[];
 
     async run() {
-        let engine = await Engine3D.init();
+        let engine = this.engine = await Engine3D.init();
 
         // init Scene3D
         this.scene = new Scene3D();

@@ -16,7 +16,6 @@ class Sample_FlightHelmet {
                     autoUpdate: true,
                     updateFrameRate: 1,
                     shadowBound: 20,
-                    shadowBias: 0.001
                 },
                 render: {
                     postProcessing: {
@@ -58,7 +57,6 @@ class Sample_FlightHelmet {
         {
             let sky = this.scene.addComponent(AtmosphericComponent);
             sky.sunY = 0.73;
-            sky.sunRadiance = 47;
             sky.enable = false;
         }
         /******** light *******/

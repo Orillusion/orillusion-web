@@ -165,7 +165,7 @@ class PointLightsScript extends ComponentBase {
         this._points.push(poi);
 
         let item = new PointLightItem();
-        Quaternion.HELP_0.fromEulerAngles(Math.random() * 360, Math.random() * 360, Math.random() * 360);
+        Quaternion.HELP_0.setFromEuler(Math.random() * 360, Math.random() * 360, Math.random() * 360);
         item.dir = Quaternion.HELP_0.transformVector(Vector3.FORWARD);
         item.speed = 50 + Math.random() * 150;
         item.mass = 5 + Math.random() * 5;
@@ -183,7 +183,7 @@ class PointLightsScript extends ComponentBase {
             if (po && pd) {
                 pd.mass -= Time.delta * 0.001;
                 if (pd.mass < 0) {
-                    Quaternion.HELP_0.fromEulerAngles(Math.random() * 360, Math.random() * 360, Math.random() * 360);
+                    Quaternion.HELP_0.setFromEuler(Math.random() * 360, Math.random() * 360, Math.random() * 360);
                     pd.dir = Quaternion.HELP_0.transformVector(Vector3.FORWARD);
                     pd.speed = 50 + Math.random() * 150;
                     pd.mass = 5 + Math.random() * 5;
@@ -193,8 +193,8 @@ class PointLightsScript extends ComponentBase {
                     pd.dir = pd.dir.negate();
                 }
 
-                Vector3.HELP_0.copyFrom(pd.dir);
-                Vector3.HELP_0.scaleBy(Time.delta * 0.001 * pd.speed * 0.1);
+                Vector3.HELP_0.copy(pd.dir);
+                Vector3.HELP_0.multiplyScalar(Time.delta * 0.001 * pd.speed * 0.1);
 
                 po.transform.x += Vector3.HELP_0.x;
                 // po.transform.y += Vector3.HELP_0.y;

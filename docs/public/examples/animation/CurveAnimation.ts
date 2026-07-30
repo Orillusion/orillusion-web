@@ -18,7 +18,6 @@ class Sample_AnimCurve {
                 shadow: {
                     autoUpdate: true,
                     updateFrameRate: 1,
-                    shadowBound: 150
                 }
             }
         });
@@ -44,6 +43,7 @@ class Sample_AnimCurve {
         /******** light *******/
         {
             this.lightObj3D = new Object3D();
+            this.lightObj3D.y = 95;
             this.lightObj3D.rotationX = 35;
             this.lightObj3D.rotationY = 110;
             this.lightObj3D.rotationZ = 0;

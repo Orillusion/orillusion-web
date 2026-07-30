@@ -80,9 +80,9 @@ view.camera = this.camera;
 engine.startRenderView(view);
 
 // Pause the render loop
-Engine3D.pause();
+engine.pause();
 // Resume the render loop
-Engine3D.resume();
+engine.resume();
 ```
 ---
 For detailed usage, please refer to the [Engine3D](/api/classes/Engine3D) API

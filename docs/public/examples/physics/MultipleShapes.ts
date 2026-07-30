@@ -21,7 +21,6 @@ class Sample_MultipleShapes {
         this.gui = new dat.GUI();
 
         // shadow settings
-        engine.setting.shadow.shadowBias = 0.01;
         engine.setting.shadow.shadowSize = 1024 * 4;
         engine.setting.shadow.csmMargin = 0.1;
         engine.setting.shadow.csmScatteringExp = 0.8;
@@ -41,7 +40,6 @@ class Sample_MultipleShapes {
         // Setup camera
         let camera = CameraUtil.createCamera3DObject(this.scene);
         camera.perspective(60, engine.aspect, 0.1, 800.0);
-        camera.enableCSM = true;
 
         let hoverCtrl = camera.object3D.addComponent(HoverCameraController);
         hoverCtrl.setCamera(0, -25, 100);
@@ -55,6 +53,7 @@ class Sample_MultipleShapes {
         light.lightColor = Color.COLOR_WHITE;
         light.castShadow = true;
         light.intensity = 2.2;
+        light.enableCSM = true;
         this.scene.addChild(light.object3D);
 
         // init sky

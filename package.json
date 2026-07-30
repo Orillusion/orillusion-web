@@ -6,13 +6,13 @@
     "type": "module",
     "scripts": {
         "dev": "vitepress dev docs",
-        "build": "vitepress build docs && npm run build:demos",
+        "build": "NODE_OPTIONS=\"--max-old-space-size=8192\" vitepress build docs && npm run build:demos",
         "build:webgpu": "bash webgpu/build.sh",
         "build:demos": "esbuild `find docs/public \\( -name '*.ts' \\)` --outdir=docs/.vitepress/dist",
         "format": "prettier --check --write ."
     },
     "devDependencies": {
-        "@orillusion/core": "0.9.0",
+        "@orillusion/core": "0.9.1",
         "@orillusion/geometry": "^0.3.0",
         "@orillusion/graphic": "^0.3.0",
         "@orillusion/media-extention": "^0.4.0",
@@ -24,7 +24,7 @@
         "@types/node": "^18.19.47",
         "esbuild": "^0.17.19",
         "prettier": "^2.8.8",
-        "vitepress": "1.5.0",
+        "vitepress": "1.6.4",
         "vue": "^3.4.38"
     },
     "pnpm": {

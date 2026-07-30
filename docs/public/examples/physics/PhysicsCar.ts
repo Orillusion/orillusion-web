@@ -1,5 +1,5 @@
 import { Ammo, Physics, Rigidbody } from '@orillusion/physics';
-import { Scene3D, Object3D, Engine3D, ColliderComponent, BoxColliderShape, Vector3, ComponentBase, KeyCode, KeyEvent, Quaternion, BoundUtil, Camera3D, Vector3Ex, MeshRenderer, LitMaterial, Color, BoxGeometry, AtmosphericComponent, CameraUtil, DirectLight, HoverCameraController, KelvinUtil, View3D } from '@orillusion/core';
+import { Scene3D, Object3D, Engine3D, ColliderComponent, BoxColliderShape, Vector3, ComponentBase, KeyCode, KeyEvent, Quaternion, BoundUtil, Camera3D, Vector3Ex, MeshRenderer, LitMaterial, Color, BoxGeometry, AtmosphericComponent, CameraUtil, DirectLight, HoverCameraController, KelvinUtil, View3D, Matrix4 } from '@orillusion/core';
 import * as dat from 'dat.gui';
 import { Stats } from '@orillusion/stats';
 
@@ -21,9 +21,7 @@ class Sample_PhysicsCar {
                 shadow: {
                     autoUpdate: true,
                     updateFrameRate: 1,
-                    shadowSize: 4000,
-                    shadowBound: 100,
-                    shadowBias: 0.002
+                    shadowSize: 2048,
                 }
             }
         });
@@ -56,6 +54,7 @@ class Sample_PhysicsCar {
         light.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
         light.castShadow = true;
         light.intensity = 4;
+        light.enableCSM = true;
 
         scene.addChild(light.object3D);
 
@@ -372,13 +371,13 @@ class fixedCameraController extends ComponentBase {
         if (!this._target) return;
         this._tempDir.set(0, 0, -1);
         const q = Quaternion.HELP_0;
-        q.fromEulerAngles(this.pitch, 0, 0.0);
+        q.setFromEuler(this.pitch, 0, 0.0);
         this._tempDir.applyQuaternion(q);
-        this._tempDir = this._target.transform.worldMatrix.transformVector(this._tempDir, this._tempDir);
+        this._tempDir = Matrix4.transformVector(this._target.transform.worldMatrix, this._tempDir, this._tempDir);
         this._tempDir.normalize();
         let position = this._target.transform.worldPosition;
         this._tempPos = Vector3Ex.mulScale(this._tempDir, this.distance, this._tempPos);
-        this._tempPos = position.add(this._tempPos, this._tempPos);
+        this._tempPos = Vector3.add(position, this._tempPos, this._tempPos);
         this.camera.lookAt(this._tempPos, this._target.transform.worldPosition);
     }
 }

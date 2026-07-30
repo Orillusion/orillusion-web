@@ -19,8 +19,6 @@ class SamplePhysics01 {
                     autoUpdate: true,
                     updateFrameRate: 1,
                     shadowSize: 4096,
-                    shadowBound: 50,
-                    shadowBias: 0.002
                 }
             }
         });
@@ -58,6 +56,7 @@ class SamplePhysics01 {
         light.lightColor = KelvinUtil.color_temperature_to_rgb(5355);
         light.castShadow = true;
         light.intensity = 4;
+        light.enableCSM = true;
 
         scene.addChild(light.object3D);
 

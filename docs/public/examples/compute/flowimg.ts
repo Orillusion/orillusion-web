@@ -14,7 +14,7 @@ class Demo_FlowImg {
 
         let camera = CameraUtil.createCamera3DObject(scene);
         
-        camera.perspective(60, this.engine.aspect, 0.01, 10000.0);
+        camera.perspective(60, engine.aspect, 0.01, 10000.0);
         let ctl = camera.object3D.addComponent(HoverCameraController);
         ctl.distance = 3;
 
@@ -38,7 +38,7 @@ class Demo_FlowImg {
         input.style.position = 'fixed'
         document.body.appendChild(input)
         input.onchange= async (e)=>{
-            let url = URL.createObjectURL(e.target.files[0])
+            let url = URL.createObjectURL((e.target as HTMLInputElement).files[0])
             let image = await this.imageloader(url)
             simulator.setImageData(image);
             simulator.reset()
@@ -52,6 +52,9 @@ class Demo_FlowImg {
     async initComputeBuffer() { }
 
     async imageloader(url: string) {
+        if (!/^https?:|^data:|^blob:|^\//.test(url)) {
+            url = new URL(url, (window.parent || window).location.origin + '/').href
+        }
         const res = await fetch(url)
         const img = await res.blob()
         const bitmap = await createImageBitmap(img)

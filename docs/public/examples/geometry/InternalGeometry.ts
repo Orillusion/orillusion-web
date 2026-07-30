@@ -37,6 +37,7 @@ class Sample_InternalGeometry {
         sunLight.intensity = 3;
         sunLight.lightColor = KelvinUtil.color_temperature_to_rgb(6553);
         sunLight.castShadow = true;
+        sunLight.enableCSM = true;
         lightObj3D.rotationX = 53.2;
         lightObj3D.rotationY = 220;
         lightObj3D.rotationZ = 5.58;

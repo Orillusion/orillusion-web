@@ -32,6 +32,7 @@ class Sample_Dominoes {
         let directLight = lightObj3D.addComponent(DirectLight);
         directLight.castShadow = true;
         directLight.intensity = 2;
+        directLight.enableCSM = true;
         scene.addChild(lightObj3D);
 
         // init sky

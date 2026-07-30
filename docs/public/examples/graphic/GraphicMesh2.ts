@@ -73,7 +73,7 @@ class GraphicMesh2 {
 
                 let tmp = this.sphericalFibonacci(i, this.parts.length);
                 let r = this.cafe;
-                tmp.scaleBy(r);
+                tmp.multiplyScalar(r);
 
                 let tr = Math.sin(i * Time.frame * 0.00001) * 0.05;
                 element.transform.scaleX = tr;
