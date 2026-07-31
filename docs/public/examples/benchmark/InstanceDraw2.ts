@@ -60,7 +60,7 @@ class Sample_SphereDraw {
     private _list: Object3D[] = [];
     initScene() {
         let shareGeometry = new BoxGeometry();
-        let materials:UnLitMaterial[] = [];
+        let materials = [];
         for (let i = 0; i < 1000; i++) {
             let mat = new UnLitMaterial()
             mat.baseColor = Color.random();
@@ -70,17 +70,18 @@ class Sample_SphereDraw {
         let group = new Object3D();
         this.scene.addChild(group);
         let count = 100000;
+
         for (let i = 0; i < count; i++) {
             let pos = Vector3Ex.sphere(100);
             let obj = new Object3D();
             let mr = obj.addComponent(MeshRenderer);
             mr.geometry = shareGeometry;
-            mr.material = materials[Math.floor(Math.random() * materials.length)];
+            mr.material = materials[i % materials.length];
             obj.localPosition = pos;
             group.addChild(obj);
             this._list.push(obj);
 
-            let d = obj.transform.worldPosition.subtract(group.transform.worldPosition);
+            let d = obj.transform.worldPosition.clone().sub(group.transform.worldPosition);
             d.normalize();
 
             let sc = Math.random() * 0.5 + 0.1;
@@ -89,6 +90,11 @@ class Sample_SphereDraw {
             obj.transform.scaleZ = Math.random() * 5 + 1;
 
             obj.transform.forward = d;
+
+            obj.transform.localDetailRot = new Vector3(
+                (Math.random() * 1 - 1 * 0.5) * 2.0 * Math.random() * 50 * 0.001,
+                (Math.random() * 1 - 1 * 0.5) * 2.0 * Math.random() * 50 * 0.001,
+                (Math.random() * 1 - 1 * 0.5) * 2.0 * Math.random() * 50 * 0.001);
         }
         group.addComponent(InstanceDrawComponent);
         // use localDetailRot to update rotation by time
