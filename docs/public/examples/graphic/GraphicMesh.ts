@@ -15,7 +15,7 @@ class GraphicMeshWave {
         Matrix4.maxCount = 500000;
         Matrix4.allocCount = 500000;
 
-        this.engine = await Engine3D.init({ beforeRender: () => this.update() });
+        this.engine = await Engine3D.init({ canvasConfig:{alpha: true}, beforeRender: () => this.update() });
 
         this.scene = new Scene3D();
         this.scene.addComponent(Stats);
