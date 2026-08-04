@@ -108,6 +108,28 @@ export default async () =>
                     // 避免巨型代码 token（尤其带中文注释的 shader 代码）污染索引
                     _render: (src: string, env: unknown, md: any) =>
                         md.render(src, env).replace(/<pre[\s\S]*?<\/pre>/g, ''),
+                    miniSearch: {
+                        options: {
+                            // 中文分词：CJK 连续段按 2-gram 切分，
+                            // 解决默认整句 token 导致短语搜索（加载模型/世界坐标等）搜不到的问题
+                            tokenize: (text: string) => {
+                                const tokens: string[] = [];
+                                const parts = text.split(/([一-鿿]+)/);
+                                for (const part of parts) {
+                                    if (!part) continue;
+                                    if (/^[一-鿿]+$/.test(part)) {
+                                        if (part.length === 1) tokens.push(part);
+                                        else {
+                                            for (let i = 0; i < part.length - 1; i++) tokens.push(part.slice(i, i + 2));
+                                        }
+                                    } else {
+                                        for (const t of part.split(/[\n\r\p{Z}\p{P}]+/u)) if (t) tokens.push(t);
+                                    }
+                                }
+                                return tokens;
+                            }
+                        }
+                    },
                     translations: {
                         button: {
                             buttonText: '搜索文档',
