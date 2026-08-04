@@ -104,6 +104,10 @@ export default async () =>
             search: {
                 provider: 'local',
                 options: {
+                    // 跳过代码块：渲染后从 HTML 中剔除 <pre> 再切分 section，
+                    // 避免巨型代码 token（尤其带中文注释的 shader 代码）污染索引
+                    _render: (src: string, env: unknown, md: any) =>
+                        md.render(src, env).replace(/<pre[\s\S]*?<\/pre>/g, ''),
                     translations: {
                         button: {
                             buttonText: '搜索文档',
