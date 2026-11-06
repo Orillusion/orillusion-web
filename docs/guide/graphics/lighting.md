@@ -4,12 +4,12 @@ Lighting makes the scene more layered. Using lighting, you can build a more real
 
 | Light Source | Description |
 | :---: | :---: |
-| Light Component | Basic light source components: directional light, point light and spotlight |
+| Light Component | Basic light source components: directional light, point light, spotlight and rect area light |
 | Ambient Reflection | Skybox environment light, global exposure |
 | Global Illumination | Indirect light sources reflected or refracted in the scene |
 
 ## Light Component
-The engine currently has three classic types of light sources built in:
+The engine currently has four types of light sources built in:
 
 ### Directional Light
 
@@ -107,6 +107,47 @@ spotLight.outerAngle = 35;
 <Demo :height="500" src="/demos/graphics/lighting_spot.ts"></Demo>
  
 <<< @/public/demos/graphics/lighting_spot.ts
+
+### Rect Area Light
+
+A [rect area light](/api/classes/RectLight) is a rectangular emitting panel with a real size that emits from one side only, for windows, softboxes, ceiling panels, screens and the like. Unlike point lights and spotlights, its light comes from a whole area: nearby surfaces receive soft diffuse light that "wraps" around objects, and glossy surfaces show a rectangular highlight. The rect area light has the following main properties:
+
+| Property | Type | Description |
+| --- | --- | --- |
+| lightColor | Color | The color of the light, the default is white `rgb(1.0,1.0,1.0)` |
+| intensity | Number | The emitted intensity (radiance) of the panel, the default value is `5` |
+| width | Number | Panel width (along the object's right axis), the default value is `2` |
+| height | Number | Panel height (along the object's up axis), the default value is `1` |
+| range | Number | The farthest distance of the light, from the panel center to where it fades to `0`, the default value is `20` |
+
+The panel emits toward the object's forward direction. As with the spotlight, its direction is controlled by the rotation of the `Object3D`, or `lookAt` can point it straight at a target:
+```ts
+let rectLightObj = new Object3D();
+scene.addChild(rectLightObj);
+
+// Set the properties of the rect area light component
+let rectLight = rectLightObj.addComponent(RectLight);
+rectLight.lightColor = new Color(1.0, 0.72, 0.45, 1.0);
+rectLight.intensity = 6;
+rectLight.width = 5;
+rectLight.height = 4;
+rectLight.range = 45;
+
+// Place it at (-9, 5, 3), emitting toward (0, 2, 0)
+rectLightObj.transform.lookAt(new Vector3(-9, 5, 3), new Vector3(0, 2, 0));
+```
+
+::: tip
+- `intensity` is the emitted intensity per unit area of the panel, so a larger panel lights the scene more, just like a real softbox;
+- rect area lights do not cast shadows; `castShadow` is ignored;
+- the light itself is invisible. To see the emitting panel, place an `UnLitMaterial` plane or thin box of the same size at the same position, as in the example below.
+:::
+
+The example below is a dark room lit only by three rect area lights: a warm key light on the left, a cool fill light on the right and a magenta strip swinging above the stage. The glossy floor shows a stretched rectangular reflection of each panel, while the back wall and the matte spheres show the soft diffuse light that changes with the panel size; the two rows of spheres go from mirror-like to matte.
+
+<Demo :height="500" src="/demos/graphics/lighting_rect.ts"></Demo>
+
+<<< @/public/demos/graphics/lighting_rect.ts
 
 ## IES Light Information
 The Illuminating Engineering Society (IES) defines a file format that can describe the light intensity distribution of real lights in the real world. IES files describe the light intensity, attenuation curves of various types of luminaires, and simulate light variation behaviors such as the transmission and refraction of the lamp beads, ultimately decoding into a specified 2D data map for lighting mapping in 3D space.
