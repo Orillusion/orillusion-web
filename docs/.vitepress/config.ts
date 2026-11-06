@@ -1,5 +1,20 @@
 import { defineConfig } from 'vitepress';
-import { readFileSync, readdirSync } from 'fs';
+import { readFileSync, readdirSync, existsSync, mkdirSync } from 'fs';
+import { execSync } from 'child_process';
+
+// `npm run dev-https`: serve over HTTPS so Vite uses HTTP/2 (much faster loading of many small modules).
+// A self-signed cert is generated once into the (gitignored) vitepress cache dir and reused.
+function devHttps() {
+    if (!process.env.DEV_HTTPS) return undefined;
+    const dir = new URL('./cache/https/', import.meta.url).pathname;
+    const key = dir + 'key.pem';
+    const cert = dir + 'cert.pem';
+    if (!existsSync(key) || !existsSync(cert)) {
+        mkdirSync(dir, { recursive: true });
+        execSync(`openssl req -x509 -newkey rsa:2048 -nodes -days 365 -subj /CN=localhost -keyout "${key}" -out "${cert}"`, { stdio: 'ignore' });
+    }
+    return { key: readFileSync(key), cert: readFileSync(cert) };
+}
 type SidebarItem = {
     text: string;
     collapsible?: boolean;
@@ -211,6 +226,7 @@ export default async () =>
             prefetchLinks: false
         },
         vite: {
+            server: { https: devHttps() },
             build: {
                 target: 'esnext',
                 chunkSizeWarningLimit: 1000,

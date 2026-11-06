@@ -6,6 +6,7 @@
     "type": "module",
     "scripts": {
         "dev": "vitepress dev docs",
+        "dev-https": "DEV_HTTPS=1 vitepress dev docs",
         "build": "NODE_OPTIONS=\"--max-old-space-size=8192\" vitepress build docs && npm run build:demos",
         "build:webgpu": "bash webgpu/build.sh",
         "build:demos": "esbuild `find docs/public \\( -name '*.ts' \\)` --outdir=docs/.vitepress/dist",
