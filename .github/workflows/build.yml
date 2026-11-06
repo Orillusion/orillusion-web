@@ -2,9 +2,7 @@ name: Build Docs
 
 on:
   push:
-    branches: [master, ci/build-docs]
-  pull_request:
-    branches: [master]
+    branches: [ci/build-docs]
   workflow_dispatch:
 
 concurrency:
@@ -35,12 +33,12 @@ jobs:
       - name: Build docs
         run: pnpm run build
 
-      - name: Upload dist
-        uses: actions/upload-artifact@v4
-        with:
-          name: docs-dist
-          path: docs/.vitepress/dist
-          retention-days: 7
+      # - name: Upload dist
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: docs-dist
+      #     path: docs/.vitepress/dist
+      #     retention-days: 7
 
       # 仅手动触发或 push 到 ci/build-docs 时上传 OSS（覆盖线上三个 bucket）
       - name: Upload to OSS
