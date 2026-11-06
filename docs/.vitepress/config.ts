@@ -399,6 +399,14 @@ function sidebarGuide(): SidebarItem {
             ]
         },
         {
+            text: '水与流体',
+            collapsible: true,
+            items: [
+                { text: '水面渲染', link: '/guide/water/Readme.md' },
+                { text: '流体渲染', link: '/guide/water/fluid.md' }
+            ]
+        },
+        {
             text: '物理',
             collapsible: true,
             items: [
@@ -634,6 +642,7 @@ function sidebarExample(root: string = '') {
         Lights: [],
         Loader: [],
         Particle: [],
+        Water: [],
         Compute: [],
         Physics: [],
         PhysicsRapier: [],
