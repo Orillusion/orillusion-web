@@ -1,83 +1,95 @@
+// 将 docs/.vitepress/dist 上传到三个地域的 OSS bucket
+// 用法：OSS_ACCESS_KEY_ID=xxx OSS_ACCESS_KEY_SECRET=xxx node docs/.vitepress/upload_oss.cjs
 const OSS = require('ali-oss');
 const fs = require('fs/promises');
 const path = require('path');
-const base = ''
 
-const cn = new OSS({
-    region: 'oss-cn-beijing',
-    accessKeyId: env.OSS_ACCESS_KEY_ID,
-    accessKeySecret: env.OSS_ACCESS_KEY_SECRET,
-    bucket: 'orillusion-web'
-});
-const hk = new OSS({
-    region: 'oss-cn-hongkong',
-    accessKeyId: env.OSS_ACCESS_KEY_ID,
-    accessKeySecret: env.OSS_ACCESS_KEY_SECRET,
-    bucket: 'orillusion-web-hk'
-});
-const la = new OSS({
-    region: 'oss-us-west-1',
-    accessKeyId: env.OSS_ACCESS_KEY_ID,
-    accessKeySecret: env.OSS_ACCESS_KEY_SECRET,
-    bucket: 'orillusion-la'
-});
+const DIST = path.join(__dirname, 'dist');
+const CONCURRENCY = 40;
 
-async function deleteAssets(client, prefix) {
-    const list = await client.listV2({
-        prefix: prefix,
-        "max-keys": 1000,
+const { OSS_ACCESS_KEY_ID, OSS_ACCESS_KEY_SECRET } = process.env;
+if (!OSS_ACCESS_KEY_ID || !OSS_ACCESS_KEY_SECRET) {
+    console.error('Missing OSS_ACCESS_KEY_ID / OSS_ACCESS_KEY_SECRET');
+    process.exit(1);
+}
+
+const createClient = (region, bucket) =>
+    new OSS({
+        region,
+        bucket,
+        accessKeyId: OSS_ACCESS_KEY_ID,
+        accessKeySecret: OSS_ACCESS_KEY_SECRET,
+        timeout: '5m',
+        retryMax: 3
     });
-    list.objects = list.objects || [];
-    console.log(list.objects.length)
-    
-    let tobeDelete = []
-    for(let file of list.objects)
-        tobeDelete.push(file.name)
 
-    if(tobeDelete.length > 0)
-        await client.deleteMulti(tobeDelete, {
-            quiet: true
-        })
-    
-    if(list.nextContinuationToken)
-        await deleteAssets(client, prefix)
+const clients = [
+    createClient('oss-cn-beijing', 'orillusion-web'),
+    createClient('oss-cn-hongkong', 'orillusion-web-hk'),
+    createClient('oss-us-west-1', 'orillusion-la')
+];
+
+async function listFiles(dir) {
+    const out = [];
+    for (const entry of await fs.readdir(dir, { withFileTypes: true })) {
+        const full = path.join(dir, entry.name);
+        if (entry.isDirectory()) out.push(...(await listFiles(full)));
+        else out.push(full);
+    }
+    return out;
 }
 
-async function travel(client, dir) {
-    let files = await fs.readdir(dir)
-    for(let file of files){
-        var pathname = path.join(dir, file)
-        let stats = await fs.stat(pathname)
-        if(stats.isDirectory())
-            await travel(client, pathname)
-        else{
-            if(p.length > 40){
-                console.log('wait')
-                await Promise.all(p)
-                p.length = 0
-            }
-            const headers = pathname.match(/assets|images/) ? {
-                'Cache-Control': 'public, max-age=31536000'
-            } : {}
-            p.push(client.put(pathname.replace(__dirname + '/dist', base), path.normalize(pathname), { headers }).then((result)=>{
-                console.log('[upload]', result.name)
-            }))
-        }
+async function listKeys(client, prefix) {
+    const keys = [];
+    let token;
+    do {
+        const res = await client.listV2({ prefix, 'max-keys': 1000, 'continuation-token': token });
+        for (const obj of res.objects || []) keys.push(obj.name);
+        token = res.nextContinuationToken;
+    } while (token);
+    return keys;
+}
+
+async function upload(client, files) {
+    let done = 0;
+    for (let i = 0; i < files.length; i += CONCURRENCY) {
+        await Promise.all(
+            files.slice(i, i + CONCURRENCY).map(async file => {
+                const key = path.relative(DIST, file).split(path.sep).join('/');
+                const headers = /^(assets|images)\//.test(key) ? { 'Cache-Control': 'public, max-age=31536000' } : {};
+                await client.put(key, file, { headers });
+            })
+        );
+        done = Math.min(i + CONCURRENCY, files.length);
+        console.log(`[${client.options.bucket}] uploaded ${done}/${files.length}`);
     }
 }
 
-let p = []
-async function run(){
-    for(let client of [cn, hk, la]){
-        console.log('Deleting', client.options.bucket)
-        await deleteAssets(client, 'assets/')
+// 先上传新文件，再删除 assets/ 下本次构建中不存在的旧文件，避免部署过程中页面引用的资源 404
+async function deleteStaleAssets(client, newKeys) {
+    const stale = (await listKeys(client, 'assets/')).filter(k => !newKeys.has(k));
+    for (let i = 0; i < stale.length; i += 1000) {
+        await client.deleteMulti(stale.slice(i, i + 1000), { quiet: true });
+    }
+    console.log(`[${client.options.bucket}] deleted ${stale.length} stale assets`);
+}
 
-        console.log('Uploading', client.options.bucket)
-        await travel(client, __dirname + '/dist')
-        await Promise.all(p)
-        console.log('Done', client.options.bucket)
-        p.length = 0
+async function run() {
+    // html 最后上传：保证页面上线时它引用的资源已就位
+    const isHtml = f => f.endsWith('.html');
+    const files = (await listFiles(DIST)).sort((a, b) => isHtml(a) - isHtml(b));
+    const newKeys = new Set(files.map(f => path.relative(DIST, f).split(path.sep).join('/')));
+    console.log(`${files.length} files in ${DIST}`);
+
+    for (const client of clients) {
+        console.log('Uploading', client.options.bucket);
+        await upload(client, files);
+        await deleteStaleAssets(client, newKeys);
+        console.log('Done', client.options.bucket);
     }
 }
 
-run()
+run().catch(err => {
+    console.error(err);
+    process.exit(1);
+});

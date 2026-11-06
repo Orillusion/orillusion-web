@@ -9,7 +9,8 @@ on:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  # 只取消 PR 的旧构建，避免把正在上传 OSS 的任务打断
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   build:
@@ -40,3 +41,11 @@ jobs:
           name: docs-dist
           path: docs/.vitepress/dist
           retention-days: 7
+
+      # 仅手动触发或 push 到 ci/build-docs 时上传 OSS（覆盖线上三个 bucket）
+      - name: Upload to OSS
+        if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/ci/build-docs')
+        env:
+          OSS_ACCESS_KEY_ID: ${{ secrets.OSS_ACCESS_KEY_ID }}
+          OSS_ACCESS_KEY_SECRET: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
+        run: node docs/.vitepress/upload_oss.cjs
