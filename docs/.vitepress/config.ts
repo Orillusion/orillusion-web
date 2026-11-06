@@ -309,9 +309,12 @@ function sidebarGuide(): SidebarItem {
             ]
         },
         {
-            text: 'Stats',
+            text: 'Performance',
             collapsible: true,
-            items: [{ text: 'Stats Panel', link: '/guide/performance/Readme.md' }]
+            items: [
+                { text: 'Stats Panel', link: '/guide/performance/Readme.md' },
+                { text: 'LOD', link: '/guide/performance/lod.md' }
+            ]
         },
         {
             text: 'Utilities',
