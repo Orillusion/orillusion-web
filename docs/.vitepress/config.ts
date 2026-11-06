@@ -469,9 +469,12 @@ function sidebarGuide(): SidebarItem {
             ]
         },
         {
-            text: '性能调试',
+            text: '性能优化',
             collapsible: true,
-            items: [{ text: '统计面板', link: '/guide/performance/Readme.md' }]
+            items: [
+                { text: '统计面板', link: '/guide/performance/Readme.md' },
+                { text: 'LOD 细节层级', link: '/guide/performance/lod.md' }
+            ]
         },
         {
             text: '工具库',
