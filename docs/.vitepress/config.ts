@@ -239,6 +239,14 @@ function sidebarGuide(): SidebarItem {
             ]
         },
         {
+            text: 'Water and Fluid',
+            collapsible: true,
+            items: [
+                { text: 'Water Rendering', link: '/guide/water/Readme.md' },
+                { text: 'Fluid Rendering', link: '/guide/water/fluid.md' }
+            ]
+        },
+        {
             text: 'Physics',
             collapsible: true,
             items: [
@@ -474,6 +482,7 @@ function sidebarExample(root: string = '') {
         Lights: [],
         Loader: [],
         Particle: [],
+        Water: [],
         Compute: [],
         Physics: [],
         PhysicsRapier: [],
