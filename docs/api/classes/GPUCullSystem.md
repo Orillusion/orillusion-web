@@ -4,7 +4,7 @@
 
 # Class: GPUCullSystem
 
-Defined in: [src/gfx/renderJob/cull/GPUCullSystem.ts:37](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/cull/GPUCullSystem.ts#L37)
+Defined in: [src/gfx/renderJob/cull/GPUCullSystem.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/cull/GPUCullSystem.ts#L37)
 
 GPU-driven mesh culling system.
 
@@ -34,7 +34,7 @@ incremental adoption.
 
 > **new GPUCullSystem**(`ctx`): `GPUCullSystem`
 
-Defined in: [src/gfx/renderJob/cull/GPUCullSystem.ts:62](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/cull/GPUCullSystem.ts#L62)
+Defined in: [src/gfx/renderJob/cull/GPUCullSystem.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/cull/GPUCullSystem.ts#L62)
 
 #### Parameters
 
@@ -54,7 +54,7 @@ Defined in: [src/gfx/renderJob/cull/GPUCullSystem.ts:62](https://github.com/oril
 
 > **get** **meshCount**(): `number`
 
-Defined in: [src/gfx/renderJob/cull/GPUCullSystem.ts:66](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/cull/GPUCullSystem.ts#L66)
+Defined in: [src/gfx/renderJob/cull/GPUCullSystem.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/cull/GPUCullSystem.ts#L66)
 
 ##### Returns
 
@@ -68,7 +68,7 @@ Defined in: [src/gfx/renderJob/cull/GPUCullSystem.ts:66](https://github.com/oril
 
 > **get** **visibilityBuffer**(): [`StorageGPUBuffer`](StorageGPUBuffer.md)
 
-Defined in: [src/gfx/renderJob/cull/GPUCullSystem.ts:67](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/cull/GPUCullSystem.ts#L67)
+Defined in: [src/gfx/renderJob/cull/GPUCullSystem.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/cull/GPUCullSystem.ts#L67)
 
 ##### Returns
 
@@ -82,7 +82,7 @@ Defined in: [src/gfx/renderJob/cull/GPUCullSystem.ts:67](https://github.com/oril
 
 > **get** **drawCmdsBuffer**(): [`StorageGPUBuffer`](StorageGPUBuffer.md)
 
-Defined in: [src/gfx/renderJob/cull/GPUCullSystem.ts:68](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/cull/GPUCullSystem.ts#L68)
+Defined in: [src/gfx/renderJob/cull/GPUCullSystem.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/cull/GPUCullSystem.ts#L68)
 
 ##### Returns
 
@@ -96,7 +96,7 @@ Defined in: [src/gfx/renderJob/cull/GPUCullSystem.ts:68](https://github.com/oril
 
 > **get** **drawCountBuffer**(): [`StorageGPUBuffer`](StorageGPUBuffer.md)
 
-Defined in: [src/gfx/renderJob/cull/GPUCullSystem.ts:69](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/cull/GPUCullSystem.ts#L69)
+Defined in: [src/gfx/renderJob/cull/GPUCullSystem.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/cull/GPUCullSystem.ts#L69)
 
 ##### Returns
 
@@ -110,7 +110,7 @@ Defined in: [src/gfx/renderJob/cull/GPUCullSystem.ts:69](https://github.com/oril
 
 > **get** **useHiZ**(): `boolean`
 
-Defined in: [src/gfx/renderJob/cull/GPUCullSystem.ts:75](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/cull/GPUCullSystem.ts#L75)
+Defined in: [src/gfx/renderJob/cull/GPUCullSystem.ts:75](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/cull/GPUCullSystem.ts#L75)
 
 ##### Returns
 
@@ -120,7 +120,7 @@ Defined in: [src/gfx/renderJob/cull/GPUCullSystem.ts:75](https://github.com/oril
 
 > **set** **useHiZ**(`v`): `void`
 
-Defined in: [src/gfx/renderJob/cull/GPUCullSystem.ts:74](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/cull/GPUCullSystem.ts#L74)
+Defined in: [src/gfx/renderJob/cull/GPUCullSystem.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/cull/GPUCullSystem.ts#L74)
 
 Toggle Hi-Z occlusion testing (in addition to frustum culling).
  Caller is responsible for ensuring the `_HiZPyramid` texture
@@ -142,7 +142,7 @@ Toggle Hi-Z occlusion testing (in addition to frustum culling).
 
 > **registerNode**(`node`): `number`
 
-Defined in: [src/gfx/renderJob/cull/GPUCullSystem.ts:94](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/cull/GPUCullSystem.ts#L94)
+Defined in: [src/gfx/renderJob/cull/GPUCullSystem.ts:94](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/cull/GPUCullSystem.ts#L94)
 
 Register a RenderNode in the cull system, returning its SSBO slot.
  Idempotent; calling with an existing node updates its metadata.
@@ -163,7 +163,7 @@ Register a RenderNode in the cull system, returning its SSBO slot.
 
 > **unregisterNode**(`node`): `void`
 
-Defined in: [src/gfx/renderJob/cull/GPUCullSystem.ts:106](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/cull/GPUCullSystem.ts#L106)
+Defined in: [src/gfx/renderJob/cull/GPUCullSystem.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/cull/GPUCullSystem.ts#L106)
 
 #### Parameters
 
@@ -181,7 +181,7 @@ Defined in: [src/gfx/renderJob/cull/GPUCullSystem.ts:106](https://github.com/ori
 
 > **execute**(`view`): `void`
 
-Defined in: [src/gfx/renderJob/cull/GPUCullSystem.ts:143](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/cull/GPUCullSystem.ts#L143)
+Defined in: [src/gfx/renderJob/cull/GPUCullSystem.ts:143](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/cull/GPUCullSystem.ts#L143)
 
 Dispatch the cull compute pass for the given camera.
 

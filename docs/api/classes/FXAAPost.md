@@ -4,7 +4,7 @@
 
 # Class: FXAAPost
 
-Defined in: [src/gfx/renderJob/post/FXAAPost.ts:17](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/FXAAPost.ts#L17)
+Defined in: [src/gfx/renderJob/post/FXAAPost.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/FXAAPost.ts#L17)
 
 FXAA(fast approximate antialiasing)
 A deformation anti-aliasing method that pays more attention to performance. 
@@ -17,7 +17,7 @@ rather than pursuing perfect real anti-aliasing effect.
 
 > **new FXAAPost**(): `FXAAPost`
 
-Defined in: [src/gfx/renderJob/post/FXAAPost.ts:21](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/FXAAPost.ts#L21)
+Defined in: [src/gfx/renderJob/post/FXAAPost.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/FXAAPost.ts#L21)
 
 #### Returns
 
@@ -33,7 +33,7 @@ Defined in: [src/gfx/renderJob/post/FXAAPost.ts:21](https://github.com/orillusio
 
 > **postQuad**: `ViewQuad`
 
-Defined in: [src/gfx/renderJob/post/FXAAPost.ts:18](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/FXAAPost.ts#L18)
+Defined in: [src/gfx/renderJob/post/FXAAPost.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/FXAAPost.ts#L18)
 
 ***
 
@@ -41,7 +41,7 @@ Defined in: [src/gfx/renderJob/post/FXAAPost.ts:18](https://github.com/orillusio
 
 > **renderTexture**: `RenderTexture`
 
-Defined in: [src/gfx/renderJob/post/FXAAPost.ts:20](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/FXAAPost.ts#L20)
+Defined in: [src/gfx/renderJob/post/FXAAPost.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/FXAAPost.ts#L20)
 
 ***
 
@@ -49,7 +49,7 @@ Defined in: [src/gfx/renderJob/post/FXAAPost.ts:20](https://github.com/orillusio
 
 > **enable**: `boolean` = `true`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L23)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L23)
 
 #### Inherited from
 
@@ -61,7 +61,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/orillusio
 
 > **isFinalPass**: `boolean` = `false`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:27](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L27)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L27)
 
 When true, PostPass iterates this post AFTER every regular
  post regardless of attach order — used by TonemapPost so the
@@ -77,7 +77,7 @@ When true, PostPass iterates this post AFTER every regular
 
 > **postRenderer**: [`PostPass`](PostPass.md)
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L28)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L28)
 
 #### Inherited from
 
@@ -89,7 +89,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/orillusio
 
 > **rendererPassState**: `RendererPassState`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L29)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L29)
 
 #### Inherited from
 
@@ -101,7 +101,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/orillusio
 
 > **\_boundCtx**: [`Context3D`](Context3D.md) = `null`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L30)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L30)
 
 #### Inherited from
 
@@ -113,7 +113,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/orillusio
 
 > **onResize**(): `void`
 
-Defined in: [src/gfx/renderJob/post/FXAAPost.ts:34](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/FXAAPost.ts#L34)
+Defined in: [src/gfx/renderJob/post/FXAAPost.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/FXAAPost.ts#L34)
 
 #### Returns
 
@@ -129,7 +129,7 @@ Defined in: [src/gfx/renderJob/post/FXAAPost.ts:34](https://github.com/orillusio
 
 > **render**(`view`, `command`): `void`
 
-Defined in: [src/gfx/renderJob/post/FXAAPost.ts:53](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/FXAAPost.ts#L53)
+Defined in: [src/gfx/renderJob/post/FXAAPost.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/FXAAPost.ts#L53)
 
 #### Parameters
 
@@ -155,7 +155,7 @@ Defined in: [src/gfx/renderJob/post/FXAAPost.ts:53](https://github.com/orillusio
 
 > **compute**(`view`): `void`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L133)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L133)
 
 #### Parameters
 
@@ -177,7 +177,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/orillusi
 
 > **destroy**(`force?`): `void`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L143)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L143)
 
 #### Parameters
 

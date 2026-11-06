@@ -4,7 +4,7 @@
 
 # Class: VolumetricFogPost
 
-Defined in: [src/gfx/renderJob/post/VolumetricFogPost.ts:36](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/VolumetricFogPost.ts#L36)
+Defined in: [src/gfx/renderJob/post/VolumetricFogPost.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/VolumetricFogPost.ts#L36)
 
 Volumetric Fog (MVP) — screen-space per-pixel ray-march. Produces
 directional light scattering ("god rays" / volumetric shafts) and
@@ -30,7 +30,7 @@ Known MVP limitations:
 
 > **new VolumetricFogPost**(): `VolumetricFogPost`
 
-Defined in: [src/gfx/renderJob/post/VolumetricFogPost.ts:42](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/VolumetricFogPost.ts#L42)
+Defined in: [src/gfx/renderJob/post/VolumetricFogPost.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/VolumetricFogPost.ts#L42)
 
 #### Returns
 
@@ -46,7 +46,7 @@ Defined in: [src/gfx/renderJob/post/VolumetricFogPost.ts:42](https://github.com/
 
 > **enable**: `boolean` = `true`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L23)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L23)
 
 #### Inherited from
 
@@ -58,7 +58,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/orillusio
 
 > **isFinalPass**: `boolean` = `false`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:27](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L27)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L27)
 
 When true, PostPass iterates this post AFTER every regular
  post regardless of attach order — used by TonemapPost so the
@@ -74,7 +74,7 @@ When true, PostPass iterates this post AFTER every regular
 
 > **postRenderer**: [`PostPass`](PostPass.md)
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L28)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L28)
 
 #### Inherited from
 
@@ -86,7 +86,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/orillusio
 
 > **rendererPassState**: `RendererPassState`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L29)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L29)
 
 #### Inherited from
 
@@ -98,7 +98,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/orillusio
 
 > **\_boundCtx**: [`Context3D`](Context3D.md) = `null`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L30)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L30)
 
 #### Inherited from
 
@@ -110,7 +110,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/orillusio
 
 > **compute**(`view`): `void`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L133)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L133)
 
 #### Parameters
 
@@ -132,7 +132,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/orillusi
 
 > **destroy**(`force?`): `void`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L143)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L143)
 
 #### Parameters
 
@@ -154,7 +154,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/orillusi
 
 > **onAttach**(`_view`): `void`
 
-Defined in: [src/gfx/renderJob/post/VolumetricFogPost.ts:46](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/VolumetricFogPost.ts#L46)
+Defined in: [src/gfx/renderJob/post/VolumetricFogPost.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/VolumetricFogPost.ts#L46)
 
 #### Parameters
 
@@ -176,7 +176,7 @@ Defined in: [src/gfx/renderJob/post/VolumetricFogPost.ts:46](https://github.com/
 
 > **onDetach**(`_view`): `void`
 
-Defined in: [src/gfx/renderJob/post/VolumetricFogPost.ts:50](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/VolumetricFogPost.ts#L50)
+Defined in: [src/gfx/renderJob/post/VolumetricFogPost.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/VolumetricFogPost.ts#L50)
 
 #### Parameters
 
@@ -198,7 +198,7 @@ Defined in: [src/gfx/renderJob/post/VolumetricFogPost.ts:50](https://github.com/
 
 > **render**(`view`, `command`): `void`
 
-Defined in: [src/gfx/renderJob/post/VolumetricFogPost.ts:103](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/VolumetricFogPost.ts#L103)
+Defined in: [src/gfx/renderJob/post/VolumetricFogPost.ts:103](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/VolumetricFogPost.ts#L103)
 
 #### Parameters
 
@@ -224,7 +224,7 @@ Defined in: [src/gfx/renderJob/post/VolumetricFogPost.ts:103](https://github.com
 
 > **onResize**(): `void`
 
-Defined in: [src/gfx/renderJob/post/VolumetricFogPost.ts:117](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/VolumetricFogPost.ts#L117)
+Defined in: [src/gfx/renderJob/post/VolumetricFogPost.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/VolumetricFogPost.ts#L117)
 
 #### Returns
 

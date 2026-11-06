@@ -4,7 +4,7 @@
 
 # Interface: RTColorAttachmentDesc
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:60](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L60)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:60](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L60)
 
 Per-color-attachment description.
 
@@ -14,7 +14,7 @@ Per-color-attachment description.
 
 > **name**: `string`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:65](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L65)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L65)
 
 Logical attachment name. Used as the sub-key in
  RTResourceMap when the RT allocates fresh, and as a
@@ -27,7 +27,7 @@ Logical attachment name. Used as the sub-key in
 
 > **format**: `GPUTextureFormat`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:66](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L66)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L66)
 
 ***
 
@@ -35,7 +35,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:66](https://gith
 
 > `optional` **clearValue?**: `GPUColor`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:70](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L70)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L70)
 
 Default clearValue used by the first writer's auto-clear path.
  Can be overridden per-`beginPass` via
@@ -47,7 +47,7 @@ Default clearValue used by the first writer's auto-clear path.
 
 > `optional` **storeOp?**: `GPUStoreOp`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:72](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L72)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L72)
 
 Default storeOp. Defaults to `'store'`.
 
@@ -57,7 +57,7 @@ Default storeOp. Defaults to `'store'`.
 
 > `optional` **texture?**: `RenderTexture`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:75](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L75)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:75](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L75)
 
 Adopt mode: pre-existing texture. If provided the RT does not
  allocate a new one through RTResourceMap.

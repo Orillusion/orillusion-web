@@ -6,7 +6,7 @@
 
 > **drawSortedTransparent**(`view`, `cluster`, `state`, `filter`, `transparentList`): `void`
 
-Defined in: [src/gfx/renderJob/graph/passes/\_transparentDraw.ts:245](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/_transparentDraw.ts#L245)
+Defined in: [src/gfx/renderJob/graph/passes/\_transparentDraw.ts:245](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/_transparentDraw.ts#L245)
 
 Reopen the color attachment with loadOp='load' and draw the
 transparent half: sorted transparent geometry + Graphic3D overlays.

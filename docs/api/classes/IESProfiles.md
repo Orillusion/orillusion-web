@@ -4,7 +4,7 @@
 
 # Class: IESProfiles
 
-Defined in: [src/components/lights/IESProfiles.ts:15](https://github.com/orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L15)
+Defined in: [src/components/lights/IESProfiles.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L15)
 
 One IES photometric profile, assignable to a light via
 `LightBase.iesProfiles`. Holds only CPU-side state; the profile is
@@ -28,7 +28,7 @@ assigns `index` — the layer in the pool's texture array.
 
 > **index**: `number` = `-1`
 
-Defined in: [src/components/lights/IESProfiles.ts:19](https://github.com/orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L19)
+Defined in: [src/components/lights/IESProfiles.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L19)
 
 Layer index inside the owning pool's texture array. -1 until registered.
 
@@ -40,7 +40,7 @@ Layer index inside the owning pool's texture array. -1 until registered.
 
 > **get** **IESTexture**(): [`Texture`](Texture.md)
 
-Defined in: [src/components/lights/IESProfiles.ts:38](https://github.com/orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L38)
+Defined in: [src/components/lights/IESProfiles.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L38)
 
 The assigned IES photometric texture, or undefined if none.
 
@@ -52,7 +52,7 @@ The assigned IES photometric texture, or undefined if none.
 
 > **set** **IESTexture**(`texture`): `void`
 
-Defined in: [src/components/lights/IESProfiles.ts:25](https://github.com/orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L25)
+Defined in: [src/components/lights/IESProfiles.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L25)
 
 Set the IES photometric texture. Can only be assigned before the
 profile is registered into a pool; later assignments are ignored.

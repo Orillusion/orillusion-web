@@ -4,7 +4,7 @@
 
 # Class: ColorGradient
 
-Defined in: [src/math/ColorGradient.ts:7](https://github.com/orillusion/orillusion/blob/main/src/math/ColorGradient.ts#L7)
+Defined in: [src/math/ColorGradient.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/math/ColorGradient.ts#L7)
 
 A color gradient that interpolates between an ordered array of colors.
 
@@ -14,7 +14,7 @@ A color gradient that interpolates between an ordered array of colors.
 
 > **new ColorGradient**(`array`): `ColorGradient`
 
-Defined in: [src/math/ColorGradient.ts:11](https://github.com/orillusion/orillusion/blob/main/src/math/ColorGradient.ts#L11)
+Defined in: [src/math/ColorGradient.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/math/ColorGradient.ts#L11)
 
 Creates a gradient from an ordered array of colors.
 
@@ -34,7 +34,7 @@ Creates a gradient from an ordered array of colors.
 
 > **getColor**(`p`): [`Color`](Color.md)
 
-Defined in: [src/math/ColorGradient.ts:16](https://github.com/orillusion/orillusion/blob/main/src/math/ColorGradient.ts#L16)
+Defined in: [src/math/ColorGradient.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/math/ColorGradient.ts#L16)
 
 Returns the interpolated color at the normalized position `p` (0 to 1).
 

@@ -4,7 +4,7 @@
 
 # Class: OrderMap\<K, V\>
 
-Defined in: [src/math/OrderMap.ts:5](https://github.com/orillusion/orillusion/blob/main/src/math/OrderMap.ts#L5)
+Defined in: [src/math/OrderMap.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/math/OrderMap.ts#L5)
 
 A map that additionally preserves insertion order of keys and/or values in parallel lists.
 
@@ -28,7 +28,7 @@ A map that additionally preserves insertion order of keys and/or values in paral
 
 > **new OrderMap**\<`K`, `V`\>(`iterable?`, `recordKey?`, `recordValue?`): `OrderMap`\<`K`, `V`\>
 
-Defined in: [src/math/OrderMap.ts:13](https://github.com/orillusion/orillusion/blob/main/src/math/OrderMap.ts#L13)
+Defined in: [src/math/OrderMap.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/math/OrderMap.ts#L13)
 
 Creates an order-preserving map, optionally recording keys and/or values in parallel lists.
 
@@ -60,7 +60,7 @@ Creates an order-preserving map, optionally recording keys and/or values in para
 
 > `readonly` **valueList**: `V`[]
 
-Defined in: [src/math/OrderMap.ts:7](https://github.com/orillusion/orillusion/blob/main/src/math/OrderMap.ts#L7)
+Defined in: [src/math/OrderMap.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/math/OrderMap.ts#L7)
 
 The values in insertion order; only populated when value recording is enabled.
 
@@ -70,7 +70,7 @@ The values in insertion order; only populated when value recording is enabled.
 
 > `readonly` **keyList**: `K`[]
 
-Defined in: [src/math/OrderMap.ts:9](https://github.com/orillusion/orillusion/blob/main/src/math/OrderMap.ts#L9)
+Defined in: [src/math/OrderMap.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/math/OrderMap.ts#L9)
 
 The keys in insertion order; only populated when key recording is enabled.
 
@@ -80,7 +80,7 @@ The keys in insertion order; only populated when key recording is enabled.
 
 > **isChange**: `boolean` = `true`
 
-Defined in: [src/math/OrderMap.ts:11](https://github.com/orillusion/orillusion/blob/main/src/math/OrderMap.ts#L11)
+Defined in: [src/math/OrderMap.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/math/OrderMap.ts#L11)
 
 Whether the map has changed since this flag was last reset.
 
@@ -90,7 +90,7 @@ Whether the map has changed since this flag was last reset.
 
 > **delete**(`key`): `boolean`
 
-Defined in: [src/math/OrderMap.ts:27](https://github.com/orillusion/orillusion/blob/main/src/math/OrderMap.ts#L27)
+Defined in: [src/math/OrderMap.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/math/OrderMap.ts#L27)
 
 Removes the entry for the given key, also updating the order lists; returns whether it existed.
 
@@ -114,7 +114,7 @@ Removes the entry for the given key, also updating the order lists; returns whet
 
 > **set**(`key`, `value`): `this`
 
-Defined in: [src/math/OrderMap.ts:57](https://github.com/orillusion/orillusion/blob/main/src/math/OrderMap.ts#L57)
+Defined in: [src/math/OrderMap.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/math/OrderMap.ts#L57)
 
 Sets the value for the given key, appending it to the end of the order lists.
 
@@ -142,7 +142,7 @@ Sets the value for the given key, appending it to the end of the order lists.
 
 > **clear**(): `void`
 
-Defined in: [src/math/OrderMap.ts:67](https://github.com/orillusion/orillusion/blob/main/src/math/OrderMap.ts#L67)
+Defined in: [src/math/OrderMap.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/math/OrderMap.ts#L67)
 
 Removes all entries from the map and clears the order lists.
 

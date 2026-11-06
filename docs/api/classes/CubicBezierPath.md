@@ -4,7 +4,7 @@
 
 # Class: CubicBezierPath
 
-Defined in: [src/math/CubicBezierPath.ts:17](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L17)
+Defined in: [src/math/CubicBezierPath.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L17)
 
 ## Constructors
 
@@ -12,7 +12,7 @@ Defined in: [src/math/CubicBezierPath.ts:17](https://github.com/orillusion/orill
 
 > **new CubicBezierPath**(`controlVertices`, `t?`): `CubicBezierPath`
 
-Defined in: [src/math/CubicBezierPath.ts:26](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L26)
+Defined in: [src/math/CubicBezierPath.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L26)
 
 #### Parameters
 
@@ -34,7 +34,7 @@ Defined in: [src/math/CubicBezierPath.ts:26](https://github.com/orillusion/orill
 
 > **getPathType**(): [`CubicBezierType`](../enumerations/CubicBezierType.md)
 
-Defined in: [src/math/CubicBezierPath.ts:31](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L31)
+Defined in: [src/math/CubicBezierPath.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L31)
 
 Return the path type (open or closed).
 
@@ -48,7 +48,7 @@ Return the path type (open or closed).
 
 > **isClosed**(): `boolean`
 
-Defined in: [src/math/CubicBezierPath.ts:36](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L36)
+Defined in: [src/math/CubicBezierPath.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L36)
 
 Return true if the path is closed.
 
@@ -62,7 +62,7 @@ Return true if the path is closed.
 
 > **isValid**(): `boolean`
 
-Defined in: [src/math/CubicBezierPath.ts:43](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L43)
+Defined in: [src/math/CubicBezierPath.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L43)
 
 #### Returns
 
@@ -74,7 +74,7 @@ Defined in: [src/math/CubicBezierPath.ts:43](https://github.com/orillusion/orill
 
 > **clear**(): `void`
 
-Defined in: [src/math/CubicBezierPath.ts:48](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L48)
+Defined in: [src/math/CubicBezierPath.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L48)
 
 Reset the path to empty, open state with no control vertices or segments.
 
@@ -88,7 +88,7 @@ Reset the path to empty, open state with no control vertices or segments.
 
 > **computeApproxLength**(): `number`
 
-Defined in: [src/math/CubicBezierPath.ts:56](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L56)
+Defined in: [src/math/CubicBezierPath.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L56)
 
 Compute an approximate path length by summing squared distances between interpolated points.
 
@@ -102,7 +102,7 @@ Compute an approximate path length by summing squared distances between interpol
 
 > **computeApproxParamPerUnitLength**(): `number`
 
-Defined in: [src/math/CubicBezierPath.ts:78](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L78)
+Defined in: [src/math/CubicBezierPath.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L78)
 
 Return the approximate change in the raw parameter t per unit of path length.
 
@@ -116,7 +116,7 @@ Return the approximate change in the raw parameter t per unit of path length.
 
 > **computeApproxNormParamPerUnitLength**(): `number`
 
-Defined in: [src/math/CubicBezierPath.ts:84](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L84)
+Defined in: [src/math/CubicBezierPath.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L84)
 
 Return the approximate change in the normalized parameter t per unit of path length.
 
@@ -130,7 +130,7 @@ Return the approximate change in the normalized parameter t per unit of path len
 
 > **interpolatePoints**(`knots`, `t`): `void`
 
-Defined in: [src/math/CubicBezierPath.ts:90](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L90)
+Defined in: [src/math/CubicBezierPath.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L90)
 
 Build the path from interpolated knots, generating interior control vertices automatically (knots.length must be >= 2).
 
@@ -154,7 +154,7 @@ Build the path from interpolated knots, generating interior control vertices aut
 
 > **setControlVertices**(`cvs`, `t`): `void`
 
-Defined in: [src/math/CubicBezierPath.ts:187](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L187)
+Defined in: [src/math/CubicBezierPath.ts:187](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L187)
 
 Set the path directly from explicit control vertices; for a closed path the last CV must match the first.
 
@@ -178,7 +178,7 @@ Set the path directly from explicit control vertices; for a closed path the last
 
 > **getPoint**(`t`): [`Vector3`](Vector3.md)
 
-Defined in: [src/math/CubicBezierPath.ts:203](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L203)
+Defined in: [src/math/CubicBezierPath.ts:203](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L203)
 
 Return the point on the path at parameter t in [0, numSegments]; closed paths wrap out-of-range t.
 
@@ -198,7 +198,7 @@ Return the point on the path at parameter t in [0, numSegments]; closed paths wr
 
 > **getPointNorm**(`t`): [`Vector3`](Vector3.md)
 
-Defined in: [src/math/CubicBezierPath.ts:234](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L234)
+Defined in: [src/math/CubicBezierPath.ts:234](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L234)
 
 Return the point on the path at normalized parameter t in [0, 1] over all segments.
 
@@ -218,7 +218,7 @@ Return the point on the path at normalized parameter t in [0, 1] over all segmen
 
 > **getTangent**(`t`): [`Vector3`](Vector3.md)
 
-Defined in: [src/math/CubicBezierPath.ts:241](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L241)
+Defined in: [src/math/CubicBezierPath.ts:241](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L241)
 
 Return the (un-normalized) tangent on the path at parameter t in [0, numSegments].
 
@@ -238,7 +238,7 @@ Return the (un-normalized) tangent on the path at parameter t in [0, numSegments
 
 > **getTangentNorm**(`t`): [`Vector3`](Vector3.md)
 
-Defined in: [src/math/CubicBezierPath.ts:270](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L270)
+Defined in: [src/math/CubicBezierPath.ts:270](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L270)
 
 Return the (un-normalized) tangent at normalized parameter t in [0, 1] over all segments.
 
@@ -258,7 +258,7 @@ Return the (un-normalized) tangent at normalized parameter t in [0, 1] over all 
 
 > **computeClosestParam**(`pos`, `paramThreshold`): `number`
 
-Defined in: [src/math/CubicBezierPath.ts:278](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L278)
+Defined in: [src/math/CubicBezierPath.ts:278](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L278)
 
 Find the parameter t of the closest point on the path to pos, searching with the given param threshold.
 
@@ -282,7 +282,7 @@ Find the parameter t of the closest point on the path to pos, searching with the
 
 > **computeClosestNormParam**(`pos`, `paramThreshold`): `number`
 
-Defined in: [src/math/CubicBezierPath.ts:304](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L304)
+Defined in: [src/math/CubicBezierPath.ts:304](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L304)
 
 Like computeClosestParam but returns the closest point as a normalized parameter t in [0, 1].
 

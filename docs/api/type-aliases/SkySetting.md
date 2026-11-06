@@ -6,7 +6,7 @@
 
 > **SkySetting** = `object`
 
-Defined in: [src/setting/SkySetting.ts:7](https://github.com/orillusion/orillusion/blob/main/src/setting/SkySetting.ts#L7)
+Defined in: [src/setting/SkySetting.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/setting/SkySetting.ts#L7)
 
 Sky setting
 
@@ -16,7 +16,7 @@ Sky setting
 
 > **type**: `"HDRSKY"` \| `"ShaderSky"`
 
-Defined in: [src/setting/SkySetting.ts:11](https://github.com/orillusion/orillusion/blob/main/src/setting/SkySetting.ts#L11)
+Defined in: [src/setting/SkySetting.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/setting/SkySetting.ts#L11)
 
 sky texture type
 
@@ -26,7 +26,7 @@ sky texture type
 
 > **sky**: [`HDRTextureCube`](../classes/HDRTextureCube.md)
 
-Defined in: [src/setting/SkySetting.ts:15](https://github.com/orillusion/orillusion/blob/main/src/setting/SkySetting.ts#L15)
+Defined in: [src/setting/SkySetting.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/setting/SkySetting.ts#L15)
 
 HDRTextureCube
 
@@ -36,7 +36,7 @@ HDRTextureCube
 
 > **skyExposure**: `number`
 
-Defined in: [src/setting/SkySetting.ts:19](https://github.com/orillusion/orillusion/blob/main/src/setting/SkySetting.ts#L19)
+Defined in: [src/setting/SkySetting.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/setting/SkySetting.ts#L19)
 
 exposure
 
@@ -46,7 +46,7 @@ exposure
 
 > **defaultFar**: `number`
 
-Defined in: [src/setting/SkySetting.ts:23](https://github.com/orillusion/orillusion/blob/main/src/setting/SkySetting.ts#L23)
+Defined in: [src/setting/SkySetting.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/setting/SkySetting.ts#L23)
 
 default far
 
@@ -56,6 +56,6 @@ default far
 
 > **defaultNear**: `number`
 
-Defined in: [src/setting/SkySetting.ts:27](https://github.com/orillusion/orillusion/blob/main/src/setting/SkySetting.ts#L27)
+Defined in: [src/setting/SkySetting.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/setting/SkySetting.ts#L27)
 
 default near

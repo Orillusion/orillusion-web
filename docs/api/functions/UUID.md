@@ -6,7 +6,7 @@
 
 > **UUID**(`len?`, `radix?`): `string`
 
-Defined in: [src/util/Global.ts:10](https://github.com/orillusion/orillusion/blob/main/src/util/Global.ts#L10)
+Defined in: [src/util/Global.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/util/Global.ts#L10)
 
 UUID
 

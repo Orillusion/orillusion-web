@@ -6,7 +6,7 @@
 
 > **LoaderFunctions** = `object`
 
-Defined in: [src/loader/LoaderFunctions.ts:5](https://github.com/orillusion/orillusion/blob/main/src/loader/LoaderFunctions.ts#L5)
+Defined in: [src/loader/LoaderFunctions.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/loader/LoaderFunctions.ts#L5)
 
 Loader callback functions
 
@@ -16,7 +16,7 @@ Loader callback functions
 
 > `optional` **onProgress?**: `Function`
 
-Defined in: [src/loader/LoaderFunctions.ts:12](https://github.com/orillusion/orillusion/blob/main/src/loader/LoaderFunctions.ts#L12)
+Defined in: [src/loader/LoaderFunctions.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/loader/LoaderFunctions.ts#L12)
 
 The callback function in the load
 
@@ -44,7 +44,7 @@ resources URL
 
 > `optional` **onComplete?**: `Function`
 
-Defined in: [src/loader/LoaderFunctions.ts:18](https://github.com/orillusion/orillusion/blob/main/src/loader/LoaderFunctions.ts#L18)
+Defined in: [src/loader/LoaderFunctions.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/loader/LoaderFunctions.ts#L18)
 
 Load the completed callback function
 
@@ -60,7 +60,7 @@ resources URL
 
 > `optional` **onError?**: `Function`
 
-Defined in: [src/loader/LoaderFunctions.ts:24](https://github.com/orillusion/orillusion/blob/main/src/loader/LoaderFunctions.ts#L24)
+Defined in: [src/loader/LoaderFunctions.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/loader/LoaderFunctions.ts#L24)
 
 The callback function for which a load error occurred
 
@@ -76,7 +76,7 @@ Error object
 
 > `optional` **onUrl?**: `Function`
 
-Defined in: [src/loader/LoaderFunctions.ts:31](https://github.com/orillusion/orillusion/blob/main/src/loader/LoaderFunctions.ts#L31)
+Defined in: [src/loader/LoaderFunctions.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/loader/LoaderFunctions.ts#L31)
 
 The URL modification callback allows you to modify the original url and return a custom path
 
@@ -96,6 +96,6 @@ The new URL after modification
 
 > `optional` **headers?**: `object`
 
-Defined in: [src/loader/LoaderFunctions.ts:36](https://github.com/orillusion/orillusion/blob/main/src/loader/LoaderFunctions.ts#L36)
+Defined in: [src/loader/LoaderFunctions.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/loader/LoaderFunctions.ts#L36)
 
 Customize headers, you can modify/add fetch header information

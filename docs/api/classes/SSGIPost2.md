@@ -4,7 +4,7 @@
 
 # Class: SSGIPost2
 
-Defined in: [src/gfx/renderJob/post/SSGIPost2.ts:26](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost2.ts#L26)
+Defined in: [src/gfx/renderJob/post/SSGIPost2.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost2.ts#L26)
 
 Horizon-based SSGI post effect (MVP).
 
@@ -20,7 +20,7 @@ Add to scene: `view.scene.addComponent(PostProcessingComponent).addPost(SSGIPost
 
 > **new SSGIPost2**(): `SSGIPost2`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:35](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L35)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L35)
 
 #### Returns
 
@@ -36,7 +36,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:35](https://github.com/orillusio
 
 > **enable**: `boolean` = `true`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L23)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L23)
 
 #### Inherited from
 
@@ -48,7 +48,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/orillusio
 
 > **isFinalPass**: `boolean` = `false`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:27](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L27)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L27)
 
 When true, PostPass iterates this post AFTER every regular
  post regardless of attach order — used by TonemapPost so the
@@ -64,7 +64,7 @@ When true, PostPass iterates this post AFTER every regular
 
 > **postRenderer**: [`PostPass`](PostPass.md)
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L28)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L28)
 
 #### Inherited from
 
@@ -76,7 +76,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/orillusio
 
 > **rendererPassState**: `RendererPassState`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L29)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L29)
 
 #### Inherited from
 
@@ -88,7 +88,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/orillusio
 
 > **\_boundCtx**: [`Context3D`](Context3D.md) = `null`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L30)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L30)
 
 #### Inherited from
 
@@ -100,7 +100,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/orillusio
 
 > **compute**(`view`): `void`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L133)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L133)
 
 #### Parameters
 
@@ -122,7 +122,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/orillusi
 
 > **onAttach**(`view`): `void`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:135](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L135)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L135)
 
 #### Parameters
 
@@ -144,7 +144,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:135](https://github.com/orillusi
 
 > **onDetach**(`view`): `void`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:137](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L137)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:137](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L137)
 
 #### Parameters
 
@@ -166,7 +166,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:137](https://github.com/orillusi
 
 > **destroy**(`force?`): `void`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L143)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L143)
 
 #### Parameters
 
@@ -188,7 +188,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/orillusi
 
 > **render**(`view`, `command`): `void`
 
-Defined in: [src/gfx/renderJob/post/SSGIPost2.ts:57](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost2.ts#L57)
+Defined in: [src/gfx/renderJob/post/SSGIPost2.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost2.ts#L57)
 
 #### Parameters
 
@@ -214,7 +214,7 @@ Defined in: [src/gfx/renderJob/post/SSGIPost2.ts:57](https://github.com/orillusi
 
 > **onResize**(): `void`
 
-Defined in: [src/gfx/renderJob/post/SSGIPost2.ts:76](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost2.ts#L76)
+Defined in: [src/gfx/renderJob/post/SSGIPost2.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSGIPost2.ts#L76)
 
 #### Returns
 

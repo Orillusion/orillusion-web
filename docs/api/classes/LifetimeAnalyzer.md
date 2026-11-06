@@ -4,7 +4,7 @@
 
 # Class: LifetimeAnalyzer
 
-Defined in: [src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts:58](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts#L58)
+Defined in: [src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts#L58)
 
 Compile-time lifetime analysis over the [TransientResourceRegistry](TransientResourceRegistry.md)'s
 declarations and the compiled pass order. Invoked from
@@ -35,7 +35,7 @@ their absence.
 
 > `static` **analyze**(`order`, `byName`, `registry`, `presentationSize`): [`ResourceLifetime`](../interfaces/ResourceLifetime.md)[]
 
-Defined in: [src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts:68](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts#L68)
+Defined in: [src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts#L68)
 
 Analyze one compile window.
 

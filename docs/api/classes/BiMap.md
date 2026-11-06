@@ -4,7 +4,7 @@
 
 # Class: BiMap\<K, V\>
 
-Defined in: [src/math/BiMap.ts:5](https://github.com/orillusion/orillusion/blob/main/src/math/BiMap.ts#L5)
+Defined in: [src/math/BiMap.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/math/BiMap.ts#L5)
 
 A bi-directional map that maintains a reverse lookup from value back to key.
 
@@ -28,7 +28,7 @@ A bi-directional map that maintains a reverse lookup from value back to key.
 
 > **new BiMap**\<`K`, `V`\>(`iterable?`): `BiMap`\<`K`, `V`\>
 
-Defined in: [src/math/BiMap.ts:7](https://github.com/orillusion/orillusion/blob/main/src/math/BiMap.ts#L7)
+Defined in: [src/math/BiMap.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/math/BiMap.ts#L7)
 
 #### Parameters
 
@@ -50,7 +50,7 @@ Defined in: [src/math/BiMap.ts:7](https://github.com/orillusion/orillusion/blob/
 
 > **delete**(`key`): `boolean`
 
-Defined in: [src/math/BiMap.ts:16](https://github.com/orillusion/orillusion/blob/main/src/math/BiMap.ts#L16)
+Defined in: [src/math/BiMap.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/math/BiMap.ts#L16)
 
 #### Parameters
 
@@ -74,7 +74,7 @@ true if an element in the Map existed and has been removed, or false if the elem
 
 > **getKey**(`value`): `K`
 
-Defined in: [src/math/BiMap.ts:25](https://github.com/orillusion/orillusion/blob/main/src/math/BiMap.ts#L25)
+Defined in: [src/math/BiMap.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/math/BiMap.ts#L25)
 
 #### Parameters
 
@@ -92,7 +92,7 @@ Defined in: [src/math/BiMap.ts:25](https://github.com/orillusion/orillusion/blob
 
 > **deleteValue**(`value`): `boolean`
 
-Defined in: [src/math/BiMap.ts:29](https://github.com/orillusion/orillusion/blob/main/src/math/BiMap.ts#L29)
+Defined in: [src/math/BiMap.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/math/BiMap.ts#L29)
 
 #### Parameters
 
@@ -110,7 +110,7 @@ Defined in: [src/math/BiMap.ts:29](https://github.com/orillusion/orillusion/blob
 
 > **set**(`key`, `value`): `this`
 
-Defined in: [src/math/BiMap.ts:35](https://github.com/orillusion/orillusion/blob/main/src/math/BiMap.ts#L35)
+Defined in: [src/math/BiMap.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/math/BiMap.ts#L35)
 
 Adds a new element with a specified key and value to the Map. If an element with the same key already exists, the element will be updated.
 
@@ -138,7 +138,7 @@ Adds a new element with a specified key and value to the Map. If an element with
 
 > **clear**(): `void`
 
-Defined in: [src/math/BiMap.ts:41](https://github.com/orillusion/orillusion/blob/main/src/math/BiMap.ts#L41)
+Defined in: [src/math/BiMap.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/math/BiMap.ts#L41)
 
 #### Returns
 

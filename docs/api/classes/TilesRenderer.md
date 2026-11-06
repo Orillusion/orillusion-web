@@ -4,7 +4,7 @@
 
 # Class: TilesRenderer
 
-Defined in: [src/loader/parser/tileRenderer/TilesRenderer.ts:16](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TilesRenderer.ts#L16)
+Defined in: [src/loader/parser/tileRenderer/TilesRenderer.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TilesRenderer.ts#L16)
 
 Loads and assembles a 3D Tiles tileset into a scene graph.
 Reads a tileset.json, applies the root/up-axis transforms, and recursively
@@ -16,7 +16,7 @@ loads each referenced tile (glb, b3dm, i3dm, or nested tileset) into `group`.
 
 > **new TilesRenderer**(`ctx?`): `TilesRenderer`
 
-Defined in: [src/loader/parser/tileRenderer/TilesRenderer.ts:23](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TilesRenderer.ts#L23)
+Defined in: [src/loader/parser/tileRenderer/TilesRenderer.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TilesRenderer.ts#L23)
 
 #### Parameters
 
@@ -34,7 +34,7 @@ Defined in: [src/loader/parser/tileRenderer/TilesRenderer.ts:23](https://github.
 
 > `readonly` **group**: [`Object3D`](Object3D.md)
 
-Defined in: [src/loader/parser/tileRenderer/TilesRenderer.ts:17](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TilesRenderer.ts#L17)
+Defined in: [src/loader/parser/tileRenderer/TilesRenderer.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TilesRenderer.ts#L17)
 
 ## Methods
 
@@ -42,7 +42,7 @@ Defined in: [src/loader/parser/tileRenderer/TilesRenderer.ts:17](https://github.
 
 > **loadTileSet**(`rootPath`, `file`): `Promise`\<`void`\>
 
-Defined in: [src/loader/parser/tileRenderer/TilesRenderer.ts:33](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TilesRenderer.ts#L33)
+Defined in: [src/loader/parser/tileRenderer/TilesRenderer.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/tileRenderer/TilesRenderer.ts#L33)
 
 Load a tileset and add all of its tiles as children of `group`.
 

@@ -4,7 +4,7 @@
 
 # Class: Interpolator
 
-Defined in: [src/math/TimeInterpolator.ts:348](https://github.com/orillusion/orillusion/blob/main/src/math/TimeInterpolator.ts#L348)
+Defined in: [src/math/TimeInterpolator.ts:348](https://github.com/Orillusion/orillusion/blob/main/src/math/TimeInterpolator.ts#L348)
 
 interpolator class
 
@@ -24,7 +24,7 @@ interpolator class
 
 > `static` **to**(`target`, `property`, `durtion`, `interpolatorEnum?`): `Interpolator`
 
-Defined in: [src/math/TimeInterpolator.ts:411](https://github.com/orillusion/orillusion/blob/main/src/math/TimeInterpolator.ts#L411)
+Defined in: [src/math/TimeInterpolator.ts:411](https://github.com/Orillusion/orillusion/blob/main/src/math/TimeInterpolator.ts#L411)
 
 Creates an animation from the current property to the specified target property.
 
@@ -64,7 +64,7 @@ Interpolator type
 
 > `static` **removeList**(`interpolators`, `dispose?`): `void`
 
-Defined in: [src/math/TimeInterpolator.ts:456](https://github.com/orillusion/orillusion/blob/main/src/math/TimeInterpolator.ts#L456)
+Defined in: [src/math/TimeInterpolator.ts:456](https://github.com/Orillusion/orillusion/blob/main/src/math/TimeInterpolator.ts#L456)
 
 Remove a list of interpolators from the active pool.
 

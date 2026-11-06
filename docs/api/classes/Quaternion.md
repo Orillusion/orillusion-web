@@ -4,7 +4,7 @@
 
 # Class: Quaternion
 
-Defined in: [src/math/Quaternion.ts:10](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L10)
+Defined in: [src/math/Quaternion.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L10)
 
 Quaternions are used to represent rotations.
 
@@ -14,7 +14,7 @@ Quaternions are used to represent rotations.
 
 > **new Quaternion**(`x?`, `y?`, `z?`, `w?`): `Quaternion`
 
-Defined in: [src/math/Quaternion.ts:46](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L46)
+Defined in: [src/math/Quaternion.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L46)
 
 Create a new quaternion object
 
@@ -54,7 +54,7 @@ The W component of a quaternion.
 
 > `static` **HELP\_0**: `Quaternion`
 
-Defined in: [src/math/Quaternion.ts:13](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L13)
+Defined in: [src/math/Quaternion.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L13)
 
 Shared scratch quaternion for intermediate calculations.
 
@@ -64,7 +64,7 @@ Shared scratch quaternion for intermediate calculations.
 
 > `static` **HELP\_1**: `Quaternion`
 
-Defined in: [src/math/Quaternion.ts:15](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L15)
+Defined in: [src/math/Quaternion.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L15)
 
 Shared scratch quaternion for intermediate calculations.
 
@@ -74,7 +74,7 @@ Shared scratch quaternion for intermediate calculations.
 
 > `static` **HELP\_2**: `Quaternion`
 
-Defined in: [src/math/Quaternion.ts:17](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L17)
+Defined in: [src/math/Quaternion.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L17)
 
 Shared scratch quaternion for intermediate calculations.
 
@@ -84,7 +84,7 @@ Shared scratch quaternion for intermediate calculations.
 
 > `static` **\_zero**: `Quaternion`
 
-Defined in: [src/math/Quaternion.ts:19](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L19)
+Defined in: [src/math/Quaternion.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L19)
 
 Shared identity quaternion (0, 0, 0, 1).
 
@@ -94,7 +94,7 @@ Shared identity quaternion (0, 0, 0, 1).
 
 > `static` **CALCULATION\_QUATERNION**: `Quaternion`
 
-Defined in: [src/math/Quaternion.ts:21](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L21)
+Defined in: [src/math/Quaternion.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L21)
 
 Shared scratch quaternion used for rotation calculations.
 
@@ -106,7 +106,7 @@ Shared scratch quaternion used for rotation calculations.
 
 > **get** **magnitude**(): `number`
 
-Defined in: [src/math/Quaternion.ts:109](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L109)
+Defined in: [src/math/Quaternion.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L109)
 
 The magnitude (norm) of this quaternion.
 
@@ -120,7 +120,7 @@ The magnitude (norm) of this quaternion.
 
 > `static` **identity**(): `Quaternion`
 
-Defined in: [src/math/Quaternion.ts:57](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L57)
+Defined in: [src/math/Quaternion.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L57)
 
 Identity quaternion
 
@@ -134,7 +134,7 @@ Identity quaternion
 
 > `static` **quaternionToMatrix**(`q`, `m`): `void`
 
-Defined in: [src/math/Quaternion.ts:66](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L66)
+Defined in: [src/math/Quaternion.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L66)
 
 Converts quaternions to matrices
 
@@ -162,7 +162,7 @@ Matrix
 
 > **set**(`x?`, `y?`, `z?`, `w?`): `Quaternion`
 
-Defined in: [src/math/Quaternion.ts:120](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L120)
+Defined in: [src/math/Quaternion.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L120)
 
 Set the x, y, z, and w components of the existing quaternions.
 
@@ -202,7 +202,7 @@ The W component of a quaternion.
 
 > **divide**(`v`): `Quaternion`
 
-Defined in: [src/math/Quaternion.ts:129](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L129)
+Defined in: [src/math/Quaternion.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L129)
 
 Divide this quaternion by another quaternion (component-wise, new instance) or by a scalar (in place).
 
@@ -222,7 +222,7 @@ Divide this quaternion by another quaternion (component-wise, new instance) or b
 
 > **multiply**(`qa`, `qb`): `this`
 
-Defined in: [src/math/Quaternion.ts:157](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L157)
+Defined in: [src/math/Quaternion.ts:157](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L157)
 
 Multiply two quaternions
 
@@ -250,7 +250,7 @@ Quaternion 2
 
 > **multiplyVector**(`vector`): `Quaternion`
 
-Defined in: [src/math/Quaternion.ts:177](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L177)
+Defined in: [src/math/Quaternion.ts:177](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L177)
 
 Multiply this quaternion by a vector. Returns a new Quaternion.
 
@@ -270,7 +270,7 @@ Multiply this quaternion by a vector. Returns a new Quaternion.
 
 > **setFromAxisAngle**(`axis`, `angle`): `this`
 
-Defined in: [src/math/Quaternion.ts:194](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L194)
+Defined in: [src/math/Quaternion.ts:194](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L194)
 
 Set the quaternion with a given rotation of the axis and Angle.
 
@@ -298,7 +298,7 @@ angle
 
 > **toAxisAngle**(`axis`): `number`
 
-Defined in: [src/math/Quaternion.ts:213](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L213)
+Defined in: [src/math/Quaternion.ts:213](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L213)
 
 Turn quaternions into angles
 
@@ -320,7 +320,7 @@ axis
 
 > **slerp**(`qa`, `qb`, `t`): `void`
 
-Defined in: [src/math/Quaternion.ts:238](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L238)
+Defined in: [src/math/Quaternion.ts:238](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L238)
 
 Spherically interpolates between two quaternions, providing an interpolation between rotations with constant angle change rate.
 
@@ -354,7 +354,7 @@ The interpolation weight, a value between 0 and 1.
 
 > **lerp**(`qa`, `qb`, `t`): `void`
 
-Defined in: [src/math/Quaternion.ts:288](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L288)
+Defined in: [src/math/Quaternion.ts:288](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L288)
 
 Linearly interpolates between two quaternions.
 
@@ -388,7 +388,7 @@ The interpolation weight, a value between 0 and 1.
 
 > **setFromEuler**(`ax`, `ay`, `az`): `Quaternion`
 
-Defined in: [src/math/Quaternion.ts:325](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L325)
+Defined in: [src/math/Quaternion.ts:325](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L325)
 
 Fills the quaternion object with values representing the given euler rotation.
 
@@ -422,7 +422,7 @@ The angle in radians of the rotation around the az axis.
 
 > **setFromRotationMatrix**(`m`): `Quaternion`
 
-Defined in: [src/math/Quaternion.ts:353](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L353)
+Defined in: [src/math/Quaternion.ts:353](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L353)
 
 Sets the current quaternion from the rotation matrix
 
@@ -444,7 +444,7 @@ Sets the current quaternion from the rotation matrix
 
 > **getEulerAngles**(`eulers?`): [`Vector3`](Vector3.md)
 
-Defined in: [src/math/Quaternion.ts:404](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L404)
+Defined in: [src/math/Quaternion.ts:404](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L404)
 
 Get the Euler Angle
 
@@ -464,7 +464,7 @@ Get the Euler Angle
 
 > **normalize**(`val?`): `this`
 
-Defined in: [src/math/Quaternion.ts:443](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L443)
+Defined in: [src/math/Quaternion.ts:443](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L443)
 
 The normalize of the quaternion. Convert this quaternion to a normalize coefficient.
 
@@ -486,7 +486,7 @@ normalize coefficient, which is 1 by default
 
 > **toString**(): `string`
 
-Defined in: [src/math/Quaternion.ts:457](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L457)
+Defined in: [src/math/Quaternion.ts:457](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L457)
 
 Returns the value of a quaternion as a string
 
@@ -500,7 +500,7 @@ Returns the value of a quaternion as a string
 
 > **invert**(): `this`
 
-Defined in: [src/math/Quaternion.ts:464](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L464)
+Defined in: [src/math/Quaternion.ts:464](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L464)
 
 Inverts this quaternion in place. Mutates and returns this.
 
@@ -514,7 +514,7 @@ Inverts this quaternion in place. Mutates and returns this.
 
 > **clone**(): `Quaternion`
 
-Defined in: [src/math/Quaternion.ts:472](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L472)
+Defined in: [src/math/Quaternion.ts:472](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L472)
 
 Clones the quaternion.
 
@@ -530,7 +530,7 @@ An exact duplicate of the current Quaternion.
 
 > **transformVector**(`vector`): [`Vector3`](Vector3.md)
 
-Defined in: [src/math/Quaternion.ts:479](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L479)
+Defined in: [src/math/Quaternion.ts:479](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L479)
 
 Rotates `vector` by this quaternion. Mutates and returns `vector`.
 
@@ -550,7 +550,7 @@ Rotates `vector` by this quaternion. Mutates and returns `vector`.
 
 > **copy**(`q`): `this`
 
-Defined in: [src/math/Quaternion.ts:487](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L487)
+Defined in: [src/math/Quaternion.ts:487](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L487)
 
 Copies the data from a quaternion into this instance.
 
@@ -558,7 +558,7 @@ Copies the data from a quaternion into this instance.
 
 ##### q
 
-[`Vector3`](Vector3.md) \| `Quaternion`
+`Quaternion` \| [`Vector3`](Vector3.md)
 
 The quaternion to copy from.
 
@@ -572,7 +572,7 @@ The quaternion to copy from.
 
 > `static` **mul**(`lhs`, `rhs`, `result?`): `Quaternion`
 
-Defined in: [src/math/Quaternion.ts:500](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L500)
+Defined in: [src/math/Quaternion.ts:500](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L500)
 
 from untiy API
 op
@@ -601,7 +601,7 @@ op
 
 > `static` **multiply**(`a`, `b`, `result?`): `Quaternion`
 
-Defined in: [src/math/Quaternion.ts:516](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L516)
+Defined in: [src/math/Quaternion.ts:516](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L516)
 
 Canonical static multiply — alias of Quaternion.mul.
 
@@ -629,7 +629,7 @@ Canonical static multiply — alias of Quaternion.mul.
 
 > `static` **invert**(`src`, `result?`): `Quaternion`
 
-Defined in: [src/math/Quaternion.ts:523](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L523)
+Defined in: [src/math/Quaternion.ts:523](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L523)
 
 Invert a quaternion.
 
@@ -653,7 +653,7 @@ Invert a quaternion.
 
 > `static` **transformVector**(`q`, `v`, `result?`): [`Vector3`](Vector3.md)
 
-Defined in: [src/math/Quaternion.ts:542](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L542)
+Defined in: [src/math/Quaternion.ts:542](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L542)
 
 Rotate a Vector3 by a Quaternion.
 
@@ -681,7 +681,7 @@ Rotate a Vector3 by a Quaternion.
 
 > `static` **serialize**(`value`): `Quaternion`
 
-Defined in: [src/math/Quaternion.ts:569](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L569)
+Defined in: [src/math/Quaternion.ts:569](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L569)
 
 Returns a new Quaternion copy of the given quaternion, used for serialization.
 
@@ -701,7 +701,7 @@ Returns a new Quaternion copy of the given quaternion, used for serialization.
 
 > **multiplyQuaternions**(`a`, `b`): `this`
 
-Defined in: [src/math/Quaternion.ts:577](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L577)
+Defined in: [src/math/Quaternion.ts:577](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L577)
 
 Set this = a * b. Canonical alias of [multiply](#multiply-1).
 
@@ -725,7 +725,7 @@ Set this = a * b. Canonical alias of [multiply](#multiply-1).
 
 > **premultiply**(`q`): `this`
 
-Defined in: [src/math/Quaternion.ts:582](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L582)
+Defined in: [src/math/Quaternion.ts:582](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L582)
 
 Set this = q * this.
 
@@ -745,7 +745,7 @@ Set this = q * this.
 
 > **conjugate**(): `this`
 
-Defined in: [src/math/Quaternion.ts:587](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L587)
+Defined in: [src/math/Quaternion.ts:587](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L587)
 
 Conjugate: negate (x, y, z). For a unit quaternion this equals the inverse.
 
@@ -759,7 +759,7 @@ Conjugate: negate (x, y, z). For a unit quaternion this equals the inverse.
 
 > **dot**(`q`): `number`
 
-Defined in: [src/math/Quaternion.ts:595](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L595)
+Defined in: [src/math/Quaternion.ts:595](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L595)
 
 Dot product of this quaternion and q.
 
@@ -779,7 +779,7 @@ Dot product of this quaternion and q.
 
 > **lengthSq**(): `number`
 
-Defined in: [src/math/Quaternion.ts:600](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L600)
+Defined in: [src/math/Quaternion.ts:600](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L600)
 
 Squared length (norm) of this quaternion.
 
@@ -793,7 +793,7 @@ Squared length (norm) of this quaternion.
 
 > **length**(): `number`
 
-Defined in: [src/math/Quaternion.ts:605](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L605)
+Defined in: [src/math/Quaternion.ts:605](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L605)
 
 Length (norm) of this quaternion.
 
@@ -807,7 +807,7 @@ Length (norm) of this quaternion.
 
 > **equals**(`q`): `boolean`
 
-Defined in: [src/math/Quaternion.ts:610](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L610)
+Defined in: [src/math/Quaternion.ts:610](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L610)
 
 Returns true if every component of q exactly equals this quaternion.
 
@@ -827,7 +827,7 @@ Returns true if every component of q exactly equals this quaternion.
 
 > **fromArray**(`array`, `offset?`): `this`
 
-Defined in: [src/math/Quaternion.ts:615](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L615)
+Defined in: [src/math/Quaternion.ts:615](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L615)
 
 Set x/y/z/w from array starting at offset. Mutates and returns this.
 
@@ -851,7 +851,7 @@ Set x/y/z/w from array starting at offset. Mutates and returns this.
 
 > **toArray**(`array?`, `offset?`): `number`[]
 
-Defined in: [src/math/Quaternion.ts:624](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L624)
+Defined in: [src/math/Quaternion.ts:624](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L624)
 
 Write x/y/z/w into array starting at offset and return the array.
 
@@ -875,7 +875,7 @@ Write x/y/z/w into array starting at offset and return the array.
 
 > **setFromUnitVectors**(`vFrom`, `vTo`): `this`
 
-Defined in: [src/math/Quaternion.ts:633](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L633)
+Defined in: [src/math/Quaternion.ts:633](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L633)
 
 Set this = the rotation that takes unit vector vFrom to unit vector vTo.
 
@@ -899,7 +899,7 @@ Set this = the rotation that takes unit vector vFrom to unit vector vTo.
 
 > **slerpQuaternions**(`qa`, `qb`, `t`): `this`
 
-Defined in: [src/math/Quaternion.ts:658](https://github.com/orillusion/orillusion/blob/main/src/math/Quaternion.ts#L658)
+Defined in: [src/math/Quaternion.ts:658](https://github.com/Orillusion/orillusion/blob/main/src/math/Quaternion.ts#L658)
 
 Canonical alias of [slerp](#slerp) (qa, qb, t form).
 

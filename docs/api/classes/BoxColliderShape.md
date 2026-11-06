@@ -4,7 +4,7 @@
 
 # Class: BoxColliderShape
 
-Defined in: [src/components/shape/BoxColliderShape.ts:13](https://github.com/orillusion/orillusion/blob/main/src/components/shape/BoxColliderShape.ts#L13)
+Defined in: [src/components/shape/BoxColliderShape.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/BoxColliderShape.ts#L13)
 
 Box shaped collision body.
 It is a basic box shaped primitive collision body.
@@ -19,7 +19,7 @@ It is a basic box shaped primitive collision body.
 
 > **new BoxColliderShape**(): `BoxColliderShape`
 
-Defined in: [src/components/shape/BoxColliderShape.ts:20](https://github.com/orillusion/orillusion/blob/main/src/components/shape/BoxColliderShape.ts#L20)
+Defined in: [src/components/shape/BoxColliderShape.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/BoxColliderShape.ts#L19)
 
 #### Returns
 
@@ -37,7 +37,7 @@ Defined in: [src/components/shape/BoxColliderShape.ts:20](https://github.com/ori
 
 > **get** **shapeType**(): [`ColliderShapeType`](../enumerations/ColliderShapeType.md)
 
-Defined in: [src/components/shape/ColliderShape.ts:41](https://github.com/orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L41)
+Defined in: [src/components/shape/ColliderShape.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L73)
 
 ##### Returns
 
@@ -55,7 +55,7 @@ Defined in: [src/components/shape/ColliderShape.ts:41](https://github.com/orillu
 
 > **get** **center**(): [`Vector3`](Vector3.md)
 
-Defined in: [src/components/shape/ColliderShape.ts:60](https://github.com/orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L60)
+Defined in: [src/components/shape/ColliderShape.ts:92](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L92)
 
 The position of the collision object in the local space of the object.
 
@@ -67,7 +67,7 @@ The position of the collision object in the local space of the object.
 
 > **set** **center**(`value`): `void`
 
-Defined in: [src/components/shape/ColliderShape.ts:64](https://github.com/orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L64)
+Defined in: [src/components/shape/ColliderShape.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L96)
 
 ##### Parameters
 
@@ -91,7 +91,7 @@ Defined in: [src/components/shape/ColliderShape.ts:64](https://github.com/orillu
 
 > **get** **size**(): [`Vector3`](Vector3.md)
 
-Defined in: [src/components/shape/ColliderShape.ts:73](https://github.com/orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L73)
+Defined in: [src/components/shape/ColliderShape.ts:105](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L105)
 
 The size of the collision body in the X, Y, and Z directions.
 
@@ -105,7 +105,7 @@ Vector3
 
 > **set** **size**(`value`): `void`
 
-Defined in: [src/components/shape/ColliderShape.ts:77](https://github.com/orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L77)
+Defined in: [src/components/shape/ColliderShape.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L109)
 
 ##### Parameters
 
@@ -129,7 +129,7 @@ Defined in: [src/components/shape/ColliderShape.ts:77](https://github.com/orillu
 
 > **get** **halfSize**(): [`Vector3`](Vector3.md)
 
-Defined in: [src/components/shape/ColliderShape.ts:85](https://github.com/orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L85)
+Defined in: [src/components/shape/ColliderShape.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L117)
 
 Half the size of the collision body.
 
@@ -147,7 +147,7 @@ Half the size of the collision body.
 
 > **setFromCenterAndSize**(`ct?`, `sz?`): `this`
 
-Defined in: [src/components/shape/ColliderShape.ts:51](https://github.com/orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L51)
+Defined in: [src/components/shape/ColliderShape.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L83)
 
 Set the position and size of collision objects
 
@@ -172,3 +172,36 @@ The size of the collision body in the X, Y, and Z directions.
 #### Inherited from
 
 [`ColliderShape`](ColliderShape.md).[`setFromCenterAndSize`](ColliderShape.md#setfromcenterandsize)
+
+***
+
+### transformNormal()
+
+> `static` **transformNormal**(`invMatrix`, `n`, `out`): [`Vector3`](Vector3.md)
+
+Defined in: [src/components/shape/ColliderShape.ts:158](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L158)
+
+Transform a local-space normal to world space with the inverse
+transpose of the local → world matrix. See `MeshRaycast.transformNormal`.
+
+#### Parameters
+
+##### invMatrix
+
+[`Matrix4`](Matrix4.md)
+
+##### n
+
+[`Vector3`](Vector3.md)
+
+##### out
+
+[`Vector3`](Vector3.md)
+
+#### Returns
+
+[`Vector3`](Vector3.md)
+
+#### Inherited from
+
+[`ColliderShape`](ColliderShape.md).[`transformNormal`](ColliderShape.md#transformnormal)

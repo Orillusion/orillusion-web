@@ -4,7 +4,7 @@
 
 # Interface: ClearDepthPassConfig
 
-Defined in: [src/gfx/renderJob/graph/passes/ClearDepthPass.ts:20](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/ClearDepthPass.ts#L20)
+Defined in: [src/gfx/renderJob/graph/passes/ClearDepthPass.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/ClearDepthPass.ts#L20)
 
 Configuration for [ClearDepthPass](../classes/ClearDepthPass.md).
 
@@ -26,7 +26,7 @@ Configuration for [ClearDepthPass](../classes/ClearDepthPass.md).
 
 > `optional` **name?**: `string`
 
-Defined in: [src/gfx/renderJob/graph/passes/ClearDepthPass.ts:21](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/ClearDepthPass.ts#L21)
+Defined in: [src/gfx/renderJob/graph/passes/ClearDepthPass.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/ClearDepthPass.ts#L21)
 
 ***
 
@@ -34,7 +34,7 @@ Defined in: [src/gfx/renderJob/graph/passes/ClearDepthPass.ts:21](https://github
 
 > `optional` **after?**: `string`
 
-Defined in: [src/gfx/renderJob/graph/passes/ClearDepthPass.ts:22](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/ClearDepthPass.ts#L22)
+Defined in: [src/gfx/renderJob/graph/passes/ClearDepthPass.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/ClearDepthPass.ts#L22)
 
 ***
 
@@ -42,4 +42,4 @@ Defined in: [src/gfx/renderJob/graph/passes/ClearDepthPass.ts:22](https://github
 
 > `optional` **rtName?**: `string`
 
-Defined in: [src/gfx/renderJob/graph/passes/ClearDepthPass.ts:23](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/ClearDepthPass.ts#L23)
+Defined in: [src/gfx/renderJob/graph/passes/ClearDepthPass.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/ClearDepthPass.ts#L23)

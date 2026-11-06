@@ -4,10 +4,11 @@
 
 # Class: TonemapPost
 
-Defined in: [src/gfx/renderJob/post/TonemapPost.ts:23](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/TonemapPost.ts#L23)
+Defined in: [src/gfx/renderJob/post/TonemapPost.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/TonemapPost.ts#L25)
 
-Final HDR → LDR tonemap pass. Applies an ACES Filmic curve (or
-passthrough) and writes to an `rgba16float` RT — keeping the chain
+Final HDR → LDR tonemap pass. Applies the curve selected by
+`setting.render.tonemap.mode` (ACES, Reinhard, Uncharted2, AgX, Khronos
+Neutral or passthrough) and writes to an `rgba16float` RT — keeping the chain
 HDR-correct so the swapchain (in sRGB hardware-encode mode) does
 the linear→sRGB step. Reads the chain cursor via
 `lastRenderPassState.getLastRenderTexture`, identical to FXAAPost.
@@ -23,7 +24,7 @@ space and only the *combined* signal hits the curve.
 
 > **new TonemapPost**(): `TonemapPost`
 
-Defined in: [src/gfx/renderJob/post/TonemapPost.ts:27](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/TonemapPost.ts#L27)
+Defined in: [src/gfx/renderJob/post/TonemapPost.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/TonemapPost.ts#L29)
 
 #### Returns
 
@@ -39,7 +40,7 @@ Defined in: [src/gfx/renderJob/post/TonemapPost.ts:27](https://github.com/orillu
 
 > **enable**: `boolean` = `true`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L23)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L23)
 
 #### Inherited from
 
@@ -51,7 +52,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/orillusio
 
 > **isFinalPass**: `boolean` = `false`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:27](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L27)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L27)
 
 When true, PostPass iterates this post AFTER every regular
  post regardless of attach order — used by TonemapPost so the
@@ -67,7 +68,7 @@ When true, PostPass iterates this post AFTER every regular
 
 > **postRenderer**: [`PostPass`](PostPass.md)
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L28)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L28)
 
 #### Inherited from
 
@@ -79,7 +80,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/orillusio
 
 > **rendererPassState**: `RendererPassState`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L29)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L29)
 
 #### Inherited from
 
@@ -91,7 +92,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/orillusio
 
 > **\_boundCtx**: [`Context3D`](Context3D.md) = `null`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L30)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L30)
 
 #### Inherited from
 
@@ -103,7 +104,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/orillusio
 
 > **postQuad**: `ViewQuad`
 
-Defined in: [src/gfx/renderJob/post/TonemapPost.ts:24](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/TonemapPost.ts#L24)
+Defined in: [src/gfx/renderJob/post/TonemapPost.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/TonemapPost.ts#L26)
 
 ***
 
@@ -111,7 +112,7 @@ Defined in: [src/gfx/renderJob/post/TonemapPost.ts:24](https://github.com/orillu
 
 > **renderTexture**: `RenderTexture`
 
-Defined in: [src/gfx/renderJob/post/TonemapPost.ts:25](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/TonemapPost.ts#L25)
+Defined in: [src/gfx/renderJob/post/TonemapPost.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/TonemapPost.ts#L27)
 
 ## Methods
 
@@ -119,7 +120,7 @@ Defined in: [src/gfx/renderJob/post/TonemapPost.ts:25](https://github.com/orillu
 
 > **compute**(`view`): `void`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L133)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L133)
 
 #### Parameters
 
@@ -141,7 +142,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/orillusi
 
 > **destroy**(`force?`): `void`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L143)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L143)
 
 #### Parameters
 
@@ -163,7 +164,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/orillusi
 
 > **onResize**(): `void`
 
-Defined in: [src/gfx/renderJob/post/TonemapPost.ts:40](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/TonemapPost.ts#L40)
+Defined in: [src/gfx/renderJob/post/TonemapPost.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/TonemapPost.ts#L42)
 
 #### Returns
 
@@ -179,7 +180,7 @@ Defined in: [src/gfx/renderJob/post/TonemapPost.ts:40](https://github.com/orillu
 
 > **onAttach**(`view`): `void`
 
-Defined in: [src/gfx/renderJob/post/TonemapPost.ts:45](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/TonemapPost.ts#L45)
+Defined in: [src/gfx/renderJob/post/TonemapPost.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/TonemapPost.ts#L47)
 
 #### Parameters
 
@@ -201,7 +202,7 @@ Defined in: [src/gfx/renderJob/post/TonemapPost.ts:45](https://github.com/orillu
 
 > **onDetach**(`view`): `void`
 
-Defined in: [src/gfx/renderJob/post/TonemapPost.ts:50](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/TonemapPost.ts#L50)
+Defined in: [src/gfx/renderJob/post/TonemapPost.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/TonemapPost.ts#L52)
 
 #### Parameters
 
@@ -223,7 +224,7 @@ Defined in: [src/gfx/renderJob/post/TonemapPost.ts:50](https://github.com/orillu
 
 > **render**(`view`, `command`): `void`
 
-Defined in: [src/gfx/renderJob/post/TonemapPost.ts:55](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/TonemapPost.ts#L55)
+Defined in: [src/gfx/renderJob/post/TonemapPost.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/TonemapPost.ts#L57)
 
 #### Parameters
 

@@ -6,7 +6,7 @@
 
 > **registerMaterial**(`name`, `cls`): `void`
 
-Defined in: [src/materials/MaterialRegister.ts:35](https://github.com/orillusion/orillusion/blob/main/src/materials/MaterialRegister.ts#L35)
+Defined in: [src/materials/MaterialRegister.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/materials/MaterialRegister.ts#L35)
 
 ## Parameters
 

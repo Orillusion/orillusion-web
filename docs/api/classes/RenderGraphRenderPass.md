@@ -4,7 +4,7 @@
 
 # Class: RenderGraphRenderPass
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:95](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L95)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:95](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L95)
 
 Handle for "open a render pass driven by a single owned pipeline".
 The render-side analog of [RenderGraphComputePass](RenderGraphComputePass.md): owns a
@@ -31,7 +31,7 @@ pipeline to own.
 
 > **new RenderGraphRenderPass**(`name`, `target`, `desc`, `openOptions?`): `RenderGraphRenderPass`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:109](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L109)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L109)
 
 #### Parameters
 
@@ -61,7 +61,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:109](https://githu
 
 > `readonly` **name**: `string`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:96](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L96)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L96)
 
 ***
 
@@ -69,7 +69,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:96](https://github
 
 > `readonly` **target**: [`RenderGraphRenderTarget`](RenderGraphRenderTarget.md)
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:97](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L97)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L97)
 
 ***
 
@@ -77,7 +77,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:97](https://github
 
 > `readonly` **desc**: `Readonly`\<[`RenderPipelineDesc`](../interfaces/RenderPipelineDesc.md)\>
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:98](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L98)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:98](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L98)
 
 ***
 
@@ -85,7 +85,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:98](https://github
 
 > `readonly` **openOptions**: `Readonly`\<[`BeginPassOptions`](../interfaces/BeginPassOptions.md)\>
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:99](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L99)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L99)
 
 ***
 
@@ -93,7 +93,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:99](https://github
 
 > **pipeline**: `GPURenderPipeline` = `null`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:101](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L101)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:101](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L101)
 
 ***
 
@@ -101,7 +101,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:101](https://githu
 
 > **bindGroupLayouts**: `GPUBindGroupLayout`[] = `null`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:102](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L102)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:102](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L102)
 
 ***
 
@@ -109,7 +109,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:102](https://githu
 
 > **encoder**: `GPURenderPassEncoder` = `null`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:105](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L105)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:105](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L105)
 
 Runtime fields — valid between [begin](#begin) and [end](#end).
 
@@ -119,7 +119,7 @@ Runtime fields — valid between [begin](#begin) and [end](#end).
 
 > **command**: `GPUCommandEncoder` = `null`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:106](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L106)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L106)
 
 ***
 
@@ -127,7 +127,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:106](https://githu
 
 > **passState**: `RendererPassState` = `null`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:107](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L107)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L107)
 
 ## Methods
 
@@ -135,7 +135,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:107](https://githu
 
 > **begin**(`ctx`): `GPURenderPassEncoder`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:128](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L128)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:128](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L128)
 
 Lazily build the pipeline (first call), open a fresh command +
 render-pass encoder on the bound target with the resolved
@@ -159,7 +159,7 @@ encoder directly) before invoking [end](#end).
 
 > **draw**(`call`): `void`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:148](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L148)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:148](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L148)
 
 Convenience: bind groups + (optional) vertex/index buffers +
 dispatch one draw or drawIndexed call. Equivalent to manually
@@ -182,7 +182,7 @@ and calling the matching `draw*` on [encoder](#encoder).
 
 > **end**(`ctx`): `void`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:193](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L193)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:193](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L193)
 
 Close the render-pass encoder and submit the per-pass command
 buffer. Clears runtime fields so a stale handle from the previous

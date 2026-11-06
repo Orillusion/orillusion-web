@@ -4,7 +4,7 @@
 
 # Class: OrbitController
 
-Defined in: [src/components/controller/OrbitController.ts:14](https://github.com/orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L14)
+Defined in: [src/components/controller/OrbitController.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L15)
 
 Orbit Camera Controller
 
@@ -18,7 +18,7 @@ Orbit Camera Controller
 
 > **new OrbitController**(): `OrbitController`
 
-Defined in: [src/components/controller/OrbitController.ts:58](https://github.com/orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L58)
+Defined in: [src/components/controller/OrbitController.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L59)
 
 #### Returns
 
@@ -34,7 +34,7 @@ Defined in: [src/components/controller/OrbitController.ts:58](https://github.com
 
 > **object3D**: [`Object3D`](Object3D.md) = `null`
 
-Defined in: [src/components/ComponentBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L29)
+Defined in: [src/components/ComponentBase.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L29)
 
 owner object3D
 
@@ -48,7 +48,7 @@ owner object3D
 
 > **isDestroyed**: `boolean` = `false`
 
-Defined in: [src/components/ComponentBase.ts:77](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L77)
+Defined in: [src/components/ComponentBase.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L77)
 
 #### Inherited from
 
@@ -60,7 +60,7 @@ Defined in: [src/components/ComponentBase.ts:77](https://github.com/orillusion/o
 
 > **autoRotate**: `boolean` = `false`
 
-Defined in: [src/components/controller/OrbitController.ts:22](https://github.com/orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L22)
+Defined in: [src/components/controller/OrbitController.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L23)
 
 Whether to enable automatic rotation
 
@@ -70,7 +70,7 @@ Whether to enable automatic rotation
 
 > **autoRotateSpeed**: `number` = `0.1`
 
-Defined in: [src/components/controller/OrbitController.ts:26](https://github.com/orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L26)
+Defined in: [src/components/controller/OrbitController.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L27)
 
 Automatic rotation speed coefficient
 
@@ -80,7 +80,7 @@ Automatic rotation speed coefficient
 
 > **rotateFactor**: `number` = `0.5`
 
-Defined in: [src/components/controller/OrbitController.ts:30](https://github.com/orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L30)
+Defined in: [src/components/controller/OrbitController.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L31)
 
 Rotation speed coefficient
 
@@ -90,7 +90,7 @@ Rotation speed coefficient
 
 > **zoomFactor**: `number` = `0.1`
 
-Defined in: [src/components/controller/OrbitController.ts:34](https://github.com/orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L34)
+Defined in: [src/components/controller/OrbitController.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L35)
 
 Scale speed coefficient
 
@@ -100,7 +100,7 @@ Scale speed coefficient
 
 > **panFactor**: `number` = `0.25`
 
-Defined in: [src/components/controller/OrbitController.ts:38](https://github.com/orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L38)
+Defined in: [src/components/controller/OrbitController.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L39)
 
 Angle translation velocity coefficient
 
@@ -112,7 +112,7 @@ Angle translation velocity coefficient
 
 > **get** **visibleLayer**(): `number`
 
-Defined in: [src/components/ComponentBase.ts:46](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L46)
+Defined in: [src/components/ComponentBase.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L46)
 
 Composition-layer membership bitmask. The pass / camera /
 collector filters via
@@ -133,7 +133,7 @@ into composition layers.
 
 > **set** **visibleLayer**(`value`): `void`
 
-Defined in: [src/components/ComponentBase.ts:50](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L50)
+Defined in: [src/components/ComponentBase.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L50)
 
 ##### Parameters
 
@@ -157,7 +157,7 @@ Defined in: [src/components/ComponentBase.ts:50](https://github.com/orillusion/o
 
 > **get** **eventDispatcher**(): [`CEventDispatcher`](CEventDispatcher.md)
 
-Defined in: [src/components/ComponentBase.ts:63](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L63)
+Defined in: [src/components/ComponentBase.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L63)
 
 ##### Returns
 
@@ -167,7 +167,7 @@ Defined in: [src/components/ComponentBase.ts:63](https://github.com/orillusion/o
 
 > **set** **eventDispatcher**(`value`): `void`
 
-Defined in: [src/components/ComponentBase.ts:68](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
+Defined in: [src/components/ComponentBase.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
 
 ##### Parameters
 
@@ -191,7 +191,7 @@ Defined in: [src/components/ComponentBase.ts:68](https://github.com/orillusion/o
 
 > **get** **isStart**(): `boolean`
 
-Defined in: [src/components/ComponentBase.ts:79](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L79)
+Defined in: [src/components/ComponentBase.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L79)
 
 ##### Returns
 
@@ -209,7 +209,7 @@ Defined in: [src/components/ComponentBase.ts:79](https://github.com/orillusion/o
 
 > **get** **transform**(): [`Transform`](Transform.md)
 
-Defined in: [src/components/ComponentBase.ts:89](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L89)
+Defined in: [src/components/ComponentBase.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L89)
 
 Return the Transform component attached to the Object3D.
 Null before the component is attached — `addComponent` assigns
@@ -232,7 +232,7 @@ can probe safely via `this.transform?.`.
 
 > **get** **enable**(): `boolean`
 
-Defined in: [src/components/ComponentBase.ts:113](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
+Defined in: [src/components/ComponentBase.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
@@ -244,7 +244,7 @@ Enable/disable components. The enabled components can be updated, while the disa
 
 > **set** **enable**(`value`): `void`
 
-Defined in: [src/components/ComponentBase.ts:96](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L96)
+Defined in: [src/components/ComponentBase.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L96)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
@@ -270,7 +270,7 @@ Enable/disable components. The enabled components can be updated, while the disa
 
 > **get** **target**(): [`Vector3`](Vector3.md)
 
-Defined in: [src/components/controller/OrbitController.ts:64](https://github.com/orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L64)
+Defined in: [src/components/controller/OrbitController.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L65)
 
 Get the target position
 
@@ -282,7 +282,7 @@ Get the target position
 
 > **set** **target**(`v`): `void`
 
-Defined in: [src/components/controller/OrbitController.ts:70](https://github.com/orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L70)
+Defined in: [src/components/controller/OrbitController.ts:71](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L71)
 
 Set the target position
 
@@ -304,7 +304,7 @@ Set the target position
 
 > **get** **smooth**(): `number`
 
-Defined in: [src/components/controller/OrbitController.ts:77](https://github.com/orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L77)
+Defined in: [src/components/controller/OrbitController.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L78)
 
 Get smoothing coefficient of controller
 
@@ -316,7 +316,7 @@ Get smoothing coefficient of controller
 
 > **set** **smooth**(`v`): `void`
 
-Defined in: [src/components/controller/OrbitController.ts:83](https://github.com/orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L83)
+Defined in: [src/components/controller/OrbitController.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L84)
 
 Set smoothing coefficient of controller
 
@@ -338,7 +338,7 @@ Set smoothing coefficient of controller
 
 > **get** **minDistance**(): `number`
 
-Defined in: [src/components/controller/OrbitController.ts:90](https://github.com/orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L90)
+Defined in: [src/components/controller/OrbitController.ts:91](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L91)
 
 Get the minimum distance between the camera and the target coordinate
 
@@ -356,7 +356,7 @@ Get the minimum distance between the camera and the target coordinate
 
 > **set** **minDistance**(`v`): `void`
 
-Defined in: [src/components/controller/OrbitController.ts:98](https://github.com/orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L98)
+Defined in: [src/components/controller/OrbitController.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L99)
 
 Set the minimum distance between the camera and the target position
 min value: 0.000002
@@ -380,7 +380,7 @@ max value: `this._maxDistance` [maxDistance](#maxdistance)
 
 > **get** **maxDistance**(): `number`
 
-Defined in: [src/components/controller/OrbitController.ts:105](https://github.com/orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L105)
+Defined in: [src/components/controller/OrbitController.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L106)
 
 Get the max distance between the camera and the target position
 
@@ -398,7 +398,7 @@ Get the max distance between the camera and the target position
 
 > **set** **maxDistance**(`v`): `void`
 
-Defined in: [src/components/controller/OrbitController.ts:113](https://github.com/orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L113)
+Defined in: [src/components/controller/OrbitController.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L114)
 
 Set the max distance between the camera and the target position
 min - `this._maxDistance`
@@ -422,7 +422,7 @@ max - Infinity
 
 > **get** **minPolarAngle**(): `number`
 
-Defined in: [src/components/controller/OrbitController.ts:121](https://github.com/orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L121)
+Defined in: [src/components/controller/OrbitController.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L122)
 
 Get the lower elevation limit of the camera from the xz plane
 
@@ -440,7 +440,7 @@ Get the lower elevation limit of the camera from the xz plane
 
 > **set** **minPolarAngle**(`v`): `void`
 
-Defined in: [src/components/controller/OrbitController.ts:129](https://github.com/orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L129)
+Defined in: [src/components/controller/OrbitController.ts:130](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L130)
 
 Set the lower elevation limit of the camera from the xz plane
 min - -90
@@ -464,7 +464,7 @@ max - [maxPolarAngle](#maxpolarangle)
 
 > **get** **maxPolarAngle**(): `number`
 
-Defined in: [src/components/controller/OrbitController.ts:136](https://github.com/orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L136)
+Defined in: [src/components/controller/OrbitController.ts:137](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L137)
 
 Get the upper elevation limit of the camera from the xz plane
 
@@ -482,7 +482,7 @@ Get the upper elevation limit of the camera from the xz plane
 
 > **set** **maxPolarAngle**(`v`): `void`
 
-Defined in: [src/components/controller/OrbitController.ts:144](https://github.com/orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L144)
+Defined in: [src/components/controller/OrbitController.ts:145](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L145)
 
 Set the upper elevation limit of the camera to the xz plane
 min - less than [minPolarAngle](#minpolarangle)   
@@ -504,13 +504,13 @@ max - 90
 
 #### Get Signature
 
-> **get** **spherical**(): `Spherical`
+> **get** **spherical**(): [`Spherical`](Spherical.md)
 
-Defined in: [src/components/controller/OrbitController.ts:148](https://github.com/orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L148)
+Defined in: [src/components/controller/OrbitController.ts:149](https://github.com/Orillusion/orillusion/blob/main/src/components/controller/OrbitController.ts#L149)
 
 ##### Returns
 
-`Spherical`
+[`Spherical`](Spherical.md)
 
 ## Methods
 
@@ -518,7 +518,7 @@ Defined in: [src/components/controller/OrbitController.ts:148](https://github.co
 
 > **init**(`param?`): `void`
 
-Defined in: [src/components/ComponentBase.ts:161](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L161)
+Defined in: [src/components/ComponentBase.ts:161](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L161)
 
 #### Parameters
 
@@ -540,7 +540,7 @@ Defined in: [src/components/ComponentBase.ts:161](https://github.com/orillusion/
 
 > **stop**(): `void`
 
-Defined in: [src/components/ComponentBase.ts:163](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L163)
+Defined in: [src/components/ComponentBase.ts:163](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L163)
 
 #### Returns
 
@@ -556,7 +556,7 @@ Defined in: [src/components/ComponentBase.ts:163](https://github.com/orillusion/
 
 > `optional` **onLateUpdate**(`view?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:167](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L167)
+Defined in: [src/components/ComponentBase.ts:167](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L167)
 
 #### Parameters
 
@@ -578,7 +578,7 @@ Defined in: [src/components/ComponentBase.ts:167](https://github.com/orillusion/
 
 > `optional` **onBeforeUpdate**(`view?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:168](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L168)
+Defined in: [src/components/ComponentBase.ts:168](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L168)
 
 #### Parameters
 
@@ -600,7 +600,7 @@ Defined in: [src/components/ComponentBase.ts:168](https://github.com/orillusion/
 
 > `optional` **onCompute**(`view?`, `command?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:169](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L169)
+Defined in: [src/components/ComponentBase.ts:169](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L169)
 
 #### Parameters
 
@@ -626,7 +626,7 @@ Defined in: [src/components/ComponentBase.ts:169](https://github.com/orillusion/
 
 > `optional` **onGraphic**(`view?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:170](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L170)
+Defined in: [src/components/ComponentBase.ts:170](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L170)
 
 #### Parameters
 
@@ -648,7 +648,7 @@ Defined in: [src/components/ComponentBase.ts:170](https://github.com/orillusion/
 
 > `optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:171](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L171)
+Defined in: [src/components/ComponentBase.ts:171](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L171)
 
 #### Parameters
 
@@ -674,7 +674,7 @@ Defined in: [src/components/ComponentBase.ts:171](https://github.com/orillusion/
 
 > `optional` **onAddChild**(`child`): `any`
 
-Defined in: [src/components/ComponentBase.ts:172](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L172)
+Defined in: [src/components/ComponentBase.ts:172](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L172)
 
 #### Parameters
 
@@ -696,7 +696,7 @@ Defined in: [src/components/ComponentBase.ts:172](https://github.com/orillusion/
 
 > `optional` **onRemoveChild**(`child`): `any`
 
-Defined in: [src/components/ComponentBase.ts:173](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L173)
+Defined in: [src/components/ComponentBase.ts:173](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L173)
 
 #### Parameters
 
@@ -718,7 +718,7 @@ Defined in: [src/components/ComponentBase.ts:173](https://github.com/orillusion/
 
 > **cloneTo**(`obj`): `void`
 
-Defined in: [src/components/ComponentBase.ts:180](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L180)
+Defined in: [src/components/ComponentBase.ts:180](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L180)
 
 clone component data to target object3D
 
@@ -744,7 +744,7 @@ target object3D
 
 > **copyComponent**(`from`): `this`
 
-Defined in: [src/components/ComponentBase.ts:182](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L182)
+Defined in: [src/components/ComponentBase.ts:182](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L182)
 
 #### Parameters
 
@@ -766,7 +766,7 @@ Defined in: [src/components/ComponentBase.ts:182](https://github.com/orillusion/
 
 > **beforeDestroy**(`force?`): `void`
 
-Defined in: [src/components/ComponentBase.ts:249](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L249)
+Defined in: [src/components/ComponentBase.ts:249](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L249)
 
 before release this component, object refrences are not be set null now.
 
@@ -790,7 +790,7 @@ before release this component, object refrences are not be set null now.
 
 > **destroy**(`force?`): `void`
 
-Defined in: [src/components/ComponentBase.ts:256](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L256)
+Defined in: [src/components/ComponentBase.ts:256](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L256)
 
 release this component
 

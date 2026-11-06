@@ -4,7 +4,7 @@
 
 # Class: GeometryVertexBuffer
 
-Defined in: [src/core/geometry/GeometryVertexBuffer.ts:15](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L15)
+Defined in: [src/core/geometry/GeometryVertexBuffer.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L15)
 
 Holds the vertex attribute data of a geometry and manages its backing
 GPU vertex buffer and attribute layout.
@@ -15,7 +15,7 @@ GPU vertex buffer and attribute layout.
 
 > **new GeometryVertexBuffer**(): `GeometryVertexBuffer`
 
-Defined in: [src/core/geometry/GeometryVertexBuffer.ts:76](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L76)
+Defined in: [src/core/geometry/GeometryVertexBuffer.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L81)
 
 #### Returns
 
@@ -27,7 +27,7 @@ Defined in: [src/core/geometry/GeometryVertexBuffer.ts:76](https://github.com/or
 
 > **vertexCount**: `number` = `0`
 
-Defined in: [src/core/geometry/GeometryVertexBuffer.ts:17](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L17)
+Defined in: [src/core/geometry/GeometryVertexBuffer.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L17)
 
 ***
 
@@ -35,7 +35,7 @@ Defined in: [src/core/geometry/GeometryVertexBuffer.ts:17](https://github.com/or
 
 > **vertexGPUBuffer**: [`VertexGPUBuffer`](VertexGPUBuffer.md)
 
-Defined in: [src/core/geometry/GeometryVertexBuffer.ts:18](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L18)
+Defined in: [src/core/geometry/GeometryVertexBuffer.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L18)
 
 ***
 
@@ -43,7 +43,7 @@ Defined in: [src/core/geometry/GeometryVertexBuffer.ts:18](https://github.com/or
 
 > **geometryType**: [`GeometryVertexType`](../enumerations/GeometryVertexType.md) = `GeometryVertexType.split`
 
-Defined in: [src/core/geometry/GeometryVertexBuffer.ts:19](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L19)
+Defined in: [src/core/geometry/GeometryVertexBuffer.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L19)
 
 ***
 
@@ -51,7 +51,7 @@ Defined in: [src/core/geometry/GeometryVertexBuffer.ts:19](https://github.com/or
 
 > **bufferChanged**: `boolean` = `false`
 
-Defined in: [src/core/geometry/GeometryVertexBuffer.ts:28](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L28)
+Defined in: [src/core/geometry/GeometryVertexBuffer.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L28)
 
 Set to `true` whenever `vertexGPUBuffer` is replaced by a fresh
 allocation (first build or a packing-size change). Consumers that
@@ -60,7 +60,35 @@ deformed/generated vertices — must observe this flag and rebind,
 otherwise they keep writing into an orphaned buffer while the
 renderer draws the new one. The owner resets it after handling.
 
+***
+
+### positionVersion
+
+> **positionVersion**: `number` = `0`
+
+Defined in: [src/core/geometry/GeometryVertexBuffer.ts:401](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L401)
+
+Bumped whenever position data is re-uploaded (`position`, or the packed
+`all` buffer), so CPU-side consumers such as `MeshBVH` can tell that
+the vertices moved. See `GeometryBase.version`.
+
 ## Accessors
+
+### composeBinLayout
+
+#### Get Signature
+
+> **get** **composeBinLayout**(): [`VertexAttribute`](VertexAttribute.md)[]
+
+Defined in: [src/core/geometry/GeometryVertexBuffer.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L77)
+
+The interleave layout recorded by [setComposeBinLayout](#setcomposebinlayout), or null.
+
+##### Returns
+
+[`VertexAttribute`](VertexAttribute.md)[]
+
+***
 
 ### vertexBufferLayouts
 
@@ -68,7 +96,7 @@ renderer draws the new one. The owner resets it after handling.
 
 > **get** **vertexBufferLayouts**(): [`VertexBufferLayout`](VertexBufferLayout.md)[]
 
-Defined in: [src/core/geometry/GeometryVertexBuffer.ts:82](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L82)
+Defined in: [src/core/geometry/GeometryVertexBuffer.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L87)
 
 ##### Returns
 
@@ -80,7 +108,7 @@ Defined in: [src/core/geometry/GeometryVertexBuffer.ts:82](https://github.com/or
 
 > **setComposeBinLayout**(`layout`): `void`
 
-Defined in: [src/core/geometry/GeometryVertexBuffer.ts:69](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L69)
+Defined in: [src/core/geometry/GeometryVertexBuffer.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L69)
 
 Record the real interleave layout of a `compose_bin` geometry's packed
 vertex buffer (attribute name → byte offset within the stride), so each
@@ -103,7 +131,7 @@ that pass's shader declares.
 
 > **getPipelineLayout**(`shaderReflection`): [`VertexBufferLayout`](VertexBufferLayout.md)[]
 
-Defined in: [src/core/geometry/GeometryVertexBuffer.ts:97](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L97)
+Defined in: [src/core/geometry/GeometryVertexBuffer.ts:102](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L102)
 
 Vertex buffer layout for a specific pass's pipeline VertexState. For
 `compose` geometry this is derived per-pass from the pass's shader
@@ -131,7 +159,7 @@ still uses [vertexBufferLayouts](#vertexbufferlayouts).
 
 > **needsRebuild**(`shaderReflection`): `boolean`
 
-Defined in: [src/core/geometry/GeometryVertexBuffer.ts:163](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L163)
+Defined in: [src/core/geometry/GeometryVertexBuffer.ts:168](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L168)
 
 Whether `createVertexBuffer` must run for this pass's reflection (on
 top of the geometry's own `_onChange`). For `compose` this is true
@@ -157,7 +185,7 @@ rest-pose data. For `split` / `compose_bin` it preserves the legacy
 
 > **createVertexBuffer**(`vertexDataInfos`, `shaderReflection`): `void`
 
-Defined in: [src/core/geometry/GeometryVertexBuffer.ts:185](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L185)
+Defined in: [src/core/geometry/GeometryVertexBuffer.ts:190](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L190)
 
 #### Parameters
 
@@ -179,7 +207,7 @@ Defined in: [src/core/geometry/GeometryVertexBuffer.ts:185](https://github.com/o
 
 > **upload**(`attribute`, `vertexDataInfo`): `void`
 
-Defined in: [src/core/geometry/GeometryVertexBuffer.ts:391](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L391)
+Defined in: [src/core/geometry/GeometryVertexBuffer.ts:403](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L403)
 
 #### Parameters
 
@@ -201,7 +229,7 @@ Defined in: [src/core/geometry/GeometryVertexBuffer.ts:391](https://github.com/o
 
 > **updateAttributes**(`vertexDataInfos`): `void`
 
-Defined in: [src/core/geometry/GeometryVertexBuffer.ts:420](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L420)
+Defined in: [src/core/geometry/GeometryVertexBuffer.ts:433](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L433)
 
 #### Parameters
 
@@ -219,7 +247,7 @@ Defined in: [src/core/geometry/GeometryVertexBuffer.ts:420](https://github.com/o
 
 > **compute**(): `void`
 
-Defined in: [src/core/geometry/GeometryVertexBuffer.ts:459](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L459)
+Defined in: [src/core/geometry/GeometryVertexBuffer.ts:472](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L472)
 
 #### Returns
 
@@ -231,7 +259,7 @@ Defined in: [src/core/geometry/GeometryVertexBuffer.ts:459](https://github.com/o
 
 > **destroy**(): `void`
 
-Defined in: [src/core/geometry/GeometryVertexBuffer.ts:463](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L463)
+Defined in: [src/core/geometry/GeometryVertexBuffer.ts:476](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexBuffer.ts#L476)
 
 #### Returns
 

@@ -6,7 +6,7 @@
 
 > **SSGISetting** = `object`
 
-Defined in: [src/setting/post/SSGISetting.ts:6](https://github.com/orillusion/orillusion/blob/main/src/setting/post/SSGISetting.ts#L6)
+Defined in: [src/setting/post/SSGISetting.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/SSGISetting.ts#L6)
 
 Setting of GTAO
 
@@ -16,4 +16,4 @@ Setting of GTAO
 
 > **enable**: `boolean`
 
-Defined in: [src/setting/post/SSGISetting.ts:7](https://github.com/orillusion/orillusion/blob/main/src/setting/post/SSGISetting.ts#L7)
+Defined in: [src/setting/post/SSGISetting.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/SSGISetting.ts#L7)

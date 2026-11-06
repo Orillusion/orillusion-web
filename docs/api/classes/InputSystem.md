@@ -4,7 +4,7 @@
 
 # Class: InputSystem
 
-Defined in: [src/io/InputSystem.ts:18](https://github.com/orillusion/orillusion/blob/main/src/io/InputSystem.ts#L18)
+Defined in: [src/io/InputSystem.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L18)
 
 Processing input devices, such as mouse, keyboard, and touch.
 If the current event does not occur within the View3D, it will not be dispatched
@@ -33,7 +33,7 @@ If the current event does not occur within the View3D, it will not be dispatched
 
 > **canvasX**: `number` = `0`
 
-Defined in: [src/io/InputSystem.ts:22](https://github.com/orillusion/orillusion/blob/main/src/io/InputSystem.ts#L22)
+Defined in: [src/io/InputSystem.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L22)
 
 coord x of canvas
 
@@ -43,7 +43,7 @@ coord x of canvas
 
 > **canvasY**: `number` = `0`
 
-Defined in: [src/io/InputSystem.ts:26](https://github.com/orillusion/orillusion/blob/main/src/io/InputSystem.ts#L26)
+Defined in: [src/io/InputSystem.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L26)
 
 coord y of canvas
 
@@ -53,7 +53,7 @@ coord y of canvas
 
 > **isMouseDown**: `boolean` = `false`
 
-Defined in: [src/io/InputSystem.ts:31](https://github.com/orillusion/orillusion/blob/main/src/io/InputSystem.ts#L31)
+Defined in: [src/io/InputSystem.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L31)
 
 whether the mouse is down now
 
@@ -63,7 +63,7 @@ whether the mouse is down now
 
 > **canvas**: `HTMLCanvasElement`
 
-Defined in: [src/io/InputSystem.ts:36](https://github.com/orillusion/orillusion/blob/main/src/io/InputSystem.ts#L36)
+Defined in: [src/io/InputSystem.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L36)
 
 reference of canvas
 
@@ -73,7 +73,7 @@ reference of canvas
 
 > **mouseX**: `number` = `0`
 
-Defined in: [src/io/InputSystem.ts:41](https://github.com/orillusion/orillusion/blob/main/src/io/InputSystem.ts#L41)
+Defined in: [src/io/InputSystem.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L41)
 
 current mouse coordinate x of Canvas
 
@@ -83,7 +83,7 @@ current mouse coordinate x of Canvas
 
 > **mouseY**: `number` = `0`
 
-Defined in: [src/io/InputSystem.ts:46](https://github.com/orillusion/orillusion/blob/main/src/io/InputSystem.ts#L46)
+Defined in: [src/io/InputSystem.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L46)
 
 current mouse coordinate y of Canvas
 
@@ -93,7 +93,7 @@ current mouse coordinate y of Canvas
 
 > **wheelDelta**: `number` = `0`
 
-Defined in: [src/io/InputSystem.ts:51](https://github.com/orillusion/orillusion/blob/main/src/io/InputSystem.ts#L51)
+Defined in: [src/io/InputSystem.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L51)
 
 the delta value when mouse wheeled
 
@@ -103,7 +103,7 @@ the delta value when mouse wheeled
 
 > **mouseOffsetX**: `number` = `0`
 
-Defined in: [src/io/InputSystem.ts:56](https://github.com/orillusion/orillusion/blob/main/src/io/InputSystem.ts#L56)
+Defined in: [src/io/InputSystem.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L56)
 
 the delta value of mouse x
 
@@ -113,7 +113,7 @@ the delta value of mouse x
 
 > **mouseOffsetY**: `number` = `0`
 
-Defined in: [src/io/InputSystem.ts:61](https://github.com/orillusion/orillusion/blob/main/src/io/InputSystem.ts#L61)
+Defined in: [src/io/InputSystem.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L61)
 
 the delta value of mouse y
 
@@ -123,7 +123,7 @@ the delta value of mouse y
 
 > **mouseLastX**: `number` = `0`
 
-Defined in: [src/io/InputSystem.ts:66](https://github.com/orillusion/orillusion/blob/main/src/io/InputSystem.ts#L66)
+Defined in: [src/io/InputSystem.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L66)
 
 the history value of mouse x
 
@@ -133,7 +133,7 @@ the history value of mouse x
 
 > **mouseLastY**: `number` = `0`
 
-Defined in: [src/io/InputSystem.ts:73](https://github.com/orillusion/orillusion/blob/main/src/io/InputSystem.ts#L73)
+Defined in: [src/io/InputSystem.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L73)
 
 the history value of mouse y
 
@@ -143,7 +143,7 @@ the history value of mouse y
 
 > **mouseLock**: `boolean` = `false`
 
-Defined in: [src/io/InputSystem.ts:84](https://github.com/orillusion/orillusion/blob/main/src/io/InputSystem.ts#L84)
+Defined in: [src/io/InputSystem.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L84)
 
 Whether pointer lock is currently active.
 
@@ -153,7 +153,7 @@ Whether pointer lock is currently active.
 
 > **dispatchEvent**(`event`): `void`
 
-Defined in: [src/event/CEventDispatcher.ts:24](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L24)
+Defined in: [src/event/CEventDispatcher.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L24)
 
 Dispatch an event to all registered objects with a specific type of listener.
 
@@ -177,7 +177,7 @@ Dispatch an event to all registered objects with a specific type of listener.
 
 > **destroy**(): `void`
 
-Defined in: [src/event/CEventDispatcher.ts:54](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L54)
+Defined in: [src/event/CEventDispatcher.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L54)
 
 release all registered event.
 
@@ -195,7 +195,7 @@ release all registered event.
 
 > **addEventListener**(`type`, `callback`, `thisObject`, `param?`, `priority?`): `number`
 
-Defined in: [src/event/CEventDispatcher.ts:78](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L78)
+Defined in: [src/event/CEventDispatcher.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L78)
 
 register an event listener to event distancher.
 
@@ -249,7 +249,7 @@ Returns register event id
 
 > **removeEventListener**(`type`, `callback`, `thisObject`): `void`
 
-Defined in: [src/event/CEventDispatcher.ts:112](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L112)
+Defined in: [src/event/CEventDispatcher.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L112)
 
 Remove Event Listening
 
@@ -287,7 +287,7 @@ Remove Event Listening
 
 > **removeEventListenerAt**(`id`): `boolean`
 
-Defined in: [src/event/CEventDispatcher.ts:132](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L132)
+Defined in: [src/event/CEventDispatcher.ts:132](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L132)
 
 Remove an event Listening with id
 
@@ -311,7 +311,7 @@ Remove an event Listening with id
 
 > **removeAllEventListener**(`eventType?`): `void`
 
-Defined in: [src/event/CEventDispatcher.ts:152](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L152)
+Defined in: [src/event/CEventDispatcher.ts:152](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L152)
 
 Specify a event type to remove all related event listeners
 eventType event type, set null to remove all event listeners
@@ -336,7 +336,7 @@ eventType event type, set null to remove all event listeners
 
 > **containEventListener**(`type`): `boolean`
 
-Defined in: [src/event/CEventDispatcher.ts:184](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L184)
+Defined in: [src/event/CEventDispatcher.ts:184](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L184)
 
 whether the target presence of a listener with event type.
 
@@ -364,7 +364,7 @@ Returns a boolean.
 
 > **hasEventListener**(`type`, `callback?`, `thisObject?`): `boolean`
 
-Defined in: [src/event/CEventDispatcher.ts:197](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L197)
+Defined in: [src/event/CEventDispatcher.ts:197](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L197)
 
 whether the target presence of a listener with event type. it associate more registration parameters.
 
@@ -404,7 +404,7 @@ Returns a boolean.
 
 > **initCanvas**(`canvas`): `void`
 
-Defined in: [src/io/InputSystem.ts:95](https://github.com/orillusion/orillusion/blob/main/src/io/InputSystem.ts#L95)
+Defined in: [src/io/InputSystem.ts:95](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L95)
 
 init the input system
 
@@ -426,7 +426,7 @@ the reference of canvas
 
 > **dispose**(): `void`
 
-Defined in: [src/io/InputSystem.ts:164](https://github.com/orillusion/orillusion/blob/main/src/io/InputSystem.ts#L164)
+Defined in: [src/io/InputSystem.ts:164](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L164)
 
 Detach every listener this InputSystem installed (window keyboard
 listeners + canvas pointer/wheel handlers). Idempotent. Called by
@@ -444,7 +444,7 @@ the engine's scene graph.
 
 > **useMouseLock**(): `void`
 
-Defined in: [src/io/InputSystem.ts:191](https://github.com/orillusion/orillusion/blob/main/src/io/InputSystem.ts#L191)
+Defined in: [src/io/InputSystem.ts:191](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L191)
 
 Request pointer lock on the canvas and start tracking locked mouse movement.
 
@@ -458,7 +458,7 @@ Request pointer lock on the canvas and start tracking locked mouse movement.
 
 > **releaseMouseLock**(): `void`
 
-Defined in: [src/io/InputSystem.ts:204](https://github.com/orillusion/orillusion/blob/main/src/io/InputSystem.ts#L204)
+Defined in: [src/io/InputSystem.ts:204](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L204)
 
 Exit pointer lock and stop tracking locked mouse movement.
 
@@ -472,7 +472,7 @@ Exit pointer lock and stop tracking locked mouse movement.
 
 > **onMouseLockMove**(`e`): `void`
 
-Defined in: [src/io/InputSystem.ts:213](https://github.com/orillusion/orillusion/blob/main/src/io/InputSystem.ts#L213)
+Defined in: [src/io/InputSystem.ts:213](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L213)
 
 #### Parameters
 
@@ -490,7 +490,7 @@ Defined in: [src/io/InputSystem.ts:213](https://github.com/orillusion/orillusion
 
 > **GetSlideDirection**(`startX`, `startY`, `endX`, `endY`): `number`
 
-Defined in: [src/io/InputSystem.ts:481](https://github.com/orillusion/orillusion/blob/main/src/io/InputSystem.ts#L481)
+Defined in: [src/io/InputSystem.ts:481](https://github.com/Orillusion/orillusion/blob/main/src/io/InputSystem.ts#L481)
 
 #### Parameters
 

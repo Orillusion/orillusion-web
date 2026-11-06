@@ -6,7 +6,7 @@
 
 > **ReflectionSetting** = `object`
 
-Defined in: [src/setting/ReflectionSetting.ts:1](https://github.com/orillusion/orillusion/blob/main/src/setting/ReflectionSetting.ts#L1)
+Defined in: [src/setting/ReflectionSetting.ts:1](https://github.com/Orillusion/orillusion/blob/main/src/setting/ReflectionSetting.ts#L1)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [src/setting/ReflectionSetting.ts:1](https://github.com/orillusion/o
 
 > **reflectionProbeSize**: `number`
 
-Defined in: [src/setting/ReflectionSetting.ts:3](https://github.com/orillusion/orillusion/blob/main/src/setting/ReflectionSetting.ts#L3)
+Defined in: [src/setting/ReflectionSetting.ts:3](https://github.com/Orillusion/orillusion/blob/main/src/setting/ReflectionSetting.ts#L3)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [src/setting/ReflectionSetting.ts:3](https://github.com/orillusion/o
 
 > **reflectionProbeMaxCount**: `number`
 
-Defined in: [src/setting/ReflectionSetting.ts:4](https://github.com/orillusion/orillusion/blob/main/src/setting/ReflectionSetting.ts#L4)
+Defined in: [src/setting/ReflectionSetting.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/setting/ReflectionSetting.ts#L4)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [src/setting/ReflectionSetting.ts:4](https://github.com/orillusion/o
 
 > **width**: `number`
 
-Defined in: [src/setting/ReflectionSetting.ts:6](https://github.com/orillusion/orillusion/blob/main/src/setting/ReflectionSetting.ts#L6)
+Defined in: [src/setting/ReflectionSetting.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/setting/ReflectionSetting.ts#L6)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [src/setting/ReflectionSetting.ts:6](https://github.com/orillusion/o
 
 > **height**: `number`
 
-Defined in: [src/setting/ReflectionSetting.ts:7](https://github.com/orillusion/orillusion/blob/main/src/setting/ReflectionSetting.ts#L7)
+Defined in: [src/setting/ReflectionSetting.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/setting/ReflectionSetting.ts#L7)
 
 ***
 
@@ -46,4 +46,4 @@ Defined in: [src/setting/ReflectionSetting.ts:7](https://github.com/orillusion/o
 
 > **enable**: `boolean`
 
-Defined in: [src/setting/ReflectionSetting.ts:9](https://github.com/orillusion/orillusion/blob/main/src/setting/ReflectionSetting.ts#L9)
+Defined in: [src/setting/ReflectionSetting.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/setting/ReflectionSetting.ts#L9)

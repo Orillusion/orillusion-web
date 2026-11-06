@@ -4,7 +4,7 @@
 
 # Class: UnresolvedResourceError
 
-Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:37](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L37)
+Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L37)
 
 Raised when a pass declares `b.read('foo')` (or `b.write('foo')`
 without factory) but no other pass is the creator of `'foo'`.
@@ -19,7 +19,7 @@ without factory) but no other pass is the creator of `'foo'`.
 
 > **new UnresolvedResourceError**(`pass`, `resource`): `UnresolvedResourceError`
 
-Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:40](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L40)
+Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L40)
 
 #### Parameters
 
@@ -45,7 +45,7 @@ Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:40](https://github.com/or
 
 > `readonly` **pass**: `string`
 
-Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:38](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L38)
+Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L38)
 
 ***
 
@@ -53,4 +53,4 @@ Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:38](https://github.com/or
 
 > `readonly` **resource**: `string`
 
-Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:39](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L39)
+Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L39)

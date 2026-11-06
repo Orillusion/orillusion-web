@@ -6,7 +6,7 @@
 
 > **RenderSetting** = `object`
 
-Defined in: [src/setting/RenderSetting.ts:13](https://github.com/orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L13)
+Defined in: [src/setting/RenderSetting.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L16)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [src/setting/RenderSetting.ts:13](https://github.com/orillusion/oril
 
 > **debug**: `boolean`
 
-Defined in: [src/setting/RenderSetting.ts:14](https://github.com/orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L14)
+Defined in: [src/setting/RenderSetting.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L17)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [src/setting/RenderSetting.ts:14](https://github.com/orillusion/oril
 
 > **renderPassState**: `number`
 
-Defined in: [src/setting/RenderSetting.ts:15](https://github.com/orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L15)
+Defined in: [src/setting/RenderSetting.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L18)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [src/setting/RenderSetting.ts:15](https://github.com/orillusion/oril
 
 > **renderState\_left**: `number`
 
-Defined in: [src/setting/RenderSetting.ts:16](https://github.com/orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L16)
+Defined in: [src/setting/RenderSetting.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L19)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [src/setting/RenderSetting.ts:16](https://github.com/orillusion/oril
 
 > **renderState\_right**: `number`
 
-Defined in: [src/setting/RenderSetting.ts:17](https://github.com/orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L17)
+Defined in: [src/setting/RenderSetting.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L20)
 
 ***
 
@@ -46,7 +46,7 @@ Defined in: [src/setting/RenderSetting.ts:17](https://github.com/orillusion/oril
 
 > **renderState\_split**: `number`
 
-Defined in: [src/setting/RenderSetting.ts:18](https://github.com/orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L18)
+Defined in: [src/setting/RenderSetting.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L21)
 
 ***
 
@@ -54,7 +54,7 @@ Defined in: [src/setting/RenderSetting.ts:18](https://github.com/orillusion/oril
 
 > **quadScale**: `number`
 
-Defined in: [src/setting/RenderSetting.ts:19](https://github.com/orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L19)
+Defined in: [src/setting/RenderSetting.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L22)
 
 ***
 
@@ -62,7 +62,7 @@ Defined in: [src/setting/RenderSetting.ts:19](https://github.com/orillusion/oril
 
 > **hdrExposure**: `number`
 
-Defined in: [src/setting/RenderSetting.ts:20](https://github.com/orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L20)
+Defined in: [src/setting/RenderSetting.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L23)
 
 ***
 
@@ -70,7 +70,7 @@ Defined in: [src/setting/RenderSetting.ts:20](https://github.com/orillusion/oril
 
 > **drawOpMin**: `number`
 
-Defined in: [src/setting/RenderSetting.ts:21](https://github.com/orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L21)
+Defined in: [src/setting/RenderSetting.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L24)
 
 ***
 
@@ -78,7 +78,7 @@ Defined in: [src/setting/RenderSetting.ts:21](https://github.com/orillusion/oril
 
 > **drawOpMax**: `number`
 
-Defined in: [src/setting/RenderSetting.ts:22](https://github.com/orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L22)
+Defined in: [src/setting/RenderSetting.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L25)
 
 ***
 
@@ -86,7 +86,7 @@ Defined in: [src/setting/RenderSetting.ts:22](https://github.com/orillusion/oril
 
 > **drawTrMin**: `number`
 
-Defined in: [src/setting/RenderSetting.ts:23](https://github.com/orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L23)
+Defined in: [src/setting/RenderSetting.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L26)
 
 ***
 
@@ -94,7 +94,7 @@ Defined in: [src/setting/RenderSetting.ts:23](https://github.com/orillusion/oril
 
 > **drawTrMax**: `number`
 
-Defined in: [src/setting/RenderSetting.ts:24](https://github.com/orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L24)
+Defined in: [src/setting/RenderSetting.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L27)
 
 ***
 
@@ -102,7 +102,7 @@ Defined in: [src/setting/RenderSetting.ts:24](https://github.com/orillusion/oril
 
 > **zPrePass**: `boolean`
 
-Defined in: [src/setting/RenderSetting.ts:25](https://github.com/orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L25)
+Defined in: [src/setting/RenderSetting.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L28)
 
 ***
 
@@ -110,7 +110,7 @@ Defined in: [src/setting/RenderSetting.ts:25](https://github.com/orillusion/oril
 
 > **useLogDepth**: `boolean`
 
-Defined in: [src/setting/RenderSetting.ts:26](https://github.com/orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L26)
+Defined in: [src/setting/RenderSetting.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L29)
 
 ***
 
@@ -118,7 +118,7 @@ Defined in: [src/setting/RenderSetting.ts:26](https://github.com/orillusion/oril
 
 > **useCompressGBuffer**: `boolean`
 
-Defined in: [src/setting/RenderSetting.ts:27](https://github.com/orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L27)
+Defined in: [src/setting/RenderSetting.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L30)
 
 ***
 
@@ -126,7 +126,7 @@ Defined in: [src/setting/RenderSetting.ts:27](https://github.com/orillusion/oril
 
 > `optional` **gpuCull?**: `boolean`
 
-Defined in: [src/setting/RenderSetting.ts:37](https://github.com/orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L37)
+Defined in: [src/setting/RenderSetting.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L40)
 
 GPU-driven culling — when true, frustum + (when paired with
  Hi-Z) occlusion tests run on the GPU per mesh instance and
@@ -140,11 +140,26 @@ GPU-driven culling — when true, frustum + (when paired with
 
 ***
 
+### objectMotionVectors?
+
+> `optional` **objectMotionVectors?**: `boolean`
+
+Defined in: [src/setting/RenderSetting.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L47)
+
+Per-object motion vectors. When true, the engine keeps a copy of the
+ previous frame's model matrices and MotionVectorPass draws every
+ opaque mesh's own screen-space velocity (camera + object motion) into
+ `_MotionVector`; MotionBlurPost then blurs moving objects too, not
+ only the camera's motion. Skinned meshes use the previous model
+ matrix with the current pose (rigid motion only). Default false.
+
+***
+
 ### msaa
 
 > **msaa**: `0` \| `2` \| `4` \| `8`
 
-Defined in: [src/setting/RenderSetting.ts:42](https://github.com/orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L42)
+Defined in: [src/setting/RenderSetting.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L52)
 
 Per-instance MSAA sample count for the main color pass.
  0 disables MSAA (default). Valid non-zero values: 2 | 4 | 8
@@ -157,7 +172,7 @@ Per-instance MSAA sample count for the main color pass.
 
 > **useOIT**: `boolean`
 
-Defined in: [src/setting/RenderSetting.ts:47](https://github.com/orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L47)
+Defined in: [src/setting/RenderSetting.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L57)
 
 Opt-in order-independent transparency (Weighted Blended OIT).
  When true, materials with `oitMode === 'weighted'` are routed
@@ -170,7 +185,7 @@ Opt-in order-independent transparency (Weighted Blended OIT).
 
 > `optional` **decals?**: `boolean`
 
-Defined in: [src/setting/RenderSetting.ts:53](https://github.com/orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L53)
+Defined in: [src/setting/RenderSetting.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L63)
 
 Opt-in projected decals. When true, ForwardRendererJob inserts
  `DecalShadowVolumePass` between the opaque/transmission half and
@@ -180,11 +195,40 @@ Opt-in projected decals. When true, ForwardRendererJob inserts
 
 ***
 
+### water?
+
+> `optional` **water?**: `boolean`
+
+Defined in: [src/setting/RenderSetting.ts:71](https://github.com/Orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L71)
+
+Opt-in water support. When true, ForwardRendererJob adds
+ `SceneLinearDepthPass` after the scene color pyramid, so
+ `WaterRenderer` surfaces use the real distance to the bottom for
+ absorption and refraction, `CausticsPass` before the pyramid for
+ sunlight caustics under the surface, and `UnderwaterPass` before
+ post-processing for the view with the camera in the water.
+ Default false.
+
+***
+
+### fluid?
+
+> `optional` **fluid?**: `boolean`
+
+Defined in: [src/setting/RenderSetting.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L76)
+
+Opt-in screen-space fluid rendering. When true, ForwardRendererJob
+ inserts `FluidPass` between the opaque/transmission half and the
+ sorted transparent half, drawing every active `FluidRenderer`.
+ Default false.
+
+***
+
 ### useStencil?
 
 > `optional` **useStencil?**: `boolean`
 
-Defined in: [src/setting/RenderSetting.ts:66](https://github.com/orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L66)
+Defined in: [src/setting/RenderSetting.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L89)
 
 Opt-in 8-bit stencil buffer on the main color pass.
  When true, `GBufferFrame` allocates its depth attachment as
@@ -205,7 +249,7 @@ Opt-in 8-bit stencil buffer on the main color pass.
 
 > **tonemap**: [`TonemapSetting`](TonemapSetting.md)
 
-Defined in: [src/setting/RenderSetting.ts:74](https://github.com/orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L74)
+Defined in: [src/setting/RenderSetting.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L97)
 
 Final HDR→LDR tonemap. Runs after every other post (Bloom,
 FXAA, GodRay, etc.) so the ACES curve sees the composited HDR
@@ -219,7 +263,7 @@ frame will be raw HDR clamped at swapchain encode time.
 
 > **postProcessing**: `object`
 
-Defined in: [src/setting/RenderSetting.ts:78](https://github.com/orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L78)
+Defined in: [src/setting/RenderSetting.ts:101](https://github.com/Orillusion/orillusion/blob/main/src/setting/RenderSetting.ts#L101)
 
 post effect
 
@@ -282,6 +326,18 @@ post effect
 #### skyline?
 
 > `optional` **skyline?**: [`SkylineSetting`](SkylineSetting.md)
+
+#### lens?
+
+> `optional` **lens?**: [`LensSetting`](LensSetting.md)
+
+#### motionBlur?
+
+> `optional` **motionBlur?**: [`MotionBlurSetting`](MotionBlurSetting.md)
+
+#### colorGrading?
+
+> `optional` **colorGrading?**: [`ColorGradingSetting`](ColorGradingSetting.md)
 
 #### godRay?
 

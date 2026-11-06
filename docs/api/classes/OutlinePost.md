@@ -4,7 +4,7 @@
 
 # Class: OutlinePost
 
-Defined in: [src/gfx/renderJob/post/OutlinePost.ts:36](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L36)
+Defined in: [src/gfx/renderJob/post/OutlinePost.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L36)
 
 post effect out line 
 OutlinePostManager,
@@ -23,7 +23,7 @@ OutlinePostManager,
 
 > **new OutlinePost**(): `OutlinePost`
 
-Defined in: [src/gfx/renderJob/post/OutlinePost.ts:95](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L95)
+Defined in: [src/gfx/renderJob/post/OutlinePost.ts:95](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L95)
 
 #### Returns
 
@@ -39,7 +39,7 @@ Defined in: [src/gfx/renderJob/post/OutlinePost.ts:95](https://github.com/orillu
 
 > **enable**: `boolean` = `true`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L23)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L23)
 
 #### Inherited from
 
@@ -51,7 +51,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/orillusio
 
 > **isFinalPass**: `boolean` = `false`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:27](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L27)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L27)
 
 When true, PostPass iterates this post AFTER every regular
  post regardless of attach order — used by TonemapPost so the
@@ -67,7 +67,7 @@ When true, PostPass iterates this post AFTER every regular
 
 > **postRenderer**: [`PostPass`](PostPass.md)
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L28)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L28)
 
 #### Inherited from
 
@@ -79,7 +79,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/orillusio
 
 > **rendererPassState**: `RendererPassState`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L29)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L29)
 
 #### Inherited from
 
@@ -91,7 +91,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/orillusio
 
 > **\_boundCtx**: [`Context3D`](Context3D.md) = `null`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L30)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L30)
 
 #### Inherited from
 
@@ -105,7 +105,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/orillusio
 
 > **get** **outlinePixel**(): `number`
 
-Defined in: [src/gfx/renderJob/post/OutlinePost.ts:122](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L122)
+Defined in: [src/gfx/renderJob/post/OutlinePost.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L122)
 
 ##### Returns
 
@@ -115,7 +115,7 @@ Defined in: [src/gfx/renderJob/post/OutlinePost.ts:122](https://github.com/orill
 
 > **set** **outlinePixel**(`value`): `void`
 
-Defined in: [src/gfx/renderJob/post/OutlinePost.ts:114](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L114)
+Defined in: [src/gfx/renderJob/post/OutlinePost.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L114)
 
 ##### Parameters
 
@@ -135,7 +135,7 @@ Defined in: [src/gfx/renderJob/post/OutlinePost.ts:114](https://github.com/orill
 
 > **get** **fadeOutlinePixel**(): `number`
 
-Defined in: [src/gfx/renderJob/post/OutlinePost.ts:134](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L134)
+Defined in: [src/gfx/renderJob/post/OutlinePost.ts:134](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L134)
 
 ##### Returns
 
@@ -145,7 +145,7 @@ Defined in: [src/gfx/renderJob/post/OutlinePost.ts:134](https://github.com/orill
 
 > **set** **fadeOutlinePixel**(`value`): `void`
 
-Defined in: [src/gfx/renderJob/post/OutlinePost.ts:126](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L126)
+Defined in: [src/gfx/renderJob/post/OutlinePost.ts:126](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L126)
 
 ##### Parameters
 
@@ -165,7 +165,7 @@ Defined in: [src/gfx/renderJob/post/OutlinePost.ts:126](https://github.com/orill
 
 > **get** **strength**(): `number`
 
-Defined in: [src/gfx/renderJob/post/OutlinePost.ts:146](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L146)
+Defined in: [src/gfx/renderJob/post/OutlinePost.ts:146](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L146)
 
 ##### Returns
 
@@ -175,7 +175,7 @@ Defined in: [src/gfx/renderJob/post/OutlinePost.ts:146](https://github.com/orill
 
 > **set** **strength**(`value`): `void`
 
-Defined in: [src/gfx/renderJob/post/OutlinePost.ts:138](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L138)
+Defined in: [src/gfx/renderJob/post/OutlinePost.ts:138](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L138)
 
 ##### Parameters
 
@@ -195,7 +195,7 @@ Defined in: [src/gfx/renderJob/post/OutlinePost.ts:138](https://github.com/orill
 
 > **get** **useAddMode**(): `boolean`
 
-Defined in: [src/gfx/renderJob/post/OutlinePost.ts:154](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L154)
+Defined in: [src/gfx/renderJob/post/OutlinePost.ts:154](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L154)
 
 ##### Returns
 
@@ -205,7 +205,7 @@ Defined in: [src/gfx/renderJob/post/OutlinePost.ts:154](https://github.com/orill
 
 > **set** **useAddMode**(`value`): `void`
 
-Defined in: [src/gfx/renderJob/post/OutlinePost.ts:150](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L150)
+Defined in: [src/gfx/renderJob/post/OutlinePost.ts:150](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L150)
 
 ##### Parameters
 
@@ -223,7 +223,7 @@ Defined in: [src/gfx/renderJob/post/OutlinePost.ts:150](https://github.com/orill
 
 > **onResize**(): `void`
 
-Defined in: [src/gfx/renderJob/post/OutlinePost.ts:294](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L294)
+Defined in: [src/gfx/renderJob/post/OutlinePost.ts:294](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/OutlinePost.ts#L294)
 
 #### Returns
 
@@ -239,7 +239,7 @@ Defined in: [src/gfx/renderJob/post/OutlinePost.ts:294](https://github.com/orill
 
 > **compute**(`view`): `void`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L133)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L133)
 
 #### Parameters
 
@@ -261,7 +261,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/orillusi
 
 > **destroy**(`force?`): `void`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L143)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L143)
 
 #### Parameters
 

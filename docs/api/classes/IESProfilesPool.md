@@ -4,7 +4,7 @@
 
 # Class: IESProfilesPool
 
-Defined in: [src/components/lights/IESProfiles.ts:52](https://github.com/orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L52)
+Defined in: [src/components/lights/IESProfiles.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L52)
 
 Per-Context3D registry of IES profiles. Each engine owns one pool
 (lazily created through `ctx.cache`) holding the texture array bound
@@ -19,7 +19,7 @@ teardown / device loss cannot leak a texture from a dead device.
 
 > **new IESProfilesPool**(`ctx`): `IESProfilesPool`
 
-Defined in: [src/components/lights/IESProfiles.ts:60](https://github.com/orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L60)
+Defined in: [src/components/lights/IESProfiles.ts:60](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L60)
 
 #### Parameters
 
@@ -37,7 +37,7 @@ Defined in: [src/components/lights/IESProfiles.ts:60](https://github.com/orillus
 
 > `readonly` `static` **MAX\_PROFILES**: `number` = `48`
 
-Defined in: [src/components/lights/IESProfiles.ts:54](https://github.com/orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L54)
+Defined in: [src/components/lights/IESProfiles.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L54)
 
 Layer capacity of the texture array.
 
@@ -47,7 +47,7 @@ Layer capacity of the texture array.
 
 > **iesTexture**: `BitmapTexture2DArray` = `null`
 
-Defined in: [src/components/lights/IESProfiles.ts:56](https://github.com/orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L56)
+Defined in: [src/components/lights/IESProfiles.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L56)
 
 ## Accessors
 
@@ -57,7 +57,7 @@ Defined in: [src/components/lights/IESProfiles.ts:56](https://github.com/orillus
 
 > **get** **use**(): `boolean`
 
-Defined in: [src/components/lights/IESProfiles.ts:69](https://github.com/orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L69)
+Defined in: [src/components/lights/IESProfiles.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L69)
 
 True once any profile is registered — drives the USE_IES_PROFILE shader define.
 
@@ -71,7 +71,7 @@ True once any profile is registered — drives the USE_IES_PROFILE shader define
 
 > `static` **for**(`ctx`): `IESProfilesPool`
 
-Defined in: [src/components/lights/IESProfiles.ts:64](https://github.com/orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L64)
+Defined in: [src/components/lights/IESProfiles.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L64)
 
 #### Parameters
 
@@ -89,7 +89,7 @@ Defined in: [src/components/lights/IESProfiles.ts:64](https://github.com/orillus
 
 > **register**(`profile`): `number`
 
-Defined in: [src/components/lights/IESProfiles.ts:78](https://github.com/orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L78)
+Defined in: [src/components/lights/IESProfiles.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/IESProfiles.ts#L78)
 
 Register a profile and return its texture-array layer index.
 Idempotent for an already-registered profile. Returns -1 (no IES

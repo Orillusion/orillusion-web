@@ -4,7 +4,7 @@
 
 # Class: GraphCompileError
 
-Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:9](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L9)
+Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L9)
 
 Base class for graph-compile errors. Subclass messages embed
 concrete pass / resource names so users can grep to the culprit.
@@ -27,7 +27,7 @@ concrete pass / resource names so users can grep to the culprit.
 
 > **new GraphCompileError**(`message`): `GraphCompileError`
 
-Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:10](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L10)
+Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L10)
 
 #### Parameters
 

@@ -6,7 +6,7 @@
 
 > **Condition** = (`p`) => `boolean`
 
-Defined in: [src/components/anim/graph/StateMachine.ts:30](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L30)
+Defined in: [src/components/anim/graph/StateMachine.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L30)
 
 ## Parameters
 

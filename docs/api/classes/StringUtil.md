@@ -4,7 +4,7 @@
 
 # Class: StringUtil
 
-Defined in: [src/util/StringUtil.ts:5](https://github.com/orillusion/orillusion/blob/main/src/util/StringUtil.ts#L5)
+Defined in: [src/util/StringUtil.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L5)
 
 String processing tool class
 
@@ -24,7 +24,7 @@ String processing tool class
 
 > `static` **hasString**(`fields`, `str`): `number`
 
-Defined in: [src/util/StringUtil.ts:15](https://github.com/orillusion/orillusion/blob/main/src/util/StringUtil.ts#L15)
+Defined in: [src/util/StringUtil.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L15)
 
 Does the string exist
 
@@ -54,7 +54,7 @@ Return the index position where it is located. If it does not exist, return -1
 
 > `static` **getEllipsis**(`str`, `len?`): `string`
 
-Defined in: [src/util/StringUtil.ts:31](https://github.com/orillusion/orillusion/blob/main/src/util/StringUtil.ts#L31)
+Defined in: [src/util/StringUtil.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L31)
 
 Gets an ellipsis terminated string representation that exceeds the range
 
@@ -84,7 +84,7 @@ result string
 
 > `static` **getURLName**(`url`): `string`
 
-Defined in: [src/util/StringUtil.ts:43](https://github.com/orillusion/orillusion/blob/main/src/util/StringUtil.ts#L43)
+Defined in: [src/util/StringUtil.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L43)
 
 get name based on URL
 
@@ -108,7 +108,7 @@ name
 
 > `static` **getFileFormat**(`url`): `string`
 
-Defined in: [src/util/StringUtil.ts:57](https://github.com/orillusion/orillusion/blob/main/src/util/StringUtil.ts#L57)
+Defined in: [src/util/StringUtil.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L57)
 
 get suffix of file name from url
 
@@ -132,7 +132,7 @@ suffix
 
 > `static` **readLineProperty**(`line`, `data`): `void`
 
-Defined in: [src/util/StringUtil.ts:74](https://github.com/orillusion/orillusion/blob/main/src/util/StringUtil.ts#L74)
+Defined in: [src/util/StringUtil.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L74)
 
 get information stored in a string
 
@@ -160,7 +160,7 @@ result data reference
 
 > `static` **getPath**(`url`): `string`
 
-Defined in: [src/util/StringUtil.ts:93](https://github.com/orillusion/orillusion/blob/main/src/util/StringUtil.ts#L93)
+Defined in: [src/util/StringUtil.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L93)
 
 #### Parameters
 
@@ -178,7 +178,7 @@ Defined in: [src/util/StringUtil.ts:93](https://github.com/orillusion/orillusion
 
 > `static` **normalizePath**(`url`): `string`
 
-Defined in: [src/util/StringUtil.ts:99](https://github.com/orillusion/orillusion/blob/main/src/util/StringUtil.ts#L99)
+Defined in: [src/util/StringUtil.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L99)
 
 #### Parameters
 
@@ -196,7 +196,7 @@ Defined in: [src/util/StringUtil.ts:99](https://github.com/orillusion/orillusion
 
 > `static` **getStringList**(`str`, `char?`): `string`[]
 
-Defined in: [src/util/StringUtil.ts:135](https://github.com/orillusion/orillusion/blob/main/src/util/StringUtil.ts#L135)
+Defined in: [src/util/StringUtil.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L135)
 
 Used to cut specified characters
 
@@ -226,7 +226,7 @@ result string array
 
 > `static` **formatTime**(`time`): `string`[]
 
-Defined in: [src/util/StringUtil.ts:144](https://github.com/orillusion/orillusion/blob/main/src/util/StringUtil.ts#L144)
+Defined in: [src/util/StringUtil.ts:144](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L144)
 
 Format timestamp data
 
@@ -248,7 +248,7 @@ timestamp
 
 > `static` **trim**(`str`): `any`
 
-Defined in: [src/util/StringUtil.ts:158](https://github.com/orillusion/orillusion/blob/main/src/util/StringUtil.ts#L158)
+Defined in: [src/util/StringUtil.ts:158](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L158)
 
 trim
 
@@ -272,7 +272,7 @@ result string
 
 > `static` **isEmpty**(`value`): `boolean`
 
-Defined in: [src/util/StringUtil.ts:167](https://github.com/orillusion/orillusion/blob/main/src/util/StringUtil.ts#L167)
+Defined in: [src/util/StringUtil.ts:167](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L167)
 
 Determine if the string is empty, null, '' or 'null'
 
@@ -296,7 +296,7 @@ boolean
 
 > `static` **strCut**(`str`, `len`): `string`
 
-Defined in: [src/util/StringUtil.ts:177](https://github.com/orillusion/orillusion/blob/main/src/util/StringUtil.ts#L177)
+Defined in: [src/util/StringUtil.ts:177](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L177)
 
 Handle strings that exceed the length range, such as adding strings that exceed the range
 
@@ -326,7 +326,7 @@ result string
 
 > `static` **toQueryPair**(`key`, `value`, `isEncodeURI?`): `string`
 
-Defined in: [src/util/StringUtil.ts:207](https://github.com/orillusion/orillusion/blob/main/src/util/StringUtil.ts#L207)
+Defined in: [src/util/StringUtil.ts:207](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L207)
 
 According to the splicing request parameters
 
@@ -362,7 +362,7 @@ result string
 
 > `static` **stringFormat**(`str`, ...`params`): `string`
 
-Defined in: [src/util/StringUtil.ts:217](https://github.com/orillusion/orillusion/blob/main/src/util/StringUtil.ts#L217)
+Defined in: [src/util/StringUtil.ts:217](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L217)
 
 format a string
 
@@ -392,7 +392,7 @@ result string
 
 > `static` **parseJson2String**(`json`, `options?`): `string`
 
-Defined in: [src/util/StringUtil.ts:244](https://github.com/orillusion/orillusion/blob/main/src/util/StringUtil.ts#L244)
+Defined in: [src/util/StringUtil.ts:244](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L244)
 
 Convert JSON objects to strings
 
@@ -420,7 +420,7 @@ result string
 
 > `static` **compareVersion**(`v1`, `v2`): `-1` \| `0` \| `1`
 
-Defined in: [src/util/StringUtil.ts:310](https://github.com/orillusion/orillusion/blob/main/src/util/StringUtil.ts#L310)
+Defined in: [src/util/StringUtil.ts:310](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L310)
 
 Compatibility mode - version comparison
 
@@ -450,7 +450,7 @@ Returns 1, -1, or 0, indicating that the version number is greater, less, or equ
 
 > `static` **buildRandomCode**(): `string`
 
-Defined in: [src/util/StringUtil.ts:340](https://github.com/orillusion/orillusion/blob/main/src/util/StringUtil.ts#L340)
+Defined in: [src/util/StringUtil.ts:340](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L340)
 
 Generate non repeating random string codes
 
@@ -466,7 +466,7 @@ result
 
 > `static` **UUID**(): `string`
 
-Defined in: [src/util/StringUtil.ts:356](https://github.com/orillusion/orillusion/blob/main/src/util/StringUtil.ts#L356)
+Defined in: [src/util/StringUtil.ts:356](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L356)
 
 UUID
 
@@ -482,7 +482,7 @@ UUID
 
 > `static` **stringToHash**(`str`): `number`
 
-Defined in: [src/util/StringUtil.ts:369](https://github.com/orillusion/orillusion/blob/main/src/util/StringUtil.ts#L369)
+Defined in: [src/util/StringUtil.ts:369](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L369)
 
 make hash code
 
@@ -506,7 +506,7 @@ hash code
 
 > `static` **parseUrl**(`base`, `url`): `string`
 
-Defined in: [src/util/StringUtil.ts:386](https://github.com/orillusion/orillusion/blob/main/src/util/StringUtil.ts#L386)
+Defined in: [src/util/StringUtil.ts:386](https://github.com/Orillusion/orillusion/blob/main/src/util/StringUtil.ts#L386)
 
 Convert GLTF URL Address
 

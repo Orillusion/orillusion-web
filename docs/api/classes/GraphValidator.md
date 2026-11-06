@@ -4,7 +4,7 @@
 
 # Class: GraphValidator
 
-Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:113](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L113)
+Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L113)
 
 Static graph invariants enforcer. Called by `RenderGraph.compile`;
 factored out so unit tests can exercise validation without GPU.
@@ -15,7 +15,7 @@ factored out so unit tests can exercise validation without GPU.
 
 > **new GraphValidator**(`passes`): `GraphValidator`
 
-Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:124](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L124)
+Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L124)
 
 #### Parameters
 
@@ -33,7 +33,7 @@ readonly [`RenderGraphPass`](RenderGraphPass.md)[]
 
 > **validateSingleCreator**(): `void`
 
-Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:149](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L149)
+Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:149](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L149)
 
 Each name must have at most one creator. Mutator-only resources
  (no creator) are caught by validateResolvable.
@@ -48,7 +48,7 @@ Each name must have at most one creator. Mutator-only resources
 
 > **validateResolvable**(): `void`
 
-Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:159](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L159)
+Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:159](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L159)
 
 Every read and every mutator-write must point to a resource
  with a creator.

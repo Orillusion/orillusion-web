@@ -4,7 +4,7 @@
 
 # Interface: AnimatorParams
 
-Defined in: [src/components/anim/graph/StateMachine.ts:3](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L3)
+Defined in: [src/components/anim/graph/StateMachine.ts:3](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L3)
 
 ## Methods
 
@@ -12,7 +12,7 @@ Defined in: [src/components/anim/graph/StateMachine.ts:3](https://github.com/ori
 
 > **getFloat**(`name`): `number`
 
-Defined in: [src/components/anim/graph/StateMachine.ts:4](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L4)
+Defined in: [src/components/anim/graph/StateMachine.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L4)
 
 #### Parameters
 
@@ -30,7 +30,7 @@ Defined in: [src/components/anim/graph/StateMachine.ts:4](https://github.com/ori
 
 > **setFloat**(`name`, `v`): `void`
 
-Defined in: [src/components/anim/graph/StateMachine.ts:5](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L5)
+Defined in: [src/components/anim/graph/StateMachine.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L5)
 
 #### Parameters
 
@@ -52,7 +52,7 @@ Defined in: [src/components/anim/graph/StateMachine.ts:5](https://github.com/ori
 
 > **getBool**(`name`): `boolean`
 
-Defined in: [src/components/anim/graph/StateMachine.ts:6](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L6)
+Defined in: [src/components/anim/graph/StateMachine.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L6)
 
 #### Parameters
 
@@ -70,7 +70,7 @@ Defined in: [src/components/anim/graph/StateMachine.ts:6](https://github.com/ori
 
 > **setBool**(`name`, `v`): `void`
 
-Defined in: [src/components/anim/graph/StateMachine.ts:7](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L7)
+Defined in: [src/components/anim/graph/StateMachine.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L7)
 
 #### Parameters
 
@@ -92,7 +92,7 @@ Defined in: [src/components/anim/graph/StateMachine.ts:7](https://github.com/ori
 
 > **getTrigger**(`name`): `boolean`
 
-Defined in: [src/components/anim/graph/StateMachine.ts:8](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L8)
+Defined in: [src/components/anim/graph/StateMachine.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L8)
 
 #### Parameters
 
@@ -110,7 +110,7 @@ Defined in: [src/components/anim/graph/StateMachine.ts:8](https://github.com/ori
 
 > **setTrigger**(`name`): `void`
 
-Defined in: [src/components/anim/graph/StateMachine.ts:9](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L9)
+Defined in: [src/components/anim/graph/StateMachine.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L9)
 
 #### Parameters
 
@@ -128,7 +128,7 @@ Defined in: [src/components/anim/graph/StateMachine.ts:9](https://github.com/ori
 
 > **consumeTrigger**(`name`): `boolean`
 
-Defined in: [src/components/anim/graph/StateMachine.ts:10](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L10)
+Defined in: [src/components/anim/graph/StateMachine.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L10)
 
 #### Parameters
 

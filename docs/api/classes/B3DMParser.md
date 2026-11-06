@@ -4,7 +4,7 @@
 
 # Class: B3DMParser
 
-Defined in: [src/loader/parser/B3DMParser.ts:10](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L10)
+Defined in: [src/loader/parser/B3DMParser.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L10)
 
 Parser for Batched 3D Model (`.b3dm`) tiles used by 3D Tiles datasets.
 Decodes the binary buffer into an [Object3D](Object3D.md) scene graph.
@@ -29,7 +29,7 @@ Decodes the binary buffer into an [Object3D](Object3D.md) scene graph.
 
 > `static` **format**: [`ParserFormat`](../enumerations/ParserFormat.md) = `ParserFormat.JSON`
 
-Defined in: [src/loader/parser/B3DMParser.ts:11](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L11)
+Defined in: [src/loader/parser/B3DMParser.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L11)
 
 #### Overrides
 
@@ -41,7 +41,7 @@ Defined in: [src/loader/parser/B3DMParser.ts:11](https://github.com/orillusion/o
 
 > **baseUrl**: `string`
 
-Defined in: [src/loader/parser/ParserBase.ts:12](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L12)
+Defined in: [src/loader/parser/ParserBase.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L12)
 
 #### Inherited from
 
@@ -53,7 +53,7 @@ Defined in: [src/loader/parser/ParserBase.ts:12](https://github.com/orillusion/o
 
 > **initUrl**: `string`
 
-Defined in: [src/loader/parser/ParserBase.ts:13](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L13)
+Defined in: [src/loader/parser/ParserBase.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L13)
 
 #### Inherited from
 
@@ -65,7 +65,7 @@ Defined in: [src/loader/parser/ParserBase.ts:13](https://github.com/orillusion/o
 
 > `optional` **loaderFunctions?**: [`LoaderFunctions`](../type-aliases/LoaderFunctions.md)
 
-Defined in: [src/loader/parser/ParserBase.ts:14](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L14)
+Defined in: [src/loader/parser/ParserBase.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L14)
 
 #### Inherited from
 
@@ -77,7 +77,7 @@ Defined in: [src/loader/parser/ParserBase.ts:14](https://github.com/orillusion/o
 
 > `optional` **userData?**: `any`
 
-Defined in: [src/loader/parser/ParserBase.ts:15](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L15)
+Defined in: [src/loader/parser/ParserBase.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L15)
 
 #### Inherited from
 
@@ -89,7 +89,7 @@ Defined in: [src/loader/parser/ParserBase.ts:15](https://github.com/orillusion/o
 
 > **data**: `any`
 
-Defined in: [src/loader/parser/ParserBase.ts:16](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L16)
+Defined in: [src/loader/parser/ParserBase.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L16)
 
 #### Inherited from
 
@@ -101,7 +101,7 @@ Defined in: [src/loader/parser/ParserBase.ts:16](https://github.com/orillusion/o
 
 > `optional` **ctx?**: [`Context3D`](Context3D.md)
 
-Defined in: [src/loader/parser/ParserBase.ts:20](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L20)
+Defined in: [src/loader/parser/ParserBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L20)
 
 Context3D this parser is operating under. Populated by FileLoader
  so default-texture lookups (`Engine3D.resFor(this.ctx)`) resolve
@@ -117,7 +117,7 @@ Context3D this parser is operating under. Populated by FileLoader
 
 > **parseBuffer**(`buffer`, `customLoader?`): `Promise`\<`void`\>
 
-Defined in: [src/loader/parser/B3DMParser.ts:18](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L18)
+Defined in: [src/loader/parser/B3DMParser.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L18)
 
 Parse a `.b3dm` binary buffer into an [Object3D](Object3D.md).
 
@@ -149,7 +149,7 @@ Optional hook to load the embedded glTF/GLB payload.
 
 > **verification**(): `boolean`
 
-Defined in: [src/loader/parser/B3DMParser.ts:28](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L28)
+Defined in: [src/loader/parser/B3DMParser.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/B3DMParser.ts#L28)
 
 Verify that parsing produced valid data.
 
@@ -169,7 +169,7 @@ true when data is present; throws otherwise.
 
 > **parseString**(`str`): `void`
 
-Defined in: [src/loader/parser/ParserBase.ts:22](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L22)
+Defined in: [src/loader/parser/ParserBase.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L22)
 
 #### Parameters
 
@@ -191,7 +191,7 @@ Defined in: [src/loader/parser/ParserBase.ts:22](https://github.com/orillusion/o
 
 > **parseJson**(`obj`): `void`
 
-Defined in: [src/loader/parser/ParserBase.ts:24](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L24)
+Defined in: [src/loader/parser/ParserBase.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L24)
 
 #### Parameters
 
@@ -213,7 +213,7 @@ Defined in: [src/loader/parser/ParserBase.ts:24](https://github.com/orillusion/o
 
 > **parseTexture**(`buffer`): [`Texture`](Texture.md)
 
-Defined in: [src/loader/parser/ParserBase.ts:28](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L28)
+Defined in: [src/loader/parser/ParserBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L28)
 
 #### Parameters
 
@@ -235,7 +235,7 @@ Defined in: [src/loader/parser/ParserBase.ts:28](https://github.com/orillusion/o
 
 > **parse**(`data`): `void`
 
-Defined in: [src/loader/parser/ParserBase.ts:32](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L32)
+Defined in: [src/loader/parser/ParserBase.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L32)
 
 #### Parameters
 

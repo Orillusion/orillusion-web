@@ -4,7 +4,7 @@
 
 # Class: LitMaterial
 
-Defined in: [src/materials/LitMaterial.ts:24](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L24)
+Defined in: [src/materials/LitMaterial.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L25)
 
 Physically based lit material supporting albedo, normal, ARM, emissive and
 other PBR texture/parameter inputs. Serves as the standard surface material.
@@ -23,7 +23,7 @@ other PBR texture/parameter inputs. Serves as the standard surface material.
 
 > **new LitMaterial**(`ctx?`): `LitMaterial`
 
-Defined in: [src/materials/LitMaterial.ts:29](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L29)
+Defined in: [src/materials/LitMaterial.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L30)
 
 #### Parameters
 
@@ -45,7 +45,7 @@ Defined in: [src/materials/LitMaterial.ts:29](https://github.com/orillusion/oril
 
 > **instanceID**: `string`
 
-Defined in: [src/materials/Material.ts:26](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L26)
+Defined in: [src/materials/Material.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L26)
 
 Material Unique Identifier
 
@@ -59,7 +59,7 @@ Material Unique Identifier
 
 > **name**: `string`
 
-Defined in: [src/materials/Material.ts:32](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L32)
+Defined in: [src/materials/Material.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L32)
 
 name of this material
 
@@ -73,7 +73,7 @@ name of this material
 
 > **enable**: `boolean` = `true`
 
-Defined in: [src/materials/Material.ts:35](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L35)
+Defined in: [src/materials/Material.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L35)
 
 Whether this material is enabled for rendering.
 
@@ -89,7 +89,7 @@ Whether this material is enabled for rendering.
 
 > **get** **baseMap**(): [`Texture`](Texture.md)
 
-Defined in: [src/materials/LitMaterial.ts:89](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L89)
+Defined in: [src/materials/LitMaterial.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L97)
 
 Get the albedo/base color texture.
 
@@ -101,7 +101,7 @@ Get the albedo/base color texture.
 
 > **set** **baseMap**(`texture`): `void`
 
-Defined in: [src/materials/LitMaterial.ts:84](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L84)
+Defined in: [src/materials/LitMaterial.ts:92](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L92)
 
 Set the albedo/base color texture.
 
@@ -123,7 +123,7 @@ Set the albedo/base color texture.
 
 > **get** **maskMap**(): [`Texture`](Texture.md)
 
-Defined in: [src/materials/LitMaterial.ts:99](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L99)
+Defined in: [src/materials/LitMaterial.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L107)
 
 Get the mask texture.
 
@@ -135,7 +135,7 @@ Get the mask texture.
 
 > **set** **maskMap**(`texture`): `void`
 
-Defined in: [src/materials/LitMaterial.ts:94](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L94)
+Defined in: [src/materials/LitMaterial.ts:102](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L102)
 
 Set the mask texture.
 
@@ -157,7 +157,7 @@ Set the mask texture.
 
 > **get** **normalMap**(): [`Texture`](Texture.md)
 
-Defined in: [src/materials/LitMaterial.ts:110](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L110)
+Defined in: [src/materials/LitMaterial.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L118)
 
 Get the normal map texture.
 
@@ -169,7 +169,7 @@ Get the normal map texture.
 
 > **set** **normalMap**(`texture`): `void`
 
-Defined in: [src/materials/LitMaterial.ts:105](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L105)
+Defined in: [src/materials/LitMaterial.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L113)
 
 Set the normal map texture.
 
@@ -191,7 +191,7 @@ Set the normal map texture.
 
 > **get** **emissiveMap**(): [`Texture`](Texture.md)
 
-Defined in: [src/materials/LitMaterial.ts:120](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L120)
+Defined in: [src/materials/LitMaterial.ts:128](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L128)
 
 Get the emissive texture.
 
@@ -203,7 +203,7 @@ Get the emissive texture.
 
 > **set** **emissiveMap**(`texture`): `void`
 
-Defined in: [src/materials/LitMaterial.ts:115](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L115)
+Defined in: [src/materials/LitMaterial.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L123)
 
 Set the emissive texture.
 
@@ -225,7 +225,7 @@ Set the emissive texture.
 
 > **get** **aoMap**(): [`Texture`](Texture.md)
 
-Defined in: [src/materials/LitMaterial.ts:130](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L130)
+Defined in: [src/materials/LitMaterial.ts:138](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L138)
 
 Get the ambient occlusion texture.
 
@@ -237,9 +237,511 @@ Get the ambient occlusion texture.
 
 > **set** **aoMap**(`texture`): `void`
 
-Defined in: [src/materials/LitMaterial.ts:125](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L125)
+Defined in: [src/materials/LitMaterial.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L133)
 
 Set the ambient occlusion texture.
+
+##### Parameters
+
+###### texture
+
+[`Texture`](Texture.md)
+
+##### Returns
+
+`void`
+
+***
+
+### sheenColor
+
+#### Get Signature
+
+> **get** **sheenColor**(): [`Color`](Color.md)
+
+Defined in: [src/materials/LitMaterial.ts:155](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L155)
+
+Get the sheen tint (alpha carries the sheen roughness).
+
+##### Returns
+
+[`Color`](Color.md)
+
+#### Set Signature
+
+> **set** **sheenColor**(`value`): `void`
+
+Defined in: [src/materials/LitMaterial.ts:147](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L147)
+
+Sheen tint (KHR_materials_sheen), linear RGB. Setting any non-black
+color enables the sheen lobe; black disables it again. The color's
+alpha channel is ignored — use `sheenRoughness`.
+
+##### Parameters
+
+###### value
+
+[`Color`](Color.md)
+
+##### Returns
+
+`void`
+
+***
+
+### sheenRoughness
+
+#### Get Signature
+
+> **get** **sheenRoughness**(): `number`
+
+Defined in: [src/materials/LitMaterial.ts:166](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L166)
+
+Get the sheen roughness.
+
+##### Returns
+
+`number`
+
+#### Set Signature
+
+> **set** **sheenRoughness**(`value`): `void`
+
+Defined in: [src/materials/LitMaterial.ts:160](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L160)
+
+Sheen roughness, 0 (tight rim) … 1 (broad velvet glow).
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
+
+`void`
+
+***
+
+### anisotropy
+
+#### Get Signature
+
+> **get** **anisotropy**(): `number`
+
+Defined in: [src/materials/LitMaterial.ts:190](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L190)
+
+Get the anisotropy strength.
+
+##### Returns
+
+`number`
+
+#### Set Signature
+
+> **set** **anisotropy**(`value`): `void`
+
+Defined in: [src/materials/LitMaterial.ts:182](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L182)
+
+Specular anisotropy strength (KHR_materials_anisotropy), 0…1: how far
+highlights stretch across the grain direction. Above 0 enables the
+effect; 0 disables it. The mesh needs UVs — the grain follows +U,
+turned by `anisotropyRotation`.
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
+
+`void`
+
+***
+
+### anisotropyRotation
+
+#### Get Signature
+
+> **get** **anisotropyRotation**(): `number`
+
+Defined in: [src/materials/LitMaterial.ts:202](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L202)
+
+Get the grain rotation in radians.
+
+##### Returns
+
+`number`
+
+#### Set Signature
+
+> **set** **anisotropyRotation**(`value`): `void`
+
+Defined in: [src/materials/LitMaterial.ts:195](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L195)
+
+Rotation of the grain direction around the normal, in radians, counter-clockwise from +U.
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
+
+`void`
+
+***
+
+### iridescence
+
+#### Get Signature
+
+> **get** **iridescence**(): `number`
+
+Defined in: [src/materials/LitMaterial.ts:223](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L223)
+
+Get the iridescence strength.
+
+##### Returns
+
+`number`
+
+#### Set Signature
+
+> **set** **iridescence**(`value`): `void`
+
+Defined in: [src/materials/LitMaterial.ts:215](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L215)
+
+Thin-film iridescence strength (KHR_materials_iridescence), 0…1.
+Any value above 0 enables the effect; 0 disables it.
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
+
+`void`
+
+***
+
+### iridescenceIOR
+
+#### Get Signature
+
+> **get** **iridescenceIOR**(): `number`
+
+Defined in: [src/materials/LitMaterial.ts:235](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L235)
+
+Get the thin-film index of refraction.
+
+##### Returns
+
+`number`
+
+#### Set Signature
+
+> **set** **iridescenceIOR**(`value`): `void`
+
+Defined in: [src/materials/LitMaterial.ts:228](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L228)
+
+Index of refraction of the thin film (default 1.3).
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
+
+`void`
+
+***
+
+### iridescenceThickness
+
+#### Get Signature
+
+> **get** **iridescenceThickness**(): `number`
+
+Defined in: [src/materials/LitMaterial.ts:247](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L247)
+
+Get the thin-film thickness in nanometres.
+
+##### Returns
+
+`number`
+
+#### Set Signature
+
+> **set** **iridescenceThickness**(`value`): `void`
+
+Defined in: [src/materials/LitMaterial.ts:240](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L240)
+
+Thin-film thickness in nanometres (typically 100…1000; default 400).
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
+
+`void`
+
+***
+
+### iridescenceThicknessMinimum
+
+#### Get Signature
+
+> **get** **iridescenceThicknessMinimum**(): `number`
+
+Defined in: [src/materials/LitMaterial.ts:259](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L259)
+
+Get the minimum thin-film thickness in nanometres.
+
+##### Returns
+
+`number`
+
+#### Set Signature
+
+> **set** **iridescenceThicknessMinimum**(`value`): `void`
+
+Defined in: [src/materials/LitMaterial.ts:252](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L252)
+
+Minimum thin-film thickness in nanometres, used with `iridescenceThicknessMap` (default 100).
+
+##### Parameters
+
+###### value
+
+`number`
+
+##### Returns
+
+`void`
+
+***
+
+### sheenColorMap
+
+#### Get Signature
+
+> **get** **sheenColorMap**(): [`Texture`](Texture.md)
+
+Defined in: [src/materials/LitMaterial.ts:285](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L285)
+
+##### Returns
+
+[`Texture`](Texture.md)
+
+#### Set Signature
+
+> **set** **sheenColorMap**(`texture`): `void`
+
+Defined in: [src/materials/LitMaterial.ts:284](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L284)
+
+KHR_materials_sheen `sheenColorTexture` (sRGB): rgb multiplies `sheenColor`. Only sampled while the sheen lobe is on.
+
+##### Parameters
+
+###### texture
+
+[`Texture`](Texture.md)
+
+##### Returns
+
+`void`
+
+***
+
+### sheenRoughnessMap
+
+#### Get Signature
+
+> **get** **sheenRoughnessMap**(): [`Texture`](Texture.md)
+
+Defined in: [src/materials/LitMaterial.ts:289](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L289)
+
+##### Returns
+
+[`Texture`](Texture.md)
+
+#### Set Signature
+
+> **set** **sheenRoughnessMap**(`texture`): `void`
+
+Defined in: [src/materials/LitMaterial.ts:288](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L288)
+
+KHR_materials_sheen `sheenRoughnessTexture`: alpha multiplies `sheenRoughness`.
+
+##### Parameters
+
+###### texture
+
+[`Texture`](Texture.md)
+
+##### Returns
+
+`void`
+
+***
+
+### iridescenceMap
+
+#### Get Signature
+
+> **get** **iridescenceMap**(): [`Texture`](Texture.md)
+
+Defined in: [src/materials/LitMaterial.ts:293](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L293)
+
+##### Returns
+
+[`Texture`](Texture.md)
+
+#### Set Signature
+
+> **set** **iridescenceMap**(`texture`): `void`
+
+Defined in: [src/materials/LitMaterial.ts:292](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L292)
+
+KHR_materials_iridescence `iridescenceTexture`: red multiplies `iridescence`. Only sampled while iridescence is on.
+
+##### Parameters
+
+###### texture
+
+[`Texture`](Texture.md)
+
+##### Returns
+
+`void`
+
+***
+
+### iridescenceThicknessMap
+
+#### Get Signature
+
+> **get** **iridescenceThicknessMap**(): [`Texture`](Texture.md)
+
+Defined in: [src/materials/LitMaterial.ts:297](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L297)
+
+##### Returns
+
+[`Texture`](Texture.md)
+
+#### Set Signature
+
+> **set** **iridescenceThicknessMap**(`texture`): `void`
+
+Defined in: [src/materials/LitMaterial.ts:296](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L296)
+
+KHR_materials_iridescence `iridescenceThicknessTexture`: green lerps the film thickness from `iridescenceThicknessMinimum` to `iridescenceThickness`.
+
+##### Parameters
+
+###### texture
+
+[`Texture`](Texture.md)
+
+##### Returns
+
+`void`
+
+***
+
+### specularMap
+
+#### Get Signature
+
+> **get** **specularMap**(): [`Texture`](Texture.md)
+
+Defined in: [src/materials/LitMaterial.ts:301](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L301)
+
+##### Returns
+
+[`Texture`](Texture.md)
+
+#### Set Signature
+
+> **set** **specularMap**(`texture`): `void`
+
+Defined in: [src/materials/LitMaterial.ts:300](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L300)
+
+KHR_materials_specular `specularTexture`: alpha multiplies the specular strength (`specularColor.a`).
+
+##### Parameters
+
+###### texture
+
+[`Texture`](Texture.md)
+
+##### Returns
+
+`void`
+
+***
+
+### specularColorMap
+
+#### Get Signature
+
+> **get** **specularColorMap**(): [`Texture`](Texture.md)
+
+Defined in: [src/materials/LitMaterial.ts:305](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L305)
+
+##### Returns
+
+[`Texture`](Texture.md)
+
+#### Set Signature
+
+> **set** **specularColorMap**(`texture`): `void`
+
+Defined in: [src/materials/LitMaterial.ts:304](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L304)
+
+KHR_materials_specular `specularColorTexture` (sRGB): rgb multiplies the F0 tint (`specularColor.rgb`).
+
+##### Parameters
+
+###### texture
+
+[`Texture`](Texture.md)
+
+##### Returns
+
+`void`
+
+***
+
+### anisotropyMap
+
+#### Get Signature
+
+> **get** **anisotropyMap**(): [`Texture`](Texture.md)
+
+Defined in: [src/materials/LitMaterial.ts:309](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L309)
+
+##### Returns
+
+[`Texture`](Texture.md)
+
+#### Set Signature
+
+> **set** **anisotropyMap**(`texture`): `void`
+
+Defined in: [src/materials/LitMaterial.ts:308](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L308)
+
+KHR_materials_anisotropy `anisotropyTexture`: rg = tangent-space direction (0.5 = none), b multiplies `anisotropy`. Only sampled while anisotropy is on.
 
 ##### Parameters
 
@@ -259,7 +761,7 @@ Set the ambient occlusion texture.
 
 > **get** **clearCoatRoughnessMap**(): [`Texture`](Texture.md)
 
-Defined in: [src/materials/LitMaterial.ts:142](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L142)
+Defined in: [src/materials/LitMaterial.ts:319](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L319)
 
 Get the clearcoat roughness texture.
 
@@ -271,7 +773,7 @@ Get the clearcoat roughness texture.
 
 > **set** **clearCoatRoughnessMap**(`texture`): `void`
 
-Defined in: [src/materials/LitMaterial.ts:135](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L135)
+Defined in: [src/materials/LitMaterial.ts:312](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L312)
 
 Set the clearcoat roughness texture and enable the clearcoat shader path.
 
@@ -293,7 +795,7 @@ Set the clearcoat roughness texture and enable the clearcoat shader path.
 
 > **get** **clearcoatColor**(): [`Color`](Color.md)
 
-Defined in: [src/materials/LitMaterial.ts:153](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L153)
+Defined in: [src/materials/LitMaterial.ts:330](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L330)
 
 Get the clearcoat tint color.
 
@@ -305,7 +807,7 @@ Get the clearcoat tint color.
 
 > **set** **clearcoatColor**(`value`): `void`
 
-Defined in: [src/materials/LitMaterial.ts:147](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L147)
+Defined in: [src/materials/LitMaterial.ts:324](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L324)
 
 Set the clearcoat tint color and enable the clearcoat shader path.
 
@@ -327,7 +829,7 @@ Set the clearcoat tint color and enable the clearcoat shader path.
 
 > **get** **clearcoatWeight**(): `number`
 
-Defined in: [src/materials/LitMaterial.ts:164](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L164)
+Defined in: [src/materials/LitMaterial.ts:341](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L341)
 
 Get the clearcoat weight.
 
@@ -339,7 +841,7 @@ Get the clearcoat weight.
 
 > **set** **clearcoatWeight**(`value`): `void`
 
-Defined in: [src/materials/LitMaterial.ts:158](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L158)
+Defined in: [src/materials/LitMaterial.ts:335](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L335)
 
 Set the clearcoat weight and enable the clearcoat shader path.
 
@@ -361,7 +863,7 @@ Set the clearcoat weight and enable the clearcoat shader path.
 
 > **get** **clearcoatFactor**(): `number`
 
-Defined in: [src/materials/LitMaterial.ts:175](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L175)
+Defined in: [src/materials/LitMaterial.ts:352](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L352)
 
 Get the clearcoat factor.
 
@@ -373,7 +875,7 @@ Get the clearcoat factor.
 
 > **set** **clearcoatFactor**(`value`): `void`
 
-Defined in: [src/materials/LitMaterial.ts:169](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L169)
+Defined in: [src/materials/LitMaterial.ts:346](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L346)
 
 Set the clearcoat factor and enable the clearcoat shader path.
 
@@ -395,7 +897,7 @@ Set the clearcoat factor and enable the clearcoat shader path.
 
 > **get** **clearcoatRoughnessFactor**(): `number`
 
-Defined in: [src/materials/LitMaterial.ts:187](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L187)
+Defined in: [src/materials/LitMaterial.ts:364](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L364)
 
 Get the clearcoat roughness factor.
 
@@ -407,7 +909,7 @@ Get the clearcoat roughness factor.
 
 > **set** **clearcoatRoughnessFactor**(`value`): `void`
 
-Defined in: [src/materials/LitMaterial.ts:181](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L181)
+Defined in: [src/materials/LitMaterial.ts:358](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L358)
 
 Set the clearcoat roughness factor and enable the clearcoat shader path.
 
@@ -429,7 +931,7 @@ Set the clearcoat roughness factor and enable the clearcoat shader path.
 
 > **get** **ior**(): `number`
 
-Defined in: [src/materials/LitMaterial.ts:197](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L197)
+Defined in: [src/materials/LitMaterial.ts:374](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L374)
 
 Get the index of refraction.
 
@@ -441,7 +943,7 @@ Get the index of refraction.
 
 > **set** **ior**(`value`): `void`
 
-Defined in: [src/materials/LitMaterial.ts:192](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L192)
+Defined in: [src/materials/LitMaterial.ts:369](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L369)
 
 Set the index of refraction.
 
@@ -463,7 +965,7 @@ Set the index of refraction.
 
 > **get** **alphaCutoff**(): `number`
 
-Defined in: [src/materials/LitMaterial.ts:209](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L209)
+Defined in: [src/materials/LitMaterial.ts:386](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L386)
 
 Get the alpha cutoff threshold.
 
@@ -475,7 +977,7 @@ Get the alpha cutoff threshold.
 
 > **set** **alphaCutoff**(`value`): `void`
 
-Defined in: [src/materials/LitMaterial.ts:203](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L203)
+Defined in: [src/materials/LitMaterial.ts:380](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L380)
 
 Set the alpha cutoff threshold and enable the alpha-cut shader path.
 
@@ -497,7 +999,7 @@ Set the alpha cutoff threshold and enable the alpha-cut shader path.
 
 > **get** **transmissionMap**(): [`Texture`](Texture.md)
 
-Defined in: [src/materials/LitMaterial.ts:233](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L233)
+Defined in: [src/materials/LitMaterial.ts:410](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L410)
 
 Get the transmission texture.
 
@@ -509,7 +1011,7 @@ Get the transmission texture.
 
 > **set** **transmissionMap**(`texture`): `void`
 
-Defined in: [src/materials/LitMaterial.ts:226](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L226)
+Defined in: [src/materials/LitMaterial.ts:403](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L403)
 
 glTF KHR_materials_transmission `transmissionTexture` — R channel
  is multiplied with `transmissionFactor` per fragment, so the same
@@ -534,7 +1036,7 @@ glTF KHR_materials_transmission `transmissionTexture` — R channel
 
 > **get** **transmissionFactor**(): `number`
 
-Defined in: [src/materials/LitMaterial.ts:264](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L264)
+Defined in: [src/materials/LitMaterial.ts:441](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L441)
 
 Get the transmission factor.
 
@@ -546,7 +1048,7 @@ Get the transmission factor.
 
 > **set** **transmissionFactor**(`value`): `void`
 
-Defined in: [src/materials/LitMaterial.ts:238](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L238)
+Defined in: [src/materials/LitMaterial.ts:415](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L415)
 
 Set the transmission factor, toggling the transmission shader path and resolving the scene color pyramid.
 
@@ -568,7 +1070,7 @@ Set the transmission factor, toggling the transmission shader path and resolving
 
 > **get** **thicknessFactor**(): `number`
 
-Defined in: [src/materials/LitMaterial.ts:274](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L274)
+Defined in: [src/materials/LitMaterial.ts:451](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L451)
 
 Get the volume thickness factor.
 
@@ -580,7 +1082,7 @@ Get the volume thickness factor.
 
 > **set** **thicknessFactor**(`value`): `void`
 
-Defined in: [src/materials/LitMaterial.ts:269](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L269)
+Defined in: [src/materials/LitMaterial.ts:446](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L446)
 
 Set the volume thickness factor used for transmission attenuation.
 
@@ -596,13 +1098,51 @@ Set the volume thickness factor used for transmission attenuation.
 
 ***
 
+### thicknessMap
+
+#### Get Signature
+
+> **get** **thicknessMap**(): [`Texture`](Texture.md)
+
+Defined in: [src/materials/LitMaterial.ts:466](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L466)
+
+Get the thickness texture.
+
+##### Returns
+
+[`Texture`](Texture.md)
+
+#### Set Signature
+
+> **set** **thicknessMap**(`texture`): `void`
+
+Defined in: [src/materials/LitMaterial.ts:460](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L460)
+
+glTF KHR_materials_volume `thicknessTexture` — G channel scales
+ `thicknessFactor` per fragment, so a single material can vary
+ from thin (bright, near source color) to thick (heavily
+ attenuated) across its surface. Setting it enables the
+ USE_THICKNESSMAP shader path.
+
+##### Parameters
+
+###### texture
+
+[`Texture`](Texture.md)
+
+##### Returns
+
+`void`
+
+***
+
 ### attenuationDistance
 
 #### Get Signature
 
 > **get** **attenuationDistance**(): `number`
 
-Defined in: [src/materials/LitMaterial.ts:291](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L291)
+Defined in: [src/materials/LitMaterial.ts:483](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L483)
 
 Get the attenuation distance, returning Infinity when attenuation is effectively disabled.
 
@@ -614,7 +1154,7 @@ Get the attenuation distance, returning Infinity when attenuation is effectively
 
 > **set** **attenuationDistance**(`value`): `void`
 
-Defined in: [src/materials/LitMaterial.ts:281](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L281)
+Defined in: [src/materials/LitMaterial.ts:473](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L473)
 
 Distance (in world units) after which the transmitted radiance
  has been attenuated to `1/e` of its initial intensity. Use
@@ -638,7 +1178,7 @@ Distance (in world units) after which the transmitted radiance
 
 > **get** **attenuationColor**(): [`Color`](Color.md)
 
-Defined in: [src/materials/LitMaterial.ts:302](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L302)
+Defined in: [src/materials/LitMaterial.ts:494](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L494)
 
 Get the attenuation (transmission absorption) color.
 
@@ -650,7 +1190,7 @@ Get the attenuation (transmission absorption) color.
 
 > **set** **attenuationColor**(`value`): `void`
 
-Defined in: [src/materials/LitMaterial.ts:297](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L297)
+Defined in: [src/materials/LitMaterial.ts:489](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L489)
 
 Set the attenuation (transmission absorption) color.
 
@@ -672,7 +1212,7 @@ Set the attenuation (transmission absorption) color.
 
 > **get** **transmissionAlphaMode**(): `boolean`
 
-Defined in: [src/materials/LitMaterial.ts:318](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L318)
+Defined in: [src/materials/LitMaterial.ts:510](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L510)
 
 Whether transmission also attenuates the output alpha for see-through compositing.
 
@@ -684,7 +1224,7 @@ Whether transmission also attenuates the output alpha for see-through compositin
 
 > **set** **transmissionAlphaMode**(`value`): `void`
 
-Defined in: [src/materials/LitMaterial.ts:313](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L313)
+Defined in: [src/materials/LitMaterial.ts:505](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L505)
 
 When set to true, the transmission shader path attenuates this
  fragment's output alpha by transmission as well as RGB so an
@@ -712,7 +1252,7 @@ When set to true, the transmission shader path attenuates this
 
 > **get** **alphaMode**(): [`AlphaMode`](../type-aliases/AlphaMode.md)
 
-Defined in: [src/materials/LitMaterial.ts:323](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L323)
+Defined in: [src/materials/LitMaterial.ts:515](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L515)
 
 glTF-aligned alpha handling. See [AlphaMode](../type-aliases/AlphaMode.md).
 
@@ -724,7 +1264,7 @@ glTF-aligned alpha handling. See [AlphaMode](../type-aliases/AlphaMode.md).
 
 > **set** **alphaMode**(`mode`): `void`
 
-Defined in: [src/materials/LitMaterial.ts:328](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L328)
+Defined in: [src/materials/LitMaterial.ts:520](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L520)
 
 Set the glTF-aligned alpha mode, configuring blend/discard state and render queue accordingly.
 
@@ -746,7 +1286,7 @@ Set the glTF-aligned alpha mode, configuring blend/discard state and render queu
 
 > **get** **baseColor**(): [`Color`](Color.md)
 
-Defined in: [src/materials/LitMaterial.ts:407](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L407)
+Defined in: [src/materials/LitMaterial.ts:599](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L599)
 
 get base color (tint color)
 
@@ -758,7 +1298,7 @@ get base color (tint color)
 
 > **set** **baseColor**(`color`): `void`
 
-Defined in: [src/materials/LitMaterial.ts:400](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L400)
+Defined in: [src/materials/LitMaterial.ts:592](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L592)
 
 set base color (tint color)
 
@@ -784,7 +1324,7 @@ set base color (tint color)
 
 > **get** **roughness**(): `number`
 
-Defined in: [src/materials/LitMaterial.ts:412](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L412)
+Defined in: [src/materials/LitMaterial.ts:604](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L604)
 
 Get the surface roughness.
 
@@ -796,7 +1336,7 @@ Get the surface roughness.
 
 > **set** **roughness**(`value`): `void`
 
-Defined in: [src/materials/LitMaterial.ts:417](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L417)
+Defined in: [src/materials/LitMaterial.ts:609](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L609)
 
 Set the surface roughness.
 
@@ -818,7 +1358,7 @@ Set the surface roughness.
 
 > **get** **metallic**(): `number`
 
-Defined in: [src/materials/LitMaterial.ts:422](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L422)
+Defined in: [src/materials/LitMaterial.ts:614](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L614)
 
 Get the metallic factor.
 
@@ -830,7 +1370,7 @@ Get the metallic factor.
 
 > **set** **metallic**(`value`): `void`
 
-Defined in: [src/materials/LitMaterial.ts:427](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L427)
+Defined in: [src/materials/LitMaterial.ts:619](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L619)
 
 Set the metallic factor.
 
@@ -852,7 +1392,7 @@ Set the metallic factor.
 
 > **get** **emissiveColor**(): [`Color`](Color.md)
 
-Defined in: [src/materials/LitMaterial.ts:432](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L432)
+Defined in: [src/materials/LitMaterial.ts:624](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L624)
 
 Get the emissive color.
 
@@ -864,7 +1404,7 @@ Get the emissive color.
 
 > **set** **emissiveColor**(`value`): `void`
 
-Defined in: [src/materials/LitMaterial.ts:437](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L437)
+Defined in: [src/materials/LitMaterial.ts:629](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L629)
 
 Set the emissive color.
 
@@ -886,7 +1426,7 @@ Set the emissive color.
 
 > **get** **emissiveIntensity**(): `number`
 
-Defined in: [src/materials/LitMaterial.ts:442](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L442)
+Defined in: [src/materials/LitMaterial.ts:634](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L634)
 
 Get the emissive intensity.
 
@@ -898,7 +1438,7 @@ Get the emissive intensity.
 
 > **set** **emissiveIntensity**(`value`): `void`
 
-Defined in: [src/materials/LitMaterial.ts:447](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L447)
+Defined in: [src/materials/LitMaterial.ts:639](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L639)
 
 Set the emissive intensity.
 
@@ -920,7 +1460,7 @@ Set the emissive intensity.
 
 > **get** **ao**(): `number`
 
-Defined in: [src/materials/LitMaterial.ts:452](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L452)
+Defined in: [src/materials/LitMaterial.ts:644](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L644)
 
 Get the ambient occlusion factor.
 
@@ -932,7 +1472,7 @@ Get the ambient occlusion factor.
 
 > **set** **ao**(`value`): `void`
 
-Defined in: [src/materials/LitMaterial.ts:457](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L457)
+Defined in: [src/materials/LitMaterial.ts:649](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L649)
 
 Set the ambient occlusion factor.
 
@@ -954,7 +1494,7 @@ Set the ambient occlusion factor.
 
 > **get** **oitMode**(): `"sorted"` \| `"weighted"` \| `"depth-peel"`
 
-Defined in: [src/materials/Material.ts:69](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L69)
+Defined in: [src/materials/Material.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L69)
 
 Order-independent transparency mode opt-in.
 
@@ -995,7 +1535,7 @@ Order-independent transparency mode opt-in.
 
 > **set** **oitMode**(`value`): `void`
 
-Defined in: [src/materials/Material.ts:74](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L74)
+Defined in: [src/materials/Material.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L74)
 
 Set the order-independent transparency mode, notifying renderers to re-classify the affected passes.
 
@@ -1021,7 +1561,7 @@ Set the order-independent transparency mode, notifying renderers to re-classify 
 
 > **get** **shader**(): [`Shader`](Shader.md)
 
-Defined in: [src/materials/Material.ts:96](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L96)
+Defined in: [src/materials/Material.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L96)
 
 Get the shader bound to this material.
 
@@ -1033,7 +1573,7 @@ Get the shader bound to this material.
 
 > **set** **shader**(`shader`): `void`
 
-Defined in: [src/materials/Material.ts:90](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L90)
+Defined in: [src/materials/Material.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L90)
 
 Set the shader for this material and cache its default sub-shader.
 
@@ -1059,7 +1599,7 @@ Set the shader for this material and cache its default sub-shader.
 
 > **get** **doubleSide**(): `boolean`
 
-Defined in: [src/materials/Material.ts:101](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L101)
+Defined in: [src/materials/Material.ts:101](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L101)
 
 Whether the default sub-shader renders both faces (no back-face culling).
 
@@ -1071,7 +1611,7 @@ Whether the default sub-shader renders both faces (no back-face culling).
 
 > **set** **doubleSide**(`value`): `void`
 
-Defined in: [src/materials/Material.ts:106](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L106)
+Defined in: [src/materials/Material.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L106)
 
 Enable or disable double-sided rendering on the default sub-shader.
 
@@ -1087,7 +1627,7 @@ Enable or disable double-sided rendering on the default sub-shader.
 
 #### Inherited from
 
-[`UnLitTexArrayMaterial`](UnLitTexArrayMaterial.md).[`doubleSide`](UnLitTexArrayMaterial.md#doubleside)
+[`WaterMaterial`](WaterMaterial.md).[`doubleSide`](WaterMaterial.md#doubleside)
 
 ***
 
@@ -1097,7 +1637,7 @@ Enable or disable double-sided rendering on the default sub-shader.
 
 > **get** **castShadow**(): `boolean`
 
-Defined in: [src/materials/Material.ts:111](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L111)
+Defined in: [src/materials/Material.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L111)
 
 Whether this material casts shadows.
 
@@ -1109,7 +1649,7 @@ Whether this material casts shadows.
 
 > **set** **castShadow**(`value`): `void`
 
-Defined in: [src/materials/Material.ts:116](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L116)
+Defined in: [src/materials/Material.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L116)
 
 Enable or disable shadow casting for this material.
 
@@ -1125,7 +1665,7 @@ Enable or disable shadow casting for this material.
 
 #### Inherited from
 
-[`UnLitTexArrayMaterial`](UnLitTexArrayMaterial.md).[`castShadow`](UnLitTexArrayMaterial.md#castshadow)
+[`WaterMaterial`](WaterMaterial.md).[`castShadow`](WaterMaterial.md#castshadow)
 
 ***
 
@@ -1135,7 +1675,7 @@ Enable or disable shadow casting for this material.
 
 > **get** **acceptShadow**(): `boolean`
 
-Defined in: [src/materials/Material.ts:124](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L124)
+Defined in: [src/materials/Material.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L124)
 
 Whether this material receives shadows from other casters.
 
@@ -1147,7 +1687,7 @@ Whether this material receives shadows from other casters.
 
 > **set** **acceptShadow**(`value`): `void`
 
-Defined in: [src/materials/Material.ts:129](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L129)
+Defined in: [src/materials/Material.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L129)
 
 Enable or disable shadow receiving for this material.
 
@@ -1173,7 +1713,7 @@ Enable or disable shadow receiving for this material.
 
 > **get** **castReflection**(): `boolean`
 
-Defined in: [src/materials/Material.ts:139](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L139)
+Defined in: [src/materials/Material.ts:139](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L139)
 
 Whether this material contributes to reflection probes.
 
@@ -1185,7 +1725,7 @@ Whether this material contributes to reflection probes.
 
 > **set** **castReflection**(`value`): `void`
 
-Defined in: [src/materials/Material.ts:144](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L144)
+Defined in: [src/materials/Material.ts:144](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L144)
 
 Enable or disable reflection casting for this material.
 
@@ -1211,7 +1751,7 @@ Enable or disable reflection casting for this material.
 
 > **get** **blendMode**(): [`BlendMode`](../enumerations/BlendMode.md)
 
-Defined in: [src/materials/Material.ts:149](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L149)
+Defined in: [src/materials/Material.ts:149](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L149)
 
 The blend mode of the default sub-shader.
 
@@ -1223,7 +1763,7 @@ The blend mode of the default sub-shader.
 
 > **set** **blendMode**(`value`): `void`
 
-Defined in: [src/materials/Material.ts:154](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L154)
+Defined in: [src/materials/Material.ts:154](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L154)
 
 Set the blend mode of the default sub-shader.
 
@@ -1239,7 +1779,7 @@ Set the blend mode of the default sub-shader.
 
 #### Inherited from
 
-[`UnLitTexArrayMaterial`](UnLitTexArrayMaterial.md).[`blendMode`](UnLitTexArrayMaterial.md#blendmode)
+[`WaterMaterial`](WaterMaterial.md).[`blendMode`](WaterMaterial.md#blendmode)
 
 ***
 
@@ -1249,7 +1789,7 @@ Set the blend mode of the default sub-shader.
 
 > **get** **depthCompare**(): `GPUCompareFunction`
 
-Defined in: [src/materials/Material.ts:159](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L159)
+Defined in: [src/materials/Material.ts:159](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L159)
 
 The depth comparison function of the default sub-shader.
 
@@ -1261,7 +1801,7 @@ The depth comparison function of the default sub-shader.
 
 > **set** **depthCompare**(`value`): `void`
 
-Defined in: [src/materials/Material.ts:164](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L164)
+Defined in: [src/materials/Material.ts:164](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L164)
 
 Set the depth comparison function across all passes of this material.
 
@@ -1287,7 +1827,7 @@ Set the depth comparison function across all passes of this material.
 
 > **get** **transparent**(): `boolean`
 
-Defined in: [src/materials/Material.ts:175](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L175)
+Defined in: [src/materials/Material.ts:175](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L175)
 
 Whether this material is rendered as transparent.
 
@@ -1299,7 +1839,7 @@ Whether this material is rendered as transparent.
 
 > **set** **transparent**(`value`): `void`
 
-Defined in: [src/materials/Material.ts:180](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L180)
+Defined in: [src/materials/Material.ts:180](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L180)
 
 Enable or disable transparency, moving the pass to the transparent queue when enabled.
 
@@ -1315,7 +1855,7 @@ Enable or disable transparency, moving the pass to the transparent queue when en
 
 #### Inherited from
 
-[`UnLitTexArrayMaterial`](UnLitTexArrayMaterial.md).[`transparent`](UnLitTexArrayMaterial.md#transparent)
+[`WaterMaterial`](WaterMaterial.md).[`transparent`](WaterMaterial.md#transparent)
 
 ***
 
@@ -1325,7 +1865,7 @@ Enable or disable transparency, moving the pass to the transparent queue when en
 
 > **get** **cullMode**(): `GPUCullMode`
 
-Defined in: [src/materials/Material.ts:188](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L188)
+Defined in: [src/materials/Material.ts:188](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L188)
 
 The face culling mode of the default sub-shader.
 
@@ -1337,7 +1877,7 @@ The face culling mode of the default sub-shader.
 
 > **set** **cullMode**(`value`): `void`
 
-Defined in: [src/materials/Material.ts:193](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L193)
+Defined in: [src/materials/Material.ts:193](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L193)
 
 Set the face culling mode across all passes of this material.
 
@@ -1353,7 +1893,7 @@ Set the face culling mode across all passes of this material.
 
 #### Inherited from
 
-[`Material`](Material.md).[`cullMode`](Material.md#cullmode)
+[`UnLitTexArrayMaterial`](UnLitTexArrayMaterial.md).[`cullMode`](UnLitTexArrayMaterial.md#cullmode)
 
 ***
 
@@ -1363,7 +1903,7 @@ Set the face culling mode across all passes of this material.
 
 > **get** **depthWriteEnabled**(): `boolean`
 
-Defined in: [src/materials/Material.ts:205](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L205)
+Defined in: [src/materials/Material.ts:205](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L205)
 
 Whether depth writing is enabled for the default sub-shader.
 
@@ -1375,7 +1915,7 @@ Whether depth writing is enabled for the default sub-shader.
 
 > **set** **depthWriteEnabled**(`value`): `void`
 
-Defined in: [src/materials/Material.ts:210](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L210)
+Defined in: [src/materials/Material.ts:210](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L210)
 
 Enable or disable depth writing for the default sub-shader.
 
@@ -1401,7 +1941,7 @@ Enable or disable depth writing for the default sub-shader.
 
 > **get** **stencilFront**(): `GPUStencilFaceState`
 
-Defined in: [src/materials/Material.ts:217](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L217)
+Defined in: [src/materials/Material.ts:217](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L217)
 
 Stencil front face state
 
@@ -1413,7 +1953,7 @@ Stencil front face state
 
 > **set** **stencilFront**(`value`): `void`
 
-Defined in: [src/materials/Material.ts:222](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L222)
+Defined in: [src/materials/Material.ts:222](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L222)
 
 Set the stencil front face state.
 
@@ -1439,7 +1979,7 @@ Set the stencil front face state.
 
 > **get** **stencilBack**(): `GPUStencilFaceState`
 
-Defined in: [src/materials/Material.ts:229](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L229)
+Defined in: [src/materials/Material.ts:229](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L229)
 
 Stencil back face state
 
@@ -1451,7 +1991,7 @@ Stencil back face state
 
 > **set** **stencilBack**(`value`): `void`
 
-Defined in: [src/materials/Material.ts:234](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L234)
+Defined in: [src/materials/Material.ts:234](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L234)
 
 Set the stencil back face state.
 
@@ -1477,7 +2017,7 @@ Set the stencil back face state.
 
 > **get** **stencilReadMask**(): `number`
 
-Defined in: [src/materials/Material.ts:241](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L241)
+Defined in: [src/materials/Material.ts:241](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L241)
 
 Stencil read mask
 
@@ -1489,7 +2029,7 @@ Stencil read mask
 
 > **set** **stencilReadMask**(`value`): `void`
 
-Defined in: [src/materials/Material.ts:246](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L246)
+Defined in: [src/materials/Material.ts:246](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L246)
 
 Set the stencil read mask.
 
@@ -1515,7 +2055,7 @@ Set the stencil read mask.
 
 > **get** **stencilWriteMask**(): `number`
 
-Defined in: [src/materials/Material.ts:253](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L253)
+Defined in: [src/materials/Material.ts:253](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L253)
 
 Stencil write mask
 
@@ -1527,7 +2067,7 @@ Stencil write mask
 
 > **set** **stencilWriteMask**(`value`): `void`
 
-Defined in: [src/materials/Material.ts:258](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L258)
+Defined in: [src/materials/Material.ts:258](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L258)
 
 Set the stencil write mask.
 
@@ -1553,7 +2093,7 @@ Set the stencil write mask.
 
 > **get** **stencilRef**(): `number`
 
-Defined in: [src/materials/Material.ts:265](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L265)
+Defined in: [src/materials/Material.ts:265](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L265)
 
 Stencil reference value
 
@@ -1565,7 +2105,7 @@ Stencil reference value
 
 > **set** **stencilRef**(`value`): `void`
 
-Defined in: [src/materials/Material.ts:270](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L270)
+Defined in: [src/materials/Material.ts:270](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L270)
 
 Set the stencil reference value.
 
@@ -1591,7 +2131,7 @@ Set the stencil reference value.
 
 > **set** **useBillboard**(`value`): `void`
 
-Defined in: [src/materials/Material.ts:275](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L275)
+Defined in: [src/materials/Material.ts:275](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L275)
 
 Enable or disable billboard orientation via the USE_BILLBOARD shader define.
 
@@ -1617,7 +2157,7 @@ Enable or disable billboard orientation via the USE_BILLBOARD shader define.
 
 > **get** **topology**(): `GPUPrimitiveTopology`
 
-Defined in: [src/materials/Material.ts:280](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L280)
+Defined in: [src/materials/Material.ts:280](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L280)
 
 The primitive topology of the default sub-shader.
 
@@ -1629,7 +2169,7 @@ The primitive topology of the default sub-shader.
 
 > **set** **topology**(`value`): `void`
 
-Defined in: [src/materials/Material.ts:285](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L285)
+Defined in: [src/materials/Material.ts:285](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L285)
 
 Set the primitive topology of the default sub-shader.
 
@@ -1653,7 +2193,7 @@ Set the primitive topology of the default sub-shader.
 
 > **clone**(): [`Material`](Material.md)
 
-Defined in: [src/materials/LitMaterial.ts:37](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L37)
+Defined in: [src/materials/LitMaterial.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L38)
 
 Clone this material into a new LitMaterial, copying PBR uniforms and textures.
 
@@ -1671,7 +2211,7 @@ Clone this material into a new LitMaterial, copying PBR uniforms and textures.
 
 > **getPass**(`passType`): [`RenderShaderPass`](RenderShaderPass.md)[]
 
-Defined in: [src/materials/Material.ts:304](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L304)
+Defined in: [src/materials/Material.ts:304](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L304)
 
 get render pass by renderType
 
@@ -1695,7 +2235,7 @@ get render pass by renderType
 
 > **getAllPass**(): [`RenderShaderPass`](RenderShaderPass.md)[]
 
-Defined in: [src/materials/Material.ts:312](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L312)
+Defined in: [src/materials/Material.ts:312](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L312)
 
 get all color render pass
 
@@ -1713,7 +2253,7 @@ get all color render pass
 
 > **destroy**(`force`): `void`
 
-Defined in: [src/materials/Material.ts:328](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L328)
+Defined in: [src/materials/Material.ts:328](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L328)
 
 Release this material's shader and clear its identifying fields.
 
@@ -1737,7 +2277,7 @@ Release this material's shader and clear its identifying fields.
 
 > **setDefine**(`define`, `value`): `void`
 
-Defined in: [src/materials/Material.ts:337](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L337)
+Defined in: [src/materials/Material.ts:337](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L337)
 
 Set a shader define flag on this material's shader.
 
@@ -1765,7 +2305,7 @@ Set a shader define flag on this material's shader.
 
 > **getDefine**(`define`): `boolean`
 
-Defined in: [src/materials/Material.ts:342](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L342)
+Defined in: [src/materials/Material.ts:342](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L342)
 
 Get the value of a shader define flag.
 
@@ -1789,7 +2329,7 @@ Get the value of a shader define flag.
 
 > **setTexture**(`propertyName`, `texture`): `void`
 
-Defined in: [src/materials/Material.ts:347](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L347)
+Defined in: [src/materials/Material.ts:347](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L347)
 
 Bind a texture to the named shader property.
 
@@ -1817,7 +2357,7 @@ Bind a texture to the named shader property.
 
 > **setStorageBuffer**(`propertyName`, `buffer`): `void`
 
-Defined in: [src/materials/Material.ts:352](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L352)
+Defined in: [src/materials/Material.ts:352](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L352)
 
 Bind a storage GPU buffer to the named shader property.
 
@@ -1845,7 +2385,7 @@ Bind a storage GPU buffer to the named shader property.
 
 > **setUniformBuffer**(`propertyName`, `buffer`): `void`
 
-Defined in: [src/materials/Material.ts:357](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L357)
+Defined in: [src/materials/Material.ts:357](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L357)
 
 Bind a uniform GPU buffer to the named shader property.
 
@@ -1873,7 +2413,7 @@ Bind a uniform GPU buffer to the named shader property.
 
 > **setUniformFloat**(`propertyName`, `value`): `void`
 
-Defined in: [src/materials/Material.ts:363](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L363)
+Defined in: [src/materials/Material.ts:363](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L363)
 
 Set a float uniform on the named shader property.
 
@@ -1901,7 +2441,7 @@ Set a float uniform on the named shader property.
 
 > **setUniformInt32**(`propertyName`, `value`): `void`
 
-Defined in: [src/materials/Material.ts:368](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L368)
+Defined in: [src/materials/Material.ts:368](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L368)
 
 Set a 32-bit integer uniform on the named shader property.
 
@@ -1929,7 +2469,7 @@ Set a 32-bit integer uniform on the named shader property.
 
 > **setUniformVector2**(`propertyName`, `value`): `void`
 
-Defined in: [src/materials/Material.ts:373](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L373)
+Defined in: [src/materials/Material.ts:373](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L373)
 
 Set a Vector2 uniform on the named shader property.
 
@@ -1957,7 +2497,7 @@ Set a Vector2 uniform on the named shader property.
 
 > **setUniformVector3**(`propertyName`, `value`): `void`
 
-Defined in: [src/materials/Material.ts:378](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L378)
+Defined in: [src/materials/Material.ts:378](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L378)
 
 Set a Vector3 uniform on the named shader property.
 
@@ -1985,7 +2525,7 @@ Set a Vector3 uniform on the named shader property.
 
 > **setUniformVector4**(`propertyName`, `value`): `void`
 
-Defined in: [src/materials/Material.ts:383](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L383)
+Defined in: [src/materials/Material.ts:383](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L383)
 
 Set a Vector4 uniform on the named shader property.
 
@@ -2013,7 +2553,7 @@ Set a Vector4 uniform on the named shader property.
 
 > **setUniformColor**(`propertyName`, `value`): `void`
 
-Defined in: [src/materials/Material.ts:388](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L388)
+Defined in: [src/materials/Material.ts:388](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L388)
 
 Set a color uniform on the named shader property.
 
@@ -2041,7 +2581,7 @@ Set a color uniform on the named shader property.
 
 > **getUniformFloat**(`str`): `any`
 
-Defined in: [src/materials/Material.ts:393](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L393)
+Defined in: [src/materials/Material.ts:393](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L393)
 
 Get the float value of the named uniform.
 
@@ -2065,7 +2605,7 @@ Get the float value of the named uniform.
 
 > **getUniformInt32**(`str`): `any`
 
-Defined in: [src/materials/Material.ts:398](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L398)
+Defined in: [src/materials/Material.ts:398](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L398)
 
 Get the 32-bit integer value of the named uniform.
 
@@ -2089,7 +2629,7 @@ Get the 32-bit integer value of the named uniform.
 
 > **getUniformV2**(`str`): [`Vector2`](Vector2.md)
 
-Defined in: [src/materials/Material.ts:403](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L403)
+Defined in: [src/materials/Material.ts:403](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L403)
 
 Get the Vector2 value of the named uniform.
 
@@ -2113,7 +2653,7 @@ Get the Vector2 value of the named uniform.
 
 > **getUniformV3**(`str`): [`Vector3`](Vector3.md)
 
-Defined in: [src/materials/Material.ts:408](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L408)
+Defined in: [src/materials/Material.ts:408](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L408)
 
 Get the Vector3 value of the named uniform.
 
@@ -2137,7 +2677,7 @@ Get the Vector3 value of the named uniform.
 
 > **getUniformV4**(`str`): `Vector4`
 
-Defined in: [src/materials/Material.ts:413](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L413)
+Defined in: [src/materials/Material.ts:413](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L413)
 
 Get the Vector4 value of the named uniform.
 
@@ -2161,7 +2701,7 @@ Get the Vector4 value of the named uniform.
 
 > **getUniformColor**(`str`): [`Color`](Color.md)
 
-Defined in: [src/materials/Material.ts:418](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L418)
+Defined in: [src/materials/Material.ts:418](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L418)
 
 Get the color value of the named uniform.
 
@@ -2185,7 +2725,7 @@ Get the color value of the named uniform.
 
 > **getTexture**(`str`): [`Texture`](Texture.md)
 
-Defined in: [src/materials/Material.ts:423](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L423)
+Defined in: [src/materials/Material.ts:423](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L423)
 
 Get the texture bound to the named shader property.
 
@@ -2209,7 +2749,7 @@ Get the texture bound to the named shader property.
 
 > **getStorageBuffer**(`str`): [`StorageGPUBuffer`](StorageGPUBuffer.md)
 
-Defined in: [src/materials/Material.ts:428](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L428)
+Defined in: [src/materials/Material.ts:428](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L428)
 
 Get the storage buffer bound to the named shader property.
 
@@ -2233,7 +2773,7 @@ Get the storage buffer bound to the named shader property.
 
 > **getStructStorageBuffer**(`str`): `GPUBufferBase`
 
-Defined in: [src/materials/Material.ts:433](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L433)
+Defined in: [src/materials/Material.ts:433](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L433)
 
 Get the struct storage buffer bound to the named shader property.
 
@@ -2257,7 +2797,7 @@ Get the struct storage buffer bound to the named shader property.
 
 > **getUniformBuffer**(`str`): `GPUBufferBase`
 
-Defined in: [src/materials/Material.ts:438](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L438)
+Defined in: [src/materials/Material.ts:438](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L438)
 
 Get the uniform buffer bound to the named shader property.
 
@@ -2281,7 +2821,7 @@ Get the uniform buffer bound to the named shader property.
 
 > **applyUniform**(): `void`
 
-Defined in: [src/materials/Material.ts:443](https://github.com/orillusion/orillusion/blob/main/src/materials/Material.ts#L443)
+Defined in: [src/materials/Material.ts:443](https://github.com/Orillusion/orillusion/blob/main/src/materials/Material.ts#L443)
 
 Upload pending uniform changes to the GPU.
 

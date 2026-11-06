@@ -4,7 +4,7 @@
 
 # Class: AnimationLayer
 
-Defined in: [src/components/anim/graph/AnimationLayer.ts:34](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L34)
+Defined in: [src/components/anim/graph/AnimationLayer.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L34)
 
 AnimationLayer — one layer in a stacked animation pipeline.
 
@@ -26,7 +26,7 @@ layers in order and mixes per-bone TRS.
 
 > **new AnimationLayer**(`name`, `weight?`, `blendMode?`, `mask?`): `AnimationLayer`
 
-Defined in: [src/components/anim/graph/AnimationLayer.ts:62](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L62)
+Defined in: [src/components/anim/graph/AnimationLayer.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L62)
 
 #### Parameters
 
@@ -56,7 +56,7 @@ Defined in: [src/components/anim/graph/AnimationLayer.ts:62](https://github.com/
 
 > **name**: `string`
 
-Defined in: [src/components/anim/graph/AnimationLayer.ts:35](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L35)
+Defined in: [src/components/anim/graph/AnimationLayer.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L35)
 
 ***
 
@@ -64,7 +64,7 @@ Defined in: [src/components/anim/graph/AnimationLayer.ts:35](https://github.com/
 
 > **weight**: `number`
 
-Defined in: [src/components/anim/graph/AnimationLayer.ts:36](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L36)
+Defined in: [src/components/anim/graph/AnimationLayer.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L36)
 
 ***
 
@@ -72,7 +72,7 @@ Defined in: [src/components/anim/graph/AnimationLayer.ts:36](https://github.com/
 
 > **blendMode**: [`LayerBlendMode`](../enumerations/LayerBlendMode.md)
 
-Defined in: [src/components/anim/graph/AnimationLayer.ts:37](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L37)
+Defined in: [src/components/anim/graph/AnimationLayer.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L37)
 
 ***
 
@@ -80,7 +80,7 @@ Defined in: [src/components/anim/graph/AnimationLayer.ts:37](https://github.com/
 
 > **mask**: [`BoneMask`](BoneMask.md)
 
-Defined in: [src/components/anim/graph/AnimationLayer.ts:38](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L38)
+Defined in: [src/components/anim/graph/AnimationLayer.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L38)
 
 ***
 
@@ -88,7 +88,7 @@ Defined in: [src/components/anim/graph/AnimationLayer.ts:38](https://github.com/
 
 > **clipName**: `string` = `''`
 
-Defined in: [src/components/anim/graph/AnimationLayer.ts:41](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L41)
+Defined in: [src/components/anim/graph/AnimationLayer.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L41)
 
 Active clip name on this layer. Empty → layer is paused.
 
@@ -98,7 +98,7 @@ Active clip name on this layer. Empty → layer is paused.
 
 > **time**: `number` = `0`
 
-Defined in: [src/components/anim/graph/AnimationLayer.ts:43](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L43)
+Defined in: [src/components/anim/graph/AnimationLayer.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L43)
 
 Layer-local playback time, in seconds.
 
@@ -108,7 +108,7 @@ Layer-local playback time, in seconds.
 
 > **timeScale**: `number` = `1.0`
 
-Defined in: [src/components/anim/graph/AnimationLayer.ts:45](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L45)
+Defined in: [src/components/anim/graph/AnimationLayer.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L45)
 
 Layer-local time scale (multiplied into the global timeScale).
 
@@ -118,7 +118,7 @@ Layer-local time scale (multiplied into the global timeScale).
 
 > **playing**: `boolean` = `true`
 
-Defined in: [src/components/anim/graph/AnimationLayer.ts:47](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L47)
+Defined in: [src/components/anim/graph/AnimationLayer.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L47)
 
 When false, time does not advance.
 
@@ -128,7 +128,7 @@ When false, time does not advance.
 
 > **\_firstKeyTime**: `number` = `0`
 
-Defined in: [src/components/anim/graph/AnimationLayer.ts:54](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L54)
+Defined in: [src/components/anim/graph/AnimationLayer.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L54)
 
 First-keyframe time of the resolved clip (for makeClipAdditive math).
 
@@ -138,7 +138,7 @@ First-keyframe time of the resolved clip (for makeClipAdditive math).
 
 > **\_lastKeyTime**: `number` = `0`
 
-Defined in: [src/components/anim/graph/AnimationLayer.ts:56](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L56)
+Defined in: [src/components/anim/graph/AnimationLayer.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L56)
 
 Last-keyframe time of the resolved clip.
 
@@ -148,7 +148,7 @@ Last-keyframe time of the resolved clip.
 
 > **\_isStaticPose**: `boolean` = `false`
 
-Defined in: [src/components/anim/graph/AnimationLayer.ts:58](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L58)
+Defined in: [src/components/anim/graph/AnimationLayer.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L58)
 
 Whether the resolved clip is a static pose (short span / 2 keyframes).
 
@@ -158,6 +158,6 @@ Whether the resolved clip is a static pose (short span / 2 keyframes).
 
 > **\_resolved**: `boolean` = `false`
 
-Defined in: [src/components/anim/graph/AnimationLayer.ts:60](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L60)
+Defined in: [src/components/anim/graph/AnimationLayer.ts:60](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L60)
 
 Set to true once the layer has been resolved against its clip.

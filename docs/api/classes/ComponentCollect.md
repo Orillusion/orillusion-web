@@ -4,7 +4,7 @@
 
 # Class: ComponentCollect
 
-Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:17](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L17)
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L17)
 
 Static registry of live components, keyed by [View3D](View3D.md). Holds the
 per-view lifecycle callback lists (update / lateUpdate / beforeUpdate /
@@ -29,7 +29,7 @@ on engine dispose to avoid leaking scene trees and callbacks.
 
 > `static` **bindUpdate**(`view`, `component`, `call`): `void`
 
-Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:91](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L91)
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:91](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L91)
 
 #### Parameters
 
@@ -55,7 +55,7 @@ Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:91](https://github.co
 
 > `static` **unBindUpdate**(`view`, `component`): `void`
 
-Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:101](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L101)
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:101](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L101)
 
 #### Parameters
 
@@ -77,7 +77,7 @@ Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:101](https://github.c
 
 > `static` **bindLateUpdate**(`view`, `component`, `call`): `void`
 
-Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:109](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L109)
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L109)
 
 #### Parameters
 
@@ -103,7 +103,7 @@ Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:109](https://github.c
 
 > `static` **unBindLateUpdate**(`view`, `component`): `void`
 
-Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:119](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L119)
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L119)
 
 #### Parameters
 
@@ -125,7 +125,7 @@ Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:119](https://github.c
 
 > `static` **bindBeforeUpdate**(`view`, `component`, `call`): `void`
 
-Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:127](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L127)
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:127](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L127)
 
 #### Parameters
 
@@ -151,7 +151,7 @@ Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:127](https://github.c
 
 > `static` **unBindBeforeUpdate**(`view`, `component`): `void`
 
-Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:137](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L137)
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:137](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L137)
 
 #### Parameters
 
@@ -173,7 +173,7 @@ Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:137](https://github.c
 
 > `static` **bindCompute**(`view`, `component`, `call`): `void`
 
-Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:145](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L145)
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:145](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L145)
 
 #### Parameters
 
@@ -199,7 +199,7 @@ Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:145](https://github.c
 
 > `static` **unBindCompute**(`view`, `component`): `void`
 
-Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:155](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L155)
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:155](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L155)
 
 #### Parameters
 
@@ -221,7 +221,7 @@ Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:155](https://github.c
 
 > `static` **bindGraphic**(`view`, `component`, `call`): `void`
 
-Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:163](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L163)
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:163](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L163)
 
 #### Parameters
 
@@ -247,7 +247,7 @@ Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:163](https://github.c
 
 > `static` **unBindGraphic**(`view`, `component`): `void`
 
-Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:173](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L173)
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:173](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L173)
 
 #### Parameters
 
@@ -269,7 +269,7 @@ Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:173](https://github.c
 
 > `static` **appendWaitStart**(`component`): `void`
 
-Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:181](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L181)
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:181](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L181)
 
 #### Parameters
 
@@ -287,7 +287,7 @@ Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:181](https://github.c
 
 > `static` **removeWaitStart**(`obj`, `component`): `void`
 
-Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:194](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L194)
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:194](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L194)
 
 #### Parameters
 
@@ -309,7 +309,7 @@ Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:194](https://github.c
 
 > `static` **bindEnablePick**(`view`, `component`, `call`): `void`
 
-Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:205](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L205)
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:205](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L205)
 
 #### Parameters
 
@@ -335,7 +335,7 @@ Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:205](https://github.c
 
 > `static` **unBindEnablePick**(`view`, `component`): `void`
 
-Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:215](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L215)
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:215](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L215)
 
 #### Parameters
 
@@ -357,7 +357,7 @@ Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:215](https://github.c
 
 > `static` **register**(`view`, `ctor`, `component`): `void`
 
-Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:233](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L233)
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:233](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L233)
 
 Add `comp` to the type-keyed registry under `(view, ctor)`. Used
 by [ComponentBase.onEnable](ComponentBase.md#onenable) to make the instance
@@ -392,7 +392,7 @@ will not enumerate subclass instances. Idempotent.
 
 > `static` **unregister**(`view`, `ctor`, `component`): `void`
 
-Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:253](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L253)
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:253](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L253)
 
 Remove `comp` from the type-keyed registry. Empty inner sets are
 left in place so the next register call can reuse them without
@@ -422,7 +422,7 @@ a fresh allocation. Idempotent.
 
 > `static` **collectByTypeLayered**\<`T`\>(`view`, `ctor`, `layerMask`, `out`): `T`[]
 
-Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:286](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L286)
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:286](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L286)
 
 Collect all live components of `ctor` registered against `view`
 whose `visibleLayer` intersects `layerMask`. Pass
@@ -484,7 +484,7 @@ Scratch array, owned by the caller; mutated.
 
 > `static` **removeView**(`view`): `void`
 
-Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:313](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L313)
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:313](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L313)
 
 #### Parameters
 
@@ -502,7 +502,7 @@ Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:313](https://github.c
 
 > `static` **removeNullViewEntriesForCtx**(`ctx`): `void`
 
-Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:329](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L329)
+Defined in: [src/gfx/renderJob/collect/ComponentCollect.ts:329](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/collect/ComponentCollect.ts#L329)
 
 #### Parameters
 

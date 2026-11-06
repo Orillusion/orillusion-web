@@ -4,7 +4,7 @@
 
 # Enumeration: GeoType
 
-Defined in: [src/loader/parser/gis/GeoJsonParser.ts:4](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonParser.ts#L4)
+Defined in: [src/loader/parser/gis/GeoJsonParser.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonParser.ts#L4)
 
 ## Enumeration Members
 
@@ -12,7 +12,7 @@ Defined in: [src/loader/parser/gis/GeoJsonParser.ts:4](https://github.com/orillu
 
 > **Point**: `"Point"`
 
-Defined in: [src/loader/parser/gis/GeoJsonParser.ts:5](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonParser.ts#L5)
+Defined in: [src/loader/parser/gis/GeoJsonParser.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonParser.ts#L5)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/loader/parser/gis/GeoJsonParser.ts:5](https://github.com/orillu
 
 > **LineString**: `"LineString"`
 
-Defined in: [src/loader/parser/gis/GeoJsonParser.ts:6](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonParser.ts#L6)
+Defined in: [src/loader/parser/gis/GeoJsonParser.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonParser.ts#L6)
 
 ***
 
@@ -28,4 +28,4 @@ Defined in: [src/loader/parser/gis/GeoJsonParser.ts:6](https://github.com/orillu
 
 > **MultiPolygon**: `"MultiPolygon"`
 
-Defined in: [src/loader/parser/gis/GeoJsonParser.ts:7](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonParser.ts#L7)
+Defined in: [src/loader/parser/gis/GeoJsonParser.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonParser.ts#L7)

@@ -4,7 +4,7 @@
 
 # Class: MissingCreatorError
 
-Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:54](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L54)
+Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L54)
 
 Raised when a pass calls `b.write('foo')` (mutator, no factory)
 but no other pass is the creator of `'foo'`.
@@ -19,7 +19,7 @@ but no other pass is the creator of `'foo'`.
 
 > **new MissingCreatorError**(`pass`, `resource`): `MissingCreatorError`
 
-Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:57](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L57)
+Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L57)
 
 #### Parameters
 
@@ -45,7 +45,7 @@ Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:57](https://github.com/or
 
 > `readonly` **pass**: `string`
 
-Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:55](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L55)
+Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L55)
 
 ***
 
@@ -53,4 +53,4 @@ Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:55](https://github.com/or
 
 > `readonly` **resource**: `string`
 
-Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:56](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L56)
+Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L56)

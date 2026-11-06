@@ -4,7 +4,7 @@
 
 # Class: WasmMatrix
 
-Defined in: [src/components/matrix/WasmMatrix.ts:23](https://github.com/orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L23)
+Defined in: [src/components/matrix/WasmMatrix.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L23)
 
 Bridge to the WebAssembly matrix module that batch-computes object
 world transforms. Holds the shared SRT/state buffers mapped onto the
@@ -27,7 +27,7 @@ per-object translation, rotation and scale into the native solver.
 
 > `static` **matrixBuffer**: [`FloatArray`](../type-aliases/FloatArray.md)
 
-Defined in: [src/components/matrix/WasmMatrix.ts:26](https://github.com/orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L26)
+Defined in: [src/components/matrix/WasmMatrix.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L26)
 
 World-matrix output buffer mapped onto the WASM heap.
 
@@ -37,7 +37,7 @@ World-matrix output buffer mapped onto the WASM heap.
 
 > `static` **matrixBuffer\_32bit**: `Float32Array`
 
-Defined in: [src/components/matrix/WasmMatrix.ts:28](https://github.com/orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L28)
+Defined in: [src/components/matrix/WasmMatrix.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L28)
 
 32-bit copy of the world matrices (used when running in double precision).
 
@@ -47,9 +47,9 @@ Defined in: [src/components/matrix/WasmMatrix.ts:28](https://github.com/orillusi
 
 > `static` **matrixSRTBuffer**: [`FloatArray`](../type-aliases/FloatArray.md)
 
-Defined in: [src/components/matrix/WasmMatrix.ts:30](https://github.com/orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L30)
+Defined in: [src/components/matrix/WasmMatrix.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L30)
 
-Per-object scale/rotation/translation input buffer.
+Per-object scale/rotation(quaternion)/translation input buffer.
 
 ***
 
@@ -57,7 +57,7 @@ Per-object scale/rotation/translation input buffer.
 
 > `static` **matrixContinuedSRTBuffer**: [`FloatArray`](../type-aliases/FloatArray.md)
 
-Defined in: [src/components/matrix/WasmMatrix.ts:32](https://github.com/orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L32)
+Defined in: [src/components/matrix/WasmMatrix.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L32)
 
 Per-object continuous (per-frame delta) SRT buffer for animated transforms.
 
@@ -67,7 +67,7 @@ Per-object continuous (per-frame delta) SRT buffer for animated transforms.
 
 > `static` **matrixWorldPositionHLBuffer**: `Float32Array`
 
-Defined in: [src/components/matrix/WasmMatrix.ts:34](https://github.com/orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L34)
+Defined in: [src/components/matrix/WasmMatrix.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L34)
 
 High/low split of world positions for relative-to-eye (RTE) precision.
 
@@ -77,7 +77,7 @@ High/low split of world positions for relative-to-eye (RTE) precision.
 
 > `static` **matrixStateBuffer**: `Int32Array`
 
-Defined in: [src/components/matrix/WasmMatrix.ts:36](https://github.com/orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L36)
+Defined in: [src/components/matrix/WasmMatrix.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L36)
 
 Per-object state buffer (dirty flags, parent index, depth order).
 
@@ -87,7 +87,7 @@ Per-object state buffer (dirty flags, parent index, depth order).
 
 > `static` **matrixBufferPtr**: `number`
 
-Defined in: [src/components/matrix/WasmMatrix.ts:38](https://github.com/orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L38)
+Defined in: [src/components/matrix/WasmMatrix.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L38)
 
 WASM heap pointer to the world-matrix buffer.
 
@@ -97,7 +97,7 @@ WASM heap pointer to the world-matrix buffer.
 
 > `static` **matrixSRTBufferPtr**: `number`
 
-Defined in: [src/components/matrix/WasmMatrix.ts:40](https://github.com/orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L40)
+Defined in: [src/components/matrix/WasmMatrix.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L40)
 
 WASM heap pointer to the SRT buffer.
 
@@ -107,7 +107,7 @@ WASM heap pointer to the SRT buffer.
 
 > `static` **matrixContinuedSRTBufferPtr**: `number`
 
-Defined in: [src/components/matrix/WasmMatrix.ts:42](https://github.com/orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L42)
+Defined in: [src/components/matrix/WasmMatrix.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L42)
 
 WASM heap pointer to the continuous SRT buffer.
 
@@ -117,7 +117,7 @@ WASM heap pointer to the continuous SRT buffer.
 
 > `static` **matrixWorldPositionHLBufferPtr**: `number`
 
-Defined in: [src/components/matrix/WasmMatrix.ts:44](https://github.com/orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L44)
+Defined in: [src/components/matrix/WasmMatrix.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L44)
 
 WASM heap pointer to the world-position high/low buffer.
 
@@ -127,7 +127,7 @@ WASM heap pointer to the world-position high/low buffer.
 
 > `static` **matrixStateBufferPtr**: `number`
 
-Defined in: [src/components/matrix/WasmMatrix.ts:46](https://github.com/orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L46)
+Defined in: [src/components/matrix/WasmMatrix.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L46)
 
 WASM heap pointer to the state buffer.
 
@@ -137,7 +137,7 @@ WASM heap pointer to the state buffer.
 
 > `static` **wasm**: *typeof* `Module`
 
-Defined in: [src/components/matrix/WasmMatrix.ts:48](https://github.com/orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L48)
+Defined in: [src/components/matrix/WasmMatrix.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L48)
 
 Loaded WASM matrix module instance.
 
@@ -147,9 +147,29 @@ Loaded WASM matrix module instance.
 
 > `static` **stateStruct**: `number` = `4`
 
-Defined in: [src/components/matrix/WasmMatrix.ts:50](https://github.com/orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L50)
+Defined in: [src/components/matrix/WasmMatrix.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L50)
 
 Number of Int32 entries per object in the state buffer.
+
+***
+
+### srtStride
+
+> `static` **srtStride**: `number` = `10`
+
+Defined in: [src/components/matrix/WasmMatrix.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L52)
+
+Number of float entries per object in [matrixSRTBuffer](#matrixsrtbuffer): 3 scale + 4 rotation quaternion (x, y, z, w) + 3 translation.
+
+***
+
+### continuedSrtStride
+
+> `static` **continuedSrtStride**: `number` = `10`
+
+Defined in: [src/components/matrix/WasmMatrix.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L54)
+
+Number of float entries per object in [matrixContinuedSRTBuffer](#matrixcontinuedsrtbuffer): 3 scale + 4 rotation delta quaternion (x, y, z, w) + 3 translation delta.
 
 ***
 
@@ -157,7 +177,7 @@ Number of Int32 entries per object in the state buffer.
 
 > `static` **useDoublePrecision**: `boolean` = `false`
 
-Defined in: [src/components/matrix/WasmMatrix.ts:52](https://github.com/orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L52)
+Defined in: [src/components/matrix/WasmMatrix.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L56)
 
 Whether matrices are stored in 64-bit (double) precision.
 
@@ -167,7 +187,7 @@ Whether matrices are stored in 64-bit (double) precision.
 
 > `static` **init**(`count`, `useDoublePrecision?`): `Promise`\<`void`\>
 
-Defined in: [src/components/matrix/WasmMatrix.ts:60](https://github.com/orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L60)
+Defined in: [src/components/matrix/WasmMatrix.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L64)
 
 Load and initialize the WASM module, then allocate buffers for
 `count` matrices.
@@ -196,7 +216,7 @@ use 64-bit floats when true
 
 > `static` **allocMatrix**(`count`): `void`
 
-Defined in: [src/components/matrix/WasmMatrix.ts:72](https://github.com/orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L72)
+Defined in: [src/components/matrix/WasmMatrix.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L76)
 
 Allocate the WASM-side matrix storage and map the shared buffers
 onto the WASM heap for `count` matrices.
@@ -219,7 +239,7 @@ number of matrices to allocate
 
 > `static` **updateAllContinueTransform**(`start`, `end`, `dt`, `RTEScale`): `void`
 
-Defined in: [src/components/matrix/WasmMatrix.ts:113](https://github.com/orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L113)
+Defined in: [src/components/matrix/WasmMatrix.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L117)
 
 Advance all continuous (auto-animating) transforms in the index
 range `[start, end)` by `dt`.
@@ -260,7 +280,7 @@ relative-to-eye scale factor
 
 > `static` **setParent**(`matIndex`, `x`, `depthOrder`): `void`
 
-Defined in: [src/components/matrix/WasmMatrix.ts:123](https://github.com/orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L123)
+Defined in: [src/components/matrix/WasmMatrix.ts:127](https://github.com/Orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L127)
 
 Set the parent index and depth order for a matrix.
 
@@ -294,7 +314,7 @@ hierarchy depth order used for update sequencing
 
 > `static` **setTranslate**(`matIndex`, `x`, `y`, `z`): `void`
 
-Defined in: [src/components/matrix/WasmMatrix.ts:130](https://github.com/orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L130)
+Defined in: [src/components/matrix/WasmMatrix.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L135)
 
 Set the local translation of a matrix.
 
@@ -324,11 +344,11 @@ Set the local translation of a matrix.
 
 ### setRotation()
 
-> `static` **setRotation**(`matIndex`, `x`, `y`, `z`): `void`
+> `static` **setRotation**(`matIndex`, `x`, `y`, `z`, `w`): `void`
 
-Defined in: [src/components/matrix/WasmMatrix.ts:137](https://github.com/orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L137)
+Defined in: [src/components/matrix/WasmMatrix.ts:143](https://github.com/Orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L143)
 
-Set the local rotation of a matrix (Euler degrees).
+Set the local rotation of a matrix (quaternion x, y, z, w).
 
 #### Parameters
 
@@ -348,6 +368,10 @@ Set the local rotation of a matrix (Euler degrees).
 
 `number`
 
+##### w
+
+`number`
+
 #### Returns
 
 `void`
@@ -358,7 +382,7 @@ Set the local rotation of a matrix (Euler degrees).
 
 > `static` **setScale**(`matIndex`, `x`, `y`, `z`): `void`
 
-Defined in: [src/components/matrix/WasmMatrix.ts:144](https://github.com/orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L144)
+Defined in: [src/components/matrix/WasmMatrix.ts:152](https://github.com/Orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L152)
 
 Set the local scale of a matrix.
 
@@ -390,7 +414,7 @@ Set the local scale of a matrix.
 
 > `static` **setContinueTranslate**(`matIndex`, `x`, `y`, `z`): `void`
 
-Defined in: [src/components/matrix/WasmMatrix.ts:151](https://github.com/orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L151)
+Defined in: [src/components/matrix/WasmMatrix.ts:160](https://github.com/Orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L160)
 
 Set a per-frame continuous translation delta (auto-applied each update).
 
@@ -422,9 +446,9 @@ Set a per-frame continuous translation delta (auto-applied each update).
 
 > `static` **setContinueRotation**(`matIndex`, `x`, `y`, `z`): `void`
 
-Defined in: [src/components/matrix/WasmMatrix.ts:161](https://github.com/orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L161)
+Defined in: [src/components/matrix/WasmMatrix.ts:171](https://github.com/Orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L171)
 
-Set a per-frame continuous rotation delta (auto-applied each update).
+Set a per-frame continuous rotation delta (Euler degrees/frame, auto-applied each update).
 
 #### Parameters
 
@@ -454,7 +478,7 @@ Set a per-frame continuous rotation delta (auto-applied each update).
 
 > `static` **setContinueScale**(`matIndex`, `x`, `y`, `z`): `void`
 
-Defined in: [src/components/matrix/WasmMatrix.ts:171](https://github.com/orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L171)
+Defined in: [src/components/matrix/WasmMatrix.ts:184](https://github.com/Orillusion/orillusion/blob/main/src/components/matrix/WasmMatrix.ts#L184)
 
 Set a per-frame continuous scale delta (auto-applied each update).
 

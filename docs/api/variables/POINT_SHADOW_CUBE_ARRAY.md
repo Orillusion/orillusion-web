@@ -6,7 +6,7 @@
 
 > `const` **POINT\_SHADOW\_CUBE\_ARRAY**: `"_PointShadowCubeArray"` = `'_PointShadowCubeArray'`
 
-Defined in: [src/gfx/renderJob/graph/passes/PointShadowPass.ts:31](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/PointShadowPass.ts#L31)
+Defined in: [src/gfx/renderJob/graph/passes/PointShadowPass.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/PointShadowPass.ts#L31)
 
 Published handle name for the point-light shadow cube array.
 Each point light that casts shadows gets one cubemap slot

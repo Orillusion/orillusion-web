@@ -4,7 +4,7 @@
 
 # Class: AnimatorComponent
 
-Defined in: [src/components/anim/AnimatorComponent.ts:16](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L16)
+Defined in: [src/components/anim/AnimatorComponent.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L16)
 
 Skeletal + blend-shape animation driver. Samples property-animation
 clips to pose an avatar's joints, supports clip cross-fading, stacked
@@ -35,7 +35,7 @@ cross-rig retargeting, and dispatches blend-shape (morph) influences.
 
 > **object3D**: [`Object3D`](Object3D.md) = `null`
 
-Defined in: [src/components/ComponentBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L29)
+Defined in: [src/components/ComponentBase.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L29)
 
 owner object3D
 
@@ -49,7 +49,7 @@ owner object3D
 
 > **isDestroyed**: `boolean` = `false`
 
-Defined in: [src/components/ComponentBase.ts:77](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L77)
+Defined in: [src/components/ComponentBase.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L77)
 
 #### Inherited from
 
@@ -61,7 +61,7 @@ Defined in: [src/components/ComponentBase.ts:77](https://github.com/orillusion/o
 
 > **timeScale**: `number` = `1.0`
 
-Defined in: [src/components/anim/AnimatorComponent.ts:18](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L18)
+Defined in: [src/components/anim/AnimatorComponent.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L18)
 
 Global playback speed multiplier applied to all clips and layers.
 
@@ -71,9 +71,21 @@ Global playback speed multiplier applied to all clips and layers.
 
 > **jointMatrixIndexTableBuffer**: [`StorageGPUBuffer`](StorageGPUBuffer.md)
 
-Defined in: [src/components/anim/AnimatorComponent.ts:20](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L20)
+Defined in: [src/components/anim/AnimatorComponent.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L20)
 
 GPU buffer mapping joints to their world-matrix indices.
+
+***
+
+### jointMatrixIndexTable
+
+> **jointMatrixIndexTable**: `number`[]
+
+Defined in: [src/components/anim/AnimatorComponent.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L26)
+
+CPU copy of `jointMatrixIndexTableBuffer`: for each bone ID, the
+global matrix index (`Matrix4.index`) of that bone's world matrix.
+Used by CPU skinning (`MeshDeformer`).
 
 ***
 
@@ -81,7 +93,7 @@ GPU buffer mapping joints to their world-matrix indices.
 
 > **playBlendShapeLoop**: `boolean` = `false`
 
-Defined in: [src/components/anim/AnimatorComponent.ts:22](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L22)
+Defined in: [src/components/anim/AnimatorComponent.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L28)
 
 Whether the blend-shape (morph) animation loops.
 
@@ -91,7 +103,7 @@ Whether the blend-shape (morph) animation loops.
 
 > **root**: [`Object3D`](Object3D.md)
 
-Defined in: [src/components/anim/AnimatorComponent.ts:44](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L44)
+Defined in: [src/components/anim/AnimatorComponent.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L50)
 
 ## Accessors
 
@@ -101,7 +113,7 @@ Defined in: [src/components/anim/AnimatorComponent.ts:44](https://github.com/ori
 
 > **get** **visibleLayer**(): `number`
 
-Defined in: [src/components/ComponentBase.ts:46](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L46)
+Defined in: [src/components/ComponentBase.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L46)
 
 Composition-layer membership bitmask. The pass / camera /
 collector filters via
@@ -122,7 +134,7 @@ into composition layers.
 
 > **set** **visibleLayer**(`value`): `void`
 
-Defined in: [src/components/ComponentBase.ts:50](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L50)
+Defined in: [src/components/ComponentBase.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L50)
 
 ##### Parameters
 
@@ -146,7 +158,7 @@ Defined in: [src/components/ComponentBase.ts:50](https://github.com/orillusion/o
 
 > **get** **eventDispatcher**(): [`CEventDispatcher`](CEventDispatcher.md)
 
-Defined in: [src/components/ComponentBase.ts:63](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L63)
+Defined in: [src/components/ComponentBase.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L63)
 
 ##### Returns
 
@@ -156,7 +168,7 @@ Defined in: [src/components/ComponentBase.ts:63](https://github.com/orillusion/o
 
 > **set** **eventDispatcher**(`value`): `void`
 
-Defined in: [src/components/ComponentBase.ts:68](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
+Defined in: [src/components/ComponentBase.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
 
 ##### Parameters
 
@@ -180,7 +192,7 @@ Defined in: [src/components/ComponentBase.ts:68](https://github.com/orillusion/o
 
 > **get** **isStart**(): `boolean`
 
-Defined in: [src/components/ComponentBase.ts:79](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L79)
+Defined in: [src/components/ComponentBase.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L79)
 
 ##### Returns
 
@@ -198,7 +210,7 @@ Defined in: [src/components/ComponentBase.ts:79](https://github.com/orillusion/o
 
 > **get** **transform**(): [`Transform`](Transform.md)
 
-Defined in: [src/components/ComponentBase.ts:89](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L89)
+Defined in: [src/components/ComponentBase.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L89)
 
 Return the Transform component attached to the Object3D.
 Null before the component is attached — `addComponent` assigns
@@ -221,7 +233,7 @@ can probe safely via `this.transform?.`.
 
 > **get** **enable**(): `boolean`
 
-Defined in: [src/components/ComponentBase.ts:113](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
+Defined in: [src/components/ComponentBase.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
@@ -233,7 +245,7 @@ Enable/disable components. The enabled components can be updated, while the disa
 
 > **set** **enable**(`value`): `void`
 
-Defined in: [src/components/ComponentBase.ts:96](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L96)
+Defined in: [src/components/ComponentBase.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L96)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
@@ -259,7 +271,7 @@ Enable/disable components. The enabled components can be updated, while the disa
 
 > **set** **avatar**(`name`): `void`
 
-Defined in: [src/components/anim/AnimatorComponent.ts:219](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L219)
+Defined in: [src/components/anim/AnimatorComponent.ts:225](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L225)
 
 Assign the avatar (skeleton) by registered resource name and build its pose.
 
@@ -281,7 +293,7 @@ Assign the avatar (skeleton) by registered resource name and build its pose.
 
 > **get** **numJoint**(): `number`
 
-Defined in: [src/components/anim/AnimatorComponent.ts:232](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L232)
+Defined in: [src/components/anim/AnimatorComponent.ts:239](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L239)
 
 Number of joints in the current avatar.
 
@@ -297,7 +309,7 @@ Number of joints in the current avatar.
 
 > **get** **clips**(): [`PropertyAnimationClip`](PropertyAnimationClip.md)[]
 
-Defined in: [src/components/anim/AnimatorComponent.ts:377](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L377)
+Defined in: [src/components/anim/AnimatorComponent.ts:384](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L384)
 
 The animation clips assigned to this animator.
 
@@ -309,7 +321,7 @@ The animation clips assigned to this animator.
 
 > **set** **clips**(`clips`): `void`
 
-Defined in: [src/components/anim/AnimatorComponent.ts:358](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L358)
+Defined in: [src/components/anim/AnimatorComponent.ts:365](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L365)
 
 Assign the animation clips, building per-clip state and auto-playing the first.
 
@@ -331,7 +343,7 @@ Assign the animation clips, building per-clip state and auto-playing the first.
 
 > **get** **clipsState**(): [`PropertyAnimationClipState`](PropertyAnimationClipState.md)[]
 
-Defined in: [src/components/anim/AnimatorComponent.ts:382](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L382)
+Defined in: [src/components/anim/AnimatorComponent.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L389)
 
 Per-clip playback state (weights, etc.).
 
@@ -347,7 +359,7 @@ Per-clip playback state (weights, etc.).
 
 > **get** **layers**(): readonly [`AnimationLayer`](AnimationLayer.md)[]
 
-Defined in: [src/components/anim/AnimatorComponent.ts:677](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L677)
+Defined in: [src/components/anim/AnimatorComponent.ts:684](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L684)
 
 All stacked layers (excluding the implicit base layer).
 
@@ -361,7 +373,7 @@ readonly [`AnimationLayer`](AnimationLayer.md)[]
 
 > **stop**(): `void`
 
-Defined in: [src/components/ComponentBase.ts:163](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L163)
+Defined in: [src/components/ComponentBase.ts:163](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L163)
 
 #### Returns
 
@@ -377,7 +389,7 @@ Defined in: [src/components/ComponentBase.ts:163](https://github.com/orillusion/
 
 > `optional` **onEnable**(`view?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:164](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L164)
+Defined in: [src/components/ComponentBase.ts:164](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L164)
 
 #### Parameters
 
@@ -399,7 +411,7 @@ Defined in: [src/components/ComponentBase.ts:164](https://github.com/orillusion/
 
 > `optional` **onDisable**(`view?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:165](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L165)
+Defined in: [src/components/ComponentBase.ts:165](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L165)
 
 #### Parameters
 
@@ -421,7 +433,7 @@ Defined in: [src/components/ComponentBase.ts:165](https://github.com/orillusion/
 
 > `optional` **onLateUpdate**(`view?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:167](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L167)
+Defined in: [src/components/ComponentBase.ts:167](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L167)
 
 #### Parameters
 
@@ -443,7 +455,7 @@ Defined in: [src/components/ComponentBase.ts:167](https://github.com/orillusion/
 
 > `optional` **onBeforeUpdate**(`view?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:168](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L168)
+Defined in: [src/components/ComponentBase.ts:168](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L168)
 
 #### Parameters
 
@@ -465,7 +477,7 @@ Defined in: [src/components/ComponentBase.ts:168](https://github.com/orillusion/
 
 > `optional` **onCompute**(`view?`, `command?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:169](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L169)
+Defined in: [src/components/ComponentBase.ts:169](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L169)
 
 #### Parameters
 
@@ -491,7 +503,7 @@ Defined in: [src/components/ComponentBase.ts:169](https://github.com/orillusion/
 
 > `optional` **onGraphic**(`view?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:170](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L170)
+Defined in: [src/components/ComponentBase.ts:170](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L170)
 
 #### Parameters
 
@@ -513,7 +525,7 @@ Defined in: [src/components/ComponentBase.ts:170](https://github.com/orillusion/
 
 > `optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:171](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L171)
+Defined in: [src/components/ComponentBase.ts:171](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L171)
 
 #### Parameters
 
@@ -539,7 +551,7 @@ Defined in: [src/components/ComponentBase.ts:171](https://github.com/orillusion/
 
 > `optional` **onAddChild**(`child`): `any`
 
-Defined in: [src/components/ComponentBase.ts:172](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L172)
+Defined in: [src/components/ComponentBase.ts:172](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L172)
 
 #### Parameters
 
@@ -561,7 +573,7 @@ Defined in: [src/components/ComponentBase.ts:172](https://github.com/orillusion/
 
 > `optional` **onRemoveChild**(`child`): `any`
 
-Defined in: [src/components/ComponentBase.ts:173](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L173)
+Defined in: [src/components/ComponentBase.ts:173](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L173)
 
 #### Parameters
 
@@ -583,7 +595,7 @@ Defined in: [src/components/ComponentBase.ts:173](https://github.com/orillusion/
 
 > **copyComponent**(`from`): `this`
 
-Defined in: [src/components/ComponentBase.ts:182](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L182)
+Defined in: [src/components/ComponentBase.ts:182](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L182)
 
 #### Parameters
 
@@ -605,7 +617,7 @@ Defined in: [src/components/ComponentBase.ts:182](https://github.com/orillusion/
 
 > **beforeDestroy**(`force?`): `void`
 
-Defined in: [src/components/ComponentBase.ts:249](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L249)
+Defined in: [src/components/ComponentBase.ts:249](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L249)
 
 before release this component, object refrences are not be set null now.
 
@@ -629,7 +641,7 @@ before release this component, object refrences are not be set null now.
 
 > **destroy**(`force?`): `void`
 
-Defined in: [src/components/ComponentBase.ts:256](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L256)
+Defined in: [src/components/ComponentBase.ts:256](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L256)
 
 release this component
 
@@ -653,7 +665,7 @@ release this component
 
 > **init**(`param?`): `void`
 
-Defined in: [src/components/anim/AnimatorComponent.ts:64](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L64)
+Defined in: [src/components/anim/AnimatorComponent.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L70)
 
 Collect skinned/morph renderers in the hierarchy and prepare caches.
 
@@ -677,7 +689,7 @@ Collect skinned/morph renderers in the hierarchy and prepare caches.
 
 > **start**(): `void`
 
-Defined in: [src/components/anim/AnimatorComponent.ts:86](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L86)
+Defined in: [src/components/anim/AnimatorComponent.ts:92](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L92)
 
 Re-parent the skeleton root once the (possibly cloned) hierarchy is wired.
 
@@ -695,7 +707,7 @@ Re-parent the skeleton root once the (possibly cloned) hierarchy is wired.
 
 > **playAnim**(`anim`, `time?`, `speed?`): `void`
 
-Defined in: [src/components/anim/AnimatorComponent.ts:121](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L121)
+Defined in: [src/components/anim/AnimatorComponent.ts:127](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L127)
 
 Play a skeleton animation clip immediately.
 
@@ -729,7 +741,7 @@ playback speed multiplier
 
 > **crossFade**(`anim`, `crossTime`): `void`
 
-Defined in: [src/components/anim/AnimatorComponent.ts:142](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L142)
+Defined in: [src/components/anim/AnimatorComponent.ts:148](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L148)
 
 Cross-fade from the current clip to another over `crossTime` seconds.
 
@@ -757,7 +769,7 @@ fade duration in seconds
 
 > **playBlendShape**(`shapeName`, `time?`, `speed?`): `void`
 
-Defined in: [src/components/anim/AnimatorComponent.ts:182](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L182)
+Defined in: [src/components/anim/AnimatorComponent.ts:188](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L188)
 
 Play a blend-shape (morph) animation clip.
 
@@ -791,7 +803,7 @@ playback speed multiplier
 
 > **retargetTo**(`target`, `cfg?`): `void`
 
-Defined in: [src/components/anim/AnimatorComponent.ts:199](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L199)
+Defined in: [src/components/anim/AnimatorComponent.ts:205](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L205)
 
 Drive another animator's skeleton from this one via retargeting.
 Pass `null` to stop retargeting.
@@ -820,7 +832,7 @@ optional retargeting configuration
 
 > **getJointIndexTable**(`skinJointsName`): `number`[]
 
-Defined in: [src/components/anim/AnimatorComponent.ts:240](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L240)
+Defined in: [src/components/anim/AnimatorComponent.ts:247](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L247)
 
 Map a list of skin joint names to their avatar bone IDs (-1 if absent).
 
@@ -842,7 +854,7 @@ joint names in skin order
 
 > **cloneTo**(`obj`): `void`
 
-Defined in: [src/components/anim/AnimatorComponent.ts:387](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L387)
+Defined in: [src/components/anim/AnimatorComponent.ts:394](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L394)
 
 Clone this animator (avatar + clips) onto another object.
 
@@ -866,7 +878,7 @@ Clone this animator (avatar + clips) onto another object.
 
 > **onUpdate**(`view?`): `void`
 
-Defined in: [src/components/anim/AnimatorComponent.ts:420](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L420)
+Defined in: [src/components/anim/AnimatorComponent.ts:427](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L427)
 
 Per-frame update: advance time, sample clips, apply layers, IK and morphs.
 
@@ -890,7 +902,7 @@ Per-frame update: advance time, sample clips, apply layers, IK and morphs.
 
 > **updateBlendShape**(`attributes`, `key`, `value`): `void`
 
-Defined in: [src/components/anim/AnimatorComponent.ts:526](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L526)
+Defined in: [src/components/anim/AnimatorComponent.ts:533](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L533)
 
 Apply a blend-shape influence to all renderers, caching the resolved
 setter per renderer to avoid per-frame property reflection.
@@ -925,7 +937,7 @@ influence value in [0,1]
 
 > **getAnimationClipState**(`name`): [`PropertyAnimationClipState`](PropertyAnimationClipState.md)
 
-Defined in: [src/components/anim/AnimatorComponent.ts:646](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L646)
+Defined in: [src/components/anim/AnimatorComponent.ts:653](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L653)
 
 Gets the animation clip data object with the specified name
 
@@ -949,7 +961,7 @@ Animation clip data object
 
 > **cloneMorphRenderers**(): `object`
 
-Defined in: [src/components/anim/AnimatorComponent.ts:656](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L656)
+Defined in: [src/components/anim/AnimatorComponent.ts:663](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L663)
 
 Group the morph renderers by morph-target key.
 
@@ -963,7 +975,7 @@ Group the morph renderers by morph-target key.
 
 > **getLayer**(`name`): [`AnimationLayer`](AnimationLayer.md)
 
-Defined in: [src/components/anim/AnimatorComponent.ts:673](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L673)
+Defined in: [src/components/anim/AnimatorComponent.ts:680](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L680)
 
 Get a stacked animation layer by name, or null if absent.
 
@@ -983,7 +995,7 @@ Get a stacked animation layer by name, or null if absent.
 
 > **addLayer**(`layer`): [`AnimationLayer`](AnimationLayer.md)
 
-Defined in: [src/components/anim/AnimatorComponent.ts:680](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L680)
+Defined in: [src/components/anim/AnimatorComponent.ts:687](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L687)
 
 Add a stacked animation layer (ignored if a layer with that name exists).
 
@@ -1003,7 +1015,7 @@ Add a stacked animation layer (ignored if a layer with that name exists).
 
 > **removeLayer**(`name`): `void`
 
-Defined in: [src/components/anim/AnimatorComponent.ts:690](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L690)
+Defined in: [src/components/anim/AnimatorComponent.ts:697](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L697)
 
 Remove a stacked animation layer by name.
 
@@ -1023,7 +1035,7 @@ Remove a stacked animation layer by name.
 
 > **setLayerWeight**(`name`, `weight`): `void`
 
-Defined in: [src/components/anim/AnimatorComponent.ts:696](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L696)
+Defined in: [src/components/anim/AnimatorComponent.ts:703](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L703)
 
 Set the blend weight of a named layer.
 
@@ -1047,7 +1059,7 @@ Set the blend weight of a named layer.
 
 > **setLayerClip**(`name`, `clipName`, `time?`, `timeScale?`): `void`
 
-Defined in: [src/components/anim/AnimatorComponent.ts:708](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L708)
+Defined in: [src/components/anim/AnimatorComponent.ts:715](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L715)
 
 Set (and start) the clip playing on a named layer.
 
@@ -1087,7 +1099,7 @@ layer-local time scale
 
 > **setStateMachine**(`fsm`): `void`
 
-Defined in: [src/components/anim/AnimatorComponent.ts:896](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L896)
+Defined in: [src/components/anim/AnimatorComponent.ts:903](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L903)
 
 Attach (or clear) a state machine evaluated each frame before sampling.
 
@@ -1107,7 +1119,7 @@ Attach (or clear) a state machine evaluated each frame before sampling.
 
 > **getStateMachine**(): `object`
 
-Defined in: [src/components/anim/AnimatorComponent.ts:900](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L900)
+Defined in: [src/components/anim/AnimatorComponent.ts:907](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L907)
 
 The currently attached state machine, or null.
 
@@ -1139,7 +1151,7 @@ The currently attached state machine, or null.
 
 > **addIK**(`solver`): `void`
 
-Defined in: [src/components/anim/AnimatorComponent.ts:909](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L909)
+Defined in: [src/components/anim/AnimatorComponent.ts:916](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L916)
 
 Register an IK solver, run after layer mixing each frame.
 
@@ -1159,7 +1171,7 @@ Register an IK solver, run after layer mixing each frame.
 
 > **removeIK**(`solver`): `void`
 
-Defined in: [src/components/anim/AnimatorComponent.ts:913](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L913)
+Defined in: [src/components/anim/AnimatorComponent.ts:920](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L920)
 
 Unregister a previously added IK solver.
 
@@ -1179,7 +1191,7 @@ Unregister a previously added IK solver.
 
 > **getJointObject**(`boneName`): [`Object3D`](Object3D.md)
 
-Defined in: [src/components/anim/AnimatorComponent.ts:919](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L919)
+Defined in: [src/components/anim/AnimatorComponent.ts:926](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L926)
 
 Live joint Object3D by bone name. Used by IK solvers + retargeting.
 
@@ -1199,7 +1211,7 @@ Live joint Object3D by bone name. Used by IK solvers + retargeting.
 
 > **getRestJointObject**(`bonePath`): [`Object3D`](Object3D.md)
 
-Defined in: [src/components/anim/AnimatorComponent.ts:923](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L923)
+Defined in: [src/components/anim/AnimatorComponent.ts:930](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L930)
 
 Rest-pose (T-pose) joint Object3D by bone path.
 
@@ -1219,7 +1231,7 @@ Rest-pose (T-pose) joint Object3D by bone path.
 
 > **getAvatar**(): `PrefabAvatarData`
 
-Defined in: [src/components/anim/AnimatorComponent.ts:927](https://github.com/orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L927)
+Defined in: [src/components/anim/AnimatorComponent.ts:934](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/AnimatorComponent.ts#L934)
 
 The current avatar (skeleton) data, or null.
 

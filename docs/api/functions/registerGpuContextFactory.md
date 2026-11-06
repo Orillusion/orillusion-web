@@ -6,7 +6,7 @@
 
 > **\_registerGpuContextFactory**(`f`): `void`
 
-Defined in: [src/gfx/graphics/webGpu/Context3D.ts:366](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L366)
+Defined in: [src/gfx/graphics/webGpu/Context3D.ts:373](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L373)
 
 ## Parameters
 

@@ -4,7 +4,7 @@
 
 # Class: KelvinUtil
 
-Defined in: [src/util/KelvinUtil.ts:7](https://github.com/orillusion/orillusion/blob/main/src/util/KelvinUtil.ts#L7)
+Defined in: [src/util/KelvinUtil.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/util/KelvinUtil.ts#L7)
 
 Temperature Color Converter
 
@@ -24,7 +24,7 @@ Temperature Color Converter
 
 > `static` **color\_temperature\_to\_rgb**(`color_temperature_Kelvin`): [`Color`](Color.md)
 
-Defined in: [src/util/KelvinUtil.ts:13](https://github.com/orillusion/orillusion/blob/main/src/util/KelvinUtil.ts#L13)
+Defined in: [src/util/KelvinUtil.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/util/KelvinUtil.ts#L13)
 
 Convert color temperature to color object
 
@@ -46,7 +46,7 @@ Color temperature value
 
 > `static` **get\_red**(`temperature`): `number`
 
-Defined in: [src/util/KelvinUtil.ts:32](https://github.com/orillusion/orillusion/blob/main/src/util/KelvinUtil.ts#L32)
+Defined in: [src/util/KelvinUtil.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/util/KelvinUtil.ts#L32)
 
 Return red component [0-255]
 
@@ -66,7 +66,7 @@ Return red component [0-255]
 
 > `static` **get\_green**(`temperature`): `number`
 
-Defined in: [src/util/KelvinUtil.ts:42](https://github.com/orillusion/orillusion/blob/main/src/util/KelvinUtil.ts#L42)
+Defined in: [src/util/KelvinUtil.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/util/KelvinUtil.ts#L42)
 
 Return green component [0-255]
 
@@ -86,7 +86,7 @@ Return green component [0-255]
 
 > `static` **get\_blue**(`temperature`): `number`
 
-Defined in: [src/util/KelvinUtil.ts:56](https://github.com/orillusion/orillusion/blob/main/src/util/KelvinUtil.ts#L56)
+Defined in: [src/util/KelvinUtil.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/util/KelvinUtil.ts#L56)
 
 Return blue component [0-255]
 

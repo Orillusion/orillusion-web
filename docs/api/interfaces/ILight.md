@@ -4,7 +4,7 @@
 
 # Interface: ILight
 
-Defined in: [src/components/lights/ILight.ts:6](https://github.com/orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L6)
+Defined in: [src/components/lights/ILight.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L6)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/components/lights/ILight.ts:6](https://github.com/orillusion/or
 
 > **name**: `string`
 
-Defined in: [src/components/lights/ILight.ts:7](https://github.com/orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L7)
+Defined in: [src/components/lights/ILight.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L7)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/components/lights/ILight.ts:7](https://github.com/orillusion/or
 
 > **transform**: [`Transform`](../classes/Transform.md)
 
-Defined in: [src/components/lights/ILight.ts:8](https://github.com/orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L8)
+Defined in: [src/components/lights/ILight.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L8)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/components/lights/ILight.ts:8](https://github.com/orillusion/or
 
 > **lightData**: `LightData`
 
-Defined in: [src/components/lights/ILight.ts:9](https://github.com/orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L9)
+Defined in: [src/components/lights/ILight.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L9)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/components/lights/ILight.ts:9](https://github.com/orillusion/or
 
 > **needUpdateShadow**: `boolean`
 
-Defined in: [src/components/lights/ILight.ts:10](https://github.com/orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L10)
+Defined in: [src/components/lights/ILight.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L10)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/components/lights/ILight.ts:10](https://github.com/orillusion/o
 
 > **realTimeShadow**: `boolean`
 
-Defined in: [src/components/lights/ILight.ts:11](https://github.com/orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L11)
+Defined in: [src/components/lights/ILight.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L11)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [src/components/lights/ILight.ts:11](https://github.com/orillusion/o
 
 > **shadowIndex**: `number`
 
-Defined in: [src/components/lights/ILight.ts:13](https://github.com/orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L13)
+Defined in: [src/components/lights/ILight.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L13)
 
 ***
 
@@ -60,7 +60,7 @@ Defined in: [src/components/lights/ILight.ts:13](https://github.com/orillusion/o
 
 > `optional` **shadowCamera?**: [`Camera3D`](../classes/Camera3D.md)
 
-Defined in: [src/components/lights/ILight.ts:15](https://github.com/orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L15)
+Defined in: [src/components/lights/ILight.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L15)
 
 ***
 
@@ -68,4 +68,4 @@ Defined in: [src/components/lights/ILight.ts:15](https://github.com/orillusion/o
 
 > `readonly` `optional` **iesProfile?**: [`IESProfiles`](../classes/IESProfiles.md)
 
-Defined in: [src/components/lights/ILight.ts:17](https://github.com/orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L17)
+Defined in: [src/components/lights/ILight.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/lights/ILight.ts#L17)

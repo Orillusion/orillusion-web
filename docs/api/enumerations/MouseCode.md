@@ -4,7 +4,7 @@
 
 # Enumeration: MouseCode
 
-Defined in: [src/event/MouseCode.ts:5](https://github.com/orillusion/orillusion/blob/main/src/event/MouseCode.ts#L5)
+Defined in: [src/event/MouseCode.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/event/MouseCode.ts#L5)
 
 Mouse Key Code
 
@@ -14,7 +14,7 @@ Mouse Key Code
 
 > **MOUSE\_LEFT**: `0`
 
-Defined in: [src/event/MouseCode.ts:11](https://github.com/orillusion/orillusion/blob/main/src/event/MouseCode.ts#L11)
+Defined in: [src/event/MouseCode.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/event/MouseCode.ts#L11)
 
 key code of mouse left
 
@@ -24,7 +24,7 @@ key code of mouse left
 
 > **MOUSE\_MID**: `1`
 
-Defined in: [src/event/MouseCode.ts:18](https://github.com/orillusion/orillusion/blob/main/src/event/MouseCode.ts#L18)
+Defined in: [src/event/MouseCode.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/event/MouseCode.ts#L18)
 
 key code of mouse middle
 
@@ -34,6 +34,6 @@ key code of mouse middle
 
 > **MOUSE\_RIGHT**: `2`
 
-Defined in: [src/event/MouseCode.ts:25](https://github.com/orillusion/orillusion/blob/main/src/event/MouseCode.ts#L25)
+Defined in: [src/event/MouseCode.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/event/MouseCode.ts#L25)
 
 key code of mouse right

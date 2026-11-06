@@ -6,7 +6,7 @@
 
 > **VertexPart** = `object`
 
-Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:4](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L4)
+Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L4)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:4](https://github
 
 > **name**: `string`
 
-Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:5](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L5)
+Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L5)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:5](https://github
 
 > **vertex\_in\_struct**: `string`
 
-Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:6](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L6)
+Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L6)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:6](https://github
 
 > **vertex\_out\_struct**: `string`
 
-Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:7](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L7)
+Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L7)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:7](https://github
 
 > **vertex\_buffer**: `string`
 
-Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:8](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L8)
+Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L8)
 
 ***
 
@@ -46,7 +46,7 @@ Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:8](https://github
 
 > **vertex\_fun**: `string`
 
-Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:9](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L9)
+Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L9)
 
 ***
 
@@ -54,4 +54,4 @@ Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:9](https://github
 
 > **vertex\_out**: `string`
 
-Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:10](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L10)
+Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L10)

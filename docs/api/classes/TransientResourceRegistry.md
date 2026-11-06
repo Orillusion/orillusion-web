@@ -4,7 +4,7 @@
 
 # Class: TransientResourceRegistry
 
-Defined in: [src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts:50](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts#L50)
+Defined in: [src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts#L50)
 
 Per-graph collector for transient resource declarations and access
 hints. Lives on the [RenderGraph](RenderGraph.md) as `_transient`. Populated
@@ -34,7 +34,7 @@ the new API is fully opt-in.
 
 > **get** **declarations**(): `ReadonlyMap`\<`string`, `TransientResourceDeclaration`\>
 
-Defined in: [src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts:158](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts#L158)
+Defined in: [src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts:158](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts#L158)
 
 Read-only view of registered declarations.
 
@@ -48,7 +48,7 @@ Read-only view of registered declarations.
 
 > **declareTexture**(`name`, `desc`, `creatorPass`): `void`
 
-Defined in: [src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts:64](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts#L64)
+Defined in: [src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts#L64)
 
 Register a transient texture declaration.
 
@@ -80,7 +80,7 @@ if `name` has already been declared (single-creator).
 
 > **declareBuffer**(`name`, `desc`, `creatorPass`): `void`
 
-Defined in: [src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts:79](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts#L79)
+Defined in: [src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts#L79)
 
 Register a transient buffer declaration.
 
@@ -112,7 +112,7 @@ if `name` has already been declared (single-creator).
 
 > **importExternalTexture**(`name`, `tex`, `creatorPass`): `void`
 
-Defined in: [src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts:96](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts#L96)
+Defined in: [src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts#L96)
 
 Register an externally-owned texture as a persistent resource.
 The pool will not allocate, will not alias, and will not destroy
@@ -143,7 +143,7 @@ verbatim.
 
 > **importExternalBuffer**(`name`, `buf`, `creatorPass`): `void`
 
-Defined in: [src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts:124](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts#L124)
+Defined in: [src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts#L124)
 
 Register an externally-owned GPU buffer as a persistent resource.
 
@@ -171,7 +171,7 @@ Register an externally-owned GPU buffer as a persistent resource.
 
 > **recordAccessHint**(`name`, `kind`, `hint`, `mode`): `void`
 
-Defined in: [src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts:151](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts#L151)
+Defined in: [src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts:151](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts#L151)
 
 Record one `read` / `write` / `readWrite` access hint for a
 resource. Hint bits are OR'd into the per-name hint usage map;
@@ -211,7 +211,7 @@ transient allocation.
 
 > **hintUsageOf**(`name`): `number`
 
-Defined in: [src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts:163](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts#L163)
+Defined in: [src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts:163](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts#L163)
 
 Per-name unioned usage contribution from access hints.
 
@@ -231,7 +231,7 @@ Per-name unioned usage contribution from access hints.
 
 > **has**(`name`): `boolean`
 
-Defined in: [src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts:167](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts#L167)
+Defined in: [src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts:167](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts#L167)
 
 #### Parameters
 
@@ -249,7 +249,7 @@ Defined in: [src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts:167]
 
 > **get**(`name`): `TransientResourceDeclaration`
 
-Defined in: [src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts:171](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts#L171)
+Defined in: [src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts:171](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts#L171)
 
 #### Parameters
 
@@ -267,7 +267,7 @@ Defined in: [src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts:171]
 
 > **unregister**(`name`): `void`
 
-Defined in: [src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts:181](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts#L181)
+Defined in: [src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts:181](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts#L181)
 
 Drop the declaration + access hints for `name`. Called from
 `RenderGraph.remove()` / `RenderGraph.replace()` so a re-added
@@ -290,7 +290,7 @@ single-creator check.
 
 > **dispose**(): `void`
 
-Defined in: [src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts:190](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts#L190)
+Defined in: [src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts:190](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientResourceRegistry.ts#L190)
 
 Drop every declaration and hint. Called on graph destroy and
 device-lost.

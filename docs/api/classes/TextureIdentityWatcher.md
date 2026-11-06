@@ -4,7 +4,7 @@
 
 # Class: TextureIdentityWatcher
 
-Defined in: [src/gfx/renderJob/graph/transient/TextureIdentityWatcher.ts:51](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TextureIdentityWatcher.ts#L51)
+Defined in: [src/gfx/renderJob/graph/transient/TextureIdentityWatcher.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TextureIdentityWatcher.ts#L51)
 
 Detects when a RenderTexture the caller depends on has been
 replaced under their feet — typically because the transient pool
@@ -57,7 +57,7 @@ every pass has its own bind groups to invalidate.
 
 > **update**(`entries`): `boolean`
 
-Defined in: [src/gfx/renderJob/graph/transient/TextureIdentityWatcher.ts:65](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TextureIdentityWatcher.ts#L65)
+Defined in: [src/gfx/renderJob/graph/transient/TextureIdentityWatcher.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TextureIdentityWatcher.ts#L65)
 
 Inspect the current `GPUTexture` identity of every entry and
 report whether any changed since the last call. Always updates
@@ -85,7 +85,7 @@ readonly [`WatchedTexture`](../interfaces/WatchedTexture.md)[]
 
 > **reset**(): `void`
 
-Defined in: [src/gfx/renderJob/graph/transient/TextureIdentityWatcher.ts:81](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TextureIdentityWatcher.ts#L81)
+Defined in: [src/gfx/renderJob/graph/transient/TextureIdentityWatcher.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TextureIdentityWatcher.ts#L81)
 
 Forget every recorded identity. After this the next `update`
  call reports `true` for every entry, forcing a rebuild — useful

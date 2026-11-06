@@ -4,7 +4,7 @@
 
 # Class: Ray
 
-Defined in: [src/math/Ray.ts:11](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L11)
+Defined in: [src/math/Ray.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L11)
 
 Ray
 
@@ -14,7 +14,7 @@ Ray
 
 > **new Ray**(`origin?`, `dir?`): `Ray`
 
-Defined in: [src/math/Ray.ts:34](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L34)
+Defined in: [src/math/Ray.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L34)
 
 Build a new ray object
 
@@ -42,7 +42,7 @@ Ray direction
 
 > **origin**: [`Vector3`](Vector3.md)
 
-Defined in: [src/math/Ray.ts:16](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L16)
+Defined in: [src/math/Ray.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L16)
 
 Ray starting point
 
@@ -52,7 +52,7 @@ Ray starting point
 
 > **length**: `number` = `Number.MAX_VALUE`
 
-Defined in: [src/math/Ray.ts:21](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L21)
+Defined in: [src/math/Ray.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L21)
 
 length
 
@@ -64,7 +64,7 @@ length
 
 > **get** **direction**(): [`Vector3`](Vector3.md)
 
-Defined in: [src/math/Ray.ts:43](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L43)
+Defined in: [src/math/Ray.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L43)
 
 Ray direction
 
@@ -76,7 +76,7 @@ Ray direction
 
 > **set** **direction**(`dir`): `void`
 
-Defined in: [src/math/Ray.ts:50](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L50)
+Defined in: [src/math/Ray.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L50)
 
 Set the ray direction (normalized internally)
 
@@ -96,7 +96,7 @@ Set the ray direction (normalized internally)
 
 > **clone**(): `Ray`
 
-Defined in: [src/math/Ray.ts:59](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L59)
+Defined in: [src/math/Ray.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L59)
 
 Clone a new Ray object
 
@@ -110,7 +110,7 @@ Clone a new Ray object
 
 > **intersectBox**(`box`, `target?`): [`Vector3`](Vector3.md)
 
-Defined in: [src/math/Ray.ts:78](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L78)
+Defined in: [src/math/Ray.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L78)
 
 Compute the intersection point of this ray with a bounding box
 
@@ -140,7 +140,7 @@ the intersection point, or null if there is none
 
 > **pointAt**(`t`, `target?`): [`Vector3`](Vector3.md)
 
-Defined in: [src/math/Ray.ts:129](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L129)
+Defined in: [src/math/Ray.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L129)
 
 Calculate a point on the ray
 
@@ -170,7 +170,7 @@ result
 
 > **copy**(`src`): `this`
 
-Defined in: [src/math/Ray.ts:142](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L142)
+Defined in: [src/math/Ray.ts:142](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L142)
 
 Sets the ray to be a copy of the original ray
 
@@ -194,7 +194,7 @@ New ray object
 
 > **setApproxDirection**(`dir`): `void`
 
-Defined in: [src/math/Ray.ts:154](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L154)
+Defined in: [src/math/Ray.ts:154](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L154)
 
 Fast to the approximate ray direction
 
@@ -216,7 +216,7 @@ direction
 
 > **setOrigin**(`origin`): `void`
 
-Defined in: [src/math/Ray.ts:162](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L162)
+Defined in: [src/math/Ray.ts:162](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L162)
 
 Set ray origin
 
@@ -238,7 +238,7 @@ ray origin
 
 > **getOrigin**(): [`Vector3`](Vector3.md)
 
-Defined in: [src/math/Ray.ts:169](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L169)
+Defined in: [src/math/Ray.ts:169](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L169)
 
 Get ray origin
 
@@ -252,7 +252,7 @@ Get ray origin
 
 > **getPoint**(`t`): [`Vector3`](Vector3.md)
 
-Defined in: [src/math/Ray.ts:178](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L178)
+Defined in: [src/math/Ray.ts:178](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L178)
 
 Gets the point at the specified position on the ray
 
@@ -276,7 +276,7 @@ Returns a point at the specified location
 
 > **sqrDistToPoint**(`P`): `number`
 
-Defined in: [src/math/Ray.ts:188](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L188)
+Defined in: [src/math/Ray.ts:188](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L188)
 
 Calculate the distance from a point
 
@@ -300,7 +300,7 @@ result
 
 > **applyMatrix**(`mat4`): `void`
 
-Defined in: [src/math/Ray.ts:204](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L204)
+Defined in: [src/math/Ray.ts:204](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L204)
 
 Applied matrix transformation
 
@@ -322,7 +322,7 @@ matrix
 
 > **pointInTriangle**(`P`, `A`, `B`, `C`): `boolean`
 
-Defined in: [src/math/Ray.ts:221](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L221)
+Defined in: [src/math/Ray.ts:221](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L221)
 
 Calculates whether a specified point is inside a triangle
 
@@ -364,7 +364,7 @@ whether it is inside a triangle
 
 > **intersectTriangle**(`orig`, `dir`, `face`): [`Vector3`](Vector3.md)
 
-Defined in: [src/math/Ray.ts:266](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L266)
+Defined in: [src/math/Ray.ts:266](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L266)
 
 Determine whether a ray intersects a triangle
 
@@ -400,7 +400,7 @@ point of intersection
 
 > **intersectSphere**(`o`, `dir`, `center`, `radius`): [`Vector3`](Vector3.md)
 
-Defined in: [src/math/Ray.ts:329](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L329)
+Defined in: [src/math/Ray.ts:329](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L329)
 
 Determine whether a ray intersects the sphere
 
@@ -442,7 +442,7 @@ point of intersection
 
 > **intersectionSegment**(`sega`, `segb`, `threshold`): `object`
 
-Defined in: [src/math/Ray.ts:361](https://github.com/orillusion/orillusion/blob/main/src/math/Ray.ts#L361)
+Defined in: [src/math/Ray.ts:361](https://github.com/Orillusion/orillusion/blob/main/src/math/Ray.ts#L361)
 
 A test of the intersection between a ray and 
 a given line segment within a given tolerance (threshold)

@@ -4,19 +4,19 @@
 
 # Class: ForwardRendererJob
 
-Defined in: [src/gfx/renderJob/jobs/ForwardRendererJob.ts:42](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/ForwardRendererJob.ts#L42)
+Defined in: [src/gfx/renderJob/jobs/ForwardRendererJob.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/ForwardRendererJob.ts#L47)
 
 Forward+ rendering job — the engine's default. Composes the
 standard pass set on construction:
 
   ClusterLighting → [PreDepth] → HiZ → MotionVector → [GPUCull]
     → Shadow → PointShadow → Reflection → [GI] → Color
-    → SceneColorPyramid → TransmissionOpaque
+    → SceneColorPyramid → TransmissionOpaque → [Decal] → [Fluid]
     → SortedTransparent (+ optional WBOIT / DDP transparent path)
     → Post → GUI(present)
 
 Bracketed passes are gated on engine settings (`zPrePass`,
-`gpuCull`, `gi.enable`, `useOIT`).
+`gpuCull`, `gi.enable`, `decals`, , `water`, `fluid`, `useOIT`).
 
 ## Extends
 
@@ -28,7 +28,7 @@ Bracketed passes are gated on engine settings (`zPrePass`,
 
 > **new ForwardRendererJob**(`view`): `ForwardRendererJob`
 
-Defined in: [src/gfx/renderJob/jobs/ForwardRendererJob.ts:43](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/ForwardRendererJob.ts#L43)
+Defined in: [src/gfx/renderJob/jobs/ForwardRendererJob.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/ForwardRendererJob.ts#L48)
 
 #### Parameters
 
@@ -50,7 +50,7 @@ Defined in: [src/gfx/renderJob/jobs/ForwardRendererJob.ts:43](https://github.com
 
 > `readonly` **graph**: [`RenderGraph`](RenderGraph.md)
 
-Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:30](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L30)
+Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L30)
 
 #### Inherited from
 
@@ -62,7 +62,7 @@ Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:30](https://github.com/orillu
 
 > **occlusionSystem**: `OcclusionSystem`
 
-Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:31](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L31)
+Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L31)
 
 #### Inherited from
 
@@ -74,7 +74,7 @@ Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:31](https://github.com/orillu
 
 > **pauseRender**: `boolean` = `false`
 
-Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:33](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L33)
+Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L33)
 
 #### Inherited from
 
@@ -86,7 +86,7 @@ Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:33](https://github.com/orillu
 
 > **pickFire**: [`PickFire`](PickFire.md)
 
-Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:34](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L34)
+Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L34)
 
 #### Inherited from
 
@@ -98,7 +98,7 @@ Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:34](https://github.com/orillu
 
 > **renderState**: `boolean` = `false`
 
-Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:35](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L35)
+Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L35)
 
 #### Inherited from
 
@@ -112,7 +112,7 @@ Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:35](https://github.com/orillu
 
 > **get** **view**(): [`View3D`](View3D.md)
 
-Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:46](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L46)
+Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L46)
 
 ##### Returns
 
@@ -122,7 +122,7 @@ Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:46](https://github.com/orillu
 
 > **set** **view**(`view`): `void`
 
-Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:49](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L49)
+Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L49)
 
 ##### Parameters
 
@@ -144,7 +144,7 @@ Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:49](https://github.com/orillu
 
 > **start**(): `void`
 
-Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:53](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L53)
+Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L53)
 
 #### Returns
 
@@ -160,7 +160,7 @@ Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:53](https://github.com/orillu
 
 > **stop**(): `void`
 
-Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:67](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L67)
+Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L67)
 
 #### Returns
 
@@ -176,7 +176,7 @@ Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:67](https://github.com/orillu
 
 > **pause**(): `void`
 
-Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:68](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L68)
+Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L68)
 
 #### Returns
 
@@ -192,7 +192,7 @@ Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:68](https://github.com/orillu
 
 > **resume**(): `void`
 
-Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:69](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L69)
+Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L69)
 
 #### Returns
 
@@ -208,7 +208,7 @@ Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:69](https://github.com/orillu
 
 > **debug**(): `void`
 
-Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:70](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L70)
+Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L70)
 
 #### Returns
 
@@ -224,7 +224,7 @@ Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:70](https://github.com/orillu
 
 > **renderFrame**(): `void`
 
-Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:76](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L76)
+Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L76)
 
 Drive one frame through the graph. Pre-graph bookkeeping that
  sits outside any pass (camera, light / reflection entries,
@@ -245,7 +245,7 @@ Drive one frame through the graph. Pre-graph bookkeeping that
 
 > **addPost**(`post`): `PostBase` \| `PostBase`[]
 
-Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:89](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L89)
+Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L89)
 
 Attach a post-processing effect. Routes into the graph's
  PostPass; if no PostPass is in the graph (e.g. a custom job
@@ -271,7 +271,7 @@ Attach a post-processing effect. Routes into the graph's
 
 > **removePost**(`post`): `void`
 
-Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:95](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L95)
+Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:95](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L95)
 
 #### Parameters
 
@@ -293,7 +293,7 @@ Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:95](https://github.com/orillu
 
 > **destroy**(`_force?`): `void`
 
-Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:105](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L105)
+Defined in: [src/gfx/renderJob/jobs/RendererJob.ts:105](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/jobs/RendererJob.ts#L105)
 
 #### Parameters
 

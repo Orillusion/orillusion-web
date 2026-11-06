@@ -6,7 +6,7 @@
 
 > **GlobalFogSetting** = `object`
 
-Defined in: [src/setting/post/GlobalFogSetting.ts:7](https://github.com/orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L7)
+Defined in: [src/setting/post/GlobalFogSetting.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L7)
 
 Global fog effect setting
 
@@ -16,7 +16,7 @@ Global fog effect setting
 
 > **debug**: `any`
 
-Defined in: [src/setting/post/GlobalFogSetting.ts:8](https://github.com/orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L8)
+Defined in: [src/setting/post/GlobalFogSetting.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L8)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [src/setting/post/GlobalFogSetting.ts:8](https://github.com/orillusi
 
 > **enable**: `boolean`
 
-Defined in: [src/setting/post/GlobalFogSetting.ts:12](https://github.com/orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L12)
+Defined in: [src/setting/post/GlobalFogSetting.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L12)
 
 enable
 
@@ -34,7 +34,7 @@ enable
 
 > **fogType**: `number`
 
-Defined in: [src/setting/post/GlobalFogSetting.ts:17](https://github.com/orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L17)
+Defined in: [src/setting/post/GlobalFogSetting.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L17)
 
 type of fog:
 0: linear exponent 2: squar exponent
@@ -45,7 +45,7 @@ type of fog:
 
 > **fogHeightScale**: `number`
 
-Defined in: [src/setting/post/GlobalFogSetting.ts:21](https://github.com/orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L21)
+Defined in: [src/setting/post/GlobalFogSetting.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L21)
 
 Setting the Influence of Height on Fog
 
@@ -55,7 +55,7 @@ Setting the Influence of Height on Fog
 
 > **start**: `number`
 
-Defined in: [src/setting/post/GlobalFogSetting.ts:25](https://github.com/orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L25)
+Defined in: [src/setting/post/GlobalFogSetting.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L25)
 
 If the distance between the object and the camera is set as distance, the fog concentration will be linear interpolation between start and end
 
@@ -65,7 +65,7 @@ If the distance between the object and the camera is set as distance, the fog co
 
 > **end**: `number`
 
-Defined in: [src/setting/post/GlobalFogSetting.ts:29](https://github.com/orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L29)
+Defined in: [src/setting/post/GlobalFogSetting.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L29)
 
 If the distance between the object and the camera is set as distance, the fog concentration will be linear interpolation between start and end
 
@@ -75,7 +75,7 @@ If the distance between the object and the camera is set as distance, the fog co
 
 > **density**: `number`
 
-Defined in: [src/setting/post/GlobalFogSetting.ts:33](https://github.com/orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L33)
+Defined in: [src/setting/post/GlobalFogSetting.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L33)
 
 When the type is exponential square fog, the fog concentration coefficient is added
 
@@ -85,7 +85,7 @@ When the type is exponential square fog, the fog concentration coefficient is ad
 
 > **ins**: `number`
 
-Defined in: [src/setting/post/GlobalFogSetting.ts:37](https://github.com/orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L37)
+Defined in: [src/setting/post/GlobalFogSetting.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L37)
 
 The effect of setting height on fog (working together with height)
 
@@ -95,7 +95,7 @@ The effect of setting height on fog (working together with height)
 
 > **skyFactor**: `number`
 
-Defined in: [src/setting/post/GlobalFogSetting.ts:41](https://github.com/orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L41)
+Defined in: [src/setting/post/GlobalFogSetting.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L41)
 
 mix fog color with sky color
 
@@ -105,7 +105,7 @@ mix fog color with sky color
 
 > **skyRoughness**: `number`
 
-Defined in: [src/setting/post/GlobalFogSetting.ts:45](https://github.com/orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L45)
+Defined in: [src/setting/post/GlobalFogSetting.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L45)
 
 use mipmap level
 
@@ -115,7 +115,7 @@ use mipmap level
 
 > **overrideSkyFactor**: `number`
 
-Defined in: [src/setting/post/GlobalFogSetting.ts:49](https://github.com/orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L49)
+Defined in: [src/setting/post/GlobalFogSetting.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L49)
 
 factor effect the sky
 
@@ -125,7 +125,7 @@ factor effect the sky
 
 > **fogColor**: [`Color`](../classes/Color.md)
 
-Defined in: [src/setting/post/GlobalFogSetting.ts:53](https://github.com/orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L53)
+Defined in: [src/setting/post/GlobalFogSetting.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L53)
 
 fog color
 
@@ -135,7 +135,7 @@ fog color
 
 > **falloff**: `number`
 
-Defined in: [src/setting/post/GlobalFogSetting.ts:55](https://github.com/orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L55)
+Defined in: [src/setting/post/GlobalFogSetting.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L55)
 
 ***
 
@@ -143,7 +143,7 @@ Defined in: [src/setting/post/GlobalFogSetting.ts:55](https://github.com/orillus
 
 > **rayLength**: `number`
 
-Defined in: [src/setting/post/GlobalFogSetting.ts:56](https://github.com/orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L56)
+Defined in: [src/setting/post/GlobalFogSetting.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L56)
 
 ***
 
@@ -151,7 +151,7 @@ Defined in: [src/setting/post/GlobalFogSetting.ts:56](https://github.com/orillus
 
 > **scatteringExponent**: `number`
 
-Defined in: [src/setting/post/GlobalFogSetting.ts:57](https://github.com/orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L57)
+Defined in: [src/setting/post/GlobalFogSetting.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L57)
 
 ***
 
@@ -159,4 +159,4 @@ Defined in: [src/setting/post/GlobalFogSetting.ts:57](https://github.com/orillus
 
 > **dirHeightLine**: `number`
 
-Defined in: [src/setting/post/GlobalFogSetting.ts:58](https://github.com/orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L58)
+Defined in: [src/setting/post/GlobalFogSetting.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/GlobalFogSetting.ts#L58)

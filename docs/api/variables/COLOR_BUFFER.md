@@ -6,7 +6,7 @@
 
 > `const` **COLOR\_BUFFER**: `"_ColorBuffer"` = `'_ColorBuffer'`
 
-Defined in: [src/gfx/renderJob/graph/passes/ColorPass.ts:45](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/ColorPass.ts#L45)
+Defined in: [src/gfx/renderJob/graph/passes/ColorPass.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/ColorPass.ts#L45)
 
 Published handle names for the main color pass outputs.
 

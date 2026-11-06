@@ -4,7 +4,7 @@
 
 # Interface: MotionPoint
 
-Defined in: [src/components/anim/graph/BlendTree.ts:3](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/BlendTree.ts#L3)
+Defined in: [src/components/anim/graph/BlendTree.ts:3](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/BlendTree.ts#L3)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/components/anim/graph/BlendTree.ts:3](https://github.com/orillu
 
 > **clipName**: `string`
 
-Defined in: [src/components/anim/graph/BlendTree.ts:5](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/BlendTree.ts#L5)
+Defined in: [src/components/anim/graph/BlendTree.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/BlendTree.ts#L5)
 
 Clip name to play at this threshold.
 
@@ -22,6 +22,6 @@ Clip name to play at this threshold.
 
 > **threshold**: `number`
 
-Defined in: [src/components/anim/graph/BlendTree.ts:7](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/BlendTree.ts#L7)
+Defined in: [src/components/anim/graph/BlendTree.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/BlendTree.ts#L7)
 
 Parameter value at which this motion fully dominates the mix.

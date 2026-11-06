@@ -4,7 +4,7 @@
 
 # Class: MorePassShader
 
-Defined in: [src/gfx/graphics/webGpu/shader/util/MorePassParser.ts:7](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/MorePassParser.ts#L7)
+Defined in: [src/gfx/graphics/webGpu/shader/util/MorePassParser.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/MorePassParser.ts#L7)
 
 Parsed result of a multi-pass shader source: a name and its passes grouped by pass type.
 
@@ -24,7 +24,7 @@ Parsed result of a multi-pass shader source: a name and its passes grouped by pa
 
 > **name**: `string` = `''`
 
-Defined in: [src/gfx/graphics/webGpu/shader/util/MorePassParser.ts:9](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/MorePassParser.ts#L9)
+Defined in: [src/gfx/graphics/webGpu/shader/util/MorePassParser.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/MorePassParser.ts#L9)
 
 Shader name declared in the source.
 
@@ -34,6 +34,6 @@ Shader name declared in the source.
 
 > **passMap**: `Map`\<`string`, [`PassShader`](PassShader.md)[]\>
 
-Defined in: [src/gfx/graphics/webGpu/shader/util/MorePassParser.ts:11](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/MorePassParser.ts#L11)
+Defined in: [src/gfx/graphics/webGpu/shader/util/MorePassParser.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/MorePassParser.ts#L11)
 
 Passes grouped by their pass type.

@@ -4,7 +4,7 @@
 
 # Class: Object3DUtil
 
-Defined in: [src/util/Object3DUtil.ts:29](https://github.com/orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L29)
+Defined in: [src/util/Object3DUtil.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L29)
 
 Helper factory for quickly creating common debug/sample Object3D
 primitives (cubes, spheres, planes, point lights), backed by a
@@ -26,7 +26,7 @@ per-Context3D cache of shared geometries and materials.
 
 > `static` **CubeMesh**(`ctx`): [`BoxGeometry`](BoxGeometry.md)
 
-Defined in: [src/util/Object3DUtil.ts:49](https://github.com/orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L49)
+Defined in: [src/util/Object3DUtil.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L49)
 
 Shared unit box geometry for the given context.
 
@@ -46,7 +46,7 @@ Shared unit box geometry for the given context.
 
 > `static` **SphereMesh**(`ctx`): [`SphereGeometry`](SphereGeometry.md)
 
-Defined in: [src/util/Object3DUtil.ts:54](https://github.com/orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L54)
+Defined in: [src/util/Object3DUtil.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L54)
 
 Shared unit sphere geometry for the given context.
 
@@ -66,7 +66,7 @@ Shared unit sphere geometry for the given context.
 
 > `static` **GetCube**(`ctx`): [`Object3D`](Object3D.md)
 
-Defined in: [src/util/Object3DUtil.ts:59](https://github.com/orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L59)
+Defined in: [src/util/Object3DUtil.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L59)
 
 Create a cube Object3D using the shared box geometry and a cloned default material.
 
@@ -86,7 +86,7 @@ Create a cube Object3D using the shared box geometry and a cloned default materi
 
 > `static` **GetMaterial**(`ctx`, `tex`): [`Material`](Material.md)
 
-Defined in: [src/util/Object3DUtil.ts:70](https://github.com/orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L70)
+Defined in: [src/util/Object3DUtil.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L70)
 
 Get (and cache per texture) a clone of a LitMaterial whose base map is the given texture.
 
@@ -110,7 +110,7 @@ Get (and cache per texture) a clone of a LitMaterial whose base map is the given
 
 > `static` **GetPlane**(`ctx`, `tex`): [`Object3D`](Object3D.md)
 
-Defined in: [src/util/Object3DUtil.ts:82](https://github.com/orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L82)
+Defined in: [src/util/Object3DUtil.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L82)
 
 Create a textured, additively-blended plane Object3D (no shadow/GI/reflection).
 
@@ -134,7 +134,7 @@ Create a textured, additively-blended plane Object3D (no shadow/GI/reflection).
 
 > `static` **GetSingleCube**(`sizeX`, `sizeY`, `sizeZ`, `r`, `g`, `b`): [`Object3D`](Object3D.md)
 
-Defined in: [src/util/Object3DUtil.ts:97](https://github.com/orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L97)
+Defined in: [src/util/Object3DUtil.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L97)
 
 Create a standalone cube with its own box geometry and a colored LitMaterial.
 
@@ -174,7 +174,7 @@ Create a standalone cube with its own box geometry and a colored LitMaterial.
 
 > `static` **GetSingleSphere**(`radius`, `r`, `g`, `b`): [`Object3D`](Object3D.md)
 
-Defined in: [src/util/Object3DUtil.ts:112](https://github.com/orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L112)
+Defined in: [src/util/Object3DUtil.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L112)
 
 Create a standalone sphere with its own geometry and a colored LitMaterial.
 
@@ -206,7 +206,7 @@ Create a standalone sphere with its own geometry and a colored LitMaterial.
 
 > `static` **GetSingleCube2**(`mat`, `size?`): [`Object3D`](Object3D.md)
 
-Defined in: [src/util/Object3DUtil.ts:125](https://github.com/orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L125)
+Defined in: [src/util/Object3DUtil.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L125)
 
 Create a standalone cube with the given material and uniform size (no shadow).
 
@@ -230,7 +230,7 @@ Create a standalone cube with the given material and uniform size (no shadow).
 
 > `static` **GetPointLight**(`pos`, `rotation`, `radius`, `r`, `g`, `b`, `intensity?`, `castShadow?`): [`PointLight`](PointLight.md)
 
-Defined in: [src/util/Object3DUtil.ts:135](https://github.com/orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L135)
+Defined in: [src/util/Object3DUtil.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/util/Object3DUtil.ts#L135)
 
 Create a point light Object3D with a small visualizer sphere child.
 

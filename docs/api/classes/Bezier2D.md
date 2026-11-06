@@ -4,7 +4,7 @@
 
 # Class: Bezier2D
 
-Defined in: [src/math/Bezier2D.ts:7](https://github.com/orillusion/orillusion/blob/main/src/math/Bezier2D.ts#L7)
+Defined in: [src/math/Bezier2D.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/math/Bezier2D.ts#L7)
 
 2D Bezier Curve
 
@@ -14,7 +14,7 @@ Defined in: [src/math/Bezier2D.ts:7](https://github.com/orillusion/orillusion/bl
 
 > **new Bezier2D**(`vec2Ds?`): `Bezier2D`
 
-Defined in: [src/math/Bezier2D.ts:16](https://github.com/orillusion/orillusion/blob/main/src/math/Bezier2D.ts#L16)
+Defined in: [src/math/Bezier2D.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/math/Bezier2D.ts#L16)
 
 instance bezier class
 
@@ -36,7 +36,7 @@ instance bezier class
 
 > **get** **points**(): [`Vector2`](Vector2.md)[]
 
-Defined in: [src/math/Bezier2D.ts:24](https://github.com/orillusion/orillusion/blob/main/src/math/Bezier2D.ts#L24)
+Defined in: [src/math/Bezier2D.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/math/Bezier2D.ts#L24)
 
 get all bezier 2d points
 
@@ -48,7 +48,7 @@ get all bezier 2d points
 
 > **set** **points**(`value`): `void`
 
-Defined in: [src/math/Bezier2D.ts:31](https://github.com/orillusion/orillusion/blob/main/src/math/Bezier2D.ts#L31)
+Defined in: [src/math/Bezier2D.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/math/Bezier2D.ts#L31)
 
 set bezier 2d point[x,y] list must great 4
 
@@ -68,7 +68,7 @@ set bezier 2d point[x,y] list must great 4
 
 > **getValue**(`v`): [`Vector2`](Vector2.md)
 
-Defined in: [src/math/Bezier2D.ts:40](https://github.com/orillusion/orillusion/blob/main/src/math/Bezier2D.ts#L40)
+Defined in: [src/math/Bezier2D.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/math/Bezier2D.ts#L40)
 
 get point2d at curve
 
@@ -92,7 +92,7 @@ return point2D at curve
 
 > `static` **createBezierPoints**(`anchorpoints`, `pointsAmount`): `Bezier2D`
 
-Defined in: [src/math/Bezier2D.ts:64](https://github.com/orillusion/orillusion/blob/main/src/math/Bezier2D.ts#L64)
+Defined in: [src/math/Bezier2D.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/math/Bezier2D.ts#L64)
 
 caclute bezier curve points at line [ 0.0 , 1.0 ]
 

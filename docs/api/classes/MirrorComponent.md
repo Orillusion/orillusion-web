@@ -4,7 +4,7 @@
 
 # Class: MirrorComponent
 
-Defined in: [src/components/MirrorComponent.ts:68](https://github.com/orillusion/orillusion/blob/main/src/components/MirrorComponent.ts#L68)
+Defined in: [src/components/MirrorComponent.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/components/MirrorComponent.ts#L68)
 
 One-stop planar mirror component. Attach to an Object3D that already
 carries a [MeshRenderer](MeshRenderer.md) with a [MirrorMaterial](MirrorMaterial.md) (any
@@ -55,7 +55,7 @@ Limits
   mirror surface (good — prevents feedback) but it also means a
   mirror can not appear in another mirror's reflection. If you
   need cross-mirror reflections, give each mirror a unique bit on
-  [MeshRenderer.rendererMask](SpriteRenderer.md#renderermask) + a matching `excludeMask` set
+  [MeshRenderer.rendererMask](WaterRenderer.md#renderermask) + a matching `excludeMask` set
   on its [captureComponent](#capturecomponent) manually.
 
 ## Extends
@@ -82,7 +82,7 @@ Limits
 
 > `readonly` `static` **MIRROR\_MASK**: `number`
 
-Defined in: [src/components/MirrorComponent.ts:76](https://github.com/orillusion/orillusion/blob/main/src/components/MirrorComponent.ts#L76)
+Defined in: [src/components/MirrorComponent.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/components/MirrorComponent.ts#L76)
 
 Custom [RendererMask](../enumerations/RendererMask.md) bit reserved for "this is a mirror
 surface and should not appear in other mirrors". Bit 11 is
@@ -96,7 +96,7 @@ code can check / clear it on hand-managed renderers.
 
 > **object3D**: [`Object3D`](Object3D.md) = `null`
 
-Defined in: [src/components/ComponentBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L29)
+Defined in: [src/components/ComponentBase.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L29)
 
 owner object3D
 
@@ -110,7 +110,7 @@ owner object3D
 
 > **isDestroyed**: `boolean` = `false`
 
-Defined in: [src/components/ComponentBase.ts:77](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L77)
+Defined in: [src/components/ComponentBase.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L77)
 
 #### Inherited from
 
@@ -122,7 +122,7 @@ Defined in: [src/components/ComponentBase.ts:77](https://github.com/orillusion/o
 
 > **width**: `number` = `1024`
 
-Defined in: [src/components/MirrorComponent.ts:81](https://github.com/orillusion/orillusion/blob/main/src/components/MirrorComponent.ts#L81)
+Defined in: [src/components/MirrorComponent.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/components/MirrorComponent.ts#L81)
 
 Capture render-target width in pixels. Forwarded to
  [SceneCaptureCameraComponent.width](SceneCaptureCameraComponent.md#width). Setting this after
@@ -134,7 +134,7 @@ Capture render-target width in pixels. Forwarded to
 
 > **height**: `number` = `1024`
 
-Defined in: [src/components/MirrorComponent.ts:84](https://github.com/orillusion/orillusion/blob/main/src/components/MirrorComponent.ts#L84)
+Defined in: [src/components/MirrorComponent.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/components/MirrorComponent.ts#L84)
 
 Capture render-target height in pixels.
 
@@ -144,7 +144,7 @@ Capture render-target height in pixels.
 
 > **mirrorPlanePoint**: [`Vector3`](Vector3.md)
 
-Defined in: [src/components/MirrorComponent.ts:90](https://github.com/orillusion/orillusion/blob/main/src/components/MirrorComponent.ts#L90)
+Defined in: [src/components/MirrorComponent.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/components/MirrorComponent.ts#L90)
 
 A world-space point lying on the mirror plane. Defaults to the
  host Object3D's world position on first start, so a flat floor
@@ -157,7 +157,7 @@ A world-space point lying on the mirror plane. Defaults to the
 
 > **mirrorPlaneNormal**: [`Vector3`](Vector3.md)
 
-Defined in: [src/components/MirrorComponent.ts:96](https://github.com/orillusion/orillusion/blob/main/src/components/MirrorComponent.ts#L96)
+Defined in: [src/components/MirrorComponent.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/components/MirrorComponent.ts#L96)
 
 Unit normal of the mirror plane in world space. Defaults to the
  host Object3D's world-space +Y axis (i.e. transform.up) on first
@@ -170,7 +170,7 @@ Unit normal of the mirror plane in world space. Defaults to the
 
 > **mainCamera**: [`Camera3D`](Camera3D.md) = `null`
 
-Defined in: [src/components/MirrorComponent.ts:101](https://github.com/orillusion/orillusion/blob/main/src/components/MirrorComponent.ts#L101)
+Defined in: [src/components/MirrorComponent.ts:101](https://github.com/Orillusion/orillusion/blob/main/src/components/MirrorComponent.ts#L101)
 
 The scene's main camera that this mirror reflects. When left
  null, resolves to [View3D.camera](View3D.md#camera) on enable. Set
@@ -182,7 +182,7 @@ The scene's main camera that this mirror reflects. When left
 
 > **mainTarget**: [`Vector3`](Vector3.md)
 
-Defined in: [src/components/MirrorComponent.ts:108](https://github.com/orillusion/orillusion/blob/main/src/components/MirrorComponent.ts#L108)
+Defined in: [src/components/MirrorComponent.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/components/MirrorComponent.ts#L108)
 
 World-space point the main camera looks at — the mirror camera
  is aimed at the reflection of this point across the mirror
@@ -198,7 +198,7 @@ World-space point the main camera looks at — the mirror camera
 
 > **get** **visibleLayer**(): `number`
 
-Defined in: [src/components/ComponentBase.ts:46](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L46)
+Defined in: [src/components/ComponentBase.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L46)
 
 Composition-layer membership bitmask. The pass / camera /
 collector filters via
@@ -219,7 +219,7 @@ into composition layers.
 
 > **set** **visibleLayer**(`value`): `void`
 
-Defined in: [src/components/ComponentBase.ts:50](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L50)
+Defined in: [src/components/ComponentBase.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L50)
 
 ##### Parameters
 
@@ -243,7 +243,7 @@ Defined in: [src/components/ComponentBase.ts:50](https://github.com/orillusion/o
 
 > **get** **eventDispatcher**(): [`CEventDispatcher`](CEventDispatcher.md)
 
-Defined in: [src/components/ComponentBase.ts:63](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L63)
+Defined in: [src/components/ComponentBase.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L63)
 
 ##### Returns
 
@@ -253,7 +253,7 @@ Defined in: [src/components/ComponentBase.ts:63](https://github.com/orillusion/o
 
 > **set** **eventDispatcher**(`value`): `void`
 
-Defined in: [src/components/ComponentBase.ts:68](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
+Defined in: [src/components/ComponentBase.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
 
 ##### Parameters
 
@@ -277,7 +277,7 @@ Defined in: [src/components/ComponentBase.ts:68](https://github.com/orillusion/o
 
 > **get** **isStart**(): `boolean`
 
-Defined in: [src/components/ComponentBase.ts:79](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L79)
+Defined in: [src/components/ComponentBase.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L79)
 
 ##### Returns
 
@@ -295,7 +295,7 @@ Defined in: [src/components/ComponentBase.ts:79](https://github.com/orillusion/o
 
 > **get** **transform**(): [`Transform`](Transform.md)
 
-Defined in: [src/components/ComponentBase.ts:89](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L89)
+Defined in: [src/components/ComponentBase.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L89)
 
 Return the Transform component attached to the Object3D.
 Null before the component is attached — `addComponent` assigns
@@ -318,7 +318,7 @@ can probe safely via `this.transform?.`.
 
 > **get** **enable**(): `boolean`
 
-Defined in: [src/components/ComponentBase.ts:113](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
+Defined in: [src/components/ComponentBase.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
@@ -330,7 +330,7 @@ Enable/disable components. The enabled components can be updated, while the disa
 
 > **set** **enable**(`value`): `void`
 
-Defined in: [src/components/ComponentBase.ts:96](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L96)
+Defined in: [src/components/ComponentBase.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L96)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
@@ -356,7 +356,7 @@ Enable/disable components. The enabled components can be updated, while the disa
 
 > **get** **captureComponent**(): [`SceneCaptureCameraComponent`](SceneCaptureCameraComponent.md)
 
-Defined in: [src/components/MirrorComponent.ts:124](https://github.com/orillusion/orillusion/blob/main/src/components/MirrorComponent.ts#L124)
+Defined in: [src/components/MirrorComponent.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/MirrorComponent.ts#L124)
 
 Live reference to the auto-created scene-capture component, in
  case advanced users want to tweak its properties (clearColor,
@@ -374,7 +374,7 @@ Live reference to the auto-created scene-capture component, in
 
 > **get** **material**(): [`MirrorMaterial`](MirrorMaterial.md)
 
-Defined in: [src/components/MirrorComponent.ts:132](https://github.com/orillusion/orillusion/blob/main/src/components/MirrorComponent.ts#L132)
+Defined in: [src/components/MirrorComponent.ts:132](https://github.com/Orillusion/orillusion/blob/main/src/components/MirrorComponent.ts#L132)
 
 The [MirrorMaterial](MirrorMaterial.md) the component bound. Resolved from
  the host [MeshRenderer](MeshRenderer.md) on enable. Null if no
@@ -391,7 +391,7 @@ The [MirrorMaterial](MirrorMaterial.md) the component bound. Resolved from
 
 > **init**(`param?`): `void`
 
-Defined in: [src/components/ComponentBase.ts:161](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L161)
+Defined in: [src/components/ComponentBase.ts:161](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L161)
 
 #### Parameters
 
@@ -413,7 +413,7 @@ Defined in: [src/components/ComponentBase.ts:161](https://github.com/orillusion/
 
 > **stop**(): `void`
 
-Defined in: [src/components/ComponentBase.ts:163](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L163)
+Defined in: [src/components/ComponentBase.ts:163](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L163)
 
 #### Returns
 
@@ -429,7 +429,7 @@ Defined in: [src/components/ComponentBase.ts:163](https://github.com/orillusion/
 
 > `optional` **onLateUpdate**(`view?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:167](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L167)
+Defined in: [src/components/ComponentBase.ts:167](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L167)
 
 #### Parameters
 
@@ -451,7 +451,7 @@ Defined in: [src/components/ComponentBase.ts:167](https://github.com/orillusion/
 
 > `optional` **onBeforeUpdate**(`view?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:168](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L168)
+Defined in: [src/components/ComponentBase.ts:168](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L168)
 
 #### Parameters
 
@@ -473,7 +473,7 @@ Defined in: [src/components/ComponentBase.ts:168](https://github.com/orillusion/
 
 > `optional` **onCompute**(`view?`, `command?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:169](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L169)
+Defined in: [src/components/ComponentBase.ts:169](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L169)
 
 #### Parameters
 
@@ -499,7 +499,7 @@ Defined in: [src/components/ComponentBase.ts:169](https://github.com/orillusion/
 
 > `optional` **onGraphic**(`view?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:170](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L170)
+Defined in: [src/components/ComponentBase.ts:170](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L170)
 
 #### Parameters
 
@@ -521,7 +521,7 @@ Defined in: [src/components/ComponentBase.ts:170](https://github.com/orillusion/
 
 > `optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:171](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L171)
+Defined in: [src/components/ComponentBase.ts:171](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L171)
 
 #### Parameters
 
@@ -547,7 +547,7 @@ Defined in: [src/components/ComponentBase.ts:171](https://github.com/orillusion/
 
 > `optional` **onAddChild**(`child`): `any`
 
-Defined in: [src/components/ComponentBase.ts:172](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L172)
+Defined in: [src/components/ComponentBase.ts:172](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L172)
 
 #### Parameters
 
@@ -569,7 +569,7 @@ Defined in: [src/components/ComponentBase.ts:172](https://github.com/orillusion/
 
 > `optional` **onRemoveChild**(`child`): `any`
 
-Defined in: [src/components/ComponentBase.ts:173](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L173)
+Defined in: [src/components/ComponentBase.ts:173](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L173)
 
 #### Parameters
 
@@ -591,7 +591,7 @@ Defined in: [src/components/ComponentBase.ts:173](https://github.com/orillusion/
 
 > **cloneTo**(`obj`): `void`
 
-Defined in: [src/components/ComponentBase.ts:180](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L180)
+Defined in: [src/components/ComponentBase.ts:180](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L180)
 
 clone component data to target object3D
 
@@ -617,7 +617,7 @@ target object3D
 
 > **copyComponent**(`from`): `this`
 
-Defined in: [src/components/ComponentBase.ts:182](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L182)
+Defined in: [src/components/ComponentBase.ts:182](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L182)
 
 #### Parameters
 
@@ -639,7 +639,7 @@ Defined in: [src/components/ComponentBase.ts:182](https://github.com/orillusion/
 
 > **beforeDestroy**(`force?`): `void`
 
-Defined in: [src/components/ComponentBase.ts:249](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L249)
+Defined in: [src/components/ComponentBase.ts:249](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L249)
 
 before release this component, object refrences are not be set null now.
 
@@ -663,7 +663,7 @@ before release this component, object refrences are not be set null now.
 
 > **start**(): `void`
 
-Defined in: [src/components/MirrorComponent.ts:136](https://github.com/orillusion/orillusion/blob/main/src/components/MirrorComponent.ts#L136)
+Defined in: [src/components/MirrorComponent.ts:136](https://github.com/Orillusion/orillusion/blob/main/src/components/MirrorComponent.ts#L136)
 
 #### Returns
 
@@ -679,7 +679,7 @@ Defined in: [src/components/MirrorComponent.ts:136](https://github.com/orillusio
 
 > **onEnable**(`_view?`): `void`
 
-Defined in: [src/components/MirrorComponent.ts:153](https://github.com/orillusion/orillusion/blob/main/src/components/MirrorComponent.ts#L153)
+Defined in: [src/components/MirrorComponent.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/components/MirrorComponent.ts#L153)
 
 #### Parameters
 
@@ -701,7 +701,7 @@ Defined in: [src/components/MirrorComponent.ts:153](https://github.com/orillusio
 
 > **onDisable**(`_view?`): `void`
 
-Defined in: [src/components/MirrorComponent.ts:160](https://github.com/orillusion/orillusion/blob/main/src/components/MirrorComponent.ts#L160)
+Defined in: [src/components/MirrorComponent.ts:160](https://github.com/Orillusion/orillusion/blob/main/src/components/MirrorComponent.ts#L160)
 
 #### Parameters
 
@@ -723,7 +723,7 @@ Defined in: [src/components/MirrorComponent.ts:160](https://github.com/orillusio
 
 > **onUpdate**(`_view?`): `void`
 
-Defined in: [src/components/MirrorComponent.ts:169](https://github.com/orillusion/orillusion/blob/main/src/components/MirrorComponent.ts#L169)
+Defined in: [src/components/MirrorComponent.ts:169](https://github.com/Orillusion/orillusion/blob/main/src/components/MirrorComponent.ts#L169)
 
 #### Parameters
 
@@ -745,7 +745,7 @@ Defined in: [src/components/MirrorComponent.ts:169](https://github.com/orillusio
 
 > **destroy**(`force?`): `void`
 
-Defined in: [src/components/MirrorComponent.ts:292](https://github.com/orillusion/orillusion/blob/main/src/components/MirrorComponent.ts#L292)
+Defined in: [src/components/MirrorComponent.ts:292](https://github.com/Orillusion/orillusion/blob/main/src/components/MirrorComponent.ts#L292)
 
 release this component
 

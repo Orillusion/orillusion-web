@@ -4,7 +4,7 @@
 
 # Interface: RenderGraphBuilder
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:39](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L39)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L39)
 
 Setup-time builder handed to [RenderGraphPass.setup](../classes/RenderGraphPass.md#setup). A pass
 uses this to declare its graph-level dependencies (`read`) and
@@ -28,7 +28,7 @@ Two modes for `write`:
 
 > `readonly` **context3D**: [`Context3D`](../classes/Context3D.md)
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:41](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L41)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L41)
 
 Pass-owning view's Context3D.
 
@@ -38,7 +38,7 @@ Pass-owning view's Context3D.
 
 > `readonly` **view**: [`View3D`](../classes/View3D.md)
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:44](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L44)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L44)
 
 Pass-owning view.
 
@@ -48,7 +48,7 @@ Pass-owning view.
 
 > `readonly` **graph**: [`RenderGraph`](../classes/RenderGraph.md)
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:49](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L49)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L49)
 
 The graph this pass is being added to. Use
  `graph.getPass<T>(name)` to look up earlier-added sibling
@@ -60,7 +60,7 @@ The graph this pass is being added to. Use
 
 > **read**(`target`, `access?`): `void`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:61](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L61)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L61)
 
 Declare a read dependency on a named resource. The named
  handle must have a creator before this pass executes;
@@ -95,7 +95,7 @@ Declare a read dependency on a named resource. The named
 
 > **write**\<`T`\>(`name`, `getter`): `T`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:75](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L75)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:75](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L75)
 
 Creator overload: declare a write to `name`, register `getter`
  in the pool. The `getter` is called every `pool.get(name)` —
@@ -134,7 +134,7 @@ Creator overload: declare a write to `name`, register `getter`
 
 > **write**(`target`, `access?`): `void`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:83](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L83)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L83)
 
 Mutator overload: declare this pass writes to an existing
  named resource (created by another pass). Multi-mutator OK;
@@ -163,7 +163,7 @@ Mutator overload: declare this pass writes to an existing
 
 > **readWrite**(`target`, `access?`): `void`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:90](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L90)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L90)
 
 Combined read + write of an in-place mutated resource (e.g. a
  compute pass that samples and stores back to the same storage
@@ -191,7 +191,7 @@ Combined read + write of an in-place mutated resource (e.g. a
 
 > **declareTexture**(`name`, `desc`): [`TextureHandle`](TextureHandle.md)
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:111](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L111)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L111)
 
 Declare a transient texture this pass owns. The graph allocates
 the underlying RenderTexture after compile from a pooled
@@ -231,7 +231,7 @@ orphan declaration and skipped by the pool with a warning.
 
 > **declareBuffer**(`name`, `desc`): [`BufferHandle`](BufferHandle.md)
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:120](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L120)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L120)
 
 Declare a transient buffer this pass owns. Symmetric with
 [declareTexture](#declaretexture): registers the creator only, the actual
@@ -259,7 +259,7 @@ bucket and grows them via `GPUBufferBase.resizeBuffer` when needed.
 
 > **importExternalTexture**(`name`, `tex`): [`TextureHandle`](TextureHandle.md)
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:130](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L130)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:130](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L130)
 
 Publish an externally-owned RenderTexture under `name`
 as a persistent (non-aliasable, non-pool-allocated) resource.
@@ -288,7 +288,7 @@ handle-typed `read` / `write` overloads.
 
 > **importExternalBuffer**(`name`, `buf`): [`BufferHandle`](BufferHandle.md)
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:136](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L136)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:136](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L136)
 
 Publish an externally-owned GPUBufferBase as a persistent
 resource. Symmetric with [importExternalTexture](#importexternaltexture).
@@ -313,7 +313,7 @@ resource. Symmetric with [importExternalTexture](#importexternaltexture).
 
 > **dependsOn**(`passName`): `void`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:155](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L155)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:155](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L155)
 
 Declare an explicit ordering dependency on another pass by
  name, independent of any read/write resource edge. Use this
@@ -349,7 +349,7 @@ Declare an explicit ordering dependency on another pass by
 
 > **dependsOnIfPresent**(`passName`): `void`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:165](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L165)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:165](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L165)
 
 Optional-dependency variant of [dependsOn](#dependson): if a pass
  named `passName` is already registered, add an ordering edge
@@ -376,7 +376,7 @@ Optional-dependency variant of [dependsOn](#dependson): if a pass
 
 > **createRenderTarget**(`name`, `desc`): [`RenderGraphRenderTarget`](../classes/RenderGraphRenderTarget.md)
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:174](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L174)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:174](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L174)
 
 Allocate a fresh typed [RenderGraphRenderTarget](../classes/RenderGraphRenderTarget.md) (colors +
 optional depth) and register it under `name`. Single-creator
@@ -404,7 +404,7 @@ chain still orders downstream `b.useRenderTarget` writers.
 
 > **adoptRenderTarget**(`name`, `rtFrame`, `opts?`): [`RenderGraphRenderTarget`](../classes/RenderGraphRenderTarget.md)
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:182](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L182)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:182](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L182)
 
 Adopt an externally-allocated [RTFrame](../classes/RTFrame.md) (e.g.
 [GBufferFrame](../classes/GBufferFrame.md)) and publish it as a typed RT under `name`.
@@ -437,7 +437,7 @@ rule applies.
 
 > **useRenderTarget**(`name`): [`RenderGraphRenderTarget`](../classes/RenderGraphRenderTarget.md)
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:200](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L200)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L200)
 
 Declare "this pass also writes to the RT named `name`" and return
 the [RenderGraphRenderTarget](../classes/RenderGraphRenderTarget.md) for use in `execute()`.
@@ -466,7 +466,7 @@ overrides them. Pipeline-owning passes can wrap the target in a
 
 > **borrowRenderTarget**(`name`): [`RenderGraphRenderTarget`](../classes/RenderGraphRenderTarget.md)
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:220](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L220)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:220](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L220)
 
 Like [useRenderTarget](#userendertarget) but does NOT register a mutator-write
 edge on the RT.
@@ -501,7 +501,7 @@ call, mutator or borrowed).
 
 > **createRenderPass**(`name`, `target`, `desc`, `openOptions?`): [`RenderGraphRenderPass`](../classes/RenderGraphRenderPass.md)
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:234](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L234)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:234](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L234)
 
 Build a private render-pass handle around a single owned
 GPURenderPipeline that draws into `target`. The handle
@@ -542,7 +542,7 @@ the pool.
 
 > **createComputePass**(`name`, `desc`): [`RenderGraphComputePass`](../classes/RenderGraphComputePass.md)
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:247](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L247)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:247](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L247)
 
 Build a private compute-pass handle (pipeline + lifecycle owned
 by the caller). Does NOT register anything in the pool —

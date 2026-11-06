@@ -4,7 +4,7 @@
 
 # Class: CyclicDependencyError
 
-Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:22](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L22)
+Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L22)
 
 Raised when passes form a cycle on reads/writes. The message lists
 the pass names on the cycle in order.
@@ -19,7 +19,7 @@ the pass names on the cycle in order.
 
 > **new CyclicDependencyError**(`cycle`): `CyclicDependencyError`
 
-Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:24](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L24)
+Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L24)
 
 #### Parameters
 
@@ -41,4 +41,4 @@ readonly `string`[]
 
 > `readonly` **cycle**: readonly `string`[]
 
-Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:23](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L23)
+Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L23)

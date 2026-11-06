@@ -4,7 +4,7 @@
 
 # Enumeration: GeometryVertexType
 
-Defined in: [src/core/geometry/GeometryVertexType.ts:2](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexType.ts#L2)
+Defined in: [src/core/geometry/GeometryVertexType.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexType.ts#L2)
 
 ## Enumeration Members
 
@@ -12,7 +12,7 @@ Defined in: [src/core/geometry/GeometryVertexType.ts:2](https://github.com/orill
 
 > **split**: `0`
 
-Defined in: [src/core/geometry/GeometryVertexType.ts:3](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexType.ts#L3)
+Defined in: [src/core/geometry/GeometryVertexType.ts:3](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexType.ts#L3)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/core/geometry/GeometryVertexType.ts:3](https://github.com/orill
 
 > **compose**: `1`
 
-Defined in: [src/core/geometry/GeometryVertexType.ts:4](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexType.ts#L4)
+Defined in: [src/core/geometry/GeometryVertexType.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexType.ts#L4)
 
 ***
 
@@ -28,4 +28,4 @@ Defined in: [src/core/geometry/GeometryVertexType.ts:4](https://github.com/orill
 
 > **compose\_bin**: `2`
 
-Defined in: [src/core/geometry/GeometryVertexType.ts:5](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexType.ts#L5)
+Defined in: [src/core/geometry/GeometryVertexType.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryVertexType.ts#L5)

@@ -4,7 +4,7 @@
 
 # Class: BoundUtil
 
-Defined in: [src/util/BoundUtil.ts:11](https://github.com/orillusion/orillusion/blob/main/src/util/BoundUtil.ts#L11)
+Defined in: [src/util/BoundUtil.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/util/BoundUtil.ts#L11)
 
 Utils for calculating bounding boxes
 
@@ -24,7 +24,7 @@ Utils for calculating bounding boxes
 
 > `static` **genMeshBounds**(`obj`, `bound?`): `BoundingBox`
 
-Defined in: [src/util/BoundUtil.ts:21](https://github.com/orillusion/orillusion/blob/main/src/util/BoundUtil.ts#L21)
+Defined in: [src/util/BoundUtil.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/util/BoundUtil.ts#L21)
 
 Merge the bounding boxes that have been added to the world matrix based on the mesh of the children node
 
@@ -48,7 +48,7 @@ Merge the bounding boxes that have been added to the world matrix based on the m
 
 > `static` **transformBound**(`matrix`, `source`, `bound?`): `BoundingBox`
 
-Defined in: [src/util/BoundUtil.ts:61](https://github.com/orillusion/orillusion/blob/main/src/util/BoundUtil.ts#L61)
+Defined in: [src/util/BoundUtil.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/util/BoundUtil.ts#L61)
 
 #### Parameters
 

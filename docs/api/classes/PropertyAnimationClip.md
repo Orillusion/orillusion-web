@@ -4,7 +4,7 @@
 
 # Class: PropertyAnimationClip
 
-Defined in: [src/math/AnimationCurveClip.ts:12](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurveClip.ts#L12)
+Defined in: [src/math/AnimationCurveClip.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurveClip.ts#L12)
 
 Animation Curve 
 has frame list data
@@ -25,7 +25,7 @@ has frame list data
 
 > **clipName**: `string`
 
-Defined in: [src/math/AnimationCurveClip.ts:14](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurveClip.ts#L14)
+Defined in: [src/math/AnimationCurveClip.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurveClip.ts#L14)
 
 Name of the animation clip.
 
@@ -35,7 +35,7 @@ Name of the animation clip.
 
 > **loopTime**: `boolean`
 
-Defined in: [src/math/AnimationCurveClip.ts:16](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurveClip.ts#L16)
+Defined in: [src/math/AnimationCurveClip.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurveClip.ts#L16)
 
 Whether the clip loops over time.
 
@@ -45,7 +45,7 @@ Whether the clip loops over time.
 
 > **startTime**: `number`
 
-Defined in: [src/math/AnimationCurveClip.ts:18](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurveClip.ts#L18)
+Defined in: [src/math/AnimationCurveClip.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurveClip.ts#L18)
 
 Start time of the clip in seconds.
 
@@ -55,7 +55,7 @@ Start time of the clip in seconds.
 
 > **stopTime**: `number`
 
-Defined in: [src/math/AnimationCurveClip.ts:20](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurveClip.ts#L20)
+Defined in: [src/math/AnimationCurveClip.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurveClip.ts#L20)
 
 Stop time of the clip in seconds.
 
@@ -65,7 +65,7 @@ Stop time of the clip in seconds.
 
 > **sampleRate**: `number`
 
-Defined in: [src/math/AnimationCurveClip.ts:22](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurveClip.ts#L22)
+Defined in: [src/math/AnimationCurveClip.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurveClip.ts#L22)
 
 Number of samples per second used when authoring the clip.
 
@@ -75,7 +75,7 @@ Number of samples per second used when authoring the clip.
 
 > **useSkeletonPos**: `boolean`
 
-Defined in: [src/math/AnimationCurveClip.ts:24](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurveClip.ts#L24)
+Defined in: [src/math/AnimationCurveClip.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurveClip.ts#L24)
 
 Whether the clip drives skeleton position curves.
 
@@ -85,7 +85,7 @@ Whether the clip drives skeleton position curves.
 
 > **useSkeletonScale**: `boolean`
 
-Defined in: [src/math/AnimationCurveClip.ts:26](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurveClip.ts#L26)
+Defined in: [src/math/AnimationCurveClip.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurveClip.ts#L26)
 
 Whether the clip drives skeleton scale curves.
 
@@ -95,7 +95,7 @@ Whether the clip drives skeleton scale curves.
 
 > **positionCurves**: `Map`\<`string`, [`AnimationCurveT`](AnimationCurveT.md)\>
 
-Defined in: [src/math/AnimationCurveClip.ts:28](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurveClip.ts#L28)
+Defined in: [src/math/AnimationCurveClip.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurveClip.ts#L28)
 
 Position animation curves keyed by node path.
 
@@ -105,7 +105,7 @@ Position animation curves keyed by node path.
 
 > **rotationCurves**: `Map`\<`string`, [`AnimationCurveT`](AnimationCurveT.md)\>
 
-Defined in: [src/math/AnimationCurveClip.ts:30](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurveClip.ts#L30)
+Defined in: [src/math/AnimationCurveClip.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurveClip.ts#L30)
 
 Rotation animation curves keyed by node path.
 
@@ -115,7 +115,7 @@ Rotation animation curves keyed by node path.
 
 > **scaleCurves**: `Map`\<`string`, [`AnimationCurveT`](AnimationCurveT.md)\>
 
-Defined in: [src/math/AnimationCurveClip.ts:32](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurveClip.ts#L32)
+Defined in: [src/math/AnimationCurveClip.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurveClip.ts#L32)
 
 Scale animation curves keyed by node path.
 
@@ -125,7 +125,7 @@ Scale animation curves keyed by node path.
 
 > **floatCurves**: `Map`\<`string`, [`AnimationCurveT`](AnimationCurveT.md)\>
 
-Defined in: [src/math/AnimationCurveClip.ts:34](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurveClip.ts#L34)
+Defined in: [src/math/AnimationCurveClip.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurveClip.ts#L34)
 
 Float-property animation curves keyed by attribute name.
 
@@ -135,7 +135,7 @@ Float-property animation curves keyed by attribute name.
 
 > **formBytes**(`bytes`): `void`
 
-Defined in: [src/math/AnimationCurveClip.ts:37](https://github.com/orillusion/orillusion/blob/main/src/math/AnimationCurveClip.ts#L37)
+Defined in: [src/math/AnimationCurveClip.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/math/AnimationCurveClip.ts#L37)
 
 Deserialize the clip and all its curves from the given byte stream.
 

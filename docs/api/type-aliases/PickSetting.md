@@ -6,7 +6,7 @@
 
 > **PickSetting** = `object`
 
-Defined in: [src/setting/PickSetting.ts:7](https://github.com/orillusion/orillusion/blob/main/src/setting/PickSetting.ts#L7)
+Defined in: [src/setting/PickSetting.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/setting/PickSetting.ts#L7)
 
 Pick setting
 
@@ -16,7 +16,7 @@ Pick setting
 
 > **enable**: `boolean`
 
-Defined in: [src/setting/PickSetting.ts:11](https://github.com/orillusion/orillusion/blob/main/src/setting/PickSetting.ts#L11)
+Defined in: [src/setting/PickSetting.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/setting/PickSetting.ts#L11)
 
 enable
 
@@ -26,6 +26,6 @@ enable
 
 > **mode**: `"pixel"` \| `"bound"`
 
-Defined in: [src/setting/PickSetting.ts:15](https://github.com/orillusion/orillusion/blob/main/src/setting/PickSetting.ts#L15)
+Defined in: [src/setting/PickSetting.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/setting/PickSetting.ts#L15)
 
 pick mode: use pixel mode, or bound mode

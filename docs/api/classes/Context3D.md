@@ -4,7 +4,7 @@
 
 # Class: Context3D
 
-Defined in: [src/gfx/graphics/webGpu/Context3D.ts:21](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L21)
+Defined in: [src/gfx/graphics/webGpu/Context3D.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L21)
 
 Per-instance WebGPU device/context. Each Engine3D instance owns its
 own Context3D with a dedicated GPUAdapter, GPUDevice, canvas and
@@ -41,7 +41,7 @@ throws — users must `.clone()` CPU data to share across engines.
 
 > `readonly` `static` **DEVICE\_LOST**: `string` = `'deviceLost'`
 
-Defined in: [src/gfx/graphics/webGpu/Context3D.ts:72](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L72)
+Defined in: [src/gfx/graphics/webGpu/Context3D.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L72)
 
 Event type dispatched on this Context3D when `device.lost` fires.
  `event.data` is the `GPUDeviceLostInfo` (reason + message).
@@ -52,7 +52,7 @@ Event type dispatched on this Context3D when `device.lost` fires.
 
 > **aspect**: `number`
 
-Defined in: [src/gfx/graphics/webGpu/Context3D.ts:23](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L23)
+Defined in: [src/gfx/graphics/webGpu/Context3D.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L23)
 
 Canvas aspect ratio (`windowWidth / windowHeight`), recomputed on resize.
 
@@ -62,7 +62,7 @@ Canvas aspect ratio (`windowWidth / windowHeight`), recomputed on resize.
 
 > **presentationSize**: `number`[]
 
-Defined in: [src/gfx/graphics/webGpu/Context3D.ts:25](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L25)
+Defined in: [src/gfx/graphics/webGpu/Context3D.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L25)
 
 Drawable surface size in physical pixels as `[width, height]`.
 
@@ -72,7 +72,7 @@ Drawable surface size in physical pixels as `[width, height]`.
 
 > **canvas**: `HTMLCanvasElement`
 
-Defined in: [src/gfx/graphics/webGpu/Context3D.ts:27](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L27)
+Defined in: [src/gfx/graphics/webGpu/Context3D.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L27)
 
 The HTML canvas element this context renders into.
 
@@ -82,7 +82,7 @@ The HTML canvas element this context renders into.
 
 > **context**: `GPUCanvasContext`
 
-Defined in: [src/gfx/graphics/webGpu/Context3D.ts:29](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L29)
+Defined in: [src/gfx/graphics/webGpu/Context3D.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L29)
 
 The WebGPU canvas context obtained from `canvas.getContext('webgpu')`.
 
@@ -92,7 +92,7 @@ The WebGPU canvas context obtained from `canvas.getContext('webgpu')`.
 
 > **windowWidth**: `number`
 
-Defined in: [src/gfx/graphics/webGpu/Context3D.ts:31](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L31)
+Defined in: [src/gfx/graphics/webGpu/Context3D.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L31)
 
 Canvas backing-store width in physical pixels (clientWidth * pixelRatio).
 
@@ -102,7 +102,7 @@ Canvas backing-store width in physical pixels (clientWidth * pixelRatio).
 
 > **windowHeight**: `number`
 
-Defined in: [src/gfx/graphics/webGpu/Context3D.ts:33](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L33)
+Defined in: [src/gfx/graphics/webGpu/Context3D.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L33)
 
 Canvas backing-store height in physical pixels (clientHeight * pixelRatio).
 
@@ -112,7 +112,7 @@ Canvas backing-store height in physical pixels (clientHeight * pixelRatio).
 
 > **canvasConfig**: [`CanvasConfig`](../type-aliases/CanvasConfig.md)
 
-Defined in: [src/gfx/graphics/webGpu/Context3D.ts:35](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L35)
+Defined in: [src/gfx/graphics/webGpu/Context3D.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L35)
 
 The canvas/configuration options supplied to `init()`.
 
@@ -122,7 +122,7 @@ The canvas/configuration options supplied to `init()`.
 
 > **adapter**: `GPUAdapter`
 
-Defined in: [src/gfx/graphics/webGpu/Context3D.ts:42](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L42)
+Defined in: [src/gfx/graphics/webGpu/Context3D.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L42)
 
 The GPUAdapter this context requested during `init()`.
 
@@ -132,7 +132,7 @@ The GPUAdapter this context requested during `init()`.
 
 > **device**: `GPUDevice`
 
-Defined in: [src/gfx/graphics/webGpu/Context3D.ts:44](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L44)
+Defined in: [src/gfx/graphics/webGpu/Context3D.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L44)
 
 The GPUDevice owned by this context; the root handle for all GPU work.
 
@@ -142,7 +142,7 @@ The GPUDevice owned by this context; the root handle for all GPU work.
 
 > **presentationFormat**: `GPUTextureFormat`
 
-Defined in: [src/gfx/graphics/webGpu/Context3D.ts:48](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L48)
+Defined in: [src/gfx/graphics/webGpu/Context3D.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L48)
 
 The format pipelines target — the sRGB view variant, so the
  GPU does the linear→sRGB encode at write time. Must match the
@@ -154,7 +154,7 @@ The format pipelines target — the sRGB view variant, so the
 
 > **engine**: [`Engine3D`](Engine3D.md) = `null`
 
-Defined in: [src/gfx/graphics/webGpu/Context3D.ts:58](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L58)
+Defined in: [src/gfx/graphics/webGpu/Context3D.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L58)
 
 Back-reference to the owning Engine3D. Populated by `new Engine3D()`
  immediately after constructing this Context3D. Used by per-context
@@ -167,7 +167,7 @@ Back-reference to the owning Engine3D. Populated by `new Engine3D()`
 
 > **lost**: `boolean` = `false`
 
-Defined in: [src/gfx/graphics/webGpu/Context3D.ts:66](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L66)
+Defined in: [src/gfx/graphics/webGpu/Context3D.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L66)
 
 Set to true when the underlying GPUDevice has been lost (driver reset,
  device unplug, tab/iframe suspended, explicit `device.destroy()`...).
@@ -182,7 +182,7 @@ Set to true when the underlying GPUDevice has been lost (driver reset,
 
 > **lostInfo**: `GPUDeviceLostInfo` = `null`
 
-Defined in: [src/gfx/graphics/webGpu/Context3D.ts:68](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L68)
+Defined in: [src/gfx/graphics/webGpu/Context3D.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L68)
 
 The `GPUDeviceLostInfo` captured when the device was lost, else null.
 
@@ -194,7 +194,7 @@ The `GPUDeviceLostInfo` captured when the device was lost, else null.
 
 > **get** **gpuContext**(): [`GPUContextInstance`](GPUContextInstance.md)
 
-Defined in: [src/gfx/graphics/webGpu/Context3D.ts:85](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L85)
+Defined in: [src/gfx/graphics/webGpu/Context3D.ts:85](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L85)
 
 The per-Context3D GPU command/pipeline state, created lazily on first
 access. Requires GPUContext.ts to have been imported so its factory is
@@ -214,7 +214,7 @@ the GPUContextInstance bound to this Context3D.
 
 > **get** **pixelRatio**(): `number`
 
-Defined in: [src/gfx/graphics/webGpu/Context3D.ts:94](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L94)
+Defined in: [src/gfx/graphics/webGpu/Context3D.ts:94](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L94)
 
 Device pixel ratio used to scale the canvas backing store (clamped to 2.0).
 
@@ -228,7 +228,7 @@ Device pixel ratio used to scale the canvas backing store (clamped to 2.0).
 
 > **dispatchEvent**(`event`): `void`
 
-Defined in: [src/event/CEventDispatcher.ts:24](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L24)
+Defined in: [src/event/CEventDispatcher.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L24)
 
 Dispatch an event to all registered objects with a specific type of listener.
 
@@ -252,7 +252,7 @@ Dispatch an event to all registered objects with a specific type of listener.
 
 > **destroy**(): `void`
 
-Defined in: [src/event/CEventDispatcher.ts:54](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L54)
+Defined in: [src/event/CEventDispatcher.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L54)
 
 release all registered event.
 
@@ -270,7 +270,7 @@ release all registered event.
 
 > **addEventListener**(`type`, `callback`, `thisObject`, `param?`, `priority?`): `number`
 
-Defined in: [src/event/CEventDispatcher.ts:78](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L78)
+Defined in: [src/event/CEventDispatcher.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L78)
 
 register an event listener to event distancher.
 
@@ -324,7 +324,7 @@ Returns register event id
 
 > **removeEventListener**(`type`, `callback`, `thisObject`): `void`
 
-Defined in: [src/event/CEventDispatcher.ts:112](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L112)
+Defined in: [src/event/CEventDispatcher.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L112)
 
 Remove Event Listening
 
@@ -362,7 +362,7 @@ Remove Event Listening
 
 > **removeEventListenerAt**(`id`): `boolean`
 
-Defined in: [src/event/CEventDispatcher.ts:132](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L132)
+Defined in: [src/event/CEventDispatcher.ts:132](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L132)
 
 Remove an event Listening with id
 
@@ -386,7 +386,7 @@ Remove an event Listening with id
 
 > **removeAllEventListener**(`eventType?`): `void`
 
-Defined in: [src/event/CEventDispatcher.ts:152](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L152)
+Defined in: [src/event/CEventDispatcher.ts:152](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L152)
 
 Specify a event type to remove all related event listeners
 eventType event type, set null to remove all event listeners
@@ -411,7 +411,7 @@ eventType event type, set null to remove all event listeners
 
 > **containEventListener**(`type`): `boolean`
 
-Defined in: [src/event/CEventDispatcher.ts:184](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L184)
+Defined in: [src/event/CEventDispatcher.ts:184](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L184)
 
 whether the target presence of a listener with event type.
 
@@ -439,7 +439,7 @@ Returns a boolean.
 
 > **hasEventListener**(`type`, `callback?`, `thisObject?`): `boolean`
 
-Defined in: [src/event/CEventDispatcher.ts:197](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L197)
+Defined in: [src/event/CEventDispatcher.ts:197](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L197)
 
 whether the target presence of a listener with event type. it associate more registration parameters.
 
@@ -479,7 +479,7 @@ Returns a boolean.
 
 > **init**(`canvasConfig?`): `Promise`\<`boolean`\>
 
-Defined in: [src/gfx/graphics/webGpu/Context3D.ts:106](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L106)
+Defined in: [src/gfx/graphics/webGpu/Context3D.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L106)
 
 Initialize the WebGPU adapter, device, canvas and swapchain for this
 context, wire up uncaptured-error and device-lost handlers, and start
@@ -507,7 +507,7 @@ a promise resolving to true once initialization completes.
 
 > **dispose**(): `void`
 
-Defined in: [src/gfx/graphics/webGpu/Context3D.ts:279](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L279)
+Defined in: [src/gfx/graphics/webGpu/Context3D.ts:286](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L286)
 
 Release everything this context owns: the ResizeObserver, the
 GPUCanvasContext configuration, the GPUDevice (frees the adapter
@@ -529,7 +529,7 @@ already skips lost contexts.
 
 > **updateSize**(): `void`
 
-Defined in: [src/gfx/graphics/webGpu/Context3D.ts:310](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L310)
+Defined in: [src/gfx/graphics/webGpu/Context3D.ts:317](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L317)
 
 Recompute the pixel ratio and canvas backing-store size from the
 current client size. When the size changes, updates `windowWidth`,
@@ -545,7 +545,7 @@ current client size. When the size changes, updates `windowWidth`,
 
 > **cache**\<`T`\>(`key`, `factory`): `T`
 
-Defined in: [src/gfx/graphics/webGpu/Context3D.ts:337](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L337)
+Defined in: [src/gfx/graphics/webGpu/Context3D.ts:344](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L344)
 
 #### Type Parameters
 

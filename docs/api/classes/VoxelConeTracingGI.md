@@ -4,7 +4,7 @@
 
 # Class: VoxelConeTracingGI
 
-Defined in: [src/gfx/renderJob/gi/VoxelConeTracingGI.ts:28](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/gi/VoxelConeTracingGI.ts#L28)
+Defined in: [src/gfx/renderJob/gi/VoxelConeTracingGI.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/gi/VoxelConeTracingGI.ts#L28)
 
 Voxel Cone Tracing GI (skeleton).
 
@@ -34,7 +34,7 @@ Compared to DDGI (already implemented):
 
 > **new VoxelConeTracingGI**(`ctx`, `resolution?`): `VoxelConeTracingGI`
 
-Defined in: [src/gfx/renderJob/gi/VoxelConeTracingGI.ts:32](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/gi/VoxelConeTracingGI.ts#L32)
+Defined in: [src/gfx/renderJob/gi/VoxelConeTracingGI.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/gi/VoxelConeTracingGI.ts#L32)
 
 #### Parameters
 
@@ -56,7 +56,7 @@ Defined in: [src/gfx/renderJob/gi/VoxelConeTracingGI.ts:32](https://github.com/o
 
 > **init**(): `void`
 
-Defined in: [src/gfx/renderJob/gi/VoxelConeTracingGI.ts:37](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/gi/VoxelConeTracingGI.ts#L37)
+Defined in: [src/gfx/renderJob/gi/VoxelConeTracingGI.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/gi/VoxelConeTracingGI.ts#L37)
 
 #### Returns
 
@@ -68,7 +68,7 @@ Defined in: [src/gfx/renderJob/gi/VoxelConeTracingGI.ts:37](https://github.com/o
 
 > **dispose**(): `void`
 
-Defined in: [src/gfx/renderJob/gi/VoxelConeTracingGI.ts:49](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/gi/VoxelConeTracingGI.ts#L49)
+Defined in: [src/gfx/renderJob/gi/VoxelConeTracingGI.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/gi/VoxelConeTracingGI.ts#L49)
 
 #### Returns
 

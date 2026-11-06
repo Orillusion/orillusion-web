@@ -6,7 +6,7 @@
 
 > **SkylineSetting** = `object`
 
-Defined in: [src/setting/post/SkylineSetting.ts:7](https://github.com/orillusion/orillusion/blob/main/src/setting/post/SkylineSetting.ts#L7)
+Defined in: [src/setting/post/SkylineSetting.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/SkylineSetting.ts#L7)
 
 Skyline Setting
 
@@ -16,7 +16,7 @@ Skyline Setting
 
 > **enable**: `boolean`
 
-Defined in: [src/setting/post/SkylineSetting.ts:11](https://github.com/orillusion/orillusion/blob/main/src/setting/post/SkylineSetting.ts#L11)
+Defined in: [src/setting/post/SkylineSetting.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/SkylineSetting.ts#L11)
 
 Enable skyline post effect
 
@@ -26,7 +26,7 @@ Enable skyline post effect
 
 > **lineColor**: [`Color`](../classes/Color.md)
 
-Defined in: [src/setting/post/SkylineSetting.ts:15](https://github.com/orillusion/orillusion/blob/main/src/setting/post/SkylineSetting.ts#L15)
+Defined in: [src/setting/post/SkylineSetting.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/SkylineSetting.ts#L15)
 
 Skyline color
 
@@ -36,7 +36,7 @@ Skyline color
 
 > **lineWidth**: `number`
 
-Defined in: [src/setting/post/SkylineSetting.ts:19](https://github.com/orillusion/orillusion/blob/main/src/setting/post/SkylineSetting.ts#L19)
+Defined in: [src/setting/post/SkylineSetting.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/SkylineSetting.ts#L19)
 
 Skyline pixel width
 
@@ -46,7 +46,7 @@ Skyline pixel width
 
 > **depthThreshold**: `number`
 
-Defined in: [src/setting/post/SkylineSetting.ts:23](https://github.com/orillusion/orillusion/blob/main/src/setting/post/SkylineSetting.ts#L23)
+Defined in: [src/setting/post/SkylineSetting.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/SkylineSetting.ts#L23)
 
 Depth threshold for edge detection
 
@@ -56,6 +56,6 @@ Depth threshold for edge detection
 
 > **strength**: `number`
 
-Defined in: [src/setting/post/SkylineSetting.ts:27](https://github.com/orillusion/orillusion/blob/main/src/setting/post/SkylineSetting.ts#L27)
+Defined in: [src/setting/post/SkylineSetting.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/SkylineSetting.ts#L27)
 
 Strength of the skyline effect

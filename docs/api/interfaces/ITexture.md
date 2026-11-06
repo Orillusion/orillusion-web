@@ -4,7 +4,7 @@
 
 # Interface: ITexture
 
-Defined in: [src/gfx/graphics/webGpu/core/texture/ITexture.ts:1](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/ITexture.ts#L1)
+Defined in: [src/gfx/graphics/webGpu/core/texture/ITexture.ts:1](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/ITexture.ts#L1)
 
 ## Methods
 
@@ -12,7 +12,7 @@ Defined in: [src/gfx/graphics/webGpu/core/texture/ITexture.ts:1](https://github.
 
 > **internalCreateBindingLayoutDesc**(): `any`
 
-Defined in: [src/gfx/graphics/webGpu/core/texture/ITexture.ts:5](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/ITexture.ts#L5)
+Defined in: [src/gfx/graphics/webGpu/core/texture/ITexture.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/ITexture.ts#L5)
 
 create binding layout description
 
@@ -26,7 +26,7 @@ create binding layout description
 
 > **internalCreateTexture**(): `any`
 
-Defined in: [src/gfx/graphics/webGpu/core/texture/ITexture.ts:10](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/ITexture.ts#L10)
+Defined in: [src/gfx/graphics/webGpu/core/texture/ITexture.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/ITexture.ts#L10)
 
 create texture instance
 
@@ -40,7 +40,7 @@ create texture instance
 
 > **internalCreateView**(): `any`
 
-Defined in: [src/gfx/graphics/webGpu/core/texture/ITexture.ts:15](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/ITexture.ts#L15)
+Defined in: [src/gfx/graphics/webGpu/core/texture/ITexture.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/ITexture.ts#L15)
 
 create GPU View
 
@@ -54,7 +54,7 @@ create GPU View
 
 > **internalCreateSampler**(): `any`
 
-Defined in: [src/gfx/graphics/webGpu/core/texture/ITexture.ts:20](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/ITexture.ts#L20)
+Defined in: [src/gfx/graphics/webGpu/core/texture/ITexture.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/texture/ITexture.ts#L20)
 
 create CPU Sample
 

@@ -4,7 +4,7 @@
 
 # Interface: RTDepthAttachmentDesc
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:83](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L83)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L83)
 
 Depth (+ optional stencil) attachment description.
 
@@ -14,7 +14,7 @@ Depth (+ optional stencil) attachment description.
 
 > **format**: `GPUTextureFormat`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:84](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L84)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L84)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:84](https://gith
 
 > `optional` **depthClearValue?**: `number`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:86](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L86)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L86)
 
 Default 1.0.
 
@@ -32,7 +32,7 @@ Default 1.0.
 
 > `optional` **depthStoreOp?**: `GPUStoreOp`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:88](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L88)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:88](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L88)
 
 Default `'store'`.
 
@@ -42,7 +42,7 @@ Default `'store'`.
 
 > `optional` **stencilLoadOp?**: `GPULoadOp`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:89](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L89)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L89)
 
 ***
 
@@ -50,7 +50,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:89](https://gith
 
 > `optional` **stencilStoreOp?**: `GPUStoreOp`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:90](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L90)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L90)
 
 ***
 
@@ -58,4 +58,4 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:90](https://gith
 
 > `optional` **texture?**: `RenderTexture`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:91](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L91)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:91](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L91)

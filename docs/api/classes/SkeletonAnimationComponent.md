@@ -4,7 +4,7 @@
 
 # Class: SkeletonAnimationComponent
 
-Defined in: [src/components/SkeletonAnimationComponent.ts:16](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L16)
+Defined in: [src/components/SkeletonAnimationComponent.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L16)
 
 skeleton animation
 
@@ -18,7 +18,7 @@ skeleton animation
 
 > **new SkeletonAnimationComponent**(): `SkeletonAnimationComponent`
 
-Defined in: [src/components/SkeletonAnimationComponent.ts:37](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L37)
+Defined in: [src/components/SkeletonAnimationComponent.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L37)
 
 #### Returns
 
@@ -34,7 +34,7 @@ Defined in: [src/components/SkeletonAnimationComponent.ts:37](https://github.com
 
 > **object3D**: [`Object3D`](Object3D.md) = `null`
 
-Defined in: [src/components/ComponentBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L29)
+Defined in: [src/components/ComponentBase.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L29)
 
 owner object3D
 
@@ -48,7 +48,7 @@ owner object3D
 
 > **isDestroyed**: `boolean` = `false`
 
-Defined in: [src/components/ComponentBase.ts:77](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L77)
+Defined in: [src/components/ComponentBase.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L77)
 
 #### Inherited from
 
@@ -60,7 +60,7 @@ Defined in: [src/components/ComponentBase.ts:77](https://github.com/orillusion/o
 
 > **isPlaying**: `boolean` = `true`
 
-Defined in: [src/components/SkeletonAnimationComponent.ts:20](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L20)
+Defined in: [src/components/SkeletonAnimationComponent.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L20)
 
 Whether it is playing
 
@@ -70,7 +70,7 @@ Whether it is playing
 
 > **timeScale**: `number` = `1.0`
 
-Defined in: [src/components/SkeletonAnimationComponent.ts:25](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L25)
+Defined in: [src/components/SkeletonAnimationComponent.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L25)
 
 Global animation time scaling
 
@@ -82,7 +82,7 @@ Global animation time scaling
 
 > **get** **visibleLayer**(): `number`
 
-Defined in: [src/components/ComponentBase.ts:46](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L46)
+Defined in: [src/components/ComponentBase.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L46)
 
 Composition-layer membership bitmask. The pass / camera /
 collector filters via
@@ -103,7 +103,7 @@ into composition layers.
 
 > **set** **visibleLayer**(`value`): `void`
 
-Defined in: [src/components/ComponentBase.ts:50](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L50)
+Defined in: [src/components/ComponentBase.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L50)
 
 ##### Parameters
 
@@ -127,7 +127,7 @@ Defined in: [src/components/ComponentBase.ts:50](https://github.com/orillusion/o
 
 > **get** **eventDispatcher**(): [`CEventDispatcher`](CEventDispatcher.md)
 
-Defined in: [src/components/ComponentBase.ts:63](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L63)
+Defined in: [src/components/ComponentBase.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L63)
 
 ##### Returns
 
@@ -137,7 +137,7 @@ Defined in: [src/components/ComponentBase.ts:63](https://github.com/orillusion/o
 
 > **set** **eventDispatcher**(`value`): `void`
 
-Defined in: [src/components/ComponentBase.ts:68](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
+Defined in: [src/components/ComponentBase.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
 
 ##### Parameters
 
@@ -161,7 +161,7 @@ Defined in: [src/components/ComponentBase.ts:68](https://github.com/orillusion/o
 
 > **get** **isStart**(): `boolean`
 
-Defined in: [src/components/ComponentBase.ts:79](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L79)
+Defined in: [src/components/ComponentBase.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L79)
 
 ##### Returns
 
@@ -179,7 +179,7 @@ Defined in: [src/components/ComponentBase.ts:79](https://github.com/orillusion/o
 
 > **get** **transform**(): [`Transform`](Transform.md)
 
-Defined in: [src/components/ComponentBase.ts:89](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L89)
+Defined in: [src/components/ComponentBase.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L89)
 
 Return the Transform component attached to the Object3D.
 Null before the component is attached — `addComponent` assigns
@@ -202,7 +202,7 @@ can probe safely via `this.transform?.`.
 
 > **get** **enable**(): `boolean`
 
-Defined in: [src/components/ComponentBase.ts:113](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
+Defined in: [src/components/ComponentBase.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
@@ -214,7 +214,7 @@ Enable/disable components. The enabled components can be updated, while the disa
 
 > **set** **enable**(`value`): `void`
 
-Defined in: [src/components/ComponentBase.ts:96](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L96)
+Defined in: [src/components/ComponentBase.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L96)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
@@ -240,7 +240,7 @@ Enable/disable components. The enabled components can be updated, while the disa
 
 > **get** **currName**(): `string`
 
-Defined in: [src/components/SkeletonAnimationComponent.ts:48](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L48)
+Defined in: [src/components/SkeletonAnimationComponent.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L48)
 
 The name of the currently playing animation
 
@@ -256,7 +256,7 @@ The name of the currently playing animation
 
 > **get** **skeleton**(): `Skeleton`
 
-Defined in: [src/components/SkeletonAnimationComponent.ts:70](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L70)
+Defined in: [src/components/SkeletonAnimationComponent.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L70)
 
 Skeleton data
 
@@ -268,7 +268,7 @@ Skeleton data
 
 > **set** **skeleton**(`value`): `void`
 
-Defined in: [src/components/SkeletonAnimationComponent.ts:58](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L58)
+Defined in: [src/components/SkeletonAnimationComponent.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L58)
 
 Skeleton data
 
@@ -290,7 +290,7 @@ Skeleton data
 
 > **get** **finalSkeletonPose**(): [`SkeletonPose`](SkeletonPose.md)
 
-Defined in: [src/components/SkeletonAnimationComponent.ts:77](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L77)
+Defined in: [src/components/SkeletonAnimationComponent.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L77)
 
 Current final skeleton posture data
 
@@ -306,7 +306,7 @@ Current final skeleton posture data
 
 > **get** **jointMatrixIndexTableBuffer**(): [`StorageGPUBuffer`](StorageGPUBuffer.md)
 
-Defined in: [src/components/SkeletonAnimationComponent.ts:84](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L84)
+Defined in: [src/components/SkeletonAnimationComponent.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L84)
 
 Bone matrix index table data
 
@@ -320,7 +320,7 @@ Bone matrix index table data
 
 > **init**(`param?`): `void`
 
-Defined in: [src/components/ComponentBase.ts:161](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L161)
+Defined in: [src/components/ComponentBase.ts:161](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L161)
 
 #### Parameters
 
@@ -342,7 +342,7 @@ Defined in: [src/components/ComponentBase.ts:161](https://github.com/orillusion/
 
 > **stop**(): `void`
 
-Defined in: [src/components/ComponentBase.ts:163](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L163)
+Defined in: [src/components/ComponentBase.ts:163](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L163)
 
 #### Returns
 
@@ -358,7 +358,7 @@ Defined in: [src/components/ComponentBase.ts:163](https://github.com/orillusion/
 
 > `optional` **onEnable**(`view?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:164](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L164)
+Defined in: [src/components/ComponentBase.ts:164](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L164)
 
 #### Parameters
 
@@ -380,7 +380,7 @@ Defined in: [src/components/ComponentBase.ts:164](https://github.com/orillusion/
 
 > `optional` **onDisable**(`view?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:165](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L165)
+Defined in: [src/components/ComponentBase.ts:165](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L165)
 
 #### Parameters
 
@@ -402,7 +402,7 @@ Defined in: [src/components/ComponentBase.ts:165](https://github.com/orillusion/
 
 > `optional` **onLateUpdate**(`view?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:167](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L167)
+Defined in: [src/components/ComponentBase.ts:167](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L167)
 
 #### Parameters
 
@@ -424,7 +424,7 @@ Defined in: [src/components/ComponentBase.ts:167](https://github.com/orillusion/
 
 > `optional` **onBeforeUpdate**(`view?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:168](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L168)
+Defined in: [src/components/ComponentBase.ts:168](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L168)
 
 #### Parameters
 
@@ -446,7 +446,7 @@ Defined in: [src/components/ComponentBase.ts:168](https://github.com/orillusion/
 
 > `optional` **onCompute**(`view?`, `command?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:169](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L169)
+Defined in: [src/components/ComponentBase.ts:169](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L169)
 
 #### Parameters
 
@@ -472,7 +472,7 @@ Defined in: [src/components/ComponentBase.ts:169](https://github.com/orillusion/
 
 > `optional` **onGraphic**(`view?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:170](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L170)
+Defined in: [src/components/ComponentBase.ts:170](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L170)
 
 #### Parameters
 
@@ -494,7 +494,7 @@ Defined in: [src/components/ComponentBase.ts:170](https://github.com/orillusion/
 
 > `optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:171](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L171)
+Defined in: [src/components/ComponentBase.ts:171](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L171)
 
 #### Parameters
 
@@ -520,7 +520,7 @@ Defined in: [src/components/ComponentBase.ts:171](https://github.com/orillusion/
 
 > `optional` **onAddChild**(`child`): `any`
 
-Defined in: [src/components/ComponentBase.ts:172](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L172)
+Defined in: [src/components/ComponentBase.ts:172](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L172)
 
 #### Parameters
 
@@ -542,7 +542,7 @@ Defined in: [src/components/ComponentBase.ts:172](https://github.com/orillusion/
 
 > `optional` **onRemoveChild**(`child`): `any`
 
-Defined in: [src/components/ComponentBase.ts:173](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L173)
+Defined in: [src/components/ComponentBase.ts:173](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L173)
 
 #### Parameters
 
@@ -564,7 +564,7 @@ Defined in: [src/components/ComponentBase.ts:173](https://github.com/orillusion/
 
 > **copyComponent**(`from`): `this`
 
-Defined in: [src/components/ComponentBase.ts:182](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L182)
+Defined in: [src/components/ComponentBase.ts:182](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L182)
 
 #### Parameters
 
@@ -586,7 +586,7 @@ Defined in: [src/components/ComponentBase.ts:182](https://github.com/orillusion/
 
 > **beforeDestroy**(`force?`): `void`
 
-Defined in: [src/components/ComponentBase.ts:249](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L249)
+Defined in: [src/components/ComponentBase.ts:249](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L249)
 
 before release this component, object refrences are not be set null now.
 
@@ -610,7 +610,7 @@ before release this component, object refrences are not be set null now.
 
 > **destroy**(`force?`): `void`
 
-Defined in: [src/components/ComponentBase.ts:256](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L256)
+Defined in: [src/components/ComponentBase.ts:256](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L256)
 
 release this component
 
@@ -634,7 +634,7 @@ release this component
 
 > **start**(): `void`
 
-Defined in: [src/components/SkeletonAnimationComponent.ts:41](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L41)
+Defined in: [src/components/SkeletonAnimationComponent.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L41)
 
 #### Returns
 
@@ -650,7 +650,7 @@ Defined in: [src/components/SkeletonAnimationComponent.ts:41](https://github.com
 
 > **getJointIndexTable**(`skinJointsName`): `number`[]
 
-Defined in: [src/components/SkeletonAnimationComponent.ts:93](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L93)
+Defined in: [src/components/SkeletonAnimationComponent.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L93)
 
 Get the bone index information by the bone name
 
@@ -674,7 +674,7 @@ bone index
 
 > **addAnimationClip**(`clip`): `void`
 
-Defined in: [src/components/SkeletonAnimationComponent.ts:107](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L107)
+Defined in: [src/components/SkeletonAnimationComponent.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L107)
 
 Add a skeleton animation clip
 
@@ -696,7 +696,7 @@ Skeletal animation clip
 
 > **getAnimationClip**(`name`): `SkeletonAnimationClip`
 
-Defined in: [src/components/SkeletonAnimationComponent.ts:124](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L124)
+Defined in: [src/components/SkeletonAnimationComponent.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L124)
 
 Gets the animation clip data object with the specified name
 
@@ -720,7 +720,7 @@ Animation clip data object
 
 > **getAnimationClips**(): `SkeletonAnimationClip`[]
 
-Defined in: [src/components/SkeletonAnimationComponent.ts:136](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L136)
+Defined in: [src/components/SkeletonAnimationComponent.ts:136](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L136)
 
 Gets all animation clip data objects
 
@@ -736,7 +736,7 @@ Animation clip data object
 
 > **getAnimationClipState**(`name`): `SkeletonAnimationClipState`
 
-Defined in: [src/components/SkeletonAnimationComponent.ts:145](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L145)
+Defined in: [src/components/SkeletonAnimationComponent.ts:145](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L145)
 
 Gets the animation clip state object with the specified name
 
@@ -760,7 +760,7 @@ Animation clip state object
 
 > **getAnimationClipStates**(): `Map`\<`string`, `SkeletonAnimationClipState`\>
 
-Defined in: [src/components/SkeletonAnimationComponent.ts:156](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L156)
+Defined in: [src/components/SkeletonAnimationComponent.ts:156](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L156)
 
 Gets all animation clip state objects
 
@@ -776,7 +776,7 @@ Animation clip state object
 
 > **pause**(): `void`
 
-Defined in: [src/components/SkeletonAnimationComponent.ts:163](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L163)
+Defined in: [src/components/SkeletonAnimationComponent.ts:163](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L163)
 
 stop playing
 
@@ -790,7 +790,7 @@ stop playing
 
 > **resume**(): `void`
 
-Defined in: [src/components/SkeletonAnimationComponent.ts:170](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L170)
+Defined in: [src/components/SkeletonAnimationComponent.ts:170](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L170)
 
 Resume playback
 
@@ -804,7 +804,7 @@ Resume playback
 
 > **play**(`animName`, `speed?`, `reset?`): `boolean`
 
-Defined in: [src/components/SkeletonAnimationComponent.ts:181](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L181)
+Defined in: [src/components/SkeletonAnimationComponent.ts:181](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L181)
 
 Play the specified animation
 
@@ -838,7 +838,7 @@ When true, each play starts with the first frame
 
 > **crossFade**(`animName`, `crossTime`): `void`
 
-Defined in: [src/components/SkeletonAnimationComponent.ts:211](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L211)
+Defined in: [src/components/SkeletonAnimationComponent.ts:211](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L211)
 
 Fades the current animation and fades into another animation state for a specified time.
 
@@ -866,7 +866,7 @@ The time of transition, in seconds.
 
 > **setAnimIsLoop**(`animName`, `isLoop`): `void`
 
-Defined in: [src/components/SkeletonAnimationComponent.ts:251](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L251)
+Defined in: [src/components/SkeletonAnimationComponent.ts:251](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L251)
 
 Set the animation loop
 
@@ -894,7 +894,7 @@ If true, loop the animation
 
 > **addJointBind**(`jointName`, `obj`): `void`
 
-Defined in: [src/components/SkeletonAnimationComponent.ts:262](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L262)
+Defined in: [src/components/SkeletonAnimationComponent.ts:262](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L262)
 
 Add joint bindings to the object
 
@@ -922,7 +922,7 @@ Object of binding
 
 > **removeJointBind**(`obj`): `void`
 
-Defined in: [src/components/SkeletonAnimationComponent.ts:274](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L274)
+Defined in: [src/components/SkeletonAnimationComponent.ts:274](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L274)
 
 Removes the joint binding of the specified object
 
@@ -944,7 +944,7 @@ Object of binding
 
 > **cloneTo**(`obj`): `void`
 
-Defined in: [src/components/SkeletonAnimationComponent.ts:322](https://github.com/orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L322)
+Defined in: [src/components/SkeletonAnimationComponent.ts:322](https://github.com/Orillusion/orillusion/blob/main/src/components/SkeletonAnimationComponent.ts#L322)
 
 Clones the current component to the specified object
 

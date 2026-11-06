@@ -6,7 +6,7 @@
 
 > **GPUStencilOperation**: `object`
 
-Defined in: [src/gfx/graphics/webGpu/WebGPUConst.ts:47](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/WebGPUConst.ts#L47)
+Defined in: [src/gfx/graphics/webGpu/WebGPUConst.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/WebGPUConst.ts#L47)
 
 Stencil operation enumeration
 

@@ -4,7 +4,7 @@
 
 # Enumeration: CameraType
 
-Defined in: [src/core/CameraType.ts:1](https://github.com/orillusion/orillusion/blob/main/src/core/CameraType.ts#L1)
+Defined in: [src/core/CameraType.ts:1](https://github.com/Orillusion/orillusion/blob/main/src/core/CameraType.ts#L1)
 
 ## Enumeration Members
 
@@ -12,7 +12,7 @@ Defined in: [src/core/CameraType.ts:1](https://github.com/orillusion/orillusion/
 
 > **ortho**: `0`
 
-Defined in: [src/core/CameraType.ts:2](https://github.com/orillusion/orillusion/blob/main/src/core/CameraType.ts#L2)
+Defined in: [src/core/CameraType.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/core/CameraType.ts#L2)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/core/CameraType.ts:2](https://github.com/orillusion/orillusion/
 
 > **perspective**: `1`
 
-Defined in: [src/core/CameraType.ts:3](https://github.com/orillusion/orillusion/blob/main/src/core/CameraType.ts#L3)
+Defined in: [src/core/CameraType.ts:3](https://github.com/Orillusion/orillusion/blob/main/src/core/CameraType.ts#L3)
 
 ***
 
@@ -28,4 +28,4 @@ Defined in: [src/core/CameraType.ts:3](https://github.com/orillusion/orillusion/
 
 > **shadow**: `2`
 
-Defined in: [src/core/CameraType.ts:4](https://github.com/orillusion/orillusion/blob/main/src/core/CameraType.ts#L4)
+Defined in: [src/core/CameraType.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/core/CameraType.ts#L4)

@@ -6,7 +6,7 @@
 
 > **VertexAttributeData** = `object`
 
-Defined in: [src/core/geometry/VertexAttributeData.ts:3](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/VertexAttributeData.ts#L3)
+Defined in: [src/core/geometry/VertexAttributeData.ts:3](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/VertexAttributeData.ts#L3)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [src/core/geometry/VertexAttributeData.ts:3](https://github.com/oril
 
 > **attribute**: `string`
 
-Defined in: [src/core/geometry/VertexAttributeData.ts:4](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/VertexAttributeData.ts#L4)
+Defined in: [src/core/geometry/VertexAttributeData.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/VertexAttributeData.ts#L4)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [src/core/geometry/VertexAttributeData.ts:4](https://github.com/oril
 
 > **data**: [`ArrayBufferData`](ArrayBufferData.md)
 
-Defined in: [src/core/geometry/VertexAttributeData.ts:5](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/VertexAttributeData.ts#L5)
+Defined in: [src/core/geometry/VertexAttributeData.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/VertexAttributeData.ts#L5)

@@ -4,7 +4,7 @@
 
 # Class: Retargeter
 
-Defined in: [src/components/anim/retarget/Retargeter.ts:130](https://github.com/orillusion/orillusion/blob/main/src/components/anim/retarget/Retargeter.ts#L130)
+Defined in: [src/components/anim/retarget/Retargeter.ts:130](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/retarget/Retargeter.ts#L130)
 
 Animation retargeting utility — copies per-bone rotations (and the
 hip's translation, optionally) from a source AnimatorComponent to a
@@ -76,7 +76,7 @@ Bone resolution between the two rigs:
 
 > **new Retargeter**(`source`, `target`, `cfg`): `Retargeter`
 
-Defined in: [src/components/anim/retarget/Retargeter.ts:179](https://github.com/orillusion/orillusion/blob/main/src/components/anim/retarget/Retargeter.ts#L179)
+Defined in: [src/components/anim/retarget/Retargeter.ts:179](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/retarget/Retargeter.ts#L179)
 
 #### Parameters
 
@@ -104,7 +104,7 @@ Defined in: [src/components/anim/retarget/Retargeter.ts:179](https://github.com/
 
 > **get** **resolvedMapping**(): readonly \[`string`, `string`\][]
 
-Defined in: [src/components/anim/retarget/Retargeter.ts:343](https://github.com/orillusion/orillusion/blob/main/src/components/anim/retarget/Retargeter.ts#L343)
+Defined in: [src/components/anim/retarget/Retargeter.ts:343](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/retarget/Retargeter.ts#L343)
 
 ##### Returns
 
@@ -116,7 +116,7 @@ readonly \[`string`, `string`\][]
 
 > **buildMapping**(): `void`
 
-Defined in: [src/components/anim/retarget/Retargeter.ts:204](https://github.com/orillusion/orillusion/blob/main/src/components/anim/retarget/Retargeter.ts#L204)
+Defined in: [src/components/anim/retarget/Retargeter.ts:204](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/retarget/Retargeter.ts#L204)
 
 Build the source→target bone mapping + capture each rig's
 Character (root) rotation, target's per-bone bind worldQ, and
@@ -134,7 +134,7 @@ changes.
 
 > **apply**(): `void`
 
-Defined in: [src/components/anim/retarget/Retargeter.ts:352](https://github.com/orillusion/orillusion/blob/main/src/components/anim/retarget/Retargeter.ts#L352)
+Defined in: [src/components/anim/retarget/Retargeter.ts:352](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/retarget/Retargeter.ts#L352)
 
 Per-frame retarget. Call from your render loop AFTER the source
 Animator's own update has run.

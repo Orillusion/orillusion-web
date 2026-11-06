@@ -4,7 +4,7 @@
 
 # Class: TextureScaleCompute
 
-Defined in: [src/gfx/generate/convert/TextureScaleCompute.ts:8](https://github.com/orillusion/orillusion/blob/main/src/gfx/generate/convert/TextureScaleCompute.ts#L8)
+Defined in: [src/gfx/generate/convert/TextureScaleCompute.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/gfx/generate/convert/TextureScaleCompute.ts#L8)
 
 Builds a compute shader that scales/compresses a set of input textures into output textures.
 
@@ -24,7 +24,7 @@ Builds a compute shader that scales/compresses a set of input textures into outp
 
 > **computeShader**: `ComputeShader`
 
-Defined in: [src/gfx/generate/convert/TextureScaleCompute.ts:13](https://github.com/orillusion/orillusion/blob/main/src/gfx/generate/convert/TextureScaleCompute.ts#L13)
+Defined in: [src/gfx/generate/convert/TextureScaleCompute.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/gfx/generate/convert/TextureScaleCompute.ts#L13)
 
 The underlying compute shader created from the input/output textures.
 
@@ -34,7 +34,7 @@ The underlying compute shader created from the input/output textures.
 
 > **setInputes**(`colorMap`, `inputs`, `outputs`): `void`
 
-Defined in: [src/gfx/generate/convert/TextureScaleCompute.ts:21](https://github.com/orillusion/orillusion/blob/main/src/gfx/generate/convert/TextureScaleCompute.ts#L21)
+Defined in: [src/gfx/generate/convert/TextureScaleCompute.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/gfx/generate/convert/TextureScaleCompute.ts#L21)
 
 Configure the compute shader inputs and outputs.
 

@@ -4,7 +4,7 @@
 
 # Class: ShaderUtil
 
-Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:32](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L32)
+Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L32)
 
 Holds the per-context caches of compiled GPU shader modules and render shader passes.
 
@@ -24,7 +24,7 @@ Holds the per-context caches of compiled GPU shader modules and render shader pa
 
 > `static` **renderShaderModulePool**(`ctx`): `Map`\<`string`, `GPUShaderModule`\>
 
-Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:38](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L38)
+Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L38)
 
 Per-Context3D shader state accessors. Device-bound GPU shader modules
 are keyed per-device; the RenderShaderPass cache is also per-device
@@ -46,7 +46,7 @@ are keyed per-device; the RenderShaderPass cache is also per-device
 
 > `static` **renderShader**(`ctx`): `Map`\<`string`, [`RenderShaderPass`](RenderShaderPass.md)\>
 
-Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:45](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L45)
+Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L45)
 
 Get the per-context cache of render shader passes.
 
@@ -68,7 +68,7 @@ the rendering context
 
 > `static` **init**(`ctx`): `void`
 
-Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:60](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L60)
+Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:60](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L60)
 
 Initialize the per-context shader state caches.
 

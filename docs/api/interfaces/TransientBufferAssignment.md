@@ -4,7 +4,7 @@
 
 # Interface: TransientBufferAssignment
 
-Defined in: [src/gfx/renderJob/graph/transient/TransientBufferPool.ts:25](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientBufferPool.ts#L25)
+Defined in: [src/gfx/renderJob/graph/transient/TransientBufferPool.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientBufferPool.ts#L25)
 
 Snapshot of one assign() pass.
 
@@ -14,7 +14,7 @@ Snapshot of one assign() pass.
 
 > **bindings**: `Map`\<`string`, `GPUBufferBase`\>
 
-Defined in: [src/gfx/renderJob/graph/transient/TransientBufferPool.ts:26](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientBufferPool.ts#L26)
+Defined in: [src/gfx/renderJob/graph/transient/TransientBufferPool.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientBufferPool.ts#L26)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [src/gfx/renderJob/graph/transient/TransientBufferPool.ts:26](https:
 
 > **debug**: `Map`\<`string`, \{ `bucketKey`: `string`; `aliased`: `boolean`; `dedicated`: `boolean`; `grew`: `boolean`; \}\>
 
-Defined in: [src/gfx/renderJob/graph/transient/TransientBufferPool.ts:27](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientBufferPool.ts#L27)
+Defined in: [src/gfx/renderJob/graph/transient/TransientBufferPool.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientBufferPool.ts#L27)

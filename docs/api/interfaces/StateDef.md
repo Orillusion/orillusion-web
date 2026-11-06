@@ -4,7 +4,7 @@
 
 # Interface: StateDef
 
-Defined in: [src/components/anim/graph/StateMachine.ts:43](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L43)
+Defined in: [src/components/anim/graph/StateMachine.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L43)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/components/anim/graph/StateMachine.ts:43](https://github.com/or
 
 > **name**: `string`
 
-Defined in: [src/components/anim/graph/StateMachine.ts:44](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L44)
+Defined in: [src/components/anim/graph/StateMachine.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L44)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/components/anim/graph/StateMachine.ts:44](https://github.com/or
 
 > **clip**: `string`
 
-Defined in: [src/components/anim/graph/StateMachine.ts:46](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L46)
+Defined in: [src/components/anim/graph/StateMachine.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L46)
 
 Clip name to play in this state.
 
@@ -30,7 +30,7 @@ Clip name to play in this state.
 
 > `optional` **speed?**: `number`
 
-Defined in: [src/components/anim/graph/StateMachine.ts:48](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L48)
+Defined in: [src/components/anim/graph/StateMachine.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L48)
 
 Optional time scale for this state's clip. Defaults to 1.
 
@@ -40,4 +40,4 @@ Optional time scale for this state's clip. Defaults to 1.
 
 > **transitions**: [`TransitionDef`](TransitionDef.md)[]
 
-Defined in: [src/components/anim/graph/StateMachine.ts:49](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L49)
+Defined in: [src/components/anim/graph/StateMachine.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L49)

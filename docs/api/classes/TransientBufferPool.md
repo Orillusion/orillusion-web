@@ -4,7 +4,7 @@
 
 # Class: TransientBufferPool
 
-Defined in: [src/gfx/renderJob/graph/transient/TransientBufferPool.ts:43](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientBufferPool.ts#L43)
+Defined in: [src/gfx/renderJob/graph/transient/TransientBufferPool.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientBufferPool.ts#L43)
 
 Physical pool for transient graph buffers. Mirrors
 [TransientTexturePool](TransientTexturePool.md) but buckets by `(roundedSize, usage)`
@@ -22,7 +22,7 @@ adopt it without further engine work.
 
 > **new TransientBufferPool**(`ctx`): `TransientBufferPool`
 
-Defined in: [src/gfx/renderJob/graph/transient/TransientBufferPool.ts:50](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientBufferPool.ts#L50)
+Defined in: [src/gfx/renderJob/graph/transient/TransientBufferPool.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientBufferPool.ts#L50)
 
 #### Parameters
 
@@ -40,7 +40,7 @@ Defined in: [src/gfx/renderJob/graph/transient/TransientBufferPool.ts:50](https:
 
 > **assign**(`lifetimes`): [`TransientBufferAssignment`](../interfaces/TransientBufferAssignment.md)
 
-Defined in: [src/gfx/renderJob/graph/transient/TransientBufferPool.ts:54](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientBufferPool.ts#L54)
+Defined in: [src/gfx/renderJob/graph/transient/TransientBufferPool.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientBufferPool.ts#L54)
 
 #### Parameters
 
@@ -58,7 +58,7 @@ readonly [`ResourceLifetime`](../interfaces/ResourceLifetime.md)[]
 
 > **dispose**(): `void`
 
-Defined in: [src/gfx/renderJob/graph/transient/TransientBufferPool.ts:149](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientBufferPool.ts#L149)
+Defined in: [src/gfx/renderJob/graph/transient/TransientBufferPool.ts:149](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientBufferPool.ts#L149)
 
 #### Returns
 
@@ -70,7 +70,7 @@ Defined in: [src/gfx/renderJob/graph/transient/TransientBufferPool.ts:149](https
 
 > **stats**(): `object`
 
-Defined in: [src/gfx/renderJob/graph/transient/TransientBufferPool.ts:159](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientBufferPool.ts#L159)
+Defined in: [src/gfx/renderJob/graph/transient/TransientBufferPool.ts:159](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientBufferPool.ts#L159)
 
 #### Returns
 

@@ -4,7 +4,7 @@
 
 # Interface: IObject3DForPropertyAnim
 
-Defined in: [src/core/entities/Object3D.ts:527](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L527)
+Defined in: [src/core/entities/Object3D.ts:527](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L527)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/core/entities/Object3D.ts:527](https://github.com/orillusion/or
 
 > **materialColor**: [`Color`](../classes/Color.md)
 
-Defined in: [src/core/entities/Object3D.ts:528](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L528)
+Defined in: [src/core/entities/Object3D.ts:528](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L528)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/core/entities/Object3D.ts:528](https://github.com/orillusion/or
 
 > **active**: `number`
 
-Defined in: [src/core/entities/Object3D.ts:530](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L530)
+Defined in: [src/core/entities/Object3D.ts:530](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L530)
 
 ## Methods
 
@@ -28,7 +28,7 @@ Defined in: [src/core/entities/Object3D.ts:530](https://github.com/orillusion/or
 
 > **notifyMaterialColorChange**(`materialIndex`, `key`): `any`
 
-Defined in: [src/core/entities/Object3D.ts:529](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L529)
+Defined in: [src/core/entities/Object3D.ts:529](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Object3D.ts#L529)
 
 #### Parameters
 

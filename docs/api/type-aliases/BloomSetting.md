@@ -6,7 +6,7 @@
 
 > **BloomSetting** = `object`
 
-Defined in: [src/setting/post/BloomSetting.ts:6](https://github.com/orillusion/orillusion/blob/main/src/setting/post/BloomSetting.ts#L6)
+Defined in: [src/setting/post/BloomSetting.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/BloomSetting.ts#L6)
 
 Bloom
 
@@ -16,7 +16,7 @@ Bloom
 
 > `optional` **enable?**: `boolean`
 
-Defined in: [src/setting/post/BloomSetting.ts:7](https://github.com/orillusion/orillusion/blob/main/src/setting/post/BloomSetting.ts#L7)
+Defined in: [src/setting/post/BloomSetting.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/BloomSetting.ts#L7)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [src/setting/post/BloomSetting.ts:7](https://github.com/orillusion/o
 
 > **downSampleStep**: `number`
 
-Defined in: [src/setting/post/BloomSetting.ts:8](https://github.com/orillusion/orillusion/blob/main/src/setting/post/BloomSetting.ts#L8)
+Defined in: [src/setting/post/BloomSetting.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/BloomSetting.ts#L8)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [src/setting/post/BloomSetting.ts:8](https://github.com/orillusion/o
 
 > **downSampleBlurSize**: `number`
 
-Defined in: [src/setting/post/BloomSetting.ts:9](https://github.com/orillusion/orillusion/blob/main/src/setting/post/BloomSetting.ts#L9)
+Defined in: [src/setting/post/BloomSetting.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/BloomSetting.ts#L9)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: [src/setting/post/BloomSetting.ts:9](https://github.com/orillusion/o
 
 > **downSampleBlurSigma**: `number`
 
-Defined in: [src/setting/post/BloomSetting.ts:10](https://github.com/orillusion/orillusion/blob/main/src/setting/post/BloomSetting.ts#L10)
+Defined in: [src/setting/post/BloomSetting.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/BloomSetting.ts#L10)
 
 ***
 
@@ -48,7 +48,7 @@ Defined in: [src/setting/post/BloomSetting.ts:10](https://github.com/orillusion/
 
 > **upSampleBlurSize**: `number`
 
-Defined in: [src/setting/post/BloomSetting.ts:11](https://github.com/orillusion/orillusion/blob/main/src/setting/post/BloomSetting.ts#L11)
+Defined in: [src/setting/post/BloomSetting.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/BloomSetting.ts#L11)
 
 ***
 
@@ -56,7 +56,7 @@ Defined in: [src/setting/post/BloomSetting.ts:11](https://github.com/orillusion/
 
 > **upSampleBlurSigma**: `number`
 
-Defined in: [src/setting/post/BloomSetting.ts:12](https://github.com/orillusion/orillusion/blob/main/src/setting/post/BloomSetting.ts#L12)
+Defined in: [src/setting/post/BloomSetting.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/BloomSetting.ts#L12)
 
 ***
 
@@ -64,7 +64,7 @@ Defined in: [src/setting/post/BloomSetting.ts:12](https://github.com/orillusion/
 
 > **luminanceThreshole**: `number`
 
-Defined in: [src/setting/post/BloomSetting.ts:13](https://github.com/orillusion/orillusion/blob/main/src/setting/post/BloomSetting.ts#L13)
+Defined in: [src/setting/post/BloomSetting.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/BloomSetting.ts#L13)
 
 ***
 
@@ -72,7 +72,7 @@ Defined in: [src/setting/post/BloomSetting.ts:13](https://github.com/orillusion/
 
 > **bloomIntensity**: `number`
 
-Defined in: [src/setting/post/BloomSetting.ts:14](https://github.com/orillusion/orillusion/blob/main/src/setting/post/BloomSetting.ts#L14)
+Defined in: [src/setting/post/BloomSetting.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/BloomSetting.ts#L14)
 
 ***
 
@@ -80,4 +80,4 @@ Defined in: [src/setting/post/BloomSetting.ts:14](https://github.com/orillusion/
 
 > **hdr**: `number`
 
-Defined in: [src/setting/post/BloomSetting.ts:15](https://github.com/orillusion/orillusion/blob/main/src/setting/post/BloomSetting.ts#L15)
+Defined in: [src/setting/post/BloomSetting.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/BloomSetting.ts#L15)

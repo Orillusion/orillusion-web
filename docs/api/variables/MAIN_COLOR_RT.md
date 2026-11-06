@@ -6,7 +6,7 @@
 
 > `const` **MAIN\_COLOR\_RT**: `"_MainColorRT"` = `'_MainColorRT'`
 
-Defined in: [src/gfx/renderJob/graph/passes/GBufferResourcePass.ts:27](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/GBufferResourcePass.ts#L27)
+Defined in: [src/gfx/renderJob/graph/passes/GBufferResourcePass.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/GBufferResourcePass.ts#L27)
 
 Graph-pool handle for the engine's main color render target.
 Published by [GBufferResourcePass](../classes/GBufferResourcePass.md) (adopt mode — wraps the

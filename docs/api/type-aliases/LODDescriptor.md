@@ -6,7 +6,7 @@
 
 > **LODDescriptor** = `object`
 
-Defined in: [src/core/geometry/GeometryBase.ts:14](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L14)
+Defined in: [src/core/geometry/GeometryBase.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L14)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [src/core/geometry/GeometryBase.ts:14](https://github.com/orillusion
 
 > **indexStart**: `number`
 
-Defined in: [src/core/geometry/GeometryBase.ts:15](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L15)
+Defined in: [src/core/geometry/GeometryBase.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L15)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [src/core/geometry/GeometryBase.ts:15](https://github.com/orillusion
 
 > **indexCount**: `number`
 
-Defined in: [src/core/geometry/GeometryBase.ts:16](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L16)
+Defined in: [src/core/geometry/GeometryBase.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L16)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [src/core/geometry/GeometryBase.ts:16](https://github.com/orillusion
 
 > **vertexStart**: `number`
 
-Defined in: [src/core/geometry/GeometryBase.ts:17](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L17)
+Defined in: [src/core/geometry/GeometryBase.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L17)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [src/core/geometry/GeometryBase.ts:17](https://github.com/orillusion
 
 > **vertexCount**: `number`
 
-Defined in: [src/core/geometry/GeometryBase.ts:18](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L18)
+Defined in: [src/core/geometry/GeometryBase.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L18)
 
 ***
 
@@ -46,7 +46,7 @@ Defined in: [src/core/geometry/GeometryBase.ts:18](https://github.com/orillusion
 
 > **firstStart**: `number`
 
-Defined in: [src/core/geometry/GeometryBase.ts:19](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L19)
+Defined in: [src/core/geometry/GeometryBase.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L19)
 
 ***
 
@@ -54,7 +54,7 @@ Defined in: [src/core/geometry/GeometryBase.ts:19](https://github.com/orillusion
 
 > **index**: `number`
 
-Defined in: [src/core/geometry/GeometryBase.ts:20](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L20)
+Defined in: [src/core/geometry/GeometryBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L20)
 
 ***
 
@@ -62,4 +62,4 @@ Defined in: [src/core/geometry/GeometryBase.ts:20](https://github.com/orillusion
 
 > **topology**: `number`
 
-Defined in: [src/core/geometry/GeometryBase.ts:21](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L21)
+Defined in: [src/core/geometry/GeometryBase.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L21)

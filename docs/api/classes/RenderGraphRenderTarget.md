@@ -4,7 +4,7 @@
 
 # Class: RenderGraphRenderTarget
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:144](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L144)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:144](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L144)
 
 Typed render target = color attachment(s) + (optional) depth +
 creation description. Wraps [RTFrame](RTFrame.md) without replacing it —
@@ -34,7 +34,7 @@ is opened in `execute()` via [beginPass](#beginpass).
 
 > **new RenderGraphRenderTarget**(`name`, `desc`, `rtFrame`, `owned`): `RenderGraphRenderTarget`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:181](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L181)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:181](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L181)
 
 Use [fromRTFrame](#fromrtframe) or [allocate](#allocate) — direct construction
  is reserved for internal use.
@@ -67,7 +67,7 @@ Use [fromRTFrame](#fromrtframe) or [allocate](#allocate) — direct construction
 
 > `readonly` **name**: `string`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:146](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L146)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:146](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L146)
 
 Pool handle name.
 
@@ -77,7 +77,7 @@ Pool handle name.
 
 > `readonly` **desc**: `Readonly`\<[`RenderGraphRenderTargetDesc`](../interfaces/RenderGraphRenderTargetDesc.md)\>
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:147](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L147)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:147](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L147)
 
 ***
 
@@ -85,7 +85,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:147](https://git
 
 > `readonly` **rtFrame**: [`RTFrame`](RTFrame.md)
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:148](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L148)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:148](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L148)
 
 ***
 
@@ -93,7 +93,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:148](https://git
 
 > `readonly` **colorTextures**: readonly `RenderTexture`[]
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:149](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L149)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:149](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L149)
 
 ***
 
@@ -101,7 +101,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:149](https://git
 
 > `readonly` **depthTexture**: `RenderTexture`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:150](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L150)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:150](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L150)
 
 ***
 
@@ -109,7 +109,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:150](https://git
 
 > `readonly` **sampleCount**: `number`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:151](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L151)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:151](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L151)
 
 ***
 
@@ -117,7 +117,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:151](https://git
 
 > `readonly` **owned**: `boolean`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:155](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L155)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:155](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L155)
 
 True if this RT owns the underlying textures (allocate mode).
  False for adopt mode — textures are owned by the upstream
@@ -129,7 +129,7 @@ True if this RT owns the underlying textures (allocate mode).
 
 > `static` **fromRTFrame**(`name`, `rtFrame`, `opts?`): `RenderGraphRenderTarget`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:202](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L202)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:202](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L202)
 
 Adopt an externally-allocated [RTFrame](RTFrame.md). The wrapper does
 not own the textures; only descriptor / cache state is reset on
@@ -162,7 +162,7 @@ not own the textures; only descriptor / cache state is reset on
 
 > `static` **allocate**(`name`, `ctx`, `desc`): `RenderGraphRenderTarget`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:239](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L239)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:239](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L239)
 
 Allocate fresh textures via RTResourceMap (auto-resize
 inherited) and assemble a private [RTFrame](RTFrame.md). The
@@ -194,7 +194,7 @@ registries that use bare attachment names.
 
 > **beginPass**(`ctx`, `opts`): [`OpenedRenderPass`](../interfaces/OpenedRenderPass.md)
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:314](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L314)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:314](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L314)
 
 Open a render pass on this target. Resolves the load-op combination
 against the auto-derive rule (first-writer ⇒ clear, subsequent ⇒
@@ -231,7 +231,7 @@ Pair every successful call with [endPass](#endpass) (typically in a
 
 > **endPass**(`ctx`, `opened`): `void`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:401](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L401)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:401](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L401)
 
 Close a pass opened with [beginPass](#beginpass) and submit the per-pass
 command buffer.
@@ -256,7 +256,7 @@ command buffer.
 
 > **destroy**(`_ctx`): `void`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:448](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L448)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:448](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L448)
 
 Release per-RT framework state. Owned textures are not destroyed
 here — RTResourceMap retains them so that a subsequent

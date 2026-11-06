@@ -4,7 +4,7 @@
 
 # Class: PickFire
 
-Defined in: [src/io/PickFire.ts:17](https://github.com/orillusion/orillusion/blob/main/src/io/PickFire.ts#L17)
+Defined in: [src/io/PickFire.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L18)
 
 Management and triggering for picking 3D objects
 
@@ -18,7 +18,7 @@ Management and triggering for picking 3D objects
 
 > **new PickFire**(`view`): `PickFire`
 
-Defined in: [src/io/PickFire.ts:46](https://github.com/orillusion/orillusion/blob/main/src/io/PickFire.ts#L46)
+Defined in: [src/io/PickFire.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L56)
 
 #### Parameters
 
@@ -40,7 +40,7 @@ Defined in: [src/io/PickFire.ts:46](https://github.com/orillusion/orillusion/blo
 
 > **ray**: [`Ray`](Ray.md)
 
-Defined in: [src/io/PickFire.ts:21](https://github.com/orillusion/orillusion/blob/main/src/io/PickFire.ts#L21)
+Defined in: [src/io/PickFire.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L22)
 
 The ray used to pick 3D objects
 
@@ -50,7 +50,7 @@ The ray used to pick 3D objects
 
 > **isTouching**: `boolean` = `false`
 
-Defined in: [src/io/PickFire.ts:26](https://github.com/orillusion/orillusion/blob/main/src/io/PickFire.ts#L26)
+Defined in: [src/io/PickFire.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L27)
 
 whether it's touching
 
@@ -60,9 +60,40 @@ whether it's touching
 
 > **mouseEnableMap**: `Map`\<`number`, [`ColliderComponent`](ColliderComponent.md)\>
 
-Defined in: [src/io/PickFire.ts:43](https://github.com/orillusion/orillusion/blob/main/src/io/PickFire.ts#L43)
+Defined in: [src/io/PickFire.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L44)
 
 a map records the association information between meshID(matrix id) and ColliderComponent
+
+***
+
+### layerMask
+
+> **layerMask**: `number` = `VisibleLayer.All`
+
+Defined in: [src/io/PickFire.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L50)
+
+`bound` mode: only colliders whose `visibleLayer` shares a bit with
+this mask are picked.
+
+***
+
+### filter
+
+> **filter**: (`collider`) => `boolean` = `null`
+
+Defined in: [src/io/PickFire.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L53)
+
+`bound` mode: optional per-collider filter; return false to skip a collider.
+
+#### Parameters
+
+##### collider
+
+[`ColliderComponent`](ColliderComponent.md)
+
+#### Returns
+
+`boolean`
 
 ## Methods
 
@@ -70,7 +101,7 @@ a map records the association information between meshID(matrix id) and Collider
 
 > **dispatchEvent**(`event`): `void`
 
-Defined in: [src/event/CEventDispatcher.ts:24](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L24)
+Defined in: [src/event/CEventDispatcher.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L24)
 
 Dispatch an event to all registered objects with a specific type of listener.
 
@@ -94,7 +125,7 @@ Dispatch an event to all registered objects with a specific type of listener.
 
 > **destroy**(): `void`
 
-Defined in: [src/event/CEventDispatcher.ts:54](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L54)
+Defined in: [src/event/CEventDispatcher.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L54)
 
 release all registered event.
 
@@ -112,7 +143,7 @@ release all registered event.
 
 > **addEventListener**(`type`, `callback`, `thisObject`, `param?`, `priority?`): `number`
 
-Defined in: [src/event/CEventDispatcher.ts:78](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L78)
+Defined in: [src/event/CEventDispatcher.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L78)
 
 register an event listener to event distancher.
 
@@ -166,7 +197,7 @@ Returns register event id
 
 > **removeEventListener**(`type`, `callback`, `thisObject`): `void`
 
-Defined in: [src/event/CEventDispatcher.ts:112](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L112)
+Defined in: [src/event/CEventDispatcher.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L112)
 
 Remove Event Listening
 
@@ -204,7 +235,7 @@ Remove Event Listening
 
 > **removeEventListenerAt**(`id`): `boolean`
 
-Defined in: [src/event/CEventDispatcher.ts:132](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L132)
+Defined in: [src/event/CEventDispatcher.ts:132](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L132)
 
 Remove an event Listening with id
 
@@ -228,7 +259,7 @@ Remove an event Listening with id
 
 > **removeAllEventListener**(`eventType?`): `void`
 
-Defined in: [src/event/CEventDispatcher.ts:152](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L152)
+Defined in: [src/event/CEventDispatcher.ts:152](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L152)
 
 Specify a event type to remove all related event listeners
 eventType event type, set null to remove all event listeners
@@ -253,7 +284,7 @@ eventType event type, set null to remove all event listeners
 
 > **containEventListener**(`type`): `boolean`
 
-Defined in: [src/event/CEventDispatcher.ts:184](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L184)
+Defined in: [src/event/CEventDispatcher.ts:184](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L184)
 
 whether the target presence of a listener with event type.
 
@@ -281,7 +312,7 @@ Returns a boolean.
 
 > **hasEventListener**(`type`, `callback?`, `thisObject?`): `boolean`
 
-Defined in: [src/event/CEventDispatcher.ts:197](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L197)
+Defined in: [src/event/CEventDispatcher.ts:197](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L197)
 
 whether the target presence of a listener with event type. it associate more registration parameters.
 
@@ -321,7 +352,7 @@ Returns a boolean.
 
 > **start**(): `void`
 
-Defined in: [src/io/PickFire.ts:78](https://github.com/orillusion/orillusion/blob/main/src/io/PickFire.ts#L78)
+Defined in: [src/io/PickFire.ts:88](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L88)
 
 start this manager
 
@@ -335,7 +366,7 @@ start this manager
 
 > **stop**(): `void`
 
-Defined in: [src/io/PickFire.ts:100](https://github.com/orillusion/orillusion/blob/main/src/io/PickFire.ts#L100)
+Defined in: [src/io/PickFire.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/io/PickFire.ts#L110)
 
 stop this manager
 

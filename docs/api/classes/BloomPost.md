@@ -4,7 +4,7 @@
 
 # Class: BloomPost
 
-Defined in: [src/gfx/renderJob/post/BloomPost.ts:22](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L22)
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L22)
 
 Bloom Effects
 ```
@@ -18,7 +18,7 @@ let cfg = {@link this.setting.render.postProcessing.bloom};
 
 > **new BloomPost**(): `BloomPost`
 
-Defined in: [src/gfx/renderJob/post/BloomPost.ts:55](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L55)
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L55)
 
 #### Returns
 
@@ -34,7 +34,7 @@ Defined in: [src/gfx/renderJob/post/BloomPost.ts:55](https://github.com/orillusi
 
 > **RT\_BloomDown**: `VirtualTexture`[]
 
-Defined in: [src/gfx/renderJob/post/BloomPost.ts:27](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L27)
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L27)
 
 ***
 
@@ -42,7 +42,7 @@ Defined in: [src/gfx/renderJob/post/BloomPost.ts:27](https://github.com/orillusi
 
 > **RT\_threshold**: `VirtualTexture`
 
-Defined in: [src/gfx/renderJob/post/BloomPost.ts:28](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L28)
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L28)
 
 ***
 
@@ -50,7 +50,7 @@ Defined in: [src/gfx/renderJob/post/BloomPost.ts:28](https://github.com/orillusi
 
 > **RT\_final**: `VirtualTexture`
 
-Defined in: [src/gfx/renderJob/post/BloomPost.ts:38](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L38)
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L38)
 
 ***
 
@@ -58,7 +58,7 @@ Defined in: [src/gfx/renderJob/post/BloomPost.ts:38](https://github.com/orillusi
 
 > **downSampleComputes**: `ComputeShader`[]
 
-Defined in: [src/gfx/renderJob/post/BloomPost.ts:43](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L43)
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L43)
 
 ***
 
@@ -66,7 +66,7 @@ Defined in: [src/gfx/renderJob/post/BloomPost.ts:43](https://github.com/orillusi
 
 > **upSampleComputes**: `ComputeShader`[]
 
-Defined in: [src/gfx/renderJob/post/BloomPost.ts:44](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L44)
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L44)
 
 ***
 
@@ -74,7 +74,7 @@ Defined in: [src/gfx/renderJob/post/BloomPost.ts:44](https://github.com/orillusi
 
 > **postCompute**: `ComputeShader`
 
-Defined in: [src/gfx/renderJob/post/BloomPost.ts:45](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L45)
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L45)
 
 ***
 
@@ -82,7 +82,7 @@ Defined in: [src/gfx/renderJob/post/BloomPost.ts:45](https://github.com/orillusi
 
 > **enable**: `boolean` = `true`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L23)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L23)
 
 #### Inherited from
 
@@ -94,7 +94,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/orillusio
 
 > **isFinalPass**: `boolean` = `false`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:27](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L27)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L27)
 
 When true, PostPass iterates this post AFTER every regular
  post regardless of attach order — used by TonemapPost so the
@@ -110,7 +110,7 @@ When true, PostPass iterates this post AFTER every regular
 
 > **postRenderer**: [`PostPass`](PostPass.md)
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L28)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L28)
 
 #### Inherited from
 
@@ -122,7 +122,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/orillusio
 
 > **rendererPassState**: `RendererPassState`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L29)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L29)
 
 #### Inherited from
 
@@ -134,7 +134,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/orillusio
 
 > **\_boundCtx**: [`Context3D`](Context3D.md) = `null`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L30)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L30)
 
 #### Inherited from
 
@@ -148,7 +148,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/orillusio
 
 > **get** **downSampleBlurSize**(): `number`
 
-Defined in: [src/gfx/renderJob/post/BloomPost.ts:80](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L80)
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L80)
 
 ##### Returns
 
@@ -158,7 +158,7 @@ Defined in: [src/gfx/renderJob/post/BloomPost.ts:80](https://github.com/orillusi
 
 > **set** **downSampleBlurSize**(`value`): `void`
 
-Defined in: [src/gfx/renderJob/post/BloomPost.ts:83](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L83)
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L83)
 
 ##### Parameters
 
@@ -178,7 +178,7 @@ Defined in: [src/gfx/renderJob/post/BloomPost.ts:83](https://github.com/orillusi
 
 > **get** **downSampleBlurSigma**(): `number`
 
-Defined in: [src/gfx/renderJob/post/BloomPost.ts:87](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L87)
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L87)
 
 ##### Returns
 
@@ -188,7 +188,7 @@ Defined in: [src/gfx/renderJob/post/BloomPost.ts:87](https://github.com/orillusi
 
 > **set** **downSampleBlurSigma**(`value`): `void`
 
-Defined in: [src/gfx/renderJob/post/BloomPost.ts:91](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L91)
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:91](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L91)
 
 ##### Parameters
 
@@ -208,7 +208,7 @@ Defined in: [src/gfx/renderJob/post/BloomPost.ts:91](https://github.com/orillusi
 
 > **get** **upSampleBlurSize**(): `number`
 
-Defined in: [src/gfx/renderJob/post/BloomPost.ts:95](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L95)
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:95](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L95)
 
 ##### Returns
 
@@ -218,7 +218,7 @@ Defined in: [src/gfx/renderJob/post/BloomPost.ts:95](https://github.com/orillusi
 
 > **set** **upSampleBlurSize**(`value`): `void`
 
-Defined in: [src/gfx/renderJob/post/BloomPost.ts:99](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L99)
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L99)
 
 ##### Parameters
 
@@ -238,7 +238,7 @@ Defined in: [src/gfx/renderJob/post/BloomPost.ts:99](https://github.com/orillusi
 
 > **get** **upSampleBlurSigma**(): `number`
 
-Defined in: [src/gfx/renderJob/post/BloomPost.ts:103](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L103)
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:103](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L103)
 
 ##### Returns
 
@@ -248,7 +248,7 @@ Defined in: [src/gfx/renderJob/post/BloomPost.ts:103](https://github.com/orillus
 
 > **set** **upSampleBlurSigma**(`value`): `void`
 
-Defined in: [src/gfx/renderJob/post/BloomPost.ts:107](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L107)
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L107)
 
 ##### Parameters
 
@@ -268,7 +268,7 @@ Defined in: [src/gfx/renderJob/post/BloomPost.ts:107](https://github.com/orillus
 
 > **get** **luminanceThreshole**(): `number`
 
-Defined in: [src/gfx/renderJob/post/BloomPost.ts:111](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L111)
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L111)
 
 ##### Returns
 
@@ -278,7 +278,7 @@ Defined in: [src/gfx/renderJob/post/BloomPost.ts:111](https://github.com/orillus
 
 > **set** **luminanceThreshole**(`value`): `void`
 
-Defined in: [src/gfx/renderJob/post/BloomPost.ts:115](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L115)
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:115](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L115)
 
 ##### Parameters
 
@@ -298,7 +298,7 @@ Defined in: [src/gfx/renderJob/post/BloomPost.ts:115](https://github.com/orillus
 
 > **get** **bloomIntensity**(): `number`
 
-Defined in: [src/gfx/renderJob/post/BloomPost.ts:119](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L119)
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L119)
 
 ##### Returns
 
@@ -308,7 +308,7 @@ Defined in: [src/gfx/renderJob/post/BloomPost.ts:119](https://github.com/orillus
 
 > **set** **bloomIntensity**(`value`): `void`
 
-Defined in: [src/gfx/renderJob/post/BloomPost.ts:123](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L123)
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L123)
 
 ##### Parameters
 
@@ -328,7 +328,7 @@ Defined in: [src/gfx/renderJob/post/BloomPost.ts:123](https://github.com/orillus
 
 > **get** **hdr**(): `number`
 
-Defined in: [src/gfx/renderJob/post/BloomPost.ts:127](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L127)
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:127](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L127)
 
 ##### Returns
 
@@ -338,7 +338,7 @@ Defined in: [src/gfx/renderJob/post/BloomPost.ts:127](https://github.com/orillus
 
 > **set** **hdr**(`value`): `void`
 
-Defined in: [src/gfx/renderJob/post/BloomPost.ts:131](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L131)
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:131](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L131)
 
 ##### Parameters
 
@@ -356,7 +356,7 @@ Defined in: [src/gfx/renderJob/post/BloomPost.ts:131](https://github.com/orillus
 
 > **onResize**(): `void`
 
-Defined in: [src/gfx/renderJob/post/BloomPost.ts:294](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L294)
+Defined in: [src/gfx/renderJob/post/BloomPost.ts:294](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/BloomPost.ts#L294)
 
 #### Returns
 
@@ -372,7 +372,7 @@ Defined in: [src/gfx/renderJob/post/BloomPost.ts:294](https://github.com/orillus
 
 > **compute**(`view`): `void`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L133)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L133)
 
 #### Parameters
 
@@ -394,7 +394,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/orillusi
 
 > **destroy**(`force?`): `void`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L143)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L143)
 
 #### Parameters
 

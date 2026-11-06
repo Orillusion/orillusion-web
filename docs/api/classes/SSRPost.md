@@ -4,7 +4,7 @@
 
 # Class: SSRPost
 
-Defined in: [src/gfx/renderJob/post/SSRPost.ts:37](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L37)
+Defined in: [src/gfx/renderJob/post/SSRPost.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L37)
 
 Screen space reflection
 ```
@@ -24,7 +24,7 @@ Screen space reflection
 
 > **new SSRPost**(): `SSRPost`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:35](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L35)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L35)
 
 #### Returns
 
@@ -40,7 +40,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:35](https://github.com/orillusio
 
 > **enable**: `boolean` = `true`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L23)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L23)
 
 #### Inherited from
 
@@ -52,7 +52,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/orillusio
 
 > **isFinalPass**: `boolean` = `false`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:27](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L27)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L27)
 
 When true, PostPass iterates this post AFTER every regular
  post regardless of attach order — used by TonemapPost so the
@@ -68,7 +68,7 @@ When true, PostPass iterates this post AFTER every regular
 
 > **postRenderer**: [`PostPass`](PostPass.md)
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L28)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L28)
 
 #### Inherited from
 
@@ -80,7 +80,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/orillusio
 
 > **rendererPassState**: `RendererPassState`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L29)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L29)
 
 #### Inherited from
 
@@ -92,7 +92,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/orillusio
 
 > **\_boundCtx**: [`Context3D`](Context3D.md) = `null`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L30)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L30)
 
 #### Inherited from
 
@@ -104,7 +104,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/orillusio
 
 > **historyPosition**: [`StorageGPUBuffer`](StorageGPUBuffer.md)
 
-Defined in: [src/gfx/renderJob/post/SSRPost.ts:65](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L65)
+Defined in: [src/gfx/renderJob/post/SSRPost.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L65)
 
 ***
 
@@ -112,7 +112,7 @@ Defined in: [src/gfx/renderJob/post/SSRPost.ts:65](https://github.com/orillusion
 
 > **view**: [`View3D`](View3D.md)
 
-Defined in: [src/gfx/renderJob/post/SSRPost.ts:66](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L66)
+Defined in: [src/gfx/renderJob/post/SSRPost.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L66)
 
 ## Accessors
 
@@ -122,7 +122,7 @@ Defined in: [src/gfx/renderJob/post/SSRPost.ts:66](https://github.com/orillusion
 
 > **get** **fadeEdgeRatio**(): `number`
 
-Defined in: [src/gfx/renderJob/post/SSRPost.ts:84](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L84)
+Defined in: [src/gfx/renderJob/post/SSRPost.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L84)
 
 ##### Returns
 
@@ -132,7 +132,7 @@ Defined in: [src/gfx/renderJob/post/SSRPost.ts:84](https://github.com/orillusion
 
 > **set** **fadeEdgeRatio**(`value`): `void`
 
-Defined in: [src/gfx/renderJob/post/SSRPost.ts:89](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L89)
+Defined in: [src/gfx/renderJob/post/SSRPost.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L89)
 
 ##### Parameters
 
@@ -152,7 +152,7 @@ Defined in: [src/gfx/renderJob/post/SSRPost.ts:89](https://github.com/orillusion
 
 > **get** **rayMarchRatio**(): `number`
 
-Defined in: [src/gfx/renderJob/post/SSRPost.ts:95](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L95)
+Defined in: [src/gfx/renderJob/post/SSRPost.ts:95](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L95)
 
 ##### Returns
 
@@ -162,7 +162,7 @@ Defined in: [src/gfx/renderJob/post/SSRPost.ts:95](https://github.com/orillusion
 
 > **set** **rayMarchRatio**(`value`): `void`
 
-Defined in: [src/gfx/renderJob/post/SSRPost.ts:100](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L100)
+Defined in: [src/gfx/renderJob/post/SSRPost.ts:100](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L100)
 
 ##### Parameters
 
@@ -182,7 +182,7 @@ Defined in: [src/gfx/renderJob/post/SSRPost.ts:100](https://github.com/orillusio
 
 > **get** **roughnessThreshold**(): `number`
 
-Defined in: [src/gfx/renderJob/post/SSRPost.ts:106](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L106)
+Defined in: [src/gfx/renderJob/post/SSRPost.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L106)
 
 ##### Returns
 
@@ -192,7 +192,7 @@ Defined in: [src/gfx/renderJob/post/SSRPost.ts:106](https://github.com/orillusio
 
 > **set** **roughnessThreshold**(`value`): `void`
 
-Defined in: [src/gfx/renderJob/post/SSRPost.ts:111](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L111)
+Defined in: [src/gfx/renderJob/post/SSRPost.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L111)
 
 ##### Parameters
 
@@ -212,7 +212,7 @@ Defined in: [src/gfx/renderJob/post/SSRPost.ts:111](https://github.com/orillusio
 
 > **get** **fadeDistanceMin**(): `number`
 
-Defined in: [src/gfx/renderJob/post/SSRPost.ts:117](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L117)
+Defined in: [src/gfx/renderJob/post/SSRPost.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L117)
 
 ##### Returns
 
@@ -222,7 +222,7 @@ Defined in: [src/gfx/renderJob/post/SSRPost.ts:117](https://github.com/orillusio
 
 > **set** **fadeDistanceMin**(`value`): `void`
 
-Defined in: [src/gfx/renderJob/post/SSRPost.ts:122](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L122)
+Defined in: [src/gfx/renderJob/post/SSRPost.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L122)
 
 ##### Parameters
 
@@ -242,7 +242,7 @@ Defined in: [src/gfx/renderJob/post/SSRPost.ts:122](https://github.com/orillusio
 
 > **get** **fadeDistanceMax**(): `number`
 
-Defined in: [src/gfx/renderJob/post/SSRPost.ts:128](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L128)
+Defined in: [src/gfx/renderJob/post/SSRPost.ts:128](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L128)
 
 ##### Returns
 
@@ -252,7 +252,7 @@ Defined in: [src/gfx/renderJob/post/SSRPost.ts:128](https://github.com/orillusio
 
 > **set** **fadeDistanceMax**(`value`): `void`
 
-Defined in: [src/gfx/renderJob/post/SSRPost.ts:133](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L133)
+Defined in: [src/gfx/renderJob/post/SSRPost.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L133)
 
 ##### Parameters
 
@@ -272,7 +272,7 @@ Defined in: [src/gfx/renderJob/post/SSRPost.ts:133](https://github.com/orillusio
 
 > **get** **powDotRN**(): `number`
 
-Defined in: [src/gfx/renderJob/post/SSRPost.ts:139](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L139)
+Defined in: [src/gfx/renderJob/post/SSRPost.ts:139](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L139)
 
 ##### Returns
 
@@ -282,7 +282,7 @@ Defined in: [src/gfx/renderJob/post/SSRPost.ts:139](https://github.com/orillusio
 
 > **set** **powDotRN**(`value`): `void`
 
-Defined in: [src/gfx/renderJob/post/SSRPost.ts:144](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L144)
+Defined in: [src/gfx/renderJob/post/SSRPost.ts:144](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L144)
 
 ##### Parameters
 
@@ -300,7 +300,7 @@ Defined in: [src/gfx/renderJob/post/SSRPost.ts:144](https://github.com/orillusio
 
 > **compute**(`view`): `void`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L133)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L133)
 
 #### Parameters
 
@@ -322,7 +322,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/orillusi
 
 > **destroy**(`force?`): `void`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L143)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L143)
 
 #### Parameters
 
@@ -344,7 +344,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/orillusi
 
 > **onResize**(): `void`
 
-Defined in: [src/gfx/renderJob/post/SSRPost.ts:287](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L287)
+Defined in: [src/gfx/renderJob/post/SSRPost.ts:287](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SSRPost.ts#L287)
 
 #### Returns
 

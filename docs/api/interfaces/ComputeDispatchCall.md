@@ -4,7 +4,7 @@
 
 # Interface: ComputeDispatchCall
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:29](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphComputePass.ts#L29)
+Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphComputePass.ts#L29)
 
 Single dispatch payload — bind groups + workgroup count. Pass
 authors build this fresh per frame (bind groups generally hold
@@ -17,7 +17,7 @@ underlying GPU resources rebuild on resize).
 
 > **bindGroups**: `GPUBindGroup`[]
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:30](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphComputePass.ts#L30)
+Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphComputePass.ts#L30)
 
 ***
 
@@ -25,4 +25,4 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:30](https://githu
 
 > **workgroups**: \[`number`, `number`, `number`\]
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:31](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphComputePass.ts#L31)
+Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphComputePass.ts#L31)

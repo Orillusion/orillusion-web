@@ -4,7 +4,7 @@
 
 # Class: GeoJsonUtil
 
-Defined in: [src/loader/parser/gis/GeoJsonUtil.ts.ts:11](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonUtil.ts.ts#L11)
+Defined in: [src/loader/parser/gis/GeoJsonUtil.ts.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonUtil.ts.ts#L11)
 
 Helper utilities for converting parsed GeoJSON structures into engine
 geometry data (e.g. polylines / polygon outlines in world space).
@@ -25,7 +25,7 @@ geometry data (e.g. polylines / polygon outlines in world space).
 
 > `static` **getPath**(`data`): [`Vector3`](Vector3.md)[][]
 
-Defined in: [src/loader/parser/gis/GeoJsonUtil.ts.ts:17](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonUtil.ts.ts#L17)
+Defined in: [src/loader/parser/gis/GeoJsonUtil.ts.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonUtil.ts.ts#L17)
 
 Extract polyline paths from a GeoJSON structure.
 

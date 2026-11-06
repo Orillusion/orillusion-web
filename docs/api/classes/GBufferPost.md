@@ -4,7 +4,7 @@
 
 # Class: GBufferPost
 
-Defined in: [src/gfx/renderJob/post/GBufferPost.ts:34](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L34)
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L34)
 
 Ground base Ambient Occlusion
 Let the intersection of the object and the object imitate the effect of the light being cross-occluded
@@ -19,7 +19,7 @@ let cfg = {@link this.setting.render.postProcessing.gtao};
 
 > **new GBufferPost**(): `GBufferPost`
 
-Defined in: [src/gfx/renderJob/post/GBufferPost.ts:49](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L49)
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L49)
 
 #### Returns
 
@@ -35,7 +35,7 @@ Defined in: [src/gfx/renderJob/post/GBufferPost.ts:49](https://github.com/orillu
 
 > **rtFrame**: [`RTFrame`](RTFrame.md)
 
-Defined in: [src/gfx/renderJob/post/GBufferPost.ts:40](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L40)
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L40)
 
 ***
 
@@ -43,7 +43,7 @@ Defined in: [src/gfx/renderJob/post/GBufferPost.ts:40](https://github.com/orillu
 
 > **view**: [`View3D`](View3D.md)
 
-Defined in: [src/gfx/renderJob/post/GBufferPost.ts:41](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L41)
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L41)
 
 ***
 
@@ -51,7 +51,7 @@ Defined in: [src/gfx/renderJob/post/GBufferPost.ts:41](https://github.com/orillu
 
 > **gBufferTexture**: `RenderTexture`
 
-Defined in: [src/gfx/renderJob/post/GBufferPost.ts:42](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L42)
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L42)
 
 ***
 
@@ -59,7 +59,7 @@ Defined in: [src/gfx/renderJob/post/GBufferPost.ts:42](https://github.com/orillu
 
 > **testCompute**: `ComputeShader`
 
-Defined in: [src/gfx/renderJob/post/GBufferPost.ts:43](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L43)
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L43)
 
 ***
 
@@ -67,7 +67,7 @@ Defined in: [src/gfx/renderJob/post/GBufferPost.ts:43](https://github.com/orillu
 
 > **uniformBuffer**: [`UniformGPUBuffer`](UniformGPUBuffer.md)
 
-Defined in: [src/gfx/renderJob/post/GBufferPost.ts:47](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L47)
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L47)
 
 ***
 
@@ -75,7 +75,7 @@ Defined in: [src/gfx/renderJob/post/GBufferPost.ts:47](https://github.com/orillu
 
 > **currentRenderTexture**: `RenderTexture`
 
-Defined in: [src/gfx/renderJob/post/GBufferPost.ts:48](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L48)
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L48)
 
 ***
 
@@ -83,7 +83,7 @@ Defined in: [src/gfx/renderJob/post/GBufferPost.ts:48](https://github.com/orillu
 
 > **enable**: `boolean` = `true`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L23)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L23)
 
 #### Inherited from
 
@@ -95,7 +95,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/orillusio
 
 > **isFinalPass**: `boolean` = `false`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:27](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L27)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L27)
 
 When true, PostPass iterates this post AFTER every regular
  post regardless of attach order — used by TonemapPost so the
@@ -111,7 +111,7 @@ When true, PostPass iterates this post AFTER every regular
 
 > **postRenderer**: [`PostPass`](PostPass.md)
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L28)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L28)
 
 #### Inherited from
 
@@ -123,7 +123,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/orillusio
 
 > **rendererPassState**: `RendererPassState`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L29)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L29)
 
 #### Inherited from
 
@@ -135,7 +135,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/orillusio
 
 > **\_boundCtx**: [`Context3D`](Context3D.md) = `null`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L30)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L30)
 
 #### Inherited from
 
@@ -149,7 +149,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/orillusio
 
 > **get** **state**(): `number`
 
-Defined in: [src/gfx/renderJob/post/GBufferPost.ts:76](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L76)
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L76)
 
 ##### Returns
 
@@ -159,7 +159,7 @@ Defined in: [src/gfx/renderJob/post/GBufferPost.ts:76](https://github.com/orillu
 
 > **set** **state**(`v`): `void`
 
-Defined in: [src/gfx/renderJob/post/GBufferPost.ts:70](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L70)
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L70)
 
 check state
 
@@ -181,7 +181,7 @@ check state
 
 > **get** **size1**(): `number`
 
-Defined in: [src/gfx/renderJob/post/GBufferPost.ts:86](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L86)
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L86)
 
 ##### Returns
 
@@ -191,7 +191,7 @@ Defined in: [src/gfx/renderJob/post/GBufferPost.ts:86](https://github.com/orillu
 
 > **set** **size1**(`v`): `void`
 
-Defined in: [src/gfx/renderJob/post/GBufferPost.ts:80](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L80)
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L80)
 
 ##### Parameters
 
@@ -211,7 +211,7 @@ Defined in: [src/gfx/renderJob/post/GBufferPost.ts:80](https://github.com/orillu
 
 > **get** **size2**(): `number`
 
-Defined in: [src/gfx/renderJob/post/GBufferPost.ts:96](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L96)
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L96)
 
 ##### Returns
 
@@ -221,7 +221,7 @@ Defined in: [src/gfx/renderJob/post/GBufferPost.ts:96](https://github.com/orillu
 
 > **set** **size2**(`v`): `void`
 
-Defined in: [src/gfx/renderJob/post/GBufferPost.ts:90](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L90)
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L90)
 
 ##### Parameters
 
@@ -239,7 +239,7 @@ Defined in: [src/gfx/renderJob/post/GBufferPost.ts:90](https://github.com/orillu
 
 > **render**(`view`, `command`): `void`
 
-Defined in: [src/gfx/renderJob/post/GBufferPost.ts:147](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L147)
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:147](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L147)
 
 #### Parameters
 
@@ -265,7 +265,7 @@ Defined in: [src/gfx/renderJob/post/GBufferPost.ts:147](https://github.com/orill
 
 > **compute**(`view`): `void`
 
-Defined in: [src/gfx/renderJob/post/GBufferPost.ts:151](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L151)
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:151](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L151)
 
 #### Parameters
 
@@ -287,7 +287,7 @@ Defined in: [src/gfx/renderJob/post/GBufferPost.ts:151](https://github.com/orill
 
 > **onResize**(): `void`
 
-Defined in: [src/gfx/renderJob/post/GBufferPost.ts:167](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L167)
+Defined in: [src/gfx/renderJob/post/GBufferPost.ts:167](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GBufferPost.ts#L167)
 
 #### Returns
 
@@ -303,7 +303,7 @@ Defined in: [src/gfx/renderJob/post/GBufferPost.ts:167](https://github.com/orill
 
 > **destroy**(`force?`): `void`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L143)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L143)
 
 #### Parameters
 

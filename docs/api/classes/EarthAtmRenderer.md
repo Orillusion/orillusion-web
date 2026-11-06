@@ -4,7 +4,7 @@
 
 # Class: EarthAtmRenderer
 
-Defined in: [src/components/renderer/EarthAtmRenderer.ts:14](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L14)
+Defined in: [src/components/renderer/EarthAtmRenderer.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L14)
 
 Earth Atm Renderer Component
 Renders atmospheric scattering for Earth atmosphere
@@ -20,7 +20,7 @@ Supports both view from space (looking at Earth) and view from ground (looking a
 
 > **new EarthAtmRenderer**(): `EarthAtmRenderer`
 
-Defined in: [src/components/renderer/MeshRenderer.ts:26](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L26)
+Defined in: [src/components/renderer/MeshRenderer.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L26)
 
 #### Returns
 
@@ -36,7 +36,7 @@ Defined in: [src/components/renderer/MeshRenderer.ts:26](https://github.com/oril
 
 > **object3D**: [`Object3D`](Object3D.md) = `null`
 
-Defined in: [src/components/ComponentBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L29)
+Defined in: [src/components/ComponentBase.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L29)
 
 owner object3D
 
@@ -50,7 +50,7 @@ owner object3D
 
 > **isDestroyed**: `boolean` = `false`
 
-Defined in: [src/components/ComponentBase.ts:77](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L77)
+Defined in: [src/components/ComponentBase.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L77)
 
 #### Inherited from
 
@@ -62,7 +62,7 @@ Defined in: [src/components/ComponentBase.ts:77](https://github.com/orillusion/o
 
 > **earthAtmMaterial**: [`EarthAtmMaterial`](EarthAtmMaterial.md)
 
-Defined in: [src/components/renderer/EarthAtmRenderer.ts:18](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L18)
+Defined in: [src/components/renderer/EarthAtmRenderer.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L18)
 
 The material used in the Earth Atmosphere.
 
@@ -72,7 +72,7 @@ The material used in the Earth Atmosphere.
 
 > **receiveShadow**: `boolean`
 
-Defined in: [src/components/renderer/MeshRenderer.ts:23](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L23)
+Defined in: [src/components/renderer/MeshRenderer.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L23)
 
 Enabling this option allows the grid to display any shadows cast on the grid.
 
@@ -86,7 +86,7 @@ Enabling this option allows the grid to display any shadows cast on the grid.
 
 > **morphData**: [`MorphTargetData`](MorphTargetData.md)
 
-Defined in: [src/components/renderer/MeshRenderer.ts:24](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L24)
+Defined in: [src/components/renderer/MeshRenderer.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L24)
 
 #### Inherited from
 
@@ -98,7 +98,7 @@ Defined in: [src/components/renderer/MeshRenderer.ts:24](https://github.com/oril
 
 > **instanceCount**: `number` = `0`
 
-Defined in: [src/components/renderer/RenderNode.ts:35](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L35)
+Defined in: [src/components/renderer/RenderNode.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L35)
 
 #### Inherited from
 
@@ -110,7 +110,7 @@ Defined in: [src/components/renderer/RenderNode.ts:35](https://github.com/orillu
 
 > **lodLevel**: `number` = `0`
 
-Defined in: [src/components/renderer/RenderNode.ts:36](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L36)
+Defined in: [src/components/renderer/RenderNode.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L36)
 
 #### Inherited from
 
@@ -122,7 +122,7 @@ Defined in: [src/components/renderer/RenderNode.ts:36](https://github.com/orillu
 
 > **alwaysRender**: `boolean` = `false`
 
-Defined in: [src/components/renderer/RenderNode.ts:37](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L37)
+Defined in: [src/components/renderer/RenderNode.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L37)
 
 #### Inherited from
 
@@ -134,7 +134,7 @@ Defined in: [src/components/renderer/RenderNode.ts:37](https://github.com/orillu
 
 > **instanceID**: `string`
 
-Defined in: [src/components/renderer/RenderNode.ts:38](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L38)
+Defined in: [src/components/renderer/RenderNode.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L38)
 
 #### Inherited from
 
@@ -146,7 +146,7 @@ Defined in: [src/components/renderer/RenderNode.ts:38](https://github.com/orillu
 
 > **drawType**: `number` = `0`
 
-Defined in: [src/components/renderer/RenderNode.ts:39](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L39)
+Defined in: [src/components/renderer/RenderNode.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L39)
 
 #### Inherited from
 
@@ -158,7 +158,7 @@ Defined in: [src/components/renderer/RenderNode.ts:39](https://github.com/orillu
 
 > `optional` **isRenderOrderChange?**: `boolean`
 
-Defined in: [src/components/renderer/RenderNode.ts:55](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L55)
+Defined in: [src/components/renderer/RenderNode.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L55)
 
 #### Inherited from
 
@@ -170,7 +170,7 @@ Defined in: [src/components/renderer/RenderNode.ts:55](https://github.com/orillu
 
 > `optional` **needSortOnCameraZ?**: `boolean`
 
-Defined in: [src/components/renderer/RenderNode.ts:56](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L56)
+Defined in: [src/components/renderer/RenderNode.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L56)
 
 #### Inherited from
 
@@ -182,7 +182,7 @@ Defined in: [src/components/renderer/RenderNode.ts:56](https://github.com/orillu
 
 > **shadowCacheMode**: `"auto"` \| `"static"` \| `"dynamic"` = `'auto'`
 
-Defined in: [src/components/renderer/RenderNode.ts:437](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L437)
+Defined in: [src/components/renderer/RenderNode.ts:446](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L446)
 
 Shadow cache classification.
 
@@ -211,7 +211,7 @@ otherwise all renderers behave as `'auto'`.
 
 > **get** **visibleLayer**(): `number`
 
-Defined in: [src/components/ComponentBase.ts:46](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L46)
+Defined in: [src/components/ComponentBase.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L46)
 
 Composition-layer membership bitmask. The pass / camera /
 collector filters via
@@ -232,7 +232,7 @@ into composition layers.
 
 > **set** **visibleLayer**(`value`): `void`
 
-Defined in: [src/components/ComponentBase.ts:50](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L50)
+Defined in: [src/components/ComponentBase.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L50)
 
 ##### Parameters
 
@@ -256,7 +256,7 @@ Defined in: [src/components/ComponentBase.ts:50](https://github.com/orillusion/o
 
 > **get** **eventDispatcher**(): [`CEventDispatcher`](CEventDispatcher.md)
 
-Defined in: [src/components/ComponentBase.ts:63](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L63)
+Defined in: [src/components/ComponentBase.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L63)
 
 ##### Returns
 
@@ -266,7 +266,7 @@ Defined in: [src/components/ComponentBase.ts:63](https://github.com/orillusion/o
 
 > **set** **eventDispatcher**(`value`): `void`
 
-Defined in: [src/components/ComponentBase.ts:68](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
+Defined in: [src/components/ComponentBase.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
 
 ##### Parameters
 
@@ -290,7 +290,7 @@ Defined in: [src/components/ComponentBase.ts:68](https://github.com/orillusion/o
 
 > **get** **isStart**(): `boolean`
 
-Defined in: [src/components/ComponentBase.ts:79](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L79)
+Defined in: [src/components/ComponentBase.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L79)
 
 ##### Returns
 
@@ -308,7 +308,7 @@ Defined in: [src/components/ComponentBase.ts:79](https://github.com/orillusion/o
 
 > **get** **transform**(): [`Transform`](Transform.md)
 
-Defined in: [src/components/ComponentBase.ts:89](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L89)
+Defined in: [src/components/ComponentBase.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L89)
 
 Return the Transform component attached to the Object3D.
 Null before the component is attached — `addComponent` assigns
@@ -331,7 +331,7 @@ can probe safely via `this.transform?.`.
 
 > **get** **enable**(): `boolean`
 
-Defined in: [src/components/ComponentBase.ts:113](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
+Defined in: [src/components/ComponentBase.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
@@ -343,7 +343,7 @@ Enable/disable components. The enabled components can be updated, while the disa
 
 > **set** **enable**(`value`): `void`
 
-Defined in: [src/components/ComponentBase.ts:96](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L96)
+Defined in: [src/components/ComponentBase.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L96)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
@@ -369,7 +369,7 @@ Enable/disable components. The enabled components can be updated, while the disa
 
 > **get** **radius**(): `number`
 
-Defined in: [src/components/renderer/EarthAtmRenderer.ts:49](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L49)
+Defined in: [src/components/renderer/EarthAtmRenderer.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L49)
 
 Get the radius of earth sky sphere
 
@@ -381,7 +381,7 @@ Get the radius of earth sky sphere
 
 > **set** **radius**(`value`): `void`
 
-Defined in: [src/components/renderer/EarthAtmRenderer.ts:57](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L57)
+Defined in: [src/components/renderer/EarthAtmRenderer.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L57)
 
 Set the radius of earth sky sphere
 Should be larger than atmosphereRadius to ensure proper rendering
@@ -404,7 +404,7 @@ Should be larger than atmosphereRadius to ensure proper rendering
 
 > **get** **earthRadius**(): `number`
 
-Defined in: [src/components/renderer/EarthAtmRenderer.ts:69](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L69)
+Defined in: [src/components/renderer/EarthAtmRenderer.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L69)
 
 Get Earth radius in meters
 
@@ -416,7 +416,7 @@ Get Earth radius in meters
 
 > **set** **earthRadius**(`value`): `void`
 
-Defined in: [src/components/renderer/EarthAtmRenderer.ts:76](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L76)
+Defined in: [src/components/renderer/EarthAtmRenderer.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L76)
 
 Set Earth radius in meters (default: 6371000)
 
@@ -438,7 +438,7 @@ Set Earth radius in meters (default: 6371000)
 
 > **get** **atmosphereRadius**(): `number`
 
-Defined in: [src/components/renderer/EarthAtmRenderer.ts:84](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L84)
+Defined in: [src/components/renderer/EarthAtmRenderer.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L84)
 
 Get atmosphere outer radius in meters
 
@@ -450,7 +450,7 @@ Get atmosphere outer radius in meters
 
 > **set** **atmosphereRadius**(`value`): `void`
 
-Defined in: [src/components/renderer/EarthAtmRenderer.ts:92](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L92)
+Defined in: [src/components/renderer/EarthAtmRenderer.ts:92](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L92)
 
 Set atmosphere outer radius in meters
 Typically earthRadius + 100000 for 100km atmosphere
@@ -473,7 +473,7 @@ Typically earthRadius + 100000 for 100km atmosphere
 
 > **get** **earthCenter**(): [`Vector3`](Vector3.md)
 
-Defined in: [src/components/renderer/EarthAtmRenderer.ts:100](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L100)
+Defined in: [src/components/renderer/EarthAtmRenderer.ts:100](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L100)
 
 Get Earth center position in world space
 
@@ -485,7 +485,7 @@ Get Earth center position in world space
 
 > **set** **earthCenter**(`value`): `void`
 
-Defined in: [src/components/renderer/EarthAtmRenderer.ts:107](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L107)
+Defined in: [src/components/renderer/EarthAtmRenderer.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L107)
 
 Set Earth center position in world space
 
@@ -507,7 +507,7 @@ Set Earth center position in world space
 
 > **get** **sunDirection**(): [`Vector3`](Vector3.md)
 
-Defined in: [src/components/renderer/EarthAtmRenderer.ts:117](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L117)
+Defined in: [src/components/renderer/EarthAtmRenderer.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L117)
 
 Get sun direction (normalized vector pointing towards the sun)
 
@@ -519,7 +519,7 @@ Get sun direction (normalized vector pointing towards the sun)
 
 > **set** **sunDirection**(`value`): `void`
 
-Defined in: [src/components/renderer/EarthAtmRenderer.ts:124](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L124)
+Defined in: [src/components/renderer/EarthAtmRenderer.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L124)
 
 Set sun direction (will be normalized)
 
@@ -541,7 +541,7 @@ Set sun direction (will be normalized)
 
 > **get** **sunIntensity**(): `number`
 
-Defined in: [src/components/renderer/EarthAtmRenderer.ts:132](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L132)
+Defined in: [src/components/renderer/EarthAtmRenderer.ts:132](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L132)
 
 Get sun intensity
 
@@ -553,7 +553,7 @@ Get sun intensity
 
 > **set** **sunIntensity**(`value`): `void`
 
-Defined in: [src/components/renderer/EarthAtmRenderer.ts:139](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L139)
+Defined in: [src/components/renderer/EarthAtmRenderer.ts:139](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L139)
 
 Set sun intensity (default: 22.0)
 
@@ -575,7 +575,7 @@ Set sun intensity (default: 22.0)
 
 > **get** **rayleighCoeff**(): [`Vector3`](Vector3.md)
 
-Defined in: [src/components/renderer/EarthAtmRenderer.ts:149](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L149)
+Defined in: [src/components/renderer/EarthAtmRenderer.ts:149](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L149)
 
 Get Rayleigh scattering coefficients (wavelength dependent - RGB)
 
@@ -587,7 +587,7 @@ Get Rayleigh scattering coefficients (wavelength dependent - RGB)
 
 > **set** **rayleighCoeff**(`value`): `void`
 
-Defined in: [src/components/renderer/EarthAtmRenderer.ts:157](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L157)
+Defined in: [src/components/renderer/EarthAtmRenderer.ts:157](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L157)
 
 Set Rayleigh scattering coefficients
 Default: (5.5e-6, 13.0e-6, 22.4e-6) for Earth-like atmosphere
@@ -610,7 +610,7 @@ Default: (5.5e-6, 13.0e-6, 22.4e-6) for Earth-like atmosphere
 
 > **get** **mieCoeff**(): `number`
 
-Defined in: [src/components/renderer/EarthAtmRenderer.ts:165](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L165)
+Defined in: [src/components/renderer/EarthAtmRenderer.ts:165](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L165)
 
 Get Mie scattering coefficient
 
@@ -622,7 +622,7 @@ Get Mie scattering coefficient
 
 > **set** **mieCoeff**(`value`): `void`
 
-Defined in: [src/components/renderer/EarthAtmRenderer.ts:172](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L172)
+Defined in: [src/components/renderer/EarthAtmRenderer.ts:172](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L172)
 
 Set Mie scattering coefficient (default: 21e-6)
 
@@ -644,7 +644,7 @@ Set Mie scattering coefficient (default: 21e-6)
 
 > **get** **rayleighScale**(): `number`
 
-Defined in: [src/components/renderer/EarthAtmRenderer.ts:180](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L180)
+Defined in: [src/components/renderer/EarthAtmRenderer.ts:180](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L180)
 
 Get Rayleigh scale height in meters
 
@@ -656,7 +656,7 @@ Get Rayleigh scale height in meters
 
 > **set** **rayleighScale**(`value`): `void`
 
-Defined in: [src/components/renderer/EarthAtmRenderer.ts:187](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L187)
+Defined in: [src/components/renderer/EarthAtmRenderer.ts:187](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L187)
 
 Set Rayleigh scale height (default: 8000 meters)
 
@@ -678,7 +678,7 @@ Set Rayleigh scale height (default: 8000 meters)
 
 > **get** **mieScale**(): `number`
 
-Defined in: [src/components/renderer/EarthAtmRenderer.ts:195](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L195)
+Defined in: [src/components/renderer/EarthAtmRenderer.ts:195](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L195)
 
 Get Mie scale height in meters
 
@@ -690,7 +690,7 @@ Get Mie scale height in meters
 
 > **set** **mieScale**(`value`): `void`
 
-Defined in: [src/components/renderer/EarthAtmRenderer.ts:202](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L202)
+Defined in: [src/components/renderer/EarthAtmRenderer.ts:202](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L202)
 
 Set Mie scale height (default: 1200 meters)
 
@@ -712,7 +712,7 @@ Set Mie scale height (default: 1200 meters)
 
 > **get** **mieG**(): `number`
 
-Defined in: [src/components/renderer/EarthAtmRenderer.ts:210](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L210)
+Defined in: [src/components/renderer/EarthAtmRenderer.ts:210](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L210)
 
 Get Mie scattering asymmetry factor (g)
 
@@ -724,7 +724,7 @@ Get Mie scattering asymmetry factor (g)
 
 > **set** **mieG**(`value`): `void`
 
-Defined in: [src/components/renderer/EarthAtmRenderer.ts:219](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L219)
+Defined in: [src/components/renderer/EarthAtmRenderer.ts:219](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L219)
 
 Set Mie scattering asymmetry factor (default: 0.758)
 Values close to 1 give strong forward scattering (sun glare)
@@ -748,7 +748,7 @@ Values close to 0 give isotropic scattering
 
 > **get** **exposure**(): `number`
 
-Defined in: [src/components/renderer/EarthAtmRenderer.ts:229](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L229)
+Defined in: [src/components/renderer/EarthAtmRenderer.ts:229](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L229)
 
 Get exposure value for tone mapping
 
@@ -760,7 +760,7 @@ Get exposure value for tone mapping
 
 > **set** **exposure**(`value`): `void`
 
-Defined in: [src/components/renderer/EarthAtmRenderer.ts:236](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L236)
+Defined in: [src/components/renderer/EarthAtmRenderer.ts:236](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L236)
 
 Set exposure value for tone mapping (default: 1.0)
 
@@ -782,7 +782,7 @@ Set exposure value for tone mapping (default: 1.0)
 
 > **get** **geometry**(): [`GeometryBase`](GeometryBase.md)
 
-Defined in: [src/components/renderer/MeshRenderer.ts:53](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L53)
+Defined in: [src/components/renderer/MeshRenderer.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L53)
 
 The geometry of the mesh determines its shape
 
@@ -794,7 +794,7 @@ The geometry of the mesh determines its shape
 
 > **set** **geometry**(`value`): `void`
 
-Defined in: [src/components/renderer/MeshRenderer.ts:57](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L57)
+Defined in: [src/components/renderer/MeshRenderer.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L57)
 
 ##### Parameters
 
@@ -818,7 +818,7 @@ Defined in: [src/components/renderer/MeshRenderer.ts:57](https://github.com/oril
 
 > **get** **material**(): [`Material`](Material.md)
 
-Defined in: [src/components/renderer/MeshRenderer.ts:99](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L99)
+Defined in: [src/components/renderer/MeshRenderer.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L99)
 
 material
 
@@ -830,7 +830,7 @@ material
 
 > **set** **material**(`value`): `void`
 
-Defined in: [src/components/renderer/MeshRenderer.ts:103](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L103)
+Defined in: [src/components/renderer/MeshRenderer.ts:103](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L103)
 
 ##### Parameters
 
@@ -854,7 +854,7 @@ Defined in: [src/components/renderer/MeshRenderer.ts:103](https://github.com/ori
 
 > **get** **batchMode**(): [`BatchMode`](../enumerations/BatchMode.md)
 
-Defined in: [src/components/renderer/RenderNode.ts:118](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L118)
+Defined in: [src/components/renderer/RenderNode.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L118)
 
 ##### Returns
 
@@ -864,7 +864,7 @@ Defined in: [src/components/renderer/RenderNode.ts:118](https://github.com/orill
 
 > **set** **batchMode**(`value`): `void`
 
-Defined in: [src/components/renderer/RenderNode.ts:122](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L122)
+Defined in: [src/components/renderer/RenderNode.ts:122](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L122)
 
 ##### Parameters
 
@@ -888,7 +888,7 @@ Defined in: [src/components/renderer/RenderNode.ts:122](https://github.com/orill
 
 > **get** **rendererMask**(): `number`
 
-Defined in: [src/components/renderer/RenderNode.ts:156](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L156)
+Defined in: [src/components/renderer/RenderNode.ts:156](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L156)
 
 ##### Returns
 
@@ -898,7 +898,7 @@ Defined in: [src/components/renderer/RenderNode.ts:156](https://github.com/orill
 
 > **set** **rendererMask**(`value`): `void`
 
-Defined in: [src/components/renderer/RenderNode.ts:160](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L160)
+Defined in: [src/components/renderer/RenderNode.ts:160](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L160)
 
 ##### Parameters
 
@@ -922,7 +922,7 @@ Defined in: [src/components/renderer/RenderNode.ts:160](https://github.com/orill
 
 > **get** **renderOrder**(): `number`
 
-Defined in: [src/components/renderer/RenderNode.ts:164](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L164)
+Defined in: [src/components/renderer/RenderNode.ts:164](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L164)
 
 ##### Returns
 
@@ -932,7 +932,7 @@ Defined in: [src/components/renderer/RenderNode.ts:164](https://github.com/orill
 
 > **set** **renderOrder**(`value`): `void`
 
-Defined in: [src/components/renderer/RenderNode.ts:168](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L168)
+Defined in: [src/components/renderer/RenderNode.ts:168](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L168)
 
 ##### Parameters
 
@@ -956,7 +956,7 @@ Defined in: [src/components/renderer/RenderNode.ts:168](https://github.com/orill
 
 > **get** **materials**(): [`Material`](Material.md)[]
 
-Defined in: [src/components/renderer/RenderNode.ts:177](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L177)
+Defined in: [src/components/renderer/RenderNode.ts:177](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L177)
 
 ##### Returns
 
@@ -966,7 +966,7 @@ Defined in: [src/components/renderer/RenderNode.ts:177](https://github.com/orill
 
 > **set** **materials**(`value`): `void`
 
-Defined in: [src/components/renderer/RenderNode.ts:181](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L181)
+Defined in: [src/components/renderer/RenderNode.ts:181](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L181)
 
 ##### Parameters
 
@@ -990,7 +990,7 @@ Defined in: [src/components/renderer/RenderNode.ts:181](https://github.com/orill
 
 > **get** **castShadow**(): `boolean`
 
-Defined in: [src/components/renderer/RenderNode.ts:413](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L413)
+Defined in: [src/components/renderer/RenderNode.ts:422](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L422)
 
 ##### Returns
 
@@ -1000,7 +1000,7 @@ Defined in: [src/components/renderer/RenderNode.ts:413](https://github.com/orill
 
 > **set** **castShadow**(`value`): `void`
 
-Defined in: [src/components/renderer/RenderNode.ts:417](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L417)
+Defined in: [src/components/renderer/RenderNode.ts:426](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L426)
 
 ##### Parameters
 
@@ -1024,7 +1024,7 @@ Defined in: [src/components/renderer/RenderNode.ts:417](https://github.com/orill
 
 > **get** **castGI**(): `boolean`
 
-Defined in: [src/components/renderer/RenderNode.ts:440](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L440)
+Defined in: [src/components/renderer/RenderNode.ts:449](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L449)
 
 ##### Returns
 
@@ -1034,7 +1034,7 @@ Defined in: [src/components/renderer/RenderNode.ts:440](https://github.com/orill
 
 > **set** **castGI**(`value`): `void`
 
-Defined in: [src/components/renderer/RenderNode.ts:444](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L444)
+Defined in: [src/components/renderer/RenderNode.ts:453](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L453)
 
 ##### Parameters
 
@@ -1058,7 +1058,7 @@ Defined in: [src/components/renderer/RenderNode.ts:444](https://github.com/orill
 
 > **get** **castReflection**(): `boolean`
 
-Defined in: [src/components/renderer/RenderNode.ts:448](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L448)
+Defined in: [src/components/renderer/RenderNode.ts:457](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L457)
 
 ##### Returns
 
@@ -1068,7 +1068,7 @@ Defined in: [src/components/renderer/RenderNode.ts:448](https://github.com/orill
 
 > **set** **castReflection**(`value`): `void`
 
-Defined in: [src/components/renderer/RenderNode.ts:452](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L452)
+Defined in: [src/components/renderer/RenderNode.ts:461](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L461)
 
 ##### Parameters
 
@@ -1090,7 +1090,7 @@ Defined in: [src/components/renderer/RenderNode.ts:452](https://github.com/orill
 
 > **start**(): `void`
 
-Defined in: [src/components/ComponentBase.ts:162](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L162)
+Defined in: [src/components/ComponentBase.ts:162](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L162)
 
 #### Returns
 
@@ -1106,7 +1106,7 @@ Defined in: [src/components/ComponentBase.ts:162](https://github.com/orillusion/
 
 > **stop**(): `void`
 
-Defined in: [src/components/ComponentBase.ts:163](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L163)
+Defined in: [src/components/ComponentBase.ts:163](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L163)
 
 #### Returns
 
@@ -1122,7 +1122,7 @@ Defined in: [src/components/ComponentBase.ts:163](https://github.com/orillusion/
 
 > `optional` **onUpdate**(`view?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:166](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L166)
+Defined in: [src/components/ComponentBase.ts:166](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L166)
 
 #### Parameters
 
@@ -1144,7 +1144,7 @@ Defined in: [src/components/ComponentBase.ts:166](https://github.com/orillusion/
 
 > `optional` **onLateUpdate**(`view?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:167](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L167)
+Defined in: [src/components/ComponentBase.ts:167](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L167)
 
 #### Parameters
 
@@ -1166,7 +1166,7 @@ Defined in: [src/components/ComponentBase.ts:167](https://github.com/orillusion/
 
 > `optional` **onBeforeUpdate**(`view?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:168](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L168)
+Defined in: [src/components/ComponentBase.ts:168](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L168)
 
 #### Parameters
 
@@ -1188,7 +1188,7 @@ Defined in: [src/components/ComponentBase.ts:168](https://github.com/orillusion/
 
 > `optional` **onGraphic**(`view?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:170](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L170)
+Defined in: [src/components/ComponentBase.ts:170](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L170)
 
 #### Parameters
 
@@ -1210,7 +1210,7 @@ Defined in: [src/components/ComponentBase.ts:170](https://github.com/orillusion/
 
 > `optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:171](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L171)
+Defined in: [src/components/ComponentBase.ts:171](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L171)
 
 #### Parameters
 
@@ -1236,7 +1236,7 @@ Defined in: [src/components/ComponentBase.ts:171](https://github.com/orillusion/
 
 > `optional` **onAddChild**(`child`): `any`
 
-Defined in: [src/components/ComponentBase.ts:172](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L172)
+Defined in: [src/components/ComponentBase.ts:172](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L172)
 
 #### Parameters
 
@@ -1258,7 +1258,7 @@ Defined in: [src/components/ComponentBase.ts:172](https://github.com/orillusion/
 
 > `optional` **onRemoveChild**(`child`): `any`
 
-Defined in: [src/components/ComponentBase.ts:173](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L173)
+Defined in: [src/components/ComponentBase.ts:173](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L173)
 
 #### Parameters
 
@@ -1280,7 +1280,7 @@ Defined in: [src/components/ComponentBase.ts:173](https://github.com/orillusion/
 
 > **init**(): `void`
 
-Defined in: [src/components/renderer/EarthAtmRenderer.ts:25](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L25)
+Defined in: [src/components/renderer/EarthAtmRenderer.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L25)
 
 #### Returns
 
@@ -1296,7 +1296,7 @@ Defined in: [src/components/renderer/EarthAtmRenderer.ts:25](https://github.com/
 
 > **setSunPosition**(`azimuth`, `elevation`): `void`
 
-Defined in: [src/components/renderer/EarthAtmRenderer.ts:248](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L248)
+Defined in: [src/components/renderer/EarthAtmRenderer.ts:248](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L248)
 
 Set sun position using spherical coordinates
 
@@ -1324,7 +1324,7 @@ Elevation angle in radians (angle above horizon)
 
 > **configureForGroundView**(): `void`
 
-Defined in: [src/components/renderer/EarthAtmRenderer.ts:259](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L259)
+Defined in: [src/components/renderer/EarthAtmRenderer.ts:259](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L259)
 
 Configure for ground view (camera on Earth surface)
 Sets appropriate defaults for viewing sky from ground
@@ -1339,7 +1339,7 @@ Sets appropriate defaults for viewing sky from ground
 
 > **configureForSpaceView**(): `void`
 
-Defined in: [src/components/renderer/EarthAtmRenderer.ts:271](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L271)
+Defined in: [src/components/renderer/EarthAtmRenderer.ts:271](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/EarthAtmRenderer.ts#L271)
 
 Configure for space view (camera in space looking at Earth)
 Sets appropriate defaults for viewing Earth from space
@@ -1354,7 +1354,7 @@ Sets appropriate defaults for viewing Earth from space
 
 > **onEnable**(): `void`
 
-Defined in: [src/components/renderer/MeshRenderer.ts:30](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L30)
+Defined in: [src/components/renderer/MeshRenderer.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L30)
 
 #### Returns
 
@@ -1370,7 +1370,7 @@ Defined in: [src/components/renderer/MeshRenderer.ts:30](https://github.com/oril
 
 > **onDisable**(): `void`
 
-Defined in: [src/components/renderer/MeshRenderer.ts:34](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L34)
+Defined in: [src/components/renderer/MeshRenderer.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L34)
 
 #### Returns
 
@@ -1386,7 +1386,7 @@ Defined in: [src/components/renderer/MeshRenderer.ts:34](https://github.com/oril
 
 > **cloneTo**(`obj`): `void`
 
-Defined in: [src/components/renderer/MeshRenderer.ts:38](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L38)
+Defined in: [src/components/renderer/MeshRenderer.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L38)
 
 clone component data to target object3D
 
@@ -1412,7 +1412,7 @@ target object3D
 
 > **copyComponent**(`from`): `this`
 
-Defined in: [src/components/renderer/MeshRenderer.ts:43](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L43)
+Defined in: [src/components/renderer/MeshRenderer.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L43)
 
 #### Parameters
 
@@ -1434,7 +1434,7 @@ Defined in: [src/components/renderer/MeshRenderer.ts:43](https://github.com/oril
 
 > **setMorphInfluence**(`key`, `value`): `void`
 
-Defined in: [src/components/renderer/MeshRenderer.ts:110](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L110)
+Defined in: [src/components/renderer/MeshRenderer.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L110)
 
 Set deformation animation parameters
 
@@ -1462,7 +1462,7 @@ Set deformation animation parameters
 
 > **setMorphInfluenceIndex**(`index`, `value`): `void`
 
-Defined in: [src/components/renderer/MeshRenderer.ts:119](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L119)
+Defined in: [src/components/renderer/MeshRenderer.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L119)
 
 #### Parameters
 
@@ -1488,7 +1488,7 @@ Defined in: [src/components/renderer/MeshRenderer.ts:119](https://github.com/ori
 
 > **onCompute**(`view`, `command`): `void`
 
-Defined in: [src/components/renderer/MeshRenderer.ts:128](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L128)
+Defined in: [src/components/renderer/MeshRenderer.ts:128](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L128)
 
 #### Parameters
 
@@ -1514,7 +1514,7 @@ Defined in: [src/components/renderer/MeshRenderer.ts:128](https://github.com/ori
 
 > **destroy**(`force?`): `void`
 
-Defined in: [src/components/renderer/MeshRenderer.ts:157](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L157)
+Defined in: [src/components/renderer/MeshRenderer.ts:157](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/MeshRenderer.ts#L157)
 
 #### Parameters
 
@@ -1536,7 +1536,7 @@ Defined in: [src/components/renderer/MeshRenderer.ts:157](https://github.com/ori
 
 > **attachSceneOctree**(`octree`): `void`
 
-Defined in: [src/components/renderer/RenderNode.ts:87](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L87)
+Defined in: [src/components/renderer/RenderNode.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L87)
 
 #### Parameters
 
@@ -1558,7 +1558,7 @@ Defined in: [src/components/renderer/RenderNode.ts:87](https://github.com/orillu
 
 > **detachSceneOctree**(): `void`
 
-Defined in: [src/components/renderer/RenderNode.ts:92](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L92)
+Defined in: [src/components/renderer/RenderNode.ts:92](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L92)
 
 #### Returns
 
@@ -1574,7 +1574,7 @@ Defined in: [src/components/renderer/RenderNode.ts:92](https://github.com/orillu
 
 > **addMask**(`mask`): `void`
 
-Defined in: [src/components/renderer/RenderNode.ts:144](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L144)
+Defined in: [src/components/renderer/RenderNode.ts:144](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L144)
 
 #### Parameters
 
@@ -1596,7 +1596,7 @@ Defined in: [src/components/renderer/RenderNode.ts:144](https://github.com/orill
 
 > **removeMask**(`mask`): `void`
 
-Defined in: [src/components/renderer/RenderNode.ts:148](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L148)
+Defined in: [src/components/renderer/RenderNode.ts:148](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L148)
 
 #### Parameters
 
@@ -1618,7 +1618,7 @@ Defined in: [src/components/renderer/RenderNode.ts:148](https://github.com/orill
 
 > **hasMask**(`mask`): `boolean`
 
-Defined in: [src/components/renderer/RenderNode.ts:152](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L152)
+Defined in: [src/components/renderer/RenderNode.ts:152](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L152)
 
 #### Parameters
 
@@ -1640,7 +1640,7 @@ Defined in: [src/components/renderer/RenderNode.ts:152](https://github.com/orill
 
 > **addRendererMask**(`tag`): `void`
 
-Defined in: [src/components/renderer/RenderNode.ts:232](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L232)
+Defined in: [src/components/renderer/RenderNode.ts:232](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L232)
 
 #### Parameters
 
@@ -1662,7 +1662,7 @@ Defined in: [src/components/renderer/RenderNode.ts:232](https://github.com/orill
 
 > **removeRendererMask**(`tag`): `void`
 
-Defined in: [src/components/renderer/RenderNode.ts:236](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L236)
+Defined in: [src/components/renderer/RenderNode.ts:236](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L236)
 
 #### Parameters
 
@@ -1684,7 +1684,7 @@ Defined in: [src/components/renderer/RenderNode.ts:236](https://github.com/orill
 
 > **refreshRenderClassification**(): `void`
 
-Defined in: [src/components/renderer/RenderNode.ts:270](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L270)
+Defined in: [src/components/renderer/RenderNode.ts:270](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L270)
 
 Recompute renderOrder from current pass states and re-bucket
 this renderer in EntityCollect (opaque vs transparent map).
@@ -1713,7 +1713,7 @@ it directly after manual state changes.
 
 > **selfCloneMaterials**(`key`): `this`
 
-Defined in: [src/components/renderer/RenderNode.ts:295](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L295)
+Defined in: [src/components/renderer/RenderNode.ts:295](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L295)
 
 #### Parameters
 
@@ -1735,7 +1735,7 @@ Defined in: [src/components/renderer/RenderNode.ts:295](https://github.com/orill
 
 > **renderPass**(`view`, `passType`, `renderContext`): `void`
 
-Defined in: [src/components/renderer/RenderNode.ts:456](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L456)
+Defined in: [src/components/renderer/RenderNode.ts:465](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L465)
 
 #### Parameters
 
@@ -1765,7 +1765,7 @@ Defined in: [src/components/renderer/RenderNode.ts:456](https://github.com/orill
 
 > **renderPass2**(`view`, `passType`, `rendererPassState`, `clusterLightingBuffer`, `encoder`, `useBundle?`): `void`
 
-Defined in: [src/components/renderer/RenderNode.ts:528](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L528)
+Defined in: [src/components/renderer/RenderNode.ts:537](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L537)
 
 render pass at passType
 
@@ -1809,7 +1809,7 @@ render pass at passType
 
 > **recordRenderPass2**(`view`, `passType`, `rendererPassState`, `clusterLightingBuffer`, `encoder`, `useBundle?`): `void`
 
-Defined in: [src/components/renderer/RenderNode.ts:586](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L586)
+Defined in: [src/components/renderer/RenderNode.ts:595](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L595)
 
 #### Parameters
 
@@ -1851,7 +1851,7 @@ Defined in: [src/components/renderer/RenderNode.ts:586](https://github.com/orill
 
 > **preInit**(`_rendererType`): `boolean`
 
-Defined in: [src/components/renderer/RenderNode.ts:624](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L624)
+Defined in: [src/components/renderer/RenderNode.ts:633](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L633)
 
 #### Parameters
 
@@ -1873,7 +1873,7 @@ Defined in: [src/components/renderer/RenderNode.ts:624](https://github.com/orill
 
 > **beforeDestroy**(`force?`): `void`
 
-Defined in: [src/components/renderer/RenderNode.ts:741](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L741)
+Defined in: [src/components/renderer/RenderNode.ts:750](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/RenderNode.ts#L750)
 
 before release this component, object refrences are not be set null now.
 

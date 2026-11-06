@@ -6,7 +6,7 @@
 
 > **IsEditorInspector**\<`T`\>(`instance`): `Map`\<`string`, `any`\>
 
-Defined in: [src/util/SerializeDecoration.ts:38](https://github.com/orillusion/orillusion/blob/main/src/util/SerializeDecoration.ts#L38)
+Defined in: [src/util/SerializeDecoration.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/util/SerializeDecoration.ts#L38)
 
 ## Type Parameters
 

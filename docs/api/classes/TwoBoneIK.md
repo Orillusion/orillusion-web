@@ -4,7 +4,7 @@
 
 # Class: TwoBoneIK
 
-Defined in: [src/components/anim/ik/TwoBoneIK.ts:39](https://github.com/orillusion/orillusion/blob/main/src/components/anim/ik/TwoBoneIK.ts#L39)
+Defined in: [src/components/anim/ik/TwoBoneIK.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/ik/TwoBoneIK.ts#L39)
 
 Analytic Two-Bone IK solver.
 
@@ -30,7 +30,7 @@ Limits:
 
 > **new TwoBoneIK**(`cfg`): `TwoBoneIK`
 
-Defined in: [src/components/anim/ik/TwoBoneIK.ts:66](https://github.com/orillusion/orillusion/blob/main/src/components/anim/ik/TwoBoneIK.ts#L66)
+Defined in: [src/components/anim/ik/TwoBoneIK.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/ik/TwoBoneIK.ts#L66)
 
 #### Parameters
 
@@ -48,7 +48,7 @@ Defined in: [src/components/anim/ik/TwoBoneIK.ts:66](https://github.com/orillusi
 
 > **name**: `string`
 
-Defined in: [src/components/anim/ik/TwoBoneIK.ts:40](https://github.com/orillusion/orillusion/blob/main/src/components/anim/ik/TwoBoneIK.ts#L40)
+Defined in: [src/components/anim/ik/TwoBoneIK.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/ik/TwoBoneIK.ts#L40)
 
 ***
 
@@ -56,7 +56,7 @@ Defined in: [src/components/anim/ik/TwoBoneIK.ts:40](https://github.com/orillusi
 
 > **chain**: \[`string`, `string`, `string`\]
 
-Defined in: [src/components/anim/ik/TwoBoneIK.ts:41](https://github.com/orillusion/orillusion/blob/main/src/components/anim/ik/TwoBoneIK.ts#L41)
+Defined in: [src/components/anim/ik/TwoBoneIK.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/ik/TwoBoneIK.ts#L41)
 
 ***
 
@@ -64,7 +64,7 @@ Defined in: [src/components/anim/ik/TwoBoneIK.ts:41](https://github.com/orillusi
 
 > **target**: [`Object3D`](Object3D.md) \| [`Vector3`](Vector3.md)
 
-Defined in: [src/components/anim/ik/TwoBoneIK.ts:42](https://github.com/orillusion/orillusion/blob/main/src/components/anim/ik/TwoBoneIK.ts#L42)
+Defined in: [src/components/anim/ik/TwoBoneIK.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/ik/TwoBoneIK.ts#L42)
 
 ***
 
@@ -72,7 +72,7 @@ Defined in: [src/components/anim/ik/TwoBoneIK.ts:42](https://github.com/orillusi
 
 > `optional` **pole?**: [`Object3D`](Object3D.md) \| [`Vector3`](Vector3.md)
 
-Defined in: [src/components/anim/ik/TwoBoneIK.ts:43](https://github.com/orillusion/orillusion/blob/main/src/components/anim/ik/TwoBoneIK.ts#L43)
+Defined in: [src/components/anim/ik/TwoBoneIK.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/ik/TwoBoneIK.ts#L43)
 
 ***
 
@@ -80,7 +80,7 @@ Defined in: [src/components/anim/ik/TwoBoneIK.ts:43](https://github.com/orillusi
 
 > **weight**: `number`
 
-Defined in: [src/components/anim/ik/TwoBoneIK.ts:44](https://github.com/orillusion/orillusion/blob/main/src/components/anim/ik/TwoBoneIK.ts#L44)
+Defined in: [src/components/anim/ik/TwoBoneIK.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/ik/TwoBoneIK.ts#L44)
 
 ## Methods
 
@@ -88,7 +88,7 @@ Defined in: [src/components/anim/ik/TwoBoneIK.ts:44](https://github.com/orillusi
 
 > **solve**(`animator`): `void`
 
-Defined in: [src/components/anim/ik/TwoBoneIK.ts:74](https://github.com/orillusion/orillusion/blob/main/src/components/anim/ik/TwoBoneIK.ts#L74)
+Defined in: [src/components/anim/ik/TwoBoneIK.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/ik/TwoBoneIK.ts#L74)
 
 #### Parameters
 

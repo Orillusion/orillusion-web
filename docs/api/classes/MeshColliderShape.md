@@ -4,7 +4,7 @@
 
 # Class: MeshColliderShape
 
-Defined in: [src/components/shape/MeshColliderShape.ts:14](https://github.com/orillusion/orillusion/blob/main/src/components/shape/MeshColliderShape.ts#L14)
+Defined in: [src/components/shape/MeshColliderShape.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/MeshColliderShape.ts#L15)
 
 Mesh collision body
 
@@ -18,7 +18,7 @@ Mesh collision body
 
 > **new MeshColliderShape**(): `MeshColliderShape`
 
-Defined in: [src/components/shape/MeshColliderShape.ts:23](https://github.com/orillusion/orillusion/blob/main/src/components/shape/MeshColliderShape.ts#L23)
+Defined in: [src/components/shape/MeshColliderShape.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/MeshColliderShape.ts#L49)
 
 #### Returns
 
@@ -34,9 +34,65 @@ Defined in: [src/components/shape/MeshColliderShape.ts:23](https://github.com/or
 
 > **mesh**: [`GeometryBase`](GeometryBase.md)
 
-Defined in: [src/components/shape/MeshColliderShape.ts:18](https://github.com/orillusion/orillusion/blob/main/src/components/shape/MeshColliderShape.ts#L18)
+Defined in: [src/components/shape/MeshColliderShape.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/MeshColliderShape.ts#L20)
 
-meshComponent
+Geometry to pick against. When left unset, `ColliderComponent` uses the
+geometry of the `MeshRenderer` on the same object.
+
+***
+
+### backfaceCulling
+
+> **backfaceCulling**: `boolean` = `false`
+
+Defined in: [src/components/shape/MeshColliderShape.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/MeshColliderShape.ts#L23)
+
+Skip triangles whose front face points away from the ray.
+
+***
+
+### useBVH
+
+> **useBVH**: [`RaycastBVHMode`](../type-aliases/RaycastBVHMode.md) = `'always'`
+
+Defined in: [src/components/shape/MeshColliderShape.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/MeshColliderShape.ts#L31)
+
+When to use the geometry's `MeshBVH`. Default `'always'`: the tree is
+built on the first pick and cached per geometry. Use `'auto'` to only
+use a tree built elsewhere (`MeshBVH.build`), `'never'` to always test
+every triangle.
+
+***
+
+### maxDistance
+
+> **maxDistance**: `number` = `Infinity`
+
+Defined in: [src/components/shape/MeshColliderShape.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/MeshColliderShape.ts#L34)
+
+Ignore hits farther than this (world units).
+
+***
+
+### renderer
+
+> **renderer**: [`MeshRenderer`](MeshRenderer.md) = `null`
+
+Defined in: [src/components/shape/MeshColliderShape.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/MeshColliderShape.ts#L41)
+
+Renderer drawing `mesh`, set automatically by `ColliderComponent` from
+the same object. When it skins or morphs the mesh, picks follow the
+deformed surface (see `deformation`).
+
+***
+
+### deformation
+
+> **deformation**: [`RaycastDeformation`](../type-aliases/RaycastDeformation.md) = `'cpu'`
+
+Defined in: [src/components/shape/MeshColliderShape.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/MeshColliderShape.ts#L44)
+
+How a skinned / morphed `renderer` is picked. Default `'cpu'`: as drawn.
 
 ## Accessors
 
@@ -46,7 +102,7 @@ meshComponent
 
 > **get** **shapeType**(): [`ColliderShapeType`](../enumerations/ColliderShapeType.md)
 
-Defined in: [src/components/shape/ColliderShape.ts:41](https://github.com/orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L41)
+Defined in: [src/components/shape/ColliderShape.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L73)
 
 ##### Returns
 
@@ -64,7 +120,7 @@ Defined in: [src/components/shape/ColliderShape.ts:41](https://github.com/orillu
 
 > **get** **center**(): [`Vector3`](Vector3.md)
 
-Defined in: [src/components/shape/ColliderShape.ts:60](https://github.com/orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L60)
+Defined in: [src/components/shape/ColliderShape.ts:92](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L92)
 
 The position of the collision object in the local space of the object.
 
@@ -76,7 +132,7 @@ The position of the collision object in the local space of the object.
 
 > **set** **center**(`value`): `void`
 
-Defined in: [src/components/shape/ColliderShape.ts:64](https://github.com/orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L64)
+Defined in: [src/components/shape/ColliderShape.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L96)
 
 ##### Parameters
 
@@ -100,7 +156,7 @@ Defined in: [src/components/shape/ColliderShape.ts:64](https://github.com/orillu
 
 > **get** **size**(): [`Vector3`](Vector3.md)
 
-Defined in: [src/components/shape/ColliderShape.ts:73](https://github.com/orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L73)
+Defined in: [src/components/shape/ColliderShape.ts:105](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L105)
 
 The size of the collision body in the X, Y, and Z directions.
 
@@ -114,7 +170,7 @@ Vector3
 
 > **set** **size**(`value`): `void`
 
-Defined in: [src/components/shape/ColliderShape.ts:77](https://github.com/orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L77)
+Defined in: [src/components/shape/ColliderShape.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L109)
 
 ##### Parameters
 
@@ -138,7 +194,7 @@ Defined in: [src/components/shape/ColliderShape.ts:77](https://github.com/orillu
 
 > **get** **halfSize**(): [`Vector3`](Vector3.md)
 
-Defined in: [src/components/shape/ColliderShape.ts:85](https://github.com/orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L85)
+Defined in: [src/components/shape/ColliderShape.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L117)
 
 Half the size of the collision body.
 
@@ -156,7 +212,7 @@ Half the size of the collision body.
 
 > **setFromCenterAndSize**(`ct?`, `sz?`): `this`
 
-Defined in: [src/components/shape/ColliderShape.ts:51](https://github.com/orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L51)
+Defined in: [src/components/shape/ColliderShape.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L83)
 
 Set the position and size of collision objects
 
@@ -184,13 +240,51 @@ The size of the collision body in the X, Y, and Z directions.
 
 ***
 
+### transformNormal()
+
+> `static` **transformNormal**(`invMatrix`, `n`, `out`): [`Vector3`](Vector3.md)
+
+Defined in: [src/components/shape/ColliderShape.ts:158](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L158)
+
+Transform a local-space normal to world space with the inverse
+transpose of the local → world matrix. See `MeshRaycast.transformNormal`.
+
+#### Parameters
+
+##### invMatrix
+
+[`Matrix4`](Matrix4.md)
+
+##### n
+
+[`Vector3`](Vector3.md)
+
+##### out
+
+[`Vector3`](Vector3.md)
+
+#### Returns
+
+[`Vector3`](Vector3.md)
+
+#### Inherited from
+
+[`ColliderShape`](ColliderShape.md).[`transformNormal`](ColliderShape.md#transformnormal)
+
+***
+
 ### rayPick()
 
 > **rayPick**(`ray`, `fromMatrix`): [`HitInfo`](../type-aliases/HitInfo.md)
 
-Defined in: [src/components/shape/MeshColliderShape.ts:28](https://github.com/orillusion/orillusion/blob/main/src/components/shape/MeshColliderShape.ts#L28)
+Defined in: [src/components/shape/MeshColliderShape.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/MeshColliderShape.ts#L62)
 
-Ray pickup.Emit a ray from a designated location to detect objects colliding with the ray.
+Closest triangle hit along `ray` (world space), or null. With the
+default `useBVH` the cost is O(log n) triangles. `distance`,
+`intersectPoint`, `normal` (interpolated vertex normal, face normal
+when the geometry has none) and `faceNormal` are world space; the
+result also carries `localPoint`, `faceIndex`, `barycentric`, `uv`,
+`uv1`, `subGeometryIndex` and `frontFace`.
 
 #### Parameters
 
@@ -198,21 +292,13 @@ Ray pickup.Emit a ray from a designated location to detect objects colliding wit
 
 [`Ray`](Ray.md)
 
-emit ray
-
 ##### fromMatrix
 
 [`Matrix4`](Matrix4.md)
 
-matrix
-
 #### Returns
 
 [`HitInfo`](../type-aliases/HitInfo.md)
-
-Pick result intersect: whether to collide;
- IntersectPoint: collision point;
- Distance: The distance from the origin of the ray to the collision point.
 
 #### Overrides
 

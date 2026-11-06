@@ -4,7 +4,7 @@
 
 # Class: UIUtil
 
-Defined in: [src/util/UIUtil.ts:15](https://github.com/orillusion/orillusion/blob/main/src/util/UIUtil.ts#L15)
+Defined in: [src/util/UIUtil.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/util/UIUtil.ts#L15)
 
 Utility helpers for building sprite textures from Canvas2D output —
 primarily `textToTexture` for rendering labels (name tags, HP text,
@@ -30,7 +30,7 @@ text, build a dedicated atlas.
 
 > `readonly` `static` **DEFAULT\_TEXT\_OPTS**: `Required`\<[`TextOptions`](../type-aliases/TextOptions.md)\>
 
-Defined in: [src/util/UIUtil.ts:17](https://github.com/orillusion/orillusion/blob/main/src/util/UIUtil.ts#L17)
+Defined in: [src/util/UIUtil.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/util/UIUtil.ts#L17)
 
 Text rendering options. Missing fields fall back to sensible defaults.
 
@@ -40,7 +40,7 @@ Text rendering options. Missing fields fall back to sensible defaults.
 
 > `static` **measureText**(`text`, `opts?`): `object`
 
-Defined in: [src/util/UIUtil.ts:33](https://github.com/orillusion/orillusion/blob/main/src/util/UIUtil.ts#L33)
+Defined in: [src/util/UIUtil.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/util/UIUtil.ts#L33)
 
 Measure the CSS-pixel size needed to render `text` with the given options.
 
@@ -72,7 +72,7 @@ Measure the CSS-pixel size needed to render `text` with the given options.
 
 > `static` **textToTexture**(`text`, `ctx`, `opts?`): `Promise`\<[`BitmapTexture2D`](BitmapTexture2D.md)\>
 
-Defined in: [src/util/UIUtil.ts:55](https://github.com/orillusion/orillusion/blob/main/src/util/UIUtil.ts#L55)
+Defined in: [src/util/UIUtil.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/util/UIUtil.ts#L55)
 
 Render `text` to a new GPU texture. Returns a BitmapTexture2D bound to
 `ctx`. The texture format is `rgba8unorm` with premultiplied alpha —
@@ -102,7 +102,7 @@ suitable for `SpriteMaterial.baseMap`.
 
 > `static` **updateTextTexture**(`texture`, `text`, `opts?`): `Promise`\<`void`\>
 
-Defined in: [src/util/UIUtil.ts:69](https://github.com/orillusion/orillusion/blob/main/src/util/UIUtil.ts#L69)
+Defined in: [src/util/UIUtil.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/util/UIUtil.ts#L69)
 
 Re-render `text` into an existing texture's backing store. Requires the
 texture's `width/height` to match the new size — if they differ, the

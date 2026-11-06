@@ -4,7 +4,7 @@
 
 # Interface: OpenedRenderPass
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:49](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L49)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L49)
 
 Live handle returned by [RenderGraphRenderTarget.beginPass](../classes/RenderGraphRenderTarget.md#beginpass).
 Carries the WebGPU encoder + the resolved RendererPassState
@@ -17,7 +17,7 @@ to close the pass + submit the per-call command buffer.
 
 > **encoder**: `GPURenderPassEncoder`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:50](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L50)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L50)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:50](https://gith
 
 > **command**: `GPUCommandEncoder`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:51](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L51)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L51)
 
 ***
 
@@ -33,4 +33,4 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:51](https://gith
 
 > **passState**: `RendererPassState`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:52](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L52)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L52)

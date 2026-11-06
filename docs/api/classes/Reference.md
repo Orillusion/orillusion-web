@@ -4,7 +4,7 @@
 
 # Class: Reference
 
-Defined in: [src/util/Reference.ts:12](https://github.com/orillusion/orillusion/blob/main/src/util/Reference.ts#L12)
+Defined in: [src/util/Reference.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/util/Reference.ts#L12)
 
 instance reference statistics module
 apply any instance , used full destroy
@@ -31,7 +31,7 @@ tracker), but it evaporates with the ref once nothing else holds it.
 
 > `static` **getInstance**(): `Reference`
 
-Defined in: [src/util/Reference.ts:18](https://github.com/orillusion/orillusion/blob/main/src/util/Reference.ts#L18)
+Defined in: [src/util/Reference.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/util/Reference.ts#L18)
 
 Get the shared Reference singleton, creating it on first use.
 
@@ -45,7 +45,7 @@ Get the shared Reference singleton, creating it on first use.
 
 > **attached**(`ref`, `target`): `void`
 
-Defined in: [src/util/Reference.ts:28](https://github.com/orillusion/orillusion/blob/main/src/util/Reference.ts#L28)
+Defined in: [src/util/Reference.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/util/Reference.ts#L28)
 
 current instance attached from parent instance
 
@@ -73,7 +73,7 @@ reference parent
 
 > **detached**(`ref`, `target`): `void`
 
-Defined in: [src/util/Reference.ts:43](https://github.com/orillusion/orillusion/blob/main/src/util/Reference.ts#L43)
+Defined in: [src/util/Reference.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/util/Reference.ts#L43)
 
 current instance detached from parent instance
 
@@ -101,7 +101,7 @@ reference parent
 
 > **hasReference**(`ref`): `boolean`
 
-Defined in: [src/util/Reference.ts:59](https://github.com/orillusion/orillusion/blob/main/src/util/Reference.ts#L59)
+Defined in: [src/util/Reference.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/util/Reference.ts#L59)
 
 current instance has reference
 
@@ -121,7 +121,7 @@ current instance has reference
 
 > **getReferenceCount**(`ref`): `number`
 
-Defined in: [src/util/Reference.ts:72](https://github.com/orillusion/orillusion/blob/main/src/util/Reference.ts#L72)
+Defined in: [src/util/Reference.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/util/Reference.ts#L72)
 
 get current instance reference count
 
@@ -141,7 +141,7 @@ get current instance reference count
 
 > **getReference**(`ref`): `Map`\<`any`, `any`\>
 
-Defined in: [src/util/Reference.ts:85](https://github.com/orillusion/orillusion/blob/main/src/util/Reference.ts#L85)
+Defined in: [src/util/Reference.ts:85](https://github.com/Orillusion/orillusion/blob/main/src/util/Reference.ts#L85)
 
 get current instance reference from where
 

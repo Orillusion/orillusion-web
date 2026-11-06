@@ -6,7 +6,7 @@
 
 > **expand**(`text`, `defines`): `string`
 
-Defined in: [src/gfx/graphics/webGpu/shader/util/PreprocessorExpr.ts:265](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/PreprocessorExpr.ts#L265)
+Defined in: [src/gfx/graphics/webGpu/shader/util/PreprocessorExpr.ts:265](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/PreprocessorExpr.ts#L265)
 
 Single-pass identifier expansion.
 

@@ -6,7 +6,7 @@
 
 > **MorphTargetMapper** = `object`
 
-Defined in: [src/components/anim/morphAnim/MorphTargetKey.ts:1](https://github.com/orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetKey.ts#L1)
+Defined in: [src/components/anim/morphAnim/MorphTargetKey.ts:1](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/morphAnim/MorphTargetKey.ts#L1)
 
 ## Index Signature
 

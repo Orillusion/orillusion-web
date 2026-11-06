@@ -4,7 +4,7 @@
 
 # Class: ZSorterUtil
 
-Defined in: [src/util/ZSorterUtil.ts:11](https://github.com/orillusion/orillusion/blob/main/src/util/ZSorterUtil.ts#L11)
+Defined in: [src/util/ZSorterUtil.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/util/ZSorterUtil.ts#L11)
 
 Sort a data with world coordinates based on the camera's camera by z
 
@@ -24,7 +24,7 @@ Sort a data with world coordinates based on the camera's camera by z
 
 > **sort**(`camera3D`, `userDataList`, `getObject3D`, `result?`): `any`[]
 
-Defined in: [src/util/ZSorterUtil.ts:39](https://github.com/orillusion/orillusion/blob/main/src/util/ZSorterUtil.ts#L39)
+Defined in: [src/util/ZSorterUtil.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/util/ZSorterUtil.ts#L39)
 
 Sort userDataList by z based on the view coordinates of camera3D
 
@@ -64,7 +64,7 @@ Returns a list of userData, and if passed in as null, instantiates one
 
 > **worldToCameraDepth**(`obj3d`, `camera?`): `number`
 
-Defined in: [src/util/ZSorterUtil.ts:61](https://github.com/orillusion/orillusion/blob/main/src/util/ZSorterUtil.ts#L61)
+Defined in: [src/util/ZSorterUtil.ts:61](https://github.com/Orillusion/orillusion/blob/main/src/util/ZSorterUtil.ts#L61)
 
 #### Parameters
 
