@@ -13,10 +13,11 @@ if (!OSS_ACCESS_KEY_ID || !OSS_ACCESS_KEY_SECRET) {
     process.exit(1);
 }
 
-const createClient = (region, bucket) =>
+const createClient = (region, bucket, extra = {}) =>
     new OSS({
         region,
         bucket,
+        ...extra,
         accessKeyId: OSS_ACCESS_KEY_ID,
         accessKeySecret: OSS_ACCESS_KEY_SECRET,
         timeout: '5m',
@@ -24,7 +25,8 @@ const createClient = (region, bucket) =>
     });
 
 const clients = [
-    createClient('oss-cn-beijing', 'orillusion-web'),
+    // 北京 bucket 走全球加速域名（CI 在海外，直连北京较慢）
+    createClient('oss-cn-beijing', 'orillusion-web', { endpoint: 'https://oss-accelerate.aliyuncs.com' }),
     createClient('oss-cn-hongkong', 'orillusion-web-hk'),
     createClient('oss-us-west-1', 'orillusion-la')
 ];
