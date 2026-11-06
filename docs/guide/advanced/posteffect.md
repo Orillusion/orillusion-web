@@ -15,3 +15,7 @@ aside: false
 | [GTAO](./post_gtao) | 环境光遮蔽  |
 | [TAAPost](./post_taa) | 反走样  |
 | [GodRay](./post_godRay) | 上帝射线  |
+| [MotionBlur](./post_motionBlur) | 运动模糊（相机 / 对象）  |
+| [Lens](./post_lens) | 暗角、色差、胶片颗粒  |
+| [Tonemap](./post_tonemap) | 色调映射（引擎自动添加）  |
+| [ColorGrading](./post_colorGrading) | 调色  |
