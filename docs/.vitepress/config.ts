@@ -436,6 +436,7 @@ function sidebarGuide(): SidebarItem {
                 { text: '触控', link: '/guide/interaction/pointer.md' },
                 { text: '键盘', link: '/guide/interaction/keyboard.md' },
                 { text: '拾取事件', link: '/guide/interaction/pickfire.md' },
+                { text: '射线检测与 MeshBVH', link: '/guide/interaction/raycast.md' },
                 { text: '自定义事件', link: '/guide/interaction/event.md' }
             ]
         },
@@ -643,6 +644,7 @@ function sidebarExample(root: string = '') {
         Loader: [],
         Particle: [],
         Water: [],
+        Pick: [],
         Compute: [],
         Physics: [],
         PhysicsRapier: [],

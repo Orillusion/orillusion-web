@@ -66,7 +66,7 @@ collider.shape = new BoxColliderShape().setFromCenterAndSize(new Vector3(0, 0, 0
 
 - 左面的 `box` 使用同形状的 `BoxColliderShape` 进行检测，精度较好
 - 中间的 `sphere` 使用 `BoxColliderShape`，但检测区域就会比实际模型要大，精度较差
-- 右边的 `sphere` 也使用 `MeshColliderShape`，可以完全贴合模型所有顶点，精度最高，但会消耗更多性能做碰撞检测，对于复杂物体来说，不推荐使用
+- 右边的 `sphere` 使用 `MeshColliderShape`，直接与模型的三角形求交，精度最高。它默认在首次拾取时为几何体建立 `MeshBVH` 加速结构，即使是高面数模型也能逐帧拾取，并能在事件数据中拿到三角形索引、UV 等信息，详见 [射线检测与 MeshBVH](/guide/interaction/raycast)
 
 <Demo :height="400" src="/demos/interaction/pick_bound.ts"></Demo>
 
