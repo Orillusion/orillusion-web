@@ -4,12 +4,12 @@
 
 | 光源 | 说明 |
 | :---: | :---: |
-| 灯光组件 | 基础光源组件：平行光，点光源 和 聚光灯 |
+| 灯光组件 | 基础光源组件：平行光，点光源，聚光灯 和 矩形面光源 |
 | 环境反射 | 天空盒环境光，全局曝光 |
 | 全局光照 | 场景中反射或折射的间接光源 |
 
 ## 灯光组件
-引擎目前内置了3种经典的光源类型：
+引擎目前内置了4种光源类型：
 
 ### 平行光
 
@@ -107,6 +107,47 @@ spotLight.outerAngle = 35;
 <Demo :height="500" src="/demos/graphics/lighting_spot.ts"></Demo>
  
 <<< @/public/demos/graphics/lighting_spot.ts
+
+### 矩形面光源
+
+[矩形面光源](/api/classes/RectLight) 是一块有实际尺寸的矩形发光面板，只从一侧发光，可以用来模拟窗户、柔光箱、吸顶灯板、屏幕等。与点光源、聚光灯不同，它的光来自一整块面积：近处的表面会得到柔和、能"包裹"物体的漫反射，光滑的表面上会映出矩形的高光。矩形面光源有以下主要属性：
+
+| 属性 | 类型 | 说明 |
+| --- | --- | --- |
+| lightColor | Color | 灯光的颜色, 默认是白色 `rgb(1.0,1.0,1.0)` |
+| intensity | Number | 面板的发光强度（辐亮度），默认值为 `5` |
+| width | Number | 面板宽度（沿物体的右方向），默认值为 `2` |
+| height | Number | 面板高度（沿物体的上方向），默认值为 `1` |
+| range | Number | 光照最远距离，从面板中心到该距离处衰减为 `0`，默认值为 `20` |
+
+面板朝物体的前方发光，与聚光灯一样通过 `Object3D` 的旋转控制朝向，也可以用 `lookAt` 让它直接朝向某个目标点：
+```ts
+let rectLightObj = new Object3D();
+scene.addChild(rectLightObj);
+
+// 设置矩形面光源组件的属性
+let rectLight = rectLightObj.addComponent(RectLight);
+rectLight.lightColor = new Color(1.0, 0.72, 0.45, 1.0);
+rectLight.intensity = 6;
+rectLight.width = 5;
+rectLight.height = 4;
+rectLight.range = 45;
+
+// 放在 (-9, 5, 3)，朝向 (0, 2, 0) 发光
+rectLightObj.transform.lookAt(new Vector3(-9, 5, 3), new Vector3(0, 2, 0));
+```
+
+::: tip
+- `intensity` 表示面板单位面积的发光强度，因此面板越大，场景越亮，这与现实中的柔光箱一致；
+- 矩形面光源不产生阴影，`castShadow` 会被忽略；
+- 光源本身是不可见的。如果希望看到发光面板，可以在同一位置放一个尺寸相同的 `UnLitMaterial` 平面或薄盒子，如下面的示例所示。
+:::
+
+下面的示例是一个只由三块矩形面光源照亮的暗室：左侧暖色主光、右侧冷色补光，以及一条在舞台上方摆动的品红色灯条。光滑的地面上可以看到每块面板被拉长的矩形倒影，背墙和磨砂小球上可以看到随面板尺寸变化的柔和漫反射；两排小球的粗糙度从镜面逐渐过渡到磨砂。
+
+<Demo :height="500" src="/demos/graphics/lighting_rect.ts"></Demo>
+
+<<< @/public/demos/graphics/lighting_rect.ts
 
 ## IES 灯光信息
 照明工程学会（IES）定义了一种文件格式，可以描述真实灯光在现实世界的光照强度分布情况。IES 文件描述了各种类型的灯具的光线强弱度，衰减曲线，模拟灯珠的透射，折射等光线变化行为，最终解码成指定的2D数据图进行3D空间的灯光映射。
