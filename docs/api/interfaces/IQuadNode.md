@@ -4,7 +4,7 @@
 
 # Interface: IQuadNode
 
-Defined in: [src/core/tree/quad/IQuadNode.ts:4](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/IQuadNode.ts#L4)
+Defined in: [src/core/tree/quad/IQuadNode.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/IQuadNode.ts#L4)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/core/tree/quad/IQuadNode.ts:4](https://github.com/orillusion/or
 
 > **isTriangle**: `boolean`
 
-Defined in: [src/core/tree/quad/IQuadNode.ts:8](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/IQuadNode.ts#L8)
+Defined in: [src/core/tree/quad/IQuadNode.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/IQuadNode.ts#L8)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/core/tree/quad/IQuadNode.ts:8](https://github.com/orillusion/or
 
 > **aabb**: [`QuadAABB`](../classes/QuadAABB.md)
 
-Defined in: [src/core/tree/quad/IQuadNode.ts:10](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/IQuadNode.ts#L10)
+Defined in: [src/core/tree/quad/IQuadNode.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/IQuadNode.ts#L10)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/core/tree/quad/IQuadNode.ts:10](https://github.com/orillusion/o
 
 > `optional` **plane?**: [`Plane3D`](../classes/Plane3D.md)
 
-Defined in: [src/core/tree/quad/IQuadNode.ts:14](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/IQuadNode.ts#L14)
+Defined in: [src/core/tree/quad/IQuadNode.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/IQuadNode.ts#L14)
 
 ## Methods
 
@@ -36,7 +36,7 @@ Defined in: [src/core/tree/quad/IQuadNode.ts:14](https://github.com/orillusion/o
 
 > **initAABB**(): `void`
 
-Defined in: [src/core/tree/quad/IQuadNode.ts:6](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/IQuadNode.ts#L6)
+Defined in: [src/core/tree/quad/IQuadNode.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/IQuadNode.ts#L6)
 
 #### Returns
 
@@ -48,7 +48,7 @@ Defined in: [src/core/tree/quad/IQuadNode.ts:6](https://github.com/orillusion/or
 
 > **calcGlobalQuadAABB**(): `void`
 
-Defined in: [src/core/tree/quad/IQuadNode.ts:12](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/IQuadNode.ts#L12)
+Defined in: [src/core/tree/quad/IQuadNode.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/IQuadNode.ts#L12)
 
 #### Returns
 

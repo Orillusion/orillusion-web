@@ -6,7 +6,7 @@
 
 > **SceneCaptureUpdateMode** = `"always"` \| `"manual"`
 
-Defined in: [src/components/SceneCaptureCameraComponent.ts:23](https://github.com/orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L23)
+Defined in: [src/components/SceneCaptureCameraComponent.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L23)
 
 Scene-capture update strategy.
 

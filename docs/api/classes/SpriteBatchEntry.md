@@ -4,7 +4,7 @@
 
 # Class: SpriteBatchEntry
 
-Defined in: [src/components/renderer/SpriteBatch.ts:24](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/SpriteBatch.ts#L24)
+Defined in: [src/components/renderer/SpriteBatch.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/SpriteBatch.ts#L24)
 
 A single entry in a `SpriteBatch`. Treat as opaque — mutate only via
 `batch.update(entry, patch)`, which marks the batch dirty so the next
@@ -16,7 +16,7 @@ frame re-uploads the CPU vertex arrays.
 
 > **new SpriteBatchEntry**(`id`): `SpriteBatchEntry`
 
-Defined in: [src/components/renderer/SpriteBatch.ts:35](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/SpriteBatch.ts#L35)
+Defined in: [src/components/renderer/SpriteBatch.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/SpriteBatch.ts#L35)
 
 #### Parameters
 
@@ -34,7 +34,7 @@ Defined in: [src/components/renderer/SpriteBatch.ts:35](https://github.com/orill
 
 > `readonly` **id**: `number`
 
-Defined in: [src/components/renderer/SpriteBatch.ts:25](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/SpriteBatch.ts#L25)
+Defined in: [src/components/renderer/SpriteBatch.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/SpriteBatch.ts#L25)
 
 ***
 
@@ -42,7 +42,7 @@ Defined in: [src/components/renderer/SpriteBatch.ts:25](https://github.com/orill
 
 > **position**: [`Vector3`](Vector3.md)
 
-Defined in: [src/components/renderer/SpriteBatch.ts:27](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/SpriteBatch.ts#L27)
+Defined in: [src/components/renderer/SpriteBatch.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/SpriteBatch.ts#L27)
 
 World-space position of the entry's pivot anchor (local to the batch's Object3D).
 
@@ -52,7 +52,7 @@ World-space position of the entry's pivot anchor (local to the batch's Object3D)
 
 > **size**: [`Vector2`](Vector2.md)
 
-Defined in: [src/components/renderer/SpriteBatch.ts:29](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/SpriteBatch.ts#L29)
+Defined in: [src/components/renderer/SpriteBatch.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/SpriteBatch.ts#L29)
 
 Quad size in world units (meters).
 
@@ -62,7 +62,7 @@ Quad size in world units (meters).
 
 > **pivot**: [`Vector2`](Vector2.md)
 
-Defined in: [src/components/renderer/SpriteBatch.ts:31](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/SpriteBatch.ts#L31)
+Defined in: [src/components/renderer/SpriteBatch.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/SpriteBatch.ts#L31)
 
 Anchor point in [0,1]². (0.5, 0.5) = centered.
 
@@ -72,6 +72,6 @@ Anchor point in [0,1]². (0.5, 0.5) = centered.
 
 > **uvRect**: `Vector4`
 
-Defined in: [src/components/renderer/SpriteBatch.ts:33](https://github.com/orillusion/orillusion/blob/main/src/components/renderer/SpriteBatch.ts#L33)
+Defined in: [src/components/renderer/SpriteBatch.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/components/renderer/SpriteBatch.ts#L33)
 
 UV sub-region as (offsetX, offsetY, scaleX, scaleY) — atlas-friendly.

@@ -4,7 +4,7 @@
 
 # Class: GlobalFog
 
-Defined in: [src/gfx/renderJob/post/GlobalFog.ts:25](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L25)
+Defined in: [src/gfx/renderJob/post/GlobalFog.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L25)
 
 screen space fog
 
@@ -14,7 +14,7 @@ screen space fog
 
 > **new GlobalFog**(): `GlobalFog`
 
-Defined in: [src/gfx/renderJob/post/GlobalFog.ts:33](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L33)
+Defined in: [src/gfx/renderJob/post/GlobalFog.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L33)
 
 #### Returns
 
@@ -30,7 +30,7 @@ Defined in: [src/gfx/renderJob/post/GlobalFog.ts:33](https://github.com/orillusi
 
 > **rtFrame**: [`RTFrame`](RTFrame.md)
 
-Defined in: [src/gfx/renderJob/post/GlobalFog.ts:90](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L90)
+Defined in: [src/gfx/renderJob/post/GlobalFog.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L90)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [src/gfx/renderJob/post/GlobalFog.ts:90](https://github.com/orillusi
 
 > **enable**: `boolean` = `true`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L23)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L23)
 
 #### Inherited from
 
@@ -50,7 +50,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/orillusio
 
 > **isFinalPass**: `boolean` = `false`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:27](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L27)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L27)
 
 When true, PostPass iterates this post AFTER every regular
  post regardless of attach order — used by TonemapPost so the
@@ -66,7 +66,7 @@ When true, PostPass iterates this post AFTER every regular
 
 > **postRenderer**: [`PostPass`](PostPass.md)
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L28)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L28)
 
 #### Inherited from
 
@@ -78,7 +78,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/orillusio
 
 > **rendererPassState**: `RendererPassState`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L29)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L29)
 
 #### Inherited from
 
@@ -90,7 +90,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/orillusio
 
 > **\_boundCtx**: [`Context3D`](Context3D.md) = `null`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L30)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L30)
 
 #### Inherited from
 
@@ -104,7 +104,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/orillusio
 
 > **get** **fogType**(): `number`
 
-Defined in: [src/gfx/renderJob/post/GlobalFog.ts:117](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L117)
+Defined in: [src/gfx/renderJob/post/GlobalFog.ts:117](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L117)
 
 ##### Returns
 
@@ -114,7 +114,7 @@ Defined in: [src/gfx/renderJob/post/GlobalFog.ts:117](https://github.com/orillus
 
 > **set** **fogType**(`v`): `void`
 
-Defined in: [src/gfx/renderJob/post/GlobalFog.ts:114](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L114)
+Defined in: [src/gfx/renderJob/post/GlobalFog.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L114)
 
 ##### Parameters
 
@@ -134,7 +134,7 @@ Defined in: [src/gfx/renderJob/post/GlobalFog.ts:114](https://github.com/orillus
 
 > **get** **fogHeightScale**(): `number`
 
-Defined in: [src/gfx/renderJob/post/GlobalFog.ts:123](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L123)
+Defined in: [src/gfx/renderJob/post/GlobalFog.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L123)
 
 ##### Returns
 
@@ -144,7 +144,7 @@ Defined in: [src/gfx/renderJob/post/GlobalFog.ts:123](https://github.com/orillus
 
 > **set** **fogHeightScale**(`v`): `void`
 
-Defined in: [src/gfx/renderJob/post/GlobalFog.ts:120](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L120)
+Defined in: [src/gfx/renderJob/post/GlobalFog.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L120)
 
 ##### Parameters
 
@@ -164,7 +164,7 @@ Defined in: [src/gfx/renderJob/post/GlobalFog.ts:120](https://github.com/orillus
 
 > **get** **start**(): `number`
 
-Defined in: [src/gfx/renderJob/post/GlobalFog.ts:129](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L129)
+Defined in: [src/gfx/renderJob/post/GlobalFog.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L129)
 
 ##### Returns
 
@@ -174,7 +174,7 @@ Defined in: [src/gfx/renderJob/post/GlobalFog.ts:129](https://github.com/orillus
 
 > **set** **start**(`v`): `void`
 
-Defined in: [src/gfx/renderJob/post/GlobalFog.ts:126](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L126)
+Defined in: [src/gfx/renderJob/post/GlobalFog.ts:126](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L126)
 
 ##### Parameters
 
@@ -194,7 +194,7 @@ Defined in: [src/gfx/renderJob/post/GlobalFog.ts:126](https://github.com/orillus
 
 > **get** **end**(): `number`
 
-Defined in: [src/gfx/renderJob/post/GlobalFog.ts:135](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L135)
+Defined in: [src/gfx/renderJob/post/GlobalFog.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L135)
 
 ##### Returns
 
@@ -204,7 +204,7 @@ Defined in: [src/gfx/renderJob/post/GlobalFog.ts:135](https://github.com/orillus
 
 > **set** **end**(`v`): `void`
 
-Defined in: [src/gfx/renderJob/post/GlobalFog.ts:132](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L132)
+Defined in: [src/gfx/renderJob/post/GlobalFog.ts:132](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L132)
 
 ##### Parameters
 
@@ -224,7 +224,7 @@ Defined in: [src/gfx/renderJob/post/GlobalFog.ts:132](https://github.com/orillus
 
 > **get** **ins**(): `number`
 
-Defined in: [src/gfx/renderJob/post/GlobalFog.ts:141](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L141)
+Defined in: [src/gfx/renderJob/post/GlobalFog.ts:141](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L141)
 
 ##### Returns
 
@@ -234,7 +234,7 @@ Defined in: [src/gfx/renderJob/post/GlobalFog.ts:141](https://github.com/orillus
 
 > **set** **ins**(`v`): `void`
 
-Defined in: [src/gfx/renderJob/post/GlobalFog.ts:138](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L138)
+Defined in: [src/gfx/renderJob/post/GlobalFog.ts:138](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L138)
 
 ##### Parameters
 
@@ -254,7 +254,7 @@ Defined in: [src/gfx/renderJob/post/GlobalFog.ts:138](https://github.com/orillus
 
 > **get** **density**(): `number`
 
-Defined in: [src/gfx/renderJob/post/GlobalFog.ts:147](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L147)
+Defined in: [src/gfx/renderJob/post/GlobalFog.ts:147](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L147)
 
 ##### Returns
 
@@ -264,7 +264,7 @@ Defined in: [src/gfx/renderJob/post/GlobalFog.ts:147](https://github.com/orillus
 
 > **set** **density**(`v`): `void`
 
-Defined in: [src/gfx/renderJob/post/GlobalFog.ts:144](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L144)
+Defined in: [src/gfx/renderJob/post/GlobalFog.ts:144](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L144)
 
 ##### Parameters
 
@@ -284,7 +284,7 @@ Defined in: [src/gfx/renderJob/post/GlobalFog.ts:144](https://github.com/orillus
 
 > **get** **skyRoughness**(): `number`
 
-Defined in: [src/gfx/renderJob/post/GlobalFog.ts:153](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L153)
+Defined in: [src/gfx/renderJob/post/GlobalFog.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L153)
 
 ##### Returns
 
@@ -294,7 +294,7 @@ Defined in: [src/gfx/renderJob/post/GlobalFog.ts:153](https://github.com/orillus
 
 > **set** **skyRoughness**(`v`): `void`
 
-Defined in: [src/gfx/renderJob/post/GlobalFog.ts:150](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L150)
+Defined in: [src/gfx/renderJob/post/GlobalFog.ts:150](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L150)
 
 ##### Parameters
 
@@ -314,7 +314,7 @@ Defined in: [src/gfx/renderJob/post/GlobalFog.ts:150](https://github.com/orillus
 
 > **get** **skyFactor**(): `number`
 
-Defined in: [src/gfx/renderJob/post/GlobalFog.ts:159](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L159)
+Defined in: [src/gfx/renderJob/post/GlobalFog.ts:159](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L159)
 
 ##### Returns
 
@@ -324,7 +324,7 @@ Defined in: [src/gfx/renderJob/post/GlobalFog.ts:159](https://github.com/orillus
 
 > **set** **skyFactor**(`v`): `void`
 
-Defined in: [src/gfx/renderJob/post/GlobalFog.ts:156](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L156)
+Defined in: [src/gfx/renderJob/post/GlobalFog.ts:156](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L156)
 
 ##### Parameters
 
@@ -344,7 +344,7 @@ Defined in: [src/gfx/renderJob/post/GlobalFog.ts:156](https://github.com/orillus
 
 > **get** **overrideSkyFactor**(): `number`
 
-Defined in: [src/gfx/renderJob/post/GlobalFog.ts:166](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L166)
+Defined in: [src/gfx/renderJob/post/GlobalFog.ts:166](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L166)
 
 ##### Returns
 
@@ -354,7 +354,7 @@ Defined in: [src/gfx/renderJob/post/GlobalFog.ts:166](https://github.com/orillus
 
 > **set** **overrideSkyFactor**(`v`): `void`
 
-Defined in: [src/gfx/renderJob/post/GlobalFog.ts:163](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L163)
+Defined in: [src/gfx/renderJob/post/GlobalFog.ts:163](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L163)
 
 ##### Parameters
 
@@ -374,7 +374,7 @@ Defined in: [src/gfx/renderJob/post/GlobalFog.ts:163](https://github.com/orillus
 
 > **get** **falloff**(): `number`
 
-Defined in: [src/gfx/renderJob/post/GlobalFog.ts:188](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L188)
+Defined in: [src/gfx/renderJob/post/GlobalFog.ts:188](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L188)
 
 ##### Returns
 
@@ -384,7 +384,7 @@ Defined in: [src/gfx/renderJob/post/GlobalFog.ts:188](https://github.com/orillus
 
 > **set** **falloff**(`v`): `void`
 
-Defined in: [src/gfx/renderJob/post/GlobalFog.ts:184](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L184)
+Defined in: [src/gfx/renderJob/post/GlobalFog.ts:184](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L184)
 
 ##### Parameters
 
@@ -404,7 +404,7 @@ Defined in: [src/gfx/renderJob/post/GlobalFog.ts:184](https://github.com/orillus
 
 > **get** **rayLength**(): `number`
 
-Defined in: [src/gfx/renderJob/post/GlobalFog.ts:196](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L196)
+Defined in: [src/gfx/renderJob/post/GlobalFog.ts:196](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L196)
 
 ##### Returns
 
@@ -414,7 +414,7 @@ Defined in: [src/gfx/renderJob/post/GlobalFog.ts:196](https://github.com/orillus
 
 > **set** **rayLength**(`v`): `void`
 
-Defined in: [src/gfx/renderJob/post/GlobalFog.ts:192](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L192)
+Defined in: [src/gfx/renderJob/post/GlobalFog.ts:192](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L192)
 
 ##### Parameters
 
@@ -434,7 +434,7 @@ Defined in: [src/gfx/renderJob/post/GlobalFog.ts:192](https://github.com/orillus
 
 > **get** **scatteringExponent**(): `number`
 
-Defined in: [src/gfx/renderJob/post/GlobalFog.ts:204](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L204)
+Defined in: [src/gfx/renderJob/post/GlobalFog.ts:204](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L204)
 
 ##### Returns
 
@@ -444,7 +444,7 @@ Defined in: [src/gfx/renderJob/post/GlobalFog.ts:204](https://github.com/orillus
 
 > **set** **scatteringExponent**(`v`): `void`
 
-Defined in: [src/gfx/renderJob/post/GlobalFog.ts:200](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L200)
+Defined in: [src/gfx/renderJob/post/GlobalFog.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L200)
 
 ##### Parameters
 
@@ -464,7 +464,7 @@ Defined in: [src/gfx/renderJob/post/GlobalFog.ts:200](https://github.com/orillus
 
 > **get** **dirHeightLine**(): `number`
 
-Defined in: [src/gfx/renderJob/post/GlobalFog.ts:212](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L212)
+Defined in: [src/gfx/renderJob/post/GlobalFog.ts:212](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L212)
 
 ##### Returns
 
@@ -474,7 +474,7 @@ Defined in: [src/gfx/renderJob/post/GlobalFog.ts:212](https://github.com/orillus
 
 > **set** **dirHeightLine**(`v`): `void`
 
-Defined in: [src/gfx/renderJob/post/GlobalFog.ts:208](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L208)
+Defined in: [src/gfx/renderJob/post/GlobalFog.ts:208](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L208)
 
 ##### Parameters
 
@@ -492,7 +492,7 @@ Defined in: [src/gfx/renderJob/post/GlobalFog.ts:208](https://github.com/orillus
 
 > **onResize**(): `void`
 
-Defined in: [src/gfx/renderJob/post/GlobalFog.ts:254](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L254)
+Defined in: [src/gfx/renderJob/post/GlobalFog.ts:254](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GlobalFog.ts#L254)
 
 #### Returns
 
@@ -508,7 +508,7 @@ Defined in: [src/gfx/renderJob/post/GlobalFog.ts:254](https://github.com/orillus
 
 > **compute**(`view`): `void`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L133)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L133)
 
 #### Parameters
 
@@ -530,7 +530,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/orillusi
 
 > **destroy**(`force?`): `void`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L143)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L143)
 
 #### Parameters
 

@@ -4,7 +4,7 @@
 
 # Class: RTDescriptor
 
-Defined in: [src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts:5](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts#L5)
+Defined in: [src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts#L5)
 
 Describes the load/store operations and clear value for a render target attachment.
 
@@ -24,7 +24,7 @@ Describes the load/store operations and clear value for a render target attachme
 
 > **storeOp**: `string` = `'store'`
 
-Defined in: [src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts:7](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts#L7)
+Defined in: [src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts#L7)
 
 Store operation applied at the end of the render pass.
 
@@ -34,7 +34,7 @@ Store operation applied at the end of the render pass.
 
 > **loadOp**: `GPULoadOp`
 
-Defined in: [src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts:9](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts#L9)
+Defined in: [src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts#L9)
 
 Load operation applied at the start of the render pass.
 
@@ -44,6 +44,6 @@ Load operation applied at the start of the render pass.
 
 > **clearValue**: `GPUColor`
 
-Defined in: [src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts:11](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts#L11)
+Defined in: [src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/descriptor/RTDescriptor.ts#L11)
 
 Clear color used when the load operation is `clear`.

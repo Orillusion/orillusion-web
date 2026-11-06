@@ -4,7 +4,7 @@
 
 # Class: QuadTree
 
-Defined in: [src/core/tree/quad/QuadTree.ts:11](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadTree.ts#L11)
+Defined in: [src/core/tree/quad/QuadTree.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadTree.ts#L11)
 
 2D spatial partitioning structure that recursively subdivides a region
 into four quadrant cells for fast spatial queries.
@@ -15,7 +15,7 @@ into four quadrant cells for fast spatial queries.
 
 > **new QuadTree**(): `QuadTree`
 
-Defined in: [src/core/tree/quad/QuadTree.ts:25](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadTree.ts#L25)
+Defined in: [src/core/tree/quad/QuadTree.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadTree.ts#L25)
 
 #### Returns
 
@@ -27,7 +27,7 @@ Defined in: [src/core/tree/quad/QuadTree.ts:25](https://github.com/orillusion/or
 
 > **getQuadNode**(`idx`): [`IQuadNode`](../interfaces/IQuadNode.md)
 
-Defined in: [src/core/tree/quad/QuadTree.ts:33](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadTree.ts#L33)
+Defined in: [src/core/tree/quad/QuadTree.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadTree.ts#L33)
 
 #### Parameters
 
@@ -45,7 +45,7 @@ Defined in: [src/core/tree/quad/QuadTree.ts:33](https://github.com/orillusion/or
 
 > **clear**(): `void`
 
-Defined in: [src/core/tree/quad/QuadTree.ts:37](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadTree.ts#L37)
+Defined in: [src/core/tree/quad/QuadTree.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadTree.ts#L37)
 
 #### Returns
 
@@ -57,7 +57,7 @@ Defined in: [src/core/tree/quad/QuadTree.ts:37](https://github.com/orillusion/or
 
 > **initNodes**(`nodes`): `void`
 
-Defined in: [src/core/tree/quad/QuadTree.ts:42](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadTree.ts#L42)
+Defined in: [src/core/tree/quad/QuadTree.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadTree.ts#L42)
 
 #### Parameters
 
@@ -75,7 +75,7 @@ Defined in: [src/core/tree/quad/QuadTree.ts:42](https://github.com/orillusion/or
 
 > **buildQuadTree**(`maxNodesPerCell`, `minCellSize`): `void`
 
-Defined in: [src/core/tree/quad/QuadTree.ts:54](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadTree.ts#L54)
+Defined in: [src/core/tree/quad/QuadTree.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadTree.ts#L54)
 
 #### Parameters
 
@@ -97,7 +97,7 @@ Defined in: [src/core/tree/quad/QuadTree.ts:54](https://github.com/orillusion/or
 
 > **getNodesIntersectingtAABox**(`result`, `aabb`): `number`
 
-Defined in: [src/core/tree/quad/QuadTree.ts:181](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadTree.ts#L181)
+Defined in: [src/core/tree/quad/QuadTree.ts:181](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadTree.ts#L181)
 
 #### Parameters
 

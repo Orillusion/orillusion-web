@@ -6,7 +6,7 @@
 
 > **GodRaySetting** = `object`
 
-Defined in: [src/setting/post/GodRaySetting.ts:6](https://github.com/orillusion/orillusion/blob/main/src/setting/post/GodRaySetting.ts#L6)
+Defined in: [src/setting/post/GodRaySetting.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/GodRaySetting.ts#L6)
 
 GodRay
 
@@ -16,7 +16,7 @@ GodRay
 
 > `optional` **enable?**: `boolean`
 
-Defined in: [src/setting/post/GodRaySetting.ts:7](https://github.com/orillusion/orillusion/blob/main/src/setting/post/GodRaySetting.ts#L7)
+Defined in: [src/setting/post/GodRaySetting.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/GodRaySetting.ts#L7)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [src/setting/post/GodRaySetting.ts:7](https://github.com/orillusion/
 
 > **blendColor**: `boolean`
 
-Defined in: [src/setting/post/GodRaySetting.ts:8](https://github.com/orillusion/orillusion/blob/main/src/setting/post/GodRaySetting.ts#L8)
+Defined in: [src/setting/post/GodRaySetting.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/GodRaySetting.ts#L8)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [src/setting/post/GodRaySetting.ts:8](https://github.com/orillusion/
 
 > **rayMarchCount**: `number`
 
-Defined in: [src/setting/post/GodRaySetting.ts:9](https://github.com/orillusion/orillusion/blob/main/src/setting/post/GodRaySetting.ts#L9)
+Defined in: [src/setting/post/GodRaySetting.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/GodRaySetting.ts#L9)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: [src/setting/post/GodRaySetting.ts:9](https://github.com/orillusion/
 
 > **scatteringExponent**: `number`
 
-Defined in: [src/setting/post/GodRaySetting.ts:10](https://github.com/orillusion/orillusion/blob/main/src/setting/post/GodRaySetting.ts#L10)
+Defined in: [src/setting/post/GodRaySetting.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/GodRaySetting.ts#L10)
 
 ***
 
@@ -48,4 +48,4 @@ Defined in: [src/setting/post/GodRaySetting.ts:10](https://github.com/orillusion
 
 > **intensity**: `number`
 
-Defined in: [src/setting/post/GodRaySetting.ts:11](https://github.com/orillusion/orillusion/blob/main/src/setting/post/GodRaySetting.ts#L11)
+Defined in: [src/setting/post/GodRaySetting.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/GodRaySetting.ts#L11)

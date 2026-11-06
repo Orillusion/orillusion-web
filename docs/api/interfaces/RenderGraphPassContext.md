@@ -4,7 +4,7 @@
 
 # Interface: RenderGraphPassContext
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:259](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L259)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:259](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L259)
 
 Runtime context handed to [RenderGraphPass.execute](../classes/RenderGraphPass.md#execute) once per
 frame. `get<T>(name)` resolves a named handle through the graph
@@ -18,7 +18,7 @@ public render methods).
 
 > `readonly` **view**: [`View3D`](../classes/View3D.md)
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:260](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L260)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:260](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L260)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:260](https://github.com/
 
 > `readonly` **occlusion**: `OcclusionSystem`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:261](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L261)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:261](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L261)
 
 ***
 
@@ -34,7 +34,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:261](https://github.com/
 
 > `readonly` **graph**: [`RenderGraph`](../classes/RenderGraph.md)
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:262](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L262)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:262](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L262)
 
 ***
 
@@ -42,7 +42,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:262](https://github.com/
 
 > `readonly` **frameIndex**: `number`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:263](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L263)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:263](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L263)
 
 ## Methods
 
@@ -50,7 +50,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:263](https://github.com/
 
 > **get**\<`T`\>(`name`): `T`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:266](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L266)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:266](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L266)
 
 Resolve a named resource through the graph pool.
 
@@ -76,7 +76,7 @@ Resolve a named resource through the graph pool.
 
 > **getTexture**(`name`): `RenderTexture`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:273](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L273)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:273](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L273)
 
 Resolve a RenderTexture by name. Returns the pool-assigned
  physical wrapper for transient resources or the imported texture
@@ -100,7 +100,7 @@ Resolve a RenderTexture by name. Returns the pool-assigned
 
 > **getBuffer**(`name`): `GPUBufferBase`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:277](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L277)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:277](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L277)
 
 Resolve a GPUBufferBase by name. Symmetric with
  [getTexture](#gettexture).
@@ -121,7 +121,7 @@ Resolve a GPUBufferBase by name. Symmetric with
 
 > **getRenderTarget**(`name`): [`RenderGraphRenderTarget`](../classes/RenderGraphRenderTarget.md)
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:283](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L283)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:283](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L283)
 
 Resolve a [RenderGraphRenderTarget](../classes/RenderGraphRenderTarget.md) by name. Throws if
  the handle exists but is not a render target (validator should
@@ -144,7 +144,7 @@ Resolve a [RenderGraphRenderTarget](../classes/RenderGraphRenderTarget.md) by na
 
 > **beginRenderPass**(`handle`): `GPURenderPassEncoder`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:288](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L288)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:288](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L288)
 
 Open the underlying `GPURenderPassEncoder` for a handle
  returned from `b.useRenderTarget(...)`. The encoder lifetime
@@ -166,7 +166,7 @@ Open the underlying `GPURenderPassEncoder` for a handle
 
 > **endRenderPass**(`handle`): `void`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:292](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L292)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:292](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L292)
 
 Close the render pass encoder + submit the per-pass command
  buffer. Idempotent on already-ended handles.
@@ -187,7 +187,7 @@ Close the render pass encoder + submit the per-pass command
 
 > **beginComputePass**(`handle`): `GPUComputePassEncoder`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:296](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L296)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:296](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L296)
 
 Open the underlying `GPUComputePassEncoder` for a compute
  handle. Pipeline is lazily built on the first call.
@@ -208,7 +208,7 @@ Open the underlying `GPUComputePassEncoder` for a compute
 
 > **endComputePass**(`handle`): `void`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:300](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L300)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:300](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L300)
 
 Close the compute pass encoder + submit the per-pass command
  buffer.

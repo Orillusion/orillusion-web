@@ -4,7 +4,7 @@
 
 # Class: ProfilerUtil
 
-Defined in: [src/util/ProfilerUtil.ts:38](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L38)
+Defined in: [src/util/ProfilerUtil.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L38)
 
 Lightweight profiling helper: accumulates per-pass draw statistics for
 each View3D and tracks named timing labels for performance measurement.
@@ -25,7 +25,7 @@ each View3D and tracks named timing labels for performance measurement.
 
 > `static` **viewMap**: `Map`\<[`View3D`](View3D.md), [`ProfilerDraw`](../type-aliases/ProfilerDraw.md)\>
 
-Defined in: [src/util/ProfilerUtil.ts:43](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L43)
+Defined in: [src/util/ProfilerUtil.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L43)
 
 Per-view draw-statistic records keyed by the owning View3D.
 
@@ -35,7 +35,7 @@ Per-view draw-statistic records keyed by the owning View3D.
 
 > `static` **testObj**: `object`
 
-Defined in: [src/util/ProfilerUtil.ts:46](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L46)
+Defined in: [src/util/ProfilerUtil.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L46)
 
 Scratch counters available for ad-hoc debugging.
 
@@ -61,7 +61,7 @@ Scratch counters available for ad-hoc debugging.
 
 > `static` **startView**(`view`): `void`
 
-Defined in: [src/util/ProfilerUtil.ts:54](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L54)
+Defined in: [src/util/ProfilerUtil.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L54)
 
 Ensure a draw-stat record exists for the view and reset all pass counters to zero.
 
@@ -81,7 +81,7 @@ Ensure a draw-stat record exists for the view and reset all pass counters to zer
 
 > `static` **viewCount**(`view`): [`ProfilerDraw`](../type-aliases/ProfilerDraw.md)
 
-Defined in: [src/util/ProfilerUtil.ts:90](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L90)
+Defined in: [src/util/ProfilerUtil.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L90)
 
 Reset and return the draw-stat record for the view.
 
@@ -101,7 +101,7 @@ Reset and return the draw-stat record for the view.
 
 > `static` **viewCount\_vertex**(`view`, `pass`, `v`): `void`
 
-Defined in: [src/util/ProfilerUtil.ts:96](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L96)
+Defined in: [src/util/ProfilerUtil.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L96)
 
 Accumulate vertex count for a pass of the view.
 
@@ -129,7 +129,7 @@ Accumulate vertex count for a pass of the view.
 
 > `static` **viewCount\_indices**(`view`, `pass`, `v`): `void`
 
-Defined in: [src/util/ProfilerUtil.ts:101](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L101)
+Defined in: [src/util/ProfilerUtil.ts:101](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L101)
 
 Accumulate index count for a pass of the view.
 
@@ -157,7 +157,7 @@ Accumulate index count for a pass of the view.
 
 > `static` **viewCount\_tri**(`view`, `pass`, `v`): `void`
 
-Defined in: [src/util/ProfilerUtil.ts:106](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L106)
+Defined in: [src/util/ProfilerUtil.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L106)
 
 Accumulate triangle count for a pass of the view.
 
@@ -185,7 +185,7 @@ Accumulate triangle count for a pass of the view.
 
 > `static` **viewCount\_instance**(`view`, `pass`, `v`): `void`
 
-Defined in: [src/util/ProfilerUtil.ts:111](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L111)
+Defined in: [src/util/ProfilerUtil.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L111)
 
 Accumulate instance count for a pass of the view.
 
@@ -213,7 +213,7 @@ Accumulate instance count for a pass of the view.
 
 > `static` **viewCount\_draw**(`view`, `pass`): `void`
 
-Defined in: [src/util/ProfilerUtil.ts:116](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L116)
+Defined in: [src/util/ProfilerUtil.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L116)
 
 Increment the draw-call count for a pass of the view.
 
@@ -237,7 +237,7 @@ Increment the draw-call count for a pass of the view.
 
 > `static` **viewCount\_pipeline**(`view`, `pass`): `void`
 
-Defined in: [src/util/ProfilerUtil.ts:121](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L121)
+Defined in: [src/util/ProfilerUtil.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L121)
 
 Increment the pipeline-switch count for a pass of the view.
 
@@ -261,7 +261,7 @@ Increment the pipeline-switch count for a pass of the view.
 
 > `static` **removeView**(`view`): `void`
 
-Defined in: [src/util/ProfilerUtil.ts:128](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L128)
+Defined in: [src/util/ProfilerUtil.ts:128](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L128)
 
 Drop the view's draw-stat record.
 
@@ -281,7 +281,7 @@ Drop the view's draw-stat record.
 
 > `static` **start**(`id`): `void`
 
-Defined in: [src/util/ProfilerUtil.ts:133](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L133)
+Defined in: [src/util/ProfilerUtil.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L133)
 
 Begin (or restart) timing the named label.
 
@@ -301,7 +301,7 @@ Begin (or restart) timing the named label.
 
 > `static` **end**(`id`): `void`
 
-Defined in: [src/util/ProfilerUtil.ts:153](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L153)
+Defined in: [src/util/ProfilerUtil.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L153)
 
 Stop timing the named label and record its total elapsed time.
 
@@ -321,7 +321,7 @@ Stop timing the named label and record its total elapsed time.
 
 > `static` **countStart**(`id`, `id2?`): `void`
 
-Defined in: [src/util/ProfilerUtil.ts:162](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L162)
+Defined in: [src/util/ProfilerUtil.ts:162](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L162)
 
 Increment a label's call count and optionally begin timing a child label.
 
@@ -345,7 +345,7 @@ Increment a label's call count and optionally begin timing a child label.
 
 > `static` **countEnd**(`id`, `id2`): `void`
 
-Defined in: [src/util/ProfilerUtil.ts:186](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L186)
+Defined in: [src/util/ProfilerUtil.ts:186](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L186)
 
 Stop timing a child label and record its elapsed time and count.
 
@@ -369,7 +369,7 @@ Stop timing a child label and record its elapsed time and count.
 
 > `static` **print**(`id`): `void`
 
-Defined in: [src/util/ProfilerUtil.ts:208](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L208)
+Defined in: [src/util/ProfilerUtil.ts:208](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L208)
 
 Log the named label's total elapsed time to the console.
 

@@ -4,7 +4,7 @@
 
 # Class: OutlinePostManager
 
-Defined in: [src/io/OutlineManager.ts:10](https://github.com/orillusion/orillusion/blob/main/src/io/OutlineManager.ts#L10)
+Defined in: [src/io/OutlineManager.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/io/OutlineManager.ts#L10)
 
 manager of outline effect
 
@@ -24,7 +24,7 @@ manager of outline effect
 
 > **setOutline**(`objectList`, `color?`): `void`
 
-Defined in: [src/io/OutlineManager.ts:20](https://github.com/orillusion/orillusion/blob/main/src/io/OutlineManager.ts#L20)
+Defined in: [src/io/OutlineManager.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/io/OutlineManager.ts#L20)
 
 config outline manager.
 Specify specific 3D objects to use the specified color for display outline
@@ -53,7 +53,7 @@ Specified color for outline
 
 > **setOutlineList**(`groupList`, `colorList?`): `void`
 
-Defined in: [src/io/OutlineManager.ts:30](https://github.com/orillusion/orillusion/blob/main/src/io/OutlineManager.ts#L30)
+Defined in: [src/io/OutlineManager.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/io/OutlineManager.ts#L30)
 
 config outline manager.
 The first set of objects uses the first color to display outline, and so on
@@ -82,7 +82,7 @@ Specified color list for outline
 
 > **clearOutline**(): `this`
 
-Defined in: [src/io/OutlineManager.ts:50](https://github.com/orillusion/orillusion/blob/main/src/io/OutlineManager.ts#L50)
+Defined in: [src/io/OutlineManager.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/io/OutlineManager.ts#L50)
 
 clear outline effect
 

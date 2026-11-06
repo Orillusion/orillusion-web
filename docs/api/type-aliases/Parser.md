@@ -6,7 +6,7 @@
 
 > **Parser**\<`T`\> = `T`
 
-Defined in: [src/util/Global.ts:82](https://github.com/orillusion/orillusion/blob/main/src/util/Global.ts#L82)
+Defined in: [src/util/Global.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/util/Global.ts#L82)
 
 ## Type Parameters
 
@@ -32,7 +32,7 @@ Defined in: [src/util/Global.ts:82](https://github.com/orillusion/orillusion/blo
 
 > **prototype**: `any`
 
-Defined in: [src/util/Global.ts:82](https://github.com/orillusion/orillusion/blob/main/src/util/Global.ts#L82)
+Defined in: [src/util/Global.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/util/Global.ts#L82)
 
 ***
 
@@ -40,4 +40,4 @@ Defined in: [src/util/Global.ts:82](https://github.com/orillusion/orillusion/blo
 
 > **format**: [`ParserFormat`](../enumerations/ParserFormat.md)
 
-Defined in: [src/util/Global.ts:82](https://github.com/orillusion/orillusion/blob/main/src/util/Global.ts#L82)
+Defined in: [src/util/Global.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/util/Global.ts#L82)

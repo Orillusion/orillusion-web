@@ -4,7 +4,7 @@
 
 # Enumeration: LayerBlendMode
 
-Defined in: [src/components/anim/graph/AnimationLayer.ts:3](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L3)
+Defined in: [src/components/anim/graph/AnimationLayer.ts:3](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L3)
 
 ## Enumeration Members
 
@@ -12,7 +12,7 @@ Defined in: [src/components/anim/graph/AnimationLayer.ts:3](https://github.com/o
 
 > **Override**: `0`
 
-Defined in: [src/components/anim/graph/AnimationLayer.ts:8](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L8)
+Defined in: [src/components/anim/graph/AnimationLayer.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L8)
 
 Replace the underlying pose with this layer's pose, blended by weight.
 Out = lerp(base, layer, weight)
@@ -23,7 +23,7 @@ Out = lerp(base, layer, weight)
 
 > **Additive**: `1`
 
-Defined in: [src/components/anim/graph/AnimationLayer.ts:14](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L14)
+Defined in: [src/components/anim/graph/AnimationLayer.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/AnimationLayer.ts#L14)
 
 Add this layer's delta-from-rest on top of the base pose.
 Out = base + (layer - rest) * weight

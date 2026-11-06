@@ -6,7 +6,7 @@
 
 > **setFrameDelay**(`frame`): `Promise`\<`unknown`\>
 
-Defined in: [src/util/DelayUtil.ts:12](https://github.com/orillusion/orillusion/blob/main/src/util/DelayUtil.ts#L12)
+Defined in: [src/util/DelayUtil.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/util/DelayUtil.ts#L12)
 
 ## Parameters
 

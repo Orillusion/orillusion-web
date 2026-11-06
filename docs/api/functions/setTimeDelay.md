@@ -6,7 +6,7 @@
 
 > **setTimeDelay**(`ms`): `Promise`\<`unknown`\>
 
-Defined in: [src/util/DelayUtil.ts:1](https://github.com/orillusion/orillusion/blob/main/src/util/DelayUtil.ts#L1)
+Defined in: [src/util/DelayUtil.ts:1](https://github.com/Orillusion/orillusion/blob/main/src/util/DelayUtil.ts#L1)
 
 ## Parameters
 

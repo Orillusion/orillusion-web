@@ -4,7 +4,7 @@
 
 # Class: Entity
 
-Defined in: [src/core/entities/Entity.ts:18](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L18)
+Defined in: [src/core/entities/Entity.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L18)
 
 The entity class provides an abstract base class for all scene objects that are considered to have "existence" in the scene,
  which can be considered as actual objects with positions and sizes.
@@ -24,7 +24,7 @@ Entity class is an abstract class and cannot be instantiated. If you want to ins
 
 > **new Entity**(): `Entity`
 
-Defined in: [src/core/entities/Entity.ts:101](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L101)
+Defined in: [src/core/entities/Entity.ts:101](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L101)
 
 #### Returns
 
@@ -40,7 +40,7 @@ Defined in: [src/core/entities/Entity.ts:101](https://github.com/orillusion/oril
 
 > **name**: `string` = `''`
 
-Defined in: [src/core/entities/Entity.ts:23](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L23)
+Defined in: [src/core/entities/Entity.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L23)
 
 The name of the object. The default value is an empty string.
 
@@ -50,7 +50,7 @@ The name of the object. The default value is an empty string.
 
 > **transform**: [`Transform`](Transform.md)
 
-Defined in: [src/core/entities/Entity.ts:38](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L38)
+Defined in: [src/core/entities/Entity.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L38)
 
 The Transform attached to this object.
 
@@ -60,7 +60,7 @@ The Transform attached to this object.
 
 > **renderNode**: `RenderNode`
 
-Defined in: [src/core/entities/Entity.ts:43](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L43)
+Defined in: [src/core/entities/Entity.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L43)
 
 Renderer components
 
@@ -70,7 +70,7 @@ Renderer components
 
 > **entityChildren**: `Entity`[]
 
-Defined in: [src/core/entities/Entity.ts:48](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L48)
+Defined in: [src/core/entities/Entity.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L48)
 
 An array containing sub objects of an object
 
@@ -80,7 +80,7 @@ An array containing sub objects of an object
 
 > **components**: `Map`\<`any`, [`IComponent`](../interfaces/IComponent.md)\>
 
-Defined in: [src/core/entities/Entity.ts:53](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L53)
+Defined in: [src/core/entities/Entity.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L53)
 
 List of components attached to an object
 
@@ -92,7 +92,7 @@ List of components attached to an object
 
 > **get** **instanceID**(): `string`
 
-Defined in: [src/core/entities/Entity.ts:31](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L31)
+Defined in: [src/core/entities/Entity.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L31)
 
 The unique identifier of the object.
 
@@ -108,7 +108,7 @@ The unique identifier of the object.
 
 > **get** **dispose**(): `boolean`
 
-Defined in: [src/core/entities/Entity.ts:67](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L67)
+Defined in: [src/core/entities/Entity.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L67)
 
 ##### Returns
 
@@ -122,7 +122,7 @@ Defined in: [src/core/entities/Entity.ts:67](https://github.com/orillusion/orill
 
 > **get** **numChildren**(): `number`
 
-Defined in: [src/core/entities/Entity.ts:113](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L113)
+Defined in: [src/core/entities/Entity.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L113)
 
 Returns the number of child objects of an object
 
@@ -138,7 +138,7 @@ Returns the number of child objects of an object
 
 > **get** **bound**(): `IBound`
 
-Defined in: [src/core/entities/Entity.ts:274](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L274)
+Defined in: [src/core/entities/Entity.ts:274](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L274)
 
 ##### Returns
 
@@ -148,7 +148,7 @@ Defined in: [src/core/entities/Entity.ts:274](https://github.com/orillusion/oril
 
 > **set** **bound**(`value`): `void`
 
-Defined in: [src/core/entities/Entity.ts:279](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L279)
+Defined in: [src/core/entities/Entity.ts:279](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L279)
 
 ##### Parameters
 
@@ -166,7 +166,7 @@ Defined in: [src/core/entities/Entity.ts:279](https://github.com/orillusion/oril
 
 > **getObjectByName**(`name`): `Entity`
 
-Defined in: [src/core/entities/Entity.ts:78](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L78)
+Defined in: [src/core/entities/Entity.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L78)
 
 Starting from the object itself, search for the object and its children, and return the first child object with a matching name.
 For most objects, the name is an empty string by default. You must manually set it to use this method.
@@ -191,7 +191,7 @@ result Entity
 
 > **addChild**(`child`): `Entity`
 
-Defined in: [src/core/entities/Entity.ts:124](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L124)
+Defined in: [src/core/entities/Entity.ts:124](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L124)
 
 Add an object as a child of this object. You can add any number of objects.
 Any current parent object on the object passed here will be deleted, as an object can only have at most one parent object.
@@ -214,7 +214,7 @@ target child entity
 
 > **removeChild**(`child`): `void`
 
-Defined in: [src/core/entities/Entity.ts:149](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L149)
+Defined in: [src/core/entities/Entity.ts:149](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L149)
 
 Remove the child objects of the object. You can remove any number of objects.
 
@@ -236,7 +236,7 @@ Removed objects
 
 > **removeAllChild**(): `void`
 
-Defined in: [src/core/entities/Entity.ts:165](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L165)
+Defined in: [src/core/entities/Entity.ts:165](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L165)
 
 Remove all children of the current object
 
@@ -250,7 +250,7 @@ Remove all children of the current object
 
 > **removeSelf**(): `this`
 
-Defined in: [src/core/entities/Entity.ts:176](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L176)
+Defined in: [src/core/entities/Entity.ts:176](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L176)
 
 Remove the current node from the parent
 
@@ -266,7 +266,7 @@ this
 
 > **removeChildByIndex**(`index`): `void`
 
-Defined in: [src/core/entities/Entity.ts:186](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L186)
+Defined in: [src/core/entities/Entity.ts:186](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L186)
 
 Search for child nodes of objects and remove child objects with matching indexes.
 
@@ -288,7 +288,7 @@ assign index
 
 > **hasChild**(`child`): `boolean`
 
-Defined in: [src/core/entities/Entity.ts:200](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L200)
+Defined in: [src/core/entities/Entity.ts:200](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L200)
 
 Does the current object contain a certain object
 
@@ -312,7 +312,7 @@ boolean
 
 > **removeFromParent**(): `this`
 
-Defined in: [src/core/entities/Entity.ts:210](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L210)
+Defined in: [src/core/entities/Entity.ts:210](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L210)
 
 Remove the current node from the parent
 
@@ -328,7 +328,7 @@ this
 
 > **getChildByIndex**(`index`): `Entity`
 
-Defined in: [src/core/entities/Entity.ts:224](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L224)
+Defined in: [src/core/entities/Entity.ts:224](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L224)
 
 Search for object children and return the first child object with a matching index.
 
@@ -352,7 +352,7 @@ child entity
 
 > **getChildByName**(`name`, `loopChild?`): `any`
 
-Defined in: [src/core/entities/Entity.ts:239](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L239)
+Defined in: [src/core/entities/Entity.ts:239](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L239)
 
 Search for object children and return a child object with a matching name.
 
@@ -382,7 +382,7 @@ result
 
 > **noticeComponents**(`key`, `data`): `void`
 
-Defined in: [src/core/entities/Entity.ts:325](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L325)
+Defined in: [src/core/entities/Entity.ts:325](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L325)
 
 #### Parameters
 
@@ -404,7 +404,7 @@ keyof [`IComponent`](../interfaces/IComponent.md)
 
 > **destroy**(`force?`): `void`
 
-Defined in: [src/core/entities/Entity.ts:336](https://github.com/orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L336)
+Defined in: [src/core/entities/Entity.ts:336](https://github.com/Orillusion/orillusion/blob/main/src/core/entities/Entity.ts#L336)
 
 release current object
 
@@ -428,7 +428,7 @@ release current object
 
 > **dispatchEvent**(`event`): `void`
 
-Defined in: [src/event/CEventDispatcher.ts:24](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L24)
+Defined in: [src/event/CEventDispatcher.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L24)
 
 Dispatch an event to all registered objects with a specific type of listener.
 
@@ -452,7 +452,7 @@ Dispatch an event to all registered objects with a specific type of listener.
 
 > **addEventListener**(`type`, `callback`, `thisObject`, `param?`, `priority?`): `number`
 
-Defined in: [src/event/CEventDispatcher.ts:78](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L78)
+Defined in: [src/event/CEventDispatcher.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L78)
 
 register an event listener to event distancher.
 
@@ -506,7 +506,7 @@ Returns register event id
 
 > **removeEventListener**(`type`, `callback`, `thisObject`): `void`
 
-Defined in: [src/event/CEventDispatcher.ts:112](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L112)
+Defined in: [src/event/CEventDispatcher.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L112)
 
 Remove Event Listening
 
@@ -544,7 +544,7 @@ Remove Event Listening
 
 > **removeEventListenerAt**(`id`): `boolean`
 
-Defined in: [src/event/CEventDispatcher.ts:132](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L132)
+Defined in: [src/event/CEventDispatcher.ts:132](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L132)
 
 Remove an event Listening with id
 
@@ -568,7 +568,7 @@ Remove an event Listening with id
 
 > **removeAllEventListener**(`eventType?`): `void`
 
-Defined in: [src/event/CEventDispatcher.ts:152](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L152)
+Defined in: [src/event/CEventDispatcher.ts:152](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L152)
 
 Specify a event type to remove all related event listeners
 eventType event type, set null to remove all event listeners
@@ -593,7 +593,7 @@ eventType event type, set null to remove all event listeners
 
 > **containEventListener**(`type`): `boolean`
 
-Defined in: [src/event/CEventDispatcher.ts:184](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L184)
+Defined in: [src/event/CEventDispatcher.ts:184](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L184)
 
 whether the target presence of a listener with event type.
 
@@ -621,7 +621,7 @@ Returns a boolean.
 
 > **hasEventListener**(`type`, `callback?`, `thisObject?`): `boolean`
 
-Defined in: [src/event/CEventDispatcher.ts:197](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L197)
+Defined in: [src/event/CEventDispatcher.ts:197](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L197)
 
 whether the target presence of a listener with event type. it associate more registration parameters.
 

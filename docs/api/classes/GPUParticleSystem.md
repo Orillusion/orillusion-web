@@ -4,7 +4,7 @@
 
 # Class: GPUParticleSystem
 
-Defined in: [src/gfx/renderJob/particle/GPUParticleSystem.ts:26](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/particle/GPUParticleSystem.ts#L26)
+Defined in: [src/gfx/renderJob/particle/GPUParticleSystem.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/particle/GPUParticleSystem.ts#L26)
 
 GPU-driven particle system (skeleton).
 
@@ -30,7 +30,7 @@ Buffer layout (32 bytes / particle):
 
 > **new GPUParticleSystem**(`ctx`, `maxParticles?`): `GPUParticleSystem`
 
-Defined in: [src/gfx/renderJob/particle/GPUParticleSystem.ts:32](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/particle/GPUParticleSystem.ts#L32)
+Defined in: [src/gfx/renderJob/particle/GPUParticleSystem.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/particle/GPUParticleSystem.ts#L32)
 
 #### Parameters
 
@@ -54,7 +54,7 @@ Defined in: [src/gfx/renderJob/particle/GPUParticleSystem.ts:32](https://github.
 
 > **get** **particleBuffer**(): [`StorageGPUBuffer`](StorageGPUBuffer.md)
 
-Defined in: [src/gfx/renderJob/particle/GPUParticleSystem.ts:37](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/particle/GPUParticleSystem.ts#L37)
+Defined in: [src/gfx/renderJob/particle/GPUParticleSystem.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/particle/GPUParticleSystem.ts#L37)
 
 ##### Returns
 
@@ -68,7 +68,7 @@ Defined in: [src/gfx/renderJob/particle/GPUParticleSystem.ts:37](https://github.
 
 > **get** **maxParticles**(): `number`
 
-Defined in: [src/gfx/renderJob/particle/GPUParticleSystem.ts:38](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/particle/GPUParticleSystem.ts#L38)
+Defined in: [src/gfx/renderJob/particle/GPUParticleSystem.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/particle/GPUParticleSystem.ts#L38)
 
 ##### Returns
 
@@ -80,7 +80,7 @@ Defined in: [src/gfx/renderJob/particle/GPUParticleSystem.ts:38](https://github.
 
 > **init**(): `void`
 
-Defined in: [src/gfx/renderJob/particle/GPUParticleSystem.ts:42](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/particle/GPUParticleSystem.ts#L42)
+Defined in: [src/gfx/renderJob/particle/GPUParticleSystem.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/particle/GPUParticleSystem.ts#L42)
 
 #### Returns
 

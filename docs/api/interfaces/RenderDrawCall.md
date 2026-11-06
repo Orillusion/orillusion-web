@@ -4,7 +4,7 @@
 
 # Interface: RenderDrawCall
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:64](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L64)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L64)
 
 Optional convenience payload for [RenderGraphRenderPass.draw](../classes/RenderGraphRenderPass.md#draw).
 Pass authors that need finer control (multiple draws per begin, custom
@@ -17,7 +17,7 @@ scissor/viewport, manual encoder calls) can drive
 
 > **bindGroups**: `GPUBindGroup`[]
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:65](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L65)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L65)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:65](https://github
 
 > `optional` **vertexBuffers?**: `GPUBuffer`[]
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:66](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L66)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L66)
 
 ***
 
@@ -33,7 +33,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:66](https://github
 
 > `optional` **indexBuffer?**: `object`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:67](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L67)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L67)
 
 #### buffer
 
@@ -57,4 +57,4 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:67](https://github
 
 > **draw**: \{ `kind`: `"draw"`; `vertexCount`: `number`; `instanceCount?`: `number`; `firstVertex?`: `number`; `firstInstance?`: `number`; \} \| \{ `kind`: `"drawIndexed"`; `indexCount`: `number`; `instanceCount?`: `number`; `firstIndex?`: `number`; `baseVertex?`: `number`; `firstInstance?`: `number`; \}
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:68](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L68)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L68)

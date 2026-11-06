@@ -4,7 +4,7 @@
 
 # Class: RenderShaderCompute
 
-Defined in: [src/gfx/graphics/webGpu/compute/RenderShaderCompute.ts:9](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/compute/RenderShaderCompute.ts#L9)
+Defined in: [src/gfx/graphics/webGpu/compute/RenderShaderCompute.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/compute/RenderShaderCompute.ts#L9)
 
 Drives a compute shader derived from a source render shader, running once and/or per frame.
 
@@ -14,7 +14,7 @@ Drives a compute shader derived from a source render shader, running once and/or
 
 > **new RenderShaderCompute**(`shaderStr`, `sourceShader`): `RenderShaderCompute`
 
-Defined in: [src/gfx/graphics/webGpu/compute/RenderShaderCompute.ts:16](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/compute/RenderShaderCompute.ts#L16)
+Defined in: [src/gfx/graphics/webGpu/compute/RenderShaderCompute.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/compute/RenderShaderCompute.ts#L16)
 
 #### Parameters
 
@@ -36,7 +36,7 @@ Defined in: [src/gfx/graphics/webGpu/compute/RenderShaderCompute.ts:16](https://
 
 > **onUpdate**(`view`): `void`
 
-Defined in: [src/gfx/graphics/webGpu/compute/RenderShaderCompute.ts:30](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/compute/RenderShaderCompute.ts#L30)
+Defined in: [src/gfx/graphics/webGpu/compute/RenderShaderCompute.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/compute/RenderShaderCompute.ts#L30)
 
 #### Parameters
 

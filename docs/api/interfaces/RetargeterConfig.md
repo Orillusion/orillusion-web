@@ -4,7 +4,7 @@
 
 # Interface: RetargeterConfig
 
-Defined in: [src/components/anim/retarget/Retargeter.ts:6](https://github.com/orillusion/orillusion/blob/main/src/components/anim/retarget/Retargeter.ts#L6)
+Defined in: [src/components/anim/retarget/Retargeter.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/retarget/Retargeter.ts#L6)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/components/anim/retarget/Retargeter.ts:6](https://github.com/or
 
 > `optional` **nameMap?**: `Map`\<`string`, `string`\> \| \{\[`src`: `string`\]: `string`; \}
 
-Defined in: [src/components/anim/retarget/Retargeter.ts:8](https://github.com/orillusion/orillusion/blob/main/src/components/anim/retarget/Retargeter.ts#L8)
+Defined in: [src/components/anim/retarget/Retargeter.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/retarget/Retargeter.ts#L8)
 
 Optional explicit source-bone-name → target-bone-name mapping.
 
@@ -22,7 +22,7 @@ Optional explicit source-bone-name → target-bone-name mapping.
 
 > `optional` **excludeSourceBones?**: `Set`\<`string`\>
 
-Defined in: [src/components/anim/retarget/Retargeter.ts:10](https://github.com/orillusion/orillusion/blob/main/src/components/anim/retarget/Retargeter.ts#L10)
+Defined in: [src/components/anim/retarget/Retargeter.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/retarget/Retargeter.ts#L10)
 
 Bone names on the source that should be ignored.
 
@@ -32,7 +32,7 @@ Bone names on the source that should be ignored.
 
 > `optional` **useRestOffset?**: `boolean`
 
-Defined in: [src/components/anim/retarget/Retargeter.ts:20](https://github.com/orillusion/orillusion/blob/main/src/components/anim/retarget/Retargeter.ts#L20)
+Defined in: [src/components/anim/retarget/Retargeter.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/retarget/Retargeter.ts#L20)
 
 When true (default), run the bind-frame-delta retarget
 (`desired = bindWorld_T * inv(bindWorld_S) * currentWorld_S`)
@@ -48,7 +48,7 @@ exactly AND no Character-level rotation differences exist.
 
 > `optional` **preserveHipPosition?**: `boolean`
 
-Defined in: [src/components/anim/retarget/Retargeter.ts:27](https://github.com/orillusion/orillusion/blob/main/src/components/anim/retarget/Retargeter.ts#L27)
+Defined in: [src/components/anim/retarget/Retargeter.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/retarget/Retargeter.ts#L27)
 
 If true, the hip (root joint) position is locked to the target's
 bind pose — root motion (jumps, walks, crouches) is dropped.
@@ -61,7 +61,7 @@ the target, scaled by `heightScale`.
 
 > `optional` **heightScale?**: `number`
 
-Defined in: [src/components/anim/retarget/Retargeter.ts:35](https://github.com/orillusion/orillusion/blob/main/src/components/anim/retarget/Retargeter.ts#L35)
+Defined in: [src/components/anim/retarget/Retargeter.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/retarget/Retargeter.ts#L35)
 
 Multiplier applied to the hip translation delta before writing
 it onto the target. Use the height ratio (target rig height /
@@ -75,7 +75,7 @@ under-jump on a 1.6m target. Default 1.0 (no scaling).
 
 > `optional` **alignTPoseFacing?**: `boolean`
 
-Defined in: [src/components/anim/retarget/Retargeter.ts:43](https://github.com/orillusion/orillusion/blob/main/src/components/anim/retarget/Retargeter.ts#L43)
+Defined in: [src/components/anim/retarget/Retargeter.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/retarget/Retargeter.ts#L43)
 
 When true (default), auto-rotate target's Character node at
 `buildMapping` so its bind hip world matches source's — target
@@ -89,7 +89,7 @@ direction.
 
 > `optional` **bonePrefixes?**: `string`[]
 
-Defined in: [src/components/anim/retarget/Retargeter.ts:55](https://github.com/orillusion/orillusion/blob/main/src/components/anim/retarget/Retargeter.ts#L55)
+Defined in: [src/components/anim/retarget/Retargeter.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/retarget/Retargeter.ts#L55)
 
 Bone-name prefixes to strip during fuzzy name matching, in
 priority order. Defaults to `['mixamorig:', 'Armature|']` which

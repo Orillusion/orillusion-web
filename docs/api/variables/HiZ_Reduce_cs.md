@@ -6,4 +6,4 @@
 
 > **HiZ\_Reduce\_cs**: `string`
 
-Defined in: [src/assets/shader/compute/HiZGenerate\_cs.ts:33](https://github.com/orillusion/orillusion/blob/main/src/assets/shader/compute/HiZGenerate_cs.ts#L33)
+Defined in: [src/assets/shader/compute/HiZGenerate\_cs.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/assets/shader/compute/HiZGenerate_cs.ts#L33)

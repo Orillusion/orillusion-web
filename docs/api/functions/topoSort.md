@@ -6,7 +6,7 @@
 
 > **topoSort**(`passes`, `byName`, `insertedOrder`): `string`[]
 
-Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:215](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L215)
+Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:215](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L215)
 
 Kahn-style topological sort on the reads/writes DAG. Tie-breaks
 between equally-ready passes use **effective scheduling order**:

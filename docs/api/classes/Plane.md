@@ -4,7 +4,7 @@
 
 # Class: Plane
 
-Defined in: [src/math/Plane.ts:8](https://github.com/orillusion/orillusion/blob/main/src/math/Plane.ts#L8)
+Defined in: [src/math/Plane.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane.ts#L8)
 
 Plane mathematics class
 
@@ -14,7 +14,7 @@ Plane mathematics class
 
 > **new Plane**(`pos`, `normal`): `Plane`
 
-Defined in: [src/math/Plane.ts:29](https://github.com/orillusion/orillusion/blob/main/src/math/Plane.ts#L29)
+Defined in: [src/math/Plane.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane.ts#L29)
 
 Constructs a new plane object
 
@@ -42,7 +42,7 @@ Plane normal quantity
 
 > **point**: [`Vector3`](Vector3.md)
 
-Defined in: [src/math/Plane.ts:12](https://github.com/orillusion/orillusion/blob/main/src/math/Plane.ts#L12)
+Defined in: [src/math/Plane.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane.ts#L12)
 
 Center position of plane
 
@@ -52,7 +52,7 @@ Center position of plane
 
 > **normal**: [`Vector3`](Vector3.md) = `Vector3.UP`
 
-Defined in: [src/math/Plane.ts:17](https://github.com/orillusion/orillusion/blob/main/src/math/Plane.ts#L17)
+Defined in: [src/math/Plane.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane.ts#L17)
 
 Plane normal vector
 
@@ -62,7 +62,7 @@ Plane normal vector
 
 > **clone**(): `Plane`
 
-Defined in: [src/math/Plane.ts:38](https://github.com/orillusion/orillusion/blob/main/src/math/Plane.ts#L38)
+Defined in: [src/math/Plane.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane.ts#L38)
 
 Clones the current plane object
 
@@ -78,7 +78,7 @@ New plane object
 
 > **intersectsLine**(`start`, `end`, `point`): `boolean`
 
-Defined in: [src/math/Plane.ts:50](https://github.com/orillusion/orillusion/blob/main/src/math/Plane.ts#L50)
+Defined in: [src/math/Plane.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane.ts#L50)
 
 Determine whether the plane intersects a line segment and calculate the intersection point
 
@@ -114,7 +114,7 @@ Returns whether it intersects
 
 > **intersectsRay**(`ray`, `targetPoint?`): `boolean`
 
-Defined in: [src/math/Plane.ts:70](https://github.com/orillusion/orillusion/blob/main/src/math/Plane.ts#L70)
+Defined in: [src/math/Plane.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane.ts#L70)
 
 Determine whether the plane intersects a ray and calculate the intersection point
 

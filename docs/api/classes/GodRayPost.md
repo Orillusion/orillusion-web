@@ -4,7 +4,7 @@
 
 # Class: GodRayPost
 
-Defined in: [src/gfx/renderJob/post/GodRayPost.ts:27](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L27)
+Defined in: [src/gfx/renderJob/post/GodRayPost.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L27)
 
 God-ray (light-shaft) post-processing effect. A compute pass marches
 the scene depth/G-buffer to accumulate volumetric light scattering
@@ -17,7 +17,7 @@ blends the result over the scene color.
 
 > **new GodRayPost**(): `GodRayPost`
 
-Defined in: [src/gfx/renderJob/post/GodRayPost.ts:47](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L47)
+Defined in: [src/gfx/renderJob/post/GodRayPost.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L47)
 
 #### Returns
 
@@ -33,7 +33,7 @@ Defined in: [src/gfx/renderJob/post/GodRayPost.ts:47](https://github.com/orillus
 
 > **rtFrame**: [`RTFrame`](RTFrame.md)
 
-Defined in: [src/gfx/renderJob/post/GodRayPost.ts:45](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L45)
+Defined in: [src/gfx/renderJob/post/GodRayPost.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L45)
 
 ***
 
@@ -41,7 +41,7 @@ Defined in: [src/gfx/renderJob/post/GodRayPost.ts:45](https://github.com/orillus
 
 > **enable**: `boolean` = `true`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L23)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L23)
 
 #### Inherited from
 
@@ -53,7 +53,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/orillusio
 
 > **isFinalPass**: `boolean` = `false`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:27](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L27)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L27)
 
 When true, PostPass iterates this post AFTER every regular
  post regardless of attach order — used by TonemapPost so the
@@ -69,7 +69,7 @@ When true, PostPass iterates this post AFTER every regular
 
 > **postRenderer**: [`PostPass`](PostPass.md)
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L28)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L28)
 
 #### Inherited from
 
@@ -81,7 +81,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/orillusio
 
 > **rendererPassState**: `RendererPassState`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L29)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L29)
 
 #### Inherited from
 
@@ -93,7 +93,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/orillusio
 
 > **\_boundCtx**: [`Context3D`](Context3D.md) = `null`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L30)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L30)
 
 #### Inherited from
 
@@ -107,7 +107,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/orillusio
 
 > **get** **blendColor**(): `boolean`
 
-Defined in: [src/gfx/renderJob/post/GodRayPost.ts:66](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L66)
+Defined in: [src/gfx/renderJob/post/GodRayPost.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L66)
 
 ##### Returns
 
@@ -117,7 +117,7 @@ Defined in: [src/gfx/renderJob/post/GodRayPost.ts:66](https://github.com/orillus
 
 > **set** **blendColor**(`value`): `void`
 
-Defined in: [src/gfx/renderJob/post/GodRayPost.ts:69](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L69)
+Defined in: [src/gfx/renderJob/post/GodRayPost.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L69)
 
 ##### Parameters
 
@@ -137,7 +137,7 @@ Defined in: [src/gfx/renderJob/post/GodRayPost.ts:69](https://github.com/orillus
 
 > **get** **rayMarchCount**(): `number`
 
-Defined in: [src/gfx/renderJob/post/GodRayPost.ts:72](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L72)
+Defined in: [src/gfx/renderJob/post/GodRayPost.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L72)
 
 ##### Returns
 
@@ -147,7 +147,7 @@ Defined in: [src/gfx/renderJob/post/GodRayPost.ts:72](https://github.com/orillus
 
 > **set** **rayMarchCount**(`value`): `void`
 
-Defined in: [src/gfx/renderJob/post/GodRayPost.ts:75](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L75)
+Defined in: [src/gfx/renderJob/post/GodRayPost.ts:75](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L75)
 
 ##### Parameters
 
@@ -167,7 +167,7 @@ Defined in: [src/gfx/renderJob/post/GodRayPost.ts:75](https://github.com/orillus
 
 > **get** **scatteringExponent**(): `number`
 
-Defined in: [src/gfx/renderJob/post/GodRayPost.ts:79](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L79)
+Defined in: [src/gfx/renderJob/post/GodRayPost.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L79)
 
 ##### Returns
 
@@ -177,7 +177,7 @@ Defined in: [src/gfx/renderJob/post/GodRayPost.ts:79](https://github.com/orillus
 
 > **set** **scatteringExponent**(`value`): `void`
 
-Defined in: [src/gfx/renderJob/post/GodRayPost.ts:82](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L82)
+Defined in: [src/gfx/renderJob/post/GodRayPost.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L82)
 
 ##### Parameters
 
@@ -197,7 +197,7 @@ Defined in: [src/gfx/renderJob/post/GodRayPost.ts:82](https://github.com/orillus
 
 > **get** **intensity**(): `number`
 
-Defined in: [src/gfx/renderJob/post/GodRayPost.ts:86](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L86)
+Defined in: [src/gfx/renderJob/post/GodRayPost.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L86)
 
 ##### Returns
 
@@ -207,7 +207,7 @@ Defined in: [src/gfx/renderJob/post/GodRayPost.ts:86](https://github.com/orillus
 
 > **set** **intensity**(`value`): `void`
 
-Defined in: [src/gfx/renderJob/post/GodRayPost.ts:89](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L89)
+Defined in: [src/gfx/renderJob/post/GodRayPost.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L89)
 
 ##### Parameters
 
@@ -225,7 +225,7 @@ Defined in: [src/gfx/renderJob/post/GodRayPost.ts:89](https://github.com/orillus
 
 > **onResize**(): `void`
 
-Defined in: [src/gfx/renderJob/post/GodRayPost.ts:136](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L136)
+Defined in: [src/gfx/renderJob/post/GodRayPost.ts:136](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/GodRayPost.ts#L136)
 
 #### Returns
 
@@ -241,7 +241,7 @@ Defined in: [src/gfx/renderJob/post/GodRayPost.ts:136](https://github.com/orillu
 
 > **compute**(`view`): `void`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L133)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L133)
 
 #### Parameters
 
@@ -263,7 +263,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/orillusi
 
 > **destroy**(`force?`): `void`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L143)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L143)
 
 #### Parameters
 

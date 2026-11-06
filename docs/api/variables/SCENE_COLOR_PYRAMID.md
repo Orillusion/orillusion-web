@@ -6,7 +6,7 @@
 
 > `const` **SCENE\_COLOR\_PYRAMID**: `"_SceneColorPyramid"` = `'_SceneColorPyramid'`
 
-Defined in: [src/gfx/renderJob/graph/passes/SceneColorPyramidPass.ts:29](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/SceneColorPyramidPass.ts#L29)
+Defined in: [src/gfx/renderJob/graph/passes/SceneColorPyramidPass.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/SceneColorPyramidPass.ts#L29)
 
 Published handle name for the scene color snapshot produced after
 opaque rendering finishes and before transparent rendering begins.

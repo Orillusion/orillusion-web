@@ -4,7 +4,7 @@
 
 # Class: RenderGraph
 
-Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:130](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L130)
+Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:130](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L130)
 
 User-facing Frame Graph. Each [View3D](View3D.md) owns one — the graph
 is bound to the view's Context3D in the constructor and uses that
@@ -58,7 +58,7 @@ you intend to flip the pass back on; remove is right when you don't.
 
 > **new RenderGraph**(`view`): `RenderGraph`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:177](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L177)
+Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:177](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L177)
 
 #### Parameters
 
@@ -78,7 +78,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:177](https://github.com/oril
 
 > **get** **context**(): [`Context3D`](Context3D.md)
 
-Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:207](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L207)
+Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:207](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L207)
 
 ##### Returns
 
@@ -92,7 +92,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:207](https://github.com/oril
 
 > **get** **view**(): [`View3D`](View3D.md)
 
-Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:211](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L211)
+Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:211](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L211)
 
 ##### Returns
 
@@ -106,7 +106,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:211](https://github.com/oril
 
 > **get** **pool**(): [`RenderGraphResourcePool`](RenderGraphResourcePool.md)
 
-Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:215](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L215)
+Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:215](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L215)
 
 ##### Returns
 
@@ -120,7 +120,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:215](https://github.com/oril
 
 > **get** **passes**(): readonly [`RenderGraphPass`](RenderGraphPass.md)[]
 
-Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:219](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L219)
+Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:219](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L219)
 
 ##### Returns
 
@@ -132,7 +132,7 @@ readonly [`RenderGraphPass`](RenderGraphPass.md)[]
 
 > **add**\<`C`\>(`Ctor`, ...`args`): `InstanceType`\<`C`\>
 
-Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:235](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L235)
+Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:235](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L235)
 
 Construct a pass and queue it for the next `compile()`. The
 factory passes ctor args through to `new Ctor(...args)`; the
@@ -171,7 +171,7 @@ pass's setup.
 
 > **replace**\<`C`\>(`name`, `Ctor`, ...`args`): `InstanceType`\<`C`\>
 
-Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:249](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L249)
+Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:249](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L249)
 
 Replace a pass by name. The replacement is queued for setup at
  the next `compile()` — same deferred-setup contract as `add()`.
@@ -209,7 +209,7 @@ Replace a pass by name. The replacement is queued for setup at
 
 > **remove**(`name`): `boolean`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:293](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L293)
+Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:293](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L293)
 
 Remove a pass by name. Idempotent — returns `false` if `name`
  isn't registered (callers can use this for unconditional
@@ -235,7 +235,7 @@ Remove a pass by name. Idempotent — returns `false` if `name`
 
 > **disablePass**(`name`): `this`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:318](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L318)
+Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:318](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L318)
 
 Runtime kill switch. Disabled passes are treated as if they
  weren't in the graph: they don't participate in validation or
@@ -261,7 +261,7 @@ Runtime kill switch. Disabled passes are treated as if they
 
 > **enablePass**(`name`): `this`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:328](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L328)
+Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:328](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L328)
 
 #### Parameters
 
@@ -279,7 +279,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:328](https://github.com/oril
 
 > **getPass**\<`T`\>(`name`): `T`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:339](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L339)
+Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:339](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L339)
 
 Look up a pass by name.
 
@@ -305,7 +305,7 @@ Look up a pass by name.
 
 > **beginUpdate**(): `this`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:352](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L352)
+Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:352](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L352)
 
 Open a mutation batch. `compile()` short-circuits until the
  matching `endUpdate()` runs, so a sequence of `add` / `remove` /
@@ -327,7 +327,7 @@ Open a mutation batch. `compile()` short-circuits until the
 
 > **endUpdate**(): `this`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:360](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L360)
+Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:360](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L360)
 
 Close a mutation batch opened with [beginUpdate](#beginupdate). When the
  outermost batch closes, `compile()` runs if any mutation
@@ -343,7 +343,7 @@ Close a mutation batch opened with [beginUpdate](#beginupdate). When the
 
 > **compile**(): `void`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:381](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L381)
+Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:381](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L381)
 
 Validate + topologically sort. Idempotent — short-circuits if
  no mutation since the last compile. Throws GraphCompileError
@@ -368,7 +368,7 @@ Validate + topologically sort. Idempotent — short-circuits if
 
 > **execute**(`occlusion`, `frameIndex`): `void`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:462](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L462)
+Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:462](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L462)
 
 Run one frame. Lazy-compiles on first call (or after a
  mutation). Disabled passes are skipped. In dev mode each
@@ -395,7 +395,7 @@ Run one frame. Lazy-compiles on first call (or after a
 
 > **dumpDot**(): `string`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:553](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L553)
+Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:553](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L553)
 
 Graphviz DOT representation of the compiled graph. Stable
  iteration order so snapshot tests can diff against a fixture.
@@ -413,7 +413,7 @@ Graphviz DOT representation of the compiled graph. Stable
 
 > **destroy**(): `void`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:596](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L596)
+Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:596](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L596)
 
 Tear down all passes, the resource pool, and the device-lost
  listener. Called from RendererJob.destroy on engine dispose.
@@ -428,7 +428,7 @@ Tear down all passes, the resource pool, and the device-lost
 
 > **transientStats**(): `object`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:623](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L623)
+Defined in: [src/gfx/renderJob/graph/RenderGraph.ts:623](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraph.ts#L623)
 
 Snapshot of the transient pools' current allocations + HWM stats.
 Use this to monitor whether lifetime-aliasing is actually saving

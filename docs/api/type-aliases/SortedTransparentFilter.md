@@ -6,7 +6,7 @@
 
 > **SortedTransparentFilter** = `"all"` \| `"sorted"`
 
-Defined in: [src/gfx/renderJob/graph/passes/SortedTransparentPass.ts:18](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/SortedTransparentPass.ts#L18)
+Defined in: [src/gfx/renderJob/graph/passes/SortedTransparentPass.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/SortedTransparentPass.ts#L18)
 
 Filter mode applied to the transparent draw list.
  - `'all'`: render every transparent node (default — used when

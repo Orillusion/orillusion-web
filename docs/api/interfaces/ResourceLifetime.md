@@ -4,7 +4,7 @@
 
 # Interface: ResourceLifetime
 
-Defined in: [src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts:12](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts#L12)
+Defined in: [src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts#L12)
 
 Per-resource analysis result. The transient pool consumes these to
 decide aliasing (same bucket key, disjoint `[firstUseIdx, lastUseIdx]`
@@ -16,7 +16,7 @@ intervals can share a physical wrapper) and final allocation.
 
 > **name**: `string`
 
-Defined in: [src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts:13](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts#L13)
+Defined in: [src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts#L13)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts:13](https://g
 
 > **kind**: [`TransientResourceKind`](../type-aliases/TransientResourceKind.md)
 
-Defined in: [src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts:14](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts#L14)
+Defined in: [src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts#L14)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts:14](https://g
 
 > **desc**: [`TextureDesc`](TextureDesc.md) \| [`BufferDesc`](BufferDesc.md)
 
-Defined in: [src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts:17](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts#L17)
+Defined in: [src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts#L17)
 
 Original desc as passed to `b.declareTexture` /
  `b.declareBuffer`. The analyzer never mutates it.
@@ -43,7 +43,7 @@ Original desc as passed to `b.declareTexture` /
 
 > **firstUseIdx**: `number`
 
-Defined in: [src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts:22](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts#L22)
+Defined in: [src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts#L22)
 
 Index into the topo-sorted pass order at which this resource is
  first written or read. `Number.POSITIVE_INFINITY` if no enabled
@@ -56,7 +56,7 @@ Index into the topo-sorted pass order at which this resource is
 
 > **lastUseIdx**: `number`
 
-Defined in: [src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts:25](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts#L25)
+Defined in: [src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts#L25)
 
 Last index at which this resource is referenced. `-1` if no
  enabled pass references it.
@@ -67,7 +67,7 @@ Last index at which this resource is referenced. `-1` if no
 
 > **resolvedUsage**: `number`
 
-Defined in: [src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts:29](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts#L29)
+Defined in: [src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts#L29)
 
 Final unioned `GPUTextureUsage` / `GPUBufferUsage` bitmask after
  combining the desc's `usage` field with every access hint
@@ -79,7 +79,7 @@ Final unioned `GPUTextureUsage` / `GPUBufferUsage` bitmask after
 
 > `optional` **resolvedWidth?**: `number`
 
-Defined in: [src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts:31](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts#L31)
+Defined in: [src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts#L31)
 
 Resolved pixel width (textures only). Undefined for buffers.
 
@@ -89,7 +89,7 @@ Resolved pixel width (textures only). Undefined for buffers.
 
 > `optional` **resolvedHeight?**: `number`
 
-Defined in: [src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts:33](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts#L33)
+Defined in: [src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts#L33)
 
 Resolved pixel height (textures only). Undefined for buffers.
 
@@ -99,7 +99,7 @@ Resolved pixel height (textures only). Undefined for buffers.
 
 > `optional` **resolvedSize?**: `number`
 
-Defined in: [src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts:35](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts#L35)
+Defined in: [src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts#L35)
 
 Resolved byte size (buffers only). Undefined for textures.
 
@@ -109,7 +109,7 @@ Resolved byte size (buffers only). Undefined for textures.
 
 > **persistent**: `boolean`
 
-Defined in: [src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts:39](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts#L39)
+Defined in: [src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/LifetimeAnalyzer.ts#L39)
 
 True ⇒ this resource is externally owned (imported) or
  explicitly marked `aliasable: false`. The pool MUST NOT alias

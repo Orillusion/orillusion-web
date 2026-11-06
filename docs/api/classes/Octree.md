@@ -4,7 +4,7 @@
 
 # Class: Octree
 
-Defined in: [src/core/tree/octree/Octree.ts:13](https://github.com/orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L13)
+Defined in: [src/core/tree/octree/Octree.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L13)
 
 Spatial partitioning structure that recursively subdivides 3D space into
 eight octants, used for accelerating frustum culling and ray queries.
@@ -15,7 +15,7 @@ eight octants, used for accelerating frustum culling and ray queries.
 
 > **new Octree**(`size`, `index?`, `parent?`, `level?`): `Octree`
 
-Defined in: [src/core/tree/octree/Octree.ts:31](https://github.com/orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L31)
+Defined in: [src/core/tree/octree/Octree.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L31)
 
 #### Parameters
 
@@ -45,7 +45,7 @@ Defined in: [src/core/tree/octree/Octree.ts:31](https://github.com/orillusion/or
 
 > `readonly` **entities**: `Map`\<`string`, `OctreeEntity`\>
 
-Defined in: [src/core/tree/octree/Octree.ts:21](https://github.com/orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L21)
+Defined in: [src/core/tree/octree/Octree.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L21)
 
 ***
 
@@ -53,7 +53,7 @@ Defined in: [src/core/tree/octree/Octree.ts:21](https://github.com/orillusion/or
 
 > `readonly` **box**: `BoundingBox`
 
-Defined in: [src/core/tree/octree/Octree.ts:22](https://github.com/orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L22)
+Defined in: [src/core/tree/octree/Octree.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L22)
 
 ***
 
@@ -61,7 +61,7 @@ Defined in: [src/core/tree/octree/Octree.ts:22](https://github.com/orillusion/or
 
 > `readonly` **subTrees**: `Octree`[] = `[]`
 
-Defined in: [src/core/tree/octree/Octree.ts:23](https://github.com/orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L23)
+Defined in: [src/core/tree/octree/Octree.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L23)
 
 ***
 
@@ -69,7 +69,7 @@ Defined in: [src/core/tree/octree/Octree.ts:23](https://github.com/orillusion/or
 
 > `readonly` **parent**: `Octree`
 
-Defined in: [src/core/tree/octree/Octree.ts:24](https://github.com/orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L24)
+Defined in: [src/core/tree/octree/Octree.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L24)
 
 ***
 
@@ -77,7 +77,7 @@ Defined in: [src/core/tree/octree/Octree.ts:24](https://github.com/orillusion/or
 
 > `readonly` **level**: `number`
 
-Defined in: [src/core/tree/octree/Octree.ts:25](https://github.com/orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L25)
+Defined in: [src/core/tree/octree/Octree.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L25)
 
 ***
 
@@ -85,7 +85,7 @@ Defined in: [src/core/tree/octree/Octree.ts:25](https://github.com/orillusion/or
 
 > `readonly` `static` **maxSplitLevel**: `6` = `6`
 
-Defined in: [src/core/tree/octree/Octree.ts:26](https://github.com/orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L26)
+Defined in: [src/core/tree/octree/Octree.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L26)
 
 ***
 
@@ -93,7 +93,7 @@ Defined in: [src/core/tree/octree/Octree.ts:26](https://github.com/orillusion/or
 
 > `readonly` **index**: `number`
 
-Defined in: [src/core/tree/octree/Octree.ts:28](https://github.com/orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L28)
+Defined in: [src/core/tree/octree/Octree.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L28)
 
 ***
 
@@ -101,7 +101,7 @@ Defined in: [src/core/tree/octree/Octree.ts:28](https://github.com/orillusion/or
 
 > `readonly` **uuid**: `string`
 
-Defined in: [src/core/tree/octree/Octree.ts:29](https://github.com/orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L29)
+Defined in: [src/core/tree/octree/Octree.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L29)
 
 ***
 
@@ -109,7 +109,7 @@ Defined in: [src/core/tree/octree/Octree.ts:29](https://github.com/orillusion/or
 
 > **\_\_rayCastTempVector**: [`Vector3`](Vector3.md)
 
-Defined in: [src/core/tree/octree/Octree.ts:89](https://github.com/orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L89)
+Defined in: [src/core/tree/octree/Octree.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L89)
 
 ## Methods
 
@@ -117,7 +117,7 @@ Defined in: [src/core/tree/octree/Octree.ts:89](https://github.com/orillusion/or
 
 > **tryInsertEntity**(`entity`): `boolean`
 
-Defined in: [src/core/tree/octree/Octree.ts:40](https://github.com/orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L40)
+Defined in: [src/core/tree/octree/Octree.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L40)
 
 #### Parameters
 
@@ -135,7 +135,7 @@ Defined in: [src/core/tree/octree/Octree.ts:40](https://github.com/orillusion/or
 
 > **rayCasts**(`ray`, `ret`): `boolean`
 
-Defined in: [src/core/tree/octree/Octree.ts:90](https://github.com/orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L90)
+Defined in: [src/core/tree/octree/Octree.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L90)
 
 #### Parameters
 
@@ -157,7 +157,7 @@ Defined in: [src/core/tree/octree/Octree.ts:90](https://github.com/orillusion/or
 
 > **frustumCasts**(`frustum`, `ret`): `boolean`
 
-Defined in: [src/core/tree/octree/Octree.ts:103](https://github.com/orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L103)
+Defined in: [src/core/tree/octree/Octree.ts:103](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L103)
 
 #### Parameters
 
@@ -179,7 +179,7 @@ Defined in: [src/core/tree/octree/Octree.ts:103](https://github.com/orillusion/o
 
 > **getRenderNode**(`frustum`, `ret`): `boolean`
 
-Defined in: [src/core/tree/octree/Octree.ts:120](https://github.com/orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L120)
+Defined in: [src/core/tree/octree/Octree.ts:120](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L120)
 
 #### Parameters
 
@@ -201,7 +201,7 @@ Defined in: [src/core/tree/octree/Octree.ts:120](https://github.com/orillusion/o
 
 > **boxCasts**(`box`, `ret`): `boolean`
 
-Defined in: [src/core/tree/octree/Octree.ts:152](https://github.com/orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L152)
+Defined in: [src/core/tree/octree/Octree.ts:152](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L152)
 
 #### Parameters
 
@@ -223,7 +223,7 @@ Defined in: [src/core/tree/octree/Octree.ts:152](https://github.com/orillusion/o
 
 > **clean**(): `this`
 
-Defined in: [src/core/tree/octree/Octree.ts:165](https://github.com/orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L165)
+Defined in: [src/core/tree/octree/Octree.ts:165](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/octree/Octree.ts#L165)
 
 #### Returns
 

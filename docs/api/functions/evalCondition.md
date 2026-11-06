@@ -6,7 +6,7 @@
 
 > **evalCondition**(`expr`, `defines`): `boolean`
 
-Defined in: [src/gfx/graphics/webGpu/shader/util/PreprocessorExpr.ts:233](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/PreprocessorExpr.ts#L233)
+Defined in: [src/gfx/graphics/webGpu/shader/util/PreprocessorExpr.ts:233](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/PreprocessorExpr.ts#L233)
 
 ## Parameters
 

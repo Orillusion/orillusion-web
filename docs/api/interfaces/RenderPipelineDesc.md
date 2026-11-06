@@ -4,7 +4,7 @@
 
 # Interface: RenderPipelineDesc
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:23](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L23)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L23)
 
 Descriptor for the render pipeline owned by a
 [RenderGraphRenderPass](../classes/RenderGraphRenderPass.md).
@@ -22,7 +22,7 @@ depth-compare ops, write masks, etc.
 
 > **label**: `string`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:24](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L24)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L24)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:24](https://github
 
 > **shaderCode**: `string`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:27](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L27)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L27)
 
 Combined WGSL source containing the vertex + fragment entry
  points.
@@ -41,7 +41,7 @@ Combined WGSL source containing the vertex + fragment entry
 
 > `optional` **vertexEntry?**: `string`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:29](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L29)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L29)
 
 Defaults to `'main'` to match the engine's WGSL convention.
 
@@ -51,7 +51,7 @@ Defaults to `'main'` to match the engine's WGSL convention.
 
 > `optional` **fragmentEntry?**: `string`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:31](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L31)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L31)
 
 Defaults to `'main'`.
 
@@ -61,7 +61,7 @@ Defaults to `'main'`.
 
 > **bindGroupLayouts**: `GPUBindGroupLayoutDescriptor`[]
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:32](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L32)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L32)
 
 ***
 
@@ -69,7 +69,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:32](https://github
 
 > `optional` **vertexBuffers?**: `GPUVertexBufferLayout`[]
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:35](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L35)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L35)
 
 Vertex buffer layouts. Omit for fullscreen-triangle passes that
  source positions from `@builtin(vertex_index)`.
@@ -80,7 +80,7 @@ Vertex buffer layouts. Omit for fullscreen-triangle passes that
 
 > `optional` **primitive?**: `GPUPrimitiveState`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:38](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L38)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L38)
 
 Primitive topology, cull mode, front-face, etc. Defaults to
  WebGPU defaults (triangle list, no culling).
@@ -91,7 +91,7 @@ Primitive topology, cull mode, front-face, etc. Defaults to
 
 > `optional` **depthStencil?**: `Omit`\<`GPUDepthStencilState`, `"format"`\> & `object`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:43](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L43)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L43)
 
 Depth/stencil state. `format` is auto-filled from the target's
  depth attachment when omitted. Pass `null` to opt out even when
@@ -110,7 +110,7 @@ Depth/stencil state. `format` is auto-filled from the target's
 
 > `optional` **fragmentTargets?**: `Omit`\<`GPUColorTargetState`, `"format"`\> & `object`[]
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:47](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L47)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L47)
 
 Per-color-attachment fragment targets. Length must match the
  target's color count when provided. `format` is auto-filled from
@@ -122,7 +122,7 @@ Per-color-attachment fragment targets. Length must match the
 
 > `optional` **multisample?**: `GPUMultisampleState`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:50](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L50)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L50)
 
 Multisample state. `count` is auto-filled from the target's
  sample count when omitted.
@@ -133,7 +133,7 @@ Multisample state. `count` is auto-filled from the target's
 
 > `optional` **constants?**: `Record`\<`string`, `number`\>
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:53](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L53)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderPass.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderPass.ts#L53)
 
 Shader-side pipeline constants (specialization). Applied to both
  vertex and fragment stages.

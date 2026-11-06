@@ -6,7 +6,7 @@
 
 > **AccessHint** = `"sample"` \| `"storage"` \| `"attachment"` \| `"copy"`
 
-Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:43](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L43)
+Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L43)
 
 Per-edge access hint attached to a `b.read` / `b.write` /
 `b.readWrite` call. The compiler unions these into the resource's

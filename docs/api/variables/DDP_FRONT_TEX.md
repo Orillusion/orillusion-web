@@ -6,4 +6,4 @@
 
 > `const` **DDP\_FRONT\_TEX**: `"_DDPFront"` = `'_DDPFront'`
 
-Defined in: [src/gfx/renderJob/graph/passes/TransparentDualDepthPeelingPass.ts:18](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/TransparentDualDepthPeelingPass.ts#L18)
+Defined in: [src/gfx/renderJob/graph/passes/TransparentDualDepthPeelingPass.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/TransparentDualDepthPeelingPass.ts#L18)

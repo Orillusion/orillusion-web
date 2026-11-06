@@ -4,7 +4,7 @@
 
 # Class: OutlinePostSlot
 
-Defined in: [src/io/OutlinePostData.ts:8](https://github.com/orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L8)
+Defined in: [src/io/OutlinePostData.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L8)
 
 One outline color slot: the list of entity indices it applies to and the
 outline color shared by them.
@@ -25,7 +25,7 @@ outline color shared by them.
 
 > **indexList**: `Float32Array`
 
-Defined in: [src/io/OutlinePostData.ts:10](https://github.com/orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L10)
+Defined in: [src/io/OutlinePostData.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L10)
 
 Entity indices included in this slot, padded with -1.
 
@@ -35,7 +35,7 @@ Entity indices included in this slot, padded with -1.
 
 > **color**: [`Color`](Color.md)
 
-Defined in: [src/io/OutlinePostData.ts:12](https://github.com/orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L12)
+Defined in: [src/io/OutlinePostData.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L12)
 
 Outline color applied to every entity in this slot.
 
@@ -45,6 +45,6 @@ Outline color applied to every entity in this slot.
 
 > **count**: `number`
 
-Defined in: [src/io/OutlinePostData.ts:14](https://github.com/orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L14)
+Defined in: [src/io/OutlinePostData.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/io/OutlinePostData.ts#L14)
 
 Number of valid entries in indexList.

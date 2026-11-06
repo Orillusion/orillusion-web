@@ -6,7 +6,7 @@
 
 > **ShadowSetting** = `object`
 
-Defined in: [src/setting/ShadowSetting.ts:6](https://github.com/orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L6)
+Defined in: [src/setting/ShadowSetting.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L6)
 
 Shadow setting
 
@@ -16,7 +16,7 @@ Shadow setting
 
 > **debug**: `any`
 
-Defined in: [src/setting/ShadowSetting.ts:7](https://github.com/orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L7)
+Defined in: [src/setting/ShadowSetting.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L7)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [src/setting/ShadowSetting.ts:7](https://github.com/orillusion/orill
 
 > **enable**: `boolean`
 
-Defined in: [src/setting/ShadowSetting.ts:11](https://github.com/orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L11)
+Defined in: [src/setting/ShadowSetting.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L11)
 
 enable
 
@@ -34,7 +34,7 @@ enable
 
 > **needUpdate**: `boolean`
 
-Defined in: [src/setting/ShadowSetting.ts:15](https://github.com/orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L15)
+Defined in: [src/setting/ShadowSetting.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L15)
 
 ***
 
@@ -42,7 +42,7 @@ Defined in: [src/setting/ShadowSetting.ts:15](https://github.com/orillusion/oril
 
 > **autoUpdate**: `boolean`
 
-Defined in: [src/setting/ShadowSetting.ts:19](https://github.com/orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L19)
+Defined in: [src/setting/ShadowSetting.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L19)
 
 update shadown automatic
 
@@ -52,7 +52,7 @@ update shadown automatic
 
 > **updateFrameRate**: `number`
 
-Defined in: [src/setting/ShadowSetting.ts:24](https://github.com/orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L24)
+Defined in: [src/setting/ShadowSetting.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L24)
 
 frequency for shadows update
 
@@ -62,7 +62,7 @@ frequency for shadows update
 
 > **type**: `"PCF"` \| `"HARD"` \| `"SOFT"`
 
-Defined in: [src/setting/ShadowSetting.ts:43](https://github.com/orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L43)
+Defined in: [src/setting/ShadowSetting.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L43)
 
 Shadow sampling mode.
 
@@ -86,7 +86,7 @@ Shadow sampling mode.
 
 > **shadowSize**: `number`
 
-Defined in: [src/setting/ShadowSetting.ts:51](https://github.com/orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L51)
+Defined in: [src/setting/ShadowSetting.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L51)
 
 shadow mapping Size
 
@@ -96,7 +96,7 @@ shadow mapping Size
 
 > **shadowSoft**: `number`
 
-Defined in: [src/setting/ShadowSetting.ts:55](https://github.com/orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L55)
+Defined in: [src/setting/ShadowSetting.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L55)
 
 Shadow softness
 
@@ -106,7 +106,7 @@ Shadow softness
 
 > `optional` **pcfKernelScale?**: `number`
 
-Defined in: [src/setting/ShadowSetting.ts:64](https://github.com/orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L64)
+Defined in: [src/setting/ShadowSetting.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L64)
 
 Directional PCF kernel radius multiplier. 1.0 = exactly one shadow
 texel per sample step (3x3 tap spacing). Values > 1 widen the
@@ -121,7 +121,7 @@ Default 1.0.
 
 > **pointShadowSize**: `number`
 
-Defined in: [src/setting/ShadowSetting.ts:68](https://github.com/orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L68)
+Defined in: [src/setting/ShadowSetting.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L68)
 
 Point shadow mapping size
 
@@ -131,7 +131,7 @@ Point shadow mapping size
 
 > **csmMargin**: `number`
 
-Defined in: [src/setting/ShadowSetting.ts:72](https://github.com/orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L72)
+Defined in: [src/setting/ShadowSetting.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L72)
 
 Blend Shadow(0-1)
 
@@ -141,7 +141,7 @@ Blend Shadow(0-1)
 
 > **csmScatteringExp**: `number`
 
-Defined in: [src/setting/ShadowSetting.ts:76](https://github.com/orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L76)
+Defined in: [src/setting/ShadowSetting.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L76)
 
 scattering csm Area Exponent for each level
 
@@ -151,7 +151,7 @@ scattering csm Area Exponent for each level
 
 > **csmAreaScale**: `number`
 
-Defined in: [src/setting/ShadowSetting.ts:80](https://github.com/orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L80)
+Defined in: [src/setting/ShadowSetting.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L80)
 
 scale csm Area of all level
 
@@ -161,7 +161,7 @@ scale csm Area of all level
 
 > **maxShadowMapNum**: `number`
 
-Defined in: [src/setting/ShadowSetting.ts:93](https://github.com/orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L93)
+Defined in: [src/setting/ShadowSetting.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L93)
 
 max shadow map number
 
@@ -171,7 +171,7 @@ max shadow map number
 
 > **maxShadowMapWidth**: `number`
 
-Defined in: [src/setting/ShadowSetting.ts:98](https://github.com/orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L98)
+Defined in: [src/setting/ShadowSetting.ts:98](https://github.com/Orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L98)
 
 max shadow map width
 
@@ -181,7 +181,7 @@ max shadow map width
 
 > **maxShadowMapHeight**: `number`
 
-Defined in: [src/setting/ShadowSetting.ts:103](https://github.com/orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L103)
+Defined in: [src/setting/ShadowSetting.ts:103](https://github.com/Orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L103)
 
 max shadow map height
 
@@ -191,7 +191,7 @@ max shadow map height
 
 > **maxCascades**: `number`
 
-Defined in: [src/setting/ShadowSetting.ts:108](https://github.com/orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L108)
+Defined in: [src/setting/ShadowSetting.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L108)
 
 max cascades for csm
 
@@ -201,7 +201,7 @@ max cascades for csm
 
 > **shadowBound**: `number`
 
-Defined in: [src/setting/ShadowSetting.ts:119](https://github.com/orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L119)
+Defined in: [src/setting/ShadowSetting.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L119)
 
 shadow bound, the area of shadow map projection,
 the larger the value, the more area the shadow map covers,
@@ -217,7 +217,7 @@ scene size and light distance.
 
 > `optional` **enableStaticCache?**: `boolean`
 
-Defined in: [src/setting/ShadowSetting.ts:141](https://github.com/orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L141)
+Defined in: [src/setting/ShadowSetting.ts:141](https://github.com/Orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L141)
 
 Opt-in static-shadow caching.
 
@@ -244,7 +244,7 @@ are consulted when this flag is on; `'auto'` counts as dynamic.
 
 > `optional` **contactShadow?**: `object`
 
-Defined in: [src/setting/ShadowSetting.ts:148](https://github.com/orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L148)
+Defined in: [src/setting/ShadowSetting.ts:148](https://github.com/Orillusion/orillusion/blob/main/src/setting/ShadowSetting.ts#L148)
 
 Contact Shadows — short screen-space ray-march along the dominant
  directional light. Adds the close-contact darkness CSM can't

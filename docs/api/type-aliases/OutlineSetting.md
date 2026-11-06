@@ -6,7 +6,7 @@
 
 > **OutlineSetting** = `object`
 
-Defined in: [src/setting/post/OutlineSetting.ts:5](https://github.com/orillusion/orillusion/blob/main/src/setting/post/OutlineSetting.ts#L5)
+Defined in: [src/setting/post/OutlineSetting.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/OutlineSetting.ts#L5)
 
 Outline Setting
 
@@ -16,7 +16,7 @@ Outline Setting
 
 > **enable**: `boolean`
 
-Defined in: [src/setting/post/OutlineSetting.ts:6](https://github.com/orillusion/orillusion/blob/main/src/setting/post/OutlineSetting.ts#L6)
+Defined in: [src/setting/post/OutlineSetting.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/OutlineSetting.ts#L6)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [src/setting/post/OutlineSetting.ts:6](https://github.com/orillusion
 
 > **groupCount**: `number`
 
-Defined in: [src/setting/post/OutlineSetting.ts:11](https://github.com/orillusion/orillusion/blob/main/src/setting/post/OutlineSetting.ts#L11)
+Defined in: [src/setting/post/OutlineSetting.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/OutlineSetting.ts#L11)
 
 Group settings can be set up to 8 groups: through functions opened by OutlineManager,
 Pass in different Object 3D lists and color parameters to obtain grouped stroke effects.
@@ -35,7 +35,7 @@ Pass in different Object 3D lists and color parameters to obtain grouped stroke 
 
 > **outlinePixel**: `number`
 
-Defined in: [src/setting/post/OutlineSetting.ts:15](https://github.com/orillusion/orillusion/blob/main/src/setting/post/OutlineSetting.ts#L15)
+Defined in: [src/setting/post/OutlineSetting.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/OutlineSetting.ts#L15)
 
 Pixel width of stroke hard edges
 
@@ -45,7 +45,7 @@ Pixel width of stroke hard edges
 
 > **fadeOutlinePixel**: `number`
 
-Defined in: [src/setting/post/OutlineSetting.ts:19](https://github.com/orillusion/orillusion/blob/main/src/setting/post/OutlineSetting.ts#L19)
+Defined in: [src/setting/post/OutlineSetting.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/OutlineSetting.ts#L19)
 
 Stroke Fade Pixel Width
 
@@ -55,7 +55,7 @@ Stroke Fade Pixel Width
 
 > **strength**: `number`
 
-Defined in: [src/setting/post/OutlineSetting.ts:23](https://github.com/orillusion/orillusion/blob/main/src/setting/post/OutlineSetting.ts#L23)
+Defined in: [src/setting/post/OutlineSetting.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/OutlineSetting.ts#L23)
 
 Stroke strength
 
@@ -65,7 +65,7 @@ Stroke strength
 
 > **useAddMode**: `boolean`
 
-Defined in: [src/setting/post/OutlineSetting.ts:27](https://github.com/orillusion/orillusion/blob/main/src/setting/post/OutlineSetting.ts#L27)
+Defined in: [src/setting/post/OutlineSetting.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/OutlineSetting.ts#L27)
 
 Blend mode: true Use overlay mode, false Use default alpha blend
 
@@ -75,7 +75,7 @@ Blend mode: true Use overlay mode, false Use default alpha blend
 
 > **textureScale**: `number`
 
-Defined in: [src/setting/post/OutlineSetting.ts:31](https://github.com/orillusion/orillusion/blob/main/src/setting/post/OutlineSetting.ts#L31)
+Defined in: [src/setting/post/OutlineSetting.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/OutlineSetting.ts#L31)
 
 Set the scaling value of the offline map used for calculation relative to the GBuffer map
 
@@ -85,4 +85,4 @@ Set the scaling value of the offline map used for calculation relative to the GB
 
 > **debug**: `boolean`
 
-Defined in: [src/setting/post/OutlineSetting.ts:32](https://github.com/orillusion/orillusion/blob/main/src/setting/post/OutlineSetting.ts#L32)
+Defined in: [src/setting/post/OutlineSetting.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/setting/post/OutlineSetting.ts#L32)

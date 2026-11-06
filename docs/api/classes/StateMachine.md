@@ -4,7 +4,7 @@
 
 # Class: StateMachine
 
-Defined in: [src/components/anim/graph/StateMachine.ts:65](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L65)
+Defined in: [src/components/anim/graph/StateMachine.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L65)
 
 Lightweight, data-driven animation state machine.
 
@@ -22,7 +22,7 @@ A JSON/TS DSL covers 90% of use cases at <5% the cost; DCC tooling
 
 > **new StateMachine**(`states`, `initial?`, `params?`): `StateMachine`
 
-Defined in: [src/components/anim/graph/StateMachine.ts:72](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L72)
+Defined in: [src/components/anim/graph/StateMachine.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L72)
 
 #### Parameters
 
@@ -50,7 +50,7 @@ Defined in: [src/components/anim/graph/StateMachine.ts:72](https://github.com/or
 
 > **get** **params**(): [`AnimatorParams`](../interfaces/AnimatorParams.md)
 
-Defined in: [src/components/anim/graph/StateMachine.ts:82](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L82)
+Defined in: [src/components/anim/graph/StateMachine.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L82)
 
 ##### Returns
 
@@ -64,7 +64,7 @@ Defined in: [src/components/anim/graph/StateMachine.ts:82](https://github.com/or
 
 > **get** **currentState**(): [`StateDef`](../interfaces/StateDef.md)
 
-Defined in: [src/components/anim/graph/StateMachine.ts:83](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L83)
+Defined in: [src/components/anim/graph/StateMachine.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L83)
 
 ##### Returns
 
@@ -78,7 +78,7 @@ Defined in: [src/components/anim/graph/StateMachine.ts:83](https://github.com/or
 
 > **get** **currentStateName**(): `string`
 
-Defined in: [src/components/anim/graph/StateMachine.ts:84](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L84)
+Defined in: [src/components/anim/graph/StateMachine.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L84)
 
 ##### Returns
 
@@ -90,7 +90,7 @@ Defined in: [src/components/anim/graph/StateMachine.ts:84](https://github.com/or
 
 > **sync**(`animator`): `void`
 
-Defined in: [src/components/anim/graph/StateMachine.ts:91](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L91)
+Defined in: [src/components/anim/graph/StateMachine.ts:91](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L91)
 
 Convenience: ensure the underlying animator is playing the right clip.
 Should be called once after attaching the FSM, or any time external
@@ -112,7 +112,7 @@ code wants to force a sync.
 
 > **evaluate**(`animator`, `dt`): `void`
 
-Defined in: [src/components/anim/graph/StateMachine.ts:96](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L96)
+Defined in: [src/components/anim/graph/StateMachine.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/StateMachine.ts#L96)
 
 Called by AnimatorComponent.onUpdate every frame.
 

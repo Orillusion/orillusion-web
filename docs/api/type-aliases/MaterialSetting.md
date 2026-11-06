@@ -6,7 +6,7 @@
 
 > **MaterialSetting** = `object`
 
-Defined in: [src/setting/MaterialSetting.ts:1](https://github.com/orillusion/orillusion/blob/main/src/setting/MaterialSetting.ts#L1)
+Defined in: [src/setting/MaterialSetting.ts:1](https://github.com/Orillusion/orillusion/blob/main/src/setting/MaterialSetting.ts#L1)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [src/setting/MaterialSetting.ts:1](https://github.com/orillusion/ori
 
 > `optional` **materialChannelDebug?**: `boolean`
 
-Defined in: [src/setting/MaterialSetting.ts:2](https://github.com/orillusion/orillusion/blob/main/src/setting/MaterialSetting.ts#L2)
+Defined in: [src/setting/MaterialSetting.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/setting/MaterialSetting.ts#L2)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [src/setting/MaterialSetting.ts:2](https://github.com/orillusion/ori
 
 > `optional` **materialDebug?**: `boolean`
 
-Defined in: [src/setting/MaterialSetting.ts:3](https://github.com/orillusion/orillusion/blob/main/src/setting/MaterialSetting.ts#L3)
+Defined in: [src/setting/MaterialSetting.ts:3](https://github.com/Orillusion/orillusion/blob/main/src/setting/MaterialSetting.ts#L3)
 
 ***
 
@@ -30,4 +30,4 @@ Defined in: [src/setting/MaterialSetting.ts:3](https://github.com/orillusion/ori
 
 > `optional` **normalYFlip?**: `boolean`
 
-Defined in: [src/setting/MaterialSetting.ts:4](https://github.com/orillusion/orillusion/blob/main/src/setting/MaterialSetting.ts#L4)
+Defined in: [src/setting/MaterialSetting.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/setting/MaterialSetting.ts#L4)

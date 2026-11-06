@@ -4,7 +4,7 @@
 
 # Class: SkylinePost
 
-Defined in: [src/gfx/renderJob/post/SkylinePost.ts:21](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SkylinePost.ts#L21)
+Defined in: [src/gfx/renderJob/post/SkylinePost.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SkylinePost.ts#L21)
 
 Skyline post-processing effect
 Draws a colored outline at the boundary between objects and the sky
@@ -15,7 +15,7 @@ Draws a colored outline at the boundary between objects and the sky
 
 > **new SkylinePost**(): `SkylinePost`
 
-Defined in: [src/gfx/renderJob/post/SkylinePost.ts:30](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SkylinePost.ts#L30)
+Defined in: [src/gfx/renderJob/post/SkylinePost.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SkylinePost.ts#L30)
 
 #### Returns
 
@@ -31,7 +31,7 @@ Defined in: [src/gfx/renderJob/post/SkylinePost.ts:30](https://github.com/orillu
 
 > **enable**: `boolean` = `true`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L23)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L23)
 
 #### Inherited from
 
@@ -43,7 +43,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:23](https://github.com/orillusio
 
 > **isFinalPass**: `boolean` = `false`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:27](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L27)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L27)
 
 When true, PostPass iterates this post AFTER every regular
  post regardless of attach order — used by TonemapPost so the
@@ -59,7 +59,7 @@ When true, PostPass iterates this post AFTER every regular
 
 > **postRenderer**: [`PostPass`](PostPass.md)
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L28)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L28)
 
 #### Inherited from
 
@@ -71,7 +71,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:28](https://github.com/orillusio
 
 > **rendererPassState**: `RendererPassState`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L29)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L29)
 
 #### Inherited from
 
@@ -83,7 +83,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:29](https://github.com/orillusio
 
 > **\_boundCtx**: [`Context3D`](Context3D.md) = `null`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L30)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L30)
 
 #### Inherited from
 
@@ -97,7 +97,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:30](https://github.com/orillusio
 
 > **get** **lineColor**(): [`Color`](Color.md)
 
-Defined in: [src/gfx/renderJob/post/SkylinePost.ts:90](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SkylinePost.ts#L90)
+Defined in: [src/gfx/renderJob/post/SkylinePost.ts:90](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SkylinePost.ts#L90)
 
 Line color of the skyline effect
 
@@ -109,7 +109,7 @@ Line color of the skyline effect
 
 > **set** **lineColor**(`value`): `void`
 
-Defined in: [src/gfx/renderJob/post/SkylinePost.ts:94](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SkylinePost.ts#L94)
+Defined in: [src/gfx/renderJob/post/SkylinePost.ts:94](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SkylinePost.ts#L94)
 
 ##### Parameters
 
@@ -129,7 +129,7 @@ Defined in: [src/gfx/renderJob/post/SkylinePost.ts:94](https://github.com/orillu
 
 > **get** **lineWidth**(): `number`
 
-Defined in: [src/gfx/renderJob/post/SkylinePost.ts:101](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SkylinePost.ts#L101)
+Defined in: [src/gfx/renderJob/post/SkylinePost.ts:101](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SkylinePost.ts#L101)
 
 Line width in pixels
 
@@ -141,7 +141,7 @@ Line width in pixels
 
 > **set** **lineWidth**(`value`): `void`
 
-Defined in: [src/gfx/renderJob/post/SkylinePost.ts:105](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SkylinePost.ts#L105)
+Defined in: [src/gfx/renderJob/post/SkylinePost.ts:105](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SkylinePost.ts#L105)
 
 ##### Parameters
 
@@ -161,7 +161,7 @@ Defined in: [src/gfx/renderJob/post/SkylinePost.ts:105](https://github.com/orill
 
 > **get** **depthThreshold**(): `number`
 
-Defined in: [src/gfx/renderJob/post/SkylinePost.ts:112](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SkylinePost.ts#L112)
+Defined in: [src/gfx/renderJob/post/SkylinePost.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SkylinePost.ts#L112)
 
 Depth threshold for edge detection
 
@@ -173,7 +173,7 @@ Depth threshold for edge detection
 
 > **set** **depthThreshold**(`value`): `void`
 
-Defined in: [src/gfx/renderJob/post/SkylinePost.ts:116](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SkylinePost.ts#L116)
+Defined in: [src/gfx/renderJob/post/SkylinePost.ts:116](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SkylinePost.ts#L116)
 
 ##### Parameters
 
@@ -193,7 +193,7 @@ Defined in: [src/gfx/renderJob/post/SkylinePost.ts:116](https://github.com/orill
 
 > **get** **strength**(): `number`
 
-Defined in: [src/gfx/renderJob/post/SkylinePost.ts:123](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SkylinePost.ts#L123)
+Defined in: [src/gfx/renderJob/post/SkylinePost.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SkylinePost.ts#L123)
 
 Strength of the skyline effect
 
@@ -205,7 +205,7 @@ Strength of the skyline effect
 
 > **set** **strength**(`value`): `void`
 
-Defined in: [src/gfx/renderJob/post/SkylinePost.ts:127](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SkylinePost.ts#L127)
+Defined in: [src/gfx/renderJob/post/SkylinePost.ts:127](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SkylinePost.ts#L127)
 
 ##### Parameters
 
@@ -223,7 +223,7 @@ Defined in: [src/gfx/renderJob/post/SkylinePost.ts:127](https://github.com/orill
 
 > **compute**(`view`): `void`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L133)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L133)
 
 #### Parameters
 
@@ -245,7 +245,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:133](https://github.com/orillusi
 
 > **destroy**(`force?`): `void`
 
-Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L143)
+Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/PostBase.ts#L143)
 
 #### Parameters
 
@@ -267,7 +267,7 @@ Defined in: [src/gfx/renderJob/post/PostBase.ts:143](https://github.com/orillusi
 
 > **onResize**(): `void`
 
-Defined in: [src/gfx/renderJob/post/SkylinePost.ts:151](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/post/SkylinePost.ts#L151)
+Defined in: [src/gfx/renderJob/post/SkylinePost.ts:151](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/post/SkylinePost.ts#L151)
 
 #### Returns
 

@@ -4,7 +4,7 @@
 
 # Enumeration: ParserFormat
 
-Defined in: [src/loader/parser/ParserFormat.ts:1](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserFormat.ts#L1)
+Defined in: [src/loader/parser/ParserFormat.ts:1](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserFormat.ts#L1)
 
 ## Enumeration Members
 
@@ -12,7 +12,7 @@ Defined in: [src/loader/parser/ParserFormat.ts:1](https://github.com/orillusion/
 
 > **TEXT**: `0`
 
-Defined in: [src/loader/parser/ParserFormat.ts:2](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserFormat.ts#L2)
+Defined in: [src/loader/parser/ParserFormat.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserFormat.ts#L2)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/loader/parser/ParserFormat.ts:2](https://github.com/orillusion/
 
 > **BIN**: `1`
 
-Defined in: [src/loader/parser/ParserFormat.ts:3](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserFormat.ts#L3)
+Defined in: [src/loader/parser/ParserFormat.ts:3](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserFormat.ts#L3)
 
 ***
 
@@ -28,4 +28,4 @@ Defined in: [src/loader/parser/ParserFormat.ts:3](https://github.com/orillusion/
 
 > **JSON**: `2`
 
-Defined in: [src/loader/parser/ParserFormat.ts:4](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserFormat.ts#L4)
+Defined in: [src/loader/parser/ParserFormat.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserFormat.ts#L4)

@@ -6,7 +6,7 @@
 
 > **IsNonSerialize**\<`T`\>(`instance`, `key`): `boolean`
 
-Defined in: [src/util/SerializeDecoration.ts:14](https://github.com/orillusion/orillusion/blob/main/src/util/SerializeDecoration.ts#L14)
+Defined in: [src/util/SerializeDecoration.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/util/SerializeDecoration.ts#L14)
 
 ## Type Parameters
 

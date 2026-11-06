@@ -4,7 +4,7 @@
 
 # Interface: TextureHandle
 
-Defined in: [src/gfx/renderJob/graph/transient/ResourceHandle.ts:30](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceHandle.ts#L30)
+Defined in: [src/gfx/renderJob/graph/transient/ResourceHandle.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceHandle.ts#L30)
 
 Opaque handle to a transient (or imported) texture resource owned by
 the [RenderGraph](../classes/RenderGraph.md). Pass it to `b.read` / `b.write` /
@@ -18,7 +18,7 @@ RenderTexture via `ctx.getTexture(handle.name)` inside
 
 > `readonly` **\[\_\_\_texBrand\]**: `void`
 
-Defined in: [src/gfx/renderJob/graph/transient/ResourceHandle.ts:31](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceHandle.ts#L31)
+Defined in: [src/gfx/renderJob/graph/transient/ResourceHandle.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceHandle.ts#L31)
 
 ***
 
@@ -26,4 +26,4 @@ Defined in: [src/gfx/renderJob/graph/transient/ResourceHandle.ts:31](https://git
 
 > `readonly` **name**: `string`
 
-Defined in: [src/gfx/renderJob/graph/transient/ResourceHandle.ts:32](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceHandle.ts#L32)
+Defined in: [src/gfx/renderJob/graph/transient/ResourceHandle.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceHandle.ts#L32)

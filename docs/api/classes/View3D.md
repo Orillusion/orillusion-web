@@ -4,7 +4,7 @@
 
 # Class: View3D
 
-Defined in: [src/core/View3D.ts:15](https://github.com/orillusion/orillusion/blob/main/src/core/View3D.ts#L15)
+Defined in: [src/core/View3D.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L15)
 
 A render view that pairs a [Camera3D](Camera3D.md) with a [Scene3D](Scene3D.md) and a
 viewport, and drives the rendering of that scene through the camera.
@@ -15,7 +15,7 @@ viewport, and drives the rendering of that scene through the camera.
 
 > **new View3D**(`x?`, `y?`, `width?`, `height?`): `View3D`
 
-Defined in: [src/core/View3D.ts:30](https://github.com/orillusion/orillusion/blob/main/src/core/View3D.ts#L30)
+Defined in: [src/core/View3D.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L30)
 
 #### Parameters
 
@@ -49,7 +49,7 @@ Defined in: [src/core/View3D.ts:30](https://github.com/orillusion/orillusion/blo
 
 > **pickFire**: [`PickFire`](PickFire.md)
 
-Defined in: [src/core/View3D.ts:21](https://github.com/orillusion/orillusion/blob/main/src/core/View3D.ts#L21)
+Defined in: [src/core/View3D.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L21)
 
 ***
 
@@ -57,7 +57,7 @@ Defined in: [src/core/View3D.ts:21](https://github.com/orillusion/orillusion/blo
 
 > **engine3D**: [`Engine3D`](Engine3D.md)
 
-Defined in: [src/core/View3D.ts:28](https://github.com/orillusion/orillusion/blob/main/src/core/View3D.ts#L28)
+Defined in: [src/core/View3D.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L28)
 
 Reference to the Engine3D instance that owns this view. Set by
 `engine.startRenderView(view)`. Components that need per-instance state
@@ -70,7 +70,7 @@ they work under multi-instance setups.
 
 > **id**: `number` = `0`
 
-Defined in: [src/event/CEventListener.ts:15](https://github.com/orillusion/orillusion/blob/main/src/event/CEventListener.ts#L15)
+Defined in: [src/event/CEventListener.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventListener.ts#L15)
 
 Record a id. When registering a listening event, the value will increase automatically
 
@@ -84,7 +84,7 @@ Record a id. When registering a listening event, the value will increase automat
 
 > **current**: `any`
 
-Defined in: [src/event/CEventListener.ts:21](https://github.com/orillusion/orillusion/blob/main/src/event/CEventListener.ts#L21)
+Defined in: [src/event/CEventListener.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventListener.ts#L21)
 
 Returns current event dispatcher
 
@@ -98,7 +98,7 @@ Returns current event dispatcher
 
 > **type**: `string` \| `number` = `null`
 
-Defined in: [src/event/CEventListener.ts:31](https://github.com/orillusion/orillusion/blob/main/src/event/CEventListener.ts#L31)
+Defined in: [src/event/CEventListener.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventListener.ts#L31)
 
 {string} event type
 
@@ -112,7 +112,7 @@ Defined in: [src/event/CEventListener.ts:31](https://github.com/orillusion/orill
 
 > **thisObject**: `any` = `null`
 
-Defined in: [src/event/CEventListener.ts:31](https://github.com/orillusion/orillusion/blob/main/src/event/CEventListener.ts#L31)
+Defined in: [src/event/CEventListener.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventListener.ts#L31)
 
 {any} the object is registerd
 
@@ -126,7 +126,7 @@ Defined in: [src/event/CEventListener.ts:31](https://github.com/orillusion/orill
 
 > **handler**: `Function` = `null`
 
-Defined in: [src/event/CEventListener.ts:31](https://github.com/orillusion/orillusion/blob/main/src/event/CEventListener.ts#L31)
+Defined in: [src/event/CEventListener.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventListener.ts#L31)
 
 {Function} The callback function that handles events.
 
@@ -140,7 +140,7 @@ Defined in: [src/event/CEventListener.ts:31](https://github.com/orillusion/orill
 
 > **param**: `any` = `null`
 
-Defined in: [src/event/CEventListener.ts:31](https://github.com/orillusion/orillusion/blob/main/src/event/CEventListener.ts#L31)
+Defined in: [src/event/CEventListener.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventListener.ts#L31)
 
 {any} Parameters bound when registering events
 
@@ -154,7 +154,7 @@ Defined in: [src/event/CEventListener.ts:31](https://github.com/orillusion/orill
 
 > **priority**: `number` = `0`
 
-Defined in: [src/event/CEventListener.ts:31](https://github.com/orillusion/orillusion/blob/main/src/event/CEventListener.ts#L31)
+Defined in: [src/event/CEventListener.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventListener.ts#L31)
 
 {number} The priority of callback function execution, with a larger set value having priority to call
 
@@ -170,7 +170,7 @@ Defined in: [src/event/CEventListener.ts:31](https://github.com/orillusion/orill
 
 > **get** **enable**(): `boolean`
 
-Defined in: [src/core/View3D.ts:35](https://github.com/orillusion/orillusion/blob/main/src/core/View3D.ts#L35)
+Defined in: [src/core/View3D.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L35)
 
 ##### Returns
 
@@ -180,7 +180,7 @@ Defined in: [src/core/View3D.ts:35](https://github.com/orillusion/orillusion/blo
 
 > **set** **enable**(`value`): `void`
 
-Defined in: [src/core/View3D.ts:39](https://github.com/orillusion/orillusion/blob/main/src/core/View3D.ts#L39)
+Defined in: [src/core/View3D.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L39)
 
 ##### Parameters
 
@@ -200,7 +200,7 @@ Defined in: [src/core/View3D.ts:39](https://github.com/orillusion/orillusion/blo
 
 > **get** **enablePick**(): `boolean`
 
-Defined in: [src/core/View3D.ts:43](https://github.com/orillusion/orillusion/blob/main/src/core/View3D.ts#L43)
+Defined in: [src/core/View3D.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L43)
 
 ##### Returns
 
@@ -210,7 +210,7 @@ Defined in: [src/core/View3D.ts:43](https://github.com/orillusion/orillusion/blo
 
 > **set** **enablePick**(`value`): `void`
 
-Defined in: [src/core/View3D.ts:47](https://github.com/orillusion/orillusion/blob/main/src/core/View3D.ts#L47)
+Defined in: [src/core/View3D.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L47)
 
 ##### Parameters
 
@@ -230,7 +230,7 @@ Defined in: [src/core/View3D.ts:47](https://github.com/orillusion/orillusion/blo
 
 > **get** **scene**(): [`Scene3D`](Scene3D.md)
 
-Defined in: [src/core/View3D.ts:55](https://github.com/orillusion/orillusion/blob/main/src/core/View3D.ts#L55)
+Defined in: [src/core/View3D.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L55)
 
 ##### Returns
 
@@ -240,7 +240,7 @@ Defined in: [src/core/View3D.ts:55](https://github.com/orillusion/orillusion/blo
 
 > **set** **scene**(`value`): `void`
 
-Defined in: [src/core/View3D.ts:59](https://github.com/orillusion/orillusion/blob/main/src/core/View3D.ts#L59)
+Defined in: [src/core/View3D.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L59)
 
 ##### Parameters
 
@@ -260,7 +260,7 @@ Defined in: [src/core/View3D.ts:59](https://github.com/orillusion/orillusion/blo
 
 > **get** **camera**(): [`Camera3D`](Camera3D.md)
 
-Defined in: [src/core/View3D.ts:66](https://github.com/orillusion/orillusion/blob/main/src/core/View3D.ts#L66)
+Defined in: [src/core/View3D.ts:66](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L66)
 
 ##### Returns
 
@@ -270,7 +270,7 @@ Defined in: [src/core/View3D.ts:66](https://github.com/orillusion/orillusion/blo
 
 > **set** **camera**(`value`): `void`
 
-Defined in: [src/core/View3D.ts:70](https://github.com/orillusion/orillusion/blob/main/src/core/View3D.ts#L70)
+Defined in: [src/core/View3D.ts:70](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L70)
 
 ##### Parameters
 
@@ -290,7 +290,7 @@ Defined in: [src/core/View3D.ts:70](https://github.com/orillusion/orillusion/blo
 
 > **get** **viewPort**(): `Vector4`
 
-Defined in: [src/core/View3D.ts:74](https://github.com/orillusion/orillusion/blob/main/src/core/View3D.ts#L74)
+Defined in: [src/core/View3D.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L74)
 
 ##### Returns
 
@@ -300,7 +300,7 @@ Defined in: [src/core/View3D.ts:74](https://github.com/orillusion/orillusion/blo
 
 > **set** **viewPort**(`value`): `void`
 
-Defined in: [src/core/View3D.ts:78](https://github.com/orillusion/orillusion/blob/main/src/core/View3D.ts#L78)
+Defined in: [src/core/View3D.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L78)
 
 ##### Parameters
 
@@ -320,7 +320,7 @@ Defined in: [src/core/View3D.ts:78](https://github.com/orillusion/orillusion/blo
 
 > **get** **renderGraph**(): [`RenderGraph`](RenderGraph.md)
 
-Defined in: [src/core/View3D.ts:86](https://github.com/orillusion/orillusion/blob/main/src/core/View3D.ts#L86)
+Defined in: [src/core/View3D.ts:86](https://github.com/Orillusion/orillusion/blob/main/src/core/View3D.ts#L86)
 
 Frame Graph bound to this view's engine. The view's render
  job owns it (constructed during `engine.startRenderView`).
@@ -337,7 +337,7 @@ Frame Graph bound to this view's engine. The view's render
 
 > **equalCurrentListener**(`type`, `handler`, `thisObject`, `param`): `boolean`
 
-Defined in: [src/event/CEventListener.ts:42](https://github.com/orillusion/orillusion/blob/main/src/event/CEventListener.ts#L42)
+Defined in: [src/event/CEventListener.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventListener.ts#L42)
 
 Compare whether two events are the same
 
@@ -383,7 +383,7 @@ Returns a boolean
 
 > **dispose**(): `void`
 
-Defined in: [src/event/CEventListener.ts:54](https://github.com/orillusion/orillusion/blob/main/src/event/CEventListener.ts#L54)
+Defined in: [src/event/CEventListener.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventListener.ts#L54)
 
 release all registered event.
 

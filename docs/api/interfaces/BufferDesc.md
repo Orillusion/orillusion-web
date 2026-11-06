@@ -4,7 +4,7 @@
 
 # Interface: BufferDesc
 
-Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:105](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L105)
+Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:105](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L105)
 
 Declarative description of a transient buffer. The pool reuses
 underlying `GPUBufferBase` wrappers by `(roundedSize, usage)` bucket;
@@ -17,7 +17,7 @@ grown in place via `GPUBufferBase.resizeBuffer(...)`.
 
 > **size**: `number`
 
-Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:109](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L109)
+Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:109](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L109)
 
 Byte size. The pool rounds this up to the next power-of-two to
  reduce bucket fragmentation; use createBuffer +
@@ -29,7 +29,7 @@ Byte size. The pool rounds this up to the next power-of-two to
 
 > **usage**: `number`
 
-Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:110](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L110)
+Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L110)
 
 ***
 
@@ -37,7 +37,7 @@ Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:110](https://gith
 
 > `optional` **aliasable?**: `boolean`
 
-Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:112](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L112)
+Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L112)
 
 Default `true`.
 
@@ -47,4 +47,4 @@ Default `true`.
 
 > `optional` **label?**: `string`
 
-Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:113](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L113)
+Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L113)

@@ -4,7 +4,7 @@
 
 # Enumeration: BatchMode
 
-Defined in: [src/gfx/renderJob/config/BatchMode.ts:14](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/config/BatchMode.ts#L14)
+Defined in: [src/gfx/renderJob/config/BatchMode.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/config/BatchMode.ts#L14)
 
 Batching mode for a RenderNode. Controls whether the node
 participates in the engine's batched render-group path (instead of
@@ -22,7 +22,7 @@ renamed to `BatchMode`, and the layer-mask concern now lives in
 
 > **None**: `2`
 
-Defined in: [src/gfx/renderJob/config/BatchMode.ts:15](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/config/BatchMode.ts#L15)
+Defined in: [src/gfx/renderJob/config/BatchMode.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/config/BatchMode.ts#L15)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [src/gfx/renderJob/config/BatchMode.ts:15](https://github.com/orillu
 
 > **StaticBatch**: `4`
 
-Defined in: [src/gfx/renderJob/config/BatchMode.ts:16](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/config/BatchMode.ts#L16)
+Defined in: [src/gfx/renderJob/config/BatchMode.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/config/BatchMode.ts#L16)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [src/gfx/renderJob/config/BatchMode.ts:16](https://github.com/orillu
 
 > **DynamicBatch**: `8`
 
-Defined in: [src/gfx/renderJob/config/BatchMode.ts:17](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/config/BatchMode.ts#L17)
+Defined in: [src/gfx/renderJob/config/BatchMode.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/config/BatchMode.ts#L17)
 
 ***
 
@@ -46,4 +46,4 @@ Defined in: [src/gfx/renderJob/config/BatchMode.ts:17](https://github.com/orillu
 
 > **Hidden**: `16`
 
-Defined in: [src/gfx/renderJob/config/BatchMode.ts:18](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/config/BatchMode.ts#L18)
+Defined in: [src/gfx/renderJob/config/BatchMode.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/config/BatchMode.ts#L18)

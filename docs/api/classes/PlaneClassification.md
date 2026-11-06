@@ -4,7 +4,7 @@
 
 # Class: PlaneClassification
 
-Defined in: [src/math/PlaneClassification.ts:5](https://github.com/orillusion/orillusion/blob/main/src/math/PlaneClassification.ts#L5)
+Defined in: [src/math/PlaneClassification.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/math/PlaneClassification.ts#L5)
 
 Constants describing how a point or geometry is classified relative to a plane.
 
@@ -24,7 +24,7 @@ Constants describing how a point or geometry is classified relative to a plane.
 
 > `static` **BACK**: `number` = `0`
 
-Defined in: [src/math/PlaneClassification.ts:11](https://github.com/orillusion/orillusion/blob/main/src/math/PlaneClassification.ts#L11)
+Defined in: [src/math/PlaneClassification.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/math/PlaneClassification.ts#L11)
 
 #### Language
 
@@ -41,7 +41,7 @@ Web,Native
 
 > `static` **FRONT**: `number` = `1`
 
-Defined in: [src/math/PlaneClassification.ts:18](https://github.com/orillusion/orillusion/blob/main/src/math/PlaneClassification.ts#L18)
+Defined in: [src/math/PlaneClassification.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/math/PlaneClassification.ts#L18)
 
 #### Language
 
@@ -58,7 +58,7 @@ Web,Native
 
 > `static` **IN**: `number` = `0`
 
-Defined in: [src/math/PlaneClassification.ts:25](https://github.com/orillusion/orillusion/blob/main/src/math/PlaneClassification.ts#L25)
+Defined in: [src/math/PlaneClassification.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/math/PlaneClassification.ts#L25)
 
 #### Language
 
@@ -75,7 +75,7 @@ Web,Native
 
 > `static` **OUT**: `number` = `1`
 
-Defined in: [src/math/PlaneClassification.ts:32](https://github.com/orillusion/orillusion/blob/main/src/math/PlaneClassification.ts#L32)
+Defined in: [src/math/PlaneClassification.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/math/PlaneClassification.ts#L32)
 
 #### Language
 
@@ -92,7 +92,7 @@ Web,Native
 
 > `static` **INTERSECT**: `number` = `2`
 
-Defined in: [src/math/PlaneClassification.ts:39](https://github.com/orillusion/orillusion/blob/main/src/math/PlaneClassification.ts#L39)
+Defined in: [src/math/PlaneClassification.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/math/PlaneClassification.ts#L39)
 
 #### Language
 

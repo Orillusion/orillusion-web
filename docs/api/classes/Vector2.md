@@ -4,7 +4,7 @@
 
 # Class: Vector2
 
-Defined in: [src/math/Vector2.ts:6](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L6)
+Defined in: [src/math/Vector2.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L6)
 
 Vector 2D
 
@@ -14,7 +14,7 @@ Vector 2D
 
 > **new Vector2**(`x?`, `y?`): `Vector2`
 
-Defined in: [src/math/Vector2.ts:47](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L47)
+Defined in: [src/math/Vector2.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L47)
 
 Create a new Vector2.
 
@@ -42,7 +42,7 @@ The y component of the vector, which defaults to 0.
 
 > `readonly` `static` **ZERO**: `Vector2`
 
-Defined in: [src/math/Vector2.ts:24](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L24)
+Defined in: [src/math/Vector2.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L24)
 
 A zero vector (0, 0).
 
@@ -52,7 +52,7 @@ A zero vector (0, 0).
 
 > `readonly` `static` **SAFE\_MAX**: `Vector2`
 
-Defined in: [src/math/Vector2.ts:27](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L27)
+Defined in: [src/math/Vector2.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L27)
 
 A vector whose components are the maximum safe integer.
 
@@ -62,7 +62,7 @@ A vector whose components are the maximum safe integer.
 
 > `readonly` `static` **SAFE\_MIN**: `Vector2`
 
-Defined in: [src/math/Vector2.ts:30](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L30)
+Defined in: [src/math/Vector2.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L30)
 
 A vector whose components are the minimum safe integer.
 
@@ -72,7 +72,7 @@ A vector whose components are the minimum safe integer.
 
 > **x**: `number` = `0.0`
 
-Defined in: [src/math/Vector2.ts:35](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L35)
+Defined in: [src/math/Vector2.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L35)
 
 The x component of the vector, the default value is 0.
 
@@ -82,7 +82,7 @@ The x component of the vector, the default value is 0.
 
 > **y**: `number` = `0.0`
 
-Defined in: [src/math/Vector2.ts:40](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L40)
+Defined in: [src/math/Vector2.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L40)
 
 The y component of the vector, the default value is 0.
 
@@ -92,7 +92,7 @@ The y component of the vector, the default value is 0.
 
 > `static` **getAngle**(`a`, `b`): `number`
 
-Defined in: [src/math/Vector2.ts:58](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L58)
+Defined in: [src/math/Vector2.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L58)
 
 Returns the Angle, in radians, between two vectors.
 
@@ -122,7 +122,7 @@ result
 
 > `static` **slerp**(`from`, `to`, `t`): `Vector2`
 
-Defined in: [src/math/Vector2.ts:68](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L68)
+Defined in: [src/math/Vector2.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L68)
 
 Computes linear interpolation between two vectors.
 
@@ -154,7 +154,7 @@ The vector in which you interpolate
 
 > `static` **lerp**(`from`, `to`, `t`): `Vector2`
 
-Defined in: [src/math/Vector2.ts:97](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L97)
+Defined in: [src/math/Vector2.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L97)
 
 Linear interpolation between two vectors.
 
@@ -186,7 +186,7 @@ The vector in which you interpolate
 
 > `static` **add**(`a`, `b`, `result?`): `Vector2`
 
-Defined in: [src/math/Vector2.ts:108](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L108)
+Defined in: [src/math/Vector2.ts:108](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L108)
 
 Add two vectors
 
@@ -214,7 +214,7 @@ Add two vectors
 
 > `static` **sub**(`a`, `b`, `result?`): `Vector2`
 
-Defined in: [src/math/Vector2.ts:118](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L118)
+Defined in: [src/math/Vector2.ts:118](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L118)
 
 Subtract two vectors
 
@@ -242,7 +242,7 @@ Subtract two vectors
 
 > `static` **multiply**(`a`, `b`, `result?`): `Vector2`
 
-Defined in: [src/math/Vector2.ts:128](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L128)
+Defined in: [src/math/Vector2.ts:128](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L128)
 
 Component-wise multiply two vectors
 
@@ -270,7 +270,7 @@ Component-wise multiply two vectors
 
 > `static` **divide**(`a`, `b`, `result?`): `Vector2`
 
-Defined in: [src/math/Vector2.ts:138](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L138)
+Defined in: [src/math/Vector2.ts:138](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L138)
 
 Component-wise divide two vectors
 
@@ -298,7 +298,7 @@ Component-wise divide two vectors
 
 > `static` **multiplyScalar**(`a`, `s`, `result?`): `Vector2`
 
-Defined in: [src/math/Vector2.ts:148](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L148)
+Defined in: [src/math/Vector2.ts:148](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L148)
 
 Multiply a vector by a scalar
 
@@ -326,7 +326,7 @@ Multiply a vector by a scalar
 
 > `static` **negate**(`a`, `result?`): `Vector2`
 
-Defined in: [src/math/Vector2.ts:158](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L158)
+Defined in: [src/math/Vector2.ts:158](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L158)
 
 Negate a vector
 
@@ -350,7 +350,7 @@ Negate a vector
 
 > **set**(`x?`, `y?`): `this`
 
-Defined in: [src/math/Vector2.ts:170](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L170)
+Defined in: [src/math/Vector2.ts:170](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L170)
 
 Sets the x and y components of this vector.
 
@@ -378,7 +378,7 @@ The y component of the vector, which defaults to 0.
 
 > **distance**(`a`): `number`
 
-Defined in: [src/math/Vector2.ts:181](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L181)
+Defined in: [src/math/Vector2.ts:181](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L181)
 
 Calculate the distance between this vector and the incoming vector.
 
@@ -400,7 +400,7 @@ Target vector
 
 > **add**(`a`): `this`
 
-Defined in: [src/math/Vector2.ts:188](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L188)
+Defined in: [src/math/Vector2.ts:188](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L188)
 
 Adds vector `a` to this vector. Mutates and returns this.
 
@@ -420,7 +420,7 @@ Adds vector `a` to this vector. Mutates and returns this.
 
 > **sub**(`a`): `this`
 
-Defined in: [src/math/Vector2.ts:195](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L195)
+Defined in: [src/math/Vector2.ts:195](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L195)
 
 Subtracts vector `a` from this vector. Mutates and returns this.
 
@@ -440,7 +440,7 @@ Subtracts vector `a` from this vector. Mutates and returns this.
 
 > **multiplyScalar**(`s`): `this`
 
-Defined in: [src/math/Vector2.ts:202](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L202)
+Defined in: [src/math/Vector2.ts:202](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L202)
 
 Multiplies x/y of this vector by scalar s. Mutates and returns this.
 
@@ -460,7 +460,7 @@ Multiplies x/y of this vector by scalar s. Mutates and returns this.
 
 > **multiply**(`a`): `this`
 
-Defined in: [src/math/Vector2.ts:210](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L210)
+Defined in: [src/math/Vector2.ts:210](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L210)
 
 Multiplies x/y of this vector by scalar a. Mutates and returns this.
 Kept as an alternative name for the scalar `multiplyScalar`.
@@ -481,7 +481,7 @@ Kept as an alternative name for the scalar `multiplyScalar`.
 
 > **divide**(`v`): `this`
 
-Defined in: [src/math/Vector2.ts:217](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L217)
+Defined in: [src/math/Vector2.ts:217](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L217)
 
 Divides x/y of this vector by scalar v. Mutates and returns this.
 
@@ -501,7 +501,7 @@ Divides x/y of this vector by scalar v. Mutates and returns this.
 
 > **neg**(): `this`
 
-Defined in: [src/math/Vector2.ts:224](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L224)
+Defined in: [src/math/Vector2.ts:224](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L224)
 
 Negates this vector. Mutates and returns this.
 
@@ -515,7 +515,7 @@ Negates this vector. Mutates and returns this.
 
 > **abs**(): `number`
 
-Defined in: [src/math/Vector2.ts:229](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L229)
+Defined in: [src/math/Vector2.ts:229](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L229)
 
 Returns the Euclidean length of this vector.
 
@@ -529,7 +529,7 @@ Returns the Euclidean length of this vector.
 
 > **length**(): `number`
 
-Defined in: [src/math/Vector2.ts:237](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L237)
+Defined in: [src/math/Vector2.ts:237](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L237)
 
 Length of vector
 
@@ -543,7 +543,7 @@ Length of vector
 
 > **getAngle**(`target`): `number`
 
-Defined in: [src/math/Vector2.ts:246](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L246)
+Defined in: [src/math/Vector2.ts:246](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L246)
 
 Returns the Angle, in radians, between the current vector and the target vector.
 
@@ -565,7 +565,7 @@ Target vector
 
 > **unt**(): `this`
 
-Defined in: [src/math/Vector2.ts:253](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L253)
+Defined in: [src/math/Vector2.ts:253](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L253)
 
 Normalizes this vector to unit length. Mutates and returns this.
 
@@ -579,7 +579,7 @@ Normalizes this vector to unit length. Mutates and returns this.
 
 > **angleTo**(`v`): `number`
 
-Defined in: [src/math/Vector2.ts:261](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L261)
+Defined in: [src/math/Vector2.ts:261](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L261)
 
 Returns the angle, in radians, from this vector to v.
 
@@ -599,7 +599,7 @@ Returns the angle, in radians, from this vector to v.
 
 > **equals**(`a`): `boolean`
 
-Defined in: [src/math/Vector2.ts:272](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L272)
+Defined in: [src/math/Vector2.ts:272](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L272)
 
 Whether two vectors are equal
 
@@ -621,7 +621,7 @@ Vector of comparison
 
 > **pal**(`a`): `number`
 
-Defined in: [src/math/Vector2.ts:278](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L278)
+Defined in: [src/math/Vector2.ts:278](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L278)
 
 Tests parallelism with a: 1 if same direction, -1 if opposite, 0 otherwise.
 
@@ -641,7 +641,7 @@ Tests parallelism with a: 1 if same direction, -1 if opposite, 0 otherwise.
 
 > **clone**(): `Vector2`
 
-Defined in: [src/math/Vector2.ts:290](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L290)
+Defined in: [src/math/Vector2.ts:290](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L290)
 
 Returns a new vector that has the same x and y as the current vector.
 
@@ -655,7 +655,7 @@ Returns a new vector that has the same x and y as the current vector.
 
 > **copy**(`v`): `this`
 
-Defined in: [src/math/Vector2.ts:299](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L299)
+Defined in: [src/math/Vector2.ts:299](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L299)
 
 Copy the x and y properties of the source vector to this vector
 
@@ -677,7 +677,7 @@ Source vector
 
 > **addScaledVector**(`v`, `size`): `Vector2`
 
-Defined in: [src/math/Vector2.ts:311](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L311)
+Defined in: [src/math/Vector2.ts:311](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L311)
 
 Add scaling vector
 
@@ -705,7 +705,7 @@ Scale size
 
 > **dot**(`value`): `number`
 
-Defined in: [src/math/Vector2.ts:322](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L322)
+Defined in: [src/math/Vector2.ts:322](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L322)
 
 Take the dot product of two vectors.
 
@@ -727,7 +727,7 @@ Target vector
 
 > **normalize**(): `this`
 
-Defined in: [src/math/Vector2.ts:329](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L329)
+Defined in: [src/math/Vector2.ts:329](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L329)
 
 Convert this vector to a unit vector.
 
@@ -741,7 +741,7 @@ Convert this vector to a unit vector.
 
 > **addScalar**(`s`): `this`
 
-Defined in: [src/math/Vector2.ts:341](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L341)
+Defined in: [src/math/Vector2.ts:341](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L341)
 
 Add the scalar to the x and y of this vector.
 
@@ -763,7 +763,7 @@ Additive scalar
 
 > **clampScalar**(`minVal`, `maxVal`): `Vector2`
 
-Defined in: [src/math/Vector2.ts:354](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L354)
+Defined in: [src/math/Vector2.ts:354](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L354)
 
 #### Parameters
 
@@ -789,7 +789,7 @@ The component will be limited to the maximum value of
 
 > **addVectors**(`a`, `b`): `this`
 
-Defined in: [src/math/Vector2.ts:364](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L364)
+Defined in: [src/math/Vector2.ts:364](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L364)
 
 Set this = a + b.
 
@@ -813,7 +813,7 @@ Set this = a + b.
 
 > **subVectors**(`a`, `b`): `this`
 
-Defined in: [src/math/Vector2.ts:369](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L369)
+Defined in: [src/math/Vector2.ts:369](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L369)
 
 Set this = a - b.
 
@@ -837,7 +837,7 @@ Set this = a - b.
 
 > **multiplyVectors**(`a`, `b`): `this`
 
-Defined in: [src/math/Vector2.ts:374](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L374)
+Defined in: [src/math/Vector2.ts:374](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L374)
 
 Set this = a * b component-wise.
 
@@ -861,7 +861,7 @@ Set this = a * b component-wise.
 
 > **negate**(): `this`
 
-Defined in: [src/math/Vector2.ts:379](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L379)
+Defined in: [src/math/Vector2.ts:379](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L379)
 
 Negate this vector. Canonical alias of [neg](#neg).
 
@@ -875,7 +875,7 @@ Negate this vector. Canonical alias of [neg](#neg).
 
 > **lengthSq**(): `number`
 
-Defined in: [src/math/Vector2.ts:384](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L384)
+Defined in: [src/math/Vector2.ts:384](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L384)
 
 Squared length.
 
@@ -889,7 +889,7 @@ Squared length.
 
 > **distanceTo**(`v`): `number`
 
-Defined in: [src/math/Vector2.ts:389](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L389)
+Defined in: [src/math/Vector2.ts:389](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L389)
 
 Euclidean distance to v. Canonical alias of [distance](#distance).
 
@@ -909,7 +909,7 @@ Euclidean distance to v. Canonical alias of [distance](#distance).
 
 > **distanceToSquared**(`v`): `number`
 
-Defined in: [src/math/Vector2.ts:394](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L394)
+Defined in: [src/math/Vector2.ts:394](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L394)
 
 Squared distance to v.
 
@@ -929,7 +929,7 @@ Squared distance to v.
 
 > **lerp**(`v`, `alpha`): `this`
 
-Defined in: [src/math/Vector2.ts:401](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L401)
+Defined in: [src/math/Vector2.ts:401](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L401)
 
 Linearly interpolate this towards v by alpha.
 
@@ -953,7 +953,7 @@ Linearly interpolate this towards v by alpha.
 
 > **lerpVectors**(`v1`, `v2`, `alpha`): `this`
 
-Defined in: [src/math/Vector2.ts:408](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L408)
+Defined in: [src/math/Vector2.ts:408](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L408)
 
 Set this = v1 + (v2 - v1) * alpha.
 
@@ -981,7 +981,7 @@ Set this = v1 + (v2 - v1) * alpha.
 
 > **min**(`v`): `this`
 
-Defined in: [src/math/Vector2.ts:415](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L415)
+Defined in: [src/math/Vector2.ts:415](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L415)
 
 Component-wise min/max/clamp.
 
@@ -1001,7 +1001,7 @@ Component-wise min/max/clamp.
 
 > **max**(`v`): `this`
 
-Defined in: [src/math/Vector2.ts:422](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L422)
+Defined in: [src/math/Vector2.ts:422](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L422)
 
 Component-wise maximum with v. Mutates and returns this.
 
@@ -1021,7 +1021,7 @@ Component-wise maximum with v. Mutates and returns this.
 
 > **clamp**(`min`, `max`): `this`
 
-Defined in: [src/math/Vector2.ts:429](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L429)
+Defined in: [src/math/Vector2.ts:429](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L429)
 
 Component-wise clamp into [min, max]. Mutates and returns this.
 
@@ -1045,7 +1045,7 @@ Component-wise clamp into [min, max]. Mutates and returns this.
 
 > **floor**(): `this`
 
-Defined in: [src/math/Vector2.ts:436](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L436)
+Defined in: [src/math/Vector2.ts:436](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L436)
 
 Floors each component. Mutates and returns this.
 
@@ -1059,7 +1059,7 @@ Floors each component. Mutates and returns this.
 
 > **ceil**(): `this`
 
-Defined in: [src/math/Vector2.ts:443](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L443)
+Defined in: [src/math/Vector2.ts:443](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L443)
 
 Ceils each component. Mutates and returns this.
 
@@ -1073,7 +1073,7 @@ Ceils each component. Mutates and returns this.
 
 > **round**(): `this`
 
-Defined in: [src/math/Vector2.ts:450](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L450)
+Defined in: [src/math/Vector2.ts:450](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L450)
 
 Rounds each component to the nearest integer. Mutates and returns this.
 
@@ -1087,7 +1087,7 @@ Rounds each component to the nearest integer. Mutates and returns this.
 
 > **roundToZero**(): `this`
 
-Defined in: [src/math/Vector2.ts:457](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L457)
+Defined in: [src/math/Vector2.ts:457](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L457)
 
 Rounds each component toward zero. Mutates and returns this.
 
@@ -1101,7 +1101,7 @@ Rounds each component toward zero. Mutates and returns this.
 
 > **fromArray**(`array`, `offset?`): `this`
 
-Defined in: [src/math/Vector2.ts:464](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L464)
+Defined in: [src/math/Vector2.ts:464](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L464)
 
 Set x/y from array starting at offset. Mutates and returns this.
 
@@ -1125,7 +1125,7 @@ Set x/y from array starting at offset. Mutates and returns this.
 
 > **toArray**(`array?`, `offset?`): `number`[]
 
-Defined in: [src/math/Vector2.ts:471](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L471)
+Defined in: [src/math/Vector2.ts:471](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L471)
 
 Write x/y into array starting at offset and return the array.
 
@@ -1149,7 +1149,7 @@ Write x/y into array starting at offset and return the array.
 
 > **rotateAround**(`center`, `angle`): `this`
 
-Defined in: [src/math/Vector2.ts:478](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L478)
+Defined in: [src/math/Vector2.ts:478](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L478)
 
 Rotate this around `center` by angle (radians).
 
@@ -1173,7 +1173,7 @@ Rotate this around `center` by angle (radians).
 
 > **random**(): `this`
 
-Defined in: [src/math/Vector2.ts:488](https://github.com/orillusion/orillusion/blob/main/src/math/Vector2.ts#L488)
+Defined in: [src/math/Vector2.ts:488](https://github.com/Orillusion/orillusion/blob/main/src/math/Vector2.ts#L488)
 
 Fill this with components in [0, 1). Mutates and returns this.
 

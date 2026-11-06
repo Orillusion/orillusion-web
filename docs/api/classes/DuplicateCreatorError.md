@@ -4,7 +4,7 @@
 
 # Class: DuplicateCreatorError
 
-Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:96](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L96)
+Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L96)
 
 Raised when two passes call `b.write(name, factory)` for the same
 `name`. Only one pass may be the creator of a given resource;
@@ -21,7 +21,7 @@ become mutators.
 
 > **new DuplicateCreatorError**(`resource`, `creators`): `DuplicateCreatorError`
 
-Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:99](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L99)
+Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L99)
 
 #### Parameters
 
@@ -47,7 +47,7 @@ readonly `string`[]
 
 > `readonly` **resource**: `string`
 
-Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:97](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L97)
+Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:97](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L97)
 
 ***
 
@@ -55,4 +55,4 @@ Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:97](https://github.com/or
 
 > `readonly` **creators**: readonly `string`[]
 
-Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:98](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L98)
+Defined in: [src/gfx/renderJob/graph/GraphValidator.ts:98](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/GraphValidator.ts#L98)

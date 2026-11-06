@@ -4,7 +4,7 @@
 
 # Class: PrefabParser
 
-Defined in: [src/loader/parser/prefab/PrefabParser.ts:33](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabParser.ts#L33)
+Defined in: [src/loader/parser/prefab/PrefabParser.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabParser.ts#L33)
 
 Top-level parser for the Orillusion prefab (`.prefab`) binary format. It
 drives the sub-parsers in order (textures, avatars, meshes, materials, node
@@ -31,7 +31,7 @@ with their attached components.
 
 > **baseUrl**: `string`
 
-Defined in: [src/loader/parser/ParserBase.ts:12](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L12)
+Defined in: [src/loader/parser/ParserBase.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L12)
 
 #### Inherited from
 
@@ -43,7 +43,7 @@ Defined in: [src/loader/parser/ParserBase.ts:12](https://github.com/orillusion/o
 
 > **initUrl**: `string`
 
-Defined in: [src/loader/parser/ParserBase.ts:13](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L13)
+Defined in: [src/loader/parser/ParserBase.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L13)
 
 #### Inherited from
 
@@ -55,7 +55,7 @@ Defined in: [src/loader/parser/ParserBase.ts:13](https://github.com/orillusion/o
 
 > `static` **useWebp**: `boolean` = `true`
 
-Defined in: [src/loader/parser/prefab/PrefabParser.ts:37](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabParser.ts#L37)
+Defined in: [src/loader/parser/prefab/PrefabParser.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabParser.ts#L37)
 
 When true, texture URLs are rewritten to the `webp` variant before loading.
 
@@ -65,7 +65,7 @@ When true, texture URLs are rewritten to the `webp` variant before loading.
 
 > `static` **format**: [`ParserFormat`](../enumerations/ParserFormat.md) = `ParserFormat.BIN`
 
-Defined in: [src/loader/parser/prefab/PrefabParser.ts:38](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabParser.ts#L38)
+Defined in: [src/loader/parser/prefab/PrefabParser.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabParser.ts#L38)
 
 #### Overrides
 
@@ -77,7 +77,7 @@ Defined in: [src/loader/parser/prefab/PrefabParser.ts:38](https://github.com/ori
 
 > `optional` **loaderFunctions?**: [`LoaderFunctions`](../type-aliases/LoaderFunctions.md)
 
-Defined in: [src/loader/parser/ParserBase.ts:14](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L14)
+Defined in: [src/loader/parser/ParserBase.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L14)
 
 #### Inherited from
 
@@ -89,7 +89,7 @@ Defined in: [src/loader/parser/ParserBase.ts:14](https://github.com/orillusion/o
 
 > `optional` **userData?**: `any`
 
-Defined in: [src/loader/parser/ParserBase.ts:15](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L15)
+Defined in: [src/loader/parser/ParserBase.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L15)
 
 #### Inherited from
 
@@ -101,7 +101,7 @@ Defined in: [src/loader/parser/ParserBase.ts:15](https://github.com/orillusion/o
 
 > **data**: `any`
 
-Defined in: [src/loader/parser/ParserBase.ts:16](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L16)
+Defined in: [src/loader/parser/ParserBase.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L16)
 
 #### Inherited from
 
@@ -113,7 +113,7 @@ Defined in: [src/loader/parser/ParserBase.ts:16](https://github.com/orillusion/o
 
 > `optional` **ctx?**: [`Context3D`](Context3D.md)
 
-Defined in: [src/loader/parser/ParserBase.ts:20](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L20)
+Defined in: [src/loader/parser/ParserBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L20)
 
 Context3D this parser is operating under. Populated by FileLoader
  so default-texture lookups (`Engine3D.resFor(this.ctx)`) resolve
@@ -129,7 +129,7 @@ Context3D this parser is operating under. Populated by FileLoader
 
 > **avatarDic**: `object`
 
-Defined in: [src/loader/parser/prefab/PrefabParser.ts:42](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabParser.ts#L42)
+Defined in: [src/loader/parser/prefab/PrefabParser.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabParser.ts#L42)
 
 Map of decoded avatar (skeleton) data keyed by avatar name.
 
@@ -143,7 +143,7 @@ Map of decoded avatar (skeleton) data keyed by avatar name.
 
 > **nodeData**: `PrefabNode`
 
-Defined in: [src/loader/parser/prefab/PrefabParser.ts:46](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabParser.ts#L46)
+Defined in: [src/loader/parser/prefab/PrefabParser.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabParser.ts#L46)
 
 Root node of the decoded prefab hierarchy.
 
@@ -153,7 +153,7 @@ Root node of the decoded prefab hierarchy.
 
 > **parseString**(`str`): `void`
 
-Defined in: [src/loader/parser/ParserBase.ts:22](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L22)
+Defined in: [src/loader/parser/ParserBase.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L22)
 
 #### Parameters
 
@@ -175,7 +175,7 @@ Defined in: [src/loader/parser/ParserBase.ts:22](https://github.com/orillusion/o
 
 > **parseJson**(`obj`): `void`
 
-Defined in: [src/loader/parser/ParserBase.ts:24](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L24)
+Defined in: [src/loader/parser/ParserBase.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L24)
 
 #### Parameters
 
@@ -197,7 +197,7 @@ Defined in: [src/loader/parser/ParserBase.ts:24](https://github.com/orillusion/o
 
 > **parseTexture**(`buffer`): [`Texture`](Texture.md)
 
-Defined in: [src/loader/parser/ParserBase.ts:28](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L28)
+Defined in: [src/loader/parser/ParserBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L28)
 
 #### Parameters
 
@@ -219,7 +219,7 @@ Defined in: [src/loader/parser/ParserBase.ts:28](https://github.com/orillusion/o
 
 > **parse**(`data`): `void`
 
-Defined in: [src/loader/parser/ParserBase.ts:32](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L32)
+Defined in: [src/loader/parser/ParserBase.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L32)
 
 #### Parameters
 
@@ -241,7 +241,7 @@ Defined in: [src/loader/parser/ParserBase.ts:32](https://github.com/orillusion/o
 
 > **parseBuffer**(`buffer`): `Promise`\<`void`\>
 
-Defined in: [src/loader/parser/prefab/PrefabParser.ts:52](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabParser.ts#L52)
+Defined in: [src/loader/parser/prefab/PrefabParser.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabParser.ts#L52)
 
 Decode the prefab buffer: parse textures, avatars, meshes, materials and
 the node tree, then build the resulting [Object3D](Object3D.md) hierarchy into `data`.
@@ -268,7 +268,7 @@ the raw prefab binary buffer.
 
 > **verification**(): `boolean`
 
-Defined in: [src/loader/parser/prefab/PrefabParser.ts:121](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabParser.ts#L121)
+Defined in: [src/loader/parser/prefab/PrefabParser.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/prefab/PrefabParser.ts#L121)
 
 Verify that parsing produced valid data.
 

@@ -6,7 +6,7 @@
 
 > **SizeSpec** = `number` \| `"screen"` \| `"screen/2"` \| `"screen/4"` \| `"screen/8"`
 
-Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:25](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L25)
+Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L25)
 
 Symbolic size token. Resolved against the owning view's
 `ctx.presentationSize` each time the graph compiles, so passes can

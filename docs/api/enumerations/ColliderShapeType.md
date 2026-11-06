@@ -4,7 +4,7 @@
 
 # Enumeration: ColliderShapeType
 
-Defined in: [src/components/shape/ColliderShape.ts:8](https://github.com/orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L8)
+Defined in: [src/components/shape/ColliderShape.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L40)
 
 ## Enumeration Members
 
@@ -12,7 +12,7 @@ Defined in: [src/components/shape/ColliderShape.ts:8](https://github.com/orillus
 
 > **None**: `0`
 
-Defined in: [src/components/shape/ColliderShape.ts:9](https://github.com/orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L9)
+Defined in: [src/components/shape/ColliderShape.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L41)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/components/shape/ColliderShape.ts:9](https://github.com/orillus
 
 > **Box**: `1`
 
-Defined in: [src/components/shape/ColliderShape.ts:10](https://github.com/orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L10)
+Defined in: [src/components/shape/ColliderShape.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L42)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/components/shape/ColliderShape.ts:10](https://github.com/orillu
 
 > **Capsule**: `2`
 
-Defined in: [src/components/shape/ColliderShape.ts:11](https://github.com/orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L11)
+Defined in: [src/components/shape/ColliderShape.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L43)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/components/shape/ColliderShape.ts:11](https://github.com/orillu
 
 > **Sphere**: `3`
 
-Defined in: [src/components/shape/ColliderShape.ts:12](https://github.com/orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L12)
+Defined in: [src/components/shape/ColliderShape.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L44)
 
 ***
 
@@ -44,4 +44,4 @@ Defined in: [src/components/shape/ColliderShape.ts:12](https://github.com/orillu
 
 > **Mesh**: `4`
 
-Defined in: [src/components/shape/ColliderShape.ts:13](https://github.com/orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L13)
+Defined in: [src/components/shape/ColliderShape.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/components/shape/ColliderShape.ts#L45)

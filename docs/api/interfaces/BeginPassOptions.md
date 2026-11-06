@@ -4,7 +4,7 @@
 
 # Interface: BeginPassOptions
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:25](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L25)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L25)
 
 Per-call open options for [RenderGraphRenderTarget.beginPass](../classes/RenderGraphRenderTarget.md#beginpass).
 
@@ -24,7 +24,7 @@ default — typical case is a mid-frame ClearDepth that wants
 
 > `optional` **colorLoadOps?**: `GPULoadOp`[]
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:29](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L29)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L29)
 
 Per-color-attachment loadOp. Length matches the RT's color
  count. Each slot independently auto-derives when left
@@ -36,7 +36,7 @@ Per-color-attachment loadOp. Length matches the RT's color
 
 > `optional` **colorClearValues?**: `GPUColor`[]
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:32](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L32)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L32)
 
 Optional override of per-attachment clearValue (defaults to the
  RT descriptor's clearValue).
@@ -47,7 +47,7 @@ Optional override of per-attachment clearValue (defaults to the
 
 > `optional` **depthLoadOp?**: `GPULoadOp`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:33](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L33)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L33)
 
 ***
 
@@ -55,7 +55,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:33](https://gith
 
 > `optional` **depthClearValue?**: `number`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:34](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L34)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L34)
 
 ***
 
@@ -63,7 +63,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:34](https://gith
 
 > `optional` **stencilLoadOp?**: `GPULoadOp`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:35](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L35)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L35)
 
 ***
 
@@ -71,7 +71,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:35](https://gith
 
 > `optional` **label?**: `string`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:38](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L38)
+Defined in: [src/gfx/renderJob/graph/RenderGraphRenderTarget.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphRenderTarget.ts#L38)
 
 Suffix appended to the underlying command encoder + render pass
  for devtools. Defaults to the target name.

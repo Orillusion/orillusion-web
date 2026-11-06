@@ -4,7 +4,7 @@
 
 # Class: MotionVectorPass
 
-Defined in: [src/gfx/renderJob/graph/passes/MotionVectorPass.ts:37](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/MotionVectorPass.ts#L37)
+Defined in: [src/gfx/renderJob/graph/passes/MotionVectorPass.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/MotionVectorPass.ts#L49)
 
 Per-pixel screen-space motion vector pass. Reverse-reprojects each
 fragment's world position with the previous frame's viewProj matrix
@@ -12,8 +12,11 @@ to produce `(currUv - prevUv)` in rg16float storage.
 
 Consumed by TAA, motion blur, temporal denoisers.
 
-MVP limitation: works only for camera-driven motion. Per-vertex
-prev-clip output for skinned meshes is the upgrade path.
+Camera-driven motion for every pixel. With
+`engine.setting.render.objectMotionVectors` the pass then draws each
+opaque mesh through its VELOCITY sub-pass (VelocityPass_shader) on top,
+so moving objects carry their own velocity; the blue channel is 1 where
+an object wrote the pixel.
 
 Phase 1 migration target — first pass to consume the transient
 resource subsystem: declares its output through
@@ -47,7 +50,7 @@ before MotionVectorPass runs.
 
 > `readonly` **materialPasses**: readonly `PassType`[] = `[]`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:324](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L324)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:324](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L324)
 
 Material-side pass types consumed. Optional; defaults to none
  for pure compute / copy passes.
@@ -62,7 +65,7 @@ Material-side pass types consumed. Optional; defaults to none
 
 > **enabled**: `boolean` = `true`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:332](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L332)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:332](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L332)
 
 Runtime kill switch. `graph.disablePass(name)` flips this. A
  disabled pass is treated as if it weren't in the graph: it's
@@ -81,7 +84,7 @@ Runtime kill switch. `graph.disablePass(name)` flips this. A
 
 > **layerMask**: `number` = `VisibleLayer.All`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:347](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L347)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:347](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L347)
 
 Which scene layers this pass consumes, as a bitmask. Default
  [VisibleLayer.All](../@orillusion/namespaces/VisibleLayer/variables/All.md) reproduces the legacy "draw every
@@ -107,7 +110,7 @@ Which scene layers this pass consumes, as a bitmask. Default
 
 > `readonly` **reads**: readonly `string`[]
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:353](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L353)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:353](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L353)
 
 Names this pass reads. Populated on the first
  `RenderGraph.compile()` that processes this pass, from the
@@ -124,7 +127,7 @@ Names this pass reads. Populated on the first
 
 > `readonly` **writes**: readonly `string`[]
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:358](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L358)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:358](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L358)
 
 Names this pass writes (creator + mutator combined). Populated
  on the first `RenderGraph.compile()` from the `b.write(...)`
@@ -140,7 +143,7 @@ Names this pass writes (creator + mutator combined). Populated
 
 > `readonly` **creates**: readonly `string`[]
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:363](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L363)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:363](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L363)
 
 Subset of `writes` for which this pass was the creator (called
  `b.write(name, factory)`, not `b.write(name)`). The validator's
@@ -156,7 +159,7 @@ Subset of `writes` for which this pass was the creator (called
 
 > `optional` **dependencies?**: `ReadonlySet`\<`string`\>
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:377](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L377)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:377](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L377)
 
 Explicit ordering dependencies on other pass names, set either
  from `setup()` via `b.dependsOn(name)` or by direct assignment
@@ -181,7 +184,7 @@ Explicit ordering dependencies on other pass names, set either
 
 > `readonly` **name**: `"MotionVectorPass"` = `'MotionVectorPass'`
 
-Defined in: [src/gfx/renderJob/graph/passes/MotionVectorPass.ts:38](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/MotionVectorPass.ts#L38)
+Defined in: [src/gfx/renderJob/graph/passes/MotionVectorPass.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/MotionVectorPass.ts#L50)
 
 Unique pass identifier. Used as the graph-node key and in
  error messages — prefer PascalCase ending in `Pass`
@@ -197,7 +200,7 @@ Unique pass identifier. Used as the graph-node key and in
 
 > **dispatchEvent**(`event`): `void`
 
-Defined in: [src/event/CEventDispatcher.ts:24](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L24)
+Defined in: [src/event/CEventDispatcher.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L24)
 
 Dispatch an event to all registered objects with a specific type of listener.
 
@@ -221,7 +224,7 @@ Dispatch an event to all registered objects with a specific type of listener.
 
 > **addEventListener**(`type`, `callback`, `thisObject`, `param?`, `priority?`): `number`
 
-Defined in: [src/event/CEventDispatcher.ts:78](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L78)
+Defined in: [src/event/CEventDispatcher.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L78)
 
 register an event listener to event distancher.
 
@@ -275,7 +278,7 @@ Returns register event id
 
 > **removeEventListener**(`type`, `callback`, `thisObject`): `void`
 
-Defined in: [src/event/CEventDispatcher.ts:112](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L112)
+Defined in: [src/event/CEventDispatcher.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L112)
 
 Remove Event Listening
 
@@ -313,7 +316,7 @@ Remove Event Listening
 
 > **removeEventListenerAt**(`id`): `boolean`
 
-Defined in: [src/event/CEventDispatcher.ts:132](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L132)
+Defined in: [src/event/CEventDispatcher.ts:132](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L132)
 
 Remove an event Listening with id
 
@@ -337,7 +340,7 @@ Remove an event Listening with id
 
 > **removeAllEventListener**(`eventType?`): `void`
 
-Defined in: [src/event/CEventDispatcher.ts:152](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L152)
+Defined in: [src/event/CEventDispatcher.ts:152](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L152)
 
 Specify a event type to remove all related event listeners
 eventType event type, set null to remove all event listeners
@@ -362,7 +365,7 @@ eventType event type, set null to remove all event listeners
 
 > **containEventListener**(`type`): `boolean`
 
-Defined in: [src/event/CEventDispatcher.ts:184](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L184)
+Defined in: [src/event/CEventDispatcher.ts:184](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L184)
 
 whether the target presence of a listener with event type.
 
@@ -390,7 +393,7 @@ Returns a boolean.
 
 > **hasEventListener**(`type`, `callback?`, `thisObject?`): `boolean`
 
-Defined in: [src/event/CEventDispatcher.ts:197](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L197)
+Defined in: [src/event/CEventDispatcher.ts:197](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L197)
 
 whether the target presence of a listener with event type. it associate more registration parameters.
 
@@ -430,7 +433,7 @@ Returns a boolean.
 
 > **destroy**(): `void`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:397](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L397)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:397](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L397)
 
 Optional teardown hook called from `graph.destroy()` — release
  orphan Object3Ds / view quads / device resources that the pass
@@ -446,11 +449,26 @@ Optional teardown hook called from `graph.destroy()` — release
 
 ***
 
+### resetHistory()
+
+> **resetHistory**(): `void`
+
+Defined in: [src/gfx/renderJob/graph/passes/MotionVectorPass.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/MotionVectorPass.ts#L78)
+
+Forget the previous camera pose and object transforms, so the next
+frame's motion vectors are zero. Call after a camera cut / teleport.
+
+#### Returns
+
+`void`
+
+***
+
 ### setup()
 
 > **setup**(`b`): `void`
 
-Defined in: [src/gfx/renderJob/graph/passes/MotionVectorPass.ts:57](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/MotionVectorPass.ts#L57)
+Defined in: [src/gfx/renderJob/graph/passes/MotionVectorPass.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/MotionVectorPass.ts#L82)
 
 Allocate GPU resources, declare graph-level dependencies via
  `b.read` / `b.write`. Called from `RenderGraph.compile()` —
@@ -479,7 +497,7 @@ Allocate GPU resources, declare graph-level dependencies via
 
 > **execute**(`ctx`): `void`
 
-Defined in: [src/gfx/renderJob/graph/passes/MotionVectorPass.ts:111](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/MotionVectorPass.ts#L111)
+Defined in: [src/gfx/renderJob/graph/passes/MotionVectorPass.ts:146](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/MotionVectorPass.ts#L146)
 
 Execute the pass for one frame. Implementations build command
  encoders via `ctx.view.engine3D.context3D.gpuContext`, read

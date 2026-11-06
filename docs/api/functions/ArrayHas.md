@@ -6,7 +6,7 @@
 
 > **ArrayHas**(`array`, `item`): `boolean`
 
-Defined in: [src/util/Global.ts:47](https://github.com/orillusion/orillusion/blob/main/src/util/Global.ts#L47)
+Defined in: [src/util/Global.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/util/Global.ts#L47)
 
 ## Parameters
 

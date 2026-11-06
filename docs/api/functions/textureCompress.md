@@ -6,7 +6,7 @@
 
 > **textureCompress**(`colorMap`, `sourceTexture`, `destTexture`, `workX`, `workY`, `workZ?`): `string`
 
-Defined in: [src/assets/shader/compute/utils/TextureCompress.ts:3](https://github.com/orillusion/orillusion/blob/main/src/assets/shader/compute/utils/TextureCompress.ts#L3)
+Defined in: [src/assets/shader/compute/utils/TextureCompress.ts:3](https://github.com/Orillusion/orillusion/blob/main/src/assets/shader/compute/utils/TextureCompress.ts#L3)
 
 ## Parameters
 

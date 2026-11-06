@@ -6,7 +6,7 @@
 
 > **AlphaMode** = `"OPAQUE"` \| `"MASK"` \| `"BLEND"` \| `"HASH"`
 
-Defined in: [src/materials/LitMaterial.ts:17](https://github.com/orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L17)
+Defined in: [src/materials/LitMaterial.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/materials/LitMaterial.ts#L18)
 
 glTF-style alpha handling for a LitMaterial.
  - OPAQUE: opaque queue, no alpha handling (default).

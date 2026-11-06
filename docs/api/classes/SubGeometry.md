@@ -4,7 +4,7 @@
 
 # Class: SubGeometry
 
-Defined in: [src/core/geometry/GeometryBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L29)
+Defined in: [src/core/geometry/GeometryBase.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L29)
 
 geometry split more subGeometry descriptor
 
@@ -24,6 +24,6 @@ geometry split more subGeometry descriptor
 
 > **lodLevels**: [`LODDescriptor`](../type-aliases/LODDescriptor.md)[]
 
-Defined in: [src/core/geometry/GeometryBase.ts:31](https://github.com/orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L31)
+Defined in: [src/core/geometry/GeometryBase.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/core/geometry/GeometryBase.ts#L31)
 
 The LOD levels making up this sub-geometry.

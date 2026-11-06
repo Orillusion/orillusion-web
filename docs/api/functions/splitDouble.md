@@ -6,7 +6,7 @@
 
 > **splitDouble**(`value`, `scale`): `number`[]
 
-Defined in: [src/math/DoublePrecision.ts:3](https://github.com/orillusion/orillusion/blob/main/src/math/DoublePrecision.ts#L3)
+Defined in: [src/math/DoublePrecision.ts:3](https://github.com/Orillusion/orillusion/blob/main/src/math/DoublePrecision.ts#L3)
 
 ## Parameters
 

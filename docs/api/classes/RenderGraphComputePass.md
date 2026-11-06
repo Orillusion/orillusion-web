@@ -4,7 +4,7 @@
 
 # Class: RenderGraphComputePass
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:47](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphComputePass.ts#L47)
+Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphComputePass.ts#L47)
 
 Handle for "open a compute pass". Owns the pipeline + bind-group
 layouts (built lazily on first [begin](#begin)) and the per-call
@@ -22,7 +22,7 @@ directly on the returned encoder.
 
 > **new RenderGraphComputePass**(`name`, `desc`): `RenderGraphComputePass`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:58](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphComputePass.ts#L58)
+Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphComputePass.ts#L58)
 
 #### Parameters
 
@@ -44,7 +44,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:58](https://githu
 
 > `readonly` **name**: `string`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:48](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphComputePass.ts#L48)
+Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphComputePass.ts#L48)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:48](https://githu
 
 > `readonly` **desc**: `Readonly`\<[`ComputePipelineDesc`](../interfaces/ComputePipelineDesc.md)\>
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:49](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphComputePass.ts#L49)
+Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphComputePass.ts#L49)
 
 ***
 
@@ -60,7 +60,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:49](https://githu
 
 > **pipeline**: `GPUComputePipeline` = `null`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:51](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphComputePass.ts#L51)
+Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphComputePass.ts#L51)
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:51](https://githu
 
 > **bindGroupLayouts**: `GPUBindGroupLayout`[] = `null`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:52](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphComputePass.ts#L52)
+Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphComputePass.ts#L52)
 
 ***
 
@@ -76,7 +76,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:52](https://githu
 
 > **encoder**: `GPUComputePassEncoder` = `null`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:55](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphComputePass.ts#L55)
+Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:55](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphComputePass.ts#L55)
 
 Runtime fields — valid between [begin](#begin) and [end](#end).
 
@@ -86,7 +86,7 @@ Runtime fields — valid between [begin](#begin) and [end](#end).
 
 > **command**: `GPUCommandEncoder` = `null`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:56](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphComputePass.ts#L56)
+Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphComputePass.ts#L56)
 
 ## Methods
 
@@ -94,7 +94,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:56](https://githu
 
 > **begin**(`ctx`): `GPUComputePassEncoder`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:69](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphComputePass.ts#L69)
+Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphComputePass.ts#L69)
 
 Open a fresh command encoder + compute pass encoder. Lazily
 builds the pipeline on first call. The pipeline survives across
@@ -117,7 +117,7 @@ authors via [bindGroupLayouts](#bindgrouplayouts).
 
 > **dispatch**(`call`): `void`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:88](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphComputePass.ts#L88)
+Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:88](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphComputePass.ts#L88)
 
 Convenience: bind the provided bind groups (one per layout
 index) and dispatch. Equivalent to manually iterating
@@ -140,7 +140,7 @@ index) and dispatch. Equivalent to manually iterating
 
 > **end**(`ctx`): `void`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:98](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphComputePass.ts#L98)
+Defined in: [src/gfx/renderJob/graph/RenderGraphComputePass.ts:98](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphComputePass.ts#L98)
 
 #### Parameters
 

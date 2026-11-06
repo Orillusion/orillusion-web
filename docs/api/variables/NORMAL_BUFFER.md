@@ -6,4 +6,4 @@
 
 > `const` **NORMAL\_BUFFER**: `"_NormalBuffer"` = `'_NormalBuffer'`
 
-Defined in: [src/gfx/renderJob/graph/passes/ColorPass.ts:46](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/ColorPass.ts#L46)
+Defined in: [src/gfx/renderJob/graph/passes/ColorPass.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/ColorPass.ts#L46)

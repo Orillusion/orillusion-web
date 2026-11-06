@@ -4,7 +4,7 @@
 
 # Class: Sprite
 
-Defined in: [src/assets/Sprite.ts:35](https://github.com/orillusion/orillusion/blob/main/src/assets/Sprite.ts#L35)
+Defined in: [src/assets/Sprite.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/assets/Sprite.ts#L35)
 
 Sprite — 2D image **asset**. Describes what to render: a region of a
 texture and a default anchor pivot.
@@ -25,7 +25,7 @@ underlying image data.
 
 > **new Sprite**(`opts?`): `Sprite`
 
-Defined in: [src/assets/Sprite.ts:47](https://github.com/orillusion/orillusion/blob/main/src/assets/Sprite.ts#L47)
+Defined in: [src/assets/Sprite.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/assets/Sprite.ts#L47)
 
 #### Parameters
 
@@ -57,7 +57,7 @@ Defined in: [src/assets/Sprite.ts:47](https://github.com/orillusion/orillusion/b
 
 > **name**: `string` = `''`
 
-Defined in: [src/assets/Sprite.ts:37](https://github.com/orillusion/orillusion/blob/main/src/assets/Sprite.ts#L37)
+Defined in: [src/assets/Sprite.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/assets/Sprite.ts#L37)
 
 Optional name, typically the atlas region id this sprite came from.
 
@@ -69,7 +69,7 @@ Optional name, typically the atlas region id this sprite came from.
 
 > **get** **texture**(): [`Texture`](Texture.md)
 
-Defined in: [src/assets/Sprite.ts:62](https://github.com/orillusion/orillusion/blob/main/src/assets/Sprite.ts#L62)
+Defined in: [src/assets/Sprite.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/assets/Sprite.ts#L62)
 
 Source texture for this sprite.
 
@@ -81,7 +81,7 @@ Source texture for this sprite.
 
 > **set** **texture**(`value`): `void`
 
-Defined in: [src/assets/Sprite.ts:64](https://github.com/orillusion/orillusion/blob/main/src/assets/Sprite.ts#L64)
+Defined in: [src/assets/Sprite.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/assets/Sprite.ts#L64)
 
 Set the source texture, notifying listeners on change.
 
@@ -103,7 +103,7 @@ Set the source texture, notifying listeners on change.
 
 > **get** **region**(): `Vector4`
 
-Defined in: [src/assets/Sprite.ts:72](https://github.com/orillusion/orillusion/blob/main/src/assets/Sprite.ts#L72)
+Defined in: [src/assets/Sprite.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/assets/Sprite.ts#L72)
 
 Normalized sub-rect of the texture in UV space — (offsetX, offsetY, scaleX, scaleY).
 
@@ -115,7 +115,7 @@ Normalized sub-rect of the texture in UV space — (offsetX, offsetY, scaleX, sc
 
 > **set** **region**(`v`): `void`
 
-Defined in: [src/assets/Sprite.ts:74](https://github.com/orillusion/orillusion/blob/main/src/assets/Sprite.ts#L74)
+Defined in: [src/assets/Sprite.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/assets/Sprite.ts#L74)
 
 Set the UV region (copied), notifying listeners.
 
@@ -137,7 +137,7 @@ Set the UV region (copied), notifying listeners.
 
 > **get** **pivot**(): [`Vector2`](Vector2.md)
 
-Defined in: [src/assets/Sprite.ts:80](https://github.com/orillusion/orillusion/blob/main/src/assets/Sprite.ts#L80)
+Defined in: [src/assets/Sprite.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/assets/Sprite.ts#L80)
 
 Default anchor point in [0,1]² — (0.5, 0.5) = centered.
 
@@ -149,7 +149,7 @@ Default anchor point in [0,1]² — (0.5, 0.5) = centered.
 
 > **set** **pivot**(`v`): `void`
 
-Defined in: [src/assets/Sprite.ts:82](https://github.com/orillusion/orillusion/blob/main/src/assets/Sprite.ts#L82)
+Defined in: [src/assets/Sprite.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/assets/Sprite.ts#L82)
 
 Set the pivot (copied), notifying listeners.
 
@@ -169,7 +169,7 @@ Set the pivot (copied), notifying listeners.
 
 > **onChange**(`fn`): `void`
 
-Defined in: [src/assets/Sprite.ts:88](https://github.com/orillusion/orillusion/blob/main/src/assets/Sprite.ts#L88)
+Defined in: [src/assets/Sprite.ts:88](https://github.com/Orillusion/orillusion/blob/main/src/assets/Sprite.ts#L88)
 
 Subscribe to sprite field changes. Renderers use this to invalidate their cached UV data.
 
@@ -189,7 +189,7 @@ Subscribe to sprite field changes. Renderers use this to invalidate their cached
 
 > **offChange**(`fn`): `void`
 
-Defined in: [src/assets/Sprite.ts:93](https://github.com/orillusion/orillusion/blob/main/src/assets/Sprite.ts#L93)
+Defined in: [src/assets/Sprite.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/assets/Sprite.ts#L93)
 
 Unsubscribe a previously registered change listener.
 
@@ -209,7 +209,7 @@ Unsubscribe a previously registered change listener.
 
 > **clone**(): `Sprite`
 
-Defined in: [src/assets/Sprite.ts:104](https://github.com/orillusion/orillusion/blob/main/src/assets/Sprite.ts#L104)
+Defined in: [src/assets/Sprite.ts:104](https://github.com/Orillusion/orillusion/blob/main/src/assets/Sprite.ts#L104)
 
 Shallow clone — texture is shared (not duplicated), all vector fields are copied.
 
@@ -223,7 +223,7 @@ Shallow clone — texture is shared (not duplicated), all vector fields are copi
 
 > `static` **fromTexture**(`texture`, `name?`): `Sprite`
 
-Defined in: [src/assets/Sprite.ts:114](https://github.com/orillusion/orillusion/blob/main/src/assets/Sprite.ts#L114)
+Defined in: [src/assets/Sprite.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/assets/Sprite.ts#L114)
 
 Convenience: build a Sprite from a bare texture, full region, centered pivot.
 

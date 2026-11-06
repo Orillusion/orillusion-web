@@ -6,7 +6,7 @@
 
 > **\_registerDefaultCtxResolver**(`f`): `void`
 
-Defined in: [src/gfx/graphics/webGpu/Context3D.ts:353](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L353)
+Defined in: [src/gfx/graphics/webGpu/Context3D.ts:360](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/Context3D.ts#L360)
 
 ## Parameters
 

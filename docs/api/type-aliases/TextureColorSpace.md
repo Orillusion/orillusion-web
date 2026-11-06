@@ -6,7 +6,7 @@
 
 > **TextureColorSpace** = `"srgb"` \| `"linear"`
 
-Defined in: [src/textures/BitmapTexture2D.ts:19](https://github.com/orillusion/orillusion/blob/main/src/textures/BitmapTexture2D.ts#L19)
+Defined in: [src/textures/BitmapTexture2D.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/textures/BitmapTexture2D.ts#L19)
 
 Color-space hint for image-backed textures. `'srgb'` selects the
 `rgba8unorm-srgb` GPU format so the sampler hardware-decodes the

@@ -6,7 +6,7 @@
 
 > **EngineSetting** = `object`
 
-Defined in: [src/setting/EngineSetting.ts:12](https://github.com/orillusion/orillusion/blob/main/src/setting/EngineSetting.ts#L12)
+Defined in: [src/setting/EngineSetting.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/setting/EngineSetting.ts#L12)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [src/setting/EngineSetting.ts:12](https://github.com/orillusion/oril
 
 > **doublePrecision**: `boolean`
 
-Defined in: [src/setting/EngineSetting.ts:17](https://github.com/orillusion/orillusion/blob/main/src/setting/EngineSetting.ts#L17)
+Defined in: [src/setting/EngineSetting.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/setting/EngineSetting.ts#L17)
 
 use double precision matrix
 
@@ -24,7 +24,7 @@ use double precision matrix
 
 > **useRTE**: `boolean`
 
-Defined in: [src/setting/EngineSetting.ts:22](https://github.com/orillusion/orillusion/blob/main/src/setting/EngineSetting.ts#L22)
+Defined in: [src/setting/EngineSetting.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/setting/EngineSetting.ts#L22)
 
 use Render based on camera position
 
@@ -34,7 +34,7 @@ use Render based on camera position
 
 > **RTEScale**: `number`
 
-Defined in: [src/setting/EngineSetting.ts:24](https://github.com/orillusion/orillusion/blob/main/src/setting/EngineSetting.ts#L24)
+Defined in: [src/setting/EngineSetting.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/setting/EngineSetting.ts#L24)
 
 ***
 
@@ -42,7 +42,7 @@ Defined in: [src/setting/EngineSetting.ts:24](https://github.com/orillusion/oril
 
 > **pick**: [`PickSetting`](PickSetting.md)
 
-Defined in: [src/setting/EngineSetting.ts:34](https://github.com/orillusion/orillusion/blob/main/src/setting/EngineSetting.ts#L34)
+Defined in: [src/setting/EngineSetting.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/setting/EngineSetting.ts#L34)
 
 pick mode setting
 
@@ -52,7 +52,7 @@ pick mode setting
 
 > **render**: [`RenderSetting`](RenderSetting.md)
 
-Defined in: [src/setting/EngineSetting.ts:39](https://github.com/orillusion/orillusion/blob/main/src/setting/EngineSetting.ts#L39)
+Defined in: [src/setting/EngineSetting.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/setting/EngineSetting.ts#L39)
 
 render setting
 
@@ -62,7 +62,7 @@ render setting
 
 > **sky**: [`SkySetting`](SkySetting.md)
 
-Defined in: [src/setting/EngineSetting.ts:44](https://github.com/orillusion/orillusion/blob/main/src/setting/EngineSetting.ts#L44)
+Defined in: [src/setting/EngineSetting.ts:44](https://github.com/Orillusion/orillusion/blob/main/src/setting/EngineSetting.ts#L44)
 
 sky setting
 
@@ -72,7 +72,7 @@ sky setting
 
 > **shadow**: [`ShadowSetting`](ShadowSetting.md)
 
-Defined in: [src/setting/EngineSetting.ts:49](https://github.com/orillusion/orillusion/blob/main/src/setting/EngineSetting.ts#L49)
+Defined in: [src/setting/EngineSetting.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/setting/EngineSetting.ts#L49)
 
 shadow setting
 
@@ -82,7 +82,7 @@ shadow setting
 
 > **gi**: [`GlobalIlluminationSetting`](GlobalIlluminationSetting.md)
 
-Defined in: [src/setting/EngineSetting.ts:54](https://github.com/orillusion/orillusion/blob/main/src/setting/EngineSetting.ts#L54)
+Defined in: [src/setting/EngineSetting.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/setting/EngineSetting.ts#L54)
 
 global illumination setting
 
@@ -92,7 +92,7 @@ global illumination setting
 
 > **light**: [`LightSetting`](LightSetting.md)
 
-Defined in: [src/setting/EngineSetting.ts:59](https://github.com/orillusion/orillusion/blob/main/src/setting/EngineSetting.ts#L59)
+Defined in: [src/setting/EngineSetting.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/setting/EngineSetting.ts#L59)
 
 light setting
 
@@ -102,7 +102,7 @@ light setting
 
 > **loader**: [`LoaderSetting`](LoaderSetting.md)
 
-Defined in: [src/setting/EngineSetting.ts:69](https://github.com/orillusion/orillusion/blob/main/src/setting/EngineSetting.ts#L69)
+Defined in: [src/setting/EngineSetting.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/setting/EngineSetting.ts#L69)
 
 loader setting
 
@@ -112,6 +112,6 @@ loader setting
 
 > **reflectionSetting**: [`ReflectionSetting`](ReflectionSetting.md)
 
-Defined in: [src/setting/EngineSetting.ts:74](https://github.com/orillusion/orillusion/blob/main/src/setting/EngineSetting.ts#L74)
+Defined in: [src/setting/EngineSetting.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/setting/EngineSetting.ts#L74)
 
 reflectionSetting setting

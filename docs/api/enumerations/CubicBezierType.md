@@ -4,7 +4,7 @@
 
 # Enumeration: CubicBezierType
 
-Defined in: [src/math/CubicBezierPath.ts:9](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L9)
+Defined in: [src/math/CubicBezierPath.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L9)
 
 cubicBezierType
 
@@ -14,7 +14,7 @@ cubicBezierType
 
 > **Open**: `0`
 
-Defined in: [src/math/CubicBezierPath.ts:10](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L10)
+Defined in: [src/math/CubicBezierPath.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L10)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [src/math/CubicBezierPath.ts:10](https://github.com/orillusion/orill
 
 > **Closed**: `1`
 
-Defined in: [src/math/CubicBezierPath.ts:11](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L11)
+Defined in: [src/math/CubicBezierPath.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierPath.ts#L11)

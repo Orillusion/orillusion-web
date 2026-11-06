@@ -4,7 +4,7 @@
 
 # Class: CEventDispatcher
 
-Defined in: [src/event/CEventDispatcher.ts:10](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L10)
+Defined in: [src/event/CEventDispatcher.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L10)
 
 Basic class of event diapatcher.
 It includes the implementation of functions such as event registration, 
@@ -35,7 +35,7 @@ deregistration, distribution, and unregister.
 
 > **dispatchEvent**(`event`): `void`
 
-Defined in: [src/event/CEventDispatcher.ts:24](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L24)
+Defined in: [src/event/CEventDispatcher.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L24)
 
 Dispatch an event to all registered objects with a specific type of listener.
 
@@ -55,7 +55,7 @@ Dispatch an event to all registered objects with a specific type of listener.
 
 > **destroy**(): `void`
 
-Defined in: [src/event/CEventDispatcher.ts:54](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L54)
+Defined in: [src/event/CEventDispatcher.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L54)
 
 release all registered event.
 
@@ -69,7 +69,7 @@ release all registered event.
 
 > **addEventListener**(`type`, `callback`, `thisObject`, `param?`, `priority?`): `number`
 
-Defined in: [src/event/CEventDispatcher.ts:78](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L78)
+Defined in: [src/event/CEventDispatcher.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L78)
 
 register an event listener to event distancher.
 
@@ -119,7 +119,7 @@ Returns register event id
 
 > **removeEventListener**(`type`, `callback`, `thisObject`): `void`
 
-Defined in: [src/event/CEventDispatcher.ts:112](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L112)
+Defined in: [src/event/CEventDispatcher.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L112)
 
 Remove Event Listening
 
@@ -153,7 +153,7 @@ Remove Event Listening
 
 > **removeEventListenerAt**(`id`): `boolean`
 
-Defined in: [src/event/CEventDispatcher.ts:132](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L132)
+Defined in: [src/event/CEventDispatcher.ts:132](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L132)
 
 Remove an event Listening with id
 
@@ -173,7 +173,7 @@ Remove an event Listening with id
 
 > **removeAllEventListener**(`eventType?`): `void`
 
-Defined in: [src/event/CEventDispatcher.ts:152](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L152)
+Defined in: [src/event/CEventDispatcher.ts:152](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L152)
 
 Specify a event type to remove all related event listeners
 eventType event type, set null to remove all event listeners
@@ -194,7 +194,7 @@ eventType event type, set null to remove all event listeners
 
 > **containEventListener**(`type`): `boolean`
 
-Defined in: [src/event/CEventDispatcher.ts:184](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L184)
+Defined in: [src/event/CEventDispatcher.ts:184](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L184)
 
 whether the target presence of a listener with event type.
 
@@ -218,7 +218,7 @@ Returns a boolean.
 
 > **hasEventListener**(`type`, `callback?`, `thisObject?`): `boolean`
 
-Defined in: [src/event/CEventDispatcher.ts:197](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L197)
+Defined in: [src/event/CEventDispatcher.ts:197](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L197)
 
 whether the target presence of a listener with event type. it associate more registration parameters.
 

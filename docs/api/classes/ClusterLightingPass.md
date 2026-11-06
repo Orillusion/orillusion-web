@@ -4,7 +4,7 @@
 
 # Class: ClusterLightingPass
 
-Defined in: [src/gfx/renderJob/graph/passes/ClusterLightingPass.ts:35](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/ClusterLightingPass.ts#L35)
+Defined in: [src/gfx/renderJob/graph/passes/ClusterLightingPass.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/ClusterLightingPass.ts#L35)
 
 Cluster lighting compute pass. Runs once per frame, before any
 pass that reads `_ClusterLightingBuffer`: refreshes the cluster
@@ -41,7 +41,7 @@ than allocating.
 
 > `readonly` **materialPasses**: readonly `PassType`[] = `[]`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:324](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L324)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:324](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L324)
 
 Material-side pass types consumed. Optional; defaults to none
  for pure compute / copy passes.
@@ -56,7 +56,7 @@ Material-side pass types consumed. Optional; defaults to none
 
 > **enabled**: `boolean` = `true`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:332](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L332)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:332](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L332)
 
 Runtime kill switch. `graph.disablePass(name)` flips this. A
  disabled pass is treated as if it weren't in the graph: it's
@@ -75,7 +75,7 @@ Runtime kill switch. `graph.disablePass(name)` flips this. A
 
 > **layerMask**: `number` = `VisibleLayer.All`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:347](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L347)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:347](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L347)
 
 Which scene layers this pass consumes, as a bitmask. Default
  [VisibleLayer.All](../@orillusion/namespaces/VisibleLayer/variables/All.md) reproduces the legacy "draw every
@@ -101,7 +101,7 @@ Which scene layers this pass consumes, as a bitmask. Default
 
 > `readonly` **reads**: readonly `string`[]
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:353](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L353)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:353](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L353)
 
 Names this pass reads. Populated on the first
  `RenderGraph.compile()` that processes this pass, from the
@@ -118,7 +118,7 @@ Names this pass reads. Populated on the first
 
 > `readonly` **writes**: readonly `string`[]
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:358](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L358)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:358](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L358)
 
 Names this pass writes (creator + mutator combined). Populated
  on the first `RenderGraph.compile()` from the `b.write(...)`
@@ -134,7 +134,7 @@ Names this pass writes (creator + mutator combined). Populated
 
 > `readonly` **creates**: readonly `string`[]
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:363](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L363)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:363](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L363)
 
 Subset of `writes` for which this pass was the creator (called
  `b.write(name, factory)`, not `b.write(name)`). The validator's
@@ -150,7 +150,7 @@ Subset of `writes` for which this pass was the creator (called
 
 > `optional` **dependencies?**: `ReadonlySet`\<`string`\>
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:377](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L377)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:377](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L377)
 
 Explicit ordering dependencies on other pass names, set either
  from `setup()` via `b.dependsOn(name)` or by direct assignment
@@ -175,7 +175,7 @@ Explicit ordering dependencies on other pass names, set either
 
 > `readonly` **name**: `"ClusterLightingPass"` = `'ClusterLightingPass'`
 
-Defined in: [src/gfx/renderJob/graph/passes/ClusterLightingPass.ts:36](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/ClusterLightingPass.ts#L36)
+Defined in: [src/gfx/renderJob/graph/passes/ClusterLightingPass.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/ClusterLightingPass.ts#L36)
 
 Unique pass identifier. Used as the graph-node key and in
  error messages — prefer PascalCase ending in `Pass`
@@ -191,7 +191,7 @@ Unique pass identifier. Used as the graph-node key and in
 
 > **clusterLightingBuffer**: [`ClusterLightingBuffer`](ClusterLightingBuffer.md)
 
-Defined in: [src/gfx/renderJob/graph/passes/ClusterLightingPass.ts:38](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/ClusterLightingPass.ts#L38)
+Defined in: [src/gfx/renderJob/graph/passes/ClusterLightingPass.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/ClusterLightingPass.ts#L38)
 
 ***
 
@@ -199,7 +199,7 @@ Defined in: [src/gfx/renderJob/graph/passes/ClusterLightingPass.ts:38](https://g
 
 > `readonly` **maxNumLightsPerCluster**: `64` = `64`
 
-Defined in: [src/gfx/renderJob/graph/passes/ClusterLightingPass.ts:39](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/ClusterLightingPass.ts#L39)
+Defined in: [src/gfx/renderJob/graph/passes/ClusterLightingPass.ts:39](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/ClusterLightingPass.ts#L39)
 
 ***
 
@@ -207,7 +207,7 @@ Defined in: [src/gfx/renderJob/graph/passes/ClusterLightingPass.ts:39](https://g
 
 > `readonly` **clusterPix**: `1` = `1`
 
-Defined in: [src/gfx/renderJob/graph/passes/ClusterLightingPass.ts:40](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/ClusterLightingPass.ts#L40)
+Defined in: [src/gfx/renderJob/graph/passes/ClusterLightingPass.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/ClusterLightingPass.ts#L40)
 
 ## Methods
 
@@ -215,7 +215,7 @@ Defined in: [src/gfx/renderJob/graph/passes/ClusterLightingPass.ts:40](https://g
 
 > **dispatchEvent**(`event`): `void`
 
-Defined in: [src/event/CEventDispatcher.ts:24](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L24)
+Defined in: [src/event/CEventDispatcher.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L24)
 
 Dispatch an event to all registered objects with a specific type of listener.
 
@@ -239,7 +239,7 @@ Dispatch an event to all registered objects with a specific type of listener.
 
 > **addEventListener**(`type`, `callback`, `thisObject`, `param?`, `priority?`): `number`
 
-Defined in: [src/event/CEventDispatcher.ts:78](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L78)
+Defined in: [src/event/CEventDispatcher.ts:78](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L78)
 
 register an event listener to event distancher.
 
@@ -293,7 +293,7 @@ Returns register event id
 
 > **removeEventListener**(`type`, `callback`, `thisObject`): `void`
 
-Defined in: [src/event/CEventDispatcher.ts:112](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L112)
+Defined in: [src/event/CEventDispatcher.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L112)
 
 Remove Event Listening
 
@@ -331,7 +331,7 @@ Remove Event Listening
 
 > **removeEventListenerAt**(`id`): `boolean`
 
-Defined in: [src/event/CEventDispatcher.ts:132](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L132)
+Defined in: [src/event/CEventDispatcher.ts:132](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L132)
 
 Remove an event Listening with id
 
@@ -355,7 +355,7 @@ Remove an event Listening with id
 
 > **removeAllEventListener**(`eventType?`): `void`
 
-Defined in: [src/event/CEventDispatcher.ts:152](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L152)
+Defined in: [src/event/CEventDispatcher.ts:152](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L152)
 
 Specify a event type to remove all related event listeners
 eventType event type, set null to remove all event listeners
@@ -380,7 +380,7 @@ eventType event type, set null to remove all event listeners
 
 > **containEventListener**(`type`): `boolean`
 
-Defined in: [src/event/CEventDispatcher.ts:184](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L184)
+Defined in: [src/event/CEventDispatcher.ts:184](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L184)
 
 whether the target presence of a listener with event type.
 
@@ -408,7 +408,7 @@ Returns a boolean.
 
 > **hasEventListener**(`type`, `callback?`, `thisObject?`): `boolean`
 
-Defined in: [src/event/CEventDispatcher.ts:197](https://github.com/orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L197)
+Defined in: [src/event/CEventDispatcher.ts:197](https://github.com/Orillusion/orillusion/blob/main/src/event/CEventDispatcher.ts#L197)
 
 whether the target presence of a listener with event type. it associate more registration parameters.
 
@@ -448,7 +448,7 @@ Returns a boolean.
 
 > **destroy**(): `void`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:397](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L397)
+Defined in: [src/gfx/renderJob/graph/RenderGraphPass.ts:397](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphPass.ts#L397)
 
 Optional teardown hook called from `graph.destroy()` — release
  orphan Object3Ds / view quads / device resources that the pass
@@ -468,7 +468,7 @@ Optional teardown hook called from `graph.destroy()` — release
 
 > **setup**(`b`): `void`
 
-Defined in: [src/gfx/renderJob/graph/passes/ClusterLightingPass.ts:47](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/ClusterLightingPass.ts#L47)
+Defined in: [src/gfx/renderJob/graph/passes/ClusterLightingPass.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/ClusterLightingPass.ts#L47)
 
 Allocate GPU resources, declare graph-level dependencies via
  `b.read` / `b.write`. Called from `RenderGraph.compile()` —
@@ -497,7 +497,7 @@ Allocate GPU resources, declare graph-level dependencies via
 
 > **execute**(`ctx`): `void`
 
-Defined in: [src/gfx/renderJob/graph/passes/ClusterLightingPass.ts:77](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/ClusterLightingPass.ts#L77)
+Defined in: [src/gfx/renderJob/graph/passes/ClusterLightingPass.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/ClusterLightingPass.ts#L77)
 
 Execute the pass for one frame. Implementations build command
  encoders via `ctx.view.engine3D.context3D.gpuContext`, read

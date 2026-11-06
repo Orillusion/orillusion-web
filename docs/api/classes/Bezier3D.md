@@ -4,7 +4,7 @@
 
 # Class: Bezier3D
 
-Defined in: [src/math/Bezier3D.ts:6](https://github.com/orillusion/orillusion/blob/main/src/math/Bezier3D.ts#L6)
+Defined in: [src/math/Bezier3D.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/math/Bezier3D.ts#L6)
 
 3D Bezier Curve
 
@@ -24,7 +24,7 @@ Defined in: [src/math/Bezier3D.ts:6](https://github.com/orillusion/orillusion/bl
 
 > `static` **calculateCubicBezierPoint**(`t`, `p0`, `c1`, `c2`, `p3`): [`Vector3`](Vector3.md)
 
-Defined in: [src/math/Bezier3D.ts:18](https://github.com/orillusion/orillusion/blob/main/src/math/Bezier3D.ts#L18)
+Defined in: [src/math/Bezier3D.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/math/Bezier3D.ts#L18)
 
 get cubic curve point value from t at bezier data
 
@@ -72,7 +72,7 @@ cubic curve point
 
 > `static` **bezierPoint**(`t`, `p0`, `c1`, `p1`): [`Vector3`](Vector3.md)
 
-Defined in: [src/math/Bezier3D.ts:50](https://github.com/orillusion/orillusion/blob/main/src/math/Bezier3D.ts#L50)
+Defined in: [src/math/Bezier3D.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/math/Bezier3D.ts#L50)
 
 get curve point from three point bezier curve
 

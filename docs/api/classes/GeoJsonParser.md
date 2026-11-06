@@ -4,7 +4,7 @@
 
 # Class: GeoJsonParser
 
-Defined in: [src/loader/parser/gis/GeoJsonParser.ts:37](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonParser.ts#L37)
+Defined in: [src/loader/parser/gis/GeoJsonParser.ts:37](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonParser.ts#L37)
 
 Parser for GeoJSON feature collections. Parses the raw JSON text into
 a typed [GeoJsonStruct](../interfaces/GeoJsonStruct.md) that downstream GIS utilities can consume.
@@ -29,7 +29,7 @@ a typed [GeoJsonStruct](../interfaces/GeoJsonStruct.md) that downstream GIS util
 
 > `static` **format**: [`ParserFormat`](../enumerations/ParserFormat.md) = `ParserFormat.JSON`
 
-Defined in: [src/loader/parser/gis/GeoJsonParser.ts:38](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonParser.ts#L38)
+Defined in: [src/loader/parser/gis/GeoJsonParser.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonParser.ts#L38)
 
 #### Overrides
 
@@ -41,7 +41,7 @@ Defined in: [src/loader/parser/gis/GeoJsonParser.ts:38](https://github.com/orill
 
 > **baseUrl**: `string`
 
-Defined in: [src/loader/parser/ParserBase.ts:12](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L12)
+Defined in: [src/loader/parser/ParserBase.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L12)
 
 #### Inherited from
 
@@ -53,7 +53,7 @@ Defined in: [src/loader/parser/ParserBase.ts:12](https://github.com/orillusion/o
 
 > **initUrl**: `string`
 
-Defined in: [src/loader/parser/ParserBase.ts:13](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L13)
+Defined in: [src/loader/parser/ParserBase.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L13)
 
 #### Inherited from
 
@@ -65,7 +65,7 @@ Defined in: [src/loader/parser/ParserBase.ts:13](https://github.com/orillusion/o
 
 > `optional` **loaderFunctions?**: [`LoaderFunctions`](../type-aliases/LoaderFunctions.md)
 
-Defined in: [src/loader/parser/ParserBase.ts:14](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L14)
+Defined in: [src/loader/parser/ParserBase.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L14)
 
 #### Inherited from
 
@@ -77,7 +77,7 @@ Defined in: [src/loader/parser/ParserBase.ts:14](https://github.com/orillusion/o
 
 > `optional` **userData?**: `any`
 
-Defined in: [src/loader/parser/ParserBase.ts:15](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L15)
+Defined in: [src/loader/parser/ParserBase.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L15)
 
 #### Inherited from
 
@@ -89,7 +89,7 @@ Defined in: [src/loader/parser/ParserBase.ts:15](https://github.com/orillusion/o
 
 > **data**: `any`
 
-Defined in: [src/loader/parser/ParserBase.ts:16](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L16)
+Defined in: [src/loader/parser/ParserBase.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L16)
 
 #### Inherited from
 
@@ -101,7 +101,7 @@ Defined in: [src/loader/parser/ParserBase.ts:16](https://github.com/orillusion/o
 
 > `optional` **ctx?**: [`Context3D`](Context3D.md)
 
-Defined in: [src/loader/parser/ParserBase.ts:20](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L20)
+Defined in: [src/loader/parser/ParserBase.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L20)
 
 Context3D this parser is operating under. Populated by FileLoader
  so default-texture lookups (`Engine3D.resFor(this.ctx)`) resolve
@@ -117,7 +117,7 @@ Context3D this parser is operating under. Populated by FileLoader
 
 > **json**: `string`
 
-Defined in: [src/loader/parser/gis/GeoJsonParser.ts:40](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonParser.ts#L40)
+Defined in: [src/loader/parser/gis/GeoJsonParser.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonParser.ts#L40)
 
 Raw GeoJSON source text passed to the parser.
 
@@ -127,7 +127,7 @@ Raw GeoJSON source text passed to the parser.
 
 > **parseJson**(`obj`): `void`
 
-Defined in: [src/loader/parser/ParserBase.ts:24](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L24)
+Defined in: [src/loader/parser/ParserBase.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L24)
 
 #### Parameters
 
@@ -149,7 +149,7 @@ Defined in: [src/loader/parser/ParserBase.ts:24](https://github.com/orillusion/o
 
 > **parseBuffer**(`buffer`): `void`
 
-Defined in: [src/loader/parser/ParserBase.ts:26](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L26)
+Defined in: [src/loader/parser/ParserBase.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L26)
 
 #### Parameters
 
@@ -171,7 +171,7 @@ Defined in: [src/loader/parser/ParserBase.ts:26](https://github.com/orillusion/o
 
 > **parseTexture**(`buffer`): [`Texture`](Texture.md)
 
-Defined in: [src/loader/parser/ParserBase.ts:28](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L28)
+Defined in: [src/loader/parser/ParserBase.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L28)
 
 #### Parameters
 
@@ -193,7 +193,7 @@ Defined in: [src/loader/parser/ParserBase.ts:28](https://github.com/orillusion/o
 
 > **parse**(`data`): `void`
 
-Defined in: [src/loader/parser/ParserBase.ts:32](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L32)
+Defined in: [src/loader/parser/ParserBase.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L32)
 
 #### Parameters
 
@@ -215,7 +215,7 @@ Defined in: [src/loader/parser/ParserBase.ts:32](https://github.com/orillusion/o
 
 > **verification**(`ret`): `boolean`
 
-Defined in: [src/loader/parser/ParserBase.ts:34](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L34)
+Defined in: [src/loader/parser/ParserBase.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/ParserBase.ts#L34)
 
 #### Parameters
 
@@ -237,7 +237,7 @@ Defined in: [src/loader/parser/ParserBase.ts:34](https://github.com/orillusion/o
 
 > **parseString**(`data`): `Promise`\<`void`\>
 
-Defined in: [src/loader/parser/gis/GeoJsonParser.ts:45](https://github.com/orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonParser.ts#L45)
+Defined in: [src/loader/parser/gis/GeoJsonParser.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/loader/parser/gis/GeoJsonParser.ts#L45)
 
 Parse GeoJSON text into a [GeoJsonStruct](../interfaces/GeoJsonStruct.md).
 

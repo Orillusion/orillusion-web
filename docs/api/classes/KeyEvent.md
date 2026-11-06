@@ -4,7 +4,7 @@
 
 # Class: KeyEvent
 
-Defined in: [src/event/eventConst/KeyEvent.ts:7](https://github.com/orillusion/orillusion/blob/main/src/event/eventConst/KeyEvent.ts#L7)
+Defined in: [src/event/eventConst/KeyEvent.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/KeyEvent.ts#L7)
 
 enum keyboard event[InputSystem](InputSystem.md)
 
@@ -18,7 +18,7 @@ enum keyboard event[InputSystem](InputSystem.md)
 
 > **new KeyEvent**(`eventType?`, `data?`): `KeyEvent`
 
-Defined in: [src/event/CEvent.ts:102](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L102)
+Defined in: [src/event/CEvent.ts:102](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L102)
 
 Create a new event, with type and data
 
@@ -50,7 +50,7 @@ Create a new event, with type and data
 
 > **target**: [`Object3D`](Object3D.md)
 
-Defined in: [src/event/CEvent.ts:13](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L13)
+Defined in: [src/event/CEvent.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L13)
 
 Event target, it's usually event dispatcher
 
@@ -64,7 +64,7 @@ Event target, it's usually event dispatcher
 
 > **currentTarget**: `CEventListener`
 
-Defined in: [src/event/CEvent.ts:18](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L18)
+Defined in: [src/event/CEvent.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L18)
 
 Current event target, it's current bubble object
 
@@ -78,7 +78,7 @@ Current event target, it's current bubble object
 
 > **type**: `string`
 
-Defined in: [src/event/CEvent.ts:23](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L23)
+Defined in: [src/event/CEvent.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L23)
 
 event type, it's registered string of key
 
@@ -92,7 +92,7 @@ event type, it's registered string of key
 
 > `optional` **data?**: `any`
 
-Defined in: [src/event/CEvent.ts:28](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L28)
+Defined in: [src/event/CEvent.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L28)
 
 extra data.Used for the transmission process of events, carrying data
 
@@ -106,7 +106,7 @@ extra data.Used for the transmission process of events, carrying data
 
 > **param**: `any`
 
-Defined in: [src/event/CEvent.ts:34](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L34)
+Defined in: [src/event/CEvent.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L34)
 
 The param data when event is registered
 
@@ -120,7 +120,7 @@ The param data when event is registered
 
 > **time**: `number` = `0`
 
-Defined in: [src/event/CEvent.ts:40](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L40)
+Defined in: [src/event/CEvent.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L40)
 
 the time when event is
 
@@ -134,7 +134,7 @@ the time when event is
 
 > **delay**: `number` = `0`
 
-Defined in: [src/event/CEvent.ts:46](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L46)
+Defined in: [src/event/CEvent.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L46)
 
 the delay time when event is dispatched.
 
@@ -148,7 +148,7 @@ the delay time when event is dispatched.
 
 > **mouseCode**: `number` = `0`
 
-Defined in: [src/event/CEvent.ts:52](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L52)
+Defined in: [src/event/CEvent.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L52)
 
 mouse code, see
 
@@ -166,7 +166,7 @@ mouse code, see
 
 > **ctrlKey**: `boolean`
 
-Defined in: [src/event/CEvent.ts:57](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L57)
+Defined in: [src/event/CEvent.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L57)
 
 Is Ctrl key pressed when the event occurs
 
@@ -180,7 +180,7 @@ Is Ctrl key pressed when the event occurs
 
 > **metaKey**: `boolean`
 
-Defined in: [src/event/CEvent.ts:62](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L62)
+Defined in: [src/event/CEvent.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L62)
 
 Is Meta key pressed when the event occurs
 
@@ -194,7 +194,7 @@ Is Meta key pressed when the event occurs
 
 > **altKey**: `boolean`
 
-Defined in: [src/event/CEvent.ts:67](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L67)
+Defined in: [src/event/CEvent.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L67)
 
 Is Alt key pressed when the event occurs
 
@@ -208,7 +208,7 @@ Is Alt key pressed when the event occurs
 
 > **shiftKey**: `boolean`
 
-Defined in: [src/event/CEvent.ts:72](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L72)
+Defined in: [src/event/CEvent.ts:72](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L72)
 
 Is Shift key pressed when the event occurs
 
@@ -222,7 +222,7 @@ Is Shift key pressed when the event occurs
 
 > **targetTouches**: `TouchData`[]
 
-Defined in: [src/event/CEvent.ts:77](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L77)
+Defined in: [src/event/CEvent.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L77)
 
 Collection of finger touch points, which registered
 
@@ -236,7 +236,7 @@ Collection of finger touch points, which registered
 
 > **changedTouches**: `TouchData`[]
 
-Defined in: [src/event/CEvent.ts:82](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L82)
+Defined in: [src/event/CEvent.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L82)
 
 Collection of finger touch points changed
 
@@ -250,7 +250,7 @@ Collection of finger touch points changed
 
 > **touches**: `TouchData`[]
 
-Defined in: [src/event/CEvent.ts:87](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L87)
+Defined in: [src/event/CEvent.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L87)
 
 Collection of finger touch points
 
@@ -264,7 +264,7 @@ Collection of finger touch points
 
 > **view**: [`View3D`](View3D.md)
 
-Defined in: [src/event/CEvent.ts:94](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L94)
+Defined in: [src/event/CEvent.ts:94](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L94)
 
 binded view3D object in event.
 
@@ -278,7 +278,7 @@ binded view3D object in event.
 
 > `static` **KEY\_DOWN**: `string` = `'onKeyDown'`
 
-Defined in: [src/event/eventConst/KeyEvent.ts:15](https://github.com/orillusion/orillusion/blob/main/src/event/eventConst/KeyEvent.ts#L15)
+Defined in: [src/event/eventConst/KeyEvent.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/KeyEvent.ts#L15)
 
 Constant Definition Key Press Event Identification
 Event response status: Responds every time the keyboard is pressed.
@@ -294,7 +294,7 @@ Web,Native
 
 > `static` **KEY\_UP**: `string` = `'onKeyUp'`
 
-Defined in: [src/event/eventConst/KeyEvent.ts:24](https://github.com/orillusion/orillusion/blob/main/src/event/eventConst/KeyEvent.ts#L24)
+Defined in: [src/event/eventConst/KeyEvent.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/KeyEvent.ts#L24)
 
 Constant Definition Key up Event Identification
 Event response status: Responds every time the keyboard is released.
@@ -310,7 +310,7 @@ Web,Native
 
 > **keyCode**: `number` = `0`
 
-Defined in: [src/event/eventConst/KeyEvent.ts:32](https://github.com/orillusion/orillusion/blob/main/src/event/eventConst/KeyEvent.ts#L32)
+Defined in: [src/event/eventConst/KeyEvent.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/event/eventConst/KeyEvent.ts#L32)
 
 Key code value, enumeration type see KeyCode [KeyCode](../enumerations/KeyCode.md)
 
@@ -332,7 +332,7 @@ Web,Native
 
 > **get** **isStopImmediatePropagation**(): `boolean`
 
-Defined in: [src/event/CEvent.ts:125](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L125)
+Defined in: [src/event/CEvent.ts:125](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L125)
 
 Returns stopImmediatePropagation value
 
@@ -350,7 +350,7 @@ Returns stopImmediatePropagation value
 
 > **stopImmediatePropagation**(): `void`
 
-Defined in: [src/event/CEvent.ts:110](https://github.com/orillusion/orillusion/blob/main/src/event/CEvent.ts#L110)
+Defined in: [src/event/CEvent.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/event/CEvent.ts#L110)
 
 Prevent bubbling of all event listeners in subsequent nodes of the current node in the event flow.
 

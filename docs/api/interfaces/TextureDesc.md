@@ -4,7 +4,7 @@
 
 # Interface: TextureDesc
 
-Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:53](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L53)
+Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L53)
 
 Declarative description of a transient texture. Passes hand this to
 `b.declareTexture(name, desc)` during setup; the pool allocates
@@ -17,7 +17,7 @@ fetches it through `ctx.getTexture(name)` at execute time.
 
 > **format**: `GPUTextureFormat`
 
-Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:54](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L54)
+Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L54)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:54](https://githu
 
 > **width**: [`SizeSpec`](../type-aliases/SizeSpec.md)
 
-Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:57](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L57)
+Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L57)
 
 Width spec; `'screen'` etc. resolved per-compile against
  `ctx.presentationSize[0]`.
@@ -36,7 +36,7 @@ Width spec; `'screen'` etc. resolved per-compile against
 
 > **height**: [`SizeSpec`](../type-aliases/SizeSpec.md)
 
-Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:60](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L60)
+Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:60](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L60)
 
 Height spec; `'screen'` etc. resolved per-compile against
  `ctx.presentationSize[1]`.
@@ -47,7 +47,7 @@ Height spec; `'screen'` etc. resolved per-compile against
 
 > `optional` **mipLevelCount?**: `number`
 
-Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:65](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L65)
+Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:65](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L65)
 
 Mip levels. Default 1. >1 unlocks mip-chain mode — note that
  mip-chain resources should usually opt out of aliasing via
@@ -60,7 +60,7 @@ Mip levels. Default 1. >1 unlocks mip-chain mode — note that
 
 > `optional` **sampleCount?**: `number`
 
-Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:67](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L67)
+Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L67)
 
 WebGPU sample count; 0 or 1 => non-MSAA. Default 0.
 
@@ -70,7 +70,7 @@ WebGPU sample count; 0 or 1 => non-MSAA. Default 0.
 
 > `optional` **numberLayer?**: `number`
 
-Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:69](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L69)
+Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L69)
 
 Array layers (>=1). Default 1.
 
@@ -80,7 +80,7 @@ Array layers (>=1). Default 1.
 
 > `optional` **usage?**: `number` \| `"auto"`
 
-Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:75](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L75)
+Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:75](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L75)
 
 `'auto'` (default) ⇒ the compiler unions the final usage from
  every `read/write/readWrite` access hint that targets this
@@ -94,7 +94,7 @@ Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:75](https://githu
 
 > `optional` **aliasable?**: `boolean`
 
-Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:81](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L81)
+Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L81)
 
 When `false`, the physical pool MUST NOT alias this resource
  with another. Use for mip pyramids, history textures (TAA),
@@ -108,7 +108,7 @@ When `false`, the physical pool MUST NOT alias this resource
 
 > `optional` **publishToLegacyMap?**: `boolean`
 
-Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:92](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L92)
+Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:92](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L92)
 
 When `true`, the graph also publishes the pool-bound wrapper
  into the legacy RTResourceMap under the resource's
@@ -127,6 +127,6 @@ When `true`, the graph also publishes the pool-bound wrapper
 
 > `optional` **label?**: `string`
 
-Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:94](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L94)
+Defined in: [src/gfx/renderJob/graph/transient/ResourceDesc.ts:94](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceDesc.ts#L94)
 
 Debug label suffix forwarded to the underlying GPUTexture.

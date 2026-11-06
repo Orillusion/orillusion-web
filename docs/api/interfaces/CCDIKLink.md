@@ -4,7 +4,7 @@
 
 # Interface: CCDIKLink
 
-Defined in: [src/components/anim/ik/CCDIK.ts:46](https://github.com/orillusion/orillusion/blob/main/src/components/anim/ik/CCDIK.ts#L46)
+Defined in: [src/components/anim/ik/CCDIK.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/ik/CCDIK.ts#L46)
 
 One link in an IK chain — bone reference plus optional joint constraints.
 
@@ -47,7 +47,7 @@ box).
 
 > **boneName**: `string`
 
-Defined in: [src/components/anim/ik/CCDIK.ts:48](https://github.com/orillusion/orillusion/blob/main/src/components/anim/ik/CCDIK.ts#L48)
+Defined in: [src/components/anim/ik/CCDIK.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/ik/CCDIK.ts#L48)
 
 Bone name (must match a joint in the AnimatorComponent's avatar).
 
@@ -57,7 +57,7 @@ Bone name (must match a joint in the AnimatorComponent's avatar).
 
 > `optional` **hingeAxis?**: [`Vector3`](../classes/Vector3.md)
 
-Defined in: [src/components/anim/ik/CCDIK.ts:50](https://github.com/orillusion/orillusion/blob/main/src/components/anim/ik/CCDIK.ts#L50)
+Defined in: [src/components/anim/ik/CCDIK.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/ik/CCDIK.ts#L50)
 
 Bone-local hinge axis (unit vector) — forces 1-DOF rotation around this axis.
 
@@ -67,7 +67,7 @@ Bone-local hinge axis (unit vector) — forces 1-DOF rotation around this axis.
 
 > `optional` **minAngle?**: `number`
 
-Defined in: [src/components/anim/ik/CCDIK.ts:52](https://github.com/orillusion/orillusion/blob/main/src/components/anim/ik/CCDIK.ts#L52)
+Defined in: [src/components/anim/ik/CCDIK.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/ik/CCDIK.ts#L52)
 
 Min twist angle around `hingeAxis` (radians). Required if `hingeAxis` is set.
 
@@ -77,7 +77,7 @@ Min twist angle around `hingeAxis` (radians). Required if `hingeAxis` is set.
 
 > `optional` **maxAngle?**: `number`
 
-Defined in: [src/components/anim/ik/CCDIK.ts:54](https://github.com/orillusion/orillusion/blob/main/src/components/anim/ik/CCDIK.ts#L54)
+Defined in: [src/components/anim/ik/CCDIK.ts:54](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/ik/CCDIK.ts#L54)
 
 Max twist angle around `hingeAxis` (radians). Required if `hingeAxis` is set.
 
@@ -87,7 +87,7 @@ Max twist angle around `hingeAxis` (radians). Required if `hingeAxis` is set.
 
 > `optional` **rotationMin?**: [`Vector3`](../classes/Vector3.md)
 
-Defined in: [src/components/anim/ik/CCDIK.ts:56](https://github.com/orillusion/orillusion/blob/main/src/components/anim/ik/CCDIK.ts#L56)
+Defined in: [src/components/anim/ik/CCDIK.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/ik/CCDIK.ts#L56)
 
 Per-axis Euler lower bound applied to the bone's local rotation.
 
@@ -97,7 +97,7 @@ Per-axis Euler lower bound applied to the bone's local rotation.
 
 > `optional` **rotationMax?**: [`Vector3`](../classes/Vector3.md)
 
-Defined in: [src/components/anim/ik/CCDIK.ts:58](https://github.com/orillusion/orillusion/blob/main/src/components/anim/ik/CCDIK.ts#L58)
+Defined in: [src/components/anim/ik/CCDIK.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/ik/CCDIK.ts#L58)
 
 Per-axis Euler upper bound applied to the bone's local rotation.
 
@@ -107,7 +107,7 @@ Per-axis Euler upper bound applied to the bone's local rotation.
 
 > `optional` **eulerOrder?**: [`CCDIKEulerOrder`](../type-aliases/CCDIKEulerOrder.md)
 
-Defined in: [src/components/anim/ik/CCDIK.ts:60](https://github.com/orillusion/orillusion/blob/main/src/components/anim/ik/CCDIK.ts#L60)
+Defined in: [src/components/anim/ik/CCDIK.ts:60](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/ik/CCDIK.ts#L60)
 
 Euler order for `rotationMin`/`rotationMax`. Default `'XYZ'` (common IK-rig convention).
 
@@ -117,6 +117,6 @@ Euler order for `rotationMin`/`rotationMax`. Default `'XYZ'` (common IK-rig conv
 
 > `optional` **radians?**: `boolean`
 
-Defined in: [src/components/anim/ik/CCDIK.ts:62](https://github.com/orillusion/orillusion/blob/main/src/components/anim/ik/CCDIK.ts#L62)
+Defined in: [src/components/anim/ik/CCDIK.ts:62](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/ik/CCDIK.ts#L62)
 
 If true, `rotationMin`/`rotationMax` are radians (common IK-rig convention). Default false (degrees).

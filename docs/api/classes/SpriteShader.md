@@ -4,7 +4,7 @@
 
 # Class: SpriteShader
 
-Defined in: [src/gfx/graphics/webGpu/shader/SpriteShader.ts:18](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/SpriteShader.ts#L18)
+Defined in: [src/gfx/graphics/webGpu/shader/SpriteShader.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/SpriteShader.ts#L18)
 
 Default shader backing `SpriteMaterial`. One COLOR pass, no shadow /
 reflection / GI / lighting — sprites are a flat textured quad in
@@ -20,7 +20,7 @@ world space.
 
 > **new SpriteShader**(): `SpriteShader`
 
-Defined in: [src/gfx/graphics/webGpu/shader/SpriteShader.ts:20](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/SpriteShader.ts#L20)
+Defined in: [src/gfx/graphics/webGpu/shader/SpriteShader.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/SpriteShader.ts#L20)
 
 #### Returns
 
@@ -36,7 +36,7 @@ Defined in: [src/gfx/graphics/webGpu/shader/SpriteShader.ts:20](https://github.c
 
 > **computes**: [`RenderShaderCompute`](RenderShaderCompute.md)[]
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:27](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L27)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L27)
 
 Compute passes attached to this shader.
 
@@ -50,7 +50,7 @@ Compute passes attached to this shader.
 
 > **passShader**: `Map`\<`PassType`, [`RenderShaderPass`](RenderShaderPass.md)[]\>
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:30](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L30)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L30)
 
 Render passes grouped by pass type.
 
@@ -66,7 +66,7 @@ Render passes grouped by pass type.
 
 > **get** **baseMap**(): [`Texture`](Texture.md)
 
-Defined in: [src/gfx/graphics/webGpu/shader/SpriteShader.ts:60](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/SpriteShader.ts#L60)
+Defined in: [src/gfx/graphics/webGpu/shader/SpriteShader.ts:60](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/SpriteShader.ts#L60)
 
 ##### Returns
 
@@ -76,7 +76,7 @@ Defined in: [src/gfx/graphics/webGpu/shader/SpriteShader.ts:60](https://github.c
 
 > **set** **baseMap**(`value`): `void`
 
-Defined in: [src/gfx/graphics/webGpu/shader/SpriteShader.ts:56](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/SpriteShader.ts#L56)
+Defined in: [src/gfx/graphics/webGpu/shader/SpriteShader.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/SpriteShader.ts#L56)
 
 The base color texture of the sprite.
 
@@ -96,7 +96,7 @@ The base color texture of the sprite.
 
 > **addRenderPass**(`renderShader`, `index?`): `void`
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:42](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L42)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L42)
 
 Add a render pass to this shader.
 
@@ -128,7 +128,7 @@ optional insertion index; appended when -1
 
 > **removeShader**(`renderShader`, `index?`): `void`
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:57](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L57)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L57)
 
 Remove a render pass from this shader.
 
@@ -160,7 +160,7 @@ optional index within the pass type bucket
 
 > **removeShaderByIndex**(`passType`, `index?`): `void`
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:76](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L76)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L76)
 
 Remove a render pass by pass type and index.
 
@@ -192,7 +192,7 @@ optional index; removes the whole bucket when -1
 
 > **getSubShaders**(`passType`): [`RenderShaderPass`](RenderShaderPass.md)[]
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:91](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L91)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:91](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L91)
 
 Get the render passes registered for the given pass type.
 
@@ -218,7 +218,7 @@ the pass type bucket
 
 > **hasSubShaders**(`passType`): `boolean`
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:99](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L99)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L99)
 
 Whether any render pass is registered for the given pass type.
 
@@ -244,7 +244,7 @@ the pass type bucket
 
 > **getDefaultShaders**(): [`RenderShaderPass`](RenderShaderPass.md)[]
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:107](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L107)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L107)
 
 Get the default (COLOR) render passes.
 
@@ -262,7 +262,7 @@ Get the default (COLOR) render passes.
 
 > **getDefaultColorShader**(): [`RenderShaderPass`](RenderShaderPass.md)
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:114](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L114)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L114)
 
 Get the first default (COLOR) render pass.
 
@@ -280,7 +280,7 @@ Get the first default (COLOR) render pass.
 
 > **setDefine**(`arg0`, `arg1`): `void`
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:123](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L123)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L123)
 
 Set a preprocessor define on all render passes.
 
@@ -312,7 +312,7 @@ the define value
 
 > **getDefine**(`arg0`): `boolean`
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:135](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L135)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:135](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L135)
 
 Get the value of a preprocessor define from the render passes.
 
@@ -338,7 +338,7 @@ the define name
 
 > **hasDefine**(`arg0`): `boolean`
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:149](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L149)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:149](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L149)
 
 Whether any render pass declares the given preprocessor define.
 
@@ -364,7 +364,7 @@ the define name
 
 > **deleteDefine**(`arg0`): `void`
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:164](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L164)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:164](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L164)
 
 Remove a preprocessor define from all render passes.
 
@@ -390,7 +390,7 @@ the define name
 
 > **setUniform**(`arg0`, `arg1`): `void`
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:177](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L177)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:177](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L177)
 
 Set a uniform value on all render passes.
 
@@ -422,7 +422,7 @@ the uniform value
 
 > **setUniformFloat**(`arg0`, `arg1`): `void`
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:190](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L190)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:190](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L190)
 
 Set a float uniform on all render passes.
 
@@ -454,7 +454,7 @@ the float value
 
 > **setUniformInt32**(`arg0`, `arg1`): `void`
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:203](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L203)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:203](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L203)
 
 Set a 32-bit integer uniform on all render passes.
 
@@ -486,7 +486,7 @@ the integer value
 
 > **setUniformVector2**(`arg0`, `arg1`): `void`
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:216](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L216)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:216](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L216)
 
 Set a Vector2 uniform on all render passes.
 
@@ -518,7 +518,7 @@ the vector value
 
 > **setUniformVector3**(`arg0`, `arg1`): `void`
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:229](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L229)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:229](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L229)
 
 Set a Vector3 uniform on all render passes.
 
@@ -550,7 +550,7 @@ the vector value
 
 > **setUniformVector4**(`arg0`, `arg1`): `void`
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:242](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L242)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:242](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L242)
 
 Set a Vector4 uniform on all render passes.
 
@@ -582,7 +582,7 @@ the vector value
 
 > **setUniformColor**(`arg0`, `arg1`): `void`
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:255](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L255)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:255](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L255)
 
 Set a color uniform on all render passes.
 
@@ -614,7 +614,7 @@ the color value
 
 > **getUniform**(`arg0`): `any`
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:267](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L267)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:267](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L267)
 
 Get a uniform value from the default color pass.
 
@@ -640,7 +640,7 @@ the uniform name
 
 > **getUniformFloat**(`arg0`): `number`
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:275](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L275)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:275](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L275)
 
 Get a float uniform from the default color pass.
 
@@ -666,7 +666,7 @@ the uniform name
 
 > **getUniformVector2**(`arg0`): [`Vector2`](Vector2.md)
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:283](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L283)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:283](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L283)
 
 Get a Vector2 uniform from the default color pass.
 
@@ -692,7 +692,7 @@ the uniform name
 
 > **getUniformVector3**(`arg0`): [`Vector3`](Vector3.md)
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:291](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L291)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:291](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L291)
 
 Get a Vector3 uniform from the default color pass.
 
@@ -718,7 +718,7 @@ the uniform name
 
 > **getUniformVector4**(`arg0`): `Vector4`
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:299](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L299)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:299](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L299)
 
 Get a Vector4 uniform from the default color pass.
 
@@ -744,7 +744,7 @@ the uniform name
 
 > **getUniformColor**(`arg0`): [`Color`](Color.md)
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:307](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L307)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:307](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L307)
 
 Get a color uniform from the default color pass.
 
@@ -770,7 +770,7 @@ the uniform name
 
 > **setTexture**(`arg0`, `arg1`): `void`
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:316](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L316)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:316](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L316)
 
 Set a texture on all render passes and enable its `USE_*` define.
 
@@ -802,7 +802,7 @@ the texture
 
 > **getTexture**(`arg0`): [`Texture`](Texture.md)
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:329](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L329)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:329](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L329)
 
 Get a texture from the default color pass.
 
@@ -828,7 +828,7 @@ the texture name
 
 > **setUniformBuffer**(`arg0`, `arg1`): `void`
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:338](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L338)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:338](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L338)
 
 Set a uniform buffer on all render passes.
 
@@ -860,7 +860,7 @@ the uniform buffer
 
 > **getUniformBuffer**(`arg0`): `GPUBufferBase`
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:350](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L350)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:350](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L350)
 
 Get a uniform buffer from the default color pass.
 
@@ -886,7 +886,7 @@ the buffer name
 
 > **setStorageBuffer**(`arg0`, `arg1`): `void`
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:359](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L359)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:359](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L359)
 
 Set a storage buffer on all render passes.
 
@@ -918,7 +918,7 @@ the storage buffer
 
 > **getStorageBuffer**(`arg0`): [`StorageGPUBuffer`](StorageGPUBuffer.md)
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:371](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L371)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:371](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L371)
 
 Get a storage buffer from the default color pass.
 
@@ -944,7 +944,7 @@ the buffer name
 
 > **setStructStorageBuffer**\<`T`\>(`arg0`, `arg1`): `void`
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:380](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L380)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:380](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L380)
 
 Set a struct storage buffer on all render passes.
 
@@ -982,7 +982,7 @@ the struct storage buffer
 
 > **getStructStorageBuffer**(`arg0`): `GPUBufferBase`
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:392](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L392)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:392](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L392)
 
 Get a struct storage buffer from the default color pass.
 
@@ -1008,7 +1008,7 @@ the buffer name
 
 > **noticeValueChange**(): `void`
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:399](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L399)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:399](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L399)
 
 Notify all render passes that uniform values have changed.
 
@@ -1026,7 +1026,7 @@ Notify all render passes that uniform values have changed.
 
 > **destroy**(`force?`): `void`
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:411](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L411)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:411](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L411)
 
 Destroy all render passes and clear the pass map.
 
@@ -1052,7 +1052,7 @@ force destruction of GPU resources
 
 > **clone**(): [`Shader`](Shader.md)
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:431](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L431)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:431](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L431)
 
 Deep-clone this shader, copying every render pass.
 
@@ -1070,7 +1070,7 @@ Deep-clone this shader, copying every render pass.
 
 > **applyUniform**(): `void`
 
-Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:452](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L452)
+Defined in: [src/gfx/graphics/webGpu/shader/Shader.ts:452](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/Shader.ts#L452)
 
 Apply pending uniform values to all render passes.
 
@@ -1088,7 +1088,7 @@ Apply pending uniform values to all render passes.
 
 > **setDefault**(): `void`
 
-Defined in: [src/gfx/graphics/webGpu/shader/SpriteShader.ts:42](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/SpriteShader.ts#L42)
+Defined in: [src/gfx/graphics/webGpu/shader/SpriteShader.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/SpriteShader.ts#L42)
 
 Apply the default uniform values for the sprite shader.
 

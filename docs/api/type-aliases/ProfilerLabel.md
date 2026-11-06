@@ -6,7 +6,7 @@
 
 > **ProfilerLabel** = `object`
 
-Defined in: [src/util/ProfilerUtil.ts:13](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L13)
+Defined in: [src/util/ProfilerUtil.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L13)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [src/util/ProfilerUtil.ts:13](https://github.com/orillusion/orillusi
 
 > **lable**: `string`
 
-Defined in: [src/util/ProfilerUtil.ts:14](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L14)
+Defined in: [src/util/ProfilerUtil.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L14)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [src/util/ProfilerUtil.ts:14](https://github.com/orillusion/orillusi
 
 > **start**: `number`
 
-Defined in: [src/util/ProfilerUtil.ts:15](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L15)
+Defined in: [src/util/ProfilerUtil.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L15)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [src/util/ProfilerUtil.ts:15](https://github.com/orillusion/orillusi
 
 > **end**: `number`
 
-Defined in: [src/util/ProfilerUtil.ts:16](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L16)
+Defined in: [src/util/ProfilerUtil.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L16)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [src/util/ProfilerUtil.ts:16](https://github.com/orillusion/orillusi
 
 > **total**: `number`
 
-Defined in: [src/util/ProfilerUtil.ts:17](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L17)
+Defined in: [src/util/ProfilerUtil.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L17)
 
 ***
 
@@ -46,7 +46,7 @@ Defined in: [src/util/ProfilerUtil.ts:17](https://github.com/orillusion/orillusi
 
 > **count**: `number`
 
-Defined in: [src/util/ProfilerUtil.ts:18](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L18)
+Defined in: [src/util/ProfilerUtil.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L18)
 
 ***
 
@@ -54,4 +54,4 @@ Defined in: [src/util/ProfilerUtil.ts:18](https://github.com/orillusion/orillusi
 
 > **child**: `Map`\<`string`, [`ProfilerLabel2`](ProfilerLabel2.md)\>
 
-Defined in: [src/util/ProfilerUtil.ts:19](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L19)
+Defined in: [src/util/ProfilerUtil.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L19)

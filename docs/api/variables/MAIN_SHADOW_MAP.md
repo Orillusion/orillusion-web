@@ -6,7 +6,7 @@
 
 > `const` **MAIN\_SHADOW\_MAP**: `"_MainShadowMap"` = `'_MainShadowMap'`
 
-Defined in: [src/gfx/renderJob/graph/passes/ShadowPass.ts:32](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/ShadowPass.ts#L32)
+Defined in: [src/gfx/renderJob/graph/passes/ShadowPass.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/ShadowPass.ts#L32)
 
 Published handle name for the directional-light shadow map array.
 `_MainShadowMap` is the CSM cascade array texture. Each cascade

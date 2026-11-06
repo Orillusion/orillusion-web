@@ -4,7 +4,7 @@
 
 # Class: PipelinePool
 
-Defined in: [src/gfx/graphics/webGpu/PipelinePool.ts:7](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/PipelinePool.ts#L7)
+Defined in: [src/gfx/graphics/webGpu/PipelinePool.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/PipelinePool.ts#L7)
 
 Per-context cache of shared render pipelines, keyed by shader variant.
 
@@ -24,7 +24,7 @@ Per-context cache of shared render pipelines, keyed by shader variant.
 
 > `static` **getSharePipeline**(`ctx`, `shaderVariant`): `GPURenderPipeline`
 
-Defined in: [src/gfx/graphics/webGpu/PipelinePool.ts:17](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/PipelinePool.ts#L17)
+Defined in: [src/gfx/graphics/webGpu/PipelinePool.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/PipelinePool.ts#L17)
 
 Get a shared render pipeline for the given shader variant, or null if not cached.
 
@@ -52,7 +52,7 @@ the shader variant key
 
 > `static` **setSharePipeline**(`ctx`, `shaderVariant`, `pipeline`): `void`
 
-Defined in: [src/gfx/graphics/webGpu/PipelinePool.ts:26](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/PipelinePool.ts#L26)
+Defined in: [src/gfx/graphics/webGpu/PipelinePool.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/PipelinePool.ts#L26)
 
 #### Parameters
 

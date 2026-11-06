@@ -4,7 +4,7 @@
 
 # Class: Struct
 
-Defined in: [src/util/struct/Struct.ts:11](https://github.com/orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L11)
+Defined in: [src/util/struct/Struct.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L11)
 
 ## Constructors
 
@@ -22,7 +22,7 @@ Defined in: [src/util/struct/Struct.ts:11](https://github.com/orillusion/orillus
 
 > `static` **getValueSize**(`value`): `any`
 
-Defined in: [src/util/struct/Struct.ts:48](https://github.com/orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L48)
+Defined in: [src/util/struct/Struct.ts:48](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L48)
 
 get any type value memory size
 
@@ -44,7 +44,7 @@ any type value
 
 > `static` **Ref**\<`T`\>(`c`): `object`[]
 
-Defined in: [src/util/struct/Struct.ts:93](https://github.com/orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L93)
+Defined in: [src/util/struct/Struct.ts:93](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L93)
 
 #### Type Parameters
 
@@ -68,7 +68,7 @@ Defined in: [src/util/struct/Struct.ts:93](https://github.com/orillusion/orillus
 
 > `static` **Get**\<`T`\>(`c`): `Struct`
 
-Defined in: [src/util/struct/Struct.ts:99](https://github.com/orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L99)
+Defined in: [src/util/struct/Struct.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L99)
 
 #### Type Parameters
 
@@ -92,7 +92,7 @@ Defined in: [src/util/struct/Struct.ts:99](https://github.com/orillusion/orillus
 
 > `static` **GetSize**\<`T`\>(`c`): `number`
 
-Defined in: [src/util/struct/Struct.ts:112](https://github.com/orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L112)
+Defined in: [src/util/struct/Struct.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L112)
 
 get any struct memory size
 
@@ -118,7 +118,7 @@ get any struct memory size
 
 > **getValueType**(): `object`[]
 
-Defined in: [src/util/struct/Struct.ts:25](https://github.com/orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L25)
+Defined in: [src/util/struct/Struct.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/util/struct/Struct.ts#L25)
 
 get reflection name
 

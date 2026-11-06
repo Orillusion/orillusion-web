@@ -6,7 +6,7 @@
 
 > **NonSerialize**(`cls`, `key`): `any`
 
-Defined in: [src/util/SerializeDecoration.ts:4](https://github.com/orillusion/orillusion/blob/main/src/util/SerializeDecoration.ts#L4)
+Defined in: [src/util/SerializeDecoration.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/util/SerializeDecoration.ts#L4)
 
 ## Parameters
 

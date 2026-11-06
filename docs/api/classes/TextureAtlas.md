@@ -4,7 +4,7 @@
 
 # Class: TextureAtlas
 
-Defined in: [src/assets/TextureAtlas.ts:16](https://github.com/orillusion/orillusion/blob/main/src/assets/TextureAtlas.ts#L16)
+Defined in: [src/assets/TextureAtlas.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/assets/TextureAtlas.ts#L16)
 
 Texture atlas — a base texture plus a dictionary of named `Sprite`
 assets. Returned by `Engine3D.resFor(ctx).loadAtlas(url)`.
@@ -19,7 +19,7 @@ the atlas's texture and carries its own UV region / pivot. Pair with
 
 > **new TextureAtlas**(`texture`): `TextureAtlas`
 
-Defined in: [src/assets/TextureAtlas.ts:24](https://github.com/orillusion/orillusion/blob/main/src/assets/TextureAtlas.ts#L24)
+Defined in: [src/assets/TextureAtlas.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/assets/TextureAtlas.ts#L24)
 
 #### Parameters
 
@@ -37,7 +37,7 @@ Defined in: [src/assets/TextureAtlas.ts:24](https://github.com/orillusion/orillu
 
 > **texture**: [`Texture`](Texture.md)
 
-Defined in: [src/assets/TextureAtlas.ts:18](https://github.com/orillusion/orillusion/blob/main/src/assets/TextureAtlas.ts#L18)
+Defined in: [src/assets/TextureAtlas.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/assets/TextureAtlas.ts#L18)
 
 The shared base texture that all sprites in this atlas reference.
 
@@ -47,7 +47,7 @@ The shared base texture that all sprites in this atlas reference.
 
 > `readonly` **sprites**: `Map`\<`string`, [`Sprite`](Sprite.md)\>
 
-Defined in: [src/assets/TextureAtlas.ts:20](https://github.com/orillusion/orillusion/blob/main/src/assets/TextureAtlas.ts#L20)
+Defined in: [src/assets/TextureAtlas.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/assets/TextureAtlas.ts#L20)
 
 Named sprites parsed from the atlas, keyed by region id.
 
@@ -57,7 +57,7 @@ Named sprites parsed from the atlas, keyed by region id.
 
 > **name**: `string` = `''`
 
-Defined in: [src/assets/TextureAtlas.ts:22](https://github.com/orillusion/orillusion/blob/main/src/assets/TextureAtlas.ts#L22)
+Defined in: [src/assets/TextureAtlas.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/assets/TextureAtlas.ts#L22)
 
 Optional atlas name.
 
@@ -67,7 +67,7 @@ Optional atlas name.
 
 > **get**(`id`): [`Sprite`](Sprite.md)
 
-Defined in: [src/assets/TextureAtlas.ts:30](https://github.com/orillusion/orillusion/blob/main/src/assets/TextureAtlas.ts#L30)
+Defined in: [src/assets/TextureAtlas.ts:30](https://github.com/Orillusion/orillusion/blob/main/src/assets/TextureAtlas.ts#L30)
 
 Look up a named sprite. Returns `undefined` if the atlas has no such region.
 
@@ -87,7 +87,7 @@ Look up a named sprite. Returns `undefined` if the atlas has no such region.
 
 > **add**(`id`, `region`): [`Sprite`](Sprite.md)
 
-Defined in: [src/assets/TextureAtlas.ts:35](https://github.com/orillusion/orillusion/blob/main/src/assets/TextureAtlas.ts#L35)
+Defined in: [src/assets/TextureAtlas.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/assets/TextureAtlas.ts#L35)
 
 Register a sprite. `region` is normalized UV.
 
@@ -111,7 +111,7 @@ Register a sprite. `region` is normalized UV.
 
 > **addPixelRect**(`id`, `pixelRect`, `atlasWidth`, `atlasHeight`): [`Sprite`](Sprite.md)
 
-Defined in: [src/assets/TextureAtlas.ts:46](https://github.com/orillusion/orillusion/blob/main/src/assets/TextureAtlas.ts#L46)
+Defined in: [src/assets/TextureAtlas.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/assets/TextureAtlas.ts#L46)
 
 Register a sprite from a pixel-space rect in the source texture.
 

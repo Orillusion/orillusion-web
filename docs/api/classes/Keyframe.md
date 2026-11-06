@@ -4,7 +4,7 @@
 
 # Class: Keyframe
 
-Defined in: [src/math/enum/Keyframe.ts:6](https://github.com/orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L6)
+Defined in: [src/math/enum/Keyframe.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L6)
 
 ## Constructors
 
@@ -12,7 +12,7 @@ Defined in: [src/math/enum/Keyframe.ts:6](https://github.com/orillusion/orillusi
 
 > **new Keyframe**(`time?`, `value?`): `Keyframe`
 
-Defined in: [src/math/enum/Keyframe.ts:27](https://github.com/orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L27)
+Defined in: [src/math/enum/Keyframe.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L27)
 
 #### Parameters
 
@@ -34,7 +34,7 @@ Defined in: [src/math/enum/Keyframe.ts:27](https://github.com/orillusion/orillus
 
 > **serializedVersion**: `string` = `'2'`
 
-Defined in: [src/math/enum/Keyframe.ts:8](https://github.com/orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L8)
+Defined in: [src/math/enum/Keyframe.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L8)
 
 Serialization format version of this keyframe.
 
@@ -44,7 +44,7 @@ Serialization format version of this keyframe.
 
 > **time**: `number`
 
-Defined in: [src/math/enum/Keyframe.ts:10](https://github.com/orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L10)
+Defined in: [src/math/enum/Keyframe.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L10)
 
 Time of the keyframe in seconds.
 
@@ -54,7 +54,7 @@ Time of the keyframe in seconds.
 
 > **value**: `number`
 
-Defined in: [src/math/enum/Keyframe.ts:12](https://github.com/orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L12)
+Defined in: [src/math/enum/Keyframe.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L12)
 
 Value of the keyframe at its time.
 
@@ -64,7 +64,7 @@ Value of the keyframe at its time.
 
 > **inSlope**: `number` = `0`
 
-Defined in: [src/math/enum/Keyframe.ts:14](https://github.com/orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L14)
+Defined in: [src/math/enum/Keyframe.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L14)
 
 Incoming tangent slope.
 
@@ -74,7 +74,7 @@ Incoming tangent slope.
 
 > **outSlope**: `number` = `0`
 
-Defined in: [src/math/enum/Keyframe.ts:16](https://github.com/orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L16)
+Defined in: [src/math/enum/Keyframe.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L16)
 
 Outgoing tangent slope.
 
@@ -84,7 +84,7 @@ Outgoing tangent slope.
 
 > **tangentMode**: `number` = `0`
 
-Defined in: [src/math/enum/Keyframe.ts:18](https://github.com/orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L18)
+Defined in: [src/math/enum/Keyframe.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L18)
 
 Tangent mode flags controlling how slopes are computed.
 
@@ -94,7 +94,7 @@ Tangent mode flags controlling how slopes are computed.
 
 > **weightedMode**: `number` = `0`
 
-Defined in: [src/math/enum/Keyframe.ts:21](https://github.com/orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L21)
+Defined in: [src/math/enum/Keyframe.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L21)
 
 Weighted mode flags controlling whether in/out weights are used.
 
@@ -104,7 +104,7 @@ Weighted mode flags controlling whether in/out weights are used.
 
 > **inWeight**: `number`
 
-Defined in: [src/math/enum/Keyframe.ts:23](https://github.com/orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L23)
+Defined in: [src/math/enum/Keyframe.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L23)
 
 Incoming tangent weight.
 
@@ -114,7 +114,7 @@ Incoming tangent weight.
 
 > **outWeight**: `number`
 
-Defined in: [src/math/enum/Keyframe.ts:25](https://github.com/orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L25)
+Defined in: [src/math/enum/Keyframe.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L25)
 
 Outgoing tangent weight.
 
@@ -124,7 +124,7 @@ Outgoing tangent weight.
 
 > **unSerialized**(`data`): `void`
 
-Defined in: [src/math/enum/Keyframe.ts:33](https://github.com/orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L33)
+Defined in: [src/math/enum/Keyframe.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L33)
 
 Populate this keyframe from a serialized object using inSlope/outSlope fields.
 
@@ -144,7 +144,7 @@ Populate this keyframe from a serialized object using inSlope/outSlope fields.
 
 > **unSerialized2**(`data`): `void`
 
-Defined in: [src/math/enum/Keyframe.ts:43](https://github.com/orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L43)
+Defined in: [src/math/enum/Keyframe.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/math/enum/Keyframe.ts#L43)
 
 Populate this keyframe from a serialized object using inTangent/outTangent fields.
 

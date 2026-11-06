@@ -6,7 +6,7 @@
 
 > **ProfilerLabel2** = `object`
 
-Defined in: [src/util/ProfilerUtil.ts:4](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L4)
+Defined in: [src/util/ProfilerUtil.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L4)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [src/util/ProfilerUtil.ts:4](https://github.com/orillusion/orillusio
 
 > **lable**: `string`
 
-Defined in: [src/util/ProfilerUtil.ts:5](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L5)
+Defined in: [src/util/ProfilerUtil.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L5)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [src/util/ProfilerUtil.ts:5](https://github.com/orillusion/orillusio
 
 > **start**: `number`
 
-Defined in: [src/util/ProfilerUtil.ts:6](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L6)
+Defined in: [src/util/ProfilerUtil.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L6)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [src/util/ProfilerUtil.ts:6](https://github.com/orillusion/orillusio
 
 > **end**: `number`
 
-Defined in: [src/util/ProfilerUtil.ts:7](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L7)
+Defined in: [src/util/ProfilerUtil.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L7)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [src/util/ProfilerUtil.ts:7](https://github.com/orillusion/orillusio
 
 > **total**: `number`
 
-Defined in: [src/util/ProfilerUtil.ts:8](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L8)
+Defined in: [src/util/ProfilerUtil.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L8)
 
 ***
 
@@ -46,4 +46,4 @@ Defined in: [src/util/ProfilerUtil.ts:8](https://github.com/orillusion/orillusio
 
 > **count**: `number`
 
-Defined in: [src/util/ProfilerUtil.ts:9](https://github.com/orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L9)
+Defined in: [src/util/ProfilerUtil.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/util/ProfilerUtil.ts#L9)

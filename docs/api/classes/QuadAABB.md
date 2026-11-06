@@ -4,7 +4,7 @@
 
 # Class: QuadAABB
 
-Defined in: [src/core/tree/quad/QuadAABB.ts:7](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L7)
+Defined in: [src/core/tree/quad/QuadAABB.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L7)
 
 Axis-aligned bounding box used by the quad-tree to describe cell bounds.
 
@@ -14,7 +14,7 @@ Axis-aligned bounding box used by the quad-tree to describe cell bounds.
 
 > **new QuadAABB**(): `QuadAABB`
 
-Defined in: [src/core/tree/quad/QuadAABB.ts:25](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L25)
+Defined in: [src/core/tree/quad/QuadAABB.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L25)
 
 #### Returns
 
@@ -26,7 +26,7 @@ Defined in: [src/core/tree/quad/QuadAABB.ts:25](https://github.com/orillusion/or
 
 > **minPosX**: `number` = `0`
 
-Defined in: [src/core/tree/quad/QuadAABB.ts:9](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L9)
+Defined in: [src/core/tree/quad/QuadAABB.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L9)
 
 ***
 
@@ -34,7 +34,7 @@ Defined in: [src/core/tree/quad/QuadAABB.ts:9](https://github.com/orillusion/ori
 
 > **minPosY**: `number` = `0`
 
-Defined in: [src/core/tree/quad/QuadAABB.ts:11](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L11)
+Defined in: [src/core/tree/quad/QuadAABB.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L11)
 
 ***
 
@@ -42,7 +42,7 @@ Defined in: [src/core/tree/quad/QuadAABB.ts:11](https://github.com/orillusion/or
 
 > **maxPosX**: `number` = `0`
 
-Defined in: [src/core/tree/quad/QuadAABB.ts:13](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L13)
+Defined in: [src/core/tree/quad/QuadAABB.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L13)
 
 ***
 
@@ -50,7 +50,7 @@ Defined in: [src/core/tree/quad/QuadAABB.ts:13](https://github.com/orillusion/or
 
 > **maxPosY**: `number` = `0`
 
-Defined in: [src/core/tree/quad/QuadAABB.ts:15](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L15)
+Defined in: [src/core/tree/quad/QuadAABB.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L15)
 
 ***
 
@@ -58,7 +58,7 @@ Defined in: [src/core/tree/quad/QuadAABB.ts:15](https://github.com/orillusion/or
 
 > **testID**: `number` = `0`
 
-Defined in: [src/core/tree/quad/QuadAABB.ts:17](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L17)
+Defined in: [src/core/tree/quad/QuadAABB.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L17)
 
 ***
 
@@ -66,7 +66,7 @@ Defined in: [src/core/tree/quad/QuadAABB.ts:17](https://github.com/orillusion/or
 
 > **points**: [`Vector3`](Vector3.md)[]
 
-Defined in: [src/core/tree/quad/QuadAABB.ts:19](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L19)
+Defined in: [src/core/tree/quad/QuadAABB.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L19)
 
 ## Accessors
 
@@ -76,7 +76,7 @@ Defined in: [src/core/tree/quad/QuadAABB.ts:19](https://github.com/orillusion/or
 
 > **get** **radius**(): `number`
 
-Defined in: [src/core/tree/quad/QuadAABB.ts:91](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L91)
+Defined in: [src/core/tree/quad/QuadAABB.ts:91](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L91)
 
 ##### Returns
 
@@ -90,7 +90,7 @@ Defined in: [src/core/tree/quad/QuadAABB.ts:91](https://github.com/orillusion/or
 
 > **get** **sideX**(): `number`
 
-Defined in: [src/core/tree/quad/QuadAABB.ts:95](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L95)
+Defined in: [src/core/tree/quad/QuadAABB.ts:95](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L95)
 
 ##### Returns
 
@@ -104,7 +104,7 @@ Defined in: [src/core/tree/quad/QuadAABB.ts:95](https://github.com/orillusion/or
 
 > **get** **sideY**(): `number`
 
-Defined in: [src/core/tree/quad/QuadAABB.ts:99](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L99)
+Defined in: [src/core/tree/quad/QuadAABB.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L99)
 
 ##### Returns
 
@@ -118,7 +118,7 @@ Defined in: [src/core/tree/quad/QuadAABB.ts:99](https://github.com/orillusion/or
 
 > **get** **centreX**(): `number`
 
-Defined in: [src/core/tree/quad/QuadAABB.ts:103](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L103)
+Defined in: [src/core/tree/quad/QuadAABB.ts:103](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L103)
 
 ##### Returns
 
@@ -132,7 +132,7 @@ Defined in: [src/core/tree/quad/QuadAABB.ts:103](https://github.com/orillusion/o
 
 > **get** **centreY**(): `number`
 
-Defined in: [src/core/tree/quad/QuadAABB.ts:107](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L107)
+Defined in: [src/core/tree/quad/QuadAABB.ts:107](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L107)
 
 ##### Returns
 
@@ -144,7 +144,7 @@ Defined in: [src/core/tree/quad/QuadAABB.ts:107](https://github.com/orillusion/o
 
 > **setAABox**(`cx`, `cy`, `sideX`, `sideY`): `void`
 
-Defined in: [src/core/tree/quad/QuadAABB.ts:32](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L32)
+Defined in: [src/core/tree/quad/QuadAABB.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L32)
 
 #### Parameters
 
@@ -174,7 +174,7 @@ Defined in: [src/core/tree/quad/QuadAABB.ts:32](https://github.com/orillusion/or
 
 > **setOffset**(`vec`): `void`
 
-Defined in: [src/core/tree/quad/QuadAABB.ts:41](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L41)
+Defined in: [src/core/tree/quad/QuadAABB.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L41)
 
 #### Parameters
 
@@ -192,7 +192,7 @@ Defined in: [src/core/tree/quad/QuadAABB.ts:41](https://github.com/orillusion/or
 
 > **setContainRect**(`minX`, `minY`, `maxX`, `maxY`): `void`
 
-Defined in: [src/core/tree/quad/QuadAABB.ts:52](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L52)
+Defined in: [src/core/tree/quad/QuadAABB.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L52)
 
 #### Parameters
 
@@ -222,7 +222,7 @@ Defined in: [src/core/tree/quad/QuadAABB.ts:52](https://github.com/orillusion/or
 
 > **clear**(): `void`
 
-Defined in: [src/core/tree/quad/QuadAABB.ts:59](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L59)
+Defined in: [src/core/tree/quad/QuadAABB.ts:59](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L59)
 
 #### Returns
 
@@ -234,7 +234,7 @@ Defined in: [src/core/tree/quad/QuadAABB.ts:59](https://github.com/orillusion/or
 
 > **addPoint**(`pos`): `void`
 
-Defined in: [src/core/tree/quad/QuadAABB.ts:68](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L68)
+Defined in: [src/core/tree/quad/QuadAABB.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L68)
 
 #### Parameters
 
@@ -252,7 +252,7 @@ Defined in: [src/core/tree/quad/QuadAABB.ts:68](https://github.com/orillusion/or
 
 > **clone**(): `QuadAABB`
 
-Defined in: [src/core/tree/quad/QuadAABB.ts:83](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L83)
+Defined in: [src/core/tree/quad/QuadAABB.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L83)
 
 #### Returns
 
@@ -264,7 +264,7 @@ Defined in: [src/core/tree/quad/QuadAABB.ts:83](https://github.com/orillusion/or
 
 > **overlapTest**(`box`): `boolean`
 
-Defined in: [src/core/tree/quad/QuadAABB.ts:111](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L111)
+Defined in: [src/core/tree/quad/QuadAABB.ts:111](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L111)
 
 #### Parameters
 
@@ -282,7 +282,7 @@ Defined in: [src/core/tree/quad/QuadAABB.ts:111](https://github.com/orillusion/o
 
 > **isPointInside**(`pos`): `boolean`
 
-Defined in: [src/core/tree/quad/QuadAABB.ts:119](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L119)
+Defined in: [src/core/tree/quad/QuadAABB.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L119)
 
 #### Parameters
 
@@ -300,7 +300,7 @@ Defined in: [src/core/tree/quad/QuadAABB.ts:119](https://github.com/orillusion/o
 
 > **isIntersectLineSegment**(`p1x`, `p1y`, `p2x`, `p2y`): `boolean`
 
-Defined in: [src/core/tree/quad/QuadAABB.ts:126](https://github.com/orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L126)
+Defined in: [src/core/tree/quad/QuadAABB.ts:126](https://github.com/Orillusion/orillusion/blob/main/src/core/tree/quad/QuadAABB.ts#L126)
 
 #### Parameters
 

@@ -4,7 +4,7 @@
 
 # Interface: IComponent
 
-Defined in: [src/components/IComponent.ts:6](https://github.com/orillusion/orillusion/blob/main/src/components/IComponent.ts#L6)
+Defined in: [src/components/IComponent.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/components/IComponent.ts#L6)
 
 ## Properties
 
@@ -12,7 +12,7 @@ Defined in: [src/components/IComponent.ts:6](https://github.com/orillusion/orill
 
 > **object3D**: [`Object3D`](../classes/Object3D.md)
 
-Defined in: [src/components/IComponent.ts:7](https://github.com/orillusion/orillusion/blob/main/src/components/IComponent.ts#L7)
+Defined in: [src/components/IComponent.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/components/IComponent.ts#L7)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/components/IComponent.ts:7](https://github.com/orillusion/orill
 
 > **eventDispatcher**: [`CEventDispatcher`](../classes/CEventDispatcher.md)
 
-Defined in: [src/components/IComponent.ts:8](https://github.com/orillusion/orillusion/blob/main/src/components/IComponent.ts#L8)
+Defined in: [src/components/IComponent.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/components/IComponent.ts#L8)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/components/IComponent.ts:8](https://github.com/orillusion/orill
 
 > **transform**: [`Transform`](../classes/Transform.md)
 
-Defined in: [src/components/IComponent.ts:9](https://github.com/orillusion/orillusion/blob/main/src/components/IComponent.ts#L9)
+Defined in: [src/components/IComponent.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/components/IComponent.ts#L9)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/components/IComponent.ts:9](https://github.com/orillusion/orill
 
 > **enable**: `boolean`
 
-Defined in: [src/components/IComponent.ts:10](https://github.com/orillusion/orillusion/blob/main/src/components/IComponent.ts#L10)
+Defined in: [src/components/IComponent.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/components/IComponent.ts#L10)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/components/IComponent.ts:10](https://github.com/orillusion/oril
 
 > `optional` **isDestroyed?**: `boolean`
 
-Defined in: [src/components/IComponent.ts:11](https://github.com/orillusion/orillusion/blob/main/src/components/IComponent.ts#L11)
+Defined in: [src/components/IComponent.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/components/IComponent.ts#L11)
 
 ## Methods
 
@@ -52,7 +52,7 @@ Defined in: [src/components/IComponent.ts:11](https://github.com/orillusion/oril
 
 > **init**(`param?`): `any`
 
-Defined in: [src/components/IComponent.ts:12](https://github.com/orillusion/orillusion/blob/main/src/components/IComponent.ts#L12)
+Defined in: [src/components/IComponent.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/IComponent.ts#L12)
 
 #### Parameters
 
@@ -70,7 +70,7 @@ Defined in: [src/components/IComponent.ts:12](https://github.com/orillusion/oril
 
 > **start**(): `any`
 
-Defined in: [src/components/IComponent.ts:13](https://github.com/orillusion/orillusion/blob/main/src/components/IComponent.ts#L13)
+Defined in: [src/components/IComponent.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/components/IComponent.ts#L13)
 
 #### Returns
 
@@ -82,7 +82,7 @@ Defined in: [src/components/IComponent.ts:13](https://github.com/orillusion/oril
 
 > **stop**(): `any`
 
-Defined in: [src/components/IComponent.ts:14](https://github.com/orillusion/orillusion/blob/main/src/components/IComponent.ts#L14)
+Defined in: [src/components/IComponent.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/components/IComponent.ts#L14)
 
 #### Returns
 
@@ -94,7 +94,7 @@ Defined in: [src/components/IComponent.ts:14](https://github.com/orillusion/oril
 
 > `optional` **onEnable**(`view?`): `any`
 
-Defined in: [src/components/IComponent.ts:15](https://github.com/orillusion/orillusion/blob/main/src/components/IComponent.ts#L15)
+Defined in: [src/components/IComponent.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/components/IComponent.ts#L15)
 
 #### Parameters
 
@@ -112,7 +112,7 @@ Defined in: [src/components/IComponent.ts:15](https://github.com/orillusion/oril
 
 > `optional` **onDisable**(`view?`): `any`
 
-Defined in: [src/components/IComponent.ts:16](https://github.com/orillusion/orillusion/blob/main/src/components/IComponent.ts#L16)
+Defined in: [src/components/IComponent.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/IComponent.ts#L16)
 
 #### Parameters
 
@@ -130,7 +130,7 @@ Defined in: [src/components/IComponent.ts:16](https://github.com/orillusion/oril
 
 > `optional` **onUpdate**(`view?`): `any`
 
-Defined in: [src/components/IComponent.ts:17](https://github.com/orillusion/orillusion/blob/main/src/components/IComponent.ts#L17)
+Defined in: [src/components/IComponent.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/components/IComponent.ts#L17)
 
 #### Parameters
 
@@ -148,7 +148,7 @@ Defined in: [src/components/IComponent.ts:17](https://github.com/orillusion/oril
 
 > `optional` **onLateUpdate**(`view?`): `any`
 
-Defined in: [src/components/IComponent.ts:18](https://github.com/orillusion/orillusion/blob/main/src/components/IComponent.ts#L18)
+Defined in: [src/components/IComponent.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/components/IComponent.ts#L18)
 
 #### Parameters
 
@@ -166,7 +166,7 @@ Defined in: [src/components/IComponent.ts:18](https://github.com/orillusion/oril
 
 > `optional` **onBeforeUpdate**(`view?`): `any`
 
-Defined in: [src/components/IComponent.ts:19](https://github.com/orillusion/orillusion/blob/main/src/components/IComponent.ts#L19)
+Defined in: [src/components/IComponent.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/components/IComponent.ts#L19)
 
 #### Parameters
 
@@ -184,7 +184,7 @@ Defined in: [src/components/IComponent.ts:19](https://github.com/orillusion/oril
 
 > `optional` **onCompute**(`view?`, `command?`): `any`
 
-Defined in: [src/components/IComponent.ts:20](https://github.com/orillusion/orillusion/blob/main/src/components/IComponent.ts#L20)
+Defined in: [src/components/IComponent.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/IComponent.ts#L20)
 
 #### Parameters
 
@@ -206,7 +206,7 @@ Defined in: [src/components/IComponent.ts:20](https://github.com/orillusion/oril
 
 > `optional` **onGraphic**(`view?`): `any`
 
-Defined in: [src/components/IComponent.ts:21](https://github.com/orillusion/orillusion/blob/main/src/components/IComponent.ts#L21)
+Defined in: [src/components/IComponent.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/components/IComponent.ts#L21)
 
 #### Parameters
 
@@ -224,7 +224,7 @@ Defined in: [src/components/IComponent.ts:21](https://github.com/orillusion/oril
 
 > **cloneTo**(`obj`): `any`
 
-Defined in: [src/components/IComponent.ts:22](https://github.com/orillusion/orillusion/blob/main/src/components/IComponent.ts#L22)
+Defined in: [src/components/IComponent.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/components/IComponent.ts#L22)
 
 #### Parameters
 
@@ -242,7 +242,7 @@ Defined in: [src/components/IComponent.ts:22](https://github.com/orillusion/oril
 
 > **destroy**(`force?`): `any`
 
-Defined in: [src/components/IComponent.ts:23](https://github.com/orillusion/orillusion/blob/main/src/components/IComponent.ts#L23)
+Defined in: [src/components/IComponent.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/IComponent.ts#L23)
 
 #### Parameters
 
@@ -260,7 +260,7 @@ Defined in: [src/components/IComponent.ts:23](https://github.com/orillusion/oril
 
 > **beforeDestroy**(`force?`): `any`
 
-Defined in: [src/components/IComponent.ts:24](https://github.com/orillusion/orillusion/blob/main/src/components/IComponent.ts#L24)
+Defined in: [src/components/IComponent.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/components/IComponent.ts#L24)
 
 #### Parameters
 
@@ -278,7 +278,7 @@ Defined in: [src/components/IComponent.ts:24](https://github.com/orillusion/oril
 
 > `optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
-Defined in: [src/components/IComponent.ts:25](https://github.com/orillusion/orillusion/blob/main/src/components/IComponent.ts#L25)
+Defined in: [src/components/IComponent.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/components/IComponent.ts#L25)
 
 #### Parameters
 
@@ -300,7 +300,7 @@ Defined in: [src/components/IComponent.ts:25](https://github.com/orillusion/oril
 
 > `optional` **onAddChild**(`child`): `any`
 
-Defined in: [src/components/IComponent.ts:27](https://github.com/orillusion/orillusion/blob/main/src/components/IComponent.ts#L27)
+Defined in: [src/components/IComponent.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/components/IComponent.ts#L27)
 
 #### Parameters
 
@@ -318,7 +318,7 @@ Defined in: [src/components/IComponent.ts:27](https://github.com/orillusion/oril
 
 > `optional` **onRemoveChild**(`child`): `any`
 
-Defined in: [src/components/IComponent.ts:28](https://github.com/orillusion/orillusion/blob/main/src/components/IComponent.ts#L28)
+Defined in: [src/components/IComponent.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/IComponent.ts#L28)
 
 #### Parameters
 

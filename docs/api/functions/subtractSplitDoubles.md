@@ -6,7 +6,7 @@
 
 > **subtractSplitDoubles**(`aH`, `aL`, `bH`, `bL`): [`Vector3`](../classes/Vector3.md)
 
-Defined in: [src/math/DoublePrecision.ts:29](https://github.com/orillusion/orillusion/blob/main/src/math/DoublePrecision.ts#L29)
+Defined in: [src/math/DoublePrecision.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/math/DoublePrecision.ts#L29)
 
 ## Parameters
 

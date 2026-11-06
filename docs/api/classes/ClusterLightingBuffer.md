@@ -4,7 +4,7 @@
 
 # Class: ClusterLightingBuffer
 
-Defined in: [src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts:13](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts#L13)
+Defined in: [src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts#L13)
 
 GPU buffers backing the clustered lighting pass: the per-cluster AABB
 bounds, the flat light-index assignment list, the per-cluster
@@ -18,7 +18,7 @@ fragment shaders that read them.
 
 > **new ClusterLightingBuffer**(`numClusters`, `maxNumLightsPerCluster`): `ClusterLightingBuffer`
 
-Defined in: [src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts:23](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts#L23)
+Defined in: [src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts#L23)
 
 #### Parameters
 
@@ -40,7 +40,7 @@ Defined in: [src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts:23]
 
 > **clusterBuffer**: [`ComputeGPUBuffer`](ComputeGPUBuffer.md)
 
-Defined in: [src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts:15](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts#L15)
+Defined in: [src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts#L15)
 
 Per-cluster bounds (two vec4 per cluster).
 
@@ -50,7 +50,7 @@ Per-cluster bounds (two vec4 per cluster).
 
 > **lightAssignBuffer**: [`ComputeGPUBuffer`](ComputeGPUBuffer.md)
 
-Defined in: [src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts:17](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts#L17)
+Defined in: [src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts#L17)
 
 Flat list of light indices assigned across all clusters.
 
@@ -60,7 +60,7 @@ Flat list of light indices assigned across all clusters.
 
 > **assignTableBuffer**: [`ComputeGPUBuffer`](ComputeGPUBuffer.md)
 
-Defined in: [src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts:19](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts#L19)
+Defined in: [src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts#L19)
 
 Per-cluster (start, count) into [lightAssignBuffer](#lightassignbuffer).
 
@@ -70,7 +70,7 @@ Per-cluster (start, count) into [lightAssignBuffer](#lightassignbuffer).
 
 > **clustersUniformBuffer**: [`UniformGPUBuffer`](UniformGPUBuffer.md)
 
-Defined in: [src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts:21](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts#L21)
+Defined in: [src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts#L21)
 
 Uniform block describing the cluster grid and screen/depth params.
 
@@ -80,7 +80,7 @@ Uniform block describing the cluster grid and screen/depth params.
 
 > **update**(`width`, `height`, `clusterPix`, `clusterTileX`, `clusterTileY`, `clusterTileZ`, `numLights`, `maxNumLightsPerCluster`, `near`, `far`): `void`
 
-Defined in: [src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts:35](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts#L35)
+Defined in: [src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterLightingBuffer.ts#L35)
 
 Upload the current grid, screen size, light count and near/far into the uniform buffer.
 

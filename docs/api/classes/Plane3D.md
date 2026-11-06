@@ -4,7 +4,7 @@
 
 # Class: Plane3D
 
-Defined in: [src/math/Plane3D.ts:9](https://github.com/orillusion/orillusion/blob/main/src/math/Plane3D.ts#L9)
+Defined in: [src/math/Plane3D.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane3D.ts#L9)
 
 Plane3D represents a plane in 3D space.
 It is composed of four coefficients (a, b, c, d) defining the plane equation Ax + By + Cz + D = 0.
@@ -15,7 +15,7 @@ It is composed of four coefficients (a, b, c, d) defining the plane equation Ax 
 
 > **new Plane3D**(`a?`, `b?`, `c?`, `d?`): `Plane3D`
 
-Defined in: [src/math/Plane3D.ts:68](https://github.com/orillusion/orillusion/blob/main/src/math/Plane3D.ts#L68)
+Defined in: [src/math/Plane3D.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane3D.ts#L68)
 
 #### Parameters
 
@@ -54,7 +54,7 @@ Web,Native
 
 > **a**: `number`
 
-Defined in: [src/math/Plane3D.ts:15](https://github.com/orillusion/orillusion/blob/main/src/math/Plane3D.ts#L15)
+Defined in: [src/math/Plane3D.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane3D.ts#L15)
 
 #### Language
 
@@ -71,7 +71,7 @@ Web,Native
 
 > **b**: `number`
 
-Defined in: [src/math/Plane3D.ts:22](https://github.com/orillusion/orillusion/blob/main/src/math/Plane3D.ts#L22)
+Defined in: [src/math/Plane3D.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane3D.ts#L22)
 
 #### Language
 
@@ -88,7 +88,7 @@ Web,Native
 
 > **c**: `number`
 
-Defined in: [src/math/Plane3D.ts:29](https://github.com/orillusion/orillusion/blob/main/src/math/Plane3D.ts#L29)
+Defined in: [src/math/Plane3D.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane3D.ts#L29)
 
 #### Language
 
@@ -105,7 +105,7 @@ Web,Native
 
 > **d**: `number`
 
-Defined in: [src/math/Plane3D.ts:36](https://github.com/orillusion/orillusion/blob/main/src/math/Plane3D.ts#L36)
+Defined in: [src/math/Plane3D.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane3D.ts#L36)
 
 #### Language
 
@@ -122,7 +122,7 @@ Web,Native
 
 > `static` **ALIGN\_ANY**: `number` = `0`
 
-Defined in: [src/math/Plane3D.ts:42](https://github.com/orillusion/orillusion/blob/main/src/math/Plane3D.ts#L42)
+Defined in: [src/math/Plane3D.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane3D.ts#L42)
 
 Plane alignment: not aligned to any principal axis plane.
 
@@ -132,7 +132,7 @@ Plane alignment: not aligned to any principal axis plane.
 
 > `static` **ALIGN\_XY\_AXIS**: `number` = `1`
 
-Defined in: [src/math/Plane3D.ts:47](https://github.com/orillusion/orillusion/blob/main/src/math/Plane3D.ts#L47)
+Defined in: [src/math/Plane3D.ts:47](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane3D.ts#L47)
 
 Plane alignment: aligned to the XY axis plane.
 
@@ -142,7 +142,7 @@ Plane alignment: aligned to the XY axis plane.
 
 > `static` **ALIGN\_YZ\_AXIS**: `number` = `2`
 
-Defined in: [src/math/Plane3D.ts:52](https://github.com/orillusion/orillusion/blob/main/src/math/Plane3D.ts#L52)
+Defined in: [src/math/Plane3D.ts:52](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane3D.ts#L52)
 
 Plane alignment: aligned to the YZ axis plane.
 
@@ -152,7 +152,7 @@ Plane alignment: aligned to the YZ axis plane.
 
 > `static` **ALIGN\_XZ\_AXIS**: `number` = `3`
 
-Defined in: [src/math/Plane3D.ts:57](https://github.com/orillusion/orillusion/blob/main/src/math/Plane3D.ts#L57)
+Defined in: [src/math/Plane3D.ts:57](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane3D.ts#L57)
 
 Plane alignment: aligned to the XZ axis plane.
 
@@ -162,7 +162,7 @@ Plane alignment: aligned to the XZ axis plane.
 
 > **setTo**(`a?`, `b?`, `c?`, `d?`): `void`
 
-Defined in: [src/math/Plane3D.ts:84](https://github.com/orillusion/orillusion/blob/main/src/math/Plane3D.ts#L84)
+Defined in: [src/math/Plane3D.ts:84](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane3D.ts#L84)
 
 #### Parameters
 
@@ -201,7 +201,7 @@ Web,Native
 
 > **fromPoints**(`p0`, `p1`, `p2`): `void`
 
-Defined in: [src/math/Plane3D.ts:99](https://github.com/orillusion/orillusion/blob/main/src/math/Plane3D.ts#L99)
+Defined in: [src/math/Plane3D.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane3D.ts#L99)
 
 #### Parameters
 
@@ -242,7 +242,7 @@ Web,Native
 
 > **fromNormalAndPoint**(`normal`, `point`): `void`
 
-Defined in: [src/math/Plane3D.ts:121](https://github.com/orillusion/orillusion/blob/main/src/math/Plane3D.ts#L121)
+Defined in: [src/math/Plane3D.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane3D.ts#L121)
 
 #### Parameters
 
@@ -277,7 +277,7 @@ Web,Native
 
 > **normalize**(): `number`
 
-Defined in: [src/math/Plane3D.ts:134](https://github.com/orillusion/orillusion/blob/main/src/math/Plane3D.ts#L134)
+Defined in: [src/math/Plane3D.ts:134](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane3D.ts#L134)
 
 #### Returns
 
@@ -300,7 +300,7 @@ Web,Native
 
 > **distance**(`p`): `number`
 
-Defined in: [src/math/Plane3D.ts:154](https://github.com/orillusion/orillusion/blob/main/src/math/Plane3D.ts#L154)
+Defined in: [src/math/Plane3D.ts:154](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane3D.ts#L154)
 
 #### Parameters
 
@@ -331,7 +331,7 @@ Web,Native
 
 > **classifyPoint**(`p`, `epsilon?`): `number`
 
-Defined in: [src/math/Plane3D.ts:168](https://github.com/orillusion/orillusion/blob/main/src/math/Plane3D.ts#L168)
+Defined in: [src/math/Plane3D.ts:168](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane3D.ts#L168)
 
 #### Parameters
 
@@ -370,7 +370,7 @@ Web,Native
 
 > **toString**(): `string`
 
-Defined in: [src/math/Plane3D.ts:188](https://github.com/orillusion/orillusion/blob/main/src/math/Plane3D.ts#L188)
+Defined in: [src/math/Plane3D.ts:188](https://github.com/Orillusion/orillusion/blob/main/src/math/Plane3D.ts#L188)
 
 #### Returns
 

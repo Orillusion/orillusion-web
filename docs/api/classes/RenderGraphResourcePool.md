@@ -4,7 +4,7 @@
 
 # Class: RenderGraphResourcePool
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphResourcePool.ts:38](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphResourcePool.ts#L38)
+Defined in: [src/gfx/renderJob/graph/RenderGraphResourcePool.ts:38](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphResourcePool.ts#L38)
 
 Thin name → getter registry with an optional kind sidecar.
 Resources are owned by their creator pass (or by external
@@ -24,7 +24,7 @@ stamp a kind.
 
 > **new RenderGraphResourcePool**(`ctx`): `RenderGraphResourcePool`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphResourcePool.ts:49](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphResourcePool.ts#L49)
+Defined in: [src/gfx/renderJob/graph/RenderGraphResourcePool.ts:49](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphResourcePool.ts#L49)
 
 #### Parameters
 
@@ -44,7 +44,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphResourcePool.ts:49](https://gith
 
 > **get** **context**(): [`Context3D`](Context3D.md)
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphResourcePool.ts:53](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphResourcePool.ts#L53)
+Defined in: [src/gfx/renderJob/graph/RenderGraphResourcePool.ts:53](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphResourcePool.ts#L53)
 
 ##### Returns
 
@@ -56,7 +56,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphResourcePool.ts:53](https://gith
 
 > **register**(`name`, `getter`, `kind?`): `void`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphResourcePool.ts:64](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphResourcePool.ts#L64)
+Defined in: [src/gfx/renderJob/graph/RenderGraphResourcePool.ts:64](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphResourcePool.ts#L64)
 
 Register a getter under `name`. Subsequent `get(name)` /
  `has(name)` calls resolve through this getter. Calling twice
@@ -90,7 +90,7 @@ Register a getter under `name`. Subsequent `get(name)` /
 
 > **markPersistent**(`name`): `void`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphResourcePool.ts:73](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphResourcePool.ts#L73)
+Defined in: [src/gfx/renderJob/graph/RenderGraphResourcePool.ts:73](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphResourcePool.ts#L73)
 
 Mark `name` as persistent — the transient pool will not allocate
  or alias a wrapper for it. The persistent flag is independent of
@@ -113,7 +113,7 @@ Mark `name` as persistent — the transient pool will not allocate
 
 > **isPersistent**(`name`): `boolean`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphResourcePool.ts:77](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphResourcePool.ts#L77)
+Defined in: [src/gfx/renderJob/graph/RenderGraphResourcePool.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphResourcePool.ts#L77)
 
 #### Parameters
 
@@ -131,7 +131,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphResourcePool.ts:77](https://gith
 
 > **unregister**(`name`): `void`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphResourcePool.ts:85](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphResourcePool.ts#L85)
+Defined in: [src/gfx/renderJob/graph/RenderGraphResourcePool.ts:85](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphResourcePool.ts#L85)
 
 Drop the getter for `name`. Idempotent — silently no-ops if the
  name isn't registered. Called from `RenderGraph.remove()` and
@@ -154,7 +154,7 @@ Drop the getter for `name`. Idempotent — silently no-ops if the
 
 > **get**\<`T`\>(`name`): `T`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphResourcePool.ts:92](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphResourcePool.ts#L92)
+Defined in: [src/gfx/renderJob/graph/RenderGraphResourcePool.ts:92](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphResourcePool.ts#L92)
 
 Resolve a named resource. Throws if no getter is registered.
 
@@ -180,7 +180,7 @@ Resolve a named resource. Throws if no getter is registered.
 
 > **has**(`name`): `boolean`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphResourcePool.ts:101](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphResourcePool.ts#L101)
+Defined in: [src/gfx/renderJob/graph/RenderGraphResourcePool.ts:101](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphResourcePool.ts#L101)
 
 #### Parameters
 
@@ -198,7 +198,7 @@ Defined in: [src/gfx/renderJob/graph/RenderGraphResourcePool.ts:101](https://git
 
 > **kindOf**(`name`): [`ResourceKind`](../type-aliases/ResourceKind.md)
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphResourcePool.ts:106](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphResourcePool.ts#L106)
+Defined in: [src/gfx/renderJob/graph/RenderGraphResourcePool.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphResourcePool.ts#L106)
 
 Return the kind tag for `name`, or `null` if unregistered.
 
@@ -218,7 +218,7 @@ Return the kind tag for `name`, or `null` if unregistered.
 
 > **dispose**(): `void`
 
-Defined in: [src/gfx/renderJob/graph/RenderGraphResourcePool.ts:114](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphResourcePool.ts#L114)
+Defined in: [src/gfx/renderJob/graph/RenderGraphResourcePool.ts:114](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/RenderGraphResourcePool.ts#L114)
 
 Drop all registrations. Called from `graph.destroy()` and on
  device-lost. The actual GPU resources are owned by the

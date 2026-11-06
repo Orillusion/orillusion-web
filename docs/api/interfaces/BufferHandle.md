@@ -4,7 +4,7 @@
 
 # Interface: BufferHandle
 
-Defined in: [src/gfx/renderJob/graph/transient/ResourceHandle.ts:41](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceHandle.ts#L41)
+Defined in: [src/gfx/renderJob/graph/transient/ResourceHandle.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceHandle.ts#L41)
 
 Opaque handle to a transient (or imported) buffer resource owned by
 the [RenderGraph](../classes/RenderGraph.md). Symmetric with [TextureHandle](TextureHandle.md).
@@ -15,7 +15,7 @@ the [RenderGraph](../classes/RenderGraph.md). Symmetric with [TextureHandle](Tex
 
 > `readonly` **\[\_\_\_bufBrand\]**: `void`
 
-Defined in: [src/gfx/renderJob/graph/transient/ResourceHandle.ts:42](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceHandle.ts#L42)
+Defined in: [src/gfx/renderJob/graph/transient/ResourceHandle.ts:42](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceHandle.ts#L42)
 
 ***
 
@@ -23,4 +23,4 @@ Defined in: [src/gfx/renderJob/graph/transient/ResourceHandle.ts:42](https://git
 
 > `readonly` **name**: `string`
 
-Defined in: [src/gfx/renderJob/graph/transient/ResourceHandle.ts:43](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceHandle.ts#L43)
+Defined in: [src/gfx/renderJob/graph/transient/ResourceHandle.ts:43](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/ResourceHandle.ts#L43)

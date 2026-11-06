@@ -4,7 +4,7 @@
 
 # Class: BlendTree1D
 
-Defined in: [src/components/anim/graph/BlendTree.ts:20](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/BlendTree.ts#L20)
+Defined in: [src/components/anim/graph/BlendTree.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/BlendTree.ts#L20)
 
 BlendTree1D — linear blend across N motion thresholds based on one parameter.
 
@@ -19,7 +19,7 @@ AnimatorComponent.updateSkeletonAnimMix.
 
 > **new BlendTree1D**(`points`): `BlendTree1D`
 
-Defined in: [src/components/anim/graph/BlendTree.ts:24](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/BlendTree.ts#L24)
+Defined in: [src/components/anim/graph/BlendTree.ts:24](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/BlendTree.ts#L24)
 
 #### Parameters
 
@@ -37,7 +37,7 @@ Defined in: [src/components/anim/graph/BlendTree.ts:24](https://github.com/orill
 
 > **setValue**(`v`): `void`
 
-Defined in: [src/components/anim/graph/BlendTree.ts:33](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/BlendTree.ts#L33)
+Defined in: [src/components/anim/graph/BlendTree.ts:33](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/BlendTree.ts#L33)
 
 Set the parameter value. Out-of-range values clamp to the endpoints.
 
@@ -57,7 +57,7 @@ Set the parameter value. Out-of-range values clamp to the endpoints.
 
 > **getValue**(): `number`
 
-Defined in: [src/components/anim/graph/BlendTree.ts:34](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/BlendTree.ts#L34)
+Defined in: [src/components/anim/graph/BlendTree.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/BlendTree.ts#L34)
 
 #### Returns
 
@@ -69,7 +69,7 @@ Defined in: [src/components/anim/graph/BlendTree.ts:34](https://github.com/orill
 
 > **apply**(`animator`): `void`
 
-Defined in: [src/components/anim/graph/BlendTree.ts:40](https://github.com/orillusion/orillusion/blob/main/src/components/anim/graph/BlendTree.ts#L40)
+Defined in: [src/components/anim/graph/BlendTree.ts:40](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/graph/BlendTree.ts#L40)
 
 Apply the blend: zero out every clip's weight, then write the two-point
 lerp weights for the segment containing `value`.

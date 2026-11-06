@@ -6,7 +6,7 @@
 
 > **drawTransmissionContinuation**(`view`, `cluster`, `state`, `opaqueList`): `void`
 
-Defined in: [src/gfx/renderJob/graph/passes/\_transparentDraw.ts:199](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/_transparentDraw.ts#L199)
+Defined in: [src/gfx/renderJob/graph/passes/\_transparentDraw.ts:199](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/_transparentDraw.ts#L199)
 
 Reopen the color attachment with loadOp='load' and draw the deferred
 transmission-opaque continuation — opaque materials whose

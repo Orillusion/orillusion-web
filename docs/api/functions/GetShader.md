@@ -6,7 +6,7 @@
 
 > **GetShader**(`name`): `any`
 
-Defined in: [src/util/SerializeDecoration.ts:106](https://github.com/orillusion/orillusion/blob/main/src/util/SerializeDecoration.ts#L106)
+Defined in: [src/util/SerializeDecoration.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/util/SerializeDecoration.ts#L106)
 
 ## Parameters
 

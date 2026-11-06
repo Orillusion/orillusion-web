@@ -4,7 +4,7 @@
 
 # Interface: WatchedTexture
 
-Defined in: [src/gfx/renderJob/graph/transient/TextureIdentityWatcher.ts:8](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TextureIdentityWatcher.ts#L8)
+Defined in: [src/gfx/renderJob/graph/transient/TextureIdentityWatcher.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TextureIdentityWatcher.ts#L8)
 
 One entry in a [TextureIdentityWatcher.update](../classes/TextureIdentityWatcher.md#update) call.
 
@@ -14,7 +14,7 @@ One entry in a [TextureIdentityWatcher.update](../classes/TextureIdentityWatcher
 
 > **key**: `string`
 
-Defined in: [src/gfx/renderJob/graph/transient/TextureIdentityWatcher.ts:9](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TextureIdentityWatcher.ts#L9)
+Defined in: [src/gfx/renderJob/graph/transient/TextureIdentityWatcher.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TextureIdentityWatcher.ts#L9)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [src/gfx/renderJob/graph/transient/TextureIdentityWatcher.ts:9](http
 
 > **tex**: `RenderTexture`
 
-Defined in: [src/gfx/renderJob/graph/transient/TextureIdentityWatcher.ts:10](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TextureIdentityWatcher.ts#L10)
+Defined in: [src/gfx/renderJob/graph/transient/TextureIdentityWatcher.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TextureIdentityWatcher.ts#L10)

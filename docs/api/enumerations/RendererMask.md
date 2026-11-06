@@ -4,7 +4,7 @@
 
 # Enumeration: RendererMask
 
-Defined in: [src/gfx/renderJob/passRenderer/state/RendererMask.ts:5](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/state/RendererMask.ts#L5)
+Defined in: [src/gfx/renderJob/passRenderer/state/RendererMask.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/state/RendererMask.ts#L5)
 
 RenderMask
 
@@ -14,7 +14,7 @@ RenderMask
 
 > **Default**: `1`
 
-Defined in: [src/gfx/renderJob/passRenderer/state/RendererMask.ts:6](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/state/RendererMask.ts#L6)
+Defined in: [src/gfx/renderJob/passRenderer/state/RendererMask.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/state/RendererMask.ts#L6)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [src/gfx/renderJob/passRenderer/state/RendererMask.ts:6](https://git
 
 > **IgnoreDepthPass**: `2`
 
-Defined in: [src/gfx/renderJob/passRenderer/state/RendererMask.ts:7](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/state/RendererMask.ts#L7)
+Defined in: [src/gfx/renderJob/passRenderer/state/RendererMask.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/state/RendererMask.ts#L7)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [src/gfx/renderJob/passRenderer/state/RendererMask.ts:7](https://git
 
 > **Sky**: `6`
 
-Defined in: [src/gfx/renderJob/passRenderer/state/RendererMask.ts:8](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/state/RendererMask.ts#L8)
+Defined in: [src/gfx/renderJob/passRenderer/state/RendererMask.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/state/RendererMask.ts#L8)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [src/gfx/renderJob/passRenderer/state/RendererMask.ts:8](https://git
 
 > **Particle**: `10`
 
-Defined in: [src/gfx/renderJob/passRenderer/state/RendererMask.ts:9](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/state/RendererMask.ts#L9)
+Defined in: [src/gfx/renderJob/passRenderer/state/RendererMask.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/state/RendererMask.ts#L9)
 
 ***
 
@@ -46,7 +46,7 @@ Defined in: [src/gfx/renderJob/passRenderer/state/RendererMask.ts:9](https://git
 
 > **SkinnedMesh**: `16`
 
-Defined in: [src/gfx/renderJob/passRenderer/state/RendererMask.ts:10](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/state/RendererMask.ts#L10)
+Defined in: [src/gfx/renderJob/passRenderer/state/RendererMask.ts:10](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/state/RendererMask.ts#L10)
 
 ***
 
@@ -54,7 +54,7 @@ Defined in: [src/gfx/renderJob/passRenderer/state/RendererMask.ts:10](https://gi
 
 > **MorphTarget**: `32`
 
-Defined in: [src/gfx/renderJob/passRenderer/state/RendererMask.ts:11](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/state/RendererMask.ts#L11)
+Defined in: [src/gfx/renderJob/passRenderer/state/RendererMask.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/state/RendererMask.ts#L11)
 
 ***
 
@@ -62,7 +62,7 @@ Defined in: [src/gfx/renderJob/passRenderer/state/RendererMask.ts:11](https://gi
 
 > **Terrain**: `64`
 
-Defined in: [src/gfx/renderJob/passRenderer/state/RendererMask.ts:12](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/state/RendererMask.ts#L12)
+Defined in: [src/gfx/renderJob/passRenderer/state/RendererMask.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/state/RendererMask.ts#L12)
 
 ***
 
@@ -70,7 +70,7 @@ Defined in: [src/gfx/renderJob/passRenderer/state/RendererMask.ts:12](https://gi
 
 > **Reflection**: `256`
 
-Defined in: [src/gfx/renderJob/passRenderer/state/RendererMask.ts:13](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/state/RendererMask.ts#L13)
+Defined in: [src/gfx/renderJob/passRenderer/state/RendererMask.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/state/RendererMask.ts#L13)
 
 ***
 
@@ -78,7 +78,7 @@ Defined in: [src/gfx/renderJob/passRenderer/state/RendererMask.ts:13](https://gi
 
 > **ReflectionDebug**: `512`
 
-Defined in: [src/gfx/renderJob/passRenderer/state/RendererMask.ts:14](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/state/RendererMask.ts#L14)
+Defined in: [src/gfx/renderJob/passRenderer/state/RendererMask.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/state/RendererMask.ts#L14)
 
 ***
 
@@ -86,4 +86,4 @@ Defined in: [src/gfx/renderJob/passRenderer/state/RendererMask.ts:14](https://gi
 
 > **Graphic3D**: `1024`
 
-Defined in: [src/gfx/renderJob/passRenderer/state/RendererMask.ts:15](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/state/RendererMask.ts#L15)
+Defined in: [src/gfx/renderJob/passRenderer/state/RendererMask.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/state/RendererMask.ts#L15)

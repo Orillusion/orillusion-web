@@ -6,7 +6,7 @@
 
 > `const` **FINAL\_COLOR**: `"_FinalColor"` = `'_FinalColor'`
 
-Defined in: [src/gfx/renderJob/graph/passes/PostPass.ts:25](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/PostPass.ts#L25)
+Defined in: [src/gfx/renderJob/graph/passes/PostPass.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/PostPass.ts#L26)
 
 Published handle name for the final post-chain output. Resolves to
 whatever texture the last enabled post wrote — tone-mapped color

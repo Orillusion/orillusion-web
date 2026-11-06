@@ -4,7 +4,7 @@
 
 # Class: ClusterConfig
 
-Defined in: [src/gfx/renderJob/passRenderer/cluster/ClusterConfig.ts:9](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterConfig.ts#L9)
+Defined in: [src/gfx/renderJob/passRenderer/cluster/ClusterConfig.ts:9](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterConfig.ts#L9)
 
 Cluster grid dimensions for the Forward+ clustered lighting pass. The
 view frustum is divided into clusterTileX × clusterTileY screen-space
@@ -27,7 +27,7 @@ lights affecting it.
 
 > `static` **clusterTileX**: `number` = `16`
 
-Defined in: [src/gfx/renderJob/passRenderer/cluster/ClusterConfig.ts:11](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterConfig.ts#L11)
+Defined in: [src/gfx/renderJob/passRenderer/cluster/ClusterConfig.ts:11](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterConfig.ts#L11)
 
 Number of cluster tiles across the screen width.
 
@@ -37,7 +37,7 @@ Number of cluster tiles across the screen width.
 
 > `static` **clusterTileY**: `number` = `16`
 
-Defined in: [src/gfx/renderJob/passRenderer/cluster/ClusterConfig.ts:13](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterConfig.ts#L13)
+Defined in: [src/gfx/renderJob/passRenderer/cluster/ClusterConfig.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterConfig.ts#L13)
 
 Number of cluster tiles across the screen height.
 
@@ -47,6 +47,6 @@ Number of cluster tiles across the screen height.
 
 > `static` **clusterTileZ**: `number` = `32`
 
-Defined in: [src/gfx/renderJob/passRenderer/cluster/ClusterConfig.ts:15](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterConfig.ts#L15)
+Defined in: [src/gfx/renderJob/passRenderer/cluster/ClusterConfig.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/passRenderer/cluster/ClusterConfig.ts#L15)
 
 Number of depth slices along the view direction.

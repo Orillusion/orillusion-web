@@ -4,7 +4,7 @@
 
 # Enumeration: GPUBufferType
 
-Defined in: [src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts:1](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts#L1)
+Defined in: [src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts:1](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts#L1)
 
 ## Enumeration Members
 
@@ -12,7 +12,7 @@ Defined in: [src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts:1](https://git
 
 > **IndicesGPUBuffer**: `0`
 
-Defined in: [src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts:2](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts#L2)
+Defined in: [src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts:2](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts#L2)
 
 ***
 
@@ -20,7 +20,7 @@ Defined in: [src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts:2](https://git
 
 > **VertexGPUBuffer**: `1`
 
-Defined in: [src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts:3](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts#L3)
+Defined in: [src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts:3](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts#L3)
 
 ***
 
@@ -28,7 +28,7 @@ Defined in: [src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts:3](https://git
 
 > **UniformGPUBuffer**: `2`
 
-Defined in: [src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts:4](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts#L4)
+Defined in: [src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts:4](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts#L4)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: [src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts:4](https://git
 
 > **StorageGPUBuffer**: `3`
 
-Defined in: [src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts:5](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts#L5)
+Defined in: [src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts:5](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts#L5)
 
 ***
 
@@ -44,7 +44,7 @@ Defined in: [src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts:5](https://git
 
 > **ComputeGPUBuffer**: `4`
 
-Defined in: [src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts:6](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts#L6)
+Defined in: [src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts:6](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts#L6)
 
 ***
 
@@ -52,7 +52,7 @@ Defined in: [src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts:6](https://git
 
 > **MaterialDataUniformGPUBuffer**: `5`
 
-Defined in: [src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts:7](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts#L7)
+Defined in: [src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts#L7)
 
 ***
 
@@ -60,4 +60,4 @@ Defined in: [src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts:7](https://git
 
 > **StructStorageGPUBuffer**: `6`
 
-Defined in: [src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts:8](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts#L8)
+Defined in: [src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts:8](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/core/buffer/GPUBufferType.ts#L8)

@@ -6,7 +6,7 @@
 
 > **FragmentPart** = `object`
 
-Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:13](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L13)
+Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:13](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L13)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:13](https://githu
 
 > **name**: `string`
 
-Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:14](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L14)
+Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L14)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:14](https://githu
 
 > **fs\_textures**: `string`
 
-Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:15](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L15)
+Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:15](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L15)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:15](https://githu
 
 > **fs\_frament**: `string`
 
-Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:16](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L16)
+Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L16)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:16](https://githu
 
 > **fs\_normal**: `string`
 
-Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:17](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L17)
+Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:17](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L17)
 
 ***
 
@@ -46,7 +46,7 @@ Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:17](https://githu
 
 > **fs\_shadow**: `string`
 
-Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:18](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L18)
+Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:18](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L18)
 
 ***
 
@@ -54,7 +54,7 @@ Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:18](https://githu
 
 > **fs\_buffer**: `string`
 
-Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:19](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L19)
+Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L19)
 
 ***
 
@@ -62,4 +62,4 @@ Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:19](https://githu
 
 > **fs\_frameBuffers**: `string`
 
-Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:20](https://github.com/orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L20)
+Defined in: [src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts:20](https://github.com/Orillusion/orillusion/blob/main/src/gfx/graphics/webGpu/shader/util/ShaderUtil.ts#L20)

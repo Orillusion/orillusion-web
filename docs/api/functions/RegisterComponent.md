@@ -6,7 +6,7 @@
 
 > **RegisterComponent**(`cls`, `key?`, `p1?`, `p2?`, `p3?`): `any`
 
-Defined in: [src/util/SerializeDecoration.ts:82](https://github.com/orillusion/orillusion/blob/main/src/util/SerializeDecoration.ts#L82)
+Defined in: [src/util/SerializeDecoration.ts:82](https://github.com/Orillusion/orillusion/blob/main/src/util/SerializeDecoration.ts#L82)
 
 ## Parameters
 

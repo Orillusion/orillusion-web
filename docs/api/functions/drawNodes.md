@@ -6,7 +6,7 @@
 
 > **drawNodes**(`view`, `renderContext`, `passState`, `nodes`, `cluster`, `options?`): `void`
 
-Defined in: [src/gfx/renderJob/graph/passes/\_transparentDraw.ts:134](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/_transparentDraw.ts#L134)
+Defined in: [src/gfx/renderJob/graph/passes/\_transparentDraw.ts:134](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/passes/_transparentDraw.ts#L134)
 
 Per-node draw loop. Walks the slice `[render.drawOpMin, drawOpMax)`,
 applies optional oit / transmission partition filters inline, and

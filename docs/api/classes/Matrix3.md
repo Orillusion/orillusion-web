@@ -4,7 +4,7 @@
 
 # Class: Matrix3
 
-Defined in: [src/math/Matrix3.ts:26](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L26)
+Defined in: [src/math/Matrix3.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L26)
 
 3*3 Matrix
 
@@ -14,7 +14,7 @@ Defined in: [src/math/Matrix3.ts:26](https://github.com/orillusion/orillusion/bl
 
 > **new Matrix3**(`a?`, `b?`, `c?`, `d?`, `tx?`, `ty?`): `Matrix3`
 
-Defined in: [src/math/Matrix3.ts:67](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L67)
+Defined in: [src/math/Matrix3.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L67)
 
 Create a Matrix3
 
@@ -66,7 +66,7 @@ The position of the y coordinate
 
 > **a**: `number`
 
-Defined in: [src/math/Matrix3.ts:31](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L31)
+Defined in: [src/math/Matrix3.ts:31](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L31)
 
 The width of x
 
@@ -76,7 +76,7 @@ The width of x
 
 > **b**: `number`
 
-Defined in: [src/math/Matrix3.ts:36](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L36)
+Defined in: [src/math/Matrix3.ts:36](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L36)
 
 The slope of y
 
@@ -86,7 +86,7 @@ The slope of y
 
 > **c**: `number`
 
-Defined in: [src/math/Matrix3.ts:41](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L41)
+Defined in: [src/math/Matrix3.ts:41](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L41)
 
 The slope of x
 
@@ -96,7 +96,7 @@ The slope of x
 
 > **d**: `number`
 
-Defined in: [src/math/Matrix3.ts:46](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L46)
+Defined in: [src/math/Matrix3.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L46)
 
 The height of y
 
@@ -106,7 +106,7 @@ The height of y
 
 > **tx**: `number`
 
-Defined in: [src/math/Matrix3.ts:51](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L51)
+Defined in: [src/math/Matrix3.ts:51](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L51)
 
 The position of the x coordinate
 
@@ -116,7 +116,7 @@ The position of the x coordinate
 
 > **ty**: `number`
 
-Defined in: [src/math/Matrix3.ts:56](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L56)
+Defined in: [src/math/Matrix3.ts:56](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L56)
 
 The position of the y coordinate
 
@@ -126,7 +126,7 @@ The position of the y coordinate
 
 > **clone**(): `Matrix3`
 
-Defined in: [src/math/Matrix3.ts:80](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L80)
+Defined in: [src/math/Matrix3.ts:80](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L80)
 
 Clone an Matrix3 object
 
@@ -142,7 +142,7 @@ New Matrix3 object
 
 > **concat**(`matrix`): `this`
 
-Defined in: [src/math/Matrix3.ts:88](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L88)
+Defined in: [src/math/Matrix3.ts:88](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L88)
 
 Merges the current matrix with the target matrix
 
@@ -164,7 +164,7 @@ target matrix
 
 > **copy**(`other`): `Matrix3`
 
-Defined in: [src/math/Matrix3.ts:106](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L106)
+Defined in: [src/math/Matrix3.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L106)
 
 The current matrix value is overwritten by the target matrix value
 
@@ -188,7 +188,7 @@ current matrix
 
 > **identity**(): `this`
 
-Defined in: [src/math/Matrix3.ts:119](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L119)
+Defined in: [src/math/Matrix3.ts:119](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L119)
 
 Reset to the identity matrix
 
@@ -202,7 +202,7 @@ Reset to the identity matrix
 
 > **invert**(): `this`
 
-Defined in: [src/math/Matrix3.ts:128](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L128)
+Defined in: [src/math/Matrix3.ts:128](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L128)
 
 Invert this matrix
 
@@ -216,7 +216,7 @@ Invert this matrix
 
 > **rotate**(`angle`): `this`
 
-Defined in: [src/math/Matrix3.ts:137](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L137)
+Defined in: [src/math/Matrix3.ts:137](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L137)
 
 Rotate according to Angle
 
@@ -238,7 +238,7 @@ rotation angle
 
 > **scale**(`sx`, `sy`): `this`
 
-Defined in: [src/math/Matrix3.ts:164](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L164)
+Defined in: [src/math/Matrix3.ts:164](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L164)
 
 Scale by offset
 
@@ -266,7 +266,7 @@ y axis scaling
 
 > **setTo**(`a`, `b`, `c`, `d`, `tx`, `ty`): `Matrix3`
 
-Defined in: [src/math/Matrix3.ts:188](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L188)
+Defined in: [src/math/Matrix3.ts:188](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L188)
 
 Reset the matrix value
 
@@ -320,7 +320,7 @@ The modified matrix
 
 > **transformPoint**(`pointX`, `pointY`, `resultPoint?`): [`Vector3`](Vector3.md)
 
-Defined in: [src/math/Matrix3.ts:205](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L205)
+Defined in: [src/math/Matrix3.ts:205](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L205)
 
 transformation of coordinates
 
@@ -356,7 +356,7 @@ Vector of results
 
 > **setTranslate**(`x`, `y`): `this`
 
-Defined in: [src/math/Matrix3.ts:220](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L220)
+Defined in: [src/math/Matrix3.ts:220](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L220)
 
 translation
 
@@ -384,7 +384,7 @@ y coordinate
 
 > **translate**(`dx`, `dy`): `this`
 
-Defined in: [src/math/Matrix3.ts:231](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L231)
+Defined in: [src/math/Matrix3.ts:231](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L231)
 
 Translates the specified offset
 
@@ -412,7 +412,7 @@ The y-coordinate offset
 
 > **mul**(`t`): `this`
 
-Defined in: [src/math/Matrix3.ts:241](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L241)
+Defined in: [src/math/Matrix3.ts:241](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L241)
 
 multiply
 
@@ -434,7 +434,7 @@ target matrix
 
 > **equals**(`other`): `boolean`
 
-Defined in: [src/math/Matrix3.ts:280](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L280)
+Defined in: [src/math/Matrix3.ts:280](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L280)
 
 Is equal to the given matrix
 
@@ -456,7 +456,7 @@ matrix
 
 > **prepend**(`a`, `b`, `c`, `d`, `tx`, `ty`): `Matrix3`
 
-Defined in: [src/math/Matrix3.ts:294](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L294)
+Defined in: [src/math/Matrix3.ts:294](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L294)
 
 get a front matrix by multiplication
 
@@ -510,7 +510,7 @@ prematrix
 
 > **append**(`mat`): `Matrix3`
 
-Defined in: [src/math/Matrix3.ts:314](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L314)
+Defined in: [src/math/Matrix3.ts:314](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L314)
 
 Obtain a post-multiplication matrix by multiplication.
 
@@ -534,7 +534,7 @@ result
 
 > **deltaTransformPoint**(`point`): [`Vector3`](Vector3.md)
 
-Defined in: [src/math/Matrix3.ts:336](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L336)
+Defined in: [src/math/Matrix3.ts:336](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L336)
 
 Use the given point for the transformation, ignoring the x, y coordinates
 
@@ -556,7 +556,7 @@ A given point
 
 > **toString**(): `string`
 
-Defined in: [src/math/Matrix3.ts:347](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L347)
+Defined in: [src/math/Matrix3.ts:347](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L347)
 
 Converts the current matrix to string form
 
@@ -570,7 +570,7 @@ Converts the current matrix to string form
 
 > **createBox**(`scaleX`, `scaleY`, `rotation?`, `tx?`, `ty?`): `this`
 
-Defined in: [src/math/Matrix3.ts:359](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L359)
+Defined in: [src/math/Matrix3.ts:359](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L359)
 
 Set the matrix scaling, rotation, and conversion parameters
 
@@ -616,7 +616,7 @@ y-coordinate
 
 > **createGradientBox**(`width`, `height`, `rotation?`, `tx?`, `ty?`): `this`
 
-Defined in: [src/math/Matrix3.ts:388](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L388)
+Defined in: [src/math/Matrix3.ts:388](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L388)
 
 Create a gradient box
 
@@ -662,7 +662,7 @@ y-coordinate
 
 > **getScaleX**(): `number`
 
-Defined in: [src/math/Matrix3.ts:436](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L436)
+Defined in: [src/math/Matrix3.ts:436](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L436)
 
 Return the scale factor along the X axis derived from this matrix.
 
@@ -676,7 +676,7 @@ Return the scale factor along the X axis derived from this matrix.
 
 > **getScaleY**(): `number`
 
-Defined in: [src/math/Matrix3.ts:448](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L448)
+Defined in: [src/math/Matrix3.ts:448](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L448)
 
 Return the scale factor along the Y axis derived from this matrix.
 
@@ -690,7 +690,7 @@ Return the scale factor along the Y axis derived from this matrix.
 
 > **getSkewX**(): `number`
 
-Defined in: [src/math/Matrix3.ts:460](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L460)
+Defined in: [src/math/Matrix3.ts:460](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L460)
 
 Return the skew angle along the X axis derived from this matrix.
 
@@ -704,7 +704,7 @@ Return the skew angle along the X axis derived from this matrix.
 
 > **getSkewY**(): `number`
 
-Defined in: [src/math/Matrix3.ts:467](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L467)
+Defined in: [src/math/Matrix3.ts:467](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L467)
 
 Return the skew angle along the Y axis derived from this matrix.
 
@@ -718,7 +718,7 @@ Return the skew angle along the Y axis derived from this matrix.
 
 > **updateScaleAndRotation**(`scaleX`, `scaleY`, `skewX`, `skewY`): `this`
 
-Defined in: [src/math/Matrix3.ts:478](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L478)
+Defined in: [src/math/Matrix3.ts:478](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L478)
 
 Update this matrix from the given scale and skew components.
 
@@ -758,7 +758,7 @@ skew angle along the Y axis, in degrees
 
 > `static` **multiply**(`a`, `b`, `result?`): `Matrix3`
 
-Defined in: [src/math/Matrix3.ts:504](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L504)
+Defined in: [src/math/Matrix3.ts:504](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L504)
 
 Multiply two matrices: result = a * b. Allocates a new Matrix3 if result is omitted.
 
@@ -786,7 +786,7 @@ Multiply two matrices: result = a * b. Allocates a new Matrix3 if result is omit
 
 > `static` **preMultiply**(`a`, `b`, `result?`): `Matrix3`
 
-Defined in: [src/math/Matrix3.ts:517](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L517)
+Defined in: [src/math/Matrix3.ts:517](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L517)
 
 Pre-multiply two matrices: result = a * b (where a is pre-multiplied).
 Allocates a new Matrix3 if result is omitted.
@@ -815,7 +815,7 @@ Allocates a new Matrix3 if result is omitted.
 
 > **preMultiplyInto**(`other`, `target`): `void`
 
-Defined in: [src/math/Matrix3.ts:528](https://github.com/orillusion/orillusion/blob/main/src/math/Matrix3.ts#L528)
+Defined in: [src/math/Matrix3.ts:528](https://github.com/Orillusion/orillusion/blob/main/src/math/Matrix3.ts#L528)
 
 Pre-multiply this matrix by another and store the result: target = other * this.
 

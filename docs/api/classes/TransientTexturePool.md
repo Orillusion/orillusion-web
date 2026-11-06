@@ -4,7 +4,7 @@
 
 # Class: TransientTexturePool
 
-Defined in: [src/gfx/renderJob/graph/transient/TransientTexturePool.ts:69](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientTexturePool.ts#L69)
+Defined in: [src/gfx/renderJob/graph/transient/TransientTexturePool.ts:69](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientTexturePool.ts#L69)
 
 Physical pool for transient render-graph textures with lifetime-aware
 aliasing.
@@ -36,7 +36,7 @@ the next compile re-allocates from scratch on the new device.
 
 > **new TransientTexturePool**(`ctx`): `TransientTexturePool`
 
-Defined in: [src/gfx/renderJob/graph/transient/TransientTexturePool.ts:79](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientTexturePool.ts#L79)
+Defined in: [src/gfx/renderJob/graph/transient/TransientTexturePool.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientTexturePool.ts#L79)
 
 #### Parameters
 
@@ -54,7 +54,7 @@ Defined in: [src/gfx/renderJob/graph/transient/TransientTexturePool.ts:79](https
 
 > **assign**(`lifetimes`): [`TransientTextureAssignment`](../interfaces/TransientTextureAssignment.md)
 
-Defined in: [src/gfx/renderJob/graph/transient/TransientTexturePool.ts:89](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientTexturePool.ts#L89)
+Defined in: [src/gfx/renderJob/graph/transient/TransientTexturePool.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientTexturePool.ts#L89)
 
 Allocate (or reuse) physical wrappers for every transient
 lifetime. Persistent (imported) lifetimes are ignored — those
@@ -77,7 +77,7 @@ readonly [`ResourceLifetime`](../interfaces/ResourceLifetime.md)[]
 
 > **dispose**(): `void`
 
-Defined in: [src/gfx/renderJob/graph/transient/TransientTexturePool.ts:225](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientTexturePool.ts#L225)
+Defined in: [src/gfx/renderJob/graph/transient/TransientTexturePool.ts:225](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientTexturePool.ts#L225)
 
 Destroy every pooled wrapper. Called on graph destroy and
  device-lost.
@@ -92,7 +92,7 @@ Destroy every pooled wrapper. Called on graph destroy and
 
 > **stats**(): `object`
 
-Defined in: [src/gfx/renderJob/graph/transient/TransientTexturePool.ts:235](https://github.com/orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientTexturePool.ts#L235)
+Defined in: [src/gfx/renderJob/graph/transient/TransientTexturePool.ts:235](https://github.com/Orillusion/orillusion/blob/main/src/gfx/renderJob/graph/transient/TransientTexturePool.ts#L235)
 
 #### Returns
 

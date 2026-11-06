@@ -4,7 +4,7 @@
 
 # Class: SceneCaptureCameraComponent
 
-Defined in: [src/components/SceneCaptureCameraComponent.ts:76](https://github.com/orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L76)
+Defined in: [src/components/SceneCaptureCameraComponent.ts:76](https://github.com/Orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L76)
 
 Off-screen camera that captures the current scene into a render
 texture for other materials to sample. Typical uses: mirrors
@@ -77,7 +77,7 @@ Update mode
 
 > **object3D**: [`Object3D`](Object3D.md) = `null`
 
-Defined in: [src/components/ComponentBase.ts:29](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L29)
+Defined in: [src/components/ComponentBase.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L29)
 
 owner object3D
 
@@ -91,7 +91,7 @@ owner object3D
 
 > **isDestroyed**: `boolean` = `false`
 
-Defined in: [src/components/ComponentBase.ts:77](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L77)
+Defined in: [src/components/ComponentBase.ts:77](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L77)
 
 #### Inherited from
 
@@ -103,7 +103,7 @@ Defined in: [src/components/ComponentBase.ts:77](https://github.com/orillusion/o
 
 > **width**: `number` = `512`
 
-Defined in: [src/components/SceneCaptureCameraComponent.ts:79](https://github.com/orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L79)
+Defined in: [src/components/SceneCaptureCameraComponent.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L79)
 
 Capture render target width in pixels. Re-allocates the
  internal GBuffer on the next render if changed.
@@ -114,7 +114,7 @@ Capture render target width in pixels. Re-allocates the
 
 > **height**: `number` = `512`
 
-Defined in: [src/components/SceneCaptureCameraComponent.ts:83](https://github.com/orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L83)
+Defined in: [src/components/SceneCaptureCameraComponent.ts:83](https://github.com/Orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L83)
 
 Capture render target height in pixels. Re-allocates on
  change.
@@ -125,7 +125,7 @@ Capture render target height in pixels. Re-allocates on
 
 > **captureMask**: `number` = `0xffffffff`
 
-Defined in: [src/components/SceneCaptureCameraComponent.ts:87](https://github.com/orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L87)
+Defined in: [src/components/SceneCaptureCameraComponent.ts:87](https://github.com/Orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L87)
 
 Bitwise allowlist over [RendererMask](../enumerations/RendererMask.md). A renderer is
  captured only if `(node.rendererMask & captureMask) !== 0`.
@@ -136,7 +136,7 @@ Bitwise allowlist over [RendererMask](../enumerations/RendererMask.md). A render
 
 > **excludeMask**: `number` = `0`
 
-Defined in: [src/components/SceneCaptureCameraComponent.ts:91](https://github.com/orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L91)
+Defined in: [src/components/SceneCaptureCameraComponent.ts:91](https://github.com/Orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L91)
 
 Bitwise denylist over [RendererMask](../enumerations/RendererMask.md). A renderer is
  skipped if `(node.rendererMask & excludeMask) !== 0`.
@@ -147,7 +147,7 @@ Bitwise denylist over [RendererMask](../enumerations/RendererMask.md). A rendere
 
 > **clearColor**: [`Color`](Color.md)
 
-Defined in: [src/components/SceneCaptureCameraComponent.ts:95](https://github.com/orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L95)
+Defined in: [src/components/SceneCaptureCameraComponent.ts:95](https://github.com/Orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L95)
 
 RGBA clear color applied to the color attachment at the start
  of each capture. Depth always clears to 1.0.
@@ -158,7 +158,7 @@ RGBA clear color applied to the color attachment at the start
 
 > **includeSky**: `boolean` = `true`
 
-Defined in: [src/components/SceneCaptureCameraComponent.ts:99](https://github.com/orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L99)
+Defined in: [src/components/SceneCaptureCameraComponent.ts:99](https://github.com/Orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L99)
 
 Whether to render the scene's `AtmosphericComponent` / sky into
  the capture. Default true.
@@ -169,7 +169,7 @@ Whether to render the scene's `AtmosphericComponent` / sky into
 
 > **includeTransparent**: `boolean` = `true`
 
-Defined in: [src/components/SceneCaptureCameraComponent.ts:103](https://github.com/orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L103)
+Defined in: [src/components/SceneCaptureCameraComponent.ts:103](https://github.com/Orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L103)
 
 Whether to render transparent renderers into the capture.
  Default true.
@@ -180,7 +180,7 @@ Whether to render transparent renderers into the capture.
 
 > **updateMode**: [`SceneCaptureUpdateMode`](../type-aliases/SceneCaptureUpdateMode.md) = `'always'`
 
-Defined in: [src/components/SceneCaptureCameraComponent.ts:106](https://github.com/orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L106)
+Defined in: [src/components/SceneCaptureCameraComponent.ts:106](https://github.com/Orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L106)
 
 See [SceneCaptureUpdateMode](../type-aliases/SceneCaptureUpdateMode.md).
 
@@ -190,7 +190,7 @@ See [SceneCaptureUpdateMode](../type-aliases/SceneCaptureUpdateMode.md).
 
 > **needUpdate**: `boolean` = `true`
 
-Defined in: [src/components/SceneCaptureCameraComponent.ts:110](https://github.com/orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L110)
+Defined in: [src/components/SceneCaptureCameraComponent.ts:110](https://github.com/Orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L110)
 
 Manual-mode trigger. SceneCapturePass clears this back to false
  after rendering. Ignored when `updateMode === 'always'`.
@@ -203,7 +203,7 @@ Manual-mode trigger. SceneCapturePass clears this back to false
 
 > **get** **visibleLayer**(): `number`
 
-Defined in: [src/components/ComponentBase.ts:46](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L46)
+Defined in: [src/components/ComponentBase.ts:46](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L46)
 
 Composition-layer membership bitmask. The pass / camera /
 collector filters via
@@ -224,7 +224,7 @@ into composition layers.
 
 > **set** **visibleLayer**(`value`): `void`
 
-Defined in: [src/components/ComponentBase.ts:50](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L50)
+Defined in: [src/components/ComponentBase.ts:50](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L50)
 
 ##### Parameters
 
@@ -248,7 +248,7 @@ Defined in: [src/components/ComponentBase.ts:50](https://github.com/orillusion/o
 
 > **get** **eventDispatcher**(): [`CEventDispatcher`](CEventDispatcher.md)
 
-Defined in: [src/components/ComponentBase.ts:63](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L63)
+Defined in: [src/components/ComponentBase.ts:63](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L63)
 
 ##### Returns
 
@@ -258,7 +258,7 @@ Defined in: [src/components/ComponentBase.ts:63](https://github.com/orillusion/o
 
 > **set** **eventDispatcher**(`value`): `void`
 
-Defined in: [src/components/ComponentBase.ts:68](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
+Defined in: [src/components/ComponentBase.ts:68](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L68)
 
 ##### Parameters
 
@@ -282,7 +282,7 @@ Defined in: [src/components/ComponentBase.ts:68](https://github.com/orillusion/o
 
 > **get** **isStart**(): `boolean`
 
-Defined in: [src/components/ComponentBase.ts:79](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L79)
+Defined in: [src/components/ComponentBase.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L79)
 
 ##### Returns
 
@@ -300,7 +300,7 @@ Defined in: [src/components/ComponentBase.ts:79](https://github.com/orillusion/o
 
 > **get** **transform**(): [`Transform`](Transform.md)
 
-Defined in: [src/components/ComponentBase.ts:89](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L89)
+Defined in: [src/components/ComponentBase.ts:89](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L89)
 
 Return the Transform component attached to the Object3D.
 Null before the component is attached — `addComponent` assigns
@@ -323,7 +323,7 @@ can probe safely via `this.transform?.`.
 
 > **get** **enable**(): `boolean`
 
-Defined in: [src/components/ComponentBase.ts:113](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
+Defined in: [src/components/ComponentBase.ts:113](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L113)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
@@ -335,7 +335,7 @@ Enable/disable components. The enabled components can be updated, while the disa
 
 > **set** **enable**(`value`): `void`
 
-Defined in: [src/components/ComponentBase.ts:96](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L96)
+Defined in: [src/components/ComponentBase.ts:96](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L96)
 
 Enable/disable components. The enabled components can be updated, while the disabled components cannot be updated.
 
@@ -351,7 +351,7 @@ Enable/disable components. The enabled components can be updated, while the disa
 
 #### Inherited from
 
-[`ComponentBase`](ComponentBase.md).[`enable`](ComponentBase.md#enable)
+[`TranslationControlComponents`](TranslationControlComponents.md).[`enable`](TranslationControlComponents.md#enable)
 
 ***
 
@@ -361,7 +361,7 @@ Enable/disable components. The enabled components can be updated, while the disa
 
 > **get** **camera**(): [`Camera3D`](Camera3D.md)
 
-Defined in: [src/components/SceneCaptureCameraComponent.ts:153](https://github.com/orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L153)
+Defined in: [src/components/SceneCaptureCameraComponent.ts:153](https://github.com/Orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L153)
 
 Active Camera3D driving the capture, or `null` if none was
  found at start(). SceneCapturePass skips components with a
@@ -377,7 +377,7 @@ Active Camera3D driving the capture, or `null` if none was
 
 > **stop**(): `void`
 
-Defined in: [src/components/ComponentBase.ts:163](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L163)
+Defined in: [src/components/ComponentBase.ts:163](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L163)
 
 #### Returns
 
@@ -393,7 +393,7 @@ Defined in: [src/components/ComponentBase.ts:163](https://github.com/orillusion/
 
 > `optional` **onUpdate**(`view?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:166](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L166)
+Defined in: [src/components/ComponentBase.ts:166](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L166)
 
 #### Parameters
 
@@ -415,7 +415,7 @@ Defined in: [src/components/ComponentBase.ts:166](https://github.com/orillusion/
 
 > `optional` **onLateUpdate**(`view?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:167](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L167)
+Defined in: [src/components/ComponentBase.ts:167](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L167)
 
 #### Parameters
 
@@ -437,7 +437,7 @@ Defined in: [src/components/ComponentBase.ts:167](https://github.com/orillusion/
 
 > `optional` **onBeforeUpdate**(`view?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:168](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L168)
+Defined in: [src/components/ComponentBase.ts:168](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L168)
 
 #### Parameters
 
@@ -459,7 +459,7 @@ Defined in: [src/components/ComponentBase.ts:168](https://github.com/orillusion/
 
 > `optional` **onCompute**(`view?`, `command?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:169](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L169)
+Defined in: [src/components/ComponentBase.ts:169](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L169)
 
 #### Parameters
 
@@ -485,7 +485,7 @@ Defined in: [src/components/ComponentBase.ts:169](https://github.com/orillusion/
 
 > `optional` **onGraphic**(`view?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:170](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L170)
+Defined in: [src/components/ComponentBase.ts:170](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L170)
 
 #### Parameters
 
@@ -507,7 +507,7 @@ Defined in: [src/components/ComponentBase.ts:170](https://github.com/orillusion/
 
 > `optional` **onParentChange**(`lastParent?`, `currentParent?`): `any`
 
-Defined in: [src/components/ComponentBase.ts:171](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L171)
+Defined in: [src/components/ComponentBase.ts:171](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L171)
 
 #### Parameters
 
@@ -533,7 +533,7 @@ Defined in: [src/components/ComponentBase.ts:171](https://github.com/orillusion/
 
 > `optional` **onAddChild**(`child`): `any`
 
-Defined in: [src/components/ComponentBase.ts:172](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L172)
+Defined in: [src/components/ComponentBase.ts:172](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L172)
 
 #### Parameters
 
@@ -555,7 +555,7 @@ Defined in: [src/components/ComponentBase.ts:172](https://github.com/orillusion/
 
 > `optional` **onRemoveChild**(`child`): `any`
 
-Defined in: [src/components/ComponentBase.ts:173](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L173)
+Defined in: [src/components/ComponentBase.ts:173](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L173)
 
 #### Parameters
 
@@ -577,7 +577,7 @@ Defined in: [src/components/ComponentBase.ts:173](https://github.com/orillusion/
 
 > **cloneTo**(`obj`): `void`
 
-Defined in: [src/components/ComponentBase.ts:180](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L180)
+Defined in: [src/components/ComponentBase.ts:180](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L180)
 
 clone component data to target object3D
 
@@ -603,7 +603,7 @@ target object3D
 
 > **copyComponent**(`from`): `this`
 
-Defined in: [src/components/ComponentBase.ts:182](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L182)
+Defined in: [src/components/ComponentBase.ts:182](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L182)
 
 #### Parameters
 
@@ -625,7 +625,7 @@ Defined in: [src/components/ComponentBase.ts:182](https://github.com/orillusion/
 
 > **beforeDestroy**(`force?`): `void`
 
-Defined in: [src/components/ComponentBase.ts:249](https://github.com/orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L249)
+Defined in: [src/components/ComponentBase.ts:249](https://github.com/Orillusion/orillusion/blob/main/src/components/ComponentBase.ts#L249)
 
 before release this component, object refrences are not be set null now.
 
@@ -649,7 +649,7 @@ before release this component, object refrences are not be set null now.
 
 > **init**(): `void`
 
-Defined in: [src/components/SceneCaptureCameraComponent.ts:123](https://github.com/orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L123)
+Defined in: [src/components/SceneCaptureCameraComponent.ts:123](https://github.com/Orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L123)
 
 #### Returns
 
@@ -665,7 +665,7 @@ Defined in: [src/components/SceneCaptureCameraComponent.ts:123](https://github.c
 
 > **start**(): `void`
 
-Defined in: [src/components/SceneCaptureCameraComponent.ts:129](https://github.com/orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L129)
+Defined in: [src/components/SceneCaptureCameraComponent.ts:129](https://github.com/Orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L129)
 
 #### Returns
 
@@ -681,7 +681,7 @@ Defined in: [src/components/SceneCaptureCameraComponent.ts:129](https://github.c
 
 > **onEnable**(`view?`): `void`
 
-Defined in: [src/components/SceneCaptureCameraComponent.ts:138](https://github.com/orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L138)
+Defined in: [src/components/SceneCaptureCameraComponent.ts:138](https://github.com/Orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L138)
 
 #### Parameters
 
@@ -703,7 +703,7 @@ Defined in: [src/components/SceneCaptureCameraComponent.ts:138](https://github.c
 
 > **onDisable**(`view?`): `void`
 
-Defined in: [src/components/SceneCaptureCameraComponent.ts:144](https://github.com/orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L144)
+Defined in: [src/components/SceneCaptureCameraComponent.ts:144](https://github.com/Orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L144)
 
 #### Parameters
 
@@ -725,7 +725,7 @@ Defined in: [src/components/SceneCaptureCameraComponent.ts:144](https://github.c
 
 > **getCaptureTexture**(): `RenderTexture`
 
-Defined in: [src/components/SceneCaptureCameraComponent.ts:169](https://github.com/orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L169)
+Defined in: [src/components/SceneCaptureCameraComponent.ts:169](https://github.com/Orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L169)
 
 Color render-target the capture writes into (rgba16float). The
  internal GBuffer is lazily allocated on first call; subsequent
@@ -749,7 +749,7 @@ Color render-target the capture writes into (rgba16float). The
 
 > **destroy**(`force?`): `void`
 
-Defined in: [src/components/SceneCaptureCameraComponent.ts:265](https://github.com/orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L265)
+Defined in: [src/components/SceneCaptureCameraComponent.ts:265](https://github.com/Orillusion/orillusion/blob/main/src/components/SceneCaptureCameraComponent.ts#L265)
 
 release this component
 

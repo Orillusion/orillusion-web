@@ -4,7 +4,7 @@
 
 # Class: CubicBezierCurve
 
-Defined in: [src/math/CubicBezierCurve.ts:7](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierCurve.ts#L7)
+Defined in: [src/math/CubicBezierCurve.ts:7](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierCurve.ts#L7)
 
 Cubic Bezier Curve
 
@@ -14,7 +14,7 @@ Cubic Bezier Curve
 
 > **new CubicBezierCurve**(`cvs`): `CubicBezierCurve`
 
-Defined in: [src/math/CubicBezierCurve.ts:14](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierCurve.ts#L14)
+Defined in: [src/math/CubicBezierCurve.ts:14](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierCurve.ts#L14)
 
 #### Parameters
 
@@ -34,7 +34,7 @@ controller points
 
 > **setControlVertices**(`cvs`): `void`
 
-Defined in: [src/math/CubicBezierCurve.ts:22](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierCurve.ts#L22)
+Defined in: [src/math/CubicBezierCurve.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierCurve.ts#L22)
 
 update controller points
 
@@ -56,7 +56,7 @@ controller points
 
 > **getPoint**(`t`): [`Vector3`](Vector3.md)
 
-Defined in: [src/math/CubicBezierCurve.ts:34](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierCurve.ts#L34)
+Defined in: [src/math/CubicBezierCurve.ts:34](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierCurve.ts#L34)
 
 get position by calc from curve
 
@@ -80,7 +80,7 @@ Vector3
 
 > **getTangent**(`t`): [`Vector3`](Vector3.md)
 
-Defined in: [src/math/CubicBezierCurve.ts:58](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierCurve.ts#L58)
+Defined in: [src/math/CubicBezierCurve.ts:58](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierCurve.ts#L58)
 
 get tagent by calc from curve
 
@@ -104,7 +104,7 @@ tagent direction
 
 > **getClosestParam**(`pos`, `paramThreshold?`): `number`
 
-Defined in: [src/math/CubicBezierCurve.ts:79](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierCurve.ts#L79)
+Defined in: [src/math/CubicBezierCurve.ts:79](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierCurve.ts#L79)
 
 get adjacent coordinates
 
@@ -134,7 +134,7 @@ a position in range [0-1]
 
 > **getClosestParamRec**(`pos`, `beginT`, `endT`, `thresholdT`): `number`
 
-Defined in: [src/math/CubicBezierCurve.ts:91](https://github.com/orillusion/orillusion/blob/main/src/math/CubicBezierCurve.ts#L91)
+Defined in: [src/math/CubicBezierCurve.ts:91](https://github.com/Orillusion/orillusion/blob/main/src/math/CubicBezierCurve.ts#L91)
 
 get adjacent coordinates by given range
 

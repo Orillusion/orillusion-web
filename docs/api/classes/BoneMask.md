@@ -4,7 +4,7 @@
 
 # Class: BoneMask
 
-Defined in: [src/components/anim/BoneMask.ts:19](https://github.com/orillusion/orillusion/blob/main/src/components/anim/BoneMask.ts#L19)
+Defined in: [src/components/anim/BoneMask.ts:19](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/BoneMask.ts#L19)
 
 ## Constructors
 
@@ -24,7 +24,7 @@ Defined in: [src/components/anim/BoneMask.ts:19](https://github.com/orillusion/o
 
 > **get** **bones**(): `ReadonlySet`\<`string`\>
 
-Defined in: [src/components/anim/BoneMask.ts:22](https://github.com/orillusion/orillusion/blob/main/src/components/anim/BoneMask.ts#L22)
+Defined in: [src/components/anim/BoneMask.ts:22](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/BoneMask.ts#L22)
 
 ##### Returns
 
@@ -38,7 +38,7 @@ Defined in: [src/components/anim/BoneMask.ts:22](https://github.com/orillusion/o
 
 > **get** **size**(): `number`
 
-Defined in: [src/components/anim/BoneMask.ts:23](https://github.com/orillusion/orillusion/blob/main/src/components/anim/BoneMask.ts#L23)
+Defined in: [src/components/anim/BoneMask.ts:23](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/BoneMask.ts#L23)
 
 ##### Returns
 
@@ -50,7 +50,7 @@ Defined in: [src/components/anim/BoneMask.ts:23](https://github.com/orillusion/o
 
 > **has**(`boneName`): `boolean`
 
-Defined in: [src/components/anim/BoneMask.ts:25](https://github.com/orillusion/orillusion/blob/main/src/components/anim/BoneMask.ts#L25)
+Defined in: [src/components/anim/BoneMask.ts:25](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/BoneMask.ts#L25)
 
 #### Parameters
 
@@ -68,7 +68,7 @@ Defined in: [src/components/anim/BoneMask.ts:25](https://github.com/orillusion/o
 
 > **add**(`boneName`): `this`
 
-Defined in: [src/components/anim/BoneMask.ts:26](https://github.com/orillusion/orillusion/blob/main/src/components/anim/BoneMask.ts#L26)
+Defined in: [src/components/anim/BoneMask.ts:26](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/BoneMask.ts#L26)
 
 #### Parameters
 
@@ -86,7 +86,7 @@ Defined in: [src/components/anim/BoneMask.ts:26](https://github.com/orillusion/o
 
 > **addAll**(`boneNames`): `this`
 
-Defined in: [src/components/anim/BoneMask.ts:27](https://github.com/orillusion/orillusion/blob/main/src/components/anim/BoneMask.ts#L27)
+Defined in: [src/components/anim/BoneMask.ts:27](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/BoneMask.ts#L27)
 
 #### Parameters
 
@@ -104,7 +104,7 @@ Defined in: [src/components/anim/BoneMask.ts:27](https://github.com/orillusion/o
 
 > **remove**(`boneName`): `this`
 
-Defined in: [src/components/anim/BoneMask.ts:28](https://github.com/orillusion/orillusion/blob/main/src/components/anim/BoneMask.ts#L28)
+Defined in: [src/components/anim/BoneMask.ts:28](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/BoneMask.ts#L28)
 
 #### Parameters
 
@@ -122,7 +122,7 @@ Defined in: [src/components/anim/BoneMask.ts:28](https://github.com/orillusion/o
 
 > **clear**(): `this`
 
-Defined in: [src/components/anim/BoneMask.ts:29](https://github.com/orillusion/orillusion/blob/main/src/components/anim/BoneMask.ts#L29)
+Defined in: [src/components/anim/BoneMask.ts:29](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/BoneMask.ts#L29)
 
 #### Returns
 
@@ -134,7 +134,7 @@ Defined in: [src/components/anim/BoneMask.ts:29](https://github.com/orillusion/o
 
 > **addSubtree**(`avatar`, `rootBone`): `this`
 
-Defined in: [src/components/anim/BoneMask.ts:32](https://github.com/orillusion/orillusion/blob/main/src/components/anim/BoneMask.ts#L32)
+Defined in: [src/components/anim/BoneMask.ts:32](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/BoneMask.ts#L32)
 
 Add `rootBone` and every descendant (recursively) to the mask.
 
@@ -158,7 +158,7 @@ Add `rootBone` and every descendant (recursively) to the mask.
 
 > **removeSubtree**(`avatar`, `rootBone`): `this`
 
-Defined in: [src/components/anim/BoneMask.ts:45](https://github.com/orillusion/orillusion/blob/main/src/components/anim/BoneMask.ts#L45)
+Defined in: [src/components/anim/BoneMask.ts:45](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/BoneMask.ts#L45)
 
 #### Parameters
 

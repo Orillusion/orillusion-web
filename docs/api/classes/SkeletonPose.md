@@ -4,7 +4,7 @@
 
 # Class: SkeletonPose
 
-Defined in: [src/components/anim/skeletonAnim/SkeletonPose.ts:12](https://github.com/orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L12)
+Defined in: [src/components/anim/skeletonAnim/SkeletonPose.ts:12](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L12)
 
 Skeleton animation consists of many skeleton pose, 
 and each pose describes the transformation information of all bone
@@ -15,7 +15,7 @@ and each pose describes the transformation information of all bone
 
 > **new SkeletonPose**(`skeleton`, `useGlobalMatrix?`): `SkeletonPose`
 
-Defined in: [src/components/anim/skeletonAnim/SkeletonPose.ts:21](https://github.com/orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L21)
+Defined in: [src/components/anim/skeletonAnim/SkeletonPose.ts:21](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L21)
 
 #### Parameters
 
@@ -37,7 +37,7 @@ Defined in: [src/components/anim/skeletonAnim/SkeletonPose.ts:21](https://github
 
 > **time**: `number`
 
-Defined in: [src/components/anim/skeletonAnim/SkeletonPose.ts:16](https://github.com/orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L16)
+Defined in: [src/components/anim/skeletonAnim/SkeletonPose.ts:16](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L16)
 
 time of this pose in owner animation clip
 
@@ -49,7 +49,7 @@ time of this pose in owner animation clip
 
 > **get** **numJoint**(): `number`
 
-Defined in: [src/components/anim/skeletonAnim/SkeletonPose.ts:67](https://github.com/orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L67)
+Defined in: [src/components/anim/skeletonAnim/SkeletonPose.ts:67](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L67)
 
 Returns joints count of owner skeleton
 
@@ -65,7 +65,7 @@ Returns joints count of owner skeleton
 
 > **get** **joints**(): `JointPose`[]
 
-Defined in: [src/components/anim/skeletonAnim/SkeletonPose.ts:74](https://github.com/orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L74)
+Defined in: [src/components/anim/skeletonAnim/SkeletonPose.ts:74](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L74)
 
 Returns all joint pose
 
@@ -81,7 +81,7 @@ Returns all joint pose
 
 > **get** **jointMatrixIndexTable**(): `number`[]
 
-Defined in: [src/components/anim/skeletonAnim/SkeletonPose.ts:81](https://github.com/orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L81)
+Defined in: [src/components/anim/skeletonAnim/SkeletonPose.ts:81](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L81)
 
 Returns list of matrix's index
 
@@ -95,7 +95,7 @@ Returns list of matrix's index
 
 > **buildSkeletonPose**(`poseData`): `void`
 
-Defined in: [src/components/anim/skeletonAnim/SkeletonPose.ts:35](https://github.com/orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L35)
+Defined in: [src/components/anim/skeletonAnim/SkeletonPose.ts:35](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L35)
 
 build this pose from float32 array data
 
@@ -115,7 +115,7 @@ build this pose from float32 array data
 
 > **lerp**(`a`, `b`, `weight`): `void`
 
-Defined in: [src/components/anim/skeletonAnim/SkeletonPose.ts:91](https://github.com/orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L91)
+Defined in: [src/components/anim/skeletonAnim/SkeletonPose.ts:91](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L91)
 
 Returns lerped skeletonPose from pose a to pose b
 
@@ -149,7 +149,7 @@ number
 
 > **copy**(`other`): `void`
 
-Defined in: [src/components/anim/skeletonAnim/SkeletonPose.ts:112](https://github.com/orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L112)
+Defined in: [src/components/anim/skeletonAnim/SkeletonPose.ts:112](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L112)
 
 Copy skeleton pose from other skeleton pose
 
@@ -171,7 +171,7 @@ source skeleton pose
 
 > **reset**(): `void`
 
-Defined in: [src/components/anim/skeletonAnim/SkeletonPose.ts:121](https://github.com/orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L121)
+Defined in: [src/components/anim/skeletonAnim/SkeletonPose.ts:121](https://github.com/Orillusion/orillusion/blob/main/src/components/anim/skeletonAnim/SkeletonPose.ts#L121)
 
 Reset this skeleton pose
 
