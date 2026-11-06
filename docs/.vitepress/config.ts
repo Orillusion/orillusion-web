@@ -76,14 +76,21 @@ export default async () =>
                 copyright: 'Copyright © 2021-Present <a href="mailto:business@orillusion.com">Orillusion</a>'
             },
 
-            algolia: {
-                appId: 'TJ3C7RARIT',
-                apiKey: 'ab01334a5b0c198b8702054b2cafd5da',
-                indexName: 'orillusion',
-                searchParameters: {
-                    facetFilters: ['tags:latest']
+            search: {
+                provider: 'local',
+                options: {
+                    _render: (src: string, env: unknown, md: any) =>
+                        md.render(src, env).replace(/<pre[\s\S]*?<\/pre>/g, '')
                 }
             }
+            // algolia: {
+            //     appId: 'TJ3C7RARIT',
+            //     apiKey: 'ab01334a5b0c198b8702054b2cafd5da',
+            //     indexName: 'orillusion',
+            //     searchParameters: {
+            //         facetFilters: ['tags:latest']
+            //     }
+            // }
         },
         markdown: {
             lineNumbers: true,
