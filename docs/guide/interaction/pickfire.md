@@ -66,7 +66,7 @@ collider.shape = new BoxColliderShape().setFromCenterAndSize(new Vector3(0, 0, 0
 
 - The `box` on the left uses a `BoxColliderShape` of the same shape for detection, with good precision
 - The `sphere` in the middle uses a `BoxColliderShape`, but the detection area is larger than the actual model, resulting in lower precision
-- The `sphere` on the right uses a `MeshColliderShape`, which can perfectly fit all vertices of the model with the highest precision, but consumes more performance for collision detection. It is not recommended for complex objects
+- The `sphere` on the right uses a `MeshColliderShape`, which intersects the model's triangles directly with the highest precision. By default it builds a `MeshBVH` for the geometry on the first pick, so even high-poly models can be picked every frame, and the event data carries the triangle index, UVs and more. See [Raycasting and MeshBVH](/guide/interaction/raycast)
 
 <Demo :height="400" src="/demos/interaction/pick_bound.ts"></Demo>
 

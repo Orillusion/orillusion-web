@@ -276,6 +276,7 @@ function sidebarGuide(): SidebarItem {
                 { text: 'Input System', link: '/guide/interaction/pointer.md' },
                 { text: 'Keyboard', link: '/guide/interaction/keyboard.md' },
                 { text: 'Pick Events', link: '/guide/interaction/pickfire.md' },
+                { text: 'Raycasting and MeshBVH', link: '/guide/interaction/raycast.md' },
                 { text: 'Custom Events', link: '/guide/interaction/event.md' }
             ]
         },
@@ -483,6 +484,7 @@ function sidebarExample(root: string = '') {
         Loader: [],
         Particle: [],
         Water: [],
+        Pick: [],
         Compute: [],
         Physics: [],
         PhysicsRapier: [],
