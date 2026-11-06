@@ -13,6 +13,10 @@ In a rendering scene, we often apply operations such as translation, rotation, a
 | [MathUti](/api/classes/MathUtil) | Built-in mathematical basic calculation factory functions |
 | [Plane](/api/classes/Plane) | Mathematical plane class |
 | [Ray](/api/classes/Ray) | Ray |
+| [Box2](/api/classes/Box2) | 2D axis-aligned bounding box, for screen rectangles, UV ranges, marquee selection and more |
+| [Spherical](/api/classes/Spherical) | Spherical coordinates (radius, polar angle, azimuth) |
+| [Cylindrical](/api/classes/Cylindrical) | Cylindrical coordinates (radius, azimuth, height) |
+| [CatmullRomCurve3](/api/classes/CatmullRomCurve3) | Smooth 3D spline passing through every control point |
 | Rand | Normal random |
 | Random | Various types of random distribution functions |
 | Bezier2D | 2D Bezier curve |
@@ -72,6 +76,11 @@ The static form `Class.op(a, b, result?)` is the engine's internal preferred "al
 ### Newly Added Standard Methods
 
 0.9.0 also adds a large number of commonly used methods to `Vector2/3/4`, `Quaternion`, and `Matrix4` (all chained mutators returning `this`), such as: `addVectors` / `subVectors` / `multiplyVectors`, `dot`, `lengthSq`, `distanceTo`, `lerp` / `lerpVectors`, `applyMatrix4`, `projectOnVector`, `reflect`, `Matrix4.premultiply`, and so on.
+
+### Behavior Fixes
+
+- The interpolation direction of the static method `Vector2.lerp(from, to, t)` is fixed: `t = 0` returns `from` and `t = 1` returns `to` (the two ends used to be swapped), consistent with `lerp` / `lerpVectors` of `Vector3`;
+- `Plane.intersectsRay()` returns `false` when the ray is parallel to the plane, instead of computing an invalid hit point.
 
 ## Vector
 The most basic definition of a vector is a direction. Or more formally, a vector has a direction (Direction) and a magnitude (Magnitude, also known as strength or length). You can think of a vector as an instruction on a treasure map: "Go left 10 steps, go north 3 steps, and then go right 5 steps"; "left" is the direction, and "10 steps" is the length of the vector. So there are a total of 3 vectors in this treasure map's instructions. Vectors can be in any dimension (Dimension), but we usually only use 2 to 4 dimensions. If a vector has 2 dimensions, it represents the direction of a plane (imagine a 2D image); when it has 3 dimensions, it can express a direction in a 3D world.
@@ -447,6 +456,136 @@ r1.setOrigin(new Vector3(1,1,1));
 let result2 = r1.getOrigin();
 
 ```
+
+## Box2
+A 2D axis-aligned bounding box described by its two corners `min` and `max`, commonly used for screen rectangles, UV ranges, 2D culling and marquee selection:
+```ts
+import { Box2, Vector2 } from '@orillusion/core';
+
+// The default constructor creates an empty box (min = +∞, max = -∞); the first expandByPoint defines it
+let b1 = new Box2();
+b1.expandByPoint(new Vector2(1, 2));
+b1.expandByPoint(new Vector2(5, 4));
+
+// Construct from corners, from a set of points, or from a center and size
+let b2 = new Box2(new Vector2(0, 0), new Vector2(10, 10));
+let b3 = new Box2().setFromPoints([new Vector2(1, 1), new Vector2(3, 6), new Vector2(-2, 4)]);
+let b4 = new Box2().setFromCenterAndSize(new Vector2(5, 5), new Vector2(4, 2));
+
+// Empty check, center, size
+let empty = new Box2().isEmpty(); // true
+let center = b2.getCenter();
+let size = b2.getSize();
+
+// Containment and intersection tests (touching edges count as intersecting)
+let r1 = b2.containsPoint(new Vector2(3, 3));
+let r2 = b2.containsBox(b4);
+let r3 = b2.intersectsBox(b3);
+
+// Normalized position of a point inside the box (0 ~ 1 on each axis), e.g. screen coordinates to UV
+let uv = b2.getParameter(new Vector2(2.5, 7.5)); // (0.25, 0.75)
+
+// Clamp a point into the box, and the distance from a point to the box (0 inside)
+let p = b2.clampPoint(new Vector2(15, -3)); // (10, 0)
+let d = b2.distanceToPoint(new Vector2(13, 14)); // 5
+
+// Expand and translate; intersect keeps the overlap (empty if none), union merges
+b1.expandByScalar(1);
+b1.translate(new Vector2(2, 0));
+let overlap = b2.clone().intersect(b3);
+let merged = b2.clone().union(b3);
+```
+
+## Spherical and Cylindrical Coordinates
+`Spherical` and `Cylindrical` convert between polar forms and cartesian coordinates, handy for orbiting, circling and spiral motion. Their conventions are the same as three.js.
+
+`Spherical` is described by the radius `radius`, the polar angle `phi` (angle from the +Y axis, `0 ~ π`) and the azimuth `theta` (around +Y, measured from +Z toward +X), all angles in radians. `OrbitController` uses it internally to orbit its target:
+```ts
+import { Spherical, Vector3 } from '@orillusion/core';
+
+// Radius 10, polar angle 60°, azimuth 0
+let s = new Spherical(10, Math.PI / 3, 0);
+
+// Convert to cartesian coordinates (into a new object or a given output object)
+let pos = s.toVector3();
+
+// Set from cartesian coordinates
+s.setFromVector3(new Vector3(3, 4, 0));
+s.setFromCartesianCoords(3, 4, 0);
+
+// Rotate the camera horizontally around the origin
+s.theta += 0.01;
+// Keep phi inside (0, π) so the orientation does not degenerate straight up / down
+s.makeSafe();
+camera.object3D.localPosition = s.toVector3();
+```
+
+`Cylindrical` is described by the distance from the Y axis `radius`, the azimuth `theta` and the height `y`:
+```ts
+import { Cylindrical, Vector3 } from '@orillusion/core';
+
+// Radius 6, azimuth 0, height 0
+let c = new Cylindrical(6, 0, 0);
+
+// Climb along a helix
+c.theta += 0.05;
+c.y += 0.02;
+obj.localPosition = c.toVector3();
+
+// Set from cartesian coordinates
+c.setFromVector3(new Vector3(0, 2, 6));
+```
+
+## Catmull-Rom Curve
+`CatmullRomCurve3` is a smooth 3D spline that **passes through every control point** (unlike a Bezier curve, whose inner control points are off the curve). It suits camera paths, patrol routes, pipe layouts and similar uses; its API matches three.js:
+```ts
+import { CatmullRomCurve3, Vector3 } from '@orillusion/core';
+
+let curve = new CatmullRomCurve3(
+    [new Vector3(-10, 0, 0), new Vector3(0, 5, 5), new Vector3(10, 0, 0), new Vector3(0, -5, -5)],
+    true,          // closed: whether the ends join
+    'centripetal', // curveType: curve type
+    0.5            // tension: only used by the 'catmullrom' type
+);
+
+// Point at curve parameter t (0 ~ 1): with uneven control point spacing, equal steps of t cover different distances
+let p1 = curve.getPoint(0.5);
+
+// Point at arc-length fraction u (0 ~ 1): what constant-speed motion and camera paths usually want
+let p2 = curve.getPointAt(0.5);
+let tangent = curve.getTangentAt(0.5); // unit tangent, i.e. the direction of travel
+
+// Total length of the curve
+let length = curve.getLength();
+
+// Sampling: getPoints divides by parameter, getSpacedPoints by arc length; both return divisions + 1 points
+let points = curve.getPoints(100);
+let spaced = curve.getSpacedPoints(100);
+```
+
+| Property | Default | Description |
+| --- | --- | --- |
+| `points` | `[]` | Control points |
+| `closed` | `false` | Whether the curve is closed |
+| `curveType` | `'centripetal'` | Curve type, see below |
+| `tension` | `0.5` | Only used by the `'catmullrom'` type: `0` gives straight segments, `0.5` the classic Catmull-Rom, larger values a looser curve |
+| `arcLengthDivisions` | `200` | Samples used to compute the arc length; larger makes `getPointAt` more accurate |
+
+| `curveType` | Description |
+| --- | --- |
+| `'centripetal'` | Default. Centripetal parameterization; never forms cusps or self-intersections within a segment |
+| `'chordal'` | Chordal parameterization; looser than centripetal |
+| `'catmullrom'` | The classic uniform Catmull-Rom, its tightness controlled by `tension` |
+
+::: tip
+The arc-length table used by `getPointAt`, `getLength` and friends is cached. The cache is keyed on the control point coordinates and on parameters such as `closed`, `curveType` and `tension`, so changing the control points (including editing a point's coordinates directly) or the parameters recomputes it on the next call; `curve.updateArcLengths()` forces a rebuild.
+:::
+
+In the example below, the red spheres are the control points and the white line is the curve through them. The yellow dots are `getSpacedPoints` (equal arc length) and the cyan dots are `getPoints` (equal parameter): the cyan ones bunch up where control points are close. The orange box moves along the curve at constant speed with `getPointAt` and faces along `getTangentAt`; the green ball moves on a sphere with `Spherical`, and the purple ball climbs a helix with `Cylindrical`.
+
+<Demo src="/demos/tools/catmullRom.ts"></Demo>
+
+<<< @/public/demos/tools/catmullRom.ts
 
 ## MathUtil
 
