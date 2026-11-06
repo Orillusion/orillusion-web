@@ -143,7 +143,8 @@ class Sample_ColorGrading {
         const loadNightLUT = async () => {
             if (!nightLUT) {
                 nightLUT = new BitmapTexture2D(false);
-                await nightLUT.load('/images/lut_night.png');
+                // Relative to demo.html, so it works under any site base (/ or /en/)
+                await nightLUT.load('images/lut_night.png');
             }
             return nightLUT;
         };

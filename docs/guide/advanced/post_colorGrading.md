@@ -90,7 +90,7 @@ import { BitmapTexture2D } from '@orillusion/core';
 
 // 第一个参数 false：不生成 mipmap
 const lutTexture = new BitmapTexture2D(false);
-await lutTexture.load('/images/lut_night.png');
+await lutTexture.load('images/lut_night.png');
 grade.lut = lutTexture;
 ```
 
