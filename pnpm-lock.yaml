@@ -9,29 +9,29 @@ importers:
   .:
     devDependencies:
       '@orillusion/core':
-        specifier: 0.9.1
-        version: 0.9.1
+        specifier: 0.9.5
+        version: 0.9.5
       '@orillusion/geometry':
         specifier: ^0.3.0
-        version: 0.3.0(@orillusion/core@0.9.1)
+        version: 0.3.0(@orillusion/core@0.9.5)
       '@orillusion/graphic':
         specifier: ^0.3.0
-        version: 0.3.0(@orillusion/core@0.9.1)
+        version: 0.3.0(@orillusion/core@0.9.5)
       '@orillusion/media-extention':
         specifier: ^0.4.0
-        version: 0.4.0(@orillusion/core@0.9.1)
+        version: 0.4.0(@orillusion/core@0.9.5)
       '@orillusion/particle':
         specifier: ^0.2.0
-        version: 0.2.0(@orillusion/core@0.9.1)
+        version: 0.2.0(@orillusion/core@0.9.5)
       '@orillusion/physics':
         specifier: ^0.4.0
-        version: 0.4.0(@orillusion/core@0.9.1)
+        version: 0.4.0(@orillusion/core@0.9.5)
       '@orillusion/physics-rapier':
         specifier: ^0.1.0
-        version: 0.1.0(@orillusion/core@0.9.1)
+        version: 0.1.0(@orillusion/core@0.9.5)
       '@orillusion/stats':
         specifier: ^0.2.6
-        version: 0.2.7(@orillusion/core@0.9.1)
+        version: 0.2.7(@orillusion/core@0.9.5)
       '@types/dat.gui':
         specifier: ^0.7.13
         version: 0.7.13
@@ -454,8 +454,8 @@ packages:
   '@orillusion/ammo@0.2.1':
     resolution: {integrity: sha512-E/L+73rlF/eENDahX/iKUXiQMeWwmjeppDLMBwx446uBJNpbjMIew4dl0DlpB0K0VCWXrAU+Kl4tV5urjLLwOA==}
 
-  '@orillusion/core@0.9.1':
-    resolution: {integrity: sha512-aJ/FhaPGvmBDN9XNUTHih0t9mPU+kxXISaWv3h8aJ20236tlTbERz1hO7U3+B4M/ijxjn05+gmqUGOjF0/RR1g==}
+  '@orillusion/core@0.9.5':
+    resolution: {integrity: sha512-VdzwWaEhjw1AGUMCnV7HtAipDH9gTbr/oLYeOlQcKEayVBQEt29kbT/Rz4WdNLA801C9wru9DYQufTmZkZZv0g==}
 
   '@orillusion/geometry@0.3.0':
     resolution: {integrity: sha512-rJqdR4xaBNKgtd4blPPeNj2BBAGvoSluJV+hBolWppZ06bDFsBuSPJy2jz4NRQAsoMZdGNDSImjF88gHfPR6pA==}
@@ -1341,37 +1341,37 @@ snapshots:
 
   '@orillusion/ammo@0.2.1': {}
 
-  '@orillusion/core@0.9.1': {}
+  '@orillusion/core@0.9.5': {}
 
-  '@orillusion/geometry@0.3.0(@orillusion/core@0.9.1)':
+  '@orillusion/geometry@0.3.0(@orillusion/core@0.9.5)':
     dependencies:
-      '@orillusion/core': 0.9.1
+      '@orillusion/core': 0.9.5
 
-  '@orillusion/graphic@0.3.0(@orillusion/core@0.9.1)':
+  '@orillusion/graphic@0.3.0(@orillusion/core@0.9.5)':
     dependencies:
-      '@orillusion/core': 0.9.1
+      '@orillusion/core': 0.9.5
 
-  '@orillusion/media-extention@0.4.0(@orillusion/core@0.9.1)':
+  '@orillusion/media-extention@0.4.0(@orillusion/core@0.9.5)':
     dependencies:
-      '@orillusion/core': 0.9.1
+      '@orillusion/core': 0.9.5
 
-  '@orillusion/particle@0.2.0(@orillusion/core@0.9.1)':
+  '@orillusion/particle@0.2.0(@orillusion/core@0.9.5)':
     dependencies:
-      '@orillusion/core': 0.9.1
+      '@orillusion/core': 0.9.5
 
-  '@orillusion/physics-rapier@0.1.0(@orillusion/core@0.9.1)':
+  '@orillusion/physics-rapier@0.1.0(@orillusion/core@0.9.5)':
     dependencies:
       '@dimforge/rapier3d-compat': 0.14.0
-      '@orillusion/core': 0.9.1
+      '@orillusion/core': 0.9.5
 
-  '@orillusion/physics@0.4.0(@orillusion/core@0.9.1)':
+  '@orillusion/physics@0.4.0(@orillusion/core@0.9.5)':
     dependencies:
       '@orillusion/ammo': 0.2.1
-      '@orillusion/core': 0.9.1
+      '@orillusion/core': 0.9.5
 
-  '@orillusion/stats@0.2.7(@orillusion/core@0.9.1)':
+  '@orillusion/stats@0.2.7(@orillusion/core@0.9.5)':
     dependencies:
-      '@orillusion/core': 0.9.1
+      '@orillusion/core': 0.9.5
 
   '@rollup/rollup-android-arm-eabi@4.62.2':
     optional: true
