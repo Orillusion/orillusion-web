@@ -13,6 +13,10 @@
 | [MathUti](/api/classes/MathUtil) | 内置数学基本计算工厂函数 |
 | [Plane](/api/classes/Plane) | 平面数学类 |
 | [Ray](/api/classes/Ray) | 射线 |
+| [Box2](/api/classes/Box2) | 二维轴对齐包围盒，用于屏幕矩形、UV 范围、框选等 |
+| [Spherical](/api/classes/Spherical) | 球坐标（半径、极角、方位角） |
+| [Cylindrical](/api/classes/Cylindrical) | 柱坐标（半径、方位角、高度） |
+| [CatmullRomCurve3](/api/classes/CatmullRomCurve3) | 经过所有控制点的平滑三维样条曲线 |
 | Rand | 普通随机 |
 | Random | 各种类型的随机分布函数 |
 | Bezier2D | 2D 贝塞尔曲线 |
@@ -72,6 +76,11 @@ Vector3.add(a, b, out);       // out = a + b，a、b 均不变
 ### 新增的标准方法
 
 0.9.0 还为 `Vector2/3/4`、`Quaternion`、`Matrix4` 补充了大量常用方法（均为链式 mutator，返回 `this`），例如：`addVectors` / `subVectors` / `multiplyVectors`、`dot`、`lengthSq`、`distanceTo`、`lerp` / `lerpVectors`、`applyMatrix4`、`projectOnVector`、`reflect`、`Matrix4.premultiply` 等。
+
+### 行为修正
+
+- 静态方法 `Vector2.lerp(from, to, t)` 的插值方向已修正：`t = 0` 返回 `from`，`t = 1` 返回 `to`（此前两端颠倒），与 `Vector3` 的 `lerp` / `lerpVectors` 一致；
+- `Plane.intersectsRay()` 在射线与平面平行时返回 `false`，不再计算出无效的交点。
 
 ## 向量
 向量最基本的定义就是一个方向。或者更正式的说，向量有一个方向（Direction）和大小（Magnitude，也叫做强度或长度）。你可以把向量想像成一个藏宝图上的指示：“向左走10步，向北走3步，然后向右走5步”；“左”就是方向，“10步”就是向量的长度。那么这个藏宝图的指示一共有3个向量。向量可以在任意维度（Dimension）上，但是我们通常只使用2至4维。如果一个向量有2个维度，它表示一个平面的方向（想象一下2D的图像），当它有3个维度的时候它可以表达一个3D世界的方向。
@@ -447,6 +456,136 @@ r1.setOrigin(new Vector3(1,1,1));
 let result2 = r1.getOrigin();
 
 ```
+
+## Box2
+二维轴对齐包围盒，由 `min`、`max` 两个角点描述，常用于屏幕矩形、UV 范围、二维裁剪与框选：
+```ts
+import { Box2, Vector2 } from '@orillusion/core';
+
+// 默认构造一个空盒（min 为 +∞，max 为 -∞），第一次 expandByPoint 时确定范围
+let b1 = new Box2();
+b1.expandByPoint(new Vector2(1, 2));
+b1.expandByPoint(new Vector2(5, 4));
+
+// 使用角点、点集或中心与尺寸构造
+let b2 = new Box2(new Vector2(0, 0), new Vector2(10, 10));
+let b3 = new Box2().setFromPoints([new Vector2(1, 1), new Vector2(3, 6), new Vector2(-2, 4)]);
+let b4 = new Box2().setFromCenterAndSize(new Vector2(5, 5), new Vector2(4, 2));
+
+// 是否为空、中心、尺寸
+let empty = new Box2().isEmpty(); // true
+let center = b2.getCenter();
+let size = b2.getSize();
+
+// 包含与相交判断（边界接触也算相交）
+let r1 = b2.containsPoint(new Vector2(3, 3));
+let r2 = b2.containsBox(b4);
+let r3 = b2.intersectsBox(b3);
+
+// 点在盒内的归一化位置（每个轴 0 ~ 1），例如屏幕坐标转 UV
+let uv = b2.getParameter(new Vector2(2.5, 7.5)); // (0.25, 0.75)
+
+// 把点限制在盒内，以及点到盒的距离（在盒内为 0）
+let p = b2.clampPoint(new Vector2(15, -3)); // (10, 0)
+let d = b2.distanceToPoint(new Vector2(13, 14)); // 5
+
+// 扩展、平移；intersect 求交集（不相交时变为空盒），union 求并集
+b1.expandByScalar(1);
+b1.translate(new Vector2(2, 0));
+let overlap = b2.clone().intersect(b3);
+let merged = b2.clone().union(b3);
+```
+
+## 球坐标与柱坐标
+`Spherical` 与 `Cylindrical` 用来在极坐标形式与直角坐标之间转换，适合环绕、轨道、螺旋等运动，坐标约定与 three.js 相同。
+
+`Spherical` 由半径 `radius`、极角 `phi`（与 +Y 轴的夹角，`0 ~ π`）和方位角 `theta`（绕 +Y 轴、从 +Z 转向 +X）描述，角度均为弧度。`OrbitController` 内部即使用它环绕目标：
+```ts
+import { Spherical, Vector3 } from '@orillusion/core';
+
+// 半径 10，极角 60°，方位角 0
+let s = new Spherical(10, Math.PI / 3, 0);
+
+// 转换为直角坐标（写入新对象或指定的输出对象）
+let pos = s.toVector3();
+
+// 由直角坐标设置
+s.setFromVector3(new Vector3(3, 4, 0));
+s.setFromCartesianCoords(3, 4, 0);
+
+// 让相机绕原点水平旋转
+s.theta += 0.01;
+// 把 phi 限制在 (0, π) 内，避免在正上方 / 正下方时朝向退化
+s.makeSafe();
+camera.object3D.localPosition = s.toVector3();
+```
+
+`Cylindrical` 由到 Y 轴的距离 `radius`、方位角 `theta` 和高度 `y` 描述：
+```ts
+import { Cylindrical, Vector3 } from '@orillusion/core';
+
+// 半径 6，方位角 0，高度 0
+let c = new Cylindrical(6, 0, 0);
+
+// 沿螺旋线上升
+c.theta += 0.05;
+c.y += 0.02;
+obj.localPosition = c.toVector3();
+
+// 由直角坐标设置
+c.setFromVector3(new Vector3(0, 2, 6));
+```
+
+## Catmull-Rom 曲线
+`CatmullRomCurve3` 是一条**经过所有控制点**的平滑三维样条曲线（与贝塞尔曲线不同，后者的中间控制点不在曲线上），适合相机路径、巡逻路线、管线走向等场景，接口与 three.js 一致：
+```ts
+import { CatmullRomCurve3, Vector3 } from '@orillusion/core';
+
+let curve = new CatmullRomCurve3(
+    [new Vector3(-10, 0, 0), new Vector3(0, 5, 5), new Vector3(10, 0, 0), new Vector3(0, -5, -5)],
+    true,          // closed：是否首尾相连
+    'centripetal', // curveType：曲线类型
+    0.5            // tension：仅 'catmullrom' 类型使用
+);
+
+// 按曲线参数 t（0 ~ 1）取点：控制点间距不均匀时，相同的 t 步长对应的距离不同
+let p1 = curve.getPoint(0.5);
+
+// 按弧长比例 u（0 ~ 1）取点：匀速运动、相机路径通常使用这一组
+let p2 = curve.getPointAt(0.5);
+let tangent = curve.getTangentAt(0.5); // 单位切线，即运动方向
+
+// 曲线总长度
+let length = curve.getLength();
+
+// 采样：getPoints 按参数等分，getSpacedPoints 按弧长等分，均返回 divisions + 1 个点
+let points = curve.getPoints(100);
+let spaced = curve.getSpacedPoints(100);
+```
+
+| 属性 | 默认值 | 说明 |
+| --- | --- | --- |
+| `points` | `[]` | 控制点数组 |
+| `closed` | `false` | 是否闭合 |
+| `curveType` | `'centripetal'` | 曲线类型，见下表 |
+| `tension` | `0.5` | 仅 `'catmullrom'` 类型使用：`0` 为折线段，`0.5` 为经典 Catmull-Rom，越大曲线越松弛 |
+| `arcLengthDivisions` | `200` | 计算弧长时的采样段数，越大 `getPointAt` 越精确 |
+
+| `curveType` | 说明 |
+| --- | --- |
+| `'centripetal'` | 默认。向心参数化，每段内不会出现尖角或自相交 |
+| `'chordal'` | 弦长参数化，曲线比向心参数化更松弛 |
+| `'catmullrom'` | 经典的均匀 Catmull-Rom，由 `tension` 控制松紧 |
+
+::: tip
+`getPointAt`、`getLength` 等依赖的弧长表会被缓存。缓存以控制点坐标和 `closed`、`curveType`、`tension` 等参数为键，修改控制点（包括直接改某个点的坐标）或参数后会在下次调用时自动重新计算；也可以调用 `curve.updateArcLengths()` 强制重建。
+:::
+
+下面的示例中，红色小球是控制点，白线是经过它们的曲线；黄色点为 `getSpacedPoints` 按弧长等分的结果，青色点为 `getPoints` 按参数等分的结果，可以看到青色点在控制点密集处挤在一起。橙色方块用 `getPointAt` 沿曲线匀速运动，并朝向 `getTangentAt` 的方向；绿色小球用 `Spherical` 绕球面运动，紫色小球用 `Cylindrical` 沿螺旋线运动。
+
+<Demo src="/demos/tools/catmullRom.ts"></Demo>
+
+<<< @/public/demos/tools/catmullRom.ts
 
 ## MathUtil
 
