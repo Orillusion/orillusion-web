@@ -1,0 +1,49 @@
+name: Build Docs (en)
+
+on:
+  push:
+    branches: [ci/build-docs-en]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  # 不取消进行中的任务，避免把正在上传 OSS 的任务打断
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # Same as `npm run build`: vitepress build docs && npm run build:demos
+      - name: Build docs
+        run: pnpm run build
+
+      - name: Upload dist
+        uses: actions/upload-artifact@v4
+        with:
+          name: docs-dist-en
+          path: docs/.vitepress/dist
+          retention-days: 7
+
+      # 上传到三个 bucket 的 en/ 子目录，不动根目录
+      - name: Upload to OSS (en/)
+        if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/ci/build-docs-en')
+        env:
+          OSS_ACCESS_KEY_ID: ${{ secrets.OSS_ACCESS_KEY_ID }}
+          OSS_ACCESS_KEY_SECRET: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
+        run: node docs/.vitepress/upload_oss.cjs

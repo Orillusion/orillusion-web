@@ -22,6 +22,7 @@
         "@orillusion/stats": "^0.2.6",
         "@types/dat.gui": "^0.7.13",
         "@types/node": "^18.19.47",
+        "ali-oss": "6.23.0",
         "esbuild": "^0.17.19",
         "prettier": "^2.8.8",
         "vitepress": "1.6.4",
