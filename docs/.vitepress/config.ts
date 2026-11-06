@@ -394,6 +394,10 @@ function sidebarGuide(): SidebarItem {
                         },
                         { text: 'TAAPost', link: '/guide/advanced/post_taa.md' },
                         { text: 'GodRayPost', link: '/guide/advanced/post_godRay.md' },
+                        { text: 'MotionBlurPost', link: '/guide/advanced/post_motionBlur.md' },
+                        { text: 'LensPost', link: '/guide/advanced/post_lens.md' },
+                        { text: 'Tonemap', link: '/guide/advanced/post_tonemap.md' },
+                        { text: 'ColorGradingPost', link: '/guide/advanced/post_colorGrading.md' },
                         { text: 'Custom Post-processing', link: '/guide/advanced/post_custom.md' }
                     ]
                 },

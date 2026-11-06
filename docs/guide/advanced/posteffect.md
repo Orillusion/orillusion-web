@@ -15,3 +15,7 @@ aside: false
 | [GTAO](./post_gtao) | Ambient occlusion  |
 | [TAAPost](./post_taa) | Anti-aliasing  |
 | [GodRay](./post_godRay) | God Ray  |
+| [MotionBlur](./post_motionBlur) | Motion blur (camera / object)  |
+| [Lens](./post_lens) | Vignette, chromatic aberration, film grain  |
+| [Tonemap](./post_tonemap) | Tone mapping (added by the engine)  |
+| [ColorGrading](./post_colorGrading) | Color grading  |
