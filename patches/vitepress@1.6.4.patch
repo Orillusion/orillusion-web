@@ -1,0 +1,73 @@
+diff --git a/dist/node/chunk-D3CUZ4fa.js b/dist/node/chunk-D3CUZ4fa.js
+index fcc35e8af6f0178bd475a90d3e51efdb0d80d2c5..2f9b47f1d8df2000145bd8e06018119c7ccda381 100644
+--- a/dist/node/chunk-D3CUZ4fa.js
++++ b/dist/node/chunk-D3CUZ4fa.js
+@@ -36524,7 +36524,39 @@ function requireCrossSpawn () {
+ var crossSpawnExports = requireCrossSpawn();
+ 
+ const cache$2 = /* @__PURE__ */ new Map();
++let _gitPreloaded = false;
++function preloadGitTimestamps() {
++  if (_gitPreloaded) return;
++  _gitPreloaded = true;
++  try {
++    const res = crossSpawnExports.sync(
++      "git",
++      ["log", "--name-only", "--format=COMMIT:%at"],
++      { encoding: "utf-8", maxBuffer: 64 * 1024 * 1024 }
++    );
++    const output = res.stdout ? String(res.stdout) : "";
++    if (output) {
++      let currentCommitTime = 0;
++      for (const line of output.split("\n")) {
++        const trimmed = line.trim();
++        if (!trimmed) continue;
++        if (trimmed.startsWith("COMMIT:")) {
++          currentCommitTime = parseInt(trimmed.slice(7), 10) * 1000;
++        } else {
++          const fullPath = path$1.resolve(trimmed);
++          if (!cache$2.has(fullPath) && currentCommitTime) {
++            cache$2.set(fullPath, currentCommitTime);
++          }
++        }
++      }
++    }
++  } catch (e) {
++    console.warn("preloadGitTimestamps failed:", e);
++  }
++}
++
+ function getGitTimestamp(file) {
++  if (!_gitPreloaded) preloadGitTimestamps();
+   const cached = cache$2.get(file);
+   if (cached) return cached;
+   if (!fs.existsSync(file)) return 0;
+@@ -36592,7 +36624,7 @@ Include file not found: ${m1}`));
+ }
+ 
+ const debug$1 = _debug("vitepress:md");
+-const cache$1 = new LRUCache({ max: 1024 });
++const cache$1 = new LRUCache({ max: 5000 });
+ function clearCache(file) {
+   if (!file) {
+     cache$1.clear();
+@@ -40423,8 +40455,8 @@ async function task(taskName, task2) {
+ const debug = _debug("vitepress:local-search");
+ const LOCAL_SEARCH_INDEX_ID = "@localSearchIndex";
+ const LOCAL_SEARCH_INDEX_REQUEST_PATH = "/" + LOCAL_SEARCH_INDEX_ID;
+-async function localSearchPlugin(siteConfig) {
+-  if (siteConfig.site.themeConfig?.search?.provider !== "local") {
++async function localSearchPlugin(siteConfig, ssr = false) {
++  if (ssr || siteConfig.site.themeConfig?.search?.provider !== "local") {
+     return {
+       name: "vitepress:local-search",
+       resolveId(id) {
+@@ -45191,7 +45223,7 @@ async function createVitePressPlugin(siteConfig, ssr = false, pageToHashMap, cli
+     hmrFix,
+     webFontsPlugin(siteConfig.useWebFonts),
+     ...userViteConfig?.plugins || [],
+-    await localSearchPlugin(siteConfig),
++    await localSearchPlugin(siteConfig, ssr),
+     staticDataPlugin,
+     await dynamicRoutesPlugin(siteConfig)
+   ];

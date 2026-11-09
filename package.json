@@ -5,6 +5,7 @@
     "license": "MIT",
     "type": "module",
     "scripts": {
+        "postinstall": "node scripts/verify-vitepress-patch.cjs",
         "dev": "vitepress dev docs",
         "build": "NODE_OPTIONS=\"--max-old-space-size=8192\" vitepress build docs && npm run build:demos",
         "build:webgpu": "bash webgpu/build.sh",
@@ -34,6 +35,9 @@
                 "@algolia/client-search",
                 "search-insights"
             ]
+        },
+        "patchedDependencies": {
+            "vitepress@1.6.4": "patches/vitepress@1.6.4.patch"
         }
     }
 }
